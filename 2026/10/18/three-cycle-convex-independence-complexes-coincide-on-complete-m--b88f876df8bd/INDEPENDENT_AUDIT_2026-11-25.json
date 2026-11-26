@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:23:13.640118Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–47; VERIFICATION.md, lines 19–23; verify.py, lines 10–179."
+      ],
+      "rationale": "The induced-component cycle test follows by removing the candidate vertex from its cycle, or adjoining it to a simple path between two of its neighbours. A pure subset does not grow; a star has no cycles (including K₁,₁). In a cyclic biclique a mixed pair does not grow and a mixed triple spans by adding vertices in the singleton-represented part via four-cycles, then filling the other part. With at least three parts a cross pair grows via triangles to a third part and then to every vertex. The candidate independent faces in each case have identity hulls on all proper subsets, which directly checks the three predicates. For forbidden sets it suffices by heredity to check mixed four-sets in cyclic bicliques and mixed triples with at least three available parts. For convex dependence delete one vertex leaving a spanning proper subset; for Radon dependence partition off such a subset. In a biclique the mixed four-set has distribution 2+2 or 3+1: in the former all deletion hulls are full, in the latter the only proper deletion hull is the majority triple. In the multipartite case the two distributions are 1+1+1 and 2+1: all deletion hulls are full in the former, and the only proper one is the majority pair in the latter. This also supplies the Helly case when a larger set meets exactly two parts with no singleton part among its selected vertices, a case only implicit in the frozen exposition. The face counts and maxima follow from the surviving pure sets and small mixed sets. Each part simplex is a disjoint contractible CW subcomplex, so collapsing them successively preserves homotopy. For r≥3 the quotient is a connected multigraph with E edges and r vertices. For a cyclic biclique the quotient has two vertices, ab edges and T=a·binom(b,2)+b·binom(a,2) two-cells, and is simply connected because the original contains the full two-skeleton of a simplex. Integral H₂ is free of rank 1−ab+T. Spherical representatives by Hurewicz induce a homology equivalence from the stated wedge, hence a homotopy equivalence by simple connectivity and Whitehead. This is an integral argument and does not depend on the frozen finite mod-2 tests.",
+      "residual_risks": [
+        "The supplied finite predicate and mod-2 program was read, not executed. Neither that program nor the unproved extension to unrelated convexities is needed for the class under review."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "IWOCA Theorem 4(d) gives rk(K_{n,m})=max(n,m) for n,m>2 and its proof identifies pure hulls and spanning mixed triples. Corollary 6 covers the numerical rank for cographs algorithmically. Nair et al. Theorem 3 equates the three extremal numerical equalities at n−2 and classifies those graphs. The cactus result gives a cycle-hull matroid representation on the cactus subfamily."
+        ],
+        "reasoning": "These results overlap the relevant rank and hull calculations, or subfamilies, but do not give a general theorem on integral wedge homotopy for these independence families. A numerical cograph algorithm is not an answer for the independence complex.",
+        "searches": [
+          "HAL hal-05378038v1, Theorem 4(d), proof and Corollary 6; arXiv:2609.34236, Theorem 3; Resultary 4e6b8727593a, Finding"
+        ]
+      },
+      "checked_sources": [
+        "Frozen AUDIT.json and RESULT.md; HAL hal-05378038v1; arXiv:2609.34236 and 2604.20097; Resultary 6b754da5643b and 4e6b8727593a; indexed descriptions of da8bdfe70658 and 59b737af3524."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The biclique hull lemma in the conference paper, together with identity hulls of pairs, already substantially supplies the convex independence faces for n,m>2; the other two predicates are then checked on these faces. The dissociation result supplies the r≥3 underlying complex but does not identify the cycle-convex operators. K₂,₂, K₃ and stars overlap the cactus regime."
+        ],
+        "reasoning": "The checked priors thus account for much of the elementary combinatorics and some topological subcases. They do not establish the uniform simply-connected two-dimensional quotient, its integral H₂, and the wedge equivalence for cyclic complete bipartite graphs. That substantive topological component is supported by the independent proof rather than being a parameter substitution in the inspected prior results.",
+        "searches": [
+          "HAL hal-05378038v1, Theorem 4(d) proof at offset 16020; arXiv:2609.34236, Theorem 3; Resultary 6b754da5643b and 4e6b8727593a, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dissociation sets (induced maximum degree at most one) on these graphs are pure sets or sets of cardinality at most two; this is exactly the frozen family for r≥3. Cyclic biclique mixed triples are present in the frozen complex but not in the dissociation complex. The path-avoiding rules in the same-day descriptions are different: three vertices in one part and one in the other induce a star, with no simple path on four vertices, yet are forbidden in the frozen cyclic biclique complex. Carathéodory independence is a distinct predicate."
+        ],
+        "reasoning": "Credit actual equality of families in the multipartite dissociation case, not a coincidental equality of counts. Neither this equivalence nor the path-free rule provides the cyclic biclique face family, and comparing dates does not decide implication. Full-text access for the path-free records was unsuccessful; the mathematical distinction uses the stated path-avoiding rule.",
+        "searches": [
+          "Resultary 6b754da5643b, Finding, Assumptions and Proof; Resultary 4e6b8727593a, Finding; same-day Resultary da8bdfe70658 and 59b737af3524, indexed descriptions; arXiv:2604.20097, Proposition 4, p. 10 discussion and Corollary 7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The dissociation enumeration implies the exact r≥3 face polynomial and supplies that face system itself. The other explicit number is the biclique Carathéodory value three; the path-free catalogue concerns a different face condition."
+        ],
+        "reasoning": "The dissociation face description also makes the r≥3 circle wedge a short quotient-graph calculation. None of these enumerators or numbers supplies the two-sphere multiplicity 1+ab(a+b−4)/2 for the cyclic bipartite cycle-convex complex.",
+        "searches": [
+          "Resultary 6b754da5643b, complete multipartite dissociation polynomial and face characterization; Resultary da8bdfe70658 and 59b737af3524, indexed descriptions of multipartite path-free homotopy; arXiv:2604.20097, Corollary 7"
+        ]
+      },
+      "rationale": "There is substantial partial overlap: the rank and generating-subset hull calculations for bicliques occur in the retrieved IWOCA text; the dissociation result gives the identical complex, not merely the same polynomial, for three or more parts; and cacti cover some boundary examples. No inspected result gives the joint three-family identification with the cyclic complete-bipartite integral two-sphere wedge formula. The distinct supported content is the simultaneous family statement with the cyclic biclique topology and its contrast to the other regimes, not the individual rank statistics, ground hull computations or the multipartite dissociation polynomial.",
+      "residual_risks": [
+        "The full path-free records were not retrieved. The inspected IWOCA full text removes the access gap mentioned in the frozen record, but unindexed work under alternate complex terminology could still supply stronger overlap. No universal priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Numerical rank overlap and significant prior hull/face coverage; no biclique integral homotopy theorem in the examined statements",
+          "evidence": [
+            "Theorem 4(d) states rank max(n,m) for n,m>2. Its proof gives H(S)=S for a pure subset and H(S)=V for a mixed subset containing two in one part. Corollary 6 gives a linear-time cograph rank algorithm."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/978-3-032-27732-9_6; https://inria.hal.science/hal-05378038v1/file/The_rank_and_general_position_number_in_cycle_convexity-11.pdf",
+          "material_read": "Abstract; Theorem 4(d) and proof (offset 16020 onward); Corollary 6",
+          "method": "Lawful HAL full PDF, relevant passages inspected",
+          "title": "On the Rank and the General Position Number in Cycle Convexity",
+          "trigger": "Closest same-convexity rank theorem for complete bipartite graphs and cographs"
+        },
+        {
+          "assessment": "Near-maximal numerical characterization, not the uniform face or topology assertion",
+          "evidence": [
+            "Theorem 3 characterizes the n−2 equality and equates that equality for the three parameters."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.34236",
+          "material_read": "P. 2 scope and Theorem 3, p. 7",
+          "method": "Lawful original arXiv PDF, targeted pages",
+          "title": "Computing the Helly Number, Radon Number and Rank in Cycle Convexity",
+          "trigger": "Same three independence notions and a numerical equivalence theorem"
+        },
+        {
+          "assessment": "Provides relevant hull information and values for a separate invariant",
+          "evidence": [
+            "Every edge is a hull pair in complete multipartite graphs with at least three parts; the biclique Carathéodory number is three when both sides have size at least two."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2604.20097",
+          "material_read": "Proposition 4 (p. 8), p. 10 complete multipartite discussion, Corollary 7",
+          "method": "Lawful original arXiv PDF, targeted passage comparison",
+          "title": "Carathéodory Number in Cycle Convexity",
+          "trigger": "Same graph families, possible hull implications"
+        },
+        {
+          "assessment": "Identical faces for r≥3; different for cyclic bicliques and larger stars",
+          "evidence": [
+            "The statement explicitly classifies dissociation sets as the union of pure subsets and all sets of size at most two."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-dissociation-polynomials-of-complete-multipartite-graphs-and-the--6b754da5643b",
+          "material_read": "RESULT.md, Finding, Assumptions and Proof",
+          "method": "Original record via lawful local mirror, direct facewise comparison",
+          "title": "Dissociation polynomials of complete multipartite graphs and their coefficientwise extremizers",
+          "trigger": "Exact polynomial for the same graphs and potential equality of complexes"
+        },
+        {
+          "assessment": "Subfamily coverage only",
+          "evidence": [
+            "The closure is a binary matroid closure on cactus graphs, which include the star cases, K₃ and K₂,₂, not all complete multipartite graphs."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-cycle-convexity-on-cactus-graphs-is-a-binary-matroid-closure--4e6b8727593a",
+          "material_read": "RESULT.md, Finding",
+          "method": "Original record via lawful local mirror",
+          "title": "Cycle convexity on cactus graphs is a binary matroid closure",
+          "trigger": "Structural overlap for some boundary graphs"
+        },
+        {
+          "assessment": "The stated face rule differs on a 3+1 mixed subset of a cyclic biclique; no whole-document noncoverage verdict",
+          "evidence": [
+            "The indexed descriptions concern path-avoiding sets, not the Helly, Radon or convex deletion predicates."
+          ],
+          "identifier_or_url": "Resultary da8bdfe70658 and 59b737af3524",
+          "material_read": "Indexed descriptions; complete underlying findings unavailable in lawful local mirror",
+          "method": "Resultary search and original-file retrieval attempts; compared the stated path-avoidance criterion",
+          "title": "Integral homotopy of four-path-free complete multipartite complexes and uniform higher path-free complexes",
+          "trigger": "Same-day graph families and integral homotopy, potentially equivalent complex"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 29–47; primary hull and rank sources and indexed dissociation comparison above."
+      ],
+      "rationale": "Comparing the full independent families distinguishes the graph regimes more sharply than comparing the three maxima. The integral homotopy computation gives a two-sphere wedge with exact multiplicity for every cyclic biclique, in contrast to the circle wedge of the dissociation-shaped multipartite case and the contractible star case. In particular, the bipartite result requires an integral homotopical argument (not just a polynomial match or the frozen mod-two check). The value rests on that topology and its simultaneous interpretation for all three predicates, with the overlapping hull, rank and dissociation results credited above.",
+      "residual_risks": [
+        "No homotopy classification for other graph classes or other convexities follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

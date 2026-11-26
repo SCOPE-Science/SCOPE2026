@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For a star, connectivity forces all bundles outside the central one to be singleton leaves. At \(k\) agents the central bundle contains exactly \(m-k+1\) leaves, and for at least two such leaves only leaf deletions are outer. The resulting inequality is optimized by placing the least-valued leaves with the center. This proves the stated necessary-and-sufficient sorted-leaf threshold for all nonnegative real values, including ties and zeros. The explicit recurrence places every intermediate threshold exactly one integer unit above or below equality while keeping the weights positive and distinct; this proves the arbitrary robust-pattern realization. The six-vertex lower bound follows from the universally feasible endpoint counts. The independent-definition direct-search checker passed 49,055 comparisons, 1,022 construction tests, and the explicit alternating witness. Finite tests are supporting evidence rather than an infinite proof.
+PASS
 
-## Originality — PASS, with a residual publication-priority risk
+For 2≤k≤m−1 there is exactly one bundle containing the hub and r=m−k+1 leaves; all other bundles are singleton leaves. Only a leaf can be removed from the hub bundle since r≥2. Common nonnegative additivity therefore gives exactly the inequality min(outside) ≥ c + sum(inside) − max(inside), with no additional constraints from singleton comparisons. Every r-subset has an outside leaf among the first r+1 and its r−1 smallest terms sum to at least the first r−1 weights. The r smallest leaves attain both bounds simultaneously, proving the criterion including ties and zeros. At k=m the hub and a least leaf form an edge and the hub can be removed; the other endpoints are automatic. In (3) the first new leaf is at least 9, and consecutive new leaves differ by a_r plus the difference of two signs, at least a_r−2>0; this verifies the strict ordering directly. The intermediate gaps are ±1 and leaf order and positivity persist in a neighbourhood. The witness has thresholds with gaps −1,+1,−1 in order k=2,3,4. For a connected graph with a common additive valuation, k=v−1 is always feasible by pairing a globally least-valued vertex with a neighbour and deleting the neighbour in envy comparisons; Chen–Zwicker verify the stronger arbitrary-monotone guarantee used in the manuscript. Thus for v≤5 at most two consecutive counts are eligible for infeasibility, so the separation phenomenon cannot occur on fewer vertices.
 
-The closest sources are Chen–Zwicker (2024), Section 5, and Bousquet–Connor–Totschnig–Zeitoun (2026). Their graph-level spectra ask whether **all** profiles in a valuation class are feasible at a given agent count, whereas this theorem fixes **one profile** and realizes an arbitrary alternating word across agent counts. In particular, a string of universal non-guarantees on stars does not imply that one common valuation can have both failures and successes at prescribed positions. The published universal-conjecture statements neither assert nor imply this exact fixed-profile classification or strict-pattern realization. Targeted literature and mathematical-results-index searches found no stated equivalent. As with any literature search, unindexed or uninspected sources could affect priority; access to every section of the most recent preprint was not reliable.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The paper-motivated question concerns how existence changes with agent count. Distinguishing universal graph guarantees from single-instance existence is essential when interpreting that question or designing algorithms that vary the number of recipients. The sharp threshold and full \(2^{m-2}\) robust realizability show that no interval-of-failure principle is possible for fixed valuations, even on stars and even with equal strictly positive additive valuations. The six-vertex example is the minimum-order noncontiguous-failure witness. This is a complete natural classification, not a numerical micro-improvement.
+The supported distinct claim is the exact weighted fixed-profile criterion and arbitrary strict spectra for outer EF1, including the minimal two-gap witness. Prior universal star spectra and an exact ordinary-EF1 weighted-star catalogue match are material overlap. They do not yield the submitted criterion or establish those spectra under connectivity-preserving deletion.
 
-## Boundaries
+## value
 
-The theorem is restricted to one shared additive valuation on a star and to nonempty connected bundles. It leaves the graph-wide universal-spectrum conjecture untouched and does not address heterogeneous valuations. Publication priority and independent validation are unresolved.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result resolves the sharp fixed-instance question behind the universal star spectrum. It yields both a test for arbitrary common nonnegative weights and a complete robust classification, not just an isolated pathological example. The six-vertex boundary gives a smallest connected graph on which failures in a fixed profile can form separated intervals; the endpoint theorem alone does not furnish such an example. This distinction between fixed and universal spectra prevents a false implication from the graph-wide spectrum conjecture.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A self-contained necessity proof shows that three appended letters have distinct possible cube-block lengths in \(\{1,2,3,4\}\), excludes every three-element choice containing \(3\), and forces the profile \(\{1,2,4\}\). Normalizing labels then produces exactly 48 candidates. A direct factor argument proves that precisely four contain an Abelian cube, giving 44 representatives and 264 labeled words. A separate exhaustive implementation inspected all 177,147 ternary words of length 11 and every shorter length and reproduced these counts. Assumptions, right-extension direction, distinction between cube length and constituent-block length, and relabeling conventions are explicit in `RESULT.md`. The known minimum length eleven is credited to Glen–Halldórsson–Kitaev.
+PASS
 
-## Originality — PASS
+Any new cube must be a suffix; a fixed constituent length determines at most one appended letter. Below length 8 there cannot be three distinct witness lengths. For lengths 8–10 the only possible triple is 1,2,3: the length-1 and length-2 constraints force the middle length-3 block of the final nine letters to contain one u and two v, incompatible with the final block uut for three distinct extension letters u,v,t. At length 11 the frozen proof also excludes 1,3,4 by comparing the count of the fourth-length witness letter in the middle and last four-blocks, and 2,3,4 by the mod-three composition of the first three and first six letters and the resulting two last-letter cases. Thus 1,2,4 are the unique constituent lengths. Labeling by that assignment gives terminal 100, with A and B permutations of 0012 and B ending in 01 or 10. No internal cube can contain a 2 because there are exactly two occurrences. All length-nine factors meet the 2 of B, and the only possible length-six factors avoiding 2 are 001100 and 010100, neither a cube. The only remaining obstruction is the four A/B joins forming 000. The 44 representatives each use all three symbols, and the normalization is unique. A separate prefix-Parikh exhaustive calculation on all words of lengths 0–11 reproduces no shorter crucial word, 50,520 cube-free length-11 words, and 264 crucial words normalizing to exactly the 44 constructions; each of the six witness assignments occurs 44 times. Replay: branches/803f0658-a80a-474d-b98c-43ae286ddbff/independent_ternary_cubes.py and its .out. The attached CSV has the stated 44 AB100 constructions.
 
-The closest results are Glen–Halldórsson–Kitaev's minimal-length theorem and explicit ternary examples in the 2008 preprint and 2010 full journal article. Those results fix the shortest length but do not state the exact number of shortest crucial words, enumerate all representatives, or force the three witness lengths. Aberkane–Currie–Rampersad's published 50,520-word enumeration counts *all* cube-free words, not the crucial subset. Searches for aliases (right-maximal Abelian-cube-free words, crucial words, minimal crucial words), exact counts 264/44, source-relevant tables, and stronger covering statements found no equivalent result in the checked sources. Residual risk: a separate unindexed enumeration or a differently described classification could predate this work; search nonappearance does not prove absolute novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The 2008 minimal-length theorem leaves an intrinsic finite extremal question: how many shortest witnesses exist, and are they all instances of one forced structural mechanism? The complete 44-representative classification answers both, with an explicit parsimonious construction, three forced right-extension witness lengths, and exact sixfold relabeling symmetry. This is a natural complete extremal classification rather than an arbitrary slice or an incremental bound. Its significance is specifically about shortest ternary crucial Abelian cubes; claims about higher alphabet sizes or longer words are not made.
+The distinct result is the census, the complete normal form with its four exclusions, and the unique constituent witness-length profile. Minimum length, examples, and the full ambient avoidance count are established prior work. The sources compared support a bounded originality pass only for the distinct classification.
 
-## Scope of inspection and limitations
+## value
 
-Relevant construction and ternary-length sections of the publicly accessible 2008 preprint and the complete 2010 primary article were read; the 2004 paper was inspected at its definition, growth result, and finite-count table. Checked computational comparisons independently match the 50,520 count published in 2004. Priority against unpublished or unindexed classifications is unresolved. The mathematical assessment is a self-review only; no independent audit has been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The cutoff is the natural minimum for a classical avoidance problem, not an arbitrary word length. The result identifies every shortest right obstruction, explains why all three witnessed block lengths are determined, and lets later work use exact labeled or symmetry-reduced examples without repeating a search. This is more than reproducing the known minimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The full-oscillator Weyl matrix-element identity is derived from normal ordering. For each angular harmonic, the generalized Laguerre basis converts sampled circles to ordinary polynomial evaluation at distinct squared radii; the trace gives the additional evaluation at zero on the diagonal. The corresponding divisibility conditions give exactly the stated blind-space dimensions. A nonzero Hermitian blind direction produces two positive definite states by perturbing the maximally mixed state. Half-circle data plus conjugate antipodal symmetry give enough equally spaced samples for exact angular Fourier interpolation. The included independent quadrature and exact symbolic rank tests corroborate the finite examples but do not replace the proof.
+## correctness
 
-**Originality (PASS, with risk).** The explicit universal \((N+1-\min(K,N))^2-1\) blind-space law and the sharp arbitrary-radius mixed-state recovery threshold were not found in relevant mathematical-record and public-literature searches. Closest is Laabs–Eppich–Weber (2002), whose known reconstruction uses the full ambiguity function, not the sharply restricted concentric-circle measurement. Li et al. (2013) describe the global phase-space integral explicitly, while Flühmann–Home (2019) present direct characteristic-function point measurements on a square grid. A full copy of Laabs et al. could not be obtained through the accessible open sources or institutional route, and a pre-existing finite-ring interpolation result remains a genuine risk. Absence of search results is not proof of novelty.
+PASS
 
-**Value (PASS).** Characteristic-function sampling is a directly measured object in oscillator-state tomography. Exact information completeness for an arbitrary choice of positive radii is a robust design principle at the noiseless identifiability level; the perfect-square blind-space formula quantifies every undersampled configuration, not merely a sufficient recovery construction. The sharp angular half-grid turns the continuum observation into a finite explicit acquisition scheme. This answers a natural sampling question and does not depend on a contrived numerical invariant.
+Normal ordering the full displacement operator gives the stated Laguerre matrix elements. After removing the nonzero Gaussian and r^m factors, harmonic m>0 is an arbitrary complex polynomial of degree <=N-m, and harmonic zero is a real polynomial of degree <=N with its value at zero fixed by the trace. For traceless differences and Q(x)=product_j(x-r_j^2), the invisible polynomials are exactly multiples of Q for m>0 and xQ for m=0. Counting the real dimensions gives (N+1-min(K,N))^2-1, including K=0 and N=0. Any nonzero blind direction can perturb the maximally mixed state in both signs while preserving strict positivity. At positive radius and N>=1 the constant harmonic can be varied (the difference L_0(x)-L_1(x) is x), and the N complex harmonics vary independently, giving dimension 2N+1. Fewer than N+1 complex samples cannot separate these traces, and the proposed half-circle grid gives a full 2N+2-point Fourier grid by conjugacy, hence suffices.
 
-**Scientific limits.** No stability or minimal total point count over unrestricted geometries is asserted; no claim extends to infinite modes or phase-insensitive measurements. External priority assessment is incomplete for potentially equivalent early optical methods.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The displacement representation and its conjugacy symmetry are prior, as are interpolation tools. The inspected sources do not establish the exact blind dimension at arbitrary distinct positive radii, its sharp trace-known radial threshold, or the paired exact angular result for this observation model. The pass is bounded to these comparisons, not a priority certification.
+
+## value
+
+PASS
+
+The degrees of freedom lost on every insufficient family of circles are quantified exactly, even for perturbations of full-rank states. In the specified tomography model, this gives a sharp radial identifiability criterion and a usable finite per-circle protocol, rather than just generic injectivity or a point count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

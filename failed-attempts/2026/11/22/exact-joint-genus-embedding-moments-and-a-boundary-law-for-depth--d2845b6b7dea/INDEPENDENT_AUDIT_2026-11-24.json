@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:50:40.959728Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fix both m and F. Since 2m>F, selecting B is unconstrained and the gap count is F-1-|B|. The irreducibles below 2m are m, the selected m+b, and the interval (F,2m); 2m is reducible. For 1<=i<=r, 2m+i is irreducible precisely when i is missing from ({0} union B)+({0} union B). No integer above F+m can be irreducible. This gives (1) including i=1. At target i, disjoint pairs, one forbidden midpoint if i is even, and the independent requirement of absence of i if i<r give (3) and, summing the odd/even geometric series, (2). The coupling shares all bits through r-1; at r the only extra discrepancy is a newly available bit r, and above r the geometric expected number of holes bounds the probability of any discrepancy. The union bound gives C=3 in (5). The infinite hole probabilities sum to 5/2 over i>=2, giving mean 2 after subtracting the first bit. Two initially absent bits imply W>=1; forcing sufficiently many initial bits present and bounding the remaining tail by monotonicity gives positive probability of W=-1. Tightness and the binomial CLT give (6), uniformly in the permitted choice of m(r). Independent bounded replay `python3 /workspace/evidence/depth_two_exact.py` passed 27 parameter pairs (2<=r<=10, three m per r), 3066 subsets, for (1)–(3); the asymptotics are proved, not sampled. The packaged checker was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-depth record includes N=0 as well as the frozen domain and conditional TV convergence for k/N tending to every p in (0,1). Kaplan–Singhal sample by genus rather than additionally fixing (m,F). Li counts by depth and studies the maximal embedding dimension; García-García et al. describe an algorithmic family."
+        ],
+        "reasoning": "The fixed-density conditional law resolves at p=1/2 to the same limit; the other sampling laws or enumeration algorithms are not used as evidence of exact coverage.",
+        "searches": [
+          "d2cd7e96a30f Finding and proof",
+          "arXiv:2208.14587v2",
+          "arXiv:1710.03523v1",
+          "arXiv:2211.07811"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d2cd7e96a30f",
+        "arXiv:2611.11559",
+        "arXiv:2208.14587",
+        "arXiv:1710.03523",
+        "arXiv:2211.07811",
+        "Jambhale–Kaldybayev–Miller–Yao OA PDF"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The comparator states odd/even Bernoulli hole probabilities and notes the doubled probability at the last finite target. The missing-sums paper studies the unforced Bernoulli model on a two-ended interval."
+        ],
+        "reasoning": "The comparator's probability at the endpoint and geometric tail supply the frozen TV rate by a one-sided coupling; the unforced two-ended model by itself is not the same semigroup law.",
+        "searches": [
+          "d2cd7e96a30f proof §§3–4",
+          "Jambhale–Kaldybayev–Miller–Yao, Limiting Behavior in Missing Sums of Sumsets"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Q_N=e-(2m-1-g), and each hole in the comparator is precisely a miss from B or B+B, including i=1 when 1 is absent."
+        ],
+        "reasoning": "Reparametrization and additive shift identify the statistics exactly, not merely asymptotically.",
+        "searches": [
+          "Resultary: depth-two embedding-dimension defect, fixed genus, Bernoulli sumsets; d2cd7e96a30f Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "d2cd7e96a30f gives the exact matching coefficient sum for all cardinalities and the exact unconditioned correction 2(3/4)^floor(N/2). Bras-Amorós–Torra give counts by (F,m,g)."
+        ],
+        "reasoning": "The exact formula entry covers the full finite moment family; a genus census alone would give no embedding-dimension moment.",
+        "searches": [
+          "Resultary exact depth-two genus-conditioned means and defect",
+          "arXiv:2611.11559v1"
+        ]
+      },
+      "rationale": "A distinct same-day Resultary record (d2cd7e96a30f) demonstrably covers the core claim; date alone gives no order or historical priority. Under c=m-r, N=r-1, A=B, its count Q_N of positive holes through N+1 in ({0} union A)+({0} union A) is exactly e+g-2m+1. Its exact conditional mean includes the i=1 coefficient, whose normalized contribution is 1-k/N. Its unconditional correction is just the two parities written in one power, and its CLT is the same after equivalent scaling. It gives the same boundary law shifted by one, in a stronger fixed-density conditional setting. The explicit unconditioned TV rate and a short nondegeneracy proof are additional details, but the rate follows by directly summing the inspected source's own odd/even missing-target probabilities and coupling the same bits, and the support distinction uses the same monotone tail bound. No distinct substantive result remains to repair. This is a coverage decision, not an attribution of earlier priority.",
+      "residual_risks": [
+        "The order of the two same-day findings is unknown; verdict is about exact coverage, not precedence.",
+        "Inspection of the other primary references was limited to the noted passages; these do not rule out earlier related work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent central result, broader conditional limit; publication order unresolved",
+          "evidence": "Q_N formula, coefficient extraction, conditional Q_p, unconditioned E[Q_N] and CLT, odd/even matching probabilities.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-genus-conditioned-embedding-dimension-defects-at-the-depth-two-f--d2cd7e96a30f/RESULT.md",
+          "material_read": "Finding, assumptions and generator proof at offset 0; proof of limits and exact mean at offset 6100",
+          "method": "Local Resultary search and local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Genus-conditioned embedding-dimension defects at the depth-two Frobenius boundary",
+          "trigger": "Exact same-parameter defect and moments"
+        },
+        {
+          "assessment": "Accessed statement gives counts, not joint embedding moments",
+          "evidence": "Frobenius/genus/multiplicity counting and recurrences.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.11559",
+          "material_read": "p.1 abstract",
+          "method": "OA PDF",
+          "title": "Multiparameter counting of numerical semigroups by Frobenius number, genus, and multiplicity",
+          "trigger": "Exact same sampling constraints"
+        },
+        {
+          "assessment": "Accessed statement concerns depth counts and maximal embedding dimension",
+          "evidence": "Counting by depth and multiplicity-specific asymptotics for depth at least three.",
+          "identifier_or_url": "https://arxiv.org/pdf/2208.14587",
+          "material_read": "v2 p.1 abstract",
+          "method": "OA PDF",
+          "title": "Counting numerical semigroups by Frobenius number, multiplicity, and depth",
+          "trigger": "Depth-two and maximal embedding context"
+        },
+        {
+          "assessment": "Accessed result is algorithmic, not an asserted matching closed moment",
+          "evidence": "Construction by packed semigroups.",
+          "identifier_or_url": "https://arxiv.org/pdf/1710.03523",
+          "material_read": "v1 p.1 abstract",
+          "method": "OA PDF",
+          "title": "Semigroups with fixed multiplicity and embedding dimension",
+          "trigger": "Embedding-dimension enumeration"
+        },
+        {
+          "assessment": "Same missing-sums techniques; accessed statement samples both ends without forcing zero",
+          "evidence": "All sites of [0,N] sampled independently with probability p.",
+          "identifier_or_url": "https://web.williams.edu/Mathematics/sjmiller/public_html/math/papers/MSTD_Jambhale_Kaldybayev_Miller_Yao.pdf",
+          "material_read": "p.1 abstract and contents",
+          "method": "OA PDF, offset 0",
+          "title": "Limiting Behavior in Missing Sums of Sumsets",
+          "trigger": "Bernoulli fringe law"
+        },
+        {
+          "assessment": "Different ensemble in the accessed theorem",
+          "evidence": "Concentration within all genus-g numerical semigroups.",
+          "identifier_or_url": "https://arxiv.org/pdf/2211.07811",
+          "material_read": "pp.1–2 abstract and §1.1/Theorem 4 passage",
+          "method": "OA PDF",
+          "title": "The Expected Embedding Dimension, Type and Weight of a Numerical Semigroup",
+          "trigger": "Expected embedding dimension and fixed-genus concentration"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact fixed-genus moment and the tight joint defect alongside a Gaussian marginal would be useful specifications for this natural family, but the same family, finite formulas and boundary statistic are already supplied in equivalent form by the matched finding. The surviving unconditioned TV estimate is the immediate union bound from its displayed geometric probabilities, with no new behavior or sharp rate claim beyond that bound.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

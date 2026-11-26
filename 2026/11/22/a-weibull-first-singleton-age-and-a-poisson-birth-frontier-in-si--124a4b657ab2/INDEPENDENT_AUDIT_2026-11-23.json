@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:46:44.078207Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The marginal is p(1-p) times the probability of avoiding later retained children, with no deleted-parent factor at the root. Conditional on the site states and retained marks, the parent-choice restrictions in (7) are independent. The avoidance-product tilt leaves the unmarked site states independent, shifts their means by at most O(1/t) at affected labels, and gives deleted-parent fractions with L1 errors O(b_n^{-1/2}) uniformly in positive compact rescaled windows. The log of the normalizing product differs from the sum of one-label log probabilities by O(1/min S) for each fixed marked-set size. This supplies the required joint relative estimates, not just a first moment. Mixed factorial moments then yield independent Poisson interval counts, with diagonals negligible because the largest single mass vanishes. The root contributes O(n^{-p}) and the rest of the initial window has expected mass O(epsilon^{1+p}), so no points are lost near zero. Transforming by cumulative intensity gives the joint fixed-rank Gamma law, including the stated Weibull first-label survival. RESULT.md (4)–(14) is the analytic replay path. VERIFICATION.md and verify.py were inspected, not executed; the reported finite checks do not prove the limit. The conclusion requires fixed p strictly between zero and one and fixed ranks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gu–Yuan's LLN gives the whole-tree singleton fraction p(1-p)/(1+p), not its distribution by birth age.",
+          "The distinct same-day indexed summary treats fixed degrees in the original tree. Its full text was not available in the local mirror; the summary was not treated as a whole-document exclusion."
+        ],
+        "reasoning": "A global law is insensitive to the O(1) rare initial-window counts. Fixed original-degree frontiers are not a known covering statement for the event that colors of all neighbors are deleted, even after including the tested vertex's retention.",
+        "searches": [
+          "arXiv:2408.12515, Theorem 1",
+          "Resultary: 2026/11/22/SCOPE-logarithmically-separated-poisson-birth-frontiers-for-fixed-offspring-degrees--5c3c5ee3918e"
+        ]
+      },
+      "checked_sources": [
+        "Gu–Yuan arXiv:2408.12515",
+        "Resultary oldest-leaves record 0a1a1c4bbf35 and its mirrored RESULT.md",
+        "Resultary fixed-offspring-degree record 5c3c5ee3918e (summary only)",
+        "Identical assigned Resultary entry 124a4b657ab2 (excluded as antecedent)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original-leaf frontier has scale n^{1/2} and intensity x dx; the same-model cluster-size theorem matches only the integrated singleton density across the whole tree.",
+          "The assigned theorem requires fixed-order joint control at n^{p/(1+p)}, with intensity p(1-p)x^p dx."
+        ],
+        "reasoning": "The prior results do not give the joint avoidance and deleted-parent probabilities at this earlier scale. The finite marked-site representation and its tilted-law approximation are the operative additional steps.",
+        "searches": [
+          "arXiv:2408.12515, Theorem 1 and Lemma 1",
+          "Oldest-leaf mirrored RESULT.md, joint leaf law and limiting intensity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gu–Yuan treat the same open-site process, embed it in a marked rate-one Yule tree and couple site and bond root isolation. Their inspected results do not state an early-age process of retained singletons.",
+          "Oldest leaves forbids every original child; retained singleton status instead allows deleted children and tests the parent's deletion."
+        ],
+        "reasoning": "Neither changing the time representation nor independently thinning the original-tree leaves produces the singleton event in the assigned theorem.",
+        "searches": [
+          "Resultary: site-percolated recursive-tree singleton/oldest-leaf birth frontiers",
+          "arXiv:2408.12515, §2.1 and Lemma 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The mirrored oldest-leaf text gives the exact ordered-label product of (i_a-a)/(n-a) for nonroot leaves (one-based labels).",
+          "The exact-title singleton entry is the assigned record, not an independent antecedent."
+        ],
+        "reasoning": "The closest exact probability table concerns different indicators and cannot be substituted into the site-percolated exact formula; a singleton's deleted-parent event can be shared by multiple marked labels.",
+        "searches": [
+          "Resultary: 2026/10/18/SCOPE-the-oldest-leaves-of-random-recursive-trees-form-a-poisson-point--0a1a1c4bbf35",
+          "Resultary: 2026/11/22/SCOPE-a-weibull-first-singleton-age-and-a-poisson-birth-frontier-in-si--124a4b657ab2"
+        ]
+      },
+      "rationale": "The supported distinct claim is the birth-label Poisson process for site-isolated retained vertices at the p-dependent rare-age scale, and hence its rank laws. The same-model global size-one density and the original-tree leaf process are credited antecedents. Neither provides the needed uniform age-resolved joint probabilities. No equivalent was established in the bounded search; this is not a historical-priority certification.",
+      "residual_risks": [
+        "The full distinct fixed-offspring-degree companion was not available in the mirror. An unlocated general age-resolved percolation theorem or equivalent marked Yule result could change the priority assessment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the global singleton density and alternative stochastic representations, not the claimed age-resolved limit in the inspected results",
+          "evidence": "The theorem states global cluster-size frequencies; its size-one specialization is (1-p)B(1+1/p,1). The coupling is stated in terms of root isolation.",
+          "identifier_or_url": "https://arxiv.org/abs/2408.12515",
+          "material_read": "§1 and Theorem 1 (OA text offsets around 9600 and 12400); Lemma 1 (15200); §2.1 (20300)",
+          "method": "Primary-literature search and targeted open-access passages",
+          "title": "Size distribution of clusters in site-percolation on random recursive tree",
+          "trigger": "Same iid-site recursive-tree model; potentially stronger cluster theorem"
+        },
+        {
+          "assessment": "Different event; sound method precedent",
+          "evidence": "Square-root scaling, intensity x dx, and exact simultaneous absence of original children.",
+          "identifier_or_url": "2026/10/18/SCOPE-the-oldest-leaves-of-random-recursive-trees-form-a-poisson-point--0a1a1c4bbf35",
+          "material_read": "Mirrored RESULT.md offsets 0–3121, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary and bounded mirror read",
+          "title": "The oldest leaves of random recursive trees form a Poisson point process",
+          "trigger": "Nearest birth-age PPP and exact recursive-tree joint table"
+        },
+        {
+          "assessment": "No demonstrated equivalent coverage; no inference about priority from date",
+          "evidence": "The available summary specifies fixed original offspring degree, not independent site isolation.",
+          "identifier_or_url": "2026/11/22/SCOPE-logarithmically-separated-poisson-birth-frontiers-for-fixed-offspring-degrees--5c3c5ee3918e",
+          "material_read": "Indexed summary only; mirror text unavailable",
+          "method": "Resultary and attempted local mirror read",
+          "title": "Logarithmically separated Poisson birth frontiers for fixed offspring degrees",
+          "trigger": "Distinct same-day birth-frontier result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem locates the earliest surviving size-one components, a natural statistic that a global component census cannot resolve. It identifies the retention-dependent birth scale, the full local intensity and correlated rank information in one result. The marked-parent tilt addresses a specific dependency that prevents direct transfer of the oldest-leaf theorem; this is not merely its reparametrization.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:31:28.667610Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof steps 1–5 and printed table",
+        "Frozen SPECTRUM.json, verify.py and VERIFICATION.md; uploaded code inspected but not executed",
+        "Independent replay: python3 /workspace/audit_recompute_3.py"
+      ],
+      "rationale": "On the affine chart a singularity occurs exactly at y=0 and a repeated root of x^3+ax+b; the unique point at infinity is smooth by the Z derivative. The cubic discriminant is b^2-4a^3 modulo 7. The three nonzero square a each exclude two b, and (0,0) is also excluded, leaving 42. The involution has elliptic quotient E:z^2=x^3+ax+b; norm composed with pullback is multiplication by two, so the Jacobian is isogenous over F7 to E times the connected norm kernel P. Over every odd extension the two homomorphisms y↦y^2 and y↦y^4 have the same kernel and image, and each curve has one point at infinity. Their odd-degree counts coincide, so the Prym's first and third power sums vanish. Newton identities and the degree-four abelian-surface functional equation give 1+uT^2+49T^4. The full second power sum is t^2-14-2u, giving t=8-N1 and u=(N2-64+t^2)/2. I independently counted all (x,y) pairs over F7 and over F7[r]/(r^2-3), where 3 is nonsquare, with direct equation tests for each of the 42 smooth assignments. The reconstructed pairs, their complete partition into 13 classes, all expanded numerators and all four Prym multiplicities agree with both the printed table and SPECTRUM.json. Each of the six b=0 cases has t=0 and u=14. Distinct (t,u) pairs give distinct numerators already by the first two nonconstant coefficients -t and 7+u. Finite-field isogeny classification gives the stated Jacobian and Prym types, over F7 only.",
+      "residual_risks": [
+        "Only literal marked equations are counted, not unmarked curve classes. The odd-extension equality is a group argument, not an extrapolation of the finite point counts."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior cyclic-cover Newton-polygon table gives the generic ordinary elliptic and supersingular surface slopes for p=3 mod 4 and inertia (1,1,1,1).",
+          "The superspecial-divisor record gives geometric Prym superspeciality and a Deuring-polynomial criterion in the same cyclic family, explicitly excluding zeta functions and Frobenius signs. The nonordinary mass formula's generic-ordinary hypothesis is not satisfied here."
+        ],
+        "reasoning": "Slopes and geometric superspeciality do not identify rational surface polynomials: all four listed Prym factors have the same slopes. A mass in a different regime does not provide the marked frequencies.",
+        "searches": [
+          "arXiv:1805.06914, p. 19, M[7] row",
+          "arXiv:2308.14891, Corollary 6.1",
+          "Resultary 8c80d021706e, Finding and Limitations"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1705.02404",
+        "arXiv:1805.06914",
+        "arXiv:2308.14891",
+        "LMFDB Abelian Varieties over Finite Fields",
+        "Resultary 8c80d021706e, b312a210df52 and 2d47875a92fd (target itself)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An exact character-sum formula in a suitable split extension can be a route to point counts for appropriately normalized models. A possible-values table and the geometric Prym theorem do not give the counts on this form over F7.",
+          "For instance, with t=4 the types u=-14 and u=14 give the same base count but give N2=20 and 76, respectively; shared geometric Prym slopes and elliptic trace miss this distinction."
+        ],
+        "reasoning": "The evaluated realization spectrum is not an immediate specialization of a prior arithmetic classification. It requires determining which rational twists and Prym polynomials actually occur and with what frequencies. The certificate makes that additional exact determination without treating the standard quotient or finite-field isogeny theorem as novel.",
+        "searches": [
+          "arXiv:1705.02404, §5",
+          "arXiv:1805.06914, M[7]",
+          "Resultary 8c80d021706e, Limitations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A four-branch quartic can be put into generalized Legendre cross-ratio form over an appropriate extension; over a specified finite field the branch points may be nonsplit and coordinate normalizations can change the quartic twist.",
+          "Goodson's exact character formula assumes q=1 mod 4 and the stated Legendre form, while the mod-p congruence is not a census of exact coefficients."
+        ],
+        "reasoning": "Geometric cross-ratio equivalence is not arithmetic equivalence over F7. A covering calculation through another coordinate normalization must track the descent, twists, and multiplicities of the literal (a,b); none of those maps was exhibited by the compared theorem.",
+        "searches": [
+          "Resultary: genus-three cyclic quartic over F7, generalized Legendre, Prym, Weil polynomial spectrum",
+          "arXiv:1705.02404, §5, Theorems 5.2 and 5.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "LMFDB is complete for abelian varieties up through dimension three at q=7 and tabulates Weil-polynomial isogeny classes, but its rows are not marked equations in this family.",
+          "The comparable generalized Legendre parameter table is over F13 (eleven parameters and six Weil numerators), not F7. The exact title at F7 is the assigned record itself."
+        ],
+        "reasoning": "Existing ambient class labels and possible Weil polynomials do not assign a class to a given (a,b) or provide the marked counts. A parameter table over a different field cannot resolve the F7 Frobenius spectrum.",
+        "searches": [
+          "LMFDB Abelian Varieties over Finite Fields source and the g=3, q=7 isogeny-class query",
+          "Resultary b312a210df52 and 2d47875a92fd"
+        ]
+      },
+      "rationale": "The four-branch cyclic quartic family, the geometric Prym superspeciality and the isogeny classification of ambient abelian varieties are prior. On the checked sources the distinct result is the evaluated characteristic-seven realization and distribution of arithmetic types for all literal marked equations, including the actual pair-to-polynomial map. The exact Resultary hit at characteristic seven was the assigned target, not a separate result.",
+      "residual_risks": [
+        "A separate explicit small-field table in other coordinates, including its translation through the relevant twists, remains possible. The bounded comparison is not absolute priority clearance and does not infer precedence from same-day dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Character-sum method for related form, not assigned table",
+          "evidence": "Studies y^4=x(x-1)(x-lambda), with a mod-p congruence and exact character sum for q=1 mod 4.",
+          "identifier_or_url": "https://arxiv.org/abs/1705.02404",
+          "material_read": "§5, Theorems 5.2–5.3, pp. 7–10, OA offsets 22441 and 29600–35064",
+          "method": "Bounded primary OA PDF reading",
+          "title": "Hypergeometric Properties of Genus 3 Generalized Legendre Curves",
+          "trigger": "Alternate parameterization potentially giving the same point counts"
+        },
+        {
+          "assessment": "Gives Newton polygons, strictly coarser than arithmetic Weil type",
+          "evidence": "Inertia (1,1,1,1), generic slopes ord plus supersingular surface for p=3 mod 4.",
+          "identifier_or_url": "https://arxiv.org/abs/1805.06914",
+          "material_read": "p. 19, m=4 table row M[7], OA offset 62200",
+          "method": "Bounded primary OA PDF reading",
+          "title": "Newton Polygons Arising from Special Families of Cyclic Covers of the Projective Line",
+          "trigger": "Broader cyclic-family classification in the relevant residue class"
+        },
+        {
+          "assessment": "Different hypothesis and output",
+          "evidence": "Assumes generically ordinary characteristic-p family and computes nonordinary mass, not marked rational Frobenius factors.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.14891",
+          "material_read": "Corollary 6.1, p. 14, OA offset 56000",
+          "method": "Bounded primary OA PDF reading",
+          "title": "Mass Formula for Non-Ordinary Curves in One Dimensional Families",
+          "trigger": "Broader four-branch cover census"
+        },
+        {
+          "assessment": "Genuine geometric overlap, no arithmetic isogeny census",
+          "evidence": "Every smooth Prym is geometrically superspecial; gives the Jacobian's p-rank and superspecial criterion, explicitly no zeta functions or Frobenius signs.",
+          "identifier_or_url": "2026/11/8/SCOPE-the-reduced-superspecial-divisor-of-the-cyclic-quartic-genus-thr--8c80d021706e",
+          "material_read": "RESULT.md Finding, offset 0, and Limitations, offsets 7600–9534",
+          "method": "Local mirror statement inspection",
+          "title": "The reduced superspecial divisor of the cyclic-quartic genus-three pencil at inert primes",
+          "trigger": "Identical geometric family and Prym geometry"
+        },
+        {
+          "assessment": "Complete ambient classes, not marked realization counts",
+          "evidence": "Contains all dimension at most three isogeny classes at q at most 25; no (a,b) assignments for this curve family in the inspected table.",
+          "identifier_or_url": "https://www.lmfdb.org/Variety/Abelian/Fq/Source",
+          "material_read": "Source scope near OA offset 800 and g=3,q=7 class table and listed columns",
+          "method": "Bounded public page inspection",
+          "title": "LMFDB Abelian Varieties over Finite Fields",
+          "trigger": "Exact ambient table of F7 Weil polynomials"
+        },
+        {
+          "assessment": "Different arithmetic field",
+          "evidence": "Six Weil numerators for eleven marked Legendre parameters over F13, not the 42 literal equations over F7.",
+          "identifier_or_url": "2026/11/22/SCOPE-six-weil-spectra-within-three-cross-ratio-orbits-of-generalized--b312a210df52",
+          "material_read": "RESULT.md, local-mirror offsets 6, 340 and 1147",
+          "method": "Local mirror statement inspection",
+          "title": "Six Weil spectra within three cross-ratio orbits of generalized Legendre curves",
+          "trigger": "Close exact marked table in the same geometric family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and scope, and SPECTRUM.json",
+        "Independent replay audit_recompute_3.py",
+        "Resultary 8c80d021706e, geometric Prym theorem"
+      ],
+      "rationale": "The whole inert-characteristic pencil is a natural testing ground for the arithmetic distinction between geometrically superspecial Pryms and their forms over the base field. At the fixed trace t=4, for example, there are two incompatible second-extension counts, so the available geometric data and the base count genuinely leave an ambiguity. The complete marked assignment resolves that ambiguity uniformly for this small field and gives exact realization data usable in arithmetic comparisons, rather than merely recomputing the ambient isogeny catalogue.",
+      "residual_risks": [
+        "The finite-field contribution does not classify unmarked twists beyond the given equations or establish an inert-prime formula for all characteristics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

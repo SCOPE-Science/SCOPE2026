@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:58:01.210427Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The residue image U is isotropic and the kernel is U-perpendicular by self-adjointness. Nondegeneracy identifies the quotient with U*, so the remaining choice is an invertible symmetric map U* to U. The isotropic-space products follow by choosing successive isotropic lines in U_j-perpendicular/U_j and dividing by the full flag count; the symmetric-form products follow by summing the two GL/or­thogonal-group orbit sizes in odd characteristic. To check lift existence independently, in a lifted Witt basis let G0 be the target block Gram matrix with exact hyperbolic blocks and a symmetric lift of the middle Gram matrix. The actual Gram matrix is G0+E, where E has entries in the square-zero radical. The change of basis I-(1/2)G0^{-1}E brings it exactly to G0. In that basis the lift X0 maps the last r coordinates into the first r by a symmetric invertible lift and annihilates the others, also in mixed characteristic. Every lift is X0+pi B with B uniquely a residue-layer matrix; self-adjointness reduces to that of B and square-zero to AB+BA=0. Independently in Witt blocks, with invertible symmetric top-right block T of A, the anticommutator kills the bottom-left and middle-left blocks of B and forces PT to be skew-symmetric for its top-left block P. The free blocks have dimensions r(r-1)/2, rs, r(r+1)/2 and s(s+1)/2 (skew block, top-middle, symmetric top-right and self-adjoint middle). This gives the stated exponent, including r=0 and the Witt-index cutoff. The actual proof uses r two-dimensional Jordan blocks; the auxiliary frozen AUDIT.json phrase '2r length-two' is not the calculation in RESULT.md. The checker was inspected, not run; its split n=2,3 tests do not test every ring or form.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prasad–Singla–Spallone Theorem 3.5 gives cardinality-preserving correspondences of similarity classes over different length-two rings with corresponding residue-field classes.",
+          "Resultary 6b8f1c0037a2 covers all square-zero Smith strata without self-adjointness; 8ff282635ea5 allows arbitrary ring lengths in size two, also unrestricted."
+        ],
+        "reasoning": "Cardinality of a GL-similarity class or rank stratum does not determine its intersection with the endomorphisms self-adjoint for a specified form. Even at fixed q the elliptic and hyperbolic n=2 counts differ; an unrestricted formula cannot simply be specialized by q and n.",
+        "searches": [
+          "arXiv:1212.6157v2 Theorem 3.5",
+          "Resultary 6b8f1c0037a2 and 8ff282635ea5"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.37236/3810",
+        "arXiv:1212.6157v2",
+        "Resultary 150f31c550b3",
+        "Resultary 6b8f1c0037a2",
+        "Resultary 8ff282635ea5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Field shape (2^r,1^s) determines the base count I_{n,r}S_r only. The prior unrestricted fixed-reduction result counts q^{2r(n-r)} lifts per arbitrary Bockstein on ker A/im A."
+        ],
+        "reasoning": "Neither counting all lifts nor aggregating GL-orbits identifies the self-adjoint part. The exact isometry correction for mixed characteristic and the kernel dimension within the self-adjoint subspace give the lift factor; the cited results do not establish these together or furnish a stronger fixed-form formula.",
+        "searches": [
+          "Brouwer–Gow–Sheekey §4.4; Prasad–Singla–Spallone Theorem 3.5",
+          "Resultary 150f31c550b3 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Brouwer–Gow–Sheekey §4.4 counts self-adjoint nilpotent maps of fixed Young shape over a field for a fixed form; shape (2^r,1^s) is exactly the residue stratum.",
+          "Resultary 150f31c550b3 counts unrestricted lifts at fixed reduced rank, with constraints on the induced Bockstein, not self-adjoint lifts."
+        ],
+        "reasoning": "Changing from symmetric matrices to self-adjoint operators for a Gram form is a representation change, not a new field-level enumeration. The genuinely additional count is the size of the constrained fiber of reduction, for the chosen Gram form over the coefficient ring.",
+        "searches": [
+          "Brouwer–Gow–Sheekey, DOI 10.37236/3810, §§3.2, 4.4",
+          "Resultary: fixed-form symmetric or self-adjoint square-zero matrices, finite chain ring, rank-resolved lifts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The retrieved exact formulas give fixed-form field counts, unrestricted length-two Smith-stratum counts, or unrestricted size-two image-length counts. Those marginal counts do not tabulate the fixed-form reduction fibers."
+        ],
+        "reasoning": "A matching enumeration would have to resolve the form and the prescribed reduced stratum (or count every such fiber), not just the square-zero population or image length. The same-dated size-two census is treated by what it counts, without assuming ordering from the date.",
+        "searches": [
+          "Resultary: exact square-zero rank/Smith census over length-two chain rings with symmetric form constraint",
+          "DOI 10.37236/3810 fixed-Young-shape formulas"
+        ]
+      },
+      "rationale": "Pass is limited to the constant-size fixed-form lifting fibers and consequent rank census over arbitrary odd-residue commutative chain rings of length two. Field counts and orbit-size ingredients are prior; unrestricted matrix lifting and similarity universality are not the self-adjoint fixed-form count.",
+      "residual_risks": [
+        "Potential coverage by an unlocated fixed-form square-zero scheme or orthogonal lifting enumeration remains; the bounded searches do not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the residue-field factor; not its length-two lifting fibers",
+          "evidence": [
+            "Young shapes parametrize field GL-classes; N_x(Y) counts labeled maps of each shape self-adjoint for a fixed form."
+          ],
+          "identifier_or_url": "https://doi.org/10.37236/3810",
+          "material_read": "Primary EJC PDF §3.2 p. 6 and §4.4 pp. 8–9",
+          "method": "Bounded OA primary-text reading",
+          "title": "Counting Symmetric Nilpotent Matrices",
+          "trigger": "Same fixed-form self-adjoint nilpotent maps over finite fields"
+        },
+        {
+          "assessment": "Cardinality-preserving unrestricted similarity correspondence, not fixed-Gram constraints",
+          "evidence": [
+            "The correspondence is between classes over identified residue-field classes, not Gram-self-adjoint members of those classes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1212.6157v2",
+          "material_read": "Primary PDF Theorem 3.5 p. 13, text offset 32484",
+          "method": "Bounded OA primary-text reading",
+          "title": "Similarity of matrices over local rings of length two",
+          "trigger": "Possible coverage via stronger length-two classification"
+        },
+        {
+          "assessment": "Unrestricted lifts only",
+          "evidence": [
+            "Equidistribution per Bockstein on ker A/im A, with q^{2r(n-r)} lifts per unrestricted Bockstein."
+          ],
+          "identifier_or_url": "Resultary 150f31c550b3",
+          "material_read": "RESULT.md offsets 56–737",
+          "method": "Local published-record mirror",
+          "title": "Bockstein equidistribution and image shape counts for square-zero lifts",
+          "trigger": "Same square-zero reduction problem for general matrices"
+        },
+        {
+          "assessment": "No self-adjoint fixed-form constraint",
+          "evidence": [
+            "Counts full Smith strata of unrestricted square-zero matrices."
+          ],
+          "identifier_or_url": "Resultary 6b8f1c0037a2",
+          "material_read": "RESULT.md offsets 379–1372",
+          "method": "Local published-record mirror",
+          "title": "Square-zero Smith strata are universal across length-two chain rings",
+          "trigger": "Universal length-two rank census"
+        },
+        {
+          "assessment": "Counts a larger population and a different grading, not the fixed-form fibers",
+          "evidence": [
+            "Image-length enumeration for unrestricted size-two matrices over chain rings of arbitrary length."
+          ],
+          "identifier_or_url": "Resultary 8ff282635ea5",
+          "material_read": "RESULT.md Finding from offset 36",
+          "method": "Local published-record mirror",
+          "title": "A uniform image-length census for square-zero two-by-two matrices",
+          "trigger": "Broader chain lengths, possible size-two overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The formula gives the exact first-order thickness of each reduced square-zero stratum, with different exponents at different ranks; a field-level count or uniform smooth lifting assumption misses this. It also distinguishes the orthogonal types at fixed q while giving the same counts across equal and mixed characteristic. This is a complete natural census for length two, not an orbit classification or a claim for higher length.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

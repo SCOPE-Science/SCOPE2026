@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:25:51.756394Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "repaired RESULT.md, Finding, Proof and Relation to Theorem 3.2",
+        "Frozen RESULT.md lines 3–85 and 92–98; VERIFICATION.md and verify_counterexample.py inspected, not executed",
+        "Matsuno DOI 10.3934/math.2026191, printed pp. 4695–4696, Algorithm 2 and Theorem 3.2"
+      ],
+      "rationale": "Reassessed the corrected theorem, not the frozen inference. The source allows x_0=B, and every feasible x has first coordinate ≥1. Normalization cannot change a minimizing vertex or the sign of a stopping dot product. On R_-=[1,2]×[−5,−50/19], C is uniquely minimizing, with dot product ≤4−2500/19<0, and the clipping excess numerator is a(2−0.9a)+b(50−0.9b)>0 for 0≤a≤1 and 1000/19≤b≤55. Its clipped map sends the vertical endpoints to 1/2 and 50/19. On R_+=[1,2]×[1/2,50/19], A is uniquely minimizing, with dot product ≤−23. For b=50+v, the concave term b(50−0.9b) is decreasing here, hence is at least 50000/361, which exceeds the maximum 19/10 contribution of the horizontal subtractands. The clipped A-map sends the vertical endpoints to −91/20 and −50/19 in R_-, and both horizontal updates preserve [1,2]. Thus no positive tolerance can stop the invariant alternation. The two-step map is 0.81x+0.09C+0.1A, with fixed point (28/19,−50/19) and partner (29/19,50/19). Strict inequalities at both points and single-step factor 0.9 give local attraction as well as the specific convergence from B. The repair explicitly demonstrates the common face AC and its negative support and proves the scalar decay, so the corrected claim is consistent with Theorem 3.2. The reversed normal selects B and does not make AC a positive-support minimizing face.",
+      "residual_risks": [
+        "The repaired result uses one allowed start and one floor; it does not classify other starts or show a violation of Theorem 3.2. The arithmetic verifier covers the bounds and orbit, not the literature interpretation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The anchor places its rule among LP-Newton alternatives to the Wolfe routine; the deciphered convergence theorem applies to a distance, not to termination.",
+          "The 2009, 2019 and 2025 neighboring works could not be checked in full via the attempted routes."
+        ],
+        "reasoning": "Different projection and replacement methods are not automatically stronger results about this update. Plausible closer overlap in the unavailable texts is retained as a limitation.",
+        "searches": [
+          "Matsuno p. 4695 on NSA as an alternative to Wolfe minimum-norm routine",
+          "Lawful bounded DOI retrieval attempts: 10.1007/s11081-008-9067-x, 10.1007/s00453-018-0436-3, 10.1007/978-3-031-90606-0_7"
+        ]
+      },
+      "checked_sources": [
+        "Matsuno DOI 10.3934/math.2026191 pp. 4695–4696",
+        "Resultary ...9847d697b65e and ...bf663838cf18",
+        "repaired RESULT.md, Relation to Theorem 3.2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The theorem implies d_{k+1}=α_k d_k ≤ (1−η)d_k conditional on staying on a fixed minimizing face. It assumes no positive γ. The example satisfies that condition with γ=−150 and has the predicted distance decay.",
+          "The result on scalar distance supplies no information about alternating along AC, the sign of the stopping test on both rectangles or the limit orbit."
+        ],
+        "reasoning": "A scalar convergence result compatible with the orbit cannot substitute for proving selection, cap activation and nontermination. The repaired conclusion is therefore not merely the anchor's theorem with instantiated inputs.",
+        "searches": [
+          "Matsuno Theorem 3.2 and Algorithm 2, printed p. 4696, compared to the corrected Result",
+          "Resultary ...9847d697b65e and ...bf663838cf18"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Matsuno's coefficient is exact segment minimization of the squared norm before clipping; old-point weight ≤1−η equals a conditional-gradient move floor ≥η.",
+          "The external lookup surfaced the anchor and general algorithm material, not a statement of the same orbit, so it adds no negative evidence."
+        ],
+        "reasoning": "The closest equivalent formulation preserves the floor and the linear minimizer. Qualitative fixed-step oscillation by itself does not imply strict cap activation, positive-margin separation and negative stopping inner products on this specific trajectory.",
+        "searches": [
+          "Resultary: exact triangle coordinates/orbit, clipped floor and fixed-step conditional-gradient cycles",
+          "External: \"Naive Separation Algorithm\" Matsuno oscillation cycle OR \"Frank-Wolfe\" nonterminating \"minimum step\" clipped line search conditional gradient"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day ...9847d697b65e gives an exact period-two orbit for simplified Muon in matrix sensing; ...bf663838cf18 treats an attracting orbit for a scalar Picard solver of a Kirchhoff finite-element step."
+        ],
+        "reasoning": "The inspected orbit records involve distinct dynamics and do not give an NSA trajectory or its rational coordinates. Neither same-day dating nor bounded lack of a match is evidence of priority.",
+        "searches": [
+          "Resultary: exact cycle values and contraction, NSA and fixed-face terminology, clipped-floor nontermination, and fixed-step algorithm orbit"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact nonterminating NSA trajectory with an attracting orbit and an all-positive-tolerance sign obstruction. It does not claim discovery of fixed-step oscillation generally or a counterexample to the source's conditional decay theorem. The strongest inspected primary result is compatible with, but does not yield, this behavior.",
+      "residual_risks": [
+        "The three neighboring LP-Newton sources were not available in full text through attempted routes. A less-indexed or differently formulated equivalent fixed-floor example is not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Algorithm and distance recurrence confirmed; no exact cycle or nontermination implication",
+          "evidence": [
+            "Any vertex is allowed as start; strict positive tolerance test, capped coefficient; theorem uses γ=min h*·p, with no requirement γ>0."
+          ],
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2026/2/PDF/math-11-02-191.pdf; DOI 10.3934/math.2026191",
+          "material_read": "Printed p. 4695 on separation and the Wolfe routine; p. 4696 (PDF p. 6) Algorithm 2 and Theorem 3.2",
+          "method": "OA publisher PDF, bounded passage inspection",
+          "title": "A numerical LP-Newton method for solving linear programming using separating hyperplanes",
+          "trigger": "Exact algorithm and possible coverage through Theorem 3.2"
+        },
+        {
+          "assessment": "Different state spaces and update rules; no implication for NSA",
+          "evidence": [
+            "Matrix-sensing Muon orbit versus scalar Picard orbit for a finite-element step; neither minimizes a linear functional over the stated triangle."
+          ],
+          "identifier_or_url": "Resultary 2026/10/13 ...9847d697b65e; 2026/11/2 ...bf663838cf18",
+          "material_read": "RESULT.md findings for both records",
+          "method": "Local mirror bounded passages",
+          "title": "Exact coupled period-two orbit for fixed-step simplified Muon; sharp forcing threshold for Picard two-cycles",
+          "trigger": "Closest indexed exact periodic-orbit results"
+        },
+        {
+          "assessment": "No whole-document decision about equivalent examples",
+          "evidence": [
+            "Full texts not obtained through attempted routes; comparison of update rules rests on what is available in the primary NSA source and bibliographic descriptions."
+          ],
+          "identifier_or_url": "DOIs 10.1007/s11081-008-9067-x, 10.1007/s00453-018-0436-3 and 10.1007/978-3-031-90606-0_7",
+          "material_read": "Bibliographic identification and access results, not theorem full texts",
+          "method": "Bounded lawful DOI retrieval attempts",
+          "title": "Zonotopes and the LP-Newton method; A simple projection algorithm for linear programming problems; Rethinking linear programming: A new finite-termination LP-Newton approach",
+          "trigger": "Plausibly relevant related LP-Newton mechanisms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "repaired RESULT.md, Finding, Proof and Relation to Theorem 3.2",
+        "Matsuno DOI 10.3934/math.2026191 p. 4696"
+      ],
+      "rationale": "Even after removing the false fixed-face inference, the explicit attracting orbit exposes a real operational limitation of the mathematical algorithm: it can fail to return a separator on a strictly separated triangle despite its exact face-distance decay. The construction distinguishes distance convergence from algorithmic success, with negative stopping values for every positive tolerance, rational replay and robustness to local perturbations near the orbit.",
+      "residual_risks": [
+        "The example supplies no general failure rate, complete classification, or correction of the algorithm itself."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

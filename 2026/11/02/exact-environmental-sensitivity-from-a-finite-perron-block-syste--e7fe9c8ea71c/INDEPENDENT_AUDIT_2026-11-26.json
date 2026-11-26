@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:14:57.079762Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Use the fixed normalization ℓᵀx=1 even when the perturbed matrices lose their common left vector. An independent contraction argument is to conjugate by diag(ℓ), making every unperturbed normalized map a positive column-stochastic map on the usual probability simplex. In ℓ¹ distance on the zero-sum tangent space its contraction coefficient is at most 1−d times a common positive lower entry bound: subtract the constant matrix of that lower bound and use its vanishing on zero-sum vectors. The perturbed normalized maps and their tangent derivatives are jointly continuous on the compact simplex, since the denominators are uniformly positive. For small signed δ they remain uniformly contracting. Pullback limits along the bi-infinite stationary chain therefore exist, are past-measurable and depend continuously on δ, by a geometric bound on the sum of the map differences. The same contraction makes arbitrary starting populations have the same time-average log multiplier as the stationary pullback process. Markov ergodicity gives the expectation formula, with multiplier ρ_k+δℓᵀH_k x_t^δ in state k. Its zeroth-order part does not depend on x, and bounded difference quotients give the claimed two-sided derivative by dominated convergence, without differentiating the stationary composition. Conditional means satisfy the stated j,k recursion because x_t is past-measurable and the next state conditional on the past and E_t=k has law P_{·k}. The positive block matrix has left eigenvector (ℓᵀ,…,ℓᵀ) at one, so Perron–Frobenius gives uniqueness, and the normalized block masses solve Pπ=π. This yields the general derivative, entry formula and elasticity sum. In iid environments the current state is independent of the pullback composition; cancellation of the strictly positive factors proves the all-singleton iff and the stated subset mean criterion. Independent replay `cd /workspace && python checks/independent_replay.py 3` verified the noncommuting example, correlated block moments and iid comparison by exact affine scalar recursions. The frozen finite-word and simulation evidence is diagnostic only; none is used to justify differentiability or the infinite-horizon identities.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Caswell 2010 abstract describes an LTRE decomposition in Markov environments into changes in stationary frequencies, autocorrelation and state-specific demographic responses. The publisher description of the 2019 chapter likewise concerns the decomposition of stochastic growth-rate differences.",
+          "Giaimo's indexed abstract says that of two conjectures on the magnitudes of environmental perturbations, one is disproved and one proved."
+        ],
+        "reasoning": "The broader observable and intervention theory are closely related. The available claims do not specify a finite positive block eigenproblem for arbitrary Markov common-left families or an iff proportionality boundary for iid common-left families. Full-text special-case coverage is unresolved.",
+        "searches": [
+          "Caswell Life table response experiment analysis stochastic growth rate 2010 10.1111/j.1365-2745.2009.01627.x PDF open repository",
+          "Caswell 10.1007/978-3-030-10534-1_9",
+          "Giaimo 10.1111/anzs.12382"
+        ]
+      },
+      "checked_sources": [
+        "Caswell 2005 DOI 10.1111/j.1467-842X.2005.00373.x (abstract)",
+        "Caswell 2010 DOI 10.1111/j.1365-2745.2009.01627.x (abstract)",
+        "Caswell 2019 DOI 10.1007/978-3-030-10534-1_9 (publisher description)",
+        "Giaimo 2023 DOI 10.1111/anzs.12382 (abstract; Max Planck PDF retrieval attempted)",
+        "Åberg et al. DOI 10.1016/j.ecolmodel.2008.11.014 (abstract)",
+        "Resultary 21d96ab3451f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known broad stochastic-response framework concerns long-product sensitivities; a common-left restriction can eliminate random backward reproductive value and reduce such an expression to conditional forward composition moments.",
+          "Giaimo addresses the broad conjectures, and the frozen record explicitly credits the sum of total entry elasticities. State-wide multiplicative scaling also gives that sum directly from the environmental occupation frequency, without a common-left restriction."
+        ],
+        "reasoning": "A response expectation is not itself the finite stationary solution: one must show that unperturbed projective maps are linear on the fixed ℓ-mass simplex and that their conditional means close in Markov order. That gives the exact computable derivatives without evaluating a random trajectory. In iid environments, a counterexample to general proportionality does not establish the all-state iff: the finite formula produces the factors π_k/ρ_k and hence the required inverse-root criterion. The separate subset condition must not be misread as forcing all roots equal.",
+        "searches": [
+          "Giaimo On two conjectures about perturbations of the stochastic growth rate 10.1111/anzs.12382 full text repository common reproductive value",
+          "Caswell 2005 environmental-state sensitivities",
+          "Caswell 2010 Markov LTRE responses"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Caswell's abstract explicitly addresses perturbations in a specified subset of environmental states; Åberg et al. likewise discuss changes only in a subset and a calculation method.",
+          "The closest directly inspected catalogue claim, 21d96ab3451f, uses a common right vector and a common eigenvalue at a crossover to show growth independent of switching order."
+        ],
+        "reasoning": "Neither the label environment-specific sensitivity nor a shared Perron vector alone identifies the computation. Here the left vector (equivalently column-sum normalization after diagonal conjugacy) makes projective forward dynamics linear at the base point and identifies conditional stationary moments. The inspected common-right crossover statement has no such derivative or moment formula.",
+        "searches": [
+          "Resultary: common left Perron vector Markov-switching stochastic growth sensitivity and finite block closure",
+          "Caswell DOI 10.1111/j.1467-842X.2005.00373.x",
+          "Åberg et al. DOI 10.1016/j.ecolmodel.2008.11.014"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest catalogue example gives a threshold and base-growth result, not an exact catalogue of environmentally indexed derivatives. The Åberg abstract confirms applications but does not expose an exact table or formula for the target common-left family."
+        ],
+        "reasoning": "The exact example is not a novelty test for a universal derivative formula. A finite comparison or simulated sensitivity would require a mathematical parameter reduction to cover arbitrary positive real matrices; no such covering formula was evidenced in the checked catalogue passages.",
+        "searches": [
+          "Resultary: exact environmental sensitivity, common reproductive values and Perron blocks",
+          "Resultary 21d96ab3451f RESULT.md, offset 1280",
+          "Åberg et al. RePEc 220(5), 605–610, abstract"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact finite Perron computation for arbitrary strictly positive common-left Markov families with fixed environmental law, including arbitrary additive directions not preserving the hypothesis, and the resulting exact iid iff. Environment-specific perturbations, general random-product sensitivities, disproof of broad frequency proportionality, and the total-elasticity identity are prior context and not credited as new. Direct comparisons at the available statement level found no covering finite formula or iid characterization; the inaccessible closest full texts remain substantive priority risks, not negative evidence.",
+      "residual_risks": [
+        "The Caswell 2005 and 2010, Åberg 2009 and Giaimo 2023 full-text comparisons are incomplete; an exact prior common-left specialization cannot be ruled out from abstracts.",
+        "The finite first-moment lift is a standard Markov conditioning device; a prior explicit application to this sensitivity observable under another name may be unindexed. The bounded comparisons do not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial prior topic and methodological overlap; exact specialization remains unresolved",
+          "evidence": "The abstract expressly includes environment-specific perturbations applied only in a specified subset.",
+          "identifier_or_url": "https://doi.org/10.1111/j.1467-842X.2005.00373.x",
+          "material_read": "Publisher abstract via indexed bibliographic record; full-text route returned HTTP 403 and no lawful copy was retrieved",
+          "method": "Abstract inspection and bounded primary retrieval attempt",
+          "title": "Sensitivity analysis of the stochastic growth rate: three extensions",
+          "trigger": "Foundational same-observable environment-specific derivative work"
+        },
+        {
+          "assessment": "Broad Markov LTRE work established, but full-text mathematical comparison limited",
+          "evidence": "The abstract distinguishes environmental stochastic dynamics and vital-rate responses, and addresses stationary distribution, autocorrelation and state-specific rates.",
+          "identifier_or_url": "https://doi.org/10.1111/j.1365-2745.2009.01627.x",
+          "material_read": "Indexed publisher abstract and publisher/JSTOR search locations; full text unavailable in attempted routes",
+          "method": "Bibliographic and abstract inspection; lawful open-copy lookup",
+          "title": "Life table response experiment analysis of the stochastic growth rate",
+          "trigger": "General Markov response/decomposition could dominate the finite result"
+        },
+        {
+          "assessment": "Prior treatment of the two broad conjectures established; detailed exact iff and block specialization unresolved",
+          "evidence": "The abstract says one conjecture linking stationary environmental probabilities to perturbation magnitudes is disproved and the other proved. No assertion about the unread formulas is inferred from the failed access.",
+          "identifier_or_url": "https://doi.org/10.1111/anzs.12382",
+          "material_read": "Indexed abstract and Max Planck repository listing item_3502801_1; PDF text not retrieved",
+          "method": "Publisher and PDF routes attempted; also tried identified lawful Max Planck institutional copy file_3502802",
+          "title": "On two conjectures about perturbations of the stochastic growth rate",
+          "trigger": "Same environmental perturbation conjectures; possibly exact iid characterization"
+        },
+        {
+          "assessment": "Prior broad problem and applied method, inconclusive about the exact finite special case",
+          "evidence": "The abstract expressly studies perturbing parameters only in a subset of all possible environments.",
+          "identifier_or_url": "https://doi.org/10.1016/j.ecolmodel.2008.11.014",
+          "material_read": "RePEc abstract, page offset 1200; full text restricted",
+          "method": "Public bibliographic passage and scope comparison",
+          "title": "Environment-specific elasticity and sensitivity analysis of the stochastic growth rate",
+          "trigger": "Same environment-specific sensitivity and elasticity calculation"
+        },
+        {
+          "assessment": "Distinct crossover and baseline growth problem",
+          "evidence": "At a crossover the matrices have a common right vector and eigenvalue, making growth independent of switching order; the claim does not establish an environmental response derivative.",
+          "identifier_or_url": "Resultary 21d96ab3451f",
+          "material_read": "Mirrored RESULT.md, relevant passage near offset 1280",
+          "method": "Local catalogue search and statement comparison",
+          "title": "A unique survival threshold reverses the advantage of environmental switching",
+          "trigger": "Closest catalogue claim involving shared Perron data under environmental switching"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The common-left condition is restrictive and deliberate: it makes an exact, finite, reusable derivative computation possible while allowing arbitrary contrast and noncommuting matrices and without constraining the perturbation to preserve the condition. This replaces a long random-product average for the specified class with one finite linear computation, separates base growth from correlation-dependent responses, and gives an exact positive iid criterion rather than another disproof example. The known sum of elasticities and the general Perron or random-product principles alone are not the value claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

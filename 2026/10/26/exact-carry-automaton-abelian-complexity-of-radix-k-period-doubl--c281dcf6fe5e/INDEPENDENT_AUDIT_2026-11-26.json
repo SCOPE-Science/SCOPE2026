@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:21:05.900855Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–53, VERIFICATION.md and verify.py inspected; no uploaded code executed.",
+        "Repaired RESULT.md, Signed-carry formula and Proof.",
+        "Independent ./review-evidence/radix.js replay (node /workspace/review-evidence/radix.js): for min A and max B, the complete-block quotient gives A(n)=floor(n/k)−B(floor(n/k)) and B(n)=ceil(n/k)−A(ceil(n/k)) for n≥2. Indeed length n windows project to either floor or ceil(n/k) block-end letters, each admissible length can start at every nonnegative projected position, and l−A(l) and l−B(l) are nondecreasing. Compared these independent extrema with literal substitution prefixes for all n=1,…,140 in k=3,…,8 (840 comparisons); checked both special sequences via this recurrence for exponents 1,…,8 in each radix. All checks passed."
+      ],
+      "rationale": "The fixed point records the parity of the exponent of k dividing j+1, also for composite k. Counting multiples and collecting radix digits gives the displayed prefix identity. In the difference across an addition, the column identity a_j+c_j−kc_(j+1) contributes (k+1)(−1)^(j+1)c_j for each carry at position j≥1 after summation, giving precisely the weight claimed. The local inequalities allow arbitrary compatible column choices; finite paths are realized by finite starts. Beyond the leading digit an incoming one persists for a run and stops, and the two alternating-tail corrections are attained. Thus the constant-state dynamic program finds two attained extrema per length, and one-step changes in overlapping windows give every intervening integer. For the alternating digit ladder, every negatively signed carry pairs with the immediately preceding positive carry, including in the tail, and the tail cannot increase the m contributions available up through the highest relevant position. Taking M=0 and M equal to the sum of powers at the nonzero digits gives the extrema zero and m. For m=1 this gives exactly two counts. Primitivity holds at the second iterate. The prefix identity gives frequency 1/(k+1) and unbounded discrepancy along integers with arbitrarily many nonzero digits all at even positions, ruling out even eventual periodicity. The repaired operation count is in integer operations, not a bit-cost assertion.",
+      "residual_risks": [
+        "The finite replay is corroboration; the universal carry proof uses explicit attainability and the alternating-tail argument. The reported frozen test count is not a fresh run."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Parreau et al. give 2-regularity in ordinary radix-two period doubling and present its wider k-automatic analogue in the inspected passage as a conjecture. The balance theorem concerns global balance of primitive substitutions, not the exact count spectrum. The other period-doubling generalization changes alphabet size, not block length with a fixed binary alphabet."
+        ],
+        "reasoning": "None supplies either the exact high-radix two-state optimization or the quantified ladder. Global balance criteria do not prescribe exact extremal counts at individual lengths.",
+        "searches": [
+          "Parreau et al. arXiv:1405.3532, pp. 2–3",
+          "Berthé–Cecchi-Bernales–Espinoza arXiv:2602.04833, Theorem 6.2",
+          "Bognini–Ammar arXiv:2511.20881, p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 96c4f2479d45, 7b09e62adf22, a684306a38a7, ea6d16472081",
+        "Parreau et al. arXiv:1405.3532; Berthé et al. arXiv:2602.04833; Bognini–Ammar arXiv:2511.20881"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Starting from counts {0,1} at n=1, the cyclic-class transport preserves a two-element adjacent interval at lengths k^m. The endpoints obtained by t→k^(m−1)−t are floor and ceiling of k^m/(k+1), proving exactly the overlapping clause. Each ladder length is k−1 modulo k, so the scaling transport does not reduce even one of those lengths."
+        ],
+        "reasoning": "Remove the covered scale clause from the distinct finding. The remaining optimization requires the general digit-and-carry identity plus its realizability and terminal correction, and the ladder uses an explicit carry extremum argument, rather than substitution-scale count transport.",
+        "searches": [
+          "96c4f2479d45, Finding and proof Step 1; arXiv:1405.3532 p. 3; arXiv:2602.04833 Theorem 6.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed theorem uses the identical two substitution words and gives an exact cyclic-class bijection at n and kn. The ones-count transport is t→n−t, so it applies directly to the same Abelian count spectrum at scaled lengths."
+        ],
+        "reasoning": "The output alphabet, radices and factor convention agree. This verifies a genuine equivalent count result at substitution scales, not an overlap inferred solely from similar names. The carry optimization also determines lengths not divisible by k.",
+        "searches": [
+          "Resultary: binary radix-k period doubling, valuation parity, sparse-marker Toeplitz, Abelian complexity and radix-carry extrema",
+          "96c4f2479d45, Finding and proof steps 1–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same substitution occurs in the cyclic-class scaling record. The same-day 7b09e62adf22 instead uses a ternary substitution and binary coding; a684306a38a7 has second image 10^(b−1), and the ternary-digit example ea6d16472081 has second image 110. No exact hit for the repaired carry optimizer or ladder was located."
+        ],
+        "reasoning": "All materially similar indexed results were compared by substitution words and conclusions. Other sequences' power-scale tables or envelopes cannot establish the present exact formula, and negative searches are not proof of novelty.",
+        "searches": [
+          "Configured Resultary index for exact factor count ranges and high-radix period-doubling complexity; 96c4f2479d45, 7b09e62adf22, a684306a38a7, ea6d16472081"
+        ]
+      },
+      "rationale": "For the repaired arbitrary-length optimization and exact ladder only. Scale invariance at powers of k is already a consequence of the indexed same-family cyclic-class theorem. The inspected radix-two and general balance papers, and other high-radix catalog entries, do not supply the retained explicit formula or the exact values at (k^(2m)−1)/(k+1). Bounded evidence does not settle historical priority.",
+      "residual_risks": [
+        "Equivalent high-radix formulas may occur under other terminology; the comparisons are bounded. No discovery priority is inferred from dates of indexed records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS the exact power-scale clause; does not state the all-length carry optimization or the nonmultiple ladder",
+          "evidence": [
+            "For every n the cyclic factor classes biject under inflation and their ones counts are transported by t→n−t. Base images of 0 and 1 have one and zero ones."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-cyclic-class-inflation-for-sparse-marker-toeplitz-fixed-points--96c4f2479d45/RESULT.md",
+          "material_read": "Finding, scope and proof steps 1–3, local mirror offset 0",
+          "method": "Configured Resultary index and local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Cyclic-class inflation for sparse-marker Toeplitz fixed points",
+          "trigger": "Identical substitution and exact count transport"
+        },
+        {
+          "assessment": "Different sequence and theorem",
+          "evidence": [
+            "Uses a ternary a→a^r(a+1) substitution and a binary coding."
+          ],
+          "identifier_or_url": "Resultary 7b09e62adf22",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Configured Resultary index and local mirror",
+          "title": "An infinite nonregular abelian-complexity family with interval-valued power-scale limits",
+          "trigger": "Same-day uniform automatic family and power-scale complexity"
+        },
+        {
+          "assessment": "Radix-two background, excluded from novelty",
+          "evidence": [
+            "Uses 0→01, 1→00 and discusses 2-regular complexity; the broader k-automatic extension discussed there is not a theorem in that passage."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1405.3532",
+          "material_read": "PDF p. 2 (offset 1993) and p. 3 (offset 8824)",
+          "method": "Open primary PDF",
+          "title": "A new approach to the 2-regularity of the ℓ-abelian complexity of 2-automatic sequences",
+          "trigger": "Classical period doubling and possible automatic generalization"
+        },
+        {
+          "assessment": "Qualitative global criterion does not specify exact count spectra by length",
+          "evidence": [
+            "Global letter-balance criterion, not a carry formula or ladder."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2602.04833",
+          "material_read": "Theorem 6.2, PDF p. 34, offset 154796",
+          "method": "Open primary PDF",
+          "title": "Continuous eigenvalues of minimal subshifts via S-adic representations and coboundaries",
+          "trigger": "General balance theorem for primitive substitutions"
+        },
+        {
+          "assessment": "Generalizes the alphabet rather than the radix of a binary substitution",
+          "evidence": [
+            "Discusses k-letter sequences and their kernel-word/gap factorization."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2511.20881",
+          "material_read": "Opening of p. 1, offset 0",
+          "method": "Open primary PDF",
+          "title": "A new factorization of the generalized period-doubling sequences through kernel words and gaps sequences",
+          "trigger": "Potential alias of generalized period doubling"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md, Finding and Proof; Resultary 96c4f2479d45 Finding for the separate scaling behavior."
+      ],
+      "rationale": "For a natural binary higher-radix version of period doubling, this recovers exact extrema at arbitrary lengths from a constant-state procedure rather than testing windows. The infinite ladder gives explicit lengths with exact increasing Abelian complexity, not merely qualitative unbalance, and it is not on the substitution scales already explained by cyclic-class inflation. This separates coarse-scale regularity from the count behavior at genuinely different lengths.",
+      "residual_risks": [
+        "No higher-order Abelian complexity, general automatic-family theorem or bit-complexity bound is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

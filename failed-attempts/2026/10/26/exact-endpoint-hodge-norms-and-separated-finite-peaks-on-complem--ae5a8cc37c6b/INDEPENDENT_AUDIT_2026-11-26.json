@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:10:33.552182Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–127, VERIFICATION.md, verify_2subset.py inspected but not executed",
+        "python3 /workspace/branches/endpoint-audit.py — 20 exact representative edge-column checks, T_3 through T_13 and KG(5,2) through KG(13,2)"
+      ],
+      "rationale": "The measured operators are canonical incidence projectors, not association-scheme vertex idempotents. For a unit edge dipole b, the mean-zero potential on either noncomplete strongly regular graph is αb+βAb, where A is vertex adjacency; using A²b=(λ−μ)Ab+(k−μ)b gives α=(k−λ+μ)β and β=[k(k−λ+μ)−k+μ]⁻¹. At the source edge and its exclusive neighbors this gives the stated U,V and U,W; shared and doubly nonadjacent types cancel. T_3 is checked directly as a triangle. In the triangular graph the two opposite nonzero n−3 families cross only at the same outside label; in the Kneser graph the two opposite families cross at distinct outside labels, giving 4(n−4)(n−5) edges, with the other W-drops to mixed pairs and fully outside pairs as listed. The absolute sums and complement correction q+1−2Q_ee give the four rational expressions; swapping coordinates by graph automorphisms or orientations leaves all absolute column sums invariant, and symmetry handles ℓ∞. Consecutive differences have the reported signs. In particular the cubic n(n−11)(n−4)−40 is negative at 5≤n≤11 and is already positive at 12 and increasing thereafter. This gives the asserted peaks, values and limiting constants.",
+      "residual_risks": [
+        "Representative-column checks use edge transitivity and are finite; the all-size result follows from the formulas and difference signs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The pair-Kneser result claims minimum-norm orthogonal projections for all p and evaluates both endpoints exactly.",
+          "The later triangular result gives the same n≥5 constants as minima.",
+          "The higher-rank Johnson theorem is scoped to k≥3; its stated formal k=2 recovery points to an unidentified earlier rank-two formula, not an independent proof for rank two.",
+          "The electrical-flow theorem gives general bounds including on edge-transitive graphs, not these rational values."
+        ],
+        "reasoning": "Distinguish the stronger exact Kneser evaluation from a broader bound or a theorem excluding the parameter of interest.",
+        "searches": [
+          "Resultary 8c057bfa2e76 higher-rank Johnson",
+          "Resultary 6d5b49223730 and 91538d3ec7f3",
+          "arXiv:1708.01632 edge-transitive graphs"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6d5b49223730, 91538d3ec7f3, 8c057bfa2e76",
+        "Schild–Rao–Srivastava arXiv:1708.01632",
+        "Dilworth–Kutzarova–Ostrovskii author-hosted text"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier Kneser theorem states that Q and I−Q attain its exact minima, so the present Kneser endpoint theorem and peak orders are already obtained explicitly.",
+          "For triangular graphs n≥5 the stated exact expressions immediately imply strict monotonicity and the limits; n=3 and n=4 are the triangle and octahedral graph and are bounded elementary checks.",
+          "The inspected cycle-space paper discusses tori and Hamming families, not a substitute for the exact Resultary comparison."
+        ],
+        "reasoning": "The juxtaposition of the formulas does not supply an additional theorem relating complementary graphs. The exact nonmonotonic peak phenomenon emphasized in the Finding was already established.",
+        "searches": [
+          "6d5b49223730 mirrored RESULT.md Finding and scope",
+          "91538d3ec7f3 mirrored RESULT.md Finding",
+          "Dilworth–Kutzarova–Ostrovskii Cycle Spaces"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For these unweighted incidences the transfer-impedance matrix is Q and its induced ℓ1 norm is the edge-routing ratio.",
+          "The Kneser result defines the same Euclidean projections and gives the exact same cut and cycle values; its cycle expression is 1+q−8(n+1)/[n(n−1)(n−3)], algebraically the frozen formula."
+        ],
+        "reasoning": "The transfer-impedance language is equivalent for cut only. The stronger minimum-projection formulation covers both because it identifies these exact optimizers.",
+        "searches": [
+          "Schild–Rao–Srivastava arXiv:1708.01632, transfer impedance and routing ratio",
+          "Resultary 6d5b49223730, canonical optimizers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "6d5b49223730 gives n=8,9 with 5/2 and n=12 with 1000/297 exactly, as well as both Kneser limits and formulas.",
+          "91538d3ec7f3 states the frozen triangular formulas for n≥5 but does not cover n=3,4."
+        ],
+        "reasoning": "The first is decisive full-domain exact coverage of the asserted distinct peaks, not just a matching parameter hit. The later finding shows overlap, not chronology of discovery.",
+        "searches": [
+          "Local Resultary searches for triangular cut/cycle norms and pair-Kneser cut/cycle norms",
+          "6d5b49223730, 91538d3ec7f3, 8c057bfa2e76"
+        ]
+      },
+      "rationale": "The central Kneser claim, including both different sharp integer peaks, is stated already in the distinct October 18 Resultary finding. Its stronger projection-minimality theorem expressly identifies the attaining projections as the same canonical Euclidean-orthogonal ones. It is not a mere overlap of limiting values or comparison with some other projection. A distinct indexed triangular theorem also states both triangular formulas for n≥5, although its November 2 date cannot establish precedence over the frozen record. Packaging the known Kneser peaks with the triangular monotonicity does not establish a new mathematical comparison beyond the formulas.",
+      "residual_risks": [
+        "Earlier provenance of the triangular formula mentioned by the higher-rank Johnson entry is unresolved; it is not needed for the exact Kneser coverage conclusion.",
+        "The bounded literature comparison is not exhaustive and the later triangular date is not evidence of precedence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier, stronger theorem covers the entire Kneser component",
+          "evidence": "Same graph and projections, both rational endpoint formulas, cut peaks 8 and 9, cycle peak 12, with equal sharp values and limits.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-minimal-cut-and-cycle-projections-on-pair-kneser-graphs--6d5b49223730/RESULT.md",
+          "material_read": "Mirrored RESULT.md Finding, scope and opening Poisson-column proof, offsets 0–3248",
+          "method": "Resultary and local mirror",
+          "title": "Exact minimal cut and cycle projections on pair-Kneser graphs",
+          "trigger": "Exact cut, cycle and peak matches"
+        },
+        {
+          "assessment": "Equivalent values as stronger minimum constants for n≥5; later index date",
+          "evidence": "Same canonical norms on T_n for n≥5.",
+          "identifier_or_url": "Resultary 2026/11/2/91538d3ec7f3",
+          "material_read": "Mirrored RESULT.md Finding at offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Sharp two-sided projection constants for triangular graph edge spaces",
+          "trigger": "Exact triangular formulas"
+        },
+        {
+          "assessment": "k=2 explicitly outside theorem range",
+          "evidence": "3≤k≤⌊n/2⌋; formal substitution points to a previously established rank-two formula without identifying it in the inspected passage.",
+          "identifier_or_url": "Resultary 2026/10/18/8c057bfa2e76",
+          "material_read": "Mirrored RESULT.md Finding at offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Exact endpoint Hodge norms on all higher-rank Johnson graphs",
+          "trigger": "Potential stronger Johnson family coverage"
+        },
+        {
+          "assessment": "General framework and bounds, not exact values",
+          "evidence": "Transfer-impedance definition and induced ℓ1 competitive ratio; O(log² N) bound for edge-transitive graphs.",
+          "identifier_or_url": "https://arxiv.org/pdf/1708.01632",
+          "material_read": "PDF pp. 4–5, offsets 11180 and 13520",
+          "method": "OA PDF passage comparison",
+          "title": "Localization of Electrical Flows",
+          "trigger": "Electrical-routing norm equivalence and general edge-transitive bounds"
+        },
+        {
+          "assessment": "Relevant framework, not a located stronger theorem for the assigned families",
+          "evidence": "Focus on tori and Hamming graphs in passages inspected.",
+          "identifier_or_url": "https://denka.web.illinois.edu/CycleSpaces.pdf",
+          "material_read": "PDF p. 1 offset 0; p. 9 offset 30650",
+          "method": "OA author-hosted PDF passages",
+          "title": "Cycle Spaces: Invariant Projections and Applications to Transportation Cost",
+          "trigger": "Same cut/cycle projection framework"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and §4",
+        "Resultary 6d5b49223730 and 91538d3ec7f3"
+      ],
+      "rationale": "Different finite peak orders for the cut and cycle norms are meaningful structural data, but the exact phenomenon, values and all Kneser orders are already known. The remaining triangular boundary cases are small elementary checks, and the juxtaposition adds no new relationship between the projection spaces of complementary graphs.",
+      "residual_risks": [
+        "Does not deny the usefulness of the underlying exact invariant or judge triangular priority."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

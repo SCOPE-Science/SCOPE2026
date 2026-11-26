@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` with a standard Python 3 interpreter.
+# Independent mathematical audit
 
-The verifier constructs all \(27\) ternary length-three words. For every unordered pair, it enumerates every coalition inside that pair's descendant box whose descendant is identical but which omits one endpoint. Inclusion-minimizing all such witnesses gives exactly \(891\) minimal forbidden sets, each of size \(4\). A code is strongly \(\overline{2}\)-separable exactly when it contains none of these sets.
+## correctness
 
-Independent symbol permutations in each coordinate are transitive on the \(27\) words, so any nonempty code can be normalized to contain `000`. The verifier performs a complete include-or-exclude search over the remaining \(26\) words and proves that the largest normalized code has size \(10\). It enumerates exactly \(20\) such normalized maxima.
+PASS
 
-The verifier expands them by all coordinatewise symbol permutations and obtains exactly \(54\) labeled maxima. It independently checks the identity \(20\cdot27=54\cdot10\), then replays the original strong-separability definition on all \(54\) maxima by enumerating every nonempty coalition and intersecting all coalitions with a prescribed singleton or pair descendant.
+This decision assesses the repaired equality classification. The known optimum 10 and the known obstruction system also replay correctly. For each pair x,y, the full set of words in its box other than x is a same-descendant coalition exactly if each differing coordinate has some alternative word in the box carrying x's symbol there; y already supplies all other required symbols. Checking the same criterion for y gives an exact test for both endpoints. Singletons cannot fail. I implemented that test independently of the frozen forbidden-hypergraph search, exhaustively enumerated normalized codes containing 000, and confirmed 20 valid ten-word codes and no larger ones. Pruning only drops invalid partial sets and branches with too few words left to reach the target. Every label class has a normalization at some codeword. The full group orbit of the stated representative has 54 elements, and its slice containing 000 equals the whole independently enumerated normalized census. This proves completeness and yields stabilizer 1296/54=24. The profile counts are invariant under the group and correct on the representative. The independent method also recovered 891 minimal bad sets of size four; that auxiliary count is not a new assertion in the repair.
 
-Finally it applies the complete standard Hamming-isometry group \((S_3)^3\rtimes S_3\), verifies that the \(54\) maxima form a single orbit, and recomputes the coordinate, Hamming-distance, and descendant-box profiles. The verifier does not claim a formula for any other alphabet size or coalition parameter.
+## originality
 
-Expected terminal line:
+PASS
 
-`VERIFY_OK vertices=27 forbidden_minimal=891 forbidden_size=4 search_nodes=160998 maximum=10 normalized_maxima=20 labeled_maxima=54 natural_group=1296 orbits=1 orbit_size=54 stabilizer=24 coordinate_profile=4,3,3x3 hamming_profile=1x3,2x30,3x12 pair_box_profile=2x33,3x12 representative=000,001,012,022,102,110,121,202,211,220 forbidden_sha256=ff82cf6ad78340117b66c796a36321b3ee4d2e6885cc0f513bfcb25cd2623a92 normalized_sha256=fbabe79c8208e6eb434e66a140d6ea25644ebf3e61e5d8f995fbcbafc7e706c0 labeled_sha256=9f5c2de392d26f636c02b9e938b3b637e73f0e7eb4908e67cffeef3753e8f616`
+For the original novelty claim, the exact maximum and 891 minimal four-word obstructions are demonstrably covered by distinct Resultary record fc51dbba75e2; they are not accepted as new. Its witness belongs to the verified orbit, but the record does not establish that every optimum belongs to this orbit and explicitly disclaims such a classification. The repaired claim credits the known facts and asserts only the complete equality census and its structural consequences. No compared source gives or implies that remainder.
+
+## value
+
+PASS
+
+The known size and example alone would not qualify as a new exact result. The repaired claim answers a distinct question about the geometry of all extremizers: whether multiple inequivalent structures occur at the natural first ternary parameter of the length-three strong-separability problem. It gives a complete equality census, reduces all maxima to one representative, and gives invariants valid for any maximum. That is useful independently of producing an improved size bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

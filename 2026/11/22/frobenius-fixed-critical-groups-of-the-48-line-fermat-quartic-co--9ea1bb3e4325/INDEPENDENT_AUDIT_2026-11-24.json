@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:09:20.633645Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–62, VERIFICATION.md, verify.py and verification_output.txt (inspected as recorded evidence, not executed)",
+        "Independent replay: python /workspace/evidence/reconstruct.py 2; recorded output /workspace/evidence/2.txt"
+      ],
+      "rationale": "The 48 lines exhaust the claimed scope: on a projective line, fourth powers of up to four pairwise nonproportional binary linear forms are linearly independent in characteristic at least five (a Vandermonde minor after dividing by nonzero binomial coefficients). In the diagonal quartic equation each proportionality class must therefore have at least two nonzero coordinate forms, and an actual line must have at least two classes, forcing exactly two pairs. Same-family incidence follows by matching one exponent; for different pairings the four equations form a cycle with determinant a signed difference of powers of a primitive eighth root, so the zero tests specialize uniformly in odd characteristic. Independently expanding those determinants gives 48 vertices, 336 edges and reduced determinant 2^115*3^28*5^6. Frobenius multiplies the odd exponents by the residue of q; its inverse acts identically because odd residues modulo eight square to one. Using the successive differences e_i-e_(i+1) as a degree-zero basis, I imposed both Laplacian columns and Frobenius differences integrally and recovered the invariant factors from exact Hermite indices after adding each p^k times the divisor lattice. Successive differences of log_p(index) count factors of valuation at least k; the identity determinant supplies the complete prime support. All four residues, primary multiplicities and orders match the Finding, including equality for 3 and 7 and full 5-primary torsion for 5. The equivariant perfect graph pairing identifies the fixed group with the dual of the coinvariant group, hence their abstract factors agree.",
+      "residual_risks": [
+        "Does not cover characteristic three, twisted quartics, or an identification with a surface or smoothing invariant."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "1932fa3c1293 Finding treats the 112-line Hermitian graph in characteristic three.",
+          "0812.2377v3 and 1604.06265v3 discuss Fermat lines and geometric lattices."
+        ],
+        "reasoning": "The characteristic-three result does not specialize to this graph and these actions. General geometry and pairing statements do not evaluate the integral cokernels. The literature query returned no relevant broader computation, which is not proof of absence.",
+        "searches": [
+          "Resultary related Frobenius graph results",
+          "\"Fermat quartic\" \"critical group\" graph 48 lines Frobenius fixed subgroup"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records e6a8bff17712, 4c8353f211cf, 0ec6abf1f810, 1932fa3c1293",
+        "arXiv:0812.2377v3, arXiv:1604.06265v3, arXiv:0907.4764v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "e6a8bff17712 describes the abstract group for the complex graph, while 4c8353f211cf describes rational Néron–Severi/line-span eigenvalues."
+        ],
+        "reasoning": "An abstract finite group does not specify the induced endomorphism, and rational divisor-span traces are not Smith invariants of an integral graph presentation. The matching geometric labels permit the new calculation but do not make its result a prior corollary.",
+        "searches": [
+          "Statement comparison: e6a8bff17712, 4c8353f211cf, 0ec6abf1f810, 1932fa3c1293"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shokrieh arXiv:0907.4764v2, monodromy pairing passage",
+          "0ec6abf1f810 Finding is a connected generalized Jacobian, not integral graph-divisor classes."
+        ],
+        "reasoning": "The equivariant graph pairing makes fixed and coinvariant group tables equivalent as abstract groups; changing terminology alone would not escape overlap. The connected generalized Jacobian or a Picard rank table is not such a reformulation.",
+        "searches": [
+          "Resultary semantic lookup for the Fermat 48-line critical group and mod-eight Frobenius arithmetic",
+          "\"Fermat quartic\" \"critical group\" graph 48 lines Frobenius fixed subgroup"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "e6a8bff17712 Finding gives exactly the identity Smith factors 4^2,12^10,24^5,192^6,960^2,1920^3,5760; no nonidentity row in that statement.",
+          "4c8353f211cf Finding is an arithmetic table over Q on divisor spaces; the assigned record itself is not independent priority evidence."
+        ],
+        "reasoning": "Credit exact overlap for the identity; the searched prior tables did not give the asserted two nonidentity group structures.",
+        "searches": [
+          "Resultary semantic lookup for the 48-line intersection graph critical group and Frobenius fixed group"
+        ]
+      },
+      "rationale": "The nonidentity fixed-group rows survive statement-level comparison. The identity row and the geometry are antecedents already excluded from the novelty claim. No inspected prior statement supplies the nonidentity fixed finite groups or a stronger equivariant integral description implying them.",
+      "residual_risks": [
+        "Bounded source checks and a targeted literature search do not exclude earlier unlocated equivariant computations under graph-lattice or chip-firing terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identity row covered; no nonidentity assertion in passage",
+          "evidence": [
+            "The invariant factors, order and exponent concern the abstract graph critical group."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-critical-group-of-the-48-line-intersection-graph-on-the-complex--e6a8bff17712",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Critical group of the 48-line intersection graph on the complex Fermat quartic",
+          "trigger": "Same graph and ordinary critical group"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": [
+            "Computes rational ranks and Frobenius eigenvalues of the Néron–Severi space and line span."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-the-mod-eight-arithmetic-picard-diagram-of-the-fermat-quartic-an--4c8353f211cf",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Local mirror",
+          "title": "The mod-eight arithmetic Picard diagram of the Fermat quartic and its line-class defect",
+          "trigger": "Same Frobenius residues and lines"
+        },
+        {
+          "assessment": "Connected generalized Jacobian, not the finite critical group table",
+          "evidence": [
+            "The arithmetic object is the connected torus of the singular line union."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-the-genus-289-fermat-quartic-line-divisor-integral-torus-and-poi--0ec6abf1f810",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Local mirror",
+          "title": "The genus-289 Fermat quartic line divisor: integral torus and point-free arithmetic",
+          "trigger": "Same line union and arithmetic Jacobian terminology"
+        },
+        {
+          "assessment": "Different graph and character regime",
+          "evidence": [
+            "The result concerns the 112 lines over the algebraic closure of F_3."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-frobenius-descent-of-the-critical-group-of-the-112-line-hermitia--1932fa3c1293",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Frobenius descent of the critical group of the 112-line Hermitian quartic graph",
+          "trigger": "Same type of graph arithmetic calculation"
+        },
+        {
+          "assessment": "Geometric background",
+          "evidence": [
+            "Discusses line generation of Néron–Severi groups."
+          ],
+          "identifier_or_url": "arXiv:0812.2377v3",
+          "material_read": "p. 1, offset 1510",
+          "method": "Bounded OA text",
+          "title": "Lines on Fermat surfaces",
+          "trigger": "Primary geometry reference"
+        },
+        {
+          "assessment": "Geometric background",
+          "evidence": [
+            "Distinguishes the 48 Fermat lines from the 56-line model."
+          ],
+          "identifier_or_url": "arXiv:1604.06265v3",
+          "material_read": "p. 1, offset 488",
+          "method": "Bounded OA text",
+          "title": "On a smooth quartic surface containing 56 lines which is isomorphic as a K3 surface to the Fermat quartic",
+          "trigger": "Primary line configuration reference"
+        },
+        {
+          "assessment": "General pairing, no evaluated Fermat claim in passage",
+          "evidence": [
+            "Discusses the monodromy pairing on graph Jacobians."
+          ],
+          "identifier_or_url": "arXiv:0907.4764v2",
+          "material_read": "p. 44, offset 4203",
+          "method": "Bounded OA text",
+          "title": "The monodromy pairing and discrete logarithm on the Jacobian of finite graphs",
+          "trigger": "Potential fixed/coinvariant equivalence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Finding and independent replay; prior full group e6a8bff17712"
+      ],
+      "rationale": "All three nonidentity actions have the same vertex cycle lengths, but the 5-primary fixed rank is six for residue five and three for residues three and seven. The complete integral table thus answers a well-defined descent question that neither line splitting nor the known abstract full group settles, and supplies local factors for comparing these configurations, not just tree counts.",
+      "residual_risks": [
+        "Value is for the canonical graph; no algebraic Picard or Néron interpretation is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

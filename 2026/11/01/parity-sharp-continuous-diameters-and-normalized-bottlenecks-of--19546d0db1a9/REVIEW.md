@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The compact metric wheel and edge-interior geodesic distance are specified without an embedding assumption. Rim--rim, rim--spoke and spoke--spoke pairs exhaust every pair. The inequalities and attainment arguments in the proof establish the claimed exact maximum for all integer rim orders and positive real spoke lengths. Piecewise monotonicity gives every equality case of the normalized maximum. The standalone exact-rational edge-pair checker passed 80 independent parameter configurations; these are supplementary tests, not a substitute for the proof.
+## correctness
 
-**Originality — PASS under accessible-evidence comparison, with historical-priority uncertainty.** Network Farthest-Point Diagrams (Bose et al., 2013) supplies general continuous-network farthest-point algorithms, without an explicit symmetric-wheel phase diagram. De Carufel et al. (2015) optimize added shortcuts to paths/cycles, not a weighted wheel with an arbitrary number of hub spokes. Ahn et al. (2026) give general length--diameter inequalities, not this exact family-specific expression. Discrete wheel-graph vertex-distance results do not subsume arbitrary edge-interior distances. Targeted semantic database queries also found no dominating wheel-diameter result; nearby wheel *polytope* results concern different geometric objects. The bibliographic record for Chen--Garfinkel (1982) is relevant, but its complete text was inaccessible and historical overlap remains a concrete risk. Lack of a found match is not a proof of priority.
+PASS
 
-**Value — PASS.** Continuous diameter measures worst-case travel distance on a network. The theorem supplies an exact invariant for the entire two-parameter positive-length, variable-order family, including nontrivial odd-rim middle branches, and a sharp characterization of spoke lengths maximizing diameter per unit of material/network length. The parity distinction and the exceptional triangular rim are structural; they cannot be read from vertex diameter. General algorithms or coarse length bounds do not provide these explicit thresholds.
+For rim points the only competitive routes are along the rim or via the hub; the latter has length 2s plus the two nearest-rim-vertex offsets. At even order opposite midpoints simultaneously attain the two separate bounds. At odd order the midpoint triangle inequality gives d_C+δ(x)+δ(y)≤floor(n/2)+1, and one midpoint paired with a point moving from the opposite edge midpoint to its endpoint attains the three branches. A rim–spoke pair similarly has distance min(t+s+δ,s−t+r) for hub coordinate t and rim distance r from the spoke base. The bound r+δ≤ceil(n/2) is attained at a farthest edge midpoint, and balancing or clipping t gives B_n. Same-spoke distance is at most s; distinct spokes give at most min(2s,s+floor(n/2)/2) by the hub/rim alternatives. Maximizing each normalized branch gives the unique even and odd optima claimed, since in each n≥4 case B_n has strictly smaller normalized maximum than A_n; direct substitution gives D_3(s)=1+s for all s>0. The independent exact-rational edge-pair envelope checker found agreement in 75 parameter cases at n=3,…,11, including breakpoints and their neighborhoods, and recovered the normalized optima at the claimed s. No frozen script was run.
 
-The result does not treat unequal spoke lengths or arbitrary wheel edge weights; it does not resolve historical priority over inaccessible older generalized-diameter papers.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The available comparisons cover general all-edge-point diameter methods, nearby extremal problems and different invariants of wheels, but did not establish this parity-sensitive law or its normalized equality cases for the fixed symmetric family. The result passes on the distinct formulas, not on the general diameter notion or finite-candidate method. The most plausible older source is only partly accessible; that remains a historical risk.
+
+## value
+
+PASS
+
+The wheel is a canonical two-route network and its vertex diameter misses the edge-interior bottlenecks. The result resolves the full parameter range, including the extra odd-order rim constraint, the takeover by a rim–spoke pair at large s, and the sharp and differently attained efficiency of worst distance per total length. The explicit witnesses and equality cases make this useful as an exact comparison family for metric-graph diameter; it is not merely a computed value at one length.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

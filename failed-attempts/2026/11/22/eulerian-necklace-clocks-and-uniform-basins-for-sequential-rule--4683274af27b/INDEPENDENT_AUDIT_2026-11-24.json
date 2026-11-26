@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:58:29.542793Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In unrolling the source of a copied bit, following a neighbor already updated strictly decreases visit rank until the next clockwise rise; the source is exactly the first member of S strictly clockwise. There is at least one rise and one fall. Between successive members of S the output is a constant block holding the old bit at the next member. Its restriction to the k source sites therefore rotates the image, proving periodic entry in at most one sweep, exactly 2^k recurrent states, and 2^{n−k} preimages per recurrent state. For p dividing k a length-k rotation word of least period p is determined by its length-p primitive block, counted by Möbius inversion; a rotation period cannot fail to divide k if least. Multiplying the fibers by orbit size or by the primitive-state count gives the two basin formulas. Rooting the cyclic rank list at its maximum gives one fixed cyclic ascent plus the ordinary ascents of a permutation of n−1 entries. This yields the schedule factor and the joint count, with k=1 exactly the all-fixed-after-one-sweep class (a one-hot core realizes period k otherwise). For independent continuous ranks the cyclic ascent count has variance n/12 from adjacent covariance −1/12, and the usual bounded one-dependent CLT applies after dropping the wraparound comparison. Bounded differences gives an exponential lower-tail bound for k<n/4, and a uniform core word has proper period with probability at most k·2^{−k/2}; thus the stated Gaussian law follows. Inspected both supplied verification scripts and archived outputs (symbolic n=3–8, exhaustive states n=3–7); not rerun. The failure is not a mathematical counterexample.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 9 treats one-way Rule 170 with block-sequential schedules; permutations are singleton-block schedules.",
+          "The 2025 temporal-dynamics paper treats Rule 170 under local clocks, comparing last-update positions where runs stop; Corollary 5 explicitly includes sequential Rule 170 with O(n) longest cycles.",
+          "The convergence paper lists Rule 170 as having a sequential universal update mode (one schedule drives all inputs to fixed points)."
+        ],
+        "reasoning": "Existence of a consensus schedule and the linear upper bound are partial coverage. The earlier exact block-sequential map is stronger coverage, and specializes to the frozen hypothesis without a change of dynamics.",
+        "searches": [
+          "arXiv:2004.07128, §4.2.1, Theorem 9",
+          "arXiv:2505.10645v1, Theorem 10 and Corollary 5",
+          "arXiv:2509.07797v2, Definition 3 and Table 17"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2004.07128",
+        "arXiv:2505.10645v1",
+        "arXiv:2509.07797v2",
+        "Resultary Rule 150 and bi-threshold entries a8edc73752da, e79a108b9794, d0eaea0f4dd6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Each next-⊕ block in the prior formula duplicates exactly one input bit, so its image is a k-bit word and the core restriction cycles the source sites. There are 2^{n−k} assignments of the unused bits for each core output.",
+          "An orbit of least period p in this rotation contributes p such fibers; the classical primitive binary-word count gives the number of core states. The Eulerian schedule frequency is already available as a permutation statistic."
+        ],
+        "reasoning": "The basin and joint formulas amount to taking the fibers of the known map and multiplying the two standard counts. The asymptotic addition follows by bounding the chance of a nonprimitive uniform rotation word by k·2^{−k/2} and applying the standard ascent CLT and concentration; it does not establish a separate structural ingredient for Rule 170.",
+        "searches": [
+          "arXiv:2004.07128, proof of Theorem 9, PDF printed pp. 12–13",
+          "SCOPE-scan-order-phase-diagram-and-exact-rule-150-cycle-census-on-bina--a8edc73752da, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "On the directed dependency (i+1,i) the prior label ⊕ means the source i+1 is updated no earlier than receiver i. With singleton blocks this is exactly t_i<t_{i+1}, i.e. i+1 in S.",
+          "Theorem 9's proof gives f^(Δ′)(x)_(i₀+k)=x_(i₀+ℓ+1) for 0≤k<ℓ when ℓ is the first subsequent ⊕ edge; an immediate ⊕ instead gives f^(Δ)(x)_i₀=x_(i₀+1)."
+        ],
+        "reasoning": "Applying the proof's run formula from any i with a non-⊕ dependency and the immediate case otherwise gives exactly x_{next_S(i)}, including a return to i after a full clockwise turn when k=1. The prior formulation through update labels is the same global map, not just a bound on one statistic.",
+        "searches": [
+          "arXiv:2004.07128, search for Rule 170 and §4.2.1 One-way ECAs; update-label definition and Theorem 9 proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2026/11/2 Rule 150 census gives the exact same schedule histogram n·Eulerian(n−1,k−1); the histogram concerns the permutation itself. Its temporal census is not the Rule 170 census.",
+          "The fixed-scan bi-threshold record gives a rotating necklace and nonuniform basins for a different local update. The same-day arbitrary-order bi-threshold record has two counter-rotating sectors with Eulerian schedule classes but does not give the complete transient and basin assertions."
+        ],
+        "reasoning": "No distinct exact Rule 170 joint table was identified in the bounded catalogue check. That does not create a distinct claim where the same earlier map already yields the entries by uniform fibers and the standard primitive necklace count.",
+        "searches": [
+          "Resultary: arbitrary sequential binary-ring update permutations, Eulerian period census, binary necklaces and uniform basins",
+          "SCOPE-a8edc73752da, SCOPE-e79a108b9794 and SCOPE-d0eaea0f4dd6"
+        ]
+      },
+      "rationale": "The decisive prior is not just a sensitivity classification or an O(n) period bound. The proof of Theorem 9 of de Oliveira et al. (arXiv:2004.07128, §4.2.1) gives exactly the copy-through-to-the-first-stopping-edge formula for Rule 170 in the broader block-sequential setting. Its singleton-block specialization is the frozen copy-source lemma. The asserted core, uniform basins and period census are direct consequences of that known map and classical rotation counting, with the schedule factor separately present in the Rule 150 record and independent of the cellular rule. No distinct nonmechanical mathematical remainder was established. This credits an implication of an available proof, not an assumption that the prior authors wrote all of the same formulas.",
+      "residual_risks": [
+        "Not an exhaustive priority search; the specific basin and joint formulas need not have appeared verbatim. The judgment rests on the checked proof of the same map and the explicit implications above, not lack of access to another source."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive prior equivalent global map under the singleton-block specialization",
+          "evidence": [
+            "r170(x)=x_i+1; along a run of earlier-source dependencies the output copies x_(i₀+ℓ+1) at the end; on a ⊕ edge it copies x_(i₀+1). The labeling definition is the comparison of source and receiver update blocks."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2004.07128",
+          "material_read": "Update-label definition, offsets 11195–12261; §4.2.1 Theorem 9 and proof, offsets 46750–53965 (printed pp. 12–13 for the proof)",
+          "method": "Bounded OA PDF passages",
+          "title": "Non-maximal sensitivity to synchronism in periodic elementary cellular automata: exact asymptotic measures",
+          "trigger": "Same rule and schedules; exact content of prior sensitivity proof"
+        },
+        {
+          "assessment": "Explicit Rule 170 linear period coverage and a related stopping-location argument, not the main reason for failure",
+          "evidence": [
+            "Theorem 10 bounds local-clock Rule 170 periods via run stopping locations; Corollary 5 explicitly includes (170, seq) with largest limit cycles of size O(n)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2505.10645v1",
+          "material_read": "§3.1.2; Theorem 10 proof and Corollary 5 around PDF text offsets 47420–53589",
+          "method": "Bounded OA PDF passages; full paper accessible despite frozen access note",
+          "title": "Impact of (a)Synchronism on ECA: Towards a New Classification",
+          "trigger": "Potential overlap on exact temporal dynamics of sequential Rule 170"
+        },
+        {
+          "assessment": "Existential universal-schedule result, not the complete schedule census",
+          "evidence": [
+            "Universal mode means all inputs reach a fixed point under that mode; Rule 170 is listed as having a sequential universal mode."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2509.07797v2",
+          "material_read": "Sequential update definition p. 2; Definition 3 p. 8; discussion p. 11 and Table 17 p. 37",
+          "method": "Bounded OA PDF passages",
+          "title": "On the Convergence of Elementary Cellular Automata under Sequential Update Modes",
+          "trigger": "Prior sequential fixed-point convergence for same rule"
+        },
+        {
+          "assessment": "Identical permutation histogram; different local dynamics",
+          "evidence": [
+            "Eulerian schedule frequency by cyclic ascent count; Rule 150 is already periodic on the full state space."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-scan-order-phase-diagram-and-exact-rule-150-cycle-census-on-bina--a8edc73752da",
+          "material_read": "Finding at local mirror offset 0",
+          "method": "Resultary and local mirror text",
+          "title": "Scan-order phase diagram and exact Rule 150 cycle census on binary rings",
+          "trigger": "Prior exact schedule histogram and census under fixed permutations"
+        },
+        {
+          "assessment": "Different local rule and fixed scan; nonuniform basins",
+          "evidence": [
+            "One-sweep rotation with run-dependent basin sizes."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-binary-necklace-attractors-and-triangular-run-basins-for-sequent--e79a108b9794",
+          "material_read": "Finding at local mirror offset 0",
+          "method": "Resultary and local mirror text",
+          "title": "Binary-necklace attractors and triangular-run basins for sequential bi-threshold cycles",
+          "trigger": "Prior one-sweep necklace and orbit basin formulas"
+        },
+        {
+          "assessment": "Related but different rule; no priority inferred from shared date",
+          "evidence": [
+            "Two opposite rotation sectors, lengths given by cyclic rises and falls, but no complete individual basin result."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-two-counter-rotating-necklace-sectors-for-every-sequential-bi-th--d0eaea0f4dd6",
+          "material_read": "Finding and scope at local mirror offset 0",
+          "method": "Resultary and local mirror text",
+          "title": "Two counter-rotating necklace sectors for every sequential bi-threshold sweep",
+          "trigger": "Closest arbitrary-order catalogue analogue"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The census is a useful exposition of the Rule 170 map, but as a new finding it supplies no nonmechanical invariant beyond the prior exact coordinate map. The fiber sizes are powers of two from unused coordinates, the orbit sizes are those of an ordinary binary rotation, and the schedule census and CLT add standard permutation and random word calculations. The work does not clear the value standard for a distinct exact result as submitted.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

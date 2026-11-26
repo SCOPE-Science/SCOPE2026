@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification scope
+# Independent mathematical audit
 
-The accompanying standalone `verify.py` reconstructs the stationary Gaussian age-mixture moments from elementary Laplace transforms, independently verifies the exact rational excess-kurtosis formula, differentiates it, and compares the derivative to the explicit polynomial whose coefficient-sign pattern proves uniqueness of the optimum. It checks the noise-free \(57\) limiting excess kurtosis, the two positive-thermal-noise endpoints and strict thermal-noise dependence. It also performs 20 numerical quadratures of the original age distribution, six numerical derivative-root checks and three reproducible Gaussian age-mixture simulations with 1,500,000 draws each.
+## correctness
 
-# Actual result
+PASS
 
-The reproducibility script completed with `PASS`. For \(h=1\), its unique numerical optimum was \(k=1.1739006879\ldots\) and the maximum excess kurtosis was \(5.5229089372\ldots\). All 20 quadrature comparisons met an absolute tolerance of \(2\times10^{-7}\). Monte Carlo comparisons were subjected to a conservative absolute tolerance of \(0.18\) because fourth-moment estimators have appreciable variance.
+At a stationary independent Poisson age U of rate k, the dimensionless conditional position is centered Gaussian with variance hU+2U−3+4e^(−U)−e^(−2U), using force initialized at zero. Independently reconstructed the rational excess kurtosis via the stationary generator of the scaled position and force, with reset term −k on each nonconstant monomial: (k+j)M_ij=iM_(i−1,j+1)+h·binom(i,2)M_(i−2,j)+j(j−1)M_(i,j−2). Exact symbolic differentiation gives the stated degree-seven sign pattern: + for degrees 7 through 3, unrestricted degree 2, − for degrees 1 and 0. For h>0 there is one positive root by Descartes and the opposite signs at 0 and infinity; the derivative has the opposite sign of this polynomial. Both endpoint excesses are 3. For h=0 the independent formula reduces to 3+54k(k+2)/[(k+3)(k+4)], strictly increasing to 57. The thermal derivative is strictly negative pointwise, hence the optimized height strictly decreases between positive h values. Under h=e³, k=c/e, multiplying the critical polynomial by e² gives limiting sign polynomial 128c⁵−720c²; bracketing its nonzero root and using uniqueness proves the weak-noise scaling. The peak tends to 57 by comparison to the h=0 curve, taking h→0 at fixed k and then k→∞ for the lower bound. At h=1: k*=1.173900687945557, K=5.522908937170489. Replay: python /workspace/calculations/reproduce_frozen.py (check reset_kurtosis). No stationary regime at zero reset rate is used.
 
-# What has not been established
+## originality
 
-Finite numerical checks are not proofs of all-parameter uniqueness; that conclusion follows from the exact derivative identity and Descartes' rule in `RESULT.md`. No external or independent audit has been performed. No statement about operational optimality of a search or any other observable is verified. The full correctness proof assumes instantaneous complete resets and a Gaussian active force initialized at zero each cycle.
+PASS
 
-# Reproducibility
+Best of current knowledge: the same process and full-reset Gaussian renewal propagator are known. The supported distinction is the global shape classification of the stationary kurtosis and its singular change at zero thermal noise, including proof of a unique maximizer for every strictly positive thermal ratio. Computing mixture moments from the propagator is not a novel method.
 
-Run `python verify.py` with Python 3 and recent SymPy, NumPy and SciPy. No data files, network requests, proprietary code or external dependencies other than those packages are required.
+## value
+
+PASS
+
+Different variances need not order standardized excursion amplitudes. The result identifies the unique extremum of a concrete shape observable and a sharp boundary in thermal noise: the optimum escapes to infinite reset rate on approaching the noise-free limit. Establishing this for arbitrarily small positive noise, rather than for a few plotted choices, is the value. It does not rank first-passage performance or determine positional tail laws.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

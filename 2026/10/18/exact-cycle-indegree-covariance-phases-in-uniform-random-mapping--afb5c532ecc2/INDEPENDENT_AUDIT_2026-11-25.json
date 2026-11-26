@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:23:23.396088Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed formulas (1)–(5). Each prescribed directed k-cycle has probability n^(−k) and fixes exactly k images. A uniform marked vertex is on it with probability k/n, so its indegree in the cycle-weighted law is B_(n−k)+Bern(k/n), independent summands. This is size-weighted by the cycle count, not conditioning on the existence of a cycle. With k=1 this is B_n, explaining vanishing mixed covariances. Merging the residual Bern(p) and Bern(jp) into Bern((j+1)p) changes the PGF by −jp²(z−1)², giving the formula for every score after telescoping and multiplying by n e_(n,k). For the indicators r=0 and r=1 the curvature terms are respectively positive and negative; for r≥3 the ratio b_m(r−1)/b_m(r−2) is strictly below 1/2 whenever the denominator is positive, and the first summand is then strictly positive. For r=2, the reduced curvature P_m decreases strictly with m, so the bracket increments as k increases change sign at most once from positive to negative. The bracket starts positive at k=2 for n≥4, since A_(n−2)(2)=−q^(n−4)(n−3)/(2n); it ends strictly negative at k=n because the tilted indegree is identically one. The polynomial-exponential scalar in (2) has the sign of the bracket under the stated positive factor, including k=n. Small n gives a negative sign for n=2 and zero then negative for n=3. In fact k>2 cannot tie: n²(n−1)q^k=(n−1)^(k+1)/n^(k−2) is not integral, whereas the other term is. For k/n→t, S/n³ tends to (1−t)(1+t²)−exp(−t). The derivative of exp(t)(1−t)(1+t²) is exp(t)t(1−2t−t²), yielding one interior root τ≈0.58472438648, and the finite switch traps κ_n/n between any fixed t values bracketing τ. The bundled finite checker was inspected, not executed; no all-n conclusion is inferred from its finite enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Exchangeable-indegree theory conditions on the indegree vector and describes cyclic vertices and the conditional permutation. The earlier Resultary formula treats total components, equal to the sum of cycle counts, and has a Poisson second-difference limit for fixed degree."
+        ],
+        "reasoning": "These models give broad machinery for deriving mixed moments. The aggregate covariance sums out length, so its stated signs cannot determine the individual signs at each k, let alone the macroscopic crossover.",
+        "searches": [
+          "Hansen–Jaworski arXiv:math/0603529, cyclic-vertex law and conditional permutation model",
+          "Resultary 2026/10/12/SCOPE-a-poisson-second-difference-law-for-component-indegree-covarianc--303f0920fc82"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, REVIEW.md and verify.py",
+        "Resultary --610d4202ffd1, --303f0920fc82, --e4cf3e3e51f2, --007c2a04bfe9 and related --e5840749e441 (conditioned loop dispersion)",
+        "Arney–Bender 1982 Tables I–II; Flajolet–Odlyzko Theorem 4; arXiv:math/0603529; arXiv:1908.10024",
+        "Hansen–Jaworski 2008 and Leckey–Wormald 2018, abstract passages only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The factorial-moment pruning identity gives the exact r=0 covariance with arbitrary cycle-length-vector functions, hence each r=0 entry. The cyclic-core result describes zero-indegree occupancy given the total core size. The exact degree-two result --610d4202ffd1 isolates a different slice and states a no-tie refinement."
+        ],
+        "reasoning": "Neither pruning at degree zero nor the earlier component covariance yields the all-degree, length-specific sign theorem. Standard curvature/conditioning ingredients and the explicit overlap at r=0 do not supply the single crossing via the binomial degree-two curvature or its nonzero crossover root.",
+        "searches": [
+          "Same-day Resultary 2026/10/18/SCOPE-pruning-invariance-and-sharp-terminal-component-anticorrelation--e4cf3e3e51f2 and cyclic-core --007c2a04bfe9",
+          "Compare earlier summed covariance and later exact degree-two theorem to formulas (1)–(5)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The marked indegree is a Poisson-binomial sum with n−k coordinates p, one kp, and k−1 zeros, mean one. The cited result gives the equal-mean binomial upper bound in convex order and a Poisson-binomial variance formula."
+        ],
+        "reasoning": "This immediately provides the convex-score sign (extend from strict convexity by adding a vanishing positive strictly convex term) and, via equal means, the collision-score variance difference. It does not give the exact curvature expansion for arbitrary scores or the local-mass sign switch.",
+        "searches": [
+          "Random mappings: mixed cycle/indegree covariance, marked vertex occupancy, convex-order and Bernoulli merging",
+          "Tang–Tang arXiv:1908.10024 Theorem 2.1 and Eq. (2.1)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published tables and theorem read concern marginal counts or moments. Resultary --610d4202ffd1 does give the degree-two slice, including the same limiting root and a stronger finite no-tie assertion, on a later catalogue date."
+        ],
+        "reasoning": "Marginal distributions do not yield mixed moments, and the exact later match is one degree slice, not the original full array. Same-day degree-zero work is genuine overlap and date alone does not decide priority.",
+        "searches": [
+          "Resultary: cycle–indegree sign transitions, exact branching-point covariance, covariance for fixed indegree class",
+          "Arney–Bender Tables I–II, Flajolet–Odlyzko Theorem 4",
+          "Primary query for exact length-resolved indegree covariance and second-difference/occupancy laws"
+        ]
+      },
+      "rationale": "The finite length-resolved sign law and its indegree-two crossover are distinct in the priority-relevant sources inspected. Conditioning on a prescribed cycle is elementary; the convex-order inequality itself and the variance mechanism behind the collision-score corollary are specializations of standard Poisson-binomial comparisons, not independent novelty. The arbitrary-score curvature equality is more explicit than those inequalities. A later Resultary record directly matches the degree-two formula and switch, so they are not distinct from that later recorded slice; the later date and the different scope do not establish earlier coverage of this theorem.",
+      "residual_risks": [
+        "Berg–Jaworski, Probability Distributions Related to the Local Structure of a Random Mapping (1992), was not read; older multivariate generating functions could specialize to additional identities. The direct Theorem citation to Hoeffding was inspected through the OA exposition by Tang–Tang, not the unavailable original PDF. No historical-priority certification or inference from empty search returns."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct later coverage of r=2, not the full finding",
+          "evidence": "Exact r=2 covariance, single switch, τ≈0.5847243864796 and no finite ties for n≥4.",
+          "identifier_or_url": "2026/10/26/SCOPE-a-single-cycle-length-sign-transition-for-branching-point-covari--610d4202ffd1",
+          "material_read": "RESULT.md offsets 0, 3492",
+          "method": "Local catalogue and mirror",
+          "title": "A single cycle-length sign transition for branching-point covariance",
+          "trigger": "Identical dimensionless r=2 crossover and covariance"
+        },
+        {
+          "assessment": "Related finite identity and asymptotic signs after summing over cycle lengths",
+          "evidence": "Degree-profile covariance polynomial for total components and a Poisson second-difference limit.",
+          "identifier_or_url": "2026/10/12/SCOPE-a-poisson-second-difference-law-for-component-indegree-covarianc--303f0920fc82",
+          "material_read": "RESULT.md offsets 0 and 3000",
+          "method": "Local catalogue and mirror",
+          "title": "A Poisson second-difference law for component–indegree covariance",
+          "trigger": "Earlier covariance with the full indegree profile"
+        },
+        {
+          "assessment": "Direct r=0 overlap only",
+          "evidence": "Factorial moments of the indegree-zero count jointly with functions of the full cycle-length vector yield the exact r=0 covariance.",
+          "identifier_or_url": "2026/10/18/SCOPE-pruning-invariance-and-sharp-terminal-component-anticorrelation--e4cf3e3e51f2",
+          "material_read": "RESULT.md offset 0, Finding",
+          "method": "Local catalogue and mirror",
+          "title": "Pruning invariance and sharp terminal-component anticorrelation",
+          "trigger": "Same-day exact covariance for leaves with cycle counts"
+        },
+        {
+          "assessment": "Marginal information, not mixed signs",
+          "evidence": "Tables include origin/indegree and cycle statistics in unconstrained cases without the length-specific mixed covariance.",
+          "identifier_or_url": "https://msp.org/pjm/1982/103-2/pjm-v103-n2-p03-p.pdf",
+          "material_read": "Tables I–II, journal pp. 272–273, offset 6800",
+          "method": "OA PDF",
+          "title": "Random Mappings with Constraints on Coalescence and Number of Origins",
+          "trigger": "Explicit classic mapping-statistics tables"
+        },
+        {
+          "assessment": "Marginal fixed-degree asymptotics",
+          "evidence": "Separately estimates means of fixed-size configurations; no length-specific mixed covariance in the theorem.",
+          "identifier_or_url": "DOI:10.1007/3-540-46885-4_34",
+          "material_read": "Theorem 4, PDF p. 11, offset 34300",
+          "method": "OA PDF",
+          "title": "Random Mapping Statistics",
+          "trigger": "Classical r-node and r-cycle statistics"
+        },
+        {
+          "assessment": "Structural route to mixed statistics, not the final sign theorem",
+          "evidence": "Gives cyclic-vertex distribution in terms of indegrees and component count from a uniform permutation conditional on core size.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0603529",
+          "material_read": "Abstract and cyclic-vertex and conditional permutation passages at offsets 23200–29989, pp. 10–12",
+          "method": "OA PDF",
+          "title": "A new random mapping model",
+          "trigger": "Possible subsumption by joint indegree and core laws"
+        },
+        {
+          "assessment": "Convex and variance comparisons apply after the cycle-weighted law is identified",
+          "evidence": "For a fixed Bernoulli mean vector sum the binomial maximizes convex expectations; the variance deficit is the sum of squared probability deviations.",
+          "identifier_or_url": "https://arxiv.org/pdf/1908.10024",
+          "material_read": "PDF p. 2, Eq. (2.1), Theorem 2.1 and commentary, offsets 6250–8321",
+          "method": "OA PDF",
+          "title": "The Poisson Binomial Distribution—Old & New",
+          "trigger": "Classical equal-mean convex-order and variance comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The mechanism distinguishes every indegree class and every cycle length, not merely marginal means, with an exact finite sign reversal and a nonzero scaled cutoff in the only changing degree class. The arbitrary-score identity explains the geometry of that comparison and is reusable beyond an indicator. Macroscopic cycles can be rare; the cutoff is a sign property of the covariance, not a typical mapping transition.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

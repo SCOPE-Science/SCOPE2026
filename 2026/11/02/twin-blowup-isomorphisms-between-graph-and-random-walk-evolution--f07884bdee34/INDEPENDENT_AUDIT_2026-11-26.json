@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:03:16.360871Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–68; VERIFICATION.md; checker.py (inspected, not executed)",
+        "Independent replay: python3 -B /workspace/independent_checks.py 5"
+      ],
+      "rationale": "Invertible base adjacency makes the block-square vectors u_i linearly independent. On the intrinsic square space dual, the determinant of the multiplication pencil is a product of distinct linear factors ell(u_i) with exponents n_i, times a nonzero scalar in the normalized algebra. Unique factorization and the radicals at points on only one factor recover the block permutation and its dimensions. Independently, the rank of left multiplication by x equals the number of its nonzero block projections: each nonzero projection gives a surjective scalar functional on its block, independently of the others, with output along u_i. Thus the maximal subspaces of the rank-at-most-one locus are exactly the blocks, even over fields where nonzero vectors can have zero self-dot-product. Projecting the transported u_i across these blocks gives a graph automorphism and T(s_j)=c_i s_sigma(j) for each edge i~j. Evaluating the product identity on s_i twice gives k_i^2=d_i c_i because its norm n_i is nonzero. Even-walk connectedness forces a common scalar in the nonbipartite case, and one scalar per side in the bipartite case; solving the latter equations gives b^3=D_X^2 D_Y and a=b^2/D_X. Dividing T_i by k_i yields precisely a dot-product isometry preserving the block sum. Conversely these block maps satisfy the product identity; block coordinate maps supply an isometry for any allowed permutation. The specialization to complete multipartite graphs uses det Adj(K_t)=(-1)^(t-1)(t-1) and d_i=N-n_i. For K_{2,3}, 18 is indeed not a rational cube. Independent finite determinant enumeration and rational edge-equation checks gave 412 cases, 385 expanded-singular, eight degree-condition cases and six rational witnesses.",
+      "residual_risks": [
+        "Finite tests do not exclude general non-diagonal maps; block recovery and the norm constraint prove this exclusion where the criterion fails. No claim extends to arbitrary singular quotients or positive characteristic."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:1710.10516 Theorem 2.3 concerns invertibility of the expanded graph's adjacency. arXiv:2405.12341 Proposition 3.1 covers double stars C_{m,n}, m,n>1. The October 2026 survey asks Question 26 for general connected graphs."
+        ],
+        "reasoning": "Any nonsingleton class makes the expanded matrix singular despite quotient invertibility. Double stars are included as blowups of P4 and are genuinely covered examples, but their theorem does not cover more general bases or give the all-map and field results. The survey question motivates the subproblem, not a proof of it.",
+        "searches": [
+          "On the isomorphisms between evolution algebras of graphs and random walks, Theorem 2.3 regular biregular adjacency matrix",
+          "arXiv:2610.22248v1 §2.2.4 Question 26",
+          "On some singular graphs with non-isomorphic associated evolution algebras twins caterpillar double star graph random walks"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1710.10516",
+        "arXiv:2405.12341",
+        "arXiv:2610.22248v1",
+        "Resultary records 185eb829c34e, e8128244024e, 4d62f6d1f6ce and 79c475fcec77"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Example 2.3 already constructs the real K_{m,n} isomorphism with cube-root side scalings. Proposition 2.4 constructs biregular maps with similar scalings; Proposition 2.5 assumes a monomial map in its necessity argument. The double-star obstruction is known for the stated singular subfamily."
+        ],
+        "reasoning": "The earlier formulas give sufficiency whenever the displayed cube roots exist; this is prior overlap, not an independent novelty claim for the formula. They cannot exclude arbitrary nondiagnonal/nonmonomial isomorphisms when the root is absent. That uses intrinsic block recovery and the transport of the block-sum norms. The real-only matched conclusion also cannot imply the obstruction, as the real degree conditions hold for K_{2,3} while rational isomorphism fails.",
+        "searches": [
+          "arXiv:1710.10516 Example 2.3; Propositions 2.4–2.5",
+          "arXiv:2405.12341 §3.1 Proposition 3.1",
+          "Resultary e8128244024e proof; 79c475fcec77 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "e8128244024e gives the same blowup iff over the reals for nonsingular false-twin quotient and recovers scaled orthogonal block maps; its dated record is later. 4d62f6d1f6ce concerns singular false-twin quotients. 185eb829c34e gives an earlier real corank-one criterion and monomiality."
+        ],
+        "reasoning": "Here the parts really are maximal false-twin classes: equal neighborhoods of different base vertices would make base adjacency rows equal. Thus the nonsingular-twin-quotient real formulation is substantial mathematical overlap, not just similar terminology. The quotient-singular case is complementary; an expanded corank-one condition limits the total excess class size to one and does not cover arbitrary block dimensions.",
+        "searches": [
+          "scaled block orthogonal maps all isomorphisms graph random walk evolution algebra false twins",
+          "Resultary records e8128244024e, 4d62f6d1f6ce and 185eb829c34e, Findings and available proof passages"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "e8128244024e is the strongest indexed exact overlap at K=R, including complete multipartite specialization, but is a distinct later-dated record. Same-date 79c475fcec77 concerns automorphisms of a single complete-bipartite graph algebra over odd finite fields."
+        ],
+        "reasoning": "Do not disregard the real-field overlap or claim that the real restriction has no matching statement. Neither the later record nor the same-day finite-field automorphism classification supplies predated arbitrary-field coverage. Same-date publication labels alone establish no priority.",
+        "searches": [
+          "Resultary: scaled block orthogonal maps all isomorphisms graph random walk evolution algebra false twins",
+          "Resultary: cube root field obstruction biregular graph evolution algebra random walk isomorphism"
+        ]
+      },
+      "rationale": "Credit the earlier nonsingular-expanded criterion, real complete-bipartite construction, and selected singular examples. The closest distinct indexed statement is a near-exact real-field match including block isometries, dated November 8 rather than November 2; it demonstrates substantial equivalent coverage over the reals, not earlier priority. The earlier inspected theorems do not state the combined necessity and sufficiency for arbitrary nonsingular-base blowups over characteristic-zero fields, the arithmetic criterion, or the full nonmonomial classification there. The pass is for this scoped package, not the known degree conditions, real bipartite scalings, or constituent examples alone.",
+      "residual_risks": [
+        "The indexed real-case match is substantial, but the relation between the two records is not established by their dates alone.",
+        "Public literature returns were noisy. The direct comparisons do not exclude earlier unindexed general evolution-algebra block-structure results or coverage of the combined claim by an equivalent formulation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior nonsingular-expanded iff and real bipartite sufficiency; necessity under a monomial hypothesis does not handle all linear maps here",
+          "evidence": "Theorem 2.3 assumes a nonsingular graph; Example 2.3 treats K_{m,n} with cube-root scalings; Proposition 2.5 assumes f(e_i)=alpha_i e_pi(i).",
+          "identifier_or_url": "https://arxiv.org/pdf/1710.10516",
+          "material_read": "Theorem 2.3 p. 5 (offset 19000); Example 2.3 p. 7 (offset 29000); Propositions 2.4–2.5 pp. 10–11 (offset 41000); singular conjecture passage (offset 24850)",
+          "method": "Targeted OA inspection",
+          "title": "On the isomorphisms between evolution algebras of graphs and random walks",
+          "trigger": "Foundational iff, known singular bipartite examples and scalar equations"
+        },
+        {
+          "assessment": "Direct overlap for double stars, not the entire nonsingular-base blowup class",
+          "evidence": "For C_{m,n}, m,n>1, even a nonzero homomorphism is excluded in the investigated direction; these graphs are P4 blowups.",
+          "identifier_or_url": "https://arxiv.org/pdf/2405.12341",
+          "material_read": "Introduction, p. 2 (offset 5573) and §3.1 Proposition 3.1, p. 8 (offset 25680)",
+          "method": "Targeted OA inspection",
+          "title": "On some singular graphs with non-isomorphic associated evolution algebras",
+          "trigger": "Earlier singular twin-containing families"
+        },
+        {
+          "assessment": "General graph problem posed as open in that version",
+          "evidence": "Nonsingular graphs are described as known; the general connected-graph iff is still asked.",
+          "identifier_or_url": "https://arxiv.org/html/2610.22248v1",
+          "material_read": "§2.2.4, Question 26, offset 88300",
+          "method": "Targeted OA text inspection",
+          "title": "Evolution algebras: a survey of results and a list of open problems",
+          "trigger": "Potential later general theorem or summary of known families"
+        },
+        {
+          "assessment": "Earlier proper subcase over the reals",
+          "evidence": "Expanded adjacency rank |V|-1, including a single false-twin pair, gives the real degree criterion with monomial maps.",
+          "identifier_or_url": "2026/10/25/SCOPE-corank-one-rigidity-for-graph-and-random-walk-evolution-algebras--185eb829c34e",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror inspection",
+          "title": "Corank-one rigidity for graph and random-walk evolution algebras",
+          "trigger": "Earlier proof with a false-twin pair"
+        },
+        {
+          "assessment": "Direct real-case overlap including scaled orthogonal blocks; distinct record with later date; no earlier priority inferred",
+          "evidence": "Its scope is independent-set blowups of nonsingular bases over the reals and includes complete multipartite graphs.",
+          "identifier_or_url": "2026/11/8/SCOPE-nonsingular-twin-quotients-settle-the-graph-random-walk-evolutio--e8128244024e",
+          "material_read": "RESULT.md Finding and proof passages, offsets 0 and 5000",
+          "method": "Local mirror inspection",
+          "title": "Nonsingular twin quotients settle the graph/random-walk evolution algebra criterion",
+          "trigger": "Strongest exact indexed match for the nonsingular quotient"
+        },
+        {
+          "assessment": "Complementary singular-quotient case and later-dated real normal form",
+          "evidence": "Addresses singular false-twin quotients and describes real block-orthogonal isomorphisms.",
+          "identifier_or_url": "2026/11/8/SCOPE-singular-false-twin-quotients-and-the-real-graph-evolution-algeb--4d62f6d1f6ce",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror inspection",
+          "title": "Singular false-twin quotients and the real graph evolution algebra problem",
+          "trigger": "Potential broader false-twin theorem"
+        },
+        {
+          "assessment": "Related block geometry, different objects and field regime",
+          "evidence": "Coupled orthogonal similitudes describe automorphisms of one complete-bipartite graph evolution algebra, not isomorphisms to a degree-normalized algebra in characteristic zero.",
+          "identifier_or_url": "2026/11/2/SCOPE-automorphisms-of-complete-bipartite-evolution-algebras-over-odd--79c475fcec77",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror inspection",
+          "title": "Automorphisms of complete bipartite evolution algebras over odd finite fields",
+          "trigger": "Strong same-date block-similitude and field analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof §§1–5",
+        "Question 26 of arXiv:2610.22248v1 and the baseline comparison above"
+      ],
+      "rationale": "A nonsingular false-twin quotient is an intrinsic and useful graph condition that allows expanded adjacency of unbounded corank. The theorem answers the singular-graph isomorphism question uniformly on that family rather than checking selected examples. Recovering the blocks controls maps not assumed monomial, and the distinction between real and rational isomorphism shows why the ground field cannot be omitted from the structural criterion.",
+      "residual_risks": [
+        "The claim is a subcase of the general graph problem and does not by itself solve the singular-quotient or positive-characteristic cases."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

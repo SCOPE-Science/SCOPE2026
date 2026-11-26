@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:52:01.895955Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The simple weighted Laplacian on the mean-zero space is injective in the conductances; the trace Hessians for x^(-1) and x^(-2) have strictly positive divided-difference coefficients, using f'' whenever eigenvalues coincide, so both objectives are strictly convex. Approaching disconnected support makes the inverse moment diverge. Uniqueness under dihedral symmetry forces two orbit weights; a zero weight on either entire orbit disconnects the sunlet. For each nonzero cycle mode the 2x2 block has trace a*lambda+2b and determinant a*b*lambda, so its inverse-square trace is (trace/det)^2−2/det. The zero mode contributes only (2b)^(-2); summing gives A/b^2+B/(ab)+C/a^2 by the csc^2 and csc^4 cycle identities. With t=a/b under n(a+b)=1, the derivative has the sign of the stated cubic, which has one positive zero by Descartes and the opposite endpoint signs. The first-order derivative gives t_1=sqrt(B/E) with E=n−1/2. At t_1, E times the cubic is B(n−1)t_1−Q with Q=2CE−B^2. Independently reproduced the positive cofactor of Q and the positive-coefficient certificate for EQ^2−B^3(n−1)^2 using exact SymPy arithmetic; replay python3 /workspace/frozen_review_arithmetic.py. This yields the strict sign for every n>=3, not just a numerical ordering. At t=s*n, the rescaled cubic tends to 2s^3+s^2/6−1/90 and positive-root bracketing gives t_2/n→c. The term n^2 C(1+1/t)^2 dominates F_2 at both designs. At t_1 the cross term 2n^2 C/t_1 gives (sqrt(6)/90)n^(11/2); every other correction is O(n^5), as are the optimal corrections at t_2. This proves the absolute regret and vanishing relative regret in the raw trace. The frozen RESULT.md, verification note and diagnostic script were read; the source script was not executed and finite tests cannot prove global or infinite-domain claims.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "eed5b428788a covers a broader vertex- and edge-transitive one-leaf-corona class and special cyclic uniqueness, with pendant weights of order n^(-2), but it maximizes the Laplacian gap.",
+          "Same-day 12d89118b80f minimizes the positive eigenratio of all such coronas, not a positive spectral moment, and its indexed optimum uses a ratio 2/sqrt(lambda_2*lambda_max) on the core.",
+          "The compared prism and wheel records use the same two coherence objectives but different graphs. Their finite reversals do not specialize to a sunlet."
+        ],
+        "reasoning": "Credit general corona symmetry/spectral-design and scale overlap without identifying those objective functions with the full inverse spectral moment. A general weighted spectrum supplies inputs but neither classifies the continuous minimizer nor its first-to-second comparison by itself.",
+        "searches": [
+          "Resultary: price-optimal fastest mixing sunlet transitive one-leaf coronas",
+          "eed5b428788a, 638ad6225b9e and 12d89118b80f",
+          "Targeted OA for Du et al., Patterson–Bamieh and Ghosh–Boyd–Saberi"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_sunlet.py",
+        "Resultary entries fc2668b16088, eed5b428788a, 638ad6225b9e, 12d89118b80f and the neighboring wheel/prism records",
+        "Targeted publisher and OA attempts for Du et al. and the cited coherence/design literature"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the order-two sum, every nonzero band mode enters the cubic through two cycle inverse moments. A gap optimizer instead uses the smallest nonzero core mode. The indexed equal-price gap formula mu/[n(2+mu+2*sqrt(mu))], mu=4*sin^2(pi/n), is obtained by setting b/g=1+1/sqrt(mu) for the optimal gap g in the corresponding 2x2 block; this gives a/b~n/pi, distinct from c*n.",
+          "For the eigenratio optimum, lambda_2~4*pi^2/n^2 and lambda_max→4 give a/b~n/(2*pi), also distinct from c*n despite the shared power n. Neither these optima nor a first-moment calculation implies strict order between the two trace-optimal designs for every size."
+        ],
+        "reasoning": "The core spectrum and similar scaling are reusable prior inputs. The all-size strict comparison and the n^(11/2) raw-trace regret require the additional objective-specific sign and expansion, not a parameter substitution.",
+        "searches": [
+          "638ad6225b9e and eed5b428788a indexed spectral-gap optima",
+          "12d89118b80f indexed eigenratio optimum",
+          "Frozen RESULT.md §§2–5 and Relationship to prior work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Compared the cycle with private leaves and the one-leaf corona terminology, and the raw squared reciprocal trace with fixed-size positive rescalings of second-order coherence.",
+          "Neither total effective resistance (proportional to F_1 at fixed size) nor reciprocal spectral gap equals a sum of squared reciprocal positive eigenvalues. Physical coherence in a different noise or damping model need not be proportional to F_2."
+        ],
+        "reasoning": "A change of objective, not a change of normalization or graph name, separates the strongest retrieved competition. Fixed-weight evaluation and optimization under a global edge budget are also different.",
+        "searches": [
+          "Resultary: Sunlet second-order coherence squared inverse Laplacian trace cubic edge allocation first-order optimizer mismatch regret",
+          "Literature: weighted sunlet graph optimize second order consensus coherence total edge conductance inverse squared Laplacian spectral moment one leaf corona",
+          "Du–Zhu–Gao–Li, Consensus analysis of the weighted corona networks, §§3–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact cubic/mismatch/regret index hit is the assigned record fc2668b16088, not independent evidence. Nearby exact entries compute gap-maximizing or eigenratio-minimizing weights.",
+          "A table of unweighted sunlet eigenvalues or traces gives neither the optimum under continuously weighted edges nor the regret at another optimizer."
+        ],
+        "reasoning": "The relevant exact-results corpus was searched under both the graph name and mathematical form of the objective. Similar numbers and exponents for other objectives were not treated as exact coverage.",
+        "searches": [
+          "Resultary: exact second-order sunlet cubic, two design orders and asymptotic regret",
+          "Resultary: exact sunlet edge-price spectral-gap and reciprocal-eigenratio optima"
+        ]
+      },
+      "rationale": "Available prior statements cover the underlying design framework, other spectral objectives on exactly this graph, and coherence/spectral formulas. They do not supply the fixed-budget order-two cubic optimizer, its strict mismatch with the first-order allocation at every size, or the resulting sharp cross-objective regret. The pendant exponent n^(-2) alone is not a distinctive sunlet design phenomenon: it also occurs under a different, checked spectral-gap objective. Acceptance concerns the actual squared-inverse trace optimum and comparison under the stated equal-cost assumptions, not a claim of physical equivalence across noise models or historical priority.",
+      "residual_risks": [
+        "The most pertinent weighted-corona primary passages were unavailable via the attempted lawful routes. Their unread details could include related trace identities, parameters, or design observations.",
+        "The gap and eigenratio comparisons use available indexed statements and explicit objective differences, not blanket full-text exclusions. No priority claim is based on search failure or on same-day ordering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Real overlap in graph/method, uniqueness for cycles and power scale; explicitly a gap objective",
+          "evidence": "Index gives an exact two-price square-root spectral-gap formula, cyclic uniqueness against asymmetric rates, pendant weights of order n^(-2) and gap order n^(-3).",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-price-optimal-continuous-time-mixing-on-transitive-one-lea--eed5b428788a",
+          "material_read": "Resultary statement; target full text could not be retrieved",
+          "method": "Resultary exact identifier and targeted OA mirror lookup",
+          "title": "Exact price-optimal continuous-time mixing on transitive one-leaf coronas and rigid cyclic sunlets",
+          "trigger": "Broader graph family includes sunlets and optimizes unrestricted conductances with the same pendant scaling"
+        },
+        {
+          "assessment": "The indexed invariant is maximum smallest positive eigenvalue, not minimum inverse-square trace",
+          "evidence": "Index gives the exact gap mu/[n(2+mu*t+2*sqrt(mu*t))] with pendant price t and claims an unrestricted unique optimizer.",
+          "identifier_or_url": "2026/10/13/SCOPE-unique-price-optimal-fastest-mixing-on-sunlet-networks--638ad6225b9e",
+          "material_read": "Resultary statement; target full text could not be retrieved",
+          "method": "Resultary and targeted OA mirror lookup",
+          "title": "Unique price-optimal fastest mixing on sunlet networks",
+          "trigger": "Identical graph, unit-budget optimum in the equal-price case, all allocations"
+        },
+        {
+          "assessment": "Distinct spectral objective and allocation, no priority inference from its date",
+          "evidence": "Index states minimization of the positive eigenratio attains a/b=2/sqrt(lambda_2*lambda_max), and for cycles this is asymptotically half the gap-optimal ratio.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-reciprocal-eigenratio-optimum-for-one-leaf-graph-coronas--12d89118b80f",
+          "material_read": "Resultary statement and indexed exact conductance ratio",
+          "method": "Targeted Resultary query and mathematical comparison of the available objectives and ratios",
+          "title": "A reciprocal eigenratio optimum for one-leaf graph coronas",
+          "trigger": "Same-day unrestricted corona design that includes cyclic cores and compares criteria"
+        },
+        {
+          "assessment": "Plausible overlap in fixed-weight spectral identities and F_1 on the available description; full-text exclusions not made",
+          "evidence": "Frozen RESULT.md line 138 credits the weighted-corona characteristic polynomials and first-order coherence, not their order-two optimization.",
+          "identifier_or_url": "https://doi.org/10.3389/fphy.2022.948247",
+          "material_read": "Frozen description of §§3–4; attempts via OA and the publisher page/PDF did not return decisive primary passages",
+          "method": "Cited exact URL, OA website lookup, identified publisher PDF alternate",
+          "title": "Consensus analysis of the weighted corona networks",
+          "trigger": "Same weighted-corona spectral calculation and coherence terminology"
+        },
+        {
+          "assessment": "Metric/background credited; no whole-document conclusion",
+          "evidence": "Frozen RESULT.md lines 136–146 distinguish stochastic coherence of fractal networks from equal-budget optimization on sunlets.",
+          "identifier_or_url": "https://arxiv.org/abs/1310.2592",
+          "material_read": "Frozen reference to §II-B and Appendix A; decisive external passages not returned",
+          "method": "Targeted OA PDF lookup",
+          "title": "Consensus and Coherence in Fractal Networks",
+          "trigger": "Classical squared-reciprocal trace coherence metric"
+        },
+        {
+          "assessment": "Credited inverse-trace framework; no full-text exclusion",
+          "evidence": "Frozen RESULT.md identifies a total-effective-resistance objective, which is a vertex-count multiple of F_1 rather than F_2.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+          "material_read": "Frozen description of §§1,4,5; decisive external passages not returned",
+          "method": "Targeted OA PDF lookup",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "Unrestricted conductance design on a fixed graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a standard cycle-with-leaves graph, the result resolves a genuine design question: the edge weights optimal for first-order coherence always overinvest in pendant conductance when assessed by the twice-inverted trace. The exact cubic permits design for any size, with unrestricted uniqueness and a strict all-size comparison rather than large-size advice alone. The comparison quantifies a divergent absolute penalty and a vanishing fractional penalty under the stated normalization; it does not claim a constant-factor loss.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:51:59.874956Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The five masks 0,1,2,4,5 are exactly the independent last-column masks. The state stores the constrained maximum independent set size, with −1 for impossible masks; only consecutive columns interact and their masks must be disjoint. Capping and then rejecting at 4 is sound since no extension can reduce the untruncated independence number. Surviving column selections are in bijection with the faces and carry signed weight (−1)^|S|. An independent standard-library reconstruction (independent_transfer_check.py, run with python3) enumerated 54 reachable states and 260 unaggregated surviving transitions, computed all 54 coordinates of A(A−I)^4 1 to be zero, and recovered t_1,…,t_4=0,0,4,20. Independent vertex-subset enumeration at widths 2 and 3 returned 0 and 4. The vector identity implies Δ^4 t_n=0 for every n≥1, so interpolation gives binom(2n−2,3) at every width, not just the tested ones. The empty face changes the Euler convention to reduced Euler characteristic −t_n. Both frozen checkers and VERIFICATION.md were inspected and were not executed. The result verifies an Euler invariant, not a wedge or any separate Betti number.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The rectangular-grid binomial wedge theorem is stated for k∈{2,3}. The arbitrary-k Corollary 3 is for edge-only square attachments; arbitrary corner attachments are not covered.",
+          "Conjecture 5 concerns a wedge of spheres of dimension 2k−3 and attachment-dependent counts; the nearby discussion singles out k>3 with corner gluing. Example 10 at (m,n,k)=(4,3,6) rules out indiscriminate extension of the rectangular binomial wedge formula."
+        ],
+        "reasoning": "The all-width three-row strip contains square attachments affected by the excluded corner case. The nearby stronger conjectural topology is a motivation, not a proved implication.",
+        "searches": [
+          "arXiv:2602.11365v4, Theorem 1, Corollary 3, Conjecture 5 and Example 10",
+          "arXiv:2408.07646, Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_transfer.py and verify_direct.py",
+        "arXiv:2602.11365v4, arXiv:2408.07646, arXiv:1912.12605",
+        "Resultary a723a1190e9a, 695baded869f, 4506134a68d7 and 9a6c205f7f1e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Each verified finite wedge directly implies the corresponding negative reduced characteristic; width two is elementary since a perfect matching bounds the independence number by three.",
+          "The reproduced 54-coordinate transfer annihilator supplies the step not furnished by the finite computations, the lower-k formula, or the higher-k edge-only theorem."
+        ],
+        "reasoning": "The defensible distinction is the all-width recurrence and closed invariant beyond those covered widths, not novelty of the finite numbers or any claim about homotopy.",
+        "searches": [
+          "arXiv:2602.11365v4, statements and attachment hypotheses",
+          "arXiv:2408.07646, Theorem 1.1",
+          "Resultary exact finite-width Findings a723a1190e9a, 695baded869f and 4506134a68d7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The face condition α(G[S])≤3 is the bounded-independence complex I_4(G)=Cliq_4(G). Its Alexander dual is the total-four-cut complex: the complement contains an independent 4-set. On N grid vertices their reduced Euler characteristics differ by the sign (−1)^(N+1).",
+          "The published three-row total-cut wedge formula in arXiv:2408.07646, Theorem 1.1, uses independent triples, not quadruples; dualizing it does not give the asserted invariant."
+        ],
+        "reasoning": "An exact dual four-cut result with the right parameters would cover the claim; neither the triple-cut theorem nor the definition or general collapsibility framework supplies it.",
+        "searches": [
+          "Resultary local index: four-robust clique homotopy on 3-row rectangular grids; total four-cut grid complexes",
+          "Primary search for k-robust grid Euler characteristic and total cut complexes; arXiv:1912.12605 and arXiv:2408.07646"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first record gives −4,−20,−56 as direct Euler consequences of wedges of 4,20,56 five-spheres for widths 3,4,5. The second covers widths 5,6 with 56,120 five-spheres at k=4.",
+          "The distinct same-day 4506134a68d7 covers the exact width-4 case by a stronger claim and adds reflection data; 9a6c205f7f1e also gives the width-4 dual wedge."
+        ],
+        "reasoning": "Credit all these exact finite-width implications regardless of date ambiguity; a finite list does not determine the tail unless the signed fourth-difference certificate or another all-width theorem is known.",
+        "searches": [
+          "Resultary exact grid homotopy catalogue: a723a1190e9a, 695baded869f, 4506134a68d7, 9a6c205f7f1e"
+        ]
+      },
+      "rationale": "The supported distinct claim is the universal reduced Euler characteristic for the three-row, four-robust family. The exact widths 3 through 6 are already covered by stronger homotopy computations, including material same-day overlap at width 4. Those computations do not prove the all-width formula. The published rectangular theorem is for k=2,3, and the edge-only theorem excludes the relevant corner-gluing pattern; the neighboring general wedge conjecture is not a theorem and does not alone fix the number of spheres.",
+      "residual_risks": [
+        "The bounded search cannot exclude a different all-width signed enumeration or an equivalent total-four-cut theorem outside the inspected sources.",
+        "Catalogue date alone does not order the same-day width-four overlap; the scalar invariant leaves the wedge conjecture and homology unresolved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related proved cases and stronger conjecture, not all-width k=4 rectangular coverage",
+          "evidence": "Rectangles are proved for k=2,3; arbitrary k is proved for edge-only sequences; k>3 with corner gluing is identified as a remaining obstacle.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.11365v4",
+          "material_read": "PDF pp. 2–4 and 6–7: Theorem 1, Corollary 3, Conjecture 5, attachment definitions, Example 10; offsets 5081, 6402, 9006–11982, 16200, 18522",
+          "method": "Primary OA PDF passages",
+          "title": "The Topology of k-Robust Clique Complexes in Grid-like Graphs",
+          "trigger": "Same robust complexes; strongest plausible all-width theorem"
+        },
+        {
+          "assessment": "Three-row theorem uses k=3 rather than k=4",
+          "evidence": "The theorem gives the total-three-cut wedge with multiplicity binom(2n−2,2).",
+          "identifier_or_url": "https://arxiv.org/abs/2408.07646",
+          "material_read": "PDF p. 2, Theorem 1.1, offset 7740",
+          "method": "Primary OA PDF passage",
+          "title": "Topology of total cut and cut complexes of grid graphs",
+          "trigger": "Alexander-dual three-row grid topology"
+        },
+        {
+          "assessment": "Definition and general collapsibility results",
+          "evidence": "Uses the same class of complexes and studies collapsibility, not the signed all-width face formula in the inspected statement.",
+          "identifier_or_url": "https://arxiv.org/abs/1912.12605",
+          "material_read": "Abstract, offset 0",
+          "method": "Primary OA article abstract",
+          "title": "Complexes of graphs with bounded independence number",
+          "trigger": "Alias and possible general bounded-independence invariant"
+        },
+        {
+          "assessment": "Stronger at finitely many widths",
+          "evidence": "The six grids 3≤m≤n≤5 include widths 3,4,5 on three rows, with the corresponding integral five-sphere wedges.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-four-robust-clique-homotopy-on-the-first-two-dimensional-grid-ra--a723a1190e9a/RESULT.md",
+          "material_read": "Finding",
+          "method": "Resultary local mirror",
+          "title": "Four-robust clique homotopy on the first two-dimensional grid range",
+          "trigger": "Same k=4 grid homotopy"
+        },
+        {
+          "assessment": "Stronger at widths 5 and 6 only",
+          "evidence": "Gives 56 and 120 five-spheres at k=4, while the analogous count can fail at k=5.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-sharp-binomial-breakdown-in-the-robust-clique-homotopy-of-two-wi--695baded869f/RESULT.md",
+          "material_read": "Finding",
+          "method": "Resultary local mirror",
+          "title": "Sharp binomial breakdown in the robust-clique homotopy of two wider grids",
+          "trigger": "Same three-row graphs and binomial formula at k=4"
+        },
+        {
+          "assessment": "Exact overlap on Euler at width four, plus stronger topological and reflection data",
+          "evidence": "The wedge of 20 five-spheres implies reduced Euler characteristic −20. Dates do not resolve priority.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-a-wedge-of-20-five-spheres-and-reflection-characters-for-the-fou--4506134a68d7/RESULT.md",
+          "material_read": "Finding",
+          "method": "Resultary local mirror",
+          "title": "A wedge of 20 five-spheres and reflection characters for the four-robust grid complex",
+          "trigger": "Distinct same-day record for the same complex at width four"
+        },
+        {
+          "assessment": "Width-four overlap only",
+          "evidence": "Gives the k=4 wedge and total-four-cut dual wedge at 3×4, not a formula uniform in width.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-dual-sphere-wedges-and-reflection-modules-for-the-3-times4-grid--9a6c205f7f1e/RESULT.md",
+          "material_read": "Finding",
+          "method": "Resultary local mirror",
+          "title": "Dual sphere wedges and reflection modules for the 3-times-4 grid",
+          "trigger": "Potential dual exact coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Three rows are a natural first strip with two-dimensional grid corner attachments beyond the edge-only theorem; k=4 is just beyond the established rectangular k=2,3 range. The exact invariant detects a uniform cubic structure and gives a necessary sphere count for any future five-sphere wedge proof. It is useful without solving that conjecture, and the vector certificate makes it an all-width result rather than a recomputation of the known small grids.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

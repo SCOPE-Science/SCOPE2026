@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For each host edge, the signed differences of independent Bernoulli replica edges are independent over distinct edges and have symmetric three-point laws. Conditioning two endpoint equality bits on their shared edge yields covariance \(2a(1-2a)\Delta_u\Delta_v\). Nonadjacent vertices use disjoint signed differences, hence have zero covariance. Fourier inversion proves every central gap \(\Delta>0\); comparison to symmetric binomial sums supplies the uniform lower bound. Hoeffding concentration and union bounding establish exact recovery at the stated finite sample count. The independent enumeration script produced `VERIFY_OK 78 exact host laws, 450 pair covariance identities, 54 gap bounds`. These finite tests do not independently certify the infinite theorem.
+PASS
 
-## Originality
+A signed edge difference has masses (a,1−2a,a) with a=p(1−p)>0 and a≤1/4. At a nonedge the two bits use disjoint signed variables; at an edge their only shared variable is the signed difference on that edge, even if the endpoints have common neighbors. Given its value the bits are independent, and the conditional means depend only on its magnitude by symmetry. The variance of the nonzero-magnitude indicator is 2a(1−2a), giving exactly the stated covariance times the product of central-mass gaps. As an independent check on the gap bound, each signed law is a mixture of a point mass at zero and the p=1/2 signed law with mixing weight 4a. Given j active laws, the gap by Vandermonde is C(2j,j)/(4^j(j+1)), positive and decreasing in j with consecutive ratio (2j+1)/(2j+4). Thus the mixed gap is at least b_n for all j≤n−2, with the empty sum included. Under the probability floor, 2a(1−2a)≥a≥ε(1−ε), giving c_n as stated. There are at most n² distinct means in the empirical covariance formula, each obeying Hoeffding for the independent repeat experiments. With accuracy c_n/8, the covariance error is at most 3c_n/8, yielding strict separation at c_n/2 and the stated count 32c_n⁻² log(2n²/δ). Stirling gives the n⁶ factor. This is a sufficient guarantee, not a minimax claim; stable labels and identical per-edge probabilities across the two replicas are essential model assumptions. Inspected RESULT.md, VERIFICATION.md and verify.py as text; the attached finite checks were not rerun.
 
-PASS with residual historical risk. The inhomogeneous independent-edge model of Bollobás, Janson and Riordan (2005) does not state one-bit, two-replica degree coincidence reconstruction. Lyzinski, Fishkind and Priebe (2013) analyze matching of correlated graph replicas using adjacency data, while McGregor and Sengupta (2022) recover hosts from random subgraph observations. The closely related published published-finding corpus degree-covariance tomography theorems observe **raw degree vectors** under a dependent vertex-threshold edge mechanism; their polynomial signless-Laplacian identities do not imply the new binary-coincidence covariance positivity theorem. The exact same parameter reduction, namely nonlinear zero-indicators of edge-signed sums, was not located in the checked primary articles or semantic search. Search absence alone cannot prove historical priority.
+## originality
 
-## Value
+PASS
 
-PASS. One degree-agreement bit per vertex and paired trial loses almost all raw degree information; nevertheless the **positive support of the bit-covariance matrix identifies every unknown host edge**, including arbitrary heterogeneous independent bond probabilities. This is a genuinely distinct observation channel and motivates finite-sample network tomography using repeated coarse summaries. The polynomial sample bound makes the structural identifiability operational rather than just qualitative. The theorem does not estimate edge probabilities and its bound is not claimed optimal.
+The strongest inspected covariance tomography precedents recover under a different percolation mechanism or from a different observable. Neither raw-degree covariance nor an old fact about the distribution of a Bernoulli sum establishes the support and recovery guarantee for this equality-only channel. This judgment is bounded, not historical priority.
 
-## Scope and limitations
+## value
 
-No result is asserted for deterministic host-edge retentions, dependent edges, vertex misalignment, or unmatched replica edge probabilities. Self-review confirms internal analytic steps and finite exact checks, but does not constitute independent auditing or exhaustive priority certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The observation channel erases degree magnitudes and both edge lists, yet the exact sign pattern of a second-moment statistic still reconstructs an arbitrary labelled host with heterogeneous probabilities. Establishing strictness for every edge and giving a uniform positive margin makes the result useful for lossy graph measurement rather than a restatement of raw-degree covariance. The sample estimate is not asserted optimal.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:47:37.327113Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditioning on the history including the nonanticipating choice, the two possible nonzero jumps +b and -a occur with probabilities (1-p)a/(a+b) and (1-p)b/(a+b). They balance in mean and their squared contributions sum to (1-p)ab. The stopped A-count is a martingale; its expected squared increment is the expected loss of X(N-X), by expanding that quadratic. Consequently the exact identity holds at each finite truncation with terminal potential at that truncation. Since ab=(a-1)(b-1)+a+b-1>=ell-1 and potential is nonnegative, the truncated expected number of events is bounded uniformly; monotone convergence gives finite mean and almost sure termination before passing to the terminal identity by bounded and monotone convergence. Conditional summation of the propagation indicators gives E P=(1-p)E tau, and the same drift argument after an arbitrary history gives conditional remaining mean at most B. Hence survival of each length-L block conditional on the past has probability at most B/L<=1/2, giving the stated tail without a Markov selector assumption. A connected fixed graph at p=0 has ab=1 throughout and terminal consensus, so equality is exact; the one-edge one-dissenter example at p=0 has ab=ell-1 and stops at its first event. At p>0 the same one-edge example with identity rewiring has geometric wait and also attains its state-dependent bound, although that extension is not needed. Under the stated unit Poisson clock convention the pre-absorption holding mean is at most one; conditional summation yields the separate physical-time expectation bound. Inspected the frozen verifier, including its finite transient equations, without executing it. Nothing here bounds inactive update attempts or guarantees consensus on a fragmenting network.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2308.03640, PDF p. 4 and Eq. (17) on p. 10, uses this local voting rule but specified selection/rewiring and reports first-moment magnetization conservation. arXiv:1304.4742 is pairwise, uses a third-agent rule and obtains a consensus-time approximation.",
+          "The other hypergraph models inspected update individuals or use majority-biased rules."
+        ],
+        "reasoning": "Neither a stronger covering convergence theorem nor a domination result for this active-event normalization was identified. Explicitly treating arbitrary admissible history dependence goes beyond the specified dynamics of the identical local propagation model.",
+        "searches": [
+          "Resultary: adaptive hypergraph proportional voting magnetization conserved rewiring fragmentation exact finite population",
+          "Web: \"Polyadic Opinion Formation\" adaptive voter model hypergraph proportional voting magnetization fragmentation Golovin Mölter Kuehn 2308.03640",
+          "Web: hypergraph voter model \"whole hyperedge\" simultaneous adoption proportional voter rewiring exact consensus time"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2308.03640",
+        "arXiv:2201.06421",
+        "arXiv:1909.05812",
+        "arXiv:1304.4742",
+        "arXiv:2407.11261",
+        "Resultary: ba98d8521d40, 3aa47c85d654, 10887608ec95, 4cf919e90686"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The identical local rule of Golovin et al. determines the two jumps and thus the drift by direct calculation; standard truncation then proves the budget in their prescribed model. Their reported first-moment conservation alone cannot yield the nonzero variance or a uniform rate of potential loss.",
+          "Their studied rewiring does not quantify over arbitrary history-dependent selectors or every opinion-preserving incidence operation."
+        ],
+        "reasoning": "Concede derivability for the overlap and the standard general method. The inspected model definition is not a stronger hitting-time theorem of which the arbitrary-policy budget, its sharpness and its tail are specializations; the distinct statement computes and uses the precise variance increment in that larger class.",
+        "searches": [
+          "arXiv:2308.03640 PDF pp. 4, 10 and 13, microscopic rule and magnetization discussion",
+          "Web: adaptive hypergraph voter proportional voting stopped quadratic variation active interactions finite population identity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The discordance budget is the stopped predictable quadratic variation of the A-count martingale, not conservation of its first moment. SCOPE 4cf919e90686 instead studies integrated disagreement on a node-update voter star."
+        ],
+        "reasoning": "The quadratic-variation identity is standard in martingale form; the exact variance contribution (1-p)ab, the stopping rule and population/sharp group-size bound are the process-specific parts. Integrated disagreement under other clocks is not this selected-group exposure sum.",
+        "searches": [
+          "Resultary: stopped discordance identity cumulative mixed group exposure voter hypergraph",
+          "Web: \"simultaneous\" whole hyperedge voter model unanimity adaptive hypergraph voting quadratic potential absorption identity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE ba98d8521d40 gives small static graph consensus-time moments counting attempted edges, including inactive ones. SCOPE 3aa47c85d654 times negative-opinion person exposure under node clocks with a zealot. SCOPE 10887608ec95 concerns frozen configurations of a different four-node-group update.",
+          "The closest two earlier entries concern different update and timing conventions, not tabulated instances of the stated stopped identity."
+        ],
+        "reasoning": "Hitting times coincide only under the same absorbing states and clock. Inactive attempts and zealot person-time do not give the topology-free count of active events or its terminal correction.",
+        "searches": [
+          "Resultary: adaptive hypergraph voter proportional voting stopped quadratic potential discordance budget identity active hyperedge events",
+          "Resultary: adaptive voter model hypergraph finite-N expected absorption time active edges fragmentation rewiring"
+        ]
+      },
+      "rationale": "The same microscopic proportional adoption rule is already in Golovin–Mölter–Kuehn, and for their process the budget can be derived directly from it. The special case is not a new update model and its derivation uses standard stopped-quadratic-variation machinery. The supported distinct result is the explicit finite-population identity with terminal fragmentation correction and sharp event budget over the larger class of all admissible nonanticipating selection and opinion-preserving rewiring, with its uniform tail. No inspected earlier theorem states or covers that budget on this class.",
+      "residual_risks": [
+        "The exact formula is a short derivation from the known local rule and standard martingale tools; an earlier formulation under different neutral group-copying terminology could exist.",
+        "Capped ranked record searches and targeted literature checks do not establish global first priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact local antecedent; finite-budget consequence in its model is derivable; no stronger inspected statement",
+          "evidence": "Opinion sampled in proportion and copied simultaneously to the selected group; the cited magnetization result is about conservation in mean, not terminal pair exposure.",
+          "identifier_or_url": "https://arxiv.org/pdf/2308.03640",
+          "material_read": "PDF p. 4 model, pp. 10 and 13 magnetization; p. 10 Eq. (17)",
+          "method": "OA PDF passage inspection",
+          "title": "Polyadic Opinion Formation: The Adaptive Voter Model on a Hypergraph",
+          "trigger": "Identical local simultaneous proportional propagation and opinion-preserving rewiring"
+        },
+        {
+          "assessment": "Different update law",
+          "evidence": "Individual opinion change rates use the opposite group's frequency; there is no simultaneous adoption of a single random-member opinion by all group members.",
+          "identifier_or_url": "https://arxiv.org/pdf/2201.06421",
+          "material_read": "PDF pp. 3 and 6, model and Eq. (8)",
+          "method": "OA PDF passage inspection",
+          "title": "Consensus from group interactions: An adaptive voter model on hypergraphs",
+          "trigger": "Group-induced adaptive consensus times"
+        },
+        {
+          "assessment": "Majority persuasion rather than the proportional martingale update",
+          "evidence": "Triadic influence follows a majority rule.",
+          "identifier_or_url": "https://arxiv.org/pdf/1909.05812",
+          "material_read": "PDF p. 3, rules R0–R1",
+          "method": "OA PDF passage inspection",
+          "title": "An adaptive voter model on simplicial complexes",
+          "trigger": "Adaptive group rewiring and fragmentation"
+        },
+        {
+          "assessment": "Different microscopic rule and time analysis",
+          "evidence": "Uses a third-agent conformity rule and a pair-based/large-network proxy.",
+          "identifier_or_url": "https://arxiv.org/pdf/1304.4742",
+          "material_read": "PDF p. 2 model and approximation discussion",
+          "method": "OA PDF passage inspection",
+          "title": "Consensus time and conformity in the adaptive voter model",
+          "trigger": "Active-edge time for an adaptive voter model"
+        },
+        {
+          "assessment": "Different hypergraph dynamics",
+          "evidence": "Only the selected focal vertex may flip, unlike simultaneous whole-edge adoption.",
+          "identifier_or_url": "https://arxiv.org/pdf/2407.11261",
+          "material_read": "Abstract, PDF p. 2 focal update description",
+          "method": "OA PDF passage inspection",
+          "title": "Competition between group interactions and nonlinearity in voter dynamics on hypergraphs",
+          "trigger": "Hypergraph exit times"
+        },
+        {
+          "assessment": "Not comparable under the same clock and hypotheses",
+          "evidence": "Counts attempts even on inactive edges in small static graphs.",
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-four-and-five-agent-mean-variance-tradeoffs-under-added-vo--ba98d8521d40",
+          "material_read": "RESULT.md statement on static graphs and attempted updates",
+          "method": "Local Resultary record inspection",
+          "title": "Sharp four- and five-agent mean–variance tradeoffs under added voter links",
+          "trigger": "Closest earlier indexed exact voter consensus times"
+        },
+        {
+          "assessment": "Different quantity and nonneutral update setting",
+          "evidence": "Counts negative-opinion person-time with a permanent zealot and node clocks.",
+          "identifier_or_url": "2026/10/18/SCOPE-a-sharp-five-agent-link-acceleration-boundary-for-zealot-driven--3aa47c85d654",
+          "material_read": "RESULT.md statement distinguishing person-time from consensus time",
+          "method": "Local Resultary record inspection",
+          "title": "A sharp five-agent link acceleration boundary for zealot-driven voter dynamics",
+          "trigger": "Earlier indexed exact cumulative voter time"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The study of persistence of activity in adaptive proportional voting motivates a sharp finite event budget not visible from conserved expected opinion count. The exact terminal correction quantifies how fragmentation reduces cumulative mixed-group exposure. The guarantee works without connectivity, specified topology laws or even a Markov selector, and the quadratic order and group-size denominator are backed by equality cases. Its value is this explicit process-specific control, not the textbook martingale technique or a claim about actual time under arbitrary rate conventions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

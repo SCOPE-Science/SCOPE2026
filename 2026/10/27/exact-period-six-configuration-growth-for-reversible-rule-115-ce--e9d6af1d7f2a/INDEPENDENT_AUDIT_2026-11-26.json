@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:17:30.543914Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–79; VERIFICATION.md; verify.py inspected, not executed",
+        "Independent replay: python /workspace/review_checks/rule115_certificate.py"
+      ],
+      "rationale": "The stated Boolean rule has truth table 01110011 in descending neighborhood order. From the initially zero pair the uniform background is 001 repeated. On the right, at time 2 mod 3 the center and its right neighbor are one, giving output zero irrespective of the left neighbor, and at the other times a zero center suffices. On the left the sites through -2 obey the same induction; if the halo value at time 0 mod 3 is s, at time 1 mod 3 it is s (left neighbor zero) and at time 2 mod 3 it is s XOR NOT s = 1. Thus only site -1 needs a free temporal column outside the window. The directed edge enforces the recurrence at the middle column modulo p; starting at (-3,-2), adding one halo with initial bits zero, then n interior columns and two terminal background columns checks all nonautomatic sites, also when n=0. Uniqueness of the temporal evolution gives the bijection. An independently implemented temporal bit-constraint generator reproduced core sizes 3 and 27, starts, and all required initial scalar recurrence residuals. Cayley–Hamilton applies to u M^j P(M) v, so those residuals vanish at every index, not just at tested sizes. Separate direct line evolution with fixed background only at distant endpoints agreed for n=0..6. The recurrence plus initial values gives the two rational functions; divisibility of any period by three follows from the shielded background, so only periods three and six can contribute to Fix(F^6). At z=1/rho, (1-z+z^2)=6/rho^2 and (1-delta z)=sqrt(21)/rho, giving the claimed dominant coefficient; other exponential moduli are |delta| and 1. Fibonacci growth of B_n and 4^n possible initial pairs give the stated relative densities.",
+      "residual_risks": [
+        "The calculation counts labeled initial pairs, not translation classes, orbits, or periodic-ring states; the bounded integer calculation certifies the specified p=3 and p=6 transfer problem, not arbitrary periods."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary preprint proves periodicity of finite initial states and periods divisible by three, and gives specific examples and families.",
+          "The unrestricted fixed-set equality in Resultary restricts to each window but gives only equality to a second unknown count."
+        ],
+        "reasoning": "Neither general periodicity nor the period divisor constraint determines how numerous the fixed pairs of each period are. The 2024 precursor could not be inspected beyond available bibliographic information.",
+        "searches": [
+          "Formenti–Kamilya arXiv:2606.13159v1, abstract, Lemma 1, experiments, family theorem and conclusion",
+          "DOI:10.1007/978-3-031-56943-2_16",
+          "Resultary 692b925dfcdf, unrestricted finite-support fixed-set assertions"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.13159v1",
+        "Resultary 692b925dfcdf",
+        "DOI:10.1007/978-3-031-56943-2_16 (bibliographic only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier graph proof compares repeated columns between periods 3/9 and 6/18 and explicitly reports the same smaller core sizes. It does not give the halo-to-terminal transfer coefficient or evaluate its rational resolvent. The same window can contain different temporal periods."
+        ],
+        "reasoning": "Prior finite graph machinery is an effective starting point but the scalar path count with the initial zero-bit restriction and its polynomial annihilator require a new evaluation. Period subtraction and witness minimality after enumeration are consequences, not isolated novelty claims.",
+        "searches": [
+          "Resultary 692b925dfcdf, Finding, graph lemma and verification",
+          "arXiv:2606.13159v1, Lemma 1 and family theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest published Resultary record 692b925dfcdf states Fix(F^9)=Fix(F^3) and Fix(F^18)=Fix(F^6) on finite-support pairs. Its graph argument has 3 and 27 rooted states.",
+          "Formenti–Kamilya p. 7 treats a particular shape-dependent period function, not all initial pairs supported within a prescribed window."
+        ],
+        "reasoning": "Equalities of full sets between different iterates and periods for restricted initial shapes are not equivalent to cardinalities as a function of exact labeled window length.",
+        "searches": [
+          "Local Resultary: finite-support reversible rule 115, period-three and period-six labeled windows, exact numerator 1+5z^3",
+          "Formenti–Kamilya arXiv:2606.13159v1, pp. 3–8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The preprint gives observed periods, not a table of counts by window. The earlier record has a two-site witness and 3/27 graph dimensions, not the claimed sequences."
+        ],
+        "reasoning": "Even an example of least period six at window length two does not give its multiplicity or a count for all windows; search misses add no historical proof.",
+        "searches": [
+          "Local Resultary: exact numerator 1+5z^3 and rule-115 window counts",
+          "arXiv:2606.13159v1, pp. 4 and 7; Resultary 692b925dfcdf, verification passage"
+        ]
+      },
+      "rationale": "The prior rule-115 results already give the period obstruction, least-period-six examples (including a two-site witness), and even the sizes of the two rooted temporal-column automata. They are not credited as new. The exact all-window path counts, scalar recurrence and explicit spatial growth of the six-period fixed set are distinct on the evidence read.",
+      "residual_risks": [
+        "The 2024 precursor was unavailable in full, and an unindexed equivalent window count is not excluded.",
+        "The same reduced-graph sizes and a two-site example were already present in the earlier Resultary record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers existence, period obstruction and families, not an all-window census in the inspected claims",
+          "evidence": "All finite configurations periodic, least period divisible by three; examples with period six and a restricted family formula.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.13159",
+          "material_read": "PDF abstract p. 1; Lemma 1 p. 3 (OA offset 10550); experiments p. 4 (12600); family p. 7 (26150); conclusion p. 8 (28200)",
+          "method": "OA exact primary passages",
+          "title": "The Curious Case of Reversible Elementary Second Order Cellular Automaton 115",
+          "trigger": "Primary paper on the exact rule and finite-support dynamics"
+        },
+        {
+          "assessment": "Material method and witness overlap, different theorem",
+          "evidence": "Fix(F^9)=Fix(F^3), Fix(F^18)=Fix(F^6); 3/27 reduced states and a least-period-six two-site example.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-two-absent-finite-support-periods-for-reversible-rule-115-cellul--692b925dfcdf/RESULT.md",
+          "material_read": "Finding/assumptions offset 169; graph lemma and deduction offset 3489; verification/relationship offset 5523",
+          "method": "Local Resultary mirror",
+          "title": "Two absent finite-support periods for reversible rule-115 cellular automata",
+          "trigger": "Closest exact result for the same fixed sets and graph"
+        },
+        {
+          "assessment": "Full comparison not possible",
+          "evidence": "Same authors and second-order elementary framework; no exact count verified from this source.",
+          "identifier_or_url": "https://doi.org/10.1007/978-3-031-56943-2_16",
+          "material_read": "Bibliographic evidence only; no full text obtained after bounded DOI retrieval",
+          "method": "Citation and lawful OA retrieval attempt",
+          "title": "On Elementary Second Order Cellular Automata",
+          "trigger": "Earlier Formenti–Kamilya study"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–22, 46–75",
+        "Formenti–Kamilya arXiv:2606.13159v1",
+        "Resultary 692b925dfcdf"
+      ],
+      "rationale": "The first two admissible temporal-period classes are natural tests of how the unusual finite-support periodicity of rule 115 is distributed over spatial windows. The scalar transfer functions settle their entire labeled-window census, including the least-period-six count and the growth base distinguishing it from the Fibonacci class and from all 4^n pairs. General finite-state rationality or an isolated witness supplies neither the exact frequencies nor that growth base.",
+      "residual_risks": [
+        "This does not classify all admissible temporal periods or the distribution conditional on larger periods. Least-period subtraction is standard once the two counts are known."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The vertex covariance is exactly the identity for every disjoint parity-check block of length at least three; the resulting trace-determinant inequality gives the unique enclosing ball. In each block the unconstrained maximizing sign vector either satisfies the parity check or must flip one sign, optimally at the least absolute Gaussian coordinate. The exact Gaussian support deficit and the spherical radial normalization produce the width formula. The half-normal tail integral has a strictly positive second discrete difference, proving both finite-size extremizers. Flipping the Gaussian direction proves the odd/even width-loss law. Exponential minimum limits, second-moment convergence, Lyapunov's triangular-array theorem, and a controlled spherical normalization give both asymptotic variance branches and the critical width scale. Numerical enumeration corroborates but does not replace these arguments.
+PASS
 
-## Originality — PASS, qualified
+Disjoint checks give a Cartesian product of one-block hulls. Every admissible sign vector remains exposed as a cube vertex. For m_j≥3, fixing one or two signs leaves respectively 2^(m_j−2) or 2^(m_j−3) completions, so the vertex mean is zero and covariance is I_N. Averaging enclosing ellipsoid inequalities gives tr(A^(−1))+z^T A^(−1)z≤1, yielding det(A)≥N^N with equality only for the centered ball. A negative sign product requires at least one reversal and the cheapest costs exactly 2M_j. Gaussian sign parity is fair and independent of magnitudes, and radial independence divides the expected Gaussian support width by E R=a_N. This gives the stated width and, because p_(r−1)−2p_r+p_(r+1) is the integral of q^(r−1)(1−q)²>0, the two strict extremal partition rules (trivial for k=1). Opposite directions flip the sign product precisely in odd blocks, establishing the exact loss and its zero atom. For the minimum limit, independently obtained the global dominance q(t)≤exp(−ct): if f(t)=c exp(−t²/2), then q(t)/f(t)=integral_0^infinity exp(−tu−u²/2)du≤1/c. Thus q(s/m)^m≤exp(−cs), justifying all fixed moments by dominated convergence as the tails tend to exp(−cs). The per-block limiting odd/even variances are respectively 4/c² and 12/c²; uniformly bounded third moments give Lyapunov's CLT when k,m both grow. The uncentered sum of scaled block losses is O_P(k); dividing the radial normalization error by sqrt(k) costs O_P(sqrt(k/N))=o_P(1), with no need for independence of that error. The fixed-k laws follow by joint independent block convergence and Slutsky. Finally 2kp_m/a_N is asymptotic to sqrt(2 pi) k²/N^(3/2). The frozen checker was inspected, not run; its integer directions and finite quadrature are supplementary.
 
-Ermel--Walter's *Parity Polytopes and Binarization* (arXiv:1803.10561) defines the classical even-parity polytope, cites Jeroslow's facet system, and studies extended formulations, outer descriptions and separation. Del Pia--Khajavirad's *The pseudo-Boolean polytope and polynomial-size extended formulations for binary polynomial optimization* (arXiv:2309.08693) studies polynomial-size descriptions of signed-hypergraph models. The publicly indexed record *Exact John–Löwner ellipsoids of type-D spin weight polytopes* (identifier `15c85fee505a`) gives John/Löwner radii of an individual rescaled parity polytope and was inspected in its full RESULT.md; it does not prove the disjoint-block width-balancing or parity-fluctuation claims. Other directly compared records concern Hanner bodies, rank-selected Boolean polytopes, logarithmic widths of crosspolytopes, or unrelated product-profile balancing. Neither the inspected primary sources nor the indexed comparisons implies the quantitative theorem here. The risk of equivalent prior statements using codeword-polytope, independent parity-check, or Gaussian complexity terminology remains; searching alone cannot certify global novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is an exact geometric optimization for an infinite family of polytopes with identical vertex counts, identical vertex radii, identical covariance matrices and identical Löwner ellipsoids. It shows that the arrangement of independent parity checks remains geometrically visible through intrinsic mean width, identifies both unique extremal block partitions, and quantifies a natural scale of visibility as block counts grow. The directional law separates odd and even block lengths not only by an atom at zero but by distinct limiting variances. Such invariants can distinguish polytope families not separated by their elementary combinatorial counts and enclosing ellipsoids.
+The demihypercube, even-check formulation, support optimization, reflection symmetries and related single-block enclosing ellipsoid facts are not credited as new. The supported distinction is exact strict balancing and maximal imbalance of intrinsic widths for product block profiles, together with the parity-dependent multi-block fluctuation and scaling laws. The closest indexed type-B/type-D width result has substantial one-block overlap, but its stated class and conclusions do not cover these product and growing-block assertions; it is also dated later than the frozen record.
 
-## Limits and closest literature
+## value
 
-All assertions require disjoint parity checks of lengths at least three. Existing single-parity-check facet and type-D ellipsoid results are prior information, not the new finding. The source search is bounded, particularly for possible alternative coding-theoretic formulations, and independent validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact volume-free-width comparison shows that Euclidean mean width distinguishes independent-check arrangements not distinguished by vertex count, vertex radius, covariance, or the enclosing ball. It gives both optimizing profiles and a concrete k versus N scale on which the deficit stays observable, and explains why parity shows up in width fluctuations despite identical first-order block means. The intrinsic comparison is useful on its stated family without claiming a general coding-theoretic theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

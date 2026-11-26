@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof establishes the exact real domain, continuity at boundaries, all mixed-density signs, and a necessary-and-sufficient scalar threshold. In particular, the exponential-integral derivative is strictly increasing, making the root unique; a negative corner density propagates into the interior for every excluded parameter. The checker passed 135 high-precision supporting tests, but the correctness verdict rests on the analytic identities and strict monotonicity, not on a finite grid.
+## correctness
 
-**Originality — PASS, with priority qualification.** The 2023 primary paper proves only nonnegative-parameter validity and explicitly presents the negative case as an open numerical conjecture. The current claim solves the exact conjecture and determines the converse boundary. Searches for the formula, its logarithmic-ratio aliases, negative-parameter validity, and equivalent density thresholds in published mathematical findings and publicly indexed literature did not identify a directly covering result. Nearby ratio-copula and logarithmic denominator constructions have distinct functional forms. A broadly related 2024 article was not fully inspectable; unseen priority remains a residual risk and no universal novelty certification is asserted.
+PASS
 
-**Value — PASS.** This is a precise resolution of a published, explicitly identified mathematical gap about when the proposed dependence model is a genuine probability distribution. The cutoff includes a nontrivial negative-dependence regime beyond the suggested \(\alpha=-1/2\) and excludes all more negative real parameters, supplying an exact parameter constraint needed for valid model fitting and simulation.
+Writing q=xy and H(z)=log(1+αz)/(αz) removes the apparent zero-coordinate singularity and yields grounding and uniform margins. Differentiating log C gives x(log C)_x=1+g(x)−g(q), y(log C)_y=1+g(y)−g(q), and xy(log C)_{xy}=−qg′(q), proving the normalized density identity. For α>0, 1+g=u/[(1+u)log(1+u)] belongs to (0,1) and decreases, so both factors and the contribution −qg′(q) are positive. For α=−t, 1+g=(e^s−1)/s=∫₀¹e^(sr)dr, s=−log(1−tz). The two factors are at least one and qg′(q)=F(−log(1−tq)), where F(s)=(e^s−1)∫₀¹r e^(sr)dr rises strictly from zero to infinity. The worst lower bound is attained at (1,1), where the normalized factor is the actual density. This proves sufficiency including the endpoint, strict interior positivity there, and failure of a small interior rectangle when the corner density is negative. At α=0 the limit is independence; the α→−1+ interior limit is identically zero and cannot yield a continuous copula with the stated margins. The explicit computation F(log 2)<1 shows t*>1/2. An independently written 80-digit Decimal bisection confirmed s*=0.7761266919684155385876… and t*=0.5398149979439905133946…, with opposite corner signs at t=0.5397 and 0.5399; the numeric work is not the continuum proof.
 
-**Limits and scientific relationship.** Positive-parameter validity and the original model are prior work; the new contribution is the exact negative interval and its necessity. The result does not claim multivariate validity, inferential optimality, or independent peer verification. The broader ratio-type literature may contain unindexed consequences not recovered in this comparison.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The formula and nonnegative parameter validity are not new. The supported distinction is the exact necessary-and-sufficient negative endpoint and the corner mechanism. The exact catalogue match is this very frozen record. Related catalogued parameter frontiers concern different families; no reported theorem or inspected statement establishes the new negative endpoint. The inability to reopen the complete primary papers is a limitation, not evidence against prior coverage.
+
+## value
+
+PASS
+
+Resolves an explicit admissibility question for a published dependence model. It determines exactly which candidate functions are distributions, improves on the reported numerical −1/2 suggestion, and identifies the obstruction mechanism and endpoint inclusion analytically, rather than presenting a grid estimate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

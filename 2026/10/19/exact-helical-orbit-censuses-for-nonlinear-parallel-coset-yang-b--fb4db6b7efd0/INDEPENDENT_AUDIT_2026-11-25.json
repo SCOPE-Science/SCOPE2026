@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:01:20.273144Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–82 and 88",
+        "VERIFICATION.md lines 18–24",
+        "parallel_coset_verify.py lines 9–174 (inspected, not run)",
+        "/workspace/branches/review_replay.py, helical()"
+      ],
+      "rationale": "The normalized mask either swaps or fixes each two-element coset, so its translated f is bijective. R adds the same increment K(s) to both arguments, preserving s and squaring to the identity. K depends only on the quotient and its quotient is the constant h. In the quantum identity each extreme pair uses its original sum quotient (zero or two shifts by h), and the middle pair uses its sum shifted by h on both sides, so the total increments match. This is the unbraided identity: for h≠0 the two sides of the unswapped braid relation have different first-coordinate shifts on the quotient. In the sweep the quotient of the mask argument shifts by (N+1)h each time. Thus four sweeps cancel, and for odd N two cancel. Given the carrier, each site's initial mask argument in W is independent with two lifts; matching consecutive flags is exactly the even-N two-sweep fixed-state test. The carrier displacement is the sum of the site displacements, so no extra fixed-state constraint is lost. The normalization recovers c as the unique preimage of zero, and a nonzero mask determines d by its nonzero displacement relative to translation. Linear masks here mean F₂-linear on W; there are q/2 of them, with q/4 noninvariant for each nonzero h. Counting normalized shift-invariant flags on W/<h> and excluding the duplicate unmasked translations gives all the stated distinct-map counts. A fresh disjoint-orbit traversal recovered (C₁,C₂,C₄)=(0,64,96) in the given q=8, N=2 example and (0,2048,0) for N=3. A different multiple-coset mask at q=16, N=2 gave (0,128,960).",
+      "residual_risks": [
+        "The class called affine is affine over the additive F₂-vector space, not necessarily affine over F_q. The proof is for the full state including the carrier, not the cycle counts of a site-only projection."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier affine record gives the full-state census for all affine maps with L²=I, which covers the additive-linear masks.",
+          "Araoka–Tokihiro provide low-field period results and a general conjecture. Etingof–Schedler–Soloviev and Veselov provide structural frameworks."
+        ],
+        "reasoning": "The broader affine result mechanically covers the affine subset. Neither it nor the general QYBE/monodromy or periodicity framework yields the nonlinear arbitrary-mask fixed-state counts.",
+        "searches": [
+          "Resultary 69b4a05d6a01",
+          "arXiv:2602.17148v1, Conjecture 9",
+          "arXiv:q-alg/9707027v2 p. 1",
+          "arXiv:math/0205335v2 pp. 2–4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2602.17148v1",
+        "arXiv:q-alg/9707027v2",
+        "arXiv:math/0205335v2",
+        "Resultary 54fbfbc397aa, 69b4a05d6a01 and c972a6128f37"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The strongest close overlap explicitly uses one switched coset for its dynamic counts even though its local identity admits arbitrary masks. The other exact censuses impose linearity or h=0. The original paper's helical boundary is b(t+1)=y_N(t), and its table concerns longest cycles."
+        ],
+        "reasoning": "These cannot be substituted to get the two-sweep matching count v_h for general multiple-coset masks: correlation across a nonzero shift depends on their actual placement. The general formula and normalized-mask count persist after crediting those special cases. Catalogue dates do not by themselves prove discovery order.",
+        "searches": [
+          "Resultary 54fbfbc397aa, proof steps 1–4",
+          "Resultary 69b4a05d6a01 and c972a6128f37, Findings",
+          "arXiv:2602.17148v1 §§2.2–2.3, 3.1–3.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The single-transposition record gives F₁, F₂ and primitive cycle counts for a one-active-coset mask and states the local identity for arbitrary quotient masks.",
+          "The common-displacement record gives fixed and two-cycle counts for displacement in {0,d}, the c∈{0,d} sector up to mask normalization.",
+          "In characteristic two Araoka–Tokihiro's local map (10) equals the frozen R and (12) is the same functional equation. Their component equations (7)–(9) use pairs 12,13,23 despite the braid notation in (6)."
+        ],
+        "reasoning": "Do not claim a distinct family merely by changing conventions. The local rule and actual helical sweep match; the unbraided identity for R is equivalent to the braid identity for the output-swapped map, not for R itself in general. The two indexed nonlinear matches cover real sectors, but not arbitrary masks with a shift outside <d>.",
+        "searches": [
+          "Resultary: parallel-coset masks, shifted single transpositions, full helical cycle spectrum",
+          "Resultary 54fbfbc397aa and c972a6128f37",
+          "arXiv:2602.17148v1 §§2.1–2.3 and 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Araoka–Tokihiro count all admissible rules for q=4,8,16 (16, 736 and 269056); Table 1 classifies rules by longest observed fundamental cycle and parity. The indexed exact dynamic counts refer to affine rules or shifted single transpositions."
+        ],
+        "reasoning": "Matching low-field cases and maximal periods are not multiplicities of full-state cycles; a rule with period four need not have the same number of two-sweep fixed states. The table does not tabulate the arbitrary-mask subfamily and its all-dimension order-four census.",
+        "searches": [
+          "arXiv:2602.17148v1 abstract and §3.1 Table 1",
+          "Resultary 54fbfbc397aa, mixed-cycle Finding",
+          "Resultary 69b4a05d6a01, affine census Finding"
+        ]
+      },
+      "rationale": "The supported distinct content is the all-dimension full-state and distinct-rule census for arbitrary masks in the translated single-direction family, especially genuinely nonlinear shifted masks with h≠0. The functional identity, helical update, affine census, single-transposition census and unshifted common-displacement sector have substantial existing coverage and are not independently credited.",
+      "residual_risks": [
+        "The accessible arXiv v1 was checked; journal full-text retrieval failed, so any additional later material was not compared.",
+        "A public query did not yield useable results; earlier unlocated equivalences are possible. Neither the subfamily proof nor the indexed comparison establishes the full period conjecture."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same local rule and actual sweep, with a notation conflict about braid; not the full arbitrary-mask census",
+          "evidence": "Equation (10) equals R in characteristic two, but the compositions in (7)–(9) implement the quantum relation, not the unswapped braid written in (6). The table counts/classifies rules by maximal fundamental cycles, not state-space orbit multiplicities.",
+          "identifier_or_url": "https://arxiv.org/html/2602.17148v1",
+          "material_read": "§§2.1–2.3 Eqs. (6)–(12), Propositions 1–4; §§3.1–3.2 around the boundary, Table 1 and Conjecture 9; abstract",
+          "method": "OA arXiv HTML bounded passages; §2 equations checked directly",
+          "title": "Integrable cellular automata on finite fields of order 2^n",
+          "trigger": "Same functional equation, sweep, period conjecture and numerical table"
+        },
+        {
+          "assessment": "Equivalent for one switched coset; general local identity also covered",
+          "evidence": "Full-state F₁, F₂ and C₁/C₂/C₄ for shifted single transpositions but no arbitrary-mask orbit or distinct-function census.",
+          "identifier_or_url": "2026/10/26/SCOPE-exact-mixed-two-and-four-cycle-spectrum-for-nonlinear-helical-tr--54fbfbc397aa",
+          "material_read": "Finding, assumptions and proof steps 1–4, extracted offsets 0–7300",
+          "method": "Local mirror text",
+          "title": "Exact mixed two- and four-cycle spectrum for nonlinear helical transport",
+          "trigger": "Strongest indexed nonlinear dynamic comparison"
+        },
+        {
+          "assessment": "Covers additive-linear masks",
+          "evidence": "Exact full-state cycle formulas and map counts for f(x)=Lx+c, L²=I.",
+          "identifier_or_url": "2026/10/11/SCOPE-complete-cycle-census-for-additive-affine-helical-yang-baxter-au--69b4a05d6a01",
+          "material_read": "Finding and assumptions, offsets 0–4910",
+          "method": "Local mirror text",
+          "title": "Complete cycle census for additive-affine helical Yang–Baxter automata",
+          "trigger": "Stronger affine theorem"
+        },
+        {
+          "assessment": "Overlap restricted to h=0",
+          "evidence": "Displacement in {0,d}, hence all-order involutions with fixed- and two-cycle counts and a map count, but no translated h≠0 sector.",
+          "identifier_or_url": "2026/11/8/SCOPE-common-displacement-finite-field-helical-automata-an-all-order-t--c972a6128f37",
+          "material_read": "Finding, assumptions and proof, offsets 0–4838",
+          "method": "Local mirror text",
+          "title": "Common-displacement finite-field helical automata",
+          "trigger": "Potential equivalent arbitrary-mask description"
+        },
+        {
+          "assessment": "Framework and linear/affine classification",
+          "evidence": "States the quantum relation and unitarity; does not treat the nonlinear helical census in the passages inspected.",
+          "identifier_or_url": "arXiv:q-alg/9707027v2",
+          "material_read": "p. 1, offsets 0–3433",
+          "method": "OA preprint passages",
+          "title": "On set-theoretical solutions of the quantum Yang–Baxter equation",
+          "trigger": "Broader classification and QYBE convention"
+        },
+        {
+          "assessment": "Foundational dynamics, not this exact census",
+          "evidence": "Defines reversibility and monodromy for set-theoretic Yang–Baxter maps.",
+          "identifier_or_url": "arXiv:math/0205335v2",
+          "material_read": "pp. 2–4, Eqs. (1), (2), (5)",
+          "method": "OA preprint passages",
+          "title": "Yang–Baxter maps and integrable dynamics",
+          "trigger": "Monodromy and transport-map framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 12–59 and 67–88",
+        "arXiv:2602.17148v1 §3.1/Table 1 and §3.2",
+        "Resultary 54fbfbc397aa and 69b4a05d6a01"
+      ],
+      "rationale": "For helical Yang–Baxter automata, maximal period alone does not determine the prevalence of short orbits. Here the explicit dependence on mask equality across a quotient shift gives an exact distribution for an unbounded, genuinely nonlinear family, and the rule census quantifies when even widths actually have order four. This adds scientifically useful information beyond the affine and single-transposition cases or a finite table of maximal periods.",
+      "residual_risks": [
+        "This supplies no exhaustive classification outside the single-direction family and no site-only census after forgetting the carrier."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

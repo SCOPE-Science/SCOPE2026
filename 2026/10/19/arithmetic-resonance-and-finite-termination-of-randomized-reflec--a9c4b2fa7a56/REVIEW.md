@@ -1,11 +1,21 @@
-# Scientific review: Arithmetic resonance and finite termination of randomized reflection bundles
+# Independent mathematical audit
 
-**Correctness — PASS.** The source algorithm, exact matrix form, and quantifiers were reconstructed. Complex reflection composition gives an alternating binomial exponent; even reflection bundles average to a scalar rotation-contraction, while odd ones average to random rank-one projections. An integer cosine zero yields the complete stopping criterion and a positive-probability disjoint-pair argument establishes almost-sure finite hitting in the odd case. Exact finite-state killed-chain algebra gives the full generic-start survival law, including rational expectations \(61/9\) and \(36\). The standalone symbolic checker verifies 508 word identities for seven lengths and two exact angles. The infinite/all-angle claims are supplied by proof, not by enumeration.
+## correctness
 
-**Originality — PASS.** The closest algorithmic primary source is Han–Su–Xie, arXiv:2207.04291, Algorithm 1 and Section 3. Its expectation and mean-iterate rates do not determine finite hitting, much less the angle-denominator parity cutoffs or the exact killed-chain law. Bauschke et al., arXiv:1309.4709, treat the fixed two-line operator; Bauschke–Dao, arXiv:1604.04657, and Dao et al., arXiv:2310.17077, address fixed two-set geometric finite convergence rather than independent random reflection bundles. Searches for aliases, angle resonances, virtual axes, finite stopping, and exact first-passage laws found no covering statement; unindexed equivalent results remain a bibliographic risk.
+PASS
 
-**Value — PASS.** This gives a complete natural classification of exact finite solution attainment for a published, expectation-convergent randomized solver in its two-row model. The odd-versus-even budget thresholds and the expected cost comparison at angle \(\pi/4\) show a meaningful algorithmic structure not conveyed by norm convergence rates. The exact-precision, two-dimensional and angle-perturbation limitations are explicit.
+After translation to the common solution, a sampled reflection acts on z∈C as exp(2ijθ) times conjugation. The alternating sum S has generating polynomial 2^(−r) z^(−floor(r/2))(1+z)^r, so every listed index occurs with the stated binomial weight. For even r, the average is complex multiplication by exp(iSθ)cos(Sθ), either invertible or zero; independence gives the claimed geometric time. For odd r, the average is rank-one projection to L_(Sθ). A nonzero projected vector survives exactly when the next axis is not perpendicular. The support differences realize every integer from −r to r. A perpendicular ordered pair, when available, occurs almost surely by independent disjoint two-block trials; without one there is no killing after a surviving first projection. Even an exceptional nonzero start has strictly positive survival probability at its first projection because both distinct axes L_0 and L_θ occur. Thus the iff is valid for each fixed nonzero start; only the stated odd waiting-time formula assumes a generic first projection. The least positive d with cos(dθ)=0 is b/2 for a reduced even denominator b, and otherwise none exists; together with the even support and odd difference support this yields both thresholds. The killed transition probabilities give p^T Q^(k−1)1; uniform pair-trial decay implies spectral radius less than one and justifies summing the inverse series. Bounded independent rational calculation reproduced 61/9, 36, and 8 blocks for the stated examples; the general claim rests on the proof, not the uploaded checker.
 
-**Limits.** Two consistent planar equations, normalized rows, independent replacement sampling, half relaxation, exact arithmetic, no momentum; neither general higher-dimensional behavior nor numerical tolerance performance is proved. Independent external validation is absent.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The algorithm itself and its convergence theory are prior work. The inspected statements do not resolve exact hitting under fresh reflection bundles: neither the even/odd denominator thresholds for this process nor the killed-chain first-solution law are covered. Deterministic planar DR and stochastic planar Kaczmarz have material connections but different transition processes. This is a scoped, best-of-knowledge finding.
+
+## value
+
+PASS
+
+The two-normal geometry is the minimal nontrivial instance of the published randomized method. The exact-hitting boundary separates almost-sure finite absorption from indefinite nonzero trajectories even when general convergence estimates apply. The sharp parity thresholds explain which reflection counts can possibly work; the waiting laws quantify the block and reflection costs, beyond merely identifying resonant examples. The value is for the exact-arithmetic stochastic scheme, not a finite-precision performance assertion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

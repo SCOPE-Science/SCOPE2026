@@ -14,7 +14,7 @@ Let \(n\ge 3\), and consider the nearest-neighbor circulant Markov operator \(P_
  +\frac{r^k}{\varepsilon(1-r^n)}
  -\frac{p}{n\varepsilon^2},\qquad 0\le k<n.
 \]
-For \(\varepsilon=0\), put
+At \(r=0\), use \(r^0=1\). For \(\varepsilon=0\), put
 \[
  h_{n,0}(k)=\frac{n^2-1}{6n}-\frac{k(n-k)}{n}.
 \]
@@ -22,7 +22,7 @@ Then \(h_{n,\varepsilon}(k)=(G_{n,\varepsilon})_{k,0}\) and
 \[
  \boxed{C_n(\varepsilon)=\sum_{k=0}^{n-1}|h_{n,\varepsilon}(k)|.}
 \]
-Every sharp endpoint norm is attained by a sign function: for the row indexed by \(0\), use the sign of \(h_{n,\varepsilon}(-k)\). The indices where \(h_{n,\varepsilon}\) is negative form one consecutive interval, possibly with zeros at its boundary.
+The \(\ell^\infty\) norm is attained by the sign function of the row indexed by \(0\), namely \(k\mapsto\operatorname{sgn}(h_{n,\varepsilon}(-k))\) with arbitrary signs at zeros. The \(\ell^1\) norm is attained by the unit point mass at any column index. The indices where \(h_{n,\varepsilon}\) is negative form one consecutive interval, possibly with zeros at its boundary.
 
 **Diffusive-to-directed crossover.** For \(\beta\ge0\), define \(g_0(x)=x^2-x+1/6\), \(0\le x\le1\), and, if \(\beta>0\), define
 \[
@@ -35,7 +35,7 @@ Set \(\Phi(\beta)=\int_0^1|g_\beta(x)|\,dx\). For *every* sequence \(0\le\vareps
  \boxed{\lim_{n\to\infty}\frac{C_n(\varepsilon_n)}{n^2}
  =\Phi(\beta).}
 \]
-The function \(g_\beta\) is strictly convex on \((0,1)\), continuous and periodic at the endpoints, has mean zero, and has exactly two zeros in \((0,1)\). Thus \(\Phi\) is also the explicitly integrable negative mass between those two zeros. Its limiting endpoint values are
+The function \(g_\beta\) is strictly convex on \((0,1)\), continuous and periodic at the endpoints, has mean zero, and has exactly two zeros in \((0,1)\). Thus \(\Phi\) is twice the integral of \(-g_\beta\) between those two zeros. Its limiting endpoint values are
 \[
  \boxed{\Phi(0)=\frac{\sqrt3}{27},\qquad
  \left|\Phi(\beta)-\frac1{4\beta}\right|\le\frac1{\beta^2}
@@ -53,7 +53,7 @@ In fact the finite bound
 holds for every \(n\ge3\) and \(0<\varepsilon\le1\). The result distinguishes the diffusive \(n^2\)-scale at vanishing drift from the directed \(n/\varepsilon\)-scale at stronger drift and identifies the sharp transition at \(\varepsilon\asymp n^{-1}\).
 
 ## Assumptions and scope
-The state space is the finite cyclic group \(\mathbb Z/n\mathbb Z\), with counting-measure \(\ell^1\) and \(\ell^\infty\) norms (no probability normalization). The kernel is real, not assumed symmetric. For \(\varepsilon=1\), the walk moves deterministically around the directed cycle; the zero-eigenvalue restriction remains invertible. All cyclic indices are taken modulo \(n\). The operator \(G_{n,\varepsilon}\) is defined by
+The state space is the finite cyclic group \(\mathbb Z/n\mathbb Z\), with counting-measure \(\ell^1\) and \(\ell^\infty\) norms (no probability normalization). Both operator norms are on the full space, not restricted to mean-zero inputs. The kernel is real, not assumed symmetric. For \(\varepsilon=1\), the walk moves deterministically around the directed cycle; the restriction of \(L_{n,\varepsilon}\) to the mean-zero subspace remains invertible. All cyclic indices are taken modulo \(n\). The operator \(G_{n,\varepsilon}\) is defined by
 \[
  L_{n,\varepsilon}G_{n,\varepsilon}
  =G_{n,\varepsilon}L_{n,\varepsilon}=I-J,
@@ -73,7 +73,7 @@ For \(\varepsilon>0\), write \(h(n)=h(0)\) and \(d_k=h(k)-h(k-1)\) for \(1\le k\
 \]
 This difference sequence sums to zero and satisfies the source equation \(q d_n-p d_1=1-1/n\). Summation of differences and normalization to mean zero gives exactly the asserted formula for \(h_{n,\varepsilon}\). At zero bias, substitution of the quadratic expression gives the same Poisson equation and normalization. Uniqueness on mean-zero vectors finishes the kernel derivation.
 
-Every row of a circulant matrix is a permutation of the first column. The induced absolute row-sum and column-sum norms therefore coincide and equal \(\sum_k|h(k)|\). For a fixed row, choosing the input signs to agree with its entries attains this sum. Moreover, the first differences \(d_k\) are nondecreasing in \(k\) (strictly increasing for \(0<\varepsilon<1\)); this follows directly from the geometric term above, or from the constant second differences when \(\varepsilon=0\). Thus \(h(0),h(1),\ldots,h(n)\), with \(h(n)=h(0)\), is a convex sequence. Its largest value is at the endpoints and is positive by the mean-zero condition. Consequently its negative indices constitute one contiguous interval, with possible zero boundary values.
+Every row of a circulant matrix is a permutation of the first column. The induced absolute row-sum and column-sum norms therefore coincide and equal \(\sum_k|h(k)|\). For the \(\ell^\infty\) norm, choosing the input signs to agree with a fixed row attains this sum in that output coordinate. For the \(\ell^1\) norm, a unit point mass in the input selects one column of \(G_{n,\varepsilon}\), whose absolute sum is \(\sum_k|h(k)|\). The row-sign input need not attain the \(\ell^1\) norm. Moreover, the first differences \(d_k\) are nondecreasing in \(k\) (strictly increasing for \(0<\varepsilon<1\)); this follows directly from the geometric term above, or from the constant second differences when \(\varepsilon=0\). Thus \(h(0),h(1),\ldots,h(n)\), with \(h(n)=h(0)\), is a convex sequence. Its largest value is at the endpoints and is positive by the mean-zero condition and the nonzero source. Consequently its negative indices constitute one contiguous interval, with possible zero boundary values.
 
 **2. Finite weak-drift limit.** Let \(\varepsilon_n\ge0\) satisfy \(n\varepsilon_n\to\beta\). For the Fourier index \(m\ne0\), represented by \(|m|\le n/2\), the eigenvalue of the cyclic generator is
 \[
@@ -112,12 +112,13 @@ which is the advertised bound.
 A standalone standard-library Python checker (`check.py`) computes exact rational Green columns both from the claimed closed formula and by separately implemented Gaussian elimination of \(L+J\). It checks the zero-mean normalization, the source and off-source Poisson equations, and the position of the maximum across multiple sizes and biases. It additionally compares finite normalized endpoint norms with the continuum integral by numerical Riemann sums and tests the strong-drift scaling. The finite checks are diagnostic; the universal statements follow from the mathematical arguments above.
 
 ## Relationship to prior work
-Beveridge's *A Hitting Time Formula for the Discrete Green's Function* (arXiv:1505.06989, initially public 26 May 2015) gives a general hitting-time representation of the Green operator for strongly connected digraphs, and explicitly treats the **symmetric** cycle as an example. That representation and the symmetric-cycle Green kernel are prior results, not claimed here. In particular, the formula for \(h_{n,0}\) is included as a normalization reference only. The added statement is the sharp operator-norm crossover under directional bias, with its explicit periodic advection–diffusion limit, sign extremizers and two complementary scaling regimes. The general prior hitting-time identity alone does not quantify that endpoint transition.
+Beveridge's *A Hitting Time Formula for the Discrete Green's Function* (arXiv:1505.06989, initially public 26 May 2015) gives a general hitting-time representation of the Green operator for strongly connected digraphs, and explicitly treats the **symmetric** cycle. The same-day note *A sharp cycle Poisson norm and its irrational lattice-phase limit law* gives the exact symmetric-cycle norm \(N_n\) for the unnormalized Laplacian, and a sharper arithmetic law for it. In the present normalization \(C_n(0)=2N_n\); the zero-bias norm, sign cutoff and leading coefficient are included as reference points, not as new claims. The contribution here is the crossover under directional bias: the explicit positive-\(\beta\) periodic advection–diffusion norm profile, convergence along every sequence with \(n\varepsilon_n\to\beta\), even when \(\beta=0\) and the finite-cycle bias is not identically zero, and the complementary strong-drift law. The general hitting-time identity supplies a route to the finite kernel but does not state these norm asymptotics.
 
 Other related work on drift–diffusion limits supplies the underlying continuum interpretation; a weak limit for the walk itself is not an equality for the induced supremum norm of its centered Poisson inverse. The specific sharp norm comparison and continuum absolute-Green profile were not located in the inspected primary work or targeted searches. Absence from those searches is not a proof of historical uniqueness.
 
 ## Limitations
-Historical priority is provisional. The fixed-parameter finite Green kernel is elementary and may also be expressed using pre-existing hitting-time formulas; originality is asserted only for the combined sharp endpoint crossover and sign-profile classification. The result is confined to spatially homogeneous nearest-neighbor cycles and does not give finite-size optimizing threshold indices as an independent closed floor formula. No independent audit has been performed.
+Historical priority is provisional. The fixed-parameter finite Green kernel is elementary and may also be expressed using pre-existing hitting-time formulas. The result is confined to spatially homogeneous nearest-neighbor cycles and does not give finite-size optimizing threshold indices as an independent closed floor formula.
 
 ## References
 - Andrew Beveridge, *A Hitting Time Formula for the Discrete Green's Function*, arXiv:1505.06989v1, publicly submitted 2015-05-26; especially the directed-graph result and the symmetric-cycle computation in Section 4. https://arxiv.org/html/1505.06989v1
+- *A sharp cycle Poisson norm and its irrational lattice-phase limit law*, Resultary record, Finding and proof section 2. https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-sharp-cycle-poisson-norm-and-its-irrational-lattice-phase-limi--bda401cecdc2/RESULT.md

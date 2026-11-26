@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The upper bound uses a disjoint cover by equality types, at most \((m+1)^q\) gap-vector types, and at most \(2sm\) marked adjacency vertices, a cardinality bound valid even when one vertex realizes several oriented slots. The constructive matching lower bound fixes every parameter permutation, places a generic representative in every gap vector and a separate element in every successor slot, and preserves all exact-successor interpretations. The one-order probability is stars and bars after proving that full type saturation is equivalent to two free points in each exterior gap and three in each interior gap. Taking logarithms of the exact binomial quotient proves the stated threshold for growing \(m\). The attached checker constructs 70 extremal structures, tests 12,715 independent small configurations and verifies 74 exact combinatorial probabilities. Experiments are not offered as proofs of universal statements.
+PASS
 
-## Originality — PASS within inspected evidence
+PASS applies to the repaired maximum-realized-count theorem, not to the frozen statement that one structure realizes every possible atomic type. With q=s=1 and two parameters a<b, the interior type S(a,x)∧S(x,b) is possible in a<x<b, but cannot coexist with any generic interior type, because double adjacency forces an interior gap of size one. Both are possible even with S(a,b) false. The corrected RESULT and slogan explicitly distinguish attaining a sharp cardinality from realizing a union of possible types. Verified the bound by disjoint contributions: m equality types, at most (m+1)^q generic gap vectors, and at most 2sm distinct nonparameter vertices occupying named successor slots. Exact successors can cause multiple slots to share one vertex but not increase this bound. To attain it, assign one generic point per vector and a distinct marker per slot; in each order place the parameters as prescribed, place its own markers next to them, and keep all unrelated markers in a gap away from any designated parameter adjacency. The resulting marker types differ by unique slots and all generic types differ by gap vector. The m=0 case takes one point, and any extremizer needs at least M elements. For one order, both exterior gaps need at least two unmarked positions and each interior gap at least three; this is necessary and sufficient to attain the three separate bounds, including distinct slot witnesses. The marked subset is determined by the gap vector, and subtracting the minimum lengths gives the binomial numerator, zero for N<4m+1. The log of the positive quotient is −3m²/N+O(m/N+m³/N²) at the claimed finite-c scale and the quotient is bounded by exp(−m(3m+1)/N) above that scale. A separate small direct truth-vector enumeration for m=2 confirmed no nine-type carrier below N=9 and favorable subset counts 1,3,6,10,15 for N=9,…,13; it is only a diagnostic, not a proof. Reviewed the frozen VERIFICATION.md and verify.py, which check attained cardinality rather than the false cross-structure assertion.
 
-The verified 2026 papers by Michaliszyn–Witkowski (arXiv:2610.09758), Jeż–Michaliszyn–Witkowski (arXiv:2610.19943), and Bednarczyk–Kojelis–Szymański (arXiv:2610.20937) establish finite or arbitrary-model decision results with successors and orders, but not the exact atomic parameter-spectrum or its saturation law. The closest indexed mathematical results address complete types in homogeneous multiorder structures or sentence-level limit spectra for random independent successor orders; neither is a statement of this finite atomic order-plus-successor capacity. The general observation that each parameter has two immediate neighbors in each visible successor relation is elementary and is not itself claimed as novel. There remains a genuine risk of an older equivalent classification under alternative vocabulary; no exhaustive priority claim is made.
+## originality
 
-## Value — PASS
+PASS
 
-The complete, optimal all-arity count provides an exact resource requirement for realizing local parameter configurations in a natural finite-model-theoretic signature. The construction works with any specified relative order of the named parameters; the exact finite saturation probability and the nondegenerate \(\sqrt N\) threshold distinguish typical small models from saturated models. The theorem remains deliberately atomic rather than asserting a general first-order complexity improvement.
+The repaired distinct contribution is simultaneous sharp atomic capacity for arbitrary prescribed parameter-order permutations in the mixed named signature, including the characterization that links the one-order maximum to gap clearance. The binomial spacing count and its square-root profile are not credited as independently original; they follow from classical separated-set enumeration once the model-theoretic event is identified. The comparison is best of current knowledge.
 
-## Limitations
+## value
 
-No arbitrary auxiliary predicates or complete first-order types. The stochastic result is restricted to a single marked linear order. Broad historical equivalences remain the main originality risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural finite-model invariant is the largest diversity of local configurations seen by a single structure over a prescribed common named base. The separable but potentially conflicting exact-successor witnesses make sharp simultaneous attainment, with a minimal carrier for each set of prescribed parameter permutations, more informative than counting individually consistent types or quoting separate per-order capacities. The one-order spacing equivalence gives a useful interpretation of when that sharp cardinality is attained in a model sampled by random marks; value does not rest on the classical binomial calculation alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,17 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim quantifies over all symmetric nonnegative stochastic irreducible kernels supported on \(K_{1,m}\mathbin{\square}K_2\). Strict convexity of \(\operatorname{tr}[(I-P+J)^{-1}]-1\) proves global symmetry and uniqueness; the exact symmetric/antisymmetric decomposition gives its three-parameter trace. At every \(m\ge3\), three positive, factored corner directional derivatives are sufficient by convexity and certify complete deletion of the common edge. At \(m=2\), the unique root of a strictly increasing cubic minimizes the zero-holding curve, while two strictly positive holding-direction derivatives prove unrestricted optimality. The complete proof includes normalization, boundary connectivity, exact optimal value, and maximum-degree limit. Exact matrix and symbolic replay in `verify.py` passed. Finite tests are not relied upon for the infinite domain.
+## correctness
 
-## Originality — PASS on inspected evidence, with residual risk
-The crucial closest prior result on the **identical** graph is *Sharp compulsory central-rung deletion in quadrilateral-book fastest mixing* (October 2026, item ca9ef0ce-4718-416f-8bab-e6d27f6de957). Its recovered theorem states the same page-count threshold for removal of the central edge under **SLEM optimization**. The common-edge deletion threshold alone is **covered and is not claimed novel**. But the new theorem minimizes the inverse-eigenvalue-gap sum, specifies the unique Kemeny optimal allocation for all page counts, and proves its optimizer is periodic with SLEM equal to one; the prior SLEM minimizers have spectral modulus strictly below one. In particular the recorded fastest-mixing peripheral-rung interval for \(m\ge3\) excludes the Kemeny-optimal value \(z=(m-1)/m\). The earlier record's recoverable full claim was checked but the manuscript itself was not accessed; only the precise claim is attributed, not a whole-document noncoverage assessment.
+PASS
 
-Targeted published-finding corpus searches for Kemeny/stationary mean-hitting-time aliases, star products, books, rungs and optimal transition weights produced related graphs, general frameworks and the exact-book *two-leader* theorem but no implication yielding the new exact Kemeny solution. Boyd–Diaconis–Xiao give a general SLEM framework; Patel–Agharkar–Bullo the general Kemeny convex framework; Hunter the Kemeny normalization. None of the inspected accessible text proves the **new Kemeny optimizer and strict separation from optimal SLEM**. This does not certify absolute priority, and inaccessible or unindexed same-object Kemeny work is a genuine residual risk.
+For connected admissible walks the grounded Laplacian is positive definite; the Hessian of its inverse trace is strictly positive along every nonzero symmetric direction. Averaging preserves feasibility and is strict unless the walk is invariant. The even layer sector gives eigenvalues 0, x (multiplicity m-1), and (m+1)x; the odd sector gives x+2z (multiplicity m-1) and the stated two-dimensional quotient. Independently reconstructed exact gradients in holding coordinates (u,v,y) have positive shifted coefficients for m>=3. In the two-page case the reduced derivative has the stated cubic sign and the holding derivatives are strictly positive; the stationary edge point satisfies the supporting-plane inequality globally. Both choices are connected and loop-free, so the bipartite sign vector gives eigenvalue -1; lazification gives the unattained aperiodic infimum. The benchmark ratio follows from the leading terms. The fastest-mixing values can also be checked independently: SLEM is the convex norm ||P-J||, so it suffices to average; for m>=3 the star eigenvalue gives SLEM>=1-x>=1-1/m. At x=1/m and y=0 the odd-block eigenvalues lie in [1/m,2-1/m] exactly over the displayed rung interval by the two Schur-complement inequalities, and the other eigenvalues meet those bounds there. For m=2, the norm of I minus the odd block is at least its absolute off-diagonal entry sqrt(2)x, so SLEM>=max(1-x,sqrt(2)x). At x=sqrt(2)-1, setting both odd-block diagonal entries to 1 attains equality and is feasible; equality requires positive central weight. Thus the disjointness is independently established even without the historical manuscript.
 
-## Value — PASS
-The distinction between minimizing stationary-target hitting time and minimizing spectral convergence rate is a classical motivated question in graph-constrained Markov design. Here their optimal walks are **provably disjoint at every network size**, even where both optimizations independently delete the common hub edge. The new exact unique Kemeny weights, vanishing holds and period-two chain demonstrate that optimizing average hitting times can select a maximally nonmixing walk; maximum-degree weighting is asymptotically a factor \(4/3\) more costly. The graph family and exact performance/periodicity conflict are natural, meaningful and not arbitrary slices.
+## originality
 
-## Scientific limitations
-Only symmetric uniform-stationary chains are treated. Edges may have zero assigned flow; aperiodicity is not imposed. The zero-target convention differs by one from the return-inclusive Kemeny constant. Related inaccessible work and possible unindexed equivalents create a residual originality risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The supported distinct claim is the exact all-size unique inverse-trace optimum under stochastic vertex budgets and the precise distinction from the SLEM optimizer. Kemeny, the pseudoinverse trace and fixed-order total resistance coincide as objectives, and neither that equivalence nor the shared rung-deletion page-count boundary is claimed as new. The inspected near matches do not supply this allocation for this graph and these budgets.
+
+## value
+
+PASS
+
+The natural hitting-time and asymptotic mixing objectives have exact globally disjoint solutions on the same graph even though they share a deletion boundary. The all-size stochastic allocation identifies the exception and shows a genuine criterion-dependent pathology: the hitting-time optimum is periodic and becomes an unattained infimum under an aperiodicity requirement. The structural comparison is meaningful independently of the maximum-degree benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

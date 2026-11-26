@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:28:01.026143Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Finding specifies Paley column order with the Sylvester row sequence: the raw Sylvester binary column indices are bit-reversed for these displayed labels. With row r, column j, the unscaled entry is (−1)^popcount(r & reverse3(j)). Summing this product for two columns over 2^k prefix rows gives 2^k if their low k character bits match and zero otherwise, which is the stated consecutive-block condition in Paley labels. Bare Sylvester columns without the Paley reorder would relabel the listed optimizers. An independent exact checker computed these pairwise overlaps directly from signs, enumerated all 4^8 length assignments, and used rational symmetric Schur-complement pivots to test 68I−5H for strict positive definiteness. It found exactly the eight stated XOR vectors outside the bound; all other 65528 have squared norm strictly less than 17/10. Newton identities on exact traces gave t^4(t−4)(t^3−16t²+32t−16) for each exception. The exact signs q(68/5)=−3088/125 and q(14)=40 put a root above the separation, hence all exceptions have the common larger squared norm; t=8ζ transforms the top factor into the claimed cubic. Replay: python3 /workspace/branches/b602047d-6d27-4349-895a-5f6e56a17799/audit_record5.py (no --limit); full run in the adjacent full.log, with the eight vectors and all assertions checked. Uploaded verify.py inspected, not executed. The last displayed digit of the supplementary squared-norm approximation is off by about 1.1×10^−15 (the largest root begins 1.719840461515739140); the exact cubic, gap and correctly approximated norm are unaffected. This is exhaustive at size eight only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lakey's Proposition 7 makes global optimality conditional on the branch-reduction conjecture; §4 examines a restricted two-branch comparison and explicitly describes the conjectures as unproved there. Hogan–Lakey §1.1 says that maximality among dyadic column truncations will be shown in forthcoming work and identifies the compression for the standard matrix. The MathDB hit's full page was not readable; no claim of scope or resolution is inferred from it."
+        ],
+        "reasoning": "A qualitative or conjectural branching comparison does not provide the strict finite census, and an asymptotic spectral theorem for one chosen matrix cannot dominate the competitors.",
+        "searches": [
+          "Lakey arXiv:2602.17627v1 Conjectures 6 and 8, Proposition 7",
+          "Hogan–Lakey Mathematics 14(5):829 §1.1",
+          "MathDB one-node branching conjecture result"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, verify.py and VERIFICATION.md",
+        "Lakey arXiv:2602.17627v1",
+        "Hogan–Lakey Mathematics 14(5):829",
+        "Resultary exact self-match and distinct compression result f36205c70500",
+        "MathDB ordinary page attempted; no full text"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hogan–Lakey compress the prescribed standard matrix to dimension N+1, so its spectral polynomial is directly computable at N=3. Together with character symmetry this gives the candidate value and eight assignments at that value, but it does not test any of the other 65528 cases. Lakey's conditional proposition does not state equality exclusivity or an explicit 17/10 separation."
+        ],
+        "reasoning": "The candidate polynomial is mechanically available from known results, but global certification and the uniform strict inequality remain independent of this implication. Finite checkability is not prior proof of that result.",
+        "searches": [
+          "Hogan–Lakey §1.1 Lemma 1",
+          "Lakey arXiv:2602.17627v1 Proposition 7 and character symmetry",
+          "f36205c70500 exact norm recurrence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lakey's Φ_opt at N=3 has lengths (8,4,2,2,1,1,1,1). Multiplication by a fixed Walsh character translates column labels by XOR and preserves corresponding Gram products. The lemma that prefix columns are either orthogonal or identical up to the shorter length is also prior."
+        ],
+        "reasoning": "The candidate and its eight equivalent patterns and their shared candidate norm can be studied using the published formulation. The exclusivity and all-other cutoff are additional claims, not alias renamings.",
+        "searches": [
+          "Walsh Lakey Hogan dyadic column truncations Walsh-Hadamard optimal norm proof complete branch N=3 8 by 8 maximal truncation branching exact",
+          "Lakey arXiv:2602.17627v1 standard truncation, Walsh character multiplication and Lemma 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "959a43f035b8 is the assigned record itself, not an independent earlier exact table. In f36205c70500, the exact finite-index characteristic recurrence determines the standard candidate's norm; at N=3, z^4 p_4(1/z)=(2z−1)(32z³−64z²+16z−1). The record explicitly limits its claims to the standard compression and disclaims all-truncation maximality."
+        ],
+        "reasoning": "There is exact same-parameter value coverage for the specified candidate, which is credited irrespective of same-day priority. There is no independent full 65536-case norm or equality table in the inspected local results.",
+        "searches": [
+          "Local Resultary exact depth three cutoff, dyadic Walsh truncation norm and one-node branching",
+          "Resultary 959a43f035b8 and f36205c70500"
+        ]
+      },
+      "rationale": "The standard complete branch, its Walsh-character symmetry orbit, Gram rule, and its spectral computation by a known compression are not new. The verified distinct content is exclusion of every other length vector, with an exact uniform strict cutoff that establishes complete equality classification at depth three. The checked broader branching comparison in Lakey is conjectural; Hogan–Lakey explicitly defer all-truncation maximality to future work; the closest distinct Resultary record is for the standard compression only.",
+      "residual_risks": [
+        "The cited future/related branch work or an unindexed finite census could supply an equivalent depth-three comparison; the MathDB item's full text was unavailable.",
+        "No priority is inferred from dates of the two same-day records, nor absence from a search as proof of novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Candidate, symmetry and prefix Gram structural fact already covered; unrestricted optimality conditional, not the finite strict census.",
+          "evidence": "Proposition 7 opens 'If Conjecture 6 holds'; §4 says it does not prove Conjectures 6 and 8 there.",
+          "identifier_or_url": "https://arxiv.org/html/2602.17627v1",
+          "material_read": "Standard truncation formula, character multiplication, Lemma 2 at OA offsets 17200–21591; Conjecture 6, Proposition 7 and Conjecture 8 at offsets 25775–31475",
+          "method": "OA original HTML passages",
+          "title": "Towards direct L²-bounds for maximal partial sums of Walsh–Fourier series: The case of dyadic partial sums",
+          "trigger": "Same truncation family and proposed standard maximizer"
+        },
+        {
+          "assessment": "Gives candidate compression and asymptotic setting, and defers all-truncation maximality.",
+          "evidence": "§1.1 'In forthcoming work, it will be shown that for each N, TW_N has maximal norm among all dyadic column truncations'; Lemma 1 identifies the level-constant compression.",
+          "identifier_or_url": "https://doi.org/10.3390/math14050829; https://mdpi-res.com/d_attachment/mathematics/mathematics-14-00829/article_deploy/mathematics-14-00829.pdf",
+          "material_read": "Abstract and §1.1 'Connection with Truncated Walsh–Hadamard Matrices,' PDF pp. 3–4, offsets 15600–20063, Lemma 1 and proof",
+          "method": "Read lawful publisher-hosted OA PDF after DOI/landing-page routes lacked full text",
+          "title": "An Eigenvector Problem Arising in the Study of Convergence of Walsh–Fourier Series",
+          "trigger": "Same standard matrix and possible all-truncations bound"
+        },
+        {
+          "assessment": "Exact candidate norm is covered in an equivalent representation; no all-truncation comparison.",
+          "evidence": "The determinant recursion at N=3 gives the same squared-norm cubic for the candidate; the text expressly disclaims all-truncation optimality.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-finite-size-norm-deficit-for-the-dyadic-walsh-compression--f36205c70500",
+          "material_read": "RESULT.md Finding, scope and Jacobi-reduction proof, beginning at offset 0",
+          "method": "Local published mirror and algebraic specialization",
+          "title": "Sharp finite-size norm deficit for the dyadic Walsh compression",
+          "trigger": "Closest distinct indexed exact formula at including N=3"
+        },
+        {
+          "assessment": "Unresolved source, not counted as evidence against coverage or for priority.",
+          "evidence": "Search summary mentions the Hogan–Lakey work; no verified exact statement beyond the title and snippet.",
+          "identifier_or_url": "https://mathdb.com/p/373235/one-node-branching-conjecture-for-dyadic-walsh-hadamard-trun",
+          "material_read": "Search listing only; no original theorem or resolution text retrieved",
+          "method": "Bounded ordinary-page OA attempt, direct and alternate route returned 403",
+          "title": "One-node branching conjecture for dyadic Walsh–Hadamard truncations",
+          "trigger": "Focused literature search result on branch comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a motivated finite benchmark of the published single-branch maximal-norm problem, not just a recomputation of its already motivated candidate polynomial. Quantifying every allowed column choice excludes alternative maximizing branch patterns and supplies strict quantitative separation, both facts a researcher testing a general branching comparison can use. The exhaustive result makes no claim about higher levels.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

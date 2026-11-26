@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:38:34.588372Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof §§1–4 and assumptions",
+        "Frozen VERIFICATION.md and verify.py (inspected, not run)"
+      ],
+      "rationale": "In the union of allowed arrows, a k-step walk would give a nonzero k-fold product. Longest-path levels therefore embed S in a complete ordered layered semigroup, splitting levels if needed when n>=k. Each labeled chain is uniquely ordered by its occupied levels, giving the exponential formula including singleton chains. Extracting the two layer variables from exp(F0+(x+y)F1+xyF2) gives the nonnegative terms (a)_d(b)_d F1^(a+b-2d) F2^d/d!, with exp(F0) common. Each existing factor pair increases by a-b-1 under the transfer and any additional term is nonnegative. The single-arrow count increases strictly, and a proper subsemigroup has smaller cardinality; symmetry gives the converse equality. The rank-of-powers formula and second-difference inverse follow chain by chain. The recorded small checks are illustrative, not used as an all-size proof.",
+      "residual_risks": [
+        "Scoped to partial injections, labeled maps and a uniform bound on products of elements; no claim about the full partial transformation monoid."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ganyushkin–Mazorchuk classify maximal bounded-class subsemigroups by ordered partition data.",
+          "The prior balancing comparison works on these same layered objects, and its move retains the entire underlying partition."
+        ],
+        "reasoning": "The classification alone does not yield profile inequalities. The prior transfer proof gives more than its displayed rank specialization.",
+        "searches": [
+          "arXiv:math/0510372, Theorem 5.15 and §6.1",
+          "Resultary record aed5529315d0, proof §§2–4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary aed5529315d0 and 8be29dd91c24",
+        "Ganyushkin–Mazorchuk arXiv:math/0510372 and math/0511431",
+        "Bounded primary web search for exact-type balancing/Sperner refinements returned no further results"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior §3: recoloring 'preserves validity, the number h, every block size, and hence rank d.' The ratio (b+1)(a-h)/(a(b+1-h)) depends only on sizes and h. For h<=b the double count remains valid after fixing each c_j, also for zero counts; any new stratum contributes nonnegatively.",
+          "Prior §§2 and 4: block-wise labeled EGF, strict one-arrow count and only balanced complete layers at cardinality equality."
+        ],
+        "reasoning": "Refining the preserved statistic in the same double count proves the full claim with no new estimate. Simply specializing/comparing rank polynomials would not prove it, but the published counting proof does.",
+        "searches": [
+          "aed5529315d0, RESULT.md at offsets 2480–6078 (proof §§2–4)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "aed5529315d0, proof §2: each allowed partial injection is a set partition of the vertices into chains, with at most one vertex per layer per part.",
+          "8be29dd91c24: a single map's centralizer polynomial determines its chain-length partition, a different invariant."
+        ],
+        "reasoning": "Exact chain type is equivalent to the multiset of partition-part sizes and to ranks of all powers, not to the domain rank alone.",
+        "searches": [
+          "Resultary: bounded-class partial injections, rank-polynomial balancing and chain-type invariants",
+          "arXiv:math/0511431, p. 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed extremal record gives a rank EGF for arbitrary layer sizes. Ganyushkin–Mazorchuk give element-level chain/defect enumeration, not a table of exact profile extremizers."
+        ],
+        "reasoning": "An exact numerical-table comparison is not decisive for an all-n theorem. The extant general generating construction and profile-preserving proof, not a small table, determine coverage.",
+        "searches": [
+          "Resultary: coefficientwise balancing of bounded-class nilpotent partial injections; exact chain-type invariants",
+          "arXiv:math/0511431, nilpotent chain/defect enumeration"
+        ]
+      },
+      "rationale": "The narrower rank-polynomial statement alone cannot recover the chain-profile inequalities, but its published proof is already profile-preserving. The predecessor's marked-vertex recoloring leaves the partition itself unchanged and explicitly preserves every block size. Restrict its double count to any fixed full block-size multiset and the same ratio, monotone at every shared-block stratum h, proves the claimed coefficientwise transfer. The prior chain/partition bijection and exponential construction also give the new EGF by giving a block of size j weight u_j rather than t^(j-1). Its single-arrow strictness and cardinality equality criterion give the full equality case. The frozen formal-series argument is another derivation, not a new extremal conclusion.",
+      "residual_risks": [
+        "No claim of historical priority for the predecessor's proof; other sources could also contain the result. No indexed exact-profile title is needed for the demonstrated implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The statement is rank-only; its proof gives the claimed refinement directly.",
+          "evidence": [
+            "§2 partition bijection retaining chain parts; §3 marked recoloring preserves every block size; §4 strict singleton-plus-one-arrow case and cardinality equality"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-coefficientwise-balancing-of-bounded-class-nilpotent-partial-inj--aed5529315d0/RESULT.md",
+          "material_read": "Finding and proof §§1–4, especially offsets 2480–6078",
+          "method": "Local mirror, literal locator and bounded passage",
+          "title": "Coefficientwise balancing of bounded-class nilpotent partial injections",
+          "trigger": "Same semigroup family and rank coefficient extremal claim"
+        },
+        {
+          "assessment": "Structural coverage, not exact-type comparison in the passages read.",
+          "evidence": [
+            "Ordered-partition description and symmetric inverse semigroup application"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0510372",
+          "material_read": "Theorem 5.15 and §6.1, printed pp. 17–20",
+          "method": "Bounded OA PDF inspection",
+          "title": "On classification of maximal nilpotent subsemigroups",
+          "trigger": "Structural predecessor for the same bounded-class semigroups"
+        },
+        {
+          "assessment": "Covers chain-type background; counts by defect do not give the layered extremal result.",
+          "evidence": [
+            "Nilpotent elements have only chain components; unsigned Lah numbers count by defect."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0511431",
+          "material_read": "p. 3, chain-type and defect enumeration",
+          "method": "Bounded OA PDF inspection",
+          "title": "Combinatorics and distributions of partial injections",
+          "trigger": "Prior chain-type counts for the same objects"
+        },
+        {
+          "assessment": "Related invariant of an individual element, not chain-profile domination across semigroups.",
+          "evidence": [
+            "The centralizer rank polynomial determines an element's chain-length partition."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-nilpotent-partial-permutation-conjugacy-is-determined-by-its-cen--8be29dd91c24",
+          "material_read": "Finding",
+          "method": "Local mirror statement comparison",
+          "title": "Nilpotent partial-permutation conjugacy is determined by its centralizer rank polynomial",
+          "trigger": "Possible indexed chain-type refinement"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof §§2–4",
+        "Resultary aed5529315d0, §§2–4"
+      ],
+      "rationale": "The question of type-wise domination is mathematically natural, but the frozen claim supplies no substantive additional extremal information beyond the predecessor's already type-preserving comparison. Reweighting parts and rewriting the transfer in falling-factorial form are useful exposition, not a demonstrated new structural or quantitative result here.",
+      "residual_risks": [
+        "No separate quantitative or different-family theorem is evaluated."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

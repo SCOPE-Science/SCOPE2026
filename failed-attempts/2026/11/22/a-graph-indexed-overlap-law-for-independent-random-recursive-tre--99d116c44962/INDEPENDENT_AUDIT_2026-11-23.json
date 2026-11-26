@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:36:23.554821Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At arrival k the equality moment for A counts k^{c(A)} choices out of k^q, including isolated vertices, giving the claimed rank expansion; different arrivals are independent. Forest rank is |A|, so all edge coordinates factor, not only their covariances. For a simple cycle the independent product differs in exactly the full square-free monomial; after dividing by the independent factors, its coefficient is unchanged when taking the log. Thus the exact cycle cumulant is the sum of k^{1−ℓ}−k^{−ℓ}, strictly positive from k=2 onward and summable for ℓ≥3. Restricting a larger graph to the cycle amounts to setting other marks to one. For n=2 every mark is deterministic, so the stated restriction n≥3 in the converse is necessary. The scalar PGF is the independent insertion PGF of permutation cycles (the Gamma quotient is understood by continuation at apparent poles). For any fixed real projection, the variance is (H_{n−1}−Σ_{k<n}k^{−2}) times the squared Euclidean coefficient norm, by pairwise independence; bounded summands satisfy Lindeberg at √log n and the zero projection is trivial. Near z=1, both factors have identical singleton terms and all higher terms are uniformly O(k^{−2}); shrink the complex polydisc for the first finitely many factors and sum analytic logarithms. Differentiation there is justified by local uniform convergence. Exact bounded replay: take three copies and n=3. At k=1 the parent is forced. At k=2 enumerate eight binary parent triples; on a triangle the overlap vector (2,2,2) and the three permutations of (2,1,1) each occur with probability 1/4; the mixed cumulant is 1/8. On the two-edge path the four pairs in {1,2}² occur with probability 1/4 each. This agrees with direct rational enumeration. The source verifier was inspected, not executed; that finite replay does not establish the general limits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The multivariate Potts identity covers arbitrary graphs, edge variables and positive integer color counts, including the entire varying sequence in the finding individually.",
+          "Bhattacharya–Diaconis–Mukherjee's Lemma 2.1 proof already uses the monochromatic equality moment c^{−(|V(H)|−ν(H))} and the exact defect from independent Bernoulli variables on cyclic subgraphs."
+        ],
+        "reasoning": "The stronger identity applies without any new tree-dependent calculation. Forest independence at each arrival and across arrivals follows from exact factorization, whereas a simple cycle has exactly its whole-edge monomial different. This prior mechanism, unlike the Cayley-tree analogy, applies directly to the actual probability law.",
+        "searches": [
+          "arXiv:math/0503607 §2 Theorem 2.3 and Eq. (2.3)",
+          "arXiv:1310.2336 §2 Lemma 2.1 and proof",
+          "uniform random coloring monochromatic subgraphs and forest/cycle moment defect"
+        ]
+      },
+      "checked_sources": [
+        "Sokal arXiv:math/0503607 primary PDF",
+        "Bhattacharya–Diaconis–Mukherjee arXiv:1310.2336 primary PDF",
+        "Grübel–Michailow arXiv:1406.7614 primary PDF",
+        "Resultary Cayley-tree and successor comparison hits (indexed statements)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In Eq. (2.3) of the normalized Potts expansion the weight for A is k^{−|A|} times k to the cycle rank. For an ℓ-cycle the excess coefficient is k^{1−ℓ}−k^{−ℓ}; all proper coefficients are independent. At distinct indices the mixed log coefficient is the same excess. Summing it over k gives the displayed zeta difference by definition.",
+          "For a fixed simple index graph the same polynomial gives the identical constant and singleton terms as the independent product, so dividing and multiplying gives a convergent analytic product by Σk^{−2}<∞. The centered normal limit needs only the known pairwise moments and bounded independent arrival vectors."
+        ],
+        "reasoning": "The Gaussian statement is not attributed to the graph-coloring paper's fixed-color graph-sequence CLT; it follows by the standard independent-array CLT in the product setting. No narrow surviving theorem was identified in the existing statement that escapes the classical exact reduction and these direct implications.",
+        "searches": [
+          "independent random recursive trees common edges graph overlap agreement chromatic symmetric function Potts random colorings cycle cumulants mod Poisson recursive tree intersections",
+          "Sokal §2 tree factorization and cyclomatic expansion; Bhattacharya–Diaconis–Mukherjee Lemma 2.1; Grübel–Michailow §1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sokal's Eq. (2.7) sums Π_e(1+v_e δ_{σ_a,σ_b}) over k-colorings σ. With v_e=z_e−1 and normalizing by k^q on a q-vertex graph, its left side is exactly the one-arrival PGF. Theorem 2.3, Eq. (2.10), gives exactly Σ_A k^{c(A)−q}Π_{e∈A}v_e.",
+          "Grübel–Michailow §1 give the usual uniform attachment construction: the labeled recursive tree is coded by one parent at each birth. In the independent-copy model each birth is therefore literally a uniform coloring of the copy-index graph by parent labels."
+        ],
+        "reasoning": "This is an equality of complete generating functions at all coordinates, not a resemblance of titles or a comparison of a scalar statistic. Multiplying the same identity over independent colorings is precisely the complete frozen PGF.",
+        "searches": [
+          "Bhattacharya Diaconis Mukherjee universal limit theorems graph coloring monochromatic edges rank independence forest graph edge random coloring cumulants multivariate Tutte Potts Sokal",
+          "arXiv:math/0503607 §§1–2, Eqs. (1.1), (1.2), (2.7)–(2.10)",
+          "arXiv:1406.7614 §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Excluding the frozen record, indexed hits included the Cayley exact-cycle record, degree-marked overlap of uniform labeled trees, and superposed permutation successors, with different sampling laws.",
+          "The exact multi-mark coefficients of each arrival are already supplied by the classical polynomial for general parameters; the full birth-size entries are its product at integer colors 1,...,n−1."
+        ],
+        "reasoning": "No separate recursive-tree overlap table was located, but coverage of the coefficients is mathematical and does not require someone to have printed the numerical table.",
+        "searches": [
+          "Resultary: independent random recursive trees graph-indexed edge overlap graphic rank cycle cumulant mod Poisson",
+          "arXiv:math/0503607 Eq. (1.2) and Theorem 2.3 as normalized exact polynomial data"
+        ]
+      },
+      "rationale": "The decisive prior mathematical object is the multivariate zero-field Potts partition function, not the superficially similar Cayley-tree law. The complete frozen joint law is the immediate independent product of the classical normalized Potts identity with color counts 1,...,n−1. The forest boundary and cyclic residue are the classical forest/cycle factorization defect read from that same identity, followed by independent summation at those color counts. The zeta difference and normalized infinite product are direct evaluations of this specialization, and the fixed-dimensional normal limit is the standard bounded-array consequence. The presentation is correct and useful for this application, but does not isolate a genuinely new claim beyond mechanically extracting these consequences. The mismatch is scientific prior coverage, not unavailability of literature.",
+      "residual_risks": [
+        "No claim is made of finding the earliest publication that writes the recursive-tree product in exactly this notation. Coverage follows from the explicit identity and specialization, not absence of an identical title.",
+        "The assessment does not concern nonuniform or correlated attachments, growing index graphs, or refined asymptotics not claimed in the frozen article."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisively covers the exact one-arrival full joint law and its forest/cycle defect",
+          "evidence": [
+            "Eqs. (1.1)–(1.2), (2.3), (2.7)–(2.10) and Theorem 2.3."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0503607",
+          "material_read": "Primary PDF §§1–2: definitions, cyclomatic expansion, tree example, spin partition function and proof of Fortuin–Kasteleyn identity",
+          "method": "Compare equations and substitute color count k, vertex count q, edge weights z_e−1",
+          "title": "The multivariate Tutte polynomial (alias Potts model) for graphs and matroids",
+          "trigger": "Potentially identical categorical equality PGF and stronger exact formula"
+        },
+        {
+          "assessment": "Explicit same equality probabilities and forest/cycle discrepancy; its main scalar Poisson/Gaussian questions are not the exact varying-color tree limit",
+          "evidence": [
+            "§2 compares conditional moments of monochromatic edges and independent Bernoulli edges and computes the color probability from the number of connected components."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1310.2336",
+          "material_read": "Introduction and §2 moment comparison, including proof of Lemma 2.1",
+          "method": "Primary PDF passage inspection and compare the equality events and rank deficiency",
+          "title": "Universal limit theorems in graph coloring problems with connections to extremal combinatorics",
+          "trigger": "Same monochromatic-edge indicators and possible forest/cycle moment equivalence"
+        },
+        {
+          "assessment": "Provides the standard uniform parent construction; no need for a new recursive-tree identity to use it here",
+          "evidence": [
+            "At each birth a new vertex chooses an ancestor uniformly among older vertices; each parent sequence specifies a labeled tree."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1406.7614",
+          "material_read": "Primary PDF §1 parent encoding and model, and the input construction in Theorem 1",
+          "method": "Compare birth labels and parent selection",
+          "title": "Random recursive trees: A boundary theory approach",
+          "trigger": "Verify the attachment-to-coloring reduction uses the actual uniform recursive-tree model"
+        },
+        {
+          "assessment": "Useful contrast, not the decisive prior coverage",
+          "evidence": [
+            "The indexed statement concerns uniform Cayley trees, Poisson(2) overlap limit, and cyclic cumulants tending to zero rather than a persistent zeta residue."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-cycle-cumulants-and-joint-poisson-overlap-laws-for-indepen--705bc2214115",
+          "material_read": "Indexed exact statement; mirrored full record was not available in this review",
+          "method": "Resultary search and compare sampling, marginal scale and stated cumulant",
+          "title": "Exact cycle cumulants and joint Poisson overlap laws for independent Cayley trees",
+          "trigger": "Closest indexed model with tree-copy graph cycles"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Shared fixed-label parent edges are a natural agreement statistic, and separating exact, pairwise and limiting Gaussian independence is a meaningful question. The offered result nevertheless adds no independently developed structural claim beyond the direct product evaluation of known graph-coloring laws, the first cycle coefficient already implied there, and standard convergence arguments. It can be useful as an exposition or computational recipe, but the application alone does not clear the scientific-value bar for an independent finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

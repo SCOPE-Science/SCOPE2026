@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:54:21.198483Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the explicitly defined forward radius-normalized angular momentum, weak coupling first gives the bounded observable of independent Gaussian noises added to a circle of radius a=R exp(−s), with variances v_i=T_i(1−exp(−2s)). Continuity of the nondegenerate age-conditioned Gaussian law and bounded convergence justify the susceptibility. The circular complex angular average has a residue only for |z|>a; at |z|=a the pole is removable. The anisotropic Gaussian polar integral then has the stated I₁ factor, strictly positive except when the temperatures coincide, with the stated sign. A direct endpoint check sets x=(ρ²−a²)/(2v₊). After factoring exp(−a²/(2v₊)), scaling the remaining amplitude using I₁(z)exp(−z)~(2πz)^(−1/2) gives an integrand dominated by a constant times x exp(−x), with limiting integral 1. The amplitude is 2√(2/π) v₊²/[a³√(v₊−v₋)]. With c=R²/(4T₊), the exponent is −c/s+c+O(s), so the positive magnitude of A(s) is asymptotic to 8T₊² exp(c)s^(3/2) exp(−c/s)/(R³√(π(T₊−T₋))). The K_{5/2} integral gives √π c r^(−1/2) exp(−2√(cr)) after multiplication by r; the large-age error is exponentially negligible and the relative small-age error is bounded by the corresponding positive integral. These factors give the frozen prefactor. The second-moment integral gives the momentum susceptibility separately. This verifies the observable defined in RESULT.md, not a different definition based on the generator acting on a polar-angle branch or on reset chords. The supplied notes and checks/verify.py were inspected but not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed radial-law envelope covers fixed stable coupling and all centered isotropic reset laws with a prescribed radius law; its limiting interval is ±u min_{a≥0} E|1−aR²|.",
+          "For a single fixed radius the interval collapses to zero; the proof uses convergence of the reset age to zero and of the stationary position to the reset mark."
+        ],
+        "reasoning": "The stronger class covers the coarse limit at fixed coupling, including the uniform circle, but its bounded-convergence argument supplies no stretched-exponential scale for the derivative at u=0, and the two orders of limits cannot simply be interchanged.",
+        "searches": [
+          "Resultary --ffa5a1f89e59, RESULT.md Finding, scope and high-reset proof",
+          "arXiv:2611.06322 circular reset section"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checks/verify.py",
+        "arXiv:2611.06322",
+        "Resultary --ffa5a1f89e59 and identical --31be0d301f69"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original paper gives all propagator inputs and the angular momentum calculation; the indexed specialization yields limiting zero for fixed coupling.",
+          "The needed small-age equivalent includes a factor s^(3/2) exp(−c/s) and a separate exp(c) term from the exact relaxation-dependent Gaussian action."
+        ],
+        "reasoning": "The full primary integral permits the new calculation, but the result is not an evaluation by parameter substitution: cancellation is exact on a displacement disk, and a boundary-tail expansion followed by an age saddle is necessary to obtain the stated power and prefactor.",
+        "searches": [
+          "arXiv:2611.06322 p. 35 Eq. (65) and Appendix B fixed-mark quadrature and circular averaging",
+          "Resultary --ffa5a1f89e59 fixed-radius specialization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Eq. (65) is the same angular ratio integrated against the stationary law for uniform circle resets. Appendix B first integrates the Gaussian radius for a fixed mark, then averages over the reset angle for the circular case.",
+          "The frozen evaluation reverses the averaging order at zero coupling and retains only displacement tails crossing the dynamically contracted reset circle."
+        ],
+        "reasoning": "The starting integrals are equivalent for the underlying expectation. The old integral does not evaluate the exact zero of the interior harmonic, the remaining signed contribution, or its sharp small-age and large-rate asymptotics. Axis exchange reverses the sign and does not add a separate novelty claim.",
+        "searches": [
+          "Resultary: Brownian gyrator circular resetting angular velocity weak-coupling susceptibility strong reset exact cancellation",
+          "arXiv:2611.06322, Eq. (49), Eq. (65), Appendix B Eq. (B.11)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact asymptotic title/statement is the frozen record itself. The distinct envelope record discusses the same forward continuous-flight observable but does not tabulate or derive the frozen weak-coupling susceptibility."
+        ],
+        "reasoning": "No finite table is relevant to an asymptotic in a continuous rate parameter. The exact indexed self-match is not independent coverage; the related same-date record has been compared on its statement, not discounted on date grounds.",
+        "searches": [
+          "Resultary: circular reset gyrator angular velocity and high-reset limit, including --31be0d301f69 and --ffa5a1f89e59"
+        ]
+      },
+      "rationale": "Pass for exact circular interior cancellation, definite finite-rate weak-coupling sign, and the sharp beyond-all-orders velocity susceptibility with prefactor, not for the renewal law, the angular-velocity definition, circular angular momentum, or a coarse zero high-reset limit. The strongest distinct indexed result shares the observable and gives zero limiting velocity for a single radius, but does not resolve the rate or ordered susceptibility.",
+      "residual_risks": [
+        "An earlier evaluation of an equivalent Gaussian angular average or of the same renewal integral could supply further overlap. The comparison does not assert priority beyond inspected evidence. No inference is made about fixed nonzero u or uniformly vanishing radius or temperature contrast."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "exact model and observable overlap; no stated sharp ordered susceptibility in the inspected relevant passages",
+          "evidence": [
+            "Eq. (65) uses the full stationary density; Eq. (B.11) gives an erfc-based fixed-mark numerical integral and instructs angular averaging for the circle."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.06322",
+          "material_read": "mean-velocity identity Eq. (49), circular case Eq. (65), Appendix B Eq. (B.11) and following circular averaging note",
+          "method": "original OA PDF, bounded passages",
+          "title": "Brownian gyrator model with stochastic resetting",
+          "trigger": "same model, observable, and uniform circular protocol"
+        },
+        {
+          "assessment": "genuine coarse fixed-radius coverage only",
+          "evidence": [
+            "The admissible fixed-radius limiting range is {0}; the formula controls limiting expectation of the bounded angular ratio of the reset mark, not the rate of approach."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-sharp-radial-law-envelope-for-hidden-circulation-in-a-reset-br--ffa5a1f89e59/RESULT.md",
+          "material_read": "Finding, scope, and proof passage on convergence as r→∞",
+          "method": "indexed file, local mirror",
+          "title": "A sharp radial-law envelope for hidden circulation in a reset Brownian gyrator",
+          "trigger": "same-day stronger resetting family and high-rate velocity range"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact erasure is a mechanism, not just a vanishing leading Taylor coefficient: it explains why many small, ordinary excursions contribute nothing and why the response selects exponentially rare boundary crossings. The sharp time-scale exponent and prefactor distinguish the specific angular velocity from the ordinary angular momentum in the same reset model, which has an algebraic susceptibility.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

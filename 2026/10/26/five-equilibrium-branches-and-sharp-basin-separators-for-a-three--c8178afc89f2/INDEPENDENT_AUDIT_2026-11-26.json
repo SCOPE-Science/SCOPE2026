@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:36:51.823811Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–68",
+        "VERIFICATION.md",
+        "verify.py (inspected, not executed)"
+      ],
+      "rationale": "Clearing the two strictly positive logistic denominators gives the stated odd sign function F=A-B-2x, without changing signs. For fixed delta in (1,4) take eta>0 small with 0<h-eta<h+eta<1-eta and (2-eta)^2>delta. On [0,h-eta], F' converges uniformly to -2; on [h+eta,1-eta], A grows uniformly and dominates. On [h-eta,h+eta] the leading term of A'' is strictly positive and comparable to gamma^2 exp(gamma((1+x)^2-delta)); B'' is exponentially smaller because the exponent gap is 4 gamma x. Strict convexity and opposite endpoint signs give exactly one upward crossing. On [1-eta,1-kappa/gamma], A is bounded below by (kappa/gamma) exp(gamma((2-eta)^2-delta)); on the remaining interval A'<0 for any fixed kappa<1/4, while B' tends uniformly to 0. Thus F falls through exactly one zero before 1. Oddness and nonzero inward drift at the endpoints yield the remaining equilibria and the phase-line basins, with convergence by monotonicity and uniqueness. At the interior zero the logarithmic root equation first gives u-h=O_delta(1/gamma), then Taylor expansion gives the displayed coefficient. At the outer zero epsilon<=kappa/gamma keeps exp(gamma(-4epsilon+epsilon^2)) bounded away from zero; the exact equation improves epsilon to O_delta(exp(-gamma(4-delta))). Substitution gives the stated relative error, including the logistic correction exp(-gamma delta).",
+      "residual_risks": [
+        "Proof is for each fixed interior delta, not uniform up to its endpoints and not an optimal finite steepness threshold. The recorded six finite numerical cases are diagnostics, not the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brooks–Chodrow–Porter Theorems 3, 5, 6"
+        ],
+        "reasoning": "General steep-limit statements constrain accumulation points; the path and balanced-exposure theorems deal with local stability of the harmonic equilibrium. None of these statements supplies existence and uniqueness of both positive roots at finite steepness or their scales.",
+        "searches": [
+          "arXiv:2209.07004 §§4, 5.1, 5.2",
+          "Primary-literature search for the three-agent sigmoid model with two opposing zealots, five equilibria and basin separators"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2209.07004 / DOI:10.1137/22M1527258",
+        "Resultary 8bfde3a3b93b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Linear stability of zero is already covered",
+          "Neither the qualitative hard-threshold limit nor a window at gamma=1 yields the separator's 1/gamma coefficient or the outer displacement with prefactor 2 and the two specified error terms"
+        ],
+        "reasoning": "Local stability of the central root cannot imply four further roots. The discontinuous-limit model cannot count finite-gamma roots, and the fixed-gamma window provides no continuation to large gamma for arbitrary fixed interior delta.",
+        "searches": [
+          "arXiv:2209.07004 Theorem 3 and Theorem 6",
+          "Resultary 8bfde3a3b93b exact basin and separator statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Brooks–Chodrow–Porter equations (2.1)–(2.2) normalize by the total weight and give exactly this scalar reduction on the three-vertex path",
+          "Resultary 8bfde3a3b93b, Finding and scope"
+        ],
+        "reasoning": "The later catalogue record genuinely uses the identical scalar field and has the same phase-line organization, but fixes gamma=1 and takes delta near 1. This is not equivalent to holding delta fixed while steepness increases, and its delta-to-1 separator law is a different limit.",
+        "searches": [
+          "Resultary: three-agent sigmoidal opinion with opposite zealots, exact five equilibria and sharp separators",
+          "arXiv:2209.07004, §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 8bfde3a3b93b, offsets 0 and 900: exact tristability window for gamma=1",
+          "BCP §5.1 path calculations and §5.3 Figures 6–7: larger path examples and two-dimensional basins"
+        ],
+        "reasoning": "The exact catalogue window covers a different parameter slice. The illustrative plots and examples are not tables or analytic specifications of this scalar large-steepness portrait.",
+        "searches": [
+          "Resultary: exact tristability window in a three-agent sigmoidal opinion network",
+          "arXiv:2209.07004 §§5.1 and 5.3"
+        ]
+      },
+      "rationale": "The model and harmonic-state stability are established prior work. The supported distinct claim is the full five-equilibrium portrait and basins for each fixed 1<delta<4 at all sufficiently large finite gamma, with two quantitative expansions. Same-model qualitative overlap was found in a distinct fixed-gamma regime, not exact coverage of this claim.",
+      "residual_risks": [
+        "Bounded searches and selected passages cannot exclude an unindexed equivalent scalar bifurcation theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers model and harmonic linear stability, not checked full finite-steepness scalar portrait or expansions",
+          "evidence": "The balanced-exposure condition holds here; its criterion says whether zero is linearly stable. Theorem 3 constrains limits of equilibria and figures consider examples with different dimensions.",
+          "identifier_or_url": "https://arxiv.org/abs/2209.07004",
+          "material_read": "§2 equations (2.1)–(2.2), PDF pp. 4–5 (offset 14748); §4 Theorem 3, pp. 12–13 (42665); §5.1–5.2 Theorems 5–6 and path examples, pp. 16–20; §5.3 Figures 6–7 discussion, pp. 23–24",
+          "method": "Primary PDF text, targeted passages",
+          "title": "Emergence of Polarization in a Sigmoidal Bounded-Confidence Model of Opinion Dynamics",
+          "trigger": "Exact underlying flow; possible stronger path and limiting-state theorems"
+        },
+        {
+          "assessment": "Material qualitative overlap in a different parameter regime",
+          "evidence": "Fixes gamma=1, has five exact equilibria and intervals for 1<delta<delta_* approximately 1.0377431562; separator approaches zero as delta decreases to 1, not the fixed-delta steep-limit expansion.",
+          "identifier_or_url": "Resultary/2026/2026/11/8/8bfde3a3b93b",
+          "material_read": "RESULT.md Finding and assumptions, offsets 0 and 900",
+          "method": "Indexed local record text",
+          "title": "Exact tristability window in a three-agent sigmoidal opinion network",
+          "trigger": "Exact basin portrait in same model, strongest catalogue overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 4–11 and 25–68",
+        "Brooks–Chodrow–Porter Theorems 3 and 6"
+      ],
+      "rationale": "On the smallest balanced-exposure path the result determines coexistence of three attracting outcomes even though the harmonic state remains locally stable. The unstable roots quantitatively separate their basins; their algebraic correction and the endpoint attraction scale are information not supplied by local stability or the hard-threshold limit.",
+      "residual_risks": [
+        "No claim for larger networks, asymmetric zealots, critical delta, or a global bifurcation diagram in both parameters."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

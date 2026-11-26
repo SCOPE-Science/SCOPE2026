@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:36:42.313122Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The strategy payoff difference is r(1-2n), the noise-payoff difference is -2r, and its square gives the 4r^2 factor in the correction. The normalization and time scales match Chen–Wu–Guan v2 Eqs. (4), (9) and (14); equation numbering should be tied to that version rather than to the first-public date or current numbering. The vector field preserves the closed square and its faces; uniqueness keeps initially interior trajectories interior at finite times. Solving the strategy nullcline at x=x_* or on n=0,1 gives the stated X,N and sharp k_c, including theta=1 with no boundary threshold. The weighted Bernoulli divergence has derivative -4s^2r^2k^2(x-X)^2+2sr(n-N)(X-x_*). The face term is nonpositive in both strict boundary regimes. Sublevels bound x away from both frequency boundaries and exclude the unselected environmental endpoint(s); for a selected face the entropy extends to that face. The largest invariant set of zero derivative is the target because x=X forces n=N to persist. At zero noise the entropy is proper and strictly convex, with a single minimum; each positive regular level is a closed curve without equilibria, hence periodic. For an independent check of the critical asymptotics, use oriented u=x-x_* on the upper branch and u=x_*-x on the lower branch, and let v>0 be distance to the selected environmental face. At k=k_c the exact equations are u'=-lambda(t)(u-kappa*v), v'=-H*v(1-v)*u, where lambda=4s^2r^2k_c^2*x(1-x), H=epsilon(1+theta), kappa=1/(2sr*k_c^2)=|theta-1|/(1+theta). The global result gives u,v->0 and lambda->lambda_*>0. Then q=u/v solves q'=-[lambda-H(1-v)u]q+lambda*kappa. The bracket is eventually uniformly positive and the forcing in the equation for q-kappa tends to zero; variation of constants gives q->kappa. Thus (1/v)'=H(1-v)q->H*kappa, which gives both displayed inverse-time coefficients for every interior start. `python /workspace/review_replay.py 3` independently checks the exact entropy identity and the two signed critical slopes, not the infinite-time conclusion by simulation. The result is for the deterministic ODE; weak-selection modeling does not validate arbitrary formal noise or stochastic paths.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected Karafyllis results concern interior equilibria of Lotka–Volterra systems under stated matrix hypotheses. The critical target here is on an environmental face and is nonhyperbolic.",
+          "The catalogue dissipation result is on leaves of a two-community two-environment model with no noise parameter; the exact sustainability threshold result has a different logistic resource response; the cooperation basin result concerns a three-strategy model and a t^-2 coefficient for defector decay.",
+          "The identified replicator/GLV equivalence article was not accessible for theorem-level comparison, so its hypotheses were not excluded."
+        ],
+        "reasoning": "These are close methodological parallels. Their actual inspected equations and equilibrium hypotheses do not yield the critical constants or cover the full open-square basin for the noisy donation game.",
+        "searches": [
+          "Karafyllis arXiv:2512.11384 Section 2, Theorem 1 and Corollaries 1–3",
+          "Global stability of ecological and evolutionary dynamics via equivalence DOI 10.1073/pnas.2534915123",
+          "Resultary 9228958cc94d, f52e851a87be, 4f17106c8036"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.06156v2/v3",
+        "Resultary ecc57a204b45 (self-match)",
+        "Resultary 9228958cc94d",
+        "Resultary f52e851a87be",
+        "Resultary 4f17106c8036",
+        "arXiv:2512.11384",
+        "DOI 10.1073/pnas.1604096113 (full-text attempts)",
+        "DOI 10.1073/pnas.2534915123 (full-text attempts)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The originating v2 donation section treats neutral zero-noise cycles and local interior stability with positive noise. It does not prove global positive-noise selection across the resource boundary or the critical amplitudes in the compared passages.",
+          "The earlier Weitz model is a noiseless antecedent; lawful full-text attempts returned access errors, so its exact global proof was not ruled in or out.",
+          "The critical inverse-time laws here require the actual nonlinear resource factor and the stable-to-neutral slope; local stable coexistence away from the threshold or a general interior convergence theorem does not imply them."
+        ],
+        "reasoning": "The distinct part is global selection and rate on the new positive-noise ODE, not restatement of its local Jacobian, the noiseless classification or existence of the candidate equilibria.",
+        "searches": [
+          "Chen–Wu–Guan arXiv:2611.06156v2 Section III.B and local stability discussion",
+          "Weitz et al. DOI 10.1073/pnas.1604096113 full-text lookup",
+          "Karafyllis arXiv:2512.11384 actual equations and theorem hypotheses"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The v2 payoff difference r(1-2n) and noise-payoff difference -2r, with k equal to the source noise standard deviation, reproduce the exact separable feedback and x damping. The v3 counterparts are Eqs. (3), (7), and (12).",
+          "In (x,n) the factors are x(1-x) and n(1-n), not the diag(y) multipliers of the compared generalized Lotka–Volterra theorem. No applicable transformation to that theorem was established."
+        ],
+        "reasoning": "This is the same donation model as the initiating paper, not a new normalization. Equating it to a standard competitive Lotka–Volterra flow without checking coefficients, foliations and the critical face would not justify prior theorem coverage.",
+        "searches": [
+          "Chen–Wu–Guan arXiv:2611.06156v2, Eqs. (4), (9), (14), and v3 renumbering",
+          "Resultary: noisy donation resource selection, critical slowing and inverse time",
+          "Lotka–Volterra replicator equivalence for negative resource feedback"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Catalogue ecc57a204b45 is the same frozen record, not an independent match. The primary source gives the interior equilibrium/local sensitivity, not an exact catalogue of globally attained face limits or the two critical amplitudes."
+        ],
+        "reasoning": "The interior root and its crossing of n=0,1 can be inferred algebraically from the source model. Neither that root nor a fixed-point table proves which state attracts all interior starts or the critical timing.",
+        "searches": [
+          "Resultary: global resource selection and critical relaxation in noisy donation feedback",
+          "arXiv:2611.06156v2 Section III.B, donation fixed point and asymmetry"
+        ]
+      },
+      "rationale": "The same model, donation payoffs, noiseless centers and locally damped coexistence are prior. The supported distinct result is the all-interior positive-noise selection theorem across the two boundary transitions, especially the critical resource and cooperator amplitudes. The usual entropy and linearization tools are not new. No inspected statement implied this complete model-specific result; this is not a priority certificate.",
+      "residual_risks": [
+        "The PNAS global-stability via equivalence paper was not accessible; broader applicability remains unverified.",
+        "The earlier noiseless PNAS proof and the frozen citation's foundational fixed-game noise PRL were not independently inspected in full. Relevant exact-model comparison used the accessible Chen–Wu–Guan v2.",
+        "Unindexed equivalent convergence arguments may exist; no stochastic or weak-selection extrapolation is credited as new evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_MODEL_AND_LOCAL_OR_ZERO_NOISE_RESULTS",
+          "evidence": "Noise correction, weak-selection derivation, fixed-point calculation, local stability and reported zero-noise orbits; not the claimed global positive-noise theorem in the inspected material.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.06156v2",
+          "material_read": "OA PDF Eq. (4), coupled Eqs. (9a,b) near offset 9500, donation Eq. (14) and Section III.B near offset 27900; v3 corresponding equation numbering compared",
+          "method": "Original equation and discussion passage inspection, payoff-difference substitution",
+          "title": "Fluctuations in Environmental Resource Availability Alter the Oscillatory Tragedy of the Commons",
+          "trigger": "Exact noise-corrected ODE and donation-game results"
+        },
+        {
+          "assessment": "NOISELESS_ANTECEDENT_FULL_TEXT_UNAVAILABLE",
+          "evidence": "The description concerns oscillatory game-environment feedback; inaccessible proof material is not evidence of noncoverage.",
+          "identifier_or_url": "https://doi.org/10.1073/pnas.1604096113",
+          "material_read": "Bibliographic identification and accessible indexed description; no full-text theorem inspected",
+          "method": "PNAS, Europe PMC and identified lawful preprint retrieval attempts",
+          "title": "An oscillating tragedy of the commons in replicator dynamics with game-environment feedback",
+          "trigger": "Prior noiseless environmental-game dynamics and classification"
+        },
+        {
+          "assessment": "DIFFERENT_FEEDBACK_MODEL",
+          "evidence": "Two communities and two environments, no Chen–Wu–Guan noise correction or the threshold constants.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-global-dissipation-and-neutral-foliation-in-a-two-environment-ev--9228958cc94d/RESULT.md",
+          "material_read": "Original Finding: invariant-leaf trichotomy and model",
+          "method": "Local catalogue search and primary mirrored statement comparison",
+          "title": "Global dissipation and neutral foliation in a two-environment evolutionary game",
+          "trigger": "Global dissipation and periodic-orbit classification with resource feedback"
+        },
+        {
+          "assessment": "DIFFERENT_RESOURCE_RESPONSE",
+          "evidence": "A 1/t law at the critical resource edge in a different model, not the exact noise threshold or paired coefficients here.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-an-exact-sustainability-cutoff-and-universal-critical-depletion--f52e851a87be/RESULT.md",
+          "material_read": "Original Finding and logistic-response resource formulation",
+          "method": "Local catalogue comparison of hypotheses and leading asymptotic",
+          "title": "An exact sustainability cutoff and universal critical depletion",
+          "trigger": "Exact resource cutoff and inverse-time law"
+        },
+        {
+          "assessment": "DIFFERENT_STRATEGIES_AND_RATE",
+          "evidence": "Three-strategy feedback-punishment game, basin threshold and t^-2 defector decay.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-cooperation-basin-and-universal-critical-decay-in-a-feedba--4f17106c8036/RESULT.md",
+          "material_read": "Original Finding describing basin and critical decay",
+          "method": "Local catalogue source comparison",
+          "title": "Exact cooperation basin and universal critical decay in a feedback-punishment game",
+          "trigger": "Same-day resource-feedback threshold and critical slowdown analogue"
+        },
+        {
+          "assessment": "APPLICABILITY_NOT_ESTABLISHED",
+          "evidence": "The stated diag(y)(r+By) class and interior-equilibrium hypotheses do not give the observed boundary asymptotics without a further applicable argument.",
+          "identifier_or_url": "https://arxiv.org/pdf/2512.11384",
+          "material_read": "Section 2, Theorem 1 and Corollaries 1–3, offsets approximately 6400–19934",
+          "method": "OA proof-hypothesis comparison with the actual state multipliers and critical face",
+          "title": "Karafyllis, global attraction criteria for Lotka–Volterra systems",
+          "trigger": "Potential broader theorem by transformation or stable feedback"
+        },
+        {
+          "assessment": "UNRESOLVED_THEOREM_MATCH_RISK",
+          "evidence": "Indexed description suggests a stability equivalence, but not enough to determine its hypotheses or consequences for this coupled feedback system.",
+          "identifier_or_url": "https://doi.org/10.1073/pnas.2534915123",
+          "material_read": "Citation and indexed summary only; article and PDF inaccessible",
+          "method": "Lawful article and PDF lookup",
+          "title": "Global stability of ecological and evolutionary dynamics via equivalence",
+          "trigger": "Potential GLV–replicator global stability theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The phase transition separates globally restored or depleted resource states from interior coexistence in the same deterministic model, a question not answered by a local damping calculation. The critical inverse-time amplitudes give measurable information about both variables and explain slow relaxation at the saturation threshold. These are global basin and rate results, not only an equilibrium root calculation; they do not claim biological validation outside weak selection.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

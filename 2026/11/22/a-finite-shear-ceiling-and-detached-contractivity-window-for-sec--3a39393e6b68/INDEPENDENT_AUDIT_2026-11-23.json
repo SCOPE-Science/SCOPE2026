@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T17:55:13.041019Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the truncated quadratic on the three-state nilpotent shift, the diagonals are r=1−h+h²/2, b=γh(1−h), c=γ²h²/2. An independent norm argument avoids any possible ambiguity about the determinant crossing. With J the reversal matrix, B=JT is real symmetric with rows (0,0,r),(0,r,b),(r,b,c). Thus the condition is I±B positive semidefinite. For 0<h<2 the leading blocks are diag(1,1±r)>0 and the remaining Schur complements are 1±c−r²−b²/(1±r). The plus complement is strictly positive since 1+r−2(1−h)²=3h(2−h)/2>0. Solving the minus complement for γ² gives exactly F(h); a zero there forces norm equality. At h=0 the step is identity, at h=2 an off-diagonal forces norm greater than 1 unless γ=0, and h>2 has scalar radius greater than 1. In particular h=1 is regular even though b=0. The independent SymPy replay at /workspace/reviews/replay-2-3.py verifies the determinant identity, derivative, resultant and rational witness. C'(h)=9(h−4/3)²+4 makes the critical root unique, and F'(h) changes from positive to negative there with nonzero slope. F(0)=2, F(2)=0; horizontal sections give all four parameter regimes, including the detached interval, its fold and the isolated positive critical step. The symmetric-generator criterion gives the true all-time Euclidean threshold √2, and the supplied 10/7 witness is strict at h=1/2. The replay gives γ_*²≈2.0946107542350062 (the last displayed auxiliary digit in the source is slightly off); the exact formula and quoted γ_*≈1.4472770136483914 agree. No same-finite-time physical expansion or integration accuracy is required for the contrast.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Achleitner–Arnold–Jüngel use a Lyapunov norm and sufficiently small steps in their general definition; the Euclidean norm here is not a qualifying Lyapunov norm above √2. Sun–Wei–Wu start from linear seminegative operators.",
+          "The sharper indexed comparisons are a planar RK2 oscillator and a planar RK4 Jordan shear, not the quadratic polynomial on a Jordan shift with nonzero square."
+        ],
+        "reasoning": "General sufficiently-small-step stability or instability across a class does not imply the full, sometimes disconnected positive-step set for this specified non-dissipative member. Changing the norm, matrix dimension or nilpotency index changes the problem.",
+        "searches": [
+          "Achleitner–Arnold–Jüngel arXiv:2308.05689, Definition 1, (1.5), Theorem 1",
+          "Sun–Wei–Wu arXiv:2201.06501, abstract, equations (1.1)–(1.2)",
+          "Resultary: RK shear Jordan contractivity P prime exact finite shear cutoff yields maximum"
+        ]
+      },
+      "checked_sources": [
+        "Achleitner–Arnold–Jüngel arXiv:2308.05689 (definitions and theorem statements)",
+        "Sun–Wei–Wu arXiv:2201.06501 (opening scope and definitions)",
+        "Resultary 8fe2a7f6e756 and c4ff16d39c20 (indexed results)",
+        "Primary literature lookup on truncated Toeplitz norms (lawful indexing evidence)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the planar shear, N²=0; even if P'(-h) vanishes, that removes the only off-diagonal. Here the γ²h²/2 term survives when b vanishes, and the minus Schur complement gives a finite restriction even at that point.",
+          "The RK2 oscillator comparison is on a different geometry; a general similarity transform is not Euclidean norm-preserving."
+        ],
+        "reasoning": "Neither the fourth-order unbounded shear mechanism nor the oscillator boundary yields the cubic defining the critical h, the finite cutoff or all of the level-set cases here. These are the substantive additional single-family calculation.",
+        "searches": [
+          "arXiv:2308.05689, (1.5) and Theorem 1",
+          "Resultary RK4 planar statement 8fe2a7f6e756 and RK2 oscillator statement c4ff16d39c20"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same step question can be phrased as positivity of the Gram defect, bounds on both eigenvalue extremes of a reversed triangular Toeplitz matrix, or an operator-norm bound on a polynomial in the truncated shift.",
+          "Working through the symmetric-reversal tests gives the rational frontier by algebra; credit for a new general Toeplitz norm criterion is not warranted."
+        ],
+        "reasoning": "Even a known general Toeplitz contraction criterion does not on its own locate the critical timestep, yield the sharp shear ceiling and show that every higher-shear step fails. Those depend on the sign pattern of this substituted rational frontier.",
+        "searches": [
+          "Resultary: exact Euclidean contractivity explicit Runge Kutta Jordan shear chain stability polynomial detached timestep windows RK2 three state RK3 two state RK4",
+          "Web: truncated shift contractive triangular Toeplitz matrix Caratheodory Fejer Schur coefficient norm criterion 3 by 3 a b c Euclidean norm analytic interpolation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact index-three quadratic threshold in the returned index results is the assigned record. The nearby planar oscillator frontier c4ff16d39c20 and fourth-order shear frontier 8fe2a7f6e756 specify different matrices or polynomials. The broad primary RK lookup was unavailable and carries no negative weight."
+        ],
+        "reasoning": "A scalar stability table cannot encode the γ-dependent gap because the eigenvalues of every generator here coincide. A comparable table would have to give the Euclidean singular boundary or equivalent coefficient tests plus the same sharp extrema.",
+        "searches": [
+          "Resultary: exact Euclidean contractivity explicit Runge Kutta Jordan shear chain stability polynomial detached timestep windows RK2 three state RK3 two state RK4",
+          "Resultary: RK shear Jordan contractivity P prime exact finite shear cutoff yields maximum"
+        ]
+      },
+      "rationale": "Qualified credit for the exact quadratic-RK, index-three maximum and full step-region classification, not for the stability polynomial, Schur/Gram tests or the continuous logarithmic norm.",
+      "residual_risks": [
+        "The broad primary RK search failed, not negative evidence. Older exact Toeplitz or Jordan-step examples could contain the same specialized classification; the originality assessment is bounded by the actual inspected material."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Qualitative stability hypotheses are not this full parameter region",
+          "evidence": "Definition 1 fixes a Lyapunov admissible P and sufficiently small steps; (1.5) gives the known s=p polynomial; Theorem 1 reduces strong stability to two operator classes.",
+          "identifier_or_url": "https://arxiv.org/pdf/2308.05689",
+          "material_read": "Open PDF text, §§1.1–1.2 through Theorem 2 opening",
+          "method": "Open arXiv PDF text",
+          "title": "Necessary and sufficient conditions for strong stability of explicit Runge–Kutta methods",
+          "trigger": "General necessary/sufficient RK strong stability and norm hypotheses"
+        },
+        {
+          "assessment": "Relevant framework, with different hypotheses for its stability conclusions",
+          "evidence": "(1.1) assumes ⟨Lv,v⟩≤0; γ>√2 in the audited family violates that hypothesis.",
+          "identifier_or_url": "https://arxiv.org/pdf/2201.06501",
+          "material_read": "Abstract and start of §1 from open PDF",
+          "method": "Lawful open arXiv PDF",
+          "title": "On energy laws and stability of Runge–Kutta methods for linear seminegative problems",
+          "trigger": "Exact energy framework might imply an RK2 boundary"
+        },
+        {
+          "assessment": "Different order and shift index; unbounded-shear behavior",
+          "evidence": "The statement gives a shrinking intermediate-step interval at arbitrarily large planar shear, unlike the sharp finite cutoff here.",
+          "identifier_or_url": "Resultary: 8fe2a7f6e756",
+          "material_read": "Indexed result statement",
+          "method": "Configured Resultary index",
+          "title": "A sharp false-contractivity island for classical fourth-order Runge–Kutta on planar Jordan shears",
+          "trigger": "Most similar detached-window benchmark"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the smallest defective shift with two nontrivial Jordan terms, the result determines exactly when an order-two step is nonexpansive, including where decreasing the timestep can destroy that property and the finite shear beyond which no positive step works. This is an exact benchmark for energy-based timestep reasoning on a spectrally fixed, nonnormal problem, not an accuracy claim. The role of N² distinguishes it from a routine reuse of the planar derivative-zero mechanism.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

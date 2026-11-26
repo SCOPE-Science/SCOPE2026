@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:44:01.371105Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 16–76",
+        "Frozen CHECK.py, lines 7–50, inspected only",
+        "Independent midpoint quadrature of the analytic jump derivative"
+      ],
+      "rationale": "For the stated Lebesgue-L2 projection on the open interval, Stieltjes representation gives an exact norm reduction to single jumps. Their differentiated coefficients are 2 sin(kπs) sin(kπx), k=m,3m. Absolute values have period 1/m in x. Independently, with θ=mπs and K(t)=cos(t)+cos(3t), the jump integrand after rescaling is |K(t−θ)−K(t+θ)|. On one interval of length π its integral is bounded by twice the integral of |K|, with equality at θ=π/2 modulo π by antiperiodicity. Necessity follows from the equality sign condition: translation by 2θ must preserve the zero/sign-change set of K modulo π, which is {π/4,π/2,3π/4}. Its unique gap of length π/2 forces translation by 0 modulo π; θ=0 modulo π fails the opposite-sign condition. At θ=π/2 the substitution v=cos(t) gives (2/π)∫_{−1}^1 |2−4v²| dv = (16√2−8)/(3π). The source's alternate three-region proof agrees. Direct 30,000-cell midpoint quadrature at all proposed locations for m=1,2,4 agreed to within 7.2e−8; this is a spot check, not the universal proof. No classification of arbitrary extremizing inputs is needed for the claim.",
+      "residual_risks": [
+        "The quadrature does not certify the global maximum; the sign argument does."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected Chebyshev approximation source concerns uniform approximation of D-finite functions; the filtered spherical approximation source uses a different domain and target norms",
+          "The circular joint variation body 73978a935283 uses the ratio 1:2, not 1:3"
+        ],
+        "reasoning": "General coefficient filtering and absolute convolution estimates give a bound; for the stated restricted input class sharpness uses antiperiodicity and necessity uses the sign-change structure. No inspected broader statement gives the same extremizer geometry.",
+        "searches": [
+          "Resultary comparisons d84ecd4d8834, 83409ea1f4b6, 73978a935283",
+          "arXiv:1407.2802v1",
+          "arXiv:1509.03792v1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records d84ecd4d8834, 83409ea1f4b6, 73978a935283",
+        "arXiv:1407.2802v1",
+        "arXiv:1509.03792v1",
+        "DOI 10.1155/2014/572694 (bibliography and access only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The full cubic midpoint/optimization calculation has a nonzero second-mode response at generic phases; its sharp constant and displaced norming phases constrain neither the sparse optimum nor its location",
+          "The same-day real circular cutoff is normed by a pair of non-antipodal jumps, with a different derivative kernel and admissible measure constraint"
+        ],
+        "reasoning": "The prior attributions do not settle the claim as a case or corollary. In particular, the usual projection-kernel L1 norm bound supplies only one direction until sharpness for this boundary symmetry and the equality cases are addressed.",
+        "searches": [
+          "Resultary mirrors d84ecd4d8834 and 83409ea1f4b6",
+          "Orel–Perne, DOI 10.1155/2014/572694"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sine derivative kernel is the difference of two translates of cos(t)+cos(3t), not convolution on arbitrary periodic measures",
+          "Full degree-three Chebyshev mirror d84ecd4d8834 uses an additional second harmonic and has displaced jump optima"
+        ],
+        "reasoning": "Even extension and derivative filtering connect the problem to standard Fourier kernels but do not identify it with the full degree-three or real circular five-mode BV problems.",
+        "searches": [
+          "Resultary sparse odd-harmonic Neumann cosine projection and exact BV norm",
+          "Primary literature lookup for sparse cosine projection, first and third harmonics, and total variation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical assigned record is a self-hit; d84ecd4d8834 has coefficient 1.5653428… rather than 1.5520171…",
+          "Same-day record 83409ea1f4b6 has coefficient √(71+8√2)/(2π) for a distinct circular cutoff"
+        ],
+        "reasoning": "Neither numerical entry is the interval sparse-pair norm, nor are the operators the same. No priority is inferred from the same-day date.",
+        "searches": [
+          "Resultary searches for exact BV norms and sparse Neumann cosine or Chebyshev projection"
+        ]
+      },
+      "rationale": "No inspected independent prior result states or entails the precise interval norm together with the necessary and sufficient jump phases. The standard periodic convolution bound explains much of the norm mechanism; only the sharp signed-interval reduction, exact value and jump-location statement for the sparse pair are credited. The full cubic and same-day circular results use different active harmonics, not a rescaling or reparameterization.",
+      "residual_risks": [
+        "Orel–Perne full text was unavailable via the attempted lawful routes.",
+        "An unindexed exact sparse or more general odd-kernel BV theorem could affect priority; search results alone give no exclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material but different spectral space",
+          "evidence": "Retains the full degree-three first-kind Chebyshev space and reports coefficient 1.5653428… with displaced optimal jump locations.",
+          "identifier_or_url": "d84ecd4d8834",
+          "material_read": "Mirrored RESULT.md Finding, beginning at offset 426",
+          "method": "Local primary text",
+          "title": "Sharp total-variation norm of cubic Chebyshev spectral projection, with displaced extremizers",
+          "trigger": "Closest exact interval cosine/Chebyshev projection calculation"
+        },
+        {
+          "assessment": "Different circle operator and spectrum; no priority assertion",
+          "evidence": "Real circular five-mode cutoff, norm √(71+8√2)/(2π), with prescribed non-antipodal arcs.",
+          "identifier_or_url": "83409ea1f4b6",
+          "material_read": "Indexed finding identifying operator, coefficient and equality type",
+          "method": "Local Resultary",
+          "title": "Exact real BV norm of the second circular Fourier cutoff and non-antipodal extremizers",
+          "trigger": "Same-day sharp real BV Fourier norm"
+        },
+        {
+          "assessment": "Different question",
+          "evidence": "Uniform error for Chebyshev approximants of D-finite functions, not a sharp BV amplification.",
+          "identifier_or_url": "https://arxiv.org/html/1407.2802v1",
+          "material_read": "Scope passage, offset 1944",
+          "method": "Public text",
+          "title": "Rigorous uniform approximation of D-finite functions using Chebyshev expansions",
+          "trigger": "Cited Chebyshev source"
+        },
+        {
+          "assessment": "Different domain and invariant",
+          "evidence": "Filtered spherical approximation rather than unweighted interval variation.",
+          "identifier_or_url": "https://arxiv.org/abs/1509.03792",
+          "material_read": "PDF opening scope, offset 0",
+          "method": "OA PDF text",
+          "title": "On filtered polynomial approximation on the sphere",
+          "trigger": "Cited spectral approximation source"
+        },
+        {
+          "assessment": "Full text not assessed",
+          "evidence": "Both requests returned HTTP 403; no inference about unstated results is made.",
+          "identifier_or_url": "https://doi.org/10.1155/2014/572694",
+          "material_read": "Bibliographic record only",
+          "method": "Bounded DOI and publisher retrieval attempts",
+          "title": "Chebyshev-Fourier Spectral Methods for Nonperiodic Boundary Value Problems",
+          "trigger": "Closest cited boundary-value cosine methods source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof",
+        "Full cubic comparison d84ecd4d8834"
+      ],
+      "rationale": "This is an exact stability benchmark for a natural first/third odd-mode cutoff with the even mode removed. It gives both the uniform sharp amplification and its frequency-dependent spatial witnesses; in contrast, retaining the second mode changes both the coefficient and phase. The boundary-adapted equality case is useful beyond a bare numerical integral or a generic convolution estimate.",
+      "residual_risks": [
+        "The finding is for this odd pair and real interval BV only; it makes no wider cutoff classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

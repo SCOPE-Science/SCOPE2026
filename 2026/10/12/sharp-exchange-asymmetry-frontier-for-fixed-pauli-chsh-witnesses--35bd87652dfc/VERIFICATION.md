@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` using only the Python 3 standard library. The executed verifier returned:
+## correctness
 
-`VERIFY_OK 13720 exact-rational witness and numerical-state checks`
+PASS
 
-The tests reconstruct the Bell-basis operator exactly, evaluate both signs of extremizers for 860 rational parameter pairs (1,720 checks), and sample 12,000 deterministic positive density matrices (3,000 of each rank one through four). Each random sample checks the upper bound on the absolute Bell value and the structural norm identity \(\|\rho-S\rho S\|_2^2=2d^2\). Independent of numerical sampling, the proof relies on the rank-one antisymmetric block, Schur complement positivity, and attained pure-state witnesses; no finite random sample proves all-state optimality.
+The Pauli terms give B0 Phi+ = 2 Phi+ − 2 Psi−, B0 Psi− = −2 Phi+ − 2 Psi−, and zero on the complementary Bell vectors. In the symmetric/antisymmetric block decomposition the swap difference has eigenvalues ±2||w||, giving d=2||w||. Positivity bounds d²/4<=b(1−b), fixes b in [b_−,b_+], and gives a>=|c|²/b when d>0. The positive expectation uses a<=1−b and |c|<=d/2. For the negative expectation, b−t²/b+2t, t=|c|, increases with b; after b=b_+ it increases on t<=d/2<=b_+, giving b_+−b_−+d. At d=0 the off-diagonal block vanishes and |2(a−b)|<=2. The displayed pure witnesses give both signs for every d, including d=1. To invert, beta/2−d>0 for beta>2 so squaring is reversible and gives the stated interval. RESULT.md lines 46–84 suffice; the script was inspected but not run. Its frozen log records 1,720 rational witness evaluations and 12,000 samples, not a proof for all states.
 
-The analytic scope is all positive unit-trace matrices on two qubits; the Bell operator's Pauli axes remain fixed. Reproducing the verifier does not constitute an independent scientific audit.
+## originality
+
+PASS
+
+The exact attained curve and inverse interval at positive state exchange distance for this fixed operator are not established by the inspected predecessors. The zero-distance no-violation obstruction is credited to Cusumano et al.
+
+## value
+
+PASS
+
+For the exact witness already used in the swap-covariance obstruction, the result gives both a sharp lower and a sharp upper certification of exchange defect from violation, with no purity assumption. The loss of violation near maximal as well as zero exchange distance and the attained interior Tsirelson point are useful additional structure, not a claim concerning optimized axes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,28 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A two-sided regenerative construction gives a unique stationary law, an exponential common age and conditionally independent Gaussian modes. For distinct labels, mixed energy cumulants are precisely the cumulants of conditional means. Combining the seven exponential-age Laplace terms produces the displayed rational third-cumulant formula. Its denominator is positive, its sign polynomial has strictly positive derivative, and its unique positive root is completely characterized. The fixed-sum ordering is proved by a strict pair-balancing inequality; the lower bound has an explicit positive decomposition. Association follows from an increasing function of independent variables. These are unrestricted analytic arguments, not extrapolations from numerical examples. The exact-rational generator recurrence and independent SymPy factorization tests were executed successfully.
+PASS
 
-## Originality — PASS, qualified
+The common-reset coupling gives exponential convergence and uniqueness; stationary age is Exp(r), and the independent conditional Gaussian innovations give H_i=(D_i/2)(1−e^(−ω_i A))Z_i². Distinct-label subset moments reduce to moments of the conditional means, unlike moments with repeated indices. The exponential-age transform gives strictly positive pair covariance and factors the triple cumulant into a strictly positive multiplier times 2r³+2sr²−(sp−q). I reproduced the symbolic factorization through the stationary generator on products of normalized energies: (r+Σ_{i∈I}ω_i)M_I=Σ_{i∈I}ω_i M_{I∖{i}}. The constant sp−q=(a+b)(a+c)(b+c)>0 and the cubic is strictly increasing for r>0. At fixed s, log(sp−q)=Σ_i log(s−ω_i) is strictly Schur-concave, and the root increases with sp−q. At equality r*=s/3. If m is the smallest rate, sp−q >= 4m²(s−m)>2m²(s+m) unless all rates coincide, proving the strict lower bound. Energy is coordinatewise increasing in the independent age and Gaussian squares, so product-measure association, then truncation, applies to square-integrable increasing observables. The example (1,2,3) gives 1.943380912562617.
 
-The common-age conditional-independence mechanism is established by Biroli et al. (arXiv:2211.00563), the one-particle harmonic moment machinery by Olsen (arXiv:2310.04840), and general globally reset density/moment equations by Bressloff (arXiv:2401.03501); none of their inspected main results states the present arbitrary-unequal-rate three-energy sign diagram. The published homogeneous harmonic-gas beta-law **already implies the all-equal-frequency slice**, which is not claimed as novel. Other identified results address a free Brownian gas with randomly omitted resets or a run-and-tumble *pair* covariance, not this complete-reset harmonic third mixed cumulant. The potential implicit consequence of a more general unindexed higher-moment result is a genuine priority limitation. The assessed new content is the global sharp heterogeneous cubic crossing and the strict Schur ordering, not the established age mixture, the generator recursion, pairwise positivity, or equal-rate specialization.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Positive association and strictly positive pairwise energy correlations can coexist with a negative three-body connected cumulant, so pair statistics do not determine the sign of higher connected fluctuations. The exact single-crossing classification for every positive, unequal set of trap relaxation rates gives a complete, experimentally interpretable parameter diagram, while the sharp fixed-sum heterogeneity law quantifies when the connected signal changes sign. It is a structural prediction across an unrestricted three-rate family, not an arbitrary isolated coefficient or an unmotivated parameter slice. The physical scope is limited to stationary quadratic mode energies and a common full reset clock; it does not assert a thermodynamic singularity.
+The evaluated arbitrary-heterogeneity cubic threshold and its fixed-sum strict Schur ordering are supported as distinct. The common-age mixture, moment framework, pairwise mechanism, homogeneous specialization and generic sign-reversal phenomenon are not original here.
 
-## Closest literature and remaining uncertainty
+## value
 
-- Biroli et al., arXiv:2211.00563, full main text: joint regenerative stationary density and free-Brownian two-point squared-position correlation.
-- Olsen, arXiv:2310.04840, full main text: scalar OU moments with distributed reset positions and scalar-position skewness.
-- Bressloff, arXiv:2401.03501, full HTML Sec. IV: globally reset density equations and two-point moment hierarchy.
-- *A beta-law for macroscopic energy in globally reset harmonic Brownian gases* (2026), full public result and proof: homogeneous relaxation, its boundary case already covered.
-- *Alternating connected-energy correlations under heterogeneous all-but-one resetting* (2026), full public result and proof: unconfined, different batch protocol.
-- *Anisotropy raises the unique cross-energy correlation threshold for a trapped run-and-tumble particle* (2026), full public result and proof: active orientation-redraw mechanism and second-order rather than third-order cumulant.
+PASS
 
-General renewal and moment-recursion methods are not new; an earlier unindexed evaluation of the *heterogeneous third connected energy statistic* might supersede the specific classification. No independent publication-priority or scientific audit has occurred.
+The result separates positive pair dependence and even association from the sign of a connected three-mode statistic. It gives an explicit parameter-uniform boundary and shows how balancing independently confined modes moves it at fixed sum. This is a useful diagnostic in a common-environment model, beyond computing a raw third moment or reusing the homogeneous beta law.
 
-Self-review: passed. Independent audit: not yet performed.
-
-A related randomly switching shared-trap cubic third-energy phase diagram was checked by claim implication, not by historical scientific re-review. It has a shared two-state stiffness environment and no global resetting; neither statement implies the other. The novelty here is the exact heterogeneous common-reset law and strict frequency-majorization ordering.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

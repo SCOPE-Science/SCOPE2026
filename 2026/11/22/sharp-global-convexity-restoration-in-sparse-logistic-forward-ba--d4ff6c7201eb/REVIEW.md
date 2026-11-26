@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The scalar Moreau envelope is the exact Huber formula. Differentiation yields the active and inactive curvature formulas, and the negative-active curvature obstruction has the exact completed-square form \(D_r(p)=(1-r+r^2)/3-3(p-(1+r)/3)^2\). The maximizer \(p_0=(1+r)/3\) is shown to lie in the required active region, making the threshold necessary. All other branches have nonnegative curvature below the stated cutoff. The \(\gamma>4\) case is treated separately. The gradient-mapping identity proves the unique stationary minimizer when \(\gamma<4\). Exact symbolic and rational checks passed; finite grids are only spot checks.
+PASS
 
-## Originality
+With p=sigmoid(x), a=p(1-p), b=a(1-2p), set y=x-gamma*(p-q). The central Moreau branch is f-x*f'+x^2/(2*gamma), with curvature 1/gamma-a-x*b; x*b<=0. On each active branch of sign s, the envelope is f+s*lambda*x-gamma*(p-q+s*lambda)^2/2, with curvature a*[1-gamma*(a+(1-2p)*(p-q+s*lambda))]. For gamma<=4 the map y is increasing and reflection reduces to q<=1/2. The positive active branch then lies in x>0 and has nonnegative curvature. On the negative active branch, r=q+lambda; for r>=1/2 the branch lies in x<0 where the curvature factor uses D_r<=1/4. For r<1/2, D_r=-3p^2+2(1+r)p-r peaks at p0=(1+r)/3 between r and 1/2. The resulting x0 is negative and y(x0)<-gamma*lambda for every gamma>0, so the same point proves necessity above the predicted cutoff. If r>=1/2 and gamma>4, curvature is negative in the central branch near zero; in the boundary case r=1/2, one side is central and both limiting branch curvatures are negative. At the cutoff the derivative matches at branch transitions, so isolated vanishing curvature does not obstruct convexity. The exact range in the open parameter domain is (3,4], with 3 an unattained infimum. For gamma<4 the factor 1-gamma*a in the residual gradient is positive, so stationarity is exactly the composite subgradient condition; strict convexity and coercivity of the composite and coercivity of the envelope give the stated unique minimizers. The separable scaling is gamma_i=gamma*w_i and lambda_i^eff=lambda_i/w_i. The symbolic and grid checks in the uploaded script were inspected, not executed.
 
-**PASS, with historical-priority risk.** The 2026 source analyzes general envelope smoothness and sufficient convexity, but not the sharp globally necessary-and-sufficient \(\ell_1\) threshold. The 2014 FBE paper supplies the definition and sparse-logistic application, not the derived penalty-sensitive phase transition. An unregularized scalar logistic boundary is a known covered limit, explicitly separated from the new positive-penalty theorem. Indexed searches of regularized/logistic/FBE/Moreau aliases returned no statement of the threshold; this does not establish exhaustive novelty. The closest source comparisons and residual risks are recorded in the accompanying audit.
+## originality
 
-## Value
+PASS
 
-**PASS.** Sparse logistic fitting is a standard composite optimization model; a fully explicit sharp convexity boundary for its smooth merit function is relevant to methods that optimize or precondition that merit function. The penalty-induced convexity-restoration window and the identity linking the optimizer's effective shrinkage to the exact curvature frontier are nontrivial, parameter-stable structural facts, not a change of notation or a single arbitrary numerical example. The result makes no claim about coupled-feature regression or universal algorithmic acceleration.
+Best of current knowledge: the strictly positive-penalty scalar all-stepsize criterion and the resulting convexity-restoration window are distinct. The general minimizer/stationary-point equivalence below 4 is already covered, and neither that equivalence nor the zero-penalty frontier or routine separable scaling is counted as an independent new result.
 
-## Limitations
+## value
 
-The theorem concerns the scalar and coordinate-separable cases, not general correlated design matrices. The original source gives general sufficient bounds, while the present result gives a sharp special-model classification. Independent literature-priority checks and an independent proof audit remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The cutoff quantifies how much sparsity can enlarge a global convex stepsize interval for an established merit function, separately from the known minimizer-exactness interval. Depending on lambda, the cutoff rises to 4, and the exact witness exhibits a genuine change from nonconvex to convex at fixed gamma. Accounting for all proximal regions and curvature witnesses makes this more than a mere reparameterization. The usable scope is scalar and diagonal/separable, not coupled regression or an algorithmic convergence guarantee.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

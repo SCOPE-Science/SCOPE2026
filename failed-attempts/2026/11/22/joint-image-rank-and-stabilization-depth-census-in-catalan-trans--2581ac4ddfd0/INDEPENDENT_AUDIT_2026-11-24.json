@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:25:32.687457Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–38 and supporting VERIFICATION.md, verify.py, check_output.txt",
+        "/workspace/branches/499fa563-968c-4e6d-97f2-c2bd88c7be3a/independent_check.py and independent_check.log"
+      ],
+      "rationale": "Each fixed point starts a contiguous component interval, and monotonicity and regressivity keep parent edges in that interval. Successive inverse images of its root are initial segments of the block, so generations are contiguous; within each generation the order of parents is nondecreasing, giving the unique breadth-first plane-tree labeling. Conversely, a concatenation of such labelings gives a nondecreasing regressive map. Stabilization depth is the maximum component height and rank counts roots plus internal nonroots. The stated geometric-sequence recurrences therefore mark height and rank correctly, including singletons and the identity. The first d vertices of a deepest path all lie in the image. At d=r≥1 they exhaust it, so the forest is one tree with r consecutive internal vertices. The first r−1 each have two ordered sequences of off-spine leaves and the last has a nonempty leaf sequence; the generating function is x^{r+1}/(1−x)^{2r−1}. This gives the binomial and strict positivity in the claimed range. An independent enumeration of all 6917 maps through n=9 matched the coefficients and all boundaries.",
+      "residual_risks": [
+        "Finite checks corroborate only the tested sizes; the supplied script was inspected, not executed. Stability exponent conventions differ for the identity if only positive exponents are allowed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Roblet–Viennot's independent height-specific peak weights μ_k and other downstep weights λ_k yield the continued fraction with level-k tail B_k=[1−(μ_k−λ_k)−λ_k B_{k+1}]^{-1}. The potency and fixed-rank articles were not used to infer coverage without their theorem texts."
+        ],
+        "reasoning": "The established downstep-weight statement simultaneously permits the singleton-root adjustment and the height cap; it is stronger than a usual uniform peak count or an unweighted depth count.",
+        "searches": [
+          "Mansour, Counting peaks at height k in a Dyck path, p. 3 Theorem 1.2 and [RV] reference",
+          "Sönmez–Ünlü DOI 10.1080/00927872.2012.716115; Yağcı–Korkmaz DOI 10.1007/s40840-020-00899-7; Laradji–Umar DOI 10.1007/s00233-004-0101-9"
+        ]
+      },
+      "checked_sources": [
+        "Mansour JIS Article 02.1.1 Theorem 1.2",
+        "Resultary 26a48beb2bce, 12bb479c61e2, c93c09be8f94",
+        "arXiv:1006.0316 and arXiv:2611.21071 at monoid/tree passages",
+        "Potency and rank-marginal DOIs above (limited-access comparisons)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Set λ_k=ux at 1≤k≤h+1, μ_1=ux, μ_k=x at 2≤k≤h+1, and both weights zero above h+1. Then B_1=F_h; the other tails are the child-sequence factors 1/(1−T_j). Successive caps give exact depth. For h≥1, the two tails first differ at level h+1 by x/(1−x); at each level k≤h the difference is ux times the next difference times the two level-k tails. After factoring u^h, evaluate these tails at u=0: both level-1 tails are 1, and both tails at each level 2 through h are 1/(1−x). This gives [u^h](F_h−F_{h−1})=x^{h+1}/(1−x)^{2h−1}, including h=1."
+        ],
+        "reasoning": "The Dyck weights are a direct translation of already-known image and height meanings, and the continuation and boundary computations are parameter setting and lowest-degree coefficient extraction, not a new statistic requiring a stronger weighted enumeration.",
+        "searches": [
+          "Roblet–Viennot Theorem 1.2 as printed in JIS Article 02.1.1, p. 3; Resultary 26a48beb2bce parent-forest and image proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 26a48beb2bce, Steps 1–2: concatenate the breadth-first trees, adjoin a dummy root, and a nonroot image vertex at power one is exactly a vertex with a child; component roots are counted whether or not they have a child.",
+          "Mansour JIS 5 (2002), Article 02.1.1, Theorem 1.2, prints the Roblet–Viennot weight formula for downsteps following or not following a peak at each height."
+        ],
+        "reasoning": "Take the Dyck contour of the augmented forest; n is semilength, d≤h means maximum height≤h+1, and rank is the number of nonpeak downsteps plus the peak downsteps from height 1. The latter are precisely the singleton component roots. The identity convention is the h=0 height truncation.",
+        "searches": [
+          "Dyck paths bounded height weighting peaks separately by height multivariate generating function",
+          "Resultary Catalan transformation parent forests and power ranks"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 12bb479c61e2 counts image and stable ranks with f^3=f^2 among all nondecreasing maps, not the whole regressive depth law. Same-day c93c09be8f94 has a stopping-index/image-defect census for a different commutation-constrained class. The prior 26a48beb2bce supplies the exact Catalan bijection, not a printed joint coefficient table."
+        ],
+        "reasoning": "No claim is made that a scalar table or an exact-title match contains the formula. A distinct indexed analogue was checked, and the decisive exact alternative is a general symbolic coefficient theorem rather than a table.",
+        "searches": [
+          "Resultary Catalan transformation stabilization depth rank, idempotent powers and joint rank counts"
+        ]
+      },
+      "rationale": "The all-coefficient claim is a direct specialization of the Roblet–Viennot height-specific peak/nonpeak Dyck path weighted continued fraction, applied to the already published Catalan-map forest correspondence and image-vertex criterion. The sharp boundary is the leading-in-rank coefficient of the difference between two consecutive truncations; it follows by a simple telescoping of the same continued fraction. This is demonstrated statement-level coverage, not a verdict based on inaccessible potency papers or on the known univariate marginals.",
+      "residual_risks": [
+        "Full theorem text in the cited potency and two marginal papers was not retrieved. The conclusion does not rely on their contents or claim that the Catalan-marked formulas were printed verbatim in the stronger Dyck theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive exact statement of the stronger Roblet–Viennot continued fraction",
+          "evidence": "Every downstep from height k carries λ_k when not following a peak and μ_k when following a peak, with upstep weight one; the fraction has successive denominator correction μ_k−λ_k and numerator λ_k. The theorem cites Roblet–Viennot, Discrete Math. 153 (1996), 271–288, Proposition 1.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL5/Mansour/mansour6.pdf",
+          "material_read": "p. 3 Theorem 1.2, PDF text offsets within 5250–9290; reference list offsets 21100–22984",
+          "method": "OA journal PDF",
+          "title": "Counting peaks at height k in a Dyck path",
+          "trigger": "General weighted Dyck path count covering height and nonleaf counts simultaneously"
+        },
+        {
+          "assessment": "Directly supplies the translation needed to specialize the Dyck theorem",
+          "evidence": "Uses an auxiliary root above the forest, and states that a nonfixed vertex belongs to im(f^k) iff it has a depth-k descendant; component roots always belong.",
+          "identifier_or_url": "2026/11/8/SCOPE-a-harmonic-power-rank-law-for-uniformly-random-catalan-transform--26a48beb2bce/RESULT.md",
+          "material_read": "Finding and proof Steps 1–2, including offsets 1650–4724",
+          "method": "Local Resultary mirror",
+          "title": "A harmonic power-rank law for uniformly random Catalan transformations",
+          "trigger": "Exact prior same-monoid bijection to plane trees and image criterion"
+        },
+        {
+          "assessment": "Different map class and additional rank on a single depth cutoff",
+          "evidence": "Counts nondecreasing self maps with f^3=f^2 jointly by |im f| and |im f²|.",
+          "identifier_or_url": "2026/11/2/SCOPE-joint-stable-rank-and-image-rank-enumeration-of-quasi-idempotent--12bb479c61e2/RESULT.md",
+          "material_read": "Finding at offset 0 and proof around offset 3236",
+          "method": "Local Resultary mirror",
+          "title": "Joint stable-rank and image-rank enumeration of quasi-idempotent maps",
+          "trigger": "Closest joint idempotent-power/rank analogue"
+        },
+        {
+          "assessment": "Related exact statistic on a different constrained class; date gives no inference about priority",
+          "evidence": "Uses a topological commutation condition and 0/1 increments, absent from the Catalan-monoid claim.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-power-stabilization-census-for-commuting-next-and-interior--c93c09be8f94/RESULT.md",
+          "material_read": "Finding at offset 0 and proof offsets 2994–5551",
+          "method": "Local Resultary mirror",
+          "title": "Exact power stabilization census for commuting next and interior maps",
+          "trigger": "Same-day exact rank-defect and stopping-index census"
+        },
+        {
+          "assessment": "Tree-model precedent, not the demonstrated joint coverage source",
+          "evidence": "Represents the maps by level-ordered trees and analyzes centralizers, not the target rank and depth coefficient in the inspected passages.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.21071",
+          "material_read": "pp. 2–3 offsets 6609 and 12968; centralizer rank discussion around p. 7 offset 26968",
+          "method": "OA PDF",
+          "title": "Centralizers in Catalan Monoids",
+          "trigger": "Same class and level-ordered forests"
+        },
+        {
+          "assessment": "Unresolved as a separate source; not used as negative evidence",
+          "evidence": "The bibliographic topic is potency and ordered-tree counts, but the available material does not establish whether the paper marks image rank jointly.",
+          "identifier_or_url": "https://doi.org/10.1080/00927872.2012.716115",
+          "material_read": "Search description and frozen citation only; no theorem text retrieved",
+          "method": "Lawful publisher and ResearchGate paths returned 403; identified author-site abstract PDF timed out",
+          "title": "m-Potent Elements in Order-Preserving Transformation Semigroups and Ordered Trees",
+          "trigger": "Same potency and ordered-tree approach; plausible alternative direct overlap"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and boundary proof",
+        "Mansour Theorem 1.2 and Resultary 26a48beb2bce Steps 1–2"
+      ],
+      "rationale": "The two invariants form a natural finite census and the formulas are useful as an exposition. But the precise law and the rank-equals-depth count are both mechanically obtainable from the previously established flexible Dyck generating function and the published image/forest correspondence. No additional nonmechanical claim remains at the frozen scope.",
+      "residual_risks": [
+        "This is a rejection of a routine specialization as a new finding, not of the naturalness of the statistic or the proof's correctness."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

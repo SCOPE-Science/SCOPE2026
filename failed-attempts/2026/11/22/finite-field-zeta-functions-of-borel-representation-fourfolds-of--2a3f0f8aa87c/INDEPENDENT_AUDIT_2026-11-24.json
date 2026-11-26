@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:43:52.967491Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–43",
+        "Frozen VERIFICATION.md, lines 19–23",
+        "Frozen verify_counts.py, lines 5–26 (prime-field enumeration), 27–35 (algebraic re-expression, not extension-field enumeration)",
+        "Liriano arXiv:2611.09774v1, §3 and §4 Lemma 7"
+      ],
+      "rationale": "Taking matrix powers and multiplying gives the stated linear relation in the three upper-right entries. The Laurent monomial substitution with s=lambda mu identifies the diagonal base with a split rank-two torus and has the stated inverse. Each rational fiber has Q^2 points unless its three coefficients vanish, when it has Q^3. A direct scheme check over any allowed base field writes the exceptional set as a product of primitive fourth roots, sixth roots other than ±1, and n-th roots other than 1: in the third factor use eta=(-mu^3)nu, so eta^n=1 and the excluded eta=1 corresponds exactly to the matching root ±1 of nu^n=-mu^3. These Kummer factors are finite étale, proving the geometric length 2*4*(n-1)=16m. The first two factors have 2 and 4 rational points simultaneously exactly for Q=1 mod 12; the third has gcd(n,Q-1)-1. Summation in the defining zeta series gives the displayed quotient, and rationality of the roots over the extension of degree ord_M(q) implies the stated finite Möbius product. Independently enumerating the polynomial roots and testing the diagonal relation for n=5 gave 0 exceptions over F_7, F_49, F_11 and F_13 and 32 over F_121; the degree-two fields used X^2-3 over F_7 and X^2-2 over F_11, respectively. The finite calculations corroborate rather than prove the formula.",
+      "residual_risks": [
+        "The differential wording at line 35 should not be read as three independent differentials on the two-dimensional torus. The three equations are simple in the ambient coordinate factors; on the torus the finite étale assertion follows by the product argument above, or by independence of the first two differentials using the torus equation. This does not change the finding.",
+        "The frozen checker was inspected, not executed. The point and zeta formulas do not address bad reduction or any conjugation quotient."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Korthauer Theorem 5.4 covers counting polynomials for absolutely simple and semisimple modules of virtually free groups over suitable finite fields",
+          "The older Liriano abstracts address complex SL_2 representation varieties, dimensions and irreducible components, in math/0610039 for a^p=b^t."
+        ],
+        "reasoning": "Neither module counts of the inspected class nor geometric dimension and component counts specialize to the unquotiented upper-triangular representation scheme here. The same-family Liriano result is over C, not an arithmetic theorem covering all the characteristics and extensions claimed.",
+        "searches": [
+          "Korthauer, DOI:10.1007/s00209-025-03690-1, Theorem 5.4",
+          "Liriano arXiv:2611.09774v1 §§3–4",
+          "Liriano arXiv:math/0609717, math/0612102, math/0610039 abstracts"
+        ]
+      },
+      "checked_sources": [
+        "Liriano arXiv:2611.09774v1 §§3–4, plus named older abstract passages",
+        "Resultary 2a3f0f8aa87c (identical) and 42792d4fe960",
+        "Korthauer Theorem 5.4 and opening passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lemma 7's proof explicitly requires lambda^2=-1, mu^3=±1 and nu^n=-mu^3, and discards the unique root in {1,-1} for each pair",
+          "The complex geometry results do not assert good reduction or Frobenius data."
+        ],
+        "reasoning": "The complex theorem cannot formally be specialized as a theorem about finite fields. However, its actual equations have Laurent-integer coefficients and directly define the good-characteristic model, and the proof identifies the exact root conditions before tallying the complex points. Recounting those conditions by cyclicity in F_Q gives the gcd formula with no further structural determination. Thus the precise arithmetic statement is distinct in scope, but very strongly and mechanically suggested by the specific existing proof, not merely by the geometric length.",
+        "searches": [
+          "Liriano arXiv:2611.09774v1, §3 Lemma 4 and §4 Lemma 7, original proof passages",
+          "Resultary 42792d4fe960, assumptions and Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Liriano arXiv:2611.09774v1 §3 writes the two defining equations, and §4 Lemma 7 writes the exceptional-root equations and counts their geometric solutions",
+          "Resultary 42792d4fe960 Finding: resolution and Grothendieck-class formula over C, from the same 16m exceptional points"
+        ],
+        "reasoning": "A point-count sequence, finite-scheme splitting description and zeta function are closely related arithmetic formulations. The complex Grothendieck-class formula records the geometric length of a stratum and does not in itself distinguish arithmetic forms of that zero-dimensional stratum. The complex statements are not equivalent to the full arithmetic formula.",
+        "searches": [
+          "Resultary: finite-field point counts exceptional scheme gcd n Q-1 representation variety Borel",
+          "Resultary: parafree group Borel representation fourfold x^2 y^3=z^(2m+1) arithmetic finite characteristic point count",
+          "Web: parafree group Borel representation variety \"Liriano\" SL2 finite-field point count zeta x^2 y^3 exceptional loci cyclotomic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The bound claim is an exact match to its own indexed record",
+          "42792d4fe960, RESULT.md offsets 0–2122: complex resolution, Grothendieck class and related invariants based on 16m geometric points"
+        ],
+        "reasoning": "The geometric length is an exact existing count. It is not a table of extension-field counts, where the value can be 0 or depend on gcd(n,Q-1). The exact-formula catalogue comparisons did not establish any distinct finite-field table for this family.",
+        "searches": [
+          "Resultary: finite-field point counts exceptional scheme gcd n Q-1 representation variety Borel",
+          "Resultary bound record 2a3f0f8aa87c and same-family hit 42792d4fe960"
+        ]
+      },
+      "rationale": "Pass is restricted to the explicitly quantified good-characteristic finite-field formula as a statement. The geometric equations, fiber stratification, and exceptional-root description are already present in Liriano. No inspected primary theorem or distinct catalogue record states a finite-field or uniform arithmetic version that already contains the formula. The small amount of deduction needed from the known geometric description is evaluated separately under value.",
+      "residual_risks": [
+        "An uncatalogued good-reduction or explicit cyclotomic-count version could establish direct arithmetic coverage. The known geometric calculation already leaves little mathematical distance to the displayed arithmetic statement.",
+        "No priority relation is inferred from two same-day catalogue dates; no whole-document exclusion is inferred from the older papers' abstracts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT GEOMETRIC COVERAGE; EXACT ROOT CONDITIONS",
+          "evidence": "Same torus and rank-stratified equations over C. Lemma 7 counts two choices for lambda, four for mu, and n-1 permitted roots of nu^n=-mu^3 per pair, explicitly excluding the sign root. Its premises and result are complex.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.09774",
+          "material_read": "§3, p. 3, OA offset 11400, including Lemma 4; §4, pp. 4–5, offsets 16800–19823, Lemma 7 and Proposition 8",
+          "method": "OA PDF passages",
+          "title": "Exploring the Regular and Singular Loci of Group Representation Varieties",
+          "trigger": "Identical family, coefficient presentation and exceptional locus"
+        },
+        {
+          "assessment": "COMPLEX GEOMETRY, NOT AN ARITHMETIC MODEL",
+          "evidence": "Resolution from the blow-up of a torus at 16m reduced points; Grothendieck class and other complex invariants; assumptions work over C, with no positive-characteristic claim.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-global-small-crepant-resolution-for-the-parafree-borel-represe--42792d4fe960",
+          "material_read": "RESULT.md Finding and Assumptions, offsets 0–2122",
+          "method": "Local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A global small crepant resolution for the parafree Borel representation fourfold",
+          "trigger": "Same family and motivic expression potentially covering the count"
+        },
+        {
+          "assessment": "DIFFERENT OBJECTS AND HYPOTHESES",
+          "evidence": "Counting absolutely simple and semisimple modules of finitely generated virtually free groups is not the evaluated Borel representation-scheme count.",
+          "identifier_or_url": "https://doi.org/10.1007/s00209-025-03690-1",
+          "material_read": "Abstract and Introduction p. 1; Theorem 5.4 pp. 35–36, OA offset 129500",
+          "method": "OA Springer PDF passages",
+          "title": "Arithmetic representation growth of virtually free groups",
+          "trigger": "Potential broader finite-field representation counting theorem"
+        },
+        {
+          "assessment": "COMPLEX DIMENSION AND COMPONENT CONTEXT",
+          "evidence": "The abstract describes Hom(G,SL_2(C)) and dimension and maximal irreducible component invariants.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0609717",
+          "material_read": "Abstract, first page",
+          "method": "OA PDF passage",
+          "title": "Algebraic Geometric Invariants of Parafree Groups",
+          "trigger": "Earlier same author and group class"
+        },
+        {
+          "assessment": "COMPLEX DIMENSION CONTEXT",
+          "evidence": "The abstract relates parafree deviation to the dimension of Hom(G,SL_2(C)).",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0612102",
+          "material_read": "Abstract, first page",
+          "method": "OA PDF passage",
+          "title": "Krull dimension and deviation in certain parafree groups",
+          "trigger": "Earlier same author and group class"
+        },
+        {
+          "assessment": "DIFFERENT GROUP FAMILY AND INVARIANT",
+          "evidence": "Counts top-dimensional components of complex SL_2 representations of groups with a^p=b^t.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0610039",
+          "material_read": "Abstract and opening of Introduction, first page",
+          "method": "OA PDF passage",
+          "title": "Irreducible components in an algebraic variety of representations of a family of one-relator groups",
+          "trigger": "Earlier same author and explicit one-relator comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Liriano arXiv:2611.09774v1 §3 Lemma 4 and §4 Lemma 7 proof, pp. 3–5",
+        "Frozen RESULT.md, lines 26–43",
+        "Resultary 42792d4fe960 Finding and Assumptions"
+      ],
+      "rationale": "Finite-field zeta is a natural invariant and the formula is correct, but here its determination is a routine cyclic-group recount of the exact coefficient and root equations already analyzed in Liriano's Lemma 7, not a substantive new arithmetic computation. The existing proof supplies not only the length but every exceptional condition: primitive fourth roots for lambda, sixth roots other than ±1 for mu, and roots of nu^n=-mu^3 excluding the unique sign root. Over the allowed fields the very same integral equations give 2 or 0, 4 or 0, and gcd(n,Q-1)-1 respectively, by elementary cyclicity. The split torus and rank jump are already explicit; substituting the standard sizes of affine spaces gives the entire point count, and its zeta expression and finite product then apply the defining exponential and standard Möbius inversion. No new arithmetic structure or exceptional phenomenon beyond this mechanical replacement of complex root counts is established. Failure is on scientific value, not falsehood or proven earlier publication of the finite-field formula.",
+      "residual_risks": [
+        "The arithmetic formula can still be useful as a reference calculation. Additional comparison across models or a nonmechanical arithmetic extension might have separate value, but is not a surviving claim established in this record."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

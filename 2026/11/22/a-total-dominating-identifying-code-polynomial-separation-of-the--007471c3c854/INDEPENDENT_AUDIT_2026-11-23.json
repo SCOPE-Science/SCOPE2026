@@ -1,0 +1,179 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:41:29.712507Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, forbidden-cap equivalence and common tail",
+        "Frozen VERIFICATION.md, verify_direct.py, verify_forbidden.py, direct_output.txt and forbidden_output.txt",
+        "/workspace/checks/joint_codes_zeta.py (run)"
+      ],
+      "rationale": "Verified the joint definition: every open-neighborhood witness must meet the chosen set, and every symmetric difference of distinct closed neighborhoods must meet it. The first condition already makes all closed signatures nonempty. Independently built each graph from translates of its generator set in Z₄² and used a Boolean subset-zeta transform to propagate failure from each witness to all complements containing it. This covers all 65,536 labeled choices per graph, including the empty set. The length-17 coefficient vectors, sums 42375 and 42459, and both full membership-bitmap hashes matched the frozen values. I checked the strongly regular common-neighbor counts and that the 64 size-six witnesses are distinct and pairwise differ in at least four positions, so their ten-vertex complements share no nine-subset. This independently explains the identical tail: all size at least 11 sets count, there are binom(16,10)−64 valid ten-sets and binom(16,9)−640 valid nine-sets. The two minima are 6; the labeled-count difference is exactly 16z⁶−64z⁷−36z⁸. The frozen scripts were inspected, not executed.",
+      "residual_risks": [
+        "The results count labeled subsets, not automorphism orbits, and do not classify arbitrary strongly regular graphs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Foucaud–Lehtilä study bounds and extremal graphs for the minimum joint-code size. Gravier–Moncel–Semri give the ordinary minimum floor(3n/2) for K_n□K_n.",
+          "Gravier et al.'s inspected sections and Table 2 give ordinary codes and selected minimum orders/bounds, not the joint enumerator.",
+          "The CONICET abstract for Nasini–Torres states graph union/join recurrences for identifying code numbers and related parameters, with closed formulas for spiders and quasi-spiders and a P₄-tidy minimum-size algorithm; full text was not available in the tried copies."
+        ],
+        "reasoning": "Minimum-size and extremal bounds do not in themselves determine labeled counts, nor a count of sets satisfying correlated constraints. The Nasini–Torres abstract does not establish stronger coverage; its unseen text remains a bounded risk.",
+        "searches": [
+          "arXiv:2206.09481, definitions and scope",
+          "doi:10.37236/5256, rook incidence construction and Table 2",
+          "doi:10.37236/879, Theorem 1",
+          "Nasini–Torres, PII S1571065315001869; CONICET 8203550 and handle 11336/84364"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2206.09481",
+        "doi:10.37236/879",
+        "doi:10.37236/5256",
+        "CONICET 8203550 (abstract only)",
+        "Resultary: 7b3432c6fd0d, 0d16d6786052, f0be81b91bd1, 84e917c8da04, fb33fb75dc16"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ordinary minimum rook codes number 2208, whereas the tested joint minimum class has 1056; the minimum ordinary Shrikhande size is 5, whereas the joint minimum is 6.",
+          "The common total-domination polynomial has coefficient 4768 at degree 6 for both graphs, while their tested joint coefficients are 1056 and 1040."
+        ],
+        "reasoning": "The joint count depends on which same labeled sets meet both requirements, not the marginal counts or a bijection for total domination. The marginal bijection need not preserve closed-neighborhood separation; in fact the differing joint counts rule out such a preservation across this pair. A new intersection computation is needed.",
+        "searches": [
+          "arXiv:2206.09481, joint-code definition and minimum-size scope",
+          "Resultary: 7b3432c6fd0d and 0d16d6786052, main statements and neighborhood-incidence comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Foucaud–Lehtilä define the same joint class and give its alternate name.",
+          "7b3432c6fd0d counts minimum ordinary codes: 96 at size 5 in Shrikhande and 2208 at size 6 in the rook graph. 0d16d6786052 gives a common total-domination polynomial and a different paired-domination separation.",
+          "Among the distinct same-date hits, f0be81b91bd1 concerns separation of adjacent pairs by local codes, 84e917c8da04 concerns false-negative report robustness, and fb33fb75dc16 treats minimum ordinary rook codes for side at least six."
+        ],
+        "reasoning": "The alias matches the definition, but no exact graph-pair census followed from that definition in the sources read. Local closed separation, robustness to missing reports, and ordinary or paired domination are not the simultaneous all-pairs closed separation/open domination criterion. Same date is not a reason to exclude an overlap; here their mathematical definitions differ.",
+        "searches": [
+          "Resultary: total-dominating identifying-code polynomials, differentiating-total dominating sets, Shrikhande and rook graphs, ordinary code and total-domination counts",
+          "arXiv:2206.09481",
+          "Resultary: 7b3432c6fd0d, 0d16d6786052, f0be81b91bd1, 84e917c8da04, fb33fb75dc16"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Inspected exact data included minimum ordinary-code counts, common total-domination polynomial, a different robust-code polynomial, and minimum local rookie-grid codes, not the joint histogram.",
+          "The ordinary-code Table 2 in Gravier et al. summarizes bounds/orders for selected generalized quadrangles, rather than the two joint polynomials."
+        ],
+        "reasoning": "An exact table of labeled joint codes could settle the claim, but the closest exact tables/censuses condition on different sets or restrict to minima. No separate exact table of these joint coefficients was identified in the examined sources.",
+        "searches": [
+          "Resultary: exact labeled-code cardinality distributions for both graphs, synonym differentiating-total dominating sets, ordinary minimum and total-domination catalogues",
+          "doi:10.37236/5256, Table 2",
+          "Resultary: 7b3432c6fd0d, 0d16d6786052, 84e917c8da04, f0be81b91bd1"
+        ]
+      },
+      "rationale": "The joint code class is already known (including under the alias differentiating-total dominating set), as are related invariant values for this graph pair. The supported distinct claim is the exact joint cardinality distribution and where it distinguishes this pair. Prior minimum-size theorems, minimum ordinary-code counts, and separate total- or paired-domination distributions do not supply this joint census.",
+      "residual_risks": [
+        "Unindexed exact code tables or stronger enumeration methods giving these coefficients directly were not ruled out; the Nasini–Torres comparison is limited to its accessible abstract."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior exact definition and minimum-size theory, not an all-cardinality pair count in inspected passages",
+          "evidence": "Total-dominating identifying codes are both identifying and total dominating, also called differentiating-total dominating sets.",
+          "identifier_or_url": "https://arxiv.org/pdf/2206.09481; doi:10.37236/11342",
+          "material_read": "Open pp. 1–2, relevant definition and objective/previous terminology passages (around offsets 4412 and 8800)",
+          "method": "Read bounded primary passages and compare definitions and stated scope",
+          "title": "Bounds and Extremal Graphs for Total Dominating Identifying Codes",
+          "trigger": "Closest primary source using the exact joint class"
+        },
+        {
+          "assessment": "Minimum ordinary code size, not the joint enumerator",
+          "evidence": "γ_ID(K_n□K_n)=floor(3n/2), hence size six for n=4, with even-n examples rather than complete joint counts.",
+          "identifier_or_url": "doi:10.37236/879",
+          "material_read": "Open definition and Theorem 1, p. 2 around offset 2350",
+          "method": "Direct original theorem comparison",
+          "title": "Identifying Codes of Cartesian Product of Two Cliques of the Same Size",
+          "trigger": "Same rook family and exact minimum theorem"
+        },
+        {
+          "assessment": "Different invariant scope",
+          "evidence": "The inspected table contains code orders and bounds for selected generalized quadrangles, not labeled joint coefficients.",
+          "identifier_or_url": "doi:10.37236/5256",
+          "material_read": "Open pp. 16–17, offsets 47700–51105, rook incidence discussion and Table 2",
+          "method": "Compare original table and definitions",
+          "title": "Identifying Codes in Vertex-Transitive Graphs and Strongly Regular Graphs",
+          "trigger": "Ordinary identifying codes in strongly regular graphs and rook incidence structures"
+        },
+        {
+          "assessment": "Minimum ordinary codes only",
+          "evidence": "96 size-five Shrikhande codes and 2208 size-six rook codes, with exchange geometry; no joint count in the stated claim.",
+          "identifier_or_url": "Resultary: 7b3432c6fd0d",
+          "material_read": "Mirrored RESULT.md findings from offset 0 and prior-work passage around 8170",
+          "method": "Indexed search and original record comparison",
+          "title": "Optimal identifying-code exchange geometry of the Shrikhande and 4×4 rook graphs",
+          "trigger": "Same graph pair, close exact identifying-code census"
+        },
+        {
+          "assessment": "Same pure total-domination polynomial, different paired-domination invariant",
+          "evidence": "The degree-six total-domination coefficient is 4768 in both; the paired-domination difference is 32z⁴+80z⁶+96z⁸, not the joint identifying-code difference.",
+          "identifier_or_url": "Resultary: 0d16d6786052",
+          "material_read": "Mirrored RESULT.md main statements and neighborhood-incidence explanation",
+          "method": "Compare original formula, bijection and properties",
+          "title": "Paired-domination distinguishes two graphs with identical total-domination polynomials",
+          "trigger": "Same graph pair and exact total-domination enumerator"
+        },
+        {
+          "assessment": "Minimum local codes differ from all-pairs closed codes with total domination",
+          "evidence": "At side four the formula gives 24 local minimum codes, zero of those separating all pairs; it is not a joint cardinality polynomial.",
+          "identifier_or_url": "Resultary: f0be81b91bd1",
+          "material_read": "Mirrored RESULT.md finding from offset 0",
+          "method": "Compare criteria and parameter specialization",
+          "title": "All minimum local identifying codes of rectangular rook graphs",
+          "trigger": "Same-date exact counting, including 4×4"
+        },
+        {
+          "assessment": "Different reporting-error property",
+          "evidence": "The criterion allows one false-negative report; minima are size ten, not six.",
+          "identifier_or_url": "Resultary: 84e917c8da04",
+          "material_read": "Mirrored RESULT.md finding from offset 0",
+          "method": "Compare original robustness condition and minimum sizes",
+          "title": "False-negative identifying-code polynomials and exchange geometry",
+          "trigger": "Same-date exact code polynomials for the same graph pair"
+        },
+        {
+          "assessment": "Side at least six and ordinary minima, not 4×4 or the joint class",
+          "evidence": "The theorem starts at square rook side six.",
+          "identifier_or_url": "Resultary: fb33fb75dc16",
+          "material_read": "Mirrored RESULT.md finding from offset 0",
+          "method": "Compare quantified side sizes and code definition",
+          "title": "Four orbit types and exact enumeration of minimum identifying codes",
+          "trigger": "Same-date exact rook enumeration"
+        },
+        {
+          "assessment": "The abstract states minimum-parameter modular-decomposition results; no whole-paper noncoverage conclusion",
+          "evidence": "The stated results concern disjoint union, join, spiders and quasi-spiders, and finding identifying code numbers of P₄-tidy graphs.",
+          "identifier_or_url": "https://bicyt.conicet.gov.ar/fichas/produccion/8203550; publisher PII S1571065315001869; https://hdl.handle.net/11336/84364",
+          "material_read": "The CONICET abstract (public entry offsets 0–2024); no original full-text passage obtained",
+          "method": "Publisher attempt and identified CONICET and repository copies",
+          "title": "Some links between identifying codes and separating, dominating and total dominating sets in graphs",
+          "trigger": "Plausible terminology and broader graph-parameter lead"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and common high-cardinality tail",
+        "Foucaud–Lehtilä, joint-code class",
+        "Resultary: 0d16d6786052, common total-domination polynomial"
+      ],
+      "rationale": "The Shrikhande and 4×4 rook graphs are a natural strongly regular comparison pair with the same parameters and known identical pure total-domination distributions. The established joint code class detects a difference where even its minimum size does not, with reversed order between size six and sizes seven/eight and exact equality above them. That profile is a meaningful precise benchmark for separation criteria and stronger than exhibiting a single numerical distinction. The witness geometry accounts for the common tail.",
+      "residual_risks": [
+        "The result neither provides a general strongly regular graph test nor establishes symmetry-orbit classifications."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

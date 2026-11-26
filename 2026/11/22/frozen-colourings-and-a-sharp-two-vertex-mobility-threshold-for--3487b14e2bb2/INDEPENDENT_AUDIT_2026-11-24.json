@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:13:04.766253Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:4–66",
+        "Frozen VERIFICATION.md, both C++ verifiers, isomorphism_check.py and verification_output.txt (read only); fano_lid_exact.cpp:55–70 and lcf_lid_independent.cpp:64–87 for the exact-two distinction",
+        "Fresh replay: /workspace/reviews/evidence/5/fano_lid_replay.py and replay.out; environment and invocation in replay.meta"
+      ],
+      "rationale": "The Heawood edge endpoints have distinct closed neighborhoods. With at most three colors, both endpoint signatures contain the two endpoint colors, so they must have sizes two and three, alternately by shore. The neighbors of each size-two vertex all have one color; connectivity forces the entire size-three shore monochromatic, and its corresponding incident Fano triples on the other shore must be bichromatic. Every pair lies in a unique triple (also in the dual), so bichromatic triples would give seven monochromatic pairs, whereas the two class sizes give at least nine. The fresh finite enumeration yields a nonempty four-color state set, establishing optimality. It exhausts all point assignments and proper line extensions and checks every incidence, then tests all one-vertex and exactly-two-vertex replacements with both changed colors distinct from their old values. It reproduces all six profiles, 54,264 valid states, 185,808 single-change edges, exactly 6,048 frozen states of profile (3,3,2), all eight shore-and-color components of size 882, and all six point-core components of size 6,860 with the stated per-component counts. Exactly-two changes give 897,456 edges and one component, which suffices also for budget two. The first frozen C++ verifier joins one- and two-changes for its connectivity check and alone proves only at-most-two connectivity; the second frozen verifier uses genuinely exact-two joins, and the fresh replay separately verifies this stronger claim.",
+      "residual_risks": [
+        "The finite check is for the labeled Fano incidence graph with four named colors and exact simultaneous moves, not a claim about isomorphism types of equal-order components or a proof-assistant certification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior one-shore monochromatic structure for three LID colors and four-color upper bound imply the optimum via the Fano obstruction. The recoloring lemma requires strictly more than 2d(Δ−1) colors, not four in this cubic graph."
+        ],
+        "reasoning": "A known minimum-palette theorem leaves optimum state counts and mobility open; the large-palette recoloring step is not valid at the submitted parameter by specialization.",
+        "searches": [
+          "Esperet et al. arXiv:1010.5624 §2 Lemma 3 and Theorem 6",
+          "Foucaud et al. arXiv:1108.2769 §2 Lemma 1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1010.5624",
+        "arXiv:1108.2769",
+        "Resultary 78dac1ccb780 and c5f87023de97",
+        "Fresh replay evidence/5/replay.out"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exhaustive comparison found 6,048 proper four-palette assignments with exactly two open-neighborhood colors at every vertex but zero of them locally identifying. The strongest broader recoloring lemma also misses the palette, requiring >12 here."
+        ],
+        "reasoning": "An exact one-move component statement for a disjoint set gives neither the LID component classification nor the simultaneous-two connectivity. The same-day date supplies no priority order.",
+        "searches": [
+          "Resultary c5f87023de97 Finding, compared by independent membership test",
+          "Foucaud et al. §2 Lemma 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Heawood is the Fano incidence graph, with no edge having equal closed endpoint neighborhoods. LID compares the sets of colors of these closed neighborhoods on every edge. Ordinary proper colorings do not check those sets, and two-homogeneous colorings instead constrain the number of colors in each open neighborhood."
+        ],
+        "reasoning": "Neither named-color conventions nor relabeling the graph can turn these different predicates into the submitted predicate, as the distinct state counts and exact disjointness check show.",
+        "searches": [
+          "Esperet et al. arXiv:1010.5624 §2",
+          "Resultary 78dac1ccb780 and c5f87023de97"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "c5f87023de97 gives 6,048 two-homogeneous states in 2,520 singleton and 504 seven-state components. 78dac1ccb780 gives 2,106 ordinary proper three-color states, with 126 singleton components and one 1,980-state component."
+        ],
+        "reasoning": "Neither exact table is for the 54,264 named LID assignments, and the coincident 6,048 is not a matching census of frozen assignments under the same predicate.",
+        "searches": [
+          "Resultary Heawood/Fano four-color recoloring and components; c5f87023de97 and 78dac1ccb780"
+        ]
+      },
+      "rationale": "The optimal palette size and the basic locally identifying predicate are prior. Neither the general large-palette recoloring lemma nor the closest same-graph, same-palette recoloring census supplies the actual state graph at the four-color LID optimum. The strongest same-day candidate uses an open-neighborhood condition whose accepted set is disjoint from the present one in a complete replay, despite the coincidental common number 6,048. The exact support-based component classification and exact-two threshold are the supported distinct claims.",
+      "residual_risks": [
+        "Originality is bounded by inspected comparisons; unindexed equivalent classes or exact tables could remain. No novelty claimed for the LID chromatic number four."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known optimum via the Fano obstruction, not an optimum census",
+          "evidence": [
+            "Three-color structure on bipartite graphs and at most four colors for bipartite LID coloring."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1010.5624",
+          "material_read": "§2 Lemma 3, PDF p. 3, and Theorem 6, p. 4; OA text around offset 6994",
+          "method": "OA PDF passages",
+          "title": "Locally identifying coloring of graphs",
+          "trigger": "Same LID predicate and minimum-palette classification"
+        },
+        {
+          "assessment": "Does not dominate the cubic four-color regime",
+          "evidence": [
+            "Recolouring Lemma assumes strictly more than 2d(Δ−1) colors, which in the cubic case means >12."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1108.2769",
+          "material_read": "§2 Lemma 1, PDF p. 2, OA text offsets 0 and 6942",
+          "method": "OA PDF passages",
+          "title": "Locally identifying colourings for graphs with given maximum degree",
+          "trigger": "A recoloring theorem for the same admissibility predicate"
+        },
+        {
+          "assessment": "Ordinary proper three-coloring, not LID",
+          "evidence": [
+            "2,106 states, 126 isolates and one 1,980-state component with 6,804 edges."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-fano-flags-and-the-unique-mobile-sector-of-heawood-3-colourings--78dac1ccb780",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Resultary lookup and local mirror read",
+          "title": "Fano flags and the unique mobile sector of Heawood 3-colourings",
+          "trigger": "Same graph and one-change dynamics"
+        },
+        {
+          "assessment": "Different predicate, empirically disjoint by exhaustion, with no same-date priority inference",
+          "evidence": [
+            "Every open neighborhood uses exactly two colors; 6,048 states split into 2,520 singletons and 504 seven-state components."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-four-palette-two-homogeneous-recolouring-of-the-heawood-graph-50--c5f87023de97",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Resultary lookup and local mirror read; exact comparison in fresh replay",
+          "title": "Four-palette two-homogeneous recolouring of the Heawood graph",
+          "trigger": "Strong same-day match in graph, palette and move type"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:4–39",
+        "Fresh complete enumeration",
+        "Esperet et al. §2",
+        "Resultary c5f87023de97"
+      ],
+      "rationale": "The Fano incidence graph is a natural smallest projective-plane case, and the palette is fixed by the known optimum, not an arbitrary cutoff. A large frozen sector, explicit shore/core labels for all remaining components, and the exact restoration of global mobility by changing two vertices give a benchmark for optimal locally identifying reconfiguration quite different from the ordinary and open-neighborhood coloring graphs.",
+      "residual_risks": [
+        "The benchmark does not establish a threshold for larger incidence graphs, other palettes, or additional distance or symmetry claims."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

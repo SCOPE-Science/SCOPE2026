@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T16:46:10.779470Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The mathematical theorem survived unchanged. Independence and the positive all-zero event give weights ((c)_n/n!)^r w^n. If an iid real-valued m-fold root assigned positive probability to a negative value range, the event all summands are negative would have positive probability; hence all summands are nonnegative. The zero atom forces a zero atom for the root, and conditioning the other summands to be zero forces lattice support. For a compound Poisson or infinitely divisible law the second log coefficient must be nonnegative: the root's coefficient is p0^(1/m)(a2-(1-1/m)a1²/2)/m. Its sign in the limit is determined by ((c+1)/(2c))^r-1/2. The rational bounds 4/9 and 27/64 exclude every c,r>=2 except (2,2). At (2,2), summing (n+1)^2 gives (1+z)/(1-z)^3, so the log has intensities 4 w^k/k at odd k and 2 w^k/k at even k, a positive summable sequence. The ordinary geometric and negative binomial cases use the log series for (1-wz)^(-1) and (1-wz)^(-c). Inspected the supporting source and checker without executing uploaded code; the proof is exact and the checker's finite arithmetic is corroborative.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cor. 2.1 covers shape <=1; Cor. 2.2 is signed compound Poisson when p shape^exponent<1 and shape>1, not ordinary divisibility. The exponential/recursion discussion gives the generic coefficient criterion.",
+          "The standard one-row NB case and general Feller criterion are prior."
+        ],
+        "reasoning": "Neither a sufficient condition for the signed representation nor a one-sided log-convexity condition distinguishes the exceptional log-concave survivor from failures.",
+        "searches": [
+          "generalized hypergeometric distribution Kemp Ord infinite divisibility negative binomial 2F1 a b 1 compound Poisson power series distributions",
+          "arXiv:1704.05050v2 §2.3"
+        ]
+      },
+      "checked_sources": [
+        "Zhang–Tan–Li, arXiv:1704.05050v2 / DOI 10.1007/s11464-018-0714-z",
+        "DeSalvo, arXiv:2611.00275v1",
+        "Resultary zero-inflated NB and geometric/NB mixture boundaries (published summaries)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first two recursion equations give λ α1=p1/p0 and λ α2=p2/p0-(p1/p0)^2/2 when an ordinary representation exists. This is exactly the excluded-region obstruction, as now credited.",
+          "Proving nonnegative coefficients in all degrees at (2,2) uses the separate rational PGF identity and the 3 plus alternating log coefficients; there is no such assertion in the compared sources."
+        ],
+        "reasoning": "The necessary test and existing law make the negative half short; the full two-sided classification still requires that the remaining nontrivial pair actually has positive rates, not simply a nonnegative quadratic term or some signed expansion.",
+        "searches": [
+          "arXiv:1704.05050v2 §2.3 recursion and Corollaries 2.1–2.2",
+          "arXiv:2611.00275v1 Theorem E and §3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The COM-negative binomial coefficients are ((shape)_n/n!)^exponent p^n. Substitution (shape,exponent,p)=(c,r,w) is exact.",
+          "DeSalvo's general offset formula agrees at offset zero."
+        ],
+        "reasoning": "This is a property of an existing family, not a new distribution or name. The correction makes that explicit.",
+        "searches": [
+          "Zhang Tan Li Conway Maxwell negative binomial distribution properties arxiv COM negative binomial CMNB distribution Zhang 2018",
+          "arXiv:1704.05050v2 Def. 1.1",
+          "arXiv:2611.00275v1 Theorem 3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The target was returned along with older zero-inflated NB and geometric/NB mixture cutoff records. The older records mix PGFs or masses; they do not take Hadamard powers of NB coefficients."
+        ],
+        "reasoning": "Neither older returned boundary is an exact table of this law's integer parameters.",
+        "searches": [
+          "Resultary: infinite divisibility hyper negative binomial conditioned equal totals Hadamard power generating function",
+          "COM-Pascal OR ECOMP infinite divisibility Conway Maxwell negative binomial factorial powers 2 Pascal non infinitely divisible"
+        ]
+      },
+      "rationale": "Material literature omission repaired: the zero-offset family is already the COM-negative binomial (COM-Pascal in this slice), and a prior recursion implies the negative-region degree-two calculation. The surviving contribution is the complete ordinary integer boundary, especially the proof and full positive Lévy sequence for the sole nontrivial survivor; neither exact-survivor result nor full boundary was identified in the examined studies. No priority asserted for the law, criterion or trivial positive cases.",
+      "residual_risks": [
+        "A specialized or generalized power-series infinite-divisibility classification may subsume the explicit survivor or the complete boundary. Search is nonexhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covered family, shape-one positive case and generic coefficient method; not a complete ordinary integer classification.",
+          "evidence": [
+            "Γ(n+r)/(n!Γ(r)) raised to ν, with series parameter p",
+            "Cor. 2.2 allows signed rates, unlike the ordinary classification"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1704.05050v2",
+          "material_read": "Definition 1.1; equations (3),(6),(10); §2.3 Corollaries 2.1–2.2 and the compound-Poisson recursion; COM-Pascal name in §2.5",
+          "method": "Primary HTML comparison of formulas and signs",
+          "title": "COM-negative binomial distribution: modeling overdispersion and ultrahigh zero-inflated count data",
+          "trigger": "Equivalent law and explicit treatment of infinite divisibility"
+        },
+        {
+          "assessment": "Supplies conditional distribution and normalization, not the boundary in the material compared.",
+          "evidence": [
+            "Offset sequence all zero gives B_{c,r}(wz)/B_{c,r}(w)"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.00275v1",
+          "material_read": "Introduction, equation (2), Theorem E and its reference to Theorem 3.2",
+          "method": "Primary HTML mathematical comparison",
+          "title": "Stein's method for negative binomial and hyper-negative-binomial laws, with applications",
+          "trigger": "Closest equal-conditioned NB fiber representation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the natural equality fiber (including unequal success parameters), exact ordinary divisibility determines if a Poisson cluster representation survives conditioning. A necessary sign computation alone would not settle survival. The complete nontrivial exception and its jump rates answer a focused question for all integer row sizes and counts, without claiming a general CMNB classification or novelty of the test.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

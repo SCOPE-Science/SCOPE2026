@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** On even periodic binary rings of length at least four, involutivity reduces \(F^2(x)=x\) to pointwise commutation of staggered half steps. The five-bit truth-table lemma yields exactly six excluded windows; a four-bit overlap transfer gives the global trace. Fixed points are independently counted by the two no-00 cyclic parity strings. The included standard-library checker verifies exact transfer and polynomial arithmetic and exhaustively replays the dynamics through length 16. The global result follows from the local proof and overlap bijection, not from extrapolating finite experiments.
+## correctness
 
-**Originality — PASS under the inspected evidence and explicit residual risk.** Klobas's 2026 complete HTML preprint and Yang–Wang–Wang's 2026 full HTML preprint discuss local influence matrices and different periodic states, not a uniform full-space primitive-two-cycle count. The foundational 2020 Floquet-PXP paper describes integrable dynamics and constrained sector sizes. Crucially, Macauley–McCammond–Mortveit's 2008 full Rule 201 section gives orbits under the group of *all* local flips and counts transpositions of individual flips, which does not entail the two-cycle census for one staggered composite map. Exact and alternate-formulation searches found no claim implying the six-word transfer polynomial. A missed order-specific cycle formula elsewhere remains possible; originality is not certified by a search alone.
+PASS
 
-**Value — PASS.** The all-ring count of shortest nontrivial Floquet recurrences is a natural spectral/dynamical invariant, not a freely chosen finite cutoff. The six local obstructions yield an unexpectedly compact algebraic entropy \(\rho\) and a separation from the golden-ratio fixed-point growth. This supplies exact all-length multiplicities of two-state classical Floquet components and consequently of their local \(\pm1\) permutation eigenstate pairs. It complements time-correlator and soliton characterizations without requiring a conjectural downstream theorem.
+The two parity layers are involutions, so F² fixes a string exactly when the two layer orders agree on it. At each site the order test compares the zero-neighbor predicate before and after the opposite parity updates; its independent 32-case evaluation gives the six stated forbidden windows. Cyclic overlap edges are in bijection with allowed labeled words and enforce the repeated boundary bit at L=4. A fixed point of F cannot have any toggle since each bit is updated only once; consequently the two parity words independently avoid cyclic 00, giving the Lucas square. Subtracting and dividing by two counts temporal orbits rather than configurations or rotations. The independent polynomial calculation gives descending nonzero-part coefficient list [1,−1,0,−1,−2,−1,0,−1,1] followed by eight zeros, and exact powers give primitive counts 2,6,26,100,350,1204,4050,13470 at L=4,6,...,18. Direct enumeration checked every configuration for even L=4 through 16. In the sextic substitute t=z+1/z to get t³−t²−4t+2, whose sign changes isolate three roots in (−2,−1), (0,1), (2,3). The last gives ρ and its inverse; it exceeds √5 because the cubic is increasing for t≥2 and has value √5−3 at √5. Therefore ρ>φ, while all eigenvalues besides ρ have modulus at most one. The trace asymptotic and Lucas subtraction follow without assumptions on zero-eigenvalue Jordan blocks. Frozen support was inspected, not executed; bounded reproduction: /tmp/opencode/record4_independent.py. Enumeration corroborates the local rule and trace, while the involution and overlap argument proves validity for all specified L.
 
-**Closest literature and limitations.** The closest same-rule source is Macauley–McCammond–Mortveit (2008), Section 5; its global group-orbit problem differs from prime-two cycles of the specified ordered product. Klobas (2026), Yang–Wang–Wang (2026), and Wilkinson et al. (2020) study the same dynamics but do not display this all-ring census in the inspected primary texts. The statement excludes odd rings and primitive periods greater than two. Independent audit has not yet occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same local rule, parity protocol and invariant sectors are established. The distinct result is the unrestricted labeled-ring census of primitive temporal two-cycles of the fixed staggered permutation, including the forbidden-window characterization and spectral growth. The checked asynchronous orbit groups and quantum subsystem calculations do not specialize directly to this count.
+
+## value
+
+PASS
+
+Primitive period two is the first nontrivial temporal recurrence sector of this natural staggered permutation. The result replaces simulation with a uniform language characterization and exact finite-size census, distinguishes its growth exponent from that of stationary configurations, and works without a nearest-neighbor exclusion. It does not claim control of higher periods or quantum transport.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

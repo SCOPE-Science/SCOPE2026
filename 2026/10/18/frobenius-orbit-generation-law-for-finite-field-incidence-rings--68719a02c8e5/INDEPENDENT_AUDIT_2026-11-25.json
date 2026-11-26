@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:52:44.190913Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The diagonal image is polynomial evaluation from F_p[X_1,…,X_k]. Each coordinate is onto exactly when its label generates F_q, or has Frobenius orbit length e; equal kernels for two surjective evaluations are equivalent to conjugacy by a Frobenius power. Distinct maximal kernels give simultaneous surjectivity by CRT, and subfield Möbius inversion gives the number of full orbits. On a cover, the two-by-two restriction is a quotient map. Once its diagonal is full, a nonzero radical kernel gives the whole off-diagonal line by left scalar multiplication using diagonal lifts. If the kernel vanishes the image is commutative; commuting with the lift of (1,0), having off-diagonal entry t, forces each generator's cover entry to be t times its difference of diagonal entries. Conversely this common t places the image in a proper conjugated diagonal algebra. Globally, B∩J is nilpotent and B/(B∩J) is the full separable diagonal product over F_p. A Wedderburn–Malcev complement inside B is also a complement to J in A, so conjugacy by 1+J moves it to the standard diagonal algebra. Conjugation preserves cover-surjectivity; diagonal idempotents then cut out arbitrary cover matrix units with coefficients, whose saturated-chain products give every allowed entry. Thus given valid diagonals, cover restrictions factor independently and the noncovers are free. The count, probability, ratio where defined, and minimum follow, including c=0, k=1 and e=1. Independent exact replay `python3 /workspace/reproductions/incidence_gf4.py` used the F_2-span of words on the two-vertex algebra and returned 1440 unassisted and 2880 scalar-assisted pairs out of 4096; this checks the example, not the universal proof. The frozen verifier was read, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The separable algebra count applies to the diagonal product; it does not contain the nonzero radical cases. The indexed radical-square-zero exact law supplies F_q scalars, and its algebra class does not include arbitrary incidence posets. The 2023 DOI lookup provided a landing page/abstract, not a readable primary full text."
+        ],
+        "reasoning": "Neither the established diagonal theorem nor the radical-square-zero scalar-assisted law dominates the unassisted law. The inaccessible structural paper may give an implicit reformulation; absence cannot be concluded for that paper.",
+        "searches": [
+          "Kolegov, DOI:10.1016/j.jalgebra.2022.12.025",
+          "Longstaff–Rosenthal, Australas. J. Combin. 22 (2000), 117–121",
+          "arXiv:1709.06982",
+          "Resultary a727f2e0a9ab"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verifier.py",
+        "arXiv:2509.00252v1",
+        "arXiv:1709.06982",
+        "DOI:10.1016/j.jalgebra.2022.12.025 (landing page/abstract)",
+        "Longstaff–Rosenthal (bibliographic comparison; full text not inspected)",
+        "Resultary a727f2e0a9ab, 158f1d5d0025, 396c0420c50c, 531dcf3be3b2, 2b99b8e288c0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The former incidence count requires distinct labels and independent valid covers. The separable algebra count requires distinct full Frobenius orbits but has no covers. The additional assertion needed to combine them is that unassisted generation is equivalent to full diagonal generation plus scalar-assisted generation of the incidence algebra."
+        ],
+        "reasoning": "That assertion follows by lifting the separable diagonal inside the generated ring and conjugating its lift to the actual diagonal algebra, after which it contains all scalar matrices. It is a substantive lifting step, not an unconditional product of the two prior counts or a numerically rescaled scalar law. No inspected stronger result gives this combined count; only the nonprime, possibly nonzero-radical case receives originality credit.",
+        "searches": [
+          "arXiv:2509.00252v1, Theorem 7 and Corollary 8",
+          "arXiv:1709.06982, Proposition 3.2 and Lemma 3.3",
+          "DOI:10.1016/j.jalgebra.2022.12.025"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kolegov's count explicitly supplies all coefficient scalar matrices. Here the unital generated ring is the F_p-span of words in the tuple; it need not contain the supplied F_q scalars. The counts agree for e=1 and differ for the two-vertex F_4 case.",
+          "Galois-orbit classes in the separable algebra paper give precisely the diagonal factor when specialized to extension degree e and tuple length k."
+        ],
+        "reasoning": "Changing the coefficient field in the scalar-assisted formula from F_q to F_p would change the incidence algebra as well as the set of permitted scalars; it does not count the same input matrices. Separating Frobenius orbits is not just reindexing distinct labels.",
+        "searches": [
+          "arXiv:2509.00252v1, Theorem 7 and Corollary 8",
+          "arXiv:1709.06982, Theorem 1.1, Proposition 3.2 and Lemma 3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "a727f2e0a9ab treats scalar-assisted generation for radical-square-zero quiver algebras; 531dcf3be3b2 gives finite-étale orbit counts. 158f1d5d0025 concerns unassisted idempotent pairs in the full matrix ring M_2(F_q), not unrestricted tuples in an incidence algebra. 396c0420c50c and 2b99b8e288c0 involve scalar-assisted idempotent generation, with the latter on arbitrary incidence posets."
+        ],
+        "reasoning": "Exact counts across these related domains do not give the function on the frozen domain. Inputs, type of algebra, and supplied scalars are all relevant, regardless of catalogue dates.",
+        "searches": [
+          "Configured Resultary comparison: a727f2e0a9ab, 158f1d5d0025, 396c0420c50c, 531dcf3be3b2, 2b99b8e288c0"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the complete count for nonprime coefficients without adjoining field scalars, including its local-to-global lifting and the exact factorization. The scalar-assisted law (and thus the prime-field case) and the diagonal quotient count are prior. The full 2023 generator paper could not be inspected; this is a named residual risk, not proof for or against coverage.",
+      "residual_risks": [
+        "The 2023 Kolegov generator paper and the Longstaff–Rosenthal article were not available in full text for this comparison. A prior implicit special case of a broader generator theorem remains possible. The published-coverage judgment is bounded by the material inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact scalar-assisted count, also unassisted for e=1 only.",
+          "evidence": [
+            "The counted tuples generate together with all scalar matrices; the layer of distinct labels is (q^k) falling n."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2509.00252v1",
+          "material_read": "Theorem 7 and Corollary 8, HTML offset 23633",
+          "method": "OA primary-text passage inspection",
+          "title": "On the probability of generating matrix incidence rings",
+          "trigger": "Closest exact incidence count"
+        },
+        {
+          "assessment": "Exact diagonal ingredient only.",
+          "evidence": [
+            "Galois orbit classes of generating tuples and their Möbius count yield N_e(k) on specializing to F_q/F_p."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1709.06982",
+          "material_read": "Theorem 1.1 (HTML offset 3257), Proposition 3.2 and Lemma 3.3 (offset 15646)",
+          "method": "OA primary-text passage inspection",
+          "title": "On the number of generators of a separable algebra over a finite field",
+          "trigger": "Strongest antecedent for the Frobenius orbit factor"
+        },
+        {
+          "assessment": "Full-statement implication unresolved for this paper; not a finding of noncoverage.",
+          "evidence": [
+            "The accessible material was not sufficient to compare exact operator/scalar assumptions and generator criteria."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jalgebra.2022.12.025",
+          "material_read": "Landing page/abstract only; no identified repository full text obtained",
+          "method": "DOI and lawful OA availability check",
+          "title": "On generators of incidence rings over finite posets",
+          "trigger": "Potential stronger structural result on the same incidence rings"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Generation without the coefficient field is a natural distinct operation. The exact law resolves the interaction of a Galois-separation requirement and a nonzero radical, for arbitrary posets and every positive tuple length, with a clean conditional cover count and a poset-independent ratio once size is fixed. It determines when the known scalar-assisted census overstates generation and by precisely how much. The F_4 example exhibits the difference but is not the contribution by itself.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

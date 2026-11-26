@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Exact symbolic verification
+# Independent mathematical audit
 
-Run `python verify_q2_threshold.py` using Python 3.10+ and SymPy 1.11+. The program constructs the 5-by-5 one-dimensional mass/stiffness matrices from the local Q2 Gauss–Lobatto rule, forms the two-dimensional 25-by-25 stiffness, verifies the four parity-block inverses symbolically, reduces 625 Green entries to 55 reflection-and-transposition classes, and checks the precise polynomial coefficient signs. The decisive root lies strictly in the rational interval \(41999/10000<t_*<21/5\). Every assertion is exact (integer and symbolic rational algebra). Numerical root approximation is not used by the certificate.
+## correctness
 
-A successful replay prints: `PASS: 25-by-25 exact stiffness inverse, 55 symmetry classes`, followed by the counts 45/10 and the exact negative entry at \(t=5\). The proof requires Descartes' one-positive-root principle to turn the certified coefficients and endpoint signs into a global interval assertion; no finite test points are used in place of that argument. External independence and wider publication-priority verification have not been performed.
+PASS
+
+Independently integrated derivatives of the reference quadratic Lagrange basis (the products are quadratic, hence the Lobatto rule is exact here), used the basis integrals for the nodal quadrature weights, assembled before boundary restriction, and inverted the entire polynomial matrix 18tS(t) over Z[t] by characteristic-polynomial arithmetic, without parity blocks or the frozen script. Verified the 625 entries and their 55 reflection/exchange/transposition classes. The exact recalculation found 45 zero-variation and 10 one-variation classes, positive denominator coefficients up to allowed zeros, and strictly positive numerator constants. Only the (1,3) orbit is negative at 21/5; every other numerator is strictly positive there, hence positive throughout (0,21/5] by Descartes' rule, including multiplicities. The recomputed witness is the stated -3Q divided by the stated positive denominator. Q has one sign variation and opposite signs at 41999/10000 and 21/5, so its only positive root is simple. At that root the eight witness entries alone vanish, and at every larger t the witness is negative. The rational value at 5 and the displayed root digits agree. S is SPD by the Dirichlet energy with a positive diagonal 1D mass and SPD 1D stiffness. Right multiplication by M_2 preserves signs. This is exactly the stated homogeneous Dirichlet nodal inverse criterion, not a general boundary or time-stepping result.
+
+## originality
+
+PASS
+
+The inspected primary papers and strongest related indexed result provide a sufficient mesh condition, an experiment on a different mesh, and a different time-discretization threshold, not a covering theorem for the exact spatial transition. Pass is limited to the present family and to the best knowledge supported by accessible evidence. The Li dissertation remains a real priority risk.
+
+## value
+
+PASS
+
+This is a natural graded family with a single interior element adjustable independently of overall rescaling, and with a nontrivial discrete monotonicity issue even though stiffness remains SPD. The exact interval, complete critical zero pattern and rational failure witness are useful as a graded-mesh benchmark and distinguish a genuinely sharp limit from conservative sufficient mesh bounds. The value is not a claim of new general finite-element convergence or stability theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

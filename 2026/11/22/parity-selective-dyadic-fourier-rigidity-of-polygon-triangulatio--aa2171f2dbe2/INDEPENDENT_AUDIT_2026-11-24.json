@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:44:25.068278Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–63; frozen VERIFICATION.md and check.py (inspected, not executed)",
+        "/workspace/repairs/3/RESULT.md, especially the exact-profile and gcd proof",
+        "/workspace/branches/76199332-384a-4571-81bc-e9762aff3529/replay_walsh.py and replay_walsh.txt: direct enumeration of all 2,016 coefficients at n=5 through 10, including the n=5 witness and computed gcds 1,2,2,4,1,2"
+      ],
+      "rationale": "The frozen version conflated the minimum 2-adic valuation with the minimum magnitude: at n=5 the empty coefficient is 5 but a singleton coefficient is 1, and the gcd is 1. Taking the empty frequency also left odd common factors unaddressed. The replacement distinguishes these facts and proves the full gcd: the exact ear profile A={1,n−1} has multiplicity one by inclusion–exclusion over the independent subsets of a path on L=n−5 vertices. The resulting coefficient of z^(L+1) in C(z(1−z)) is 1 since C(z(1−z))=1/(1−z) by the formal Catalan recurrence. Walsh inversion implies the gcd divides 2^n. The core theorem follows independently: prescribed independent ears can be cut off yielding C_(n−k−2) extensions (with n−k≥3), and the signed product expansion gives the stated Walsh identity. For N=n−1 the k≥2 prefactors have valuation k+s_2(N−k)−1≥s_2(N), by k−1≥s_2(k) and subadditivity. The singleton prefactor has valuation s_2(N−1), at least s_2(N) in odd polygon size and exactly s_2(N)−1 in even size. This proves both laws, and the character basis gives the asserted determinant and rank bounds. It also shows the already dyadic gcd has exact valuation v_n.",
+      "residual_risks": [
+        "Finite tests corroborate counting and arithmetic; the proof is needed for all orders. No general even-order singularity verdict is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The full-diagonal theorem provides uniform congruence modulo four for odd n and also has a vanishing full-diagonal frequency at n=15. The stated Catalan valuation in Theorem 1.1 is precisely the input used. Direct and alternate OA routes did not yield the cited Hurtado–Noy paper."
+        ],
+        "reasoning": "The broader coordinates give weaker congruence and sometimes actual cancellation. Restriction can remove cancellations; it does not strengthen a modulus without an additional argument. Ear enumeration and Catalan valuation themselves are established comparators.",
+        "searches": [
+          "Resultary e73d48554b89, full-diagonal Finding and proof",
+          "Hurtado–Noy, Discrete Mathematics 149 (1996), 319–324, cited CORE full text",
+          "Postnikov–Sagan arXiv:math/0601339, Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e73d48554b89 and 503a9ed7716d",
+        "Postnikov–Sagan arXiv:math/0601339",
+        "Hurtado–Noy CORE full-text access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Modulo four already implies the entire restricted odd valuation statement at v_n=0,1, but implies only divisibility by four when v_n=2. It gives no even-order parity stratum. The valuation theorem handles the individual Catalan factors, not positionwise signed sums."
+        ],
+        "reasoning": "The extra cancellation comes from the all-subset ear count and the digit-sum comparison after applying the ear-sector inclusion expansion. This is a substantive additional step for the unbounded frequency family, not renaming a prior invariant.",
+        "searches": [
+          "e73d48554b89, explicit odd-order modulo-four congruence and n=15 counterexample",
+          "503a9ed7716d, pairwise covariance spectrum",
+          "arXiv:math/0601339 Theorem 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original ear-bit coordinate is exactly the short-diagonal presence bit, so the full-diagonal Walsh spectrum restricts to this sector with no normalization change. The ear-observation comparator studies pairwise statistics and ordinary spatial Fourier diagonalization."
+        ],
+        "reasoning": "One comparator genuinely contains the same frequencies as a subsystem; the other Fourier problem describes a different operator and cannot identify all Boolean character sums. The matching modulo-four claim's overlap is credited.",
+        "searches": [
+          "Resultary full diagonal-incidence Walsh rigidity e73d48554b89",
+          "Resultary ear-pattern observability and covariance 503a9ed7716d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The covered exact entry v_2(C_(n−2)) is the empty frequency, and the indexed n=15 zero concerns the unrestricted spectrum. The matched ear-pattern study gives exact first- and second-order counts, not the integer Walsh spectrum."
+        ],
+        "reasoning": "A lookup of Catalan numbers, or an ear-count sequence tabulated without positions, would not test a claim quantifying over all positionwise frequencies and n. The relevant indexed exact identities were compared; no numerical sequence lookup is used as evidence of novelty.",
+        "searches": [
+          "Resultary e73d48554b89 (all-diagonal Walsh sums including an explicit zero)",
+          "Postnikov–Sagan arXiv:math/0601339, Theorem 1.1 (exact Catalan valuation)"
+        ]
+      },
+      "rationale": "The existing full-diagonal modulo-four theorem already covers the restricted odd cases with v_n=0 or 1; the repaired statement assigns that credit explicitly. The supported distinct core is the sharper odd-order congruence for v_n≥2 and the even-order all-frequency parity stratum. Known Catalan valuations and ear-count ingredients are not claimed as new, nor is independent priority claimed for the repaired gcd proof's auxiliary counting identity.",
+      "residual_risks": [
+        "The inaccessible Hurtado–Noy text leaves the exact extent of historical ear counting coverage unresolved; an unlocated multivariate identity remains possible. The broader web query was uninformative and is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers restricted odd cases with v_n=0,1; not the distinct higher-dyadic and even-order claims",
+          "evidence": "All nonboundary-diagonal frequencies at odd order have constant residue modulo four; the n=15 zero is for the unrestricted diagonal spectrum.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-fourier-rigidity-and-cancellation-for-convex-polygon-triangulati--e73d48554b89",
+          "material_read": "Mirrored RESULT.md Finding offsets 0–1072; assumptions/proof around offsets 800 and 5000",
+          "method": "Local Resultary discovery and mirror passage inspection",
+          "title": "Fourier rigidity and cancellation for convex-polygon triangulations",
+          "trigger": "Closest all-frequency theorem and exact zero"
+        },
+        {
+          "assessment": "Same observations, different spectrum",
+          "evidence": "First and second moments and Fourier eigenvalues of the covariance on vertex positions do not give all Boolean Walsh coefficients.",
+          "identifier_or_url": "Resultary 503a9ed7716d",
+          "material_read": "Mirrored RESULT.md around offset 2050, ear probabilities, pair counts and covariance spectrum",
+          "method": "Local Resultary discovery and mirror passage inspection",
+          "title": "Sharp harmonic observability crossover for ear patterns of random polygon triangulations",
+          "trigger": "Same ear observations and Fourier terminology"
+        },
+        {
+          "assessment": "The Catalan valuation is established prior work",
+          "evidence": "The valuation is s_2(t+1)−1 for C_t.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0601339",
+          "material_read": "Theorem 1.1, PDF p. 2, around OA offset 3500",
+          "method": "OA primary passage",
+          "title": "What power of two divides a weighted Catalan number?",
+          "trigger": "Exact valuation input"
+        },
+        {
+          "assessment": "Ear-counting credit retained; details of historical overlap unresolved",
+          "evidence": "The matching topic is classical ear enumeration. Access failure supplies no negative evidence about stronger statements.",
+          "identifier_or_url": "https://core.ac.uk/download/pdf/82091698.pdf",
+          "material_read": "Bibliographic citation only; no theorem passage available",
+          "method": "Identified OA PDF attempted via direct and alternate routes, HTTP 403",
+          "title": "Ears of triangulations and Catalan numbers",
+          "trigger": "Most relevant classical ear-counting paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected RESULT.md Finding and proof; prior full-diagonal and pairwise-result comparisons"
+      ],
+      "rationale": "The natural short-diagonal observation sector admits all-frequency invertibility, even when the entire diagonal observation space can have cancellation. The higher-dyadic modulus settles the nontrivial infinite family of even Catalan counts beyond what unweighted parity or modulo four proves, and the even-order law gives a guaranteed nonzero half-spectrum without pretending to settle the rest.",
+      "residual_risks": [
+        "No inverse norm estimate or all-even-order classification follows from the asserted valuations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:50:23.564775Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–43",
+        "VERIFICATION.md line 20",
+        "verify.py lines 6–52 and verify_output.txt lines 1–6 (inspected, not executed)"
+      ],
+      "rationale": "For a candidate fort with side-index sets P and Q, an outside a_i has |Q|−1_{i∈Q} neighbors in the fort, with the symmetric expression for outside b_j. Every one-side triple is a fort and each of its nonempty proper subsets has an outside vertex of opposite color with exactly one neighbor. If both sides have size at most two and |P|=2, the fort condition forces P⊆Q, hence P=Q; the reverse applies if |Q|=2. If both sides have size at most one, use an unused index to find an opposite outside vertex adjacent to a singleton. The matched double-pairs are forts with no smaller fort. A missed fort prevents the first force into it, and any failed maximal forcing process leaves a missed fort. This gives exactly the three omission restrictions. Equivalently, enumerate omissions by squaring z^n+n z^(n−1)+binom(n,2) z^(n−2) and subtract the binom(n,2) aligned complements at degree 2n−4. Expansion and binom(n,2)(binom(n,2)−1)=n(n−1)(n−2)(n+1)/4 verify all coefficients and the minimum claim, including n=4.",
+      "residual_risks": [
+        "Replay with python3 verify.py checks defined forts, propagation and coefficients only for n=3 through 7. The general conclusion follows from the exact neighbor-count proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The matching-deletion result allows m,n≥3 and 0≤t≤min(m,n). It gives the white-index conditions in terms of I_*=I∩[t] and J_*=J∩[t] and explicitly displays the crown polynomial.",
+          "Boyer et al. treat ordinary complete multipartite graphs and cycles; Becker et al. give same-side pairs for ordinary complete bipartite graphs."
+        ],
+        "reasoning": "At m=n=t all indices are matched, so the nonempty starred-set conditions are automatic for size-two sides and the remaining test is identical. The published complete multipartite result does not cover perfect matching deletion, and its cycle result covers only the C6 boundary here; neither distinction negates the positive catalogue coverage.",
+        "searches": [
+          "Resultary 8a368cb2e9c6, complete bipartite graph with any t disjoint edges deleted",
+          "arXiv:1801.08910 Propositions 4 and 6",
+          "arXiv:2404.05963 Proposition 9"
+        ]
+      },
+      "checked_sources": [
+        "Resultary be3fdc156edb",
+        "Resultary 8a368cb2e9c6",
+        "Resultary 44226e489656",
+        "arXiv:1801.08910",
+        "arXiv:2404.05963",
+        "arXiv:2310.17904"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A white set has a nonforcing blue complement exactly when it contains a fort: the process either stops with such a subset or cannot enter a missed fort. Thus the inclusion-minimal such white sets are exactly the minimal forts.",
+          "Under the prior criterion the inclusion-minimal failures are the one-side triples and the aligned pairs of indices on both sides."
+        ],
+        "reasoning": "Minimizing violations of a known set characterization mechanically gives exactly the frozen fort families, without any new enumeration or structural input. The rest of the claims are already explicit in the earlier catalogue.",
+        "searches": [
+          "Resultary be3fdc156edb, exact forbidden omitted sets",
+          "arXiv:2310.17904, fort-hypergraph context; frozen RESULT.md lines 23–30 for the elementary duality proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier crown Finding says |I|,|J|≤2 and excludes |I|=|J|=2 with I=J on the same labeled graph, under the same ordinary forcing rule.",
+          "The distinct catalogue entry 44226e489656 explicitly lists the same three minimal-fort families, but is later and is not used as prior coverage."
+        ],
+        "reasoning": "With both side sizes bounded by two, the earlier excluded case is exactly |I∩J|≥2. The family of all zero-forcing sets therefore coincides on the whole assigned range.",
+        "searches": [
+          "Local Resultary/SCOPE be3fdc156edb, crown/K_{n,n} minus a perfect matching",
+          "Local Resultary 44226e489656, explicit minimal-fort formulation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "be3fdc156edb gives (z^n+n z^(n−1)+binom(n,2) z^(n−2))²−binom(n,2) z^(2n−4), plus the same minimum and minimum-set count.",
+          "8a368cb2e9c6 explicitly gives the same expression factored at z^(2n−4). The known C6 polynomial is 6z²+18z³+15z⁴+6z⁵+z⁶."
+        ],
+        "reasoning": "Expanding either exact earlier catalogue formula gives every claimed coefficient for every n in scope. The overlap is symbolic and does not rest on matching finite values.",
+        "searches": [
+          "Exact catalogue entries be3fdc156edb and 8a368cb2e9c6 (local Resultary mirror)",
+          "Boyer et al. arXiv:1801.08910 Proposition 6: C6"
+        ]
+      },
+      "rationale": "Demonstrated prior coverage: a preexisting exact crown record gives the same complete forcing-set family and polynomial, and a second preexisting matching-deletion record covers these claims even more generally. The minimal-fort wording does not leave a distinct remainder: the exact three families follow by taking the inclusion-minimal nonforcing complements in the already characterized set family.",
+      "residual_risks": [
+        "No comprehensive claim about first scholarly attribution is made. The failure is based on affirmative catalogue coverage and an exact implication, not on absence of an external search result or on the later matching record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact structural and polynomial coverage; minimal forts mechanically follow",
+          "evidence": "n≥3; at most two omissions per side, except equal two-index sets; polynomial is A_n(z)^2−binom(n,2) z^(2n−4).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-all-zero-forcing-sets-of-crown-graphs--be3fdc156edb/RESULT.md",
+          "material_read": "Finding, Assumptions and scope, and necessity part of Proof, offsets 0–2768",
+          "method": "Local Resultary mirror, exact bounded text",
+          "title": "All zero forcing sets of crown graphs",
+          "trigger": "Same graph and all zero-forcing sets; decisive earlier exact candidate"
+        },
+        {
+          "assessment": "Broader coverage, with explicit crown specialization",
+          "evidence": "At m=n=t the starred sets equal the white-index sets; P_m=P_n=E=binom(n,2), yielding the displayed crown polynomial and the same set condition.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-zero-forcing-sets-of-complete-bipartite-graphs-with-a-deleted-ma--8a368cb2e9c6/RESULT.md",
+          "material_read": "Finding, Assumptions and scope, four exact conditions and opening proof, offsets 0–2781",
+          "method": "Local Resultary mirror, exact bounded text",
+          "title": "Zero forcing sets of complete bipartite graphs with a deleted matching",
+          "trigger": "Broader theorem including perfect deletion"
+        },
+        {
+          "assessment": "Explicit matching result, later listing; not relied on to establish earlier coverage",
+          "evidence": "Lists both side-triple families, the matched double-pairs and the same polynomial for n≥3.",
+          "identifier_or_url": "Resultary 44226e489656",
+          "material_read": "Finding and proof from offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Minimal forts, complete zero-forcing polynomial, and fractional gap of crown graphs",
+          "trigger": "Exact title and mathematical overlap"
+        },
+        {
+          "assessment": "Unmodified complete multipartite graphs; exact crown boundary n=3 only from cycles",
+          "evidence": "Complete bipartite case has three terms; the cycle formula reproduces C6, not the entire matching-deleted family.",
+          "identifier_or_url": "https://arxiv.org/abs/1801.08910",
+          "material_read": "Propositions 4 and 6, PDF p. 5, retrieved around offsets 16946–20118",
+          "method": "OA PDF extracted passages",
+          "title": "The zero forcing polynomial of a graph",
+          "trigger": "Same invariant for multipartite graphs and the cycle boundary"
+        },
+        {
+          "assessment": "Related ordinary complete bipartite case, not the crown theorem",
+          "evidence": "Same-side pairs are minimal forts of K_{p,q}; these pairs are not forts under crown adjacency.",
+          "identifier_or_url": "https://arxiv.org/abs/2404.05963",
+          "material_read": "§4 Proposition 9, PDF p. 6 from offset 22350",
+          "method": "OA PDF extracted passage",
+          "title": "On the number of minimal forts of a graph",
+          "trigger": "Minimal forts of standard graph families"
+        },
+        {
+          "assessment": "Framework evidence only; no whole-document exclusion inferred",
+          "evidence": "The inspected abstract frames general fort-hypergraph and fractional forcing questions, not the exact crown polynomial.",
+          "identifier_or_url": "https://arxiv.org/abs/2310.17904",
+          "material_read": "Abstract, PDF p. 1",
+          "method": "OA PDF extracted passage",
+          "title": "Forts, (fractional) zero forcing, and Cartesian products of graphs",
+          "trigger": "Fort-hypergraph and zero-forcing duality context"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 4–40",
+        "Resultary be3fdc156edb Finding",
+        "Resultary 8a368cb2e9c6 Finding and assumptions"
+      ],
+      "rationale": "The crown family and its minimal forts are natural, but the exact polynomial and full set criterion are already available. The remaining presentation as three minimal-fort families is a direct minimal-obstruction extraction from that criterion, not an independently useful unknown invariant under this review standard. No separable new valuable claim survives in the frozen result.",
+      "residual_risks": [
+        "The direct fort proof may be useful as exposition; this is not a claim that the underlying graph invariant lacks mathematical interest."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

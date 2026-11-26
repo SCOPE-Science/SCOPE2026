@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:00:22.646211Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–72: independently checked lattice expansion, quantile coupling, averaging and tail control",
+        "Frozen VERIFICATION.md, verify.py and verification_output.txt, inspected without execution",
+        "Bobkov author PDF, pp. 2–3, moment normalization and Theorem 1.1"
+      ],
+      "rationale": "I checked the required compact-uniform continuity-corrected expansion by a separate derivation. Write h=c/sqrt(n), with c=d/sigma. The standardized one-step characteristic function has log expansion -t^2/2-i gamma t^3/6+O(t^4); maximal span gives a strict modulus gap away from zero in the fundamental inversion interval. Inverting at lattice sites and scaling frequency by sqrt(n) gives site masses h[phi(x)+gamma (x^3-3x) phi(x)/(6 sqrt(n))]+O(h/n), uniformly in x: the central Fourier remainder is bounded in L1 by O(n^-1) Gaussian times polynomial integrals, and the outer part decays exponentially. These estimates follow by Taylor expansion up to scaled frequency n^(1/12), Gaussian domination up to a small fixed original frequency, and then the modulus gap. Bounded summands make the omitted tails beyond a sufficiently large constant times sqrt(log n) negligible, and summing the local remainder over O(sqrt(n log n)) sites gives o(n^-1/2). Midpoint summation reaches x+h/2, and integrating the Hermite density correction gives (1-x^2)phi(x), with the record's sign. The same mass estimate gives positivity on fixed compacts. On such compacts Gaussian inversion and rounding on the skewness-shifted grid yield boundary differences o(h); O(1/h) cells imply vanishing discrepancy probability. Changing variable to z-A(z)/sqrt(n) gives a Jacobian tending uniformly to one there, so averaging over full grid periods yields an independent centered uniform rounding residual even with the n-dependent grid origin. Monotone coupling is optimal for each fixed power. Bobkov's Theorem 1.1 controls a higher coupling moment at the scaled rate, justifying removal of the compact cutoff. The quadratic constant and symmetric specialization follow by direct integration.",
+      "residual_risks": [
+        "The exact Kolassa–McCullagh passage was not retrievable; correctness of the first-order input here is checked instead by the finite-support Fourier and midpoint argument. This does not verify the scope of Kolassa–McCullagh beyond this case.",
+        "The packaged binomial costs use floating-point CDFs and clipping, so those diagnostics are not exact numerical certificates or a general asymptotic proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bobkov Theorem 1.1 gives W_p<=C_p L_(p+2)^(1/p), including lattice inputs. Theorem 1.3 gives a smooth Edgeworth transport constant under Cramér's characteristic-function condition, which maximal-span lattice distributions do not satisfy.",
+          "Hafouta–Leppänen treats W2 rates for weak dependence. The exact Kolassa–McCullagh text could not be verified in lawful Project Euclid copies tried."
+        ],
+        "reasoning": "A rate supplies tail control but cannot identify the leading constant. The nonlattice transport result does not apply even at zero skewness on a lattice, where the present constant is positive. Retrieval failure is not treated as proof of no broader result.",
+        "searches": [
+          "Bobkov, Berry–Esseen bounds and Edgeworth expansions in the central limit theorem for transport distances, Theorems 1.1 and 1.3",
+          "Hafouta–Leppänen arXiv:2610.30352, sharpness of W2 CLT rates",
+          "Kolassa–McCullagh DOI 10.1214/aos/1176347637"
+        ]
+      },
+      "checked_sources": [
+        "Goldstein equation (3), reporting Esseen–Zolotarev; Bobkov Theorems 1.1 and 1.3",
+        "Hafouta–Leppänen arXiv:2610.30352; Kolassa–McCullagh bibliographic record only",
+        "Resultary and local mirror 240d0d2f7569 and a448d981d8c9",
+        "Frozen RESULT.md prior-work and limitations sections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The mean-CLT formula is an integrated first absolute moment, which neither specifies joint convergence with Z nor determines any larger moment. Bobkov's applicable inequality does not give those limits.",
+          "A half-step Edgeworth expansion describes the CDF, not the limit of the scaled optimal-coupling displacement. Inverting it on central cells gives a position-dependent shift in the rapidly oscillating phase. Averaging that phase separately from the normal coordinate, then controlling scaled higher moments, supplies the missing law."
+        ],
+        "reasoning": "The higher transport orders use a structural addition beyond evaluation of the classical mean-CLT constant or passage to a more restrictive set of distributions. Novelty is assessed only for that joint limit and its higher-order consequences; the broad statement correctly includes the known first-order entry.",
+        "searches": [
+          "Goldstein equation (3); Bobkov Theorems 1.1 and 1.3; inspected local-mirror Findings 240d0d2f7569 and a448d981d8c9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Goldstein pp. 1673–1674 gives Esseen's limiting scaled L1 CDF distance and Zolotarev's explicit equation (3), the integral of |omega(1-z^2)/2+h u| against the normal density and uniform u on [-1/2,1/2], with overall 1/sigma, omega=|E(X-EX)^3|/(3 sigma^2), and h the lattice span."
+        ],
+        "reasoning": "In one dimension integrated absolute CDF distance equals W1. Dividing the two terms in equation (3) by sigma and using symmetry of u identifies the entire r=1 formula exactly, with or without skewness. Lp CDF distances for p>1 are not Wp, so replacing the power in a CDF integral is not an implication about higher transport powers.",
+        "searches": [
+          "Mean central limit theorem, absolute CDF difference and Esseen lattice span/skewness",
+          "Goldstein, Bounds on the Constant in the Mean Central Limit Theorem, equation (3)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The midpoint-quantization entry 240d0d2f7569 controls KL divergence for the symmetric binomial entropic CLT. The nearest-neighbor entry a448d981d8c9 has exact Wp=1/2 between parity-conditioned trinomial sums on staggered lattices, without Gaussian target.",
+          "The exact first-order arithmetic constant is recorded by Goldstein in equation (3), but no inspected entry tabulates the skewed Gaussian-target W2 constant or the full higher-order sequence."
+        ],
+        "reasoning": "Different target measures or divergences do not identify the optimal cost of Gaussian quantile cells. The known W1 value is direct overlap; no inference of absence is made from the bounded higher-order search.",
+        "searches": [
+          "Resultary lattice Gaussian quantization and sharp Wp CLT constant comparisons; records 240d0d2f7569 and a448d981d8c9",
+          "Primary search: lattice transport distances Wasserstein Edgeworth quadratic exact constants and quantile skewness"
+        ]
+      },
+      "rationale": "The supported distinction is the higher-order lattice Wasserstein constants and the joint limiting law of the normal coordinate and its scaled quantile-coupling displacement. The entire r=1 constant, including skew laws, is classical Esseen–Zolotarev, not merely the symmetric c/4 special case. I do not credit the r=1 formula, the continuity correction, or a lattice-valid optimal-order bound as new. The checked prior work on those quantities does not imply the all-order result or the joint law.",
+      "residual_risks": [
+        "Esseen's and Zolotarev's original texts were not directly read; the exact r=1 comparison uses Goldstein's explicit printed representation and attribution.",
+        "Kolassa–McCullagh full text was not retrieved. An earlier higher-order lattice transport result under alternate terminology is not ruled out; no absolute priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive coverage of r=1, via the Esseen limit and Zolotarev representation as reported in this paper",
+          "evidence": [
+            "Equation (3) has a sum of the skewness correction and the maximal-span uniform term inside the absolute value; it is not restricted to symmetric laws."
+          ],
+          "identifier_or_url": "https://dornsife.usc.edu/larry-goldstein/wp-content/uploads/sites/221/2023/06/3pt.pdf",
+          "material_read": "Introduction, journal pp. 1673–1674, passage beginning at PDF text offset 5100, including equation (3) and definitions",
+          "method": "Lawful author PDF, literal locate and bounded passage read",
+          "title": "Bounds on the Constant in the Mean Central Limit Theorem",
+          "trigger": "Exact historical arithmetic W1 formula under mean CLT terminology"
+        },
+        {
+          "assessment": "Supports uniform integrability; sharp nonlattice theorem does not cover the arithmetic limit",
+          "evidence": [
+            "For normalized iid summands L_s scales as n^(-(s-2)/2) times the single-step s-moment. Theorem 1.3 assumes Cramér's condition, which fails at reciprocal-lattice frequencies."
+          ],
+          "identifier_or_url": "https://www-users.cse.umn.edu/~bobko001/preprints/CLT.for.W_p.7_After.revision.correction.pdf",
+          "material_read": "Moment normalization at p. 2, offset 2749; Theorems 1.1 and 1.3, pp. 3–4 at offset 7000",
+          "method": "Author OA primary PDF passage comparison",
+          "title": "Berry–Esseen bounds and Edgeworth expansions in the central limit theorem for transport distances",
+          "trigger": "Closest cited transport theorem and essential higher-moment bound"
+        },
+        {
+          "assessment": "Full-text comparison unavailable; the needed finite-support expansion was independently derived",
+          "evidence": [
+            "Retrieved pages did not contain the paper theorem text."
+          ],
+          "identifier_or_url": "https://doi.org/10.1214/aos/1176347637",
+          "material_read": "Bibliographic entry only; precise theorem passage not retrieved",
+          "method": "Attempted Project Euclid full, PDF and download routes",
+          "title": "Edgeworth Series for Lattice Distributions",
+          "trigger": "Cited continuity-corrected expansion"
+        },
+        {
+          "assessment": "Rate result, not exact fixed-lattice constants",
+          "evidence": [
+            "Establishes W2 CLT rates in weak dependence settings."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.30352",
+          "material_read": "Primary text p. 2, around offset 5500",
+          "method": "OA primary passage comparison",
+          "title": "Optimal CLT error bounds in the second order Wasserstein metric via Stein's method for weakly dependent sequences",
+          "trigger": "Related recent W2 CLT theorem"
+        },
+        {
+          "assessment": "KL divergence, not Gaussian-target Wasserstein moments",
+          "evidence": [
+            "The midpoint-phase conclusion concerns the entropic CLT."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-midpoint-quantization-accelerates-the-symmetric-binomial-entropi--240d0d2f7569",
+          "material_read": "Local-mirror RESULT.md Finding in snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary and local mirror",
+          "title": "Midpoint quantization accelerates the symmetric binomial entropic CLT",
+          "trigger": "Shared midpoint quantization and symmetric binomial model"
+        },
+        {
+          "assessment": "Different target and pair of lattice laws; same date does not decide priority",
+          "evidence": [
+            "Exact Wp=1/2 between the integer and half-integer conditioned sums, not between one lattice sum and a Gaussian."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-nearest-neighbor-transport-between-parity-conditioned-trin--a448d981d8c9",
+          "material_read": "Local-mirror RESULT.md Finding",
+          "method": "Resultary and local mirror",
+          "title": "Exact nearest-neighbor transport between parity-conditioned trinomial sums",
+          "trigger": "Exact all-order lattice transport, same day"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and joint-limit proof",
+        "Bobkov and Esseen–Zolotarev comparisons",
+        "Independent compact-cell and moment-limit reconstruction"
+      ],
+      "rationale": "A transport CLT rate alone does not tell how lattice spacing and asymmetry contribute at first order. The joint quantile law identifies an independent uniform error at the scale of one cell after accounting for skewness. In particular it gives the exact quadratic lattice-plus-skewness decomposition without a mixed term and determines higher costs that are not encoded by the known W1 constant.",
+      "residual_risks": [
+        "The result treats a fixed finite-support maximal-span iid law and fixed finite cost order; it does not establish the same constants for dependent inputs, growing orders, nonmaximal spans or triangular arrays."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

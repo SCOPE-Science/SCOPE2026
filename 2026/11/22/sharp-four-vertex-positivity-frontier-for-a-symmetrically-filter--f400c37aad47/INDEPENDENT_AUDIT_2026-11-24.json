@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:20:00.067973Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed G,p,c the scalar variable x=hcλ/2 on a positive eigenvalue tends to infinity and the binomial expansion gives r_p(x)=p/x+O(x^-2), independently of any finite test. Squaring, multiplying by hλ and summing the finitely many spectral projectors yields the exact 4p²/(c²h) coefficient of L⁺ with matrix-norm O(h^-2), with the constant space unaffected. A strictly positive off-diagonal of L⁺ therefore makes that same entry negative at sufficiently large h. The scalar subtraction is (2/c)x r_p(x)^2 where x r_p(x)^2 is continuous, nonnegative, zero at zero and tends to zero at infinity; c≥4C_p proves the [1/2,1] spectrum simultaneously and for all h≥0. Unit-path resistances are distances |i−j|. Double-centering −HDH/2 using sums n(n−1)/2, 1+(n−2)(n−1)/2 and n(n²−1)/3 gives (n−1)(2n−7)/(6n) at 12, strictly positive for n≥4. Thus every fixed finite order has the path obstruction, rather than just a check for a finite list of orders.",
+      "replay": "Repaired RESULT.md spectral and resistance proofs; the independent calculation for the frozen finite-step portion is specified by the reflection blocks above. The frozen Python/SymPy artifact was inspected, not run. The necessity of the sign condition, finite-h onset for other graphs, and filter parameters growing with h are outside the repair.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wu–Shu gives filter stability in L², not the sign of this leading off-diagonal coefficient in the located passages. Fontan–Altafini describes L⁺ as a signed Laplacian rather than an M-matrix.",
+          "73910250a06c uses a different Gauss [2/2] symbol on weighted paths; e93fc3196dc7 applies a related L⁺ sign mechanism to Gauss steps on Cartesian products. The related 690509e7de2b result concerns complete multipartite diffusion; P4 is not complete multipartite."
+        ],
+        "reasoning": "Neither signed pseudoinverse structure nor a spectral bound by itself shows that increasing filter order cannot fix the negative transition. The actual multiplier’s stiff behaviour is required; similar Gauss asymptotics are credited rather than claimed as a new universal mechanism.",
+        "searches": [
+          "Wu–Shu arXiv:2611.02282, filtered Euler Remark 3.3 and stability Remark 3.6",
+          "Fontan–Altafini arXiv:2109.14587, pseudoinverse sign structure",
+          "Resultary graph heat step positivity, Gauss pseudoinverse and complete multipartite criterion"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 4f94a5560a16, f400c37aad47, 73910250a06c, 690509e7de2b and e93fc3196dc7",
+        "arXiv:2611.02282v1 and 2109.14587v1 (located passages)",
+        "arXiv:2301.01066 (abstract)",
+        "Frozen RESULT.md, REVIEW.md, AUDIT.json and VERIFICATION.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-day first-order result implies the frozen cutoff at matching splitting. It does not alone fix the O(h^-1) coefficient of a changed multiplier; the p² term comes from the finite-order binomial behaviour and the squared filter.",
+          "The Gauss multiplier tends to identity with an L⁺ correction but has a different coefficient and no p knob for this filter; a complete multipartite criterion does not cover the counterexample paths."
+        ],
+        "reasoning": "The retained implication combines the order-dependent asymptotic with an explicit graph-family sign and simultaneously admissible energy parameters. It answers whether raising the actual filter order cures the obstruction, a question not answered by the compared statements.",
+        "searches": [
+          "Resultary 4f94a5560a16 matching theorem and splitting parameter",
+          "Compare arXiv:2611.02282 Remarks 3.3, 3.6 and the Gauss [2/2] stiff sign mechanism in Resultary"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "4f94a5560a16 states the exact first-order witness and its 2ρ³−6ρ²−5ρ−1 threshold, which equals the frozen cubic after ρ=h/2 and multiplication by 4. It parameterizes positive splitting strength in the first-order symbol, not arbitrary p in the available statement.",
+          "At p=c=1 the map also equals (I+C_CN(h)^2)/2 where C_CN=(I−hL/2)(I+hL/2)^−1. The surfaced arXiv:2301.01066 abstract considers ordinary single-step Crank–Nicolson on a Dirichlet diffusion discretization, not this squared update or general filter orders."
+        ],
+        "reasoning": "Scaling and rational representations matter: the first catalogue comparison is genuine coverage of the original first-order onset, not just a neighboring title. The retained conclusion is exact persistence under replacing the filter by each finite p, which the first-order threshold or single-step CN result does not establish.",
+        "searches": [
+          "Resultary lookup 4f94a5560a16, symmetrically filtered Euler and fixed-order pseudoinverse obstruction",
+          "Primary-literature search for squared Crank–Nicolson, two-sided resolvent Euler, graph positivity cutoff"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching first-order cubic is in the distinct catalogue summary 4f94a5560a16; the entry f400c37aad47 is the assignment itself. Weighted-path Gauss has a separate four-vertex all-step ray (1,2,1), not a table for this family of p-filters.",
+          "No available inspected summary of a distinct record supplies the retained coefficient and all-p assertion for this filter. The distinct same-day full text was not recovered, so this does not rule out broader coverage there."
+        ],
+        "reasoning": "The matching threshold is removed, not turned into a novelty claim through a rescaling. Different exact rational updates and graph classes do not tabulate the retained filter-order result.",
+        "searches": [
+          "Resultary 4f94a5560a16 and f400c37aad47 for scaled P4 positivity",
+          "Resultary 73910250a06c, e93fc3196dc7, 690509e7de2b for finite cutoffs and eventual stiff sign"
+        ]
+      },
+      "rationale": "The repair drops the covered sharp first-order P4 threshold and minimum-order theorem. Its surviving contribution is the explicit stiff-limit failure guarantee across every fixed finite filter order and positive proportional splitting, with the coefficient and uniform spectral-band contrast. Pseudoinverse sign facts, previous applications to other multipliers, and filter energy stability are all credited. Comparisons do not establish chronological priority between the two same-day records.",
+      "residual_risks": [
+        "Same-day competing full text could contain more than the first-order scope evidenced by its summary; it was unavailable after decisive local-mirror attempts.",
+        "General rational graph-step asymptotics or alternative representations may contain a prior direct specialization. Lack of a matching retrieved statement is not proof of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material first-order equivalence by exact substitution; full-text scope and priority not established",
+          "evidence": [
+            "At most three vertices always stochastic; P4 sharp cutoff h=2ρ/s with 2ρ³−6ρ²−5ρ−1=0; all positive s allow loss; unconditional contraction for s≥1/4."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-four-vertices-are-the-sharp-positivity-barrier-for-symmetrically--4f94a5560a16",
+          "material_read": "Catalogue theorem summary; sought complete Finding and splitting/large-order passage but it did not load",
+          "method": "Local Resultary and bounded local-mirror attempts",
+          "title": "Four vertices are the sharp positivity barrier for symmetrically filtered Euler graph heat steps",
+          "trigger": "Same-day first-order positivity frontier"
+        },
+        {
+          "assessment": "Filter and energy properties credited; located passages are not entrywise theorems",
+          "evidence": [
+            "Filtered Euler contraction under operator comparison and constant splitting for unconditional L² stability."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.02282v1",
+          "material_read": "OA located PDF p.13 Remark 3.3 offset 37194 and p.18 Remark 3.6 offset 55240; frozen references to §3",
+          "method": "OA PDF locate; offset follow-up did not complete",
+          "title": "Unconditionally L²-stable explicit–implicit–null filtered Runge–Kutta methods for general nonlinear degenerate parabolic equations",
+          "trigger": "Same filter and sharp stability bounds"
+        },
+        {
+          "assessment": "Prior sign-structure framework, not a filter result in the available passages",
+          "evidence": [
+            "L⁺ generally not an M-matrix and described as a signed Laplacian."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2109.14587v1",
+          "material_read": "OA located p.1 offsets 492 and 1114",
+          "method": "OA PDF locate; targeted offset attempt did not complete",
+          "title": "On the properties of Laplacian pseudoinverses",
+          "trigger": "Pseudoinverse positive off-diagonal background"
+        },
+        {
+          "assessment": "Different multiplier with related large-step mechanism",
+          "evidence": [
+            "Gauss method and weighted P4 all-step positivity only on edge-weight ray (1,2,1)."
+          ],
+          "identifier_or_url": "Resultary 73910250a06c",
+          "material_read": "Summary and located RESULT.md passages offsets 0, 2949, 7921",
+          "method": "Local Resultary and mirror",
+          "title": "Unconditional fourth-order Gauss positivity on weighted paths: a four-vertex cutoff",
+          "trigger": "Closest older graph family and stiff sign comparison"
+        },
+        {
+          "assessment": "Retrieved criterion excludes the pertinent path class by hypothesis",
+          "evidence": [
+            "Unweighted complete multipartite graph hypothesis and Gauss/[2/2]-Padé example. The frozen broken URL is not assumed to be this exact source."
+          ],
+          "identifier_or_url": "Resultary 690509e7de2b; frozen alternate citation suffix 335027f86795",
+          "material_read": "Located 690509e7de2b RESULT.md offsets 279, 1217; the exact alternate citation was not recovered",
+          "method": "Local Resultary and bounded mirror reads",
+          "title": "An exact positivity criterion on complete multipartite diffusion networks",
+          "trigger": "Broader scalar graph-step criterion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Raising the filter order or changing the proportional splitting is a motivated potential remedy for negative nodal updates. The result rules it out throughout the fixed-finite-order family on every unit path of size at least four, even with a uniformly positive contractive spectrum. The coefficient identifies the controlling graph property and predicts the location and scale of the failure, beyond an isolated rational witness.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

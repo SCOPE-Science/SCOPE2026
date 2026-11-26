@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:35:13.415947Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the concept class as inclusion-maximal independent sets, not maximum independent sets or neighborhoods. Independently tested each trace T on an independent support S of size at most five by branching on witnesses: every omitted vertex must have a neighbor in an independent set containing T and avoiding S minus T. This condition is necessary and sufficient by maximal extension, so the test does not depend on enumerating the supplied concept list. It recovers the four face vectors (1,2), (1,4), (1,8,16), (1,16,88,160,104); no size-five face shatters and larger ones are excluded by heredity. The facet size-counts are respectively {1:2}, {1:4}, {2:16}, {2:8,4:104}. The union of the four stated isometry orbits equals the actual Q4 facets, with sizes 8,16,24,64, and the distance test agrees for every triple. All cube automorphisms are translations followed by coordinate permutations: an automorphism fixing zero is determined by its permutation of the neighbors, since the distance vector to zero and its neighbors determines any vertex. This proves the first nonpure case with the scope stated, not a pattern for larger cubes. The Python 3.8 minimum in the notes is too low for int.bit_count(), but the complete finite certificates are otherwise appropriately described. Replay recipe: /workspace/branches/independent-math.md, section 4.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Liu et al. Lemma 2.20 bounds the VC dimension of the dual of B(G) by the bipartite induced matching parameter; it is not an exact face classification.",
+          "Adler et al. consider open neighborhoods of Hamming graphs; Kahn–Park study asymptotic counts of maximal independent sets; Ignatov studies maximal independence polynomials through dimension six and concept lattices."
+        ],
+        "reasoning": "A dimension inequality cannot determine maximal faces of smaller sizes or cubical orbits of faces. The other results whose stated objects are inspected are not general theorems implying first nonpurity for this incidence class.",
+        "searches": [
+          "arXiv:2403.17910v3 Section 2.4",
+          "arXiv:2007.16042v1 abstract",
+          "arXiv:1909.04283v2 abstract",
+          "Ignatov ICFCA 2023 chapter abstract"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 839008f93282 and 480bd3d24ed9 (self-match)",
+        "Ignatov DOI:10.1007/978-3-031-35949-1_11 abstract/metadata",
+        "arXiv:2403.17910v3",
+        "arXiv:2007.16042v1",
+        "arXiv:1909.04283v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The perturbation record enumerates Q4 traces and summarizes the profile of facets, but states the full orbit result only for F; the Q4 summary numbers do not specify which four-subsets shatter.",
+          "Prior MIS counts by cardinality and the induced-matching inequality supply neither an all-support iff description nor the exhaustive exclusion of nonpurity below Q4."
+        ],
+        "reasoning": "The total-count/nonpurity portion is not distinct. A full structural Q4 support characterization and the lower-dimensional cases still require separate argument or computation; they are not a corollary of the stated comparison theorem.",
+        "searches": [
+          "839008f93282 Finding offsets 0–2439 and proof §3 offsets 6755–8015",
+          "Liu et al. Lemma 2.20 p. 11",
+          "Ignatov publisher abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Liu et al. identify the dual of their set system B(G) with the maximal-independent-set hypergraph, which is the incidence class in the finding.",
+          "The folded-cube Resultary comparison uses exactly the same full Boolean-trace definition on the unmodified Q4.",
+          "A maximal-independent-set size polynomial counts concepts by their own size; the shattering polynomial counts supports realizing all traces. Concept lattice data can encode incidence, but the inspected abstract does not assert this trace or orbit classification."
+        ],
+        "reasoning": "The dual membership formulation and the unmodified graph in the perturbation record genuinely match. Ordinary independence, graph neighborhoods, and concept counts are not substitute formulations for the Boolean support criterion.",
+        "searches": [
+          "Resultary semantic searches for Boolean-cube MIS membership shattering, antipodal facets and nonpurity",
+          "arXiv:2403.17910v3 §2.2 and Lemma 2.20",
+          "Ignatov DOI:10.1007/978-3-031-35949-1_11"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical record 480bd3d24ed9 is not independent. The distinct 839008f93282 Finding explicitly gives 1+16z+88z^2+160z^3+104z^4, 104 maximal fours and eight antipodal maximal pairs for Q4. Its §3 has an exhaustive certificate for those Q4 values, not just a search snippet or conjecture.",
+          "Its two listed facet orbit sizes 40 and 80 are for the folded graph, not the original cube orbits 16,24,64. No Q1–Q3 shattering comparison occurs in the inspected Q4 passages."
+        ],
+        "reasoning": "This is exact overlap on the original Q4 counts and nonpurity, while neither the inspected exact comparison nor an accessible chapter table states the Q4 orbit breakdown and lower-dimensional boundary. Credit actual overlap without inferring priority.",
+        "searches": [
+          "Resultary 480bd3d24ed9 and 839008f93282; exact Q4 polynomial and antipodal pair facets",
+          "Ignatov chapter publisher abstract and alternate access attempts"
+        ]
+      },
+      "rationale": "The strongest distinct same-day result explicitly proves the same Q4 polynomial, VC dimension and size/count profile of facets including their antipodal pairs as part of a perturbation comparison; those numerical facts and Q4 nonpurity are materially shared, not an independently distinct contribution. Same-day metadata does not resolve priority. The supported distinction is the complete cubical orbit/representative characterization of Q4 supports together with the exact first-nonpure boundary through Q1–Q3. The comparison theorem's orbit classification is for the modified folded cube, not Q4. No inspected earlier primary text provides that combined classification; the inaccessible Ignatov chapter leaves a named priority risk.",
+      "residual_risks": [
+        "The Ignatov full chapter remains uninspected despite lawful attempts; an exact trace result or table there cannot be ruled out.",
+        "Priority of the directly shared Q4 census between the same-day records is unresolved.",
+        "No exhaustive historical priority claim is made for the remaining characterization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct equivalent coverage of the Q4 shattering polynomial and facet cardinalities/antipodality, but not its orbit representatives or the first boundary comparison",
+          "evidence": [
+            "Both Q4 polynomial and facet claims are explicitly part of the theorem. The listed two orbits belong to F, the graph after antipodal edge insertion.",
+            "Two finite enumerations certify 42 Q4 concepts, 8 maximal pairs and 104 maximal quadruples."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-antipodal-edge-insertion-purifies-the-maximal-independent-set-sh--839008f93282",
+          "material_read": "Finding and scope offsets 0–2439; proof §3 and verification from offset 6755; relationship from offset 8500",
+          "method": "Resultary and bounded local-mirror passages",
+          "title": "Antipodal edge insertion purifies the maximal-independent-set shattering complex of the four-cube",
+          "trigger": "Materially overlapping distinct same-day entry"
+        },
+        {
+          "assessment": "Plausible overlap in MIS counts and formal concepts; inaccessible full text prevents a stronger conclusion",
+          "evidence": [
+            "The abstract announces maximal independence polynomials through n=6 and concept lattices; these objects are not an assertion of the frozen Boolean-trace polynomial."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/978-3-031-35949-1_11",
+          "material_read": "Publisher-indexed abstract and bibliographic metadata; HSE metadata; chapter text not obtained",
+          "method": "Publisher and identified alternate access attempts, including HSE and ResearchGate",
+          "title": "On the Maximal Independence Polynomial of the Covering Graph of the Hypercube up to n=6",
+          "trigger": "Same cube concept classes through higher dimension and plausible exact tables"
+        },
+        {
+          "assessment": "Exact dual membership formulation and general upper bound, not the census",
+          "evidence": [
+            "The dual is M(G); if its VC dimension is d≥1 then d≤nu_bi(G)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2403.17910",
+          "material_read": "v3 §2.2 p. 8 offset 32100 and §2.4 Lemma 2.20 p. 11 offset 42500",
+          "method": "OA PDF bounded passages",
+          "title": "Beyond chromatic threshold via the (p,q)-theorem, and a sharp blow-up phenomenon",
+          "trigger": "General VC theory for the equivalent dual MIS class"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The useful result is a complete symmetry-reduced criterion for every query support, together with the first failure of purity along a natural sequence, not another measurement of the number of maximal independent sets or the already shared Q4 coefficient vector. In dimension four an antipodal pair becomes a genuine smaller maximal face even though larger faces exist; this identifies exactly how equal-size facets, and hence matroidal structure, fail at the boundary. Choosing one representative per isometry orbit makes the classification usable in subsequent comparisons with perturbations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

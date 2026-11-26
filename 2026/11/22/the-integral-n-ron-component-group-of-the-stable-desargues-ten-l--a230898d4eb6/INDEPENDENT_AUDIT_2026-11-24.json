@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:40:09.753936Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Assumptions and Proof; verify_desargues_boundary.py, verification_output.txt and VERIFICATION.md",
+        "Independent exact replay: /tmp/opencode/frozen_audit_exact.py 2",
+        "Amram–Cohen–Teicher–Ye arXiv:1306.6105 §6; Conrad's appendix to Baker arXiv:math/0701075"
+      ],
+      "rationale": "The ordinary-singularity and exact incidence hypotheses are essential and explicit in the frozen scope. Blowing up each ordinary triple point replaces it by three nodes on the exceptional line. The fifteen ordinary double points persist, giving ten degree-three exceptionals and ten degree-six strict lines, all rational. Each line pair either shares an exceptional neighbor or meets directly, so the graph is connected, the curve stable and its arithmetic genus 45−20+1=26. After complementing the three-subsets, the exceptional/line incidence block equals Petersen adjacency A on two-subsets, and direct line edges form another copy of A on the line layer. I independently constructed the matrix by disjointness, checked the stated characteristic polynomial, computed the 19-by-19 cofactor determinant 25,815,552,000 and directly computed the integer Smith list 1^11, 2^3, 14, 28, 140^2, 420. The proper regular semistable unit-thickness hypotheses give the stated Raynaud component group. For existence, the unobstructed deformation of a stable nodal curve has independent local node parameters; taking all of them of first order gives completed local equations xy=t times a unit, with smooth generic fiber and regular total space. The projective stable deformation algebraizes over a complete DVR. This is not an assertion about a specified plane pencil or unrestricted projective specializations.",
+      "residual_risks": [
+        "A weak incidence realization allowing unlisted concurrences is not within scope; a different boundary or nonunit smoothing need not have this group.",
+        "The proof does not construct a smoothing inside the blown-up plane; such an embedding is not asserted or needed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Splitting-graph literature was retrieved in the spectral and spanning-tree formulation. The inspected definition and context do not give an integer Smith theorem. The generalized-Petersen theorem concerns GP(n,k), not S'(P).",
+          "Raynaud's general result identifies the component group with the graph critical group, and Kirchhoff identifies its order with the tree count."
+        ],
+        "reasoning": "Spectral/degree data and the general component-group theorem are genuinely prior coverage of the framework, not of the finite group's primary exponents. No checked stronger theorem was found to give the repaired-free Smith list as a parameter specialization.",
+        "searches": [
+          "Lu–Ma–Zhang, Introduction on spectra of operations based on SP(G)",
+          "Kwon–Mednykh–Mednykh arXiv:1612.03372 pp. 1–2 on generalized Petersen Jacobians",
+          "Baker arXiv:math/0701075, Appendix A on component groups"
+        ]
+      },
+      "checked_sources": [
+        "Lu–Ma–Zhang DOI 10.11948/20210446",
+        "Amram–Cohen–Teicher–Ye arXiv:1306.6105, Kwon–Mednykh–Mednykh arXiv:1612.03372, Baker/Conrad arXiv:math/0701075",
+        "NetworkX and MathWorld graph entries; published comparison 100cc57c0292 and local splitting alias search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 15 added edges change the line-line block from 3I to 6I−A. After complementing the labels the characteristic determinant follows from the Petersen eigenvalues; away from three, Schur elimination can reduce the integer-local problem to the matrix (3I−A)(6I+A) up to a unit scale.",
+          "This Schur expression and the scalar characteristic polynomial do not state the Smith list: the local arithmetic on the integer module, including the prime dividing the exceptional diagonal, must still be checked."
+        ],
+        "reasoning": "Knowing the standard Desargues graph group, a spectrum, a spanning-tree number or Raynaud's theorem does not determine the asserted factors or the exponent. The additional computation is a distinct integral invariant, not just a renaming of an exact prior result.",
+        "searches": [
+          "Compare Kwon–Mednykh–Mednykh's GP(n,k) hypotheses, Lu–Ma–Zhang's SP(G) definition and Baker's component-group theorem with the frozen integral matrix"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With line labels complemented, P is incident to a line iff it is disjoint from its two-set label. Each exceptional is an independent duplicate of one Petersen vertex, attached to the original vertices in its neighborhood. These are exactly the splitting-graph edges described by Lu–Ma–Zhang.",
+          "NetworkX and MathWorld identify the standard Desargues graph as the 30-edge incidence graph, not the 45-edge graph."
+        ],
+        "reasoning": "Petersen splitting (or its block Laplacian with exceptional/line incidence A) is an exact equivalent, and a known group for that graph would cover the numerical claim. GP(10,3) alone omits all original Petersen edges on the line layer and is not equivalent.",
+        "searches": [
+          "Local Resultary: Desargues augmented boundary, Petersen edges, Smith/critical group; splitting graph of the Petersen graph",
+          "Lu–Ma–Zhang, DOI 10.11948/20210446; primary search for splitting graph of Petersen with critical-group or Smith formulas"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed exact 45-edge finding was the identical assigned record, not independent earlier evidence. The same-date record 100cc57c0292 treats the 30-edge graph and gives Z/4 + Z/8 + (Z/40)^2 + Z/120 before considering arithmetic twists.",
+          "The inspected graph tables describe GP(10,3) and do not identify it with Petersen splitting. The returned local alias matches did not provide a full critical group of the splitting graph."
+        ],
+        "reasoning": "The two Desargues graphs are distinguished by edge count and degree. Neither the self-hit nor the 30-edge exact table is a prior exact Smith entry for the 45-edge graph. No conclusion on relative priority follows from a shared date.",
+        "searches": [
+          "Local Resultary: 45-edge Desargues graph, 25,815,552,000 and invariant factors; splitting graph of Petersen and Smith form",
+          "Exact same-date record 100cc57c0292; NetworkX desargues_graph and MathWorld Desargues Graph",
+          "Primary lookup of the splitting alias for exact Smith coverage"
+        ]
+      },
+      "rationale": "Best of current knowledge, the distinct target is the integral Smith group of the splitting graph of the Petersen graph, realized here as the Desargues blowup boundary with the ordinary double-point edges retained. The graph construction and its spectral setting, the classical Desargues realization, and the Raynaud interpretation are not new. The closest exact same-date group uses the ordinary 30-edge Desargues graph and is different. The checked splitting-graph literature gave the actual graph alias and spectral context, not an exact integral group for that graph.",
+      "residual_risks": [
+        "No full text of the original Sampathkumar–Walikar splitting-graph paper was obtained in the bounded retrieval; exact coverage is not inferred either way.",
+        "An overlooked published or tabulated Smith computation under the splitting-graph name could affect the assessment. The comparisons are bounded, not an exhaustive priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the construction and spectral context; no exact Smith list in this passage",
+          "evidence": "SP(G) adds one vertex per original vertex, joined to its original neighbors. The paper describes spectra and spanning-tree applications of splitting-based operations.",
+          "identifier_or_url": "https://doi.org/10.11948/20210446",
+          "material_read": "Introduction, PDF p. 2, around text offset 5937",
+          "method": "Read the located primary full-text passage",
+          "title": "Spectra of Graph Operations Based on Splitting Graph",
+          "trigger": "Exact graph alias including all forty-five edges"
+        },
+        {
+          "assessment": "No inference about integral coverage",
+          "evidence": "Sampathkumar and Walikar, J. Karnatak Univ. Sci. 35/36 (1981), 13–16; attempted full-text route returned 403.",
+          "identifier_or_url": "https://www.researchgate.net/publication/269007309_On_the_splitting_graph_of_a_graph",
+          "material_read": "Bibliographic citation in Lu–Ma–Zhang, reference 22; full text unavailable on bounded retrieval",
+          "method": "Checked citation and attempted a lawful public text route",
+          "title": "On the splitting graph of a graph",
+          "trigger": "Original reference for the exact alias"
+        },
+        {
+          "assessment": "Realization and moduli of the arrangement type, not the Smith group",
+          "evidence": "Identifies (10_3).i as Desargues in the double/triple classification; this type does not justify adding specializations with extra incidences.",
+          "identifier_or_url": "https://arxiv.org/abs/1306.6105",
+          "material_read": "§6, p. 20, around offset 68391; Theorems 6.1 and 6.3 and Table 9",
+          "method": "Read located OA full-text passages",
+          "title": "Moduli spaces of ten-line arrangements with double and triple points",
+          "trigger": "Exact geometric ordinary-singularity Desargues type and scope"
+        },
+        {
+          "assessment": "Exact related family but not the splitting graph",
+          "evidence": "GP(n,k) is built from the cycle, spokes and k-step edges and is cubic; its graph Jacobian is the torsion Laplacian cokernel.",
+          "identifier_or_url": "https://arxiv.org/abs/1612.03372",
+          "material_read": "pp. 1–2, definition around offset 2509 and graph-Jacobian discussion",
+          "method": "Read located OA full-text passages",
+          "title": "On Jacobian group and complexity of the generalized Petersen graph GP(n,k) through Chebyshev polynomials",
+          "trigger": "Strong generalized-Petersen graph result that could apply if the graph were the standard Desargues graph"
+        },
+        {
+          "assessment": "Covers interpretation, not integral factors for this graph",
+          "evidence": "Identifies the semistable component group with graph divisors modulo principal divisors and gives the tree-count order.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0701075",
+          "material_read": "Conrad's Appendix A, pp. 24–25, around offsets 141958–146937",
+          "method": "Read located OA full-text passage",
+          "title": "Specialization of linear systems from curves to graphs",
+          "trigger": "General theorem behind the asserted Néron interpretation"
+        },
+        {
+          "assessment": "Substantive overlap on Levi graph, not the augmented group",
+          "evidence": "Uses 20 vertices and 30 edges with group Z/4 + Z/8 + (Z/40)^2 + Z/120 before twists; no fifteen ordinary-double-point line edges.",
+          "identifier_or_url": "100cc57c0292",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local published-record mirror",
+          "title": "Fourteen Frobenius component-group spectra at the Desargues genus-eleven boundary",
+          "trigger": "Same-date, strongest indexed exact Desargues component-group match"
+        },
+        {
+          "assessment": "Identifies the smaller graph, not the splitting graph",
+          "evidence": "20 vertices, 30 edges, GP(10,3).",
+          "identifier_or_url": "https://networkx.org/documentation/stable/reference/generated/networkx.generators.small.desargues_graph.html",
+          "material_read": "The generator's public reference entry",
+          "method": "Read public documentation",
+          "title": "desargues_graph",
+          "trigger": "Likely standard graph catalog alias"
+        },
+        {
+          "assessment": "Ordinary 30-edge Levi graph only",
+          "evidence": "Identifies the graph with the Levi graph of the Desargues configuration.",
+          "identifier_or_url": "https://mathworld.wolfram.com/DesarguesGraph.html",
+          "material_read": "Public definition of Desargues graph",
+          "method": "Read public graph entry",
+          "title": "Desargues Graph",
+          "trigger": "Check ordinary catalog meaning of Desargues graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen boundary geometry and independent Smith calculation",
+        "Splitting-graph definition of Lu–Ma–Zhang; exact Levi-only comparison 100cc57c0292"
+      ],
+      "rationale": "Retaining precisely the ordinary double intersections is forced by the specified geometric blowup, not an arbitrary graph augmentation. The resulting splitting graph is a named graph transformation of Petersen as well as the dual graph of a natural stable curve. Its full integral factors supply the component group of regular realizations of that boundary, and discriminate groups with the same spanning-tree number or the different genus-eleven Desargues Levi degeneration. This is a useful exact distinction beyond spectral tree enumeration.",
+      "residual_risks": [
+        "No assertion about all splitting graphs, arithmetic descents, nonunit smoothings or arbitrary line-arrangement types."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:50:29.627385Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, finite-k tail, fixed-window and full-history laws and proof",
+        "Frozen VERIFICATION.md and check_noise_window.py (inspected, not executed)",
+        "Hu–Pollock–Xue–Zhu §2.1, Eq. (3)"
+      ],
+      "rationale": "For independent endpoint norms U and V the Gaussian density at zero times the d-ball volume is c=exp(-||r_(k-w)||^2/(2 sigma^2))/(2^(d/2) sigma^d Gamma(d/2+1)), so P(V<s)~c s^d. Integrating near zero gives a finite negative moment of order p exactly for p<d, and conditioning on U gives t^(dw) P(Q>t)->c E U^d by the uniform density bound and finite E U^d. As the deterministic centers vanish, the endpoint norm pair converges jointly; the central independent chi-square ratio and Beta(a,a) transformation give the displayed CDF, gamma moments and central tail constant. The moment domain is sharp at equality; uniform shifted Gaussian small-ball bounds and bounded means give uniform integrability for q<dw via any q' strictly between q and dw. Reciprocal symmetry and absence of an atom at one give P(Q>1)=1/2; strict Q^2+Q^(-2)>2 except at one gives the strict second-moment inequality, allowing infinity. For the growing full-history window, upper Gaussian tails at exp(epsilon k) and lower small-ball tails at exp(-epsilon k) are summable; Borel–Cantelli over rational epsilon and the finite nonzero initial norm give log Q->0 a.s. The exact-gradient update on the unit curvature component multiplies by -Q. The mean-square statement refers to E Q^2 (for a fixed nonzero test component, the one-step squared gain); it does not interchange expectations for an error component dependent on the history or establish a closed-loop stability theorem.",
+      "residual_risks": [
+        "Prescribed deterministic residuals, independent isotropic Gaussian measurements and a separately evaluated exact gradient. No assertion about actual noisy iterates, conditional gain given history, or almost-sure divergence.",
+        "The recorded 852 numerical checks are finite support for formulas; the moment divergence and almost-sure assertions follow from analysis."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected NIST entry defines the central F ratio and its incomplete-beta CDF. The MathWorld discussion at offset 0, equations (1)–(3), identifies the doubly noncentral F ratio of independent noncentral chi-squares and gives density, CDF and a raw-moment expression."
+        ],
+        "reasoning": "U²/sigma² and V²/sigma² are independent chi-squares with d degrees each and noncentralities ||r_k||²/sigma² and ||r_(k-w)||²/sigma². Thus Q^(2w) is exactly the equal-degrees doubly noncentral F ratio. This covers the one-time laws in stronger form; the sharp tails and moment boundary can be recovered from them or directly by the small-ball calculation. Neither marginal ratio identity is a temporal window theorem.",
+        "searches": [
+          "doubly noncentral F distribution ratio independent noncentral chi-square beta prime Poisson mixture Bulgren moments density paper",
+          "NIST/SEMATECH e-Handbook §1.3.6.6.5; MathWorld, Noncentral F-Distribution"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2602.13620v1",
+        "NIST F distribution",
+        "MathWorld noncentral F distribution",
+        "Bulgren DOI 10.1080/01621459.1971.10482241 (indexed abstract only)",
+        "Resultary eabfe040b369 and 70ce85b504b5 (the latter summary only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original Eq. (3) is the estimator, not its independent measurement-error model. Under that model the F ratio is reciprocal at the floor; combined with the known rule it directly implies the fixed-window sign and mean-square gain properties. Summable upper and lower measurement tails are used to get the distinct growing-window a.s. statement."
+        ],
+        "reasoning": "Do not claim a new F law or a new optimizer. What survives the comparisons is identification and rigorous joint interpretation of both window regimes for this measured-residual rule, including the distinction between finite mean-square gain and actual contractivity. A single marginal F distribution does not furnish an a.s. limit of the full-history statistic or justify a claim about adaptive trajectories.",
+        "searches": [
+          "Hu et al. Algorithm 1, Eq. (3) and full-history specialization",
+          "NIST F law and MathWorld doubly noncentral F representations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hu et al. set alpha_(k+1)=1+rho_k and use geometric means of successive residual norm ratios. Eq. (3) specializes to (||r_k||/||r_0||)^(1/k) for the full history; the k>=w formula telescopes using endpoints k and k-w."
+        ],
+        "reasoning": "The noiseless rule is already known and matches by telescoping, but those r_k are exact gradient residuals. Prescribing separate independently perturbed measurements changes the actual fixed-window and growing-window outcomes. The examined deterministic result is not an equivalent probabilistic theorem.",
+        "searches": [
+          "Resultary: Gaussian relative-residual moment sharp polynomial tail geometric sliding window residual norm ratio Gaussian noise alpha=1+Q",
+          "Hu et al. arXiv:2602.13620v1 §2.1 Eq. (3), offsets 12850 and 18300"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected eabfe040b369 Finding describes deterministic two-eigenvalue quadratics, fixed-memory multiplier dynamics and curvature-identification rates. The earlier hit 70ce85b504b5 could not be retrieved; its summary only suggested deterministic alternating identification. NIST is exact coverage of the central ratio ingredient, not a catalogue entry for the noise diagnostic."
+        ],
+        "reasoning": "Deterministic residual dynamics do not produce the two independently noisy endpoint measurements of the model. No inspected catalogue entry gives the joint diagnostic. The missing mirror entry and bounded searches are not evidence of absence.",
+        "searches": [
+          "Resultary: Gaussian observation noise adaptive gradient geometric sliding window residual ratio alpha one plus rho",
+          "Resultary eabfe040b369 and 70ce85b504b5",
+          "NIST tabulated distribution entry: F Distribution"
+        ]
+      },
+      "rationale": "The scoped distinct contribution is the joint fixed-window versus full-history diagnosis of this specific 1+rho step under fresh Gaussian observation errors and prescribed vanishing residuals, not any of the Gaussian ratio distribution identities viewed alone. The endpoint ratio is a power of a known doubly noncentral F random variable at finite k and of a central F variable at the floor. This is substantial prior coverage of the distributional ingredients. The exact-residual parameter rule already exists. In the matched rule-specific statements inspected, neither those distribution references nor the studies of deterministic feedback supply the fixed-window mean-square obstruction together with the almost-sure full-history boundary under this observation model. The latter assertion uses growth of the window along the sequence, not an identity for a single F random variable.",
+      "residual_risks": [
+        "This is a bounded originality judgment, not a priority assertion. An equivalent joint feedback-noise diagnosis may exist under different terminology. Full Bulgren text and the exact earlier Resultary hit 70ce85b504b5 were not available.",
+        "Only the concrete rule-specific measurement-noise diagnosis is credited as distinct; the distribution theory is classical."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact estimator and full-history formula, without the studied measurement-noise diagnosis",
+          "evidence": "alpha_(k+1)=1+rho_k; the geometric residual product telescopes; exact gradient residuals in the original rule.",
+          "identifier_or_url": "https://arxiv.org/html/2602.13620v1",
+          "material_read": "§2.1, Algorithm 1 and Eq. (3), OA offsets 12850 and 18300",
+          "method": "Bounded OA HTML passages",
+          "title": "An adaptive framework for first-order gradient methods",
+          "trigger": "Original step rule and exact window formula"
+        },
+        {
+          "assessment": "Known central law",
+          "evidence": "Ratio of scaled independent central chi-squares with incomplete-beta CDF; equal degrees give the central model here.",
+          "identifier_or_url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda3665.htm",
+          "material_read": "§1.3.6.6.5, distribution definition and CDF",
+          "method": "Bounded OA webpage passage",
+          "title": "F Distribution",
+          "trigger": "Potential complete central ratio coverage"
+        },
+        {
+          "assessment": "Known general one-time ratio coverage",
+          "evidence": "Explicitly defines the two independent noncentral chi-square ratio and discusses its analytic density, CDF and raw moments. The equal-df mapping follows from the two Gaussian squared norms.",
+          "identifier_or_url": "https://mathworld.wolfram.com/NoncentralF-Distribution.html",
+          "material_read": "Opening definition, density/CDF and raw moment discussion at offset 0; mathematical glyphs partly dropped in extraction",
+          "method": "Bounded OA webpage passage",
+          "title": "Noncentral F-Distribution",
+          "trigger": "Potential broader finite-k distribution and moments"
+        },
+        {
+          "assessment": "Abstract supports classical ratio identification; no full-text noncoverage assertion",
+          "evidence": "Indexed abstract defines a scaled ratio of independent noncentral chi-square variables. No claim about what else the full paper does or does not cover is inferred.",
+          "identifier_or_url": "https://doi.org/10.1080/01621459.1971.10482241",
+          "material_read": "Indexed abstract definition only; publisher direct/VPN 403, identified JSTOR page supplied no paper text, no repository copy identified",
+          "method": "Primary web search and bounded lawful OA retrieval attempts",
+          "title": "On Representations of the Doubly Non-Central F Distribution",
+          "trigger": "Original direct source for the broader ratio law"
+        },
+        {
+          "assessment": "Related deterministic, not the prescribed Gaussian observation theorem",
+          "evidence": "Two-eigenvalue exact feedback model, multiplier convergence and local spectral radius/rate comparisons.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-fixed-window-memory-creates-a-sharp-curvature-identification-rat--eabfe040b369/RESULT.md",
+          "material_read": "Finding, local mirror offset 0",
+          "method": "Bounded local mirror passage",
+          "title": "Fixed-window memory creates a sharp curvature identification rate",
+          "trigger": "Same estimator and fixed-window mechanism"
+        },
+        {
+          "assessment": "Unresolved exact passage; no negative coverage inference",
+          "evidence": "Summary suggests deterministic two-endpoint identification rather than measurement-error statistics.",
+          "identifier_or_url": "Resultary 70ce85b504b5",
+          "material_read": "Index summary only; exact RESULT.md path unavailable in mirror",
+          "method": "Local catalogue search and bounded mirror retrieval attempt",
+          "title": "Exact alternating identification on two-endpoint spectra",
+          "trigger": "Earlier related residual-ratio hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and explicit two-oracle scope",
+        "Hu et al. §2.1 Eq. (3)"
+      ],
+      "rationale": "The fixed-window gain may lack even a second moment despite Gaussian measurements; raising dw beyond two restores finiteness but never makes the limiting one-step diagnostic mean-square contractive. This distinguishes two different practical obstructions for a concrete proposed parameter rule. An increasing full-history window instead drives the step to the deterministic stability boundary, so fixed-memory conclusions cannot simply be transferred to it. The contribution is a motivated boundary for measurement-based use of the rule, not a new textbook ratio identity or evidence about whole trajectories.",
+      "residual_risks": [
+        "No comparative performance, design guarantee, or stabilization claim for noisy closed-loop optimization is supported."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

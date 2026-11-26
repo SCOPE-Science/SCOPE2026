@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:20:43.647896Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–80; verification examples lines 84–105",
+        "VERIFICATION.md and verify.py inspected, not executed",
+        "Independent replay: python3 /workspace/branches/independent_replay.py 4; full state/count recursion with a nonsymmetric two-state critical block and a nonscalar subcritical detour at horizons 40, 160, 1200"
+      ],
+      "rationale": "Restricting to reachable states makes the block maximum lambda relevant, with at least one critical block reachable and no cycles between components. For a fixed full route of h blocks, the h−1 interblock transitions leave n−h+1 intra-block transitions, so after removing lambda^n the factor is lambda^(−h+1) times the product of normalized kernels and interblock matrices. Each critical kernel equals its positive rank-one projector plus an exponentially small matrix in the residence count. Each subcritical kernel is summable with exponential norm bound, and its sum is precisely (I−A_i/lambda)^(-1). For fixed subcritical counts the number of critical weak compositions has leading factor n^(q−1)/(q−1)!, with q critical blocks. The bounded product error summed over critical counts is O(n^(q−2)) for q>=2; at q=1 it tends to zero for fixed subcritical counts, then by geometric domination over those counts. A route with no critical block has only a polynomial number of terms times exponential decay relative to lambda^n. Each route constant is strictly positive since the L_i have strictly positive entries and the interblock matrices and initial restriction are nonzero. Thus the d-critical routes determine the total survival and route weights. Summable subcritical tails and the O(L/n) fraction of compositions with a critical hold less than fixed L justify using uniform-composition Riemann sums against every bounded continuous test on the simplex; the single-critical case is deterministic. Residence counts of indices differ by one per block from transitions, which does not change the normalized limit. Critical entry times are partial sums of the limiting spacings. Within a critical block, conditional on its endpoints the segment is exactly a bridge of the Perron–Doob kernel: the factor lambda^m r(start)/r(end) telescopes. Its endpoint transition probability is uniformly bounded below at large m by primitivity, so the finite-state ergodic law still holds for bridges, uniformly in endpoints. This proves convergence to the stated nu on each long segment and hence the mixture with an independent Dirichlet vector. At d>=2 the block supports are disjoint and the conditional Dirichlet variances are positive, ruling out convergence to the deterministic mean.",
+      "residual_risks": [
+        "The sample detour's geometric variable on the nonnegative integers counts intra-block transitions; the number of indices spent there is one larger, as in the general proof. The replay is finite and cannot prove weak convergence. No periodic or infinite-state extension is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 3.7 requires scalar subcritical diagonal blocks along the admissible path. Eq. (3.25) has exactly the polynomial power and scalar `(1−rho_i/rho)^(-1)` product, so it covers path weights in that setting; subsequent stated limits are expectations.",
+          "The inspected Champagnat–Villemonais results concern time-n measures and polynomial convergence, not a joint residence-vector law; the cited van Doorn–Pollett full copy was not retrieved."
+        ],
+        "reasoning": "Scalar excursions do not cover the matrix-valued detour weights; the limiting marginal law of X_n or the conditional expected occupation is not the limiting joint law. The PASS is for the full joint extension, not for survival-polynomial asymptotics by themselves.",
+        "searches": [
+          "Colonius–Rasmussen arXiv:2005.12738v1 Proposition 3.7, Assumption 3.13, Theorem 3.14, Corollary 3.17 and Theorem 3.20",
+          "Champagnat–Villemonais arXiv:2201.10151v1 Eq. (1.1), Theorem 4.1",
+          "van Doorn–Pollett (2009), cited journal article"
+        ]
+      },
+      "checked_sources": [
+        "Colonius–Rasmussen arXiv:2005.12738v1",
+        "Champagnat–Villemonais arXiv:2201.10151v1",
+        "Two identified Resultary exact-switching records",
+        "Van Doorn–Pollett bibliographic comparison only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The weak-composition expansion of the prior proof makes a simplex Riemann-sum refinement natural on the scalar-subcritical subclass. Its printed scalar factor cannot connect different entrance and exit sites inside a nonscalar detour; the six-state example in the record needs an off-diagonal resolvent entry.",
+          "A one-time limit controls the terminal state, not the collection of transition times or the amount of time spent near earlier critical states."
+        ],
+        "reasoning": "The general law needs a matrix summability argument for subcritical excursions, a joint test-function limit on critical compositions and a conditional internal occupation argument. It is not a specialized parameter choice in the inspected mean or terminal theorems.",
+        "searches": [
+          "Colonius–Rasmussen proof of Proposition 3.7 and Eqs. (3.24)–(3.26)",
+          "Champagnat–Villemonais Theorem 4.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Uniform simplex fractions are exactly the spacings of ordered independent uniforms; a two-critical route consequently has a uniform switching fraction.",
+          "The Nov. 8 negative-doubling survivor record gives a model-specific exactly uniform finite-time switch. The Nov. 22 alternating forbidden-word survivor gives a conditional uniform single change in a time-dependent skeleton."
+        ],
+        "reasoning": "These are real one-clock analogues, not exact restatements for arbitrarily many critical blocks, arbitrary entrance/exit matrices and full state occupations. Mapping uniform spacings to entrance times does not provide a separate novelty claim.",
+        "searches": [
+          "Local Resultary semantic search: conditional component residence, uniform switching and occupation of reducible survivors",
+          "arXiv:2005.12738v1 Eq. (3.24) and proof Eq. (3.26)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest inspected entries are 2026/11/8/SCOPE-exact-uniform-switching-times-and-a-polynomial-escape-tail-at-a--36a44984c1f2 and 2026/11/22/SCOPE-universal-optimal-escape-and-an-exact-phase-wall-law-for-alterna--c56fa32ae4c6. Both have a conditional uniform switching time in their own model."
+        ],
+        "reasoning": "No exact sequence is being claimed, and neither catalogue entry supplies the general theorem or the Perron/resolvent mixture. Their later dates are not needed to establish the mathematical distinction.",
+        "searches": [
+          "Local Resultary semantic search: critical phase clocks and random quasi-ergodic occupancy"
+        ]
+      },
+      "rationale": "The supported addition is the joint distribution of all critical holding fractions and state occupations for the full finite primitive-block model, with exact matrix-resolvent route weights. The scalar-subcritical path asymptotic, polynomial survival factor and occupation means are substantially covered by Colonius–Rasmussen, and the simplex limit there is a natural distributional strengthening using their weak-composition argument. The inspected earlier statements do not give the arbitrary nonscalar subcritical law plus the joint occupation and phase clocks. Terminal conditional convergence and two-phase analogues do not give this multitime statement.",
+      "residual_risks": [
+        "Close prior weak-composition proofs may have additional distributional consequences; an uninspected earlier joint occupation theorem would matter. The van Doorn–Pollett full text was not compared, not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong scalar-subcritical route and mean overlap; no inspected joint theorem in broader matrix regime.",
+          "evidence": [
+            "Prop. 3.7 explicitly requires scalar Q_(theta_u,theta_u) when rho_theta_u<rho(theta). Eq. (3.26) is the exact ordered matrix-composition sum, and Eq. (3.25) has scalar geometric factors."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2005.12738v1",
+          "material_read": "Proposition 3.7 and proof opening, Eqs. (3.24)–(3.26) at offset 47710; Assumption 3.13 (84478), Theorem 3.14 (85407), Corollary 3.17 (96334), Theorem 3.20 (108798)",
+          "method": "Bounded OA HTML passages",
+          "title": "Quasi-ergodic limits for finite absorbing Markov chains",
+          "trigger": "Same path expansion and limiting empirical statistics"
+        },
+        {
+          "assessment": "Covers terminal conditional convergence and polynomial regimes, not the displayed joint empirical-measure limit.",
+          "evidence": [
+            "Eq. (1.1) measures one-time conditional distance, not the vector of integrated path observables."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2201.10151v1",
+          "material_read": "Introduction Eq. (1.1) at offset 3694; Theorem 4.1 at offset 94179",
+          "method": "Bounded OA HTML passages",
+          "title": "Quasi-stationary distributions in reducible state spaces",
+          "trigger": "Broader non-scalar reducible semigroup asymptotics"
+        },
+        {
+          "assessment": "Potential full-text overlap unresolved.",
+          "evidence": [
+            "No full-text statement was accessible for comparison."
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/43511271_Quasi-Stationary_Distributions_for_Reducible_Absorbing_Markov_Chains_in_Discrete_Time",
+          "material_read": "Cited bibliographic record; linked copy inaccessible",
+          "method": "Lawful OA retrieval attempt",
+          "title": "Quasi-Stationary Distributions for Reducible Absorbing Markov Chains in Discrete Time",
+          "trigger": "Earlier same setting"
+        },
+        {
+          "assessment": "Two-phase clock analogue for a specified dynamical system.",
+          "evidence": [
+            "For the negative-doubling map and its hole, the survivor's first visit to the inner channel is exactly uniform in a finite set of times."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-uniform-switching-times-and-a-polynomial-escape-tail-at-a--36a44984c1f2",
+          "material_read": "RESULT.md Finding at offsets 250–1381",
+          "method": "Local Resultary mirror",
+          "title": "Exact uniform switching times and a polynomial escape tail",
+          "trigger": "Closest uniform conditional switching claim"
+        },
+        {
+          "assessment": "Related two-channel case with time-dependent killing, not the general theorem.",
+          "evidence": [
+            "The alternating even-time skeleton changes at most once; conditioned on a change, its index is uniform."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-universal-optimal-escape-and-an-exact-phase-wall-law-for-alterna--c56fa32ae4c6",
+          "material_read": "RESULT.md Finding and assumptions at offsets 0–2947",
+          "method": "Local Resultary mirror",
+          "title": "Universal optimal escape and an exact phase wall law",
+          "trigger": "Surviving Markov path with uniform phase change"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and the branching and nonscalar excursion examples",
+        "Colonius–Rasmussen limiting expectation results for comparison"
+      ],
+      "rationale": "Even when quasi-ergodic expectations converge, surviving trajectories may randomly allocate a macroscopic fraction of time to each class. The result resolves that ambiguity by giving an explicit route-and-spacings law, including fluctuations and entry times for all routes at once. Matrix-valued detours affect route probabilities even though their time fractions vanish; treating those effects is important beyond scalar examples.",
+      "residual_risks": [
+        "Not a central limit theorem for fluctuations inside classes; no periodic extension is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

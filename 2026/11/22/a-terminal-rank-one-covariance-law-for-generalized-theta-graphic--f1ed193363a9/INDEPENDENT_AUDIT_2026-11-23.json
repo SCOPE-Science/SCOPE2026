@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:50:07.037476Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Acyclic orientations give the distinct vertices (strict maximizing directions realize exactly the sign orientations with a topological order); opposite orientations give opposite points, so the mean is zero. A cycle exists precisely when two complete terminal paths are coherent in opposite directions. The two admissible sign cubes, one excluding each coherent direction, overlap on the all-mixed arrays, giving the stated N. For distinct edges on one path, the same-sign product sums are +2 on coherent words and -2 on mixed words, with completion weights T_i and 2T_i-U_i. Across paths, the mixed-word single-edge sign sum is zero and only the two same-direction coherent pairs contribute, with T_ij completions each. Thus alpha_i=2(U_i-T_i)/N and beta_ij=2T_ij/N. Multiplication by the incidence blocks sends each all-ones vector to e_s-e_t, producing the stated formula with factor 1/4. For three equal paths the terminal coefficient in 4 Cov is 6/N; taking 2 times the trace gives the exact separation and the 12 ell*4^(-ell) leading excess. I also exposed vertices with every strict coordinate ordering, deduplicated the resulting doubled vertex coordinates and verified the full integer moment matrix for (2,2,3), (2,3,4), (2,2,2,3) and (3,3,3) with python3 /workspace/checks/theta.py. The check is finite; the sign calculation proves the full domain. The frozen checker was inspected but not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Deformation-cone work applies to broader graphical zonotopes but gives a vertex/region model, not the claimed second moment law.",
+          "The cactus covariance results use edge-disjoint cycles. The weighted cactus tomography result is also for uniform volume."
+        ],
+        "reasoning": "The theta family with at least three arms has cycles sharing entire paths, so cactus covariance does not apply; uniform-volume results cannot establish the uniform-on-distinct-vertices law.",
+        "searches": [
+          "arXiv:2111.12422v2 Introduction and Section 1.3",
+          "Resultary cactus graphical zonotope vertex, volume and weighted covariance"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_theta_covariance.py",
+        "arXiv:2111.12422v2",
+        "Resultary cf349f53c764, 23a76ec8b64b, c0aa7bda86b4, b39706fc7ceb, 581cdf9f7ecb, aec4771e7a3c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact theta orientation denominator is prior. Arm parity sums alone do not specify separately the correlations of two edges on an arm or one edge on each of two different arms.",
+          "The Petersen record supplies individual two-edge moment classes only for that graph."
+        ],
+        "reasoning": "The missing information is the within- and between-arm coherent/mixed sign cancellation, followed by terminal telescoping. The nearest results do not state a general theorem whose substitution recovers both coefficients throughout the theta family.",
+        "searches": [
+          "c0aa7bda86b4 parity classes",
+          "23a76ec8b64b local flip degrees",
+          "aec4771e7a3c Petersen orientation correlations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Padrol–Pilaud–Poullot give the vertex/acyclic-orientation model.",
+          "Resultary aec4771e7a3c computes two-edge moments on the Petersen graph; the theta parity-class record counts coherent-word signatures by arm."
+        ],
+        "reasoning": "The orientation variable formulation is equivalent to the claimed covariance only after pushing the full edge second moment matrix through the incidence map. The inspected counts or Petersen entries do not give the relevant two-edge matrix for the longer-arm theta graphs.",
+        "searches": [
+          "Resultary generalized theta/multi-theta graphical zonotope uniform distinct vertex covariance, incidence coordinate second moments",
+          "Resultary acyclic orientation sign correlations, Walsh two-edge moments",
+          "arXiv:2111.12422v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The spectrum record cf349f53c764 covers the uniform-vertex K_{2,r} boundary and is credited as exact overlap in that domain.",
+          "23a76ec8b64b and c0aa7bda86b4 give exact theta combinatorial invariants such as counts and flip statistics."
+        ],
+        "reasoning": "The frozen novel domain requires a subdivided arm of length at least three, absent from the K_{2,r} formula. Those other tables are for different invariants.",
+        "searches": [
+          "Resultary uniform vertex covariance spectrum K_{2,r}",
+          "Resultary generalized theta local flip degrees, parity-class orientation counts and exact covariance"
+        ]
+      },
+      "rationale": "There is exact prior overlap at K_{2,r}, the all-length-two boundary explicitly omitted from the new claim. The strongest inspected statements for longer/general theta arms give orientation or local flip counts, not this coordinate covariance or a theorem implying its terminal coefficient. The checked covariance results concern different families or sampling laws. No equivalent was located in the bounded search.",
+      "residual_risks": [
+        "The conclusion is limited to the inspected public evidence; an unindexed equivalent moment formula may exist.",
+        "No same-day priority is inferred. No novelty is claimed on the all-length-two boundary."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior vertex model, not covariance in the inspected material",
+          "evidence": "Vertices/normal cones are described by acyclic orientations and regions of the graphical arrangement.",
+          "identifier_or_url": "https://arxiv.org/html/2111.12422v2",
+          "material_read": "Introduction around offset 1300 and section 1.3 around offset 24300",
+          "method": "OA HTML passage reader",
+          "title": "Deformed graphical zonotopes",
+          "trigger": "Standard general theory potentially implying a moment law"
+        },
+        {
+          "assessment": "Exact boundary overlap excluded from claimed novelty",
+          "evidence": "Full uniform distinct vertex covariance spectrum for K_{2,q}, q at least three, i.e. all arms length two.",
+          "identifier_or_url": "2026/11/17/SCOPE-exact-vertex-covariance-and-a-six-leaf-eigenaxis-transition-for--cf349f53c764",
+          "material_read": "Finding and graph and sampling assumptions",
+          "method": "Resultary search and local mirror reader",
+          "title": "Exact vertex covariance and a six-leaf eigenaxis transition for K_{2,q}",
+          "trigger": "Exact covariance for a theta subfamily"
+        },
+        {
+          "assessment": "Different statistic",
+          "evidence": "Counts legal flips and one-skeleton degrees rather than vertex-coordinate products.",
+          "identifier_or_url": "2026/11/2/SCOPE-local-flip-degrees-and-simple-graphical-zonotope-vertices-of-gen--23a76ec8b64b",
+          "material_read": "Finding and local flip invariant",
+          "method": "Resultary search and local mirror reader",
+          "title": "Local flip degrees and simple graphical-zonotope vertices of generalized theta graphs",
+          "trigger": "Same graph and zonotope family"
+        },
+        {
+          "assessment": "Prior orientation count and refined parity counts, not the second moments",
+          "evidence": "The total orientation count is previous; the arm-parity partition does not encode the needed arbitrary two-edge Walsh coefficients.",
+          "identifier_or_url": "2026/10/18/SCOPE-acyclic-orientation-counts-within-parity-classes-of-multi-theta--c0aa7bda86b4",
+          "material_read": "Finding and parity/count formulas",
+          "method": "Resultary search and local mirror reader",
+          "title": "Acyclic orientation counts within parity classes of multi-theta graphs",
+          "trigger": "Same sign-word model with possible moment information"
+        },
+        {
+          "assessment": "Does not cover edge-sharing cycles",
+          "evidence": "The vertex law decomposes by edge-disjoint cactus blocks; in theta graphs there are overlapping cycles.",
+          "identifier_or_url": "2026/11/8/SCOPE-a-sharp-vertex-volume-covariance-sandwich-for-cactus-graphical-z--b39706fc7ceb",
+          "material_read": "Finding, graph scope and cycle/bridge formula",
+          "method": "Resultary search and local mirror reader",
+          "title": "A sharp vertex–volume covariance sandwich for cactus graphical zonotopes",
+          "trigger": "Closest mathematical covariance analogue"
+        },
+        {
+          "assessment": "Different measure and graph scope; no within-day priority assumed",
+          "evidence": "Uniform volume on a weighted cactus, not uniform distinct vertices on theta graphs.",
+          "identifier_or_url": "2026/11/22/SCOPE-population-covariance-tomography-for-arbitrarily-weighted-cactus--581cdf9f7ecb",
+          "material_read": "Finding and population definition",
+          "method": "Resultary search and local mirror reader",
+          "title": "Population covariance tomography for arbitrarily weighted cactus graphical zonotopes",
+          "trigger": "Same-day candidate with stronger weights"
+        },
+        {
+          "assessment": "Related invariant but graph-specific",
+          "evidence": "Reports sign-correlation levels for Petersen orientations, not for generalized theta.",
+          "identifier_or_url": "2026/11/16/SCOPE-petersen-acyclic-orientations-exact-walsh-nullity-correlation-sh--aec4771e7a3c",
+          "material_read": "Finding and two-edge correlation scope",
+          "method": "Resultary search and local mirror reader",
+          "title": "Petersen acyclic orientations: exact Walsh nullity and correlation shells",
+          "trigger": "Potentially general orientation sign correlation coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The entire uniform vertex covariance is a natural geometric invariant, and the theorem treats overlapping cycles, including arbitrary unequal subdivisions. The covariance is not an enumeration of a size or trace: all nonlocal coordinate correlations reduce to the terminal pair. In fact writing A_i=D_i+1, the terminal numerator in 4 Cov has a strictly positive contribution from monomials supported on at most r-3 arms, with coefficient 2(r-|S|)(r-|S|-2) on the monomial indexed by S. This illustrates that the correction is genuinely nonzero and allows a weighted-Laplacian interpretation with a terminal edge. This information is not supplied by a cactus decomposition or by the known orientation count.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

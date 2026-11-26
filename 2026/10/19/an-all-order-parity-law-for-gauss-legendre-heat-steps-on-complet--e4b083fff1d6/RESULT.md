@@ -4,20 +4,13 @@
 
 For every integer \(s\ge1\), let \(R_s\) be the stability function of the classical \(s\)-stage Gauss–Legendre Runge–Kutta method. For an unweighted connected complete multipartite graph \(G=K_{n_1,\ldots,n_k}\), with \(k\ge2\), all \(n_i\ge1\), and \(n=\sum_i n_i\ge2\), write \(L_G\) for the combinatorial Laplacian. The completed heat step is \(T_{s,G}(h)=R_s(-hL_G)\), for real \(h>0\).
 
-**All-stage parity theorem.** If \(s\) is even, \(T_{s,G}(h)\) is strictly entrywise positive, symmetric positive definite, and doubly stochastic for every \(h>0\), regardless of the part sizes. If \(s\) is odd and \(n\ge3\), then \(T_{s,G}(h)\) has negative diagonal entries for all sufficiently large \(h\), so unconditional positivity fails. For the exceptional graph on two vertices, the step is strictly positive for every finite \(h>0\) for either parity.
-
-The key all-stage scalar result, independently meaningful for Padé approximants, is that
+**Large-step boundary witness.** On the unit four-vertex path \(P_4\), for every even \(s\ge2\), the endpoint-neighbor entry has the expansion
 \[
-\Phi_s(x)=\frac{1-R_s(-x)}{x}
+(T_{s,P_4}(h))_{1,2}=-\frac{s(s+1)}{4h}+O_s(h^{-2}),\qquad h\to\infty.
 \]
-is **strictly decreasing** for \(x>0\), for every integer \(s\ge1\). For even \(s\), also \(0<R_s(-x)<1\) for all \(x>0\). The graph positivity theorem follows by applying these two inequalities to the exact complete-multipartite spectral projectors.
+Thus this same entry is negative at sufficiently large steps for every even stage count. Here the path vertices are indexed \(1,2,3,4\). This is a smallest connected bipartite counterexample for even stages: all connected bipartite graphs on two or three vertices are complete bipartite, and on one vertex the step is the identity.
 
-Unconditional positivity does not extend from complete multipartite graphs to every connected bipartite graph. On the four-vertex path \(P_4\), for every even \(s\ge2\), the endpoint-neighbor entry has the large-step expansion
-\[
-(T_{s,P_4}(h))_{1,2}=-\frac{s(s+1)}{4h}+O_s(h^{-2}),
-\qquad h\longrightarrow\infty,
-\]
-and is consequently negative for sufficiently large \(h\). Vertices of \(P_4\) are indexed here by \(1,2,3,4\).
+**Comparison on complete multipartite graphs.** If \(s\) is even, \(T_{s,G}(h)\) is strictly entrywise positive, symmetric positive definite and doubly stochastic for every \(h>0\). Indeed, \(\Phi_s(x)=(1-R_s(-x))/x\) strictly decreases on \(x>0\) for every stage count, and \(0<R_s(-x)<1\) for even stages. These scalar facts give the positive benchmark via the established multipartite multiplier criterion. For odd \(s\), every connected graph on \(n\ge3\) vertices eventually has negative diagonals by the limiting multiplier \(-1\) on nonconstant modes. On the two-vertex graph both entries are strictly positive for finite \(h>0\) for either parity. These comparison statements explain the boundary witnessed by \(P_4\); the scalar monotonicity and multipartite implication are not asserted as novelty.
 
 ## Assumptions and scope
 
@@ -104,16 +97,18 @@ These are finite exact checks, not a replacement for the preceding all-stage mat
 
 ## Relationship to prior work
 
-The Padé representation of Gauss–Legendre Runge–Kutta methods and the use of absolute-monotonicity radii as general positivity criteria are classical. Horváth establishes positivity-radius and order-barrier results for broad classes of positive ordinary differential equations, while Lóczi and Ketcheson analyze rational-function absolute monotonicity in detail. Fekete, Ketcheson, and Lóczi analyze positivity for explicit Runge–Kutta methods and selected spatial discretizations. Their inspected results do not give the all-stage scalar deficit-monotonicity inequality or the even–odd complete-multipartite conclusion proved here.
+The Padé representation of Gauss–Legendre Runge–Kutta methods is classical. The scalar deficit monotonicity also follows from the classical continued fraction for \(\tanh(x/2)\) (NIST DLMF 4.39.1; Abramowitz and Stegun 4.5.70). If \(D_s(x)=2+x^2/(6+x^2/(10+\cdots+x^2/(4s-2)))\) denotes truncation after \(s\) denominators (with \(D_1=2\)), then \(x/D_s(x)\) agrees with \(\tanh(x/2)\) to error \(O(x^{2s+1})\). Each outer level propagates the next denominator's error with a factor \(O(x^2)\). The Cayley transform \((D_s-x)/(D_s+x)\) has numerator and denominator degrees at most \(s\) and agrees with \(e^{-x}\) to the Padé order, hence equals \(R_s(-x)\). Each finite tail in the variable \(z=x^2\) has the form \(a+z/F(z)\) with \(a>0\). Starting with a positive constant, the inequalities \(0\le zF'(z)\le F(z)\) persist under this recursion. Therefore \(D_s(x)\) is nondecreasing and \(2/(x+D_s(x))\) is strictly decreasing. The factorial-ratio proof above is a self-contained alternative, not a claim of priority for the scalar conclusion.
 
-A previously established general criterion for matrix-function positivity on unweighted complete multipartite graphs supplies the natural spectral context. The projector reduction itself is not asserted as novel. The contribution here is the uniform-in-stage Padé coefficient-ratio proof, its even/odd dichotomy, and the graph-specific positive and negative consequences. The familiar two-stage Padé instance is subsumed rather than claimed independently. This is not an assertion of definitive historical priority.
+The exact earlier complete-multipartite criterion gives the same projector reduction, scalar test and two-stage instance [5]. The strict even-stage conclusion is an application of that framework. The contribution distinguished here is the explicit large-step endpoint-neighbor coefficient on a smallest bipartite obstruction, valid for every even stage count. General absolute-monotonicity results such as [1–3] address larger classes of problems, not this specified graph and matrix entry. This comparison is not a definitive historical priority claim.
 
 ## Limitations
 
-Only the completed step is nonnegative; no claim concerns internal stage nonnegativity, arbitrary spatial meshes, weighted graphs, time-dependent or nonlinear problems, or a universal SSP radius. The path \(P_4\) demonstrates that the positive graph class cannot be replaced by all connected bipartite graphs. The asymptotic obstruction specifies negative entries eventually but not their first zero. Related Padé or graph-functional-calculus literature may contain equivalent statements not located in the checked sources.
+All positivity and negativity claims concern the completed step. No claim concerns internal stage nonnegativity, arbitrary spatial meshes, weighted graphs, time-dependent or nonlinear problems, or a universal SSP radius. The path \(P_4\) demonstrates that the positive graph class cannot be replaced by all connected bipartite graphs. The asymptotic obstruction specifies negative entries eventually but not their first zero. Related Padé or graph-functional-calculus literature may contain equivalent statements not located in the checked sources.
 
 ## References
 
 1. Z. Horváth, *Positivity of Runge-Kutta and diagonally split Runge-Kutta methods*, Applied Numerical Mathematics 28 (1998), 309–326. DOI: `10.1016/S0168-9274(98)00050-6`.
 2. L. Lóczi and D. I. Ketcheson, *Rational functions with maximal radius of absolute monotonicity*, arXiv:1303.6651v1 (first posted 2013-03-26), later LMS Journal of Computation and Mathematics 17 (2014), 159–205. `https://arxiv.org/abs/1303.6651`.
 3. I. Fekete, D. I. Ketcheson, and L. Lóczi, *Positivity for convective semi-discretizations*, arXiv:1610.00228v1 (first posted 2016-10-02). `https://arxiv.org/abs/1610.00228`.
+4. NIST Digital Library of Mathematical Functions, §4.39, formula 4.39.1 (Abramowitz and Stegun 4.5.70). https://dlmf.nist.gov/4.39.E1
+5. *An exact positivity criterion on complete multipartite diffusion graphs*, Resultary record `690509e7de2b`. https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-an-exact-positivity-criterion-on-complete-multipartite-diffusion--690509e7de2b/RESULT.md

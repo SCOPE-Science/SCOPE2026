@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:02:29.092137Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A shortest path moves monotonically in column and changes rows at most once. Extending to opposite corners shows that the 2n one-switch diameter paths are exactly the maximal geodesics. In one orientation a set is missed iff there is an integer switch strictly between the top maximum and bottom minimum; the reverse orientation gives the other inequality. On nonempty rows, the two failures are disjoint, and each extremal pair leaves independent free positions. In the one-row case exactly the two endpoints are required. This yields the all-set polynomial. There are 3n minimal pairs. In a transversal with no such pair, start with its leftmost vertex and then the first opposite-row vertex at least two columns right. The criterion forces a further vertex in the first row at least two columns beyond that opposite-row vertex. This triple hits all paths and excludes the endpoint pair, and the converse follows from the inequalities. For each doubled row the spaced triples number binom(n-2,3), with n-4 endpoint triples excluded for n>=5; the separate small-n cases give no triples through n=5, and the first actual triples occur at n=6. Independent BFS/path-containment and subset enumeration for n=2 through 8 agreed on all 87,376 subsets, including 85,577 transversals. The independent replay is independent_ladder_replay.py in the branch 598e155a-3e72-4511-967f-3f68cfaef930; the frozen script was not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary papers' inspected passages concern the minimum or packing number; the diagonal grids in arXiv:2210.15325 are strong products. Resultary a0aeb4172687 instead fully characterizes every transversal of the same Cartesian ladder, not just the optimum."
+        ],
+        "reasoning": "A scalar optimum or a strong-product packing theorem does not determine the claimed labeled polynomial. The exact two-extrema criterion in the indexed match does determine every labeled feasible set by size.",
+        "searches": [
+          "arXiv:2101.08042, PDF pp. 1–2",
+          "arXiv:2210.15325, abstract and section 4",
+          "Resultary a0aeb4172687, proof sections 1–3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary a0aeb4172687",
+        "arXiv:2101.08042 and 2210.15325",
+        "DOI 10.3390/math9141592 retrieval attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Its criterion directly specifies one-row transversals as sets containing both endpoints and excludes exactly the two disjoint ordered-gap events when both rows are represented."
+        ],
+        "reasoning": "Start with ((1+z)^n-1)^2 for two represented rows. In an excluded orientation let t be the lesser row's maximum and b the other row's minimum, b>=t+2. This forces two vertices and leaves (t-1)+(n-b)=j free; there are j+1 such extrema. Subtract both identical gap counts and add the two endpoint-containing one-row classes. This is the frozen all-set formula, a direct weighted sum of the already classified sets; it requires no further structural result.",
+        "searches": [
+          "Resultary a0aeb4172687, proof section 2 Exact transversal criterion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Resultary record uses P_h square K_2 with rungs 0 through h-1 and labels 0 and 1 for the two longitudinal lines. Its inclusion-maximal shortest paths and labeled hitting sets agree with the frozen definitions.",
+          "The geodesic-transversal literature uses path containment. Maximal shortest paths cover is also a plausible equivalent name; the Peterin–Semanišin full text was not available through the DOI retrieval."
+        ],
+        "reasoning": "Set h=n, add one to the rung index, and identify the two labels with the frozen rows. The paths, minimal pair and triple families, and scope then agree without any change of graph or maximality convention.",
+        "searches": [
+          "Resultary geodesic-transversal spectrum for ladder graphs",
+          "arXiv:2101.08042, abstract and introduction",
+          "DOI 10.3390/math9141592, maximal shortest paths cover"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact formula in the matching record is 3h*z^2 in h=2,3 and a further term h(h-4)(h-5)*z^3/3 for h>=4, which vanishes at h=4,5. It lists all three minimal-set families and identifies the transition at h=6."
+        ],
+        "reasoning": "This is the very same minimal polynomial and classification for every size, including the small cases. The compared record's dated path does not establish historical precedence.",
+        "searches": [
+          "Resultary a0aeb4172687, Finding and proof section 4"
+        ]
+      },
+      "rationale": "The distinct indexed record a0aeb4172687 explicitly gives the same labeled classification, minimal polynomial, six-rung transition, maximal paths and exact transversal criterion on the identical Cartesian ladder. It does not print the all-set polynomial, but the exact criterion already supplies it by a direct gap count. This is a finding of mathematical coverage in the inspected catalogue, not a finding of earlier priority, copying or provenance: the comparison record carries a later date than the assignment's source record.",
+      "residual_risks": [
+        "The direction of provenance or first announcement is not established by catalogue dates. Unsearched or inaccessible primary results may further bear on that question; they are not needed for the mathematical coverage decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of minimal sets; direct implication of all-set polynomial",
+          "evidence": "The three labeled families, 3h pairs, spaced triple formula, exact transversal inequalities and single-row endpoint rule are explicit.",
+          "identifier_or_url": "Resultary a0aeb4172687",
+          "material_read": "RESULT.md offset 250, Finding, Assumptions, proof sections 1–4; references at offset 7196",
+          "method": "Local Resultary mirror, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact minimal geodesic-transversal spectrum of ladder graphs",
+          "trigger": "Exact match on ladder and minimal spectrum"
+        },
+        {
+          "assessment": "Conceptual overlap in inspected passages",
+          "evidence": "It defines the same maximal-geodesic hitting problem and studies its minimum, including other graph families.",
+          "identifier_or_url": "https://arxiv.org/abs/2101.08042",
+          "material_read": "Abstract p. 1, OA offset 1211; introduction p. 2, OA offset 4200",
+          "method": "OA paper text",
+          "title": "The geodesic-transversal problem",
+          "trigger": "Foundational definition and graph-family results"
+        },
+        {
+          "assessment": "Different product and invariant in inspected grid result",
+          "evidence": "The diagonal grid is a strong product and the inspected grid result is a packing-number result.",
+          "identifier_or_url": "https://arxiv.org/abs/2210.15325",
+          "material_read": "Abstract p. 1, offset 1350; section 4 pp. 9–10, offsets 22700–27258",
+          "method": "OA paper text",
+          "title": "Geodesic packing in graphs",
+          "trigger": "Potential grid and product comparison"
+        },
+        {
+          "assessment": "Primary scope not determined here",
+          "evidence": "No full-text statement from this paper was used to establish or rule out overlap.",
+          "identifier_or_url": "https://doi.org/10.3390/math9141592",
+          "material_read": "Bibliographic reference and relationship statement in a0aeb4172687; own full-text retrieval did not succeed",
+          "method": "Local mirror citation; configured OA DOI retrieval",
+          "title": "On the Maximal Shortest Paths Cover Number",
+          "trigger": "Equivalent terminology cited by the matching indexed record"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The labeled minimal-set classification and its first size-three examples are useful facts, but their full structure is already present in the inspected equivalent record. The remaining displayed all-set formula is a short weighted count from that same record's exact criterion. No distinct nonmechanical extension survives in the frozen claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

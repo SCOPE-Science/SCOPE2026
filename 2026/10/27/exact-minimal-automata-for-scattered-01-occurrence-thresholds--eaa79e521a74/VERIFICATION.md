@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-# Reproducibility
-Run the included standalone Python script `verify.py` using Python 3 with only the standard library. It constructs a reachable complete capped-counter DFA for \(N_{01}\ge k\), refines its behavioral partition until stable, and compares the number of equivalence classes with \(\lfloor k^2/4\rfloor+3\) for every \(1\le k\le40\). It also verifies agreement between these minimized classes and the claimed symbolic class labels.
+# Independent mathematical audit
 
-Direct finite word checks enumerate every prefix of length at most nine and every suffix of length at most six for \(1\le k\le12\), independently calculating scattered index pairs in concatenated words and comparing them to the concatenation formula.
+## correctness
 
-Expected exact output:
+PASS
 
-`VERIFY_OK minimized_thresholds=40 bounded_automaton_states=22220 direct_prefix_suffix_tests=1559052`
+For a prefix with z zeros and p pairs and a suffix with t ones and h internal pairs, the total is p+zt+h by splitting pairs into the three possible locations. The classes p>=k, z=0, and p<k with z>=1 and p+z>=k have residuals all suffixes, the initial language, and suffixes containing a 1, respectively. Otherwise d=k-p-z is positive, 1<=z<=k-d, and acceptance becomes h+z(t-1)>=d. The prefix 01^(k-d-z)0^(z-1) reaches every admissible pair. At t=0 all these levels reject; t=1 tests h>=d; if z>=d all t>=2 are accepted. Distinct levels are separated by 0^d1 at the smaller level, which also separates that level from the initial language. At equal d, use 10^max(d-z_2,0)1 for z_1<z_2 with z_1<d. The empty suffix and the one-letter suffix 1 distinguish the exceptional classes where needed. Summing min(d,k-d) over 1<=d<k yields floor(k^2/4); at k=1 there are only the three reachable exceptions. Inspected RESULT.md, VERIFICATION.md and verify.py. The recorded finite refinement and short-word comparisons were not replayed; they supplement the universal argument. The reported raw-state and direct-test totals also agree with sum_{k=1}^{40}(k^2+2) and 12(2^10-1)(2^7-1), respectively.
 
-These tests are intentionally finite. The universal formula rests on the separate Myhill–Nerode proof in `RESULT.md`; neither these checks nor the self-review are independent external auditing.
+## originality
+
+PASS
+
+Best of current knowledge for the exact inclusive-threshold quotient only. The strongest catalogue matches give different exact-equality quotients whose dead class loses the distinction between overshooting k and being below k but unable to hit it exactly. General bounded-count and Parikh-matrix constructions are background, not a minimal threshold classification. The underlying residual variables and several test words are shared with earlier work; no novelty is credited for those in isolation.
+
+## value
+
+PASS
+
+A threshold on an elementary scattered-pair statistic is a natural regular constraint, and a user designing or studying a recognizer needs the exact quotient, not only regularity or an automaton for exact counts. The theorem gives both the optimal uniform state count and a residual classification with explicit witnesses; the inclusive collapse is different from the overshoot behavior of exact equality. Value is confined to this exact binary-pattern invariant, not broader algorithms or pattern families.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

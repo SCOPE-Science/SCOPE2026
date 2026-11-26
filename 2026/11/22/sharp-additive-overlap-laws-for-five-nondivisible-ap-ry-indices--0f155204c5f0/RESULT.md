@@ -1,78 +1,32 @@
-# Sharp additive overlap laws for five-nondivisible Apéry indices
+# The two highest positive-shift overlaps of Apéry indices prime to five
 
 ## Finding
 
-Define the classical Apéry numbers by
-\[
-A(n)=\sum_{j=0}^{n}\binom{n}{j}^{2}\binom{n+j}{j}^{2}\qquad(n\geq0).
-\]
-For each integer \(r\geq1\) and fixed integer \(h\geq0\), put
-\[
-Q_r(h)=\#\{0\leq n<5^r:5\nmid A(n),\ 5\nmid A(n+h)\}.
-\]
-For \(h>0\), let \(h=\sum_{j=0}^{L-1}d_j5^j\), with \(d_{L-1}\ne0\), be its ordinary base-five expansion (least significant digit first). Starting with \(c_0=0\), set
-\[
-c_{j+1}\equiv c_j+d_j\pmod2,\quad c_{j+1}\in\{0,1\},\qquad
-w(d,c)=\begin{array}{c|ccccc}d&0&1&2&3&4\\\hline c=0&3&1&2&2&1\\c=1&1&2&2&1&3\end{array}.
-\]
-Then, **at every depth \(r\geq L\)**, the exact two-point count is
-\[
-\boxed{Q_r(h)=\begin{cases}
-3^{r-L}\displaystyle\prod_{j=0}^{L-1}w(d_j,c_j),&h\text{ even},\\
-0,&h\text{ odd}.
-\end{cases}}
-\]
-The normalized relative overlap \(\rho(h)=\lim_{r\to\infty}Q_r(h)/3^r\) therefore exists. It satisfies \(\rho(0)=1\), \(\rho(h)=0\) for odd \(h\), and for even positive \(h\) is the positive rational product \(3^{-L}\prod_j w(d_j,c_j)\). In particular, every positive even shift gives infinitely many pairs of Apéry indices simultaneously prime to five; no odd shift gives a pair.
+For the classical Apéry numbers \(A(n)=\sum_{j=0}^{n}\binom{n}{j}^{2}\binom{n+j}{j}^{2}\), let \(Q_r(h)\) count \(0\le n<5^r\) with both \(A(n)\) and \(A(n+h)\) nonzero modulo five, without reducing \(n+h\) modulo \(5^r\). Let \(\rho(h)=\lim_{r\to\infty}Q_r(h)/3^r\). The two highest values over positive shifts are \(2/3\) and \(4/9\). Precisely,
 
-The **sharp first two positive-shift overlap levels** are
-\[
-\boxed{\max_{h\geq1}\rho(h)=\frac23,\quad
-\rho(h)=\frac23\iff h=2\cdot5^i\ (i\geq0),}
-\]
-and, for every other positive shift, \(\rho(h)\leq4/9\). Equality \(\rho(h)=4/9\) occurs **exactly** in these two families, with integers \(0\leq i<j\):
-\[
-\boxed{h=2(5^i+5^j)}
-\qquad\text{or}\qquad
-\boxed{h=3\cdot5^i+4\sum_{t=i+1}^{j-1}5^t+5^j.}
-\]
-An empty sum is zero. The isolated top-level and runner-up families are an extremal classification, not an assertion about ordinary natural densities: the five-nondivisible Apéry indices themselves have density zero.
+* \(\rho(h)=2/3\) if and only if \(h=2\cdot 5^i\) for some \(i\ge0\).
+* \(\rho(h)=4/9\) if and only if \(h=2(5^i+5^j)\) or \(h=2(5^j-5^i)\), for \(0\le i<j\).
 
-## Assumptions and scope
-
-All indices and shifts are nonnegative integers. Divisibility is ordinary integer divisibility, not a statement about higher five-adic valuations. The counting interval is \(0\leq n<5^r\); \(n+h\) is not reduced modulo \(5^r\). The formulas concern every fixed shift, and the depth condition \(r\geq L\) is necessary for the given exact finite-level expression. The prime and the Apéry sequence are fixed as defined; no assertion is made for other primes or other Apéry-like sequences. The previously known Lucas congruence is an explicit premise rather than a new contribution.
+Every other positive shift has strictly smaller overlap. The difference family in the second item can also be written in ordinary digits as \(3\cdot5^i+4\sum_{i<t<j}5^t+5^j\).
 
 ## Proof
 
-**Digit reduction.** Gessel's Lucas congruence for the Apéry numbers, as reproduced and discussed by Adamczewski–Bell and Malik–Straub, says that for any prime \(p\), if \(n=\sum_j n_jp^j\) then \(A(n)\equiv\prod_j A(n_j)\pmod p\). The five initial entries are
+Gessel's Lucas congruence and the residues \((1,0,3,0,1)\) at digits \(0,1,2,3,4\) give the supported base-five digits \(D=\{0,2,4\}\). In particular odd shifts have no pairs, and \(Q_r(0)=3^r\). For an even shift \(h<5^r\), any allowed pair fits within \([0,5^r)\): if \(n+h\ge 5^r\), then \(5^r\le n+h<2\cdot5^r\), making its leading digit 1.
+
+Write \(h/2=\sum_j \delta_j5^j\) in balanced base five, with \(\delta_j\in\{-2,-1,0,1,2\}\). Each digit is uniquely determined modulo five by the remaining integer, and iterating the subtraction and division terminates. If \(h<5^r\) is even, the representative for \(h/2\) fits in \(r\) places: the \(5^r\) digit strings give distinct integers by repeated reduction modulo five, all in \([-(5^r-1)/2,(5^r-1)/2]\), so they fill that interval. The digits of \(n\) and \(n+h\), divided by two, lie in \(\{0,1,2\}\); their coordinatewise differences must be the unique balanced digits \(\delta_j\). Each digit difference has exactly \(3-|\delta_j|\) ordered realizations, independently. Consequently, for \(r\) at least the ordinary digit length of \(h>0\), for even shifts
 \[
-(A(0),A(1),A(2),A(3),A(4))=(1,5,73,1445,33001).
+\frac{Q_r(h)}{3^r}=\left(\frac{2}{3}\right)^{\#\{j:|\delta_j|=1\}}
+\left(\frac{1}{3}\right)^{\#\{j:|\delta_j|=2\}}.
 \]
-Thus \(5\nmid A(n)\) if and only if every base-five digit of \(n\) lies in \(E=\{0,2,4\}\). Consequently the number of such \(n\) in \([0,5^r)\) is exactly \(3^r\). Every such \(n\) is even, since the base is odd and all its digits are even.
+This is the sparse deleted-digit intersection count in balanced notation; it is used as an input to the extremal classification, not claimed as a new intersection theorem.
 
-**Carry factorization.** In adding \(h\) to an allowed \(n\), let \(x_j\in E\) be the \(j\)-th digit of \(n\), and \(c_j\in\{0,1\}\) the incoming carry. The output digit is \(x_j+d_j+c_j-5c_{j+1}\). Requiring it to be in \(E\) forces \(c_{j+1}\equiv d_j+c_j\pmod2\), independently of \(x_j\); this follows because both \(x_j\) and the output are even and five is odd. Direct enumeration of the three possible input digits gives exactly the ten entries in the displayed \(w\)-table, as well as the stated deterministic carry transition. Therefore the number of allowable low-digit choices through position \(L-1\) is \(\prod_{j<L}w(d_j,c_j)\).
+A nonzero positive displacement must use at least one nonzero balanced digit, and the leading digit is positive because all smaller places combined have absolute value at most \((5^j-1)/2<5^j\). One digit of absolute value 1 gives exactly \(2/3\), with the sole digit positive. Any digit of absolute value 2 lowers the overlap to at most \(1/3\). Otherwise two nonzero digits give \(4/9\), three or more give strictly less, and the smaller of the two digits can have either sign. This yields precisely the sum and difference families and proves that no positive overlap lies between the two levels. The ordinary-base expansion of the difference follows from \(2(5^j-5^i)=5^j+3\cdot5^i+4\sum_{i<t<j}5^t\).
 
-The last carry \(c_L\) is congruent to \(\sum_{j<L}d_j\equiv h\pmod2\). If \(h\) is even it vanishes, and every higher input digit, through position \(r-1\), is freely chosen from \(E\). This gives the factor \(3^{r-L}\). If \(h\) is odd, both admissible integers would have to be even, which is impossible; equivalently, a positive carry after the last shift digit can only propagate through input digit four, and ultimately produces a forbidden leading digit one. This proves the exact formula at every depth \(r\geq L\), and all claims of existence and positivity.
+## Scope, prior work, and verification
 
-**Extremal classification.** Normalize each digit weight by three. From the table, the only factor equal to one is the neutral transition \((c,d)=(0,0)\) or \((1,4)\); every other factor is \(2/3\) or \(1/3\). A nonzero shift must contain a nonneutral transition. A single \(2/3\) factor with all others neutral and final carry zero is possible only when one digit equals two and all remaining digits equal zero. This gives exactly \(h=2\cdot5^i\) and the sharp maximum \(2/3\).
+The statistic is relative to the \(3^r\) supported indices at depth \(r\). Normalization by \(5^r\) instead gives limiting overlap zero; higher prime powers and multi-shift intersections are not addressed. The relevance of the extremal levels is to determine exactly which positive displacements retain the most supported indices at this sparse scale.
 
-For any other nonzero shift, either a \(1/3\) factor occurs (so the product is at most \(1/3<4/9\)), or at least two \(2/3\) factors occur (so it is at most \(4/9\)). Equality at \(4/9\) requires exactly two \(2/3\) factors and neutral factors everywhere else. From the carry-zero state, the only weight-two transitions are digit two, which retains carry zero, and digit three, which changes the carry to one. From carry one, the only weight-two transition that changes back to carry zero is digit one; the only neutral transition while retaining carry one is digit four. Consequently the two and only two equality patterns are: two digits equal to two with all others zero, or one digit three followed by any string of digit fours and then a digit one, with all outside digits zero. Translating these least-significant-digit-first patterns gives the two displayed families. All other products are smaller. \(\square\)
+* Adamczewski and Bell, [*Diagonalization and Rationalization of algebraic Laurent series*](https://arxiv.org/abs/1205.4090), §9 and Figure 1, give the Apéry support automaton; Malik and Straub, [*Divisibility properties of sporadic Apéry-like numbers*](https://arxiv.org/abs/1508.00297), §1, state Gessel's Lucas congruence.
+* Pedersen and Phillips, [*Intersections of Cantor sets: Hausdorff measure*](https://arxiv.org/abs/1203.4290), Proposition 1.1, the following multiplicative recurrence, Lemma 4.4 and Corollary 5.7, already give the general sparse deleted-digit intersection machinery. For \(D=\{0,2,4\}\) and \(t=h/5^r\) with even \(h\), the level-\(r\) full coincident cylinders are precisely the integer pairs counted above: their left endpoints are allowed integers scaled by \(5^{-r}\). Endpoint-only neighbor contacts cannot occur at this depth because left endpoint differences in integer units are even. The count is therefore a specialization of that framework. Kumar, Rani and Chugh, [*New 5-adic Cantor sets and fractal string*](https://doi.org/10.1186/2193-1801-2-654), Theorems 3.1–3.2, describe the same supported digits in the five-adic setting. These antecedents are distinguished from classifying the extremizing integer displacements and both runner-up families; historical priority is not certified.
 
-## Verification
-
-The standalone `verify.py` checks the carry weights by independent enumeration, independently generates the first 301 Apéry numbers by their integer three-term recurrence, compares their divisibility by five with the digit criterion, evaluates the exact finite-shift counts for all tested shifts through \(5^5\), and exhaustively compares the two extremal families with all shifts below \(5^7\). Run with `python3 verify.py` using only the Python standard library. The checker is a finite consistency test; the preceding digit and carry argument is the proof for all indices, depths and shifts.
-
-## Relationship to prior work
-
-The Apéry Lucas congruence and its digit-automaton consequences are classical: Adamczewski–Bell explicitly exhibit the complete modulo-five automaton and forbidden digits one and three. Malik–Straub study Lucas congruences, periodicity and which primes divide sequence terms. Kumar–Rani–Chugh describe the same three-digit subset \(\{0,2,4\}\) as a five-adic Cantor set and study self-similarity/fractal strings. These statements establish the one-point digital support but do not state the exact **two-index fixed-shift counts**, the sharp positive-shift overlap level, or the runner-up equality families. The present result is a new evaluation of a natural two-point invariant arising from that established support; it is not presented as a new Lucas theorem or Cantor-set construction. A general automatic-sequence treatment could conceivably subsume this evaluation; no directly implying classification was located in the searches described in `AUDIT.json`.
-
-## Limitations
-
-The relative normalization by \(3^r\) is essential: normalized by all \(5^r\) indices, every fixed-shift pair count has limiting density zero. The overlap is one-sided in the finite interval, and the assertion does not address multi-shift patterns, full residue pairs, higher powers of five, or a complete historical priority classification. The proof is elementary once the existing Lucas congruence is granted. A related older paper on Apéry arithmetic was accessible only at abstract level, so earlier unlocated treatments of additive overlaps remain a priority risk. No independent mathematical audit has been performed.
-
-## References
-
-1. B. Adamczewski and J. P. Bell, *Diagonalization and Rationalization of algebraic Laurent series*, arXiv:1205.4090 (first posted 2012-05-18), §9 and Figure 1, https://arxiv.org/abs/1205.4090 ; journal PDF https://smf.emath.fr/system/files/2017-08/ens_ann-sc_46_963-1004.pdf .
-2. A. Malik and A. Straub, *Divisibility properties of sporadic Apéry-like numbers*, arXiv:1508.00297 (first posted 2015-08-03), §§1, 5–6, https://arxiv.org/abs/1508.00297 ; readable version https://ar5iv.labs.arxiv.org/html/1508.00297 .
-3. A. Kumar, M. Rani and R. Chugh, *New 5-adic Cantor sets and fractal string*, SpringerPlus 2, article 654 (2013-12-05), Theorems 3.1–3.2, https://doi.org/10.1186/2193-1801-2-654 .
-4. I. Gessel, *Some congruences for Apéry numbers*, Journal of Number Theory 14 (1982), 362–368, https://doi.org/10.1016/0022-314X(82)90071-3 .
-5. F. Luca and I. E. Shparlinski, *Arithmetic properties of Apéry numbers*, Journal of the London Mathematical Society 78 (2008), 545–562, https://doi.org/10.1112/jlms/jdn031 .
+The proof gives all shifts, including ties and boundary depths. The retained `verify.py` is finite corroboration of the ordinary-carry product and of both extremal levels. It is not the all-shift proof.

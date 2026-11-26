@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:35:35.531187Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–83 and 97",
+        "Frozen VERIFICATION.md, verify_tree_variance.py and check_convex_order.py"
+      ],
+      "rationale": "Use independently sampled vertex probabilities with independent outgoing Bernoulli trials conditional on the probability at their common source. A path uses a different source for each edge, giving p^depth. An ancestor-descendant pair has joint indicator equal to the deeper indicator. For an incomparable pair, the only repeated source in the two paths is their lowest common ancestor, so the joint probability is E[Theta²] times p raised to the combined distinct-edge count minus two. This proves the baseline covariance formula and the variance excess after subtracting the deterministic-source case. Grouping pairs by lowest common ancestor gives the product of the two child-subtree sums for each child pair, multiplied by p to the ancestor depth. All terms are positive and at most 2, and there are at most binomial(n-1,2) pairs. No incomparable pair means an endpoint-rooted path; all nonroot pairs incomparable means a center-rooted star, where every exponent is zero. For convex order, condition on all other potential trials in the oriented tree. Reachability of the selected vertex does not depend on its outgoing trials, and its disjoint child subtrees have fixed nonnegative weights in the conditional count. The diagonal second derivative in the common Bernoulli parameter sums ordered mixed differences of the convex function over pairs of child activations, all nonnegative. Single-vertex replacements thus prove the order for the final count. The two-point abstract law attains the upper bound. The scope phrase about a supremum only in the finite-duration representation needs the qualification B>0: when B=0 the bound is attained by every law. At n=2 the whole count is 1 plus a Bernoulli(p) trial. Both supplied exact-rational scripts were read, not executed; the reported checks through n=6 corroborate finite cases, not the theorem for arbitrary size.",
+      "residual_risks": [
+        "The theorem is about a single-root, disjoint-subtree model and an eventual count, not timings or cyclic graphs; extrema of B are not extrema of total variance across trees."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The October 25 prior statement also covers separate mean-preserving convex-order replacement for vertex-dependent laws. The October 13 record covers vertex probabilities in [0,1] and also supplies a sharp positive minimum among branching trees.",
+          "Wilkinson and Sharkey compare subset-hit probabilities up to time t; Vizi et al. compare pairwise-model reproduction quantities and derived final sizes; Hiraoka and Saramäki discuss matching tree marginals. None of those inspected literature statements is the full matching count result."
+        ],
+        "reasoning": "The direct Resultary overlap is decisive. The literature comparisons distinguish different observables and are not used in place of same-count evidence.",
+        "searches": [
+          "Resultary 1d4b8a70bdd4 and b769c52b1efb",
+          "arXiv:1710.05730 Theorem 1 and appendix",
+          "arXiv:1712.06026v2 Theorem 2",
+          "arXiv:2610.03573v1 §IV.C"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 1d4b8a70bdd4 and b769c52b1efb",
+        "arXiv:1710.05730",
+        "arXiv:1712.06026v2",
+        "arXiv:2610.03573v1",
+        "DOI 10.2307/1427496 (bibliographic only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For any closed-interval law of mean p, replace Theta by (1-epsilon)Theta+epsilon p. It lies in [0,1), still has mean p, and a common affine map preserves the input convex order. Every such law has a finite-duration representation in the earlier model.",
+          "The count probabilities on a finite tree are expectations of finite polynomials in the independent source probabilities. As epsilon tends to zero the probabilities, the stop-loss expectations and the variance therefore converge. The deterministic baseline formula itself follows from independent Bernoulli trials on the union of the two paths."
+        ],
+        "reasoning": "The closed-interval ordering and attainment follow directly by this continuity and the moment bound, and the earlier index formula already gives the variance excess there. The depth-sum spelling of the baseline and the postorder rearrangement of the same pair sum do not leave a distinct substantive remainder.",
+        "searches": [
+          "Resultary 1d4b8a70bdd4, Finding, Assumptions and proof",
+          "Resultary b769c52b1efb, Finding and Assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2026-10-25 finding describes independently sampled source probabilities P_v with conditional Bernoulli child edges and the identical root-reachable count. Its q is the present p.",
+          "It states the same stop-loss/convex-cost order, sum of depth powers, variance difference and B formula including the factor 2."
+        ],
+        "reasoning": "After the parameter and count notation is changed, the discrete model and conclusions coincide on [0,1). Its proof conditions on the same disjoint descendant components and has the same mixed-difference argument.",
+        "searches": [
+          "Resultary: final-size convex order branching index on finite rooted trees",
+          "Resultary 1d4b8a70bdd4, Finding, Assumptions and directed-tree representation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 25 entry gives B_G(q)=2 times the weighted incomparable-pair sum and the exact excess and distribution bound for every covered rooted tree, not just tables.",
+          "The October 13 record uses B_T(q)=B_G(q)/2 and writes the excess as 2 Var(P) B_T(q), giving the same coefficient in different normalization."
+        ],
+        "reasoning": "These are exact indexed formula matches. The earlier worked examples need not have the same tree size as the example in the frozen record.",
+        "searches": [
+          "Resultary indexed 2026-10-25 finding 1d4b8a70bdd4",
+          "Resultary indexed 2026-10-13 finding b769c52b1efb"
+        ]
+      },
+      "rationale": "The earlier Resultary finding 1d4b8a70bdd4 gives the same final-count convex order, mean, exact variance excess and weighted incomparable-pair index with the same path/star extrema. The endpoint-inclusive abstraction is the continuous closure of that result: the same mean and convex order can be preserved in the approximation. The n=2 addition is just one Bernoulli trial. The earlier record b769c52b1efb gives the variance formula directly even on the closed interval.",
+      "residual_risks": [
+        "The 1993 source could contain further overlap, but this is neither established nor necessary for the failure based on the exact earlier findings."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same statement before the routine closed-interval extension",
+          "evidence": "Theorem items 1–4 state final-count convex order, identical mean, exact factor-two branching index, and the same sharp bounds and topology extrema.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-convex-order-inflation-and-a-sharp-branching-index-for-final-siz--1d4b8a70bdd4/RESULT.md",
+          "material_read": "Finding, Assumptions and scope, directed-tree, convex-order and pair proof passages, mirror offsets 0–6277",
+          "method": "Local Resultary mirror",
+          "title": "Convex-order inflation and a sharp branching index for final-size risk in tree SIR epidemics",
+          "trigger": "Direct indexed overlap for both main theorems"
+        },
+        {
+          "assessment": "Same variance identity on [0,1]; additional positive minimum for branching trees",
+          "evidence": "Writes excess as 2vB_T(q) and uses the same conditional per-source Bernoulli trials and LCA weights.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-exact-outbreak-variance-excess-and-sharp-branching-extremizers-o--b769c52b1efb/RESULT.md",
+          "material_read": "Finding and Assumptions and scope, mirror offsets 0–3098",
+          "method": "Local Resultary mirror",
+          "title": "Exact outbreak-variance excess and sharp branching extremizers on rooted contact trees",
+          "trigger": "Variance overlap even with the abstract endpoint law"
+        },
+        {
+          "assessment": "Related order for a different observable",
+          "evidence": "The probability of reaching at least one member of a prescribed set by a given time is not a convex cost of the full eventual count.",
+          "identifier_or_url": "arXiv:1710.05730",
+          "material_read": "PDF pp. 2, 5–6 and appendix pp. 10–11, Theorem 1 and proof",
+          "method": "OA full-text passages",
+          "title": "Impact of the infectious period on epidemics",
+          "trigger": "Earlier network convex-order comparison"
+        },
+        {
+          "assessment": "Different modeled quantities and hypotheses",
+          "evidence": "Pairwise reproduction quantity comparison, not a fixed finite-tree final-count order.",
+          "identifier_or_url": "arXiv:1712.06026v2",
+          "material_read": "Abstract and main result pp. 6–10, Theorem 2",
+          "method": "OA full-text passages",
+          "title": "A monotonic relationship between the variability of the infectious period and final size in pairwise epidemic modelling",
+          "trigger": "Earlier variability versus final-size comparison"
+        },
+        {
+          "assessment": "Relevant mean context, not the exact main claims",
+          "evidence": "Matches tree node infection marginals and thus the expected size under stated conditions.",
+          "identifier_or_url": "arXiv:2610.03573v1",
+          "material_read": "PDF §IV.C, pp. 6–7",
+          "method": "OA full-text passage",
+          "title": "Disentangling epidemics and percolation",
+          "trigger": "Earlier match to the bond-percolation mean on trees"
+        },
+        {
+          "assessment": "Unresolved and not used to decide the outcome",
+          "evidence": "Accessible listing did not permit statement-level comparison.",
+          "identifier_or_url": "10.2307/1427496",
+          "material_read": "Identified bibliographic entry only; no readable abstract or full text encountered",
+          "method": "Lawful article, PDF and DOI retrieval attempts",
+          "title": "An unusual stochastic order relation with some applications in sampling and epidemic theory",
+          "trigger": "Potential earlier severity-order implication"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof",
+        "Resultary 1d4b8a70bdd4 and b769c52b1efb, Findings and Assumptions"
+      ],
+      "rationale": "For the abstract probability problem, the final-count convex order and exact variance sensitivity are meaningful observables. Here those same results are already present, including the sharp topology classification. Admitting a probability of one gives boundary attainment by a routine closure of the earlier model; n=2 and re-expressing the baseline do not constitute a separate finding of comparable scientific value.",
+      "residual_risks": [
+        "This is a rejection of the duplicate and its minor extensions as a standalone contribution, not of the underlying mathematical question."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,28 +1,21 @@
-# Sharp strong odd coloring transition and complete optimal-coloring census of fan graphs
+# Exact census of named minimum strong odd colorings of fan graphs
 
 ## Finding
-Let \(F_n=K_1\vee P_n\) be the fan on a distinguished apex and an ordered, labeled path of \(n\ge2\) vertices. The strong odd chromatic number of a graph is the minimum palette size in a proper coloring for which every color occurring in the open neighborhood of any vertex occurs there an odd number of times.
 
-The exact fan strong odd chromatic number is
+Let \(F_n=K_1\vee P_n\), where \(n\ge2\) is the number of vertices in the ordered path. A strong odd coloring is a proper coloring in which every color that occurs in an open neighborhood occurs there an odd number of times. Let \(N_n\) be the number of strong odd colorings of \(F_n\) using a fixed named palette of minimum size. We give an exact labeled census. The minimum palette size and characterization of admissible path words are prior results, used here to select which coefficients to count.
+
+Let \(A_{n,k}\) count words of length \(n\) on a fixed named alphabet of \(k\) colors in which every color occurs an odd positive number of times and no equal symbols are at distance one or two. From the known exact minimum for clique–path joins [1], the number of path colors in an optimal coloring is \(n\) for \(2\le n\le6\); for \(n\ge7\), it is \(3\) if \(n\equiv3\pmod6\), \(4\) if \(n\) is even, and \(5\) otherwise. With \(k\) denoting this number for \(n\ge7\),
 \[
-\chi_{\mathrm{so}}(F_n)=\begin{cases}
-n+1,&2\le n\le6,\\
-4,&n\ge7,\quad n\equiv3\pmod6,\\
-5,&n\ge7,\quad n\text{ even},\\
-6,&n\ge7,\quad n\text{ odd and }n\not\equiv3\pmod6.
+N_n=\begin{cases}
+(n+1)!,&2\le n\le6,\\
+(k+1)A_{n,k},&n\ge7.
 \end{cases}
 \]
-
-Write \(A_{n,k}\) for the number of path words of length \(n\) on a fixed labeled alphabet of \(k\) symbols such that every color occurs an odd positive number of times and no two equal symbols are at distance one or two. The number \(N_n\) of minimum-color strong odd colorings of \(F_n\) using a fixed, named palette of exactly \(\chi_{\mathrm{so}}(F_n)\) colors is
+Writing \(H_k(t)=\sum_{n\ge2}A_{n,k}t^n\), the required coefficients are given by
 \[
-N_n=\begin{cases}(n+1)!,&2\le n\le6,\\
-(k+1)A_{n,k},&n\ge7,\quad k=\chi_{\mathrm{so}}(F_n)-1.\end{cases}
-\]
-Every coefficient is given explicitly by the following **rational** generating functions, with \(H_k(t)=\sum_{n\ge2} A_{n,k}t^n\):
-\[
-H_3(t)=\frac{6t^3}{1-t^6};\qquad
+H_3(t)=\frac{6t^3}{1-t^6},\qquad
 H_4(t)=\frac{24t^4(1-2t^2)^2}
-{(1-4t^2)\bigl(1-(4t^3-t)^2\bigr)(1+t^2-4t^4)};
+{(1-4t^2)\bigl(1-(4t^3-t)^2\bigr)(1+t^2-4t^4)},
 \]
 \[
 H_5(t)=\frac{120t^5(1-3t^2)^3}
@@ -32,62 +25,41 @@ H_5(t)=\frac{120t^5(1-3t^2)^3}
 For example, the exact counts \((N_7,N_8,N_9,N_{10},N_{11},N_{12})\) are \((720,120,24,2400,142560,13080)\).
 
 ## Assumptions and scope
-Every graph is finite, undirected and simple. The path vertices are distinctly labeled and ordered; color names are also distinguished. A named coloring uses every color of its specified optimal palette. We count full vertex colorings, not equivalence classes under graph automorphisms, reversal of the path, or permutation of color names. The variable \(t\) is formal, so the identities are equalities of formal power series over the rationals. Values \(A_{n,k}\) include only words using all \(k\) colors an odd positive number of times.
+
+Graphs are finite, undirected and simple. The apex is distinguished, path vertices are labeled and ordered, and colors are named. The census counts full colorings, not classes under reversal, graph automorphisms or color permutations. Optimal palettes are fully used. Each \(H_k\) is a formal power series and counts path words, not full-graph colorings.
 
 ## Proof
-**1. Structural equivalence.** The apex is adjacent to all path vertices, so its color is private in any proper coloring. At the apex, the strong odd condition requires each path color to occur an odd number of times. Every two path vertices at path distance two share the middle path vertex and the apex in their open neighborhoods. If they had equal colors, those two neighbors would each see this color twice, which is prohibited. Thus the path colors are distinct at distance at most two. Conversely, assume this distance-two condition, odd multiplicity for each used path color, and a private apex color. For an interior path vertex, its two path neighbors have distinct colors and the apex color is different from both, so each is seen exactly once. Endpoints see two distinct colors, each once. The apex sees every used path color an odd number of times. Hence the fan coloring is strong odd exactly under the stated conditions.
 
-**2. Chromatic threshold and six-step extension.** If \(2\le n\le6\), a color repeated on the path must have at least three occurrences (its positive count is odd), with successive occurrences separated by at least three positions. Three occurrences require at least seven positions; therefore all path colors are different, yielding \(n+1\) colors. For \(n\ge7\), the distance-two constraint forces at least three path colors. With exactly three, every valid word is \(123123\cdots\) up to color permutation, because each next symbol is forced by the preceding two. All three multiplicities are odd precisely when \(n\equiv3\pmod6\). As every used path color occurs an odd number of times, the number of used path colors has the same parity as \(n\). Thus, outside the three-color case, an even \(n\) needs at least four path colors and an odd \(n\) needs at least five. These bounds are attained by the following **zero-based** path color words for \(n=7,8,9,10,11,12\), respectively:
+**Reduction to words.** The apex color is private by properness, and the condition at the apex requires each used path color to have odd multiplicity on the path. Adjacent path vertices must have distinct colors. Equal colors at distance two would occur twice in the open neighborhood of their middle path vertex, which otherwise sees only the private apex color. Conversely, under these conditions each path vertex sees a collection of distinct neighbor colors, and the apex sees the required odd multiplicities. This is the fan case of the admissible-word characterization in [1]. Fix the named full palette. Choosing its apex color determines the named path alphabet, and each admissible path word on that alphabet gives one coloring. This proves the factor \(k+1\); for \(2\le n\le6\) all vertices have different colors by the known minimum, giving \((n+1)!\).
 
-```
-0120340
-01201301
-012012012
-0120120123
-01201201234
-012013023123
-```
+**Parity projection.** For each sign assignment \(\varepsilon\in\{+1,-1\}^k\), the signed weight of a word \(w\) is \(\prod_i\varepsilon_{w_i}\). Averaging these weights with multiplier \(\prod_j\varepsilon_j\) projects onto words with every color odd: the average factors into \(\prod_j [2^{-1}\sum_{\varepsilon_j=\pm1}\varepsilon_j^{1+c_j(w)}]\), with \(c_j(w)\) the color count. In particular an absent color contributes zero.
 
-All these words start in `012`. Prepending the six-character block `012012` preserves distance-two properness across the boundary and increases the multiplicities of colors `0`, `1`, `2` by two each. It therefore preserves the odd-multiplicity property and the number of used colors. Iterating gives every \(n\ge7\), proving the chromatic classification.
-
-**3. Exact number of optimal colorings.** Fix \(k\) named path colors. Each permissible path word uniquely defines a strong odd coloring once one of the \(k+1\) named full-palette colors is chosen for the apex; the path alphabet is then the remaining \(k\) colors. This is the bijection \(N_n=(k+1)A_{n,k}\). For \(n\le6\), all \(n+1\) graph vertices have distinct colors, giving \((n+1)!\).
-
-**4. Parity Fourier projection and four-state transfer.** Assign each of the \(k\) path symbols a formal sign \(\varepsilon_j\in\{+1,-1\}\). The indicator that every symbol has odd multiplicity in a word \(w\) is exactly
+For a fixed assignment with \(a\) positive and \(b\) negative colors, let \(m_+=a,m_-=b\) and \(s_+=1,s_-=-1\). A four-state transfer records the signs \((g,h)\) of the last two letters. Put
 \[
-2^{-k}\sum_{\varepsilon\in\{\pm1\}^k}
-\left(\prod_{j=1}^k\varepsilon_j\right)
-\prod_{i=1}^{|w|}\varepsilon_{w_i}.
+v_{g,h}=s_gs_h m_g(m_h-\mathbf1_{g=h}),\qquad
+M_{(g,h),(h,u)}=s_u(m_u-\mathbf1_{u=g}-\mathbf1_{u=h}),
 \]
-This equality holds because, after multiplication, the sum factors as a product of parity indicators. For a sign assignment with \(a\) positive colors and \(b\) negative colors, \(a+b=k\), the path word's signed weight can be evaluated by a **four-state** transfer indexed by the signs \((g,h)\) of the last two chosen symbols. Let \(m_+=a\), \(m_-=b\), \(s_+=1\), \(s_-=-1\). The signed weight of the first two symbols of types \((g,h)\) is
+with all other matrix entries zero. The last two letters are distinct, so the two subtractions exclude distinct colors even when their signs coincide. Infeasible pairs have initial weight zero and are not reached from feasible pairs: whenever the proposed sign has no legal new letter the transition weight is zero. The signed series is therefore \(T_{a,b}(t)=t^2 v(I-tM)^{-1}\mathbf1\), where \(v\) is a row and \(\mathbf1\) is the all-ones column. Grouping assignments by the number of negative colors yields
 \[
-v_{g,h}=s_gs_h\,m_g\bigl(m_h-\mathbf1_{g=h}\bigr).
+H_k(t)=2^{-k}\sum_{b=0}^k(-1)^b\binom{k}{b}T_{k-b,b}(t).
 \]
-The transfer from state \((g,h)\) to \((h,u)\) has weight
+For \(k=3\) each word is a prefix of a three-letter repetition and all counts are odd precisely for \(n\equiv3\pmod6\), giving the stated series directly. For \(k=4,5\) the displayed rational expressions follow by polynomial simplification of the transfer identity. For an exact check, for each summand put \(D_b=\det(I-tM)\) and \(R_b=t^2(\det(I-tM+\mathbf1 v)-D_b)\). The determinant lemma gives \(T_{k-b,b}=R_b/D_b\). If \(P_k/Q_k\) denotes the displayed formula, the polynomial identity to check is
 \[
-M_{(g,h),(h,u)}=s_u\bigl(m_u-\mathbf1_{u=g}-\mathbf1_{u=h}\bigr),
+Q_k\sum_{b=0}^k(-1)^b\binom{k}{b}R_b\!\prod_{j\ne b}D_j=2^kP_k\prod_{b=0}^k D_b.
 \]
-where all other transitions are zero. The subtractions enforce that the newly chosen symbol differs from each of the two previous **individual** symbols, including when their sign types agree. With \(\mathbf 1\) the all-ones column, the generating function of signed distance-two-proper words with this fixed sign partition is
-\[
-T_{a,b}(t)=t^2 v(I-tM)^{-1}\mathbf1.
-\]
-Consequently, for each \(k\in\{3,4,5\}\), the exact counting series is
-\[
-H_k(t)=2^{-k}\sum_{b=0}^{k}(-1)^b\binom{k}{b}T_{k-b,b}(t).
-\]
-Evaluating these four-by-four rational matrices, summing, and clearing denominators yields precisely the displayed three rational functions. An independent exact-integer determinant-identity checker is included as `verify.py`: it checks the rational equalities by polynomial cross multiplication for each \(k\), with no floating-point operations. The transfer derivation proves the expressions for all lengths, not only those enumerated computationally.
+The accompanying verifier checks that identity exactly. Each \(D_b\) and \(Q_k\) has constant term one, so this proves the stated simplification for formal series, not just for a finite range of coefficients.
 
 ## Verification
-Run `python3 verify.py` from this directory using only the Python standard library. It constructs the four-state signed transfer matrices for each of \(k=3,4,5\), evaluates rational matrix functions by determinant identities, and verifies exact polynomial cross-products against the stated closed expressions. An independently coded dynamic program enumerates path words by their last two colors and multiplicity parity mask; its coefficients agree with the rational generating functions through length \(25\). The program also checks all six base words and their six-step extensions through length \(42\). These finite checks support the already complete structural and formal-power-series proofs.
 
-## Relationship to prior work
-Kwon and Park introduced strong odd coloring (arXiv:2401.11653, initial public version 22 January 2024). Caro, Petruševski, Škrekovski, and Tuza (arXiv:2410.02336, initial public version 3 October 2024) explicitly observed \(\chi_{\mathrm{so}}(F_6)=7\), so that individual instance is **not new**. Their planar and structural theorems do not give this all-length path-join classification or optimal-coloring generating functions. Manattu, Vinay, and Lakshmanan (arXiv:2602.03259) determined corresponding *chromatic numbers* for joins of cycles and empty graphs, notably wheels. An existing wheel optimal-coloring census concerns \(K_1\vee C_n\), with cyclic closing constraints; these do not supply the distance-two **path** word counts. For example, the fan with nine path vertices has 24 named optimal colorings, whereas the wheel with eight rim vertices belongs to a different graph and counting problem. Results on dissociation polynomials of fans use a different vertex-subset invariant. A 2026 complexity study by Pradhan, Sharma, and Verma (arXiv:2610.01441) addresses algorithmic complexity and a block-graph subclass; fans of larger order are not block graphs. These distinctions do not establish publication priority against every possible source.
+From the directory containing the result and companion script, run `python3 verify.py` (standard library only). The script forms the exact polynomial cross-products for all three series, checks the corresponding coefficients against a last-two-colors/parity-mask enumeration through length 25, and tests illustrative minimum-color templates and their six-step extensions through length 42. The coefficient and template tests are finite; the counting proof uses the parity projection and exact polynomial identities.
 
-## Limitations
-This classifies only fan graphs and **named minimum-color** strong odd colorings, not all nonoptimal proper colorings. No new wheel chromatic theorem is claimed. The finite verification ranges do not establish the infinite formulas by themselves; the proof requires the exact transfer identity. A potentially relevant published general paper on strong odd coloring (Pang–Miao–Fan, *Discrete Mathematics*, DOI 10.1016/j.disc.2025.114683) could not be fully inspected despite attempts to locate lawful full text. Its possible specialized coverage, as well as other unindexed literature, remains an originality risk.
+## Relationship to prior work and limitations
+
+The exact threshold for every fan order, and the distance-two and parity characterization used in the reduction, are covered by the clique–path-join theorem [1], which explicitly takes fans as the case \(r=1\). That record's Limitations section excludes labeled optimum counts. Caro et al. [2, Prop. 3.2] already proved the individual seven-color example \(K_1\vee P_6\). The contribution here is the closed rational enumeration of named optima, not a new chromatic number theorem or a new general parity projection method. The wheel theorem of Manattu et al. [3, Theorem 1] concerns a cycle with wrap-around distance-two conditions and does not give the path-word census above. The full text of Pang–Miao–Fan [4] was not inspected, so specialized coverage there or in other unindexed work remains possible. No publication-priority claim or census of nonoptimal colorings is made.
 
 ## References
-1. H. Kwon and B. Park, *Strong odd coloring of sparse graphs*, arXiv:2401.11653, first posted 2024-01-22, https://arxiv.org/abs/2401.11653.
-2. Y. Caro, M. Petruševski, R. Škrekovski and Z. Tuza, *On strong odd colorings of graphs*, arXiv:2410.02336, first posted 2024-10-03, https://arxiv.org/abs/2410.02336.
-3. A. J. Manattu, A. Vinay and A. Lakshmanan S., *On a conjecture about the strong odd chromatic number of planar graphs*, arXiv:2602.03259, first posted 2026-02-03, https://arxiv.org/abs/2602.03259.
-4. D. Pradhan, V. Sharma and S. Verma, *On the Classical and Parameterized Complexity of Strong Odd Coloring*, arXiv:2610.01441, first posted 2026-10-01, https://arxiv.org/abs/2610.01441.
-5. Pang, Miao and Fan, *On odd and strong odd colorings of graphs*, *Discrete Mathematics*, DOI 10.1016/j.disc.2025.114683 (full text not inspected).
+
+1. *Exact strong odd chromatic numbers of fan graphs and clique–path joins*, Resultary record `2026/10/18/SCOPE-exact-strong-odd-chromatic-numbers-of-fan-graphs-and-clique-path--0669234beb00`, [Finding and Limitations](https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-strong-odd-chromatic-numbers-of-fan-graphs-and-clique-path--0669234beb00/RESULT.md).
+2. Y. Caro, M. Petruševski, R. Škrekovski and Z. Tuza, *On strong odd colorings of graphs*, [arXiv:2410.02336](https://arxiv.org/html/2410.02336v1).
+3. A. J. Manattu, A. Vinay and A. Lakshmanan S., *On a conjecture about the strong odd chromatic number of planar graphs*, [arXiv:2602.03259](https://arxiv.org/html/2602.03259).
+4. Pang, Miao and Fan, *On odd and strong odd colorings of graphs*, *Discrete Mathematics*, [DOI 10.1016/j.disc.2025.114683](https://doi.org/10.1016/j.disc.2025.114683).

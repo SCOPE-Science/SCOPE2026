@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:23:22.316043Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The linear binary word spells an Euler trail on the four bigram vertices; conversely any trail spells a word with exactly those trigram multiplicities. Directed Euler existence needs weak connectivity on the nonisolated support and the zero or one-start/one-end imbalance pattern. The only possible disconnected nonempty nonloop supports would each have two disjoint single-direction edges (AB with CD or AC with BD), giving four imbalanced vertices and thus excluded. Isolated loop vertices are handled separately: each loop is allowed only when its vertex is visited by the nonloop core, except in the two loop-only profiles. The empty vector contributes once. The three linear flow equations, nonnegative bounds and nonloop mass in RESULT.md follow by substitution. For an independent exact rational verification, set e=E+i, d=D_0+j and sum f from max(0,j−i+D_0−E−α−β); split into j≥i and j<i to obtain geometric rays. Forbid the A loop at i=0 when α=0 and the D loop at j=0 when δ=0, using inclusion-exclusion. The resulting thirteen-stratum sum including the loop-only correction cross-multiplies exactly to the stated numerator (replay: python3 /workspace/branches/review3-rational.py, SymPy). At z=1 the leading pole is (13/12)(1−z)^−5 and the other poles have lower order, giving 13n^4/288. Independent direct word counts through n=16 and connected multigraph counts through n=22 match the coefficients; the all-length identity is established by the geometric sums, not these finite runs. Reproduction files for the finite checks are trigram_recount.py and trigram_flow_independent.py under /workspace/branches/a7b4a96f-9d6c-4cc1-815b-f837c0503501. The uploaded verify.py was read, not executed. The noiseless code cardinality follows by choosing one representative per profile.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier October 18 result for the identical open-ended profile gives 13n^4/288+O(n³), presents a rational series for balanced flows, and bounds the open sectors asymptotically. The cyclic records give exact balanced-flow results for wraparound words. En Gad studies hashing substring counts and edit-code redundancy; Bernardini et al. use sets of substrings rather than multiplicity vectors."
+        ],
+        "reasoning": "Cyclic profiles recover precisely the balanced positive-window sector after matching the number of edges, not the twelve open sectors. Asymptotic and balanced-sector statements do not give the full lower-order terms. Different observation and coding problems do not dominate the exact all-length count.",
+        "searches": [
+          "Resultary 246b4cc4bcec, Finding and balanced/open flow sections",
+          "Resultary cyclic records 1516a959f63f, 9b2754288e6b and 92625b7494d0",
+          "arXiv:2609.19493, Theorem 1.1",
+          "DOI:10.4230/LIPIcs.CPM.2022.16"
+        ]
+      },
+      "checked_sources": [
+        "OEIS A289657",
+        "DOI:10.3233/FI-2017-1531 (abstract and bibliographic material only)",
+        "arXiv:2609.19493",
+        "DOI:10.4230/LIPIcs.CPM.2022.16",
+        "Resultary 246b4cc4bcec, 1516a959f63f, 9b2754288e6b and 92625b7494d0",
+        "Resultary 7044900c1ee8, c5ea7e549c82 and bcc1ebef8280"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "If F is the balanced profile series and H_v the balanced series omitting vertex v, both including the empty profile, the finer class series indexed by t=n−2 exceeds the target by 3F−sum_v H_v+4. The constant accounts for the four distinct length-two words versus one empty profile. The identity was checked symbolically against the actual OEIS rational series using independently determined restricted-support series."
+        ],
+        "reasoning": "A finer total and an exact balanced total do not themselves supply the omitted-vertex series. Recovering the target requires identifying which Euler circuits can start at which vertices and enumerating those restricted supports, or evaluating the open sectors directly. The exact earlier statement for the finer statistic is not already the desired count; full-text overlap with its proof is an access risk, not established noncoverage.",
+        "searches": [
+          "A289657 exact rational formula",
+          "Resultary 246b4cc4bcec, Proof about offset 1900",
+          "Cassaigne et al., DOI:10.3233/FI-2017-1531, available abstract and bibliography"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "0101 and 1010 have the same two trigrams but different bigram counts. The finer 3-Abelian counts are equivalent to recording the profile and initial length-two factor, which is determined by imbalance in open sectors but not in balanced ones. The November 2 exact records agree by reindexing or rational cross-multiplication."
+        ],
+        "reasoning": "For a positive-length balanced profile with v visited vertices, there are v 3-Abelian classes, since any visited vertex can start an Euler circuit and start plus profile reconstructs the lower-order counts. Thus the finer and coarser sequences are not simple shifts or renamings of one another. For open profiles the start is forced.",
+        "searches": [
+          "Resultary: exact all-length binary trigram multispectrum capacity, linear and cyclic aliases",
+          "OEIS A289657, Formula and References",
+          "Cassaigne–Karhumäki–Puzynina–Whiteland, DOI:10.3233/FI-2017-1531"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A289657 gives a(4)=16, a(5)=32 and an exact rational series for the finer statistic, versus M_4=15 and M_5=28 here. The October 18 earlier table gives 363, 1880 and 6123 at lengths 10, 15 and 20, agreeing with independently checked values. The three November 2 records match the full rational function."
+        ],
+        "reasoning": "The earlier finite matches and the leading coefficient are known, not independent exact discoveries. The exact database match is for a finer statistic. Exact later catalogue matches are material but not evidence of earlier priority against this October 27 record.",
+        "searches": [
+          "OEIS A289657, sequence and generating function",
+          "Resultary 246b4cc4bcec, Verification",
+          "Resultary 7044900c1ee8, c5ea7e549c82 and bcc1ebef8280, Findings"
+        ]
+      },
+      "rationale": "The object, leading asymptotic, imbalance-sector decomposition and several exact coefficients are prior in the October 18 Resultary record. The surviving distinct claim is the exact all-length rational function including the twelve open sectors and their connectivity restrictions. Three November 2 records state equivalent exact functions and are cataloged later; this neither establishes an earlier matching result nor certifies independent provenance. The closest finer published enumeration has a different equivalence relation; its exact counts can be used only after an additional balanced-support correction.",
+      "residual_risks": [
+        "The 2017 full text was not available for comparison of supplementary calculations; a matching coarser enumeration there or in unindexed literature is not excluded.",
+        "The later exact matches are evidence of equivalent content, not evidence about the provenance of any version."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the leading asymptotic, balanced series and exact finite table, not the full rational series in the passages inspected",
+          "evidence": [
+            "Q_3(n)=13n⁴/288+O(n³); verified table includes Q_3(10)=363, Q_3(15)=1880, Q_3(20)=6123."
+          ],
+          "identifier_or_url": "Resultary 2026/10/18, 246b4cc4bcec",
+          "material_read": "RESULT.md Finding at offset 0, balanced-flow Proof about 1900, Verification about 6000",
+          "method": "Compare endpoints, the sectors evaluated exactly and numerical coefficients",
+          "title": "Sharp asymptotic for binary trigram multispectrum capacity",
+          "trigger": "Exact same profile and leading asymptotic claimed before this record"
+        },
+        {
+          "assessment": "The stated general rationality is for the finer invariant; uninspected special calculations remain possible",
+          "evidence": [
+            "3-Abelian equivalence retains counts of all factors through length three; the classes of 0101 and 1010 differ."
+          ],
+          "identifier_or_url": "https://doi.org/10.3233/FI-2017-1531",
+          "material_read": "Available bibliographic and abstract evidence; OA DOI retrieval did not yield full text and identified repository routes timed out. The frozen reference DOI ending in 1553 does not match the bibliography in A289657, which gives 1531 and pp. 1–30.",
+          "method": "Compare equivalence relations and use the published finer sequence as quantified in OEIS",
+          "title": "k-Abelian Equivalence and Rationality",
+          "trigger": "Earlier rational enumeration for the nearest finer invariant"
+        },
+        {
+          "assessment": "Exact finer count, not exact trigram-only enumeration",
+          "evidence": [
+            "The generating function denominator is (1−z)^5(1+z)(1+z+z²), with the offset at n=0; the fourth and fifth length counts are 16 and 32."
+          ],
+          "identifier_or_url": "https://oeis.org/A289657",
+          "material_read": "Offset 395 onward, sequence, bibliography, FORMULA and MAPLE fields",
+          "method": "Compare coefficients and compute the required balanced-support correction with the keyed rational function",
+          "title": "OEIS A289657: Number of 3-abelian equivalence classes of words of length n over a binary alphabet",
+          "trigger": "Exact database/table and generating function for the closest prior enumeration"
+        },
+        {
+          "assessment": "Covers the balanced contribution, not open sectors",
+          "evidence": [
+            "The cyclic length is the window total, unlike n−2 in the linear problem."
+          ],
+          "identifier_or_url": "Resultary 1516a959f63f, 9b2754288e6b and 92625b7494d0",
+          "material_read": "RESULT.md Findings, offset 0",
+          "method": "Match edge totals and compare Euler-circuit versus arbitrary Euler-trail regimes",
+          "title": "Exact cyclic binary trigram profile enumerations, including composition refinement",
+          "trigger": "Earlier exact rational counts from the same graph"
+        },
+        {
+          "assessment": "Equivalent exact findings, cataloged later than the reviewed record",
+          "evidence": [
+            "7044900c1ee8 has the identical series; the other two have algebraically equivalent reindexed or rewritten rational functions."
+          ],
+          "identifier_or_url": "Resultary 2026/11/02, 7044900c1ee8, c5ea7e549c82 and bcc1ebef8280",
+          "material_read": "All three RESULT.md Findings, offset 0",
+          "method": "Compare the first series term by term as an expression, shift/subtract the empty case in the second, and cross-multiply the third",
+          "title": "Exact enumeration, all-length capacity and finite-length capacity of linear binary three-gram spectra",
+          "trigger": "Strongest exact overlaps on the complete function"
+        },
+        {
+          "assessment": "Different edit-code objective",
+          "evidence": [
+            "Theorem 1.1 bounds multiple-deletion redundancy, not the number of distinct fixed-length profiles."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.19493",
+          "material_read": "Abstract at offset 0, §1.3 Theorem 1.1 at offset 4811",
+          "method": "Compare the channel and the theorem's output",
+          "title": "Polynomially larger deletion codes by linear hashing of substring counts",
+          "trigger": "Same profile-vector terminology and coding motivation"
+        },
+        {
+          "assessment": "Set observation; shortest realization problem",
+          "evidence": [
+            "Substr_k is a set of strings, without multiplicities."
+          ],
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.CPM.2022.16",
+          "material_read": "PDF p. 1, abstract and definition of Substr_k",
+          "method": "Check whether repetition affects the observed invariant",
+          "title": "On Strings Having the Same Length-k Substrings",
+          "trigger": "Closely named substring observation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The profile was motivated as a noiseless multiset-read invariant and already studied asymptotically. Exact finite-blocklength cardinality is the maximum number of distinguishable codewords for this observation; the known leading term and exact cyclic/finer counts do not give that finite answer. The result counts the twelve open endpoint sectors and loop/connectivity contributions rather than merely reproducing finite tabulations or the leading term. No error-correction capability or higher-window theorem is inferred.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

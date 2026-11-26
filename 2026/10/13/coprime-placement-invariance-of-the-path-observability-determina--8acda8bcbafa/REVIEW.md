@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The spectral decomposition gives an exact factorization of every finite-horizon determinant into a sensor-dependent sine product and a strictly positive, sensor-independent Vandermonde Gram factor. Coprime multiplication permutes residues modulo \(n+1\), proving all determinant ties; noncoprime indices remove exactly \(\gcd(j,n+1)-1\) modes. A separate endpoint triangularity argument establishes the exact \(n\)-step value, and the Cauchy determinant identity supplies the stable infinite-horizon value. An extracted standard-library exact-rational checker verifies 630 parameter/node/horizon instances, without substituting finite tests for the universal proof. Essential restrictions: uniform symmetric path couplings, one coordinate sensor, \(H\ge n\), and strict Schur stability for infinite horizons.
+## correctness
 
-**Originality — PASS, with risk.** The closest primary work by Parlangeli–Notarstefano (arXiv:1109.3556, spectral section and appendix) provides the sine eigenvectors and number-theoretic observability background, but studies the degree-corrected graph Laplacian and does not compare determinants over all Dirichlet path sensor locations. Pasqualetti–Zampieri–Bullo (arXiv:1308.1201, quantitative metrics and appendix) discuss Gramian determinants and optimize other metrics, but do not imply the stated all-horizon coprime tie without a new path-specific determinant analysis. Summers–Lygeros (arXiv:1306.2491, Sections II–III) establish a trace-modularity theorem, which does not imply determinant equality. Semantic database and primary-literature searches found no direct statement or stronger result covering this one, but an equivalent specialized observation in older spectral-design literature is a genuine residual risk. The spectral basis, sine product, and Cauchy identity themselves are explicitly prior knowledge.
+PASS
 
-**Value — PASS.** The result completely classifies a natural, exact D-optimal placement problem for every system dimension and every finite or stable infinite horizon. It exposes an arithmetic, horizon-invariant family of equally informative sensor locations rather than a single geometrically privileged node. The explicit volume \(\beta^{n(n-1)}\) and singularity/rank classification are useful benchmarks for gridded diffusion and sensor-design algorithms. This is not merely the PBH rank criterion: even distinct observable placements have identical determinants while having provably different traces, as shown by the exact four-state example.
+The normalized sine basis diagonalizes the specified Toeplitz path, with distinct real eigenvalues since β≠0. In that basis W_H=D_j K_H D_j, where K_H is the Gram matrix of sequences (1,λ_k,…,λ_k^(H−1)); the Vandermonde square at H=n proves K_H positive definite for all H≥n. Exactly gcd(j,n+1)−1 sensor weights vanish. At each coprime node the multiplication-by-j permutation modulo n+1 gives identical absolute sine products, and the roots-of-unity evaluation gives the squared modal product 2^(−n)(n+1)^(2−n). This establishes positive ties versus singular positions. The endpoint Krylov matrix is triangular with diagonal β^t for 0≤t<n, so its Gramian determinant is β^(n(n−1)); the modal tie transfers it. At strict Schur stability, K∞ has entries 1/(1−λ_kλ_l) and is positive definite by the first n samples. The double-alternant identity gives its determinant as the squared Vandermonde divided by the ordered-pair product; division by the finite K_n determinant gives the claimed stable value, including zero λ by continuity. The inspected checker.py corroborates bounded finite-horizon ranks and determinants only; it was not executed and does not test the stable formula. The proof does not extend these placement conclusions to heterogeneous couplings, other graph boundary conditions or other criteria.
 
-**Remaining limitations.** No claim is made for heterogeneous paths or metrics other than determinant. The assessment of priority is limited to inspected primary sources and meaningful semantic searches; unseen equivalent literature remains possible. Finite computations are corroboration only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The strongest earlier related determinant/placement result located is on the normalized path and gives a different rank index and optimizer family. Other primary comparisons supply path rank analysis or the Gramian determinant metric but not the supported exact all-horizon determinant law on the Dirichlet Toeplitz path. The rank criterion and generic determinant tools are not themselves claimed as new.
+
+## value
+
+PASS
+
+A uniform Dirichlet path is a standard discrete diffusion/network model, and the determinant is the reachable or observable volume criterion. The result gives all exact optimal single-node choices, including interior ties that rank positivity alone cannot distinguish, independent of horizon and coefficients, and provides usable minimal and stable infinite values. It does not claim a novel sine basis, general rank test, or optimization of trace or conditioning.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

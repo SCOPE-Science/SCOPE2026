@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:58:23.857518Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Write J=∑(1−U_i), then known-rate Poisson moments are λ/2 and λ/3 (mean and variance), and known-total-count moments are m/2 and m/12. With q=P(Y=0), let D=E[J]−E[J|Y=0]. The two posterior means are E[J]−D and E[J]+Dq/(1−q), so explained variance is D²q/(1−q). Independent future Poisson events give D=λ(t−t²/2) and q=e^(−λt); independent uniforms conditional on all exceeding t give D=mt/2 and q=(1−t)^m. This verifies the exact means, risks and information, including zero information at t=0 and at the fixed-count t=1; the Poisson t=1 remains informative. The Poisson derivative sign is that of 2(1−t)/(1−t/2)−g(λt), with g(x)=x/(1−e^(−x)) strictly increasing. The strictly decreasing difference crosses once, and larger λ moves the root left. Uniformly g(λt)→1 for small λ, giving 2/3, while λt≤c* gives t→0 at high rate and then λt→c*. In the fixed-count case the sign changes once by 2∑(1−t)^k=m; the average of these strictly decreasing terms shrinks as m grows, so the root falls strictly from t₁=1/2. Bracketing at t=x/m uses the limit ∫₀¹e^(−xs)ds and proves mt_m→c*. Substituting in both formulas and using c*²/(e^c*−1)=c*(2−c*) gives the normalized coefficients and the independently checked decimal values. For exact counts, conditional means are affine in N(t) with slopes 1−t/2 and 1/2 respectively, giving the stated explained fractions and optima. The reported 7,219 finite checks agree with the inspected loop counts; the uploaded verifier was not executed. The analytic argument, not the numerical grid and simulations, supplies exact uniqueness and limits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cressie treats the full observed process values and includes Poisson processes; the target paper reproduces the full-value comparator, not as a new claim.",
+          "The unrestricted-encoding result gives a threshold h and explicit I_λ(t,h) for every h, covering the fixed-presence objective exactly at h=1. Its unrestricted optimal placement tends to 2/3 rather than c*/λ, and its optimal threshold grows with the expected count."
+        ],
+        "reasoning": "The best full-value or best unrestricted binary design is a different experiment. The unrestricted threshold objective is strong prior coverage for the specified Poisson objective, but no equation for a conditioned-count optimizer is supplied there; conditioning on the total changes the stochastic model and conditional regression.",
+        "searches": [
+          "Cressie DOI 10.1017/S0004972700007838 full-value sampling design; Samaniego DOI 10.1109/TIT.1976.1055551",
+          "Poisson first arrival yes no optimal threshold observation binary Bayes least squares integral counting process known fixed count event stochastic quadrature",
+          "39109e244f65 exact finite-rate reduction"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary d3842c2a4a49, 39109e244f65 and 75177df2e67c",
+        "Cressie 1978 OA article and the cited Samaniego/Dokter access checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Combined, the exact h=1 objective and the first-arrival scalar optimum already imply the high-rate Poisson coefficient and scale: on x=λt its objective is ≤F(x) and converges to F(c*) at x=c*; the unique maximum of F and its decay at zero and infinity force optimizers x→c*. Differentiating the covered objective also yields the Poisson stationary equation.",
+          "Under fixed total count the Bernoulli cell probability and the posterior difference change, and the optimizing equation is a geometric sum and strictly monotone in m. Neither cited threshold/first-arrival paper supplies this conditional experiment's result."
+        ],
+        "reasoning": "The new content is not just evaluating a known Poisson formula or recomputing c*. The conditioned optimum and its finite-m to high-density comparison, with exact matching normalized coefficient, survive even after crediting the mechanical Poisson implications.",
+        "searches": [
+          "39109e244f65 fixed h=1 specialization, §5",
+          "75177df2e67c §4",
+          "Cressie full values and Poisson model"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The bit is an inspection indicator 1_{T_first≤t}. In the first-arrival estimation record 75177df2e67c the same bit leads to maximizing F(x)=x²/(e^x−1), with x=λt and the same strictly positive root c*.",
+          "The target of the frozen claim is J on a finite horizon, not the first arrival T on an unbounded horizon. Its Poisson objective is (1−t/2)²F(λt); with fixed total count the no-event law is (1−t)^m."
+        ],
+        "reasoning": "There is exact equivalence of the scalar limiting maximization, not of the full finite-density design: the factor 1−t/2 moves the Poisson root and the fixed-total-count law has a different root. The constant by itself is not distinct.",
+        "searches": [
+          "Resultary: fixed count binomial Poisson saturated presence single bit quadrature optimal first arrival timescale c 1.593624 2(1-exp(-c)) explained variance event count",
+          "75177df2e67c proof §4 Binary benchmark"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "d3842c2a4a49 is the frozen self-hit. 39109e244f65 §5 explicitly writes the fixed-presence formula and deduces a vanishing captured fraction. 75177df2e67c §4 gives the exact scalar optimum but for a different estimand."
+        ],
+        "reasoning": "Do not rely on date to dismiss these overlaps or infer precedence. There is exact formula and partial asymptotic coverage but no inspected exact table or theorem of the two finite-density placement laws.",
+        "searches": [
+          "Resultary, saturated presence versus exact count and first-arrival timescale",
+          "Original Findings and proof passages for 39109e244f65 and 75177df2e67c"
+        ]
+      },
+      "rationale": "Credit the classical full-count result, the exact Poisson fixed-presence objective covered by the same-day threshold-design record, and the scalar asymptotic optimization shared with first-arrival estimation. The supported distinct claim is the exact finite-density placement laws for the compulsory presence bit, including the known-total-count model and the comparison of their normalized information losses. The compared results do not give the conditioned placement law or the paired design theorem. This is not an originality pass for the standalone Poisson objective, its vanishing captured fraction, or the scalar constant.",
+      "residual_risks": [
+        "Historical priority between same-day records is unresolved. Exact Poisson partial coverage is credited independently of priority.",
+        "Some older stochastic-integration and interval-censoring papers remain inaccessible or may use different terminology. No absence inference is made from the search or access gaps."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact fixed-presence Poisson objective overlap; unrestricted placement and thresholds differ; no fixed-total-count model",
+          "evidence": "The unrestricted threshold theorem gives I_λ(t,h); §5 specializes h=1 to (1−t/2)²(λt)²/(e^(λt)−1) and notes the vanishing explained fraction.",
+          "identifier_or_url": "2026/11/22/SCOPE-optimal-one-bit-quadrature-of-a-poisson-counting-path-exact-thre--39109e244f65",
+          "material_read": "Finding and assumptions at mirror offset 0; proof §5 in passage 5996–8208",
+          "method": "Original local mirror text",
+          "title": "Optimal one-bit quadrature of a Poisson counting path: exact thresholds and a sharp high-intensity limit",
+          "trigger": "Same target and a stronger family of encodings"
+        },
+        {
+          "assessment": "Exact scalar maximizer shared, different quantity estimated",
+          "evidence": "§4's normalized risk for estimating the first arrival is 1−x²/(e^x−1); optimizer solves (2−x)e^x=2. No count-path area or fixed-total-count model there.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-unique-optimal-single-count-for-reconstructing-a-poisson-fir--75177df2e67c",
+          "material_read": "Finding and assumptions, mirror offset 0; proof §4 at 4438–5230",
+          "method": "Original local mirror text",
+          "title": "The unique optimal single count for reconstructing a Poisson first arrival",
+          "trigger": "Same presence bit and exactly the same positive scalar root"
+        },
+        {
+          "assessment": "Full-value comparator, not fixed one-bit sensing",
+          "evidence": "The problem is the MSE-optimal sampling of the values of a stochastic process to predict its integral, with the Poisson process included. The comparator fractions in the frozen record also follow independently from conditioning on the count.",
+          "identifier_or_url": "https://doi.org/10.1017/S0004972700007838",
+          "material_read": "pp.83–86 and 88–89; OA offsets 0, 5938, 11915, partly garbled equation extraction",
+          "method": "OA Cambridge PDF, bounded passages",
+          "title": "Estimation of the integral of a stochastic process",
+          "trigger": "Classical optimal sampling for the same integral estimand"
+        },
+        {
+          "assessment": "Does not establish independent exact one-bit overlap; residual uncertainty remains",
+          "evidence": "Cressie attributes the full-value integral sampling problem to Samaniego; retrieval was not a full-text negative comparison.",
+          "identifier_or_url": "https://doi.org/10.1109/TIT.1976.1055551",
+          "material_read": "Full text unavailable through attempted DOI and IEEE page retrieval; Cressie p.83 cites its scope",
+          "method": "Lawful OA attempts and cited primary comparison",
+          "title": "The optimal sampling design for estimating the integral of a process with stationary independent increments",
+          "trigger": "Antecedent integral sampling result"
+        },
+        {
+          "assessment": "No content-level exclusion claimed from this attempt",
+          "evidence": "The access result is a limitation, not absence evidence; the most directly matching equations come from the two inspected indexed sources.",
+          "identifier_or_url": "https://doi.org/10.1002/ece3.3281",
+          "material_read": "No primary text from DOI access (HTTP 403)",
+          "method": "Lawful OA retrieval attempt",
+          "title": "Analyzing time-ordered event data with missed observations",
+          "trigger": "Possible observation-coarsening model antecedent cited by the frozen record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The compelling content is the exact optimized sensing design for two standard count-process laws when only irreversible presence/absence hardware is available, especially the conditioned bridge's entire finite-count placement law and its comparison to the unconditioned process. This shows quantitatively that the best fixed presence sensor must operate on a shrinking first-arrival scale and captures an inverse-density fraction under either law, unlike observing an exact count or a tunable threshold. The value is in the paired statistical design and conditioning comparison, not the scalar root or the known standalone Poisson objective.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

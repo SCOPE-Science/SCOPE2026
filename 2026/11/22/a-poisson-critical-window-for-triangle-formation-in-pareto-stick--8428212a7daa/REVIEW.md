@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For i.i.d. Pareto type-I lengths with parameter \(\alpha>0\), logarithmic order-statistic gaps yield independent \(\operatorname{Beta}((n-i)\alpha,1)\) ratios. Consecutive-triple triangle indicators are consequently one-dependent. An exact integral and the inequalities for exponential and power remainders give the leading local probability \((\pi^2/12)\alpha^2(n-i)(n-i-1)\) with a controlled \(O(n^4\alpha^3)\) aggregate error. Adjacent-pair probabilities are \(O(n^4\alpha^3)\); the local-dependence Poisson-process approximation contributes an additional \(O(n^5\alpha^4)\). The fixed bounded-mean window therefore converges to the asserted spatial Poisson law. A second-moment argument, with a monotone cap on the shape parameter, establishes the supercritical zero-probability limit. The standalone checker passed 13,315 deterministic/seeded assertions, including integral and finite-sample tests. The analytical proof, not Monte Carlo, establishes the infinite theorem.
+PASS
 
-## Originality — PASS against inspected sources
+The rate-(n−i)α exponential log-gaps give independent Beta((n−i)α,1) ratios. A violation is the event R_(i+1)(1+R_i)>1. The zero event detects every triangular triple, since the two immediate predecessors of any possible largest stick dominate any other pair below it; the count itself is only of consecutive triples. Conditioning yields q_i=a∫x^(a−1)[1−(1+x)^(−b)]dx. Expanding the exponential and x^a with one-sided remainders gives 0≤(π²/12)ab−q_i≤(3ζ(3)/4)a²b+(π²log(2)/24)ab². The adjacent joint probability is at most q_i β_(i+2) log 2. For an independent check of the process approximation: write F for the indicators through i−2 and J for I_(i−1). I_i is independent of F. The conditional deviation from q_i, averaged over J given F, equals 2|E[I_i J|F]−q_i E[J|F]|. Summing the expected deviations while replacing the conditional laws by independent Bernoulli(q_i) laws bounds process TV by 2Σ(P(I_i I_(i−1)=1)+q_i q_(i−1)); Poissonizing the independent coordinates costs O(Σq_i²). Coupling intensities adds at most their summed absolute difference. These give the claimed two error orders and apply even outside the critical regime (where the bound can be vacuous). Riemann sums give the stated density and mean π²λ/36, including the empty limit at λ=0. For supercritical n³α²→∞ with nα→0, the relative variance is O(1/(n³α²)+1/(n²α)); both denominators diverge. Capping α by n^(−4/3) preserves this regime and monotonicity of the uniform-ratio construction extends the conclusion. An independent algebraic recomputation confirmed the constants. CHECK.py was inspected, not executed; its frozen finite diagnostics are not a limit proof.
 
-Barczy--Lovas (arXiv:2611.04436v1, full HTML including Theorem 3.2 and order-ratio formulas) prove exact finite-sample integrals and the relevant independent Beta representation, not the joint limit. Brennan--Callow--Lin (arXiv:2604.27573v2, section 3.3) give unbounded-law integrals. The publicly recorded fixed-shape result *Sharp quadratic decay for triangle-free Pareto stick samples* gives \(\log\Pr(A_n)=-\alpha\log\varphi\,n^2/2+O_\alpha(n\log n)\) for fixed positive \(\alpha\), and its proof explicitly excludes varying shape parameters. The closest accessible historical finite-sample shape-zero expansion fixes the sample count, with an uncontrolled sample-dependent remainder. Neither statement implies Poisson convergence for \(n^3\alpha_n^2\to\lambda\), its nonuniform spatial marks, nor the sharp general threshold. No equivalent prior was found in the recorded searches. Residual risk: a more general unpublished or undetected rare-event theorem might subsume this specialization.
+## originality
 
-## Value — PASS
+PASS
 
-The joint extreme-tail/large-sample regime is mathematically distinct from both fixed-tail quadratic large deviations and fixed-sample expansions. The threshold \(\alpha_n\asymp n^{-3/2}\), nonhomogeneous Poisson spatial intensity \((\pi^2\lambda/12)(1-x)^2\), exact limiting avoidance probability, and explicit finite-parameter error furnish structural information for a naturally defined random-geometry event, including where the first triangular triples emerge. The count is for consecutive sorted triples, which is sufficient to detect existence, and is not falsely identified with all triangular subsets.
+The closest fixed-n endpoint already contains the same leading local coefficient, triangle criterion and adjacent-event mechanism. The defended contribution is the uniform-in-n process approximation with a growing sample, the limiting spatial intensity, and the threshold including the out-of-window avoidance limit; not the local coefficient, finite exact integral, or rare-event approximation theorem by itself.
 
-## Limitations and closest literature
+## value
 
-The theorem is specific to the exact i.i.d. Pareto family, and the total-variation inequality can be trivial outside its sparse regime. No independent mathematical assessment has yet been carried out. Closest references: Barczy--Lovas arXiv:2611.04436v1; Brennan--Callow--Lin arXiv:2604.27573v2; *Sharp quadratic decay for triangle-free Pareto stick samples* (2026); Arratia--Goldstein--Gordon (1990) for the dependency-graph process approximation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This identifies a natural noncommuting-limits problem: the window α on the scale n^(−3/2) determines when a first triangle can occur and whether complete avoidance is likely. The explicit rank intensity says where the consecutive-order violations concentrate, beyond a scalar avoidance probability, and the grid approximation supplies a quantitative finite-size law. It does not count all triangular subsets and its quantitative bound can be uninformative outside the sparse regime.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

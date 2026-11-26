@@ -1,0 +1,87 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:12:10.074994Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The cap gives an independent direct proof for fractional blocking, without LP duality. Write L=sum_i y_i, Z=sum_c z_c and u_i=u_i(W). In any blocker, qZ <= L <= sum_i (1+u_i)y_i = sum_(i,c) x_ic <= sum_c |S_c|z_c <= qZ. Equality throughout forces u_i y_i=0 and, for every z_c>0, |S_c|=q and x_ic=z_c for every supporter. Those supporters have y_i>0 by their row equalities and are therefore all unrepresented; c is unelected and violates JR. Conversely a JR violation gives an integral singleton block, which embeds into the fractional system (choose exactly 1+u_i approved alternatives for each participating voter). This proves both equivalences and vacuity for nonintegral q, including q<1. A maximal disjoint family of quota-size supports has size at most k and intersects each other quota-size support, as required. For the sharp example, only q-1 voters gain from singleton c, and neither two-candidate alternative can improve all 2q voters: each leaves one of the two represented c-supporters at utility one. The fractional witness has the stated row equalities and sum_i y_i=q with only z_c=1; this remains valid at q=1. The frozen script was inspected, not run. Its capped-profile regression tests JR and integral core, not all fractional obstructions; line 107 checks a weak inequality rather than explicitly testing equality, which the displayed witness satisfies exactly by direct substitution.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general characterization in v1 Theorem 3.3 gives conditions on a candidate-specific payment/reserve solution; the local-search/existence result does not classify all committees satisfying JR. A cap argument is required to get the equivalence, even using the characterization."
+        ],
+        "reasoning": "The prior equivalence of two core+ formulations and existence at broad parameters are not the cap-specific all-committee equivalence; the sharp obstruction above the cap is a separate statement.",
+        "searches": [
+          "Becker–Greger–Peters arXiv:2609.11912v1, pp. 3–5 and section 7",
+          "Focused literature lookup for Hare-quota support cap and fractional approval core"
+        ]
+      },
+      "checked_sources": [
+        "Becker–Greger–Peters arXiv:2609.11912v1 Definition 3.1, Theorem 3.3, Remark 3.4, section 7; v2 theorem numbering",
+        "Resultary 104774c4c4ec Finding and Assumptions",
+        "Frozen RESULT.md, VERIFICATION.md and verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A prior core+ committee necessarily lies in integral core. JR failure supplies a singleton block. At the cap, the reverse needs saturation of the incidence inequalities (or a strict loser reserve bound); the separate fractional witness has n=2q with one candidate at q+1."
+        ],
+        "reasoning": "The general dual criterion is an ingredient, not the asserted support threshold and sharpness. The catalog's separation neither supplies this cap converse nor implies its threshold witness by specializing its parameters.",
+        "searches": [
+          "arXiv:2609.11912v1, Definition 3.1 and Theorem 3.3; Resultary 104774c4c4ec, Finding and Assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The defining fractional infeasibility and the payment/reserve formulation are equivalent in Becker–Greger–Peters. Ordinary Lindahl priceability is an implication, not a synonym. The matching catalog result concerns committees lying in core but not core+ on a different family."
+        ],
+        "reasoning": "Comparing in either formulation leaves the same new restriction and converse: every fractional blocker in a capped profile forces a quota-size unrepresented support. Ordinary core+/core/JR implications in the other direction are not claimed as new.",
+        "searches": [
+          "arXiv:2609.11912v1, Definition 3.1, Theorem 3.3, Remark 3.4; v2 renumbering",
+          "Resultary semantic search for quota-bounded approval support, JR, core and fractional core+"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest catalog finding has k>=3, n=k+1 and nonintegral q=(k+1)/k. The common candidate has k supporters and private candidates have two. It classifies integral core and core+ and counts their shares on that family."
+        ],
+        "reasoning": "This is a genuine existing separation of the two cores, but not evidence of the exact cap-boundary result: it has multiple over-cap candidates and does not realize the one-supporter, three-candidate, every-integral-quota witness. The present theorem is structural, not a missing row of that enumeration.",
+        "searches": [
+          "Resultary local searches for quota-capped approval equivalence and sharp three-candidate obstruction",
+          "Resultary 2026/10/25/SCOPE-an-asymptotically-vanishing-fractional-core-share-among-pareto-e--104774c4c4ec/RESULT.md, Finding"
+        ]
+      },
+      "rationale": "The imported core+ notion, its implication of integral core, and its dual characterization are not contributions. The supported distinct result is the exact cap-specific converse for every committee, its constructive characterization, and the sharp one-voter breach at every integral quota. Existing results inspected do not give that combination or mechanically yield the sharp family.",
+      "residual_risks": [
+        "No exhaustive priority claim: related priceability and sparse-election work may contain other sufficient conditions or special witnesses. The focused literature lookup produced no additional match, not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Definition and duality cover ingredients; no inspected statement gives the claimed cap converse and sharp family",
+          "evidence": "Definition at OA offset 10300; payment conditions at offsets 14898–20363. The v2 payment theorem is renumbered to 3.2.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.11912v1",
+          "material_read": "Definition 3.1 p. 3; Theorem 3.3 and Remark 3.4 pp. 4–5; section 7 local-search passage",
+          "method": "OA PDF passage inspection by literal query and offset",
+          "title": "Existence of the Core in Approval-Based Committee Elections",
+          "trigger": "Source of the exact fractional-core notion and possibly a stronger theorem"
+        },
+        {
+          "assessment": "Related separation, not the claimed threshold or witness",
+          "evidence": "Theorem takes k>=3 and q=(k+1)/k and gives exact committee counts on the common/private/guardian construction.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-an-asymptotically-vanishing-fractional-core-share-among-pareto-e--104774c4c4ec/RESULT.md",
+          "material_read": "Finding and Assumptions and scope",
+          "method": "Local Resultary mirror, offset 0",
+          "title": "An asymptotically vanishing fractional-core share among Pareto-efficient approval committees",
+          "trigger": "Closest catalog result separating the two cores"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The support cap turns two otherwise stronger blocking notions into an elementary incidence test and greedy construction for all committees in a natural sparse-approval regime. The uniform three-candidate obstruction identifies a sharp boundary, rather than merely showing that fractional and integral blocking sometimes differ.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:53:35.012390Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The graph has diameter two. An omitted disjoint pair cannot be strongly resolved by a third vertex. For an omitted intersecting pair u,v, take a line w through a point of v outside u and not lying in their span. The line w is disjoint from u, so w must be selected, and u–v–w is a geodesic. Strong resolution therefore reduces exactly to the clique condition for the omitted set. Every clique of size at least two is either concurrent at a unique point or nonconcurrent in a unique plane: a third line missing the intersection of the first two must lie in their span, and then prohibits any outside line. Counting the two classes gives the stated polynomial. The size counts at d=4 are family-specific, as the final sentence of the Finding indicates: the total at the common size is P+T, not P or T separately. For a bounded independent check, forming the 35 binary lines as triples {u,v,u XOR v} and recursively appending only higher-index adjacent lines gave coefficients 1,35,315,945,1050,630,210,30, with 30 maximal cliques all of size 7. This check is not used as a proof for general q,d. The frozen verification source was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The book gives the complete two-type maximal-clique theorem and their sizes for lines in finite projective space.",
+          "The product paper uses independence in strong resolving graphs, a general reduction rather than a calculation of this clique vector."
+        ],
+        "reasoning": "The same-object theorem supplies all maximal configurations for all parameters in scope. Product strong metric results do not independently tabulate the invariant.",
+        "searches": [
+          "Brouwer–Van Maldeghem, §3.5.1, printed p. 104",
+          "Rodríguez-Velázquez et al., arXiv:1307.4722, Theorem 4"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary index",
+        "Brouwer–Van Maldeghem §3.5.1",
+        "arXiv:1010.4495",
+        "arXiv:1307.4722",
+        "10.1016/j.dam.2006.06.009 (abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Two distinct pencils share at most one line, and two distinct plane tops share at most one by the dimension of the intersection of their planes. A mixed pair shares q+1 lines precisely when its point is in its plane, and otherwise none. There are sT such incident flags.",
+          "For k≥2 there can be at most one containing clique of each type. Inclusion–exclusion immediately gives P binom(r,k) + T binom(s,k) − sT binom(q+1,k); sizes 0 and 1 are trivial. Minimal sets and their sizes are exactly the complements of the published maximal configurations."
+        ],
+        "reasoning": "This is direct, coefficientwise coverage by the published same-graph theorem and elementary subspace incidence; no additional classification, nontrivial overlap analysis, or new approximation is needed. This judgment does not assert that the polynomial was already printed.",
+        "searches": [
+          "Brouwer–Van Maldeghem, §3.5.1, classification of maximal cliques on projective lines"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The omission polynomial is literally the clique polynomial, including its empty clique; the selected-set polynomial just reverses the exponents.",
+          "Bailey–Meagher study ordinary metric dimension, not the clique vector or strong resolution."
+        ],
+        "reasoning": "The duality at d=4 is already present in the Grassmann classification (the two types are in one automorphism orbit); both types count separately even then. Ordinary metric dimension is not an equivalent formulation.",
+        "searches": [
+          "Resultary: Grassmann strong-resolving polynomial and rank-two Grassmann clique-vector formulations",
+          "Brouwer–Van Maldeghem, Strongly Regular Graphs §3.5.1",
+          "Bailey–Meagher, arXiv:1010.4495"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The related Resultary entry 2026/11/22/SCOPE-shattering-by-maximal-cliques-of-finite-grassmann-graphs--787364616cde has an indexed summary about shattered supports, including triangles avoiding projective pencils; only that summary was available.",
+          "The inspected book section lists graph and clique data, not the whole size distribution."
+        ],
+        "reasoning": "No exact table of the complete vector was identified in the material checked. The indexed shattering record appears related at the nonconcurrent-triple level; its summary does not establish coverage of the full polynomial or a priority claim.",
+        "searches": [
+          "Resultary: Grassmann strong-resolving polynomial and clique-vector formulations",
+          "Brouwer–Van Maldeghem, §3.5.1"
+        ]
+      },
+      "rationale": "The complete polynomial was not located verbatim in the inspected literature. The originality failure is prior implication: the published classification and sizes of all maximal cliques of this very graph leave only elementary flag counting and one overlap subtraction. Strong-resolution terminology and polynomial reversal do not create a distinct invariant beyond the clique vector.",
+      "residual_risks": [
+        "The shattering record and the foundational strong metric paper could contain additional overlap; their available passages do not settle that.",
+        "This is not an exhaustive exact-formula priority search. The rejection rests on positive prior implication, not missing material or a negative search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive coverage by implication, not a printed enumerator",
+          "evidence": "The section specifies the point pencils and plane tops, their sizes, and the d=4 common orbit.",
+          "identifier_or_url": "https://homepages.cwi.nl/~aeb/math/srg/rk3/srgw.pdf",
+          "material_read": "§3.5.1, Lines in a projective space, printed p. 104",
+          "method": "OA PDF passage inspection",
+          "title": "Strongly Regular Graphs",
+          "trigger": "Same Grassmann graph and complete maximal-clique classification"
+        },
+        {
+          "assessment": "Different resolving notion",
+          "evidence": "Distances to a selected set distinguish vertices in ordinary metric dimension.",
+          "identifier_or_url": "arXiv:1010.4495",
+          "material_read": "PDF pp. 1–2, ordinary resolving-set definition and upper bound",
+          "method": "OA PDF passage inspection",
+          "title": "On the metric dimension of Grassmann graphs",
+          "trigger": "Same-object metric result"
+        },
+        {
+          "assessment": "Relevant general reduction, not a Grassmann clique table",
+          "evidence": "The theorem concerns products and the independence number of constructed strong resolving graphs.",
+          "identifier_or_url": "arXiv:1307.4722",
+          "material_read": "PDF p. 4, Theorem 4",
+          "method": "OA PDF passage inspection",
+          "title": "On the strong metric dimension of Cartesian and direct products of graphs",
+          "trigger": "General strong resolving graph and independence reduction"
+        },
+        {
+          "assessment": "Some related triangle geometry; entire paper coverage unresolved",
+          "evidence": "The summary counts shattered supports and refers to shattered triangles avoiding pencils.",
+          "identifier_or_url": "2026/11/22/SCOPE-shattering-by-maximal-cliques-of-finite-grassmann-graphs--787364616cde",
+          "material_read": "Indexed summary only; the body was not available from the mirror",
+          "method": "Local Resultary catalog and mirror",
+          "title": "Shattering by maximal cliques of finite Grassmann graphs",
+          "trigger": "Closest catalog entry on maximal-clique counts for the same graphs"
+        },
+        {
+          "assessment": "Full-text coverage unresolved; not used as decisive evidence",
+          "evidence": "The inspected material identifies the general strong metric problem.",
+          "identifier_or_url": "10.1016/j.dam.2006.06.009",
+          "material_read": "Landing page and abstract only; no OA full text obtained",
+          "method": "Lawful OA lookup",
+          "title": "The strong metric dimension of graphs and digraphs",
+          "trigger": "Foundational strong resolution and possible general implications"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The size distribution is natural and the overlap correction is useful to write down. But as an asserted new exact invariant it is mechanically determined by standard published maximal-clique data and a two-term incidence calculation. The frozen record adds no further structural or enumerative result that survives this reduction.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

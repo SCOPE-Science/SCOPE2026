@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:35:06.383745Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof 1–6",
+        "Frozen VERIFICATION.md and verify_palindromic_universal.py (inspected, not executed)"
+      ],
+      "rationale": "Greedy full-alphabet blocks characterize scattered universality: the last symbol of the shortest complete prefix has no earlier occurrence, so the targets starting with that symbol force (k−1)-universality in the remaining suffix. The even length bound qk follows by counting blocks. For odd k, at most one symbol of a palindrome can have odd multiplicity; k occurrences of each letter requires length at least q(k+1)−1. Both bounds are achieved by the displayed mirrored blocks. At even equality, every complete block has length q with no remainder. At odd equality, relative to any partition with 2m+1 complete blocks (and possibly a tail), the first m left and right greedy blocks stop no farther inward than those of the same partition. Hence they are disjoint and leave a central palindrome containing the partition's middle complete block. Its length is at least 2q−1, with equality exactly for VcV^R; each of the removed blocks must then have length q. This includes m=0. Fixed block boundaries give unique decoding, with q! choices for each initial permutation and q(q−1)!=q! choices for the odd center.",
+      "residual_risks": [
+        "The finite checker starts at the analytical qk bound and covers only the paired small q,k ranges in VERIFICATION.md. The arbitrary-q,k conclusion rests on the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier midpoint relation determines the index of a palindrome from its half's index and, for odd length, whether the center completes its arch remainder.",
+          "Resultary ee2a2eecfdda gives exact generating functions for the number of all fixed-alphabet palindromes at each length and index; proof step 2 explicitly states both midpoint index formulas and attributes the lemma to Barker et al."
+        ],
+        "reasoning": "The prior relation holds before any extremization and determines feasibility for each palindrome. The catalogue theorem is stronger on enumeration and confirms the coverage without implying priority for the later entry.",
+        "searches": [
+          "Resultary ee2a2eecfdda; primary arXiv:2003.04629v1 Proposition 15"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2003.04629v1",
+        "Resultary ee2a2eecfdda",
+        "Resultary 19792ff873a4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For v with m greedy arches and remainder r, vv^R has index 2m and vcv^R has index 2m+1 exactly if alph(r)∪{c}=Sigma, otherwise 2m. The m=0 case follows immediately: neither half contains all letters, so at most one complete block can cross the middle."
+        ],
+        "reasoning": "For target 2m, use m shortest possible arches of length q, no remainder or center; for target 2m+1, the shortest option is those m arches plus a remainder of length q−1 with each noncentral letter once, and a center. Any option with more arches has at least 2q(m+1) symbols. A shortest arch is a permutation, and the center and remainder together are a permutation with the center letter last; their independent choices are uniquely readable and give the entire classification and count.",
+        "searches": [
+          "arXiv:2003.04629v1, Proposition 15 (p. 11), and Resultary ee2a2eecfdda, proof step 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Definition 2 uses ScatFact_k(w)=Sigma^k over the fixed alphabet. Proposition 15 concerns ordinary reversal palindromes and their left halves, not contiguous factors or reverse complements."
+        ],
+        "reasoning": "Scattered-factor universality, k-spectrum saturation, and the frozen scattered-subsequence property are the same notion. A same-day Resultary hit 19792ff873a4 instead covers positions of a fixed word and is not equivalent.",
+        "searches": [
+          "Resultary: palindrome, scattered-factor/subsequence universality, mirrored arches, shortest universal host",
+          "Barker et al. arXiv:2003.04629v1, Definition 2 and Proposition 15"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "With half-length variable z, the exact index 2m even-length generating function is R_q(z) A_q(z)^m; the exact index 2m+1 odd-length function is S_q(z) A_q(z)^m. A_q starts q! z^q, R_q starts 1, and S_q=A_q/z."
+        ],
+        "reasoning": "The leading nonzero coefficient yields the frozen optimal counts at half-lengths mq and mq+q−1. For even target, odd hosts of index ≥2m need at least m arches in the half and add one symbol; for odd target an even host or an odd host using m+1 arches on the half is longer. Thus the stronger indexed result covers the exact extremal counts, without a finite lookup table.",
+        "searches": [
+          "Resultary exact universality-index distributions, ee2a2eecfdda, Finding"
+        ]
+      },
+      "rationale": "The minimum, all equality forms, and counts are routine shortest-block consequences of the earlier, stronger palindrome midpoint relation of Barker et al., arXiv:2003.04629v1, Proposition 15, together with its greedy arches. The exact bundled extremal statement need not be printed in the prior paper to be covered. A distinct later Resultary distribution theorem independently covers all extremal counts and explicitly gives the same structural lever. This is coverage, not an inference about provenance of the submitted proof.",
+      "residual_risks": [
+        "No attribution or earliest-discovery conclusion is drawn beyond the documented earlier structural result. A separate publication packaging precisely the three frozen formulas was not needed to establish implication coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier stronger structural result, with the extremal conclusions mechanically implied",
+          "evidence": [
+            "The even index is twice the half's index; the extra odd index is characterized by completion of the half's incomplete remainder by the center."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2003.04629v1",
+          "material_read": "Definition 2 at offsets 13011–14511; Proposition 15 and proof around offsets 36900–39700, pp. 11–12",
+          "method": "OA primary PDF, bounded sections",
+          "title": "Scattered Factor-Universality of Words",
+          "trigger": "Direct palindrome-midpoint theorem for same universality property"
+        },
+        {
+          "assessment": "Stronger enumerative coverage plus explicit same structural lemma; later catalogue date, not priority evidence",
+          "evidence": [
+            "The denominators are 1−u²A_q(z) and the odd-index coefficient is extracted from u S_q(z); proof step 2 states the midpoint lemma and names Proposition 15."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-universality-index-distributions-of-palindromic-words-over--ee2a2eecfdda/RESULT.md",
+          "material_read": "Finding, offsets 0–2273; residual words and midpoint arch lemma, offsets 3990–5842",
+          "method": "Bounded Resultary local mirror passages",
+          "title": "Exact universality-index distributions of palindromic words over every finite alphabet",
+          "trigger": "Full distribution dominates shortest-length counts for same q, k and palindrome model"
+        },
+        {
+          "assessment": "Does not cover the assigned claim",
+          "evidence": [
+            "It asks for a shortest subsequence covering positions of a given ternary word, not a reversal host for all length-k words."
+          ],
+          "identifier_or_url": "Resultary 2026/10/18/SCOPE-first-ambiguity-of-shortest-ternary-subsequence-covers--19792ff873a4",
+          "material_read": "Indexed finding and its fixed input word objective",
+          "method": "Resultary local comparison",
+          "title": "First ambiguity of shortest ternary subsequence covers",
+          "trigger": "Similar shortest-subsequence-cover terminology"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, classification and count",
+        "Barker et al. Proposition 15"
+      ],
+      "rationale": "The normal forms make a useful illustration of the midpoint theorem, but the asserted contribution consists solely of minimizing the lengths of its already characterized arches and remainder and multiplying their independent permutation counts. There is no new structural constraint or unresolved extremal choice after applying the theorem.",
+      "residual_risks": [
+        "This judgment concerns the frozen extremal claim, not the value of the more general midpoint theorem or universality distributions."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

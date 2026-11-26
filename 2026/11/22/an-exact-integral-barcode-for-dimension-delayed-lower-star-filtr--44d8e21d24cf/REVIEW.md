@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The core is an explicit filtered **unimodular** chain decomposition, not an inference from finite experiments. Every base face \(\sigma\) gives the cycle \(z_\sigma=\partial[a,\sigma]\), whose leading term is \([\sigma]\); all other terms enter no later because the apex weight is minimal and the dimension penalty is the same. The change of basis and its inverse preserve every sublevel lattice. The only nonzero new boundaries are \(\partial[a,\sigma]=z_\sigma\), with coefficient one. Thus a complete direct sum of primitive integral two-term chain complexes gives the claimed barcode and all transition maps. All quantifiers, ties, empty base, zero dimension and the essential class are covered. The 945 independent finite-field reductions test boundary signs and grading, but are not used as proof. Failure without the minimum-apex assumption is displayed explicitly.
+## correctness
 
-## Originality — PASS, with priority risk
-The primary source's Definition 4 and Example 1 introduce and illustrate the dimension-delayed maximum rule; its Proposition 1 proves monotonicity and Theorem 1 treats stability. Neither their discussed examples nor the inspected source's general theorem establishes the integral, face-indexed, all-weight cone barcode. General filtered-chain decomposition by Chachólski–Giunti–Jin–Landi is algorithmic and applicable in principle, but does not itself give the present exact formula or its universal artificial-bar consequence. A targeted search of published mathematics records, exact terms and earlier filtered-cone literature identified no logically dominating claim. Relevant background methods exist, and an unindexed earlier specialization cannot be excluded. See the separate implication checks and inspections in `AUDIT.json`.
+PASS
 
-## Mathematical value — PASS
-The recently introduced delay is intended to reveal loops hidden by simultaneous simplex entry. This theorem specifies a broad natural **negative-control family**—cones, including clique complexes of graphs with a dominating vertex—where *all* finite barcode features are forced purely by the delay, and where every nonempty base face creates one such feature. It yields all-dimensional exact integral calculations for arbitrary vertex weights, the sharp fixed-length law, exponential counts on complete simplices, and examples of topologically different flag bases with identical cone barcode fingerprints. This provides a concrete diagnostic and a mathematical boundary for interpreting newly created features, not simply a small numerical improvement or a special-case calculation.
+For every nonempty base j-face σ, orient the cone simplex uσ with the apex first. Its boundary zσ has coefficient +1 on σ and all other terms are apex cones on proper faces, or just the apex for j=0. Their filtration grades are at most that of σ because the apex has minimum weight. Thus replacing σ by zσ is an integral shear preserving each sublevel lattice in both directions, including at tied grades. The grade of zσ is bσ by its leading support term; uσ enters at dσ=bσ+h(j+1)−h(j). The chain complex splits, with inclusion maps respecting the splitting, into the apex and blocks uσ→zσ of unit differential. This proves the claimed half-open intervals integrally, with no torsion or extensions. For the apex-only cone there are no blocks; h(0)=0 sets the sole birth to w(a). The edge example with nonminimal apex checks the need for the hypothesis. Replay: frozen RESULT.md lines 4–43, 48. VERIFICATION.md and verify_cone.py were inspected, not executed; their finite-field checks cannot establish the integral assertion.
 
-## Closest literature and limits
-Abaa–Islambekov, earliest verified public posting 16 September 2026 (https://www.preprints.org/manuscript/202609.1332), defines the filtration and gives stability/examples; Chachólski et al. (https://doi.org/10.1016/j.comgeo.2022.101938) gives general filtered decomposition algorithms, without this explicit conical computation. The result does not extend automatically to arbitrary contractible complexes or nonminimum cone apices. Publication-priority checking cannot prove global uniqueness, and independent audit remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The explicit all-cone, face-indexed integral answer for dimension delays was not found in the closest inspected statements. The filtration and cone boundary identity are established ingredients, not novelty claims. The direct sum over Z and its exact birth and death grades are the supported distinction.
+
+## value
+
+PASS
+
+A newly used filtration creates transient features even when the underlying complex is contractible. The result resolves the entire persistence module for a natural family, gives known-length reference bars without matrix reduction, and identifies exactly how weights and base faces rather than base homology enter the answer. The integral transition maps and applicability to arbitrary nonuniform delays make it useful as a calibration and interpretation test, not just a computation on one cone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

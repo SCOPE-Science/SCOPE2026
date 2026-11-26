@@ -1,0 +1,187 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:21:01.835198Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–80",
+        "Frozen VERIFICATION.md and verification.py; exact profile enumeration and recorded numerical rate checks inspected, not executed",
+        "Original JR definition, arXiv:1407.8269v1, p. 2, Definition 1"
+      ],
+      "rationale": "Failure of standard JR is exactly the existence of an outside candidate approved by at least r=ceil(n/k) unrepresented voters: such voters themselves form a violating group, and any violating group's common candidate must be outside the committee. The unrepresented set is determined by elected columns alone; its size U is Bin(n,q_W). Given that set, independent outside columns give Bin(U,p_c) counts, so the conditional no-violation probability is the specified product of lower tails, depending only on U. This gives the exact mixture, including q_W=0 or 1, endpoint probabilities, U=0 and the empty product at m=k. For a swap of a lower-probability winner with a higher-probability outsider, couple by common uniforms, aligning the old and new winner columns and aligning the two outside columns. The newly unrepresented voter set is contained in the old one, and each outside approval set is contained in its old counterpart or unchanged. Thus success cannot decrease, proving the finite-n maximizer, including ties, without any independence assumption on the unconditional violation counts. Rational evaluation is polynomial in numerical n, m and rational bit lengths: the supplied binomial-sum count is O(mn²) arithmetic operations and every full-mixture probability admits common denominator ∏_c d_c^n for probability denominators d_c. This is not a polynomial-time claim in log n for a succinct input with output written in full. For an outsider to a top-k committee, the per-voter violation probability is a=p_c q_W≤p_c(1−p_c)^k≤a_k<1/k. Chernoff at 1/k and the union bound give the stated uniform finite-n bound. At equal probabilities 1/(k+1) one outsider attains a_k, and the single mass at ceil(n/k) has logarithmic rate D(1/k||a_k) by Stirling for k>1. When k=1 the tail is exactly 4^(−n); the lower bound uses an outsider, so requires m>k. Squeezing for fixed m>k proves the limit after the supremum. Independently, the example's failure numerator is 6·31²+4·31+1=5891 over 32⁴, as stated.",
+      "residual_risks": [
+        "The finite exact examples and numerical rates are corroborative, not a proof of the general optimizer or exponent. The exponent and optimum concern a committee fixed from parameters before sampling, not approval-score winners chosen after the profile is drawn."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 3VA counting hardness result uses voter-varying outsider columns. Theorem 9 gives a product over outsider complements when elected approvals are deterministic and remaining uncertainty is 3VA; the unrepresented set is then fixed. Theorem 10 is the special threshold-one case k=n. These results do not give the random-U binomial mixture for stochastic winners across all n,k.",
+          "Xia covers voter-homogeneous independent approvals with heterogeneous candidate parameters and proves exponential success of all top-probability committees for EJR+ for fixed interior p. The stated theorem does not maximize exact ordinary-JR success at each finite n."
+        ],
+        "reasoning": "The frozen product conditioned on the unrepresented set extends the known deterministic-set case by averaging an exact random-size law. General hardness and an asymptotic stronger axiom do not subsume this tractability and exact optimizer.",
+        "searches": [
+          "arXiv:2407.19391, Theorems 8–10 and Corollary 3",
+          "arXiv:2503.03082, Theorem 17, proof around (14)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1407.8269v1, 2407.19391, 2108.12949 and 2503.03082",
+        "Resultary 0d19a8f984bb, ad36ee933b71, db3611093bd6 and 6f885c038aef; metadata only for 4a75d0816a73"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Elkind et al. already identify the common-p per-outsider count with a Bernoulli sum, use the union bound, and maximize p(1−p)^k at p=1/(k+1). Xia computes the heterogeneous witness probability as p_c times the lower tail of a sum of committee approval indicators; for ℓ=1 this is exactly p_c q_W. Combining those ingredients with binomial lower and upper tail estimates is very close to the displayed sharp exponent.",
+          "Neither single-witness bound nor prior conditional product with fixed unrepresented set compares finite-n intersections across different committees with stochastic elected approvals. The finite result additionally uses voter-homogeneity to collapse the random set to its size and a simultaneous monotone exchange (or coupling) of the winning and excluded columns."
+        ],
+        "reasoning": "Credit the shared per-outsider theory and the easy rate upgrade. The exact common-random-size mixture and optimizer are the materially distinct part, not an inference from qualitative high-probability JR or EJR+ success.",
+        "searches": [
+          "arXiv:2108.12949, Theorem 1 proof (a)–(b)",
+          "arXiv:2503.03082, Theorem 17, Eq. (14) proof",
+          "arXiv:2407.19391, Theorem 9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Aziz et al.'s original Definition 1 is the same JR axiom and uses the ceiling cutoff. The probability here is an ex-ante fixed-committee probability, not a success rate of an observed-profile voting rule.",
+          "The ℓ=1 violation event in Xia's EJR+ halfspace proof uses exactly the same outside-candidate witness; the bound over stronger EJR+ events is asymptotic, not an exact finite-n comparison of such committees."
+        ],
+        "reasoning": "The witness event is known and the ℓ=1 mapping is exact. What needs comparison is the probability of the intersection of all no-violation events and its finite-time optimizer, not the axiom under a new name.",
+        "searches": [
+          "Justified representation probability fixed committee, independent voter-homogeneous Bernoulli approvals, heterogeneous candidates, top-k, exact binomial mixture, large deviations",
+          "arXiv:1407.8269v1; arXiv:2407.19391, §6; arXiv:2503.03082, Theorem 17"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 0d19a8f984bb gives an exact common-p two-seat probability that some approval-score-maximizing committee fails JR, not the ex-ante fixed-committee event.",
+          "ad36ee933b71 and db3611093bd6 use common probabilities and concern strong representation solution sets and distinctive representation, respectively. 6f885c038aef gives a 5/8 limiting probability of average JR in a three-candidate common-p model, not standard JR. Same-date 4a75d0816a73 had only an available first-arrival-clock summary; its full record was unavailable."
+        ],
+        "reasoning": "The inspected exact or limiting counts are for different events or probability models, not a table or formula implying the finite-n heterogeneous result. The metadata-only comparison is not affirmative noncoverage evidence.",
+        "searches": [
+          "Local Resultary exact fixed-committee JR probability, heterogeneous independent approvals, and top-k/exponent comparisons"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the exact conditional-size formula with all-finite-n top-k optimality in the homogeneous-by-voter heterogeneous-by-candidate class, together with the explicit uniform limiting rate. The existing JR definition, conditionally independent outsider calculation for deterministic elected columns, common-p maximization, and heterogeneous top-k exponential guarantees are credited below. The sharp exponent is especially close to a synthesis of prior bounds and textbook binomial tails; it is not treated as a wholly new probabilistic method or the sole basis for acceptance. No inspected result covers the exact finite-n mixture and selection theorem together.",
+      "residual_risks": [
+        "Bounded literature and indexed comparisons do not certify priority. One related same-date catalogue record was not available in full. A routine large-deviation upgrade of the existing single-witness machinery accounts for much of the rate argument."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same axiom, no Bernoulli comparison in the defining passage.",
+          "evidence": [
+            "Cohesive unrepresented group of at least ceil(|N|/k) agents is a JR violation."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1407.8269v1",
+          "material_read": "p. 2, Definition 1 and explanation, extracted offsets 11350–13010",
+          "method": "OA primary PDF inspection",
+          "title": "Justified Representation in Approval-Based Committee Voting",
+          "trigger": "Check witness, rounding and event equivalence"
+        },
+        {
+          "assessment": "Prior exact product for deterministic elected approvals in 3VA and other special cases; general heterogeneous-by-voter hardness does not apply to the claimed homogeneous-by-voter class.",
+          "evidence": [
+            "Theorem 9 fixes the unrepresented set, counts by candidate, and multiplies complements. In the Theorem 8 reduction, an outsider column for an edge is supported on its endpoints only."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2407.19391",
+          "material_read": "§6, Theorem 8 statement and reduction; Theorems 9–10 and MaxJR transition, pp. 11–13, extracted offsets about 40108 and 40900–46834",
+          "method": "OA primary PDF inspection",
+          "title": "Approval-Based Committee Voting under Uncertainty",
+          "trigger": "Potential direct probabilistic JR formula and maximization"
+        },
+        {
+          "assessment": "Common-p threshold and an exponential upper bound with known extremizing p, not the exact heterogeneous finite probability or exact optimizer.",
+          "evidence": [
+            "Per-outsider indicators have mean p(1−p)^s; for s=k the maximizer is 1/(k+1) with value k^k/(k+1)^(k+1). The stated upper-tail estimate uses a multiplicative Chernoff bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2108.12949",
+          "material_read": "Theorem 1 and proof (a)–(b), PDF pp. 4–5, extracted offsets about 13771 and 15090–17328",
+          "method": "OA primary PDF inspection",
+          "title": "Justifying Groups in Multiwinner Approval Voting",
+          "trigger": "Potential sharp exponent and per-outsider extremum"
+        },
+        {
+          "assessment": "Strong asymptotic coverage and the heterogeneous single-witness comparison are prior work; not the exact finite-n JR mixture or maximization statement.",
+          "evidence": [
+            "For fixed interior p, all top-k committees satisfy EJR+ with probability 1−exp(−Ω(n)); the witness probability is p_c Pr(B_W<ℓ), compared to a homogeneous binomial term by stochastic domination."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2503.03082",
+          "material_read": "Theorems 16–17 transition, Theorem 17 with halfspace model and Eq. (14) likelihood analysis, extracted offsets 91260–96178",
+          "method": "OA primary PDF inspection",
+          "title": "A Linear Theory of Multi-Winner Voting",
+          "trigger": "Same heterogeneous independent model and top-k committees"
+        },
+        {
+          "assessment": "Different committee-selection event and parameter regime.",
+          "evidence": [
+            "Some maximizing-score committee fails JR under common p with k=2; winners are profile dependent."
+          ],
+          "identifier_or_url": "Resultary 0d19a8f984bb",
+          "material_read": "RESULT.md Finding and Proof, offset 0",
+          "method": "Local published-record mirror",
+          "title": "An exact Bernoulli tie-failure law for two-seat approval voting",
+          "trigger": "Closest indexed finite exact ordinary-JR probability"
+        },
+        {
+          "assessment": "Different axioms and common-q model.",
+          "evidence": [
+            "SJR and SSJR solution sets and threshold behavior, not a fixed ordinary-JR committee probability."
+          ],
+          "identifier_or_url": "Resultary ad36ee933b71",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Local published-record mirror",
+          "title": "A sharp Bernoulli transition and counting law for strong committee representation",
+          "trigger": "Indexed Bernoulli representation law"
+        },
+        {
+          "assessment": "Distinctive representation, not fixed-committee ordinary JR.",
+          "evidence": [
+            "The underlying approval probability is common p and the limit is Poisson for a different event."
+          ],
+          "identifier_or_url": "Resultary db3611093bd6",
+          "material_read": "RESULT.md Finding and Proof, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Poisson critical window for distinctive representation in random approvals",
+          "trigger": "Indexed exact finite coupling and representation limit"
+        },
+        {
+          "assessment": "Average JR is a different axiom; a limiting constant is not the finite ordinary-JR formula.",
+          "evidence": [
+            "Three candidates, two seats, common p=1/2, limiting probability 5/8."
+          ],
+          "identifier_or_url": "Resultary 6f885c038aef",
+          "material_read": "RESULT.md Finding and Proof, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Exact Gaussian cone law at the two-seat AJR critical point",
+          "trigger": "Indexed fixed-committee success constant"
+        },
+        {
+          "assessment": "Unresolved full text; summary's first-arrival topic does not suggest the decisive JR result.",
+          "evidence": [
+            "Available snippet concerns first-arrival clocks. No inference about unread sections is made."
+          ],
+          "identifier_or_url": "Resultary 4a75d0816a73",
+          "material_read": "Indexed summary only; RESULT.md unavailable in the local mirror",
+          "method": "Local catalogue and mirror retrieval attempt",
+          "title": "Sharp heterogeneous two-type ballot probabilities for independent approvals",
+          "trigger": "Potential same-date heterogeneous approval overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, exact probability, exchange and rate claims",
+        "Aziz et al., JR-Probability and MaxJR; Elkind et al., Theorem 1; Xia, Theorem 17"
+      ],
+      "rationale": "Exact JR probability and MaxJR are naturally motivated by the general uncertain-voting problems. The result isolates a tractable nontrivial homogeneous-by-voter class and gives a one-dimensional exact calculation and a deterministic sorting rule that is optimal already at finite sizes, without treating positively correlated witness counts as independent unconditionally. The sharp worst-case rate quantifies, rather than replaces, this finite-n guarantee.",
+      "residual_risks": [
+        "Restricted to independent candidate-voter Bernoulli approvals with homogeneity by voter. No stronger approved-representation axiom, observed-profile rule, or growing-candidate worst-case law is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

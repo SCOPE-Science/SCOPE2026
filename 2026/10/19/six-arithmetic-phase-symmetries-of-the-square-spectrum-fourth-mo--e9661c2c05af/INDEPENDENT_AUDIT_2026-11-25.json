@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:59:31.801043Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–76",
+        "VERIFICATION.md, lines 18–22; verify.py, lines 13–113"
+      ],
+      "rationale": "Parseval applied to the square of the polynomial and equality in each complex triangle inequality give exactly the equal-two-square relations, since all ordered-pair magnitudes are positive. Modulo 16 the unordered pairs of classes 0 mod 4, 2 mod 4, and odd have disjoint squared-sum residue sets. Modulo 3 the count of nonmultiples of 3 is fixed. Modulo 5 the sole ambiguity among unordered pairs of square residues is {0,0} versus {1,4}, both with character sum zero. The matrix of the resulting six features on indices 1–6 has determinant 120 (independently computed by the signed permutation formula). Independent grouping of unordered pairs with repetition found exactly the collisions 50, 65, 85 at N=10 and additionally 125, 130 at N=11. They solve with unit pivots for 7,8,9,11,10. For k≥12 take the representative a of 3k mod 5 in {1,...,5}, then ((3k+4a)/5,(4k−3a)/5) is integral, positive, and strictly below k in each coordinate. The orthogonal identity replaces k by earlier indices with unit pivot. Thus the full torus is the graph over the first six phases, without extra torsion components; the determinant is the degree of the specific parameter map. The N=10 group instead has seven free coordinates. The supplied checker was inspected, not executed; its documented replay is `python3 verify.py` from the package directory, and its large-index and numerical tests are not needed for the infinite conclusion.",
+      "residual_risks": [
+        "The classification assumes strictly positive magnitudes; zero coefficients remove relations. It concerns L4 and stabilization from N=11, not all powers or a magnitude optimization."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Vasilyev's square-spectrum fourth-moment result uses coefficient-size conditions of order k^(−1/2); it bounds norms rather than deciding equality in the fixed-magnitude majorant.",
+          "The general Resultary variance formula does not supply arithmetic generators of the relation lattice for positive squares."
+        ],
+        "reasoning": "Neither a bound on the same support nor a general test for nonconstant phase dependence yields the six-feature solution and its sharp stabilization.",
+        "searches": [
+          "arXiv:2608.19132, Theorem 3",
+          "Resultary dcec63467712, general finite-support statement"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.19132v2, Theorem 3",
+        "Resultary dcec63467712",
+        "Resultary fc89e8b43f60",
+        "Frozen RESULT.md, lines 81–89"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The N=7 collision supplies only the relation with pivot 7; the N=11 pivots for 10 and 11 and the infinite 3-4-5 descent are additional arithmetic information.",
+          "The generic fourth-moment formula reduces equality to relation equations; it does not give integral unit pivots, the rank or the kernel size."
+        ],
+        "reasoning": "The claimed all-N solution, connectedness and covering degree are not consequences of the inspected results without the independent arithmetic analysis.",
+        "searches": [
+          "arXiv:2608.19132, Theorem 3",
+          "Resultary dcec63467712 and fc89e8b43f60, exact Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "dcec63467712 proves a Sidon/non-Sidon dichotomy for phase independence and an exact variance formula, not the annihilator of the relation subgroup on a non-Sidon support.",
+          "fc89e8b43f60 analyzes the seven-term phase constraint associated to 1+49=25+25 in a different constrained optimization problem."
+        ],
+        "reasoning": "The claimed torus can equivalently be described by the characters of the quotient of the free abelian group on the square indices by the additive two-sum relations. Detecting that a relation exists, or exhibiting one relation at seven indices, does not determine this quotient for every N≥11.",
+        "searches": [
+          "Bounded primary-literature search on phase equality/Freiman two-sum relations for squares",
+          "Resultary records dcec63467712 and fc89e8b43f60"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected seven-term record tabulates the first square collision, not a stable square-relation rank, torsion assertion, or degree.",
+          "The square-spectrum estimate gives none of the claimed exact data at N=10 or N=11."
+        ],
+        "reasoning": "A table of representations of individual integers as two squares can supply bounded collisions, but does not by itself give an integral generating family for all truncations or the 120-sheeted coordinate map. No covering exact classification table surfaced in the bounded check.",
+        "searches": [
+          "Resultary dcec63467712 and fc89e8b43f60 (collision and phase invariants)",
+          "Vasilyev arXiv:2608.19132, square-spectrum Theorem 3"
+        ]
+      },
+      "rationale": "The supported distinction is the full integral equal-two-square relation classification in the positive-square truncations, hence the stable connected equality torus, with onset and degree. The classical even-moment majorant argument and the isolated first collision are not credited as new. The closest available moment and collision results do not cover this statement.",
+      "residual_risks": [
+        "Bounded search does not exclude an unindexed treatment of Freiman homomorphisms on the positive squares, possibly in a different arithmetic formulation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same spectrum, distinct result",
+          "evidence": [
+            "Square-spectrum L4 estimate under a coefficient-magnitude envelope, not arbitrary positive magnitudes or phase maximizers."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.19132",
+          "material_read": "v2, p. 3, Theorem 3, around text offset 5434",
+          "method": "OA full-text PDF passage",
+          "title": "Norm bounds on Fourier series with polynomial spectra and constrained coefficients",
+          "trigger": "Closest cited primary fourth-moment theorem on square frequencies"
+        },
+        {
+          "assessment": "Partial background, not covering",
+          "evidence": [
+            "Exact phase variance and the Sidon B2 criterion for phase independence; no square-family stable rank or equality phase classification."
+          ],
+          "identifier_or_url": "Resultary:dcec63467712",
+          "material_read": "RESULT.md, Finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Random-phase fourth-moment variance detects the non-Sidon relation",
+          "trigger": "General earlier finite-support fourth moment, potentially containing the equality relation"
+        },
+        {
+          "assessment": "Distinct optimization and limited truncation; later record",
+          "evidence": [
+            "Seven terms, nonincreasing moduli and a magnitude constraint; isolates 1+49=25+25, not the arbitrary fixed-positive-weight N≥11 classification."
+          ],
+          "identifier_or_url": "Resultary:fc89e8b43f60",
+          "material_read": "RESULT.md, Finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp constrained fourth moment at the first collision of squares",
+          "trigger": "Same square frequencies and a collision equality condition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–23 and 25–76",
+        "Vasilyev arXiv:2608.19132v2, Theorem 3"
+      ],
+      "rationale": "Squares are a natural sparse Fourier spectrum with collisions, so the classical majorant inequality does not describe its equality geometry. The exact result determines when rigidity stabilizes, shows the four additional arithmetic phase directions, and gives a usable six-coordinate parametrization for every larger truncation and positive weight vector. The all-truncation classification, not the isolated determinant or a small-instance computation, is the useful result.",
+      "residual_risks": [
+        "No wider consequence for general polynomial spectra or higher moments has been verified or is needed for this value assessment."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

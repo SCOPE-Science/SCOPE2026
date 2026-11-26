@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:14:53.834785Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A nonalgebraic type over named parameters is determined by its lower ideal and upper filter, with all lower points strictly below all upper points. Finite extension realizes such a pattern and homogeneity makes its realizations one complete type; algebraic equalities and parameter automorphism orbits are not counted. In family I (only A below and B above), allowed pairs correspond to independent sets of the omission graph H. In family II (some A above), no parameter is below; select a nonempty set S of A above and the set of B incomparable, with all their cross-pairs absent. This counts i(G)−2^b, and the dual counts i(G)−2^a. For a k-edge omission matching, family I allows three rather than four choices per defect, and families II and III contribute 2^a−1+k and 2^b−1+k because a nonempty omitted rectangle is one edge. This checks the exact count including k=0. For independent defects of bounded total intensity, the maximum defect probability tends to zero and the sum of squared probabilities does too, so the total count tends to Poisson(λ). The expected number of row collisions is at most half the total intensity times the maximum row intensity, and likewise for columns, so the matching formula applies with probability tending to one. Both sides diverge, hence the additive terms vanish on normalization. The deterministic three-family bound is three times the normalizer and gives all fixed moments in both models; the Poisson generating function gives the stated mean and variance. In the balanced outer regime the expected normalized family I equals E[(1−q)^(XY)] for independent Bin(n,1/2) X,Y; excluding the event min(X,Y)<n/3 costs at most 2exp(−n/18), and the rest is at most exp(−q n²/9). The other two normalized expected counts are each at most ((1+q)/2)^n. Markov therefore proves collapse for q→0 and n²q→∞; a no-defect union bound proves the lower side. No conclusion near q=1 follows. Independently written finite computations agreed on 682 small bipartite graphs, 46 matching cases and one direct expected-count enumeration. Frozen verify.py and verification_output.txt were inspected, not run; the finite computations corroborate the identities only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Generic-poset extension and one-point pattern results cover the logical parametrization, while the Resultary theorem covers the count for every deterministic height-two base. The percolated-graph theorems cover expectation in another regime. The random-poset literature cited in the frozen record (Erdős–Kierstead–Trotter, DOI:10.1002/rsa.3240020302) concerns order dimension; its full text was not independently inspected here."
+        ],
+        "reasoning": "The broader deterministic identity is fully credited. It gives neither the high-probability collision structure nor the normalized random law and out-of-window collapse without a stochastic argument. Generic count or extension theorems and the annealed partition-function estimates do not in their inspected forms yield those conclusions.",
+        "searches": [
+          "arXiv:1009.0566v1 Chapter 3.1",
+          "arXiv:1009.2892 Lemma 3.3",
+          "arXiv:2504.08715v2 Theorems 1.2–1.3",
+          "Local Resultary 9c2af418ff79 Eq. (3)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary:9c2af418ff79",
+        "Resultary:828ff1d8f784",
+        "arXiv:1009.0566v1",
+        "arXiv:1009.2892",
+        "arXiv:2504.08715v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For k=1 the known count is 3·2^(a+b−2)+2^a+2^b, exactly the matching formula at one defect. The general identity and multiplicativity of independent-set counts imply the deterministic matching expression. The primary percolation paper's expected-count theorems do not imply a law for realization-to-realization fluctuations."
+        ],
+        "reasoning": "The finite matching formula cannot carry an originality claim. The stochastic result needs a rare-edge matching reduction and a separate estimate outside that reduction's finite-intensity domain. The asymptotic identifiable moments and the outer regime concern this normalized logical invariant, not a new Poisson approximation principle.",
+        "searches": [
+          "Resultary 9c2af418ff79 RESULT.md Eq. (3); Resultary 828ff1d8f784 complete and one-missing-edge formulas",
+          "arXiv:2504.08715v2 §1.2.2 Theorems 1.2–1.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With the known deterministic identity, the critical statistic is asymptotically the fugacity-one hard-core partition function of the omission graph divided by 2^(a+b); the other two type families vanish on that scale. Geisler et al. give annealed counting results for percolated regular bipartite graphs under different percolation assumptions, not the rare-edge distribution."
+        ],
+        "reasoning": "A matching-partition-function theorem for independent, finite-intensity inhomogeneous edges would directly overlap the critical part under the deterministic reduction. The compared percolation results are for expectation and diverging expected edge count, so do not give this equivalence. A fixed deterministic number of uniformly random edges would give a fixed power when a matching, not the mixed Poisson power without the additional random edge-count law.",
+        "searches": [
+          "Local Resultary: Poisson power in random bipartite poset one-point type counts and normalized independence partition function for rare omitted edges",
+          "Primary literature: normalized independent-set count / hard-core partition function in ultra-sparse random (bipartite) graphs, finite expected edge count, (3/4)^Poisson",
+          "arXiv:2504.08715v2 §1.2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The searched records contain exact count formulas, including complete bases and one missing comparison (the k=0 and k=1 specializations). They are deterministic counts on given graphs, not probability tables for normalized type counts under independent omissions."
+        ],
+        "reasoning": "An exact finite table for any deterministic base answers a different query from the typical normalized count. The known general expression does give the statistic on any random realization, but is not an evaluation of its random limit.",
+        "searches": [
+          "Local Resultary: exact one-type spectrum under random near-complete height-two parameter bases; independent-set count and single-missing-comparison specialization",
+          "Resultary 828ff1d8f784 and 9c2af418ff79"
+        ]
+      },
+      "rationale": "The general finite identity, ideal/filter description and exact matching specialization are known or immediate and are excluded from the defended originality. The surviving contribution is the random normalized type spectrum: the rare-defect distribution with its moments, rectangular inhomogeneous extension and sharp balanced outer regimes, distinguished from merely averaging an independent-set count.",
+      "residual_risks": [
+        "An earlier finite-intensity hard-core partition-function limit under independent sparse edges could overlap the distribution through the credited finite identity. The targeted primary search and local index are bounded and do not establish absence.",
+        "The order-dimension paper was not independently read in full. No novelty is assigned to the elementary rare matching mechanism or to the deterministic one-point formulas."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers general deterministic formula, including the matching specialization",
+          "evidence": [
+            "T(G)=2i(G)+i(bipartite complement G)−2^a−2^b."
+          ],
+          "identifier_or_url": "Resultary:9c2af418ff79",
+          "material_read": "Mirrored RESULT.md, Eq. (3) and its height-two formula",
+          "method": "Local Resultary comparison",
+          "title": "Sharp one-comparability sensitivity and local counting hardness for random-poset one-types",
+          "trigger": "Potential broader exact coverage of deterministic type counts"
+        },
+        {
+          "assessment": "Exact k=0 and k=1 antecedents",
+          "evidence": [
+            "A single missing comparison gives 3·2^(a+b−2)+2^a+2^b, agreeing exactly with the matching formula."
+          ],
+          "identifier_or_url": "Resultary:828ff1d8f784",
+          "material_read": "Mirrored RESULT.md, complete and one-missing-comparison counts",
+          "method": "Local Resultary comparison",
+          "title": "One comparability can increase finite-poset one-point type counts exponentially",
+          "trigger": "Exact finite overlap on single omitted comparison"
+        },
+        {
+          "assessment": "Foundational extension property, a proof antecedent",
+          "evidence": [
+            "Generic partial order extension over finite parameter structures; not a count for independently omitted comparisons."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1009.0566",
+          "material_read": "OA Chapter 3.1, printed pp. 41–45, Theorem 3.10 and Lemma 3.11",
+          "method": "Bounded full-text comparison",
+          "title": "Combinatorial Properties of Finite Models",
+          "trigger": "Universal homogeneous poset realization of finite one-point data"
+        },
+        {
+          "assessment": "Covers below/above extension data",
+          "evidence": [
+            "One-point lower and upper data with the cross-order condition; the locator in the inspected arXiv text is Lemma 3.3."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1009.2892",
+          "material_read": "OA Lemma 3.3, printed p. 13; lemma number checked in arXiv v1 and v2",
+          "method": "Bounded full-text comparison",
+          "title": "A universality result for endomorphism monoids of some ultrahomogeneous structures",
+          "trigger": "Exact description of one-point extensions"
+        },
+        {
+          "assessment": "Annealed estimates in a different regime, not a finite-intensity distributional law",
+          "evidence": [
+            "Theorems estimate expectation for uniform edge percolation of d-regular bipartite graphs with Property I as d→∞; fugacity one gives expected independent-set count, under parameters with a diverging expected number of retained edges."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2504.08715v2",
+          "material_read": "OA §1.2.2, Theorems 1.2–1.3, PDF pp. 2–3",
+          "method": "Bounded full-text comparison after equivalent-formulation query",
+          "title": "Counting Independent Sets in Percolated Graphs via the Ising Model",
+          "trigger": "Closest identified primary partition-function analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The number of available complete named one-point patterns is a natural finite invariant of a homogeneous structure. The result determines precisely when a few random missing comparisons cause a macroscopic reduction, and the nonconstant limit for λ>0 quantifies actual sample-to-sample fluctuation that the mean by itself would miss. Identifying the three-of-four obstruction per isolated defect and the row/column conditions for its persistence makes the limit interpretable beyond identical omission probabilities. The result is restricted to this near-complete setting and does not imply a general random-poset entropy law.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

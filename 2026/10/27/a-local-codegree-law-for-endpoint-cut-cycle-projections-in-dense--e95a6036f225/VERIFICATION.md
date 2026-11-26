@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The argument is analytical for all integers \(r\ge1\), \(N\ge4r\). It proves the Neumann-resolvent bound, an exact first-truncation total-variation identity, and the two endpoint-norm estimates. The minimum-codegree conclusion is obtained by comparing integer-separated main terms with their explicit error intervals, not by extrapolation from finite cases.
+## correctness
 
-For optional exact-rational finite checks, install dependencies from `requirements.txt` and execute `python3 CHECKER.py`. One completed execution returned:
+PASS
 
-`DENSE_COMPLEMENT_EXACT_OK graphs=11 columns=606 examples=[(8, 2, 20), (10, 2, 35), (12, 2, 54), (14, 2, 77), (12, 3, 48), (14, 3, 70), (16, 4, 88), (12, 3, 48), (16, 4, 88), (8, 1, 24), (12, 2, 54)]`
+On the zero-sum subspace the complement Laplacian is NI-L_H; the graph is connected since a component would have size at least N-r>N/2. For s=e_u-e_v, the tail after s/N+L_Hs/N² has ℓ1 norm at most 2(2r/N)²/[N(1-2r/N)]≤16r²/N³. Independently counted edges in G for the truncated potential. With A=r-c_e and d=N-1-r, endpoint edges contribute 2d(1/N+r/N²)-2A/N²: the remaining neighbors of u contribute A positive δ values, and those of v contribute A negative values. Away from the endpoints the complete three-level δ profile contributes 2A(N-2-A)/N², less T/N² from deleted edges. This gives the claimed identity with correction 2r(r+1)+2A(A+3)+T≤16r², using T≤4Ar. Total variation is d-Lipschitz in vertex ℓ1, giving error 32r²/N². The actual signed resistance Q_ee differs from 2/N+2r/N² by at most the tail norm; 0≤Q_ee≤1 and p_e=q_e+1-2Q_ee give the bound 44r²/N² for N≥4r. Orientation changes only signs. Symmetry gives the same row and column operator norms; comparing an edge with c_* to any edge with larger integer codegree yields strict separation at N>44r². Taking maxima with interval bounds also works below this threshold, without an extremizer claim. For cycles the minimum is zero once N≥6 and the stated threshold is 177; for cubes distance two gives codegree two versus zero at larger distances, and 2^m>44m² for m≥13. Fixed-r first-order limits follow directly. The all-size proof above is an analytic replay, not an extrapolation; CHECKER.py was inspected rather than executed.
 
-The checker independently grounds and inverts each complement Laplacian over the rational numbers, computes all electrical-current columns, and checks both claimed inequalities and the exact truncated-variation identity. Tested deleted graphs include cycles, random regular graphs, disjoint cliques, a perfect matching, and a four-dimensional hypercube. A finite sample does not establish statements for untested parameters; the proof supplies that coverage.
+## originality
 
-The columnwise inequalities, edge-codegree minimum criterion, and projection normalization were separately checked against the exact definitions. No independent external mathematical review was conducted.
+PASS
+
+The distinct supported claim is the first-order absolute-column law and consequent extremizer restriction for the whole class of regular deletions, not the current-matrix representation, the Neumann series, or a claim to be first to compute endpoint norms. The strongest related statements inspected do not cover it.
+
+## value
+
+PASS
+
+The endpoint projection norm concerns the largest absolute current length, not its average, and degree alone does not resolve its maximizers. The theorem gives a local, readable invariant with a uniform error and excludes whole codegree classes from both maximizing sets, even for complements without strong symmetry. Cycle and cube applications illustrate a nonconstant coefficient rather than supplying isolated numerical cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

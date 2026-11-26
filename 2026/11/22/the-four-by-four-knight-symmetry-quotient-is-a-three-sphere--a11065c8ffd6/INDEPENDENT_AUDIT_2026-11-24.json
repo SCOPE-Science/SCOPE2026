@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:28:00.395088Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–53, VERIFICATION.md, verify_quotient_cells.cpp, verify_integral_homology.py, verify_fundamental_group.py, verify_burnside.py and quotient_reduced.txt",
+        "Independent replay: python3 /workspace/review-work/knight_flags.py; output /workspace/review-work/1.log (requires python-flint)",
+        "Independent fixed-chain Burnside count and comparison to the frozen certificate"
+      ],
+      "rationale": "In the barycentric subdivision, ranks along a flag are distinct and preserved by D4. If points of the same closed flag simplex lie in one orbit, their support masks must match rank by rank, as must their coefficients. This gives injectivity on each closed simplex, not just pointwise stabilizers, and makes the flag-orbit cells regular. Orient by increasing rank; deleting different positions cannot identify faces because their rank sets differ. An independent enumeration from actual board masks found 24 attack edges, 1,364 nonempty independent faces, and flag-orbit counts (217,4801,35910,126666,239340,249840,136080,30240). A reverse-ordered free-face traversal checked unique live codimension-one cofaces, including maximality of the coface, and removed 411,365 pairs. The resulting core has (22,102,160,80) cells and no higher cells. Its integral boundaries compose to zero, with Smith ranks 21, 81 and 79 and all nonzero Smith factors one. The torsion of H_(d−1) equals that of coker ∂d, since the latter maps onto the free group im ∂_(d−1) with kernel H_(d−1). Thus the integral homology has one copy of Z each in degrees 0 and 3 and nothing else. A spanning tree and oriented triangle relators give a presentation in which all 81 generators are eliminated by Tietze moves. A separate reconstruction also matched the frozen certificate flag by flag and boundary by boundary. With π1 trivial, Hurewicz first gives π2=0 and then represents an H3 generator by a map S³ to the quotient. This map is an integral homology isomorphism between simply connected CW spaces and is a homotopy equivalence by homological Whitehead.",
+      "residual_risks": [
+        "Proof uses exact finite enumeration of this board and the regular-cell and CW arguments above. It gives neither a homeomorphism with S³ nor a theorem for other squares or symmetry subgroups. Supplied executables were inspected, not run."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The grid independence-complex results use nearest-neighbor adjacency. Berghammer treats board placements and their optimization; Cibu et al. treat chip-firing and gonality of chess graphs, including knight graphs."
+        ],
+        "reasoning": "The adjacency of the grid theorem differs; the exact knight graphs in the other primary sources are evaluated with different invariants. No inspected theorem for these boards covers the orbit homotopy assertion.",
+        "searches": [
+          "Bousquet-Mélou–Linusson–Nevo arXiv:math/0701890",
+          "Berghammer RAMICS 2011, printed pp. 95, 99–100",
+          "Cibu et al. arXiv:2403.03907"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 36a4a95dc753, 9354f4ac73dc, a146a15a96aa, a4122db0edfc",
+        "Primary source passages and access limits listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Averaging over the finite group computes rational homology from its invariant chains in the rank-preserving subdivision. It does not give an integral splitting at primes dividing 8 or a presentation of the quotient group."
+        ],
+        "reasoning": "An ordinary sphere wedge and its rational character do not carry the equivariant attaching information needed for a quotient homotopy classification. The independent integral and group calculations address precisely those omissions.",
+        "searches": [
+          "36a4a95dc753 and 9354f4ac73dc, Findings and prior-work passages",
+          "Check rational invariants versus integral homology and π1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two records use the same knight relation and D4 action on K and give K ≃ ∨^5 S³ and rational character 1⊕2η⊕ρ."
+        ],
+        "reasoning": "The known character gives invariant rational homology and thus the rational homology of this finite-group orbit space. Ordinary orbit-space homotopy is not equivalent to homotopy of K, a quotient on vertex orbits, or the Borel construction.",
+        "searches": [
+          "Resultary: four-by-four nonperiodic nonattacking knights, independence complex of the knight graph, ordinary geometric D4 symmetry quotient",
+          "Compare ordinary orbit-space topology, rational invariant homology and unquotiented homotopy in 36a4a95dc753 and 9354f4ac73dc"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "a146a15a96aa treats king attacks and finds Z/2 in H2; a4122db0edfc treats bishop attacks and finds (Z/2)^2 in H2, Z in H3, and trivial π1. Bode–Harborth's placement-count scope is reported secondarily in 9354f4ac73dc; the primary scan was not text-accessible in the attempted reading."
+        ],
+        "reasoning": "The two same-day results concern substantively different attack complexes and show contrasting quotient homology; their date alone supplies no priority order. Counts of maximum configurations do not determine the complex of all placements or its orbit space.",
+        "searches": [
+          "Resultary same-day 4×4 chess independence-complex symmetry quotients and earlier knight topology",
+          "Bode–Harborth maximum nonattacking pieces census (2000)"
+        ]
+      },
+      "rationale": "The two closest earlier knight records give the same unquotiented wedge and rational D4 character, so the rational third Betti number of the geometric quotient is already determined. Neither classifies the ordinary orbit space up to homotopy. The closest same-day quotient records use king or bishop attacks and are not the same complex. The distinct contribution supported here is the integral sphere homotopy type of the ordinary knight orbit space.",
+      "residual_risks": [
+        "The literature comparison is bounded and the Bode–Harborth primary scan was not read. The targeted web lookup was nondecisive and is not negative evidence; an unindexed equivalent remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial same-object prior coverage before taking the quotient, plus rational invariants",
+          "evidence": [
+            "Unquotiented five-sphere wedge, rational character 1⊕2η⊕ρ and one-dimensional invariant H3 over Q."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-the-first-noncontractible-square-knight-placement-complex-and-it--36a4a95dc753",
+          "material_read": "RESULT.md Finding and prior-work section, offsets 0 and 6200",
+          "method": "Published local mirror",
+          "title": "The first noncontractible square knight-placement complex and its dihedral homology",
+          "trigger": "Same 4×4 knight graph and action"
+        },
+        {
+          "assessment": "Same known 4×4 wedge and character; also 5×5; not the ordinary quotient homotopy",
+          "evidence": [
+            "The K4 homotopy and rational representation overlap; adding the K5 comparison does not settle the orbit space of K4."
+          ],
+          "identifier_or_url": "2026/11/1/SCOPE-first-noncontractible-square-knight-complexes-and-a-dihedral-hom--9354f4ac73dc",
+          "material_read": "RESULT.md Finding and prior-work section, offsets 0 and 6400",
+          "method": "Published local mirror",
+          "title": "First noncontractible square-knight complexes and a dihedral homology transition",
+          "trigger": "Same action and both knight board sizes in a broader record"
+        },
+        {
+          "assessment": "Different adjacency and different homology",
+          "evidence": [
+            "The king quotient has a degree-two Z/2 class; the bishop quotient has two such classes and a trivial π1, and no full homotopy claim."
+          ],
+          "identifier_or_url": "2026/11/22 records a146a15a96aa and a4122db0edfc",
+          "material_read": "Mirrored RESULT.md Findings and attack assumptions",
+          "method": "Published local mirror",
+          "title": "Four-by-four symmetry quotients for nonattacking kings and bishops",
+          "trigger": "Closest distinct same-day symmetry quotient claims"
+        },
+        {
+          "assessment": "Not knight-grid adjacency",
+          "evidence": [
+            "Independence complexes of specified nearest-neighbor square-lattice subgraphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0701890",
+          "material_read": "Primary PDF pp. 1–3, extracted offsets 0, 8000 and 10600",
+          "method": "Lawful OA PDF",
+          "title": "On the Independence Complex of Square Grids",
+          "trigger": "Broader grid independence-complex topology"
+        },
+        {
+          "assessment": "Identifies the attack relation and placement problem, not the quotient topology",
+          "evidence": [
+            "The inspected passages concern independence numbers and maximum placements."
+          ],
+          "identifier_or_url": "https://www.cs.cornell.edu/courses/cs6861/2024sp/Papers/ramics12.pdf",
+          "material_read": "Printed pp. 95, 99–100; extracted offsets 279000, 292400, 296500",
+          "method": "Lawful OA proceedings PDF",
+          "title": "Relational Modelling and Solution of Chessboard Problems",
+          "trigger": "Knight graph and placement census on the board"
+        },
+        {
+          "assessment": "Different graph invariant",
+          "evidence": [
+            "The inspected knight statements concern gonality bounds and chip-firing, not independence homotopy."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2403.03907",
+          "material_read": "Primary PDF pp. 1–2 and 17; offsets 6554–8213 and 79697",
+          "method": "Lawful OA PDF",
+          "title": "The Gonality of Chess Graphs",
+          "trigger": "Explicit knight-graph treatment cited by the closest indexed report"
+        },
+        {
+          "assessment": "Limited access; no full-text noncoverage inference",
+          "evidence": [
+            "The earlier knight record describes the paper as giving placement counts. That is secondary evidence only."
+          ],
+          "identifier_or_url": "https://combinatorialpress.com/article/jcmcc/Volume%20033/vol-033-paper%2014.pdf",
+          "material_read": "Secondary description in 9354f4ac73dc; no primary passage read successfully",
+          "method": "Lawful OA scan attempted; no extractable text on this route",
+          "title": "Independent Chess Pieces on Euclidean Boards",
+          "trigger": "Cited 4×4 placement census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, integral homology and fundamental-group argument",
+        "Prior knight prequotient results and same-day king/bishop comparisons"
+      ],
+      "rationale": "The full square symmetry quotient of the first noncontractible square knight board is a natural exact invariant with a known rational baseline. The result determines that the rational sphere signature has no integral torsion and that the actual ordinary quotient is simply connected, giving its homotopy type. These data are not consequences of the old rational character or counts of placements and matter when comparing contrasts such as the king and bishop quotients on the same board.",
+      "residual_risks": [
+        "The result is deliberately finite and provides no claim of PL type, equivariant type or a universal chessboard pattern."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

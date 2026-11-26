@@ -1,15 +1,21 @@
-# Scientific review: premium-spoke heat-trace activation
+# Independent mathematical audit
 
-## Correctness — PASS
-The objective is the complete combinatorial-Laplacian heat trace, including additional zero eigenvalues when a spoke is deleted. The matrix-exponential trace has positive-definite Hessian on nonzero symmetric directions, and independently adjustable star conductances give injective Laplacian perturbations. Thus the budget-constrained optimizer is strictly convex and globally unique; ordinary-leaf symmetry forces equal ordinary conductances. The ordinary-zero boundary has a strictly improving feasible derivative for every premium price greater than one. At the distinguished-edge-zero boundary, exact star heat-kernel spectral projectors give premium and ordinary edge gradients. Their ratio is the displayed threshold function. Its explicit derivative has strict sign, proving the unique activation time, and monotone-root convergence gives the growing-star law. The analytic arguments cover every integer leaf count at least three, every admissible real price, budget and positive observation time, with equality at the threshold handled explicitly. The included verifier passed 849 finite checks, which are supplementary rather than a proof of an infinite domain.
+## correctness
 
-## Originality — PASS on inspected sources, qualified
-The 2006 fastest-mixing Markov-process paper and a full previously published priced-star spectral-gap theorem optimize algebraic connectivity, not the full finite-time trace of the heat semigroup. Their unrestricted-priced-star optimizer keeps every spoke active; this is not a corollary establishing a trace-optimal deletion frontier. Boyd's 2006 convex spectral-framework paper supplies general methods rather than the priced-star activation threshold or its growing-star scaling. Shakeri et al.'s arXiv:1510.06785v1 optimizes algebraic connectivity of interconnected layers. Clark et al.'s arXiv:1306.4949v1 optimizes finite-horizon *leader selections*, not continuously priced edge conductances. A published two-conductance-star heat-Lipschitz result evaluates a different operator norm. Comparisons involved the exact claim and its aliases (heat trace, diffusion energy, total return probability, trace exponential), not merely matching titles. No covering equivalence was found in those inspected texts or in the searched published mathematical records. This does **not** establish publication priority; some unindexed special-case calculation may exist.
+PASS
 
-## Mathematical value — PASS
-Finite-time smoothing and long-time mixing are distinct intervention-design objectives. Here their difference is substantive: the unique short-horizon global optimum deliberately isolates an expensive vertex, while at a uniquely determined later horizon it reactivates that edge. The monotone, exact threshold is valid for a motivated infinite family, permits precise resource planning, and has a nontrivial network-size law with natural logarithmic price dependence. This is more than a numerical instance, a reformulation of a textbook convexity criterion, or a minor adjustment of a known stationary result.
+The full trace includes the zero eigenvalues even after deletion. Differentiating the trace exponential twice in a nonzero symmetric direction K gives t² times an integral of squared Frobenius norms of K sandwiched between invertible exponential factors, hence strict convexity; the hub–leaf entries make the conductance parametrization injective. Compactness and ordinary-leaf symmetry give a unique optimizer on rx+(m−1)y=B with a common y. At y=0 the heat-kernel forms are 2E and (3+E)/2, E=exp(−2tB/r); transferring cost to the ordinary spokes is strictly improving. At x=0, the ordinary component has eigenvalues 0,y,my (multiplicities 1,m−2,1) and the isolated leaf adds a zero. The premium form is A=(m+1+(m−1)exp(−mty))/m from the two zero-mode projections and the hub's my projection. On an ordinary spoke the squared y and my projections are (m−2)/(m−1) and m/(m−1), giving C; the budget derivative is tC(r−A/C). Strict convexity proves deletion iff r≥A/C, including zero derivative at equality. Differentiating in s=exp(−z) gives the negative numerator in RESULT.md line 96 on 0<s≤1. R_m(0)=1 and R_m(z) is asymptotic to (m²−1)exp(z)/(m(m−2)); fixed-z convergence to exp(z) for z>0 brackets the growing-m roots. The positive-spoke reduced matrix, in the basis of the hub, premium leaf and normalized ordinary-leaf sum, has nonzero-eigenvalue sum 2x+my and product (m+1)xy, confirming the formula used for the example. Independently bisecting R_4(z)=3 and minimizing that reduced heat trace gave T=2.00413423245 and x≈0.0519481 at t=3.
 
-## Limits and residual risks
-The rate allocation in the active regime is defined by a unique scalar optimizer rather than an elementary closed formula. The finding permits disconnected networks and therefore does not govern problems imposing strict connectedness. All originality assessments remain conditional on the sources actually inspected and do not substitute for an independent literature or mathematical audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No checked statement gives or subsumes this one-premium-spoke heat-trace threshold with its two scaling laws. The two distinct same-day finite-horizon comparisons overlap in objective and active-set method, not in graph or threshold; their dates are not used to infer priority. Prior convex design, spectral-gap star optimization and heat-Lipschitz star optimization do not settle the sign of this finite-time marginal derivative.
+
+## value
+
+PASS
+
+It gives an exact design rule for when a finite-time mean-square diffusion objective deliberately disconnects a usable vertex. The all-price activation, including the equality and asymptotic scales, distinguishes the criterion from maximizing algebraic connectivity and from the different matching-edge examples. This is a useful active-set classification, not just a spectral calculation for preset weights.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

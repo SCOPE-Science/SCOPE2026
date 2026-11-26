@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:13:37.308218Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–121",
+        "Frozen CHECK.py, requirements.txt and VERIFICATION.md (inspected, not executed)",
+        "Replay: python3 -B /workspace/reproductions/recheck.py 4"
+      ],
+      "rationale": "In the stationary environment the elapsed current plateau length L is Exp(ν), independent of its mark λ and the path prior to that plateau. If T is a particle's last-reset age, write u=E[T|path], v=E[T²|path]/2. Let b=e^(−λL), a=(1−b)/λ, g=∫₀ᴸ t e^(−λt)dt. Integrating the conditional survival gives u=a+b u_old and v=g+Lb u_old+b v_old; the independent earlier environment has the same backward law. Renewal finiteness holds even at unbounded or very small rates: the unit-age survival time kernel weighted by the refresh rate has mass νA<1, which remains <1 after a sufficiently small exponential tilt, yielding finite age moments. Averaging the first recursion, its square, and the second gives E u=A/S, E u²=2C/(SR), E v=A₂/S² (in particular E[a²]=2C and E[ab]=νC). Conditional independence makes the square-product moment (2D)² E u², whereas the one-particle fourth moment is 24D² E v by the Gaussian fourth moment. Hence the stated quotient and zero positional covariance by sign symmetry. The squared covariance is (2D)² Var(u), strictly positive when varying a nondegenerate current mark on a positive-length plateau and zero for a point mass. Conditional Jensen gives 3E[X₁²X₂²]≤E[X₁⁴], with strict correlation bound <1/3 after subtracting the positive squared mean. For −1<α<1, λ=νt gives A₂∼cν^(α−1)K and C∼cν^(α−1)J using integrable scaled kernels; the tail away from zero is O(1). νA,νB→0 and A²/A₂→0 by the three bounds O(ν^α), O(log(1/ν)), O(1) on A according to the sign of α. Splitting J's kernel as ∫₁/₂¹ da/(t+a)² gives J/K=∫₁/₂¹ a^(α−1)da, including log 2 at α=0. This decreases from 1 to 1/2 across the open interval, so the limit is in (1/6,1/3). The E₁ example follows by shifting the exponential-rate integrals, partial fractions for C and integration by parts for A₂. An independent rational plateau-recursion computation on a three-state law reproduced the moments and ρ≈0.0753581604463, 0.0552138058996, 0.0115187376429 at ν=1/19,4/5,9.",
+      "residual_risks": [
+        "The rational check is discrete and cannot establish the density asymptotic; the scaled integral proof covers the latter. Neither result asserts convergence of the full joint position law, nor a finite-moment ν=0 law. The density limit is not claimed at α=±1."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Arutkin–Reuveni give the one-body propagator with the same refresh mechanism.",
+          "De Mauro et al. allow general renewal intervals but reset all coordinates together, as stated in §2."
+        ],
+        "reasoning": "Arbitrary waiting-time laws do not broaden a shared clock into two independent ones. The one-body refresh solution checks marginal ingredients but does not compute the joint expectation of two conditional age means. The primary search yielded no decisive additional theorem, not evidence that none exists.",
+        "searches": [
+          "arXiv:2509.25365v1 §§2–4",
+          "arXiv:2509.06658v1 §2",
+          "Primary web lookup: Markov-modulated/Cox reset, shared stochastic rate, independently resetting Brownian particles, stationary mixed moments"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2509.25365v1",
+        "arXiv:2509.06658v1",
+        "arXiv:2510.21972v1",
+        "arXiv:2506.20859v1",
+        "Resultary 183d9514a9a6, d81198b1ba84, 78bed4679cd8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Either separately timed reset kills the product, giving mixed loss 2λ instead of λ under simultaneous resetting. The resulting mixed integral E[(λ+ν)^−1(2λ+ν)^−1] and its comparison with the marginal fourth moment yield distinct scaled kernels.",
+          "A stationary one-body law, even exactly known, is compatible with different joint reset clocks and cannot fix this mixed-moment calculation."
+        ],
+        "reasoning": "Generic conditioning establishes the covariance mechanism and the one-body law overlaps marginal calculations. An additional joint calculation and an asymptotic normalization by two diverging moments are needed for the stated universal law.",
+        "searches": [
+          "arXiv:2509.25365v1 Eqs. (10)–(11), (24)",
+          "arXiv:2509.06658v1 around Eq. (38)",
+          "arXiv:2510.21972v1 §§II–III and arXiv:2506.20859v1 §1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Boyer–Majumdar §II uses the same type of Pearson observable; §III gives simultaneous memory resets.",
+          "Resultary 78bed4679cd8 is an individual-reset pair correlation in a shared diffusivity environment, not a shared hazard."
+        ],
+        "reasoning": "Conditioning on the rate trajectory here yields two independent reset ages and the covariance of their conditional means. A simultaneous protocol yields one shared random age or shared reset-to-past event, and shared diffusivity instead correlates integrated variance. Those are not mathematical equivalents.",
+        "searches": [
+          "Resultary: shared Poisson-redrawn reset hazard, independently timed resets, pair squared-displacement covariance and slow-refresh exponent",
+          "arXiv:2509.25365v1",
+          "arXiv:2510.21972v1",
+          "arXiv:2506.20859v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest catalogue Findings: 183d9514a9a6 for one-particle temporal position covariance, d81198b1ba84 for localization/age ordering of rates bounded away from zero, 78bed4679cd8 for a shared diffusivity.",
+          "No matched exact pair formula or exponent-indexed limit in these inspected Findings."
+        ],
+        "reasoning": "Same refresh schedule, a one-body exponent, or the same squared observable alone cannot match the pair kernel C or the normalized ratio. No tabulated numerical agreement is credited as coverage.",
+        "searches": [
+          "Resultary: squared-displacement pair correlations and the log(2)/3 or (1−2^(−α))/(3α) limit for Cox reset intensities",
+          "Resultary: Poisson-relaxed intensity resetting with slow-rate singularities"
+        ]
+      },
+      "rationale": "Credit the Poisson-redraw environment and its one-particle law to Arutkin–Reuveni and the conditional-independence mechanism to prior methods. The distinct supported claim is the exact stationary squared-displacement correlation for separate conditional clocks and its explicit slow-refresh family over all specified near-zero density exponents. The strongest checked model and observable matches do not determine that pair result.",
+      "residual_risks": [
+        "An unindexed or more general two-body Markov-modulated Cox calculation could overlap the stationary moment identity. The broad web lookup was nondecisive. This is a best-of-knowledge comparison, not a priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact environmental antecedent; one-body quantities in the checked passages",
+          "evidence": "Exponentially timed independent redraw and propagator for one position, including exponential-rate specialization.",
+          "identifier_or_url": "arXiv:2509.25365v1",
+          "material_read": "Fig. 1 p. 2; §2 p. 3 Eq. (1); §3 p. 6 Eqs. (10)–(11); p. 9 Eq. (24), offsets 4723, 5324, 15284, 30883",
+          "method": "OA PDF bounded original passages",
+          "title": "Diffusion with doubly stochastic resetting",
+          "trigger": "Exact hazard-environment match"
+        },
+        {
+          "assessment": "Different reset protocol",
+          "evidence": "One common renewal age for the stationary joint position mixture.",
+          "identifier_or_url": "arXiv:2509.06658v1",
+          "material_read": "§2 p. 4 and §2A–B p. 9 around Eq. (38), offsets 19703 and 45847",
+          "method": "OA PDF bounded original passages",
+          "title": "Dynamically emergent correlations in Brownian particles subject to simultaneous non-Poissonian resetting protocols",
+          "trigger": "General multi-particle reset correlations"
+        },
+        {
+          "assessment": "Observable match only",
+          "evidence": "Simultaneous resets to positions at the same chosen past time.",
+          "identifier_or_url": "arXiv:2510.21972v1",
+          "material_read": "§II p. 3 Eqs. (2)–(4), §III p. 4, offsets 13150 and 17600",
+          "method": "OA PDF bounded original passages",
+          "title": "Emerging correlations between diffusing particles evolving via simultaneous resetting with memory",
+          "trigger": "Squared coordinate Pearson correlation"
+        },
+        {
+          "assessment": "Different environment and no particle resetting in the checked model",
+          "evidence": "Time-dependent diffusivity rather than a Cox hazard.",
+          "identifier_or_url": "arXiv:2506.20859v1",
+          "material_read": "§1 pp. 3–4 around Eq. (1), offsets 5349 and 8327",
+          "method": "OA PDF bounded original passages",
+          "title": "Dynamically emergent correlations in a Brownian gas with diffusing diffusivity",
+          "trigger": "Shared environment and independent Brownian noises"
+        },
+        {
+          "assessment": "Temporal one-particle result; no coverage of target pair law in checked claim",
+          "evidence": "Stationary two-time positional covariance and correlation time with low-rate density f(λ)∼cλ^(β−1).",
+          "identifier_or_url": "2026/11/2/SCOPE-critical-temporal-memory-regimes-for-brownian-diffusion-with-a-s--183d9514a9a6/RESULT.md",
+          "material_read": "Finding and model hypotheses",
+          "method": "Resultary and bounded local mirror passage",
+          "title": "Critical temporal memory regimes for Brownian diffusion with a stochastically refreshed resetting rate",
+          "trigger": "Same stochastic reset intensity"
+        },
+        {
+          "assessment": "Different age/localization invariant and rate support",
+          "evidence": "Localization ordering for rates bounded away from zero.",
+          "identifier_or_url": "2026/11/8/SCOPE-universal-refresh-rate-localization-ordering-for-doubly-stochast--d81198b1ba84/RESULT.md",
+          "material_read": "Finding and hypotheses",
+          "method": "Resultary and bounded local mirror passage",
+          "title": "Universal refresh-rate localization ordering for doubly stochastic resetting",
+          "trigger": "Same rate refresh mechanism"
+        },
+        {
+          "assessment": "Different stochastic environment; no target low-hazard limit",
+          "evidence": "Squared-displacement lag covariance under independently reset particles with a common separately reset diffusivity.",
+          "identifier_or_url": "2026/11/8/SCOPE-critical-synchronization-of-squared-displacement-correlations-un--78bed4679cd8/RESULT.md",
+          "material_read": "Finding and environment definition",
+          "method": "Resultary and bounded local mirror passage",
+          "title": "Critical synchronization of squared-displacement correlations under a common stochastic diffusivity",
+          "trigger": "Independent resets and same pair observable"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, moment equations and limit",
+        "arXiv:2509.25365v1 and arXiv:2509.06658v1 model comparisons"
+      ],
+      "rationale": "Separately timed resets do not eliminate environmental correlations. The exact joint observable separates a zero signed covariance from strict fourth-order dependence and distinguishes shared hazards from shared events. Its slow-refresh ratio sorts an entire continuum of low-rate laws despite divergent fourth moments, independently of the rest of the rate distribution. This gives an interpretable benchmark not obtained by just substituting an exponential density into a one-particle formula.",
+      "residual_risks": [
+        "Value claimed only for the stationary Poisson-redraw model and the specified moment ratio, not broad universality for arbitrary correlated environments."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

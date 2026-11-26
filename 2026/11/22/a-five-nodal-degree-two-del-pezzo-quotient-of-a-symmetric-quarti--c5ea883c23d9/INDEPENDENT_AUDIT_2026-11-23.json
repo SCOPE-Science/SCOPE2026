@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T18:06:47.297993Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, REVIEW.md, AUDIT.json, VERIFICATION.md, verify.py and requirements.txt",
+        "Corrected RESULT.md, REVIEW.md and AUDIT.json in /workspace/repairs/5/",
+        "Independent exact replay: /workspace/branches/e77efdc1-c7a1-413e-936c-c8ae65d96da7/ordinal5_exact_check.py"
+      ],
+      "rationale": "In coordinates s=x+y, t=z+w, a=x−y, b=z−w the quartic is s^4+t^4=a^4+b^4 and C=(s²+t²−a²−b²)/4. Swapping s,t without swapping a,b is a projective automorphism preserving A,B,C. The independent swap and the signed permutations of a,b form a faithful order-16 group H. This equals the degree of the finite map from the base-point-free quadrics because (2H_X)^2=16, proving Galoisness. G is the index-two kernel of the product of the two swap signs. Z=(s+t)(s−t)(b²−a²) is G-invariant and squares to the branch form; on A≠0 the weight-zero generator is Z/A² and its square has odd valuation along A=0. The reduced branch has precisely five normal crossings by the conic determinant and line restrictions. The resulting double plane is a normal finite model of the fixed field, with completed local equations z²=uv at the five crossings and no further singularities. The branch line bundle O(2) gives anticanonical pullback O(1), whose three sections are precisely those from the plane by the double-cover pushforward. The five Du Val points give the asserted crepant resolution. The independent expansion and fixed-locus checks agree with the surviving original theorem.",
+      "residual_risks": [
+        "The group is the full coordinate-permutation group in the original coordinates, not the full group of projective or abstract automorphisms. The symbolic replay independently checks identities and crossings; normality, Galoisness and the canonical bundle use the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Uludağ's sextic examples include degree-sixteen coverings P2–P5 and configurations with two conics and two lines. His sextic treatment is explicitly incomplete. Fallucca–Pignatelli obtain exactly the abstract two-lines-and-conic five-node branch type in Family D3."
+        ],
+        "reasoning": "An earlier result identifying the given action and intermediate character would cover this claim; general double-plane and orbifold constructions still need that identification. The checked passages do not assign the specified coordinate-permutation subgroup or its intermediate branch equation.",
+        "searches": [
+          "Uludağ DOI 10.2206/kyushujm.59.393, §5",
+          "Fallucca–Pignatelli arXiv:2305.04545v2, §5.7"
+        ]
+      },
+      "checked_sources": [
+        "Barrett et al. arXiv:2611.15986v1",
+        "Fallucca–Pignatelli arXiv:2305.04545v2",
+        "Uludağ DOI 10.2206/kyushujm.59.393",
+        "Resultary equivalent-action and node-quotient searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Barrett et al. give the same quartic and eight permutations, and compute invariant lattices and fixed loci for individual permutations. Standard branch formulas give the node count and anticanonical class once the correct quadratic character and its branch divisor are known."
+        ],
+        "reasoning": "The full quotient requires invariant generation or an equivalent fixed-field computation, not only the action of one generator. No originality credit is assigned to standard canonical-bundle or local-node deductions, and the corrected Galois extension is not used as a claim of historical priority.",
+        "searches": [
+          "Barrett et al. arXiv:2611.15986v1, §3.1.3, §3.6.4 and Appendix A",
+          "Uludağ §5; Fallucca–Pignatelli §5.7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source is projectively Fermat, as in Barrett et al. Appendix A. G becomes the correlated swaps of two coordinate pairs with independent signs of the second pair. A result phrased using a conjugate Fermat action could be equivalent."
+        ],
+        "reasoning": "An abstractly dihedral group on a K3 surface or a Fermat symmetry list does not, by itself, identify the quotient by this embedded action. Restricting to the specific quotient is necessary.",
+        "searches": [
+          "Resultary: Fermat quartic signed permutation dihedral D8 C2 Galois plane order 16 quotient two lines conic anticanonical five nodes Barrett Clayton Priddis",
+          "Literature: Fermat quartic K3 quotient C2 times D8 order 16 Galois plane two conics two lines disjoint triple points Uludag Fermat degree 16"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching indexed result is this frozen claim. The nearby eightfold Hadamard-conic cover is a different cover and gives a six-node four-line quotient. The listed abelian Family D3 intermediates exhibit five nodes but do not specify this K3 permutation action."
+        ],
+        "reasoning": "A table of abstract del Pezzo root types or a matching degree of a Galois plane cover would not recover the actual quadratic intermediate field within k(X). No separate covering exact subgroup entry was identified.",
+        "searches": [
+          "Resultary: Fermat quartic K3 order eight coordinate permutation D8 quotient del Pezzo degree two five ordinary nodes two lines conic anticanonical",
+          "Uludağ §5.1–5.3, degree-labeled orbifold examples; Fallucca–Pignatelli §5.7"
+        ]
+      },
+      "rationale": "The scoped contribution is the explicit anticanonical equation identifying this specific subgroup quotient. The surface, subgroup, abstract branch type, node count for that branch type, and general Galois cover techniques are not claimed new. The prior-work analysis uses the corrected Galois description, not a false exclusion of Galois literature.",
+      "residual_risks": [
+        "An older presentation of an equivalent embedded Fermat subgroup or intermediate field remains possible; resemblance of branch degrees alone does not resolve historical equivalence. No absolute priority finding is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct antecedent for the surface, subgroup and some fixed loci, not the stated joint anticanonical quotient",
+          "evidence": "§3.1.3 lists all eight permutations, §3.6.4 compares individual invariant lattices, and Appendix A gives the transformation to Fermat form.",
+          "identifier_or_url": "https://arxiv.org/html/2611.15986v1",
+          "material_read": "§§3.1.1, 3.1.3, 3.2, 3.6.4 and Appendix A",
+          "method": "Open primary preprint full text",
+          "title": "K3 surfaces and BHK Mirror symmetry: A counterexample",
+          "trigger": "Same quartic and embedded permutation action"
+        },
+        {
+          "assessment": "Covers the abstract branch type, not the specified group action",
+          "evidence": "The quotients by ker(ε1+ε3) and ker(ε2+ε3) are branched over two lines and a conic and yield degree two with five nodes, from elementary abelian covering data.",
+          "identifier_or_url": "https://arxiv.org/pdf/2305.04545v2",
+          "material_read": "Introduction and §5.7 Family D3 intermediate-quotient passage",
+          "method": "Open primary preprint full text",
+          "title": "Smooth k-double covers of the plane of geometric genus 3",
+          "trigger": "Existing five-nodal degree-two double planes"
+        },
+        {
+          "assessment": "Relevant wider construction, no identified explicit quotient by the stated permutation subgroup in inspected passages",
+          "evidence": "§5.2 constructs P2–P5 by lifting six-line arrangements; these overlap the ambient degree, not a stated identification of the particular two-swap character used here. The introduction explicitly leaves sextic classification incomplete.",
+          "identifier_or_url": "https://www.jstage.jst.go.jp/article/kyushujm/59/2/59_2_393/_pdf",
+          "material_read": "Abstract and introduction; §§5.1–5.3 with definitions and surrounding text of the sextic examples",
+          "method": "Open journal full text",
+          "title": "Galois coverings of the plane by K3 surfaces",
+          "trigger": "Composite is a Galois degree-sixteen K3-to-plane cover"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected invariant and finite normalization proof",
+        "Published motivating quartic and subgroup in arXiv:2611.15986v1"
+      ],
+      "rationale": "For a named quartic and a natural known permutation action, this gives an exact anticanonical model of the full quotient, not merely the generic type of a double plane or an Euler-number count. It identifies the branch equation and singular points needed to use the quotient geometrically, with the corrected ambient group showing how the cover factors.",
+      "residual_risks": [
+        "The work concerns one particular action, not the classification of K3 quotients or degree-two del Pezzo surfaces."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

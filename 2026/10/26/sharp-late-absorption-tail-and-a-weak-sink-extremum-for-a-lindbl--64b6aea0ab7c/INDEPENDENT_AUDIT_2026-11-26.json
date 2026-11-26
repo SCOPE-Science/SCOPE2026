@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:40:56.711039Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 30–80",
+        "VERIFICATION.md lines 18–23 and verify.py lines 13–78, inspected without executing",
+        "Riberi arXiv:2605.08056v4, Eqs. (1)–(4), (9), (15)–(16)"
+      ],
+      "rationale": "The decaying root recurrence gives the free boundary resolvent −2q^m/Ω; the rank-one sink multiplies it by (1−iηq)⁻¹. On the upper rim of the band q=e^{ik}, and the denominator has real part 1+η sin k>0, including at η=1. Differentiating f(q)=q^m/(1−iηq) gives d_m=f′(1) and f′(−1)=(−1)^{m−1}conj(d_m). The Puiseux terms at Laplace frequencies 0 and −2iΩ are proportional to the square roots with phases −π/4 and +π/4 before inversion, respectively; inverse Laplace transformation gives the displayed conjugate phase factors in K_m. With smooth edge cutoffs, analytic terms are smooth and the next singular order is 3/2; the smooth complement is rapidly decaying by repeated integration by parts (even for m=1 its derivatives at large energy are integrable). Thus the amplitude error is O(t⁻⁵ᐟ²) for fixed parameters. In κ|K_m|² the constant part is 2C_m/t³; the interference oscillates with nonzero frequency and its integrated contribution is O(t⁻³). This yields the exact defective tail and both moment statements. Plancherel on the causal boundary resolvent gives the eventual absorption integral: the band gives the term invariant under η↦1/η and the two real-q exterior intervals give the finite-distance term. Differentiating gives the positive total-absorption slope. The tail derivative numerator m²−3(2m−1)η²−(m−1)²η⁴ is strictly decreasing in η², and its signs at η=1/√3 and η=1 locate the unique root, with equality at the first endpoint only for m=1. Expansion gives η_tail=1−1/m+O(m⁻²). For the atom at infinity, the free-sine-transform interaction picture converges since K_m is integrable; its limit is proportional to [sin(mk)−iη sin((m−1)k)]/(1−iηe^{ik}), nonzero in L², so some mass indeed escapes.",
+      "residual_risks": [
+        "The expansion and its error are at fixed Ω,m,η; there is no uniform joint limit. The untruncated finite moments are conditional, not moments of the extended random variable."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact dynamics are known, and the inspected asymptotic in the total-absorption discussion (pp. 6–7) concerns large starting distance, not large time at fixed starting site."
+        ],
+        "reasoning": "A specialization of the exact propagator does not give the claimed asymptotic without a separate two-edge expansion, control of the physical upper boundary through matching loss, and integration of the oscillatory flux.",
+        "searches": [
+          "Riberi arXiv:2605.08056v4, Eq. (9) and finite-time propagators on pp. 4–5; Eqs. (15)–(16) on p. 6"
+        ]
+      },
+      "checked_sources": [
+        "Riberi arXiv:2605.08056v4",
+        "Resultary 0fbadf02eea2",
+        "Friedman–Kessler–Barkai arXiv:1611.05676",
+        "Didi–Barkai arXiv:2108.13047"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The invariant band term has zero derivative at one. The indexed proof evaluates the finite-distance derivative in log η with precisely the frozen integrand; d/d log η equals d/dη at one. The frozen coefficient's maximizer comes instead from the two edge derivatives of the causal resolvent."
+        ],
+        "reasoning": "Credit the known positive derivative; neither eventual-absorption optimizer implies the below-one optimum of the distinct late-mass coefficient. The moment threshold is an elementary consequence once the integrated tail is established and is not counted as a separate technical advance.",
+        "searches": [
+          "Riberi arXiv:2605.08056v4, Eq. (15) and distant-source optimum discussion",
+          "0fbadf02eea2, Proof, offsets 3810–4910"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Riberi uses the same hopping, sink, defective flux and η. The projective detection papers have discrete stroboscopic observations and a different geometry or measurement-induced dynamics, even where a cubic density exponent appears."
+        ],
+        "reasoning": "A discrete return/detection law is not the survival-conditioned continuous Lindblad law. The fixed-site quantity here integrates the late flux without including the atom at infinity.",
+        "searches": [
+          "Resultary: Lindblad half-line sink rare late absorption, conditional time moments and weak sink optimization",
+          "Riberi arXiv:2605.08056v4, pp. 3–7",
+          "Friedman–Kessler–Barkai arXiv:1611.05676, §VI.3; Didi–Barkai arXiv:2108.13047, §VIII"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact-model record 0fbadf02eea2 gives the same total-absorption derivative at η=1 and an eventual-absorption maximizer above one for starting sites n≥2, asymptotic to 1+3/(4n³). The weak-monitoring hit 78d089a9f761 is described in the index as a discrete two-site return law; its exact text could not be retrieved. The full-line optimization match concerns total eventual absorption by an interior trap."
+        ],
+        "reasoning": "The inspected exact-model record duplicates the total-absorption side of the sign comparison, but does not tabulate or prove the coefficient of late absorbed mass. The other identified matches concern different dynamics or observables.",
+        "searches": [
+          "Resultary: late-time absorption mass and optimizer in a half-line quantum walk",
+          "Published records 0fbadf02eea2, 78d089a9f761 and 545aa66b5933"
+        ]
+      },
+      "rationale": "The exact model, resolvent, propagator and total-absorption formula are existing, and the slope of total absorption at matching loss is already implied by Riberi's integral and appears explicitly in a matching catalogue record. The distinct supported claim is the fixed-site integrated late-time coefficient and its sharp moment and loss-optimization consequences; the comparison of opposite response signs depends on that new tail calculation, not a new total-absorption theorem.",
+      "residual_risks": [
+        "The exact text of 78d089a9f761 was unavailable and one external literature lookup did not return material. Neither establishes absence of further equivalents. No priority ordering is inferred from catalogue dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact dynamics and absorption formula are prior; discussed asymptotic is in source distance",
+          "evidence": [
+            "Eqs. (9) and (16) give the resolvent and flux premises. Eq. (15) gives the band and exterior terms, with the distant-source maximum at matching loss."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.08056v4",
+          "material_read": "pp. 3–7, Eqs. (1)–(4), (9)–(13), (15)–(16), and eventual-absorption discussion",
+          "method": "Lawful OA primary full-text passages",
+          "title": "Boundary-localized non-Hermitian modes in an absorbing quantum walk",
+          "trigger": "Identical Hamiltonian, sink and matching-loss parameter"
+        },
+        {
+          "assessment": "Exact overlap for the total-absorption derivative, not for the late-mass result",
+          "evidence": [
+            "The derivative integral D_n agrees at η=1. The optimization in the proof is over eventual absorption, not the fixed-site time-tail coefficient."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-boundary-site-transition-and-cubic-optimal-loss-shift-in-a-half--0fbadf02eea2",
+          "material_read": "Finding and Proof, especially offsets 3810–4910",
+          "method": "Local published mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Boundary-site transition and cubic optimal-loss shift in a half-line quantum walk",
+          "trigger": "Same physical system and proposed absorption optimum"
+        },
+        {
+          "assessment": "Different dynamics and observable",
+          "evidence": [
+            "Stroboscopic projective detection on a full line gives first-detection probabilities at discrete attempts."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1611.05676",
+          "material_read": "§VI.3, Eqs. (91), (95)",
+          "method": "Lawful OA primary full-text passage",
+          "title": "Quantum walks: the first detected passage time problem",
+          "trigger": "Oscillatory cubic first-detection decay"
+        },
+        {
+          "assessment": "Different measurement-induced dynamics and exponent",
+          "evidence": [
+            "Discrete position measurement and n⁻³ᐟ² first-detection behavior do not state the present law."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2108.13047",
+          "material_read": "Measurement protocol and §VIII Eq. (55)",
+          "method": "Lawful OA primary full-text passage",
+          "title": "Measurement induced quantum walks",
+          "trigger": "Potential related late detection power law"
+        },
+        {
+          "assessment": "Unresolved at statement level; summary indicates a different discrete protocol, not grounds for a definitive comparison",
+          "evidence": [
+            "Indexed summary: two-site weak-monitoring return law and divergent variance."
+          ],
+          "identifier_or_url": "Resultary 78d089a9f761",
+          "material_read": "Indexed summary only; full result unavailable in attempted mirror retrieval",
+          "method": "Resultary search and local-mirror retrieval attempt",
+          "title": "A hidden rare return tail at the weak-monitoring resonance of a two-site quantum walk",
+          "trigger": "Rare tail and diverging variance under monitoring"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and proof at lines 38–80",
+        "Riberi arXiv:2605.08056v4, eventual-absorption discussion",
+        "Resultary 0fbadf02eea2, Finding"
+      ],
+      "rationale": "The exact defective late-mass amplitude makes quantitative a rare-event objective that the total absorption integral cannot answer. It resolves how the two interfering band edges enter late probabilities, sets the sharp scale of the truncated second moment, and separates the loss optimizing unusually late absorption from local improvement of total detection. The exception-free fixed-parameter result at η=1 is useful where a boundary mode meets the continuum.",
+      "residual_risks": [
+        "A bigger late-time tail is not asserted to be desirable in a detection protocol; the result contrasts objectives and makes no performance recommendation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

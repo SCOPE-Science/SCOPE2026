@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The proof reduces composition-idempotence of a free-monoid endomorphism to a necessary and sufficient equality on the images of its free generators. There are exactly \(2^1\), \(5^2\) and \(16^3\) generator-image assignments at generator ranks 1, 2 and 3. Two finite exhaustive enumerations of the image-cardinality spectrum agree coefficientwise, and an explicit first-occurrence normal form proves the enumeration covers all maps. This is an exact finite classification, not an extrapolation.
+PASS
 
-## Originality: PASS relative to inspected evidence
+For the unital free left-regular band the injective words, including the empty word, are the normal forms. Substitution of arbitrary generator images respects first-occurrence reduction: a repeat of a generator cannot introduce any letter not already introduced by its first image. Thus the generator-image tuples parametrize all and only the unital endomorphisms. Independent bounded Python enumeration evaluated the entire map for each of the 2, 25, and 4096 tuples, tested its composition square on every word, and counted distinct outputs including the unit. The full three histograms match the frozen polynomials. The totals are 2, 17, and 535; the first two supports are intervals, and the third omits 11, 13, 14, and 15, with six maps of image size 12. Replay: python3 /workspace/branches/1e44eec6-9e30-47c8-8300-25f862a6659d/reproduce_census.py; captured output in the same directory, replay.txt. This verifies only the stated finite unital census.
 
-The complete primary text of Brauner–Commins–Reiner (arXiv:2206.11406, §§1–2) treats invariant theory and provides multiplication normal forms, not the displayed idempotent-endomorphism rank polynomial. The published full text of the analogous result on free **left legal** semigroups has different defining identities and concerns commuting graphs. published-finding corpus query comparisons identified no equal or logically stronger assertion about this free left-regular band's **retraction image-rank cutoff**. The Shevlyakov (2021) submonoid paper is relevant but full text was inaccessible, so a residual priority risk is recorded.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The image-cardinality spectrum is a natural invariant of the endomorphism monoid. The three-generator case is the first for which the attainable retraction ranks cease to be contiguous: four values strictly below the full rank are absent even though ranks both below and above them occur. The exact rank polynomial and fully checkable minimal-gap certificate give a concrete structural benchmark for any later general-rank theorem; no arbitrary externally chosen parameter slice is involved.
+Best-of-knowledge pass for the exact census and resulting first gap, not for the injective-word model, substitution, or the enumeration method. The exact local index hit points back to the frozen result itself. No distinct matching census or dominating rank classification was established by the bounded comparisons.
 
-## Scientific boundaries
+## value
 
-No statement is made for \(n\ge4\), no full-text NOT_COVERING inference is drawn from a bibliographic snippet, and finite enumeration is claimed as a proof only of the finite cutoff actually exhausted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Whether image sizes interpolate between the trivial and full retract is a natural structural question, and the census goes beyond exhibiting isolated examples. The first gap rules out interpolation at the smallest failing number of generators; it identifies both an interior forbidden size and a sharp proper-image maximum of 12 versus the full size 16. These exact obstructions and counts are useful small-rank constraints on proposed structural descriptions. No general-rank claim is needed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:33:25.255275Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§1–4; VERIFICATION.md; verify_tritangents.py and tritangent_22_spectra.csv",
+        "Celik–Kulkarni–Ren–Sayyary Namin, arXiv:1805.11702, §4.2/Definition 4.4",
+        "Independent replay: python /tmp/opencode/frozen_4_check.py <record-directory>/tritangent_22_spectra.csv"
+      ],
+      "rationale": "In characteristic at least five the degree-one anti-bicanonical double cover has the smooth canonical branch sextic used here. The Bertini pairing on the 240 exceptional curves is Galois-equivariant; the four degree types give one singleton family, two unordered-pair families and one triple family (use complements for the conics). In the cubic family Bertini exchanges the doubled and omitted point labels, so no ordering remains. An odd theta characteristic on this smooth genus-four curve has a unique effective divisor since h0 is odd and at most two by Clifford. The 120 labels thus count planes defined over the extension, not individually rational contacts. Independently generated all partitions of eight and evaluated the coefficients of the fixed-subset polynomial ∏(1+z^d) over the cycles of each power, truncating after z^3. The prefix counts are 13,20,22. The two-count collisions are (1,7)/(3,5) with third values 1/10 and (1,1,6)/(2,3,3) with third values 16/64. Divisor recursion from these fixed-subset formulas verifies every orbit spectrum in the frozen CSV and the finite étale zeta interpretation. For the field-size bound the three determinant families give 56·3+28·12+8·28=728 as a valid upper degree bound. The omitted cubic derivative is redundant by the affine chart and Euler's identity. Each determinant is nonzero on some tuple over the algebraic closure: evaluation functionals span the dual of the relevant polynomial space (for cubics, after imposing the value and two first derivatives at the chosen point, evaluate the resulting seven-dimensional subspace at seven suitably chosen points). The product is consequently nonzero. Squaring removes the relabeling sign. The linear Weil-restriction twist preserves nonvanishing and the degree bound; for q>1456 a nonzero polynomial of degree <q cannot vanish on the entire rational affine space. This gives distinct, general-position points of exactly the prescribed orbit type; duplicate points already make a triple determinant vanish.",
+      "residual_risks": [
+        "The finite calculation checks the S8 action once the geometric correspondence is established. The proof gives a sufficient, not optimal, q-bound; the finite étale zeta function is not the curve or surface zeta function. The claim is about the first consecutive extension counts, not arbitrary pairs of extension degrees."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The partitions (1,7) and (3,5) have Carter symbols A6 and A4×A2 by Lemma 2.20; their types are 40 and 37 in Karras Table IV. Both are on the list of types existing over all q in Theorem 1.2(8), and §3.3 identifies the constructions as blow-ups of the plane. Karras also uses exceptional-curve and surface point counts over extensions to tell Weyl types apart, not solely these three tritangent-plane counts. Trip's exact field-size statements concern specified Weyl types."
+        ],
+        "reasoning": "Karras gives genuinely stronger coverage of the realization of the two witnesses, not merely an isolated example. The determinant descent gives a short alternate sufficient bound, but the existence statement itself is covered. Weyl class recovery with different point/curve observables does not imply recovery from this shorter list of plane counts.",
+        "searches": [
+          "Literature: W(E8) Frobenius conjugacy classes degree-one del Pezzo surfaces 120 exceptional curve pairs genus-four odd theta characteristics tritangent counts finite fields",
+          "Literature: degree 1 del Pezzo surfaces finite fields Weyl group prescribed Frobenius all conjugacy classes sufficiently large fields blow up eight points general position Zywina quantitative bound",
+          "Karras, arXiv:2604.02036v1, Theorem 1.2(8), Lemma 2.20, §§3.3–3.4 and Table IV; Trip, arXiv:2603.20054, Theorems 1.1 and 1.3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1805.11702; arXiv:2604.02036v1; arXiv:2603.20054",
+        "Resultary bd2f0d7f5aae, 91bf98cffddf, 8a91037e03f9, 32e887a65762",
+        "Leiden thesis access attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The explicit geometric labeling already reduces each individual count to fixed subsets of an eight-point permutation. In the Weyl table approach, if b is Bertini and w is Frobenius then T_n=(Fix_curves(w^n)+Fix_curves(bw^n))/2: a fixed pair has either two individually fixed members or two members swapped by w^n. Thus row and power data can be used to compute the profiles, and some claims, including the witness triples and their existence, are immediate from the prior table and realization theorem."
+        ],
+        "reasoning": "Neither the existence of a full Weyl-class table nor recovery using other arithmetic observables entails a three-term separation theorem just by restricting the family. One must still compare the projected triples, since distinct spectra may have the same initial counts (indeed the two-count map collides). The credit here is for the exact short-prefix discrimination, not for rediscovering the curve spectra, fixed-subset labels, or sufficient realization fields.",
+        "searches": [
+          "arXiv:1805.11702, §4.2, Definition 4.4; arXiv:2604.02036v1, Lemma 2.20, §3.3, Theorem 1.2(8) and W(E8) tables"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The odd-theta/tritangent/Bertini-pair formulations describe the same 120-point action for the target. Resultary bd2f0d7f5aae has the same sharpness partitions but six parity-separated counts on genus-three hyperelliptic theta schemes. Record 91bf98cffddf shares the 120 odd cardinality but is for a genus-four hyperelliptic ten-point branch set and uses five pairs of counts."
+        ],
+        "reasoning": "The two hyperelliptic inversions have distinct permutation representations, statistics or parameter sets, so their cutoffs do not establish the tritangent-prefix sufficiency here. Same-day catalogue dates do not settle priority.",
+        "searches": [
+          "Resultary: genus four odd theta characteristics tritangent planes Frobenius counts from eight point blowup permutation cycle type",
+          "Resultary: tritangent count formula Frobenius partition of eight T1 T2 T3 reconstruct splitting type",
+          "arXiv:1805.11702, §4.2, Definition 4.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Karras's W(E8) appendix gives orbit types on the 240 curves and Bertini-twist class labels. For example, rows 40 and 37 have curve spectra 1²7³⁴ and 1²3⁶5¹⁴15¹⁰. These odd-order actions cannot swap the members of a fixed Bertini pair, so the rows directly give count triples (1,1,1) and (1,1,10). The Cayley-octad comparison gives a complete 22-type table for genus-three quartic Göpel kernels and bitangents, not for these planes. The exact catalogue self-hit c339e070f31e is the target."
+        ],
+        "reasoning": "There is substantive exact table overlap, not a clean negative search. The exceptional-curve data are usable for tritangent counts through pairing, but the inspected table does not state or test separation of the 22 blow-up partitions by their first three tritangent counts.",
+        "searches": [
+          "Resultary: degree one del Pezzo W(E8) Frobenius classes odd theta characteristics 120 tritangents finite field point counts character table",
+          "Karras Table IV, rows 37 and 40; appendix Tables III–VI",
+          "Resultary 8a91037e03f9 and bd2f0d7f5aae, Findings"
+        ]
+      },
+      "rationale": "The distinct supported contribution is the uniform first-three tritangent-count discrimination on this S8 subfamily and its sharp prefix length. The geometric labeling, the possibility of obtaining profiles from existing exceptional-curve tables, and the existence of geometric witnesses are not separate originality claims. In particular Karras's prior work gives stronger realization coverage than q>1456, and its rows already supply the lower-bound collision after accounting for the Bertini pairs. Neither that table's classification of the Weyl types nor the different-observable inverse results inspected give the sufficiency of this particular short tritangent prefix: the comparison of those three projected counts across all 22 types is the key remaining result.",
+      "residual_risks": [
+        "A prior projection of the Weyl-character data explicitly comparing these short tritangent signatures could overlap. The thesis full text was unavailable. The realization bound and individual computations from known tables are not assessed as original."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides the geometry and set representation; not the three-count inversion.",
+          "evidence": [
+            "120 Bertini pairs in degree types (0,6), (1,5), (2,4), (3,3), labeled by the eight blown-up points."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1805.11702",
+          "material_read": "§4.2, Definition 4.4, PDF pp. 9–10 (offset 24800)",
+          "method": "OA PDF passage comparison",
+          "title": "Tritangents and Their Space Sextics",
+          "trigger": "Same geometric objects and eight-point labeling"
+        },
+        {
+          "assessment": "Stronger witness existence and exact exceptional-curve orbit overlap; does not establish the sharp tritangent-only upper cutoff in the inspected statements.",
+          "evidence": [
+            "Lemma 2.20 adds A_(n−1) for a degree-n blow-up; Theorem 1.2(8) and §3.3 cover types 37 and 40. Table IV gives their curve spectra and Bertini types 97 and 95. §3.4's stated observables include both rational points and exceptional curves."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2604.02036v1",
+          "material_read": "Theorem 1.2(8), Lemmas 2.20–2.21, §3.3 including Lemma 3.5 and the paragraph after Prop. 3.8, §3.4 overview, and relevant appendix Table IV rows 37 and 40 (offsets 105193 and 105807)",
+          "method": "OA full-text HTML, literal locators and bounded passage readings",
+          "title": "On the inverse Galois problem for del Pezzo surfaces of degree 1",
+          "trigger": "Closest actual same-family existence and Weyl action tables"
+        },
+        {
+          "assessment": "Specific realization theorems, not tritangent-count inversion.",
+          "evidence": [
+            "Treats seven minimal conic-bundle types and separately specified index-eight and Bertini partner types; numbering differs from Karras."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2603.20054",
+          "material_read": "PDF pp. 2–3, §§1.1–1.3, Theorems 1.1 and 1.3",
+          "method": "OA bounded PDF passage",
+          "title": "Existence of minimal del Pezzo surfaces of degree 1 with a conic bundle structure over finite fields",
+          "trigger": "Possible earlier strong existence coverage for some Weyl types"
+        },
+        {
+          "assessment": "Actual analogues, not equivalent theta-plane discrimination on degree-one del Pezzos.",
+          "evidence": [
+            "The closest sharpness analogue uses six genus-three spin counts; the genus-four hyperelliptic one instead uses ten branch points; the octad table counts different schemes."
+          ],
+          "identifier_or_url": "Resultary bd2f0d7f5aae, 91bf98cffddf, 8a91037e03f9, 32e887a65762",
+          "material_read": "Findings and assumptions on the respective finite scheme and input family",
+          "method": "Local Resultary mirror statement comparison",
+          "title": "Hyperelliptic spin-count recovery and Cayley-octad Göpel spectra",
+          "trigger": "Same cutoff pattern, branch partitions, genus or octad"
+        },
+        {
+          "assessment": "No conclusion from inaccessible material.",
+          "evidence": [
+            "Description refers to the E8 action on 240 exceptional curves, which could encode relevant arithmetic data."
+          ],
+          "identifier_or_url": "Leiden repository thesis, exact title from literature lookup",
+          "material_read": "Bibliographic/search description only; no thesis body retrieved",
+          "method": "Bounded lawful repository handle/download attempt",
+          "title": "Geometry and arithmetic of del Pezzo surfaces of degree 1",
+          "trigger": "Potential W(E8) action comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§2–4; fresh 22-partition comparison; Karras Theorem 1.2 and Table IV; Resultary bd2f0d7f5aae and 91bf98cffddf"
+      ],
+      "rationale": "The meaningful finite cutoff is the minimum length of the initial count vector for a canonical finite étale scheme needed to recover the blow-up splitting class, without curve equations, contact-point rationality, full exceptional-curve spectra, or the full zeta function as input. Both the uniform three-count separation and the actual failure at two matter; merely reproducing existing exceptional-curve counts, or giving the weaker realization bound by itself, would not supply this value.",
+      "residual_risks": [
+        "Only the marked S8 family and a particular prefix of extension degrees are covered, not all W(E8) forms or recovery of the full surface or curve data."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

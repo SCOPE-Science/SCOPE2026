@@ -1,0 +1,169 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:56:05.863125Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 13–44 and the intact classification 5e44dcadc7a9",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent replay: python3 /workspace/replay/kneser.py"
+      ],
+      "rationale": "Normalize the deleted graph edge to 01--23 by permuting the ground labels. Each new face contains both endpoints and a third selected pair disjoint from one endpoint. A selected pair disjoint from both would already have degree two in the faulted graph. Hence an external label occurs, and each pair containing an external label contains exactly one of them. Two such pairs with distinct external labels either give the same fixed endpoint two neighbors, or are disjoint from one another and each already has a fixed neighbor. Thus all new faces use exactly one external label. Independently enumerating all 1024 subsets of the ten pair vertices on five ground labels gives 261 intact and 285 faulted faces including the empty face; the extras by size are 4,12,8. Each of the twelve table rows has precisely its stated strict coface after earlier removals. Downward closure rules out intact cofaces of a new face and support uniqueness rules out cofaces in any other block. This proves the exact relative collapse and counts for all n>=5, not just the local case. The intact three-skeleton equivalence supplies the credited sphere-wedge corollary.",
+      "residual_risks": [
+        "The frozen checker advertises Python 3.8+, but its built-in int.bit_count requires Python 3.10+. This does not change the finite certificate or theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Higher-independence framework and homotopy calculations for other graph families.",
+          "Intact dissociation-number result at k=2 and a broader k theorem concern maximum cardinality, with no inclusion after a graph-edge fault.",
+          "Three-skeleton result and integral symmetry cover the intact wedge, including n=4 in the Nov. 1 records."
+        ],
+        "reasoning": "Broader coverage of dissociation numbers or of the intact complex does not prove a relative homotopy statement for the edge-deleted graph.",
+        "searches": [
+          "Deshpande–Singh arXiv:2001.05448, Abstract/Introduction",
+          "Brešar–Dravec arXiv:2108.10801v1, Proposition 2.1 and Theorem 2.2",
+          "Resultary intact results 5e44dcadc7a9, ff97cc0eb769 and d8b32e070939"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 26e9bf6467aa, 5e44dcadc7a9, ff97cc0eb769, d8b32e070939, 2b36dd2818f0, a3be8773ac77",
+        "arXiv:2001.05448, 2108.10801, 2004.08714"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior four-label containment assumes a disjoint pair already consumes each endpoint's allowed adjacency in the intact graph.",
+          "The fault removes exactly this mutual adjacency and creates new five-label faces. The intact wedge theorem supplies the wedge corollary only."
+        ],
+        "reasoning": "The five-label partition and checked free-coface pairs are extra mathematics, not a specialization of intact containment or an inference from equal Betti numbers.",
+        "searches": [
+          "arXiv:2004.08714, Claim 1.7",
+          "arXiv:2108.10801v1, Proposition 2.1 proof",
+          "Resultary 5e44dcadc7a9, Proof §§1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Degree-at-most-one disjointness is the almost-intersecting condition, whose intact four-label lemma is in Claim 1.7.",
+          "The distinct same-day record a3be8773ac77 deletes an edge of KG(6,2) but studies the open-neighborhood complex and a change in its S^2 rank, not dissociation faces.",
+          "The exact Resultary relative-collapse hit 26e9bf6467aa is the target itself."
+        ],
+        "reasoning": "After translating the almost-intersecting terminology, no distinct equivalent faulted dissociation claim was found. The open-neighborhood construction requires a common neighbor, not an induced matching plus isolated vertices.",
+        "searches": [
+          "Resultary: pair-Kneser dissociation / two-independence after one graph-edge fault",
+          "arXiv:2004.08714, Claim 1.7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The intact enumerator gives exact intact counts, not the extra 24(n−4) faces or the 12(n−4) collapse pairs.",
+          "No different exact relative census was identified in the ranked Resultary results; the exact hit was 26e9bf6467aa."
+        ],
+        "reasoning": "A table for one graph or only the intact graph does not supply the relative face difference or a free-coface sequence; the exact local certificate scales by a new support argument.",
+        "searches": [
+          "Resultary: KG(n,2) single-edge fault relative collapse and exact dissociation faces",
+          "Resultary intact dissociation enumerator 2b36dd2818f0"
+        ]
+      },
+      "rationale": "The supported distinct claim is the single-graph-edge relative collapse and its exact relative face count. The intact homotopy classification and intact structural results are prior coverage and receive no novelty credit. No distinct equivalent collapse was found in the inspected sources.",
+      "residual_risks": [
+        "The comparisons are bounded by the retrieved catalog matches and inspected primary passages; an unindexed equivalent formulation remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Intact combinatorial overlap, no fault-collapse implication from these results",
+          "evidence": [
+            "diss(KG(n,2))=max(n−1,6) and four-label bound around an intact disjoint pair; higher-k result concerns dissociation numbers."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2108.10801",
+          "material_read": "§2, Proposition 2.1 and proof and Theorem 2.2 (OA offset about 9200)",
+          "method": "Primary OA text",
+          "title": "On the Dissociation Number of Kneser Graphs",
+          "trigger": "Exact intact graph and degree condition; possible broader theorem"
+        },
+        {
+          "assessment": "Prior intact support lemma",
+          "evidence": [
+            "2-set almost-intersecting families with a disjoint pair are supported on its four-point union."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2004.08714",
+          "material_read": "Claim 1.7 (OA offset about 6603)",
+          "method": "Primary OA text",
+          "title": "Almost intersecting families (Frankl–Kupavskii)",
+          "trigger": "Equivalent intact combinatorial terminology"
+        },
+        {
+          "assessment": "Framework and other families, no evidence of exact overlap in inspected material",
+          "evidence": [
+            "Defines higher independence by sizes of induced components; examples include cycles and complete multipartite graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2001.05448",
+          "material_read": "Abstract and Introduction (OA offset about 265)",
+          "method": "Primary OA text",
+          "title": "Higher Independence Complexes of Graphs and Their Homotopy Types",
+          "trigger": "General homotopy framework"
+        },
+        {
+          "assessment": "Exact prior coverage of the intact wedge; not of the relative collapse",
+          "evidence": [
+            "Intact complex equivalent to the simplex 3-skeleton; its computation uses stars and four-set simplices with octahedral boundaries."
+          ],
+          "identifier_or_url": "Resultary 5e44dcadc7a9",
+          "material_read": "Finding and Proof §§1–4 (local OA offsets 0–5747 and following homotopy argument)",
+          "method": "Local mirror of RESULT.md",
+          "title": "Three-sphere wedges and integral symmetry in two-independence complexes of two-subset Kneser graphs",
+          "trigger": "Potential direct coverage of the homotopy corollary"
+        },
+        {
+          "assessment": "Overlapping intact statements through n=4; no claim of relative collapse",
+          "evidence": [
+            "Three-skeleton or sphere-wedge statements and integral module for the intact pair-Kneser complex."
+          ],
+          "identifier_or_url": "Resultary ff97cc0eb769; d8b32e070939",
+          "material_read": "Findings, proof starts, and prior-work passages (offsets about 8200 and 8340 respectively)",
+          "method": "Local mirror of both RESULT.md files",
+          "title": "Two Nov. 1 intact two-independence classifications",
+          "trigger": "Potential equivalent and stronger statement"
+        },
+        {
+          "assessment": "Intact enumerator only",
+          "evidence": [
+            "Credits the four-label containment for intact dissociation faces and enumerates those faces, not new ones."
+          ],
+          "identifier_or_url": "Resultary 2b36dd2818f0",
+          "material_read": "Intact classification and prior-work passage around offset 6100",
+          "method": "Local mirror of RESULT.md",
+          "title": "Dissociation polynomials and maximal-set purity of KG(n,2)",
+          "trigger": "Possible exact census"
+        },
+        {
+          "assessment": "Same graph operation on a different simplicial construction",
+          "evidence": [
+            "Open-neighborhood complex of KG(6,2); rank changes from 19 to 17 in dimension two."
+          ],
+          "identifier_or_url": "Resultary a3be8773ac77",
+          "material_read": "Finding and definition at offset 0",
+          "method": "Local mirror of RESULT.md",
+          "title": "Two primitive neighborhood spheres lost under a Kneser edge fault",
+          "trigger": "Distinct same-day one-edge-fault result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof",
+        "Intact classification 5e44dcadc7a9 and intact enumerator 2b36dd2818f0"
+      ],
+      "rationale": "The exact relative collapse answers a natural stability question for an established complex. It determines the map of interest, not just the agreement of two abstract homotopy types. The five-label localization explains why an edge fault can create linearly many faces without altering the simple-homotopy type and gives a reusable local certificate.",
+      "residual_risks": [
+        "Value is specific to one deleted edge and pair-Kneser dissociation; no multi-fault or higher-k extension is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

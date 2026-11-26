@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The gradient is a positive row-stochastic three-site kernel. Every input step generates a profile with at most one negative increment. A sharp two-by-two overlap comparison yields the geometric-mean defect, and step decomposition plus segment integration proves the all-input bound. The interior-cut concentration construction gives its exact supremum, while positive boundary masses rule out finite equality in the expansive regime. The standalone checker passed 9,800 randomized inequalities and 60 additional sharpness/equality tests. Finite tests are corroboration, not an infinite proof.
+## correctness
 
-**Originality — PASS, qualified.** Direct searches of indexed public research records for weighted sliding entropy maxima, log-concavity, geometric-mean thresholds, and BV two-input stability found no same-operator result. Nesterov's smoothing theory supplies the derivative formula; Saumard–Wellner's log-concavity theory implies related qualitative stochastic ordering but no exact expansive norm. A directly relevant published cyclic-window result keeps weights fixed by absolute site, whereas the current position-dependent stencil changes overlap weights, allowing expansion. A prior moving weighted isotonic result shares a threshold but has a different nonlinear map and coefficient. An unindexed equivalent theorem is a residual risk.
+PASS
 
-**Value — PASS.** The result gives an exact robustness design criterion for a natural weighted entropy-smoothed maximum, identifies the precise amplification penalty for violating log-concavity, and exposes a finite-attainment discontinuity between contracting and expanding parameters. Temperature and signal length independence are operationally meaningful, and no comparable exact sensitivity follows from general log-concavity alone.
+Modulo constants, input adjacent differences are the coefficients of suffix steps, so the exact induced variation norm of the derivative is the largest variation of a step column. A full column is 0,p,q,1; a truncated column has no greater variation. Set X=u_(k-1), Y=u_k for the two shared exponentials. The only possible decrease p-q is bounded by P-Q=(ac-b²)XY/((bX+cY)(aX+bY)). When this is positive, minimizing the denominator divided by XY gives (sqrt(ac)+b)² at X/Y=sqrt(c/a). Integrating derivatives along the input segment proves the two-input bound. The cut k=4 exists already at n=6 and places both outside values 0 and 1 in the output. In the nonexpansive regime the column is monotone at all finite base points, so a finite suffix step gives equality. In the expansive regime sending the two nonshared exponentials to zero yields the extreme derivative value in the limit; small finite perturbations then approach it. On every fixed finite segment the shared-mass bound is strict at all potentially descending columns, uniformly by continuity and compactness; hence no finite attainment. Temperature independence follows also from F_tau(x)=tau F_1(x/tau). Independent exact tests of finite pairs use rational exponentials and compare powers of products of adjacent ratios, without evaluating logarithms.
 
-**Limits.** Real open-path length at least six; strictly positive fixed three-tap position weights; adjacent unweighted variation; no assertion for other filters or topologies. Historical priority remains conditional on accessible literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct contribution is the sharp amplification law and attainment classification for fixed relative-position taps on an open path. Classical smoothing and monotone-likelihood-ratio results account for components of the proof, especially the nonexpansive side; neither supplies the expansive law. The nearest published records differ in topology, map or reported sharp coefficient. Priority remains best-of-knowledge.
+
+## value
+
+PASS
+
+This is a natural two-signal stability problem for a nonlinear local smoother. The threshold alone would leave the severity and realizability of instability unanswered. The exact gain from one overlap reversal, its near-three limit for a small middle tap, and a strict distinction between finite equality and concentration in the limit answer those questions within a complete three-tap classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

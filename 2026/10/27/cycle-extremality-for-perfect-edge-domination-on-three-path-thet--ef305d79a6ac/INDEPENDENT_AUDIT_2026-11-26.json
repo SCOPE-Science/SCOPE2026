@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:20:44.678645Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–37 and 41–87",
+        "Frozen VERIFICATION.md and verify_theta.py, inspected; frozen script not executed",
+        "Independent replay: python3 /workspace/branches/b94b3f5c-eac5-4bee-9dda-0d637dfa9c81/check_theta_subsets.py; check_theta_subsets.out in the same directory: 89,280 theta masks and 44,640 cycle masks"
+      ],
+      "rationale": "An interior zero edge needs its predecessor and successor bits to sum to one; a terminal zero instead adds the number of selected edges at its degree-three endpoint to its one interior neighbor. These give exactly the displayed pair transfer and endpoint tests. At length two the identity matrix forces (f,h)=(p,g), so the same boundary formula neither misses nor duplicates any bit words. For a labeled cycle the trace counts each cyclic bit assignment at its fixed starting index once. Direct multiplication yields T^4=T^3+T, hence the same recurrence for the theta count and the comparator as any length at least six is reduced by one or three. A separate endpoint-sharing subset enumeration reproduced all twenty unordered base rows and the corresponding cycles. The only zero difference in the base is 222 (6 vs 6); neither predecessor outside the base can be 222, so strong induction gives strict positivity elsewhere.",
+      "residual_risks": [
+        "Only simple three-path theta graphs with all lengths at least two, and all PED sets, not minimum sets or dominating induced matchings. The finite enumeration verifies the base, not the infinite theorem by itself."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The generalized series-parallel algorithm covers theta counting, but the connected-graph cycle upper bound is explicitly Conjecture 5.1."
+        ],
+        "reasoning": "Algorithmic coverage is not an extremal theorem. The broader conjecture, even if taken as a premise, does not itself classify equality.",
+        "searches": [
+          "Grippo–Lin–Moyano–Vera, arXiv:2607.03894v1, §4.1 and §5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.03894v1",
+        "Resultary: 381ff49f7243, 2e80dff19ef1, eb9f686c89b4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The lollipop transfer uses the same four-state matrix and polynomial identity.",
+          "The prior generalized series-parallel algorithm yields numerical counts, not signs of the difference at every triple."
+        ],
+        "reasoning": "Applying the same local recurrence to a new boundary tensor still requires the two-terminal tests, the finite base sign and equality checks, and induction. No inspected theorem supplies these implications for theta graphs.",
+        "searches": [
+          "Resultary record 381ff49f7243, finding and transfer proof",
+          "arXiv:2607.03894v1, §4.1 and Conjecture 5.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A PED set corresponds to a vertex subset of the line graph with exactly one selected neighbor per unselected vertex; selected vertices are unrestricted.",
+          "The lollipop and bouquet statements have different path-incidence geometry; neither has three paths between two common degree-three vertices."
+        ],
+        "reasoning": "Changing to the line graph preserves the invariant and adds no novelty. The related graph families are not rephrasings of these theta graphs.",
+        "searches": [
+          "Resultary PED extremality: 381ff49f7243, 2e80dff19ef1, eb9f686c89b4",
+          "arXiv:2607.03894v1, definition and §5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published cycle recurrence and initial values agree with the comparator.",
+          "The strongest matching indexed records give lollipop, bouquet or cycle-spider counts; no exact theta bound with this equality classification was identified in them."
+        ],
+        "reasoning": "The existing cycle sequence is credited, and matching finitely many counts is not the all-length extremum.",
+        "searches": [
+          "Resultary matches 381ff49f7243, 2e80dff19ef1 and eb9f686c89b4",
+          "arXiv:2607.03894v1, cycle count discussion adjoining Conjecture 5.1"
+        ]
+      },
+      "rationale": "The literature inspected already supplies the cycle counts, and existing generalized series-parallel algorithms compute the individual theta counts. The same local transfer recurrence was previously used for lollipops. Neither comparison gives the all-length theta-versus-cycle bound with its K2,3 equality case; originality credit is for that family-specific comparison and the two-terminal specialization, not for the matrix, cycle sequence, or existence of a counting algorithm.",
+      "residual_risks": [
+        "Best-of-knowledge assessment; search cannot establish exhaustive priority. The older Lu–Ko–Tang generalized series-parallel work was not independently inspected in full; its algorithmic coverage is credited through the inspected primary comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers invariant, comparator and computation but not the reviewed extremal proof",
+          "evidence": [
+            "Outside-edge condition is exactly one; generalized series-parallel graphs admit a linear algorithm; cycle dominance for all connected graphs is a conjecture."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2607.03894v1",
+          "material_read": "Abstract/definition, §4.1, §5 Conjecture 5.1 (OA offsets 900 and 116783 for definition and conjecture)",
+          "method": "OA primary HTML passages",
+          "title": "Counting perfect edge dominating sets: extremal results and linear-time algorithms",
+          "trigger": "Exact invariant, broader algorithm and conjecture"
+        },
+        {
+          "assessment": "Substantive method overlap, different graph family",
+          "evidence": [
+            "Cycle plus one pendant path, strict bound; uses M^4=M^3+M."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-exact-perfect-edge-domination-counts-and-a-strict-cycle-bound-fo--381ff49f7243",
+          "material_read": "RESULT.md finding and matrix identity",
+          "method": "Indexed search and mirrored full-text passages",
+          "title": "Exact perfect edge domination counts and a strict cycle bound for lollipops",
+          "trigger": "Earlier extremal statement with same comparator"
+        },
+        {
+          "assessment": "Different graph family and invariant refinement",
+          "evidence": [
+            "Cycles sharing one hub, with cardinality/spoke refinement and DIM classification."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-hub-refined-perfect-edge-domination-polynomial-and-efficient-dom--2e80dff19ef1",
+          "material_read": "RESULT.md finding",
+          "method": "Indexed search and mirrored finding",
+          "title": "Hub-refined perfect edge domination polynomial and efficient domination",
+          "trigger": "Related hub-boundary enumeration"
+        },
+        {
+          "assessment": "Later and different class, no theta extremal statement",
+          "evidence": [
+            "One cycle with pendant paths attached at one cycle vertex."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-perfect-edge-domination-enumeration-on-arbitrary-one-hub-cycle-s--eb9f686c89b4",
+          "material_read": "RESULT.md finding",
+          "method": "Indexed search and mirrored finding",
+          "title": "Perfect edge domination enumeration on arbitrary one-hub cycle-spiders",
+          "trigger": "Related transfer enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 54–87",
+        "arXiv:2607.03894v1, Conjecture 5.1"
+      ],
+      "rationale": "Settles a natural infinite bicyclic family in the connected-graph cycle-comparator conjecture and identifies an exceptional equality missed by a generic counting algorithm. The shared recurrence gives a structural explanation for why a finite comparison establishes the full family, rather than a collection of numerical instances.",
+      "residual_risks": [
+        "No conclusion about other bicyclic graphs, more paths or the general conjecture."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

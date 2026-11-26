@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The proof classifies every jammed output as all of one class or a mixed set of size at most twice the maximum missing degree. An exact first-arrival order criterion converts the exceptional probability to a union of at most \(D\) events, with a controlled pairwise-intersection error; moment estimates follow without extrapolating from experiments. The special two-regular case has a separate exact inclusion-exclusion integral and a maximal-biclique classification. The embedded standard-library checker passed \(392{,}400\) direct permutation comparisons and exact finite distribution tests; finite checks are supporting evidence, not an infinite proof.
+## correctness
 
-**Originality: PASS to the extent supported by current sources.** The classical adsorption process itself is not new. The inspected 2015 primary preprint concerns sparse configuration-model graphs, while a fully accessible later primary paper works primarily through locally finite limits and local growth assumptions. The closest publicly indexed exact greedy-MIS results concern complete multipartite or chain graphs, rather than nearly complete bipartite graphs with arbitrary bounded-degree missing-edge networks; direct full scientific-result comparisons were performed. Targeted searches for deleted cycles, crown graphs, rare catastrophic jamming and dense graph variance found no stronger implication. Pippenger's 1989 foundational paper was accessible only at abstract level; complete access through a lawful institutional route was not available. Older unindexed dense-graph calculations remain a genuine residual originality risk.
+PASS
 
-**Mathematical value: PASS.** An \(O(n)\)-edge perturbation of \(K_{n,n}\) changes a deterministic occupied count into one with order-\(n\) variance while retaining occupancy \(n\) with probability tending to one; the leading coefficient is universal across all arrangements of bounded-degree missing edges. The exact two-regular family provides a natural, nontrivial all-size benchmark independent of cycle decomposition, and sharply demonstrates the rare-event mechanism. This is a structural boundary for inference from bulk jamming densities; no unwarranted kinetic or general Gaussian consequences are claimed.
+An unmixed greedy output fills the first vertex's side; in a mixed output each side lies in the deleted-edge neighborhood of any accepted vertex of the other side, so the count is between 2 and 2D and is less than n for n>2D. Conditional on first vertex x, mixed occupancy occurs iff some deleted-edge neighbor y precedes all its initial-side blockers: such a y must be accepted if it beats all blockers, and before the first opposite-side acceptance all previously encountered initial-side vertices were accepted. In the uniform residual order x is not a blocker, and the single-event chance is 1/(n−deg_H(y)+1). A two-event intersection requires both candidates to precede at least n−2D common blockers and is bounded by 2/[(n−2D+1)(n−2D+2)]. With at most D candidates Bonferroni gives deg_H(x)/n+O_D(n^−2). Averaging over the 2n possible first vertices yields m_n/n²+O_D(n^−2). The deficit is zero off that event and n−O_D(1) on it, so its first and second moments are m_n/n+O_D(n^−1) and m_n+O_D(1), with squared mean O_D(1). For fixed r≥2, on the mixed event the centered count is −n+O_D(1), off it O_D(1); splitting the rth moment verifies the stated signed limit, also when c=0. For the C4-free 2-regular family, the two candidates have distinct extra neighbors. The common-blocker count is n−3. Ordering the candidate priorities as u≥v, the intersection integral is 2∫_0^1 (1−u)^(n−2)(u−u²/2) du = 1/(n−1)−1/(n+1). Subtracting from 2/(n−1) gives 2n/(n²−1), and all mixed maximal bicliques are 3-vertex stars. The n=3 size coincidence is properly excluded; the matching has one candidate when x is matched, chance 1/n given that, giving k/n² and mixed count 2.
 
-**Limits and risk.** Fixed missing-degree bound and single-attempt uniform priorities are essential. An inaccessible older adsorption paper was not characterized as noncovering on abstract evidence. The broader unindexed literature may contain equivalent results; independent verification is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The checked earlier results do not give the uniform mixed-event coefficient and linear variance for arbitrary deterministic bounded-degree deletion graphs. A later indexed exact law genuinely includes the 2-regular special case, but is restricted to a regular C4-free class and does not supply prior coverage of the arbitrary bounded-deletion result. The greedy algorithm and description via maximal independent sets are classical.
+
+## value
+
+PASS
+
+In this natural dense perturbation model the typical count is unchanged, yet rare mixed configurations induce linear variance and macroscopic centered moments. The exact leading coefficient depends only on the number of deletions, uniformly over the different local arrangements allowed by fixed D. This explains behavior that a normalized jamming law or a typical-case concentration estimate cannot resolve. The two-point law provides a transparent benchmark across disconnected and connected deletion families.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

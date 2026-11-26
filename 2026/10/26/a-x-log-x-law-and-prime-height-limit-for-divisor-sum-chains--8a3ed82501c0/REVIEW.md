@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For two distinct primes the divisor-sum poset is a four-element order with just one possible incomparable pair, yielding the established \(p+1\mid q+1\) criterion. Fixed-modulus prime distribution yields each prime's contribution. Brun–Titchmarsh controls primes up to \(X^{1/3}\), the arithmetic progression's step length bounds the remaining primes by \(O(X^{2/3})\), and convergence of \(\sum_p[p\varphi(p+1)]^{-1}\) closes the summation. Total mass one of the limiting prime weights gives tightness and joint independence; Landau gives the semiprime-relative fraction. The executable direct-poset and progression counts corroborate finite examples without proving asymptotic statements. Risk: none identified in the stated quantifiers; reliance on standard named prime-distribution theorems is explicit.
+## correctness
 
-## Originality — PASS (qualified)
-Huber's Proposition 2.6 covers the semiprime chain equivalence, not the population asymptotic or joint limiting least-factor/height law. Koukoulopoulos studies divisors of shifted primes in varying intervals rather than this specific semiprime-weighted population. General prime-distribution theorems imply the fixed-prime terms but do not alone imply the global summation; a uniform tail argument is necessary. Public sequence records for \(p-1\mid q-1\) address a different congruence. Risk: a general shifted-prime summation theorem or unindexed earlier work might contain an equivalent count as a corollary; priority remains subject to independent research.
+PASS
 
-## Mathematical value — PASS
-The exact weighted leading constant and limiting distribution address a natural arithmetical subclass identified by a new divisor-sum-poset invariant. The result shows that width-one semiprimes form a vanishing fraction of all squarefree semiprimes and have a tight least prime factor, whereas an unconditioned semiprime's least factor diverges in probability. This is a precise structural sparsity/localization phenomenon, not a chosen arbitrary numerical cutoff. The counting proof exploits uniform tail control rather than only a fixed-prime textbook asymptotic.
+For distinct primes p<q, only the two middle divisor sums p+1 and q+1 need testing for comparability. The chain condition is q=-1 modulo p+1; the only positive integer in that class at most p is p itself. The fixed-modulus prime number theorem therefore gives the displayed fixed-p main term, also at tX for each fixed t>0. For p<=X^(1/3), the Brun–Titchmarsh logarithm is at least (log X)/3-log(1+X^(-1/3)), giving the stated bound with 7 eventually. Above the split, counting q=p+j(p+1), j>=1, gives at most X/[p(p+1)] per p, hence O(X^(2/3)) even summing over all integer p in the upper range. The elementary bound phi(m)>=sqrt(m/2) follows from the prime-power formula (the factor phi(l^e)^2/l^e is at least 1 except at l^e=2), giving a summable dominating prime series in the lower range. This justifies the total asymptotic, not just its finite truncations. The fixed-p counts at tX give the limiting rectangles, with t=0 automatic and tightness supplied by the same tail bound. Landau's two-factor asymptotic gives the proportion since squares are negligible and a fixed finite list of least primes contributes only O(X/log X) in the unrestricted set. The supporting numerical checks were inspected, not run, and do not establish any asymptotic.
 
-## Limits
-No explicit convergence rate, varying-threshold estimate, or extension to higher prime support is claimed. The same criterion is acknowledged as prior work. Publication priority has not been independently established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The chain criterion is exactly Huber's; the result being credited is the aggregate asymptotic and the limiting least-prime mass for that criterion. The height law is a useful consequence of these asymptotics, not a separate prime-distribution breakthrough. The strongest indexed analogues count different congruences and do not supply this law, although the summation method is closely analogous.
+
+## value
+
+PASS
+
+This is a quantitative law for a natural poset condition already singled out in prior work. It identifies the rarity scale among semiprimes and an explicit tight least-prime population, in contrast to the diverging least prime under uniform unrestricted sampling. The aggregate requires controlling primes beyond every fixed cutoff; the value is in that law and its concrete conditional mass, not in the known congruence test or an arbitrarily selected case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

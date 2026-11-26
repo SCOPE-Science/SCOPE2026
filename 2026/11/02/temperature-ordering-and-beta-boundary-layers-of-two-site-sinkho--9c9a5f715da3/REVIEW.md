@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Proposition 6.3 of Lavenant et al. (arXiv:2405.04987) provides the exact two-site metric as a self-coupling quotient. Algebra reduces it to a positive one-variable line element. Strict monotone inversion uniquely determines the constant-speed geodesic; the likelihood-ratio argument proves temperature ordering. Endpoint singular-integral scaling gives the exact \(4/3\) and \(8/3\) constants, which in turn determine the fractional interior correction, the beta-quantile limit and the boundary profile. The embedded executable independently checks a finite set of these identities and coefficients. No numerical limit is used as a proof.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The original 2024 study contains the two-site metric and qualitative asymptotics; those are treated as prior mathematics. The October 2026 work develops the general computation and convergence theory for Sinkhorn length geodesics. Inspection did not find the present strict temperature ordering, beta-quantile limit, fractional interior displacement or sharp endpoint mass/time layer in these closely relevant original results. Searches of mathematical research records and the literature returned general entropic interpolations, other graph metrics and unrelated beta laws, not a claim covering these statements. Completeness of historical literature access is not guaranteed; related one-dimensional exact evaluations may exist under alternative notation.
+PASS
 
-## Mathematical value — PASS
-Recent numerical geodesic constructions for Sinkhorn length distances require informative test cases at strong regularization contrast. This exact path family shows exponentially different time and mass resolution scales, a nontrivial beta-law shape and a monotone parameter response. The precise layer laws provide a reproducible quantitative benchmark, not just a computation of an arbitrary invariant. The result does not extend without further work to many-site measures, stochastic bridges, or full algorithmic convergence.
+Proposition 6.3 uses ε/2 in the tensor and b=exp(−2C/ε). Writing a=p(1−p), the off-diagonal self-coupling w solves B w²+w=a. Substitution yields g=εB/(2√(1+4Ba)), including a finite positive boundary extension. The coordinate obtained by integrating √g is an isometry to an interval with Euclidean distance, proving the constant-speed inverse and its normalization. On the left half interval, the normalized density ratio for β₁<β₂ strictly decreases and both densities have half their mass there, implying strict CDF order; comparison to the uniform density and reflection give the full inequalities. L¹ convergence of the densities gives uniform CDF convergence and uniform convergence of the inverses to the beta quantile. After u=βv the left-end loss, divided by β^(3/4), is dominated by a constant times min(v^(−1/4),v^(−5/4)) on a fixed short endpoint neighborhood. Its integral limit is 4/3 by explicit antidifferentiation. The right-end loss is identical and the rest is O(β), uniformly for fixed compact interior ranges of the upper limit. The inverse equation therefore gives the claimed interior coefficient, including zero at the midpoint. The rescaled arclength from zero to βy converges locally uniformly to (4/3)((1+y)^(3/4)−1), which is strictly increasing and unbounded; inversion proves the endpoint profile including s=0. Zβ→K and the exact prefactor prove the distance equivalent.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The tensor is published, and one-dimensional arclength and dominated convergence give the inverse quadrature, leading beta limit and leading length constant once the tensor is simplified. Exponential diameter growth is also credited to the source. The distinct supported contribution is the strict temperature ordering together with the quantitative fractional interior displacement and the resolved endpoint scales/profile.
+
+## value
+
+PASS
+
+For the simplest nontrivial ground space, the interior error and endpoint time and mass scales quantify a stiffness that mere convergence of the path or exponential length growth misses. The explicit profile is a precise benchmark for geodesic computation and distinguishes behavior near a pure mass from that at interior times.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

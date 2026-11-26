@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:08:14.626553Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The odd-characteristic hyperelliptic quotient over F3 is P1, and choosing a rational infinity gives y^2=a f(x) with f monic squarefree of degree 9 or 10. These degrees account for 10 branch points, including infinity exactly in odd degree. The two leading square classes have identical counts over F9 and F81. The fresh census used exact quadratic characters and one or two points at infinity, respectively; it found 13,122 and 39,366 squarefree forms, with minimum B4 values 0 and 2. The sole zero is the monic degree-nine polynomial x^9−x, with N2=N4=10. Its two F3 twists are isomorphic by x↦−x, so the count is of F3 classes, not only presentations. Fresh replay: python3 /workspace/branches/471463d8-8bf5-404d-914a-b003b672463a/audit_record4.py; census.out alongside it records the full run. The supplied verification sources were inspected, not executed. In the family, the derivative is −1 and the smooth odd-degree model has genus (q^2−1)/2 and one rational infinity. For z=x^{q^2}−x≠0 in F_{q^4}, z^{q^2−1}=−1, so z^{(q^4−1)/2}=−1 because (q^2+1)/2 is odd. All remaining points are exactly the q^2 branch points from F_{q^2} and infinity. Thus 4B4=N4−N2=0. For all r≥5 one has q^{r/4}>1+sqrt(q^2−1): check q=3 directly and use q^{1/4}>1+1/q for q≥5. The universal positive closed-point criterion following Eq. (8) on p. 4 of arXiv:2310.11218 (just before Prop. 2.2) gives the upper threshold 5 for all curves, and the witness gives the lower threshold. This proves neither uniqueness outside the hyperelliptic locus nor a classification for other q.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bars–Lario–Vrioni point to a necessary candidate list for arbitrary genus-four stable curves and give Hermitian maximality over all square fields. Their Drinfeld stability is for the larger cover, not automatically for an arbitrary quotient.",
+          "The universal positive closed-point bound is prior work. The later Ihara-maximal paper addresses a restricted maximality criterion, not an exhaustive genus-four stable-curve classification."
+        ],
+        "reasoning": "The stable-curve table dominates the necessary point counts for the F3 hyperelliptic subclass. In the general family the maximal Hermitian theorem applies to the larger curve; the explicit morphism and twist give the claimed witness counts rather than presuming that stability itself descends under all quotients.",
+        "searches": [
+          "Bars–Lario–Vrioni arXiv:2409.07086v2, Remark 3.6 and Sections 4.1 and 4.4",
+          "Aubry–Herbaut–Monaldi arXiv:2310.11218v1, Eq. (8), Prop. 2.2",
+          "Aubry–Herbaut–Monaldi arXiv:2506.08603v3, Ihara-maximal stability"
+        ]
+      },
+      "checked_sources": [
+        "Frozen theorem and verification sources",
+        "Lario DS_2024.html, genus-four GF(81)/GF(9)",
+        "arXiv:2409.07086v2",
+        "Resultary 09d83116388a",
+        "arXiv:2310.11218v1",
+        "arXiv:2506.08603v3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the F9 hyperelliptic quotient, an inert fiber at an F9 point would create two additional F81 points, forbidden by stability. Thus all 10 rational fibers are split or ramified; N=10 forces all 10 to be ramified. This is exactly the elementary split/ramified count used in the prior paper's p. 11 double-cover argument. Back over F3, put a rational base point at infinity. The branch set P1(F9) forces monic model polynomial x^9−x, and x↦−x identifies its two twists.",
+          "Put Q=q^2. Over F_{Q^2} the known maximal Hermitian curve, in the standard additive coordinates X^Q+X=Z^{Q+1}, maps onto the hyperelliptic Y^2=X^Q+X by Y=Z^{(Q+1)/2}. Maximality descends to this quotient (its H^1 is a subrepresentation). If b∈F_{Q^2}^* has b^Q=−b, then X↦bX changes X^Q−X to −b(X^Q+X), and −b is a nonsquare because (Q+1)/2 is odd. Thus the specified curve is the quadratic twist, with minimal F_{Q^2} count Q^2+1−Q(Q−1)=Q+1, also its branch-only F_Q count.",
+          "This familiar extremal-curve quotient and twist supplies the degree-four obstruction; the pre-existing universal criterion then gives the exact threshold."
+        ],
+        "reasoning": "These deductions identify the actual subclass and the extremal witness in prior stronger inputs. The finite coefficient counts supply a correct replay of uniqueness, not a noncovered rigidity theorem. The all-q companion is a routine application of standard Hermitian quotient/twist arithmetic and the prior bound, not a new bound or a distinct obstruction.",
+        "searches": [
+          "Lario DS_2024.html, GF(81)/GF(9) table",
+          "Bars–Lario–Vrioni arXiv:2409.07086v2, Section 3.3 fiber argument and Section 4.1 Hermitian theorem",
+          "arXiv:2310.11218v1, criterion following Eq. (8)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For a curve defined over F3, B4=0 is precisely equality of its F9 and F81 points, i.e. Diophantine stability of its F9 base change for F81/F9. The relevant genus-four table is for F81/F9, not the distinct F9/F3 table.",
+          "The catalog entry 09d83116388a uses the same y^2=x^9−x obstruction and gives rho(3,4)=5 for all smooth genus-four curves over F3; it does not assert uniqueness or the all-q family."
+        ],
+        "reasoning": "The stability rephrasing does not classify F3 descents by itself; the fiber and twist argument below supplies that step. The catalog overlap is exact only for the indicated special case and its witness; no priority inference is needed.",
+        "searches": [
+          "Resultary: genus-four degree-four closed points, hyperelliptic F3, exact closed-point threshold",
+          "Josep M Lario Curves over Finite Fields with Diophantine Stability genus 4 cubic quartic extension F_81 F_9 hyperelliptic classification tables"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "At text offset 106980 the Lario table lists the only candidates for F81/F9 stability, (T−3)^4(T+3)^4 with N=10 and (T−3)^2(T+3)^4(T^2+5T+9) with N=21. The table is of candidate Weil polynomials, not of realized classes.",
+          "arXiv:2409.07086v2, p. 11, Remark 3.6, describes the genus-four candidate lists with exclusion tests and cites the list checked with the IsogenyClasses package.",
+          "The closest indexed threshold finding 09d83116388a supplies the same witness but no uniqueness table. Tried LMFDB routes yielded no readable curve-class data; this is not negative evidence."
+        ],
+        "reasoning": "Even candidate-only coverage suffices for the necessary value N=10: hyperelliptic curves have at most 20 points over F9, so the candidate with 21 is excluded. A full database of F3 curve equations is not required for the implication.",
+        "searches": [
+          "Lario DS_2024.html, Genus 4, GF(81)/GF(9)",
+          "Resultary genus-four F3 threshold and hyperelliptic isomorphism data",
+          "LMFDB finite-field candidate data"
+        ]
+      },
+      "rationale": "The central hyperelliptic uniqueness statement is a direct consequence of an exact candidate Weil-polynomial table for the relevant quadratic extension, not an unresolved gap requiring the monic census. The indexed genus-four threshold result separately states the same q=3 threshold and witness. The all-odd-q threshold is not stated in that record, but follows from the known Hermitian maximality result by taking its elementary hyperelliptic quotient and quadratic twist, followed by the existing universal threshold bound. These are implication findings, not claims that both assertions have been printed verbatim elsewhere.",
+      "residual_risks": [
+        "No readable class-by-class LMFDB curve list was retrieved; the exact necessary stability table plus fiber argument is sufficient independently of that access issue.",
+        "No direct verbatim source for the all-odd-q equality was established; the originality judgment uses the explicit prior-implication route, not absence of search results or guessed publication priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct necessary candidate coverage for the hyperelliptic uniqueness implication",
+          "evidence": [
+            "Two candidate genus-four Weil polynomials, with stable point counts 10 and 21; the listing does not assert that both are realized."
+          ],
+          "identifier_or_url": "https://web.mat.upc.edu/joan.carles.lario/DS_2024.html",
+          "material_read": "Introduction, genus-four scope, and GF(81)/GF(9) table at offsets 106980–107253",
+          "method": "Targeted open-access website passages from the alternate table page",
+          "title": "Curves over Finite Fields with Diophantine Stability",
+          "trigger": "Candidate counts over exactly the extension entering B4"
+        },
+        {
+          "assessment": "Supplies candidate-list provenance, same fiber method, and Hermitian maximality; does not in these passages state this F3 hyperelliptic theorem or the all-q threshold",
+          "evidence": [
+            "No inert fibers for a stable quadratic extension; p. 11 derives R and S from source and target point totals.",
+            "The general Hermitian curve over a square field is maximal (Section 4.1); Section 4.4 concerns stable Drinfeld covers."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2409.07086v2",
+          "material_read": "p. 11 end of genus-three proof and Remarks 3.6–3.7, offsets 43400–49558; pp. 12–13 Sections 4.1 and 4.4, offset 49350 onward",
+          "method": "Targeted open-access primary PDF passages",
+          "title": "Diophantine stability for curves over finite fields",
+          "trigger": "Original framework for interpreting the table and general stable families"
+        },
+        {
+          "assessment": "Partial material overlap, not evidence about priority or complete hyperelliptic classification",
+          "evidence": [
+            "rho(3,4)=5 for the full genus-four locus with x^9−x as witness; the hyperelliptic uniqueness and range of odd q are not stated there."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-the-exact-closed-point-threshold-for-genus-four-curves-over-the--09d83116388a",
+          "material_read": "Finding and use of x^9−x in mirrored RESULT.md, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local catalog and mirrored record",
+          "title": "The exact closed-point threshold for genus-four curves over F3",
+          "trigger": "Same degree-four obstruction, genus and threshold"
+        },
+        {
+          "assessment": "Supplies pointwise universal criterion; does not itself supply this obstruction in the passage read",
+          "evidence": [
+            "For r≥2 with (q^{r/4}−1)^2≥2g, a degree-r point exists. Prop. 2.2 gives a derived bound for rho."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2310.11218v1",
+          "material_read": "p. 4, Eq. (8) and Prop. 2.2, text offset 11300",
+          "method": "Targeted open-access primary PDF passage",
+          "title": "Closed points on curves over finite fields",
+          "trigger": "Universal bound used for threshold sharpness"
+        },
+        {
+          "assessment": "Specializes to Ihara-maximal curves, not all stable curves; p. 19 list does not include (g,q)=(4,9)",
+          "evidence": [
+            "Equality of the two consecutive extension counts is the stability condition; the table's additional Ihara-maximal criterion changes its scope."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2506.08603v3",
+          "material_read": "p. 4 stability and Ihara maximality, offsets 12100–12800; p. 19 low-q list, offset 62000",
+          "method": "Targeted open-access primary PDF passages",
+          "title": "Maximal curves with respect to quadratic extensions over finite fields",
+          "trigger": "Plausible overlapping classification under quadratic stability"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "An exact closed-point threshold and its exceptional curves are well motivated. Here the claimed inverse classification is determined by the prior exact stability candidates with a short standard double-cover count, while the infinite threshold follows from an extremal Hermitian quotient, its twist, and the known bound. The census usefully checks the arithmetic but its auxiliary counts of monic presentations are not a separate motivated invariant. No separately valuable unknown classification or threshold remains within the frozen result.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

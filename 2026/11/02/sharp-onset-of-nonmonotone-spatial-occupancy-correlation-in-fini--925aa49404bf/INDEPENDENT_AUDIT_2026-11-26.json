@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:47:21.890659Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Assumptions and Proof §§1–5; VERIFICATION.md and verify.py",
+        "Independent replay: python /workspace/audit_reproduction.py (record 5). Solved the full four- and eight-configuration stationary systems symbolically rather than using the supplied count recursion; verified both Pearson formulas, the quartic, the three-patch occupancy derivative and the exact three example fractions."
+      ],
+      "rationale": "Rescaling by extinction gives (n-k)(u+kv) and k as the count-chain rates; balanced adjacent fluxes give binomial multiplicity times the rising product of u+jv. For v>0 the tilted Gamma representation is normalized since its (1+vT)^n moment is the partition function. Conditional on its latent success probability the sites are independent, so their covariance is the variance of a strictly increasing function of a nondegenerate random variable. At v=0 sites are independent. For two sites the rational Pearson formula has positive derivative (1+u+v)^(-2) and a nonzero limit. The exact three-site quotient gives the stated quartic derivative numerator: in ascending powers the signs are +,+,arbitrary,-,-, so exactly one positive root exists and is simple, with positive derivative before it and negative after. The derivative of the three-site marginal is strictly positive. For n>=3 the one-vacancy weight relative to full occupancy is asymptotic to n/((n-1)v); at least two vacancies have total relative weight O(v^(-2)). Thus one-site vacancy has probability asymptotic to 1/((n-1)v), two-site vacancy is O(v^(-2)), and the normalized pair correlation tends to zero. Positivity, continuity and the two zero endpoints force an interior maximum; the argument does not count maxima for n>=4.",
+      "residual_risks": [
+        "The high-colonization estimate holds for fixed finite n and fixed u>0; it is not uniform in growing n or vanishing immigration. Uniqueness is proved only at n=3. No inference for a heterogeneous patch network is made."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Foxall's ordered-parameter coupling gives stochastic ordering of configurations, not normalized covariance. The 2014 FKG result gives nonnegative same-time association in the classical infection models. The 2015 work discusses bell-shaped raw off-diagonal covariance in the same finite complete-graph family."
+        ],
+        "reasoning": "The positivity mechanism and covariance observations are credited as background. Neither ordering of states nor unnormalized same-time covariance establishes the shape of Pearson correlation as its marginal variance changes.",
+        "searches": [
+          "Foxall DOI 10.1239/aap/1401369707 Proposition 1",
+          "Cator–Van Mieghem DOI 10.1103/PhysRevE.89.052802, abstract and introduction",
+          "Van Mieghem–van de Bovenkamp DOI 10.1103/PhysRevE.91.032812, §IV.A and Fig. 1"
+        ]
+      },
+      "checked_sources": [
+        "DOIs 10.1006/bulm.2002.0307, 10.1103/PhysRevE.86.016116, 10.1103/PhysRevE.91.032812, 10.1103/PhysRevE.89.052802, and 10.1239/aap/1401369707",
+        "Resultary 2a6ad2f00da6, 0b82994b3598, 5d7ef75a6526, aef74138d0d1, 17227e340650 and 212035f9f876"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exchangeability gives off-diagonal covariance (n times Var(Y/n) minus p(1-p))/(n-1); dividing by p(1-p) recovers Pearson. Substituting the prior stationary weights gives exactly the frozen three-site covariance uv[(1+u)^2+(u+2)v]/Z_3^2. At n=2 the covariance is uv/[(1+u)^2+uv]^2, which peaks at v=(1+u)^2/u, whereas rho_2 is strictly increasing.",
+          "The same-day derivative result concerns covariance at zero interaction intensity; the normalized graph-perturbation record treats a marginal mean, not global pair correlation."
+        ],
+        "reasoning": "There is actual prior coverage of the exact law and enough moments to evaluate the correlation. The raw covariance peak implication fails even on two patches, and a slope at zero cannot give a global root count. The derivative sign argument and high-v normalized asymptotics establish the retained shape and patch-number conclusions beyond the known evaluations.",
+        "searches": [
+          "2012 Appendix A2 and A9, exact stationary moments; 2015 §IV.A, Fig. 1 and bell-shape discussion",
+          "Resultary 0b82994b3598 first-derivative law and 5d7ef75a6526 stationary mean comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The mainland–island coefficient in the count rate equals n times the per-neighbor coefficient here. The 2012 complete-graph count chain is exactly the same model after normalizing time and setting u=epsilon/delta and v=beta/delta. Reversibility in Resultary 2a6ad2f00da6 also gives the same stationary product weights."
+        ],
+        "reasoning": "These are actual model and distribution equivalences, not just similar terminology. The distinct comparison is of the proved global shape in one parameter, not the availability of a stationary law or values.",
+        "searches": [
+          "Alonso–McKane (2002), DOI 10.1006/bulm.2002.0307, equations 15–18",
+          "Van Mieghem–Cator (2012), DOI 10.1103/PhysRevE.86.016116, Appendix A",
+          "Resultary 2a6ad2f00da6, same-day 0b82994b3598 and 5d7ef75a6526"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2015 exact complete-graph figure plots raw variances and covariances for N=8,10,12,14 at importation 10^(-3). The 2012 exact mean and variance permit evaluation of any stationary Pearson value. The same-day three-patch Pearson result uses linearly regulated populations under correlated environmental noise; the two catastrophe records change transition rules and examine covariance or joint occupancy."
+        ],
+        "reasoning": "Neither the figure nor the catalogue records tabulate the specified all-u three-patch Pearson maximum classification. Evaluation from previously known moments is credited, including the ability to recover the displayed small-size expressions.",
+        "searches": [
+          "Resultary searches on finite stationary occupancy/Pearson correlation and three-patch thresholds; exact Findings 2a6ad2f00da6, aef74138d0d1, 17227e340650 and 212035f9f876",
+          "2015 Fig. 1 and 2012 Appendix A2/A9"
+        ]
+      },
+      "rationale": "The count law, associated moments and raw covariance values are available from earlier exact work, and a bell-shaped raw covariance was already reported in the same complete-graph family. The frozen claim credits the count law and does not claim generic association as novel. Its distinct contribution is the global normalized Pearson shape theorem: the sharp minimum of three patches, unique global peak at three for every u>0, and the zero-limit/nonmonotonicity result for every fixed finite n>=3. The inspected covariance shape does not imply that conclusion; at n=2 raw covariance actually peaks while Pearson rises strictly.",
+      "residual_risks": [
+        "Closest formerly inaccessible covariance sources were compared through lawful author or repository copies. The inspected passages do not exclude an unindexed explicit Pearson-shape theorem elsewhere.",
+        "Prior coverage of the stationary law, raw covariance and exact finite-rate evaluations is not disputed. The distinct claim is a rigorous shape classification for Pearson, not a priority claim for those ingredients."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the count stationary law",
+          "evidence": "After identifying the total colonization coefficient with n times the per-neighbor coefficient here, the count rates and stationary probabilities coincide.",
+          "identifier_or_url": "https://doi.org/10.1006/bulm.2002.0307",
+          "material_read": "Equations 15–18, pp. 918–919, offsets 16300–20173",
+          "method": "Lawful University of Hawaii PDF, exact rates and moment comparison",
+          "title": "Extinction Dynamics in Mainland–Island Metapopulations: An N-patch Stochastic Model",
+          "trigger": "Original stationary patch model"
+        },
+        {
+          "assessment": "Exact count law and moments determine the covariance and Pearson values; inspected discussion of fraction variance does not state the Pearson shape theorem",
+          "evidence": "Birth rate (beta M+epsilon)(N-M), death rate delta M; exact stationary count weights and variance of the occupied fraction.",
+          "identifier_or_url": "https://www.nas.ewi.tudelft.nl/people/Piet/papers/PhysRevE2012_selfinfection_SISEpidemics.pdf",
+          "material_read": "§IV p. 7 (~52000), Appendix pp. 7–9, rates (~55000), A2 (~57800) and A9 (~78500)",
+          "method": "Lawful author copy; mapped rates and used exchangeability to compare covariance",
+          "title": "Epidemics in networks with nodal self-infection and the epidemic threshold",
+          "trigger": "Exact complete-graph transition and covariance equivalence"
+        },
+        {
+          "assessment": "Real raw-covariance shape overlap, not the normalized Pearson theorem",
+          "evidence": "The plotted off-diagonal covariance c12 is exact for the finite chain at N=8,10,12,14 and fixed importation; the discussion calls covariances bell-shaped as interaction rate varies.",
+          "identifier_or_url": "https://www.nas.ewi.tudelft.nl/people/Piet/papers/PhysRevE2015_Accuracy_SIS_mean_fieldPRE.pdf",
+          "material_read": "§IV.A and Fig. 1, p. 032812-4 (~26600), discussion p. 032812-5 (~40900)",
+          "method": "Lawful author PDF; compared plotted exact invariant and parameter ranges",
+          "title": "Accuracy criterion for the mean-field approximation in susceptible-infected-susceptible epidemics on networks",
+          "trigger": "Strongest plausible coverage: explicit nonmonotone complete-graph covariance"
+        },
+        {
+          "assessment": "Pathwise stochastic comparison, not a Pearson-shape law",
+          "evidence": "Ordered parameter vectors and ordered initial states can be coupled to remain ordered.",
+          "identifier_or_url": "https://doi.org/10.1239/aap/1401369707",
+          "material_read": "Abstract p. 560 (~728), §2 Proposition 1, p. 563 (~14457)",
+          "method": "Primary PDF coupling passage",
+          "title": "Convergence and Monotonicity for a Model of Spontaneous Infection and Transmission",
+          "trigger": "Potential monotonicity theorem for the model family"
+        },
+        {
+          "assessment": "General same-time nonnegative association, different stationarity setting; no parameter shape",
+          "evidence": "The two-node nonnegativity for classical SIS/SIR on finite graphs uses FKG; the stated model does not maintain nontrivial equilibrium through positive external immigration.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.89.052802",
+          "material_read": "Abstract and introduction, pp. 052802-1 to -2 (~847 and 6603)",
+          "method": "Lawful TU Delft repository PDF, theorem scope comparison",
+          "title": "Nodal infection in Markovian susceptible-infected-susceptible and susceptible-infected-removed epidemics on networks are non-negatively correlated",
+          "trigger": "Potential coverage of positive pair association"
+        },
+        {
+          "assessment": "Covers the stationary weights, not Pearson shape",
+          "evidence": "Specializing the reversible weighted clique to the homogeneous complete graph recovers the displayed weights.",
+          "identifier_or_url": "Resultary 2026/10/18 record 2a6ad2f00da6",
+          "material_read": "Finding, reversible clique component product law",
+          "method": "Mirrored exact statement and model restriction",
+          "title": "Reversibility of spontaneous SIS epidemics: a weighted clique classification",
+          "trigger": "Same distribution by a different construction"
+        },
+        {
+          "assessment": "Related local response or different patch dynamics and observables, not the global stationary Pearson theorem",
+          "evidence": "Zero-rate covariance slopes are not finite-rate extrema; the nearest Pearson threshold uses linear populations and correlated noise, and the catastrophe variants vary a different control.",
+          "identifier_or_url": "Resultary 0b82994b3598, 5d7ef75a6526, aef74138d0d1, 17227e340650, 212035f9f876",
+          "material_read": "Findings: weak-contact slopes, degree-normalized mean, environmental-noise Pearson, shared-catastrophe covariance, and rescue/joint occupancy respectively",
+          "method": "Mirrored statements, compared observable, process and varying parameter",
+          "title": "Same-date stationary network response and patch synchrony results",
+          "trigger": "Plausible aliases for correlation thresholds or complete-graph response"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§3–5; exact covariance-versus-Pearson comparison with the 2012 and 2015 sources"
+      ],
+      "rationale": "Whether stronger neighbor colonization synchronizes occupied patches is a natural question about a standard finite occupancy model. The exact opposite two-versus-three-patch behavior and the three-patch unique peak give a sharp benchmark for normalized synchrony; rising marginal occupancy and a peak in raw covariance cannot answer that question. Positivity with a vanishing high-colonization limit extends the phenomenon to every fixed larger patch count, so it is not just an isolated parameter example.",
+      "residual_risks": [
+        "This is a stationary homogeneous model result, not an empirical calibration, prediction for heterogeneous landscapes, or statement about time-lagged correlation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,12 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-For every positive degree, partial-map commutation with a permutation forces the domain to be an invariant union of cycles. Injectivity makes each selected cycle map bijectively to one equal-length cycle, with exactly its length many phase choices. The acyclic partial-label-permutation criterion is necessary and sufficient for nilpotence. Unsigned Lah numbers count the chain components, and formal exponential generating functions refine by maximum chain length. The first term of the factor for each cycle length has coefficient equal to length times multiplicity times multiplicity minus one; sequential exact division reconstructs every multiplicity at least two. The companion checker independently enumerates all partial injections in selected small cases and confirms the full rank/index distributions. No infinite statement is deduced from finite tests.
+## correctness
 
-## Originality — PASS, subject to historical-priority limitations
-The 2023 Elliott–Levine–Mitchell paper counts monogenic inverse submonoid isomorphism types; it does not study nilpotent centralizer statistics. Lipscomb's 1988 and 1992 structural descriptions of symmetric-inverse centralizers give the established orbit/phase decomposition, and the classical Lah count is credited. The present distinct statement is the exact equivalence relation on permutation cycle types induced by the nilpotent centralizer rank polynomial, plus its joint index refinement. Relevant published comparisons concern nilpotent centralizer inputs or idempotents of a full-transformation centralizer, not this counted family. Historical structural and isomorphism literature was not all fully accessible, so implicit or unindexed priority is a residual risk. No blanket novelty guarantee is asserted.
+PASS
 
-## Value — PASS
-Recovering conjugacy information from a compressed enumeration is a natural inverse problem in inverse-semigroup centralizers. The theorem proves both the maximal recoverable repeated-cycle profile and a sharp family of indistinguishable singleton-cycle changes, rather than supplying a few unrelated counts. The all-degree rank/index formula also supplies a reusable statistic for the nilpotent part of every permutation centralizer. This is a complete invariant-strength classification, with explicitly stated limits.
+Equality of the partial maps forces σ-invariance of the domain. Equivariance and injectivity then identify the map with partial injections on equal-length cycle labels, with d possible phase choices per arrow of a length-d block. A label cycle forbids nilpotence regardless of phases; a chain with j labels contributes j−1 arrows and dies at the jth power. Thus with k arrows there are r−k ordered chains as an unordered collection: permute the labels, choose k noncut positions among r−1 gaps, and divide by (r−k)!. With a bound s on chain size, a j-chain has exponential generating series weight d^(j−1)z^(d(j−1))u^j because its j! orderings cancel the j! label denominator. The exponential can be taken over Q and the extracted counts are integral. A block with r=0 or 1 is invisible; otherwise its first coefficient is d r(r−1) in degree d. After dividing out the recovered factors, the least nonzero residual degree identifies the next d without knowing n, and that coefficient identifies r≥2 uniquely. Divisions lower degree, so this also proves termination and exact ambiguity. The empty map has index 1, and taking a single chain in each nonempty block attains both stated maxima.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The structural equal-length wreath/phase decomposition and Lah chain counts are known ingredients, and applying them gives the forward product. The supported contribution is the exact information retained by the nilpotent rank statistic for total permutations, including its unavoidable singleton ambiguity, together with the rank/index refinement. The closest checked reconstruction and centralizer results change the objects, counted elements, or rank and do not supply this equivalence.
+
+## value
+
+PASS
+
+A natural subfamily of commuting maps discards every singleton cycle, yet its one-variable domain-rank counts retain all repeated lengths and multiplicities even across degrees. This exact loss-of-information boundary is useful when only the nilpotent part of a centralizer is observed and is not an ordinary isomorphism classification of the whole centralizer. The index cutoff adds a separate usable count for bounded escape in the partial map.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:58:41.042700Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With at most two pebbles, after a move there is at most one stationary vertex to match, and every vertex on a board with both sides at least two has a neighbor and a distinct nonneighbor. For equal capped parameters at k>=3, after removal of a pebble at most k-1 coordinates on each axis are in use. Matching each axis by its own partial bijection preserves equality and sharing a coordinate; a fresh paired value exists on a small axis by exact equal sizes and on a large axis because its size is at least k. This works for arbitrarily many rounds. A clique of size at least three must share one coordinate, and an independent set changes both coordinates in every pair; maximum sizes are max(a,b) and min(a,b). Clique and independent-set formulas with up to k variables recover both truncated sizes. Counting the unordered truncated pairs, minimizing their products within a class, and enlarging a largest side to witness non-definability below max(a,b)+1 give all stated corollaries. This is a relative width, not a defining width among all graphs. The frozen scripts and stdout are bounded corroboration inspected but not executed; the permanent strategy is the universal proof. The extensional checker prunes subsets and does not independently exhaust every clique for the common-coordinate assertion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "808bb86c4b0b treats every finite positive number of factors, with all factor orders at least two; all two-factor products are in its one noncomplete FO^2 class and its single FO^1 class. Its fixed-d count and smallest representative are explicit.",
+          "The structural product characterizations in Klavžar–Peterin alone do not classify FO^k."
+        ],
+        "reasoning": "The broader theorem needs no extra coordinate predicates, coloring, equality-of-alphabet restriction, or counting. At d=2 its count is binom(k,k-2)=binom(k,2); its smallest product is precisely the canonical truncated rectangle, with largest possible order k^2.",
+        "searches": [
+          "Resultary: unrestricted-depth classification of Cartesian products of complete graphs with unequal alphabets",
+          "Cartesian product methods: Klavžar and Peterin, Characterizing Subgraphs of Hamming Graphs"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, REVIEW.md, VERIFICATION.md, both Python checkers and both recorded stdout files",
+        "Resultary 808bb86c4b0b, 50a3d8a54b66, 21ed75627daf, eb7081ce7884 and 2d960f9c3f1d",
+        "Pikhurko–Verbitsky; Berkholz–Krebs–Verbitsky; Adler–Benediktsson–Macpherson; Gray–Macpherson (abstract only); Klavžar–Peterin (abstract)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "808bb86c4b0b gives pairwise distinguishing widths via the first differing uncapped factor size. The width-k truncation also directly implies the relative defining width: k>max(a,b) uniquely fixes both sides; up to max(a,b), increasing a largest side preserves the class. Comparing (k,k) to (k,k+1) gives hierarchy strictness for k>=3, and (2,2) vs (2,3) does so at width two.",
+          "The multipartite theorem 2d960f9c3f1d is for the source graphs, not their line graphs. Pebble methods, alternation, counting/WL and VC invariants are different from this exact coverage."
+        ],
+        "reasoning": "All remaining highlighted corollaries are immediate from the broader result, although neither a generic game reference nor a complete-bipartite classification would suffice.",
+        "searches": [
+          "Resultary: logical width of complete multipartite graphs and line graphs",
+          "Pikhurko–Verbitsky §3; Berkholz–Krebs–Verbitsky on alternation and counting-free variable bounds; Adler–Benediktsson–Macpherson §3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "808bb86c4b0b, Finding: adjacency in a product is differing in exactly one coordinate; for two factors this is rook adjacency. Its truncated histogram at width k is exactly the multiset of the two capped side sizes.",
+          "eb7081ce7884 covers uniform-alphabet Hamming graphs and thus square boards, but not the unequal-side case by itself."
+        ],
+        "reasoning": "The mixed-alphabet statement uses the same pure adjacency/equality language and no bound on quantifier rank. This is equivalence of the actual statements on the two-factor family, not a title match.",
+        "searches": [
+          "Resultary: counting-free FO^k classification of rectangular rook and mixed-alphabet Hamming graphs",
+          "Resultary: finite-variable counting-free Hamming graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "50a3d8a54b66 and 21ed75627daf give related truncated-side profiles at fixed quantifier rank; 808bb86c4b0b provides the exact unrestricted-depth spectrum, count and minimum representatives symbolically."
+        ],
+        "reasoning": "The exact enumeration is already available directly by specialization of a closed-form theorem. The rank-based profiles alone would not establish the arbitrarily repeatable width-k game.",
+        "searches": [
+          "Resultary: exact quantifier-rank and quantifier-depth profiles of finite rectangular rook graphs",
+          "Resultary: exact fixed-d theory counts in mixed Hamming graphs"
+        ]
+      },
+      "rationale": "The distinct Resultary mixed-alphabet Hamming theorem 808bb86c4b0b directly covers the full frozen statement with precisely its language, width and depth, by taking two factors. The numerical and hierarchy corollaries follow mechanically as well. The theorem is correct but covered; this decision does not infer authorship or priority merely from catalogue dates.",
+      "residual_risks": [
+        "The state of earlier published literature remains open, including inaccessible Gray–Macpherson full text. This does not affect the demonstrable statement-level coverage by the mixed-alphabet theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact broader coverage",
+          "evidence": "The theorem equates all FO^k sentences iff each capped size has equal multiplicity, and explicitly gives the small-width classes, fixed-d count, smallest representatives and pairwise widths.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-the-full-variable-width-spectrum-of-mixed-alphabet-hamming-graph--808bb86c4b0b/RESULT.md",
+          "material_read": "Finding, Assumptions and Proof Steps 1–4 (offset 0–5194); coordinatewise strategy identified in Step 5",
+          "method": "Resultary search; local mirror at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "The full variable-width spectrum of mixed-alphabet Hamming graphs",
+          "trigger": "Broader product theorem in the identical signature and variable-width semantics"
+        },
+        {
+          "assessment": "Related rank theorem, not by itself the width result",
+          "evidence": "Controls a bounded number of nested quantifiers, not unbounded depth with reusable variables.",
+          "identifier_or_url": "Resultary 50a3d8a54b66; 21ed75627daf",
+          "material_read": "Findings; first record's rank-game proof",
+          "method": "Resultary and local mirror",
+          "title": "Exact quantifier-rank profiles of finite rook graphs; Exact quantifier-depth classification of finite rectangular rook graphs",
+          "trigger": "Same family and capped-size partitions"
+        },
+        {
+          "assessment": "Generic proof machinery, not the classification",
+          "evidence": "Moving an already placed pebble is permitted and the winning condition is the partial isomorphism.",
+          "identifier_or_url": "https://arxiv.org/abs/1003.4865",
+          "material_read": "§3, PDF p. 12, offset 33809",
+          "method": "Open PDF",
+          "title": "Logical complexity of graphs: a survey",
+          "trigger": "Exact pebble-game semantics"
+        },
+        {
+          "assessment": "No rook-width coverage in inspected passages",
+          "evidence": "Studies alternation; the p. 11 contrast between counting and noncounting is about trees.",
+          "identifier_or_url": "https://arxiv.org/abs/1212.2747",
+          "material_read": "pp. 1 and 11, offsets 0 and 28433",
+          "method": "Open PDF",
+          "title": "Bounds for the quantifier depth in finite-variable logics: Alternation hierarchy",
+          "trigger": "Counting-free FO^k vs counting/WL"
+        },
+        {
+          "assessment": "Structural background",
+          "evidence": "A vertex-neighborhood in a Johnson graph induces a rook graph; the paper studies VC invariants, not its unrestricted-depth variable theory.",
+          "identifier_or_url": "https://arxiv.org/abs/2007.16042",
+          "material_read": "pp. 6–7, offsets 17288 and 20770, Lemma 3.1",
+          "method": "Open PDF",
+          "title": "Vapnik–Chervonenkis Dimension and Density on Johnson and Hamming Graphs",
+          "trigger": "Same graph geometry and adjacency"
+        },
+        {
+          "assessment": "Comparison incomplete; not the basis of failure",
+          "evidence": "The abstract does not establish the frozen variable-width theorem.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jctb.2009.04.002",
+          "material_read": "Landing page and abstract; full text not recovered",
+          "method": "Lawful OA attempt",
+          "title": "Countable connected-homogeneous graphs",
+          "trigger": "Structural classification of related line graphs"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The invariant and family are natural, and the clique/independence proof is a clear elementary explanation for rectangles. But the submission's mathematical claims are a direct two-factor specialization, with only mechanical consequences for counts, minimum order, defining width and width hierarchy. It does not establish a distinct structural lemma or other worthwhile unresolved fact beyond that coverage.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

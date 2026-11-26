@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:35:55.319253Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Until the first private arrival the two agents value the same items, so the absolute difference of their common-good counts is a pointwise parity lower bound. Give each private good to its valuer. With private counts A and B, and with X the common-good count of agent 1 minus that of agent 2, zero envy is exactly the feasibility interval −A≤X≤B. Alternation can keep X in {−1,0} or {0,1} throughout: pick the side made feasible by the first private arrival. That interval only expands, so this single allocation realizes the parity bound before the arrival and zero thereafter. Neutrals change neither count; no private arrival leaves a parity-only stream, and an initially private good gives a zero optimum. The pointwise bound proves both the unweighted and nonnegatively weighted claims; choosing the alternation phase by a preliminary scan costs O(m) overall. In the displayed pair of streams, a wrong assignment of the first common good leaves the other agent envying by one for every round, irrespective of future choices. With a correct first choice, giving later goods to their valuers attains cost 1. The two indistinguishable first choices give the deterministic lower and upper bound m. For a randomized rule with first-choice probability p, the two fixed inputs have expected costs at least 1+(m−1)p and 1+(m−1)(1−p); a fair coin followed by assigning to valuers attains their smallest possible maximum. Both optima equal 1. This is expected minimax only on that input pair, for m≥2, with an oblivious adversary. The source DP code tests cumulative values on finitely many instances; the argument above, not those tests, establishes simultaneous pointwise optimality for all horizons. The frozen checker is documented in VERIFICATION.md; no replay of that source script was needed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general cumulative-objective dynamic program finds an optimizer, but does not state pointwise attainment or the heterogeneous formula.",
+          "Elkind et al. give temporal EF1 for v_i(g) in {0,p_g}, including binary approvals."
+        ],
+        "reasoning": "Optimizing the sum algorithmically is not a proof that one allocation jointly attains individual prefix optima. EF1 allows positive envy removable by deleting an item and does not force the exact zero-envy interval after the private arrival.",
+        "searches": [
+          "arXiv:2610.09843v1, fixed-agent cumulative maximum envy optimization",
+          "arXiv:2410.14593v1, Theorem 3.7 and Appendix B.2, temporal EF1 for generalized binary values"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_binary.py",
+        "arXiv:2610.09843v1",
+        "arXiv:2410.14593v1",
+        "Resultary 123d637e6747, 146190d77f86, c88e01b1c1a7, 2565adb33736, 61aee658ac38 and 5d0e67949726"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The identical-agent optimization results omit the class of private-goods inputs. Temporal EF1 and the inspected EF1 minimax result control a weaker or different loss."
+        ],
+        "reasoning": "For example, if a common good goes to agent 1 and every later good is private to agent 1, all prefixes can satisfy EF1 even though agent 2's numerical envy remains 1 throughout. Thus that guarantee neither implies the new zero-envy claim nor bounds the cumulative loss relevant to the adversarial pair. No inspected implication establishes the heterogeneous theorem.",
+        "searches": [
+          "arXiv:2610.09843v1, temporal model and identical binary optimum",
+          "arXiv:2410.14593v1, informed online definition and approving-agent algorithm",
+          "Resultary 123d637e6747 and 5d0e67949726"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Goldberg–Robinson–Teh cover the identical-binary slice via lower-load-first, giving parity for two agents.",
+          "Resultary 123d637e6747 treats identical positive two-denomination values; Resultary 5d0e67949726 treats online EF1 minimax, a different score."
+        ],
+        "reasoning": "A single common-load difference suffices in the identical case, but a private good changes only one agent's envy bound. The announced horizon and an informed temporal schedule are also different from knowledge of future item values.",
+        "searches": [
+          "Resultary: two-agent cumulative maximum envy in binary approval streams; first asymmetric/private arrival; oblivious online minimax",
+          "arXiv:2610.09843v1, §4 and Appendix 0.B.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest exact entries 123d637e6747, 146190d77f86 and c88e01b1c1a7 have identical positive valuations. The EF1 minimax entry 5d0e67949726 has another loss and input family."
+        ],
+        "reasoning": "There is no fixed finite table for this all-horizons claim. The exact indexed formulas are the applicable lookup; their valuation restrictions or changed loss preclude the claimed rule and ratios.",
+        "searches": [
+          "Resultary: exact parity profile and first-private-good zero-envy rule; m and (m+1)/2 competitive ratios"
+        ]
+      },
+      "rationale": "The identical-binary parity behavior is already covered by pointwise greedy optimality. The supported distinct contribution is the heterogeneous binary extension (one allocation reaching the exact minimum at all prefixes, including after the first private arrival), together with the exact unknown-future two-input competitive gap for cumulative maximum envy. The strongest inspected primary and catalogue statements do not give this combination or imply either distinct conclusion. This is a best-of-knowledge comparison, not a priority certification.",
+      "residual_risks": [
+        "Equivalent online lower bounds may occur in unindexed work or under alternative vector-balancing terminology; the evidence is limited to focused searches and inspected sources.",
+        "Catalogue dates by themselves do not establish priority. The two-input exact ratios are not asserted on the full binary input class."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers identical-binary special case, not the heterogeneous arrival formula or unknown-future competitive game",
+          "evidence": "The greedy pointwise minimum is stated for identical binary valuations; the temporal optimization model is fully informed.",
+          "identifier_or_url": "https://arxiv.org/html/2610.09843v1",
+          "material_read": "Introduction and §2 for the model; §4 for pointwise greedy under identical binary valuations and the fixed-agent method, approximately offsets 36500–39498 for the closest comparison",
+          "method": "Lawful OA primary HTML passage inspection",
+          "title": "Minimizing Cumulative Envy in Allocating a Sequence of Items",
+          "trigger": "Identical objective and plausible general prefixwise theorem"
+        },
+        {
+          "assessment": "Temporal EF1, not exact numerical envy minimization",
+          "evidence": "Its approving-agent algorithm treats generalized binary utilities but guarantees one-item-removal fairness, and its informed online definition includes future information.",
+          "identifier_or_url": "https://arxiv.org/pdf/2410.14593v1",
+          "material_read": "§1.1 p. 2; §3.2.2 Theorem 3.7 p. 8; Appendix B.2 pp. 24–25",
+          "method": "Lawful OA primary PDF passage inspection",
+          "title": "Temporal Fair Division of Indivisible Items",
+          "trigger": "Broader heterogeneous binary domain and temporal guarantee"
+        },
+        {
+          "assessment": "Different domain with identical valuations",
+          "evidence": "The two denominations are a and 2a, both positive, with utility common to both agents.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-myopic-cumulative-envy-minimization-for-two-positive-item--123d637e6747/RESULT.md",
+          "material_read": "Finding and valuation scope",
+          "method": "Indexed record via local mirror",
+          "title": "Exact Myopic Cumulative Envy Minimization for Two Positive Item Values",
+          "trigger": "Same two-agent objective with offline comparison"
+        },
+        {
+          "assessment": "Different game, loss and inputs",
+          "evidence": "The compared scenarios concern short/long inputs and an EF1 score, not the two indistinguishable common-first streams with cumulative maximum envy.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-an-exact-ef1-minimax-game-with-a-unique-least-favourable-horizon--5d0e67949726/RESULT.md",
+          "material_read": "Finding and minimax scope",
+          "method": "Indexed record via local mirror",
+          "title": "An exact EF1 minimax game with a unique least-favourable horizon",
+          "trigger": "Potential equivalent two-input randomized minimax bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The prefix criterion is stronger than minimizing the sum, and unlike a general dynamic program the theorem identifies exactly what future information matters: the first private good's valuer determines a single balancing phase that makes all subsequent envy vanish. This yields a linear-time exact allocation and robustness to arbitrary nonnegative prefix weights. The indistinguishable-stream construction shows that loss of this small piece of foresight can produce unbounded multiplicative cost even under an oblivious choice of input, separating tractability from online information requirements without overstating the exact unrestricted ratio.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

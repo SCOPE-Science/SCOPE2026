@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:19:55.442971Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Finding, Assumptions and Proof 1–5",
+        "VERIFICATION.md",
+        "verify.py"
+      ],
+      "rationale": "For the central right triangle, the sine and cosine rules give sinh(L/2)=s sinh R, tan(theta/2)=cot(a)/cosh R, and tanh r=c tanh R for midpoint distance r and interior angle theta. For a point at distance u from one end of a side, the hyperbolic cosine rule along its incident neighboring side gives cosh d(v)=cosh u cosh v-sinh u sinh v cos(theta). If theta>=pi/2 the unique minimizer is the shared vertex; otherwise tanh v=tanh u cos(theta), yielding an interior foot for u>0 because v<u<=L, and distance asinh(sinh u sin(theta)). The resulting one-neighbor distance is strictly increasing in u. The minimum over both neighbors therefore has a unique maximum at the midpoint. This is the actual maximum over the union of all other sides: at the midpoint a nonneighbor contact candidate has absolute polar angle at least 3a. Match its radial distance on an adjacent side using the same absolute angular offset from that side's midpoint ray, choosing the offset toward the fixed side. The matched absolute angle is at most 2a, so the hyperbolic cosine law gives strictly smaller distance. For n=3 all other sides are neighbors. Thus there are exactly the claimed two nearest points. Independently the Lorentz inner product of the midpoint with an adjacent unit side normal gives sinh of the supporting-line distance as 2s^2 sinh(r) cosh(r)=T, which is the segment distance on the acute branch. On the other branch the segment distance is L/2. The angle crosses pi/2 only for n>=5 at cosh R=cot(a). At the crossing theta'=-tanh R_n and B^2=cos(2a); the first derivatives match, and differentiating B sin(theta) twice versus B contributes -B(theta')^2/sqrt(1+B^2), the stated negative jump. The derivative of T as a function of y=sinh^2 R has positive sign from 1+(2-s^2)y. Expanding T=2c[1+(1/2-1/s^2)/y+O(y^-2)] gives the claimed approach coefficient after applying asinh. The frozen numeric checker was inspected, not executed.",
+      "residual_risks": [
+        "The argument concerns fixed n and finite regular convex polygons in curvature -1. Interior feet at R>0 for n=3,4 do not assert a positive transition radius at those n."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tselekidis gives a general bound in terms of triangle slimness and studies asymptotic geometric properties under uniform polygon slimness. Lassak and Sagmeister define and analyze supporting-hyperplane width, minimal width, and other polygon invariants."
+        ],
+        "reasoning": "A general upper bound in terms of the triangle constant is not equality for the finite regular family or a criterion for endpoint contact; supporting-hyperplane width and minimum width measure different quantities.",
+        "searches": [
+          "Tselekidis arXiv:2611.05429v1 Sec. 2.2 and Theorem 3.1",
+          "Lassak DOI:10.1007/s00013-024-02009-6",
+          "Sagmeister DOI:10.4153/S0008439525000189"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ideal regular polygons and ideal quadrilateral contact records",
+        "Tselekidis arXiv:2611.05429v1",
+        "Lassak 2024 and Sagmeister 2025 cited passages",
+        "Targeted primary-literature search (background geometry results)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ideal regular record's exact distance formula is explicitly for complete geodesics, and its vertices are excluded ideal endpoints. In the finite family the acute support-line projection solves a valid segment problem, but for n>=5 and R<R_n that projection falls outside the adjacent side and the distance is attained at the shared vertex instead."
+        ],
+        "reasoning": "Computing the acute formula for a complete line does not resolve the constrained minimization, global midpoint, or finite-radius jump. The ideal formula alone also cannot determine the fixed-n coefficient of convergence. Same-day catalogue dates do not supply ordering or a priority claim.",
+        "searches": [
+          "SCOPE-exact-side-slimness-of-regular-ideal-hyperbolic-polygons--0556528fd074, Finding and Proof",
+          "SCOPE-sharp-side-slimness-and-contact-bifurcation-of-ideal-hyperbolic--e0350d643ade, Finding",
+          "Tselekidis arXiv:2611.05429v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tselekidis defines the same other-side distance condition through segment neighborhoods. The Resultary regular ideal polygon theorem uses complete lines and gives asinh(2 cos(pi/n)) with unique midpoint maximizer."
+        ],
+        "reasoning": "Polygon thinness in this sense is equivalent to the maximum of point-to-other-sides distances. Replacing finite target segments by full supporting lines is not equivalent: it already gives the wrong compact value in the obtuse branch.",
+        "searches": [
+          "Resultary: exact regular hyperbolic polygon side slimness, compact and ideal",
+          "Primary search: hyperbolic geometry exact slimness finite equilateral triangle regular polygon compact side slimness circumradius distance midpoint other sides hyperbolic contact transition",
+          "Tselekidis arXiv:2611.05429v1 Sec. 2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE-exact-side-slimness-of-regular-ideal-hyperbolic-polygons--0556528fd074 gives the exact regular ideal sequence as a function of n. SCOPE-sharp-side-slimness-and-contact-bifurcation-of-ideal-hyperbolic--e0350d643ade gives an exact ideal quadrilateral shape-dependent bifurcation, also covering the ideal square value asinh(sqrt(2))."
+        ],
+        "reasoning": "These are exact comparisons, not evidence for the compact function of vertex circumradius. Ideal shape variation and the compact regular family use different parameter spaces, and neither ideal result has finite endpoints available as nearest contacts.",
+        "searches": [
+          "Resultary: exact side slimness of regular ideal hyperbolic polygons",
+          "Resultary: sharp side slimness and contact bifurcation of ideal hyperbolic quadrilaterals"
+        ]
+      },
+      "rationale": "The ideal endpoint and its midpoint maximizer are already given in a separate indexed record and are not credited as distinct. The compact finite-segment profile, the change of nearest contact from endpoint to interior foot, and the differentiability boundary and approach rate remain distinct from that result and from the inspected thin-polygon and hyperbolic-width work.",
+      "residual_risks": [
+        "An equivalent finite regular formula under alternate terminology is not ruled out by this bounded comparison. The exterior literature search produced background material rather than a decisive compact-family formula; this is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap of endpoint value and midpoint claim for the ideal polygon, not of the compact profile",
+          "evidence": [
+            "The ideal result treats complete geodesic sides, yielding asinh(2 cos(pi/n)) and unique midpoint maxima.",
+            "Its equation (1) is explicitly point-to-complete-geodesic distance."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-side-slimness-of-regular-ideal-hyperbolic-polygons--0556528fd074",
+          "material_read": "RESULT.md Finding, assumptions, and opening proof, local-mirror offset 267",
+          "method": "Resultary local mirror",
+          "title": "Exact side slimness of regular ideal hyperbolic polygons",
+          "trigger": "Identical invariant for the ideal regular endpoint"
+        },
+        {
+          "assessment": "Different bifurcation indexed by the ideal quadrilateral's shape, not radius of compact regular polygons",
+          "evidence": [
+            "The ideal theorem switches its squared hyperbolic sine formula at cross-ratio 3, between kappa and kappa/(kappa-2)."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-side-slimness-and-contact-bifurcation-of-ideal-hyperbolic--e0350d643ade",
+          "material_read": "RESULT.md Finding, local-mirror offset 350",
+          "method": "Resultary local mirror",
+          "title": "Sharp side slimness and contact bifurcation of ideal hyperbolic quadrilaterals",
+          "trigger": "Closely named contact transition for the same kind of distance invariant"
+        },
+        {
+          "assessment": "Definition and general bound, not the finite regular exact calculation",
+          "evidence": [
+            "Each side must lie in the delta-neighborhood of other sides; the general bound from triangle hyperbolicity is (n-2) delta."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.05429v1",
+          "material_read": "Sec. 2.2, OA offset 8777, and Sec. 3 Theorem 3.1",
+          "method": "OA arXiv HTML",
+          "title": "Logarithmically Slim Polygons",
+          "trigger": "General polygon slimness theorem with the same definition"
+        },
+        {
+          "assessment": "Width and thickness are different invariants",
+          "evidence": [
+            "Thickness is defined as minimum width, using support data."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00013-024-02009-6",
+          "material_read": "pp. 329–330, OA offsets 583 and 1788",
+          "method": "OA publisher text",
+          "title": "Reduced polygons in the hyperbolic plane",
+          "trigger": "Exact hyperbolic polygon width and thickness terminology"
+        },
+        {
+          "assessment": "The inspected width, perimeter, diameter and circumradius quantities are not other-side segment distance",
+          "evidence": [
+            "The problem concerns ordinary reduced polygons and their width, perimeter, diameter and circumradius."
+          ],
+          "identifier_or_url": "https://doi.org/10.4153/S0008439525000189",
+          "material_read": "pp. 950–951, OA offsets 680 and 6256",
+          "method": "OA publisher text",
+          "title": "On the perimeter, diameter and circumradius of ordinary hyperbolic reduced polygons",
+          "trigger": "Hyperbolic polygon formulas involving the circumradius"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and Proof 1–5",
+        "Resultary exact ideal endpoint comparison"
+      ],
+      "rationale": "The regular compact family gives an exact benchmark for a standard metric invariant. The endpoint-constrained phase is a genuine geometric feature invisible from ideal polygons or support-line distances; the sharp contact threshold and derivative jump quantify it. The unique midpoint and the exact two-contact classification provide more than plugging a radius into a known limit.",
+      "residual_risks": [
+        "This does not give a general sharp slimness bound for irregular polygons."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

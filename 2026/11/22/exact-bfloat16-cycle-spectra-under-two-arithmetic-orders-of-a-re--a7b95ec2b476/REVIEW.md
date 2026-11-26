@@ -1,19 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The exact bfloat16 encoding formula reduces all relevant values to integers at scale \(2^{-133}\); all rounding decisions and modulo operations use exact integer comparisons. `check.py` exhaustively checks both successor graphs, independently recomputes every edge with rational fractions, and independently recomputes every directed cycle and its basin using two graph algorithms. It confirms cycle periods, exhaustive basin sums, maximal transient times and the exact changed-edge count. Invariance of the finite state space is proved directly from the output bounds. The claim is a finite-state theorem, not an inference about infinite real trajectories.
+PASS
 
-## Originality: PASS within checked literature
+The two displayed operations define closed finite graphs. Multiplication by 2^133 encodes each format value as an integer, including the subnormals; the nonnegative remainder is exactly the integer residue in these units. The exact real sums before final rounding are less than 2 (the staged quotient is at most R(1/5)); the staged product is at most 200. I reconstructed both transition rules and independently evaluated every code with an exponent-local quotient/remainder rounder instead of a neighbor-table search. The local spacing is 2^max(0,floor(log2(n/d))-7) in scaled units; an exact midpoint chooses an even quotient, with recoding at exponent boundaries. The replay tests all adjacent midpoints through 256. Separate Floyd walks from every start locate first cycle entries and traverse the primitive cycles. All representatives, associated periods and basin sizes agree, not just their multisets: A has the zero, 18- and 24-cycles; B has two fixed points and eight 3-cycles. The respective maximum depths are 51 and 44; precisely 3,545 of the 16,385 successors differ.
 
-The source paper (Moysis et al., 2022, equations (4), (23), Figure 5 and numerical-accuracy discussion) specifies this remainder-added map and parameters but not its bfloat16 functional graph. Klöwer et al. (2023, sections on floating-point orbits, logistic and Bernoulli maps) demonstrate the general phenomenon of precision-induced periodicity, not these counts. The published binary16 beta-shift two-rounding census treats a different map, format and parameter, so its statements do not imply this specific graph. The exact-real remainder-added confinement and golden-ratio transport result likewise does not imply the finite-precision counts. A previous bfloat16 state-dependent logistic calculation concerns a distinct polynomial and has no reduction establishing these cycles. Unindexed identical computations remain a residual priority risk, not an established implication.
+## originality
 
-## Value: PASS
+PASS
 
-The chosen parameters are the published figure's canonical simplest-linear example, and the precision is a standard low-cost 16-bit format. The source's proposed digit-mixing chaotification is explicitly motivated by pseudo-random output and numerical implementation, so the complete cycle and basin inventory answers a motivated design-evaluation question. The exact period-spectrum change from \(18,24\) to at most \(3\) is substantial and not a generic finite-state tautology: finite-state periodicity alone gives none of these periods or basin counts. The finite classification is reproducible, but makes no unsupported cryptographic-security claim.
+The reviewed distinction is the exact paired graph census for this remainder-added map and these roundings, not the underlying recurrence, the existence of finite-precision cycles or sensitivity to evaluation order. The closest inspected statements do not cover that census.
 
-## Limits and nearest comparisons
+## value
 
-The exact counts do not generalize to other rounding stages or integer parameters. The underlying real-valued map's expansion is not contradicted. Closest comparisons: 2022 source DOI `10.3390/math10152801`; 2023 low-precision analysis DOI `10.1038/s41598-023-37004-4`; and the published beta-shift rounding-order census at https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-two-exact-cycle-spectra-for-differently-rounded-half-precision-b--384041ddfda5.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete format-scale baseline for a published remainder-addition family can be used to test implementations and isolate the effect of moving rounding across a discontinuity. The striking exact difference is not generic eventual periodicity: a dominant 24-cycle and an 18-cycle are replaced by eight distinct 3-cycles and a nonzero fixed point, with measured encoding basins and depths completing the comparison. The scope is a single explicit parameter example, but the state set and arithmetic choices are natural and the exact census is useful on its own.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

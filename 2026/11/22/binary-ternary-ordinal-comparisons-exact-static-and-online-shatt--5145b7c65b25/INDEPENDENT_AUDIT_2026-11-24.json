@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:52:57.567275Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md proof §§1–5, assumptions and boundary cases; VERIFICATION.md lines 19–23 and verify.py lines 9–117 inspected, not executed",
+        "The package reports VERIFY_OK 67; it tests the explicit matching, selected witnesses and small exact dimensions. The theorem was reviewed by reconstructing the general proof, not by rerunning that test."
+      ],
+      "rationale": "All nontrivial thresholds are distinct on the full product. In an arbitrary version space, a coordinate can make exactly j of its retained thresholds true for every j between zero and its retained threshold count. Independent coordinates fill the entire allowed interval, adjusted by whichever constants are present, so every version space of size at least two admits a balanced split. Induction and the distinct-hypothesis leaf bound give the general finite-palette online formula. Statically, each coordinate supplies at most its available number of nonconstant traces. For s>=3, pair each proper set not containing 1 with its union with {1}, except where this would use the full set. The two uncovered sets {1} and [s] minus {1} can be absorbed by replacing the pair ({2},{1,2}) with ({1},{1,2}) and ({2},[s] minus {1}); strict inclusions hold even for s=3. Choose as many pairs as ternary coordinates permit and assign leftover traces individually to binary coordinates, possible by 2a+b>=2^s-2. The nested traces really do arise from the 0/1/2 assignment; singleton traces ensure distinct sample points. For s=2 two independent coordinates supply opposite singletons, whereas one chain cannot. This also proves the exact one-coordinate exceptions; two quaternary features give Ldim=3 by the eight-hypothesis law but cannot cover three incomparable singletons, so VC=2.",
+      "residual_risks": [
+        "This is a one-polarity one-atom class on a full product, with both constants. The arbitrary finite-palette extension concerns Littlestone dimension only. No fresh numerical run or formal verification is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gey's unrestricted real-coordinate dimension uses the width of the Boolean lattice. The ordinal stump theorem bounds the partition function, with the authors explicitly distinguishing possible realizations from the greedy bound. The description-logic source embeds comparisons in richer syntax and studies bounded fitting."
+        ],
+        "reasoning": "A domain-restriction upper bound cannot supply the exact static dimension or its witnesses; with six continuous coordinates Gey gives four, but six ternary coordinates give three. Bounds for stumps and an ambient rich syntax do not furnish the finite one-polarity packing or the online formula.",
+        "searches": [
+          "Funk–Jung–Voellmer 2605.07452v1 §2; Gey 1203.0193 §3 Lemma 1; Leboeuf–LeBlanc–Marchand 2210.10781 §5.2 Theorem 9"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact self-hit 5145b7c65b25 and related 5eb83aecf933",
+        "arXiv:1203.0193 §3",
+        "arXiv:2210.10781 §5.2",
+        "arXiv:2605.07452v1 §2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The width-based cut formula covers whole chains of potentially many proper subsets; on ternary coordinates one can realize at most two. Two quaternary chains already meet the cardinality bound for eight hypotheses but cannot cover three singleton traces."
+        ],
+        "reasoning": "The new static lower bound needs a perfect pairing in the comparability graph with empty and full removed, followed by bounded per-coordinate realization. An unrestricted chain cover or an ordinal partition upper bound does not yield it. The example also demonstrates why a generic cardinality bound and existence of balanced adaptive splits do not imply static capacity.",
+        "searches": [
+          "Gey Lemma 1 axis-parallel cuts; ordinal feature partition bound of 2210.10781 Theorem 9; Resultary lower-orthant result 5eb83aecf933"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact hit 5145b7c65b25 is the frozen item itself. Closest distinct inspected finite-grid work 5eb83aecf933 characterizes anchored lower-orthant shattering by private maxima."
+        ],
+        "reasoning": "Equivalently a binary coordinate supplies one subset trace, a ternary one a comparable pair, and the target is packing all nontrivial Boolean traces. Lower orthants allow conjunctions across all coordinates, which changes this packing problem; that result is not a reformulation.",
+        "searches": [
+          "Resultary searches for exact mixed binary–ternary atomic threshold VC and Littlestone formula; nested-pair Boolean trace construction; general finite-palette online formula; two-quaternary-feature boundary"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit is the self-record; the closest separate finite-grid theorem uses orthants, and the inspected ordinal-stump result is a bound on a different partitioning function."
+        ],
+        "reasoning": "No separately indexed exact value table for this same atomic class was found in the checked evidence. The comparison is statement- and assumption-based, not a negative priority proof from catalogue silence.",
+        "searches": [
+          "Resultary exact-formula and quaternary-boundary searches; Gey §3 and Leboeuf–LeBlanc–Marchand §5.2 finite-cut comparisons"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact mixed-palette static threshold-capacity criterion and its sharp equality and separation with the online dimension. The inspected closest statements do not yield this criterion or realize the needed finite trace packing. The balancing argument in isolation is elementary; the distinction is the exact paired classification including its boundary.",
+      "residual_risks": [
+        "An earlier equivalent bounded-chain packing or comparison-dimension result under different terminology may be unindexed or missed. No historical priority is established by these searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact static formula, but not for fixed small palettes",
+          "evidence": "The central-binomial criterion allows s examples when binom(s,floor(s/2)) is at most the number of continuous coordinates.",
+          "identifier_or_url": "https://arxiv.org/pdf/1203.0193",
+          "material_read": "§3 Lemma 1 p.3, OA offset about 5200",
+          "method": "OA bounded passage inspection",
+          "title": "Vapnik-Chervonenkis Dimension of Axis-Parallel Cuts",
+          "trigger": "Closest exact one-polarity static theorem on continuous features"
+        },
+        {
+          "assessment": "Ordinal stump bounds do not imply the exact trace realizations and online theorem",
+          "evidence": "The text says the greedy upper bound need not be attained by an actual sample.",
+          "identifier_or_url": "https://arxiv.org/pdf/2210.10781",
+          "material_read": "§5.2 Theorem 9 p.11, OA offset about 40188",
+          "method": "OA bounded passage inspection",
+          "title": "Generalization Properties of Decision Trees on Real-valued and Categorical Features",
+          "trigger": "Potentially stronger treatment of finite ordinal features"
+        },
+        {
+          "assessment": "Comparison language has a different expressive and theorem scope",
+          "evidence": "Includes comparison atoms with <= and >= in a broader logic; the inspected result is about bounded fitting, not the exact two dimensions.",
+          "identifier_or_url": "https://arxiv.org/html/2605.07452v1",
+          "material_read": "Abstract; §2 feature comparison syntax around offset 9000",
+          "method": "OA bounded passage inspection",
+          "title": "Bounded Fitting for Expressive Description Logics",
+          "trigger": "Main application motivation and syntax overlap"
+        },
+        {
+          "assessment": "Different conjunction class and shattering criterion",
+          "evidence": "It concerns anchored coordinatewise lower orthants and private coordinate maxima, not single-coordinate thresholds or an online theorem.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-finite-grid-orthant-shattering-profiles-and-an-alphabet-de--5eb83aecf933",
+          "material_read": "Mirrored RESULT.md Finding at offset 0",
+          "method": "Local mirror bounded passage inspection",
+          "title": "Exact finite-grid orthant shattering profiles and an alphabet-dependent boundary",
+          "trigger": "Closest distinct finite-grid shattering record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof §§2–5; Gey Lemma 1; Leboeuf–LeBlanc–Marchand Theorem 9"
+      ],
+      "rationale": "This is an exact capacity law for a natural restricted learning class, not a sampled value or an arbitrary alphabet slice. Mixed binary and ternary features cover all product mixtures of the two smallest nontrivial palettes, and an elementary but nonautomatic trace matching establishes that adaptation gives no advantage in exactly this regime apart from the stated one-coordinate exception. The two-four-valued-feature example gives a minimal palette change that breaks the uniform equality and explains the distinct static obstruction.",
+      "residual_risks": [
+        "No complete VC classification for larger palettes or extension to correlated feature domains is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

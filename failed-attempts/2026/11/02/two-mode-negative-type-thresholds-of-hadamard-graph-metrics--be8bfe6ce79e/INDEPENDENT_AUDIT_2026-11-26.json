@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:31:04.760189Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Assumptions and Proof §§1–4",
+        "VERIFICATION.md",
+        "check.py and requirements.txt (read, not executed)",
+        "Independent replay: python3 -B /workspace/audit-replay/hadamard_threshold.py"
+      ],
+      "rationale": "An independent sign decomposition gives the powered-distance spectrum. Orthogonality gives distance two between different indices on the same bipartite side, distance four between antipodes, and distance three for opposite-side nonedges. On the sign-even subspace A₂ acts as 2(J_k−I_k) separately on the two sides, A₃=A₁ and A₄=I. On the sign-odd subspace A₂=0, A₃=−A₁, A₄=−I; the off-diagonal block of A₁ is H with all singular values sqrt(k). This yields the stated eigenvalues and multiplicities on the zero-sum subspace. On [0,1], G is strictly increasing, and F for k≥8 is strictly concave with F(0)=−1, F(1)=0 and F′(1)<0, yielding the claimed first crossings. The zero sector excludes p>1. At k=4 and p=1 only the +sqrt(k) sector is negative; below 1 the bipartition eigenvalue is the fourth forward difference of x^p at zero and is strictly negative by the positive integral representation of x^p as a mixture of 1−exp(−tx). Centered Gram ranks give all endpoint dimensions. Independent rational bounds confirm the switch at k=8 and 12, and high-precision bisection confirms the reported decimals. Substituting p=x/k or x/sqrt(k) in the first-root equations and bracketing by strict limiting signs yields the respective asymptotics. The strict statement at p=0 uses the usual convention D₀=J−I.",
+      "residual_risks": [
+        "The replay confirms finite scalar comparisons, not the all-order theorem; its proof uses the universal sign decomposition and analytic inequalities. Claims are conditional on existence of a Hadamard matrix of the given order."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Record 1dc112430f69 gives necessary and sufficient conditions for all p>0 at all existing orders n≥4, and the squared-Euclidean ranks throughout that domain, not just the endpoint. General papers on distorted or strict negative type give other background and are not the basis for the exact overlap."
+        ],
+        "reasoning": "The all-exponent result is strictly more informative than the endpoint description; equality multiplicities specialize to 3k−1, 4k−2 or 3k−2 at the three k≥8 endpoint cases and to 4 at k=4.",
+        "searches": [
+          "Resultary 2026/10/25/SCOPE-exact-powered-distance-negative-type-and-exponential-covariance--1dc112430f69",
+          "arXiv:2309.16070, §4",
+          "arXiv:0901.0695, abstract"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 1dc112430f69 mirrored original Finding and Proof",
+        "arXiv:2109.09708",
+        "arXiv:1407.7346v2",
+        "arXiv:2309.16070",
+        "arXiv:0901.0695"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matched finding includes the rank formula 4n−1−n I₁−I₂−(2n−2) I₃, with I₁,I₂ the two equality indicators and I₃ for p=1. It does not explicitly print the two finite-order comparisons or the asymptotic. Evaluating its exact inequalities at p=1/2 for n=8 and p=17/50 for n=12 detects the switch. Expanding the same inequalities at p=x/n and p=x/sqrt(n) brackets the first roots."
+        ],
+        "reasoning": "The match is on original mathematical statements, not just on terminology or proximity of dates. The residual presentation details do not constitute a substantively separate threshold result.",
+        "searches": [
+          "Resultary 1dc112430f69, Finding and Proof",
+          "Hadamard graph p-negative type generalized roundness exact powered distance threshold distance-regular graph spectral table"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior record's inequalities sqrt(n)(3^p−1)≤4^p and n(2·2^p−1−3^p)≤2^(p+1)−4^p are precisely G_n(p)≤0 and F_n(p)≤0. Its graph is the same real-Hadamard graph with unweighted shortest-path distance."
+        ],
+        "reasoning": "Switching from conditional negative semidefiniteness of the powered distance to generalized roundness or Hilbert snowflakes does not change the property; writing its supremum in terms of the first roots does not change the classification.",
+        "searches": [
+          "Resultary: Hadamard graph negative type generalized roundness powered distance threshold",
+          "Resultary: Hadamard graph p-negative type Hilbert embedding",
+          "Exact inequalities and endpoint dimension query; record 1dc112430f69"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published Resultary proof lists the same five spectral sectors and already evaluates the four nonconstant powered eigenvalues. Cioabă et al. give the exact normalized distance-eigenvalue matrix and intersection array but use them for unpowered least distortion."
+        ],
+        "reasoning": "The continuous exact law here is encoded by a parameterized eigenvalue table, not a numerical census. The prior catalogue table already contains F and G with their multiplicities.",
+        "searches": [
+          "Resultary: distance-regular graph negative type distance powers spectral generalized roundness",
+          "arXiv:2109.09708 §3.3.1, pp. 7–8",
+          "Resultary 1dc112430f69, Proof"
+        ]
+      },
+      "rationale": "A distinct earlier published Resultary result explicitly gives both powered-distance inequalities for every positive exponent and the full equality-sector dimension formula for the same graph family and all the same existing orders. The frozen root law and dimensions restate that classification; the order-8 and order-12 checks and large-order expansion are elementary consequences of its explicit inequalities, not an independent coverage gap.",
+      "residual_risks": [
+        "No literature-wide priority determination is made. The originality failure follows from an inspected direct result, regardless of what additional sources might say."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same family and exact inequalities, with all-exponent rank coverage. Not the frozen record itself.",
+          "evidence": [
+            "Finding requires 0<p≤1 and both displayed inequalities for every existing real Hadamard order n≥4.",
+            "Proof lists eigenvalues with equality multiplicities n and 1 in the two competing sectors."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-exact-powered-distance-negative-type-and-exponential-covariance--1dc112430f69, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "material_read": "Mirrored RESULT.md Finding (character offset 69), Proof (offset 1800)",
+          "method": "Local Resultary search and mirrored original statement/proof inspection",
+          "title": "Exact powered-distance negative type and exponential covariance",
+          "trigger": "Direct matching powered-distance and rank claim"
+        },
+        {
+          "assessment": "Exact spectral background; application is unpowered least distortion.",
+          "evidence": [
+            "Gives the intersection array and normalized distance-eigenvalue matrix W."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2109.09708",
+          "material_read": "§3.3.1, PDF pp. 7–8",
+          "method": "OA primary PDF, bounded Hadamard graph subsection",
+          "title": "The least Euclidean distortion constant of a distance-regular graph",
+          "trigger": "Closest published spectral source for Hadamard graphs"
+        },
+        {
+          "assessment": "Association and fission schemes, not powered negativity in the material inspected.",
+          "evidence": [
+            "Hadamard graph is diameter four and gives a four-class scheme."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1407.7346v2",
+          "material_read": "p. 1, abstract and introduction",
+          "method": "OA primary PDF, bounded scope comparison",
+          "title": "Isomorphism classes of association schemes induced by Hadamard matrices",
+          "trigger": "Potential equivalent association-scheme formulation"
+        },
+        {
+          "assessment": "General distorted negative type with examples distinct from the given graph family.",
+          "evidence": [
+            "§4 treats complete bipartite graphs and Hamming cubes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2309.16070",
+          "material_read": "p. 1 and §4, pp. 11–15",
+          "method": "OA primary PDF, bounded theorem/application comparison",
+          "title": "Negative type and bi-Lipschitz embeddings into Hilbert space",
+          "trigger": "Broader negative-type results for graph metrics"
+        },
+        {
+          "assessment": "General background, not the source of the exact threshold match.",
+          "evidence": [
+            "Strictness theory is not a Hadamard graph eigenvalue calculation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0901.0695",
+          "material_read": "p. 1 abstract",
+          "method": "OA primary PDF scope comparison",
+          "title": "Strict p-negative type of a metric space",
+          "trigger": "General strictness at smaller exponents"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and Proof §4",
+        "Resultary record 1dc112430f69"
+      ],
+      "rationale": "The graph-metric boundary and competition are mathematically natural, but the central quantitative invariant and endpoint ranks are already available from the matched all-exponent result. The surviving numerical comparisons are two substitutions and the asymptotic is a first-order expansion of those explicit inequalities; the record does not offer a separate nonmechanical structural result that would justify the old claim on value.",
+      "residual_risks": [
+        "This is an assessment of the frozen increment over the prior result, not of the general value of Hadamard graph metrics."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

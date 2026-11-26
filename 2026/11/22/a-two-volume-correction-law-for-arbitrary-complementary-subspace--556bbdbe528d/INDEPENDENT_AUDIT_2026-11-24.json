@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:18:09.021102Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the visible-facet and Dirichlet normalization and checked the result by a separate radial argument. For a visible supporting hyperplane of the joined polytope the support is negative. If it meets only factors in I, the dimension of its exposed face is at most sum_{i in I} d_i-1, so a facet must meet all factors; equality forces an individual facet in each. The common nonzero support levels put the affine difference spaces in independent blocks and add r-1 join directions. Conversely the normals of visible individual facets rescale to common support -1. The cone volumes then factor with the claimed factorial ratio. Independently, in each direction meeting K_i at positive radius let its ray interval be [a_i,b_i]. For block radii rho_i>0 the point belongs to the joined hull iff there are convex coefficients lambda_i in [rho_i/b_i,rho_i/a_i] summing to one (upper bound infinite when a_i=0). The origin-adjoined hull only requires sum rho_i/b_i<=1. The missing region on these rays is therefore the simplex sum rho_i/a_i<1, contained in the first simplex; it is empty when an a_i=0. Integrating the radial densities rho_i^(d_i-1) yields the same factorial ratio times the product of far-radius volumes minus the product of near-radius volumes. Their factor integrals are c_i and c_i-v_i respectively; zero blocks and rays with no positive radius do not contribute. This also handles lower-dimensional factors. Empty factors give zero ambient D-volume immediately because a positive-dimensional block is missing; no approximation to an empty body is needed. Independence factors the finite expectations. The regular-polygon formulas follow by the cyclic retained-edge probabilities, with negative shoelace terms removed by adjoining the origin (diameters have zero term); their square–pentagon substitution gives 155/3072 and 35/1536 as stated. Replay: RESULT.md lines 39–78; VERIFICATION.md and verify.py read without executing the frozen script. Scope is orthogonal complements under the stated Euclidean normalization.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen–Davis Theorem 1.2 is the centered product. Medgyes Lemma 3.4 factors signed volume for a fixed join-of-cycles type. Nearby cone-volume catalogue lead 5bf5ee80e1b7 concerns recovering facet cone measures, not hull volume of exterior factors."
+        ],
+        "reasoning": "General Dirichlet or cone-volume identities are ingredients. The nonconstant constrained range of convex coefficients, equivalently the bijection of all negative-support facets with tuples, is needed to obtain the exact subtracted product.",
+        "searches": [
+          "Resultary: radial and cone-volume formulations",
+          "arXiv:1711.11130v2",
+          "arXiv:2611.10078v1",
+          "doi:10.1112/mtk.12189"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and supporting verification files",
+        "Chen–Davis arXiv:1711.11130v2",
+        "Medgyes arXiv:2611.10078v1",
+        "Resultary 3e844f44dce8 and 5bf5ee80e1b7",
+        "Freyer–Henk–Kipp access attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The centered formula gives the outer product after adjoining zero, but not the lost volume. The fixed-type signed join factorization does not cover deletions with origin-exterior polygons whose full-dimensional hull changes facet structure."
+        ],
+        "reasoning": "The missing-volume simplex or the negative-support facet argument provides the independent mathematical step. Applying the centered formula or multiplying expected retained areas alone does not supply it.",
+        "searches": [
+          "Chen–Davis Theorem 1.2",
+          "Medgyes Lemma 3.4 and Theorem 5.1",
+          "doi:10.1112/mtk.12189"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact local hit is the frozen record itself. Chen–Davis define their free sum with both factors containing zero. Medgyes studies the orthogonal square–pentagon join, not exterior factors in arbitrary orthogonal blocks."
+        ],
+        "reasoning": "The equivalent formulation as a product of near-origin cone deficits was compared with the centered free sum. Passing to oblique direct sums is a linear Jacobian change, not a way to remove the origin-exterior correction.",
+        "searches": [
+          "Resultary: volume of a free sum in complementary subspaces",
+          "Resultary: oblique complements and convex join volume",
+          "convex hull complementary linear subspaces volume free sum neither contains origin visible part difference product radial or cone volume formula Chen Davis"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact formula is a self-match. 3e844f44dce8 is a directional nearest-vertex result for orthogonal regular polygons; Medgyes supplies the centered square–pentagon configuration."
+        ],
+        "reasoning": "A finite volume table does not certify or anticipate an arbitrary-body identity. The named application was compared separately: centered undeleted volume does not give the average over exterior or degenerate retained subhulls.",
+        "searches": [
+          "Resultary: exact complementary-subspace hull volume correction",
+          "Resultary: orthogonal square–pentagon joins",
+          "arXiv:2611.10078v1"
+        ]
+      },
+      "rationale": "The supported distinct component is the exact product correction for arbitrary origin-exterior factors and any number of orthogonal blocks, not the centered free-sum identity or the centered square–pentagon configuration. The inspected comparators establish the centered product, a special join type, or a general cone-volume ingredient. None of the inspected statements supplies the joint near-radius simplex or the visible-facet product correction.",
+      "residual_risks": [
+        "An older general join or radial formula under different terminology could imply the correction; the bounded search did not verify such a theorem.",
+        "Freyer–Henk–Kipp full text was not obtained; catalogue summaries were not treated as full texts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers centered case; no external-origin correction in those statements",
+          "evidence": "Both embedded factors must contain zero for the theorem, and the adjacent paragraph cautions that a similar uncorrected product cannot be expected for disjoint embedded factors.",
+          "identifier_or_url": "https://arxiv.org/html/1711.11130v2",
+          "material_read": "Definition offset 1311 and Theorem 1.2 with adjacent discussion offset 7400",
+          "method": "OA article",
+          "title": "A Product Formula for the Normalized Volume of Free Sums of Lattice Polytopes",
+          "trigger": "Possible exact or broader free-sum product"
+        },
+        {
+          "assessment": "Shares centered configuration and a signed fixed-join formula",
+          "evidence": "The signed volume factors through the two area vectors for a specified join-of-cycles boundary; the centered orthogonal equality configuration is not a theorem for all exterior convex factors or deletion subsets.",
+          "identifier_or_url": "https://arxiv.org/html/2611.10078v1",
+          "material_read": "Abstract offset 317; Lemma 3.4 offset 27445; Theorem 5.1 and Corollary 5.2 offset 53850",
+          "method": "OA article",
+          "title": "The inscribed 4-polytope of maximal volume with nine vertices",
+          "trigger": "Exact named polygon join and possible volume factorization"
+        },
+        {
+          "assessment": "No whole-paper conclusion",
+          "evidence": "Access failure not counted as evidence that the article lacks a relevant broader implication.",
+          "identifier_or_url": "https://doi.org/10.1112/mtk.12189",
+          "material_read": "Publisher full-text retrieval attempted; no full text obtained",
+          "method": "Lawful public direct and OA access attempts",
+          "title": "Affine subspace concentration conditions for centered polytopes",
+          "trigger": "Related cone-volume ingredient named by the original"
+        },
+        {
+          "assessment": "Adjacent topics at summary level only",
+          "evidence": "Returned statements concern a nearest-vertex directional distribution and recovery of facet cone-volume weights respectively. Neither is used to infer whole-record absence.",
+          "identifier_or_url": "Resultary:3e844f44dce8 and Resultary:5bf5ee80e1b7",
+          "material_read": "Catalogue descriptions only",
+          "method": "Local Resultary searches",
+          "title": "Orthogonal joins of regular spherical polygons and thin-shell recovery of facet cone volumes",
+          "trigger": "Nearby orthogonal join and cone-volume catalogue records"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The identity removes the origin-containment obstacle that makes the standard product unusable for arbitrary convex joins. It compresses full-dimensional volume to two scalars per factor even in the presence of degenerate or exterior layers, and gives a nontrivial expectation calculation under independent deletion without enumerating cross-layer hulls. The value is in the correction and its generality, not the familiar centered special case or a single numerical example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

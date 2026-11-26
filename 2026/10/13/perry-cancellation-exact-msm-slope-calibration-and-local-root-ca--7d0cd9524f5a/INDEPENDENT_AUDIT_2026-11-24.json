@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:15:08.078053Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the displayed specialization, the scalar orthogonal Perry correction is identically zero when E(y) is nonzero. With E(z) nonzero the projection multiplier times E(z) equals y-z, so zero inertia gives s=gamma*tau*d and p=a*s. The stated raw quotient simplifies to -Gamma*s/(tau*zeta*y)=gamma*a. A nonterminal k=1 update therefore first locks Gamma_2 under the strict retention condition; k=0 is not covered. In the locked map with first trial 1, 1<=zeta<=5/4<gamma; for y nonzero one can divide the sufficient acceptance inequality by the positive a*zeta*y^2*(1-zeta/gamma)/gamma. Since the right-hand minimum is at most nu*|E(z)|, it suffices that |y|<=gamma/(sigma*nu*zeta). The first unit update reduces |y| by at least a factor of four (or already hits zero) and resets zeta to 1, so another accepted unit update hits zero. The state recurrence, not the line search globally, is slope-free: outside the sufficient basin acceptance can still depend on a. My exact rational replay (branches/independent_small_replays.py perry) gives Gamma=28/15, states 1,-1/4,0 and nonzero trial points 3/28,-1/14. This checks the stated equations, not a reconstruction of the complete implementation. The PASS is for the stated mathematical specialization, with defined quotients and stopping caveat; the external primary text could not be independently transcribed, and no additional source guarantees are inferred.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The accessible 2025 restart-method published PDF uses a three-step-inertial construction, restart direction and adaptive line search. The modified optimal Perry and multiple-step-size antecedent were identified in the record but their primary full texts were not independently compared."
+        ],
+        "reasoning": "A different restart direction and acceptance condition do not mechanically yield this algorithm-specific lock and basin. General convergence does not give exact finite capture. No whole-paper exclusion is made for unread sources.",
+        "searches": [
+          "DOI 10.1002/nla.70035, §1.2 and §2, equations (3), (7), Algorithm 1",
+          "Exact-method primary source DOI 10.4208/csiam-am.SO-2023-0039 and bibliographic leads 10.1016/j.apnum.2022.10.016, 10.1080/10556788.2019.1653868"
+        ]
+      },
+      "checked_sources": [
+        "10.4208/csiam-am.SO-2023-0039 (index only)",
+        "10.1002/nla.70035",
+        "Resultary 8f0205ba0947"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The proof needs the relaxation-generated s=gamma*tau*d, the particular MSM quotient, and zeta becoming 1 after an accepted unit trial. The compared direction/line-search and safeguard statements do not supply these jointly."
+        ],
+        "reasoning": "Those results do not imply the combined scalar statement. The publisher listing is not enough to judge all scalar remarks in the original article; the distinctness judgment is best-of-knowledge, not a priority guarantee.",
+        "searches": [
+          "Restart-method Algorithm 1 and Resultary 8f0205ba0947 Finding compared with frozen RESULT.md lines 22–75"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary publisher listing identifies an accelerated gradient-descent spectral parameter and sufficient descent, but did not expose the full algorithm to independent inspection. The frozen RESULT.md lines 10–75 give the Perry/MSM update and explicit lock and basin."
+        ],
+        "reasoning": "Calibration of a secant slope is not the entire finding: the raw coefficient here includes relaxation and cancels previous state and line-step factors, after which a unit step resets the memory multiplier. Descent or a usual exact scalar secant slope does not show the line search accepts the required pair of steps.",
+        "searches": [
+          "Resultary: ASPCGP/Perry/MSM, scalar slope calibration and root capture",
+          "Primary lookup: exact title An Accelerated Spectral Perry-Type Conjugate Gradient Projection Method and DOI 10.4208/csiam-am.SO-2023-0039"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest indexed overlap, record 8f0205ba0947, concerns a sharp Case-I subspace secant descent threshold and a two-dimensional ascent example."
+        ],
+        "reasoning": "Its threshold is on a different coefficient in a different direction, not on the unit-trial basin of the stated recurrence. The target is a symbolic algorithmic property, not a numerical table entry.",
+        "searches": [
+          "Resultary: scalar calibration and two-step root capture; sharp secant safeguard in CG projection"
+        ]
+      },
+      "rationale": "The supported distinction is the exact scalar lock combined with a quantified two-unit-step basin for the specified Perry/MSM/relaxed-projection recurrence. Scalar Perry cancellation in isolation is immediate algebra and is not credited as an independent novelty. The accessible nearest algorithm and indexed neighboring result have materially different directions and no state identity or capture implication matching this claim. Limited by unavailable primary full text.",
+      "residual_risks": [
+        "The primary ASPCGP full text was not readable through the available lawful routes. Its exact admissible parameter ranges, reset and stopping details, and any already stated scalar specialization could not be checked directly.",
+        "The cited modified optimal Perry and multiple-step-size antecedents were not independently read in full. Indexed comparisons are bounded and not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Bibliography and broad algorithm purpose confirmed; exact source formula and stopping conventions not independently compared",
+          "evidence": [
+            "Listing describes spectral parameter derived from accelerated gradient descent and sufficient descent"
+          ],
+          "identifier_or_url": "10.4208/csiam-am.SO-2023-0039; https://www.global-sci.com/csiam-am/article/view/24044",
+          "material_read": "Indexed publisher abstract description; the frozen record's equations were read separately, not treated as primary full text",
+          "method": "Publisher index and lawful OA retrieval attempts by DOI and identified publisher URL",
+          "title": "An Accelerated Spectral Perry-Type Conjugate Gradient Projection Method for Unconstrained Nonlinear Equations with Applications",
+          "trigger": "Exact source algorithm"
+        },
+        {
+          "assessment": "Different restart and acceptance mechanism",
+          "evidence": [
+            "Three-step inertial restart construction; rsASCGP-AF adaptive line search"
+          ],
+          "identifier_or_url": "10.1002/nla.70035",
+          "material_read": "Published PDF pp. 2–3, §1.2, §2 equations (3), (7), Algorithm 1",
+          "method": "Lawful Oxford repository published-version PDF, bounded passages",
+          "title": "An Accelerated Spectral CG-Type Projection Method With Restart Strategy for Nonlinear Monotone Equations and Applications in Compressed Sensing",
+          "trigger": "Closest accessible spectral CG projection framework"
+        },
+        {
+          "assessment": "Different direction, parameter and conclusion",
+          "evidence": [
+            "Case-I descent-coefficient boundary, with a two-dimensional ascent example"
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-sharp-secant-safeguard-boundary-for-a-subspace-conjugate-gradien--8f0205ba0947",
+          "material_read": "Finding",
+          "method": "Local Resultary statement comparison",
+          "title": "Sharp secant safeguard boundary for a subspace conjugate gradient projection method",
+          "trigger": "Closest indexed secant projection threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The scalar affine mode is a natural diagnostic for a spectral projection method. The lock separates the projected Perry correction from what the spectral loop does, and the explicit basin explains exactly when the unit trial switches the recurrence into finite capture. This gives a parameterized check that is stronger than merely observing descent on sample runs, without claiming a multivariate result or global finite termination.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

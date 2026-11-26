@@ -2,82 +2,53 @@
 
 ## Finding
 
-Let \(q\) be any odd prime power, and let \((C,D)\) be an ordered pair of *distinct smooth* plane conics over \(\mathbb F_q\). Assume their geometric intersection divisor is \(2P+2Q\), with \(P\ne Q\). Write \(\epsilon=1\) if \(P,Q\) are individually rational and \(\epsilon=-1\) if Frobenius exchanges them. There is a uniquely determined \(c\in\mathbb F_q\setminus\{0,1\}\) such that \((C,D)\) is projectively equivalent over \(\mathbb F_q\) to one of the following two normal forms:
-
+Let \(k=\mathbb F_q\) have odd characteristic, and let \((C,D)\) be an ordered pair of distinct smooth plane conics over \(k\) with geometric intersection divisor \(2P+2Q\), \(P\ne Q\). Set \(\epsilon=1\) if both contacts are rational and \(\epsilon=-1\) if they are exchanged by Frobenius. For a fixed nonsquare \(\delta\in k^\times\), the pair has a unique parameter \(c\in k\setminus\{0,1\}\) in the normal forms
 \[
-\begin{array}{lll}
-\epsilon=1: & C:XZ=Y^2, &D:XZ=cY^2,\\
-\epsilon=-1: & C:X^2-\delta Y^2=Z^2, &D:X^2-\delta Y^2=cZ^2,
+\begin{array}{c|cc}
+\epsilon & C & D\\\hline
++1&XZ=Y^2&XZ=cY^2\\
+-1&X^2-\delta Y^2=Z^2&X^2-\delta Y^2=cZ^2.
 \end{array}
 \]
-where \(\delta\) is any fixed nonsquare. Consequently these ordered pairs have exactly \(2(q-2)\) projective equivalence classes over \(\mathbb F_q\).
+Put \(\chi=\chi_q(c(c-1))\in\{1,-1\}\), and let \(r+r^{-1}=4c-2\). The step order is \(n=\operatorname{ord}(r)\ge 3\), dividing \(q-\chi\). The normal forms and step order are setup for the descent theorem below.
 
-Put \(\chi=\chi_q(c(c-1))\in\{1,-1\}\), and let \(r\) solve
+The parameter space of unoriented, unmarked cycles is canonically a **torsor** under a one-dimensional torus of split type \(\epsilon\). It is isomorphic as a \(k\)-variety to that torus, but the pair supplies no preferred identity cycle. The number of cycles invariant as sets with their edges under \(q^m\)-Frobenius is \(N_m=q^m-\epsilon^m\). At \(m=1\) the distribution by number \(j\) of rational vertices is
 \[
-r+r^{-1}=4c-2.
-\]
-The order \(n=\operatorname{ord}(r)\) is at least three, is prime to the characteristic, and divides \(q-\chi\). **Every geometric Poncelet cycle, with vertices on \(C\) and sides tangent to \(D\), has exactly \(n\) distinct vertices.** Unoriented cycles are counted as geometric *sets of vertices and their uniquely determined tangent edges*, without a marked starting point. There is a natural smooth one-dimensional torus \(\mathcal P_{C,D}\) parametrizing these cycles, of split type \(\epsilon\). In particular, for every \(m\ge1\), exactly
-\[
-N_m=q^m-\epsilon^m
-\]
-cycles are setwise invariant under \(\operatorname{Frob}_q^m\), whether or not the individual vertices are rational.
-
-Among the \(N_1=q-\epsilon\) Frobenius-invariant cycles, their counts by the number \(j\) of rational vertices are **exactly**
-\[
-\begin{array}{c|c}
-\text{condition}&\text{multiplicity of rational-vertex counts}\\ \hline
-\epsilon=\chi& j=n:\ N_1/n;\quad j=0:\ N_1-N_1/n\\
-\epsilon\ne\chi,\quad n\text{ odd}&j=1:\ N_1\\
-\epsilon\ne\chi,\quad n\text{ even}&j=0:\ N_1/2;\quad j=2:\ N_1/2.
+\begin{array}{c|l}
+\text{condition}&\text{multiplicities of }j\\\hline
+\epsilon=\chi & j=n:\ N_1/n;\quad j=0:\ N_1-N_1/n\\
+\epsilon\ne\chi,\ n\text{ odd}&j=1:\ N_1\\
+\epsilon\ne\chi,\ n\text{ even}&j=0:\ N_1/2;\quad j=2:\ N_1/2 .
 \end{array}
 \]
-No other counts occur. In the first case Frobenius acts on cycle vertices by rotations, in the second and third cases by reflections. Over \(\mathbb F_{q^m}\), replace \(q,\epsilon,\chi\) by \(q^m,\epsilon^m,\chi^m\) in this distribution. Hence the number of **completely rational-vertex** cycles over \(\mathbb F_{q^m}\) is
-\[
-A_m=\begin{cases}(q^m-\epsilon^m)/n,&\epsilon^m=\chi^m,\\0,&\epsilon^m\ne\chi^m.\end{cases}
-\]
-The number of classes of ordered pairs supporting at least one fully rational-vertex cycle is exactly \(q-2\) out of \(2(q-2)\). For each \(n\ge3\) dividing \(q-\epsilon\), exactly \(\varphi(n)/2\) such classes with contact type \(\epsilon\) have cycle length \(n\).
+Frobenius acts by rotations in the matching case and by reflections otherwise. Over \(\mathbb F_{q^m}\) the same distribution holds with \((q,\epsilon,\chi)\) replaced by \((q^m,\epsilon^m,\chi^m)\). The all-rational-vertex entry agrees with the previously tabulated number of cycles of the rational tangent-chord graph (reference 5); here it is one entry in the distribution on all setwise rational cycles.
 
 ## Assumptions and scope
 
-All geometric points and Poncelet cycles are taken after extension to an algebraic closure. An \(\mathbb F_{q^m}\)-**defined setwise polygon** is a reduced vertex set, together with its tangent-edge incidence, invariant under \(q^m\)-Frobenius. This is weaker than a polygon all of whose vertices lie in \(C(\mathbb F_{q^m})\). The two contact points themselves and the tangent lines of the shared contact divisor are excluded from Poncelet cycles. The conics are ordered: swapping the vertex and envelope conics is not included in the classification. The characteristic is odd; the double-contact points must be distinct; and \(c=0,1\) is not admissible. The formula is not asserted for conic pairs with other intersection partitions.
+Cycles are geometric reduced vertex sets with the tangent edges of the Poncelet construction, without orientation or starting vertex. The contact points and their shared tangent lines are excluded. Rationality of a cycle as a set with its edges is weaker than rationality of all its vertices. Projective equivalence does not exchange the two conics. The result concerns precisely intersection type \((2,2)\) in odd characteristic.
 
 ## Proof
 
-**1. Normal forms and invariant.** A smooth conic over a finite field is a projective line. Its unordered rational degree-two divisor \(P+Q\) of distinct points is, up to \(\operatorname{PGL}_2(\mathbb F_q)\), either two rational points or a Frobenius-conjugate pair. The restriction of a degree-two plane equation to \(C\simeq\mathbb P^1\) has degree four. The prescribed intersection divisor \(2P+2Q\) spans a one-dimensional space of such restrictions. Therefore the other conic belongs to the pencil generated by \(C\) and the product of the two common tangent lines. With split contact points at \([1:0:0]\) and \([0:0:1]\), this gives \(XZ=cY^2\). With nonsplit contacts on \(Z=0\) satisfying \(X^2=\delta Y^2\), it gives \(X^2-\delta Y^2=cZ^2\). The normalizations are compatible with descent and any automorphism preserving the outer conic and its contact divisor preserves the ratio \(c\); this proves existence, uniqueness, and the class count. Both forms are smooth precisely for \(c\ne0\), and the ordered conics are distinct precisely for \(c\ne1\).
+**Normal forms.** A smooth conic over a finite field is isomorphic to \(\mathbb P^1\). Under projective automorphisms of this line, a reduced rational divisor of degree two is determined up to equivalence by whether it is split: a pair of rational points can be moved to \(0,\infty\); for a conjugate pair an affine coordinate over \(k\) places it at \(a\pm b\sqrt\delta\) with \(b\ne0\), and a translation and scaling give \(\pm\sqrt\delta\). These automorphisms extend to the plane of the degree-two embedding. Write \(L\) for the chord through the contacts. Its square and the defining equation of \(D\) restrict to proportional nonzero sections on \(C\) with divisor \(2P+2Q\). Hence \(D\) lies in the pencil generated by the equation of \(C\) and the square of \(L\). This yields the displayed equations. Over an algebraic closure, projective maps preserving \(C\) and the unordered contacts are the induced diagonal and anti-diagonal maps on the two parameters of the binary quadratic embedding. They scale \(XZ\) and \(Y^2\) by the same factor (also after base change from the nonsplit model), so preserve \(c\). The singular members are excluded and \(c=1\) is the original conic.
 
-**2. Chord equation and the exact geometric period.** Over the algebraic closure, put \(C:XZ=Y^2\), \(D:XZ=cY^2\) and parametrize the complement of the two contact points by \(P(t)=[1:t:t^2]\), \(t\in\mathbb G_m\). The line joining \(P(s)\) and \(P(t)\) has coefficients \([st:-(s+t):1]\); substitution into the dual conic equation shows it is tangent to \(D\) if and only if
-\[
-(s+t)^2=4cst.
-\]
-Because \(s,t\ne0\), the two possibilities are \(t=rs\) and \(t=r^{-1}s\), where \(r+r^{-1}=4c-2\). The polynomial for \(r\) has discriminant \(16c(c-1)\ne0\). Thus \(r\ne\pm1\), and its two roots are inverse. Quadratic Frobenius gives \(r^q=r^\chi\), so \(r^{q-\chi}=1\); its order \(n\) is at least three and prime to the characteristic. The graph of tangent chords on \(C\setminus\{P,Q\}\) is precisely the disjoint union of cosets \(t\langle r\rangle\), each a simple \(n\)-cycle. No additional edges exist, by the displayed dual-conic test.
+**Chord equation.** In geometric split coordinates, the contact complement has points \([1:t:t^2]\), \(t\ne0\). The chord between parameters \(s,t\) has coefficients \([st:-(s+t):1]\). By the dual equation for \(XZ=cY^2\), it is tangent precisely when \((s+t)^2=4cst\). Thus each parameter is adjacent exactly to its multiples by \(r\) and \(r^{-1}\). The discriminant \(16c(c-1)\) is nonzero and \(r\ne \pm1\). We have \(r^q=r^\chi\), so its order \(n\) is prime to the characteristic and divides \(q-\chi\). The graph on the complement is exactly the disjoint union of simple cycles on the cosets of \(\langle r\rangle\).
 
-**3. The arithmetic torus and its finite polygon moduli.** For split contacts the parameter \(t\) has Frobenius \(t\mapsto t^q\). For nonsplit contacts write \(A=X+\sqrt\delta Y\), \(B=X-\sqrt\delta Y\), so \(AB=Z^2\). The coordinate \(t=Z/A\) on the complement satisfies \(t(\operatorname{Frob}_q P)=t(P)^{-q}\), since \(\sqrt\delta^q=-\sqrt\delta\). Consequently, in both cases Frobenius acts geometrically as \(t\mapsto t^{\epsilon q}\). The set of unoriented cycles is the quotient torus \(\mathbb G_m/\mu_n\) under the isogeny \(t\mapsto u=t^n\), inheriting the same split/nonsplit type \(\epsilon\). Thus its rational points over \(\mathbb F_{q^m}\) number \(q^m-\epsilon^m\). This argument works as a statement about reduced finite vertex sets and does not require any rational vertex.
+**Torsor and descent.** The connected subgroup \(T\) of \(\operatorname{Aut}(C)\) fixing the two geometric contacts acts simply transitively on \(U=C\setminus\{P,Q\}\) and preserves the conic pair. It is split if the contacts are split. In the nonsplit model set \(A=X+\sqrt\delta Y\), \(B=X-\sqrt\delta Y\), so \(AB=Z^2\) on \(C\). Then \(t=Z/A\) changes under Frobenius by \(t\mapsto t^{-q}\), since Frobenius exchanges the two coordinates \(A,B\) in the split model. In both cases the Frobenius map on the geometric parameter is \(t\mapsto t^{\epsilon q}\). The subgroup of translations by powers of \(r\) is \(T[n]\): geometrically it consists of the \(n\)-th roots of unity acting by multiplication. Thus the polygon parameter space is \(U/T[n]\), locally the map \(t\mapsto t^n\); it is a torsor under \(T/T[n]\cong T\) via the isogeny \([n]\). This description makes no choice of identity cycle. Over any finite extension the torsor has a point (for instance, the parameters of the displayed models with \(t=1\) are rational), and after choosing a point its rational points form a principal homogeneous set of size \(q^m-\epsilon^m\). The number also follows directly from the same Frobenius action on \(t^n\).
 
-**4. Vertex descent and complete Frobenius distribution.** Fix an extension field containing an \(n\)-th root \(t\) of each rational quotient parameter \(u\). Label vertices \(tr^k\), for \(k\in\mathbb Z/n\mathbb Z\). On a setwise rational cycle Frobenius acts by
-\[
-k\longmapsto j+\epsilon q k\pmod n
-\]
-for some \(j\). Since \(q\equiv\chi\pmod n\), the multiplier is \(\epsilon\chi\). If \(\epsilon=\chi\), this is a rotation. The exact sequence of points for the isogeny \([n]:T\to T\), where \(T(\mathbb F_q)\) is cyclic of size \(q-\epsilon\), shows the rotation class \(j\) ranges over all \(n\) values equally: each occurs \((q-\epsilon)/n\) times. The identity rotation fixes all \(n\) vertices; other rotations fix none.
+**Distribution.** Set \(N=q-\epsilon\). In the normalized coordinate the rational cycle parameters are the \(N\)-th roots of unity. Choose an element \(z\) of order \(nN\). The element \(z^N\) generates \(\langle r\rangle\); the two generators need not be equal. Label the vertices of cycle \(a\), \(0\le a<N\), as \(z^a(z^N)^k\) for \(k\bmod n\); this yields all cycles with \(t^n\) rational. Since \(\epsilon q-1=\epsilon N\), the permutation on labels is \(k\mapsto\epsilon a+\epsilon q k\). Its multiplier is \(\epsilon\chi\) modulo \(n\). If it is \(+1\), then \(n\mid N\); exactly \(N/n\) choices of \(a\) give the identity rotation, and no other rotations fix a vertex. If the multiplier is \(-1\), the fixed equation is \(2k=\epsilon a\) modulo \(n\). For odd \(n\) it has one solution; for even \(n\) it has two solutions on even \(a\) and none on odd \(a\). As \(N\) is even the classes split equally. In an extension, the contacts and the quadratic character have signs \(\epsilon^m\) and \(\chi^m\), with the same geometric cycles. This proves the extension assertions.
 
-If \(\epsilon\ne\chi\), the map is a reflection \(k\mapsto j-k\). When \(n\) is odd, \(2k=j\) has one solution, so every cycle has exactly one rational vertex. When \(n\) is even, a reflection fixes two vertices if \(j\) is even and none otherwise. The parity of \(j\) is the quadratic Kummer character of \(u\) in the cyclic group \(T(\mathbb F_q)\) of even order \(q-\epsilon\): the two cosets have equal size. Equivalently, take a cyclic extension of groups with a generator \(z\) of order \(n(q-\epsilon)\), put \(u=z^{na}\) for \(0\le a<q-\epsilon\), and take the cycle represented by \(z^a\). Then Frobenius acts on its vertex labels by \(k\mapsto\epsilon a+\epsilon qk\pmod n\). The parity of \(j\) is precisely the parity of \(a\), which is equidistributed. Applying the same argument after base extension proves every \(m\)-extension formula above.
+## Reproducibility
 
-**5. Class frequencies.** For fixed contact type \(\epsilon\), a fully rational polygon exists exactly when \(\chi=\epsilon\). As \(c\) ranges over \(\mathbb F_q\setminus\{0,1\}\), the quadratic character of \(c(c-1)\) takes value \(+1\) exactly \((q-3)/2\) times and \(-1\) exactly \((q-1)/2\) times (the quadratic character sum is \(-1\)). Therefore the total across both contact types is \((q-3)/2+(q-1)/2=q-2\). The formula \(c=(r+2+r^{-1})/4\), together with inverse-pair identification, gives \(\varphi(n)/2\) distinct parameters for each \(n\ge3\) dividing \(q-\epsilon\), as required.
+`VERIFY_PONCELET.py` checks both conic forms (using equivalent projective coordinates for the nonsplit pair) at the primes \(3,5,7,11,13,17,19,23\). It enumerates rational chords and their tangencies, then checks the abstract Frobenius action on cycle cosets. This finite test checks the counts in those cases, not the torsor assertion or the general theorem; those follow from the proof above.
 
-## Verification
+## Relationship to prior work and limitations
 
-The standalone `VERIFY_PONCELET.py` reconstructs both conics in exact projective coordinates over all prime fields \(\mathbb F_p\) with \(p\in\{3,5,7,11,13,17,19,23\}\), checks all \(c\ne0,1\), and enumerates rational chord–tangent incidence by dual quadratic tests. For every case it verifies that the rational-edge graph is a disjoint collection of cycles of predicted length in the matching case and has no rational edges in the mismatching case. It independently obtains \(n\) from the Chebyshev recurrence for \(r+r^{-1}\), computes the arithmetic Frobenius action on every one of the \(q-\epsilon\) abstract cosets, and compares the exact distribution of fixed vertices with the theorem. Run `python3 VERIFY_PONCELET.py`. Finite computations corroborate the general algebraic proof; they do not replace its arbitrary-prime-power argument.
-
-## Relationship to prior work
-
-Classical Poncelet closure and modern geometric proofs establish uniform geometric periods; these are not claimed as new. Vallès' 2012 treatment provides an archive-period reference for classical porism. Hungerbühler–Kusejko (2020), *A Poncelet Criterion for Special Pairs of Conics in PG(2, \(p^m\))*, §§3–4, establishes exact existence criteria and the \(q+1\) divisor count for **one nonsplit-contact pencil with rational vertices**. The matching nonsplit subcase and its \(\varphi(n)/2\) count are covered by that work and are not claimed independently. Jow–Liang (arXiv 2021, journal 2023), Proposition 2.8 and Theorem 3.1, treat arbitrary intersection type \((2,2)\) over algebraically closed fields and prove geometric closure; their inspected statements do not classify finite-field Frobenius vertex descent. Radnović–Ragas (arXiv 2025) study geometric triangle and tetragon existence in conic pencils, not the full polygon moduli and rational-vertex distributions for all lengths. An indexed published study of Poncelet \(p\)-gons with triple contact treats intersection type \((3,1)\), not \((2,2)\). The present contribution is the **joint arithmetic classification of field-of-definition of complete cycles and the individual-vertex Frobenius cycle type, simultaneously for split and nonsplit double-contact classes**, including the reflection regime where a rational polygon set has zero, one, or two rational vertices.
-
-## Limitations
-
-The scope is ordered smooth conic pairs of contact type \((2,2)\) in odd characteristic; it does not cover all conic pencils or singular conics. Rational-vertex counts and field-of-definition of the unordered cycle are distinct, as emphasized in the theorem. Literature priority is provisional: the known nonsplit finite-field Poncelet results overlap one subcase, and other unindexed work on torus descent, Galois actions or finite polygons may imply portions of the classification. No independent audit or external validation has been performed. All symbolic field tests are finite samples; the general result rests on the displayed explicit geometric and finite-torus argument.
+Geometric Poncelet closure is classical, including treatments of contact type \((2,2)\). The finite-field nonsplit pencil with fully rational vertices is studied by Hungerbühler–Kusejko. *A universal Poncelet-polygon count for conics with two double contacts* gives the projective class and step-order classification for this stratum, treats the fully rational tangent-chord cycles for each pair and each extension, and counts those polygons in aggregate. These are not presented as new here. Our invariant concerns the geometric cycle parameter space and its setwise rational points, and refines those points by their rational vertices, including the reflection regimes entirely invisible to the graph on rational vertices. These conclusions treat only smooth distinct conics with two double contacts and do not certify absolute historical priority.
 
 ## References
 
-1. J. Vallès, *A vector bundle proof of Poncelet theorem*, arXiv:1202.0002, first version 31 January 2012. https://arxiv.org/abs/1202.0002
-2. N. Hungerbühler and K. Kusejko, *A Poncelet Criterion for Special Pairs of Conics in PG(2, \(p^m\))*, International Electronic Journal of Geometry 13 (2020), 21–40. https://doi.org/10.36890/IEJG.590595
-3. S.-Y. Jow and C.-T. Liang, *Poncelet's theorem for conics in any position and any characteristic*, arXiv:2112.11770, later Communications in Algebra 51 (2023), 3510–3520. https://arxiv.org/abs/2112.11770
-4. M. Radnović and R. Ragas, *Poncelet triangles and tetragons over finite fields*, arXiv:2511.06347 (2025). https://arxiv.org/abs/2511.06347
+1. J. Vallès, *A vector bundle proof of Poncelet theorem*, [arXiv:1202.0002](https://arxiv.org/abs/1202.0002).
+2. N. Hungerbühler and K. Kusejko, *A Poncelet Criterion for Special Pairs of Conics in PG(2, \(p^m\))*, International Electronic Journal of Geometry 13 (2020), 21–40, [doi:10.36890/IEJG.590595](https://doi.org/10.36890/IEJG.590595).
+3. S.-Y. Jow and C.-T. Liang, *Poncelet’s theorem for conics in any position and any characteristic*, Comm. Algebra 51 (2023), 3510–3520, [arXiv:2112.11770](https://arxiv.org/abs/2112.11770).
+4. M. Radnović and R. Ragas, *Poncelet triangles and tetragons over finite fields*, [arXiv:2511.06347](https://arxiv.org/abs/2511.06347).
+5. *A universal Poncelet-polygon count for conics with two double contacts*, [catalogue record 74241b843026](https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-universal-poncelet-polygon-count-for-conics-with-two-double-co--74241b843026/RESULT.md).

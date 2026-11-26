@@ -1,11 +1,21 @@
-# Scientific review — bounded-alphabet joint deletion-error spectrum
+# Independent mathematical audit
 
-**Correctness: PASS.** Exact fibre normalization converts dependency deletion costs into the differences between total mass and modal row, column, or cell counts. Four cell-capacity inequalities prove the sharp upper endpoint for every determinant fibre, while output projection proves the lower endpoint. For any integer between the endpoints the explicit four-block fractional table meets all inequalities, and the integral feasible-circulation theorem supplies a table with exactly the required integer maxima. Singleton alphabets are treated separately. The extracted finite checker enumerates 339,613 tables, independently constructs 3,373 integer witnesses and tests 9,984 multi-fibre teams; these checks support but do not replace the proof.
+## correctness
 
-**Originality: PASS, subject to historical-priority risk.** The closest 2026 approximate-dependence paper develops the general removal semantics and an incomplete-axiomatization example, rather than a full fixed-error two-output spectrum. Miller–Harrison count complete-margin matrices, and Al-atar–Sali study incomplete-table possible worlds. Related published two-FD disjunction, minimal-falsifier and soft-repair results concern different operations. Targeted searches included the max-row/max-column/max-cell contingency-table equivalent, not merely the paper title. No explicit dominating theorem was found in inspected material; an older result under information-theoretic terminology remains a plausible residual risk.
+PASS
 
-**Value: PASS.** The result identifies a natural sharp invariant of deletion-based approximate functional dependence, including all integer intermediate values. The optimal alphabet-sensitive bound can strictly improve the ordinary union-of-deletions bound; for \(n=20\), outputs of cardinalities \(2,3\) and individual deletion errors \(8,12\), it reduces the worst possible joint error from the generic bound \(20\) to \(16\). The exact construction produces calibration and stress-test instances for approximate-dependency reasoning.
+Within each determinant fibre, the retained counts are the largest row total, column total and cell, and the global counts are sums. The intersection of a modal row and column gives the additive bound; row, column and table capacities give the remaining lower bounds on the retained joint count. Projection gives its upper bound. For an admissible integer target M, the marked row/column/cell real table has nonnegative blocks because M≥A+B−n and M≤min(A,B). The two off-diagonal blocks fit the cell cap by A≤cM and B≤bM. For the last block use n−A−B≤(bc−b−c)n/(bc)≤(bc−b−c)M, valid when b,c≥2; unmarked row and column totals fit by A≥n/b and B≥n/c. Integer lower/upper bounds in the directed circulation polytope then give an integral realization with those three marked maxima. A singleton alphabet collapses the problem to distributing n units with a specified maximum in the other coordinate; n=1 is included. An unconstrained identifier makes repeated patterns distinct. The bc bound is redundant given the admissible marginal bounds and is harmless. The upper-bound entailment is sharp because the endpoint is monotone in the admissible marginal errors and the specified maxima can be attained. Independent enumeration with dynamic programming over arbitrary fibre decompositions agreed with both the formula and the single-fibre spectra for five small alphabet/range pairs.
 
-**Limitations.** The existence result allows a free identifier attribute and does not address weighted repairs, additional output coordinates, or arbitrary disjunctive team formulas. Full historical originality and independent proof verification remain open. Scientific claims are limited to the theorem and checks actually stated in the result.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The evaluated no-gap integer spectrum is distinct in the inspected evidence from approximate-dependence inference results, from prescribed-full-margin counting, and from catalogue results about split disjunction. The interval and its feasible marked-maxima construction add content beyond classical flow integrality and ordinary joint-probability inequalities.
+
+## value
+
+PASS
+
+Combining individually approximate dependencies into a joint one is a natural inference problem. The alphabet-sensitive improvement can be strict, and the no-gap statement supplies exact extremal and intermediate test teams rather than only an inequality. Arbitrary determinant fibres are covered in necessity and a single fibre suffices for sharpness. This makes the result usable as an exact calibration of deletion-error entailment with an explicit scope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

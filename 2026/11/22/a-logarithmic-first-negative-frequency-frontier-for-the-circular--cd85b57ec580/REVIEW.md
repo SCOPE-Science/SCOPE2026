@@ -1,15 +1,21 @@
-# Mathematical review: A logarithmic first-negative-frequency frontier for the circular geodesic Gaussian
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact half-line Gaussian subtraction yields (1) with coefficient normalization \(1/\pi\). Convolution of two strictly positive Fourier transforms proves \(J_t(q)>0\) for all real \(q\), an essential nonstandard point that makes every odd harmonic positive without an asymptotic restriction. Explicit \(L^1\) derivative estimates and two integrations by parts give a relative \(O(t^{-1})\) estimate uniformly in frequency. This uniformity, plus strict global monotonicity of the comparison log ratio and its slope near the unique root, proves the entire even-index sign classification. The checker has 81 consistent finite diagnostics, not a substitute for proof. The unknown sign in a shrinking strip is explicitly excluded.
+## correctness
 
-## Originality — PASS (best-knowledge; priority provisional)
-The 2023 main source proves failure of positive definiteness for all bandwidths, but its inspected Section 4 theorem and proof do not locate the continuum first negative Fourier index. The 2026 finite-cycle sharp threshold and logarithmic Nyquist window were inspected as potentially stronger results. They govern aliased discrete eigenvalues, not individual continuum coefficients. Their logarithmic mechanism is acknowledged as overlapping, while the continuum offset constant, global parity split and width-two localization are not their consequences. Wood (1995) is a residual bibliographic risk because only the abstract was obtainable. Published mathematical records and prior accessible claims were compared using both direct and equivalent formulations.
+PASS
 
-## Value — PASS
-The first indefinite harmonic is a natural spectral cutoff for the intrinsic-distance Gaussian, a standard candidate covariance/smoothing kernel on circular domains. The result turns the known qualitative obstruction into a quantitative, sharp and fully uniform frequency index law, with a nontrivial logarithmic adjustment and a strict parity dichotomy. This matters when deciding how many circular Fourier modes can be retained before covariance positivity breaks; it is not a renamed restatement of the existing finite-grid Nyquist threshold.
+The half-line Fourier transform divided by π is e^(−n²/(4t))/(2√(πt)). Substituting x=π+v/t in its omitted tail yields the sign factor (−1)^n and multiplier e^(−π²t)/(πt); this uses integer n. Independently checked that the even extension of the J_t integrand without the cosine is the product of a Laplace kernel and a Gaussian, whose strictly positive integrable Fourier transforms give strictly positive convolution at every real frequency. This gives all odd signs, not only nearby or at large t. For the rational approximation, both the L1 norm and second derivative L1 norm of e^(−2πv)(e^(−v²/t)−1) are O(1/t), by exponential domination of the polynomial derivative bounds; its first derivative vanishes at zero. Two integrations by parts and the small-frequency L1 bound give an absolute O(1/[t(1+q²)]) error, hence a uniform relative O(1/t). The resulting log comparison is decreasing for n>0 at large t and has slope −π+o(1) near its root. At n=2πt+Δ with Δ=O(log t) the balance is −πΔ+(log t)/2+log(2π^(3/2))+O((log t)^2/t). Uniform log error keeps the sign everywhere outside the claimed strip and the even lattice gives the added two units. Independently, at each fixed t>0 the eventual sign on even n is negative: two integrations by parts in the original integral give a_t(n)=[(−1)^n f′(π)+o(1)]/(π n²), with f′(0)=0, f′(π)<0 and the remainder by Riemann–Lebesgue. Thus existence, parity, and the large-t restriction on localization are consistent. Read frozen proof and support including the reported 81 checks; uploaded checker was not run.
 
-## Limits
-The sign within an \(O((\log t)^2/t)\) interval is not decided; the theorem is not a finite-bandwidth classification. The old abstract-only Wood paper remains a priority risk, and the finding has not undergone independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualitative non-positive-definiteness at all parameters and the logarithmic bulk-versus-endpoint mechanism for a finite grid are prior. Checked the continuum claim against those results at the level of the actual Fourier observable. The all-odd exact positivity and the uniform even-mode transition with its own constant were not established by the inspected statements. The oldest truncation result remains an explicit source-access risk.
+
+## value
+
+PASS
+
+For a natural circular covariance candidate, it matters how far a spectral truncation can be taken before the first negative variance appears, not merely that some negative coefficient exists. The explicit logarithmic displacement, uniform sign separation and even-lattice ambiguity provide this information for the continuum problem; exact odd positivity also allows unrestricted selection of that parity. No finite-bandwidth exact rounding or positive definiteness of the full kernel is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

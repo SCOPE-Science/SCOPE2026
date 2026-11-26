@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:47:09.243872Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–67",
+        "Frozen VERIFICATION.md and verify.py, inspected without execution",
+        "Independent arithmetic via the tree formula gives (54,1372) over F₂ and (128,4000) over F₃"
+      ],
+      "rationale": "The diagonal idempotent entries split the scheme into open-and-closed color fibers. Over any commutative base algebra the products of the commuting idempotents and their complements give orthogonal joint projectors. Taking the x-column of the appropriate projector gives a unipotent simultaneous conjugator. The stabilizer has exactly same-color entries, because any differing bit gives coefficient +1 or −1. The product of the different-color affine section with the stabilizer has a polynomial inverse by recursion on strict intervals, proving the scheme isomorphism including over nonreduced rings. Expanding q+(1−q)[colors equal] over edges gives the FK transform; interpolation over infinitely many q and Q=2^r recovers the bivariate polynomial, whose q-degree is m. For connected graphs the standard Tutte conversion works, and the converse gives every dimension multiplicity. Rooting a tree gives the displayed binomial multiplicities. The two four-point trees have different undirected cover graphs; the semisimple quotient acting on the height-one radical bimodule recovers those graphs even up to opposite algebra. A connected height-one poset of smaller size is unique at each size up to duality.",
+      "residual_risks": [
+        "The Tutte equivalence as reviewed concerns nonempty connected graphs and the full family, not a single r or a single point count. The finite verifier does not certify the all-ring statement."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brion Thms. 1.1–1.2 and Bilen Can et al. Thms. 1.1 and 3.2 give single-idempotent results. Santulo et al. Lemma 8 and Gogić–Tomašević Remark 3.8 give field-point simultaneous diagonalization in their respective scopes.",
+          "The earlier d6c6054e5969 gives all commuting tuples and a joint rank refinement, not merely single idempotents."
+        ],
+        "reasoning": "Field-point diagonalization alone would not imply reduced affine components scheme-theoretically. But the earlier all-tuple polynomial coordinates do, with no need for inference from point counts.",
+        "searches": [
+          "Brion arXiv:1303.3955; Bilen Can–Casimiro–Malheiro arXiv:2208.01073; Santulo–Souza–Yasumura arXiv:1905.08391; Gogić–Tomašević arXiv:2503.14116",
+          "Resultary d6c6054e5969, rank-refined tuple theorem"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d6c6054e5969, 2ff7f5302a07, 6c54ef06a12b and 6bd72380c528",
+        "arXiv:1303.3955, 2208.01073, 1905.08391, 2409.16906, 2503.14116 and math/0503607"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier inverse: form joint projectors p_σ, set u=Σp_σD_σ, project u−1 onto same-color entries, and obtain the different-color section by multiplying by the finite-series inverse of the resulting stabilizer element.",
+          "This uses only coordinate operations, 0 and 1, and finite sums/products; the earlier proof calls it an isomorphism, not just a count."
+        ],
+        "reasoning": "The product of the different-color part and the same-color stabilizer stays different-color off the identity, yielding the inverse over all commutative rings. Specializing equal Tutte polynomials of trees gives the same tuple schemes for the star and path. The height-one minimality then uses only the uniqueness up to duality below four points; it is not a substantive independent remainder.",
+        "searches": [
+          "d6c6054e5969, polynomial inverse and graph-polynomial proof offsets 3800–6550",
+          "Frozen RESULT.md lines 38–64"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "d6c6054e5969, Finding and proof offsets 3800–6550: affine space of dimension dim J_diff for every diagonal coloring, the identical FK evaluation, and interpolation recovering the graph polynomial.",
+          "Sokal p. 4, Eq. (2.10): weighted-coloring state sum."
+        ],
+        "reasoning": "The dimension dim J_diff counts all differently colored strict comparable pairs. Passing between the FK and ordinary Tutte polynomials for connected graphs loses no information, so recovery and equivalence here are not a distinct invariant.",
+        "searches": [
+          "Resultary commuting incidence-algebra idempotents, joint rank/Potts enumerators, affine fibers and Tutte recovery",
+          "arXiv:math/0503607 Eq. (2.10)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/12 d6c6054e5969: exact all-color component dimensions and point count in the Finding; graph identification in proof through offset 6550.",
+          "2026/10/26 6c54ef06a12b compares the same star and path with equal commuting-idempotent counts, but is later; 2026/11/2 6bd72380c528 is a later split-basic scheme generalization."
+        ],
+        "reasoning": "The earlier match is an exact formula for the classes of objects at issue, not only an agreement of the tabulated small examples. The later matches are secondary context, not the basis for rejection.",
+        "searches": [
+          "Resultary all commuting-idempotent schemes and smallest tree incidence algebra pair",
+          "Resultary star and alternating path incidence algebra reconstruction"
+        ]
+      },
+      "rationale": "The core affine-fiber decomposition, FK counts and recovery of the Tutte polynomial are covered by a distinct earlier indexed result, d6c6054e5969. Its explicit polynomial forward and inverse maps apply over arbitrary commutative base algebras: the proof uses orthogonal projectors, coordinate projections and finite geometric-series inverses, so the all-ring wording is not a new theorem beyond that proof. The star/path example and the four-point cutoff follow directly from the covered invariant and the first two distinct trees on the same number of vertices. This is coverage, not an inference about historical priority from metadata alone.",
+      "residual_risks": [
+        "The comparison credits actual earlier indexed coverage without resolving external historical priority; bounded primary literature retrieval does not determine the genealogy of the method."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the main theorem and mechanically implies the all-ring variant",
+          "evidence": [
+            "Joint projectors, polynomial inverse via finite nilpotent geometric series, affine-color dimension, and FK interpolation."
+          ],
+          "identifier_or_url": "Resultary 2026/10/12, d6c6054e5969",
+          "material_read": "RESULT.md Finding and offsets 3800–6550 of proof",
+          "method": "Published source via local mirror",
+          "title": "Joint rank and Potts enumerators for commuting incidence algebra idempotents",
+          "trigger": "Earlier exact all-tuple theorem and recovery"
+        },
+        {
+          "assessment": "Single idempotents and a commutative-semigroup theorem, not the tuple result",
+          "evidence": [
+            "Smoothness/conjugacy results for idempotents in algebraic monoids."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1303.3955",
+          "material_read": "p. 1, Theorems 1.1–1.2, offset 2200",
+          "method": "Primary open-access PDF",
+          "title": "On algebraic semigroups and monoids, II",
+          "trigger": "Potential general idempotent scheme theorem"
+        },
+        {
+          "assessment": "Single-idempotent specialization",
+          "evidence": [
+            "The single-idempotent variety has 2^|P| components."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2208.01073",
+          "material_read": "pp. 2 and 11, Thms. 1.1 and 3.2, offsets 3900 and 28805",
+          "method": "Primary open-access PDF",
+          "title": "Idempotent Varieties of Incidence Monoids and Bipartite Posets",
+          "trigger": "Exact incidence-algebra components"
+        },
+        {
+          "assessment": "Related field-point method, not scheme coordinates",
+          "evidence": [
+            "Simultaneous diagonalization of orthogonal idempotents."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1905.08391",
+          "material_read": "p. 6, Lemma 8, offset 19246",
+          "method": "Primary open-access PDF",
+          "title": "Group gradings on finite dimensional incidence algebras",
+          "trigger": "Earlier simultaneous orthogonal idempotents"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 23–32 and 58–64",
+        "Resultary d6c6054e5969, scheme proof and graph-polynomial identification"
+      ],
+      "rationale": "The structural relationship is useful, but the frozen finding does not add a substantive advance over the earlier explicit affine and FK result. In particular the illustrative four-point cutoff is a routine consequence of equal tree Tutte polynomials and the classification of smaller height-one connected posets. It does not warrant a separate repaired finding.",
+      "residual_risks": [
+        "No judgment is made about a different, stronger reconstruction question."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

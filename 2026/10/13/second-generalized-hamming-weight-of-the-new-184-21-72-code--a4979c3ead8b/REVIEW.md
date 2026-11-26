@@ -1,18 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. For any binary two-dimensional subcode \(D=\langle u,v\rangle\), every coordinate in \(\operatorname{Supp}(D)\) occurs in exactly two of \(u,v,u+v\), hence
-\[
-2|\operatorname{Supp}(D)|=\operatorname{wt}(u)+\operatorname{wt}(v)+\operatorname{wt}(u+v)\ge216.
-\]
-The published code was reconstructed from its explicit quasi-cyclic specification. Exhaustive enumeration of all \(2^{21}\) messages recovers minimum distance \(72\) and \(9{,}826\) minimum words. The messages \(0x63\), \(0x318\), and \(0x37b\) give three weight-\(72\) words spanning support \(108\). Exhaustive testing of all \(48{,}270{,}225\) unordered pairs in the minimum shell gives \(1{,}748{,}433\) additive pairs, or exactly \(582{,}811\) minimizing two-spaces.
+## correctness
 
-## Originality
-PASS. The closest source is the manuscript that introduces the explicit code: it states its parameters, gives its quasi-cyclic construction, and reports \(A_{72}=9826\), but the inspected full text does not state \(d_2\) or count additive triples among minimum words. Searches using the code parameters, the source identifier, generalized-Hamming terminology, union-support language, and minimum-shell additive-triple language found no result implying the finalized claim. Previously compared same-code hull and coordinate-incidence data do not determine pairwise closure of the minimum shell.
+PASS
 
-Residual risk: an unindexed supplementary computation could independently contain the same higher-weight invariant.
+Compared the generator factors, multiplier and the ordered tail patterns with the original arXiv v1 appendix, including its residue convention r_t=Σ_{i≡t mod 5} b_i. An independent reconstruction in /workspace/branches/audit_code184.py uses constant-term polynomial division with exact product verification, cyclic coefficient shifts and binary message doubling rather than the frozen checker's Gray order. Exhausting all 2^21 messages gives positive weight for every nonzero message (hence rank 21), minimum 72 and 9826 minimum words; messages 0x63, 0x318, 0x37b form a minimum triple with union size 108. In every binary two-space each supported coordinate occurs twice among its three nonzero words, so support is at least 3·72/2 and equality holds exactly for triples of minimum words. On the full message space, the ordered count of (u,v) with u,v,u+v in the minimum shell is the sum of the cubes of the unnormalized Walsh transform of its indicator, divided by 2^21, by character orthogonality. The replay gives 3496866 ordered pairs, i.e. 582811 two-spaces since each contributes six. A separate appendix-based direct pair check gives 1748433 unordered pairs, agreeing. This is exact for this code, not a claim about other codes with the same parameters or weights d_r for r≥3.
 
-## Value
-PASS. The result fixes the first higher support invariant of a newly reported record code and shows it attains the sharp binary lower bound \(d_2\ge3d_1/2\). The exact count of \(582{,}811\) minimizing two-spaces further records substantial additive structure in the minimum shell, a feature not visible in the ordinary weight enumerator or coordinate-incidence spectrum.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The published construction, minimum distance and shell size are prior inputs. The audited result is the attained second-support bound and exact two-space multiplicity for the specific published generator, not the standard binary support identity or the base code parameters.
+
+## value
+
+PASS
+
+The input is a published high-distance construction and the invariant is the first nontrivial higher generalized weight, not an arbitrary statistic selected after enumeration. The result shows that the universal support lower bound is actually attained and quantifies the minimizing two-spaces. These are precise data for comparing the support geometry of candidate codes and cannot be read from their length, dimension, distance, or ordinary minimum multiplicity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:30:20.799137Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–63; VERIFICATION.md and verify.py inspected, not executed",
+        "Replay: python3 /workspace/branches/e3ba5ef5-2e2e-4d97-9cca-5955e416b31a/record5_independent.py"
+      ],
+      "rationale": "For the oriented cycle vector c, UU^T=P=I-cc^T/ell. For a sole collision of e,f with sign product tau, set x=U^T e_e and y=U^T e_f. The Gram perturbation is tau(xy^T+yx^T), with two eigenvalues tau<x,y> +/- ||x||||y|| and n-3 zeros; x,y are independent since c has at least three nonzero coordinates. Here <x,y>=-c_e c_f/ell and ||x||^2=1-c_e^2/ell. This gives all four stated spectra, including both sign relations. For subunit tolerance only the collision-free and mixed cycle–bridge cases pass, the latter including equality at sqrt(1-1/ell). At most n-2 occupied buckets forces a nontrivial sketch kernel on the incidence hyperplane. The falling-factorial counts then apply also for m<n and ell=n. Taking square roots of the Gram ratios gives the stated reversal of singular-value condition numbers. A separate exact-rational program checked 20 pair/sign cases on a triangle with two bridges; its print banner incorrectly says 22, but its explicit class counts are 3+3+12+2. The same program counted 288 subunit successes at tolerance 9/10 and 432 rank successes among the 1296 configurations on a triangle with one pendant edge; that count uses the proved collision classes, not an independent solver for all Gram spectra.",
+      "residual_risks": [
+        "The source checker tests both sign products in one orientation pattern per cycle length, not an exhaustive range of orientations. The proof works for arbitrary orientations and deleted columns. No claim for tolerances at or above one or for weighted edge scales."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The weighted rank theorem permits arbitrary positive edge scales and notes that weight changes can restore rank with arbitrarily small least singular value. It does not supply spectral endpoints for the equal-scale case."
+        ],
+        "reasoning": "The prior theorem dominates the family in weights but not the measured quantity. Its equal-weight specialization counts favorable cycle–cycle collisions that the new subunit law excludes. Generic sketch distortion guarantees do not give the exact class-by-class eigenvalues or sharp finite probability.",
+        "searches": [
+          "Resultary: 2026/11/8/SCOPE-exact-signed-countsketch-rank-survival-for-weighted-unicyclic-in--6f43abc6393e",
+          "Hu et al., arXiv:2102.05758"
+        ]
+      },
+      "checked_sources": [
+        "Weighted rank-survival SCOPE record 6f43abc6393e",
+        "Clarkson–Woodruff arXiv:1207.6365",
+        "Hu et al. arXiv:2102.05758",
+        "Local Resultary search and indexed Walsh-spectrum record 87e075dd674c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At equal weights the prior rank-success coefficient for sole collisions is ell(n-ell)+binom(ell,2)/2, whereas the strictly subunit coefficient is ell(n-ell) above the threshold and zero below it."
+        ],
+        "reasoning": "A favorable cycle–cycle collision passes the prior rank test yet has upper Gram eigenvalue 2, and a cycle–bridge collision has upper eigenvalue below 2 yet worse relative conditioning. Neither the location of the step nor the ranking reversal follows from the rank criterion without additional spectral analysis.",
+        "searches": [
+          "Weighted unicyclic rank theorem and proof, local mirror offsets 0–6654"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The weighted rank-survival mirror has the same signed one-sparse sketch and circulation hyperplane, but tests injectivity. Clarkson–Woodruff p. 4 describes the generic embedding; Hu et al. p. 1 describes sparse graph embeddings."
+        ],
+        "reasoning": "The singular-value formulation using endpoints sqrt(1±s) is equivalent to the stated Gram criterion after squaring, whereas a full-column-rank event merely requires the lower endpoint to be positive. The distinction persists on exactly the same unweighted graphs.",
+        "searches": [
+          "Focused Resultary searches for unicyclic incidence CountSketch, rank survival, spectra and distortion",
+          "arXiv:1207.6365",
+          "arXiv:2102.05758"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed exact formula tabulates rank success, not a Gram spectrum or a distortion CDF. The distinct same-day indexed summary concerns binary convolution and Walsh recovery on C_7^2, not sparse sketches of incidence spaces."
+        ],
+        "reasoning": "These matches do not provide the exact spectral or distortion invariant. The same-day comparison is on mathematical content, not on ordering by date.",
+        "searches": [
+          "Resultary exact unicyclic rank-survival record 6f43abc6393e and focused searches on signed-sketch distortion and spectra",
+          "Resultary distinct same-day SCOPE-exact-signed-walsh-spectrum-and-sharp-fourier-recovery-for-seven--87e075dd674c"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the exact whitened Gram spectra, the strictly subunit probability law, and the opposite ranking of two successful collision types. Not a priority claim for the sketch construction, circulation hyperplane, or exact rank survival.",
+      "residual_risks": [
+        "Comparison to the general embedding papers is limited to inspected passages. An unindexed equivalent in codimension-one frame compression or sparse embeddings remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of rank survival and shared proof ingredients only",
+          "evidence": "Injectivity criterion for a signed pair; qualitative weight sensitivity of the least singular value; explicit distinction from distortion.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-signed-countsketch-rank-survival-for-weighted-unicyclic-in--6f43abc6393e",
+          "material_read": "Theorem, proof and limitations; offsets 0–6654 and opening limitations",
+          "method": "Local published-record mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact signed CountSketch rank survival for weighted unicyclic incidence matrices",
+          "trigger": "Closest exact same-model generalization"
+        },
+        {
+          "assessment": "Establishes generic construction, not evidence of exact graph-family coverage",
+          "evidence": "One uniform signed nonzero per input coordinate.",
+          "identifier_or_url": "https://arxiv.org/abs/1207.6365",
+          "material_read": "p. 4, offsets 14136–15738",
+          "method": "Public primary PDF passage",
+          "title": "Low Rank Approximation and Regression in Input Sparsity Time",
+          "trigger": "Classical sparse embedding precedent"
+        },
+        {
+          "assessment": "General sparse sketching overlap, not an exact unicyclic spectrum in the passage read",
+          "evidence": "General graph-based embeddings and sketch applications.",
+          "identifier_or_url": "https://arxiv.org/abs/2102.05758",
+          "material_read": "Introduction, p. 1, offsets 4108–6205",
+          "method": "Public primary PDF passage",
+          "title": "Sparse graph based sketching for fast numerical linear algebra",
+          "trigger": "Graph sketching precedent"
+        },
+        {
+          "assessment": "Different operator and invariant in the summary",
+          "evidence": "Walsh recovery for a binary counting convolution, not whitened incidence CountSketch.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-signed-walsh-spectrum-and-sharp-fourier-recovery-for-seven--87e075dd674c",
+          "material_read": "Indexed summary",
+          "method": "Local Resultary search",
+          "title": "Exact signed Walsh spectrum and sharp Fourier recovery for seven-vertex squared cycle",
+          "trigger": "Distinct same-day indexed spectral hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 12–32 and 55–70; prior weighted rank theorem"
+      ],
+      "rationale": "Exact preservation of metric information is an independent question once algebraic success is known. This gives the precise probability step and a structural example where minimizing squared-norm distortion chooses the worse-conditioned full-rank sketch. It separates metrics used for different numerical objectives on the same elementary graph and sketch, not just two definitions or a rank recount.",
+      "residual_risks": [
+        "The comparison applies to orthonormalized incidence spaces and actual collision patterns when m>=n-1, not to raw incidence conditioning or a claim about runtime."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

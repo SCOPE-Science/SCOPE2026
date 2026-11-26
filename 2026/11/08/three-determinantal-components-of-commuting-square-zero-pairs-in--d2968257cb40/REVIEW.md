@@ -1,17 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The equations for the squares and commutator are fully expanded in `RESULT.md`. They force the affine eight-dimensional component whenever either middle-superdiagonal entry is nonzero. On the remaining slice, the two square-zero equations are precisely two rank-one matrix conditions, and the commutator factors into the product of two explicit \(2\times2\) determinants. The two vanishing factors are exactly the two determinantal cones. Their dimensions, geometric irreducibility, noncontainment and pairwise intersection dimensions follow from elementary outer-product parametrizations and a separate quadric-incidence argument. Boundary cases with one zero matrix, all characteristics including characteristic two, and arbitrary field extensions have been checked in the proof. Exhaustive independent enumerations over fields of orders \(2,3,4,5\) reproduced all claimed point counts.
+## correctness
 
-## Originality — PASS (provisional historical assessment)
-The closest published primary material is Basili's *Some remarks on varieties of pairs of commuting upper triangular matrices* (arXiv:0803.0722), especially its **Example A** that already describes the components of the unrestricted commuting four-by-four nilradical. This is substantial structural prior coverage and is explicitly acknowledged. The present result imposes two additional square-zero constraints and obtains a **different, non-equidimensional three-component locus**, with explicit determinantal models and pairwise intersections; Basili's two-component description does not imply these details as a stated result. Melnikov's arXiv:math/0703371 concerns conjugacy orbits of one square-zero upper-triangular matrix, not commuting pairs with two square constraints. Premet's arXiv:math/0302204 concerns commuting nilpotent pairs in reductive Lie algebras, not the restricted nilradical slice.
+PASS
 
-An accessible prior result for the same four-by-four algebra determines nonzero prescribed-product fibers and the number of zero-product pairs. Consequently, the finite-field **total** in `RESULT.md` is not claimed as original, and the nonzero-product locus is already geometrically understood. What survives comparison is the full component and incidence classification, especially the second determinantal boundary and its relationship to the affine component. Targeted similarity searches recovered no stronger matching result, but absence from a search is not proof of global novelty.
+Direct multiplication gives ad=df=ae+bf=AD=DF=AE+BF=0 and the three stated commutator coordinates. Outside d=D=0, one nonzero middle entry forces both pairs of outer entries to vanish by the square and commutator equations, giving the affine piece E. On the slice each of M,N has rank ≤1. Substituting M=pℓᵀ,N=qmᵀ into the remaining commutator gives (p1 q2+p2 q1)(ℓ1 m2−ℓ2 m1); the factors are exactly the dependence tests for (p,Sq) and (ℓ,m). Zero matrices satisfy both rank tests. The independent witnesses d≠0, (E12,E34), and (E12,E13) distinguish the three pieces in all characteristics. The two determinantal cones have dimension 5 before the two free coordinates and are geometrically integral by outer-product parametrization (or the pivot charts); the equality of reduced closed loci follows from the exhaustion over geometric points. E∩R has six free coordinates, and E∩T adds bE+eB=0, giving dimension five and the triple intersection. Independently, in R∩T the two matrices M and SN together are (t pℓᵀ,u pℓᵀ); excluding the zero pair gives a cone over the product of three projective lines, of dimension 4 before c,C, hence dimension 6. This works with a zero block and in characteristic two. Its finite-field size before c,C is 1+(q−1)(q+1)^3. Each determinantal cone has 1+(q⁴−1)(q²−1)/(q−1)=q⁵+q⁴−q points, and E overlaps their union in E∩R. Inclusion–exclusion with these independent counts yields q⁸+2q⁷−2q⁵.
 
-## Value — PASS
-The four-by-four nilradical is a natural first small test of how imposing square-zero equations changes commuting geometry. The unrestricted commuting variety has classical component theory; the present doubly square-zero locus has three explicit components of unequal dimensions \(8,7,7\), and intersection dimensions \(6,5,6\). This provides an exact, characteristic-free geometric boundary in a well-motivated representation variety, beyond a restatement of the already-known finite-field aggregate count. It is a complete natural classification rather than an arbitrary numerical subcase.
+## originality
 
-## Closest literature and limitations
-Premet (2003), Melnikov (2007) and Basili (2008) were compared at the level of objects and theorem implications, including Basili's explicit four-by-four example. The classification concerns only the reduced variety, not possible nonreduced multiplicities, embedded components or all singular strata. A deeper unlocated theorem on square-zero commuting nilradicals may subsume the calculation; complete historical priority and independent mathematical validation remain open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Pass is for the complete reduced component and incidence description of the fixed triangular slice, not the already covered point total, coordinate reduction to the middle-zero slice, or the nonzero-product geometry in isolation. A distinct exact product-fiber record gives the same point total and the dense nonzero-product stratum of T; its parametrization also yields the determinantal model of the closure of that stratum. It does not furnish the entire zero-product geometry, the separation of the other components from that closure, or the intersection classification. The nearby classifications in unrestricted triangular and full square-zero ambient spaces likewise do not give the slice decomposition.
+
+## value
+
+PASS
+
+This is a natural fixed-flag slice of a standard square-zero commuting variety. Its classification distinguishes a larger affine component and two lower-dimensional determinantal pieces with different embeddings. The unequal pairwise incidence dimensions show concretely why counting or studying the nonzero-product stratum misses the geometry. It is useful as a complete small-rank example in all characteristics, not as a recomputation of an arithmetic invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

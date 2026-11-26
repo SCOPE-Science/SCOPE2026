@@ -1,18 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof constructs the exact reachable minimal DFAO using trailing maximal digits and proves distinctness of all \(a+p\) output residuals from minimal eventual period and onset. In higher bases two reset digits give a shortest conflicting path of length two; in binary with positive preperiod every state has single-label incoming edges; in binary with zero preperiod the shortest mixed path has length exactly \(p+1\). The normalized formula then follows from Allouche–Yao [1, Theorems 1–2]. This establishes all quantifiers, including constants and composite bases. A standalone finite verifier tested 4,094 actual parameter configurations and 237,440 direct integer evaluations; these tests do not stand in for the proof.
+## correctness
 
-## Originality — PASS, with residual risk
-Allouche–Yao [1] define the measure, prove the intrinsic graph criterion, and calculate the binary period-doubling example \(p=2,a=0\), which is explicitly excluded from the novelty claim. Their accessible arXiv full text does not state a valuation-controller classification. The exact general formula covers every ultimately periodic controller and alphabet base and distinguishes preperiod from least period. Previously reported residue-clock opacity formulas concern the modular sequence \(n\bmod m\), not valuation sequences; results on finite digit-pattern counters also do not imply this universal tail-cycle description. Semantic research comparisons did not locate a covering result, but searches cannot prove absence. A 2026 revised journal text and unindexed literature remain risks.
+PASS
 
-## Value — PASS
-A complete classification of a natural infinite family of automatic words is more informative than a single special-case calculation: the automaton-state minimum and the entire opacity spectrum are exact and exhibit a sharp, structural base dichotomy. Every higher base forces maximal opacity, whereas binary allows either full transparency or any dyadic opacity level, determined solely by the controller's least preperiod and period. This exposes a phenomenon invisible from the classic period-doubling example and identifies the exact mechanism (competing reset labels versus cycle closure). No downstream theorem is claimed.
+Adding one in base b verifies the trailing-(b−1) interpretation of ν_b(n+1), including n=0 and composite b. The declared automaton advances on b−1 and resets on any smaller digit; its lasso starts with a transient positions and ends with a p-cycle. Its initial state is fixed by zero. All states are reached by a suitable string of maximal digits; two states merge only if their entire controller tails agree, since a suffix of t maximal digits tests the t-th entry of the tail. If i<j<a+p and the tails coincide, d=j−i is a period from i onward. Every eventual period of the p-periodic primitive tail is divisible by p (translation by d on residues modulo p would otherwise give period gcd(p,d)). For i≥a this contradicts 0<d<p. For i<a, transfer the p-period identity to every index from i by adding sufficiently many multiples of d to both terms; this contradicts minimal onset a. Thus there are exactly a+p states. With the input-alphabet prefix metric, a word's best state relabeling matches until the first arrival at a state by a different digit than an earlier arrival. Thus earliest conflict at the ℓ-th edge gives raw opacity 2^(1−ℓ), normalized by M_b=1/2, as in Allouche–Yao Theorems 1–2 (no conflict gives zero). For b≥3, 01 is a length-two conflict at the common reset state. For binary a>0 the reset destination is distinct from every advance destination and there is no conflict. For binary a=0 only state 0 can conflict; a one-arrival requires at least p ones since the previous reset or start. If a zero-arrival precedes it, at least p+1 edges are needed, and if the one-arrival comes first, at least one subsequent edge is still needed. 01^p realizes the bound including p=1. A period-p single 1 per period, a constant controller, and a nonperiodic initial entry followed by a constant tail realize all published levels as stated. For arbitrary Y the reviewed invariant is the input-prefix opacity of the intrinsic transition graph as explicitly scoped in RESULT.md line 18; no distance between Y-valued outputs and input digits is asserted. This proof is valid for the whole declared domain. The supplied finite checker and its counts were inspected as recorded evidence, not executed.
 
-## Scope and limitations
-The claims concern the prefix metric of [1] and ultimately periodic controllers. Numerical checks have finite scope; the proof supplies the infinite result. Related comparison metrics and general automatic sequences are outside scope. The later journal revision of [1] was not fully inspected.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
 
-## Reference
-[1] J.-P. Allouche and J.-Y. Yao, *Opacity complexity of automatic sequences. The general case*, arXiv:2404.13601v1 (2024-04-21), https://arxiv.org/html/2404.13601v1.
+The retained contribution is the intrinsic size and complete base/onset/period classification of valuation-controlled words. Allouche–Yao's framework, the path criterion, the constant and period-doubling examples, and the generic DFAO minimization principle are prior. The adjacent catalog hits classify genuinely different inputs to these methods. No distinct full valuation-controller classification was verified in the bounded comparison.
+
+## value
+
+PASS
+
+Valuation-controlled sequences extend familiar automatic words such as period-doubling. The exact minimization and opacity together explain how one transient segment can make a binary automaton transparent despite the same eventual period, whereas adding a second reset digit makes graph opacity maximal. The full infinite dyadic binary spectrum follows for even just binary-valued controllers. This is useful structural classification beyond any individual known example, within the input-prefix metric only.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

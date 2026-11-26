@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:10:54.969143Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For S=A^(1/2) the derivative solves SX+XS=H and has the stated positive semigroup sandwich integral. Independently, center E_t=e^(−tS) between e^(−vt)I and e^(−ut)I for u=√a, v=√b: the centered rescaled matrix is a spectral contraction, so its absolute row sums are at most √2. Thus the absolute row sum of E_t is bounded by c e^(−ut)+(1−c)e^(−vt), where c=(1+√2)/2. Cauchy–Schwarz on rows or the common row envelope gives the sharp upper bound by the integral of this square. For the positive rank-one low-eigenvalue projection at angle π/8, the first row sum of P is cos²(π/8)+cos(π/8)sin(π/8)=c. Then E_t is entrywise nonnegative and saturates the envelope in that row for all t, and the symmetric all-ones direction gives equality in the (1,1) derivative entry. Integrating gives c²/(2u)+2c(1−c)/(u+v)+(1−c)²/(2v), the stated constant. The scalar-angle derivative in RESULT.md is also obtained by differentiating the row coefficient (1+x)/(1+x²) against its nonnegative kernel. Convex segments give the global bound; admissible interior pairs approach the derivative value and do not assert attainment by distinct matrices. Any finite pair in the unbounded-band domain belongs to some finite band, and the sharp constants tend to the stated unbounded-band value and scalar ratio. RESULT.md lines 23–80, VERIFICATION.md, and check_square_root.py were read; the reported 16,515 finite checks were not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2a72590f2caf result is sharp for every dimension and all positive-coefficient series of sufficient radius on a bounded positive-semidefinite strip, and supplies the sharp rank-one witness.",
+          "The negative-cone Laplace-transform record and classical divided differences are related machinery, but are not needed for the finite-band implication."
+        ],
+        "reasoning": "The positive square-root transform lands inside the stronger theorem's hypotheses exactly; the finite band cannot be dismissed as a different domain.",
+        "searches": [
+          "Resultary: sharp positive-coefficient max-entry matrix-function coefficient",
+          "SCOPE-sharp-maximum-entry-sensitivity-of-absolutely-monotone-matrix-fu--2a72590f2caf",
+          "SCOPE-universal-sharp-entrywise-sensitivity-of-laplace-transform-matri--1a903dcf6eae",
+          "arXiv:1810.01464 §2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary square-root, angle, finite-band and half-line queries",
+        "SCOPE records 2a72590f2caf, 1a903dcf6eae, d768844eb47f and 0e7b363c6209",
+        "arXiv:1810.01464 §2",
+        "arXiv:2008.12926 §2",
+        "arXiv:2203.03930 §3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general series expression sums to c²g′(d)+(1−c)²g′(0)+2c(1−c)[g(d)−g(0)]/d, c=(1+√2)/2. Here the three scalar quantities are 1/(2√(1−d)), 1/2, and 1/(1+√(1−d)). Multiplying by 1/√b gives the frozen coefficient, since 2c(1−c)=−1/2.",
+          "The indexed extremal projection has u_1²=(1+1/√2)/2=cos²(π/8). The endpoint X=dP becomes A=aP+b(I−P), and the interior witness transports with it. Taking b→∞ gives the asserted half-line constant because every finite pair is in a finite band."
+        ],
+        "reasoning": "All advertised specificity, including the rotation and half-line limit, is a substitution or elementary limit of the sharp general result. The classical derivative by itself would not suffice, but the indexed theorem does.",
+        "searches": [
+          "Resultary 2a72590f2caf power-series formula and rank-one witness",
+          "arXiv:1810.01464 Theorem 2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Put X=I−A/b; the domain is exactly 0≼X≼dI, d=1−a/b<1. Then √A=√b(I−g(X)), where g(x)=1−√(1−x) has nonnegative binomial-series coefficients and radius 1>d.",
+          "The sqrt ratio for A is exactly 1/√b times the g ratio for X, in the identical absolute-entry norm and symmetric class."
+        ],
+        "reasoning": "An affine spectral reversal followed by an affine output rescaling is an exact norm comparison for distinct input pairs, not replacement by a weaker bound in another norm.",
+        "searches": [
+          "Resultary: 2×2 square-root exact maximum-entry sensitivity, π/8 and finite endpoints",
+          "SCOPE-sharp-maximum-entry-sensitivity-of-absolutely-monotone-matrix-fu--2a72590f2caf, Finding and Sharpness"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The direct literal square-root hit a935f32a987c is the assigned record itself. Distinct log and matrix-sine records concern different functions and alone would not establish coverage.",
+          "The distinct 2a72590f2caf indexed exact formula covers the coefficient without containing a literal square-root table row."
+        ],
+        "reasoning": "The conclusion is based on the precise general formula and witness, not semantic similarity or the self-hit.",
+        "searches": [
+          "Resultary: exact square-root coefficient and π/8",
+          "Resultary: sharp unbounded-upper-spectral-endpoint square-root modulus"
+        ]
+      },
+      "rationale": "The exact finite-band coefficient, extremal angle, and limiting witnesses are covered by the distinct indexed absolutely-monotone matrix-function theorem under X=I−A/b. The transformed square root is a positive-coefficient series, despite the alternating signs one would obtain from a different expansion. The no-upper-bound result is a direct limit over nested finite bands. No chronological ordering or authorship conclusion is drawn from the same-date records.",
+      "residual_risks": [
+        "Same-day catalogue dates do not establish chronological priority.",
+        "The Higham–Relton primary text at DOI:10.1137/130945259 was access-limited in this review; the covering indexed theorem does not depend on that comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive mathematical coverage of the frozen sharp finite-band value and extremal orientation; half-line conclusion follows by an elementary domain limit.",
+          "evidence": [
+            "Formula a_1+Σ_{k≥2}a_k d^{k−1}(2c_n+(k−2)c_n²); sharp projection orientation u_1²=(1+1/√n)/2 and all-ones interior perturbations."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-maximum-entry-sensitivity-of-absolutely-monotone-matrix-fu--2a72590f2caf/RESULT.md",
+          "material_read": "Finding, assumptions, row and derivative arguments, Sharpness; offsets 0–4447, local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4.",
+          "method": "Targeted local mirror reading with explicit algebraic specialization.",
+          "title": "Sharp maximum-entry sensitivity of absolutely monotone matrix functions on positive spectral intervals",
+          "trigger": "Same exact global norm and witness for nonnegative series, applicable to the reflected square root."
+        },
+        {
+          "assessment": "This passage gives Fréchet perturbation calculus, not the claimed optimized band coefficient.",
+          "evidence": [
+            "Daleckii–Krein derivative using the divided-difference matrix."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1810.01464",
+          "material_read": "§2, Eq. (2.1) and Theorem 2.1, PDF p. 2, extraction offset near 6200.",
+          "method": "Targeted primary paper inspection.",
+          "title": "Perturbation theory for the matrix square root and matrix modulus",
+          "trigger": "Standard square-root derivative in a divided-difference formulation."
+        },
+        {
+          "assessment": "Related half-line result; not required for the finite-band failure finding.",
+          "evidence": [
+            "Positive Laplace-transform filters on A≼−μI, rather than a finite two-ended spectral interval."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-universal-sharp-entrywise-sensitivity-of-laplace-transform-matri--1a903dcf6eae/RESULT.md",
+          "material_read": "Finding and assumptions in local mirror, offset 0; spectral-cone and derivative discussion.",
+          "method": "Targeted indexed comparison.",
+          "title": "Universal sharp entrywise sensitivity of Laplace-transform matrix filters",
+          "trigger": "Same entrywise norm and endpoint projector for positive kernels."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The sharp square-root sensitivity is a useful benchmark, but the exact coefficient and rotation here are a direct function and dimension specialization of a broader sharp invariant. The scalar comparison and unbounded-band limit are elementary consequences, not an independent surviving contribution.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

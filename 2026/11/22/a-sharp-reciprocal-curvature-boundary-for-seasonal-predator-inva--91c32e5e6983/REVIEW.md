@@ -1,15 +1,21 @@
-# Review of the reciprocal-curvature invasion theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The prey-only logistic equation transforms exactly into \(\dot u=-ru+r/K(t)\). Its unique positive periodic solution has mean reciprocal prey equal to the mean reciprocal capacity. Rewriting the generalized Holling-III intake in this variable yields an exact second derivative with numerator \(3B^2u^2+3BCu+C^2-BD\). When the constant term is nonnegative, strict Jensen convexity applies to every nonconstant positive periodic capacity. When it is negative, the explicitly constructed sinusoidal reciprocal-prey trajectory and positive compatible capacity yield strict Jensen concavity. Positivity, quantifiers, strict cases, and the signs of the two explicit neutral examples were rechecked. The supplied checker confirms rational curvature inequalities and illustrative quadrature. No computational experiment is treated as proof.
+## correctness
 
-## Originality — PASS (literature-bounded)
-The closest autonomous generalized Holling-III bifurcation treatment is Lamontagne, Coutu and Rousseau (2008), whose equations contain the same rational intake but no periodic-capacity reciprocal-curvature comparison. Sarrah et al. (2026) examine a periodically forced version, with numerical bifurcation analysis at a fixed annual frequency, without the sharp frequency-independent comparison and its converse. Buttà (2026) supplies the mechanistically derived response but not seasonal-capacity invasion theory. Related seasonal-harvesting and two-season predator-invasion results concern other forcing mechanisms and do not imply this signed, all-waveform criterion for the nonlinear reciprocal prey response. A potentially relevant 2026 general carrying-capacity study was accessible only by its abstract, and full historical priority is not certified.
+PASS
 
-## Value — PASS
-The result provides an exact mechanistic boundary between a robust guarantee and genuinely possible seasonal invasion suppression, independent of forcing frequency, amplitude or waveform. At the constant harmonic-capacity invasion threshold, the same seasonal habitat can either enable or prevent rare-predator growth, determined by the response's reciprocal curvature. The boundary is sharp by constructive counterexample. It answers a natural ecological sensitivity question not covered by the underlying autonomous bifurcation classification; no downstream theorem is asserted as necessary for this self-contained result.
+For the prey-only equation, u=1/x satisfies u′+ru=r/K. Convolution with the positive exponential kernel gives a unique positive periodic solution; all positive initial conditions converge to it in the prey-only system. Integrating over a period gives mean(u)=1/K_H; the decoupled scalar predator variational equation gives the stated Floquet exponent. For g(u)=A/(Bu²+Cu+D), direct differentiation gives the curvature numerator 2A(3B²u²+3BCu+C²−BD), with a positive denominator. At C²=BD it is still strictly positive for all u>0; nonconstant K gives nonconstant u, so Jensen is strict. For C²<BD choose a reciprocal trajectory u=u₀+δ cos(ωt) wholly inside its concavity interval, and set 1/K=u+u′/r. Choosing δ√(1+(ω/r)²)<u₀ makes K strictly positive even at an arbitrary prescribed finite frequency. Its harmonic mean is 1/u₀, and strict concave Jensen reverses the sign. The latter is an existential, not universal, reversal. At u₀=1/4 the explicit static intakes 16/69 and 16/21 follow by substitution; the example interval is strictly concave for D=4 and strictly convex for D=1. At neutrality the strict signs govern linear predator invasion only, not global nonlinear fate. Inspected VERIFICATION.md and verify.py without execution; the finite checks are supplementary to RESULT.md lines 15–68.
 
-## Limits and closest comparisons
-The conclusion is a predator-free Floquet invasion statement, not a global persistence theorem. The older work supplies the feeding function and autonomous bifurcation machinery; the new contribution is the universal forcing comparison, equivalence condition and converse. The incomplete full-text inspection of an additional 2026 carrying-capacity article and wider historical priority are residual risks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the generalized response law, reciprocal logistic substitution, Jensen and Floquet machinery. The assessed claim is their sharp model-specific consequence: an exact necessary and sufficient coefficient boundary for the universal equal-harmonic-capacity comparison, with physically admissible smooth reversals showing necessity. The verified near neighbors do not cover this comparison.
+
+## value
+
+PASS
+
+The boundary tells when a constant-capacity control with the same harmonic capacity is a rigorous lower invasion benchmark uniformly over amplitudes, shapes and periods, and when even a smooth periodic treatment can reverse that judgment. Exact sharpness from a realizable prey trajectory, rather than a formal Jensen curvature observation or a small-amplitude approximation, is useful for interpreting a neutral static control. The contribution is restricted to rare-predator invasion in the stated deterministic model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

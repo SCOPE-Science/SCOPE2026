@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite statement is proved by exhaustive enumeration of every binary word of lengths one through eleven. The proof certificate checks all \(4094\) inputs, independently computes each signature both by prefix-sum differences and by direct window summation, and compares complete integer counter vectors rather than hashed approximations. It finds two and only two moment fibers that subdivide under complete substring-composition observations at length eleven. Their explicit members and the cubic repair are checked. The proof is finite; no extrapolation to longer lengths is asserted.
+## correctness
 
-## Originality — PASS (qualified)
-The 2010 ISIT source and its 2014 preprint describe equivalence under the *complete* substring-composition multiset, and an indexed complete-spectrum census similarly enumerates complete-observation fibers. The new distinction compares the quotient by **two length-resolved power sums** against that by complete compositions, isolates its first strict difference at length eleven, and identifies the unique two exceptional moment classes and the minimal window length for a cubic repair. A related 2022 partial-observation paper instead restricts which individual compositions are observed. Searches for length-resolved quadratic moments and their aliases did not identify this assertion. Residual risk: unindexed prior treatment of power-sum compression.
+PASS
 
-## Mathematical value — PASS
-The question is a natural exact sufficiency threshold for an economical summary of substring-composition spectroscopy: replacing a full multiplicity histogram by its first two moment coordinates for each length saves readout coordinates but can merge distinguishable strings. The first failure, its entire set of exceptions, and a single additional low-degree moment that repairs the loss are operationally and mathematically well-defined. The result is not offered as a generic finite table, but as the sharp boundary of a specific compression principle and the lowest-window cubic correction.
+For each window length k the ordered histogram of counts by weight is a complete encoding of the multiset, and the first two moments are linear sums of those counts. The frozen certificate visits each fixed-width binary representation once and every start at every length. Independent exact bit-field window extraction over all 4094 words reproduces the profile counts and no split fibers through length ten. At eleven the two-moment and full profile counts are 1050 and 1052. The only splitting fibers are the two stated four-word sets, each split into two reversal pairs. In the order of the stated representatives the length-three cubic values are 49 and 43, and 50 and 56, so that cubic repairs both fibers. Reversal preserves the full histogram, and t³=t for weights 0,1 and t³=3t²−2t for weights 0,1,2, proving the short-window limitation. For n<3 there is no length-three information to add. None of this extrapolates past length eleven or asserts word reconstruction within a full-observation class.
 
-## Scope and closest literature
-The 2010 full-composition reconstruction construction produces true complete-spectrum collisions already at length eight; these are **not** counterexamples to equality of the two resulting partitions. At length eleven the present four-word exceptional moment fibers split into distinct full-spectrum reversal pairs. The full-composition census through length twenty-three has \(1052\) classes at length eleven, compared with \(1050\) here for the two-moment readout. This does not claim a new full-observation reconstruction theorem. The assessment concerns only binary lengths up to eleven; independent external audit is not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported original contribution is the first extra loss caused by the two-moment compression, its exact exceptional classes and the single cubic repair. The earlier census overlaps the full-profile count 1052, which is not credited as original. Full-observation word ambiguity and partial collections of individual unpooled observations do not answer this compressed-observation question.
+
+## value
+
+PASS
+
+Compression of a standard inverse-problem observable by its first two moments raises a distinct and motivated question: when does the compressed channel identify additional full profiles? The exact cutoff, concrete fibers and one shortest-window cubic repair specify a benchmark for using aggregated rather than individual reads, without conflating information loss with the already known failure to reconstruct a unique word.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

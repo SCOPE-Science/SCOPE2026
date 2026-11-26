@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:58:19.359735Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Caputo integral equation and continuity at the initial state force y(t)=K+F(K)t^α/Γ(α+1)+o(t^α), including α=1. In the publisher PDF, Eq. (5.8) and its definitions of the zeroth products support the frozen comparison. Eq. (5.9) changes the symptomatic loss and recovery input, giving first-coefficient residuals φ_s(K₃−K₄) and ρ_h(K₅−K₆). Eq. (5.10) repeats the symptomatic loss error and uses the exposed instead of susceptible state in the natural mortality term of the susceptible equation; it also swaps the incidence pairings in both rows. The sign of the susceptible residual in the frozen proof is correct. These differences are nonzero as polynomial identities; the non-incidence differences alone suffice. Transfer balance requires consistent pairings but does not distinguish a simultaneous swap; the intended labels are established separately by Table 1 and (5.8). Section 6 explicitly attributes its approximations to (5.10), but this does not establish what the unavailable implementation computed. VERIFICATION.md and verify.py were inspected, not executed; the script checks the transcribed expressions, not their provenance or any trajectory. The analytic first-term comparison is decisive.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first-term condition is a general consequence of the Caputo integral equation, but supplies no diagnosis until instantiated against the specific printed substitutions.",
+          "The observed indexed analyses concern other systems or a different singular limit, not a family of recurrences that includes (5.10)."
+        ],
+        "reasoning": "A broad consistency method or earlier deterministic vector field is not an existing theorem assessing these later printed iterates. No stronger source-specific conclusion was found.",
+        "searches": [
+          "Resultary: first coefficient, component indexing, COVID, Caputo and recurrence variants",
+          "Publisher PDF, Eq. (5.8) and §6; frozen references, including DOI 10.3934/mbe.2021010"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.3934/math.2022877 (original PDF)",
+        "Frozen RESULT.md, VERIFICATION.md, verify.py (inspection only)",
+        "Resultary c90e6f1d2839, 94f0c21e42b3, c3184fec501d (finding passages)",
+        "Exact-paper external correction query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The external lookup surfaced an unrelated Hermite-collocation/Adomian SEIR paper, not a correction for this DOI.",
+          "The original presents (5.10) as the basis of its numerical example rather than diagnosing these mismatches."
+        ],
+        "reasoning": "The printed source supplies the objects of comparison, and the general first-term condition supplies the test. Neither is prior coverage of the exact claim that these particular printed coefficients fail it.",
+        "searches": [
+          "10.3934/math.2022877 and exact article title with erratum, correction, 5.9, 5.10 or recurrence",
+          "Publisher PDF comparison of (5.8), (5.9), (5.10) and §6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Eqs. (5.8) and (5.9) disagree even for the linear recovery and symptomatic loss terms.",
+          "Resultary c90e6f1d2839 uses a first-coefficient mismatch for component errors in different SEIAR equations; 94f0c21e42b3 diagnoses a different SIAQR recovery-history substitution via population balance."
+        ],
+        "reasoning": "An equivalent result would apply to these same recurrences and show a nonzero residual, whether expressed as a Caputo coefficient, integral defect, or conservation failure. The actual compared results do not do so.",
+        "searches": [
+          "Publisher PDF: Table 1, Eqs. (5.8)–(5.10), §6",
+          "Resultary: printed Laplace Adomian recurrence COVID seven-compartment Caputo first coefficient symptomatic asymptomatic equation 5.9 5.10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day c3184fec501d concerns a disease-free-equilibrium singularity in a different COVID-19 model.",
+          "Neither of the two older recurrence-indexing results treats this publication. No exact same-source diagnosis surfaced in the ranked hits."
+        ],
+        "reasoning": "The relevant database comparison is an exact diagnosis/erratum, not a numerical table. Neither related method nor date establishes equivalence.",
+        "searches": [
+          "Resultary: exact frozen title",
+          "Resultary: 10.3934/math.2022877 equations 5.9 5.10",
+          "Local mirror: c90e6f1d2839, 94f0c21e42b3, c3184fec501d"
+        ]
+      },
+      "rationale": "The distinct claim is the specific first-coefficient failure of Eqs. (5.9)–(5.10) in DOI 10.3934/math.2022877, not the Caputo first-term test or the compartmental model. No equivalent diagnosis was found in the inspected material.",
+      "residual_risks": [
+        "The search was bounded; an unindexed or otherwise unsurfaced correction remains possible.",
+        "The result is about equations on paper, not which recurrence the authors ran."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supports the transcription of the decisive conflicts; no diagnosis of them in the inspected derivation",
+          "evidence": [
+            "The printed first iterates use the wrong initial indices in symptomatic loss and recovery; later (5.10) explicitly uses the exposed sum in the susceptible linear mortality term.",
+            "§6 says the graphical solutions are based on (5.10)."
+          ],
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2022/9/PDF/math-07-09-877.pdf",
+          "material_read": "Table 1; pp. 16028–16029, Eqs. (5.8)–(5.10) and opening of §6 (offsets 8550, 55500, 59000, 66200, 70100; §6 matched near 76796)",
+          "method": "Lawful direct publisher PDF, located and read bounded passages",
+          "title": "On the fractional-order mathematical model of COVID-19 with the effects of multiple non-pharmaceutical interventions",
+          "trigger": "Exact motivating paper and stated derivation of the figures"
+        },
+        {
+          "assessment": "Different source, components and recurrence",
+          "evidence": [
+            "Wrong F₃/F₄/F₅ assignments in a different Caputo SEIAR derivation yield an order-t^α mismatch."
+          ],
+          "identifier_or_url": "Resultary/2026/10/4/c90e6f1d2839",
+          "material_read": "Local RESULT.md opening finding",
+          "method": "Resultary search and local mirror",
+          "title": "A repeated component-indexing error invalidates two printed SEIAR convergence claims",
+          "trigger": "Closest method and coefficient-overlap hit"
+        },
+        {
+          "assessment": "Different five-variable recurrence and historical correction",
+          "evidence": [
+            "Quarantine appears in recovery-history corrections; this is not Eq. (5.9)'s initial recovery index."
+          ],
+          "identifier_or_url": "Resultary/2026/10/4/94f0c21e42b3",
+          "material_read": "Local RESULT.md opening finding",
+          "method": "Resultary search and local mirror",
+          "title": "The printed fractional SIAQR recovery update breaks exact population conservation",
+          "trigger": "Closest recovery/recurrence overlap"
+        },
+        {
+          "assessment": "Different source and claim",
+          "evidence": [
+            "Three-compartment SIS-B treatment singularity at zero saturation, not a Caputo recurrence."
+          ],
+          "identifier_or_url": "Resultary/2026/10/13/c3184fec501d",
+          "material_read": "Local RESULT.md opening finding",
+          "method": "Resultary search and local mirror",
+          "title": "The zero-saturation limit destroys the disease-free equilibrium in the printed COVID-19 model",
+          "trigger": "Same-day COVID model hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A leading-order inconsistency in the recurrence explicitly cited as the basis of the numerical figures is a concrete reproducibility defect. It rules out correcting the discrepancy simply by taking more terms of the same formal series, without drawing conclusions about epidemiological predictions or unavailable code.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:00:51.147802Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A core vertex outside the closed neighborhood of the projected seeds is not observed in the first step and cannot be the first target of a force: each neighboring core lacks an initially observed private leaf and cannot force that leaf while the target remains unobserved. A private leaf cannot deliver a first observation of its own unobserved core. Thus the projection dominates and selecting an optimum all-core domination set attains the bound. At minimum each selected index receives one core/leaf mark. In each length-three gap the internal vertex on a leaf-marked side cannot be observed from the other internal vertex before its own observation, by the same private-leaf obstruction. Therefore a leaf mark between two long gaps blocks, and a length-two gap with two leaf marks blocks if neither end can start propagation from its other side. In an adjacent two-short-gap cluster with three endpoints, an all-leaf assignment is blocked; any core mark starts forcing across the cluster, because it observes an intermediate and a leaf-marked endpoint with one observed core neighbor can force its other one. A length-one gap supplies each of its selected endpoints an already observed neighbor even with two leaf marks. The n=4 case has the same two endpoints on both short gaps and must be counted separately. The resulting admissible counts per pattern are 1 (all long), 3 (one length-two), 4 (one length-one), 7 or 9 (two length-two gaps adjacent or disjoint, k≥3) and 3 for the opposite pair at n=4. Cyclic marking counts adjacent double-short gaps in n ways and disjoint ones in n(k-3)/2, giving the displayed formula. A separate adjacency-set enumeration of all subsets through the claimed minimum for n=3–8 found no smaller successes and recovered 3,22,15,3,77,24. This is corroboration; the gap argument proves all orders. The frozen checker was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brimkov et al. give the larger-clique corona polynomial and ask about one-leaf coronas; this theorem does not specialize to K1.",
+          "Bläsius et al. enumerate inclusion-minimal sets by a general algorithm, which is not a closed minimum-sunlet coefficient in the inspected passages.",
+          "The assigned paper credits the scalar sunlet cardinality to Saibavani–Parvathi, whose original text was not available in this check."
+        ],
+        "reasoning": "Neither the inspected primary polynomial theorem nor the generic algorithm yields the explicit coefficient or marked placements by simple specialization. This does not mitigate the exact earlier catalogue evidence.",
+        "searches": [
+          "arXiv:1805.10984 Proposition 20(4) and Question 3",
+          "arXiv:2610.24214 abstract and targeted passages",
+          "DOI 10.1080/09720529.2019.1689610, Theorem 3.1 retrieval attempt"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 3df9f1b5745a",
+        "arXiv:1805.10984",
+        "arXiv:2610.24214",
+        "DOI 10.1080/09720529.2019.1689610 (access limited)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior text specifies eligible vertices for each leaf sensor, distinguishing no-leaf, one-leaf and two-leaf optimal placements and their cycle-core gap patterns."
+        ],
+        "reasoning": "The classification is already exhaustive at the level of actual labeled sets; flattening its specified sensors to their core indices and recording whether the sensor is a leaf yields the marked placements of the assigned theorem. The proof organizes the cases differently, but the remnant has no new count, new range, or substantive independent structural conclusion.",
+        "searches": [
+          "Resultary 3df9f1b5745a, case proof, bounded passage at offset 3900"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior sunlet graph and observation/unique-white-neighbor rule agree. Its cycle sensors are the frozen core marks, and its leaf sensors are the frozen leaf marks at their private core sites.",
+          "Under n=3q+1, its n(9q+4)/2 equals n(3n+1)/2; it likewise gives 3 and 3n in the other residues and 22 at n=4."
+        ],
+        "reasoning": "Projection index plus mark is just another encoding of the identical labeled seed subset. Neither work takes symmetry orbits, and the count is minimum cardinality, not inclusion-minimal at arbitrary sizes.",
+        "searches": [
+          "Local Resultary query for exact labeled minimum power dominating placements on the one-leaf cycle corona",
+          "Resultary 3df9f1b5745a, Finding and case proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 18 record gives totals for every residue including n=4 and a full finer table by number of selected leaves (at n=4: 6,12,4)."
+        ],
+        "reasoning": "Summing the earlier table over leaf count recovers the frozen counts at every n; the match is not an equality of short computed prefixes.",
+        "searches": [
+          "Resultary 3df9f1b5745a Finding and METADATA.json",
+          "Local semantic search for the sunlet minimum counts and gap classifications"
+        ]
+      },
+      "rationale": "The distinct October 18 Resultary finding 3df9f1b5745a, whose publication date is explicit in its metadata, already counts exactly the same labeled minimum sets for all n≥3, includes n=4, and describes every successful seed placement through gap patterns and explicit permissible leaf positions. It also refines the census by leaf count. The frozen projection-gap representation changes which selected indices define the gaps, but does not classify a new set of objects or give a new invariant.",
+      "residual_risks": [
+        "The cited 2019 paper was not read in full. Earlier independent discoveries are not ruled out; the decisive comparison is to an earlier catalogue result with a stated publication date, not a claim about first discovery."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior exact labeled totals and leaf-count refinement with an optimizer classification",
+          "evidence": [
+            "Same residue formulas and exception; gives permissible placements at the level of individual seeds."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-multiplicities-of-minimum-power-dominating-sets-in-sunlet--3df9f1b5745a/RESULT.md",
+          "material_read": "Finding, gap case proof near offset 3900, and metadata publication_date",
+          "method": "Local mirror",
+          "title": "Exact multiplicities of minimum power-dominating sets in sunlet graphs",
+          "trigger": "Material same-object all-order census"
+        },
+        {
+          "assessment": "The inspected corona formula excludes the one-leaf case",
+          "evidence": [
+            "Requires attachment clique order greater than one; explicitly asks about the one-leaf polynomial."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1805.10984",
+          "material_read": "Proposition 20(4), p.11 and Question 3, p.20 near offset 68700",
+          "method": "OA primary PDF, bounded passages",
+          "title": "Power domination polynomials of graphs",
+          "trigger": "General corona-polynomial coverage"
+        },
+        {
+          "assessment": "Generic method in checked material, not a closed sunlet minimum census",
+          "evidence": [
+            "General algorithm and power-grid benchmarks."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.24214",
+          "material_read": "Abstract p.1 at offset 0 and targeted p.20 cycle-related passage",
+          "method": "OA primary PDF",
+          "title": "Implicit Hitting Set Enumeration for Power Dominating Sets",
+          "trigger": "Enumerates inclusion-minimal power dominating sets"
+        },
+        {
+          "assessment": "The frozen source attributes the minimum size to Theorem 3.1; no primary-text exclusion of a count is claimed",
+          "evidence": [
+            "Access limitation; not used as a basis for the originality failure."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/09720529.2019.1689610",
+          "material_read": "Discovery metadata; direct theorem passage not retrieved",
+          "method": "DOI and publisher attempts returned HTTP 403; no repository copy identified",
+          "title": "Power domination number of sunlet graph and other graphs",
+          "trigger": "Same graph and objective cardinality"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The all-order lowest-degree coefficient and feasible sensor patterns are natural mathematical objects, but already classified. The frozen count is even a sum of an existing finer profile. The alternate cyclic marking is helpful exposition of the same selection patterns and gives no surviving new exact result to repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

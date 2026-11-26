@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:28:19.052186Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–26 and 28–51",
+        "Frozen VERIFICATION.md lines 2–14 and 19–23; frozen check_cyclic_permutations.py (inspection only)",
+        "Independent bounded bit-mask enumeration for n=3,4,5"
+      ],
+      "rationale": "An all-one witness forces S to be contained in a directed Hamiltonian cycle, so every proper such support is a directed path forest. With n−1 queries, taking all but one positive contracts n−2 arcs to two ordered blocks and forces the supposedly negative arc. The full cycle also fails since n−1 positive arcs force the last one. Conversely any directed path forest with at most n−2 arcs extends to a Hamiltonian cycle by joining tails to successive heads in cyclic block order. For a specified trace, keep the f positive arcs inside their blocks and reverse the cyclic order of the blocks from such a witness. If there is a negative query, there are at least three blocks, so none of the forward quotient arcs is in the reverse quotient cycle. If there is no negative query the original completion suffices. To count, a subset of j forbidden arcs treated as required contracts with the f positives to n−f−j≥2 blocks, giving (n−f−j−1)! directed completions, without a reversal quotient; inclusion–exclusion proves the formula. The path-component count n! binom(n−1,k)/(n−k)! follows by cutting an ordering of all n labels and dividing by the permutations of its n−k nonempty blocks. In an online tree, a depth-(n−1) all-positive branch would have n−2 distinct initial queries and only one consistent hypothesis left; it cannot split again. This proves the upper bound and the shattered support gives the lower bound n−2, including n=3. Independently enumerated exact traces for n=3,4,5 corroborated the formula and support coefficients. The frozen checker was read but not executed; its finite test is no substitute for these arguments.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The zero-set paper's abstract proves VC=Ldim=d−1 for a specified family of functions' linear-combination zero sets. The directed degree paper gives sufficient conditions for Hamiltonian cycle existence in a digraph; the prescribed-endpoint paper counts paths under undirected forbidden induced-subgraph hypotheses. No representation of this exact directed arc class or trace-counting implication is supplied by these passages."
+        ],
+        "reasoning": "A sufficient condition for existence is not the all-labeling iff criterion, nor does it count completions depending only on f and k. Equality of learning dimensions for a separate concept class applies only after demonstrating the relevant representation, which has not been established here.",
+        "searches": [
+          "Guingona–Kolesnikov–Nierwinski–Soucy arXiv:2109.04805, VC and Littlestone dimensions",
+          "Primary Hamiltonian path/avoidance and directed degree-condition searches: arXiv:2606.02279v1 and arXiv:2306.09655v2",
+          "Cambie–Girão–Kang ElJC 27(3), P3.24"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 53–65",
+        "Resultary 3fab3bb139ff, 75fb99d75e09 and 797c621a44d8 (catalogue statements)",
+        "Primary abstracts arXiv:1808.05459, 2109.04805, 2606.02279v1 and 2306.09655v2",
+        "Cambie–Girão–Kang ElJC 27(3), P3.24 (passage retrieval unsuccessful)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The standard completion count for a prescribed set of positive path arcs gives a factorial after block contraction, and standard inclusion–exclusion indeed yields the exact multiplicity summation once the admissible directed supports are specified.",
+          "What is needed for the structural and adaptive claims is the iff path-forest boundary and the forced single directed completion on the all-positive branch. The inspected comparison statements address unoriented edges, logic, or undirected counts, not that consequence."
+        ],
+        "reasoning": "An earlier general exact avoidance count would cover the trace formula on specialization and should be credited if identified. Do not claim the counting technique itself is new. Even with that ingredient, the reviewed result determines all shattered directed supports and the adaptive maximum using direction-sensitive block reversal and forced completion; those are not consequences of the cited undirected profiles without proving the missing directed claims.",
+        "searches": [
+          "Directed Hamiltonian avoidance and contraction/rook-polynomial enumeration",
+          "Undirected Hamiltonian support classification, Resultary 3fab3bb139ff",
+          "Permutation-as-bijection logical scope arXiv:1808.05459"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 3fab3bb139ff describes an undirected Hamiltonian edge-trace classification with a linear-forest condition and a two-path boundary. Resultary 75fb99d75e09 reports undirected cycle and spanning-two-factor VC comparison and bounded Littlestone results. The catalogue also shows a same-day exact arborescence result, 797c621a44d8, with an indegree constraint rather than the directed-path criterion.",
+          "Albert–Bouvel–Féray's abstract discusses the bijection representation and logical expressibility of prescribed cycle membership."
+        ],
+        "reasoning": "Viewing each cycle as a permutation matrix or arc-incidence function is equivalent here, but undirected edge sets identify reversal and discard direction conflicts. Rooted out-arborescences permit vertices with multiple outgoing arcs; a directed cycle cannot. Neither coincidence of dimension values nor a same-day date establishes equivalence or priority.",
+        "searches": [
+          "Resultary: directed Hamiltonian cycle arc-query shattering, single-cycle permutation incidence, undirected tour shattering",
+          "Primary literature searches for directed cyclic permutations and their VC and Littlestone dimensions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest finite dimension record identified is 75fb99d75e09, with finite undirected Littlestone values at orders 3–7, not a table for the directed class. The closest indexed support polynomials concern undirected cycles or rooted arborescences. The avoidance search did not yield a decisive exact directed trace table; that is a limitation, not negative evidence."
+        ],
+        "reasoning": "A table of undirected dimensions or an arborescence support polynomial does not tabulate the directed forest trace counts. Matching a few scalar values would in any event not establish the full n,k,f identity and support classification.",
+        "searches": [
+          "Resultary 3fab3bb139ff, 75fb99d75e09 and 797c621a44d8, support polynomials and dimension tables",
+          "Targeted primary lookup for directed Hamiltonian cycle counts under forbidden arc queries and rook-polynomial avoidance enumerations"
+        ]
+      },
+      "rationale": "The assessed result is the full directed-cycle arc-trace classification, including strict trace positivity, the support profile and sharp adaptive dimension. Credit cycle contraction and inclusion–exclusion as standard; the factorial count in isolation is a direct application. Earlier undirected tour results have substantial overlap in the learning question, but their statements about unoriented edges do not imply the directed criterion or the unique directed completion used for the online bound. No inspected source covers the complete directed profile or the same online theorem. Priority is assessed only to the extent of available evidence.",
+      "residual_risks": [
+        "The close Resultary comparisons are at catalogue-statement level; their exact record bodies were unavailable via the attempted passage reads.",
+        "Contraction/rook-polynomial and cyclic succession literature may contain a broader exact enumeration; no decisive such passage was obtained. The bounded comparison does not establish historical priority for the factorial sum or the full theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified overlap of undirected learning question at catalogue-statement level, not coverage of directed arcs",
+          "evidence": "Undirected linear forests and a sharp two-path boundary are specified, not the directed trace multiplicity.",
+          "identifier_or_url": "2026/11/2/SCOPE-complete-edge-trace-shattering-classification-and-polynomial-for--3fab3bb139ff",
+          "material_read": "Resultary catalogue statement; matching record body not obtained from local mirror",
+          "method": "Local catalogue and lawful passage retrieval attempt",
+          "title": "Complete edge-trace shattering classification and polynomial for Hamiltonian-cycle incidence",
+          "trigger": "Most similar exact support and polynomial claim"
+        },
+        {
+          "assessment": "Undirected dimension comparison, not the directed learning theorem",
+          "evidence": "VC n−2 for n≥5 and finite Littlestone results for orders 3–7 are in the undirected edge-query setting.",
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-edge-query-shattering-of-hamiltonian-cycles-and-spanning-t--75fb99d75e09",
+          "material_read": "Resultary catalogue statement; underlying claim passage not obtained",
+          "method": "Local catalogue and lawful passage retrieval attempt",
+          "title": "Sharp edge-query shattering of Hamiltonian cycles and spanning two-factors",
+          "trigger": "Sharp learning dimension for near-identical object"
+        },
+        {
+          "assessment": "Different concept class; no priority inferred from date",
+          "evidence": "Catalogue criterion uses cycle-freeness and indegree at most one, not the simultaneous outdegree restriction of one-cycle permutations.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-shattered-arc-supports-for-complete-rooted-arborescences--797c621a44d8",
+          "material_read": "Resultary catalogue statement; underlying passage not obtained",
+          "method": "Local catalogue and lawful passage retrieval attempt",
+          "title": "Exact shattered arc supports for complete rooted arborescences",
+          "trigger": "Same arc-query formulation, support polynomial, and maximum size"
+        },
+        {
+          "assessment": "Retrieved theorem scope is logical expressibility, not exact incidence traces",
+          "evidence": "Abstract characterizes classes inside which it is expressible that given points form a cycle, and compares two permutation logics.",
+          "identifier_or_url": "https://arxiv.org/abs/1808.05459",
+          "material_read": "Primary abstract in public ar5iv rendition",
+          "method": "OA attempt, then bounded HTML passage",
+          "title": "Two first-order logics of permutations",
+          "trigger": "Equivalent bijection viewpoint with questions about permutation cycles"
+        },
+        {
+          "assessment": "Comparable dimension equality, no demonstrated representation of the reviewed concept class",
+          "evidence": "Abstract states d−1 for zero sets of nontrivial linear combinations under its linear independence hypothesis.",
+          "identifier_or_url": "https://arxiv.org/abs/2109.04805",
+          "material_read": "Primary abstract in public ar5iv rendition",
+          "method": "OA attempt, then bounded HTML passage",
+          "title": "Littlestone and VC-dimension of families of zero sets",
+          "trigger": "A general equality theorem for both learning dimensions"
+        },
+        {
+          "assessment": "Different graph restriction and counting problem",
+          "evidence": "Counts paths between prescribed endpoints in undirected forbidden-induced-subgraph classes; uniqueness/exponential-dichotomy results do not give directed query traces.",
+          "identifier_or_url": "https://arxiv.org/pdf/2606.02279",
+          "material_read": "Primary abstract p. 1, OA offset 0",
+          "method": "Bounded OA source passage",
+          "title": "Counting Hamiltonian paths between prescribed vertices in traceable graphs with a forbidden induced subgraph",
+          "trigger": "Possible broader constrained Hamiltonian counting result"
+        },
+        {
+          "assessment": "Degree-based existence, not shattering or exact counts",
+          "evidence": "The stated result gives a sufficient condition for a digraph to be Hamiltonian.",
+          "identifier_or_url": "https://arxiv.org/pdf/2306.09655",
+          "material_read": "Primary abstract p. 1, OA offset 0–3169",
+          "method": "Bounded OA source passage",
+          "title": "A Note on Hamiltonian Cycles in Digraphs with Large Degrees",
+          "trigger": "Potential general directed Hamiltonian theorem under missing-arc restrictions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof lines 28–41",
+        "Undirected and rooted-arborescence Resultary comparators (catalogue statements)"
+      ],
+      "rationale": "The result classifies every feasible shattered query support in a natural concept class and quantifies exactly how many hypotheses survive each trace. In particular the multiplicity depends only on k and f, not on path layout. The same forced-completion boundary proves that adaptivity cannot raise the optimal depth, rather than just equating two numerically computed dimensions. This combines an explicit structural explanation, sharp boundary and complete support counts; no value is assigned to inclusion–exclusion or a small finite table alone.",
+      "residual_risks": [
+        "Restricted to fully labeled directed Hamiltonian cycles on the complete loopless symmetric digraph; no corresponding claim on incomplete digraphs or undirected tours."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

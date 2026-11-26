@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:04:42.199703Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions and scope, Proof 1–4",
+        "Frozen VERIFICATION.md and check_annulus.py (inspected only)"
+      ],
+      "rationale": "The radial Hermite formula uses the area coordinate t=π(x²+ξ²). The ratio q_n/q_m is a positive constant times the conditional mean of t^(n−m). Differentiating both moving endpoints expresses its derivative as the sum of two nonnegative terms, the upper-end term strictly positive. At a=0 this is a right derivative, and the ordered Poisson tails give q_n<q_m; the ratio diverges as a→∞. The strict endpoint bounds on the conditional mean give a<B<a+w. The adjacent differences change sign at most once, with at most one zero, excluding a triple equality; a nonadjacent crossing has larger intervening values. For the limit, M(R)≤N_w(R)≤M(R+w) exactly and B≥n/e. To justify the lattice count, use step indicators formed by m=floor(Tx), n=floor(Ty): their integrals are M(T)/T², they are supported in a fixed bounded region, and Stirling gives convergence off the axes, diagonal and the curve I(x,y)=1. This curve has zero area by the parametrization y=e·t^(t/(1−t)), x=ty. Dominated convergence and the Jacobian y yield precisely the stated integral. The width is fixed in area coordinates, and different pairs at one radius are counted separately.",
+      "residual_risks": [
+        "The script's finite bracket/root computations were not replayed and are not a proof or certified decimal enclosure. The exact integral, rather than the displayed approximate digits, fixes the constant."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general radial-spectrum theorems already specialize to q_j. Abreu–Dörfler's radial orthogonality explicitly includes centered annuli.",
+          "Resultary 4048bfddff1f catalog description concerns ordered concentration with fixed physical width at diverging radius, not a census at fixed area width."
+        ],
+        "reasoning": "The general diagonal formula determines each eigenvalue, but does not furnish the uniform-in-index location brackets and the area-limit arguments for the census. Fixed physical width is a different regime.",
+        "searches": [
+          "Primary literature: Gaussian annulus Hermite eigenvalues crossings ratio incomplete gamma pair incidence asymptotic Knutsen Daubechies annulus all eigenvalues geometric mean factorial",
+          "Daubechies §IV; Abreu–Dörfler Proposition 1; Knutsen §2",
+          "Resultary: annular Toeplitz spectra incomplete gamma Hermite eigenvalue crossings radial localization all pairs"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records 57fcc645d909, 4048bfddff1f and 0c0c5a98ddf3, to the extent specified",
+        "Daubechies (1988) §IV",
+        "Abreu–Dörfler arXiv:1202.5841",
+        "Knutsen DOI 10.1007/s00041-020-09751-9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Unimodality proves no three equal values; the exact adjacent formula has a_m=m+O(1), so it has only linear growth as a census.",
+          "The all-pair proof instead compares a_{m,n} to the geometric mean of m+1 through n and integrates the scaled factorial constraint; neither a single adjacent threshold nor the diagonalization gives that asymptotic mechanically."
+        ],
+        "reasoning": "Credit prior or equivalent coverage at the level of radial eigenvalues and same-day overlap at the level of adjacent ordering, not coverage of the full pair-density law. No priority order is inferred between the two same-date records.",
+        "searches": [
+          "Resultary 57fcc645d909 original RESULT.md",
+          "Daubechies §IV radial-symbol theorem",
+          "Knutsen §2 radial eigenvalue identity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Daubechies §IV gives the eigenvalues by integrating the radial weight against the gamma kernel, and this is the same eigenvalue sequence for the indicator of an annulus.",
+          "Resultary 57fcc645d909 gives exact adjacent-switch formula w/(exp(w/m)−1) in its indexing, and unimodality with at most a two-mode plateau."
+        ],
+        "reasoning": "The gamma-interval and localization formulations define exactly the same crossings. The adjacent-mode result covers the unimodality consequence but is not the all-pair count.",
+        "searches": [
+          "Resultary: Gaussian localization Hermite annulus incomplete gamma eigenvalues crossings incidence pairs",
+          "Resultary: pairwise gamma interval probability resonances Hermite modes transversality no triple coincidence",
+          "Resultary: radial Toeplitz annulus Hermite eigenvalue crossings asymptotic pair counting density"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest statement-level catalog match is 57fcc645d909; it gives adjacent switches and no-triple structure, but neither the all-pair census nor its coefficient. The later 0c0c5a98ddf3 catalog entry describes top-mode transitions and a norm correction."
+        ],
+        "reasoning": "The relevant lookup is an exact theorem/constant match in the catalog; a table of individual incomplete gamma values would not establish the asymptotic over an unbounded two-index set.",
+        "searches": [
+          "Resultary: all Hermite index pairs crossings Gaussian annulus fixed width asymptotic counting pair incidence density",
+          "Resultary: universal quadratic incidence law C e^2 integral t^(2t/(1-t)) fixed width annulus"
+        ]
+      },
+      "rationale": "The radial formula is established, and the same-date Resultary source contains the adjacent switches and a rising/falling structure that already implies no triple equality. This review does not credit those pieces as distinct. The contribution that survives comparison is the fixed-area-width census of crossings of all Hermite pairs and its common quadratic coefficient; even the entire adjacent staircase supplies only an O(R) subcount. The conditional-moment transversality argument is elementary, but the all-pair census exploits strict area brackets and a two-variable limit not found in the compared statements.",
+      "residual_risks": [
+        "Relative priority for same-date overlap was not established.",
+        "Older gamma-interval, total-positivity or radial Toeplitz formulations may contain further implications; unsuccessful searches do not settle priority. The critical-width original text was not accessed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong same-date overlap on adjacent crossing and no triple equality; does not supply the quadratic all-pair limit",
+          "evidence": "Adjacent-mode switch w/(exp(w/m)−1), rise then fall with at most a two-mode plateau.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-gaussian-annulus-eigenmode-crossings-and-a-bernoulli-secon--57fcc645d909",
+          "material_read": "Original RESULT.md, beginning at offset 0 (snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+          "method": "Local Resultary mirror",
+          "title": "Exact Gaussian-annulus eigenmode crossings and a Bernoulli second-order concentration law",
+          "trigger": "Same annuli and direct eigenmode crossings"
+        },
+        {
+          "assessment": "Covers the exact diagonal eigenvalues for the annulus by specialization",
+          "evidence": "Radial weights are integrated against the gamma kernel in the Hermite basis.",
+          "identifier_or_url": "https://sites.math.duke.edu/~ingrid/publications/ieee34-1988.pdf",
+          "material_read": "PDF p. 1 abstract, p. 4 §IV radial theorem (about offset 21000)",
+          "method": "Targeted OA primary text",
+          "title": "Time-Frequency Localization Operators: A Geometric Phase Space Approach",
+          "trigger": "Foundational radial Hermite diagonalization"
+        },
+        {
+          "assessment": "Covers radial orthogonality, not the census",
+          "evidence": "Orthogonality for radial measures including centered annuli; inverse shape result for simply connected sets.",
+          "identifier_or_url": "https://arxiv.org/abs/1202.5841",
+          "material_read": "Proposition 1 pp. 4–5; Proposition 2 p. 6",
+          "method": "Targeted OA primary text",
+          "title": "An Inverse Problem for Localization Operators",
+          "trigger": "Broader annulus/Fock-space formulation"
+        },
+        {
+          "assessment": "Covers diagonal formula; the passages checked support Cantor-type norm estimates, not a specific annular crossing census",
+          "evidence": "Hermite eigenvalue identity for radial weights and operator-norm focus.",
+          "identifier_or_url": "https://doi.org/10.1007/s00041-020-09751-9",
+          "material_read": "PDF p. 1 abstract and p. 5 §2 (about offset 12469)",
+          "method": "Targeted OA primary text",
+          "title": "Daubechies’ Time–Frequency Localization Operator on Cantor Type Sets I",
+          "trigger": "Broader radial results and possible annular spectral estimate"
+        },
+        {
+          "assessment": "Available material concerns a different scaling; full-text coverage not excluded",
+          "evidence": "Ordered spectrum in fixed physical-width scaling and a finite-rank concentration law.",
+          "identifier_or_url": "2026/10/18/SCOPE-critical-width-gaussian-annuli-have-a-two-edge-fock-concentratio--4048bfddff1f",
+          "material_read": "Catalog abstract only; original mirrored RESULT.md retrieval timed out",
+          "method": "Local Resultary search and targeted mirror attempt",
+          "title": "Critical-width Gaussian annuli have a two-edge Fock concentration law",
+          "trigger": "Same model with diverging radius"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof 4",
+        "Adjacent-mode comparison, Resultary 57fcc645d909"
+      ],
+      "rationale": "The incidence count is an exact leading spectral invariant of a natural one-parameter deformation. It measures all mode-pair resonances, including non-maximal ones invisible to the top eigenvalue, and quantifies their growth and independence of fixed width. Width independence and the leading constant are not obtainable from the adjacent-switch census.",
+      "residual_risks": [
+        "No distinct-radius count, effective remainder, or extension to width changing with R is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

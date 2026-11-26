@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:29:24.507671Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the repaired claim, a unit trial polynomial with m-fold zeros at both distinct centers bounds the cost by O(α^{2m+1}). On each arc the rescaled Taylor polynomial of any unit minimizer has bounded coefficients, because its L² norm is bounded and the Taylor remainder is uniformly O(α). Thus the first m unscaled jets vanish in the limit, selecting the two-root polynomial with leading angular Taylor modulus (2 sin θ)^m/√S_m. The monic Legendre norm is 2·4^m/[(2m+1)B_m²]; prescribing the lower jets independently with a bounded Hermite right inverse attains that cost on both arcs, including the Haar factor 1/π. The right inverse is bounded on compact interior angle sets and the lower bound works along convergent interior angle sequences, giving compact-uniform convergence. Parseval expresses S_m as the even-power integral of 2 cos t−2c and its positive even coefficients imply S_m(c)>S_m(0)=B_m for c≠0. On a trial arc one root distance is at most α, the other at most 2 sin θ+α. The resulting uniform bound excludes endpoint limits of maximizing placements, proving the optimized limit and convergence of all maximizers. At antipodal centers the rank-two leading Gram term has evaluation-vector squared norms 2m+1 and cross inner product of modulus 1; its top eigenvalue gives the stated condition-number coefficient. The three-mode formula is correct as a benchmark: the Gram eigenvalue a+c/2−sqrt(c²/4+2b²) is strictly below a−B when cos θ≠0, since c/2+B>0 and 2b²>B²+Bc with B=sin(2α)/π; at the antipodal point a−B is the minimum. The frozen high-precision script was inspected, not rerun; its checks are corroborative only. The continuous two-arc result fixes m before α tends to zero.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The periodic-arc finding covers the full spectrum for equally spaced centers and finite frequency sets; 175763578bb2 uses orthogonal-polynomial moment norms in a different low-bandwidth limit. The three inspected papers concern spectral counting, multitaper statistical estimates, and clustered confluent Vandermonde rates, respectively."
+        ],
+        "reasoning": "A broader frequency set or full spectrum at a single particular geometry does not compare any nonequidistant placements. The cited external bounds do not determine the exact lowest coefficient as a function of angle.",
+        "searches": [
+          "Resultary e95b9bae48f1 and 175763578bb2",
+          "Marceca–Romero–Speckbacher arXiv:2301.11685; Andén–Romero arXiv:1812.03225v3; Batenkov–Diab arXiv:2203.11923",
+          "Short-window/clustered Fourier Legendre asymptotic literature search"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, REVIEW.md, AUDIT.json, VERIFICATION.md and check.py",
+        "Repaired RESULT.md, REVIEW.md and SLOGAN.txt",
+        "Resultary 1c5e863c7cba, e95b9bae48f1, 175763578bb2 and later 421f4178227e summary",
+        "arXiv:2301.11685, 1812.03225v3, 2203.11923"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "q=2 equally spaced centers and frequencies {−m,…,m} in the moment-determinant result yield 2^{4m+1}/[π(2m+1)B_m³] at the antipodal arrangement. The Vandermonde theorem only bounds orders with cluster-dependent constants."
+        ],
+        "reasoning": "A value at antipodal centers is not a maximization theorem. The repaired result independently determines C_m(θ) on the whole interior and controls collapsing-center sequences; that is the substantive added implication. The same-date match cannot decide chronology.",
+        "searches": [
+          "e95b9bae48f1 moment determinant and periodic arc decomposition; 1c5e863c7cba theorem; 175763578bb2 low-bandwidth asymptotics; Batenkov–Diab §§2.4, 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "1c5e863c7cba states for modes 0,1,2 and two equal arcs that the unique all-width optimizer is antipodal, with least energy (2α−sin 2α)/π. Its assumptions allow boundary contact."
+        ],
+        "reasoning": "Modulating by e^(−it) gives −1,0,1 and leaves pointwise squared magnitude and the norm unchanged. A common rotation and arc interchange extend the prior half-range to the original angle interval. This exactly covers the frozen three-mode result, not general bandwidth and observation angle.",
+        "searches": [
+          "Resultary: two-arc Fourier observability, Toeplitz/restriction Gram least eigenvalue, three Fourier modes and antipodal maximin",
+          "1c5e863c7cba Finding and assumptions; e95b9bae48f1 Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The periodic exact spectrum supplies the antipodal coefficient for the consecutive block and two equally spaced arcs. The earlier exact three-mode formula is another direct numerical and parameter-wide special-case match. The five-mode indexed record 421f4178227e is later; only its summary was available."
+        ],
+        "reasoning": "These exact formulas are credited, not treated as failed searches. None of them provides an exact table or formula for arbitrary interior angles across all fixed degrees or controls angles approaching collision as the width shrinks.",
+        "searches": [
+          "Resultary: sharp binomial-cubed minimum, exact narrow-arc spectrum, three- and five-mode finite-width spectral tables",
+          "e95b9bae48f1 coefficient formula; 1c5e863c7cba exact three-mode formula; later 421f4178227e catalogue summary"
+        ]
+      },
+      "rationale": "The original finding included the exact all-width three-mode design as a contribution, but that statement and value are exactly covered by the 2026-11-01 record 1c5e863c7cba. The distinct same-date theorem e95b9bae48f1 also already gives equivalent coverage of the fixed antipodal coefficient, without a priority inference. The repaired RESULT and SLOGAN remove the three-mode design as a contribution, credit both precise overlaps and restrict the claim to the arbitrary-angle coefficient and the sharp all-degree moving-placement optimization. That remainder survives all inspected comparisons; this is not an originality pass for the old three-mode assertion.",
+      "residual_risks": [
+        "Older prolate, polynomial-approximation or confluent sampling work may use a different formulation; the web search was not decisive on exhaustive historical priority.",
+        "The antipodal value is covered by a distinct same-date theorem; order within its date is unresolved, and independent standalone novelty of this value is not asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct complete coverage of original m=1 adjunct; credited by repair",
+          "evidence": "The maximum of the least eigenvalue is c(1−B), only at θ=π/2, with c=2α/π and B=sin(2α)/(2α).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-antipodal-maximin-sampling-and-a-quarter-circle-tightness-bifurc--1c5e863c7cba/RESULT.md",
+          "material_read": "Finding and assumptions, offsets 0–3372",
+          "method": "Resultary search, then local GitHub mirror passage comparison",
+          "title": "Antipodal maximin sampling and a quarter-circle tightness bifurcation for three Fourier modes",
+          "trigger": "Earlier exact all-width three-mode optimizer"
+        },
+        {
+          "assessment": "Broader periodic spectrum; covers antipodal value only, no claim to priority on date evidence",
+          "evidence": "The theorem assumes equally spaced arcs; specializing the frequency set and taking two arcs yields the identical limiting smallest coefficient at antipodal placement.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-spectral-staircases-for-periodic-narrow-arc-fourier-observ--e95b9bae48f1/RESULT.md",
+          "material_read": "Finding and moment-determinant coefficient statements, offsets 0–4319 and 4000–7379",
+          "method": "Resultary search and local GitHub mirror",
+          "title": "Exact spectral staircases for periodic narrow-arc Fourier observability",
+          "trigger": "Distinct same-date exact limiting coefficient"
+        },
+        {
+          "assessment": "Methodological overlap, different limit and spectral problem",
+          "evidence": "Fixed-index low-bandwidth result for bounded windows does not compare shrinking unequal center separations on the fixed-band circle.",
+          "identifier_or_url": "2026/10/25/SCOPE-fixed-index-low-bandwidth-spectra-for-arbitrary-two-window-fouri--175763578bb2",
+          "material_read": "RESULT.md offsets 0–3927",
+          "method": "Resultary search and local GitHub mirror",
+          "title": "Fixed-index low-bandwidth spectra for arbitrary two-window Fourier concentration",
+          "trigger": "Earlier orthogonal-polynomial moment-norm asymptotics"
+        },
+        {
+          "assessment": "Different spectral quantity",
+          "evidence": "Controls the number of transition eigenvalues on regular domains in d≥2, not the fixed-band smallest eigenvalue limit here.",
+          "identifier_or_url": "https://arxiv.org/abs/2301.11685",
+          "material_read": "p. 3, Theorem 1.1, OA offset 8800",
+          "method": "OA primary PDF passage comparison",
+          "title": "Eigenvalue estimates for Fourier concentration operators on two domains",
+          "trigger": "Broad irregular-domain Fourier concentration theory"
+        },
+        {
+          "assessment": "Different objective and regime",
+          "evidence": "The theorems approximate spectral windows and bound multitaper mean-squared error.",
+          "identifier_or_url": "https://arxiv.org/abs/1812.03225",
+          "material_read": "pp. 8–9, Theorems 4.2–4.3, OA offset 28500 and following passage",
+          "method": "OA primary PDF passage comparison",
+          "title": "Multitaper estimation on arbitrary domains",
+          "trigger": "Slepian tapers on two-window domains"
+        },
+        {
+          "assessment": "Different sampling model, two-sided order bounds not the exact coefficient",
+          "evidence": "Theorems 3.1–3.2 control the least singular value of a rectangular confluent Vandermonde matrix with cluster-dependent constants.",
+          "identifier_or_url": "https://arxiv.org/abs/2203.11923",
+          "material_read": "pp. 2–4, §§2.4, 3.1, offsets 6135, 11513, 14500",
+          "method": "OA primary PDF passage comparison",
+          "title": "Super-resolution of generalized spikes and spectra of confluent Vandermonde matrices",
+          "trigger": "Strong plausible cluster asymptotic comparator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At fixed observation length the angle can change the leading least observable energy by a macroscopic factor, and collapsing centers suppress it even on the rescaled scale. The solved placement problem supplies an explicit worst-case reconstruction penalty and proves asymptotic optimizer convergence at every fixed degree, beyond the known exact degree-one special case and the known periodic-placement value. Finite-width optimality for larger m and optimal full condition number are not claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

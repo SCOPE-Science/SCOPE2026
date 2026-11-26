@@ -1,21 +1,21 @@
-# Review of the finite ternary tableau convolution finding
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The prefix-row-word bijection fixes the indicator support; independent hook-length arithmetic confirms 462 words at shape \((4,4,4)\). The complete Fourier transform is computed with exact integral cyclotomic coordinates, not floating-point thresholds. An inductively justified tensor transform covers all \(531441\) frequencies. Independent direct phase counts check all frequencies through degree three, including the eight cubic cancellations, plus additional frequencies; exact Parseval and conjugacy give global consistency checks. Thus the rank and degree cutoff are proved for the four stated widths. No infinite-width assertion is made.
+PASS
 
-## Originality — PASS under bounded comparison
+The row-word bijection follows by growing the tableau one entry at a time: the prefix inequalities ensure the cell above a newly appended cell is already present. On the full ternary group the characters diagonalize unnormalized convolution (the eigenvalue can be conjugated depending on convention). Three residue-class counts give the exact coefficient (c0−c2)+(c1−c2)ω; the two coordinates must vanish simultaneously. The frozen checker was inspected, not run. An independently written direct census avoided its tensor transform: choose the positions of rows 2 and 1, reject illegal prefixes, and form the three residue counts for each frequency using two bitplanes. All four groups were exhausted; support sizes 1, 5, 42, 462, zero counts 0, 0, 1134, 3996 and ranks 27, 729, 18549, 527445 agree. The width-four histogram agrees in every degree; the eight stated cubic frequencies are the only cubic zeros and each gives (154,154,154). Width three has six degree-two zeros and none below. The exact energy identity was checked on each full group.
 
-Eu's 2010 treatment of three-row Yamanouchi words and Kim's 2011 skew-tableau enumerations are direct archival antecedents. Their examined content counts tableaux and gives bijections/generating functions, not the position-resolved root-of-unity spectrum of the full ternary word-group convolution. Fourier sampling on three-by-three tableaux concerns a different sampling matrix, so does not imply the present four-column convolution rank. Exact numerical, equivalent-formulation and dominance searches found no matching rank or low-degree-zero list; this is bounded evidence, not proof of historical priority. A previously unindexed position-weight enumerator remains a concrete risk.
+## originality
 
-## Value — PASS
+PASS
 
-The central feature is the recovery-boundary reversal between shapes \((3,3,3)\) and \((4,4,4)\): quadratic cancelling modes occur at width three, but none at width four although the operator remains singular. The complete \(3996\)-dimensional kernel, eight first cubic frequencies and exact convolution rank give a natural, nontrivial quantitative benchmark for three-row ballot words. The result deliberately makes no generalization to wider shapes.
+The finite full-group census and its shift in minimum zero degree are distinct from the actual enumerative and restricted observation results and the same-day binary Young-diagram classification inspected. This is a bounded comparison, not priority certification.
 
-## Closest literature and limits
+## value
 
-- S.-P. Eu, *Skew-standard tableaux with three rows*, arXiv:1002.4060 (2010).
-- J. H. Kim, *On the enumeration of three-rowed standard Young tableaux of skew shape in terms of Motzkin numbers*, arXiv:1107.3873 (2011).
-- Limit: finite rectangle widths one through four; independent validation not performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first four widths are a motivated initial range of the canonical three-row ballot-word family. The change from quadratic loss at width three to complete quadratic recovery but cubic loss at width four is a concrete nonmonotonicity in the degree threshold. The exact kernel dimensions and explicit first lost modes give an interpretable baseline for character recovery, not just another count of tableaux. No large-width conclusion is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

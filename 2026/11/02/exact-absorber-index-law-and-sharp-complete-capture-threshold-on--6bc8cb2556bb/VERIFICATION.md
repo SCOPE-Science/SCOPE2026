@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproduction
+# Independent mathematical audit
 
-Compile the included portable C++ source using `c++ -O2 -std=c++17 crown_check.cpp -o crown_check` and run `./crown_check`. The actual replay produced `VERIFY_OK exact_krylov_cases=5916` after exhaustively testing all nonempty vertex-absorber masks for crown graphs with \(n=3,4,5,6\), and 80 deterministic pseudorandom masks for each \(7\le n\le12\). The code forms the graph adjacency matrix independently and computes exact Krylov ranks modulo the prime \(1009\). For these particular small integers, the computed ranks agreed with the analytic real-field ranks; modular agreement alone would not prove a general characteristic-zero formula.
+## correctness
 
-The optional `crown_numeric_audit.py` needs NumPy. It independently diagonalizes the real symmetric adjacency matrices, constructs the spectral spans of the marked-site projections, and checks sitewise diagonal bright-projector entries against the theorem. It returned `NUMERIC_OK checks=1357` for all nonempty patterns through \(n=5\) and selected masks through \(n=9\). Numerical tolerance is \(10^{-8}\), and no infinite proof is inferred from numerical checks.
+PASS
 
-The analytic certificate is the explicit eigenspace decomposition and rank/projection calculation in `RESULT.md`, with no reliance on a finite cutoff. Positive loss rates and a nonempty sink set are essential; coherent hopping is uniform and the quantum system is a single excitation. The result gives exact infinite-time capture only, not relaxation rates.
+The crown adjacency off-diagonal block is 11*−I. For n≥3 its adjacency has distinct levels ±(n−1), ±1. Nonempty T rules out both principal vectors; at either remaining level the absorber equations delete exactly the touched indices from a zero-sum coordinate vector. Their direct sum is the stated dark space, with one zero-sum summand per shore. It reduces the loss generator; on the complement any imaginary-axis eigenvector would have zero dissipation and thus be an adjacency eigenvector vanishing at T, a contradiction. Strictly negative real parts imply decay there even with Jordan blocks. The complementary orthogonal projector gives the pure/mixed and sitewise laws, including all-marked and one-unmarked cases. Complete capture is equivalent to at least n−1 distinct touched indices, not arbitrary placements of n−1 vertices; minimal successful placements number n·2^(n−1). Adding the second member of an already touched pair changes no eventual capture probability; this is the meaning of the redundancy example.
+
+## originality
+
+PASS
+
+The verified old inputs are the crown spectrum and the general coherent trap formalism. Neither identifies the marked-index equivalence of all absorber sets or the full capture effect. The strongest related Resultary all-placement laws do not cover this graph and problem. The pass is for the distinct crown-specific all-set classification, not the known spectrum or general observability criterion.
+
+## value
+
+PASS
+
+The crown family is a standard graph with large degenerate eigenspaces. The full capture effect for every absorber placement distinguishes strategies with the same cardinality, gives efficiency even at a site not itself absorbing, and yields exact minimal design counts independently of positive rate heterogeneity. These are useful inputs for coherent transport calculations; the known spectrum and a generic rank test are not themselves the placement law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

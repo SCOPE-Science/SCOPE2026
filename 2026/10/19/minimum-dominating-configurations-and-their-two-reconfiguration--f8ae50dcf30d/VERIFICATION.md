@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,25 +19,24 @@
 }
 ---
 
-# Reproducibility and exact finite verification
+# Independent mathematical audit
 
-Graph: \(J(7,3)\), lexicographic ground triples of \(\{0,1,2,3,4,5,6\}\), vertex indices 00–34. Both verifiers enumerate all \(\binom{35}{4}=52360\) four-sets and all their possible one-for-one swaps; no randomized algorithm or time-limited search is used. The Python verifier uses a 35-bit closed-neighborhood union and a constructive geometric family. The independent C++ verifier tests pairs via the two-shadow condition, independently determines owner labels from unions of intersecting triples, and constructs its own reconfiguration graphs and all-root distance matrix.
+## correctness
 
-With the files in a common directory, run:
+PASS
 
-```sh
-python3 verify_python.py regenerated-python.tsv > regenerated-python.txt
-g++ -O2 -std=c++17 -Wall -Wextra verify_cpp.cpp -o verifier
-./verifier regenerated-cpp.tsv > regenerated-cpp.txt
-cmp regenerated-python.tsv regenerated-cpp.tsv
-cmp regenerated-python.tsv certificate.tsv
-cmp regenerated-python.txt python-output.txt
-cmp regenerated-cpp.txt cpp-output.txt
-sha256sum certificate.tsv
-```
+The exact domination criterion is that each test triple contains a selected pair, equivalently the complementary two-shadow is triangle-free. At three selected triples Mantel equality forces the two-shadow K3 disjoint union K4; one triangle for K3 and at least three for K4 are needed. Independently enumerated exclusions by test triples that meet every proposed center in at most one point; all four-sets not excluded are exactly the distinct 140 Type I and 630 Type II configurations. Adjacent transpositions on the ground set generate the two claimed orbits. Calculated reconfiguration from pairwise overlap, not by replaying the bundled move loops. The exact slide-edge set equals the 35 disjoint thickened K4 constructions, with eccentricities 2:140 and 3:630. The jump graph is connected, all 770 eccentricities are seven, and the degrees are twelve and six in the respective types. All 630 extra edges map to the 70 disjoint-owner pairs with multiplicity nine each. The full D/S/J certificate matches byte-for-byte.
 
-Expected ASCII certificate has 5600 lines: 770 `D`, 2100 `S`, 2730 `J`, in canonical order. Expected SHA-256: `97ffabe0e4e0ab21199e85ecfea0697de63fb6b375a70e72197515d5aabade5b`. Both recorded logs are the actual output of the standalone sources; the certificate and logs were regenerated and compared byte-for-byte.
+## originality
 
-The verifier reconstructs every minimum dominating set and every possible move. Every-representative BFS computes the eccentricity of all 770 jumping configurations; component BFS checks slide radius 2 and diameter 3. The geometric classification, two orbit sizes, types, degree distributions and Kneser quotient are checked independently.
+PASS
 
-**Limits.** This is finite exhaustive proof for \(J(7,3)\), not infinite Johnson-graph certification. An independent external mathematical audit has not taken place, and inaccessible literature introduces a bounded originality risk. No arbitrary code path, graph instance, or precomputed log from another run is needed to regenerate the certificate.
+The ordinary minimum and the exact total 770 are known; the recovered 2025 full text also supplies the two-shadow framework and the Type I construction. These must not be credited separately as new. PASS is for the complete two-family classification (including Type II and unique owners) and the exact fixed-cardinality slide and jump geometry; no covering statement or direct implication for those was found in the compared sources.
+
+## value
+
+PASS
+
+The natural Johnson graph is a baseline for fixed-cardinality domination moves. The statement gives more than a scalar or a search trace: the minimum configurations determine geometric owner labels, the labels obstruct sliding, and disjointness describes the exact quotient after jumps. The thickened complete graphs and nine edges per Kneser quotient edge give usable structural and distance tests on a familiar symmetric host.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

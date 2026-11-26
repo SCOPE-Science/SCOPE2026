@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:53:23.143986Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The shift orbit norms are P(q+n)/P(q), so their third differences vanish and their second differences are positive; the bounded contractive Cauchy dual has moments 1/P(n) at the initial vector by telescoping. Factoring P and taking alternating differences of each reciprocal linear term gives k! divided by the product of the k+1 consecutive shifted factors. The conjugate products give the claimed positive-prefactor sine with the displayed sign. At fixed order the phase is largest at start zero. It diverges in order by harmonic comparison, and the first strict crossing of pi overshoots by at most the last summand, which is less than pi/2. Equality at pi therefore gives zero, not a negative witness, and all earlier orders are nonnegative at every start. At fixed u, expand arctangent uniformly with remainder bounded by a constant times v^5 times the convergent sum of (u+j)^(-5). The crossing and arctangent <= argument force K >= exp(pi/v-O_u(1)), and the overshoot divided by v is <= 1/(u+K). Using the finite-sum digamma identity and the O_u(K^(-2)) cubic-tail error gives log K = pi/v + psi(u) + v^2 zeta(3,u)/3 + O_u(v^4). Independent exact rational checks of the differences at (u,v)=(1,1) and orders 15 and 16 gave positive and negative signs respectively, corroborating the example K=16. The proof, not the numerical examples or the read-only bundled verifier, supplies the general result. It does not locate first failures of other positivity tests or give an asymptotic uniform in u.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nailwal's lemma gives the qualitative real-root criterion for the reciprocal quadratic in this normalization.",
+          "Jabłoński–Jung–Pietrzycki–Stochel's Example 6.3 covers the polynomial-orbit weighted shifts."
+        ],
+        "reasoning": "Both the general shift framework and the qualitative classification apply at dominating generality for their respective statements. Neither supplies the finite-order minimum or its sharp near-critical law; no broader first-order theorem was verified.",
+        "searches": [
+          "Primary-literature lookup on first negative finite differences of rational Hausdorff sequences and reciprocal quadratics",
+          "Nailwal 2024, Lemma 2.2",
+          "arXiv:2604.10810v1, Example 6.3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_first_failure.py (read only)",
+        "Local Resultary exact and adjacent records",
+        "Nailwal 2024, Lemma 2.2",
+        "arXiv:1608.08113v1",
+        "arXiv:2604.10810v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cubic pole argument has a sinusoidal term in a representing density; the quadratic criterion does not quantify when scalar finite differences first turn negative.",
+          "The indexed quintic result treats a detuning threshold near integer frequency ratios for two complex pole pairs."
+        ],
+        "reasoning": "The reciprocal-linear difference formula is standard underlying algebra. The distinct implication established here uses the ordering of phases in the starting index, controls the first overshoot including a tie at pi, and quantifies the discrete onset from a uniform expansion. The inspected existence criteria and detuning result do not give those conclusions.",
+        "searches": [
+          "https://nyjm.albany.edu/j/2024/30-63v.pdf, Lemma 2.2",
+          "arXiv:1608.08113v1, proof of Theorem 1.5",
+          "2026/11/22/SCOPE-linear-detuning-law-at-integer-resonances-of-quintic-hausdorff-m--c4217ab9cf15"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Anand–Chavan gives finite alternating-sum witnesses for two cubic examples and analyzes a conjugate-pole density.",
+          "Local Resultary returned both the exact frozen quadratic record and a distinct quintic detuning result."
+        ],
+        "reasoning": "First negativity of the scalar binomial sum is equivalent to first failure of scalar complete monotonicity, minimized over starting index. Neither sign-changing density nor the existence of some violation determines that minimum. The neighboring quintic problem concerns positivity of the representing measure, not the sign of each finite-order scalar test.",
+        "searches": [
+          "Local Resultary search for first Hausdorff moment obstruction, Cauchy dual and reciprocal polynomial moments",
+          "arXiv:1608.08113v1, Example 1.9 and proof of Theorem 1.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Anand–Chavan includes specific finite witness indices for reciprocal cubics, not a table or law for the stated reciprocal quadratics.",
+          "2026/11/22/SCOPE-the-first-hausdorff-moment-obstruction-for-quadratic-3-isometric--3e9cf153634c is the same record, not an independent source of its formula or example indices."
+        ],
+        "reasoning": "A table of the same exact first-order witnesses would cover particular examples, but the inspected cubic examples have different moment functions and do not enumerate the quadratic parameter space. The pass is for the general law, not for computing isolated integers.",
+        "searches": [
+          "Local Resultary searches for the first Hausdorff-difference phase threshold and onset",
+          "arXiv:1608.08113v1, Example 1.9, PDF pp. 4–5"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the minimum scalar witness order across all starts and the sharp fixed-u onset law. The shift construction, qualitative discriminant criterion, conjugate-pole representation and the idea of concrete finite negative witnesses in related families have prior coverage. The review does not credit those ingredients as new.",
+      "residual_risks": [
+        "The bounded primary-literature search did not establish the absence of a more general rational-sequence first-witness theorem.",
+        "The adjacent quintic result may share analytic tools without sharing the checked theorem; no priority order was inferred from same-day indexing."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified prior coverage of qualitative complete monotonicity, not of the first failing scalar order",
+          "evidence": "Relates complete monotonicity of 1/p(n) to positivity of coefficients and real reducibility of the quadratic.",
+          "identifier_or_url": "https://nyjm.albany.edu/j/2024/30-63v.pdf",
+          "material_read": "Lemma 2.2, PDF p. 6 / OA offset 16947",
+          "method": "Lawful OA full text",
+          "title": "A complete solution to the Cauchy dual subnormality problem for torally expansive toral 3-isometric weighted 2-shifts",
+          "trigger": "Same reciprocal-quadratic qualitative criterion"
+        },
+        {
+          "assessment": "Real material overlap in finite witnesses and oscillatory poles; no same quadratic threshold in inspected statements",
+          "evidence": "Example 1.9 gives negative finite sums for reciprocal cubic examples; the conjugate-pole density in the proof has a sinusoidal term.",
+          "identifier_or_url": "https://arxiv.org/abs/1608.08113v1",
+          "material_read": "Example 1.9, PDF pp. 4–5; proof of Theorem 1.5, PDF pp. 5–7",
+          "method": "Lawful OA primary passage retrieval",
+          "title": "Module tensor product of subnormal modules need not be subnormal",
+          "trigger": "Negative alternating witnesses and complex-pole analysis in a related reciprocal moment setting"
+        },
+        {
+          "assessment": "Prior coverage of the ambient shift framework",
+          "evidence": "Weights sqrt(p(n+1)/p(n)) are used for positive degree-one or degree-two polynomials to produce non-isometric 3-isometric shifts.",
+          "identifier_or_url": "https://arxiv.org/html/2604.10810v1",
+          "material_read": "Example 6.3, OA offset 44499",
+          "method": "Lawful OA full text",
+          "title": "CPD nth roots of subnormal operators are subnormal",
+          "trigger": "Same polynomial-orbit shift construction"
+        },
+        {
+          "assessment": "Different degree, parameter limit and invariant; not equivalent coverage",
+          "evidence": "Two complex-pole pairs govern positivity of the representing measure near integer frequency ratios, rather than first negative scalar difference order.",
+          "identifier_or_url": "2026/11/22/SCOPE-linear-detuning-law-at-integer-resonances-of-quintic-hausdorff-m--c4217ab9cf15",
+          "material_read": "Matching statement on quintic reciprocal sequences and near-resonant detuning, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary search and local primary record comparison",
+          "title": "Linear detuning law at integer resonances of quintic Hausdorff moments",
+          "trigger": "Distinct indexed result on complex poles and Hausdorff moment obstructions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The known non-Hausdorff criterion gives no size for a certifying scalar test. The exact minimum across all starting indices proves that passing finitely many tests can mask failure up to an exponentially large order, and it identifies the exponential scale with a parameter-dependent prefactor and correction. This is an obstruction to detecting non-subnormality by this specific finite-difference hierarchy, not a claim about every possible test. The all-parameter threshold and near-boundary quantification have substance beyond the standard difference identity or isolated examples.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

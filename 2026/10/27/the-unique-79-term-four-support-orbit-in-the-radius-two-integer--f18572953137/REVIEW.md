@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every four-support extremal candidate of length at least 79 must have rank three, because rank-at-most-two supports inject into the radius-two integer square and obey the published upper bound of 45. For rank-three supports, the primitive signed-minor kernel classifies all and only minimal positive relations, with no omitted multiplicities. The package's exhaustive two-pass C99 enumeration covers all 9,691,375 unordered supports with exact arithmetic, finding maximum length 79 and precisely 48 maximizers. Independent Python validation verifies all 48 primitive cofactors and establishes that they equal one full signed-coordinate symmetry orbit.
+## correctness
 
-**Originality — PASS, with stated residual risk.** Girard and Plagne's 2025 and 2026 papers construct length-79 instances and establish the length bound computationally, but treat three-dimensional essential uniqueness as conjectural. An exact 48-element orbit and trivial stabilizer are not implied by a value of the maximum. Targeted published-work and mathematical-result searches did not locate a stronger covering classification. Residual risk: an unindexed or implicit inversion of their computations might yield the same finite theorem.
+PASS
 
-**Mathematical value — PASS.** The exact orbit census resolves the first natural nontrivial finite case of the authors' explicit three-dimensional inverse/uniqueness question (radius two, four-support sequences), including the classification of multiplicities and supports, not a renamed known table or an arbitrary slice. The result demonstrates uniqueness up to the whole cube symmetry group and supplies a reproducible complete proof certificate.
+This is a classification for exactly four distinct vectors, with no order on the terms. In rank three the signed deleted-column determinants span the one-dimensional rational kernel. Strict positivity requires four nonzero cofactors of one sign, and dividing by their gcd generates the integer kernel. The positive primitive generator is minimal and any other positive relation contains it. In rank at most two, injective choice of coordinate projections preserves every zero-sum submultiset and reduces to the published planar bound 45. A separate rank-two check is that the nonnegative kernel is a pointed cone of dimension at most two; each extreme ray has support at most three (otherwise one can perturb within the supported kernel) and its primitive generator has length at most 24 by the 2-by-2 minor bound 8. A minimal relation is either a primitive ray or uses both rays with coefficients below one, so its length is below 48. In rank one the primitive rays have at most two coordinates and length at most 4; conic Carathéodory uses at most three rays. These also exclude lengths at least 79. A fresh exact enumeration traversed all 9,691,375 four-sets, found 779,864 positive circuits, maximum length 79, and 48 maximizing multisets. The computed set equals the signed-permutation orbit of the stated weighted representative and has all 48 group images distinct, proving freeness as well as transitivity. Fresh replay: python3 /workspace/branches/f395f5d8-758b-443d-a972-b7d27112b049/verify_four_support.py (no sample argument). The frozen census and saved output were inspected, not treated as an independent run. The frozen planar citation should point to Eq. (1), not Eq. (3); the bound used is correct.
 
-**Closest literature.** Girard and Plagne, *The Davenport constant of balls and boxes*, arXiv:2510.20412v1 (especially 2D bound and Section 11); and *The Davenport constant of low-dimensional boxes*, arXiv:2610.16562v1 (3D conjectured uniqueness, checked length equality for radii 2–7). Neither source announces the exact 48-element orbit classification. Scope is restricted to exactly four supports and radius two; the unrestricted Davenport constant and larger radii remain outside the theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit goes to the exact inverse classification within the four-support layer, not to discovery of the value 79 or of the extremal construction. The closest published result reports the length equality computationally and discusses essential uniqueness conjecturally; its length result does not determine the maximizer set. The inspected related catalog entry is for a different configuration and does not specialize to the cube.
+
+## value
+
+PASS
+
+The paper motivating the support-size invariant explicitly raises essential uniqueness. Radius two is its first even case and the classification answers the inverse question over every minimal multiset in that fixed layer, providing a concrete rigidity benchmark rather than merely rechecking a reported length. It does not purport to solve the broader unrestricted conjecture.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

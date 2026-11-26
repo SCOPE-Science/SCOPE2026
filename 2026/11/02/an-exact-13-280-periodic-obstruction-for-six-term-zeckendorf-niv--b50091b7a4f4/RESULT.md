@@ -1,56 +1,57 @@
-# An exact \(13/280\) periodic obstruction for six-term Zeckendorf–Niven runs
+# An exact periodic sieve for two Fibonacci-offset families of Zeckendorf–Niven runs
 
 ## Finding
-Let \(F_0=0\), \(F_1=1\), and \(F_{j+2}=F_{j+1}+F_j\). Write \(s_Z(n)\) for the number of nonadjacent Fibonacci terms in the canonical Zeckendorf representation of a positive integer \(n\). An integer is Zeckendorf–Niven if \(s_Z(n)\) divides \(n\).
 
-**Theorem.** If \(n\ge21\) and all six integers \(n,n+2,n+4,n+6,n+8,n+10\) are Zeckendorf–Niven, then \(n=F_G-3\) or \(n=F_G-5\) for some \(G\ge21\). In the first case \(G\) belongs to an explicitly computed set of **33 even residue classes** modulo \(1680\). In the second case \(G\) belongs to an explicitly computed set of **45 odd residue classes**, disjoint from the first set. Therefore the union of *locally admissible index classes* has cardinality \(78\), giving the exact local-sieve fraction \(78/1680=13/280\).
+Let \(F_0=0,F_1=1\), and index the canonical Zeckendorf expansion using \(F_j\) with \(j\ge2\). Write \(s_Z(n)\) for its number of terms. An integer \(n>0\) is Zeckendorf–Niven if \(s_Z(n)\mid n\).
 
-The first two prime cutoffs in the same increasing small-prime sieve leave respectively \(210/1680=1/8\) (primes at most \(3\)) and \(112/1680=1/15\) (primes at most \(5\)). Adding \(7\) is the first of these consecutive prime thresholds for which fewer than five percent of Fibonacci indices remain locally admissible. The theorem **does not assert** that a surviving residue class actually contains a six-term run.
+Consider a six-term progression with step two beginning at \(n=F_G-a\), where \(G\ge9\) and \(a\in\{3,5\}\). If all six terms are Zeckendorf–Niven, then \(G\) is odd. More precisely, the prime-\(3\) screen described below allows only \(G\equiv5,11\pmod{24}\) for \(a=3\), and only \(G\equiv1,5,7,11\pmod{24}\) for \(a=5\).
 
-## Assumptions and scope
-The prior two-shape reduction, which identifies \(n+3\) or \(n+5\) as a Fibonacci number for any six-term run beginning at \(n\ge21\), is taken as the established source theorem [2]. The new work concerns the precise arithmetic obstruction on the Fibonacci index; its input is a necessary condition, not an equivalence with a six-term run. The source theorem and the two Zeckendorf-weight profiles below apply to ordinary positive integers and the standard Fibonacci normalization.
+Adding primes \(5\) and \(7\) gives exact periodic necessary-condition sets. An explicit predicate for them is given below. Counted modulo \(1680\), they have the following sizes:
+
+| Prime cutoff | \(a=3\) | \(a=5\) | Intersection | Union |
+|---|---:|---:|---:|---:|
+| 3 | 140 | 280 | 140 | 280 |
+| 5 | 112 | 224 | 112 | 224 |
+| 7 | 80 | 144 | 72 | 152 |
+
+Thus the exact fractions of index classes passing this screen for at least one of the two offsets are \(1/6\), \(2/15\), and \(19/210\), respectively. These counts are for the screen, not for actual progressions.
+
+## Scope
+
+The two offsets are candidate families, not asserted here to exhaust all six-term runs. The result is unconditional for progressions in either family but does not assert that any index passing the screen yields a run. The index bound \(G\ge9\) covers all progressions in these families with \(n\ge21\).
 
 ## Proof
-The source's gap-reduction theorem [2] states that a six-term run outside the small initial block must have \(n=F_G-3\) or \(n=F_G-5\), for \(G\ge21\). The associated exact six-shift Zeckendorf-weight profiles, also obtainable by peeling two Fibonacci indices, are
+
+Write \(V=F_G\) and \(r=\lfloor(G-3)/2\rfloor\). The six weights, in progression order, are
 \[
-(s_Z(F_G-3+2j))_{j=0}^{5}=(r,r+1,2,2,2,3),\quad r=\lfloor(G-1)/2\rfloor,
+\begin{array}{c|c|c}
+ a & G\text{ parity} & (s_Z(V-a+2j))_{j=0}^{5}\\ \hline
+ 3 & \text{either} & (r,r+1,2,2,2,3)\\
+ 5 & \text{odd} & (r-1,r,r+1,2,2,2)\\
+ 5 & \text{even} & (r,r,r+1,2,2,2).
+\end{array}
 \]
-and (the second form occurs only for odd \(G\))
+For the negative offsets \(w=5,3,1\), the base cases at \(G=8\) are \(F_7+F_4\), \(F_7+F_5\), and \(F_7+F_5+F_3\), respectively. At \(G=9\) they are \(F_8+F_6\), \(F_8+F_6+F_3\), and \(F_8+F_6+F_4+F_2\). The identity \(F_{G+2}-w=F_{G+1}+(F_G-w)\) transports these weights to each larger index of the same parity, adding one term each time: the largest index in \(F_G-w\) is at most \(G-1\), so the expansion after adjoining \(F_{G+1}\) is canonical. For the positive offsets, \(1,3,5,7\) have weights \(1,1,1,2\) and highest index at most \(5\). Their expansions concatenate canonically with \(F_G\).
+
+For \(a=5\) and even \(G\ge10\), the first two weights equal \(r\ge3\); their divisibility conditions would force \(r\mid2\). Discard these even indices before sieving. For the remaining shapes, the conditions from the weight-two terms both reduce to \(V\) odd, in turn equivalent to \(3\nmid G\). For \(a=3\), the last term also requires \(V\equiv2\pmod3\). The other tests are
 \[
-(s_Z(F_G-5+2j))_{j=0}^{5}=(r-1,r,r+1,2,2,2),\quad r=(G-1)/2.
+ r\mid V-3,\qquad r+1\mid V-1,
+ \qquad \text{and for }a=5\text{ also }r-1\mid V-5.
 \]
-These identities can be checked at each parity base index using the canonical nonadjacency decomposition and transported by \(s_Z(F_{G+2}-w)=s_Z(F_G-w)+1\) for the fixed small positive offsets \(w\) in question.
-
-Put \(V=F_G\). For the first shape, divisibility of the six terms forces
+Define the cutoff-\(B\) screen, for \(B=3,5,7\), by keeping the shape restrictions just given and replacing each of these last variable-divisor tests \(d\mid V-c\) by the implications
 \[
-r\mid V-3,\quad r+1\mid V-1,\quad 2\mid V+1,\quad 3\mid V+7.
+ \ell\mid d\ \Longrightarrow\ V\equiv c\pmod\ell \qquad(\ell\in\{2,3,5,7\},\ \ell\le B).
 \]
-For the second shape, necessarily \(G\) is odd and
+Only prime-divisor consequences are imposed, not prime powers or full divisibility.
+
+The tests for \(\ell=2\) follow from \(V\) odd. In shape \(a=3\), if \(G\) is even, then \(G=2r+4\). The case \(r\equiv1\pmod3\) contradicts \(3\nmid G\); the cases \(r\equiv0,2\pmod3\) require \(V\equiv0,1\pmod3\), respectively, contrary to \(V\equiv2\pmod3\). For odd \(G=2r+3\), the only possibilities for shape \(a=3\) are \(r\equiv1\pmod3\) and \(V\equiv2\pmod3\). Shape \(a=5\) adds the case \(r\equiv2\pmod3\), \(V\equiv1\pmod3\), from the test on \(r+1\); when \(r\equiv1\pmod3\) the test on \(r-1\) gives \(V\equiv5\equiv2\pmod3\). Fibonacci residues at odd indices are \(1,2,2,1\pmod3\) at residues \(1,3,5,7\pmod8\), respectively. Combining with \(G=2r+3\) yields the claimed classes modulo \(24\).
+
+The Fibonacci residue pairs return to \((0,1)\) after \(3,8,20,16\) steps modulo \(2,3,5,7\), respectively (iterate \((u,v)\mapsto(v,u+v)\)). The parity restriction on \(G\) and the test \(\ell\mid d\) are both determined by \(G\bmod 2\ell\). Thus the predicates are periodic in \(G\) with common period
 \[
-r-1\mid V-5,\quad r\mid V-3,\quad r+1\mid V-1,\quad 2\mid V+1.
+ \operatorname{lcm}(3,8,20,16,4,6,10,14)=1680.
 \]
-The duplicated mod-two tests are redundant. In particular, both shapes require \(V\) odd, hence \(3\nmid G\) because the Fibonacci sequence is even precisely at indices divisible by \(3\). The first shape additionally requires \(V\equiv2\pmod3\).
+The accompanying `verify.py` constructs the Fibonacci residue arrays by iterating the pair recurrence to its first return. It evaluates the displayed predicate at every index from \(9\) through \(1688\), representing each class once, and counts the two sets, their intersection and their union. This finite enumeration proves the claimed counts for the periodic predicates, not for full Zeckendorf–Niven divisibility.
 
-For a prime \(p\), a necessary consequence of \(d\mid V-c\) is
-\[
-p\mid d\quad\Longrightarrow\quad F_G\equiv c\pmod p.
-\]
-Apply this implication to the displayed denominators and targets for each \(p\in\{2,3,5,7\}\), along with the parity and mod-three requirements. The Fibonacci sequences modulo \(2,3,5,7\) have respective periods \(3,8,20,16\). Because each denominator is an affine expression in \(\lfloor G/2\rfloor\), divisibility of those denominators by \(p\) is determined by \(G\bmod2p\). Therefore every condition is periodic in \(G\) with period dividing
-\[
-\operatorname{lcm}(\operatorname{lcm}(4,3),\operatorname{lcm}(6,8),\operatorname{lcm}(10,20),\operatorname{lcm}(14,16))=1680.
-\]
-The accompanying exact arithmetic verifier evaluates a full period of \(1680\) indices for each shape. At cutoffs \(3,5,7\) the union sizes are exactly \(210,112,78\), respectively. At cutoff \(7\), the first shape contributes \(33\) even classes and the second \(45\) odd classes, so they are disjoint. Periodicity makes this a proof for every \(G\ge21\), not merely a finite test of large Fibonacci indices. The ultimate fraction is \(78/1680=13/280\), as claimed.
+## Relationship to prior work and limitations
 
-## Verification
-Run `python3 verify.py` in the same folder. It computes all Fibonacci residues by integer recurrence, independently tests their period invariance, and enumerates the complete local divisibility filter twice on adjacent index periods. It asserts the exact size triplet \(210,112,78\), the refined counts \(33,45\), disjointness, and the period \(1680\). The finite enumeration is exhaustive **of the periodic necessary-condition problem**; it is not an exhaustive enumeration of all original integers \(n\).
-
-## Relationship to prior work
-Lao, Miller, Rosa, Shiliaev, Tresch, Wong and Zhang [1] introduce the six-term gap between their infinite five-term construction and the known eight-term bound. A subsequent publicly posted study [2] supplies the unbounded two-Fibonacci-shape reduction and a finite exclusion through Fibonacci index \(501\). This theorem uses that reduction but adds a separate **infinite-index periodic characterization of the first-prime local obstruction**, with exact small-prime frontier \(1/8,1/15,13/280\). It does not claim the source's structural reduction or finite exclusion as new; nor is the present local congruence filter a proof that six-term runs never occur.
-
-## Limitations
-The \(78\) classes satisfy **only the specified local prime-divisor congruences**. Large prime factors of the index-dependent denominators can still exclude them, and none is asserted to give an actual six-term run. The source [2] is accessible in indexed scientific summaries, but its complete paper was not obtained in this examination, leaving residual priority uncertainty about unindexed supplementary congruence calculations. Its already reported shape theorem is used as a mathematical premise. The present result makes no distribution claim about actual runs and does not settle the open maximum-length question.
-
-## References
-[1] K. Lao et al., “On Zeckendorf-Niven numbers and arithmetic progressions,” arXiv:2606.24006v1 (first public 2026-06-22), https://arxiv.org/abs/2606.24006.
-
-[2] “Consecutive Zeckendorf–Niven terms in a \(2\)-AP: a two-parameter family of five-term runs, and six-term runs confined to two Fibonacci shapes,” indexed public research manuscript, https://lean.up.railway.app/ (see its ZA4 and ZA5 descriptions); complete document unavailable for inspection here.
+Lao, Miller, Rosa, Shiliaev, Tresch, Wong and Zhang, *On Zeckendorf-Niven numbers and arithmetic progressions*, [arXiv:2606.24006](https://arxiv.org/abs/2606.24006), study consecutive Zeckendorf–Niven terms in progressions of common difference two, including constructions and bounds on run lengths. The screen here quantifies a separate obstruction for two fixed Fibonacci offsets, at arbitrarily large indices. It neither extends finite exclusions to all indices nor rules out any candidate beyond what the stated divisibility tests imply. Primes beyond seven and prime powers can exclude further classes.

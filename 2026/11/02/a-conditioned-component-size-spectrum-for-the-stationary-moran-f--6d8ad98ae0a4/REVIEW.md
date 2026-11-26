@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The uniform-attachment representation is an explicit source theorem (Bienvenu–Duchamps–Foutel-Rodier, Proposition 2.1). Exact exponential tilting of independent parent choices preserves the law on a fixed component-count slice. A positive-variance Poisson-binomial local central limit theorem gives conditional mass of order \(n^{-1/2}\). The exact size-count recursion, a stable triangular Euler limit, and the inhomogeneous geometric Green function yield the profile. Bounded differences have exponentially small unconditional tails, sufficient after the polynomially rare conditioning. The two mass identities enable weighted \(\ell^1\) upgrading without a uniform-in-size concentration estimate. The embedded independently enumerable checker passes 170 assertions.
+PASS
 
-## Originality — PASS, qualified
+For fixed interior alpha the tilt is a product measure, preserves the law on every root-count level and has a unique finite positive parameter. The interior Bernoulli variance is linear in n. Fourier inversion gives the local probability at floor(alpha n): near zero the centered log characteristic function is -Var(N)s^2/2+O(n|s|^3), and the sin^2 bound controls the remaining Fourier integral. The mean counts satisfy the stated triangular linear recurrence; normalized by n this is Euler's method with step 1/(n-1), order-one smooth coefficients, and a vanishing grid and normalization discrepancy. The time-changed Yule transition is geometric and t/q(t) has derivative p(t)/q(t), which proves conservation of size mass. Replacing a single independent choice cuts and reattaches at most one descendant subtree, affecting at most four old/new count contributions. Exponential concentration therefore transfers across the order n^(-1/2) conditioning event. Fixed-k convergence and equal unit size mass control both tails beyond a fixed K and yield weighted l1 and the two total-variation kernels. The supplied finite verifier was inspected, not used as proof of the exact-conditioning limit.
 
-The primary paper's Proposition 3.1 states the unconditional Bernoulli component-count law and Section 5 derives the unconditional size of a randomly selected tree; neither is a claim about the profile under a linearly atypical *exact* component-count constraint. Their uniform-attachment representation supplies the starting object rather than the tilted conditional theorem. Search comparisons covered the phrases 'Moran forest conditioned number of trees', 'Gibbs conditioning', 'conditional component size spectrum', 'inhomogeneous Yule', and published mathematical record summaries. The strongest external direct match found was the original unconditioned marginal, not this conditioned full-spectrum law. General Gibbs-conditioning principles and occupancy/forest large-deviation theory remain priority risks; a generic principle alone does not contain the explicit time-varying immigration profile without a model-specific calculation. Neither absent search hits nor a repository partition proves uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The stationary forest's component-number law is explicitly known, but its full component-size partition is not. Exact atypical component-count slices are a natural way to understand dependence between the two statistics. The formula provides the conditional distributions of both a uniformly chosen component and a size-biased uniformly chosen vertex simultaneously, in total variation, throughout an entire interior range of rare densities. The regime includes distinct, nontrivially deformed spectra on either side of the known mean component density, and gives a reusable tilting/immigration method for studying conditioned random forests.
+The exact linear-root-count conditioning and entire weighted empirical spectrum are distinct from the directly checked unconditioned marginal and fixed-two-root result. The model, independent root indicators and unconditioned half-density marginal are credited; the evidence supports distinctness of the stronger conditional claim, not global priority.
 
-## Sources and unresolved risks
+## value
 
-The full-text primary preprint arXiv:1906.08806 was inspected for construction, component counts, tree-size results, and its conclusion; related general independent-sum local-limit and bounded-difference methods are standard. No finite-rate or moving-density theorem is claimed. The assessment is not independent peer verification and historical priority remains qualified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The typical density alone misses a natural family of atypical forest laws. The result gives the complete explicit component spectrum for every interior density and controls vertex mass, not merely typical-component probabilities. That control is needed for the uniform-vertex law and excludes escape of mass into sizes beyond any finite observation window as that window grows.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

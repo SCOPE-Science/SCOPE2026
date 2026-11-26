@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:27:18.689077Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–5",
+        "Frozen verify_triangle.py lines 48–116 and VERIFICATION.md (inspected, not executed); exact small-size spectrum and numerical per-edge KKT are finite corroboration."
+      ],
+      "rationale": "On the connected feasible region the trace-inverse Hessian is strictly positive on a nonzero weight perturbation: the perturbed Laplacian is nonzero by its off-diagonals, and after conjugation the quadratic trace is that of its square against a positive-definite weight. The compact price simplex has a strictly positive feasible point and objective tending to infinity at disconnected limits. Uniqueness forces S3×Sm invariance, and connectivity forces cross conductance b>0. Vectors of sum zero within each block and the block-constant contrast give eigenvalues x=3a+mb (twice), y=mc+3b (m−1 times), and nb. The reduced objective divided by n is therefore 2/x+(m−1)/y+1/(nb). Its classwise KKT stationarity is equivalent to individual-edge stationarity at invariant points because each class gradient is the common edge gradient times its class size. In the interior, y²=rx² and (x/b)²=n[3(m+1)/r−2m]. Positivity breaks at the smaller of r_A=(m+1)(m+3)/(m(m+2)) and r_C=3(m+4)/(2(m+3)); the sign of r_C−r_A is that of m³+4m²−6m−18, negative for m=2 and positive thereafter. For m≥3 on a=0, y²/b²=m(m+1)(m+3)/(m+2)>9; the missing triangle gradient has acceptable slack precisely at r≥r_A. For m=2 on c=0, (x/b)²=(45/r−15)/2, with missing-complement slack iff r(x/b)²≤9, i.e. r≥9/5, and a>0 iff r<45/23. With both deleted the budget gives b=B/6, and the scaled KKT multiplier 23/(90b²) yields group slacks (23r−45)/(30b²) and 1/(30b²). This covers both boundaries including equality, so no other regime is needed. Budget scaling and the three eigenvalues give the stated minimum and r_A−1=(2n−3)/[(n−3)(n−1)].",
+      "residual_risks": [
+        "In the Finding, line 11 prints u where the subsequent ratio uses ν; the same positive radical is explicitly defined by ν² in proof §4. This is a notation slip, not a second candidate or change in the optimizer.",
+        "Only linear prices, all independent edges of K_n, and total pairwise effective resistance are covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ghosh–Boyd–Saberi give the network objective and unit-budget KKT, which transfer to a weighted constraint. Johnson–Chertkov describe an efficiency/construction criterion and sparsity heuristics. The related bouquet thresholds are for hub-attached cliques with no cross-blade edges."
+        ],
+        "reasoning": "General weighted KKT characterizes an optimum implicitly; solving its competing faces is crucial here. The bouquet geometry omits the cross-block edges that keep both groups connected after either deletion here, and so its active-set theorem does not specialize to this triangle in K_n.",
+        "searches": [
+          "Ghosh–Boyd–Saberi 2006 PDF pp. 1, 7; Johnson–Chertkov arXiv:1004.2285v2 abstract; clique bouquet eaa2b980f9e3 and mixed-support bouquet 66129dc90e7c"
+        ]
+      },
+      "checked_sources": [
+        "Ghosh–Boyd–Saberi 2006; arXiv:1004.2285v2 (abstract); Resultary cf3b1355b128, 93a220470d32, 84e049224f10, eaa2b980f9e3, 66129dc90e7c, 82d74d6f978e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The K_(m,m,m) theorem deletes the direct AC orbit at P/Q≥24m/(15m−7); within-part edges do not exist. The matching and single-edge thresholds do not test the competing K_5 complement-edge inequality. The candidate calculation explicitly needs both c-slack at rX²≤9 and a-positivity at r<45/23."
+        ],
+        "reasoning": "Shared two-block spectral techniques or an exceptional small size do not imply the three-orbit phase diagram. The specific two-deletion inequalities are not evaluations of previously stated matching or tripartite formulas.",
+        "searches": [
+          "Resultary complete tripartite 93a220470d32, Finding; priced matching cf3b1355b128, Finding; single-edge 84e049224f10, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The perfect matching theorem prices disjoint edges and deletes that class at n²/(n²−2n+2). The closest same-day single-edge theorem shares K_n and the objective, but prices just one edge and gives threshold n/(n−2)."
+        ],
+        "reasoning": "A marked triangle with three mutually incident edges is neither a perfect matching nor a single marked edge under relabeling. In particular the n=5 complement-edge deletion at 9/5 with every marked edge positive is not a relabeling or price substitution in either one-frontier claim. Same-day dating does not fix priority.",
+        "searches": [
+          "Resultary: resistance-optimal marked triangle and unit-price edge deletion; priced matching cf3b1355b128; same-day single priced edge 84e049224f10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The located closed-form frontiers price a matching, one edge, a direct interpart orbit, or clique-bouquet edges. The complete split graph premium-clique record 82d74d6f978e optimizes a finite-time heat trace instead."
+        ],
+        "reasoning": "The finite-time objective is not the integrated resistance objective as stated, and the other inspected exact frontiers do not table the simultaneous linear-price triangle and complement active sets. This is bounded catalogue evidence, not absence proved by query.",
+        "searches": [
+          "Resultary: priced triangle support, priced cliques and exact deletion frontiers; records cf3b1355b128, 93a220470d32, 84e049224f10, eaa2b980f9e3, 66129dc90e7c, 82d74d6f978e"
+        ]
+      },
+      "rationale": "The support classification and the unmarked-before-marked deletion at n=5 are the distinct claims, not the trace-inverse objective, convexity, group averaging or KKT method.",
+      "residual_risks": [
+        "Unindexed or differently formulated A-optimal allocation results could contain an equivalent classification; checked general methods and related exact statements do not establish universal priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Genuine framework overlap; no evaluated triangle boundary in inspected results",
+          "evidence": "General graph resistance minimization with unit total conductance and first-order characterization.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+          "material_read": "Conference PDF pp. 1 and 7, especially simplex KKT on p. 7",
+          "method": "Bounded original open-access PDF passages",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "Definitive optimization framework and potential general coverage"
+        },
+        {
+          "assessment": "Related context only; no full-text exclusion claimed",
+          "evidence": "Transmission efficiency combined with construction cost and sparse design heuristics.",
+          "identifier_or_url": "https://arxiv.org/html/1004.2285v2",
+          "material_read": "Abstract",
+          "method": "Bounded primary HTML abstract",
+          "title": "A Majorization-Minimization Approach to Design of Power Transmission Networks",
+          "trigger": "Cost-sensitive network design"
+        },
+        {
+          "assessment": "Overlap in objective but distinct marked-edge patterns or underlying graph",
+          "evidence": "Matching n²/(n²−2n+2), all-cross tripartite 24m/(15m−7), single edge n/(n−2).",
+          "identifier_or_url": "Resultary cf3b1355b128; 93a220470d32; 84e049224f10",
+          "material_read": "RESULT.md Findings and available Assumptions; matching prior comparison",
+          "method": "Resultary and local-mirror passages",
+          "title": "Priced matching, priced complete tripartite and priced single-edge resistance frontiers",
+          "trigger": "Strongest objective and exact active-set matches"
+        },
+        {
+          "assessment": "Different graph restrictions or objective",
+          "evidence": "Hub-and-blade geometry without between-blade edges in bouquets; finite-time heat trace for the complete-split calculation.",
+          "identifier_or_url": "Resultary eaa2b980f9e3; 66129dc90e7c; 82d74d6f978e",
+          "material_read": "Opening RESULT.md Findings",
+          "method": "Resultary and local-mirror passages",
+          "title": "Priced clique bouquets and finite-horizon premium cliques",
+          "trigger": "Broader clique-pricing and same-day material overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and §§3–5; Resultary matching and single-edge comparisons"
+      ],
+      "rationale": "The solution gives a complete active-set classification for a motivated edge-price pattern, not just an optimization prescription. The cheaper complement edge is the first omission at exactly n=5, even though the entire premium triangle survives on a nonempty interval. The proof accounts for why this support topology cannot occur for larger sizes under the same budget/objective, and supplies the exact thresholds for comparisons or design.",
+      "residual_risks": [
+        "This is a linear-cost mathematical network-design phenomenon, not a universal investment or resilience policy."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

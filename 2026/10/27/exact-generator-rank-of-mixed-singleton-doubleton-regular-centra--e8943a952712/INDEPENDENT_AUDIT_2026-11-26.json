@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:19:21.834908Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "repairs/3/RESULT.md and VERIFICATION.md (full corrected proof and replay scope)",
+        "Frozen RESULT.md lines 10–25 and verify.py lines 40–73",
+        "Independent replay: python3 /workspace/repairs/3/verify.py; closure sizes 6, 75, 1372, 32805 for generator counts 3, 4, 5, 5"
+      ],
+      "rationale": "The repaired result retains the nonempty-word convention and proves ranks 3,4,5. A map commutes exactly when it sends blocks to blocks and representatives to representatives; mapping a positive block to zero forces its one bit to vanish, and multiplication multiplies the transmitted bits. The specified adjacent transposition and full cycle generate the units for b>=3; at b=1 the identity is included explicitly. Unit conjugates of t,z,c give single zero deletions, selective bit deletions and positive collapses. For an index map moving zero to a>0, the three cases are an existing positive source of a, an existing source of zero, or a positive collision to vacate a block before the swap. These realize every maximal-bit map and bit deletions give the rest. A nonempty unit word can use only units. A word for t requires an index permutation moving zero, and a word for z needs a factor moving zero while restricting to a full-bit positive permutation. These two needed types are distinct even at b=1. For c the first merger must act noninjectively on the entire set of positive indices, while preserving their bits and avoiding zero. It is neither of the other two types.",
+      "residual_risks": [
+        "The reproduction tests all point-map commutants only at b=1,2; at b=3,4 it checks commuting generators and the closure size against the proved count.",
+        "The finite calculations do not establish the unbounded theorem. The rank at b=1 is 2 only under the alternative empty-word convention."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.1 computes generator rank for T(X,P); Problem 5.3 separately asks about regular T(X,P,S).",
+          "Dolinka–East investigate idempotent generation for uniform partitions.",
+          "The indexed unit-orbits summary states a relative-rank theorem for a monoid wreath product; the full mirror text was unavailable."
+        ],
+        "reasoning": "Dropping the section condition admits transformations outside C_b; ranks need not transfer to a submonoid. Uniform partitions and an unrestricted wreath product do not give the mixed family by substitution: a positive block mapping to the singleton has no bit choice, while one mapping to a doubleton has two. No reduction giving this mixed rank was established.",
+        "searches": [
+          "arXiv:1404.1598 Theorem 1.1 and Problem 5.3",
+          "arXiv:1407.3312",
+          "2026/9/18/unit-orbits-control-relative-rank--1d4bcdcec1ba"
+        ]
+      },
+      "checked_sources": [
+        "repairs/3/RESULT.md",
+        "arXiv:1404.1598",
+        "arXiv:1407.3312",
+        "Resultary finite retraction rank spectra and unit-orbits relative-rank entry",
+        "Bounded checks for the two earlier exact-scope papers"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general regular section-preserving rank problem subsumes the mixed case as a question, not a theorem in the inspected paper.",
+          "The repaired proof identifies distinct factors forced by t,z,c, using monotonicity of surviving bits and of index merging."
+        ],
+        "reasoning": "The standard map form, uniform idempotent-generation results, and known generator bounds for the larger partition monoid do not give the three necessary nonunit mechanisms or show they suffice here. The b=1 rank correction implements the declared convention, not a novel contribution in isolation.",
+        "searches": [
+          "arXiv:1404.1598 §5, Problems 5.1 and 5.3",
+          "arXiv:1407.3312 abstract",
+          "Indexed centralizer rank spectra Finding and prior-work passage",
+          "repairs/3/RESULT.md, Generators and Lower bounds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:1404.1598 p. 10 identifies C(e) with transformations preserving the kernel partition and its section, and the regularity criterion covers these 1- and 2-point blocks.",
+          "The Resultary Finding counts elements of precisely the more general object, but defines rank as image cardinality."
+        ],
+        "reasoning": "C(e) and T(X,ker(e),im(e)) are the same monoid after block labels are chosen, so the generator-rank comparison uses both formulations. Coefficient counts by image cardinality are not minima over sets of compositional generators, and the obvious b=1 convention distinction is not claimed as substantive novelty.",
+        "searches": [
+          "arXiv:1404.1598 §5, T(X,P,S) and C(e)",
+          "Resultary mixed singleton doubleton idempotent centralizer rank lookup",
+          "2026/11/22/SCOPE-rank-spectra-of-centralizers-of-finite-transformation-retraction--cabfb16a59f1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed F_e(z) formula counts all commutants by image rank. Evaluating at z=1 and specializing the block sizes gives (b+1)(2b+1)^b.",
+          "The finite closure data are direct checks of this finding, not prior subgroup or rank tables."
+        ],
+        "reasoning": "In the general enumeration a target block of size one contributes 1 per source nonrepresentative, and size two contributes 2. This covers the supporting cardinality exactly. A distribution of image sizes does not give a table of least generating-set sizes, and no such matching table was identified in the inspected results.",
+        "searches": [
+          "Resultary finite retraction rank spectra, Finding",
+          "arXiv:1404.1598 Theorem 1.1",
+          "Frozen and repaired finite checkers"
+        ]
+      },
+      "rationale": "The supported distinct result is minimum semigroup generator size and the necessary nonunit types in this mixed family, particularly the b>=2 cases. The normal form and cardinality do not carry originality. The closest exact object-level statement counts maps by image rank, while the closest known generator-rank theorem for arbitrary partition sizes omits the section constraint. Neither supplies this generator rank.",
+      "residual_risks": [
+        "Full relevant material from the 2004 and 2011 papers and the wreath-product entry was not retrieved; equivalent earlier rank derivations remain possible.",
+        "This is a best-of-knowledge mathematical comparison, not a historical priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact object identified and broader regular rank problem posed; solved rank theorem concerns a larger monoid.",
+          "evidence": "Section preservation is additional to partition preservation. The regularity condition includes the singleton–doubleton pattern.",
+          "identifier_or_url": "https://arxiv.org/abs/1404.1598",
+          "material_read": "pp. 1–2, Theorem 1.1, OA offsets 2400–5400; p. 10, T(X,P,S) and C(e) around 41593 and 42296; p. 11, Problems 5.1 and 5.3 around 43133 and 43739",
+          "method": "Lawful OA theorem and definition comparison",
+          "title": "The rank of the semigroup of transformations stabilising a partition of a finite set",
+          "trigger": "Nearest general generator-rank theorem and exact centralizer alias"
+        },
+        {
+          "assessment": "Different object and generation restriction in the inspected passage.",
+          "evidence": "Uniform partition with block size and number at least two and rank/idempotent rank for an idempotent-generated submonoid.",
+          "identifier_or_url": "https://arxiv.org/abs/1407.3312",
+          "material_read": "p. 1 abstract, OA offset 1300",
+          "method": "Lawful OA abstract and scope comparison",
+          "title": "Idempotent generation in the endomorphism monoid of a uniform partition",
+          "trigger": "Plausible general relative-rank coverage"
+        },
+        {
+          "assessment": "Exact cardinality coverage, not generation rank.",
+          "evidence": "For each image size k the polynomial coefficients count transformations, allowing arbitrary kernel block sizes.",
+          "identifier_or_url": "2026/11/22/SCOPE-rank-spectra-of-centralizers-of-finite-transformation-retraction--cabfb16a59f1",
+          "material_read": "RESULT.md Finding and Assumptions, offsets 0–2400, and prior-work passage near 5900; mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary search, mirror text comparison and specialization at z=1",
+          "title": "Rank spectra of centralizers of finite transformation retractions",
+          "trigger": "Same centralizer object and 'rank' in the title"
+        },
+        {
+          "assessment": "Relevant lead, but no full-text noncoverage or reduction to the mixed centralizer established.",
+          "evidence": "Summary gives a wreath-product formula in terms of top relative rank, unit orbits and base relative rank.",
+          "identifier_or_url": "2026/9/18/unit-orbits-control-relative-rank--1d4bcdcec1ba",
+          "material_read": "Resultary indexed summary only; exact mirror unavailable",
+          "method": "Ranked catalogue search with bounded full-text access attempt",
+          "title": "Unit orbits control relative rank",
+          "trigger": "Potential stronger relative-rank formula for wreath products"
+        },
+        {
+          "assessment": "Residual priority risk, not a determination of noncoverage.",
+          "evidence": "The rank paper identifies it as earlier work on the exact structural setting.",
+          "identifier_or_url": "Communications in Algebra 32 (2004), 1917–1935, Araújo–Konieczny",
+          "material_read": "Bibliographic identification and structural citation in arXiv:1404.1598; full relevant text not retrieved",
+          "method": "Bounded lawful OA access attempt",
+          "title": "Semigroups of transformations preserving an equivalence relation and a cross-section",
+          "trigger": "Exact partition-and-section setting"
+        },
+        {
+          "assessment": "Residual priority risk, not a determination of noncoverage.",
+          "evidence": "The rank paper credits it for regularity structure; the accessible evidence is insufficient to claim its entire content.",
+          "identifier_or_url": "Semigroup Forum 82 (2011), 307–318, André–Araújo–Konieczny",
+          "material_read": "Bibliographic identification and regularity citation in arXiv:1404.1598; full relevant text not retrieved",
+          "method": "Bounded lawful OA access attempt",
+          "title": "Regular centralizers of idempotent transformations",
+          "trigger": "Exact class of regular centralizers"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "repairs/3/RESULT.md, explicit generating sets and lower bounds",
+        "arXiv:1404.1598 Problem 5.3"
+      ],
+      "rationale": "One singleton changes the compositional constraints in an otherwise uniform doubleton family. Giving a minimal generating set and proving the need for three different nonunit mechanisms determines an exact natural mixed case of the regular centralizer rank problem. This is useful independently of the elementary counting formula and the b=1 convention correction.",
+      "residual_risks": [
+        "No general mixed-partition rank formula or transfer to larger blocks is proved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

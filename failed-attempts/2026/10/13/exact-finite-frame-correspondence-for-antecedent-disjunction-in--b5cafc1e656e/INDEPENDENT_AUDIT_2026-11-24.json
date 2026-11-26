@@ -1,0 +1,92 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:53:18.056995Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The proof works for every finite preorder and arbitrary R, including empty rows and equivalent but distinct worlds. Replacing a row by its upward closure leaves containment in every upset unchanged. For each w, define I_w(A) as the union of the future saturated rows contained in A. An evaluation of the two premises at w says I_w(A) union I_w(B) is contained in the consequent upset C. The conclusion says I_w(A union B) is contained in C, so a strict inequality of those unions gives a countervaluation by taking C to be the smaller union; reflexivity makes it a counterexample to the outer intuitionistic implication. Conversely equality at every world ensures that implication. Union preservation on finite W gives the principal-upset decomposition of I_w, and applying it to H_x=I_w(H_x) for w<=x gives PC. Conversely each point of I_w(A) belongs by PC to I_w(up v) for some v in A, and monotonicity supplies the reverse inclusion, hence union preservation. The quantified relation translation and O(n^5) time/O(n^2) space are valid by precomputing row inclusion and testing witness pairs. A nonempty finite down-directed row has a least element up to preorder equivalence and hence satisfies PC with y=x; empty rows cause no obligation. In the three-world fork, each point of the bottom row is covered by its own available singleton leaf row, and both leaf rows satisfy PC themselves. The bottom row is not down-directed. On two comparable worlds every row is down-directed in the pairwise sense used in the result, while on a two-point antichain the only nondirected row is the full pair and its source has no future world besides itself, so PC fails there. The frozen verification files were inspected, not executed; their n<=3 census is corroborative, not the basis for the theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "De Groot–Litak Lemma 3.12 gives the downward-directed sufficient condition, not a necessary condition; the frozen fork demonstrates that difference.",
+          "The distinct Resultary finding is for the same finite preorder/arbitrary R regime and gives a countervaluation on failure and an O(n^4) decision bound, which dominates the frozen O(n^5) upper bound."
+        ],
+        "reasoning": "The sufficient condition is strictly less general. The catalogue result covers the whole asserted equivalence, not just an upward-flat or directed subcase.",
+        "searches": [
+          "de Groot–Litak flat semantics di and downward-directed raw rows",
+          "Resultary principal refinement for finite sharp flat frames, explicit countervaluation and decision bound"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–80; frozen VERIFICATION.md and verify_di.py",
+        "de Groot–Litak arXiv:2603.28402v2, above passages",
+        "Distinct Resultary principal-refinement record, above passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Upward saturation and sufficient directedness do not imply the converse PC criterion; the fork refutes that route.",
+          "The full catalogue characterization implies the frozen one via the finite minimal-row argument. The fork's validity follows directly from either criterion, and its small minimality argument does not change the coverage of the main theorem."
+        ],
+        "reasoning": "The failure is verified equivalent coverage of the frozen theorem, not a claim that the primary paper already gave it or a chronology inference.",
+        "searches": [
+          "arXiv:2603.28402v2 Definition 3.1 and Lemma 3.12 against the three-world fork",
+          "Resultary principal-refinement characterization, Finding and proof passages at offsets 0 and 4777"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 2026/11/8/SCOPE-principal-refinement-characterization-of-finite-sharp-flat-heyti--6e67134d7067 requires each u in a future saturated row H_x to lie in a future row H_y that is itself principal and contained in H_x, under the same finite-frame semantics.",
+          "Principal refinement implies PC by using the generator of that row. Conversely choose an inclusion-minimal future row K containing u and contained in H_x; it exists on the finite frame. PC applied to K gives u in a future H_y contained in up v contained in K for v in K. Minimality gives H_y=K=up v. Thus PC implies principal refinement."
+        ],
+        "reasoning": "The two relational criteria describe the same finite-frame class. The later wording of the property is stronger syntactically but equivalent semantically.",
+        "searches": [
+          "Resultary flat Heyting–Lewis strict implication, antecedent disjunction, principal cover and principal refinement",
+          "arXiv:2603.28402v2 Definition 3.1, Proposition 3.10, Lemma 3.12"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest exact catalogue hit is the distinct Resultary principal-refinement theorem above rather than a finite table. The observed frozen counts n<=3 are corroborative and no exact independent published census match was established in the bounded comparison."
+        ],
+        "reasoning": "The theorem, not its small census, is the finding. Equivalent exact catalogue coverage is decisive without claiming an exhaustive table search.",
+        "searches": [
+          "Resultary finite-frame antecedent disjunction validity, PC and principal-refinement characterization",
+          "Frozen VERIFICATION.md and verify_di.py bounded census comparison"
+        ]
+      },
+      "rationale": "A distinct indexed Resultary finding states an equivalent finite-frame condition under exactly the same semantics and has a sharper decision bound. The equivalence is mathematical, not inferred from title, date or keywords. The overlapping item's November 8 UTC record date is later than the frozen item's October 13 UTC record date; the comparison establishes current equivalent coverage, not who obtained it first or that the November item preceded the frozen work. The original logic paper alone would not justify this failure.",
+      "residual_risks": [
+        "This is a statement-level coverage decision, not a determination of priority or dependence between the two records.",
+        "Finiteness matters to the necessary direction; no infinite-frame characterization or exhaustive external census has been verified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same logic and a strictly sufficient condition, not the exact correspondent",
+          "evidence": "The conditional checks the whole raw R-row at every future world; Lemma 3.12 assumes every R-row downward directed.",
+          "identifier_or_url": "https://arxiv.org/abs/2603.28402v2",
+          "material_read": "Definition 3.1, p. 5 (OA offset 16625); Lemma 3.12, p. 7 (offset 24457)",
+          "method": "Primary OA full-text comparison",
+          "title": "Relational Semantics for Flat Heyting–Lewis Logic",
+          "trigger": "Same semantics and published antecedent-disjunction condition"
+        },
+        {
+          "assessment": "Equivalent finite criterion, sharper algorithm; no priority inference",
+          "evidence": "For each t in H_x an available principal H_y contains t and is contained in H_x; witness choice and finite minimality establish both directions of equivalence to PC.",
+          "identifier_or_url": "2026/11/8/SCOPE-principal-refinement-characterization-of-finite-sharp-flat-heyti--6e67134d7067",
+          "material_read": "RESULT.md Finding and proof, offsets 0 and 4777",
+          "method": "Resultary search and local full-text mirror comparison",
+          "title": "Principal refinement characterization of finite sharp flat Heyting–Lewis frames",
+          "trigger": "Exact-looking finite correspondent and same axiom"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "An exact relational test for a natural axiom eliminates quantification over persistent valuations on arbitrary finite frames and supplies a meaningful boundary relative to the strictly stronger directedness assumption. The smallest separating fork helps exhibit that boundary. The criterion has structural and algorithmic value; this is separate from the demonstrated equivalent coverage, and no value is attributed to a claim that O(n^5) is optimal.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

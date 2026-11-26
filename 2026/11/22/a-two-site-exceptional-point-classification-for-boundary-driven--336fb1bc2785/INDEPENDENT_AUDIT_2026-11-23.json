@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:36:58.545580Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–62 and VERIFICATION.md; inspected verify.py without executing it"
+      ],
+      "rationale": "On expectations of (1, eta_1, eta_2, eta_1 eta_2) the generator is block triangular with diagonal blocks 0, M=[[-a-h,h],[h,-b-h]], and -S with S=a+b. The characteristic polynomial follows by taking block determinants. The two eigenvalues of M are distinct by h>0 and strictly negative by positive definiteness of -M; det(M+SI)=ab-hS, so the only collision is at h=ab/S. On that locus v=(a,-b) is the colliding mode, while the other nonconstant linear mode has eigenvalue -2h distinct from -S. The coupling into the pair equation is (bq,ap)v=ab(q-p). At eigenvalue -S an eigenvector in the expectation representation must have zero constant coordinate; the middle coordinate must be a multiple of v, and is allowed if and only if this coupling vanishes. Therefore the eigenspace dimensions are exactly one or two as claimed. The first moments never inherit the Jordan prefactor, and integrating the pair equation against the projected fast deviation gives the stated coefficient. At a=b=2,h=1, the empty-start mean sum and difference equal s(1-e^(-2t)) and d/2(1-e^(-4t)). Inserting them gives forcing s^2(1-e^(-2t))-d^2/2(1-e^(-4t)) in C'+4C, yielding exactly the frozen formula. With only bath a active, the quadratic cannot vanish at -a (its value is -ah) or at zero (its value is ah); hence no one-bath defect. A single-site chain with positive refresh has two distinct eigenvalues.",
+      "residual_risks": [
+        "The exact locus is for the stated positive rates and interior densities; the explicit nonvanishing empty-start coefficient is for the symmetric-rate example, not all resonant rates and initial conditions. Finite numerical checks are not used for the continuum claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3 covers bath-density invariance of the spectrum on general graphs; Lemma 8 supplies spectrum preservation, not a defect criterion.",
+          "Frassek's relevant eigenvector construction assumes nondegenerate eigenvalues."
+        ],
+        "reasoning": "Density-independent eigenvalues do include the algebraic spectrum here but leave geometric multiplicity open. Construction for nondegenerate eigenvalues does not extend by assertion to the collision.",
+        "searches": [
+          "Schulman–Sinclair arXiv:2607.22991, Theorem 3 and Lemma 8",
+          "Frassek arXiv:1910.13163, Sections 2.1–2.2"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary/SCOPE index and exact self-match 336fb1bc2785",
+        "Resultary d964f86bf714",
+        "arXiv:2607.22991",
+        "arXiv:1910.13163"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The three-site remark shows that a reversible generator and a driven one can share a spectrum yet differ in Jordan structure.",
+          "The frozen two-site collision holds equally for p=q and p≠q, but the coupling ab(q-p) distinguishes them."
+        ],
+        "reasoning": "Even the exact repeated eigenvalue plus spectral invariance cannot distinguish these two eigenspace dimensions. The pair projection and its empty-start coefficient are extra dynamical information, not consequences of the cited stationary or spectral statements.",
+        "searches": [
+          "arXiv:2607.22991, Theorem 3 and Remark 10",
+          "arXiv:1910.13163, Sections 2.1–2.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary hit with suffix 336fb1bc2785 is this record. The older tandem-process record d964f86bf714 concerns two particles on a periodic directed ring, an even-ring parity condition and rates beta/alpha=3±2 sqrt(2)."
+        ],
+        "reasoning": "Two particles on a periodic ring are not two endpoint-driven sites. Its parity witness does not determine this generator's boundary-rate resonance or double occupancy. The nearest published boundary-driven example has three vertices.",
+        "searches": [
+          "Resultary semantic search: two-site SSEP Jordan defect and exceptional-point observable",
+          "arXiv:2607.22991, Remark 10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit is a self-match, and the inspected independent examples concern a different periodic model or a three-site path."
+        ],
+        "reasoning": "No independently indexed exact two-site locus or empty-start transient formula was identified; the known examples are not entries for these rates and state space. This is a bounded check, not a claim that finite-generator tables cannot exist elsewhere.",
+        "searches": [
+          "Resultary search for two-site exclusion Jordan classification; exact hit 336fb1bc2785 and nearest related hit d964f86bf714",
+          "arXiv:2607.22991, Remark 10"
+        ]
+      },
+      "rationale": "The assessed contribution is the full two-site Jordan classification, the minimum-sized realization and the specified transient signature, not spectral invariance or the first observation of a Jordan block in exclusion dynamics. No covered equivalent or dominating implication was found in the bounded comparison.",
+      "residual_risks": [
+        "A focused primary-literature search was nondecisive. An unindexed explicit two-site transient or treatment of singular integrability parameters could give additional overlap; the inspected passages do not constitute an exhaustive priority check."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related but different state space, rates and observable",
+          "evidence": [
+            "Periodic directed tandem process, even ring size and beta/alpha=3±2 sqrt(2); staggered temporal signal."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-parity-selected-exceptional-points-in-two-particle-tandem--d964f86bf714",
+          "material_read": "Mirrored RESULT.md from offset 0, model, resonance and signal",
+          "method": "Local Resultary search and mirrored original",
+          "title": "Exact parity-selected exceptional points in two-particle tandem exclusion",
+          "trigger": "Closest independently indexed exclusion Jordan/observable hit"
+        },
+        {
+          "assessment": "Covers spectrum invariance and a larger example, not the claimed two-site classification",
+          "evidence": [
+            "Theorem 3: spectrum invariant under heat-bath temperature changes; Lemma 8: preservation criterion; Remark 10: 2-by-2 Jordan block on a three-site path."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.22991",
+          "material_read": "Theorem 3 p. 4 (text offset 21800), Lemma 8 p. 12 (50317), Remark 10 p. 13 (52871–59374)",
+          "method": "Targeted OA original PDF passage inspection",
+          "title": "Mixing times and spectra of non-equilibrium symmetric exclusion processes on general graphs",
+          "trigger": "Same dynamics and explicit defect example"
+        },
+        {
+          "assessment": "Relevant construction excludes the degeneracy needed to settle the defect",
+          "evidence": [
+            "Both passages use nondegeneracy in the eigenvector construction."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1910.13163",
+          "material_read": "Section 2.1 item (iii), p. 6 (text offset 20315); Section 2.2, p. 7 (around 25234)",
+          "method": "Targeted OA original PDF passage inspection",
+          "title": "Eigenstates of triangularisable open XXX spin chains and closed-form solutions for the steady state of the open SSEP",
+          "trigger": "Plausible general eigenvector formulas for the same boundary process"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–19 and 41–62",
+        "Schulman–Sinclair, Remark 10"
+      ],
+      "rationale": "This is the sharp minimum-size boundary for a phenomenon already seen on a larger endpoint-driven exclusion system. It gives a tunable necessary-and-sufficient defective locus and distinguishes a natural family of observables that misses the defect from one that detects it in relaxation from an elementary initial state. The small matrix is a means to that motivated boundary and observable distinction, not the contribution by itself.",
+      "residual_risks": [
+        "No claim of arbitrary-system Jordan classification, or of universal visibility for any pair observable or initial law."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

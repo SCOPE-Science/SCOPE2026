@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:48:35.101973Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 4–30 and 32–54",
+        "VERIFICATION.md and checker.py (inspected, not executed)",
+        "Independent interval-overlap derivation and rational endpoint diagnostic"
+      ],
+      "rationale": "In the stated continuous boxcar model, any window receiving positive dose from both pulses contains the intervening gap, so its exposure is ≤ W−g. Thus for g>W−q the mixed response never meets q, leaving exactly the two separate one-pulse superlevels when q≤d and no superlevel otherwise. For q≤d and g≤W−q, if the separate superlevels leave a hole, throughout that hole the first pulse's response falls at unit slope and the second rises at unit slope; their sum is W−g≥q. This yields the claimed outer endpoints. When q>d the two responses are needed; the rising and falling sides imply t≥g+q and t≤W+2d−q by the upper bound d on each single response. On that interval with g≤W−q the sum equals min(2d, W+2d−t, t−g, W−g), hence is at least q. At the critical gap the weak-threshold bridge has equality length q, and the entire strong-threshold superlevel has equality length 2d−q. Inclusion of the equality sets gives both right jumps and both component transitions, including the weak case q=d. Independent exact rational endpoint interpolation agreed in 660 cases near and at the critical gap, retaining even isolated equality points.",
+      "residual_risks": [
+        "The comparison uses ≥ and sharp equal rectangular pulses; this does not establish discontinuities for smoothed pulses, strict thresholds, or operational sampled alerts. Physical scaling by A for a DHW analogue presupposes qualifying contributing HotSpots if compared to the actual NOAA product."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "NOAA's definitions cover many sampled forcings, but specify accumulation rather than closed-superlevel geometry. The Leng–Li hit takes a maximum over decompositions, not the ordinary integral convolution defining H_g."
+        ],
+        "reasoning": "Standard linearity reduces the problem to two translated single-pulse responses, but does not determine the number of components, the regime at equality, or the duration loss. No inspected stronger theorem evaluating those features for the same operation and inputs was found.",
+        "searches": [
+          "Liu et al. 2014, §§2.3.3–2.3.4 and Table 2",
+          "NOAA Technical Report NESDIS 143, §2.5",
+          "Leng and Li, arXiv:2606.10518, initial convolution definitions"
+        ]
+      },
+      "checked_sources": [
+        "Published Resultary/SCOPE catalogue, exact self-hit 9dc146dfc8e1",
+        "The inspected NOAA, Liu, Little, and Leng–Li passages listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Little et al. notes that stress accumulated in four weeks can remain in a 12-week DHW index for a further eight weeks. This already gives the qualitative memory phenomenon.",
+          "The critical plateau uses cancellation of two ramps at g=W−q, and its role changes at q=d because one pulse meets the threshold only in the weak regime."
+        ],
+        "reasoning": "Residual stress from a trailing window is covered. The distinct contribution is the exact loss and branch topology for this two-pulse gap sweep; the persistence example neither states nor entails them without the model-specific overlap analysis.",
+        "searches": [
+          "Little et al. 2022, Detection window analysis",
+          "NOAA 2013 §2.5 and Liu et al. 2014 §2.3.3",
+          "RESULT.md, weak and strong threshold cases"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Replacing the model by the sum of two translated trapezoids is exactly equivalent. NOAA's sampled sum is not mathematically identical: Liu et al. (2014) §2.3.3 specifies an 84-day sum over qualifying samples, scaled by 1/7.",
+          "Little et al. (2022), Detection window analysis, discusses residual rolling stress but not the equal-rectangle threshold-set geometry."
+        ],
+        "reasoning": "Compare at fixed positive continuous threshold and with equality counted. A sampled trailing average or a full DHW/HotSpot alert is a different set; prior qualitative persistence does not resolve the merging or disappearance boundary.",
+        "searches": [
+          "Resultary searches for exact rolling heatwave threshold-duration jumps and related two-pulse DHW records",
+          "Primary literature search for two rectangular pulses, boxcar convolution, and level-set duration"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact Resultary record 9dc146dfc8e1 is the assigned self-hit. Two focused catalogue queries brought up no distinct materially matching result. The inspected NOAA calculation and alert tables do not tabulate this continuous pulse-gap sweep."
+        ],
+        "reasoning": "A matching self-hit is not independent prior evidence, and a search miss is not proof of novelty. Operational alert thresholds are not a table of the model's critical g or its jump magnitudes.",
+        "searches": [
+          "Resultary: exact threshold-duration jumps and marine heatwave two-pulse accumulation",
+          "Primary search for the two-rectangle level set and duration formula"
+        ]
+      },
+      "rationale": "The inspected literature covers the rolling accumulation and persistence of residual stress; it does not give or directly evaluate this all-gap closed-superlevel classification and its two opposite pretransition slopes and exact jumps. The distinct supported claim is the two-pulse level-set geometry in the continuous model, not the rolling index itself or boxcar convolution.",
+      "residual_risks": [
+        "Earlier equivalent pulse-response calculations may be indexed in other applications rather than the rolling-DHW literature. The bounded comparison is not historical priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers rolling accumulation and residual DHW, not the gap-jump formulas",
+          "evidence": "12-week sum of 24 twice-weekly HotSpots ≥1 °C; DHW may remain nonzero after current HotSpot decreases.",
+          "identifier_or_url": "https://coralreefwatch.noaa.gov/satellite/publications/NOAA.Tech.Report.143.pdf",
+          "material_read": "§2.5, PDF p. 8, around text offset 38017",
+          "method": "Lawful OA report passage",
+          "title": "NOAA Coral Reef Watch 50 km Satellite Sea Surface Temperature-Based Decision Support System for Coral Bleaching Management",
+          "trigger": "Earlier primary definition of rolling DHW"
+        },
+        {
+          "assessment": "Daily sampled sum and separate alert criteria",
+          "evidence": "Qualifying HotSpots over 84 days are summed and scaled by 1/7. Full alert criteria also look at contemporaneous HotSpot.",
+          "identifier_or_url": "https://doi.org/10.3390/rs61111579",
+          "material_read": "§2.3.3, PDF p. 10, offset 29596; §2.3.4 and Table 2, offset 32565",
+          "method": "Lawful OA article passages",
+          "title": "Reef-Scale Thermal Stress Monitoring of Coral Ecosystems: New 5-km Global Products from NOAA Coral Reef Watch",
+          "trigger": "DHW algorithm and alert thresholds"
+        },
+        {
+          "assessment": "Qualitative memory is prior; no exact two-pulse critical gap or losses in the inspected discussion",
+          "evidence": "Four weeks of accrued stress can remain represented for a further eight weeks in the 12-week index.",
+          "identifier_or_url": "https://doi.org/10.3389/fmars.2022.883271",
+          "material_read": "Detection window analysis, PDF p. 4, offset 17871",
+          "method": "Lawful OA article passage",
+          "title": "Global coral bleaching event detection from satellite monitoring of extreme heat stress",
+          "trigger": "Most closely related prior rolling-window persistence effect"
+        },
+        {
+          "assessment": "Operational method differs from the idealization",
+          "evidence": "Uses a daily 12-week accumulation of qualifying values.",
+          "identifier_or_url": "https://www.coralreefwatch.noaa.gov/product/5km/methodology.php",
+          "material_read": "§6, offsets 29497 and 32877",
+          "method": "Lawful public methodology page",
+          "title": "NOAA Coral Reef Watch daily 5-km methodology",
+          "trigger": "Operational comparison for the model"
+        },
+        {
+          "assessment": "Different convolution operation",
+          "evidence": "The operation takes a maximum over decompositions, not an integral convolution with the ordinary boxcar kernel.",
+          "identifier_or_url": "https://arxiv.org/html/2606.10518",
+          "material_read": "Definitions and displayed operations, offsets 310–1925",
+          "method": "Lawful OA article passages",
+          "title": "Two Integral Sliding-Window Inequalities for Maximal Convolutions",
+          "trigger": "Plausible general sliding-window theorem from primary search"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, stated two-pulse setting and worked 12-week examples",
+        "NOAA DHW method and Little et al. detection-window discussion"
+      ],
+      "rationale": "Two rectangular pulses are a motivated controlled test of the difference between unchanged thermal dose and a duration reported by a rolling threshold. The natural outputs are not just the convolution but the separation at which one reported episode splits or vanishes, and the exact loss at that boundary. The weak and strong thresholds have opposite slopes before the jump; this is useful for benchmarking threshold implementations and interpreting this idealized diagnostic. The claim is modest and does not assert new convolution theory or biological prediction.",
+      "residual_risks": [
+        "The exact jumps depend on nonzero equality plateaus; there is no demonstrated operational alert or biological transfer."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

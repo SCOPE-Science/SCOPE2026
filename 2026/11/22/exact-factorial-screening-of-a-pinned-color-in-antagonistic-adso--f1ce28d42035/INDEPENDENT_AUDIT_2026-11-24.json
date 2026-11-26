@@ -1,0 +1,170 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:42:45.817852Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md equations (1)–(4), Proof §§1–4, VERIFICATION.md and verify_seed_response.py (read, not executed)",
+        "Independent replay: python3 /workspace/reproductions/geometry_and_dynamics.py adsorption; all full rank orders and mark assignments for n=1..6 at t=1, three rational biases, evaluated by recursive earlier-neighbor queries"
+      ],
+      "rationale": "Earlier-arrival dependence stops almost surely: a chain of length m avoiding the pinned site must use distinct sites and have strictly ordered continuous times; the union bound decays factorially. In the vacant-boundary cavity, conditioning on the endpoint's one attempt gives a′=α(1−b), b′=β(1−a), with zero initial data. Solving gives h_A=1−b as stated, and h_A(u)≥1−βu>0. An independent reconstruction avoids assuming independence along a conditioned disagreement path: in a segment of n unpinned sites with a seed on the left and a free right endpoint, the endpoint marginal differences satisfy D′_(n,A)=−αD_(n−1,B), D′_(n,B)=−βD_(n−1,A), with D_(0,A)=1 and D_(0,B)=−1 and zero initial differences for n>0. The endpoint is vacant until its own attempt, proving the recurrence. On the infinite half-line, conditioning on the attempt at site d separates that finite left segment from the independent right cavity, so R′_(d,A)=−α h_A D_(d−1,B). The recurrence gives precisely the alternating-mark factor times u^(d−1)/(d−1)! and yields (1), including d=1 and t=0. The normalized Beta(d,1) time integral concentrates at t, giving (2). Splitting into odd and even d gives (3), justified locally uniformly by factorial domination. For α=β, h_A=e^(−u/2), the formula gives the removable value t/2 at z=1; reflection gives two copies and the seed contributes one, so the full-line A change is 1+t and the B change is its negative by color symmetry. A separate exact finite replay, not the supplied script, found agreement for all 63 endpoint-time finite-path cases it tested.",
+      "residual_risks": [
+        "Finite replay is corroboration, not evidence for a generalization to different attempt rules, clocks, or multiple seeds.",
+        "For unequal proposal biases the B response has the opposite sign but need not be equal in magnitude; the exact negative full-line identity stated here is at balance."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The one-rate dimer defect concerns activated edges and alternating sign; the same-date tree rate defect has one species. Primary graph RSA constructions do not give a general two-color swap kernel; the repeated-attempt model has a different causal rule."
+        ],
+        "reasoning": "Factorial decay driven by ordered arrival histories is common, but the different perturbations, attempt rules, graphs and observables do not dominate the pinned A versus B path process or evaluate its coefficient.",
+        "searches": [
+          "Resultary localized rate defects and factorial screening; Penrose–Sudbury arXiv:math/0503519; Martins–Dickman–Ziff arXiv:2211.04622; do Amaral–dos Santos arXiv:2210.05627"
+        ]
+      },
+      "checked_sources": [
+        "Cited OA papers and actual Resultary Findings and proof passages above; local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Covariance Proof §1 states exactly cosh(γu)−√(β/α)sinh(γu), and cluster Proof §1 has the same one-sided cavity calculation."
+        ],
+        "reasoning": "These directly give the one-neighbor response upon a pin, which is not separately claimed. The all-distance result additionally tracks how the two boundary laws differ across the finite segment between root and target and integrates against the known cavity. The inspected older statements neither evaluate that difference nor give the balanced total.",
+        "searches": [
+          "Prior second-neighbor covariance, Proof §1; prior cluster law, Proof §1; arXiv:2306.09786 §§2–3 and Eq. (1)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2306.09786 Eq. (1) and §§2–3 treat unseeded one-site densities; the cluster and second-neighbor records treat unseeded full-line probabilities."
+        ],
+        "reasoning": "Conditioning on an ordinary root occupation can bias marks and arrivals on the adjacent halves. Preoccupying a root at a fixed time with the rest sampled independently is a different intervention, not an equivalent statement of an unseeded marginal or correlation.",
+        "searches": [
+          "Resultary: pinned/preoccupied site color swap, localized AB intervention, factorial spatial response; arXiv:2306.09786 same-model causal histories"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Top exact match is the assigned record itself. The prior finite-cycle factorial result is a terminal coverage correction; unseeded cluster/covariance and same-day vacant-pair conditional law are different tabulated observables."
+        ],
+        "reasoning": "None is a table or kernel for the full-line pinned intervention with the two preoccupied boundary choices; the exact self-hit is not independent priority evidence.",
+        "searches": [
+          "Resultary: pinned-color factorial screening, one-shot AB cluster and covariance laws, finite-cycle exact response"
+        ]
+      },
+      "rationale": "The exact same-model cavity function, arrival-order method, and the one-neighbor implication are prior ingredients. Actual comparison supports a distinct all-distance pinned-color response and its sharp normalization and balanced sum, not novelty of cavity shielding or of factorial screening in general.",
+      "residual_risks": [
+        "Comparison of primary full texts and focused indexed results does not rule out an uncited boundary-response calculation.",
+        "Same-date analogues were checked for equivalent content; no relative priority was inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model and underlying method; unperturbed one-site observable",
+          "evidence": "At balance the ordinary density is (1−e^(−t))/2. The causal histories resolve occupation of the ordinary target, not a response to a forced origin.",
+          "identifier_or_url": "arXiv:2306.09786",
+          "material_read": "pp. 1–2 model and Eq. (1), §§2–3 pp. 3–6",
+          "method": "OA PDF passage comparison",
+          "title": "One-dimensional AB random sequential adsorption with one deposition per site",
+          "trigger": "Identical unseeded one-attempt dynamics and causal history calculations"
+        },
+        {
+          "assessment": "Exact ingredient already known, different theorem",
+          "evidence": "Uses cosh(γu)−√(β/α)sinh(γu) to obtain unseeded distance-two same-color covariance.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-second-neighbor-correlation-in-one-shot-antagonistic-adsor--b16701b2c768",
+          "material_read": "RESULT.md Finding and Proof §1 One-sided shielding",
+          "method": "Local Resultary mirror",
+          "title": "Exact second-neighbor correlation in one-shot antagonistic adsorption",
+          "trigger": "Same model and exact cavity formula"
+        },
+        {
+          "assessment": "Unseeded cylinders and clusters, prior cavity recurrence",
+          "evidence": "Computes occupation and cluster probabilities of same-color contiguous blocks, not a difference under pinned colors.",
+          "identifier_or_url": "2026/11/1/SCOPE-exact-geometric-tails-for-same-species-clusters-in-one-shot-anta--04ec1f49bc46",
+          "material_read": "RESULT.md Finding and Proof §1 A one-sided boundary calculation",
+          "method": "Local Resultary mirror",
+          "title": "Exact geometric tails for same-species clusters in one-shot antagonistic adsorption",
+          "trigger": "Closest same-process framework"
+        },
+        {
+          "assessment": "Different finite-size statistic",
+          "evidence": "Parity-dependent correction to total terminal coverage on cycles, not a spatial susceptibility.",
+          "identifier_or_url": "2026/11/8/SCOPE-strict-factorial-finite-cycle-excess-in-balanced-one-attempt-ant--f5f37a6bc0ec",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "Strict factorial finite-cycle excess in balanced one-attempt antagonistic adsorption",
+          "trigger": "Same process, balance and factorial scaling"
+        },
+        {
+          "assessment": "Methodological analogue, no equivalent coverage",
+          "evidence": "Altered rate on one dimer edge and edge-occupation response with alternating sign.",
+          "identifier_or_url": "2026/10/26/SCOPE-alternating-factorial-screening-of-one-anomalous-dimer-adsorptio--62931be7f8b0",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "Alternating factorial screening of one anomalous dimer-adsorption bond",
+          "trigger": "Closest one-dimensional localized factorial defect response"
+        },
+        {
+          "assessment": "Conditional terminal law, not pinned process",
+          "evidence": "The two sides become conditionally independent given two consecutive terminal vacancies.",
+          "identifier_or_url": "2026/11/22/SCOPE-double-vacancy-shielding-and-sharp-species-bias-attenuation-in-a--871c3a75dbeb",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "Double-vacancy shielding and sharp species-bias attenuation",
+          "trigger": "Distinct same-date same-model shielding claim"
+        },
+        {
+          "assessment": "Different graph, marks and intervention",
+          "evidence": "One-species regular tree with one altered clock and an alternating response.",
+          "identifier_or_url": "2026/11/22/SCOPE-parity-and-sharp-factorial-screening-of-a-single-adsorption-rate--23985ac98f83",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "Parity and sharp factorial screening of a single adsorption-rate defect",
+          "trigger": "Distinct same-date factorial susceptibility"
+        },
+        {
+          "assessment": "One species, no A/B pin",
+          "evidence": "Acceptance requires both neighbors vacant; computes density and correlation.",
+          "identifier_or_url": "arXiv:2210.05627",
+          "material_read": "pp. 1–3",
+          "method": "OA PDF passage comparison",
+          "title": "Density and correlation in a random sequential adsorption model",
+          "trigger": "Possible related nearest-neighbor result"
+        },
+        {
+          "assessment": "Different attempt rule and observable",
+          "evidence": "Rejected sites can be tried again; one-dimensional discussion concerns saturation coverage.",
+          "identifier_or_url": "arXiv:2211.04622",
+          "material_read": "§II pp. 2–3",
+          "method": "OA PDF passage comparison",
+          "title": "Percolation in two-species antagonistic random sequential adsorption in two dimensions",
+          "trigger": "Possible alternative two-color adsorption formulation"
+        },
+        {
+          "assessment": "Broader construction context, different models",
+          "evidence": "Defines one-species blocking, dimer and annihilation processes, not the two-color pin response.",
+          "identifier_or_url": "arXiv:math/0503519",
+          "material_read": "pp. 3–5",
+          "method": "OA PDF passage comparison",
+          "title": "Exact and approximate results for deposition and annihilation processes on graphs",
+          "trigger": "Potential graph-wide covering theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding (1)–(4)",
+        "Same-model one-site densities and unseeded correlation baseline"
+      ],
+      "rationale": "A forced color swap is a natural distinction from observing unperturbed cluster or correlation statistics. The exact spatial profile and positive sharp factorial prefactor quantify how strongly the rule screens that local intervention. Summing the complete profile at balance gives a simple susceptibility unavailable from a bound on influence alone.",
+      "residual_risks": [
+        "The interpretation is for this one-dimensional one-attempt model, not repeated adsorption or a general theory of many defects."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:54:44.412249Z",
+  "axes": {
+    "correctness": {
+      "rationale": "This pass applies to the complete corrected RESULT.md, not an unrestricted reading of the frozen relaxation paragraph. The frozen paragraph sets theta but does not reinstate q=1/2 after discussing other orientations, whereas its proof uses lambda tending to zero and the balanced norm coefficient. The relaxation assertion as stated for arbitrary fixed q fails: set alpha=1, beta=3, v=e1 and omega=0 in the two stages. They give H=diag(0,-1/2) for every t, so the first norm divided by t tends to 0 rather than 1/4 and the radius stays 1/2 rather than tending to 0. The repair explicitly fixes the balanced overlap in the relaxation finding and proof; the exact orientation formulas remain valid for all q. Subtracting the true fixed point and eliminating the half step yields G=theta I+(1-theta)C^{-1}DB with D=d e2 e2^T. Its rank-one trace and the product of its generating vector norms give the orientation laws. Their dependence on q(1-q) proves the strict opposite extrema in q, not uniqueness of a signed vector v. At balance, H^k=lambda^(k-1)H gives the unrelaxed stiff limits, and direct substitution gives the angular-window result. The repaired relaxed proof uses the two eigenvalues and the binomial coefficient p_k(lambda), with lambda tending to zero specifically at balance. The reverse-triangle bound and the uniform k r^(k-1) tail for fixed theta<1 justify the limit of the supremum, including theta=0. The ratio theta(k+1)/k certifies the leading index and integer ties. Independently reconstructing the two stage solves confirmed the examples: at alpha=1,beta=3,q=1/2,t=1000, ||H||/t≈0.250000375 and ||H²||≈0.125000125; at theta=3/4 the leading coefficient is 27/256, tied at k=3,4, not at finite t. Direct replay inputs are the two displayed stages with these values, or alpha=1,beta=3,v=e1,omega=0 for the scope counterexample. The frozen `verify.py` was inspected, not run. The repaired file retains and proves the fixed-t transformed contraction; no claim extends to joint theta approaching one or to higher-dimensional systems.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The GADI convergence theorem and the HSS-map link provide asymptotic or transformed-norm control, but not the Euclidean overlap-dependent coefficient in the inspected text.",
+          "Continuous-time Jordan peak norms concern an exponential semigroup, not the discrete stiff family or a Euclidean orientation law."
+        ],
+        "reasoning": "Known contraction in a similarity-transformed norm is compatible with increasing norm equivalence constants and does not directly control this sharp Euclidean balance. HSS full text remained inaccessible; possible further specializations in it are not asserted absent.",
+        "searches": [
+          "Zhang and Xun Theorem 2",
+          "Bertaccini et al. DOI 10.1007/s00211-004-0574-1, same-paper publisher, Citeseer and repository routes",
+          "Resultary continuous-time stable Jordan-block peak record 2026/9/9/SCOPE008"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (read only); corrected RESULT.md reassessed",
+        "Zhang and Xun arXiv:2404.12160",
+        "Bertaccini et al. DOI 10.1007/s00211-004-0574-1 (limited access)",
+        "Resultary 2026/10/13 discrete Follow-the-Ridge finding; 2026/9/9/SCOPE008 as a scope comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Affine relaxation of a rank-one HSS map leads to a standard binomial divided difference, and a repeated eigenvalue gives the same leading peak-index ratio.",
+          "The prior GADI passage does not give the two exact opposed orientation extrema, the window q=1/2+eta alpha/t or the coefficient |d|/(2 alpha) with uniform control for this parameter family."
+        ],
+        "reasoning": "Credit the affine iteration, transformation, and generic time profile. The exact family-specific sharp laws, including the nonzero limit of the second unrelaxed power and the uniform peak coupling, require the proved singular-value and eigenvalue relationships. The corrected claim does not assert a general new Jordan theorem.",
+        "searches": [
+          "Zhang and Xun Eq. (7), Thm. 2 proof; Resultary 2026/10/13 Follow-the-Ridge RESULT.md; HSS source access comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original GADI iteration matrix equals an affine relaxation of the original HSS map, exactly the reduction used here.",
+          "The coefficient k theta^(k-1) is the scalar-power divided difference at coalescent eigenvalues; the closest Follow-the-Ridge result contains the identical repeated-eigenvalue sequence."
+        ],
+        "reasoning": "Renaming the method or the power factor would not distinguish a contribution. The GADI-specific dependence on the overlap with a curvature eigendirection, and the quantified Euclidean stiff limit after tuning it, are not given by the compared scalar power formulas.",
+        "searches": [
+          "Zhang and Xun arXiv:2404.12160, Eq. (7) and Theorem 2",
+          "Focused primary search on GADI, HSS, nonnormal transients and orientation",
+          "Resultary: large transient, stable spectral radius, repeated/Jordan modes, and GADI"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest retrieved indexed result gives large amplification at fixed repeated eigenvalues for a scalar quadratic Follow-the-Ridge model, not the GADI parameters or stiff limits.",
+          "No matching GADI orientation or peak statement was identified among the checked indexed material."
+        ],
+        "reasoning": "The fixed-orientation power norm is an operator identity and the peak is an analytic supremum, not a table lookup. A mechanism-level match was identified, but it supplies no GADI-specific invariant.",
+        "searches": [
+          "Resultary: Follow-the-Ridge can hide arbitrarily large transients behind a stable spectral radius; GADI/HSS nonnormal transients and peak powers"
+        ]
+      },
+      "rationale": "For the corrected planar family, the verified distinct results are the opposite exact overlap extrema for Euclidean one-step norm and spectral radius, the tuned angular window and stiff power limits, and their exact balanced relaxation peak across all iteration counts. The GADI/HSS relation, convergence, and the generic k theta^(k-1) Jordan mechanism are not novel. The strongest materially related indexed finding was compared at the statement level and uses a different iteration; no implication-equivalent special case for GADI was found in the inspected passages. This is not an exhaustive priority claim.",
+      "residual_risks": [
+        "Full material comparison to the HSS paper was blocked by lawful access; it or equivalent specialized earlier analyses may overlap.",
+        "Focused literature results were noisy. No global priority or independent formal verification is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior algorithm, affine relaxation and convergence coverage, not the asserted Euclidean stiff laws in the passages read",
+          "evidence": [
+            "Writes M(alpha,omega) as one half of (2-omega) times the HSS iteration matrix plus omega I."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2404.12160",
+          "material_read": "p. 5 Eq. (7) at text offset 11755; p. 8 Theorem 2 and proof at 20585",
+          "method": "Open primary PDF passages",
+          "title": "A general alternating direction implicit iteration method for solving complex symmetric linear systems",
+          "trigger": "Same iteration and possible exact transient coverage"
+        },
+        {
+          "assessment": "Material HSS comparison remains limited; GADI primary source independently confirms the HSS-map link",
+          "evidence": [
+            "Cited for HSS and transformed-norm analysis; no inference from the failed full-text retrieval about what else is present."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00211-004-0574-1",
+          "material_read": "Citation and scope; no readable full text obtained",
+          "method": "Lawful DOI, identified Citeseer and repository attempts",
+          "title": "Preconditioned HSS methods for the solution of non-Hermitian positive definite linear systems and applications to the discrete convection-diffusion equation",
+          "trigger": "Original HSS formulation and nonnormal analysis, possible specialized transient overlap"
+        },
+        {
+          "assessment": "Genuine mechanism overlap, but a different model and no GADI orientation or stiffness claim",
+          "evidence": [
+            "The scalar quadratic Follow-the-Ridge example has a repeated-eigenvalue k r^(k-1) transient with unbounded coefficient at fixed eigenvalues."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-follow-the-ridge-can-hide-arbitrarily-large-transients-behind-a--9a4e22d47ec9",
+          "material_read": "Mirrored RESULT.md beginning and text near offset 1267",
+          "method": "Local Resultary and mirrored finding comparison",
+          "title": "Follow-the-Ridge can hide arbitrarily large transients behind a stable spectral radius",
+          "trigger": "Closest indexed discrete nonnormal and repeated-eigenvalue peak result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The corrected claim quantifies a meaningful conflict for a natural family of an existing solver: the overlap minimizing the spectral radius maximizes the first Euclidean step, and relaxation spreads the stiff amplification over a precisely predicted iteration horizon. The derived coefficient is useful beyond the generic Jordan explanation because it fixes the size and leading peak for these solver parameters. Balance is a mathematical condition, not a post hoc performance disclaimer; the result preserves the weighted-norm contraction and makes no unsupported numerical-stability or convergence failure claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,21 +1,7 @@
-# Scientific review
+# Scientific assessment
 
-## Correctness — PASS
+**Correctness — PASS.** Conditional binomial counts and independent catalyst weights give an exact joint generating function. Dominated convergence for the Pareto rescaling, followed by the logarithm expansion and asymptotics of the word and ordered-split counts, determines its lattice-sensitive limit. The diverging offsets are handled via the zero-event formula. The restricted RAF comparison is a direct consequence of the known zero-one criterion reparameterized to the restricted subsystem.
 
-The count of distinct ordered ligations is \(R_\ell=\sum_{j=2}^\ell(j-1)\kappa^j\). Given one Pareto molecular weight, each of these distinct reactions is catalyzed independently with probability \(1-e^{-\lambda_nW/N_n}\), giving the exact binomial generating function. The change of variables and integrable bound \(\min\{1,v\}v^{-\alpha-1}\), for \(0<\alpha<1\), justify the integral limit without substituting numerical evidence for an infinite proof. Independence between molecules yields both the marked compound Poisson limit and Poisson active-catalyst law. Direct asymptotic expansion of \(N_\ell\) and \(R_\ell\) identifies the linear fraction, logarithmic shift and lattice correction. A short RAF necessarily contains a short catalytic incidence; the cited full-network existence theorem supplies nonvacuity. The standard-library checker confirms the exact finite example and algebraic reductions but is not an infinite certificate.
+**Originality — PASS for the incidence-window result on the inspected evidence.** The previous full- and restricted-system RAF existence criteria imply a stronger length obstruction than the simple absence of short incidences and are not claimed as new. The prior single-catalyst degree tail is at a different normalization with growing count thresholds; the model-specific rare-event joint law and logarithmic internal length scale are not given by that result. The Sibuya distribution, stable generating function and Poisson limit machinery are standard. Possible equivalent asymptotic formulations outside the checked literature remain a priority risk.
 
-## Originality — PASS, with residual priority risk
-
-Compared directly with Kim and Sönmez (2026), their Theorem 8 determines full-network RAF existence, Theorem 5 treats the single-molecule degree tail in another normalization, and Proposition 10 establishes a supercatalyst regime. None is equivalent to the short-reaction/short-molecule compound Poisson count, its sharp logarithmically shifted length window, and the resulting lower bound for every RAF's maximum molecular length. Hordijk and Steel (2016) cover different variable-rate allocations and RAF sizes; Steel, Hordijk and Smith (2012) give minimum RAF reaction-count bounds, not this length cutoff; and the 2019 diversity study varies the ambient maximum polymer length under constant catalysis. All are pertinent but do not directly dominate the final statement.
-
-Standard Sibuya laws and Poisson rare-event limits are prior mathematics. Possible unindexed regular-variation and RAF-length equivalences are explicitly acknowledged; no novelty is claimed solely from an unsuccessful database search.
-
-## Value — PASS
-
-The recent weighted-catalysis research poses the problem of whether a small number of catalysts can sustain RAFs. This theorem answers a separate structural question: at what molecular scale catalytic links first exist, how many unusually productive short catalysts appear there, and why a globally supercritical RAF still cannot be entirely made of too-short molecules. The exact logarithmic term and nondegenerate marked critical law differentiate finite-window behavior from a coarse linear bound. It provides a mathematical benchmark for numerical RAF-length sampling, without claiming the necessary condition suffices or predicting real chemical emergence.
-
-## Risks and limits
-
-The statement relies on forward-only ligations, independent weights, a diffuse kernel and \(0<\alpha<1\). Lattice cutoff offsets can prevent convergence to one fixed critical distribution. Other unindexed material could contain the same reduction; independent assessment remains outstanding.
-
-Self-review: passed. Independent audit: not yet performed.
+**Value — PASS.** The exact internal scale and compound law distinguish the onset of any catalytic relation from the emergence of a self-sustaining set in the model. They quantify both the lattice window and the separation from the known RAF scale, and provide a precise benchmark for sparse catalyst counts without equating the two onsets. There is no empirical implication about chemical systems.

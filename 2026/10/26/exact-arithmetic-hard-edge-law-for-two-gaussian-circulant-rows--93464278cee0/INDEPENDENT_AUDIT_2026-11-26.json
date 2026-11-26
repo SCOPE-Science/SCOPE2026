@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:16:30.864018Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–43",
+        "Frozen VERIFICATION.md, VERIFY.py and requirements.txt",
+        "reproductions/independent_finite_checks.py"
+      ],
+      "rationale": "The two Gram diagonals are ||g||^2 and the off-diagonal is g^T C g for C=(S+S^T)/2. The lower eigenvalue is the minimum of the forms I-C and I+C. Each of d cycles has the L cosine eigenvalues, giving the I-C nullity d and the I+C nullity d only for even L. On each cycle the nonzero product for I-C is L^2/2^(L-1): taking absolute squares in the roots-of-unity identity prod_(j=1)^(L-1)(1-exp(2 pi i j/L))=L proves it. When L is even the alternating signs conjugate I+C to I-C. On the positive k-dimensional eigenspace Gaussian density at zero times the ellipsoid volume gives t^k/[2^(k/2) Gamma(k/2+1) sqrt(pseudodet)]. For odd L the other event is O(t^m); for even L their intersection implies ||g||<=t by summing the forms, hence is again O(t^m). The leading positive coefficient proves full row rank a.s. and the pseudoinverse moment cutoff by the tail integral, with logarithmic divergence at equality. Independently, write g=Ru with R independent of u; for p<m, E R^(-p) is positive finite and factors exactly from E sigma_min(g)^(-p). On the sphere, 1<=sigma_max(u)<=sqrt(2), so the same criterion holds for the condition number at p<m. For p>=m divergence follows from the already divergent p=k moment and kappa>=1. At m=2,r=1 the two singular forms give independent absolute coordinates scaled by sqrt(2), consistent with the coefficient 2/sqrt(pi). An independent exact cofactor check on signed cycle Laplacians passed 212 cases for 2<=m<=18, including the two-cycle parallel-edge convention; replay with python3 /workspace/reproductions/independent_finite_checks.py. The frozen verifier was read, not run; its numerical and positivity checks do not prove the hard edge.",
+      "residual_risks": [
+        "Fixed m and r only. Real standard Gaussian generator, dependence from one cyclic shift, no norm rescaling and two rows exactly."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Onatski–Kargin study the real Gaussian row model, with p,n growing proportionally; their adjacent two-row specimen would be in the matrix family but outside that limit theorem.",
+          "Krahmer–Mendelson–Rauhut Theorem 1.1 is normalized partial-circulant RIP with a Rademacher generator. Barrera–Manrique-Mirón Theorem 1.2 concerns a full growing circulant. Saibaba–Międlar Theorem 3.3 gives independent-entry sub-Gaussian approximation bounds."
+        ],
+        "reasoning": "The broader ensembles or approximation frameworks do not yield the fixed m,r, t-down-to-zero coefficient or sharp moment endpoints.",
+        "searches": [
+          "arXiv:2412.17091v3 / DOI:10.1214/25-EJP1462",
+          "arXiv:1207.0235v3",
+          "arXiv:2109.02282v3",
+          "arXiv:2308.05814v1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 9116deeb1835 and 5fb2ea549d24",
+        "arXiv:2412.17091v3",
+        "arXiv:1409.4941v1",
+        "arXiv:1207.0235v3",
+        "arXiv:2109.02282v3 Theorem 1.2",
+        "arXiv:2308.05814v1 Definition 3.2 and Theorem 3.3",
+        "arXiv:1402.4492v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The spherical law yields the angular problem for a specified symmetric matrix, but evaluating the departure from the repeated extrema, determining when minus one is attained, and moving from the spherical statistic to the unnormalized Gaussian edge are still needed here.",
+          "Projection density bounds of Rudelson–Vershynin do not imply an exact leading constant; changing nonperiodic Hankel overlap to circular overlap changes the kernel geometry. Complex phase arithmetic is a different probability law."
+        ],
+        "reasoning": "Generic ellipsoid and Dirichlet inputs are credited; there is no identified existing complete repeated-cycle arithmetic law. The overlap at gcd=1 in the Hankel exponent and an exact coefficient for a different phase ensemble do not imply the frozen result.",
+        "searches": [
+          "arXiv:1409.4941 §2 and Theorem 14",
+          "arXiv:1402.4492v2 Theorem 1.1",
+          "Resultary 9116deeb1835 and 5fb2ea549d24 Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The angular form is exactly the real numerical shadow u^T C u; sigma_min(H)^2=R^2(1-|u^T C u|) with independent chi-square R^2. Dunkl et al. Theorem 14 supplies angular density formulas; its discussion after Corollary 13 distinguishes repeated knots (unequal multiplicities need care).",
+          "Resultary 9116deeb1835 has a noncircular overlapping vector of length m+1 and two-sided t^(m-1) bounds for real data, not the cyclic model."
+        ],
+        "reasoning": "Credit the normalized quadratic-form representation as prior. Angular density calculations do not directly give the unnormalized hard edge with two possible boundary contributions and an evaluated repeated-cycle pseudodeterminant. The negative query result on circular autocorrelation is not evidence of absence.",
+        "searches": [
+          "Resultary local comparison: exact fixed-size least singular value and inverse moments of two real Gaussian shifted rows",
+          "Web query: \"circular sample autocorrelation\" Gaussian finite sample exact distribution cyclic shift cosine small ball smallest singular value two rows circulant fixed lag",
+          "arXiv:1409.4941, real numerical shadow and repeated knots"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest indexed 9116deeb1835 has matching real coprime power and no exact leading constant. Indexed 5fb2ea549d24 does give an exact tail coefficient, for two complex phase frequencies with iid uniform phases instead."
+        ],
+        "reasoning": "Neither nearby catalogue law is an exact match for this arithmetic family. The present result is an all-parameter closed expression, not a lookup of a dimension-specific table.",
+        "searches": [
+          "Resultary local comparison: shifted Gaussian circulant two rows, gcd/parity coefficient and exact condition moments"
+        ]
+      },
+      "rationale": "Pass for the explicit fixed-size unnormalized shifted-row arithmetic law, not for Gaussian ellipsoid small-ball geometry, generic quadratic-form distributions, or Fourier diagonalization. The closest Hankel result agrees with the coprime exponent but changes the dependence, gives bounds rather than the coefficient, and has no cyclic parity. The closest Gaussian rectangular circulant paper treats growing aspect ratio, not this hard edge. The real numerical shadow is a known equivalent angular variable and gives a general distributional representation; the contribution here is the explicit two-endpoint repeated-spectrum and radial small-value analysis with the arithmetic constant, not a new angular distribution principle. No inspected source covers that full law as a straightforward parameter substitution.",
+      "residual_risks": [
+        "Specialized finite cyclic Gaussian autocorrelation, repeated-spectrum quadratic-form or structured-sketch literature could contain a direct earlier equivalent. No priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial exponent overlap, different noncircular estimator",
+          "evidence": [
+            "An m+1-variable Hankel window, t^(beta(m-1)) order bounds, no sharp coefficient. Same displayed date does not establish a priority relation."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sharp-real-complex-inverse-moment-thresholds-for-two-row-gaussia--9116deeb1835/RESULT.md",
+          "material_read": "Local-mirror Finding and Assumptions",
+          "method": "Local mirror RESULT.md",
+          "title": "Sharp real/complex inverse-moment thresholds for two-row Gaussian Hankel matrices",
+          "trigger": "Closest two-row Gaussian inverse-moment result"
+        },
+        {
+          "assessment": "Different generator and sketch",
+          "evidence": [
+            "Complex two-frequency iid phase model, Gram edge exponent (L-1)/2; not the real Gaussian row-shift law."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-small-singular-tails-and-inverse-moment-thresholds-for-a-c--5fb2ea549d24/RESULT.md",
+          "material_read": "Local-mirror Finding and Assumptions",
+          "method": "Local mirror RESULT.md",
+          "title": "Sharp small singular tails and inverse moment thresholds for a circular sketch",
+          "trigger": "Exact circular-sketch analogue"
+        },
+        {
+          "assessment": "Same family with different asymptotic regime",
+          "evidence": [
+            "Normalized smallest Gram eigenvalue studied with p,n tending to infinity and p/n tending to positive c, not a finite two-row threshold."
+          ],
+          "identifier_or_url": "arXiv:2412.17091v3; DOI:10.1214/25-EJP1462",
+          "material_read": "Model and limiting assertions, pp. 1–2; OA passages at offsets 0, 2500, 6200 and 10000",
+          "method": "OA arXiv PDF after journal route yielded a landing page",
+          "title": "The smallest singular value of large random rectangular Toeplitz and circulant matrices",
+          "trigger": "Same Gaussian rectangular circulant ensemble and edge observable"
+        },
+        {
+          "assessment": "General normalized distribution, not the evaluated unnormalized arithmetic edge",
+          "evidence": [
+            "Theorem 14 gives the density of the real numerical shadow; the proof uses its Dirichlet moment transform. They distinguish partially repeated eigenvalues in the discussion of endpoint-adjacent density methods."
+          ],
+          "identifier_or_url": "arXiv:1409.4941v1",
+          "material_read": "Dirichlet definition and repeated-knot discussion pp. 4–5, Corollary 13 discussion pp. 13–14 (offsets 41800–45205), Theorem 14 p. 16 (offsets 57500–61050)",
+          "method": "OA PDF text",
+          "title": "Real numerical shadow and generalized B-splines",
+          "trigger": "Exact equivalent angular quadratic form"
+        },
+        {
+          "assessment": "Different probability event and generator",
+          "evidence": [
+            "Rademacher partial circulant, high-probability sparse-vector RIP, not fixed-two-row Gaussian hard edge."
+          ],
+          "identifier_or_url": "arXiv:1207.0235v3",
+          "material_read": "§1.2 and Theorem 1.1, pp. 2–3",
+          "method": "OA PDF text",
+          "title": "Suprema of Chaos Processes and the Restricted Isometry Property",
+          "trigger": "Cited partial-circulant result"
+        },
+        {
+          "assessment": "Bound rather than exact rotated Gaussian ellipsoid coefficient",
+          "evidence": [
+            "Controls the density of a projected independent-coordinate vector in terms of a density upper bound."
+          ],
+          "identifier_or_url": "arXiv:1402.4492v2",
+          "material_read": "Theorem 1.1, p. 2, OA offset 4270",
+          "method": "OA PDF text",
+          "title": "Small ball probabilities for linear images of high-dimensional distributions",
+          "trigger": "Stronger-looking general projection small-ball result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof",
+        "Resultary 9116deeb1835",
+        "arXiv:2412.17091v3"
+      ],
+      "rationale": "The sampling shift is an actual design parameter. Within one ambient m it changes the exponent from m-1 in the coprime case to m/2 for a half-cycle shift when m is even, and parity independently counts the contributing rank-loss mechanisms. The exact law quantifies rare instability, distinguishing almost-sure invertibility from finite inverse moments. It provides a sharp fixed-size benchmark for dependent sketches, beyond a generic probability bound or an obvious statement of full row rank.",
+      "residual_risks": [
+        "No uniform growing-dimension claim and no guarantee for more than two sampled rows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

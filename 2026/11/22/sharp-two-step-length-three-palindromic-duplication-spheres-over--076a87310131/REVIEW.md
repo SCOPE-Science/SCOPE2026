@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The claim fixes the channel exactly: two consecutive palindromic (reverse-only) duplications, both of block length three, including overlapping or nested second duplications. Every source has \((n-2)(n+1)\) indexed histories. Commuting operations on disjoint original blocks give \(\binom{\max\{n-4,0\}}{2}\) disjoint forced collisions, proving the upper bound. For a prefix of \((012)^\omega\), modular consecutive differences yield a finite signature. The proof explicitly classifies all relative second-operation displacements; the six exceptional signatures are distinct, and the only cross-family coincidences are precisely the forced commuting pairs. Thus the upper bound is attained for all \(n\ge3\), even over a fixed ternary alphabet. The proof tracks the case \(n=3\), the positions at the ends, and the fact that the second operation may copy inserted symbols. Direct independently coded enumeration checks every ternary source through length nine and the full history fibers on much longer periodic sources. Computation does not substitute for the uniform proof.
+## correctness
 
-## Originality (O): PASS against identified evidence
-Zabokritskiy, arXiv:2609.00779 (Theorem 5.1 and proof), proves sharpness with a binary alternating source for **even** block lengths. Its disjoint-block commutation upper bound is used and is not claimed new. *Sharp exact-two palindromic-duplication spheres for odd block lengths over large alphabets* (research record `c4b4c103-f5f1-4cb5-b20f-b97eb5828b89`, dated November 8, 2026) proves the same numeric bound for odd lengths assuming \(q\ge n\), with pairwise distinct source symbols. For \(k=3\), that cannot imply the theorem here for the fixed alphabet \(q=3\) and unbounded \(n\); its distinct-letter method cannot be used. Lenz, Wachter-Zeh, and Yaakobi (arXiv:1707.00052) address single-operation palindromic spheres and single-step collisions. Sun and Ge (arXiv:2602.01151) give duplication-correcting code constructions, not this exact two-step fixed-alphabet maximum. Complemented duplication is a different channel. Searches for the exact ternary PAL3 threshold, signed-difference signatures, equivalent periodic witnesses and stronger two-step bounds identified no covering statement. Priority is not proven solely by absence from a database; an unindexed equivalent proof is a remaining risk.
+PASS
 
-## Mathematical value (V): PASS
-This determines the exact worst-case two-error output ambiguity for an information-storage channel at every source length over a **fixed** ternary alphabet, closing the alphabet-growth gap in the closest odd-block theorem for the first odd nontrivial block length. The collision-fiber classification also explains the extremal construction structurally: no unexpected collisions occur despite repeated source symbols. This is an infinite sharp fixed-alphabet theorem, not a numerical increment or change of notation. It does not claim optimal code rates or resolve other block lengths.
+The forced pairs (a,b+3) and (b,a), with b−a≥3, form a matching on the (n−2)(n+1) histories, so subtracting exactly one per pair gives a valid universal upper bound even when other collisions exist. I independently reconstructed the signature table: if the two differences within the second source triple are α,β and its outgoing difference is γ, the insertion replaces γ by (0,−β,−α,α+β+γ) mod 3. Applying this rule to the first defect 0--0 gives all six local signatures and the two generic gaps −d−1 and d−4 in RESULT.md:41–50. The finite output extends by an unchanged periodic tail, and the initial symbol is fixed, so signature equality is exactly word equality. Different histories have the same signature only across the generic families, at a common gap h≥2 and common first defect, giving exactly the commuting pair (a,b+3),(b,a) with b−a=h+1; within either family the history is uniquely determined. This handles legality, end insertions and n=3 (four outputs) as well as general n. The archived checker and output are supplementary, read but not rerun.
 
-## Sources and limitations
-Inspected relevant material: arXiv:2609.00779v4, Section 5.1, theorem and proof; arXiv:1707.00052, definitions and one-step sphere sections; arXiv:2602.01151v1, the construction sections; and the complete RESULT.md of research record `c4b4c103-f5f1-4cb5-b20f-b97eb5828b89`. The recorded public source date for the motivating odd/even problem is September 1, 2026. The all-length statement still needs independent review, and an equivalent result in unpublished or unindexed literature is not ruled out. The checker verifies only finitely many inputs and signatures.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The numerical bound and its attainment over sufficiently large alphabets are prior. The supported distinct result is that the period-three source attains that bound with only three letters for arbitrary n, with exactly the commuting collisions. The strongest located prior requires distinct source symbols (q≥n) and the cited even-block construction does not furnish a PAL3 source.
+
+## value
+
+PASS
+
+The fixed-alphabet regime matters for palindromic-duplication channel sphere counts: an unbounded distinct-symbol source does not model arbitrarily long words over a small alphabet. The record gives an explicit extremizer and a complete history-fiber classification even when the second duplication uses newly inserted symbols.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

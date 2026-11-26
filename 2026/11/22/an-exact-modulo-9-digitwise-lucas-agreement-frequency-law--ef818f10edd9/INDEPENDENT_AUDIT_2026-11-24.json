@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:34:59.573107Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–82; VERIFICATION.md and verify.py inspected, not executed",
+        "Rowland, arXiv:2006.11701, Theorem 4",
+        "Independent replay: /workspace/branches/498f3312-6c65-4254-82c2-0cde76ef7142/independent_check.py"
+      ],
+      "rationale": "Rowland's harmonic congruence iterated on the no-borrow digits gives the sum of adjacent corrections with the stated A and B; division by the digit Lucas product is legitimate there. A separate analytic certificate for the universal recurrence uses the nontrivial-character transfer. Group digits as A={(0,0),(2,0),(2,2)}, E={(1,0),(1,1)}, and F={(2,1)}; for a cube root x!=1, summing each row into these groups preserves functions constant on each group. The reduced matrix K is [[3,2,1],[2+x^2,1+x,x],[1+2x,2x^2,x]]. The group-count row (3,2,1) is the first row of K, so the filtered D_L equals the first coordinate of K^L times the all-ones column, plus its conjugate, also at L=0. The two characteristic cubics are conjugates of t^3-(4+2x)t^2+(6x-3)t+18+9x. Their product is the stated sixth-degree polynomial. The first six first coordinates are 1, 6, 21+3x, 78+3x, 279+9x, 999-81x; taking twice the real parts gives the stated initial values and the generating function. On the original six states all entries have modulus one. Equality in the eigenvalue bound 6 would force all components to have the same modulus and all diagonal phases to equal the eigenvalue phase, inconsistent with diagonal entries 1 and x. The nontrivial characters thus contribute o(6^L). Kummer's borrow count yields a single adjacent start/termination pair with 3 choices at each end and 6 at other digits; all positions with at least two borrows agree with the zero Lucas product. This proves the all-position formula, with the two boundary cases checked directly. A separately written program confirms the first six nonempty blocks, including W_6=18162 and E_6=179271 over 299481 cumulative comparisons, and verifies the 20 exact recurrence residuals used by the source's alternative Cayley–Hamilton certificate.",
+      "residual_risks": [
+        "Direct enumeration is bounded to L<=6. The proof concerns all complete ternary blocks and modulus nine, not arbitrary intervals or larger prime powers."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Huard–Spearman–Williams give N_n(t,9) for fixed row n and target t, based on overlapping-digit congruences. The indexed 03ea475ec42f summary concerns p-kernel rank for counts of nonzero residues per row; full mirror text was not obtained."
+        ],
+        "reasoning": "Per-row residue totals do not give the joint counts of the actual residue and the digit-dependent residue (a power of 2 for no-borrow positions). A general marked distribution that tracks both would cover the count. The inspected statements concern the actual residue alone or the local transition, not such a joint law.",
+        "searches": [
+          "Huard, Spearman and Williams, Pascal's triangle (mod 9), Sections 1–3",
+          "Rowland Theorem 4",
+          "Local Resultary hit 03ea475ec42f, prime-power Pascal row counts"
+        ]
+      },
+      "checked_sources": [
+        "Rowland arXiv:2006.11701",
+        "Huard–Spearman–Williams, Acta Arith. 78 (1997), 331–349",
+        "Local Resultary self-match ef818f10edd9; mirror a8ada75e42c9 and indexed summary 03ea475ec42f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The local formula gives each eligible step's exponent; the row-residue paper counts absolute residue classes. Kummer gives the classes of positions that must agree or disagree when there is borrowing."
+        ],
+        "reasoning": "Those facts supply transitions and imply the decomposition of E_L once W_L is known. They do not furnish the summed characteristic transfers, the degree-six recurrence, or the strict spectral contraction after normalization. In particular the limiting proportion is not the frequency of strings consisting exclusively of universally safe digit pairs.",
+        "searches": [
+          "Rowland local harmonic correction and universal safe-pair classification",
+          "Huard–Spearman–Williams Sections 1–3 on modular row residue statistics"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rowland's Theorem 4 gives the neighboring-digit correction. His D(3) consists of (0,0), (2,0), (2,2) and concerns uniform agreement of one digit split over all higher indices."
+        ],
+        "reasoning": "An equivalent global formulation counts normalized residues equal to 1 modulo 9 after dividing by the unit Lucas product, or zero total correction modulo 3. Rowland's universally safe single-digit pairs are a narrower local predicate: digit strings containing other pairs can still agree by cancellation. His D(p) is not the centered block count D_L.",
+        "searches": [
+          "Local Resultary queries for Lucas digitwise agreement modulo nine, ternary blocks and Pascal residue counts",
+          "Rowland, arXiv:2006.11701, Theorems 4 and 8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary match ef818f10edd9 is this same record. The closest inspected distinct same-day exact classification counts residues of the central trinomial coefficient T_n on ternary blocks. The published row-residue formulas are for fixed t."
+        ],
+        "reasoning": "A table for T_n indexed by n alone is not a table for pair-indexed Lucas coincidences in the binomial array. The self-match is not independent coverage, and the fixed-target tables lack the digit-product matching predicate.",
+        "searches": [
+          "Local Resultary exact modulo-nine applications and sequence search",
+          "2026/11/22/SCOPE-complete-modulo-nine-residue-spectra-of-central-trinomial-coeffi--a8ada75e42c9",
+          "Huard–Spearman–Williams fixed-target residue counts"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the global coincidence recurrence, limiting proportion, and consequent all-position count. The local congruence and Kummer valuation are established inputs; generic automata and prime-power Pascal counts are not novelty claims.",
+      "residual_risks": [
+        "An equivalent joint digit-statistics count in uninspected formulas or other prime-power Pascal literature remains possible. Some displayed formulas in the 1997 source were not reliably extracted; no whole-document exclusion is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of local corrections and universally safe digit pairs; different quantifiers from full-block frequencies",
+          "evidence": "The harmonic factor gives the additive correction mod 3; Theorem 8 classifies pairs valid for all higher indices.",
+          "identifier_or_url": "https://arxiv.org/abs/2006.11701",
+          "material_read": "D(p) definition and D(3), pp. 2–3 offset about 7500; Theorem 4, p. 6 offset 20350; Theorem 8, p. 8 offset 27350",
+          "method": "Public primary PDF passages",
+          "title": "Lucas' theorem modulo p^2",
+          "trigger": "Closest congruence for the exact binomial/digit comparison"
+        },
+        {
+          "assessment": "Exact fixed-target row counts, not a statement of the joint matching law in the inspected passages",
+          "evidence": "Defines N_n(t,9) for t=0,...,8; uses digit strings and the overlapping-digit formula.",
+          "identifier_or_url": "https://people.math.carleton.ca/~williams/papers/pdf/212.pdf",
+          "material_read": "Sec. 1, pp. 331–332, offset 0 onward; Secs. 2–3, pp. 333–335, offsets about 3300–4800",
+          "method": "Public author-hosted paper; read scope and readable formulas, with some extracted displays garbled",
+          "title": "Pascal's triangle (mod 9)",
+          "trigger": "Closest published exact counts in the same Pascal array and modulus"
+        },
+        {
+          "assessment": "Different coefficient and fixed-residue count",
+          "evidence": "T_n is the constant term of (x^-1+1+x)^n, rather than the entry binom(n,k) matched to its own digit product.",
+          "identifier_or_url": "2026/11/22/SCOPE-complete-modulo-nine-residue-spectra-of-central-trinomial-coeffi--a8ada75e42c9",
+          "material_read": "RESULT.md at offset 0, statement and statistic",
+          "method": "Local Resultary and published-record mirror",
+          "title": "Complete modulo-nine residue spectra of central trinomial coefficients",
+          "trigger": "Distinct same-day modulo-nine block count"
+        },
+        {
+          "assessment": "Indexed claim counts nonzero entries per row; broader full-text comparison is limited",
+          "evidence": "Summary describes the p-kernel rank of the sequence for the per-row count modulo p^alpha.",
+          "identifier_or_url": "2026/11/1/SCOPE-exact-p-kernel-rank-of-prime-power-Pascal-row-counts--03ea475ec42f",
+          "material_read": "Indexed summary only; exact local mirror path was unavailable",
+          "method": "Local Resultary search and mirror attempt",
+          "title": "Exact p-kernel rank of prime-power Pascal row counts",
+          "trigger": "Potential broader Pascal prime-power counting coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and full-block comparison; Rowland's universally safe digit-pair condition"
+      ],
+      "rationale": "Digitwise Lucas congruence is a natural approximation to the unit entries modulo nine. The theorem quantifies where it remains exact, including cancellations that the universally safe digits cannot capture. The compact recurrence and a limiting one-third agreement fraction give exact finite calibration and an asymptotic law, not merely first-block counts or a new notation for absolute residues.",
+      "residual_risks": [
+        "No implications for other primes, modulus 27, or incomplete blocks have been established here."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

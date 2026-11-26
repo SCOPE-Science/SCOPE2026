@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:54:22.001930Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–65",
+        "Frozen VERIFICATION.md and verify_one_spike.py inspected, not executed",
+        "Replay: python3 -I /workspace/branches/review_reproduction.py 3; /workspace/branches/review_reproduction.txt"
+      ],
+      "rationale": "If the special owner has s unit goods, EF1 forces the other counts to differ by at most one, to be at least s, and to be at most s+floor(H)+1. These independent comparisons are sufficient as well and, after balancing L-s goods, give exactly a<=s<=b. The interval is nonempty by taking s=b; all EF1 products are positive since L>=n-1. For fixed t, balancing the remaining counts maximizes their product, including the all-zero-product range; transfers strictly increase the affected pair's product, but only need to weakly increase the full product if another factor is zero. The positive successive ratios of B_k are nonincreasing, giving log-concavity also of F and its EF1 endpoint minimum. For t>s, EF1 bounds the largest light count by H+s+1, making the first step to the right nonincreasing; log-concavity handles later steps. For t<s, distributing the s-t freed items to currently smallest light bundles preserves balance. With every initial light count at least s, the AM–GM factor for their increase is at most (1+(s-t)/(ks))^k, k=n-1, while the special owner's utility falls. This proves the reported ratio and shows strictness at finite H. At L=n(n-1), equal unit counts n-1 give EF1, while placing all units on light owners gives light counts n and is optimal once H is large because any t>0 reduces the coefficient of H. The limiting ratio is the bound. Independent exact-rational enumeration of 294 instances checked the full admissible count set, both product extrema and the factor.",
+      "residual_risks": [
+        "The numerical replay is finite and rational only; the floor comparison and algebraic proof cover all real H>=1 and the limiting sharpness."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The generic identical-valuation achieved/optimal ratio is e^(-1/e).",
+          "Theorem 4 bounds the spread by epsilon times mean bundle value, and uses that mean as an AM–GM upper bound on optimum NSW.",
+          "The 2018 greedy result is a guarantee for a constructed allocation, not every EF1 allocation."
+        ],
+        "reasoning": "The generic guarantee is weaker because x^x is increasing for x>=1/2 and its minimum on (0,1) is at 1/e; here x=(n-1)/n>=1/2. The small-item premise requires nH/(H+L)<=1 for some allowed epsilon, which fails for the sharpness family at large H.",
+        "searches": [
+          "arXiv:1707.04731, Lemma 1",
+          "arXiv:2609.03846, Theorem 4 and Appendix E",
+          "arXiv:1801.09046, abstract"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 71–85",
+        "Published Resultary semantic searches and directly inspected two-value record",
+        "arXiv:2609.03846, 1707.04731 and 1801.09046",
+        "Bounded literature lookup for one exceptional good with EF1/Nash welfare"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Appendix E optimizes a product using mean and spread alone, yielding a lower bound on product relative to the continuous mean ceiling.",
+          "The frozen proof uses the integral unit counts, the special owner's integer EF1 interval, and actual item transfers to compare with the discrete optimum."
+        ],
+        "reasoning": "The inspected broader results do not specify the special-owner count or discrete optimum, and neither implies the all-H lower bound and a matching sequence when the distinguished item exceeds mean bundle utility.",
+        "searches": [
+          "Yang et al. Appendix E p. 21, PDF offset 103400",
+          "Frozen RESULT.md lines 35–65",
+          "Barman et al. arXiv:1707.04731, p. 6 Lemma 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The local two-value theorem assumes values a and 2a, admitting H=2 after rescaling.",
+          "Yang et al. Theorem 3 proves every EF1 allocation is NSW-optimal for uniform identical goods, covering H=1."
+        ],
+        "reasoning": "Scale invariance does not change a value ratio H to 2 except when H=2. Neither subfamily gives the arbitrary-H interval, endpoint prices or sharpness regime. Cumulative online envy and online EFX hits are different fairness tests and objectives.",
+        "searches": [
+          "Resultary: one-exceptional-good EF1 Nash welfare exact interval and product",
+          "2026/10/25/SCOPE-sharp-nash-welfare-guarantee-of-ef1-for-two-positive-good-values--3a45b8921f08/RESULT.md",
+          "Yang et al. arXiv:2609.03846, Theorem 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest nearby indexed exact all-EF1 guarantee treats values a and 2a, not arbitrary real H or the endpoint products. Nearby one-spike entries concern online envy or EFX."
+        ],
+        "reasoning": "The submitted claim is a formula over unbounded n,L and continuously varying H, not an exact lookup of one finite instance. A catalogued H=2 guarantee does not provide the interval/product law or the uniform sharp ratio for the entire family. No finite verification is credited as originality evidence.",
+        "searches": [
+          "Published Resultary exact EF1 Nash welfare with one large good semantic lookup",
+          "2026/10/25/SCOPE-sharp-nash-welfare-guarantee-of-ef1-for-two-positive-good-values--3a45b8921f08/RESULT.md, Finding and Assumptions"
+        ]
+      },
+      "rationale": "The inspected prior results cover equal goods, the H=2 slice with a different scope, generic identical-valuation performance, or small items. They do not establish the exact interval and endpoint products or the sharp every-EF1 constant for arbitrary H in this family. The assessment credits the known uniform and two-value overlaps and concerns the supported distinct arbitrary-H claim, not standalone novelty of each specialization.",
+      "residual_risks": [
+        "Earlier unindexed one-exceptional-good specializations remain possible. Some adjacent cumulative-envy and online EFX local-mirror files were not retrieved; their catalogue descriptions clarify the different objective but cannot support a whole-document noncoverage claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material overlap for H=2 only; not an equivalent full result",
+          "evidence": "Assumes common values a or 2a and m>=n, and gives a sharp all-EF1 guarantee.",
+          "identifier_or_url": "2026/10/25/SCOPE-sharp-nash-welfare-guarantee-of-ef1-for-two-positive-good-values--3a45b8921f08/RESULT.md",
+          "material_read": "Finding and Assumptions, primary RESULT.md at offset 0",
+          "method": "Published Resultary search and local mirror",
+          "title": "Sharp Nash-welfare guarantee of EF1 for two positive good values",
+          "trigger": "Same offline EF1/NSW objective and two item values"
+        },
+        {
+          "assessment": "Uniform overlap and a weaker/differently scoped small-item guarantee, not the arbitrary-H exact claim",
+          "evidence": "Uniform goods give optimality. Theorem 4 assumes max item <=epsilon times mean bundle value for 0<=epsilon<=1; Appendix E uses the spread and compares to the mean.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.03846",
+          "material_read": "Theorems 3–4 and Appendix E proof (p. 21, offset 103400 in retrieved PDF)",
+          "method": "OA PDF primary passages",
+          "title": "EF1-Constrained Nash Social Welfare with Identical Additive Valuations: Complexity, Guarantees, and Experiments",
+          "trigger": "Same valuations, EF1 and NSW comparison"
+        },
+        {
+          "assessment": "Applicable but quantitatively weaker",
+          "evidence": "The epsilon-EF1 approximation factor is e^((1+epsilon)/e) against the optimum; epsilon=0 supplies the generic EF1 bound.",
+          "identifier_or_url": "https://arxiv.org/abs/1707.04731",
+          "material_read": "PDF p. 6, Lemma 1, offset about 22100",
+          "method": "OA PDF primary passage",
+          "title": "Finding Fair and Efficient Allocations",
+          "trigger": "Generic bound for all EF1 allocations with identical valuations"
+        },
+        {
+          "assessment": "Algorithmic approximate optimization, not the worst case over EF1 allocations in the inspected material",
+          "evidence": "States a greedy 1.061 approximation for identical valuations.",
+          "identifier_or_url": "https://arxiv.org/abs/1801.09046",
+          "material_read": "Abstract, PDF p. 1, offset 0",
+          "method": "OA PDF opening",
+          "title": "Greedy Algorithms for Maximizing Nash Social Welfare",
+          "trigger": "Cited related identical-valuation NSW theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–27 and 33–79",
+        "Yang et al. Theorems 3–4 and Appendix E",
+        "Prior two-value guarantee's Finding and Assumptions"
+      ],
+      "rationale": "The one-large-item model isolates the obstruction that a large item can satisfy an EF1 comparison after removal while still absorbing too many unit goods in a poor allocation. The exact feasible interval and endpoint rule identify the worst EF1 allocations for each instance. The sharp n-dependent bound, with a regime outside small-item assumptions, distinguishes this natural model from both arbitrary identical valuations and algorithmic results for a chosen allocation.",
+      "residual_risks": [
+        "No extension to several large goods, heterogeneous preferences or online allocation is established; the sharp ratio is a limit, not generally a fixed finite-instance equality."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

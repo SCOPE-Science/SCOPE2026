@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:08:44.883439Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, equations (1)–(5) and lines 53–79",
+        "Frozen VERIFICATION.md, verify.py and verify_output.txt (inspected, not executed)",
+        "Replay: python /workspace/review_evidence/graph_checks.py 4"
+      ],
+      "rationale": "For 1≤t<m≤n, each side has a vertex on the opposite side adjacent to all its vertices, forcing every nonempty side-color class to have odd size. For a marked a_i the witness b_i deletes just one occurrence of its color, so a marked class larger than one would become positive even. Properness allows a cross-shore color only on the two ends of a deleted pair. Conversely, these singleton deletions can only turn a count of one into zero, so the block-and-pair data are sufficient. With r,s unmatched blocks and j shared pairs there are 2t−j+r+s classes, and naming them gives the stated falling factorial. The minimum is at j=t and at one odd block on an odd-sized side or two on an even-sized side; in the latter case divide the 2^(w−1) odd subsets by two for complementation. At the full even crown endpoint, the bipartition coloring is strong odd since n−1 is odd and an edge forces two colors. The restored graph has u=v=1, giving n+1 colors and proving the jump, including n=2. The independent replay agrees with all profile coefficients on 87,448 partitions across 16 triples and tests explicit colorings on both actual graphs before and after restoration at 25 even sizes through n=50.",
+      "residual_risks": [
+        "In the bundled edge-jump loop (verify.py lines 136–145), the restored graph's color count is checked by substituting in expected_chi, not by graph enumeration. Separate bundled construction tests include balanced sizes through 31. The independent replay tests explicit restorations through 50, not a lower-bound search at those larger sizes. The proof, not these finite checks, establishes the general lower bound."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.4 covers the full crown as K_n×K_2, not the irregular strict partial family. The same-day cebdb2d805e7 odd-block polynomial assumes complete multipartite graphs and does not permit the deleted pairs' shared cross-shore colors."
+        ],
+        "reasoning": "Neither the complete multipartite argument nor the product theorem subsumes the strict partial family on its own. It is the separate exact Resultary match that provides coverage.",
+        "searches": [
+          "Resultary: near-complete bipartite strong-odd polynomial and complete multipartite odd blocks",
+          "Caro et al., arXiv:2410.02336, Theorem 4.4 and direct-product hypotheses"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Relationship to prior work",
+        "Local Resultary a8a6d125d085, cebdb2d805e7 and 611f26de2ae5",
+        "Caro et al., arXiv:2410.02336 Theorem 4.4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substitute p=q=n, t=n−1, giving n+1 from a8a6d125d085. Caro et al. give 2 when n is even and n≥4; the excluded n=2 crown is two disjoint edges, also giving 2 directly."
+        ],
+        "reasoning": "The jump n−1 needs no additional construction or obstruction beyond the two covered endpoint values, so there is no independently surviving reformulation on this comparison.",
+        "searches": [
+          "a8a6d125d085 strict-hypothesis Finding and Caro et al. Theorem 4.4(iv) for the restored-edge comparison",
+          "Resultary: one-edge restoration of an even crown, strong-odd chromatic number"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "a8a6d125d085 Finding gives the identical singleton/odd-block and deleted-pair merging rules with p,q in place of m,n.",
+          "Its epsilon is 1 for odd and 2 for even rather than 0 and 1; adding the frozen constant 2 makes the optima coincide exactly."
+        ],
+        "reasoning": "The graph domain and invariant coincide after notation changes; neither the classification nor the optimizer count distinguishes these statements.",
+        "searches": [
+          "Resultary: strong odd colorings of partially deleted bicliques, odd blocks, and matched singleton endpoints"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "a8a6d125d085 Finding, offsets 896–1071 and 1684, gives the same (Q)_(2t+k+ℓ−j) with the same odd-block factors and optimum multiplicities.",
+          "611f26de2ae5 treats proper conflict-free coloring, so its matching-deleted polynomial is not a coverage source here."
+        ],
+        "reasoning": "Starting its block sums at zero rather than one changes no terms because both unmatched shores are nonempty. Equality holds for every named palette, not just checked values.",
+        "searches": [
+          "Resultary: strong odd coloring polynomial, named palettes, partial matching deletion, biclique"
+        ]
+      },
+      "rationale": "A distinct indexed Resultary record a8a6d125d085 states the same strict partial-matching classification, complete named-palette polynomial, optimum and optimum multiplicity. The one-edge comparison, although not explicitly stated in that finding, is obtained by substituting t=n−1 in its formula and using the published even-crown result. The catalogue labels are not used to assign historical priority; the finding fails for demonstrable equivalent coverage, not because of any priority or authorship inference.",
+      "residual_risks": [
+        "The later catalogue label on a8a6d125d085 does not settle how the equivalent records arose or establish any historical order of discovery. The searches are bounded; the rejection rests on the explicit matched statement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent main result, with mechanically implied restored-graph endpoint",
+          "evidence": [
+            "Identical structure, class-count exponent, binomial weight from pair choices, and minimum counts for 1≤t<min(p,q). The full crown is expressly outside its theorem."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-strong-odd-coloring-polynomial-of-bicliques-with-a-partially-del--a8a6d125d085/RESULT.md",
+          "material_read": "Finding and Proof; local-mirror offsets 234, 896–1071, 1684; scope discussion around 7400",
+          "method": "Local Resultary search and mirrored passages",
+          "title": "Strong odd coloring polynomial of bicliques with a partially deleted matching",
+          "trigger": "Exact graph operation, invariant and full profile in a distinct catalogue hit"
+        },
+        {
+          "assessment": "Exact full-crown scalar, not strict partial-match coverage",
+          "evidence": [
+            "The even-even case gives min(p,q)=2 for K_n×K_2 when n is even and the theorem applies."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2410.02336",
+          "material_read": "Product definition printed p. 17 and Theorem 4.4 with proof, pp. 20–21",
+          "method": "OA primary-text passage review",
+          "title": "On strong odd colorings of graphs",
+          "trigger": "Same invariant and product model of the comparison crown"
+        },
+        {
+          "assessment": "Different domain, not discarded on date",
+          "evidence": [
+            "Its complete multipartite cross-part adjacency does not allow colors shared on missing matched cross-pairs."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-strong-odd-colorings-of-complete-multipartite-graphs-are-odd-blo--cebdb2d805e7",
+          "material_read": "Finding, offset 83 onward",
+          "method": "Local Resultary and mirror",
+          "title": "Strong odd colorings of complete multipartite graphs are odd blocks",
+          "trigger": "Same-day related odd-block decomposition and named-palette census"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md equations (1)–(5)",
+        "Resultary a8a6d125d085 Finding",
+        "arXiv:2410.02336 Theorem 4.4"
+      ],
+      "rationale": "The graph family and single-edge sensitivity are natural, but this frozen finding supplies no additional independently useful exact fact over the indexed profile and the published endpoint result. In particular the stated jump is an immediate combination of two already covered scalars rather than a surviving new edge-sensitivity theorem.",
+      "residual_risks": [
+        "This assessment is of the frozen claims, not of the usefulness of studying edge sensitivity more generally."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

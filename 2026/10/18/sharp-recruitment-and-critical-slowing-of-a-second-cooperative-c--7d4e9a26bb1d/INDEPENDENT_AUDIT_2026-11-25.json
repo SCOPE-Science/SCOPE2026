@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:08:39.026744Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the local argument for the five-dimensional deterministic ODE in RESULT.md, lines 27–77. Pair differences decay exactly. For the upper endemic root, the symmetric first-group block has trace -(1+u)/(1-u) and determinant Delta > 0; its antisymmetric eigenvalue is negative. The absent pair has eigenvalues -1±beta*u. Solving the first two symmetric stationary equations gives c,a=u+O(b²); dividing the last equation by b gives beta*c*(1-b)=1, hence a unique positive local branch with b=u*(beta-1/u)+O((beta-1/u)²). At that branch the last diagonal entry is -beta*c*b and coupling in both directions is O(b), so the small eigenvalue is -b+O(b²). At criticality, writing b for the second-pair mean and eta for its half-difference, b'=beta*(c-u)*b-beta*c*(b²-eta²). To check the physical-side assertion without assuming the sign of a stable-fiber projection, use |eta|≤b and |(log b)'|≤delta in a sufficiently small neighborhood, with delta less than half a first-group exponential decay rate lambda. Stable variation of constants then bounds the first-group displacement by C*exp(-lambda*t)*initial displacement + C*b(t)². Also eta/b decays exponentially. After a fixed short transient the log derivative is bounded above by an integrable exponential minus a positive multiple of b; together with the initial log bound this closes the small-neighborhood bootstrap. The lower bound b(t)≥b(0)*exp(-delta*t) absorbs the exponential in the asymptotic ratios. Thus -b'/b²→1. Dividing the stable forcing convolution by b² gives -J_A^{-1}*((1-u)/u,0), i.e. (1/Delta,(1-u)/(u*Delta)), and therefore the stated coordinate limits. At alpha=9/2 Delta=4. In an isolated triangle stationarity forces all three coordinates equal, so beta<4 excludes a positive stationary state there. For a sunflower every active pair requires lambda*c>1, and an absent pair with that inequality is unstable. These are local deterministic results, not stochastic or global claims. VERIFICATION.md and check.py were inspected and not executed; the independent check is analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cisneros-Velarde–Bullo impose irreducibility of the pairwise matrix A; here A=0.",
+          "Cui et al. give sufficient high-endemic or R0-dependent results for their direct/indirect model.",
+          "Resultary 2026/10/25, suffix 1e1ec14295d0, classifies stationary states under a common rate."
+        ],
+        "reasoning": "The prior sufficient criteria do not imply this sharp boundary transition; the equal-rate catalogue hypothesis excludes varying the second rate locally about beta=1/u at fixed alpha>4.",
+        "searches": [
+          "arXiv:2005.11404, Theorem 5.1",
+          "arXiv:2306.00619, Theorems 4.3–4.5",
+          "Resultary: pure three-body sunflower equilibria"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary record 1e1ec14295d0",
+        "DOI:10.1038/s42005-021-00788-w",
+        "arXiv:2005.11404",
+        "arXiv:2306.00619",
+        "arXiv:2408.08602"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The common-rate sunflower implies instability of an absent second petal when alpha=beta>4, which lies strictly above 1/u.",
+          "No inspected result determines the crossing or the center-manifold dynamics at beta=1/u for unequal rates."
+        ],
+        "reasoning": "Instability at the common-rate point is genuine partial overlap, not an implication of the threshold location, coexistence slope or asymptotic amplitudes. Catalogue path dates are not used to infer priority.",
+        "searches": [
+          "Resultary 1e1ec14295d0, Finding and assumptions",
+          "St-Onge et al. pp. 1–2, 8",
+          "arXiv:2005.11404, Theorem 5.1 and Remark 5.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "St-Onge et al., pp. 1–2 and 8: group-size and membership ensembles, inner group dynamics, and heterogeneous localization.",
+          "Liang et al., p. 6 model (7): discrete-time tensor update rather than the fixed continuous-time ODE."
+        ],
+        "reasoning": "Neither a heterogeneous ensemble description nor a discrete-time update is a relabeling of the stated five-coordinate continuous-time localized-equilibrium limit.",
+        "searches": [
+          "Resultary: overlapping pure-three-body triangles and sunflower recruitment",
+          "St-Onge et al., DOI:10.1038/s42005-021-00788-w",
+          "arXiv:2408.08602"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest matching Finding states that nonzero equilibria supported on fewer than all petals are unstable in the common-rate model; no unequal-rate amplitudes appear in that Finding and scope."
+        ],
+        "reasoning": "The catalogue match credits the equal-rate instability case. There is no separate numerical table needed to determine the new coefficients; they are symbolic functions of a continuous parameter.",
+        "searches": [
+          "Resultary local catalogue: sunflower pure-three-body equilibrium and stability"
+        ]
+      },
+      "rationale": "The exact unequal-strength localized-boundary threshold with the local stability exchange and critical amplitudes is distinct on the material inspected. Group localization and general higher-order SIS dynamics are established; an indexed equal-strength sunflower result also overlaps the support-instability mechanism, not the full unequal-strength conclusion. The pass does not award priority for those ingredients.",
+      "residual_risks": [
+        "This is a bounded search, not proof of priority; an equivalent exact fixed-motif bifurcation in uninspected deterministic dynamics literature remains possible.",
+        "The local catalogue overlap is credited without drawing any priority conclusion from path dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Conceptual overlap; not coverage of the fixed two-triple result",
+          "evidence": [
+            "Approximate master equation with heterogeneous group sizes and node memberships; near-invasion comparison between groups of different sizes."
+          ],
+          "identifier_or_url": "https://nul.repository.guildhe.ac.uk/id/eprint/1078/1/s42005-021-00788-w.pdf",
+          "material_read": "pp. 1–2 abstract and methods; p. 8 localization discussion",
+          "method": "Targeted lawful OA PDF passages",
+          "title": "Influential groups for seeding and sustaining nonlinear contagion in heterogeneous hypergraphs",
+          "trigger": "Group localization and nonlinear overlapping contagion"
+        },
+        {
+          "assessment": "The inspected theorem does not apply",
+          "evidence": [
+            "Theorem 5.1 starts with irreducible A≥0 and arbitrary B_i≥0. The frozen A is zero."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2005.11404",
+          "material_read": "Theorem 5.1, Remark 5.2, pp. 9–10",
+          "method": "Targeted OA preprint passages",
+          "title": "Multi-group SIS Epidemics with Simplicial and Higher-Order Interactions",
+          "trigger": "Broader higher-order SIS stability theorem"
+        },
+        {
+          "assessment": "Related sufficient conditions rather than the local boundary theorem",
+          "evidence": [
+            "Theorem 4.3 includes theta≥4.5 for a high-endemic existence condition; Theorems 4.4–4.5 address local stability and existence for their system."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2306.00619",
+          "material_read": "System (4.1) in Theorem 4.3, Theorems 4.3–4.5, pp. 13–15",
+          "method": "Targeted OA preprint passages",
+          "title": "General SIS diffusion process with indirect spreading pathways on a hypergraph",
+          "trigger": "General direct/indirect endemic-state criteria"
+        },
+        {
+          "assessment": "Different discrete-time problem",
+          "evidence": [
+            "Update has a finite step h; the inspected sufficient conditions do not provide the continuous-time critical limits."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2408.08602",
+          "material_read": "Model (7) p. 6; Proposition 2 p. 8; Theorem 2 p. 10",
+          "method": "Targeted OA preprint passages",
+          "title": "Discrete-time SIS Social Contagion Processes on Hypergraphs",
+          "trigger": "Potential higher-order special-case coverage"
+        },
+        {
+          "assessment": "Partial support-instability overlap at equal rates only",
+          "evidence": [
+            "Finite collection of triangles sharing a hub, common pure-three-body rate, and instability of every nonzero proper-support equilibrium."
+          ],
+          "identifier_or_url": "Resultary 2026/10/25, 1e1ec14295d0",
+          "material_read": "Finding and assumptions, mirror text offsets 65–2708",
+          "method": "Local Resultary search and mirror read",
+          "title": "Equilibrium proliferation and sharp stability thresholds in pure three-body sunflower dynamics",
+          "trigger": "Strongest local catalogue equality-of-support match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Two overlapping triples are a minimal nontrivial motif for support of one group by another. The exact boundary and measured-coordinate critical amplitudes distinguish a local coexistence mechanism from mere linear invasion and show how the relaxation of the two groups differs. These are informative benchmarks for the stated ODE even though no stochastic, applied or global conclusion follows.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

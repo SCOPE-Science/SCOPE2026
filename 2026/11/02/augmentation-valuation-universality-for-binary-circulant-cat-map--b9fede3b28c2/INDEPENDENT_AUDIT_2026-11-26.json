@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:29:57.114689Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§1–5, lines 33–74",
+        "VERIFICATION.md lines 19–23",
+        "verify.py lines 15–28, 62–128, 132–148",
+        "Independent n=4 full-state walk: x'=x+Cy, y'=y+Cx'"
+      ],
+      "rationale": "Put T=X+1, so the cyclic module is R=F2[T]/(T^n). The block update has determinant one. For even augmentation M-I=cD with D=[[0,1],[1,c]] invertible; in characteristic two M^(2^j)-I=c^(2^j)D^(2^j). For odd augmentation the reduction has order three, and M^d-I is invertible whenever 3 does not divide d. Cayley–Hamilton gives M^3-I=(c+1)^2 M(M+I), with M and M+I units, so the corresponding scalar valuation doubles before the successive squarings. A scalar T^h has kernel dimension min(n,h) on each of the two copies of R. This proves Q_j, and first saturation determines the 2-part of the order; reduction forces the odd part to be three in the odd case. Subtraction along the divisor chains gives exactly the primitive counts, with the zero orbit separate in the odd case. This covers c=0 and c=1 with the stipulated truncated valuation. The n=16 example has v=2 at both graph degrees: the second-step summand starts at valuation four. Its first fixed counts are 16, 256, and 65536, giving the stated counts. Independently walked all states of the eight n=4 symmetric circulants using two binary shears, corroborating, for example, cycle counts (16 fixed,120 length-two) at c=X+X^3 and (1 fixed,85 length-three) when a loop is added. The frozen verifier was inspected, not run; its small-state walks test admissible lengths, and its rank tests yield the corresponding cycle counts by subtraction. The universal proof, not the diagnostics, establishes the result.",
+      "residual_risks": [
+        "No claim for other phase alphabets, non-dyadic site counts, or noncirculant matrices."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The paper gives matrix-power/Fibonacci-polynomial recurrences and a global matrix period modulo phase resolution; the local all-to-all record gives dyadic orders for looped and loopless all-to-all couplings. These inspected results do not evaluate the two-family fixed-space cubature here: dimensions for arbitrary c and every j."
+        ],
+        "reasoning": "Broader modulus coverage or a generic power expression is not the same as the uniform closed valuation evaluation of ranks and counts. All-to-all order bounds or formulas have a narrower coupling class and do not determine all state cycles.",
+        "searches": [
+          "arXiv:2605.00965v2, §4.1 pp. 14–15 and closing p. 19",
+          "Resultary 2026/10/11/SCOPE-exact-powers-of-two-torus-orders-for-all-to-all-coupled-cat-maps--6ce73c0ff68d"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.00965v2",
+        "Resultary ee18bef9b1de",
+        "Resultary 2dcbd8ca3b34",
+        "Resultary 6ce73c0ff68d",
+        "Targeted public literature search for valuation-based binary circulant cat-map classifications (no additional entries returned, not negative evidence)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Computable matrix powers/global period do not alone give the rank loss as a function of v. The present odd case identifies the scalar (c+1)^2 times an invertible map in M^3-I, and the even case an independent first-return scalar c in M-I."
+        ],
+        "reasoning": "Cycle subtraction once fixed ranks are known is routine; the new mathematical step is proving the uniform reduction of the return-map kernels to scalar valuations in both classes. The exact special-case rank computation cannot supply that assertion in the odd class or at arbitrary v.",
+        "searches": [
+          "arXiv:2605.00965v2, §4.1",
+          "Resultary ee18bef9b1de, Finding and Proof §§1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Manolas–Floratos use the same block map (binary circulant coupling, modular phase update). The nearest-neighbor finding uses C=P+P^(-1), an exact specialization with c=X^(-1)(X+1)^2, epsilon=0 and v=2."
+        ],
+        "reasoning": "Differences in shift conventions or modular-map terminology do not make the model or the nearest-neighbor classification new. Neither equivalent formulation covers arbitrary c.",
+        "searches": [
+          "arXiv:2605.00965v2, p. 8 and §4.1",
+          "Resultary 2026/11/2/SCOPE-dyadic-torus-orders-and-the-complete-binary-orbit-census-for-nea--ee18bef9b1de"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest-neighbor records give exact order n/2 and, in the dyadic torus record, fixed counts 2^(2 min(n,2^(j+1))) with the corresponding full binary census. The paper discusses numerical modular period spectra."
+        ],
+        "reasoning": "Credit the exact v=2 nearest-neighbor overlaps; neither a numerical table nor these exact specializations gives counts for arbitrary valuation and odd augmentation. No priority is inferred from a shared catalog date.",
+        "searches": [
+          "Resultary 2026/11/2/SCOPE-dyadic-torus-orders-and-the-complete-binary-orbit-census-for-nea--ee18bef9b1de",
+          "Resultary 2026/11/1/SCOPE-exact-space-time-period-halving-and-complete-cycle-census-for-bi--2dcbd8ca3b34",
+          "arXiv:2605.00965v2, §4.1"
+        ]
+      },
+      "rationale": "The construction and matrix recurrence are prior, and exact binary nearest-neighbor spectra are materially covered by other indexed records. The surviving distinct claim is the uniform exact all-state spectrum for every symmetric binary circulant at dyadic size and its dependence on only augmentation and one valuation, including both parity classes. No retrieved comparison gave or mechanically determined that uniform valuation reduction to the best of current knowledge.",
+      "residual_risks": [
+        "A general finite/group-ring classification with an already evaluated local normal form or invariant could subsume the surviving claim; coverage of that literature is not exhaustive.",
+        "Same-day indexed overlap is evidence of mathematical coverage, not relative priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model and general recurrence; inspected statements and cases do not classify all binary fixed spaces by augmentation valuation.",
+          "evidence": [
+            "Matrix/Fibonacci-polynomial powers and T(N) concern the global modular period; no uniform all-state valuation census in the decisive passages."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.00965v2",
+          "material_read": "Model p. 8 (text offset 23600), §4.1 pp. 14–15 (offsets 42350–47340), and p. 19 (offset 53100).",
+          "method": "Bounded primary PDF passage inspection.",
+          "title": "Coupled Arnol'd cat maps on circulant graphs",
+          "trigger": "Same block update and symmetric circulant graphs; section specifically on periods."
+        },
+        {
+          "assessment": "Exact binary nearest-neighbor coverage; not all couplings; chronology within date unresolved.",
+          "evidence": [
+            "C=P+P^(-1) gives v=2 and matches the fixed counts, exact order and binary cycle census identically."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2/SCOPE-dyadic-torus-orders-and-the-complete-binary-orbit-census-for-nea--ee18bef9b1de",
+          "material_read": "RESULT.md Finding and Proof §§1–2, local mirror commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4.",
+          "method": "Resultary lookup and local mirrored statement inspection.",
+          "title": "Dyadic torus orders and the complete binary orbit census for nearest-neighbor coupled cat maps",
+          "trigger": "Strongest indexed exact-order and complete-census match."
+        },
+        {
+          "assessment": "Covered coupling special case.",
+          "evidence": [
+            "The binary nearest-neighbor scope coincides with a v=2 specialization, not all binary symmetric circulants."
+          ],
+          "identifier_or_url": "Resultary 2026/11/1/SCOPE-exact-space-time-period-halving-and-complete-cycle-census-for-bi--2dcbd8ca3b34",
+          "material_read": "Indexed record's exact binary nearest-neighbor finding.",
+          "method": "Resultary lookup and local comparison.",
+          "title": "Exact space-time period halving and complete cycle census",
+          "trigger": "Second exact binary orbit-census match."
+        },
+        {
+          "assessment": "Looped and loopless all-to-all global orders; narrower graph scope.",
+          "evidence": [
+            "Order formulas for the all-to-all coupling do not classify the fixed-space dimensions of arbitrary circulants."
+          ],
+          "identifier_or_url": "Resultary 2026/10/11/SCOPE-exact-powers-of-two-torus-orders-for-all-to-all-coupled-cat-maps--6ce73c0ff68d",
+          "material_read": "Local RESULT.md Finding.",
+          "method": "Resultary lookup and local comparison.",
+          "title": "Exact powers of two torus orders for all-to-all coupled cat maps",
+          "trigger": "Possible overlap in both loop parities and dyadic size."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding lines 4–28",
+        "arXiv:2605.00965v2, §4.1",
+        "Exact nearest-neighbor comparison in Resultary ee18bef9b1de"
+      ],
+      "rationale": "The result computes the complete temporal spectrum of a natural family of linear dynamical systems from a local invariant, not just the matrix's period or a single small census. It identifies graph couplings of different degrees with provably indistinguishable binary dynamics at the level of cycle counts and separates the even and odd period classes. The use of standard local algebra and divisor-chain subtraction does not remove the benefit of a uniform all-coupling classification.",
+      "residual_risks": [
+        "Temporal cycle spectra do not classify graph isomorphism, spatial structure, or the real model."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

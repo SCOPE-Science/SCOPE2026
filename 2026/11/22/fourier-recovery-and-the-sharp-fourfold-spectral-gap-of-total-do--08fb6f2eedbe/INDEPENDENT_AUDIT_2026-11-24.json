@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:21:45.202188Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–66",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "/workspace/review_replay.py, record 4 (executed)"
+      ],
+      "rationale": "Total domination imposes x_(i-1) OR x_(i+1) at interior vertices and forces x_2=x_(n-1)=1 at the endpoints. Thus odd and even coordinates decouple into chains with no consecutive zeros. Removing a forced-one chain endpoint leaves exactly the free chain described: lengths m-1,m-1 for 2m; m+1,m-2 for 2m+1 with m>=2. At n=3 the coinciding forced coordinate is removed once, giving lengths two and zero. For n=2 both coordinates are forced and both free chains are empty. Factoring the sign of the all-ones configuration on the free vertices turns the remaining sign sum into the signed independent-set sum Z_L, with Z_0=1 and the last-site recurrence. Modulo two every signed sum equals F_(L+2); its parity repeats every three. The all-negative sequence repeats [1,0,-1,-1,0,1] from L=0; a positive first sign followed by negatives repeats [2,1,-1,-2,-1,1] from L=1. This independently certifies the sharp one-chain gaps 1 and 2 and occurrence of a zero, rather than relying on parity alone for attainment. The two lengths resonate simultaneously exactly at n=1 mod 3. Sign choices on the two chains are independent, giving the squared resonant gap 4. The all-positive chain count is F_(L+2), whose product proves both mass formulas, with n=3 giving 3. The trivial Walsh coefficient equals the mass and is maximal in absolute value, yielding the stated inverse/pseudoinverse norms and condition ratio on the recoverable range. `python3 /workspace/review_replay.py 4` used integer bit-mask open neighborhoods and a recursive Walsh transform to check the singularity, gaps and masses through n=16, recovering ranks/nullities (4,12), (44,84), (484,540), (4444,3748), (40804,24732) at n=4,7,10,13,16 respectively. This corroborates the all-length argument without extrapolation.",
+      "residual_risks": [
+        "The norm at singular lengths is the pseudoinverse norm, not an inverse on the full space. The theorem does not give exact ranks at all singular lengths."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Scott–Sokal give the uniform-weight path independence-polynomial endpoint recurrence. Alikhani–Jafari give an inclusion–exclusion formula for the univariate total-domination polynomial, and in the second paper define total domination by N(D)=V and study cardinality generating polynomials."
+        ],
+        "reasoning": "The classical path recurrence is used, not claimed. In particular a univariate size polynomial only retains aggregate cardinality counts, not arbitrary vertex-dependent signings. Neither inspected statement supplies the open-path two-factor Walsh theorem.",
+        "searches": [
+          "Scott–Sokal arXiv:cond-mat/0309352 Section 3.2, Example 3.2",
+          "Alikhani–Jafari arXiv:1605.02222 Theorem 3.1 and arXiv:1609.07789 introduction"
+        ]
+      },
+      "checked_sources": [
+        "Resultary acf4a6fabe72, 2e48ad120cf2 and ce660f6e42ec",
+        "arXiv:cond-mat/0309352, 1605.02222 and 1609.07789",
+        "DOI 10.1016/j.dam.2015.10.008 and ResearchGate 259894710 (access limited)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cyclic results use a closed transfer trace; the previously proved evenness and smallest nonzero cyclic traces do not control conditional open-boundary contractions. The univariate recurrence supplies evaluation at constant signs but not the parity-chain factorization of this kernel or the witness with a single positive sign."
+        ],
+        "reasoning": "One needs the separate open-neighborhood parity decomposition and sharp arbitrary-sign one-chain argument; substituting into the earlier cyclic gap theorems does not produce the claimed squared gap.",
+        "searches": [
+          "Resultary acf4a6fabe72, proof of cyclic gap",
+          "Resultary 2e48ad120cf2, Finding and transfer representation",
+          "Scott–Sokal arXiv:cond-mat/0309352 Example 3.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary ce660f6e42ec concerns inclusion-minimal closed-neighborhood dominating sets of a path, with a finite n=17 boundary result. Resultary 2e48ad120cf2 has the same no-adjacent-zero constraint when k=2, but imposed on cyclic words, not on the two free open chains coming from path endpoint constraints."
+        ],
+        "reasoning": "The former differs in both whether a vertex can cover itself and in the selected family. Cyclic words with k=2 are equivalent by complementation to cyclic independent sets; putting this adjacency condition on an open chain or forcing endpoints changes the signed transfer contraction.",
+        "searches": [
+          "Resultary: total domination of paths, Walsh gap, parity-chain signed independence polynomial",
+          "Literature: total domination on paths signed multivariate path independence evaluation/Fourier"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed cycle laws give an exact 1/2 gap classification (2 when the cycle of length n is a multiple of three for k=2). The earlier univariate expression can recover exact path total masses by evaluating at 1, but gives no table of arbitrary signed incidence evaluations."
+        ],
+        "reasoning": "These exact formulas and indexed strata cover the related cyclic spectrum and unsigned totals, not the all-length squared gap and singularity for path total domination. Finite replay values are not priority evidence.",
+        "searches": [
+          "Exact indexed records Resultary acf4a6fabe72 and 2e48ad120cf2",
+          "Alikhani–Jafari arXiv:1605.02222, exact univariate enumeration"
+        ]
+      },
+      "rationale": "Classical enumerators, the signed path recurrence machinery and close cyclic gap laws are relevant prior ingredients. The distinct statement is the simultaneous resonance of two endpoint-forced open-chain factors for all total dominating sets of the ordinary path, and the sharp squared gap rather than a single factor's gap.",
+      "residual_risks": [
+        "The inaccessible graph-product and path-enumerator papers might contain closer specializations; no global priority claim follows from the inspected sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact spectrum conclusions for cycle independent sets, not the endpoint-forced open path",
+          "evidence": "Cyclic traces give singularity at multiples of three and least nonzero magnitudes 1 or 2; uniform negative signing attains those gaps.",
+          "identifier_or_url": "Resultary 2026/11/16/SCOPE-cycle-independent-sets-a-modulo-three-fourier-invertibility-law--acf4a6fabe72",
+          "material_read": "Mirrored Finding at offset 0; proof of cyclic parity, zero witness and sharp gap, offsets 2700–6987",
+          "method": "Local published-record mirror",
+          "title": "Cycle independent sets: a modulo-three Fourier invertibility law with sharp spectral gaps",
+          "trigger": "Close analogue for modulo-three resonance of signed independent sets"
+        },
+        {
+          "assessment": "Cyclic boundary and different graph domination corollary; its gap does not transfer by a parameter substitution",
+          "evidence": "Cyclic window law is resonant iff k is even and k+1 divides n. Its graph corollary is for closed domination on cycle powers.",
+          "identifier_or_url": "Resultary 2026/11/16/SCOPE-cyclic-window-covers-a-complete-walsh-singularity-and-sharp-gap--2e48ad120cf2",
+          "material_read": "Mirrored Finding, Assumptions, and proof of transfer trace and parity, offsets 0–4887",
+          "method": "Local published-record mirror",
+          "title": "Cyclic window covers: a complete Walsh singularity and sharp gap law",
+          "trigger": "k=2 cyclic windows avoid precisely adjacent zero pairs"
+        },
+        {
+          "assessment": "Different dominating-set condition and finite endpoint",
+          "evidence": "Inclusion-minimal closed-neighborhood dominating sets, n=17 cancellation and gap 2.",
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-the-first-quadratic-only-walsh-cancellation-for-minimal-dominati--ce660f6e42ec",
+          "material_read": "Mirrored RESULT.md, Finding at offset 0",
+          "method": "Local published-record mirror",
+          "title": "The first quadratic-only Walsh cancellation for minimal domination on paths",
+          "trigger": "Walsh cancellation for a domination family on the same graph"
+        },
+        {
+          "assessment": "Prior recurrence and standard base machinery, not the two-chain spectral claim",
+          "evidence": "Z_(P_n)(w)=Z_(P_(n-1))(w)+w Z_(P_(n-2))(w).",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0309352",
+          "material_read": "Section 3.2 Example 3.2, PDF p. 39 (text offset 112300)",
+          "method": "OA PDF text",
+          "title": "The Repulsive Lattice Gas, the Independent-Set Polynomial, and the Lovász Local Lemma",
+          "trigger": "Classical path independence-polynomial recurrence"
+        },
+        {
+          "assessment": "Univariate exact enumerator, not arbitrary Boolean signs",
+          "evidence": "Inclusion–exclusion formula for the total-domination polynomial.",
+          "identifier_or_url": "https://arxiv.org/abs/1605.02222",
+          "material_read": "Section 3, Theorem 3.1, PDF p. 6 (text offset 14900)",
+          "method": "OA PDF text",
+          "title": "On the Roots of Total Domination Polynomial of Graphs",
+          "trigger": "Same family of admissible sets, enumerated by size"
+        },
+        {
+          "assessment": "The inspected material defines the same kind of domination but concerns cardinality sums for graph constructions",
+          "evidence": "Total domination defined by N(D)=V; polynomial variable grades subset sizes.",
+          "identifier_or_url": "https://arxiv.org/abs/1609.07789",
+          "material_read": "PDF p. 1 opening definition and scope (offset 0)",
+          "method": "OA PDF text",
+          "title": "Total domination polynomial of graphs from primary subgraphs",
+          "trigger": "Related graph decomposition for total-domination polynomials"
+        },
+        {
+          "assessment": "Coverage unresolved; not used as noncoverage evidence",
+          "evidence": "Trivariate total domination polynomial and graph products are named; no accessible passage establishes arbitrary signed incidence results.",
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2015.10.008",
+          "material_read": "Title and bibliographic metadata only",
+          "method": "DOI retrieval by both configured routes provided no full text; exact-title DOI lookup yielded publisher and bibliographic records, no identified open manuscript",
+          "title": "Graph products of the trivariate total domination polynomial and related polynomials",
+          "trigger": "Potentially finer enumerator than the univariate size polynomial"
+        },
+        {
+          "assessment": "Coverage unresolved; not used as noncoverage evidence",
+          "evidence": "The title and indexed description identify a total-domination polynomial of paths, without a verified statement about arbitrary signs.",
+          "identifier_or_url": "https://www.researchgate.net/publication/259894710",
+          "material_read": "Search metadata only",
+          "method": "Attempted OA retrieval returned 403",
+          "title": "Total Domination Sets and Polynomial of Paths",
+          "trigger": "Potential earlier path-specific enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof steps 1–5",
+        "Resultary acf4a6fabe72 and 2e48ad120cf2"
+      ],
+      "rationale": "All total dominating sets of ordinary paths form a natural constrained incidence family, with a meaningful distinction between losing Fourier modes and the stability of recovery on modes that survive. The endpoint-induced split explains why resonance happens in both factors at the same lengths and why the sharp gap is four rather than the single-cycle value two. This is a structural infinite-family result, not a repetition of the recurrence computation or an unsigned set count.",
+      "residual_risks": [
+        "No extension to general trees, closed-neighborhood domination, cycles or non-Hilbert norms is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

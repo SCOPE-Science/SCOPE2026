@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:57:10.417227Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The final RESULT.md preserves the true finding and fixes the original misleading exclusion of correlation signs: both variables have strictly positive variance (use the empty hypergraph and a positive-weight event for Z_s, and the empty and one-edge hypergraphs for I_n). I reconstructed the weighted deletion proof by conditioning on the joint internal and crossing-edge configuration of each marked S, which is independent of all outside edges. The marked event has no internal isolate because r>=2 and S is a connected component of size >=r. Ordered tuples count exactly the outside complement-edge exponent, including the deterministic edgeless complement. Dividing the covariance by its positive mean factor times n q^M_n gives a strictly increasing function of p with one zero. The average Delta_s/s is nonincreasing by Pascal's identity whereas log(n/(n-s))/s strictly increases. For fixed r,s the q^(-Delta_s) expansion has first correction cs/((r-2)!n), producing exactly the stated normalized limit; at s=n-1 Delta_s=M_n. The independent mathematical check suffices; the frozen exact finite enumerator is supplemental and was not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Last–Nestmann–Schulte calculate first and second component-count moments in a spatial graph with Poisson vertices. Cooley et al. study asymptotic size and structure of components in uniform hypergraphs."
+        ],
+        "reasoning": "Neither the former random vertex set nor the latter component-size asymptotics provides the exact conditional complement of specified order and the threshold hierarchy of the frozen fixed-size model.",
+        "searches": [
+          "arXiv:1808.01203, Propositions 3.1–3.2",
+          "arXiv:1810.08107, Sections 1–2",
+          "Pittel DOI 10.1002/rsa.3240010306"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and its verification package",
+        "Repaired RESULT.md",
+        "Resultary 00c844d9af13 and 836854b5c1ce",
+        "arXiv:1808.01203",
+        "arXiv:1810.08107",
+        "Pittel DOI record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The graph bracket in the earlier formula is ((n-s)/n)(1-p)^(-s)-1 when the first component is an isolate. Its proof uses the hs shared absent graph edges between two marked components. The target exponent is a difference of binomial coefficients and generally is not linear in s."
+        ],
+        "reasoning": "The graph result is already covered, not an independent contribution. Replacing the graph proof by product conditioning on a hypergraph mark gives a full distribution, and proving ordering with a nonconstant increment sequence and extracting the two scales is not a substitution into the already proved graph result.",
+        "searches": [
+          "Resultary 00c844d9af13, equations (1)–(2) and proof offsets 2850–4447",
+          "arXiv:1808.01203 Sec. 3, Propositions 3.1–3.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The October 18 graph record 00c844d9af13 gives an explicit two-type mixed moment. The fixed-vertex target is instead equivalent to a full probability law on the outside isolate count after weighted sampling of a marked component."
+        ],
+        "reasoning": "Set graph type orders to 1 and s for exact coincidence of the covariance and its zero. This two-type moment is only the first isolate moment under the bias, and the earlier model has rank two.",
+        "searches": [
+          "Resultary: component counts covariance sign reversal for random graphs",
+          "Resultary: marked-component isolate counts and hypergraph deletion",
+          "arXiv:1808.01203, Sec. 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed exact graph formula is a genuine partial match. The November 2 graph component–motif identity is a distinct two-observable formula, and the frozen enumeration checks selected small hypergraphs and only the first two mixed factorial moments."
+        ],
+        "reasoning": "No inspected exact rank-at-least-three match in the indexed statements. The finite enumeration cannot cover the arbitrary-function identity or every finite parameter triple.",
+        "searches": [
+          "Resultary 00c844d9af13",
+          "Resultary 836854b5c1ce",
+          "Frozen verify.py, finite enumeration strata"
+        ]
+      },
+      "rationale": "The repair acknowledges exact prior coverage of the graph first-moment covariance and threshold hierarchy. The distinct scope is the full weighted isolate deletion law and the finite hierarchy for uniform hypergraphs of rank at least three. The nearest inspected precedents establish neither that combined result nor a stronger statement implying its nonlinear rank-dependent exponents and ordering. The conditioning mechanism is standard; originality is not claimed for the idea of outside-edge independence.",
+      "residual_risks": [
+        "Pittel full text unavailable in the bounded lawful retrieval; precision of historical graph/tree overlap remains open.",
+        "General component factorial-moment and deletion frameworks may already contain other formulations; the inspected comparison is not a historical-priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers graph covariance and its ordering exactly",
+          "evidence": "Set h=1, k=s in the pair-count formula; the factorial ratio becomes (n-s)/n and the exponent hk becomes s.",
+          "identifier_or_url": "2026/10/18/SCOPE-shape-universal-covariance-sign-reversals-for-random-graph-compo--00c844d9af13",
+          "material_read": "Finding and proof of mixed moment and threshold, including offsets 2850–4447",
+          "method": "Indexed result and local-mirror original passage",
+          "title": "Shape-universal covariance sign reversals for random graph components",
+          "trigger": "Same sign hierarchy when r=2"
+        },
+        {
+          "assessment": "Analogous Palm identities for a different random model",
+          "evidence": "The first and second component-count moments are for an edge-marked spatial Poisson process.",
+          "identifier_or_url": "arXiv:1808.01203",
+          "material_read": "Sec. 3 p. 7, Propositions 3.1–3.2",
+          "method": "Bounded OA primary text inspection",
+          "title": "The random connection model and functions of edge-marked Poisson processes",
+          "trigger": "General marked-component moment formulas"
+        },
+        {
+          "assessment": "Relevant model and scales, different asymptotic claim",
+          "evidence": "The results concern large j-components and hypertree structure, not all-order isolate bias after a marked vertex component.",
+          "identifier_or_url": "arXiv:1810.08107",
+          "material_read": "pp. 1–6, especially Sec. 1.2",
+          "method": "Bounded OA primary text inspection",
+          "title": "Subcritical random hypergraphs, high-order components, and hypertrees",
+          "trigger": "Uniform independent-edge hypergraphs"
+        },
+        {
+          "assessment": "Exact extent of graph/tree overlap unresolved; not evidence of absence",
+          "evidence": "The original itself identifies limiting tree-census covariance as a precedent and does not establish priority for the graph/tree asymptotic.",
+          "identifier_or_url": "10.1002/rsa.3240010306",
+          "material_read": "Bibliographic record; primary results unavailable",
+          "method": "Bounded lawful OA retrieval attempts did not yield text",
+          "title": "On tree census and the giant component in sparse random graphs",
+          "trigger": "Potential exact or asymptotic graph/tree covariance overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact law makes arbitrary shape weighting irrelevant for the full biased distribution, not just a first moment, and the nonlinear finite-size threshold hierarchy for r>=3 relates small and nearly spanning components to two different familiar random-hypergraph scales without treating a covariance zero as a phase transition. That rank-dependent hierarchy is the useful quantitative addition beyond routine edge independence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

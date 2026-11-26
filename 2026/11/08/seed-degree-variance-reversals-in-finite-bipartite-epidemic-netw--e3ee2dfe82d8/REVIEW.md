@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Exact conditioning on the two high-degree vertices yields both generating functions. Moment differentiation gives the exact five-vertex variance and mean differences. The odds substitution gives a polynomial with exactly one coefficient sign change and opposite endpoint signs; this proves the unique crossover, not merely a numerical observation. The low- and high-transmission asymptotics for every integer \(b\ge3\) have independent one-edge and two-edge-cut proofs. Exhaustive edge-state checks reproduce the full PGFs for \(b=2,3,4\) and a symbolic checker verifies the critical polynomial and root bracket.
+## correctness
 
-**Originality — PASS within inspected evidence.** Moore–Newman's 2000 work gives outbreak moments in a small-world setting; it does not compare root orbits on complete bipartite graphs. Allard et al. (2012) give a universal algorithm to calculate finite-graph component distributions, which does imply that any fixed instance is algorithmically accessible, but do not state the infinite-family sign reversal or the exact unique threshold in the smallest unequal-degree biclique in their inspected full text. Related graph-reliability examples not electronically indexed may predate this explicit classification, so historical priority requires external review.
+PASS
 
-**Value — PASS.** Highly connected seeds can generate larger average outbreaks while producing *less* variance, even on a simple five-site heterogeneous contact network. The exact unique threshold and all-size asymptotic reversal make this a motivated structural boundary for assessing seed importance, rather than an arbitrary numerical table.
+The high-root PGF partitions edge states by existence of a low vertex with both edges retained, which is equivalent to connectivity of the two high vertices. The low-root PGF conditions on zero, one or two retained seed edges. Independent enumeration of the 64 states for each orbit at b=3 reconstructs both moment differences. The displayed odds-transform coefficients have one sign change; the positive constant and negative leading coefficient give existence and Descartes gives uniqueness. The mean factor is 1+p+p²+2p²(1−p)>0 for 0<p<1. For any fixed b≥3, exactly one retained incident edge yields the first-order variance deg(v)p, giving a difference (b−2)p+O(p²). With at most two failed edges, at least one of the b length-two paths between the high vertices survives, so the only possible disconnection is isolation of a low vertex. The high-root squared deficits contribute b; the low-root deficits contribute (b+1)²+(b−1). Their expectations squared are O(q⁴), so the variance difference is −b(b+2)q²+O(q³). Opposite signs and polynomial dependence force a sign-changing zero. The b=2 boundary is vertex-transitive.
 
-The findings are limited to independent-edge epidemic final sizes on the specified finite networks. No claim is made for temporally correlated disease processes, nor is uniqueness established beyond the first asymmetric biclique.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The new content supported by this review is the structural sign reversal by seed orbit across a natural graph family and the unique transition in the smallest asymmetric biclique with both parts of size at least two. The underlying bond-percolation interpretation, rooted distribution and finite-state methods are prior work.
+
+## value
+
+PASS
+
+The reversal shows a concrete failure of seed-degree ranking for final-size variability in a basic family: around p=0 degree determines the first-order variance, whereas around p=1 rare isolation of the low-degree seed dominates squared loss. K_{2,3} is the first asymmetric case in the stated family and gives a sharp threshold while the mean always favors the high-degree seed in the open interval. This is a reusable counterexample and endpoint mechanism, not an arbitrary numerical comparison.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

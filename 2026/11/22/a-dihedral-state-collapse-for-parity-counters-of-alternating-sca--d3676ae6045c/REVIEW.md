@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The theorem specifies all binary words, every positive alternating-pattern length, positional subsequences modulo two, a complete prefix-output Moore model and explicit transitions. Generalized-binomial reflection identities reconstruct the full counter update; periodicity follows from characteristic-two truncation. The repeated `01` suffix gives reachability and the Lucas-mask least-period argument gives the matching state lower bound, not merely a reachable upper bound. The two supplied programs check a separate literal-count oracle (98,292 comparisons) and complete prefix-vector orbit plus Moore partition refinement for lengths 1–90. The mathematical argument is all-length; these finite tests do not constitute that proof.
+## correctness
 
-## Originality (O): PASS with documented priority limits
-Richomme (arXiv:2510.07159) treats integer two-binomial classes; Fazekas–Huang–Mercaş (arXiv:2610.06717) treat fixed Parikh-matrix class universality and subsequence probabilities; Golafshan–Rigo–Whiteland (arXiv:2412.18425) treat factor complexity of generalized Thue–Morse words; and Černý (2010) gives a general representation framework. The directly closest published exact modular Moore-state result for `010` already covers the case of pattern length three and modulus two (four states); that special case is not asserted to be new. The prior result does not establish a general growth law or two-reflection machine for all lengths. A two-run binary pattern theorem likewise does not imply the alternating patterns with several changes. Semantic and textual comparisons are detailed in AUDIT.json. A plausible 2011 trie-automaton source could not be compared in full; an unindexed equivalent remains an explicit historical-priority risk.
+PASS
 
-## Value (V): PASS
-Instead of a generic exponentially large vector of prefix counts, the result determines exact minimal memory across all pattern lengths and explains it by a cyclic action of two reflections. The exact power-of-two staircase and suffix-based minimality furnish structural information beyond the already-known length-three case. This all-length classification is a natural streaming formal-language invariant, not a narrow numerical specimen.
+The two integer reflections give exactly the alternating prefix-counter updates by Pascal and reflected binomial identities, including j=1 and t<0. In F2[[X]], (1+X)^L=1+X^L gives the required periodicity through every j<L. The empty word gives zero in all positive coordinates; 01 advances one residue. Lucas's mask at u=k distinguishes the half-period shift and all smaller candidate periods divide that half-period. Every pair therefore has a common distinguishing suffix of the form (01)^a. An independent linear-algebra check: on the full prefix vector the two letter maps are involutions I+A,I+B, with A,B supported on complementary entries of the first subdiagonal. R=(I+B)(I+A)=I+U has U with unit first subdiagonal. U^j e0 first becomes nonzero at index j, and the order of R and orbit size of e0 are exactly L by characteristic-two squaring. The second involution fixes e0, so the whole orbit is the rotation orbit. For a difference with leading coordinate j, the kth coordinate of U^(k-j) times that difference is one; consequently some power of R distinguishes the pair. This also checks the lower bound independently of Lucas. Inspected the supporting files without executing uploaded programs; independently ran the fresh replay for 10,230 direct subset-count comparisons and exact orbit/output distinguishability at 14 dyadic boundary lengths through 128. The finite checks supplement, not replace, the all-length proof.
 
-## Limits
-Modulus two only; exact alternation only; no claim for arbitrary target patterns. Published and accessible literature was compared to the extent reported; historical priority and mathematical validity have not been independently audited. The external source not read in full is a residual originality risk, not a claimed noncoverage proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bounded best-of-knowledge assessment for the all-length minimal parity counter, not a priority claim for the counting recurrence or small lengths. The overlap at k=3 is known, and the indexed three-run parity family has no targets of length at least four with strict alternation. General counting representations do not compute the rotation orbit or prove minimality.
+
+## value
+
+PASS
+
+A uniform, sharp streaming memory classification for a natural target family: 2^k candidate prefix patterns collapse to between k+1 and 2k actual states, with provably no further identifications. Two reflections and powers-of-two jumps explain why the natural periodic suffix is enough to distinguish states. This is considerably more than checking isolated examples or giving a general counter construction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

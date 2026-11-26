@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The four-way division by number of ones in a palindrome is exhaustive for a factor of length at most one circular period. Explicitly counting the admitted symmetric zero padding for each zero-gap configuration produces the stated count in all three equality regimes. Minimizing the largest of three distinct integer gaps proves the sharp value and exact sorted maximizer list for every length at least 14. Independent direct substring enumeration agrees for all 2,300 ordered gap triples through length 25; the full extremal classification is separately checked for 2,274,994 triples through length 240. No finite computation is taken as the infinite proof.
+## correctness
 
-## Originality — PASS, qualified
-Simpson (2014, DOI 10.1016/j.tcs.2014.07.012) already supplies a general strict \(5n/3\) upper bound and a near-extremal three-marker construction; the known Biggles special case is expressly excluded from the novelty claim. OEIS A247000 contains finite unrestricted maxima, while A246999 identifies the special family. Their accessible material and the targeted scientific-index comparisons do not contain the complete every-gap count, all-residue restricted extremizer classification, or exact gap-deficit law. Full text of Simpson's article was not accessible; any equivalent treatment within its uninspected pages remains a genuine residual risk. Prior work on unbordered rotations and linear palindromic defect is not logically equivalent to this circular factor count.
+PASS
 
-## Mathematical value — PASS
-Three isolated markers are a natural sparse subfamily of the near-sharp circular palindrome construction. A complete all-length solution shows that maximizers force three distinct almost-balanced gaps and determines exactly one or two dihedral optimizer classes depending on length modulo three. This gives structural uniqueness and a sharp deficit formula, not merely a numerical confirmation of the known witness. The unrestricted binary problem is not solved.
+The statistic counts distinct nonempty palindrome strings of length at most one circuit, not occurrences or a length-by-length histogram. Partitioning by the number of ones is exhaustive. The zero- and one-marker counts are the largest gap and one plus the median gap, respectively. For two markers, each distinct internal gap gives a disjoint string family; its exterior radius is the maximum, among occurrences of that gap, of the minimum of its two neighbors. For three markers the two internal gaps must coincide and the two exterior zero strings share the unused gap, so their combined length is bounded by that gap. These arguments also work with zero gaps and with n=3. The resulting sums give all three stated formulas. With distinct gaps, n−3<=3γ−3, so γ>=ceil(n/3); solving for the smaller two gaps at equality gives the listed triples, and the difference from the repeated-gap count is positive for n>=14. Rotations and reversal generate all gap orderings of a multiset, yielding the claimed dihedral class counts. Fresh replay at branches/9e59a5c4-bfc7-46df-a136-31839cb7e520/independent_check.py enumerated actual palindrome strings for all 9,880 ordered gap triples through n=40 and reproduced the maximizing triples at every n=14,...,40. This is bounded evidence; the original uploaded verifier was not executed.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The supported distinct claim is the all-gap count and the complete restricted extremizer classification across the three residue classes; the previously known Biggles construction and its value in the divisible-by-three case are not credited as new. Exact equivalents in later-dated catalog entries are documented below. The accessible evidence does not establish that those entries preceded the frozen finding or that the earlier paper contains the full result. This is a bounded judgment, not a certification of priority.
+
+## value
+
+PASS
+
+The three-marker slice is motivated by the known near-extremal circular family, not chosen as an arbitrary small instance. The complete count explains how coincidences between gaps change palindrome production and resolves exactly which three-marker circles attain or fall short of the restricted maximum. None of this is presented as an unrestricted binary-word extremum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

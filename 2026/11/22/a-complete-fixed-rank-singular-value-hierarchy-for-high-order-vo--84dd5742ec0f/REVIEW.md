@@ -1,19 +1,21 @@
-# Scientific review: fixed-rank Volterra singular-value hierarchy
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The claim fixes the singular-value rank before taking the large integration-order limit. The factorial normalization and the output/input coordinate Jacobians are explicit, leaving the self-adjoint Hankel kernel (3). On the ordered exterior-power domain its kernel is the determinant without an extraneous factorial. The mixed analytic coefficient argument identifies the Vandermonde leading term, and the exponential-tail bound promotes local convergence to Hilbert–Schmidt convergence. Andréief's identity and scaled Laguerre monic norms give the exact coefficient. Dividing consecutive exterior norms is valid because their positive limiting constants are nonzero. Exact-rational moment determinant tests and finite Nyström diagnostics support, but do not substitute for, those steps. No variable-rank conclusion is claimed.
+PASS
 
-## Originality
+The fixed-rank theorem is unchanged. The input/output changes of variables absorb the factor alpha and give the kernel (1-(u+v)/alpha)_+^(alpha-1). The exterior kernel on ordered tuples is the determinant without 1/j!, and its norm is the product of the leading j singular values. The repaired proof bounds the individual u- and v-degrees at epsilon-order r by r, with equality in both possible in the mixed logarithm only for -epsilon uv. Thus any determinant term using distinct degree lists a and b through a matching sigma starts at sum max(a_i,b_{sigma(i)}); at J=j(j-1)/2 only identical consecutive lists starting at zero and the diagonal matching qualify. The coefficient is (-1)^J Delta(U)Delta(V)/prod_{k<j}k!. To pass from local analyticity to Hilbert–Schmidt convergence, the Cauchy disc of radius 1/[8(1+R)^2] bounds the mixed determinant uniformly and yields remainder O_j(epsilon^(J+1)(1+R)^(2J+2)). With R=C_j log(alpha), the inside scaled error times the extracted exponential tends to zero in L², and the outside squared scaled tail is O_j(alpha^(2J) exp(-R)). The ordered Gram determinant is prod_{k<j}(k!)²/2^(j²) by monic Laguerre norms; division of the product limits gives (j-1)!/2^(2j-1) for all fixed j, including 1/16 and 3/64 at j=3,4. Independent exact finite checks of the Vandermonde coefficient and Gram constants through rank 8 corroborate these steps; the analytic proof, not a finite quadrature or the uploaded checker, proves the limit. No growing-rank uniformity is claimed.
 
-**PASS, with historical-priority qualification.** Eveson's 2003/2004 full texts address leading rank-one behavior; Ransford–Walsh (2022) addresses polynomial norms. The closest published finding, *Sharp second singular asymptotics and rank-two collapse for high Volterra powers*, proves the second-rank coefficient and only a rank-two Hilbert–Schmidt approximation bound; its published limitations explicitly leave the third and later fixed-rank constants uncomputed. This finding makes the new assertion only for the exact coefficients at every fixed rank at least three, which are neither stated nor implied by that upper-bound result. Fixed-order high-index Weyl estimates are not the same asymptotic regime. The 2001 Dostanić article was available only as an abstract; equivalence to unindexed historical results remains a residual risk.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** Sharp approximation numbers of powers of Volterra integration are natural conditioning and low-rank approximation invariants. The known first two ranks leave open how rapidly every further optimal approximation rank collapses. The exact hierarchy gives the first sharp third-rank coefficient and all successive factorial constants, revealing a nontrivial exterior-power/Laguerre structure rather than a routine numerical improvement or arbitrary parameter slice. It answers a coherent family of rank-approximation questions in one theorem.
+On the inspected evidence the surviving contribution is the sharp hierarchy from rank 3 onward. This is not a priority claim for the boundary-layer model, rank-one or rank-two consequences, or exterior powers. Search is nonexhaustive; abstract-only comparisons are recorded as such.
 
-## Scientific limitations
+## value
 
-No estimates uniform in ranks increasing with order, no exact finite-order singular spectrum, and no independently conducted audit. A historical source unavailable in full remains a bibliographic-priority qualification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+At each fixed rank the next singular value is the exact optimal finite-rank approximation error in operator norm. The hierarchy determines its scale and sharp coefficient, rather than just convergence to rank one or an upper tail bound after rank two. The exterior-power Vandermonde limit explains why successively smaller scales occur for this natural family and supplies all higher fixed ranks in one argument.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

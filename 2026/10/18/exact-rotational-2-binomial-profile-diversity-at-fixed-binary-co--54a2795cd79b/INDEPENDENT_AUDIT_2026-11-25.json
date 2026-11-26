@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:35:23.768104Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–80",
+        "Frozen VERIFICATION.md and rotation_checker.py, support code inspected but not run"
+      ],
+      "rationale": "At fixed n,k the only needed count is H=number of scattered 01 pairs; H=Σ_j j w_j−binom(k,2) in zero-based indexing. Advancing the rotation start by one changes H by n w_i−k, so equal values require equal starts modulo L=n/g. For any nonempty subset of one start group, the selected starts share a value exactly when each arc between successive selected starts contains d_jK ones. The arcs partition all labeled positions, and the probability is the product of binomial coefficients over the fixed-weight denominator. Inside an equality block of size a, summing (−1)^{r+1} binom(a,r) over nonempty subsets of the block gives one; this proves the expectation without any independence assumption across collisions or start groups. Equality at the global minimum forces every length-L window to contain K ones, so sliding one place gives w_{i+L}=w_i; the converse and g=1 follow. For g=3 the three pair events have equal probability p, all pair-event intersections are the same triple event of probability q, and the singleton, double and triple contributions yield the displayed multiplicities. Uniform Stirling for fixed g and interior density gives order L^{−(r−1)/2} for r specified starts in one group; hence only pairs affect the √L term. An unordered pair sum equals g/2 times the sum over its g−1 directed separations, giving the coefficient and the uniform O(1) remainder. An independent finite check computed all six signature counts at all rotations of every one of the 84 labeled length-nine weight-three words and compared them with the positional moment and window period test. It found counts of words 3,18,36,18,9 at diversity 3,4,5,6,7 respectively, and mean 36/7 (p=15/28, q=9/28); the finite check is not evidence for uniform asymptotics apart from the proof.",
+      "residual_risks": [
+        "Sampling is uniform on labeled words, not on necklaces. The asymptotic is not uniform in growing g or near endpoint densities."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 0d4f8c02fe70 gives feasible class count intervals and a lower endpoint criterion for at least three letters, not fixed-content binary means. Golafshan and Richomme study geometric/class-size or graph structure of binary linear equivalence classes."
+        ],
+        "reasoning": "Knowing dimensions, sizes or structure of the signature classes is different from counting their intersections with the labeled rotations of one word. Even a deterministic feasible range does not identify the probability of each count under uniform fixed composition.",
+        "searches": [
+          "Resultary: binomial complexity and rotational orbits",
+          "arXiv:2606.23426v1 §3.4",
+          "arXiv:2510.07159v1 binary class structure"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2001.11732",
+        "Rigo–Salimov §3",
+        "arXiv:2606.23426v1",
+        "arXiv:2510.07159v1 abstract",
+        "Whiteland DOI 10.1007/978-3-030-85088-3_16, bibliographic and search description only",
+        "Resultary fda1260be906, 4ff94afd6c61, 0d4f8c02fe70"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Whiteland's searchable chapter description indicates an auxiliary-word conjugacy equation in §4; the full text was not retrieved and is not used to clear this source. Independently, existential auxiliary-word conjugacy is not pairwise signature equality on actual rotations: x=01,y=10 have distinct signatures, but xz=zy for z=0.",
+          "The target expectation adds uniform fixed-content arc counts, inclusion–exclusion of r-way equalities for arbitrary r through g, and uniform Stirling summed over cyclic pair distances."
+        ],
+        "reasoning": "The verified class formulas and g=2 mean do not imply those joint probabilities for all g. A result about existence of a word z would not alone give fixed-length rotational class diversity; explicit overlap with uninspected details of the chapter remains a residual risk.",
+        "searches": [
+          "Resultary: binomial conjugacy and xz∼₂zy",
+          "Primary lookup: M. A. Whiteland Equations over the k-binomial monoids WORDS 2021 pdf conjugacy xz zy author copy",
+          "Resultary fda1260be906 Finding and Relationship to prior work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The binary Parikh-matrix equivalence in Lejeune–Rigo–Rosenfeld identifies the same linear-word signature. Resultary 4ff94afd6c61 explicitly gives the same binary lower bound and equality characterization.",
+          "Resultary fda1260be906 is exactly the g=2 mean and leading deficit after setting its n=2m,k=2h with gcd(m,h)=1, but that identification fixes rather than frees g."
+        ],
+        "reasoning": "Changing from scattered 01 counts to positional sums is a re-encoding, not a new result. Repeated configurations with more than two starts per congruence group require collisions over whole arc partitions, which the g=2 formula cannot encode.",
+        "searches": [
+          "Resultary: expected rotational 2-binomial diversity",
+          "Resultary: fixed-composition cyclic rotations and gcd",
+          "arXiv:2001.11732v1 Theorem 3 and Remark 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The known exact linear class count (n³+5n+6)/6 counts equivalence classes across all binary words of length n. The closest exact orbital aggregate, Resultary fda1260be906, gives g=2 and includes its second moment."
+        ],
+        "reasoning": "Neither counting classes across sources nor computing g=2 at all lengths gives the exact expectation at arbitrary gcd. The two-start matching probabilities do not specify the higher simultaneous-collision terms.",
+        "searches": [
+          "Resultary: expected number of distinct cyclic signatures",
+          "Rigo–Salimov §3 Lemma 4; Lejeune–Rigo–Rosenfeld Theorem 3 and Remark 4"
+        ]
+      },
+      "rationale": "The distinct finding is the expectation and leading loss for general fixed gcd, beyond the exact overlapping g=2 result. Binary linear-word equivalence, the deterministic lower-bound characterization, and the g=2 moment and asymptotic are not counted as distinct from their inspected matches. No inspected stronger result implies the general gap-product formula or its square-root coefficient after specialization.",
+      "residual_risks": [
+        "Whiteland's full text could not be retrieved from the publisher or the cited thesis copy. The substantive decision rests on verified statements, not on that failure. An equivalent result under conditioned bridge or random-walk range terminology remains possible.",
+        "The overlap entries have later catalog path dates; the judgment concerns coverage and does not infer publication priority or provenance from dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same linear signature but different aggregate",
+          "evidence": "Parikh-matrix characterization and exact number of linear-word classes, not rotational-orbit counts.",
+          "identifier_or_url": "https://arxiv.org/abs/2001.11732",
+          "material_read": "Definition 2, p. 2, OA offset 5400; Theorem 3 and Remark 4, p. 3, offset 8450",
+          "method": "Read primary definitions and binary counting result",
+          "title": "On the binomial equivalence classes of finite words",
+          "trigger": "Same binary 2-binomial equivalence relation and exact class counts"
+        },
+        {
+          "assessment": "Linear equivalence class enumeration",
+          "evidence": "Same all-word count, not a mean over labeled fixed-content rotation orbits.",
+          "identifier_or_url": "https://orbi.uliege.be/bitstream/2268/178703/1/binomial_TCS_final.pdf",
+          "material_read": "§3, Lemma 4, p. 5; OA offsets 11550–12280",
+          "method": "Read primary result",
+          "title": "Another Generalization of Abelian Equivalence: Binomial Complexity of Infinite Words",
+          "trigger": "Binary exact class counts in earlier primary work"
+        },
+        {
+          "assessment": "Related class geometry, not the orbital mean in the inspected treatment",
+          "evidence": "Studies geometric/class-size properties of binary equivalence classes.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.23426v1",
+          "material_read": "Abstract p. 1 and §3.4 p. 10; OA offsets 0 and 38275",
+          "method": "Read abstract and primary geometric treatment",
+          "title": "Geometric/class-size study of binary 2-binomial classes (Golafshan)",
+          "trigger": "Plausible competing binary class-size invariant"
+        },
+        {
+          "assessment": "Contextual comparison only",
+          "evidence": "Abstract describes graph/partition structure and fair words, not a stated rotational expectation.",
+          "identifier_or_url": "https://arxiv.org/html/2510.07159v1",
+          "material_read": "Abstract, OA offset 0",
+          "method": "Read stated scope only",
+          "title": "Binary 2-binomial equivalence-class structure (Richomme)",
+          "trigger": "Related same-relation result"
+        },
+        {
+          "assessment": "Full text inaccessible; neither negative evidence nor confirmed coverage",
+          "evidence": "Chapter description advertises characterization of monoid conjugacy and the auxiliary equation; no available passage establishes a rotational expectation.",
+          "identifier_or_url": "https://doi.org/10.1007/978-3-030-85088-3_16",
+          "material_read": "Author publication list, OA offset 5350, and searchable chapter description identifying §4 only; no primary full text",
+          "method": "Identified proceedings chapter and attempted publisher PDF/chapter and the cited lawful thesis copy",
+          "title": "Equations over the k-Binomial Monoids",
+          "trigger": "Closest named binomial-conjugacy comparison"
+        },
+        {
+          "assessment": "Exact g=2 overlap only",
+          "evidence": "The mean and its square-root deficit match at g=2, and the record adds a second moment there; it does not give the arbitrary-g mean.",
+          "identifier_or_url": "Resultary fda1260be906",
+          "material_read": "RESULT.md Finding and prior-work comparison, mirror offsets 0 and 6800",
+          "method": "Read and identify n=2m,k=2h with gcd(m,h)=1",
+          "title": "Exact second moments and fluctuation scale of cyclic 2-binomial signature diversity",
+          "trigger": "Closest indexed orbital expectation and deficit"
+        },
+        {
+          "assessment": "Same lower bound and equality case",
+          "evidence": "L≤ρ(w), equality iff w=u^g with the prescribed block composition.",
+          "identifier_or_url": "Resultary 4ff94afd6c61",
+          "material_read": "RESULT.md Finding, mirror offset 0",
+          "method": "Read exact lower bound and compare equality condition",
+          "title": "Sharp cyclic 2-binomial fingerprint bounds at fixed binary weight",
+          "trigger": "Nearest deterministic bound and period criterion"
+        },
+        {
+          "assessment": "Different alphabet scope and deterministic statistics",
+          "evidence": "At least three letters; feasible counts and repetition at lower endpoint, no fixed-content random mean.",
+          "identifier_or_url": "Resultary 0d4f8c02fe70",
+          "material_read": "RESULT.md Finding and lower-endpoint proof, mirror offsets 0 and 3462",
+          "method": "Read hypotheses, spectrum and equality statement",
+          "title": "Sharp 2-binomial rotation spectra for fixed multiletter content",
+          "trigger": "Plausibly broader exact rotation classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–37 and 59–80",
+        "Resultary fda1260be906 Finding"
+      ],
+      "rationale": "The observable measures how many distinct observations remain when the start of a fixed-composition circular word is unknown. Neither deterministic bounds nor the g=2 exact result quantifies the typical loss at general gcd. The gap-product expression supplies such a mean for all fixed compositions, and its explicit square-root correction distinguishes pair collisions from higher-order coincidences; both are useful beyond the matching deterministic criterion.",
+      "residual_risks": [
+        "The exact formula can grow exponentially in g; the result does not give the full distribution at general gcd or a reconstruction method."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

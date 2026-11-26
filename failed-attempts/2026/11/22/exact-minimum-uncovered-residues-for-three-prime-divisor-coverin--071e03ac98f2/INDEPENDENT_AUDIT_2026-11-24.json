@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:23:00.505478Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The three prime classes have union pq+pr+qr-p-q-r+1 by CRT inclusion–exclusion. A pair class meets the omitted prime class in one point, so the additional contributions are at most r-1, q-1, p-1, plus one singleton. With the prime coordinates set to zero, the choices (1,1) on pq, (2,1) on pr, and (2,2) on qr make the residual pair classes disjoint: their shared-coordinate values differ for every pair. The point (1,2,1) lies outside all six. Values 0,1,2 are distinct even for p=3. Hence the uniform optimum is attained. An independent bit-mask exhaustive check of pair-class choices with normalized prime classes and an optimized singleton returned uncovered minima 35, 63, 219 for M=105,165,385. Replay: python3 /workspace/branches/independent-reproduction/arithmetic_review.py; finite check only. Frozen scripts were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dai et al. Theorem 1.1 requires 45 to divide the lcm of an odd distinct covering system, excluding complete coverage in the target's squarefree setting; it does not give the exact deficit.",
+          "The indexed four-prime statement gives H=product of core sizes minus sum of complementary core-size products over the six pairs plus a bounded collision defect."
+        ],
+        "reasoning": "The general obstruction is weaker on this invariant; the exact four-prime formula is strong enough to extract the three-prime optimum at fixed p,q,r.",
+        "searches": [
+          "Dai–Li–Li–Yi, arXiv:2611.15110v1, §1, Theorems 1.1 and 1.3",
+          "Indexed four-prime deficit, Finding and scope"
+        ]
+      },
+      "checked_sources": [
+        "Four-prime deficit indexed RESULT.md, d22a31d93a23, local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+        "arXiv:2611.15110v1 §1",
+        "Öztürk DOI and ResearchGate URL attempted; no primary passage",
+        "Frozen RESULT.md, VERIFICATION.md and verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For fixed p,q,r, the four extra moduli touch at most K residues in aggregate, so |H-sh|<=K and the leading coefficient is exactly h.",
+          "Frozen RESULT.md lines 55–56 ascribes the same three-prime formula to Öztürk as a conjecture rather than a proof; the DOI and cited copy were inaccessible."
+        ],
+        "reasoning": "The slice bound and coefficient extraction show mathematical implication from the distinct indexed theorem, not just resemblance. Neither the inaccessible paper nor same-day ordering is needed for that implication.",
+        "searches": [
+          "Indexed four-prime deficit RESULT.md offsets 0–3574; comparison via CRT slices as s tends to infinity",
+          "Öztürk, §6 Conjecture 1 lead"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The three-prime objective equals the complementary maximum union in the CRT product. For the six-class problem the exact deficit is the leading coefficient of the indexed four-prime deficit in the fourth factor."
+        ],
+        "reasoning": "The singleton transforms the six-class optimum to the seven-class optimum by exactly one, so a statement of the six-class optimum, even implicitly through a fourth-factor limit, covers the headline.",
+        "searches": [
+          "Resultary semantic comparison for exact three-odd-prime seven-divisor uncovered/maximum coverage",
+          "2026/11/22/SCOPE-exact-first-two-level-covering-deficit-for-four-odd-prime-factor--d22a31d93a23, RESULT.md offsets 0–3574"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The frozen record reports published examples u(105)=35 and u(385)=219. Independent enumeration confirms both numbers; no primary numerical passage was accessible to authenticate their attribution.",
+          "The indexed distinct four-prime record is an exact indexed formula, not merely a finite four-prime sample."
+        ],
+        "reasoning": "Two numerically matching entries alone cannot settle the uniform three-prime theorem. The indexed uniform formula can. The identical target catalogue entry is not independent overlap.",
+        "searches": [
+          "Resultary exact divisor-moduli deficit search",
+          "Öztürk DOI 10.13140/RG.2.2.13216.55049 and ResearchGate publication 412442828"
+        ]
+      },
+      "rationale": "The exact seven-class formula is a boundary consequence of a distinct indexed four-prime exact theorem, despite the different moduli. Fix p,q,r and let h be the three-prime optimum before the singleton. Add a fourth prime s. The original six classes lift identically to all s slices of Z/(pqrs), leaving at least s h holes; the new classes s,ps,qs,rs can cover at most K=pqr+qr+pr+pq in total, independent of s. Conversely lift a six-class optimizer and add any four allowed classes. Therefore sh-K <= H(p,q,r,s) <= sh. The four-prime formula has a bounded-in-s defect (q+2 or 3) and its coefficient of s is (p-1)(q-1)(r-1)-[(p-1)+(q-1)+(r-1)] = pqr-pq-pr-qr+2. Thus H/s tends to h with exactly this value. It is positive (at least 36 at the smallest triple and increasing in the three core sizes), so the final singleton subtracts one, recovering the frozen formula. Both results are indexed on the same date; this proves coverage, not chronological priority. The unavailable conjecture passage is not the basis for rejection.",
+      "residual_risks": [
+        "The reported Conjecture 1 wording and the provenance of published examples remain unverified.",
+        "Same-day dates do not establish which result preceded the other; implication is definitive without that ordering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covering by implication; historical priority undetermined",
+          "evidence": [
+            "Exact deficit for prime and pair moduli, defect q+2 or 3 independent of fourth factor s. The sh-K <= H <= sh estimate identifies its leading coefficient with the target before the singleton."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-first-two-level-covering-deficit-for-four-odd-prime-factor--d22a31d93a23/RESULT.md",
+          "material_read": "Finding, scope, CRT proof and certificate setup, offsets 0–3574",
+          "method": "Original result via local mirror, then independent fixed-three-primes limit comparison",
+          "title": "Exact first-two-level covering deficit for four odd prime factors",
+          "trigger": "Closest distinct indexed exact CRT optimization"
+        },
+        {
+          "assessment": "Not covering this exact optimum in inspected statements",
+          "evidence": [
+            "Odd complete distinct covers require 45 to divide their lcm; least-modulus bounds address complete covers."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.15110v1",
+          "material_read": "§1, Theorems 1.1 and 1.3 and adjacent discussion, OA offsets 3388–7681",
+          "method": "Original OA HTML passage comparison",
+          "title": "On the moduli of distinct covering systems",
+          "trigger": "Broader odd squarefree covering obstructions"
+        },
+        {
+          "assessment": "Attribution and exact primary wording unconfirmed; not negative evidence",
+          "evidence": [
+            "Frozen RESULT.md lines 50–56 reports conjecture and examples, not an independently authenticated transcription."
+          ],
+          "identifier_or_url": "https://doi.org/10.13140/RG.2.2.13216.55049",
+          "material_read": "No primary conjecture or example passage retrieved; frozen account only",
+          "method": "Bounded DOI and cited ResearchGate OA attempts returned 403; public title lookup did not expose the statement",
+          "title": "Closed-form nonexistence certificates for odd covering systems",
+          "trigger": "Reported exact Conjecture 1 and numerical examples"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The invariant is natural and the direct three-coordinate proof is economical, but the submitted contribution is the exact deficit itself. It is mechanically extracted from the indexed uniform four-prime theorem by a bounded fourth-slice correction and a singleton. The record does not isolate a further independently useful result beyond that covered classification.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

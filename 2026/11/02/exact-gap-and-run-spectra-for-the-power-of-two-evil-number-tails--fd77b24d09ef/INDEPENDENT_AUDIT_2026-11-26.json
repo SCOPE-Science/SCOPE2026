@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:26:40.634856Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 24–43",
+        "Frozen VERIFICATION.md and verify_evil_tail.py",
+        "Independent bounded reachability and maximal-run replay, r=2 through 10"
+      ],
+      "rationale": "The minimum generator m=2q+1 prevents any two-generator sum below 4q+2. In the conductor interval, with n=4q+t, odd digit parity of t gives a generator; even parity for t<2q gives two evil generators by partitioning its ones into two odd-sized sets. The endpoint t=2q+1 is represented using a=2^j and b=2q+1-a, with j=1 for even r and j=2 for odd r; both have odd parity and lie strictly between 0 and 2q. One complete residue interval modulo m is therefore present. Binary parity balances the upper gap band, giving genus 3q. In the upper band the Thue–Morse recurrences exclude triples; singletons correspond to 00 pairs at even sites and 11 pairs at odd sites in the halved prefix. The recurrence E_r=2^(r-1)-1-E_(r-1) counts these, and the last gap contributes an extra singleton exactly for even r. Pairing the remaining upper-band gaps gives R2 and the ratio tends to 1/9. A separate reachability replay agreed for r=2 through 10 (6,132 gaps and 4,106 candidate generators); the supplied verifier was inspected but not executed.",
+      "residual_risks": [
+        "The replay covers only nine exponents; the analytic digit and boundary arguments supply the universal proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General evil-tail membership uses one, two or three evil summands; the synchronized automaton computes the evil-tail Frobenius number for all indices.",
+          "The indexed run theorem assumes a two-generator semigroup with its own specific parameters."
+        ],
+        "reasoning": "An all-index Frobenius or membership algorithm does not give the run-frequency evaluation without the equal-adjacency count and endpoint analysis. The two-generator theorem does not specialize to these tails: already the generators 2q+1, 2q+2 and 2q+4 are all below 2m and hence irreducible.",
+        "searches": [
+          "Shallit, arXiv:2103.10904, Lemma 5 and Theorems 1 and 6",
+          "Resultary record 584c998005ae, exact run-length frequencies in two-generator semigroups"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2103.10904",
+        "arXiv:2112.13627",
+        "Resultary record 584c998005ae"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 6 gives optimal bounds 4i <= G_e(i) <= 6i+7, with infinitely many equality cases, not an explicit identification of every lower-equality index in that passage.",
+          "Given the specialized value F=4q, the gap set and genus need only the minimum-generator bound and parity balance. The run frequencies additionally count equal-adjacency patterns and correct for the appended final gap."
+        ],
+        "reasoning": "Do not double-credit the gap set as an independent result once the Frobenius specialization is available. The surviving exact invariant is the evaluated run count, not a new automatic-sequence theorem.",
+        "searches": [
+          "arXiv:2103.10904, evil-tail definition, result preceding Theorem 6, and Theorem 6",
+          "Frozen RESULT.md, minimum generator and gap-run classification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The threshold 2q+1 is exactly the index-q evil tail since e_i=2i+t(i).",
+          "The short gap runs are zero runs in a truncated and endpoint-modified Thue–Morse word, not representation multiplicities for the untruncated evil or odious sequence."
+        ],
+        "reasoning": "Identify the matching tail under both parameterizations and separate digital word statistics from the extra boundary conditions needed for the semigroup statistic.",
+        "searches": [
+          "Shallit, arXiv:2103.10904, evil tail and synchronized Frobenius function",
+          "Thue–Morse run statistics and evil-tail gap runs",
+          "Allouche–Shallit, arXiv:2112.13627"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest indexed run-statistic hit concerns maximal gap runs for <a,b>, a different family.",
+          "The exact prior automaton concerns F, not the distribution of maximal positive gap blocks."
+        ],
+        "reasoning": "Established exact Frobenius coverage is credited separately; no inspected exact table or record gives R1 and R2 for this modified-word tail.",
+        "searches": [
+          "Resultary: evil-number tails, Thue–Morse gap runs and exact semigroup gap-run counts",
+          "2026/11/2/SCOPE-exact-run-length-frequencies-for-binary-semigroups-with-a-dt-1-a--584c998005ae",
+          "arXiv:2103.10904, evil-tail Frobenius automaton"
+        ]
+      },
+      "rationale": "The supported contribution is the semigroup run spectrum, including the exact parity-dependent boundary effect. The evil-tail object, the Frobenius problem and general membership machinery are already established. Once F=4q is given for this subfamily, the gap set itself follows immediately from the minimum generator, so I do not treat it as independent novelty relative to that Frobenius specialization. Neither the inspected evil-tail literature nor the closest indexed gap-run result states or directly yields the exact run frequencies without separately analyzing adjacency and the terminal gap.",
+      "residual_risks": [
+        "An unindexed exact prefix-word run enumeration with the appropriate endpoint conversion could narrow the contribution. The bounded comparisons do not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Established Frobenius and membership machinery, not the particular run count",
+          "evidence": "The 58-state synchronized automaton computes G_e; Theorem 6 bounds it sharply and asserts infinitely many equality cases.",
+          "identifier_or_url": "https://arxiv.org/pdf/2103.10904",
+          "material_read": "Tail definition p. 1; enumeration p. 3; Lemma 5 and evil-tail automaton/Theorem 6 pp. 3–4, offsets 9100–11494 for the latter material",
+          "method": "Open primary PDF, targeted passages",
+          "title": "Frobenius Numbers and Automatic Sequences",
+          "trigger": "Same evil-number-tail family with a stronger all-index Frobenius computation"
+        },
+        {
+          "assessment": "Different statistic and no tail threshold in the matching assertions",
+          "evidence": "The counts are additive representations in untruncated evil and odious sets.",
+          "identifier_or_url": "https://arxiv.org/pdf/2112.13627",
+          "material_read": "Main representation results, p. 2, offsets 4400–8143",
+          "method": "Open primary PDF, targeted passage",
+          "title": "Additive Properties of the Evil and Odious Numbers and Similar Sequences",
+          "trigger": "Same binary-parity sequences and additive representations"
+        },
+        {
+          "assessment": "Different semigroup family, no direct overlap",
+          "evidence": "The generators are two fixed integers a,b, not all evil integers above a threshold.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-run-length-frequencies-for-binary-semigroups-with-a-dt-1-a--584c998005ae",
+          "material_read": "RESULT.md Finding and generator assumptions",
+          "method": "Resultary local mirror",
+          "title": "Exact run-length frequencies for binary semigroups",
+          "trigger": "Closest Resultary record for the precise notion of maximal gap runs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof section 4",
+        "Shallit, arXiv:2103.10904, Theorem 6"
+      ],
+      "rationale": "The power-of-two threshold is natural for a binary-digit generator family. Its exact maximal-run spectrum separates the large initial block from the short holes, quantifies the persistent parity correction and gives the limiting isolated-gap fraction. This measures clustering, rather than simply recomputing the conductor or genus. The calculation is elementary but uses the structure of the interior and the endpoint, not a renaming of a bound on the largest gap.",
+      "residual_risks": [
+        "Value is in this natural digital subfamily's run invariant, not a claimed classification for arbitrary evil tails."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

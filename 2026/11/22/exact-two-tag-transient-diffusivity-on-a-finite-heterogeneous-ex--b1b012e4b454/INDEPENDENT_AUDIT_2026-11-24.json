@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:56:45.816155Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–36 and 38–106, especially its equal-rate scope at line 106; VERIFICATION.md and checker.py inspected, not executed",
+        "Repaired /workspace/repairs/3/RESULT.md, proof, scope and finite-time ratio",
+        "Replay: python3 /workspace/branches/independent_checks.py 3"
+      ],
+      "rationale": "For the repaired RESULT.md: the frozen opening unconditionally asserted unequal finite-time diffusivities although a=b was admitted and gives K_1(t)=K_2(t) at every t. The repair states equality iff a=b, distinguishes the linear part of the MSD from the relaxation terms, and clarifies that the ratio has a constant limit as t tends to infinity although plugging in the limiting diffusivities gives 0/0. No coefficients or rate assumptions were changed. Independently, conditioned on the reflecting gap path, each gap jump is a tag-1 jump with probability p=a/(a+b), independently of other marks. Tag 1's increment is minus the gap increment when it jumps, and tag 2's is plus the gap increment when it jumps. Hence each tag's conditional variance is p(1−p) times the number of gap jumps, whose mean is 2q(n−1)t/n. Its conditional mean is, respectively, −p or 1−p times the net gap displacement. The stationary gap is uniform and E[(G_t−G_0)^2]=2⟨f,(I−e^{tQ})f⟩ with f(k)=k−(n+1)/2. The reflecting cosine eigenbasis and −Qf=q(1_{k=n}−1_{k=1}) give exactly the stated odd-mode coefficients and zero even overlaps. Mode m=1 exists also at L=3. The activity at time zero, strict signs at every finite time, common exponent, rate ratio, and intercept from the uniform gap variance all follow. The 90 fresh full-configuration marked uniformization comparisons covered both tags, equal/unequal rates and the triangle.",
+      "residual_risks": [
+        "The independent calculation is bounded floating-point corroboration, not a proof; the exact conditional-mark and spectral calculations apply on the stipulated stationary two-particle ring."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mason et al. restrict the macroscopic two-species treatment to dimensions at least two; Mallmin et al. give long-time heterogeneous continuum-ring currents and the common-current large-deviation law.",
+          "The earlier Resultary stable-pair SCGF is for directional bias on the infinite lattice and excludes the symmetric rates at issue under its strict stability condition."
+        ],
+        "reasoning": "The long-time structure may be shared; none provides the exact stationary finite-size instantaneous excess with direction and tag marks.",
+        "searches": [
+          "Mason, Jack and Bruna arXiv:2203.01038, Introduction pp. 1–2",
+          "Mallmin, du Buisson and Touchette arXiv:2102.04846, §5 Eqs. (82)–(94)",
+          "Resultary stable heterogeneous exclusion pair --6fbc744c1a0d"
+        ]
+      },
+      "checked_sources": [
+        "Resultary activity --ef4ea58edfd5 and stable pair --6fbc744c1a0d",
+        "arXiv:2203.01038, 0803.2485v2, 2102.04846, cond-mat/0703464, passages as listed"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The activity formula uses the reflecting gap and an endpoint-symmetric rate of total hops. The tagged drift is antisymmetric, and the odd eigenspaces vanish from the activity variance. The continuum ring SCGF describes long-time rather than finite-time fluctuations."
+        ],
+        "reasoning": "The standard gap generator and its modes are reusable, but the activity formula does not supply the signed marked conditional means or odd projection. The exact tagged weights and the distinct rate-square factorization require an additional signed-moment argument.",
+        "searches": [
+          "Resultary activity spectrum --ef4ea58edfd5, Finding and Proof §§1–3, offsets 0–6357; Mallmin et al. §5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gupta et al. study finite-ring ASEP with common microscopic rates and an exact solution of a linearized model. Ambjörnsson et al. give two-particle unequal-diffusion dynamics at all times on the continuum infinite line."
+        ],
+        "reasoning": "Neither matches exact signed microscopic heterogeneous lattice tags at finite periodic size and a uniform stationary start. Results about continuum reflection on a line or about a linearized model do not determine the lattice coefficients.",
+        "searches": [
+          "Resultary signed tagged MSD finite heterogeneous two-particle exclusion ring reflecting gap",
+          "Gupta et al., arXiv:cond-mat/0703464, Introduction and tagged displacement",
+          "Ambjörnsson et al., arXiv:0803.2485v2, Sec. II"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day activity record's actual Finding explicitly counts total accepted hops; its equation (1) has the even gap-mode eigenvalues. Its scope excludes a signed current or tagged displacement."
+        ],
+        "reasoning": "This is an exact catalogue entry in the same model at equal rates, but a different observable. No table or indexed statement of the heterogeneous two-tag transient was identified in the inspected comparisons. Same-day dates do not settle priority.",
+        "searches": [
+          "Resultary same-model spectral search: two-particle ring tagged displacement and reflecting gap, closest distinct Resultary hit --ef4ea58edfd5"
+        ]
+      },
+      "rationale": "The supported distinct result is the exact finite-lattice stationary two-tag MSD spectrum and constant squared-rate ratio for its excess instantaneous diffusivities. Reflecting-gap reduction, finite-ring activity spectra for homogeneous rates, and long-time diffusivity mechanisms are not claimed as new. The comparison applies to the repaired precise statement, including that the two curves coincide at equal rates.",
+      "residual_risks": [
+        "Historical priority outside the bounded comparisons is not certified. Prior exact results for homogeneous tagged finite rings are a remaining possible partial overlap, not evidence of coverage of the heterogeneous spectrum."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Shared method and equal-rate gap; different statistic and parity",
+          "evidence": "Accepted-hop count without tags or signs; even modes and activity cumulants.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-diffusive-time-theta-crossover-for-two-particle-exclusion-acti--ef4ea58edfd5/RESULT.md",
+          "material_read": "Finding, scope, proof §§1–3; offsets 0–6357",
+          "method": "Resultary and OA local mirror",
+          "title": "A diffusive-time theta crossover for two-particle exclusion activity on a ring",
+          "trigger": "Closest same-day finite-ring reflecting-gap spectrum"
+        },
+        {
+          "assessment": "Different gap geometry, bias and time regime",
+          "evidence": "Stable directionally biased pair on the infinite lattice, long-time SCGF.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-skellam-exponential-moment-window-for-a-stable-exclusion-pair--6fbc744c1a0d/RESULT.md",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "Resultary and OA local mirror",
+          "title": "A Skellam exponential moment window for a stable exclusion pair",
+          "trigger": "Earlier heterogeneous pair with tagged observable"
+        },
+        {
+          "assessment": "Macroscopic analysis in d≥2; not the bound regime",
+          "evidence": "Footnote distinguishes nonpassing d=1 as reducible.",
+          "identifier_or_url": "https://arxiv.org/abs/2203.01038",
+          "material_read": "Introduction pp. 1–2, PDF offset 0",
+          "method": "OA PDF",
+          "title": "Macroscopic behaviour in a two-species exclusion process via the method of matched asymptotics",
+          "trigger": "Heterogeneous symmetric exclusion"
+        },
+        {
+          "assessment": "Continuum line, not periodic lattice",
+          "evidence": "Exact two-body continuum propagator on the infinite line; the finite reflecting interval is a simulation setup.",
+          "identifier_or_url": "https://arxiv.org/html/0803.2485v2",
+          "material_read": "Sec. II, HTML offset 8036",
+          "method": "OA HTML",
+          "title": "Single-file dynamics with different diffusion constants",
+          "trigger": "All-time unequal-rate two-body hard-core motion"
+        },
+        {
+          "assessment": "Covers long-time continuum current only",
+          "evidence": "Long-time common empirical velocities and current rate function; not the finite lattice odd-mode spectrum.",
+          "identifier_or_url": "https://arxiv.org/abs/2102.04846",
+          "material_read": "Sec. 5, pp. 16–18, Eqs. (82)–(94), offsets 48154 and 52000",
+          "method": "OA PDF",
+          "title": "Large deviations of currents in diffusions with reflective boundaries",
+          "trigger": "Heterogeneous continuum ring and common effective diffusivity"
+        },
+        {
+          "assessment": "Different microscopic dynamics and question",
+          "evidence": "Finite-size transient variance for homogeneous ASEP; identified exact solution is for a linearized model.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0703464",
+          "material_read": "Abstract and Introduction, pp. 1–4, offsets 1857, 12223 and 23036",
+          "method": "OA PDF",
+          "title": "Tagged Particle Correlations in the Asymmetric Simple Exclusion Process: Finite Size Effects",
+          "trigger": "Closest primary finite lattice tagged variance comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md Finding, proof and limitations; compared tagged versus activity observable in Resultary --ef4ea58edfd5"
+      ],
+      "rationale": "For the smallest interacting finite ring system the joint time dependence, odd-mode weights, strict decay and intercept distinguish transient tagged transport from its common asymptotic diffusivity. The exact squared-rate excess ratio provides a useful check across all observation times and jump-rate contrasts, not just a trivial equal-rate check or a re-expression of the long-time diffusivity.",
+      "residual_risks": [
+        "Scope is exactly two walkers with uniform stationary start; value does not rely on extrapolation to other dynamics or a many-body result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

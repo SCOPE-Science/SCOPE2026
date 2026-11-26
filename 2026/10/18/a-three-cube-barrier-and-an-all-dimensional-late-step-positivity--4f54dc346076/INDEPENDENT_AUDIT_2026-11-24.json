@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:01:22.610298Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Walsh reduction, late-step obstruction, and three-cube threshold",
+        "VERIFICATION.md",
+        "verify.py",
+        "Independent shell simplification and exact rational quartic-sign bracket"
+      ],
+      "rationale": "At rate one per coordinate the Walsh eigenvalues of Q_d are -2k; the shell weights are the coefficients of (1-z)^j(1+z)^(d-j). The scalar numerator and denominator are positive, r_0=1, and symmetry follows from the orthogonal spectral decomposition. The exact heat kernel is a tensor product of strictly positive two-state kernels for h>0. Let D_k=1+kh+k^2 h^2/3, so r_k=1-2kh/D_k. The off-diagonal two-cube shells simplify to h/D_2 and h(1/D_1-1/D_2), both strictly positive, as is h/D_1 on the one-cube. On Q_3 inserting the four coefficient lists (1,3,3,1), (1,1,-1,-1), (1,-1,-1,1), (1,-3,3,-1) and clearing positive denominators gives the displayed four shell numerators. The first, third and fourth have positive coefficients after their h factors are removed; the second is -3h times the quartic. Descartes' sign rule and the sign change from h=0 to infinity give a unique positive threshold; exact rational evaluation brackets it between 8.583763463733358 and 8.583763463733359. At zero the update is the identity; at the cutoff only the neighbor shell vanishes. For arbitrary fixed d, expansion of 1-2kh/D_k gives 1-6/(kh)+O(h^-2). The constant terms cancel off the diagonal; the neighbor coefficient is -6 S_d/2^d. Pascal's identity gives the increment (2^(d+1)-1)/(d+1) in the reciprocal-binomial sum, yielding the stated increment of S_d. Since S_3=1/6, the leading term is negative in every d>=3. The uploaded verifier was inspected, not executed: it makes finite exact checks (including a bracket 8<h<9), not a proof of the recurrence for unbounded d or a computation of the printed root precision.",
+      "residual_risks": [
+        "Asymptotic estimates are for fixed dimension. No positivity interval for d>=4, stage positivity or dimension-uniform timestep is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier general positivity literature discusses sufficient conditions and small-step failure, not the exact symmetric cube cutoff in inspected passages. The September 20 CTMC record gives an eight-state pure-birth construction.",
+          "November 8 all-stage cubes include the whole statement; November 8 complete factors cover the all-step boundary and asymptotic obstruction. November 22 feasibility concerns the existence of any admissible positive step rather than all steps."
+        ],
+        "reasoning": "A directed small-step counterexample does not imply a reversible large-step sign; the identified genuinely covering generalization is later displayed. The existence of a positive step in dimensions 3–12 is compatible with eventual failure.",
+        "searches": [
+          "Zappavigna et al., MTNS 2010, Padé discretization of positive systems",
+          "Blanes–Iserles–Macnamara arXiv:2102.08242",
+          "Resultary cubes, complete factors and general finite Markov generators"
+        ]
+      },
+      "checked_sources": [
+        "Resultary September 20 pure-birth, October 18 [0/2] cycle, November 8 cube/complete-factor/directed-cycle and November 22 feasibility records",
+        "Zappavigna et al. (2010)",
+        "Blanes–Iserles–Macnamara arXiv:2102.08242"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general leading term of the even-degree rational heat map is a Laplacian pseudoinverse term; its entry sign is graph-dependent. Small-step Padé coefficient arguments do not give this large-step neighbor sign or the quartic cutoff.",
+          "The later all-stage cube theorem mechanically gives every frozen assertion about endpoint positivity at stage two. The later complete-factor theorem cannot by its dimension dichotomy alone produce tau."
+        ],
+        "reasoning": "Do not claim uniqueness against the later exact theorem or novelty for the generic rational mechanism. The evidence shows no earlier implication of both the dimension-sharp obstruction and exact interval.",
+        "searches": [
+          "September 20 eight-state Markov-positivity barrier, Finding",
+          "November 8 cube and complete-factor Finding; November 22 dimension-twelve Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The November 8 all-stage cube Finding specializes exactly at stage count two, including the rate-one quartic. The November 8 complete-factor Finding specializes by Q_d=K_2 Cartesian-powered d times.",
+          "The eight-state pure-birth example has the same scalar map and vertex count as Q_3 but not the same generator or sign regime."
+        ],
+        "reasoning": "Method and dimension are matched through the actual generator and rational function. The complete-factor specialization gives only part of the frozen theorem; the all-stage cube theorem on the later displayed date gives the exact match.",
+        "searches": [
+          "Resultary: two-stage Gauss [2/2] Padé Boolean cube, dimension barriers and sharp threshold",
+          "Resultary: Cartesian products of complete graphs and Gauss positivity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "An exact same quartic and boundary were identified in the November 8 hypercube result. The directed-cycle horizons and same-day undirected C8 recovery theorem are not matches; the latter uses [0/2].",
+          "The frozen text's unnamed seven-cube small-step comparison was not independently identified in the inspected searches."
+        ],
+        "reasoning": "The exact-root lookup concerns an algebraic positivity threshold, not merely an approximate match. Same-day C8 is examined as a comparator rather than dismissed by date, and no claims about the unlocated seven-cube source are based on its title or absence.",
+        "searches": [
+          "Resultary: exact sharp three-cube quartic; seven-dimensional cube, [2/2], small-step and disconnected positivity",
+          "Resultary: exact Padé cycle horizons and same-day eight-cycle recovery"
+        ]
+      },
+      "rationale": "The supported distinct claim is the unit-rate reversible cube sharp first-failure threshold and the universal late-step edge sign, not standard Walsh diagonalization, the elementary small cubes taken alone, or generic Padé nonpositivity. A separately indexed November 8 result mathematically covers the whole claim at two stages and extends the sign law to even stage counts; a second November 8 product theorem covers the dimension boundary and large-step sign but not the sharp quartic. Both are later displayed than the frozen October 18 record, and the inspection did not establish an earlier version or priority. The earlier same-map general-CTMC obstruction and same-day different-map cycle theorem are different claims. No inspected earlier result establishes the full cube theorem.",
+      "residual_risks": [
+        "Relationship between the October record and the exact later generalization was not established. No priority claim is inferred from same-day material.",
+        "General discovery was limited, and the unnamed seven-cube work was not resolved; the 2012 Essentially Negative Results PDF was located but its decisive passage was not retrieved. These limitations are not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage on specialization; later catalog date does not establish priority",
+          "evidence": "At two stages, d<=2 all-step positivity, eventual negative adjacent entries for every d>=3, and the same Q_3 quartic. Related work distinguishes the earlier one-way chain.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-hypercube-dimension-barriers-and-a-sharp-three-cube-threshold-fo--d5410a2c25f5",
+          "material_read": "Finding, RESULT.md offset 0; related work and limitations, offset 7000",
+          "method": "Local corpus passage inspection",
+          "title": "Hypercube dimension barriers and a sharp three-cube threshold for Gauss–Legendre heat steps",
+          "trigger": "Exact same threshold and broader even-stage law"
+        },
+        {
+          "assessment": "Later broader partial coverage",
+          "evidence": "All-step classification and sufficiently-large-step negative neighbor entries specialize via K_2 factors, but the exact Q_3 cutoff is not the classified quantity.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-all-step-gauss-positivity-on-cartesian-products-of-complet--e93fc3196dc7",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local corpus passage inspection",
+          "title": "Sharp all-step Gauss positivity on Cartesian products of complete graphs",
+          "trigger": "Broader family containing Q_d"
+        },
+        {
+          "assessment": "Different generator and quantifier",
+          "evidence": "Directed pure-birth CTMC shows failure for arbitrarily small positive steps, whereas the reversible Q_3 is positive for small steps.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local corpus passage inspection",
+          "title": "Eight-state barrier for Markov positivity of the [2/2] Padé map",
+          "trigger": "Earlier same map and state count"
+        },
+        {
+          "assessment": "Different rational method and graph",
+          "evidence": "The [0/2] map on the undirected eight-cycle has a recovery threshold, not Q_3's [2/2] failure threshold.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-distance-four-positivity-obstruction-and-sharp-eight-cycle-recov--5b0558f2856d",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local corpus passage inspection",
+          "title": "Distance-four positivity obstruction and sharp eight-cycle recovery",
+          "trigger": "Same-day sharp finite heat-graph threshold"
+        },
+        {
+          "assessment": "Different quantifier, not a contradiction",
+          "evidence": "At least one positive step exists exactly through dimension twelve; the all-step and small-step properties are distinct.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-sharp-dimension-twelve-feasibility-boundary-for-positive-gauss--15a59396529c",
+          "material_read": "RESULT.md Finding and related-work opening",
+          "method": "Local corpus passage inspection",
+          "title": "A sharp dimension-twelve feasibility boundary for positive Gauss–Padé diffusion on Boolean cubes",
+          "trigger": "Same operator with different dimensional boundary"
+        },
+        {
+          "assessment": "General precedent, no exact cube result in passage",
+          "evidence": "Conditions for positivity and examples of failure for arbitrarily small sampling times.",
+          "identifier_or_url": "https://mural.maynoothuniversity.ie/id/eprint/2195/",
+          "material_read": "PDF p. 1, offset 854",
+          "method": "Open primary PDF passage inspection",
+          "title": "On the preservation of co-positive Lyapunov functions under Padé discretization for positive systems",
+          "trigger": "Earlier general positivity methods and obstructions"
+        },
+        {
+          "assessment": "Context, not an exact cube classification in the inspected text",
+          "evidence": "Discusses positivity preservation for broad graph-Laplacian systems.",
+          "identifier_or_url": "https://arxiv.org/abs/2102.08242",
+          "material_read": "PDF pp. 1–2 and retrieved passage at offsets 1900 and 7406",
+          "method": "Primary open PDF passage inspection",
+          "title": "Positivity-preserving methods for population models",
+          "trigger": "Graph-Laplacian positivity literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md all-dimensional and sharp first-dimension claims",
+        "Earlier eight-state CTMC example",
+        "Earlier general Padé positivity literature"
+      ],
+      "rationale": "A sharp admissible timestep on the smallest failing reversible Boolean cube and an explicit negative edge sign in every larger dimension distinguish endpoint mass positivity from unconditional spectral stability for a natural implicit fourth-order method. The obstruction is structural and materially more informative than sampling a bad timestep or giving another directed counterexample.",
+      "residual_risks": [
+        "No complete higher-dimensional positivity classification or timestep recommendation outside the specified generator normalization."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

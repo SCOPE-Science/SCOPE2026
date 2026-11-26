@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The first reference gives the exact row/column Markov convention. For the complementary-branch family, every row is all ones except its uniquely missing reversed column; right shuffling yields exactly \(J-Q\). Constants and the invariant zero-sum complement give the characteristic polynomial without approximation. Permutation cycle decomposition proves phase multiplicities, and the exact exponential cycle-index formula yields every occurrence count. The literal transfer-operator eigenvalue membership follows from the finite Markov invariant subspace. The explicit four-state matrix has characteristic polynomial \((t-3)(t+1)(t^2-t+1)\); its eigenvalue \((1-i\sqrt3)/6\) lies outside the diamond asserted by the prior conjecture. This is an all-dimension proof, not an extrapolation from finite experiments. The standalone script independently checks the finite algebra and counts for sizes four through seven.
+## correctness
 
-## Originality — PASS with residual priority risk
-Byott--Holland--Zhang (arXiv:1203.5145, Theorem 2 and Proposition 4.2.4) established the permutation Markov reduction, sharp rate, and root-of-unity mixing-rate criterion, all credited as background. Their Conjecture 2.4.1 states precisely the convex-hull bound contradicted by the present explicit boundary points. Their full relevant sections do not give a complementary-branch all-permutation characteristic polynomial or phase-incidence probability law; in particular, a general statement that spectral phases are roots of unity does not specify their orders or frequencies. Byott--Lin--Zhang (arXiv:1405.0481) concerns different orientation choices and does not establish the phase census. Targeted indexed mathematical-record and literature searches did not locate the same theorem. Known finite-permutation cycle index is used, not presented as independently novel. A mathematically equivalent unpublished or unindexed derivation remains a genuine residual risk.
+PASS
 
-## Mathematical value — PASS
-The source posed an explicit global geometric conjecture about its spectral phases. A classification that both identifies an infinite family of concrete counterexamples and counts the exact fraction of every peripheral phase in every dimension resolves a natural structural question beyond the known single sharp rate. The count distinguishes cycle orders, includes the exceptional global constant-mode cancellation, and can be used to assess how often extremal oscillatory modes occur under uniform shuffling. It is not an arbitrary parameter slice: exactly one omitted branch makes the Markov matrix an all-ones matrix minus an arbitrary permutation, giving a natural solvable boundary across all dimensions. There is no claim of a new general cycle-index identity.
+At m=N-1 row i of the unshuffled integer incidence matrix omits exactly N-1-i. Shuffling columns consequently gives J-Q, with q=sigma composed with the reversal and hence all q equally represented. Constants contribute m and on the invariant zero-sum subspace the action is -Q, giving the displayed cycle polynomial after removing one t+1. Thus for d>=2 occurrence of a fixed primitive phase is equivalent to the presence of a cycle of length divisible by d. The exponential generating function for avoidance is (1-z^d)^(1/d)/(1-z), whose binomial partial sum at floor(N/d) gives the product. Order 1 is separate because one constant eigenvector was removed: exactly the single-cycle permutations lack -1/m. The coarse finite Markov eigenvalues are genuine piecewise constant BV eigenvalues (changing the row/column convention transposes without changing spectrum). The source's proven upper bound equals the essential radius 1/m in this family. A cycle of length N-1 gives a phase on the mixing-rate circle, not among the listed conjectural vertices; for even N the additional sign is itself an N-th root and for odd N the common sign cancels in the comparison. Strict convexity of the disk excludes this phase from their hull. This refutes the literal v3 hull statement and its maximal-radius consequence, not the proven rate bound or a modified statement about isolated eigenvalues outside the essential disk. The result describes the finite matrix, not the entire BV spectrum.
 
-## Closest literature and limitations
-The closest source is Byott--Holland--Zhang, arXiv:1203.5145 (original and full text), particularly the explicit Conjecture 2.4.1 and Section 4.2; the 2014 sequel arXiv:1405.0481 addresses changes of branch orientation. The classification is restricted to integral slopes exactly one below the number of shuffled intervals. The conjecture is falsified as literally written with its own set \(\Lambda_\sigma\), which includes eigenvalues at the essential spectral radius; it does not invalidate the proven mixing-rate theorem, nor does it claim the boundary points are isolated points of the entire \(BV\) spectrum. Independent historical-priority and scientific audit remain unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the existing Markov reduction, the rate bound and the standard cycle-index counting formula rather than claiming them as independent discoveries. The supported contribution is the complementary-branch identification and its phase census for shuffles, especially the resulting witness against the literal hull statement in the identified primary version. No equivalent spectral census or antecedent witness for this conjecture was found in the checked sources.
+
+## value
+
+PASS
+
+A falsifiable hull conjecture is resolved literally for a whole family rather than by a numerical anomaly. The example isolates the distinction between rate information and the positions of poles or eigenvalues at the essential-radius boundary. The exact counts quantify how often the counterexample phases occur and clarify what survives the constant-direction projection.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

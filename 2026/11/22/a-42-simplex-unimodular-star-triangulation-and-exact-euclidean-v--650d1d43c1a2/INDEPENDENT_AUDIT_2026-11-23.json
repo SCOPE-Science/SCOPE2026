@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T15:21:27.899276Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, VERIFICATION.md, REVIEW.md, AUDIT.json, METADATA.json, SLOGAN.txt and artifacts/verify.py (inspection only)",
+        "Independent replay: python3 /workspace/branches/67cf9af5-cd20-4cf6-a461-b51598d0265a/independent_check.py"
+      ],
+      "rationale": "The unsigned K₅ incidence matrix has BBᵀ=3I+J, rank 5 and determinant 648. Since 1 is in the row space of B and A=J+I−BᵀB, ker B is exactly the five-dimensional adjacency-1 subspace. The centered projected columns affinely span it; the positive average gives an interior cone apex. Polarity with h=1−4u gives Bu=1 and u≥0. Independent positive-support columns give vertices of this standard-form polytope: a leaf forces an isolated unit edge, and every other component has minimum degree 2 and at most as many edges as vertices, thus is an odd cycle by independence. This gives precisely 12 five-cycle and 10 triangle-plus-edge supports and the complementary 5- or 6-vertex facets. A six-vertex facet has affine dimension 4 and its sole affine dependence has nonzero entries on all six vertices, with signs 3 against 3. The specified three deletions triangulate it; all proper faces are simplices, so local triangulations necessarily agree on common faces without extra vertices. Independent checking confirmed zero mismatches across all 231 facet pairs. It also verified all 42 selected Z row determinants have magnitude 1, all complementary B determinants magnitude 2, and det(ZᵀZ)=162. Thus Zᵀ is an isomorphism on ker B with volume factor sqrt(162), and this is a unimodular star triangulation in the whole stated lattice. Dividing 42/5! by sqrt(162) gives 7/(180 sqrt(2)); each simplex has volume 1/(1080 sqrt(2)). This is the intrinsic orthonormal spectral volume, not the volume of an unnormalized eigenvector basis.",
+      "residual_risks": [
+        "The orthonormal normalization and the specified coordinate lattice are essential; no all-n formula, triangulation without the interior point, or other-eigenspace result is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-family Resultary synopsis describes orthonormal pair-eigenpolytopes, fractional-matching polarity and John/Löwner ellipsoids; GitHub full text was not recovered. The frozen comparison reports the n=5 facet consequences and credits them.",
+          "General spectral coordinates and Gale duality furnish the configuration and face correspondence."
+        ],
+        "reasoning": "The family includes n=5, but enclosing/included ellipsoid data and polarity do not supply the normalized volume or the specific lattice triangulation. The identified general results are inputs, not dominating volume formulas.",
+        "searches": [
+          "Resultary: 71ae72613d53 Parity-controlled John and Löwner ellipsoids of Kneser pair-eigenpolytopes",
+          "Babecki–Thomas arXiv:2204.01873v2 §3.2; Winter arXiv:2009.02179 §§2.1–2.2"
+        ]
+      },
+      "checked_sources": [
+        "Babecki–Thomas arXiv:2204.01873v2",
+        "Winter arXiv:2009.02179",
+        "Resultary exact-object query and 71ae72613d53 index",
+        "Frozen historical comparisons and bibliography"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary example supplies the 12 simplicial and ten six-vertex facets, but neither the unit determinants in the kernel model nor the required spectral volume conversion.",
+          "The exact decomposition uses the 3+3 affine dependency on each six-vertex facet and complementary incidence determinants of magnitude 2."
+        ],
+        "reasoning": "The cited combinatorics makes the proposed computation natural but does not trivially yield the equal Euclidean volumes or unimodularity. In particular arbitrary linearly equivalent coordinates can have different Euclidean volumes. The exact arithmetic and gluing establish the structural and metric conclusions beyond the credited face classification.",
+        "searches": [
+          "Babecki–Thomas Example 3.10; Winter Definition 2.2; Resultary 71ae72613d53"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Babecki–Thomas use the normalized adjacency eigenvalue 1/3 of multiplicity five; the constant coordinate can be dropped and an invertible basis change identifies their polytope with the ordinary-adjacency-1 model. Their example gives the vertex/facet numbers and designs, not the intrinsic metric volume.",
+          "The exact 42-cone volume Resultary hit is the assigned record; symmetric-edge and four-dimensional Petersen polytopes are different objects."
+        ],
+        "reasoning": "An exact volume in another specified eigenbasis with known Gram factor, or a normalized lattice volume in an equivalent lattice, could cover the claim; raw volumes in differently scaled bases are not directly comparable. For the 3-regular Petersen graph the same eigenspace has eigenvalue 2 for the unnormalized combinatorial Laplacian D−A, and 2/3 for the normalized Laplacian I−A/3.",
+        "searches": [
+          "Petersen polytopes Powers 1986 Petersen eigenpolytope 5 dimensional volume triangulation unimodular normalized volume 42 fractional perfect matching Gale dual Babecki Thomas (web search unavailable)",
+          "Resultary: Petersen eigenpolytope eigenvalue one five-dimensional Euclidean volume 42 unimodular triangulation fractional perfect matching polar Powers",
+          "Babecki–Thomas arXiv:2204.01873v2, Example 3.10; Winter arXiv:2009.02179, Definition 2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The explicit known f-vector is (10,45,90,75,22); the same passage gives an eigenbasis matrix, not a 42-cell triangulation or table of intrinsic metric volume.",
+          "Powers and Padrol–Pfeifle are earlier same-object bibliographic leads, but their relevant full texts could not be inspected."
+        ],
+        "reasoning": "The f-vector is not a metric volume table; even known coordinates require a further geometric volume computation. No inspected result tabulates the precise value or the equal-volume subdivision. Bibliographic leads preserve, rather than eliminate, priority risk.",
+        "searches": [
+          "arXiv:2204.01873v2 Example 3.10 and references Pow86 and PP10",
+          "Resultary volume/unimodular triangulation query above",
+          "Named web lookups for The Petersen Polytopes (Powers, 1986) and Graph operations and Laplacian eigenpolytopes (Padrol–Pfeifle, 2010), unavailable"
+        ]
+      },
+      "rationale": "Best of knowledge: the precise metric volume and the equal-volume unimodular decomposition were not found in the inspected literature. The configuration, 22 facets, their 12+10 split, and the fractional-matching input are not credited as new. The older same-object literature leaves a concrete priority risk.",
+      "residual_risks": [
+        "The attempted web literature lookups were unavailable and supply no negative search evidence. The 1986 Powers report and the 2010 Padrol–Pfeifle proceedings paper could contain a prior exact volume or triangulation. No priority certification is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the configuration and face counts; no volume or unimodular triangulation in the inspected same-object passage",
+          "evidence": [
+            "Example 3.10 gives (10,45,90,75,22), with ten six-vertex facets and twelve four-simplices."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2204.01873v2",
+          "material_read": "Open HTML, Definition 3.6, Theorem 3.8, Example 3.10/Figure 7, literature discussion and reference entries Pow86/PP10",
+          "method": "Matched frequency-ordered normalized eigenvalues and compared the stated face and design results with the metric claim",
+          "title": "Graphical Designs and Gale Duality",
+          "trigger": "Direct same five-dimensional Petersen eigenpolytope and face data"
+        },
+        {
+          "assessment": "Establishes the normalization convention; inspected passage gives no covering volume result",
+          "evidence": [
+            "Definition 2.2 explicitly requires an orthonormal basis; changing it rotates the geometry rather than applying arbitrary linear scaling."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2009.02179",
+          "material_read": "Open PDF text, §§2.1–2.2 and Definition 2.2",
+          "method": "Compared matrix-of-orthonormal-eigenvectors coordinates to the projector coordinates via the induced isometry",
+          "title": "Eigenpolytopes, Spectral Polytopes and Edge-Transitivity",
+          "trigger": "Standard metric normalization"
+        },
+        {
+          "assessment": "Advertised claim concerns metric ellipsoids and polar contacts, not polytope volume; no whole-document exclusion asserted",
+          "evidence": [
+            "The synopsis explicitly treats orthonormal eigenvalue-1 KG(n,2) and identifies its fractional perfect-matching polarity."
+          ],
+          "identifier_or_url": "71ae72613d53",
+          "material_read": "Published Resultary synopsis and frozen comparator's account; linked full text timed out",
+          "method": "Compared advertised claims with the targeted volume/triangulation; attempted full-text access",
+          "title": "Parity-controlled John and Löwner ellipsoids of Kneser pair-eigenpolytopes",
+          "trigger": "Same eigenspace family and affine fractional-matching polarity"
+        },
+        {
+          "assessment": "Cannot exclude earlier coverage",
+          "evidence": [
+            "Example 3.10 explicitly cites Powers for Petersen eigenpolytopes; it does not report a volume from that reference."
+          ],
+          "identifier_or_url": "D. L. Powers, Clarkson technical report (1986)",
+          "material_read": "Bibliographic citation and same-object attribution in Babecki–Thomas Example 3.10; report itself not recovered",
+          "method": "Followed primary references and attempted named-source lookup",
+          "title": "The Petersen Polytopes",
+          "trigger": "Historical same-object predecessor"
+        },
+        {
+          "assessment": "Cannot rule out priority overlap from the description",
+          "evidence": [
+            "Babecki–Thomas cite the work as studying Petersen eigenpolytopes and translating graph operations into operations on Laplacian eigenpolytopes."
+          ],
+          "identifier_or_url": "A. Padrol and J. Pfeifle, VII Jornadas de Matemática Discreta y Algorítmica (2010), pp. 505–516",
+          "material_read": "Bibliographic entry and attribution in Babecki–Thomas Example 3.10/§3.3; proceedings paper itself not recovered",
+          "method": "Attempted exact-title lookup and author-site access",
+          "title": "Graph operations and Laplacian eigenpolytopes",
+          "trigger": "Additional older same-object lead in the primary example"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md; Babecki–Thomas Example 3.10; independent compatibility and determinant checks"
+      ],
+      "rationale": "This is a canonical spectral realization used in graphical-design theory, not an arbitrary linear model. The exact metric volume gives a comparison invariant beyond its known face numbers. More significantly, the complete 42-piece triangulation gives unit lattice simplices and translates the Euclidean calculation into integer determinants, an explicit structure potentially usable in further metric or lattice comparisons without assuming a family theorem.",
+      "residual_risks": [
+        "One polytope; no asserted application to a general lattice or design theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

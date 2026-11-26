@@ -1,23 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The object is an explicitly specified real-analytic, strictly positive-definite translation-invariant kernel, with top eigenvalues \(2,1,1\) and a gap to the next eigenvalue \(1/2\). Positive definiteness follows from positive Fourier coefficients and a finite Vandermonde test. The RKHS projector is defined explicitly, and both designs have \(m\) distinct sites and tight leading-mode sampling matrices. A unit RKHS vector orthogonal to all regular-grid kernel translates forces loss \(\ge1/3\). For each of the three target modes, a displayed finite combination of staggered-grid translates cancels the two resonant Fourier spikes and interpolates the top Fourier coordinates exactly; the summed residual has the proved \((5/2)\varepsilon(1-2^{1-m})\) upper bound. This is an all-even-\(m\) analytic proof, not an inference from finite tests. The independent finite Gram evaluation checked 16 parameter configurations. Scope: no global optimality claim for the competitor and no finite-precision guarantee.
+PASS
 
-## Originality — PASS, with historical-priority caveat
+Reconstructed the exact RKHS argument in RESULT.md §§1–3. The Fourier weights are symmetric, positive and exponentially decaying, yielding a real-analytic kernel; Vandermonde invertibility on consecutive modes gives strict positive definiteness. With normalized Haar measure the leading eigenvalues are 2,1,1 and the next is 1/2. The top frequency differences are ±1 and ±2, so each regular q-gon contributes a scalar Gram matrix for q=m/2≥3, including q=3. On the regular m-gon the k=0,±m samples coincide, and the unit vector (ψ₀−ψₘ−ψ₋ₘ)/√3 is orthogonal to all translates; its squared overlap with ψ₀ is 1/3. Equivalently, Fourier diagonalization gives a residual at t of 1−λ_t/(Σ_{k≡t mod m}λ_k), making the constant-mode obstruction explicit. On the two-coset set the equal-weight witnesses modulated at t reproduce all three top coefficients. The ±m coefficients vanish because q does not divide t−(±m) for t=±1, and for t=0 the shift π/m changes their phase by −1. The residual sum is thus bounded by (1/2+1+1)Σ_tail λ_k=(5/2)ε(1−2^{1−m}); the tail is strictly positive and no target mode is exactly a finite combination of translates, again by consecutive high-frequency Vandermonde invertibility. The explicit bounds and ratio are valid throughout the stated range, in exact arithmetic. The proof replays from these Fourier identities; the supplied floating-point checker was inspected, not executed, and is not the proof or a conditioning certificate. For the optional real unit-norm frame description, normalize the raw rows by √3.
 
-Schreiber, arXiv:2611.20336v1 (16 November 2026), §4.3, expressly distinguishes tight-frame sampling quality from spectral alignment for \(m>s\), with a spherical nonoptimality example. Its circle aliasing theorem §4.5 is for periodic Gaussian coefficients, and its reported equispaced behavior concerns that family. It does not state the present analytically positive-definite circle counterexample with an arbitrary loss factor, and its conclusions do not imply a uniform equispaced optimum for all positive Fourier spectra. Wind-Andersen, arXiv:2611.02379v1, analyzes different Fourier sampling Gram perturbation and compensation criteria, not this nonlinear RKHS projector objective. Semantic comparisons with related kernel-landmark, sampled Fourier, and tight-frame results found distinct objects or metrics. A general identity might make the construction conceptually accessible to experts; broad historical nonoccurrence cannot be certified by finite searching.
+## originality
 
-## Value — PASS
+PASS
 
-This explicit obstruction answers a practically relevant question suggested by the emerging spectral-landmark criterion: whether equal spacing and tight leading-mode sampling suffice for good RKHS eigenspace capture on a homogeneous circle. It separates spectral-aliasing quality from finite-dimensional frame conditioning even when both leading-mode frames are **equally tight**, with an arbitrarily large loss gap. It provides a mathematical warning against using only leading-eigenfunction tightness to choose landmarks when the kernel has an off-band spectral spike. The nonmonotone kernel is contrived but is analytic, strictly positive definite, has a top-three gap, and admits closed-form tests, making the limitation substantive rather than a normalization artifact.
+The closest inspected prior work already gives the objective, tightness criteria, a qualitative nonoptimal-tight-design example on the sphere, and regular-circle aliasing for a Gaussian spectrum. It does not cover the rank-three circle counterexample with equal top-mode Grams, an analytic strictly positive kernel and an unbounded ratio. The exact indexed hit is the frozen record itself. The pass is for that precise comparison, not for qualitative insufficiency of tightness or for Fourier de-aliasing.
 
-## Closest sources and remaining limits
+## value
 
-- J. Schreiber, *Spectral Landmarks*, arXiv:2611.20336v1 (full HTML inspected, especially §§3–4.5, 7 and Appendix A).
-- E. Wind-Andersen, *Alias Geometry and Density Compensation in Perturbed Fourier Sampling*, arXiv:2611.02379v1 (full manuscript text, introduction and alias theory inspected).
-- Classical Fourier aliasing and multi-coset sampling provide a mechanism but were not used as a claimed novelty.
+PASS
 
-Neither global optimality of the staggered design nor numerical-conditioning performance follows. A later or unindexed equivalent construction remains a priority risk.
+Provides a quantitative obstruction to using a tight leading-mode sampling matrix as a proxy for the alignment objective: the Gram criteria coincide but the loss ratio is unbounded even with a fixed positive leading eigengap and an analytic strictly positive kernel. The two-coset witness exhibits the mechanism and a repair on the same circle and at the same sample size. The conclusion is not global optimality, not a counterexample for monotone or Gaussian spectra, and not an m-asymptotic for a single fixed kernel.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

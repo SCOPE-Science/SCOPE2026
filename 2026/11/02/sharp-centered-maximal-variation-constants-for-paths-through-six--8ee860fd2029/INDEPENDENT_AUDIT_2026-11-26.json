@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:00:10.895422Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Passing to absolute input values cannot increase input variation. On nonnegative data use increments and translate the auxiliary vector of partial sums: adding a constant to all entries adds the same constant to every linear ball average and its maximum, and every real increment vector has a nonnegative representative. In each orthant on the l1=1 section, the equalities between ball forms, and coordinate hyperplanes, subdivide the simplex into compact polytopes. The maximizing form at each vertex of the path is fixed on each cell, so output variation is convex on that cell and bounded by its values at the cell vertices. A cell vertex requires n-2 independent active homogeneous equations in addition to the section equation; each is therefore the normalization of one of the two orientations of a rank-(n-2) intersection line. Ties and boundary supports are included. Independently replayed with own standard-library code at /workspace/path_variation_replay.py (python3 /workspace/path_variation_replay.py 5 6), deriving clipped balls from intervals, computing null lines by integer elimination, and evaluating each orientation with prefix sums and exact inequalities, with no frozen scripts executed. For n=5: 27 normals, 2829 full-rank triples, 1448 distinct oriented rays, 2 distinct equality orientations, max 4/5. For n=6: 46 normals, 151429 full-rank quadruples, 43756 distinct oriented rays, 2 distinct equality orientations, max 5/6. The distinct-ray counts do not count repeated intersections, unlike the frozen counters. The endpoint impulse attains exactly 1-1/n since its maximal profile increases from 1/n to 1. The C++ file named in RESULT.md is absent from the supplied support; the inspected Python support and the independently generated exhaustive replay leave no reliance on the claimed C++ execution.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier Resultary findings prove the conjectured factor for monotone, unimodal, or valley data; weighted three-vertex path result is for n=3."
+        ],
+        "reasoning": "Larger n or variable positive masses in those theorems do not compensate for their missing domain: not all five- or six-vertex profiles have those shapes, and the weighted P3 theorem does not bound arbitrary P5 or P6 profiles. Applying separate shape results to a decomposition would require another argument because the maximal map is nonlinear.",
+        "searches": [
+          "Resultary monotone, unimodal, and valley path profiles; weighted centered variation on finite paths"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and path_maximal_independent.py",
+        "arXiv:2603.12462",
+        "Resultary monotone, valley, unimodal, weighted cycles, odd-path l2 and weighted P3 findings (mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general-n conjecture is explicitly open in the primary passage; the related Resultary claims do not span arbitrary data on either target path."
+        ],
+        "reasoning": "The needed implication is an upper bound on all normalized increment profiles, not just an attainable value. The exact coverage of the comparison-cell vertices supplies that missing implication; no inspected earlier theorem provides a dominating domain and the same functional.",
+        "searches": [
+          "arXiv:2603.12462 Observation 3, Conjecture 5 and Section 4; actual Findings of closest Resultary shape and same-day entries"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Conjecture 5 indeed proposes 1-1/n for the same centered counting-measure operator and edge variation.",
+          "The same-day odd-path entry concerns strong l2 norms, and the same-day weighted cycle entry concerns cycle graphs."
+        ],
+        "reasoning": "The conjecture is the same assertion at the two orders, but a conjecture and agreement with numerical values are not proofs. Neither strong l2 norm nor replacing cycles by paths is a reformulation of this variation bound.",
+        "searches": [
+          "Resultary: exact centered maximal variation P5 P6, path conjecture, nonmonotone data",
+          "arXiv:2603.12462 Conjecture 5 and Observation 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The five-vertex Observation reports Mathematica Maximize values or candidates including 4/5, explicitly warning about global certification; Section 4 describes these results as supportive evidence. The paper reports numerical evidence through ten vertices."
+        ],
+        "reasoning": "The expected numbers appear in the numerical investigations, but the investigation is not an exact all-real-input certificate. The contribution is proof of the global upper bound rather than recomputation of a table.",
+        "searches": [
+          "arXiv:2603.12462 Observation 3 and Section 4 five-vertex catalogue; Resultary exact P5/P6 record matches"
+        ]
+      },
+      "rationale": "The values were conjectured; the primary source explicitly distinguishes numerical evidence from a guaranteed global maximum, and the closest earlier proofs apply only to restricted input shapes or different graphs or objectives. The claim credited here is the exact upper bound for arbitrary data on the two specified paths, not the conjecture, impulse lower bound, or a claim for n>=7.",
+      "residual_risks": [
+        "The searches and inspected text do not exclude an unindexed exact computation or a new proof of the general conjecture. No ordering or historical priority is inferred from same-day dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The conjectured coefficients are known numerically, not certified for these cases by the inspected source",
+          "evidence": [
+            "Five-vertex computation includes 4/5 and warns about global maximization; Conjecture 5 gives the factor and numerical evidence through n<=10."
+          ],
+          "identifier_or_url": "arXiv:2603.12462",
+          "material_read": "PDF p. 3 Observation 3, p. 4 Conjecture 5, p. 12 Section 4 (OA offsets 10003, 11796, 36300)",
+          "method": "OA PDF passage inspection",
+          "title": "Sharp variational inequalities for the Hardy–Littlewood maximal operator on finite undirected graphs",
+          "trigger": "Exact path conjecture and prior five-vertex computation"
+        },
+        {
+          "assessment": "Shape restricted",
+          "evidence": [
+            "Nonnegative monotone data only."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-monotone-data-attain-the-conjectured-path-graph-variational-cons--2ae83e2401fb",
+          "material_read": "RESULT.md Finding and scope, offsets 112–343, 996–1188",
+          "method": "Local mirror",
+          "title": "Monotone data attain the conjectured path-graph variational constant",
+          "trigger": "Same operator and conjectured constant"
+        },
+        {
+          "assessment": "Shape restricted",
+          "evidence": [
+            "Nonnegative valley profiles."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-centered-maximal-variation-for-valley-profiles-on-finite-p--0238b85542de",
+          "material_read": "RESULT.md Finding, offsets 178–621",
+          "method": "Local mirror",
+          "title": "Sharp centered maximal variation for valley profiles on finite paths",
+          "trigger": "Same operator, nonmonotone data"
+        },
+        {
+          "assessment": "Shape restricted",
+          "evidence": [
+            "Nonnegative unimodal data."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-a-sharp-peak-location-variation-bound-for-centered-maximal-avera--12b332db5c97",
+          "material_read": "RESULT.md Finding, offsets 168–966",
+          "method": "Local mirror",
+          "title": "A sharp peak-location variation bound for centered maximal averages on finite paths",
+          "trigger": "Same factor and path variation"
+        },
+        {
+          "assessment": "Different graphs",
+          "evidence": [
+            "Weighted cycles C3, C4, C5."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-weighted-variation-of-centered-maximal-averages-on-cycles--e3a2f5b97b74",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Sharp weighted variation of centered maximal averages on cycles",
+          "trigger": "Same-day centered variation at small graph orders"
+        },
+        {
+          "assessment": "Different functional",
+          "evidence": [
+            "Strong l2 operator norm and extremizers for P3, P5, P7."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-re-entrant-extremizer-symmetry-for-centered-hilbert-maximal-aver--93c9464b74e7",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Re-entrant extremizer symmetry for centered Hilbert maximal averages on odd paths",
+          "trigger": "Same-day sharp maximal problem at P5"
+        },
+        {
+          "assessment": "Different path order",
+          "evidence": [
+            "Weighted P3 only."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-weighted-variation-of-the-centered-maximal-operator-on-a-t--82bbd9048e57",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Sharp weighted variation of the centered maximal operator on a three-vertex path",
+          "trigger": "Same-day sharp centered path variation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "These are the first two orders beyond the published exact small-path cases, where the conjecture allowed arbitrary oscillatory inputs and numerical optimization did not certify completeness. An exact all-input finite proof answers a motivated gap at those orders, and distinguishes the conjectured coefficient from an observed numerical value. No claim about larger orders or every extremizer is needed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

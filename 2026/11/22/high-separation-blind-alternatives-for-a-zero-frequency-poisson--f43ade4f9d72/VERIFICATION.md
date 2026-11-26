@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility checks
+# Independent mathematical audit
 
-Run `python3 verify.py` in a Python 3 environment. This script was executed directly from the delivered package path and passed 480 high-precision finite assertions for masses, first two raw moments and centered influence variance, and the limiting-constant/root and convergence assertions. The analytic proof of the nonfinite CLT and Poisson local limit steps is in `RESULT.md`; no finite grid is presented as exhaustive, and no independent audit is asserted.
+## correctness
 
-For all parameters the source statistic is explicitly defined in `RESULT.md`. The test's rejection statement is for fixed alternative parameters as sample size increases; the total-variation asymptotic is a separate parameter sequence.
+PASS
+
+For L=uv≥2 the two outer weights are positive since (L+v)e^(−L)≤2Le^(−L)<1 and (L−u)e^(−L)<1. Substitution gives total mass 1, outer signed first moment about L equal to Le^(−L), and outer second moment about L equal to L−L²e^(−L); adding the zero and center atoms proves the three matches. The mixture retains them, is full-support, and cannot be Poisson because its finite-support component is not Poisson. The influence variable −r(X−L)−(1_{X=0}−r) has variance r−(L+1)r²>0, using X1_{X=0}=0. The fixed-law CLT, differentiability, and consistent denominator give the claimed rejection limit. The exceptional all-zero sample has probability r^n. For v/u→ρ in (0,∞), only the two outer atoms contribute to scaled overlap; their standardized displacements are −1/√ρ and √ρ. Stirling's local estimate gives the stated sum and mixing adds only O(L^−2) to overlap. The sign of G′(ρ) is the sign of ρ−ρ^−1−4logρ, which decreases then increases above 1, giving precisely the reciprocal minimizing pair. Independent 60-digit replay confirms both decimals.
+
+## originality
+
+PASS
+
+The statistic, its CLT, and the limitation of zero-mass discrepancy are prior work. The distinct supported contribution is the explicit mean-, variance-, and zero-mass-matched full-support family, including its asymptotically vanishing Poisson overlap and sharp reciprocal ratio within the family. No inspected different source establishes that quantitative combination.
+
+## value
+
+PASS
+
+This separates a practical test's asymptotic power from one-observation TV discrepancy with fully supported, equidispersed alternatives. The leading overlap quantifies the failure and shows that the symmetric two-offset design is strictly suboptimal. This is more than a restatement that finitely many matched summaries need not identify Poissonity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of finite-chain centralizer rank distributions
 
-The executable `verify_path_rank_centralizers.py` is standalone and uses only the Python 3 standard library. Running `python3 verify_path_rank_centralizers.py` directly enumerates every binary-increment chain map for lengths \(1\le n\le11\). It constructs each clamp directly, tests equality of compositions pointwise, records the image rank of every commuting map, and compares this complete vector against the formula. Every one of the 286 checked centralizers matched. The same program independently checks aggregate rational-series coefficients for these sizes, checks previously published unrefined total counts as a consistency condition, and tests reconstruction signatures for nonconstant intervals through chain length 35. The last output line is `RANK_REFINED_PATH_CENTRALIZERS_VERIFIED; cases=286`.
+# Independent mathematical audit
 
-Exact checks at \(n=4\): 102 commuting ordered pairs with an idempotent first coordinate; the constant clamp's polynomial is \(1+3z+3z^2+z^3\), while the clamp to the middle pair has \(2+3z+2z^2+z^3\). Both sum to eight but differ in rank. At \(n=11\), the total is 65,658 pairs. The infinite formulas and central limit theorem are established by the mathematical derivation in `RESULT.md`, not finite exhaustive computations. Independent mathematical audit has not been performed.
+## correctness
+
+PASS
+
+The repaired finding preserves the valid equations and limits. For an idempotent the interval image is fixed pointwise, so monotonicity forces a clamp. A map commuting with it must send the interval into itself; a left extension can climb only when the image of the left endpoint is that endpoint, and the reflected statement holds on the right. These conditions are sufficient pointwise. For h interior rises the binomial walk count has k-h+1 initial positions, with both endpoint enhancements only at h=k. This gives the polynomial also for k=0, when it reduces to (1+z)^N. For k>=1 the double enhancement starts in degree >=3; c_0 and c_2 count rank 1 and rank 3, determining k and AB at fixed n, hence both gaps up to reversal. Summing the base and three enhancements gives the rational series; with y=1 the common numerator is (1-zx)^2+2zx(1-zx)+z^2x^2=1. As an alternate CLT check, the product coefficient makes the excess rank H+Bin(L,1/2) conditional on nonnegative I+H+L=N, with weights (I+1)(L+1)2^L. The probability I+H>=K is bounded by the tail of sum (i+1)2^{-i-h}, since the normalizer is at least (N+1)2^N. A coupling with Bin(N,1/2) then changes the excess rank by O_p(1); the difference between centering the resulting rank at n/2 and at N/2 is negligible. This is uniform over ordered commuting pairs, not uniformly chosen clamps.
+
+## originality
+
+PASS
+
+Pass for the repaired scope: two-coefficient reconstruction and the exact and asymptotic pair-rank law. The original called the per-clamp weighted spectrum a contribution, but the checked older proofs already supply the identical rise decomposition; weighting those choices gives the formula mechanically. The repair credits it as an ingredient rather than a standalone contribution.
+
+## value
+
+PASS
+
+Commuting maps detect the position of a nonconstant clamp through only ranks 1 and 3, even when the known centralizer cardinality collides (e.g. length four). The joint series and factored aggregate describe actual image rank under a natural pair sampling, yielding an exact finite distribution and a CLT not implied by knowing only the count of pairs. Value is in these uses, not marking the old counting criterion alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

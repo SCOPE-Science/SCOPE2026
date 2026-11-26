@@ -1,134 +1,62 @@
-#!/usr/bin/env python3
-import itertools, collections, json, math
+"""Exact support-size distributions for the two Gray blocks."""
+from collections import Counter
+from itertools import product
 from pathlib import Path
+import json
 
-ROOT=Path(__file__).resolve().parent.parent
-CERT=json.loads((ROOT/"artifacts"/"certificate.json").read_text(encoding="utf-8"))
 
-A={0,1}
-B={0,2}
+def spaces(n):
+    if n == 0:
+        yield 0, frozenset({0})
+        return
+    top = 1 << (n-1)
+    for d, x in spaces(n-1):
+        yield d, x
+        unseen = set(range(top, 2*top))
+        while unseen:
+            v = min(unseen)
+            affine = {v^w for w in x}
+            unseen.difference_update(affine)
+            yield d+1, x|affine
 
-def delta(S):
-    out=set()
-    for vals in itertools.product((0,1),repeat=len(S)):
-        v=0
-        for i,x in zip(sorted(S),vals):
-            if x:v|=1<<i
-        out.add(v)
-    return out
 
-DA=delta(A)
-DB=delta(B)
+def main():
+    cert = json.loads(Path(__file__).with_name('certificate.json').read_text(encoding='utf-8'))
+    expected = [{int(w): c for w, c in cert['support_spectra'][str(r)].items()} for r in range(1,7)]
+    # Bit i carries coordinate i+1 of each three-bit block.
+    defining = [(p,q) for p,q in product(range(8), repeat=2) if p&4 or q&2]
+    first = [q|(p<<3) for p,q in defining]
+    second = [(p^q)|(p<<3) for p,q in defining]
+    assert len(first) == len(set(first)) == len(second) == len(set(second)) == 48
+    S, T = set(range(64))-set(first), set(range(64))-set(second)
+    assert S == {v for v in range(64) if not v&32 and not v&2}
+    assert T == {v for v in range(64) if not v&32 and ((v>>1)^(v>>4))&1 == 0}
+    assert (len(S),len(T),len(S&T)) == (16,16,8)
+    assert Counter(Counter(first+second).values()) == {1:16,2:40}
+    for r in range(1,7):
+        W = {0}
+        for v in cert['annihilator_witness_bases'][f'r{r}']:
+            assert len(v) == 6 and set(v) <= {'0','1'}
+            vector = sum((1 << i) for i, bit in enumerate(v) if bit == '1')
+            W |= {w^vector for w in W}
+        assert len(W) == 2**(6-r)
+        assert len(W&S) == len(W&T) == 2**max(0,4-r)
+    rows = [Counter() for _ in expected]
+    for h,W in spaces(6):
+        if h == 6:
+            continue
+        by_formula = 96 - 2**(h+1) + len(W&S) + len(W&T)
+        direct = sum(v not in W for v in first+second)
+        assert by_formula == direct
+        rows[5-h][direct] += 1
+    assert rows == expected
+    assert {str(i):sum(row.values()) for i,row in enumerate(rows,1)} == cert['subspaces_by_dimension']
+    assert sum(map(sum,(r.values() for r in rows))) == cert['subspaces_checked'] == 2824
+    assert [min(r) for r in rows] == cert['generalized_hamming_weights']
+    assert [r[min(r)] for r in rows] == cert['minimum_subcode_counts']
+    assert {0:1, **rows[0]} == {int(w):c for w,c in cert['source_weight_distribution'].items()}
+    print('VERIFY_OK')
 
-D=[(d1,d2) for d1 in range(8) for d2 in range(8)
-   if not (d1 in DA and d2 in DB)]
-assert len(D)==48
 
-cols=[]
-for d1,d2 in D:
-    cols.append(d2 | (d1<<3))
-    cols.append((d1^d2) | (d1<<3))
-assert len(cols)==96
-assert 0 not in cols
-
-def rank_binary(rows):
-    piv={}
-    for x in rows:
-        y=x
-        while y:
-            p=y.bit_length()-1
-            if p in piv:y^=piv[p]
-            else:
-                piv[p]=y
-                break
-    return len(piv)
-
-# generator rows encoded as 96-bit integers
-G=[]
-for i in range(6):
-    row=0
-    for j,c in enumerate(cols):
-        if (c>>i)&1:row|=1<<j
-    G.append(row)
-assert rank_binary(G)==6
-
-weights=collections.Counter()
-for u in range(64):
-    z=0
-    for i in range(6):
-        if (u>>i)&1:z^=G[i]
-    weights[z.bit_count()]+=1
-assert dict(sorted(weights.items()))=={0:1,48:58,56:4,64:1}
-
-S1={d2 | (d1<<3) for d1 in DA for d2 in DB}
-S2={(d1^d2) | (d1<<3) for d1 in DA for d2 in DB}
-assert len(S1)==16 and len(S2)==16 and len(S1&S2)==8
-
-mult=collections.Counter(cols)
-assert len(mult)==56
-assert collections.Counter(mult.values())=={1:16,2:40}
-
-def rref_subspaces(n,d):
-    for piv in itertools.combinations(range(n),d):
-        P=set(piv)
-        free=[(i,c) for i,p in enumerate(piv)
-              for c in range(p+1,n) if c not in P]
-        for vals in itertools.product((0,1),repeat=len(free)):
-            R=[1<<p for p in piv]
-            for (i,c),v in zip(free,vals):
-                if v:R[i]|=1<<c
-            yield R
-
-def span(B):
-    S={0}
-    for v in B:
-        S |= {x^v for x in list(S)}
-    return S
-
-def orthogonal_subspace(U):
-    return {x for x in range(64)
-            if all(((x&u).bit_count()&1)==0 for u in U)}
-
-expected={int(r):{int(w):n for w,n in sp.items()}
-          for r,sp in CERT["support_spectra"].items()}
-
-count=0
-gh=[]
-mins=[]
-for r in range(1,7):
-    ctr=collections.Counter()
-    nr=0
-    for B0 in rref_subspaces(6,r):
-        U=span(B0)
-        nr+=1
-        count+=1
-
-        # direct support
-        support=sum(any(((u&c).bit_count()&1) for u in U) for c in cols)
-
-        W=orthogonal_subspace(U)
-        a=(len(W&S1)).bit_length()-1
-        b=(len(W&S2)).bit_length()-1
-        structural=96-2**(7-r)+2**a+2**b
-        assert support==structural
-        ctr[support]+=1
-
-    assert nr==CERT["subspaces_by_dimension"][str(r)]
-    assert dict(sorted(ctr.items()))==expected[r]
-    gh.append(min(ctr))
-    mins.append(ctr[min(ctr)])
-
-assert count==CERT["subspaces_checked"]==2824
-assert gh==CERT["generalized_hamming_weights"]
-assert mins==CERT["minimum_subcode_counts"]
-
-# Check displayed simultaneous Grassmann-bound witnesses.
-for r in range(1,7):
-    B0=[int(s,2) for s in CERT["annihilator_witness_bases"][f"r{r}"]]
-    W=span(B0)
-    assert len(W)==2**(6-r)
-    target=max(0,4-r)
-    assert len(W&S1)==2**target
-    assert len(W&S2)==2**target
-
-print("VERIFY_OK")
+if __name__ == '__main__':
+    main()

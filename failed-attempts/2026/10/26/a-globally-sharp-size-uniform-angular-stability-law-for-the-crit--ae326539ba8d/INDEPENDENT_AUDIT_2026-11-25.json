@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:39:56.080748Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–78",
+        "Frozen VERIFICATION.md, lines 18–26"
+      ],
+      "rationale": "Polar integration gives the coefficient 2/[m(m+1)], so the energy is 2N plus the potential summed over ordered distinct pairs. In the Poisson integral the denominator is maximized at the antipode, giving the exact floor c*=2 log 2−1, strict away from that angle. Each family of cyclic arcs of step r has total 2πr, so the linear Taylor terms cancel. The ordered-pair sum of squared displacement differences is twice N times the centered sum of squares. These checks give the full nonnegative remainder and the stated normalization. Near a collision the curvature is logarithmically bounded, by writing the denominator as (1−s)^2+2s(1−cos θ), so the endpoint remainder is a convergent improper integral. For any displaced arc the remainder is positive; equality therefore requires all consecutive gaps equal. The N=2 antipodal perturbation has normalized deficit tending to c*, proving uniform sharpness.",
+      "residual_risks": [
+        "The stated numerical samples are supporting observations only; this decision uses the analytic proof. The coefficient need not be sharp at any fixed N>2."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "These give qualitative equispaced minimization/convexity, some for broader classes of energies; they do not by themselves state a sharp global angular deficit bound."
+        ],
+        "reasoning": "A general minimizer theorem is not a quantitative stability theorem; the decisive coverage comes from the exact curvature evidence, not from inclusion in a broader qualitative class.",
+        "searches": [
+          "arXiv:2609.21121v1 §2.3 and Theorem 8",
+          "arXiv:2609.03134v1 Theorem 1",
+          "arXiv:2009.01898 Theorem 1 and Lemma 12"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2026/10/11/…9aca32c3cb4f and 2026/10/26/…7f6938cc64a3",
+        "arXiv:2009.01898",
+        "arXiv:2609.21121v1",
+        "arXiv:2609.03134v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Moment reduction already gives E=2N+2Σ_{j<k}φ(θ_j−θ_k) and φ″(θ)=∫₀¹(1−s²)/(1−2s cos θ+s²)ds. The latter is pointwise minimized at π, hence φ−c*θ²/2 is convex on a full turn."
+        ],
+        "reasoning": "In each step-r family the arcs average to 2πr; apply Jensen to the adjusted potential or its standard Taylor remainder. Summing (d_k−d_j)² over ordered pairs produces 2NΣ(d_j−mean d)². The same formula is strict off the antipode and the known local N=2 spectrum gives sharpness. This is direct implication even though the earlier stated law is only local.",
+        "searches": [
+          "Resultary 2026/10/11/…9aca32c3cb4f, mirror RESULT.md offsets 0 and 2542"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The older local-Hessian record and the frozen result use exactly the same energy and scalar curvature. The same-day record concerns a local four-pole soft-mode transition for a different power range."
+        ],
+        "reasoning": "Ordered-arc variance is an equivalent pairwise quadratic discrepancy, so compare uniform strong convexity of the pair interaction, not just papers using the name angular stability.",
+        "searches": [
+          "Resultary catalogue, top 50 for the exact global Bergman law; 2026/10/11/…9aca32c3cb4f; 2026/10/26/…7f6938cc64a3",
+          "arXiv:2009.01898 Lemma 12"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact statement match in the inspected ranking. The closest exact formula is the local-Hessian integral with s=1 and N=2, giving λ=4∫₀¹(1−t)/(1+t)dt=4c*."
+        ],
+        "reasoning": "No finite invariant table is implicated by this continuous theorem; the indexed exact spectral formula is the relevant comparison for the numerical coefficient.",
+        "searches": [
+          "Local Resultary search for the global angular-variance law and exact universal coefficient; 2026/10/11/…9aca32c3cb4f Finding and Moment reduction"
+        ]
+      },
+      "rationale": "The global law is correct and not expressly stated in the closest source, but is mechanically implied by its explicit global pair potential and Poisson curvature, not merely by its local theorem. The potential has the same normalization and is defined on the whole open angular interval. Minimizing the integrand in angle gives the sharp scalar modulus immediately; standard strong Jensen or Taylor applied to each balanced arc family gives the bound and the ordinary integral remainder. The prior N=2 Hessian formula also gives the matching limiting coefficient. The collision extension is continuity with the integrable endpoint singularity. No independent quantitative remainder survives the prior implication check.",
+      "residual_risks": [
+        "This is a finding of mechanical implication, not a determination of who first explicitly wrote the global inequality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive prior implication, not a verbatim prior global statement",
+          "evidence": "Global pair reduction and Poisson curvature plus the exact N=2 local eigenvalue yield the law by strong convexity and arc balancing.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-full-fourier-hessian-spectrum-and-sharp-local-stability-for-equi--9aca32c3cb4f/RESULT.md",
+          "material_read": "Finding and Moment reduction/Circulant curvature, offsets 0 and 2542; mirror commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror text and algebraic implication check",
+          "title": "Full Fourier Hessian spectrum and sharp local stability for equispaced Bergman poles",
+          "trigger": "Same weighted energy and sharp local coefficients"
+        },
+        {
+          "assessment": "Related qualitative minimization and curvature structure",
+          "evidence": "Equispaced minimizer and strict convexity, not a stated sharp variance coefficient.",
+          "identifier_or_url": "https://arxiv.org/pdf/2009.01898",
+          "material_read": "Theorem 1, PDF p. 6; Lemma 12, pp. 11–12",
+          "method": "OA primary passages",
+          "title": "Chui’s conjecture in Bergman spaces",
+          "trigger": "Original interaction convexity proof"
+        },
+        {
+          "assessment": "Related qualitative global result",
+          "evidence": "Positive Hessian and unique minimization; no stated sharp variance modulus in the relevant passages.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.21121",
+          "material_read": "§2.3, PDF pp. 16–18; Theorem 8, pp. 19–20",
+          "method": "OA primary passages",
+          "title": "Two new proofs of Chui’s Conjecture in Weighted Bergman Spaces",
+          "trigger": "Global Hessian positivity and discrete energies"
+        },
+        {
+          "assessment": "Covers qualitative minimization only for this comparison",
+          "evidence": "General minimization after expressing the Cauchy sum by a polynomial quotient; no angular deficit term.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.03134",
+          "material_read": "Theorem 1, PDF p. 2",
+          "method": "OA primary passage",
+          "title": "Proof of the generalized Chui conjecture",
+          "trigger": "Broader radial-weight and convex-function theorem"
+        },
+        {
+          "assessment": "Different scope, not relied on for coverage",
+          "evidence": "Fixed four poles and a local Hessian transition for α>2.",
+          "identifier_or_url": "2026/10/26/SCOPE-unique-soft-mode-transition-for-four-boundary-poles-in-power-wei--7f6938cc64a3",
+          "material_read": "Indexed claim",
+          "method": "Local catalogue comparison",
+          "title": "Unique soft-mode transition for four boundary poles in power-weighted Bergman energies",
+          "trigger": "Same-day related catalogue record"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 14–23 and 40–78",
+        "Resultary 2026/10/11/…9aca32c3cb4f, Moment reduction and Finding"
+      ],
+      "rationale": "The estimate is useful as an explicit corollary, but the proposed contribution is the routine strong-convexity consequence of an already available exact kernel. The advertised remainder is Taylor's remainder for that kernel and does not add an independent invariant, improved size-dependent bound, or new stability mechanism. Rephrasing or adding a certificate would not repair this.",
+      "residual_risks": [
+        "No judgment is made about a sharper global coefficient at an individual N>2; that is not the frozen claim."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

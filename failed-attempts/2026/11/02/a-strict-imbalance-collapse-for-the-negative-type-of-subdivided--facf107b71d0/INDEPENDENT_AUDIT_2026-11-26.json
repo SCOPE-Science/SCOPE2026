@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:38:54.118018Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 40–88",
+        "Frozen VERIFICATION.md, lines 19–25",
+        "Frozen check_unbalanced.py, lines 8–48 and 50–91",
+        "Independent BFS for (m,n)=(2,3): 11 vertices, det H(0) about 0.30556, det H(beta) about -0.00039790, crossing near 0.77127938 below beta near 0.77760758"
+      ],
+      "rationale": "The distance classes in RESULT.md give the stated mass form and orthogonal grid and contrast blocks. With a=1+h, the contrast determinant is bounded below using (1+h)^3 >= 1+3h and 3^p-1 <= 2h; the resulting (1-h)(1+(k+3)h) bound is strict for 0<h<=1 in the preceding inequality, and the determinant is 1 at h=0. The grid eigenvalue is negative up to beta<1. At beta the mass difference u=(1,-1,0) has zero quadratic value and nonzero pairing with v=(1,1,-2); 4^p+2-2*3^p strictly decreases to zero at 1. Starting with D_0=all-ones minus identity therefore gives a first determinant zero below beta and a rank-one negative semidefinite mass form there. Strict fractional-power interpolation of a negative-type matrix rules out every higher admissible exponent. Schoenberg's distinct-point realization gives strict Gaussian positivity at the endpoint and the centered Gram rank gives the claimed dimensions. Above cutoff the positive powered-distance quadratic form on a zero-sum vector gives a negative kernel quadratic form to first order in small t. For p=O_m(1/n), the two mass diagonal entries are -1/m+O_m(1/n) and -(m+1)/(mn)+L_m p+O_m(1/n^2), and the off-diagonal is O_m(1/n); L_m=(4-1/m)log 2-2log 3>0. Uniform screening below the leading root, followed by the Schur complement at the root, gives the stated O_m(n^-2) remainder. The comparison beta also follows by restricting to original vertices, whose metric is twice the unsubdivided metric.",
+      "residual_risks": [
+        "The BFS check is one numerical case only. The uploaded script was inspected, not executed. Its bracketed solver alone does not certify that the root is the least one; that is established analytically."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "5e4c08ab1a68, Finding, includes all m,n>=2, states exactly one root on the given interval in the unequal case, and includes balanced cases and the eight-cycle exception. 9e526df0d917, Finding, treats balanced pairs only."
+        ],
+        "reasoning": "The balanced-only result does not imply the frozen unequal claim; the broader transition record does. Its uniqueness assertion, if accepted in full, is stronger than necessary for the frozen result.",
+        "searches": [
+          "Local Resultary: balanced/unbalanced and balanced-only midpoint subdivisions, 5e4c08ab1a68 and 9e526df0d917"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Relationship to prior work",
+        "Resultary 5e4c08ab1a68 and 9e526df0d917",
+        "arXiv:1108.0451",
+        "arXiv:1112.5657"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sánchez gives beta for the unsubdivided metric. Murugan's matrix criterion requires all distance rows to be permutations of one another. The broader Resultary finding states strict loss and the same asymptotic directly."
+        ],
+        "reasoning": "Neither external paper alone gives the new mass obstruction: the unsubdivided metric omits the midpoint constraints and the unequal subdivision has differing distance-row profiles. The wider indexed classification directly implies the frozen geometric statement, while the Gaussian conclusions follow by Schoenberg's criterion and its small-bandwidth converse.",
+        "searches": [
+          "Sánchez arXiv:1108.0451 §3 Theorem 3.1; Murugan arXiv:1112.5657 Theorem 3.1; Resultary 5e4c08ab1a68"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "5e4c08ab1a68, Finding, gives the Hilbert-snowflake exponent for the same shortest-path metric with all midpoints. The squared Euclidean distances of d^(p/2) are d^p."
+        ],
+        "reasoning": "Use group mass basis (-1/2,1/2,0), (1/2,1/2,-1) in the frozen Q. Its entries are exactly K, J/2 and R of the comparison, after renaming 4^p, 2^p and 3^p. The determinant is the frozen determinant multiplied by 1/4. Changing basis or switching from negative type to Hilbert embeddability does not change the classification.",
+        "searches": [
+          "Local Resultary: subdivided bicliques, negative type and Hilbert snowflakes; record 5e4c08ab1a68",
+          "arXiv:1112.5657, generalized roundness"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct indexed record 5e4c08ab1a68 explicitly gives the cutoff, endpoint nullity one, N-2 embedding dimension and the same fixed-m asymptotic written as (1+1/m)/((4-1/m)log 2-2log 3)."
+        ],
+        "reasoning": "The exact overlap is a symbolic family theorem in the catalogue, not a coincidence in a small graph table. The coefficient becomes the frozen one after multiplying numerator and denominator by m.",
+        "searches": [
+          "Local Resultary catalogue comparison by graph family, exponent, and thin-side asymptotic"
+        ]
+      },
+      "rationale": "A distinct same-date Resultary record already contains a mathematically equivalent classification on the full unequal domain, with the same endpoint nullity, dimension change and fixed-thin-side coefficient, as part of a broader theorem. The mass forms are explicitly congruent. Equivalent coverage is established; within-day priority is not. The direct contrast estimate and the standard kernel reformulation do not leave a distinct substantive claim of the frozen strength.",
+      "residual_risks": [
+        "The calendar date on the distinct comparison record does not establish within-day priority or dependence. The verdict is based on demonstrable scientific coverage, not an attribution or chronology claim.",
+        "The external search was bounded; no claim about all historical sources is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the unequal theorem on the full frozen domain",
+          "evidence": [
+            "Displayed K,J,R matrix, exact classification, endpoint ranks, and fixed-m coefficient"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/11/2/SCOPE-a-balanced-unbalanced-transition-in-the-hilbert-snowflakes-of-fu--5e4c08ab1a68/RESULT.md",
+          "material_read": "Finding, Assumptions and proof opening, offset 0",
+          "method": "Local mirror of the indexed record; direct algebraic comparison",
+          "title": "A balanced–unbalanced transition in the Hilbert snowflakes of fully subdivided bicliques",
+          "trigger": "Strongest same-object catalogue match"
+        },
+        {
+          "assessment": "Related, balanced cases only",
+          "evidence": [
+            "Cutoff log_2(n/(n-1)) for K_{n,n} with midpoints"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-negative-type-survives-midpoint-subdivision-of-balanced-co--9e526df0d917",
+          "material_read": "Mirrored RESULT.md, Finding at offset 0",
+          "method": "Local mirror",
+          "title": "Sharp negative type survives midpoint subdivision of balanced complete bipartite graphs",
+          "trigger": "Same subdivision, adjacent parameter regime"
+        },
+        {
+          "assessment": "Exact baseline, not the subdivision theorem",
+          "evidence": [
+            "Formula log_2(2mn/(2mn-m-n)) for the unsubdivided complete bipartite graph"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1108.0451",
+          "material_read": "§3 Theorem 3.1, PDF p. 7 (offset 25450)",
+          "method": "OA paper passage",
+          "title": "On the supremal p-negative type of a finite metric space",
+          "trigger": "Exact comparison beta and general finite-metric criterion"
+        },
+        {
+          "assessment": "Framework with inapplicable row-profile hypothesis",
+          "evidence": [
+            "Determinant criterion when all distance rows are permutations of one another"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1112.5657",
+          "material_read": "Theorem 3.1, PDF p. 2 (offset 7439)",
+          "method": "OA paper passage",
+          "title": "Generalized roundness of vertex transitive graphs",
+          "trigger": "Potential spectral classification under symmetry"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 25–38 and 74–88",
+        "Sánchez, arXiv:1108.0451, Theorem 3.1"
+      ],
+      "rationale": "As mathematics the all-unequal classification identifies when adjoining a natural class of vertices destroys a Hilbert-embedding threshold. The inverse-size collapse despite a positive limiting baseline and exact loss of one dimension at cutoff are meaningful structural conclusions, not incidental finite recomputations. This intrinsic value is separate from duplicate coverage.",
+      "residual_risks": [
+        "The theorem does not address weighted or partial subdivisions, or give a claim about arbitrary fixed bandwidths above cutoff."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

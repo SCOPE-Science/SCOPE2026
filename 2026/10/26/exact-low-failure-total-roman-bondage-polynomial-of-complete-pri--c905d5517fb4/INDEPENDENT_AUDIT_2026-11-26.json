@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:37:18.082525Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On at least six vertices with no universal vertex a total Roman dominating function of weight ≤3 is impossible: it needs a 2 and a neighboring positive, and the only remaining feasible weight pattern would make the 2 universal. A weight-four pattern 2+2 is an adjacent dominating pair, and a 2+1+1 pattern also has such a pair by taking the 2 and any positive neighbor; the other positive vertex must meet one of that pair. Only rungs dominate as adjacent pairs in the complete prism, since a same-layer edge misses the opposite layer at any third index. A surviving rung loses domination exactly when a respective endpoint loses an incident clique edge, or loses adjacency when its own edge is deleted. Fewer than n deletions cannot isolate a degree-n vertex. Requiring each rung index to be hit gives inclusion–exclusion on untouched indices with exactly (n−j)² admissible edges, counting labelled edge subsets by size. The minimum covers are a layer-colored perfect matching for even n, or for odd n one rung and a matching or a three-index path and a matching; counting these cases gives the two closed multiplicities. For n=2 the excluded C4 case indeed cannot increase above its order. In a fresh direct minimization over {0,1,2}-labelings every graph with k<n was checked for n=3 (46 graphs) and n=4 (697 graphs), yielding (0,0,18) and (0,0,12,248). Replay files: /workspace/branches/5c87dcc1-ad4d-41a3-903a-9911a4872235/direct_replay.py, direct_replay_n3.txt and direct_replay_n4.txt. The uploaded verifier and its output were inspected, not executed, and finite replays are not the general proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general weight-four theorem supplies the pair criterion and equality of the two minimum bondage numbers.",
+          "Appel et al. treat complete graphs and complete-bipartite bounds among other cases; the complete prism is neither of those families."
+        ],
+        "reasoning": "These results apply conceptual ingredients more broadly or give exact parameters on different graphs, but neither gives the number of damaging deletion masks of each size on the prism. An equality of two minima is not an enumeration of the edge sets attaining or exceeding the minimum.",
+        "searches": [
+          "arXiv:2602.08758v1 Proposition 4 and Corollary 8",
+          "arXiv:2506.07000v1 pp. 1, 3, clique and bipartite cases"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verify_output.txt",
+        "arXiv:2602.08758v1",
+        "arXiv:2506.07000v1",
+        "Resultary 879e297963d2 and 49caf4330d87"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General Proposition 4 characterizes a surviving pair but does not state which original pairs can dominate after a deletion.",
+          "The count depends on the exact overlap of the prism's rung-defender loss sets. For j untouched indices there are (n−j)² possible failed edges.",
+          "The two odd minimum-cover patterns, distinguished by whether a rung is deleted, both contribute."
+        ],
+        "reasoning": "The prior criterion plus prism analysis yields the failure iff index-cover statement. The Boolean inclusion–exclusion step is classical, but neither the exact locus and count of damaging subsets nor its odd/even multiplicity follows just by substituting n into the earlier minima or the separate graph families.",
+        "searches": [
+          "arXiv:2602.08758v1 Corollary 8 and Proposition 4",
+          "arXiv:2506.07000v1, main result listing",
+          "Resultary 879e297963d2 and 49caf4330d87, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For the frozen low-deletion graphs the weight-four condition agrees exactly with total domination number two.",
+          "The prism reduction is an index edge-cover problem with two colored edges per unordered pair and one singleton-covering edge per index."
+        ],
+        "reasoning": "Changing from total Roman to ordinary total domination does not create novelty, because the same adjacency/coverage witnesses are destroyed. The cover polynomial is a second exact formulation once the surviving-rung characterization is established. The inspected prior framework does not itself identify the surviving rungs or their loss profile.",
+        "searches": [
+          "arXiv:2602.08758v1, Remark 3(5), Proposition 4, Corollary 8",
+          "Resultary: total bondage and total Roman bondage of K_n square K_2, matched complete cliques, index edge-cover polynomial"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The complete-prism record gives Roman {3}-domination under a different rule and has no deletion-mask profile.",
+          "The crown-graph record gives total Roman domination 6 and bondage n−1 for K_{n,n} minus a matching."
+        ],
+        "reasoning": "The latter graph has the matching removed from a complete bipartite graph, whereas the frozen graph joins two cliques with a matching. They are complements on the labelled layers, not an equivalence for this domination statistic or its deletion operation. Neither exact catalogue result determines the frozen counts.",
+        "searches": [
+          "Resultary: complete prism Roman domination and total Roman/total bondage counts; records 879e297963d2 and 49caf4330d87"
+        ]
+      },
+      "rationale": "The adjacent-dominating-pair criterion and equality with ordinary total bondage at weight four are prior, and the resulting edge-cover inclusion–exclusion is standard. The observed distinct result is the exact failure profile in the labelled matched-clique prism: its prism-specific coverage equivalence, the full deletion-size distribution below minimum degree, and the minimum multiplicities. No inspected existing theorem already gives this profile.",
+      "residual_risks": [
+        "Exact prior coverage under alternate complete-prism or ordinary total-bondage terminology was not exhaustively excluded.",
+        "The count does not extend without an isolate check to k≥n; the two cited prior graph families are not substitutes for that check."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides exact foundational reduction, not the prism profile.",
+          "evidence": [
+            "Apart from 2K₂, weight four is characterized by the adjacent dominating pair and exclusion of universal vertices; total domination number two uses the same pair.",
+            "At weight four the minimum total Roman and ordinary total bondage numbers agree."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2602.08758v1",
+          "material_read": "PDF p. 4 Remark 3(5), p. 5 Proposition 4, p. 8 Corollary 8",
+          "method": "OA primary PDF comparison of statements and hypotheses",
+          "title": "Total Roman bondage number of a graph",
+          "trigger": "Same invariant, possible reduction to ordinary total bondage"
+        },
+        {
+          "assessment": "Inspected clique and bipartite results concern different graph classes; keyword miss is not exclusion of all related work.",
+          "evidence": [
+            "Listed graph families include paths, cycles, wheels, complete graphs and complete-bipartite bounds."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2506.07000v1",
+          "material_read": "pp. 1 and 3, covered cases and main results",
+          "method": "OA primary PDF passage comparison; prism locator lookup",
+          "title": "The k-Total Bondage Number of a Graph",
+          "trigger": "Potential ordinary total bondage result implying the frozen claim"
+        },
+        {
+          "assessment": "Different Roman labeling rule, no low-deletion size profile.",
+          "evidence": [
+            "Treats a four-label Roman {3} feasibility rule on the complete prism."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-roman-3-domination-of-complete-prisms--879e297963d2/RESULT.md",
+          "material_read": "Mirrored RESULT.md Finding and scope",
+          "method": "Local Resultary search and mirrored statement comparison",
+          "title": "Roman {3}-domination of complete prisms",
+          "trigger": "Exact indexed graph-family match"
+        },
+        {
+          "assessment": "Graph and structural domination regime differ.",
+          "evidence": [
+            "For K_{n,n} minus a matching the result gives domination value 6 and total Roman bondage number n−1."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-total-roman-bondage-of-crown-graphs--49caf4330d87/RESULT.md",
+          "material_read": "Mirrored RESULT.md Finding and scope",
+          "method": "Local Resultary search and mirrored statement comparison",
+          "title": "Total Roman bondage of crown graphs",
+          "trigger": "Same invariant on the complementary matching-based family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The cutoff k<n is the largest uniform window in which edge deletion cannot isolate a vertex, not an arbitrary truncation. The full profile gives failure probabilities at each size in that window and distinguishes robustness of the crown of rung defenders from the single minimum-size threshold. The closed minimum multiplicities quantify a genuine parity distinction on a standard graph family.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,166 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:13:43.037692Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–56, VERIFICATION.md, certificates.json, verify_rational.py and verify_classification.py (frozen verifiers inspected, not executed)",
+        "/workspace/repairs/1/RESULT.md, complete replacement; compare Finding, assumptions and proof with frozen original",
+        "evidence/01_certificate_replay.py and .txt (exact weak-duality and exhaustive nine-code check); evidence/01_first_fractional_vertex.py and .txt (all rows at m<=3 and exact rank)"
+      ],
+      "rationale": "The original statement that the relaxation first fails to be integral at m=5 is false as a claim about the polytope. In lexicographic source order at m=3, (0,1/3,1/3,1/3,1/3) is feasible. The output rows for 001011, 001101, 010011 and 010101, together with x_000111=0, are tight and have rank five. The relaxations at m=1 and m=2 are simplices because a common output bounds the sum of all coordinates. The corrected RESULT distinguishes the first fractional vertex (m=3) from the first strict gap in the all-ones objective (m=5). It also corrects the effect of deleting redundant non-Dyck output rows: a swap changes only one prefix height, and a non-Dyck output A10B has a uniquely located negative prefix with unique Dyck preimage A01B. Such a row gives only x_w<=1, already implied by the no-error row. Counting pairs A,B gives C_m non-Dyck outputs, not zero extra outputs. Rebuilt output incidences and evaluated all frozen rational certificates exactly: primal and dual values are 1,1,2,4,19/2, and integral witnesses attain the floors 1,1,2,4,9. Using the dual upper bound at m=5, an ordered recursion over mutually compatible sources exhausts all nine-word codes, matching the eleven full lists; reversal-complement fixes nine and exchanges the rest. The repaired proof matches both exact replays and does not alter the validated tables, certificate data or channel definition.",
+      "residual_risks": [
+        "No later integer/fractional objective behavior is asserted. The fractional vertex is not optimal for the all-ones objective at m=3; equal objective values through m=4 do not certify polytope integrality."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The explicit token-graph result concerns weight two; c9d82a094709 concerns directed 01→10 and weight two",
+          "Gabrys et al. give binary constructions; Buzaglo–Etzion treat permutation sets in Kendall tau; 1ae316c72d53 takes words avoiding 11"
+        ],
+        "reasoning": "None of these determines an exact optimum, vertex threshold and extremizer census on the Catalan subset of the length-ten weight-five layer. Even an unrestricted code size does not describe the allowable centers or output-row active sets in this restriction.",
+        "searches": [
+          "Gómez Soto et al. arXiv:1711.03682; Gabrys–Yaakobi–Milenkovic arXiv:1601.06885; Buzaglo–Etzion arXiv:1408.4963",
+          "Resultary c9d82a094709 and 1ae316c72d53"
+        ]
+      },
+      "checked_sources": [
+        "Repaired RESULT.md; frozen proof, certificates and channel comparison",
+        "Resultary 6a6d1499205f, 1ae316c72d53, c9d82a094709",
+        "arXiv:1711.03682, 1601.06885, 1408.4963; Mütze §4.4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Deleting a bit changes length and produces a different confusability relation: the frozen comparison has 77 swap-only and 88 deletion-only edges at m=5",
+          "The rational active-set certificate proves fractional geometry at m=3 independently of the code-size optima"
+        ],
+        "reasoning": "Neither channel conflict graph contains the other. A general coding construction or a change of graph language does not compute this restricted exact packing or its row-defined relaxation. The m=3 certificate and the m=5 primal/dual optimum plus full equality-case recursion require the actual Dyck shadows.",
+        "searches": [
+          "Compare Resultary 6a6d1499205f, 1ae316c72d53, and c9d82a094709 with the full channel incidence data",
+          "Gómez Soto et al. arXiv:1711.03682 and Gabrys et al. arXiv:1601.06885"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Path-token graph packing models ordinary constant-weight adjacent swaps; the target allows centers only at Dyck strings",
+          "Dyck Gray-code results study traversals by adjacent swaps, not disjoint one-step shadows"
+        ],
+        "reasoning": "Comparison is for the same source restriction, radius and full incidence constraints, including the equivalent version keeping only Dyck rows after the redundancy proof. No separate matching result for that packing was inspected; neither Hamiltonian traversal nor an unrestricted token-graph packing is equivalent.",
+        "searches": [
+          "Resultary: Dyck adjacent-swap correcting codes, short exact integer and fractional packings",
+          "arXiv:1711.03682 p. 1; Mütze survey §4.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "6a6d1499205f has the same small integer profile for the deletion channel but m=5 fractional value 29/3",
+          "1ae316c72d53 reports first gap at length seven for 11-avoiding words, 61/5 versus 12",
+          "The exact full table and 11/9 classification hit is the assigned record, not separate coverage"
+        ],
+        "reasoning": "Neither coincident deletion capacities nor the swap-shadow table on a different source family supplies the Dyck swap objective and vertex thresholds or the symmetry census.",
+        "searches": [
+          "Resultary: exact small-block Dyck-code capacity, fractional gap and extremizer symmetry",
+          "Resultary 6a6d1499205f and 1ae316c72d53 findings"
+        ]
+      },
+      "rationale": "For the repaired claim, the inspected evidence supports a distinct finite Dyck swap-shadow objective gap and exact extremizer census, supplemented by the precise distinction between first fractional vertex and first objective gap. The standard coding reduction, simplex/active-row method and Catalan convolution are not novelty claims. The exact indexed result was the assigned record itself; the stronger plausible neighboring claims have different channels or source families, not merely different notation. Same-day publication dates establish no priority.",
+      "residual_risks": [
+        "Unindexed short-code computations or exact fractional-packing tables could overlap. The verdict concerns the mathematical statements examined, not global priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Deletion channel, not the same output incidences",
+          "evidence": [
+            "Integer size coincidence through m=5; fractional value 29/3 rather than 19/2"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-short-block-one-deletion-codes-on-dyck-words-and-the-first--6a6d1499205f/RESULT.md",
+          "material_read": "Finding, opening offset 0",
+          "method": "Local published-record mirror",
+          "title": "Exact short-block one-deletion codes on Dyck words",
+          "trigger": "Same Catalan family and first-gap question"
+        },
+        {
+          "assessment": "Variable-weight words avoiding 11, not Dyck words",
+          "evidence": [
+            "First objective gap at length seven, 61/5 versus 12"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-first-fractional-packing-gap-and-rebound-for-adjacent-swap-codes--1ae316c72d53/RESULT.md",
+          "material_read": "Finding, opening offset 0",
+          "method": "Local published-record mirror",
+          "title": "First fractional packing gap and rebound for adjacent swap codes",
+          "trigger": "Same channel and LP statistic"
+        },
+        {
+          "assessment": "Directed channel and weight two",
+          "evidence": [
+            "Only 01→10"
+          ],
+          "identifier_or_url": "Resultary c9d82a094709",
+          "material_read": "Channel and weight in the finding",
+          "method": "Local published-record mirror",
+          "title": "Exact one-sided adjacent transposition capacity in the binary weight-two layer",
+          "trigger": "Binary short-block exact transposition capacity"
+        },
+        {
+          "assessment": "Standard equivalent ambient graph language, explicit result at weight two",
+          "evidence": [
+            "Packing in the path-token graph; double-vertex specialization"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1711.03682",
+          "material_read": "p. 1 and setup, OA offsets 500 and 3500",
+          "method": "OA paper passage inspection",
+          "title": "The packing number of the double vertex graph of the path graph",
+          "trigger": "Path-token formulation and exact packing results"
+        },
+        {
+          "assessment": "General code constructions, not the inspected Dyck finite classification",
+          "evidence": [
+            "Construction for single transposition or deletion"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1601.06885",
+          "material_read": "pp. 1–3 and located passages at OA offsets 700, 8500, 12800",
+          "method": "OA paper passage inspection",
+          "title": "Codes in the Damerau Distance for Deletion and Adjacent Transposition Correction",
+          "trigger": "Binary adjacent transposition correction"
+        },
+        {
+          "assessment": "Permutations of distinct symbols, not the restricted binary layer",
+          "evidence": [
+            "Code subset of S_n"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1408.4963",
+          "material_read": "p. 1, OA offset 150",
+          "method": "OA paper passage inspection",
+          "title": "Bounds on the Size of Permutation Codes with the Kendall τ-Metric",
+          "trigger": "Kendall formulation and packed transposition balls"
+        },
+        {
+          "assessment": "Traversal not packing",
+          "evidence": [
+            "Adjacent-transposition Gray-code existence criterion"
+          ],
+          "identifier_or_url": "https://doi.org/10.37236/11023",
+          "material_read": "§4.4 p. 30, around OA offset 93700",
+          "method": "OA paper passage inspection",
+          "title": "Combinatorial Gray codes—an updated survey",
+          "trigger": "Same Dyck vertices and adjacency"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md finding, exact vertex proof and complete equality-case comparison; exact replay outputs"
+      ],
+      "rationale": "A single local swap on properly nested binary strings is a natural constrained-channel problem. The separate earliest thresholds for polytope integrality and for this code-size objective demonstrate that an exact integer optimum can conceal nonintegral vertices. At the first objective gap, listing all extremizers and their reflection-complement symmetry gives a concrete small-block benchmark beyond producing one feasible code. This value survives correction of the false original integrality assertion.",
+      "residual_risks": [
+        "This is a small exact benchmark, not an asymptotic code construction or a general characterization of the packing polytope."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact degree-level generator is identical to the source's discrete master equations on the stated infinite-population rate model. The discounted first-hit recurrence, restart-renewal identity and falling-factorial finite-difference identity independently establish the finite formula, global strict discrete convexity and fixed-rate factorial asymptotic. The standalone `check.py` solves independent rational linear systems and verifies 1296 exact identities. The proof is not inferred from finite experiments.
+## correctness
 
-**Originality — PASS, subject to stated residual risks.** Artime (arXiv:2211.01869v1, §5 and Appendix) constructs the first-passage master equations but evaluates them numerically and passes to a continuous approximation for an analytic expression. Its proposed inflection is not an identity of the discrete mean sequence, whereas the current theorem gives an exact finite formula and strict ordinary discrete convexity at every integer target. Earlier immigration–death/catastrophe literature derives transient and stationary laws, without an identified matching degree-hit polynomial plus all-parameter curvature theorem. The model itself, elementary renewal machinery and general catastrophe-process methods are not claimed original. A concealed equivalent queueing specialization or an alternative interpretation of curvature in semilog graphs remains a nonzero priority risk.
+PASS
 
-**Scientific value — PASS.** The original research relies on continuous-degree approximation precisely to study first-passage means and proposes a parameter-dependent inflection. The exact discrete result replaces approximation by a finite algebraic formula, proves a universal curvature property, and resolves the asymptotic rare high-degree regime factorially. This changes the correct physical interpretation of threshold sensitivity in the stated autonomous degree process; it is not a mere normalization or one-number recomputation.
+For a fixed absorbing threshold n, let T_k be the expected time from k and D_k=T_k−T_0. The backward equation for k<n is α(D_{k+1}−D_k)−r[(k+1)D_k−kD_{k−1}]=−1, with no downward term at zero. Summing from 0 through k telescopes to αD_{k+1}=−(k+1)+(k+1)rD_k. With D_0=0 and D_n=−M_n this proves the finite sum and recursion directly, without assuming the renewal identity. Independent reset trials have positive probability of n consecutive births, and trial durations are bounded in mean by 1/r, so the finite expectation is justified. Two falling-factorial differences give the stated positive coefficients and the uniform j=2 lower bound. Reindexing P_n(0) by n−j gives the partial exponential sum and the stated fixed-rate factorial asymptotic. For the transform, the direct discounted backward recurrence, after dividing all state values by the value at zero, has initial values W_0=1,W_1=1+s/α and recurrence W_{k+1}=[1+(s+(k+1)r)/α]W_k−krW_{k−1}/α−r/α. Substitution verifies W_k=(sP_k(s)+r)/(s+r); imposing the terminal value at n gives the stated transform, including s=0. The displayed means at α=2,r=1/2 agree with the recurrence.
 
-**Boundary and limitations.** No claim is made for exact finite graph dynamics, smooth interpolations between degree thresholds, or curvature of a logarithmically plotted mean. The exact asymptotic holds only with strictly positive fixed rates. The open-access motivating primary full text was inspected; the older queueing preprint's model/outline sections were inspected and its first-passage terminology searched, with residual risk acknowledged.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct contribution is the solved exact matched-rate degree-threshold mean and its uniform strict integer-target curvature for the process left to continuum approximation by Artime. Neither the catastrophe process nor the generic reset renewal identity is credited as new.
+
+## value
+
+PASS
+
+The exact integer-target profile supplies both a finite computable mean and a definitive test of the continuum curvature interpretation in the model that prompted the question. The strict bound on ordinary second differences rules out a rate-dependent curvature transition for every integer target, not just low-degree examples or asymptotic data. The explicit matched-rate simplification and factorial growth also give useful benchmarks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

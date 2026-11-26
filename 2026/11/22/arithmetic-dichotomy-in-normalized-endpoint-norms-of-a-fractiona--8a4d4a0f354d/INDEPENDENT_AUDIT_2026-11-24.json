@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:46:13.997616Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen display defined u=Re(K⁻¹) but used undefined ν in the theorem and proof. The complete corrected RESULT.md in repairs/3 defines ν=Re(K⁻¹) and uses it consistently; the original checker uses u for the same quantity. Rechecking the corrected claim: differentiation gives only the two maxima ±θ, common positive drift v and conjugate curvatures K and its conjugate. The exact ℓ² boundary maximum is e^{ct}, whereas the ℓ¹ norm is the coefficient absolute sum. A real Gaussian majorant near each saddle gives a uniform window asymptotic with the corrected Gaussian width; the complex Gaussian integral gives the claimed chirp sign and the factor 2. The centered derivative vanishes at both saddles and is bounded even at the branch point for α>1. Its Parseval bound and weighted Cauchy–Schwarz yield an O(L⁻¹ᐟ²) normalized tail outside L√t. The nonzero angular harmonics disappear by bounded geometric sums and Abel summation in the irrational case. For a/q, residue Riemann sums are uniform in the periodic phase and select the harmonics at multiples of q; the first has nonzero Gaussian integral sqrt(2π/(ν+2iqω)), so π/q is fundamental. The constant term yields the stated mean and real times give both extrema repeatedly. These checks are replayable in the repaired proof; the frozen verification notes and CHECK.py were inspected, not executed. The FFT diagnostic is not a proof of the tails or a uniform-in-α rate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Barberán–Miana supply the fractional-shift coefficients and Hardy-space multiplier framework; Coeuret assumes finite support, and Coulombel–Faye assumes exponential decay or annular holomorphy."
+        ],
+        "reasoning": "The fractional symbol has a branch point at 1 and does not meet those local-limit hypotheses. The fractional operator construction itself does not evaluate the endpoint absolute coefficient sum.",
+        "searches": [
+          "arXiv:2606.16895 §§6.1–6.2",
+          "arXiv:2201.01514 Hypothesis 1 and Theorem 1",
+          "arXiv:2408.12876 Assumption 1 and Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and CHECK.py; repaired RESULT.md",
+        "Resultary 8a4d4a0f354d and 2bb826e225d2",
+        "Girard §4; Barberán–Miana §§6.1–6.2; displayed hypotheses and theorems of Coeuret and Coulombel–Faye"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Girard gives additive multiple-maximum asymptotics under distinct drift parameters, with a warning/example of failure beyond them. Barberán–Miana give the operator coefficients and representation."
+        ],
+        "reasoning": "Here the two coefficient envelopes overlap on the same √t window, so neither additivity nor the occurrence of nonconvergence in another example determines the residue average, its nonzero first harmonic, or the irrational limit.",
+        "searches": [
+          "Girard, Pacific J. Math. 37 (1971), §4 pp. 379–380",
+          "Barberán–Miana arXiv:2606.16895 §§6.1–6.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 8a4d4a0f354d is the assigned finding. The distinct 2bb826e225d2 is a unimodular asymmetric tent-phase log-norm law, not an exponential-growth semigroup.",
+          "Taking f(z)=exp(−(1−z)^α) turns integer times into powers of an absolutely convergent Fourier series."
+        ],
+        "reasoning": "Integer-time powers are a meaningful alternate formulation to test, not a separate new effect. In that formulation the saddle slopes still coincide, whereas Girard’s additive theorem separates slopes and does not resolve the oscillatory profile here.",
+        "searches": [
+          "Resultary fractional unilateral-shift Fourier coefficients, arithmetic periodic endpoint norm, equal drift",
+          "Girard, powers of absolutely convergent Fourier series, §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed formula is the assigned record; the nearest distinct arithmetic Wiener result uses a different phase and normalization."
+        ],
+        "reasoning": "A numerical table of selected orders would not contain the continuum limit theorem; the relevant exact-match check is for analytic formulas and exact profiles in the indexed literature.",
+        "searches": [
+          "Resultary exact rational profile and irrational constant for normalized fractional shift norms"
+        ]
+      },
+      "rationale": "After the notation repair the surviving claim is the same fixed-order rational/irrational law with exact continuous-time normalization and periodic profile. It is distinct from the general fractional-shift framework and the earlier finding that multiple-maxima interference can sometimes obstruct convergence. No distinct exact or stronger coverage was established in the inspected sources.",
+      "residual_risks": [
+        "Equivalent earlier equal-drift results under different language, especially outside indexed complex-sequence local-limit work, remain possible; the focused external lookup did not establish absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Thematic overlap only",
+          "evidence": "Concerns ∥Fαⁿ∥A/log n for an asymmetric tent phase and a denominator law, not this semigroup's t-dependent rational profile.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-arithmetic-discontinuity-of-sharp-logarithmic-wiener-norms-for-a--2bb826e225d2",
+          "material_read": "Mirrored RESULT.md, Finding at offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Arithmetic discontinuity of sharp logarithmic Wiener norms for asymmetric tent phases",
+          "trigger": "Closest distinct arithmetic endpoint hit; same date alone is not a priority determination"
+        },
+        {
+          "assessment": "Separated slopes and possible nonconvergence, not equal-drift law here",
+          "evidence": "Distinct local slopes give asymptotic additivity; that conclusion is not extended to unrestricted multiple maxima.",
+          "identifier_or_url": "https://msp.org/pjm/1971/37-2/pjm-v37-n2-p09-p.pdf",
+          "material_read": "§4 pp. 379–380, offsets 39000–45452",
+          "method": "Bounded OA primary PDF reading",
+          "title": "The asymptotic behavior of norms of powers of absolutely convergent Fourier series",
+          "trigger": "Closest powers-of-Wiener-series asymptotic framework"
+        },
+        {
+          "assessment": "Construction and Hilbert-space representation, not this endpoint asymptotic in these passages",
+          "evidence": "Fractional-shift coefficients and Hardy multiplication.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.16895",
+          "material_read": "§§6.1–6.2 pp. 19–21, offsets 68000–79102",
+          "method": "Bounded OA primary reading",
+          "title": "Entire groups generated by fractional powers of operators",
+          "trigger": "Same fractional-shift object"
+        },
+        {
+          "assessment": "Hypotheses not met by the fractional symbol",
+          "evidence": "Fixed finitely supported complex sequence.",
+          "identifier_or_url": "https://arxiv.org/abs/2201.01514",
+          "material_read": "Hypothesis 1 p. 3 and Theorem 1 p. 5",
+          "method": "Bounded OA primary reading",
+          "title": "Local limit theorem for complex valued sequences",
+          "trigger": "Candidate general local limit theorem"
+        },
+        {
+          "assessment": "Hypotheses not met by the fractional symbol",
+          "evidence": "Exponential coefficient decay or annular holomorphy, incompatible with the boundary branch point.",
+          "identifier_or_url": "https://arxiv.org/abs/2408.12876",
+          "material_read": "Assumption 1 p. 2 and Theorem 1 p. 4",
+          "method": "Bounded OA primary reading",
+          "title": "The local limit theorem for complex valued sequences: the parabolic case",
+          "trigger": "Candidate general parabolic local limit theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired result computes the endpoint-to-Hilbert norm ratio for a canonical fractional-shift family in a genuine same-velocity interference regime. It resolves both exact convergence and the complete periodic obstruction, quantifying limiting extrema rather than just finding two subsequences with different values. This is a concrete nonadditive benchmark not supplied by the general separated-maxima theory.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

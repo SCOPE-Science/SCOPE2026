@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result is a group-scheme statement, not a count of geometric fixed points. The logarithmic derivative supplies additive, scheme-theoretic coordinates because the semigroup gaps are all prime to the characteristic; the triangular map has an explicit polynomial inverse and yields an isomorphism with affine additive space. The exact coaction formula follows from the chain rule, the binomial coefficient reduction, and the ghost Frobenius identity. Its infinitesimal generator defines the entire fixed subscheme: the generators are precisely the higher-row gap coordinates and the \(p\)-th powers of the first-row coordinates. Corollary 5.2 of the initiating paper then carries the answer to the surface. The bundled finite-prime checker independently confirms the key coefficient identities in five characteristics. The proof, not the checker, supplies the all-prime quantifier.
+PASS
 
-## Originality — PASS, with residual priority risk
+The p-semigroup gaps are exactly jp+i with i>=1 and i+j<=p-2, in particular p never divides a gap. In the formal gluing quotient logarithmic differentiation takes multiplication to addition. Units in the smooth-chart ring contribute only nonpositive powers, whereas units in the cusp completed ring contribute only semigroup powers. Thus the gap coefficients descend on arbitrary base rings. In the chart 1+sum c_g T^g the gap-coordinate map is triangular with diagonal -g, giving a section; its image is closed and full-dimensional in the smooth connected (therefore integral) Picard scheme, so the section is an isomorphism. Independently, the chain rule for T'=T/(1+aT^(1-p)) gives (1+aT^(1-p))^(-1) W(T'). The a^m coefficient at exponent g=jp+i is (-1)^m binom(g+mp,m) w_(g+m(p-1)), reduced to binom(i,m) for 0<=m<p. For m=i the input index is p(j+i), and the formal unit factorization gives w_(pt)=w_t^p universally, not just for a perfect coefficient field. The first-order coefficient at i>=2 reaches exactly all higher-row gaps, and i=1 gives each first-row p-th power. These equations kill every higher coefficient as well (either use the displayed binomial expansion or the restricted-exponential coaction). The surviving coordinates are additive, so the group scheme is alpha_p^(p-2), including its full nilpotent structure. The elliptic diagonal quotient has the setup in the cited Picard theorem and the smooth-chart point u=0 is fixed; apply Corollary 5.2. The finite subgroup is already infinitesimal. The case p=3 has one gap and one p-th-power equation. The frozen finite-prime checker was read but not run, and no finite run is needed for the coaction identities. Bibliographic erratum only: the initiating paper labels the Lie-dimension statement Proposition D, although its own Remark 5.9 calls it Theorem D.
 
-Fong–Maccan–Modin, *Generalizations of Igusa surfaces* (arXiv:2611.12201, Proposition 5.4 and Remark 5.9) supply the additive Picard space and canonical action, and explicitly leave its full fixed subgroup computation for the Hilario–Schröer examples as a question. Their Theorem D fixes only the tangent dimension \(p-2\), which does not determine finite infinitesimal group schemes. Their already-proved quasi-bielliptic \(p=3\) case is recovered, not claimed independently new. Hilario–Schröer, *Generalizations of quasielliptic curves* (arXiv:2303.12324), construct the curve and action but not this fixed Picard scheme. Related published facts about nonreduced Picard groups of other singular curves do not imply this specified height-one product. Searches for the equivalent fixed-scheme claim found no direct match. Unindexed work may still contain it.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result answers the particular group-scheme question signaled in Remark 5.9, replacing a tangent-space dimension statement with the exact nilpotent algebra, height, length, and product decomposition in every characteristic \(p\geq5\). The distinction matters because many nonisomorphic finite group schemes have the same Lie dimension. The calculation also provides an explicit coaction applicable to later deformation and quotient calculations.
+The exact fixed-group-scheme structure in the monomial-cusp family for p>=5 is the surviving distinctive claim, not the ambient Picard group, Lie dimension, prior p=3 case, or formal quotient transfer. The initiating source explicitly leaves the subgroup structure open in the checked passages.
 
-## Boundaries
+## value
 
-The classification is for the particular canonical \(\alpha_p\)-action on the Hilario–Schröer curve, a supersingular elliptic translation factor, and algebraically closed coefficient fields; it does not classify other actions or the entire global Picard scheme. The finite checker is supporting evidence and has no authority beyond its tested primes. No independent mathematical assessment has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This computes the entire nonreduced Picard structure for a naturally given action left as a specific question by the source, not merely a tangent-space quantity. The height-one decomposition, length and explicit coaction distinguish it from other infinitesimal group schemes of equal Lie dimension and matter for these surfaces. Neither other actions nor the entire Picard scheme are classified.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

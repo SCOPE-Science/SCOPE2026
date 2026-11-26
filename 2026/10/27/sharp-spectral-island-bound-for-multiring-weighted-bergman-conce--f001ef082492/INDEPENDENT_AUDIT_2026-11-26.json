@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:57:29.800874Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Angular orthogonality makes the normalized monomials eigenvectors, with squared monomial norm (α+1)B(k+1,α+1); the numerator has t bounded above by b_m<1, so the beta-normalized eigenvalues tend to zero. For the superlevel bound, H_c(s)=B(s+1,α+1)(λ(s)−c) is analytic for real s>−1, and its integrand sign changes exactly 2m times at the endpoints. If H_c had 2m+1 zeros with multiplicity, their derivative conditions would give orthogonality to a span of 2m+1 functions t^s(log t)^j. After log t these are an exponential Chebyshev family: dividing by a nonvanishing exponential and differentiating reduces the dimension by one and Rolle's theorem bounds the zero count with multiplicity. A nonzero function in the span vanishing at all 2m endpoints must have simple zeros there and none elsewhere, so it can be signed to give a strictly positive integral against the signed weight, contradicting orthogonality. Between consecutive positive components the two sides are positive, requiring at least two zeros counted with multiplicity (including even-order contact); eventual negativity requires one further zero after the last positive component. Thus m+1 components need at least 2m+1 zeros even if the first reaches s=0. Separated discrete blocks also give distinct continuous components by their intervening non-high integer indices. For sharpness set u=(k+1)(1−t); its density is proportional to u^α(1−u/(k+1))^k on (0,k+1), dominated before normalization by u^α exp(−u/2) for k≥1, and the normalized densities converge in L1 to the gamma density. Take 0<A<B with gamma mass in (A,B) greater than c. For K_j=L^{2j}, rings with 1−t in (A/K_j,B/K_j) are disjoint and strictly interior for large L. At k=K_j−1 the same ring contributes the limiting gamma mass and all other rescaled intervals escape toward zero or infinity; at k=L^{2j+1}−1 all do. Strict peaks and valleys hold simultaneously for sufficiently large L, and yield both equality counts. This proves every real α>−1, both interpolations and m=1, without extrapolating from the frozen numerical check, which was inspected but not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Fock spectral formula gives gamma radial moments. The closest shell-count Resultary result counts discrete strict local maxima for Gaussian Fock annuli, sharp at specified total observation mass.",
+          "The Fock filtering record treats oscillatory symbols and essential spectra, whereas the sampling paper studies zero sets, factorization and sampling/dominating measures."
+        ],
+        "reasoning": "No inspected more general theorem carries over the beta normalization, threshold quantifier and simultaneous continuous/lattice realization. The Fock analogy and generic variation diminution are method/context overlap, not that construction.",
+        "searches": [
+          "Resultary multiring Fock localization and radial filtering: 41fa2b45e61f, 3fa838eb35e3",
+          "Dewage and Ólafsson arXiv:2107.01465v3 §2, radial Fock moments",
+          "Korhonen and Rättyä arXiv:1709.09956v1, weighted Bergman sampling and domination"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2203.04170v1",
+        "arXiv:2503.23649",
+        "arXiv:1709.09956v1",
+        "arXiv:2107.01465v3",
+        "Resultary 41fa2b45e61f, e5356e299a36, e6b835417cd5, 3fa838eb35e3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Combining the known radial moment formula with a classical zero-count result yields the upper bound. It does not imply that 2m sign changes can be made to realize m islands at any specified c; that is proved using concentration on geometrically separated scales.",
+          "The dated 2026/11/01 Fock shell result uses a prescribed observation mass, not a prescribed threshold. Its finite discrete peak theorem does not give the continuous beta-interpolated result. No separate source was verified for the frozen text's uncited assertion of a related prior Gaussian-Fock result."
+        ],
+        "reasoning": "Credit the prior framework and implication for the upper-bound mechanism, not the sharp realization. In the sources actually compared the full sharpness claim is not already established.",
+        "searches": [
+          "arXiv:2203.04170v1 Eq. (3.3) plus the Mellin Chebyshev comparison",
+          "Resultary 41fa2b45e61f Finding and generalized Descartes proof; 2026/10/11 circle-trace finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rozenblum and Vasilevski Eq. (3.3) specializes exactly to the weighted beta integral by taking the symbol to be the annulus indicator; Maximenko and Pacheco Eq. (1.2) gives the unweighted radial-measure formula.",
+          "The threshold inequality is the sign of a Mellin transform of (1_E−c)(1−t)^α. The exponential Chebyshev/Descartes mechanism is classical; the cited Karlin passage could not be independently checked after lawful archival attempts."
+        ],
+        "reasoning": "The beta moment identity and generic zero bound are covered. Neither supplies the annulus placements needed for simultaneous sharpness at arbitrary fixed α and c.",
+        "searches": [
+          "Weighted radial Toeplitz beta-moment formula, Rozenblum and Vasilevski arXiv:2203.04170v1 §3; Maximenko and Pacheco arXiv:2503.23649 Eq. (1.2)",
+          "Resultary radial Bergman moments and Mellin/Descartes variation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "e5356e299a36 gives an exact maximizing-frequency staircase for a single circle trace in harmonic Bergman space, including adjacent ties; e6b835417cd5 treats an isolated geometric eigenvalue of quadratic harmonic-Bergman Toeplitz operators. Neither gives a multiring threshold-capacity formula."
+        ],
+        "reasoning": "This is an all-parameter analytic result, not a finite catalog; the relevant exact-data comparison is a formula/table that could settle its sharp component count under the same quantifiers. The identified exact results count different invariants.",
+        "searches": [
+          "Configured Resultary radial Bergman spectral thresholds, frequency staircases, multiring annuli and spectral filters; matched e5356e299a36, e6b835417cd5, 41fa2b45e61f, 3fa838eb35e3"
+        ]
+      },
+      "rationale": "The diagonal formula and zero-count mechanism are already available; the upper bound is an application of classical variation diminution, not a new general principle. The supported distinct claim is the jointly sharp spectral-component law, including realization at each prescribed threshold and weight in both the continuous and actual lattice spectra. The closest inspected annulus result uses a different space, a local-peak invariant and a different sharpness constraint.",
+      "residual_risks": [
+        "An older equivalent consequence of total positivity combined with a matching radial construction might be unindexed. Karlin's exact passage was inaccessible and the frozen result's uncited older-Fock reference was not independently identified; neither access limitation establishes priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact eigenvalue framework, not sharp superlevel classification",
+          "evidence": "Its gamma-ratio factor multiplying the weighted radial moment is the reciprocal beta normalization.",
+          "identifier_or_url": "https://arxiv.org/html/2203.04170v1",
+          "material_read": "§3, Eq. (3.3), HTML offsets 26500–30699",
+          "method": "OA HTML passages",
+          "title": "Commutative algebras of Toeplitz operators on the Bergman space revisited: Spectral theorem approach",
+          "trigger": "Exactly the relevant weighted radial Toeplitz setting"
+        },
+        {
+          "assessment": "Moment formula in standard Bergman space",
+          "evidence": "The radial measure diagonal eigenvalues give the α=0 framework, not a maximum attainable number of bands.",
+          "identifier_or_url": "https://arxiv.org/pdf/2503.23649",
+          "material_read": "PDF p. 2, Eq. (1.2), extracted offsets 3900–6899",
+          "method": "OA PDF passages",
+          "title": "Toeplitz operators in Bergman space induced by radial measures",
+          "trigger": "Cited spectral description for general radial measures"
+        },
+        {
+          "assessment": "Different question in inspected passages",
+          "evidence": "The passages concern zero sequences and factorization, sampling measures and dominating sets, not a spectral component count.",
+          "identifier_or_url": "https://arxiv.org/pdf/1709.09956v1",
+          "material_read": "PDF pp. 1, 6–7, offsets 0, 3400, 28800",
+          "method": "OA PDF passages",
+          "title": "Zero sequences, factorization and sampling measures for weighted Bergman spaces",
+          "trigger": "Cited weighted Bergman sampling and concentration connection"
+        },
+        {
+          "assessment": "Later dated structural analogue, not coverage",
+          "evidence": "Bounds the number of strict local maxima by the annulus count and attains it at prescribed Gaussian observation mass, with generalized Descartes methods.",
+          "identifier_or_url": "2026/11/1/SCOPE-a-sharp-shell-count-law-for-angular-momentum-peaks-in-gaussian-f--41fa2b45e61f",
+          "material_read": "Finding offsets 0–2486 and proof offsets 2880–3741",
+          "method": "Configured local Resultary mirror",
+          "title": "A sharp shell-count law for angular-momentum peaks in Gaussian Fock localization",
+          "trigger": "Closest structural multiring theorem"
+        },
+        {
+          "assessment": "Gamma moment framework, different normalization",
+          "evidence": "Annulus indicators produce gamma interval masses, not disk-beta moments.",
+          "identifier_or_url": "https://arxiv.org/pdf/2107.01465v3",
+          "material_read": "§2, PDF p. 3 and offsets 10200–14362",
+          "method": "OA PDF passages",
+          "title": "Toeplitz operators on the Fock space with quasi-radial symbols",
+          "trigger": "Primary radial Fock spectral formula"
+        },
+        {
+          "assessment": "Single-circle maximizing mode, not multiring thresholds",
+          "evidence": "It gives winning frequencies and adjacent-degree ties for a singular circle trace in harmonic Bergman space.",
+          "identifier_or_url": "2026/10/11/SCOPE-exact-frequency-staircase-for-weighted-harmonic-bergman-circle-t--e5356e299a36",
+          "material_read": "Finding",
+          "method": "Configured local Resultary mirror",
+          "title": "Exact frequency staircase for weighted harmonic Bergman circle traces",
+          "trigger": "Earlier Bergman frequency classification"
+        },
+        {
+          "assessment": "Source access limitation, not negative evidence",
+          "evidence": "The mechanism is treated as classical; correctness was checked by the direct Chebyshev proof, not assumed from this citation.",
+          "identifier_or_url": "S. Karlin, Stanford University Press (1968)",
+          "material_read": "No exact original passage retrieved",
+          "method": "Lawful Internet Archive scan and text attempts",
+          "title": "Total Positivity",
+          "trigger": "Cited classical zero-count/variation-diminishing theorem family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The number of disjoint annuli limits how many disjoint ranges of angular modes can simultaneously pass a specified concentration cutoff. The construction realizes that full capacity at any threshold and weight, rather than showing isolated multiple peaks that might not cross a common threshold. Separating the scales with both high and low integer witnesses ensures that the bands persist in the actual operator spectrum, not merely its interpolation. This gives a precise achievable design constraint for a natural radial model.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

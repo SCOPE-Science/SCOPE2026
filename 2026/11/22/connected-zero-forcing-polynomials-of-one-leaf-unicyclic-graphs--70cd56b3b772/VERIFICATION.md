@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The exact theorem is established by the initial-set classification, cyclic-interval counting bijection, coefficient-difference proof and log-concavity boundary argument in RESULT.md. None of the infinite-parameter statements relies on a finite search.
+## correctness
 
-`VERIFY.py` requires Python 3.9 or later and uses no third-party dependencies. Execute `python VERIFY.py`. It constructs graphs directly from their cycle and pendant-path edge lists, enumerates all initial subsets of 34 instances, independently checks induced connectedness and sequential zero forcing, then compares the all-size distributions. It also performs 1,680 separate coefficient-shape checks.
+PASS
 
-Observed output:
+Each off-cycle rooted tree contributes at least one leaf, and branching contributes more, proving the graph identification. Initial connectedness and two white directions require a cycle interval of size at least two and permit a nonempty tail prefix only when it includes the hub in its cycle interval. If the hub is omitted, force along both sides of the unseeded arc and color the hub last on the cycle; otherwise use a nonhub cycle boundary. Finish the tail. There are q of the c proper q-intervals containing the hub. The convolution-difference calculation gives a positive difference k-b_(k-t) through k=c-2, and nonpositive -b_(k-t) thereafter. The c=3,4 and t=1 positive cases check directly; the first internal determinant 4-c is negative in the complementary region. Independent replay: python3 /workspace/review_checks.py 5; 55 graphs of order <=13, 147417 nonempty masks per pass, via hitting every minimal fort and testing induced connectivity; arithmetic checks on 840 cases with 3<=c<=30, 1<=t<=30. Proof, not finite enumeration, supplies unrestricted shape.
 
-```
-DIRECT_ALL_SUBSETS_OK instances 34 subsets 46608
-COEFFICIENT_AND_SHAPE_FORMULAS_OK cases 1680
-VERIFY_OK
-```
+## originality
 
-The exhaustive checks cover only \(3\le c\le9\), \(1\le t\le5\), \(c+t\le13\); the arithmetic checks cover \(3\le c\le50\), \(1\le t\le35\). They are empirical cross-checks, not infinite proofs. Independent mathematical audit has not been performed. Literature searches do not establish absolute historical priority.
+PASS
+
+For the repaired coefficient-shape claim only. Existing cycle constraints, the known minimum and the matching t=1 enumerator are explicitly credited. The inspected results do not give the uniform unimodality and precise log-concavity split for all pendant-path lengths in the one-path class. Priority is bounded by the inspected evidence.
+
+## value
+
+PASS
+
+This is the complete one-leaf unicyclic stratum. It gives a family of positive unimodal but non-log-concave count sequences with the first failure caused by the second tail vertex precisely for cycles of length >=5, along with an exact small-cycle boundary. The numerical adjacent-coefficient behavior is useful separately from the previously known minimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

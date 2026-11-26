@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:39:46.828030Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–41 and 43–107",
+        "Frozen VERIFICATION.md, verify.py and verify_output.txt (inspected, not executed)",
+        "Baiduk–Kozerenko, arXiv:2607.13746, Proposition 24 and Theorem 25"
+      ],
+      "rationale": "The flip-equivariant pair map turns an inner inverse into an equivariant section of the image: fixed outputs must have fixed preimages, and the two-point orbits admit paired sections. Conditional on j missed labels, the independent unordered input pairs avoid j of n² outputs, giving the exact weight (1−j/n²)^(n(n−1)/2). Its log is −j/2+j/(2n)−j²/(4n²)+O(1/n) uniformly on 0≤j≤n. The tilted occupancy partition function is (n!/nⁿ)[tⁿ](exp(t)−1+z)ⁿ. At the unique solution x∈(0,1), the associated independent box counts Y have mean 1 and variance x; their tilt conditioned on ΣY=n gives exactly the tilted vacancy law. The span-one local limit and Stirling give exp((x−1)n)/√x. To check the conditional CLT without a tail gap, put J=1{Y=0}; the conditional characteristic function at u is a ratio of Fourier integrals over v∈[−π,π] of [E exp(i(v(Y−1)+u(J−θ)/√n))]ⁿ, with u=0 in the denominator. Away from v=0 span one makes the integral exponentially small; near zero, positive definite covariance (three noncollinear support points) bounds the modulus by exp(−c n v²). With v scaled by √n, the Gaussian integral ratio gives variance θ(1−θ)−θ²/x, using Cov(Y,J)=−θ. This entails E_n/n→θ under the tilt. The bounded remaining weight converges in L¹ to exp(θ/2−θ²/4), giving both the prefactor and normalized reweighting convergence in total variation. At n=1 the exact formula has weight one, and the conditioned asymptotics concern n→∞. Finite checks were inspected, not used as proof.",
+      "residual_risks": [
+        "No quantitative CLT error bound or extension to higher arity is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bogachev–Gnedin–Yakubovich pp. 1–2 concern occupied boxes in a general urn scheme. SCOPE 7d28e8d60ce4 obtains conditional Poisson variables in a block-surjective transformation monoid."
+        ],
+        "reasoning": "Normality for ordinary urn counts does not imply this exponentially vacancy-weighted conditional model. The partition-surjective result has different constraints and limiting objects.",
+        "searches": [
+          "Bogachev–Gnedin–Yakubovich, arXiv:math/0609498, occupied-box normality",
+          "Resultary: conditional Poisson regularity in transformation monoids"
+        ]
+      },
+      "checked_sources": [
+        "Targeted Resultary search and matching local-mirror findings",
+        "Baiduk–Kozerenko arXiv:2607.13746",
+        "Bogachev–Gnedin–Yakubovich arXiv:math/0609498"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 25 has the finite count, while the occupancy comparison treats normality under ordinary sampling."
+        ],
+        "reasoning": "To obtain the specific rate, prefactor and centered conditional variance from the count one must change measure and handle the uniform quadratic correction; neither inspected prior implication establishes these. Use of standard local limits is credited as methodology, not novelty.",
+        "searches": [
+          "arXiv:2607.13746, Theorem 25",
+          "arXiv:math/0609498, pp. 1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The flip-equivariant transformation formulation is prior. Resultary 424132eee3b4 uses the same monoid and rank condition for regular Green classes."
+        ],
+        "reasoning": "The number of regular classes is not the number of regular labeled operations. Sizes of the classes and the vacancy conditioning matter.",
+        "searches": [
+          "Resultary: finite magma monoid regular proportion and diagonal image deficiency",
+          "arXiv:2607.13746 Proposition 24"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact labeled count agrees after replacing Surj(n,d) by d!S(n,d). No independent exact asymptotic match surfaced among the indexed results inspected."
+        ],
+        "reasoning": "The finite formula is already known; re-tabulating it is not the contribution. Its exact sum is compatible with, but does not tabulate or establish, the reported asymptotic coefficients.",
+        "searches": [
+          "Resultary: sharp regularity rarity and diagonal-image law in finite magma monoids",
+          "arXiv:2607.13746 Theorem 25"
+        ]
+      },
+      "rationale": "Credit the exact algebraic criterion and labeled count to Baiduk–Kozerenko. The supported distinct claim is the sharp exponential proportion with its multiplicative constant and the conditional Gaussian vacancy law. These require an exponential occupancy tilt, an order-one correction, and a conditional covariance computation; the inspected sources do not cover these specific results.",
+      "residual_risks": [
+        "An equivalent asymptotic calculation elsewhere remains possible. The finite exact count was directly established in earlier work; search scope is bounded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact criterion and finite count covered; displayed asymptotics not in inspected statements",
+          "evidence": "Regularity iff cim(T*)=diag(T*); sum over d of binomial(n,d)(n²−n+d)^(n choose 2) Surj(n,d).",
+          "identifier_or_url": "https://arxiv.org/abs/2607.13746",
+          "material_read": "Proposition 24 p. 19 and Theorem 25 p. 20",
+          "method": "OA primary text",
+          "title": "Transformation Semigroup Perspective on the Magma Monoid",
+          "trigger": "Exact same algebra and finite count"
+        },
+        {
+          "assessment": "Regular class count is not labeled operation count or diagonal deficiency law",
+          "evidence": "Regularity iff c=d in the class; n((n choose 2)+1) regular classes.",
+          "identifier_or_url": "2026/10/25/SCOPE-the-three-rank-two-sided-ideal-order-of-finite-magma-monoids--424132eee3b4",
+          "material_read": "Finding",
+          "method": "Local mirror",
+          "title": "Three-rank two-sided ideal order of finite magma monoids",
+          "trigger": "Same indexed monoid and regularity"
+        },
+        {
+          "assessment": "Different transformation monoid and observables",
+          "evidence": "Lower-target counts forced to zero or converging to independent Poissons under regularity.",
+          "identifier_or_url": "2026/10/26/SCOPE-a-conditional-poisson-regularity-law-for-partition-surjective-tr--7d28e8d60ce4",
+          "material_read": "Finding",
+          "method": "Local mirror",
+          "title": "Conditional Poisson regularity law for partition-surjective transformations",
+          "trigger": "Conditioning on transformation regularity"
+        },
+        {
+          "assessment": "Does not give the specific regularity tilt and variance",
+          "evidence": "Normality for occupied boxes in an infinite-urn model when variance diverges.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0609498",
+          "material_read": "pp. 1–2",
+          "method": "OA primary PDF",
+          "title": "On the variance of the number of occupied boxes",
+          "trigger": "Closest checked occupancy CLT context"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 10–38 and 63–107"
+      ],
+      "rationale": "The exact prevalence of regular elements and the conditional defect are natural invariants of this monoid. The rate and prefactor quantify an exponential rarity not evident from a class count, and the change in the vacancy center plus its Gaussian variance describe a typical regular operation. The finite tilting correction is essential for the leading constant and the result is not merely recomputation of an exact table.",
+      "residual_risks": [
+        "No claim of a general asymptotic theory of other transformation monoids is made."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

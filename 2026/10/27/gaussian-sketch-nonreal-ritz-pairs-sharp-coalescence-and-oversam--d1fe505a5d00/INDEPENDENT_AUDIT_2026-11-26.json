@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:10:03.755672Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Schur complement is positive under the stated bound. Almost surely the two sketched basis columns have full rank. With p=(SQ)^dagger Se3, the reduced matrix is diag(a,a+delta)+p(g,g); its discriminant divided by 2g^2 is t^2-2tX+Y^2 after the orthogonal rotation. At delta=0 the discriminant is a square. The normal-Wishart mixture gives the density (s-1)/(2 pi) times (1+X^2+Y^2)^(-(s+1)/2); both integrals are proper also at s=2. For small t, rescaling Y by sqrt(t) gives width 2 sqrt(2X) in the limit and an integrable bound in X for every s>=2, recovering C_s by the beta integral. At large t the rescaling (X,Y)=t(u,v) fixes 2u>1+v^2, which avoids the origin; the integrable radial tail yields K_s. Solving the radial quadratic gives the stated two inverse radii, and beta integrals give the s=2,3 constants. No fixed-gap s-to-infinity claim is needed. The submitted check.py was inspected, not executed. Independent replay: python /workspace/reproductions/reproduce.py; radial-survival quadrature reproduced P_s(1) for s=2,3,5 and both scaled endpoints (within 0.0007 relative at the selected gaps). These finite checks are not asymptotic proofs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "32bec7a0c8b8 gives an exact classification for general 3-by-3 input with a two-row Gaussian sketch; the frozen s=2 case specializes it, with its sharp maximum attained at delta=g here.",
+          "416e750ea372 studies an increasing-dimensional and row-count critical window, and 86f8010d501f conditions on an isometric action with fixed-length random coupling."
+        ],
+        "reasoning": "The broader two-row result is real overlap, but is indexed later and does not cover s>2. Neither of the other regimes dominates the frozen one.",
+        "searches": [
+          "Resultary index 32bec7a0c8b8, 416e750ea372 and 86f8010d501f"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.22261v1",
+        "Nakatsukasa–Tropp §6.8",
+        "arXiv:2604.01037v3",
+        "Resultary 71e006218203, 32bec7a0c8b8, 416e750ea372, 86f8010d501f, 2d2f13f8fb2c, 15c0a9d20140, 1d926bce4460"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A Gaussian least-squares coefficient law supplies the radial density but not the parabolic discriminant domain or its two asymptotic evaluations.",
+          "The inspected earlier eigensolver results do not supply this distribution of the discriminant; the later same-family representation could recover corresponding fixed-s asymptotics by a separate limit calculation."
+        ],
+        "reasoning": "Do not count the classical density or existence proof as contributions. No inspected earlier general result was shown to specialize mechanically to the full probability and both sharp constants.",
+        "searches": [
+          "arXiv:2610.22261v1, §3.1",
+          "Resultary 71e006218203 and 32bec7a0c8b8",
+          "Gaussian least-squares normal/Wishart mixture in RESULT.md, proof §2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The first two sources discuss the same pseudoinverse Rayleigh–Ritz reduction and possibility of nonreal estimates; Liu–Liu target a real-Schur formulation.",
+          "Shao uses a complex-Gaussian Petrov–Galerkin generalized eigenproblem and studies selected eigenpair convergence."
+        ],
+        "reasoning": "The qualitative issue survives rephrasing in terms of a projected nonsymmetric eigenproblem. It is not equivalent to the explicit real-Gaussian event probability with both gap limits.",
+        "searches": [
+          "Liu–Liu arXiv:2610.22261v1, §3.1",
+          "Nakatsukasa–Tropp §6.8",
+          "Shao arXiv:2604.01037v3, §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "71e006218203 explicitly gives a same-family finite-s law for s>=3 plus a fixed-gap exponential rate as s increases; it is indexed later.",
+          "The earlier local entries are coordinate-row constructions or embedding-distortion bounds, rather than iid Gaussian probability formulas."
+        ],
+        "reasoning": "There is an exact same-model match for much of the probability law, not just a topical hit. Its indexed chronology is later and its limiting variable is different; the evidence does not establish prior publication of the frozen gap endpoints.",
+        "searches": [
+          "Resultary index 71e006218203, 2d2f13f8fb2c, 15c0a9d20140 and 1d926bce4460"
+        ]
+      },
+      "rationale": "Pass for the exact Gaussian discriminant law and sharp fixed-row-count gap limits as a package; neither qualitative nonreal Ritz values for SPD input nor the Gaussian least-squares Student law is novel. Inspected later index records overlap genuine parts of the finding, but do not establish prior coverage of the package.",
+      "residual_risks": [
+        "Later-indexed overlapping records do not settle earlier manuscript chronology.",
+        "Bounded literature lookup found no further close source; that is not evidence that no prior formula exists."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior qualitative coverage only in inspected material",
+          "evidence": "(SX)^dagger SAX can have complex conjugate eigenvalues for SPD A; real-Schur treatment.",
+          "identifier_or_url": "https://arxiv.org/html/2610.22261v1",
+          "material_read": "§3.1, text offsets approx. 15800–20377",
+          "method": "OA HTML passage inspection",
+          "title": "Real-Arithmetic Sketched Eigensolvers for Symmetric Matrices",
+          "trigger": "Same sketched Ritz method, same qualitative phenomenon"
+        },
+        {
+          "assessment": "Prior qualitative warning",
+          "evidence": "Symmetric sRR is not guaranteed to return real estimates.",
+          "identifier_or_url": "https://tropp.caltech.edu/papers/NT24-Fast-Accurate-SIMAX.pdf",
+          "material_read": "§6.8, printed p. 1203",
+          "method": "OA PDF passage inspection",
+          "title": "Fast and Accurate Randomized Algorithms for Linear Systems and Eigenvalue Problems",
+          "trigger": "Original sRR analysis"
+        },
+        {
+          "assessment": "Different extraction, sketch field and target statistic",
+          "evidence": "Complex Gaussian Petrov–Galerkin generalized eigenproblem, convergence of selected pairs.",
+          "identifier_or_url": "https://arxiv.org/html/2604.01037v3",
+          "material_read": "§1, offsets 0–4468",
+          "method": "OA HTML passage inspection",
+          "title": "Stabilizing the Rayleigh–Ritz Procedure by Randomization",
+          "trigger": "Gaussian randomized Ritz analysis"
+        },
+        {
+          "assessment": "Later-indexed same-family exact law for s>=3; different asymptotic",
+          "evidence": "Fixed gap, s grows rather than gap varying at fixed s.",
+          "identifier_or_url": "Resultary 71e006218203",
+          "material_read": "Finding and Assumptions, offsets 0–3894",
+          "method": "Local mirror passage inspection",
+          "title": "Exponential suppression of nonreal sketched Ritz pairs in a fixed model",
+          "trigger": "Same SPD family, same iid-Gaussian sketch"
+        },
+        {
+          "assessment": "Later-indexed coverage of s=2 specialization",
+          "evidence": "Equality for equal residual couplings at delta=g; restricted to s=2.",
+          "identifier_or_url": "Resultary 32bec7a0c8b8",
+          "material_read": "Finding and Proof, offsets 0–3984",
+          "method": "Local mirror passage inspection",
+          "title": "A sharp 1-sqrt(2/3) complex-pair bound for minimally sketched symmetric problems",
+          "trigger": "Broader exact two-row Gaussian law"
+        },
+        {
+          "assessment": "Different joint scaling",
+          "evidence": "Growing dimension and sketch budget with a critical gap window, including repeated-gap behavior.",
+          "identifier_or_url": "Resultary 416e750ea372",
+          "material_read": "Finding and Assumptions, offsets 0–3602",
+          "method": "Local mirror passage inspection",
+          "title": "Universal critical gap law and four-dimensional onset of nonreal pairs",
+          "trigger": "Potentially competing small-gap scaling"
+        },
+        {
+          "assessment": "Different ensemble",
+          "evidence": "Isometric trial-plane action and fixed-length uniformly oriented coupling, not iid Gaussian entries.",
+          "identifier_or_url": "Resultary 86f8010d501f",
+          "material_read": "Finding and Assumptions, offsets 0–3604",
+          "method": "Local mirror passage inspection",
+          "title": "A sharp one-quarter law for nonreal sketched Ritz pairs",
+          "trigger": "Exact bounded probability in a nearby model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The family isolates the loss of real Ritz values in a standard randomized extraction without confounding the gap with sketch conditioning. The complete gap response gives a benchmark at minimal as well as oversampled row counts, distinguishing a square-root onset from a sketch-size-dependent separated-gap tail. This does not establish robustness or convergence of a full eigensolver.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

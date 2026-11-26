@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:24:04.014110Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On either invariant cost face and at μ₁/(μ₁+μ₂)=q*, dividing the derivatives of 1/Q(x) and r away from x=q* yields a linear equation in 1/Q; the integrating factor is ((1−r)/r)^κ, κ=(N−1)c₀/μ. Direct differentiation of the resulting first integral proves conservation also at x=q*. Its Hessian at (q*,r*) is positive diagonal: Q has a nondegenerate maximum at q* and the r derivative of the bracket K−κ/(rQ) is positive at r*. The equilibrium is the only interior zero of the vector field. Thus its small Morse levels are closed regular orbits, and the linear frequency squared is μc₀q*(1−q*)(1−r*), giving the limiting period. Independently of the local construction, integrating the two log-odds derivatives over any open-face periodic orbit gives mean x=q* and mean rQ=c₀/b. Hence mean r−r*=mean[r(Q*−Q)]/Q*>0: equality would force x identically q* and then r identically r*. The bottom row of the full variational equation is purely normal along the face, with coefficient ±(α−β)g, so the transverse exponent is exactly its time average. Affinity of g and mean x=q* give the strict upward shift at β and downward shift at α; these are shifts relative to the equilibrium, not unconditional absolute signs. In the tuned example the equilibrium costs have g=0 and 3/8 with risk slope 15/8, giving opposite absolute signs. This is transverse stability, not attraction within the neutral planar annulus. The supplied verify.py and verification notes were inspected, not executed; their finite symbolic and numerical tests are ancillary to the exact check.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary model supplies exactly the three equations with unit update-rate scalings; its retrieved main text treats equilibrium and multistability regimes. The S1 description says it contains robustness studies and a table of equilibrium stability conditions.",
+          "The earlier indexed same-model theorem assumes a positive parameter combination Δ to drive costs exponentially toward α from strictly interior starts, with bQ*<α for global defection. Its cost–risk log-odds identity eliminates x but is an interior identity in its stated use."
+        ],
+        "reasoning": "Neither local equilibrium stability nor interior exponential collapse under Δ>0 provides the periodic-annulus mechanism or compares the transverse exponent of every nonconstant orbit on a resonant face with the enclosed equilibrium. The tuned example is outside the earlier sufficient collapse conditions.",
+        "searches": [
+          "Wang et al., DOI 10.1371/journal.pcbi.1013512, equations (6)–(10), Results and Supporting information",
+          "238b78f6c336 global collapse despite positive coexistence equilibria under risk cost feedback"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Wang et al., DOI 10.1371/journal.pcbi.1013512, main-text equations and S1 description",
+        "Liu–Chen–Szolnoki, arXiv:2305.00253, planar equations and Hopf Appendix",
+        "Resultary 238b78f6c336, caf974f7f068 and 5b16fa425a6d, mirrored passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Differentiating the known cost equation at a face gives the scalar normal coefficient. Eliminating the cooperation contribution in the earlier interior log-odds identity is related and isolates mean risk, but gives no strict surplus on the boundary cycles.",
+          "The decisive comparison uses the exact identity mean rQ=r*Q*, the unique maximizing argument q* of Q, and strictness on nonconstant closed trajectories. It also uses existence of such trajectories at a degenerate critical point, not merely purely imaginary eigenvalues."
+        ],
+        "reasoning": "The multiplier integration itself is standard; it does not imply the sign until the strict periodic average and existence have been established. No inspected earlier theorem supplies that full combination.",
+        "searches": [
+          "Wang et al. Eq. (9), PDF p. 4",
+          "Resultary 238b78f6c336, Proof Step 3",
+          "arXiv:2305.00253, pp. 6 and 19–20"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The previously published planar model is the same up to update-rate normalization; its critical u=(M−1)/(N−M) is exactly u/(1+u)=q*. Its Appendix reports a small negative numerical first Lyapunov coefficient at the critical case.",
+          "At exact resonance, the directly verified smooth first integral and its nondegenerate minimum yield a center, not an isolated Hopf cycle. The later caf974f7f068 treats this same critical fixed-cost center; 5b16fa425a6d proves exact risk amplification for the balanced odd-group subfamily."
+        ],
+        "reasoning": "Relabeling parameters does not make the planar subsystem new, and neither does mentioning oscillations. The center proof distinguishes exact degeneracy from the earlier numerical Hopf interpretation. The collective-risk face normal has no planar analogue.",
+        "searches": [
+          "Liu–Chen–Szolnoki, arXiv:2305.00253, pp. 4–6 and Appendix pp. 19–20",
+          "Resultary: first integral and sharp orbit–extinction separatrix, caf974f7f068; neutral cycle average risk, 5b16fa425a6d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The later same-planar-model record caf974f7f068 also classifies extinction/global separatrices. In 5b16fa425a6d the exact mean-risk excess and sharp variance lower bound address the odd balanced group, with no cost dynamics. The earlier 238b78f6c336 uses the same full model but states a different global collapse theorem.",
+          "The older Appendix value l₁≈−1.407166124×10⁻⁸ is a numerical critical-case calculation, not a certificate of nonzero cubic or a table of cost-face normal exponents."
+        ],
+        "reasoning": "These are material exact overlaps in components or models; none of the inspected findings records the opposed transverse shifts and tuned face pair. The later indexed planar theorems are not evidence of earlier priority.",
+        "searches": [
+          "Resultary: caf974f7f068, 5b16fa425a6d and 238b78f6c336",
+          "arXiv:2305.00253, critical example Appendix"
+        ]
+      },
+      "rationale": "Neither the three-variable model, the fixed-cost subsystem, nor scalar Floquet integration is claimed as new. The supported distinction is an exact center at resonance and the nonperturbative strict risk surplus on its cost faces, combined with the opposed cycle-versus-equilibrium transverse shifts and tuned opposite absolute stability. The earlier published subsystem flags that resonance as a Hopf rather than proving a center; the earlier indexed same-model result controls strictly interior collapse, not normal stability of resonant face cycles. Later indexed planar results materially overlap the center and risk excess, but omit the dynamic cost coordinate and the transverse law.",
+      "residual_risks": [
+        "The published 2026 S1 supplementary PDF was not obtained through the bounded PLOS and PMC attempts; only the main text's description of its contents was read. It is not ruled out as a source of related analysis. The compared literature is not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact model; no covering cycle and surplus theorem located in the inspected main text; S1 itself unavailable",
+          "evidence": "Eqs. (9)–(10) give the cost bracket and the prescribed unit update scalings. The S1 description identifies equilibrium stability, robustness, and a model variant, not the supplement's full contents.",
+          "identifier_or_url": "https://journals.plos.org/ploscompbiol/article/file?id=10.1371/journal.pcbi.1013512&type=printable",
+          "material_read": "PDF pp. 3–4, Eqs. (6)–(10), offsets near 11750 and 15400; main-text Results and p. 10 Supporting information, offset 38950",
+          "method": "Open primary PDF, bounded passages; attempted PLOS and PMC retrieval of S1 separately",
+          "title": "Coevolutionary dynamics of cooperation, risk, and cost in collective risk games",
+          "trigger": "Exact source of the full game and possible cost-face stability antecedent"
+        },
+        {
+          "assessment": "Direct planar antecedent; different critical conclusion",
+          "evidence": "The critical u is called supercritical Hopf and the reported first Lyapunov coefficient is numerically near zero; the period-dependent risk surplus and dynamic cost normal exponent are not results of those passages.",
+          "identifier_or_url": "https://arxiv.org/pdf/2305.00253",
+          "material_read": "pp. 4–5 offsets 14500 and 18000; p. 6 offset 27000; Appendix pp. 19–20 offsets 100000–104700",
+          "method": "Open primary PDF, targeted equations and Appendix",
+          "title": "Coevolutionary dynamics via adaptive feedback in collective-risk social dilemma game",
+          "trigger": "Identical planar subsystem and resonant transition"
+        },
+        {
+          "assessment": "Same model and related odds identity, not the periodic cost-face result",
+          "evidence": "The theorem applies to strictly interior solutions under Δ>0. The proof's cost log-odds coordinate is undefined on a cost face; the theorem concerns exponential cost selection and a sufficient global defection regime.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-global-collapse-despite-positive-coexistence-equilibria-under-ri--238b78f6c336",
+          "material_read": "Mirrored RESULT.md Finding, Assumptions and Proof Steps 1–3, offsets 0–3996",
+          "method": "Local indexed lookup and bounded mirror reading",
+          "title": "Global collapse despite positive coexistence equilibria under risk–cost feedback",
+          "trigger": "Predated indexed result on the same full equations with cost–risk elimination"
+        },
+        {
+          "assessment": "Later-dated exact overlap on the planar center, not the cost-normal result",
+          "evidence": "Same critical fixed-cost dynamics, a periodic annulus, and additional global separatrix statements, with no dynamic cost coordinate.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-first-integral-and-sharp-orbit-extinction-separatrix-in-a-collec--caf974f7f068",
+          "material_read": "Mirrored RESULT.md Finding, Assumptions and relevant first-integral proof",
+          "method": "Local indexed discovery and bounded mirror reading",
+          "title": "First integral and sharp orbit–extinction separatrix in a collective-risk feedback game",
+          "trigger": "Strongest same-critical-parameter center comparator"
+        },
+        {
+          "assessment": "Later-dated planar subfamily overlap with sharper variance estimate",
+          "evidence": "For N=2a+1, M=a+1 and u=1, the center cycles have mean cooperation 1/2 and a sharp strictly positive risk excess above equilibrium. No third state or transverse cost dynamics is present.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-an-integrable-neutral-cycle-family-with-sharp-average-risk-ampli--5b16fa425a6d",
+          "material_read": "Mirrored RESULT.md Finding and Assumptions, offsets 0–3167",
+          "method": "Local indexed discovery and bounded mirror reading",
+          "title": "An integrable neutral-cycle family with sharp average-risk amplification in symmetric collective-risk games",
+          "trigger": "Exact positive periodic risk excess for a subfamily"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This distinguishes genuinely neutral in-face oscillations from apparent Hopf attraction and shows that oscillations maintaining equilibrium mean cooperation increase mean risk. The exact excess changes invasion in the cost direction and can destabilize every local cycle at a normally neutral equilibrium. That is useful stability information not captured by equilibrium-only or in-face analysis.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

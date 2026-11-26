@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:38:52.745005Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Strict negativity of each invasion payoff at e_j is equivalent almost surely to pure ESS, and given its diagonal D_j the N-1 outside comparisons are independent with acceptance probability Phi(D_j/sqrt(v_mu)). Independent row maxima give the zero-ratio endpoint. For m=N-1>=2 the symmetrized integrand z on |Z| involves p^m+(1-p)^m, strictly increasing for p=Phi(t|Z|)>1/2 as t=v_mu^(-1/2) increases; this independently proves the monotonicity direction. The expectation is even in t with bounded second derivative near zero, giving O_N(mu^-2) one-site error. For each pair the independent Gaussian antisymmetric contrast has density 1/sqrt(pi) at zero, interval width (D_i+D_j-2U)_+/(1+2mu), and the N-2 outside tests for each resident multiply to leading term 4^(-(N-2)). The width numerator is the positive part of N(0,4), of mean sqrt(2/pi). Bounded Gaussian CDF derivatives, finite moments and the Lipschitz estimate for the outside factors give the claimed integrable O_N(mu^-2) pair error. At least two independent contrast intervals are required for a triple, so its error bound suffices: summing one-site probabilities and distinct pair overlaps gives probabilities 1-q_N+C_N/mu, q_N-2C_N/mu and C_N/mu at the stated precision. The N=2 orthant law reduces to arctan(1/sqrt(v_mu))/pi, independently confirming its leading constant (python /workspace/branches/independent-algebra.py, item 4). All probability comparisons are fixed-N and count pure ESSs only; the script spot check is not an all-N proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nassor et al. enumerate all supports in their numerical methodology and report outcomes with N=10, M=10000. Figs. 15–16 concern the overall ESS multiplicity and sizes as the ratio varies, not an exact pure count or first rare-multiplicity coefficient. The sign tournament at the antisymmetric limit forbids two pure winners but gives no rate.",
+          "The package compares Madec–Gjini's model and antisymmetric limit and Chawanya–Tokita's antisymmetric dynamics. The fresh lawful full-text attempts did not yield usable text for these two works; those works are not categorically excluded."
+        ],
+        "reasoning": "The presence of all supports in simulations does not imply an analytic probability for the strict pure-support statistic. A limiting antisymmetry theorem alone cannot specify a first nonzero correction.",
+        "searches": [
+          "arXiv:2609.17232v1 §4.3.3 and Figs. 15–16",
+          "PMCID:PMC8258234 / doi:10.1002/ece3.7259",
+          "doi:10.1143/JPSJ.71.429"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.17232v1",
+        "arXiv:0801.3353",
+        "doi:10.1002/ece3.7259 (limited independent access)",
+        "doi:10.1143/JPSJ.71.429 (full text unverified)",
+        "Resultary 620ffec54467, f24d76e299d0, 78f1f920385c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The iid row-maximum theorem gives the asserted count at mu=0 and the independent sign tournament accounts for q_N only. In the model at positive mu simultaneous success of a pair uses both directions of the same Gaussian contrast, and the narrow interval has a width depending jointly on the diagonals and the symmetric part.",
+          "The first coefficient requires the mean positive width times the outside comparison probability. Neither an exact iid result nor the same structured ensemble's simulation/limit provides it."
+        ],
+        "reasoning": "The earlier endpoint result is fully credited. The stated positive-ratio trichotomy is not a corollary of taking the antisymmetric limit, which discards the symmetric terms that determine that coefficient.",
+        "searches": [
+          "arXiv:0801.3353 §2.2",
+          "arXiv:2609.17232v1 Eq. (22), §4.3.3",
+          "Resultary 620ffec54467"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nassor et al. use resident-first indices, so reindexing Eq. (22) reproduces the assigned ensemble exactly. Hart–Rinott–Weiss state the iid continuous pure-ESS count Binomial(n,1/n). At mu=0 the assigned matrix is an iid Gaussian payoff matrix (transposed raw array) with a resident-specific column constant subtracted; this leaves each resident's strict payoff comparisons unchanged. Thus Hart's result covers the binomial endpoint, not merely a similar numerical law.",
+          "Hart's two-point ESSs are individual mixed strategies with support size two, not simultaneous distinct pure ESSs."
+        ],
+        "reasoning": "Column normalization gives exact equivalence at zero ratio, but not for mu>0 when opposite comparisons remain correlated even before normalization. The distinction is the positive-ratio law and first nonzero correction, not the iid endpoint.",
+        "searches": [
+          "arXiv:2609.17232v1 Eq. (22) and §4.2",
+          "arXiv:0801.3353 §2.2 Lemma 3(i) and Proposition 4",
+          "Gaussian random games number of pure evolutionary stable strategies correlated antisymmetric payoffs probability two symmetric perturbation Gaussian tournament orthant Madec Gjini monomorphic co-colonization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue match is the current record. The distinct November 2 count law concerns pure Nash equilibria of a two-player antisymmetric bimatrix, not single-population pure ESSs at finite mu. A Gaussian cube record counts stable states in a different game, and the tournament record counts kings, which need not defeat all opponents directly.",
+          "The inspected figures in the same primary ensemble are finite all-support simulation outputs, not exact tables of either the Gaussian integral or the mu^-1 correction."
+        ],
+        "reasoning": "No distinct exact table from these comparisons represents the count random variable with its fixed-N, correlated pair overlaps.",
+        "searches": [
+          "Resultary 2026/11/22/SCOPE-a-sharp-inverse-co-colonization-law-for-multiple-monomorphic-evo--1ca204754b61",
+          "Resultary 2026/11/2/SCOPE-exact-finite-size-equilibrium-count-law-in-random-antisymmetric--620ffec54467",
+          "Resultary f24d76e299d0 and 78f1f920385c",
+          "arXiv:2609.17232v1 Figs. 15–16"
+        ]
+      },
+      "rationale": "The zero-ratio binomial law and the limiting tournament probability are existing coverage. The distinct contribution is fixed-N positive-ratio Gaussian expectation together with the explicit inverse-ratio rare-pair coefficient and resulting trichotomy. The exact same-ensemble primary model and all-support simulations do not give that finite-ratio analytic law. Bounded search does not establish historical priority.",
+      "residual_risks": [
+        "General Gaussian orthant or near-tournament literature might contain an equivalent fixed-size correction. The targeted primary search supplied the known iid source and model antecedent, not a comprehensive priority result.",
+        "Full texts for Madec–Gjini and Chawanya–Tokita are not independently resolved. The exact iid endpoint and universal-winner limit must not be presented as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact ensemble and numerical all-support overlap; no equivalent analytic statement established",
+          "evidence": "Reindexing gives the same payoff; the numerical census uses N=10, M=10000 with all nonempty supports.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.17232v1",
+          "material_read": "pp. 16 and 20–22, §4.2 Eq. (22) and §4.3.3 Figs. 15–16; OA offset 56600 for the numerical methodology",
+          "method": "Original OA PDF passages",
+          "title": "A system-centered probabilistic formalism linking multiple equilibria and biodiversity in ecological and evolutionary models",
+          "trigger": "Same structured Gaussian payoff and multiplicity phenomenon"
+        },
+        {
+          "assessment": "Covers the zero-ratio endpoint exactly, not the positive-ratio correlated ensemble",
+          "evidence": "Binomial(n,1/n) for independent continuous payoffs; column subtraction at mu=0 preserves the pure comparisons.",
+          "identifier_or_url": "https://arxiv.org/pdf/0801.3353",
+          "material_read": "p. 5, §2.2, Lemma 3(i) and Proposition 4",
+          "method": "Original OA PDF passage",
+          "title": "Evolutionarily Stable Strategies of Random Games",
+          "trigger": "Potential equivalent random-game pure ESS count"
+        },
+        {
+          "assessment": "Distinct probability objects",
+          "evidence": "Two-player bimatrix maxima/minima, different coupled cube game, and paths of length at most two in tournaments do not identify the pair-overlap correction.",
+          "identifier_or_url": "Resultary 620ffec54467, f24d76e299d0, 78f1f920385c",
+          "material_read": "Mirrored statements for the bimatrix count, Gaussian cube and universal-kingship laws",
+          "method": "Local semantic catalogue and mirror comparison",
+          "title": "Exact finite-size equilibrium count law in random antisymmetric games and adjacent results",
+          "trigger": "Similar finite-size random equilibrium or tournament laws"
+        },
+        {
+          "assessment": "Precise fresh theorem-level comparison unresolved",
+          "evidence": "Packaged comparison credits the earlier antisymmetric limit; no whole-paper noncoverage is inferred from access limits.",
+          "identifier_or_url": "https://doi.org/10.1002/ece3.7259",
+          "material_read": "Packaged discussion and bibliographic identification; fresh publisher/PMC-route attempts did not produce usable relevant full text",
+          "method": "OA retrieval and package comparison",
+          "title": "The ratio of single to co-colonization is key to complexity in interacting systems with multiple strains",
+          "trigger": "Potential stronger finite-ratio or two-strategy analytic comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The primary numerical study motivates understanding rare multiplicity, and the pure-strategy restriction permits an exact distribution-level benchmark. The first nonzero correction is meaningful where the limiting tournament assigns zero mass to multiplicity. This does not solve mixed-support multiplicities, uniform large-N estimates, or real-system outcomes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

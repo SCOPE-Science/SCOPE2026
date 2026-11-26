@@ -1,15 +1,21 @@
-# Scientific review: two-type spectra over directed-triangle-free tournaments
+# Independent mathematical audit
 
-## Correctness — PASS
-The relevant age is a free-amalgamation class omitting directed cyclic triangles, so its Fraïssé limit realizes exactly the finite labelled extensions. One-point extensions are length-\(n\) three-symbol words with no plus preceding a minus. For an ordered edge \(x\to y\), the only additional forbidden pattern is a simultaneous \((-,+)\) relative to one named vertex. An explicitly enumerated four-state transfer matrix gives a rational generating function, whose exact coefficients give the claimed edge-type count. Nonedge words are independent. The ratio comparison reduces strict decay to \((5n^2-3n-40)/2+(n^2+12n+24)(3/4)^n>0\), proved by direct checking of the first four integers and positivity of the polynomial thereafter. An independent enumerator checks actual triples through five named points, and the matrix recurrence through 100. Computations corroborate but do not replace the infinite symbolic proof.
+## correctness
 
-## Originality — PASS, historical priority provisional
-The structural classification of homogeneous directed graphs is prior to this result, and the 2014 source on forbidden cyclic triangles treats global finite-graph structure and asymptotic enumeration. The relevant inspected sections do not state this finite-base two-type formula. Searches of mathematical research records found no equivalent claim under named-base extension types, transfer matrices, oriented triangle avoidance, or an implied stronger formula. A generic-poset fixed-chain formula applies to partial orders, not to these directed cycles. The complete 1998 Cherlin monograph was not materially inspected, leaving a genuine possibility that an equivalent conditional enumeration occurs there or in the literature using different terminology. This limited-priority check does not claim exhaustive uniqueness.
+PASS
 
-## Mathematical value — PASS
-The result supplies a complete natural two-point extension spectrum for a canonical homogeneous oriented graph and identifies a strict quantitative law under increasing named transitive bases. It separates edge existence from the combinatorial restrictions imposed by forbidding cyclic triangles; the fact that the edge-channel frequency approaches \(1/2\) strictly from above is not determined by the unary count or by global labelled-graph enumeration. The finite-base invariant is directly relevant to orbit counts, random logical types, and the comparison of homogeneous ages.
+Free amalgamation over a common induced subgraph cannot introduce a cyclic triangle spanning the two new parts, since that triangle would need a cross-edge. Universality and homogeneity of this specified Fraïssé limit identify finite injective named extensions with the counted types. A unary sign word has no plus before a minus (otherwise x→v_i→v_j→x). Splitting on its last minus gives 2^n+n·2^(n−1); two valid words give any nonedge extension. For x→y the only extra forbidden simultaneous sign is (minus,plus). As an independent count, if y has no plus there are 2^n u_n pairs. If its first plus is at t, the cases where x has no minus or its last minus is before t give (t+1)4^(n−1); last minus at t is impossible. For last minus j>t the contribution is 4^(t−1+n−j)3^(j−t−1). Summing this last contribution over t<j gives sum_{d=1}^{n−1}(n−d)4^(n−d−1)3^(d−1)=(n−4)4^(n−1)+3^n (finite geometric sum, or its first difference). The total is the claimed a_n; at n=0 all three channels have one type. Exchanging the ordered coordinates reverses the arc channel. Cross-multiplying b_{n+1}/a_{n+1}>b_n/a_n yields the displayed sign expression in RESULT.md; its values at n=0,1,2,3 are 4,35/4,65/4,1735/64, and the polynomial term alone is positive for n≥4. Thus p_n strictly decreases; expanding numerator minus half the denominator gives the claimed 5/(4n) correction and limit 1/2.
 
-## Limits and residual risks
-The conclusion is specific to transitive complete named bases, distinct new ordered pairs, and the cyclic (not transitive) directed-triangle ban. It does not address arbitrary bases, higher arities, or random vertices in the infinite structure. Historical priority and independent mathematical validation remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The structure and unary numerical sequence are prior; b_n follows immediately from the unary count. The supported distinct contribution is the closed directed-pair count and the resulting strictly decreasing edge fraction. Neither the same-class path-base record nor the tournament-base record in a different age supplies that count.
+
+## value
+
+PASS
+
+The transitive tournaments are canonical complete bases in the age. The result quantifies how a local forbidden configuration changes the available ordered edge versus nonedge extensions over such a base. The exact pair spectrum and strict decline to one-half supply a useful baseline for comparing type growth across ages and bases, beyond the known unary sequence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

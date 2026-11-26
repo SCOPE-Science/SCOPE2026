@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:03:24.428849Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md proof §§1–5; VERIFICATION.md and check.py inspected, not executed"
+      ],
+      "rationale": "The reciprocal biomass map is affine with positive intercept and two-step slope 1/(r₀r₁S). For positive initial data this gives attraction to a unique positive cycle iff Q>0 and extinction otherwise, including linear growth of reciprocal biomass at Q=0. Solving the affine cycle gives the supplied two biomasses; post-recruitment catch equals (1−s_i)x_{i+1}/s_i. Write N(t)=K₁+r₀K₀t and D(t)=r₁SK₁+K₀t. The derivative of normalized catch has the sign of R−N/D, and (N/D)'=QK₀K₁/D²>0. Thus the two clipped cases and the unique interior critical point include endpoint derivative equality; in the interior r₀−R=QK₁/D(t*)>0. For regret, set L=K₀+r₁SK₁ and H=(K₁+r₀SK₀)/S. The normalized yield difference between t and t* is (t−t*)[H/(N(t)N(t*))−L/(D(t)D(t*))]. Insert H/N(t*)²=L/D(t*)² and use N(t*)D(t)−D(t*)N(t)=−QK₀K₁(t−t*) to recover the exact strictly positive prefactor of (t−t*)². The regret identity is for interior t* only; uniqueness is only for Q>0. Independent bounded arithmetic gives 44/7 versus 3.746394253408705 in the endpoint example.",
+      "residual_risks": [
+        "Extinction gives zero limiting yield for every allocation. The positive two-cycle attracts positive starts, not the invariant zero state."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "AlSharawi–Rhouma optimize periodic additive quotas, not post-recruitment survival fractions.",
+          "arXiv:2601.20563v1 models two spatial patches with continuous within-season control and cumulative revenue; its bang–singular–bang result is not this periodic allocation problem.",
+          "Filar–Qiao–Streipert full text remained inaccessible; no whole-paper coverage judgment is based on that failure."
+        ],
+        "reasoning": "Similar boundary cases or persistence multipliers are insufficient to imply the fixed-product yield comparison. A theorem with the same proportional removals and fixed global mortality could cover it; none of the inspected broader theorems does.",
+        "searches": [
+          "The Discrete Beverton-Holt Model with Periodic Harvesting in a Periodically Fluctuating Environment, DOI 10.1155/2010/215875, eq. (4.1) and Thm. 4.8",
+          "site:arxiv.org Beverton–Holt fixed fishing mortality seasonal harvest optimal distribution total effort two seasons catch periodic escapement product",
+          "Risk Sensitivity in Beverton-Holt Fishery with Multiplicative Harvest Filar Qiao Streipert accepted manuscript arXiv pdf full text 12257"
+        ]
+      },
+      "checked_sources": [
+        "DOIs 10.3934/mbe.2016014 and 10.1155/2010/215875",
+        "Resultary c6be2955be70 and a83ea653873b",
+        "arXiv:2601.20563v1 Abstract",
+        "DOI 10.1111/nrm.12257 (access attempted only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bohner–Streipert maximize the same periodic catch functional but without the global equality fixing survival product; the additive-quota theorem uses a persistence-boundary trace constraint."
+        ],
+        "reasoning": "Knowing the maximum on a larger feasible set does not identify the constrained maximum at each equality level. The determinant giving strict monotonicity of N/D and the exact regret uses the fixed product; these are not consequences of quoting the unconstrained maximizing schedule.",
+        "searches": [
+          "Bohner–Streipert §3.3 Theorems 3.8–3.10; AlSharawi–Rhouma §4.4 Theorem 4.8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior post-recruitment model writes catch as h_i times the next biomass. It coincides with the frozen recruitment and catch after setting s_i=(1+h_i)⁻¹ and prior carrying capacity to (r_i−1)K_i."
+        ],
+        "reasoning": "Fixed cumulative fishing mortality is then exactly (1+h₀)(1+h₁)=S⁻¹, not simply periodicity or a smaller admissible effort per season. The prior unconstrained periodic optimum has no such equality.",
+        "searches": [
+          "Beverton Holt harvesting periodic optimal fixed cumulative fishing mortality two season allocation fixed product escapement seasonal effort sustainable yield",
+          "Bohner–Streipert DOI 10.3934/mbe.2016014 §3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "c6be2955be70 is the frozen record itself. a83ea653873b compares assignments of fixed additive quotas for persistence."
+        ],
+        "reasoning": "Neither a self-hit nor a switch law for ordering discrete quotas gives the exact continuous fixed-product optimizer or yield regret.",
+        "searches": [
+          "Resultary: fixed cumulative mortality periodic proportional Beverton–Holt allocation and exact regret",
+          "Resultary c6be2955be70 and a83ea653873b"
+        ]
+      },
+      "rationale": "The underlying periodic recurrence, persistence machinery and unconstrained periodic yield problem are prior work. The inspected closest harvesting theorems either allow the total proportional effort to vary or optimize additive quotas under a different feasibility constraint. The supported distinct claim is the fixed-product constrained optimizer, including both corner regimes, and exact interior regret. This is a bounded best-of-knowledge finding.",
+      "residual_risks": [
+        "Filar–Qiao–Streipert full-text comparison could not be resolved.",
+        "Other fixed-escapement or constrained fishery optimizations may express an equivalent split; search is not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct overlap in model and periodic yield, not in constrained allocation",
+          "evidence": [
+            "x_{i+1}=f_i(x_i)−h_ix_{i+1}; maximize ∑ h_i x̄_{i+1} over admissible periodic h without fixing the product of 1+h_i."
+          ],
+          "identifier_or_url": "https://doi.org/10.3934/mbe.2016014",
+          "material_read": "§3.3, especially Theorem 3.10, journal pp. 685–686, PDF offsets 47800–53997",
+          "method": "Bounded OA PDF text inspection",
+          "title": "Optimal Harvesting Policy for the Beverton–Holt Model",
+          "trigger": "Same periodic proportional harvesting and sustainable yield"
+        },
+        {
+          "assessment": "Distinct budget and additive controls",
+          "evidence": [
+            "Optimizes average additive quota on a persistence boundary rather than distributing prescribed cumulative mortality."
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/2010/215875",
+          "material_read": "Equation (4.1), §4.4/Theorem 4.8, PDF p. 14 near offset 41000",
+          "method": "Bounded OA PDF text inspection",
+          "title": "The Discrete Beverton-Holt Model with Periodic Harvesting in a Periodically Fluctuating Environment",
+          "trigger": "Two-period optimum with endpoint and split regimes"
+        },
+        {
+          "assessment": "Different control and target quantity",
+          "evidence": [
+            "Two orders of fixed additive quotas are compared for persistence."
+          ],
+          "identifier_or_url": "Resultary 2026/10/18, a83ea653873b",
+          "material_read": "Finding",
+          "method": "Local index and mirror inspection",
+          "title": "A one-switch law for quota ordering in two-season Beverton–Holt harvesting",
+          "trigger": "Nearest distinct indexed two-season switch law"
+        },
+        {
+          "assessment": "Unresolved source-specific priority risk, not evidence of noncoverage",
+          "evidence": [
+            "The frozen account describes constant multiplicative harvest; this was not verified in the inaccessible full text."
+          ],
+          "identifier_or_url": "https://doi.org/10.1111/nrm.12257",
+          "material_read": "Bibliographic identification and the frozen account; no independent full text read",
+          "method": "DOI and Wiley full-text/PDF access attempts returned HTTP 403; identified-copy search did not locate open full text",
+          "title": "Risk Sensitivity in Beverton–Holt Fishery with Multiplicative Harvest",
+          "trigger": "Multiplicative harvest and periodic carrying capacities"
+        },
+        {
+          "assessment": "Abstracted main result concerns a different control problem",
+          "evidence": [
+            "Hybrid two-patch continuous-control model, target cumulative revenue; bang–singular–bang control."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2601.20563v1",
+          "material_read": "Abstract and beginning of Introduction, offsets 0–2150",
+          "method": "Bounded OA text inspection",
+          "title": "Sustainable and Optimal Harvesting in a Seasonally Harvested Fishery with a Marine Protected Area",
+          "trigger": "Seasonal Beverton–Holt harvesting and corner controls"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, scope and proofs §§3–5; Bohner–Streipert Theorem 3.10"
+      ],
+      "rationale": "Two seasonal fleets with the same total log mortality can have the same persistence verdict yet appreciably different long-run catches. The explicit allocation boundary distinguishes a genuine corner from an interior split, and an exact all-feasible-deviations loss is more informative than a local second derivative or an unconstrained optimum. The result is a useful deterministic benchmark, not a general harvest prescription.",
+      "residual_risks": [
+        "No operational fishing recommendation follows without uncertainty, prices and ecological constraints; no claim is made for more than two seasons or optimization over aggregate mortality."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

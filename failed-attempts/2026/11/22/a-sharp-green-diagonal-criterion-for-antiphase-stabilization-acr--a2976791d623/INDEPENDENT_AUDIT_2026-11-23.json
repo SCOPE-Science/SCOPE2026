@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:33:40.889257Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The specified unrestricted ordered triad is K2 Im(Z2 conj(Z1) exp(-i theta_i)); at an antipode Z1=0 and Z2=1, yielding -K2 ss^T/N. On the rotation quotient the scaled negative Jacobian is H-zz^T, where z=e_a-e_b, H=L_A⊕L_B+gamma ss^T/N, and gamma=K2 d/K1. For gamma>0, H is positive definite on this quotient, and the rank-one test has leverage z^T H^(-1)z=R+4/(gamma N); equality gives exactly one extra zero, and leverage above one gives exactly one unstable mode. For gamma=0, s gives a negative direction of the scaled negative Jacobian and a rank-one subtraction permits no more. This includes m=1, where R=0. Synchrony has strictly negative pairwise Laplacian on the quotient plus a negative semidefinite triadic term. The endpoint Green sum on paths is (m-1)(2m-1)/(3m), and on barbells is 2(m-1)/m^2. The finite path checks can be replayed with endpoint_green_values() in /workspace/branches/independent_replay.py (Python 3/SymPy); they are not a proof of arbitrary graph stability. No nonlinear claim is established at equality.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The November 17 theorem allows all connected symmetric nonnegative weighted pair graphs with N≥4; its exact rank-one triadic correction already covers the entire single-bridge class for m≥2. The Zelazo–Bürger theorem covers a negative edge over a connected positive graph, which is background but does not directly cover the disconnected positive blocks and the triadic term."
+        ],
+        "reasoning": "The existing graph-spectral theorem is the decisive stronger result. The omitted N=2 case is a one-dimensional sign test and supplies no independent remainder of the claimed general theorem.",
+        "searches": [
+          "Resultary: graph-spectral stabilization of balanced antipodal states",
+          "arXiv:1408.2187v1, Theorem III.3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 98b2ae4a7c22",
+        "Resultary d05f60dcb8b7",
+        "arXiv:2611.09564v1",
+        "arXiv:1408.2187v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Let W be perpendicular to the all-ones vector and to s, D=(L_A⊕L_B)|_W, and q=P_W(e_a-e_b). The prior quantities are C=-D+qq^T, b=(2/sqrt(N))q, alpha=4/N. Since q^T D^(-1)q=R, C is negative definite iff R<1. For R<1, q^T C^(-1)q=-R/(1-R), hence alpha-b^T C^(-1)b=4/[N(1-R)]."
+        ],
+        "reasoning": "Substitution into the earlier iff and d=2|E|/N gives exactly the frozen finite-gain threshold. The zero direction at the crossing follows from the same scalar Schur complement. Standard path and clique Green evaluations give the examples. The explicit contrast is informative exposition but does not remove this implication.",
+        "searches": [
+          "98b2ae4a7c22, RESULT.md, assumptions and Eqs. (1)–(4)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matching record uses the same sine interaction, ordered index sum with repeats, even balanced partition, equal frequencies and quotient by rotation. Its strict threshold is written as a compression of the signed pairwise Laplacian."
+        ],
+        "reasoning": "The Green-diagonal test is the single-bridge representation of the general compressed signed-Laplacian test, not a change of model or a new stability notion.",
+        "searches": [
+          "Resultary: balanced antipodal stability for the mixed pairwise-network/global-triad model",
+          "2026/11/17/SCOPE-exact-graph-spectral-stabilization-and-phase-basin-onset-for-bal--98b2ae4a7c22, RESULT.md, Eqs. (1)–(4)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Records 98b2ae4a7c22 and d05f60dcb8b7 were located. The latter explicitly treats the four-node path linear threshold and extra zero mode as existing setup for nonlinear critical dynamics. No separate lookup table is required: the general catalogue result determines the threshold on every allowed graph."
+        ],
+        "reasoning": "The closest matching catalogue entry is a distinct theorem, not a self-match. The path value alone is not the basis for the failure.",
+        "searches": [
+          "Resultary local catalogue: balanced antipodal graph-spectral threshold and four-oscillator mixed-order pitchfork"
+        ]
+      },
+      "rationale": "A distinct November 17 record states an exact stronger theorem for the same ordered-index dynamics and all connected weighted graphs with balanced antipodes. Its specialized compression and scalar Schur complement give the claimed single-bridge criterion by rank-one inversion; the absence of the displayed Green-diagonal abbreviation in that source does not make the criterion distinct. This is verified prior implication, not a failure of source retrieval or a mathematical error in the frozen proof.",
+      "residual_risks": [
+        "This does not adjudicate priority of the closed-form Green-diagonal presentation or exhaust all literature on higher-order interactions. Neither gap affects the demonstrated stronger-result implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the central theorem by specialization for m≥2",
+          "evidence": "Eqs. (1)–(4) explicitly include repeated triad indices and give C≺0 with K2>(K1/d)(alpha-b^T C^(-1)b).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-exact-graph-spectral-stabilization-and-phase-basin-onset-for-bal--98b2ae4a7c22/RESULT.md",
+          "material_read": "RESULT.md finding, hypotheses and Jacobian/Schur-complement proof, offset 0–4330; general and uniform-block scopes distinguished",
+          "method": "Local-mirror bounded original passage and independent substitution",
+          "title": "Exact graph-spectral stabilization and phase-basin onset for balanced antipodal oscillators",
+          "trigger": "Distinct exact general-graph threshold in the same dynamics"
+        },
+        {
+          "assessment": "Overlap for P4 only; nonlinear question is distinct",
+          "evidence": "The strict linear threshold and extra zero mode on the four-node path are an existing starting point for that nonlinear result.",
+          "identifier_or_url": "2026/11/17/SCOPE-a-subcritical-localized-pitchfork-in-a-four-oscillator-mixed-ord--d05f60dcb8b7",
+          "material_read": "Matching RESULT.md statement and linear-threshold setup",
+          "method": "Local-mirror bounded original passage",
+          "title": "A subcritical localized pitchfork in a four-oscillator mixed-order model",
+          "trigger": "Same four-node path and threshold"
+        },
+        {
+          "assessment": "Same equation, studied numerically on random networks in the inspected material",
+          "evidence": "Pairwise network term and ordered global triad match; the inspected study statement is about synchronization transitions rather than this bridge reduction.",
+          "identifier_or_url": "https://arxiv.org/html/2611.09564v1",
+          "material_read": "Abstract and Sec. 2.1 Eq. (1), around offset 6300",
+          "method": "OA original passages",
+          "title": "Synchronization transitions in Kuramoto oscillators with mixed interactions",
+          "trigger": "Initiating equation"
+        },
+        {
+          "assessment": "Linear-algebraic precedent, not direct model coverage",
+          "evidence": "One negative edge against a connected positive Laplacian; in the frozen theorem the positive graph after bridge removal is disconnected and the triadic correction supplies a collective direction.",
+          "identifier_or_url": "https://arxiv.org/html/1408.2187v1",
+          "material_read": "Theorem III.3 around offset 21000",
+          "method": "OA original passage",
+          "title": "On the Definiteness of the Weighted Laplacian and its Connection to Effective Resistance",
+          "trigger": "Possible direct effective-resistance coverage"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The Green-diagonal formula is a convenient way to teach or compute the existing graph-spectral test, and the path–barbell contrast is useful illustration. As an independent new result, however, the claimed obstruction, threshold and examples are obtained from the prior exact theorem by one rank-one inversion and standard Green diagonal evaluations. The singleton calculation, extra neutral mode, and coexisting synchrony do not leave a substantive independent result.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

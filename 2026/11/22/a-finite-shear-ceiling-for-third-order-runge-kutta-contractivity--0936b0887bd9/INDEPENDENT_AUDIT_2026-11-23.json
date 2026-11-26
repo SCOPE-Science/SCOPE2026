@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T17:56:11.318579Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the stated three-stage, third-order explicit methods, N²=0 gives T=rI+γhpN. For a real 2×2 block aI+dN, testing positivity of the Gram defect gives determinant (1−a²)²−d² and leading diagonal 1−a². If 1−a²>0 its Schur complement gives the criterion a²+|d|≤1; if 1−a²=0 it requires d=0; if a²>1 the scalar mode already fails. Thus the criterion includes all equality cases. Since r'=−p<0, only [0,β] is admissible, and at β only γ=0 works. On the positive interval the bound is γ≤G(h); the rational derivative is −hF(h)/(18(h²−2h+2)²). The verified sum of positive squares and constant for F' gives exactly one zero of F, in (0,1) and hence before β. G starts at 2, strictly increases to G(θ)>2, then strictly decreases to 0, yielding exactly the four stated cases. At θ its second derivative is strictly negative, so analytic expansion and inversion give the two fold signs, the width prefactor and the claimed O(γ_*−γ) endpoint errors. The expansion G=2+h²/3−h³/4+O(h⁴) similarly gives the square-root onset. Exact identities and constants are replayable with python3 /workspace/reviews/replay-2-3.py (SymPy); the independent exact check also found γ=101/50,h=1/2 feasible with slack 43/11520 in inequality (1). The decimal approximations of θ and h_+(2) have minor last-digit drift; they are 0.479811179914856486… and 0.692694281922297491… from the exact equations. The generator has top symmetric eigenvalue −1+γ/2, fixing the all-time physical threshold. The manuscript correctly distinguishes infinitesimal expansion from expansion at the same positive timestep. In the RK4 comparison, at the zero α∈(0,2) of P_4'(−h)=r(h), P_4(−α)=α⁴/24<1 and the off-diagonal vanishes for all shear, verifying the qualitative contrast. The supplied verifier was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broad energy paper assumes linear seminegativity. The general strong-stability chapter requires a norm in which the generator is semidissipative and sufficiently small steps for its preservation property (or existence of a weighted norm in the weak form).",
+          "For γ>2 the generator is not semidissipative in the fixed Euclidean norm, and the audited window is bounded away from zero."
+        ],
+        "reasoning": "Broader qualitative stability of cubic methods in compatible norms, or at small steps, gives no upper and lower Euclidean endpoints for the expansive-generator regime. In particular it does not determine a singleton at the sharp ceiling.",
+        "searches": [
+          "Achleitner–Arnold–Jüngel arXiv:2308.05689, Definitions 1–2, (1.5), Theorem 1",
+          "Sun–Wei–Wu arXiv:2201.06501, abstract and §1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2308.05689 (definitions and theorem statements)",
+        "arXiv:2201.06501 (abstract and opening hypotheses)",
+        "Resultary 8fe2a7f6e756 and 3a39393e6b68 (indexed theorem statements)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substituting P_3 into the common planar inequality supplies G and a qualitative finite bound. Substitution alone does not prove G is unimodal, that its maximum is attained at one step, or what the two scales of endpoint separation are.",
+          "The decisive additional calculation is the cubic-specific quintic derivative with strictly positive F' and the nonzero maximum curvature. At RK4's annihilation step all shears instead pass, so that diagram has no corresponding finite critical fold."
+        ],
+        "reasoning": "Earlier matrix or polynomial identities furnish ingredients, not a dominating theorem for the all-step cubic classification. The originality claim is limited to the exact global boundary and its two scaling laws.",
+        "searches": [
+          "Resultary 8fe2a7f6e756, exact RK4 Jordan shear result statement",
+          "arXiv:2308.05689, (1.5) and Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "On a planar damped shear the equivalent object is the spectral norm of a scalar plus a single off-diagonal; a fixed RK polynomial P gives the same test |P(−h)|²+γh|P'(−h)|≤1.",
+          "The exact fourth-order note on this same shear is the closest indexed analogue, but its derivative vanishes at a positive admissible step."
+        ],
+        "reasoning": "The formula for a general polynomial and the RK4 special case are background. The new exact comparison concerns the maximum and shape of the derivative quotient for the cubic, not changing the name of the RK4 island.",
+        "searches": [
+          "Resultary: RK shear Jordan contractivity P prime exact finite shear cutoff yields maximum",
+          "Resultary: exact Euclidean contractivity explicit Runge Kutta Jordan shear chain stability polynomial detached timestep windows RK2 three state RK3 two state RK4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching cubic/nilpotency-index-two phase diagram returned by the index is the assigned record. The indexed RK4 note 8fe2a7f6e756 and RK2/index-three record 3a39393e6b68 are different phase diagrams. A broad primary web lookup was unavailable; that is not evidence of absence."
+        ],
+        "reasoning": "Scalar stability interval tables would give β but cannot distinguish γ at all; an earlier exact matrix-norm or shear frontier table would be material. No matching earlier table was identified in the accessible material checked here.",
+        "searches": [
+          "Resultary: RK shear Jordan contractivity P prime exact finite shear cutoff yields maximum",
+          "Resultary: exact Euclidean contractivity explicit Runge Kutta Jordan shear chain stability polynomial detached timestep windows RK2 three state RK3 two state RK4"
+        ]
+      },
+      "rationale": "Bounded best-of-knowledge credit for the sharp cubic ceiling, single-fold geometry and quantitative endpoint laws. Neither the triangular norm formula nor the general method of substituting the stability polynomial on a Jordan block is new. Merely proving that the cubic shear is bounded is straightforward from compactness of the scalar interval and positivity of p after removing the h=0 singularity; that weaker fact is not the basis of the originality assessment.",
+      "residual_risks": [
+        "An earlier specialized all-step Jordan analysis or a general result that already determines this particular unimodality could change the priority assessment. Primary search unavailable is not negative search evidence; this is not exhaustive historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different quantifiers and admissible-norm hypotheses",
+          "evidence": "Definition 1 requires Lyapunov inequality (1.2) in the chosen norm and sufficiently small steps; (1.5) gives the standard stability polynomials; Theorem 1 is a qualitative strong-stability reduction.",
+          "identifier_or_url": "https://arxiv.org/pdf/2308.05689",
+          "material_read": "Open PDF text, §§1.1–1.2 through Theorem 2 opening",
+          "method": "Open arXiv PDF text",
+          "title": "Necessary and sufficient conditions for strong stability of explicit Runge–Kutta methods",
+          "trigger": "Plausibly broader explicit RK norm result"
+        },
+        {
+          "assessment": "Related framework but the detached region has a nonsimilar Euclidean dissipativity hypothesis",
+          "evidence": "The model starts from ⟨Lv,v⟩≤0 for all v; γ>2 violates this with the standard inner product.",
+          "identifier_or_url": "https://arxiv.org/pdf/2201.06501",
+          "material_read": "Open PDF abstract and opening §1 through (1.2)",
+          "method": "Lawful open arXiv PDF",
+          "title": "On energy laws and stability of Runge–Kutta methods for linear seminegative problems",
+          "trigger": "Paper on explicit RK energy identities, potentially including order three"
+        },
+        {
+          "assessment": "Closest exact comparison; not a cubic phase diagram",
+          "evidence": "An intermediate-step interval persists for all γ>2 and collapses with inverse shear, in contrast to the finite cubic ceiling and square-root fold.",
+          "identifier_or_url": "Resultary: 8fe2a7f6e756",
+          "material_read": "Indexed theorem statement",
+          "method": "Configured Resultary index",
+          "title": "A sharp false-contractivity island for classical fourth-order Runge–Kutta on planar Jordan shears",
+          "trigger": "Exactly the same planar shear, with a different polynomial"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives a precise one-step energy boundary for a minimal nonnormal linear test equation: scalar absolute stability persists while all positive contractive steps disappear at the shear cutoff. The meaningful features are the full level-set topology, the exact isolated positive step at the cutoff and the two onset/collapse laws, not the small numerical improvement above γ=2 in isolation. The contrast with RK4 identifies the role of the nilpotent coefficient and does not assert numerical accuracy or a general theorem for other matrices.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

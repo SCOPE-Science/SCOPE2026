@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T16:43:57.672365Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Lucas applied to each binomial and independent summation of its digit cubes give character weights (1,-1,0,1,1). To check the limit and spectrum independently, first restrict both n and n+h to the block. The exact Laurent polynomial for those correlations is the product for i=0,...,r-1 of (4-z^(2*5^i)-z^(-2*5^i)+z^(4*5^i)+z^(-4*5^i)). The unwrapped sum differs by at most h terms, so this gives the same normalized fixed-h limit. The exponent h is impossible if h is odd. For even h the unique balanced-quinary representation of h/2 uses digits 0, +/-1, +/-2; the value after normalization is 4^(-j) times (-1) to the number of digits +/-1, with j the number of nonzero digits. For 0<=h<5^r the balanced representations are exactly the nonnegative half of the r-digit balanced words. At each selected nonzero position two choices are positive and two negative; reflection preserves sign and halves each nonzero class. This yields the displayed signed counts and the only positive shifts of magnitude 1/4 are 2*5^i and 4*5^i with the stated signs. For the stronger exact remainder claim, splitting the unwrapped sum by n mod 5 gives the single surviving coefficient 4,+1,-1,-1,+1 and predecessor q,q+1,q,q+1,q respectively. Shifts 0 and 1 have exact values 4^r and -1; all other predecessors decrease, proving eventual constant integer remainder by induction. This also confirms the four small-shift identities. The frozen scope is fixed h, not a uniform asymptotic for growing shifts.",
+      "reproduction": "Independent standard-library recomputation, no source script executed: start Pascal row [1], replace it with [1]+[(a+b)%5 for adjacent row entries a,b]+[1] each step; map sum(cube(entry)) mod 5 to 0,1,-1,-1,1 for n=0,...,3749. Compare to the digit-product sequence (construct successive blocks by multiplying the previous whole block by each of the five weights). For h=0,...,624 take the direct unwrapped dot products S4,S5 from the Pascal sequence and S6 from the checked digit-product rule. Use C=(S5-S4)/(3*4^4), b=S4-4^4*C, and check b integral, S6=4^6*C+b, sharp equality classes and full histograms on each prefix of length 5^r for r=1,...,4. All passed. At r=4 the zero count was 312; the counts per sign at j=1,2,3,4 were 4,24,64,64. These finite computations supplement the proof. Frozen checker inspected as source only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rowland–Yassawi develop automata for pointwise prime-power congruences and Lucas products.",
+          "Aloui's accessible abstract concerns shifted exponential sums of digit sums (unit-modulus factors); it does not supply the zero-bearing digit mask or active normalization used here."
+        ],
+        "reasoning": "General correlation or coefficient machinery is relevant and not novel. The disappearance of odd lags and the evaluated signed binomial counts require the particular mask and its balanced-digit/reflection structure. No inspected stronger theorem already classifies that spectrum.",
+        "searches": [
+          "correlation q-multiplicative generalized Morse sequences Riesz products exact autocorrelation recurrence digit carry autocorrelation Mendès France",
+          "arXiv:1310.8635",
+          "10.1007/s11139-021-00434-7",
+          "10.24033/bsmf.1856"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1112.1034",
+        "arXiv:1310.8635",
+        "10.1007/s11139-021-00434-7 (abstract)",
+        "Resultary: audited record, Domb pair-sign laws, quartic Delannoy correlations and Franel support additive energy (summaries)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A digit product only supplies g(n); the block correlation has cancellations that specifically eliminate the displacements +/-1 and +/-3 in the one-digit mask and leave the four even nonzero displacements.",
+          "Ordinary 5^r normalization gives zero at fixed shift since at most 4^r initial indices are active."
+        ],
+        "reasoning": "Neither evaluating single-index residues nor ordinary positive-density correlation yields the claimed signed frequencies at the 4^r normalization. The proof supplies the mask evaluation, the nonnegative-half count and an exact boundary-remainder argument.",
+        "searches": [
+          "arXiv:1112.1034 Theorem 1.1",
+          "arXiv:1310.8635 introduction and automata definitions",
+          "10.1007/s11139-021-00434-7 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The signed spectrum can equivalently be read as the coefficient distribution of the dissociated Laurent factors for this exact weight vector, or via balanced base-five digits of h/2.",
+          "Resultary returned the audited record itself and related Domb and central Delannoy correlations; their digit weights and active normalizations differ."
+        ],
+        "reasoning": "A digit-automaton title is not equivalent to the normalized shift distribution. Related sequences have different outcomes even at the extremal shifts; a renaming does not give these bins.",
+        "searches": [
+          "Franel numbers modulo 5 quadratic character autocorrelation correlation spectrum strongly q multiplicative autocorrelation generalized Morse sequence digit carries exact correlations",
+          "Resultary: Franel numbers modulo five quadratic character signed autocorrelation spectrum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest same-sequence Resultary neighbor studies Franel support additive energy, with a rational energy generating function, rather than signed correlation frequencies.",
+          "Sun's Theorem 1.1 tabulates congruences for weighted sums of single Franel terms, not the distribution of products of shifted characters."
+        ],
+        "reasoning": "Energy of an unsigned support cannot determine the signs of the character correlation, and pointwise residues or weighted congruences are not the all-shift histogram. Excluding the target's own index entry, no covering exact table was identified in this bounded check.",
+        "searches": [
+          "Resultary: Franel numbers modulo five quadratic character signed autocorrelation spectrum",
+          "arXiv:1112.1034"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge pass for the evaluated all-shift signed multiplicity law and sharp equality families for this sparse arithmetic character, not for Lucas, digit automata, or generic block-product correlation methods.",
+      "residual_risks": [
+        "An older generalized-Morse or Riesz-product theorem or an unindexed coefficient table could include the same evaluated specialization. The full Coquet–Kamae–Mendès France paper (10.24033/bsmf.1856) was not obtained in the attempted archive lookup, and the Aloui comparison is abstract-level only.",
+        "The search is not an exhaustive determination of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior Franel congruences; no matching correlation in inspected statements",
+          "evidence": [
+            "Eqs. (1.4)–(1.11) weight single indexed Franel terms in congruences modulo p or p^2."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1112.1034",
+          "material_read": "Abstract, introduction, Theorem 1.1 and beginning of its proof",
+          "method": "Targeted PDF text inspection",
+          "title": "Congruences for Franel Numbers",
+          "trigger": "Same sequence and prime-congruence framework"
+        },
+        {
+          "assessment": "Provides a pointwise congruence framework, not the evaluated lag spectrum in the inspected material",
+          "evidence": [
+            "The automaton output is a residue a_n mod p^alpha, and its input is the digit word of a single n."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1310.8635",
+          "material_read": "Abstract, introduction and Section 1.2, including Definition 1.3",
+          "method": "Targeted PDF text inspection",
+          "title": "Automatic congruences for diagonals of rational functions",
+          "trigger": "Possible general digital theorem"
+        },
+        {
+          "assessment": "Partial access; the stated exponential-sum framework involves a different family of weights",
+          "evidence": [
+            "The abstract displays exp(2 pi i times a real linear combination of shifted digit sums), rather than character products with zeros."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11139-021-00434-7",
+          "material_read": "Publisher abstract, bibliographic references; body not accessible through that page",
+          "method": "Publisher abstract inspection",
+          "title": "On the correlation of the Thue–Morse sequence",
+          "trigger": "Shifted digital correlations as a possible broader theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The usual correlation normalization loses all information on this sparse support. The natural active normalization yields a complete exact two-point statistic: precisely the odd shifts vanish, the signs balance at each nontrivial magnitude and the strongest lags have a sharp arithmetic classification. This is an all-depth benchmark for sparse digit-defined correlations rather than a recomputation of a Franel residue table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

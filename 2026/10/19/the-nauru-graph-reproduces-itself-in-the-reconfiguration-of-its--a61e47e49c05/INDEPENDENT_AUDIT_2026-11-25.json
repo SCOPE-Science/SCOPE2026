@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:00:59.476950Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, especially Proof steps 1–4; VERIFICATION.md; structural, bases and product certificates, checker code and stored logs",
+        "python3 /workspace/reproductions/nauru.py; /workspace/reproductions/nauru.log"
+      ],
+      "rationale": "Rebuilt GP(12,5) and verified all distances and MMD comparisons. The 60 MMD pairs are precisely the distance-four pairs. Independently recovered the two 12-vertex rook components from their maximal 3- and 4-cliques and checked the complete row/column adjacency relations. A third vertex cannot strongly resolve an MMD pair: the requisite shortest path would extend from one endpoint along a neighbor farther from the other. Every strong resolving set therefore covers the MMD edges. An independent set in each rook has size at most three, attained in precisely 4×3×2 ways. Independently constructed all 576 six-vertex complements and directly checked that each corresponding size-18 set resolves all 276 pairs. In each rook a maximum independent triple uses each column and misses exactly one row. Its exchanges swap that missing row with the row of one column, giving the three star transpositions on permutations of four rows. The explicit star-to-Nauru correspondence preserves the full edge relation. An exchange cannot transfer a rook complement token between factors, since both triples already have fixed maximal size. This proves the Cartesian square. Independent reconstruction checked all 1,728 exchanges and the distance profile (1,6,21,54,100,138,141,90,25) from all 576 roots, agreeing with the convolution of the common factor shells. Radius and diameter are both eight.",
+      "residual_risks": [
+        "The graph and minimum-basis token-jump rule are specific; this does not check slides or other GP(n,k)."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kratica et al., abstract and Theorem 1, derive dimensions in GP(n,2), including GP(4k+2,2). The Oellermann–Peters-Fransen framework relates strong resolution and vertex covers of the MMD graph."
+        ],
+        "reasoning": "Neither a formula confined to step two nor the general cover reduction supplies the MMD graph of step five at n=12. Counting covers and identifying their move graph still require this graph's structure.",
+        "searches": [
+          "arXiv:1507.00881, generalized Petersen strong metric dimension",
+          "Oellermann and Peters-Fransen, DOI 10.1016/j.dam.2006.06.009"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1507.00881; Eppstein 2007 and MathWorld Nauru descriptions; DOI 10.1016/j.dam.2006.06.009 landing page; Resultary 7446c83c72a6 and d77d7a0f3f14"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ambient star transpositions already model Nauru; the submitted proof identifies that rule anew on maximum nonattacking rook placements, after determining all MMD relations. The power-dominating-set bases are defined by different coverage constraints."
+        ],
+        "reasoning": "The known isomorphism and the cover method are ingredients, not a stated or mechanically supplied MMD decomposition or basis-exchange self-product. The metric profile is consequential once the self-product is shown, not a separate originality claim.",
+        "searches": [
+          "Compare Eppstein's permutation-star presentation and arXiv:1507.00881 with Frozen Proof steps 1–4; check Resultary 7446c83c72a6 Finding and Assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Eppstein's Cayley Graph and xyz Drawing section identifies the swapping generators; MathWorld identifies the order-four permutation star graph in its opening paragraph."
+        ],
+        "reasoning": "The ambient graph is already known under these aliases. That equivalence does not identify strong bases with two independent star coordinates or establish which exchanges preserve them.",
+        "searches": [
+          "Local Resultary searches for Nauru or GP(12,5) strong metric bases, MMD and reconfiguration; primary search for the GP(12,5) strong-basis/Cayley-star comparators",
+          "Eppstein, The many faces of the Nauru graph; MathWorld, Nauru Graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "7446c83c72a6 Finding concerns 576 minimum power-dominating sets, 6,660 jump edges, and jump diameter four; d77d7a0f3f14 Finding concerns 125 strong metric bases of GP(25,2) with dimension 34."
+        ],
+        "reasoning": "The first has the same graph and count but a different basis condition and different exchange invariant; the second has the correct basis definition but a different graph. Neither is an exact table for the assigned strong resolving problem.",
+        "searches": [
+          "Local Resultary searches for GP(12,5) strong bases and reconfiguration, including SCOPE records 7446c83c72a6 and d77d7a0f3f14"
+        ]
+      },
+      "rationale": "The permutation-star description of the ambient graph and the general MMD-cover framework are established. The inspected sources do not provide the rook decomposition and strong-basis exchange interpretation for this graph. A catalogue hit on 576 minimum sets in Nauru concerns power domination rather than strong resolution and has different exchange edges and diameter. The contribution is the strong resolving structure and resulting self-product, not the known Nauru isomorphism.",
+      "residual_risks": [
+        "Full text of the general 2007 strong-dimension article was not independently inspected. The broad web query yielded no useful evidence; local search and inspected sources provide bounded comparison, not absolute priority. Unindexed distance-graph or reconfiguration analyses may overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different subfamily",
+          "evidence": "Restricts to GP(n,2), with Theorem 1 on GP(4k+2,2), not the assigned GP(12,5).",
+          "identifier_or_url": "https://arxiv.org/abs/1507.00881",
+          "material_read": "Abstract (PDF p. 1) and Theorem 1 (PDF p. 6)",
+          "method": "Lawful open preprint",
+          "title": "The strong metric dimension of some generalized Petersen graphs",
+          "trigger": "Closest primary family-specific strong metric result"
+        },
+        {
+          "assessment": "Prior coverage of factor isomorphism",
+          "evidence": "GP(12,5) and the Cayley graph on four-symbol permutations generated by exchanging the first with each other entry.",
+          "identifier_or_url": "https://11011110.github.io/blog/2007/12/12/many-faces-of.html",
+          "material_read": "Nauru Drawing and Generalized Petersen Graphs; Cayley Graph and xyz Drawing",
+          "method": "Public original exposition",
+          "title": "The many faces of the Nauru graph",
+          "trigger": "Exact ambient-graph alias and generator set"
+        },
+        {
+          "assessment": "Confirms ambient alias",
+          "evidence": "Names the order-four permutation star graph as an isomorphic graph.",
+          "identifier_or_url": "https://mathworld.wolfram.com/NauruGraph.html",
+          "material_read": "Opening paragraph",
+          "method": "Public mathematical reference page",
+          "title": "Nauru Graph",
+          "trigger": "Exact ambient-graph reference entry"
+        },
+        {
+          "assessment": "Credit general framework; not a full-text noncoverage finding",
+          "evidence": "The framework is the vertex-cover translation on the strong resolving graph; frozen correctness also establishes sufficiency directly.",
+          "identifier_or_url": "10.1016/j.dam.2006.06.009",
+          "material_read": "Landing page and framework as cited in the frozen paper; full text not inspected",
+          "method": "Lawful DOI retrieval attempted",
+          "title": "The strong metric dimension of graphs and digraphs",
+          "trigger": "General theorem plausibly providing broader strong-resolution coverage"
+        },
+        {
+          "assessment": "Non-equivalent later record",
+          "evidence": "Power domination rather than strong metric resolution; jump graph has 6,660 edges and diameter four.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-single-diametral-orbit-in-minimum-sensor-slide-reconfiguration--7446c83c72a6",
+          "material_read": "RESULT.md Finding and Assumptions",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A single diametral orbit in minimum sensor-slide reconfiguration",
+          "trigger": "Same Nauru graph, same number of minimum sets"
+        },
+        {
+          "assessment": "Different graph and later recorded date",
+          "evidence": "Dimension 34 and 125 bases of GP(25,2), not the assigned graph.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-counterexample-and-all-strong-metric-bases-of-gp-25-2--d77d7a0f3f14",
+          "material_read": "RESULT.md Finding and Assumptions",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A sharp counterexample and all strong metric bases of GP(25,2)",
+          "trigger": "Strong bases in generalized Petersen graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen strong-basis definition and Finding; independent MMD and all-base reconstruction; known permutation-star description"
+      ],
+      "rationale": "A natural minimum landmark-selection problem on a standard symmetric cubic graph has a nontrivial structural solution: the move graph recovers two copies of the original graph as independent coordinates. This gives a benchmark where minimum bases, exchanges and sharp distances have a common explanation, beyond computing a dimension or spot-checking a graph-table entry.",
+      "residual_risks": [
+        "An exact structure at one motivated graph, not a claim that self-products are typical."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

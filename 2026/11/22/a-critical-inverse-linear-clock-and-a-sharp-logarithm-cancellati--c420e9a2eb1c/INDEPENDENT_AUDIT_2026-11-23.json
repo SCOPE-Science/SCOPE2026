@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T17:00:29.137673Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md §§1–2: multiplication by the denominator gives W_n-W_{n+1}=x_{n-1}x_{n+1}, with W_n=(b+1)x_n+x_{n-1}+x_{n-2}+x_{n-3}+x_{n-4}. Its sublevels bound the orbit in the closed nonnegative orthant. A positive limiting value would give a nonzero omega-limit orbit on which W is constant, but the strongly connected dependency graph has a self-loop for b>0, so a nonzero nonnegative state eventually becomes strictly positive, contradicting constant W.",
+        "RESULT.md §§2–3: for d=b+5, U_n=W_n/d is the stationary left projection of the primitive stochastic derivative. The exact drift bounds U_n-U_{n+1} by O(U_n^2), giving U_{n+k}/U_n→1 for fixed k. On the zero-projection subspace, choose k so a k-step power of the derivative has norm below 1/2. Dividing by U_{n+k}^p preserves eventual strict contraction for p=2 and p=3: the first stable error is forced by O(U_n^2); after subtracting the quadratic graph, its defect is O(U_n^3) and the stable derivative is M+O(U_n). This gives the claimed O(U_n^3) orbit remainder without assuming the decay rate.",
+        "Independent SymPy solve, with a free quadratic drift coefficient: write U'=U-qU^2+O(U^3), impose the shift equations alpha_j-alpha_{j-1}=q and (b+1)alpha_0+sum_{j=1}^4 alpha_j=0; equate the first-coordinate coefficient of U^2 from the rational map to alpha_0-q. Solving gives q=1/d and alpha_j=(jd-10)/d^2. In the exact drift the two factors then have quadratic coefficients alpha_1 and alpha_0-q, whose sum is 2alpha_0. The cubic drift coefficient is 20/d^3 and the linear-in-U reciprocal increment coefficient is 1/d^2-20/d^3=(b-15)/d^3.",
+        "RESULT.md §4: the reciprocal increment first gives U_n∼d/n, then U_n=d/n+O(log n/n^2). Subtracting 1/d+[(b-15)/d^2]log(1+1/n) from that increment leaves an absolutely summable error. Finally 1/x_n-1/U_n→-alpha_0, so the finite part is for x_n itself, not only the projected coordinate."
+      ],
+      "rationale": "For every fixed b>0, at a=b+1 and with five strictly positive initial values, the recurrence is forward-defined and the asserted expansion holds: 1/x_n = n/(b+5) + [(b-15)/(b+5)^2] log n + C + o(1). The uncorrected finite part is finite precisely at b=15; it goes to minus infinity below and plus infinity above that gain. The proof supplies the global basin within the positive orthant and controls the remainder rather than relying on a formal center expansion.",
+      "status": "PASS",
+      "validation_limits": [
+        "The independent computation checks exact algebra; the global and infinite-time assertions follow from the analytic proof. The supplied checker.py was inspected, not executed. Its finite-time assertions test a tolerance for n*x_n from one constant history at each of four gains, not convergence of the printed renormalized residual.",
+        "No extension to b=0, signed histories, off-critical parameters, or estimates uniform as b approaches zero is established."
+      ]
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The accessible 2018 publisher abstract specifies the narrower matched-delay form; full text was not obtained independently.",
+          "Abate's theorem gives the local one-complex-variable parabolic petal and Fatou-coordinate translation framework.",
+          "The targeted scholarly lookup returned no hits; this is not evidence of priority."
+        ],
+        "reasoning": "The displayed matched-delay hypothesis prevents direct specialization. Even a general local parabolic clock does not give entrance into the local regime for all positive histories of this five-dimensional map or determine the model-specific cubic coefficient and cancellation. No stronger inspected theorem was found that supplies both steps.",
+        "searches": [
+          "Chatterjee–Hassan, DOI 10.3934/dcds.2018070",
+          "Marco Abate, arXiv:1501.02176v3, §1 Theorem 1.1",
+          "Scholarly lookup for the exact rational recurrence at critical extinction and its logarithmic correction"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.3390/fractalfract7020113",
+        "https://doi.org/10.3934/dcds.2018070",
+        "https://arxiv.org/abs/1501.02176v3",
+        "Resultary 5217b0208b7b and 2effd2825017 (indexed summaries)",
+        "Frozen ordinal 5 RESULT.md (the exact index hit identifies the same finding)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2023 paper supplies the model, equilibrium branch and positive-fixed-point stability/bifurcation setup. This identifies the collision at a=b+1, not the critical rate for every positive orbit.",
+          "Local parabolic translation does not identify the stable projection and its drift for this recurrence. The matched-delay model has different hypotheses."
+        ],
+        "reasoning": "Neither the equilibrium's vanishing, an extinction statement alone, nor a generic parabolic normal form implies the claimed finite part. The proof needs global convergence, quantitative stable slaving and the coefficient 20/(b+5)^3 in the projected drift. That coefficient determines the sign change and exact cancellation and is not supplied by the inspected prior statements.",
+        "searches": [
+          "Khaliq et al., DOI 10.3390/fractalfract7020113, PDF pp. 2–4",
+          "Abate, arXiv:1501.02176v3, §1 Theorem 1.1",
+          "Chatterjee–Hassan, DOI 10.3934/dcds.2018070, abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Khaliq et al.'s fifth-order system matches after relabeling the parameters and setting the denominator constant to b+1. Its positive fixed point is b+1-a; the inspected equilibrium and bifurcation passages do not give the critical clock.",
+          "The Chatterjee–Hassan abstract specifies a denominator lag equal to one numerator lag, unlike the distinct lags (0,4;1) here."
+        ],
+        "reasoning": "Simple shifts, unit rescalings, and exchanging numerator summands preserve which lags coincide. The matched-delay family is not an equivalent formulation by those changes. No less direct equivalence yielding the claimed expansion was identified; the current recurrence itself is already known.",
+        "searches": [
+          "Khaliq et al., DOI 10.3390/fractalfract7020113, Eqs. (9)/(11)",
+          "Chatterjee–Hassan, DOI 10.3934/dcds.2018070, publisher abstract"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed hit corresponds to the frozen result under review; it is not separate prior evidence.",
+          "The indexed summary for 5217b0208b7b describes an inverse-square clock for a different synchronous two-species recurrence; 2effd2825017 describes the Floquet spectrum of a period-four manifold in a different fifth-order system."
+        ],
+        "reasoning": "Neither indexed comparison supplies an exact formula or table entry for this map's reciprocal finite part or the gain 15. These are statement-level comparisons of index summaries, not full-text exclusions, and the lookup does not certify exhaustive coverage.",
+        "searches": [
+          "Resultary search for the exact recurrence, critical extinction, and b=15 logarithm cancellation",
+          "Resultary entries 5217b0208b7b and 2effd2825017"
+        ]
+      },
+      "rationale": "The exact recurrence and its equilibrium branch are prior work. The contribution supported by the comparisons is the global critical asymptotic for every strictly positive history, including the exact logarithmic coefficient, the finite remainder, and its unique cancellation. No inspected result establishes that package directly or as a proved corollary. This is a best-of-knowledge assessment, not a priority certificate.",
+      "residual_risks": [
+        "A stronger theorem covering the exact three-distinct-lag recurrence could exist outside the inspected passages and search results.",
+        "The matched-delay abstract rules out direct specialization of the displayed family, not other results in the inaccessible full text or a nontrivial reduction. The adjacent indexed records were not assessed from full texts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credits the paper for the model and equilibrium; the inspected passages do not give the global critical reciprocal clock.",
+          "evidence": [
+            "Eqs. (9)/(11); positive fixed point b+1-a and positive-fixed-point stability/bifurcation framework."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/fractalfract7020113",
+          "material_read": "Primary PDF pp. 2–4, including Eqs. (9)/(11) and the equilibrium and stability setup.",
+          "method": "Compared the explicit lags, parameters, fixed points and bifurcation setting to the critical theorem.",
+          "title": "Stability and Bifurcation Analysis of Fifth-Order Nonlinear Fractional Difference Equation",
+          "trigger": "Identical recurrence and equilibrium branch."
+        },
+        {
+          "assessment": "The displayed family is not a direct generalization of this map; no whole-document exclusion is made.",
+          "evidence": [
+            "The denominator term y_{n-k} repeats a numerator term's lag; the reviewed map uses lag 1 only in its denominator."
+          ],
+          "identifier_or_url": "https://doi.org/10.3934/dcds.2018070",
+          "material_read": "Publisher abstract and displayed family only. The publisher full text was restricted and the attempted open PDF mirror did not yield readable text.",
+          "method": "Compared the numerator and denominator indices in the displayed recurrence.",
+          "title": "On the asymptotic character of a generalized rational difference equation",
+          "trigger": "Plausible surrounding result on global behavior of positive rational delay maps."
+        },
+        {
+          "assessment": "Supplies the general local mechanism, not this global positive-history basin or the cubic coefficient for this map.",
+          "evidence": [
+            "Theorem 1.1: local attracting petals and conjugacy to translation for a germ tangent to the identity."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1501.02176v3",
+          "material_read": "§1, Theorem 1.1 and its local setting.",
+          "method": "Compared the local one-dimensional hypotheses and translation conclusion with the orbit and coefficients needed here.",
+          "title": "Fatou flowers and parabolic curves",
+          "trigger": "Classical broader theory for translation near a parabolic fixed point."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At the collision of the positive equilibrium with zero, a linear stability test leaves the decay unresolved. The result quantifies relaxation from arbitrary strictly positive histories, not only nearby states. The leading inverse-linear decay alone hides a signed logarithmic correction, and the exact sign change separates the unique gain with a finite uncorrected reciprocal part from regimes with opposite divergences. This gives a quantitative benchmark for critical delayed relaxation in an established model. The value lies in the global law and exact cancellation, not in the equilibrium location or generic parabolic theory.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

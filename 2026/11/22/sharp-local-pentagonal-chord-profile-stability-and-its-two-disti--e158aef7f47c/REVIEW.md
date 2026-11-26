@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact domain is a real, gauge-fixed \(C^2\) polar perturbation with positive curvature. The chain of evidence includes differentiation of the total-perimeter arclength constraint, a Fourier multiplier for the endpoint-shifted chord, a complete finite-plus-analytic-tail mode comparison, and the relative nonlinear bound \(O(\|f\|_{C^2}\|f\|_2)\). Mean subtraction is an orthogonal projection. The extremal test functions achieve the first-order constants. The standalone script is corroborative, not used as an infinite proof. The inequality makes no global claim and does not optimize the nonlinear error constant.
+## correctness
 
-## Originality — PASS (priority provisional)
-The closest direct primary source, Asipchuk--Kosmakov arXiv:2611.18381v1, proves exact pentagonal floating-body rigidity, but not the local sharp \(L^2\) stability constants or their distinct equality-mode frequencies. Bracho--Montejano--Oliveros (2004), especially its five-chair classification discussion, concerns global Zindler carousels. A prior accessible quantitative Sobolev rigidity claim for odd denominators \(q\ge7\) cannot imply this denominator-five result by specialization. Targeted record searches produced only scientifically distinct fivefold Fourier or circle problems. No absolute novelty guarantee: unpublished computations and inaccessible priority sources remain possible.
+PASS
 
-## Mathematical value — PASS
-The sharp constants make a natural local quantitative refinement of a recently reproved classical rigidity theorem, and the change in the least-detectable geometric deformation from mode seven to six is a nontrivial, exact spectral classification. Each mode's attainability makes the bounds sharp, and the nonlinear estimate converts the infinitesimal spectrum into genuine local geometric control.
+With α=2πk/5, actual arclength conservation gives the first-order endpoint shift −∫_θ^{θ+α}f. Projecting the varied difference vector onto the unperturbed unit chord contributes sin(α/2)(f(θ)+f(θ+α)) plus cos(α/2) times that endpoint shift; hence the stated Fourier symbol, killing ±1, and Parseval apply on the gauge slice. Exact fifth-root values give the strict lowest entries at n=7 for k=1 and n=6 for k=2. For n≥8 or n≥7 respectively, |cos(nα/2)|≥cos(2π/5), giving the displayed strict tails by sin(2π/5)>7/8 and >6/7. For the nonlinear estimate, write the speed as 1+f+E with |E|≤C(f′)² and ∥E∥₁≤C∥f∥₂∥f″∥₂ by periodic integration by parts. Inverting the positive speed primitive gives the shift uniformly O(∥f∥₂) and its error relative to −∫f uniformly O(∥f∥C²∥f∥₂). The radial shift error is bounded by ∥f′∥∞ times the shift, and the chord-norm Taylor error has the same relative L² bound because the unperturbed chord is nonzero. Angular mean subtraction is an orthogonal contraction. The curvature numerator stays positive for small C² norm; the pure real extremal frequencies show first-order sharpness, without an assertion about finite-amplitude equality.
 
-## Boundaries and risk
-The conclusion requires \(C^2\) closeness, a fixed dilation/translation gauge and arclength—not angle—advancement. The linear constants are optimal as perturbation size tends to zero; no far-from-circle stability or independent priority certification is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct result is the sharp pentagonal L² estimate for the variable chord profile, including exact optimal first-order constants and their different equality frequencies, with a relative C²-to-L² remainder. Neither qualitative pentagonal rigidity nor the underlying linearized symbol is distinct. The symbol already occurs in equivalent form in a related tangent-angle record, and its numerator occurs in the linearized equation for equal chords in the primary pentagonal paper.
+
+## value
+
+PASS
+
+This measures the smallest detectable departure from equal chords in a natural pair of arclength sampling schemes. The two fractions both give global qualitative uniqueness, but have genuinely different slow modes and sharp local recovery factors. The exact leading constants and relative nonlinear error quantify that difference for perturbed curves, rather than merely repeating a no-kernel result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

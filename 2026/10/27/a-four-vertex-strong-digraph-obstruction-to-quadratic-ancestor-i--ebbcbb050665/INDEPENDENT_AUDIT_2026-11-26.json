@@ -1,0 +1,92 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:51:53.234495Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The four-cycle through r proves strong connectivity on the same seven positive arcs for every z>0. Of the eight nonroot parent assignments, two close b↔x and one closes b→x→y→b. The five remaining assignments (parents of b,x,y in that order) are (r,b,r), (r,b,b), (r,y,r), (r,y,b), (x,y,r), of weights z²,z³,z,z²,1. The second alone has off-diagonal LCA b; the first, second and fourth contribute to x's ancestor probability, and the second and fourth to y's. Thus with Z=1+z+2z²+z³ the probabilities Hx,Hy,a are z²(z+2)/Z,z²(z+1)/Z,z³/Z. The stated law gives f(x)Hx=f(y)Hy and the diagonal LCA events are zero, so the iid ratio is a/(2HxHy)=Z/[2z(z+1)(z+2)]. Its small-z divergence is 1/(4z); subtracting the denominator from the numerator gives 1−3z−4z²−z³, strictly decreasing from 1 to −∞. Exact substitution at 1/8 gives Hx=17/593, Hy=9/593, a=1/593, and ratio 593/306. All identities follow from the complete symbolic enumeration; the frozen seventeen-parameter checker was inspected, not run or relied on.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cai §2 uses graphic-matroid complete log-concavity; the listed LERW application is for ordinary LERW on Z³. The inspected directed out-branching hit concerns deterministic existence in acyclic orientations of K_{3,n}."
+        ],
+        "reasoning": "Neither a graphic-matroid spanning-tree theorem nor a deterministic out-branching statement controls the product-weighted directed ancestor-event law. Reversible directed conductances may reduce to the undirected setting, but that does not cover this family.",
+        "searches": [
+          "arXiv:2610.22180v1, §§1–2, matroid-polynomial proof and LERW application",
+          "Resultary: directed branching, directed LERW/coalescence"
+        ]
+      },
+      "checked_sources": [
+        "Cai arXiv:2610.22180v1 primary HTML",
+        "Resultary 638903b661f4, local RESULT.md",
+        "Frozen RESULT.md, VERIFICATION.md and verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In Cai, the off-diagonal bound is a_B(x,y)≤2H_B(x)H_B(y); the frozen five-tree directed example has numerator order z³ but product order z⁴."
+        ],
+        "reasoning": "The undirected theorem neither constructs nor implies the directed counterexample. Generic changes to arc dependence need not yield an unbounded LCA/path ratio; the fixed-graph enumeration demonstrates exactly that separation.",
+        "searches": [
+          "arXiv:2610.22180v1, Theorem 1.1, proof and applications"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cai §1, Theorem 1.1 and (1.3)–(1.4): positive-semidefinite, integrated and pointwise bounds for weighted undirected trees."
+        ],
+        "reasoning": "For singleton B the off-diagonal J-event in Cai is LCA=b; for the frozen witness the integrated ratio equals the pointwise ratio a/(2HxHy). The failure is therefore substantive under either formulation, but under a different tree law, not a contradiction of the undirected statement.",
+        "searches": [
+          "Web search: quadratic ancestor inequality, directed arborescences, lowest common ancestor",
+          "Resultary: directed-arborescence/LCA and directed LERW/coalescence",
+          "arXiv:2610.22180v1, Theorem 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest complete rooted-arborescence record computes Walsh multipliers and convolution counts, not ancestor events or the five-tree weight family."
+        ],
+        "reasoning": "No matching four-vertex ancestor table or quotient was identified in the returned results. This is bounded catalogue evidence, not an exhaustive exclusion.",
+        "searches": [
+          "Resultary: frozen title, directed-arborescence/LCA, directed-LERW/coalescence",
+          "Resultary: 2026/11/16/SCOPE-sharp-dyadic-fourier-gaps-for-complete-rooted-arborescences--638903b661f4"
+        ]
+      },
+      "rationale": "The supported distinct claim is unbounded failure at fixed size under arbitrary positive asymmetric arc weights, not an undirected result or priority for general failures of negative dependence. The closest source controls the same observables on weighted undirected trees only. No inspected result covers this directed witness or implies the unbounded LCA ratio on a fixed strong digraph.",
+      "residual_risks": [
+        "The bounded searches do not exclude earlier directed branching or loop-erased coalescence examples with the same consequence; the comparison is not an absolute priority assertion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers undirected weighted spanning trees, not general directed in-arborescences",
+          "evidence": [
+            "Theorem 1.1, (1.3)–(1.4); §2 matroid proof; Theorem 1.3 on Z³"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.22180v1",
+          "material_read": "§1 Theorems 1.1 and 1.3 and §2 proof (HTML extraction offsets about 795–14100)",
+          "method": "Compared the primary text's graph hypotheses, event definitions, bounds and proof",
+          "title": "A Quadratic Ancestor Inequality for Spanning Trees",
+          "trigger": "Same ancestor events and motivating quadratic inequality"
+        },
+        {
+          "assessment": "Different invariant and no covering inequality or counterexample",
+          "evidence": [
+            "Walsh multiplier magnitudes and counting convolution on complete rooted in-arborescences"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-sharp-dyadic-fourier-gaps-for-complete-rooted-arborescences--638903b661f4",
+          "material_read": "RESULT.md finding on Walsh multipliers and counting",
+          "method": "Matched the finding using the local mirror",
+          "title": "Sharp dyadic Fourier gaps for complete rooted arborescences",
+          "trigger": "Closest indexed rooted-arborescence record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A four-vertex construction with an exact divergence rate answers a natural robustness question for a structural undirected ancestor inequality. It rules out every graph-independent multiplier, not just the original constant, even under strong connectivity. The witness is useful when deciding which hypotheses directed analogues need; the finding does not assert minimal size or address reversible subclasses.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

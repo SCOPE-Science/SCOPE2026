@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:01:37.612174Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The indexed unit-step coefficient sum is a Zak multiplication operator. On each unit cell the tent has just two adjacent terms, with a nonnegative cross coefficient, so frequency 0 simultaneously maximizes all contributions and frequency 1/2 minimizes them. Continuity identifies extrema with essential extrema. This gives the stated m and circular least-squares bounds even with repeated offsets. Independently, A/4 is the squared distance of the projected phase vector to the lattice P Z^m in the orthogonal complement of the diagonal, with P orthogonal projection; minimizing over the common real center and all integer lifts gives this identity. The images of e_2,...,e_m form a lattice basis with Gram determinant 1/m. A nonconstant integer vector has at least m-1 unequal unordered pairs, so the shortest nonzero projected lattice vector has length sqrt((m-1)/m), attained by e_1. The ball of radius sqrt(a)/2 for the stated 0<a<1/4 injects into the quotient. Haar probability is its Euclidean volume divided by lattice covolume 1/sqrt(m), exactly the stated expression. Substitution gives the Pareto coefficient; integrating the tail gives the strict moment cutoff and logarithmic divergence at the threshold. For m=2, the shorter-distance law gives A=2 delta^2 and kappa=delta^(-2), including the stated K=4 endpoint. Read VERIFICATION.md and CHECK.py as evidence; the frozen rational/grid tests were not run and are not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Raj–Sivananthan Theorem 3.2 gives high-probability sufficient estimates under window regularity hypotheses; §4 includes B-splines.",
+          "The other two works concern lattice B-spline Gram finite sections and rectangular-lattice frame sets, respectively."
+        ],
+        "reasoning": "The same-model result is broader in window choice but does not give the optimal fixed-m Haar distribution. The lattice results have a different translation model and do not compare equivalent random quantities.",
+        "searches": [
+          "arXiv:2503.20259v1, Theorem 3.2",
+          "arXiv:2603.16986v1, Theorem 3.3",
+          "doi:10.1186/s13660-016-1021-4, pp. 3–4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary cubic-gap-defect record 2b8a9154bdc7",
+        "arXiv:2503.20259v1",
+        "arXiv:2603.16986v1",
+        "doi:10.1186/s13660-016-1021-4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Zak identity implies the essential-extrema formulation. The catalogue gives the evaluated deterministic extrema. Flat quotient balls have the usual Euclidean volume within their injectivity radius."
+        ],
+        "reasoning": "Concentration or deterministic defect bounds alone do not give exact level-set measure or the divergence at m=3. Combining the exact extrema with the projected Haar geometry and computing covolume yields the random law; no inspected source makes this fixed-m identification. The Euclidean ball-volume and layer-cake steps are standard and not separately credited.",
+        "searches": [
+          "arXiv:2503.20259v1, Lemma 3.1 and Theorem 3.2",
+          "Resultary cubic-gap-defect record 2b8a9154bdc7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 2026/11/22/SCOPE-an-exact-positive-cubic-gap-defect-for-multiwindow-hat-spline-ga--2b8a9154bdc7 gives B=r, A=min_x 4 sum_j d_T(x,s_j+1/2)^2 and the same criterion; half-translation removes the offset.",
+          "Raj–Sivananthan Lemma 3.1 identifies the same multiwindow Zak energy."
+        ],
+        "reasoning": "The deterministic component is exactly equivalent under a half-period shift. The gap-defect statement is deterministic, not a distribution for independent Haar phases. The lower-tail claim is equivalently a Haar small ball in a diagonal quotient; exact reduction of the frame statistic and its normalization are needed to use that interpretation.",
+        "searches": [
+          "Resultary: tent/hat spline multiwindow Gabor bounds and conditioning",
+          "arXiv:2503.20259v1, §3 and §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching catalogue record gives the exact deterministic quantity and a cubic-gap identity, not the Haar law, condition-number tail, or moment cutoff."
+        ],
+        "reasoning": "The relevant exact catalogue match covers the deterministic part. A finite numerical table would not resolve a distribution with continuous offsets and arbitrary fixed m.",
+        "searches": [
+          "Resultary: exact tent/hat-spline frame bounds and random conditioning",
+          "Resultary 2026/11/22/SCOPE-an-exact-positive-cubic-gap-defect-for-multiwindow-hat-spline-ga--2b8a9154bdc7"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the exact fixed-m random conditioning law and its moment consequence. The deterministic bounds and frame criterion coincide with the indexed cubic-gap-defect record, and are not credited as distinct on their own. Catalogue dates are not proof of priority. The strongest same-model literature gives the Zak multiplier and sufficient high-probability estimates, not the exact level-set identification and probability with this normalization.",
+      "residual_risks": [
+        "Standard small-ball geometry makes the probability calculation short once the exact Gabor statistic is identified. An earlier equivalent circular-variance or mixed-lattice conditioning result could exist outside the inspected sources.",
+        "The matching deterministic catalogue statement does not settle priority in either direction, and is not claimed as a distinct result here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact operator antecedent and sufficient probability bounds; does not supply the exact fixed-m conditioning law in the inspected sections",
+          "evidence": "The energy is integrated against sum_i |Z(T_xi g)|^2; Theorem 3.2 gives sufficient bounds with high probability.",
+          "identifier_or_url": "https://arxiv.org/html/2503.20259v1",
+          "material_read": "Lemma 3.1, Theorem 3.2, and the B-spline examples; OA text offsets 15494, 19506, 39374",
+          "method": "Open primary article, targeted text passages",
+          "title": "Gabor frames generated by Random-Periodic time-frequency shifts",
+          "trigger": "Same random-periodic model and B-spline examples"
+        },
+        {
+          "assessment": "Exact deterministic overlap, distinct focus",
+          "evidence": "B=r and A=min_x 4 sum_j d_T(x,s_j+1/2)^2 coincide; the gap-defect formula does not give the exact Haar conditioning distribution.",
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-an-exact-positive-cubic-gap-defect-for-multiwindow-hat-spline-ga--2b8a9154bdc7",
+          "material_read": "Finding for arbitrary shifts and deterministic extrema",
+          "method": "Resultary index and local record text",
+          "title": "An exact positive cubic gap defect for multiwindow hat spline Gabor frames",
+          "trigger": "Strongest exact indexed overlap"
+        },
+        {
+          "assessment": "Different lattice and finite-section object",
+          "evidence": "The theorem diagonalizes or structures finite-section Gram blocks for a lattice Gabor system, not random-shift conditioning.",
+          "identifier_or_url": "https://arxiv.org/html/2603.16986v1",
+          "material_read": "Theorem 3.3 and finite-section discussion, OA offsets 27693 and 64750",
+          "method": "Open primary article, targeted theorem and discussion",
+          "title": "On the structure of the Gram matrix for Gabor systems generated by B-splines",
+          "trigger": "Exact B-spline spectral bounds and possible broader coverage"
+        },
+        {
+          "assessment": "Different single-window lattice regime",
+          "evidence": "The discussed frame sets use rectangular-lattice parameters, not iid sampled translation classes.",
+          "identifier_or_url": "https://doi.org/10.1186/s13660-016-1021-4",
+          "material_read": "Rectangular-lattice frame-set discussion, p. 4; OA offset 13362",
+          "method": "Open primary article, targeted passage",
+          "title": "On Gabor frame sets for compactly supported continuous functions",
+          "trigger": "Possible tent-spline frame-set precursor"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact tail resolves a finite-window stability question not settled by almost-sure frame existence or large-m high-probability estimates: three random shifts still have infinite mean condition number, whereas four have finite mean. The coefficient also quantifies the frequency of near-singular frames, for the same model and not just up to asymptotic constants.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

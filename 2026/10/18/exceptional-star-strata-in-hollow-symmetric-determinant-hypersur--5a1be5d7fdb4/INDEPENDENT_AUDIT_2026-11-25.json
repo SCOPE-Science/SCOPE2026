@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:41:50.325006Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In characteristic zero, only the off-diagonal adjugate entries enter the hollow Jacobian. At corank one the adjugate is a nonzero multiple of vvᵗ; vanishing off the diagonal means the kernel is a coordinate line. This gives exactly the n zero stars in addition to the corank-two locus. The isotropic Gram parametrization and its orthogonal fibers give an irreducible corank-two cone of dimension N−3, and the cited degree formula specializes to binom(n+1,3). A full-rank complementary block gives a point of each star outside the corank-two locus. Killing the star variables leaves exactly the complementary determinant among all (n−1)-minors. Its primeness follows from the cited hollow rank theorem at size n−1 and rank n−2; in particular it is not merely set-theoretically irreducible. Two stars leave a free hollow block of size n−2. Schur complements give the exact star quadratic and the 2×2 symmetric residual determinant; at the specified kernel W, the three indicated hollow perturbations map onto Sym²(W*), which proves the generic surface-double-point description. Singular codimension excludes repeated factors and intersections of distinct factors and gives normality by R1 and S2. Independent finite replay over F₃ at n=5 gave 2,421 corank-at-least-two and 2,340 rank-four star matrices in the Jacobian support, out of 59,049 total matrices. Exact rational checks of the witness ranks and transverse directions for 5≤n≤12 agree, but the uniform conclusions follow from the symbolic argument. The supplied script was read, not run. This validates reduced support only, except for the explicitly determinantal scheme intersections.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Gram rank theorem and degree corollary cover Y_n and complementary hollow determinant primeness. Xie's theorem concerns FRS thresholds for off-diagonal Gram-map fibers. Huang's inspected low-dimensional cases allow diagonal variables or use other linear spaces of matrices."
+        ],
+        "reasoning": "Rank equations in Gram theory are not the restricted Jacobian equations; they miss corank-one stars. The other stronger-looking frameworks inspected do not give this family's incidence or generic transverse germs.",
+        "searches": [
+          "arXiv:2411.08624, Theorem 2.5, Corollary 2.6 and Example 2.10",
+          "arXiv:2610.02585, Theorem 1.1",
+          "Huang, Determinantal Hypersurface from a Geometric Perspective, Chapter 5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, CHECK_HOLLOW.py",
+        "arXiv:2411.08624",
+        "arXiv:2610.02585",
+        "Huang thesis (Caltech, 2013)",
+        "arXiv:1009.2517"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The rank-locus statements are direct consequences of the Gram results. The extra stars follow from the restricted adjugate test, but the two normal forms require identifying the exact Schur complement on each stratum and uniform surjectivity onto forms on the corank-two kernel."
+        ],
+        "reasoning": "The elementary adjugate calculation alone is not the assessed contribution. The inspected general and example-level results do not mechanically yield the full hollow incidence and the contrast in generic normal geometry.",
+        "searches": [
+          "arXiv:2411.08624, Theorem 2.5, Corollary 2.6, Example 2.10",
+          "Kerner–Vinnikov arXiv:1009.2517, abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The paper's 1×1 zero-block rank locus V_{1,n,n−2} is exactly Y_n. Example 2.10 is a 6×6 determinant with 2×2 zero blocks, with four corank-two primes and three primes from rank-one rectangular blocks."
+        ],
+        "reasoning": "The singleton-block formulation is the exact alias. Example 2.10 is a real analogue, not the same hypersurface, components or incidence: its zero constraints allow a kernel supported in a larger block.",
+        "searches": [
+          "Gram Matrices for Isotropic Vectors, arXiv:2411.08624, Example 2.2 and Example 2.10",
+          "Hollow or zero-diagonal symmetric determinant Jacobian component literature"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The degree is exactly the product-formula value binom(n,2)(n+1)/3, not a new degree computation. The seven-component example tabulates a different block family. A local indexed lookup was not available."
+        ],
+        "reasoning": "Existing exact rank invariants are credited. Finite component lists for other block patterns and the F₃ census do not cover the uniform singleton-block Jacobian classification.",
+        "searches": [
+          "arXiv:2411.08624, Corollary 2.6 and Example 2.10",
+          "Configured local Resultary/SCOPE catalogue availability check"
+        ]
+      },
+      "rationale": "The irreducibility, codimension, primeness and degree of Y_n are exact prior coverage. The distinct contribution supported by this review is the complete hollow Jacobian support and incidence with its excess rank-(n−1) strata, including the two uniform and different generic normal forms.",
+      "residual_risks": [
+        "A more general zero-block Jacobian classification could subsume the decomposition or germs; the two-by-two example motivates that risk.",
+        "No local indexed lookup was available. Broad literature search was inconclusive, not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact rank-stratum coverage and close structural analogue",
+          "evidence": "Theorem/corollary with k=1 and r=n−2 give Y_n. Example 2.10 decomposes a 2×2 zero-block Jacobian ideal, not the singleton-block one.",
+          "identifier_or_url": "https://arxiv.org/abs/2411.08624",
+          "material_read": "Example 2.2 (p. 3, offset 10880), Theorem 2.5 (p. 4, offset 13972), Corollary 2.6 (p. 6, offset 22723), Example 2.10 (pp. 7–8, offset 25800)",
+          "method": "Open-access primary text",
+          "title": "Gram Matrices for Isotropic Vectors",
+          "trigger": "Exact zero-diagonal rank family and related determinant singular stratification"
+        },
+        {
+          "assessment": "Related geometry, different result",
+          "evidence": "FRS and rational singularity thresholds concern fibers of Gram maps.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.02585",
+          "material_read": "Abstract and Theorem 1.1, pp. 1–2 (offsets 0 and 7294)",
+          "method": "Open-access primary text",
+          "title": "Sharp FRS and singularity thresholds for off-diagonal Gram maps",
+          "trigger": "Same off-diagonal Gram geometry"
+        },
+        {
+          "assessment": "Inspected cases do not cover this linear section",
+          "evidence": "The inspected n=3 forms are not generic fixed zero-diagonal matrices.",
+          "identifier_or_url": "https://thesis.caltech.edu/7656/",
+          "material_read": "Abstract and Chapter 5 low-dimensional passages (offset 42580)",
+          "method": "Open institutional thesis passages",
+          "title": "Determinantal Hypersurface from a Geometric Perspective",
+          "trigger": "Potential earlier symmetric determinant singular classification"
+        },
+        {
+          "assessment": "Local background only in the inspected passage",
+          "evidence": "The focus is decomposability of determinantal representations of germs, not global hollow Jacobian stratification.",
+          "identifier_or_url": "https://arxiv.org/abs/1009.2517",
+          "material_read": "Abstract, p. 1",
+          "method": "Open-access primary text",
+          "title": "Decomposability of local determinantal representations of hypersurfaces",
+          "trigger": "Determinantal local-model theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Removing diagonals from a natural determinantal hypersurface creates lower-dimensional singular components at corank one that are invisible to the usual corank criterion. The incidence and contrasting generic quadratic forms give a usable description of the non-equidimensional singular set, beyond recomputing known Gram rank invariants.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

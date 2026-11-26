@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:19:19.847943Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–93",
+        "VERIFICATION.md lines 18–24",
+        "verify.py lines 8–66 (inspected)"
+      ],
+      "rationale": "For x_i=√(p_i/p_{i+1}) the Hermitian part is −aI+(c/2)T(x) on a positive weighted path. Its product ∏x_i=√(p_1/p_n) is ≥K^(−1/2) without any monotonicity assumption on P. In the Rayleigh quotient for u=(1,√2,…,√2,1) the denominator is 2(n−1) and the product of u_i u_{i+1} is 2^(n−2). AM–GM proves the asserted bound and forces all x_i u_i u_{i+1} equal if sharp; saturation also forces p_n/p_1=K. The forced edges are √2q at the ends and q in the interior. Indeed the path has Tu=2qu, certifying sharpness by positivity. Normalizing p_1=1 recovers the proposed entries; the two end ratios are (2q²)^−1 and internal ratios q^−2. If q>1/√2 the first ratio alone makes p_2<1 with p_n=K, violating the budget. Compactness after normalizing min p_i=1 makes nonattainment of the universal lower bound strictly nonsharp below 2^(n−3). The boundary example and exact least budget follow from the equivalence of μ_P(G)≤0 and all-time weighted semigroup contractivity (differentiate squared energy at zero or along the flow). Independently checked 12 rational LDL certificates for the candidate and feasibility on both sides of onset: python3 /workspace/reproductions/check_frozen_math.py 4. No uploaded checker executed; these diagnostics supplement the arbitrary-n proof.",
+      "residual_risks": [
+        "Does not compute an optimizer below the onset or establish a uniqueness theorem there; does not cover nondiagonal metrics or an exact Euclidean transient peak."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lewis–Overton, p. 2 Eq. (1.1), gives Berger's ||A^k||₂≤2w(A)^k for matrices, more general than a shift. Discussion of (2.1), p. 5, identifies Crabb's extremizer; §4 p. 10 gives its explicit weights.",
+          "Frozen RESULT.md lines 98–115 cites qualitative diagonal stability and a different prescribed-entry contraction problem. These are not needed for the decisive coverage."
+        ],
+        "reasoning": "Specialize k=n−1. Then 2w(S_x)^(n−1)≥||S_x^(n−1)||₂≥K^(−1/2), immediately giving q=(4K)^(−1/[2(n−1)]). The known Crabb example is sharp in arbitrary length, so restricting to n≥5 does not avoid this implication.",
+        "searches": [
+          "Lewis–Overton arXiv:1901.00050 Eq. (1.1)",
+          "Crabb DOI 10.1307/mmj/1029000687",
+          "Mason–Shorten DOI 10.1016/j.laa.2005.07.019",
+          "Renard arXiv:2506.15444"
+        ]
+      },
+      "checked_sources": [
+        "Lewis–Overton arXiv:1901.00050 pp. 2, 5, 10, 35",
+        "Crabb DOI 10.1307/mmj/1029000687 bibliographic entry",
+        "Local Resultary 2d808ba1bdde, 17db4dbf42a4, bb4675cd0a1f",
+        "Frozen RESULT.md lines 42–103"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known scaled extremizer has end edges √2q and internal edges q. Reconstructing ratios p_{i+1}/p_i=x_i^(−2) yields p_1=1, p_n=K and p_i=1/(2q^(2(i−1))) for interior sites. Testing 2q²≤1 gives the cutoff 2^(n−3).",
+          "The frozen AM–GM equality proof rigidifies that profile, so infeasibility below onset makes the bound strict. The accessible prior passages establish attainment by the Crabb shift; they were not used as evidence of a full equality-case classification.",
+          "For c/a≥√2, imposing q=a/c on the branch gives K=(c/a)^(2(n−1))/4; smaller K is excluded by the already known power-based lower bound."
+        ],
+        "reasoning": "These consequences are not merely a parameter match: the same general inequality supplies the exact bound, and the known general extremizer attains it wherever feasible. The residual metric uniqueness observation follows from an elementary fixed-vector AM–GM equality condition and does not establish originality of the full core claim.",
+        "searches": [
+          "Lewis–Overton arXiv:1901.00050 Eq. (1.1), discussion of (2.1), §4",
+          "Crabb DOI 10.1307/mmj/1029000687",
+          "Frozen RESULT.md lines 60–91"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For S_x=P^(1/2) N_n P^(−1/2), diagonal phase rotation gives w(S_x)=λ_max(T(x))/2, so μ_P(G)=−a+cw(S_x). The only nonzero entry of S_x^(n−1) is ∏x_i=√(p_1/p_n).",
+          "Lewis–Overton arXiv:1901.00050 §4 p. 10 displays the Crabb nilpotent shift with √2 end edges, unit interior edges, and unit-disk numerical range. Scaling by q gives the frozen extremal edges exactly."
+        ],
+        "reasoning": "Diagonal condition budget gives a product constraint; the sharp part of the frozen objective is precisely the numerical-radius/last-power-norm extremal problem. Its known extremizer yields the displayed profile.",
+        "searches": [
+          "Weighted shift product and numerical radius extremizers",
+          "Crabb powers operator numerical radius one equality 2 Crabb matrix superdiagonal sqrt 2 theorem Berger",
+          "Lewis–Overton arXiv:1901.00050"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2d808ba1bdde describes the complete four-stage diagram, cutoff K=2 and contractivity budget 16 for −I₄+2N₄. The frozen result credits that case. The other indexed comparisons concern Schatten-fourth or periodic-shift radii.",
+          "Lewis–Overton’s explicit all-dimensional Crabb matrix yields exactly (√2q,q,…,q,√2q) when scaled to the frozen norm bound."
+        ],
+        "reasoning": "The four-stage catalogue summary is partial prior coverage, not a table of the entire diagonal budget result. What is exactly available beyond it is the prior general-dimensional attaining edge family for the equivalent shift inequality.",
+        "searches": [
+          "Resultary 2d808ba1bdde",
+          "Resultary 17db4dbf42a4 and bb4675cd0a1f",
+          "Lewis–Overton §4 p. 10 Crabb matrix"
+        ]
+      },
+      "rationale": "The central all-length lower bound, sharp high-budget value and attaining profile are direct consequences of the classical Berger power-norm inequality and the explicit Crabb extremizing shifts. Applied to the last nonzero power of the diagonally scaled shift, they give exactly the claimed constant and the candidate. Recovering the metric and testing the two end ratios gives the claimed feasible branch and the contractivity budget by elementary translation. The frozen proof correctly adds an elementary direct equality-rigidity argument; the available modern passage does not verify the historically complete classification of equality cases, so the assessment does not assert that every detail is stated verbatim in Crabb. The verified implication, not inaccessible older text or the dimensional four-stage overlap, is the failure reason.",
+      "residual_risks": [
+        "Whether the original 1971 paper also states the complete equality classification was not checked in its exact text; the central coverage follows without that historical assertion.",
+        "The exact all-budget four-stage proof was not retrieved; it is not necessary for the coverage judgment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "decisive stronger norm bound and exactly attaining shift family; cited passages do not establish complete equality classification",
+          "evidence": [
+            "Eq. (1.1): ||A^k||₂≤2r(A)^k.",
+            "§4: Crabb matrix is the bidiagonal shift with √2 end entries and unit interior entries, with numerical range the unit disk.",
+            "Ref. [8]: Crabb's 1971 Michigan Math. J. paper, vol. 18 pp. 253–256."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1901.00050",
+          "material_read": "p. 2 Eq. (1.1); p. 5 discussion of (2.1); §4 p. 10 Crabb matrix; p. 35 bibliography ref. [8] (OA offsets 0, 13200, 24500, 92751)",
+          "method": "OA bounded passages of identified arXiv PDF",
+          "title": "Partial smoothness of the numerical radius at matrices whose fields of values are disks",
+          "trigger": "exact classical norm bound and candidate edge profile under the weighted-shift alias"
+        },
+        {
+          "assessment": "attribution and attaining example verified in the modern mathematical source; original equality classification not independently inspected",
+          "evidence": [
+            "Lewis–Overton p. 5 and bibliography p. 35; the original full-text passage could not be recovered."
+          ],
+          "identifier_or_url": "https://doi.org/10.1307/mmj/1029000687",
+          "material_read": "bibliographic entry and the explicit modern discussion cited above, not the original full-text passage",
+          "method": "focused literature lookup and bounded OA attempts via DOI, DML and Project Euclid",
+          "title": "The powers of an operator of numerical radius one",
+          "trigger": "original attribution and possible complete equality-case theorem"
+        },
+        {
+          "assessment": "credited exact four-stage case, not the decisive all-length coverage",
+          "evidence": [
+            "Catalogue: transition at K=2 and −I₄+2N₄ threshold K=16; frozen RESULT.md line 101 credits it."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-sharp-metric-conditioning-phase-transition-for-a-four-stage-posi--2d808ba1bdde",
+          "material_read": "local catalogue summary and frozen attribution; full text not retrieved",
+          "method": "Resultary and bounded mirror passage attempt",
+          "title": "Sharp metric-conditioning phase transition for a four-stage positive cascade",
+          "trigger": "same diagonal metric optimization with four sites"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 24–39 and 69–106",
+        "Lewis–Overton arXiv:1901.00050 Eq. (1.1) and §4"
+      ],
+      "rationale": "The sharp conditioning of a nonnormal cascade is a natural question, and the frozen text is a useful self-contained exposition of the high-budget answer. But the exact invariant advanced here is mechanically inherited from the classical power bound and its explicit sharp shift, with only the metric ratios and an elementary sharpness/rigidity test left to check. The record does not solve the lower-budget problem or present a nonroutine independent consequence. The original claim therefore fails the value bar for a narrow exact finding, not because conditioned contractivity is unmotivated or the proof is wrong.",
+      "residual_risks": [
+        "This judgment concerns this frozen high-budget claim. An exact analysis of the unresolved low-budget regimes would require a separate mathematical assessment."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

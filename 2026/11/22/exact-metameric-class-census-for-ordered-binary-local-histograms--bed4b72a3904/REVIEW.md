@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The all-parameter result follows from the two exact equal-read conditions: equal length-\(h\) residue-column differences and zero total change in the first read. Binary mixed columns cannot be shifted; pure columns may be reassigned with their all-one count fixed. This proves every fiber size, complete enumeration, singleton count and maximum. The included direct-word checker passed 120 parameter pairs through length 15 and five further large-parameter identities. Finite verification is corroboration, not an infinite proof.
+## correctness
 
-## Originality — PASS, qualified
-The 2022 source by Sporring and Darkner studies precisely the same **linear ordered local-histogram** observation and gives three boundary formulas, but explicitly states that the general number of nontrivial metameric classes has no known closed form (Section 4.4). The November 2022 histogram-algebra followup offers constructive and recursive tools rather than this finite closed census. The closely related published cyclic-weight theorem uses a pure/mixed argument; its cyclic wraparound input and \(\gcd(n,h)\) class structure do not cover the nonwrapping mixed-length residue-column formula for general \(n\). The underlying pure/mixed mechanism is shared, and unindexed or indirectly equivalent old statements remain a priority risk.
+PASS
 
-## Value — PASS
-This solves a concrete finite counting question identified in primary research on binary-signal reconstruction, rather than proposing an arbitrary slice. It yields an explicit zero-error codebook size, counts all nontrivial ambiguity classes, and determines the complete inverse-list distribution and sharp worst-case list size at every source length and window width. Its interest is specifically the discrete local histogram channel; no general claim about noisy or nonbinary sensors is made.
+For a difference d=y−x, equality of adjacent read increments is exactly d_(i+h)=d_i; equality of the first read is the additional condition Σ_(j≤h)d_j=0. Together these are necessary and sufficient, including a single window. Each mixed binary column is rigid under constant shifts; pure columns can be recolored independently subject only to conserving t, their number of one columns. Thus the invariant data give precisely a binomial fiber, and the products over mixed columns count the full fiber census. For B(z)=∏(b_j+z), the total is B(1)+B′(1); the singleton count is 2B(1)−B(0), since t=0 and t=p coincide only when p=0. This remains valid for columns of length one. For h+1, there are h−1 non-singletons with all columns pure and 2(h−2) with the sole length-two column mixed. The maximal central binomial coefficient at h≥2 cannot be matched by fewer columns; the maximizing reads are the one or two central constant vectors. A zero-error code is a transversal of the fibers. A fresh independent direct grouping of 16,388 word-width instances across 45 pairs 2≤h≤n≤10 agreed with the full histogram and all counts, including the boundaries.
 
-## Scope and residual risks
-The result is restricted to binary words and complete ordered unit-stride nonwrapping noiseless readouts. The derivation is elementary once the residue decomposition is recognized; an equivalent statement may be derivable from previously published general histogram algebra, and a closely related cyclic result is known. Originality is therefore based on the checked statement-level distinctions, not on proof-method novelty. Independent expert priority and proof review remain unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact finite census in the nonwrapping model with general (possibly unequal) column lengths closes a named counting gap in the same-model literature and gives more than K. Boundary cases, the shared pure/mixed rigidity argument, and the divisible-length full census are already covered. The distinct cyclic results, including the same-day multilevel result, do not cover the general nonwrapping theorem.
+
+## value
+
+PASS
+
+Resolves the explicitly posed general count of ambiguous read classes in the exact ordered binary model. The full distribution distinguishes many different collision behaviors with the same total, proves the extremal ambiguity, and determines finite zero-error code size. The result is a complete natural census, not just a check of a boundary number or a restatement of asymptotic capacity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

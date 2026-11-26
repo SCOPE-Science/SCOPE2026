@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:12:25.860702Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–109",
+        "VERIFICATION.md and check_numerics.py (read only)",
+        "Independent analytic reconstruction of the induction and residual convolution"
+      ],
+      "rationale": "Normalizing to x=1, short windows meet at most one occupied block. In the middle range, a suffix and prefix across the gap have total length at most 1/3, so reflection and monotonicity bound their combined mass by one block. In the long range, clamp the window to [0,1]; subadditivity of the previous stage's cumulative occupancy bounds the excluded mass below by that of a single terminal suffix. The base interval and scaling complete the induction. For a general bounded set E with the stated property, the shifted exponential residual H(s) is the integral of shifted cumulative occupancy against exp(-t) dt; it is bounded by lambda_0 and vanishes for s>=X. Convolution with Gamma(k,1) then gives exactly the claimed Poisson-sum gap. The angular factors in the Gaussian STFT are orthogonal in the Hermite basis; r=pi(q²+p²) removes the polar Jacobian constant, giving the eigenvalues as stated. The bound is strict for all k>=1 and uniform below lambda_0 by at least lambda_0 exp(-X); integrating the first mode interval-by-interval gives the digit product, including the empty product at n=0. No inference relies on the recorded finite checks.",
+      "residual_risks": [
+        "The 600064 exact occupancy comparisons and 896 spectral/gap comparisons are source-reported, not independently replayed. They are optional corroboration of the analytic argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nicola–Tilli give a broad norm bound with equality for radially decreasing symbols; the disconnected middle-third indicators at n>=1 are not decreasing. The FUP result gives norm bounds in radius-growth regimes. Knutsen II's exact theorem is for left-justified digits, not {0,2}."
+        ],
+        "reasoning": "The cases with these equality hypotheses do not contain the middle-third theorem for all n,x. More general upper bounds without equality do not imply its top-mode identity or gaps.",
+        "searches": [
+          "arXiv:2207.08624 Theorem 2.2",
+          "arXiv:2204.03068 Theorem 4.1",
+          "arXiv:2104.10976 Theorem 3.1 and §4.2"
+        ]
+      },
+      "checked_sources": [
+        "Knutsen I and II actual theorem and discussion passages",
+        "arXiv:2204.03068, 2207.08624, 2201.11705",
+        "Four local Resultary comparison searches and mirror passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knutsen I notes the failure of the relative-area comparison used to try to prove universal optimality. Knutsen II gives canonical-digit equality and retains factor-two control in the noncanonical comparison. The Bergman sources concern different measures and function spaces."
+        ],
+        "reasoning": "Cumulative subadditivity is a known input, but the residual exponential comparison and Gamma convolution make the additional all-degree domination and finite-horizon gap; these do not follow by equating or reindexing the existing norm estimates.",
+        "searches": [
+          "Knutsen I §3.3 and Knutsen II introduction, Theorem 3.1, §4.2",
+          "arXiv:2201.11705 Theorem 2.1",
+          "Resultary 63edb9579ca8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Knutsen I has the product for lambda_0 but only the factor-two norm control in the retrieved Theorem 3.2. Part II explicitly describes mid-third optimality as not established. The closest local Gaussian top-mode result c03ad6887154 concerns an infinite periodic band mask."
+        ],
+        "reasoning": "The available statement about lambda_0 alone is not the maximizing eigenvalue assertion, and neither a periodic mask nor an alternative radius convention converts the noncanonical finite Cantor geometry into a covered case.",
+        "searches": [
+          "Local Resultary middle-third Gaussian STFT spectral maximum, related periodic masks, Bergman vacuum and radial spectral constraints",
+          "arXiv:1907.00848 and arXiv:2104.10976"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day Finding 6da8205f0d94 treats three labelled Hermite responses, explicitly not ordered eigenvalues of an individual operator. The other relevant exact hits are c03ad6887154 (periodic mask), 63edb9579ca8 (Bergman vacuum), and 00185e1fcc1d (count of local maxima). The exact first-eigenvalue product is in Knutsen I Eq. (3.10)."
+        ],
+        "reasoning": "None of the inspected exact catalogue entries or the explicitly tabulated eigenvalue formula provides the all-radii maximizing identity for this family.",
+        "searches": [
+          "Four local Resultary comparisons for the exact finite middle-third STFT norm, radial attenuation feasibility, periodic masks and Cantor vacuum/mode cap"
+        ]
+      },
+      "rationale": "The spectrum, Cantor cumulative subadditivity, and first-eigenvalue product are already known. The distinct supported claim is that this product is always the norm for the finite middle-third family, with a strict quantitative gap and an extension by initial-window domination.",
+      "residual_risks": [
+        "A bounded search cannot exclude an unindexed equivalent. The published first-eigenvalue formula and qualitative input are not novelty claims."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "covers product and factor-two estimate, not the maximizing identity",
+          "evidence": "||P||<=2 lambda_0; relative-area argument fails to compare all modes. Numbering is version-specific.",
+          "identifier_or_url": "https://arxiv.org/abs/1907.00848",
+          "material_read": "retrieved arXiv Theorems 3.2–3.3; §3.3.1 Eq. (3.10) and §3.3.2, PDF pp. 8–10, offsets 25450, 28670, 31300",
+          "method": "OA primary PDF passages",
+          "title": "Daubechies' Time-Frequency Localization Operator on Cantor Type Sets I",
+          "trigger": "same operator and exact lambda_0 product"
+        },
+        {
+          "assessment": "canonical equality excludes the mid-third alphabet",
+          "evidence": "The text says the Gaussian result was not established for mid-third; with two canonical digits and base three the digits are 0,1.",
+          "identifier_or_url": "https://arxiv.org/abs/2104.10976",
+          "material_read": "introduction p. 3 offset 8500; Theorem 3.1 p. 6 offset 19750; §4.2 p. 17 offsets 62200–64333",
+          "method": "OA primary PDF passages",
+          "title": "Daubechies' Time-Frequency Localization Operator on Cantor Type Sets II",
+          "trigger": "exact Gaussian top mode for a Cantor alphabet"
+        },
+        {
+          "assessment": "bounds at radius scales, no exact top identity",
+          "evidence": "The norm estimate uses radius-growth hypotheses.",
+          "identifier_or_url": "arXiv:2204.03068",
+          "material_read": "Theorem 4.1 p. 13 offset 49100",
+          "method": "OA primary PDF passage",
+          "title": "A Fractal Uncertainty Principle for the Short-Time Fourier Transform and Gabor Multipliers",
+          "trigger": "later radial Cantor STFT bounds"
+        },
+        {
+          "assessment": "equality hypotheses do not cover disconnected radial indicators",
+          "evidence": "Radially decreasing equality symbols are a different class.",
+          "identifier_or_url": "arXiv:2207.08624",
+          "material_read": "Theorem 2.2 pp. 7–8 offset 18000",
+          "method": "OA primary PDF passage",
+          "title": "Nicola–Tilli localization norm bounds",
+          "trigger": "broader Gaussian localization extremizer theorem"
+        },
+        {
+          "assessment": "Bergman/time-scale problem",
+          "evidence": "Two-sided norm orders in a different operator setting.",
+          "identifier_or_url": "arXiv:2201.11705",
+          "material_read": "abstract, p. 1 and Theorem 2.1 p. 5 offset 15170",
+          "method": "OA primary PDF passages",
+          "title": "Abreu–Mouayn–Voigtlaender Cantor localization",
+          "trigger": "apparently similar Cantor norm theorem"
+        },
+        {
+          "assessment": "different quantities, masks or spaces",
+          "evidence": "Three-channel feasibility is not an ordered spectrum; the periodic mask is infinite; the Bergman theorem has the critical 3^m C_(2m) scaling and a different kernel; the finite-annuli result caps the number of local maxima.",
+          "identifier_or_url": "6da8205f0d94; c03ad6887154; 63edb9579ca8; 00185e1fcc1d",
+          "material_read": "all four Finding passages, offset 0; Bergman additional passage offset 6400",
+          "method": "local full-text mirror",
+          "title": "Three-channel feasibility; periodic radial Gaussian mask; critical Cantor–Bergman localization; finite-radial-mask mode cap",
+          "trigger": "strongest local catalogue comparisons for the candidate exact spectrum/ground state"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 14–33 and 68–111",
+        "Knutsen II introduction and Theorem 3.1"
+      ],
+      "rationale": "The theorem closes the concrete mid-third case left open by the canonical-digit analysis, replacing a factor-two bound by a unique maximizer and exact norm at all finite radii. The residual-window argument also gives a testable geometric sufficient condition and an explicit separation from every excited mode.",
+      "residual_risks": [
+        "No optimality of the numerical gap bound or coverage of arbitrary disconnected symbols is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,24 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The physical spin-flip generator closes exactly on one-site magnetizations, with no approximation or hierarchy closure. The three-by-three Bloch characteristic equation follows by determinant, and its explicitly factored discriminant settles all parameter ranges. The repeated-root geometric multiplicity is proved by a nonzero minor; the order-three nilpotent Jordan form is checked by direct matrix identities. The oscillatory uniform-mode formula follows by a two-dimensional matrix exponential with admissible initial spin means. The standalone verifier reproduces 10 symbolic checks, 5,016 exact generator identities and 15 numerical finite-ring spectral tests. Risks: floating checks alone cannot prove the continuum theorem, hence its determinant/Jordan proof is essential; no full Markov spectrum is claimed.
+PASS
 
-## Originality — PASS on examined evidence, provisional
+Only a flip at i changes σᵢ, so applying the physical generator gives exactly −σᵢ+(γᵢ/2)(σᵢ₋₁+σᵢ₊₁). The mean-spin Fourier matrix (the corresponding observable matrix may be transposed) has the same spectrum and Jordan orders. In the three-cell characteristic polynomial the linear term comes from the sum of the three reciprocal-bond products and the constant term from the two directed three-cycles. They give p=−g²(1−2u)/4 and q=g³u cos(k)/4, hence −4p³−27q² is exactly the displayed discriminant. Its minimum over the mesh is at k=0, where the sign factors as (1+u)²(1−8u). At equality k=π is also critical if present, and the 2×2 principal minor at μ=±g/4 is −3g²/16, so each repeated root has geometric multiplicity one. The discriminant sign gives the mixed-regime cutoff and, at u=1/2, all blocks are still nonreal-paired except those with cos(k)=0. At these two momenta Cayley–Hamilton gives B³=0 while (B²)₃₁=−g²/8, proving a size-three Jordan block. They are in the mesh precisely when 4 divides m. A nonzero real combination of conjugate Fourier data can be scaled to admissible spin means to realize the quadratic transient. At k=0 the positive-bath-equal sector, shifted by −1+g/4, squares to g(g−8h)I/16; its exponential gives the stated damped sinusoid, frequency and linear-in-time limit at the first threshold. These are one-spin statements, not the full Markov spectrum. The supplied verify.py was inspected, not executed. It has a hard-coded symbolic count of 10 despite 12 assert evaluations in that function; the numeric list also includes (.6,.075), nominally the first exceptional ratio, despite the verification note describing nonexceptional samples. Neither reporting issue affects the symbolic Jordan argument.
 
-The 2004 Mobilia–Zia–Schmittmann two-bath solution already gives exact magnetization closure and oscillatory opposite-sign baths. The 2004/2005 reaction-diffusion extension covers two alternating baths, while Schmittmann–Schmüser's 2002 work concerns two-bath stationary correlations. The closely related archived period-three finding proves a stationary four-spin factorization obstruction at positive bath parameters, not the negative-bath relaxation phase diagram. None of those examined materials states or directly implies the \(1/8\) threshold, full Bloch discriminant, or the third-order special modes; a broader periodic-rate solvability result could nonetheless subsume the specialization. The value and novelty judgments are subject to independent historical-priority verification.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This result identifies a finite antagonist-strength threshold absent in alternating baths, a momentum-dependent coexistence of oscillatory and purely decaying modes, and an exceptional point of higher order in an irreducible stochastic spin system. The phase diagram applies to infinitely many finite rings and includes a realizable magnetization response and its square-root onset. It is a structural, parameter-sharp classification of a motivated three-reservoir generalization, not a routine numerical invariant. It remains intentionally restricted to one-spin observables.
+The known exact one-spin closure, Floquet method and existence of opposite-sign oscillations in a two-bath chain are not new. The distinct supported result is the nonzero sharp onset, wavenumber-resolved real/nonreal classification and mesh-dependent size-three Jordan block for this sign-frustrated three-site unit cell. The strongest inspected periodic relaxation framework has a common bath and variable site relaxation times, so its eigenproblem does not give these sign-frustrated eigenvalues. Priority beyond the inspected material is not certified.
 
-## Closest literature and limitations
+## value
 
-- Mobilia, Zia, and Schmittmann (2004), arXiv:cond-mat/0405375: exact two-bath kinetic magnetization dynamics; opposite-sign oscillations.
-- Mobilia, Schmittmann, and Zia (2004), arXiv:cond-mat/0412576: alternating two-bath reaction-diffusion duality.
-- Schmittmann and Schmüser (2002), arXiv:cond-mat/0212616: two-bath stationary correlations.
-- Archived period-three four-spin factorization result: a stationary, all-positive-temperature question, not this negative-temperature spectral problem.
+PASS
 
-Potential coverage by a broad uninspected periodic kinetic-Ising spectral theorem remains the main originality risk. The proof does not cover higher-order spin modes, and the third-order exceptional point requires a finite-size commensurability condition.
+A negative bath no longer suffices for all or even any oscillatory one-spin modes, in contrast to the elementary two-alternating-bath case. The result provides the exact nonzero onset on every allowed ring, predicts which discrete modes oscillate beyond it, and exhibits a third-order defect with an observable quadratic transient only at specified lengths. This is a sharp, testable spectral boundary in a natural Markov model, not merely diagonalization at one parameter point.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

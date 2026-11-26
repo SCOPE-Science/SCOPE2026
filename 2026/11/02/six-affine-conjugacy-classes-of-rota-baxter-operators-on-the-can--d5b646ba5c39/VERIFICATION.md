@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The stand-alone Python 3 checker `check_affine_heisenberg.py` uses no third-party dependencies. Run `python3 check_affine_heisenberg.py`. Its exact output is included in `verification_output.txt`. Over \(\mathbb F_2\) and \(\mathbb F_3\), it enumerates linear idempotents, tests the weight-minus-one Lie identity, checks all normalizing translation vectors, and directly evaluates the **full affine Rota–Baxter identity for each resulting map and every ordered input pair**. Over \(\mathbb F_2\) it also independently enumerates all affine maps, comparing the exact sets of solutions.
+## correctness
 
-It constructs every affine automorphism of the canonical Heisenberg Lie affgebra in these two fields, conjugates each solution, and checks complete orbit partitions against the formula. The observed total counts are 57 and 244; corresponding orbit-size multisets are respectively \(\{1,2,6,12,12,24\}\) and \(\{1,3,24,36,72,108\}\). The last output line is `VERIFY_OK`.
+PASS
 
-The checker was executed from the file embedded with this result; its bytes and output hashes are validated when the enclosing package is reopened. These computations are finite and do not certify arbitrary fields. The proof in `RESULT.md` establishes the universal statement. No independent mathematical audit was performed.
+Independently expanded the affine identity for P(u)=Ru+p: evaluation at (0,0) gives Rp=0; evaluation at (u,0) gives commutation with ad_p; evaluation at (0,v) then gives R²=R. The remaining bilinear terms give the weight-minus-one identity. This uses no restriction on characteristic. The projection identity is equivalent to its image and kernel being subalgebras, and the condition on p says that it is in the kernel and normalizes the image. A plane is a subalgebra exactly when it contains the center. In a rank-one splitting the two complementary directions modulo the center are independent, so the only permitted p is central and can be removed. In rank two p is arbitrary on the kernel line, a central affine translation does not change it, and the split stabilizer scales that line by every nonzero scalar. The quotient GL₂ and central shears move any ordered planar/line splitting of the given ranks to the displayed representative. Constants split by centrality and rank three gives only the identity. Counting q+1 central planes with q² complementary lines per plane gives all six orbit sizes and total 2q⁴+3q³+1. The proof explains both exhaustion and inequivalence.
+
+## originality
+
+PASS
+
+The verified distinct contribution is the fixed-canonical Heisenberg orbit partition and finite-field counts, not the general factorization or conjugacy criterion. The closest general theorem does not identify the Heisenberg subalgebra-pair orbits, which translations survive central conjugacy, or their multiplicities. The closest indexed census solves a different, linear weight-λ identity.
+
+## value
+
+PASS
+
+The Heisenberg algebra is the basic three-dimensional nonabelian nilpotent test case for turning canonical-affgebra factorization into a complete classification. In particular, the two rank-two orbits identify a translation invariant that gets lost when changing brackets is allowed. The all-field result, including characteristic two, and exact orbit sizes make this a usable benchmark for affine, rather than merely linear, classifications.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

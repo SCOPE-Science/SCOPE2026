@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,34 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The checker builds the half graph from its adjacency rule and computes all-pairs shortest-path distances. It independently enumerates every oriented length-three path whose endpoints are at distance three, converts each to an unordered triple of edge identifiers, and compares that set with the symbolic family
-\[
-\{a_\ell b_j,a_\ell b_k,a_i b_k\},
-\qquad
-\ell\le j<i\le k.
-\]
+# Independent mathematical audit
 
-For \(2\le n\le6\), it then exhausts every edge subset of size
-\[
-\left\lfloor\frac{(n+1)^2}{4}\right\rfloor
-\]
-and one larger. Every oversized set fails. The feasible sets at the proposed optimum are compared exactly, as sets of bitmasks, with the balanced complete-bipartite constructions whose binary strings have at most three runs.
+## correctness
 
-Recorded output:
+PASS
 
-```text
-VERIFY_OK
-n=2: gp_e=2, maximum_sets=3, geodesic_triples=1
-n=3: gp_e=4, maximum_sets=2, geodesic_triples=5
-n=4: gp_e=6, maximum_sets=5, geodesic_triples=15
-n=5: gp_e=9, maximum_sets=3, geodesic_triples=35
-n=6: gp_e=12, maximum_sets=7, geodesic_triples=70
-definition_level_triple_comparisons = 1926
-near_extremal_subsets_checked = 505783
-classification_exhaustive_through_n = 6
-predicted_maximum_constructions_checked_through_n = 20
-```
+Two vertices on the same shore have a common neighbor (b_n or a_1); an opposite-shore nonadjacent pair has distance three via a_1,b_n. Thus a geodesic with three selected edges must have length three, and orienting from B to A gives b_j−a_ell−b_k−a_i with ell≤j<i≤k. The map a_i b_j ↦ {i,j+1} is a bijection. Every sorted triangle p<q<r lifts to b_(q−1)−a_p−b_(r−1)−a_q with nonadjacent endpoints, so the image of a feasible set is triangle-free and Mantel gives the upper bound. For a cut, three crossing pairs along the displayed geodesic would require alternating colors at ell,j+1,i,k+1; if j+1=i it is impossible, otherwise these are four distinct increasing positions. Conversely any alternating four positions p<q<r<s give the forbidden crossing pairs {p,q},{p,s},{r,s}, lifting to a geodesic. This is equivalent to at least four runs. A balanced two-run cut therefore attains the bound, and Mantel equality forces every maximum to be such a balanced cut with at most three runs. Connectivity of the complete bipartite image determines the partition up to reversal of colors. With positive counts x,y there are 2+(x−1)+(y−1)=n+1 labeled strings, with complementation dividing by two only when the color counts are equal. The proof covers n=2 and uses twin-free half-graph adjacency, not general chain graphs. The frozen code was inspected, not executed. Independent BFS predecessor recovery and branching over feasible edge subsets (`python3 -I /workspace/checks/4.py`) recovered all optimizer sets through n=6, equal to the predicted cut images, with respective counts 3,2,5,3,7; see /workspace/checks/4.log. The finite check is corroborative.
 
-The checker also builds every predicted maximum construction through \(n=20\) and tests it directly against the reconstructed geodesic triples. These computations corroborate the theorem; the arbitrary-order proof is the Mantel reduction and equality/run analysis in RESULT.md.
+## originality
+
+PASS
+
+The supported distinct content is the sharp half-graph value together with the exact cut/run characterization of all optimizers and its count. The inspected prior results use different graph families or position parameters, or give general methods without this equality case. This is a best-of-knowledge verdict subject to the specific unavailable full texts below.
+
+## value
+
+PASS
+
+On the canonical twin-free chain graph, the result goes beyond evaluating the invariant: it reduces geodesic avoidance to an ordered extremal condition, identifies every optimum and gives an exact optimizer census. The alternating pattern explains the extra constraint not captured by the Mantel bound alone and makes the complete classification usable directly.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

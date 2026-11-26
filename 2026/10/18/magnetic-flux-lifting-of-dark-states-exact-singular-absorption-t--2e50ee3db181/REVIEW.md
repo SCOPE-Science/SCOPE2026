@@ -1,17 +1,21 @@
-# Scientific review: Magnetic-flux lifting of dark states
+# Independent mathematical audit
 
-## Correctness — PASS
-With one positive-strength local loss channel, zero-flux sine modes are exact, simple decoupled eigenstates; the bright restriction has strictly negative imaginary spectrum. The first magnetic perturbation couples each dark Fourier sine mode to its corresponding cosine mode. A rank-one dissipative bright resolvent identity gives imaginary second-order eigenvalue coefficient \(-4\sin^2(2\pi k/n)/(n\gamma)\). The mode projections converge, producing the stated survival profile and the integrated mean coefficient. An exact finite Fourier identity evaluates the odd/even sums. The detector-start identity comes from a trace of the continuous Lyapunov equation. The proof applies for every fixed \(n\ge3\), \(\gamma>0\), \(d\), and flux tending to zero from either side.
+## correctness
 
-Direct programmatic checks of the generator and Gramian passed at 63 cases for finite survival, 126 small-flux sitewise asymptotics, 48 slow complex eigenvalue comparisons, and 28 rescaled survival comparisons. These are corroborations rather than proofs of the general theorem.
+PASS
 
-## Originality — PASS relative to inspected evidence
-Earlier trapping and hitting literature proves the underlying dark-state and non-Hermitian methods, but the primary material inspected does not establish the explicit all-size \(\Phi^{-2}\) lifetime coefficient, its parity-dependent exceptional vertices and the complete slow-time profile. The directly relevant magnetic-triangle first-hit paper uses a different measurement mechanism and was available only at abstract level. The known detector-start trace formula is an ancillary consistency identity, not an independent novelty claim. A stronger, undiscovered non-Hermitian spectral reduction remains possible.
+Dissipativity forces every real eigenvalue to have an eigenvector of the Hermitian cycle vanishing at the detector. At nonexceptional flux the Fourier energies are distinct and every Fourier vector has detector amplitude n^(-1/2). At zero flux exactly the sine lines of the paired energies are dark; on the bright restriction all eigenvalues are strictly damped, so each dark line is algebraically simple. Independently, the rank-one secular equation is 1+(i gamma/(2n)) sum_l (z-e_l(Phi))^(-1)=0. For the pair near E_k its energies have midpoint E_k+O(Phi^2) and half-splitting of magnitude v_k |Phi|+O(Phi^3), with v_k=2|sin(theta_k)|/n. Writing z as the midpoint plus c Phi^2, the two terms have sum tending to -2c/v_k^2; all other terms have real limits. Equating the imaginary part of the resulting sum to 2n/gamma gives Im c=-n v_k^2/gamma, confirming the author's perturbative width and normalization. At t=s/Phi^2, analytic projections tend to orthogonal sine lines with weights (2/n)sin^2(d theta_k); interference vanishes and the bright complement is uniformly exponentially damped (a fixed lower-half-plane contour suffices even at a defective bright eigenvalue). Integrated distinct slow branches have denominators bounded away from zero by their distinct limiting real energies. Each diagonal term is its exact perturbed weight divided by its decay rate; if the initial dark overlap is zero the weight is O(Phi^2), which proves boundedness rather than merely a zero scaled limit. Thus the coefficient is gamma/4 times the stated trigonometric sum. Fourier orthogonality of the length-r geometric sum gives the full N-cycle sum Nr-r^2; odd-cycle doubling permutes residues and pairing halves the sum, while even-cycle labels run once through the nonzero residues modulo m=n/2. This confirms both parity formulas and all zero-coefficient sites. Finally, tracing the integrated-survival Lyapunov equation gives gamma X_00 equal to the decaying dimension, n away from zero and floor(n/2)+1 on the bright restriction at zero. The frozen numerical script was not executed; the argument is finite-dimensional and analytic.
 
-## Mathematical value — PASS
-A physically natural flux perturbation converts infinite absorption times into large but finite times, and the exact divergent coefficient unexpectedly reduces to simple cyclic distances, including an antipodal cancellation only on even rings. The full slow-time profile distinguishes the metastable Fourier modes beyond the first moment. This is a complete arbitrary-size classification at fixed loss strength, not a routine isolated finite-state calculation.
+## originality
 
-## Literature and limitations
-Mülken et al. (2007), Varbanov–Krovi–Brun (2008), and Agliari–Mülken–Blumen (2009) were inspected in full text. Wang et al. (2024) was compared using available abstract material only. No large-system or simultaneous weak-detection limit is proved; monitoring is irreversible local quantum-jump absorption, not periodically repeated projective observation. Independent scientific assessment has not been done.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Credit the uncovered site-resolved zero-flux relaxation profile across both parities and its sitewise mean-time consequences on even rings. The exact odd-ring mean already covers the odd coefficient; the exact even-ring mixed mean covers its site average. The half-flux result gives a closely related relaxation mechanism and a shared exact spectral polynomial, but its antipodal profile at half flux does not contain this zero-flux, arbitrary-site time-dependent statement. The trace identity, static dark-space classification and generic decay mechanism are not original contributions here.
+
+## value
+
+PASS
+
+The full site-resolved transient explains how a static dark probability becomes a set of long-lived absorption channels, rather than merely giving another mean or an ultimate detection probability. The parity-dependent coefficients and exceptional starts distinguish genuine lifetime divergence from a finite discontinuity. Those differences are useful benchmarks for this standard continuous trapping geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

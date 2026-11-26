@@ -1,11 +1,21 @@
-# Scientific review: signed dependence in uniform bipartite acyclic orientations
+# Independent mathematical audit
 
-**Correctness — PASS.** The theorem concerns exactly the uniform measure on the \(2\cdot3^n-2^n\) acyclic orientations of \(K_{2,n}\), \(n\ge2\), with edge indicators normalized to zero or one. The proof counts forbidden mixed columns, computes three exact two-point marginals, diagonalizes the full covariance in symmetric and antisymmetric column modes, and inverts its three strictly positive eigenvalues. Strict signs follow from \(c_n,d_n>0\) and the convexity of reciprocal. Exact independent DAG enumeration through \(n=8\), plus exact covariance-matrix multiplication, passed 90,094 assertions. The proof, rather than enumeration, establishes all sizes and asymptotics.
+## correctness
 
-**Originality — PASS, within the inspected literature and with residual historical-priority risk.** The underlying lonesum encoding and counts are old and expressly not claimed as new. The 2024 Khera–Lundberg paper studies longest paths in the same random acyclic-orientation family; the 2023 Carballosa–Khera–Reyes paper studies orientation encoding and enumeration; Cameron's 2014 slides explicitly raise edge-correlation questions. Their inspected statements do not give the covariance spectral/precision law. The closest mathematical-result comparison about inversion indicators is for uniform random total orders, not uniform acyclic orientations of \(K_{2,n}\); its disjoint-pair covariance vanishes whereas the present law has \(\pm d_n\ne0\). A hidden two-row lonesum covariance calculation or stronger weighted enumerator could have historical priority; searches cannot exclude it.
+PASS
 
-**Value — PASS.** A concrete edge-correlation question about uniformly sampled acyclic orientations is answered by a complete strict sign classification, an exact three-level spectrum, and an inverse-covariance classification for all sizes in a natural infinite graph family. The asymptotic distinction is informative: across columns the ordinary correlations remain \(\pm1/9\), yet the full-order *linear* partial correlations are only \(\pm3/(4n)+o(n^{-1})\). This is not merely a restatement of known poly-Bernoulli orientation counts; it controls every linear score and every adjusted edge-pair dependence.
+Independently reconstructed the second moments using S_i=X_ai+X_bi−1 and D_i=X_ai−X_bi. Any nonzero D_i fixes the sign of every other nonzero D_j, since opposite mixed columns form a directed four-cycle and K_{2,n} has no longer simple cycles. This gives E[D_i²]=2·3^(n−1)/Z and E[D_i D_j]=2·3^(n−2)/Z for i≠j. When a column is unmixed, its two choices give opposite S_i and can be toggled independently; hence cross moments with S_i vanish and E[S_i²]=1−E[D_i²]. In normalized pair coordinates the two blocks are s I and 4d I+2d J. Their inverses are s⁻¹ I and (4d)⁻¹[I−J/(n+2)], giving the four claimed entries. The diagonal of the inverse difference block exceeds 1/(1/4−c) by strict convexity and hence exceeds 1/s; this establishes the same-column sign. The limits follow from d→1/36, c→1/12 and Q_ee→6. At n=2 the sum modes and the constant difference mode share eigenvalue 2/7, of total multiplicity 3; the table counts the listed orthogonal modes separately (the other eigenvalue is 1/7). The frozen finite checker tests rational entries/signs against topological sorting, not a substitute for the proof.
 
-**Closest literature and limitations.** See arXiv:2408.12716 (first posted August 22, 2024), arXiv:2303.09021 (first posted March 16, 2023), Cameron's January 6, 2014 lecture slides, and the relevant permutation-indicator precision record cited in `RESULT.md`. Other probability laws or nonlinear conditional independence are not covered. No historical-priority guarantee or independent mathematical verification is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior orientation counts and representations are credited. The closest earlier precision law uses a different graph and probability measure; the strongest same-law transform is a later result and its actual derivational overlap is explicit below. No earlier equivalent coverage of the exact dependence law was established.
+
+## value
+
+PASS
+
+This is a canonical uniform law on a complete bipartite family with an unbounded exchangeable side. The finding gives exact benchmarks for dependence and inverse dependence: in particular, cross-column marginal correlations stay macroscopically nonzero whereas full-order linear partial correlations vanish at a known signed 1/n rate. Orientation counts or path-length frequencies do not answer that question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

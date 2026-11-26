@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:09:09.477359Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Gaussian radial factorization independently recovers the sphere moments. For a standard Gaussian vector G, the quadratic-form generating function is det(I−2zA)^(-1/2), and inserting (u·G)^2 multiplies it by uᵀ(I−2zA)^(-1)u. Dividing the resulting moments by the appropriate radial moments and using tr(A^4)=(tr(A²))²/2 gives the frozen mixed and pure terms. Odd-parity terms vanish. For each eigenvalue λ, the remaining two eigenvalues contribute at least λ²/2 to tr(A²); equality forces both equal. The real deficit and optimizer s/(s+t)=15/32 follow, and alignment with the unique simple eigenline is necessary since both degree energies are positive. On that axis the normalized linear and P2 coefficients are the square roots of 3·15/32 and 5·17/32; sign and phase are absorbed by axis reversal and scaling. In the complex case Cauchy–Schwarz forces squared real and imaginary parts to be proportional when both are nonzero. The sphere is connected and the parts are real analytic, so the product of the sum and difference being identically zero forces one factor to vanish identically. This exhausts equality. Independent symbolic moment and square completion checks replay with `python /workspace/replay_frozen_reviews.py 1`; those calculations verify identities, not the equality logic by enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The single-degree projection and reverse Hölder works provide asymptotic orders; the spectral-window review discusses regimes of concentration. In contrast c4d958a1c378 gives a full exact real interval, including the same upper endpoint with its identical two-term deficit and a new lower-end calculation not claimed in the frozen record."
+        ],
+        "reasoning": "The asymptotic and single-degree estimates do not imply an exact low-band constant. The precise full real interval independently contains the frozen real upper theorem. This is broader on the real band, not literally a theorem stated for complex functions.",
+        "searches": [
+          "Kwon–Lee arXiv:1709.09795 Theorems 1.1–1.2",
+          "Germain arXiv:2306.16981 §§1,2.2",
+          "Dai–Feng–Tikhonov, reverse Hölder inequalities for single-degree harmonics",
+          "c4d958a1c378 real quartic range and rigidity"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check.py and check_output.txt (read only)",
+        "Resultary c4d958a1c378 and d4106097159f",
+        "Kwon–Lee arXiv:1709.09795 and Germain arXiv:2306.16981",
+        "Dai–Feng–Tikhonov Theorem 1.1; sampled Marzo–Ortega-Cerdà and Sogge–Zelditch relevant statements"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For f=g+ih in the complexification, ||f||₄²=||g²+h²||₂≤||g||₄²+||h||₄²≤√(375/112)(||g||₂²+||h||₂²). The real extremizers already attain equality; if both parts are present, equality of the first bound implies proportional squares and analytic proportionality. Thus all complex maximizers are their complex scalar multiples. Pure degree one follows by integrating the square and fourth power of a uniform coordinate and the same complexification principle."
+        ],
+        "reasoning": "The exact real mixed statement is enough for the entire verified complex assertion by this direct norm reduction; pure-degree facts alone are not enough. The evidence establishes existing equivalent coverage but not anticipation before October 27.",
+        "searches": [
+          "c4d958a1c378 Finding (U), upper equality, proof Step 4",
+          "d4106097159f exact degree-two norm versus mixed moment"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "c4d958a1c378 uses the real subspace of the same band and probability measure. Its upper normal form is 3x_3²−1+(6/√17)x_3; dividing the frozen coefficients by the coefficient of P2 and then multiplying by two gives precisely this form."
+        ],
+        "reasoning": "Normalization, optimizer ratio and sign symmetries coincide. Rewriting as a sharp norm instead of as its fourth power or as an upper endpoint does not change the assertion. The real/complex difference is addressed explicitly below.",
+        "searches": [
+          "Resultary mixed dipole–quadrupole S² no constant sharp fourth moment; c4d958a1c378",
+          "Sharp finite-band L²-to-L⁴ norm and equality set"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "c4d958a1c378 Finding explicitly displays 375/112, an aligned zonal upper extremizer, and the 15:17 energy split. The earlier d4106097159f gives 15/7 and constant-phase real equality in the complex pure-quadratic band on S²."
+        ],
+        "reasoning": "There are exact mixed-real and pure-quadratic matches in two distinct entries. The overlapping mixed entry's later listed date is separately recorded and does not establish the direction of discovery.",
+        "searches": [
+          "Resultary normalized constant 375/112 mixed degree one and two",
+          "Resultary d4106097159f and c4d958a1c378"
+        ]
+      },
+      "rationale": "The distinct indexed result c4d958a1c378 exactly covers the real upper endpoint, the same deficit, and its equality spectrum on the identical normalized real band. The complex bound and all its equality cases then follow mechanically by Cauchy–Schwarz and analytic proportionality. This is a finding of equivalent coverage in the inspected corpus, NOT a finding that the other record has earlier priority: its listed date is 2026-11-08, after the frozen record. The inspected older single-degree papers and records do not establish earlier priority for the mixed result.",
+      "residual_risks": [
+        "The later-listed record's relationship to the frozen result, including possible dependence, is not established. Do not interpret corpus overlap as an earlier historical proof.",
+        "Stanton–Weinstein full text could not be retrieved by the bounded lawful lookup; its abstract is on single-degree local extremizers. Duoandikoetxea's 1987 full theorem likewise was not obtained. Neither access limitation is the basis for FAIL."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact real match; complex claim follows; listed later",
+          "evidence": "Identical upper deficit including 192/35 and 16/35 terms, identical 15:17 energy ratio/axis rigidity, and sharp upper constant 375/112.",
+          "identifier_or_url": "c4d958a1c378",
+          "material_read": "Finding and real/no-degree-zero assumptions (offsets 0–2778); Proof Step 4 and equality discussion (near offset 5000)",
+          "method": "Resultary local-mirror passages",
+          "title": "Sharp fourth moments and rigidity for mixed dipole–quadrupole spherical polynomials",
+          "trigger": "Exact same constant and band in a distinct indexed finding"
+        },
+        {
+          "assessment": "Exact pure-degree coverage only",
+          "evidence": "Exact complex degree-two result in every dimension gives 15/7 on S² and phase-times-real equality.",
+          "identifier_or_url": "d4106097159f",
+          "material_read": "Finding and dimensional statement, offsets 0–4171",
+          "method": "Resultary local mirror",
+          "title": "Sharp L4/L2 norm and extremizers for degree-two spherical harmonics",
+          "trigger": "Pure-quadratic special case and possible mixed overlap"
+        },
+        {
+          "assessment": "Asymptotic single-degree result, not the exact mixed band",
+          "evidence": "Single-degree projector H_n^d and bounds in specified exponent regions with constants not giving this exact norm.",
+          "identifier_or_url": "https://arxiv.org/abs/1709.09795",
+          "material_read": "PDF p. 1 and pp. 3–4, Theorems 1.1–1.2",
+          "method": "Primary OA PDF",
+          "title": "Sharp Lp–Lq estimates for the spherical harmonic projection",
+          "trigger": "Named sharp estimate in the same field"
+        },
+        {
+          "assessment": "Context for concentration, not exact two-degree classification",
+          "evidence": "Window projectors and sphere examples distinguish zonal and geodesic focusing; no exact mixed quartic theorem in the inspected passages.",
+          "identifier_or_url": "https://arxiv.org/abs/2306.16981",
+          "material_read": "§1 and §2.2, extraction offsets 3016–7985 and 10500–16596",
+          "method": "Primary OA PDF",
+          "title": "L² to Lp bounds for spectral projectors on thin intervals in Riemannian manifolds",
+          "trigger": "Spectral-window norm comparison"
+        },
+        {
+          "assessment": "Single-degree asymptotic orders",
+          "evidence": "Does not supply exact degree-one/two mixture or joint equality cases in the cited theorem.",
+          "identifier_or_url": "Dai–Feng–Tikhonov (2014), Theorem 1.1",
+          "material_read": "Abstract/introduction and Theorem 1.1, extraction offsets 0–2983 and 5300–9428",
+          "method": "Primary text",
+          "title": "Dai–Feng–Tikhonov, reverse Hölder work on spherical harmonics",
+          "trigger": "Sharp reverse Hölder bounds could subsume the fourth moment"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The sharp finite-band problem and axial rigidity are themselves mathematically useful. As a distinct contribution against the inspected corpus, however, the reproduced real theorem has no independently useful complex remainder: the full upper statement including equality follows by ordinary complexification on analytic real functions. Narrowing to the complex case alone does not repair that overlap.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:55:42.982077Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Writing the one positions as B(j), ordinary gaps are 1+3^ν₂(j) and the wrap gap is 1. The telescoping sum of divisibility indicators would give 3^(n−1) at residue zero in the adjusted gap h=g−1; subtracting it gives h_0=0. Equal-length residue blocks differ by at most one in the count of multiples at each scale, and the total possible excess 3^(n−1)−1 is less than this wrap correction. Therefore every minimum block of fewer than 2^n gaps uses the wrap gap. The resulting span is 2+min_{a+b=m−2}(B(a)+B(b)); for one one it is 1. Weighting the binary digit equations by 2·3^j shows that each carry into bit j subtracts 2·3^(j−1) from B(m−2). No carry is possible before the first zero or above the leading one; if the first zero is below the leading one, the pattern initiating there, propagating through all intermediate bits and stopping at the leading one is feasible and dominates all others. This gives the claimed R including s=0 and all-ones s. Sliding windows have unit steps and complements give the minimum including length 3^n. In the sum over lengths each threshold contributes (N−d+1)+(N−d). Grouping the carry gains by leading bit and first zero gives 6^h−2·3^h+2^h at leading bit h, unchanged by omitting the all-ones endpoint. The totals follow. Frozen VERIFICATION.md and checker.py were inspected, not executed. Independent ternary-position and direct window-count sets through rank six reproduced the thresholds and totals (python -I /workspace/branches/independent_checks.py 4); this does not prove arbitrary rank.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "ed57fe5c15ef uses the same circular length-tagged invariant and proves universal-in-w transport but for the fixed length-two morphism 0→01,1→00. Chen–Lü–Wu give infinite linear Abelian recurrences and prefix maximality. The permutation-complexity paper was available only at landing page/abstract level."
+        ],
+        "reasoning": "The circular interval-property argument is shared, but the length-two transport does not specialize to 0→000,1→101. Linear prefix maximality addresses nonwrapping spans and can reduce wrapping optimization to two independent prefix contributions by reflection, but does not evaluate the minimum of their sum under the prescribed total number of ones.",
+        "searches": [
+          "Resultary ed57fe5c15ef, circular Abelian transport theorem and Proof §§1–3",
+          "arXiv:1703.04063, §2",
+          "10.1016/j.tcs.2015.12.022"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ed57fe5c15ef",
+        "Resultary 1c52709974f8",
+        "Resultary be717ba8b090",
+        "arXiv:1703.04063",
+        "arXiv:1402.5843",
+        "10.1016/j.tcs.2015.12.022 (abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chen–Lü–Wu give P(3n)=2P(n)−1 and P(3n+1)=P(3n+2)=P(n)+P(n+1)−1 for linear factors. ed57fe5c15ef gives extremal-count decimation for its specified morphism; 1c52709974f8 uses B(j) to locate ones but does not give the min-plus convolution optimum."
+        ],
+        "reasoning": "Even equipped with B and the prior one-sided maximality statement, the new two-sided circular extrema require optimizing B(a)+B(b) and handling the gap of length one. The earlier recurrences and count data do not introduce or settle that carry optimization, or the resulting closed tagged sum. No order is inferred among distinct same-day entries.",
+        "searches": [
+          "arXiv:1703.04063, §2 (OA offsets 2200 and 10200)",
+          "ed57fe5c15ef, offsets 0–4064",
+          "Resultary 1c52709974f8, finding at offset 0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target counts ones up to Abelian equivalence in windows on a finite circle, equivalently reporting the range of attainable ones via maximal counts and complements. Cassaigne et al., PDF p. 1, count conjugacy classes of ordinary factors of infinite words. Chen–Lü–Wu treat Abelian classes but of ordinary factors of the infinite sequence."
+        ],
+        "reasoning": "Parikh equivalence is coarser than conjugacy in general. Also, finite circular words allow a boundary 11 (already at rank 1), absent from the ordinary Cantor language. Neither alias identifies a covered problem.",
+        "searches": [
+          "Resultary: finite circular Cantor Abelian/Parikh spectrum and binary-to-ternary one-position thresholds",
+          "arXiv:1402.5843, definition of cyclic complexity",
+          "arXiv:1703.04063, ordinary Abelian complexity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Inspected closest same-object entries: 1c52709974f8 gives 2-binomial profiles for linear factors at ternary-power lengths and the binary-to-ternary map of one positions; be717ba8b090 classifies linear minimal absent factors. The exact circular total in ed57fe5c15ef is for period doubling, and has a different formula."
+        ],
+        "reasoning": "A known digit encoding or a restricted linear spectrum is not the finite-circle threshold table or tagged total. No matching table was established in the bounded comparison; no exhaustiveness is implied.",
+        "searches": [
+          "Resultary: circular Cantor total 3^n+2(6^n−1)/5, minimal one-count thresholds, length-tagged counts",
+          "Resultary 1c52709974f8 and be717ba8b090"
+        ]
+      },
+      "rationale": "The distinct supported content is the exact finite-circle minimum span law, with its sharp wrap criterion and solved digit convolution, yielding the complete spectrum and length-tagged total. Prior linear prefix maximality and finite-circle range/transport methods account for individual ingredients, not the carry optimum for these circles. None of the strongest inspected matches gives an equivalent or mechanically covering formula. This is a scoped best-of-knowledge decision, not an inference from the absence of hits.",
+      "residual_risks": [
+        "The 2016 Cantor-like permutation paper was not accessible in full through bounded lawful retrieval. Unindexed identical evaluations of the finite circular digit convolution or total have not been excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same invariant, different fixed substitution",
+          "evidence": "Universal input-word transport law S(μ(w))=2S(w)+|w|−|w|₁ is for the length-two morphism only.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-circular-abelian-transport-and-an-exact-period-doubling-spectrum--ed57fe5c15ef/RESULT.md",
+          "material_read": "Finding, scope and Proof §§1–3, offsets 0–4064",
+          "method": "Resultary search and local mirror",
+          "title": "Circular Abelian transport and an exact period-doubling spectrum",
+          "trigger": "Exact finite-circle invariant and total"
+        },
+        {
+          "assessment": "Underlying positions shared, not the claim",
+          "evidence": "Binary-to-ternary mapping used with 2-binomial profiles of linear factors of length 3^k.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-ternary-length-2-binomial-spectra-of-the-binary-cantor-word--1c52709974f8/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Ternary-length 2-binomial spectra of the binary Cantor word",
+          "trigger": "Identical morphism and position formula"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Linear minimal absent factors rather than Parikh extrema on a circle.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-complete-three-adic-antidictionary-for-finite-binary-cantor-wo--be717ba8b090/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "A complete three-adic antidictionary for finite binary Cantor words",
+          "trigger": "Identical finite words"
+        },
+        {
+          "assessment": "Directly relevant linear results; not the cyclic optimization",
+          "evidence": "The recurrences for ordinary infinite-factor Abelian complexity and range of one-counts.",
+          "identifier_or_url": "https://arxiv.org/abs/1703.04063",
+          "material_read": "Abstract and §2, PDF pp. 1–3, relevant OA offsets 2200 and 10200",
+          "method": "OA original PDF",
+          "title": "On the k-Abelian Complexity of the Cantor Sequence",
+          "trigger": "Same sequence and Abelian complexity"
+        },
+        {
+          "assessment": "Not equivalent",
+          "evidence": "Cyclic complexity counts conjugacy classes of factors of an infinite word.",
+          "identifier_or_url": "https://arxiv.org/abs/1402.5843",
+          "material_read": "Definition on PDF p. 1, OA offset 1200",
+          "method": "OA original PDF",
+          "title": "Cyclic Complexity of Words",
+          "trigger": "Possible terminology equivalence"
+        },
+        {
+          "assessment": "No conclusion about full text",
+          "evidence": "Accessible material concerns permutation complexity; further coverage remains uncertain.",
+          "identifier_or_url": "10.1016/j.tcs.2015.12.022",
+          "material_read": "Publisher landing page and abstract only",
+          "method": "Lawful OA attempt, no repository full text found",
+          "title": "On the permutation complexity of the Cantor-like sequences",
+          "trigger": "Plausible same-family prior theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete spectrum of a canonical finite substitution family is a motivated finite-word invariant, distinct from infinite factor complexity. The exact threshold, stable across ranks and not requiring word construction or scanning over splits, together with the strict localization of minimizing arcs, gives usable extremal information. The closed total quantifies how the number of classes grows over all lengths. Sliding-window range alone would not be such a contribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

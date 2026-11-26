@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:55:13.781498Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–4 and VERIFICATION.md; verify.py inspected, not executed",
+        "Independent replay: python3 /workspace/branches/pentagon_review_exact.py (SymPy; exact identities over Q(√5))"
+      ],
+      "rationale": "At radius one, write the half-edges as (A,At) and (−Bt,B) with t=tan θ. A rotation by 2π/5 modulo the quarter-turn direction convention generates shifts of π/10. For 0≤t≤r/s the four selected facet projections have the signs used in the frozen proof. The strictly positive weights (1,ρ,ρ,1)/2 eliminate the center and give (p+qt)A+(s−rt)B≤2k. AM–GM fixes both half-edge sizes uniquely at equality, and the tight facet normals span the plane, so equality also fixes the center. An independent symbolic check with z=t/s, S=s²=(5+√5)/8 and K=sB verified the weighted coefficients, four contact identities, and exact omitted-facet slack (5−√5)z(1−Sz/r)/(8(p+qsz)(1−rz)), which is nonnegative over the entire closed interval. Therefore the bound is attained, not just an upper envelope; degenerate projection signs at the endpoints do not remove uniqueness. The product-to-sum denominator is minimized only at the two equivalent endpoints and maximized at π/20, giving the claimed area extremes. The θ=0 rectangle has left endpoints (−p,±q), and the other two corners meet the sides incident to the east vertex. The orbit consists of five distinct rectangles, and all other orientations are strictly suboptimal globally. General radius follows by scaling.",
+      "residual_risks": [
+        "Applies only to Euclidean rectangles in a regular pentagon; no inference for odd polygons generally."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cabello et al. give an O(n³) algorithm to find a largest rectangle in a general convex polygon.",
+          "Sroysang minimizes the size of a pentagon that covers every perimeter-four rectangle, rather than maximizing area within a fixed pentagon."
+        ],
+        "reasoning": "Generic computability is different from an exact analytic fixed-direction profile with unique equality cases; the covering theorem reverses the order of the rectangle and pentagon quantifiers. An even-polygon symmetry theorem also does not apply to the pentagon.",
+        "searches": [
+          "Cabello et al., arXiv:1405.1223v2, §3 Theorem 4",
+          "Sroysang, Regular Pentagon Cover for Isoperimetric Rectangles, abstract and §2",
+          "Knauer et al. (2012), Largest inscribed rectangles in convex polygons"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 4036a36e2194",
+        "arXiv:1405.1223v2 §3",
+        "Sroysang 2015 §2",
+        "MSE question 2166282 indexed excerpt",
+        "Knauer et al. (2012) abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matching catalogue record shows sharpness at the extremal directions and gives the same five distinct geometric rectangles.",
+          "Frozen RESULT §3 checks tightness of four facets and nonnegative fifth-facet slack throughout the interval, and derives uniqueness there."
+        ],
+        "reasoning": "An identical bound plus global endpoint equality does not entail attainment in the interior. The all-angle primal construction and positive-dual equality inference are the substantive increment. Do not claim an independent novelty increment from the unrestricted optimum alone.",
+        "searches": [
+          "SCOPE 4036a36e2194, proof §2 equation (6), construction and equality analysis",
+          "Cabello et al., §3 Theorem 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The catalogued upper bound has factors cos(τ+3π/20) and cos(τ−3π/20), with τ=θ−π/20. The factors are exactly cos(π/5−θ) and sin(2π/5−θ).",
+          "Its five unrestricted equality cases and the side-aligned geometry are the same as in the frozen result. The accessible 2017 snippet contains a conditional side-aligned candidate."
+        ],
+        "reasoning": "The different angle origin is immaterial, as is using unit circumradius. The catalogue bound is mathematically identical but its checked theorem and equality argument do not establish all-angle saturation or all-angle uniqueness. The matching catalogue date is later, which does not remove statement overlap or itself settle priority.",
+        "searches": [
+          "Resultary: fixed-orientation inscribed rectangle and exact maximal area in a regular pentagon",
+          "SCOPE 4036a36e2194, Finding and proof §2 equation (6)",
+          "Mathematics Stack Exchange question 2166282"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matched catalogue record contains a closed unrestricted value and a fixed-angle upper bound, not a family of intermediate maximizers. The general algorithm provides no pentagonal profile table in the inspected statement."
+        ],
+        "reasoning": "This is an exact continuous profile, not a request for one tabulated optimum. A global area entry, even if exact, does not encode orientation-dependent equality or uniqueness.",
+        "searches": [
+          "Resultary: exact pentagonal rectangle area, orientation formula, equality classification",
+          "Cabello et al., §3 Theorem 4"
+        ]
+      },
+      "rationale": "Pass is for the saturated area-versus-orientation formula, including a feasible optimizer and rigidity at every angle. A later catalogue record has the same analytic bound and the same unrestricted value and equality cases; these are material overlaps and are not separate grounds for this pass. The closest accessible earlier general algorithm establishes computability but not the closed profile or uniqueness. Informal candidate overlap is not a verified unrestricted equality classification.",
+      "residual_risks": [
+        "The 2017 thread and 2012 paper were not readable in full; an earlier equivalent analytic proof may exist. Full overlap on the unrestricted theorem with the later catalogue comparator is explicit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct statement overlap for the entire unrestricted theorem and identical analytic upper bound, but not all-angle attainment and rigidity",
+          "evidence": [
+            "Its τ=θ−π/20 converts the two cosine factors exactly to the frozen denominator factors.",
+            "One coincident pentagon side and corners on the two sides at the opposite vertex; five global rectangles."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-sharp-maximum-area-rectangle-and-complete-equality-classificatio--4036a36e2194",
+          "material_read": "RESULT.md Finding, proof §2 equation (6), and global attainment and equality proof",
+          "method": "Resultary lookup and local mirror passage comparison",
+          "title": "Sharp maximum-area rectangle and complete equality classification",
+          "trigger": "Same regular pentagon, orientation factors and equality cases"
+        },
+        {
+          "assessment": "General exact algorithm, not the closed angular profile or equality classification",
+          "evidence": [
+            "O(n³) maximum-area rectangle algorithm for a convex polygon."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1405.1223v2",
+          "material_read": "§3, Theorem 4, offsets 11567–14429",
+          "method": "OA HTML passage inspection",
+          "title": "Finding Largest Rectangles in Convex Polygons",
+          "trigger": "Potential general result implying a pentagon optimum"
+        },
+        {
+          "assessment": "Inverse cover problem",
+          "evidence": [
+            "Smallest regular pentagon covering congruent copies of every perimeter-four rectangle."
+          ],
+          "identifier_or_url": "https://www.ripublication.com/gjpam%202015/gjpamv11n1_33.pdf",
+          "material_read": "pp. 319–321, abstract and §2 (OA offsets 711–5200)",
+          "method": "OA PDF passage inspection",
+          "title": "Regular Pentagon Cover for Isoperimetric Rectangles",
+          "trigger": "Exactly the regular pentagon and rectangle objects"
+        },
+        {
+          "assessment": "Conditional side-aligned candidate; no full-thread evidence to assess definitively",
+          "evidence": [
+            "Excerpt is consistent with the known contact candidate; retrieval returned HTTP 403."
+          ],
+          "identifier_or_url": "https://math.stackexchange.com/questions/2166282/how-to-find-the-maximum-area-of-a-rectangle-within-a-pentagon",
+          "material_read": "2017 indexed result excerpt; full thread unavailable",
+          "method": "Search result excerpt and attempted lawful web retrieval",
+          "title": "How to find the maximum area of a rectangle within a pentagon",
+          "trigger": "Same object and unrestricted area question"
+        },
+        {
+          "assessment": "Unresolved full text; no negative inference",
+          "evidence": [
+            "No repository full text was recovered in the inspection."
+          ],
+          "identifier_or_url": "Knauer et al. (2012), bibliographic DOI result",
+          "material_read": "Landing page and abstract only",
+          "method": "DOI and lawful OA full-text recovery attempts",
+          "title": "Largest inscribed rectangles in convex polygons",
+          "trigger": "Plausible angular optimization in general convex polygons"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof §§2–4",
+        "Resultary 4036a36e2194 for the already overlapping unrestricted observable"
+      ],
+      "rationale": "The continuous angular dependence measures the loss imposed by an orientation constraint and identifies the least favorable orientation as well as the best ones. The primal and positive dual certificates resolve rigidity rather than assuming a favored symmetry or contact pattern. This is more informative than recomputing the unrestricted extremal area or running a general polygon algorithm.",
+      "residual_risks": [
+        "No claim of analogous structure for all convex pentagons or for general regular polygons."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

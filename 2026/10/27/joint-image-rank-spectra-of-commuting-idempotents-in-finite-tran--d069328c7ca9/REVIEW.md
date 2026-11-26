@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof exhibits a reversible, label-respecting decomposition of two commuting retractions by fibers of their common product. The image-intersection identity, four-way partition of each fiber, independent choices for nonimage points, and labeled exponential formula are explicitly proved. The sharp support inequalities follow by inclusion-exclusion and an explicit construction; the empty set is treated separately. Exhaustive map-level enumeration confirms all joint-rank coefficients through six points and support through eight points. The finite check is corroborative rather than an infinite proof.
+## correctness
 
-## Originality
-**PASS within checked coverage.** Dolinka–East Proposition 2.1 counts single idempotents by image rank, not commuting pairs; Fleischer–Jack Corollary 5.2 decides an all-idempotents-commute property for finitely generated semigroups, without enumerating pairs or joint ranks. Related published findings concern monotone contractions and Catalan monoids, whose order constraints preclude a direct implication for unrestricted total maps. Literature searches for the three-rank spectrum, equivalent fiber decompositions, and commuting retractions did not disclose a stronger result. Konieczny (2002), directly about centralizers of idempotents, was accessible only at abstract level; this is a material remaining priority risk. Lack of a search hit is not a proof of historical uniqueness.
+PASS
 
-## Mathematical value
-**PASS.** The complete joint rank spectrum is a natural invariant that controls the correlations among both retraction images and their composite; it is strictly finer than the classical count of individual idempotents or a scalar commuting count. The theorem includes a canonical component decomposition and a sharp characterization of all possible rank triples for arbitrary finite set sizes, and thus supplies reusable coefficient and specialization formulas. It is neither a trivial substitution into the one-idempotent formula nor an arbitrary numerical slice.
+For commuting retractions, p=ef=fe is idempotent and its fixed set is the intersection of the two fixed sets. Since pe=pf=p, each fiber of p stays invariant. A fiber contains one common root, a points fixed only by e, c fixed only by f, and d fixed by neither. Each single-fixed point is sent to the root by the other map. For each of the d points there are independently (a+1)(c+1) nonrestricting choices of images; these give idempotence and send both composites to the root. On m=1+a+c+d fixed labels the resulting count is m!((a+1)(c+1))^d/(a!c!d!). Rank weights multiply over the unordered set of these rooted blocks, giving exactly the EGF. The support inequalities are inclusion-exclusion and nonemptiness; to realize an allowed triple, place the required r-t and s-t singly fixed points and any surplus at one root and use the other t-1 roots as singleton fibers. The empty pair gives the unit term. Independent direct map enumeration through n=5 matched a least-label block recurrence; recurrence output through n=8 reproduced all listed totals and the rank support and symmetry.
 
-## Limitations
-Only total maps and ordered pairs are included. The standalone exhaustive checker reaches size six for complete coefficients, while the mathematical proof is general. A relevant older centralizer paper could not be inspected in full. No claim of priority certification or external validation is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the unrestricted labeled three-rank EGF and rank support, not the general idea of decomposing into product fibers. The strongest available prior records either count the analogous ordered problem with regressive restrictions or count a different pair condition on the full monoid. The plausible older centralizer paper remains an access-limited priority risk, not evidence of prior coverage.
+
+## value
+
+PASS
+
+The statistics measure each retraction's range and their common range simultaneously. The coefficient formula gives exact counts and feasible triples for every labeled size, including their correlations, rather than just a single total or a finite table. The unrestricted rank census remains a useful result despite the related constrained encodings.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

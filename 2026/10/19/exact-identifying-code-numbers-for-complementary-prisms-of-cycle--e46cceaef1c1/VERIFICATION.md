@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-## Local verification
-Compile `finite_lower.cpp` and `upper_and_direct.cpp` using a C++17 compiler with optimization enabled and run both executables. `lower_output.txt` and `direct_output.txt` record the results of the included source files. The two source files do not depend on data omitted from the package.
+# Independent mathematical audit
 
-The lower-bound program explicitly builds 256 four-column states, 857 legal transitions, and their 4608-state, 14706-edge length-residue/defect lift. It computes an integer feasible potential for every reduced-cost edge and checks all potential inequalities, then performs nonnegative reduced-cost shortest-path calculations to establish nine exact lower-bound offsets for *all* cycle lengths. Shortest paths use exact integer arithmetic and are not truncated at a chosen graph length.
+## correctness
 
-The second program checks all nine seed pairs by direct closed-neighborhood calculations and tests every specified period-nine concatenation through cycle length 89. It additionally enumerates every vertex subset for cycles of lengths nine and ten, independently establishing minima seven and eight with 90 and 425 optimal codes, respectively. These finite direct checks corroborate but are not substituted for the all-length lower proof.
+PASS
 
-## Unverified aspects
-Independent external scientific audit and external originality certification have not been performed. The claim is limited to the stated complementary prisms and closed-neighborhood identifying codes.
+The four window tests are the closed-neighborhood domination mask for a cycle vertex and the symmetric differences for cycle distances one and two and complement distance two. Two complement vertices not at distance two have disjoint pairs of excluded complement indices, so their separation is equivalent to at least one not being a defect; defects at distance two violate the fourth test. Cycle vertices farther than two have disjoint neighborhoods; at least four selected complement vertices ensure every complement trace contains at least two complement vertices, separating both layers. In the lifted graph any identifying code gives a path from (q,0,0) to (q,e,n mod 9), e<=1, with cost 9|S|-7n. The fresh replay regenerated the transitions from actual neighborhood masks, verified a feasible integer potential on all 14706 lifted arcs, and computed the minimum over all 256 starting states and both final defect counts. The nine costs are (0,2,-5,6,-1,1,3,5,-2)=9a_r-7r. This is an unrestricted path optimization, not enumeration through a trial length. The nine seeds have their required weights, at least four complement selections, the right defect budgets, and close at state 19. The length-nine seed has no defects; adding copies at the common state preserves every local test and defect budget. This gives equality at all lengths 9k+r with k>=1.
+
+## originality
+
+PASS
+
+The closest inspected primary work establishes 7/9 as the leading coefficient and gives local conditions and constant-error bounds. Its bounds do not determine the exact offsets, even at general multiples of nine. A same-graph indexed result covers n=9 only. The supported distinct claim is the all-length residue classification, not novelty of gamma_ID(P_9)=7, the local characterization, or the leading coefficient.
+
+## value
+
+PASS
+
+The theorem replaces constant-error asymptotic bounds for a natural graph family by exact optimum sizes at every length in scope, including a strictly better upper bound for several residues. The period-nine seed splice and global finite-state lower certificate explain why the small per-residue offsets persist without any trial-length cutoff. It is not merely a computation of the n=9 case or a rederivation of the leading coefficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

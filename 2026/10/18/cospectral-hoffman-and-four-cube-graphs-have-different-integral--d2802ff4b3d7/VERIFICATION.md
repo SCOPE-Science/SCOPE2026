@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Exact finite verification
+# Independent mathematical audit
 
-Place `verify.py` beside `morse_certificate.json` and run `python3 verify.py` with Python 3.10 or later. Both are standalone and use no third-party packages.
+## correctness
 
-The script reconstructs the two explicit 16-vertex adjacency matrices, checks the 4-regularity of each, and computes their full characteristic-polynomial coefficients by exact integer Faddeev–LeVerrier recurrence. It enumerates all \(65{,}536\) vertex masks of each graph using the graph-edge condition. It reports the nine-term independence-polynomial coefficient tables and confirms their difference is \(4z^5\).
+PASS
 
-For the Morse certificate, it reconstructs all pivot pairs from the universal rule. The JSON certificate stores every matched pair, every critical-face mask, and a linear order of every nonempty face. The script verifies these data against freshly generated face sets; it reconstructs *all* \(2836\) Hoffman and \(2816\) four-cube nonempty-face Hasse incidences, orients them using the matching, and checks the stored order increases strictly along each incidence. A separate complete topological-sort traversal again establishes acyclicity. The critical cells are exactly one zero-cell and three three-cells for the Hoffman graph, respectively one zero-cell and seven three-cells for the cube.
+A fresh exact replay reconstructed the two labeled graphs and obtained λ⁶(λ²−4)⁴(λ²−16) for both adjacency matrices. The explicit D describes the noncube mate: vertices 0 and 1 share three neighbors, whereas distinct vertices of Q₄ share either zero or two. Van Dam §3 reports that there are exactly two graphs with this spectrum, identifying this matrix independently of the unretrieved MathWorld matrix. Exhausting all 2¹⁶ vertex subsets per graph gives face counts (1,16,88,208,228,132,56,16,2) and (1,16,88,208,228,128,56,16,2), with no larger faces, proving the exact polynomial difference. The independent replay reconstructed the pivot matchings, checked the supplied topological positions at all 2836 and 2816 directed Hasse incidences respectively, and separately performed a topological sort. The nonempty-face matchings leave exactly one 0-cell and 3 or 7 three-cells, with no other cells. Discrete Morse theory therefore gives the stated CW homotopy types, and all three-cells attach to the single point. This certifies the integral wedge statements, not just ranks over a field. The uploaded script was inspected, not executed; fresh replay and output are at /workspace/branches/dd57e65a-67b9-4ed3-a6df-fde3dcc320b9/replay_hoffman_q4.py and replay.log in the same directory.
 
-Independently, binary Gaussian elimination of every simplicial boundary gives the reduced boundary-rank vectors \((1,15,73,135,90,42,14,2)\) for the Hoffman graph and \((1,15,73,135,86,42,14,2)\) for the cube, with corresponding sole nonzero reduced mod-two Betti ranks three and seven in degree three. The integral wedge homotopy types follow from the acyclic Morse certificates, **not** from these field calculations alone.
+## originality
 
-A successful replay prints `VERIFY_OK_HOFFMAN_Q4_SPECTRAL_INDEPENDENCE_HOMOTOPY`. Assertions, enumeration and the explicit certificate are the evidence; an output log on its own is not a proof. This is an exact exhaustive finite calculation on two graph definitions, not a claim for all graphs with sixteen vertices or other cospectral pairs.
+PASS
+
+The cube wedge and the cospectrality are verified prior results, as acknowledged. The distinct claim is the ordinary integral homotopy type of the canonical Hoffman graph's independence complex and the exact comparative independence-polynomial identity. The primary spectral work and the strongest inspected Resultary records establish the credited components but do not give the Hoffman complex or its enumerator. No bounded search can exclude an earlier Hoffman-specific computation.
+
+## value
+
+PASS
+
+The two graphs form a distinguished, minimal-scope comparison motivated by their classical identical adjacency spectra. The Hoffman integral homotopy type and exact polynomial difference give a concrete invariant separation well beyond observing that some low-dimensional face counts differ. A full Morse certificate provides usable exact data without pretending that the result generalizes to arbitrary cospectral graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

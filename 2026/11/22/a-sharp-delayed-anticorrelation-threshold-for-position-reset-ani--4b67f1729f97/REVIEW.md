@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The normalization is checked under the Ito generator \(\mathcal L=\mathcal D(\theta):\nabla^2+q\partial_{\theta\theta}+r(\mathrm{reset}-I)\). The exact stationary mixed-moment identities supply the positive initial covariance and a nonzero orientation-energy cross moment. The Markov semigroup then gives a forced scalar linear covariance equation with precisely one negative forcing exponential. Factoring out the positive reset exponential reduces all sign assertions to one strictly decreasing integral bracket. Solving the single positive root of its algebraic limiting inequality produces the stated sharp rate. The exact resonant and critical limits and the isotropic boundary are treated separately. The standalone checker passed 1,477 assertions; those finite diagnostics are not the proof. Risks: only the stated positive-parameter passive diffusion model is covered.
+PASS
 
-## Originality — PASS, qualified
+Reconstructed the calculation independently by conditioning on the stationary reset age T~Exp(r) and on the angular path. With I_c and I_s the integrals of cos(2Θ) and sin(2Θ) over that age, the conditional position is Gaussian with Σ_xx=2D̄T+2δI_c, Σ_yy=2D̄T−2δI_c, Σ_xy=2δI_s. The stationary angular correlations are (1/2)exp(−ω|u−v|), ω=4q, so E I_c²=E I_s²=1/[r(r+ω)] after the age average. Gaussian fourth moments give V=4D̄² Var(T)+4δ²(2E I_s²−E I_c²)=4D̄²/r²+4δ²/[r(r+ω)]. The age integral similarly gives E[X_0² cos(2Θ_0)]=δ/(r+ω). The future initial y² term survives with probability e^(−rt); instantaneous future y variance at time s survives with probability e^(−r(t−s)), with mean angular harmonic e^(−ωs)cos(2Θ_0). Taking covariance gives e^(−rt)[V−A∫_0^t e^((r−ω)s)ds], A=2δ²/(r+ω). The backward construction yields stationarity and finite moments; uniqueness follows from the unique uniform angular invariant law and loss of initial position at the first reset. For nonzero δ, the bracket is strictly decreasing; for r<ω its limit is V−A/(ω−r), and negativity is equivalent to (2+3b²)(r/ω)²−2b²(r/ω)−2>0. At equality the tail is exactly V e^(−ωt); for r≥ω the bracket is unbounded below, with crossing V/A at resonance. The quadratic root lies in ((1+√11)/5,1), decreases in b² (since the root exceeds 2/3), and has the stated endpoint limits. The log root gives r t_*→log(3+2/b²); when δ=0 the covariance is V e^(−rt). A boundary replay is D̄=ω=1, r=9/10, b²=38/63, which gives V=400/63 and A=40/63, hence the strictly positive critical tail. Reviewed the supplied scripts and their recorded outputs as diagnostic evidence only; did not execute them.
 
-The closest foundational source, Chaki–Stølevik Olsen–Löwen (2024, arXiv:2406.17550), gives the same position-only resetting model but its complete relevant section derives one-time second moments and ordinary signed-coordinate covariance. The previously published *Hidden stationary anisotropy under position-only resetting* obtains the stationary fourth moment but not a two-time orthogonal squared-position correlation, a negative lag, or a sharp single-crossing threshold. The complete inspected results concerning orientation-only resets, joint resets, and independently resetting diffusivity have different dynamical generators and do not imply this particular sign law. Searches of the mathematical-results index and primary literature did not identify a stronger equivalent theorem. Publication priority is nonetheless not an independence claim: unidentified equivalent literature or a broad general formula could supersede the result.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The sign reversal is a nontrivial, directly observable temporal effect that the stationary rotation-invariant position law and positive simultaneous cross-energy covariance conceal. A sharp shape-dependent control threshold separates positive-only temporal correlations from exactly one delayed anticorrelation, with a calculable crossing time and limiting rate range. It distinguishes angular memory retained across positional resets from both synchronous resetting and scalar positive stochastic diffusivity, making it a useful fourth-order temporal diagnostic rather than a rephrasing of known one-point kurtosis. The result does not provide a two-time joint distribution or finite-sample inference bounds.
+The equal-time moments and much of the conditional second-moment propagator are known. The supportable increment is the stationary nonzero-lag orthogonal square covariance and its exact sign classification under retained orientation. No inspected source supplies the same stationary mixed fourth-order temporal law or a result covering the sign threshold. This is a best-of-knowledge assessment, not certification of priority.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A rotationally invariant stationary position marginal and positive simultaneous squared-coordinate covariance conceal a strictly negative delayed covariance above a quantitative threshold. The transition picks out retained orientational memory rather than signed coordinate correlation; the exact anisotropy-dependent boundary and the single crossing make this a usable temporal diagnostic. No statistical inference rate or other reset protocol is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

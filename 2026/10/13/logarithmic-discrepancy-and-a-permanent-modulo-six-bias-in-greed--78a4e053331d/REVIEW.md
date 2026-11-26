@@ -1,15 +1,21 @@
-# Scientific review: residue densities of greedy coprime records
+# Independent mathematical audit
 
-## Correctness — PASS
-The claimed record list is derived from the established least-prime-nondivisor recurrence. The proof reproduces the primorial-block replication by induction, taking account of the prime-gap deletions at successive lower endpoints. Its residue-specific recurrence gives a genuinely convergent infinite series, whose uncomputed tail is bounded by the prime gaps and Bertrand's postulate. The same block structure bounds every finite counting discrepancy by twice the next prime, giving the unrestricted logarithmic error by the prime number theorem. The difference between the two densities is isolated by exact rational bounds from the level-14 recurrence. A standalone integer/rational checker replays independent finite recurrence and block tests. Computational checks are not treated as substitutes for the unbounded proof.
+## correctness
 
-## Originality — PASS
-The directly comparable source is A. K. Basistha and E. J. Ionascu, *A special sequence and primorial numbers* (arXiv:2302.02838, preprint and revised full text). Its prime-record and primorial-block results are acknowledged, as is its **total** natural density of record values. Neither the total density nor a translated-block identity determines the separate residue-\(1\) and residue-\(5\) constants or their sign, and the checked paper does not state a logarithmic counting-discrepancy estimate for those classes. OEIS A261271 specifies the record recurrence and examples, rather than the asymptotic split. Related exact initial-run studies determine the first break of a particular arithmetic progression, not these densities or error terms. Searches for equivalent formulations, subsequence densities, class bias, and discrepancy estimates did not reveal covering statements. Residual risk: an unindexed article or note could have already extracted the residue refinement from the available primorial replication.
+PASS
 
-## Value — PASS
-The parent work establishes existence and a positive global density of record values but leaves their distribution between the two only possible classes modulo \(6\) unresolved. The theorem separates the densities, proves a persistent positive signed bias bounded away from zero, provides a high-precision rational enclosure, and gives a uniform logarithmic discrepancy. This is a motivated structural refinement of a natural arithmetic permutation and not an isolated computation.
+The prior turning-point recurrence starts at 5. A skipped prime would give a smaller integer greater than 1 coprime to r−1 than its least missing prime, impossible. Inside each length-P_n translate, λ(t+jP_n)=λ(t) for 0<t<P_n; at a block endpoint λ(jP_n)=p_{n+1} for 1≤j<p_{n+1}. Starting from 31 this gives exact copies and the residue recurrence because 6 divides P_n. The odd spacing and Bertrand's bound give s_k(a)<p_k/2, so e_n(a)=P_n∑_{k>n}s_k(a)/P_k lies in [0,1). For t complete primorial lengths the accumulated tail satisfies t e_n≤s_{n+1}+1, not an uncontrolled error per block. The prefix agrees with t w_n+C_a(u) for u≥p_{n+1}; below that it is constant except for the record at tP_n+1. Counting the endpoint at u=0 with that record excluded gives the displayed two-case discrepancy recurrence. Since s_{n+1}≤(p_{n+2}−p_{n+1})/2 and the gap is at least 2, E_n≤2p_{n+1} follows by induction, and the prime number theorem gives O(log X). An independent short recurrence reproduces P_14=13082761331670030 and w_14(1)−w_14(5)=379045337581045; the two tails differ by strictly less than 1, and 35 times the lower numerator minus P_14 is 183825483666510>0.
 
-## Limitations and relationship to prior work
-The recurrence and primorial replication are known ingredients and not represented as discoveries. The result does not decide rationality or closed forms for either density, and makes no claim for arbitrary moduli. Only self-review is represented; no independent validation has occurred. Citations: Basistha–Ionascu, arXiv:2302.02838v1/v5, DOI:10.59277/RRMPA.2025.235.255; OEIS A261271.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior work has the aggregate density and the primorial mechanism. A distinct, later indexed theorem covers classwise density existence and the same series for a larger family; the signed enclosure can be read out of its general tail bound after a finite calculation. What survives these comparisons is the uniform classwise O(log X) discrepancy, which is much stronger than the indexed prefix estimate, together with its application to this exact biased pair of densities.
+
+## value
+
+PASS
+
+Modulo six is the natural first split because the record recurrence forces records into precisely its two reduced classes. The signed result resolves persistent asymmetry rather than describing a short numerical fluctuation, and the logarithmic absolute error makes that distinction quantitative for all cutoffs. The essential gain is that prefix error, not the number of digits in the finite enclosure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,25 +1,21 @@
-# Scientific review: directional-energy dichotomy for Steiner ellipses
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A centered ellipse has a positive-definite \(2\times2\) matrix with fixed determinant \(D\). Horizontal chord-centering makes its new matrix diagonal with entries \(A_{11}\) and \(D/A_{11}\); this is also a known formula in the prior ellipse literature. Rotating the direction produces the exact scalar map
+PASS
 
-\[
-u_m=u_{m-1}\frac{u_{m-1}+\cos2\delta_m}{1+u_{m-1}\cos2\delta_m}.
-\]
+Completing the square in a perpendicular chord of E(A) replaces A=[[a,b],[b,c]] by diag(a,det(A)/a). Thus D=det(A) is fixed and the squared semiaxis on the new line is x cos²(delta)+(D/x)sin²(delta). With t=x/sqrt(D) and u=(t-1)/(t+1), elementary substitution gives u_new=u(u+C)/(1+uC) with C=cos(2 delta); 1+uC>0. Subtracting its squared ratio from one gives (1-u²)(1-C²)/(1+uC)². This is in [0,1] and keeps |u|<=rho=|u_1|. For nonzero previous iterates it is between [(1-rho)/(1+rho)](1-C²) and (1-C²)/(1-rho)². The lower bound gives the claimed exponential estimate; if an iterate is zero it is absorbing, otherwise summable energy makes the squared-ratio product positive (the tail log is summable). The two semiaxes tend to the same radius exactly in the circular case, independently of direction. Finite cancellation is exactly C=-u for u nonzero, and the finite rational compositions on each aligned sign branch have nonzero power-series leading terms at zero and finitely many real zeros per step. In particular, if 'principal axes' permits the major axis along H_1 or along H_1 perpendicular, use initial u_1=rho or -rho; the finite-zero proof covers both. The harmonic directions cross arbitrarily late lifts of every target angle with overshoot tending to zero, and C>0 at each step preserves positive u_1, giving exactly the stated orbit. C=0 is a 45-degree change (not a literal quarter-turn); it squares u and validates the displayed double-exponential law. The bundled checker was read, not executed; exact products and cancellation are certified here by algebra, not finite floating-point tests.
 
-The denominator cannot vanish. The squared-ratio loss is precisely \((1-u^2)\sin^22\delta/(1+u\cos2\delta)^2\), giving the claimed monotonicity and explicit exponential bound. Conversely, finite angular energy gives a summable relative-loss series, and the anisotropy product stays positive unless one factor is exactly zero. The countability assertion follows from nonzero rational iterates. For harmonic angle increments the positivity and density arguments are explicit. The independent matrix checker passed all tests; finite tests are not used as an infinite proof.
+## originality
 
-## Originality — PASS, provisional priority
+PASS
 
-Actual primary-material comparisons were made against the 2026 random generalized-Steiner study of Kipp–Sagmeister, Bianchi–Burchard–Gronchi–Volčič's square-summable shape theorem, and Ulivelli's 2026 all-sequence convergence-in-shape result with its ellipse proof. Existing work covers ellipse preservation, broad shape convergence and dense-direction nonconvergence; these are explicitly credited. The reviewed claim is narrower in body class but differently quantified: a *necessary and sufficient condition on an arbitrary fixed direction sequence for universal disk convergence within ellipses*, with exact finite-step exceptional eccentricities, and a quantitative angular-energy estimate. No inspected statement or located mathematical-record summary directly implies all those assertions. This assessment is not an exhaustive historical proof of priority; older ellipse-specific presentations remain possible.
+The ellipse matrix step, convergence in shape, and dense-direction nonconvergence are prior work. The nonzero residual-versus-exact-cancellation alternative for every finite-energy sequence, the resulting all-initial-ellipses iff, and the explicit anisotropy bound in prescribed, not realized, angles are the new package on the compared evidence.
 
-## Mathematical value — PASS
+## value
 
-The natural distinction between reaching a Euclidean disk and merely converging up to rotations is central to deterministic symmetrization. The result classifies all angular inputs without randomness or a finite-direction assumption, identifies genuine finite-step resonances, supplies a certified rate, and describes the entire orbit of limits for an explicit dense-direction counterexample. These answer a motivated convergence question rather than merely recalculating a known table or testing arbitrary parameters.
+PASS
 
-## Scope and risks
+For a given infinite prescribed sequence the result separates collapse to a disk from noncircular shape limits, using an intrinsic angular sum with no need to track the changing major axis. The quantitative estimate and finite-cancellation distinction give genuine additional content beyond mere convergence up to rotations and explain why dense prescribed lines do not settle this question. It is a planar ellipse theorem and does not infer circularization for arbitrary convex bodies.
 
-Only centered planar ellipses are covered; it does not imply universal circularization for general planar convex bodies. The bound is uniform but not presented as optimally sharp. The motivating first public source is arXiv:2610.05113v1 (2026-10-04); the comparison arXiv:2611.21167v1 appeared on 2026-11-16. Residual risk: a historical equivalent reformulation could exist outside the primary text and indexed records examined.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The universal quantifiers, score ordering and normalization are explicit. The three-vertex signed path forces an exact positive Cauchy equation; positivity eliminates pathological additive solutions without continuity. The signed triangle yields two opposed rational inequalities, forcing the remaining score coefficient to vanish. Detailed balance proves sufficiency. The two-vertex lower bound is explicit. The exact-rational checker passed 1,315 tests, separate from the analytical proof.
+## correctness
 
-**Originality — PASS on accessible evidence, not independent priority certification.** Louvaris and Trevezas explicitly restrict their fixed-time stochastic dominance theorem to comparisons with time zero and disavow successive-time monotonicity; its nonconstant admissible rules need not be stationary. Prior second-step and multistep friendship-paradox papers concern degree-based comparisons rather than a universal characterization of local signed-strength initial distributions. Searches of published mathematical finding records identified no claim implying the full sharp equivalence; broad search failure alone is not evidence of uniqueness. The stationary sufficiency direction is standard and not claimed as novel.
+PASS
 
-**Value — PASS.** This is a complete, sharp universal rigidity classification answering a natural stronger temporal-order question raised by the existing all-times-from-start theorem. Its three-state sufficiency versus the weaker condition's sharp five-state threshold clarifies why cumulative improvement cannot generally be promoted to step-by-step improvement. No smoothness hypothesis is needed.
+On a path with nonzero signed edge weights x,y, center mass alternates p,1-p,p. Equal edge signs make the center the unique extreme score; its upper or lower tail forces p=1/2. For opposite signs the two leaves are distinct extremes, and from times 1 to 2 both leaf masses scale from p to 1-p, so the upper and lower tails again force equality (their transition factors are strictly positive). This gives F(|x|+|y|,x+y)=F(|x|,x)+F(|y|,y) for arbitrary nonzero real weights. Each boundary-ray function is positive additive, hence increasing and determined by its values on the positive rationals. The opposite-sign equation extends the two slopes to the full interior as F(d,s)=cd+bs, with |b|<c. On the signed unit triangle with scores (0,2,0), the top-score mass satisfies p_next=(1-p)/2; successive inequalities then force p_0=1/3, hence b=0. This supplies necessity without any regularity assumption. Undirected conductances give detailed balance for F=cd, proving sufficiency for all times; two-vertex score laws are identical because both scores equal the single signed edge weight. In the finite score range, lower-tail probabilities at a unique minimum are complements of upper tails at the next attainable score, so the direction of each lower-tail inequality is justified. Independent rational witness replay: python3 /workspace/branches/independent_checks.py 2. The frozen checker was read, not run; the universal proof is analytical.
 
-**Closest literature and limitations.** M. Louvaris and S. Trevezas (arXiv:2611.17118v1, Theorem 1 and p.4 discussion); K. S. Berenhaut and C. M. Zhang (2023/2024, doi:10.1017/S026996482300013X); their 2018 second-step result (doi:10.1017/jpr.2018.79). A broader, unlocated universal-time stochastic-order result could affect historical priority. The result does not concern unsigned-only tests or global graph-dependent initial laws.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest primary result classifies time-zero-to-later domination, explicitly disavows consecutive-time monotonicity, and admits score tilts that fail that property on the exact three-vertex model. The signed-path functional equation and the triangle obstruction establish a distinct sharp necessity; stationary sufficiency is standard.
+
+## value
+
+PASS
+
+The sharp cutoff and arbitrary-positive-rule necessity answer a natural strengthening of an existing universal sampling theorem. The contrast is structural: signed paths reduce all local rules to a two-parameter linear family, and a single triangle eliminates the remaining nonstationary direction. The result is stronger than giving an isolated decreasing-tilt counterexample and identifies the unique rule without continuity or a large test graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

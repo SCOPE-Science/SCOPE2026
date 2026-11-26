@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem states the full positive-parameter domain and fixes which kernel mass is evaluated. Periodic variation of constants yields two boundary identities and the exact average formula; the Poincaré contraction ensures uniqueness. The key nonstandard step is the global inequality \(H(x+y)>H(x)+H(y)\), deduced from \(\sinh z>z\), so numerical monotonicity is not substituted for a proof. Taylor expansions and a continuous strict-limit argument give the unique cutoff, while a direct per-period integral produces the negative Floquet exponent. Exact algebra and separate numerical integrations are executed in `checker.py`; finite checks are not infinite proofs.
+## correctness
 
-## Originality — PASS (bounded comparison)
-The initiating 2026 study proves an equivalence under stationary waiting-time distributions and does not cover periodically changing removal hazards. The 2023 general time-dependent branching-process paper can represent this kernel, but the inspected introduction, construction and incidence equations do not themselves state the strict two-rate mean-mass monotonicity and unique season-length crossing alongside a fixed negative Floquet exponent. The older periodic-demography literature already supplies background on scalar Floquet thresholds; that background is **not** claimed as new. Search comparisons across terminology for time-varying recovery hazard, integrated infectious survival, average renewal kernel, and switching-period crossover found no exact dominating claim in the checked record. Closest research records address seasonally forced contact, vaccination timing or multi-stage population calendars rather than this survival-kernel assertion. Priority remains limited by unindexed historical sources and a relevant periodic-demography article not fully accessible.
+PASS
 
-## Value — PASS
-A fixed pair of biological recovery conditions with a fixed mean removal rate produces a strictly variable *mean backward kernel mass* as the switching timescale changes. The exact unique crossing demonstrates how an intuitively tempting average-of-index threshold can disagree with the true linear infection growth, without incorrectly challenging a stationary-case equivalence theorem. This is a structural diagnostic for nonstationary renewal interpretation and a reproducible analytic benchmark; it is not an empirical or probabilistic outbreak forecast.
+The infinite-past survival integral converges by a positive hazard lower bound and is the continuous periodic solution of A'=1-gamma A between switches. The period map contracts by exp(-(a+b)h), so the periodic solution is unique. Writing u=exp(-ah), v=exp(-bh), the phase-entry deviations from 1/a and 1/b are (1/b-1/a)(1-v)/(1-uv) and (1/a-1/b)(1-u)/(1-uv), giving the claimed pointwise inequalities and mean by integrating the phase transients. For Q=(1-u)(1-v)/(1-uv), the addition law for sinh also gives Q/h=2/[h coth(ah/2)+h coth(bh/2)]. Each h coth(k h) is strictly increasing for k>0 because sinh(x)cosh(x)>x for x>0. Hence the mean strictly increases for unequal hazards (constant for equal hazards). The expansion Q/h=ab/(a+b)-a^2 b^2 h^2/[12(a+b)]+O(h^4) and Q=1+O(exp(-min(a,b)h)) give both stated endpoints and corrections. Their reciprocals give the open crossover interval; its endpoint transmission rates achieve equality only as a limit, not at a positive finite h. The infection multiplier exp([2 lambda-a-b]h) gives negative per-time growth throughout that open interval, independently of the averaged kernel. Direct one-period backward-survival integration, summing past periods geometrically, reproduced the example by midpoint quadrature; closed-form substitution refines h*=1.91906667452146 and mean values 0.8985767662 and 1.0068835911 at h=1 and 2. The supplied checker was inspected, not executed. This is an index crossing, not a change in invasion stability or an inference from incidence.
 
-## Closest literature and residual limitations
-- Goldwasser, Tibshirani, Bilinski (2026), arXiv:2606.15397, §§2–3: stationary mean-duration equivalence; calendar-changing recovery rate excluded explicitly.
-- Pakkanen et al. (2023), DOI:10.1007/s00285-023-01958-w, introduction and §§2–3: general time-varying renewal/branching apparatus; not an exact two-season threshold statement in inspected material.
-- Ward, Brown and Oleson (2023), DOI:10.1002/bimj.202100401, §2.3: infectious-duration-dependent reproduction definitions; different question.
-- Greenhalgh and Dumas (2023), DOI:10.1016/j.idm.2023.11.007, §2.2: potentially periodic **forward** mean residual waiting time satisfying a different hazard differentiation identity; not the backward infectious-survival age integral or exact two-season monotonicity.
-- *The basic reproduction number in epidemic models with periodic demographics*, DOI:10.1080/17513750802304893: potentially relevant earlier periodic theory, full content not read; cannot rule out a historical equivalent.
+## originality
 
-The backward kernel mass is not assumed to equal either forward case reproduction or a correct nonautonomous spectral invasion number; the example instead exposes why one must not mistake its period average for the latter. Self-review do not establish priority definitively, and do not constitute independent assessment.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best of current knowledge: pass the exact two-phase switching-duration classification and its separation from the invariant negative growth exponent. Neither the scalar invasion calculation nor the general periodic residual-lifetime construction is new. Forward and backward orientation differ pointwise, but cannot by themselves make the period-average result distinct. The closest inspected forward formula is for a different, smooth hazard family; the matched period-average classification and exact crossing are not established by the inspected prior statements.
+
+## value
+
+PASS
+
+This is a precise counterexample to using a period-averaged, nonstationary kernel mass as an invasion criterion. It fixes the two rates and changes only the calendar scale, locating the entire unique crossover while true scalar decay retains the same exponent. The exact interval and asymptotes make it a useful calibration check beyond a single numerical example. The result does not give an epidemiological scheduling recommendation or establish a threshold in observed transmission data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

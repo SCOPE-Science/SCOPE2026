@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:14:03.681152Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–69",
+        "Frozen verify.py and VERIFICATION.md inspected, not executed; the stated finite tests are supplementary."
+      ],
+      "rationale": "Block multiplication leaves only the upper-right commutator u_i v_j−u_j v_i, with all Z_i free. Equivalently each column of U wedges to zero with each column of V in k^t. If each side has a nonzero column, one from each side spans a common line, and all other columns must be on that line; otherwise U=0 or V=0. This proves the union over every extension, including characteristic two. The rank-at-most-one locus is geometrically irreducible by outer-product parametrization, of dimension t+r+s−1 by its one-dimensional nonzero factorization fibers. In the permitted range both pure loci have rank-two witnesses, and a mixed rank-one witness lies in neither pure locus. Thus all three are maximal; adding rst yields the dimensions. Equality of the first two forces r=s=d, and equality with the third then gives t=2+1/(d−1), so (2,2,3) is the sole equidimensional case, of dimension 18. Over F_q the two pure loci contribute q^(rt)+q^(st)−1 centered-block-free matrices, and each of (q^r−1)(q^s−1)/(q−1) mixed row lines gives q^t−1 matrices. Multiplying by q^(rst) yields the stated all-arity exact count. No scheme assertion was needed for the frozen proof.",
+      "residual_risks": [
+        "Finding concerns labeled tuples, not conjugacy orbits. Its reduced-variety scope and r,s,t≥2 restrictions are material to the stated component count."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rauh indexes prime components by retained subsets Y such that each omitted vertex connects at least two components of the induced graph on Y when restored.",
+          "For K_{r,s}, any proper Y meeting both sides is connected and fails this condition. A one-sided Y cannot omit a vertex of that same side because it has no neighbors in Y. Thus Y is exactly the full vertex set or one whole side; r,s≥2 makes each whole-side set admissible.",
+          "Goodwin–Röhrle independently covers only the (1,1,m) pair boundary."
+        ],
+        "reasoning": "For full Y Rauh's equations impose overall rank at most one. For one whole side, each retained vertex is an isolated singleton, so there are no new minors within that side and all other columns vanish. These are exactly the frozen three components.",
+        "searches": [
+          "Rauh Theorem 7 and Lemma 5",
+          "Shen–Zhu, arXiv:2305.05365, §2.3 Lemma 2.5",
+          "Goodwin–Röhrle Remark 3.1"
+        ]
+      },
+      "checked_sources": [
+        "Rauh arXiv:1210.7960v1, Advances in Applied Mathematics 50 (2013), 409–414",
+        "Shen–Zhu arXiv:2305.05365",
+        "arXiv:1209.1289v1, 1606.02262, 1306.4838v2, 1606.08840v2",
+        "Resultary 0ff13a9762e6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Rauh yields V=0, U=0 and rank[U V]≤1 and even radicalness of the defining graph ideal.",
+          "Reading dimensions of these three standard loci and equating them is the displayed one-line integer calculation. Counting pure spaces, then the remaining mixed rank-one locus by its unique row line, gives the claimed formula directly.",
+          "The cited Lie-theoretic sources are adjacent cases, larger ambient varieties or different equivalence problems; none is needed to obtain Rauh's implication."
+        ],
+        "reasoning": "The decisive failure is stronger prior coverage of the decomposition. The exact arithmetic consequences need not be separately printed in the prior source to be direct corollaries.",
+        "searches": [
+          "Specialize Rauh Theorem 7 to K_{r,s} and compare the resulting component varieties term by term",
+          "Compare cited Goodwin–Röhrle, Goddard–Goodwin, Bulois–Evain and Boos–Bulois statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With a graph vertex for each column of (U V) and t row coordinates, edges between a U-column and a V-column index exactly the mixed 2×2 minors; these entries are the given commutation equations.",
+          "The identification holds at the level of generated ideals; adjoining the excluded Z-variables is precisely a polynomial extension."
+        ],
+        "reasoning": "This is an equivalent family of equations, including their scheme structure; a different Lie-algebra vocabulary does not remove coverage.",
+        "searches": [
+          "Mixed minors / graph ideals / generalized binomial edge ideals",
+          "Rauh, arXiv:1210.7960v1, Section 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest catalogue hit 0ff13a9762e6 concerns (1,r,c) and an all-arity count with a different pair classification, not an equivalent block profile.",
+          "No separately stated matching point-count table was located in the bounded search; exact coverage comes instead from a general primary-decomposition theorem."
+        ],
+        "reasoning": "A literal table or notation match is unnecessary once the actual ideals and components have been identified via an existing stronger result.",
+        "searches": [
+          "Resultary searches for the exact (r,1,s) block profile, components, mixed minors and finite-field count",
+          "Primary literature search for three-block nilradical (r,1,s) commuting tuples"
+        ]
+      },
+      "rationale": "The commuting equations are exactly a generalized binomial edge ideal for the complete bipartite graph K_{r,s}, with independent central variables adjoined. Rauh's 2012 preprint/2013 paper, Section 3 Lemma 5 and Theorem 7, gives a general primary decomposition that yields the exact three component ideals here, not merely a related rank argument. The dimensions, integer equidimensionality test and finite-field census are immediate calculations in this explicit decomposition, not independent substantive additions.",
+      "residual_risks": [
+        "No independent publication of the exact count was identified; the count's status as a direct corollary is established mathematically, not inferred from a search miss."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive stronger coverage.",
+          "evidence": "Theorem 7 intersects the prime ideals indexed by induced retained subgraphs satisfying the component-merging criterion. For K_{r,s} there are exactly the full vertex set and each whole side, yielding the claimed union, even before taking the reduced variety.",
+          "identifier_or_url": "https://arxiv.org/pdf/1210.7960v1",
+          "material_read": "Section 3, PDF pp. 4–6, Lemma 5 and Theorem 7, decisive passage p. 6 at offset 20410.",
+          "method": "Opened primary full-text passages; checked the graph specialization directly.",
+          "title": "Generalized Binomial Edge Ideals",
+          "trigger": "The commuting equations are mixed column minors of an arbitrary graph ideal."
+        },
+        {
+          "assessment": "Adjacent boundary, not the decisive coverage.",
+          "evidence": "For the flag k⊂k²⊂k^(m+2), i.e. (1,1,m), the commuting pair variety has two components of dimensions 4m+1 and 3m+2.",
+          "identifier_or_url": "arXiv:1209.1289v1",
+          "material_read": "Remark 3.1, PDF p. 8 offset 25460.",
+          "method": "Open primary PDF passage.",
+          "title": "On commuting varieties of nilradicals of Borel subalgebras of reductive Lie algebras",
+          "trigger": "Cited closest Lie-theoretic parabolic example."
+        },
+        {
+          "assessment": "Different ambient space and pair rather than arbitrary tuple question.",
+          "evidence": "Studies commuting pairs in the full parabolic algebra, not only its nilradical.",
+          "identifier_or_url": "arXiv:1606.02262",
+          "material_read": "Theorem 1.1, PDF p. 1 offset 3500.",
+          "method": "Open primary PDF passage.",
+          "title": "On commuting varieties of parabolic subalgebras",
+          "trigger": "Plausibly overlapping Lie-theoretic classification."
+        },
+        {
+          "assessment": "Different ambient spaces and block pattern.",
+          "evidence": "The q_(2,n) example has blocks (1,1,n−2); the n²-component statement treats the specified parabolic pair cases.",
+          "identifier_or_url": "arXiv:1306.4838v2",
+          "material_read": "PDF pp. 4 and 9–10, offsets 9800, 24642 and 26369, including Theorem 7.3.",
+          "method": "Open primary PDF bounded passages.",
+          "title": "Nested punctual Hilbert schemes and commuting varieties of parabolic subalgebras",
+          "trigger": "Parabolic nilpotent commuting results."
+        },
+        {
+          "assessment": "Different classification question.",
+          "evidence": "Parabolic conjugation on nilpotent elements and associated spaces do not supply the exact claimed family.",
+          "identifier_or_url": "arXiv:1606.08840v2",
+          "material_read": "Abstract and definition, PDF pp. 1 and 29, offset 106996 for the latter.",
+          "method": "Open primary PDF bounded passages.",
+          "title": "Parabolic conjugation and commuting varieties",
+          "trigger": "Possible equivalence with a parabolic commuting classification."
+        },
+        {
+          "assessment": "Non-equivalent block placement.",
+          "evidence": "Treats blocks (1,r,c), including all-arity point counts and a pair case when r=2, not a singleton middle block.",
+          "identifier_or_url": "Resultary 0ff13a9762e6",
+          "material_read": "RESULT.md offsets 250 and 6100 in the local mirror.",
+          "method": "Local mirror statement inspection.",
+          "title": "Rank-stratified commuting tuples and a sharp reducibility transition",
+          "trigger": "Closest catalogue match on commuting tuples and finite fields."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof",
+        "Rauh Theorem 7 and its explicit K_{r,s} specialization"
+      ],
+      "rationale": "The Lie interpretation is instructive, but the known graph-ideal decomposition determines every component immediately. The only residual calculations are equality of three known dimensions and a disjoint count of two affine spaces plus mixed rank-one matrices. The record does not establish any further geometric or arithmetic phenomenon that survives this coverage as an independently valuable contribution, and adjoining a scheme-reducedness claim would also be covered.",
+      "residual_risks": [
+        "This judgment concerns novelty-bearing value of the submitted specialization, not the usefulness of the general graph-ideal theorem or of expository applications."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

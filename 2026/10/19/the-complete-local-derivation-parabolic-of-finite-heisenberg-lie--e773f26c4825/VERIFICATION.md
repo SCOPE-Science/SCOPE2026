@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof uses an explicit basis of the symplectic Lie algebra: the matrices \(\left(\begin{smallmatrix}P&Q\\R&-P^{\mathsf T}\end{smallmatrix}\right)\) with symmetric \(Q,R\), whose evaluations at a nonzero vector span all of \(V\). This works even in characteristic two. The ordinary derivation identity is reduced directly to \(B^{\mathsf T}J+JB=\lambda J\); the local-derivation equality follows by constructing a matching derivation at every \(v+tz\).
+## correctness
 
-The included `verify.py` uses only Python's standard library and independently constructs the complete derivation-equation nullspace and the local-equation nullspace. It enumerates all nonzero test vectors for the stated finite cases, then checks that the local nullspace consists of center-preserving endomorphisms and has the formula-predicted dimension. Replay command: `python verify.py`. Expected terminal line: `ALL_CHECKS_PASS`.
+PASS
 
-Tests checked \(\mathbb F_2\) at ranks \(1,2,3\), \(\mathbb F_3\) at ranks \(1,2\), and \(\mathbb F_5\) at rank \(1\). The finite tests do not verify an infinite family by themselves; the written proof does. Extension fields were not exhaustively tested. No independent audit has been conducted.
+Locality at z forces center preservation. A derivation has arbitrary central functional and quotient block B satisfying B^t J+JB=lambda J with the SAME lambda as its central action. diag(lambda I,0) supplies every lambda without dividing by two. Independently, for a nonzero v and desired image w, choose l(v)=1 and alpha=omega(w,-); the symmetric form l(x)alpha(y)+alpha(x)l(y)-alpha(v)l(x)l(y) equals alpha(y) at x=v, and omega(Sx,y) equal to this form defines S in sp with Sv=w, also in characteristic two. This gives the needed pointwise match. Symmetric forms have dimension n(2n+1); adding 2n+1 gives the ordinary dimension, whereas every quotient endomorphism is allowed locally. The dimension difference is n(2n-1), so the finite counts and ratio follow. Independently checked evaluation ranks and derivation constraint ranks over F2, F3, F4 and F5 (python3 /workspace/reproduction/1.py; output 1.txt in that directory); exhaustive rank-one map checks over F2 and F3 also gave (64,128) and (729,2187) for (ordinary,local). The proof, not the bounded computations, establishes the all-field equality.
+
+## originality
+
+PASS
+
+Best of current knowledge for the all-rank, arbitrary-field equality and its counts. Earlier existence, particular low-dimensional complex cases and the abstract reflexive-hull Lie property are not credited as new. There is exact equivalent coverage in a distinct later-dated indexed record, and another later stronger record; neither was identified as antecedent to this frozen finding. Index dates do not certify public priority or independent provenance.
+
+## value
+
+PASS
+
+A complete natural reflexivity classification for an important infinite family, uniform in characteristic two; explains structurally why testing a single vector loses all quotient constraints. The exact defect and finite-field ratio quantify the local/global gap rather than merely producing a further non-derivation witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

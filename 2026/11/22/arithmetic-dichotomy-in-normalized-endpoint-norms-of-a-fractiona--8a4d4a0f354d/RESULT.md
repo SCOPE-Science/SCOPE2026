@@ -2,124 +2,72 @@
 
 ## Finding
 
-Let \(1<\alpha<2\), let \(S_p\) be the unilateral right shift on complex \(\ell^p(\mathbb N_0)\), and let \(T_{\alpha,p}(t)=\exp[-t(I-S_p)^\alpha]\) for \(t\geq0\), with the binomial fractional power. An exact exponential growth rate is common to the endpoint norm and Hilbert norm, but their ratio has a sharp arithmetic dichotomy.
-
-Put
+Let \(1<\alpha<2\), let \(S_p\) be the unilateral right shift on complex \(\ell^p(\mathbb N_0)\), and put \(T_{\alpha,p}(t)=\exp[-t(I-S_p)^\alpha]\), \(t\geq 0\), with the binomial fractional power. Define
 \[
-\phi=\frac{\pi}{\alpha+1},\quad
-\theta=\frac{\pi(\alpha-1)}{\alpha+1},\quad
-\delta=2\cos\phi,\quad
-c=\delta^\alpha\cos\phi,\quad
-b=\delta^\alpha\sin\phi,\quad
-v=\alpha\delta^{\alpha-1},
+\phi=\frac{\pi}{\alpha+1},\qquad \theta=\pi-2\phi,\qquad \delta=2\cos\phi,
+\qquad c=\delta^\alpha\cos\phi,\quad b=\delta^\alpha\sin\phi,\quad v=\alpha\delta^{\alpha-1},
 \]
 \[
-K=\frac v2\left((\alpha+1)-i(\alpha-1)\tan\phi\right),\qquad
-u=\operatorname{Re}(K^{-1}),\quad \omega=\operatorname{Im}(K^{-1}).
+K=\frac v2\big((\alpha+1)-i(\alpha-1)\tan\phi\big),\qquad
+\nu=\operatorname{Re}(K^{-1}),\qquad \omega=\operatorname{Im}(K^{-1}).
 \]
-All of \(b,c,v,\nu,\omega,\operatorname{Re}K\) are positive. For every \(t\geq0\),
-\[
-\|T_{\alpha,2}(t)\|=e^{ct}.
-\]
-Define \(R_\alpha(t)=e^{-ct}\|T_{\alpha,1}(t)\|\) and
+The numbers \(b,c,v,\nu,\omega,\operatorname{Re}K\) are positive. For every \(t\geq0\), \(\|T_{\alpha,2}(t)\|=e^{ct}\). Write \(R_\alpha(t)=e^{-ct}\|T_{\alpha,1}(t)\|\) and
 \[
 C_\alpha=\frac4\pi\sqrt{\frac{|K|}{\operatorname{Re}K}}
 =\frac4\pi\left(1+\frac{(\alpha-1)^2\tan^2\phi}{(\alpha+1)^2}\right)^{1/4}.
 \]
-If \(\alpha\) is irrational, \(\lim_{t\to\infty}R_\alpha(t)=C_\alpha\).
-
-If \(\alpha\) is rational, uniquely write \(\theta/\pi=a/q\) with coprime positive integers \(a,q\) (necessarily \(q\geq4\)), and define
+If \(\alpha\) is irrational, \(R_\alpha(t)\to C_\alpha\) as \(t\to\infty\). If \(\alpha\) is rational, write \(\theta/\pi=a/q\) in lowest terms (so \(q\ge4\)) and put
 \[
-F_{\alpha,q}(s)=\frac{2}{q\sqrt{2\pi|K|}}\sum_{r=0}^{q-1}
-\int_{\mathbb R}e^{-\nu y^2/2}
-\left|\cos\left(s-r\theta-\frac{\arg K}{2}-\frac{\omega y^2}{2}\right)\right|\,dy.
+F_{\alpha,q}(s)=\frac{2}{q\sqrt{2\pi|K|}}\sum_{r=0}^{q-1}\int_{\mathbb R}
+ e^{-\nu y^2/2}\left|\cos\left(s-r\theta-\frac{\arg K}{2}-\frac{\omega y^2}{2}\right)\right|\,dy.
 \]
-Then
-\[
-R_\alpha(t)=F_{\alpha,q}(bt)+o(1)\qquad(t\to\infty).
-\]
-The positive, continuous function \(F_{\alpha,q}\) is nonconstant, has fundamental period \(\pi/q\), and has mean \(C_\alpha\) over that period. In particular, the normalized endpoint norm has no limit for rational orders, and its exact liminf and limsup are respectively the minimum and maximum of the displayed one-variable function.
+Then \(R_\alpha(t)=F_{\alpha,q}(bt)+o(1)\). The profile is positive, continuous and nonconstant, has fundamental period \(\pi/q\) and has mean \(C_\alpha\). In particular \(R_\alpha(t)\) does not converge in the rational case; its liminf and limsup are the minimum and maximum of the profile.
 
 ## Assumptions and scope
 
-The shift is \(S_p(x_0,x_1,\ldots)=(0,x_0,x_1,\ldots)\). The power \((I-S_p)^\alpha=\sum_{k\geq0}(-1)^k\binom\alpha k S_p^k\) converges absolutely in operator norm since its coefficients are \(O(k^{-\alpha-1})\). The complex power is the principal branch, continued from the open right half-plane to the closed right half-plane. Values at the circle point \(1\) are defined by continuity. All limits concern real \(t\to+\infty\). The theorem deliberately excludes orders \(\alpha\leq1\) and \(\alpha\geq2\), and does not assert the same result for other sequence norms.
+The shift is \(S_p(x_0,x_1,\ldots)=(0,x_0,x_1,\ldots)\). The fractional power is the operator-norm convergent series \(\sum_{k\ge0}(-1)^k\binom\alpha k S_p^k\), using binomial coefficients of size \(O(k^{-\alpha-1})\). The scalar fractional power is the principal branch on the right half-plane, with its value at zero defined by continuity. Time tends to \(+\infty\) through real values, at fixed \(\alpha\). The integer endpoints, other orders, and norms on other \(\ell^p\) spaces are outside the result.
 
 ## Proof
 
-**1. Norm identities and the two maxima.** Write \(f_t(z)=\exp[-t(1-z)^\alpha]=\sum_{n\geq0}a_n(t)z^n\). Absolute summability follows by the holomorphic functional calculus in the Wiener algebra: the binomial series for \((1-z)^\alpha\) is absolutely summable and the Wiener algebra is closed under exponentials. Convolution by \((a_n(t))\) has \(\ell^1\) norm \(\sum_{n\geq0}|a_n(t)|\), with equality on the first unit vector. The unitary identification \(\ell^2(\mathbb N_0)\cong H^2\) makes the same operator multiplication by \(f_t\), so its norm is \(\max_{|z|=1}|f_t(z)|\).
+**Norms and maxima.** Write \(f_t(z)=\exp[-t(1-z)^\alpha]=\sum_{n\ge0}a_n(t)z^n\). The Wiener algebra is complete and closed under exponentiation, so the coefficients are absolutely summable. Acting on the first unit vector shows the \(\ell^1\) convolution norm equals \(\sum_n|a_n(t)|\). Under the \(H^2\) identification, the \(\ell^2\) operator is multiplication by \(f_t\) and its norm is the maximum boundary modulus.
 
-Set \(\psi(x)=-(1-e^{ix})^\alpha\). On \(0<x<\pi\), write \(1-e^{ix}=2\cos\varphi\,e^{-i\varphi}\), \(\varphi=(\pi-x)/2\). Direct differentiation gives
-\[
-\frac{d}{d\varphi}\left[-(2\cos\varphi)^\alpha\cos(\alpha\varphi)\right]
-=\alpha 2^\alpha(\cos\varphi)^{\alpha-1}\sin((\alpha+1)\varphi).
-\]
-Thus \(\operatorname{Re}\psi\) has precisely two global maximizers on the circle, at \(x=\pm\theta\), with common maximum \(c\). Direct differentiation at the positive maximizer gives
-\[
-\psi(\theta)=c+ib,\qquad \psi'(\theta)=iv,\qquad -\psi''(\theta)=K.
-\]
-Conjugation shows \(\psi(-\theta)=c-ib\), \(\psi'(-\theta)=iv\), and \(-\psi''(-\theta)=\overline K\). It follows that \(\|T_{\alpha,2}(t)\|=e^{ct}\) for all \(t\geq0\).
+Set \(\psi(x)=-(1-e^{ix})^\alpha\). On \(0<x<\pi\), write \(1-e^{ix}=2\cos\varphi\,e^{-i\varphi}\), \(\varphi=(\pi-x)/2\). The derivative of \(\operatorname{Re}\psi\) in \(\varphi\) is \(\alpha 2^\alpha(\cos\varphi)^{\alpha-1}\sin((\alpha+1)\varphi)\), which changes from positive to negative at \(\phi\) on \((0,\pi/2)\). Conjugation gives exactly two maxima at \(\pm\theta\), both of height \(c\). At the positive saddle \(\psi(\theta)=c+ib\), and \(\psi'(\theta)=iv\) since \(\theta=(\alpha-1)\phi\). For \(z=e^{i\theta}\), \(z/(1-z)=-1/2+i\tan\phi/2\), and \(-\psi''(\theta)=v(1-(\alpha-1)z/(1-z))=K\). At the negative saddle the value and curvature are conjugated and the drift is still \(iv\). This gives the exact Hilbert-space norm.
 
-**2. Uniform two-saddle coefficient asymptotic.** Fourier inversion yields \(a_n(t)=(2\pi)^{-1}\int_{-\pi}^{\pi}e^{t\psi(x)-inx}\,dx\). Fix \(L>0\) and write \(n=vt+y\sqrt t\), \(|y|\leq L\). Near \(\theta\), substitute \(x=\theta+z/\sqrt t\), use the Taylor expansion with curvature \(K\), and integrate the limiting complex Gaussian. Near \(-\theta\) one obtains the complex conjugate term. On the rest of the circle the real part of \(\psi\) is at most \(c-\eta\) for some \(\eta>0\). Standard dominated Laplace estimates, uniform for bounded \(y\), therefore give
+**Two-saddle coefficient asymptotic.** Fourier inversion gives \(a_n(t)=(2\pi)^{-1}\int_{-\pi}^{\pi}e^{t\psi(x)-inx}\,dx\). Put \(y=(n-vt)/\sqrt t\). For bounded \(y\), set \(x=\theta+z/\sqrt t\) near the positive saddle. After removing the constant and linear phases the integrand tends to \(\exp(-Kz^2/2-iyz)\), bounded by a real Gaussian on the rescaled local interval for sufficiently small fixed saddle neighborhoods. This limit can be integrated uniformly on bounded \(y\) intervals: Taylor expansion controls compact \(z\) intervals and the real Gaussian controls their complement. The contribution is \(e^{t(c+ib)-in\theta}(2\pi tK)^{-1/2}e^{-y^2/(2K)}\) up to \(o(e^{ct}t^{-1/2})\), using the square root of \(K\) with positive real part. The negative saddle gives its conjugate. The remaining circle is exponentially smaller by strictness of the two maxima. Hence, uniformly for \(|y|\le L\) at each fixed \(L\),
 \[
-a_n(t)=\frac{2e^{ct}}{\sqrt{2\pi t|K|}}
- e^{-\nu y^2/2}
- \cos\left(bt-n\theta-\frac{\arg K}{2}-\frac{\omega y^2}{2}\right)
- +o_L(e^{ct}t^{-1/2}).\tag{1}
-\]
-Indeed, the positive-frequency saddle is \(e^{t(c+ib)-in\theta}(2\pi t K)^{-1/2}\exp[-y^2/(2K)]\), and the negative-frequency saddle is its conjugate. The principal square root of \(K\), which has positive real part, fixes the displayed phase and normalization.
-
-**3. Control of all coefficients outside the Gaussian window.** Parseval for \(f_t(e^{ix})=e^{t\psi(x)}\) gives
-\[
-\sum_{n\geq0}|a_n(t)|^2=O(e^{2ct}t^{-1/2}).\tag{2}
-\]
-Since \(\psi'\) exists and is bounded on the whole circle for \(\alpha>1\), Parseval for \((-i\partial_x-vt)e^{t\psi(x)}=t(-i\psi'(x)-v)e^{t\psi(x)}\) gives
-\[
-\sum_{n\geq0}(n-vt)^2|a_n(t)|^2=O(e^{2ct}t^{1/2}).\tag{3}
-\]
-To justify (3), the factor \(-i\psi'(x)-v\) vanishes linearly at **both** maximizers; the Gaussian localization contributes \(t^{-3/2}\) before multiplication by \(t^2\); the complement contributes exponentially less. By weighted Cauchy–Schwarz and (3), for \(L\geq1\),
-\[
-e^{-ct}\sum_{|n-vt|>L\sqrt t}|a_n(t)|
-\leq C L^{-1/2}.\tag{4}
-\]
-Consequently, (1) gives the complete endpoint norm after first letting \(t\to\infty\) with a fixed window, then letting \(L\to\infty\). This rules out hidden mass in the coefficient tails.
-
-**4. Irrational orders.** Since \(\theta/\pi=(\alpha-1)/(\alpha+1)\), the angle is irrational exactly when the order is irrational. The absolutely uniformly convergent Fourier series
-\[
-|\cos x|=\frac2\pi+\frac4\pi\sum_{k\geq1}\frac{(-1)^k}{1-4k^2}\cos(2kx)
-\]
-shows that only its constant term survives in a Gaussian-weighted sum over \(n\) when \(\theta/\pi\) is irrational. For each nonzero Fourier harmonic, the partial sums of \(e^{2ikn\theta}\) are bounded; Abel summation against the slowly varying profile over a window of size \(\sqrt t\) makes the normalized sum tend to zero, uniformly in the time-dependent phase. Uniform convergence of the Fourier series allows interchange of the limits. Thus (1)–(4) give
-\[
-\lim_{t\to\infty}R_\alpha(t)
-=\frac{2}{\sqrt{2\pi|K|}}\frac2\pi
-\int_{\mathbb R}e^{-\nu y^2/2}\,dy
-=\frac4\pi\sqrt{\frac{|K|}{\operatorname{Re}K}}.
+a_n(t)=\frac{2e^{ct}}{\sqrt{2\pi t|K|}}e^{-\nu y^2/2}
+ \cos\left(bt-n\theta-\frac{\arg K}{2}-\frac{\omega y^2}{2}\right)+o_L(e^{ct}t^{-1/2}).
 \]
 
-**5. Rational orders and strict oscillation.** If \(\theta/\pi=a/q\) in lowest terms, grouping coefficient indices by \(n\bmod q\) makes each congruence class a Riemann sum with mesh \(q/\sqrt t\). Equations (1)–(4) then give \(R_\alpha(t)=F_{\alpha,q}(bt)+o(1)\). Shifting \(s\) by \(\pi/q\) permutes the \(q\) residue-class phases modulo \(\pi\), because \(a\) and \(q\) are coprime. The Fourier series for \(|\cos|\) shows that precisely the harmonics indexed by multiples of \(q\) survive. Its first surviving nonconstant harmonic has a nonzero coefficient: the coefficient at frequency \(2q\) is a nonzero multiple of
+**Control of the whole coefficient sum.** Parseval and real Gaussian localization give \(\sum_{n\ge0}|a_n(t)|^2=O(e^{2ct}t^{-1/2})\). The boundary function \(\psi\) has a bounded continuous first derivative, including at zero in the angular coordinate, since \(\alpha>1\). Applying Parseval to \((-i\partial_x-vt)e^{t\psi(x)}\) gives
 \[
-\int_{\mathbb R}e^{-\nu y^2/2}e^{-iq\omega y^2}\,dy
-=\sqrt{\frac{2\pi}{\nu+2iq\omega}}\ne0.
+\sum_{n\ge0}(n-vt)^2|a_n(t)|^2=O(e^{2ct}t^{1/2}).
 \]
-Hence \(F_{\alpha,q}\) is nonconstant, and its first harmonic enforces fundamental period \(\pi/q\). Averaging over a period removes the nonconstant harmonics and gives exactly \(C_\alpha\). Continuity, positivity, and compactness of a period interval give the asserted limiting extrema. Since \(b>0\), the argument \(bt\) traverses infinitely many complete periods as real \(t\to\infty\), so no limit exists. This completes the proof.
+In fact the differentiated function is \(t(-i\psi'(x)-v)e^{t\psi(x)}\); the factor after \(t\) vanishes to at least first order at both saddles, so its squared norm has the stated bound. Outside the saddle neighborhoods there is an exponential gap. Cauchy–Schwarz with \(\sum_{|n-vt|>L\sqrt t}|n-vt|^{-2}=O((L\sqrt t)^{-1})\) gives \(e^{-ct}\sum_{|n-vt|>L\sqrt t}|a_n(t)|=O(L^{-1/2})\) for \(L\ge1\), \(t\ge1\). Thus one can first sum the local asymptotic on a fixed window and then send \(L\) to infinity.
 
-## Verification
+**Irrational orders.** The angle \(\theta/\pi=(\alpha-1)/(\alpha+1)\) is irrational exactly when \(\alpha\) is. The uniformly absolutely convergent Fourier series
+\[
+|\cos x|=\frac2\pi+\frac4\pi\sum_{k\ge1}\frac{(-1)^k}{1-4k^2}\cos(2kx)
+\]
+reduces the window sum to an ordinary Gaussian Riemann sum for the constant term and oscillatory sums for each fixed \(k\ne0\). The partial sums of \(e^{-2ikn\theta}\) are bounded. Abel summation on the window against the weight \(e^{-(\nu+2ik\omega)y^2/2}\) gives a bounded sum before division by \(\sqrt t\): the total variation of the weight there is bounded at fixed \(L,k\). This estimate is uniform in the time-dependent phase. Absolute summability handles the Fourier tail, and the coefficient tail bound allows \(L\to\infty\). The normalized norm tends to \(2(2/\pi)(2\pi|K|)^{-1/2}\int_{\mathbb R}e^{-\nu y^2/2}\,dy=C_\alpha\).
 
-All derivative and saddle identities are elementary algebraic identities given explicitly above. The finite reproducibility program `CHECK.py` evaluates those identities, samples the full boundary maximum, tests predicted rational periodicity and nonconstancy, and compares finite Fourier-coefficient approximations to both asymptotic profiles for two rational and one irrational order. Its successful result is `FRACTIONAL_WIENER_ARITHMETIC_DIAGNOSTIC_OK 49`. These finite checks are supplementary; infinite uniformity and tail control are provided by the proof, not by a numerical extrapolation.
+**Rational orders.** Group by \(n\bmod q\) on the window. On each class the residue phase is fixed modulo \(\pi\); the window sum is a Riemann sum of mesh \(q/\sqrt t\), uniform in \(bt\) by periodicity and uniform continuity of the integrand on compact \(y\) intervals and a full phase period. The tail bounds then yield \(F_{\alpha,q}(bt)+o(1)\). Shifting by \(\pi/q\) permutes the residues. In the displayed Fourier series only indices divisible by \(q\) survive the residue average. In particular the coefficient at frequency \(2q\) is a nonzero multiple of
+\[
+\int_{\mathbb R}e^{-\nu y^2/2-iq\omega y^2}\,dy=\sqrt{\frac{2\pi}{\nu+2iq\omega}},
+\]
+so every period must be a multiple of \(\pi/q\), which is therefore fundamental. Continuity follows by dominated convergence; positivity follows because \(\omega>0\) and the integrand is positive on an interval for every phase. The constant Fourier term gives the same mean as in the irrational case. Since \(b>0\), real times tending to infinity attain every profile phase repeatedly, giving the limiting extrema and nonconvergence.
+
+## Verification and limitations
+
+The proof establishes the fixed-order limit and makes no assertion of a rate uniform near rational orders or near the integer endpoints. The accompanying NumPy script `CHECK.py` supplies finite diagnostics of saddle identities, the rational profile and coefficient approximations (expected line `FRACTIONAL_WIENER_ARITHMETIC_DIAGNOSTIC_OK 49`). It uses \(u=\operatorname{Re}(1/K)\) as a local variable for the quantity denoted \(\nu\) in this proof; the finite FFT diagnostic is not an aliasing bound or a proof of the asymptotic.
 
 ## Relationship to prior work
 
-Barberán and Miana [1] give the fractional-shift polynomial coefficients, absolute summability, and applications to entire groups and the Wiener algebra, thereby providing the natural starting object. Their results do not state the large-time sharp ratio between \(\ell^1\) and \(\ell^2\) operator norms, nor its dependence on arithmetic of the fractional order. Girard [2] treats norms of high powers of absolutely convergent Fourier series. His Section 4 obtains additive contributions when different spectral maxima have **different drift slopes** and warns that same-slope interference may prevent convergence; here the two maximizers have the **same drift slope**, and we compute the complete surviving interference and its arithmetic law. The complex-sequence local limit results [3,4] provide relevant general Gaussian techniques for convolution powers. They do not explicitly determine this continuous fractional-shift semigroup's rational oscillation profile, the sharp irrational constant, or the exact normalization against its Hilbert-space norm. The proof above is self-contained and does not require a claimed general local-limit theorem beyond its published hypotheses.
-
-## Limitations
-
-The result covers real nonnegative times, fractional orders strictly between one and two, and the unilateral shift on complex \(\ell^1\) and \(\ell^2\). It does not classify the operator norm on other \(\ell^p\) spaces, or behavior at the integer endpoints. The \(o(1)\) remainder has no stated uniform rate as the order approaches a rational number or an endpoint. As with any originality assessment based on available literature, equivalent earlier statements under other terminology may exist. No independent mathematical audit has been performed.
+Barberán and Miana [1] provide the fractional-shift coefficients and Hardy-space framework; they do not give this normalized \(\ell^1\) asymptotic. Girard [2, §4] establishes additivity for multiple spectral maxima with distinct drift slopes and notes that convergence can fail without separation. Here the drifts coincide, so the interference must be evaluated before taking absolute values. Complex-sequence local limits [3,4] provide related Gaussian methods; their stated finite-support or exponential-decay assumptions do not directly cover this fractional symbol with a boundary branch point. The present result is the fixed-order sharp constant and explicit surviving periodic interference for this continuous-time family. Equivalent earlier results under other terminology are not ruled out.
 
 ## References
 
-[1] R. Barberán and P. J. Miana, *Entire groups generated by fractional powers of operators*, arXiv:2606.16895, first publicly posted 2026-06-15. https://arxiv.org/abs/2606.16895
-
-[2] D. M. Girard, *The asymptotic behavior of norms of powers of absolutely convergent Fourier series*, Pacific Journal of Mathematics 37 (1971), 357–381, especially §4, pp. 379–380. https://msp.org/pjm/1971/37-2/pjm-v37-n2-p09-p.pdf
-
-[3] L. Coeuret, *Local limit theorem for complex valued sequences*, arXiv:2201.01514 (2022); Asymptotic Analysis 142 (2025), 379–431. https://arxiv.org/abs/2201.01514
-
-[4] J.-F. Coulombel and G. Faye, *The local limit theorem for complex valued sequences: the parabolic case*, arXiv:2408.12876 (2024). https://arxiv.org/abs/2408.12876
+1. R. Barberán and P. J. Miana, *Entire groups generated by fractional powers of operators*, https://arxiv.org/abs/2606.16895.
+2. D. M. Girard, *The asymptotic behavior of norms of powers of absolutely convergent Fourier series*, Pacific J. Math. 37 (1971), 357–381, §4, pp. 379–380. https://msp.org/pjm/1971/37-2/pjm-v37-n2-p09-p.pdf
+3. L. Coeuret, *Local limit theorem for complex valued sequences*, https://arxiv.org/abs/2201.01514.
+4. J.-F. Coulombel and G. Faye, *The local limit theorem for complex valued sequences: the parabolic case*, https://arxiv.org/abs/2408.12876.

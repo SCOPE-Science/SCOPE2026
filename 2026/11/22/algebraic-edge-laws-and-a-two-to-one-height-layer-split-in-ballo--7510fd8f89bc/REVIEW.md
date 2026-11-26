@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The two-read alternating-interval characterization supplies a bijection from edges to \(D\)-starting alternating factors of length at least two in a nonnegative ballot prefix. Flipping the factor raises odd intermediate heights and preserves nonnegativity; first and last mismatch indices make the marking unique. Prefix and suffix generating functions follow from Catalan decomposition and first-passage factorization. Exact summation yields the all-length algebraic series; singularity analysis gives the asymptotic constants. Direct deletion intersections through length ten and independent dynamic-program/series agreement through length sixty corroborate the derivation. The proof does not equate finite checking with infinite proof.
+## correctness
 
-## Originality — PASS, qualified
-The unrestricted binary deletion intersection criterion, fixed-pattern ballot avoidance, and positions-of-pattern-occurrences equivalences are established in prior literature. Their displayed statements and inspected material do not give the present all-altitude ballot-prefix confusability graph, the exact same-layer/cross-layer edge generating functions, or the ratio two to one. Related unrestricted graph and Dyck-returning-path graph records have different vertex sets or observables. Search is not a uniqueness proof. An exact unindexed predecessor and uninspected complete historical pattern-count papers remain residual priority risks.
+PASS
 
-## Value — PASS
-The boundary restriction changes the deletion-confusability edge population: it yields an exact closed form at every length and a nontrivial separation of equal-height and adjacent-height ambiguity, with limiting proportions \(2/3\) and \(1/3\) and average conflict degree \(n(1+o(1))\). This is a natural coding-source invariant that can inform graph-based reconstruction bounds and constrained decoder design. It is not an arbitrary finite numerical slice, and it does not assert optimal codebook sizes.
+Besides the published binary two-read criterion, one can check the key uniqueness directly. For distinct words with first and last differences L,R, a common deletion word made by deleting i in the first word and j>i in the second requires i≤L≤R≤j. Equality of the shifted substrings and equality of letters before L and after R allow these deletions to move within constant runs to L and R. The reverse orientation is the only other possibility (deleting the same index only covers a single mismatch). Both orientations when L<R force the opposite alternating phases. Mark the representative starting with D and its unique mismatch factor. The mark requires initial height h≥1; flipping raises odd intermediate heights by two, leaves even ones unchanged, and at the end either preserves height (even length) or raises it by two (odd length), preserving ballot legality. Excursion decompositions give P_h=C(z²)T^h and the first-passage exclusion F_h=(1−T^{h+1})/(1−2z). The even factors contribute z²/(1−z²) times ΣP_hF_h over h≥1 and the odd factors z³/(1−z²) times ΣP_hF_{h−1}; the geometric sums give the two displayed rational expressions in T. Expanding T at z=1/2 gives (3√2)⁻¹(1−2z)^(−3/2) and (6√2)⁻¹(1−2z)^(−3/2) for the leading terms. The only other circle singularity is z=−1/2, where 1−2z is nonzero and 1−T² vanishes at square-root order. Algebraic transfer and Γ(3/2)=√π/2 give the constants and O(2^n) total remainder; the central binomial asymptotic gives average degree n to leading order.
 
-## Closest literature and limitations
-The nearest general channel theorem is the alternating mismatch-interval characterization in arXiv:2001.01376. Related ballot-pattern studies are arXiv:1004.2710 and arXiv:1510.01952, which address avoidance and occurrence-position equivalence rather than pairwise deletion-output intersections. Historical general Dyck pattern-occurrence results may permit other derivations and are a residual comparison risk. All scientific limitations are also stated in RESULT.md.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct result is the edge enumeration by height change for the graph induced on all ballot prefixes and its two-to-one asymptotic split. Credit the two-read alternating characterization, the unrestricted composition-refined edge calculation and the Dyck-only edge calculations. Neither unrestricted counts by total composition nor counts for words ending at zero count legal suffixes at the two different heights arising here. The fixed-pattern Dyck and ballot sources inspected have different outcome statistics, endpoints or pattern classes.
+
+## value
+
+PASS
+
+The constrained confusability graph is a natural object in sequence reconstruction; the equality versus adjacency of endpoint layers is not an arbitrary slice. A boundary-sensitive edge count with explicit generating functions determines an asymptotic density split and average degree for the full family. This supplies testable graph-scale constraints beyond the generic two-deletion-output criterion or the balanced Dyck-only graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

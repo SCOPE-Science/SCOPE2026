@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The smooth sixfold is the zero locus of two sections of the globally generated bundle \(\operatorname{Sym}^2\mathcal U^\vee\) on \(\operatorname{Gr}(3,9)\). Its codimension is \(12\), its tangent Chern series is the ambient series divided by the normal-bundle series, and its first Chern class is the Plücker class. The full top intersection table is an 84-fixed-point exact rational localization computation, independently reproduced with two unrelated torus weights. Independent Grassmannian coefficient extraction checks the volume \(3904\). No finite experiment is being extrapolated to an infinite theorem; localization applies to the whole stated geometric family.
+PASS
 
-## Originality
+On Gr(3,9), E=(Sym² U*)⊕² has rank 12, is globally generated, and its sections induced by pairs of ambient forms generate the fibers. A general section is transverse; the nonzero degree calculation also proves nonemptiness. Its zero locus has dimension 6 and class c12(E), with tangent K-class [TG]−[E]. In ordinary K-theory [TG]=9[U*]−[U*⊗U], giving c1(TG)=9H, c1(E)=8H, and adjunction −K_F=H as a divisor class. Independently of torus localization, used roots x,y,z of U*, the ordinary total Chern series product ∏(1+x_i t)^9 divided by ∏(1+(x_i−x_j)t)∏_{i≤j}(1+(x_i+x_j)t)^2, and integer polynomial arithmetic through t^6. For every partition of six, multiplied the resulting monomial by ∏_{i≤j}(x_i+x_j)^2 and (x−y)(x−z)(y−z), then extracted [x^8 y^7 z^6]. All eleven values in source order are 3904, 3072, 1664, 896, 384, 256, 2880, 1728, 5248, 1792, 1088. The Grassmannian coefficient functional picks the rectangular Schur coefficient. This computation requires no smooth special example or finite-sample extrapolation. Top Chern integration gives the topological Euler characteristic.
 
-PASS, with priority risk. Ji–Suzuki (arXiv:2609.36233v1) supplies motivic calculations for the varieties and lines, not this second-maximal Fano scheme's intrinsic characteristic numbers. Belmans et al. (arXiv:2403.12517) and Chen–Vilonen–Xue (arXiv:1602.03052) cover Hodge/cohomological data. Consequently \(\chi_\mathrm{top}=256\) is already known and not counted as novel. Searches for the remaining exact Chern numbers, anticanonical degree and zero-locus aliases yielded no matching complete table. Standard intersection theory makes the entries computable in principle, and an older unindexed specific table might exist; the broader literature was not exhaustively checked.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The complete polarized characteristic-number table is a natural invariant of a distinguished smooth Fano sixfold, needed for numerical classification, Riemann–Roch and characteristic-class comparisons. It goes beyond the known cohomological Euler/Hodge information while keeping a self-contained geometrically motivated exact numerical goal, without asserting a new general theory of motives or Chow rings.
+Credit the exact Euler value 256 to prior cohomology, and the anticanonical identification and Grassmannian integration machinery to standard methods. The result assessed positively is the complete table, in particular the explicit mixed tangent-Chern pairings. The best inspected same-variety results compute Hodge/cohomological invariants, not that full table; other exact tables apply to different parameter spaces. The precise primary reference for the even ambient cohomology is Chen–Vilonen–Xue arXiv:1510.05986 rather than arXiv:1602.03052, which treats odd ambient dimension. Belmans et al. already provide the even-ambient refinement cited in the frozen record.
 
-## Scope and limits
+## value
 
-The result is for general smooth complex intersections of two quadrics in \(\mathbb P^8\). Known smoothness, topological Euler data and bundle formulas are explicitly distinguished from the ten remaining numerical evaluations. Generality, torsion, singular members and geometric Picard rank are not analyzed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The Fano parameter space of planes is a natural sixfold and the chosen invariants are the full top Chern-number list in its intrinsic anticanonical polarization, not a selective sample of integers. The table allows evaluation of degree-six characteristic polynomials, for example in Riemann–Roch or comparisons with other sixfolds, without repeating the ambient computation. This value rests on the explicit mixed pairings beyond the known Euler entry, not on novelty of the characteristic-class method or on the degree alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

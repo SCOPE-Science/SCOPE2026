@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:54:49.583451Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Assumptions and Proof",
+        "Frozen VERIFICATION.md lines 19–32",
+        "verification/symbolic_stationarity.py and verification/independent_markov_solve.py: inspected, not executed"
+      ],
+      "rationale": "Reconstructed the one-step kernel from the exponential dwell clocks and rotation by minus one. With b=(1+z²)/2, the incoming weights for targets containing 0 are z, (1−z)+z(1−z)+z²=1, or b+(1−z²)/2=1. The other target classes receive b, z²+(1−z²)/2=b, or z² (including z·z at the corner). At L=3 the three surviving equations are z, 1 and z². Counting weights gives T_L. A full tour can implement any single allowed hop with positive probability and return the frame to its starting orientation. The exclusion configuration graph is connected: reduce the separation to get an adjacent pair, and translate adjacent pairs using two successive hops. This gives uniqueness. Only the two neighbor-blocked states contribute to the signed drift, with opposite signs and weights 1 and z; their difference gives −(1−z)²/T_L. Over a full tour each fixed bond is exposed to each relative phase, so its mean current is v/L times this drift. The limits use z→0, T_L(1)=L(L−1)/2 and 1−z∼p/(2v), and B_L∼L²/4, respectively.",
+      "residual_risks": [
+        "The archived finite diagnostics are not independent replay or the basis of the universal conclusion. Uniqueness and strict sign are asserted only for finite positive rates and the specified two-particle process."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2014 relations apply more broadly in particle number, but leave the hop probabilities in terms of correlations and close them later by mean field.",
+          "The ordered-update section gives density/correlation relations, mean-field calculations and simulations rather than a full canonical two-particle law."
+        ],
+        "reasoning": "The inspected broader relations do not specialize directly to the four stationary weights or make the two-particle balance calculation redundant.",
+        "searches": [
+          "arXiv:1404.4144v1 Eqs. 8–11, PDF pp. 2–3",
+          "arXiv:1602.02691v2 Sec. IV, PDF pp. 13–15"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1404.4144v1",
+        "arXiv:1602.02691v2",
+        "Resultary:374c69430160",
+        "Resultary:ef4ea58edfd5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier identity J₀=(v/L)(ρ₊+ρ₋−2ρ) and the backward direction are prior; the right-hand side still needs evaluation in the two-particle stationary process."
+        ],
+        "reasoning": "Knowing the kernel makes the answer computable by a finite linear solve for each L, but does not give the closed law or the precise finite-L coefficient. Credit the earlier direction and identity; distinguish the all-L evaluation.",
+        "searches": [
+          "arXiv:1404.4144v1 Eqs. 8–11 and current discussion",
+          "Comparison of the prior identity with the frozen balance proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With q=r=0 and dwell 1/v, Chatterjee et al. 2014 use the same moving defect and physical transition mechanism.",
+          "The 2016 sitewise ordered-update model is explicitly related to the speed-v=L choice but has distinct timing."
+        ],
+        "reasoning": "A change from lab to comoving coordinates does not create a new model. Compared exact fixed-dwell laws and ordered-update relations rather than counting a change of frame or timing as novelty.",
+        "searches": [
+          "arXiv:1404.4144v1 model section, Eqs. 1–4 and Appendix A",
+          "arXiv:1602.02691v2 Sec. IV, Eqs. 43–53"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "374c69430160 concerns a canonical stationary law and current asymmetry for a periodic deformed K-exclusion process without the moving defect.",
+          "ef4ea58edfd5 concerns finite-time total-hop activity for homogeneous two-particle SSEP, not signed flow with a moving defect."
+        ],
+        "reasoning": "Neither indexed result can be restricted to give the bound fixed-dwell law. A bounded catalogue search is not exhaustive.",
+        "searches": [
+          "Local Resultary search for two-particle moving-defect stationary law and exact current; strongest distinct records 374c69430160 and ef4ea58edfd5"
+        ]
+      },
+      "rationale": "Pass is for the closed full two-particle stationary law and explicit finite-ring current. The moving-defect model, one-dwell dynamics, exact current identities and the qualitative backward-current observation are prior. The frozen summary should be read as saying that mean field closes the exact identities, not that all prior current relations were approximate.",
+      "residual_risks": [
+        "Bounded searches leave room for another exact few-particle or sequential-update formulation. A catalogue miss is not proof of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the model and exact density/current relations; not the explicit two-particle evaluation in the material read.",
+          "evidence": [
+            "τ=1/v, q=r=0; exact J₀ identity with correlation-dependent conditional hops; backward transport discussed."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1404.4144",
+          "material_read": "v1 PDF pp. 1–3, Eqs. 1–4 and 8–11; Appendix A",
+          "method": "Primary PDF passage comparison",
+          "title": "Interacting particles in a periodically moving potential: Traveling wave and transport",
+          "trigger": "Same model and prior backward current"
+        },
+        {
+          "assessment": "Closely related process with a timing distinction and no closed two-particle distribution in the inspected statements.",
+          "evidence": [
+            "Connects sitewise ordered update to q=r=0 and v=L; evaluates density via relations and mean field."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1602.02691",
+          "material_read": "v2 PDF Sec. IV, pp. 13–15, Eqs. 43–53",
+          "method": "Primary PDF passage comparison",
+          "title": "Symmetric exclusion processes on a ring with moving defects",
+          "trigger": "Potential exact ordered-update predecessor"
+        },
+        {
+          "assessment": "Different model.",
+          "evidence": [
+            "Canonical periodic deformed K-exclusion law and current, without a touring localized defect."
+          ],
+          "identifier_or_url": "Resultary:374c69430160",
+          "material_read": "Finding in mirrored RESULT.md",
+          "method": "Local statement comparison",
+          "title": "Exact finite-density current asymmetry and displaced maximum",
+          "trigger": "Same-day exact periodic exclusion comparison"
+        },
+        {
+          "assessment": "Different observable and dynamics.",
+          "evidence": [
+            "Homogeneous continuous-time SSEP total-hop activity rather than stationary signed defect-driven current."
+          ],
+          "identifier_or_url": "Resultary:ef4ea58edfd5",
+          "material_read": "Finding in mirrored RESULT.md",
+          "method": "Local statement comparison",
+          "title": "A diffusive-time theta crossover for two-particle exclusion activity",
+          "trigger": "Same particle number and ring"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Current proof",
+        "arXiv:1404.4144v1, Eqs. 8–11"
+      ],
+      "rationale": "The full finite-ring law is a usable benchmark for closing the moving-defect correlations. It explains the sign by the unequal stationary weights of the two locally blocked configurations, quantifies the coefficient and distinguishes speed and ring-size scalings without mean field. The known qualitative direction is not the contribution.",
+      "residual_risks": [
+        "No inference about higher particle counts, bulk diffusion, or variants of the dwell rule."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The map from independent edge conductances to the Laplacian on the constant-orthogonal space is injective, so trace-inverse strict convexity and log-determinant strict concavity force unique unrestricted optima. Pair-permutation/flip invariance therefore forces the two edge-orbit allocations without imposing symmetry a priori. The two exact Laplacian eigenvalues, budget counts, scalar derivatives and boundary signs reconstruct both threshold formulas and their strict gap for every integer \(m\ge2\). The standard-library verifier reproduces 1131 finite assertions, including exact matrix inverses and cofactors. Residual risk: finite testing is not a formal proof; the infinite theorem rests on the displayed algebra.
+## correctness
 
-## Originality — PASS, qualified
-The 2006/2008 Ghosh–Boyd–Saberi works give the general resistance convex program and particular tree/wheel/barbell designs, not the distinct priced-matching A/D thresholds after inspection of relevant full-text sections. Klee–Stamps addresses the weighted Matrix–Tree enumerator with vertex-product weights, not the optimized independently weighted matching allocation; Tovar et al. supplies broad linear-price optimality principles but not this explicit comparison. Related mathematical calculations optimize maximum-pair resistance on the same class or A/D objectives on a bipartite matching; neither objective/domain directly implies these two thresholds. Search limitations and unlocated specialized sources leave nonzero originality risk; negative search does not establish novelty by itself.
+PASS
 
-## Mathematical value — PASS
-The theorem compares two standard but operationally different resilience/spanning-tree enumeration criteria on exactly the same priced network and demonstrates a strict, size-explicit interval where their unique optimal topologies disagree. The \(1/m\) scaling gives a quantitative criterion for when retaining a paired link is beneficial for average commute times but unnecessary for weighted spanning-tree count. This is an exact infinite-family support classification, not a numerical variant, a renamed general optimality condition or an arbitrary finite table. The scope is restricted to the motivated two-tier matching cost model.
+The reduced Laplacian H on the mean-zero subspace affinely and injectively encodes every individual conductance, since the full Laplacian is zero on constants and its off-diagonals recover the weights. Trace-inverse is strictly convex there (in an eigenbasis its directional Hessian is a positive sum of squares), and logdet strictly concave. The price simplex is compact, has a connected feasible point, and approaching a singular H sends the resistance sum to infinity and the tree enumerator to zero. Thus each optimum exists with connected support and is unique in the full variables. The pair symmetries then force its two weights, with b>0 by connectivity. On pair-constant mean-zero and pair-antisymmetric spaces the respective eigenvalues are x=2mb and y=2b(m−1+t), of multiplicities m−1 and m. These give the stated trace-inverse times 2m and determinant divided by 2m; the price constraint yields b=B/[m(Pt+2(m−1)Q)]. Independently, the benefit gradient along a matching edge has squared incidence norm 2 entirely in the y-space, while a nonmatching edge has squared norm 1 in each space. Thus the matching versus nonmatching marginal-benefit ratios are 2x²/(x²+y²) for A and 2x/(x+y) for D. They strictly decrease with t≥0; the positive optimum sets its ratio equal to r, and deletion is optimal precisely when r is at least the ratio at t=0. The gradient test is sufficient by the full-space curvature; equality at a threshold still gives a unique boundary optimum. This yields both exact roots, the ordered gap 2m(m−1)/[(2m−1)(2m²−2m+1)], and the interval including its D endpoint but not its A endpoint. For fixed γ the two unclipped roots at r=1+γ/m expand as 1−γ+O(1/m) and 1−2γ+O(1/m), and clipping at zero gives the limits including γ=1 and 1/2. No computation is needed for the all-m result. The supplied rational checks and their limits were inspected but not executed.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Pass for the exact A-versus-D comparison on the complete graph: the D-optimal price response, the strict disagreement interval with its endpoints, and its critical scaling. The A-optimal conductances and threshold in isolation are exactly covered by an earlier indexed result and receive no originality credit. The matching spectrum and generic convex-design methods are background. The strongest similar A/D theorem uses a complete bipartite graph and does not imply the determinant response or support interval for K_{2m}. No historical priority beyond the inspected evidence is claimed.
+
+## value
+
+PASS
+
+The determinant threshold is useful precisely because comparing it with the known resistance threshold predicts a change of support in one unrestricted optimal design but not the other, despite identical prices and topology. The full ratios and distinct first-order surcharges quantify that discrepancy near uniform prices, rather than merely asserting that A- and D-optimal weights may differ. The known resistance calculation is supporting context, not independent value credit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:34:05.314260Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof steps 1–5",
+        "Frozen VERIFICATION.md and check_rps.py"
+      ],
+      "rationale": "The recursively normalized adjacent sums are the binomial windows divided by their level totals. Those totals are bounded above and below on the closed simplex. In an order sector with m=n+1, the projective ratios x_j=s_(j)/s_(j+1) give Jacobian proportional to product x_j^(j-1) times a bounded positive factor. Assigning each interval to its largest coordinate gives powers j-1-q k_j with k_j at most j(j+1)/2. At q=2/m equality in the integrability inequality is possible only at j=m-1 with a consecutive block, i.e. when the largest coordinate is an endpoint. Off a fixed neighborhood of those vertices, sectors with an endpoint largest coordinate have x_(m-1) bounded below: the other coordinates sum to at least the neighborhood radius. Sectors with an interior largest coordinate have strict inequality also at j=m-1. Thus a moment at some q>2/m is finite on the complement, giving a negligible tail by Markov's inequality. At either endpoint exactly K_n windows carry the radial factor; all others and the normalizers converge uniformly to 1 with error O(r), because an endpoint has coefficient 1 in its unique window at each level. The Dirichlet density n! r^(n-1) and angular integrability at 2/(n+1)<2/n justify dominated convergence by a fixed multiple of the claimed angular integrand, giving (n-1)! times that integral at each vertex. The same radial integral diverges at and above the boundary on an interior angular patch; negative moments are bounded. Uniform spacings attain b_n at all levels, so the reciprocal conversion is valid. For n=1 the two tails of S_1(1-S_1) give coefficient 2. For n=2 direct recursion gives e^(-R_2)=xyz(x+y)(y+z)/(1+y)^2 and the angular integral is B(1/3,1/3), independently confirming the coefficient including the factor of two. The source script was inspected but not executed; the source's finite diagnostics and Monte Carlo are not relied on for this proof. VERIFICATION.md records no expert, independent-audit or Lean certification.",
+      "residual_risks": [
+        "No claim of uniformity in sample size, simulation-scale calibration error, or fitted-null validity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The original paper defines the recursive statistic and gives the n=1 CDF, then uses simulated quantiles and spline interpolation for larger n. The ordered-spacings paper treats sums of ordered spacings, not recursive log-products."
+        ],
+        "reasoning": "Neither inspected published construction, by itself, gives the coefficient or the two-corner localization for n>=2. The exact coverage comes from the separate catalogue theorem.",
+        "searches": [
+          "Eller–Shtembari, 10.1088/1748-0221/18/03/P03048, printed pp. 3–4 and 6–8",
+          "Shtembari–Caldwell, arXiv:2008.02048, abstract and §§2–3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary two-corner record 2eae002a7fda (decisive)",
+        "Resultary near-regularity record b7be79c98183 (opposite endpoint)",
+        "Eller–Shtembari JINST 18 P03048",
+        "Shtembari–Caldwell arXiv:2008.02048",
+        "Shtembari–Caldwell Phys. Rev. D 108, 123006 (access attempt)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The comparator states failure at the positive critical moment. Its finite-moment interval for nonnegative orders extends mechanically to negative orders since R_n>=0; strict vs weak inequality does not create a distinct asymptotic. The near-regularity record concerns the opposite endpoint. The original exact CDF settles n=1."
+        ],
+        "reasoning": "There is no surviving substantive novelty in the changed indexing, writing an expectation as an integral, or extending the moment statement to trivial negative orders.",
+        "searches": [
+          "Resultary SCOPE-two-corner-extreme-tail-law-for-the-recursive-product-of-spacing--2eae002a7fda, Finding",
+          "Resultary SCOPE-sharp-regularity-endpoint-law-for-the-recursive-product-of-spaci--b7be79c98183",
+          "Eller–Shtembari Eq. (3.1)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The comparator states Pr(R_m>t) ~ A_m exp(-2t/m), with A_m=2 E[Q_(m-1)(U)^(-2/m)] and the same binomial interval forms. It explicitly names the two endpoint vertices and states the bounded-score equivalent."
+        ],
+        "reasoning": "There are m=n+1 spacings; the Dirichlet coordinate density is (n-1)!, hence A_m=C_n exactly. The comparison is to another record, not to the reviewed record's own indexed copy.",
+        "searches": [
+          "Resultary: recursive product of spacings two-corner extreme-tail law",
+          "Resultary SCOPE-two-corner-extreme-tail-law-for-the-recursive-product-of-spacing--2eae002a7fda, RESULT.md offset 250–2036"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed Finding gives the exact n=2 entry 2 B(1/3,1/3) and the same general coefficient. The RPS paper's numerical calibration is not a table of exact far-tail constants."
+        ],
+        "reasoning": "The exact indexed statement covers both the concrete example and the general sequence; this is not a numerical coincidence.",
+        "searches": [
+          "Resultary SCOPE-two-corner-extreme-tail-law-for-the-recursive-product-of-spacing--2eae002a7fda (mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+          "10.1088/1748-0221/18/03/P03048, §3"
+        ]
+      },
+      "rationale": "A distinct indexed Resultary record states the equivalent all-fixed-sample theorem, coefficient, two dominant vertices, moment boundary, bounded-score conversion, and n=2 beta constant. Substituting m=n+1 and writing the published Dirichlet expectation as a coordinate integral identifies all the mathematical content. This is demonstrated equivalent coverage, not a finding about same-day publication order or authorship. The original RPS paper leaves the n>=2 tail to simulation, but that does not distinguish the frozen record from the catalogue match.",
+      "residual_risks": [
+        "No finer ordering or priority is inferred between distinct same-day records.",
+        "Full texts of Cressie's 1976 and 1979 higher-order spacings articles and the 2023 multivariate paper were not available in the inspected routes. These gaps do not undo the exact catalogue match."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent coverage; date alone does not settle ordering",
+          "evidence": "The displayed A_m, exp(-2t/m) tail, moment statement at equality, B_m/R_m conversion and A_3=2 B(1/3,1/3) agree.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-two-corner-extreme-tail-law-for-the-recursive-product-of-spacing--2eae002a7fda/RESULT.md",
+          "material_read": "Finding, offset 250–2036, and locating passages for formula and endpoint proof",
+          "method": "Configured local Resultary index and OA reader's local mirror",
+          "title": "SCOPE: Two-corner extreme tail law for the recursive product of spacings",
+          "trigger": "Direct independent catalogue match to the statistic and both claimed endpoints"
+        },
+        {
+          "assessment": "Defines the same statistic and covers n=1; compared larger-n passages provide simulations, not the claimed tail",
+          "evidence": "The normalization and bounded transform are explicit; for n>=2 the paper describes simulated quantiles down to about 10^-7 and splines.",
+          "identifier_or_url": "https://doi.org/10.1088/1748-0221/18/03/P03048",
+          "material_read": "Published pp. 3–4 and 6–8, definitions, Eq. (3.1), larger-sample calibration",
+          "method": "Bounded lawful OA full-text passages",
+          "title": "A goodness-of-fit test based on a recursive product of spacings",
+          "trigger": "Original statistic and possible exact tail results"
+        },
+        {
+          "assessment": "Different statistic in inspected results",
+          "evidence": "Sums of ordered spacings do not include the recursive log-products studied here.",
+          "identifier_or_url": "https://arxiv.org/abs/2008.02048",
+          "material_read": "Abstract and Sections 2–3",
+          "method": "OA full-text comparison",
+          "title": "On the sum of ordered spacings",
+          "trigger": "Adjacent exact spacing laws"
+        },
+        {
+          "assessment": "Unresolved access risk, not evidence for or against originality",
+          "evidence": "No full-text theorem is credited based on the retrieval failure.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevD.108.123006",
+          "material_read": "Bibliographic identification; no decisive full-text comparison",
+          "method": "Lawful OA retrieval attempts returned HTTP 403",
+          "title": "Goodness-of-fit tests for arbitrary multivariate models",
+          "trigger": "Cited follow-up with related spacings statistics"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and endpoint-localization proof",
+        "Eller–Shtembari, §3 and larger-sample calibration",
+        "Resultary two-corner record 2eae002a7fda"
+      ],
+      "rationale": "As a mathematical theorem the fixed-sample extreme-null law is useful: it gives calibration where empirical quantiles are sparse, identifies the rare-event configurations, and provides a sharp integrability boundary. The angular coefficient and the proof excluding competing strata are substantive. This assessment of the theorem's utility does not establish a distinct contribution by the frozen record; that fails the originality check.",
+      "residual_risks": [
+        "The asymptotic does not justify a numerical cutoff at a prescribed sample size or error tolerance."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

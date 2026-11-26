@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:44:57.633759Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let U and V be the images, T=U∩V and W=U+V. The four relations are equivalent to both operators killing W. Once U,V are prescribed, the maps are uniquely determined by two independent surjections E/W→U,V, counted by S_q(d,r)S_q(d,s). Count the images by choosing W, then U≤W, then T≤U; the eligible V/T are complements of U/T in W/T. The complements are graphs of maps from an (s−u)-space to an (r−u)-space, giving q^((r−u)(s−u)). The flag identity [n choose t]_q[t choose r]_q=[n choose r]_q[n−r choose s−u]_q turns this into the stated formula. Choices exist precisely for the stated intersection and quotient-dimension constraints, including rank zero. For n=2m and r=s=m, d=u≥m forces u=m and the two surjections are isomorphisms. The proof has no characteristic restriction. The frozen verify.py was inspected, not executed; it computes image overlap by the rank of horizontal concatenation and uses polynomial F₄ arithmetic. Its six finite test cases do not establish the general count. As a boundary check, at n=2 the formula sums to 1+(q+1)(q²−1), giving 10, 33 and 76 at q=2,3,4.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Morrison gives the two maps from a complement of the exact radical W=(x,y)M into W. Huang counts unrestricted AB=BA=0 using a fixed-A quotient-map parameterization, without requiring vanishing squares.",
+          "7465760ed8a5 gives the joint individual ranks, common image span and common kernel for arbitrary tuple length. 6deaf49eec33 further gives smoothness, rationality, geometric irreducibility and dimension of the same rank-overlap strata."
+        ],
+        "reasoning": "The known fixed-radical chart directly produces the quotient-to-images framework but is not itself a rank-overlap point count. Huang's total does not retain the square-zero or overlap restrictions. For the tuple census, setting tuple length two, summing out the common-kernel dimension and using t=r+s−u recovers the assigned distribution directly.",
+        "searches": [
+          "Morrison, The scheme of finite-dimensional representations of an algebra, §5 p. 211",
+          "Huang, arXiv:2110.15566 §3.1 p. 8",
+          "Resultary 7465760ed8a5 and 6deaf49eec33, findings"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2db661bafe6d",
+        "Resultary 6deaf49eec33",
+        "Resultary 7465760ed8a5",
+        "Morrison §5 p. 211",
+        "Huang §3.1 p. 8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Both the dual all-strata formula and the product expression are present in inspected catalogued findings. The maximal-rank boundary is the specialization r=s=m,n=2m,u=m of these counts."
+        ],
+        "reasoning": "No uncovered parameter regime or separate boundary result survives these reductions. The same-day dual exact count proves coverage regardless of directional priority; the later-dated exact and broader results demonstrate overlap, not historical precedence.",
+        "searches": [
+          "Resultary 2db661bafe6d compared under rank-preserving transpose; 6deaf49eec33 compared term by term; 7465760ed8a5 compared by taking a marginal"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2db661bafe6d counts the same ordered labeled pairs under the same four equations, by the two individual ranks and the dimension k of the common kernel."
+        ],
+        "reasoning": "Transpose is a bijection preserving each rank and the four zero products (the cross products are exchanged). The common kernel of the transposes is the annihilator of the sum of the original images, so k=n−r−s+u. Thus N_{n,q}(r,s,u)=C_{n,q}(r,s,n−r−s+u) on every feasible stratum; the inverse substitution is u=r+s+k−n.",
+        "searches": [
+          "Resultary: finite field mutually annihilating square-zero matrices ordered pairs rank image intersection overlap E/W radical-square-zero algebra point counts rank of horizontal concatenation",
+          "Resultary 2db661bafe6d, RESULT.md offsets 0–3585"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "6deaf49eec33 states [n choose ℓ]_q[ℓ choose r]_q[r choose u]_q q^((r−u)(s−u)) S_q(d,r)S_q(d,s) with ℓ=r+s−u and d=n−ℓ, in the same labeled model."
+        ],
+        "reasoning": "This is an exact symbolic database match, stronger than a finite table. Counting flags U≤W in two orders identifies its first two Gaussian factors with [n choose r]_q[n−r choose s−u]_q, so the formulas are identical, including zeros and maximal ranks.",
+        "searches": [
+          "Resultary exact finite-field census and rank/image-overlap lookup; inspected RESULT.md for 6deaf49eec33"
+        ]
+      },
+      "rationale": "Resultary 2db661bafe6d gives the exact same joint distribution under transpose, with k=n−r−s+u. A separate indexed record, 6deaf49eec33, gives the identical image-overlap count in factorized form by choosing the sum of the images first, with the same feasibility conditions and additional geometry. This is demonstrated statement-level coverage; the displayed dates, including the same date for the dual record, do not establish priority or provenance. The difference between a Gaussian–Möbius sum and a positive product does not make the underlying joint census a distinct finding.",
+      "residual_risks": [
+        "The ordering or priority of the two same-date formulations was not established. The exact dual equivalence does not depend on ordering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exactly equivalent under transpose",
+          "evidence": "The Gaussian–Möbius formula counts the same ordered pairs by (r,s,k), where transposition converts k to n−r−s+u.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-joint-rank-and-common-kernel-distribution-of-mutually-annihilati--2db661bafe6d/RESULT.md",
+          "material_read": "RESULT.md finding, scope and proof through offset 3585",
+          "method": "Local Resultary mirror",
+          "title": "Joint rank and common-kernel distribution of mutually annihilating square-zero matrix pairs",
+          "trigger": "Same-day exact census with dual invariant"
+        },
+        {
+          "assessment": "Identical factorized count with additional geometric conclusions",
+          "evidence": "Same feasibility and same two surjection factors; the Gaussian prefactor is equal by the two-step flag identity.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-joint-jordan-rank-and-radical-image-intersection-census-for-squa--6deaf49eec33/RESULT.md",
+          "material_read": "RESULT.md offsets 0–3245, finding, scope and first proof steps",
+          "method": "Local Resultary mirror",
+          "title": "Joint Jordan-rank and radical-image intersection census for square-zero two-loop modules",
+          "trigger": "Identical invariant and matrix relations"
+        },
+        {
+          "assessment": "Broader joint enumeration; target is a two-map marginal",
+          "evidence": "Fixes all individual ranks, common image span and common kernel in the same all-products-zero model.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-double-flag-enumeration-of-pairwise-annihilating-square-zero-mat--7465760ed8a5/RESULT.md",
+          "material_read": "RESULT.md offsets 0–3650, finding, assumptions, flag factorization and inversion setup",
+          "method": "Local Resultary mirror",
+          "title": "Double-flag enumeration of pairwise annihilating square-zero matrix tuples",
+          "trigger": "Simultaneous generalization in tuple size and invariants"
+        },
+        {
+          "assessment": "Known exact radical chart, not a labeled overlap count in the inspected passage",
+          "evidence": "For W=(x,y)M a complement F yields two maps F→W that vanish on W; their images span W by definition.",
+          "identifier_or_url": "https://msp.org/pjm/1980/91-1/pjm-v91-n1-p17-s.pdf",
+          "material_read": "§5, p. 211, PDF text offset 28600",
+          "method": "Open MSP primary PDF",
+          "title": "The scheme of finite-dimensional representations of an algebra",
+          "trigger": "Same radical-square-zero algebra and quotient-map structure"
+        },
+        {
+          "assessment": "Related unrestricted count, not the decisive exact coverage",
+          "evidence": "For fixed A, B factors from E/im A to ker A; the unrestricted count uses q^(nullity(A)²) choices, rather than stratifying square-zero B by overlap.",
+          "identifier_or_url": "https://arxiv.org/pdf/2110.15566",
+          "material_read": "§3.1 p. 8, equations (3.1)–(3.5), offset 24835 onward",
+          "method": "Open arXiv PDF, locate then bounded passage",
+          "title": "Mutually annihilating matrices, and a Cohen–Lenstra series for the nodal singularity",
+          "trigger": "Finite-field point counts for related matrix relations"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Individual ranks and the common image span are natural representation invariants, and the positive product is convenient compared with a Möbius sum. The exact information, including feasibility and the maximal-rank boundary, is already recovered by duality from the same-day joint census. The product itself is the standard complement and surjection count in the known radical chart and also appears in the indexed overlap census. The record gives no independently useful new exact invariant beyond those equivalent results.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,169 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:08:48.139428Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 27–77; VERIFICATION.md; artifacts/verify.py (inspected, not executed)",
+        "/workspace/repairs/1/RESULT.md",
+        "Pikhurko–Verbitsky arXiv:1003.4865 Lemma 4.3",
+        "/tmp/opencode/frozen-independent-checks.py, paths"
+      ],
+      "rationale": "On the repaired RESULT.md, the key diagonal-census lemma has a uniform proof. The frozen proof asserted a distance-doubling induction without showing how the refinement counts intermediates across components; its displayed first-round formula was correct but the sentence identifying it as the last surviving round was off by one. The repair gives an inductive pair descriptor consisting of clipped endpoint data and a short oriented distance or far flag. Witnesses close to one or both anchors can be counted in their interval charts, and distant witnesses are counted from a common type histogram minus the near occurrences. The cycle length hypothesis excludes a second short arc, including at the last diagonal step. Conversely the colors reveal distance clipped at the dyadic scale and nearest-endpoint distance clipped at 2^s−1; comparing exposed endpoint counts detects m<2^(s+1)−2, and a short-cycle ball without endpoints is too small to be any path ball of the same radius without endpoints. Thus equality is exactly the pair of thresholds. Degree census forces any same-order round-one survivor to be one path plus cycles. Optimizing the exact thresholds gives a minimum order 3·2^s−1 for survival to diagonal round s≥1, attained by a single cycle; round zero, orders 2–4, and P_1 are handled separately. The checked game bridge adds one to first distinguishing round, and fixing the order allows a finite conjunction. Independent replay `python3 /tmp/opencode/frozen-independent-checks.py paths` used within-graph witness domains and joint color names on 390 exhaustively partitioned rivals of orders 5–18 and 20 test cases around both dyadic cutoffs through scale 6. All agreed. Finite evidence is corroboration of the repaired uniform proof only.",
+      "residual_risks": [
+        "No claim for higher-degree trees or different WL conventions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The survey gives D³(P_n)<log₂ n+3 in ordinary FO. The latter works give general upper bounds, not the exact counting-depth threshold among mixed rivals."
+        ],
+        "reasoning": "Ordinary FO upper bounds transfer only as bounds to the counting fragment. The general iteration bounds do not give matching lower-bound witnesses or the sharp constant here.",
+        "searches": [
+          "Pikhurko–Verbitsky arXiv:1003.4865, p. 14",
+          "Lichter–Ponomarenko–Schweitzer arXiv:1905.03008, pp. 1–2",
+          "Kiefer–Schweitzer LMCS paper 5522, pp. 1–3"
+        ]
+      },
+      "checked_sources": [
+        "Pikhurko–Verbitsky arXiv:1003.4865",
+        "Lichter–Ponomarenko–Schweitzer arXiv:1905.03008",
+        "Kiefer–Schweitzer LMCS 5522",
+        "Resultary records 23a64bde8f69, 71e36c231504 and 263f4c1f8553",
+        "Planar-graphs thesis citation via Pikhurko–Verbitsky"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Even with identical cycle wrap-around thresholds, the cycle-only proof does not match the surviving path's boundary multiplicities or show how inter-component far pair witnesses contribute to the color multiset.",
+          "Clipped-gap profiles in the single-path stabilization record do not compare the mixed path/cycle far counts. The same rival type in the two-variable record is tested with linear instead of dyadic propagation."
+        ],
+        "reasoning": "The mixed pair-descriptor/census and the extremal obstruction are necessary additional arguments; they are not direct instances of the inspected stronger general results.",
+        "searches": [
+          "Same three Resultary findings' exact theorem and proof comparisons; survey Lemma 4.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lemma 4.3 equates r-round diagonal equality with the (r+1)-round three-pebble counting game.",
+          "The catalogue cycle comparison's ceiling log₂ c is exactly 1+floor(log₂(c−1)); the catalogue single-path stabilization index at P_(m+3) is exactly floor(log₂(m+2))."
+        ],
+        "reasoning": "The bridge transfers a genuine diagonal census theorem to defining depth, but supplies no formula for these rivals. An identical scalar index at a shifted parameter does not make stabilization the same invariant as cross-graph diagonal distinction.",
+        "searches": [
+          "Resultary searches for exact three-variable counting depth of finite paths, ordered-pair diagonal WL round, path-plus-cycles thresholds and the WL/game bridge",
+          "Pikhurko–Verbitsky arXiv:1003.4865, Lemma 4.3 and path discussion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "RESULT.md for 2026/10/12/SCOPE-exact-three-variable-counting-depth-of-finite-cycle-graphs--23a64bde8f69 compares a cycle against cycle unions.",
+          "RESULT.md for 2026/10/13/SCOPE-exact-2-wl-stabilization-depth-of-path-graphs--71e36c231504 addresses strict full-pair stabilization on one path.",
+          "RESULT.md for 2026/10/12/SCOPE-exact-two-variable-counting-depth-of-finite-paths--263f4c1f8553 compares path-plus-cycles rivals but at the 1-WL/two-variable level."
+        ],
+        "reasoning": "The closest exact records overlap either the method, the rival shape, or an index. Their actual invariants and comparison families differ; none states the mixed 2-WL diagonal formula. This is not a conclusion about every unreturned record.",
+        "searches": [
+          "Resultary for paths, cycles, mixed rivals, stabilization and defining-depth indices"
+        ]
+      },
+      "rationale": "The repaired theorem has the original scope and formulas. There is exact index overlap with existing cycle and single-path results, but actual compared statements neither cover the mixed rival nor determine the simultaneous hiding/collision thresholds. The distinct claim is the exact mixed census and its optimized path defining depth, not the cycle threshold in isolation or the known logic bridge.",
+      "residual_risks": [
+        "The older planar-graphs source was not fully accessible. A more specific thesis or folklore treatment remains possible despite the statement-level comparisons."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Background bridge and ordinary FO bound; no exact mixed census in these results",
+          "evidence": [
+            "Diagonal k-WL equality after r corresponds to the counting (r+1)-round (k+1)-pebble game."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1003.4865",
+          "material_read": "PDF p. 14 path bounds (text offset 40635) and p. 17 Lemma 4.3 (offset 51748)",
+          "method": "OA arXiv PDF passage inspection",
+          "title": "Logical complexity of graphs: a survey",
+          "trigger": "Exact game bridge and path definition"
+        },
+        {
+          "assessment": "Generic bound rather than exact path identification",
+          "evidence": [
+            "The O(n log n) bound applies generically to 2-WL iteration."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1905.03008",
+          "material_read": "PDF pp. 1–2, including offset 5278",
+          "method": "OA arXiv PDF passage inspection",
+          "title": "Walk refinement, walk logic, and the iteration number of the Weisfeiler-Leman algorithm",
+          "trigger": "2-WL iteration and counting depth"
+        },
+        {
+          "assessment": "Generic bound, not the path law",
+          "evidence": [
+            "Initial results give a generic O(n²/log n) three-variable counting bound."
+          ],
+          "identifier_or_url": "https://lmcs.episciences.org/5522/pdf",
+          "material_read": "PDF pp. 1–3",
+          "method": "OA LMCS PDF passage inspection",
+          "title": "Upper Bounds on the Quantifier Depth for Graph Differentiation in First-Order Logic",
+          "trigger": "Counting quantifier-depth generalization"
+        },
+        {
+          "assessment": "Same cycle threshold, different rival and target families",
+          "evidence": [
+            "Pairwise depth for the cycle comparison is 1+ceiling(log₂ of the smallest rival cycle size)."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-exact-three-variable-counting-depth-of-finite-cycle-graphs--23a64bde8f69",
+          "material_read": "RESULT.md offsets 0–5404",
+          "method": "Resultary search followed by local mirror passage inspection",
+          "title": "Exact three-variable counting depth of finite cycle graphs",
+          "trigger": "Equivalent cycle threshold and logical fragment"
+        },
+        {
+          "assessment": "Same numerical expression under shift, not the same graph comparison",
+          "evidence": [
+            "Single P_N stabilizes at floor(log₂(N−1)); the record separates stabilization from cross-graph distinction."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-exact-2-wl-stabilization-depth-of-path-graphs--71e36c231504",
+          "material_read": "RESULT.md offsets 0–4939",
+          "method": "Resultary search followed by local mirror passage inspection",
+          "title": "Exact 2-WL stabilization depth of path graphs",
+          "trigger": "Identical path WL term after parameter shift"
+        },
+        {
+          "assessment": "Different logic and WL dimension",
+          "evidence": [
+            "Its first-separation expression floor(m/2)+1 is linear in the surviving path size."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-exact-two-variable-counting-depth-of-finite-paths--263f4c1f8553",
+          "material_read": "RESULT.md offsets 0–2585",
+          "method": "Resultary search followed by local mirror passage inspection",
+          "title": "Exact two-variable counting depth of finite paths",
+          "trigger": "Same rival shape"
+        },
+        {
+          "assessment": "The attributed theorem is an ordinary-logic lower bound; other contents not evaluated",
+          "evidence": [
+            "The survey quotes D(P_n)≥log₂ n−2."
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/1853982_Planar_Graphs_Logical_Complexity_and_Parallel_Isomorphism_Tests",
+          "material_read": "No accessible primary full text in this check; Theorem 2.1.3 attribution in arXiv:1003.4865 p. 14",
+          "method": "Lawful access attempts and OA survey passage",
+          "title": "Planar Graphs: Logical Complexity and Parallel Isomorphism Tests",
+          "trigger": "Older path quantifier-depth theorem cited in the survey"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired Finding and census/optimization proof",
+        "Pikhurko–Verbitsky path bound",
+        "The compared path stabilization and cycle-depth findings"
+      ],
+      "rationale": "Exact depth, as opposed to a logarithmic bound or full-pair stabilization on one graph, is a natural benchmark for logical definability of paths. The uniform mixed census explains the extremal rival and its two independent obstructions, and supplies the exact order at each depth transition. This is additional information beyond the known bridge or either isolated threshold index.",
+      "residual_risks": [
+        "Value is in the exact path-family phenomenon, not in a claimed extension to general trees."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

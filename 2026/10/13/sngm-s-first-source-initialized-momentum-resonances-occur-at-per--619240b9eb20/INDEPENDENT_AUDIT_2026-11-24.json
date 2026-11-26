@@ -1,0 +1,186 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:03:41.685200Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The source Algorithm 1 initializes zero momentum, adds the normalized gradient to β times momentum, and uses that full new momentum for the parameter step. Under the stated deterministic scalar quadratic and away from zero this is exactly the frozen map. For a proposed p-step word s, set U_p=Σ_j s_j β^(p−1−j) and C_p=Σ_{i=1}^p U_i. Telescoping the momentum recurrence gives Σ_j s_j=(1−β)C_p+βU_p. Therefore a return on (0,1) is equivalent to a balanced word with U_p=0 plus sign feasibility. Odd p are impossible. For a reproducible independent exact check, fix the initial sign +, choose p/2−1 other positive signs among indices 1,...,p−1, form U_p in QQ[β], divide out all β−1 factors, and count roots in (0,1) (e.g. Poly.count_roots(0,1); neither endpoint is then a root). For p=2 the only quotient is 1. For p=4 the quotients in lexicographic order with + first are (β+1)^2, β²+1, and β+1. For p=6 the ten quotients in that order are (β²+β+1)^2; β⁴+2β³+β²+2β+1; β⁴+2β³+β²+1; (β²+β−1)(β²+β+1); β⁴+β²+2β+1; (β²−β+1)(β²+β+1); β⁴+β²−1; β⁴−β²+1; β⁴−β²−1; (β²−β−1)(β²+β+1). Only the fourth and seventh have roots inside (0,1), one each. The exact cumulative displacements there are respectively (0,1,φ²,φ²,φ,0,0) and (0,1,β,φ,1/β,0,0); signs of r−C_j for r=x_0/η give the asserted strict intervals, with all x nonzero. The balanced signs cancel r in the absolute-position sum, giving 1+3φ and 1−β+φ+1/β before multiplication by aη/6. Minimality follows from the nonexistence of any shorter return; global sign change covers x_0<0. The exact reduced enumeration and algebraic replay are independent of the frozen verifier, which was read but not run. It uses ordinary double precision for representative trajectory replay, and its period-six candidate assertions alone do not rule out every other factor. No claim is made about longer periods or nonzero initial momentum.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The defining source has the same recurrence, including u_0=0, but its constant-step upper bound with order-Lη contribution does not classify periodic states.",
+          "Search-direction correction includes corrections and restart and Signum-type analysis normalizes after accumulating raw gradients."
+        ],
+        "reasoning": "An upper bound compatible with recurrence neither constructs periodic states nor implies their least return times and allowable β values. The other update laws are not stronger theorems for this same recurrence.",
+        "searches": [
+          "arXiv:2007.13985v1 Algorithm 1 and stationarity bound",
+          "arXiv:1905.06507v1 equations (3)–(8) and Algorithm 1",
+          "arXiv:2507.12091 Algorithm 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py; independently reduced exact sign-word root calculation described under correctness",
+        "Resultary 5eb1801a903e, 41be5e1891bf and 9847d697b65e",
+        "arXiv:2007.13985v1, 1905.06507v1, 1802.04434v1, 2507.12091, 2403.02833, 2606.21514v1, 2009.06125v1, 2210.02070v1, 2306.06498v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The scalar specialization is an immediate reduction of the defining algorithm; the joint zero of return displacement and terminal momentum plus all sign constraints is not supplied by a stationarity bound.",
+          "No inspected exact two-cycle theorem supplies the simultaneous least-period exclusion, the two golden-ratio-related algebraic roots, and the corresponding feasible intervals in this recurrence."
+        ],
+        "reasoning": "The new claim is the finite exact classification and resulting explicit nonzero recurrent gradient norms, not introduction of the update rule or substitution of a quadratic into it.",
+        "searches": [
+          "arXiv:2007.13985v1 Algorithm 1, p. 5 and convergence-bound discussion",
+          "Mirrored Finding for scalar Signum 5eb1801a903e; arXiv:2306.06498v1 relay equation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The scalar Signum record exhibits exact two-cycles using m'=βm+(1−β)ax, x'=x−δ sign(m'); the claimed SNGM uses u'=βu+sign(x), x'=x−ηu'.",
+          "The surfaced second-order relay paper models a continuous-time equation with delay, not the exact discrete update."
+        ],
+        "reasoning": "The comparison distinguishes clipping the incoming gradient from clipping accumulated momentum, and continuous-time relay cycles from a discrete exact state return.",
+        "searches": [
+          "Configured Resultary scalar SNGM/normalized-gradient momentum versus Signum exact cycles; record 5eb1801a903e",
+          "Discrete sign/relay scalar quadratic, zero-velocity return and momentum resonances; arXiv:1802.04434v1 Algorithm 2 and arXiv:2306.06498v1 p. 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed exact cycles found for scalar Signum, regularized Fisher momentum, and simplified Muon. The Fisher source uses different preconditioning and a limiting two-cycle, and the simplified Muon record uses no momentum in a coupled matrix model.",
+          "The RMSprop and Adam passages give cycles for their own adaptive algorithms, not a table of exact SNGM resonances."
+        ],
+        "reasoning": "The useful exact catalogue object here would be an exhaustive initial-state return table or classification for the same map through period six. The inspected exact cycle counts concern different maps, not matching rows of that table.",
+        "searches": [
+          "Configured Resultary exact scalar-cycle comparison: 5eb1801a903e, 41be5e1891bf, 9847d697b65e",
+          "arXiv:2009.06125v1 p. 8; arXiv:2210.02070v1 Theorem 2"
+        ]
+      },
+      "rationale": "The source gives the precise recurrence and stationarity bounds, not the shortest-return classification. The strongest indexed lookalike is scalar Signum, whose ordering of gradient normalization and momentum changes the map. Other inspected cycle and relay sources do not provide the exact discrete source-return classification. The decision concerns the deterministic zero-initialized full state, exact smallest period, and exhaustive pair of first resonance parameters; it does not claim novelty for generic step-size floors or oscillations of momentum methods.",
+      "residual_risks": [
+        "The comparison is bounded; an equivalent classification under discrete relay, piecewise-affine recurrence or quantized feedback terminology could be unindexed or undetected.",
+        "Some comparisons rely on the exact inspected algorithm or theorem passages and do not make a claim about all contents of those sources. Dates of catalogue matches are not priority evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exactly the claimed algorithm but no first-return classification in the inspected material",
+          "evidence": [
+            "Momentum is initially zero; normalized stochastic gradient is added before using the full new momentum in the step."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2007.13985v1",
+          "material_read": "Algorithm 1, p. 5, around extracted offset 14854; average stationarity bound discussion",
+          "method": "OA primary PDF passage",
+          "title": "Stochastic Normalized Gradient Descent with Momentum for Large-Batch Training",
+          "trigger": "Defining algorithm and potential direct coverage"
+        },
+        {
+          "assessment": "Different rule and parameterization",
+          "evidence": [
+            "Search direction correction has a restart test, additional terms, and potentially line-searched steps."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1905.06507v1",
+          "material_read": "Equations (3)–(8), p. 3 offset 10180; Algorithm 1, p. 5 offset 13145",
+          "method": "OA primary PDF passages",
+          "title": "The Search direction Correction makes first-order methods faster",
+          "trigger": "Related momentum/normalization source"
+        },
+        {
+          "assessment": "Raw-gradient accumulation followed by sign step, not SNGM",
+          "evidence": [
+            "The normalized sign is applied to the momentum after averaging."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1802.04434v1",
+          "material_read": "Algorithm 2, around extracted offset 796",
+          "method": "OA primary PDF passage",
+          "title": "signSGD: Compressed Optimisation for Non-Convex Problems",
+          "trigger": "Signum equivalence check"
+        },
+        {
+          "assessment": "Different update law",
+          "evidence": [
+            "The parameter direction is the sign of accumulated momentum."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2507.12091",
+          "material_read": "Algorithm 1, p. 4, offset 14947",
+          "method": "OA primary PDF passage",
+          "title": "Signum-type analysis (Jiang et al.)",
+          "trigger": "Possible broader modern cycle-relevant momentum sign analysis"
+        },
+        {
+          "assessment": "Exact interval and stability for different map",
+          "evidence": [
+            "Signum parameter updates have constant magnitude and use the sign of the raw-gradient accumulator."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-continuum-of-neutral-two-cycles-for-scalar-signum--5eb1801a903e/RESULT.md",
+          "material_read": "Mirrored Finding from offset 0",
+          "method": "Configured Resultary and OA local mirror",
+          "title": "Exact continuum of neutral two-cycles for scalar Signum",
+          "trigger": "Strongest scalar-quadratic exact-cycle catalogue hit"
+        },
+        {
+          "assessment": "Different preconditioned dynamics; convergence to a two-cycle is not exact six-step return",
+          "evidence": [
+            "The source rule uses regularized Fisher preconditioning; the catalogue statement distinguishes actual bias-corrected trajectories from the limiting cycle."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-a-sharp-attracting-cycle-window-for-regularized-fisher-momentum--41be5e1891bf/RESULT.md",
+          "material_read": "Mirrored Finding at offset 0; method checked against arXiv:2403.02833 Algorithm 1 p. 3 around offset 15571",
+          "method": "Configured Resultary, OA local mirror and primary PDF passage",
+          "title": "A sharp attracting cycle window for regularized Fisher momentum",
+          "trigger": "Same-day scalar-quadratic zero-moment cycle comparison"
+        },
+        {
+          "assessment": "Different state space and momentum-free update",
+          "evidence": [
+            "Coupled matrix-factor orbit uses a polar update in a setting that removes momentum."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-an-exact-coupled-period-two-orbit-for-fixed-step-simplified-muon--9847d697b65e/RESULT.md",
+          "material_read": "Mirrored Finding at offset 0; source arXiv:2606.21514v1 p. 2 around offset 8372",
+          "method": "Configured Resultary, OA local mirror and primary PDF passage",
+          "title": "An exact coupled period-two orbit for fixed-step simplified Muon",
+          "trigger": "Same-day fixed-step exact-cycle comparison"
+        },
+        {
+          "assessment": "RMSprop oscillation, not SNGM",
+          "evidence": [
+            "Reports a two-cycle between η/2 and −η/2 for the scalar square loss."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2009.06125v1",
+          "material_read": "p. 8, offset 20821",
+          "method": "OA primary PDF passage",
+          "title": "A qualitative study of adaptive gradient algorithms (Ma, Wu, and E)",
+          "trigger": "Exact scalar-quadratic cycling in nearby optimization methods"
+        },
+        {
+          "assessment": "Separate first and second moment states, unlike SNGM",
+          "evidence": [
+            "The cyclic dynamics analyzed are those of Adam."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2210.02070v1",
+          "material_read": "Algorithm 1 p. 3 and Thm. 2 p. 7 around offset 20665",
+          "method": "OA primary PDF passages",
+          "title": "Adam two-limit-cycles (Bock and Weiß)",
+          "trigger": "Exact adaptive momentum cycles"
+        },
+        {
+          "assessment": "Delayed continuous-time equation rather than the discrete state map",
+          "evidence": [
+            "The relay model uses a second-order evolution and delay."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2306.06498v1",
+          "material_read": "Defining equation p. 1 around offset 6852",
+          "method": "OA primary PDF passage",
+          "title": "Second-order time-delayed relay dynamics (Illing, Ryan, and Amann)",
+          "trigger": "Plausible alias or broader relay-system classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This determines a natural first-event cutoff, not merely a sample orbit: it rules out every shorter zero-momentum return for all admissible β and identifies every parameter and interval at the first feasible length. The two explicit resonances realize a positive mean-gradient scale proportional to η in the simplest strongly convex model derived from the stated algorithm. This is a diagnostic against fixed-step convergence to the minimizer, not a claim about attraction, stochastic behavior, or all larger periods.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

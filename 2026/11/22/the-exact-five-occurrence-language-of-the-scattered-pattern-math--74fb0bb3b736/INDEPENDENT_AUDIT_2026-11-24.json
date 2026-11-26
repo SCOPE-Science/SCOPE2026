@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:56:41.462254Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent all-length argument: call a one eligible if at least two zeros precede and at least two follow it. Every pair of eligible ones s<t contributes binom(L_s,2)binom(R_t,2) embeddings, where L_s counts zeros before s and R_t zeros after t, and no other pair contributes. At least four eligible ones would yield at least six embeddings. Two would give a single product of triangular numbers, which cannot be 5; fewer give zero. Thus there are three eligible ones. The contributions in order (1,2),(1,3),(2,3) are positive and must be a permutation of 3,1,1: the factors at most 5 are 1 or 3. The middle product is at most both others by monotonicity, so it is 1. If the first product is 3, the other two force L_1=L_2=2 and R_3=2, while R_2=3. Consequently there are five zeros, and the eligible interval between the second and fourth zero is 1101. If the last product is 3, reversal gives 1011. All other ones must be in the four ineligible runs, with no restriction on their lengths. Conversely both cores give 3+1+1; the parser is unique and the four exponents sum to n−8, giving the claimed count, GF and minimal words, including empty input. Separately inspected the frozen certificate by an independent cap-six DP × epsilon-NFA reconstruction: exact agreement with all 126 reachable states, 252 transitions and both accepting predicates. Saturation preserves the test for equality to five and reachable closure covers all lengths. Independent replay files: /workspace/branches/414a7688-ea4d-4ea1-ab01-41972d5ab13a/replay_record5.py and record5_replay.txt there. Unsaturated DP through length 16 was supplementary; the uploaded CHECKER.py was not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bruda gives eventual polynomiality with degree at most ℓ−r+1 and sufficient tightness criteria.",
+          "Tian characterizes participating letters and gives an insertion construction of primitive words for an input pattern and length.",
+          "Menon–Singh's small-frequency formulas concern k≤4; the exact broader Resultary theorem concerns 0^a1^b with two runs."
+        ],
+        "reasoning": "The two-run theorem cannot apply. The general count and primitive-word machinery apply as methods but do not evaluate the frequency-five primitive inputs here or classify their inert expansions; the degree bound is four and its quoted sufficient equal-degree conditions do not apply to three runs of length two at frequency five.",
+        "searches": [
+          "arXiv:2607.02578v1 Theorem 1.4 and §4.2",
+          "arXiv:2507.03205v1 §5.2, Theorems 5.2.4 and 5.2.6",
+          "arXiv:2306.07870v1 §3",
+          "Resultary 2026/11/2/SCOPE-exact-fixed-frequency-enumeration-for-every-binary-two-run-subse--618e49d0888b"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, CHECKER.py, CERTIFICATE.tsv and CHECK_OUTPUT.txt",
+        "arXiv:2607.02578v1",
+        "arXiv:2306.07870",
+        "arXiv:2507.03205v1",
+        "Resultary exact one-core and general two-run findings above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For ℓ=6,r=3 the prior degree bound is four. No run has size one, and 5 is not binom(2+s,2) for nonnegative s, so the cited tightness conditions do not determine the case.",
+          "A generator of primitive words at a specified length is not an evaluation of their exact frequency or all inert expansions under the five-copy constraint."
+        ],
+        "reasoning": "Stars and bars and the consequence of such a generator once the cores are known are routine; the actual new content is why there can be only three eligible ones and exactly the two stated placements of the fifth zero, or equivalently why the recognizers agree at all reachable states. The closed exact degree-three result is not supplied by the generic upper bound.",
+        "searches": [
+          "arXiv:2607.02578v1 Theorem 1.4",
+          "arXiv:2507.03205v1 §5.2",
+          "arXiv:2306.07870v1 Proposition 3.4 and §3 small frequencies"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The separate Resultary 2026/11/8/SCOPE-exact-binary-language-with-five-scattered-copies-of-0011--e52ec49baf88 has core 001011 and GF z^6/(1−z)^4.",
+          "Bruda §4.2 discusses frequency five at 0011, against a possible necessity extension of the degree conditions."
+        ],
+        "reasoning": "Reversal fixes the assigned pattern and exchanges the two cores; complement/reversal preserve length and run count, so neither turns 001100 into 0011. These are subsequence embeddings, not contiguous factors or distinct resulting spellings. A count of 0011 does not encode the admissible two-zero suffixes following each middle-one pair.",
+        "searches": [
+          "Resultary: exact five occurrences of 001100, binary scattered subsequence words",
+          "arXiv:2607.02578v1 §4.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The only exact matching catalogue record found is the assigned one. The two related exact catalogue results cover two-run patterns; the Bruda frequency-five example is 0011; Tian's inspected worked primitive example has p=0010000111011."
+        ],
+        "reasoning": "Neither the verified examples nor the related catalogue formulas supply the exact word family or enumeration at the assigned inputs. This is a bounded database comparison; no inference from a keyword miss alone.",
+        "searches": [
+          "Resultary exact pattern/frequency queries for 001100 and five scattered copies",
+          "arXiv:2607.02578v1 §4.2 examples",
+          "arXiv:2507.03205v1 Example 5.2.5"
+        ]
+      },
+      "rationale": "The exact two-core description and all-length formula are distinct from the related exact two-run result and from general fixed-frequency structural theorems. Credit earlier eventual polynomiality, the degree bound, the primitive-word construction, and the already analyzed 0011 case. No exact coverage of the assigned three-run pattern and frequency was established in the inspected sources.",
+      "residual_risks": [
+        "Unlocated exact fixed-frequency tables or a stronger specialized prior enumeration are not excluded by these searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior degree bound; different exact example",
+          "evidence": [
+            "Degree at most ℓ−r+1; sufficient conditions for equality and the k=5 example p=0011."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.02578v1",
+          "material_read": "Theorem 1.4 p. 2 offset 7122; §4.2 p. 19 offset 75880",
+          "method": "OA PDF passages",
+          "title": "Enumerating binary words restricted by subsequence frequency",
+          "trigger": "Same statistic for arbitrary patterns; tightness conditions and frequency-five example"
+        },
+        {
+          "assessment": "Adjacent lower multiplicities and structural background, not the exact-five claim",
+          "evidence": [
+            "Explicit formulas for small frequencies k≤4; Proposition 3.4 for two occurrences."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2306.07870",
+          "material_read": "Abstract and §3, including Proposition 3.4; checked frequency coverage against Bruda §4.2",
+          "method": "OA PDF and cross-citation",
+          "title": "Subsequence frequency in binary words",
+          "trigger": "Prior exact small multiplicities for binary subsequence patterns"
+        },
+        {
+          "assessment": "Generic construction applicable in principle, no specific frequency-five evaluation in the inspected statements",
+          "evidence": [
+            "Criterion for positions belonging to some occurrence and algorithm for primitive words of a specified length; a different worked example."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2507.03205v1",
+          "material_read": "Introduction and §5.2 around offset 34200, Example 5.2.5 and Theorems 5.2.4, 5.2.6 passages",
+          "method": "OA HTML article",
+          "title": "Counting occurrences of a pattern in a binary word",
+          "trigger": "General binary primitive-word characterization and generation"
+        },
+        {
+          "assessment": "Strong analogue for a distinct two-run input",
+          "evidence": [
+            "Single core 001011, four free runs, count binom(n−3,3), and GF z^6/(1−z)^4."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-binary-language-with-five-scattered-copies-of-0011--e52ec49baf88",
+          "material_read": "RESULT.md Finding and proof, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Exact binary language with five scattered copies of 0011",
+          "trigger": "Closest exact language at the same frequency"
+        },
+        {
+          "assessment": "Does cover the earlier two-run example, not the assigned three-run pattern",
+          "evidence": [
+            "For attainable frequencies of 0^a1^b, exact generating functions and eventual degree a+b−1."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-fixed-frequency-enumeration-for-every-binary-two-run-subse--618e49d0888b",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Exact fixed-frequency enumeration for every binary two-run subsequence pattern",
+          "trigger": "Potential stronger exact coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This balanced three-run pattern lies outside the exact two-run results, and frequency five is the first beyond the cited small-frequency formulas. The case supplies an exact degree drop from the general bound and exactly identifies the two contributing cores. Those facts are useful as benchmarks for an eventual tightness criterion; this is more than a short-word count, and does not claim to solve that criterion.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

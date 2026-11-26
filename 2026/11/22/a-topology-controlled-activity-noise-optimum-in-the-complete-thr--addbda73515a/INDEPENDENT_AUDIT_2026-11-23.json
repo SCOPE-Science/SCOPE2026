@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:42:43.998072Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, local move normalization, tilted generator and proof steps 1–4",
+        "Frozen VERIFICATION.md, verify.py and requirements.txt",
+        "/workspace/checks/tandem_gap.py (run)"
+      ],
+      "rationale": "Independently generated labeled edges by scanning the cyclic triples 110 and 101 and verified full directed reachability in both directions on 4, 10, 20, 35 and 56 states. For a separate symbolic calculation, represent states by cyclic vacancy gaps g₀,g₁,g₂ after ordered particles. A hop transfers one vacancy from positive gᵢ to gᵢ₋₁ at dimensionless rate 1_{gᵢ₋₁=0}+q1_{gᵢ=1}, including both channels and jumps staying in the same quotient orbit. On the gap quotient the checked stationary weight is the cyclic orbit multiplicity times q to the number of zero gaps. With escape rate r, generator L and stationary mean J, solve Lh=J−r in a fixed-state gauge. The corrected count Q_t−Jt+h(X_t)−h(X_0) is a martingale, whose stationary squared jump rate is the sum of π(g)w(g,g′)[1+h(g′)−h(g)]². The boundary correction is bounded, so this yields the long-time variance rate. It reproduced all five rational J and F pairs exactly, verifying positivity of each mean derivative and of F−1 for n≥5 (with F₄=1). Exact root tests and sign brackets confirm strict F₅ monotonicity and exactly one interior global minimum on each of n=6,7,8 in the three advertised intervals. With at least one vacancy, a gap of one enables a follower hop and a cyclic run of zero gaps ending before a positive gap enables a leader hop; all gaps ≥2 are frozen and first possible at n=9. Differences between different bond counts stay bounded by particle conservation, so an individual bond has asymptotic mean αJ/n and Fano ratio F/n, rather than the displayed total-count ratio. The frozen checker was inspected, not executed.",
+      "residual_risks": [
+        "The classification concerns total successful hops in the complete three-particle active sectors for n=4,…,8. It does not describe the active communicating classes of larger rings, finite-time Fano ratios, or a thermodynamic limit."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The original TEP analysis establishes stationarity and treats stationary mean current, with Theorem 4 explicitly in the thermodynamic limit.",
+          "Appert-Rolland et al. give finite-size integrated activity cumulants through order four for SSEP, plus large-system scaling. The finite-network Poisson-activity comparison 016805168b38 also assumes reversible symmetric exclusion.",
+          "d964f86bf714 concerns the two-particle TEP spectrum and a staggered relaxation observable."
+        ],
+        "reasoning": "Known general methods apply but the inspected stronger activity formulas assume undirected symmetric exclusion, and the inspected TEP results lack the three-particle dynamical cumulants. The exact size threshold and derivative classification cannot be read from them.",
+        "searches": [
+          "arXiv:2606.01568v1, model, active-sector stationary law and current Theorem 4",
+          "arXiv:0804.2590, §II.A, Eqs. (12) and (18)",
+          "Resultary: 016805168b38, d964f86bf714"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.01568v1",
+        "arXiv:0804.2590",
+        "Resultary: c96d32c5127e, ef4ea58edfd5, 28e127e9bdda, d964f86bf714, 016805168b38, addbda73515a (self-hit)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same Gibbs distribution fixes stationary means but not the integrated counting variance, whose correction requires the dynamics, e.g. solving Lh=J−r.",
+          "The same-model intermittency result explicitly contrasts instantaneous intensity fluctuations with integrated trajectory variance; the symmetric-exclusion cumulants require different moves."
+        ],
+        "reasoning": "The finite integrated second cumulant and the global q-sign analysis must be worked out for the actual tandem generator. The prior active-sector cutoff and stationary means are not new, but they do not mechanically give the Fano functions, their strict inequalities, or their minima.",
+        "searches": [
+          "arXiv:2606.01568v1, stationary law and current passages",
+          "Resultary: 28e127e9bdda and c96d32c5127e, main statements",
+          "arXiv:0804.2590, finite-size activity formulas"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The TEP paper gives the same moves and a stationary Gibbs law; its reported stationary current is per bond.",
+          "Same-date c96d32c5127e treats seven sites with three particles but uses 010↔001 and a signed count, with a high-bias Fano limit of 2; ef4ea58edfd5 treats finite-time total-hop variance in two-particle symmetric exclusion.",
+          "28e127e9bdda treats instantaneous stationary jump intensity in the same TEP, not the integrated count variance."
+        ],
+        "reasoning": "A one-bond long-time second cumulant for exactly the same process could be translated by the conservation scaling, so an observable-name difference is not decisive. Here the TEP paper reports mean current, the static comparison ignores temporal correlations, and the close signed-noise result has different transitions as well as markings. Neither simple rescaling nor renaming gives the target.",
+        "searches": [
+          "Resultary: tandem exclusion activity noise, total successful-hop cumulants and three-particle periodic rings; signed current, one-bond current and Fano comparison",
+          "arXiv:2606.01568v1",
+          "Resultary: c96d32c5127e, ef4ea58edfd5, 28e127e9bdda"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed match addbda73515a is the frozen record itself. The distinct same-day three-particle exact noise c96d32c5127e concerns a different chain and signed observable.",
+          "The closest inspected explicit finite-size activity cumulant table/formulas, Appert-Rolland et al. Eq. (12), are for SSEP."
+        ],
+        "reasoning": "This check would flag an exact table for the matching rate channels and integrated count even if titled current rather than activity. No such distinct exact match was identified in the inspected sources; keyword misses in the primary TEP paper were not treated as absence proof.",
+        "searches": [
+          "Resultary: finite exact tandem activity, periodic hop-count tables Fano factors n=4–8, and exact three-particle finite current noise",
+          "arXiv:2606.01568v1, relevant stationary/current portions",
+          "arXiv:0804.2590, Eq. (12)"
+        ]
+      },
+      "rationale": "The process, stationary law, and stationary mean-current analysis are prior, as are tilted-generator and Poisson methods. The supported distinct result is the exact finite integrated activity variance-to-mean classification over the complete three-particle active range, including the change from monotonic/Poisson behavior to unique interior minima. The closest inspected primary results and same-date indexed cases do not supply that classification under the same dynamics and observable.",
+      "residual_risks": [
+        "The comparison is bounded; an unindexed equivalent calculation or a more general theorem supplying these exact tandem cumulants could affect originality. No relative priority is inferred from shared publication dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same process and prior stationary law/currents, not the finite integrated variance result in the passages read",
+          "evidence": "Uses 110→101 and 101→011 and classifies active sectors; stationary-current Theorem 4 is thermodynamic and concerns current mean rather than the total-count second cumulant.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.01568",
+          "material_read": "Open manuscript pp. 1–3, move rules and active Gibbs law, offsets about 1328–17914; p. 4, stationary-current Theorem 4, offsets about 24000–29592",
+          "method": "Bounded primary text inspection and comparison of observables and regimes",
+          "title": "Tandem Exclusion Process",
+          "trigger": "Origin paper with the same local moves and the strongest same-model current statements"
+        },
+        {
+          "assessment": "Methodological and observable precedent for another process",
+          "evidence": "Eq. (12) gives finite-size activity cumulants through order four for symmetric exclusion, with additional scaling in Eq. (18), not the directed tandem constraints.",
+          "identifier_or_url": "https://arxiv.org/abs/0804.2590",
+          "material_read": "Open manuscript §II.A pp. 2–3, offsets about 9000–20448, Eqs. (12) and (18)",
+          "method": "Compare explicit formulas and transition law",
+          "title": "Universal cumulants of the current in diffusive systems on a ring",
+          "trigger": "Direct prior finite-ring activity cumulants"
+        },
+        {
+          "assessment": "Substantive topic overlap; different model and observable",
+          "evidence": "Uses 010→001 and its reverse, records signed hops and gives a strong-bias ratio tending to two. This is not a priority inference based on matching dates.",
+          "identifier_or_url": "Resultary: c96d32c5127e",
+          "material_read": "Mirrored RESULT.md, main finding and move/count definitions from offset 0",
+          "method": "Compare exact operators, markings and parameter regime",
+          "title": "Exact current noise and a twofold high-drive Fano limit in a minimal model",
+          "trigger": "Distinct same-date result with seven sites, three particles and a Fano ratio"
+        },
+        {
+          "assessment": "Two particles, symmetric exclusion, finite-time crossover",
+          "evidence": "Studies finite-time activity variance on cycles, not three-particle long-time tandem Fano minima.",
+          "identifier_or_url": "Resultary: ef4ea58edfd5",
+          "material_read": "Mirrored RESULT.md, main statement from offset 0",
+          "method": "Compare original state space, dynamics and scaling",
+          "title": "A diffusive-time theta crossover for two-particle exclusion activity",
+          "trigger": "Distinct same-date periodic total accepted-hop variance"
+        },
+        {
+          "assessment": "Instantaneous stationary intensity, not integrated count",
+          "evidence": "Uses a q_N∼N² limit of intensity fluctuations and explicitly distinguishes its observable from integrated trajectory variance.",
+          "identifier_or_url": "Resultary: 28e127e9bdda",
+          "material_read": "Mirrored RESULT.md, main statement and scope from offset 0",
+          "method": "Compare statistic definition and scaling",
+          "title": "Critical finite-ring intermittency in the tandem exclusion process",
+          "trigger": "Same model and finite-ring fluctuation statistic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Limitations",
+        "arXiv:2606.01568v1 active-sector geometry and mean current",
+        "Resultary: 28e127e9bdda, instantaneous-intensity comparison"
+      ],
+      "rationale": "Fixing three particles and examining the whole irreducible active range is a natural, exhaustive cutoff rather than selecting sizes with a desired effect. A finite-size transition from Poisson or monotone activity noise to a unique nonzero optimum, while mean throughput remains increasing, separates time correlations from stationary transport. Exact signs and thresholds are useful small-system benchmarks for constrained transport, independently of a large-ring theory.",
+      "residual_risks": [
+        "There is no claim that noise curves retain this form in larger active classes, at other densities or for single-bond counts as a Poisson comparison."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

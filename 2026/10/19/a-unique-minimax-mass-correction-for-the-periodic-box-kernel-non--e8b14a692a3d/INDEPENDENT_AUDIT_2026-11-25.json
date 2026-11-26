@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:53:58.014280Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Assumptions, Proof and Verification; VERIFICATION.md; check.py"
+      ],
+      "rationale": "Direct periodic Fourier integration gives the positive product symbol 2Q_b. The sharp worst-horizon ratio is the continuum ratio because as delta tends to zero the same grid delta times the positive integers can approximate both extremizers (including zero by k=1 and infinity by delta*k growing). To enforce the minimum 1/6 requires b at least sup F(s)=1/(6a(s))-1/s². The sinc Taylor bound on (0,pi], the nonpositive-sine lobes, and the decreasing U(s)=s/[6(s−1)]−s⁻² on [4pi,infinity) leave only (2pi,3pi); F(5pi/2) exceeds those exclusions. I checked the derivative numerator N, its positive lower bound until 5pi/2, its strictly negative derivative after 5pi/2 up to 3pi and the endpoint signs. Hence t_* is unique. For b≤b_* the tail Q bound lies strictly below Q_b(pi); for b<b_* every minimizer is beyond 2pi by comparing Q_b(s)/Q_b(t_*), decreasing in b for s<t_*. Comparing a maximizer and minimizer at the larger b proves strict decrease of the extreme ratio up to b_*. For b≥b_* the fixed minimum and strictly increasing maximum give the other side, proving uniqueness. Independent high-precision numerical evaluation (/tmp/opencode/scope-review-analytic.py 4) gave t_*=7.87451945091259722, b_*=0.174777992381291262, peak s≈3.75263938870502440, K≈1.70020056456180867 and 6Q_{1/2}(4)≈4.01355210541606446. I also verified the strict improvement factor without using unvalidated extrema samples: rational Taylor remainder bounds give N(7.87)>0 and b_*≤U(7.87); on [1,6.284] use spacing 1/250, Taylor bounds at the grid points and |Q''|<15 (a=integral_0^1 (1−cos(us)) du) with interpolation error ≤15(1/250)²/8. For s≤1 use a(s)≤s²/6. These give K<1.7005, while 6Q_{1/2}(4)>4.0135, implying the claimed factor >2.36. Frozen checker was inspected, not executed.",
+      "residual_risks": [
+        "Printed optimum decimals are numerical diagnostics; universal proof uses the analytic extrema comparison. No claim about tuning one fixed horizon or a discretization."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.2 proves spectral bounds for volume-constrained finite elements uniform in mesh and horizon for 0<δ≤δ0, with prescribed beta.",
+          "The tau-preconditioner comparison is described by Lu et al. §1 for two-level Toeplitz discretizations; its full paper was inaccessible."
+        ],
+        "reasoning": "General spectral equivalence and discretization-specific bounds do not establish a unique global minimum of the exact periodic continuum ratio.",
+        "searches": [
+          "arXiv:2609.24143 Theorem 2.2",
+          "10.1007/s10915-025-03150-2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.24143",
+        "Resultary d68a7346e916",
+        "10.1007/s10915-025-03150-2 (secondary account and OA attempts)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "High-frequency matching motivates beta from kernel mass, unlike optimizing the full ratio.",
+          "At b=1/6 the second sinc lobe controls the fixed-mass conditioning. The present theorem proves that the lobe and the low-frequency limit are equal minima at a different b, and requires opposite strict monotonicities in b."
+        ],
+        "reasoning": "Neither fixed-mass theorem proves the free-coefficient minimax even though they supply the underlying family and one relevant frequency mechanism.",
+        "searches": [
+          "arXiv:2609.24143 eq. (2.4) and Theorem 2.2",
+          "Resultary d68a7346e916 Finding and Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lu et al. fix beta=1/(2mu_rho), which is 1/2 for the unit-mass box.",
+          "The matched whole-space benchmark 3(-∂xx)⁻¹+δ²I/2 rescales to b=1/6; the scalar rescaling does not alter condition number."
+        ],
+        "reasoning": "Neither normalization sets the minimax parameter. Even the identical continuum frequency family at a single b does not determine the optimal free mass.",
+        "searches": [
+          "Resultary: periodic box sinc inverse Poisson plus mass sharp worst-horizon minimax 0.174777992",
+          "arXiv:2609.24143 §2.1 and §3",
+          "Resultary d68a7346e916"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The close indexed theorem gives 1.71786531125703 for b=1/6, not the tunable problem; the stated context is whole-space Fourier conditioning.",
+          "The frozen comparison identifies Table 3 as finite-element diagnostics for fixed beta, not an optimum-mass table."
+        ],
+        "reasoning": "The close numeric result is an exact comparison point, not the claimed optimizer or value. Ranked lookup misses do not establish priority.",
+        "searches": [
+          "Resultary: 0.174777992381291 and 1.700200564562; sharp second sinc lobe nonlocal box preconditioner",
+          "Resultary d68a7346e916 Result",
+          "arXiv:2609.24143 Table 3 (frozen comparison)"
+        ]
+      },
+      "rationale": "The retained claim is the sharp periodic continuum minimax over all positive masses and horizons, not the additive preconditioner, the mass-normalized choice, sinc symbol or the existence of uniform bounds. The closest published scalar benchmark and originating analytical preconditioning paper cover different quantifiers or only a fixed parameter.",
+      "residual_risks": [
+        "The tau-preconditioner paper's full text and unindexed equivalent scalar work are unchecked; priority is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Fixed mass and uniform FE bounds are prior; not the exact periodic minimax",
+          "evidence": [
+            "mu_rho=integral over B_1; beta=1/(2mu_rho)",
+            "Theorem 2.2 handles 0<δ≤δ0 and FE matrix spectra"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.24143",
+          "material_read": "PDF §1 p.2, §2 eq. (2.4) p.3, Theorem 2.2 p.6 and §3 p.7 (offsets about 5000,10500,25500)",
+          "method": "OA PDF passage comparison",
+          "title": "A mesh- and horizon-robust preconditioner for finite element discretizations of volume-constrained nonlocal diffusion problems",
+          "trigger": "Originating additive Poisson-plus-mass family and kernel scaling"
+        },
+        {
+          "assessment": "Exact fixed-mass benchmark rather than free-coefficient minimax",
+          "evidence": [
+            "Sharp condition number 1.71786531125703 for 3(-∂xx)⁻¹+δ²I/2, equivalent to b=1/6"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-the-second-sinc-lobe-controls-sharp-conditioning-of-a-matched-no--d68a7346e916",
+          "material_read": "RESULT.md Finding and relevant Proof, offsets 0–3315",
+          "method": "Resultary local-mirror text",
+          "title": "The second sinc lobe controls sharp conditioning of a matched nonlocal preconditioner",
+          "trigger": "Same box Fourier family and sharp spectral ratio"
+        },
+        {
+          "assessment": "Secondary characterization concerns a different matrix/preconditioning family; entire source not assessed",
+          "evidence": [
+            "Lu et al. describe uniform bounds for tau-preconditioners on finite-difference two-level Toeplitz systems"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10915-025-03150-2",
+          "material_read": "Lu et al. §1 and reference [20] (p.19); no primary full text",
+          "method": "OA publisher and PDF attempts encountered redirects; DOI recovery yielded no repository copy",
+          "title": "Spectral analysis of τ-preconditioners for two-level Toeplitz systems with applications in nonlocal diffusion models",
+          "trigger": "Potential prior sharp conditioning of related nonlocal schemes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, Proof and Limitations; Lu et al. eq. (2.4)"
+      ],
+      "rationale": "The all-horizon comparison is a natural robustness design problem for an existing preconditioner, not an arbitrary slice: the equality at the low-frequency limit and a competing oscillatory lobe selects a distinct unique tuning. A certified >2.36 gap relative to the conventional mass coefficient gives a meaningful continuum benchmark, not merely a tiny numerical improvement.",
+      "residual_risks": [
+        "No claim of wall-time, FE, higher-dimensional or arbitrary-kernel superiority."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

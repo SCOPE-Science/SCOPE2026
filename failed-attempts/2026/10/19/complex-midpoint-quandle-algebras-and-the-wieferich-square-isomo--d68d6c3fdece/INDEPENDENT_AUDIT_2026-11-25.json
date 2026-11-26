@@ -1,0 +1,182 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:22:43.089808Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–70",
+        "Frozen VERIFICATION.md lines 19–23 and verify.py lines 13–48, 139–229",
+        "Independent modular check: iterate b←2b mod m from b=1 at the displayed exponents and moduli"
+      ],
+      "rationale": "The complex Fourier transform transports the midpoint product to pointwise multiplication followed by the character permutation: E_χ E_ψ=0 for χ≠ψ and E_χ²=E_(χ²). Two vectors with zero cross-product have disjoint supports because the permutation is invertible. An isomorphism therefore sends the n basis vectors to vectors with nonempty pairwise disjoint supports in n coordinates, hence to a monomial basis; the square relations force the monomial permutation to conjugate the two doubling permutations. Conversely any such conjugacy yields an isomorphism. Finite abelian duality identifies these cycle types with the types on the original groups. Fixed points of doubling to the rth power count G[2^r−1]; Möbius inversion recovers the cycles, and LTE says the positive p-adic levels sampled by all r are precisely s_p,s_p+1,…. At s_p=1 successive profile differences with initial value zero recover the primary exponents. A Wieferich primary component of order at most p is forced, while for p²|N the C_(p²) versus C_p² substitution preserves every observed profile and changes primary rank, even after multiplying both by the same group of order N/p². For automorphisms, the centralizing permutations and the 2^ℓ−1 scalar choices per ℓ-cycle give the displayed order, including 60 and 882 for C_5 and C_7. The quandle nonisomorphism follows because products of right translations with their inverses generate the regular translation group. Independently, trial division by 2,…,33 proves 1093 prime; repeated exact modular doubling gives residues 1, 1092, 27, 121 for exponents 364,182,52,28 mod 1093 and residues 1 mod 1093² and 1064432260 mod 1093³ for exponent 364. Thus every nonzero point in the two witnesses has orbit length 364 and there are 3282 such cycles. The uploaded script was inspected, not run; its witness function checks the modular orders but does not itself test primality of 1093. The independent trial division supplies that small check.",
+      "residual_risks": [
+        "The reported finite-field Fourier and automorphism tests do not establish the complex-algebra classification for arbitrary group order. The proof does; no claim is made for other coefficient characteristics or other quandle operations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Qureshi–Reis give the full graph of any power map on a finite abelian group via cyclic factors, orders of the multiplier and attached trees; on odd-order groups the square map has no trees.",
+          "Elhamdadi–Ta–Virgin give finite Alexander Fourier equations and an integral midpoint idempotent result. Costoya et al. study realizing permutation representations in automorphism groups."
+        ],
+        "reasoning": "The broader power-map theorem supplies precisely the permutation data used here, not only a graph-computing algorithm. The nearest other quandle and automorphism papers treat different outputs and are not, by themselves, the decisive implication.",
+        "searches": [
+          "Power-map functional graphs of finite abelian groups; arXiv:2107.00584v2 §2.3, Proposition 2.7",
+          "Elhamdadi–Ta–Virgin, arXiv:2609.03799v1, Proposition 3.4 and Theorem 5.4",
+          "Costoya–Mayorga–Viruel, DOI 10.1007/s00009-025-02924-0"
+        ]
+      },
+      "checked_sources": [
+        "Resultary midpoint, core-quandle and permutation evolution comparisons",
+        "arXiv:1004.1987",
+        "arXiv:2610.08204",
+        "arXiv:2107.00584v2",
+        "arXiv:2609.03799",
+        "arXiv:1805.05908",
+        "Integers 19 (2019) A58"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier evolution-algebra transformation and Fourier product identify the invariant with the known power-map graph. Its rth fixed-point count is the number of solutions of (2^r−1)g=0; its p-valuation is Σ_i min(e_i,v_p(2^r−1)). LTE gives v_p(2^(d_p u)−1)=s_p+v_p(u), with zero if d_p does not divide r."
+        ],
+        "reasoning": "Equality of the graphs is equivalent to equality of all their fixed-point counts, hence of exactly the displayed primary tails. Taking consecutive differences reconstructs the profile when s_p=1; if s_p≥2 and p² divides the order, replacing a summand p² by p,p has equal contributions at every observed level. Since d_p divides p−1 with quotient prime to p, s_p≥2 is equivalent to the Wieferich congruence. Thus the fixed-order statement and the witness follow from the prior structural classification with elementary arithmetic, without a further classification lemma.",
+        "searches": [
+          "Finite abelian group reconstruction from squaring functional graphs, with Wieferich primes",
+          "Qureshi–Reis Proposition 2.7; Camacho et al. Proposition 3.1; Zhang Proposition 5.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zhang, arXiv:2610.08204v1, Proposition 5.1 gives the Fourier transport of finite Alexander products, including the midpoint specialization. Camacho et al., equation (2.1) and Proposition 3.1 give a monomial change-of-basis rule for nonsingular evolution matrices."
+        ],
+        "reasoning": "The midpoint Fourier multiplication has a permutation matrix as its evolution structure matrix. Specializing the earlier monomial rule gives πτ=τ′π and λ_τ(i)=λ_i²; these are exactly the frozen cycle criterion and automorphism parameters. The cycle centralizer and the scalar root count are then immediate.",
+        "searches": [
+          "Midpoint Fourier transport and coordinatewise-product isotopes",
+          "Permutation evolution algebra monomial isomorphism, arXiv:1004.1987 §2 and Proposition 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed midpoint record, 2026/11/2/SCOPE-arithmetic-peirce-census-of-finite-midpoint-quandle-algebras--be43c726104b, gives idempotent and Peirce-profile counts, not the reconstruction criterion.",
+          "Indexed core-quandle automorphisms (2026/10/26) use e_a e_b=e_(2b−a), and indexed permutation evolution homomorphism counts (2026/11/2) concern finite fields. Larson gives different same-graph examples, including a nonabelian group."
+        ],
+        "reasoning": "No inspected indexed statement supplies this full midpoint theorem or exact Wieferich witness. These group/algebra comparisons and numerical examples are not imported across different operations or fields. The absence of an exact table does not remove the broader implication.",
+        "searches": [
+          "Resultary searches: finite midpoint algebra isomorphism, Wieferich square, core-quandle Fourier automorphisms, permutation evolution algebra cycles",
+          "Larson, Power Maps in Finite Groups, Integers 19 (2019) A58, conclusion"
+        ]
+      },
+      "rationale": "The algebra classification and automorphism count are immediate applications of the existing Fourier transport for finite midpoint products and the nonsingular evolution-algebra isomorphism rule. The doubling cycle type is a special case of the known functional-graph description of power maps. The sharp reconstruction boundary is not asserted verbatim in the passages reviewed, but the only remaining step is a direct arithmetic consequence of the graph fixed-point data: LTE samples a whole tail of primary torsion counts, and the missing first level makes C_(p²) indistinguishable from C_p². The familiar Wieferich congruence names exactly that case. This is coverage by implication, not a claimed prior printing of the whole theorem.",
+      "residual_risks": [
+        "The comparison demonstrates implication, not historical priority for the printed Wieferich wording. The 2017 inaccessible text may contain additional overlap; it did not contribute to the verdict."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers permutation case by specialization",
+          "evidence": [
+            "For nonsingular structure matrices natural-basis isomorphisms are monomial and obey the displayed transformation rule."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1004.1987",
+          "material_read": "§2 eq. (2.1), §3 Proposition 3.1, PDF pp. 3, 5–6; OA offsets 8520 and 16900",
+          "method": "Bounded primary PDF passage inspection",
+          "title": "Some Properties of Evolution Algebras",
+          "trigger": "Exact monomial-isomorphism antecedent for nonsingular evolution matrices"
+        },
+        {
+          "assessment": "Fourier transport covers midpoint specialization; idempotent and Peirce results are different outputs",
+          "evidence": [
+            "The Fourier product specializes to a permutation of pointwise multiplication in the midpoint case."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.08204",
+          "material_read": "Proposition 5.1 p. 7 (offset 22500); Theorem 5.2 and Corollary 5.3 p. 8 (offset 25700); Theorem 5.5 pp. 8–9",
+          "method": "Bounded primary PDF passage inspection",
+          "title": "Group-ring methods for Alexander quandle rings",
+          "trigger": "Same Fourier midpoint product"
+        },
+        {
+          "assessment": "Full forward graph; inverse threshold is a direct arithmetic implication, not an explicit stated theorem in the passages read",
+          "evidence": [
+            "The graph is described by cyclic factors, multiplicative orders and attached trees; for squaring in odd order only cycles remain."
+          ],
+          "identifier_or_url": "arXiv:2107.00584v2",
+          "material_read": "Abstract and §2.3 Proposition 2.7 pp. 5–6, OA offset 16200",
+          "method": "Bounded primary PDF passage inspection",
+          "title": "On the Functional Graph of the Power Map over Finite Groups",
+          "trigger": "Same doubling dynamics in a broader power-map description"
+        },
+        {
+          "assessment": "Methodological antecedent and integral idempotent theorem",
+          "evidence": [
+            "The medial commutative idempotent result includes midpoint quandles but does not state the complex reconstruction theorem."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.03799",
+          "material_read": "§3.2 Proposition 3.4 pp. 5–6 and Theorem 5.4 p. 9, OA offsets 16600 and 29535",
+          "method": "Bounded primary PDF passage inspection",
+          "title": "Fourier Analysis and Idempotents in Quandle Algebras",
+          "trigger": "Fourier analysis of finite Alexander algebras and midpoint family"
+        },
+        {
+          "assessment": "Related isomorphism phenomena, different hypotheses",
+          "evidence": [
+            "Records other isomorphic-ring examples and a partition criterion under 2-transitivity."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1805.05908",
+          "material_read": "Introduction p. 2, OA offset 4300",
+          "method": "Bounded primary PDF passage inspection",
+          "title": "Ring Theoretic Aspects of Quandles",
+          "trigger": "Nonisomorphic quandles with isomorphic rings"
+        },
+        {
+          "assessment": "Different same-graph examples; not the odd abelian threshold",
+          "evidence": [
+            "A same-graph comparison involves a nonabelian exponent-three group."
+          ],
+          "identifier_or_url": "Matt Larson, Integers 19 (2019), A58",
+          "material_read": "Conclusion, PDF p. 14, OA offset 34700",
+          "method": "Bounded primary PDF passage inspection",
+          "title": "Power Maps in Finite Groups",
+          "trigger": "Prior discussion of reconstruction from functional graphs"
+        },
+        {
+          "assessment": "Unknown coverage, not used for decision",
+          "evidence": [
+            "Bibliographic match only."
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/2017/6295430",
+          "material_read": "No primary passage retrieved; HTTP 403 and no identified open repository copy",
+          "method": "Bounded OA lookup",
+          "title": "Dynamics of Endomorphism of Finite Abelian Groups",
+          "trigger": "Plausible broader finite-abelian graph theorem"
+        },
+        {
+          "assessment": "Different algebra invariants",
+          "evidence": [
+            "Computes idempotent and Peirce counts over C and R, not reconstruction from the algebra isomorphism type."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-arithmetic-peirce-census-of-finite-midpoint-quandle-algebras--be43c726104b",
+          "material_read": "Local mirror Finding",
+          "method": "Bounded Resultary mirror comparison",
+          "title": "Arithmetic Peirce census of finite midpoint-quandle algebras",
+          "trigger": "Closest indexed same-family result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–32 and 52–70",
+        "Camacho et al. Proposition 3.1",
+        "Zhang Proposition 5.1",
+        "Qureshi–Reis Proposition 2.7"
+      ],
+      "rationale": "Determining when a quandle algebra remembers its group is well motivated, and the Wieferich example is a useful illustration. But on the stated midpoint family the algebra invariant and automorphism count specialize established structural rules, and the exact boundary is the first-level loss in the known power-map data by routine LTE and primary-exponent differences. The record does not establish an additional nonmechanical reconstruction invariant or solve a distinct case left open by those results.",
+      "residual_risks": [
+        "This does not assess reconstruction for other Alexander operations, other coefficient fields or broader nonabelian groups."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

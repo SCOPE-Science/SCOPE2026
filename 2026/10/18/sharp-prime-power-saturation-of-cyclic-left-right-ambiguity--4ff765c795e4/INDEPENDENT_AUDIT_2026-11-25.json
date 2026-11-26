@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:33:16.945157Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 21–59; explicit product computation for the prime-power examples",
+        "Frozen VERIFICATION.md and check_signatures.py: inspected, not executed"
+      ],
+      "rationale": "Fix the phase at the smallest point to zero. With the time-zero bit removed, each next row is a translate of the previous prefix, so the candidate phases are either empty or a coset of the prefix stabilizer, of order at most gcd(n,i) for a prefix of size i. In prime-power length, digit reversal makes each aligned block of p^r indices a coset of the subgroup of size p^r, giving exactly the maximal stabilizer at each prefix. Translating the suffix by a stabilizer element preserves distinctness and every signature row. Each later required subgroup either lies inside the current subgroup, so both pieces of the later prefix remain invariant, or contains it, so the later prefix itself is unchanged. Successive phase differences recover the chosen shifts; the product is attained. At mixed-prime length, attaining the product forces every branching bound to be met, in particular at prefix sizes p<q for two distinct prime divisors. Those prefixes would be the corresponding subgroups because they contain zero; the required inclusion is impossible. Summing valuations gives the stated exponent and the numerical examples, including the prime boundary k=1.",
+      "residual_risks": [
+        "The optional exhaustive histogram and checker output were not rerun. The main theorem does not depend on either.",
+        "For mixed-prime lengths the result gives strictness, not the exact maximum."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The interval-map paper treats the same comparisons and shows both prime uniqueness and nonuniqueness for composite length, not a quantitative worst-case upper bound.",
+          "The indexed composite study constructs a fiber of size r^(m−1) for n=mr and expressly does not classify the largest fiber over all signatures."
+        ],
+        "reasoning": "Neither the broader dynamical setting nor the exact single-family count supplies maximal branching or the simultaneous subgroup obstruction.",
+        "searches": [
+          "arXiv:2610.07435v1 §2, Lemma 2.1 and composite examples",
+          "Resultary record 5f39ed9e3fea, Finding and Limitations"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.07435v1",
+        "Resultary records f270190d0cd7 and 5f39ed9e3fea, local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+        "arXiv:1304.7790"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lemma 2.1 implies M(p)=1, and the composite observation implies M(n)>1 for composite n.",
+          "The r^(m−1) construction gives only a lower bound on M(n). At n=8 its largest count over the two factorizations is 8, versus the frozen theorem's 16."
+        ],
+        "reasoning": "The prior implication in the prime case is credited. Bounding each branch by its stabilizer, realizing all branches simultaneously at prime powers, and ruling out that simultaneous realization at mixed-prime lengths go beyond the retrieved implications.",
+        "searches": [
+          "arXiv:2610.07435v1 Lemma 2.1",
+          "Resultary records f270190d0cd7 and 5f39ed9e3fea"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In a known n-cycle equality occurs only at fixed return times, so the three-way behavior of §2 and the binary frozen table encode the same information.",
+          "The indexed prime reconstruction proof also fixes phases and matches translates; its uniqueness uses the absence of nontrivial translation stabilizers for proper nonempty subsets at prime length.",
+          "Signed-shift ordinal patterns encode order along one orbit, not fibers of the pointwise time-indexed comparison table."
+        ],
+        "reasoning": "Neither a change from three symbols to two nor the prime reconstruction mechanism is original; the comparison credits those equivalent forms but does not erase the all-length extremal result.",
+        "searches": [
+          "arXiv:2610.07435v1 §2",
+          "Resultary record f270190d0cd7",
+          "arXiv:1304.7790 §1.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest indexed records checked are a prime reconstruction algorithm and an exact family of composite fibers, not a census of maxima. The primary source provides composite examples, not a table of M(n)."
+        ],
+        "reasoning": "The central object is an all-length theorem, not a finite database entry. No equivalent maximum formula or table was found in the checked sources; finite example priority is not asserted.",
+        "searches": [
+          "Resultary search for cyclic left-right signature multiplicity; matched records f270190d0cd7 and 5f39ed9e3fea",
+          "arXiv:2610.07435v1 §2 and Figure 2 discussion"
+        ]
+      },
+      "rationale": "Prime rigidity, composite nonuniqueness, and prime-case cyclic shift reconstruction have clear predecessors. The checked evidence did not cover the universal extremal product together with its exact prime-power saturation classification. A later exact composite-fiber family counts particular fibers, not the worst case.",
+      "residual_risks": [
+        "A ranked index and targeted comparison do not exclude an unindexed equivalent extremal theorem under cyclic translation terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of prime rigidity and composite nonuniqueness only in the passages checked",
+          "evidence": "Lemma 2.1: two p-cycles on the same points with the same left-right behaviour must coincide when p is prime. The preceding discussion extends composite ambiguity beyond the four-point example.",
+          "identifier_or_url": "https://arxiv.org/html/2610.07435v1",
+          "material_read": "Section 2 definitions, composite examples and Lemma 2.1, text offsets approximately 9700–13000",
+          "method": "Bounded primary HTML passages",
+          "title": "Period spectrum and rigidity of interval maps",
+          "trigger": "Same ordered-cycle data and explicit prime/composite statements"
+        },
+        {
+          "assessment": "Exact overlap in prime restriction and shift mechanism",
+          "evidence": "The table determines the prime cycle; uniqueness follows because no nonempty proper subset of Z/pZ admits a nonzero translation stabilizer.",
+          "identifier_or_url": "2026/10/11/SCOPE-quadratic-time-reconstruction-of-prime-cycles-from-left-right-or--f270190d0cd7",
+          "material_read": "Finding, proof and comparison, text offsets 0–4014 and the following relationship section",
+          "method": "Configured Resultary index and local-mirror text",
+          "title": "Quadratic-time reconstruction of prime cycles from left-right orbit signatures",
+          "trigger": "Same signature and phase reconstruction"
+        },
+        {
+          "assessment": "Substantial related result, not equivalent, indexed later without asserting priority from date alone",
+          "evidence": "For n=mr it constructs a fiber with exactly r^(m−1) cycles and explicitly disclaims a largest-possible-fiber theorem.",
+          "identifier_or_url": "2026/10/26/SCOPE-exact-exponential-ambiguity-fibers-for-composite-ordered-periodi--5f39ed9e3fea",
+          "material_read": "Finding and discussion of limitation, text offsets 0–8563",
+          "method": "Configured Resultary index and local-mirror text",
+          "title": "Exact exponential ambiguity fibers for composite ordered periodic orbits",
+          "trigger": "Same signature with an exact composite fiber cardinality"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Pat(x,f,n) is the standardization of one list of successive orbit points; the result concerns realizability by signed shifts.",
+          "identifier_or_url": "https://arxiv.org/html/1304.7790",
+          "material_read": "Abstract and Section 1.2 pattern definition",
+          "method": "Bounded primary HTML passages",
+          "title": "Cyclic permutations realized by signed shifts",
+          "trigger": "Related periodic ordinal-pattern enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof",
+        "Fuhrmann–Gröger–Passeggi, Section 2"
+      ],
+      "rationale": "Prior work made the extent of ambiguity a natural continuation of prime rigidity. A sharp universal bound and an arithmetic criterion for attaining it quantify how much reconstruction can fail, rather than giving another ambiguous pair. The distinction between simultaneously attainable prime-power stabilizers and incompatible mixed-prime stabilizers explains the phenomenon.",
+      "residual_risks": [
+        "Does not determine the actual mixed-prime maximum or settle interval-map rigidity from unlabeled orbit sets."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

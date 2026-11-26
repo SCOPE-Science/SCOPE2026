@@ -1,11 +1,21 @@
-# Scientific review: exact stadium triangle and covering density
+# Independent mathematical audit
 
-**Correctness — PASS.** The convex-hull-of-two-disks reduction is valid for unrestricted triangular area since signed determinant is separately affine in each vertex. The two-disk chord inequality is sharp for an explicitly specified three-point configuration, and its one-dimensional derivative has a unique root. The all-case equality analysis excludes mixed disk representations. The explicit six-contact hexagon is contained in the stadium and tiles by the stated lattice; Kallus (2013), §1, states the established Bambah–Rogers theorem giving the converse covering-determinant inequality. The exact density and derivative of its area efficiency follow. Ten algebraic and geometric test regimes and 69,000 randomized checks supplement, but do not replace, the proof.
+## correctness
 
-**Originality — PASS, provisional historical priority.** The nearest full-text published mathematical records concern the maximal *rectangle* inside stadiums, maximal *triangles* in intersections of disks (symmetric lenses), and a fourth dual-moment optimization of disk triangles. The respective objects or objective functions differ, and none provides the stadium maximal-triangle profile or the resulting exact covering lattice determinant. Kallus's full text supplies the general Bambah–Rogers reduction but does not evaluate stadiums. The earlier Boyce–Dobkin–Drysdale–Guibas article concerns finite point-set algorithms. Multiple actual semantic record searches and targeted web searches for obrounds, capsules, and lattice coverings found no identical formula. Unindexed special-shape literature remains a real risk; two additional published-finding corpus queries failed transiently after successful main searches.
+PASS
 
-**Value — PASS.** The natural continuous stadium family interpolates between optimally covered disks and almost-tiling strips. The exact optimal lattice covering density (not merely a triangle exercise), explicit attaining lattice, complete optimal triangle equality cases, strict efficiency ordering and inverse determination of aspect ratio give a reusable shape benchmark. The general covering-triangle correspondence and its disk endpoint are explicitly prior work; the new part is the family-wide exact evaluation and rigidity.
+Use consistently oriented signed area, affine separately in the three vertices, to express any triple in the hull of the two disks as a convex combination of pure disk triples. For a base in one disk whose line is at distance d from its center, the chord length is at most 2sqrt(r²−d²); the opposite disk contributes height at most 2a|n_x|+r+d, with n the chord normal. Equality at a>0 needs a horizontal normal, a full exterior chord and the opposite axial extreme point. Maximizing F(d)=sqrt(r²−d²)(2a+r+d) gives the unique interior root of r²−2d²−(2a+r)d=0. Substituting d=r/2 already strictly exceeds the best single-disk area when a>0. The two pure maximizing triples are disjoint as geometric vertex sets; a nontrivial convex mixture at a vertex would require two distinct maximizing pure triples sharing the other two vertices. This rules out extra flat-edge maxima. The hexagon conv(T,−T) has levels 0 and ±h and half-width u−(u−w)|y|/h, with u=a+r, w=a+rc, h=rs. Neighboring staggered lattice rows have summed half-width u+w on each intervening height, exactly the spacing between alternating centers; the hexagons tile. The determinant is 2h(u+w), and the Bambah–Rogers theorem as stated by Kallus (pp. 2–3) confirms the upper bound for origin-symmetric planar convex domains and the precise covering-det convention. Substitution of the stadium area gives the density. Envelope differentiation yields η′=2s(π−2−2c)/(π+4t)²>0, because 0<c≤1/2; c→0 at infinity and c=1/2 at the disk endpoint give the asserted limits and inverse uniqueness. The disk has a continuum of equilateral optimizers, not two. The frozen checker and verification notes were inspected but not executed; random witnesses cannot certify either extremum or lattice optimality.
 
-**Limitations.** Only Euclidean planar stadiums and full-rank translative lattice coverings are treated. The result does not prove unrestricted nonlattice optimality or classify every optimal lattice. Historical priority is not independently certified; numerical stress tests do not establish global correctness.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The general covering-triangle theorem, its hexagonal lattice mechanism and the disk case are prior. The supported distinct part is the unrestricted exact stadium triangle optimization and two-maximizer rigidity, which evaluate the previously general covering relation on this family and give its strictly monotone density profile. The inspected close geometric records concern a different polygon, body or objective.
+
+## value
+
+PASS
+
+The stadium is a natural continuous family from a disk toward a long nearly tiling shape. The sharp unrestricted triangle solution and rigidity give an exact optimal lattice-covering benchmark for the entire family, with an attainable lattice, strict aspect-ratio ordering, and sharp limiting densities. This evaluates a natural optimization invariant, beyond restating the covering correspondence, without implying a result for nonlattice coverings or classification of all optimal lattices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

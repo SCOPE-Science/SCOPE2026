@@ -1,19 +1,21 @@
-# Scientific review: exact equilibrium-fold staircase for a sine-driven flow
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For strictly positive coefficients, the equilibrium reduction is exhaustive: the central point is unique on the zero-coordinate plane, and every other equilibrium solves an explicit quadratic equation in the height coordinate followed by a scalar amplitude equation on one sine half-wave. The exact logarithmic elasticity formulas yield one increasing first branch and precisely one nondegenerate minimum on each later branch. The proof treats threshold equalities, eliminates nonexistent solutions at nonzero multiples of \(\pi\), and derives the \(\sqrt b\) count law from a uniform threshold asymptotic. Nonlinear stability and periodic trajectories are not inferred. The included code checks finite examples only, not the infinite proof.
+PASS
 
-## Originality — PASS with residual priority risk
+Eliminating y for x nonzero forces z to satisfy cz^2-dz-(ag/k)x^2=0; the sign of sin(x)/x selects exactly one quadratic root on each half-wave. At x=0 only (0,0,d/c) remains; nonzero multiples of pi cannot occur. For N=u|z|, uN'/N is 2+d/s on the negative branch and 2-d/s on the positive branch. On the first lobe u cot(u)<1; on later lobes the derivative of u cot(u) minus the elasticity is at most 1/2-u+1/u<0. This gives one interior nondegenerate minimum before each midpoint, with no duplication other than the stated reflection pair and the correct count at equality. The transverse minor is k(2cz-d) and is nonzero; reduced derivatives in u and b give a quadratic equilibrium fold and a singular full Jacobian, without a dynamical saddle-node assertion. Writing u=L-delta yields u tan(delta)=2+O(1/u), hence delta=2/L+O(L^-2). Expanding u|z| and 1/|sin(u)| gives the alternately signed linear threshold term; T_m=A pi^2 m^2+O(m) confines all count uncertainty, including equalities, to a bounded window. For the baseline, u>=7/2 on negative sine lobes is excluded by N_+ >= A u^2 + D u>10, and pi<u<7/2 by |sin(u)|<1/2; u>=2pi on positive lobes is excluded by N_- >= A u^2 - D u>10. Independently solving the baseline equation after substituting z=-10 sin(u)/u into the quadratic gave u=2.593336204649302275, y=-0.967775202592809262, z=-2.009766470845745569.
 
-The original full-text mathematical sections [1], including the model equations, equilibrium discussion, parameter sweeps and conclusion, were compared by mathematical implication. They do not give a complete positive-parameter equilibrium census, one-fold-per-half-wave theorem, or unbounded equilibrium-count law. The precursor field quoted in [1] is a polynomial system without this sine branch structure. Mathematically related published records concerning other sine or hyperbolic-sine flows concern different vector fields and supply no model equivalence or reduction that implies these formulas. Searches by source title, vector-field terms, exact equilibrium and fold aliases did not identify a covering theorem. Unindexed or differently titled historical literature may nonetheless contain a formulation of the result.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The amplitude of sinusoidal forcing is a natural control parameter already present in the source's chaotic-flow model. A complete exact equilibrium skeleton across all positive coefficients, including an infinite sequence of sharp solution folds, the complete count at the source's plotted parameters, and the universal \(\sqrt b\) growth law, informs interpretation of bifurcation and attractor diagrams. This classification is not a routine stability calculation at one displayed equilibrium or an arbitrary finite numerical table. It remains a statement about equilibria, not a theorem establishing or excluding chaos.
+The audited distinct claim is the global all-positive-parameter branch classification, not the vector field or scalar fold calculus. The related conservative-limit fold concerns a boundary where three parameters vanish, and the most similar exact sine census is for a different vector field. Neither gives the positive-parameter infinite fold count or its asymptotics. Ramar's inaccessible full text remains a specific limitation of this best-of-knowledge decision.
 
-## Closest literature and limits
+## value
 
-[1] R. Ramar, *Design of a New Chaotic System with Sine Function: Dynamic Analysis and Offset Boosting Control*, **Chaos Theory and Applications** 5(2), 118–126 (2023), DOI 10.51537/chaos.1223766, particularly equations (2), (6), (7), Figures 2–9 and its conclusion. The published mathematical-record entry *Exact equilibrium census and unstable-index split for a sine-controlled multiscroll flow* concerns the separately named Ye–He system rather than [1]. Neither statement presently supplies the branchwise counting formula. Priority has not been exhaustively established, and the stated solution folds need not have an algebraically simple zero eigenvalue for every coefficient choice.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The count is for all of R^3 and all positive forcing amplitudes, with exact handling of threshold equality, not a search window or a single fixed-parameter root tally. The one-fold-per-lobe mechanism, asymptotic threshold spacing and unbounded sqrt(b) census provide a reusable classification of a motivated nonlinear system. The exact baseline count tests a specific literature parameter set without attributing any claim about attractors or stability to the census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

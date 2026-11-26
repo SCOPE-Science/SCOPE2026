@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim specifies the coefficient \(\ell^2\)-norm, the exact two-point period-two sampling geometry, and the fixed-width quantifiers. A unitary two-channel Fourier transform gives the exact finite matrix symbol, with optimal bounds equal to the extremal squared singular values. The Gaussian autocorrelation identity is derived by the parity change of variables \(r=n-m\), \(s=n+m\); differentiation at the half-integer node gives an exact determinant \(-D\vartheta_4\). Uniform Taylor expansions (and the determinant-over-largest-eigenvalue identity) give an \(O_a(\varepsilon^4)\) remainder for the lower squared singular value. Jacobi product monotonicity proves a global, not sampled, coefficient minimum. The nonvanishing Hermite determinant proves the confluent critical-density isomorphism, and Poisson/modular transformations prove both width limits. The embedded checker reproduced 3033 supporting floating-point assertions, but none is used as an infinite-dimensional proof.
+## correctness
 
-## Originality — PASS, best-knowledge rather than global certification
-The closest primary-source theorem is the 2021 complete-interpolation classification of Baranov–Belov–Gröchenig, which does not state the quadratic sharp bound or constant. The 2017 derivative-sampling theorem uses a strict weighted density greater than one and does not settle this exactly critical Hermite pattern. The 2013 shifted-Gaussian Riesz constants optimize coefficient synthesis, not evaluation of alternating near-colliding points. In the indexed mathematical results consulted, the closest bounds concern shifted sampling of asymmetric two-sided exponentials and quadratic frame collapse for compactly supported spline Gabor systems; neither implies a theta coefficient for the present Gaussian evaluation operator. No mathematically equivalent or broader covering result was found. Remaining risk: an unindexed classical Gaussian cardinal-interpolation/polyphase analysis could contain an equivalent formula; independent worldwide novelty assessment remains necessary.
+PASS
 
-## Mathematical value — PASS
-The precise conditioning loss of a critical-density Gaussian interpolation problem is structurally motivated by the established classification of interpolating sets and by stable acquisition near repeated sample locations. The positive theta expression is a sharp continuum (not isolated finite-number) coefficient for every Gaussian width, identifies the extremizing frequency, and explains an exact regularization by Hermite data. Both narrow- and broad-Gaussian asymptotics quantify markedly different regimes. This is not merely a substitution into an existing Riesz bound, since it treats a different operator and establishes its rank-one spectral degeneration. It does not solve arbitrary irregular perturbations or noise-optimal reconstruction.
+Split the coefficient sequence into even and odd channels and use unitary Fourier series in the cell index. This gives the exact min and max squared fiber singular values, with no density factor. At the midpoint the fiber rows for value and derivative are h=(u,conj u) and d=(u′,−conj u′). In |u_x|² the change from (n,m) to (n−m,n+m) forces equal parities; the two parity sums in the spatial variable are A_a(x) and A_a(x+1). At x=1/2 their values coincide and their derivatives are opposite, yielding ||h||²=2Aϑ₃ and det(h,d)=−Dϑ₄. The Poisson formula and the logarithmic derivative of the theta product at π/4 give D<0. Unitary sum and difference of the sample rows give a determinant 2ε det(h,d)+O_a(ε³), uniformly on the frequency circle, and the large squared singular value is 2||h||²+O_a(ε²) with a uniform positive leading term. Their quotient gives the stated small squared singular value with O_a(ε⁴) error. The real theta products are positive and have opposite strict monotonicities on [0,π/2]; hence the leading minimum and upper limiting maximum both occur at frequency zero. The Hermite symbol is invertible with continuous bounded inverse because its determinant is bounded away from zero. Poisson summation gives A∼√(π/(8a)), D∼−2πA exp(−π²/(8a)), and ϑ₄(0,e^(−2a))∼2√(π/(2a)) exp(−π²/(8a)) at small a; at large a the nearest Gaussian term gives A∼exp(−a/2) and D∼−2aA. These recover both displayed width regimes and the squared bound ratio.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The distinct claim is quantitative: the exact Gaussian collision coefficient, the frequency profile yielding the sharp minimum, and the critical Hermite symbol. Ordinary alternating complete interpolation is covered by an earlier theorem and is not credited as new. The closest structural catalogue match uses a different generator, and the inspected derivative-sampling theorem does not give the critical Gaussian design.
+
+## value
+
+PASS
+
+Two samples per period-two cell are a natural critical design. The global sharp coefficient measures noise amplification as value observations merge; its pronounced width dependence would not follow from interpolation existence. The exact critical value-plus-derivative replacement is stable and has an explicit symbol, explaining why the confluent observations do not share the duplicated-value degeneracy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The complete derivative factorization of \(s\sin(mx)+r\sin(nx)\) lists both stationary grids. The difference-frequency grid has upper value \(s-r\), strictly below the sum-grid maximum; the latter is calculated by the exact orbit of odd residues modulo \(2(r+s)\). This proves the claimed sharp inequality, constant and equality-set sizes for every coprime pair, and common-factor lifting covers arbitrary positive distinct frequencies. Integration gives the optimal measures, and equality-plus-derivative arguments give unique dual coefficients when the sharp constant is below one. Positive Hessian deficit near contacts follows from exact differentiation. Numerical checks do not substitute for these analytic facts.
+## correctness
 
-## Originality
-**PASS, subject to historical priority.** Actual published-result comparisons include arXiv:2107.11058 (Theorem 2.1 and its proof, especially complementary-frequency terms), arXiv:2307.04464 (different positivity questions), and the closest semantic-search records for sine-harmonic bounded variation, Carathéodory–Fejér coefficient extrema, and two-frequency exterior leverage. The consecutive-frequency optimal inequality of Esser–Tao–Totaro–Wang is an important neighboring theorem but does not imply the sharp value of the constrained two-frequency maximum: feasible subsets have different objective optima, and its displayed complementary pairs are summed with weights rather than individually solved as best two-term inequalities. No checked record states the full reduced-frequency modulo-four law together with all maximizing measures and nondegenerate dual uniqueness. The precise residual risk is an older elementary two-harmonic extremal inequality not indexed in the searched sources.
+PASS
 
-## Value
-**PASS.** The minimal sparse two-dilation version of sine equidistribution has a natural frequency-set motivation independent of higher-degree consecutive-harmonic optimization. The complete result distinguishes exact simultaneous phase compatibility from two distinct incompatible arithmetic classes, identifies every optimizer probability measure (including a one-to-two-atom phase transition), and supplies a sharp quadratic local concentration rate. It gives exact baselines for sparse-frequency discrepancy bounds rather than an arbitrary numerical special case.
+The covering x↦dx reduces both optimizations to coprime r,s and lifts each contact d times. In the reduced problem the derivative of s sin(rx)+r sin(sx) factors as 2rs cos(Sx/2)cos((s−r)x/2). On the sum grid the two sines coincide; r(2j+1) modulo 2S runs over a whole parity class because gcd(r,S)=1. Its residues nearest S/2 have distance 1/2 (one contact), 1 (two contacts), or 0 (one contact), respectively for S odd, S divisible by four, or S congruent to two modulo four. On the difference grid the sines are opposite, so the weighted sum is at most s−r; S(1−c_S)<2≤2r (with S=3 also directly checked) makes this branch strictly suboptimal. Integrating the positive weighted inequality and evaluating at contact atoms proves sharpness and the full measure classification. Evaluation at a contact also bounds any real coefficient pair, and differentiating an equality point gives am=bn when c_S<1. In the c_S=1 case the stated simplex of feasible maximizers gives nonuniqueness without claiming exhaustion. The second derivative at any lifted contact is −mn c_S, giving the stated local coefficient; strict inequality off the finite contact set and compactness give the global quadratic gap and the integrated concentration estimate. The uploaded checker was read only; finite regressions are not used as proof.
 
-## Limits
-The global best concentration constant and full dual optimizer set when the sharp value is one are uncomputed. Literature priority is provisional and no independent validation is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Esser–Tao–Totaro–Wang already use the complementary-frequency weights and their consecutive-harmonic theorem covers some smallest instances, but it does not give the general sharp two-frequency support inequality, its arithmetic contact count or sparse optimizing measures.
+
+## value
+
+PASS
+
+A natural sparse version of an established sine optimization has a complete sharp classification governed only by the reduced frequency sum. The divisibility-by-four branch changes not just the constant but the number of optimizing atoms and hence uniqueness of the probability law. Exact contact and near-optimal concentration information are useful beyond checking isolated pairs; no optimal global modulus or many-frequency result is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Exact checks and scope
+# Independent mathematical audit
 
-The standalone programs `verify_subset.c` and `verify_windows.c` are complete source files, requiring only a conforming C11 compiler and its standard library.
+## correctness
 
-```
-cc -O2 -std=c11 -Wall -Wextra verify_subset.c -o verify_subset
-./verify_subset
-cc -O2 -std=c11 -Wall -Wextra verify_windows.c -o verify_windows
-./verify_windows
-```
+PASS
 
-`verify_subset` enumerates all 65,536 ordered rule pairs, constructs all eight labeled transitions and 256 deterministic subset transitions for each, and performs closure to decide if any forbidden pair word exists. It checks the exact length histogram 708, 8,552, 38,436, 15,920, 1,776, 144 and the three homogeneous-status classes. It explicitly tests a missing word first occurring at length five and one onto pair containing a non-onto homogeneous rule.
+The labelled edges with label (f(a,b,c),g(b,c,d)) concatenate an input window by shifting two sites, so a subset transition tracks exactly the possible terminal input states for an aligned output word. All starting and ending input states are allowed. Breadth-first first reach of the empty subset measures shortest forbidden length, and closure without empty proves attainability at every length. Shift-by-two equivariance and compactness then give bi-infinite surjectivity. An independently written exhaustive census gave the complete histogram 708/8552/38436/15920/1776/144 and every cross-tab entry, including 30 homogeneous onto rules, 96 mixed onto pairs and no onto pair with two non-onto constituents. Independent direct windows for (22,105) produce 4,16,64,256,1012 distinct words at lengths 1–5; 10|01|11|11|10 is missing. The reachable subset graph for (51,54) closes without the empty set, while (54,54) loses a length-three word. The source's phrase ‘five-row cross-tabulation’ is descriptive only; the displayed cross-tab correctly has three constituent-count rows.
 
-`verify_windows` independently enumerates all 4,096 possible 12-bit input windows for every pair, identifies reachable 10-bit outputs, and counts their prefixes of lengths 2, 4, 6, 8 and 10; its exact histogram agrees with the first program.
+## originality
 
-The all-length theorem relies on the explicit labeled-graph equivalence and exhaustive finite subset-state closure, not on the independent five-pair enumeration alone. No randomized experiment, floating-point tolerance, or assumed infinite-time behavior is used. Independent mathematical audit has not been performed.
+PASS
+
+General NUCA surjectivity and automata methods are established. The distinct finding is the full radius-one all-ordered-pairs obstruction-depth table, the optimal aligned five-pair cutoff and the exact homogeneous-constituent split. Neither matching period-three work nor same-period conserved work evaluates this state space.
+
+## value
+
+PASS
+
+Period two is the simplest genuinely nonuniform spatial alternation of the standard elementary rule set. A sharp, practically short ten-bit complete test for bi-infinite surjectivity and a full table of first obstructions are useful exact invariants. The constituent split goes beyond tallying entries: it demonstrates restoration with exactly one non-onto constituent but never two, and shows that two onto constituents do not guarantee onto alternation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

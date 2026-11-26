@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The model's absorption time is a geometric sum of independent Erlang circuit times, whose rational moment-generating function yields all four raw moments. The derivative is an explicit rational expression with a strictly positive polynomial numerator for all integers \(s\ge3\), all \(x\ge0\), and any rate \(\lambda>0\); thus inversion is unique and its endpoint values are sharp. The asymptotic expansion gives the exact cubic flattening constant \((s^2-1)/(18s^3)\). The pole argument excludes a finite acyclic representation in the genuinely cyclic range. The extracted exact-rational verifier reproduces 132 moment/derivative instances and further identities; those tests are checks of, not replacements for, the universal algebraic proof.
+PASS
 
-## Originality
+For N complete circuits the pgf is (1−p)z/(1−pz). In x=p/(1−p), its falling factorial moments are k!x^(k−1)(1+x) for k≥1, with the continuous value at x=0. Conditional on N the jth scaled moment λ^j μ_j is the mean of the rising product (sN)(sN+1)…(sN+j−1). Converting ordinary powers of N to falling factorials through degree four gives the listed B_j and the lower-order ratio μ₂/μ₁². Independently, multiplication gives 4B₃²−3B₂B₄=(s²−1)[(s+1)(s+2)+6sx]. Thus 4/3−R is this affine numerator divided by 3B₃². For B₃=A+Bx+Cx² and the reduced numerator L=A+6sx, the coefficients of 2B₃′L−6sB₃ are (2B−6s)A, 6sB+4CA, and 18sC, all positive. This proves strict monotonicity and yields the endpoint (s+3)/(s+2) at x=0 and limit 4/3 as x diverges. The leading term is K_s x⁻³, K_s=(s²−1)/(18s³); analyticity in 1−p at zero gives dr/dp∼3K_s(1−p)² and the stated inverse derivative, not merely an inversion of a big-O statement. The given mean then fixes λ; arbitrary quadruples still require the other moment equations. For 0<p<1 the transform numerator is a nonzero constant and there is a nonreal root of the denominator for s≥3, ruling out any finite acyclic representation with a real triangular transient generator. At p=0 the law is Erlang and acyclic.
 
-PASS under available evidence, with residual priority risk. The 2025 fitting study discusses broad nonconvex optimization and exact/moment fitting history but gives no sharp inversion or conditioning formula for this homogeneous cyclic feedback family. The full author manuscript of the 2019 PH moment-bounds paper establishes stochastic-order and moment upper bounds without the stated normalized fourth-moment calibration. The 2026 RK/PH work proves general lower-order and acyclic higher-order bounds, but leaves general cyclic higher-order inequalities open; our result is a strict special case, not a proof of that general problem. Searches for geometric sums of Erlang variables, cyclic PH fourth-moment ratios and feedback-parameter identifiability, and comparisons against accessible related records, found no equivalent specialized formula. An unindexed or differently named older feedback-Erlang formula remains possible; the searched corpus does not prove uniqueness of discovery.
+## originality
 
-## Value
+PASS
 
-PASS. Moment fitting to Markovian PH models is used when moment data feed stochastic simulation and queueing computations. The specified feedback cycle is the simplest genuinely cyclic, fixed-length homogeneous chain; the exact attainable range and positive derivative of its fourth-moment shape ratio provide a non-acyclic test family for higher-order PH moment inequalities. The cubic flattening warns against high-order-ratio-only fitting near the exponential limit; the lower-order variance ratio actually gives an affine, better-conditioned alternative if it is available. The exact constraint remains useful as an independent consistency check and structural benchmark, not as the preferred estimator. The numerical-inverse interpretation is specific and intrinsic, not an arbitrary small example; it does not replace general-purpose PH fitting methods.
+The substantiated distinct claim is the exact all-s homogeneous-feedback monotonic inverse range and the cubic terminal law with its constant and inverse conditioning. The moment-generating function, general moment-ratio formalism, Erlang endpoint and complex-pole criterion are not claimed as new. A distinct indexed three-phase result does contain the equal-mean benchmark at s=3; it does not give the all-s inverse and cubic law. The strongest broader moment-ratio theorem inspected covers an acyclic lower bound, not the feedback calibration.
 
-## Closest literature and limitations
+## value
 
-Sherzer–Resheff–Telek (2025), arXiv:2505.20379, supplies the numerical fitting motivation. He–Horváth–Horváth–Telek (2019), DOI:10.1017/apr.2019.7, supplies general moment bounds. Yu–Zhu–Weng (2026), arXiv:2610.37425, supplies a later comparison to higher-order phase-type moment-ratio inequalities. None is credited with this formula. Unknown stage count, heterogeneous holding rates, arbitrary cyclic transition graphs, statistical sampling variability, and general optimizer convergence are excluded. Publication priority remains subject to additional specialist literature review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The ratio is a standard adjacent moment diagnostic (H_3), not an arbitrary polynomial chosen to have a singular endpoint. The result gives an exact compatibility interval and quantifies the specific loss of conditioning near an exponential-like endpoint, including the rate and constant. The contrast with affine identification from the first two moments is useful because it prevents incorrectly attributing that instability to the whole two-parameter model. The distinct contribution is the diagnostic's complete behavior within this motivated cyclic family, not a universal fitting method.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

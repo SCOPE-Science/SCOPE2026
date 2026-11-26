@@ -1,12 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The support is precisely a three-point progression in the abelian coset plus one reflection, with step order at least three and nonzero complex coefficients. The index reduction is an exact decomposition into regular representations of the generated dihedral subgroup. The Fourier-block determinant identity is checked symbolically, and its leading coefficient never vanishes because both end coefficients are nonzero. Endpoint representations contribute one null direction, while each nontrivial cyclotomic trace contributes two. An exact two-root construction realizes every claimed level, including the opposite-root case requiring asymmetric coefficients. The sixfold order-three and twofold higher-order support overcounts are proved from uniqueness of progression centers. Standalone algebraic, regular-matrix, and small-group support-incidence verifications are reproducible; their finite scope is not treated as a universal proof.
+## correctness
 
-## Originality — PASS under bounded literature comparison
-Alagic–Russell supplies the rank-weighted nonabelian uncertainty framework; Yamaguchi and Arezoomand–Taeri give dihedral and Cayley spectral factorizations. These results explain the Fourier tools, but do not state the precise coefficient-sensitive five-/four-stratum realization theorem and exact progression-support census. The inspected published balanced four-tap work treats two taps per coset with unit weights, rather than the three-plus-one support class; the published prime-dihedral result has only three total taps. A known finite order-five three-plus-one instance is properly subsumed, not claimed new in isolation. Remaining risk: an unindexed broader determinant or sparse-Cayley calculation might imply this complete classification.
+PASS
 
-## Value — PASS
-This is a natural complete uncertainty/recovery classification for the first sparse mixed-coset support containing a nontrivial three-term progression. The step order governs both a sharp transition in attainable nullity and the exact index-amplification packet size, even for noncyclic and even-order abelian kernels. It supplies a usable all-group invertibility/rank diagnostic and support incidence count rather than a single numerical sample or arbitrary slice. No optimal conditioning result is asserted.
+Left translation by a group element preserves rank and normalizes the support to {1,h,h²,w} for a reflection w. The left convolution on each right coset of <h,w> is an identical 2m-dimensional operator, giving the multiplier N/m. Independently using the cyclic Fourier basis, at each m-th root z pair sum_k z^(-k)h^k with sum_k z^k h^k w: h acts with eigenvalues z,z^(-1), and w swaps them. Each pair has determinant Q(z+z^(-1)), with Q(t)=ac t²+b(a+c)t+(a-c)²+b²-d². Since d≠0, a singular pair contributes exactly one; traces at ±2 have one preimage when present and interior traces two. Since ac≠0, at most two traces vanish; there is only one interior trace at m=3,4, and at least two for m≥5. The two explicit coefficient constructions prescribe any desired distinct trace roots, including opposite pairs, without a zero tap; adding roots outside [-2,2] attains 0, 1 and 2, while one endpoint and one interior root attain 3 and two interior roots attain 4 where available. For the count, two possible progression centers p,q with third point r would satisfy 2p=q+r and 2q=p+r, forcing 3(p-q)=0; the step then has order 3. Order-three triples are subgroup cosets with three centers and two orientations each, while all higher orders have one center and two orientations. This gives the census and disjointness for all H in scope.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The cyclic-five specialization overlaps exactly with a distinct same-day record, both in attainable ranks and the corresponding support count. No within-day priority is inferred, and the cyclic-five case receives no separate originality credit. The supported distinction is the classification for every progression order and fixed support in arbitrary finite abelian inversion kernels, with nonzero coefficient attainability and the general support census. Classical determinant and spectral methods supply the reduction, not that classification as stated or as an immediate corollary of the passages read.
+
+## value
+
+PASS
+
+The support embeds the smallest rotational progression with both cosets represented, a natural sparsity class. A user of regular convolution can now tell which losses of rank are possible on each fixed support, including exactly where the fourth packet first becomes possible and how identical subgroup components amplify rank loss. The accompanying incidence count answers how often each step order arises, independently of the rank calculation. This is a complete classification across all orders, not a re-computation of the known small case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

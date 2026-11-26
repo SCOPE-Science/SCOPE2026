@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:24:35.708478Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Use internal ascents, excluding sentinels. Inserting nn in one of the ascent gaps or at the beginning leaves the ascent count unchanged and all other gaps add one; the empty word initializes column zero. For k=2j>0 the two old coefficients share divisor 2^j and the multipliers are odd. For k=2j+1 the old same-column term has divisor 2^(j+1) and an even multiplier, while the incoming column has divisor 2^j and multiplier 2(n-j-1). This proves integrality and yields the printed parity recurrences, including the zero boundary. An independent induction on the proposed binomial parity works directly: in even columns the two older binomials combine by Pascal with upper index n-1-j, and in odd columns (u-2j)binom(u,2j)=(2j+1)binom(u,2j+1) with u=n-j-1. The first 1 is at n=k+ceil(k/2); summing the shifted binomial coefficients gives the stated formal series (also for k=0). Lucas yields the bit test for fixed k>=1; among residues modulo 2^r, r the bit length of k, exactly 2^(r-s_2(k)) qualify. Any eventual period is a period of the residue pattern, and the least must divide 2^r; a half-period flips the highest required bit at u=k, so the least is 2^r. Independent literal Stirling-word enumeration by open and closed pairs through n=7 in python3 /workspace/review_evidence/recompute_arithmetic.py confirmed the normalization and parity. This finite reproduction is diagnostic, not the universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The stability literature uses refinements of second-order Eulerian/Stirling polynomials and padded statistics",
+          "The distinct catalogue match proves a 2-adic comparison to Pascal for Coxeter type-B signed permutations"
+        ],
+        "reasoning": "Real-rootedness and multivariate stability do not prescribe the residual parity of individual normalized coefficients; the type-B comparison concerns a different integer array and a different modulus. None covers the audited claim by specialization.",
+        "searches": [
+          "Haglund–Visontai Stable multivariate Eulerian polynomials, introduction and Stirling-permutation definitions",
+          "Chen–Hao–Yang arXiv:1208.1420v2 §1",
+          "Resultary neighboring type-B Eulerian dyadic valuations, 3301f07094c3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–76, VERIFICATION.md and check.py",
+        "Resultary exact assigned entry ba730a5bd946 and distinct type-B entry 3301f07094c3, matching local-mirror passages",
+        "Qi pp. 183–185; Haglund–Visontai p. 479; Chen–Hao–Yang §1; OEIS A201637, A008517 and A340556"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Qi's recurrence is the exact unnormalized recurrence in the frozen result",
+          "Column divisors differ by alternating steps, and division by 2^ceil(k/2) must precede reduction modulo two",
+          "Lucas is applied to the resulting binomial coefficient, not directly to the Stirling-permutation count"
+        ],
+        "reasoning": "The prior recurrence specifies the integers but its naive mod-two reduction cannot recover their first potentially nonzero bit. The normalization and its parity induction are an arithmetic step not supplied by that enumeration. The period and density are credited as consequences of that step, not independent novel uses of Lucas.",
+        "searches": [
+          "Qi p. 183 recurrence and p. 184 exact formula",
+          "Haglund–Visontai, Chen–Hao–Yang normalized statistic definitions",
+          "frozen RESULT.md parity recurrences and generating functions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Qi's T(n,k) counts the same internal ascents, with no index shift",
+          "Terminal descents or compulsory initial ascents in padded conventions shift the index to j=k+1",
+          "The exact Resultary match ending ba730a5bd946 is the assigned record, not independent earlier coverage"
+        ],
+        "reasoning": "Compare both the shifted parity claim and the unshifted one. In the shifted convention the exponent is ceil((j-1)/2) and the binomial lower index is j-1; the literature passages establish the objects and conventions, not this congruence.",
+        "searches": [
+          "Resultary: normalized second-order Eulerian parity, Stirling-permutation columns, and sharpness periods",
+          "Dengji Qi, On the second order Eulerian numbers pp. 183–185",
+          "Haglund–Visontai p. 479; Chen–Hao–Yang arXiv:1208.1420v2 §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A201637 has rows [1,0], [1,2,0], [1,8,6,0] with the zero-extended last column",
+          "A008517 starts with column 1; A340556 counts final descents, also with the nonzero coefficients shifted one column",
+          "For their one-based nonzero columns the normalized formula would be A(n,j)/2^ceil((j-1)/2) congruent to binom(n-ceil((j-1)/2),j-1)"
+        ],
+        "reasoning": "The inspected tables establish exact numeric aliases after the shift, but in their compared passages they tabulate the undivided integers, not the unrestricted normalized parity, least period, or density. Separate fixed-column sequences were not exhaustively searched.",
+        "searches": [
+          "OEIS A201637, A008517, A340556, opening definitions, comments and displayed rows",
+          "Resultary exact congruence and dyadic alternatives"
+        ]
+      },
+      "rationale": "Best of current knowledge: the recurrence, raw triangle, and its one-column aliases are established. The exact bit-level result after division by 2^ceil(k/2), and its uniform sharpness classification, are not stated by the inspected sources. Lucas and the period/density deductions are standard once the nontrivial normalized parity is known.",
+      "residual_risks": [
+        "No global historical priority conclusion; older valuation/digit formulations or separate fixed-column OEIS sequences could overlap.",
+        "This classifies exactly the minimum valuation cases, not higher valuations of normalized-even coefficients."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact underlying triangle and recurrence; no normalized parity, period or density statement in the note",
+          "evidence": "T(n,k) counts exactly k internal ascents on 0<=k<=n-1; p. 184 gives exact coefficients.",
+          "identifier_or_url": "https://ajc.maths.uq.edu.au/pdf/50/ajc_v50_p183.pdf",
+          "material_read": "Three-page note pp. 183–185, definition, recurrence and explicit formula",
+          "method": "OA PDF passage inspection",
+          "title": "Note: On the second order Eulerian numbers",
+          "trigger": "Exact same statistic, row and column convention"
+        },
+        {
+          "assessment": "Padded ascent convention and polynomial structure, not the normalized valuation result",
+          "evidence": "Zeros pad both ends so the initial position contributes an ascent, and the final position a descent.",
+          "identifier_or_url": "https://doi.org/10.1016/j.ejc.2011.10.007",
+          "material_read": "p. 479 (PDF text offsets 4800–10735), nesting and ascents/descents",
+          "method": "OA PDF passage inspection",
+          "title": "Stable multivariate Eulerian polynomials and generalized Stirling permutations",
+          "trigger": "Structural results using a closely related Stirling statistic"
+        },
+        {
+          "assessment": "Identifies the one-column alias under the descent convention",
+          "evidence": "C(n,k) counts descents with the final position included, and C_n(x) starts at degree 1.",
+          "identifier_or_url": "https://arxiv.org/abs/1208.1420v2",
+          "material_read": "§1, HTML offset 2299 and surrounding definition",
+          "method": "OA passage inspection",
+          "title": "Context-free Grammars and Multivariate Stable Polynomials over Stirling Permutations",
+          "trigger": "Shifted related coefficient conventions"
+        },
+        {
+          "assessment": "Same raw coefficients after index shifts, not a provenance match for the normalized theorem",
+          "evidence": "A201637 names A008517 as an alternate-index main entry; A340556 counts final descents and has zero first column.",
+          "identifier_or_url": "https://oeis.org/A201637; https://oeis.org/A008517; https://oeis.org/A340556",
+          "material_read": "Opening definitions, initial rows and indexing comments for all three records",
+          "method": "Public database passage reads",
+          "title": "Second-order Eulerian coefficient tables and aliases",
+          "trigger": "Exact tabulated triangle under multiple conventions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a standard triangle the result identifies the exact minimum column valuation and all rows attaining it by a low-cost binary test, with exact onset, period and density. This is a natural unbounded arithmetic classification, not a small table recomputation or a reindexing of standard Stirling numbers.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

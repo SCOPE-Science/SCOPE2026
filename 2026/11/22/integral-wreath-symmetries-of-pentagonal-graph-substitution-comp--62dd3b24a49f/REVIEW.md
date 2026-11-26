@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A five-piece cover by joins of the two eligible fiber independence complexes has exactly five circle intersections and no triple intersections. Its oriented, equivariant short exact simplicial chain sequence gives the three integral homology lattices and maps. The reflection sign on intersection summands and the even Koszul parity for exchanging two circle factors explain the formulas. The rational-transfer deductions are immediate from those integral actions. The embedded standalone verifier enumerates every face of the 25-vertex test example and independently computes signed chain Lefschetz and modular full homology traces. Risk: this finite check by itself does not verify the general case, which rests on the written chain argument.
+PASS
 
-## Originality — PASS against checked literature, with bounded risk
+For the repaired RESULT.md. The frozen proof asserted a short exact sequence of augmented chains: in degree −1 the oriented incidence map has a rank-one kernel, so the left map is not injective. The replacement uses ordinary chains, exact simplex by simplex, and computes ordinary H0 before passing to reduced homology. The joins are homotopy 3-spheres and intersections homotopy circles. The exact sequence identifies H1 with the integral incidence cycle, H2 with the oriented intersection H1 groups, and H3 with the join H3 groups; each identification is an isomorphism, not an extension or a rational rank argument. An outer reflection reverses the incidence orientation in degrees 1 and 2; the degree-3 join swap has parity (1+1)(1+1), so the two endpoint characters are the only signs. Barycentric subdivision removes simplex inversions and rational coinvariants agree with invariants, giving one outer-invariant edge sum; independent inner reflections eliminate each edge and vertex coefficient and outer reflections eliminate degree 1. The frozen verifier and recorded traces for H=C5 were inspected, not executed; the modular check is supplemental and cannot resolve integral exactness.
 
-The nonequivariant wedge equivalence is already covered by Carnero Bravo, arXiv:2307.14321, Theorem 28; it is explicitly credited and excluded from the novel claim. The additional claim is the precise integral action of the natural wreath group on all three degrees, including opposite reflection parities and the rational quotient distinction. Okura, arXiv:2303.11984, treats forest-base lexicographic complexes. Fu–Grbić, arXiv:1803.11047, treats equivariant polyhedral products without the specified module formulas in inspected material. Published-result searches using the object, parameters, wreath action, dihedral aliases and quotient character descriptions did not produce a dominating result. This is evidence against overlap, not a guarantee of priority. Residual risk: unindexed or uninspected equivariant polyhedral-join literature may imply the result.
+## originality
 
-## Value — PASS
+PASS
 
-The exact integral action distinguishes the same five-dimensional homology groups as inequivalent symmetry modules, predicts which rational topological classes survive orbit-space quotients, and supplies a uniform result for all circle-type independence fibers. This is information not determined by a nonequivariant wedge-of-spheres classification and is motivated by natural symmetries of substituted graphs.
+The distinct contribution is the natural integral wreath modules and the effect of adding inner symmetries. The revised result credits both the already known nonequivariant wedge splitting and the demonstrably covered outer-quotient calculation. Neither supplies the inner-character modules or the full-wreath acyclicity comparison.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The three integral modules explain why two rank-five groups have different reflection behavior and exactly what inner orientation reversals do to quotient homology, uniformly over circle-type fibers. These data are not determined by the known wedge type or the outer orbit-space homeomorphism. The repair preserves that useful classification without counting the covered outer-only result as a distinct contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

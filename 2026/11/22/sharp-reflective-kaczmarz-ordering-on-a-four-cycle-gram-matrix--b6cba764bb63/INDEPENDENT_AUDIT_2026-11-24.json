@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:39:10.766364Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Gram eigenvalues are 1±2t and two copies of 1, so the row basis is legitimate. Independently, with G=I+L+Lᵀ ordered by the sweep and L strictly lower triangular, old and new coefficients a,b obey (I+2L)b=−(I+2Lᵀ)a, since the update in row i uses already updated coefficients for earlier rows and old coefficients for later rows. Thus the characteristic determinant is det[(z+1)I+2zL+2Lᵀ]. In its expansion the identity and four single edge swaps contribute (z+1)^4−16t²z(z+1)². The two disjoint-matchings terms contribute +32t⁴z², and the two full cycle terms give −16t⁴(z+z³) if the order runs along the cycle, or −32t⁴z² otherwise. The former occurs exactly for the four starting vertices and two directions. Taking z+z⁻¹=2c yields the stated cosines; c_other−c_+=4t²(1−t²−t√(2+t²))>0 exactly in the specified positive domain by squaring. c_+ is increasing and c_+(1/2)=1; endpoint derivatives 32/3 and 8 give the square-root gap ratio 2/√3. Normality gives the uniform averaging bound, not pointwise optimality of the finite average. Reversal and cyclic shift exhaust the three-factor case up to inverse and similarity, establishing minimality. Replay: `python /workspace/replay_checks.py 4` independently expanded the sweep determinant for all 24 orders and checked the endpoint slope; the supplied scripts were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frozen REVIEW.md identifies a prior general determinant theorem attributed to Coxeter by Shao 2024 and the inverse-angle averaging framework in Shao 2021. The general determinant indeed yields a spectral starting point of the form obtained in this audit, without an optimizer in its statement as reported. Primary text could not be independently retrieved."
+        ],
+        "reasoning": "A general characteristic determinant already covers the representation of the spectrum. The new comparison needs the cycle-specific cancellation/persistence and a strict inequality plus a limit; the reported general determinant is not itself a rule ordering permutations by this target gap.",
+        "searches": [
+          "Shao arXiv:2105.07736",
+          "Shao arXiv:2407.19226, Theorem 5.18",
+          "Primary-literature lookup for weighted cycle orders and Coxeter reflection spectra (unavailable)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, REVIEW.md, VERIFICATION.md, verify_reflection.py, verification_output.txt",
+        "Resultary b6cba764bb63, e0b097e5f69b, 3dc9a9e651a4, 410e11dd8e4b (catalogue)",
+        "Shao 2021 and 2024 and Dax 2022 (frozen attributions; no independent full-text claim)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known determinant framework does not by itself identify the eight maximal-gap orders. The closest available catalogue claim concerns the order of a different contraction/energy map, versus orthogonal products with unit spectral radii here; the ordinary sampling claims change the decision variable or the objective."
+        ],
+        "reasoning": "No actual inspected statement implies the strict whole-interval reflection gap comparison or the 2/√3 limit. This does not give priority to the general spectral formula or the averaging estimate.",
+        "searches": [
+          "Resultary: e0b097e5f69b, 3dc9a9e651a4, 410e11dd8e4b",
+          "Shao 2024 arXiv:2407.19226; Dax DOI:10.3390/appliedmath2020012"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact hit ending b6cba764bb63 is this record, not a distinct precedent. The strongest same-day geometry hit ending e0b097e5f69b concerns ordinary Gauss–Seidel on a screened cycle and classifies one-sweep energy and spectral radius.",
+          "The row coefficients give a triangular sweep with relaxation 2; an alternating sign change of the rows takes the positive cycle Gram geometry to the negative cycle geometry but preserves the reflectors. This is not a transformation of relaxation 1 into relaxation 2."
+        ],
+        "reasoning": "Gauging the signs or rewriting the iteration as a triangular sweep does not turn the ordinary Gauss–Seidel energy or its spectral radius into the chordal reflection gap. No distinct identified result was shown to compare the equivalent relaxation-2 chordal objective.",
+        "searches": [
+          "Resultary: reflective Kaczmarz, Householder/reflection-product eigengap and four-cycle row ordering",
+          "arXiv:2407.19226, Theorem 5.18 (original and arXiv HTML alternate sought)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue match is the assigned record. Distinct four-cycle catalogue records instead report three energy tiers for ordinary Gauss–Seidel (e0b097e5f69b) or a signed inverse-Gram sampling problem (410e11dd8e4b); the same-day three-round row-schedule result (3dc9a9e651a4) uses a three-row Gram path."
+        ],
+        "reasoning": "None of those visible classifications is the 8/16 table for this reflection eigengap. The catalogue is not exhaustive, and the same date provides no priority inference.",
+        "searches": [
+          "Resultary: exact four-cycle reflection Gram spectrum and order census"
+        ]
+      },
+      "rationale": "Credit the reflection-product spectral framework and general characteristic determinant to prior work, not to this record. The supported distinct contribution is the exact eigengap ordering of every permutation for this weighted positive four-cycle, with strict comparison on the full admissible interval and the limiting performance ratio. The closest distinct indexed order-comparison hit uses a different iteration and objective. The judgment is bounded by the source access described below.",
+      "residual_risks": [
+        "Full primary passages from Shao and the historical Coxeter literature were not independently inspected; a more specialized historical theorem could affect priority.",
+        "The closest distinct same-day Gauss–Seidel result was compared at the available catalogue statement; the mirror Finding could not be retrieved. Unavailable literature lookup is not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different iteration and comparison quantity in the available statement; whole-text overlap not determined",
+          "evidence": [
+            "The summary describes ordinary Gauss–Seidel one-sweep energy tiers and spectral radius for the screened cycle, not chordal gaps of orthogonal products."
+          ],
+          "identifier_or_url": "Resultary e0b097e5f69b",
+          "material_read": "Catalogue statement; decisive Finding in the mirror was sought but not retrieved",
+          "method": "Resultary and bounded mirror retrieval attempt",
+          "title": "Three strict one-sweep energy tiers for all Gauss-Seidel orders",
+          "trigger": "Same-day screened four-cycle with exhaustive row orders"
+        },
+        {
+          "assessment": "Credit the general determinant; primary-text priority beyond it not established",
+          "evidence": [
+            "Frozen REVIEW.md, Originality, identifies Theorem 5.18 and its attribution to Coxeter (1939); the independent triangular-sweep argument establishes the exact specialization used here."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2407.19226",
+          "material_read": "Frozen REVIEW.md and RESULT.md attribution to Theorem 5.18; no independent primary passage retrieved, including in the HTML alternate",
+          "method": "Frozen attribution; lawful direct and alternate OA passage requests",
+          "title": "Reflective block Kaczmarz algorithms for least squares",
+          "trigger": "Most relevant general reflection-product determinant"
+        },
+        {
+          "assessment": "The inverse eigengap and its averaging use are prior background",
+          "evidence": [
+            "The bound uses 2/d from the geometric sum; the record's additional result is the order optimization, not this bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2105.07736",
+          "material_read": "Frozen RESULT.md lines 68–74 and 80–82; no independent primary passage retrieved",
+          "method": "Frozen mathematical comparison and attempted OA retrieval",
+          "title": "A deterministic Kaczmarz algorithm for solving linear systems",
+          "trigger": "Definition and interpretation of the gap"
+        },
+        {
+          "assessment": "Different stated objects and objectives",
+          "evidence": [
+            "One is a three-row Gram path with expected squared error; the other changes sampling probabilities in signed inverse-Gram geometry."
+          ],
+          "identifier_or_url": "Resultary 3dc9a9e651a4 and 410e11dd8e4b",
+          "material_read": "Catalogue summaries only",
+          "method": "Resultary",
+          "title": "Unrestricted three-round Kaczmarz coupling is optimized by reshuffling; and four-row Kaczmarz sampling on a signed cycle",
+          "trigger": "Closest indexed scheduling and four-row Kaczmarz geometry matches"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The positive cycle is a natural minimal four-row geometry where order matters. The classification answers an a priori solver question about an established bound constant with no tuning except row order, and quantifies the advantage near loss of rank. It does not imply better finite-horizon error or runtime.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

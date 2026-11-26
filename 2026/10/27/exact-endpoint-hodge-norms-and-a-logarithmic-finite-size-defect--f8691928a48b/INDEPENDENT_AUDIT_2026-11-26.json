@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:16:33.704404Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the indicated orientations L=(3I+S+S^{-1})(2I-S-S^{-1}); periodizing q^{|j|}/sqrt(5) solves the first factor's dipole-kernel calculation (the kernel itself solves the delta source), with mass 1/5. Convolving the centered cycle path current gives the two signed current rows for each edge type. Both rows sum to zero, and passing from Q to I-Q replaces just a positive diagonal R in (0,1) by 1-R. The five selected positive long-edge entries yield A2 >= 2+2K0-32/(5n); subtracting the short-edge geometric upper bound and then 2(R2-R1) yields the stated strict cut comparison for n>=17 and strict cycle comparison for n>=36. Separately reconstructed both full columns from the grounded graph Laplacian at every n=7..35 and matched the resolvent entries exactly; the minimum margins were 12/91 and 8/91, both at 7. Replay: python3 /workspace/branches/frozen_math_recheck.py 2. For each long-edge row its two positive geometric tails have ratio r^2 and jointly contain log(n)/log(1/r)+O(1) entries above the baseline; the discarded tail mass is O(1/n). Periodization alters the centered-representative sums by at most an exponential tail in absolute mass, since positive part is 1-Lipschitz. Doubling the losses for baselines 2/(5n) and 4/(5n) gives the common coefficient 12/(5 log(1/r)); the zero-baseline mass and diagonal limit give the stated constants. Symmetry gives equality of the induced real 1 and infinity norms. The frozen script was read, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dilworth–Kutzarova–Ostrovskii treat minimal/invariant projections, notably for discrete tori Z_n x Z_n and Hamming graphs. The indexed cyclic clique cylinder 58fa50f7a7be and Möbius ladder 833010be3478 Findings establish analogous rim-edge maxima and logarithmic corrections."
+        ],
+        "reasoning": "A Cartesian product, a cycle with antipodal chords, and a single cycle with distance-two edges impose different transfer-current profiles. The inspected theorems do not give both orbit sums or the tail coefficient for C_n^2.",
+        "searches": [
+          "arXiv:2305.12582, abstract and section overview",
+          "Resultary: cyclic graph endpoint Hodge projection dominance and logarithmic deficit"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1401.5628",
+        "arXiv:2110.12614",
+        "arXiv:2305.12582",
+        "Resultary 58fa50f7a7be and 833010be3478; local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For e=(u,v), f=(x,y), Qef = (R(u,y)+R(v,x)-R(u,x)-R(v,y))/2. The logarithmic coefficient depends on which alternating entries remain positive after the two constant shifts, and the cycle comparison also requires the diagonal change."
+        ],
+        "reasoning": "Prior pairwise data are sufficient input for a new derivation, not a theorem that selects the orbit or evaluates and expands the absolute sums. Analogous rim-edge results do not force a displacement-two maximum here.",
+        "searches": [
+          "Compare arXiv:1401.5628 Eq. (19) and arXiv:2110.12614 Theorems 1.1–1.2 with the two absolute columns and their large-n expansion",
+          "Resultary Findings 58fa50f7a7be and 833010be3478"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chair uses the alias C_N(1,2) for exactly this graph and computes pairwise effective resistances; Doi et al. use C_N^2 and compute pairwise expected hitting times."
+        ],
+        "reasoning": "Converting through resistance polarization recovers individual signed transfer currents; summing absolute values, selecting a maximizing column for each projection and deriving the nonuniform finite-size correction are distinct from the pairwise resistance and hitting-time statements.",
+        "searches": [
+          "Resultary: squared cycles and canonical Hodge/transfer-current endpoint norms with a logarithmic correction",
+          "arXiv:1401.5628 Eq. (19)",
+          "arXiv:2110.12614 Theorems 1.1–1.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest indexed matches were 58fa50f7a7be and 833010be3478, both different graph families. The exact Chair and Doi formulas tabulate a different, pairwise quantity; no exact norm entry for C_n^2 was identified."
+        ],
+        "reasoning": "Neither same-object pairwise exact formulas nor analogous norm formulas for different objects are entries for these two canonical endpoint norms.",
+        "searches": [
+          "Resultary searches on squared-cycle endpoint norms and cyclic logarithmic deficits",
+          "arXiv:1401.5628 Eq. (19); arXiv:2110.12614 Theorem 1.2"
+        ]
+      },
+      "rationale": "On available evidence the distinct result is the simultaneous strict orbit comparison and exact absolute-current endpoint norms, including the squared-cycle logarithmic defect and coefficient. The electrical data and general projection framework are prior; related logarithmic defects on other cyclic graph families preclude a claim of novelty for the phenomenon in general.",
+      "residual_risks": [
+        "Exact resistance data encode every transfer-current entry; older electrical-network work may contain equivalent absolute-sum evaluations. DOI 10.1002/qua.21068 was not independently checked in full text.",
+        "Bounded index and literature checks do not settle priority exhaustively."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior electrical data, not the stated norm theorem in inspected passages",
+          "evidence": [
+            "Eq. (19) is pairwise resistance on C_N(1,2)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1401.5628",
+          "material_read": "Abstract and §2 Eq. (19), PDF pp. 1 and 6",
+          "method": "Open primary PDF passages",
+          "title": "The effective resistance of the N-cycle graph with four nearest neighbors",
+          "trigger": "Exact electrical calculation on the identical graph"
+        },
+        {
+          "assessment": "Coordinates pairwise walk quantities, not sums of absolute transfer currents",
+          "evidence": [
+            "Theorem 1.2 computes h_N(0,l) by Fibonacci expressions for N>=5."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2110.12614",
+          "material_read": "Graph definition and Theorems 1.1–1.2, PDF p. 2",
+          "method": "Open primary PDF passages",
+          "title": "On the average hitting times of the squares of cycles",
+          "trigger": "Same-object exact pairwise formulas"
+        },
+        {
+          "assessment": "Relevant framework; inspected graph-family statements are not for C_n^2",
+          "evidence": [
+            "The two-dimensional torus there is Z_n x Z_n."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2305.12582",
+          "material_read": "Abstract and section overview, PDF pp. 1 and 10",
+          "method": "Open primary PDF passages",
+          "title": "Cycle spaces: invariant projections and applications to transportation cost",
+          "trigger": "Broader cycle-space projection framework"
+        },
+        {
+          "assessment": "Structural overlap but not equivalent",
+          "evidence": [
+            "Both rim-edge maxima and log(n)/n on K_m Cartesian-product C_n."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-endpoint-hodge-norms-and-a-sharp-projection-dominance-transition--58fa50f7a7be",
+          "material_read": "RESULT.md, Finding",
+          "method": "Resultary search and local-mirror read",
+          "title": "Endpoint Hodge norms and a sharp projection-dominance transition on cyclic clique cylinders",
+          "trigger": "Closest indexed same-operator logarithmic result"
+        },
+        {
+          "assessment": "Analogous theorem on a cycle with antipodal chords",
+          "evidence": [
+            "Strict rim-edge maximizers and logarithmic deficit on Möbius ladders."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-logarithmic-endpoint-projection-deficit-on-m-bius-ladders--833010be3478",
+          "material_read": "RESULT.md, Finding",
+          "method": "Resultary search and local-mirror read",
+          "title": "Sharp logarithmic endpoint projection deficit on Möbius ladders",
+          "trigger": "Closest indexed cyclic two-orbit deficit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The square of a cycle is a natural first nontrivial cycle power. The diagonal correction makes cut and cycle maximizers genuinely separate tests. Proving both strict maxima for all admissible sizes, and explaining the logarithmic defect via the number of geometric entries above a moving threshold, gives an exact benchmark beyond a resistance formula or a limit alone. The scope is canonical projections, not minimal projection constants.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

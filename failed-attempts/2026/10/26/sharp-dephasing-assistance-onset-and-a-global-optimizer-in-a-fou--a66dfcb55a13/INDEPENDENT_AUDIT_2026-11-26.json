@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:12:00.336653Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently reduced the spin generator to the centered, bias-normalized fermionic one-particle matrix M. Its equation has commutator with hopping 2 and centered diagonal U(3,1,−1,−3), damping (G/2){B,M} at the endpoints B=diag(1,0,0,1), damping 2γ on the off-diagonal, and drive diag(G,0,0,−G). The current divided by f is 4 Im M_12. The dissipative part of the homogeneous equation forces zero boundary rows and columns by the real Hilbert–Schmidt pairing; the commutator and nonzero hopping force the remaining rows to vanish even at γ=0. Reflection with alternating site signs and conjugation reduce the system to ten real unknowns. Exact elimination reproduced both zero-dephasing rational formulas, the six polynomial coefficients and all thirteen derivative coefficients at G=1. See `python /workspace/branches/review-computations/check_transport.py`; frozen code was inspected, not executed. The positive W coefficients yield a simple unique threshold. Under W=xG² at small G or W=x/G² at large G, scaled polynomials tend respectively to 2293760x−49152 and x−192; bracket their roots to justify both laws. At G=1 the ordered root brackets imply either strict negativity on γ>0 or exactly one positive zero of the derivative with a positive-to-negative crossing. At scale γ=cU, the leading denominator is nonzero for c>0, so the leading quotient and its c derivative converge uniformly near c=1. Bracketing by c on either side of 1 gives the optimizer and current limits. All-G checks are only initial-response checks for the frozen result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed result proves strict convexity of inverse current at nonzero tilt, positive limiting derivative, and the global current trichotomy for all G>0. Jacob et al. give exact closed currents at L=2,3 and a longer-chain approximation. Žnidarič–Horvat give general stationary correlation equations for onsite energies and study disordered transport."
+        ],
+        "reasoning": "The all-G trichotomy dominates the equal-rate theorem. The primary articles supply the model and the machinery but are not relied on as proving the exact four-site classification.",
+        "searches": [
+          "Resultary 03d9a1745f66, RESULT.md, Proof §§2–4",
+          "arXiv:2407.21715v3 §§5.1–5.3",
+          "arXiv:1207.5952v2 stationary equations and Appendix A"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 03d9a1745f66",
+        "arXiv:2407.21715v3",
+        "arXiv:1207.5952v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed resistance is (16+G²+6Gg)/(16G)+zP/(8Q). At G=1 and g=cU its polynomials have leading terms 768c(c²+4)(c²+9)U⁵ in P and 256c²(c²+4)(c²+9)U⁶ in Q. Thus R/U→3(c+1/c)/8, with convergence also of its c derivative on compact subintervals of c>0."
+        ],
+        "reasoning": "The limiting derivative has opposite signs at fixed c values below and above 1. The already-proved unique resistance minimum then brackets g*/U→1, and the compact-uniform resistance limit gives UI_4/f→4/3. The source need not print those numerical limits for the implication to hold. Jacob et al.'s approximate large-chain γ_max≈U/ℏ is not itself an exact four-site result.",
+        "searches": [
+          "Resultary 03d9a1745f66, RESULT.md, Proof §§1–4; compare G=1 and g=cU",
+          "arXiv:2407.21715v3, §5.3 Eq. (32)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matched record uses z=U², g=γ and j=I_4/f. Its Φ_G equals P_G term by term; in particular −49152G²−6144G⁴−192G⁶=−192G²(G²+16)². Both singular laws and the threshold 0.1485390031… at G=1 are stated explicitly."
+        ],
+        "reasoning": "With the same rates and field step and a positive stationary current, the resistance derivative and current derivative have opposite signs. Inverting the normalized current is an equivalent representation, not a different onset threshold.",
+        "searches": [
+          "Resultary: four-site tilted XX chain, dephasing onset polynomial, Wannier–Stark current optimizer",
+          "Resultary 03d9a1745f66, RESULT.md, offsets 0–4851"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact threshold and all-parameter rational resistance, not just a numerical value at G=1, are explicitly recorded in the catalogue match. The closed L=2,3 formulas in Jacob et al. are for different chain lengths."
+        ],
+        "reasoning": "This is an exact symbolic catalogue match for the onset quantities and governing rational function, not a coincidence of rounded threshold or tabulated sample data.",
+        "searches": [
+          "Resultary: exact four-site dephasing enhancement boundary and four-site stationary resistance",
+          "Resultary 03d9a1745f66, RESULT.md, Finding and Proof §1",
+          "arXiv:2407.21715v3 §5.1"
+        ]
+      },
+      "rationale": "A distinct indexed four-site Wannier–Stark result on the same Hamiltonian, jump rates and normalized current explicitly gives the identical onset polynomial and both reservoir-coupling limits, and proves the global shape for all G rather than merely G=1. Its exact resistance and all-G shape also directly imply both strong-tilt optimizer limits. The later-labelled catalogue path does not establish who obtained the result first or when; this is an evidence-based coverage decision, not a historical-priority finding. No substantive uncovered remainder of the frozen finding was established.",
+      "residual_risks": [
+        "Repository dates are not a reliable record of discovery or submission priority. The decision concerns exact distinct-record coverage; no broader historical-priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical onset and coupling asymptotics; stronger global theorem; exact resistance directly gives high-field limits",
+          "evidence": [
+            "Same H, jump operators, and f-normalization; identical quintic; exact resistance P/Q; positive second derivative certificate and all-G trichotomy."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/11/1/SCOPE-sharp-dephasing-enhancement-boundary-for-a-four-site-wannier-sta--03d9a1745f66/RESULT.md",
+          "material_read": "Mirrored RESULT.md offsets 0–6433, Finding, Assumptions and Proof §§1–4",
+          "method": "Configured local catalogue search, primary mirrored passages, algebraic comparison",
+          "title": "Sharp dephasing-enhancement boundary for a four-site Wannier–Stark chain",
+          "trigger": "Direct same-parameter match for onset and optimizer"
+        },
+        {
+          "assessment": "Exact L=2,3; longer-chain formula explicitly approximate",
+          "evidence": [
+            "Eq. (30) truncates coherences of range r≥3, and Eq. (32) gives an approximate optimum in a large-chain regime."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2407.21715v3",
+          "material_read": "§§5.1–5.3, OA offsets about 22,200–32,655; Eqs. (22)–(25), (30), (32)",
+          "method": "Open-access primary HTML passage comparison",
+          "title": "Dephasing-assisted transport in a tight-binding chain with a linear potential",
+          "trigger": "Published source of the same finite-chain model and optimizer question"
+        },
+        {
+          "assessment": "General formalism and different transport optimization regimes, not the checked finite four-site classification",
+          "evidence": [
+            "General onsite energies enter the correlation equations; the approximate recursion and disorder-dependent peaks concern distinct regimes."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1207.5952",
+          "material_read": "pp. 2–4 stationary equations and large-chain regime, Appendix A pp. 5–6, p. 9 periodic-disorder example",
+          "method": "Open-access primary PDF targeted sections",
+          "title": "Transport in a disordered tight-binding chain with dephasing",
+          "trigger": "Prior stationary correlation formalism and current maximization"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Exact onset and optimizer behavior are well motivated for the first size beyond the published two- and three-site formulas. However, the same finite-chain boundary, both onset laws, and a stronger global classification are already available in the matched result, and the strong-tilt limits are an immediate leading-degree consequence of its compact resistance and uniqueness. The frozen alternative calculation does not establish a separate, independently useful result beyond that coverage.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

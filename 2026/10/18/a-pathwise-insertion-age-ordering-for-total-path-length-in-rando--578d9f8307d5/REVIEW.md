@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem concerns the total internal path length of a uniformly inserted unbalanced binary search tree, conditional on the time at which its maximum key is inserted. The deletion lemma reconstructs the tree on the remaining keys and counts precisely the depth of the maximum and its descendants, yielding \(P_t-P_-=L_{t-1}+n-1-R_{t-1}\). Subtraction establishes the pathwise gap, without an independence assumption. Direct sampling-without-replacement counting proves the decrement tails. Independence of prefix relative order and unordered prefix set proves the increment generating function and harmonic mean. Every base permutation through seven keys was replayed by an independently implemented insertion algorithm and all exact-rational assertions passed. Exhaustion in small orders is not substituted for the unrestricted combinatorial proof.
+PASS
 
-## Originality — PASS (residual historical-priority risk)
+Deleting the maximum contracts just the inserted node: the keys above the prefix maximum constitute its only subtree, and the depth of the inserted node is the prefix record count. This gives (1) for the empty prefix too. On moving the maximum one slot, a new record x adds one to the record count and subtracts x−R from the subtree size, proving (2). For the tail, sample the unordered set of the first t entries, then require its largest element to arrive last (probability 1/t); lowering that largest element by k is a bijection to t-subsets of {1,…,n−1−k} when its spacing from the preceding maximum is at least k+1 (sentinel zero for t=1). This gives (3), and summing gives (4). The relative-order ranks of the prefix are independent uniform ranks, independent of the set of prefix values; this gives the two factors in (5). The standard root split gives the base mean in (6). At t=n−1 there can be no positive jump; at n=2 the only gap is zero. The conditional law is under uniform insertions, not uniform tree shapes. The suggested subtraction direction in the middle of proof §Exact decrement tails (RESULT.md line 56) is reversed; (4), (6), the final subtraction and the independent tail-sum proof give the correct sign. Own replay via recursive root splitting, exhaustive base permutations for 2≤n≤8, verifies (1)–(6), with tails computed from actual path-length differences and the PGF checked as exact coefficient counts. This finite check supplements the all-n argument.
 
-The comparison distinguishes generic marginal path-length results from the precise simultaneous conditional stochastic ordering, finite decrement tails, and equality at the final two slots. Prodinger (arXiv:math/9910070v1) gives an earlier permutation representation and marginal moments; the material inspected did not assert this coupled conditional-order theorem. Holmgren and Janson (arXiv:1406.6883v1) treat fringe-tree functionals and limit laws, not insertion-age conditioning of total path length. The published records search found nearby work on random-BST root imbalance and recursive-tree root attachments, neither of which logically implies the maximum-insertion-slot identity. The Mahmoud–Pittel 1988 insertion-path paper remains incompletely inspected, so implicit earlier coverage is possible; no independent priority audit has occurred.
+## originality
 
-## Value — PASS
+PASS
 
-The maximum key's arrival time is a natural observable of the randomized BST construction, and total internal path length is a fundamental search-cost statistic. A *single* natural coupling orders all \(n\) conditional laws, identifies the two terminal slots as pathwise indistinguishable, and supplies exact laws for every adjacent decrement. The theorem is stronger than moment comparison and describes the dependence between a marked key's arrival age and an entire global cost functional. It is not presented as a general theorem for balanced trees or as a claim that the entire path-length distribution factors into independent components.
+The underlying path-length representation and record laws are classical. The supported distinct contribution is the evaluated simultaneous maximum-slot comparison, including exact neighboring-gap laws and the increment PGF, not path-length enumeration generally. Neither the closest Resultary covariance/tilt result nor the inspected general literature supplies those conditional laws.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A natural arrival statistic for the extreme key affects a canonical global search-cost statistic. The result orders every conditional law in one coupling and measures exactly when and by how much neighboring slots differ, including the terminal equality; this is more informative than another moment of the unconditioned path length.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

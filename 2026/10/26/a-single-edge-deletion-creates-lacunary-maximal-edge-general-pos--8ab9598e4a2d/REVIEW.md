@@ -1,15 +1,21 @@
-# Review of the edge-general-position facet enumerators
+# Independent mathematical audit
 
-## Correctness — PASS
-In \(K_{p,q}-ab\) with both parts of size at least two, the only three-edge geodesics connect the two endpoints of the deleted edge. Thus the forbidden triple is a left spoke, its middle rectangle edge, and a right spoke. Given chosen spoke sets \(L,R\), the permitted middle edges are exactly the complement of \(L\times R\). This yields the all-set enumerator. Inclusion maximality forces every permitted middle edge and either both spoke sets nonempty or the unique full one-sided spoke pattern. Summing these disjoint cases yields the maximal-set polynomial, cardinality bounds and arbitrarily long facet-spectrum gaps. Independently coded exhaustive original-definition checks passed for nine parameter pairs; finite testing is corroboration, not the proof.
+## correctness
 
-## Originality — PASS with qualified priority risk
-The 2021 founding work treats the scalar invariant on trees, Cartesian grids and cubes. The 2023/2024 extremal paper proves scalar characterizations and a diameter-two condition; the latter covers undeleted bicliques, not the defective all-set and maximal-set polynomials. Related indexed work concerns covering/subpath variants and edge general position on spiders; neither covers the same statement by implication. Indexed-result and literature searches found no exact or stronger enumerator, but search failure does not guarantee novelty. The full 2025 Cao–Ji–Wang study could not be inspected because accessible sources provided only its abstract and the institutional download required human intervention; some overlap risk remains.
+PASS
 
-## Mathematical value — PASS
-The one-edge perturbation is a natural first boundary after diameter-two graphs, where every edge subset is admissible. Complete formulas for both the all-set and inclusion-maximal-set distributions quantify the change, determine all maximal cardinalities, and show that a single edge deletion creates unbounded gaps between existing maximal-set sizes. These are structural and enumerative results, not merely a new decimal or a restatement of the scalar maximum.
+The only endpoint pair at distance three is the missing edge's endpoint pair: same-side vertices share a neighbor in the nonempty residual opposite part, and all other opposite-side pairs are adjacent. Thus only triples consisting of two opposite spokes and their connecting middle edge can violate the condition. Fixing i included left and j included right spokes prohibits precisely their ij connecting middle edges and leaves all other middle choices free, yielding the binomial all-set enumerator. A maximal set must include every permitted middle edge. With both spoke sets nonempty, each missing spoke completes a forbidden triple using an included opposite spoke and a permitted middle edge, so it is blocked. With one side empty, all spokes of the other side must be chosen, which then blocks every spoke on the empty side; two empty sides are not maximal. The two one-sided cardinalities are st+t and st+s; mixed sizes equal st+1−(i−1)(j−1), ranging from the attained minimum s+t to the attained maximum st+1. These conclusions also hold for s=1 or t=1; at s=t=1 the graph is a three-edge path and the maximal polynomial is 3z². At s=t=m≥3 the mixed maximum is m²+1 and the only larger size is m²+m, omitting exactly the stated intervening m−2 integers. All counts distinguish actual labeled subsets.
 
-## Limits and external status
-The domain is simple labeled bipartite graphs \(K_{p,q}\) with one edge deleted and \(p,q\ge2\); there is no assertion for multiple deletions, no inference of absolute publication priority, and no external independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The earlier inspected sources cover the scalar maximum for certain graph classes and the undeleted diameter-two case, not the complete two polynomials or the unbounded gap. There is a distinct exact catalog overlap on p,q≥3, including the central gap statement, in a record dated 2026-11-22, later than the frozen 2026-10-26 record; it is not ignored, but does not establish antecedent coverage. The pass concerns the complete enumerators and the facet-size effect at the frozen record, not the edge-general-position definition, the scalar maximum by itself, or the thin-class extension by itself.
+
+## value
+
+PASS
+
+Deletion of one edge is the natural smallest perturbation of a diameter-two biclique. Before deletion its edge-general-position complex is a simplex; afterward the full size and facet polynomials describe which choices remain and how many. In particular a single deletion creates arbitrarily long gaps in sizes of inclusion-maximal sets, a structural effect invisible to the scalar maximum and not inferred from a small finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

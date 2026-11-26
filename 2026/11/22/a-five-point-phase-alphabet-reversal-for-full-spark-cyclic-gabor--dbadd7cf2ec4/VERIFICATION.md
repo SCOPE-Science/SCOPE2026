@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification scope and reproducibility
+# Independent mathematical audit
 
-The five-by-twenty-five Gabor matrix uses columns \(5x+y\) and coefficients \(\omega^{yt}g(t-x)\); no floating-point singularity decisions are made. The exact finite-field checker verifies both primes, their primitive sixty-th roots, and the strict norm-product inequality \(p_1p_2>5^{20}\). It enumerates every normalized word and every increasing five-column combination until the first exact singular witness; counts are checked for all phase alphabets of orders one through five.
+## correctness
 
-Compile `g++ -O2 -std=c++17 artifacts/gabor_phase_census.cpp -o census` and run `./census reproduced.tsv`. The expected console output is embedded verbatim in `artifacts/census.out`; `cmp reproduced.tsv artifacts/witnesses.tsv` checks all 709 singular-window witnesses. In a separate implementation, compile `g++ -O3 -std=c++17 artifacts/symbolic_cyclotomic_check.cpp -o symbolic` and run `./symbolic`; compare against `artifacts/symbolic.out`. This second program uses exact signed 120-term determinant expansions and \(\Phi_5\), not the finite-field arithmetic of the main checker.
+PASS
 
-Verified outcomes: \(q=1,2,3,4,5\) respectively have \(0,5,60,205,0\) full-spark normalized windows; the independent integer implementation confirms \(5\) for binary phases and \(0\) for fifth-root phases. These are finite exhaustive computational proofs with stated exact bounds, not experimental evidence of an infinite-dimensional or all-prime phenomenon. No independent external audit has been performed.
+With L=lcm(5,q), the determinant is a cyclotomic integer, degree at most 8. Hadamard bounds every conjugate by 5^(5/2), so |norm|≤5^20. Each modular evaluation at a primitive root has prime-ideal kernel of residue degree 1; zero in both distinct characteristics forces divisibility of the norm by their product, larger than the bound. A nonzero reduction suffices in the opposite direction. The code's column and root powers agree with the displayed convention, and the scalar action is free with exactly q indexed words per normalized word. An independently written exact census (/workspace/branches/gabor_replay.py; supply the frozen witnesses.tsv as argument) used 2,130 column-set representatives for the translation action on (Z/5)^2: simultaneous time-frequency translation acts by an invertible left factor and nonzero column scalars. A mod-3001 elimination filter proved nonvanishing; every possible zero reached by the filter was decided by reducing the signed integer determinant polynomial modulo the appropriate cyclotomic polynomial. It reproduced normalized successes 0,5,60,205,0 and checked all 709 stored singular witnesses separately by exact reduction. The five binary successes had four equal signs and one opposite sign; restoring the scalar phase gives 0,10,180,820,0. The conclusion concerns exact linear inversion, not numerical stability.
+
+## originality
+
+PASS
+
+The generic full-spark theorem and algebraic constructions do not enumerate or bound this finite set of unit-modulus windows. Known symmetry-based obstructions do not yield the entire five-alphabet census. No matching table was located in the examined literature or indexed records; priority is best of knowledge.
+
+## value
+
+PASS
+
+Dimension five is a small prime benchmark for exact frame designs under coarse phase constraints. The exact finite answer separates generic existence from attainable designs: two phases already permit arbitrary five-atom recovery, whereas every fifth-root word fails, even though the alphabet matches the ambient modulation order. The classes are nonnested, not a monotonicity contradiction. The full counts, small explicit binary designs and certified obstructions provide exact design information not supplied by generic full spark, without extrapolating to other dimensions or stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

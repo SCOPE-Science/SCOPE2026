@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:04:35.472519Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At each accepted event the three possible types have weights ab, ac and bc, by independent equal-rate Poisson clocks and irreversible blocking. At stage j=n minus the number of AB dimers, a=j-x and b=j-y with x+y<=r; for j>=r+1 both base classes are nonempty. For a still-vacant marked C vertex, the probability of an AB event before its own match is at most q(a,b)=ab/(ab+a+b): first-step induction in c bounds continuation after any other C event by monotonicity of q, and [ab+(c-1)(a+b)q]/[ab+c(a+b)]=q. Thus it is at most j/(j+2) at stage j. Surviving to stage k (necessary for J_i<=k) yields the product (k+1)(k+2)/((n+1)(n+2)); at k=r+1 it also bounds J_i<=r. Summation by parts for 1/max(J_i,r+1) gives 1/n plus the sum of (k+2)/k over r+1<=k<n divided by (n+1)(n+2), bounded by the displayed harmonic expression. The next event's type AB vs impurity, and the identity of the chosen impurity, can be sampled before that impurity's previously unused independent uniform variable. Comparing this variable against a/(a+b) and 1/2 gives mismatch probability at most r/(2j) at early stages. Union-bounding mismatches and late/unmatched impurities gives the exact stated bound; on success the remaining bipartite imbalance is |r-2B_r|. At any terminal state at most one part survives, so the vacancy total is at most r (either vacancies lie in C or the base-part imbalance is at most r), with parity r. Thus expectation errors are bounded by r times TV. For the folded law, summing (2k-r) binom(r,k)=r[binom(r-1,k-1)-binom(r-1,k)] over k>r/2 and doubling gives the stated mean; the r=2,3 probabilities follow directly. A fresh forward rational recurrence (/workspace/branches/replay/r1_forward.py) checked the bound at n=2r+2 for r=2 through 6 and n=100 for r=2,3,4, including the supplied n=100 probabilities. These tests are corroboration only. The advertised Python 3.9 support for the supplied verifier is a minor documentation issue: int.bit_count requires 3.10; no frozen verifier was run. The proof assumes fixed r for the stated convergence, equal rates and the complete graph between distinct parts.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Glock et al. give an almost-perfect conflict-free matching existence result under approximate regularity and small maximum codegree.",
+          "Dhara et al. study vertex activation and greedy independent sets on random graphs; Erban–Chapman study diffusion-driven physical time calibration."
+        ],
+        "reasoning": "The degrees in the target are n+r on the base and 2n on C, not asymptotically equal over vertices for fixed r. An almost-perfect matching existence theorem would still not give a terminal greedy law at O(1) scale. The other results change the process or the quantity measured.",
+        "searches": [
+          "arXiv:2205.05564 / doi:10.1112/jlms.12899, almost-regular hypergraph matchings",
+          "arXiv:1604.03918, graph RSA",
+          "arXiv:physics/0611252, dimer RSA"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 557016a407ad, 8fcef0aa0356, ccd40be25e5b",
+        "Pippenger doi:10.1137/0402034 (abstract only)",
+        "arXiv:physics/0611252",
+        "arXiv:1604.03918",
+        "arXiv:2205.05564"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The dominant-class theorem assumes a part M_n with M_n/n tending to infinity and gives vacancies M_n-B_n-C_n+2J_n, where J_n counts minority–minority dimers.",
+          "The weak fixed impurity theorem uses a complete graph instead of a bipartite core and rates c_i/log n.",
+          "The accessible Pippenger abstract describes the edge model but gives no target fixed-class conclusion."
+        ],
+        "reasoning": "No relabelling of (n,n,r) yields one superlinear dominant part and two linearly growing minority parts. On the complete core there is no two-side orientation imbalance and the n-dependent rates cannot be removed by rescaling one common clock. The marked-impurity survival and orientation estimates are additional mathematical arguments, not a substitution into the inspected laws.",
+        "searches": [
+          "Resultary 557016a407ad Finding, scope and prior work; 8fcef0aa0356 Finding and scope",
+          "Pippenger 1989, doi:10.1137/0402034, accessible abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pippenger's abstract describes edge occupation with conflicting incident edges, the relevant random greedy matching model.",
+          "The Resultary dominant-class and fixed-weak-impurity records contain exact terminal calculations, but neither describes fair orientations of r impurity partners on balanced bipartite sides."
+        ],
+        "reasoning": "Using the greedy-edge rather than adsorption terminology leaves the claim unchanged: the signed base imbalance is a sum of r ideal fair signs, and the vacancy count is its absolute value. This is not the fixed parity of the terminal count alone, a law for the number of greedy steps on a sparse graph, or a physical-time result.",
+        "searches": [
+          "Resultary: complete tripartite dimer adsorption, greedy matching fixed impurity, folded-binomial jamming law and TV bound",
+          "Pippenger's Random Sequential Adsorption on Graphs, author-affiliated abstract and full-text routes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "557016a407ad records a Poisson count of edges joining growing minority classes in a dominant-class regime.",
+          "8fcef0aa0356 records a parity-dependent labelled law for weak fixed impurities on a complete-graph core.",
+          "A later record ccd40be25e5b concerns K_(n,n,2n) and an inverse-size weak AB channel, not the fixed-r equal-rate regime."
+        ],
+        "reasoning": "None of the inspected exact formulas tabulates or gives the bound for the target balanced base and fixed impurity class. A contents listing and a no-match search are not evidence of absence.",
+        "searches": [
+          "Local Resultary semantic comparisons for folded-binomial terminal residues, fixed weak impurities and dominant-class tripartite jamming",
+          "Targeted literature lookup for equal-rate complete-tripartite edge adsorption and Pippenger (returned a SIAM contents listing)"
+        ]
+      },
+      "rationale": "The supported distinct claim is the fixed-impurity folded-binomial terminal vacancy law with the explicit total-variation bound, not the general greedy edge-adsorption model or the absolute-binomial mean identity. The closest exact tripartite and fixed-impurity results inspected have materially different hypotheses and observables. Full text of the closest classical edge-adsorption paper remained unavailable; the verdict is best-of-knowledge, not historical certification.",
+      "residual_risks": [
+        "Pippenger's full text could not be obtained lawfully through the tried routes; the abstract does not settle its complete scope.",
+        "Earlier complete multipartite greedy matching calculations under different terminology may be unindexed; the assessment is bounded to the compared results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different part scaling and Poisson observable",
+          "evidence": "Two growing minority classes; terminal defect increments by twice the minority–minority dimer count.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-poisson-jamming-defects-in-dominant-class-tripartite-dimer-adsor--557016a407ad/RESULT.md",
+          "material_read": "Finding and Assumptions, offset 0; prior work, offset 6493",
+          "method": "Local Resultary mirror",
+          "title": "Poisson jamming defects in dominant-class tripartite dimer adsorption",
+          "trigger": "Closest same-model exact law"
+        },
+        {
+          "assessment": "Different core graph and unequal impurity attempt rates",
+          "evidence": "Fixed independent impurities are attached to a complete-graph core at rates c_i/log n; terminal law is parity-dependent and labelled.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-logarithmic-weak-impurity-adsorption-and-the-parity-selected-poi--8fcef0aa0356/RESULT.md",
+          "material_read": "Finding and Assumptions, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Logarithmic weak-impurity adsorption and the parity-selected Poisson law",
+          "trigger": "Closest fixed-impurity exact law"
+        },
+        {
+          "assessment": "Different scaling and later-dated record",
+          "evidence": "All three parts grow, sizes (n,n,2n); AB rates are of order 1/n and the vacancy law is even-Poisson.",
+          "identifier_or_url": "Resultary ccd40be25e5b",
+          "material_read": "Finding and Assumptions, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Even-Poisson jamming defects at an inverse-size weak channel",
+          "trigger": "Another exact tripartite limit in the index"
+        },
+        {
+          "assessment": "Directly relevant model; exact scope unresolved beyond abstract",
+          "evidence": "Describes random-order regular/high-girth graph adsorption and the edge version with incident-edge conflicts; does not state this law in the material read.",
+          "identifier_or_url": "https://scholarship.claremont.edu/hmc_fac_pub/117/ (doi:10.1137/0402034)",
+          "material_read": "Author-affiliated publication abstract at HTML offset 588; no full text",
+          "method": "OA public abstract; linked PDF returned 403 and publisher route inaccessible",
+          "title": "Random Sequential Adsorption on Graphs",
+          "trigger": "Classical directly relevant edge-occupation model"
+        },
+        {
+          "assessment": "Physical-time study, not the claimed graph law in inspected passage",
+          "evidence": "Relates diffusion-driven adsorption and simulation time to physical time.",
+          "identifier_or_url": "https://arxiv.org/abs/physics/0611252",
+          "material_read": "PDF p. 1, abstract",
+          "method": "OA primary PDF, bounded passage",
+          "title": "What is the Time Scale of Random Sequential Adsorption?",
+          "trigger": "RSA time calibration cited by the result"
+        },
+        {
+          "assessment": "Random graph vertex process in inspected passage",
+          "evidence": "Vertex activation/freezing on Erdős–Rényi graphs gives greedy independent-set coverage.",
+          "identifier_or_url": "https://arxiv.org/abs/1604.03918",
+          "material_read": "PDF p. 1, abstract",
+          "method": "OA primary PDF, bounded passage",
+          "title": "Generalized Random Sequential Adsorption on Erdős–Rényi Random Graphs",
+          "trigger": "Graph jamming and limit laws"
+        },
+        {
+          "assessment": "Existence result for almost-regular hypergraphs in inspected passage",
+          "evidence": "Constructs almost-perfect conflict-free matchings under codegree hypotheses, not an exact residual law.",
+          "identifier_or_url": "https://arxiv.org/abs/2205.05564",
+          "material_read": "PDF p. 1, abstract",
+          "method": "OA primary PDF, bounded passage",
+          "title": "Conflict-free hypergraph matchings",
+          "trigger": "Potential broad random greedy matching coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The balanced bipartite core alone is always perfectly matched at jamming. A fixed number of added vertices, despite vanishing density, produces a nontrivial microscopic residue distribution; already two yield a limiting half chance of imperfect coverage. The full law distinguishes mechanisms at a scale invisible to coverage fractions, and the explicit TV bound controls when that limit is predictive without extrapolating to a growing impurity class.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review: sharp tie-free PAV divergence
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stated theorem is about exactly three candidates, two seats, seven nonempty ballot types, a unique global PAV committee, and unique choices in both forward greedy rounds. Direct score comparison gives the exact integer identity \(n=3a+3d_B+3d_C+4+2u+2v+3z+w\), with \(d_B,d_C\ge1\) and all remaining variables nonnegative. The remaining greedy marginal-score difference is \((v-u)/2\), so strictness demands \(u\ne v\), forcing \(n\ge12\). Equality fixes all ballot multiplicities up to relabeling; universal-approval voters extend the witness to every larger electorate. A separate direct-score enumeration verified all 50,387 anonymous profiles with up to twelve voters. The proof, not the finite program, establishes the unbounded theorem.
+PASS
 
-## Originality — PASS, with priority qualifications
+For any strict disagreement label the unique first greedy choice A. Since the marginal comparison is exactly the comparison of the two complete pair scores containing A, the unique global optimum has to be BC. Let a,z,w count ballots A, BC, ABC, let d_B,d_C be the positive approval deficits relative to A, and write 2(P(BC)−P(AB))=1+u, 2(P(BC)−P(AC))=1+v. Pair scores are sums of approval totals minus half their shared approvals. Solving these integer equations gives AB=z+2d_C+1+u, AC=z+2d_B+1+v, B=a+d_B+1+v and C=a+d_C+1+u. Hence n=10+3(a+z+d_B−1+d_C−1)+2(u+v)+w. The remaining marginal difference is (v−u)/2, so strictness costs at least two voters. Equality forces u+v=1 and all other excess terms zero. The two assignments of u,v are exchanged by B↔C and represent distinct count vectors; the three choices of A give six profiles. The given profile's pair scores are (11,23/2,12), and the two second-round marginals are (4,9/2). Adding all-approval ballots preserves all score differences. Thus the argument covers all n, not only the enumeration range.
 
-The existence of PAV/seq-PAV divergence and the underlying ten-voter nonmonotonicity example are known. In particular, Lackner and Skowron's Appendix A Proposition A.2 gives precisely the earlier ten-voter pattern up to relabeling, which contains a greedy second-round tie, while their Example 2.5 illustrates a larger global/greedy difference. Janeczko and Faliszewski study ties and their computational complexity; Dong and Lederer characterize sequential rules. The assessed claim is only the **first tie-free** discrepancy at twelve voters, its complete six-profile classification, and existence at each larger size. No covering statement was identified in the inspected works or searched research records. A broader enumeration could nevertheless subsume it, so independent priority checking is still warranted.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Tie-breaking is a genuine methodological issue when comparing voting rules; a strict disagreement cannot be dismissed as an arbitrary tie resolution. The theorem supplies the sharp electorate threshold for the smallest nontrivial candidate/seat setting, identifies the entire minimal boundary and gives a compact exact regression example. Its integer normal form explains why eliminating the greedy tie necessarily costs two more voters beyond the established ten-voter example, rather than merely constructing another arbitrary profile.
+The best-supported distinct claim is the exact tie-free threshold and equality classification for three candidates, not the existence of PAV/seq-PAV differences or the 10-voter committee-monotonicity example. No inspected antecedent covers both unique greedy rounds and the sharp classification in this size regime.
 
-## Scope and residual limitations
+## value
 
-No conclusion is asserted for four or more candidates, other committee sizes, voter weights, blank ballots, different Thiele weights or reverse elimination. Mathematical verification of the finite example does not establish literature priority. An external independent audit has not been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The smallest candidate/seat setting in which a greedy pair can disagree with the global pair yields a sharp minimal electorate under a substantive uniqueness constraint. The orbit classification supplies a canonical test profile and isolates the two-voter cost of removing the known second-round tie. This is a usable boundary, not merely another disagreement example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

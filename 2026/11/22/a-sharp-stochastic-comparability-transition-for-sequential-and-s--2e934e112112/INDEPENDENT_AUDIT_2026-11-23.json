@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:17:18.191478Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditioning on the first arrival gives the wheel's greedy mixture with hub weight 1/(n+1) and rim size 1+R_(n−3). Uniform maximal sets instead weight the hub by 1/(M_n+1), where M_n counts maximal rim sets. The cyclic gaps between selected vertices are 2 or 3, which proves the marked-gap enumeration and the transfer matrix A(z) with rows (0,1,0), (z,0,1), (z,0,0). The trace of A(z)^n counts weighted labeled configurations. At z=1 its recurrence M_n=M_(n−2)+M_(n−3) and startup counts 10,12,17 at n=8,9,10 give M_n>n thereafter, excluding greedy stochastic dominance at the singleton CDF. Conversely the greedy mean is strictly higher. For the infinite tail, the path first-arrival recurrence gives the generating function (1−exp(−2z))/(2(1−z)^2); its factorial remainder gives E S_n>0.43n for n≥20. For the static law the matrix trace is the sum of nth powers of the three roots of λ³−zλ−z. At z=1 their modulus ratios and the log derivative λ²/(3λ²−1) give E T_n<0.42n for n≥20. Thus the wheel mean gap is greater than 0.01n−0.43 for n≥44. I independently checked n=8,…,43 using exact fractions: iterate B=I,E=0 by (B,E)→(BA,EA+BA') at z=1 to get static wheel mean (1+tr E)/(1+tr B), and compute the sequential mean with P_0=0, P_m=1+(2/m)∑_(j=0)^(m−2)P_j and (1+n(1+P_(n−3)))/(n+1). All 36 gaps are positive; the minimum is 799/24570 at n=12. A higher mean excludes the reverse stochastic direction. Small wheel supports collapse as stated, with equality at n=3,5,7 and strict greedy dominance at n=4,6; for n=6 the two size-(1,2,3) vectors are (1/7,2/7,4/7) and (1/6,1/2,1/3). At n=8 the displayed CDF crossing follows from the exact rim size laws, with both directions strict. The uploaded verifier was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary paper gives dominance on paths and cycles and examples on other graph families. The same-day bouquet record extends the witness to bouquets of r≥2 triangles and a square sharing a hub.",
+          "The clique-joined-cycle theorem includes wheels at clique size one, but its assertion is about sequential law and variance, not static comparison."
+        ],
+        "reasoning": "Adding a universal vertex changes the weights of rim outcomes. The bare-cycle dominance theorem does not transfer through two different hub mixtures. The bouquet extensions do not include wheels, and the earlier wheel theorem does not compare both ensembles.",
+        "searches": [
+          "arXiv:2611.14718 abstract and Sections 5.1 and 5.3",
+          "Resultary triangle-square bouquet family; rare-hub clique-joined cycles"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2611.14718",
+        "Resultary rare-hub clique joins, triangle-square bouquets and both indexed cycle law records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior work gives E S_n≥E T_n on the rim, while for n≥8 the greedy wheel has a strictly larger probability of hub-only occupancy than the static wheel.",
+          "The earlier greedy mixture formula contains no corresponding estimate for the uniform static wheel mean."
+        ],
+        "reasoning": "The worse singleton mass prevents one order, but bare rim dominance does not show that the rim mean advantage is large enough to overcome that mass penalty on every wheel. Uniform positivity of that gap and the exact exceptional orders are the additional content.",
+        "searches": [
+          "Direct comparison of arXiv:2611.14718 cycle dominance and Section 5.3 with exact Resultary wheel and bouquet laws"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Inclusion-maximal independent sets are the jammed configurations in arXiv:2611.14718; Section 5.3 gives CDF crossing for a triangle-square bouquet, not a wheel.",
+          "Resultary's earlier rare-hub record has the exact sequential law for clique-joined cycles, but not the two-law comparison."
+        ],
+        "reasoning": "There is no change of model in using greedy MIS versus sequential parking. The graph domains differ: removing the hub of the arXiv witness does not leave the cycle required for a wheel, and the earlier wheel result varies the clique size but only in the sequential law.",
+        "searches": [
+          "arXiv:2611.14718, random sequential adsorption, uniform jammed configurations and noncomparability",
+          "Resultary wheel and clique-joined cycle parking, random greedy MIS and triangle-square bouquet comparisons"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed formulas cover finite-cycle greedy outputs, uniformity exceptions, and the exact sequential wheel mixture. The arXiv example gives exact CDF witnesses for an eight-vertex non-wheel."
+        ],
+        "reasoning": "The relevant exact formula entries are already credited. They can generate comparisons at selected orders but supply neither a wheel comparison table covering the unbounded domain nor its all-size threshold.",
+        "searches": [
+          "Resultary exact random greedy output laws and uniformity exceptions for cycles; local likelihood-ratio obstruction; rare-hub clique joins"
+        ]
+      },
+      "rationale": "Sequential and uniform-static parking, cycle dominance, the greedy wheel mixture and earlier connected incomparable examples are established. The supported distinct result is the complete first-order comparison on wheels, in particular the persistent incomparability threshold rather than the existence of incomparability on some graph.",
+      "residual_risks": [
+        "This comparison does not certify historical priority; uninspected wheel-specific adsorption or maximal independent set comparisons are possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct model antecedent; inspected general graph witnesses are not wheels",
+          "evidence": "Section 5.3 gives an eight-vertex example of two triangles and a square sharing one vertex with crossings at occupancies 2 and 3.",
+          "identifier_or_url": "https://arxiv.org/html/2611.14718",
+          "material_read": "Abstract, Section 5.1 and Section 5.3; text locators 0, 58200 and 64850",
+          "method": "Lawful open-access full-text passages",
+          "title": "Random Sequential Adsorption versus the Uniform Ensemble of Jammed Configurations",
+          "trigger": "Same two stochastic laws, prior path/cycle comparison and incomparable examples"
+        },
+        {
+          "assessment": "Covers sequential mixture, not static comparison",
+          "evidence": "Gives the exact sequential hub/rim mixture for K_k joined to C_n.",
+          "identifier_or_url": "2026/11/8/SCOPE-rare-hub-variance-inflation-in-random-greedy-adsorption-on-cliqu--2dd1f414a75b",
+          "material_read": "RESULT.md Finding, text locator 0",
+          "method": "Resultary and local mirror result text",
+          "title": "Rare-hub variance inflation in random greedy adsorption on clique-joined cycles",
+          "trigger": "Exact same sequential wheel law as special case"
+        },
+        {
+          "assessment": "Same comparison on a different graph family; no ordering inferred from the date",
+          "evidence": "Exact three-point laws and incomparability for r≥2 triangles and one square sharing a hub.",
+          "identifier_or_url": "2026/11/22/SCOPE-persistent-stochastic-incomparability-on-triangle-square-bouquet--51ac4c198d5a",
+          "material_read": "Published result statement and graph assumptions",
+          "method": "Resultary and local mirror result text",
+          "title": "Persistent stochastic incomparability on triangle-square bouquets",
+          "trigger": "Same-day persistent incomparability for a hub family"
+        },
+        {
+          "assessment": "Exact cycle inputs and exceptions, not joined-graph stochastic classification",
+          "evidence": "Treats exact greedy cycle outputs and equality with uniform maximal-set sampling on cycles.",
+          "identifier_or_url": "2026/10/13/SCOPE-exact-random-greedy-output-laws-and-uniformity-exceptions-for-cy--5d5ef8b9a7d1; 2026/10/18/SCOPE-exact-uniformity-and-a-local-likelihood-ratio-obstruction-for-gr--9a6d94e819c5",
+          "material_read": "Published result statements and cycle domains",
+          "method": "Resultary and local mirror result texts",
+          "title": "Exact random-greedy output laws and uniformity exceptions for cycles; Exact uniformity and a local likelihood-ratio obstruction for greedy independent sets on cycles",
+          "trigger": "Exact finite laws for the rim used in the wheel comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The wheel is a natural way to test whether a universal vertex preserves a known rim order. The classification identifies where that order persists, where the occupancy laws coincide, and where the hub reverses only the low tail despite a larger mean. Persistence for every larger wheel is stronger than a lone counterexample. The result says nothing about the maximum-degree-three conjecture, since hub degree grows with n.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

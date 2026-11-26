@@ -11,7 +11,7 @@ Exactly **60** of the \(65,535\) nonzero coefficient vectors have \(e(F)=4\) and
 | `0x2de6` | 36 | 2 | two \((2,2,2)\); one \((4,2)\); one \((6)\) |
 | `0x7889` | 6 | 12 | one \((2,2,2)\); three \((6)\) |
 
-In particular, a smooth embedded genus-four curve over \(\mathbf F_2\) can have three distinct rational planes with sextuple contact; the six coefficient vectors realizing this configuration comprise one orbit.
+Among the four-plane extremizers, exactly six coefficient vectors have three distinct rational planes with sextuple contact. These are the orbit of `0x7889`.
 
 ## Assumptions and scope
 Use homogeneous coordinates \(([s:t],[r:w])\) and encode the coefficient of \(s^i t^{3-i}r^j w^{3-j}\), for \(0\le i,j\le3\), in bit \(4i+j\) of a 16-bit integer. There is only one nonzero scalar in \(\mathbf F_2\), so the nonzero masks enumerate all projective equations exactly once. Smooth means geometrically smooth over the algebraic closure; it is not merely smooth at rational points. For smooth \((3,3)\) divisors the adjunction formula gives genus \((3-1)(3-1)=4\), and \(\mathcal O_Q(1,1)\) restricts to the canonical embedding. The intersection \(H|_C\) has degree six.
@@ -33,13 +33,22 @@ To distinguish contacts, on a smooth \((1,1)\) plane section take the square roo
 
 As an explicit witness, mask `0x7889` encodes
 \[F=t^3w^3+t^3r^3+st^2r^3+s^2tr^3+s^3w^3+s^3rw^2+s^3r^2w.\]
-Its four even-contact rank-two planes have square-root cubic restrictions, respectively, \(t^3\), \(st(s+t)\), \(s^3\), and \((s+t)^3\) under the six graph parametrizations specified in the verification code. The three sextuple contacts occur at the three distinct rational points \(([1:0],[1:0])\), \(([0:1],[1:1])\) and \(([1:1],[0:1])\), and the remaining plane has contact divisor twice their sum.
+Its four even-contact planes have rank two. In the first column below, the pair gives \([r:w]\) as a function of \([s:t]\) on the plane section of \(Q\).
+
+| Graph parametrization | Square-root cubic restriction | Geometric contact points |
+|---|---|---|
+| \([t:s+t]\) | \(t^3\) | \(([1:0],[0:1])\) |
+| \([s:t]\) | \(s^3\) | \(([0:1],[0:1])\) |
+| \([s+t:s]\) | \((s+t)^3\) | \(([1:1],[0:1])\) |
+| \([s+t:t]\) | \(st(s+t)\) | \(([1:0],[1:0]),\ ([0:1],[1:1]),\ ([1:1],[0:1])\) |
+
+The three sextuple contacts are therefore distinct and lie on the same ruling fibre. The fourth plane has contact divisor twice the sum of the three points in the last row, not twice the sum of the sextuple-contact points.
 
 ## Verification
 The complete reproducible certificate is in `code/census_genus4_tritangents.py`, `code/verify_even_contact.py`, and `code/contact_profiles.py`. From the package root, execute `python code/verify_even_contact.py` and `python code/contact_profiles.py` with a Python environment supporting SymPy. The former enumerates all 65,535 masks, gives independently evaluated explicit \(\mathbf F_2\)/\(\mathbf F_4\) singular witnesses for every excluded extremal candidate, performs four-chart exact Gröbner tests on all 60 survivors, and checks the full automorphism orbit partition. The latter checks all four contact partitions on each orbit representative. `data/verify_even_contact_output.json` and `data/contact_profiles_output.txt` contain the reproduced expected results. These are finite exhaustive calculations, not statistical samples; the unit-ideal test is over the algebraic closure.
 
 ## Relationship to prior work
-Xarles, *A census of all genus 4 curves over the field with 2 elements* (2020, arXiv:2007.07822), classifies the underlying genus-four curves and tabulates point counts and Weil polynomials, rather than this even-contact extremal stratification. Kulkarni, Ren, Sayyary Namin and Sturmfels, *Real Space Sextics and their Tritangents* (2017, arXiv:1712.06274), study characteristic-zero real tritangents, and do not give this characteristic-two arithmetic bound. Previous finite counts restricted to **proper** rational tritangents with three distinct geometric contact points do not determine the extra \((4,2)\) and \((6)\) planes; in particular the present four-plane extremum requires nonreduced contact.
+Xarles, *A census of all genus 4 curves over the field with 2 elements* (2020, arXiv:2007.07822), classifies the underlying genus-four curves and tabulates point counts and Weil polynomials, rather than this even-contact extremal stratification. Kulkarni, Ren, Sayyary Namin and Sturmfels, *Real Space Sextics and their Tritangents* (2017, arXiv:1712.06274), study characteristic-zero real tritangents, and do not give this characteristic-two arithmetic bound. The companion result *Sharp three-plane proper-tritangent bound for smooth (3,3) curves* (Resultary record `SCOPE-sharp-three-plane-proper-tritangent-bound-for-smooth-3-3-curves--a013937b8ce5`) counts only contacts with three distinct geometric points. Its 18 maximizers are precisely the orbit of `0x29e3` under the coefficient convention used here. That overlap does not determine the additional nonreduced contacts, the inclusive upper bound, or the two other extremal orbits.
 
 ## Limitations
 This is a complete classification of **embedded coefficient vectors** attaining the four-plane extremum, modulo automorphisms of the split quadric. It is not a classification of every possible theta characteristic in characteristic two, and the term even-contact must not be silently replaced by proper tritangent. The proof relies on explicit finite computations with included source rather than a uniform theorem over arbitrary fields. An earlier unindexed computation of the same contact statistic cannot be excluded by literature searches, and an independent audit has not been performed.

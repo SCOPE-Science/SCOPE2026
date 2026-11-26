@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Complete types over an individually named finite base are precisely the induced labelled finite-poset extensions by homogeneity. The proof checks all four-point local configurations for a two-element old chain, uses exact four-state compatibility for each new coordinate, and proves the complete counts by integer transfer matrices. The identities \(e_0p(M)=0\), for the two explicit characteristic factors, prove recurrences for every parameter count, not just the finite cases. Direct transitive closure over \(8{,}421\) ordered-chain and \(18{,}279\) incomparable local configurations corroborates the compatibility reduction. The strict inequality and sharp first correction have independent elementary derivations from the closed forms. Boundary \(m=0\) and all pair orientations are included.
+## correctness
 
-## Originality — PASS, provisional
-Available full mathematical records for complete height-two old bases, antichain bases, single long-chain bases and unary extremal bounds were compared by their actual hypotheses and implications. They do not cover the exact pair spectrum over an unbounded disjoint matching of two-chains. The closest previous two-chain-component result permits only two nonempty components; the present claim allows any number. Targeted indexed and literature searches did not locate an equivalent formula. An unindexed historical recurrence or enumeration remains a real residual risk; search absence is not proof of novelty.
+PASS
 
-## Mathematical value — PASS
-The disjoint-two-chain base is a natural model-theoretic test case connecting antichain and highly connected height-two parameter geometries. It has a complete ordered-pair count with distinct exponential bases, and the proportion of comparable logical pair types is strictly greater than one half for all finite parameter sizes, with precise positive first correction \(\frac14(2/3)^m\). This is a meaningful exact structural classification of a motivated parameter family, not merely a small computed example.
+Reconstructed the count independently of the attached program. Homogeneity identifies types with induced labelled extensions; old predecessors and successors of one new point are an ideal and a filter, and if both are nonempty they are exactly the bottom and top of one old block. This gives N. For x<y the ideals must nest in the forward direction and filters in the reverse direction. The globally predecessor-only or successor-only sectors contribute 2·6^m−1. Among the remaining cases with neither point mixed, x has only successors and y only predecessors, both nonempty, contributing (3^m−1)^2. With just one point mixed the other has two allowed signatures in the mixed block and three choices outside each block, giving 4m·3^(m−1) for the two directions combined; if both are mixed they must share a block, giving m. For x incomparable with y and neither mixed, the two same-sided sectors have 9 choices per block each, and the two opposite-sided sectors have 6 each by requiring disjoint ideal and filter. Removing repeats from empty sides gives 2·9^m+2·6^m−4·3^m+1. One mixed point contributes 2m(4·3^(m−1)−1); both mixed give m^2, since either ordered pair of block choices is allowed. These produce the exact C and I even at m=0, with mixed cases then empty. The stated gap 2C−I=2·6^m−m²+4m−1 is positive, and division by 2T gives the stated quarter coefficient and O((4/9)^m) error. Independently checked the row-annihilator mechanism: non-loop transitions activate a previously zero coordinate and thus each reachable path has at most two such transitions. At the initial state the loop weight is 1; in comparable one-active states it is 3, and in incomparable one-active states it is 1 or 3. With both active the loop weights are 1, 3, 6 or 9 from the printed masks. In the generating function for a row entry each path has one factor (1−weight·z)^−1 per visited state, so the two given polynomials supply sufficient root multiplicities and yield the claimed annihilations. The recorded bounded closure check is corroboration, not the basis for the universal implication.
 
-## Closest literature and limits
-The accessible initiating source is J. Hubička, *Combinatorial Properties of Finite Models*, arXiv:1009.0566 (2010), chapter 3. The directly inspected scientific comparisons include the published matching-related unary bound and three nonmatching pair/tuple families listed in `RESULT.md`. The proof does not cover arbitrary height-two bases, larger blocks, or new tuples of length above two. Uniform sampling of logical types is not sampling of the infinite countable model. Independent verification has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported contribution is the exact pair spectrum over an unbounded number of individually named disjoint two-chains and its all-size sharp comparability law. Several exact small-base overlaps are real but do not give this family. No publication order is inferred from the same-day catalogue dates.
+
+## value
+
+PASS
+
+Disjoint two-chains are a natural height-two test where old comparabilities exist but transitivity cannot supply cross-block ones. The all-size comparable and incomparable channels give usable exact invariants and determine the direction and rate of the half-comparability limit. This is not a frequency law for sampled elements of the infinite poset, nor just a comparison of a few small bases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

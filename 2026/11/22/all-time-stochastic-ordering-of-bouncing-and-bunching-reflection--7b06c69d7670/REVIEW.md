@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The two protocols differ by the single rank-one transition change out of the outward-facing left-wall state. Resolvent subtraction and two boundary equations give an exact identity for the generating function of *cumulative*, rather than instantaneous, first-passage differences. All factors after removal of \(f-b\) have nonnegative Taylor coefficients, yielding the all-time order. Reachability proves strictness for every starting state when the corridor has at least three sites. The two-site inward-start exception is incorporated explicitly. Positive rates ensure almost-sure absorption. The packaged `check.py` independently reconstructs both Markov kernels and verifies 17,760 exact rational coefficient identities and sign assertions across 40 instances, not an infinite proof.
+PASS
 
-## Originality
+Reconstructed the wall rows: only the outward forward move from w=(1,-1) changes, from a self-loop to u=(1,+1), with the same one-step absorption vector. Subtracting the first-step equations gives z f (I-zQ_B)^(-1)_{i,w}(F^U_u-F^U_w). The two bunching wall exit laws are geometric with parameters f and b and share the same continuation H from (2,+1), or H=1 for N=2. Their PGF difference has numerator z(f-b)(1-z)H; the 1-z cancels for cumulative probabilities. The remaining product has nonnegative coefficients. For N>=3 a leftward run reaches w, using a reverse step first if needed; a right-facing walker at site 1 can first move to site 2 and reverse. H has a positive coefficient from a rightward run. For N=2 only w reaches w, and equality at f=b is of hitting laws, not of transition kernels. Positive probabilities of finite rightward runs give almost-sure absorption. Inspected VERIFICATION.md and the finite exact replay path python3 check.py in the frozen directory; did not execute the uploaded program. The infinite proof is algebraic, not based on the reported 40 systems.
 
-**PASS, qualified.** Marris and Giuggioli, arXiv:2404.13360, Sections II and VII, formulate both boundary protocols and numerically compare first-hit probability peaks; Section VI gives mean first-passage calculations. Their broad first-passage machinery is the closest prior coverage, but the assessed *uniform stochastic-order sign theorem* and its nonnegative rank-one CDF-factorization are not asserted in the inspected text, figures or conclusions. The continuous-time first-passage literature and related searches do not establish the same assertion under the same lattice boundary conditions. There remains a specific risk of an unindexed equivalent theorem or derivation that may imply the sign claim.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The known protocol comparison distinguishes intermediate-time probability peaks, but that by itself cannot decide the optimal reflection rule for all possible deadlines. A full first-order stochastic dominance statement is a stronger, decision-relevant transport theorem: it supplies one protocol choice simultaneously for every deadline and every increasing cost of hitting time, across persistent and antipersistent regimes, with an exact parameter-independent threshold. The anti-persistent reversal and full state-uniformity are not routine single-parameter numerical refinements.
+The predecessor has the same reflection conventions and general first-passage machinery, but the distinct supported contribution is the coefficientwise CDF order, including its sign reversal, equality and start-dependent strictness. The nearby catalogue records examined do not cover that theorem.
 
-## Sources and limits
+## value
 
-Primary: Marris–Giuggioli (2024), arXiv:2404.13360, original submitted 20 April 2024, especially equations (1), (34), Figure 9, Sections VI-VII and Appendix A. Contextual: Malakar et al. (2018), arXiv:1711.08474, on continuous-time run-and-tumble first passage. The complete-stochastic-order theorem is restricted to a fully absorbing endpoint and the two specified left-wall protocols; partial target reactivity or two-sided reflection are not covered. No independent scientific audit was conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The law-level comparison determines one protocol for every deadline and increasing hitting-time cost for a natural transport model, rather than choosing by a mean or a single peak. The reversal threshold and the sharp two-site exception explain when the choice actually changes a deadline probability. It does not assert pointwise mass ordering or extend to partially absorbing targets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

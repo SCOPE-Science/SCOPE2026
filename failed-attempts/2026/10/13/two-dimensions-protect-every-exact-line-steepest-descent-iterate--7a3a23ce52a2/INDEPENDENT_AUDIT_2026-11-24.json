@@ -1,0 +1,91 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:34:47.185271Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Exact line search makes consecutive residuals orthogonal. In dimension two their normalized directions give an orthonormal basis; writing A in this basis as [s t; t q], the reciprocals of the first two steps are s and q. Cayley–Hamilton gives r2 = rho b, with rho = t²/(sq) in [0,1). Scale invariance then gives even iterates (1−rho^m)A⁻¹b and odd iterates equal to these plus alpha0 rho^m b, all nonnegative. A zero residual terminates (including b=0); dimension one terminates in at most one step. For the witness the leading minors are 2, 2 and 12 and the off-diagonal graph is connected. The first line search gives 2/5. With r1=(3,14,−9)/5, Ar1=(−22,45,−77)/5, hence alpha1=286/1257 and x2,3=−4/419. Multiplication by A confirms the displayed strictly positive solution. The first step cannot lose sign in any dimension. Reviewed RESULT.md, VERIFICATION.md, verify.py and its recorded CHECK_OUTPUT.txt; the judgments above follow from the proof and exact arithmetic, not the recorded success line or a new run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "In dimensions at most two the earlier record requires only SPD and b,A⁻¹b≥0; it also proves a separate sharp condition-number threshold of 2 for positivity through step two in Stieltjes systems."
+        ],
+        "reasoning": "The low-dimensional hypotheses of the frozen claim are a special case of the earlier result. The condition-number statement is additional coverage, not needed for this implication.",
+        "searches": [
+          "Resultary 2026/10/4/SCOPE-condition-two-is-the-sharp-second-iterate-positivity-frontier-fo--16f98e7689a7, Finding, Assumptions and Proof"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verification package",
+        "Resultary condition-two positivity frontier and three-mode Euclidean error record",
+        "Faber–Liesen–Tichý, DOI 10.1007/s10543-023-00991-x",
+        "Knyazev–Lashuk, arXiv:math/0605767, p. 1",
+        "Gonzaga–Schneider, Optimization Online 2015/06/4964, abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Perturb the earlier D=diag(1,2,4) by adding −t to entries (1,2),(2,1),(2,3),(3,2), and hold b=(1,1,1/5) fixed. For small t>0 SPD persists and the off-diagonal graph becomes connected. At t=0 the first residual after updating is nonzero; both exact step quotients and A⁻¹b are continuous near t=0. Strict positivity of the solution and strict negativity of x2,3 persist."
+        ],
+        "reasoning": "The irreducible existence statement is an immediate consequence of the earlier strict counterexample. The separate Euclidean-error record has a different observable and is not the basis for rejection.",
+        "searches": [
+          "Earlier positivity frontier, exact witness and bracket of assumptions; Resultary Euclidean-error perturbation record 2026/10/4/SCOPE-a-three-mode-perturbation-threshold-for-two-step-euclidean-steep--e0c764d6ed12"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Condition two is the sharp second-iterate positivity frontier for steepest descent, Finding: one- and two-dimensional Stieltjes systems preserve nonnegativity at every iterate, and dimension three and step two are jointly minimal for sign failure."
+        ],
+        "reasoning": "Classical Cauchy, optimum-gradient and exact-line steepest descent here use the same Rayleigh-quotient step. The earlier positivity result is a statement-level match, unlike generic convergence geometry or an error-ratio result.",
+        "searches": [
+          "Resultary: exact-line steepest descent, nonnegative Stieltjes iterates, two-dimensional positivity and three-dimensional second-step sign loss",
+          "On the Forsythe conjecture, DOI 10.1007/s10543-023-00991-x"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier record gives exact line-search fractions for diag(1,2,4), b=(1,1,1/5), not the frozen rational tridiagonal entries."
+        ],
+        "reasoning": "No separate invariant table is needed for this existential theorem. An unmatched specimen is not a new sign boundary; even its irreducibility can be obtained from the tabulated strict witness.",
+        "searches": [
+          "Resultary published-claim search; direct inspection of the exact witnesses in the matching earlier record"
+        ]
+      },
+      "rationale": "An earlier, distinct Resultary result expressly states the full all-iterate theorem in dimensions at most two, proves the same two-step residual cycle under broader hypotheses, and gives the same dimension-three/step-two sharp boundary. The irreducible existence refinement follows by continuity from its strict diagonal counterexample; only the particular rational witness differs.",
+      "residual_risks": [
+        "The Gonzaga–Schneider abstract, but not the full paper, was retrieved. Older sources may establish further coverage, which would not alter the decisive match."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct and implication coverage",
+          "evidence": [
+            "All iterates nonnegative in dimensions ≤2 for SPD with b,A⁻¹b≥0; dimension 3, iteration 2 sharp. Exact diagonal example has x2,3=−10404/857545 and positive solution."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-condition-two-is-the-sharp-second-iterate-positivity-frontier-fo--16f98e7689a7/RESULT.md",
+          "material_read": "Finding and scope (offset 0 onward), exact diagonal example and two-dimensional proof (offsets 4691–9519)",
+          "method": "Bounded local mirror text inspection",
+          "title": "Condition two is the sharp second-iterate positivity frontier for steepest descent",
+          "trigger": "Direct match for dimension and iteration boundary"
+        },
+        {
+          "assessment": "Related recurrence; not the decisive prior positivity coverage",
+          "evidence": [
+            "The inspected discussion concerns normalized oscillating residual/error sequences rather than a cone-order theorem."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10543-023-00991-x",
+          "material_read": "Page 2, offsets 1895–4036, normalized restarted-CG residual/error oscillation discussion",
+          "method": "Lawful OA passage inspection",
+          "title": "On the Forsythe conjecture",
+          "trigger": "Two-dimensional residual cycle antecedent"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The positivity boundary is intrinsically useful but already established. Replacing the strict diagonal counterexample with one explicit irreducible example adds no new mechanism or frontier, since irreducible counterexamples follow from the open sign inequalities by a routine perturbation. No separately motivated exact invariant of the displayed matrix is established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

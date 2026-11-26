@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:33:06.608354Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For h=p^a, Vandermonde increments binomial(hx,h) by 1 modulo p^2: every interior product has both factors divisible by p by Lucas, also for p=2. For x>=1 the exact ratio for inserting r<h factors can be taken in Q_p: each denominator has valuation v_p(i), and only i=p^(a-1)t contributes a nontrivial factor 1+p/t modulo p^2. The x=0 case is zero separately. Applying the congruence at the two neighboring levels gives the joint triangular digit system (2). Its low digits force x0=u0 and x1=v0; the remaining first-coordinate equation is exactly a harmonic fiber query, while the last equation determines x2. This gives the multiplicity p^(a-1) and all supported and excluded cases. Prescribing either single coordinate independently fixes just two index digits after the lower remainder is chosen, yielding the uniform marginals. Translation by p^(a+3) is a period and n=p^(a+2) already differs from n=0 in the second coordinate; since the least period divides every period, no smaller proper divisor works. The reflection H_(p-1-j)=H_j gives the odd-prime bound, and H_0=0,H_1=1 handles p=2. Fresh replay: python3 -B /workspace/reviews/reproduce.py 3; p-adic unit/valuation streaming of both binomial columns in seven full candidate periods checks every cell and both marginals and the nonperiod witnesses, with exact math.comb spot checks. This is finite corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rowland's s=0 step is binomial(pM+d,pB)=binomial(M,B)(1+pB H_d) modulo p^2. In peeling off a lower index p^a only the final such factor with B=1 survives; this specializes to the frozen one-column congruence for every prime.",
+          "Fiorot–Gilblas–Tonolo give individual minimum periods p^(a+2),p^(a+3); Sun–Zhang supply individual surjectivity for p-power columns modulo p^b."
+        ],
+        "reasoning": "Known stronger pointwise congruences and individual periods/surjectivity are credited. The inspected theorems do not count indices realizing two specified output residues simultaneously.",
+        "searches": [
+          "Rowland, Lucas' theorem modulo p^2, arXiv:2006.11701v3 Theorem 4",
+          "Fiorot–Gilblas–Tonolo arXiv:2307.02366 Lemma 3.1 and Proposition 3.4",
+          "Sun–Zhang arXiv:0812.3089v5 Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen record 3 RESULT.md, VERIFICATION.md and verify.py (read, not run)",
+        "arXiv:2006.11701v3, arXiv:2307.02366, arXiv:0812.3089v5",
+        "Resultary 4405471cd96f, 4b2115180ea3, 37b1e7bbed06",
+        "Webb and Huard–Spearman–Williams (access attempts only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Rowland does suffice to reconstruct the triangular pointwise digit formulas after specialization. To evaluate the joint census one must then pin the shared index digits and count j solving u1-v0=u0 H_j; u0=0 is a separate full-or-empty fiber and the last digit is free to fit v1.",
+          "The prior minimum periods already give the joint least period as their least common multiple, regardless of the joint fibers."
+        ],
+        "reasoning": "The joint harmonic multiplicity and support calculation is an additional evaluated dependence statement, not just substitution in an existing distribution theorem or regrading of an already counted partition. Individual surjectivity and periods do not imply simultaneous attainability.",
+        "searches": [
+          "Rowland Theorem 4 specialization s=0 compared with frozen equations (1),(2) and the fiber law",
+          "Fiorot–Gilblas–Tonolo Proposition 3.4 and Sun–Zhang Theorem 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fiorot–Gilblas–Tonolo's iterated primitive Sigma^s[1] equals binomial(n,s), so the desired pair is of consecutive prime-power primitive levels. Its least common period is already given by the individual periods.",
+          "4405471cd96f is this same frozen record, not a different prior result."
+        ],
+        "reasoning": "Looking under the primitive formulation recovers known periodicity infrastructure but not the joint primitive/column fiber counts. Fixed-row adjacency is not equivalent to varying n with adjacent prime-power lower indices.",
+        "searches": [
+          "Resultary: adjacent prime-power Pascal columns p^a and p^(a+1), joint residue fiber modulo prime square and harmonic sums",
+          "arXiv:2307.02366, primitives of constant sequences; arXiv:2006.11701v3 Theorem 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "4b2115180ea3 gives one-coordinate valuation densities and threshold periods for binomial(n-1,p^a-1).",
+          "37b1e7bbed06 gives a modulo-p spectrum for ratios of adjacent nonzero entries in one row, with different variables and modulus."
+        ],
+        "reasoning": "A valuation distribution of one coefficient loses the output unit data and correlations; a within-row ratio spectrum is a different sampling operation. Neither is an exact table of these four output digits.",
+        "searches": [
+          "Resultary adjacent Pascal columns and prime-power Pascal column distributions",
+          "4b2115180ea3 and 37b1e7bbed06 mirrored RESULT.md exact Findings"
+        ]
+      },
+      "rationale": "Pass the evaluated paired fiber law and its harmonic-image obstruction, not the individual congruence or the least period in isolation. Primary sources cover the latter ingredients, whereas the exact simultaneous count requires resolving the overlapping digit constraints and counting their harmonic collisions. No examined prior result supplies this evaluated joint classification; priority is not certified.",
+      "residual_risks": [
+        "The complete Webb and Huard–Spearman–Williams papers were unavailable; their exact scope was not inferred from their titles.",
+        "An unindexed equivalent triangular fiber computation may exist. The pointwise input and period were demonstrably known and are excluded from the originality pass."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers local theory for every prime, not the evaluated joint fibers",
+          "evidence": "The theorem's displayed harmonic expansion has no restriction p>2 and setting s=0 gives the digit-step congruence stated in broader_coverage.",
+          "identifier_or_url": "https://arxiv.org/html/2006.11701v3",
+          "material_read": "Theorem 4 and its hypotheses, offset 17968",
+          "method": "OA HTML theorem passage",
+          "title": "Lucas' theorem modulo p^2",
+          "trigger": "Stronger pointwise congruence containing the harmonic correction"
+        },
+        {
+          "assessment": "Already covers the period, not joint frequencies",
+          "evidence": "The s-th primitive equals c binomial(n,s) and has minimum period p^(ell-v_p(c)+k_s).",
+          "identifier_or_url": "https://arxiv.org/abs/2307.02366",
+          "material_read": "Minimum-period definition p. 3 offset 9359, Lemma 3.1 p. 9 offset 24091, Proposition 3.4 p. 10 offset 28970",
+          "method": "OA PDF theorem passages",
+          "title": "Modular binomials with an application to periodic sequences",
+          "trigger": "Prime-power least periods of the same binomial columns"
+        },
+        {
+          "assessment": "Single-column surjectivity, not the evaluated joint law",
+          "evidence": "For k=p^a the specified n progression already attains each residue modulo p^b.",
+          "identifier_or_url": "https://arxiv.org/html/0812.3089v5",
+          "material_read": "Theorem 1.1, offset 6639",
+          "method": "OA HTML theorem passage",
+          "title": "Binomial coefficients and the ring of p-adic integers",
+          "trigger": "Existing individual residue attainment at prime-power columns"
+        },
+        {
+          "assessment": "Different statistic and one coordinate",
+          "evidence": "Concerns valuation densities and periods for binomial(n-1,p^a-1), not paired residues modulo p^2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-prime-power-pascal-columns-exact-valuation-densities-and-sharp-t--4b2115180ea3/RESULT.md",
+          "material_read": "Exact Finding from offset 0",
+          "method": "Resultary and OA local mirror",
+          "title": "Prime-power Pascal columns: exact valuation densities and sharp threshold periods",
+          "trigger": "Closest distinct earlier catalogue distribution at a prime-power Pascal column"
+        },
+        {
+          "assessment": "Different adjacency and modulus",
+          "evidence": "It varies neighboring lower indices in a single fixed row and counts unit ratios modulo p.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-adjacent-nonzero-pascal-quotients-an-all-prime-exact-spectrum-an--37b1e7bbed06/RESULT.md",
+          "material_read": "Exact Finding from offset 0",
+          "method": "Resultary and OA local mirror",
+          "title": "Adjacent nonzero Pascal quotients: an all-prime exact spectrum",
+          "trigger": "Same-date adjacency and exact spectrum match"
+        },
+        {
+          "assessment": "Exact comparison not established; not used as evidence of noncoverage",
+          "evidence": "The DOI route was unavailable.",
+          "identifier_or_url": "https://doi.org/10.4064/cm-60-61-1-275-280",
+          "material_read": "No full text retrieved",
+          "method": "OA DOI lookup",
+          "title": "The number of binomial coefficients in residue classes modulo p and p^2",
+          "trigger": "Older prime-square binomial residue counts cited by the finding"
+        },
+        {
+          "assessment": "Exact comparison not established; not used as evidence of noncoverage",
+          "evidence": "The cited DOI route was unavailable.",
+          "identifier_or_url": "https://doi.org/10.4064/cm-74-1-1-275-280",
+          "material_read": "No full text retrieved",
+          "method": "OA DOI lookup",
+          "title": "On Pascal's triangle modulo p^2",
+          "trigger": "Older prime-square Pascal residue result cited by the finding"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Two adjacent prime-power Pascal columns are naturally coupled by shared index digits. Despite exactly uniform marginals, at most about half the output pairs are attained for odd primes, with a complete exact description in terms of collision counts of finite harmonic sums. This gives a structural and quantitative obstruction rather than just a check of a few primes or another derivation of the known period. The all-exponent scaling and both positive/zero fibers make the exact statistic useful for studying dependence of nearby columns.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

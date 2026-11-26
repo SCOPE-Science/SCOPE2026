@@ -1,19 +1,21 @@
-# Self-review of the canonical-shift centralizer theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Every partial isometry is a translation or a reflection once its domain has at least two points. For translations, the two commuting products have the same values and equality reduces exactly to membership invariance under stepping by \(k\), hence to independent residue chains. For a reflection, the products differ in value by \(2k\) whenever simultaneously defined, so both must vanish; this imposes disjoint domain/image endpoint constraints and gives the displayed rank polynomial. For \(n\ge2k-1\), the reflection count reduces to \((k-w)^2\) choices for each endpoint gap. The zero and singleton maps are counted precisely once. Direct exhaustive checks of 36 parameter pairs, with an independent normal-form comparison at small sizes, pass. Limits: finite checks are corroboration only; the general claim is proved symbolically.
+PASS
 
-## Originality — PASS, with residual historical risk
+Distances to the two extreme domain points force every other image point between the two endpoint images, hence the map is x-d or c-x as stated; rank one has a unique offset and rank zero is counted once. For x-d both compositions have the same x-d-k output wherever defined; in the only possible input range x>=d+k+1 their domain tests are x in D and x-k in D. Equality forces complete residue chains, so independently selecting them gives the product. For c-x any common domain input gives values differing by 2k, so equality requires both domains empty. This is equivalent to D in the top k positions and its image in the bottom k positions. Positive images and order decrease then give q+1<=c<=p+min(k,p); every interior point is independently optional. This proves the endpoint sum even when n<2k-1. When n>=2k-1 a gap w allows k-w choices of p and k-w centers, giving the square. The stable reversing sum at z=1 satisfies S(k+1)=2S(k)+k^2, S(1)=0, confirming the closed count. At k=1 there are no reversals and the one full chain for each offset gives the powers, including the empty map and identity.
 
-The 2026 primary source supplies the canonical shift and presentations/ideal rank results, not the centralizer condition or rank polynomial. The 2011 primary paper concerns Green relations and whole-semigroup cardinalities; the 2017 combinatorial preprint of Al-Kharousi–Kehinde–Umar enumerates ranks, fixed points and Green classes, not commutants. Published results for nilpotent partial-bijection centralizers in the full symmetric inverse monoid do not imply counts satisfying the additional order and metric constraints. A previously catalogued calculation for commuting shift-one generators restricts both operands to that generator family and therefore does not cover full-monoid centralizers of arbitrary powers. Searches for residue-chain commutants, centralizer rank formulas, both ambient monoids, and the explicit cardinality expressions returned no covering statement. Historical priority could still be affected by unindexed work or inaccessible specialist sources; database nonmatches alone are not a proof of novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Centralizers are intrinsic invariants of monoids, and the canonical nilpotent shift is singled out by the motivating presentations. The theorem gives the exact rank census for *every* power, not isolated low-rank cases; detects self-centralization of the generator; distinguishes the smaller and larger monoids; and establishes an explicit stability threshold in the reflection contribution. These answer a natural structural enumeration problem complementary to known generating-set and ideal-rank computations, rather than an arbitrary slice of a table.
+Pass for the exact order-decreasing, isometric all-power centralizer spectrum, including ambient-dependent reversals and their stable range. The unrestricted nilpotent centralizer, the monoids/generators and the k=1 single-chain case are not new.
 
-## Closest literature and limits
+## value
 
-Ayık–Ayık–Fernandes, arXiv:2611.12150v1; Kehinde–Makanjuola–Umar, arXiv:1101.2558; and Al-Kharousi–Kehinde–Umar, arXiv:1702.04485 (primary full texts inspected). The last is the lawful open-access preprint of the corresponding 2018 combinatorial work; it treats whole-semigroup and Green-class counts, not the present commuting filtrations. Two published records on full symmetric-inverse centralizers were inspected at summary level, leaving possible hidden specializations and unindexed literature as residual risks. The centralizer of a general element is not classified. No independent mathematical audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This exact invariant addresses centralizers of every nonzero power of the canonical nilpotent generator in both natural metric monoids. It separates translation-chain freedom from reversed maps permitted only by annihilation, gives a genuine stable regime for the latter and still covers the nonstable range. The filtered counts cannot be read from the unrestricted centralizer rank spectrum. Value is the complete enumeration and classification, not the familiar k=1 count alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

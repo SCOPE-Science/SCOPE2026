@@ -1,19 +1,21 @@
-# Review: two-site rigidity of weighted cyclic sunlets
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** For every zero-sum coefficient vector, grouping each core coefficient with its private leaf coefficient gives the exact identity \(\alpha^\mathsf T D\alpha=\beta^\mathsf T C\beta-2\sum_jt_jz_j^2\). Consequently lengthening leaves makes a sum of rank-one positive-semidefinite additions to the centered quadratic form. Fourier diagonalization of the uniform core cycle produces the least-eigenvalue multiplicity two on odd cycles and a persistent zero mode on even cycles. For odd cycles any one leaf evaluation annihilates a nontrivial bottom eigenvector, whereas evaluations at two distinct leaves are jointly injective because \(\sin(4\pi d/n)\ne0\). The exact two-by-two restricted perturbation eigenvalue yields the stated first-order coefficient and optimal spacing. The proof applies to arbitrary positive increments in the support theorem; only the spacing law is infinitesimal. The included numerical and rational checks corroborate the universal argument, without substituting for it.
+PASS
 
-## Originality
+Aggregating the core and leaf coefficients at site j into β_j gives the centered form −βᵀCβ/2+Σ t_j z_j², where z_j is the leaf coefficient: on the zero-sum space each pendant cut contributes exactly its length times z_j². Independently, the cyclic second difference of the distance row has spikes +2 at 0 and −1 at (n±1)/2 for odd n. Fourier transforming yields λ_j=−1/[2(1+(−1)^j cos(πj/n))] at nonconstant frequencies, maximized exactly at j=2,n−2 with value −a. For even n the two negative spikes coalesce to −2 at n/2, giving λ_j≤0 with zeros at nonconstant even frequencies, and hence persistent core-only zeros under arbitrary pendant lengthening. For odd n the uniform distance block's upper eigenvalue λ−t+√(λ²+t²) increases strictly with λ and exceeds the constant zero-sum direction's value −t at λ=−a. This gives γ=(a+t−√(a²+t²))/2 with only the two real frequency-two modes at the minimum. Their normalized leaf-coordinate vectors are ρ(cos(4πj/n),sin(4πj/n)), by the core-to-leaf ratio 1:−q. Equality after PSD updates requires a minimizer of the original form annihilated by every positive update. One leaf imposes just one equation; two different leaves give determinant proportional to sin(4πd/n), nonzero for odd n. This covers arbitrary positive increment sizes. The isolated double eigenvalue splits to first order by the compressed 2×2 update, whose trace and determinant are ρ²(u+v) and ρ⁴uv sin²θ; the complementary spectral gap gives the O(ε²) error. At fixed u+v the smaller root is optimized by equal allocation and maximizing sin²θ. Odd n makes the available angles a permutation of 2πr/n for nonzero r; the nearest quadrature is exactly π/(2n) away. Thus the stated gain and placement hold to first order, without asserting finite-budget optimality. Exact proof reconstruction, not the frozen numerical diagnostics, establishes these conclusions.
 
-**PASS, subject to residual publication-priority risk.** The cycle-distance spectrum from Graovac–Jashari–Strunje (1985), the general tree negative-type gap literature of Doust–Weston (2007), Wolf's finite negative-type-gap results (2010), and Indulal–Stevanović's uniform corona distance spectrum (2015) provide methods or partial inputs. In particular the uniform corona spectral formula is already known and is not counted as new here. Irawan–Sugeng (2021) treat other cycle-with-leaves families and their unweighted quadratic embedding constants, rather than asymmetric pendant lengths and their sharp two-site improvement. The inspected sources do not imply the nonuniform global support rigidity and optimal two-point first-order strengthening. A hidden or differently formulated prior perturbation theorem could cover the same evaluated statement.
+## originality
 
-## Value
+PASS
 
-**PASS.** The centered Hilbert stiffness \(\gamma\) measures the quantitative margin of the Schoenberg negative-type quadratic inequality under an intrinsic, basis-free Euclidean normalization. Its persistence under arbitrarily large reinforcement of only one pendant edge is a nontrivial degeneracy constraint. The sharp jump from one to two sites and the exact optimal separation/equal-budget allocation provide a natural quantitative design principle for improving finite metric Hilbert embedding stability. The odd-even obstruction distinguishes an entire infinite graph family, not one isolated matrix. No general theorem for arbitrary graph modifications is claimed.
+The normalization and related cycle/sunlet parity results are known. The distinct supported claim is the weighted reinforcement threshold and optimal infinitesimal placement, not the uniform base spectrum. Neither the inspected closest Resultary records nor the matching metrics/results in the available primary literature give that perturbation claim.
 
-## Closest literature and limits
+## value
 
-Graovac–Jashari–Strunje (1985), *On the distance spectrum of a cycle*, DOI 10.21136/AM.1985.104151; Indulal–Stevanović (2015), *The distance spectrum of corona and cluster of two graphs*, DOI 10.1016/j.akcej.2015.11.014 (Theorem 1); Wolf (2010), arXiv:1008.0964v1; Irawan–Sugeng (2021), DOI 10.1088/1742-6596/1722/1/012046 (Section 3). The present result assumes unit cycle edges and equal baseline leaf lengths; arbitrary unequal final lengths have a rigorous support threshold but no general closed-form optimal stiffness. First-order optimal spacing does not establish globally optimal spacing for finite increments.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This answers a concrete design question for a natural graph metric: what smallest support can change the worst centered embedding direction, and where is it best spent at first order? The odd cycle's double Fourier mode makes all individual reinforcements ineffective but every distinct pair effective, while an even-cycle obstruction survives arbitrary pendant changes. The exact placement and allocation criterion supplies information not contained in the binary support threshold or uniform spectrum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

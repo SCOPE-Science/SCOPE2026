@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-All integer parameters and all powers-of-two moduli are covered by three disjoint parity cases. The two-square and three-square block identities follow by direct multiplication. At even-even couplings the top-right block supplies the exact initial valuation; in the both-odd case the nilpotent all-ones residue forces exactly one initial exceptional squaring; in the mixed-parity case the upper-left block of the cubic iterate has exact valuation two. The generic lifting identity then proves minimality at every higher depth, not merely congruence at a candidate exponent. The independent scalar-mode comparison uses its own two-by-two order law and the fact that the symmetry-mode change has determinant two. The 16,922 exact checks in the packaged script exercise seed identities and many independent parameter instances, without being substituted for the proof. Boundaries at modulus one, zero weights and equal valuations are explicit.
+PASS
 
-## Originality — PASS, with residual priority uncertainty
+The shear factorization is invertible over each residue ring, and testing the standard basis is equivalent to testing the global permutation order. At valuation e≥2, squaring I+2^eE raises the difference valuation by exactly one; successive mod-2 reduction kernels can only contribute powers of two to the order. For even C the first valuation is r, and at r=1 the upper-right block 2C+C³ gives exact valuation two after squaring. For both parameters odd the mod-two block C is nonzero with C²=0, the first square has difference valuation one, and (M²−I)/2 squares to zero mod two, so the fourth power has exact difference valuation two. With opposite parities the order mod two is three, and the block factor C²(C²+3I) is 4I or 4 times the exchange matrix mod eight, while all blocks of M³−I vanish mod four. The resulting law includes the plateau at s=1,2, signed weights, and M=I when k=c=0. Scalar orders follow from the same identities; the minimum valuation of k±c increases by one exactly at equal finite valuations, giving the claimed factor precisely below depth s. The rational change of basis is not invertible at 2. Independently iterating the shears on every basis vector to first return verified 582 coupled cases (all residues through depth four, signed samples at five and six), including the scalar comparison.
 
-The 2022 paper defining the map and its matrix Fibonacci recurrence is full-text inspected, and its period experiments do not contain the all-parameter powers-of-two classification. The 2026 circulant-graph paper is inspected at the period section; it uses general recurrence and numerical orders, not the displayed weighted two-site phase theorem. The closest indexed published result proves powers-of-two orders for complete graphs at all site counts; its two-site unweighted examples are covered cases and explicitly excluded from claimed novelty. Its full RESULT.md was read and its theorem does not imply the general \((k,c)\) classification or the precise mode-index criterion. Earlier single-cat congruences do not resolve the nonunimodular transform over even moduli. A stronger unindexed statement could overlap; an independent historical priority assessment remains necessary.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact classification closes a natural two-parameter finite-torus question for the coupled cat-map system whose authors explicitly identify even moduli as delicate. The index-two discrepancy is not a cosmetic parameter substitution: it distinguishes the actual integral four-dimensional dynamics from its two rational Fourier modes and gives a sharp valuation boundary for the failure. This matters for finite-state period prediction even when the continuous system diagonalizes into modes. The theorem makes no claims about the full orbit-count distribution or more sites.
+The map, rational modes and two unweighted values are already known; the supported distinct portion is the complete signed integer-weight order law at powers of two and the exact condition for failure of the scalar-mode period prediction. An inspected circulant scaling assertion is narrower in context and cannot be applied as a universal law for the frozen family.
 
-## Closest literature and limitations
+## value
 
-Axenides–Floratos–Nicolis (arXiv:2208.03267), Manolas–Floratos (arXiv:2605.00965), *Exact powers-of-two torus orders for all-to-all coupled cat maps* (published October 11, 2026), and Dyson–Falk (1992) are compared in RESULT.md. The weighted two-site restriction and unresolved unindexed priority risk are material limits.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+It solves the order question uniformly for a previously defined weighted two-site model at a modulus where the usual mode change fails. The exact equal-valuation condition measures a genuine integral obstruction and says when the cheaper scalar computation is reliable, beyond the unweighted examples and beyond observing noninvertibility of the basis change alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

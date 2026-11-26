@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:51:36.458346Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The fixed point contains all letters, and each aa and a(a+1) occurs inside an image while (a+1)a occurs across the images of aa, so all nine block pairs occur. Splitting a length-3Q window into boundary pieces of combined length Q and two full Q blocks gives the upper bound H_{k+1}≤H_k+2 max W_k. For the lower bound take a maximizing letter c at scale k and an extremizing factor in one of the two pairs (c−1,c),(c,c+1). In the expanded pair U_k(c−1)^2 U_k(c)^3 U_k(c+1), either old suffix/prefix window can be extended by inserting two full c blocks. The inequality W_{k+1}(c)≥W_{k+1}(c+1) allows the new maximizing letter to be c−1 or c, so the adjacent-pair invariant continues; k=0 begins with a single letter. Applying the recurrence to the zero weight and its negative, and using one-step changes of at most one in a binary window count, yields the increment 2g_k. The centered letter-count vectors obey v̄_{k+2}=−3R²v̄_k, so g_{k+2}=3g_k, g_0=1, g_1=2. Telescoping gives the formula including k=0; the substitution also directly gives the base-three digit recursion. Independent bounded enumeration with `independent_check.py` checked all nine pairs at each scale through k=8 and 189 weighted recurrence instances. This corroborates the proof but does not address lengths outside exact powers or regularity of the full sequence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "October 26 §§1–3 prove T_{m+1}=T_m+r max W_m, P_r((r+1)^{m+1})−P_r((r+1)^m)=r g_m, and g_m=(2/3)|r+ω|^m Φ(m arg(r+ω)). Its r≥4 limitation is used to show irrational phase in §4, after those derivations.",
+          "November 2 repeats the weighted-extremum derivation for its stated r≥4 range and reports finite lower-r tests. The Parikh-collinear setting requires rank one, not the full-rank target matrix."
+        ],
+        "reasoning": "Only r≥2 is needed to exhibit aa and maintain the same block-pair construction. The maximum-letter inequality has coefficients r−1 and 1, both valid at r=2; Fourier inversion needs no phase restriction. Thus specializing the existing exact derivation does not require adapting its ideas or proving a new extremal lemma.",
+        "searches": [
+          "2026/10/26/SCOPE-an-infinite-nonregular-abelian-complexity-family-with-interval-v--7b09e62adf22 §§1–4",
+          "2026/11/2/SCOPE-an-infinite-ternary-morphism-family-with-nonregular-binary-abeli--f292807a24e1 §2",
+          "arXiv:2405.18032"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_direct.py and verify_power3.py",
+        "Resultary records 7b09e62adf22, f292807a24e1, 1ac934fd1f11, ea6d16472081",
+        "arXiv:2610.03837 and arXiv:2405.18032"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Set r=2. Then 2+ω=√3 exp(iπ/6) and Φ(x+π/3)=Φ(x), since the three cosines are negated and permuted. The prior spread formula gives g_{m+2}=3g_m. Its bases are g_0=1 and g_1=2, by Φ(0)=3/2 and Φ(π/6)=√3.",
+          "The prior complexity increment now gives 2g_m at each step, and grouping even and odd increments gives exactly 3^{h+1}−1 and 5·3^h−1."
+        ],
+        "reasoning": "The argument proves mechanical coverage of the supported exact claim, not that the prior authors explicitly state an r=2 theorem. The claimed phase collapse is precisely the evaluation of the earlier Fourier formula at a rational phase; the later prior results about irrational phases are irrelevant to it.",
+        "searches": [
+          "7b09e62adf22 Finding and exact weighted/Fourier derivations, §§1–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact word is the r=2 member of a↦a^r(a+1), coded by the indicator of zero, with the radix equal to r+1. The prior family uses the identical coding and complexity invariant.",
+          "Allouche et al. treat the three-repeat case, equivalently counting base-four digit 3 modulo three; the separate ternary-digit parity work uses a two-letter alphabet instead."
+        ],
+        "reasoning": "The October 26 result is the same cyclic family and power-length statistic, not merely an analogy. The other two examples have different parameters or alphabets and by themselves do not settle coverage.",
+        "searches": [
+          "Resultary: 001/112/220, ternary digit-two count modulo three, power-scale Abelian complexity",
+          "Public literature search: 001/112/220 digit-count Abelian complexity",
+          "arXiv:2610.03837 §§2–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The lattice-holes record gives full ternary Parikh spectra at lengths 1,3,9,27 for the same substitution, which determine the binary counts there by projection. It is not an all-k table or formula; same-day dates do not establish order."
+        ],
+        "reasoning": "The finite spectra cover the initial samples only. The originality failure for the all-k claim rests instead on the prior exact general-family derivation and its mechanical evaluation.",
+        "searches": [
+          "Resultary: exact 3^k complexity of the binary projection of 001/112/220",
+          "2026/11/22/SCOPE-the-first-lattice-holes-of-ternary-cyclic-substitution-parikh-sp--1ac934fd1f11"
+        ]
+      },
+      "rationale": "The exact two-repeat closed form was not found verbatim in earlier sources. However, a distinct October 26 record already gives the exact power-scale recurrence and Fourier spread formula for the same cyclic family, using derivations that apply at r=2 without any new case argument. The r≥4 restriction matters to the later irrational-phase and nonregularity results, not to its derivation of those exact formulas. Evaluating those formulas at r=2 and summing a geometric progression leaves no independently established distinct mathematical contribution in the frozen finding.",
+      "residual_risks": [
+        "An explicit pre-existing statement of the precise r=2 closed form may also exist. The conclusion does not infer priority for the same-day finite-spectrum record or rely on an unsuccessful keyword search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive coverage by direct specialization of the exact derivations, despite the overall stated range r≥4",
+          "evidence": [
+            "The published induction uses U_{c−1}^r U_c^{r+1} U_{c+1} and the nonnegative coefficient r−1. The prior Fourier spread formula then applies unchanged at r=2. The irrational phase proof in §4 is the separate step that does not extend."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-an-infinite-nonregular-abelian-complexity-family-with-interval-v--7b09e62adf22/RESULT.md",
+          "material_read": "Finding and proof §§1–4, local-mirror opening through offset 7928",
+          "method": "Local Resultary catalogue and bounded mirror passage",
+          "title": "An infinite nonregular abelian-complexity family with interval-valued power-scale limits",
+          "trigger": "Same cyclic substitution family and an exact power-length formula"
+        },
+        {
+          "assessment": "Same weighted recurrence proof for the stated r≥4 family, with lower-r finite verification only",
+          "evidence": [
+            "Finite checks include 2≤r≤7; the earlier October 26 exact proof is the decisive comparison."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-an-infinite-ternary-morphism-family-with-nonregular-binary-abeli--f292807a24e1/RESULT.md",
+          "material_read": "§2 weighted recurrence and Verification",
+          "method": "Local Resultary mirror passages",
+          "title": "An infinite ternary-morphism family with nonregular binary abelian complexity",
+          "trigger": "Cited closely overlapping family"
+        },
+        {
+          "assessment": "Three repeats, not two; establishes technique and neighboring case",
+          "evidence": [
+            "Proposition 8 and Lemma 9 establish the 3g_m increment and the weighted maximum rule for the four-uniform case."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.03837",
+          "material_read": "§§2–3, pp. 3–6, text offsets 7200–19672",
+          "method": "OA paper passages",
+          "title": "An example of an automatic sequence with non-regular abelian complexity",
+          "trigger": "Primary predecessor for the cyclic family and weighted method"
+        },
+        {
+          "assessment": "Covers the finite projections at four lengths, not a formula for all powers",
+          "evidence": [
+            "The complete spectra discussed concern lengths 1,3,9,27."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-the-first-lattice-holes-of-ternary-cyclic-substitution-parikh-sp--1ac934fd1f11/RESULT.md",
+          "material_read": "Finding and stated length scope",
+          "method": "Local Resultary mirror passage",
+          "title": "The first lattice holes of ternary cyclic substitution Parikh spectra",
+          "trigger": "Exact same substitution and small-scale Parikh sets"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The object and power-length question are natural, and the closed form is correct. But in this case the full novelty asserted beyond the earlier extremal and spectral derivations amounts to evaluating them at r=2 (a phase of π/6) and summing the resulting two-step geometric progression. This is a convenient specialization, not a newly needed structural or extremal result independent of that proof. The finding contains no separate arbitrary-length classification or full regularity result that might survive as a repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

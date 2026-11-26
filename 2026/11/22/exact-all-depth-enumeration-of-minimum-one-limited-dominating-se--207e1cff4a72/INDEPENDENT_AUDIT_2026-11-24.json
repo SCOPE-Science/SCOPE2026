@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:34:10.603417Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A vertex has at most one edge at a first difference before the final coordinate: that position must immediately precede its maximal constant suffix. In a bottom nine-vertex block only diagonal corners can have edges leaving the block. Each nonempty terminal triangle therefore needs at least two selections by the one-limited condition; two empty triangles are incompatible because the transposed off-diagonal endpoints then have no selected neighbors. One empty triangle forces two selected transposed neighbors, each of which forces its entire triangle to be selected. This proves the six-per-block bound, including in partial configurations with deferred outer domination. The unequal-last-symbol construction attains it: local triangles have two selections, and the linked endpoints have identical selection status. With six selections, either the three omitted symbols prescribe an involution and give four patterns, or one triangle is empty and the other two are full, giving three more. At a single cross edge a flag 2 must meet 3; a flag 0 can meet 0 or 3; selected-selected pairs are all allowed. The three fresh edges use distinct child corners, leaving the diagonal child corners untouched. Restricting an optimal parent to its labelled children and gluing these exact profiles are inverse operations; no flag 2 can survive at completion. For n=1, K3 admits exactly three minimum pairs. RESULT.md line 28 uses 'dominating set' as shorthand in this one-limited context, not as an ordinary domination-number claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The all-alphabet/capacity result covers optimum sizes; the symmetric binary-matrix classifications count optima for S(2,m) only."
+        ],
+        "reasoning": "Neither broader alphabet coverage for sizes nor complete two-level enumeration covers an all-depth optimizer transfer with deferred corner obligations.",
+        "searches": [
+          "Resultary 023a3f7ea943",
+          "Resultary a700d19c9c6e",
+          "Resultary 9efdac7d121b"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.01584v1",
+        "Resultary 023a3f7ea943",
+        "Resultary a700d19c9c6e",
+        "Resultary 9efdac7d121b",
+        "Resultary dd1f71f2c8ed"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier bound is 4^(3^(n-3)); already at n=3 this is 4 versus the independently enumerated 10."
+        ],
+        "reasoning": "A witness to attainment or a restricted family of witnesses does not imply the complete profile classification, edge constraints or exact transfer.",
+        "searches": [
+          "Resultary dd1f71f2c8ed, Finding and Limitations",
+          "arXiv:2610.01584v1, Theorems 10–11"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Božović, Theorems 10–11: optimum sizes and attaining constructions",
+          "Resultary 023a3f7ea943: extended optimum-cardinality result explicitly excludes a census"
+        ],
+        "reasoning": "The alternative pitchfork terminology does not change what is counted; the inspected results fix the size of optimizers and do not determine their number.",
+        "searches": [
+          "Resultary: Sierpiński minimum one-limited domination, optimal-set counts; (0,1)-pitchfork formulation",
+          "arXiv:2610.01584v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Depth-two records cover M_2; the four-choice record explicitly reports only a lower bound at greater depths."
+        ],
+        "reasoning": "No matching all-depth table or rule was found in the inspected records. Agreement of one initial term does not cover the sequence.",
+        "searches": [
+          "Resultary: exact labelled minimum counts on ternary Sierpiński graphs",
+          "Resultary dd1f71f2c8ed"
+        ]
+      },
+      "rationale": "The exact labelled census at arbitrary depth, not the known optimum size or the complete depth-two optimum census, survived the comparisons. The four-choice lower bound does not exhaust the configurations or determine the recursion.",
+      "residual_risks": [
+        "Bounded searches can miss differently indexed optimizer censuses, including under pitchfork terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "covers optimum cardinality but not the all-depth census in the inspected statements",
+          "evidence": [
+            "The cardinality for capacity one is (m-1)m^(n-1)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.01584v1",
+          "material_read": "Theorems 10–11, PDF p. 8, offset 21842",
+          "method": "targeted OA full-text read",
+          "title": "On k-limited domination: complexity and Sierpiński graphs",
+          "trigger": "primary earlier optimum theorem"
+        },
+        {
+          "assessment": "not an optimizer count",
+          "evidence": [
+            "The result supplies optimum values and a construction and expressly excludes enumeration."
+          ],
+          "identifier_or_url": "023a3f7ea943",
+          "material_read": "RESULT.md Finding and Limitations, offsets 0 and 6600",
+          "method": "local mirror",
+          "title": "Exact limited domination of every Sierpiński graph",
+          "trigger": "broader family"
+        },
+        {
+          "assessment": "direct depth-two overlap only",
+          "evidence": [
+            "The symmetric matrix enumeration applies to S(2,m), not depths n≥3."
+          ],
+          "identifier_or_url": "a700d19c9c6e",
+          "material_read": "RESULT.md Finding and Limitations, offsets 0 and 6800",
+          "method": "local mirror",
+          "title": "Extremal k-limited domination of depth-two Sierpiński graphs as symmetric regular binary matrices",
+          "trigger": "complete optimizer enumeration on a subfamily"
+        },
+        {
+          "assessment": "direct depth-two overlap only",
+          "evidence": [
+            "The classification is expressly two-level."
+          ],
+          "identifier_or_url": "9efdac7d121b",
+          "material_read": "RESULT.md Finding and scope limitations",
+          "method": "local mirror",
+          "title": "Minimum limited domination of two-level Sierpiński graphs: a symmetric matrix characterization",
+          "trigger": "another exact optimizer classification"
+        },
+        {
+          "assessment": "strictly partial count",
+          "evidence": [
+            "At least 4^(3^(n-3)) sets via local choices on 27-vertex blocks, explicitly not an exact enumeration."
+          ],
+          "identifier_or_url": "dd1f71f2c8ed",
+          "material_read": "RESULT.md Finding and Limitations, offsets 0 and 6800",
+          "method": "local mirror",
+          "title": "Four independent local choices in minimum one-limited dominating sets of ternary Sierpiński graphs",
+          "trigger": "same graphs, sets and arbitrary depth"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The transfer solves the exact finite optimizer-enumeration problem for a natural recursive graph family where only sizes and a restricted construction were established in the closest sources. Its treatment of owed domination versus available capacity explains how optima compose, and produces the exact census rather than just another family of attaining sets.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

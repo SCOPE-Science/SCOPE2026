@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T14:20:44.757107Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The squared-coordinate equations conserve both the simplex sum and log H. Strict concavity gives a unique interior maximizer and compact regular level circles, and only the maximizer is stationary. Each vertex section has two transverse crossings at small h, from the strict log concavity of the one-variable section product and the opposite signs of the normal velocity near its ends. At the u-passage, v decreases and w increases at logarithmic rates bounded away from zero, making the integrated correction in (log v)'=-2a+2av+2(a+c)w bounded uniformly up to every intermediate time. Thus log v=-2a tau+O(1), log u=O(1), and log w=-L/a+2b tau+O(1) by the conserved product. At exit, v is bounded above AND below by fixed multiples of h^(1/b), because both u and w are bounded away from zero there. Cyclically this yields the other two affine paths and the stated passage lengths in original time. Outside the three vertex boxes, at sufficiently small h one coordinate is below any fixed sufficiently small eta<delta/2 while the two others are at least delta-eta; the growing edge coordinate then has derivative bounded below by a positive constant, giving O(1) travel times in their stated order. Log derivatives are globally bounded; cumulative phase breakpoints differ by O(1) in physical time, and the continuous reference path is Lipschitz across its corners. This gives the O(1/L) normalized phase error including transitions and endpoints. Coupling with the same uniform phase gives the stated Euclidean W1 bound; the three duration fractions are c/S, a/S, b/S and arclength on each edge projects to the listed atom or uniform law. The limitation calls the edge-supported measure two-dimensional; its support is the one-dimensional boundary of the planar triangle, and it is mutually singular with every finite-h law. This wording does not affect the theorem. Inspected the frozen verification notes and checker without executing the supplied code. Independent finite replay: python /workspace/review_evidence/2_reproduce.py, which integrates two log coordinates and reconstructs the third from H. Observed periods 27.631022548790 and 12.664218017506 and sampled errors 0.122042053 and 0.140716465; this corroborates normalization, not the limiting theorem. All constants are for fixed positive coefficients and a fixed small section parameter.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Squaring yields a three-strategy skew-symmetric replicator system after a constant time rescaling; the recurrence material inspected is qualitative with respect to this limit.",
+          "The cubic-sphere classification and phase portraits address a broader family but do not in the inspected sections give this uniform estimate."
+        ],
+        "reasoning": "Qualitative recurrence/closed orbits do not imply the singular asymptotic. Actual prior coverage comes from the quantitative local estimates in the narrower same-system proof.",
+        "searches": [
+          "Boone–Piliouras, arXiv:1910.01334, abstract",
+          "Benny–Jana–Sarkar, arXiv:2310.14238v1, Corollary 3.3 and §5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "Resultary 2026/11/8/SCOPE-sharp-long-period-tails-on-cubic-kolmogorov-sphere-flows--a0c0ec439f33",
+        "arXiv:2310.14238v1",
+        "Resultary 2026/10/11/SCOPE-sharp-logarithmic-phase-and-time-statistics-in-a-cubic-global-ce--35ffbf168a22",
+        "arXiv:1910.01334"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior gives v=delta+o(1) at entry, (log v)'=-2a+2av+2(a+c)w, integral(v+w)dt=O(1) over the whole passage, the three section-to-section durations, and O(1) total connector time.",
+          "H=u^c v^b w^a in the same time normalization; the log-equations give globally bounded log speeds."
+        ],
+        "reasoning": "The bound on any prefix of a nonnegative integral is its bound on the full passage. Integrating yields one log coordinate to O(1), u stays above 1-delta, and log H gives the third. The same proof cyclically gives all three edges. The prior timings align them within O(1/L) and handle the connectors. Uniform-time coupling and edge duration ratios then give the W1 and marginal statements without a new mathematical estimate.",
+        "searches": [
+          "Resultary 2026/11/8/SCOPE-sharp-long-period-tails-on-cubic-kolmogorov-sphere-flows--a0c0ec439f33/RESULT.md, Sharp physical-time divergence, mirror offset 2620"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2023 sphere family contains the displayed model by setting its cross coefficients to a,-b,c and the linear terms to zero.",
+          "The 2026/10/11 planar system has dx/dt=y(1+k x^2), dy/dt=-x(1+k y^2), and its logarithmic law is a high-amplitude law in different coordinates."
+        ],
+        "reasoning": "Neither the phase-portrait material inspected for the sphere family nor the different cubic center is evidence of an equivalent quantitative statement. The exact same-system November 8 proof, not the resemblance to a different triangular profile, is decisive.",
+        "searches": [
+          "Resultary: cubic Kolmogorov sphere flow, logarithmic phase, log-abundance and heteroclinic statistics",
+          "Benny–Jana–Sarkar, arXiv:2310.14238v1, Corollary 3.3 and §5",
+          "Resultary 2026/10/11/SCOPE-sharp-logarithmic-phase-and-time-statistics-in-a-cubic-global-ce--35ffbf168a22"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching indexed record gives exactly the same scalar coefficient P and the three passage coefficients, and studies an area-sampled period tail, not a tabulated orbit-phase law."
+        ],
+        "reasoning": "A numerical table is not a meaningful test of a uniform continuum asymptotic with arbitrary fixed positive parameters. The exact indexed match instead supplies the analytic coefficients and defect estimates.",
+        "searches": [
+          "Resultary 2026/11/8/SCOPE-sharp-long-period-tails-on-cubic-kolmogorov-sphere-flows--a0c0ec439f33, Finding and Sharp physical-time divergence"
+        ]
+      },
+      "rationale": "The same-system November 8 period-tail result does not literally state the phase or W1 formulas, but its published proof already provides the uniform integrated defect, entry data, dwell times and connecting-time bounds that mechanically imply the full claimed result. In its u-box, the displayed equation for (log v)' and the whole-passage integral bound, applied to any prefix of that passage, yield log v(t)=-2a tau+O(1) uniformly. The prior's exact log H identity and log u=O(1) give the other two coordinates immediately. Cycle the same argument, use the prior O(1)-length connecting arcs and bounded log derivatives, and divide its breakpoints by L. This gives the same section-phased reference path and rate, not just the scalar period. The probability law is the pushforward of uniform phase along that very path, and the common-phase coupling transfers the supremum error to W1. No distinct surviving assertion is established by separating the law from the profile.",
+      "residual_risks": [
+        "The literature inspection was targeted and does not establish whether earlier authors stated the phase law verbatim. The originality failure rests on the verified same-system implication, not on search coverage or an unavailable source."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically implies the claimed phase and sampling laws",
+          "evidence": [
+            "The whole-passage defect is bounded independent of h; the preceding entry and section estimates match the phase in the frozen record."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-long-period-tails-on-cubic-kolmogorov-sphere-flows--a0c0ec439f33/RESULT.md",
+          "material_read": "Finding and proof through the divergence and tail sections; decisive divergence passage at offset 2620",
+          "method": "Resultary lookup and bounded local mirror reading, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp long-period tails on cubic Kolmogorov sphere flows",
+          "trigger": "Same family, integral, near-boundary regime and time convention"
+        },
+        {
+          "assessment": "Inspected results classify the relevant system; no same asymptotic in those results",
+          "evidence": [
+            "The classified Kolmogorov coefficient family contains this field, with the linear terms zero."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2310.14238v1",
+          "material_read": "Corollary 3.3, §5 excerpts and phase-portrait discussion (corollary near text offset 19000)",
+          "method": "Bounded OA primary-text inspection",
+          "title": "Invariant circles and phase portraits of cubic vector fields on the sphere",
+          "trigger": "Primary source on the same sphere family"
+        },
+        {
+          "assessment": "Different dynamics and limit",
+          "evidence": [
+            "The two-component polynomial oscillator has a high-amplitude limit, not the conserved-product boundary limit of the sphere flow."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-logarithmic-phase-and-time-statistics-in-a-cubic-global-ce--35ffbf168a22/RESULT.md",
+          "material_read": "Finding and proof excerpts, offsets 0–5938",
+          "method": "Bounded local mirror inspection",
+          "title": "Sharp logarithmic phase and time statistics in a cubic global center",
+          "trigger": "Closest indexed phase-statistics analogue"
+        },
+        {
+          "assessment": "Qualitative context only from the passage read; not a whole-paper exclusion",
+          "evidence": [
+            "Recurrence and periodicity are studied, not a uniform logarithmic edge-phase rate in the abstract."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1910.01334",
+          "material_read": "Abstract, OA offset 0",
+          "method": "OA primary abstract inspection",
+          "title": "From Darwin to Poincaré and von Neumann: Recurrence and Cycles in Evolutionary and Algorithmic Game Theory",
+          "trigger": "Equivalent skew-symmetric replicator formulation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A physical-time, phase-resolved law and coordinate abundance distribution on one near-boundary orbit are meaningful descriptive invariants, distinct in use from a scalar period tail over sampled initial energies. That usefulness does not make the routine extraction from the existing passage proof an original contribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

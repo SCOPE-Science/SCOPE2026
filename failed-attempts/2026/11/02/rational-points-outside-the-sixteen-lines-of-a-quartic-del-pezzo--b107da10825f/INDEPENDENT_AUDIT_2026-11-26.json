@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:09:21.547778Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–55",
+        "Frozen VERIFICATION.md and verify.py (read-only inspection)",
+        "Independent replay: python /workspace/branches/2676e71d-c331-447b-a27f-24aac020060c/audit_record5.py",
+        "Independent output: /workspace/branches/2676e71d-c331-447b-a27f-24aac020060c/audit_record5.out lines 1–25"
+      ],
+      "rationale": "In the five-point blow-up model the 16 exceptional curves have pairwise intersection numbers 0 or 1, and the incidence graph is triangle-free. In particular a meeting is transverse and no point lies on three curves. Label the conic transform by the empty set, E_i by the complement of {i}, and the joining line L_ij by {i,j}; adjacency is then symmetric-difference size four. Coordinate permutations respect these labels, and the root reflection in H−E_1−E_2−E_3 acts by swapping coordinates 4 and 5 and toggling both, so the even signed action is compatible with the Picard marking. A rational boundary point is either on a fixed curve or at a node with its two geometric curves exchanged. A fixed form of the projective line has q+1 points over a finite field. Distinct nodes do not collide, so the reduced boundary count is f(q+1)−a+b; subtracting this from the ambient Weil–Lefschetz count gives the formula in every characteristic. The independent replay enumerated 1920 group elements and reproduced the sizes and f,a,b,t in every row. The wording 'eighteen possible polynomials' refers to eighteen type-indexed rows; they give fourteen distinct polynomials. Substitution at q=2,3,4,5 and strict positivity from q≥7 give just the two stated zeros. Both blow-up configurations are in general position on smooth conics, and direct projective-plane enumeration independently verified their empty complements. The split configuration yields the identity action; the (1)(2)(2) permutation of the five points yields +221 under the marking.",
+      "residual_risks": [
+        "This is a conditional table of counts, not a classification of which Weyl types are realized over each small field.",
+        "Numerically negative abstract polynomial values rule out realizability of those types; they are not point counts of existing surfaces."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Banwait–Fité–Loughran classify possible ambient Picard traces, not the boundary incidence data; Knecht uses points off exceptional curves in unirationality arguments.",
+          "5411549db544 gives a complement zeta function over every extension for the five-cycle, hence contains the +5 row. ddff9df78fa6 attributes a broader odd-characteristic extension-field formula to 51ccb894891f, whose full original text was not recovered."
+        ],
+        "reasoning": "Ambient trace theorems do not alone capture rational intersections of exchanged curves. The +5 extension-field result is stronger for one class only. The inaccessible claim is not credited as independently verified; decisive all-characteristic first-field coverage comes from the accessible ddff9df78fa6 itself.",
+        "searches": [
+          "arXiv:1606.00300v1 Theorem 1.3; arXiv:1307.3215v1 Theorem 2.1; Rybakov 2005 via arXiv:1606.00300v1 ref. 29",
+          "Resultary 5411549db544 and ddff9df78fa6's attribution to 51ccb894891f"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ddff9df78fa6 and 5411549db544",
+        "arXiv:1510.04621v2 p. 3, arXiv:1606.00300v1 Theorem 1.3, arXiv:1307.3215v1 Theorem 2.1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inspected proof explicitly counts fixed components, fixed nodes with branches fixed and fixed nodes with branches swapped; it derives the same first-field formula in all characteristics and reduces zeros to q=3 for q²−2q−3 and q=5 for (q−5)².",
+          "It verifies a +221 blow-up in F_3 and the split conic example in F_5. The split case independently has older primary-literature coverage."
+        ],
+        "reasoning": "The assigned count and emptiness classification do not require a new implication beyond the same group action, boundary formula and census. The examples add no further Frobenius case. Equivalence of mathematical contents does not infer priority or derivation from an indexed date.",
+        "searches": [
+          "ddff9df78fa6 original Proof, offsets 2200–6124; Knecht–Reyes arXiv:1510.04621v2 split case"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "ddff9df78fa6 calls a surface full when every rational point lies on the reduced geometric exceptional boundary. It gives q²+tau(g)q+1−m(g)(q+1)+a(g)−b(g) with tau the Picard trace and m the fixed-curve count.",
+          "The split complement count (q−5)² and split fullness iff q=5 were already recorded by Knecht–Reyes, citing Hirschfeld."
+        ],
+        "reasoning": "Fullness is exactly emptiness of U as a rational-point set; tau=1+t and m=f. The ostensibly different F_3 examples each consist of one rational point and two conjugate pairs on a smooth F_3-conic (five general-position points determine a unique smooth conic). On such a conic there are four rational points and three degree-two pairs. PGL2(F_3) is transitive on rational points, and the order-three subgroup of a rational-point stabilizer cycles the three pairs: it cannot fix a pair since then it would fix its two points individually, impossible for a nontrivial unipotent element. Thus it is transitive on choices of two pairs after fixing the rational point. The conic automorphisms extend through the plane embedding, so the two F_3 blow-up configurations are projectively equivalent.",
+        "searches": [
+          "Resultary: quartic del Pezzo full surfaces, exceptional-curve boundary complements and Frobenius zeta, records ddff9df78fa6 and 5411549db544",
+          "Knecht–Reyes arXiv:1510.04621v2, PDF p. 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "ddff9df78fa6 defines the full even-subset graph census on 16 vertices, 40 edges and 1920 elements, lists all fourteen distinct first-field expressions and explicitly notes eighteen signed types.",
+          "Its accessible proof gives the two zero polynomials and identifies +221 for the F_3 realization. 5411549db544 supplies a direct same-day +5 match."
+        ],
+        "reasoning": "The grouped list is less redundant than an eighteen-row display but is the same full first-field polynomial catalogue. Per-class incidence pairs and class sizes can be read off by tallying the stated finite action; they do not require a new geometric input. The same-day five-cycle record is not excluded by date and does not alone cover the whole table.",
+        "searches": [
+          "Local Resultary search for signed-cycle incidence and zeta of the sixteen-line complement, including 51ccb894891f, ddff9df78fa6, 5411549db544",
+          "arXiv:1606.00300v1 Theorem 1.3 trace classification"
+        ]
+      },
+      "rationale": "Resultary ddff9df78fa6 directly gives the all-characteristic boundary identity, the full 1920-element census mechanism and the resulting fourteen first-field polynomials indexed by eighteen types, the exact two zero cases, and the same two blow-up realizations up to projective equivalence. The separate class-size column and explicit assignment of each invariant to each signed type are mechanical outputs of that reproducible enumeration, not a distinct substantive complement-count result. This is demonstrable equivalent coverage from the inspected accessible record, independently of the uninspected attributed zeta record and without inferring which work was first.",
+      "residual_risks": [
+        "The underlying attributed zeta record and Rybakov's primary full text were not read, and the historical priority of the nonsplit example is not established. The originality decision relies on direct equivalent coverage in the accessible text, not on non-retrieval or date ordering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of universal count law, distinct polynomials for eighteen types and both empty cases, including characteristic two in the scope.",
+          "evidence": "Uses m,a,b,tau, 16 even subsets and Hamming-distance-four adjacency; supplies all fourteen expressions, its +221 example, and the classical split construction.",
+          "identifier_or_url": "ddff9df78fa6",
+          "material_read": "RESULT.md Finding, Scope, universal zero-test proof, all-polynomial list and both examples (mirror offsets 0–6124)",
+          "method": "Local Resultary mirror, bounded passages",
+          "title": "A nonsplit full quartic del Pezzo surface over the three-element field",
+          "trigger": "Same open locus, zero cases and full-census attribution"
+        },
+        {
+          "assessment": "Covers +5 in all extensions, not the general table or empty cases.",
+          "evidence": "For extension degree prime to five the complement count is q^(2n); when five divides n it is (q^n−5)².",
+          "identifier_or_url": "5411549db544",
+          "material_read": "RESULT.md Finding, opening passage",
+          "method": "Local Resultary mirror",
+          "title": "Five induced quintic tori for the sixteen-line boundary of a quartic del Pezzo surface",
+          "trigger": "Same-day complement zeta for a specific Weyl action"
+        },
+        {
+          "assessment": "Confirms older exact identity row and q=5 case.",
+          "evidence": "The split degree-four count off exceptional lines is (q−5)², and a split quartic is full iff q=5.",
+          "identifier_or_url": "arXiv:1510.04621v2",
+          "material_read": "PDF p. 3, OA offset 6354",
+          "method": "OA primary PDF passage",
+          "title": "Full Degree Two Del Pezzo Surfaces over Small Finite Fields",
+          "trigger": "Split quartic full-surface classification cited from Hirschfeld"
+        },
+        {
+          "assessment": "Ambient trace/existence classification, not the complement invariant.",
+          "evidence": "Degree-four Picard traces −2 through 4 occur for all q, and 6 iff q is not 2 or 3.",
+          "identifier_or_url": "arXiv:1606.00300v1",
+          "material_read": "Theorem 1.3, PDF p. 3; ref. 29, p. 24",
+          "method": "OA primary PDF passages",
+          "title": "Del Pezzo surfaces over finite fields and their Frobenius traces",
+          "trigger": "Broader arithmetic classification for same degree and Weyl action"
+        },
+        {
+          "assessment": "Motivational use in unirationality, not an incidence census in the inspected material.",
+          "evidence": "The cases concern unirational parametrization from points off exceptional curves.",
+          "identifier_or_url": "arXiv:1307.3215v1",
+          "material_read": "Theorem 2.1, PDF p. 3, OA offset 6463",
+          "method": "OA primary PDF passage",
+          "title": "Degree of Unirationality for del Pezzo Surfaces over Finite Fields",
+          "trigger": "Potential earlier use and classification of points off exceptional curves"
+        },
+        {
+          "assessment": "Unresolved possible coverage; not used to infer presence or absence of complement formulas.",
+          "evidence": "The primary accessible trace paper cites it for arithmetic on the ambient surfaces.",
+          "identifier_or_url": "S. Rybakov, Moscow Mathematical Journal 5 (2005), 919–926",
+          "material_read": "Bibliographic reference in arXiv:1606.00300v1; no primary full text recovered",
+          "method": "OA retrieval attempted; inspected the accessible citation",
+          "title": "Zeta functions of conic bundles and del Pezzo surfaces of degree 4 over finite fields",
+          "trigger": "Same degree and Frobenius zeta invariants"
+        },
+        {
+          "assessment": "Secondary report of broader coverage; not needed for the verdict.",
+          "evidence": "ddff9df78fa6 explicitly attributes the every-extension odd-characteristic formula and eighteen-class parametrization to this record.",
+          "identifier_or_url": "51ccb894891f",
+          "material_read": "Attribution in ddff9df78fa6 Finding; original RESULT.md not recovered",
+          "method": "Local mirror and Resultary lookup",
+          "title": "Frobenius zeta formula and fifteen incidence profiles for the sixteen-line complement of a quartic del Pezzo surface",
+          "trigger": "Explicit attribution of the all-class odd-characteristic zeta formula in ddff9df78fa6"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof",
+        "arXiv:1307.3215v1 Theorem 2.1",
+        "Resultary ddff9df78fa6"
+      ],
+      "rationale": "An exact count off a geometrically natural boundary is useful: Picard traces alone cannot detect rational intersections with conjugate branches, and the counts give a sharp existence threshold of geometric interest. This recognizes the mathematical value of the classification, not a distinct contribution beyond the equivalent coverage identified on the originality axis.",
+      "residual_risks": [
+        "No further classification by small-field realizability or unirationality degree is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

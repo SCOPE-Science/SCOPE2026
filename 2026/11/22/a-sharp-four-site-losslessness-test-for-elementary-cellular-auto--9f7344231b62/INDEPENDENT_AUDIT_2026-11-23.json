@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:51:12.964993Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the no-11 input shift the only possible triples are 000,001,010,100,101; each effective mask therefore represents eight Wolfram rules. Failure of the tests c≠e, not(b=c=d), and not(a=c and b=d) gives collisions of cyclic words (01,10), (001,010), and (1000,0010), respectively, hence also distinct bi-infinite periodic inputs. The successive exclusions have sizes 16,4,2 in mask space, leaving 4,6,7,12,13,18,19,24,25,27. Mask 4 copies the center. For masks 6 and 7, a center 1 guarantees y_i=1 and y_(i+1)=0 because the next triple is 100 or 101. If the center is 0 with y_i=1, the triple is 001 or (for 7) 000, in either case forcing y_(i+1)=1. This proves the right-looking decoder. Reflection gives the left-looking decoder for 12 and 13; bit complement gives the other five masks. These pointwise arguments hold on every allowed input and on all periodic extensions, including repeated indices on short rings. For masks 6 and 7, 010 and 001 give the same new center for different old centers; the reflected and complemented cases inherit the obstruction. Thus only masks 4 and 27 admit radius zero, giving 16 rules. An independent exact loop over all 256 rules, retaining length-n bit strings with no adjacent ones including wraparound and looking for equal encoded outputs, found 128 first collisions at n=2, 32 at n=3, 16 at n=4, and 80 rules without a collision at n≤4. The n=4 failures are masks 5 and 26, including Rule 5; it passes n=1,2,3 and 1000 versus 0010 collides at n=4. Replay: frozen RESULT.md lines 28–54, cyclic bit-code loop just described; VERIFICATION.md and verify.py inspected, not executed. No infinite conclusion is extrapolated from the ring enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Salo treats sections/generalized inverses and same-period preimages of image points, with Rule 28 and the golden-mean shift in Proposition 20.",
+          "The earlier all-ECA record classifies existence of an unrestricted open-boundary finite output with a unique finite predecessor, giving 164 rules."
+        ],
+        "reasoning": "A section needs one preimage per image point, not uniqueness on the prescribed entire source. A single unrestricted finite output with unique predecessor does not imply that all golden-mean inputs have distinct images. General finite-state methods can address the injectivity decision but the inspected statements do not supply this exact cutoff or classification.",
+        "searches": [
+          "Salo arXiv:2209.13373v1, Section 6.1 and Remark 1",
+          "Kopra, PMCID PMC7247874 (beta-shifts and restricted-source dynamics)",
+          "Resultary 218bfa54da8f, all-ECA finite-preimage identifiability"
+        ]
+      },
+      "checked_sources": [
+        "Salo arXiv:2209.13373v1, Remark 1 and Proposition 20",
+        "Resultary originals 7cb9788fe571, ea473cd93241, 8fa574301e73, 218bfa54da8f",
+        "Kopra PMC7247874, full-text retrieval attempted only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Salo's existence of a section does not address collisions among all admissible inputs; the Rule 28 local inverse directly covers its effective mask, while the Rule 150 fiber statement directly covers failure of all-length injectivity for effective mask 14.",
+          "Neither gives the 4-site sharp witness (mask 5 or 26), the full classification, or its minimal radius-zero count. The unrestricted Rule 28 and finite-open identifiability results use different quantifiers or source sets."
+        ],
+        "reasoning": "The strongest available overlaps are credited wherever they imply part of the claim. The uniform length cutoff requires the exhaustive three collision mechanisms and the surviving local decoders; it is not a general equivalence between sections and injectivity.",
+        "searches": [
+          "Salo, Proposition 20 versus same-period preimage condition in Remark 1",
+          "Resultary Rule 28 and Rule 150 original Findings, and earlier all-rule and Rule 28 inverse-fiber records"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-day Rule 28 losslessness result gives exactly the mask 12 inverse y_i(1−y_(i−1)) and injectivity on every indexed admissible ring; it further identifies the image by forbidden words.",
+          "The same-day Rule 150 result gives injectivity on golden-mean input rings precisely when 3 does not divide n. Its mask is 14, which fails the three-site test."
+        ],
+        "reasoning": "Translation to effective input truth tables makes both overlaps explicit. These are one positive and one negative class and do not settle the other masks or sharpness; there is no inferred priority from the same-day date.",
+        "searches": [
+          "Resultary local-index comparison of golden-mean constrained-source ECA losslessness / reversible no-11 input / cyclic ambiguity, including Rule 28 and Rule 150",
+          "Salo arXiv:2209.13373v1, Proposition 20 and Remark 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The unrestricted cyclic Rule 28 inverse-fiber classification is a different domain and one rule only. The indexed all-rule 164 result is a different predicate.",
+          "The nearby exact golden-mean records give Rule 28 and Rule 150, not a table for all 32 effective masks. The independent finite census matches the assignment but does not serve as evidence of historical priority."
+        ],
+        "reasoning": "Compare the underlying source constraint, the quantifier over input/output words, and the specific invariant of each table before treating it as the exact classification. No distinct indexed table covering the same class and predicate was verified.",
+        "searches": [
+          "Resultary local index, exact 256-rule/80-rule ECA census, four-site obstruction, cyclic Rule 28 and finite-preimage classifications; IDs 7cb9788fe571, ea473cd93241, 8fa574301e73, 218bfa54da8f"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the all-rule constrained-source classification, including its three Boolean tests, universal four-site cutoff, sharpness and exact decoder-radius census. Known or companion single-rule results overlap their cases, not the full classification.",
+      "residual_risks": [
+        "An equivalent table under constrained symbolic coding, reversible restrictions or graph-presentation terminology may not have surfaced. The Kopra full text was not independently inspected.",
+        "No ordering or historical priority is inferred for the verified same-day overlaps."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantially related restricted-source construction; different general predicate and no full census",
+          "evidence": "The weak periodic condition provides same-period preimages for periodic points in the image. Proposition 20 analyzes ECA 28 and a section on the golden-mean shift.",
+          "identifier_or_url": "https://arxiv.org/pdf/2209.13373",
+          "material_read": "v1, Remark 1 p. 5 (offset around 19872) and Section 6.1, Proposition 20 p. 9 (offset around 34439)",
+          "method": "Original OA PDF, decisive passages",
+          "title": "On von Neumann regularity of cellular automata",
+          "trigger": "Golden-mean shift and ECA 28, with section and periodic point criteria"
+        },
+        {
+          "assessment": "Exact overlap for effective mask 12 and a stronger image characterization for that rule; priority not resolved",
+          "evidence": "Rule 28 is conjugate via its restriction to the shift forbidding 111 and 0100, with decoder y_i(1−y_(i−1)), and it is bijective onto the corresponding indexed cyclic image.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-lossless-golden-mean-restriction-of-elementary-rule-28-with-an--7cb9788fe571",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Published original in local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A lossless golden-mean restriction of elementary Rule 28",
+          "trigger": "Exact same constrained source and decoder for one of the good rules"
+        },
+        {
+          "assessment": "Exact one-rule overlap for the cyclic failure, with stronger length-resolved data; priority not resolved",
+          "evidence": "On indexed golden-mean input rings Rule 150 is injective precisely when 3 does not divide n. Its effective mask 14 fails b=c=d.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-ambiguity-language-and-inverse-fiber-spectrum-of-cyclic-ru--ea473cd93241",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Published original in local mirror",
+          "title": "Exact ambiguity language and inverse fiber spectrum of cyclic Rule 150",
+          "trigger": "Exact golden-mean-source cyclic injectivity data on a bad rule"
+        },
+        {
+          "assessment": "Unrestricted sources; not the golden-mean restricted map",
+          "evidence": "The inverse-fiber quantities count predecessors on the full binary ring, not the constrained source in this theorem.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-lucas-inverse-fiber-law-and-output-classification-for-cycl--8fa574301e73",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Published original in local mirror",
+          "title": "Sharp Lucas inverse-fiber law and output classification for cyclic Rule 28",
+          "trigger": "Earlier exact Rule 28 predecessor-fiber classification on rings"
+        },
+        {
+          "assessment": "Different predicate and boundary condition",
+          "evidence": "The 164 rules have at least one uniquely invertible finite open-boundary output block without the input restriction; this is not universal injectivity on golden-mean inputs.",
+          "identifier_or_url": "2026/10/25/SCOPE-exact-finite-preimage-identifiability-for-all-elementary-cellula--218bfa54da8f",
+          "material_read": "RESULT.md, offsets 0 and 900",
+          "method": "Published original in local mirror",
+          "title": "Exact finite-preimage identifiability for all elementary cellular automata",
+          "trigger": "Earlier complete all-rule exact table involving unique predecessors"
+        },
+        {
+          "assessment": "Residual broader-coverage risk; no whole-document exclusion",
+          "evidence": "The frozen record cites source-shift dynamics rather than an exact classification; no independent full-text negative evidence was available.",
+          "identifier_or_url": "PMC7247874",
+          "material_read": "Bibliographic identity and cited scope only; no original passage read",
+          "method": "Bounded PMC and Europe PMC retrieval attempts did not return full text",
+          "title": "Dynamics of Cellular Automata on Beta-Shifts and Direct Topological Factorizations",
+          "trigger": "Reversibility on related source shifts could produce a covering classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "One-step lossless decoding of a canonical constrained binary source is a natural exact problem. The four-site sharp cutoff gives a practical complete test for a statement over bi-infinite inputs, and the explicit decoders and minimal-radius census convert classification into uniform reconstruction. Unrestricted reversibility or the existence of any uniquely invertible block cannot answer this question. The result concerns input restriction, not preservation of the source shift or invertibility of an unrestricted update.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

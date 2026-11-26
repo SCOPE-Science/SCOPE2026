@@ -1,17 +1,21 @@
-# Scientific review: rational fixed-space spectra of weighted cyclic evolution algebras
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof establishes monomiality from linear independence of basis squares; the directed-cycle graph then forces a rotation. For each shift, a one-parameter coefficient recurrence has an explicit closing equation, and the finite cyclic multiplicative group yields the exact number of solutions. The dimension of the linear fixed space is determined by cyclic weight products, reducing to a second power equation whose solutions give the stated multiplicities. The nonabelian order-63 example is checked directly from these formulas, not inferred from sampling. Finite-field Gaussian elimination independently reproduces the enumerator in 843 configurations, including nonprime fields. Limit: finite verification does not itself establish the universally quantified theorem; the explicit algebraic argument does.
+## correctness
 
-## Originality
-**PASS with bounded-search uncertainty.** Elduque--Labra (2013) establishes monomiality and finiteness, Elduque--Labra (2019) the general automorphism-group-scheme sequence and a two-dimensional nonsplitting example, and Wei--Zou (2023) a general isomorphism-orbit correspondence. Those statements cover preliminary reductions and special structural aspects but not the full all-dimension arithmetic polynomial for rational fixed subspaces or the displayed nonabelian semiregular action in a six-dimensional simple weighted-cycle algebra. Targeted mathematical research searches returned related but different automorphism and fixed-point results. The previously accessible mathematical-claim history includes nilpotent cycle evolution algebras and other algebra automorphism distributions, not this theorem. Risk: an equivalent specialized treatment outside the inspected sources could exist; absence from a search is not proof of uniqueness.
+PASS
 
-## Value
-**PASS.** The graph alone does not determine which rotations lift over the finite base field, nor whether an existing rational lift has a fixed vector. The two different power obstructions classify these behaviors uniformly and provide a natural fixed-space invariant and all-tuple orbit counts. The explicit order-63 nonabelian group acting freely outside zero in a simple evolution algebra is a substantive realization phenomenon; it is not just a tiny parameter update to an existing table. The contribution concerns rational automorphism actions, not a new general group-theoretic type of Frobenius complement.
+In a nonzero ideal, multiplication of a vector by a basis vector corresponding to a nonzero coordinate gives a nonzero multiple of the successor basis element; squaring propagates around the cycle. For an automorphism, independence of the squares makes the supports of its basis images pairwise disjoint, so its matrix is monomial and the successor rule forces rotation by s. The coefficient recurrence doubles the exponent of c_0 at each step and inserts the unique numerator factor t on crossing index n−1−s (for s>0); closure gives c_0^N=t^(1−2^s). On the cycle containing 0 the weights multiply to c_0^H_s t^J_s, since the indices are the multiples of g_s, and both n and s are divisible by g_s. The L=n/g_s power of the map is diagonal, with successive entries related by squaring, and the entries have odd order dividing N. Accordingly all cycle products are 1 or none are, and the fixed dimension is g_s or zero even if the field characteristic divides L. The product-one equation implies closure by raising to 2^g_s−1. Counting roots in the field's cyclic multiplicative group yields exactly A_s and B_s, including s=0 (B_0=1) and q=2. The order formula follows by counting shifts modulo the order of the twist class under doubling; the tuple-orbit formula is Burnside. An independent enumeration over F_43, checking all first coefficients per shift and reducing explicit matrices phi−I over that field, found 21 matrices for each of 0,2,4 and nullity counts {0:62,6:1}. Conjugation by a shift-2 lift raises the diagonal parameter to 2^4=16 modulo 21, proving noncommutativity. The orbit number is 1+(43^6−1)/63=100339097. The proof is characteristic-independent for rational points, not a scheme calculation. The frozen verifier was inspected as source; its reported 843 cases are not relied on as an independently rerun test.
 
-## Closest literature and limitations
-- A. Elduque and A. Labra, *Evolution algebras and graphs*, arXiv:1312.4685, §4, Theorem 4.4, Corollary 4.7, Theorem 4.8. Monomiality and finite automorphism groups are established there.
-- A. Elduque and A. Labra, *Evolution algebras, automorphisms, and graphs*, arXiv:1902.02191, §3, Theorem 3.2 and Example 3.5. A general group-scheme sequence and nonsplitting in dimension two are already known.
-- Y. Wei and Y. M. Zou, *Isomorphism Classes of Idempotent Evolution Algebras*, arXiv:2310.12368, §1, Theorem 1.1, Corollary 1.1. The general isomorphism-orbit criterion is known.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the rational fixed-space multiplicity polynomial and arithmetic separation between admissible shifts and shifts with fixed vectors. Monomiality, the graph exact sequence, and monomial isomorphism are prior. The group order and the specific order-63 example overlap with later-dated catalog records; the supported distinct contribution is the general fixed-space census, not priority for those ancillary facts or for abstract fixed-point-free groups.
+
+## value
+
+PASS
+
+The classification accounts for all rational automorphisms, including the gap between existence of a rational rotation and existence of a lift preserving a nonzero vector, not detected by the group order or an algebraic-closure classification. The full fixed-space census simultaneously yields tuple-orbit counts and a freeness criterion, and the order-63 example shows that the distinction is nonvacuous for a nonabelian action on a simple algebra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

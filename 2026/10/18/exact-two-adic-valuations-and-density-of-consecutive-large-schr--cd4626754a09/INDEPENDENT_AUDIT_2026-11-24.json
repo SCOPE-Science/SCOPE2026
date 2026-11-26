@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:02:03.276382Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The binomial interpolation converges uniformly because the kth term has valuation at least k−ν₂(k), and agrees with the combinatorial sequence at each positive index. At 0 and 1 its value is 2; at −1 and −2 it is −2 by the geometric and weighted geometric series, so its forward difference vanishes at 0 and −2. Cao–Pan Theorem 2 extends by continuity to the four residue classes. At even x the signs at x and x+1 are opposite, so the forward-difference increment for a shift by 2^α, α≥2, is 2^(α+2) modulo 2^(α+3). Summing an odd number of increments preserves this exact valuation, giving a distance factor of 1/4 on each even class modulo four. Anchoring at 0 or −2 gives ν₂(n)+2 or ν₂(n+2)+2, respectively; the other factor of n(n+2) has valuation one. On odd indices the α=1 congruence makes D_n constant modulo 16 along steps of two, with D_1=4. The two distinct exact-level classes modulo 2^(j−1) give the stated densities; index zero is correctly excluded. Independent exact rational sums of the displayed binomial series through n=64 checked all first-difference valuations through n=63 and residue sets at levels 4–6. The uploaded recurrence checker was inspected, not executed; neither finite check is the all-index proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2 gives a sharper modulus for dyadic shifts for all positive n, including the separate α=1 case. The literature query produced no useful additional exact match; that is not evidence of absence."
+        ],
+        "reasoning": "The prior theorem supplies the local change of D on residue classes, but does not identify the two absolute roots, which require separate evaluations of the extension.",
+        "searches": [
+          "Cao and Pan, arXiv:1512.06310v1, Theorem 2 and proof",
+          "Targeted primary-literature search for exact v₂ of consecutive Schröder differences"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–75, VERIFICATION.md and VERIFY.py",
+        "Cao–Pan arXiv:1512.06310v1, Theorem 2 and eq. (7)",
+        "Resultary mirror e55f0b81207c",
+        "OEIS A239204"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cao–Pan give both the summands and dyadic-shift congruences. Applying their congruences to the forward difference yields the local isometry, but the proof still needs a continuous extension and exact equality of interpolated values at 0,1 and −2,−1.",
+          "The later companion independently presents a root and divided-difference analysis under the little-number normalization."
+        ],
+        "reasoning": "The odd-index assertion follows directly from the two-step congruence. The full valuation/density classification, particularly the even classes, is not a direct substitution into the inspected earlier identities.",
+        "searches": [
+          "arXiv:1512.06310v1 Theorem 2 and equation (7)",
+          "OEIS A239204 hypergeometric and difference identities",
+          "Resultary e55f0b81207c proof and prior-work discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary e55f0b81207c gives ν₂(d_n)=1 at odd n and ν₂(n(n+2)) at even n for the little-number difference d_n. For n≥1, d_n=D_n/2, giving the same law and density fibres after shifting valuation levels by one. Its indexed path is 2026/11/22, versus 2026/10/18 for the frozen record.",
+          "A239204 identifies its nth term with the little-number difference at n+1 divided by two, equivalently D_(n+1)/4."
+        ],
+        "reasoning": "The little-number record really covers the same fact, not just a similar sequence. Its later indexed publication does not give evidence of pre-existing equivalent coverage. The aliased OEIS sequence is an earlier description of the integers, not of their exact valuations.",
+        "searches": [
+          "Resultary semantic lookup: exact two-adic valuations, adjacent large/little Schröder numbers, and residue/density laws",
+          "OEIS A239204 and A006318"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A239204 has a finite table and hypergeometric and generating-function entries, but no exact-level valuation or density classification in the inspected entry. The later indexed record gives exact divisibility classes for d_n."
+        ],
+        "reasoning": "Neither tabulating integers nor giving a recurrence for them establishes all-index exact valuation classes. The later exact classification is explicit equivalent coverage, but is not shown to predate the frozen result.",
+        "searches": [
+          "OEIS A239204, Formula section and table link; A006318 as base sequence",
+          "Resultary e55f0b81207c, Finding"
+        ]
+      },
+      "rationale": "The oldest resolved matching machinery supplies shifts of the sequence and its binomial coefficients, not the anchors or exact consecutive-difference valuation fibres. A distinct indexed record is exactly equivalent after normalization, but the evidence places that publication after the frozen finding and establishes no earlier coverage. This is a judgment on the frozen result against evidenced earlier work, not a claim of unique discovery or historical priority.",
+      "residual_risks": [
+        "An unindexed earlier exact valuation or stronger 2-adic result could exist; the literature query gave weak recall.",
+        "Indexed publication order is not discovery order; the later equivalent match is substantive overlap, not a priority finding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the shift congruence and expansion, not the exact first-difference classification.",
+          "evidence": [
+            "Theorem 2: modulus 2^(α+3) at α≥2 and S_(n+2)−S_n=4 mod 16 at α=1; eq. (7) is the Narayana expansion."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1512.06310",
+          "material_read": "PDF pp. 2–6, Theorem 2, equation (7), and the shift-congruence proof",
+          "method": "Lawful OA PDF, relevant passages inspected",
+          "title": "A Stern-type congruence for the Schröder numbers",
+          "trigger": "Primary earlier theorem on the same sequence and dyadic valuations"
+        },
+        {
+          "assessment": "Equivalent classification for positive indices; later indexed publication, with no demonstrated earlier priority.",
+          "evidence": [
+            "Its even formula is ν₂(n(n+2)) for D_n/2, with high-divisibility branches 0 and −2; its comparison likewise credits only the shift congruence to Cao–Pan."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-two-adic-valuations-of-adjacent-little-schr-der-numbers--e55f0b81207c",
+          "material_read": "RESULT.md Finding, proof and prior-work section; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4, offsets 0–7072",
+          "method": "Local mirror",
+          "title": "Exact two-adic valuations of adjacent little Schröder numbers",
+          "trigger": "Normalization-equivalent semantic match"
+        },
+        {
+          "assessment": "Earlier formulas and finite tabulation for the integers, not their exact valuation fibres.",
+          "evidence": [
+            "Formula entry dated 2014-09-23 equates a(n) with (A001003(n+2)−A001003(n+1))/2; hypergeometric form is also given."
+          ],
+          "identifier_or_url": "https://oeis.org/A239204",
+          "material_read": "Formula section, offsets 550–2546; table link and valuation-term lookup",
+          "method": "OA website text",
+          "title": "OEIS A239204: Expansion of a square-root algebraic generating function",
+          "trigger": "Database representation of precisely the difference sequence up to shift and scaling"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact first-difference valuation, not just a congruence bound, for a classical combinatorial sequence determines every divisibility level and its frequency. The two explicit 2-adic roots and local isometry explain the full split of indices, including the missing level three. This is a usable arithmetic classification, not finite table reconstruction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

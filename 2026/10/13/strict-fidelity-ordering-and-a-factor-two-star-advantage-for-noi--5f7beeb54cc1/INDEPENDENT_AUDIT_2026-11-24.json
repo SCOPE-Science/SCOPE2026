@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:27:14.490479Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Expand the ideal projector as 2^(-n) times the graph-stabilizer sum. For subset sizes i,j in the two parts, all vertices of part A are supported when j is odd, otherwise just the selected i; likewise B is wholly supported when i is odd, otherwise just the selected j. X and Z at the same vertex still give a nonidentity Pauli. Trace orthogonality and depolarizing eigenvalue r=1-q give a fidelity sum of r^weight, yielding the displayed four terms by splitting (i,j) by parity. Independently for n=4 the weight polynomials are 1+6r^2+9r^4 and 1+2r^2+8r^3+5r^4, recovering the exact 49/256 versus 45/256 at r=1/2. With x=u/t and y=r/t we have x+y=1 and both strictly between zero and one. For b>=a+2, m=b-a-1, subtraction after normalization by t^n/4 gives two positive differences y x^a(1-x^m), x y^a(1-y^m), minus (y-x)(xy)^a(y^m-x^m). If y>x the latter is strictly less than the first positive term, since (y-x)/y, y^a and (y^m-x^m)/(1-x^m) are each in (0,1); if x>y exchange x and y; equality x=y makes the correction zero. Thus all adjacent comparisons are strict, including the last allowed step for either parity of n. The normalized balanced limit is 1 since both sizes diverge; for fixed a only 1+x^a+y^a survives, equal to 2 at a=1. The formula gives 1 and 2^(-n) at the endpoints, where no strict comparison holds. These are exact overlap statements for IID post-preparation depolarization, not entanglement or circuit-preparation thresholds. Inspected VERIFICATION.md and verify.py; the reported VERIFY_OK 3612 is a finite replay, not an all-size certificate. It was not rerun.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tanizawa and Numajiri give general-graph stabilizer fidelity representations and the fully connected special case; Miller et al. give a general support counting theorem and entanglement thresholds. None of these passages asserts an ordering at fixed n across biclique splits."
+        ],
+        "reasoning": "The closed polynomial is a specialization of the general graph formula. General enumerability and entanglement-threshold statements do not compare its evaluations as one part is enlarged at the other's expense.",
+        "searches": [
+          "Literature: arXiv:2510.00548 Section 6.4 Appendix B complete bipartite graph state depolarizing noise fidelity stabilizer weight enumerator star balanced biclique ordering",
+          "arXiv:2304.10952 §II and §IV.A",
+          "arXiv:2207.07665 Theorem 1 and §§5.1–5.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2510.00548",
+        "arXiv:2304.10952",
+        "arXiv:2207.07665",
+        "Resultary complete-bipartite qudit enumerator and tree fidelity comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact expression allows the limiting ratio by normalization and termwise decay once one identifies the leading balanced and fixed-side contributions. The strict finite ordering additionally requires controlling the mixed-power cross term for every interior r, which does not follow from the mere existence of a weight enumerator or a one-graph limit."
+        ],
+        "reasoning": "Credit the graph-general method, the prior star solution and the equivalent polynomial. The substantive distinction is the uniform split ordering, with the ratio a sharp asymptotic interpretation of the computed profiles.",
+        "searches": [
+          "Numajiri et al., arXiv:2510.00548, §6.4 equations (31)–(32) and Appendix B equations (45), (54)–(55)",
+          "Miller et al., arXiv:2207.07665, Eq. (8) and Theorem 1",
+          "Resultary qudit complete-bipartite support polynomial"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "F is the normalized Shor–Laflamme support polynomial evaluated at r. The fully connected state and the star are locally Clifford-equivalent, so their iid depolarizing overlaps are identical.",
+          "The qudit complete-bipartite entry gives precisely this support polynomial at local dimension two, for parts of size at least two."
+        ],
+        "reasoning": "Neither graph presentation nor error normalization creates a new star formula. The polynomial equivalence is a real overlap, but is not an inequality between splits or their fixed-strength asymptotic comparison.",
+        "searches": [
+          "Resultary: complete bipartite graph states IID depolarizing fidelity star balanced biclique strict fidelity ordering factor two",
+          "Resultary: graph state stabilizer fidelity depolarizing complete bipartite graph",
+          "arXiv:2207.07665 §2 and §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The qudit entry's polynomial evaluates to the frozen closed formula at qubit dimension for a,b>=2; its fixed-side support limit does not address balanced growth. The papers' fully connected formulas match the star endpoint. The tree reversal result uses distributed resource noise and concerns a star/path pair, on available indexed evidence."
+        ],
+        "reasoning": "Judge the overlap by the evaluated polynomial rather than catalogue dates. No inspected matched expression also tabulates the strict adjacent split comparison, and the tree summary is neither the same noise model nor the same class.",
+        "searches": [
+          "2026/10/26/SCOPE-exact-sld-and-two-scale-limit-for-complete-bipartite-qudit-graph--8f233b91f942",
+          "2026/10/12/SCOPE-noise-induced-reversal-of-tree-fidelity-extremizers-in-distributed-graph-states--fab352b6e5c2",
+          "Tanizawa et al., arXiv:2304.10952, Eq. (28)",
+          "Numajiri et al., arXiv:2510.00548, Eq. (30)"
+        ]
+      },
+      "rationale": "The stabilizer-weight identity and the star/GHZ formula are prior, and a distinct indexed qudit entry has an equivalent weight polynomial for qubit bicliques with both sides at least two. The defensible distinct result is the strict fidelity ordering across every adjacent split at all interior strengths and the sharp fixed-noise relative asymptotic, not the underlying Pauli-weight framework or the star formula.",
+      "residual_risks": [
+        "A prior graph weight-enumerator inequality or separate biclique ordering may exist beyond the bounded searches.",
+        "The distributed-tree comparison is limited to its indexed summary. No priority inference is made solely from a catalogue date."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Graph-general identities and star special case; not strict split ordering",
+          "evidence": "General sum over stabilizer weights and constrained-spin expression; the fully connected state has the star's overlap under isotropic local noise.",
+          "identifier_or_url": "https://arxiv.org/pdf/2510.00548",
+          "material_read": "Eq. (30), p. 7; §6.4, Eqs. (31)–(32), p. 8; Appendix B, Eqs. (45), (54)–(55), pp. 11–12",
+          "method": "Targeted OA PDF reading",
+          "title": "Phase Transitions and Noise Robustness of Quantum Graph States",
+          "trigger": "Same channel, general fidelity and known star-equivalent formula"
+        },
+        {
+          "assessment": "Known sum and exact fully connected formula",
+          "evidence": "Depolarization multiplies expectations by the attenuation to the stabilizer weight. Local Clifford covariance gives the star special case.",
+          "identifier_or_url": "https://arxiv.org/pdf/2304.10952",
+          "material_read": "§II, Eqs. (11), (20), pp. 3–4, and §IV.A, Eq. (28), p. 5",
+          "method": "Targeted OA PDF reading",
+          "title": "Fidelity-estimation method for graph states with depolarizing noise",
+          "trigger": "Prior stabilizer overlap identity under matching noise"
+        },
+        {
+          "assessment": "General combinatorial coverage and exact star enumerator, no matched split order in inspected passages",
+          "evidence": "Black-white coloring counts give the support weights; the robustness sections study entanglement-related quantities rather than the ordering of the overlap studied here.",
+          "identifier_or_url": "https://arxiv.org/pdf/2207.07665",
+          "material_read": "§2, Eq. (8), Theorem 1, pp. 5–6; §4, Eq. (19), pp. 8–9; §§5.1–5.2, pp. 19–20",
+          "method": "Targeted OA PDF reading",
+          "title": "Shor–Laflamme distributions of graph states and noise robustness of entanglement",
+          "trigger": "General weight enumerator and graph-state noise robustness"
+        },
+        {
+          "assessment": "Exact enumerator overlap at dimension two with a,b>=2; no strict ordering or balanced limit there",
+          "evidence": "Setting the evaluation variable to r and dividing by 2^n reproduces the four-term fidelity formula for those sizes.",
+          "identifier_or_url": "2026/10/26/SCOPE-exact-sld-and-two-scale-limit-for-complete-bipartite-qudit-graph--8f233b91f942",
+          "material_read": "Matched RESULT.md finding on support polynomial and fixed-side regime",
+          "method": "Indexed local mirror",
+          "title": "Exact SLD and two-scale limit for complete-bipartite qudit graph states",
+          "trigger": "Exact polynomial overlap on the same graph family"
+        },
+        {
+          "assessment": "Different graph family and reported noise model; no whole-document determination",
+          "evidence": "The reported comparison is between star and path on trees under distribution-resource noise.",
+          "identifier_or_url": "2026/10/12/SCOPE-noise-induced-reversal-of-tree-fidelity-extremizers-in-distributed-graph-states--fab352b6e5c2",
+          "material_read": "Indexed scientific summary only; local RESULT.md unavailable",
+          "method": "Resultary summary comparison",
+          "title": "Noise-induced reversal of tree fidelity extremizers in distributed graph states",
+          "trigger": "Indexed ordering for graph-state fidelity involving stars"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact ordering is a uniform optimization result in a natural graph-state family under a standard channel, with a quantifiable relative gain even though both overlaps decay. Neither a known star formula nor arbitrary individual biclique evaluations decide the extremizers over all splits and interior strengths. No entanglement, hardware, or wider graph-family optimality is asserted.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

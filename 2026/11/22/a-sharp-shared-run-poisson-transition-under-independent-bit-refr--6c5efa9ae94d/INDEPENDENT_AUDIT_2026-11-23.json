@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:58:33.576180Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Read the sparse scaling along admissible lengths as in RESULT.md's scope and limitations: with integer k it cannot hold along every integer n (successive ratios would force k_(n+1)−k_n eventually zero). For an interior start p=2^(−k−1), and the same-site joint probability q=p(1−ε/2)^(k+1) includes the preceding zero. At displacement 1≤d≤k, same-copy starts exclude each other. One cross orientation forces one specified discordant pair (ε/4), k−d specified concordant ones (t/2 each), and 2d singly specified coordinates (1/2 each), giving r_d=ε t^(k−d)/2^(k+d+2). The other orientation is symmetric; outside distance k the paired blocks are disjoint. With site/type indicators, same-site different marks are mutually exclusive, b₃=0 by disjoint underlying coordinates, and b₁≤9(n−k)(2k+1)p²=o(1). The ordered neighbor contribution is at most 4(n−k)Σr_d. For d≤k/2 the remaining factor t^(k−d)≤exp(−εk/4), and for d>k/2 the geometric 2^(−d) tail is O(2^(−k/2)); multiplying by ε makes both bounds uniformly o(1). AGG Theorem 2 then controls the finite array in total variation. The independent Poisson site's Laplace functional converges by Riemann sums on the compact marked space to the claimed three independent homogeneous components, with shared fraction θ. The chance of an omitted first-site run in either copy is ≤2^(1−k), giving the joint zero-count probability. Summing r_d−p² with multiplicity 2(n−k−d), plus the diagonal, gives the finite covariance; b₂ and b₁ respectively control the shifted joint and product terms. VERIFICATION.md and verify.py were read, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "AGG Theorem 2 approximates a full finite dependent Bernoulli array by independent Poisson coordinates in total variation; the following discussion explicitly enlarges the index for types. Section 4.2 uses tail-preceded long head runs in a single sequence.",
+          "Kamalja–Shinde's abstract gives joint PGFs and finite bivariate pattern laws; Johnson–Fu's abstract concerns approximations for sequence run/pattern counts."
+        ],
+        "reasoning": "AGG provides the engine but its hypotheses and limiting intensities are not automatic for a shrinking-noise pair of words. The decisive specialized inputs are q and the uniform negligible sum of cross-site r_d. Finite count PGFs do not by themselves give this spatial point process.",
+        "searches": [
+          "Arratia–Goldstein–Gordon (1990), Theorem 2 and §4.2 head runs",
+          "doi:10.4236/ojs.2011.12014",
+          "doi:10.1186/2195-5832-1-5"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1214/ss/1177012015",
+        "doi:10.1214/aop/1046294302 (institutional abstract, not full text)",
+        "doi:10.4236/ojs.2011.12014",
+        "doi:10.1186/2195-5832-1-5",
+        "Resultary IDs ending 6c5efa9ae94d and c552f8b16e6b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Resultary …-c552f8b16e6b obtains three independent Poisson counts for boxes vacant in both/only one copy under ball refresh, common fraction e^(−τ) for ε log n→τ. Its mirrored Finding concerns occupancy defects and does not model starts of overlapping words.",
+          "The union rate λ(2−θ) depends on controlling shifted overlaps and boundaries; it is not determined by either the one-copy Poisson process or by a three-count vacancy analogy."
+        ],
+        "reasoning": "The same-day vacancy theorem is a material structural analogue, but no parameter substitution maps boxes and refreshed balls to neighboring Bernoulli word windows; the overlap probabilities and dependence argument are different. Same-day dating does not settle priority.",
+        "searches": [
+          "Resultary: critical resampling noise and a three-Poisson vacancy law at coupon coverage",
+          "AGG Theorem 2 versus §4.2 static example",
+          "doi:10.1214/aop/1046294302 institutional abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Two ensembles can be viewed as two times of independent rate-one Poisson clocks, with ε=1−exp(−t). The BHPS institutional abstract explicitly concerns independent coordinate refresh and exceptional long-run times.",
+          "Deleting the shared mark from neither copy is what gives a bivariate common Poisson component; its intensity here depends on the zero-plus-k-ones word and on absence of shifted cross-copy clustering."
+        ],
+        "reasoning": "A dynamical formulation of the coupling is equivalent at the level of input laws, but exceptional random times or qualitative run-test sensitivity do not specify a two-time marked spatial limit at deterministic shrinking refresh.",
+        "searches": [
+          "Benjamini Haggstrom Peres Steif Which properties of a random sequence are dynamically sensitive PDF runs run test longest heads 2003 arxiv",
+          "Resultary: matching shared-run Poisson transition under bit refresh and resampling-noise three-Poisson laws"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact Resultary hit …-6c5efa9ae94d is self. No exact spatial limiting law for correlated run starts appeared in the compared finite-distribution passages. The distinct vacancy entry …-c552f8b16e6b is an analytic theorem rather than a run table."
+        ],
+        "reasoning": "There is no finite table entry whose recomputation is the claimed theorem: both the pattern length and sample length diverge. The relevant exact catalog results and broader finite distributions were compared for a covering implication.",
+        "searches": [
+          "Resultary: exact shared-run Poisson transition and critical resampling three-Poisson results",
+          "doi:10.4236/ojs.2011.12014, joint-run and joint-pattern distributions"
+        ]
+      },
+      "rationale": "Static declumping, general marked Poisson approximation, and run-test dynamical sensitivity are prior work. The supported distinct contribution is the explicit quantitative two-copy extremal location coupling in the sparse lattice window, including the negligible shifted coincidences and the exact critical shared fraction. The finite covariance is not asserted to be a separate novelty.",
+      "residual_risks": [
+        "Full BHPS text was unavailable on checked routes, and a stronger unlocated theorem on coupled rare patterns could imply this limit. The accessible comparison does not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General process method and static declumping covered, not the specific refresh crossover in those passages",
+          "evidence": [
+            "The independent Poisson comparison and type index enlargement at PDF text offset 23340; single-sequence head runs and clump sizes in §4.2"
+          ],
+          "identifier_or_url": "https://dornsife.usc.edu/larry-goldstein/wp-content/uploads/sites/221/2023/06/pacs-1.pdf",
+          "material_read": "Theorem 2 and adjacent §3.1 pp. 406–407; §4.2 and §4.2.1 pp. 409–411",
+          "method": "Lawful primary PDF passages located by theorem/head-run query and read by offset",
+          "title": "Poisson Approximation and the Chen–Stein Method",
+          "trigger": "Exact approximation theorem, types, and potentially covering long-run example"
+        },
+        {
+          "assessment": "Abstract verifies exceptional-time sensitivity, not a critical two-copy marked law; no full-text noncoverage finding",
+          "evidence": [
+            "Independent Poisson-clock refresh; exceptional long run lengths and multifractal analysis"
+          ],
+          "identifier_or_url": "https://doi.org/10.1214/aop/1046294302; https://weizmann.elsevierpure.com/en/publications/which-properties-of-a-random-sequence-are-dynamically-sensitive/",
+          "material_read": "Institutional abstract, web text offset 370; primary full text was not retrieved",
+          "method": "Lawful DOI/Project Euclid access attempts and institutional abstract read",
+          "title": "Which Properties of a Random Sequence Are Dynamically Sensitive?",
+          "trigger": "Exact refresh dynamics and long-run events"
+        },
+        {
+          "assessment": "Finite joint-distribution tools and run-pattern approximations respectively; no covering two-copy marked limit verified",
+          "evidence": [
+            "Joint/conditional PGFs and finite waiting-time/count distributions; normal, Poisson and compound Poisson approximation review"
+          ],
+          "identifier_or_url": "doi:10.4236/ojs.2011.12014; doi:10.1186/2195-5832-1-5",
+          "material_read": "Kamalja–Shinde opening and abstract, PDF offsets 600 and 1800; Johnson–Fu abstract, PDF offset 300",
+          "method": "Lawful primary source passages",
+          "title": "Runs and Patterns in a Sequence of Markov Dependent Bivariate Trials; Approximating the distributions of runs and patterns",
+          "trigger": "Exact bivariate methods or general limits for a varying pattern"
+        },
+        {
+          "assessment": "Different model and limiting observable; exact self match separately excluded as not prior evidence",
+          "evidence": [
+            "Vacant boxes under ball refresh, shared fraction e^(−τ); no paired Bernoulli run positions"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-critical-resampling-noise-and-a-three-poisson-vacancy-law-at-cou--c552f8b16e6b",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local index and bounded mirror read",
+          "title": "Critical resampling noise and a three-Poisson vacancy law at coupon coverage",
+          "trigger": "Material overlap in independent refresh, logarithmic crossover, and three independent shared/private components"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A single-copy limit cannot diagnose whether refreshed extreme runs persist at their original locations or merely survive as counts. The three-component limit resolves that distinction with a sharp nontrivial fraction, and quantitatively determines joint longest-run failure in the critical window. This is substantive even though the general approximation machinery is established and the first-ever static longest-run law is not claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

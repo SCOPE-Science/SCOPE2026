@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:03:44.761274Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Read VERIFICATION.md, both shipped Python checkers and both recorded outputs without executing the checkers. Their reported finite prime-field cases do not certify the prime-power asymptotic.",
+        "Independent extension-field diagnostic: represent F4 by binary polynomials modulo X²+X+1 and use XOR for addition. Enumerate all 4^4 two-by-two matrices, rejecting ad=bc, and for each of the 18 monomial maps compare the actual products of basis vectors before and after the map. Found 180 invertible matrices, 36 with a nonidentity automorphism, stabilizer size sum 234 and 13 orbits. The arbitrary-field proof does not depend on this finite check."
+      ],
+      "rationale": "RESULT.md lines 43–90: invertible M makes the squares a basis. Orthogonality of images of distinct natural vectors forces at most one nonzero entry per row of the change matrix, hence monomiality by invertibility. Comparing images of squares gives t_i²M_(σi,σj)=t_jM_ij; this is sufficient as well as necessary. For a permutation of support s, the free parameter count is bounded by the number of ordered-pair orbits, with only (n−s)² fixed pairs; integrality gives the ceiling in the exponent. A diagonal map with s entries different from 1 forces s(n−s) zeros from rows scaled by 1 to other columns and a disjoint sum of m_c² zeros within equal nonunit scalars; their sum is at least sn/(q−2). There is no diagonal term for q=2. Dividing the unrestricted mean by p_(n,q) bounds the conditioned mean, and Markov's inequality controls the probability. Burnside identifies the normalized orbit-count error with that very conditioned mean. For fixed q the diagonal majorant is geometrically summable with exponentially small ratio and the other part is at most 2n²(1−1/q)^n for large n; p_(n,q) is bounded below by the positive infinite product. This includes n=1 with the appropriate empty sums, and does not assert a joint q,n limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier local source handles all square-space coranks, not only invertible matrices. It bounds the full-matrix sum of fixed fractions, including both diagonal and permutation parts. The survey's broader random-algebra question and the permutation-representation theorem are distinct from this proven bound."
+        ],
+        "reasoning": "The earlier fixed-fraction bound dominates the needed restriction; taking corank 0 is a true specialization. Realizability of groups or asking a general random-algebra question would not by itself imply an estimate.",
+        "searches": [
+          "340420fa11f4 RESULT.md Steps 3–5, equations (6)–(13)",
+          "arXiv:2610.22248v1 Question 22",
+          "doi:10.1007/s00009-025-02924-0 main statement"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 340420fa11f4, 8764d79e8d9d; nearby diagonal 00a124f91008 and later binary c0b936280b48",
+        "arXiv:2310.12368v1",
+        "arXiv:2610.22248v1",
+        "doi:10.1007/s00009-025-02924-0",
+        "arXiv:1312.4685v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier (6) defines R as q^(−n²) times the sum of nonidentity fixed-matrix counts. Earlier (7)–(8) use the same ordered-pair bound (integer rounding is immediate); (9) bounds nonconstant scalings by (q−1)[(1+(q−2)q^(−n))^n−1] with constant nonunit scalings contributing only the zero matrix. (10) is R=O_q(n²(1−1/q)^n)."
+        ],
+        "reasoning": "For each map its fixed invertible matrices are a subset of its fixed matrices, so summing and dividing by |GL_n| bounds E(|Aut|−1) by R/p_(n,q). The probability follows and multiplying E|Aut| by |GL_n|/[n!(q−1)^n] gives K_(n,q). This proves the claimed limiting content without the alternative diagonal bound; the earlier source even yields a stronger diagonal rate.",
+        "searches": [
+          "340420fa11f4 RESULT.md Steps 3–4, mirror offset 3751, (6)–(12)",
+          "frozen RESULT.md (1) and lines 74–90"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wei–Zou's idempotent case E²=E is this perfect case, with the same monomial action and Burnside identity. In 340420fa11f4 the r=0 matrix stratum is GL_n and I_(n,q)^(0)=K_(n,q)."
+        ],
+        "reasoning": "Both formulations use structures over the same finite field rather than counting basis labels as classes. Normalizing the perfect orbit count by |GL_n| divided by the monomial group order gives the mean stabilizer size, not just its typical size.",
+        "searches": [
+          "Resultary: asymptotic isomorphism enumeration and corank distribution of finite-field evolution algebras 340420fa11f4",
+          "Wei–Zou arXiv:2310.12368v1 §2",
+          "Elduque–Labra arXiv:1312.4685v1 §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Wei–Zou finite enumeration and the frozen small tables are not the limiting estimate. The older Resultary entry actually supplies the corank-stratified asymptotic. Same-day 8764d79e8d9d gives a sharper first correction for q≥3; it does not establish within-day ordering."
+        ],
+        "reasoning": "Exact low-dimensional agreement does not establish coverage, but the earlier corank-stratified theorem does. The later binary result is not needed for the decision.",
+        "searches": [
+          "arXiv:2310.12368v1 finite fixed-matrix enumeration",
+          "Resultary 340420fa11f4 and 8764d79e8d9d",
+          "CHECK_MONOMIAL.out and CHECK_FIXED.out"
+        ]
+      },
+      "rationale": "Demonstrable earlier coverage: the 2026-10-25 Resultary corank paper 340420fa11f4 gives, in (6)–(10), an explicit bound for the sum of nonidentity monomial fixed fractions on all matrices and its O_q(n²(1−1/q)^n) estimate. At corank zero the stabilizer is exactly the algebra automorphism group, so this majorant divided by p_(n,q) proves exponential decay of the same mean, the probability bound and the same leading orbit asymptotic. This is not just a hit for a related dimension or an unevaluated Burnside sum. The frozen diagonal count is a different but weaker asymptotic estimate; the earlier modal-multiplicity bound is explicit and O_q(nq^(−n)). The specific Δ formula is a sufficient error majorant, not a new statistic or sharp correction.",
+      "residual_risks": [
+        "The local record establishes existing coverage, not exhaustive historical priority. Same-day order is unresolved and is not used to justify failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the limiting claim, including mean-stabilizer decay",
+          "evidence": [
+            "Same ordered-pair orbit bound, explicit modal-scaling bound, O_q(n²(1−1/q)^n) summed bound; take corank zero."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-asymptotic-isomorphism-enumeration-and-corank-distribution-of-fi--340420fa11f4/RESULT.md",
+          "material_read": "Finding and proof Steps 3–5, especially (6)–(12) at offset 3751",
+          "method": "Resultary and local mirrored primary result, inspected decisive bound and orbit inequality",
+          "title": "Asymptotic isomorphism enumeration and corank distribution of finite-field evolution algebras",
+          "trigger": "Earlier broader corank counting and nonidentity fixed-matrix estimates"
+        },
+        {
+          "assessment": "Covers exact Burnside framework, not itself the limiting estimate",
+          "evidence": [
+            "Monomial fixed equations and finite fixed-matrix counts."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2310.12368v1",
+          "material_read": "§2 p. 4, OA offset 9486; pp. 6–7, offset 13803",
+          "method": "Primary OA PDF, targeted passages",
+          "title": "Isomorphism Classes of Idempotent Evolution Algebras",
+          "trigger": "Known perfect-class Burnside enumeration"
+        },
+        {
+          "assessment": "Broad question; does not supply this estimate",
+          "evidence": [
+            "Asks for random trivial-automorphism probabilities, not restricted to uniform GL_n."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.22248v1",
+          "material_read": "Question 22, HTML offset 86429",
+          "method": "Primary OA HTML, targeted passage",
+          "title": "Evolution algebras: a survey of results and a list of open problems",
+          "trigger": "Scope of open random-symmetry question"
+        },
+        {
+          "assessment": "Realizability, not a random law",
+          "evidence": [
+            "Studies permutation representations and automorphism groups."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00009-025-02924-0",
+          "material_read": "Main statements, p. 1, OA offset 0",
+          "method": "Primary OA paper, targeted passage",
+          "title": "Permutation Representations and Automorphisms of Evolution Algebras",
+          "trigger": "Potential broader automorphism result"
+        },
+        {
+          "assessment": "Covers monomiality, not random estimates",
+          "evidence": [
+            "Perfectness gives the monomial change of natural basis."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1312.4685v1",
+          "material_read": "§4 p. 8, offset 18166",
+          "method": "Primary OA PDF, targeted passage",
+          "title": "Evolution algebras and graphs",
+          "trigger": "Structural theorem about perfect natural bases"
+        },
+        {
+          "assessment": "Sharper for q≥3; no within-day priority inferred",
+          "evidence": [
+            "Identifies the first relative correction from scaled transpositions."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-generic-rigidity-and-orbit-asymptotics-for-perfect-evoluti--8764d79e8d9d",
+          "material_read": "Finding",
+          "method": "Resultary and local source mirror",
+          "title": "Sharp generic rigidity and orbit asymptotics for perfect evolution algebras over nonbinary finite fields",
+          "trigger": "Same-day potential overlap on mean and class count"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The natural question is worthwhile: a mean stabilizer bound is substantially more useful for Burnside than generic rigidity in probability. But the earlier all-corank fixed-fraction result already supplies that bound and class asymptotic. The alternative sufficient Δ bound leaves no separately motivated exact fact or improvement: its permutation component is the same count up to rounding and its diagonal analysis weakens the earlier exponential rate for q>3. No surviving valuable repair is established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

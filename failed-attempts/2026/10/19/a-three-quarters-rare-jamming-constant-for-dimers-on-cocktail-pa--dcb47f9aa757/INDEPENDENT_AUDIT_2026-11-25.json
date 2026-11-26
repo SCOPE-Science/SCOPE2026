@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:03:36.588683Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With independent identical continuous edge priorities the next accepted edge is uniform among the edges on uncovered vertices, by deferred exposure of the permutation. For p intact forbidden pairs and s singletons the counts of the three unordered endpoint types are binom(s,2), 2ps and 2p(p−1) and exhaust the eligible edges. An even uncovered set of size at least four always has a feasible edge; at size two it jams exactly for a deleted pair. A given intact pair has 2(m−2) incident eligible edges at size m; the one-step survival bounds telescope to (1). Two specified intact pairs have 4m−12 incident eligible edges; summing the exponential bound over even m gives the stated harmonic factor and E[Q_k(Q_k−1)]=O(k⁴/n²). With exactly one pair left the telescoping survival product equals 3/(4k²−1). Bounding the probability of two or more intact pairs by half the factorial moment gives (3); the main term is 3/(4n), and k=floor(n^(1/5)) balances 1/(nk) and k⁴/n². The expectation of the uncovered fraction is P_n/n. Independent exact recursion on labeled subsets reproduced P_2 through P_5 and computed P_6=562248/6062875 and P_7=634107503/7766542875; replay with python3 /workspace/branches/d8630442-8c97-4819-862c-7b8a4e34c368/subset_dp_check.py. The supplied verification files were inspected, not executed; the bounded table does not establish the limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "197e06613bc4 states 3|E(H)|/(N²−1)+O(|E(H)| log N/N³) for deleted graphs H with maximum degree at most two.",
+          "add1d1408fda states a more general fixed-degree triangle-free deletion limit and gives 3/2 when using vertex-count normalization and deleting a perfect matching.",
+          "Gamarnik–Goldberg's matching statements concern fixed-degree regular high-girth graphs."
+        ],
+        "reasoning": "Take H=M_n, |E(H)|=n and N=2n. The degree-two result immediately gives 3/(4n)+O(log n/n²); the triangle-free deletion limit converts to nP_n→3/4. The older high-girth comparison does not imply this on dense triangle-rich cocktail-party input.",
+        "searches": [
+          "Resultary degree-two forbidden graph record 197e06613bc4 and triangle-free forbidden graph record add1d1408fda",
+          "Gamarnik–Goldberg arXiv:0807.1277, Theorem 5 and Corollary 5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 8250e0710001, 197e06613bc4, add1d1408fda and db2b2a3ce303",
+        "Gamarnik–Goldberg arXiv:0807.1277",
+        "Pippenger DOI 10.1137/0402034 and Dyer–Frieze DOI 10.1002/rsa.3240020104, access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The finite bound is 0≤3n/(4n²−1)−p_n≤12H_(n−1)/n² for n≥2. Its proof uses a telescoping first moment and a factorial-moment survival bound.",
+          "The three transitions in (m,f) remove two vertices and reduce the intact-pair count by 0, 1 or 2 with exactly the frozen multipliers."
+        ],
+        "reasoning": "The explicit inequality implies 3/(4n)+O(log n/n²), hence also the frozen weaker rate O(n^(−6/5)). The at-most-two remnant and the exact table are included. The frozen intermediate-scale argument does not establish a different event or invariant.",
+        "searches": [
+          "Resultary 8250e0710001, Finding and proof, local text offsets 0–5685"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 8250e0710001, Finding and exact reduced-state proof: K_(2n) minus a perfect matching under uniform feasible-edge choice.",
+          "Resultary db2b2a3ce303 has K_(n,n) with a deleted perfect matching and failure asymptotic 2/n, a different graph."
+        ],
+        "reasoning": "Uniform feasible-edge choice and the frozen uniform permutation of all edges have the same sequence law: exposing removed or unusable edges never changes uniform relative order on the remaining feasible edges. The crown is not an alias of this complete multipartite graph.",
+        "searches": [
+          "Resultary catalogue, exact cocktail-party greedy matching hit 8250e0710001; crown-graph hit db2b2a3ce303",
+          "Primary lookup: random edge greedy matching cocktail party graph K_{2n} minus perfect matching exact probability three quarters 3/(4n) dimer adsorption Dyer Frieze Pippenger"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "8250e0710001 lists p_2=0, p_3=1/5, p_4=8/65, p_5=1231/11375 for the identical process.",
+          "The crown record includes Q_3=1/3, not the frozen 1/5."
+        ],
+        "reasoning": "The first list is an exact match of the object, variable and normalization (failure probability, not mean uncovered fraction). Under f=p and m=p+s/2 the recurrences, not just their first values, agree.",
+        "searches": [
+          "Resultary 8250e0710001, Finding and recurrence examples",
+          "Resultary db2b2a3ce303, Finding and examples"
+        ]
+      },
+      "rationale": "A distinct indexed record on precisely the same random process gives the identical finite recurrence and table and a stronger finite error bound for the same 3/4 constant. Two broader catalogue results also cover the matching-deletion case. This decision concerns substantive coverage at review, not historical priority: the overlapping catalogue entries are later-dated than the frozen one.",
+      "residual_risks": [
+        "Earlier historical coverage remains unresolved, specifically the two inaccessible primary texts; the broad search supplied no useful additional passage.",
+        "The distinct catalogue overlap does not establish independent origin, priority or copying. The failed originality decision is based on present statement-level domination."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact finite recurrence and table; stronger asymptotics",
+          "evidence": "Same p_n, exact same P_2–P_5, one-sided finite bound 12H_(n−1)/n² around 3n/(4n²−1).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-sharp-three-quarter-rare-failure-law-for-greedy-matching-on-co--8250e0710001/RESULT.md",
+          "material_read": "Finding, assumptions, exact recurrence and telescoping/factorial-moment proof, offsets 0–5685; relationship and limitations at offset 5685",
+          "method": "Local mirror, bounded passage and normalization comparison",
+          "title": "A sharp three-quarter rare-failure law for greedy matching on cocktail-party graphs",
+          "trigger": "Exact graph, event and constant"
+        },
+        {
+          "assessment": "Stronger rate by specialization",
+          "evidence": "Maximum degree two in the deleted graph allows a perfect matching on N=2n vertices.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-universal-rare-failure-law-for-greedy-matchings-with-degree-two--197e06613bc4",
+          "material_read": "RESULT.md, Finding and parameters at offset 0",
+          "method": "Local mirror statement inspection",
+          "title": "Universal rare-failure law for greedy matchings with degree-two deletions",
+          "trigger": "Broader fixed-graph deletion result"
+        },
+        {
+          "assessment": "Leading-term coverage",
+          "evidence": "Explicit perfect-matching case has coefficient 3/2 in total-vertex units.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-universal-rare-jamming-coefficient-for-dense-dimer-adsorption--add1d1408fda",
+          "material_read": "RESULT.md, Finding at offset 0",
+          "method": "Local mirror statement inspection",
+          "title": "A universal rare-jamming coefficient for dense dimer adsorption",
+          "trigger": "Broader triangle-free forbidden-graph limit"
+        },
+        {
+          "assessment": "Does not imply this event asymptotic in the stated regime",
+          "evidence": "Expected matching-size results for fixed-degree high-girth graphs; this input has degree 2n−2 and triangles for n≥3.",
+          "identifier_or_url": "https://arxiv.org/pdf/0807.1277",
+          "material_read": "PDF p. 7, Theorem 5 and Corollary 5, offset around 27338",
+          "method": "OA original PDF inspection",
+          "title": "Randomized greedy algorithms for independent sets and matchings in regular graphs: Exact results and finite girth corrections",
+          "trigger": "Potential stronger exact matching result in the primary literature"
+        },
+        {
+          "assessment": "Unresolved historical coverage; not used as negative evidence",
+          "evidence": "The scope of those whole papers has not been adjudicated. The decisive overlap is the exact and stronger catalogue result.",
+          "identifier_or_url": "https://doi.org/10.1137/0402034 ; https://doi.org/10.1002/rsa.3240020104",
+          "material_read": "Bibliographic identification only; original full-text retrieval returned HTTP 403 and a readable repository copy was not found",
+          "method": "Lawful OA retrieval attempts",
+          "title": "Random Sequential Adsorption on Graphs; Randomized Greedy Matching",
+          "trigger": "Older closely relevant adsorption and random-edge matching works"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The rare failure probability on this dense natural graph is a worthwhile invariant: a limiting matched fraction of one misses it. Relative to the exact recurrence, identical table and sharper law now covering it, however, there is no additional independently useful claim. The original proof shares the intact-pair survival mechanism and gives a weaker error, not a substantively new scope or invariant.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

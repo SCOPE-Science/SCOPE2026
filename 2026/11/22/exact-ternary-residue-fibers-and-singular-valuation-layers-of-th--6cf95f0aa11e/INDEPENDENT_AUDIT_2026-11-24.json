@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:03:07.457487Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Substitution in F(n) gives G_0(t)=t(3t−1)^2(3t−2)/4 and G_2(t)=t(3t+2)(3t+1)^2/4, reducing as polynomials to unit-slope t and −t. Their divided differences are units, so each contributes exactly one input per target modulo every 3^k. For n=3t+1, G_1=−3φ(t)^2/4 with φ=t√(1−9t²) using the square root congruent to 1 mod 3. The difference of two such roots is in 9(t−s)Z_3 by the difference of squares and unit sum, so φ is an isometry and permutes every finite level. For 3|y, the lower-depth square equation has three lifts per root (also k=1); otherwise none. For minimality, the mod-three sequence has a period of nine but not three, so an arbitrary period is divisible by nine (periods of the cyclic word are a subgroup). Evaluating at that period T gives v_3(F(T))=v_3(T)−1. The square-root classification by unit and even valuation gives the histogram, including the single zero target, and the critical image measure is (3/8)/3=1/8. The regular branches give total valuation density 4/3^(j+2); the critical branch gives 2/3^(r+2) at j=2r+1, with natural density by periodic cylinders. Fresh direct evaluation through k=8 matched all target counts and proper-divisor obstructions; replay /workspace/branches/f1125559-1aa8-4894-9018-c28d623d7353/record3_direct_check.py and record3_direct_check.out in the same directory. Those checks are finite; the isometry proof and least-period obstruction cover all levels. No uploaded code was executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first theorem decides prime divisibility of general Narayana entries, not arbitrary targets at depth k. The fixed-column perfect-power paper gives Pell-type integer equations. The dilated-row theorem fixes n=mp^r and varies the column. The square-index result is for b=c²≥4 and excludes b=3."
+        ],
+        "reasoning": "Neither broader prime divisibility nor integer perfect-power predicates count residues along all indices in a single column; the two fixed-square or fixed-row slices restrict a different parameter.",
+        "searches": [
+          "Bóna–Sagan arXiv:math/0505382 Theorem 1.2 and §3.I",
+          "Checcoli–D'Adderio arXiv:1306.5929 §3",
+          "Local Resultary bde71f25e69e and 4e47d093953c"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0505382",
+        "arXiv:1306.5929",
+        "Resultary 4e47d093953c",
+        "Resultary bde71f25e69e",
+        "Resultary 604e339dbb14",
+        "Resultary c5b9d086114e",
+        "Resultary 78410696e6db",
+        "Resultary e37859da9078"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older perfect-power discussion rewrites N(a,3)=m^k as (2(a−1)^2−1)^2−48m^k=1. The binomial and Narayana square arguments do agree after relabeling the binomial target to −4y+3/128."
+        ],
+        "reasoning": "Neither the integer Pell equation nor the result for a distinct polynomial proves the target relabeling works on residue preimage counts. That requires proving the actual Narayana regular branches are onto and the critical factor is globally normalized by a bijective square-root coordinate. The valuation identity from factors and the classical square-root spectrum in isolation are baseline information.",
+        "searches": [
+          "arXiv:math/0505382 §3.I",
+          "arXiv:1306.5929 b=3 perfect-power discussion",
+          "Local Resultary 604e339dbb14 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "e37859da9078 concerns the recurrence a_(n+3)=a_(n+2)+a_n, not the Narayana triangle. 604e339dbb14 and c5b9d086114e are equivalent to each other via P_n=binom(n,4), not to the Narayana column as index polynomials; binom(n,4) has four simple roots, whereas F has a repeated root."
+        ],
+        "reasoning": "A change of index by an affine bijection cannot identify these two quartics up to a nonzero scaling, even if an affine change of output matches the fiber cardinalities. The second derivative and critical image calculations are for the specified Narayana polynomial, not the recurrrence or an alias of the binomial sequence.",
+        "searches": [
+          "Local Resultary ordinary Narayana third column ternary prime-power fibers and valuation layers",
+          "Local Resultary fourth binomial, pentatope, and Narayana recurrence fibers",
+          "arXiv:1306.5929 §3 and b=3 discussion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical frozen record returned by local search is self-coverage, not independent prior evidence. The first two binomial reports have the same spectrum but the shifted square argument y/3−128^(-1) for binom(n,4); the fifth binomial has two critical branches."
+        ],
+        "reasoning": "An unlabelled histogram match is not a targetwise table match. At k=2, for example, the Narayana fiber at y=0 has size 5; the cited fourth-binomial formula gives size 8 there.",
+        "searches": [
+          "Local Resultary exact ternary Narayana fiber and histogram search",
+          "Local Resultary 604e339dbb14, c5b9d086114e, and 78410696e6db Findings"
+        ]
+      },
+      "rationale": "The supported distinct claim is the all-target least-period fiber law for the ordinary third Narayana column and its associated singular image and index-density law. Earlier Narayana divisibility and integer-square or perfect-power statements do not establish it. Fourth-binomial/pentatope fibers have the same square-root spectrum after an affine relabeling of targets, but on a different polynomial and with different actual target values. The analogous spectrum alone is not originality evidence. No independently matching targetwise law was established in the checked sources.",
+      "residual_risks": [
+        "An unindexed polynomial mapping theorem or earlier specialized fixed-column evaluation may subsume the exact result.",
+        "Same-day structural analogues were compared mathematically without inferring record priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Divisibility only at the specified prime, not full prime-power fiber classification.",
+          "evidence": "The theorem uses base-p digits to decide divisibility; the comments distinguish determination of the full p-adic order.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0505382",
+          "material_read": "Theorem 1.2 p. 2 and §3.I p. 3 (OA offsets 4500 and 8450)",
+          "method": "OA PDF bounded theorem and comments",
+          "title": "On divisibility of Narayana numbers by primes",
+          "trigger": "Broader divisibility theorem for the same triangle"
+        },
+        {
+          "assessment": "Integer-square/Diophantine statement, not a complete table of residues. Its blanket square-infinitude statement has a caveat for square column indices, not b=3.",
+          "evidence": "The b=3 equation is a special integer perfect-power equation with a Pillai-type issue, rather than a congruence census.",
+          "identifier_or_url": "https://arxiv.org/html/1306.5929v1",
+          "material_read": "§3 Theorem 3.2 and later b=3 discussion (OA HTML offsets 16900 and 35154)",
+          "method": "OA HTML bounded exact passages",
+          "title": "Perfect powers in Catalan and Narayana numbers",
+          "trigger": "Fixed-column perfect power theorem including third column"
+        },
+        {
+          "assessment": "Same structural type, different polynomial and different target law without a change of labels.",
+          "evidence": "Least period 3^(k+1) and 2+3R_(k−1)(y/3−128^(-1)) on 3|y for binom(n,4).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-ternary-residue-fiber-spectrum-of-the-fourth-binomial-column--604e339dbb14/RESULT.md",
+          "material_read": "Finding (local mirror offset 0); compared pentatope Finding c5b9d086114e",
+          "method": "Local Resultary and bounded result passages",
+          "title": "Ternary residue-fiber spectrum of the fourth binomial column",
+          "trigger": "Closest all-depth translated-square fiber result"
+        },
+        {
+          "assessment": "Classification of integer squares at square column indices; no b=3 fiber theorem.",
+          "evidence": "Scope b=c²≥4; the Pell coefficient degenerates to 1 for a square column index.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-finite-square-index-columns-of-narayana-numbers-exact-divisor-pa--4e47d093953c/RESULT.md",
+          "material_read": "Finding and prior-work discussion (local mirror offsets 0 and 6075)",
+          "method": "Local Resultary and bounded exact passages",
+          "title": "Finite square-index columns of Narayana numbers: exact divisor parametrization and sharp maxima",
+          "trigger": "Fixed-column classification and perfect-power caveat"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete target-by-target count and sharp index period for a natural fixed column distinguish genuine singular concentration from prime divisibility or integer squares. The globally bijective coordinate yields the precise critical support and nonuniformity at every depth. The value is the evaluated law for this column, not the general use of Hensel lifting or an isolated valuation at an individual input.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

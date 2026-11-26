@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:27:44.361798Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–32 and 34–83",
+        "VERIFICATION.md",
+        "/workspace/branches/888d724f-992c-4d5f-bc58-09ac7d1083a5/independent_exact_check.py and independent_exact_check.txt (separate symbolic determinant and contraction, not the uploaded verifier)"
+      ],
+      "rationale": "The stated velocity-Verlet map is unimodular and strictly elliptic for 0<s<2. At a fixed step the preserved form diag(kappa_s,1) is positive definite and unique up to scale, by rotation conjugacy. On trace-one PSD matrices the normalization of the covariance map is continuous with nonzero denominator, hence has a Brouwer fixed point. A rank-one fixed point would give a real invariant line for almost every sampled step (test the expectation against the orthogonal direction), impossible at any step in scope. The transpose argument gives a definite adjoint eigenmatrix. Strict log-det Jensen on the definite covariance eigenmatrix gives lambda>=1 and equality forces a single form preserved by almost every step; the strict variation of kappa_s rules this out for a nonconstant law. Pairing the eigenmatrices equates the eigenvalues. The adjoint identity and IID assumption give the exact expectation, and the resulting bounds on powers on PSD matrices extend by differences to all symmetric matrices, proving the spectral radius claim. Independent symbolic factorization gives the stated negative two-point determinant. For the perturbation, the deterministic eigenvalue 1 is simple because the other two quadratic-lift eigenvalues are exp(+-2i theta), with 0<theta<pi. Its real analytic branch retains a definite eigenmatrix, hence is the spectral radius for small noise. Independently, ell^T M(s) r=2+s^2(kappa_s-kappa_h)^2/kappa_h with the fixed base eigenvectors; the second derivative is 2h^4/(4-h^2). Centering and ell^T r=2 give the claimed coefficient; symmetry makes the analytic branch even, giving the fourth-order remainder.",
+      "residual_risks": [
+        "Rates are per discrete step for exogenous IID lengths, not per fixed physical duration or almost surely. The expansion is at fixed h and fixed bounded noise law; it is not uniform near 0 or 2."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abdulle–Garegnani Theorem 6 assumes shrinking step sizes with moment/support conditions and trajectories sufficiently close almost surely, and gives conditional energy control. The older works were identified but the decisive primary passages were not read."
+        ],
+        "reasoning": "Shrinking randomness with an almost-sure bounded-neighborhood premise does not specialize to arbitrary indefinitely iterated fixed step laws. Nothing is inferred about coverage from the unread primary passages.",
+        "searches": [
+          "Abdulle–Garegnani arXiv:1801.01340v4 §§7.1–7.2 and Theorem 6",
+          "Skeel–Gear DOI 10.1016/0167-2789(92)90247-K",
+          "Calvo–Sanz-Serna SIAM J. Sci. Comput. 14 (1993), 936–952"
+        ]
+      },
+      "checked_sources": [
+        "Matched indexed Finding 82d670980b95",
+        "Abdulle–Garegnani primary passages",
+        "Skeel–Gear abstract-level access",
+        "Calvo–Sanz-Serna author-PDF access attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A positive almost-sure top exponent gives a qualitative lower exponential bound for E||A_n...A_1||^2 by retaining the event on which its norm exceeds exp(n times a smaller positive exponent); the event probability tends to one. The lifting of covariances and positive-cone principles are standard."
+        ],
+        "reasoning": "Neither this implication nor the cited finite-time control computes the determinant or the derivative of the very different second-moment spectral radius. The audit credits the distinct exact quantitative conclusions rather than treating the qualitative consequence or standard positive-cone methods as novel.",
+        "searches": [
+          "2026/11/8/SCOPE-every-nonconstant-independent-stable-timestep-destabilizes-veloc--82d670980b95, Finding",
+          "Abdulle–Garegnani arXiv:1801.01340v4, Theorem 6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The strongest distinct indexed finding uses the same oscillator, matrix, and IID elliptic step law, with an almost-sure positive top Lyapunov exponent for nonconstant laws. Other surfaced records concern randomized orderings, deterministic alternation, or a different integrator."
+        ],
+        "reasoning": "Pathwise growth and the exact second-moment growth law are different invariants. The same step matrix, identical point-mass boundary and overlapping instability conclusion are material, but do not equate the rates or the explicit quantitative data.",
+        "searches": [
+          "Exact frozen title and velocity-Verlet IID timestep stability in the published index",
+          "2026/11/8/SCOPE-every-nonconstant-independent-stable-timestep-destabilizes-veloc--82d670980b95"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matched indexed theorem reports positivity of a sample-path exponent, not det(I-T) for two-point laws or the centered noise expansion of the spectral radius. Exact algebra independently produces both formulas here."
+        ],
+        "reasoning": "The reviewed objects are symbolic parameter families, not individual numerical table entries. The closest indexed exact result does not furnish either of these expressions; verification of them alone would not establish novelty.",
+        "searches": [
+          "Indexed velocity-Verlet IID stability comparison, record 82d670980b95",
+          "RESULT.md lines 52–83 and independent exact algebra"
+        ]
+      },
+      "rationale": "There is real indexed overlap in the qualitative instability classification for precisely the same oscillator and step matrix. Credit that overlap; a positive almost-sure exponent also implies a qualitative exponential second-moment lower bound on the expected squared product norm. The supported distinct content is the exact mean-square eigenmatrix law in all initial directions with its particular spectral rate, and especially the method-specific two-point determinant and small-noise coefficient. The inspected comparisons do not give those quantitative results. This is not a claim to the qualitative classification independently of related results or a priority certification.",
+      "residual_risks": [
+        "The older primary full-text comparisons are incomplete. Related random products or numerical stability literature could contain specialized exact formulas. The record dates are not used to settle historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial qualitative overlap, distinct quantitative invariant",
+          "evidence": "Positive almost-sure top exponent for the same non-point-mass class; the inspected statement does not give the exact second-moment law or the two algebraic formulas.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-every-nonconstant-independent-stable-timestep-destabilizes-veloc--82d670980b95",
+          "material_read": "Mirrored RESULT.md Finding at offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror statement and assumptions",
+          "title": "Every nonconstant independent stable timestep destabilizes velocity Verlet",
+          "trigger": "Same oscillator, method, law and instability boundary"
+        },
+        {
+          "assessment": "Different time scaling, premises and conclusion",
+          "evidence": "The text distinguishes symplecticity from energy conservation; its guarantee assumes near-initial trajectories and a small-base-step regime.",
+          "identifier_or_url": "https://arxiv.org/abs/1801.01340v4",
+          "material_read": "PDF §§7.1–7.2 p. 14 near offset 49352; assumptions and Theorem 6 pp. 15–16 near offsets 55433 and 61201",
+          "method": "Open primary PDF, section and theorem passages",
+          "title": "Random time step probabilistic methods for uncertainty quantification in chaotic and geometric numerical integration",
+          "trigger": "Random time steps and symplectic integrator energy"
+        },
+        {
+          "assessment": "Not enough primary text for a coverage conclusion",
+          "evidence": "No full-text passage verified; older variable-step results remain a residual risk.",
+          "identifier_or_url": "https://doi.org/10.1016/0167-2789(92)90247-K",
+          "material_read": "Landing page/abstract only",
+          "method": "DOI and lawful available-copy lookup",
+          "title": "Does variable step size ruin a symplectic integrator?",
+          "trigger": "Classic variable-step stability obstruction"
+        },
+        {
+          "assessment": "Unresolved at passage level",
+          "evidence": "The accessible file was not successfully read; its availability is not evidence for a whole-paper comparison.",
+          "identifier_or_url": "https://sanzserna.org/wp-content/uploads/1993/01/519_M.-P.-Calvo-JMSS-1.pdf",
+          "material_read": "No decisive primary passage; PDF had no extractable text",
+          "method": "Identified author-hosted OA copy, attempted targeted extraction",
+          "title": "The development of variable-step symplectic integrators, with application to the two-body problem",
+          "trigger": "Potential variable-step long-time comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 4–32 and 42–83",
+        "Independent exact determinant and perturbation calculation"
+      ],
+      "rationale": "Per-step deterministic stability does not protect expected energy under independent changing steps. The law exactly singles out the constant-step case and identifies an observable growing at a single second-moment rate for every nonzero deterministic initial state. The determinant gives an immediate two-point certificate, and the coefficient predicts the rate scale even when heating is too slow for short trials to detect. These quantitative method-specific facts remain useful when the related pathwise instability classification is credited.",
+      "residual_risks": [
+        "The result does not cover other geometric integrators, adaptive steps, or nonlinear systems."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

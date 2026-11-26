@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Use a C++17 compiler, for example `g++ -std=c++17 -O3 verify_sparse_4_full.cpp -o full && ./full`, and analogously for `verify_sparse_4_independent.cpp`.
+## correctness
 
-The first program checks every labeled transition relation with \(0\) through \(8\) edges, and every final subset whenever all \(16\) subsets are reachable. Its recorded edge-budget outputs for \(e=0,\ldots,8\) are \(0,0,0,0,0,0,0,0,5808\) for full subset reachability, and \(56{,}544\) full-minimal cases at \(e=8\). It includes an explicit witness, encoded by the eight-edge mask `19141260` and final mask `2`.
+PASS
 
-The second program independently loops over all \(10{,}518{,}300\) eight-edge relations and applies iterative distinguishability of every pair of subsets (not class partition refinement). Its full-reach count is \(5{,}808\); its full-minimal count is \(56{,}544\); the results agree for all fifteen nonempty final masks.
+Each labeled relation is one subset of 32 distinct triples. Enumeration by combinations of the 32 indices is exhaustive at each edge budget and does not rely on monotonicity under adding edges. For each relation the subset transitions are row unions with the empty set mapped to itself; breadth-first closure from {0} finds every and only reachable subset. For full reach, the least pair relation containing the acceptance-disagreeing pairs and closed under predecessor letters is exactly suffix distinguishability, by induction on suffix length. So all 120 unordered pairs must be marked for minimal complete DFA size 16. An original batched exact replay inspected all 15,033,173 relations over budgets 0–8, matching the binomial count at each. It found zero relations of full reach for each e<=7, 5,808 full-reach relations at e=8, and 56,544 full-minimal relation/final-set pairs at e=8, matching the complete mask profile including zero. The explicit witness separately reaches 16 and distinguishes all 120 pairs. Replay and logs: /workspace/branches/7807f1ca-cb75-497b-b490-3a8e52eeceb2/{recount.py,recount_full.log,replay_witness.py,replay_witness.log}. The frozen code and log were inspected but the frozen programs were not executed. The result is a minimum existence budget and an exact census there, not a statement that every eight-edge relation is extremal or about budgets above eight.
 
-These are complete finite computations; they do not establish the analogous threshold for more than four states. Compiler execution logs are not substituted for the source algorithms and numerical coverage arguments. Independent audit has not been performed.
+## originality
+
+PASS
+
+The classical subset bound and unrestricted existence of four-state binary full determinization are not new. The supported distinct claim is the edge-constrained cutoff together with the exact labeled boundary census, separating full reach from full minimality. No inspected comparison covers this combination or mechanically gives the threshold and counts.
+
+## value
+
+PASS
+
+The invariant is the first edge budget at which the classical exponential worst-case is actually feasible under sparse nondeterminism, not simply the state count of a chosen witness. The complete boundary census distinguishes attainability of all subsets from retaining all of them after minimization and quantifies the role of accepting sets. This provides an exact small benchmark under a natural transition resource constraint, without extrapolating to larger automata.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

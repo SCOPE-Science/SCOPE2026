@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:31:04.325294Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently checked the all-parameter proof. With the a's in their word order, recording the number of b's after each a gives a weakly decreasing list in [0,B]; the first gap, successive gaps and last gap recover the word uniquely and the sum is exactly C=#ab. The two a's in an abbab embedding need a drop of at least two between their parts and a positive second part. Such a pair exists exactly when the largest and smallest positive parts differ by at least two. For C>0 and fixed positive-part count r there is precisely one balanced partition, with quotient and remainder of C by r allocating its positive parts. It fits exactly when ceil(C/B)<=r<=min(A,C); the interval is nonempty by C<=AB and B>=1. For C=0 the unique word is b^B a^A, including zero letter counts and the empty word. Summing over r yields the generating polynomial and total; the count is nondecreasing up to C=A and nonincreasing thereafter, and the Gaussian area enumerator gives the probability denominator. The class (4,4,8) indeed contains eight bounded partitions, of which three are balanced. The supplied finite checkers were inspected without execution; correctness rests on the bijection and classification, not the recorded checker outputs. No other patterns or alphabets are proved.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Section 5 treats general fixed-pattern approximation/hardness and the bounded-partition model; Richomme gives the partition correspondence."
+        ],
+        "reasoning": "These supply a general setup or approximation, not an exact numerator for every C; the positive lower-part requirement from the final b and the balanced-part enumeration add a pattern-specific theorem.",
+        "searches": [
+          "Fazekas–Huang–Mercaş, arXiv:2610.06717, Section 5",
+          "Richomme, arXiv:2510.07159, Section 4.2 Lemma 4.12"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check_bruteforce.py, check_dynamic.py",
+        "Resultary fixed-pattern, one-return, balanced-four-letter and sandwich records",
+        "arXiv:2610.06717",
+        "arXiv:2510.07159"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The sandwich criterion concerns ab^t a and detects the interior b-run; the Gaussian enumerator handles the stated sandwich family, not the appended final b."
+        ],
+        "reasoning": "Deleting the final b makes an implication in only one direction. For example, abba contains abba but avoids abbab; a sandwich pattern profile is not the target avoidance enumeration. Zero parts may be ignored only after imposing the final-b condition.",
+        "searches": [
+          "2026/11/2/SCOPE-exact-sandwich-subsequence-profiles-within-binary-parikh-matrix--b40371a80999",
+          "2026/10/18/SCOPE-exact-gaussian-enumerator-and-stable-partition-law-for-binary-sc--0fe673644af7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The related same-day Finding states the family a^r b a b, r>=2. Its five-letter member is aabab."
+        ],
+        "reasoning": "Reversal and binary letter interchange give the orbit {aabab,babaa,bbaba,ababb}, which does not include abbab, even allowing C to change to AB-C. This nearby family is not an equivalent formulation.",
+        "searches": [
+          "Resultary exact binary Parikh avoidance abbab / 01101, balanced positive parts, one-return and sandwich patterns",
+          "2026/11/22/SCOPE-exact-binary-parikh-class-avoidance-for-the-one-return-family-a--a64eefca232a, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The accessible earlier census is explicitly for balanced four-letter patterns. The two-ended-runs citation did not resolve in the local mirror or catalog searches, so its coverage was not determined."
+        ],
+        "reasoning": "The four-letter census contains no fifth-letter refinement. No separate covering exact entry was verified; the unavailable five-letter citation is not negative evidence.",
+        "searches": [
+          "Resultary: fixed five-letter exact abbab avoidance and inversion-refined spectra",
+          "2026/11/8/SCOPE-inversion-refined-avoidance-spectra-for-all-balanced-four-letter--e75590ea1e11",
+          "2026/11/8/SCOPE-exact-parikh-class-avoidance-of-two-ended-runs-and-the-sharp-fiv--3ca5f597072a"
+        ]
+      },
+      "rationale": "The available strongest related statements do not cover the exact count for abbab. The bounded judgment is for the balanced-positive-part criterion and exact numerator, not the known partition encoding or general approximation methods; one plausible cited record was not retrievable and is an explicit residual risk.",
+      "residual_risks": [
+        "Actual coverage of the cited two-ended-runs/five-letter record remains unknown; no historical priority is certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Distinct pattern family even modulo word symmetries",
+          "evidence": "Parameters are a^r b a b with r>=2.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-binary-parikh-class-avoidance-for-the-one-return-family-a--a64eefca232a",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Exact binary Parikh-class avoidance for the one-return family",
+          "trigger": "Same-day exact inversion-refined pattern count"
+        },
+        {
+          "assessment": "General setup and other pattern/approximation results; no covering exact formula in the inspected passages",
+          "evidence": "General approximations and a different pattern in the exact hardness discussion.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.06717",
+          "material_read": "Section 5, pp. 8–9, OA offsets 28383 and 32893",
+          "method": "OA primary manuscript",
+          "title": "Subsequence Analysis Problems for Binary Parikh Matrices",
+          "trigger": "General results on the identical conditional probability question"
+        },
+        {
+          "assessment": "Known encoding; no balanced-parts avoidance count supplied by it",
+          "evidence": "Bijection to bounded integer partitions.",
+          "identifier_or_url": "https://arxiv.org/abs/2510.07159",
+          "material_read": "Section 4.2, Lemma 4.12, p. 19, OA offset 71259",
+          "method": "OA primary manuscript",
+          "title": "On some 2-binomial coefficients of binary words",
+          "trigger": "Exact rectangle-partition parametrization"
+        },
+        {
+          "assessment": "Does not impose a b after the second a",
+          "evidence": "Its profile is for ab^t a.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-sandwich-subsequence-profiles-within-binary-parikh-matrix--b40371a80999",
+          "material_read": "RESULT.md Finding and criterion, offsets 183 and 5298",
+          "method": "Local mirror",
+          "title": "Exact sandwich-subsequence profiles within binary Parikh-matrix classes",
+          "trigger": "Closest result on selecting the two a's and interior b's"
+        },
+        {
+          "assessment": "Unresolved scope, not evidence of noncoverage",
+          "evidence": "File missing at cited mirror path and no statement recovered from catalog searches.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-parikh-class-avoidance-of-two-ended-runs-and-the-sharp-fiv--3ca5f597072a",
+          "material_read": "Citation in RESULT.md; no theorem retrieved",
+          "method": "Cited-file lookup in local mirror and searches by title/ID",
+          "title": "Exact Parikh-class avoidance of two-ended runs and the sharp five-letter extremum",
+          "trigger": "Citation may concern a five-letter result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This solves an exact conditional-subsequence enumeration problem in the established binary Parikh-class setting for a nontrivial five-letter pattern. The explicit numerator yields the probability, a uniform non-forcing theorem, and a sharp class maximum for unrestricted compositions; the balanced-parts mechanism is more informative than a finite table or a general-purpose automaton recurrence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

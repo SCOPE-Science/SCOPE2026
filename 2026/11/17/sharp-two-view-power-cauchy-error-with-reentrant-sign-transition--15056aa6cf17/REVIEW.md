@@ -1,15 +1,7 @@
-# Scientific review
+# Scientific assessment of the revised statement
 
-## Correctness
-**PASS.** The complete proof reduces the convex-body supremum to a continuous even potential with thin-rectangle extremizing sequences; two test directions yield a global upper-error obstruction and the midpoint of the largest empty projective gap yields a global lower-error obstruction. Equally weighted perpendicular directions simultaneously attain both extremal levels. Equality classifications cover both one-sided regimes and their ties. For the polarity reversals, a degree-three arcsine Lobatto identity, Hermite remainder sign and endpoint regularization establish strict signs on the entire real-exponent intervals. The separately runnable `verify.py` passed 7,264 deterministic numerical comparisons. Unproved limits: no independent validation, no more-than-two-node or signed-rule theorem.
+**Correctness.** Every normalized positive at-most-two-direction rule has potential maximum at least \(1/2\) and minimum at most \(2^{-p/2}\). The equal perpendicular pair simultaneously attains both bounds for all real \(p>2\). Both inequalities are strict for any competing geometry or weights, using the bisector derivative for unequal weights on perpendicular directions. Thin rectangles give the exact factor of one half in the perimeter-normalized supremum.
 
-## Originality
-**PASS on the inspected evidence, subject to historical risk.** An (arXiv:2609.05869v1; full 16 pages inspected) proves the sharp geometric discrepancy reduction and exactness criteria, including the \(p=2\) case, but not the minimax error for \(p>2\). The closest full publicly accessible two-direction result addresses only \(0<p<2\), explicitly placing \(p>2\) outside its scope. The known all-node theorem addresses \(p=1\). The new statement identifies the all-real-\(p>2\) sharp minimax value, unique optimizer and two error-polarity switches. No equivalent, stronger-covering, or database/table result appeared in the performed targeted comparisons. Unindexed earlier quadrature or cosine-frame literature remains a priority risk; search absence alone is not a novelty proof.
+**Originality.** The contribution is the strict superquadratic planar two-view minimax and rigidity, not the norm reduction or the quadratic endpoint in An, nor the polarity diagram. The latter follows by comparing the axis value of the prior balanced order-four phase moment with its circular average. The known subquadratic two-view theorem has a disjoint exponent range and uses a bound that does not resolve the superquadratic minimax.
 
-## Mathematical value
-**PASS.** The short but sharp two-view design classification fills a natural sign-sensitive superquadratic gap left by the subquadratic theorem and the recent general exactness framework. The unexpected twice-reentrant transition at \(p=4\) and \(p=6\) is a quantitative structural feature: the unique geometry stays rigid while the obstruction controlling worst-case approximation switches between pointwise high and low potential values. This is a complete continuum theorem, not a single unmotivated numerical instance.
-
-## Closest literature and limitations
-The main scientific comparators are An (2026), the positive two-direction subquadratic rule, the positive all-node Cauchy rule, and An's Gauss--Chebyshev circle quadrature paper. The statement is strictly planar, uses positive fixed two-node rules, and gives no bound for arbitrary numbers of nodes. Historical priority outside inspected and searchable materials cannot be certified.
-
-Self-review: passed. Independent audit: not yet performed.
+**Value.** The minimax theorem gives the exact performance and unique geometry of the smallest nontrivial positive calibrated directional rule on the superquadratic side, including simultaneous control of both potential extremes. No larger-node, signed or higher-dimensional classification follows.

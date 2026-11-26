@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The claimed space is the unordered weight-three graph configuration space; the comparison theorem and all-vertex reduced Świątkowski quasi-isomorphism apply because the dodecahedral graph has no isolated vertices. The integral degree-three boundary has precisely 9,120 columns and 22,800 possible rows, with no chain group in degree four. The standalone reconstruction produces 9,094 integral unit pivots and 26 exact independently checked kernel elements. Every kernel witness is a genuine integer cycle, so \(H_3\cong\mathbb Z^{26}\). An independent characteristic-two rank computation agrees. Risk: the published comparison quasi-isomorphism is assumed; no chain-level independent derivation of that theorem is attempted.
+## correctness
 
-**Originality — PASS on inspected evidence.** Related published results supply the general chain model, dimension bounds, asymptotic formulas, and homological degree-two formulas, not this fixed graph/weight/degree integral invariant. The nearest indexed dodecahedral configuration result covers two particles; nearby three-particle calculations use other graphs. The audit records actual literature and mathematical-index comparisons, including equivalent object names, broader-coverage candidates, table searches and implication checks. Residual risk: unindexed or unpublished equivalences might cover the result; a negative search is not a priority proof.
+PASS
 
-**Value — PASS.** The graph is the canonical highly symmetric 20-vertex cubic planar dodecahedral skeleton. The group in degree three is the first top-degree invariant of three moving unordered particles, a case not fixed by the two-particle calculation or general bounds. The exact rank 26 requires substantial integral boundary reduction and supplies a reproducible comparison datum in graph-configuration homology. The value is the motivated exact natural invariant itself, not a claimed general classification or downstream theorem.
+Comparison theorem 4.5 respects weight (particle number) and computes unordered continuous configuration homology; reduction at all nonisolated vertices leaves two local half-edge differences for each cubic vertex. Weight three bounds degree by three. Independently generated the signed differential on GP(10,2), with a different reference edge (last incident edge in edge-family order) and eliminated rows over Z using smallest column pivots, not the source's column algorithm. There were 9120 columns, 22680 nonempty rows of 22800 possible, 9094 existing unit pivots and nullity 26. Replay: enumerate triples of distinct vertices and binary local choices; place (-1)^t times the selected edge minus reference edge in rows keyed by the two remaining encoded local choices and the edge. Process rows sorted by those keys, subtract the leading coefficient times the existing normalized row with the same least column until zero or a new pivot. Rank is exact over Q; the integral kernel is free of that rank difference and no degree-four boundaries occur. The source's unit-column witnesses are corroboration, not required by the alternative proof.
 
-**Limitations.** No claim is made for lower homology, the cohomology ring, graph-braid presentations, further particle counts or equivariant structure. Source accessibility and publication-priority risks are reported. Independent review has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bounded best-of-knowledge assessment of the fixed-weight exact invariant, not of the chain model.
+
+## value
+
+PASS
+
+Top integral homology of the smallest weight where degree three can occur is a natural exact invariant of a standard symmetric cubic planar skeleton. This gives a usable reference datum for computations beyond the two-particle case, with no claim about lower groups or ring structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

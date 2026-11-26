@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-Self-review: passed. Independent audit: not yet performed.
+## correctness
 
-Correctness: PASS. Preservation of the two equivalence relations forces every dual-frame automorphism to be coordinatewise on the punctured grid. Continuity at the two added points converts into compact symmetric-difference conditions for the triangular clopen set. Compactness excludes the deleted corner as a limit point, yielding an eventual order-comparison identity. Its diagonal and first-superdiagonal instances force both coordinate permutations to be eventually the identity. Swapping the two compactification points would instead force an impossible eventually decreasing permutation. Finite-support coordinate permutations give the converse.
+PASS
 
-Originality: PASS with residual risk. The 2023 source explicitly constructs the dual frame and identifies its dual algebra with the Erdős–Tarski algebra, but its full text contains no occurrence of “automorphism” or “symmetry.” Candidate-specific published-finding corpus searches, exact web searches under Erdős–Tarski spelling variants and finitary-permutation formulations, and the cumulative current and preceding-week ledgers found no equivalent computation. An older unindexed algebraic-logic treatment remains possible.
+Read RESULT.md §§Source input–Proof, VERIFICATION.md, and the finite verifier (not executed). In the named two-modal signature an automorphism preserves the two equivalence relations separately. The sole two-point intersection singles out the top row, rightmost column and unordered corner pair. All other intersections determine one coordinate map (α(i),β(j)), with each permutation fixing ω. If the induced permutation of the corner pair is σ, clopenness of the two wings and the corner neighborhood conditions imply h(g₁) △ g_{σ(1)} is compact in X₀: each of the two differences is closed in X₀ and contained in a compact remainder. In the ambient compact square this compact set misses a whole tail rectangle at the deleted corner. For a=α⁻¹ and b=β⁻¹, in the fixed-corner case this gives a(j)≤b(j)<a(j+1) eventually. The increasing tail of a enumerates the complement of its finite initial image, hence has zero eventual shift; b is then eventually the identity as well. In the swapped case it gives a(j)>b(j)≥a(j+1) eventually, impossible in ω. Conversely a finite-support pair changes triangular membership only on finitely many compact coordinate strips; the differences are closed there and the map and inverse extend continuously fixing both corners. This proves sufficiency as well as necessity. Named Jónsson–Tarski duality and inversion give the asserted group isomorphism; finite support also gives countability and local finiteness, and no finite generating set can move infinitely many indices. The finite script is only a supplementary bounded check, not evidence for the topology or the infinite permutation argument.
 
-Value: PASS. The Erdős–Tarski algebra is a canonical one-generated infinite algebra witnessing failure of local finiteness in S5^2/MS4. Its exact automorphism group is a natural structural invariant, and the result shows that all of its symmetries are finite-support row/column relabelings despite the algebra itself being infinite.
+## originality
+
+PASS
+
+The closest inspected primary result identifies the exact dual but leaves its self-homeomorphisms preserving both named relations to be determined. No inspected prior claim covers the ensuing finite-support restriction or excludes the corner interchange. This is a best-of-knowledge judgment about the group calculation, not about the underlying dual representation.
+
+## value
+
+PASS
+
+Determines a natural full symmetry invariant of a classical one-generated infinite algebra. In particular the result distinguishes the apparent unrestricted combinatorial grid permutations from the actual topological automorphisms; neither preservation of the two relations nor the generation count gives that restriction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

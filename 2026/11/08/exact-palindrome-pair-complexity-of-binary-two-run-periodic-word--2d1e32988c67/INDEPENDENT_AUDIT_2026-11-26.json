@@ -1,0 +1,90 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:51:36.080387Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Direct run analysis gives all cases. Equal endpoints can be made symmetric by trimming the longer endpoint into a constant palindrome. Opposite endpoints with a full endpoint give a symmetric prefix or suffix and one constant palindrome. With at least four runs and both endpoints partial, a palindrome prefix ends only in the first run or at the initial run's depth in a later full run of its letter. Each cut leaves a non-palindromic suffix: its endpoints differ except at the first boundary, where its full first and partial last runs have unequal lengths. Splitting the first full run of the other letter yields the indicated three-piece factorization. These cases thus have exactly PL=3 and lengths kL+s+t with k>=1 and both residual counts positive and strictly below their full lengths. The two cyclic changes imply primitiveness and thus distinct phases for n>=L. The length cutoff, generating function, complexity in its asserted range, and exceptional-run threshold follow. The checker and VERIFICATION.md were read but the uploaded checker was not run. The separate explicit-cut replay /workspace/branches/replay_frozen.py matched distinct-factor counts and the ceiling in all 2304 cases for 1<=a,b<=8, 1<=n<=4L; the unbounded proof is the run argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lemma 13 (p. 6) covers all words with at most three blocks. Theorem 18 classifies minimal non-palindrome pairs, and its proof gives the obstruction 01^k0^k1 for k>=2."
+        ],
+        "reasoning": "This covers the short-block cases and some witnesses (including the equal-parameter obstruction), but nonminimal factors can have arbitrarily many full runs. Minimal obstructions are not an occurrence test for failure of a longer word to be a palindrome pair.",
+        "searches": [
+          "Borchert and Rampersad, arXiv:1509.05396, Lemma 13 and Theorem 18"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Same indexed Resultary record",
+        "Borchert and Rampersad, arXiv:1509.05396, named passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The four-run obstruction 011001 occurs inside the palindrome pair 0|01100110 in the source with a=b=2. The latter is a palindrome pair even though it contains the former. The frozen proof distinguishes these cases by the endpoints of the queried factor, not by an obstruction occurrence."
+        ],
+        "reasoning": "In this same periodic family, minimal non-pair presence does not decide the longer-factor membership and hence does not yield the residual-pair convolution. A general method for testing palindromic splits is not an evaluation of this parameterized factor count.",
+        "searches": [
+          "arXiv:1509.05396 Theorem 18 and its proof, offset 39568, compared to frozen proof lines 41–60"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact indexed hit has the same record suffix and its mirrored Finding states the same PL ceiling, counts and threshold. The primary search gave no additional usable statement."
+        ],
+        "reasoning": "Counting exceptions to palindrome pairs and counting pairs are equivalent here once all factors have PL<=3 and primitive phase injectivity fixes the total. The exact indexed formulation is therefore an identity with the assigned record, not another claim.",
+        "searches": [
+          "Resultary: 2026/11/8/SCOPE-exact-palindrome-pair-complexity-of-binary-two-run-periodic-word--2d1e32988c67",
+          "\"palindrome-pair factor complexity\" \"periodic\" binary word 0^a 1^b exact count"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The paper's Table 1 lists short minimal obstructions and Corollary 19 counts minimal obstructions by length over all binary words. Section 6 defines palindrome-pair factor complexity and asks for counts in Fibonacci and Thue–Morse words."
+        ],
+        "reasoning": "Neither a list nor a length count for minimal obstructions gives the count of all distinct factors of an individual periodic source that require three palindromes; the indexed exact answer is the assigned result itself.",
+        "searches": [
+          "arXiv:1509.05396 Table 1, Corollary 19, and Section 6",
+          "Resultary exact two-run periodic hit"
+        ]
+      },
+      "rationale": "The indexed exact match is the frozen record itself. Prior palindrome-pair results cover short run counts and minimal obstructions and introduce the complexity statistic, but they do not give the strict-endpoint criterion and resulting lengthwise counts for this period family. PASS is for the exact criterion and enumeration in this scope, not for the definition or global obstruction theory.",
+      "residual_risks": [
+        "A specialization outside the inspected passages or in unlocated literature may have evaluated the same counts. The noisy primary search is not proof of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical indexed record; not separate prior coverage",
+          "evidence": [
+            "Same suffix, same strict endpoint count, same min(a,b)=1 criterion."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-palindrome-pair-complexity-of-binary-two-run-periodic-word--2d1e32988c67",
+          "material_read": "Mirrored RESULT.md Finding at offset 0 (snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+          "method": "Resultary lookup, local mirror bounded inspection",
+          "title": "Exact palindrome-pair complexity of binary two-run periodic words",
+          "trigger": "Exact word family and complexity match in Resultary"
+        },
+        {
+          "assessment": "Exact prior short-block and minimal-obstruction coverage, not whole-period factor enumeration",
+          "evidence": [
+            "At most three blocks suffice; the k>=2 obstruction 01^k0^k1 occurs in the proof; Corollary 19 counts only minimal non-pairs; Section 6 defines the pair-factor statistic."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1509.05396",
+          "material_read": "Lemma 13 (p. 6, offset 18760); Table 1, Theorem 18, Corollary 19, and start of Section 6 (pp. 11–12, from offset 39568)",
+          "method": "Primary OA PDF, bounded passages by offset",
+          "title": "Words with many palindrome pair factors",
+          "trigger": "Same complexity statistic and general binary obstruction classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact count for a natural primitive periodic family goes beyond bounding palindromic length or detecting minimal forbidden examples. It identifies precisely which phases and lengths require a third part, gives the sharp onset and permanent periodic profile, and supplies a tractable benchmark for the established palindrome-pair complexity statistic.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

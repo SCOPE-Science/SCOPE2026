@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:20:47.948108Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions, Proof; VERIFICATION.md; verify.py; verification_output.txt",
+        "Independent replay: python3 /tmp/opencode/independent_finite.py attractor"
+      ],
+      "rationale": "Each of the 2^k length-k circular windows is the unique occurrence of a distinct factor, and a selected position hits exactly k such windows. When k divides 2^k and the capacity bound is attained, no window may contain two chosen positions. Thus consecutive cyclic gaps are at least k, and their sum makes every gap k: all equality cases are residue sets modulo k. Every longer occurrence contains a length-k window already hit by such a set. Independently I enumerated every binary tail following the unique rotationally anchored 0^k for k=1,2,4, and intersected sets of factors with the covered occurrences. The respective necklace counts are 1,1,16, and the valid-residue histograms are {1:1}, {2:1}, {2:4,3:8,4:4}. Each frozen order-eight word has 256 distinct length-eight windows. I checked all eight obstruction rows for V against both starts and residue-disjointness, found that residue seven misses only 1011011, and checked coverage by the advertised 32- and 33-position sets at every length 1–256, including wrapping occurrences. This yields the exact separation and the first power-of-two order, not a comparison over all orders less than eight or a statement about a worst cycle.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Whittington treats a Lyndon-generated unfolding at prime orders, not all circular order-eight cycles. The Resultary census covers all order-five cycles and is not a census for a larger domain of orders. The inaccessible Mantaci et al. passage is described in the frozen record as general bounds, but that comparison could not be verified directly."
+        ],
+        "reasoning": "Prime order and a designated linear unfolding do not generalize to the two order-eight circular cycles. Even an upper bound alone would not show that every size-32 set fails for V.",
+        "searches": [
+          "Whittington §5 Theorem 29 and following discussion",
+          "Mantaci et al. Proposition 41 reference and lawful manuscript/DOI/handle routes",
+          "Resultary order-five circular-attractor census 664e6800e498"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§Assumptions and Relationship to prior work",
+        "Whittington arXiv:2407.15599; Béal–Crochemore–Romana arXiv:2509.08503v2; Mantaci et al. DOI and identified OA repository routes",
+        "Resultary 664e6800e498 and b89f933847cc; focused literature search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier checked work gives the relevance of uniform spacing for length-k windows and a computed linear covering set. The frozen proof requires additional concrete shorter-factor obstruction data for every equality residue of V, an upper witness attaining 33, and a precise contrasting 32-optimum cycle U."
+        ],
+        "reasoning": "The prior capacity bound and linear computed set do not give any of the needed circular noncoverage cases for V, nor the necklace-uniform conclusion at the earlier power-of-two orders.",
+        "searches": [
+          "Whittington Theorem 29 and Béal et al. GetAnAttractor/Table 2 against frozen equality-rigidity and obstruction proofs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Whittington distinguishes sharp attractors from ones covering shorter factors; the example of a missed ba illustrates why the length-k lower bound need not suffice. The 33 entry in Béal et al. is for a linear word and an algorithmic output."
+        ],
+        "reasoning": "A sharp k-attractor hits exactly the length-k factors and need not cover the shorter factors. A linear optimum depends on the cut and on a different collection of occurrences. Neither is equivalent to the frozen circular optimum.",
+        "searches": [
+          "Focused literature lookup: binary de Bruijn cycles and circular versus sharp/linear attractor sizes",
+          "Whittington §5, pp. 16–17",
+          "Béal–Crochemore–Romana Table 2 and surrounding text"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The experimental table gives 33 for a linear word of length 256, without a circular optimality assertion. The same-day circular order-five table gives common optimum seven over 2048 cycles. The earlier order-four catalog gives linear unfoldings with optima four or five."
+        ],
+        "reasoning": "The number 33 at the same length is not the same optimized quantity. The two Resultary matches concern a different order or linear rather than circular windows, so neither table preempts the claimed separation.",
+        "searches": [
+          "Béal–Crochemore–Romana Table 2, de Bruijn column at length 256",
+          "Resultary 664e6800e498 and b89f933847cc, inspected findings"
+        ]
+      },
+      "rationale": "The supported distinct statement is exact 32-versus-33 optimality for two circular order-eight cycles, with uniform optima at the smaller power-of-two orders. The most relevant inspected comparison reporting 33 is an experimental linear attractor size, not an exact circular optimum. The inspected same-invariant catalog result is at order five only. Prime-order results for particular linear unfoldings do not determine the composite order-eight cyclic case. Mantaci et al. Proposition 41 was not accessible in full text, a specific unresolved literature risk rather than evidence for or against priority.",
+      "residual_risks": [
+        "Mantaci et al. Proposition 41 was not seen in primary full text. The underlying word used for the experimental linear entry 33 was not independently identified, but an experimental linear cover would not prove an exact circular minimum even on the same word."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant distinction and prime-order linear result, not the claimed separation",
+          "evidence": "A sharp attractor can miss ba, and Theorem 29 concerns a Lyndon-generated unfolding for prime orders.",
+          "identifier_or_url": "https://arxiv.org/pdf/2407.15599",
+          "material_read": "§5, pp. 16–17, OA offsets 57740–64222",
+          "method": "OA primary PDF",
+          "title": "Online String Attractors",
+          "trigger": "Variation of attractors on de Bruijn inputs and sharp versus full coverage"
+        },
+        {
+          "assessment": "Experimental linear cover, not a circular optimum or exact pair classification",
+          "evidence": "33 appears in the de Bruijn column, whose values are described as experimentally obtained. The table does not give either cyclic lower bound or a matching word and cut.",
+          "identifier_or_url": "https://arxiv.org/html/2509.08503v2",
+          "material_read": "Table 2 and nearby GetAnAttractor discussion, HTML text offsets 39000–44000",
+          "method": "OA publisher-format full text",
+          "title": "Checking and producing word attractors",
+          "trigger": "Identical numerical value 33 at length 256"
+        },
+        {
+          "assessment": "Unresolved access risk; no inference of noncoverage",
+          "evidence": "The frozen record describes Proposition 41 as bounds; this could not be independently verified and no alternate readable copy was located.",
+          "identifier_or_url": "https://doi.org/10.1016/j.tcs.2020.11.006",
+          "material_read": "No decisive full-text passage retrieved; manuscript and repository handle 11568/1062328 returned HTTP 403 and DOI route did not yield text",
+          "method": "OA manuscript and repository routes, DOI check and bounded targeted search for an alternate lawful copy",
+          "title": "A Combinatorial View on String Attractors",
+          "trigger": "Foundational circular-attractor work; frozen comparison cites Proposition 41"
+        },
+        {
+          "assessment": "Genuinely related same invariant; different order",
+          "evidence": "All 2048 order-five cycles have circular optimum seven, not a statement at order eight.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-complete-minimum-circular-attractor-census-of-binary-order-five--664e6800e498",
+          "material_read": "Local RESULT.md Finding and scope",
+          "method": "Resultary search and local mirror",
+          "title": "Complete minimum circular attractor census of binary order-five de Bruijn cycles",
+          "trigger": "Same-day and same circular invariant"
+        },
+        {
+          "assessment": "Linear unfolding invariant only",
+          "evidence": "Order-four linear minima can be four or five; the result does not give varying circular optima at order four.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-complete-attractor-rank-profile-of-binary-order-four-de-bruijn-u--b89f933847cc",
+          "material_read": "Local RESULT.md Finding and scope",
+          "method": "Resultary search and local mirror",
+          "title": "Complete attractor rank profile of binary order-four de Bruijn unfoldings",
+          "trigger": "Earlier exact order-four data"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Proof, Limitations",
+        "Whittington §5 on sharp versus full attractors"
+      ],
+      "rationale": "The natural counting bound from unique length-k windows predicts a common optimum in the smaller cases. At the first relevant power-of-two order the two exact certificates show that the circular optimum depends on the choice of cycle and that shorter factors can alone force a strict increase despite complete length-k coverage. This answers a specific extremal question and provides concrete benchmarks for circular factor coverage without mistaking a greedy set for an optimum or claiming an asymptotic separation.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

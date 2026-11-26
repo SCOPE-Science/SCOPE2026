@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:51:37.609268Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With margins x=i and y=n-1-j, let p=n-1-x-y. For a valid shift, the two ones either occupy singleton chains (giving the suffix of periods beginning at n-min(x,y)) or occupy one complete two-element chain (shift p, with x,y<p). At fixed exceptional p, the ordered margins sum to n-p-1 and range over R=min(n-p,3p-n) choices for the left margin, positive exactly for p>floor(n/3). The threshold determines the unordered margin pair, so there are ceil(R/2) profiles, and the unique possible singleton for this p lies at equal margins and occurs exactly when R is odd. For p<=n-2 the gap from p to the suffix threshold is max(x,y)+1>=2; only p=n-1 duplicates a pure suffix. Adjacent markers realize all floor(n/2) suffixes for n>=4. Their reversals are distinct except for the minimum threshold at even n, where no other pure word has those margins; at n=4 the endpoint pair duplicates this exceptional singleton. Since R has the parity of p-n, this proves the asserted U(n). Splitting the sum at floor(n/2) gives 12 times the six correction constants as 12,21,8,21,12,17; n=2,3 are separate direct cases. A fresh bounded test compared every potential shift against all overlap pairs incident to a one, for 147440 words over all 2<=n<=96, and reproduced the structural formula, profile counts and singleton counts. Replay: node /workspace/checks/geometry-and-word-reproduction.js. The bounded check corroborates rather than replaces the chain and margin arguments. Neither cyclic shifts nor uniqueness modulo reversal was tested or claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 15 bounds the number of distinct autocorrelations over unrestricted strings.",
+          "Rivals's incremental enumeration generates admissible period sets, not the size of each fiber inside the set of labeled words with two ones.",
+          "The 2003 general-enumeration paper was identified; only its landing page/abstract was retrievable in this check."
+        ],
+        "reasoning": "Admissibility over unrestricted words does not decide fixed-source-weight realization or multiplicity. An algorithm for the former can be background for the latter without giving the six-residue exact count and singleton formula.",
+        "searches": [
+          "arXiv:2209.08926, Theorem 15",
+          "arXiv:2410.12077, abstract and enumeration discussion",
+          "DOI:10.1016/S0097-3165(03)00123-7"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2209.08926",
+        "arXiv:2410.12077",
+        "DOI:10.1016/S0097-3165(03)00123-7 (abstract only)",
+        "2eaec66ac849",
+        "82dd9adea10e",
+        "537d6221a547"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "537d6221a547 reconstructs words with three ones from two composition layers up to reversal.",
+          "The unrestricted asymptotic autocorrelation result does not condition on Hamming weight or address labeled singleton fibers."
+        ],
+        "reasoning": "Neither the sparse reconstruction theorems with different input data nor the unrestricted set count implies the parity-sensitive collision count. The target uses one observable, a different input family from the three-marker record, and distinguishes reversed labeled words.",
+        "searches": [
+          "Resultary: sparse binary words and reconstruction; hits 2eaec66ac849, 82dd9adea10e, 537d6221a547",
+          "arXiv:2209.08926, Definition 2 and Theorem 15"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Definition 2 uses the same overlap-equality condition, with the trivial shift 0 included. Removing 0 is a bijection on period sets, and encoding by borders replaces s with n-s.",
+          "2eaec66ac849, RESULT.md offset 0: fixed-length window composition multisets and singleton fibers for the same source-weight family, not prefix-suffix equalities."
+        ],
+        "reasoning": "Rewriting the observable as autocorrelation or a set of border lengths does not change the target exact classification. The nearby two-marker result records counts of ones in a window rather than equality at a given shift, and does not enumerate border sets.",
+        "searches": [
+          "Resultary: exact two-one period profiles, frozen title, sparse binary words",
+          "arXiv:2209.08926, Definition 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected enumerator plots sets by period-set weight, specifically their number of periods, not Hamming weight of a realizing word.",
+          "2eaec66ac849 contains exact sparse profile counts for window compositions. 82dd9adea10e records distributions of minimal unique substrings."
+        ],
+        "reasoning": "None of those tables has rows that count the fixed-weight-two profile fibers being classified. The bounded catalogue search did not surface an equivalent table; that is not a proof of absence.",
+        "searches": [
+          "Resultary: exact two-one period profiles and general autocorrelation searches",
+          "arXiv:2410.12077, Figure 1 and pp. 10–11"
+        ]
+      },
+      "rationale": "The inspected antecedents cover unrestricted autocorrelation sets or a different observation on sparse words. They do not establish the fixed-source-weight-two counts or the labeled singleton classification. This is a bounded best-of-knowledge finding; it does not claim originality of the definition of period or priority for arbitrary period-set enumeration.",
+      "residual_risks": [
+        "The 2003 article was not checked in full; its abstract cannot exclude a relevant special case elsewhere in the paper.",
+        "Older or unindexed work on borders of sparse words may give equivalent counts; the conclusion is limited to the inspected catalogue records and literature passages."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same basic observable, unrestricted count only",
+          "evidence": "Definition matches overlapping linear comparisons, up to including shift zero. The theorem counts possible autocorrelations without fixing Hamming weight or fiber size.",
+          "identifier_or_url": "https://arxiv.org/abs/2209.08926",
+          "material_read": "Definition 2, p. 2, OA offset 9900; Theorem 15, p. 6, offset 17880",
+          "method": "OA PDF passage inspection",
+          "title": "Convergence of the Number of Period Sets in Strings",
+          "trigger": "Equivalent autocorrelation and possible stronger enumeration theorem"
+        },
+        {
+          "assessment": "Different notion of weight and no source-weight fiber census in inspected material",
+          "evidence": "The finite tables organize period sets by their cardinality, not by number of ones in the words realizing them.",
+          "identifier_or_url": "https://arxiv.org/abs/2410.12077",
+          "material_read": "Abstract, p. 1, offset 820; Fig. 1 and discussion, pp. 10–11, offsets 39580–41336",
+          "method": "OA PDF passage inspection",
+          "title": "Incremental Computation of the Set of Period Sets",
+          "trigger": "Possible broader enumeration and exact weight tables"
+        },
+        {
+          "assessment": "Residual coverage risk",
+          "evidence": "Identified the article and its broad topic, but the available material is not sufficient for a whole-document noncoverage conclusion.",
+          "identifier_or_url": "https://doi.org/10.1016/S0097-3165(03)00123-7",
+          "material_read": "Accessible landing page and abstract; citation in arXiv:2410.12077 p. 13, offset 47739",
+          "method": "Lawful OA retrieval attempt; full text not obtained",
+          "title": "Combinatorics of periods in strings",
+          "trigger": "Foundational general period-set enumeration"
+        },
+        {
+          "assessment": "Different observable",
+          "evidence": "It counts multisets of length-h window compositions and gives a capacity h^2+h-1 for n>=3h-1, not a set of overlap-equality shifts.",
+          "identifier_or_url": "2eaec66ac849",
+          "material_read": "RESULT.md offset 0, main theorem",
+          "method": "Local Resultary mirror",
+          "title": "Exact fixed-window composition spectra of binary words with two markers",
+          "trigger": "Same weight, exact profile and singleton counts"
+        },
+        {
+          "assessment": "Different statistic",
+          "evidence": "It classifies minimal unique substrings, not fibers of the period-set map.",
+          "identifier_or_url": "82dd9adea10e",
+          "material_read": "RESULT.md offset 0, main theorem",
+          "method": "Local Resultary mirror",
+          "title": "Minimal unique factors of binary words with two marked symbols",
+          "trigger": "Same sparse word family and uniqueness terminology"
+        },
+        {
+          "assessment": "Different source family, data and equivalence relation",
+          "evidence": "The claim uses words with three ones, two composition layers and reconstruction up to reversal.",
+          "identifier_or_url": "537d6221a547",
+          "material_read": "RESULT.md offset 0, main theorem",
+          "method": "Local Resultary mirror",
+          "title": "Two heavy-layer composition spectra reconstruct binary three-marker words",
+          "trigger": "Same-day sparse-word reconstruction result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result gives the complete sparsest nontrivial two-position profile classification and a sharp distinction between identifying a word and merely realizing an autocorrelation pattern. It identifies when a gap is visible, quantifies the resulting collisions with an exact residue correction, and detects the labeled uniqueness exceptions that an unrestricted admissibility count does not see. These are substantive exact invariants of the observation model, rather than a small-instance recomputation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

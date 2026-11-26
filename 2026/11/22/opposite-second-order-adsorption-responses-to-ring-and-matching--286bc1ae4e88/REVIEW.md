@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim defines the 16 labeled vertices, 24 edge clocks, two distinct eight-edge marked families, and perfect terminal covering without ambiguity. From the exponential race of available edges, the exact finite rational recurrence follows, and differentiating it gives the displayed first and second derivative recurrences. Two independent complete-state representations, respectively 7,314 occupied-vertex states and 11,068 partial-matching states, both reproduce the exact baseline probability, zero first derivatives, and the opposite strictly signed curvatures. Analyticity for positive rates converts the signed second derivatives into strict local extrema. This is a finite exhaustive proof rather than an extrapolation.
+## correctness
 
-## Originality — PASS, with stated priority risk
-Semantic comparison of the precise local rate-response claim was made against published indexed mathematical findings, earlier available claims, and primary literature. The closest accessible full research results concern uniform dimer jamming on the Petersen graph and uniform monomer adsorption on other sixteen-site graphs; neither implies the Möbius–Kantor ring/spoke curvature contrast. Penrose–Sudbury (2005) and Gamarnik–Goldberg (2008) establish general adsorption and greedy matching tools, but their inspected main results do not evaluate these derivatives. Pippenger's (1989) inaccessible complete paper is an explicit residual risk; its available abstract addresses related adsorption processes without the specific calculation. No universal novelty guarantee or independent priority certification is claimed.
+PASS
 
-## Mathematical value — PASS
-The Möbius–Kantor graph is the unique cubic symmetric graph on sixteen vertices. The two marked edge sets each contain eight bonds, yet one is a ring and one a perfect matching. Since all bonds are symmetry equivalent before perturbation, a vanishing linear response is natural; the exact opposite curvatures expose a substantive geometric second-order effect in kinetic perfect coverage. This is a motivated structural contrast, not merely a new table of terminal counts or a relabeling of an earlier result. The result serves as an exact benchmark for patterned reaction-rate design on finite regular substrates.
+The vacant set only shrinks; after each deposition the first active independent Poisson clock wins with probability its rate divided by the total active rate. For an ordering of a fixed perfect matching, the product of these factors is the probability of that exact history. Independently generated all perfect matchings by matching the least vacant vertex recursively (33 matchings), and summed their histories via forward Taylor-coefficient propagation over each matching's subsets, weighting choices by all active edges, not just those in that matching. At delta=t-1 the edge-probability coefficients are (1,b-a,a^2-ab)/k, where b is its mark indicator and a is the active marked fraction. Readout of value, derivative, and twice the quadratic coefficient gave (903422/3840375,0,276830066540632837/4793798789772300000) for the ring and (903422/3840375,0,-561926341371011/43579988997930000) for spokes. Forward homogeneous propagation over 7314 occupied-state masks also recovered the entire terminal law: 6:868823/6912675, 7:2008042/3142125, 8:903422/3840375. Replay: python /workspace/replays/adsorption.py. With vertices numbered u=0..7, v=8..15, the verified automorphism (image list) [0,8,11,3,4,12,15,7,1,13,14,2,5,9,10,6] carries outer edge (0,1) to spoke (0,8); rotations and u_i ↔ v_{3i} relate all three edge types. Positive total active rates make the finite probabilities analytic near 1, proving the two strict local extrema only, not any global claims.
 
-## Limitations and literature
-The conclusion is local near equal rates and confined to irreversible dimer deposition on the specified graph. Full text of Pippenger (1989) was unavailable through the examined routes; an earlier unindexed specialized calculation cannot be excluded. No independent scientific audit has been carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The specific same-graph ring-versus-spoke curvature contrast for GP(8,3) remains distinct on inspected evidence. Geometry-signed adsorption rate effects and nonmonotone weighted dimer jamming are not themselves new. The materially overlapping indexed statements are credited, without claiming relative priority from their dates.
+
+## value
+
+PASS
+
+On a standard symmetric cubic graph, the same number of perturbed edges has the same first-order response at uniform rates, yet changing their arrangement reverses the local effect on full occupancy. The exact sign contrast distinguishes ring and matching geometry without changing graph or total rate perturbation. This makes a useful patterned-rate benchmark beyond a homogeneous terminal table, without implying a general curvature law or global optima.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

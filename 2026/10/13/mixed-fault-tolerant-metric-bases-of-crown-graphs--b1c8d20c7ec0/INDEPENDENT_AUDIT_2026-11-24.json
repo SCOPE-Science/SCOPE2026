@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:43:26.212965Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 48–204",
+        "Frozen VERIFICATION.md, verify.py and verify_output.txt (read, not executed)",
+        "Fresh replay: python3 /workspace/review_work/check_graph_examples.py, rows beginning '5 crown'"
+      ],
+      "rationale": "For degenerate matched pairs only in the sense of deleted edges, the distinguisher set for same-side a_i,a_j is precisely P_i union P_j, so multiplicities must satisfy x_i+x_j>=2. If one index is omitted, every other index is doubled and the size is at least 2n−2>n; otherwise size n requires a full transversal. To check deletion, on a one-hole transversal all vertex pairs are separated using one of their own indices or a represented third index. The coordinates of an edge different from 1 identify its represented endpoint indices, and at each such index the 0/2 value and landmark orientation recover the endpoint side; a missing index is known. A nonincident vertex with a represented pair is separated there by distance 0 or 3. For an omitted vertex a_h and a nonincident edge a_i b_j, i is represented, and at a_i the distances are 2/0 while at b_i they are 1/2. The symmetric case is identical with sides exchanged. For the actual incidence a_i vs a_i b_j the complete distinguisher set is {b_i,b_j} union {a_s:s is outside {i,j}}, so a one-hole collision exists exactly when there are one or two A landmarks, and symmetrically for B. Hence deletion of any landmark works precisely for a pure transversal or if both orientations initially occur at least four times. The pure sets establish attainment and the binomial sum counts all valid orientations, first mixed at n=8. Fresh direct distance-vector examples give minimal distinguisher number 1 for (n,p)=(4,1),(7,3) and 2 for (4,0),(8,4),(9,4).",
+      "residual_risks": [
+        "The fresh check is a bounded comparison of distance codes, not a general exhaustive proof or independent expert attestation. The argument uses n>=4, in particular for the 2n−2 exclusion and the represented third-pair step."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kelenc et al.'s inspected Proposition 4.2 is ordinary mixed dimension of intact K_{r,t}, giving r+t−2 when both parts have size at least 3.",
+          "Milivojević Danas's abstract and introductory statement concern flower snarks and wheels. The Ahmad et al. full theorem text was not obtained; nothing about its coverage is inferred from the title or retrieval failures."
+        ],
+        "reasoning": "An intact complete bipartite graph has no missing partners with distance 3 and the cited theorem imposes no second-distinguisher test. These are not the parameters or objects of the crown bases result. The plausible general 2022 comparator remains an explicitly limited source inspection.",
+        "searches": [
+          "Kelenc et al. arXiv:1611.04292v2, §4 Proposition 4.2",
+          "Milivojević Danas arXiv:2001.09333v1, abstract and §1",
+          "Ahmad et al. DOI 10.1155/2022/9773089 (DOI, Wiley and Hindawi PDF routes)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 19–74 and 213–230",
+        "Inspected k-metric and edge-metric catalogue records",
+        "Kelenc et al. and Milivojević Danas passages and Ahmad et al. access attempts as qualified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A pure A transversal and a mixed p=1 transversal are both vertex-only 2-metric bases; each one-element deletion also yields an edge-only basis. The latter mixed p=1 transversal nevertheless fails the 2-mixed requirement, as the explicit incident vertex-edge computation shows.",
+          "The full mixed condition caps the excluded orientations of each side via the one-hole 1-or-2 collision, producing a sharp threshold not present in the separate bases statements."
+        ],
+        "reasoning": "This is a witness against the inference that covering vertex-vertex and edge-edge pairs suffices. The prior scalar vertex bound and necessary transversal structure are credited. The exact incidence restrictions, threshold and complete mixed count require the genuinely additional comparison.",
+        "searches": [
+          "Resultary complete k-metric hierarchy Finding/Assumptions/Proof and edge-metric bases Finding/Proof",
+          "Kelenc et al. Proposition 4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At k=2 the inspected Resultary k-metric definition involves pairs of vertices only; its entire 2^n family of transversals differs from the mixed-fault-tolerant family.",
+          "Requiring a mixed generator to survive deletion of any landmark is equivalent to two distinguishers for every mixed element pair. A 2-mixed prior result on crowns is therefore a true equivalent comparator, while a vertex-only k=2 result is not."
+        ],
+        "reasoning": "Both names for the target property and the bipartite-minus-matching graph alias matter. The strongest same-graph comparison has the same value and same necessary placement but a rigorously different universe of elements. The focused primary searches returned no usable exact match, not evidence of absence.",
+        "searches": [
+          "Primary search: 2-mixed metric dimension and mixed fault-tolerant metric dimension, crown graph and K_{n,n} minus a perfect matching",
+          "Resultary 2026/10/12/SCOPE-complete-k-metric-hierarchy-of-crown-graphs--30e06175a718",
+          "Ahmad et al. DOI 10.1155/2022/9773089"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The complete k-metric hierarchy gives vertex-only dimension n and all 2^n transversals at k=2.",
+          "The edge-metric record's Finding gives dimension n−1 and n*2^(n−1) one-hole transversals, resolving just edge pairs."
+        ],
+        "reasoning": "A same-n scalar table would not establish the all-bases result. Both exact catalogue comparisons omit vertex-edge separation, where the nontrivial restriction occurs. No directly matching 2-mixed basis table was surfaced; the scientific distinction is established by the inspected definitions, not by query silence.",
+        "searches": [
+          "Resultary comparison: crown graph 2-mixed / mixed fault-tolerant bases",
+          "Exact IDs 2026/10/12/SCOPE-complete-k-metric-hierarchy-of-crown-graphs--30e06175a718 and 2026/10/4/SCOPE-edge-metric-bases-of-crown-graphs--b5b3c45f23e8"
+        ]
+      },
+      "rationale": "The closest exact catalogue result already gives the vertex-only two-distinguisher lower bound, scalar n and the full transversal candidate family. The edge-only catalogue classification already gives the one-hole edge-resolving family. The distinct result is the incidence-aware condition for all bases of the simultaneous vertex-and-edge problem with deletion tolerance: the allowed mixed orientations have counts at least four on both sides. That restriction and enumeration do not follow from counting together the known vertex-only and edge-only systems.",
+      "residual_risks": [
+        "The 2022 reference and older differently indexed 2-mixed results remain possible prior comparisons. The bounded primary searches yielded no usable exact match, and failed lawful access is not negative evidence. The pass is for the incidence-aware exact orientation census, not priority for the definition or the vertex-only scalar."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong partial coverage for vertex-only pairs",
+          "evidence": "At k=2, the stated bases are all 2^n transversals, with no edge or mixed incidence pair in the definition.",
+          "identifier_or_url": "2026/10/12/SCOPE-complete-k-metric-hierarchy-of-crown-graphs--30e06175a718",
+          "material_read": "RESULT.md Finding, Assumptions and Proof",
+          "method": "Resultary search and local mirror reading",
+          "title": "Complete k-metric hierarchy of crown graphs",
+          "trigger": "Same graph, scalar n, and transversals at k=2"
+        },
+        {
+          "assessment": "Partial coverage of one-hole condition for edge-edge pairs",
+          "evidence": "An edge metric basis has size n−1, omits one matched pair and chooses one from each other pair, with n*2^(n−1) such bases.",
+          "identifier_or_url": "2026/10/4/SCOPE-edge-metric-bases-of-crown-graphs--b5b3c45f23e8",
+          "material_read": "RESULT.md Finding and Proof",
+          "method": "Resultary search and local mirror reading",
+          "title": "Edge metric bases of crown graphs",
+          "trigger": "Exact one-hole structure in the same graph"
+        },
+        {
+          "assessment": "Ordinary mixed dimension of complete bipartite graphs, not the deleted-matching two-distinguisher case",
+          "evidence": "The stated value on complete bipartite graphs with both parts at least 3 is the sum of their sizes minus two.",
+          "identifier_or_url": "https://arxiv.org/pdf/1611.04292v2",
+          "material_read": "§4, Proposition 4.2, p. 6 (offset 21098)",
+          "method": "Lawful bounded OA PDF reading",
+          "title": "Mixed metric dimension of graphs",
+          "trigger": "General mixed resolving framework and related bipartite exact case"
+        },
+        {
+          "assessment": "Different families in inspected passages",
+          "evidence": "The stated exact cases are wheels and flower snarks.",
+          "identifier_or_url": "https://arxiv.org/pdf/2001.09333v1",
+          "material_read": "Abstract p. 1 (offset 0) and §1 p. 3 (6051)",
+          "method": "Lawful bounded OA PDF reading",
+          "title": "The mixed metric dimension of flower snarks and wheels",
+          "trigger": "Primary mixed metric exact results"
+        },
+        {
+          "assessment": "Unresolved full-text access; no conclusion about its complete coverage or historical priority",
+          "evidence": "The frozen historical attribution was not independently confirmed from full text and is not used to exclude prior coverage or to prove the claim.",
+          "identifier_or_url": "https://doi.org/10.1155/2022/9773089",
+          "material_read": "Citation identification only; no exact theorem text obtained",
+          "method": "Lawful OA, Wiley and publisher-hosted Hindawi PDF routes attempted; no repository copy recovered",
+          "title": "Computing Fault-Tolerant Metric Dimension of Connected Graphs",
+          "trigger": "Frozen historical citation and possible broad coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md incidence test and all-bases proof",
+        "Two same-graph catalogue comparators",
+        "Fresh small orientation examples"
+      ],
+      "rationale": "The crown's canonical matched pairs provide a natural test of robustness under simultaneous vertex and edge identification. The exact result isolates an incident mixed collision invisible to separate vertex and edge bases, and identifies the first size at which a minimum fault-tolerant basis can place landmarks on both sides. The count describes every design of minimum size rather than a redundant scalar bound.",
+      "residual_risks": [
+        "Limited to single deletion in the stated crown family; no implication for higher faults is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

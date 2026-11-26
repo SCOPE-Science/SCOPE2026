@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T15:04:16.485421Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–64; frozen VERIFICATION.md and checker.py inspected, not executed.",
+        "Independent replay: python3 /workspace/audit_evidence/small_exact_reproduction.py, magma_checks()."
+      ],
+      "rationale": "An independent integer-only enumeration exhausted all 1, 16, and 19,683 operation tables on the carriers of sizes 1, 2, and 3. It tested M by equality of its left-translation row with the diagonal, and B by L_{(B·x)·y}=L_x∘L_y for every x,y, computing associativity by L_{x·y}=L_x∘L_y. It formed full marked permutation orbits and computed closure of the marks. The resulting tuples (labelled, marked classes, generated classes, nonassociative classes, generated nonassociative classes) were (1,1,1,0,0), (14,7,4,0,0), and (204,36,7,6,1). At order 3 the six specified nonassociative representatives have disjoint size-six marked orbits; the underlying types are distinct (they have one versus two nonzero products relative to the unique absorbing element). The fixed counts are 204,4,4,4,0,0. Only the marking B=0,M=2 of Type II generates its carrier, because 2·2=1. The explicit associativity failure follows by the two products displayed in the finding.",
+      "residual_risks": [
+        "Exhaustiveness is confined to orders 1–3, and counts marked structures with possibly coincident marks. The replay is not formal verification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 3.1 gives associativity for finite BI algebras, with a distinguished left identity; the finite BM result concerns existence of a Y-element.",
+          "arXiv:2609.21765 concerns the nonexistence of a uniform closed fixed-point term in the combinatory fragment, not a census of finite marked models."
+        ],
+        "reasoning": "The identity hypothesis is absent from BM and is not satisfied by the minimal counterexamples. The finite Y theorem and free-term result do not exclude two-element nonassociative BM algebras or classify three-element ones.",
+        "searches": [
+          "Imamura arXiv:2610.37108v1, abstract, §3.1 Proposition 3.1 and §4",
+          "Imamura arXiv:2609.21765, abstract; finite BM-algebra title search"
+        ]
+      },
+      "checked_sources": [
+        "Frozen record; local Resultary; arXiv:2610.37108v1; arXiv:2609.21765; identifiable 2014 title hit (limited access)."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In Table 1, choosing M=2 and B=0 generates the third element via 2·2=1. The paper supplies no exclusion at order 2 or uniqueness argument in that proposition."
+        ],
+        "reasoning": "Existence of a generated order-three nonassociative example is mechanically implied by the prior table and receives no novelty credit. The census and marked-isomorphism completeness require the separate exact reduction and exhaustive comparison.",
+        "searches": [
+          "Compare frozen RESULT.md lines 11–33, 59–64 against arXiv:2610.37108v1 Proposition 4.1 and Appendix A"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary hit is the assigned record (ecf9377fc5f1), not independent coverage.",
+          "Proposition 4.1 specifies rows (000),(001),(001) and B=0, M in {1,2}. This is exactly Type II under the existing labels."
+        ],
+        "reasoning": "The antecedent is the same example in the same equational language, not merely a similar table. The equivalence covers existence and these two members, not the completeness claim.",
+        "searches": [
+          "Resultary searches on minimal finite nonassociative BM/bluebird–mockingbird magmas and marked small-order classifications",
+          "arXiv:2610.37108v1 §4 Proposition 4.1 and Table 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior table gives the two Type II markings, but no count or list certified complete for the target orders; Appendix A describes a generic enumerator and a SAT-based search, not the output of this exact census."
+        ],
+        "reasoning": "A tool capable of running the census is not an already-published classification. There is explicit prior table coverage of part of the result; there is no confirmed prior table of all marked classes.",
+        "searches": [
+          "Resultary exact census/marked small-magma searches",
+          "arXiv:2610.37108v1 Table 1 and Appendix A (magma-search)"
+        ]
+      },
+      "rationale": "Credit only the exact lower cutoff, order-1–3 census and nonassociative classification, including uniqueness of the generated class. The cited Imamura paper already supplies the identical Type II table with both markings, including the generated marking. This gives the upper cutoff immediately, not the exclusion of order 2, the complete catalogue, or uniqueness. No matching distinct census or stronger theorem was established in the checked sources.",
+      "residual_risks": [
+        "Bounded best-of-knowledge comparison, not a priority certification. Unindexed enumerator output or inaccessible ambiguous terminology remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct example overlap, not the exact classification in the inspected statements",
+          "evidence": "Table 1 is identical to Type II with marks (0,1) and (0,2); Proposition 3.1 concerns BI; Appendix A describes general-purpose enumeration.",
+          "identifier_or_url": "https://arxiv.org/html/2610.37108v1",
+          "material_read": "Abstract, §3.1 Proposition 3.1 (offset 20700), §4 Proposition 4.1 and Table 1 (offsets 25430–27261), Appendix A (around offsets 58345–58565)",
+          "method": "Lawful OA primary HTML",
+          "title": "Finite BM-algebras and fixed-point combinators",
+          "trigger": "Same equations and explicit nonassociative examples"
+        },
+        {
+          "assessment": "The inspected theorem concerns term rewriting rather than marked finite algebras",
+          "evidence": "Nonexistence of a closed uniform fixed-point combinator is distinct from nonassociativity of finite models.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.21765",
+          "material_read": "Primary abstract",
+          "method": "Lawful OA arXiv",
+          "title": "Bluebirds and mockingbirds cannot produce a fixed-point combinator",
+          "trigger": "Closely related combinatory identities"
+        },
+        {
+          "assessment": "Unresolved acronym match, not counted as noncoverage",
+          "evidence": "No defining-equation or census comparison was possible.",
+          "identifier_or_url": "2014 title hit; defining equations not retrieved",
+          "material_read": "Search description only; no primary passage retrieved",
+          "method": "Bounded lawful OA attempt returned HTTP 403",
+          "title": "On finite BM-algebra",
+          "trigger": "Shared acronym in finite algebra"
+        },
+        {
+          "assessment": "The identical assigned record, not independent evidence",
+          "evidence": "Same census and unique generated class.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-three-element-associativity-obstruction-for-mathbf-bm-alge--ecf9377fc5f1",
+          "material_read": "Indexed summary and frozen Finding",
+          "method": "Local Resultary and frozen source",
+          "title": "Sharp three-element associativity obstruction for BM-algebras",
+          "trigger": "Exact catalogue match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 25–37 and 59–74; arXiv:2610.37108v1 Propositions 3.1 and 4.1; independent finite reproduction."
+      ],
+      "rationale": "The census locates the first failure of associativity after relaxing the identity-bearing BI setting and distinguishes arbitrary markings from generation by the named combinators. For a researcher looking for smallest BM witnesses, the six-class list establishes which alternatives exist, and the uniqueness result identifies the only generated obstruction at the cutoff. This is a natural finite classification, not merely a replay of the famous or already displayed example.",
+      "residual_risks": [
+        "No larger-order classification or novelty of the underlying search algorithm is credited."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

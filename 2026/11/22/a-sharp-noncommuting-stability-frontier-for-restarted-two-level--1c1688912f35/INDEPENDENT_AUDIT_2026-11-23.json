@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:08:16.733635Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under strict Euclidean positive-definite contraction hypotheses, parallel C relaxation gives Fx at every positive coarse index from constant initialization; the second F relaxation does not change C points. The fine coarse-point residuals are zero at index one and (F²−F)x thereafter. Exact coarse forward substitution gives the ordered partial geometric sum and operator-norm convergence to V∞=F−C⁻¹D for C=I−Ψ and D=F(I−F). D^{1/2} conjugates this to H=F−D^{1/2}C⁻¹D^{1/2}≺I. Complementing the symmetric block matrix with diagonal blocks I+F and C first on C and then on I+F gives Inertia(I+H)=Inertia((I+F²)(I+F)⁻¹−Ψ), including nullity. Thus singular semidefinite difference gives a nondecaying −1 mode; a negative direction gives an eigenvalue below −1. Direct 2×2 arithmetic gives trace 43/840 and determinant (2−15 sin²θ)/3360 of the difference; at π/4 the endpoint trace is −51/32 and determinant 27/64, giving the stated eigenvalues. This is an analytic verification of the limiting restart, not of a finite-length trajectory or repeated solves on one trajectory. The frozen check.py was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Southworth Definition 9 and Theorem 10 analyze inner space-time iteration via temporal approximation, including noncommuting propagators; Theorem 13 assumes commutation for its sharper FCF expression.",
+          "The 2026 endpoint-limit theorem assumes simultaneous unitary diagonalizability."
+        ],
+        "reasoning": "Convergence or a norm bound for successive error sweeps on the same trajectory is not a necessary-and-sufficient spectral-radius test for the powers of the map obtained by extracting and reinitializing the endpoint. The older block formula does provide the operator to which the new spectral analysis applies.",
+        "searches": [
+          "arXiv:1810.07292v5, §2.3 and Theorems 10 and 13",
+          "arXiv:2611.03621v1, §4.1 and §4.5"
+        ]
+      },
+      "checked_sources": [
+        "Araújo, Krzysik and De Sterck, arXiv:2611.03621v1",
+        "Southworth, arXiv:1810.07292v5",
+        "Resultary exact record ending 1c1688912f35"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the commuting case the known scalar endpoint f(f−ψ)/(1−ψ) directly yields ψ<(1+f²)/(1+f). For the rotated pair the component spectra stay fixed, yet the endpoint stability switches at sin²θ=2/15."
+        ],
+        "reasoning": "The noncommuting criterion is an exact statement about relative eigenspaces that cannot be deduced by modewise application of the published commuting endpoint criterion. The inspected noncommuting theory uses a different iteration and does not establish this equivalence.",
+        "searches": [
+          "arXiv:2611.03621v1, Assumption 4.1, Theorem 4.5 and Eq. (4.35)",
+          "arXiv:1810.07292v5, Definition 9 and Theorem 10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Primary PDF p. 8, Eq. (4.6) gives ordered blocks Ψ^{i−j−2}(Φ^m−Ψ)Φ^m before Assumption 4.1 is imposed. Theorem 4.5 gives the same limit explicitly under simultaneous diagonalization."
+        ],
+        "reasoning": "The ordered finite and infinite endpoint expressions follow mechanically from the prior single-sweep blocks even without commutation: apply the last row to the initialized errors (I−F^i)x, add the fine trajectory F^jx, and telescope the terms containing F^i. The uncredited remainder is not an alternative notation for that identity: it is an exact all-start stability/inertia criterion for noncommuting symmetric pairs.",
+        "searches": [
+          "arXiv:2611.03621v1, Algorithm 3.1, Eqs. (4.5)–(4.6), Assumption 4.1 and Eqs. (4.29)–(4.35)",
+          "Resultary: noncommuting symmetric propagators, one-sweep FCF endpoint restart, Loewner stability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed hit is this finding itself; the mirrored RESULT.md contains the same ordered map and inequality. No distinct exact stability criterion or angle threshold was returned for comparison."
+        ],
+        "reasoning": "The self-match is not independent prior coverage; the all-dimensional inequality is not a finite table. Negative retrieval is bounded evidence only.",
+        "searches": [
+          "Resultary: restarted two-level optimization noncommuting SPD propagators sharp angle Loewner order",
+          "Resultary record 2026/11/22/SCOPE-a-sharp-noncommuting-stability-frontier-for-restarted-two-level--1c1688912f35"
+        ]
+      },
+      "rationale": "Credit the algorithm, ordered one-sweep operator, and commuting endpoint formula as prior. The distinct contribution supported here is the necessary-and-sufficient noncommuting SPD restart condition, its exact boundary inertia, and the rotated stability loss, not discovery of the restart algorithm or geometric-sum identity. No inspected prior result supplies that sharp noncommuting restart classification.",
+      "residual_risks": [
+        "Unindexed specialist restart results or a norm-weighted reformulation of a prior temporal approximation theorem could contain further overlap; no such implication was demonstrated by the inspected statements.",
+        "The rotated surrogate is outside same-Hessian coarse models; this is a mathematical sharpness witness, not demonstrated optimization speedup."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers method and endpoint identity, not demonstrated coverage of noncommuting restart stability",
+          "evidence": [
+            "Eqs. (4.5)–(4.6), PDF p. 8, text offsets 28840–31818, display ordered one-sweep blocks. Assumption 4.1 and Theorem 4.5 give the commuting analysis."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.03621v1",
+          "material_read": "Algorithm 3.1 p. 6; §4.1 pp. 8–9; Theorem 4.5 and Eq. (4.35) pp. 12–13",
+          "method": "Bounded passages in primary open PDF",
+          "title": "Multi-Trajectory Parallel-in-Iteration Optimization",
+          "trigger": "Same restarted FCF method and endpoint map"
+        },
+        {
+          "assessment": "Overlapping inner-iteration machinery; different observable and repeated map",
+          "evidence": [
+            "Theorem 10 controls iteration error on the fixed C-grid; Theorem 13 is a commuting-case FCF bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1810.07292v5",
+          "material_read": "§2.3 Definition 9 and Theorems 10 and 13, PDF pp. 6–8",
+          "method": "Bounded primary PDF text",
+          "title": "Necessary Conditions and Tight Two-level Convergence Bounds for Parareal and Multigrid Reduction in Time",
+          "trigger": "General noncommuting temporal approximation might imply stability"
+        },
+        {
+          "assessment": "Identical finding, not distinct precedent",
+          "evidence": [
+            "The same map and same noncommuting frontier appear in the identical indexed record."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-noncommuting-stability-frontier-for-restarted-two-level--1c1688912f35",
+          "material_read": "Mirrored RESULT.md, ordered endpoint and Loewner comparison",
+          "method": "Resultary retrieval and bounded local-mirror read",
+          "title": "A sharp noncommuting stability frontier for restarted two-level optimization",
+          "trigger": "Exact Resultary hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For natural nonmatching fine/coarse quadratic surrogates the exact gain boundary and its unstable-mode count are usable design tests. The smallest possible rotation example shows why individual strict contractions and their spectra alone cannot ensure restart stability. The Schur algebra is standard, but this exact criterion for the endpoint restart addresses a substantive failure mode of the method.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

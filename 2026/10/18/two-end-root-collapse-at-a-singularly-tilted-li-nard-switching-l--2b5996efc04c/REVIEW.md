@@ -1,19 +1,21 @@
-# Scientific review: two-end root collapse at a tilted switching line
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The radial average was reconstructed directly from polar coordinates, including the smooth beta-integral and the switched semicircle boundary integral. The positive simple-root classification follows by exhausting the only three possible radius limits as the tilt tends to zero: zero, positive finite radius, and infinity. Each possible root has a simple limit under the stated rescaling, allowing implicit-function uniqueness. The outer condition requires both the strict degree inequality and opposite leading signs. At fixed nonzero tilt, Descartes' bound counts positive roots of the sparse even/odd polynomial. The degree-one and degree-four diagnostic examples, together with direct angular quadrature, check the normalization numerically; the universal argument does not rely on finite testing.
+PASS
 
-## Originality — PASS subject to residual priority risk
+Polar-coordinate first variation gives the stated angular integrand. Odd terms cancel under the half turn; the even forcing integral is twice the integral of a cosine-power primitive over the positive switching semicircle, giving 4 sin^(2j+1)(φ)/(2j+1) before period normalization. The disjoint even and odd monomials give the Descartes bound at fixed tilt. Prescribing p+q+1 distinct positive zeros gives a nonzero coefficient vector; the same bound rules out missing monomials, multiple zeros, or extra positive zeros. For fixed coefficients, simple finite roots persist by the implicit function theorem. A sequence of small roots forces r/s→−B0/A0, and r=su gives a simple limiting equation. A sequence of escaping roots must have sr→∞; comparing the two leading terms rules out q≤p and equal signs, and otherwise forces s^γr→(−A_p/B_q)^(1/d), d=2(q−p)−1, γ=(2q+1)/d. On this scale both lower-degree remainders converge to zero in C¹ near the candidate, ensuring exactly one simple root. Compactness in the extended radius line rules out any others. On a fixed crossing annulus at a fixed positive tilt, composing the two smooth crossing flow segments gives the C¹ first variation of the return map and hence a hyperbolic cycle at each simple zero.
 
-Álvarez–Sierra-Ortiz (arXiv:2609.14140) already proves the vertical-switch parity obstruction. De Abreu–Martins (arXiv:2307.09599) already proves coefficient-optimized counts for a horizontal switch. Thus the fixed-angle count alone is not a novelty claim. Llibre–Teixeira (2013/2015) and Jiang (2024) establish more general switching-zone first-order cycle constructions but, in the inspected primary material, do not identify the fixed-coefficient singular-angle root decomposition or its exact competing inner and outer radial scales. The new contribution is this two-end singular classification, not the already known regular first-order count. General switching literature may contain equivalent implicit asymptotics: remaining priority risk is material and human verification is outstanding.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A switching-line rotation turns the source's complete first-order forcing cancellation into a full polynomial family of first-order cycles. However, these many cycles require retuning coefficients as the switch approaches the singular angle. The classification proves that with *unchanged* coefficients at most two roots can live outside the smooth finite-radius roots, and identifies their exact vanishing and divergent scales. This directly resolves the nonuniformity hidden by the juxtaposed sharp vertical and horizontal cyclicity results, with a concrete two-cycle example showing that both boundary layers can occur simultaneously.
+The supported distinct claim is the exhaustive fixed-coefficient collapse and escape law at a straight-line tilt, with exact leading scales and sign criteria. The vertical cancellation, horizontal-switch optimized count, and standard simple-zero cycle-persistence mechanism are not claimed as new.
 
-## Limitations and closest literature
+## value
 
-This is a first-order result; zero-tilt higher-order cycles, general finite-perturbation cyclicity, and simultaneous small-angle/small-perturbation limits remain unproved. The most relevant inspected sources are arXiv:2609.14140 (full HTML), arXiv:2307.09599 (full HTML), Llibre–Teixeira's 2013 preprint (main statement and averaging sections), Li–Llibre (2021, piecewise-switching geometry), and Jiang (2024, theorem and switching-line construction). Explicitly acknowledge that absence of coverage in inspected statements is not a proof of worldwide novelty.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The optimized count at each fixed angle does not say what happens under a small physical tilt without retuning coefficients. The classification answers that question, gives precise radius scales for branches entirely missed by compact-annulus convergence, and identifies which averaged crossings can persist without claiming more uniform cycle existence than proved.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

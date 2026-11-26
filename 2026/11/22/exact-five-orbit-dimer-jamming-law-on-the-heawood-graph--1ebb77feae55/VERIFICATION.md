@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,6 @@
 }
 ---
 
-# Exact verification
+# Verification of the six-dimer classification
 
-Execute the three accompanying standalone scripts using standard Python 3:
-
-```sh
-python3 check_vertex.py
-python3 check_edge.py
-python3 check_orbits.py
-```
-
-The first implements the occupied-vertex-state recurrence using the cyclic Fano difference set and verifies the terminal law, mean, and two eight-element second-edge classes. The second creates the Fano plane independently from nonzero three-bit vectors and verifies the same rational terminal distribution with an edge-conflict-state recursion. The third exhaustively enumerates all terminal matchings, 168 Fano collineations and their dual partners, and checks all five orbit sizes and exact per-matching deposition weights.
-
-The proofs are exact finite arithmetic: there are fourteen vertices and twenty-one labelled edges; every transition consumes two vacant vertices. The scripts print PASS only after all hard-coded mathematical assertions succeed. Their execution does not independently establish worldwide novelty, statistical-mechanical scaling, or independent external validation. The explicit finite recurrences, rather than their logs, justify completeness.
+`python3 check_six_orbits.py` uses the standard library and checks the derangement description at every nonincident unmatched point–line pair. It enumerates all remaining six-by-six bijections, tests each incidence, and checks class counts and stabilizer transitivity. It checks exact priorities by summing the probabilities of all accepted orders for a representative in each of the three classes. The proof in `RESULT.md` gives the structural classification, including why no type-swapping graph automorphism can merge the classes. The numerical matching weights themselves are already reported by the exact matching-output census cited in `RESULT.md`.

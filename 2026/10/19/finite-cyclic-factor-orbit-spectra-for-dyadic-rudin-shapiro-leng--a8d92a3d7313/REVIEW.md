@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The four-state morphism has exactly eight occurring adjacent state pairs, as explicitly enumerated and proved closed. Every factor at a dyadic length is among the finite windows crossing those pairs. The packaged C++ program executes the exhaustive enumeration and exact cyclic-class grouping for all ten claimed lengths. Additional independent normalizations include direct parity-based Rudin–Shapiro prefix agreement, an independent direct-factor census through length \(64\), and naive rotation checks through length \(32\). Computation is exhaustive for the stated finite domain only.
+## correctness
 
-**Originality — PASS against inspected sources.** The 2014 cyclic-complexity paper studies structural results and other infinite words, not this dyadic Rudin–Shapiro cyclic orbit distribution. The 2018 follow-up studies Fibonacci and Thue–Morse words, not Rudin–Shapiro. Searches for both the exact counts and equivalent cyclic-rotation/necklace descriptions found no stronger result asserting this finite multiplicity spectrum. Prior Rudin–Shapiro factor, abelian, and string-attractor results concern different invariants. Residual risk: an unindexed exact earlier computation or an unstated derivation in complete factor-graph descriptions.
+PASS
 
-**Value — PASS.** The orbit *multiplicity* distribution, not just a raw list of factor counts, is a natural structural invariant of a classical automatic word. Its unexpectedly rigid split into four fully represented necklaces, two partially represented necklaces, and all remaining singleton necklaces at ten successive doubling scales gives nontrivial exact finite benchmarks for cyclic factor complexity. At length \(8\) the distribution is different; the certified range begins at the first observed stabilized scale \(16\). No general theorem beyond that range is claimed.
+For binary index i, take the state pair (parity of adjacent 11, last bit), encoded 0=(0,0), 1=(0,1), 2=(1,1), 3=(1,0). Appending a 0 preserves the parity and sets last bit zero; appending a 1 adds the old last bit and sets last bit one. These are precisely the stated uniform images, proving the sequence identification. All eight state pairs occur by the fourth substitution and expanding these pairs introduces no other pairs. Every length-2^k window meets at most two aligned blocks of length 2^k; each allowed pair really occurs, so the eight concatenations with offsets 0 through 2^k give exactly the infinite word's factor set. The separate exact replay at /workspace/branches/8bdc29b3-6289-4e2b-8b53-2f5c60787748/independent_replay.py uses fixed-width integer factor keys and exact lexicographic least rotations, with no probabilistic equality. Its class sizes count represented factors, not cyclic positions. /workspace/branches/8bdc29b3-6289-4e2b-8b53-2f5c60787748/replay_4_13.txt lines 3–12 give all ten complete rows and line 13 gives REPLAY_OK. Endpoint rows (n, factor total, class total, singleton, double, full) are (16,120,58,52,2,4) and (8192,65528,32762,32756,2,4). The replay tests that no other class sizes occur. The frozen C++ verifier was inspected, not run. This is exhaustive only for k=4 through 13, with no inference outside the range.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The number four for complete primitive classes at these dyadic lengths is already covered by the two checked Rudin–Shapiro records. The distinct accepted content is the exact finite histogram of partially represented classes, in particular the two doubletons, the absence of intermediate multiplicities other than two, and the resulting full census. The complete-orbit statistic and the total number of ordinary factors do not determine this histogram. This is a bounded comparison, not a priority certificate.
+
+## value
+
+PASS
+
+Rudin–Shapiro is a standard substitution word and occupancy of represented necklaces distinguishes nearly rigid factors from freely rotatable ones. The ten substitution-aligned scales give a reproducible exact benchmark for the intermediate cases that ordinary factor complexity and Lie complexity omit: only two partial classes contain more than one factor at each scale. The highest scale is a computational cutoff, not a claimed structural threshold; the value is in the complete aligned census rather than in guessing an infinite law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

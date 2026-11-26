@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:45:01.455783Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Juškevičius family uses the half-open (x,x+2] definition, and its canonical cells include all the proposed positive parameters, including 1. For the centered mixture of nu_k and nu_(k+1), the variance is the corresponding convex combination of (k^2-1)/3 and ((k+1)^2-1)/3. The mixing weight on the smaller variance strictly increases with alpha, and the endpoint formulas agree across cells. Thus variance is strictly decreasing and 1/2 is the unique common parameter for total variance 3. T(1) is a point mass, T(1/2) is Rademacher, and in T(2/5) the mixture weights 3/5 and 2/5 assign probability 1/5 to each of five consecutive integers. The original convolution has integer multiplicities (1,1,2,2,2,1,1)/10 on -3,...,3, so the heaviest possible two-adjacent-site window has mass 2/5. The comparison convolution has masses (1,3,3,1)/8 on -3,-1,1,3, so any such half-open window contains at most one atom and the maximum is 3/8. All variables are independent and the gap is 1/40. No optimality or classification is claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mattner–Roos establishes Q_p({0,1}) as the largest adjacent-window mass for the symmetric three-point convolution; Eq. (24) writes it as B_p psi. Remark (f) and values of psi in (27) give failure of equalization for unrestricted p in [0,1]^n with n>=3.",
+          "In Juškevičius notation those three-point factors are exactly T(1-p/2), with variance p. Thus fixed-sum p equalization is variance equalization in that subfamily, contrary to reading the unrestricted three-point assertion in the introduction to Conjecture 6.1 as an established valid bound."
+        ],
+        "reasoning": "This is a genuine implication of older work for the general falsity, not merely a nearby family name. For example p=(0,1,1) gives 1/2 while p=(2/3,2/3,2/3) gives 13/27 via Eq. (24), at total variance 2. In that regime any three summands of total variance exactly 3 must all have p=1, so the older result cannot give a violation at the matched Rademacher law.",
+        "searches": [
+          "Resultary: Mattner Roos symmetric three-point convolution Schur-concavity counterexample equal variance concentration",
+          "arXiv:math/0603522 §2 remarks (b), (e), (f) and Eqs. (21), (23)–(27)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2201.09861",
+        "arXiv:math/0603522",
+        "2026/10/13/SCOPE-the-two-summand-case-of-the-variance-equalization-concentration--90ee1a4a17cf",
+        "2026/10/13/SCOPE-a-sharp-heterogeneous-orientation-phase-for-three-point-concentr--6fd50ad1299e",
+        "2026/10/12/SCOPE-sharp-three-summand-point-concentration-at-the-first-fractional--354aa2c052e5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary conjecture quantifies over all independent summands and matches total variance; there is no nondegeneracy requirement. Its printed alpha domain includes zero, whereas the cell definition uses positive alpha; the record uses only positive parameters.",
+          "2026/10/13/SCOPE-a-sharp-heterogeneous-orientation-phase-for-three-point-concentr--6fd50ad1299e optimizes point concentration over sign choices for three-point laws, without this centered variance-matched five-point constraint."
+        ],
+        "reasoning": "The earlier three-point implication and same-day two-summand theorem are credited. Neither determines the new heterogeneous witness at the exact maximum average variance of the three-point regime. The conjecture itself predicts the reverse inequality, not an implication covering that witness.",
+        "searches": [
+          "Juškevičius arXiv:2201.09861 \"Conjecture 6.1\" T(alpha) interval length 2 variance",
+          "arXiv:2201.09861 §6 and arXiv:math/0603522 §2 remarks (b), (e), (f)",
+          "Resultary: Juškevičius Conjecture 6.1 equal variance T(alpha) concentration counterexample"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2201.09861, Conjecture 6.1: compare Q_2 for a sum of independent T laws with its variance-matched i.i.d. sum.",
+          "2026/10/13/SCOPE-the-two-summand-case-of-the-variance-equalization-concentration--90ee1a4a17cf proves the same comparison only for two summands with positive parameters."
+        ],
+        "reasoning": "The exact claim can be read as short-interval concentration of Rademacher plus five-point uniform versus three Rademachers; the first sum has two-adjacent-atom windows while the second has isolated atoms in such windows. The two-summand theorem does not apply to the second side of this three-summand comparison, even though the first side has a degenerate factor.",
+        "searches": [
+          "Resultary: Juškevičius Conjecture 6.1 equal variance T(alpha) concentration counterexample",
+          "Resultary: three summands T(alpha_i) variance matching equalization concentration Q_2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/12/SCOPE-sharp-three-summand-point-concentration-at-the-first-fractional--354aa2c052e5 has a 2/5 parameter transition for point concentration under a common atom cap, not the two half-open window masses or variance constraint here.",
+          "Mattner–Roos's psi table is for Rademacher sums and mixtures with a zero atom; it supplies 3/8 for the comparator, not 2/5 for the proposed heterogeneous sum."
+        ],
+        "reasoning": "Numeric coincidence in a cap or one side of the comparison does not determine the total-variance-matched pair.",
+        "searches": [
+          "Resultary: (1, 1/2, 2/5) versus (1/2, 1/2, 1/2) length-two concentration 2/5 3/8",
+          "Resultary: three summands T(alpha_i) variance matching equalization concentration Q_2"
+        ]
+      },
+      "rationale": "The supported distinct finding is the explicit failure at the variance-one matching boundary alpha_*=1/2, with the five-point T(2/5) and exact gap 1/40. The unrestricted conjecture's falsity by itself is NOT a distinct first refutation: Mattner–Roos's older Schur-concavity discussion and adjacent-window identity already imply a refutation in the three-point T regime. At the present total variance 3 that regime cannot give any heterogeneous comparison, because each of its three variances is at most one. Thus that earlier result does not cover the boundary witness, and no implying comparison at this variance was verified.",
+      "residual_risks": [
+        "An equivalent boundary witness or a larger-variance theory dominating it could exist under other notation. The assessment does not assign priority for falsity of the conjecture, and no date ordering is inferred for same-day records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct target; proposed tuple lies in the full conjecture domain",
+          "evidence": [
+            "Q_h uses (x,x+h]; Conjecture 6.1 imposes independence and equality of total variances."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2201.09861",
+          "material_read": "PDF pp. 1–3, offsets around 430, 5250 and 9000; §6 pp. 7–8, offset 24800, including Conjecture 6.1",
+          "method": "OA theorem and equations inspected and matched to the bound distributions",
+          "title": "The sharp form of the Kolmogorov–Rogozin inequality and a conjecture of Leader–Radcliffe",
+          "trigger": "Exact concentration convention, T definition and conjecture hypotheses"
+        },
+        {
+          "assessment": "Earlier implication of unrestricted conjecture failure, not failure at total variance 3 for the present tuple",
+          "evidence": [
+            "Largest adjacent mass is Q_p({0,1}); Eq. (24) expresses it as B_p psi.",
+            "Remark (f) notes failure of Schur-concavity for n>=3; explicit binomial evaluation via (27) gives 1/2 > 13/27 for the cited alternative."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0603522",
+          "material_read": "§2, symmetric three-point model p. 4, remarks (b), (e), (f), pp. 5–7, offsets around 18852–24740",
+          "method": "OA passage inspection; translated parameter p to 2(1-alpha) and evaluated equalization for p=(0,1,1)",
+          "title": "A shorter proof of Kanter's Bessel function concentration bound",
+          "trigger": "Potential earlier implication of equalization failure"
+        },
+        {
+          "assessment": "Proves n=2 and does not address the variance-matched three-copy right-hand side",
+          "evidence": [
+            "Positive T parameters, Q_2, total variance matching for two independent summands, equality only for equal parameters."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-the-two-summand-case-of-the-variance-equalization-concentration--90ee1a4a17cf",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local indexed-source inspection",
+          "title": "The two-summand case of the variance-equalization concentration conjecture",
+          "trigger": "Same family and comparison with adjacent summand count"
+        },
+        {
+          "assessment": "Point concentration and sign orientation, not this variance match",
+          "evidence": [
+            "Optimization over sign choices for three independent three-point laws."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-a-sharp-heterogeneous-orientation-phase-for-three-point-concentr--6fd50ad1299e",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local indexed-source inspection",
+          "title": "A sharp heterogeneous orientation phase for three-point concentration",
+          "trigger": "Nearby heterogeneous three-summand comparison"
+        },
+        {
+          "assessment": "Different concentration functional and constraint",
+          "evidence": [
+            "A common-atom-cap point-concentration bound, not two-site intervals at matched total variance."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-sharp-three-summand-point-concentration-at-the-first-fractional--354aa2c052e5",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local indexed-source inspection",
+          "title": "Sharp three-summand point concentration at the first fractional atom cap",
+          "trigger": "Adjacent exact three-summand result with 2/5 parameter"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The specific counterexample probes the natural transition at matched alpha_*=1/2, the maximal mean variance of the three-point regime in which any heterogeneous choice at that variance is impossible. A five-point factor can reach it, and the exact mass comparison isolates the discrete adjacent-window effect at a Rademacher comparator. A further arbitrary refutation of the conjecture, which already follows from older work, would not on its own pass value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

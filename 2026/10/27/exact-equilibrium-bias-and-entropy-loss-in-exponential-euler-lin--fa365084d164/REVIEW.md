@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The published FREE map (equation (2.6) of arXiv:2408.13601v1) has been substituted with Hermitian weighted edge-flip jumps. Its diagonal Kraus expression yields the primitive transition matrix \(P_h=I-L\operatorname{diag}(f_h(d))\), whose stationary vector follows from exact detailed balance. A graph Laplacian null-space calculation and strict decrease of \(f_h\) prove the if-and-only-if unitality condition. The entire off-diagonal matrix-unit space decomposes into two-by-two blocks with eigenvalues \(e^{-hs_{ij}}\pm w_{ij}f_h(s_{ij})\). Their moduli are strictly less than one for connected graphs with at least three vertices, proving uniqueness of the **full quantum** fixed point. Taylor expansions about the uniform distribution give the displayed entropy coefficients. The verifier performs 109276 finite test families, which are corroboration rather than an infinite proof. The two-vertex stationary-coherence exception is stated explicitly.
+## correctness
 
-## Originality — PASS, subject to independent publication-priority review
-Primary full text of Chen and coauthors (arXiv:2408.13601v1, §§2–4 and conclusion) proves positivity, trace preservation and finite-time error, not the exact degree-biased global stationary state, weighted-regularity/unitality classification or entropy coefficients. Their separate second-order midpoint paper (arXiv:2506.00346v1, §3) uses a different recurrence and gives no direct covering theorem for FREE. Cao and Lu's distinct numerical Lindblad methods and ordinary reversible-Markov-chain stationary theorems were considered as possible stronger coverage. The generic detailed-balance and entropy theorems supply established ingredients; their application alone is not misrepresented as new. Targeted mathematical-record and published-finding searches found no direct same-formula implication. Specialized studies of renewal-chain embeddings or quantum unitality may contain an equivalent result, which remains a documented risk.
+PASS
 
-## Mathematical value — PASS
-The formula gives the complete asymptotic equilibrium for a physically legitimate unital Lindblad model under an established positivity/trace-preserving integrator, and identifies an unconditional loss of another meaningful physical property: unitality and entropy preservation at maximal mixing. Quantified one-step fourth-order entropy loss and first-order stationary bias explain why small finite-horizon errors do not preclude long-time qualitative bias. A three-dimensional weighted path is the smallest witness, and the full quantum fixed-point theorem rules out unexamined coherences as a loophole. The result does not claim broad numerical convergence or arbitrary Lindblad structure.
+The primary integrator source confirms the placement of the exponential inside the jump Kraus factors. The Kraus completeness relation is e^(-hD) + integral_0^h D e^(-sD) ds = I. On diagonals the map is I-L diag(f_h(d)), with positive holding probabilities and an irreducible support; its fixed probability is proportional to 1/f_h(d) by the connected Laplacian kernel, or detailed balance. Applying it to the uniform vector and using strict decrease of f_h proves the regularity equivalence for every h>0. On each two-entry coherence block, the eigenvalues are exp(-hs) ± w_ij f_h(s), s=(d_i+d_j)/2. They have modulus below one for n>=3 since s>w_ij on each edge. For n=2 the symmetric coherence has eigenvalue one and sufficiently small real coherence on I/2 gives non-diagonal stationary densities. The one-step diagonal displacement is h^2 Ld/(2n)+O(h^3), whereas the stationary displacement is h(d-bar(d)1)/(2n)+O(h^2). The entropy deficit at uniform has quadratic term n/2 times the squared norm of the displacement, giving the stated h^4 and h^2 coefficients and the numerical example. A fresh finite check compared direct jump and block matrices, stationary residuals, iteration, and high-precision entropy ratios on the weighted three-vertex witness, and included a regular control. It corroborates the algebra without certifying the universal theorem.
 
-## Closest literature and residual risks
-- Chen et al., arXiv:2408.13601v1: exact studied numerical channel, established positivity/trace/fixed-horizon accuracy but no inspected matching invariant-state classification.
-- Chen and Borzì, arXiv:2506.00346v1: later midpoint method, not FREE, no direct implication.
-- Cao and Lu, arXiv:2103.01194: alternative structure-preserving method, not the exact channel analyzed.
-- Classical reversible Markov chains: supplies standard detailed-balance algebra and primitivity but not the identification of the quantum integrator's graph restriction or exact entropy defect.
-- Residual risk: an unlocated specialized result could derive the same graph-weighted equilibrium from embedded-jump-chain theory; publication priority requires human confirmation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The method, positivity, trace preservation, and diagonal detailed-balance argument are not new. The supported distinct content is the exact all-step phenomenon on weighted undirected edge-flip graphs: irregularity creates degree-biased equilibrium, with convergence of the quantum state despite the possibility of coherences, and distinct explicit leading entropy defects at one step and at equilibrium. The closest same-method indexed result treats a uniform directed jump cycle rather than the irregular Hermitian family.
+
+## value
+
+PASS
+
+It identifies and quantifies a persistent equilibrium error in a positivity- and trace-preserving integrator. The bias is first order in step size although the local entropy signal at the unbiased state is fourth order, so checking only one step can obscure the long-run distortion. The all-step regularity criterion and minimal irregular example make the conclusion actionable for this natural family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

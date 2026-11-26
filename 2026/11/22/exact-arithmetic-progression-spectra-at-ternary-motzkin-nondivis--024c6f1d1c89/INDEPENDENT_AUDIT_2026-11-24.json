@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:28:11.965410Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, assumptions and proof (lines 3–59)",
+        "Frozen VERIFICATION.md and check.py",
+        "Deutsch–Sagan arXiv:math/0407326, PDF p. 14, text offset 31534, Corollaries 4.8–4.10",
+        "Independent replay and log: /workspace/branches/e94b29b3-9329-4177-8453-229ecf0bcdbd/independent_mod3_ap_check.py and independent_check_log.txt"
+      ],
+      "rationale": "The cited congruence is correct, but the arXiv corollary number is not: the Motzkin statement is Deutsch–Sagan Corollary 4.8, not 4.9–4.10 (which concern Motzkin prefixes and Riordan numbers). With the verified congruence, the cutoff gives exactly E_r+2=(3T_r+{0,1,2}) minus {0,1}. At each new digit level, write q=3^r and L=(q+1)/2. The two cross-block triple configurations reduce to nonnegative integer solutions of a relation of the form v+2u+w=1, giving exactly four triples, two at each of L-1 and L. Any crossing quadruple must split 2+2 because L-1 is the minimum crossing gap and 2(L-1)>L for r≥2. The first term is at most one; the start at zero overshoots on the fourth term and the start at one gives the sole quadruple. It cannot extend, ruling out longer crossing progressions. Doubling within the two blocks, then subtracting the progressions starting at the two deleted points, gives the frozen per-step counts, including r=1 and the zero counts at the top four-term step. A seven-term progression would yield three terms at equal residue modulo three whose quotients form a nonconstant progression in the carry-free ternary 0/1 set, which is impossible. Sharpness is witnessed at 7–12. Independent modular recurrence and progression enumeration matched every profile and aggregate for r=1–6, lengths 3–7, and Motzkin residues through 1092. The uploaded checker was inspected but not run.",
+      "residual_risks": [
+        "The frozen bibliography has a wrong corollary locator, not a false congruence or missing premise. The finite enumeration does not prove the all-level or infinite claims.",
+        "The finite spectra require the stated cutoffs; only the sharp length bound is claimed globally."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Walker–Walker bound lengths in fixed-digit Kempner sets, whereas the lowest ternary position here allows all three digits and upper positions allow only 0 and 1. Their inspected length bounds are not difference-by-difference counts.",
+          "Krattenthaler–Müller give more general prime-power congruence information for Motzkin numbers, not additive progression spectra."
+        ],
+        "reasoning": "Neither prime-power congruence coverage nor fixed-digit length bounds subsume the residue-thickened count under these prefix cutoffs.",
+        "searches": [
+          "Walker–Walker arXiv:1809.02430, Theorem 1.1 and Proposition 2.2",
+          "Krattenthaler–Müller arXiv:1308.2856, §7"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary/SCOPE and distinct census --3bd48a854dec",
+        "Deutsch–Sagan Corollary 4.8",
+        "Walker–Walker Theorem 1.1 and Proposition 2.2",
+        "Moy–Rolnick §4",
+        "Krattenthaler–Müller §7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The congruence plus progression-freeness directly suggests the seven-term obstruction, so little novelty is assigned to that consequence alone.",
+          "For the spectra the proof needs the exact four cross-block triples, the unique cross-block quadruple, two endpoint deletions and the resulting recurrences; the cited digit results neither supply those counts nor immediately give their closed forms."
+        ],
+        "reasoning": "The surviving claim is the evaluated complete step spectrum, not the older congruence or merely the immediate implication of a no-carry lemma.",
+        "searches": [
+          "Deutsch–Sagan Corollary 4.8 and its Theorem 4.7 input",
+          "Moy–Rolnick Stanley digit set and Walker–Walker Kempner bounds",
+          "Frozen cross-block classification and truncation proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Deutsch–Sagan Corollary 4.8 makes the equivalent additive problem explicit after translation: use 3T_r+{0,1,2} and delete 0,1. Moy–Rolnick §4 concerns the unthickened Stanley digit set T, which has no nonconstant triples.",
+          "The thickened set has crossing triples and quadruples at new steps and can have six consecutive terms; counting progressions of T does not count them."
+        ],
+        "reasoning": "The additive reformulation removes the Motzkin label and exposes the prior digit structure, but the interaction of residue slices, carries and deleted boundary points is essential to the claimed census.",
+        "searches": [
+          "Local Resultary and primary literature: Motzkin nondivisibility mod 3 and arithmetic progressions in thickened ternary 0/1 digit sets",
+          "Moy–Rolnick arXiv:1502.06013, Stanley sequences"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed Motzkin hit --024c6f1d1c89 is the frozen record itself. The distinct indexed central-trinomial result gives a six-term maximum and a generating function for total six-term counts at base-seven cutoffs for nondivisibility modulo seven.",
+          "It does not give per-step Motzkin counts at any of the four lengths; equal maximum lengths are not equivalence."
+        ],
+        "reasoning": "The catalogue comparison is by sequence, prime, cutoffs, and counted quantity, not by the date. No exact independent table for this thickening emerged among the inspected matches.",
+        "searches": [
+          "Local Resultary: exact progression steps and counts in Motzkin and central trinomial nondivisibility sets",
+          "Related record 2026/11/22/SCOPE-exact-maximal-progression-census-for-central-trinomial-nondivisi--3bd48a854dec"
+        ]
+      },
+      "rationale": "Pass the complete per-step progression spectra for this digit-set thickening with its exact boundary truncation. The ternary congruence and the progression-free unthickened digit set are known, and the length obstruction is an elementary consequence of that structure rather than an independent priority claim. No inspected source gives or mechanically specializes to the complete evaluated spectra.",
+      "residual_risks": [
+        "Equivalent discrete Cantor-set counts elsewhere are not ruled out by the bounded literature and catalogue search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior digit criterion, not the progression spectra",
+          "evidence": "Corollary 4.8 gives residue -1 on 3T(01)-1, 1 on 3T(01) and 3T(01)-2, and zero otherwise.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0407326",
+          "material_read": "PDF p. 14, text offset 31534; Corollaries 4.8–4.10",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Congruences for Catalan and Motzkin numbers and related sequences",
+          "trigger": "Exact input nondivisibility characterization"
+        },
+        {
+          "assessment": "Different sequence, modulus, and counting invariant",
+          "evidence": "The six-term generating function counts totals over differences for central trinomial nondivisibility modulo seven at base-seven cutoffs.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-maximal-progression-census-for-central-trinomial-nondivisi--3bd48a854dec",
+          "material_read": "Mirrored Finding and stated model",
+          "method": "Local published-result mirror",
+          "title": "Exact maximal progression census for central-trinomial nondivisibility",
+          "trigger": "Exact digit-nondivisibility progression census and same sharp length"
+        },
+        {
+          "assessment": "Related length bounds, not the evaluated thickening census",
+          "evidence": "Progression lengths for fixed allowed-digit sets are bounded; this does not supply the counts in a position-dependent digit set with a boundary deletion.",
+          "identifier_or_url": "https://arxiv.org/abs/1809.02430",
+          "material_read": "Theorem 1.1 and Proposition 2.2",
+          "method": "Lawful OA passage inspection",
+          "title": "The long and the short of Kempner sets",
+          "trigger": "Broader arithmetic-progression bounds for restricted digits"
+        },
+        {
+          "assessment": "Covers the underlying 0/1 digit structure only",
+          "evidence": "Works with the progression-free Stanley digit set rather than progressions in its three-residue thickening.",
+          "identifier_or_url": "https://arxiv.org/abs/1502.06013",
+          "material_read": "§4",
+          "method": "Lawful OA passage inspection",
+          "title": "Novel structures in Stanley sequences",
+          "trigger": "Prior equivalent unthickened digit set"
+        },
+        {
+          "assessment": "Congruence description rather than progression counts",
+          "evidence": "The relevant section treats Motzkin residues modulo powers of three.",
+          "identifier_or_url": "https://arxiv.org/abs/1308.2856",
+          "material_read": "§7",
+          "method": "Lawful OA passage inspection",
+          "title": "A method for determining the mod-3^k behaviour of recursive sequences",
+          "trigger": "Stronger Motzkin congruence theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and cross-block proof",
+        "Deutsch–Sagan input and related central-trinomial census"
+      ],
+      "rationale": "This goes beyond identifying a known digit set or noticing its easy upper length bound. The complete counts separate step-one runs from inter-block progressions, show exactly which sparse large differences occur at each scale, and quantify the cutoff effect. That is a reusable exact additive invariant of a natural nondivisibility sequence, not an arbitrary small numerical slice.",
+      "residual_risks": [
+        "No analogue for general moduli, arbitrary prefixes, or other finite patterns is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

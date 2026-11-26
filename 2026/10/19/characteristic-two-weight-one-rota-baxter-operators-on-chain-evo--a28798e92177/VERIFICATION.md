@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and scope
 
-Run `python3 verify.py` with a standard Python 3 installation; no third-party dependencies are required. The program constructs the finite fields of orders \(2,4,8,16\) using the irreducible polynomials `0b11`, `0b111`, `0b1011`, and `0b10011`, respectively. For each tested dimension, it exhaustively enumerates all \(q^n\) first-column vectors, reconstructs the forced operator from its first column, tests all \(n(n+1)/2\) basis pairs in the weight-one Rota–Baxter identity, computes actual operator ranks by Gaussian elimination in the finite field, and compares the accepted vectors with a separately generated parametric classification.
+# Independent mathematical audit
 
-The checker succeeds in 19 configurations: \(n=2,\ldots,8\) for \(q=2\); \(n=2,\ldots,6\) for \(q=4\); \(n=2,\ldots,5\) for \(q=8\); and \(n=2,3,4\) for \(q=16\). In particular, it finds exactly \(28\) operators when \((q,n)=(2,8)\), \(112\) when \((q,n)=(4,6)\), \(400\) when \((q,n)=(8,5)\), and \(1216\) when \((q,n)=(16,4)\).
+## correctness
 
-This is finite exhaustive validation of those cases only. Arbitrary fields and arbitrary dimensions are handled by the proof in RESULT.md, not by extrapolation. No external review or certification has been performed.
+PASS
+
+The bilinear weight-one identity on diagonal basis pairs forces successive columns by iterated squaring, and the terminal equation is automatic from Q^n=0. For an off-diagonal pair with column separation d, coefficient comparison and injectivity of Frobenius give a_(t+d) a_t^(2^d) = a_(d+1) a_t^(2^(d+1)) for t+d<=n-1. Every such equation is realized already by a pair starting at e_1. The first nonzero interior coefficient at j forces a_1 in {0,1}; the equations at t=j then propagate period j-1 with the stated Frobenius exponents. Concatenation of the exponent sums proves sufficiency for every t,d, without requiring perfectness. The terminal first-column coefficient is free. The least nonzero row and its shifts give the stated ranks, including the empty interior at n=2. With standard column conventions the triangular matrix is lower rather than upper triangular; that wording in the rank proof does not affect any calculation. A fresh bounded checker (branches/7131221e-51e8-4a7b-a76a-ce3dd300187b/reproduce_independent.py) matched accepted columns and the increasing-rank counts (1,3,12,12,36) for (q,n)=(4,4) and (1,1,2,2,2,8) for (2,5). The frozen checker was inspected, not executed; finite checks are not an arbitrary-field proof. Frozen independent audit, Lean and expert statuses were not performed.
+
+## originality
+
+PASS
+
+The supported contribution is the characteristic-two weight-one Frobenius-support classification and census for the unperturbed chain. The inspected earlier weight-one theorem assumes characteristic zero. A distinct later-dated catalog record is a full statement-level match, including ranks, and is credited as such; there is no evidence here that it preceded the frozen finding. This is a bounded assessment, not a claim to historical priority or uniqueness in the current catalog.
+
+## value
+
+PASS
+
+Weight one on the standard nilpotent chain is a natural boundary of the established characteristic-zero classification. The Frobenius recurrence explains the exact admissible supports even over imperfect fields and yields the complete finite-field ranks, rather than extrapolating from a handful of dimensions. It does not purport to classify perturbed chains or automorphism orbits.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

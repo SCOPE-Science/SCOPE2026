@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:36:30.845057Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the proof for invariant Lebesgue measure and the centered logarithm, whose lag-zero variance is 1. Branch substitution x=(j+t)/q gives the logarithm of the gamma product; integrating the alternating power series for log(1+t) against log t gives C_1=1−pi²/24. Strictly decreasing branch average and −log t have strictly positive covariance. The positive Stirling remainder and 0≤t≤1 give a uniform bound |R_q(t)|≤1/q, so integration gives the claimed q⁻² bound. The stationarity tail is 2 sum_{j≥1} j C_{N+j}; geometric sums give the stated correction and (8/9)4⁻ᴺ error, including N=1. The Q_K bound uses the unweighted geometric tail. In a fresh, separate 40-decimal replay, independent branch quadrature and the gamma expression agreed through q=16, direct finite-sum integration agreed for N=1 through 4, c and C_1 agreed with the stated approximations, and K=16 tail enclosures for the variance rate and intercept were compatible with their displayed decimals. Replay: /workspace/branches/14a9f726-44f0-44fc-8d54-2abce474e800/independent_check.py with small_check.txt and full_check.txt. Numerical quadrature was not interval-certified. The uploaded VERIFY.py was inspected, not executed; its preparation run is separate evidence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed theorem treats every integer base b≥2 and gives two inverse-power terms beyond (log(m)/4+B)/m, plus positivity and exact finite-window bias.",
+          "The journal-preprint calculation in Appendix A.3 obtains exact covariances for the logistic map using its conjugacy to a tent map."
+        ],
+        "reasoning": "Taking b=2 includes the actual doubling and Lebesgue model in the indexed theorem. The logistic computation does not: the transformed observable and invariant-measure model are different. The constants called c in the frozen result and B in the indexed lag formula agree by taking the same limit of m C(m)−log(m)/4; the frozen B is instead the variance intercept constant.",
+        "searches": [
+          "Resultary 2026/11/17/SCOPE-dilogarithmic-covariance-and-sharp-finite-window-variance-bias-f--0c9e9d669c56, Finding and Proof",
+          "arXiv:2610.21288v1 Appendix A.3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and VERIFY.py",
+        "arXiv:2610.21288v1",
+        "Resultary distinct record 0c9e9d669c56"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed proof writes m C(m)=1+H_{m−1}/4+sum_{j<m, j≥1}u_j, with the alternating dilogarithm series giving |u_j|≤1/(9j²).",
+          "The indexed variance tail is exactly 2 sum_{j≥1} j C(b^{N+j})."
+        ],
+        "reasoning": "The harmonic error log(m)+γ−H_{m−1} is the sum from j=m of 1/j−log(1+1/j), bounded by half the sum of j⁻², hence by 1/m. The u_j tail is at most 2/(9m). Thus the remainder in m C(m) after its leading log and constant terms is at most (1/4+2/9)/m<1/m. This directly recovers the frozen covariance inequality (indeed with better constant); summing that inequality in the exact tail gives the frozen explicit all-N bound and the Q_K bound. This implication uses exact convergent-series evidence, not merely the indexed theorem's asymptotic O notation.",
+        "searches": [
+          "Resultary 0c9e9d669c56, Asymptotic covariance and Finite-time variance and bias, offsets 3495–6123",
+          "arXiv:2610.21288v1 Eq. (6) and Eqs. (64)–(65)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinct record evaluates the same branch integrals as 1+m⁻¹ sum_{j=1}^{m−1} j Li₂(−1/j).",
+          "Its proof starts with the identical log(j+t) log t integrals, including j=0."
+        ],
+        "reasoning": "Summing the branch logarithms first yields log Γ(m+t)−log Γ(t); integrating first and telescoping yields the dilogarithms. These are exactly the same lag covariances, not just asymptotically equivalent. For m=2, Li₂(−1)=−pi²/12 immediately gives the first-lag value.",
+        "searches": [
+          "Resultary: exact lag covariance of −log x, doubling and integer expanding maps, finite-window variance; distinct record 0c9e9d669c56",
+          "arXiv:2610.21288v1 §II.1 and Appendix A.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct mirrored record gives the exact covariance function and correction identity, and explicitly reports the doubling variance rate near 3.705486.",
+          "Defaveri–Smith report about 3.71N from numerical summation for doubling."
+        ],
+        "reasoning": "Decimal agreement alone would not establish coverage; the exact all-lag formula and finite-window identity in the distinct catalogue record do. Its different catalogue date is a separate provenance issue.",
+        "searches": [
+          "Resultary exact covariance and Green–Kubo finite-window bias; 2026/11/17/SCOPE-dilogarithmic-covariance-and-sharp-finite-window-variance-bias-f--0c9e9d669c56"
+        ]
+      },
+      "rationale": "A distinct indexed work gives the exact same covariance in dilogarithmic form for all integer bases, more terms in its sharp lag expansion, and the exact signed finite-window tail identity. Its branch calculation turns directly into the frozen gamma representation by the standard gamma product, and its convergent expansion gives the frozen explicit uniform bounds by elementary estimates detailed below. This is present mathematical coverage. The overlapping record has a later catalogue date, so it is not evidence that the frozen work lacked priority when prepared. Defaveri–Smith's earlier paper, by contrast, does not give the exact doubling covariance or correction in the passages checked.",
+      "residual_risks": [
+        "Historical priority is not adjudicated; the distinct exact catalogue result is later-dated. A focused external lookup returned generic Green–Kubo material and is not proof of absence of earlier exact formulas.",
+        "Fresh decimal calculations corroborate but do not certify quadrature errors; the covariance and geometric bounds are analytical."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact stronger mathematical coverage, not evidence of earlier priority.",
+          "evidence": [
+            "The branch moment is reduced to a dilogarithm sum; positivity and decrease are obtained by averaging positive decreasing summands.",
+            "The proof provides the convergent series for the residual tail and the exact signed finite-window identity."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-dilogarithmic-covariance-and-sharp-finite-window-variance-bias-f--0c9e9d669c56/RESULT.md",
+          "material_read": "Finding, branch integration, positivity, asymptotic covariance and finite-time variance proof, offsets 0–6123; prior-work discussion at 6123",
+          "method": "Resultary semantic search and local-mirror statement and calculation comparison",
+          "title": "Dilogarithmic covariance and sharp finite-window variance bias for expanding maps",
+          "trigger": "Exact covariance and variance-bias match for the same logarithm and all integer bases"
+        },
+        {
+          "assessment": "Same doubling variance rate estimated numerically; exact Appendix A.3 formulas are for a different map.",
+          "evidence": [
+            "The doubling Green–Kubo coefficient is reported as about 3.71 from a numerical correlation sum.",
+            "Exact 2⁻δ pi²/3 correlations and variance coefficient pi² in Appendix A.3 concern the logistic map."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.21288v1",
+          "material_read": "§II.1 Eq. (6), offsets approximately 11850–18350; Appendix A.3 Eqs. (64)–(65), offsets approximately 63500–68000",
+          "method": "OA primary passage and model comparison",
+          "title": "Dynamical phase transition for a logarithm observable in chaotic systems",
+          "trigger": "Earlier same-observable paper with doubling variance and an exact covariance appendix"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The sharp bias and usable error bounds are meaningful for this observable. As a separate exact finding against the checked catalogue, however, the alternative gamma notation and uniform bounds follow by the standard product and an elementary bound on the already available convergent series; the variance correction is then the same geometric tail. The record provides a self-contained alternate proof but no separate uncovered invariant or sharper regime relative to that result.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

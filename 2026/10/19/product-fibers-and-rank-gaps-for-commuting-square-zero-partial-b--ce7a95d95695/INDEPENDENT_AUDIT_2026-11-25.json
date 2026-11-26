@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:08:05.505033Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 12–24 and 29–48",
+        "Frozen VERIFICATION.md and verify.py (inspection only)",
+        "/workspace/repairs/4/RESULT.md",
+        "/workspace/branches/2b21d82d-af7a-49ff-9c04-36ef233fc87f/independent_small_check.py",
+        "/workspace/branches/2b21d82d-af7a-49ff-9c04-36ef233fc87f/independent_small_check.txt"
+      ],
+      "rationale": "The frozen piecewise formula is correct, but its unqualified rank-only consequence fails on arbitrary prescribed targets. On four labels the arrow 1→2 has two factorizations, while the partial identity on {1}, also of rank one, has none. The corrected RESULT.md restricts rank-only constancy to feasible targets and states exact feasibility. To re-audit: each color is a matching with disjoint domain and image. A product arrow forces a commutative diamond whose four distinct vertices are saturated in both colors, so different product arrows occupy disjoint components. On the complement of all diamonds, no directed two-step walk is possible; the source/sink orientations leave only isolated vertices, alternating paths and alternating even cycles, with the two-color parallel pair as length two. The connected contributions are z, 2z^k for k>=2, and z^(2j)/j for j>=1. Their exponential, the ordered selection of 2r distinct intermediates from n−2r labels, and the count n!/[r!(n−2r)!] of square-zero targets give the stated zero-product EGF, piecewise fiber and rank-marked EGF including n=0 and r=0. An independent direct census through n=5 matched the formula on every square-zero target; rank-zero and rank-one counts were 253 and 24 for n=4, and 1981 and 120 for n=5. No uploaded code was executed.",
+      "residual_risks": [
+        "The separate direct census stops at five labels and enumerates square-zero targets; exclusion of nonsquare-zero targets and the general n claims are exact algebra and component counting."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 2.2 gives the necessary and sufficient initial-to-terminal chain restrictions for arbitrary commuting partial bijections",
+          "The accessible description of Section 6 specifies uniform unconstrained random products",
+          "The operator article's full text was inaccessible; no whole-paper assessment was made"
+        ],
+        "reasoning": "The chain criterion specializes to the local diagram constraints for length-one chains; in particular it explains the forced full-chain matches that yield diamonds. This structure is not itself new. The inspected proposition does not count the remaining zero-product pairs by labeled structures or evaluate the conditional fixed-product census.",
+        "searches": [
+          "Araújo–Bentz–Konieczny arXiv:1205.1664v1 Proposition 2.2",
+          "Ganyushkin–Mazorchuk arXiv:math/0511431v1 Section 6 scope",
+          "Sums of commuting square-zero transformations, lawful OA attempt"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1205.1664v1",
+        "arXiv:math/0511431v1",
+        "Resultary c8a4349a84d7",
+        "Sums of commuting square-zero transformations (access attempt only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Commutation matches initial chain segments to terminal segments",
+          "The matrix formula factors off a residual zero-product count of dimension n−4r"
+        ],
+        "reasoning": "The domain and range tests and four-vertex support are elementary structural consequences. The surviving claim evaluates the residual symmetric-inverse-monoid census: its alternating paths and even cycles, labeled coefficients and prescribed intermediate-vertex choices are not computed by the general chain test or matrix fiber. The rank refinement follows mechanically from this newly evaluated residual count, not from the inspected exact matrix count.",
+        "searches": [
+          "arXiv:1205.1664v1 pp. 3–4, Proposition 2.2",
+          "Resultary c8a4349a84d7 finding and domain assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary c8a4349a84d7 counts all square-zero commuting matrix pairs over finite fields with fixed product",
+          "Ganyushkin–Mazorchuk §6 treats prescribed outcomes of products of independent unrestricted partial injections"
+        ],
+        "reasoning": "Partial bijections can be represented by partial permutation matrices, so the same equations define a subset of the matrix fiber, and the matrix obstruction agrees at 4r≤n. But matrix rank does not enforce the partial-permutation support, and an unrestricted matrix count cannot be specialized to count the restricted subset by setting a field size or changing rank. Independent unrestricted partial injections in §6 also do not implement these conditions on the two factors.",
+        "searches": [
+          "Resultary semantic search for commuting square-zero partial bijections/partial injections, fixed product and rank enumeration",
+          "One focused external search on commuting square-zero product fibers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "c8a4349a84d7 gives an exact closed matrix fiber with Gaussian-binomial terms and Z_{n−4r}(q), including nonzero examples"
+        ],
+        "reasoning": "This is the strongest exact analogue found; even at n=4 and rank one its matrix counts differ from the restricted fiber of size two. The formula's parallel factorization does not supply the partial-bijection EGF. No matching same-object table appeared in the bounded search.",
+        "searches": [
+          "Resultary semantic search for exact fibers and rank distributions for commuting square-zero factors"
+        ]
+      },
+      "rationale": "Pass the complete labeled fiber enumeration and rank EGF in the symmetric inverse monoid on the repaired support. Do not credit the underlying chain criterion, the nilpotency of the product, or use of labeled exponential counting as new. The closest exact same-constraint analogue counts linear maps in a different ambient set.",
+      "residual_risks": [
+        "A specialized exact enumeration for labeled colored square-zero partial injections not retrieved here could change this assessment. The operator full text was inaccessible and the catalogue chronology is not a priority determination."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General structural antecedent; no matching labeled enumeration in the inspected result",
+          "evidence": "Square-zero elements are joins of length-one chains; a commuting map meeting a chain in its domain maps an initial segment onto a terminal segment.",
+          "identifier_or_url": "https://arxiv.org/abs/1205.1664v1",
+          "material_read": "PDF pp. 3–4, offsets 13350–17202, especially Proposition 2.2",
+          "method": "Primary PDF offset reading",
+          "title": "The Commuting Graph of the Symmetric Inverse Semigroup",
+          "trigger": "General commutation criterion on the identical monoid"
+        },
+        {
+          "assessment": "Same ambient partial injections, different factor law and conditions",
+          "evidence": "The stated scope is uniform products of k partial injections and probabilities of fixed outcomes.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0511431v1",
+          "material_read": "PDF p. 2, offset 5060; description of Section 6",
+          "method": "Primary PDF offset reading",
+          "title": "Combinatorics and distributions of partial injections",
+          "trigger": "Fixed outcomes of partial injection products"
+        },
+        {
+          "assessment": "Strong structural and enumerative analogue for a different ambient monoid, not the restricted count",
+          "evidence": "Factors are arbitrary matrices over F_q; admissible fibers involve Gaussian-binomial counts and a residual matrix zero-product factor.",
+          "identifier_or_url": "Resultary 2026/11/8/SCOPE-complete-finite-field-product-fibers-for-pairs-of-commuting-squa--c8a4349a84d7",
+          "material_read": "Mirrored Finding, offsets 0–1784, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Semantic catalogue search and local mirror offset reading",
+          "title": "Complete finite-field product fibers for pairs of commuting square-zero matrices",
+          "trigger": "Exact same square/commutation constraints and 4r≤n obstruction"
+        },
+        {
+          "assessment": "Insufficient full text to assess all results; not used as absence evidence",
+          "evidence": "Accessible description concerns factorization/sums of operators, not an exact partial-bijection fiber count.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0024379509003115",
+          "material_read": "Search description; full-text OA attempt returned 403",
+          "method": "Focused external literature search and lawful primary retrieval attempt",
+          "title": "Sums of commuting square-zero transformations",
+          "trigger": "Possible overlap on commuting square-zero operators"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected RESULT.md finding and component count",
+        "arXiv:1205.1664v1 Proposition 2.2",
+        "Resultary matrix analogue c8a4349a84d7"
+      ],
+      "rationale": "The prescribed-product census is a natural invariant of a standard finite monoid. It settles feasibility and counts every admissible fiber for every n, rather than only checking that a product can be nonzero or counting all commuting pairs at a few sizes. The exact zero-product count quantifies the residual freedom after the forced local diamonds.",
+      "residual_risks": [
+        "The supported value is specific to ordered square-zero partial bijections; no claim extends it to more general partial maps or higher nilpotency."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact fourth-moment autocorrelation identity is expanded from Fourier orthogonality. Every dyadic collision count is derived using congruence valuation cases. The sharp mass inequality forces one parent coset and equal daughter masses. Equality at the generator translation, for which the correlation subgroup is exactly that parent, forces one shared cyclic character and complete daughter support. The explicit packet family saturates all inequalities. A self-contained standalone script checks the counting law and fourth-power energy at orders 4, 16, 64 and 256. The all-order conclusion depends on the proof, not on enumeration.
+## correctness
 
-## Originality
-PASS (best-knowledge). The closest published dyadic graph theorem (public mathematical record 417e488b0292) establishes the sharp fourth-power coefficient and exhibits some indicators but expressly does not characterize every maximizer. The present if-and-only-if character/phase classification is a stronger assertion. All-prime-power optimizer theorems located in the same subject exclude prime two; the 2018 ring-restriction article and 2024 finite-field extension work do not cover the complete dyadic equality family. Equivalent work under different terminology remains a priority risk.
+PASS
 
-## Value
-PASS. Characterizing all complex maximizers of a sharp endpoint inequality is a natural structural problem, not an arbitrary numerical refinement. The result determines all supports, moduli, character frequencies, and continuous phase freedoms at every even dyadic exponent; it yields a precise collection of projective optimizer circles. The conclusion is useful for equality rigidity and future stability questions.
+Orthogonality gives N^(-2) times the incidence form. For each h and kernel coset A the actual Cauchy bound for (2)–(3) is |sum_A f(x+h) conjugate(f(x))|^2 <= (sum_A |f(x+h)|^2)(sum_A |f(x)|^2); expanding the product yields M(d) because 2h(d-h)=0. It is not the bound on the sequence of products against a constant sequence. Thus the proposed concern about product constancy does not apply: equality gives proportionality of the two vectors, including their zero entries. The congruence count follows by splitting the valuation of h below, equal to, or above that of d below k, and by requiring h divisible by 2^k for d divisible by 2^k. The mass bound forces one parent coset with two equal positive daughter masses. At h=2^k its kernel is the parent subgroup and the two vectors have the same nonzero norm. Their proportionality gives one unit eigenvalue of order dividing 2^k, hence one shared character on the two daughters. Conversely the packets give proportional vectors for h in the daughter subgroup on all cosets (zero outside the parent); for parent-only shifts the daughters swap and each kernel coset has its own constant multiplier. Other shifts have disjoint supports. The projective count follows from disjoint support labels and distinct eigenvalues; each free relative phase is an embedded circle, including k=1. The frozen finite tests are corroboration, not the quantified proof.
 
-## Limits
-Only even dyadic exponents and the fourth moment are covered. The sharp constant is prior work, not a new constant claim. Independent audit is unperformed. Finite computations corroborate but do not replace the proof; undiscovered equivalent sources may change the best-knowledge originality assessment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass applies to the complete complex equality and phase-component classification, not to the known dyadic constant, examples or energy bound. The exact dyadic predecessor does not resolve the vector proportionality and matched-frequency conditions; the closest complete indexed classifications assume an odd prime. No equivalent complete even-dyadic statement was established in the inspected evidence.
+
+## value
+
+PASS
+
+This is a natural full extremizer problem for a known sharp inequality. Necessity reveals both a discrete translation constraint and an unconstrained relative phase not visible from sharpness witnesses; the exact projective components describe the geometry of equality, not just a numerical improvement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

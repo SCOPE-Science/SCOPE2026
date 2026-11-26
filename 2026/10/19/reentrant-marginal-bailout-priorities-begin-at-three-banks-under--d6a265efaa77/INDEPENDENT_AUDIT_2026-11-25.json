@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:35:04.342014Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The proof concerns strictly positive external assets t*a with fixed liabilities normalized to one, outside obligations positive in each row, and marginal total gross payments at each fixed t. The capped clearing map is an order-preserving l1 contraction because max row sum of T is below one, so the solution is unique, continuous in inputs, and nondecreasing in t and injections. On each strict default-set interval the local gain equals the relevant coordinate of (I-T_DD)^(-1)1 and is zero off D. This follows by differentiating the affine restricted clearing system, with fully solvent payments unchanged by a sufficiently small nonnegative injection. For one or two banks the default sets are nested: there is at most a constant all-default ranking, then one remaining potential winner, then no strict winner. Ties and simultaneous exits do not allow strict reentry. In the witness the all-default branch first reaches p_3=1 at 42/95; with bank 3 fully paying, the two-bank default branch reaches p_2=1 at 126/61; with only bank 1 defaulting the payment is 7/10+t/20 until t=6. Endpoint inequalities and affine continuation verify the fixed-point conditions throughout the open intervals, using uniqueness. The exact gain comparisons are (416,374,342)/105, (55,70,0)/48 and (1,0,0), hence winners 1,2,1. Above t=6 all gains are zero; no strict winner is asserted at the breakpoints. The independent rational replay /workspace/branches/84a4b2c9-7df5-47cb-a03c-ad6b9877123c/rational_replay.py also checked the affine segments, switch identities, and injections of 1/1000 in each coordinate at t=1/4,1,3. The supplied verify.py was inspected, not executed; finite evidence checks the witness, not the universal lower bound.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected primary finite-allocation model fixes assets e; its threat-index discussion updates targets along a finite allocation when the default set changes.",
+          "49a66e29944c compares default-contagion probabilities on a star under shock-survival hypotheses, not the ranking of marginal payment sensitivities."
+        ],
+        "reasoning": "A broadly applicable model or pointwise sensitivity algorithm does not by itself settle when the strict winner can return after another strict winner or give the least dimension. The closest catalogue contagion result addresses a different response quantity. Detailed Demange comparisons are limited by full-text unavailability.",
+        "searches": [
+          "Li et al. arXiv:1410.2570 §§3.1–3.2",
+          "Demange CESifo Working Paper 5307, §§3.1–3.2.4 (access attempted)",
+          "Resultary 49a66e29944c, Finding"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 49a66e29944c via the local mirror",
+        "Li et al. arXiv:1410.2570",
+        "Demange DP8793/CESifo 5307 (cited and lawful alternate full-text access attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Li et al. discuss injecting into the largest-index node until a solvency event, then recomputing the allocation target; this is not the asserted sequence on the proportional-baseline ray.",
+          "The frozen comparison credits Demange's fixed-default-set formula and reports a fixed-baseline finite-budget example. Both identified lawful full-text copies were attempted; the relevant §§ could not be read, so this characterization was not independently verified from Demange."
+        ],
+        "reasoning": "Standard marginal sensitivity supplies a pointwise ranking given the current default set. The actual assertion also requires feasibility of a strictly switching ranking along t*a and a universal obstruction below three banks. The inspected work does not give these combined implications; closer Demange coverage cannot be excluded by the failed retrieval.",
+        "searches": [
+          "Li et al. arXiv:1410.2570 §3.2, threat-index targeting",
+          "\"Contagion in Financial Networks: A Threat Index\" \"3.2.4\" open PDF"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Li et al. minimize w^T(bar p-p) over injection c subject to a total cap at given pre-injection assets and liabilities. Setting w=1 and holding bar p fixed makes that objective equivalent to maximizing total gross repayments.",
+          "The audited t*a changes the pre-injection baseline itself; its marginal ranking is computed at zero injection at each t, not past an allocated c on a fixed baseline."
+        ],
+        "reasoning": "Credit the equivalent total-payment objective under unit weights but distinguish the two paths in clearing-input space. Reoptimizing as the injection cap changes does not identify the winners along a prescribed ray of baseline assets.",
+        "searches": [
+          "Resultary: exact finding title; the breakpoint fractions 42/95 and 126/61; Demange threat index and finite-budget targeting; strict three-bank 1-to-2-to-1 marginal winner",
+          "Li et al. arXiv:1410.2570, Problem I and §3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest inspected catalogue result concerns comparing source-driven default cascade and independent direct-default probabilities. It does not supply a bailout-priority sequence, payment sensitivity table, or minimal bank number.",
+          "The exact breakpoint and sequence searches did not return an identified direct theorem or example match; this is retrieval evidence only."
+        ],
+        "reasoning": "A table containing a strictly reentrant witness could already cover the sufficiency part, even if expressed in different payment coordinates. No such table is identified among the inspected statements, and exact fraction matches alone would not address the two-bank impossibility.",
+        "searches": [
+          "Resultary: 42/95 and 126/61; three-bank reentrant 1-to-2-to-1 sequence",
+          "Resultary 49a66e29944c, RESULT.md"
+        ]
+      },
+      "rationale": "Credit the known pro-rata clearing model and fixed-default-set sensitivity, including small-injection targeting. The supported claim is the exact minimal bank count for strict priority reentry as all baseline assets scale proportionally while the marginal intervention is infinitesimal at every comparison point. The inspected fixed-baseline finite-budget formulation and the closest catalogue contagion result do not cover this sharply quantified assertion. Demange's identified close comparison remains an access limitation, not evidence of non-coverage or grounds for scientific failure.",
+      "residual_risks": [
+        "The detailed Demange priority-sequence comparison cannot be resolved from the retrieved material.",
+        "The bounded search does not rule out equivalent parametric ranking work under another sensitivity or network-centrality formulation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the fixed-assets allocation model and discusses threat-index updating, not a least-dimension result for varying baseline assets in the inspected statements",
+          "evidence": [
+            "Minimize w^T(bar p-p) subject to nonnegative c and 1^T c<=C with given e; §3.2 changes target when a bank becomes solvent along an allocation"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1410.2570",
+          "material_read": "PDF p. 1 abstract (offset 442), p. 2 Problem I (5594), pp. 4–5 definitions (15891), p. 6 §3.1 (21374), p. 8 §3.2 (29324)",
+          "method": "OA passage and bounded PDF context",
+          "title": "Optimal Monitoring and Mitigation of Systemic Risk in Financial Networks",
+          "trigger": "Same clearing mechanism and finite optimization of unpaid liabilities"
+        },
+        {
+          "assessment": "Detailed comparison remains unresolved; no claim of absence based on the access outcome",
+          "evidence": [
+            "Frozen RESULT.md lines 80–92 credits the index and reports a §3.2.4 fixed-baseline finite-budget example; this is the source record's account, not a passage read here"
+          ],
+          "identifier_or_url": "https://www.ifo.de/DocDL/cesifo1_wp5307.pdf",
+          "material_read": "Landing-page/abstract access only from the cited link; no original section text or locators obtained",
+          "method": "OA on cited version; exact-title query found lawful alternate https://cdi.mecon.gob.ar/bases/doc/ifo/wp/5307.pdf, which timed out via direct and VPN retrieval",
+          "title": "Contagion in Financial Networks: A Threat Index",
+          "trigger": "Closest identified fixed-default-set marginal index and non-monotone targeting comparison"
+        },
+        {
+          "assessment": "Different intervention and observable; does not cover the marginal-winner claim",
+          "evidence": [
+            "Compares source-driven cascade probability with independent direct-default probability in a star under log-convex shock survival"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-a-sharp-distributional-boundary-for-default-contagion-under-log--49a66e29944c",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A sharp distributional boundary for default contagion under log-convex shock survival",
+          "trigger": "Strongest topical Resultary result for Eisenberg–Noe contagion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem supplies a meaningful smallest-dimension counterexample to monotone targeting along a natural one-parameter asset improvement. An exact fully connected witness together with a universal smaller-network obstruction makes the effect structural rather than a numerical anomaly. Its value is limited to the gross-payment marginal objective and stated clearing model; it is not a claim about welfare or finite-budget policy.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

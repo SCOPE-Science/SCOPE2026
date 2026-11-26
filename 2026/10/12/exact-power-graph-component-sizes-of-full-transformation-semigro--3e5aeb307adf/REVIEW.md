@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem is proved for arbitrary nonempty finite \(X\). Every transformation has a unique eventual idempotent and every component consists precisely of its power-fiber. A map in that fiber permutes the idempotent's fixed roots, sends each kernel fiber to the corresponding permuted fiber, and has no extra directed cycles. For a fixed root permutation, the directed-forest determinant counts all and only admissible maps. The matrix determinant lemma and the cycle decomposition give the explicit rational-product formula. The boundary cases \(n=1\), constant maps, and ranks \(n\) and \(n-1\) agree with direct counts. Exhaustive enumeration of all maps through \(n=6\) and direct graph connectivity for \(n\le5\) passed.
+## correctness
 
-## Originality — PASS, with historical risk
-The closest primary source is Zeng–Cheng–Yang–Shao (2025), which **already** identifies components by their eventual idempotents and treats the top two ranks. Eze–Imam–Balarabe (2026) tabulate the complete graph for \(n=3\). The new contribution is a uniform exact cardinality for every component at every rank depending on the kernel-fiber profile, and the first same-rank component-size distinction \(17\) versus \(11\) at \(n=5\). Primary full-text comparisons and Scientific-index searches did not identify this refinement, but other classical transformation root-enumeration identities could imply it.
+PASS
 
-## Value — PASS
-Component **membership** does not quantify their sizes. The formula gives the size of each connected component in an infinite semigroup family, recovers the known high-rank cases, yields a consistency partition of all \(n^n\) transformations, and detects the earliest rank at which component cardinality is not determined by the idempotent's rank. This is a natural exact graph invariant, with a structural forest explanation, rather than an arbitrary small-case count.
+Any sufficiently large positive common multiple of cycle lengths gives the same idempotent for a map; a positive power shares it. Thus no edge crosses its classes, and every class is connected via the idempotent. For a fixed idempotent e a map with eventual power e commutes with e, permutes its roots by σ, sends each fiber i into fiber σ(i), and has no nonroot cycle. Conversely those conditions send every point to a root, which must be the root of its original fiber at any sufficiently large multiple of the root permutation order. For a fixed σ, sum each row of the forest matrix over choices of its outgoing arrow x→y: use the row unit vector at x minus that at y for a nonroot target, and just the row unit vector at x for a root. An assignment with a nonroot cycle gives a row dependence, including a zero row for a loop; an acyclic assignment gives determinant one by ordering vertices by distance to roots. Factoring the resulting L=D−PQ reduces to I−QD⁻¹P, with the sole possible entry in row i at σ(i) equal to b_{σ(i)}/m_{σ²(i)}. Thus per cycle the reduced factor is 1−∏ b_i/m_i, including singleton cycles. Empty nonroot set gives one per permutation; the rank-one factor gives n^{n−2} at n≥2 and one at n=1. At n=5 the two rank-two contributions are 16+1 and 3+8, with 20 and 60 root/fiber assignments. The only unequal profiles at equal rank for n<5 are (3,1) and (2,2) at rank two for n=4; both give size 4. Independent replay /workspace/branches/review_replay_2.py checked through n=5 using first-repeat orbit phases, not the supplied common-exponent code; it confirms the first split and multiplicities, not the all-n theorem.
 
-## Limits and sources
-The result does not classify component graph shapes or edges. Source comparisons: *Power graphs of full transformation semigroups*, Filomat 39(8) (2025), DOI 10.2298/FIL2508725Z; *Structural properties of the power graph of the full transformation semigroup*, J. Semigroup Theory Appl. 2026, DOI 10.28919/jsta/9965. Finite enumeration corroborates but does not replace the infinite-family proof. Independent historical and scientific checking remains desirable.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The qualitative indexing and some low- or high-rank cases are prior background. The supported distinct contribution is the explicit closed sum over root permutations with a cycle factor for every fiber profile, and the first rank-only obstruction. No exact equivalent or mechanically dominating formula was established in the inspected material.
+
+## value
+
+PASS
+
+The size of each component is a natural missing invariant beyond knowing its idempotent. The formula replaces enumeration of n^n maps by a computation on the root-permutation and fiber data. The first 17-versus-11 split shows exactly where rank stops determining component order, and the formula explains the split without any assumption about internal graph isomorphism.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

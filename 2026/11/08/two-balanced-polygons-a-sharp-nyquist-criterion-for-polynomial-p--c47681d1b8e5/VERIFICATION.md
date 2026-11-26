@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and boundaries
+# Independent mathematical audit
 
-The exact proof consists of the root-of-unity orthogonality calculation, two real Nyquist equations with determinant \(-\sin(d\alpha)\), and rational scaling rigidity after recovery of full-circle squared magnitudes. The proof does not depend on numerical enumeration.
+## correctness
 
-Run `python check_sampling.py` with a Python standard-library installation. The fixed-seed program checks direct Fourier coefficients, inversion of the top coefficient, four off-grid intensity evaluations per orbit, and explicit resonant pairs for each degree from \(1\) through \(13\). Expected output: `BALANCED_POLYGON_PHASE_CHECKS_PASS 5148`.
+PASS
 
-These finite tests are diagnostics only; they do not prove the universal theorem or historical priority. The result requires distinct positive radii and a nonresonant relative angle; no numerical condition number for polynomial-coefficient reconstruction is asserted.
+The only congruent pair among frequencies −d,…,d modulo 2d is ±d. All other coefficients are directly extracted by the DFT. Both top coefficients divided by the radius to power d equal a_d times conjugate(a_0), so the two real Nyquist equations have determinant −sin(dα). Equality of the recovered profiles gives identities for the rational quotient under each circle inversion; their composition yields dilation by (R/r)^2, which rules out nonzero finite zeros and poles, then nonconstant monomials. The zero polynomial cannot share data with a nonzero polynomial at >d nodes. At resonance z^d is real at every sample and 1±iz^d coincide in modulus; coincident and collapsed radii give the displayed direct ambiguities. The factor 1/|sin(dα)| describes the normalized top-mode inversion, not the full reconstruction condition number.
+
+## originality
+
+PASS
+
+Bounded assessment: novelty is the balanced 2d+2d discrete geometry and its exact resonance, not the measurement count or two-full-circle uniqueness.
+
+## value
+
+PASS
+
+A structured sampling design with an exact angular failure condition and linear profile reconstruction at the known sample count is useful independently of unrestricted counting or nonlinear noisy inversion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

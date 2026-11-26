@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:55:50.406671Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, assumptions and Proof 1–5",
+        "Frozen VERIFICATION.md and check.py (read only)",
+        "Numerical replay: for r in (2,3,5) and m=1,2,3,4, use scipy.optimize.brentq(lambda B: m*scipy.special.gammainc(r,B/m)-(m+1)*scipy.special.gammainc(r,B/(m+1)), m*(r-1), (m+1)*(4*r+10))."
+      ],
+      "rationale": "For a fixed two-coordinate sum, the log ratio of the two Poisson-tail derivatives is strictly concave on the open half interval, ends at zero at the midpoint, and tends to minus infinity at the other endpoint. Its only possible interior sign change is from negative to positive, so every unequal positive split is strictly suboptimal to an endpoint or midpoint. Consequently all global optima have equal positive coordinates. The tail series gives elasticity r divided by a strictly increasing positive-coefficient series, decreasing from r to zero, and hence a unique density maximizer a_r. The adjacent objective ratio decreases strictly by the difference of these elasticities, with opposite signs relative to one at m a_r and (m+1)a_r. This orders every adjacent switch, giving exactly the claimed global winners and ties. For the limit with m fixed, the smaller Poisson mean is r+z sqrt(r) and its upper tail tends to Phi(z) by the Poisson CLT; the larger mean exceeds r by order r and gives tail tending to one by Chebyshev. Signs on either side of Phi^{-1}(m/(m+1)) trap the unique root. The tabulated four r=3 roots and the r=2 first root also agree with an independent gamma-function and Brent calculation.",
+      "residual_risks": [
+        "The infinity notation B_{r,n} in the finite-n phase statement is a sentinel used only there, not the finite adjacent root with m=n from the unrestricted sequence; distinct notation would be clearer.",
+        "Exact mean-budget mathematics only. No empirical establishment, persistence, dependence, fixed-count or alternative-objective guarantee follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Corollary 5 reduces the identical-sigmoid optimum to maximizing m f(B/m). The Poisson tail satisfies the required shape. The Ginsberg and Ağralı–Geunes full texts were not available for this comparison."
+        ],
+        "reasoning": "The support reduction is already covered. That corollary does not make the indexed comparison of all budgets or determine a moving-quorum asymptotic.",
+        "searches": [
+          "Srivastava–Bullo author manuscript §2.1 and Corollary 5",
+          "Ginsberg DOI 10.1016/0022-0531(74)90053-2",
+          "Ağralı–Geunes RePEc eee/ejores/v193y2009i2p605-615"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Srivastava–Bullo Corollary 5",
+        "Resultary 9af56973f262, 0bca87a42a3c, ae3e6f6f2f0f",
+        "Ginsberg and Ağralı–Geunes bibliographic records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The generic support comparison does not prove strict interlacing or exclude additional optima. After strict unimodality of Q_r(x)/x is established, adjacent ordering can indeed be derived with a short interval argument, but the fixed-m large-r law still requires the independent control of both tail terms and the crossing. A fixed-r, large-budget count limit is not such control."
+        ],
+        "reasoning": "Pass the combined all-quorum theorem, especially the high-quorum coefficient, rather than the equal-support claim, isolated numeric constants, or generic idea of adjacent switches.",
+        "searches": [
+          "Corollary 5 of Srivastava–Bullo",
+          "9af56973f262/RESULT.md, Finding",
+          "Frozen RESULT.md, all-r crossings and large-quorum law"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The identical record is a self-match. Record 9af56973f262 uses a probability-of-at-least-one objective, equal episodes, and a fixed quorum of two. Record 0bca87a42a3c uses opening costs, unsuitability, and a probability-of-at-least-one objective. Record ae3e6f6f2f0f studies that probability for two sites with a suitability parameter."
+        ],
+        "reasoning": "The additive objective is not the logarithm or another monotone re-expression of those objectives on the stated domains. Their different equality cases and changing parameters do not give this phase diagram.",
+        "searches": [
+          "Resultary: Poisson founder quorum habitat allocation adjacent support thresholds increasing returns sigmoid utility r=2 r>=3 Gaussian quantile limit",
+          "Resultary: two-founder Poisson habitat expected number viable sites continuous mean founder budget adjacent support threshold staircase"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No distinct inspected record gave the all-r additive sequence or its Gaussian quantiles. The closest indexed exact sequence is the two-founder staircase 9af56973f262 with a different objective. The literature query did not identify a primary source for the exact r=2 additive sequence."
+        ],
+        "reasoning": "The few illustrative roots, including the shared two-founder constant, are not the originality unit. The structural threshold sequence and the fixed-m asymptotic are. A finite search miss gives no priority guarantee.",
+        "searches": [
+          "Resultary: Poisson founder quorum habitat allocation adjacent support thresholds increasing returns sigmoid utility r=2 r>=3 Gaussian quantile limit",
+          "Literature search: Poisson founder habitat allocation expected number viable habitats two-founder quorum threshold optimal number habitats continuous mean budget"
+        ]
+      },
+      "rationale": "Credit the identical-sigmoid support reduction and leave the already-credited r=2 case out of the new claim. The inspected sources do not supply the full additive Poisson-tail phase diagram for arbitrary r>=3 together with its fixed-m large-quorum coefficient. In particular, the closest indexed staircase has a distinct objective and fixes r=2.",
+      "residual_risks": [
+        "The exact additive r=2 priority credit lacks a confirmed matching bibliographic citation and is excluded from the pass.",
+        "Inaccessible older increasing-returns work and other uninspected work could give broader results. No historical-priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of equal-positive support reduction",
+          "evidence": [
+            "For identical f optimize m f(B/m) over support counts."
+          ],
+          "identifier_or_url": "https://motion.me.ucsb.edu/pdf/2012n-sb.pdf",
+          "material_read": "Section 2.1, p. 2; Corollary 5, p. 6",
+          "method": "Author manuscript PDF passages",
+          "title": "Knapsack Problems with Sigmoid Utilities: Approximation Algorithms via Hybrid Optimization",
+          "trigger": "Generic allocation with identical sigmoids"
+        },
+        {
+          "assessment": "Related staircase; not the same objective, domain, or large-quorum asymptotic",
+          "evidence": [
+            "Quorum two, equal episodes with receptivity, and probability of at least one success."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-an-exact-introduction-count-staircase-under-two-founder-threshol--9af56973f262",
+          "material_read": "Original indexed Finding, offset 0",
+          "method": "Indexed original text inspection",
+          "title": "An exact introduction-count staircase under two-founder thresholds",
+          "trigger": "Strongest indexed staircase overlap"
+        },
+        {
+          "assessment": "Different objective and transition parameter",
+          "evidence": [
+            "Site costs and unsuitability enter; adjacent comparisons address catastrophe risk."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-site-opening-and-catastrophe-risk-staircase-for-independen--0bca87a42a3c",
+          "material_read": "Original indexed finding",
+          "method": "Indexed original text inspection",
+          "title": "Sharp site-opening and catastrophe-risk staircase",
+          "trigger": "Poisson-tail opening with adjacent comparisons"
+        },
+        {
+          "assessment": "Different optimization problem",
+          "evidence": [
+            "Asymmetric optima for a probability-of-at-least-one objective with site suitability, not additive expected count."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-asymmetric-optimal-founder-effort-in-two-identical-quorum-limite--ae3e6f6f2f0f",
+          "material_read": "Original indexed finding",
+          "method": "Indexed original text inspection",
+          "title": "Asymmetric optimal founder effort in two identical quorum-limited sites",
+          "trigger": "Candidate competing equality-case result"
+        },
+        {
+          "assessment": "Unresolved potential historical overlap",
+          "evidence": [
+            "No inspected theorem on which to base an implication."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0022-0531(74)90053-2",
+          "material_read": "Bibliographic identification only; full text unavailable",
+          "method": "Lawful DOI/publisher retrieval attempt",
+          "title": "The multiplant firm with increasing returns to scale",
+          "trigger": "Older identical increasing-returns allocation"
+        },
+        {
+          "assessment": "Unresolved potential historical overlap",
+          "evidence": [
+            "No inspected theorem on which to base an implication."
+          ],
+          "identifier_or_url": "https://ideas.repec.org/a/eee/ejores/v193y2009i2p605-615.html",
+          "material_read": "Bibliographic page, not full text",
+          "method": "Lawful bibliographic lookup",
+          "title": "Solving knapsack problems with S-curve return functions",
+          "trigger": "Older sigmoid allocation comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof 1–5",
+        "Srivastava–Bullo Corollary 5 for the narrower known reduction"
+      ],
+      "rationale": "The exact phase diagram classifies all maximizers of a natural separable nonconcave objective instead of merely listing candidate values or choosing one maximizer. Strict interlacing makes the model predictive at every budget, including ties, and the high-quorum law identifies the scale and leading displacement by a different argument. The scope is mathematical and does not depend on applied calibration.",
+      "residual_risks": [
+        "No uniform asymptotic in m or nonidentical-coordinate model is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

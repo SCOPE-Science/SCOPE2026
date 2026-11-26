@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact product Fourier kernel is reconstructed from centered independent coordinate functions. Every absolute row sum is reduced to a sum of independent, mean-one two-point random variables. Conditioning on all but one coordinate gives an explicit piecewise-affine function, proving coordinatewise monotonicity and rare-vertex sharpness. Strictness at the all-fair vector follows from a positive-probability binomial event for both parities of the dimension; the sharp unattained upper envelope follows from bounding the negative part of a mean-one random variable. For four coordinates, negative kernel outcomes require at most one success, providing the explicitly checked piecewise formula and three exact rational fixed-mean witnesses. The standalone checker constructs the projection via exact-rational Gram inversion and passed 4,863 assertions over 38 matrix instances. No finite test is used as an infinite proof.
+## correctness
 
-## Originality — PASS within examined evidence
-The closest prior homogeneous Bernoulli result supplies the equal-parameter special case and is not claimed here. O'Donnell (2014), §§8.1 and 8.4, gives orthogonal product bases, including a reference to unequal biases; §10.4, Theorem 10.39, bounds finite-exponent low-degree projections but does not determine their sharp \(L^1\)/\(L^\infty\) endpoint norms. De Wolf's Boolean Fourier exposition treats uniform cubes and different analytic questions. The submitted multi-parameter localization, coordinatewise ordering, unique fair minimizer, and fixed-mean heterogeneity witness are not implied by the cited homogeneous diagonal alone. Actual published-finding corpus searches for heterogeneous Bernoulli affine projections and alternative Fourier terminology did not locate a dominating theorem. Absence in search results is not proof of historical uniqueness; equivalent results under another name remain possible.
+PASS
 
-## Value — PASS
-Heterogeneous independent sampling is the natural weighted extension of first-degree Boolean Fourier approximation. The theorem replaces an exponentially large matrix-norm maximization with one explicitly specified rare-coordinate row, and orders worst-case amplification under arbitrary coordinatewise changes of sampling frequency. It identifies the unique minimax sampling design over all independent marginals, the exact universal extreme \(2n-1\), and a pair of opposite rational counterexamples showing that a mean-preserving spread can raise or lower the norm: it is neither Schur-convex nor Schur-concave on the fixed-mean slice. These statements concern a standard least-squares projection and a directly motivated stability invariant, not an arbitrary parameter slice.
+The frozen mathematics is correct. In the orthonormal biased coordinate basis the affine kernel is 1 plus the sum of the normalized coordinate products. The i-th term in an evaluation row has law C_i/s_i−1, with s_i the probability of that evaluation bit and C_i independent Bernoulli(s_i). Conditioning on the other terms reduces rare-row maximization and rare-probability monotonicity to (1−s)|a|+s|a+1/s|, a nonincreasing function of s. Kernel symmetry yields weighted endpoint duality, and choosing row signs attains the bound. At the unbiased values of the other n−1 probabilities the conditioning variable a takes −1 (even n) or −2 (odd n≥3) with positive probability, giving the strict fair minimum when one probability changes, and monotonicity handles the rest. The mean-one kernel variable is bounded below by −(n−1), strictly above that on a positive-probability success event; its negative part tends in expectation to n−1 as all rare probabilities tend to zero. The corrected claim uses the established formula only as a premise. In four coordinates with p_i≤1/2, no outcome with at least two successes contributes a negative part. Splitting zero and one success gives the corrected closed expression. Exact evaluation gives 77/27, 371/128 and 6213/2048, with signed gaps 161/3456 and 277/2048, and both nonconstant vectors majorize the constant vector of the same sum. Hence the repaired non-Schur assertion follows. The corrected scientific notes match the retained verification code and the frozen JSON front matter is preserved.
 
-## Closest literature and limitations
-Primary references: O'Donnell, *Analysis of Boolean Functions* (2014), §§8.1, 8.4, 10.4; de Wolf, *A Brief Introduction to Fourier Analysis on the Boolean Cube*. The previously established homogeneous parameter formula remains prior work, not an original consequence here. The exact general expression is a finite expectation and may still admit equivalent earlier reformulations as biased Walsh spectral kernel bounds. There has been no independent mathematical or bibliographic audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Original headline originality FAIL: the general heterogeneous affine formula, rare norming vertex, equality of endpoints and coordinatewise monotonicity are an exact specialization of Resultary 40f4b54b28c0, which the frozen priority comparison omitted. This conclusion is based on mathematical coverage, not on dating or attribution of discovery. The fair and sparse extremum arguments are direct consequences plus a one-coordinate strictness check and are not retained as contributions. Repaired originality PASS for the separate two-sided fixed-mean Schur obstruction only. The replacement expressly credits the general formula and uses it to prove and explain an explicit order reversal, not to reclaim it under a different name.
+
+## value
+
+PASS
+
+The repaired result answers a natural optimization question about averaging coordinate biases while keeping the expected total number of successes fixed. It supplies explicit witnesses to both failures of ordering, and the change of sign of the one-success residual explains why the familiar product-maximization argument need not survive beyond the threshold. This is a motivated negative result with consequences for bias-balancing heuristics, not novelty attributed to individual computed constants or a covered headline.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

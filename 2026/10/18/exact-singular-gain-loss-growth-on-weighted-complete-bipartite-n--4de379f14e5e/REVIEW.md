@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The vertex-class decomposition is an exact orthogonal direct sum; its active matrix is four dimensional and has the displayed symbolic characteristic polynomial. Strict positivity of the negative constant term in the quadratic in squared eigenvalue proves exactly one real and one imaginary eigenpair. Diagonalizability yields the claimed propagator exponent. Direct analysis of the decoupled trimer gives a nilpotent Jordan block of order three, and expansion of the exact negative squared-eigenvalue root proves both powers of the weak coupling and the joint crossover. The standalone included script passed one symbolic polynomial identity, one boundary factorization, 720 full-matrix spectral checks, 21 asymptotic checks, and three Jordan checks. Finite checks do not certify the quantified theorem by themselves.
+PASS
 
-## Originality (PASS within inspected research; residual risk)
+For finite a≥3, b≥1 and c=a−2, use the ordered active basis (e₋,e₊,e_B,e_C), with consecutive entries iγ, √(2b), η√(bc). The passive-A and B zero-sum complements are annihilated and contribute (c−1)+(b−1) dark modes. The tridiagonal determinant recurrence gives p₂=z²+γ², p₃=z(z²+γ²−2b), and p₄=zp₃−bcη²p₂=z⁴−A₀z²−C₀. For positive γ and η the two z² roots are real, opposite in sign and nonzero. The four simple active roots and the exact zero direct summand justify diagonalization, with growth exponent μ from the +iμ mode and a matching upper bound from the eigenbasis. At η=0 the trimer is a direct summand in the aggregate basis (not literally three graph vertices when b>1). Below threshold it has distinct real eigenvalues; at equality H³=0 but H² has a nonzero end-to-end entry, so the exponential has a nonzero t² term; above threshold its imaginary pair gives the asserted rate. For x=μ², use x²+A₀x−C₀=0. Below threshold x has leading order γ²bcη²/(2b−γ²) with O(η⁴) error; at equality x/η tends to √(2b²c) with O(η) error. Under γ²=2b+κη the positive root for x/η tends to (√(κ²+8b²c)+κ)/2. These checks independently reconstruct RESULT.md lines 44–72. The supplied verifier and requirements were inspected without running the uploaded script.
 
-The conventional trimer threshold is known from arXiv:1210.3871. The general phenomenon of thresholdless parity–time breaking caused by degeneracy is covered by arXiv:1402.0428, so it is not a standalone contribution. arXiv:1408.1561 studies exceptional points in another photonic geometry. arXiv:2212.13642 directly concerns gain–loss bipartite networks, but places gain and loss on whole opposite parts and derives a different four-site model. The candidate's exact fixed-one-pair weighted-complete-bipartite growth law, semisimple-dark-mode count, and singular coupling/gain crossover were not found in the inspected relevant sections. A broader theorem or an inaccessible prior network calculation could imply these formulas. Search nonmatches are not a uniqueness certificate.
+## originality
 
-## Mathematical value (PASS)
+PASS
 
-The fixed gain–loss pair retains a finite unbroken spectral phase when detached from passive paths; reconnecting even arbitrarily weak passive channels destroys it everywhere at positive gain–loss strength. The theorem computes the exact physical growth rate rather than merely proving spectral non-reality, resolves the change of onset exponent from coupling order one to order one-half at the third-order exceptional point, and gives a joint crossover for any finite bipartite graph size. This is a motivated stability/singularity question in gain–loss network design; the exact dependence on passive-path multiplicity permits quantitative comparison across network sizes.
+The supported increment is the exact weak-passive-coupling instability and its quantitative growth crossover for the same-side balanced pair, not thresholdless breaking in general or the isolated-trimer exceptional point. There is verified equivalent spectral coverage in a separate indexed record dated 2026-11-22. It must be credited as overlap, not treated as distinct physics merely because the networks are drawn differently; its displayed date is later than the frozen 2026-10-18 record, and there is no verified earlier version of that matching statement. No inspected earlier source supplies the same exact weighted-star result or crossover; the passive-bridge paper remains a concrete access risk.
 
-## Closest literature and limits
+## value
 
-Duanmu et al. (2012), Ge and Stone (2014), Teimourpour et al. (2014 and 2017), and Moreno-Rodríguez et al. (2022) are the closest inspected sources (identifiers in `RESULT.md`). Novelty remains qualified by potentially broader spectral results, and the theorem is restricted to uniform weighted bipartite hopping with one gain–loss pair. The review is not independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The calculation resolves a motivated stability question for an arbitrarily weak added passive channel. It gives the actual positive growth rate at fixed graph size and distinguishes its linear onset below the isolated EP3 from square-root onset at the critical gain, including the gain detuning scale on which the two regimes meet. This is a useful exact benchmark for interpreting stability near the trimer transition; no value is assigned to relabeling the same active star, counting spectators in isolation, or rederiving the trimer threshold alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

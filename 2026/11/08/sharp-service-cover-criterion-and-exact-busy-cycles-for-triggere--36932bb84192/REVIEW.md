@@ -1,22 +1,21 @@
-# Review of sharp service-cover and exact busy-cycle theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The deterministic theorem is supported by the isolated-cluster workload criterion, monotonicity of reflected work under adding arrivals, coincidence of first clearing times when no triggers remain pending, and induction over clearing epochs. The converse uses one failing cluster in isolation. For Poisson primaries, a violation has a positive-probability no-other-primary interval, while the successful reduction to the classical batch queue transfers the known busy-period branching transform. All quantifiers, finite-mark assumptions, the strict subcriticality requirement, the zero-length idle convention, and the scope of workload non-equivalence are explicit. The bundled exact rational finite sampler completed 711 checks; it does not stand in for the infinite proof.
+PASS
 
-## Originality — PASS (historical-priority risk)
+For an isolated cluster, until its first positive idle gap the available work just before release j is the previous service sum minus d_j (with coincident events processed together). Thus cover is exactly continuous service to B. The first violation instead ends the first busy interval at a proper partial sum <B. In the combined staggered queue, adding arrivals to an isolated cluster's input cannot decrease reflected workload; every primary t_i before the end tau of a busy interval therefore has t_i+B_i<=tau if tau is finite. Each release is strictly before t_i+B_i since all service sizes are positive. Thus at tau no trigger from that busy interval is pending. From the common empty start a, batch cumulative work up to a candidate first end v is at least staggered cumulative work. If batch ended strictly earlier, its cumulative work at v would be v-a, incompatible with continued staggered service through v and positive workload there. If staggered ends at finite tau, each of its primaries' full work has arrived, so batch also clears at tau; if staggered never ends no earlier batch end is possible. Repeat from the common empty state. This uses ends followed by a positive gap, not left-limit zeros at immediate restarts, and allows simultaneous primaries. Under Poisson input, conditional on a failing initial mark the event of no further primary until d_last+B+1 has positive probability and isolates the failure; countably many a.s.-covered marks give sufficiency. The batched service tree has conditionally Poisson(lambda B) offspring, giving the stated transform; rho<1 gives a finite tree and a transform fixed point unique by a Lipschitz bound rho. Summing expected work by generation gives EB/(1-rho), fresh Poisson increments at true clearings give independent exponential idle times, and for constant service the PGF solves F=z exp(rho(F-1)), giving the Borel formula by Lagrange inversion and L=bK.
 
-The October 2026 motivating article's primary full text treats stationary workload and customer system-time bounds. Its Appendix C analyzes aggregate input variance, and its Section 4 addresses fixed-point workload bounds; it does not give the sharp service-cover classification and marked-Poisson busy-cycle law. The important earlier Inoue–Takine 2003 paper was inspected in its open-access PDF, including Section 2.2 and Lemma 1: it already establishes busy equivalence for a model of periodic equal-size cell trains with unit interarrival lags. This is closely related, and its proof idea foreshadows part of the present argument. Its restrictions do not imply the claimed necessary-and-sufficient condition for heterogeneous random multitrigger marks and the Poisson cycle law without a separate generalization. The classical \(M/G/1\) fixed-point and Borel identities are attributed, not claimed as novel. Actual targeted searches of prior research records and wider literature found no exact covering statement. An earlier general deterministic delayed-work theorem may exist under different terminology; independent historical-priority assessment is warranted.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The structural question is motivated by recent attempts to analyze the difficult triggered-arrival system. A sharp criterion identifies exactly which intra-cluster release schedules can be replaced by batches without changing *any* busy/idle cycle. The result handles arbitrarily many dependent stages with heterogeneous service, including delayed stages released after the primary job itself could finish. It turns a generally non-renewal triggered-input stream into a tractable regenerative busy/idle process for this particular observable, giving all busy-period laws, a mean, and a natural Borel special case. This addresses a natural performance metric rather than an arbitrary parameter slice or a routine numerical update; it does not claim exact workloads or sojourn times.
+The strongest actual precursor is Inoue–Takine's exact busy-indicator equivalence for periodic cell trains, not merely a similar stochastic bound. The supported distinct claim is the sharp cumulative-service criterion for arbitrary locally finite primary schedules and finite heterogeneous clusters, together with the Poisson a.s. iff and resulting batch reduction. The classical transforms themselves are not new.
 
-## Closest comparisons and limits
+## value
 
-- Rahnamania–Mandjes–Ashtiani (2026), arXiv:2610.40865v1: same input architecture; workload and class-system-time stochastic bounds, not exact cycle equivalence.
-- Inoue–Takine (2003), DOI 10.15807/jorsj.46.220, especially Lemma 1: genuinely anticipates busy-state equivalence for deterministic periodic equal-service cell trains; special, not the heterogeneous marked-Poisson classification.
-- Classical \(M/G/1\) theory: supplies the fixed-point transform, mean and Borel law *after* the reduction; those formulas are not asserted to be original.
-- Earlier exponential-delay matrix-analytic work, arXiv:2609.02320v1: accessible full text inspected (Introduction and Sections III–IV, including the workload and idle-state transforms); it does not analyze the service-cover classification or the Poisson busy-period transform. Broader historical priority remains a risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A simple markwise condition removes all intra-cluster timing information from an exact cycle law, with a sharp isolated witness rather than a sufficient approximation. It applies to heterogeneous services and dependent delays, can accept triggers after primary service, and makes classical batch formulas valid for the coupled staggered system. The structural reduction, not rederivation of Borel probabilities, provides the research value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

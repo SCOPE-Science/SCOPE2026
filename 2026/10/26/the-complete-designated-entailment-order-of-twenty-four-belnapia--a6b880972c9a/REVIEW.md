@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The original designated-truth semantic clauses reduce each formula's local behavior to exactly thirty-two realizable pointed truth-status profiles, including arbitrary infinite models. The three subset/disjointness conditions are proved directly from these clauses. Distinctness, completeness of the remaining 536 comparison cases, forty strict arrows, and the 144/340/28 minimum-witness census follow from an exhaustive implementation of those exact finite profiles and actual finite-world valuations. The two-witness support argument proves the universal three-world limit; the explicit disjoint-status example proves optimality. The attached script reports `BELNAP_24_IMPLICATIONS_OK 24 40 512 144 340 28`. No inference from a finite sample to an infinite statement is needed.
+## correctness
 
-**Originality — PASS, with qualified historical priority.** The underlying twenty-four operators and several particular transformations are defined and proved in Petrukhin (2026). The present result does not relabel those statements as new; it classifies all same-argument designated-entailment comparisons between those twenty-four operations and obtains a sharp countermodel threshold and distribution. The inspected primary paper's Definition 6, Propositions 8–9 and the main translation and decidability discussion do not give this full implication graph or countermodel histogram. Fan's classical two-valued essence-and-accident results address a different signature. An unlocated specialized four-valued implication classification could affect priority.
+PASS
 
-**Value — PASS.** The twenty-four-operator family is a natural recently introduced object. An exact inclusion poset among all its members determines which proposed same-argument designated entailments are valid or redundant and gives optimal finite falsification sizes. The complete three-part set criterion is structural rather than a name substitution, and the three-world boundary is witnessed by a concrete configuration.
+PASS applies to the corrected RESULT.md, not to the frozen literal opening 'fix one formula A'. The latter is false if it claims the same order for every preselected formula: taking A=p→p excludes both n and f and makes the n- and f-essences designated everywhere. The repair explicitly quantifies uniformly over common arguments, equivalently over a common atom with unrestricted valuations. The designated clauses agree with Petrukhin. The corrected proof identifies the twelve accidents with distinct cut predicates L_K(a,S)=(a in K and S meets K^c) and the essences with their Boolean complements. For distinct cuts neither accident inclusion holds (a two-status witness suffices), and essences never entail accidents because all singleton profiles distinguish those types. An accident entails an essence exactly for disjoint cuts, giving 20+10+10 covers. The 144 essence-to-accident failures are the singleton failures. Size-three failures correspond to intersecting cuts whose union is full, equivalently disjoint cut pairs with proper union by complementation; there are 40−12=28 of these. This leaves 340 size-two failures. All 32 profiles are genuinely realizable by an atom and the number of worlds needed for a profile is its support size. The independent direct-clause enumeration also obtained the exact signatures, comparisons and witness histogram.
 
-The scope is limited to designated-truth consequence on universal frames with one shared input argument. Countermodel counts were checked computationally; independent replication has not been done.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Assessed for the corrected uniform common-argument order only. The closest checked sources give the primitive clauses, formula-algebra expressibility, and equivalences with outer connectives or changed arguments. They neither supply the labeled designated-entailment order of the bare modalities nor identify the exact two-witness obstruction and its minimum-model histogram. The general semantic algebra is not a labeled implication or least-countermodel table. The corrected cut characterization computes these facts without appealing to a claim of new semantics or of historical priority.
+
+## value
+
+PASS
+
+This is a complete order and minimum-model classification for all bare essence and accident primitives of a published four-valued semantics, not a test of an arbitrary subset. A single disjointness rule explains why the entailment relation has only two levels, and the shared-versus-separate witness criterion gives the exact refutation cutoff and identifies when two worlds are inadequate. This is useful to anyone replacing operators under designated consequence or testing small countermodels; it is not claimed as a new general normal form.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

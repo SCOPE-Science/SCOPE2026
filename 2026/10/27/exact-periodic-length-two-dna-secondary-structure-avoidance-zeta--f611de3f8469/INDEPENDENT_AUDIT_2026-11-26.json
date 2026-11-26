@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:16:37.577439Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–37 and 39–102; VERIFICATION.md; verify_periodic_ssa2.py inspected, not executed",
+        "Independent replay: python /workspace/review_checks/periodic_alphabet_certificate.py"
+      ],
+      "rationale": "In the bi-infinite extension any two specified cyclic edge types, even two copies of one type, can be realized disjointly by translation. Thus admissibility is exactly exclusion of all four self-dual edges and simultaneous use of either pair of distinct reverse-complement edge types; this also treats n=1,2. The pairwise indicator expansion is exact, the trace of each surviving adjacency matrix counts positioned closed walks, and the formal trace-determinant identity gives the signed determinant product. Independently, review_checks/periodic_alphabet_certificate.py built the union of the 64 maximal graphs by successive inclusion-exclusion and extracted determinants by trace/Newton identities: all 18 signed nonzero entries and the exact cross-multiplied identity agreed. It reproduced the first 18 counts from the product and direct word/rotation-class counts through length 8. Burnside applies because repeating a block does not change the bi-infinite extension; the divisor formula counts fixed words rather than just primitive periods. The cubic has one simple root alpha>2 and the other roots in (-1,0) and (0,1); the other factors have reciprocal roots of modulus at most 2 (in particular |x|>2 is impossible for x^4-x^3-1=0). Logarithmic differentiation gives multiplicity eight and O(2^n), and proper-period divisor terms are O(n alpha^(n/2)) before division by n.",
+      "residual_risks": [
+        "This counts bi-infinite periodic extensions, not disjoint arcs confined to one finite traversal or finite linear words; there is no physical biochemistry claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The arXiv paper optimizes spectral radii over 64 generating-set choices for the finite-linear capacity, obtaining rho approximately 2.247.",
+          "Resultary 27962a39d77c reports the finite-linear language's minimal automaton size (7,311); a state-space size is not the periodic-point trace of a presentation for the present language."
+        ],
+        "reasoning": "Neither the optimization nor a count of automaton states determines periodic overlap corrections. The 2024 paper's indexed abstract is about capacity and cannot establish its full scope.",
+        "searches": [
+          "Chu–Wang–Zhang arXiv:2304.11403, pp. 2, 4; Wang–Chu–Ge–Zhang DOI:10.1109/TMBMC.2024.3396404",
+          "Local Resultary: finite automata for dinucleotide avoidance"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2302.13714",
+        "arXiv:2304.11403",
+        "DOI:10.1109/TMBMC.2024.3396404 (abstract only)",
+        "Resultary 0ea603e6de0b and 27962a39d77c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The rate log2(alpha) agrees with prior capacity. The union's periodic counts need signed overlap correction; one compatible graph and its Perron root do not supply this. The local cyclic zeta uses a different forbidden language."
+        ],
+        "reasoning": "General trace-zeta and Burnside formulas are standard and not separately new. The specialized determinant product and its exact leading term, from which the necklace conclusions follow, are not stated or implied as numerical results by the prior capacity statements.",
+        "searches": [
+          "arXiv:2304.11403, capacity definition and 64-choice argument; local Resultary 0ea603e6de0b, Finding and assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nguyen et al., p. 2, define avoidance among nonoverlapping factors of a finite linear word.",
+          "Resultary 0ea603e6de0b has a zeta function for the local four-letter obstruction ab complement(b) complement(a); it gives a_3=64 and N_3=24, not 28 and 12."
+        ],
+        "reasoning": "A constraint on cyclic edge types at arbitrary separation is not the local block obstruction or finite-linear rule. The difference appears already at length three.",
+        "searches": [
+          "Local Resultary: periodic or cyclic length-two secondary-structure avoidance, reverse-complement dinucleotides, periodic zeta and necklaces",
+          "arXiv:2302.13714; arXiv:2304.11403"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest local zeta record's initial counts differ, and the finite-linear automaton record tabulates a different invariant. The primary extremum is a rate, not a table of these positioned counts."
+        ],
+        "reasoning": "No inspected table indexes the same sequence. The small-length differences rule out simply reusing the nearest cyclic count, not every possible historical table.",
+        "searches": [
+          "Local Resultary exact cyclic zeta, dinucleotide secondary-structure avoidance, period counts and necklaces; closest records 0ea603e6de0b and 27962a39d77c",
+          "arXiv:2304.11403, p. 4"
+        ]
+      },
+      "rationale": "The asymptotic exponential rate and compatible generating graphs are prior. The all-length overlap-corrected zeta function, exact positioned and rotation-class counts, and leading multiplicity eight are distinct from the strongest statements inspected. In particular an extremal generating graph's spectral radius does not enumerate the union or determine its leading coefficient.",
+      "residual_risks": [
+        "2024 same-topic paper's full text was unavailable, so equivalent finite-length work there was not excluded.",
+        "Bounded searches do not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Finite-linear definition, different counting scope",
+          "evidence": "Prohibits disjoint reverse-complement factors at all lengths at least m in a finite word.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.13714",
+          "material_read": "p. 2, definitions, OA text offset about 13861",
+          "method": "OA primary paper passage",
+          "title": "On the Design of Codes for DNA Computing: Secondary Structure Avoidance Codes",
+          "trigger": "Original 2-SSA language"
+        },
+        {
+          "assessment": "Covers exponential rate and generating-set model, not the overlap-corrected census in the read passages",
+          "evidence": "64 possible generating choices, largest spectral radius about 2.247, resulting rate 1.1679.",
+          "identifier_or_url": "https://arxiv.org/abs/2304.11403",
+          "material_read": "p. 2 capacity definition (offset about 10950) and p. 4 generating-set calculation (offset about 25400)",
+          "method": "OA primary paper passages",
+          "title": "Improved constructions of secondary structure avoidance codes for DNA sequences",
+          "trigger": "Closest available primary result for length two"
+        },
+        {
+          "assessment": "Known related capacity result; extent of finite enumeration not verified",
+          "evidence": "Abstract describes constrained-system/spectral-radius approach to capacity.",
+          "identifier_or_url": "https://doi.org/10.1109/TMBMC.2024.3396404",
+          "material_read": "Indexed abstract and bibliographic entry; DOI and IEEE full-text access attempt did not return paper text; no lawful repository copy located",
+          "method": "Indexed abstract and lawful OA retrieval",
+          "title": "The Capacity of Secondary Structure Avoidance Codes for DNA Sequences",
+          "trigger": "Same m=2 object, possible extension of prior capacity work"
+        },
+        {
+          "assessment": "Different cyclic language",
+          "evidence": "Single local block ab complement(b) complement(a); length-three positioned and necklace counts 64 and 24.",
+          "identifier_or_url": "Resultary 2026/10/25 0ea603e6de0b",
+          "material_read": "Finding and assumptions",
+          "method": "Local Resultary mirror",
+          "title": "Exact cyclic reverse-complement-duplication avoidance zeta function for the DNA alphabet",
+          "trigger": "Strongest exact prior zeta/necklace match by topic"
+        },
+        {
+          "assessment": "Finite-linear automaton size, not periodic enumeration",
+          "evidence": "Minimal automaton has 7,311 states for finite words under the disjoint-factor rule.",
+          "identifier_or_url": "Resultary 2026/11/22 27962a39d77c",
+          "material_read": "Finding and assumptions",
+          "method": "Local Resultary mirror",
+          "title": "The exact 7,311-state complexity of dinucleotide secondary-structure avoidance",
+          "trigger": "Exact same length threshold, related finite language"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–31 and 39–96",
+        "Chu–Wang–Zhang arXiv:2304.11403 p. 4",
+        "Resultary 0ea603e6de0b"
+      ],
+      "rationale": "This is the fixed-point zeta function of a natural periodic four-letter avoidance language, not a rerun of the finite-linear capacity computation. The compatible graphs have overlapping cycle languages, and even the leading multiplicity is not supplied by optimizing a spectral radius. The simplified rational invariant resolves the all-length census and determines both positioned words and rotation classes, useful when counting or comparing periodic constraint languages.",
+      "residual_risks": [
+        "Burnside, finite-matrix trace identities and the capacity alone are not credited as new; value is confined to the exact periodic invariant of this language."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

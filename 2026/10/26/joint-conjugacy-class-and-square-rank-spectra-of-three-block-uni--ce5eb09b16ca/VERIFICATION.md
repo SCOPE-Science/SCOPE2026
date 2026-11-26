@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Reproduce the small-prime-field checks with `python3 verify.py` from the unpacked finding. The program enumerates each adjacent-block pair, independently builds the full linear commutator matrix from basis inputs, computes its rank and the product rank, and compares the resulting complete joint frequency table with the closed Gaussian-binomial formula. It multiplies by the number of free far-off-diagonal blocks, and checks that total counts equal the group order. Eleven configurations over prime fields of orders \(2,3,5\) passed, including a \(3\)-field example with group order \(531441\). It also checks that for field order \(2\) and block sizes \((2,2,2)\), the three square-rank counts at class size \(16\) are \((192,1728,576)\).
+## correctness
 
-A separate exact-integer evaluation of the formula for seven field orders \(2,3,4,5,7,8,9\), each with six block triples, checked total group-size normalization and integrality of the resulting class counts. Those evaluations are finite algebraic checks, not an exhaustive proof or independent audit. The proof applies to all prime powers, including extension fields not exhaustively enumerated in the standalone program.
+PASS
 
-The verification code uses the Python standard library only. No external datasets, hidden paths, or precomputed verification logs are required. The source inspections and remaining publication-priority uncertainty are detailed in the scientific review.
+Here N=g−I has N³=0 and its square has only block XY. Conjugation moves only Z, by the image of the map (X′,Y′) ↦ XY′−X′Y up to an immaterial sign. The two summand images have dimensions cr and as and intersect in the rs-dimensional maps from the c-space modulo ker Y into im X. Thus t=cr+as−rs. To count a rank-s image U of Y for fixed X, choose U∩ker X of dimension s−k and its k-dimensional projection modulo ker X; after choosing a splitting the possible lifts are the graphs into ker X/(U∩ker X). This gives exactly the stated Gaussian factors, bounds and power of q. Each image has S_q(c,s) surjective lifts, and Z is free. Both invariants are conjugacy invariant, validating division by q^t. In the limit t≤ac since ac−t=(a−r)(c−s), and conditional on full row rank of X, t=ac and XY is exactly uniform. The complement's probability bounds total variation. In characteristic two the square determines whether the order is four because N³=0. Independent enumeration of actual distinct conjugation displacements, not ranks of commutator matrices, agreed with every joint cell in three small prime-field cases; in the stated q=2 example the t=4 cells were 192, 1728 and 576.
+
+## originality
+
+PASS
+
+Credit the positive-square-rank refinement of the one-element class-size census for general blocks and the corresponding fixed-end joint law, not the already covered even-characteristic zero-square slice, the class exponent on that slice, or total class counts. The closest prior zero-product incidence imposes containment in the kernel and hence does not account for noncontained images, which are needed in each positive-k bin. The bounded primary-source comparison did not establish an exact dominating all-rank joint census.
+
+## value
+
+PASS
+
+The class size controls orbit counting, and the square rank is a natural nilpotent invariant that distinguishes order at most two from order four in even characteristic. The exact refinement for arbitrary block sizes captures new positive-rank information within a single class-size stratum, rather than merely reprinting a total or the known zero-square slice. It gives both element and class counts for these invariants and quantifies the persistence of distinct square ranks as the class size concentrates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

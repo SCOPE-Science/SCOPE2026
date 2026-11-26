@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:38:44.884072Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The symbol cycle fixes no nonempty simplex setwise, since one full symbol orbit occupies the same board cell. In the geometric quotient each oriented simplex orbit contributes a separate integral cell, with deletion signs in board-cell order. Independent replay `python3 /workspace/record4_replay.py` used board subsets and anchored the first occupied cell's symbol to zero; it found cell counts [9,90,426,1026,1278,804,252,36,4] and checked integral boundary composition. Integral unit cancellation replaces the pivot row by the pivot boundary and removes that row and its pivot column as a contractible pair; the Schur complement changes the surviving current columns, and the adjacent maps just lose the canceled coordinates. A different pivot ordering canceled 1954 pairs and gave ranks [1,1,1,1,13,0,0,0,0], degree-two boundary of absolute value 3, zero in degrees one and three, and degree-four row of gcd 3. Signs and entries may vary with basis, but these invariants give exactly the printed integral homology. Triangle relations with an independently chosen breadth-first spanning tree killed the 244 non-tree edges in rounds of 154, 60 and 30; the cover is simply connected and its deck group is C3. The frozen checkers were inspected, not executed. This PASS covers the mathematical Finding, not its erroneous assertion about what prior results imply.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The accessible earlier cover theorem establishes a wedge of 38 four-spheres.",
+          "Hämäläinen's complex is built from trades within a fixed square; Falcón counts invariant partial squares under permutations."
+        ],
+        "reasoning": "Neither cited Latin-square paper is a stronger orbit-space topology theorem, but the indexed computation of the cover and standard cyclic-cover machinery suffice for this exact instance.",
+        "searches": [
+          "Resultary 63721f81dfe5 and cited 77e44648bda3",
+          "arXiv:0907.1481",
+          "arXiv:1107.3248"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, three verification/check_*.py files",
+        "Resultary 63721f81dfe5; attempted 77e44648bda3",
+        "arXiv:0907.1481 and arXiv:1107.3248"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known cover has integral cohomology only in degrees 0,4, so the sole possible differential is d5 from (p,4) to (p+5,0).",
+          "Multiplication by the degree-two cyclic periodicity class is an isomorphism in positive degrees with any coefficient module, and commutes with d5. The quotient is finite-dimensional."
+        ],
+        "reasoning": "At high p the odd-p d5 maps must be isomorphisms and the positive even-p groups on row 4 must vanish, because both rows die in high total degrees. Periodicity propagates these facts down to p>=1. Thus integral cohomology above degree 4 vanishes; H^2 is C3, H^3 is zero, and H^4 is an extension of the free invariant lattice by C3, hence splits. The universal coefficient theorem gives the stated torsion, integral vanishing and torsion-free H4. Since chi(Y)=(1+38)/3=13, H4 has rank 12. The deck group gives pi1 and H1 directly. This does not require computing the action on the rank-38 lattice.",
+        "searches": [
+          "63721f81dfe5, Finding",
+          "Standard multiplicative cohomological Cartan–Leray spectral sequence and the two-periodic resolution of C3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen triples agree in two coordinates exactly when adjacent in K3 square K3 square K3.",
+          "Record 63721f81dfe5 computes the covering complex; no distinct exact quotient statement was located."
+        ],
+        "reasoning": "Only the C3 symbol shift is used, and its geometric orbit space is not the abstract simplicial complex on orbit vertices. The earlier wedge theorem applies to exactly this cover.",
+        "searches": [
+          "Resultary: cyclic-symbol quotient of order-three partial Latin squares",
+          "Resultary: symbol-shift quotient of the ternary Hamming-graph independence complex"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The ranked searches surfaced the assigned record itself; no distinct exact quotient table was identified. The strongest distinct result is 63721f81dfe5 for the cover."
+        ],
+        "reasoning": "There is no established exact-table duplication from this bounded lookup; the demonstrated issue is prior implication, not direct table matching.",
+        "searches": [
+          "Resultary: two degrees of three-torsion for the cyclic symbol quotient",
+          "Resultary: exact integral homology of cyclic-symbol quotient of order-three Latin squares"
+        ]
+      },
+      "rationale": "The earlier indexed wedge theorem and the elementary free-action check determine the entire claimed integral homology and fundamental group by standard covering theory and cyclic group cohomology. The source's assertion that these facts do not determine the third-homology torsion is false; even the lower-degree Cartan–Leray edge suffices for H3. No earlier verbatim table is needed for this coverage decision.",
+      "residual_risks": [
+        "The distinct cited mirror record 77e44648bda3 was unavailable at the supplied path.",
+        "Finite ranked searches do not settle whether the quotient groups were previously stated explicitly; the prior-implication decision does not depend on that question."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "States the needed wedge theorem for precisely the cover",
+          "evidence": "P3 is integrally homotopy equivalent to a wedge of 38 copies of S4, via a discrete-Morse reduction with primitive integral attaching map.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-thirty-eight-four-spheres-in-the-order-three-partial-latin-squar--63721f81dfe5",
+          "material_read": "RESULT.md, Finding at offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "Thirty-eight four-spheres in the order-three partial Latin-square complex",
+          "trigger": "Exact cover homotopy type"
+        },
+        {
+          "assessment": "Not relied on for implication",
+          "evidence": "The frozen comparison describes it as another computation of the cover, not of the symbol quotient.",
+          "identifier_or_url": "Resultary 77e44648bda3",
+          "material_read": "Citation and characterization in frozen RESULT.md only; requested mirror file unavailable",
+          "method": "Local mirror attempted",
+          "title": "The ternary three-cube independence complex is a wedge of 38 four-spheres",
+          "trigger": "Graph formulation of the same cover"
+        },
+        {
+          "assessment": "Different object",
+          "evidence": "Delta(L) uses trades contained in a fixed Latin square L.",
+          "identifier_or_url": "https://arxiv.org/pdf/0907.1481",
+          "material_read": "p. 4, definition of Delta(L), around text offset 8500",
+          "method": "OA PDF passage inspection",
+          "title": "Latin trades and simplicial complexes",
+          "trigger": "Potentially same simplicial object"
+        },
+        {
+          "assessment": "Context for the action, not a homology comparison theorem",
+          "evidence": "Studies fixed partial Latin squares and permutation cycle structures.",
+          "identifier_or_url": "https://arxiv.org/pdf/1107.3248",
+          "material_read": "p. 1, abstract, around offset 700",
+          "method": "OA PDF passage inspection",
+          "title": "The set of autotopisms of partial Latin squares",
+          "trigger": "Potential symbol-action coverage"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The ordinary symbol orbit space and integral torsion are natural, but these exact invariants are determined by the known wedge theorem and standard cyclic-cover periodicity. The basis-dependent residual entries supply an alternate certificate, not a new invariant or substantive surviving claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

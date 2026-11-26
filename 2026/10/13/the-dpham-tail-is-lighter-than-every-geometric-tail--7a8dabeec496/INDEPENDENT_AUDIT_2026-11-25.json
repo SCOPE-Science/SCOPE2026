@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:41:53.422529Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:2–108,110–232",
+        "VERIFICATION.md and verify_tail.py (inspected, not executed)",
+        "AIMS Mathematics DOI 10.3934/math.2026411, §2 Eqs. (2.3)–(2.5)"
+      ],
+      "rationale": "Telescoping the published PMF gives the inclusive survival. With L=log(mu)>0, the derivative of exp(L x^alpha) has logarithm L x^alpha+(alpha−1)log(x)+log(alpha L), which tends to infinity even when alpha<1. The mean-value theorem therefore gives a divergent adjacent increment and a vanishing tail ratio. Since exp(L n^alpha)/n tends to infinity, the survival is o(exp(−cn)) for every c>0, and the PMF is bounded above by a survival with any desired eventual geometric decay. This proves finiteness of every positive exponential moment and hazard limit one. The stated ceiling is exact for the left generalized inverse, including exact jumps, since F(n)>=1−q iff n+1 reaches the continuous inverse threshold. For maxima, take rounded thresholds n±=(1±epsilon)a_m+O(1); then mu^(n±^alpha)=(log m)^((1±epsilon)^alpha+o(1)). The upper union bound and lower bound via P(M_m<n−)≤exp(−m S(n−)) yield the asserted convergence. No finite check is relied upon for these limits.",
+      "residual_risks": [
+        "All asymptotics hold at fixed parameters, not uniformly as alpha tends to zero or mu tends to one."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The original article gives order-statistic formulas and finite-sample tail-thinning discussion, not the asserted limit in these sections. The broad continuous Pham paper was not retrievable in full text."
+        ],
+        "reasoning": "Finite-sample formulas do not state a proven log-log limit or classify the full parameter range. The analogous continuous proof is immediate from the same survival once the limit is considered.",
+        "searches": [
+          "10.3934/math.2026411, §3.4 Eqs. (3.11)–(3.15) and following discussion",
+          "Djeumeni et al. DOI 10.1142/S0218539325500482"
+        ]
+      },
+      "checked_sources": [
+        "10.3934/math.2026411, exact passages above",
+        "10.1142/S0218539325500482 (full text unavailable)",
+        "Resultary 7b8c14e831cb and 7d13318f4405"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The abstract invokes ‘heavy tails’ and ‘long-tailed persistence’; the formulas permit a simple but contrary limiting diagnosis. Eq. (3.2) already gives the underlying quantile inversion."
+        ],
+        "reasoning": "The contribution is to diagnose and quantify the mismatch in asymptotic interpretation, not to present rounding the published inversion as a new theorem.",
+        "searches": [
+          "DPham article abstract, introduction, §2 and §3.2–3.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The parent survival is identical at the integers, so X can be coupled as the floor of the continuous lifetime; continuous maximum scales would transfer with bounded error. The DPham paper already gives unrounded inverse-CDF Eq. (3.2)."
+        ],
+        "reasoning": "No new inversion technique or intrinsically lattice-only scale is claimed. Explicit continuous coverage of the corresponding shift or extremes could subsume parts, but it was not established from the inspected sources.",
+        "searches": [
+          "AIMS 10.3934/math.2026411 §2 and §3.2; Pham continuous parent survival and floor discretization",
+          "10.1142/S0218539325500482, possible earlier continuous Pham tail/maximum analysis"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "7b8c14e831cb treats continuous EBSH with survival asymptotic proportional to exp(−x^alpha) and an alpha=1 phase boundary. 7d13318f4405 treats triangular-array slashed inverse-Rayleigh maxima on a different scale."
+        ],
+        "reasoning": "Neither inspected finding concerns this law or contains the all-parameter DPham conclusions. Semantic search is not exhaustive and same-day dates do not establish priority.",
+        "searches": [
+          "Local Resultary DPham tail, discretized Pham exponential moments and extremes",
+          "Same-day 7b8c14e831cb and 7d13318f4405"
+        ]
+      },
+      "rationale": "The distinct result is the explicit all-parameter asymptotic correction for the DPham law, particularly the opposite-to-long-tailed adjacent ratio, the all-positive-exponential-moment classification, and the leading iid maximum law. The PMF, unrounded quantile inversion, and finite-sample order-statistic formulas are not original here.",
+      "residual_risks": [
+        "A prior continuous-parent theorem may reduce the originality of portions that transfer under flooring. The bounded searches do not establish global novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines the law and gives inversion and finite-sample order statistics; inspected comparison does not state the asymptotic correction",
+          "evidence": "Survival exp(1−mu^(x^alpha)); adjacent-difference PMF; heavy-tail/long-tail framing",
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2026/4/PDF/math-11-04-411.pdf",
+          "material_read": "Abstract and introduction (offsets 1200–4343 and 11895–13995); §2 Eqs. (2.3)–(2.5) (16880–21822); §3.2 Eq. (3.2) (21820–26060); §3.4 Eqs. (3.11)–(3.15) and discussion (36520–45187)",
+          "method": "Publisher OA PDF passages",
+          "title": "A new discrete Pham model for nonmonotone aging and overdispersion: theory, inference, optimization, and three scientific applications",
+          "trigger": "Exact law and published tail framing"
+        },
+        {
+          "assessment": "Material residual coverage risk; no negative conclusion based on access",
+          "evidence": "Identification of the continuous parent subject, but no verified theorem statement from this retrieval",
+          "identifier_or_url": "https://doi.org/10.1142/S0218539325500482",
+          "material_read": "No full-text passages available",
+          "method": "DOI and publisher OA recovery attempts",
+          "title": "On the (Hoang) Pham Distribution",
+          "trigger": "Continuous-parent extreme value and moment coverage could transfer"
+        },
+        {
+          "assessment": "Different laws and limits",
+          "evidence": "Weibull-form continuous tail with phase threshold versus triangular-array crossover respectively",
+          "identifier_or_url": "Resultary 7b8c14e831cb; 7d13318f4405",
+          "material_read": "Findings and parameter regimes",
+          "method": "Local Resultary search and mirror",
+          "title": "EBSH tail phase and slashed inverse-Rayleigh extrema",
+          "trigger": "Closest same-day catalogue analogues"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:23–108,260–265",
+        "10.3934/math.2026411 abstract, introduction and §3.4"
+      ],
+      "rationale": "The short proof settles a substantive modeling distinction raised by the article's wording: arbitrarily slow-looking pre-asymptotic behavior of the fitted family cannot yield conventional heavy or long tails for any admissible fixed parameters. The maximum scale and hazard limit give concrete consequences, rather than only a terminology objection.",
+      "residual_risks": [
+        "This does not assess fit to specific data or the practical sample size at which the asymptotics apply."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

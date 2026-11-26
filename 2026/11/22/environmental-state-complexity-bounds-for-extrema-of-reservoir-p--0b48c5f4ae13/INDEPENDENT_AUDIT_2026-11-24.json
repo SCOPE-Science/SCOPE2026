@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:40:28.094443Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exponentially damped integral over a two-sided stationary finite-state chain converges boundedly and is the unique stationary solution by contraction (and a factor of the ergodic stationary chain). Applying the joint generator to C times each state indicator gives (D−κGᵀ)m=Πu for unnormalized conditional first moments. Detail balance makes −Π^(−1/2)GᵀΠ^(1/2) symmetric positive semidefinite of rank n−1, and congruence by D^(−1/2) preserves this rank. The resolvent expression for M has a constant zero-mode term plus at most n−1 distinct positive-mode terms c_j/(1+κλ_j). The derivative is a sum of shifted inverse squares. For the general exponent p>0 in the proof, divide the linear combination by (x+a_1)^(−p); differentiation followed by division by p(x+a_1)^(p−1) deletes the first term and multiplies each other coefficient by a_i−a_1 while raising its inverse exponent to p+1. Dropping zero coefficients and using Rolle closes the induction, including exclusion of identically zero combinations. Thus M is constant or has at most n−2 distinct critical points on the stated open domain. Independent symbolic elimination in the three-state moment system gave determinant (κ+10)(111κ+100), with summed Cramer numerator (273κ²+9040κ+5500)/3. Differentiation gives −30(7479κ²+7500κ−26500)/[(κ+10)²(111κ+100)²]. The numerator polynomial inside parentheses has one positive root (−1250+80√3685)/2493≈1.446584864600 and changes sign from negative to positive, proving the unique strict maximum. Its mean is approximately 2.139979258105 versus endpoint limits 11/6 and 91/111, a peak about 16.7261% above the larger limit. Neither the proof nor example covers nonreversibility or sample-path peaks; sharpness is shown only for the first possible case n=3. RESULT.md lines 23–57, VERIFICATION.md, and checker.py lines 28–76 were inspected. The uploaded checker was not run; the example was independently reproduced by symbolic balance, not by treating a finite test as proof of the bound.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sinzger-D’Angelo et al., §3.2 Theorem 3 and Remark 2: general stationary-mean matrix formula and detailed-balance formulation; scalar special case traced to O’Cinneide and Purdue.",
+          "Simon, p. 2, Theorem (a): K_α(x,y)=1/[x²+2cos(πα)xy+y²] is strictly totally positive of all orders at α=0."
+        ],
+        "reasoning": "At α=0 this is exactly the inverse-square kernel. If an r-term linear combination had r positive distinct zeros, the corresponding r×r kernel matrix would annihilate a nonzero vector, contrary to strict positivity of its determinant. This stronger prior result covers the derivative zero-count ingredient; the application also requires grouping the n−1 nonzero modes of the killed reversible resolvent. Neither source supplies a strictly monotone-rate example or proves when the upper bound is first attained within that constrained model.",
+        "searches": [
+          "DOI 10.1007/s00285-023-01973-x, OA queries: stationary mean; Theorem 3",
+          "arXiv:1305.1173, OA literal query: Cauchy",
+          "Resultary: strict total positivity reciprocal power kernel zeros Chebyshev system (x+a)^-p"
+        ]
+      },
+      "checked_sources": [
+        "10.1007/s00285-023-01973-x",
+        "arXiv:1305.1173",
+        "10.1029/2001WR000975 (bibliographic only)",
+        "109404dbc552",
+        "d73d88f2b921",
+        "04dd8ba067bc"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known resolvent and inverse-square determinant theorem imply the bound once the reversible spectral reduction is made; they give no sign change or lower bound on the number of extrema for strictly increasing u and q.",
+          "04dd8ba067bc Finding varies a deterministic spatial exchange rate in a middle-loaded three-box system.",
+          "Maran DOI 10.1029/2001WR000975 was identified; lawful full-text attempts returned 403, so no conclusion about its theorem content is drawn."
+        ],
+        "reasoning": "An upper bound plus a formula for computing any chosen model is not an existence proof for a nonmonotone stationary mean in this positive monotone-rate class. The inspected analogues do not force the required critical point or provide an equivalent witness.",
+        "searches": [
+          "DOI 10.1007/s00285-023-01973-x, §3.2",
+          "arXiv:1305.1173, Theorem (a)",
+          "Maran 2002 stochastic approach residence times random lake flushing pollutant concentrations autocorrelation",
+          "Resultary: reservoir flushing pollutant concentration intermediate switching rate maximum loading and flushing increase"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The assigned 0b48c5f4ae13 is an exact self-hit. 109404dbc552 Finding counts crossings of two squared-distance transient curves; d73d88f2b921 Finding counts current zeros in a two-environment ratchet."
+        ],
+        "reasoning": "An exponential-in-time relaxation crossing and a sign change of an edge current are neither zeros of M'(κ) nor statements about strictly monotone loading/flushing in the reservoir. Their shared spectral and zero-count structure is real but does not identify the observables or parameter dependence.",
+        "searches": [
+          "Resultary: stationary mean switching speed n-2 critical points reversible Markov chain",
+          "Resultary: reversible Markov resolvent extrema as common switching multiplier varies",
+          "Literature: reversible continuous-time Markov switching linear reservoir stationary mean concentration extrema switching rate critical point bound"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching record 0b48c5f4ae13 is the assigned result; 04dd8ba067bc instead gives an exchange-rate optimum in a deterministic reactive three-box model."
+        ],
+        "reasoning": "The universal bound is not a table problem. The indexed searches for the exact witness and model found no separate matching parameterized reservoir result in the examined records. Equal date is not evidence of order, and the self-hit gives no separate prior coverage.",
+        "searches": [
+          "Resultary: reservoir flushing pollutant concentration intermediate switching rate maximum loading and flushing increase",
+          "Resultary: stationary mean switching speed n-2 critical points reversible Markov chain"
+        ]
+      },
+      "rationale": "The known stationary mean formula and known inverse-square kernel theorem jointly supply the machinery for the upper bound: after the reversible spectral reduction, that zero count is an immediate corollary of strict total positivity. No independent novelty is credited to the resolvent, reciprocal kernel lemma, or zero-count method. The distinct supported finding is the reservoir-specific regime-count threshold with a matching, explicit three-regime interior maximum despite strictly increasing flushing and loading. The prior bounds and resolvent do not assert existence under these sign and monotonicity constraints; related switching reversals and the deterministic three-box optimum do not entail it.",
+      "residual_risks": [
+        "Maran's primary text and the older queue paper were not inspected; an earlier result in stochastic flushing could contain a relevant sign-constrained example.",
+        "The moment formula and basic kernel zero counting are established ingredients; priority for the applied threshold as a combined result is assessed only against the evidence examined."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of the mean resolvent and reversible formulation; no sign-constrained onset follows",
+          "evidence": [
+            "Gives (eᵀ⊗I)(A−Z⊗I)^(−1)Bπ and identifies the scalar formula with O’Cinneide and Purdue, Theorem 3.1, not independently inspected."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00285-023-01973-x",
+          "material_read": "§3.2, Theorem 3 and Remark 2, PDF p. 10/40, extraction offset about 28600",
+          "method": "Primary open-access passage inspection",
+          "title": "Bye bye, linearity, bye: quantification of the mean for linear CRNs in a random environment",
+          "trigger": "Exact stationary mean for a Markov-switched affine model"
+        },
+        {
+          "assessment": "Covers the operative inverse-square zero count by an invertible kernel matrix",
+          "evidence": [
+            "K_α is STP of infinite order at α=0, giving the classical inverse-square case (x+y)^−2."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1305.1173",
+          "material_read": "p. 2, definition, Theorem (a) and following historical paragraph, offsets 3870–6660",
+          "method": "Primary PDF literal location followed by passage reading",
+          "title": "Total positivity of a Cauchy kernel",
+          "trigger": "Known stronger result for the derivative kernel"
+        },
+        {
+          "assessment": "Unresolved access risk, not counted as negative evidence",
+          "evidence": [
+            "Full-text routes returned HTTP 403; the topic description in the frozen record is secondary evidence only."
+          ],
+          "identifier_or_url": "https://doi.org/10.1029/2001WR000975",
+          "material_read": "Bibliographic identification only; no primary theorem passage accessible",
+          "method": "Title-based literature query, DOI/AGU lawful OA retrieval and page fetch",
+          "title": "A stochastic approach to the evaluation of residence times",
+          "trigger": "Potential earlier random flushing and stationary mean nonmonotonicity"
+        },
+        {
+          "assessment": "Material proof-structure overlap; different theorem and no inference of priority",
+          "evidence": [
+            "At most n−2 positive-time crossings of squared-distance relaxation curves using at most n−1 exponential modes."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-reversal-counts-and-prescribed-crossing-times-in-reversibl--109404dbc552",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary retrieval and local primary passage inspection",
+          "title": "Sharp reversal counts and prescribed crossing times in reversible Ehrenfest relaxation",
+          "trigger": "Same-day reversible n−2 bound and Rolle mechanism"
+        },
+        {
+          "assessment": "Related bound, different response and model",
+          "evidence": [
+            "Edge current has the form rP_e(r)/D(r), with positive denominator and polynomial degree at most n−2, bounding its zeros."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-finite-state-reversal-bound-for-two-equilibrium-flashing-ratch--d73d88f2b921",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary retrieval and local primary passage inspection",
+          "title": "A finite-state reversal bound for two-equilibrium flashing ratchets",
+          "trigger": "Positive-rate reversals and rational resolvent"
+        },
+        {
+          "assessment": "Different mechanism, not a prior implication",
+          "evidence": [
+            "Unique interior extremum for deterministic reactive export under middle-compartment loading, not a switching-intensity optimum of a one-box mean."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-three-box-mixing-rate-law-for-reactive-downstream-export--04dd8ba067bc",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary retrieval and local primary passage inspection",
+          "title": "A sharp three-box mixing-rate law for reactive downstream export",
+          "trigger": "Same-day three-state water-quality optimum analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Environmental-state count limits the complexity of a natural control response, the stationary concentration versus switching intensity. The minimal three-regime example provides a specific counterexample to monotonicity even with concordantly increasing inputs and flushing; it is structurally motivated by the exclusion of two-regime extrema, not a search for a small gain. This is an interpretable exact design benchmark, without claiming field calibration or any conclusion about peak exposure.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

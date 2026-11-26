@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:29:58.161117Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–32 and 36–104",
+        "Frozen VERIFICATION.md, lines 19–23",
+        "Frozen verify.py, lines 13–61 (read only)"
+      ],
+      "rationale": "At the first success after f_m failures the Beta posterior has shapes A=alpha+1 and b_m=beta+f_m, with m trials left. Relative to the all-failure word, any single specified success word has probability ratio A/B_m, where B_m=b_m+m-1=mA+delta_m and 1<=delta_m<2. This gives the strictly smaller one-step value. Given that the first later success occurs at k, selecting it wins on the one-success word; skipping it and choosing the next wins on one of m-k two-success words, each with relative weight (A+1)/(B_m-1) versus the one-success word. This independently recovers the positive-part expression and is also valid for k=m (zero waiting reward). Its positive-part sum divided by m^2 tends to the integral of (1-(A+1)x)_+ over [0,1], namely 1/[2(A+1)]. Hence the conditional relative improvement tends to 1/[2A(A+1)] despite strict myopic stopping. The first-success history is reachable under myopic play. Multiplying the current winning probability g_m by its history probability q_m gives exactly Beta(alpha+1,b_m+m)/Beta(alpha,beta). Since b_m+m~mA, the Gamma ratio gives m^(alpha+1)q_m g_m -> alpha Gamma(alpha+beta)/(Gamma(beta) A^(alpha+1)). Multiplication by the relative gain proves the claimed regret lower bound. The modified strategy agrees with myopic off the specified history; N_m is strictly increasing and f_m is nonnegative for sufficiently large m.",
+      "residual_risks": [
+        "The theorem concerns each fixed prior, not a horizon or error bound uniform in the shape parameters. The global statement is a liminf lower bound on a subsequence, not the exact global regret. Finite rational checks were not executed and are not used as a proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact Bayesian recurrence handles the Beta model as a special case. Gnedin–Derbazi study a random horizon and nonconstant p_k, and Paindaveine a frequentist oracle/plug-in comparison with an unknown fixed probability."
+        ],
+        "reasoning": "Finite computability by a broader algorithm is not the strict unbounded-horizon theorem or its rate. Neither differing statistical setup implies the fixed-horizon Beta-posterior regret bound.",
+        "searches": [
+          "Bruss–Louchard, DOI 10.1239/aap/1240319579, §6 and Theorem 6.1",
+          "Gnedin–Derbazi, DOI 10.1007/s00186-024-00880-1, §5 Theorem 5",
+          "Paindaveine arXiv:2604.07183v3, §1.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 766b1375da45",
+        "Ano arXiv:2610.10237v1",
+        "Bruss–Louchard DOI 10.1239/aap/1240319579",
+        "Gnedin–Derbazi DOI 10.1007/s00186-024-00880-1",
+        "Paindaveine arXiv:2604.07183v3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known boundary proof witnesses strict improvement on the equality line by modifying just the next-trial success branch. The direct contribution from that one branch is only O(1/m) relative to immediate acceptance for b_m~alpha m. The frozen continuation rule sums over k with (A+1)(m-k)>B_m-1 and attains a nonzero relative limit."
+        ],
+        "reasoning": "The statewise equality-line witness, without a new quantitative analysis of the set of modified future histories, does not give the positive constant conditional improvement or the m^-(alpha+1) global lower bound on the specified subsequence. The finite counterexample and dynamic programming do not supply them either.",
+        "searches": [
+          "Same-day Resultary 766b1375da45, proof §§2–5 and relationship discussion",
+          "Ano §3.4 and Bruss–Louchard §6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinct same-day catalogue record proves a unique acceptance boundary A_c(B,k) below the myopic line (B+k-1)/k when B<k(k-1)+1; its improvement proof modifies continuation only when the very next trial is a success. Ano gives a strict finite counterexample in the same stochastic model."
+        ],
+        "reasoning": "The myopic comparison is the same odds ratio in both formulations. A positive gap between boundary and odds line is not a bound on that gap that places the frozen states with strict slack delta_m/m on its continuation side. The frozen policy sums gains over a growing range of next-success times and quantifies their asymptotic effect. The shared path date is neither ignored nor treated as a priority ordering.",
+        "searches": [
+          "Resultary: Bayesian last-success stopping, posterior failure threshold, one-step odds and myopic counterexamples",
+          "Resultary 766b1375da45, Finding and proof §4",
+          "Ano arXiv:2610.10237v1, §3.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Ano gives N=11 with alpha=1, beta=6 at state (4,1), with a strict one-step ratio 14/15 and larger optimal continuation value. The catalogue gives the complete k=2 boundary, with a witness at odds equality."
+        ],
+        "reasoning": "Those exact cases cover finite phenomena, not a family for every fixed prior with the same asymptotic constants. A finite table of policy values cannot by itself establish this unbounded claim; the exact statewise theorem was compared in lieu of treating the problem as a lookup of one value.",
+        "searches": [
+          "Resultary 766b1375da45, explicit k=2 threshold and example",
+          "Ano §3.4, p. 53, strict counterexample"
+        ]
+      },
+      "rationale": "The supported contribution is the explicit first-success family for every fixed proper Beta prior, with strict one-step acceptance, a feasible at-most-two-later-success policy with its limiting gain, and the quantitative global regret lower bound. The existence of a strict finite counterexample, the posterior recursion, and adaptive improvement at the odds equality line are already covered and are not credited by this pass.",
+      "residual_risks": [
+        "The literature comparison is bounded. Further quantitative analyses of the lower-B phase could cover parts of the family. The strongest same-day boundary claim was read directly and distinguishes equality-line improvement from the frozen strict and quantitative result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material overlap at statewise boundary, not the quantitative all-prior horizon result in inspected passages",
+          "evidence": "Below B=k(k-1)+1 the optimal boundary is strictly below odds equality. The proof modifies the first-future-success policy only if the very next trial is a success, specifically at A=(B+k-1)/k.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-sharp-posterior-failure-threshold-for-bayesian-last-success-st--766b1375da45/RESULT.md",
+          "material_read": "Finding and assumptions offsets 0–3855, proof §§3–5 offsets 5600–9144, relationship/limitations from 9600",
+          "method": "Resultary search and local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A sharp posterior-failure threshold for Bayesian last-success stopping",
+          "trigger": "Same-day same-model sharp threshold and adaptive lookahead failure"
+        },
+        {
+          "assessment": "Covers the recursion and existence of strict finite failure; does not establish the constructive asymptotic family in inspected passages",
+          "evidence": "At N=11, alpha=1, beta=6, state (4,1), ratio 14/15, the continuation value 11559/34034 exceeds acceptance value 45/136.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.10237",
+          "material_read": "§3.4 pp. 50–53, offsets about 192000–194200 and 198500",
+          "method": "OA primary PDF",
+          "title": "Monotone Multiple Stopping and Last-Success Problems",
+          "trigger": "Same-setup Beta recursion and prior counterexamples"
+        },
+        {
+          "assessment": "Computes finite-horizon optima, rather than the distinct uniform construction",
+          "evidence": "Posterior and dynamic-programming formulas allow general prior densities and conditional independent trials.",
+          "identifier_or_url": "https://doi.org/10.1239/aap/1240319579",
+          "material_read": "§6 pp. 146–149, Theorem 6.1, offsets about 69800–77787",
+          "method": "Accessible primary text",
+          "title": "The odds algorithm based on sequential updating and its performance",
+          "trigger": "Broader Bayesian sequential updating algorithm"
+        },
+        {
+          "assessment": "Random arrival horizon and different success mechanism",
+          "evidence": "Myopic rule optimal iff nu>=theta in the negative-binomial model studied there.",
+          "identifier_or_url": "https://doi.org/10.1007/s00186-024-00880-1",
+          "material_read": "pp. 1–2 and §5 Theorem 5, pp. 12–13",
+          "method": "Accessible primary text",
+          "title": "The last-success stopping problem with random observation times",
+          "trigger": "Myopic stopping suboptimality in adjacent Bayesian model"
+        },
+        {
+          "assessment": "Frequentist plug-in/oracle comparison, not Bayes-versus-myopic here",
+          "evidence": "The parameter is an unknown fixed p; the rule and comparator differ from exact Beta posterior one-step and posterior-optimal policies.",
+          "identifier_or_url": "https://arxiv.org/pdf/2604.07183",
+          "material_read": "v3 §1.1 pp. 3–4, offset about 8750",
+          "method": "OA primary PDF",
+          "title": "Stopping on the last success with unknown odds: Impossibility barriers and quantitative oracle bounds",
+          "trigger": "Quantitative regret for unknown Bernoulli probability"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–20 and 48–104",
+        "Ano §3.4, finite counterexample",
+        "Resultary 766b1375da45, boundary comparison"
+      ],
+      "rationale": "The exact one-step rule is a natural computational shortcut, so it matters whether its failure is isolated, a tie artifact, or persists for every prior. The reachable strict counterexamples resolve this distinction. The two-future-success policy and explicit lower bound also separate conditional policy improvement from unconditional regret on a rare history; this is more than another finite counterexample.",
+      "residual_risks": [
+        "Does not establish the exact order of global regret or identify an optimal strategy. No decision-theoretic consequence beyond the stated Bayesian setup is credited."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

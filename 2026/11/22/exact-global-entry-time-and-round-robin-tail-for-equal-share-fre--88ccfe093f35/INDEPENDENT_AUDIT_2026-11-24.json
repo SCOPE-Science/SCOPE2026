@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:39:50.479420Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:4–20,22–41,49–50",
+        "VERIFICATION.md:20–28",
+        "checker.py",
+        "repairs/3/RESULT.md: assumptions, proof, and exact tie examples"
+      ],
+      "rationale": "Passes for the repaired scope in repairs/3/RESULT.md. The fixed-priority theorem was correct, but the frozen scope note extended its m-block counts to varying tie choices without distinguishing aligned from sliding blocks. With m=2 and u=(0,0), choose winner 1 at the initial tie and winner 2 at the tie two steps later. The sequence 1,2,2,1 has aligned blocks (1,2) and (2,1) but the middle length-two sliding block repeats 2. The repair keeps the tie-independent entry and aligned counts, and limits the sliding assertion to fixed priority. The proof counts exactly floor(u_i-delta) stack terms at or above delta+1 for every i, with a term exposed whenever any such term remains and a head at delta throughout. This certifies both strict nonentry before the total count and the exact state upon entry, including integer offsets and tau=0. After entry, a decremented head is below every not-yet-selected head within its aligned round, so every such block selects each index once. Fixed tie priority repeats the same order and hence gives all sliding blocks. The state returns after m steps; recurrence after d steps requires the integer win increment in each coordinate to equal d/m, proving the least period. The exact example u=(0,1) with lowest-index tie rule distinguishes strict-width entry from preperiod. The frozen checker was inspected, not run; its fixed-priority tests are unaffected by the repair and did not address the variable-tie extension.",
+      "residual_risks": [
+        "No sliding-block assertion or fixed intermediate-state cycle is claimed for arbitrary repeated changes of tie priority. The theorem concerns equal shares only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 6.1 gives period Q from a specified cube and exact projected period Q. Theorem 6.4 permits any eventual period P satisfying Q|P for arbitrary initial scores; Problem 6.3 asks for eventual exact Q.",
+          "The general convex-dynamics theorem establishes bounded invariant convex domains. The constant-input paper's accessible abstract concerns eventual entry into an invariant fundamental set for N=1 and non-obtuse triangles."
+        ],
+        "reasoning": "Neither projection nor eventual periodicity with period a multiple of m settles the integer lifts of the states, or gives the exact hitting-time formula. The abstract could overlap at m=3 but does not establish an all-dimensional formula; the full article remained unavailable.",
+        "searches": [
+          "arXiv:2611.13996v1 §6, Theorems 6.1 and 6.4 and Problem 6.3",
+          "arXiv:math/0402115 Theorem 1.1",
+          "DOI:10.1017/S0143385709000595 abstract"
+        ]
+      },
+      "checked_sources": [
+        "repairs/3/RESULT.md",
+        "arXiv:2611.13996v1 §2.4 and §6",
+        "arXiv:math/0402115",
+        "DOI:10.1017/S0143385709000595 abstract only",
+        "Resultary:88ccfe093f35,934db9944f0d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier exact-Q result is on a restricted set or after projection. In the inspected general dynamics theorems domain entry or boundedness is qualitative; the reviewed equal-share result counts precisely how many winning steps precede the first strict-width-one time and identifies the entry scores."
+        ],
+        "reasoning": "An initialized cycle plus general boundedness cannot imply that this basin threshold is hit at the particular sum of floors. The crucial new comparison is between the exposed-stack threshold and the stationary minimum before entry; the reviewed formula also distinguishes the threshold from shortest preperiod.",
+        "searches": [
+          "arXiv:2611.13996v1 §2.4 and §6",
+          "arXiv:math/0402115 Theorem 1.1",
+          "DOI:10.1017/S0143385709000595 accessible abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Frege update is identified with the Coppersmith et al. online greedy algorithm in §2.4; the related Tijdeman rule is different. The inspected discrepancy bounds control score deviations, not the first entry time from all arbitrary real initial scores.",
+          "At equal shares subtracting the same t/m from all scores identifies the dynamics with greedy merging of decreasing unit-spaced stacks; the review credits this reduction as elementary."
+        ],
+        "reasoning": "An equivalent greedy update does not already give the threshold-stack count or the unprojected least period beyond the standard initialization. The exact claim is about the number of removed priorities through a specified endogenous threshold, not about the existence of a greedy procedure.",
+        "searches": [
+          "Conze–Janson–Öberg, arXiv:2611.13996v1 §2.4",
+          "Focused primary search for equal-share priority stacks and greedy chairman assignment",
+          "Adler et al., arXiv:math/0402115 pp. 1–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "88ccfe093f35 is the identical assigned record. 934db9944f0d is a distinct same-day three-party Frege mean-square discrepancy result, including a formula in a rationally independent region and no equidistribution assertion for rationally dependent boundary shares."
+        ],
+        "reasoning": "The discrepancy invariant is neither a hitting time nor an eventual-period classification. Its parameter formula does not cover the rational equal-share setting. No priority is inferred from the same date.",
+        "searches": [
+          "Local Resultary semantic lookup for equal-share Frege exact entry time and round-robin period",
+          "Resultary mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4"
+        ]
+      },
+      "rationale": "The repaired theorem retains the natural exact threshold formula and the full all-real fixed-priority equal-share result, but does not claim newness for the update rule or the greedy stack device. Earlier results on initialized or projected orbits and general eventual period divisibility do not supply the exact unprojected entry time and state from arbitrary real scores. The known boundedness results do not count threshold selections. The scope repair makes no claim of novelty for the explicit variable-tie counterexample itself.",
+      "residual_risks": [
+        "The full constant-input paper was not accessible; it may contain an overlapping low-dimensional special case. A historical equivalent of the exact formula in greedy scheduling could have been missed by the bounded search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong direct overlap, does not imply the arbitrary-score strict-entry formula or unprojected exact least period in the reviewed case",
+          "evidence": [
+            "Initialized or projected exact Q; universal eventual period a multiple of Q; equivalent greedy algorithm identified in §2.4."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.13996v1",
+          "material_read": "§2.4 offsets 31680–35757; §6 Theorem 6.1 around 99780, Problem 6.3 and Theorem 6.4 around 102700–107188",
+          "method": "Targeted OA full-text passages",
+          "title": "Frege's election method: discrepancy, invariant polygons and Farey geometry",
+          "trigger": "Same Frege map with direct period theorems and an exact-period problem"
+        },
+        {
+          "assessment": "Provides invariant convex domains rather than exact entry counts",
+          "evidence": [
+            "Closest-vertex piecewise translations have suitable bounded convex invariant domains."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0402115",
+          "material_read": "Theorem 1.1 PDF p. 1, offset about 1900; greedy recursion pp. 2–3 about 5970",
+          "method": "Targeted OA full-text passages",
+          "title": "Convex Dynamics and Applications",
+          "trigger": "Broader closest-vertex update and scheduling interpretation"
+        },
+        {
+          "assessment": "Possible low-dimensional overlap; cannot infer that the full paper does not contain a stronger low-dimensional statement",
+          "evidence": [
+            "Abstract discusses eventual entry for N=1 and non-obtuse triangles and leaves higher dimensional simplices open."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S0143385709000595",
+          "material_read": "Indexed abstract; readable full text not obtained from OA DOI or Cambridge routes",
+          "method": "OA retrieval attempts and Crossref abstract",
+          "title": "Convex dynamics with constant input",
+          "trigger": "Directly relevant eventual entry in low-dimensional simplices"
+        },
+        {
+          "assessment": "Different score invariant and parameter regime",
+          "evidence": [
+            "Mean-square discrepancy on a rationally independent region; no claimed equidistribution on the rationally dependent boundary."
+          ],
+          "identifier_or_url": "Resultary:934db9944f0d",
+          "material_read": "Original finding and scope from offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Cubic flatness of the mean-square score discrepancy in three-party Frege dynamics",
+          "trigger": "Nearest distinct same-day Frege finding"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "repairs/3/RESULT.md: Finding, proof and limitations",
+        "arXiv:2611.13996v1 §6"
+      ],
+      "rationale": "The strict-width boundary for the uniform-share dynamics makes the upcoming schedule completely determined, and the exact first-hit time and state quantify recovery from arbitrary score perturbations, including those with arbitrarily long delays. The result is not just a boundedness guarantee or repetition from a standard initialization: it identifies the recovery state and proves the unprojected eventual least period for every real input. It separates entry from shortest preperiod and now specifies exactly what arbitrary tie handling preserves.",
+      "residual_risks": [
+        "No corresponding quantitative or least-period claim for unequal shares is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

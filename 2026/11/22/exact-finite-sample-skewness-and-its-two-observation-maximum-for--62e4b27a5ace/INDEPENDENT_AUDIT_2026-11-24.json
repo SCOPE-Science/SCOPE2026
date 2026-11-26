@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:12:20.564603Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–101; exact monomial integrals at lines 107–114",
+        "Frozen VERIFICATION.md and check_moments.py inspected without executing the uploaded script",
+        "Independent rational replay: on u<v set L=h(u,v), b(u)=h(u,u)−2/15; integrate b(u)^3 on (0,1), 2b(u)b(v)L, (b(u)+b(v))L² and 2L³ on u<v, and 6h(u,v)h(u,w)h(v,w) on u<v<w. For each monomial with exponents e_1,…,e_d, divide its signed coefficient by Π_j(j+Σ_{i≤j}e_i). Expand the cubic counts before division by n³ to compare coefficients.",
+        "Ebner–Liebenberg–Visagie arXiv:2108.06391v1 eq. (4) matches the definition and normalization."
+      ],
+      "rationale": "The integrated feature kernel is as stated and canonical because E[H_t(U)]=0; its mean diagonal is ∫u(2u−1)²du−1/30=2/15. In the cube of the centered kernel expansion, a lone diagonal at an independent vertex vanishes by centering, and an unmarked vertex appearing in only one pair term vanishes by conditional degeneracy. The surviving triple diagonal, two diagonals on a pair, diagonal with doubled pair, tripled pair, and triangle have coefficients n, 12 binom(n,2), 24 binom(n,2), 8 binom(n,2), and 48 binom(n,3). Independent exact-rational integration reproduces the five contractions 86677/13513500, 15931/11583000, 280583/121621500, 225809/162162000, and 502883/324324000 in order; the two variance contractions are 169/8100 and 109/8100. Coefficient comparison after expanding the binomial counts gives the stated all-size cumulant, not just agreement at sampled sizes. Substitution and differentiation give γ′(x) with sign opposite to P(x)=149806549x²−355004333x+20427855, where P(3)=303673797, P′(3)=543834961 and P″=299613098. Skewness is positive at every integer n≥1; exact squared comparisons give γ₂>γ₁, and γ₂²−γ₃²=14038148030846784406/158775012314273730375>0. Therefore the sequence decreases strictly from n=2, has its unique integer maximum there, and stays above its limit for every n≥2. The asymptotic limit and the reported small-sample figures are consistent with the formulas.",
+      "residual_risks": [
+        "Only fully specified continuous nulls with iid uniforms after the probability integral transform are in scope; parameter fitting changes the statistic's null law.",
+        "Strict decrease is an integer result beginning at n=2; the derivative certificate applies to real x≥3, not on the entire interval from 2.",
+        "Skewness is not a certificate of quantile or type-I error improvement."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The distinct same-day result gives Var(T_n)=(218n−49)/(8100n) and exact covariance with Cramér–von Mises, Watson and the empirical mean component. Its rank-one decomposition is of second-order dependence, not an equality in law with either classical statistic.",
+          "Its generic kernel formula involves only diagonal covariance and pair-kernel inner product."
+        ],
+        "reasoning": "Second-order contractions and limiting cubic trace do not determine terms in the finite cubic moment arising from marked diagonals and repeated pairs.",
+        "searches": [
+          "Resultary cd8665ffc3df exact Finding/proof and second-order contraction table",
+          "Public searches for finite-sample third centered moment, five contractions and n=2 skewness of Ebner–Liebenberg–Visagie’s test"
+        ]
+      },
+      "checked_sources": [
+        "Ebner–Liebenberg–Visagie arXiv:2108.06391v1",
+        "Resultary cd8665ffc3df and the identical assigned item 62e4b27a5ace",
+        "Journal DOI 10.1080/02331888.2022.2133121 (no full text)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The limiting κ₃ equals 8c₄ (the triangle contribution); the contractions c₀,c₁,c₂,c₃ supply terms that vanish as n→∞ and are not recoverable from it or the finite variance.",
+          "With the finite-size terms retained, the integer comparison 2 versus 3 is separate from the derivative argument for real n≥3."
+        ],
+        "reasoning": "A general degenerate V-statistic expansion provides the bookkeeping but does not evaluate this test's finite contractions or decide its two small-size inequalities; those are the distinct supported results.",
+        "searches": [
+          "arXiv:2108.06391v1 pp. 2–3; Resultary cd8665ffc3df offsets 0–5484",
+          "Public searches for this specific statistic's exact finite third moment and skewness extremum"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equation (4) defines precisely the same simple-null statistic. Theorem 2.1 takes T_n to T_∞ in distribution and the cumulant discussion gives 502883/40540500 for that limit.",
+          "The exact Resultary finite-cumulant and maximum hit 62e4b27a5ace is the assigned item itself."
+        ],
+        "reasoning": "The third cumulant is the third centered moment and skewness normalizes it by the exact variance; neither equivalence turns a limiting cumulant into an all-size formula.",
+        "searches": [
+          "Resultary: finite-n third cumulant versus limiting cumulant of the characterization-based uniformity statistic; two-observation skewness maximum; exact coefficient terms",
+          "Ebner–Liebenberg–Visagie arXiv:2108.06391v1 eq. (4) and §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The primary cumulant constants concern the limit; its finite-sample quantile calculations are not tabulated exact cumulants. The other catalogue table gives 169/8100 and 109/8100 for the variance contractions, not the five third-order values.",
+          "No distinct exact equivalent table was established by the bounded queries."
+        ],
+        "reasoning": "The common limiting numerator is a real match but only for the leading term. The exact finite corrections and maximum do not follow by reading either comparator's available table or numerical quantiles.",
+        "searches": [
+          "Resultary exact numerator/denominator and n=2 skewness searches",
+          "Primary paper moment/approximation discussion; public searches for exact coefficient and n=2 maximum"
+        ]
+      },
+      "rationale": "The primary paper's cumulant of identical constant value belongs to its limiting law, while the closest distinct catalogue finding supplies exact variance and mixed second-order dependence of the same statistic. Neither statement supplies the two finite-size corrections, the diagonal and repeated-pair cubic contractions or the exact integer maximum. Generic canonical-kernel counting is a method, not the evaluated contractions. The pass is limited to the finite-n third cumulant and skewness conclusion, not the statistic, its variance, or its limiting cumulant.",
+      "residual_risks": [
+        "The 2022 journal full text and any earlier equivalent finite cubic calculation remain possible priority risks; unsuccessful searches are not evidence of absence.",
+        "No originality credit is assigned to the known variance or limiting cumulant."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same statistic and limiting cumulant, not the finite-size third cumulant or integer skewness extremum in the decisive inspected passages",
+          "evidence": "Defines T_n with the frozen normalization; after convergence to T_∞ gives third cumulant 502883/40540500 for the limiting statistic.",
+          "identifier_or_url": "https://arxiv.org/abs/2108.06391v1",
+          "material_read": "Eq. (4), p. 2 near offset 8957; Theorem 2.1 and cumulant discussion, p. 3, offsets 11900–16851",
+          "method": "Lawful OA primary PDF passage inspection",
+          "title": "A new omnibus test of fit based on a characterisation of the uniform distribution",
+          "trigger": "Original definition and same numerical third cumulant in a limiting result"
+        },
+        {
+          "assessment": "Direct coverage of the variance on its stated domain and second-order comparison, but not the frozen cubic results; same day does not settle priority",
+          "evidence": "Its canonical covariance formula and (f,f) table row give 169/8100 and 109/8100, yielding Var(T_n)=(218n−49)/(8100n). The rank-one part accounts for mixed covariance with the mean discrepancy.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-rank-one-decomposition-of-a-uniformity-test-s-dependence-o--cd8665ffc3df/RESULT.md",
+          "material_read": "Finding, scope and exact covariance proof/table, offsets 0–5484",
+          "method": "Bounded local-mirror passage inspection",
+          "title": "Exact rank-one decomposition of a uniformity test's dependence on Cramér–von Mises and Watson statistics",
+          "trigger": "Material distinct same-day result on the same fully specified null statistic"
+        },
+        {
+          "assessment": "No whole-document inference for the journal version",
+          "evidence": "Full journal treatment of any finite cumulants remains unverified.",
+          "identifier_or_url": "https://doi.org/10.1080/02331888.2022.2133121",
+          "material_read": "Bibliographic/abstract-level information only; journal full text not retrieved",
+          "method": "Publisher DOI attempted; the identified lawful arXiv v1 was inspected separately",
+          "title": "A new omnibus test of fit based on a characterization of the uniform distribution (journal version)",
+          "trigger": "Same authors and test, possible expanded treatment"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and limitations",
+        "Primary limiting-cumulant approximation motivation and exact higher-moment replay"
+      ],
+      "rationale": "A published limiting-cumulant approximation motivates measuring the exact small-sample departure for this specific statistic. The evaluated cubic contractions and size-two maximum show a nonmonotone initial change and a strictly one-sided approach thereafter, with skewness still about 6.19% above its limiting value at n=10. This is a useful finite-sample description that cannot be read from the known variance and limiting third cumulant. It does not infer exact critical values or calibration improvement.",
+      "residual_risks": [
+        "Using these cumulants in an approximate null distribution remains a separate calibration problem; no fourth moment correction is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

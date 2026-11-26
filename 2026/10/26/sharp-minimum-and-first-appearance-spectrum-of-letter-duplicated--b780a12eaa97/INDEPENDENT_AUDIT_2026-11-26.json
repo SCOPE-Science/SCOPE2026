@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:28:05.663673Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–56",
+        "Frozen verify_llds.py and VERIFICATION.md, inspected only; source replay is python3 verify_llds.py (standard library)"
+      ],
+      "rationale": "Each block of q+1 positions supplies an equal pair; concatenation preserves the run condition, including when adjacent chosen runs merge. For the odd threshold, reserve a final 2q+1 positions to force a triple, and take pairs in the preceding r−1 blocks. Thus the universal lengths 2r and 2r+1 are guaranteed at (q+1)r and (q+1)r+q. In the cyclic source, greedy embeddings minimize each selected index. An LDS of length L with r maximal runs has first index of appearance 1+x₁+q(L−r)+Σδᵢ≥qL−(q−1)⌊L/2⌋. This bound is attained with initial letter 0, all jumps +1, and maximal r, including for q=2 after wraparound. The resulting thresholds invert to the stated minimum, also at n≤q. The unique run decomposition weights the first letter by Σz^j (1≤j≤q), each run by z^q y²/(1−z^q y), and each distinct-letter transition by Σz^j (1≤j<q); summing the geometric series counts words, not embeddings. Multiplication by 1/(1−z) gives cumulative counts. An independent distinct-subsequence enumeration agreed for q=2,3,4,5 over all words up to n=8,7,6,5 respectively, and checked every first-appearance length cell for these four cyclic sources through n=14.",
+      "residual_risks": [
+        "The supplied verifier generates formal recurrence coefficients through n=80 but compares explicit cyclic-prefix counts only at the enumeration bounds in lines 118–128. Neither that finite check nor the independent enumeration proves the unbounded formula; the run decomposition does.",
+        "The result does not classify all minimizing words or any embedding multiplicities."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The papers' optimization and all-appearance/weighted variants concern individual supplied words. f8851dd87d7f proves P+(k−1)M and counts distinct maximizing run subsequences of powers under a different run condition. b8ecd39edb44 classifies full-alphabet subsequence universality by phase."
+        ],
+        "reasoning": "Neither a per-input optimization algorithm nor the two periodic theorems give a uniform minimax bound with an extremizer or the distributive count on this language.",
+        "searches": [
+          "LLDS all-appearance and weighted variants in arXiv:2112.05725 and Acta Informatica 61 (2024)",
+          "Resultary periodic longest-run words, f8851dd87d7f; cyclic universality, b8ecd39edb44"
+        ]
+      },
+      "checked_sources": [
+        "Lai, Liyanage, Zhu and Zou arXiv:2112.05725v1 and DOI 10.1007/s00236-024-00459-7",
+        "Resultary f8851dd87d7f, 658d35d30c24, b8ecd39edb44 (local snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The LLDS optimization operates on a given input and neither identifies a universally extremal periodic source nor yields the odd/even thresholds by an immediate specialization. The common-deletion GF uses another counting condition."
+        ],
+        "reasoning": "The additional extremal threshold argument and uniquely weighted run decomposition are needed to establish what is claimed.",
+        "searches": [
+          "ArXiv:2112.05725 §2.1; 2024 journal definition and algorithm scope; 658d35d30c24 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lai, Liyanage, Zhu and Zou, arXiv:2112.05725v1, pp. 3–4, define an LDS by adjacent runs of distinct letters, each of length at least two. Acta Informatica 61 (2024), pp. 316–317, expressly distinguishes longest run subsequence (at most one run per letter, singletons allowed)."
+        ],
+        "reasoning": "The minimax is over inputs; it is not a maximizing algorithm for a specified input. First appearance of a distinct LDS is neither an embedding multiplicity nor a full-alphabet universality index.",
+        "searches": [
+          "LLDS / longest letter-duplicated subsequence; cyclic-prefix LDS; Lal–Liyanage–Zhu–Zou primary results (Lai et al.)",
+          "Cyclic and generating function probes within the 2024 LLDS PDF"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "658d35d30c24 has a rational count of distinct common deletion descendants of two phase-shifted cyclic-alphabet words, with no run constraint. No exact minimax formula or bivariate LDS count appeared among the compared ranked matches."
+        ],
+        "reasoning": "The two-source deletion count does not single out the language of run lengths at least two or track the earliest embedding in one source. This is a bounded index comparison, not a proof of absence.",
+        "searches": [
+          "Local Resultary: letter-duplicated subsequence minimax; periodic/cyclic distinct-subsequence spectra (bounded ranked results); f8851dd87d7f, 658d35d30c24, b8ecd39edb44"
+        ]
+      },
+      "rationale": "The accessible primary LLDS papers use precisely the same admissibility definition but study optimization on a given input and related variants. The strongest indexed run and periodic deletion results concern different languages or different enumeration questions. No inspected result states or supplies the exact two claims by direct specialization.",
+      "residual_risks": [
+        "Bounded ranked catalogue search and pertinent paper passages are not a priority guarantee. A differently framed constrained-subsequence result could have escaped these searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same definition, different result",
+          "evidence": "Linear-time unconstrained per-input optimization and all-appearance/weighted variants.",
+          "identifier_or_url": "https://arxiv.org/abs/2112.05725v1",
+          "material_read": "Definition p. 3, offset 6566; §2.1 p. 4, offset 10728",
+          "method": "OA PDF passages",
+          "title": "Beyond the Longest Letter-duplicated Subsequence Problem",
+          "trigger": "Original definition and unconstrained LLDS"
+        },
+        {
+          "assessment": "No equivalent claim in compared portions",
+          "evidence": "Separates letter-duplicated subsequences from longest run subsequences.",
+          "identifier_or_url": "https://doi.org/10.1007/s00236-024-00459-7",
+          "material_read": "Pp. 316–317, offsets 4400–7939; bounded literal probes",
+          "method": "OA PDF passages",
+          "title": "The longest letter-duplicated subsequence and related problems",
+          "trigger": "Journal treatment of the same language"
+        },
+        {
+          "assessment": "Different admissibility and optimization",
+          "evidence": "At most one run per letter; length P+(k−1)M and counts of maximizers.",
+          "identifier_or_url": "2026/11/8/SCOPE-complete-longest-run-subsequence-classification-for-weighted-per--f8851dd87d7f",
+          "material_read": "Finding and Assumptions, offsets 0–3000",
+          "method": "Local mirror passage",
+          "title": "Complete longest run subsequence classification for weighted periodic words",
+          "trigger": "Closest run and periodic terminology"
+        },
+        {
+          "assessment": "Different enumeration",
+          "evidence": "Two phase-shifted sources; common deletion descendants without an LDS condition.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-deletion-ambiguity-spectra-and-phase-ordering-for-cyclic-a--658d35d30c24",
+          "material_read": "Finding, offsets 0–2129",
+          "method": "Local mirror passage",
+          "title": "Exact deletion ambiguity spectra and phase ordering for cyclic alphabets",
+          "trigger": "Rational enumeration of distinct cyclic-source subsequences"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Full-alphabet universality across phases, not first appearances of individual duplicated-run words.",
+          "identifier_or_url": "2026/11/8/SCOPE-run-length-dichotomy-for-cyclic-subsequence-universality-of-peri--b8ecd39edb44",
+          "material_read": "Finding, offsets 0–2022",
+          "method": "Local mirror passage",
+          "title": "Run-length dichotomy for cyclic subsequence universality of periodic words",
+          "trigger": "Cyclic periodic subsequence threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural exact worst-case benchmark for an established subsequence optimization problem. The formula resolves the parity/residue transition beyond the disjoint-pairs bound and identifies a single family of extremizers for all q and n. The rational bivariate series separately supplies the number and lengths of feasible outputs on that extremal family, rather than just the optimizer length. Both facts apply across alphabet sizes and prefix lengths, not to a sampled or arbitrary small slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

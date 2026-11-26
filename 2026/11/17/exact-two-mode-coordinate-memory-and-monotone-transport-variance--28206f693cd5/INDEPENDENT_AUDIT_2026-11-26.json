@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:20:43.141450Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The stationary density h=k(1+b^-1 1_I), I=[0,1/b), follows by summing the m full inverse branches and the last branch on I, then normalizing with k=b^2/(b^2+1). The same branch sum sends u=xh to b^-1 u plus the piecewise-constant correction k m(m-1)/(2b^2)+(k m/b^2)1_I. Thus there is no -b^-3 component already at the starting slopes: u and the two constant pieces span an invariant three-dimensional subspace. With e=1-b 1_I of mass zero, P e=-b^-2 e. Center u by subtracting mu h; its one-step action is b^-1(u-mu h)+delta e, where delta is the e component of the correction. Pairing with x and solving the recurrence gives B=-delta int(xe)/(b^-1+b^-2) and A=Var(X_0)-B, for all lags including zero. Independent symbolic replay /workspace/reviews/replay1.py recovers the stated coefficients and variance rational function and checks that the numerator of -V' after clearing the positive denominator has all positive coefficients in b-1. The manuscript's shifted positivity polynomials also give A>0 and bA>B, controlling odd lags; B>0 follows directly. Stationarity gives the finite covariance sum, absolute summability gives the Green–Kubo limit, and the strict decrease of the rational expression for b>1 applies to the increasing admissible integer-family bases. Only this family and stationary starts are covered, and no CLT is proved. The frozen check.py was read, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen prior-work section credits Cornean–Sørensen with the same four-dimensional piecewise-affine invariant space, eigenvalues and iteration asymptotics; the frozen audit specifically credits the matrix and spectral projectors in Appendix C. The random-map comparison gives density results, not this quantitative variance conclusion."
+        ],
+        "reasoning": "The Cornean–Sørensen framework is strong enough to perform the exact affine-density evolution for xh, not just an asymptotic decay bound. Even granting that framework and the resulting transfer pairing, no inspected prior statement determines the sign of the parameter derivative of the resulting Green–Kubo coefficient.",
+        "searches": [
+          "Public web search: Sharp iteration asymptotics for transfer operators induced by greedy beta-expansions coordinate correlations",
+          "Cornean–Sørensen arXiv:2502.17113, relevant locations Appendix C.1–C.2 and Theorem 1.1 as identified by frozen AUDIT.json",
+          "Suzuki arXiv:2303.17521 abstract snippet"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "Resultary 28206f693cd5 and 54322c525d08",
+        "arXiv:2502.17113 via search lead and frozen source inspection",
+        "arXiv:2303.17521 via abstract snippet and frozen source inspection"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the previously known transfer framework the slopes of xh follow the b^-1 eigenvector, so the absence of -b^-3 follows directly once xh is inserted. Pairing the known operator action with x evaluates A and B, and geometric summation gives a rational Green–Kubo coefficient. The strict family ordering uses an additional sign argument on a degree-11 polynomial with positive coefficients after shifting by 1."
+        ],
+        "reasoning": "Credit the spectral framework and its immediate coordinate-mode consequences as prior or direct specialization. Neither increasing b nor faster exponential relaxation alone implies decreasing integrated variance: both weights vary and one mode alternates. The sign and exact transport-variance comparison are substantive additions to the available prior claims.",
+        "searches": [
+          "Frozen RESULT.md §Relationship to prior work and AUDIT.json source inspection for arXiv:2502.17113",
+          "Cornean–Sørensen arXiv:2502.17113 and publisher lead PII S0021904525000929",
+          "Resultary 54322c525d08 indexed claim"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The first query returns the frozen item; the broader Resultary query returns alternate-base record 54322c525d08 with coordinate covariance and all-lag phase memory. Suzuki arXiv:2303.17521 describes random beta invariant densities and linear response."
+        ],
+        "reasoning": "Exact coordinate covariance, centered transfer pairing and the coordinate spectral weights are equivalent calculations here. The alternate-base summary has a different dynamics and identifies a multiplier from lag two; it does not state the two spectral weights for this deterministic greedy family or order its integrated transport variance. Random stationary densities alone do not determine a deterministic covariance sequence.",
+        "searches": [
+          "Resultary: quadratic Parry beta transformation coordinate covariance Green-Kubo variance two-mode correlation (-beta^-2)^n",
+          "Resultary: beta transformation invariant density correlation functions covariance coordinate observable beta map",
+          "Public web search: greedy beta transformation exact autocorrelation correlation formula stationary invariant measure coordinate observable"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "28206f693cd5 is the identical frozen item. The adjacent alternate-base item's indexed claim neither tabulates V_m nor states its ordered rational expression. The frozen manuscript cites closely related exact transfer coefficients, but not a table of coordinate-sum variance coefficients."
+        ],
+        "reasoning": "A table of spectral rates or operator projectors is not a table of the observable weights and ordered variance. A literal lookup miss is not evidence of absence of an equivalent expression.",
+        "searches": [
+          "Resultary exact formula and two-mode query above (28206f693cd5, 54322c525d08)",
+          "arXiv:2502.17113 covariance/variance passage lookup (no decisive passage obtained)"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the explicit ordered transport-variance result, supported by the stationary-coordinate calculation. The density and piecewise-affine spectral action are prior, and the spectral origin and exponential form of the covariance are direct consequences of that action, not independently new operator or decay theorems. The distinct conclusion is the evaluated Green–Kubo coefficient and its strict parameter ordering; the ordering does not follow from the prior spectral asymptotics.",
+      "residual_risks": [
+        "The full text of the closest transfer paper was not independently retrieved here, and the adjacent alternate-base record was inspected only at the indexed-statement level. An equivalent prior transport ordering could change the verdict.",
+        "No conclusion of historical priority follows from the query results or same-day catalogue dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong framework coverage, including direct specialization of the affine evolution; no whole-paper exclusion on the new variance ordering",
+          "evidence": [
+            "Frozen inspection reports matrix, eigenvalues and spectral projectors in Appendix C.",
+            "Independent transfer pairing shows why the coordinate mode claim is immediate from that action; strict monotonicity is separate."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2502.17113; publisher PII S0021904525000929",
+          "material_read": "Publisher/search lead and frozen account of Theorem 1.1 and Appendix C.1–C.2; current primary passage lookup and subsequent offsets did not provide full text",
+          "method": "Targeted web search, attempted OA passage access, frozen RESULT.md lines 118–120 and AUDIT.json lines 80–89",
+          "title": "Sharp iteration asymptotics for transfer operators induced by greedy beta-expansions",
+          "trigger": "Identical base family and transfer invariant space"
+        },
+        {
+          "assessment": "The accessible statement treats stationary densities for random maps, not deterministic coordinate covariance or its ordered Green–Kubo coefficient",
+          "evidence": [
+            "Expanding-in-mean random transformations with unique stationary densities; deterministic invariant-density foundations credited to Rényi and Parry."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2303.17521",
+          "material_read": "Search-result abstract snippet plus frozen description of the introduction; exact OA text access timed out",
+          "method": "Targeted web search, attempted OA request, frozen references",
+          "title": "Absolutely continuous invariant measures for random dynamical systems of beta-transformations",
+          "trigger": "Possibly broader beta-transform stationary formulas"
+        },
+        {
+          "assessment": "The available statement uses different dynamics and does not imply the present variance ordering; same date has no evidentiary weight for coverage",
+          "evidence": [
+            "Rational alternate-base maps, phase-dependent memory and identification of a multiplier by lag-two covariance."
+          ],
+          "identifier_or_url": "Resultary 54322c525d08",
+          "material_read": "Indexed summary; matching mirror was not retrieved",
+          "method": "Resultary and attempted mirror access",
+          "title": "All-lag coordinate memory distinguishes alternate-base maps with identical invariant measures",
+          "trigger": "Same-day distinct indexed record about all-lag coordinate covariance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The coordinate is a canonical observable and these bases are the natural two-step quadratic greedy family, not a sample chosen after computing. The evaluated long-run variance and its strict ordering compare stationary cumulative fluctuations across the entire integer family. That comparison cannot be inferred from faster contraction rates alone because the weights change and the second mode alternates; the additional positivity argument gives an exact sign and limiting noise scale. The affine spectral construction itself is not the novel or valuable claim here.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

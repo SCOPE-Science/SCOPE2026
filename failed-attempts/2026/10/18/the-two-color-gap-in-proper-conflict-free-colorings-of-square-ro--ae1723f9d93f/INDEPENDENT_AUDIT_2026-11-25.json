@@ -1,0 +1,167 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:59:52.359971Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–53; verify_pcf_rook.py (inspected, not executed)",
+        "Fabrici et al., arXiv:2202.02570, p. 2 (open-neighborhood definition)"
+      ],
+      "rationale": "The open neighborhood splits into the row and column with the center removed. In a proper coloring each half uses any color at most once, and the center color is absent from both halves. Thus the colors of multiplicity one are precisely the symmetric difference of the two full palettes. The sizes are m and n, so for m<n every proper coloring works; row cliques force n colors and addition modulo n gives a proper n-coloring. For a square, an n-color palette must be exhausted in every row and column. In an (n+1)-color palette, a color used f times occupies exactly f rows and f columns, hence is omitted in the same number of rows and columns. Choose a color that some row omits: that row and an omitting column then have identical palettes. For the (n+2)-construction in the frozen proof, the two omitted-color pairs have cyclic differences ±2 and ±1, which are disjoint for n+2≥4. The construction works at n=2 as well, and an isolated singleton takes one color. These deductions establish the full range without using the optional finite coloring tests as proof.",
+      "residual_risks": [
+        "The equivalence tested is for proper open-neighborhood colorings; it is not a statement about nonproper, closed-neighborhood or list variants."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cho et al. and Jiménez et al. give general quasi-line results; Jiménez et al. distinguish nonproper line-graph CF from proper results. Dujmović et al. treat strong products of a t-tree and a path with a general odd-coloring bound. The same-cartesian-product topic prompted lawful attempts at the Liu–Dou–Yang paper, without accessible primary text."
+        ],
+        "reasoning": "The general bounds located do not yield the exact two-regime values. General odd/PCF equivalence does allow transmission of the exact Resultary odd-rook theorem. No noncoverage inference is drawn for Liu–Dou–Yang.",
+        "searches": [
+          "arXiv:2302.06125 p. 5; arXiv:2308.00170 pp. 5–6; arXiv:2202.12882 p. 2; DOI:10.3934/math.2026056"
+        ]
+      },
+      "checked_sources": [
+        "Resultary fb9f4a963e44 and 4827bdd1e654",
+        "arXiv:2202.02570, 2203.01088, 2302.06125, 2308.00170, 2202.12882",
+        "DOI:10.3934/math.2026056 (bibliographic only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The direct PCF match gives the same necessary and sufficient condition and exact n versus n+2. The odd match requires only the 0/1/2 multiplicity observation, and K_1 Cartesian K_n is a clique."
+        ],
+        "reasoning": "These two paths supply the exact theorem, not merely weaker estimates. The complete-graph and isolated boundaries are immediate. Catalogue dates are not used to decide priority or authorship.",
+        "searches": [
+          "Resultary fb9f4a963e44 Finding, 4827bdd1e654 Finding; arXiv:2203.01088; arXiv:2302.06125"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The odd-coloring Resultary finding gives the same formula and palette inequality. Cho et al. give a general proper odd/PCF equivalence for quasi-line graphs; rook graphs are in that class."
+        ],
+        "reasoning": "In a proper rook coloring the possible multiplicities of a color in an open neighborhood are 0, 1 and 2, so there is an odd multiplicity exactly when there is a unique color. Under the line-graph correspondence the same condition is that the two endpoints of each edge have different incident-color sets in a proper edge coloring of K_m,n. These are equivalent tests, not different invariants here.",
+        "searches": [
+          "Rook graphs K_m Cartesian K_n, line graphs of complete bipartite graphs, proper odd or conflict-free colorings; Resultary 4827bdd1e654; arXiv:2302.06125; arXiv:2308.00170"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary fb9f4a963e44 directly states the rook formula for m,n≥2 and the same palette criterion; 4827bdd1e654 states the analogous exact odd formula and criterion. Caro et al. p. 2 explicitly give χ_pcf(C_4)=4."
+        ],
+        "reasoning": "The exact Resultary hits cover the nontrivial family and the all-proper-colorings characterization, not just one parameter value. The C_4 table covers only the already known smallest square.",
+        "searches": [
+          "Resultary rook graph square two-color gap, proper conflict-free and odd-color palette; fb9f4a963e44; 4827bdd1e654; arXiv:2203.01088"
+        ]
+      },
+      "rationale": "Resultary fb9f4a963e44 states the same nontrivial rook formula and the same row/column palette criterion. Resultary 4827bdd1e654 additionally gives the identical result under odd coloring, which is equivalent on every proper rook coloring because every neighborhood color occurs at most twice. The excluded one-row case is a complete graph and the singleton is automatic, so neither supplies new mathematical content. This finding is materially covered regardless of priority between the same-day records or of the unresolved product-paper access.",
+      "residual_risks": [
+        "Earliest priority not determined. Liu–Dou–Yang full text remained unavailable by the tried OA routes; no claim of noncoverage is made. Other primary literature on edge-coloring formulations may contain additional coverage, which is not needed for the decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct material coverage",
+          "evidence": [
+            "m,n≥2: n colors in the nonsquare case, n+2 in the square case; PCF iff every row palette differs from every column palette."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-two-color-gap-for-proper-conflict-free-coloring-of-square-rook--fb9f4a963e44",
+          "material_read": "RESULT.md Finding and Palette criterion, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A two-color gap for proper conflict-free coloring of square rook graphs",
+          "trigger": "Exact same-day theorem and structural condition"
+        },
+        {
+          "assessment": "Exact implication after multiplicity comparison",
+          "evidence": [
+            "Odd number n for m<n and n+2 for squares; same palette criterion and line-graph identity."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-odd-chromatic-number-of-rook-graphs--4827bdd1e654",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Odd chromatic number of rook graphs",
+          "trigger": "Equivalent odd-coloring invariant of the same graph family"
+        },
+        {
+          "assessment": "Same definition",
+          "evidence": [
+            "Requires properness and a uniquely appearing color in each nonempty open neighborhood."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2202.02570",
+          "material_read": "p. 2, text near offset 6696",
+          "method": "OA PDF passage",
+          "title": "Proper conflict-free and unique-maximum colorings of planar graphs with respect to neighborhoods",
+          "trigger": "Open-neighborhood convention"
+        },
+        {
+          "assessment": "Known special case only in the inspected passage",
+          "evidence": [
+            "χ_pcf(C_4)=4; C_4 is the 2 by 2 rook graph."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2203.01088",
+          "material_read": "p. 2, text near offset 6552",
+          "method": "OA PDF passage",
+          "title": "Remarks on proper conflict-free colorings of graphs",
+          "trigger": "Small square and prior exact results"
+        },
+        {
+          "assessment": "Translates an exact odd-color result; general bound alone is not the exact value",
+          "evidence": [
+            "Equality of proper odd and PCF parameters on quasi-line graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2302.06125",
+          "material_read": "p. 5, text near offset 14946",
+          "method": "OA PDF passage",
+          "title": "Cho–Choi–Kwon–Park quasi-line coloring result",
+          "trigger": "Stronger odd/PCF equivalence and upper bound"
+        },
+        {
+          "assessment": "Broader bounds, not a complete-bipartite formula in the inspected text",
+          "evidence": [
+            "Discusses Pyber's nonproper four-color result for line graphs separately from proper-color bounds."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2308.00170",
+          "material_read": "pp. 5–6, near offset 15728",
+          "method": "OA PDF passages",
+          "title": "Boundedness for proper conflict-free and odd colorings",
+          "trigger": "General quasi-line and line-graph colorings"
+        },
+        {
+          "assessment": "Different product class and upper bound",
+          "evidence": [
+            "Bounds for subgraphs of a strong product of a t-tree and a path."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2202.12882",
+          "material_read": "p. 2, near offset 4696",
+          "method": "OA PDF passage",
+          "title": "Dujmović–Morin–Odak odd product coloring result",
+          "trigger": "Product graph coverage"
+        },
+        {
+          "assessment": "Coverage undetermined; no bearing on the confirmed exact Resultary matches",
+          "evidence": [
+            "Title identifies Cartesian products; specific families were not verified from the paper."
+          ],
+          "identifier_or_url": "https://doi.org/10.3934/math.2026056",
+          "material_read": "Bibliographic identification only; no primary full text retrieved",
+          "method": "OA DOI and AIMS article/PDF routes attempted; alternate repository copy not located",
+          "title": "The odd coloring of some Cartesian product graphs",
+          "trigger": "Potentially exact odd-color theorem on the same Cartesian product"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding; Resultary fb9f4a963e44 and 4827bdd1e654 Findings"
+      ],
+      "rationale": "The square-versus-rectangle phenomenon is mathematically meaningful, but the frozen article rederives both the known gap and the known structural characterization; changing from odd to PCF wording on a family where the tests coincide or adjoining the clique boundaries does not create a new invariant or useful extension. No distinct theorem survives the direct matches.",
+      "residual_risks": [
+        "Rejection is for the frozen result as a contribution, not a judgment that the underlying coloring phenomenon lacks interest."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

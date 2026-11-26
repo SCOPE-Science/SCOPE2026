@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:29:49.338032Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 41–112; VERIFICATION.md lines 19–23; verifier.py lines 10–56 (inspected, not executed)",
+        "/workspace/review_replay.py, totient(), independently run"
+      ],
+      "rationale": "Writing n=m p^a with p the largest prime and p not dividing m gives R(n)=[1+(1+S(m))/(p-1)]/[p^(a-1) phi(m)]. The bound (2+omega(m))/phi(m) tends to zero by phi(m)>=sqrt(m/2), so a fixed threshold bounds m, and a>=2 then yields only finitely many possibilities. For fixed m and a=1, convergence to 1/phi(m) is strictly from above; this proves the weak multiplier cutoff even at equality. Multiple representations with distinct bounded m cause only finite corrections. For the first moment, summing over exact prime valuations gives coefficient p^(1-a)/phi(m); the terms a>=2 are O(sqrt(x)), the removed coprimality restriction for a=1 costs O(sqrt(x) log(x)), and the m>sqrt(x) tail is O(x^(3/4)). For smaller m the PNT bound permits summable domination after scaling by log(x)/x. For higher moments, the finitely many disjoint small-m families give their stated coefficients, and the complement is bounded by 2^(k-1) times its first-moment mass. The needed R<=2 also follows elementarily: the product of two or more odd-prime factors p-1 (each at least 2) is at least their sum; the smaller support cases give the same bound directly. Multiplicativity gives the displayed convergent Euler factors. Independent gcd-count and prime-family enumeration through 1600 reproduced H(1)=3/2 and H(1/2)=9/4 with finite count corrections -1 and -3 respectively, including the strict endpoint test. The proof, not the finite checks, supports the asymptotics.",
+      "residual_risks": [
+        "The finite replay does not test the infinite prime-counting or moment limits. The result fixes t and k before x grows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former averages unnormalized deficiency; the latter includes estimates for sums of largest prime factors and additive prime-factor sums."
+        ],
+        "reasoning": "Neither result preserves the cofactor-by-cofactor factor 1/phi(m) or the sign of the boundary correction, which are essential to the threshold theorem and moment constants.",
+        "searches": [
+          "arXiv:2610.36260v1, Theorem 6.1",
+          "Alladi–Erdős 1977, abstract and Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.36260v1",
+        "Alladi–Erdős, Pacific J. Math. 71 (1977), 275–294",
+        "Resultary 39eef49799ab",
+        "Ranjan–Singh DOI 10.13140/RG.2.2.34472.69128 (indirect only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cited sign inequality identifies a bound or zero set; the normalized distribution was subsequently posed rather than derived in the inspected passages."
+        ],
+        "reasoning": "A sign inequality and unnormalized average do not yield the weak cutoff, the O_t(1) discrepancy, or the moment coefficients. The classification and summable control of the complement add substantive arguments.",
+        "searches": [
+          "arXiv:2610.36260v1, Theorem 6.1 and Question 9.4",
+          "Ranjan–Singh DOI 10.13140/RG.2.2.34472.69128 as cited in that preprint"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Question 9.4 asks about Delta(n)/phi(n)=1-R(n). The additive numerator uses distinct primes: S(n)=sum_{p|n}p-omega(n), unlike multiplicity-counted prime sums."
+        ],
+        "reasoning": "The complement transformation identifies the exact pre-existing question, not an existing answer. Large-prime estimates for other additive numerators do not identify level sets after division by phi(n).",
+        "searches": [
+          "arXiv:2610.36260v1, Question 9.4",
+          "Alladi–Erdős 1977, DOI 10.2140/pjm.1977.71.275"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest inspected indexed work takes T(n)/n for the Renshaw totient and obtains a different limiting distribution and moments. No inspected entry linked the reciprocal-totient coefficients to these rare moments."
+        ],
+        "reasoning": "Neither an atomless limit for a different multiplicative function nor a numerical table of reciprocal-totient constants would establish this x/log(x) counting law. The search is bounded.",
+        "searches": [
+          "Resultary search on normalized totient deficiency and rare-event moments, indexed match 39eef49799ab",
+          "Literature lookup on normalized totient moments and reciprocal-totient coefficients"
+        ]
+      },
+      "rationale": "The normalized question itself is prior work. The supported distinction is the exact finite-exception prime-multiple classification and the leading coefficients for every fixed positive integral moment; the inspected results do not give these. No novelty is credited for the prime number theorem, large-prime decomposition, or the Euler product as a formal multiplicativity calculation.",
+      "residual_risks": [
+        "The Ranjan–Singh full text was not accessible. The bounded lookup cannot exclude earlier formulas under a different normalization or related reciprocal-totient asymptotics."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior problem and related unnormalized result, not the inspected distributional answer",
+          "evidence": "Question 9.4 asks for the normalized distribution and expects convergence to one in mean; Theorem 6.1 sums Delta(n) without division by phi(n).",
+          "identifier_or_url": "https://arxiv.org/html/2610.36260v1",
+          "material_read": "Section 6 Theorem 6.1 and Section 9 Question 9.4; text offsets near 54400 and 70000",
+          "method": "Bounded primary OA text inspection",
+          "title": "Infinite families and sporadic solutions of the equation phi(n)=c+alpha sum_{p|n} phi(p)",
+          "trigger": "Exact normalized deficiency question"
+        },
+        {
+          "assessment": "Different averages and normalization",
+          "evidence": "Multiplicity-weighted A(n)=sum a p and largest-prime-factor sums are treated, not R(n) or its moments.",
+          "identifier_or_url": "https://msp.org/pjm/1977/71-2/pjm-v71-n2-p01-s.pdf",
+          "material_read": "Abstract and Theorem 1.1 passages, text offsets 415–635 and 3350–5512",
+          "method": "Primary OA PDF text inspection",
+          "title": "On an Additive Arithmetic Function",
+          "trigger": "Large-prime and additive prime-factor aliases"
+        },
+        {
+          "assessment": "Different arithmetic function and type of limit",
+          "evidence": "T(n)/n gives an atomless Euler-product limit; the largest-prime valuation argument serves atomlessness, not a prime-multiple classification.",
+          "identifier_or_url": "2026/11/8/SCOPE-an-atomless-limiting-law-for-the-normalized-renshaw-totient--39eef49799ab",
+          "material_read": "Finding and atomlessness argument",
+          "method": "Resultary local index and record comparison",
+          "title": "An atomless limiting law for the normalized Renshaw totient",
+          "trigger": "Closest indexed normalized-totient match"
+        },
+        {
+          "assessment": "Known sign-inequality background; full scope not independently established",
+          "evidence": "The subsequently inspected preprint cites the sign inequality and poses the normalized question separately.",
+          "identifier_or_url": "10.13140/RG.2.2.34472.69128",
+          "material_read": "Citation and description in the related preprint; full text not read",
+          "method": "Attempted lawful ResearchGate retrieval; HTTP 403",
+          "title": "An Inequality for Euler's Phi-Function",
+          "trigger": "Source for the cited deficiency inequality"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding; arXiv:2610.36260v1, Question 9.4"
+      ],
+      "rationale": "For a previously posed normalized-distribution problem this gives structure beyond typical convergence: it identifies essentially every positive-threshold exception and quantifies its density and contribution to all fixed integral moments. In particular the equality threshold is accounted for by a one-sided correction rather than being inferred from a limiting atom.",
+      "residual_risks": [
+        "No conclusion on vanishing thresholds or moment orders that grow with x."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

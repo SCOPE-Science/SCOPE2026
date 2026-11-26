@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The unitary discrete Fourier multiplier identity makes the relative energy exactly the eigenvalue mean of normalized squared Fourier magnitudes. Strict concavity and the active affine constraint give the reciprocal-affine optimizer and prove uniqueness of its modulus profile; all endpoint budgets and equality cases are handled. Splitting off the four-dimensional minimum eigenspace gives an explicit sharp upper/lower two-scale bracket. A uniform comparison with the planar lattice sum proves its logarithmic coefficient, and the summable inverse-square gap spectrum yields the condensate mass and the limiting conditional tail distribution. The supplementary saved checker exercises endpoint values, the interior spectral parameter, random feasible profiles and the two-scale bracket; it is not used as proof of the all-size theorem.
+PASS
 
-## Originality — PASS relative to inspected evidence
+Parseval for the stated counting norms makes the normalized energy ∑λₖpₖ on the nonzero-frequency probability simplex. The four ground modes are (±1,0),(0,±1); summing sine-squares yields the stated mean. The two endpoint maxima and equality profiles follow from Cauchy–Schwarz. In the interior, for any t<Λ_N, weighted Cauchy–Schwarz bounds (∑√pₖ)² by (E−t)∑(λₖ−t)⁻¹. Equality requires full use of the budget and pₖ proportional to (λₖ−t)⁻². For this profile the derivative of its energy with respect to t is 2 Cov(λ,(λ−t)⁻¹)<0, with the stated limiting budgets. Thus the exact formula and all equality profiles follow; real phases may be chosen in conjugate pairs. This direct argument avoids needing the frozen proof's suggestion that two positive coordinates of an arbitrary candidate can always preserve both constraints. If using strict positivity instead, mix with the positive feasible distribution already given in the record: a zero entry gains order √η, while changes on positive entries cost at most order η. The uniform gap ≥8|k|², Taylor expansion of the sine multiplier and comparison of lattice squares with a planar annulus give S_N=log(N)/(2π)+O(1) and summable domination for T_N. Splitting the four minimal modes from the rest, weighted Cauchy–Schwarz and the trial inverse-gap profile give the exact two-sided bracket; its discrepancy is O_E(1/log N). Writing t_N=Λ_N−ε_N, the gap energy at fixed positive ε tends to infinity, forcing ε_N→0. The exact gap equation then yields Q_N=Δ_N A_N/B_N with A_N→T∞ and B_N=S_N+o(1), proving the condensate rate and ℓ¹ convergence of the normalized tail by domination. Independent bounded numerical replay at N=8,24,72,216 and E=60 checks the bracket and the energy equation (`python3 /workspace/review_checks.py 5`); the limits follow from the analytic argument, not those sizes.
 
-Alberti et al., arXiv:2611.19755v1 (Section 2.1, Proposition 2.1; Section 4.1, Theorem 4.3), supply a general weighted-Cauchy–Schwarz inequality and an order-sharp critical logarithmic example, but neither an exact energy-budget optimum nor the additive four-low-mode constant or limiting tail distribution. Bartuccelli–Deane–Zelik, arXiv:1012.2061v1 (Section 2), derive related but non-equivalent continuous-torus optimizers with both gradient and Laplacian energies fixed. Burstein–Iosevich–Nathan, arXiv:2601.16345v1 (Sections 1–3), develop the recovery interpretation of Fourier ratios without the present constrained discrete-energy optimization. Published-result searches in the explicitly checked semantic database found no matching statement or stronger implication. A previously published, differently phrased graph-energy or Sobolev extremal theorem remains a bibliographic risk; search absence is not proof of absolute novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The Fourier ratio is a quantitative effective spectral dimension in partial-sampling problems. Its exact constrained maximum, including every finite-grid budget and equality case, fills a concrete sharpness gap in the newly studied two-dimensional discrete-gradient estimate. The critical coefficient alone would be less informative: the additional exact additive term is forced by the four lowest modes, while the off-band optimizer has a universal normalized inverse-square gap profile and a quantitative logarithmically vanishing mass. These are structural and reproducible features of a canonical natural invariant, not a numerical slice or a restatement of the ambient Cauchy–Schwarz bound.
+The ratio itself, reciprocal spectral weights and weighted Cauchy–Schwarz are known ingredients. The strongest inspected sources give broad energy upper bounds, critical logarithmic order, or an exact resolvent extremizer under a different energy constraint. They do not cover the square-grid fixed-energy optimizer and its sharp additive term and conditional tail together. No stronger inspected statement giving these conclusions was found.
 
-## Limits and remaining risk
+## value
 
-The proof does not infer any guarantee for shifted sensors, non-periodic geometry, or other dimensions. Fixed-energy convergence may be slow and must not be read as a uniform finite-grid approximation. The previously investigated continuous-torus extremal literature uses a related multiplier method, and additional old graph-theoretic equivalents cannot be ruled out solely from indexed searches. The supplementary checker is finite-sample evidence, not independent proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The canonical first-difference budget quantifies how spectrally diffuse a mean-zero signal can be at a specified energy. Beyond the routine weighted bound, the two-scale law identifies an exact excess-energy factor, the additive term forced by bottom multiplicity, and the distribution of the small high-frequency mass that contributes the growing part of the objective. These clarify sharpness of the logarithmic regime and distinguish spectra with the same leading order.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

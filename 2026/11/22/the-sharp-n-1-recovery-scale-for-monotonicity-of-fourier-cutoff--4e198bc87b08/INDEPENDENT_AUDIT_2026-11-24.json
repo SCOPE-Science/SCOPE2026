@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:32:29.246256Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With the stated symmetric cutoff and circumference, F=-H'/2 is the sine sum with weights k exp(-tk²). Log-differentiating the Jacobi product at fixed t>0 makes F positive and gives F/sin(theta) >= b t^(-1/2) exp(-pi²/(4t)) for t<=1 by retaining the first product summand and the nearest Poisson image. Since |sin(k theta)| <= k sin(theta) on the open angle interval, the omitted tail divided by sin(theta) is <= C_c N² exp(-tN²) uniformly for t>=c/N (k=N+j gives the summable factor exp(-2cj)). The ratio to the full lower bound decreases in t on [c/N,1] and is O_c(N^(3/2) exp[-N(c-pi²/(4c))]) there, proving the uniform sufficient times for c>pi/2. For t>=1 the first sine mode strictly dominates: the sum of the other modes after division by exp(-t) sin(theta) is bounded by sum_{j>=1}(4e^(-3))^j<1, for all N. For c<pi/2 and theta=pi-alpha_N/N, the tail divided by N exp(-cN) has summable majorant (1+j)exp(-2cj); along either parity the sign factor (-1)^N sin(alpha_N)=1 yields the positive limit 1/(1+exp(2c)). The derivative of the full periodized Gaussian is bounded there by C_c N^(3/2) exp(-pi² N/(4c)): each image distance is at least pi-O(1/N), and after factoring out the nearest-image exponential the more distant terms are summable uniformly with their distance multipliers. This is o(N exp(-cN)), proving F_N<0, equivalently H'_N>0, for both witness subsequences. A failure at time c/N bounds the infimum of eventual times from below whether or not attained; the upper estimate is uniform in every later time. This proves finiteness and the exact limit with no claim at c=pi/2. RESULT.md lines 31–115 are decisive. verify.py and its recorded 585 diagnostics were read, not run; those samples are neither an exhaustive sign check nor needed in the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Alonso-Orán et al. give radial decrease on compact hypersurfaces of revolution, including the untruncated circle heat kernel.",
+          "Dong Li bounds a grid-point supremum in Appendix B, for example A_{N,t}<=1+O(1/N) under N² nu² t>=100 log N."
+        ],
+        "reasoning": "Neither statement fixes the sign of a differentiated continuous section at every angle; a norm defect of algebraic size would not control this sign at an exponentially small antipodal signal.",
+        "searches": [
+          "arXiv:1807.11072 Theorem 1.2",
+          "Dong Li arXiv:2107.09438v1 Appendix B Theorem B.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:1807.11072",
+        "arXiv:2107.09438v1",
+        "Resultary 4e198bc87b08, d4274dc28d8b and 55927eaf16ca"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Nov. 8 record proves eventual entrywise positivity for the even-node Fourier-collocation matrix (single real Nyquist mode) and a negative matrix entry below the threshold; its own scope excludes off-grid positivity.",
+          "The same-day correction record also tests near-antipodal nodal entries, not the angular derivative between nodes."
+        ],
+        "reasoning": "Renormalizing the node count by roughly twice the maximal frequency explains the common leading scale but does not convert entrywise signs to derivative signs. The angular sine factor must be handled uniformly near both endpoints and the derivative tail has the stated parity-selected witness sign, which is not implied by those nodal results.",
+        "searches": [
+          "Resultary d4274dc28d8b Finding and Assumptions and scope",
+          "Resultary 55927eaf16ca Finding and Assumptions and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At 0<theta<pi, F_N/sin(theta)=sum_{k=1}^N k exp(-tk²) U_{k-1}(cos(theta)), where U_{k-1} is the SU(2) zonal character. For unit S³, multiplying by exp(t)/vol(S³) gives exactly its zonal heat projection onto degrees 0 through N-1, since the degree k-1 Laplacian eigenvalue is k²-1. This is a sign equivalence on the open interval only.",
+          "The bounded targeted search surfaced full heat kernel treatments and heat kernel recurrences on spheres, not an inspected cutoff positivity theorem matching the open-angle sign and horizon. One recurrence full text was inaccessible; this is not negative evidence."
+        ],
+        "reasoning": "An exact sharp spectral-section positivity theorem on S³ would be material via this identity. Ordinary full-kernel positivity or a recurrence between untruncated kernels is not a sign theorem for the spectral section.",
+        "searches": [
+          "Truncated theta-series monotonicity and Gaussian Fourier partial sums (primary literature)",
+          "SU(2) or three sphere S3 sharp positivity heat kernel spectral partial sums truncation heat regularization conjugacy class cutoff theta sine series pi/2 asymptotic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact entry 4e198bc87b08 is the target itself, not alternative priority evidence.",
+          "The separate catalogue records give exact asymptotic coefficients for nodal positivity (including a parity-dependent logarithmic correction in 55927eaf16ca), not a continuous derivative threshold table."
+        ],
+        "reasoning": "The relevant catalogue data use a distinct convention for the Nyquist term, a node count instead of a frequency cutoff, and a distinct sign predicate. An exact scalar coincidence is insufficient.",
+        "searches": [
+          "Resultary Fourier-cutoff heat angular monotonicity",
+          "Resultary Fourier-collocation positivity recovery and parity correction d4274dc28d8b, 55927eaf16ca"
+        ]
+      },
+      "rationale": "The supported distinct statement is the sharp eventual strict derivative sign for continuous symmetric sections, including two parity witnesses. Full-kernel radial monotonicity and antpodal Gaussian estimates, and related nodal positivity horizons with the same rescaled leading constant, are prior or overlapping ingredients. Their exact statements do not imply the continuous derivative sign and both-sided sharp-time obstruction.",
+      "residual_risks": [
+        "Older work on eventually positive weighted sine-polynomial sections, truncated theta functions or zonal spectral sections could give an equivalent result; no such result was established by the bounded search.",
+        "Recovery of sampled positivity and recovery of strict angular monotonicity should not be conflated despite overlapping exponents and same-day catalogue entries."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proof of full-kernel radial decrease, not cutoff positivity or recovery",
+          "evidence": "Geodesic radial monotonicity for heat kernels on compact hypersurfaces of revolution.",
+          "identifier_or_url": "https://arxiv.org/abs/1807.11072",
+          "material_read": "Theorem 1.2, PDF p. 2, offset 4852",
+          "method": "Original OA PDF",
+          "title": "Pointwise monotonicity of heat kernels",
+          "trigger": "Same shape question for the full kernel"
+        },
+        {
+          "assessment": "Does not give the needed pointwise angular derivative sign in the inspected statements",
+          "evidence": "Grid-point supremum estimates, including an algebraic defect bound under a logarithmic spectral-time condition.",
+          "identifier_or_url": "https://arxiv.org/html/2107.09438v1",
+          "material_read": "Introduction and Appendix B, Theorem B.1; offsets 0 and 378337",
+          "method": "Original OA text",
+          "title": "Effective maximum principles for spectral methods",
+          "trigger": "Truncation of Gaussian Fourier heat kernels and possible stronger positivity bounds"
+        },
+        {
+          "assessment": "Overlap in asymptotic mechanism, not an equivalent sign theorem",
+          "evidence": "Limit pi for node count times sampled positivity horizon; tests matrix entries, includes a single real Nyquist mode.",
+          "identifier_or_url": "2026/11/8/SCOPE-a-sharp-n-1-positivity-recovery-horizon-for-fourier-collocation--d4274dc28d8b",
+          "material_read": "Finding and Assumptions and scope, offsets 0–4828",
+          "method": "Resultary and original Markdown via local mirror",
+          "title": "A sharp N^{-1} positivity-recovery horizon for Fourier-collocation heat flow",
+          "trigger": "Nearest earlier sharp nodal recovery result with analogous exponent competition"
+        },
+        {
+          "assessment": "Stronger for a different predicate; same-day ordering not determined",
+          "evidence": "Nodal positivity expansion pi/M minus a parity-dependent multiple of log(M)/M² and a near-antipodal matrix-entry obstruction.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-parity-dependent-logarithmic-correction-to-fourier-collocation--55927eaf16ca",
+          "material_read": "Finding and Assumptions and scope, offsets 0–3971",
+          "method": "Resultary and original Markdown via local mirror",
+          "title": "A parity-dependent logarithmic correction to Fourier-collocation heat flow",
+          "trigger": "Sharp same-day expansion and both parity issues"
+        },
+        {
+          "assessment": "Unresolved full-text coverage, not relied on for an exclusion",
+          "evidence": "Search description concerns dimension recurrences and diagonal heat-kernel/heat trace applications.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0022247X21008696",
+          "material_read": "Search description only; original directly unavailable",
+          "method": "Targeted S³ literature search plus original page OA access attempt",
+          "title": "Recurrence relations for heat kernels on spheres",
+          "trigger": "Equivalent zonal S³ section formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp time for the recovery of a natural geometric shape property under a specified standard spectral cutoff is useful independently of heat-kernel norm estimates. The theorem supplies uniformity in all interior angles and all later times, and quantitative obstructions below the same sharp constant in both parities. The antipodal regime makes mere fixed-time Fourier convergence insufficient.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

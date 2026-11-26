@@ -1,12 +1,21 @@
-# Review of the five-word universality theorem
+# Independent mathematical audit
 
-## Correctness
-The proof makes an exact character-indicator expansion. Singletons sum to zero; each pair sum is exactly minus one; the squarefree higher-degree sums satisfy Weil's bound, leading to a positive uniform lower bound above field order 1696. The fifteen remaining nonprime prime powers of characteristic at least five are exactly enumerated by `verify.py`. Independent Euler-criterion checks cover all field elements, and norm checks independently cover all quadratic extensions. The degree-four polynomial is justified by a group-order irreducibility argument. Finite exhaustive verification, not a small sample, settles precisely the finite remainder of the proof.
+## correctness
 
-## Originality
-The closest literature includes Cohen (2024) on consecutive homogeneous triples and characteristic-five quadruples in finite fields, Wang–Fang (2023) on prime-field homogeneous progressions, and Buchaev–Tsfasman (2026) on arbitrary four- and five-letter prime-field words. Their stated results do not give the five-word nonprime-field exception list. A published prime-field six-word result covers prime moduli only. An accessible earlier claim settles four-letter words over general finite fields; that shorter existence result does not imply simultaneous five-letter existence. Residual risk: general curve-trace methods may implicitly supply the counts, and the full 2026 prime-field preprint was not retrieved for inspection. Searches cannot establish universal priority.
+PASS
 
-## Mathematical value
-This is a complete and sharp classification of a natural residue-pattern invariant over all nonprime fields of characteristic at least five, not an isolated arithmetic example. It identifies five and only five exceptional field orders and specifies every missing pattern in them. The sharp transition at order 289 and the contrast between square and cubic extensions make the finite-field obstruction structure explicit. The contribution is deliberately limited to length five and does not purport to establish a new arbitrary-length theory.
+For the five distinct shifts in characteristic at least five, the product of the five sign filters is the unnormalized indicator off the five prohibited starts. On the prohibited starts the total correction is at most 5·16. The empty term is q, singleton sums vanish, and the ten pair sums are −1 (translate and scale to χ(t(t+1)); equivalently count points on the corresponding split affine conic). The squarefree nonsquare terms of degree 3,4,5 cost (20+15+4)√q by Weil, giving 32N≥q−39√q−90. This is increasing above q=1697 and positive at 1697 because 1607²−39²·1697=1312. For the finite complement, separate exact FLINT enumeration using Euler's criterion and prime-order enumeration through 41 reproduced all 15 cases, all listed missing codes and no others, with q−5 counted starts each time. In particular the only missing code at 169 is 4, and every code occurs at 289 with minimum multiplicity 4. The list of eligible orders proves first success and sharpness; the bound covers all larger fields beyond the finite complement.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The supported distinct contribution is the sharp length-five existence boundary and complete absence census over nonprime fields, not the sign-indicator expansion, the Weil method, or prime-field count formulas.
+
+## value
+
+PASS
+
+Simultaneous universality of the 32 words is a natural strength threshold for consecutive quadratic-character sequences. The exact finite boundary is far below what the uniform Weil estimate alone guarantees and catches three obstructions beyond the known shorter-word failures, including exactly one missing word at the last failure. This is a complete sharp classification and exact absence table, not a sample of fields or a claim to a new character-sum method.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

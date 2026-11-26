@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:46:41.615577Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The coordinate model is sign-symmetric, with moments of degree 2 equal to 1/3 on the coordinate squares. The pure and mixed fourth moments are 1/5 and 1/15, using (1+φ²)^2=5φ²; the even moments and sign cancellations establish the full sampler isometry on products of harmonics through degree two. The probability-normalized addition kernel gives the complement Q_{xx}=1/4, Q_{x,−x}=−1/4 and Q_{xy}=−(x·y)/4 for other pairs. Subtracting the erased Gram from the identity gives 9−r unit domain eigenvalues and the eigenvalues of Q_{E,E}, including zeros. An antipodal triple reduces to a 2-by-2 block with diagonal 2,1 and off-diagonal magnitude √2/√5 before dividing by 4; nonantipodal triples switch to constant signed off-diagonal −c or +c, where c=1/√5. Opposite pairs number six, opposite triples 60; product sign on three axes is preserved by antipodal lifts, and the 20 triangular faces occur as ten opposite pairs, one for each positive axis triple. The other ten axis triples are negative. This proves the 80/80 split, the worst admissible eigenvalue (1−2c)/4 and thus the stated condition number. Four or more removed samples force a kernel by dimension. Running python3 /workspace/reproductions/icosa.py constructed 4Q by Galois conjugation of the vertex Gram and independently verified the exact characteristic polynomials for all 12 singles, 66 pairs and 220 triples, with their counts. The normalization is fixed weights, not a renormalized retained sampler.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "ETF literature bounds or identifies worst error over masks for uniform frames; it does not classify every doubled complement minor in the passages examined.",
+          "The indexed harmonic result also counts 233 recoverable masks among all 4096, and includes the full 0–3 classification."
+        ],
+        "reasoning": "A single-copy worst-error theorem is not an exact mask-level determination, but the matching indexed classification covers the complete bound claim.",
+        "searches": [
+          "Bodmann–Paulsen arXiv:math/0406134",
+          "Hoffman–Solazzo arXiv:1107.2267, Theorem 3.6 and Proposition 3.7",
+          "Resultary f4265e782932, RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "Resultary f4265e782932",
+        "arXiv:math/0406134 abstract",
+        "arXiv:1107.2267 Sections 2–3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matching table has the same 9−r unit eigenvalues and all minor eigenvalues; its worst injective class is picked by comparing the two smallest positive triple eigenvalues.",
+          "Frame bounds on the maximum over a family of masks do not determine this classification or the three class sizes."
+        ],
+        "reasoning": "The sharp condition number and all equality masks follow immediately from the matching exact table. This leaves no distinct mathematically supported claim to narrow to.",
+        "searches": [
+          "Resultary f4265e782932, Finding and spectral classification",
+          "Hoffman–Solazzo arXiv:1107.2267, Sections 2–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The complement is a rank-three Parseval frame made from six equiangular unit vectors and their antipodes, all scaled by 1/2. Its nonopposite triangle Gram-product sign is the opposite of that for the original vertices.",
+          "Resultary f4265e782932 analyzes the same nine harmonic modes, fixed twelve-site weights, and linear retained operator."
+        ],
+        "reasoning": "Neither the doubled frame nor the exact matching table is equivalent to applying an erasure extremum for a single copy of a six-vector ETF without the scaling and antipodal cases. The indexed harmonic-sampling table does match directly.",
+        "searches": [
+          "Resultary: exact erasure spectra of quadratic harmonic sampling on the icosahedron",
+          "Frame erasures for antipodal doubling of a real (6,3) equiangular tight frame; arXiv:1107.2267"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same fixed weights and spectra; antipodal triple values 3/8±√65/40 equal (3±√(13/5))/8; same mask counts, in particular 60/80/80 for triples."
+        ],
+        "reasoning": "This is termwise and classwise exact, not a result about an unrelated sampling frame or just the smallest singular value.",
+        "searches": [
+          "Resultary 2026/11/16/SCOPE-exact-erasure-spectra-of-quadratic-harmonic-sampling-on-the-icos--f4265e782932, RESULT.md offsets 0–4299 and 4299–8697"
+        ]
+      },
+      "rationale": "A distinct indexed Resultary finding gives the same erasure spectrum, counts, and injectivity classification, including the exact nonantipodal triple classes. The catalogue entry is later-dated; the evidence demonstrates exact coverage, not temporal priority, derivation, or common provenance. The bound condition number is immediate from the shared table.",
+      "residual_risks": [
+        "Later catalogue dating does not establish who obtained the classification first or whether either result depends on the other.",
+        "The frozen citation arXiv:2609.31689 was characterized in that package from an abstract; its full scope is not independently adjudicated here. The present decision rests on the exact indexed match, not on any access limitation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent complete mask spectra and counts",
+          "evidence": [
+            "Fixed weights, antipodal loss, sign classes, algebraically identical spectra, counts 60/80/80"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-exact-erasure-spectra-of-quadratic-harmonic-sampling-on-the-icos--f4265e782932",
+          "material_read": "RESULT.md offsets 0–4299 and 4299–8697",
+          "method": "Resultary local mirror",
+          "title": "Exact erasure spectra of quadratic harmonic sampling on the icosahedron",
+          "trigger": "Exact same sampler and mask spectra"
+        },
+        {
+          "assessment": "Extremal framework; no claim about full-document noncoverage from abstract",
+          "evidence": [
+            "Two-uniform frames optimize largest error up to two erasures; larger-erasure bounds"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0406134",
+          "material_read": "Abstract, offset 0",
+          "method": "Open primary text",
+          "title": "Frames, Graphs and Erasures",
+          "trigger": "ETF and erasure framework"
+        },
+        {
+          "assessment": "Single-copy ETF norm results, not a doubled table and counts",
+          "evidence": [
+            "For a Parseval real (6,3) ETF the worst three-erasure error norm is 1/2+1/√5"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1107.2267",
+          "material_read": "Section 2 norm definition near offset 6496; Section 3, Theorem 3.6 and Proposition 3.7 near offset 7500",
+          "method": "Open primary text",
+          "title": "Complex Equiangular Tight Frames and Erasures",
+          "trigger": "Three-erasure spectra or bounds for ETFs"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The failure of antipodal recovery and the sharp triple conditioning are useful facts about a natural critical sampler. The submitted claim as a separate finding supplies no additional spectrum, robustness regime, or exact census beyond the matching description; an independent finite check is valuable for replication but does not establish a distinct new finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

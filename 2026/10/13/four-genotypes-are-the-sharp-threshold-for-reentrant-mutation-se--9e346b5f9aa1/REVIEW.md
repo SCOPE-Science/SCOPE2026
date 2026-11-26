@@ -1,15 +1,21 @@
-# Scientific review: sharp reentrant mutation–selection ordering
+# Independent mathematical audit
 
-## Correctness — PASS
-For every connected mutation graph of order at most three, eigenvector identities and strict monotonicity of the top eigenvalue prohibit two strict pairwise rank changes. For the stated four-genotype path, characteristic-polynomial division, a resultant, three rational root brackets and a second-eigenvalue bound establish precisely two genuine Perron-vector intersections, with opposite signs outside and between. `verify_reentrant.py` recomputes all nontrivial polynomial identities. Numerical eigenvectors are illustrations only. No larger-network theorem is claimed.
+## correctness
 
-## Originality — PASS
-The classical mutation–selection model and fitness–frequency mismatch are not new. Epstein studies replication-plus-diffusion genotype dynamics; Kostova and colleagues analyze genotype dominance in an Eigen replication/degradation model; Barbosa and colleagues study graph-constrained quasispecies; Seifert and colleagues analyze fitness inference and explicitly mention discordance between fitness and equilibrium frequency. Their inspected results do not state or directly imply the sharp four-genotype threshold and exact two-switch path. There remains a material risk from inaccessible full papers or a more general spectral-ordering theorem; independently check any external priority claim.
+PASS
 
-## Value — PASS
-The result identifies the minimum number of mutually mutating genotypes required for one pair's equilibrium abundance ranking to leave and then return to its original order as a control parameter increases. Two comparator genotypes have different mutation connections to an exceptionally fit neighbor, giving a structural explanation rather than an unmotivated fixed-size census. Exact roots provide a benchmark for interpreting shifts in variant frequencies. Scope is restricted to deterministic, fixed-fitness, symmetric equal-edge mutation.
+For μ>0 connectedness makes the Metzler matrix irreducible, so its positive principal eigenvector is unique up to scale, including equal fitness. On complete graphs of order two and three the off-diagonal rank-one form gives p_i proportional to 1/(λ+nμ−f_i) with positive denominators, fixing the order. On the three-path the leaf denominators fix their relative order and a center–leaf tie requires λ=f_leaf. The simple eigenvalue derivative equals −pᵀLp/pᵀp, strictly negative unless p is constant, which is possible only with all fitnesses equal. Thus a single crossing, but not two, is allowed in general on the smaller shapes. For the four-path the first, third and fourth rows alone give sign(p3−p1)=sign(1−μ+μ²/(λ−3+μ)), where the last row gives λ−3+μ>0 and the ratio denominator from the third row is positive. This sign is positive at μ≤1. For μ>1 it is the sign of z*−λ, with z*=4+1/(μ−1)>4. The other eigenvalues are ≤3 by the min–max comparison to diag(f), so sign(z*−λ) equals the sign of the characteristic polynomial evaluated at z*. The independent tridiagonal recurrence factors that evaluation as μ²(μ²+2μ−2)F(μ)/(μ−1)^4, whose prefactor is positive for μ>1. Exact endpoint signs for F in the three disjoint brackets establish three simple roots, exactly two admissible. Their signs give the whole asserted ranking with no other tie. The same replay confirms the original remainder/resultant and high-μ correction; normalization does not change rankings.
 
-## Closest literature and limitations
-Relevant scientific sources are Epstein (2006, arXiv:q-bio/0602027), Saakian and Hu (2006, doi:10.1073/pnas.0504924103), Kostova–Zhou–Zemla (2011, doi:10.1080/17513758.2010.544766), Barbosa–Donangelo–Souza (2011 preprint, arXiv:1112.3322), and Seifert et al. (2014, doi:10.1534/genetics.114.172312). Only part of several original full texts could be accessed; see the structured originality assessment for source-specific risks. No empirical, stochastic or broader-graph assertion is included.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The additive spectral framework is established prior work, as is the general distinction between abundance and intrinsic growth. The supported claim is the sharp minimum and the exact twice-switching comparison in the fixed-fitness graph-Laplacian family. The closest inspected theorem-level ranking matches use different operators or observables, and the closest exact model source does not give the crossing or the small-graph bound.
+
+## value
+
+PASS
+
+The sharp cutoff locates a genuine qualitative limit of a natural symmetric diffusion-plus-growth operator: monotonicity of the top eigenvalue does not make the ordering of its vector coordinates monotone. The minimal path, the exact interval, and the explicit exclusion of every smaller graph give a concise benchmark for reasoning about parameterized equilibrium rankings rather than a numerical example selected at isolated rates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

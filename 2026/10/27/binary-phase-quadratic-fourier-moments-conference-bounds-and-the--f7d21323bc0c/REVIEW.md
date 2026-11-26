@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The collision expansion partitions squared coefficients of the Fourier polynomial by support multiplicities, and the four-cycle trace identity yields an exact squared-off-diagonal deficit. The parity bound follows from the odd number of summands in each off-diagonal entry of the squared Seidel matrix. The finite-field quadratic-character identities prove the infinite equality families. The only exhaustive step is the seven-vertex lower bound: all \(2^{15}=32768\) switch-normalized signings are enumerated by a reproducible exact-integer program. Double-counting seven-subsets and the explicit ten-vertex conference matrix then give all other displayed small-dimensional values. Finite tests are not used to infer infinite-dimensional claims.
+## correctness
 
-## Originality — PASS, subject to bibliographic limitations
-A 2021 primary study of conference matrices supplies the classical matrices and principal-submatrix tools but does not state the new binary-phase torus fourth-moment minima or their first seven-vertex obstruction. Indexed research on the same quadratic torus spectrum proves an **upper** fourth-moment inequality for arbitrary complex coefficients, not a lower inequality for signs. Indexed research on binary fourth moments of the full Fourier cube uses a different character support and does not imply the square-free quadratic claim. Comparisons were made by statement and implication rather than title alone. The closest full published mathematical-result record could not be opened, and independent priority confirmation has not been performed.
+PASS
 
-## Mathematical value — PASS
-The complete degree-two square-free spectrum is a canonical homogeneous Fourier layer. Its binary-phase design problem measures cancellation among collisions of four distinct Fourier coordinates; the first unavoidable obstruction at seven coordinates is therefore an intrinsic cutoff, not an arbitrary parameter choice. The exact positive deficit links analytic phase cancellation to conference-matrix orthogonality, provides the first seven exact minimum moments, and supplies infinite extremal families. Classical conference facts alone are not represented as new.
+On the continuous normalized torus the squared norm of P^2 separates repeated edges (weight 1 each), shared-vertex edge pairs (weight 4 each), and four distinct indices with three matching products (weight 36 when all agree and 4 otherwise). This gives equation (2), with increment 32 per collision. Each four-set contributes three unoriented cycle products; all three matching signs agree exactly when all three products of two different matching signs are positive. The weighted four-walk trace counts each of these cycles eight times and has n(n−1)(2n−3) nondistinct-vertex walks of weight 1. Since (S^2)_ii=n−1, the trace gives equation (1). Each off-diagonal square is nonnegative, and in odd order each is at least one, with exactly the stated equality criteria. For Paley's all-positive infinity row, the required finite-field off-diagonal correlation is −1: for x≠z substitute (x−y)/(z−y) on y≠z to sum the quadratic character over the field with 1 omitted. Symmetry uses chi(−1)=1. Thus the bordered square is qI, and deleting infinity subtracts the all-ones matrix from qI. Switching leaves each collision unchanged and uniquely normalizes the incident row. An independent exact Python replay using literal matching products rather than the frozen two-mask parity method exhausted the 8, 64, 1024 and 32768 normalized assignments at n=4,5,6,7 and reproduced (minimum, multiplicity)=(0,6),(0,12),(0,12),(5,3024). It independently verified both finite Paley witnesses, every indicated induced submatrix, and all seven moment values. The 7-set incidence bound gives b≥binomial(n,4)/7, and equality at order 10 forces every 7-subset optimal, giving equality for 7–10 by the same incidence identity. The order-6 Paley witness has b=0, inherited below order 6.
 
-## Closest sources and limitations
-Haemers–Parsaei Majd, *Spectral symmetry in conference matrices*, DOI `10.1007/s10623-021-00858-8`, is the closest inspected primary full article. Related indexed records include `2026/10/11/SCOPE-sharp-binary-fourth-moments-on-the-four-cube-and-quadratic-path--280918c7a8c9` and the independently described unrestricted-complex upper bound `bbffed0a-87b1-4413-ab31-580c2a2c2667`. The result is limited to sign coefficients; full complex-phase minima, all extremizer orbits, and sharpness in every dimension remain open within this package. Unindexed two-graph or Seidel-moment results remain a specific priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass the exact binary torus minimum/deficit and the quantitative seven-vertex obstruction together, not Seidel switching, graph enumeration, the conference construction, or the general square-free upper bound. There is a precise equivalent two-graph extremal count and a pre-existing catalogue of the ambient classes, but the inspected catalogue publishes neither the relevant fourth-trace extremum nor the collision counts. The inspected upper bound and conference results do not yield the seven-vertex lower bound or convert it to this moment law.
+
+## value
+
+PASS
+
+The exact deficit connects the minimum of a natural binary Fourier-layer norm to conference structure and identifies infinite sharp families. The finite cutoff is structurally motivated: seven vertices is the first unavoidable four-mode collision and the sharp obstructing multiplicity propagates via incidence, with matching witnesses through ten. This is more than listing existing switching classes or recomputing a known table; it isolates a meaningful invariant and explains when it first forces a moment gap.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

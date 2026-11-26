@@ -1,15 +1,21 @@
-# Review: logarithmic repetition and graph-rank dichotomy
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact repeat-hazard formula follows by counting earlier distinct hyperedges among the current uniform k-subset choices. Binomial vertex-birth concentration and an eventually summable hazard prove the rank-at-least-three finite-repeat assertion. In rank two, bounded martingale increments and a summably accurate logarithmic compensator establish almost-sure and Gaussian limits; the graph cycle-rank difference is an exact finite-time identity. The checker exhaustively reproduces 542 small-history conditional hazards with exact fractions. Its simulations are diagnostics, not infinite proofs.
+## correctness
 
-## Originality — PASS against examined evidence
-The motivating full 2026 article on uniformly grown hypergraphs, and Callaway et al.'s earlier complete growing-graph preprint, study cluster laws, degree correlations and topological growth, not the logarithmic repeat-selection law. Searches for moving-alphabet collisions, parallel-edge counts and rank-dependent reuse did not locate the claimed quantitative theorem. The Euler graph identity and underlying martingale tools are standard. Unindexed wider occupancy limit theorems could cover the probabilistic statement; a failed search does not prove novelty.
+PASS
 
-## Value — PASS
-The exact same family of models has infinitely many redundant edge-addition attempts in rank two but only finitely many redundant hyperedge-addition attempts in higher ranks. The logarithmic mean and fluctuation coefficient determine the error in first Betti number caused by retaining multiplicities when studying graph topology, a natural subextensive scale related to cycle counts. The observation is structurally motivated by the paper's topological analysis, not a selected arbitrary statistic.
+The set of available k-subsets grows, preserving every earlier distinct sample. On a sample operation, exactly E_{t−1}−D_{t−1} currently available subsets count as hits, even for multiplicities >2, so the predictable Bernoulli mean is q(E_{t−1}−D_{t−1})/binom(k+B_{t−1},k). This includes initial times. For B_{t−1}≥p(t−1)/2 the mean is bounded by C t^{1−k}, and the complement has exponentially small probability; summing expectations proves both claims for k≥3. Almost surely B_{t−1}=pt+O(t^{2/3}) by summable concentration. At k=2, a_t=O(1/t) eventually; the martingale differences divided by log(t+1) have a.s. summable conditional variances and bounded increments. Localization, convergence and Kronecker give M_n/log n→0, then D_n=O(log n). Substitution gives a_t=c_p/t+O(t^{-4/3}+log(t)/t²), so A_n−c_p log n converges a.s. and Σ a_t²<∞. The predictable variance is c_p log n+O(1) a.s.; divided by c_p log n it tends to one, and bounded increments give conditional Lindeberg at that normalization. The martingale CLT and the bounded centering error prove the stated normal limit. Both graphs have the same vertices and components, so Euler's cycle-rank formula subtracts exactly the number of repeat attempts. This applies for every fixed 0<p<1 without a percolation hypothesis. The frozen checker was inspected but not run; its enumeration and simulations are finite diagnostics and do not enter the proof.
 
-## Closest literature and limitations
-Krapivsky, arXiv:2611.14824v1, is the source of the model and higher-order topology perspective. Callaway et al., arXiv:cond-mat/0104546v2, analyze a related growing graph process. The model must independently resample existing k-sets (with replacement); a no-duplicate sampling rule is outside scope. No statement about higher-dimensional homology follows from the rank-at-least-three assertion. A priority review beyond accessible indexed sources remains necessary.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct result is the with-replacement repeat-attempt dichotomy, in particular the sharp graph constant, strong law and CLT. The birth-versus-uniform-selection mechanism is related to Krapivsky's model, but his triadic rule explicitly forbids repeated triples. The deterministic graph cycle-rank identity is a classical Euler consequence, not original by itself.
+
+## value
+
+PASS
+
+The repeat count measures a natural difference between two practical graph versions that have the same connectivity. It is invisible at extensive scales yet diverges with a sharp constant and nontrivial fluctuation scale for pairs, while larger subsets cause only integrably many defects. The phase-independent theorem explains exactly what is lost by collapsing parallel edges in the graph case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

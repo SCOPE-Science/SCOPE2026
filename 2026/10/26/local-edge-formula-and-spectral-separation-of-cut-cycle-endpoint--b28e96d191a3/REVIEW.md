@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem is proved for every finite connected noncomplete strongly regular graph with \(\mu>0\). The adjacency quadratic identity and parameter relation produce an explicit potential solving the edge-source Laplacian equation. Its five potential levels reduce the exact edge-column absolute sum to a local induced-edge count. The complementary projection follows from the diagonal effective resistance and the range \([0,1]\) of orthogonal-projector diagonals; symmetry gives equality of endpoint norms. Local neighborhood structures in the \(4\times4\) rook and Shrikhande graphs give the two distinct statistics. An independent grounded-Laplacian inverse checker exactly verifies \(333\) columns on eight examples. Finite computations support, but do not replace, the universal proof.
+## correctness
 
-## Originality — PASS, with residual risk
-The closest accessible original papers are Dilworth–Kutzarova–Ostrovskii (2018, arXiv:1807.03814v1; finite-metric Lipschitz-free quotients), their 2023 article (arXiv:2305.12582v1; invariant projections, primarily tori and Hamming graphs), and Godsil–Guo–Kempton–Lippner (2017, arXiv:1710.02181v1; spectra of strongly regular graph perturbations). Inspected statements do not cover the local exclusive-neighbor cut/cycle endpoint norm formula or the explicit cospectral pair. Brouwer–Van Maldeghem §10.6 supplies known graph constructions and local neighborhoods but not these operator norms. Exact searches also compared alternative names, spectra, transfer currents and relevant general endpoint identities. The complementary-column resistance identity and earlier special-family endpoint formulas are not presented as new. A less-indexed equivalent total-variation calculation is a genuine remaining bibliographic risk.
+PASS
 
-## Mathematical value — PASS
-The local formula is a structural classification for a broad natural graph family rather than an isolated small calculation. It identifies precisely which local four-vertex configurations govern endpoint projection amplification, while exposing information invisible to adjacency spectra and all standard strongly regular parameters. The rook/Shrikhande witness gives an exact separation of two classical cospectral structures by natural real Banach operator invariants. It is mathematically useful without asserting optimality among all projections.
+Strong regularity and (n−d−1)μ=dm imply (dI−A)[(d−λ+μ)I+A]=μ(nI−J). Applied to the mean-zero edge dipole, this gives the unique mean-zero potential with levels 0, ±1/(μn), ±(m+μ)/(μn). Summing the four level-cut sizes with weights 1, 1, m+μ−1, m+μ−1 (before division by μn) gives the per-edge formula: each of the two wider cuts has size d(m+1)−2m−2 times the number of internal exclusive-neighbor edges on that side, and each singleton cut has size d. The diagonal is 2(m+μ)/(μn) and lies in [0,1], so taking the complementary projector adds the stated constant to every column sum; symmetry gives the row sums. Rook and Shrikhande have respectively 6 and 4 for τ_e on every edge, giving the exact four norms and gap 1/8. The shared parameters give the two nontrivial adjacency eigenvalues ±2 with multiplicities 6 and 9 by the trace. Independent incidence-SVD checks in both examples and K₃,₃ corroborate 105 columns (replay: python3 /workspace/evidence/review_checks.py 3); the exact general argument, not that finite check, establishes the result.
 
-## Limitations
-The statistic still requires local edge inspection. Neither all possible statistics nor nonorthogonal optimal projection constants are classified. Only unweighted real endpoint operators are treated. No independent mathematical audit has been performed; further bibliographic verification could change the originality assessment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported contribution is the general strongly regular column formula and its exact cospectral separation; the projection framework, resistance diagonal identities, local graph shapes, and known special-family values are not independent novelty claims.
+
+## value
+
+PASS
+
+A local combinatorial invariant determines each column's endpoint amplification and hence the worst edge for two natural projections. The exact cospectral separation demonstrates that spectral data and common edge resistance miss this information, rather than merely tabulating examples or asserting optimality of the canonical projectors.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

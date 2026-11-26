@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:27:37.981818Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, exact reduction and witness",
+        "Frozen certificate.json, verify.py and VERIFICATION.md inspected without executing uploaded code",
+        "Independent exact replay: python /workspace/branches/check-square-bound.py (audit-square-bound.json beside the checker)",
+        "Independent certificate generator: /workspace/branches/audit-square.py"
+      ],
+      "rationale": "The claimed minimum is correct. Equal-length squares are distinct and cannot contain each other. In any linear host, successive selected starts are separated by at least the least consistent positive overlap shift. Conversely, appending by those shifts preserves the whole new square at the suffix and all previously embedded factors. Adding the dummy creates a tour with cost 10 plus the shifts. Independently regenerated all costs and checked the literal 82-bit witness against all 32 factors. Rather than using the frozen numerical-optimality check as a proof, generated an independent binary branch certificate with valid directed cut inequalities. Each split fixes an arc bit to 0 or 1 and covers both cases. At each leaf, priced degree equalities and directed cut inequalities with the valid signs, then bounded each adjusted arc term by its exact minimum on its fixed value or on {0,1}. The standard-library replay verifies the result in integers: 557 splits, 558 leaves, 113 valid cuts, weakest rational lower bound 50659721/625000 > 81. Thus integral tour length is at least 82, and the witness attains it.",
+      "residual_risks": [
+        "The independent exact certificate uses a different cut set and does not certify the particular floating-point solver run or the optimum of precisely the frozen 20-cut relaxation. It proves the actual linear minimum without that solver assumption."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Au's general necklace bound gives 72; Corollary 16 gives 89, while direct evaluation of Algorithm E at n=5 constructs an 82-bit linear host",
+          "Tan–Shallit study exact represented factor sets, not containment with optional extra factors"
+        ],
+        "reasoning": "Au's constructions alone cannot exclude lengths below 82; the related exact-set formulation is inequivalent. The auxiliary circular covers in Au do not change the linear target.",
+        "searches": [
+          "Au revised manuscript, Proposition 14, Corollary 16 and Algorithm E",
+          "Tan–Shallit arXiv:1304.3666 §4"
+        ]
+      },
+      "checked_sources": [
+        "Configured Resultary local mirror b1c706b65373",
+        "OEIS A372435",
+        "Au 2015 revised manuscript, pp. 13–16",
+        "Tan–Shallit arXiv:1304.3666"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The mirror considers all overlap paths: with q inter-necklace jumps length is at least 41+5q, q>=7. For q=7 a block DP gives minimum 82; for q=8 reaching 81 would require unit rotations within blocks and cost-six jumps, excluded by split-necklace reachability; q>=9 yields at least 86. It supplies an 82-bit witness.",
+          "Direct evaluation of Au's earlier greedy construction covers all squares in 82 bits, supplying the upper bound only."
+        ],
+        "reasoning": "The matching record's scope is not restricted to one block per necklace: it expressly handles the only competing split case and excludes all larger q by a bound. It covers the mathematical claim, whereas the earlier Algorithm E covers only attainability.",
+        "searches": [
+          "b1c706b65373 RESULT.md Proof, overlap reduction and necklace-crossing cases",
+          "Au Algorithm E, p. 16"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "b1c706b65373 RESULT.md Finding and Assumptions specify the same 32 distinct length-10 factors, unrestricted linear host and minimum 82",
+          "The two records use the same shortest-overlap Hamiltonian-path criterion"
+        ],
+        "reasoning": "The sampled factors, allowed hosts, objective and exact optimum coincide, not just the numerical value or a related circular quantity.",
+        "searches": [
+          "Resultary: exact linear binary square superstring, five-bit root, length 82, all tandem powers",
+          "A372435"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A372435 lists 4,12,24,48 and describes n=1..4; the fifth value is not listed on the inspected page",
+          "Distinct exact catalogue record b1c706b65373 supplies 82"
+        ],
+        "reasoning": "Absence from the OEIS table does not make a value novel when it is proved in another indexed result.",
+        "searches": [
+          "OEIS A372435 current entry",
+          "Resultary exact minimum for all five-bit-root binary squares"
+        ]
+      },
+      "rationale": "A distinct Resultary finding b1c706b65373 covers the exact same optimum 82 for all 32 five-bit-root squares as ordinary factors in a linear host, with an exhaustive exact lower-bound argument and a matching witness. This is demonstrated equivalent coverage, not an assertion that the later-dated catalogue path proves earlier priority or derivation from either record. Au's earlier Algorithm E also yields a length-82 construction on direct evaluation, though it does not establish exact optimality. The two exact records' different verification methods do not make their stated invariant different.",
+      "residual_risks": [
+        "Neither the catalogue path dates nor this comparison establish who first obtained the minimum. The failure concerns equivalent coverage, not attribution of discovery or invalidity of the optimum."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "demonstrated exact coverage, distinct record with later path date; priority not inferred",
+          "evidence": "Same minimum 82 and linear setting. Separate exhaustive q=7, q=8 and q>=9 lower-bound branches, and an attaining witness.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-minimum-linear-superstring-length-for-all-binary-five-bit--b1c706b65373/RESULT.md",
+          "material_read": "Finding, Assumptions and Proof, offsets 180 and 690–4769; prior-work passage around 5820",
+          "method": "configured Resultary search and local mirror at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact minimum linear superstring length for all binary five-bit squares",
+          "trigger": "same parameters, object and reported length"
+        },
+        {
+          "assessment": "same invariant, fifth term absent in the inspected page",
+          "evidence": "Lists 4, 12, 24, 48 and says the table extends through n=4.",
+          "identifier_or_url": "https://oeis.org/A372435",
+          "material_read": "entry description, terms, comments, linked reference, around offset 400",
+          "method": "public page inspection",
+          "title": "OEIS A372435",
+          "trigger": "same exact linear minimum sequence"
+        },
+        {
+          "assessment": "earlier construction already attains 82, but not earlier exact minimum in inspected statements",
+          "evidence": "The necklace lower bound specializes to 72 and the Corollary 16 bound to 89. Algorithm E yields successive lengths 10,20,31,42,53,64,75,82 with all factors present.",
+          "identifier_or_url": "https://au-gary.github.io/Au15a.pdf",
+          "material_read": "Proposition 14 pp. 13–14, Corollary 16 p. 15, Algorithm E and surrounding text p. 16 (offset 47315)",
+          "method": "OA full-text passages and independent evaluation of Algorithm E at n=5",
+          "title": "Generalized de Bruijn words for Primitive words and Powers",
+          "trigger": "prior exact power-cover problem and possible matching construction"
+        },
+        {
+          "assessment": "distinct exact factor-set problem",
+          "evidence": "A represented set is the entire set of length-n factors, unlike covering prescribed factors with extras allowed.",
+          "identifier_or_url": "https://arxiv.org/pdf/1304.3666",
+          "material_read": "Abstract and Introduction p. 1; linear/circular distinction in §4 p. 7",
+          "method": "OA PDF passages",
+          "title": "Sets Represented as the Length-n Factors of a Word",
+          "trigger": "plausible alternative formulation via shortest factor witnesses"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and Proof",
+        "Resultary b1c706b65373, Finding and Proof",
+        "Au Algorithm E",
+        "OEIS A372435"
+      ],
+      "rationale": "The fifth value of this natural sequence is a motivated exact invariant, and closing its gap would be worthwhile if it were not already covered. A separate solver approach and witness in the frozen record provide corroboration, but the finding states the same covered finite fact and no independently useful new mathematical consequence or sharper invariant. Au's earlier algorithm already provides an attaining construction, so that part is not a surviving result on its own.",
+      "residual_risks": [
+        "This value decision is about the frozen determination as a distinct scientific contribution, not about the intrinsic interest of the sequence or the value of confirming an exact calculation."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

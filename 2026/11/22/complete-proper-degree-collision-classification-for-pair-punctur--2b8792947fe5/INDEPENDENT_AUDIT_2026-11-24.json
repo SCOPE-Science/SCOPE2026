@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:55:41.651916Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–6, VERIFICATION.md, verify.py and verify_output.txt (read-only evidence)",
+        "/workspace/branches/bf7f2653-5cbb-497f-b5ef-12b829692a0c/replay.py and replay_output.txt (independent bounded replay)"
+      ],
+      "rationale": "The leave is an isolated third point plus the union of two edge-disjoint perfect matchings, hence even cycles of length at least four. Labelled induced extensions correspond bijectively to leave matchings. In the cycle transfer-matrix formula Q_m=L_+^m+L_-^m, the quotient L_-/L_+ starts with -z, so log E-N log L_+ has triangular contributions beginning at z^m with coefficient +1 per even m-cycle. Equality modulo z^d fixes all lengths below d. After removing common short cycles, fewer than 2d vertices allow at most one remaining component; with all 2d vertices the only alternative is one 2d-cycle versus two d-cycles, with even d >= 4. The difference is 2(L_+L_-)^d=2z^d. Admissible orders 7,9,13 have N=4,6,10, excluding a collision. Independent replay checked each pair of the 35-block design exactly once and obtained the two profiles (12) and (6,6) with coefficient vectors (1,12,54,112,105,36,2) and (1,12,54,112,105,36,4). Different leave-component counts rule out isomorphism. This proves the order-15 sharpness within one design and makes no claim of realizability for every larger order.",
+      "residual_risks": [
+        "The finite witness proves existence, not an exhaustive classification of order-15 designs; the symbolic proof covers the universal implication."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Friedland et al. give coefficientwise extremal comparisons on 2-regular graphs. Perfect designs concern single cycles; the requested claim uses a comparison of two different cycle profiles inside one design."
+        ],
+        "reasoning": "Extremal comparisons or one-profile constructions do not on the inspected evidence furnish the full classification of pairs or its joint witness.",
+        "searches": [
+          "Friedland et al., On the Number of Matchings in Regular Graphs, Thm. 2.2",
+          "Grannell–Griggs–Murphy, Some New Perfect Steiner Triple Systems",
+          "Focused search on pair cycles and cycle switching"
+        ]
+      },
+      "checked_sources": [
+        "Configured Resultary catalogue and ranked matches including the self-hit",
+        "Friedland et al., Theorem 2.2",
+        "Wang, definition and examples",
+        "Grannell–Griggs–Murphy and cycle-switching publisher access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Standard recurrence gives Q_d^2-Q_{2d}=2z^d, but neither that identity nor injectivity for the full matching polynomial yields the converse without recovering the short-cycle multiplicities and ruling out other residual profiles."
+        ],
+        "reasoning": "The credited claim is the converse at this precise truncation and the least same-design realization, not a restated recurrence or a full-polynomial theorem.",
+        "searches": [
+          "Friedland et al. Thm. 2.2",
+          "Wang’s definition and examples",
+          "Resultary: Real-rooted one-point extension spectra"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior Resultary one-point spectra record identifies the same polynomial with the leave matching polynomial. Wang’s equivalence compares the full matching polynomial."
+        ],
+        "reasoning": "Dropping the full-matching coefficient changes equivalence; full equality neither identifies the only new collision nor proves sharp realizability in one design.",
+        "searches": [
+          "Resultary: partial Steiner one-point extension spectra and pair-puncture proper-degree collision",
+          "Wang DOI 10.4236/am.2021.126032, matching equivalence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact hit is the assigned record itself; strongest distinct hit gives extension/matching correspondence and real-rootedness. The explicit 35-block witness was separately checked, not inferred from any table."
+        ],
+        "reasoning": "The claim is a universal classification plus existence, not a design-catalogue entry. No separate exact entry was identified in this bounded search.",
+        "searches": [
+          "Targeted Resultary catalogue search for the order-15 pair-puncture collision and the two profiles"
+        ]
+      },
+      "rationale": "The extension/matching correspondence, alternating pair cycles, single-cycle constructions and usual cycle identities are antecedents, not credited as new. Accessible statements do not cover the precise proper-degree loss together with its least same-design witness. The bounded comparison supports that distinct combination, not absolute priority.",
+      "residual_risks": [
+        "An older near-equivalence theorem or explicit Steiner construction may be unindexed; the closest pair-cycle primary texts and earlier Resultary full text were not accessible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Established prerequisite; full-text comparison incomplete",
+          "evidence": "The indexed statement identifies matchings, real-rootedness and ultra-log-concavity, not the stated truncation loss.",
+          "identifier_or_url": "2026/10/4/SCOPE-real-rooted-one-point-extension-spectra-of-partial-steiner-tripl--9599713a6632",
+          "material_read": "Resultary catalogue statement; exact local full-text path unavailable",
+          "method": "Configured Resultary search and local mirror attempt",
+          "title": "Real-rooted one-point extension spectra of partial Steiner triple systems",
+          "trigger": "Same extension invariant"
+        },
+        {
+          "assessment": "Related coefficientwise comparison",
+          "evidence": "Compares matching counts in 2-regular graphs, not the exact truncated-equivalence classification with a Steiner example.",
+          "identifier_or_url": "https://homepages.math.uic.edu/~friedlan/enmat12.1.08.pdf",
+          "material_read": "PDF p. 6, Theorem 2.2",
+          "method": "OA paper passage, offset 15300",
+          "title": "On the Number of Matchings in Regular Graphs",
+          "trigger": "Even-cycle extremal matching equivalences"
+        },
+        {
+          "assessment": "Full-polynomial setting",
+          "evidence": "Equality concerns the full matching polynomial, with examples involving isolated vertices and cycles, not omission of its top term.",
+          "identifier_or_url": "https://doi.org/10.4236/am.2021.126032",
+          "material_read": "PDF pp. 1–2 and 4",
+          "method": "OA paper offsets 820, 3900 and 15806",
+          "title": "The Number of Matching Equivalent for the Union Graph of Vertices and Cycles",
+          "trigger": "Equivalent graph-polynomial formulation"
+        },
+        {
+          "assessment": "Exact coverage unresolved",
+          "evidence": "Not used as negative evidence; the frozen paper credits the first source for the pair-cycle framework.",
+          "identifier_or_url": "10.1002/(SICI)1520-6610(1999)7:5<327::AID-JCD3>3.0.CO;2-S; 10.1002/jcd.21975",
+          "material_read": "Identified citations; no primary full-text passage recovered",
+          "method": "Lawful publisher OA attempts; HTTP 403",
+          "title": "Some New Perfect Steiner Triple Systems; Cycle Switching in Steiner Triple Systems of Order 19",
+          "trigger": "Potential antecedents to pair-cycle realization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof; independent witness replay; Friedland et al. Theorem 2.2"
+      ],
+      "rationale": "Quantifies exactly which information a natural extension invariant loses when one count is omitted and exhibits the first same-design failure, with a reusable explicit witness. The joint problem is more informative than either a generic recurrence identity or an isolated example.",
+      "residual_risks": [
+        "No general existence claim at higher design orders is supported or needed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

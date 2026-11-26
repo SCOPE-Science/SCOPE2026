@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The geometry is a carefully cited and inspected construction from Li–Wang–Yu, not an unsupported new realizability assertion. Its exact inductive vertex truncations give the displayed complete vertex triples. For a simple three-polytope, edges are exactly pairs of vertex triples sharing two facets. The integer potential changes by at most three on each new or retained edge, as checked by the vertex-truncation induction, so the base-to-tip graph distance is at least \(\lceil(2k-1)/3\rceil\). The matching universal upper bound follows from three-connectivity and \(V\le2f-4\), with no asymptotic or computational step. The extracted standalone checker tests the same combinatorics in exact integer arithmetic for \(2\le k\le100\); this tests implementation but is not used as a proof of the infinite claim.
+## correctness
 
-## Originality — PASS (provisional historical priority)
-The full six-page Li–Wang–Yu primary paper (arXiv:2611.09021v1, especially Section 2 and Theorems 1.2–1.3) proves near-right-angle existence and records facet adjacency, but neither its introduction nor its construction determines vertex-graph diameters or claims saturation of the classical bound. Victor Klee's original 1966 text and Santos's explicit diameter problem verify the separate unrestricted upper bound, without dihedral restrictions. published-finding corpus semantic searches using multiple diameter, truncation, and near-right-angle formulations returned only unrelated geometric or graph results. The resulting joint theorem is stronger than either source statement alone, although its inputs are explicitly acknowledged and implicit earlier combinatorial identifications remain possible.
+PASS
 
-## Mathematical value — PASS
-The number \(\lfloor2f/3\rfloor-1\) is the natural, sharp, facet-count-dependent maximum graph diameter; not an arbitrary statistic. The theorem shows quantitatively that arbitrarily small positive dihedral-angle excess imposes no deficit whatsoever on that extremal diameter, for **each** facet count rather than just along a sparse subsequence. The integer potential also gives a transparent extremality certificate that can be reused in combinatorial polytope analysis. It connects the near-right-angle finiteness threshold with a sharp combinatorial obstruction and does not merely increment a numerical example.
+The existence and diameter claims hold for every fixed f≥4 and δ>0. The geometry can be checked directly from RESULT.md §1: choose R>4 large enough that arcsin(4/R)<δ. The projected initial three normals surround zero strictly (each successive angular gap, including the wraparound gap, is <π). With their positive vertical coordinates and the downward base normal they positively span in 3D. The three side planes at offset 1 and the base z=0 bound a full-dimensional tetrahedron. The normal recurrence follows from roots R and exp(±iθ); its positive coefficients express the new normal in the interior of the normal cone at the current top vertex. A sufficiently shallow cut removes just that vertex, creates a triangle, and preserves simplicity. Side facet neighbors have index difference at most three by induction. Their horizontal dot products for differences 1, 2, 3 are −1/R, 2/R²−1, 3/R−4/R³, respectively; the vertical contribution is ≤1/R², so the normalized dot products are <4/R, and base-side dihedrals are acute. For the graph, at k≥5 the new vertices U_k,W_k,T_k link to W_(k−1),U_(k−2),U_(k−1), respectively, with H differences 3; the replacement triangle has differences 1,1,2. The base tetrahedron and the two exceptional steps k=3,4 obey the same bound by direct substitution. Consequently the specified endpoints are at distance at least ceil((2k−1)/3). Every intermediate distance layer separating endpoints has at least three vertices by 3-connectivity. Euler and minimum degree three yield V≤2f−4 also for nonsimple polytopes, giving the matching universal upper bound. CHECKER.py was inspected, not executed; it checks finite graphs only and is not needed for the argument.
 
-## Literature and limitations
-Primary sources: Z. Li, J. Wang and J. Yu, arXiv:2611.09021v1 (November 6, 2026), https://arxiv.org/abs/2611.09021; V. Klee, *Paths on polyhedra. II*, 1966, https://msp.org/pjm/1966/17-2/pjm-v17-n2-p08-p.pdf; F. Santos, *Diameter of polytopes and the Hirsch Conjecture*, Exercise 1, https://www3.math.tu-berlin.de/combi/MDS/summerschool12-material/santos_problems.pdf. The source construction itself is not new. This does not assert uniqueness, stability, or any higher-dimensional statement. The priority check is bibliographic and provisional; it is not a proof of historical uniqueness.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the simultaneous angle-constrained extremal diameter at every facet count and its explicit pair/height argument in the given chain, not for the realization in isolation or the classical diameter bound. Neither the comparison with those known ingredients nor the indexed candidates establishes prior coverage of the joint claim. This is a best-of-knowledge judgment with unresolved primary-source access risk.
+
+## value
+
+PASS
+
+This resolves whether a stringent geometric restriction costs any graph diameter: it does not, even with arbitrarily small positive dihedral excess and at every facet count. The all-order Lipschitz potential certifies an explicit extremal pair without shortest-path searches and isolates the combinatorial reason the realization is sharp.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:57:43.539823Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Assumptions and Proof; VERIFICATION.md and verify.py (inspected)",
+        "Independent numerical replay: python3 /workspace/branches/recheck_2.py; output /workspace/branches/recheck_2.txt"
+      ],
+      "rationale": "In coordinates z=x(κ/D)^(1/4), the physical time unit is (Dκ)^(-1/2), the generator is ∂zz, and the reset hazard is z². Absorption before a reset has probability u(z), the normalized decaying solution of u''=z²u; the mean duration of a trial solves (−∂zz+z²)q=1, with the zero boundary and bounded solution. The positive Dirichlet Green kernel v(min)u(max), v=u∫₀ᶻu⁻², gives bounded q (in particular q=O(z⁻²) at infinity by the decaying and growing solution asymptotics) and so the killed-diffusion expectation by stopping. Renewal from λ gives M=q(λ)/u(λ), and the unit Wronskian gives (q/u)'=I/u². The time conversion then gives M_phys=(L²/D)m(λ)/λ². For a=−u'/u, b=I/u, one has a'=a²−z² and b'=ab−1. Integration of (u'²−z²u²)'=−2zu² gives a'>0; the positive tilted-integral representation gives a'=1−2 Var(t)<1. With H=(3a²−z²)b−3a/2, h''=2H/u. The gamma values at zero indeed give H(0)>0; at large z, a∼z and b∼1/z give H∼z/2>0. At any positive zero, substitution of b=3a/[2(3a²−z²)] into H' yields z[3a'z−6a−2z³]/[2(3a²−z²)]<0 since a>z and a'<1. A crossing back up is then impossible, proving H>0. Thus F=zh−2m has F''=zh''>0, F(0)=0 and F'(0)=−h(0)<0. Since h'/h=2a−1/b∼z, l'Hôpital gives m∼h/z and F→+∞. It has exactly one positive zero, giving the unique global minimizer via Φ'=F/z³ and the strictly increasing correspondence κ↔λ. Independent 45-digit working precision quadrature of the IVP series u''=z²u with the analytic initial values gives λ≈1.548485175665752, λ⁴≈5.749475240579111 and Φ≈0.939290010529102, agreeing at the stated precision.",
+      "residual_risks": [
+        "Quadrature and the power-series truncation do not serve as interval certification; the uniqueness result is analytic. There is no finite-sensing-range bound, and no assertion for drift, other hazard functions or higher dimensions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The informed-resetting paper discusses the parabolic rate in the large-sensing-range approximation and explicitly indicates no available analytical optimizer expression. The path-integral paper develops the quadratic oscillator approach and gives the stationary spatial law in Eq. (56)."
+        ],
+        "reasoning": "Both frameworks can inform the absorption-time computation; neither inspected source establishes the necessary strict convexity/one-crossing result for this ratio of half-line integrals. No stronger optimization theorem covering it was verified.",
+        "searches": [
+          "arXiv:2409.14419, environmental information search, pp. 9–11",
+          "arXiv:1703.10615, parabolic hazard and path integrals, §III.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2409.14419 (Eq. (8), Fig. 3 and discussion)",
+        "arXiv:1703.10615 §III.2",
+        "Resultary two ranked searches and fec886f1faad"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The oscillator computation concerns killed diffusion between resets; the numerical trajectory study reports a parabolic optimum estimate. The frozen proof additionally uses an inequality for I/u², including the sign of H' at every positive zero of H."
+        ],
+        "reasoning": "The underlying oscillator kernel supplies machinery to derive first-passage quantities. The number of stationary points cannot be read off from that kernel, the first-order condition, or the finite-range approximation; in the frozen result it follows from the additional strict-convexity argument.",
+        "searches": [
+          "arXiv:2409.14419 Eq. (8), parabolic-limit discussion",
+          "arXiv:1703.10615 §III.2",
+          "Frozen Proof §§1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Keidar's finite-b intensity r₀x²/(b²+x²) saturates; it is parabolic in the stated large-b regime, with curvature r₀/b². Roldán–Gupta's quadratic-reset example uses the full line for steady-state confinement. The closest catalogue Brownian-resetting result inspected, fec886f1faad, instead concerns reflecting-interval cover search and the choice of reset point."
+        ],
+        "reasoning": "The exact half-line killing/renewal observable is not a stationary density or cover time. Even when the leading parabolic model is the same, a numerical optimum estimate is not analytic stationarity plus global uniqueness.",
+        "searches": [
+          "Resultary: adaptive/position-dependent quadratic Brownian resetting, half-line first passage to an absorbing target, fixed reset site and unique curvature",
+          "Keidar et al. arXiv:2409.14419, Eq. (8) and Figure 3",
+          "Roldán–Gupta arXiv:1703.10615, §III.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The ranked Resultary results inspected did not give the claimed MFPT formula and optimizer together; fec886f1faad is a different Brownian resetting problem. Fig. 3 gives r₀=5.6b², a numerical estimate not an exact table of optimal values or a uniqueness certificate."
+        ],
+        "reasoning": "A neighboring numerical optimum and classical oscillator function evaluations do not constitute the exact first-passage optimum or tabulate its analytic criterion.",
+        "searches": [
+          "Resultary searches for the optimal parabolic-reset curvature and exact MFPT criterion",
+          "Keidar et al. arXiv:2409.14419, Fig. 3 and surrounding discussion"
+        ]
+      },
+      "rationale": "The literature checked contains the model motivation, a nearby simulation estimate and oscillator/renewal methods, but not the analytic characterization with proof of a unique global optimum for the exact whole-half-line quadratic hazard. The surviving contribution is the explicit MFPT reduction and global optimization, not introduction of adaptive resetting, harmonic-oscillator methods or a finite-range theorem.",
+      "residual_risks": [
+        "Bounded search and primary-source comparison do not settle absolute historical priority or rule out previously unindexed equivalent first-passage work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Numerical approach in the parabolic regime; no verified analytic global characterization",
+          "evidence": [
+            "Finite-b intensity r₀x²/(b²+x²); parabolic approximation for b≫L; estimate about 5.6; caption says r₀=5.6b². The paper notes the absence of an analytical expression for the optimum."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2409.14419",
+          "material_read": "PDF pp. 9–11, offsets 19400–26271, Eq. (8), p. 10 offset 21780 and Fig. 3 caption p. 11 offset 23409",
+          "method": "Open primary PDF",
+          "title": "Adaptive Resetting for Informed Search Strategies and the Design of Non-equilibrium Steady-States",
+          "trigger": "Same search motivation and parabolic-reset optimization estimate"
+        },
+        {
+          "assessment": "Full-line confinement and stationary law, not the half-line first-passage optimum",
+          "evidence": [
+            "The parabolic example obtains a stationary spatial distribution; exact oscillator tools are background for the frozen renewal calculation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1703.10615",
+          "material_read": "§III.2 p. 8, offset 58500, Eq. (56) and surrounding discussion",
+          "method": "Open primary PDF",
+          "title": "Path-integral formalism for stochastic resetting: Exactly solved examples and shortcuts to confinement",
+          "trigger": "Same spatial dependence of reset intensity and exact parabolic oscillator solution"
+        },
+        {
+          "assessment": "Different objective and control parameter in the located statement",
+          "evidence": [
+            "Concerns cover search on a reflecting interval and optimization of the reset site, not half-line absorption with quadratic reset hazard."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-fixed-start-brownian-cover-search-has-a-sharp-endpoint-to-midpoi--fec886f1faad",
+          "material_read": "Catalogue result summary on reflecting-interval cover search; full text not used",
+          "method": "Configured catalogue search",
+          "title": "Fixed-start Brownian cover search has a sharp endpoint-to-midpoint transition",
+          "trigger": "Closest Brownian-resetting result from the catalogue searches"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof",
+        "Keidar et al. Eq. (8) and Fig. 3"
+      ],
+      "rationale": "This addresses a physically motivated optimization previously estimated numerically in the parabolic regime. It provides a universal dimensionless minimizer with proven uniqueness, an exact evaluation recipe for all positive curvatures, and the scaling to physical parameters. The useful advance is the analytic global result rather than extra digits or a claim about the saturating model.",
+      "residual_risks": [
+        "Does not imply the same optimizer for finite-b sensing or quantify approximation of that optimizer."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

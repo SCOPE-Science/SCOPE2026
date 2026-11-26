@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite graph is specified by a reproducible Fano incidence table. All 336 automorphisms are obtained from the proved 168-element binary linear group and an incidence-reversing polarity. The restricted-growth recursion bijects proper color-class partitions with terminating recursion leaves; applying all nonidentity automorphisms is equivalent to the distinguishing definition. Exact counts for 2, 3 and 4 classes are 1, 350 and 29610, respectively; 13692 four-class words pass the symmetry test. Every proper three-class orbit has a nontrivial color-preserving automorphism witness, making the lower bound independently inspectable. A second C++ algorithm directly enumerates all 719052 four-palette proper colorings and returns precisely 328608 distinguishing colorings. Group orbits and stabilizers check the 51-orbit classification. Correctness claims concern a finite exhaustively covered instance, not extrapolation.
+PASS
 
-## Originality — PASS, with residual risk
+The connected incidence graph has a unique bipartition up to swap. A side-preserving point permutation preserves the third point on every line, hence XOR after extending it by zero; the induced automorphisms are GL(3,2) of order 168. Orthogonal complementation for the nondegenerate F_2 pairing supplies the side-swapping polarity and hence 336 maps in total. A proper restricted-growth word encodes each unlabeled partition once; its distinguishing criterion tests pointwise fixation of the classes, not the residual class permutations allowed in an orbit stabilizer. Fresh bounded adjacency-backtracking replay at /workspace/branches/e46d8460-f74c-4b6c-b62c-6d574a6821d2/heawood_check.py, with independent_check.json in that directory, found 336 graph automorphisms, 1/350/29610 proper partitions into 2/3/4 classes, none distinguishing below four, and 13,692 distinguishing four-class partitions. Each gives 24 color namings, hence 328,608 fixed-palette colorings. The orbit census is 51 with sizes 56,84,112 and 168 (16),336 (32). All 51 frozen orbit rows matched, including canonical representatives, profiles, counts and class-permutation stabilizer data. Stabilizers act faithfully on the four classes because the kernel would preserve each named class; the exceptional orders 6,4,3 follow from 336 divided by orbit size. These are exact finite graph claims, not a formula for general incidence graphs.
 
-Collins–Trenk (2006) defines the invariant. Cranston (2018), Figure 3, already provides a Heawood proper distinguishing four-coloring; the present result credits that four-color existence and adds exact totals and full orbit classification. Alikhani–Soltani bounds and the general nonproper distinguishing-polynomial paper concern respectively bounds and a different class of colorings. The standard chromatic polynomial does not determine which proper colorings have trivial pointwise class stabilizers. Searches for equivalent terminology (symmetry-breaking proper colorings, distinguishing partitions, Fano incidence colorings, automorphism orbits) found no direct coverage. An unindexed earlier table remains a material but nondecisive priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The Heawood graph is a canonical high-symmetry girth-six cubic graph. Enumerating all optimal proper color-based symmetry-breaking configurations, not just an example or scalar minimum, is a natural finite classification. The 51 inequivalent patterns and exceptional residual class-permuting symmetries clarify how the graph's 336 automorphisms interact with the constraints. The complete representative and lower-bound witness CSVs make the invariant reusable.
+The supported distinct contribution is the exact census of the optimal proper distinguishing color partitions of the Heawood graph and their orbits. The existence of a proper distinguishing four-coloring and the graph-coloring framework are already established and not treated as new.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The Heawood graph is the natural highly symmetric Fano incidence graph, and the least proper palette is a canonical threshold. A complete classification of its optimal symmetry-breaking colorings records nonuniform stabilizers invisible to existence, and the reproducible representative set gives precise examples for further use. The orbit distribution is not an arbitrary parameter slice or a check of a known chromatic-polynomial value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

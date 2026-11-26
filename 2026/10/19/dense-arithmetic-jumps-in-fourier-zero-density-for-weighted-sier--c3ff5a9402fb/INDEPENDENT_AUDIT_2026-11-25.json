@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:18:55.634179Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, especially lines 35, 45–87 and 99",
+        "Frozen VERIFICATION.md and checker.py (inspected, not executed)",
+        "Corrected complete repairs/4/RESULT.md; independent radius-140 test using squared integer coordinates on denominators 3, 5 and 7"
+      ],
+      "rationale": "Pass for repairs/4/RESULT.md. The original leading coefficient, fixed-weight count and zero classification are correct, but the explicit assertion of nonuniformity in the original scope and limitations is false. In the strict phase domain, the closest integer point to (u,v) is (0,1), and u+1-v>1/2 implies a root-to-lattice distance >1/(2√2); the boundary roots are at least 1/2 from the lattice. Thus no scale above 2√2 R can contribute, uniformly over every weighting. Counting translated square lattices by centered square cells gives a uniform per-coset error O(R/2^k+1); summing through the uniform cutoff and restoring the omitted main terms costs O(R+1), including at large finite h and at the boundary. The compact-local product tail is nonvanishing; strict mask roots have opposite nonsingular Jacobians; the single boundary root is a fold with nonzero linear term and local degree zero. Matching two scale cosets is precisely the signed congruence; matching absorbs all of the sparser coset. Reduction by h gives the disjoint first h levels, while half-integer roots give disjoint levels of one sign. Odd torsion characterizes return, bounded periods give a finite set, and odd denominators approximate any oriented root. Products of nonzero leading Taylor polynomials give the vanishing-factor count for the order, and reflection pairs the nonresonant indices. An independent integer-grid calculation at radius 140 reproduced 30,790, 38,502 and 40,424 for signed periods 1, 2 and 3 and confirmed equality of the truncated full and first-return unions.",
+      "residual_risks": [
+        "The finite reproduction is not evidence for the infinite product or the general uniform bound; these are proved analytically.",
+        "The scientific checker is unchanged and tests finite examples, not arbitrary root phases or the full range of the uniform error."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The affine-IFS transform formalism is classical; the checked spectral analyses use uniform branches. Resultary 7b6a77a84411 treats odd-prime bases, weights (1−2t,t,t) and integer zeros; 4ba2c9ea383a treats a one-dimensional base-3 symmetric family and has resonance-dependent density drops."
+        ],
+        "reasoning": "Neither restricted arithmetic theorem dominates the arbitrary-weight dyadic planar family or the frequency/counting normalization.",
+        "searches": [
+          "Dutkay–Jorgensen arXiv:math/0604547, §2.1 and Remark 2.6",
+          "Resultary 7b6a77a84411 and 4ba2c9ea383a"
+        ]
+      },
+      "checked_sources": [
+        "Frozen and corrected RESULT.md",
+        "arXiv:2508.20809 and arXiv:math/0604547",
+        "Resultary 7b6a77a84411, 4ba2c9ea383a, 2d3222d8e549 and lookup for 1fa80c63-fc59-47bc-8e4d-2f95472a0f98"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known dilation union does not analyze overlap by the first signed return of the two moving roots. The odd-prime density counts lattice zeros with one vanishing factor; the one-dimensional density law uses a distinct ternary mask."
+        ],
+        "reasoning": "The two-root geometry, absorption law and uniform separation from the integer lattice are the ingredients needed for the final coefficient, continuity characterization and uniform remainder; these are not a substitution into the checked theorems.",
+        "searches": [
+          "Chen–Ai arXiv:2508.20809, Eq. (2.2)",
+          "Resultary 7b6a77a84411, density and restriction passage; 4ba2c9ea383a, finding and resonance law"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A uniform affine digit-mask dilation union is a known representation of the zero set. The frozen Result cites the named predecessor for the equal-weight density and multiplicity; the exact ID could not be resolved."
+        ],
+        "reasoning": "Set representation is not the distinct real-zero density for varying weights. The diagonal weight triple is one case (h=1); it is not counted as new.",
+        "searches": [
+          "Resultary: Fourier-zero multiplicities and phase indices, Sierpiński gasket, 1fa80c63-fc59-47bc-8e4d-2f95472a0f98",
+          "Chen–Ai arXiv:2508.20809, §2 Eq. (2.2)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact entry for the named predecessor was resolved. The 18 October indexed result 2d3222d8e549 is for the uniform eight-digit base-3 carpet, with oval-plus-lattice zero sets and order-2r strata; it is not an exact entry for this dyadic gasket."
+        ],
+        "reasoning": "An exact match for the weighted density law was not found in the checked index. The carpet is a materially different digit mask, and failed lookup of the precursor is not negative priority evidence.",
+        "searches": [
+          "Resultary exact title and ID of the equal-weight note; gasket, Fourier zero density and zero-strata searches",
+          "Resultary indexed comparator 2d3222d8e549"
+        ]
+      },
+      "rationale": "For the corrected final claim, credit the known mask-product framework and exclude the equal-weight specialization as an originality claim. No inspected source proves the arbitrary-positive-weight dyadic real-frequency signed-return law, its discontinuity set and the repaired uniform estimate. Closely related indexed weighted density laws use different bases and/or dimensions, dependent weights, or lattice frequencies. The named equal-weight predecessor could not be verified independently, but even the full uniform-weight multiplicity and density law as described in the frozen record does not cover the weighted result.",
+      "residual_risks": [
+        "The exact equal-weight note remains unresolved; absence of an indexed hit is not priority evidence.",
+        "An unindexed general density theorem for moving mask roots could overlap; the assessment is bounded by the inspected sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The known zero-set representation does not give the general weighted density law",
+          "evidence": [
+            "Eq. (2.2) expresses zeros as iterated dilates of a digit-mask zero set; the stated setup is uniform and addresses spectrality."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2508.20809",
+          "material_read": "Abstract and §2, Eq. (2.2), PDF p. 5 (offset 17950)",
+          "method": "OA primary PDF passage",
+          "title": "On the spectral properties of a class of planar Sierpinski self-affine measures",
+          "trigger": "Same digit-mask dilation framework in planar Sierpiński measures"
+        },
+        {
+          "assessment": "Classical framework, not the arbitrary-weight density statement",
+          "evidence": [
+            "The affine Fourier relations are established; Remark 2.6 identifies the equal-weight focus of the analysis."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0604547",
+          "material_read": "§2.1 and Remark 2.6 (offsets 15200 and 16608)",
+          "method": "OA primary PDF passages",
+          "title": "Fourier frequencies in affine iterated function systems",
+          "trigger": "Potential antecedent for the product and affine zero structure"
+        },
+        {
+          "assessment": "Real thematic overlap, but later dated and not the dyadic all-real-frequency theorem",
+          "evidence": [
+            "Odd prime p, two equal weights, centered-square integer-zero density 2/[p^{2(k−1)}(p²−1)] at exceptional weights; the stated lattice zeros each have only one vanishing factor."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-thomae-law-and-laminar-fourier-kernels-for-weighted-triangular--7b6a77a84411",
+          "material_read": "RESULT.md offset 850: exact density, parameter scope and excluded cases",
+          "method": "Local mirrored primary record",
+          "title": "A Thomae law and laminar Fourier kernels for weighted triangular measures",
+          "trigger": "Closest indexed weighted triangular density-jump overlap"
+        },
+        {
+          "assessment": "Later, analogous one-dimensional family, not claim coverage",
+          "evidence": [
+            "Base 3 with weights ((1−w)/2,w,(1−w)/2), a dense resonance set with density drops, and multiplicity-weighted counts."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-arithmetic-multiplicity-and-popcorn-density-of-fourier-zeros-for--4ba2c9ea383a",
+          "material_read": "RESULT.md offset 1450",
+          "method": "Local mirrored primary record",
+          "title": "Arithmetic multiplicity and popcorn density of Fourier zeros",
+          "trigger": "Dense resonance jumps and multiplicity"
+        },
+        {
+          "assessment": "Different carpet and scale",
+          "evidence": [
+            "Uniform eight digits, base 3; zeros have order 2r and index zero in its stated strata."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-isolated-fourier-zeros-and-ternary-multiplicity-strata-of-the-un--2d3222d8e549",
+          "material_read": "RESULT.md Finding (1)–(3), offsets 0–2590",
+          "method": "Local mirrored primary record",
+          "title": "Isolated Fourier zeros and ternary multiplicity strata",
+          "trigger": "Indexed close predecessor on zero multiplicities"
+        },
+        {
+          "assessment": "Exact scope unresolved; equal-weight specialization is not relied on as original",
+          "evidence": [
+            "The frozen bibliography attributes the equal-weight multiplicity/density result to this note; the index lookup did not identify its primary file."
+          ],
+          "identifier_or_url": "1fa80c63-fc59-47bc-8e4d-2f95472a0f98",
+          "material_read": "No independently located primary passage; attribution read in frozen RESULT.md lines 93–95 and 105",
+          "method": "Local index search by ID, title and subject",
+          "title": "Zero multiplicities and phase indices of the Sierpiński-gasket Fourier transform",
+          "trigger": "Named equal-weight predecessor"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected RESULT.md, Finding and proof steps 3–6",
+        "Chen–Ai §2 for the role of mask-zero sets in spectrality",
+        "Resultary 7b6a77a84411 and 4ba2c9ea383a for nearby arithmetic regimes"
+      ],
+      "rationale": "A standard Fourier zero-set representation does not tell how many distinct orthogonality frequencies are created by repeated scales. This natural family has an exact arithmetic correction to the density, with dense but individually quantifiable jumps, unbounded orders only in the resonant strict regime, and an isolated degree-zero boundary regime. The uniform counting error makes comparisons across weights meaningful without presuming uniform continuity of the limiting density. This is a complete density classification for a specified weighted family, not just a computation at equal weights.",
+      "residual_risks": [
+        "Not a spectrality or Fourier-basis result, and not a classification of every local index at resonant multiple zeros."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

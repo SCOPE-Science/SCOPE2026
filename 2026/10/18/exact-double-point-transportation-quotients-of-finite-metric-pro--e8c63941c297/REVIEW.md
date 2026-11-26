@@ -1,19 +1,21 @@
-# Review: exact double-point transportation quotients
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The signed distance profile on a sum-metric product is the sum of coordinate-marginal profiles. Taking half the oscillation is exactly additive because the product contains every tuple of coordinate maximizers and minimizers. Coordinate-line lifts prove surjectivity and hence the canonical normed-quotient isometry. In each equilateral factor the centered distance profile equals the negative weighted marginal, while two-level cuts characterize every vertex and ordered-pair inequalities every facet. Standard polarity yields the stated \(\ell_1\)-sum face counts. The four-point interaction has all coordinate marginals zero, proving non-normativity for two or more factors. Eight exact-arithmetic product checks and exact enumerations through five equilateral factor points corroborate the proof.
+PASS
 
-## Originality
+The signed distance profile on the product is the sum of profiles of the one-coordinate marginals. Its maximum and minimum separately split because all coordinate choices coexist, so half the oscillation adds, with exactly the stated normalization. A zero-sum measure on a factor lifts along its anchored coordinate line and has zero other marginals. This proves surjectivity, identifies the kernel as the preimage of the factor kernels and gives the dimension by rank-nullity. The alternating signed rectangle proves strict degeneracy even when factors have trivial kernels. For an equilateral factor the profile is minus lambda times the signed mass. In the zero-sum hyperplane each ordered difference inequality has a point with only that inequality tight, so all are facets. At a vertex the tight pairs join maxima and minima; an intermediate coordinate would leave a free direction modulo constants. A nontrivial two-level cut is uniquely fixed by its tight equalities and zero sum. The convex hull of the embedded factor balls has exactly their embedded vertices, and its polar is the product of their polars, giving the claimed counts including q_i=2 and s=1. Independent exact check `python /workspace/checks.py 4`: a four-cycle factor (already degenerate) times a weighted equilateral triple has factor ranks 2,2 and rank 4; all 1,320 signed contrasts of type 2e_i-e_j-e_k agree. Exact raw profile-difference inequalities on a weighted 2-by-3 quotient section yield 8 vertices and 12 facets. These are corroborations, not the proof for arbitrary factors.
 
-**PASS, with bounded bibliographic risk.** The double-point seminorm is from Melleray--Petrov--Vershik, and Ostrovska--Ostrovskii already exhibit the four-cycle kernel and study double-point spaces on trees. Cartesian-product distance matrix structure and rank calculations are known from the matrix literature. These are credited and not asserted as separate discoveries. The inspected open full texts and targeted mathematical-record searches did not present the complete product seminorm identity, the isometric factor-quotient decomposition, or the resulting weighted Hamming quotient facial formulas. The relevant Bapat--Kurata paper was accessible only by abstract, so a stronger uninspected algebraic statement is a residual risk.
+## originality
 
-## Value
+PASS
 
-**PASS.** The theorem completely describes a motivated compatible seminorm on all finite sum-metric products, detects the entire invisible higher-interaction subspace, and determines exact Banach-space and polyhedral invariants of weighted Hamming products. The distinction from the much larger ordinary transportation space is structural rather than a routine numerical recomputation.
+The supported distinct claim is the normed marginal quotient for the finite sum-metric product, with its concrete Hamming geometry, not the double-point definition, the four-cycle kernel, the rank phenomenon alone, or single equilateral factor combinatorics. No available inspected theorem covers the full metric quotient claim. The conclusion is bounded by the stated comparison and access limits.
 
-## Sources and limits
+## value
 
-Primary motivation: Ostrovska--Ostrovskii, arXiv:1902.10334 (first posted 2019-02-27), sections 1.2, 4, and 5; foundational definition: Melleray--Petrov--Vershik, arXiv:math/0611049, section 1.2.2. Relevant matrix comparisons: Bapat--Kurata, DOI:10.1016/j.laa.2018.10.008 (abstract only); Sarma, arXiv:1901.01904; Doust--Wolf, arXiv:2109.07052. The theorem concerns finite, full, sum-metric products and double-point quotient unit balls only. Independent mathematical audit remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural distance-test norm forgets interactions on product metrics. The precise quotient separates the interactions from factor-level degeneracies and determines all remaining norm geometry, not just a rank or a small example. Hamming products give usable exact facet and vertex counts in that quotient and clarify why ordinary transportation-cost geometry is a different problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

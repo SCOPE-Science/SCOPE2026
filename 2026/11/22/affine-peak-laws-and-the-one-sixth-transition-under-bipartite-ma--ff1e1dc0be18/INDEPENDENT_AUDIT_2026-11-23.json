@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:43:39.576140Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof and scope",
+        "VERIFICATION.md and verify_peak_law.py (inspection)",
+        "Independent exact enumeration over all (2n)! orders for 2≤n≤4"
+      ],
+      "rationale": "The descending-order side sequence gives q_{n,k} by sampling without replacement. Given initial run k, the first opposite-shore vertex is matched to a vertex outside the run with probability m(n-k)/n², and its mate wins the ensuing relative-order race against the other n−1 opposite-shore vertices with probability 1/n. The possible opposite-shore extra peak instead has unconditional (given starting shore) probability m/n² and forces k=1. To make disjointness explicit: if this opposite-shore peak is the first vertex of its shore, its unique mate is the globally first vertex and cannot be a late peak; otherwise each extra peak would have to precede the other. This fills the terse argument in the frozen proof without altering the result. The exact pgf and mixture follow. Expanding factors 1−j/(2n−j) using a quadratic bound in the sum of deficits gives the stated uniform polynomial remainder times 2^−k for k≤n/2; beyond there S≤L+1 and the geometric tail bound applies. The positive correction mass is 1/8+11ρ/8+max(1/4−3ρ/2,0), giving 17/48 at ρ=1/6. The degree mean follows by the probability 1/(degree+1) that a vertex is highest in its closed neighborhood. Direct independent permutation counts for all m at n=2,3,4 matched; the uploaded verifier was inspected, not run.",
+      "residual_risks": [
+        "The minimizer is for the leading coefficient, not a claim of finite-n optimality at an exact integer deletion count."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 9 treats independent-edge G(n₁,n₂,p), conditional on interleaving for its pgf and with a fixed-p limit. Theorems 1–3 cover the first two factorial moments, not a closed distribution for this family."
+        ],
+        "reasoning": "Setting p=1 is the undeleted baseline only. A scalar p cannot cause a specified nonempty matching alone to be absent almost surely, and the unconditional independent-edge law does not give the needed conditional law.",
+        "searches": [
+          "de Panafieu et al., Proposition 9 and Theorems 1–3",
+          "Public literature search for random-order peak distributions on matching-deleted bipartite graphs"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: 2026/11/22/SCOPE-affine-peak-laws-and-the-one-sixth-transition-under-bipartite-ma--ff1e1dc0be18 (same record)",
+        "https://arxiv.org/pdf/2611.17989v1",
+        "Baldi–Rinott–Stein, Stanford EFS NSF 306 (bibliographic lead only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 1 gives the reported finite mean by substituting the two degrees. Propositions 8 and 15 are moments for the independent-edge model."
+        ],
+        "reasoning": "Mean and some endpoints are inherited, but the affine-mixture mechanism and summable first-order corrections require the matching constraint and are not consequences of the inspected moment or fixed-density limit results.",
+        "searches": [
+          "de Panafieu et al., Theorems 1–3 and Propositions 8, 9, 15"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary paper identifies monochrome recolouring time through graph local maxima. The exact catalogue hit is the assigned record itself."
+        ],
+        "reasoning": "The graph-ranking and recolouring formulations refer to the same random count up to the deterministic complement, so a covering result in either would count. The inspected recolouring source does not give the general matching-deletion law.",
+        "searches": [
+          "Resultary matching-deleted biclique peak law and one-sixth total-variation transition",
+          "de Panafieu et al., monochrome recolouring and random-order peaks"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue match is identical to the frozen claim. H_{3,3} is C6 and is covered by the prior cycle distribution."
+        ],
+        "reasoning": "The known six-cycle entry and the complete-bipartite baseline do not tabulate all n,m or the leading TV error.",
+        "searches": [
+          "Resultary matching-deletion peak distribution",
+          "de Panafieu et al., Corollaries 3–5 and Theorem 7 on paths and cycles"
+        ]
+      },
+      "rationale": "The supported distinct claims are the exact all-m matching-deletion law and its uniformly sharp total-variation correction and transition. Neither the local-maximum reduction, general moments, nor the C6 special case is distinct.",
+      "residual_risks": [
+        "The oldest cited normal-approximation report was not inspected in full; a follow-up catalogue search was rate-limited. No exhaustive historical-priority conclusion is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial coverage only",
+          "evidence": [
+            "Degree mean and cycle special case are covered; Prop. 9 uses independent bipartite edges, PDF text offset 53863."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.17989v1",
+          "material_read": "Theorems 1–3 pp. 7–8; Corollaries 3–5 and Theorem 7 pp. 11–12; Propositions 8–9 pp. 14–15 and 15 p. 33",
+          "method": "Bounded primary PDF text passages",
+          "title": "The Exact Stabilization Time of Self-Stabilizing Coloring",
+          "trigger": "Same observable and plausible cycle/bipartite coverage"
+        },
+        {
+          "assessment": "Identical record, not independent or competing coverage",
+          "evidence": [
+            "Same graph, law and one-sixth transition."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-affine-peak-laws-and-the-one-sixth-transition-under-bipartite-ma--ff1e1dc0be18",
+          "material_read": "RESULT.md source comparison, offset 7518",
+          "method": "Local mirror",
+          "title": "Affine peak laws and the one-sixth transition under bipartite matching deletion",
+          "trigger": "Strongest catalogue match"
+        },
+        {
+          "assessment": "Unresolved, not a negative full-text comparison",
+          "evidence": [
+            "Stanford report EFS NSF 306, 1988."
+          ],
+          "identifier_or_url": "https://statistics.stanford.edu/technical-reports/normal-approximation-number-local-maxima-random-function-graph",
+          "material_read": "Bibliographic lead, no full text compared",
+          "method": "Access limitation noted from frozen record",
+          "title": "A Normal Approximation for the Number of Local Maxima of a Random Function on a Graph",
+          "trigger": "Older general local-maxima report"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, exact pgf and TV coefficient",
+        "de Panafieu et al., bipartite and colouring comparison"
+      ],
+      "rationale": "An exact finite all-order law for a natural deterministic perturbation of a familiar graph gives more than a moment or a limiting distribution: deletion interpolates the entire law, and the sharp error quantifies a nonmonotone choice of density for geometric approximation. This is useful independently of its colouring interpretation.",
+      "residual_risks": [
+        "No asserted extension to arbitrary removed edges or unequal shores."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

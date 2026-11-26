@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:55:46.469294Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Equal rates give a uniform next available triple and P(2 from X)=(X-1)/(s-2). For d=X-Y the conditional mean contracts by (s-3)/(s-2); the product p_k is the displayed gamma ratio and is uniformly asymptotic to (s_k/(2n))^(1/3) at both cutoffs (shifting the lower cutoff by at most two sites is immaterial). The stopped martingale d_k/p_k has variance O(n) and absorption above n^(1/2)-3 would require magnitude of order at least n^(2/3), hence has probability O(n^(-1/3)). To the upper cutoff, the deterministic variance sum is asymptotic to 2n by a mesh-three integral; the expected imbalance correction is O(n^(1/2)), and the normalized maximum step is o(1), giving the martingale CLT. The further normalized variance to n^(1/8) is O(n^(-1/6)); Doob controls the entire interval. Survival to that lower cutoff forces normalized imbalance o(1), an event of vanishing probability because the frozen Gaussian has no atom at zero. At absorption within the interval R_n=|d| and hence |d/p_k|/sqrt(2n)=(R_n/(2n)^(1/4))^(2/3)(1+o(1)). The CDF and density follow. 'Unique terminal state' is read per trajectory, not as a deterministic common configuration. `python3 /workspace/reproduce.py` independently checked the labeled transitions for n=2..6; at n=6 it gave R=0 with probability 25/28 and R=3 with probability 3/28. This is not a simulation proof of the limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bennett–Bohman permits D=3n(n-1)/2 and maximum codegree 2n-2, yielding only a coarse unmatched bound n^(3/4+o(1)). The graph-deposition source treats monomers and dimers; spatial-trimer RSA treats flat collectors. The exact critical-window theorem for complete bipartite paths, unlike these general works, gives the normalized residue law itself."
+        ],
+        "reasoning": "The broader older matching estimate does not imply the distribution. The indexed critical-window theorem does.",
+        "searches": [
+          "Bennett–Bohman arXiv:1210.3581, Theorem 1.1",
+          "Penrose–Sudbury arXiv:math/0503519",
+          "Cieśla–Barbasz arXiv:1309.7021",
+          "Resultary 0215db9f67be critical-window theorem"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_adsorption.py",
+        "Resultary 0215db9f67be",
+        "arXiv:1210.3581",
+        "arXiv:math/0503519",
+        "arXiv:1309.7021"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For A_m+B_m=m with (A_m-B_m)/sqrt(m) tending to mu, the exact compared statement is R_m/m^(1/4) converges in distribution to |Z+mu|^(3/2)."
+        ],
+        "reasoning": "Set A_m=B_m=n and m=2n and take mu=0. This gives the exact power, constant, and limiting distribution along all balanced sizes. The CDF and density are only a change of variables and add no independently distinct claim.",
+        "searches": [
+          "Local mirror of SCOPE-a-quarter-power-jamming-law-for-random-three-site-adsorption-on--0215db9f67be/RESULT.md, Finding and Assumptions, offset 0; Relationship to prior work, offset 7958"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A length-two path in the complete bipartite graph specifies exactly one mixed unordered triple up to reversal. Independent exponential first-attempt clocks and equal-rate Poisson attempts give the same accepted chain: a blocked triple can never again become vacant."
+        ],
+        "reasoning": "The finite path model of 0215db9f67be and the mixed-triple RSA model being audited have the same terminal-count law at equal class sizes.",
+        "searches": [
+          "Resultary: quarter-power jamming vacancy law, complete bipartite three-site path adsorption, mixed-triple greedy matching and two-color removal"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned distinct record 0215db9f67be. Its Finding and model assumptions were opened. The frozen RESULT.md also describes d94b8bba-d564-45c1-b2bd-743b0b6a5dfc as a perfect-coverage profile across starting compositions; that description was not independently retrieved."
+        ],
+        "reasoning": "The decisive match is a theorem in the catalogue, not an extrapolation from a finite table. The cited across-composition profile, as described, does not give the entire terminal random variable.",
+        "searches": [
+          "Resultary: quarter-power terminal residue; balanced substrate perfect coverage across compositions; complete substrate residual vacancy laws"
+        ]
+      },
+      "rationale": "A distinct indexed result states the same terminal law in a stronger critical-window family. Its theorem specializes exactly to the entire balanced claim. This is a failure of distinct claim coverage against the current record set, not a demonstration that the compared record historically preceded the frozen work, nor an assertion of dependence in either direction.",
+      "residual_risks": [
+        "The stronger exact overlap is indexed later; neither the date nor this audit establishes which scientific disclosure was first or whether one is derivative.",
+        "The cited perfect-cover record was not retrieved independently; the limited search does not settle possible prior diminishing-urn coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger critical-window statement covers all of the target distribution; record relationship and historical priority not established.",
+          "evidence": "Critical-window residue |Z+mu|^(3/2), same complete bipartite path dynamics and same normalization by initial total number of sites.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-quarter-power-jamming-law-for-random-three-site-adsorption-on--0215db9f67be/RESULT.md",
+          "material_read": "Finding and assumptions offset 0, proof near 6400, relationship to prior work offset 7958",
+          "method": "Resultary search and local-mirror bounded passages",
+          "title": "A quarter-power jamming law for random three-site adsorption on complete bipartite networks",
+          "trigger": "Exact mixed-triple terminal observable and quarter-power law"
+        },
+        {
+          "assessment": "Broader process but only a weaker bound here.",
+          "evidence": "The bound in terms of degree and codegree gives unmatched order at most n^(3/4+o(1)) in the audited model.",
+          "identifier_or_url": "https://arxiv.org/pdf/1210.3581",
+          "material_read": "Theorem 1.1, p.2, offset 7143",
+          "method": "Bounded OA inspection",
+          "title": "A natural barrier in random greedy hypergraph matching",
+          "trigger": "Identical dynamics in general hypergraph matching language"
+        },
+        {
+          "assessment": "Different adsorbates and graph observables.",
+          "evidence": "Graph monomer blocking and edge dimers, not mixed 3-uniform triples.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0503519",
+          "material_read": "Introduction and model definitions, pp.2–3, offset 5143",
+          "method": "Bounded OA inspection",
+          "title": "Exact and approximate results for deposition and annihilation processes on graphs",
+          "trigger": "Graph adsorption and limit laws"
+        },
+        {
+          "assessment": "Different geometry and observable.",
+          "evidence": "Trimer/hexamer spatial placement on a two-dimensional collector, not a complete bipartite site chain.",
+          "identifier_or_url": "https://arxiv.org/pdf/1309.7021",
+          "material_read": "Model and results, pp.2–3, offset 4443",
+          "method": "Bounded OA inspection",
+          "title": "Random sequential adsorption of trimers and hexamers",
+          "trigger": "Trimer RSA by name"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "This would be a substantive terminal distribution for a natural greedy matching model: it gives a non-Gaussian scale substantially smaller than the general matching bound and explains how a mesoscopic Gaussian imbalance controls boundary depletion. No independent valuable remainder beyond the covered law is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

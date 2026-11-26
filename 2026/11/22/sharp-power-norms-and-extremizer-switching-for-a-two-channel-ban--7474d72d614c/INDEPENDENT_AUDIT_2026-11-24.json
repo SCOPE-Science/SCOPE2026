@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:43:57.456833Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–24 and 26–57; VERIFICATION.md and static inspection of check.py",
+        "Independent replay: python3 /workspace/review-evidence/reproduce.py 5; both complex impulse constructions, three lags and five p values including 1, 2 and ∞"
+      ],
+      "rationale": "P,Q are complementary projections of norm one: the triangle inequality and the two-coordinate power-mean inequality bound each, and a nonzero vector in its range attains one. Their products with each other vanish and they commute with S, giving TR=RT=S and T^k=P+S^k Q. The sign isometry diag(1,−1) conjugates T to R. For H(a,b)=(a+b,a−b), put u=|a|²+|b|² and v=2 Re(a conjugate(b)). The sum (u+v)^(p/2)+(u−v)^(p/2) is bounded above by 2u^(p/2) below p=2 by concavity (reverse above p=2); then u^(p/2)≤|a|^p+|b|^p (reverse above p=2), strictly unless ab=0 for p≠2. Applying that bound to H(a,b) and using H²=2I provides the opposite bound, with equality iff a=±b. This handles complex phases. The (a,b) sequences become (a,S^k b); the sum of their individual p-powers is invariant. Comparing the two sharp bounds supplies the desired upper power norm, with p=2 exact by Parseval and p=∞ bounded by the absolute row sums. A single impulse (1,0) attains the below-2 norm including p=1, and (1,−1) at zero plus (1,1) at k attains the above-2 norm including ∞. For finite non-Hilbert p the norm gaps are sums of nonnegative terms. Below 2, equality demands a_n=±b_n on the input and a_n b_(n−k)=0 on the output. Above 2 it demands a_n b_n=0 on the input and a_n=±b_(n−k) on the output with a_n=0 where the delayed b vanishes. These give the two exact support rules, including n<k. The supplementary spectrum follows by similarity to I⊕S: the shift has norm one, and the summable functional with coefficients λ^n witnesses every |λ|<1 in its spectrum for each p, including ∞.",
+      "residual_risks": [
+        "The finite replay is corroboration only. The iff classification is for T^k and 1<p<∞ with p≠2; it does not assert endpoint equality sets."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jana–Pal–Roy arXiv:2611.11536v1, title and bibliographic description, and frozen RESULT.md lines 63–69: Banach-space Wold isometries and BCL-type models; direct theorem passage not retrieved.",
+          "For every p≠2 the factors here fail to be isometries, and even fail to be contractions."
+        ],
+        "reasoning": "A theorem requiring the factors to be Wold isometries cannot supply their off-Hilbert amplification law. At p=2 the calculation gives the familiar isometric model, and no novelty there is claimed.",
+        "searches": [
+          "arXiv 2611.11536 Jana Pal Roy \"BCL model\" commuting Banach space Wold isometries theorem block Toeplitz",
+          "arXiv:2611.11536v1 OA HTML and PDF"
+        ]
+      },
+      "checked_sources": [
+        "Resultary skew-min index b21d2f63309b and exact-ID comparison",
+        "Frozen RESULT.md lines 26–55 and 63–75; Clarkson and Maligranda–Sabourova bibliographic records; arXiv:2611.11536 metadata"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Clarkson (1936), doi:10.2307/1989630, and Maligranda–Sabourova (2007), doi:10.1002/mana.200610552, are the scalar antecedents according to frozen RESULT.md lines 26–34, 65 and its references. The latter DOI metadata was checked, but full mixed-norm passages were not retrieved.",
+          "The input and output pointwise equality conditions proved in this audit must hold simultaneously. For p>2 this requires a shifted copy on the support of b plus a zero condition everywhere else; for p<2 the copy is on the same support and delay makes the output pair disjoint."
+        ],
+        "reasoning": "Scalar Walsh/Clarkson results really imply the two factors in the similarity upper bound and local equality conditions. They do not alone assert that both bounds are attainable across the same shift or record the global equality constraints; that application and its exact support characterization are the limited increment.",
+        "searches": [
+          "Clarkson 1936 \"Uniformly convex spaces\" original paper inequalities Lp equality cases full text",
+          "Maligranda–Sabourova doi:10.1002/mana.200610552 OA lookup"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "b21d2f63309b indexes all norming pairs for the real L^p skew-min problem, including disjoint supports below 2 and balanced sign-splitting above 2, plus rigidity. Its full statement could not be retrieved.",
+          "Frozen RESULT.md lines 36–55 reduces this operator to H diag(I,S^k) H/2."
+        ],
+        "reasoning": "Similarity gives the product bound, but sharpness needs compatible extremizers before and after a unilateral delay. The related skew-min geometry is prior overlap, not evidence for the same delayed operator. The new sequence constraints involve both n and n−k and use simultaneous equality on two distinct pairings.",
+        "searches": [
+          "Resultary: sharp powers Haar two-channel Banach shift extremizers",
+          "Resultary: b21d2f63309b uniform rigidity skew-min extremizers real Lp definition function of linear combination norm skew-min constant"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned 7474d72d614c result is not an independent catalogue match; the distinctive other hit b21d2f63309b is indexed as a uniform real skew-min norming-pair theorem, not as an all-k unilateral shift formula.",
+          "Classical two-point norms give the numerical factor as the condition number of H; frozen RESULT.md lines 26–34 explicitly credits the scalar bounds."
+        ],
+        "reasoning": "The same constant for a two-point matrix or an auxiliary invariant does not give sharpness of the product bound for this operator, or the lag-separated norming sets. No distinct exact operator-specific table was verified.",
+        "searches": [
+          "Resultary: sharp powers Haar two-channel Banach shift extremizers",
+          "Resultary: Uniform rigidity of skew-min extremizers in real Lp all norming pairs disjoint supports below 2 balanced sign splitting above 2"
+        ]
+      },
+      "rationale": "The two-point matrix norm, its scalar equality cases, and the Hilbert-space isometric model are not distinct claims. The supported increment is their exact application to the delayed complementary channels, including complete sequence-level compatibility, attainment at every lag, and its change across p=2. The strongest distinct indexed geometry is an extremizer result for a real skew-min problem, with material overlap in the support dichotomy, but no verified implication of this delayed-operator law.",
+      "residual_risks": [
+        "Full relevant passages in the real skew-min record, Clarkson literature and Banach Wold paper were not independently retrieved. A broader Haar/polyphase or mixed-norm equality theorem could establish equivalent coverage. The index searches do not settle priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material geometry overlap, but not a verified implication of the complex unilateral-delay claim",
+          "evidence": "Indexed real norming-pair theorem: disjoint supports below 2, balanced sign-splitting above 2; no lag or delayed operator in its statement.",
+          "identifier_or_url": "2026/11/8/SCOPE-uniform-rigidity-of-skew-min-extremizers-in-real-l-p--b21d2f63309b",
+          "material_read": "Catalogue statement; decisive full passage not retrieved",
+          "method": "Semantic and exact-ID lookup, compared problem and support geometry",
+          "title": "Uniform rigidity of skew-min extremizers in real L^p",
+          "trigger": "Closest indexed extremizer-switch theorem"
+        },
+        {
+          "assessment": "Isometric-factor setting contextualizes, not verified to cover off-Hilbert power distortions",
+          "evidence": "Title identifies commuting Wold isometries, whereas the audited factors are not isometries off p=2.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.11536",
+          "material_read": "Bibliographic search and related-work comparison in frozen RESULT.md lines 63–69; full theorem inaccessible",
+          "method": "Exact-title lookup and OA HTML/PDF attempts",
+          "title": "On Słociński-type decomposition, BCL model and unitary extension of commuting Banach space Wold isometries",
+          "trigger": "Motivating Toeplitz factorization literature"
+        },
+        {
+          "assessment": "Scalar input credited; broader mixed-norm or delayed equality coverage remains unverified",
+          "evidence": "Frozen RESULT.md lines 26–34 credit the sharp two-point comparison; it is rederived for complex scalars in the correctness assessment.",
+          "identifier_or_url": "https://doi.org/10.1002/mana.200610552",
+          "material_read": "Metadata and frozen comparison, not full paper",
+          "method": "DOI lookup and lawful OA attempt",
+          "title": "On Clarkson’s inequality in the real case",
+          "trigger": "Underlying sharp two-point norm and candidate mixed-norm generalization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 10–16, 40–55 and 63–69"
+      ],
+      "rationale": "The pair is the canonical two-channel equal-weight projection splitting, motivated by testing when a Hilbert shift factorization behaves isometrically in a Banach norm. The unit shift product conceals a real loss of contractivity. Exact uniform-in-power distortion and the complete changed support pattern go beyond a single finite witness or a scalar norm calculation: they identify all extremizing sequences for this motivating model without asserting a general factorization theorem.",
+      "residual_risks": [
+        "Only the fixed Haar pair is classified; no general projection or near-extremizer statement."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

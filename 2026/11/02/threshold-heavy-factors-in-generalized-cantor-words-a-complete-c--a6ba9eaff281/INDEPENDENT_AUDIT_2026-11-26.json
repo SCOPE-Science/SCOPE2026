@@ -1,0 +1,167 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:08:06.960450Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Weighting each binary addition column by (b-1)b^r gives the carry excess (b-1)(b-2) sum_r c_r b^r. It is nonnegative and vanishes iff there is no common set bit. The span of the first k ones in any qualifying interval is therefore at least E_b(k-1); equality forces both endpoints to be ones and the starting one-index i to satisfy i & (k-1)=0. The prefix attains the bound, and strict increase of E_b excludes an extra one. Writing i=a+2^h t, disjoint bits imply a+k-1<2^h, so all k offsets depend only on a; letting t vary gives infinite occurrences. For two different allowed residues, let q be the least differing bit. The common increment r=2^q-(a mod 2^q) is between 1 and k-1 since k-1>=2^{h-1}. Exactly one of a+r and a'+r then has valuation q, and their consecutive-one gaps differ by the formula gap(s)=(b-2)b^{nu_2(s)}+1. Thus the words are distinct and the count is the number of free bits. The k=1 case is the single word 1. The threshold computation makes each prefix maximum-weight at its length, the gaps at powers of two are unbounded, and sliding to a zero run realizes every intervening weight. The jump formulas follow by binary digit sums. Independent direct digit membership and finite window scans agreed for b=4,5,6, k=1–8, and lengths 1–30 for the Abelian checks. The supplied verify.py and recorded 102-case run were inspected, not executed. The infinite result rests on RESULT.md lines 42–72, not the finite checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The accessible bibliographic description of Lü–Chen–Wen concerns generalized Cantor sequences and 2-Abelian complexity; neither hypotheses nor theorem statements could be checked in full.",
+          "Parikh-collinear results assume proportional image-count vectors; the audited 0 and 1 image vectors are (b,0) and (b-2,2).",
+          "The inspected ell-Abelian regularity result concerns 2-automatic words and regularity, not a set of extremal factors."
+        ],
+        "reasoning": "Regularity or automaticity of a class-counting function does not give an exact ordinary-factor fiber over a particular Parikh vector. The identified general Parikh-collinear theorem also does not have the audited morphism in its domain.",
+        "searches": [
+          "Lü–Chen–Wen DOI 10.1016/j.tcs.2022.09.025, generalized Cantor 2-Abelian complexity",
+          "Rigo–Stipulanti–Whiteland arXiv:2405.18032, Parikh-collinear morphisms",
+          "Parreau et al., 2-regularity of ell-Abelian complexity of 2-automatic sequences"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:1703.04063, 1811.06273 and 2405.18032",
+        "Lü–Chen–Wen DOI 10.1016/j.tcs.2022.09.025 (limited access)",
+        "Parreau et al., EJC 22(1), 2015",
+        "Resultary a2e5375cb6f9, a684306a38a7 and e7fed85fd174"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier classical maximum-weight recurrence plus prefix normality determines the first-attainment length in base 3. Increasingly long all-zero factors and a sliding window then determine all weights.",
+          "The palindromic classification describes reversal-invariant factors, not the indexed collection of words maximizing weight at first-attainment lengths."
+        ],
+        "reasoning": "The ancillary maximum-weight and Abelian identities are natural extensions or consequences in the audited framework, and are not the decisive originality claim. Neither prior statement provides the simultaneous carry-free start condition, residue injectivity, and resulting exact multiplicity across all k and b>=4.",
+        "searches": [
+          "Chen–Lü–Wu arXiv:1703.04063 Lemma 2 and Proposition 1",
+          "Cicalese–Lipták–Rossi arXiv:1811.06273 prefix-normal relation to Abelian complexity",
+          "Same-family Resultary a2e5375cb6f9 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The classical Cantor paper gives Lemma 2 (prefix maximal, zero minimum) and Proposition 1 (Abelian recurrence) for base 3.",
+          "For binary words, prefix normality controls the threshold position via the maximum prefix weight. All words classified at a given threshold here have one common Parikh vector."
+        ],
+        "reasoning": "The maximum-ones/prefix-normal and Abelian-size views capture minimum attainment length but do not recover distinct factor words or their full start-index sets. The power-of-two valuation gap separates equal-Parikh factors and is extra information.",
+        "searches": [
+          "Resultary: generalized Cantor language, exact Abelian spectra and threshold-heavy factors",
+          "arXiv:1703.04063, Cantor sequence maximum-weight factors",
+          "arXiv:1811.06273, infinite prefix-normal words"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-family exact index hit is a two-digit Cantor palindromic-language enumeration. The other hits give exact Abelian spectra for different binary substitutions or only substitution-scale lengths."
+        ],
+        "reasoning": "None of these checked exact enumerators covers the full extremal ordinary-factor count: for instance k=3 gives two unequal consecutive-one gaps in either order, so its two threshold words are not palindromes. An Abelian enumeration would count them as one class, not two.",
+        "searches": [
+          "Resultary a2e5375cb6f9 same-family exact palindromes; a684306a38a7 and e7fed85fd174 exact Abelian spectra"
+        ]
+      },
+      "rationale": "Credit the classification of distinct ordinary words and their allowed starts at the least length attaining k ones, not the already known classical Cantor maximum-weight and Abelian recurrences. The strongest checked same-family catalogue result determines palindromes, not these general extremizers. The closest generalized-Cantor paper was not accessible in full text; its scope remains a real risk, not evidence against the exact classification. This is a best-of-knowledge judgment, not a priority certificate.",
+      "residual_risks": [
+        "The nearest published generalized-Cantor 2-Abelian article was not inspectable in full; its overlap with the exact two-digit family remains unresolved.",
+        "An equivalent classification in other terminology could remain unindexed. No priority claim is made from indexed dates or absence of hits."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct base-three coverage of ancillary results, not the inspected ordinary-word enumeration",
+          "evidence": [
+            "The initial factor maximizes the number of ones, minimum is zero, and the Abelian complexity obeys the stated classical recurrence."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1703.04063",
+          "material_read": "PDF p. 1 offset 370; p. 3 offset 8053, Lemma 2 and Proposition 1",
+          "method": "OA PDF passages",
+          "title": "On the k-Abelian Complexity of the Cantor Sequence",
+          "trigger": "Closest classical Cantor exact maximum-weight and Abelian results"
+        },
+        {
+          "assessment": "General structural background",
+          "evidence": [
+            "Defines prefix normality and relates it to Abelian complexity, which does not distinguish words of the same weight."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1811.06273",
+          "material_read": "PDF p. 1 near offset 1315",
+          "method": "OA PDF passage",
+          "title": "On Infinite Prefix Normal Words",
+          "trigger": "Equivalent prefix-maximal vocabulary and Abelian relation"
+        },
+        {
+          "assessment": "Unresolved overlap risk; no finding about full-text coverage",
+          "evidence": [
+            "The published object is generalized Cantor 2-Abelian complexity, close enough to warrant exact theorem comparison if a lawful copy becomes available."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.tcs.2022.09.025",
+          "material_read": "Bibliographic description; no theorem text obtained",
+          "method": "OA retrieval attempt; publisher full text unavailable",
+          "title": "On the 2-Abelian Complexity of Generalized Cantor Sequences",
+          "trigger": "Closest published overlap in generalized Cantor sequences"
+        },
+        {
+          "assessment": "Hypothesis not satisfied",
+          "evidence": [
+            "Automaticity result assumes Parikh-collinear images, unlike the two distinct image-count directions here."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2405.18032",
+          "material_read": "PDF p. 1 near offset 816",
+          "method": "OA PDF passage",
+          "title": "Abelian complexity for fixed points of Parikh-collinear morphisms",
+          "trigger": "More general possible morphism theorem"
+        },
+        {
+          "assessment": "General regularity, not threshold classification",
+          "evidence": [
+            "The observable is an ell-Abelian complexity function rather than the set of ordinary maximizing words."
+          ],
+          "identifier_or_url": "Electronic Journal of Combinatorics 22(1), 2015",
+          "material_read": "PDF p. 1 near offset 1547",
+          "method": "OA PDF passage",
+          "title": "A new approach to the 2-regularity of the ell-Abelian complexity of 2-automatic sequences (Parreau et al.)",
+          "trigger": "General higher-Abelian invariant for automatic words"
+        },
+        {
+          "assessment": "Same two-digit family b>=3, different language invariant",
+          "evidence": [
+            "Exact palindrome classification does not enumerate extremal words when these are nonpalindromic."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-palindromic-language-and-sharp-complexity-of-the-generaliz--a2e5375cb6f9/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Exact palindromic language and sharp complexity of the generalized Cantor sequence",
+          "trigger": "Strongest same-family indexed match"
+        },
+        {
+          "assessment": "Different substitution and invariant",
+          "evidence": [
+            "Images 0^{b-1}1 and 10^{b-1} are not the Cantor images 0^b and 10^{b-2}1."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-exact-abelian-factor-spectra-for-a-uniform-one-marker-substituti--a684306a38a7/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Exact Abelian factor spectra for a uniform one-marker substitution",
+          "trigger": "Exact analogous Abelian spectra"
+        },
+        {
+          "assessment": "Different complementary morphism and restriction to substitution scales",
+          "evidence": [
+            "It computes Abelian complexity at lengths b^k, not exact ordinary factor multiplicities at arbitrary threshold lengths."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-substitution-scale-abelian-complexity-of-complementary-bin--e7fed85fd174/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Exact substitution-scale Abelian complexity of complementary binary words",
+          "trigger": "Possible exact scale enumeration overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first-attainment factors refine a natural maximum-weight statistic to an exact language classification at every threshold. The count of distinct words can jump from one to 2^m at successive one-count thresholds, while Abelian complexity identifies all the words at any one threshold. The admissible starts and recurring representative words supply precisely the information that the prefix profile does not contain.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

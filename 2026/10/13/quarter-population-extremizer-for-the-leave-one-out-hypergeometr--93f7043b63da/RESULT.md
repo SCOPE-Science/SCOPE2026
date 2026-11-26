@@ -18,7 +18,7 @@ and write \(\rho(Q,P)\) for the maximal point-mass ratio of \(Q\) to \(P\). Then
 \]
 and the only maximizing compositions are \(L=K_N\) and \(L=N-K_N\).
 
-Thus, when sampling without replacement omits exactly one member of the population, the worst binomial approximation in maximal density ratio is not an edge composition: the maximizing success fraction tends to \(1/4\) or \(3/4\).
+The maximizing compositions are the edges \(L=1\) and \(L=N-1\) for \(3\le N\le6\), and neither is an edge for \(N\ge7\). The two maximizing success fractions tend to \(1/4\) and \(3/4\), respectively.
 
 ## Assumptions and scope
 The population size is an integer \(N\ge3\), the number of successes is an integer \(L\in\{1,\ldots,N-1\}\), and the sample size is exactly \(N-1\). The hypergeometric and binomial laws use the same success fraction \(p=L/N\). The discrepancy is the non-symmetric maximal density ratio

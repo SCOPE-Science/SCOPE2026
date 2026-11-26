@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:14:16.084186Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In S(H) the two parts are independent forcing systems: colors within a part are changed using the white-neighbor count of vertices in the other part, regardless of their own colors. An initially unseeded original layer cannot begin, and white subdivision vertices on a cycle cannot be removed first from that cycle. Conversely white subdivision edges in a forest are peeled by a leaf, and one blue original seed reaches all originals by connectivity. Coefficient extraction over all spanning forests gives T_H(1+z,1) with exponent n−1−|F|; minimizing requires precisely a root and the complement of a spanning tree. The minima have one token in the original part, so a host-edge slide never preserves minimality. An exchange changes either the root or removes one tree edge and inserts another; this gives the product and the distance by adding a missing target edge on a fundamental cycle and removing an edge outside the target tree. The proof phrase 'one-edge symmetric difference' means one replacement (symmetric difference of size two). In K_n the number of tree-neighbors is the sum of path lengths of non-tree edges, hence W(T)−(n−1); the root factor adds n−1. Summing W over trees by edge cuts counts both shore orderings, and then the handshake lemma accounts for the other factor 2. The given path and the second tree are disjoint for n≥4, and n=2,3 are handled separately. All substantive claims in RESULT.md lines 5–31 and 43–65 follow. The two packaged programs were inspected, not run; proof rather than finite examples handles every H and n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen theorem comparison identifies Bonato et al. as covering arbitrary hypergraph incidence graphs, not only ordinary graphs; the formula for minimum size follows at once from the separate minima.",
+          "The cited Bong et al. theorem already gives slide rigidity for tree hosts; the cited DeAlba matching criterion has extra hypotheses and is not used to assert generality."
+        ],
+        "reasoning": "Generic basis exchange alone does not tell which forcing sets are bases, but the incidence result above does so by independent tests in this particular 2-uniform case. Tree-only slide coverage is corroborative rather than needed for the all-H implication.",
+        "searches": [
+          "arXiv:2412.04389v1 Theorem 33 and Corollary 34",
+          "arXiv:1404.1618v2 Theorem 4.6",
+          "arXiv:2501.03642v1 Theorem 5.4.13",
+          "arXiv:2409.07848 matroid basis reconfiguration"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, AUDIT.json, check_skew_small.py, check_skew_trees.py",
+        "Bonato et al. arXiv:2412.04389v1 PDF preview and cited theorem account",
+        "Bong et al. arXiv:2501.03642 and Hall–Pfeil–Taylor arXiv:2611.15741 via frozen comparisons",
+        "Resultary dbe6095a0498, 1a4b9fcc5642 and 43a4c9836292 summaries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A one-token step cannot move between the independent factors when both retain their minimum cardinalities; hence the Cartesian product follows formally, and an incidence-edge slide necessarily moves between the factors. The factor distance n−1−|T∩U| follows directly from graphic basis exchange.",
+          "A tree exchange at T is exactly a non-tree edge with one choice of a tree edge on its path. In K_n all pairs occur, with the omitted tree-edge paths each of length one; root changes exactly replace those contributions. The standard cut sum of those distances and Cayley's formula give the shore sum. The diameter is the complement-to-intersection metric maximized by the exhibited edge-disjoint trees."
+        ],
+        "reasoning": "These are explicit, short consequences of the previously available factorization and standard exchange/labelled-tree identities. Absence of an exact formula in the prior article does not make the direct-product specialization original under the review standard.",
+        "searches": [
+          "Bonato et al., Theorem 33 as cited; compare frozen RESULT.md lines 43–65",
+          "Direct-sum and cographic basis graph equivalences",
+          "Cayley tree cut count and Wiener path sum"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bonato et al. abstract confirms the incidence/forcing and neighborhood-hypergraph reductions; frozen RESULT.md line 77 and AUDIT.json identify Theorem 33 as the criterion that the original-side and dual-side choices each lazily burn. A source on a connected 2-uniform graph burns the entire original side; the dual condition deletes white edges incident to exactly one remaining edge at an original vertex, which exhausts exactly forests."
+        ],
+        "reasoning": "The direct product of feasible choices is already the content of that specialization. Its minimum configurations are the bases of a direct sum of the rank-one uniform root matroid and the cographic matroid; this equivalent formulation exposes the product without further forcing analysis.",
+        "searches": [
+          "Resultary: skew forcing incidence subdivision, rooted spanning tree, forest, token exchange/slide",
+          "Bonato et al., arXiv:2412.04389v1, Theorem 33",
+          "Hall–Pfeil–Taylor, arXiv:2611.15741, skew forcing matroids"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day Resultary 1a4b9fcc5642 describes a Desargues incidence-graph spanning-tree factor and slide-frozen, jump-connected minima; it does not explicitly state the arbitrary S(H) result in the inspected summary. Corank-two record dbe6095a0498 has skew minima and Tutte enumerators; the summary does not identify these full subdivisions. The ordinary blue-only clique-subdivision record uses a different rule and has a different count. The exact current-record hit is not separate evidence."
+        ],
+        "reasoning": "No independent exact reconfiguration table was verified. The optimum count is the known rooted labeled-tree count in the clique case; the mathematical coverage finding rests on implications, not equality of a numerical row or a same-day timestamp.",
+        "searches": [
+          "Resultary dbe6095a0498 and 1a4b9fcc5642 (skew matroid realizations and cubic incidence graphs)",
+          "Resultary 43a4c9836292 (ordinary full-subdivision forcing)",
+          "Cayley rooted-labelled-tree count and exact K_n exchange-edge sequence"
+        ]
+      },
+      "rationale": "The claimed surviving reconfiguration result is a direct specialization of the previously reported incidence/lazy-burning factorization plus ordinary graph and matroid basis exchange, not a separate structural theorem beyond it. This is coverage by implication, not a claim that the exact product formula was located verbatim. Applying prior incidence factorization and the graph/dual tests yields the feasible family as a direct product, with minimum choices independently {root} and a cographic basis. One-token exchange is by definition the basis graph of U_{1,n}⊕M*(H), whose exchange graph is the product of the two basis graphs; complementing the cographic factor gives the familiar spanning-tree graph. The distance is its standard basis difference metric, and the no-slide fact is forced by the two ranks and incidence bipartition. The K_n additions are direct tree-graph and Cayley counts from that product. No separate supported nonmechanical claim was found in the frozen statement.",
+      "residual_risks": [
+        "Exact external pages for several sources and exact texts of the two same-day neighboring records could not be retrieved; no whole-document exclusion or relative time order is inferred.",
+        "The failure is an implication judgment, not an exact-match claim about an inaccessible passage or table."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The general incidence reduction explains the two independent side tests; the exact full theorem page was not retrieved independently",
+          "evidence": [
+            "Abstract lines 25–27 describes the incidence and neighborhood-hypergraph reductions; frozen RESULT.md line 77 explicitly credits the simultaneous hypergraph-and-dual lazy-burning equivalence."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2412.04389",
+          "material_read": "Lawful v1 PDF abstract, extracted lines 11–31; frozen cited account of Theorem 33 and Corollary 34 in RESULT.md and AUDIT.json",
+          "method": "OA passage lookup timed out; arXiv PDF preview available; compared the reported theorem-level premise with its mathematical specialization",
+          "title": "Hypergraph burning, matchings, and zero forcing",
+          "trigger": "Prior incidence factorization could imply all minima"
+        },
+        {
+          "assessment": "Overlap for tree hosts, not the basis for the general coverage decision",
+          "evidence": [
+            "Frozen AUDIT.json identifies tree-host token slide rigidity."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2501.03642",
+          "material_read": "Frozen source account of the section on tree hosts and Theorem 5.4.13, not an independently retrieved theorem page",
+          "method": "Source citation and bounded prior comparison",
+          "title": "Reconfiguration of Minimum PSD Forcing Sets and Minimum Skew Forcing Sets",
+          "trigger": "Existing skew exchange and slide results"
+        },
+        {
+          "assessment": "Material but restricted overlap on inspected evidence; no posting order inferred",
+          "evidence": [
+            "For Desargues the catalog describes K_5 spanning trees in half-configurations and slide isolation with jump connectivity."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-matroidal-skew-forcing-bases-on-four-exceptional-cubic-incidence--1a4b9fcc5642",
+          "material_read": "Indexed summary",
+          "method": "Local Resultary search; exact text unavailable in bounded retrieval",
+          "title": "Matroidal skew-forcing bases on four exceptional cubic incidence graphs",
+          "trigger": "Incidence graph reconfiguration with a spanning-tree correspondence"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exposition is a useful example of the split between jumps and slides, but the instance does not establish an additional nonmechanical invariant: the prior separation fixes the two minimum factors, standard basis exchange fixes the metric, and the clique degree, edge sum and diameter are ordinary path, cut and disjoint-tree counts applied to that product. It does not isolate a further unknown precise graph statistic or structural obstruction beyond those consequences. A useful exposition of this specialization is not itself a new finding of the required value.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

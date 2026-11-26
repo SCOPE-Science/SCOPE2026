@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:02:46.474207Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditional on Y0, X1 is Haar, so the full tent pushes X1 to Haar and Y1 and f(Y1) are conditionally Haar. This proves the second displacement uniform; the first is just f(Y0) modulo 1. For the third lag I used the uniform (X1,Y0) chart and D=f(Y0)+f(Y1)+f(Y2), eliminating the unused last vertical shear. The independent standard-library replay /workspace/record2_replay.py clips 80 rational polygons and fans them into 128 positive-area triangles, of total area 1. The projection of a triangle by an affine map whose ordered vertex values are a≤b≤c has two linear density pieces of peak height 2(area)/(c−a) by similar triangles, with tied values handled by endpoint jumps or an atom. The exact wrapped projection has no atoms and all density jumps cancel; the remaining twelve slope jumps match every stated d_r. A continuous periodic spline is determined by those jumps and unit mass; the stated Bernoulli formula has these properties. Its knot evaluations give the stated unique minimum knot and two maximum knots, and strict positivity. In the spectral numerator the two fifth-turn groups have opposite coefficients and contribute a nonzero irrational part when 5 does not divide k; for k=5j the rational numerator has period 12 in j and is zero only at j=0 mod 12. The first numerator is −646/11025−(250/441)√5; division by −4π²k² gives the stated first harmonic. Fourier uniqueness then proves Haar pushforward exactly for integer multipliers divisible by 60. A separate exact computation in the original chart also recovered 8, 56, 320 cells with unit area throughout and the same coefficients. Frozen checker inspected, not executed. The zero frequency is 1, not zero; this is a marginal under stationary Haar, not a claim about joint independence or longer lags.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first paper describes the endpoint and hyperbolicity; the second establishes mixing-rate behavior at the same endpoint.",
+          "The indexed same-map exact result measures a neutral-branch survivor set and conditional first-exit times."
+        ],
+        "reasoning": "A complete same-map exact joint lag law would imply the displacement marginal, but the inspected general theorems do not provide that law, and the survivor statistic is conditional on itinerary.",
+        "searches": [
+          "arXiv:2112.05463, p. 17, symmetric endpoint",
+          "arXiv:2303.08515, pp. 3–4, model and theorem",
+          "Resultary fa18f62401f4, RESULT.md Finding"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2112.05463",
+        "arXiv:2303.08515",
+        "Resultary fa18f62401f4",
+        "Resultary b67848c6bf78",
+        "Resultary 8c982b416c8a (identity only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An O(1/n) inequality leaves the lag-3 values undetermined; a residence law constrains a restricted subset; the one-tent model's other shear changes the lag-3 integrand."
+        ],
+        "reasoning": "The new comparison is the first nonuniform Haar displacement and its exact harmonic filter. It is not a restatement or parameter specialization of these statements.",
+        "searches": [
+          "arXiv:2303.08515, model and correlation theorem",
+          "Resultary fa18f62401f4 and b67848c6bf78, exact Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The characteristic coefficients are a particular diagonal character correlation of the horizontal coordinate at lag 3. The OTM correlation theorem bounds Hölder correlations by O(1/n), rather than evaluating these correlations exactly.",
+          "b67848c6bf78 uses vertical increment X1 rather than f(X1) and analyzes lag 2."
+        ],
+        "reasoning": "Neither a rate for this map nor an exact finite-time law of a different map is the equivalent diagonal spectrum or gives the integer multipliers annihilating it.",
+        "searches": [
+          "Local Resultary searches for orthogonal-tents short-time displacement, Fourier law and related residence results",
+          "arXiv:2303.08515, pp. 3–4",
+          "Resultary b67848c6bf78, RESULT.md Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching 8c982b416c8a index hit is the audited record, not an independent antecedent; no separate same-date OTM displacement result surfaced in the bounded search.",
+          "The nearest distinct indexed statement read gives parabolic survivor areas, not the triangle/phase coefficients. The web query yielded no hits, not proof of absence."
+        ],
+        "reasoning": "No checked distinct table contains the twelve displacement slope jumps or the residue-60 zero set.",
+        "searches": [
+          "Local Resultary semantic searches for the third-step Fourier/displacement law, twelve knots and sixty-fold uniformization",
+          "Primary-literature web query on the OTM exact third-lag law"
+        ]
+      },
+      "rationale": "The audited identity was retrieved in the index and excluded as the same record. The strongest distinct same-map results give conditional parabolic residence areas or asymptotic correlation estimates. The short-time Fourier result that is closest in question uses a different map. None of these supplies the exact third-lag law or cancellation set. The finding does not claim the map, generic polygon integration, or a new mixing theorem.",
+      "residual_risks": [
+        "The primary comparisons are bounded to the relevant model/theorem material; an unindexed or differently phrased fixed-time computation remains possible.",
+        "The discussion of the 2022 thesis in the frozen package is prior recorded evidence, not an independent full-thesis reading."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_MAP_RATE_NOT_EXACT_LAG",
+          "evidence": [
+            "Identifies OTM at the symmetric cusp; gives O(1/n) for Hölder correlations."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2303.08515",
+          "material_read": "OA PDF pp. 3–4, offsets 8000–12470, symmetric cusp identification and correlation result",
+          "method": "Bounded primary PDF retrieval and statement comparison",
+          "title": "Loss of Exponential Mixing in a Non-Monotonic Toral Map",
+          "trigger": "Same map and correlation observable family"
+        },
+        {
+          "assessment": "MODEL_BACKGROUND",
+          "evidence": [
+            "The endpoint branch-dynamics result does not evaluate the third-lag diagonal Fourier coefficients."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2112.05463",
+          "material_read": "OA PDF p. 17 near offset 65790, endpoint construction and hyperbolicity",
+          "method": "Bounded primary PDF retrieval",
+          "title": "Exponential Mixing by Orthogonal Non-Monotonic Shears",
+          "trigger": "Origin of two-tent endpoint"
+        },
+        {
+          "assessment": "DIFFERENT_STATISTIC",
+          "evidence": [
+            "Neutral-branch survivor areas and conditional first-exit tail."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-parabolic-branch-survival-laws-for-the-orthogonal-tents-to--fa18f62401f4/RESULT.md",
+          "material_read": "Original Finding at offset 0",
+          "method": "Configured Resultary mirror",
+          "title": "Exact parabolic branch survival laws for the orthogonal tents toral map",
+          "trigger": "Exact same-map area laws"
+        },
+        {
+          "assessment": "DIFFERENT_MAP_AND_LAG",
+          "evidence": [
+            "One tent followed by a linear vertical shear, unlike the symmetric two-tent model."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-two-step-fourier-law-and-hidden-dependence-in-a-non-monotonic-to--b67848c6bf78/RESULT.md",
+          "material_read": "Original Finding at offset 0",
+          "method": "Configured Resultary mirror",
+          "title": "Two-step Fourier law and hidden dependence in a non-monotonic toral shear",
+          "trigger": "Nearby exact Fourier and uniformity claims"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The diagonal Haar transport observable is natural for the canonical symmetric map at the loss of exponential mixing. Locating the first nonuniform lag and giving its full law and exact smallest arithmetic uniformizer supplies a useful benchmark for finite-time transport and harmonic cancellation, not merely a sampled harmonic or a general-purpose mixing bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

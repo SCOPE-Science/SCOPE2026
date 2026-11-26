@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:58:34.852032Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a length-ell factor at phase r, the earliest subsequence embedding uses one copy of P plus one for each descent. There are ell-1-floor((r+ell-1)/q) descents. Thus r must be at least A=(q-1)ell-qm+1, and the actual factor starts give 0<=r<=min(q-1,qn-ell). With 1<=ell<=qn, nonemptiness requires just A<=q-1 and A<=qn-ell, respectively equivalent over the integers to ell<=m+ceil(m/(q-1)) and ell<=m+n-1. This proves the length and the entire phase interval directly, including ell=1, n=1 and q=2; different phases have different first letters. The equal-power simplification is valid for q>=3,m>=2, and the alternating two-letter subsequence proves the claimed linear lower bound on the gap. The transition-window proof has a harmless empty-window edge case at t=0 (there need not be a first increasing edge); the interval proof covers it directly. Independently, for q=3,m=n=2 the only optimal factors are 102 and 021. The 567 parameter cells and 70,756 per-factor checks are recorded supporting results, not an independent run or the basis of the theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General exact dynamic programming and general complexity/approximation results cover the instance family as algorithm inputs; the constrained LCSS paper imposes an extra pattern condition."
+        ],
+        "reasoning": "An algorithm computing each finite input is not a symbolic theorem for all q,m,n or a formula for the exact phase interval. No stronger symbolic statement was located in the inspected passages.",
+        "searches": [
+          "arXiv:2308.00925 p. 5",
+          "DOI 10.4230/LIPIcs.CPM.2026.27 pp. 4–5",
+          "arXiv:2308.01322 p. 2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and recorded verification files",
+        "Resultary 0509ac1ee874",
+        "arXiv:2308.00925",
+        "DOI 10.4230/LIPIcs.CPM.2026.27",
+        "arXiv:2308.01322"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed exact ordinary-LCS statement already supplies the LCS side of the gap. The LCSS dynamic program optimizes over a whole pair of finite strings."
+        ],
+        "reasoning": "The gap should be credited as a consequence of the new LCSS analysis combined with an ordinary-LCS fact already available. The phase-dependent descent constraint and its solution do not follow by specialization of an ordinary-LCS result or simply reading off the general recurrence.",
+        "searches": [
+          "Resultary 0509ac1ee874, RESULT.md Finding",
+          "arXiv:2308.00925 p. 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The definition in the general LCSS papers is the same one-sided contiguous variant; factoring the decreasing-period input, not both inputs, is essential.",
+          "Resultary 0509ac1ee874 directly treats the same equal-power inputs but permits scattered embeddings in both strings."
+        ],
+        "reasoning": "Checked both terminology and the strongest same-family indexed match. Allowing gaps on the second side changes the optimum, and does not identify the optimal contiguous phases.",
+        "searches": [
+          "Resultary: opposite/reverse periodic permutations, common subsequences and LCSS",
+          "Li, Deka and Deka, arXiv:2308.00925 pp. 2–5",
+          "Golan et al., DOI 10.4230/LIPIcs.CPM.2026.27 pp. 4–5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest local hit gives ordinary LCS=2m-1 for equal powers, not an LCSS length or phase table. The literature lookup returned the general algorithms cited above, not an exact periodic classification."
+        ],
+        "reasoning": "An ordinary-LCS value for the same parameters is not a table entry for this invariant. No matching LCSS formula or phase table was found in the scoped lookup.",
+        "searches": [
+          "Local Resultary reverse-permutation and LCSS searches; record 0509ac1ee874",
+          "Primary LCSS literature lookup for opposite periodic inputs"
+        ]
+      },
+      "rationale": "The supported distinction is the symbolic LCSS length and exact phase classification for opposite periods with independent exponents. Ordinary-LCS information for the same words is not new; the gap is a consequence of the LCSS theorem, not a new ordinary-LCS theorem.",
+      "residual_risks": [
+        "Scoped search and passage inspections cannot rule out unindexed or differently named exact periodic results; no priority is inferred solely from an index date."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material ordinary-LCS overlap; no contiguous optimum or phases in the statement",
+          "evidence": "Ordinary LCS exactly 2m-1 for the equal-power pair.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-maximal-common-subsequences-collapse-to-longest-ones-for-reverse--0509ac1ee874",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror passage",
+          "title": "Maximal common subsequences collapse to longest ones for reverse permutations",
+          "trigger": "Same equal-power reverse-period words"
+        },
+        {
+          "assessment": "General algorithm, not the symbolic periodic result",
+          "evidence": "O(mn) time and space for computing from two finite inputs.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.00925",
+          "material_read": "Dynamic program, p. 5, offset 7638",
+          "method": "Open primary-paper passage",
+          "title": "An Algorithm for the Longest Common Subsequence and Substring Problem",
+          "trigger": "General exact solution of same optimization"
+        },
+        {
+          "assessment": "General LCSS results; no claimed phase classification in inspected material",
+          "evidence": "Defines LCSS and treats complexity, algorithms and approximation.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.CPM.2026.27",
+          "material_read": "pp. 4–5, offset 12045",
+          "method": "Open primary-paper passage",
+          "title": "Exploring the Gap Between LCS and LCStr",
+          "trigger": "Same invariant and LCS comparison"
+        },
+        {
+          "assessment": "Adjacent constrained problem",
+          "evidence": "An additional pattern must appear as a subsequence.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.01322",
+          "material_read": "Definition, p. 2, offset 0",
+          "method": "Open primary-paper passage",
+          "title": "An Algorithm for the Constrained Longest Common Subsequence and Substring Problem",
+          "trigger": "Nearby named formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Opposite orders are a natural tractable stress test of the asymmetry between LCSS and LCS. The result solves the length, distinct witnesses and phase count for every pair of exponents, and provides a fixed-alphabet linear separation. It gives a reusable exact benchmark without claiming a general algorithmic improvement.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

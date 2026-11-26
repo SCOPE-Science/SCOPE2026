@@ -1,0 +1,169 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:06:55.405961Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3-61",
+        "VERIFICATION.md and check_topo_variance.py (inspected, not executed)",
+        "Independent replay: python3 /workspace/branches/independent_replay.py 3; condition first on the actual gap length, integrate Beta moments of the residual simplex and compute pair-distance squares separately for all ranks at n=2..22, five thresholds, and both exact n=8 examples"
+      ],
+      "rationale": "The n+1 uniform spacings have constant density on the n-dimensional simplex. Conditioning on an internal D_k>t replaces the vector by t e_k+(1-t)Z and has probability (1-t)^n. The unbiased variance is the sum of squared pairwise differences divided by n(n-1). Its internal-spacing quadratic form has diagonal entry b=k(n-k)/[n(n-1)] and row sum nb/2, since the crossing pairs have average rank length n/2. The conditional mean is therefore (1-t)^2/12+t(1-t)nb/(n+1)+t^2b; subtracting the unconditional mean inside the probability factor gives (1). The sign bracket is increasing with endpoints nb/(n+1)-1/6 and b-1/12, giving the stated strict criterion and threshold, including the excluded endpoint zeros for k=1 at n=5,12. Summing b over internal gaps gives (n+1)/6 and the strictly positive Euler covariance. The Euler identity uses only internal gaps and with closed intervals merges at equality, matching the strict indicator. Substituting t=c/n gives the announced limit, and for k/n→u the limiting bracket determines the eventual sign away from its zero boundary.",
+      "residual_risks": [
+        "The finite replay is corroboration; the affine-simplex and pair-sum arguments establish the full real-threshold claim. The bulk limit does not by itself fix the sign on its zero boundary."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "8cec2684e10a gives the identical affine shift and a switch law for counts against convex separable sums of spacings. 178c0a43180a gives an evaluated count-versus-Greenwood switch at 2/(m+2) for uniform-simplex spacings.",
+          "Here the variance has nonzero cross-gap entries for n>=3 and rank-dependent coefficients, and Euler counts omit both endpoints. Its aggregate is strictly positive, not the Greenwood crossover."
+        ],
+        "reasoning": "The more general convex separable law does not include this statistic, even though it uses a reusable conditional distribution formula. The needed off-diagonal terms contribute to the rank-specific sign criterion.",
+        "searches": [
+          "Resultary: general spacing conditional mixed moments spacing counts convex spacing statistics large spacings sample variance",
+          "Universal one-switch law 8cec2684e10a, Finding and conditional simplex-shift proof",
+          "Greenwood–exceedance crossover 178c0a43180a, Finding"
+        ]
+      },
+      "checked_sources": [
+        "Resultary linear, conditional, Euler and convex-spacing searches and the primary statements listed above",
+        "Dłotko et al. arXiv:2210.14965 targeted ECC passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Integrating (1) over t in (0,1) gives (b-1/6)/[(n+1)(n+3)], exactly the prior rank-linear covariance of 0da55ac2843b. That source's prior formula includes end gaps as well.",
+          "b5b7d44a06aa concerns Cov(K_n(r),K_n(s)) across two radii, not covariance with sample variance."
+        ],
+        "reasoning": "The integral confirms overlap at the level of an averaged threshold, but a single integrated covariance does not state the threshold profile or its pointwise signs. Combining the prior simplex-shift method with the variance calculation is straightforward; the additional evaluated threshold dependence and global-versus-local sign contrast are the supported result, not a new method.",
+        "searches": [
+          "Resultary: exact uniform spacing sample variance covariance Cov(D_k,S_n^2) Pell zero ranks",
+          "Linear-spacing covariance 0da55ac2843b, Finding and Proof; nested component covariance b5b7d44a06aa, Finding and Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent to E[S_n^2|D_k>t] as a function of t, via the known tail probability and E S_n^2=1/12. This is a conditional mean of the sample-variance statistic, not a conditional variance.",
+          "The exact Euler–variance catalogue hit 1f0d34f593f6 is the assigned finding itself. The same-date affine quantile regression 4565dd2c2083 conditions a different dispersion (Gini) on an order statistic rather than an internal gap exceedance."
+        ],
+        "reasoning": "A conditional mean for the same statistic and threshold event would cover the covariance even under different wording. A conditional law for the spacing vector is an input, not an evaluated moment for this quadratic form.",
+        "searches": [
+          "Resultary: conditional uniform spacing moments conditional on D_k greater than t Dirichlet simplex quadratic sample variance",
+          "Resultary: Euler characteristic curve one dimensional uniform points component count covariance sample variance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The only exact catalogue formula surfaced for this joint law is the bound record itself. Same-day 3797f44a9142 gives an exact CDF/support for an ECC supremum; c1542db37fe8 gives a covariance table/formula for two squared-Gini spacing statistics; cd8665ffc3df gives uniformity-test covariances with CvM and Watson statistics.",
+          "The published ECC procedure compares the sample curve to its null expectation, not to sample variance."
+        ],
+        "reasoning": "An ECC marginal or a table of different mixed statistics does not supply a sample-variance mixed moment, even when both tests sample the same uniform spacings.",
+        "searches": [
+          "Resultary Euler characteristic component covariance and conditional moment searches above, including distinct 2026/11/22 hits",
+          "Dłotko et al. arXiv:2210.14965, introduction, §2.1 and ECC process limit"
+        ]
+      },
+      "rationale": "The accepted claim is the full threshold-by-rank covariance with sample variance and its aggregate sign law, not the known uniform-simplex identity, a linear spacing covariance, or an Euler test calibration. Known exceedance corrections for separable spacing statistics use the same conditioning step but not the cross-rank variance quadratic form. Inspected distinct same-date statements concern other statistics; no priority inference was made from the date.",
+      "residual_risks": [
+        "The broader primary-literature search was bounded and did not yield a useful new comparison; equivalent conditional quadratic moments elsewhere in spacing-moment literature remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Overlaps with the integrated threshold formula only",
+          "evidence": "Cov(D_k,S_n^2)=(b-1/6)/[(n+1)(n+3)] for internal ranks",
+          "identifier_or_url": "2026/10/25/SCOPE-exact-uniform-spacing-sample-variance-covariance-and-its-pell-ze--0da55ac2843b",
+          "material_read": "RESULT.md Finding and Proof, offset 0",
+          "method": "Bounded local mirror read",
+          "title": "Exact uniform-spacing/sample-variance covariance and its Pell-zero ranks",
+          "trigger": "Same gap/variance statistics"
+        },
+        {
+          "assessment": "Same affine shift; additive convex statistic restriction excludes variance here",
+          "evidence": "X given X_1>t has law t e_1+(1-t)Y; the target statistic is not a sum of one-gap functions",
+          "identifier_or_url": "2026/11/2/SCOPE-a-universal-one-switch-covariance-law-for-large-spacings-and-con--8cec2684e10a",
+          "material_read": "RESULT.md Finding and Proof, offset 0",
+          "method": "Bounded local mirror read",
+          "title": "A universal one-switch covariance law for large spacings and convex spacing tests",
+          "trigger": "Potentially broader exceedance result"
+        },
+        {
+          "assessment": "Different quadratic, no rank dependence",
+          "evidence": "Uses Greenwood sum of squares and count crossover at 2/(m+2) in the uniform case",
+          "identifier_or_url": "2026/10/18/SCOPE-a-sharp-greenwood-exceedance-covariance-crossover-for-dirichlet--178c0a43180a",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Bounded local mirror read",
+          "title": "A sharp Greenwood–exceedance covariance crossover for Dirichlet spacings",
+          "trigger": "Exact threshold covariance with a spacing quadratic"
+        },
+        {
+          "assessment": "Different second variable",
+          "evidence": "Mixed covariance of component counts at two radii",
+          "identifier_or_url": "2026/11/2/SCOPE-one-sign-reversal-across-scales-for-component-counts-in-a-one-di--b5b7d44a06aa",
+          "material_read": "RESULT.md Finding and Proof, offset 0",
+          "method": "Bounded local mirror read",
+          "title": "One sign reversal across scales for component counts in a one-dimensional random geometric graph",
+          "trigger": "Same Euler component counts and switch language"
+        },
+        {
+          "assessment": "Curve test and process limits, not evaluated ECC/sample-variance covariance in inspected passages",
+          "evidence": "One-sample supremum against the expected ECC",
+          "identifier_or_url": "https://arxiv.org/pdf/2210.14965",
+          "material_read": "PDF p.2 near offset 5000; §2.1 p.5 near 24369; p.7 near 32707",
+          "method": "Targeted OA PDF reads",
+          "title": "Topology-Driven Goodness-of-Fit Tests in Arbitrary Dimensions",
+          "trigger": "Principal ECC test context"
+        },
+        {
+          "assessment": "Marginal statistic rather than joint moment",
+          "evidence": "Centered ECC supremum CDF and support",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-finite-sample-calibration-and-a-sharp-positive-lower-edge--3797f44a9142",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Bounded local mirror read",
+          "title": "Exact finite-sample calibration of the one-dimensional uniform ECC test",
+          "trigger": "Distinct same-date exact ECC law"
+        },
+        {
+          "assessment": "Different mixed statistics",
+          "evidence": "Covariance of two spacing quadratics, no threshold indicator",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-cross-order-null-covariance-and-a-universal-correlation-ke--c1542db37fe8",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Bounded local mirror read",
+          "title": "Exact cross-order covariance for squared-Gini spacings",
+          "trigger": "Distinct same-date exact spacing covariance"
+        },
+        {
+          "assessment": "Different conditioning event and statistic",
+          "evidence": "Gini mean given an order statistic",
+          "identifier_or_url": "2026/11/22/SCOPE-affine-quantile-regression-of-uniform-sample-gini-dispersion-and--4565dd2c2083",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Bounded local mirror read",
+          "title": "Affine quantile regression of uniform-sample Gini dispersion",
+          "trigger": "Distinct same-date conditional dispersion"
+        },
+        {
+          "assessment": "Different variables",
+          "evidence": "CvM and Watson statistics, not S_n^2 and gap exceedances",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-rank-one-decomposition-of-a-uniformity-test-s-dependence-o--cd8665ffc3df",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Bounded local mirror read",
+          "title": "Exact rank-one decomposition of a uniformity test’s dependence on CvM and Watson statistics",
+          "trigger": "Distinct same-date joint test-statistic covariance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md equations (1)–(3), first-rank boundaries and sparse-radius limit; comparison with Dłotko et al. and the linear spacing–variance result"
+      ],
+      "rationale": "The exact mixed moment quantifies dependence between standard dispersion and a canonical one-dimensional topology statistic at arbitrary finite-sample thresholds. It resolves behavior an aggregate cannot show: a positive total at every radius coexists with negative outer-rank contributions, and the first internal rank switches only in a finite, explicit sample-size window. This gives a meaningful baseline for comparing summaries of the same sample, without claiming an independence test or power improvement.",
+      "residual_risks": [
+        "It provides covariance, not the joint null law, and applies only to the iid uniform interval and stated unscaled radius."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

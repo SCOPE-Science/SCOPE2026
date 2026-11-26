@@ -1,21 +1,21 @@
-# Scientific review: defect-one idempotent commuting graphs
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Every rank-defect-one idempotent is a unique elementary collapse. Direct composition gives the necessary and sufficient three-inequality adjacency criterion, and the clique-to-function correspondence is bijective. A new arrow can be appended exactly when some label is neither a current tail nor a current head; surjectivity therefore characterizes inclusion-maximal cliques. Stirling surjection counts prove the formula, including the small cases.
+PASS
 
-For the spectrum, the adjacency operator is reconstructed on the entire \(n(n-1)\)-dimensional rational function space, split into constants, row/column-additive arrays, and zero-row/column arrays. The first two pieces give the degree and quadratic eigenvalues, and transposition on the last yields precisely the \(\pm1\) multiplicities. The splitting and incidence-matrix rank assertions are proved, not merely observed numerically. The Lucas identity proves the displayed infinite integral-spectrum subfamily, while the discriminant criterion is both necessary and sufficient. The direct checker independently constructs transformations and tests the formulas, with exact characteristic polynomials through dimension six.
+The corrected RESULT.md and SLOGAN.txt under /workspace/repairs/3 retain the exact spectrum and integral orders and place the clique result in attributed graph context. Composition fixes all points other than the two tails; distinct tails and no head that equals the other's tail are exactly the commute conditions. The map to the edge from a to the midpoint on {a,b} in S(K_n) preserves compatibility in both directions. The adjacency sum is S−R_a−R_b−C_a+h(b,a). Constant arrays give the degree, and on the two additive zero-mean components the row/column-sum correction is invertible because its determinant is n(n−2). Substitution gives the stated two-by-two block, of trace 3−n and determinant −(n−2)^2. The remaining zero-sum subspace carries just transposition; the unsigned incidence rank is n (a triangle eliminates the left kernel), and the oriented incidence rank is n−1 (only constant left-null vectors). Their kernel dimensions give the respective ±1 exponents. For n>=4 the quadratic does not vanish at the degree or ±1 and has distinct roots, giving connectedness by degree multiplicity; n=2 and n=3 give the separate small graphs. The discriminant-square criterion includes parity and also agrees at n=2. The Lucas residues cycle 2,1,3,4 mod 5; the identity L_m²+4=5F_m² at m=4j+3 gives D=F_m² and increasing distinct orders. The independent replay (python3 /workspace/branches/frozen_math_replay.py 3) checked adjacency power sums through matrix dimension for n=3..5 and no edges at n=2. The frozen checker was inspected, not executed; its bounded exact checks are stated as reported, not as the general proof.
 
-## Originality
+## originality
 
-**PASS under the inspected sources, with stated priority risk.** Araújo–Kinyon–Konieczny, arXiv:1003.2809 (Section 2, Lemma 2.2; Section 6), supply general transformation-idempotent centralizer and commuting-graph results but do not state maximal surjection cliques or this induced graph's adjacency characteristic polynomial. Cameron–Castillo-Ramírez–Gadouleau–Mitchell, arXiv:1602.00935 (Theorem 2.12), explicitly use the same elementary collapses and source/sink conditions, but study word lengths and generated bands rather than spectral multiplicities or inclusion-maximal commuting families. Both works were inspected in material sections, rather than assessed by title alone. The earlier idempotent enumeration and the resulting ordinary clique coefficient formula are acknowledged as established, not asserted original. A 2008 rank-generation article and a 2010 centralizer paper were available only at abstract/bibliographic level. An independently named graph-theoretic equivalent remains a residual risk.
+PASS
 
-## Value
+For the repaired claim only. The frozen novelty claim for the onto-map classification and the Stirling maximal-clique counts fails: Resultary 91acc585aff0 gives exactly those results for the isomorphic compatibility graph of induced-matching edges in S(K_n). The replacement explicitly attributes this entire classification, and asserts only the complete spectral calculation and its integral-order consequence. Different catalogue dates do not establish priority. None of the inspected statements mechanically gives the repaired spectrum.
 
-**PASS.** Exact adjacency spectra and the complete classification of inclusion-maximal commuting families are natural global invariants of the rank-defect-one generating idempotents of the singular transformation semigroup. The Stirling spectrum of maximal sizes shows the induced clique complex becomes nonpure at precisely four labels, while the graph has a sharply described connectivity transition and unexpectedly admits infinitely many integral-spectrum orders arising from a Pell-type equation. These are structural results across an infinite family, not a restatement of pairwise commutation or the classical idempotent counts.
+## value
 
-## Limitations
+PASS
 
-The results concern the induced graph on rank-defect-one idempotents, not the full transformation-monoid commuting graph. Complete literature-priority clearance, the classification of every integral order beyond the discriminant test, and an independent mathematical audit are not provided. Finite computations corroborate but do not prove the unbounded statements.
+The repaired result computes a natural full invariant for an infinite family with two useful realizations: defect-one collapse commutation and induced-matching compatibility on a subdivided complete graph. Its nontrivial additive block and incidence multiplicities distinguish the graph beyond known clique data and give the exact arithmetic criterion, including infinitely many integral orders. No independent novelty or value is assigned to recomputing the already-covered Stirling enumeration or to the classical Lucas identity.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

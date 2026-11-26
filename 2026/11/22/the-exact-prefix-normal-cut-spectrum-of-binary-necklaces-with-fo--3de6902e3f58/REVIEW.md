@@ -1,19 +1,21 @@
-# Scientific review: exact prefix-normal-cut spectrum at fixed weight four
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The claim has explicitly fixed binary composition, oriented rotation equivalence, and a finite nonwrapping prefix-normality notion. The four consecutive-one threshold minima imply the exact local criterion \(a\le b,c\). All four possible cut counts are covered. Enumerating the 75 relative-order patterns gives exact common-denominator numerators, whose equality is independently checked by a standard-library symbolic polynomial program. Burnside correctly handles the half-turn and quarter-turn fixed tuples, including equal-gap periodic words. Full literal substring comparisons for all four-one necklaces of lengths four through twenty agree with the four rational generating functions. The asymptotic coefficients follow from the fourth-order singularities at one; periodic poles have smaller order. Only the finite checks, not the all-length proof, depend on program execution.
+PASS
 
-## Originality
+The shortest nonwrapping spans containing two and three ones give the cut predicate a≤b,c; zero-start cuts fail at length one. A qualifying nonminimum gap forces every smaller gap to be its predecessor. Hence with several minimum gaps only minima qualify; with a unique minimum a rotated first there is exactly one possible extra cut, before b, qualifying if b≤c,d. Subtracting a leaves three positive gaps; their unrestricted series is z³/(1−z)³ and the extra-cut subcase has series z³/((1−z³)(1−z)²). Multiplying the difference by z⁴/(1−z⁴) gives N_1. Exactly three minimum gaps and all equal gaps give N_3 and N_4 directly; Burnside gives the total, including half-turn and quarter-turn ties, and N_2 follows by subtraction. Pole orders yield the stated asymptotics. A fresh exhaustive weak-order polynomial check reproduced the four numerators, and direct literal tests of all physical cuts of all four-one necklaces for lengths 4–32 agreed, including (111,129,4,1) at length 20.
 
-**PASS (qualified).** A targeted comparison of the statements and their implications distinguishes this result from four close mathematical findings: the known first failure of linear prefix-normal cuts at eleven symbols (existence but not root multiplicity); three-one circular-prefix-maximal rotation classifications (different Hamming weight and a stronger, wrapping-factor definition); four-**run** periodically prefix-normal binary cycles (different object and periodic rather than finite-factor condition); and four-one *linear prefix-normal-profile fiber sizes* (profile equivalence rather than counting good cyclic cuts). The foundational 2014 and 2016 prefix-normal literature already supplies the definition, span inequalities, and linear fixed-density enumeration; these ingredients are not claimed original. What is supported as additional is the four-valued per-necklace cut spectrum, its four all-length rational enumerators, and the limiting \(2/3:1/3\) law. Search-index omissions and any obscure older equivalent enumeration remain residual risks, not independent priority certification.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** Prefix-normal representatives are natural compact summaries of maximum-one-factor functions for jumbled substring queries. When only a circular observation is available and one is allowed to choose a cut without editing letters, the number of successful cuts is a pertinent canonicalization multiplicity. The all-length classification shows exact high-degeneracy exceptions and a nontrivial asymptotic split; it is not implied by the previously known count of prefix-normal *linear* strings. The classification does not claim arbitrary weights, periodic prefix normality, or reconstruction from all factor compositions.
+Best-of-knowledge support is for the full nonwrapping necklace cut-multiplicity distribution, not for the known linear gap criterion, the total necklace count, or the periodic root problem. The strongest distinct same-day result enumerates weight-four necklaces with no circular prefix-maximal root. Its series B satisfies zB=N_1 here, a genuine exact numerical relationship, but its classification uses a different predicate and does not give the complete distribution by physical finite cuts. The linear-word enumeration supplies only an aggregate and not the per-orbit refinement.
 
-## Sources and limitations
+## value
 
-The earliest openly dated research anchor is Burcsi et al., *On Combinatorial Generation of Prefix Normal Words*, arXiv:1401.6346v1 (2014-01-24). See Burcsi et al., arXiv:1404.2824v1 (2014-04-01) and the later consolidated arXiv:1611.09017v1 (2016-11-28). Relevant prior published mathematical findings are *The sharp cyclic prefix-normal representative obstruction* (2026-10-25), *First circular prefix-normal obstructions and the complete three-one classification* (2026-11-02), *Prefix-normal rotations of four-run binary cycles* (2026-11-08), and *Exact fiber-size spectrum of four-one binary prefix-normal profiles* (2026-11-08); their distinct objects and implications are discussed in RESULT.md. Complete independent expert assessment and any global historical-priority guarantee are outside the evidence.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Valid rotation counts measure the non-uniqueness of linear prefix-normal representatives obtainable by cutting without editing a circle. Four ones is a natural fixed-composition family, with a genuine difference between ordinary and periodic comparisons. A complete distribution, including tied and periodic configurations and the asymptotic two-class law, is a useful exact baseline rather than an arbitrary length cutoff.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

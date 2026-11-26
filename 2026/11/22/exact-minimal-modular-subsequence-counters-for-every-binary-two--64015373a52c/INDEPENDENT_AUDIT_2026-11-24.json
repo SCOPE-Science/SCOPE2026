@@ -1,0 +1,171 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:05:38.384102Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–47",
+        "Frozen VERIFICATION.md, checker_modular.py, checker_bitwise.py, verification_modular.txt and verification_bitwise.txt, inspected without executing",
+        "/workspace/branches/review_checks.py (ordinal 4)"
+      ],
+      "rationale": "For the zero-run binomial vector, Vandermonde gives the period condition binom(T,j)=0 mod m for 1<=j<=a; necessity from a shift-period of just binom(r,a) follows by evaluating the difference in the binomial basis at r=0,...,a-1. For each p^e dividing m exactly, let h=floor(log_p a) and v=v_p(T). If v>=e+h, binom(T,j)=(T/j)binom(T-1,j-1) suffices for all j. Otherwise, when v<=h the coefficient at j=p^v is nonzero mod p by the base-p digit at v; when h<v<e+h the coefficient at j=p^h has valuation v-h since the low h digits of T-1 are all p-1. This proves the claimed period P. If vectors at r and s coincide, triangular Vandermonde induction forces all the coefficients for T=s-r to vanish, so the phases are distinct. On the degree-1-through-b coefficient module Y, returning the zero count to its fixed phase while appending one 1 realizes F_0(Y)=(1+X)Y and F_1(Y)=(1+X)Y+X, by choosing intermediate phases corresponding to 0 and a. These are permutations, so their inverses are realized by positive powers. F_1 F_0^{-1} translates by X; conjugates translate by X(1+X)^j for j=0,...,b-1. Their coefficient matrix is triangular with diagonal 1, yielding every Y over the residue ring, even over composite m. Advancing by zeros then realizes each phase. For two vectors, choose the highest differing prefix coordinate j and append the target tail of length a+b-j. Smaller differences cannot reach the output in that many symbols, larger differences are zero, and the j-th difference advances along one matching path with coefficient 1. Thus every phase-coefficient pair is distinguishable for the Moore output. At m=2 it also separates either Boolean residue class. Independent BFS and refinement on the uncompressed prefix-vector recurrence agreed on 101 bounded parameter triples, including composite moduli. Replay: `python3 /workspace/branches/review_checks.py 4`.",
+      "residual_risks": [
+        "Finite checks are supplementary; no Boolean-DFA state count for general m>2 is established by this output separation argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The generalized matrices paper studies homomorphic representations, with a definition of positional block subsequences.",
+          "The opening of arXiv:2610.06717 concerns existential and universal subsequence universality and occurrence probabilities within classes.",
+          "The trie paper is cited for general counting, but the complete primary text could not be retrieved."
+        ],
+        "reasoning": "Existence of a word-to-matrix map supplies a finite residue machine, not which reachable vectors occur, or which states remain distinct under observing only one output coordinate. The universality questions do not settle modular output-state counts.",
+        "searches": [
+          "Generalized Parikh Matrices For Tracking Subsequence Occurrences, arXiv:2407.04462v1",
+          "Subsequence Analysis Problems for Binary Parikh Matrices, arXiv:2610.06717",
+          "Counting subwords using a trie automaton, DOI 10.1142/S0129054111008817"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 64015373a52c, 9df1828ce330, b8dbc861b2e5, f0fa64081c4c, e2845a40d715, 03ea475ec42f and 575bd2aa74d4",
+        "arXiv:2407.04462v1 and 2610.06717",
+        "Alazemi–Černý DOI 10.1142/S0129054111008817 (access-limited)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At b=1, the earlier Boolean-DFA minimum lower-bounds the Moore minimum by postcomposing output with the residue test, and the period plus a single count yields the matching upper bound; this is known scope.",
+          "The all-b proof generates independent translations by X(1+X)^j via fixed-phase loops and separates states by the highest differing prefix coordinate."
+        ],
+        "reasoning": "The b=1 case gives no independence of multiple terminal counts; the isolated 0011 case shows it for just one pair of run lengths. A construction that tracks all occurrences does not guarantee a full rank-b reachable residue module after fixing the phase. The unitriangular orbit mechanism provides the missing exact implication in unrestricted b.",
+        "searches": [
+          "Resultary 9df1828ce330 and f0fa64081c4c, exact statements",
+          "arXiv:2407.04462v1 §4",
+          "Frozen RESULT.md lines 39–45"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "03ea475ec42f computes a rational p-kernel rank of Pascal-row nondivisibility counts; 575bd2aa74d4 concerns kernel cardinalities of periodic numerical sequences.",
+          "Generalized Parikh sequence matrices encode occurrence statistics, allowing ordinary subsequences as all-singleton blocks."
+        ],
+        "reasoning": "The periodic numerical sequence models only the first run. The input here is the full binary word, and the terminal-one counters depend on where 1s occur. A matrix entry is an equivalent representation of the counted function, not an exact orbit-size theorem. Letter exchange gives the equivalent 1^a0^b case without a new count; reversing words does not preserve the prefix-based deterministic state measure by definition.",
+        "searches": [
+          "Resultary semantic search for exact Moore output of modular scattered two-run patterns, zero-count phase, kernel and p-automatic variants",
+          "Resultary 03ea475ec42f and 575bd2aa74d4",
+          "arXiv:2407.04462v1 §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "64015373a52c is this assigned record itself.",
+          "9df1828ce330 gives mP_a(m) states for a prescribed residue at b=1, and b8dbc861b2e5 gives the prime-modulus specialization.",
+          "f0fa64081c4c gives m³ gcd(m,2) for the full Moore output of 0011, exactly the a=b=2 specialization.",
+          "e2845a40d715 treats a three-run pattern 0^a1^b0 modulo 2 with an exception-dependent count."
+        ],
+        "reasoning": "The two exact earlier subfamilies are credited and do not extend to arbitrary b. The same-day parity-lift theorem both adds a run and restricts the modulus, so it is not a dominating all-modulus result. No independent full-family database entry was identified; a finite table is not decisive for this symbolic family.",
+        "searches": [
+          "Resultary 64015373a52c, 9df1828ce330, b8dbc861b2e5, f0fa64081c4c and e2845a40d715"
+        ]
+      },
+      "rationale": "The b=1 exact Boolean bounds and period mechanism, and the exact Moore count for 0011, are credited antecedents. The supported distinction is the uniform exact full-residue state count for both run lengths unrestricted, with each added terminal 1 contributing a free modular coordinate. No compared source establishes that family or an applicable stronger exact theorem; generalized counting maps and periodic binomial phases alone do not establish the necessary orbit and separation.",
+      "residual_risks": [
+        "The trie paper was not available in full, and earlier unindexed exact orbit classifications cannot be excluded. Abstract-level evidence about the binary Parikh-matrix paper is not a whole-document exclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact covered special case at b=1 via the residue DFA lower bound and period-based Moore upper bound",
+          "evidence": [
+            "Minimum complete Boolean DFA is mP_a(m) for every fixed target residue."
+          ],
+          "identifier_or_url": "9df1828ce330",
+          "material_read": "Mirror RESULT.md opening finding, offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Exact state complexity of modular scattered zero-power–one counts",
+          "trigger": "Exact earlier b=1 formulas"
+        },
+        {
+          "assessment": "Earlier exact Boolean bound for b=1 at primes",
+          "evidence": [
+            "The b=1 count at modulus p is p^(2+floor(log_p a))."
+          ],
+          "identifier_or_url": "b8dbc861b2e5",
+          "material_read": "Mirror RESULT.md opening finding, offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Prime-power staircases in modular scattered-subsequence automata",
+          "trigger": "Prime-modulus zero-phase staircase"
+        },
+        {
+          "assessment": "Exact overlap for a=b=2, not the all-parameter classification",
+          "evidence": [
+            "Full 0011 residue output has minimal size m³ gcd(m,2)."
+          ],
+          "identifier_or_url": "f0fa64081c4c",
+          "material_read": "Mirror RESULT.md opening finding, offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Exact Moore-state complexity of modular scattered 0011 counts",
+          "trigger": "Exact nontrivial Moore special case"
+        },
+        {
+          "assessment": "Different three-run parity family",
+          "evidence": [
+            "Counts 0^a1^b0 modulo 2, with exceptional parameter cases."
+          ],
+          "identifier_or_url": "e2845a40d715",
+          "material_read": "Mirror RESULT.md opening finding, offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "A parity-lift dichotomy for three-run scattered-subsequence Moore machines",
+          "trigger": "Adjacent indexed exact output theorem"
+        },
+        {
+          "assessment": "Homomorphic counting framework, not a minimal full-residue orbit count in the inspected passage",
+          "evidence": [
+            "Representations track ordered subsequences with specified contiguous blocks; single-letter blocks recover ordinary scattered occurrences."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2407.04462v1",
+          "material_read": "Opening overview, and §4 opening and Definition 3 at offset 30105",
+          "method": "Open arXiv HTML passages",
+          "title": "Generalized Parikh Matrices For Tracking Subsequence Occurrences",
+          "trigger": "Stronger representations of the counted object"
+        },
+        {
+          "assessment": "Nearby universality and probability problems; no exact Moore-size implication from the material read",
+          "evidence": [
+            "Studies existential and universal subsequence universality and occurrence probabilities in matrix classes."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.06717",
+          "material_read": "Opening PDF abstract, offset 0",
+          "method": "Open arXiv PDF passage",
+          "title": "Subsequence Analysis Problems for Binary Parikh Matrices",
+          "trigger": "Same broad binary Parikh-matrix setting"
+        },
+        {
+          "assessment": "Exact-coverage comparison remains access-limited",
+          "evidence": [
+            "Frozen RESULT.md lines 53 and 58; full-text access was denied."
+          ],
+          "identifier_or_url": "https://doi.org/10.1142/S0129054111008817",
+          "material_read": "Bibliographic and frozen description; no primary full-text passage obtained",
+          "method": "DOI/publisher OA lookup",
+          "title": "Counting subwords using a trie automaton",
+          "trigger": "Potential general arbitrary-pattern counting theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–47 and 52–58",
+        "Resultary 9df1828ce330 and f0fa64081c4c"
+      ],
+      "rationale": "The result determines the exact deterministic memory for the natural class of all binary two-run patterns and all moduli, rather than an isolated additional pattern. It explains the asymmetry between the initial-run prime-power staircase and the multiplicative cost of each terminal extension; the group of return loops gives a reason why the second-run coordinates are independent even over composite moduli. The exact count separates genuinely needed memory from the naive full prefix-counter bound.",
+      "residual_risks": [
+        "The value claim is confined to deterministic modular output; it does not establish a general formula for longer run patterns or prescribed residues at composite moduli."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

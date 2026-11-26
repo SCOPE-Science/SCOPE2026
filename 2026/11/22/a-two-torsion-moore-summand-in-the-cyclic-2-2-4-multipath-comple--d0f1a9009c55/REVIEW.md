@@ -1,20 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The precise eight-vertex graph and directed-linear-forest face rule are specified. Independent full simplicial-chain computations give reduced Betti ranks \((4,29)\) over characteristic two and \((3,28)\) over characteristics three and five. The explicit 1,269-pair acyclic discrete-Morse matching leaves one degree-zero critical cell, five degree-three critical cells and thirty degree-four critical cells; the only integral Morse differential has rational rank two, gcd of entries one and gcd of its two-row minors two. Hence the integer Smith nonzero factors are \((1,2)\). The CW attachment argument recovers the stated homotopy type, not merely field homology. The standalone verifier was executed on the embedded source and generated the provided output. All computations here are finite and exhaustive; no larger-family conclusion is claimed.
+PASS
 
-## Originality — PASS against checked material
+Reconstructed the directed-path face predicate as at most one selected incoming/outgoing arc per vertex and no directed cycle. Independent exhaustive enumeration of all subsets up to seven arcs (an eight-vertex acyclic path forest cannot have more) reproduced the face vector (20,154,560,976,720,144). The stated toggle sequence gives 1269 matching pairs; independent topological sorting of all oriented Hasse incidences verified acyclicity. It leaves one critical 0-cell, five 3-cells and thirty 4-cells with the listed masks. Independent signed gradient elimination reproduced the entire 5x30 matrix. Its columns generate u and 2v where u=(-1,0,0,1,0) and v=(0,1,-1,0,1); the span of u,v is saturated since their first two rows have a unit minor. Thus Smith factors are (1,2). Full simplicial boundary ranks independently give reduced Betti (4,29) in degrees (3,4) over F2 and (3,28) over F3, F5 and F7. Homotopy is stronger than the field checks: the Morse 3-skeleton is a wedge of five 3-spheres, Hurewicz identifies attaching maps with their degrees, and unimodular row and column operations are realized by self-equivalences of target and attaching sphere wedges before taking the homotopy cofiber. The unit cofiber is contractible and the degree-two one gives the stated Moore space, leaving three S^3 and twenty-eight S^4. Replay: RESULT.md lines 23–62; frozen VERIFICATION.md, verify.py, and verify_output.txt inspected as evidence only. Independent replay and output: branches/6fbd391e-c418-408c-98ca-1c6ba0d69643/independent_check.py and independent_check_output.txt. No extrapolation to other shores or claim of minimality.
 
-The closest inspected primary work is Caputi–Collari–Di Trani–Smith, arXiv:2208.04656v1 (definitions, families, Sections 2–5), which gives no cyclic complete tripartite \((2,2,4)\) computation. Caputi–Collari–Ramos, arXiv:2401.01248v1, proves general torsion bounds and an acyclic-graph comparison, neither deciding this cyclic digraph. An indexed doubled-directed-triangle result computes shore sizes \((2,2,2)\); known bidirected biclique torsion results have different incidence and directions. The finite result is not a corollary of those reported claims. Searches by equivalent names, cyclic tripartite shore sizes, torsion and Moore spaces produced no covering statement. Unindexed equivalent results remain a residual risk; this is not a claim of absolute priority.
+## originality
 
-## Value — PASS
+PASS
 
-This exact answer concerns a small canonical **strongly connected and cyclically oriented** tripartite system: all shores have uniform complete incidence, and directed three- and six-cycles enforce nontrivial multipath constraints. Identifying a genuine Moore-space summand and a mixed-dimensional sphere wedge is a substantive homotopy classification, not an arbitrary numerical statistic. Its integral torsion cannot be recovered from rational Betti numbers or Euler characteristic, and the simple arc-orientation family provides a natural benchmark for future comparisons of torsion across directed graph orientations. No unsupported broader theorem is claimed.
+The supported distinct claim is the integral homotopy type of the specific complete cyclic tripartite orientation with shores (2,2,4), not the general existence of multipath torsion. The inspected neighbors differ in an invariant of the defining digraph or in hypotheses and do not determine this homotopy type.
 
-## Limitations and related literature
+## value
 
-Independent audit has not been performed. The result is only for shore sizes \((2,2,4)\) and does not imply an infinite-family formula or minimality for all digraphs. Relevant background sources are https://arxiv.org/abs/2208.04656 and https://arxiv.org/abs/2401.01248. An indexed nearby doubled-triangle source could not be inspected in full and may include broader claims; an equivalent unindexed calculation cannot be excluded.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a natural complete cyclic tripartite orientation with small repeated shores, adjacent to torsion-free cases and outside the acyclic matching reduction. The exact integral classification records a genuine Moore summand that rational homology misses, with a reusable explicit Morse certificate; it is a useful reference example of torsion in this cyclic family, independent of any future whole-family census.
 
+The dated certificate retains the supplied scientific assessment, sources and limitations.

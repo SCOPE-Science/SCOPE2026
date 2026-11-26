@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:34:59.760267Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The root-of-unity sum factors the normalized evaluation columns into residue classes k modulo n, each containing exactly k and k+n. Their two row vectors have the lengths specified by the two normalized rings, and the squared two-row minor is a positive constant times |rⁿ−sⁿe^{inθ}|². Thus the stated constant trace and phase-dependent determinant give the complete spectrum and the precise singular case. With fixed trace, every smaller root increases and every larger root decreases strictly as this minor increases, even if the two roots eventually coincide. Since there are finitely many modes, strict improvement survives the global minimum and maximum, yielding all four optima and strict uniqueness modulo 2π/n. In the Hardy case the block row Gram has diagonal (u_k,1), u_k=a_nr^{2k}, and determinant γ_nu_k. The branch derivatives are positive since the squared discriminant radical minus (u+1−2γ_n)² is 4γ_n(1−γ_n)>0. Hence the extreme modes are k=n−1 and k=0 as stated. The product formula L_−L_+=γu verifies the fixed-radius growth when u_{n−1}→0, as well as the large-c asymptotic of the limiting formula. Substituting r_n=e^{−c/n} gives the claimed finite limit with positive denominator, and both relevant roots tend to 1 as c↓0. The proof requires positive weights and regular polygons and uses a finite Hardy polynomial space, not the full Hardy space. The supplied script and output were inspected, not run: the 12 asymptotic trials check fixed r only, not the critical exponential sequence; that limit is established by the formulas.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fock record 20eeece8686a Finding and Proof §§1–3 gives the same four optima plus strictly convex spectral criteria for two equal-size Gaussian Fock kernel orbits. Its sector series is infinite with fixed factorial coefficients, and the angular argument uses negative real zeros of that series. It does not range over arbitrary positive finite monomial weights or include the Hardy boundary-circle specialization.",
+          "Szegő record 87e511cbac99 has an exact determinant phase law for two orbits with radii strictly below 1 and an angle depending on their least common multiple; Bergman record dee70b752615 gives determinant phase ordering for two weighted kernel orbits. Their inspected statements do not give the finite pair's complete coefficient Gram and all extrema.",
+          "The cited primary papers analyze Fock-polynomial MZ families and sampling/interpolation arrays with multiplicities respectively, not this optimal phase and exact condition number."
+        ],
+        "reasoning": "A fixed Gaussian kernel is not a general finite monomial kernel, and neither truncating the infinite sectors nor varying their weights is a parameter of that theorem. A determinant optimum alone also does not give the smallest or largest Gram eigenvalue.",
+        "searches": [
+          "Resultary 20eeece8686a Gaussian-Fock paired rings; 87e511cbac99 Szegő rings; dee70b752615 weighted Bergman rings",
+          "arXiv:2109.11825v1 Theorem 1.1; arXiv:2405.19945v1 Theorems 3–5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verification_output.json and verify.py",
+        "arXiv:2109.11825v1 and arXiv:2405.19945v1",
+        "Resultary 12ae1d0f43de, 0026bf390afd, 20eeece8686a, 060d785a0f00, 44f30fce73fa, 87e511cbac99, dee70b752615 and e03594da668d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The standard linear algebra gives cyclic Fourier sectors and a determinant via node differences; it does not by determinant alone order all extreme eigenvalues. The inspected Fock proof orders extreme eigenvalues by a similar fixed-trace argument, but with a different off-diagonal generating function, and contains no Hardy block law.",
+          "The finite Hardy specialization needs the simultaneous extremal-mode ordering of L_±(u,γ), n-dependent normalization, and the two limiting calculations. The known general array bounds and one-orbit radial criteria do not encode those quantities."
+        ],
+        "reasoning": "The pass is based on the combined exact conditioning theorem and its distinction from the closest sources, not on novelty of the DFT, ordinary invertibility, or restricted Vandermonde determinant calculation.",
+        "searches": [
+          "Resultary 20eeece8686a proof steps 1–3 and 060d785a0f00 Finding",
+          "arXiv:2109.11825v1 Theorem 1.1; arXiv:2405.19945v1 Theorems 3–5",
+          "Classical root-of-unity orthogonality and Vandermonde determinant comparison within the frozen proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two distinct indexed balanced two-circle phase-retrieval records use two 2d-gons and intensities for degree-≤d polynomials. Their half-step improves a highest-harmonic demixing subsystem; one criterion also imposes unequal radii. Neither treats the linear normalized value Gram for degree ≤2n−1.",
+          "For linear evaluation, coefficient Gram and row Gram have identical eigenvalues since the finite sampling matrix is square. This equivalence does not extend to the phaseless demixing objective. The cited unrestricted two-circle MathOverflow discussion was not retrievable for direct comparison."
+        ],
+        "reasoning": "The matching geometry and design angle do not change the different observation operator or optimization variable. Invertibility at equal radii and distinct nodes is already consistent with ordinary polynomial interpolation; the assessed claim concerns the quantitative spectrum and all four objectives.",
+        "searches": [
+          "Resultary two-ring normalized Gram spectrum and optimal staggered angles",
+          "Resultary 12ae1d0f43de and 0026bf390afd, local-mirror RESULT.md",
+          "MathOverflow question 21298, two concentric circles"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The finite Hardy Vandermonde record 060d785a0f00 optimizes a determinant for three orbits; its optimal phases depend on the radii. The single-orbit normalized Szegő/Blaschke record 44f30fce73fa gives exact seed eigenvalues and the related bounded-scale criterion sup_d d(1−r_d)<∞, not the two-ring finite-Hardy spectrum or limiting function.",
+          "The cyclic Dirichlet record e03594da668d treats a single orbit and r_N=√(1−e^{−cN}), not the same operator or scaling. No exact distinct indexed match surfaced; the review does not infer absence from an inaccessible date-directory listing. A finite numerical table cannot encode these continuously parametrized identities."
+        ],
+        "reasoning": "These neighboring indexed claims were compared by their actual operators, objective, and asymptotic regime, not discarded by catalogue date. None yields the claimed limiting ratio.",
+        "searches": [
+          "Resultary two-ring phase spectral optimization and finite Hardy critical radial scaling",
+          "Resultary 060d785a0f00, 44f30fce73fa and e03594da668d, local mirror"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the simultaneous four-objective finite weighted two-ring design coupled with its exact finite-Hardy boundary-scale conditioning law. The nearest indexed spectral optimum is for infinite Gaussian-Fock kernels; the nearest Hardy results differ in number of orbits, kernel, or optimized objective. Root-of-unity block reduction and the determinant argument alone are not claimed to be new.",
+      "residual_risks": [
+        "There may be an equivalent older weighted Vandermonde or cyclic-frame result outside the bounded search; the public concentric-circle discussion was not accessible.",
+        "The external search returned no useful comparison and contributes no absence evidence. Displayed catalogue dates were not used to infer priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same angular optimum for a specific different infinite-dimensional kernel; not a dominating theorem",
+          "evidence": "Its cyclic sectors have coefficients 1/(m+Nℓ)! and infinitely many terms. The proof uses the real-negative zeros of the resulting entire function.",
+          "identifier_or_url": "Resultary 20eeece8686a",
+          "material_read": "Finding, Assumptions and Proof steps 1–3; prior-work comparison and limitations",
+          "method": "Local mirror equation and applicability comparison",
+          "title": "Universal half-step spectral optimality for paired Fock sampling rings",
+          "trigger": "Closest identical four-objective angular optimum"
+        },
+        {
+          "assessment": "Phaseless subsystems, not full complex evaluation Gram",
+          "evidence": "The objective concerns demixing the highest harmonics from intensity observations.",
+          "identifier_or_url": "Resultary 12ae1d0f43de and 0026bf390afd",
+          "material_read": "Finding of both RESULT.md records",
+          "method": "Local mirror observation and objective comparison",
+          "title": "Sharp angular criterion for balanced two-circle phaseless polynomial sampling; Complete two-polygon phase retrieval criterion for polynomials",
+          "trigger": "Same circular geometry and half-shift"
+        },
+        {
+          "assessment": "Substantive analogues, but no equivalent finite two-ring Hardy result found",
+          "evidence": "Differences include three versus two orbits, single-orbit conditioning, infinite-kernel determinant rather than full-spectrum optimization, and a different Dirichlet radial regime.",
+          "identifier_or_url": "Resultary 060d785a0f00, 44f30fce73fa, 87e511cbac99, dee70b752615 and e03594da668d",
+          "material_read": "Finding and stated setup of the matching RESULT.md files",
+          "method": "Local mirror operator and scaling comparison",
+          "title": "Concentric cyclic Hardy, Szegő, Bergman and Dirichlet records",
+          "trigger": "Closest determinant, phase and boundary-scale claims"
+        },
+        {
+          "assessment": "MZ/Fock-polynomial array bounds, not exact Hardy design",
+          "evidence": "The theorem relates Fock sampling to MZ families on a specified expanding scale.",
+          "identifier_or_url": "https://arxiv.org/html/2109.11825v1",
+          "material_read": "Theorem 1.1, OA offset 4338",
+          "method": "OA full-text targeted theorem reading",
+          "title": "Marcinkiewicz-Zygmund Inequalities for Polynomials in Fock Space",
+          "trigger": "Prior normalized polynomial sampling framework"
+        },
+        {
+          "assessment": "Geometric separation/covering with multiplicities, not phase-optimal eigenvalues",
+          "evidence": "The main statements treat arrays with multiplicities rather than the relative rotation of two fixed regular rings.",
+          "identifier_or_url": "https://arxiv.org/html/2405.19945v1",
+          "material_read": "Abstract and Theorems 3–5, OA offsets 641 and 22854",
+          "method": "OA full-text targeted theorem reading",
+          "title": "Multiple sampling and interpolation in a space of polynomials",
+          "trigger": "Potentially broader polynomial sampling theorem"
+        },
+        {
+          "assessment": "Actual question/answers not compared, residual risk only",
+          "evidence": "The frozen record describes an unrestricted arrangement problem; no equivalence or noncoverage finding is based on this unavailable page.",
+          "identifier_or_url": "https://mathoverflow.net/questions/21298/how-to-best-distribute-points-on-two-concentric-circles/",
+          "material_read": "Citation and indexed title only",
+          "method": "Lawful public page and alternate retrieval attempted, no substantive passage accessible",
+          "title": "How to best distribute points on two concentric circles?",
+          "trigger": "Possible older concentric-circle Vandermonde optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This design problem has a meaningful noise-sensitivity objective: a single rotation simultaneously improves both extreme singular scales as well as determinant for arbitrary positive monomial weights. In the finite Hardy case the exact law explains the difference between exponential loss at a fixed inner radius and finite conditioning when the radial gap scales as the reciprocal degree. It gives a design and quantitative threshold information, not just a determinant computation or an optimization claim for unconstrained sampling arrays.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The exact moment calculation follows from differentiating the unrestricted-composition generating function and extracting two explicitly evaluated rational coefficients, with \(k=0\) handled separately. It gives the limiting covariance entries and the finite distinct-size sign law. A geometric-law variance representation proves positive definiteness. A fully written Woodbury inversion establishes the exact precision formula; positivity reduces to an explicit exponential-versus-quadratic inequality. A bounded finite-dependent-cut blocking argument supplies the Gaussian limit. The standalone rational verifier checked 3,737 exact assertions. Sequential, rather than simultaneous, limiting dimensions are explicit.
+PASS
 
-## Originality
+Uniform compositions are fair independent internal cuts with forced exterior cuts. Interior indicators for size r use r+1 consecutive positions and boundary effects are bounded at fixed m. In the covariance sum for r,s, offsets outside [−s,r] are independent; the two touching offsets give joint density 2p_r p_s, strictly overlapping distinct intervals are incompatible, and coincident intervals add p_r when r=s. This recovers the stated covariance per n. Fixed-width gaps between blocks of length floor(n^(1/4)) leave discarded variance o(n); the centered block bound is o(sqrt n), so the independent-block CLT applies to each projection. Independently, coefficient extraction from the first and mixed marked derivatives gives the exact finite covariance for n>r+s, with n=r+s treated using the constant coefficients, and n<r+s using impossibility of simultaneous occurrence and positive individual means. These three regimes give strict negativity for all distinct r,s≤n, including the marginal singleton-doubleton pair despite its zero limiting off-diagonal coefficient. The quadratic form is (1/2)Var(h(G)−λG) with Geom(1/2) length G, h truncated to the first m values and λ=E[h]/E[G]. A zero variance forces λ=0 on the infinite tail, then h=0. Woodbury with rows p_r(1,r) gives the inverse of the inner 2×2 block [[a_m,−d_m],[−d_m,−e_m]], yielding exactly the displayed precision. Its off-diagonal numerator is minimized at {1,2}, with value 1−(m²+m+2)/2^(m+1), zero at 2 and strictly positive from 3 onward by induction. Rescaling the precision by Δ_m gives entrywise ij/2 for fixed indices including the diagonals, so the normalized negative ratio tends to −1. The provided finite rational script was inspected, not executed; the argument covers the universal claims without it.
 
-PASS with residual historical-priority risk. Bender and Canfield (2005) already supply the multivariate generating function and general Gaussian-limit framework; these are not claimed as original. The inspected text does not state the finite-dimensional precision inverse, uniform positive off-diagonal law, exceptional zero at dimension two, or the \(-1\) fixed-pair partial-correlation limit as the observed length set grows. Bender and Canfield (2009) generalize the CLT setting without this inverse-sign classification. Malandro (2011) treats bounded part-size mean formulas, not precision. Relevant indexed public-record matches concerned a different composition statistic (count versus maximum) or different occupancy models. Because the new result is derived from established generating functions and a general covariance theorem, an earlier unlocated explicit specialization remains possible.
+## originality
 
-## Value
+PASS
 
-PASS. The result gives a complete conditional-dependence classification for all finite collections of part lengths and identifies a genuine limit in which every fixed-pair Gaussian partial correlation approaches the extremal value \(-1\). In particular, a pair with zero asymptotic marginal covariance acquires negative partial correlation upon observing more lengths. The conclusion exposes how the fixed-sum constraint re-emerges as information about more part lengths is revealed; it is more specific than a mean, marginal CLT, or isolated numerical covariance.
+The uniform-composition marking function, fixed-dimensional CLT and a general formula specializing directly to the covariance are prior. Exact finite mixed moments are obtainable by coefficient differentiation. The distinguishable result is the explicit evaluated precision and its global off-diagonal sign classification and dependence on the observed size cutoff, rather than the underlying covariance or a new general Gaussian limit theorem.
 
-## Boundaries
+## value
 
-No joint growing-dimensional CLT or exact finite-sample conditional-independence statement is proved. The existing generating-function and general CLT results retain full priority. The first verified source publication date for the selected foundational reference is 2005-11-07. Further specialist inspection could identify implicit historical coverage of the precision consequence.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first m positive part lengths are a natural increasing observation scheme, and the precision asks which dependencies survive after adjusting for all currently observed lengths. The complete sign classification, its two-dimensional exception, and degeneration to −1 show when the fixed-sum constraint becomes visible through Gaussian conditional dependence. That is a sharper structural consequence than any one marginal covariance or a table of a few small dimensions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

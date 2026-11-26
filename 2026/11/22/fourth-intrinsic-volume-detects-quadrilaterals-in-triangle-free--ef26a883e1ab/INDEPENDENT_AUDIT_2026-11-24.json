@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:43:29.698204Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–107",
+        "Frozen VERIFICATION.md; artifacts/verify.py, inspected without execution",
+        "Joós–Lángi, Corollary 1, eq. (4)",
+        "Independent replay: python /workspace/audit-evidence/03_circulant.py (SymPy); output /workspace/audit-evidence/03_circulant.txt"
+      ],
+      "rationale": "Corollary 1 of Joós–Lángi gives the Steiner-normalized parallelotope sum. For each tree component on r vertices, deleting any row of its incidence matrix has determinant ±1 by recursively eliminating a leaf, so Cauchy–Binet gives Gram determinant r; disjoint components factor. The only dependent four-edge sets are squares. For three edges, the connected count is s+m(d−1)^2, and the wedge-plus-edge count is w(m−3d+2). With four edges, stars and brooms embed without vertex repetitions by triangle-freeness; the repeated-vertex length-four nonbacktracking walks are exactly four per square up to reversal, giving E_0−4q_4. Deleting a three-edge tree's four vertices leaves m−4d+3 edges plus one if the tree is a path closing a square, giving D_0+4q_4. Counting wedges avoiding the three vertices of a fixed wedge uses adjacent-pair overlap 2(d−1), endpoint overlap c_ab, and triple overlap 1; the sum of c_ab−1 is 4q_4, giving C_0+2q_4. The outside degrees after removing the wedge are d−r_x; the sums of r_x and binom(r_x,2) are 3d−4 and c_ab−1, so the wedge with two disjoint edges contributes B_0−4q_4. Subtract the five types and the dependent sets from all quadruples to get the remaining count A_0+q_4. The weighted coefficient is −α, strictly negative by the displayed rational square-root bounds. An independent exact Gram-determinant tally verified the same V1–V3 and the difference −7α between the two cubic circulants, whose square counts are independently 7 and 0.",
+      "residual_risks": [
+        "The circulant test is finite corroboration; the census argument establishes the general claim. Recovery is at fixed n,d with unscaled incidence roots; it is not a graph-isomorphism invariant that separates all such graphs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Padrol–Pilaud–Poullot treat triangle-free graphical zonotopes and a square in the context of deformation cones.",
+          "The inspected high-girth result concerns directional-width moments. The nearly complete result gives a third-intrinsic-volume forest census in a different family.",
+          "The cited K_(2,q) all-ranks record could not be read. Its stated family is irregular unless q=2, and K_(2,2) is three-dimensional."
+        ],
+        "reasoning": "None of the inspected assertions specializes to this fourth intrinsic volume for arbitrary triangle-free regular graphs. A sufficiently general explicit four-edge forest enumeration could; the abstract sum is not such an enumeration.",
+        "searches": [
+          "Joós–Lángi Corollary 1; Padrol–Pilaud–Poullot arXiv:2111.12422, pp. 10–12",
+          "Resultary: high-girth regular zonotopes, two-hub zonotopes, third intrinsic volume of nearly complete zonotopes"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, lines 109–123",
+        "Resultary target ef26a883e1ab and distinct records identified above",
+        "arXiv:2206.03204; arXiv:2111.12422"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known parallelotope formula establishes the weights but not the q_4-dependence of forest multiplicities.",
+          "Triangle recovery through a third width moment and below-girth width-moment invariance involve different functions of the incidence roots."
+        ],
+        "reasoning": "The weights alone do not imply the coefficient: even the forest-type counts for disconnected quadruples change with q_4. Their square corrections, not the standard formula, make recovery possible.",
+        "searches": [
+          "Resultary records 507ec67874f5, 138f7ed54317, 49a1005c0e97; arXiv:2206.03204 equation (4)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The general zonotope formula rewrites V4 as a square-root-weighted enumeration of four-edge forests by component orders.",
+          "The closest Resultary directional-width records use spherical moments of widths rather than Steiner volumes."
+        ],
+        "reasoning": "A previous forest census by component orders would cover the geometric formula, not merely resemble it. The determinant identity itself leaves those counts to determine, and the directional-width moment is a different statistic.",
+        "searches": [
+          "Resultary: fourth intrinsic volume graphical zonotope four cycles triangle-free regular",
+          "Primary literature: graphical zonotope four-cycle fourth intrinsic volume",
+          "Joós–Lángi, arXiv:2206.03204, Corollary 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed match ef26a883e1ab is the target, not independent evidence.",
+          "The inspected general exact formula evaluates individual forest contributions, and the inspected catalogue census at 138f7ed54317 only uses three-edge forests."
+        ],
+        "reasoning": "Finite tables for particular graphs would not settle the unrestricted identity. The relevant equivalent of an exact table would list the five four-edge component-order counts in this class; neither inspected formula does.",
+        "searches": [
+          "Resultary: exact fourth-intrinsic-volume coefficient of the four-cycle count",
+          "arXiv:2206.03204 Corollary 1; Resultary record 138f7ed54317"
+        ]
+      },
+      "rationale": "The general determinant sum is prior. In the inspected records and literature, neither it nor the known other zonotope statistics supply the five-type count as an affine function of the number of squares, or this explicit nonzero V4 coefficient. The supported distinct content is the specialized exact census and the consequent first geometric distinction at fixed n,d within the specified class.",
+      "residual_risks": [
+        "The cited two-hub record 6dc29c3b9e4b was unavailable at its local mirror path and not found by targeted Resultary lookup; its actual full statement was not checked. A prior weighted forest enumerator furnishing these counts might exist beyond the sources found. An empty literature query is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies a key input, not the regular-graph census in the inspected result",
+          "evidence": "The kth intrinsic volume is a sum of k-generator parallelotope volumes.",
+          "identifier_or_url": "https://arxiv.org/pdf/2206.03204",
+          "material_read": "Corollary 1, equation (4), p. 5 (OA text around offset 14077)",
+          "method": "OA original PDF text",
+          "title": "Isoperimetric Problems for Zonotopes",
+          "trigger": "General intrinsic-volume formula for zonotopes"
+        },
+        {
+          "assessment": "Different geometric invariant",
+          "evidence": "The statements and C4 example concern deformation cones.",
+          "identifier_or_url": "https://arxiv.org/pdf/2111.12422",
+          "material_read": "Pages 10–12 (OA offsets 44619 and 49130)",
+          "method": "OA original PDF text",
+          "title": "Deformed Graphical Zonotopes",
+          "trigger": "Same triangle-free graphical zonotopes and C4"
+        },
+        {
+          "assessment": "Statement concerns spherical directional-width moments, not Steiner intrinsic volumes; same date supplies no priority",
+          "evidence": "Moments agree below smaller girth; dodecahedral and Desargues graphs have four equal width moments despite unequal Euclidean volumes.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-high-girth-regular-graphical-zonotopes-have-identical-low-order--507ec67874f5",
+          "material_read": "Finding, offset 0",
+          "method": "Local published mirror",
+          "title": "High-girth regular graphical zonotopes have identical low-order width moments",
+          "trigger": "Adjacent equality of low-order data on the same family"
+        },
+        {
+          "assessment": "Lower order and dense-graph regime",
+          "evidence": "V3 for K_n minus a few edges uses three-edge forests.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-third-intrinsic-volume-extrema-for-nearly-complete-graphic--138f7ed54317",
+          "material_read": "Finding and Proof around offset 218",
+          "method": "Local published mirror",
+          "title": "Sharp third-intrinsic-volume extrema for nearly complete graphical zonotopes",
+          "trigger": "Related intrinsic-volume forest census"
+        },
+        {
+          "assessment": "Different statistic and cycle length",
+          "evidence": "Recovers triangles from the third directional-width moment.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-third-angular-width-moments-of-regular-graphical-zonotopes-recov--49a1005c0e97",
+          "material_read": "Finding around offset 150",
+          "method": "Local published mirror",
+          "title": "Third angular-width moments of regular graphical zonotopes recover graph triangles",
+          "trigger": "Graph cycle recovery from a geometric statistic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and lines 104–112",
+        "Independent exact circulant tally",
+        "Joós–Lángi, Corollary 1"
+      ],
+      "rationale": "Canonical graphical zonotopes and the fourth Steiner intrinsic volume are both standard objects. It is meaningful to identify which combinatorial information first becomes distinguishable at fixed n,d: V1–V3 conceal square counts whereas V4 detects them with exact sign and scale. The two cubic 14-vertex graphs show the distinction genuinely occurs without changing degree, order, or triangle count. An explicit invariant is useful both to compute the geometric quantity without enumerating edge sets and to read a graph statistic from the geometry.",
+      "residual_risks": [
+        "Restricted to this regular triangle-free class and normalization; neither universal four-cycle recovery nor a complete graph invariant is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

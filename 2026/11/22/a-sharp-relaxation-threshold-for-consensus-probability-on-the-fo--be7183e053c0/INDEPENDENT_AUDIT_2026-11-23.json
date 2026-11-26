@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:52:38.951954Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof §§1–5",
+        "VERIFICATION.md",
+        "verification/check.py (inspected, not run; finite rank checks and exact-rational overshoot witnesses)"
+      ],
+      "rationale": "The nearest-point rule for two equally weighted neighbors is the median of the current opinion and its two neighbors. At each vertex the target interval contains the opinion of its partner in an adjacent pairing, so projection and convex interpolation preserve each pair's initial range. Adjacent-low configurations with distinct ranks therefore cannot reach consensus. In the opposite-low case the inner gap is multiplied by 1−2γ while this gap is nonnegative, each within-parity width by 1−γ, and the sum of the two inner endpoints is conserved. This includes γ=1/2: the inner endpoints coincide after one step and stay fixed. Hence the limit is the initial middle-rank midpoint, and two of the six equiprobable rank placements imply probability 1/3 for iid uniform opinions. For any γ>1/2, the strict inequalities (1−γ)a,(1−γ)b>(2γ−1)g give the advertised adjacent split after one step from (0,a+g,a,a+g+b). Scaling into the open unit cube and perturbing leaves a positive-probability obstruction. The three-cycle comparison follows because every vertex uses the same global median.",
+      "residual_risks": [
+        "The strict-loss extension is for iid laws with a density positive on an interval; the rank count does not extend unchanged to arbitrary laws with ties. No full supercritical probability formula or general-cycle claim was audited."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cheng–Mei prove convergence and characterize consensus from every initial condition by disjoint cohesive sets; the negative case gives an open set of nonconstant limits.",
+          "Dynamic Opinion Aggregation describes a general nonlinear aggregation framework in its abstract."
+        ],
+        "reasoning": "The first source gives qualitative global structure covering this model but not the basin measure, the middle-order-statistic selection, or a dependence on γ. The second is a weaker comparison at the material inspected, not a whole-paper exclusion.",
+        "searches": [
+          "arXiv:2610.16406v1, Theorems 9 and 11",
+          "Cerreia-Vioglio, Corrao and Lanzani, Dynamic Opinion Aggregation: Long-run Stability and Disagreement"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2e44dd8b777b (local mirrored text)",
+        "arXiv:2610.16406v1",
+        "arXiv:2212.08808",
+        "Dynamic Opinion Aggregation: Long-run Stability and Disagreement (abstract)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two disjoint adjacent cohesive pairs obstruct universal consensus at every γ; the record under review further classifies the opposite-low configurations up to γ=1/2 and constructs new adjacent separation above it."
+        ],
+        "reasoning": "Universal failure and even existence of an open disagreement set for all γ cannot imply the measured subcritical basin or loss from that basin specifically above γ=1/2. The one-step overshoot calculation furnishes that extra conclusion.",
+        "searches": [
+          "arXiv:2610.16406v1, §3.4",
+          "Resultary 2e44dd8b777b, Exact-balance boundary"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The nearest weighted-median interval convention agrees with projection to the neighbor interval under equal half weights.",
+          "Mei et al., Definition 2: one randomly selected updater each step, not synchronous relaxation."
+        ],
+        "reasoning": "Identifying the projected median with the three-value median makes the update conventions comparable, but neither randomizing the site type nor randomizing the updater is equivalent to randomizing the starting opinions of the fixed synchronous system.",
+        "searches": [
+          "Resultary: 2026/11/8/SCOPE-exact-consensus-reliability-from-directional-runs-in-mixed-media--2e44dd8b777b",
+          "arXiv:2610.16406v1",
+          "arXiv:2212.08808"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The local mirrored Resultary record's Exact-balance boundary counts random type assignments with at most three median vertices for universal consensus, including the four-site obstruction."
+        ],
+        "reasoning": "This is a nearby exact probability comparison, but its sample space and event differ. No table or exact entry for the iid-opinion basin of the fixed all-median C4 was identified in the checked evidence.",
+        "searches": [
+          "Resultary: 2026/11/8/SCOPE-exact-consensus-reliability-from-directional-runs-in-mixed-media--2e44dd8b777b"
+        ]
+      },
+      "rationale": "The closest prior uses essentially the same balanced-median ring to test consensus for every initial state under a random type assignment. It covers failure of universal consensus here, not the random-initial-state basin of a fixed all-median ring, its limiting opinion, or the relaxation threshold. The accessible primary comparisons likewise do not supply those conclusions. This is a bounded statement-level assessment, not priority certification.",
+      "residual_risks": [
+        "An unlocated equivalent calculation in ring dynamics is possible. General nonlinear aggregation was compared only at abstract level and is not asserted to have been ruled out in full."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers a structural obstruction, not the frozen quantitative claim",
+          "evidence": "With independent random averaging/median types and exactly balanced median weights, universal consensus holds iff at most three sites are median; this implies lack of universal consensus for the all-median C4.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-consensus-reliability-from-directional-runs-in-mixed-media--2e44dd8b777b",
+          "material_read": "RESULT.md Finding (offset 0) and Exact-balance boundary (offset 3506)",
+          "method": "Local Resultary mirror",
+          "title": "Exact consensus reliability from directional runs in mixed-median opinion rings",
+          "trigger": "Closest catalogue result, including exact-half neighbor weights"
+        },
+        {
+          "assessment": "General convergence and universal consensus, not relaxation-dependent random-initial probability",
+          "evidence": "Theorem 11 in v1: universal consensus iff there are no two nonempty disjoint type-dependent cohesive sets; otherwise an open set has nonconstant limiting states.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.16406v1",
+          "material_read": "Abstract p. 1; Theorem 9 p. 6 (offset 44600); §3.4 p. 7 (offset 46600)",
+          "method": "Bounded OA primary PDF text inspection",
+          "title": "Equilibria and consensus in discrete-time opinion dynamics with mixed weighted-averaging and weighted-median mechanisms",
+          "trigger": "Synchronous median update mechanism and strongest general consensus criterion"
+        },
+        {
+          "assessment": "Different update protocol",
+          "evidence": "One randomly selected individual updates at each iteration; not synchronous common relaxation.",
+          "identifier_or_url": "https://arxiv.org/pdf/2212.08808",
+          "material_read": "Abstract p. 1 and Definition 2, p. 3 (offset 21800)",
+          "method": "Bounded OA primary PDF text inspection",
+          "title": "Convergence, Consensus and Dissensus in the Weighted-Median Opinion Dynamics",
+          "trigger": "Earlier use of the weighted-median rule and cohesive sets"
+        },
+        {
+          "assessment": "Background only at material read",
+          "evidence": "Describes long-run stability of general nonlinear opinion aggregation; no specific four-ring basin statement in the abstract.",
+          "identifier_or_url": "https://economics.mit.edu/sites/default/files/inline-files/Dynamic%20Opinion%20Aggregation%20Long-run%20Stability%20and%20Disagreement.pdf",
+          "material_read": "Abstract p. 1 (offset 0)",
+          "method": "Bounded OA primary PDF text inspection",
+          "title": "Dynamic Opinion Aggregation: Long-run Stability and Disagreement",
+          "trigger": "Literature result on nonlinear opinion aggregation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§2–5",
+        "Cheng–Mei, §3.4 (comparison with universal consensus)"
+      ],
+      "rationale": "The smallest simple cycle that can exhibit the effect gives a controlled example where unchanged network structure and a fixed type assignment do not fix the probability of consensus. The exact plateau, critical value, and selected limiting opinion quantify that difference. The strict one-step loss witness explains why the half-relaxation boundary is not just an artifact of a numerical trial or a sufficient stability estimate.",
+      "residual_risks": [
+        "This is an exact small-network mathematical result, not a prediction about social behavior or a complete supercritical basin classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

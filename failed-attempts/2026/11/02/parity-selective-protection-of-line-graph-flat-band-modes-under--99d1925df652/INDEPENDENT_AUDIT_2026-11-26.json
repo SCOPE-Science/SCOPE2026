@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:01:32.530130Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof; checker.py; CHECKER_OUTPUT.txt; VERIFICATION.md"
+      ],
+      "rationale": "The real unsigned incidence matrix satisfies B^*B=H₀+2I even when amplitudes are complex. Alternation at the degree-two vertices forces a single scalar per petal, with hub constraint that the odd-petal scalars sum to zero. On F the shifted eigenvalue equation is simply (d_e−z)x_e=0. A nonzero petal scalar uses the entire petal, and the restricted scalars on eligible petals therefore give e_z+(o_z−1)_+ dimensions. A diagonal matrix preserves F precisely when it maps each supported even-petal vector and each odd-pair difference back into that parametrization: each active petal must be constant, and the two values on an odd pair must coincide. With a single odd petal there is no odd support. For absorption the imaginary part of x^*Hx is −Σ_e γ_e|x_e|², so an undamped eigenvector has support only at zero rates. The necessary and sufficient placement is one hit per even petal and all but at most one odd petal, including the cases dim F=0. With equal-length odd petals the dimension across energies is Σ_z(X_z−1)_+, where X_z is binomial with success probability q^(−ℓ). Hence E R_k=kq^(1−ℓ)−q[1−(1−q^(−ℓ))^k] and the strong law gives the stated limit; normalization by dim F=k−1 leaves the same limit. Nonatomic independent values are almost surely not constant on any of the finitely many petals. The proof needs no numerical certificate; checker.py and its output were inspected, not run.",
+      "residual_risks": [
+        "Only eigenstates retained in F are counted, not the full dark subspace or the perturbed spectrum. R_k is a sum of dimensions, not a literal count of nonzero vectors."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kollár et al. give m−n+η for a connected root graph with η the bipartite indicator, hence |S_z|−|V|+b(G[S_z]) componentwise, counting isolated vertices. Le et al. formulate dark eigenstates as Hamiltonian eigenstates orthogonal to the exit.",
+          "The line graph of K_n absorption comparison has a different root graph and computes a full bright rank; the C60 record also concerns a different observable."
+        ],
+        "reasoning": "Proper fragments of petals add only tree edges, which do not contribute to signless nullity. The hub component contributes its cycle count minus one if it contains any odd cycle, and its full cycle count otherwise. This is precisely e_z+(o_z−1)_+. The same theorem covers dark states in F by setting S_z to the untouched edges.",
+        "searches": [
+          "arXiv:1902.02794 p.11, Eqs. (22)–(27)",
+          "arXiv:1707.07482 §II, p.2",
+          "Resultary: 1d711c8bda6b and d60b9460e64c"
+        ]
+      },
+      "checked_sources": [
+        "Kollár et al. arXiv:1902.02794",
+        "Flach et al. arXiv:1311.5689v3",
+        "Bodyfelt et al. arXiv:1407.8345",
+        "Le et al. arXiv:1707.07482",
+        "Resultary 1d711c8bda6b, d60b9460e64c, 95ce1aa7e8eb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The multiplicity theorem gives the rank of every onsite-level restriction, and Flach et al. give support-level tuning as a sufficient condition. Bodyfelt et al. concern a different correlated-disorder mechanism.",
+          "From the component rank formula, the total retained dimension is the number of monochromatic even petals plus the number of monochromatic odd petals minus the number of occupied odd levels. For iid levels the expectation follows by subtracting the expected occupied-level count from the expected monochromatic count."
+        ],
+        "reasoning": "A diagonal matrix is normal, so its invariant F must split across onsite-level eigenspaces. Equality of the summed dimensions with dim F yields the stated invariance criterion. For losses, deleting one edge per required petal removes exactly the allowed full-cycle support. For iid levels each odd petal has probability q^(−ℓ) for any fixed color; the occupancy identity and the strong law are elementary implications, not a new classification beyond the general rank theorem.",
+        "searches": [
+          "arXiv:1902.02794 p.11, exact line-graph multiplicity",
+          "arXiv:1311.5689v3 pp.2–3",
+          "arXiv:1407.8345v3 pp.1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For S_z={e:d_e=z}, extension by zeros identifies F∩ker(H−(z−2)I) with ker B_{S_z} of the spanning subgraph on S_z, or with the −2 eigenspace of its ordinary line graph."
+        ],
+        "reasoning": "The retained eigenvalue equation on F is coordinatewise support restriction. No regularity of d or full-spectrum analysis is needed. Unsigned incidence, rather than the oriented analogue, is essential.",
+        "searches": [
+          "Kollár et al. arXiv:1902.02794 p.11, Eqs. (22)–(27)",
+          "Flach et al. arXiv:1311.5689v3 pp.2–3, compact localized states and disorder",
+          "Resultary: 1d711c8bda6b, Finding and proof §§1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected indexed absorption formulas are for L(K_n), C60, and a dephased path. The frozen checker output gives finite exact examples, not a prior table or broader theorem."
+        ],
+        "reasoning": "The finite examples are not the source of the coverage decision. The broader signless nullity theorem supplies the same deterministically retained dimensions, regardless of whether any table prints them for these parameters.",
+        "searches": [
+          "Resultary: 1d711c8bda6b, d60b9460e64c, 95ce1aa7e8eb",
+          "Frozen CHECKER_OUTPUT.txt, binary-disorder examples"
+        ]
+      },
+      "rationale": "No inspected indexed flower result gave the identical combined display, but the deterministic dimension is an immediate specialization of the published general signless line-graph multiplicity theorem, applied to the subgraph of the selected onsite level. The entire-space invariance and absorber count are direct consequences of those dimensions. The iid part then uses ordinary occupancy of nontypical monochromatic petals, with no additional spectral or probability result beyond evaluating the binomial zero-count. The exact special-case numbers are not independent of the known broader coverage.",
+      "residual_risks": [
+        "Mielke (1991) full text was not lawfully available in the bounded lookup. This limits historical attribution but is not the basis for rejection.",
+        "The indexed comparisons do not establish that no other example or formulation exists."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive broader rank result upon onsite support restriction",
+          "evidence": "Signless factorization and connected multiplicity m−n+η, with η=1 exactly in the bipartite case; oriented factorization treated separately.",
+          "identifier_or_url": "https://arxiv.org/abs/1902.02794",
+          "material_read": "p.11, Eqs. (22)–(27)",
+          "method": "Lawful OA full text, targeted equations",
+          "title": "Line-Graph Lattices: Euclidean and Non-Euclidean Flat Bands, and Implementations in Circuit Quantum Electrodynamics",
+          "trigger": "Known line-graph spectral structure on arbitrary root graphs"
+        },
+        {
+          "assessment": "Sufficient tuning condition; does not state this flower count",
+          "evidence": "Equal onsite potentials on the compact state support preserve its compactness and decoupling.",
+          "identifier_or_url": "https://arxiv.org/abs/1311.5689v3",
+          "material_read": "pp.2–3, compact localized states and disorder sections",
+          "method": "Lawful OA full text, targeted passages",
+          "title": "Detangling Flat Bands into Fano Lattices",
+          "trigger": "Potential matching disorder protection theorem"
+        },
+        {
+          "assessment": "Different setting and observable",
+          "evidence": "Correlated disorder and compact-state hybridization, not iid occupancy on petals.",
+          "identifier_or_url": "https://arxiv.org/abs/1407.8345",
+          "material_read": "pp.1–2, introduction and 1D Model",
+          "method": "Lawful OA full text, targeted passages",
+          "title": "Flat Bands Under Correlated Perturbations",
+          "trigger": "Related flat-band disorder result"
+        },
+        {
+          "assessment": "General framework rather than petal-placement enumeration",
+          "evidence": "Dark eigenvectors are orthogonal to the exit; their span is invariant.",
+          "identifier_or_url": "https://arxiv.org/abs/1707.07482",
+          "material_read": "§II, p.2",
+          "method": "Lawful OA full text, targeted passage",
+          "title": "Dark-state trapping framework",
+          "trigger": "Potential general absorber theorem"
+        },
+        {
+          "assessment": "Different exact case, not the same flower theorem",
+          "evidence": "Uses bipartite-component counts with a balanced-coloring correction for the bright rank on L(K_n).",
+          "identifier_or_url": "2026/10/25/SCOPE-bipartite-component-formula-for-the-absorbing-spectral-rank-of-t--1d711c8bda6b",
+          "material_read": "RESULT.md Finding and proof §§1–2, offsets 0–3724",
+          "method": "Local mirror, statement and proof comparison",
+          "title": "Bipartite component formula for the absorbing spectral rank",
+          "trigger": "Closest distinct Resultary incidence/absorption result"
+        },
+        {
+          "assessment": "Cannot determine the extent of the 1991 treatment from this access",
+          "evidence": "The broader coverage relied upon is in the inspected Kollár text, not inferred from this citation.",
+          "identifier_or_url": "https://doi.org/10.1088/0305-4470/24/14/018",
+          "material_read": "Bibliographic record only; full text unavailable by the lawful routes tried",
+          "method": "DOI and bounded lawful repository lookup",
+          "title": "Ferromagnetism in the Hubbard model on line graphs and further considerations",
+          "trigger": "Foundational source on the unperturbed flat band"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The original-band retention fraction can be useful for this graph, but this submission supplies a direct graph specialization of the general rank formula and an elementary finite-level occupancy evaluation. After accounting for that implication, no independent obstruction, spectral invariant, or nonmechanical statistical calculation remains. The distinction from complete dark-state capture is correctly observed.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

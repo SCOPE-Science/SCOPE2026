@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:27:09.093073Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–25 and 27–88; VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent reconstruction of shift resolvent, Laplacian factorization and fixed-edge BEST count"
+      ],
+      "rationale": "The graph includes all length-(n−1) words, with equal in/out degrees q for the zero-containing vertices and 1 otherwise; paths via 0^(n−1) prove strong connectivity. Edges are distinct permitted windows, including loops, so fixing the unique 0^n edge is exactly choosing one rotation, not choosing an extra labeled start. For m=n−1 set a=x+q and b=q−1. The de Bruijn shift adjacency B has B^m=J, is q on constants and nilpotent on the zero-sum subspace; the b-ary subshift B_T obeys the corresponding identities. For a T-to-T walk of length j<m each appended symbol persists to the end, so none is zero and the restricted block of B^j is B_T^j. For j≥m this block is q^(j−m)J_T, versus b^(j−m)J_T for B_T. Thus the compressed resolvent and that for aI−B_T differ only in the all-ones term, which C=bI−B_T annihilates. The determinant lemma now multiplies x(x+q)^(q^m−1) by det((a−b)(aI−B_T)^(−1))=(x+1)^(b^m−1)/(x+q)^(b^m−1), including b=1 and m=1. This proves the determinant identity over the rational function field and hence at all x. By the row-Laplacian matrix-tree theorem the linear coefficient is the sum of rooted in-tree counts. Strong connectivity and the zero row and column sums give identical diagonal cofactors (the adjugate is proportional to the all-ones matrix). Dividing q^(q^m−b^m) by q^m and multiplying by the BEST product for a fixed first edge gives the formula. The supplied verifier computes a single principal cofactor in each test case, despite the broader wording in RESULT.md line 86; equality of all rooted counts is justified by balance and rank in the proof, not by that finite test.",
+      "residual_risks": [
+        "This counts labeled-alphabet cycles up to rotation only, with precisely one required symbol. No formula for simultaneous distinct required symbols, reversal classes or relabeling classes follows here."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Eulerian existence is known for general weight intervals 0≤r<s≤n. Arborescences provide a tool for exact sampling in weight-range settings.",
+          "The complete shift spectra give the full-graph and the small-alphabet eigenvalues, but the deleted-edges graph has both 1 and q degrees."
+        ],
+        "reasoning": "The broader existence and tree-sampling statements do not evaluate the degree-irregular graph's determinant. The compression and annihilation of the difference term, rather than regular line-digraph spectra alone, are the substantive evaluation.",
+        "searches": [
+          "Mitchell–Wild arXiv:2607.22350v4, Corollary 3.5",
+          "Sawada–Gabrić arXiv:2510.16545, abstract, arborescence generation and weight-range passages",
+          "General de Bruijn line-digraph/shift spectra and matrix-tree/BEST comparison"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1008.2251, arXiv:2607.22350v4 and arXiv:2510.16545",
+        "Resultary/local mirror: ...ab8bbcb96d8e, ...ba7bc15d9bf2, ...fec51c8ac1e1",
+        "Classical binary de Bruijn formula and loop bijection"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For q=2 the omitted subgraph is just the 1^n loop; deletion and reinsertion at the unique departure from 1^(n−1) biject rotation classes and leave the Laplacian unchanged.",
+          "For n=2 the graph is just the bidirected star with one central loop. The earlier weight≤2 theorem computes a reduced Laplacian cofactor, which supplies the n=3 count but not the stated characteristic polynomial or the n>3 counts."
+        ],
+        "reasoning": "Neither trivial boundary case is standalone novelty. Matrix-tree and BEST would mechanically yield the tours once the appropriate cofactor is known; the unknown part in the all-parameter claim is the exact tree/spectral calculation for the altered graph.",
+        "searches": [
+          "Classical binary de Bruijn cycle formula; loop-removal comparison",
+          "Earlier Resultary ...ba7bc15d9bf2, cofactor passages; ...fec51c8ac1e1, finding and restricted spectrum"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Required zero is exactly weight range [0,n−1] when weight counts nonzero positions, and exactly R={0}, X=∅ in the required/excluded notation.",
+          "Equivalently the graph deletes all edges of the (q−1)-ary shift on zero-free vertices, without deleting those vertices."
+        ],
+        "reasoning": "These formulations describe the same graph and establish prior existence, not a count evaluated on that graph in the inspected statements.",
+        "searches": [
+          "Resultary: de Bruijn graph deletion and exactly one required symbol; universal cycles on weight-constrained nonbinary words",
+          "Mitchell–Wild arXiv:2607.22350v4, Definition 2.1 and Corollary 3.5",
+          "Blanca–Godbole arXiv:1008.2251, Theorem 11"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier ...ba7bc15d9bf2 counts windows with at most two nonzero symbols. At n=3 this is exactly the language containing a zero and its formula equals q^(2q−3)((q−1)!)^(2q−1).",
+          "...fec51c8ac1e1 has a three-window count and a related Laplacian calculation but requires at least two nonzero symbols: it admits zero-free triples and excludes 000. The exact all-parameter ...ab8bbcb96d8e hit is the original itself."
+        ],
+        "reasoning": "Credit the exact earlier n=3 count as the same case, not a merely analogous theorem. For n>3, the earlier weight≤2 set is a strict subset, whose tour count does not determine the count on the larger set.",
+        "searches": [
+          "Resultary/local mirror: exact sparse nonbinary cycles and three-window exact counts; required-symbol formula"
+        ]
+      },
+      "rationale": "Existence is already covered, the binary case is mechanically the classical binary de Bruijn count, and an earlier exact catalogue theorem gives the entire q≥3,n=3 count. The supported distinct contribution is the general-alphabet, all-order closed enumeration beyond those covered cases, and the full Laplacian factorization on the deleted-subalphabet graph beyond the known regular/loop-only cases. The existing weight-two enumeration does not give the count for the broader family at n>3, and generic tree and tour formulas do not compute this characteristic determinant.",
+      "residual_risks": [
+        "Other constrained-language spectral formulas or an implicit generalization of an earlier cofactor calculation could go beyond the established overlaps. The cited 2013 binary weight-range paper was not accessible through its DOI; binary coverage here is established directly regardless."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact existence prior, not enumeration in the theorem",
+          "evidence": "For words containing each symbol of R and excluding X when |R|<n, the theorem gives an Eulerian universal cycle; set R={0}, X=∅.",
+          "identifier_or_url": "https://arxiv.org/abs/1008.2251",
+          "material_read": "Theorem 11, p. 12",
+          "method": "OA PDF offset 28249",
+          "title": "On Universal Cycles for New Classes of Combinatorial Structures",
+          "trigger": "Exact required-symbol family via singleton required set"
+        },
+        {
+          "assessment": "Broad Eulerian existence; no evaluated count in those passages",
+          "evidence": "Hamming weight is the number of nonzero positions, and [0,n−1] satisfies the Eulerian corollary.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.22350v4",
+          "material_read": "Definition 2.1, p. 5; Corollary 3.5, p. 11",
+          "method": "OA PDF offsets 11233 and 27207",
+          "title": "Weight-constrained universal sequences",
+          "trigger": "Broad weight-interval theorem containing the same family"
+        },
+        {
+          "assessment": "Generic exact generation methodology, not the evaluation here in the inspected passages",
+          "evidence": "The use of arborescences for sampling and weight ranges provides techniques rather than this closed tree count.",
+          "identifier_or_url": "https://arxiv.org/abs/2510.16545",
+          "material_read": "Abstract p. 1, arborescence-based generation p. 3, weight range pp. 11–12",
+          "method": "OA PDF offsets 351, 8769 and 38455",
+          "title": "Random Generation of Universal Cycles and de Bruijn Sequences",
+          "trigger": "Potential known tree count for weight-range graphs"
+        },
+        {
+          "assessment": "Already covers exact q≥3,n=3 count",
+          "evidence": "The permissible triples are exactly those containing zero; its formula specializes to q^(2q−3)((q−1)!)^(2q−1).",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-all-length-count-of-sparse-nonbinary-universal-cycles--ba7bc15d9bf2",
+          "material_read": "RESULT.md theorem and tree cofactor computation",
+          "method": "Local mirror, theorem and offsets 3092 and 3743",
+          "title": "Exact all-length count of sparse nonbinary universal cycles",
+          "trigger": "Earlier exact count of overlapping weight-constrained family"
+        },
+        {
+          "assessment": "Different deleted language and factorization, not a specialization giving this family",
+          "evidence": "At least two nonzero symbols in every triple is different from at most two; complementing/deleting edges does not identify their Euler tours.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-count-of-three-window-universal-cycles-with-at-least-two-n--fec51c8ac1e1",
+          "material_read": "RESULT.md finding and restricted-Laplacian comparison",
+          "method": "Local mirror",
+          "title": "Exact count of three-window universal cycles with at least two nonzero symbols",
+          "trigger": "Related short-window formula and Laplacian factorization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–19, 31–82",
+        "Primary existence and sampling sources; earlier exact order-three overlap"
+      ],
+      "rationale": "For a natural language with one mandatory letter, existence does not quantify the number of exact cyclic indexes. The closed all-order formula avoids an exponentially growing determinant in the genuinely larger nonbinary cases; the full characteristic determinant gives a structural explanation of the simple product and all rooted tree counts. This goes beyond the already covered binary and order-three counts or the trivial order-two star.",
+      "residual_risks": [
+        "No efficiency claim for generating, ranking or uniformly sampling the actual cycles; other required-letter languages remain open here."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

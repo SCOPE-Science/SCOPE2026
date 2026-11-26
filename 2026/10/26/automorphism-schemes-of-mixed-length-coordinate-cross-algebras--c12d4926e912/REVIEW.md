@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The proof treats automorphisms over an arbitrary commutative base algebra, first eliminating nilpotent constants, then forcing a length-preserving permutation of long branches and restricting all off-pattern terms to the top degree. The coefficient parameterization is reversible and gives the stated component scheme. The one-branch case is classified explicitly, including its non-reduced scheme factor when the characteristic divides the truncation length.
+PASS
 
-## Originality
+Over R_red the augmentation ideal is exactly the nilradical, so every constant in an image of a generator is nilpotent over R and the linear coefficient matrix B is invertible (its determinant is a unit modulo the nilradical). For n≥2 the linear part of every cross-product equation equals c_i B_h+c_h B_i; multiplying by B⁻¹ kills both constants, without assuming a reduced base. In a long column the coefficients generate the unit ideal and are pairwise orthogonal by the degree-two cross equations. Their principal opens cover the base and are pairwise disjoint; on each open one coefficient is a unit and all others are zero. Two long columns cannot match the same row by invertibility. No matched row can be short, because its square equation would contain a unit times the nonzero degree-two basis vector. The matched power relation requires the source length to be at least the target length; summing over the finite long-branch permutation forces equality throughout. The matched series is a unit times the branch variable, whose annihilator in the branch ring is the top-degree submodule. Thus every off-match entry in a long branch is exactly a top-degree shear; the short-column block below GL_r is unrestricted. Pairwise products of off-match shears vanish, and their squares vanish, so they create no additional power or cross equations. The linear block and the higher filtration quotients are invertible for every such choice. This gives the disjoint clopen patterns, the affine parameter count and smoothness over arbitrary k. For n=1 the linear coefficient must be a unit and the constant nilpotent. Write d=qm with q=p^v_p(d) in divisible characteristic and q=1 otherwise. For p dividing d, Frobenius gives f^d=(f^q)^m; in the other case use f directly. The coefficient of x^((m−1)q) is c^q times a unit: its leading term in c is m times the invertible linear coefficient to the power q(m−1), and every other term in the parenthesis is nilpotent. So c^q=0 is necessary, and then the power has no term of degree below d. The triangular determinant modulo the nilradical proves invertibility. The resulting nonreduced product is a statement about schemes, not the group law. The verification note is analytic; no enumeration or formal certificate is needed.
 
-**PASS, with a documented residual risk.** Searches found a close uniform-length, field-valued coordinate-cross automorphism result, but the accessible summary does not state a scheme-theoretic component classification for mixed lengths. Scheme-theoretic automorphism-group literature and the monomial-algebra literature were read; neither inspected source covers this exact family and claim. The closest uniform-length record was not available in full text, so that comparison remains unresolved rather than being treated as proof of novelty.
+## originality
 
-## Value
+PASS
 
-**PASS.** Smoothness is not determined by field-valued automorphism groups in positive characteristic. The theorem gives a complete scheme-level parameterization for a natural infinite family, including the number of components and dimension, and gives the exact one-branch boundary, including the non-smooth case.
+The ordinary mixed-length normal form and finite-field census are already stated in a distinct same-day indexed record. The supported distinct result here is its scheme-level refinement on arbitrary base algebras, including the absence of infinitesimal extra structure for multiple branches and the precise one-branch boundary. No priority claim is made for the ordinary formulas or the elementary dual-number instance.
 
-## Closest literature and limitations
+## value
 
-The closest scheme-theoretic background is Elduque’s treatment of automorphism group schemes of gradings (arXiv:2507.12321). Ma’s recent Cartan-type work (arXiv:2609.31711) exhibits non-smooth Frobenius-thickened automorphism structure in a different family. Díaz–Liendo–Manzano-Flores–Regeta (arXiv:2408.02197) treat ordinary automorphism groups of zero-dimensional monomial algebras in characteristic zero. None of the inspected full texts supplies the mixed-length scheme decomposition proved here. The uniform-length coordinate-cross search result was read only as a summary; this is the principal residual risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a complete normal form for a natural mixed-length family of finite local algebras over arbitrary bases. It determines whether the ordinary automorphism geometry hides infinitesimal directions, and locates an exact change at the single-branch boundary, including the full thickness when the characteristic divides the length. The arbitrary-base control is what gives value beyond the existing finite-field count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

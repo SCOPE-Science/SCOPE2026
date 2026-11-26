@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:35:14.025953Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a>0 and b>=0 the positive weights telescope, increase the norm pointwise for the original shift, tend to one, and give reciprocal Cauchy-dual moments. The second forward difference of the original quadratic norm polynomial is nonzero, and its third vanishes on every basis orbit; the diagonal identities prove strict three-isometry. Independently clearing the 2x2 and 3x3 Hankel determinants gives the stated positive denominators and numerators. The y-derivative has negative discriminant and negative leading coefficient for u=(a+2)^2>4; F(u,0)>0 and F(u,y) tends to minus infinity. For fixed y=b^2>=0 the discriminant in u is negative and F(0,y)<0, so the first determinant controls all later ones. Substituting the initial size-two cutoff gives the stated strictly negative product, proving all leading size-two minors are strictly positive at and below the cubic threshold. The Schur complement proves positivity, rank two at the initial equality block, and positive definiteness thereafter; above the threshold the initial determinant is negative. The Laplace integral gives the finite signed density; compact-interval moment uniqueness and its sign change exclude subnormality for b>0, while at b=0 it is a probability density. The scaled cubic converges coefficientwise and strict sign brackets at its unique positive root prove the stated limit. Exact algebra independently replayable with python3 /workspace/review_checks/hankel.py (SymPy); the replay does not stand in for the shifted positivity proof. Read the frozen checker and verification guide as recorded evidence, not as formal certification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The reciprocal-quadratic Hausdorff treatment covers the b=0 versus b>0 dichotomy. The distinct Resultary Finding measures the first negative alternating Hausdorff finite difference and its small-imaginary-part onset; its scope excludes other matrix positivity tests."
+        ],
+        "reasoning": "Full Hausdorff positivity implies the finite tests only on the real-root locus here. Its failure, or the order of first failure of an alternating difference, does not supply the claimed all-parameter positive size-three region, equality ranks or a large-a threshold ratio.",
+        "searches": [
+          "Reza–Zhang, arXiv:1903.00116, Theorem 1.8",
+          "Resultary: SCOPE-the-first-hausdorff-moment-obstruction-for-quadratic-3-isometric--3e9cf153634c"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "McCullough–Paulsen, doi:10.2307/2159309 (classical Hankel criterion)",
+        "Chavan–Stochel, doi:10.1017/prm.2022.85",
+        "Reza–Zhang, arXiv:1903.00116",
+        "Resultary 243006e22312 and 3e9cf153634c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier weak-concavity threshold is b^2<=(a+2)^2-1/2 because its first test is at index 1. Substituting index 0 in the same size-two computation recovers b^2<=(a+1)^2-1/2 for ordinary hyponormality. Neither fact gives the cubic threshold. The Hausdorff obstruction is already known and explicitly separated."
+        ],
+        "reasoning": "The inequality of the two cutoffs, the nonempty two-hyponormal nonsubnormal region, and the sharp limit require the size-three determinant analysis; they are not consequences of replacing parameters in these results.",
+        "searches": [
+          "doi:10.1017/prm.2022.85, Example 4.5, (4.5) and (4.8)",
+          "arXiv:1903.00116, Theorem 1.8",
+          "Resultary 3e9cf153634c, Finding and Scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Cauchy-dual test is finite positivity at every shift for the reciprocal quadratic sequence. Example 4.5 uses exactly the original polynomial shift, under p(x)=|x+z|^2, but (4.5) is log-concavity of p at indices n>=1. Reza–Zhang treat reciprocal rational sequences as complete Hausdorff moment sequences."
+        ],
+        "reasoning": "The weighted-shift Hankel formulation is classical. Weak concavity in this normalization controls a shifted size-two calculation, not the size-three determinant or the initial-block sufficiency. Complete Hausdorff positivity is a different, all-orders requirement.",
+        "searches": [
+          "Chavan–Stochel, doi:10.1017/prm.2022.85, Proposition 4.3 and Example 4.5",
+          "Reza–Zhang, arXiv:1903.00116, Theorem 1.8 and degree-two discussion",
+          "McCullough–Paulsen, doi:10.2307/2159309"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first is the same Finding, not independent coverage. The second is a distinct same-day hit with shared parameter family but a different tested quantity and limiting parameter. No numerical table would by itself establish the universal rank-and-cutoff result."
+        ],
+        "reasoning": "Compared the closely matched catalogue claims, not dates or proximity of titles; the distinct hit does not imply the threshold under review.",
+        "searches": [
+          "Resultary: SCOPE-sharp-two-hyponormality-boundary-for-cauchy-duals-of-quadratic-t--243006e22312",
+          "Resultary: SCOPE-the-first-hausdorff-moment-obstruction-for-quadratic-3-isometric--3e9cf153634c"
+        ]
+      },
+      "rationale": "Best of current knowledge: the distinct result is the exact finite size-three Hankel cutoff, including its first-shift reduction, boundary ranks and large-displacement constant. Neither the same-family weak-concavity criterion nor the full Hausdorff characterization covers it. The moment family, Hankel framework and complete subnormality dichotomy are not new.",
+      "residual_risks": [
+        "A treatment of finite-order positivity of reciprocal-quadratic Hankel matrices could use different terminology; the search does not certify historical priority.",
+        "No priority ordering is inferred from dates of the distinct same-day records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the family and overlapping shifted size-two calculation, not finite two-hyponormality",
+          "evidence": "p(x)=|x+z|^2 and n>=1 in (4.5) give the stated larger weak-concavity cutoff.",
+          "identifier_or_url": "https://doi.org/10.1017/prm.2022.85",
+          "material_read": "Cambridge PDF pp. 8–10, Proposition 4.3 and Example 4.5, (4.5), (4.8)",
+          "method": "Bounded OA primary PDF comparison",
+          "title": "Weakly concave operators",
+          "trigger": "Same quadratic polynomial shift and nearby positivity condition"
+        },
+        {
+          "assessment": "Covers the complete-moment dichotomy, not the finite cutoff",
+          "evidence": "The nonreal quadratic poles obstruct the Hausdorff property, whereas real negative poles in the b=0 case are allowed.",
+          "identifier_or_url": "https://arxiv.org/abs/1903.00116",
+          "material_read": "PDF p. 4 Theorem 1.8 and p. 16 degree-two discussion",
+          "method": "Bounded OA primary PDF comparison",
+          "title": "Hausdorff moment sequences induced by rational functions",
+          "trigger": "Equivalent full moment formulation for the same rational family"
+        },
+        {
+          "assessment": "Related; not equivalent or dominating",
+          "evidence": "Earliest negative alternating difference and small-imaginary-part asymptotic, not initial size-three Hankel positivity or the large-a asymptotic.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-the-first-hausdorff-moment-obstruction-for-quadratic-3-isometric--3e9cf153634c/RESULT.md",
+          "material_read": "Finding and scope",
+          "method": "Local Resultary mirror, statement comparison",
+          "title": "The first Hausdorff moment obstruction for quadratic 3-isometric shifts",
+          "trigger": "Strongest distinct same-family catalogue match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is an all-parameter exact finite-order positivity classification for a natural polynomial-shift family. The initial-to-tail comparison solves an infinite sequence of constraints, and the sharp separation, rank transition and ratio quantify a real gap between ordinary hyponormality, two-hyponormality and subnormality. It is not just a symbolic determinant or an isolated numerical example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

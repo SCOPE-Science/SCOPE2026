@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:55:27.213339Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Assessed corrected /workspace/repairs/1/RESULT.md. The original strict-rule theorem was sound, but the unqualified strict/weak equivalence in its scope paragraph is not valid as an identification of entire paths: when the first two marks have sum in the window (positive probability), the weak path has their edge at that random sum and the strict path does not. The replacement states snapshot equivalence only and explicitly encodes the common strict rule in the coupled paths. Conditional ordered uniform marks coincide given the count. A direct Bernoulli(p)/Poisson(p) comparison puts all positive discrepancy at count one and gives p(1−e^{−p})≤p², so coupling the n summands and then the mark lists proves the path bound for n>b. The first r Poisson arrival times are finite, letting bounded windows give their joint order-statistic limit. The minimum possible largest-pair sum among k-point sets is realized by the first k points; taking its infimum yields the arrival sums, moving two-exponential increments, their shared variance and their survival formulas by convolution. For the finite moments I checked the triangular edge region, the shared-endpoint integral and the ordered multiplicity n(n−1)(n−2); integration over a unique minimum gives the finite no-edge expression. The repair computes Poisson moments separately by the two-, three- and four-point factorial moment measures; TV alone does not justify convergence of unbounded moments. The minimum connects to every vertex with any incident edge, and the count of additional such vertices after a minimum z is Poisson(t−2z) when z<t/2. Substitution w=(t−2z)/2 gives the displayed incomplete-gamma tail, including no edges as the separate zero case. Off the critical scale expectation or the binomial concentration of the top cap gives the two degenerate limits. I inspected the frozen checker as corroboration without executing it; these are direct analytic checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Generic Poisson approximation subsumes the count bound; the same conditional mark law and deterministic pushforward immediately give the marked-path bound. Do not credit this as a new general approximation.",
+          "The two inspected threshold-graph statements do not yield graph-level limit clocks, their dependence, or the explicit law of the unique active component in this moving window."
+        ],
+        "reasoning": "Deduct the immediate application and the prior graph representation. The actual further work is identifying and evaluating the threshold graph observables on the limiting point process.",
+        "searches": [
+          "arXiv:0908.2448; PMC2930250 §6.2",
+          "Le Cam (1960), An approximation theorem for the Poisson binomial distribution",
+          "Resultary: Poisson marked threshold process and threshold graph joint counts"
+        ]
+      },
+      "checked_sources": [
+        "PMC2930250 §6.2",
+        "EJC R130/DOI:10.37236/219 official abstract",
+        "Le Cam 1960 (classical bound, independently reconstructed here)",
+        "Resultary d5ca94a0b708 and 0cf251055999 (summaries)",
+        "Frozen RESULT.md, VERIFICATION.md and CHECKER.py; corrected RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "DHJ fixed-weight convergence does not imply joint endpoint order-statistic threshold-crossing laws. The fixed midpoint threshold model does not imply that consecutive earliest clique gaps share one exponential point-process spacing.",
+          "The point-process coupling is an immediate tool; the graph clock and component laws require the largest-pair minimization and minimum-centered connectivity arguments, respectively."
+        ],
+        "reasoning": "The corrected statement and priority claim are kept at the graph-law level; standard Poisson process terminology and classical rare-event approximation are not separate novelty claims.",
+        "searches": [
+          "PMC2930250 §6.2, Theorem 6.3",
+          "DOI:10.37236/219",
+          "Resultary: rare threshold clique births and Poisson components"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact weight rule becomes a graph joining nonnegative deficits whose sum lies below the observation parameter. DHJ's original §6.2 takes a fixed iid weight law and threshold; Theorem 6.3 addresses representation and a dense graph limit including degree distributions.",
+          "Reilly–Scheinerman's official abstract uses iid uniform weights and x_i+x_j≥1, equivalent to observing at t=n in deficit coordinates, not t bounded. Neither accessible theorem statement gives the sparse-window clique arrival gaps or component size law."
+        ],
+        "reasoning": "Moving the threshold to the endpoint changes both limiting object and observable. At t=n the fixed-threshold model is part of the same family, not an equivalent statement of the bounded-window limit.",
+        "searches": [
+          "Resultary: sparse threshold graph births, Poisson endpoint path, clique clocks and component sizes",
+          "Threshold Graph Limits and Random Threshold Graphs, §6.2, (6.2)–(6.4), Theorem 6.3",
+          "DOI:10.37236/219"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-title match is the assigned finding. The two related indexed entries concern Hamiltonicity-conditioned spectral bias with a Brownian-meander statistic, and a joint Brownian limit for matching deficiency and centered edge count, respectively. Neither summary describes the sparse endpoint point-process law or the exact component distribution."
+        ],
+        "reasoning": "This is a bounded-window process theorem and parameterized exact formulas, not an isolated table entry. A prior distribution table or formula for the same scaled object would matter; the related indexed observables do not match.",
+        "searches": [
+          "Resultary: sparse endpoint threshold graph clique waiting times; active component and exact edge counts",
+          "Resultary: SCOPE-conditional-spectral-bias-and-local-global-independence-in-hamil--d5ca94a0b708; SCOPE-brownian-maximum-area-coupling-for-matching-deficiency-and-edge--0cf251055999"
+        ]
+      },
+      "rationale": "Assessment of the corrected claim: the model and point-process approximation are classical, and the path estimate is a direct marked-image application, not a new generic TV theorem. The supported distinct contribution is the explicit onset description in the moving upper-endpoint window, particularly the joint nonrenewal clique clocks and the complete nontrivial-component-size law. Inspected prior evidence does not yield those graph-level consequences. The replacement credits the general approximation as background and limits what is claimed from the accessible Reilly–Scheinerman material.",
+      "residual_risks": [
+        "Full Reilly–Scheinerman body and the related catalogue records were not recovered; conclusions there were compared only as available.",
+        "No guarantee against an unindexed equivalent sparse threshold-graph description or exact distribution calculation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior model and fixed-threshold limit, not the moving-endpoint path and clocks.",
+          "evidence": [
+            "The model uses a fixed weight law and threshold; the theorem describes threshold-set representation and fixed-parameter limiting degrees/graph rather than sparse-law births."
+          ],
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2930250/",
+          "material_read": "Original §6.2 Random Weights, Theorem 6.3 and equations (6.2)–(6.4).",
+          "method": "Lawful OA full-text alternate and comparison of displayed hypotheses and conclusions.",
+          "title": "Threshold Graph Limits and Random Threshold Graphs",
+          "trigger": "Same threshold random graph representation and asymptotic results."
+        },
+        {
+          "assessment": "Abstract uses fixed threshold one and does not compare endpoint birth laws. The synopsis alone cannot exclude further relevant content in the article; in particular it is not the evidence for the frozen characterization of clique and edge statistics.",
+          "evidence": [
+            "The abstract specifies the uniform threshold-one construction and lists chromatic number, algebraic connectivity, Hamiltonian cycles and perfect matchings."
+          ],
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v16i1r130",
+          "material_read": "Official EJC abstract. Full paper not recovered in bounded OA attempts.",
+          "method": "Lawful original publisher abstract and attempted article-body retrieval.",
+          "title": "Random Threshold Graphs",
+          "trigger": "Same iid uniform weights and threshold graph, so exact graph statistic comparisons are relevant."
+        },
+        {
+          "assessment": "Model and statistic overlap but different conditioning, scaling and observables in the available statements.",
+          "evidence": [
+            "One entry describes Hamiltonicity-conditioned connectivity and centered-count limits, the other a Brownian limit for matching deficiency and centered edge count."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22 d5ca94a0b708 and 0cf251055999",
+          "material_read": "Indexed finding summaries; full texts not present in available local mirror.",
+          "method": "Configured local Resultary lookup and precise record-path comparison.",
+          "title": "Conditional spectral bias and local-global independence in Hamiltonian threshold graphs; Brownian maximum-area coupling for matching deficiency and edge counts",
+          "trigger": "Related exact threshold-graph statistic and process results in the catalogue."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The window is dictated by the onset of every fixed clique, not an arbitrary scale. A graph that first appears here has a correlated edge count, a single core with a computable size law, and dependent successive clique gaps despite the Gamma marginals. These exact diagnostics distinguish it from independent-edge and renewal approximations. The strict-path clarification retains the same genuine value and prevents an incorrect inference at the very thresholds being studied.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

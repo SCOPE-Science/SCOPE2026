@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-All leaves must be seeded, since their degree is one and three-colour forcing requires two neighbour colours. The proof partitions successful configurations by the number of centres seeded, counts the two-seeded and one-seeded cases directly, and applies inclusion-exclusion to the two directions of possible first forcing when neither centre is seeded. The double-count correction tests distinct missing colours; equal missing colours cannot produce a proper completed colouring. No asymptotic or computational extrapolation is used. The exact exhaustive checker agrees for all sixteen parameter pairs with \(1\le m,n\le4\), including the previously published \(D_{1,1}\) boundary.
+## correctness
 
-## Originality — PASS (qualified)
-The 2026 primary paper defines this probability and treats all connected graphs of up to four vertices, general graph identities, and a leaf-extension construction used for complexity; its relevant sections do not provide the exact arbitrary double-star formula. The existing maximum-degree-two result covers paths, including \(D_{1,1}\), but not \(D_{m,n}\) for \(m,n\ge2\), whose centres both have degree at least three. Semantic searches for bistar/double-star forced colouring and mathematical research records did not locate equivalent formulas. The general forced-colouring definition and exponential evaluation algorithm logically imply computability in principle, but not this explicit closed form. Residual risk: independent or unindexed calculations could contain equivalent identities.
+PASS
 
-## Value — PASS
-The two-centre tree is the smallest natural tree family in which two competing forcing fronts interact. Its entire forced-three-colouring polynomial is determined for arbitrary independent degrees, not just one coefficient or a finite table. The overlap subtraction for simultaneously forceable centres isolates a structural obstacle that single-centre and maximum-degree-two calculations cannot express. This gives an analytically reusable exact example for the recently studied forcing graph polynomial; it does not purport to solve general-tree enumeration.
+A blank leaf can never see two colors. Fix an ordered pair of distinct final center colors c,d (six choices). On an m-leaf side its leaves must avoid its final center color. A center that is seeded with its own final color or independently forceable from its leaves contributes π_m=p^m[p·2^m+r(2^m−2)], with r=1−3p. A blank center that can only be forced after its neighbor is colored must have a constant leaf word on the third color, contributing r p^m: the constant word equal to the neighbor's color would still leave only one distinct neighbor color. Two mutually dependent unseeded centers cannot start. Thus for each final center pair exactly the contributions π_mπ_n, r p^m π_n and r p^n π_m occur, giving the frozen coefficients on expansion. These events produce proper final colorings; if both centers are already forceable from leaves, distinct target colors preserve the other force in either order, while equal targets prevent success. Thus no final center pair is double counted. At p=0 the probability is zero, at p=1/3 it is the uniform proper-coloring probability, and m=n=1 yields 24p³(1−2p). My replay enumerated all four initial states per vertex, including blank leaves, and all legal orders for the sixteen m,n pairs from 1 through 4; no success-order dependence occurred and the exact coefficients matched, including (48,144,96) for m=n=2.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The leaf necessity, the path endpoint and the leaf-attachment factorization of the locally determined term are prior. The distinct result is the exact coupled remainder and thus the complete two-parameter forced three-coloring polynomial for branching double stars, including unequal leaf counts.
+
+## value
+
+PASS
+
+The double star is the natural first two-adjacent-hub test extending the known path and local leaf-attachment formulas to branching. The exact coefficients resolve both genuinely nonlocal effects: a neighboring hub can enable a force, and two attempted forces can conflict. The formula gives a check for any tree recursion or bound on forced-coloring success, including highly unequal branching and the no-seed case; it is not just a restatement of the ordinary chromatic polynomial or a single small graph calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

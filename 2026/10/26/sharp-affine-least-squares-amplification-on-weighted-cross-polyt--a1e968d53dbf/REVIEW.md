@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The normalized absolute-coordinate/slack law is Dirichlet \((1,\ldots,1,\alpha+1)\), so the vertex marginal is \(\mathrm{Beta}(1,m)\) and the covariance is diagonal. This gives \(K(x,y)=1+c\sum x_i y_i/a_i^2\) with \(c=(m+1)(m+2)/2\). The convex Lebesgue function is strictly smaller away from vertices because kernels of distinct vertices cross signs on a positive-measure set. Exact beta integration yields the formula, symmetry yields the dual endpoint norm, and an explicit positive lower bound on the logarithmic derivative proves strict monotonicity. The sign extremizer and the negative-part indicator prove sharpness. The provided script passed 204 rational, symbolic, and high-precision checks; it is not substituted for the general proof.
+## correctness
 
-## Originality — PASS within inspected evidence
-The full primary text by Aktas–Xu on weighted simplex orthogonal polynomials describes the Jacobi/Dirichlet background but not this affine endpoint projection norm. Foucart's accessible full text concerns one-dimensional splines and their max norms. The full previously published simplex-projector result has a similar convex-row technique but a different nonsymmetric one-chamber kernel and norm; the new signed-cross-polytope weight family, its explicit amplification law, and weak-concentration instability do not follow as statements of that theorem. Related metric-projection papers instead concern nearest-point maps in finite-dimensional normed spaces. Exact phrase, object, parameter, kernel, and alias searches retrieved no stronger result. Historical priority is provisional because an equivalent calculation could exist under other terminology; these comparisons are not a mathematical uniqueness certificate.
+PASS
 
-## Value — PASS
-The invariant is the sharp uniform-error amplification of a basic, natural least-squares approximation on \(\ell_1\)-ball cells, relevant to approximation on nonsimplicial domains. It gives a complete solution in every dimension and for the full integrable slack-power family, with exact extremizers, sharp positivity failure, strict effective-dimension law, and a nontrivial concentration-vs-stability contrast. The result is more than a recomputation of a point covariance and has a meaningful domain and weighting motivation, although it does not purport to settle general polygonal finite elements or higher-degree projectors.
+Rescaling by the axes identifies the normalized law with a signed Dirichlet vector with d unit parameters and slack alpha+1. Each coordinate magnitude T is Beta(1,m), with second moment 2/((m+1)(m+2)); sign symmetry diagonalizes the Gram matrix. The resulting row 1+c sum_i x_i y_i/a_i² uses c=(m+1)(m+2)/2>1. The row mass is convex, and distinct vertex rows have opposite signs on positive-measure interior sets close to the negative of a vertex, so equality is possible only at a vertex. At a vertex the excess over 1 equals E(cT−1)_+ = c integral_[1/c,1] (1−t)^m dt, giving the formula. The sign row and negative-set indicator yield the two claimed extremal values by unit row mass, and self-adjointness gives L1 duality. Full support and affine continuity justify vertex values for essential suprema. For excess F and b=1−2/((m+1)(m+2)), differentiation and log b>−(1−b)/b give (log F)'>(m²+5m+2)/(m(m+2)(m+3))>0. Expansion b^m=1−2/m+8/m²+O(m^-3) gives the stated norm; E(sum |Y_i|/a_i)=d/(m+1) proves weak concentration at fixed d. This includes d=1 and all m>d−1 in fixed d. Replay: RESULT.md lines 25–58. VERIFICATION.md and verify.py describe 204 finite exact/symbolic/high-precision checks; the supplied script was inspected but not executed.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The October 18 unweighted solid result gives exactly the same norm at m=d and the October 25 surface result gives the excluded boundary limit m=d−1. The weighted result deserves no independent credit for those cases, coordinate rescaling, or the old integer scalar values. The inspected simplex results concern different laws. The supported distinct claim is the signed slack-weighted family for all real alpha>−1, including its sharp monotonicity in real m, unique norming evaluations, and concentration-versus-amplification behavior. No inspected result gives that family.
+
+## value
+
+PASS
+
+The radial slack exponent changes observation concentration without changing the affine space, and the exact formula quantifies the resulting stability and worst negative excursion throughout that natural family. In particular weak concentration at one site can coexist with linearly diverging amplification; the real-parameter law and strict vertex geometry add useful information beyond recomputing the unweighted constants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

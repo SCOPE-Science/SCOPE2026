@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The matrix-tree reduction uses the exact direct-sum decomposition of the prism Laplacian, followed by the rank-three determinant lemma. The cyclic Green function is reconstructed using the recurrence \(q+q^{-1}=4\), the delta-source normalization and periodicity. The determinant's quadratic and cubic interaction terms produce an exact discrete balancing difference with three nonnegative factors and a final bracket bounded strictly below by \(1-1/\sqrt3\). The two integer gap flows prove both global optima and exhaustive equality conditions for every permitted size and contrast, including the weak-rung regime. Exact independent full-matrix and symbolic checks corroborate these identities; the proof, not sampled computation, gives the infinite conclusion.
+PASS
 
-## Originality — PASS on examined evidence
+The layer-symmetric and antisymmetric Laplacians are L_C and L_C+2D. The former has nonzero eigenvalue product n² and the latter is positive definite for t>0, so the matrix-tree prefactor is n/2. The rank-three lemma and periodic delta-source recurrence give the specified I+uK_S (u=t−1) and normalized cyclic kernel with q=2−√3. Independently expanded the difference of the two 3×3 determinants and recovered the exact positive certificate. The contrast bracket 1+q^(2z)+(u/√3)(1−q^(2z)) exceeds 1−1/√3 for u>−1; the other nonzero factors have the required sign for y≥x+2. Gap balancing terminates by decreasing the sum of squared gaps. For the minimum, repeatedly transfer a unit from a nonlargest gap ≥2 to a largest gap; each is the inverse of a strict balancing move and terminates at (1,1,n−2). Permutations of three cyclic gaps are realized by rotations/reflection, so strictness and symmetry give all equality cases. At t=1 all placements tie. Replay: python3 /workspace/branches/independent_exact_checks.py prism. Independent full cofactors give (2480040,2432232) at n=9,t=2 and (147015,414421/3) at t=1/3 for balanced and consecutive placements, respectively. The frozen scripts were inspected, not run; the calculations support, not replace, the universal proof.
 
-General weighted matrix-tree and transfer-current theorems establish determinant representations but do not fix three marked bonds' cyclic arrangement. Martin–Reiner, Kassel–Wu, Khosoussi and collaborators, Klenke, and Azimi–Farrokhi were compared at the level of their theorem statements, objects, and methods. The closest publicly published prism design result optimizes *all freely chosen conductances* with a price constraint, forcing homogeneous edge-class weights, while the present three-rung binary constraint excludes that optimizer. Known explicit unweighted circular-ladder Green matrices similarly do not determine the sign of the third-order defect interaction or the sharp balancing law. No inspected statement dominates the complete new claim. Historical priority could change if a specialist three-impurity rearrangement theorem exists outside the retrieved literature.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The problem asks where three identical strong or weak vertical links should be placed to maximize the spanning-tree ensemble, a natural finite-size connectivity and statistical-physics design invariant. Three defects are the first case with a genuinely cubic interaction in the determinant, so pairwise repulsion arguments alone are insufficient for the all-contrast optimum. The complete placement classification for infinitely many prism sizes and all positive contrasts is substantive; its strict closed-form balancing certificate explains rather than merely observes the invariant optimizer.
+The closest distinct screened-cycle result already orders the principal determinant of the very same kernel under gap balancing, and contributes the cubic-coefficient comparison. The supported distinct claim is the full shifted determinant with exact strict finite-contrast ordering on both sides of t=1, especially the weakening side. The unweighted kernel and ordinary principal-determinant spacing order are not claimed as new. No earlier or same-date inspected independent statement was found to supply the full finite-contrast inequality.
 
-## Closest literature and limits
+## value
 
-The transfer-current formalism (Burton–Pemantle, 1993; Kassel–Wu, 2013), unweighted prism counts and resistance matrices (Azimi–Farrokhi, 2023), infinite straight ladder determinantal kernels (Klenke, 2017), and general weighted-tree network design (Khosoussi and collaborators, 2016) supply necessary background or adjacent questions. The prior prism price-allocation finding is a stronger optimization in a *different feasible class* and does not assert a ranking among the three-rung binary placements. The result is restricted to three equal positive perturbations on unit-rail cyclic ladders and has not been independently audited.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural discrete network-design problem has both exhaustive extremizers and an explicit strict local order, uniform over every size and all positive weights. Three defects introduce the first cubic interaction; the ratio bound explains why a sign reversal of the conductance perturbation cannot reverse the ordering even though it reverses the cubic term. This is not just computing the unweighted tree count or repeating a pairwise spacing law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

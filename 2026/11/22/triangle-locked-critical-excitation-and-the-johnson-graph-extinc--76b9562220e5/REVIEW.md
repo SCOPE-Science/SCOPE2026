@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof gives a full periodic-contact double count at locally rounded-half degree, forcing equality at every active excitation, closure of the active support and an independent excitation set at each time. On each triangle, the temporal-neighbor restrictions force recurrence exactly three updates later, both forward and backward. Since every graph vertex is active and belongs to a triangle, all of them rotate with a fixed three-phase clock. The necessary balanced proper coloring and its sufficiency are derived independently. Johnson graphs have a four-clique outside the octahedron, and the exceptional exact six-coloring count follows from their three opposite-vertex pairs. The two embedded scripts were executed successfully and their outputs inspected; finite checks corroborate rather than replace the proof.
+PASS
 
-## Originality — PASS, with limitations
+The final theorem is unchanged. On a periodic orbit, excitation events have disjoint predecessor and successor neighbor sets, since a vertex cannot re-excite within two updates. The total required predecessor contacts are at least the sum of the thresholds, and the sum of predecessor plus successor contacts is at most the sum of the degrees. At the rounded half-degree threshold equality holds event by event: all neighbors occur in one of these sets and exactly half in each. Connectedness propagates activity to every vertex and forces every degree even. On a triangle with excitations a(t), b(t−1), c(t+1), independence and the no-repeat rule force c(t−2) and b(t+2), then a(t+3); repeating on the periodic time axis gives exactly the three-step clock. The frozen Step 4 reversed the predecessor and successor phase labels (for an excited vertex of color 1 they are 2 and 0, not 0 and 2). The replacement derives the phase counts at excitation and then shifts the time slice; the symmetric balance condition and its converse are unchanged. A fixed (k−1)-set yields a clique of size n−k+1, at least four except J(4,2). That graph is K_{2,2,2}, with exactly six proper balanced colorings partitioned into two orbits. Finiteness and the unique all-rest fixed point give the extinction equivalence.
 
-The closest verified published comparison characterizes initially primitive-three states at half degree but explicitly leaves all other possible periods and the global eventual dynamics untreated. The general maximum-induced-edge-density extinction statement assumes a strict inequality, and the Johnson specialization lies at equality in even-degree cases. The previously accessible triangular-graph result concerns only \(J(n,2)\), while this result establishes the structural triangle-locking principle for all vertex-triangle-covered heterogeneous graphs and obtains every higher Johnson level. The cubic-line-graph Tait-coloring count also concerns period-three states only. The classic one-dimensional and arbitrary-graph excitation papers do not state this threshold-varying criterion. Residual risk: unindexed prior statements or an equivalent result in unexamined literature.
+## originality
 
-## Value — PASS
+PASS
 
-The claim turns a strict-density boundary into a complete recurrent-orbit classification via a local triangle timing mechanism, and gives a natural infinite graph family without oscillation apart from one small exception. The theorem is structurally stronger than individual fixed-graph censuses, handles nonregular connected networks with even degrees, and distinguishes persistence on triangle-free graphs at precisely the same contact ratio. It supplies a reusable criterion connecting threshold excitation to locally balanced three-colorability, not merely another finite-state count.
+Pass for the complete recurrence classification at a vertex-dependent rounded half-degree threshold on connected vertex-triangle-covered graphs. The J(n,2) slice is already covered in a distinct same-date record and is not credited; the full Johnson range is an application, not the essential contribution. The repair corrects phase bookkeeping and acknowledges the exact overlap without claiming priority within a date.
 
-## Limits
+## value
 
-No uniform relaxation cutoff, full transient basins, or certification from an external party is asserted. Source inspections include complete relevant historical published published-finding corpus proofs and material from classical and modern primary papers, but historical-priority searches remain nonexhaustive.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The final claim provides an extinction criterion at the critical contact ratio, where strict inequalities give no answer. The structural timing lemma converts arbitrary recurrence to local balance constraints, handles heterogeneous degrees, and gives a natural infinite family application. The boundary is genuine: the triangle-free K_{2,2} at local threshold one permits a rotating four-cycle. The value is the reusable recurrence theorem, not a duplicate count for J(4,2).
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:52:06.793518Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–37 and VERIFICATION.md lines 19–31",
+        "verify_census.cpp lines 11–28, 39–79; verify_census.py lines 23–44, 61–127 (inspected)",
+        "witness_tree.json and orbit_representatives.json (fresh certificate comparison)",
+        "/workspace/branches/review2-torus.py and review2-torus-output.txt (independent exact replay)"
+      ],
+      "rationale": "The field equation gives exactly the four open Cartesian neighbors. Distinct leaves must have distinct Boolean concepts and hence distinct centers, so depth three requires at least eight centers and depth four is impossible on eight. Each root branch on eight needs four centers, forcing the root's full four-neighbor set inside the same E. On each four-center branch the next query must split two against two, and each pair can be separated precisely when its two centers have different adjacency to some query in E. The published rooted reduction tests exactly binomial(20,3)=1140 candidates at a fixed root; translating then gives the rooted pairs. The independent replay scanned all 1,081,575 eight-sets directly, without the fixed-root translation reduction, finding 84 at the origin, 2,050 total and 2,100 rooted pairs (2,000 one-root sets and 50 two-root sets). It tested all static traces on triples and pairs as needed, yielding VC dimension exactly two on every winning set. An elementary ambient upper bound also holds: a shattered triple would share a common neighbor; three of the four neighbors of one vertex include an opposite pair, whose only common neighbor is that vertex, ruling out the trace consisting of that pair alone. The replay verified the exact representatives of the 200-map symmetry group (9 orbits of size 200, 2 of 100, 1 of 50) and all eight length-three paths of the supplied witness. Both queries and leaves are inside E throughout.",
+      "residual_risks": [
+        "The bundled Python verifies the VC lower bound using pairs and invokes an ambient upper bound, rather than directly testing triples; the independent review checked the upper bound both mathematically and in the local trace computation. The result concerns only this graph and the stated self-restriction."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same finite-field predicate is studied for larger-support static VC bounds, with small E outside the guaranteed ranges. Hereditary Hamming/Johnson results and finite-field distance-chain results concern static VC on other families or predicates. Four-point translates apply to ambient incidence families, not a count after self-restriction."
+        ],
+        "reasoning": "Static bounds and ambient online bounds may transfer as upper bounds but do not classify the smallest self-restricted online witnesses.",
+        "searches": [
+          "arXiv:2108.13231, Theorems 1.3 and 1.6, Remark 1.7",
+          "arXiv:2007.16042 and arXiv:2210.03058",
+          "Resultary open-neighborhood induced-subgraph and four-point translation results"
+        ]
+      },
+      "checked_sources": [
+        "Bound RESULT.md lines 41–55",
+        "Resultary records and OA papers identified above",
+        "Resultary induced triangular-neighborhood online dimension record ending df7df7b63727 (Finding gives induced-subgraph bound, not this census)",
+        "Resultary rank-width-one neighborhood-profile record ending bd9f724b9520 (static traces, ambient centers)",
+        "Bound record's own catalogue listing ending 01b0e8d99e8f (self-match)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the torus ambient class each open neighborhood is a translate of the four axial offsets. An ambient online theorem does not decide whether its witness queries and all its leaf centers lie in a common prescribed E. The global VC upper bound also says nothing about root multiplicity or the number of supports admitting a tree."
+        ],
+        "reasoning": "The leaf lower bound and static VC upper bound are not a new contribution by themselves. Existing ambient or static statements do not mechanically give the root-constrained eight-set census, its symmetry orbits, or a certificate for every counted orbit.",
+        "searches": [
+          "Resultary four-point translation families, ID ending 6ce96751eb40",
+          "Fitzpatrick–Iosevich–McDonald–Wyman Remark 1.7",
+          "Unit-circle shattering-polynomial record ID ending a0deccaa01de (retrieval attempted)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The q=5,t=1 restriction of H_t^2(E) in arXiv:2108.13231 is exactly the same incidence class, but its studied dimension is the static VC dimension. Induced-subgraph decision-tree results for threshold and triangular graphs concern other host families. The high-girth radius-one result uses closed rather than open neighborhoods and excludes four-cycles."
+        ],
+        "reasoning": "Rewriting the class as columns of an induced adjacency matrix or as restricted unit-circle incidence does not distinguish the object. The distinguishing question is the simultaneous restriction of centers and queries in the online census, not the adjacency presentation.",
+        "searches": [
+          "Resultary semantic searches on local Littlestone dimension / open-neighborhood depth-three decision trees on induced eight-point subsets of C5 square C5",
+          "Primary literature search on induced-subgraph shattering and eight-point finite-field incidence classes",
+          "Fitzpatrick–Iosevich–McDonald–Wyman arXiv:2108.13231"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact match ending 01b0e8d99e8f is the bound record itself. A distinct same-day torus result also gives twelve orbits, but these are translation orbits of statically shattered triples for closed king neighborhoods, with diagonals and a different support size. No separate exact table was verified."
+        ],
+        "reasoning": "Matching the torus size or orbit count alone is immaterial: an orbit must describe the same configuration objects under the same adjacency predicate, move or query rule, and group.",
+        "searches": [
+          "Resultary searches on C5 square C5 local decision-tree witnesses, exact finite-field shattering profiles, 2050 supports, 12 orbits, root multiplicity"
+        ]
+      },
+      "rationale": "The static predicate and the general binary-tree cardinality bound are known; the distinct contribution is the exact self-restricted online minimizer classification in the pentagonal torus, including root multiplicities and the symmetry quotient. The closest same-predicate paper treats static VC and leaves small supports outside its size guarantees. The inspected online analogues are for other graph families or have ambient queries. No independent matching census was established; this is a bounded comparison, not a claim of absolute priority.",
+      "residual_risks": [
+        "One primary search yielded unrelated results; absence is not established. The exact unit-circle record was not retrievable in the attempted local route. Unindexed equivalent finite incidence or induced-subgraph classifications could affect priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact incidence-family overlap but not the local Littlestone census",
+          "evidence": "Defines h_y(x) by the fixed-radius norm for x,y in E and gives static VC guarantees above size thresholds; the remark identifies a gap for smaller E.",
+          "identifier_or_url": "https://arxiv.org/abs/2108.13231",
+          "material_read": "pp. 1–2, PDF offsets 3029 and 4992; Theorems 1.3, 1.6 and Remark 1.7",
+          "method": "OA full-text passages",
+          "title": "The VC-dimension and point configurations in finite-field two-space",
+          "trigger": "Exact same static self-restriction at q=5,t=1"
+        },
+        {
+          "assessment": "Static different-family coverage",
+          "evidence": "Gives VC bounds for Johnson and Hamming neighborhoods including induced subgraphs.",
+          "identifier_or_url": "https://arxiv.org/abs/2007.16042",
+          "material_read": "p. 1, PDF offset 1361",
+          "method": "OA full-text passage",
+          "title": "Vapnik–Chervonenkis Dimension and Density on Johnson and Hamming Graphs",
+          "trigger": "Hereditary open-neighborhood complexity"
+        },
+        {
+          "assessment": "Different static question in inspected scope",
+          "evidence": "Treats spherical intersection/distance-chain classes and static VC dimension.",
+          "identifier_or_url": "https://arxiv.org/abs/2210.03058",
+          "material_read": "Abstract p. 1, PDF offset 0",
+          "method": "OA abstract passage",
+          "title": "VC-Dimension and Distance Chains in finite-field spaces",
+          "trigger": "Finite-field incidence analogue"
+        },
+        {
+          "assessment": "Threshold-graph hypothesis, not classification of induced torus supports",
+          "evidence": "Four forbidden induced threshold graphs characterize depth three within that class; three have eight vertices.",
+          "identifier_or_url": "2026/10/26/SCOPE-four-forbidden-threshold-graphs-for-depth-three-neighborhood-sha--72712918f81f",
+          "material_read": "Finding at offset 0",
+          "method": "Resultary local mirror",
+          "title": "Four forbidden threshold graphs for depth-three neighborhood shattering",
+          "trigger": "Close online induced-subgraph analogue"
+        },
+        {
+          "assessment": "Different ball convention and girth hypothesis",
+          "evidence": "Closed radius-one balls and exclusion of four-cycles; the torus has four-cycles.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-online-shattering-of-radius-one-balls-in-graphs-of-girth-a--b4948b0fad7c",
+          "material_read": "Finding at offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact online shattering of radius-one balls in graphs of large girth",
+          "trigger": "Exact VC-2/Littlestone-3 witness-size analogue"
+        },
+        {
+          "assessment": "Not a self-restricted support census",
+          "evidence": "Classifies online dimension of translates of four-point sets in finite abelian groups, without the common eight-point restriction.",
+          "identifier_or_url": "2026/11/8/SCOPE-four-point-translation-families-exact-online-dimension-and-a-sid--6ce96751eb40",
+          "material_read": "Finding at offset 0",
+          "method": "Resultary local mirror",
+          "title": "Four-point translation families: exact online dimension and a Sidon boundary",
+          "trigger": "Ambient online incidence formulation"
+        },
+        {
+          "assessment": "Different adjacency, convention, object and orbit group",
+          "evidence": "Counts statically shattered triples for closed king neighborhoods, including 300 triples in 12 translation orbits on the 5-by-5 torus.",
+          "identifier_or_url": "2026/11/22/SCOPE-complete-shattering-profiles-for-cyclic-king-neighborhoods--c72aa9c369dd",
+          "material_read": "Finding at offset 0",
+          "method": "Resultary local mirror",
+          "title": "Complete shattering profiles for cyclic king neighborhoods",
+          "trigger": "Same torus size and apparent orbit-count match"
+        },
+        {
+          "assessment": "Underlying exact ambient comparison unresolved; upper bound checked independently for correctness",
+          "evidence": "The frozen citation attributes an ambient static theorem, not a local online census. No unseen statement is inferred.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-shattering-polynomials-of-finite-field-unit-circles--a0deccaa01de",
+          "material_read": "Bound record's citation and account; original mirror text unavailable",
+          "method": "Local mirror retrieval attempted",
+          "title": "Exact shattering polynomials of finite-field unit circles",
+          "trigger": "Cited ambient static upper bound at q=5"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding; exact orbit and witness certificates independently checked"
+      ],
+      "rationale": "The support size eight is forced by the leaf bound rather than chosen for computational convenience. Attainment in this symmetric degree-four graph is not automatic once queries and centers must share the support. The census identifies every minimal-size support achieving an adaptive depth not available statically, and the orbit and root counts distinguish essentially different witnesses and quantify where adaptation can start. This is a precise baseline for studying how graph symmetries and locality constrain online learning.",
+      "residual_risks": [
+        "A motivated finite classification, not an all-field statement or a priority claim for the online/static gap in general."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

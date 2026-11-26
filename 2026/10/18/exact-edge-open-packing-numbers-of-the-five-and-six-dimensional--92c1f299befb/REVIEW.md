@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The theorem concerns two specific finite graphs, with explicit edge-open packings of cardinalities 12 and 24. The proof reduces upper bounds to fully exhaustive clique nonexistence in an exact compatibility graph, normalized to one edge by cube automorphisms. The proper-coloring bound and reverse branching are mathematically sound. `verify_eop.py` checks the witnesses and proves absence at thresholds 13 and 25 with exact integer arithmetic. Replaying the packaged executable reproduces `VERIFY_OK`. Finite exhaustiveness suffices for these exact finite statements; no infinite extrapolation is made.
+## correctness
 
-**Originality — PASS, with residual risk.** The closest inspected primary work, Brešar–Dravec–Hedžet–Samadi (arXiv:2406.04020, Section 5.1, Table 1), states \(\rho_e^{\mathrm{o}}(Q_5)\ge10\) and \(\rho_e^{\mathrm{o}}(Q_6)\ge24\), plus exact results only when dimension is a power of two. The prior general upper bound from Brešar–Samadi gives 16 and 32, respectively, so these are not pre-established equalities. Full-text and indexed-term comparisons distinguish vertex open packing and general edge-packing characterizations from these exact values. Related results records found no statement implying the claimed pair. Unindexed independent computation remains a priority risk; absence from search is not novelty proof.
+PASS
 
-**Value — PASS.** These are the first two dimensions outside the power-of-two regime explicitly treated in the motivating hypercube section. The results both sharpen the available range to exact values, including improving the dimension-five constructive lower bound from 10 to 12, and supply a compact, reproducible finite optimality certificate for a natural edge-packing invariant on canonical cubic-Boolean networks. The significance is the pair of previously unresolved exact values, not an arbitrary subgraph slice or a small incidental arithmetic improvement.
+At dimension six the four listed centers are pairwise Hamming distance four, so their six-edge stars have disjoint endpoints and no cross adjacencies. Incident selected edges are compatible by triangle-freeness; disjoint edges conflict exactly at a one-bit cross adjacency. Automorphisms reduce exclusion of size 25 to a clique extension containing (0,1). In the checker, each color class is independent; after all later candidates have been tried and removed, the current prefix is colored by at most the color of its last vertex. Thus the early return when depth plus that color is below the target is sound. For every clique extension the branch of its last vertex preserves all earlier members by exact adjacency intersection. Candidate counts and all operations are exact. A separate bounded implementation, /workspace/branches/35c02605-dcf6-44ac-a1f7-8159d8284723/independent_eop_check.py, was run after a Q2 probe; its q6_replay.txt confirms 192 edges, the witness of 24, and exclusion of 25 after 54,111 calls. The original Q5 equality and induced-matching comparisons also reproduced; their removal is not a mathematical rejection. The submitted script was inspected, not executed. The repaired proof certifies this finite instance only and does not classify optimizers.
 
-**Scientific limitations.** No theorem is claimed in other dimensions, and full historical priority is not certifiable through finite database searches. The computational upper bounds require replay of the provided exact checker; its completeness has a separate combinatorial explanation in the proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The frozen two-dimension contribution could not pass unchanged. Distinct records d285e3a47bb6 and d4fb72f17bca explicitly give the exact Q5 value 12 in the same packing convention, in fact with a stronger optimizer census. The repair removes Q5 as a contribution and credits the already known lower bound of 24 for Q6. The inspected table and general results do not exclude a 25-edge packing in Q6; the independent exact exclusion supplies the supported remaining contribution. The directly topical inaccessible journal article is a residual risk, not negative evidence or an access-based verdict.
+
+## value
+
+PASS
+
+The binary hypercube and this packing invariant are studied explicitly in a product-graph comparison, with an exact theorem at power-of-two dimensions and a published finite-dimensional lower-bound table at other dimensions. At six the accessible bounds allowed anything from 24 to 32. Proving that 24 is sharp, rather than replacing an older witness by a larger one or picking an arbitrary family slice, fills that precise gap and gives a reliable benchmark for structural bounds and computations on the same invariant. The repaired claim makes no generalization from the finite result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

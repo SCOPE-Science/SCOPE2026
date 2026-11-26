@@ -1,11 +1,21 @@
-# Review of matched-pair erasure in Dyck words
+# Independent mathematical audit
 
-**Correctness — PASS.** Two erasures of disjoint pairs yield the word equation \(AQ\mathtt{(}B\mathtt{)}=\mathtt{(}A\mathtt{)}QB\); its balanced-prefix and balanced-suffix restrictions force leaf endpoints and an intervening run of leaf pairs. Nested collisions reduce inductively through unique-child chains. The collision graph is a disjoint union of paths, so the component count equals \(n-U-L\). A forest grammar with a leaf-ending state produces the stated quadratic generating function; its coefficient linear in \(u\) is the Fibonacci extremizer series. Literal erasure, tree statistics and algebraic coefficient distributions agree exhaustively through semilength ten in `verify_matching.py` (23,713 sources). The proof, not the finite test, establishes the universal statements.
+## correctness
 
-**Originality — PASS, qualified.** The nearest foundational primary source, Bernini–Ferrari–Pinzani–West, *The Dyck pattern poset* (arXiv:1303.3785, Proposition 2.1), counts all valid up/down scattered-subword erasures, not the strict matched-pair channel. A concrete distinguishing example is \(\mathtt{()()()}\): two general rank-one predecessors versus one matched-pair output. Chen–Li–Shapiro (arXiv:math/0511045) treats plane-tree correspondences and different chain enumerations. The nearest indexed research on Dyck two-read single-symbol deletion studies another operation and does not establish the present source-dependent sphere or its distribution. Targeted searches found no statement that implies the precise quadratic or collision classification; this is best-knowledge originality, not a uniqueness certificate. A possible prior plane-tree edge-contraction formulation not indexed in the examined sources remains a substantive residual risk.
+PASS
 
-**Mathematical value — PASS.** Matching-pair erasure models removal of a matched component in a nested-word/plane-tree representation while maintaining structural validity. The result identifies *all* output redundancies and gives a full all-size algebraic ambiguity spectrum, linear-time evaluation, sharp worst- and best-case counts and a Fibonacci extremizer population. These facts are distinct from the more permissive Dyck scattered-subword poset and directly inform ambiguity measurement for structured deletions. No unsupported coding-capacity or independent-certification claim is made.
+Rechecked the repaired claim and proof. For disjoint matched pairs, a first-return comparison forces the first interior empty and an end-symbol comparison forces the second empty; the intervening word then commutes with (), hence is a run of leaves at that same parent. In the nested case irreducibility forces the outer vertex unary, and cancelling its unique child's delimiters reduces to the shorter nested comparison, with the parent-child base case immediate. The collision links form paths (leaf runs cannot meet a unary link). Counting their components gives n-D=U+L. The forest grammar assigns u exactly when a vertex has just one child, or a leaf is appended after a leaf; eliminating T=F_L=zF/(1+z-uz) gives the quadratic and its triangular coefficient recursion. A deepest leaf forces U+L>=1 for n>=2. At u=0 the solution is 1+z, and the linear coefficient in u is z^2(2+z)/(1-z-z^2); n>=2 has tail 2,3,5,...; a single collision path gives only the two stated minimal words. Independently generated 23,713 nonempty Dyck words at sizes 1–10 by choosing and checking up-step positions; computed pair matches by first returns and checked all pairwise collision predictions and the quadratic coefficients by integer interpolation.
 
-**Scientific limits.** Binary ordered Dyck sources only; matching pair erasure exactly once; literal outputs; no multi-erasure, reversal quotient or noise. A separately conducted independent audit is not available.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The repaired claim is the complete algebraic distribution on Dyck sources and its exact upper-tail counts, not the pointwise collision classification or minimum in isolation. Opening-order (preorder) labelling embeds the channel into 35167ae70630 and exposes genuine coverage of the latter facts regardless of priority. The inspected enumeration there is over all Stirling permutations and counts individual label-pair collisions, not the full distribution on the fixed canonical labellings. The broader scattered-subword predecessor count cannot distinguish which erasures were originally matched. The surviving series is supported as distinct in the bounded comparison, not certified historically first.
+
+## value
+
+PASS
+
+The algebraic invariant answers an exact ambiguity question for a natural matching-respecting deletion channel. It supplies all class-count frequencies by source size, including how rarely maximum distinguishability is attained. This is more informative than a particular deletion count or the specialization of a pointwise collision theorem, and does not rely on claims about coding capacity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:26:47.952304Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Lucas's theorem gives the digit weight x+1. Splitting by the low-digit carry gives the two cyclic cross-sum coefficients as sums of products; summing the arithmetic polynomials gives the stated A and B. At lag one, B=p and the high-block zero-lag sum is S_p^(r-1), so the affine recurrence gives alpha_p S_p^r + (1-alpha_p)p^r from H_0=1. Both arrays have the same moments. After dividing by S_p^r the centering correction is theta_p^r with theta_p=3(p+1)/(2(2p+1))<1, and the variance is positive. For fixed h>1 the recursion reduces to smaller lags; the two displayed polynomial differences give strictness for nonzero digits at q>=1 and for one-digit lags d>1. The d=0 identity then gives precisely powers of p as maximizers; positivity and rationality follow by induction. Independent replay: `python3 /workspace/reproduce_frozen.py 4` checked 806 depth/lag pairs by counting original binomial entries and directly summing cyclic products, at p=3,5,7,11. The frozen `artifacts/verify.py` is present despite not being listed by the shallow excerpt; it was inspected, not executed. The finite tests corroborate the proof only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "3afe7626d587 also states the second tier at 2p^k and infimum zero.",
+          "Rowland and Spiegelhofer–Wallner give individual-row valuation counts and subword polynomials; Goresky–Klapper's arithmetic correlation counts symbols of an N-adic difference, not ordinary Pearson products."
+        ],
+        "reasoning": "The same-day record covers the stated theorem with additional classifications. The inspected general digit and arithmetic-correlation results concern different statistics.",
+        "searches": [
+          "Resultary: all-shift digit carry correlations and Pascal-row nondivisibility",
+          "Rowland arXiv:1001.1783; Spiegelhofer–Wallner arXiv:1604.07089; Goresky–Klapper SETA08"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 3afe7626d587 (decisive)",
+        "Resultary 7be946ab1fa0",
+        "arXiv:1001.1783",
+        "arXiv:1604.07089",
+        "Goresky–Klapper SETA08"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact cyclic carry recurrence of 3afe7626d587 has the same A and B. Substituting d=1 and q=0 gives H_r(1)=A_1 S_p^(r-1)+pH_(r-1)(1), with H_0(1)=1."
+        ],
+        "reasoning": "Solving this scalar recurrence yields the displayed finite lag-one formula. The earlier binary theorem alone would not give the odd-prime result.",
+        "searches": [
+          "Full local-mirror RESULT.md of 3afe7626d587, Finding and carry-recursion proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE-the-first-two-extremal-correlations-of-pascal-row-nondivisibilit--3afe7626d587: the Finding has the same count of nondivisible entries, cyclic block of length p^r, Pearson normalization and fixed positive lag; the sharp value is 2(p+1)/(2p+5) with equality exactly at p^k."
+        ],
+        "reasoning": "The change in cross-sum notation does not affect the normalized limit or equality cases; this is not an unwrapped correlation or a p=3-only comparison.",
+        "searches": [
+          "Resultary: odd-prime Pascal cyclic correlations, the p=3 value, digit correlations and carry recursion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "3afe7626d587 gives 8/11 at p=3 as a specialization of the identical theorem. Earlier 7be946ab1fa0 gives 2/3 at p=2, which is outside the assigned domain."
+        ],
+        "reasoning": "The decisive hit has the exact value and governing theorem, not just a numerical match. A finite table could not certify the universal prime and shift quantifiers.",
+        "searches": [
+          "Resultary: cyclic Pascal Pearson correlation 8/11 and sharp powers of p"
+        ]
+      },
+      "rationale": "A distinct same-day published record explicitly states the same central all-odd-prime fixed-lag cyclic Pearson theorem, recursion, sharp constant and complete maximizing set, and additionally states a second tier and the infimum. This is demonstrable coverage, not a priority determination. Its exact finite carry recurrence also mechanically gives the assigned record's explicit lag-one formula, so that display does not support a separate repair.",
+      "residual_risks": [
+        "Relative chronology within the common publication day is not established.",
+        "General weighted digital-correlation literature was not exhaustively ruled out; that does not affect the verified same-day coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers central theorem; same publication date does not settle priority",
+          "evidence": "Same fixed-lag Pearson limit, recursion and sharp maximum exactly at powers of p; additional second tier and infimum.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-the-first-two-extremal-correlations-of-pascal-row-nondivisibilit--3afe7626d587",
+          "material_read": "RESULT.md: Finding and assumptions (offset 0), proof including carry recurrence (offset 3000), remainder (offset 6437)",
+          "method": "Resultary local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "The first two extremal correlations of Pascal-row nondivisibility counts at odd primes",
+          "trigger": "Same object, scope and exact constant"
+        },
+        {
+          "assessment": "Binary precedent; does not cover odd primes",
+          "evidence": "Cyclic Pearson maximum 2/3 at powers of 2, at p=2 only.",
+          "identifier_or_url": "SCOPE-sharp-shift-correlations-for-the-odd-entry-counts-in-binary-pasc--7be946ab1fa0",
+          "material_read": "Indexed result statement",
+          "method": "Resultary",
+          "title": "Sharp shift correlations for the odd-entry counts in binary Pascal rows",
+          "trigger": "Earlier analogous maximum and equality cases"
+        },
+        {
+          "assessment": "Inspected results concern row counts, not shifted correlation",
+          "evidence": "Fine digit product and prime-power subword formulas for individual rows.",
+          "identifier_or_url": "https://arxiv.org/abs/1001.1783",
+          "material_read": "Abstract and pp. 1–3",
+          "method": "Primary OA text",
+          "title": "The number of nonzero binomial coefficients modulo p^alpha",
+          "trigger": "Possible broader Pascal digit-count theorem"
+        },
+        {
+          "assessment": "Different statistic in inspected passages",
+          "evidence": "Exact p-adic valuation and subword polynomial formulas.",
+          "identifier_or_url": "https://arxiv.org/abs/1604.07089",
+          "material_read": "Abstract and pp. 1–4",
+          "method": "Primary OA text",
+          "title": "An explicit generating function arising in counting binomial coefficients divisible by powers of primes",
+          "trigger": "Broader prime-power digit statistics"
+        },
+        {
+          "assessment": "Different definition",
+          "evidence": "Arithmetic correlation uses a digit imbalance under N-adic subtraction, not the Pearson product of the two row counts.",
+          "identifier_or_url": "https://www.math.ias.edu/~goresky/pdf/SETA08.pdf",
+          "material_read": "pp. 1–4",
+          "method": "Primary OA text",
+          "title": "Some Results on the Arithmetic Correlation of Sequences",
+          "trigger": "Possible general carry-correlation equivalence"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As mathematics, the all-prime sharp extremum and its complete equality set answer a natural question about dependence between separated Pascal rows; one-row digit counts alone do not identify which shifts preserve the most correlation. This assessment of the theorem's significance gives no separate contribution credit to a record with the documented material overlap.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

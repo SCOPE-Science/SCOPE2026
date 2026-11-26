@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:35:35.803783Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–59, VERIFICATION.md, artifacts/verify_general.py and artifacts/verification_output.txt",
+        "python /workspace/branches/replay_discrete.py automata"
+      ],
+      "rationale": "Read inverse letters right-to-left in a forward word. Inverse a rotates occupancy and crossing indices by -1; inverse b copies the bit at d into 0. A shrinking copy clears 0 when d is empty; its incoming edge loses any crossing, and the outgoing edge still cannot be a 0-to-1 crossing. Non-growing copies thus cannot create crossings. In every path to a larger set the first growth is a copy, with some original surviving crossing rotated to 0; fewer than r=min E_d rotations cannot do that. The word ba^r attains r+1. No crossings means constant occupancy on each d-orbit; rotations preserve this condition and copies then fix the set, so the infinity case covers precisely the unions of the orbits. With gcd=1, ignoring starting edges i>=t leaves disjoint directed paths for t<n, each allowing exactly the nonincreasing binary strings, v+1 per path. At t=n only the two constants remain, and differences cancel those constants at all lengths. The final deleted edge has source n-1 and the path starts at n-1+d, proving the unique longest set of each size; d=1 gives the single explicit path and isolated vertices. Independent preimage-layer BFS, using preimages built from forward maps, agreed on 45 automata and 16,298 nontrivial subsets, both n=7 example vectors, all coprime path products, and the claimed extremizers. Finite enumeration is supplemental.",
+      "residual_risks": [
+        "The full histogram is for coprime displacements. The proof does not cover general rank-defect-one maps or imply reset or image-avoidance thresholds."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Miccinesi gives sufficient short-extension certificates; Berlinkov–Ferens–Szykuła treat the general bounded-length decision problem; Don gives reachability by one-defect chains and length bounds when coprime."
+        ],
+        "reasoning": "Certificates supply some upper bounds, and reachability/complexity theorems do not give the exact minimum or its distribution for each natural d.",
+        "searches": [
+          "arXiv:2609.21603 §1 and §8.1",
+          "arXiv:1704.08233v4 Table 2",
+          "DOI 10.37236/5616 Theorem 10, Lemma 13 and Proposition 15"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 34e6272e5e99, 7ea017efeb25, 3d0ad329ab1e, 982722496edf",
+        "arXiv:2609.21603",
+        "arXiv:1704.08233v4",
+        "DOI 10.37236/5616"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Černý obstruction is weaker than the exact extension lengths; Don does not assign lengths to the first growth of an individual target.",
+          "An arbitrary-d path product depends on how the specified increasing prefix of edge indices cuts up the d-cycle."
+        ],
+        "reasoning": "Neither the existence theory nor a forward rank-change enumeration implies that a shrinking inverse copy cannot hasten first growth or determines the labeled frequency of shortest extensions.",
+        "searches": [
+          "arXiv:2609.21603 §8.1",
+          "Don Proposition 15",
+          "Resultary 34e6272e5e99 and 7ea017efeb25"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The d=1 Resultary result states the identical boundary formula and histogram under Černý labeling. A same-day result uses exactly the arbitrary-d generators but counts forward collapse schedules."
+        ],
+        "reasoning": "Conjugating by multiplication to send a coprime d to 1 also changes the unit-cost rotation generator; it does not preserve the stated lengths. The different n=7 histograms rule out an invariant length-preserving identification in general. Forward strict-collapse schedules are not inverse-side first-extension distances.",
+        "searches": [
+          "Published Resultary cyclic-copy and Černý shortest extending words and subset spectrum",
+          "Resultary 34e6272e5e99 and 7ea017efeb25",
+          "arXiv:2609.21603 §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "34e6272e5e99 is an exact match to the d=1 histogram only, dated 2026-11-02. The other inspected catalogue statements concern collapse schedules, two-defect image reachability or reset thresholds."
+        ],
+        "reasoning": "The d=1 specialization is not independently distinct from that exact table, irrespective of chronology. None of the scoped tables supplies the general-d spectrum.",
+        "searches": [
+          "Published Resultary shortest preimage extension histogram and cyclic defect-one image tables",
+          "Resultary 34e6272e5e99, 7ea017efeb25, 3d0ad329ab1e, 982722496edf"
+        ]
+      },
+      "rationale": "The exact d=1 overlap is explicit in the published catalogue, but its date is later and its theorem does not cover general d. The simultaneous bounds at arbitrary displacement (including absence of extension) and displacement-dependent coprime spectrum are distinct from the strongest compared statements.",
+      "residual_risks": [
+        "The focused web search was unproductive; not evidence of absence. Earlier equivalent treatments in unindexed automata/semigroup literature remain possible. The same-day comparison is statement-based and the later exact d=1 match does not resolve broader priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical d=1 specialization; later listing does not establish earlier priority",
+          "evidence": [
+            "The same first-boundary formula and same histogram, with a further shortest-word uniqueness statement."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-shortest-preimage-extension-law-and-subset-histogram-for-t--34e6272e5e99",
+          "material_read": "RESULT.md opening Finding and assumptions",
+          "method": "Local Resultary mirror",
+          "title": "Exact shortest preimage-extension law and subset histogram for the Černý automata",
+          "trigger": "Exact shortest-preimage formula and histogram match"
+        },
+        {
+          "assessment": "Same model, different observable",
+          "evidence": [
+            "Counts forward deletion schedules and reachability; not a shortest inverse-extension histogram."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-sharp-counts-of-strict-collapse-schedules-in-cyclic-defect-one-a--7ea017efeb25",
+          "material_read": "RESULT.md opening Finding and scope around offset 6200",
+          "method": "Local Resultary mirror",
+          "title": "Sharp counts of strict collapse schedules in cyclic defect-one automata",
+          "trigger": "Identical cyclic-copy generators for arbitrary displacement"
+        },
+        {
+          "assessment": "General sufficient certificate and obstruction, no exact general-d formula in compared passages",
+          "evidence": [
+            "B(S)>=0 implies extension within n-1; §8.1 discusses why a uniform chain bound does not follow."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.21603",
+          "material_read": "§1 and §8.1",
+          "method": "OA HTML passages",
+          "title": "Certificates for short extending words in a finite automaton",
+          "trigger": "Same minext invariant and explicit Černý obstruction"
+        },
+        {
+          "assessment": "Problem identification and general complexity rather than this spectrum",
+          "evidence": [
+            "Considers decisions |w^(-1)(S)|>|S| under a length bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1704.08233v4",
+          "material_read": "Table 2 and surrounding discussion",
+          "method": "OA HTML passages",
+          "title": "Preimage Problems for Deterministic Finite Automata",
+          "trigger": "General exact bounded-length preimage-extension decision problem"
+        },
+        {
+          "assessment": "Reachability existence and upper bounds, not a minimum or histogram",
+          "evidence": [
+            "Proposition 15 gives a length bound n(n-k) for realizing any k-set as an image in the coprime setting."
+          ],
+          "identifier_or_url": "10.37236/5616",
+          "material_read": "Theorem 10 p. 5, Lemma 13 and Proposition 15 p. 7",
+          "method": "OA EJC PDF passages",
+          "title": "The Černý Conjecture and 1-Contracting Automata",
+          "trigger": "Coprime displacement and circular rank-defect-one extension"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 13–37 and 42–57",
+        "arXiv:2609.21603 §8.1"
+      ],
+      "rationale": "The invariant already arises in extension proofs in the literature. Counting exactly when the bound n-1 fails, including one extreme subset per size, yields information unavailable from reachability or an example of failure. The complete labeled length distribution discriminates displacements even when coprimality gives identical existence answers.",
+      "residual_risks": [
+        "The value is an exact preimage invariant for the natural family, not a new general reset bound."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

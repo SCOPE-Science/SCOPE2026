@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:16:36.260847Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "Both frozen Python implementations (inspected, not executed) and their two recorded stdout files",
+        "Independent replay: python3 /workspace/audit_evidence/reproduce_dcm9.py; captured output at /workspace/audit_evidence/reproduce_dcm9.stdout"
+      ],
+      "rationale": "The graph uses strict endpoint interleaving to detect interior crossings; chords sharing endpoints do not cross, but identical chords are excluded separately. Independently enumerated from the alternating matching by legal re-pairings of two chords. This enumeration is complete: if the ear (0,1) is absent, their old chords are nested as (0,a),(1,b) with 1<b<a. The other chords are confined to the three intervals between 1,b,a,0; the replacement (0,1),(b,a) is noncrossing. Freeze the ear and induct on the remaining circular labels, obtaining flip connectivity to the seed. The flips only enumerate vertices; the disjoint-compatibility edges were tested separately on all unordered vertex pairs. Exact breadth-first layers from every vertex of the giant component yield 4862 vertices, 8677 edges, component sizes 1^612, 5^36 and 4070^1, all 36 order-five components stars, eccentricity histogram 10:2, 11:480, 12:483, 13:1377, 14:1368, 15:360, and exactly the specified alternating centers. The canonical graph digest agrees with both recorded outputs. This proves the finite claim only, not a formula for other sizes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The component classification is broader in k and covers the stated structural counts, not the distances. The geometric matching existence theorem applies to an even number of matched edges and does not give distances. The 2024 diameter work uses a different adjacency."
+        ],
+        "reasoning": "None of the inspected wider-scope theorems includes the stated metric profile; bibliographic access to the 2002 source was limited.",
+        "searches": [
+          "arXiv:1403.5546 Theorems 1, 2 and 36, Propositions 40 and 41",
+          "Ishaque–Souvaine–Tóth, Disjoint Compatible Geometric Matchings, Theorem 1",
+          "arXiv:2409.03579 pp. 1–3",
+          "Hernando–Hurtado–Noy, DOI:10.1007/s003730200038"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary ranked results",
+        "arXiv:1403.5546",
+        "DOI:10.1007/s00454-012-9466-9",
+        "arXiv:2409.03579",
+        "DOI:10.1007/s003730200038 (bibliographic only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The k=9 computer-assisted connectivity step and published component sizes do not tabulate shortest paths. Proposition 40 identifies the two rings by maximum degree, a different invariant; Proposition 41 enumerates edges."
+        ],
+        "reasoning": "The distribution and extremizers are obtained by exact shortest-path analysis, not by specializing a published metric formula or by substituting a component size or degree.",
+        "searches": [
+          "arXiv:1403.5546, Theorem 36 and Propositions 40–41"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Aichholzer–Asinowski–Miltzow define the same direct adjacency. The auxiliary-object graph in arXiv:2409.03579 instead has a common disjoint-compatible spanning tree, caterpillar or path as a witness of adjacency."
+        ],
+        "reasoning": "Metric statements for the auxiliary graph are not equivalent to shortest paths in the direct graph. Merely naming the two rings using their degree does not identify the center.",
+        "searches": [
+          "Resultary: DCM9 disjoint compatible noncrossing matchings on eighteen convex points, center and exact eccentricity histogram",
+          "arXiv:1403.5546",
+          "arXiv:2409.03579"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The retrieved Resultary results contained no materially matching metric claim. Table 1 gives 612 singletons and 36 five-vertex components at k=9; the paper's generating function covers edge counts. The table does not give the eccentricities."
+        ],
+        "reasoning": "Credit the published structural checks. The bounded table/catalogue comparison did not reveal an exact match for the separately assessed metric claim.",
+        "searches": [
+          "Resultary: exact title, DCM9 with metric values, eccentricity histogram and cited DCM terminology",
+          "arXiv:1403.5546 Table 1 and Proposition 41"
+        ]
+      },
+      "rationale": "The supported distinct claim is the center, radius, diameter and full eccentricity histogram for the first giant component in the three-type regime, not the already published vertices, component counts, edge enumeration or identification of maximum-degree rings.",
+      "residual_risks": [
+        "The 2002 full text was not recovered; its precise move rule and conclusions remain unchecked here.",
+        "Bounded primary and catalogue comparisons do not establish priority against unindexed computations or unpublished tables."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior structural coverage, no metric profile in inspected passages",
+          "evidence": "Unique giant component and small component counts, k=9 connectivity computation, unique maximum-degree rings and edge-count generating function.",
+          "identifier_or_url": "https://arxiv.org/pdf/1403.5546",
+          "material_read": "pp. 3–4 Theorems 1–2 and Table 1; p. 34 Theorem 36; p. 42 Propositions 40–41",
+          "method": "Bounded open-PDF theorem and table inspection",
+          "title": "Disjoint compatibility graph of non-crossing matchings of points in convex position",
+          "trigger": "Same graph, same threshold k=9, existing computer proof"
+        },
+        {
+          "assessment": "Different size parity and different conclusion",
+          "evidence": "Even-number-of-edges geometric matching admits a disjoint-compatible matching under the stated general-position assumption.",
+          "identifier_or_url": "https://doi.org/10.1007/s00454-012-9466-9",
+          "material_read": "Open primary text p. 2, Theorem 1",
+          "method": "Open-PDF theorem inspection",
+          "title": "Disjoint Compatible Geometric Matchings",
+          "trigger": "Direct disjoint-compatibility existence precedent"
+        },
+        {
+          "assessment": "Different adjacency",
+          "evidence": "Two matchings are joined via a common disjoint-compatible drawing of a spanning tree, caterpillar or path.",
+          "identifier_or_url": "https://arxiv.org/pdf/2409.03579",
+          "material_read": "pp. 1–3, definition and investigated graph classes",
+          "method": "Bounded open-PDF inspection",
+          "title": "Disjoint Compatibility via Graph Classes",
+          "trigger": "Matching graph diameter results with similar terminology"
+        },
+        {
+          "assessment": "Primary move rule and metric results not independently established from that item",
+          "evidence": "The frozen comparison says it is a two-chord flip graph. This unconfirmed characterization is not used as decisive clearance.",
+          "identifier_or_url": "https://doi.org/10.1007/s003730200038",
+          "material_read": "Bibliographic identification only; primary full text not recovered",
+          "method": "Bounded lawful DOI and publisher retrieval attempts",
+          "title": "Graphs of non-crossing perfect matchings",
+          "trigger": "Potentially confusable earlier matching-distance graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "k=9 is the first size with the published three-type component regime, not an arbitrary instance. The exact distance distribution supplies a transformation-length benchmark and identifies the unique optimal starting matchings in the worst case. That the uniquely highest-degree rings also minimize eccentricity does not follow from their degrees. The result is a useful exact baseline without claiming any larger-k behavior.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The shortest lattice vector is primitive, the quotient lattice spacing is \(\det\Lambda/\|v\|_2\), and the covering radius is that spacing divided by twice the projected half-width. Their product identifies the deficit exactly with the area excess over the canonical inscribed parallelogram. For every point outside the normalized diamond, two disjoint opposite exterior triangles establish the optimal coefficient. The explicit symmetric hexagons realize equality for arbitrarily small positive deficits. All quantifiers, nondegeneracy conditions, and boundary choices have been checked. The 2,589 exact-rational computations are supplementary.
+## correctness
 
-**Originality — PASS, provisional historical priority.** Williams's Theorem 1 gives the underlying quotient inequality; the source's proof and extremal family were inspected and do not contain the quantitative uniform inclusion. The 2017 Rogers–Shephard account gives qualitative section–projection equality but not this sharp prescribed-parallelogram stability. Relevant published mathematical records on covering-radius interpolation, hexagon enclosure, and lattice transference concern different objects or parameters. Böröczky’s 2005 article was inspected in full text: it treats difference-body and simplex-extremal stability, not the chosen section–projection parallelogram deficit. Other older equivalences remain a possibility. Thus priority should not be represented as independently certified.
+PASS
 
-**Mathematical value — PASS.** A scalar near-equality statement for a recent inequality is turned into an optimal, universal geometric rigidity estimate relative to a canonical, lattice-selected witness. The factor is explicit, affine invariant under the natural simultaneous changes of body and lattice, applies without smoothness or polygonality, and has a matching nontrivial hexagonal extremal family. The statement is a sharp global stability theorem, not merely another calculation of the base inequality.
+Shortest means shortest in the K-gauge (RESULT.md assumptions), so v is primitive and can be extended to a lattice basis. Projection of the second basis vector has absolute length det(Lambda)/|v|, and the interval of half-height h has covering radius this spacing divided by 2h. The first minimum is |v|/a from the central chord. Thus the deficit is exactly area(K)/area(P)-1, with P inscribed by symmetry and convexity. Send its independent half-diagonals to the coordinate vectors. If a point of the normalized body has diamond gauge s>1, the triangle over the sign-selected supporting edge has area (s-1)/2, lies in the exterior closed half-plane, and belongs to the body; its negative belongs to the body in the disjoint opposite half-plane. Added to the diamond area 2 this gives s<=1+2epsilon, irrespective of how the top point was chosen. At epsilon=0 the two inclusions force equality; the converse is immediate. In the supplied K_t the only added area beyond the diamond is the pair of triangles of combined area t, for 0<t<=1; K_t is inside the unit coordinate square, so e_1 is gauge-shortest for the integer lattice. The gauge of (1,t) is 1+t, attaining the bound as epsilon=t/2 tends to zero. The script was inspected, not rerun: it reports 2,589 finite rational polygon checks, with a selected top vertex, not all top points or a lattice search. Neither that finite scope nor the source's unperformed formal/expert verification affects the analytic proof.
 
-The scope is restricted to dimension two and the selected one-dimensional quotient. No independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the optimal global containment coefficient with respect to each specified lattice-selected inscribed parallelogram. The mixed product inequality and qualitative equality geometry are prior; no checked source yields the quantitative centered area-to-gauge relation with this witness quantifier. The comparison does not establish historical priority.
+
+## value
+
+PASS
+
+A usable near-equality estimate should control geometry for a lattice-selected witness, not merely identify an equality body. This gives a centered global dilation guarantee for every permissible extreme point, even with nonsmooth bodies or nonunique shortest directions, and the explicit positive-deficit hexagons fix the optimal linear coefficient. The elementary proof does not make the optimal stability assertion a consequence of the scalar inequality alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

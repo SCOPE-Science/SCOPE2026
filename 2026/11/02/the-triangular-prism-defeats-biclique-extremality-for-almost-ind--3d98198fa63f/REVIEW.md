@@ -1,15 +1,21 @@
-# Scientific assessment: a six-vertex cubic almost-independent-set counterexample
+# Independent mathematical audit
 
-## Correctness — PASS
-For each of the two six-vertex cubic graph types, the claimed polynomial follows by a bijective count of vertex subsets: selecting two bipartition subsets for \(K_{3,3}\), and two triangle-layer subsets for the prism. The formulas are finite sums over all \(64\) subsets and yield the explicit polynomial identity. The complement of any six-vertex cubic graph is 2-regular, hence either a six-cycle or two triangles; this establishes the completeness of the phase diagram. Divisibility \(2d\mid n\) with \(d\ge2\) proves the minimum-order assertion. The independent stand-alone enumeration checks both formulas, all \(5005\) nine-edge six-vertex graphs, and all cubic isomorphism types. The proof is not an extrapolation from partial enumeration.
+## correctness
 
-## Originality — PASS (historical-priority qualification)
-Carenini's *Counting almost independent sets in regular graphs*, arXiv:2609.28527v1 (first public 2026-09-22), poses biclique extremality for cumulative low-induced-edge subset counts as Question 1.3; its relevant mathematical exposition states the proposal rather than the displayed six-vertex exception. The present strict inequality answers the unrestricted version negatively. The established reverse Sidorenko inequality for antiferromagnetic partition functions and Zhao's independent-set extremal theorem are stronger in other directions, but neither covers this cumulative counterexample: indeed, the first is compatible with the identity \(F_{K_{3,3}}(z)-F_P(z)=2(1-z)^3\ge0\) on \([0,1]\), and the latter only treats induced-edge threshold zero, where the biclique wins. Targeted searches of mathematical research records, exact numerical profiles, equivalent graph descriptions, and accessible previous claims produced no covering precedent. Search incompleteness and differently named earlier polynomial enumerations remain residual priority risks.
+PASS
 
-## Mathematical value — PASS
-This is a sharp counterexample to a specific, recently posed general extremal question—not merely a recomputation of a six-vertex count. The complete classification of cubic graphs at the minimal admissible order makes the positive and negative threshold results exact. The short difference polynomial identifies the subtle obstruction: pointwise domination of a weighted partition function does not entail domination of cumulative low-energy event counts. The work leaves the known weighted and asymptotic theorems intact, while establishing that any valid exact cumulative-extremal reformulation requires additional hypotheses.
+An independent count avoids relying on the supplied enumerator. Subsets of size at most two have identical induced-edge distributions in both graphs. For a k-set in a cubic graph of order six, e(S)-e(V\S)=3(k-3), so sizes at least four also agree. For three-sets the counts at 0,1,2,3 edges have the same zeroth, first and second binomial moments (20 triples, 36 incidences of an edge in a triple, and 18 wedges). The third moment differs by two because the prism has exactly two triangles and the biclique none. Back substitution gives the difference (-2,6,-6,2), hence the stated polynomial and all cumulative differences. The biclique's 15 independent sets and 9 one-edge sets give 24 at threshold one, so the prism gives 28. Complements of simple cubic graphs at order six are exactly the cycle types (6) and (3,3), giving the prism and the biclique. The only smaller positive admissible order for d>=2 and 2d|n has (d,n)=(2,4), with the unique graph C4. Carenini's inclusive cutoff equals one at the stated parameters. This proof reconstructs the census and threshold profile for simple graphs without executing the deposited code.
 
-## Closest work and scientific limitations
-Gaia Carenini, arXiv:2609.28527v1, is the direct question and definition; A. Sah, M. Sawhney, D. Stoner and Y. Zhao, arXiv:1809.09462, establishes related weighted extremality; Y. Zhao, arXiv:0909.3354, establishes extremality for ordinary independent sets. None supplies the complete six-vertex cumulative-threshold diagram in the inspected material. The result is confined to this minimal six-vertex example. The available sources and semantic searches cannot establish global historical priority. Independent mathematical assessment has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The directly inspected Question 1.3 poses precisely the universal cumulative inequality contradicted here. No covering counterexample or exact comparison turned up in the limited searches. The distinct supported contribution is the negative answer with the smallest simple-graph admissible order and the complete local threshold profile, not ownership of the general graph polynomial or the cubic graph census.
+
+## value
+
+PASS
+
+The short counterexample settles an explicitly published unrestricted extremal question. Minimality and the exhaustive threshold comparison make clear that the reversal is localized and compatible with weighted biclique extremality. The low-order calculation is motivated by that question, not an arbitrary graph enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

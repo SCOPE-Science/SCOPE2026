@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The maximum-compounded survival and hazard were reconstructed from the zero-truncated Poisson generating function. The log-derivative identity (1) follows by direct differentiation. The gamma Mills-ratio integral (2) has derivative of the required sign in each shape regime; the two endpoint asymptotics force the scalar transition function to attain a strictly positive finite minimum. The equality case is handled by real analyticity and negative derivatives near the endpoints. Numerical checks independently corroborate but do not prove the global statement.
+## correctness
 
-## Originality (O): PASS, qualified
-The 2023 originating article gives the same distribution, hazard and a Glaser-based discussion in Section 3.2, but no exact global threshold in the Poisson intensity. The 2024 Bayesian treatment studies likelihoods, estimators and intervals; the cited 2012 Poisson lifetime class uses minima, not maxima. Publicly indexed mathematical hazard-phase results examined in the comparison concern distinct distributions, not a dominating general gamma-maxima formula. The general gamma hazard identities and monotonicity calculus are acknowledged as standard. Broader unindexed work might cover the result, so historical priority is provisional rather than certified.
+PASS
 
-## Value (V): PASS
-A global decreasing-failure-rate classification is a natural operational property for a lifetime distribution explicitly motivated by nonmonotone hazards. This result replaces parameter-by-parameter shape plots with an exact, rate-invariant boundary, proves existence of a nonmonotone regime for every subunit gamma shape, and identifies a change of qualitative behavior without claiming a full count of turning points. These are substantive facts for reliability-model selection, not an arbitrary numerical specialization.
+With t=beta*z, the conditional Poisson generating function gives survival (1-exp(-lambda*Q))/(1-exp(-lambda)) and hazard beta*lambda*f/expm1(lambda*Q). Using Q'=-f and f'/f=(alpha-1)/t-1, direct logarithmic differentiation gives (f/Q)[V(lambda*Q)-1-m']; the sign is unchanged on changing from t to z. The integral m=integral_0^infinity exp(-y)(1+y/t)^(alpha-1)dy has strictly negative derivative for alpha>1, zero for alpha=1, and strictly positive derivative for alpha<1. Differentiation is dominated on compact positive t intervals. For alpha>=1, V>1 gives strict increase. Otherwise V is strictly increasing onto (1,infinity), so its inverse defines the unique pointwise intensity at derivative zero. Put a=1-alpha: at zero m~Gamma(alpha)t^a, and m'=-1+m(1+a/t)~a*Gamma(alpha)t^(-alpha). At infinity t^2*m'=a*integral exp(-y)y(1+y/t)^(-a-1)dy -> a, and Q~f. Since V(u)-1~u/2 at zero and V(u)~u at infinity, the age-dependent critical intensity diverges at both endpoints. It is continuous and positive inside, so attains a positive finite minimum. Below it the derivative is everywhere negative; at equality it is nonpositive with no constant interval by analyticity and the negative endpoint signs. Above it there is a positive derivative at a minimizing age and negative derivatives on both sides sufficiently far away. Minimizing and maximizing on intervals bracketed by the derivative signs gives an interior minimum and a later maximum; no uniqueness follows or is claimed. Replay python3 -B /workspace/reproductions/4.py uses half-integer survival formulas and finite differences (12 sign checks, illustrative half-shape crossing about 1.65543269); neither that grid nor the frozen script certifies a global minimum.
 
-## Closest literature and limits
-Primary distribution: Niyomdecha and Srisuradetchai (2023), DOI 10.3390/math11112584. Related inference: Srisuradetchai and Niyomdecha (2024), DOI 10.3390/sym16040417. Earlier Poisson lifetime minima: Alkarni and Oraby (2012), DOI 10.12785/jsap/010106. Exact threshold is variational, and uniqueness of minimizers/turning points is not established. Numerical checks do not replace analytic proof; an independent mathematical audit remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2023 distribution, hazard and alpha=1 increasing result are prior. The distinct mathematical claim is the sharp global phase classification, particularly the attained, positive finite iff threshold for subunit shape and the strict boundary/turning-point behavior. The closest prior calculation gives the same model but works with a different derivative and stops short of that classification. This is a bounded comparison, not an assertion of historical priority for the model.
+
+## value
+
+PASS
+
+The model is established in reliability analysis; being able to decide strict DFR globally rather than read off plots or a sufficient shape diagnostic resolves a real ambiguity. The rate-free scalar threshold includes the critical case and explains why a large sampling intensity adds an intermediate increasing interval without changing the endpoint signs. This goes beyond recovering the distribution or differentiating at individual ages.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Exact carry arithmetic yields the reachable states \(\{-2,-1,0\}\), their six proper nonempty inverse-image subsets, and the displayed transition matrix. Each nonabsorbing state can reach inclusion and exclusion, so local two-sided positive measure is genuinely equivalent (away from ternary endpoints) to never reaching an absorbing state. The matrix generating function is computed algebraically, and the irreducible right-resolving graph permits a Perron–Frobenius Frostman measure at the claimed exponent. The standard-library verifier independently tests prefix counts and finite recurrence cases. It does not purport to prove the infinite claims by enumeration.
+PASS
 
-## Originality
+I reconstructed the carry and count certificate in RESULT.md §§1–4. Unique representatives of the three residues force the least-significant-first carry; the reachable states from zero are 0, −1, −2, and leading zeroes cycle the two negative states rather than rescuing them. For a most-significant prefix its acceptance set is the preimage of {0}; appending a digit takes one further preimage. Full and empty are absorbing, and the proper nonempty subsets give the displayed six-state graph. From there every mixed state can reach A, and from A the extensions 12 and 212 reach acceptance and rejection, respectively. Thus mixed cylinders actually contain positive-measure pieces of both eventual outcomes. For an independent exact count, the transient graph has an equitable partition {A,F}, {B,U}, {D,V}, with rows (2,1,0), (0,1,1), (1,1,0). Its characteristic polynomial is (t−1)(t²−2t−1), so initial counts 1,3,8 give the claimed numerator 1 and denominator by the recurrence. The quotient has a positive eigenvector at λ=1+√2, which lifts to the full graph. The undetermined unions decrease and their measures are O((λ/3)^n); absorption proves eventual stabilization almost everywhere. Away from the countable ternary endpoints there is a unique nested coding, and the two-sided cylinder test identifies the essential boundary exactly with the survivor image there. For the lower bound the digit-labelled Perron measure assigns O(λ^{−n}) to a level-n cylinder. An interval with 3^{−n−1}<|I|≤3^{−n} meets at most a bounded number of those grid intervals, giving the stated Frostman exponent; the cylinder cover gives the upper box bound and hence both box dimensions of the compact survivor image. Countable endpoint differences are used only for Hausdorff dimension of the essential boundary. verify_boundary.py was inspected, not executed; the independent quotient proof is exact and unbounded.
 
-PASS, with a material prior-work caveat. Zhou, *Periodic counting, carry synchronization, and primes in nonstandard numeration systems* (arXiv:2611.07446v1), proves the measurable scaling limit and gives the exact same digit set as an example, but does not provide the boundary dimension or reverse ambiguity automaton. Tangjai, *A Non-standard Ternary Representation of Integers* (2020), is an especially close source: its Theorems 3.13 and 3.15 already establish Pell-type counts for maximal consecutive represented-integer blocks. This earlier growth fact is not claimed as novel; the present contribution is the exact undetermined-prefix enumeration and its essential-boundary Hausdorff consequence, requiring separate cylinder and Frostman arguments. Abram and Lagarias provide general graph entropy methods. Searches did not locate a covering complete statement, but other priority remains possible.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The natural boundary of a recently studied measurable scaling set quantifies where representability remains sensitive to arbitrarily deep ternary digits. This is a geometric classification, not just a known integer Pell-sequence restatement. The precise ambiguity-language enumerator provides additional finite-scale information and makes the dimension reproducible.
+The distinct contribution is the ambiguity-prefix law and the essential-boundary dimension (with box dimensions for the compact survivor image). The same integer language, Pell block-count phenomena and measurable scaling convergence are already prior; exponential L¹ convergence of indicators in Zhou also implies almost-everywhere eventual stabilization by Borel–Cantelli. They are background, not independent novelty claims here.
 
-## Scientific limitations
+## value
 
-No independent mathematical audit has been performed; the arbitrary topological boundary of a null-modified measurable representative is excluded. The result is for digits \(\{0,1,5\}\) only, and it does not determine Hausdorff measure or treat other digit sets. Tangjai's Pell antecedent raises a residual implication/priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The measurable limit was known, but the essential boundary gives a representative-independent measure of where local membership is genuinely unstable. The exact prefix law and dimension quantify this exceptional set for the specific digit system already studied for its Pell structure; positive mass of both outcomes, rather than just finite-scale variation, makes the dimension geometrically informative.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

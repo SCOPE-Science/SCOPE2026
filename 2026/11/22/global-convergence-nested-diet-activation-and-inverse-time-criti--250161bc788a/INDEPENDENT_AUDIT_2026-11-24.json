@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:51:04.558857Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 7–48 and Proof (1)–(5)",
+        "Frozen VERIFICATION.md and check.py (inspected, not executed)"
+      ],
+      "rationale": "The replicator equation preserves the simplex and full support at finite time. Comparison with p_i−(δ_i+Aκ_i)F_i and p_i−δ_iF_i bounds each reward above and away from zero, giving global existence. The water-level left side is continuous and strictly decreasing from infinity to zero as L ranges from zero to max r_i, even with ties; it determines the stated feasible equilibrium with F_i*=L on its support and F_i*≤L elsewhere. This is the unique limit of the stipulated full-support initial conditions, not a claim that there are no other equilibria on invariant faces. Differentiate the weighted reward entropy and the reverse preference relative entropy: the former's mixed term is −∑(x_i−x_i*)(F_i−F_i*) and the latter contributes ∑(x_i−x_i*)F_i. Their sum reduces, using ∑(x_i−x_i*)=0, to the nonpositive complementary term ∑(x_i−x_i*)(F_i*−L), plus the negative reward squares. The bounded entropy keeps every preference with x_i*>0 bounded away from zero (each other entropy term is bounded below), so the orbit closure lies in the domain where this Lyapunov argument is smooth even if some inactive preferences reach zero on the closure. Zero dissipation forces F=F*, and preservation of F=F* forces x=x*, proving convergence by invariance. For distinct r_i the support condition L<r_k is equivalent to A>H(r_k)=A_k, with zero limiting preference also below the threshold, and the all-active formula gives the large-A limits. For the two-source critical tail, put u=x₂>0 and e_i=F_i−r₂. Since the solution converges to the boundary equilibrium, (log u)'→0. In the variation-of-constants formulas for e_i, the lag ratio u(t−s)/u(t)→1 at fixed s and is bounded by exp(εs) on a late tail; choose ε below both linear reward decay rates. The initial transients vanish when divided by u(t), and domination by integrable exponential kernels gives e₁/u→A_cκ₁r₂/(δ₁+A_cκ₁) and e₂/u→−A_cκ₂r₂/δ₂. Then (1/u)'→K>0 as stated, so t u(t)→1/K. This proof includes every full-support critical initial condition, not just trajectories started near equilibrium or on a center manifold.",
+      "residual_risks": [
+        "The recorded floating-point experiments check finite examples of the formula and dynamics, not the universal Lyapunov or critical-time statements.",
+        "Full support at time zero, fixed abundances and parameters, and equal return per unit standing reward are essential to the scope. The critical-tail coefficient is reviewed only for two flowers with distinct unvisited reward levels at A=A_c."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier 2013 network model includes evolving plant and pollinator densities and analyzes three empirical networks numerically; equations (6)–(7) and the following simulation protocol do not state a general global theorem that specializes to this setting.",
+          "The 2024 paper's associated Dryad record documents a simulation dataset and network code; the frozen audit records a two-plant toy-model stability discussion in the main article, but Appendix S1 itself was not accessible in this review.",
+          "Inspected broader-looking Resultary matches concern different feedback equations or biomass/nutrient variables."
+        ],
+        "reasoning": "A more general model is not a more general stability theorem. Stationary niche/equal-profit conditions and the reported qualitative specialization trend do not imply a single global limit or the coefficient of an inverse-time tail. A general Lyapunov result for an equivalent resource–allocation flow remains possible but was not identified in the inspected material.",
+        "searches": [
+          "Valdovinos et al. (2013) empirical network dynamics and simulation protocol",
+          "Yahaya et al. e10533 and its separately listed Appendix S1",
+          "Resultary global attraction for related resource/replicator feedback models"
+        ]
+      },
+      "checked_sources": [
+        "Valdovinos et al. (2013) OA PDF",
+        "Garay–Cressman–Varga (2003) OA PDF",
+        "Yahaya et al. associated Dryad description and frozen audit comparison",
+        "Frozen audit comparison of Valdovinos–Marsland (2021)",
+        "Resultary fa72dd75e9d8 and a1b3ab5c3a1b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Garay et al. analyze local stability of a two-bee/two-plant ESS with an algebraically determined reward; the 2013 primary proceeds from the coupled equations to finite network experiments. The matched feedback theorems control different state spaces."
+        ],
+        "reasoning": "Even a local stable equilibrium or a qualitative diet broadening trend cannot exclude other invariant interior dynamics in arbitrary dimension. The critical formula specifically uses the relaxation rates of both dynamic reward pools and the actual fractional-preference variable. It cannot be inferred from static equilibrium or from the presence of a replicator equation alone.",
+        "searches": [
+          "Garay–Cressman–Varga (2003), §§2.3–3, payoff and local linearization",
+          "Valdovinos et al. (2013), p. 909–910 after equations (6)–(7)",
+          "Resultary fa72dd75e9d8 and a1b3ab5c3a1b, actual Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2013 equations already treat renewable/depletable standing floral rewards and preference fractions as independent dynamic state variables, with a replicator rate G_j. The prior equal-profit equilibrium condition is credited; the frozen audit traces it to the 2021 niche theory paper's equations (4), (6)–(7) and Appendix A.",
+          "Garay–Cressman–Varga have a fixed-density foraging replicator game, but reward depletion enters the static payoffs and their stability theorem is local."
+        ],
+        "reasoning": "Equal payoff on surviving preferences and monotone algebraic reward curves give a static allocation problem, not an equivalence between instantaneous payoffs and independent reward dynamics. Static or local stability cannot settle finite-speed global tracking or its critical-time coefficient.",
+        "searches": [
+          "Valdovinos et al. (2013), equations (6)–(7)",
+          "Garay–Cressman–Varga (2003), §§2.3–3",
+          "Valdovinos–Marsland, DOI 10.1086/712831, earlier equilibrium comparison recorded in frozen audit"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Entry 250161bc788a is the bound record itself. Entry fa72dd75e9d8 proves all-timescale interior global attraction in a two-state public-goods institutional-reward feedback model using relative entropy. Distinct same-day entry a1b3ab5c3a1b gives conditional global attraction for a compartmentalized microbial consumer–nutrient exchange model."
+        ],
+        "reasoning": "The analogues have different feedback equations and neither supplies a floral support staircase, an all-initial fixed-guild convergence claim, or the critical coefficient; the same-day date does not resolve priority.",
+        "searches": [
+          "Local Resultary: adaptive-foraging replicator, dynamic standing rewards, fixed guild and global convergence"
+        ]
+      },
+      "rationale": "Prior work supplies renewable rewards coupled to adaptive-foraging replicator dynamics, equal-profit stationarity, and qualitative changes of specialization; these are not new findings here. The supported distinct result is a quantified fixed-guild theorem: global convergence for every positive adjustment speed throughout the finite-dimensional positive phase space, with exact support thresholds and the two-source critical-time coefficient. The inspected model and local-stability comparisons do not establish this combination. The closest supplementary toy-model text is unavailable and remains a concrete priority risk, not evidence for or against coverage.",
+      "residual_risks": [
+        "Yahaya et al.'s Appendix S1 could contain additional two-source boundary results; neither that appendix nor the main text was independently obtained here. Valdovinos–Marsland full text was also not independently obtained. Wang (2018) was available only at abstract/bibliographic level and cannot be ruled out document-wide on that basis.",
+        "An unindexed equivalent feedback Lyapunov theorem or critical expansion may have priority. The PASS credits the distinct quantified dynamics, not the originality of the model or equilibrium equal-payoff principle."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior model mechanism; compared passages do not give the fixed-guild global, support and critical law",
+          "evidence": [
+            "Equation (6) evolves standing reward with production, decay and animal depletion; equation (7) evolves foraging effort by a payoff excess. The ensuing analysis is finite simulation over empirical networks."
+          ],
+          "identifier_or_url": "https://ramos-jiliberto.cl/publication/2013/46_Valdovinos_et_al_OIKOS_2013.pdf; doi:10.1111/j.1600-0706.2012.20830.x",
+          "material_read": "Author-hosted OA PDF pp. 909–910, equations (6)–(7) and subsequent numerical methods, offsets 20940–26017",
+          "method": "Lawful author-hosted copy; read bounded primary passages after publisher failure",
+          "title": "Adaptive foraging allows the maintenance of biodiversity of pollination networks",
+          "trigger": "Earlier model with explicit dynamic floral rewards and adaptive replicator preferences"
+        },
+        {
+          "assessment": "Actual local stability overlap for a related static-payoff game, not global dynamic-reward coverage",
+          "evidence": [
+            "The abstract specifies local asymptotic stability for the ESS; the stability section uses a two-by-two payoff linearization with the stated nondegeneracy."
+          ],
+          "identifier_or_url": "https://plantsys.elte.hu/pdf/garay/Com-Ecol-2003.pdf",
+          "material_read": "OA PDF abstract and §§2.3–3, printed pp. 219 and 222–223",
+          "method": "Direct OA PDF passage inspection",
+          "title": "Optimal behaviour of honey bees based on imitation at fixed densities",
+          "trigger": "Prior fixed-density replicator foraging and stability result"
+        },
+        {
+          "assessment": "Prior qualitative/network contribution; separate supplementary toy analysis remains unresolved",
+          "evidence": [
+            "Dryad methods describe simulation of theoretical plant–pollinator networks; the dataset lists 3812 simulated communities and scripts. This cannot determine what the separate stability appendix proves."
+          ],
+          "identifier_or_url": "https://doi.org/10.1111/oik.10533; associated data https://doi.org/10.5061/dryad.jq2bvq8hm",
+          "material_read": "Associated Dryad data description and methods; frozen audit's citations to main article equations (1)–(4) and toy-model discussion. No main article or Appendix S1 primary passage independently retrieved.",
+          "method": "Publisher and supplementary access attempts; lawful alternate public page and associated data metadata inspected",
+          "title": "Emergence of structure in plant–pollinator networks: low floral resource constrains network specialisation",
+          "trigger": "Closest ecological motivation and potentially overlapping two-source toy stability appendix"
+        },
+        {
+          "assessment": "Equal-payoff stationarity is credited; additional coverage not independently excluded",
+          "evidence": [
+            "The frozen comparison cites equilibrium payoff equalization and reward-niche geometry. Neither by itself proves an all-orbit finite-adjustment-speed result."
+          ],
+          "identifier_or_url": "https://doi.org/10.1086/712831",
+          "material_read": "Frozen audit's comparison of equations (4), (6)–(7) and Appendix A; no independently retrieved full-text passage",
+          "method": "Lawful primary access and alternate lookup attempted; scope attributed to recorded comparison, not treated as independently read",
+          "title": "Niche Theory for Mutualism: A Graphical Approach to Plant-Pollinator Network Dynamics",
+          "trigger": "Potential equilibrium and stability coverage by adaptive niche theory"
+        },
+        {
+          "assessment": "Distinct analogues using entropy methods, not the same fixed-guild flow",
+          "evidence": [
+            "The public-goods feedback model is two-state; the microbial consumer states are biomasses with local and shared nutrients, not preference fractions on a simplex."
+          ],
+          "identifier_or_url": "Resultary fa72dd75e9d8, a1b3ab5c3a1b and bound 250161bc788a",
+          "material_read": "Mirrored RESULT.md Findings, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary query and actual finding comparison",
+          "title": "Related Resultary adaptive feedback and consumer–resource global-attraction findings",
+          "trigger": "Strongest same-method convergence and ecological-feedback catalogue matches"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and limitations",
+        "Valdovinos et al. (2013), Oikos p. 909–910",
+        "Garay–Cressman–Varga (2003), local stability comparison"
+      ],
+      "rationale": "The equilibrium formulas turn a qualitative drop in specialization with consumer pressure into precise, ordered and asymptotic activation thresholds for this natural fixed-guild mechanism. Global convergence rules out persistent endogenous preference cycles at every finite positive adjustment speed, and the explicit inverse-time delay matters for distinguishing a near-threshold long transient from a stable diet in that model. These go beyond fitting examples or solving the steady-state equations alone.",
+      "residual_risks": [
+        "No empirical threshold calibration or claim about changing population densities, more than one guild, or nonlinear reward-response systems is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

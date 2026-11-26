@@ -1,19 +1,21 @@
-# Scientific review: collapsing-lens boundary mean-distance asymptotic
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result is restricted to fixed Lipschitz graph pairs with convex lower graph, concave upper graph and coincident endpoints. The arclength-to-horizontal-mixture approximation has total-variation error \(O(\varepsilon^2)\), and perimeter \(4+O(\varepsilon^2)\). Same-branch distances differ from the horizontal Gini mean by \(O(\varepsilon^2)\). The two opposite-branch contributions reduce with error \(O(\varepsilon^2)\) to a single vertical width \(h(x)\). Exact integration of \(\sqrt{s^2+r^2}-s\) establishes the coefficient \(1/32\) after the sampling and perimeter normalizations. This integral has an integrable endpoint remainder because \(h\) is Lipschitz and zero at the tips. Sharp fixed-area bounds follow from Cauchy–Schwarz and the positive mixture representation of concave profiles by area-one tents, including equality and nonattainment. Finite quadrature independently checks three nonidentical lens geometries but is not the proof.
+PASS
 
-## Originality — PASS, with stated residual priority risks
+For fixed admissible Lipschitz graphs the arclength densities are 1+O(ε²) a.e., so P=4+O(ε²), and replacing each sample by an equal branch choice and uniform x costs O(ε²) in the bounded expected distance. The limiting mean horizontal distance is 2/3. Independently of the exact kernel primitive, split the distance excess into |x−z|≤ε, contributing O(ε²) by bounded graph heights, and its complement. There the leading term is ε²(u(x)−v(z))²/(2|x−z|), with integrated Taylor remainder O(ε²) from ε⁴|x−z|⁻³. Same-branch squared differences are O(|x−z|²). For opposite branches, replacing the squared difference by h(x)² costs O(ε²) after integration by Lipschitz regularity. The z-integral of 1/|x−z| over the complement is 2log(1/ε) plus a function bounded in L¹(dx) by the integrable endpoint logarithms. Each cross integral therefore contributes ε²log(1/ε)∫h²; two ordered cross terms of weight 1/16 each followed by division by P→4 give 1/32. Strict Cauchy–Schwarz gives ∫h²>A²/2 because the endpoints vanish and the continuous profile is positive inside. The Dirichlet Green representation expresses h/A as an area-one tent mixture, each with squared norm 2/3. Strict convexity of the squared L² norm forces a single apex at equality. Concave height-rescaled plateaus with tip ramps shrinking to zero approach the lower bound. These yield exactly the claimed interval and equality statements.
 
-The motivating paper of Shen establishes the universal \(1/6\) lower bound but not its thin-lens logarithmic correction. The published acute-triangle result for collapsing concave lenses obtains a different three-point probability with coefficient proportional to \(\int h^2\); it already contains the tent/flat envelope, which is **not** claimed as a novel concavity inequality. The thin-parallelogram logarithmic result concerns the boundary-minus-interior mean-distance *gap* for quadrilaterals and not this arbitrary-profile normalized boundary mean. A previously studied stadium asymptotic has a different zero-tip geometry and is only a special shape case. The conclusion is best-knowledge novelty of the two-point observable's full family coefficient, not absolute historical priority. A plausible older work of Tokmachev and Lotnikov's 2026 preprint were not available as inspected full text; this limits the originality assessment without implying coverage.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem quantifies the deficit in a recently proved sharp geometric mean-distance inequality for the natural degenerating class of all Lipschitz convex lenses, rather than a fixed shape. The leading coefficient is exactly observable from the squared width profile and is unaffected by vertical midline shear. Its sharp fixed-area range identifies the triangular-tent maximizer, the unattainable flat-profile infimum, and strictness for each nondegenerate lens. The independent novelty resides in the mean-distance asymptotic; classical one-dimensional concavity bounds are employed rather than represented as discoveries.
+The global limiting value, concave-width moment envelope, and thin isosceles special case are covered in the compared material; the leading logarithm also occurs in a distinct stadium family. The supported distinct claim is the boundary two-point width law for all fixed admissible graph pairs, including nonconstant midlines. Neither the exact special shapes nor the broader inequalities or three-point measurements supply this coefficient for arbitrary such profiles.
 
-## Scope and limitations
+## value
 
-This is an analytic leading-order result and fixed-profile \(O(\varepsilon^2)\) estimate. The complete second-order constant and endpoint-unbounded-slope profiles remain untreated. The checked literature and public records do not constitute an exhaustive historic priority search. Numerical code supplies corroborating finite checks only; no independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The global inequality leaves open how quickly and by what shape-dependent amount a collapsing lens approaches equality. This law isolates the singular scale and its coefficient for arbitrary fixed Lipschitz lenses, separates thickness from the midline, and turns a known width-moment envelope into an exact leading-deficit comparison at fixed unscaled area. It predicts more than specific symmetric or exactly integrable examples without claiming a new concavity inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

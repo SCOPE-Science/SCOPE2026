@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:58:05.743461Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The binomial series of f_r gives its signed coefficient (-1)^k a_k. When d(u,v)=d, all lower powers vanish off diagonal because each multiplication can traverse at most one edge; at order d there are no diagonal stays and every weighted geodesic contributes with the same sign (-1)^d. Thus the leading contribution is a_d W_d h^d with W_d>0. Geodesic subpaths realize every positive distance up to the diameter; finiteness gives a common small interval when the leading signs are positive. The signs through k=5 prove the r=3,...,17 and r=18 thresholds and also handle r=2 for diameters ≤2 or ≥4. For diameter three at r=2, I checked that the frozen 13-vertex construction has diameter three and endpoint L³=-1, L⁴=2 (16 length-four paths less the degree sum 14), whereas on the four-vertex path these powers are -1,-6. With a₃=0 and a₄=-3/8 the leading terms have opposite signs. The diagonal starts at one and each resolvent preserves the all-ones vector. The result is local for each fixed graph, not a timestep uniform in graph and weights. Independent exact replay passed: python3 /workspace/checks/richardson_coefficients.py. The supplied checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Later 4d0e4c9eba68 Finding and Proof give the first negative index 4 for 2≤r≤17 and 5 for 18≤r≤109.",
+          "TR-08-12 §2 gives multistep extrapolation and Aitken–Neville weights; Mona et al. §2 gives the two-grid formula and §4 uses forward Euler in the diffusion example."
+        ],
+        "reasoning": "General integrator construction supplies the rational map, not the exact graph-family classification. Absolute monotonicity fails at zero whenever there is a negative generator Taylor coefficient; this broad obstruction does not resolve local positivity on smaller-diameter graphs.",
+        "searches": [
+          "Resultary all-refinement geodesic positivity",
+          "Constantinescu–Sandu TR-08-12 §2 and DOI 10.1137/080732833",
+          "Mona–Lagzi–Havasi DOI 10.1155/2015/350362"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Proof and Verification; VERIFICATION.md and verify.py",
+        "Resultary c9c2b9f6d7e1 and 4d0e4c9eba68",
+        "Constantinescu–Sandu TR-08-12",
+        "Mona–Lagzi–Havasi 10.1155/2015/350362"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Scalar zero satisfies (1+z_r/r)^r=r(1+z_r). The later geodesic record explicitly gives a_{r,d}W_d h^d and first-negative index, but a_{2,3}=0."
+        ],
+        "reasoning": "The scalar root does not imply the signs of individual entries with geodesic cancellations. The later work does mechanically yield the r=3,...,17 and r=18 classifications by the distance cutoff, but its leading-term formula leaves the r=2 diameter-three split to fourth and potentially higher powers.",
+        "searches": [
+          "c9c2b9f6d7e1, scalar Finding",
+          "4d0e4c9eba68, graph Finding and Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "October 4 c9c2b9f6d7e1 studies the same scalar rational response on z≥0; November 22 4d0e4c9eba68 uses the same coefficients in the generator variable and the same shortest-path leading term."
+        ],
+        "reasoning": "Scalar nonnegativity on the Laplacian spectrum concerns positive semidefiniteness, not entrywise nonnegativity; the November graph formulation is mathematically equivalent on the overlapping parameter ranges but later in the archive.",
+        "searches": [
+          "Richardson extrapolation backward Euler graph diameter, weighted geodesic signs and absolute monotonicity",
+          "Resultary c9c2b9f6d7e1 and 4d0e4c9eba68"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The November record gives exact ranges of the first negative index, not a numerical table; the checked October scalar record tabulates or specifies scalar cutoffs rather than entry distances."
+        ],
+        "reasoning": "The later record supplies the exact overlapping threshold data but not an earlier catalogue hit or a resolution at distance three when the leading coefficient is zero.",
+        "searches": [
+          "Resultary Richardson refinement thresholds 3, 18 for graph diffusion",
+          "2026/11/22/SCOPE-a-sharp-geodesic-positivity-barrier-for-every-richardson-refinem--4d0e4c9eba68"
+        ]
+      },
+      "rationale": "The earlier scalar barrier and extrapolation literature do not give these entrywise diameter cutoffs or the degenerate r=2 examples. The strongest archive overlap, the November 22 all-refinement geodesic record, directly covers much of the same mathematics but is later-dated than this October 26 record. The latter's r=2 diameter-three split is not established by the later first-negative-coefficient criterion. The pass is a best-of-knowledge comparison against established earlier coverage, not an independent dating certification.",
+      "residual_risks": [
+        "The HTTP 403 on the 2010 journal version (10.1137/080732833) was not evidence of noncoverage; the related OA technical report was read instead.",
+        "Targeted indexed literature search returned no useful additional result. Unknown equivalent earlier formulations remain possible, and archive dates are not independent priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier scalar coverage, already credited; not the graph claim",
+          "evidence": [
+            "For r=2 the scalar horizon is 2+2√2; the theorem is for the scalar decay response."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-richardson-acceleration-creates-a-sharp-positivity-barrier-for-b--c9c2b9f6d7e1",
+          "material_read": "Finding, including scalar barrier equation and r=2 example",
+          "method": "Resultary index and original local mirror passage",
+          "title": "Richardson acceleration creates a sharp positivity barrier for backward Euler",
+          "trigger": "Exact scalar sign theorem for the same extrapolation map"
+        },
+        {
+          "assessment": "Substantial overlapping classification in a later-dated record, without the r=2 diameter-three split",
+          "evidence": [
+            "Same signed coefficients and weighted shortest paths; first-negative indices 4 and 5 in the ranges noted above."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-geodesic-positivity-barrier-for-every-richardson-refinem--4d0e4c9eba68",
+          "material_read": "Finding and proof of geodesic leading term and first-negative index",
+          "method": "Resultary index and original local mirror passage",
+          "title": "A sharp geodesic positivity barrier for every Richardson refinement",
+          "trigger": "Closest exact graph-positivity match"
+        },
+        {
+          "assessment": "Extrapolation construction, not a graph positivity result in the inspected passage",
+          "evidence": [
+            "Multiple step sizes, cancellation and the Aitken–Neville recurrence."
+          ],
+          "identifier_or_url": "https://vtechworks.lib.vt.edu/items/ebb67866-cdc5-4201-a065-a2a4f68566d2",
+          "material_read": "TR-08-12 §2, p. 3, Eqs. (2.1)–(2.3)",
+          "method": "Original OA technical report; 2010 journal DOI separately attempted",
+          "title": "On Extrapolated Multirate Methods",
+          "trigger": "Cited earlier construction of implicit Euler extrapolation"
+        },
+        {
+          "assessment": "Related diffusion acceleration; the inspected example uses a different base method",
+          "evidence": [
+            "Forward Euler used for diffusion; does not display the present backward-Euler diameter criterion."
+          ],
+          "identifier_or_url": "10.1155/2015/350362",
+          "material_read": "§2 two-grid extrapolation, §4 diffusion scheme",
+          "method": "Original OA article passages",
+          "title": "Solving Reaction-Diffusion and Advection Problems with Richardson Extrapolation",
+          "trigger": "Possible diffusion-positivity implication of Richardson use"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The proof ties positivity of an accelerated diffusion step to an intrinsic graph invariant and pins down two sharp refinement requirements uniformly over edge weights. The 13-vertex witness and positive path demonstrate why the first zero coefficient is a genuine structural boundary, not just a failed sign test. These are useful method-selection facts even without a uniform timestep estimate.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

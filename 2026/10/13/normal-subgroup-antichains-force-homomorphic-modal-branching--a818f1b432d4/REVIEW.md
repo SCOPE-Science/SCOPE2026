@@ -1,15 +1,21 @@
-# Review of Normal-subgroup antichains force homomorphic modal branching
+# Independent mathematical audit
 
-## Correctness
-PASS. For every ordered pair \(i\ne j\), incomparability gives \(a_{ij}\in N_i\setminus N_j\). The quotient by \(N_i\) therefore kills every outgoing \(a_{ij}\) and preserves every incoming \(a_{ji}\), so it realizes \(\theta_i\). Once \(a_{ij}=e\), every later homomorphism preserves that equality, whereas \(\theta_j\) requires \(a_{ij}\ne e\). This proves pairwise future-incompatibility and directly falsifies the displayed axiom \(.3\). The finite-abelian and elementary-abelian corollaries follow from standard subgroup-lattice facts.
+## correctness
 
-## Originality
-PASS to the best of the checked literature. The primary 2026 homomorphism paper was inspected through its validity section: it proves universal \(\mathsf{S4.2}\), records the single kill-button \(a=e\), and proves exact \(\mathsf{S4.2}\) for uniformly prime-indivisible groups via divisibility buttons, but it does not state the normal-antichain construction or an \(\mathsf{S4.3}\) obstruction. Database searches for normal-subgroup-lattice, quotient-kernel, and \(\mathsf{S4.3}\) formulations returned no claim-level match. General modal-model-theory control results and the older abelian-group embedding result do not imply this quotient-based parameter criterion under arbitrary homomorphisms.
+PASS
 
-## Value
-PASS. The source leaves parameter-validities outside its uniformly prime-indivisible class largely unresolved. The theorem supplies a structural bridge from an ordinary group invariant—the width of the normal-subgroup lattice—to modal branching. It applies immediately to finite torsion examples excluded from the source's infinite-order hypothesis, including every nontrivial finite abelian group other than a cyclic \(p\)-group, and gives the explicit branching lower bound \((p^n-1)/(p-1)\) for \((C_p)^n\).
+In G/N_i all outgoing witnesses a_ij are killed and all incoming a_ji survive, so each theta_i is reachable with the same fixed parameter tuple. In any world satisfying theta_i, not just that quotient, every further homomorphism keeps a_ij equal to the identity. This rules out theta_j there, in both directions for each distinct pair. Thus the explicit substitution makes the .3 antecedent true and both consequent disjuncts false. For a nontrivial finite abelian group, two different prime divisors give incomparable prime-order subgroups; a noncyclic abelian p-group has p-torsion rank at least two, whereas a cyclic p-group has precisely the chain of subgroups by order. The line count for (C_p)^n is the nonzero vector count divided by p−1; it gives a .3 obstruction for n≥2 (one branch alone is vacuous for n=1). Future incompatibility here pertains to the formulas, not to the absence of common later images, and no converse is asserted. This is a direct kernel proof, not a computational or proof-assistant verification.
 
-## Closest literature and limitations
-The closest source is Wołoszyn's homomorphism paper, especially its universal \(\mathsf{S4.2}\) lower bound, Remark 5.6 on the single parameter button \(a=e\), and Theorem 5.13 on exact \(\mathsf{S4.2}\) for uniformly prime-indivisible groups. Hamkins–Wołoszyn supplies the general modal-control framework, while Berger–Block–Löwe concerns subgroup embeddings rather than homomorphisms. The result here does not determine exact validities and does not prove a converse for chain normal lattices.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct contribution is the parameter witness obtained from any finite normal-subgroup antichain, including the finite-group obstruction and the quantitative family. The basic identity-as-button observation and the general homomorphism semantics already occur in the antecedent literature; neither is claimed as new.
+
+## value
+
+PASS
+
+This is a testable structural obstruction to .3 in a semantics where the known exact S4.2 theorem does not apply to finite groups. It supplies explicit substitutions and controls their number without requiring independent divisibility buttons, while distinguishing branching at named states from lack of convergence. The finite abelian application makes the obstruction concrete without claiming a full classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

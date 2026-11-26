@@ -1,14 +1,21 @@
-# Scientific review
-## Correctness (C): PASS
-The statement quantifies over nonempty finite-alphabet two-sided subshifts, positive summable-centered-variation roofs, and every nonzero time. A block of length \(N+2K\) controls **all** prefix sums through \(N\) by \(2\sum_{j\ge K}\operatorname{var}_j(r)\); both the index and summation bounds were checked directly. Uniform flow-box continuity then gives an upper spanning family with \(O(p(Cn))\) members. A global cross-section and uniform minimum return time give a lower separated family with \(p(cn)\) members. Compactness transfers continuous to sampled observation times. Iterated bounded doubling proves the exact growth class. All constants are roof- and time-dependent; no finite census is used as infinite proof.
+# Independent mathematical audit
 
-## Originality (O): PASS within checked evidence
-The 2026 Corrêa--Lacerda paper establishes constant/cohomologously constant roofs, and explicitly leaves arbitrary continuous variable roofs as a question. The locally constant roof result is only the finite-memory case and cannot by itself control accumulated small roof errors. The published-finding corpus Dini-roof finding concerns existence of local product structure on the full shift and does not compare slow orbit growth with word complexity. Multiple meaning-based searches for summable variation, Hölder/Dini, special-flow, generalized entropy, and bounded doubling found no implication-equivalent finding in accessible results. Classic suspension/entropy methods remain relevant background; an unindexed older regular-time-change theorem remains a priority risk.
+## correctness
 
-## Mathematical value (V): PASS
-The theorem supplies a substantive infinite-range regularity regime for the explicit open variable-roof problem in a November 2026 primary paper. The central uniform Birkhoff-distortion estimate removes the obstruction that prevents the constant-roof proof from applying naively; the conclusion is a sharp growth-order identity for arbitrary bounded-doubling subshifts, not a single computational slice. The result does not settle arbitrary continuous roofs or assert new properties of the classic suspension geometry.
+PASS
 
-## Limitations and nearby sources
-Primary: Corrêa--Lacerda arXiv:2611.13420v1, full accessible HTML reviewed at Theorem C, proof 5.3, Remark 5.8 and open question 7.4. Historical source: published-finding corpus 2026/10/11/SCOPE-dini-roofs-retain-local-product-structure-for-full-shift-suspens--5a62f6726832, public RESULT.md read; distinct local-product criterion. The own prior locally constant-roof claim was read for overlap only. Residual risk: a general pre-existing regular-roof slow-entropy theorem with the same implication may exist outside indexed material.
+Summable centered variations imply continuity, so positivity on the compact subshift gives 0<m<=r<=M. For a match on [-K,N+K], shift j has centered agreement radius at least K+min(j,N-j); each radius appears at most twice. Thus every partial return sum differs by at most twice the variation tail, independently of N. Quantizing starting height and choosing one sequence per padded word gives a fixed number of points per word. To check seam times, at a common physical time express both trajectories as short flows from their respective jth section points, taking j from the first trajectory; the second flow time may cross its seam and differs from the first by at most the initial height error plus the uniform drift. Both lie in a fixed bounded flow-time range. The matching symbolic neighborhoods and uniform continuity then give the Bowen spanning bound. Conversely a uniform section box separates symbol cylinders. Continuous-time closeness pairs crossings in either direction uniquely within a fixed distance less than m/8; the pairs are ordered and none can be skipped before the end margin. Since each interval lasts at most M, section points representing distinct words of length floor(c n) cannot stay close. Uniform continuity on one sampling interval transfers this to discrete separation. For negative t, f^(n-1) is an isometry from the forward n-Bowen metric for f to the inverse n-Bowen metric for f^(-1), so exact separated and spanning numbers agree. Fixed padding costs at most a constant |A|^B; monotonicity and iterated doubling compare both linear rescalings to p(n). These are analytic checks, with no finite experiment required. The equality is not inferred for arbitrary continuous roofs or without bounded doubling.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Credit the constant-roof formula, the materially overlapping same-day finite-window result, ordinary flow-box geometry, and bounded-doubling rescaling. The supported distinction is the uniform spanning comparison under summable centered variations, allowing infinite memory and giving the complete growth order under bounded doubling. Available statement evidence does not establish wider prior coverage. This is not a priority verdict for the related finite-window result or a resolution for arbitrary continuous roofs.
+
+## value
+
+PASS
+
+The proof supplies a length-independent drift bound on orbit segments, where uniformly approximating an infinite-memory roof by a finite-window roof alone would not suffice. It resolves the growth-class question on a natural regularity family while also giving quantitative word bounds without doubling, not merely the usual exponential entropy comparison.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

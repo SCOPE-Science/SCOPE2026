@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:26:01.759013Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–62",
+        "Frozen VERIFICATION.md, lines 19–25 and verify.py, lines 11–118, inspected statically",
+        "Independent P3 and triangle retained-state enumeration: changes (5/12,7/144) at p=1/2 and (136/375,-47816/140625) at p=4/5"
+      ],
+      "rationale": "For a uniform vertex in a fixed retained subgraph, the j-th raw component-size moment is n^{-1} times the sum of component sizes to power j+1. When the independently retained new edge joins components of sizes a,b, the conditional increments for j=1,2 are 2ab/n and 3ab(a+b)/n; otherwise both vanish. Calling their expectations A and B gives a mean increase pA and a variance change p(B-2 mu_G A)-p^2 A^2. The all-closed state proves A>0 for every interior p and supplies the leading values mu_G=1, A=2/n and B=6/n with O(p) errors, giving the coefficient 2/n in the variance change. In every merging state a+b<=n, so B<=3nA/2 and mu_G>=3n/4 yields strict negativity even at equality via -p^2 A^2. Connectedness gives mu_G tending to n, and polynomial continuity gives a crossover, not uniqueness. The threshold uses the original graph's mean; the variance averages over both seed and bonds.",
+      "residual_risks": [
+        "The reported 12,908 finite comparisons were not independently replayed; the proof, not that sweep, supplies the universal quantifiers.",
+        "No extension to nonuniform seeds, directed graphs, or dependent or heterogeneous transmissions is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Moore–Newman discuss size-biased cluster moments on small-world ensembles; Becchetti et al. study connectivity in specified random graph families; Kenah–Robins explain when independent bonds do not capture the final-size distribution."
+        ],
+        "reasoning": "Ensemble behavior does not imply a definite response for every marked edge of every fixed graph. More general epidemic models need not even have the independent-bond final-size law.",
+        "searches": [
+          "External query above",
+          "arXiv:cond-mat/0001393v1; arXiv:2205.08774v2; arXiv:q-bio/0610057v5"
+        ]
+      },
+      "checked_sources": [
+        "Three cited OA primary passages and four Resultary comparisons identified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Moment size bias makes the two conditional raw-moment changes computable; neither the cited moment framework nor the fixed-pair examples state the variance change or bound for an arbitrary inserted edge."
+        ],
+        "reasoning": "Stochastic domination gives the mean inequality but does not order variances. The asserted uniform implication uses the component-merger ratio of the raw-moment increments and the change in squared mean, not just the known model equivalence or an existing variance sign.",
+        "searches": [
+          "Moore–Newman size-biased moment passage; inspected Resultary findings above"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Becchetti et al., arXiv:2205.08774v2, Introduction (offset 5606), identify independent-bond reachability and the Reed–Frost model.",
+          "Resultary tree variance reversal (ddd8dd551d30) and bipartite/prism comparison (9b54ed53af8f) are in the same final-size model but are not insertion comparisons."
+        ],
+        "reasoning": "Expressing the observable as the component size of a uniformly sampled vertex or as the independent-bond final size leaves the statement unchanged. Neither inspected formulation provides the every-nonedge variance response.",
+        "searches": [
+          "External: ‘adding an edge’ bond percolation variance component size graph edge addition mean variance",
+          "Resultary: Every added contact reverses its effect on epidemic-size variance as transmissibility rises",
+          "Resultary: merger identity exact variance change added percolation edge 3n/4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The tree record includes a P4 versus star comparison; the other early record gives the crossover of K3,3 versus the prism, which have equal sizes and edge counts. The later results concern heterogeneous rearrangement or a hub-seeded Markov model."
+        ],
+        "reasoning": "These exact examples are different comparisons. Even a prior table containing the illustrative P3 numbers alone would not cover the all-graphs theorem or its threshold.",
+        "searches": [
+          "Resultary title and merger identity queries above",
+          "Resultary ddd8dd551d30; 9b54ed53af8f; 01a6964699b8; 9d5f9e8cb871"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the universal one-edge variance reversal and explicit high-mean certificate. Size bias, the independent-bond interpretation, and mean monotonicity are standard ingredients, not standalone novelty claims. The closest inspected comparisons do not have the one-edge edit and resulting uniform bound.",
+      "residual_risks": [
+        "Bounded literature search; an unindexed finite-graph reliability or percolation treatment of the exact moment marginal could still overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Context, not the edge insertion result",
+          "evidence": "Explains size bias for cluster size seen from a random origin in a small-world setting.",
+          "identifier_or_url": "https://arxiv.org/html/cond-mat/0001393v1",
+          "material_read": "Uniform-origin discussion, offset 5439",
+          "method": "Primary OA passage comparison",
+          "title": "Exact solution of site and bond percolation on small-world networks",
+          "trigger": "Closest cited size-biased outbreak moment framework"
+        },
+        {
+          "assessment": "Identifies model, not variance marginal",
+          "evidence": "Independent-bond reachability corresponds to Reed–Frost; study is of specified network families.",
+          "identifier_or_url": "https://arxiv.org/html/2205.08774v2",
+          "material_read": "Introduction, offset 5606",
+          "method": "Primary OA passage comparison",
+          "title": "Bond Percolation in Small-World Graphs with Power-Law Distribution",
+          "trigger": "Equivalent model terminology"
+        },
+        {
+          "assessment": "Supports scope limitation",
+          "evidence": "Nondegenerate infectious periods can invalidate the independent-bond final-size law.",
+          "identifier_or_url": "https://arxiv.org/html/q-bio/0610057v5",
+          "material_read": "Model comparison, offset 1303",
+          "method": "Primary OA passage comparison",
+          "title": "Second look at the spread of epidemics on networks",
+          "trigger": "Potential broader model"
+        },
+        {
+          "assessment": "Different graph comparison",
+          "evidence": "Wedges and Wiener indices compare n-vertex trees; includes P4 versus star, not an edge insertion.",
+          "identifier_or_url": "2026/10/12/SCOPE-endpoint-reversal-of-outbreak-size-variance-across-all-tree-cont--ddd8dd551d30",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror statement comparison",
+          "title": "Endpoint reversal of outbreak-size variance across all tree contacts",
+          "trigger": "Same observable and endpoint reversal"
+        },
+        {
+          "assessment": "Different graph pair with the same number of edges",
+          "evidence": "K3,3 versus the triangular prism, with specific tail and variance crossover results.",
+          "identifier_or_url": "2026/10/18/SCOPE-stochastic-outbreak-dominance-with-a-unique-variance-reversal-be--9b54ed53af8f",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror statement comparison",
+          "title": "Stochastic outbreak dominance with a unique variance reversal",
+          "trigger": "Potential exact comparison in identical model"
+        },
+        {
+          "assessment": "Different edit and parameter assumptions",
+          "evidence": "Rearranges two heterogeneous-probability contacts on a cycle rather than inserting an independent uniform-probability bond.",
+          "identifier_or_url": "2026/11/8/SCOPE-clustering-high-transmission-contacts-increases-mean-outbreak-si--01a6964699b8",
+          "material_read": "Indexed finding scope",
+          "method": "Local Resultary comparison",
+          "title": "Clustering high-transmission contacts increases mean outbreak size",
+          "trigger": "Related variance response to a local change"
+        },
+        {
+          "assessment": "Different model and seed",
+          "evidence": "Hub-seeded continuous-time Markovian SIR, not uniform-vertex independent bond percolation.",
+          "identifier_or_url": "2026/11/8/SCOPE-a-sharp-size-dependent-outbreak-variance-reversal-under-triangle--9d5f9e8cb871",
+          "material_read": "Indexed finding scope",
+          "method": "Local Resultary comparison",
+          "title": "A sharp size-dependent outbreak variance reversal under triangle closure",
+          "trigger": "Related single-edge variance reversal"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–15 and 23–60",
+        "Closest same-model comparisons listed under originality"
+      ],
+      "rationale": "The statement resolves a natural question that mean monotonicity does not answer: the same single graph edit has opposite signs on unconditional variance at the two ends of a common bond parameter. The original-graph mean alone gives a usable simultaneous sufficient test for all nonedges, without comparing their entire distributions. The variance theorem, not the elementary mean observation or tiny example alone, is the contribution.",
+      "residual_risks": [
+        "No optimality of the threshold or uniqueness of a crossover; neither the graph result nor a decrease in variance alone establishes a change in real-world harm."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

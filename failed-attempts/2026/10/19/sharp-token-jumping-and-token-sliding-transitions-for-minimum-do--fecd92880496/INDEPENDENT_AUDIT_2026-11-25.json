@@ -1,0 +1,174 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:56:17.800047Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–42",
+        "verify_direct.py and direct_output.json",
+        "verify_constructive.cpp and constructive_output.txt",
+        "VERIFICATION.md",
+        "/workspace/independent_checks.py, matching exchange check"
+      ],
+      "rationale": "Any two selected edges admit a different edge intersecting both. For three edges, a matching and a triangle each dominate. If a pair is ab,ac, then a third edge through a gives a star and an external vertex supplies an unselected transversal through a; a third edge not through a either is bc (triangle) or has an endpoint outside {a,b,c}, again supplying a transversal through a. Triangles cannot share two edges with any other optimum. Removing one matching edge frees n−4 vertices for jumping and n−6 previously unmatched vertices for the disjoint replacement used in sliding. With one spare vertex one can free one end of a missing target edge by moving its current edge before installing the target, preserving all installed target edges. At n=8 the omitted pair completes a unique four-pair partition, and slides change only which pair is omitted, giving 8!/(2⁴4!)=105 four-cliques. With three spare vertices, an overlapping jump can use the pair of spare vertices not used by its target as an intermediate slide. These prove the components and degree/edge counts; use the combinatorial zero convention for out-of-range binomial counts, including n=5 where the matching layer is empty. An independent enumeration from closed domination and shared two-edge buckets matched both boundary transitions for n=5 through 9.",
+      "residual_risks": [
+        "Bounded enumeration does not prove the unbounded cases. 'Connected at n=7 or n=9' refers only to the matching layer, not the full exchange graph."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "M_k(G) is connected for k<ν(G); at k=ν(G) it is connected iff the Edmonds–Gallai C-part has a unique perfect matching.",
+          "a3f3d09e0ceb covers the sliding transition for k+1 disjoint k-sets, not just three disjoint pairs."
+        ],
+        "reasoning": "Here k=3 for M_k: n≥8 gives k<ν, for n=7 every vertex can be exposed so the C-part is empty, and n=6 has multiple perfect matchings. This proves the jumping threshold by specialization; the general Roman result gives the corresponding sliding threshold with a different parameter k=2.",
+        "searches": [
+          "fixed-cardinality matching reconfiguration token sliding exact k-matchings complete graphs connectivity",
+          "arXiv:1812.05419 proof of Theorem 18"
+        ]
+      },
+      "checked_sources": [
+        "Ivančo–Zelinka, DOI 10.21136/MB.1993.126050",
+        "arXiv:1812.05419",
+        "arXiv:2308.15603",
+        "arXiv:2203.16861",
+        "Resultary a3f3d09e0ceb",
+        "Resultary f2da2f07c4da",
+        "Resultary f27159e6fd24"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 1 already gives the exact two families; triangles neither share two edges with distinct triangles nor with matchings. Jumping degree is the number of replacement pairs avoiding four fixed ends; handshaking yields both edge counts."
+        ],
+        "reasoning": "Known classification plus the covered matching layers mechanically yields the full frozen statement; the complement of the matching layer contributes only isolated vertices, not another reconfiguration theorem.",
+        "searches": [
+          "Ivančo–Zelinka Theorem 1",
+          "arXiv:1812.05419 proof of Theorem 18",
+          "Resultary a3f3d09e0ceb Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "a3f3d09e0ceb, OFFSET 0, identifies states with k+1 pairwise disjoint k-sets and replaces one by a Kneser-adjacent k-set; k=2 gives exactly the matching layer here.",
+          "The general fixed-size independent-set TS model in arXiv:2203.16861 is not automatically the same: sliding a matching edge to an adjacent vertex of a line graph shares rather than avoids an endpoint."
+        ],
+        "reasoning": "The bijection preserves every legal slide and gives exact graph equivalence despite different optimization labels. Triangle nodes are outside the Roman layer.",
+        "searches": [
+          "Resultary: token sliding three-edge matchings K_n pair replacement disjointness",
+          "Resultary: minimum domination KG(n,2) three-edge matchings token sliding threshold n=9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "a3f3d09e0ceb gives n!/[(k!)^(k+2)(k+2)!] cliques of order k+2 when spare size is k, and explicitly records 105 K4 at n=8 for k=2. The same statement gives matching-layer degree 3 binom(n−6,2) after substitution.",
+          "f2da2f07c4da and f27159e6fd24 use different feasible triple families (isolating and power-dominating, respectively)."
+        ],
+        "reasoning": "The matching component census is exact and not a similar finite table. The other reconfiguration claims do not imply this restricted matching graph's components.",
+        "searches": [
+          "Resultary: three matchings on eight vertices token sliding 105 K4",
+          "Resultary: 105 K4 token sliding minimum dominating sets KG(8,2)",
+          "Resultary a3f3d09e0ceb RESULT.md offsets 0 and 8800"
+        ]
+      },
+      "rationale": "The jumping connectivity is a special case of prior general fixed-cardinality matching reconfiguration. The whole nontrivial sliding layer is exactly represented by the k=2 reduction of the distinct indexed Roman-function theorem a3f3d09e0ceb, for the same disjoint-replacement move. The triangle isolates and degree/edge formulas left over are immediate from the known minimum-set classification and local counts. This is a decision about checked existing coverage, not a conclusion that the November catalogue finding preceded, was available to, or was derived independently of the October record.",
+      "residual_risks": [
+        "Separate catalogue publication dates do not resolve discovery priority. Different Roman/ordinary domination names alone would miss the identical matching state and move system."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classification is prior; does not study exchange graphs",
+          "evidence": [
+            "A dominating triple consists of pairwise disjoint edges or three distinct edges with union of size three."
+          ],
+          "identifier_or_url": "https://dml.cz/bitstream/handle/10338.dmlcz/126050/MathBohem_118-1993-2_3.pdf",
+          "material_read": "Theorem 1, p. 148, extraction offset 2600",
+          "method": "OA primary passage",
+          "title": "Domination in Kneser graphs",
+          "trigger": "Exact minimum-set classification"
+        },
+        {
+          "assessment": "General theorem implies exact jumping connectivity threshold on K_n",
+          "evidence": [
+            "Connectivity for k<ν and unique C-perfect-matching criterion at maximum cardinality."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1812.05419",
+          "material_read": "Abstract/definition, p. 1; Appendix D, p. 29, proof of Theorem 18, extraction offset 86700",
+          "method": "OA primary passages",
+          "title": "Shortest Reconfiguration of Matchings",
+          "trigger": "Matching jumping is identical"
+        },
+        {
+          "assessment": "Broader statement covers the full sliding matching layer and its degree",
+          "evidence": [
+            "k+1 disjoint k-set states; same disjoint replacement; isolated then partition cliques then connected; 105 K4 stated for k=2,n=8."
+          ],
+          "identifier_or_url": "Resultary a3f3d09e0ceb (2026/11/2)",
+          "material_read": "RESULT.md Finding at offset 0, move distinction at offset 2039, n=8 statement near 8800",
+          "method": "Local mirror statement comparison",
+          "title": "A sharp token-sliding mobility transition for optimal total Roman domination",
+          "trigger": "Exact graph equivalence on the matching layer"
+        },
+        {
+          "assessment": "States ordinary domination case as prior; tuple-domination theorem is different",
+          "evidence": [
+            "Theorem 11 concerns k≥2, not the exchange graph of ordinary optima."
+          ],
+          "identifier_or_url": "arXiv:2308.15603",
+          "material_read": "pp. 9–10, near extraction offset 29500, Theorem 11 context",
+          "method": "OA primary passage",
+          "title": "k-tuple domination on Kneser graphs",
+          "trigger": "Same classification under a domination variant"
+        },
+        {
+          "assessment": "Model differs unless adjacency of replacement is specified in the Kneser graph",
+          "evidence": [
+            "A token slides along a host edge to preserve a fixed-size independent set."
+          ],
+          "identifier_or_url": "arXiv:2203.16861",
+          "material_read": "HTML opening definition, offset 0",
+          "method": "OA primary passage",
+          "title": "On Reconfiguration Graphs of Independent Sets under Token Sliding",
+          "trigger": "Alternative meaning of matching token sliding"
+        },
+        {
+          "assessment": "Differences in feasible states and move graph",
+          "evidence": [
+            "Minimum isolating triples permit all three-edge types except P4; unrestricted one-replacement graph has diameter three."
+          ],
+          "identifier_or_url": "Resultary f2da2f07c4da",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror statement comparison",
+          "title": "Minimum isolating sets and three-step reconfiguration in Kneser graphs",
+          "trigger": "Same host graph and optimum triples"
+        },
+        {
+          "assessment": "A larger, different feasible family",
+          "evidence": [
+            "Power-dominating triples have no common endpoint and may use nonmatching intermediate states."
+          ],
+          "identifier_or_url": "Resultary f27159e6fd24",
+          "material_read": "RESULT.md Finding at offset 0 and feasibility near offset 10000",
+          "method": "Local mirror statement comparison",
+          "title": "Five-slide extremals and a radius-four diameter-five split",
+          "trigger": "Same host and sliding move on another optimum family"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and Proof",
+        "Resultary a3f3d09e0ceb",
+        "arXiv:1812.05419 proof of Theorem 18"
+      ],
+      "rationale": "The sharp K4 boundary is meaningful as a mobility invariant, but that meaningful part is already fully represented for the same move graph. The remainder—adding known frozen triangles and counting local neighbors—does not provide a new structural invariant or mechanism.",
+      "residual_risks": [
+        "The review does not assess possible diameter or Hamiltonicity results, neither of which is in the frozen claim."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

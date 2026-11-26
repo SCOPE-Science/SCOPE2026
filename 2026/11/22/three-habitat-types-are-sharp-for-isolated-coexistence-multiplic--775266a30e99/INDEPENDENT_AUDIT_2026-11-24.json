@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:52:45.562778Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–95; VERIFICATION.md; verify.py",
+        "/workspace/reproductions/habitats3.py"
+      ],
+      "rationale": "At a positive equilibrium the two weighted totals U,V are nonzero and the stationary equations solve locally and globally for the occupancies: vacancy p_i/(1+h_iU+k_iV), species occupancies h_iU and k_iV times that vacancy. The two linear consistency equations in w_i=1/(1+h_iU+k_iV) ensure the same totals are recovered, so this is a continuous bijection with continuous inverse on the positive equilibrium set. For n=2 independent coefficient rows fix both w_i; independent denominator rows then fix U,V, and dependent rows leave a line through any positive solution. Proportional consistency rows either are inconsistent or coincide. The resulting single equation has strictly negative partials, so at every positive solution it has a local curve; this covers n=1 as well. In the three-type example the two linear equations in 1/(1+U+V) and the sum of the other reciprocals force U+V=3 and the reciprocal sum 20/99. On 0<U<3, denominators never vanish; clearing them gives (U−1)(U−2)=0. I independently rebuilt the equilibria with rational arithmetic, checked feasibility and all stationary residuals, differentiated the full ODE in blocks, and computed characteristic coefficients by traces of powers. Both factorizations and the Routh minors in the finding were reproduced. The Routh first columns have no zero entries and signs (+,+,+,+,+) and (+,+,+,+,−); the remaining two eigenvalues are both −1. Thus the points are respectively a hyperbolic sink and a saddle with one unstable direction, and the invertible Jacobians and interior inequalities give persistence under small rank-one parameter perturbations by the implicit function theorem. Replay: python3 /workspace/reproductions/habitats3.py. The uploaded checker was inspected but not executed.",
+      "residual_risks": [
+        "Neither the exact two-root witness nor local continuation gives a global multiplicity upper bound for all three-type systems, or two attracting positive equilibria."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Costa et al. give persistence and positive-equilibrium existence under mutual invasion and report numerical uniqueness observations, not a proof of uniqueness or multiplicity.",
+          "Resultary a1b3ab5c3a1b uses nutrient compartments and resource-exchange dynamics; its uniqueness/global-attraction theorem conditional on existence is for that system, not this vacancy model.",
+          "For DOI 10.1002/ecm.1328 the publisher and an author-hosted PDF did not yield readable full text; no scientific inference from snippets."
+        ],
+        "reasoning": "No inspected general theorem yields both the two-habitat prohibition for independently factored positive kernels and a three-habitat sink/saddle example under the same constraints. Resource-count bounds for different models would require a precise reduction and cannot be assumed to count isolated roots.",
+        "searches": [
+          "arXiv:2607.11291, §§2.3.2 and 3.1, Theorems 3.3–3.4",
+          "Consumer–resource and multiple coexistence equilibrium literature search; DOI 10.1002/ecm.1328",
+          "Resultary a1b3ab5c3a1b"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 775266a30e99, 0b393d8efcb5, a1b3ab5c3a1b, 567a29ac68ce",
+        "Costa–Kubasch–Loeuille arXiv:2607.11291",
+        "McPeek DOI 10.1002/ecm.1328 (retrieval attempts only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Persistence or existence alone provides no count, and uniqueness seen numerically is not a bound on isolated positive equilibria. Aligned or shared-kernel conclusions have stronger and different hypotheses. The separate construction gives two nonsingular exact roots and distinct local stability types."
+        ],
+        "reasoning": "Neither existence nor conditional uniqueness in these checked models implies the stated sharp threshold; the degeneracy qualification and open set of witnesses are essential. Same-day dating supplies no ordering evidence.",
+        "searches": [
+          "arXiv:2607.11291, Theorems 3.3–3.4 and §2.3.2",
+          "Resultary 0b393d8efcb5, 567a29ac68ce, and a1b3ab5c3a1b findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two-species two-habitat occupancy equations on pp. 13–14 are of the same form with general colonization coefficients; they are relevant under restriction to positive rank-one coefficients.",
+          "Resultary 0b393d8efcb5 studies a shared symmetric colonization matrix with opposite extinction preferences and exhibits an attracting mirror-symmetric state and an occupancy gain, not multiple isolated equilibria.",
+          "In 567a29ac68ce the positive rank-one contact matrix is shared in a discrete-time map. The two matrices of this finding are not proportional, and their left and right factors are not aligned."
+        ],
+        "reasoning": "The exact model-level comparison is to the finite occupancy ODE. Neither sharing a kernel nor using a different evolution rule can be removed merely by renaming the independent factors.",
+        "searches": [
+          "Resultary semantic search for competitive metacommunity coexistence, habitat occupancy, positive rank-one colonization and multiple equilibria",
+          "Costa–Kubasch–Loeuille, arXiv:2607.11291, §3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest exact corpus result, 775266a30e99, is the same frozen record. The nearby 0b393d8efcb5 witness concerns a different conclusion: occupancy gain at a two-habitat coexistence state."
+        ],
+        "reasoning": "The same frozen witness is not independent reproduction or prior coverage; no independent exact example or table surfaced in the bounded search.",
+        "searches": [
+          "Resultary semantic search for sharp habitat-number multiplicity and exact two-equilibrium witness"
+        ]
+      },
+      "rationale": "The ecological occupancy equations themselves are closely anteceded: the primary two-habitat ODE examined has this structure with general colonization inputs. Its existence and persistence statements do not prove the isolated-equilibrium count or give the three-type construction. A shared-kernel uniqueness result is not equivalent to independently factorized kernels. The exact matching indexed record is the frozen finding itself. The pass is for the sharp threshold and robust exact witness, not for the underlying occupancy model or rank-one reduction in isolation.",
+      "residual_risks": [
+        "Broader consumer–resource literature is incompletely covered, especially DOI 10.1002/ecm.1328. No claim of worldwide priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The identical frozen item, not separate prior evidence",
+          "evidence": "Same isolated-equilibrium threshold and rational sink/saddle witness.",
+          "identifier_or_url": "Resultary 775266a30e99",
+          "material_read": "Matching Finding",
+          "method": "Local Resultary mirror",
+          "title": "Three habitat types are sharp for isolated coexistence multiplicity under separable colonization",
+          "trigger": "Exact catalogue match"
+        },
+        {
+          "assessment": "Strong model precedent; read results do not cover the multiplicity claim",
+          "evidence": "Two-habitat ODE allows general colonization coefficients; persistence and existence from invasion conditions; numerical uniqueness observations only in inspected scenarios.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.11291",
+          "material_read": "§2.3.2 p. 11; §3.1 pp. 13–14; Theorems 3.3–3.4 pp. 14–15",
+          "method": "Primary PDF passages",
+          "title": "Metacommunity persistence on spatially heterogeneous landscapes",
+          "trigger": "Same ecological model and two-habitat specialization"
+        },
+        {
+          "assessment": "Different restriction and conclusion",
+          "evidence": "Two habitats, shared symmetric colonization matrix (rank one only in its equal-entry case), symmetry and occupancy gain.",
+          "identifier_or_url": "Resultary 0b393d8efcb5",
+          "material_read": "Finding and model restriction",
+          "method": "Local mirror text",
+          "title": "Strict habitat occupancy gain from mirror-specialized competing species",
+          "trigger": "Same model, same-day competing-habitat finding"
+        },
+        {
+          "assessment": "Not independent rank-one continuous-time occupancy dynamics",
+          "evidence": "Discrete-time map with shared rank-one contacts and conditions for unique coexistence.",
+          "identifier_or_url": "Resultary 567a29ac68ce",
+          "material_read": "Finding and assumptions",
+          "method": "Local mirror text",
+          "title": "Strictly concave coexistence potential for aligned rank-one competitive networks",
+          "trigger": "Rank-one competitive coexistence uniqueness precedent"
+        },
+        {
+          "assessment": "Different resource dynamics",
+          "evidence": "Conditional uniqueness/global attraction for a nutrient-compartment model with local/global resource dynamics.",
+          "identifier_or_url": "Resultary a1b3ab5c3a1b",
+          "material_read": "Finding and model scope",
+          "method": "Local mirror text",
+          "title": "Global coexistence rigidity for spatially compartmentalized consumer–resource systems",
+          "trigger": "Potential broader equilibrium rigidity result"
+        },
+        {
+          "assessment": "Unresolved comparison, no negative inference",
+          "evidence": "Publisher access failed and alternate author-hosted PDF timed out.",
+          "identifier_or_url": "https://doi.org/10.1002/ecm.1328",
+          "material_read": "No usable primary passages",
+          "method": "Lawful publisher and identified author-hosted copy attempted",
+          "title": "McPeek consumer–resource study",
+          "trigger": "Potential general equilibrium-count implication"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, scalar reductions, exact witness and limitations",
+        "Costa–Kubasch–Loeuille two-habitat model and persistence statements"
+      ],
+      "rationale": "The natural simplification to species-specific separable colonization raises an ecological modeling question: how much habitat heterogeneity is needed to allow more than one isolated coexistence state? The exact low-type obstruction explicitly separates multiplicity from fine-tuned continua, and the three-type witness with one unstable branch shows multiplicity that is robust rather than a degeneracy or a numerical near miss. This is a meaningful sharp threshold without any claim of two stable coexistence states.",
+      "residual_risks": [
+        "No field calibration, stochastic counterpart, global attractor result or full-rank threshold is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

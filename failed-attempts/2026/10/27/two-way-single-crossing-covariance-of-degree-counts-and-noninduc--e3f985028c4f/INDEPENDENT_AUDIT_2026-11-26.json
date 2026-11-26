@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:04:32.132251Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen Finding is correct. For a required copy event, independence leaves unforced incident edges Bernoulli(p). A copy vertex of motif degree d has conditional degree d+Bin(N−d,p); a nonimage vertex is unchanged. Dividing the conditional degree mass by b_r gives (r)_d/[(N)_d p^d] or zero, and the centered contributions sum to the normalized law after summing deterministic weights. Positivity of b_r and μ transfers signs. For δ≤r<N, the sum has a nonzero positive inverse power, strictly decreases from infinity and is less than k at p=1. For fixed p, each active coefficient increases strictly in r, with the first nonzero term entering at r=δ. The endpoint signs and strictness prove both crossing descriptions, including when there are no interior thresholds. Substitution p=q/N gives coefficient errors O(N^−1) at fixed r and a simple limiting root. In the dense regime each coefficient is u^d[1−(1−u)d(d−1)/(2uN)+O(N^−2)]; at the proposed approximant the root equation has O(N^−2) residual and the derivative is bounded away from zero uniformly. The stated regular, path and triangle cases follow. Independent exact enumeration of all 64 graphs on four vertices with two path embeddings of weights 2 and 5 at p=2/9 gave normalized factors (−3,0,39/4,105/4), matching the theorem (python3 /workspace/branches/independent_checks.py). The frozen verification transcript is not reproducible as written: verify.py increments tests 30+3+9+4+12 times, so line 109 would report 42, not 159 (33 exhaustive graph parameter groups and nine threshold-order groups). This discrepancy concerns the claimed replay count, not the proof or the independent exact check; the frozen script was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lin–Reinert give a matrix of covariances among degree counts, not this mixed motif observable. Sah–Sawhney give orthogonal graph factors, and Janson–Nowicki give projection decompositions for generalized graph statistics.",
+          "The Janson monograph full text could not be lawfully retrieved in the bounded check."
+        ],
+        "reasoning": "The projections are general methods rather than the inspected direct exact statement. The decisive prior comparison instead uses the exact formula in 788dc5430332.",
+        "searches": [
+          " Lin–Reinert arXiv:0912.4812, §3.1",
+          "Sah–Sawhney arXiv:2006.11369, §2.5",
+          "Janson–Nowicki DOI 10.1007/BF01193750; Janson DOI 10.1090/memo/0534"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 788dc5430332 and b2c760ba1d9f",
+        "arXiv:0912.4812 and 2006.11369",
+        "Janson–Nowicki DOI 10.1007/BF01193750"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For an arbitrary motif without isolates, the earlier equation has at least one positive inverse power for r≥δ. For r<N it is negative at p=1 after subtracting k. The falling-factorial coefficients strictly increase in r once a term appears.",
+          "In p=q/N each fixed-r term converges with O(N^−1) error to (r)_d q^−d. At u=r/N in the interior, linearizing the same root in p around u gives the shift −(1−u)Σd(d−1)/(2NΣd)."
+        ],
+        "reasoning": "This yields existence, uniqueness, ordering and both expansions with the stated error orders from the existing exact law, including nonregular motifs. A universal root across different nonregular motifs was not claimed in the frozen record and is not needed.",
+        "searches": [
+          "788dc5430332, RESULT.md Finding, scope and pinned-copy proof; b2c760ba1d9f Finding for comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In 788dc5430332, changing degree index k to r, motif size h to k, and n−1 to N gives exactly b_r times the sum of falling-factorial ratios minus motif size after division by the expected count.",
+          "The earlier proof derives the conditional contribution of an individual copy, independent of its location."
+        ],
+        "reasoning": "Passing from unweighted unlabeled copies to weighted injections only changes the aggregate coefficient μ. Each injection's normalized contribution is identical, including when several injections represent the same edge set.",
+        "searches": [
+          "Resultary: degree-count by motif covariance / noninduced copies / threshold",
+          "788dc5430332, RESULT.md eqs. (1) and (7)–(10)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "788dc5430332, eq. (1), explicitly states the exact formula extends to nonregular motifs, although the separately stated universal threshold applies to regular motifs.",
+          "b2c760ba1d9f, Finding and Proof, gives the same arbitrary-motif expression and ordered crossings for unweighted copies and a refined sparse root. It is a later-dated close match, not needed to establish the earlier coverage."
+        ],
+        "reasoning": "This symbolic law over n,r,p and the motif degree multiset has no natural finite database table with equivalent coverage; these are formula-level index matches.",
+        "searches": [
+          "Resultary: exact motif/degree covariance formula and threshold expansions"
+        ]
+      },
+      "rationale": "An earlier indexed Resultary record, 788dc5430332, already gives the exact normalized covariance law for every fixed simple motif, including nonregular ones, and derives the identical pinned-copy factor. Fixed weights preserve it by linearity. Both sign directions follow immediately from positivity and monotonicity of the known coefficients, and the two threshold profiles result from the ordinary first-order expansion of that same simple-root equation. The earlier record does not print both p-root expansions, but its formula mechanically implies them.",
+      "residual_risks": [
+        "The Janson monograph and comprehensive historical priority were not resolved. The exact earlier Resultary equation suffices for the coverage decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior covariance law and direct implication",
+          "evidence": "The equation is explicitly valid for every fixed simple H; the proof pins a copy, so deterministic weighting cannot change the normalized factor.",
+          "identifier_or_url": "2026/10/13/SCOPE-regular-motifs-share-a-universal-degree-count-covariance-thresho--788dc5430332",
+          "material_read": "RESULT.md Finding eq. (1), scope near offset 2573, and proof eqs. (7)–(10)",
+          "method": "Local Resultary mirror",
+          "title": "Regular motifs share a universal degree-count covariance threshold",
+          "trigger": "Same mixed covariance"
+        },
+        {
+          "assessment": "Material later-dated overlap",
+          "evidence": "Explicit unweighted law, ordered roots and a second-order sparse threshold.",
+          "identifier_or_url": "2026/11/2/SCOPE-an-ordered-single-crossing-law-for-motif-degree-covariance-in-bi--b2c760ba1d9f",
+          "material_read": "RESULT.md Finding and Proof",
+          "method": "Local Resultary mirror",
+          "title": "An ordered single-crossing law for motif-degree covariance in binomial random graphs",
+          "trigger": "Arbitrary-motif ordered crossings"
+        },
+        {
+          "assessment": "Related but different covariance",
+          "evidence": "The observables in the inspected covariance matrix are both degree-class counts.",
+          "identifier_or_url": "https://arxiv.org/abs/0912.4812",
+          "material_read": "§3.1, pp. 6–7, and Remark 3.4, p. 9",
+          "method": "OA paper passage inspection",
+          "title": "Joint Vertex Degrees in an Inhomogeneous Random Graph Model",
+          "trigger": "Exact degree-count covariances"
+        },
+        {
+          "assessment": "Framework, not the explicit formula",
+          "evidence": "Defines graph factors and states their orthogonality, not the mixed degree-by-copy threshold.",
+          "identifier_or_url": "https://arxiv.org/abs/2006.11369",
+          "material_read": "Abstract and §2.5, p. 9",
+          "method": "OA paper passage inspection",
+          "title": "Local limit theorems for subgraph counts",
+          "trigger": "General subgraph graph-factor expansions"
+        },
+        {
+          "assessment": "Broad framework",
+          "evidence": "Orthogonal direct-sum projections rather than the explicit mixed finite covariance.",
+          "identifier_or_url": "https://doi.org/10.1007/BF01193750",
+          "material_read": "Abstract, introduction and §2 Lemma 1, journal pp. 341,343–345",
+          "method": "OA paper passage inspection",
+          "title": "The asymptotic distributions of generalized U-statistics with applications to random graphs",
+          "trigger": "General projection methods"
+        },
+        {
+          "assessment": "Implication not assessed from full text",
+          "evidence": "No scientific conclusion drawn from the access failure.",
+          "identifier_or_url": "https://doi.org/10.1090/memo/0534",
+          "material_read": "Bibliographic reference only; full text not retrieved",
+          "method": "Lawful OA DOI attempt",
+          "title": "Orthogonal decompositions and functional limit theorems for random graph statistics",
+          "trigger": "Plausibly broader mixed-moment treatment"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "This is a natural mixed statistic, but the frozen result adds fixed weights that cancel identically and elementary root consequences of the earlier exact arbitrary-motif formula. The sparse scale and dense shift are useful descriptions but are obtainable by direct first-order expansion with a nonzero derivative. No distinct non-mechanical invariant or regime survives the comparison.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

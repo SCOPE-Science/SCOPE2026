@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,9 @@
   "schema_version": 1
 }
 ---
-# Verification performed
 
-The standalone standard-library Python program `verify_bipartite.py` was executed on the same content supplied with this finding. It printed `ALL CHECKS PASSED: 41930 assertions`. It verifies rational spectral-projector identities, exact reconstruction of the graph Laplacian, independently constructed truncated matrix exponentials, stochasticity, cross-part positivity, signed within-part entries, exact row-sum norms, the dominant row part, recovery order and signs, and the derived finite maximum.
+# Computational cross-check and proof boundary
 
-The parameter sweep covers all ordered and reversed pairs with two through six vertices in each part (25 pairs), evaluated at five time parameters each. It also examines large-contrast pairs with sizes \(300\), \(1000\), and \(5000\) for fixed small parts. Floating numerical comparisons use explicit tolerances; the projector identities use exact rational arithmetic.
+The original reproduction program `verify_bipartite.py` is unchanged. Run it with Python 3 standard library. The original recorded execution reported `ALL CHECKS PASSED: 41930 assertions`. The program tests rational spectral projectors and compares independently computed truncated matrix exponentials on 25 small ordered pairs of part sizes from two through six. It samples the signed within-part entries, row norms, larger-part dominance and temporal peaks. Larger-contrast scale diagnostics remain in the script as context, not as claims unique to the narrowed result.
 
-These checks confirm finite computations and support reproduction; they do not replace proof of the universal inequalities, uniqueness, or asymptotic limits. Those claims are proved analytically in `RESULT.md`. No independent audit was conducted.
+This finite computation is not a proof of all-time dominance, strictness, or uniqueness of the peak. The proof in `RESULT.md` uses the known recovery ordering and a sign-change argument for the difference of signed within-part row masses.

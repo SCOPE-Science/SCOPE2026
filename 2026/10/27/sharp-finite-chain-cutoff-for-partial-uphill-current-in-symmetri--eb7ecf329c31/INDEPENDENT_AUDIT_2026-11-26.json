@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:58:43.414297Z",
+  "axes": {
+    "correctness": {
+      "rationale": "This passes the actual corrected RESULT.md in /workspace/repairs/2, not the frozen Finding. Its unqualified interior-positive sentence fails: at N=2, a=1, b=1/2, U=1, m=1/4, δ=1/100, t=1/2, physical reservoirs give R=3/25<F_3=18/7 and exact currents (−143,−43,−143)/2800. The proof in the frozen file had used the extra assumption R>2. The replacement keeps the valid all-link cutoff, restricts the interior-positive guarantee under F_L>R to R≥2, and documents the counterexample. In the exact one-point Dirichlet problem, T is affine and M is proportional to sinh(λ(j−L/2)); for N=1 both reservoir generators act on the sole site. Differences of M are a positive constant times cosh(λ(j+1/2−L/2)), strictly largest at the two endpoints except when there are only those endpoints. The minimum current is therefore (a−b)m(R−F_L)/(2L); the telescoping sum is (a−b)m(R−2)/2. If both endpoints are strictly negative and that sum is nonnegative, a positive interior link must exist, including R=2 when L>2. The log derivative of F_L is 1/L−c cosh(c)/(sinh(Lc)cosh((L−1)c))>0 for c=λ/2 and L≥2; F_2=2 and F_L~L(1−z). An independent rational propagation of the recurrence checked the two published example vectors and the counterexample. The frozen script and output were inspected, not executed; their R=18/5 example does not certify the original unqualified sentence. The repair also corrects the attribution about the hydrodynamic limit and keeps the constitutive-current restriction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "CGV supplies the finite generator and mean closure, explicitly analyzes local uphill currents in the continuum in Sec. 5, and proves a hydrodynamic limit in Sec. 6. The frozen description of local uphill disappearance in that limit is not supported by these passages.",
+          "Floreani et al. study fast/slow switching layers and total uphill flow; their exclusion convention allows one particle of each type at a site."
+        ],
+        "reasoning": "Neither broader result compares all discrete species-A links as integer N changes in this one-particle-per-site model with opposed total and imbalance reservoir data.",
+        "searches": [
+          "arXiv:2210.01514v1, Sections 4–6",
+          "DOI 10.1007/s10955-022-02878-7"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2210.01514v1",
+        "DOI 10.1007/s10955-022-02878-7",
+        "Resultary 5b2a9f347d3f",
+        "Resultary b43fe3c8524e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The closed recurrence and the elementary use of its hyperbolic solution are not claimed as new. The hypotheses in the revision fix how the two boundary zeroes, strict length monotonicity and possible reversal with positive interior current follow from discrete increments.",
+          "The closest explicit current analysis in the same model does not evaluate F_L, compare its values over L, or test the sign on every discrete link."
+        ],
+        "reasoning": "The recurrence is a starting point, not a previously resolved sign classification. The missing steps are the endpoint extremum for the discrete link increments and a uniform comparison of the resulting boundary threshold over all lengths; a continuum formula cannot be substituted for either.",
+        "searches": [
+          "arXiv:2210.01514v1, Theorem 4.1, Eqs. (28)–(30), Sec. 5 and Eq. (47)",
+          "Floreani et al., DOI 10.1007/s10955-022-02878-7, pp. 1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In total/imbalance coordinates the same finite one-point equations are a discrete Laplace equation and a screened recurrence. The claimed cutoff tests the maximum discrete imbalance increment at the two boundary links, not the total A current.",
+          "CGV's Eq. (47) gives constitutive currents in the continuum. Its examples include a positive minimum at a boundary."
+        ],
+        "reasoning": "A continuum derivative at a boundary is a qualitative analogue, not the one-bond difference including the actual reservoirs. Nor is the constitutive current a microscopic pure-A transfer count.",
+        "searches": [
+          "arXiv:2210.01514v1, Eqs. (28)–(30), (41)–(43), (47)",
+          "finite symmetric cross-diffusion Dirichlet chain, partial/local uphill current and boundary sign cutoff"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "5b2a9f347d3f classifies the even-in-drive rectification sign as reservoir density and contrast vary at a fixed four-site one-species model.",
+          "b43fe3c8524e classifies reversals versus a hopping scale for four sites under saturated drive. Neither uses the specified current, dynamics or length threshold."
+        ],
+        "reasoning": "The closest located finite sign results are not the same question under relabeling; the bounded search found no matching formula/table. This is not proof of literature-wide absence.",
+        "searches": [
+          "Resultary: sharp finite-chain cutoff for partial uphill current in symmetric two-species exclusion",
+          "Resultary: finite exclusion current reversal, boundary-link signs and chain-length threshold",
+          "Resultary 5b2a9f347d3f and b43fe3c8524e",
+          "Primary-literature search: finite two-species cross-diffusion, local uphill and reservoirs"
+        ]
+      },
+      "rationale": "For the corrected claim, credit the exact finite mean closure, generator and phenomenon of local uphill transport to the literature. The reviewed new statement is the evaluated strict finite-length criterion with boundary-link extremality, monotonicity and the qualified post-cutoff sign regime for this reservoir family. The strongest sources examined give either the starting finite equations or a different continuum or microscopic model, not the discrete all-link cutoff.",
+      "residual_risks": [
+        "An equivalent screened-chain current bound may be stated in other finite exclusion or reaction-diffusion literature; the comparisons here were bounded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the model and finite closure, and local current examples in the continuum, not the finite all-link cutoff",
+          "evidence": [
+            "The finite generator has two reservoir terms plus the edge sum; the latter is empty for N=1.",
+            "Sec. 5.1 uses PDE (7) and Eq. (47) expresses continuum currents."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2210.01514v1",
+          "material_read": "Theorem 4.1 and Eqs. (28)–(30), pp. 9–10; Eqs. (41)–(43), pp. 11–12; Sec. 5 and Eq. (47), pp. 14–16; Sec. 6",
+          "method": "Bounded primary OA full-text inspection",
+          "title": "Uphill in reaction-diffusion multi-species interacting particles systems",
+          "trigger": "Exact same process, local uphill effect and possible discrete sign theorem"
+        },
+        {
+          "assessment": "Different exclusion convention and total-current question",
+          "evidence": [
+            "A site can contain one fast and one slow particle, unlike the common hard-core constraint in the audited model."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10955-022-02878-7",
+          "material_read": "PDF pp. 1–2, model and current scope",
+          "method": "Bounded primary OA full-text inspection",
+          "title": "Switching Interacting Particle Systems: Scaling Limits, Uphill Diffusion and Boundary Layer",
+          "trigger": "Uphill current and boundary effects with two particle types"
+        },
+        {
+          "assessment": "Not equivalent: fixed length, one species and different observable",
+          "evidence": [
+            "The boundary concerns even-in-drive rectification as reservoir mean density and contrast vary."
+          ],
+          "identifier_or_url": "5b2a9f347d3f",
+          "material_read": "Opening Finding and model scope",
+          "method": "Bounded local-mirror inspection",
+          "title": "A sharp density-controlled rectification boundary in a four-site chain",
+          "trigger": "Closest finite exclusion sign boundary in the catalogue"
+        },
+        {
+          "assessment": "Not equivalent: reversals in a hopping scale at fixed length",
+          "evidence": [
+            "A one-species disordered four-site chain is driven with saturated boundary contrast."
+          ],
+          "identifier_or_url": "b43fe3c8524e",
+          "material_read": "Opening Finding and model scope",
+          "method": "Bounded local-mirror inspection",
+          "title": "Two exact polarity reversals at fixed disorder contrast in a four-site chain",
+          "trigger": "Closest finite exclusion reversal claim in the catalogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The corrected result gives a necessary and sufficient size criterion for when the opposing gradients can sustain uphill constitutive A-current even at the reservoirs, and distinguishes boundary reversal from loss of all positive currents. This is a meaningful finite-chain cutoff independent of the particular rational illustration; neither a finite sample nor a continuum bound answers that length question.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

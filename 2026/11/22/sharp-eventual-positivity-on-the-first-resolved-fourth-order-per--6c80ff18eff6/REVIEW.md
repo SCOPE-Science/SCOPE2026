@@ -1,27 +1,21 @@
-# Scientific review: sharp five-node heat-stencil positivity restoration
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact five-by-five stencil equals \(D-D^2/12\) and has eigenvalues \(0,-\alpha,-\alpha,-\beta,-\beta\) with the specified exact radicals. The Fourier inversion has exactly three orbit entries; all diagonal and nearest-neighbor entries are strictly positive for every positive time. For the distance-two entry, the derivative is a difference of two exponentials with strictly ordered decay exponents, so it has one negative-to-positive change of sign. Since the entry begins at zero with negative derivative and tends to \(1/5\), it crosses zero exactly once at the claimed positive threshold. The resulting complete entrywise classification is fully proved for every real time, not extrapolated from finite samples. The delivered symbolic/numeric verifier independently passed its exact projectors and 7,260 high-precision comparisons. Risk: none detected in the five-node assumptions; finite tests are supporting checks only.
+PASS
 
-## Originality — PASS, provisional
+The five shifts 0, ±1, ±2 are distinct, and expanding D−D²/12 yields the stated symmetric stencil with row sum zero. The two nonzero pairs of Fourier eigenvalues of D are (−5±√5)/2; applying d−d²/12 gives −α and −β with 0<α<β. Inverting the Fourier symbol using the two cosine values φ⁻¹/2 and −φ/2 gives the displayed three orbit entries. The diagonal is positive and the nearest-neighbor numerator is (1−u)+φ(u−v)>0 for 0<v=e^(−βt)<u=e^(−αt)<1. For the distance-two numerator F, F(0)=0 and F′(0)=5Q_{j,j±2}=−5/12. The function e^(αt)F′(t)=φα−(β/φ)e^(−(β−α)t) increases strictly from that negative value to a positive limit. Thus F has one strict minimum and then increases strictly to 1, crossing zero exactly once at positive T. The cyclic orbit sizes give ten negative or zero entries before or at T, respectively, and positivity thereafter; the identity at zero adds the isolated nonnegativity time. The physical factor h²/κ, Euclidean norm bound and mass conservation follow from the scaling and the symmetric spectrum. Independent Decimal bisection reproduced T=0.1030787110077426622381848633844554940… (python3 /workspace/branches/reproduce_decisive.py). Frozen verification code and its logged spectral and sampled checks were inspected, not executed or used as a global sign proof.
 
-A directly relevant full published finite-range signed-stencil analysis [4] studies precisely the same classical operator and gives finite-periodic *eventual* positivity and nonsharp dimension-dependent bounds; its text explicitly leaves sharp finite-cycle horizons undetermined. Its conclusions do not supply either the unique exact five-node transition or the complete ten-entry sign law. A separate published backward-Euler lattice-resolvent classification [5] concerns a different functional calculus and therefore does not entail the exponential semigroup threshold. General eventual-positivity principles [2], inverse-positive elliptic discretizations [3], and the different Gauss--Lobatto high-order positivity scheme [1] likewise do not determine the full sign law. Exact and alias searches did not identify a matching theorem, but an older equivalent specialized calculation remains a concrete priority risk. Published record partitioning or absence of a keyword match is not itself evidence of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-Five nodes are the first periodic grid where all five shifts of this classical fourth-order stencil represent distinct points. The exact restoration threshold is therefore a natural first full-stencil benchmark, not an arbitrary parameter slice. The sharp classification separates semigroup energy stability and mass conservation from the discrete maximum principle, supplies a reproducible sign-onset/recovery test for implementations, and resolves a finite-size value unprovided by the closest asymptotic/sufficiency literature. The finding is intentionally narrow: it does not derive a new general mesh-size law, nor does it claim an improvement in convergence accuracy.
+Known qualitative eventual positivity and stencil signs are credited. The distinct claim is the exact sharp five-node threshold, the unique positive crossing and the complete sign classification of the global semigroup. It is not an approximate bound, a one-step positivity interval or a stability threshold.
 
-## Closest literature and limits
+## value
 
-Relevant material read: Hu--Zhang Sections 2/3.5 [1]; Chen et al. Section VI [2]; Cross--Zhang Section 2.2 [3]; full accessible scientific findings in [4] and [5]. Remaining historical risk: older periodic fourth-order finite-difference heat literature might contain this \(n=5\) specialization without the exact wording. Independent audit and historical-priority confirmation have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Five nodes are the first periodic grid with an unaliased stencil, not an arbitrary finite slice. The sharp crossover and exact census give a concrete test of the difference between mass-preserving spectral stability and positivity for a standard higher-order heat discretization. An exact threshold with no sign reentry is useful as a solver benchmark and is not furnished by a qualitative convergence theorem or a late-time bound. The result makes no claim about sharp larger-grid thresholds.
 
-## References
-
-1. https://arxiv.org/html/2103.16790v2
-2. https://arxiv.org/html/2009.03581v1
-3. https://arxiv.org/html/2010.07282v3
-4. https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-negative-outer-jumps-force-persistent-lattice-sign-oscillation-a--904e3c4eba47
-5. https://github.com/published-finding corpus/2026/tree/main/2026/10/12/SCOPE-one-third-is-the-sharp-positivity-recovery-threshold-for-backwar--f6b8d51838a7
+The dated certificate retains the supplied scientific assessment, sources and limitations.

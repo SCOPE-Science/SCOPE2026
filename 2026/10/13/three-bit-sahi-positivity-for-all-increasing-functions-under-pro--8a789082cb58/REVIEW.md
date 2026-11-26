@@ -1,19 +1,21 @@
-# Scientific review: three-bit Sahi positivity
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed scope is exactly three nonnegative coordinatewise increasing functions on a three-coordinate independent Bernoulli product space, including endpoint probabilities. The functional is symmetric and separately linear; every nonnegative increasing function admits a finite positive layer-cake expansion in indicators of upper sets. All 20 upper sets are enumerated by a direct bitwise order test. For each of 1,540 unordered upper-set triples, the displayed three-copy polarization identity is verified with exact integer arithmetic. Every one of its 64 Bernstein-type coefficients is nonnegative; all 98,560 finite cases are covered, not sampled. Because the associated basis monomials are nonnegative for every parameter value in the closed cube, the universal inequality follows. The independently evaluated rational event probabilities validate both signs and normalization of the expansion. The method is an exhaustive finite proof for this fixed dimension, not an extrapolation to higher dimensions.
+PASS
 
-## Originality — PASS, subject to documented priority risks
+Increasing nonnegative functions decompose as nonnegative sums of indicators of increasing upper level sets, and the displayed E3 is trilinear. Each term in the given three-replica kernel has the stated expectation by independence; the number of ones in each coordinate of the replicas determines its probability weight. I independently generated the 20 upsets by closing under unions of principal upper sets, then cleared denominators in the odds variables t_i=p_i/(1-p_i). If Q=product_i(1+t_i) and P_A enumerates the monomials of event A, the cleared numerator is 2P_ABC Q^2 + P_A P_B P_C - Q(P_A P_BC + P_B P_AC + P_C P_AB). Separate exact polynomial convolution exhausts the 1540 unordered triples, each with 64 coordinate-degree cells; it gives 33057 positive and 65503 zero coefficients, with positive range 1 to 18. These coefficients are precisely the unnormalized Bernstein cells of the source. Nonnegative odds give nonnegativity for 0<=p_i<1; continuity or the Bernstein form covers deterministic coordinates including p_i=1. The overlapping example has event sizes 6, pairwise sizes 5 and triple size 4, yielding 1/64 at the uniform law.
 
-Kahn (arXiv:2210.08653, especially the introduction's Conjecture 5) states the unrestricted three-event conjecture and proves a conditional-independence rigidity assertion that does not imply all three-event inequalities. Lieb--Sahi (arXiv:2107.09838, sections 2–3) establish the two-dimensional arbitrary-function case and additional restricted families, not the general three-coordinate case. Sahi (2008) proves special cases but not the complete three-bit product-measure case. Gladkov (arXiv:2305.02653, Theorem 2.1) requires equal pairwise event intersections, whereas the current claim allows distinct overlaps. Searches for a dimension-three positive-correlation certificate, including equivalents and reductions to stronger general assertions, yielded no clearly dominating proved result. Priority cannot be certified by search, and less-visible earlier algebraic derivations remain a risk.
+## originality
 
-## Value — PASS
+PASS
 
-This proves the first natural finite Boolean dimension beyond the previously established arbitrary-function dimension-two case in the Sahi higher-correlation program. The result is not an isolated numerical example: it handles all three monotone functions and the full three-parameter family of product measures, with a reproducible exact proof. It provides an explicit nonnegative-coefficient structural certificate for a genuinely nonrectangular event triple. It does not resolve the global conjecture, assert a new higher-dimensional induction, or claim general FKG dependence.
+Kahn states the broader event inequality as a conjecture, and Richards's earlier Theorem 1.1 claims exactly a stronger inequality but has a gap even on product cubes: its proof verifies the conditional inequality for one-coordinate elimination and then substitutes an empty retained set without a valid induction. The checked established results do not cover arbitrary increasing functions on three independent bits. Credit for the formulation belongs to the prior work; the distinct content is the valid proof of the full three-coordinate product case.
 
-## Closest literature and limits
+## value
 
-The primary point of comparison is Kahn's precise 2022 statement of the conjectured triple inequality. Earlier Lieb--Sahi and Sahi results settle smaller or structurally restricted classes; Gladkov's later theorem settles a separate sunflower class. The present result is a three-coordinate boundary case only. An independent audit or full priority certification has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first product-cube dimension beyond the prior two-dimensional result is a natural finite case of a general conjecture. The proof covers the entire heterogeneous Bernoulli parameter space and every monotone event triple with an exact sign certificate, rather than adding a parameter sample or repeating a known inequality for cumulations. It can serve as a baseline for higher-dimensional tests or symbolic proofs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

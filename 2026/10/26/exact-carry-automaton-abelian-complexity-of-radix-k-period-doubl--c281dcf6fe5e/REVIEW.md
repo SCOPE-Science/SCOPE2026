@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The substitution-column recursion identifies every symbol with the parity of the radix valuation. An exact signed-digit prefix formula converts factor counts to finite addition carries. The two-state transition rule is necessary and sufficient, every finite path is realized by an integer start, and the finite carry tail has precisely two possible contributions. Sliding-window counts interpolate all integers between the extrema. The explicit alternating-digit ladder and substitution-scale calculation are proven for all parameter values. Standalone exact-integer verification passed 85,483 assertions and is supplementary rather than the basis of an infinite proof.
+## correctness
 
-## Originality — PASS (subject to historical-priority risk)
-The main 2026 paper establishes a qualitative letter-balance criterion for general substitution shifts; its classical period-doubling example and coboundary theory do not themselves yield the exact all-length high-radix Abelian complexity. The 2015 Parreau–Rigo–Rowland–Vandomme results and older binary-word recurrence literature treat radix two, which is explicitly excluded from the new claim. Bognini–Ammar's superficially similarly named generalization changes the alphabet cardinality rather than the substitution length. Searches across mathematical records, source wording, equivalences and general automatic-word algorithms identified no high-radix result that implies this exact theorem. An older equivalent carry-based derivation may exist and is the primary remaining risk.
+PASS
 
-## Mathematical value — PASS
-Abelian complexity is a standard natural invariant measuring the range of letter populations in fixed-length words. Here it is determined at every length for an infinite family of minimal aperiodic substitutions, with a two-state logarithmic algorithm, an exact growing subsequence and a surprising contrast: perfect one-count balance at every substitution scale. This is a global classification, not an arbitrary finite parameter census or the known binary case.
+The fixed point records the parity of the exponent of k dividing j+1, also for composite k. Counting multiples and collecting radix digits gives the displayed prefix identity. In the difference across an addition, the column identity a_j+c_j−kc_(j+1) contributes (k+1)(−1)^(j+1)c_j for each carry at position j≥1 after summation, giving precisely the weight claimed. The local inequalities allow arbitrary compatible column choices; finite paths are realized by finite starts. Beyond the leading digit an incoming one persists for a run and stops, and the two alternating-tail corrections are attained. Thus the constant-state dynamic program finds two attained extrema per length, and one-step changes in overlapping windows give every intervening integer. For the alternating digit ladder, every negatively signed carry pairs with the immediately preceding positive carry, including in the tail, and the tail cannot increase the m contributions available up through the highest relevant position. Taking M=0 and M equal to the sum of powers at the nonzero digits gives the extrema zero and m. For m=1 this gives exactly two counts. Primitivity holds at the second iterate. The prefix identity gives frequency 1/(k+1) and unbounded discrepancy along integers with arbitrarily many nonzero digits all at even positions, ruling out even eventual periodicity. The repaired operation count is in integer operations, not a bit-cost assertion.
 
-## Scope and priority limits
-No claim is made for the ordinary binary period-doubling word or general automatic sequences. Independent historical-priority and mathematical review remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+For the repaired arbitrary-length optimization and exact ladder only. Scale invariance at powers of k is already a consequence of the indexed same-family cyclic-class theorem. The inspected radix-two and general balance papers, and other high-radix catalog entries, do not supply the retained explicit formula or the exact values at (k^(2m)−1)/(k+1). Bounded evidence does not settle historical priority.
+
+## value
+
+PASS
+
+For a natural binary higher-radix version of period doubling, this recovers exact extrema at arbitrary lengths from a constant-state procedure rather than testing windows. The infinite ladder gives explicit lengths with exact increasing Abelian complexity, not merely qualitative unbalance, and it is not on the substitution scales already explained by cyclic-class inflation. This separates coarse-scale regularity from the count behavior at genuinely different lengths.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

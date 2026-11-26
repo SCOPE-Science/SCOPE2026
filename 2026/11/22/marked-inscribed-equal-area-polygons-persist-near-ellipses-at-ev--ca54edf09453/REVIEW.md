@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The fixed-mark Jacobian of the \(n-1\) independent signed consecutive-triangle-area differences is exactly \(c_n(u_{j+2}-u_j-u_1+u_{n-1})\), with \(c_n=\cos(2\pi/n)-\cos(4\pi/n)>0\). A kernel vector has \(u_{j+2}=u_j\), hence for odd \(n\) is constant and, with \(u_0=0\), vanishes. Therefore the finite-dimensional Jacobian is bijective. The Banach-parameter implicit function theorem for \(C^2\) radial graphs proves existence and local uniqueness, uniformly for prescribed angle on a compact circle. Positivity of the radial curvature numerator and the circular triangle determinant gives strict convexity and positive common area. A direct determinant expansion gives the first-order recurrence; for even \(n\), its alternating cokernel supplies the precise differentiable-branch obstruction. All quantifiers and local limitations are explicit. The standalone checker passed 278 numerical diagnostics; the proof does not rely on numerical exhaustiveness.
+PASS
 
-## Originality — PASS, with residual historical risk
+For fixed odd n≥5 and a fixed first angle, the n−1 independent area differences have derivative given by c_n times the step-two cyclic difference, followed by subtraction of the last component. In its kernel the cyclic differences are constant and hence sum to zero; step two generates the odd cycle and u_0=0 then forces every correction to vanish. The determinant constraints are jointly C¹ in the angles/mark and the C² radial parameter. The shared circular derivative and compactness of the marked-angle circle give uniform local uniqueness and existence radii (equivalently use the common inverse and a uniform contraction on a small correction ball). Small C² distance gives positive radial curvature and preserves the ordering and positivity of the signed doubled areas. Normalizing a fixed ellipse to the circle gives a nearby radial graph via the angular projection; a reflecting affine map requires reversing cyclic order if a positive sign is wanted, without changing the marked point or area equality. Differentiating the three radial products gives the stated G_j, and the common derivative is its average. For even n≥6 the alternating functional kills the angular derivative and evaluates to −2n sin(2Δ) on the stated mode, so excludes differentiable continuation through these prescribed regular angles only.
 
-The explicitly posed 2011 Craizer–Teixeira–da Silva Section 3.3 question asks for *inscribed*, fixed-order equal-area polygons with prescribed first vertex, and says its own approximation is not necessarily inscribed. The present theorem supplies a nontrivial local affirmative instance for all fixed odd orders, an all-marked-point local uniqueness statement, and an explicit inverse deformation law. Harel–Rabin 2003 classify abstract equal-area polygons and do not impose their vertices on a separately specified near-ellipse curve. Both primary texts were inspected, rather than inferred from titles. Searches for inscribed equal-area polygons, odd-order marked vertices, convex-curve perturbations, and local implicit-function results did not identify a covering result. An independent comprehensive historical-priority search is not claimed; a specialized older local theorem could overlap.
+## originality
 
-## Value — PASS
+PASS
 
-The article motivating this work singled out exact marked inscription (as opposed to merely approximating the oval) as a meaningful open geometric condition. The result provides an all-marked-point persistence theorem and uniqueness along a nonconic Banach neighborhood, not merely a classification of polygons already known to exist. Its derivative explicitly distinguishes odd and even cyclic geometry, offering a concrete local mechanism and a boundary on smooth continuation. This is a motivated structural local theorem, not a claim of a global solution or significant numerical improvement.
+Credit the published conjectural question, its approximate construction and the known classification of abstract equal-area polygons. The supported distinct contribution is exact arbitrary-mark local inscription on prescribed nearby ovals, with local uniqueness and radial response. The checked passages do not provide that result or a stronger result implying it.
 
-## Closest literature and limits
+## value
 
-Harel–Rabin, *Amer. Math. Monthly* 110 (2003), 606–619, derives affine classification; Craizer–Teixeira–da Silva, arXiv:1103.2722 Section 3.3 (2011), gives an approximate noninscribed construction and asks the exact marked-inscription question. The authors' educational webpage repeats that question. Comparisons with other published equal-area polygon moduli results found no implication of this near-ellipse marked existence theorem. The proof works for each fixed odd \(n\) and ovals sufficiently \(C^2\)-close to ellipses; historical priority has not been independently audited.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This resolves a local, all-marked-points version of a published exact inscription question on genuinely nonconic ovals. Uniqueness and the inverse deformation equation distinguish persistence from approximation or classification, and the even-order mode gives a concrete limit of differentiable continuation rather than a claim of global nonexistence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

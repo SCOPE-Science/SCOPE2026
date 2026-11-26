@@ -1,0 +1,173 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:17:11.464127Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–72",
+        "VERIFICATION.md, lines 19–25",
+        "verify.py, lines 12–97 (inspected, not executed)",
+        "arXiv:cond-mat/0109346 §7.2 Eq. (7.13)"
+      ],
+      "rationale": "The bath marginal is exactly 1/2; the right drift ζ−η_N is linear, so the discrete Dirichlet problem yields the stated mean without independence. At κ>0 the chain can empty with the right bath held open for removals and can build any target configuration from empty by left injections and exchanges, filling the desired rightmost sites first. For a fixed bath, substitution of the bilinear covariance into the neighboring-pair equation gives the squared mean gradient, with zero covariance on virtual boundaries and the nonadjacent harmonic equation satisfied. The killed two-site walk reaches a boundary, proving uniqueness. As κ↓0 the stationary equations leave two sector invariant laws with fixed weights 1/2; the full-bath sector has only the full stationary configuration. The covariance mixture adds i j/[4(N+1)²], and its numerator bracket is at least 2. As κ→∞ the stationary equations divided by κ force sector equality for every configuration; summing the unscaled equations identifies the averaged bath at density 1/2. The covariance there is strictly negative for i<j. The finite irreducible stationary solution depends continuously on κ, so a crossover exists for each pair. For N=2, multiplying site drifts by ζ and adding κ(m_i−2E[ζη_i]) gives the stated mixed-moment equations; the product drift is m_2+E[ζη_1]−2E[η_1η_2]. Solving yields the stated rational covariance and its decreasing quadratic numerator has exactly one positive root √10/2−1. This reconstruction is analytic; the original finite script was inspected but not executed.",
+      "residual_risks": [
+        "Fixed finite N, unit update rates and an autonomous symmetric shared bath. The claim does not give the number of zeros for N>2 or convergence uniform in N."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The graph-general representation in arXiv:2307.02481v2 retains fixed densities, not a dynamic shared bath.",
+          "Configuration resetting on finite graphs changes the particle configuration directly; the bath flip under review changes only future boundary dynamics."
+        ],
+        "reasoning": "Broader spatial geometry or switching of a different variable is not dominating coverage of the joint generator or its stationary covariances.",
+        "searches": [
+          "arXiv:2307.02481v2 §1.2 stationary representation",
+          "Floreani et al. DOI 10.1007/s10955-022-02878-7 model and duality",
+          "Resultary 4811508cf037 covariance reversal in configuration-reset SSEP"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:cond-mat/0109346",
+        "arXiv:cond-mat/0104147",
+        "arXiv:2307.02481v2",
+        "DOI 10.1007/s10955-022-02878-7",
+        "DOI 10.1088/0305-4470/16/18/029 (bibliographic only)",
+        "Resultary 63ed21b70fd1, dc9245657979, 4811508cf037, 0821d74585d9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Derrida–Lebowitz–Speer supplies the stationary covariance at fixed reservoir densities.",
+          "The static formula gives the two ingredients after the separate singular stationary-law arguments, but omits the between-environment covariance and contains no switching-rate parameter."
+        ],
+        "reasoning": "The prior formula supplies the fixed-density baseline, not the slow stationary mixture, fast averaging, crossover, or two-site threshold without a fresh joint-chain argument.",
+        "searches": [
+          "Derrida–Lebowitz–Speer arXiv:cond-mat/0109346 §7.2 Eq. (7.13)",
+          "Astoquillca–Floreani–González-Casanova arXiv:2307.02481v2 §1.2",
+          "Santos–Schütz arXiv:cond-mat/0104147 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published absorbing dual uses fixed boundary densities ρ_L and ρ_R.",
+          "Santos–Schütz uses a constant reservoir and a semi-infinite geometry; Floreani et al. changes each particle's hopping type."
+        ],
+        "reasoning": "A dichotomous shared reservoir is a state variable of the joint generator. A fixed-density absorbing dual or a hopping-type switch cannot encode the dependence between successive visits to this common random reservoir without a model extension.",
+        "searches": [
+          "SSEP finite chain boundary reservoir telegraph switching stationary correlations covariance sign reversal switching rate",
+          "Absorbing dual exclusion on graphs with reservoirs: arXiv:2307.02481v2 §1.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The related inspected entries concern sitewise Bernoulli replacement, three-site local resetting, configuration resetting, or three-site TASEP with resetting.",
+          "None of these inspected statements gives the N=2 covariance or its zero for the autonomous shared right bath."
+        ],
+        "reasoning": "Matching signs or a finite-size exact threshold are not equivalent unless the transition rule, stationary law and quantifier agree. No exact formula/table match was identified; this does not establish priority.",
+        "searches": [
+          "Resultary semantic search for stationary covariance formulas, all-pair telegraph-bath reversal and exact crossover",
+          "Resultary 63ed21b70fd1, dc9245657979, 4811508cf037, 0821d74585d9"
+        ]
+      },
+      "rationale": "The classical fixed-bath covariance is already covered. The distinct claim is the finite-chain all-pair reversal from the combination of positive environmental mixture covariance and negative averaged-process covariance, and the exact N=2 switching threshold. Neither a single static law nor the inspected differently switched or reset models covers it.",
+      "residual_risks": [
+        "Spohn full text not recovered; alternative random-environment terminology or an uninspected joint duality remains a possible source of overlap.",
+        "Searches were bounded, not an exhaustive priority determination."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers static connected two-site moments; no dynamic bath there.",
+          "evidence": [
+            "Eq. (7.13) is the fixed-reservoir connected two-site law."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0109346",
+          "material_read": "§7.2 p. 24 around Eq. (7.13), PDF offset 62200",
+          "method": "Compare formula and fixed boundary assumptions",
+          "title": "Large Deviation of the Density Profile in the Steady State of the Open Symmetric Simple Exclusion Process",
+          "trigger": "Same exclusion chain with fixed baths, possible exact baseline overlap"
+        },
+        {
+          "assessment": "Inspected statement is for a semi-infinite system with fixed reservoir density, not this stationary joint law.",
+          "evidence": [
+            "The abstract treats time dependence starting from a nonequilibrium bulk with a constant-density reservoir."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0104147",
+          "material_read": "Abstract p. 1, offset 1000",
+          "method": "Compare the stated reservoir, geometry and correlation observable",
+          "title": "Exact time-dependent correlation functions for the symmetric exclusion process with open boundary",
+          "trigger": "Exact time-dependent boundary correlation comparator"
+        },
+        {
+          "assessment": "Particle-specific switching, not a common random boundary state.",
+          "evidence": [
+            "Fast/slow hopping types switch at rate γ and give a two-layer dual."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10955-022-02878-7",
+          "material_read": "Article pp. 1–4, offsets 0 and 8900",
+          "method": "Compare the random state and its dynamics",
+          "title": "Switching Interacting Particle Systems: Scaling Limits, Uphill Diffusion and Boundary Layer",
+          "trigger": "Switching exclusion and duality with reservoirs"
+        },
+        {
+          "assessment": "Does not supply the joint environment representation or the switching crossover.",
+          "evidence": [
+            "Reservoir densities are fixed and dual walkers are absorbed at reservoir sites."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2307.02481v2",
+          "material_read": "§1.2 pp. 2–3, offsets 8050 and 11560",
+          "method": "Compare fixed-density assumptions and absorption representation",
+          "title": "Non-equilibrium steady state of the symmetric exclusion process with reservoirs",
+          "trigger": "Graph-general reservoir duality could subsume exact covariance"
+        },
+        {
+          "assessment": "Precise scope not independently established here.",
+          "evidence": [
+            "No decisive scientific passage retrieved; this is an access risk, not a negative result."
+          ],
+          "identifier_or_url": "https://doi.org/10.1088/0305-4470/16/18/029",
+          "material_read": "Confirmed bibliographic title, no decisive full-text passage available",
+          "method": "OA lookup and publisher access attempt",
+          "title": "Long range correlations for stochastic lattice gases in a non-equilibrium steady state",
+          "trigger": "Historical theory of stationary correlations"
+        },
+        {
+          "assessment": "Different configuration-reset mechanism.",
+          "evidence": [
+            "Finite-graph SSEP with resets of the configuration, not autonomous boundary modulation."
+          ],
+          "identifier_or_url": "Resultary 2026/10/26 4811508cf037",
+          "material_read": "Mirrored RESULT.md finding, offset 690",
+          "method": "Compare generator and class of site pairs",
+          "title": "A local-neighbor covariance reversal criterion for exclusion with resetting",
+          "trigger": "Potential mechanism-level coverage of a covariance reversal"
+        },
+        {
+          "assessment": "Thematic comparators only; no exact match or earlier priority established by them.",
+          "evidence": [
+            "Sitewise Bernoulli clocks, three-site SSEP local resetting, and three-site TASEP local resetting have different generators."
+          ],
+          "identifier_or_url": "Resultary 63ed21b70fd1, dc9245657979, 0821d74585d9",
+          "material_read": "Mirrored RESULT.md statements, offsets 77, 374 and 294 respectively",
+          "method": "Compare reservoir/reset mechanisms and SSEP versus TASEP",
+          "title": "Spectral fluctuation and exact covariance laws for exclusion with sitewise reservoirs; Reentrant distal occupation correlations in a three-site exclusion chain with local resetting; The smallest locally resetting exclusion chain with two covariance sign reversals",
+          "trigger": "Closest indexed exact covariance laws and finite-chain crossings"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and §§1–5",
+        "Derrida–Lebowitz–Speer fixed-bath baseline"
+      ],
+      "rationale": "The same stationary means coexist with strictly opposite connected-correlation signs at the two ends of the bath rate, for every pair in every finite chain. The calculation identifies a distinct common-noise mechanism competing with the exclusion anticorrelation and gives an exact two-site benchmark, not just a statement that mixtures may create positive correlations.",
+      "residual_risks": [
+        "No thermodynamic-limit benchmark or general-rate uniqueness is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

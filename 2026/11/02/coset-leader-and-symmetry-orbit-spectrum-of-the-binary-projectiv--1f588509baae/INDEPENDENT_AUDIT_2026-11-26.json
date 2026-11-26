@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:43:55.481592Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–69, VERIFICATION.md, verify.py, ORBIT_TABLE.csv",
+        "Independent subset and orbit replay independent_check.py",
+        "Höhn arXiv:2606.24573v1, §§1,4"
+      ],
+      "rationale": "The Singer difference-set incidence yields column weights 9 and pairwise intersection 6 for A, hence A^T A=I and H=[I|A] is a full-rank parity check and generator. The independent replay enumerates the 8,192 codewords, checks minimum distance 6, and xors each of the 83,682 distinct coordinate subsets of weights 0 through 5. They reach all 8,192 syndromes; first-hit weight and number of minimum-weight subsets reproduce all joint counts. In particular the distance counts are (1,26,325,2080,3770,1990), so covering radius is exactly 5, and the weighted sum is 31946, giving 15973/4096. Repeated-coordinate paths are not counted: alternatively each shortest Cayley path uses distinct coordinates and each minimum subset yields precisely d! such paths. The point-preserving permutations act faithfully on the syndromes, preserve the line-column set and generate a group of size 5616. The involution AR exchanges e_i with A_(.,-i) and induces a code automorphism. The two disjoint coordinate-block cosets give at least 11232 elements, which is the full-group order by Höhn. The independent orbit replay verifies all 22 rows, including the five depth-five (size, leader count) pairs (936,18), (702,18), (234,18), (117,10), (1,26), and singleton syndrome 8191. The stored and reproduced CSV SHA-256 is 8d8acd1b504b47d31e62dc0b9b4ebcb62048e9cc845561312ce678ce55279790. Replay with python3 /workspace/branches/df660689-3bb2-49e8-8d07-ffb023b0ed89/independent_check.py. The uploaded verifier was inspected, not run. Uniqueness up to coordinate permutation is imported from the classification, not proved by enumerating this one code.",
+      "residual_risks": [
+        "The computation proves finite invariants of one exact representative, and their transfer uses the cited equivalence-class theorem. It does not classify arbitrary self-dual codes or infer a length-dependent bound."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 1992 classification lists the unique extremal length-26 code in the classification and weight-distribution context. Höhn gives the order-11232 group and the projective-plane and odd-Golay constructions.",
+          "The Conway–Sloane coset-orbit paper is a close methodological comparator; no independent full-text exclusion is claimed."
+        ],
+        "reasoning": "Uniqueness and a symmetries theorem identify the object and available actions but do not compute quotient orbit sizes with each orbit's distance and leader multiplicity. The searched older coset-orbit source remains an explicit access risk, not negative proof.",
+        "searches": [
+          "Conway–Pless–Sloane 1992 pp. 9–10; Höhn arXiv:2606.24573v1 §§4–5; Conway–Sloane 1990 doi:10.1109/18.57203"
+        ]
+      },
+      "checked_sources": [
+        "Höhn arXiv:2606.24573v1",
+        "Glynn 1991 Theorem 2.1",
+        "Conway–Pless–Sloane 1992 length-26 section",
+        "Conway–Sloane 1990 identification only",
+        "Resultary ca234d622420, fc9b95f1c3c6, 27f2ef6bf5d1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The group order provides only a bound and divisibility condition on orbit sizes. The weight enumerator supplies normalization and min distance, not the individual minimum-error support counts in each nonzero syndrome. There are five distance-5 orbits here, with three different minimum-leader multiplicities."
+        ],
+        "reasoning": "The odd-Golay construction and known code invariants do not mechanically imply the distribution; the new calculation must exhaust distinct syndrome subsets and explicitly partition the induced action. The exact numerical counts cannot be transplanted from a different code merely because the method is analogous.",
+        "searches": [
+          "Höhn arXiv:2606.24573v1 §§4–5; Glynn 1991 Theorem 2.1; Resultary ca234d622420"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Höhn's code is defined by projective-plane non-incidence and is the same code up to equivalence. Its odd-Golay deep-hole discussion is for the length-24 code in the descent, not the length-26 code.",
+          "Resultary's analogous joint distance/tie census and orbit decomposition is for the [15,6,5] Petersen cycle code."
+        ],
+        "reasoning": "Nearest-codeword list sizes agree with minimum-support syndrome counts via the coset bijection. For a self-dual code the dual is the same code. Neither alternative formulation identifies a length-24 deep-hole orbit or a different cycle code with the length-26 syndrome space and census.",
+        "searches": [
+          "Höhn arXiv:2606.24573v1, §§1,4–5; Glynn 1991 Theorem 2.1; Resultary ca234d622420 and fc9b95f1c3c6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The known enumerators concern weights of codewords in the zero coset. The two plane-related catalogue hits concern incidence stopping configurations and a graph independence complex, rather than a table on the 8192 cosets of this code."
+        ],
+        "reasoning": "Neither codeword weight coefficients nor incidence-code/failure or graph tables are the nearest-decoding data. A generator matrix specifies a way to calculate the table, not an already computed equivalent table.",
+        "searches": [
+          "Glynn 1991 Theorem 2.1; Conway–Pless–Sloane 1992 length-26 A_26 entry; Resultary ca234d622420, fc9b95f1c3c6, 27f2ef6bf5d1"
+        ]
+      },
+      "rationale": "Prior sources give the code, its uniqueness and full group, and its codeword weight enumerator. The supported increment is the exact length-26 coset minimum-distance and minimum-leader multiplicity census and its full automorphism orbit table, not any of those inputs. Comparable decoding and coset-orbit results for other objects do not state these data.",
+      "residual_risks": [
+        "Conway–Sloane 1990 full text was not independently inspected, and unindexed older exact decoding computations are possible. No universal priority claim follows from the bounded review."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior uniqueness and group; deep-hole discussion is for a different length",
+          "evidence": [
+            "Theorem 1 gives equivalence-class uniqueness and order 11232. Section 4 identifies the plane code; the length-24 odd-Golay deep-hole orbit in the construction is not a length-26 coset orbit."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.24573v1",
+          "material_read": "§1 Theorem 1 (OA offset 2700), §4 plane construction and group (offset 26500), §5 and introductory deep-hole discussion (offset 5050)",
+          "method": "Open arXiv passage comparison",
+          "title": "The unique self-dual binary code of length 26 with minimum weight 6",
+          "trigger": "Same code and full automorphism group; related odd-Golay cosets"
+        },
+        {
+          "assessment": "Exact weight enumerator of codewords, not a covering or quotient census",
+          "evidence": [
+            "Order-three spectrum begins 1+52z^6+390z^8 and matches the zero-coset spectrum."
+          ],
+          "identifier_or_url": "https://ajc.maths.uq.edu.au/pdf/4/ocr-ajc-v4-p277.pdf",
+          "material_read": "Theorem 2.1, PDF p. 5, OA offset 8100",
+          "method": "Open publisher PDF passage comparison",
+          "title": "The construction of self-dual binary codes from projective planes of odd order",
+          "trigger": "Original projective-plane construction and exact enumerator"
+        },
+        {
+          "assessment": "Contains length-26 A_26 classification and weight distribution, not equivalent coset data in those passages",
+          "evidence": [
+            "Lists one length-26 code in the d>=6 classification context."
+          ],
+          "identifier_or_url": "https://neilsloane.com/doc/pless.pdf",
+          "material_read": "PDF pp. 9–10, OA offset 18000",
+          "method": "Author-hosted PDF passage comparison",
+          "title": "The binary self-dual codes of length up to 32: a revised enumeration",
+          "trigger": "Exact length-26 catalogue and possible table coverage"
+        },
+        {
+          "assessment": "Possible overlap remains independently unconfirmed",
+          "evidence": [
+            "The frozen self-review reports a narrower list of studied codes, but that report is not independent full-text evidence here."
+          ],
+          "identifier_or_url": "https://doi.org/10.1109/18.57203",
+          "material_read": "Bibliographic identification only in this review; no full-text scope exclusion",
+          "method": "Lawful DOI/publisher and repository retrieval attempts; author-site index also unavailable",
+          "title": "Orbit and coset analysis of the Golay and related codes",
+          "trigger": "Strongest older coset/orbit source by subject and Golay relationship"
+        },
+        {
+          "assessment": "Separate codes or other invariants",
+          "evidence": [
+            "Petersen cycle code: 512 syndromes and 18 orbits. PG(2,3) stops: 13-by-13 incidence erasure/peeling spectrum. Plane non-incidence graph: independence complex and Singer quotient."
+          ],
+          "identifier_or_url": "Resultary ca234d622420, fc9b95f1c3c6, 27f2ef6bf5d1",
+          "material_read": "Findings in the local mirror at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Configured Resultary searches and local mirror statement comparison",
+          "title": "Resultary coset-leader and projective-plane comparator records",
+          "trigger": "Exact tie/orbit census or same plane in indexed results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and ORBIT_TABLE.csv",
+        "Independent exhaustive coset and orbit replay",
+        "Höhn group theorem and Glynn weight enumerator"
+      ],
+      "rationale": "This is a natural, complete nearest-decoding and symmetry invariant of the unique extremal self-dual code at its length, not an arbitrary chosen subset of syndromes. The 1990 deepest cosets split into five different symmetry types, with exact tie sizes including a full-group-fixed exceptional coset. Those distinctions supply data for decoding and comparisons of symmetry classes that the established weight enumerator and group order do not provide.",
+      "residual_risks": [
+        "Value is an exact finite decoding classification; no new construction, optimal covering bound, or across-length result is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:08:51.949119Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At stationarity the age is Exp(r); conditional on it the coordinates are IID normal with variance (D/μ)(1−e^{−2μT}). Thus Y=e^{−2μT} has CDF y^θ, and the exact count is the binomial mixture with q(y)=erf(A/√(1−y)). The conditional strong law gives H=q(Y); inversion and q(y)=p*+By+O(y²) give the stated CDF and lower density. For the rounded count set y=z/(B√N). The triangular binomial CLT gives Φ((x−z)/s*); flooring changes the CLT scale by O(N^{-1/2}). For small y, q(y)−p*≥By/2 gives an integrable Hoeffding bound exp(−2(z/2−x)²) for z>max(2x,0); for y bounded away from zero the contribution is exponentially small even after multiplication by N^{θ/2}. The limiting integral at x=0 equals (s*/B)^θ times the θ moment of the positive part of a standard normal, giving the stated gamma factor. At the other endpoint erfc(w)~e^{−w²}/(√πw) gives P(1−H≤u)~θA²/log(1/u). Bounding E[H^N] at 1−H=N^{−1±ε} and then letting ε→0 establishes θA²/log N, with θA²=ra²/(4D). All constants are for fixed positive parameters: p* is a floor only for the limiting fraction, not for the finite count. The frozen verification materials were read only; no numerical evidence is needed for these limits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The unconfined reset work already gives the exact conditional-binomial mixture and population pushforward for an age density h; it lacks a positive harmonic equilibrium floor.",
+          "The resetting Dyson work treats a logarithmically interacting gas; the inspection found its central-count asymptotics, not the independent OU Gaussian rounding."
+        ],
+        "reasoning": "A prior mixture representation makes the OU exact law and macroscopic CDF natural consequences. It does not itself state the boundary-layer limit: a triangular binomial CLT must be integrated against the small mass near the truncated endpoint with tail control.",
+        "searches": [
+          "arXiv:2509.06658 pp. 11–12, Eqs. 52–55, unconfined full counting statistics",
+          "arXiv:2503.14733 full counting statistics Eqs. 42–46",
+          "arXiv:2606.31634 harmonic stationary mixture and maximum"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–116, VERIFICATION.md and verify_counting.py (read only)",
+        "arXiv:2606.31634",
+        "arXiv:2509.06658",
+        "arXiv:2503.14733",
+        "Resultary 4cd7cf34fdd1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Writing u for the conditional probability of exceeding a on one side, the two age integrands are (1−u)^N and (1−2u)^N. On u≤1/4, (1−u)^4≤1−2u≤1−u; the excluded part of the one-sided integrand at size 4N is exponentially small. A fixed-a one-sided 1/log N law with the coefficient above therefore yields the same two-sided coefficient.",
+          "The Gaussian boundary-layer formula uses q(y)−p*~By, the weight y^{θ−1} and rare-binomial estimates when y≫N^{-1/2}; there is no corresponding positive-floor profile in the inspected unconfined counting or harmonic maximum passages."
+        ],
+        "reasoning": "The upper coefficient is not treated as independently novel (also directly accessible from the known age mixture). The technically distinct count-edge limit is quantitative for all fixed real x and θ>0; it does not follow merely by reading off either maximum law or macroscopic counting pushforward. A pointwise scaling density alone should not be confused with a uniform small-threshold error bound.",
+        "searches": [
+          "arXiv:2606.31634 Eq. 116 and small-z cutoff discussion versus the all-inside event",
+          "arXiv:2509.06658 Eqs. 52–55 versus the positive-floor N^{-θ/2} limit"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The central all-inside event is max_i|X_i|≤a, not the prior rightmost-position event M1≤a. Symmetry equates one-sided tail probabilities, not the two events.",
+          "The harmonic maximum scaling density in Eq. 116 is ν_H² z(1−z²)^{ν_H²/2−1}, with Λ_N²=2D log N/μ and ν_H²=r/μ; its small-z coefficient corresponds to ra²/(4D log N) at a fixed threshold.",
+          "The matched Resultary result concerns a distinct boundary layer for the rightmost coordinate and not the number in a central window."
+        ],
+        "reasoning": "The upper extreme has genuine near-equivalent prior coverage at leading order, while the lower event involves binomial fluctuations around the equilibrium occupation probability, not the distribution of the extremal coordinate.",
+        "searches": [
+          "arXiv:2606.31634 §VI A, Eq. 116 and Eqs. 135–136",
+          "Resultary 4cd7cf34fdd1: same OU model, maximum, finite-N edge"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day 4cd7cf34fdd1 is the strongest matched indexed record. Its inspected finding and prior-work scope identify M_N as the maximum of stationary positions and study Gumbel crossover, age conditioning and leakage at the maximum edge."
+        ],
+        "reasoning": "It is a distinct theorem for the same model and deserves comparison independently of its date, but does not give the frozen counting profile; a priority inference from the date is unwarranted. No relevant exact table is needed to assess this limit.",
+        "searches": [
+          "Configured Resultary lookup for commonly reset harmonic OU counting law, fixed window, positive lower floor and finite-population rounding"
+        ]
+      },
+      "rationale": "Pass attaches to the central-window counting result with its resolved lower-edge finite-population profile and comparison of the two count edges, not to the established conditional mixture or a standalone claim of priority for the upper logarithmic coefficient. The latter is closely covered by same-model maximum asymptotics; the inspected sources do not resolve the lower counting crossover at a positive occupation floor.",
+      "residual_risks": [
+        "Bounded primary passages and ranked catalogue comparisons do not certify historical priority. An unlocated general mixed-binomial boundary theorem may cover the lower Gaussian scaling; no such theorem was identified in the compared sources.",
+        "The prior harmonic paper was not available in full for the frozen author's original comparison; the decisive signed-maximum passages were available for this review. Priority for the upper coefficient is not assigned to this record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same-model upper-tail precedent and leading-coefficient implication, not the central-count lower Gaussian profile",
+          "evidence": [
+            "The rightmost-coordinate harmonic scaling density and cutoff discussion are explicit. The prior observable is signed."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.31634",
+          "material_read": "Rightmost-particle definition, §VI A, Eq. 116 p. 24 and Eqs. 135–136 p. 26 (OA offsets about 15100, 132300, 146350)",
+          "method": "Bounded primary full-text inspection",
+          "title": "Effects of confinement in a Brownian gas with simultaneous stochastic resetting and dynamically emergent correlations",
+          "trigger": "Exact same harmonic model and a potentially equivalent maximum observable"
+        },
+        {
+          "assessment": "Covers the binomial mixing framework and pushforward for unconfined Brownian motion",
+          "evidence": [
+            "At fixed reset age the central-window count is binomial; the paper integrates over the age density."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2509.06658",
+          "material_read": "Full counting statisics, pp. 11–12, Eqs. 52–55",
+          "method": "Bounded primary full-text inspection",
+          "title": "Dynamically emergent correlations in Brownian particles subject to simultaneous non-Poissonian resetting protocols",
+          "trigger": "Existing central-window full-counting formulas under shared resetting"
+        },
+        {
+          "assessment": "Interacting gas, not independent OU occupation rounding",
+          "evidence": [
+            "The energy has pairwise logarithmic repulsion; counting laws are derived in that model."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2503.14733",
+          "material_read": "Model p. 6 and counting p. 10, Eqs. 42–46; OA offsets about 30848 and 59111",
+          "method": "Bounded primary full-text inspection",
+          "title": "Resetting Dyson Brownian motion",
+          "trigger": "Prior central counting and endpoints in a reset trapped gas"
+        },
+        {
+          "assessment": "Same-model but distinct one-sided maximum crossover",
+          "evidence": [
+            "M_N is the maximum of the stationary positions. Its new claims address maximum leakage, a conditional age law and finite-N Gumbel scaling."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-gaussian-edge-leakage-and-a-gumbel-boundary-layer-in-a-simultane--4cd7cf34fdd1",
+          "material_read": "RESULT.md Finding and prior-work section (offsets 0 and about 9500; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+          "method": "Configured Resultary lookup and bounded local-mirror inspection",
+          "title": "Gaussian edge leakage and a Gumbel boundary layer in a simultaneously reset gas",
+          "trigger": "Same-day indexed harmonic-gas edge result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Central-window counting probes an occupation fraction rather than the largest coordinate. The full Gaussian rounding profile at its equilibrium floor quantifies a natural sharp phenomenon unreported in the checked counting and maximum sources: order-√N downward fluctuations of the count are weighted by a power of size governed by the ratio of resetting and relaxation rates. Contrasting this with the logarithmic all-inside law clarifies two different mechanisms without depending on standalone novelty of the upper law.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

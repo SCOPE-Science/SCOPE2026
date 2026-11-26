@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:12:39.511815Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The five disjoint cell images verify the stated adjacency and slope 2, so each itinerary of n observations has mass 2^(1−n) times its last cell length. Endpoints and all their preimages are null. The rational resolvent and the root formula agree exactly; a separately written rational interval replay agrees for n=1,…,8, including p_8=299/768 and an exact decomposition by first switch or no switch at n=8 (independent_replay.py in /workspace/branches/008fffad-6afa-493c-a019-e6af79698cef/). No reliance on the larger timed-out replay or on execution of the uploaded checker. The two primitive blocks have the same positive simple Perron root γ with strict subleading modulus. The cross term uses the only edge A→B, so bulk indices have mass 2^(1−n)γ^(n−2)c, up to a geometrically decaying relative error in distance from the ends. Perron normalization gives c=11/120+√5/24 and 2c/γ²=(2+√5)/30. Pure-phase and bounded end-window masses are smaller by a factor of order 1/n after conditioning. The Riemann sum gives weak, not exact finite-horizon, uniformity. The leading upstream mass vector is proportional to (γ,1), yielding the stated initial weights.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Under its aperiodicity and unique ρ-maximal (ρ-final) class hypotheses, equation (5.1) gives (ρ/n)^(τ−1)ρ^(−n)P^n→vu^T, where τ counts the largest number of equal-radius classes traversed by a path and v is positive exactly at starts of such paths.",
+          "Both alive blocks here are primitive with common radius ρ=γ/2 and there is access only upstream→downstream. The downstream block is the only ρ-final class, all classes are accessible from the positive initial masses, and τ=2."
+        ],
+        "reasoning": "The polynomial factor of degree one is included in this general power asymptotic. Upstream and downstream sharing radius does not violate uniqueness of the terminal ρ-maximal class, since the upstream class can reach another class of equal radius. The paper describes endpoint distributions, not the first-switch law verbatim; the explicit implication is in the fourth check.",
+        "searches": [
+          "van Doorn–Pollett, Quasi-Stationary Distributions for Reducible Absorbing Markov Chains in Discrete Time, §4 definitions and §5 equation (5.1)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–102, VERIFICATION.md lines 19–23, verify.py lines 1–75",
+        "arXiv:1510.06043 §6.2; van Doorn–Pollett §§4–5; Resultary 36a44984c1f2 and c56fa32ae4c6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exact implication from the known graph: write x=z/2, d=1−x−x², and L_i(x) for the cell-length-weighted itinerary series starting in I_i. The prior graph gives L_5=L_3=(1/6+x/12)/d, L_2=1/4+xL_1, and L_1=(1/2+x/4+xL_3)/d. The initial sum z(L_1+L_2+L_3) is z(11−2x−15x²−6x³)/(12d²), exactly the frozen generating function. Partial fractions give both roots and all coefficients; no new enumeration theorem or phase law is needed for the exact escape calculation.",
+          "Switch implication: (5.1) gives P^h·1=hρ^(h−1)(v+o(1)), normalizing u^T·1=1. Here v vanishes downstream; taking one additional step in the limit gives Pv=ρv. For m=floor(tn) with 0<t<1, the event of surviving and J_n>m has mass ell_U^T P_U^m (P^(n−1−m)·1)_U. Since P_U^m v_U=ρ^m v_U and ||P_U^m||=O(ρ^m), dividing by survival for n observations gives (n−1−m)/(n−1)+o(1). Initial probabilities after conditioning are proportional to ell_i v_i; diagonal similarity gives upstream proportions (γ,1)."
+        ],
+        "reasoning": "The all-time invariant is mechanical elimination from a published, fully specified coding for this exact hole (not an inference from entropy alone). For the conditional result, the no-return structure makes the first-switch event equivalent to an intermediate upstream location, so it is a direct application of the general power asymptotic via the Markov property. Together these cover the frozen findings by implications even though the displayed numbers and the first-switch terminology are not in the cited statements.",
+        "searches": [
+          "Bandtlow–Rugh §6.2 Figure 4, offsets 73100–74998; van Doorn–Pollett §5 equation (5.1), offsets 20750–25507"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bandtlow–Rugh's coding is not the frozen disjoint partition: I_1,I_2,I_3 cover the alive set disjointly at time zero; later states I_4,I_5 refine I_2 and I_1 respectively. Nevertheless each source maps to its listed alive children, disjoint within that row, up to endpoints. The itineraries starting in states 1,2,3 therefore count each Lebesgue point once and each step divides length by two.",
+          "The frozen disjoint refinement is a finite absorbing Markov chain with substochastic matrix P_ij=M_ij·ell_j/(2·ell_i) and initial masses ell_i (the missing initial mass is already killed). This is a diagonal similarity of M/2 on the alive states."
+        ],
+        "reasoning": "Overlaps of cells across different rows in the prior coding do not prevent exact Lebesgue counting: available children within each row are disjoint. For the phase observable, the disjoint refinement makes surviving-path conditioning and block reachability those of a standard reducible finite chain.",
+        "searches": [
+          "Bandtlow–Rugh arXiv:1510.06043 §6.2, Figure 4 and its five I_i intervals",
+          "Reducible absorbing Markov chain conditioned on survival, occupation and switching; van Doorn–Pollett §5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "36a44984c1f2, RESULT offsets 1100–2577, states an exact finite-time uniform switching law and polynomial tail for negative doubling with hole (2/5,3/5). c56fa32ae4c6, RESULT around offset 1300, gives an exactly uniform change index for alternating forbidden words in a two-state Markov chain.",
+          "The ranked searches surfaced no distinct exact indexed formula for the same positive-doubling hole. The primary same-hole graph, rather than a matching table, is the decisive exact input."
+        ],
+        "reasoning": "Neither indexed analogy covers the observed map/hole; the fact that these laws are exact is not evidence that they dominate a different dynamical system. A search non-hit does not resolve priority.",
+        "searches": [
+          "Resultary 36a44984c1f2 and c56fa32ae4c6; same-hole doubling map 3/4–5/6 and double pole"
+        ]
+      },
+      "rationale": "The evaluated formulas do not appear verbatim in the inspected prior passages. Nonetheless, the earlier same-hole graph already specifies the full Lebesgue survival generating function by direct cell-length weighting and elimination, as reconstructed below. The macroscopic law and initial localization are direct two-class consequences of the published reducible-chain power asymptotic, after an elementary disjoint refinement of the same interval coding. Thus neither the polynomial order nor the stated conditional laws establish a distinct structural claim beyond these prior inputs. The different-system indexed analogues alone would not establish coverage.",
+      "residual_risks": [
+        "The bounded searches do not establish historical priority for an explicit publication of the coefficient or phase law. The judgment is direct implication and routine exact extraction, not proof that the formulas occur verbatim in prior work. No priority inference is made from indexed dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same-hole spectral precursor and sufficient exact coding for routine survival calculation",
+          "evidence": "Lists I_1=(0,1/2), I_2=(1/2,3/4), I_3=(5/6,1), I_4=(2/3,3/4), I_5=(1/3,1/2), with rows 1→1,2,3; 2→1; 3→3,4; 4→5; 5→3,4. States γ has algebraic multiplicity two and a one-dimensional eigenspace. Does not itself display the Lebesgue series or the conditional switch law in §6.2.",
+          "identifier_or_url": "https://arxiv.org/abs/1510.06043",
+          "material_read": "§6.2, PDF pp. 20–21, offsets 73100–75900, intervals, transition list, Figure 4 and spectral discussion",
+          "method": "OA PDF bounded passages; checked each listed row against the interval images and derived its weighted length series",
+          "title": "Entropy-continuity for interval maps with holes",
+          "trigger": "Exact same doubling map and rational hole; potential graph-level implication"
+        },
+        {
+          "assessment": "Broader semigroup asymptotic giving the macroscopic law by intermediate-state conditioning",
+          "evidence": "Equation (5.1) gives the normalized rank-one limit with exponent τ−1 and specifies the support of v. Equal-radius primitive blocks in a one-way chain satisfy its assumptions with τ=2.",
+          "identifier_or_url": "https://people.smp.uq.edu.au/PhilipPollett/papers/2009VanDoornPollett.pdf",
+          "material_read": "§4 ρ-maximal definitions from offset 18350; §5 Theorem 5.1 and proof equation (5.1), offsets 20750–25507",
+          "method": "OA PDF locate then bounded passage inspection; matched the finite-chain hypotheses",
+          "title": "Quasi-Stationary Distributions for Reducible Absorbing Markov Chains in Discrete Time",
+          "trigger": "Possible general asymptotic subsuming the statistical result"
+        },
+        {
+          "assessment": "Different map and hole",
+          "evidence": "Negative doubling with hole (2/5,3/5), exact uniform conditional switching, not the frozen positive-doubling system.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-uniform-switching-times-and-a-polynomial-escape-tail-at-a--36a44984c1f2",
+          "material_read": "RESULT.md offsets 1100–2577",
+          "method": "Local mirror bounded statement passage",
+          "title": "Exact uniform switching times and a polynomial escape tail",
+          "trigger": "Related open-map switch law"
+        },
+        {
+          "assessment": "Distinct model",
+          "evidence": "Stationary two-state Markov chain with alternating forbidden words and an exact finite-horizon change-index law.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-universal-optimal-escape-and-an-exact-phase-wall-law-for-alterna--c56fa32ae4c6",
+          "material_read": "RESULT.md around offset 1300",
+          "method": "Local mirror bounded statement passage",
+          "title": "Universal optimal escape and an exact phase-wall law for alternating words",
+          "trigger": "Related finite-state conditioning mechanism"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The same-hole conditional question is naturally motivated, but the leading coefficient and entire survival sequence are routine evaluations from an already specified interval graph. The two conditional claims use the ordinary no-return Markov conditioning identity with the known power asymptotic; they require no additional dynamical mechanism or nontrivial new estimate for this example. The evaluated numbers are convenient, but no independent mathematical gain beyond that exact extraction and the direct corollaries survives.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:00:21.362791Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At dimension six the four listed centers are pairwise Hamming distance four, so their six-edge stars have disjoint endpoints and no cross adjacencies. Incident selected edges are compatible by triangle-freeness; disjoint edges conflict exactly at a one-bit cross adjacency. Automorphisms reduce exclusion of size 25 to a clique extension containing (0,1). In the checker, each color class is independent; after all later candidates have been tried and removed, the current prefix is colored by at most the color of its last vertex. Thus the early return when depth plus that color is below the target is sound. For every clique extension the branch of its last vertex preserves all earlier members by exact adjacency intersection. Candidate counts and all operations are exact. A separate bounded implementation, /workspace/branches/35c02605-dcf6-44ac-a1f7-8159d8284723/independent_eop_check.py, was run after a Q2 probe; its q6_replay.txt confirms 192 edges, the witness of 24, and exclusion of 25 after 54,111 calls. The original Q5 equality and induced-matching comparisons also reproduced; their removal is not a mathematical rejection. The submitted script was inspected, not executed. The repaired proof certifies this finite instance only and does not classify optimizers.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5.10 gives 2^(n−1) for n=2^k, k≥1. Six is outside that range.",
+          "The general |E|/δ upper bound attributed to Chelladurai–Kalimuthu–Soundararajan, discussed by Brešar–Samadi, gives only 32 in Q6.",
+          "The parity-split bound (2^k−1)2^(d−k−1) with d=6, k=2 gives 24 as a lower bound, not equality. The inspected general characterization passage did not furnish a Q6 upper bound."
+        ],
+        "reasoning": "A hitting construction of size 24 and an upper bound of 32 cannot replace the exhaustive exclusion of size 25. The broad exact cube theorem applies to different dimensions.",
+        "searches": [
+          "arXiv:2406.04020v2, Theorem 5.10",
+          "arXiv:2403.00750, p. 2",
+          "arXiv:2508.01935, abstract",
+          "Resultary d4fb72f17bca"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_eop.py and VERIFIER_OUTPUT.txt",
+        "arXiv:2406.04020v2, 2403.00750, 2309.04963 and 2508.01935",
+        "Resultary d285e3a47bb6, d4fb72f17bca and 96aea6130e79",
+        "ScienceDirect S0012365X26004516 (access attempts)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-day catalogue result covers Q5 exactly and quantifies its general construction as a lower bound only. It does not bound non-construction packings in Q6.",
+          "The known induced matching sizes (also independently checked) give lower bounds, not upper bounds for edge-open packings. The fact that Q6 beats induced matchings already follows from the published size-24 lower bound and is not retained as novel.",
+          "The directly topical ScienceDirect title was identified, but the available statement did not provide the requested exact equality and lawful full-text attempts were unsuccessful."
+        ],
+        "reasoning": "The novel conclusion supported here rules out all size-25 configurations. It does not amount to re-running a known table value or presenting an already known lower construction as the new result.",
+        "searches": [
+          "Brešar–Dravec–Hedžet–Samadi, Table 1 and Theorem 5.10",
+          "Resultary d4fb72f17bca Finding",
+          "\"On open and edge open packings of hypercubes\" arxiv preprint authors S0012365X26004516 Brešar"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The five-cube records use the same no-third-edge condition or equivalently endpoint-induced star forests with all their edges selected. They explicitly permit incident selected edges, which matches the triangle-free compatibility rule.",
+          "The vertex open-packing and 2-packing results of Brešar–Klavžar–Rall enumerate vertex sets. The induced matching restriction allows only single-edge star components. Neither invariant is the edge-open-packing number here."
+        ],
+        "reasoning": "The catalogue Q5 overlap cannot be removed by changing notation or by describing the same packing as stars. Vertex packing and induced matching exact values cannot be substituted for the repaired Q6 edge value.",
+        "searches": [
+          "Resultary d285e3a47bb6, d4fb72f17bca and 96aea6130e79",
+          "arXiv:2406.04020",
+          "arXiv:2309.04963"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 1 explicitly gives lower bounds 10 and 24 at dimensions five and six, respectively, not exact equalities.",
+          "The distinct d285e3a47bb6 and same-day d4fb72f17bca explicitly give Q5=12 plus the 80-optimizer census. Neither states Q6=24 as an equality. No exact Q6 hit was found in the bounded ranked comparison."
+        ],
+        "reasoning": "The repaired statement is the missing upper bound at the natural gap in the published table. Distinct Q5 matches are positive evidence of coverage; their dates do not settle discovery order, and absence of a Q6 hit is not proof of global priority.",
+        "searches": [
+          "arXiv:2406.04020v2, §5 Table 1",
+          "Resultary Q6-specific ranked search; strongest returned Q5 IDs d285e3a47bb6, d4fb72f17bca and 96aea6130e79"
+        ]
+      },
+      "rationale": "The frozen two-dimension contribution could not pass unchanged. Distinct records d285e3a47bb6 and d4fb72f17bca explicitly give the exact Q5 value 12 in the same packing convention, in fact with a stronger optimizer census. The repair removes Q5 as a contribution and credits the already known lower bound of 24 for Q6. The inspected table and general results do not exclude a 25-edge packing in Q6; the independent exact exclusion supplies the supported remaining contribution. The directly topical inaccessible journal article is a residual risk, not negative evidence or an access-based verdict.",
+      "residual_risks": [
+        "The directly topical ScienceDirect article could not be read and may contain an exact or implying result; no lawfully readable alternate was identified.",
+        "The bounded catalogue and primary-source checks cannot exclude an unindexed calculation. Catalogue dates do not identify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known Q6 lower bound 24; no equality at six in the inspected theorem",
+          "evidence": [
+            "EOP row is lower bounds; Theorem 5.10 requires n a power of two."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2406.04020v2",
+          "material_read": "Introduction, §5 Table 1 and Theorem 5.10; table passage around offsets 120500–125494",
+          "method": "Lawful OA extracted text",
+          "title": "Induced matching vs edge open packing: trees and product graphs",
+          "trigger": "Same hypercube edge invariant, exact theorem and numerical table"
+        },
+        {
+          "assessment": "Gives 32 after specializing the discussed prior bound",
+          "evidence": [
+            "The bound is |E(G)|/δ(G); the paper characterizes its equality, and attributes the earlier bound to Chelladurai–Kalimuthu–Soundararajan."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2403.00750",
+          "material_read": "p. 2, offset around 7932 and attribution discussion",
+          "method": "Lawful OA PDF passage",
+          "title": "Edge open packing: complexity, algorithmic aspects, and bounds",
+          "trigger": "General upper bounds could dominate Q6"
+        },
+        {
+          "assessment": "Different ground set and invariant",
+          "evidence": [
+            "Open packing and 2-packing refer to sets of vertices."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2309.04963",
+          "material_read": "p. 1, formulation of the packing problems",
+          "method": "Lawful OA PDF passage",
+          "title": "Packings in bipartite prisms and hypercubes",
+          "trigger": "Open-packing values for the same cube family"
+        },
+        {
+          "assessment": "No Q6 specialization established by the inspected statement; no whole-paper exclusion claimed",
+          "evidence": [
+            "Describes characterizations for fixed t≥3 and for value m−3."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2508.01935",
+          "material_read": "p. 1 abstract passage",
+          "method": "Lawful OA PDF passage",
+          "title": "Edge open packing: further characterizations",
+          "trigger": "General same-invariant characterizations might imply the finite value"
+        },
+        {
+          "assessment": "Covers Q5 and adds 80 and a single orbit; different dimension from the repair",
+          "evidence": [
+            "Exactly 12 with the same third-edge definition."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-the-five-cube-has-exactly-eighty-maximum-edge-open-packings--d285e3a47bb6",
+          "material_read": "Finding and Assumptions, offset 0",
+          "method": "Published-record local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "The five-cube has exactly eighty maximum edge-open packings",
+          "trigger": "Exact match to one of two frozen values"
+        },
+        {
+          "assessment": "Exact Q5; lower bound, not upper bound, at Q6",
+          "evidence": [
+            "States Q5=12 and 80 optimizers; the general inequality specializes to ≥24 at Q6."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-parity-split-hamming-stars-improve-hypercube-edge-open-packing-w--d4fb72f17bca",
+          "material_read": "Finding, Assumptions and start of proof sections 1–2, offset 0–4298",
+          "method": "Published-record local mirror",
+          "title": "Parity-split Hamming stars improve hypercube edge-open packing, with an exact five-cube census",
+          "trigger": "Distinct same-day exact Q5 overlap and broader all-dimension construction"
+        },
+        {
+          "assessment": "Coverage unresolved, not treated as not covering",
+          "evidence": [
+            "The indexed snippet distinguishes vertex and edge versions but gives no decisive Q6 statement; article and abstract routes returned HTTP 403."
+          ],
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0012365X26004516",
+          "material_read": "Indexed title and introductory snippet only; full text not available",
+          "method": "Lawful direct/VPN attempts at article and abstract URLs; exact-title search for an identified alternate yielded none",
+          "title": "On open and edge open packings of hypercubes",
+          "trigger": "Most directly topical primary title could give the repaired finite upper bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The binary hypercube and this packing invariant are studied explicitly in a product-graph comparison, with an exact theorem at power-of-two dimensions and a published finite-dimensional lower-bound table at other dimensions. At six the accessible bounds allowed anything from 24 to 32. Proving that 24 is sharp, rather than replacing an older witness by a larger one or picking an arbitrary family slice, fills that precise gap and gives a reliable benchmark for structural bounds and computations on the same invariant. The repaired claim makes no generalization from the finite result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C) — PASS
+## correctness
 
-The exact Gaussian-arcsine mixture from Yoshino et al. gives a positive angular integral. The integrand identity and subtraction \(B_q(c)-c=q(1-2c^2-qc)/(1+2qc+q^2)\) yield an absolute, global \(8q(1+\eta)\) logarithmic comparison. The endpoint \(c=1\) of the angular integral has uniformly positive, nondegenerate curvature over \(q\in[0,1/4]\), so Laplace's method gives the precise universal prefactor and a uniform relative \(O(\eta^{-1})\) remainder. Algebraic combination with the classical \(I_0\) asymptotic proves both scaling limits. Separate fixed-parameter Laplace expansion and Gaussian Mills integration prove the one- and two-sided tail constants. A standalone checker passed 149 numerical checks; it is not substituted for the proof. Boundary \(q=0\) is used only as a uniform-parameter extension, while the walk's existing theorem applies at each \(q>0\).
+PASS
 
-## Originality (O) — PASS with stated risk
+The primary Theorem 1 fixes q=1-p and the variance scale r=|a|²/|b|². Conditioning on the variance gives the stated angular ratio, with amplitude A and phase B; subtracting cos(theta) from B gives the displayed q-order numerator over a denominator ≥(1-q)². Together with |log A|≤artanh(q) this gives the 8q(1+eta) envelope for all x, including x=0. For the uniform endpoint argument set y=1-cos(theta); the exact phase loss is B(1)-B(1-y)=b_q y/(1-2qy/(1+q)²), where b_q=(1-q)/(1+q)³ is bounded below on [0,1/4]. Uniformly on a small fixed y interval, replacement by b_q y incurs a relative integral error O(eta^-1): the amplitude error is O(y) and the exponential error is bounded by a constant times eta*y²*exp(-c*eta*y), integrated against y^-1/2. Outside this interval the positive phase gap is uniform and the endpoint weight remains integrable. The prefactor A(1)/sqrt(b_q)=1+q and the comparison at q=0 give the (1+q)exp(-q*eta/(1+q)) correction to I_0, hence the e^-z limit. For any fixed q<1 the same positive endpoint slope holds, giving the stated |x|^-1 density prefactor. Integrating and doubling uses the Gaussian tail integral with weight 1/x and yields the stated x^-2 survival prefactor, including the factor U_q. This is a statement about a fixed-parameter infinite-time law, not a finite-time rare-event or simultaneous time limit. The frozen quadrature checker was inspected but is not needed for the analytic result.
 
-The 2025 source already proves the full Gaussian-arcsine limiting distribution; the new claim excludes that representation and its ordinary weak Gaussian limit. No uniform \(q,x\) Bessel comparison, second \(q^2x^2/r\) crossover, or quantitative far-tail prefactor was located in accessible main-text mathematical sections and discussion. The distinction is based on statements and implication: the exact source density determines the numbers in principle but does not furnish uniform asymptotic control or these joint scaling laws without the new estimates. Indexed searches of relevant normal variance-mixture and quantum-walk literature and semantic scientific records yielded no explicit dominating theorem. This review cannot prove absolute novelty; implicit coverage by more general uniform Watson/Laplace mixture results or uninspected supplementary text remains a real risk.
+## originality
 
-## Value (V) — PASS
+PASS
 
-Ordinary weak convergence obscures the tails most sensitive to rare quantum updates. The precise quantum-classical crossover at displacement \(\sqrt{r/q}\), the farther endpoint-saddle crossover at \(\sqrt r/q\), and the exact density/survival prefactors provide mathematically motivated, nontrivial uniform resolution of a double singular limit. They quantify when a classical Gaussian approximation fails for unusual scaled displacements, without pretending to establish a finite-time large deviation principle.
+Best-of-knowledge pass for the explicit envelope, the uniform q-small endpoint estimate and the two rare-displacement profiles. The walk, mixing law and ordinary Gaussian limit are prior. The fixed-q sharp tails are standard endpoint-Laplace consequences of the known mixing law, not a standalone originality basis. The inspected prior symmetry/crossover results concern different laws, and the mixture theorem and general mixture sources inspected do not state or uniformly control the second displacement regime.
 
-## Closest sources and limits
+## value
 
-Yoshino et al., arXiv:2503.03021v1 and Entropy 27 (2025) 670, provide the exact mixing measure and source theorem, not the reported uniform two-scale asymptotics in the material inspected. General normal variance mixture theory provides the construction, and classical Laplace / Bessel methods are standard mathematical techniques. Direct complete-PDF and native full-text access was limited by journal rate limits and archival access challenges; indexed full-text source material covering the statement, key definitions, sections and discussion was read. Residual implicit-coverage risk and the fixed-time limitation are explicitly recorded.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Weak convergence to a Gaussian does not detect how the tails change. The natural eta scale first gives an I_0 enhancement, and an explicit uniform estimate then identifies precisely where that approximation itself breaks down and what replaces it. The density and survival prefactors anchor the estimates in the far tail. The numerical constant in the global bound and the fixed-q calculation alone are not the value basis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

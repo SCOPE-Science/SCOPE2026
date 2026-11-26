@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Word supports determine the absorbing-zero event by inclusion--exclusion. A linear exponent-difference homomorphism of the abelian group has image exactly the corresponding \(dG\) by Bézout, and uniform fibers yield the nonzero equality probability. Choosing one exponent offset realizes every divisor and every permitted support triple. The monotonicity calculation proves the sharp minimum and its complete equality conditions; subsequence and explicit sequence arguments give both derived-set identities and the Cantor--Bendixson rank. A separate divisibility argument rules out \(3/5\) for the Klein-four zero extension. Direct evaluation of 25,269 general-group word pairs and 8,428 elementary-group word pairs gives the printed exact probabilities in each tested case. The proof covers arbitrary finite abelian groups; the computation does not prove universal claims.
+PASS
 
-## Originality
+For specified nonempty supports, the event both outputs are absorbing has mass 1−s^i−s^j+s^u. Otherwise equality requires every union variable to land in G; the uniform fibers of the linear difference map then give mass s^u/|dG|. Its image is dG by Bézout with the group exponent. Each support triple can be selected independently of the conditional probability: give every supported variable exponent m on each side where it occurs, and change one exponent by d on one side. To minimize, both lower bounds c≥1/q and s^u≥s^(i+j) must be equalities, and the resulting lower bound 1−s^i−s^j+s^(i+j−1) exceeds 1−s exactly when both supports exceed one. Thus the full equality criterion follows. For limits of distinct values, at least one support size diverges on a subsequence (there are only finitely many c), and the other can be fixed or made to diverge; these give the only possible limits. They are all realized by the disjoint-support families in RESULT.md lines 69–70; alternatively take i=j=u increasing with c=1/q to approach 1. The stated second and third derivatives follow since 1−s^h is strictly increasing to 1. For the Klein four separation an independent shorter exclusion suffices: writing the purported 3/5 probability as equation (*) in the record, its left side 2·5^(u−1) is 2 mod 4, but all terms on the right are divisible by 4 when u≥2 for c=1 or 1/4. The remaining u=1 probabilities are 1 and 2/5. Direct evaluation gives 3/5 for the C₄ witness. `cd /workspace && python checks/independent_replay.py 4` passed 2,700 exact short-word comparisons and minimum-equality tests, supplementing the two frozen bounded checkers and stored outputs; none is relied on for unbounded nonmembership or derived sets.
 
-**PASS under a best-knowledge literature comparison, with residual historical risk.** Cardó's arXiv:2603.19487 (March 19, 2026), Sections 2 and 4, gives a minimal-spectrum classification, not a complete nonminimal zero-extension spectrum. Cardó's arXiv:2604.08446 (April 9, 2026), Sections 2 and 4, treats general spectrum limits and the two-element semilattice; the latter is a previously known boundary case explicitly omitted here. Database searches for zero-adjoined groups, word-equation probabilities, power-image parameters, accumulation sets, and the \(C_4\) versus \(C_2^2\) distinction did not reveal an implication-equivalent theorem. Related mathematical results about affine-quandle spectra and diagonal relations of zero-adjoined groups concern different operations/invariants. The search is not an independent historical-priority certificate; specialized earlier word-map results could still subsume a component.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The question is the full equational probability spectrum for a mathematically natural class of commutative regular monoids singled out by the recently formulated minimal/nonminimal spectrum program. The answer is an exact classification for *every* finite abelian group, not a local finite census. It describes all accumulation levels, proves a sharp equality classification, and shows that the invariant detects group structure beyond order, by separating two five-element monoids obtained from groups of order four. These structural and topological conclusions go beyond a routine numerical example.
+The conditional set of group probabilities was already known in exactly the multiplication-only language on G. The supported distinct result is the full zero-adjoined classification, not the conditional set; in particular it includes the sharp equation-level extremizers, full accumulation hierarchy and separation of two zero-adjoined monoids by an explicit value. The inspected literature does not establish coverage of this remainder; historical priority is bounded by the sources examined.
 
-## Boundaries
+## value
 
-All results use constant-free multiplication-only terms and finite abelian groups with a nontrivial group part. The trivial-group case is already treated as the two-element semilattice, and nonabelian groups are not covered. There is no claim of an independent audit or comprehensive priority certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The spectrum is a natural invariant of a closely studied multiplication-only language. Incorporating the absorber changes the admissible values substantially; the resulting exact formula, all equality cases and nontrivial topological hierarchy address an entire class and do not follow from enumerating small semigroups. The 3/5 witness is useful because it distinguishes the zero-adjoined structures where merely distinguishing the underlying groups would not suffice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

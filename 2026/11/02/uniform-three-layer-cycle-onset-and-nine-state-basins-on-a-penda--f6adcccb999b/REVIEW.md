@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph, open-neighbor synchronous successor rule, all labelled-state counts, and first-entry definitions are explicit. The seven possible color supports among the nonhub clique vertices, crossed with the three possible leaf colors, exhaust every initial configuration after global rotation. Direct update gives the 21-class table, from which the two-step bound, exact population identities and per-orbit basin sizes follow by inclusion-exclusion. The exact class populations sum to the full \(3^{r+2}\)-state space; the period-three and fixed basins partition it. Independent direct graph evolution corroborates 2,391,471 labelled states across eleven clique sizes. The claim is proved by the full symbolic support argument, not extrapolation from bounded enumeration. The boundary \(r=1\) has no three-cycles and is stated separately.
+## correctness
 
-## Originality — PASS, qualified
-The general 2016 graph-irrotationality characterization already implies which initial states synchronize and gives a diameter bound for their synchronization; neither is claimed as new. This finding supplies an exact individual nine-state basin for each primitive three-cycle, uniform temporal entrance layers for the entire oscillatory sector at every clique size, and explicit consensus-basin distributions for the one-leaf clique. Previous labelled results for friendship graphs and cocktail-party graphs have different adjacency and state phase interactions, and the majority process on the same graph has a different update. Retrieved published work and searchable records do not supply these specific basin laws. Residual risk: an unindexed equivalent treatment, or a short specialization in an inaccessible thesis, may exist.
+PASS
 
-## Mathematical value — PASS
-Attaching one leaf to a dense fully interacting core leaves all fully three-colored core orbits intact but changes their periodic-entry clock from immediate to three exactly equinumerous layers. Every resulting three-cycle has a uniform basin of size nine. This is a structural boundary response of a standard excitable-media rule, not an arbitrary numerical parameter extraction. The full labelled basin and first-entry classification makes the effect quantitative and reproducible for an infinite, natural graph family.
+Normalize the initial hub color to zero. A clique containing all three colors rotates rigidly and never loses a color. In its co-rotating hub frame, the leaf phase 2 stays at 2, 0 goes to 2, and 1 goes via 0 to 2. The full orbit therefore has least period three, with one entrance time 0,1,2 for each labelled initial clique phase. Inclusion–exclusion on the nonhub word requires both colors 1 and 2 and gives Q_r possible words. Three hub phases give 3Q_r states per oscillatory layer and Q_r orbits, with layers (3,3,3) in each. For a non-rainbow clique, after one update: with only zero initially on the clique, leaf phases 0,1,2 give T=0,2,1; with color 1 present and 2 absent, the clique becomes all 1, and only leaf phase 1 is already synchronized; with color 2 present and 1 absent, all nonhub vertices become 0, and only leaf phase 1 leaves a mismatch, resolved on the next update. This gives 1, 3·2^r−2, 3·2^r−2 states per initial hub color for the fixed sector. Color equivariance makes the three fixed basins have identical layers. A zero clique with a phase-1 leaf attains T=2, and period three occurs for r≥2. At r=1 the census, time bound and fixed basin formula hold with Q_1=0; conditioning on p=3 is not defined there. Fresh graph-edge enumeration and generic functional-graph decomposition checked all 29,511 labelled colorings at r=1,…,7, including each individual basin (branches/replay_pendant.py). The frozen support/direct output logs separately report the 21 support cases and 2,391,471 labelled states through r=11; the universal count comes from the proof.
 
-## Closest literature and limitations
-Gravner–Lyu–Sivakoff (arXiv:1610.07320v1), Definition (2), Theorem 3 and proof in Section 4, provides the global criterion and synchronization bound. The earlier Durrett–Griffeath article (arXiv:patt-sol/9303002) supplies the historical lattice framework and does not treat the pendant-clique basin distribution. Exact formulas are limited to threshold-one three-color cyclic contact on one-leaf complete graphs; they do not extend automatically to other update rules. An unindexed mathematical equivalent is an unresolved priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The ordinary finite-graph circulation theorem already separates the two sectors and bounds the consensus entrance time by the diameter. Related indexed statements include the very same iterate identity on complete multipartite graphs, temporal basin counts on book graphs, and the same number of cyclic basins of total size nine at one leaf under a different update rule. None of the inspected statements gives the pendant-clique threshold-one CCA transition classes or the per-orbit labelled (3,3,3) entrance profile. Credit is for the complete first-entry census and its individual basin refinement, not for the general fixation criterion or the short iterate identity in isolation.
+
+## value
+
+PASS
+
+Adding the smallest pendant perturbation to a rotating-clique system preserves the number of oscillatory orbits but creates a width-independent nine-state basin with two nonempty transient layers, exactly as large as the recurrent layer. The orbit-level first-entry profile is a useful exact timing invariant that period and activity bounds do not resolve; the fixed-sector count completes the labelled census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

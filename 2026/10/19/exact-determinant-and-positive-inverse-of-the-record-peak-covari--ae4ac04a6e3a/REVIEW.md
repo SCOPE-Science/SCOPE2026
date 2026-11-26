@@ -1,19 +1,21 @@
-# Scientific review: record–peak cross-covariance
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The conditional peak probabilities are computed in all five relative-position cases by independence, the record maximum distribution, and a one-dimensional beta integral. Substitution yields the exact matrix. The explicit lower–upper bidiagonal product matches every entry, establishes its positive determinant at every integer size, and gives strictly positive inverse entries by triangular inversion. The included `verify.py` supplies 1,167 exact-rational checks including finite exhaustive permutation enumeration; it is corroboration rather than an infinite proof.
+PASS
 
-## Originality — PASS, with a stated historical risk
+Uniform relative order suffices. Given a record at i, the earlier relative order is still uniform, and triples strictly after i are independent. The peak at i−1 is impossible. The joint event at j=i puts the maximum of the first i+1 at i. At j=i+1 the maximum of the first i+2 must be at i+1, and the relative order of the first i must put its maximum at i; the latter has conditional probability 1/i. These give the four conditional probabilities and the claimed entries without integration. Multiplying the two frozen bidiagonal factors reproduces every entry, including the first diagonal 1/6, so their diagonal product gives the determinant. The triangular inverse recurrences give the claimed sum. Independently, its product telescopes to (i−1)i(i+1)/[(k−1)k(k+1)]; with m=max(i,j) the sum becomes 3j(i−1)i(i+1)/2 times [1/((m−1)m)−1/((n−1)n)], strictly positive even at the boundary. Invertibility gives both stated linear detection implications.
 
-The inspected primary material on records (Gnedin, arXiv:math/0611538), permutation peak sets (Kasraoui, arXiv:1210.5869), peak-algebra methods (Diaconis–Fulman–Holmes, arXiv:1107.2961), and a later joint generating function for aggregate peak and record counts (Ji, arXiv:2310.01053) concerns marginal families, peak-set enumeration, or joint **totals** and does not give the position-indexed cross-covariance matrix, its determinant, or the positive inverse. Published comparisons involving inversion indicators or fixed-point/descent pairs use different observables. The distinguishing content is the combined exact kernel, factorization, and inverse positivity, not the classical one-point probabilities. A general pre-existing record–peak generating function might still imply the theorem without explicitly stating it; comprehensive independent historical priority validation is absent.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact cross-covariance of two common local/global permutation observables is a natural joint-dependence problem. The all-size full-rank result shows that no nonzero linear combination of interior record indicators is orthogonal to all interior peaks, and the stronger entrywise positive inverse yields a nontrivial structural property not derivable from the marginal distributions alone. The complete characterization and factorization are meaningful beyond a single small numerical invariant.
+The exact position-indexed kernel overlaps a distinct catalogue record displaying a wider rectangular matrix; its displayed catalogue date is later and it does not state the determinant or entrywise inverse of this square restriction. This overlap is credited, not treated as evidence of earlier priority or ignored. The inspected earlier results supply aggregate joint statistics, individual position-set enumerations, or both types of statistics separately, not the square cross-covariance theorem with its all-size factorization, determinant and inverse.
 
-## Scope of review
+## value
 
-The result is for iid continuous observations and finite \(n\ge3\); its inverse is not a Gaussian precision matrix. The finite script does not establish an arbitrary-size identity on its own. No independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The full interior block is the natural pairing of position-labeled records and peaks. The determinant and strictly positive Green matrix quantify its nondegeneracy and give a concrete way to solve for responses to individual covariance probes at all sizes, not merely a list of small examples or a change of notation for the overlapping entry rule.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Review of the branch-contact classification
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS (self-review).** The claim is exactly the infinity singularity of the *ordinary projective closure* of the symmetric Fermat quotient's Newton-power-sum affine equation, not the singularity structure of the smooth quotient itself. The verification checks the Newton recurrence, leading homogeneous part, smooth affine quotient by the finite permutation group, and proper normalized branches above the two points at infinity. The branch expansions follow from the local equations at the triple-cycle fixed point and the invariant ratios \(a=e_1e_2/e_3\), \(b=e_1^3/e_3\). Their distinct cubic coefficients follow from orbit separation by \(e_3^2/e_2^3\), rather than from a finite calculation. Pairwise contact numbers yield the claimed delta and Milnor invariants and match the independent genus-defect identity from the cited genus formula. Exact symbolic checks on ten sample degrees passed; the infinite theorem is proved directly.
+PASS
 
-## Originality
+On e1=1, the exact invariant-ring quotient gives a smooth affine curve with function field that of D_n. Expanding -n[z^n]log(1-e1 z+e2 z²-e3 z³) gives the top ordinary part n(-1)^(d-1)u^(d-1)(v-u), so Q is smooth. On e1=0, points with e3=0 are the three permutations of [1:-1:0]; the invariant equation with e2 normalized to 1 has linear terms proportional to e3-e1, so the map extends there to Q. Tangency at any other point requires X^(n-1)=Y^(n-1)=Z^(n-1); the only equally sized triples summing to zero are the two cube-root points up to scale. Stabilizers are trivial at the remaining points: a transposition's +1 line on e1=0 gives [1:1:-2] up to permutation, not on the Fermat curve; its -1 point is in the special orbit; the 3-cycle eigenpoints are already accounted for. At a generic orbit the ratio e3²/e2³ determines the unordered normalized root triple up to scale and separates cubic branch coefficients. At a cube-root point e1,e2 are local coordinates after e3=1 because the roots are distinct; direct coefficient extraction gives e2=(ell+1)e1²+… in residue 5 and e1=-ell e2²+… in residue 1. Thus the intersection order upstairs is 1 or 2 respectively. The order-three quotient changes the orders of (a,b) from (3,3) or (3,6) to (1,1) or (1,2), with the reported leading coefficient in each case. Bezout exhausts the normalization branches: ell or ell-1 generic plus one distinguished. Distinct unit cubic coefficients give contact 3; the special branch gives contact 1 or 2. This yields the tangent cones, delta and Milnor formulas, node at 11 and tacnode at 13. Independently, the degree-six Riemann–Hurwitz ramification sum is 3(n+1)+4, giving the stated genus and total defect.
 
-**PASS (best-knowledge comparison, with residual priority risk).** Tafazolian's arXiv:2611.08176v1, §§2–4, gives the function-field generators, affine equation, genus, and geometric automorphism theorem, but does not state or imply the complete branch-contact data of the *ordinary projective plane closure*. Genus plus degree determines only the total delta, not the distinct branch counts, their mutual intersection multiplicities, tangent cones, or characteristic-zero Milnor numbers. Tzermias's 2003 eleven-page article was inspected from its lawful open-access PDF: Proposition 4.3 writes a different degree-eleven two-variable quotient model, and Section 5 notes its projective model is singular at infinity, but the article does not give the all-degree Newton-power-sum compactification or its branch-contact classification. Targeted public literature and mathematical-record searches found other Fermat curve configurations and singularities of unrelated plane-curve models, not the symmetric-quotient Newton-power-sum family. These searches cannot exclude an unindexed classical calculation, which remains an explicit risk.
+## originality
 
-## Value
+PASS
 
-**PASS.** The initiating article makes the symmetric quotient's low-coordinate plane equation central to its concrete study, but a smooth abstract curve need not have a smooth ordinary plane closure. Locating the unique singularity and identifying every branch and contact, including a mod-six tangency transition, makes the normalization and local conductor structure tractable uniformly in genus. The classification is strictly more informative than the elementary arithmetic-genus subtraction and provides geometrically natural data for using the explicit plane model in calculations.
+The quotient, affine model and quotient genus are prior. The supported distinct result concerns the specific ordinary plane model and its full branch-level contact data in both residues, not the abstract smooth quotient or a different compactification.
 
-## Limits and priority
+## value
 
-The statement is over \(\mathbb C\) for all integers \(n\ge11\) coprime to six. It does not assert any good-reduction theorem, arithmetic splitting of branches, or full analytic normal form. No independent mathematical audit is asserted. Undiscovered treatments of this same symmetric power-sum plane model remain possible; a different affine model of the degree-eleven quotient has long been known.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For the natural affine equation from symmetric invariants, the ordinary plane closure is an easy model to write down but normalization/genus alone hides how it fails to be smooth. The uniform branch profiles, explicit tangent types and allocation of the entire genus defect to P make this plane model usable in local intersection calculations. The two small examples illustrate a general distinction valid also at composite allowed degrees.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

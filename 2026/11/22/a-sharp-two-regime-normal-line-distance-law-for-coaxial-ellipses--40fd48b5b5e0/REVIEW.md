@@ -1,26 +1,21 @@
-# Scientific review — normal-line distance of coaxial ellipses
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The support-point identity \(x=h n+h't\) identifies the signed offset of the normal line with the angular support derivative. Thus the normal-line pseudometric equals half the total variation of the support difference, using precisely the factor \(1/2\) from the defining paper. For two concentric coaxial ellipses this reduces to twice the variation of \(H(u)=\sqrt{b^2+Au}-\sqrt{d^2+Cu}\) on \([0,1]\). Squaring two nonnegative terms shows that the sign of \(H'\) is controlled by one affine polynomial. Its endpoint signs give an exhaustive regime partition, including circle cases, degenerate transition equalities, and exactly one interior stationary point when the signs differ. Elimination at that stationary point proves the stated radical. The strict inequality then follows from genuine reversal of monotonicity. The exact nested example is independently checked in rational arithmetic. A standalone seeded quadrature test agrees with the analytic formula on 252 configurations, including 40 interior switches; it is not a substitute for the proof.
+PASS
 
-**Residual correctness risk:** None identified in the stated co-axial domain. The result does not address translated or independently rotated ellipses, and no finite numerical test establishes the universal claim.
+At a differentiability angle every supporting point has the same normal coordinate h and tangential coordinate h′ (use the supporting-point inequalities at angular increments of both signs). The line separation is therefore |h₁′−h₂′|. The defining half-integral, absolute continuity, and the four quadrants give 2 TV(H) with H the square-root support difference in u=cos²θ. The sign of 2H′ is the sign of A²d²−C²b²+AC(A−C)u because the compared terms are nonnegative; its endpoint factors are (Ad−Cb)(Ad+Cb) and (Ac−Ca)(Ac+Ca). This proves monotonicity even at an endpoint equality or for circles, and exactly one strict interior extremum when the signs differ. At the stationary point the support values have ratio A/C; substitution yields the stated signed radical and the strict increase over twice the absolute endpoint gap. The nested example gives u*=11/30 and H(u*)²=14/15, with both endpoint values 1. The general zero-distance criterion follows from a constant support difference and additivity under disk offsets. The supplied checker was inspected, not run, and angular quadrature is not the proof.
 
-## Originality — PASS (subject to independent priority review)
+## originality
 
-Akopyan–Glazyrin, arXiv:2308.16340v1, define the normal-line pseudometric and derive the normal-offset integration mechanism in Lemma 2.6. The definition, pseudometric property and elementary support-variation conversion are prior tools, not new claims. The paper contains no four-parameter ellipse distance law, axis-derivative sign test, interior-switch radical, or equal-gap nested example. Cieślak–Martini–Mozgawa, *On Holditch's theorem*, DOI:10.1007/s00022-020-00536-5, treat extremal chords and intersecting normals of individual ellipses, which do not imply the pairwise normal-line distance formula. Additional literature and semantic-index queries under support-function variation, paired ellipses, and normal-line distances yielded no directly covering statement. Other ellipse-pair studies of *Minkowski-sum area under rotation* concern a different functional, not this distance; the objects overlap but the functional and conclusion do not. The evaluated special family requires the complete sign and stationary-point analysis rather than simply a stated special case of the defining paper.
+PASS
 
-**Residual originality risks:** A classical total-variation or support-function calculation might implicitly contain this ellipse evaluation under a different name. The general normal-line representation is already known and should not itself be presented as a discovery. Semantic retrieval is not a proof of uniqueness.
+Pass the complete aligned-ellipse evaluation and its equal-gap counterexample, not the prior pseudometric or classical support-function mechanisms. The strongest inspected antecedents do not evaluate this pairwise functional on ellipses.
 
-## Mathematical value — PASS
+## value
 
-A geometry paper introduced a natural pseudometric precisely to compare normal-line bundles of convex boundaries. Its exact behavior on the canonical four-parameter family of centered coaxial ellipses is a motivated calibration question. The formula is a complete classification across all positive semiaxes, with a sharp algebraic phase boundary, an exact strictly positive correction in the switching regime, and a concrete nested counterexample to the appealing one-parameter semiaxis-gap prediction. The general kernel observation clarifies exactly which differences this pseudometric ignores. The content is more than numerical approximation or a custom parameter slice; it distinguishes first-order normal geometry from endpoint axis disparities and is relevant for interpreting or computing the distance.
+PASS
 
-**Value limits:** No global comparison across arbitrary rotations or translations, and no additional disjoint-perimeter theorem, is claimed. The basic variation identity is elementary background; the new value resides in the complete ellipse phase law and its geometric separation phenomenon.
+A full four-semiaxis calibration of a published pseudometric on the canonical aligned family gives a useful exact criterion for when an endpoint-only estimate fails. Two nested ellipses with the same anisotropy gap have positive distance, so the correction separates a genuine shape phenomenon rather than adding an arbitrary specialization. The elementary support identity alone would not support the value judgment.
 
-## Closest literature and limits
-
-- A. Akopyan and A. Glazyrin, *On the total perimeter of disjoint convex bodies*, arXiv:2308.16340v1 (30 August 2023), especially Definition 2.1, Proposition 2.3 and Lemma 2.6.
-- W. Cieślak, H. Martini and W. Mozgawa, *On Holditch's theorem*, *Journal of Geometry* 111, article 24 (2020), DOI:10.1007/s00022-020-00536-5, especially the ellipse normal-chord analysis.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

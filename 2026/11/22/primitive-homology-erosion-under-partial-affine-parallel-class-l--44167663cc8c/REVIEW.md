@@ -1,19 +1,21 @@
-# Scientific review: partial affine parallel-line Rips erosion
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finding follows from the complete incidence-distance classification, the explicit two-piece simplicial cover with intersection the incidence graph, and a simply-connected homotopy-pushout splitting. Natural integral Mayer–Vietoris proves every asserted inclusion and identifies each primitive cokernel; its exceptional terminal kernel for order three is the two pure-shore second-homology summands. The dependency-free finite verifier checks complete faces, exact mod-two homology and inclusion maps for the ternary plane, plus metric and clique structure over the four-element field. Its outputs are supplementary to the all-order proof, not integral or infinite certificates.
+PASS
 
-## Originality — PASS against inspected evidence
+After each line removal the only lost point pairs are the pairs on that removed line; distinct surviving line vertices are adjacent in the square exactly when nonparallel, and cross-shore adjacency is retained incidence by parity. Connectivity follows by joining points directly when possible, or via two nonparallel surviving lines and their intersection. Thus the point shore is the join of s q-point discrete factors with a nonempty simplex before the endpoint, and becomes a q-fold discrete join at s=q. The line shore has q full factors and one (q−s)-point factor until the latter is empty. Joins give the stated sphere counts and are simply connected for q≥3. The mixed simplices can have at most one vertex on one shore by four-cycle freeness. The two associated pieces collapse to the shores and intersect in the faulted incidence graph G_s. The graph is connected and its maps to both simply connected pieces are nullhomotopic, giving the actual wedge with ΣG_s; its cycle rank is b_s. For natural maps one uses Mayer–Vietoris, not the noncanonical wedge splitting. Deleting a line removes q incident edge coordinates; projecting graph cycles onto those coordinates has kernel exactly the smaller cycle lattice, with free quotient of rank q−1. In degree q the natural map before the endpoint is augmentation lattice inclusion tensored with the free top homology of the other q factors; projection to the missing augmentation coordinate gives a free quotient of rank (q−1)^q. Finally at q=3 the source shore classes have total rank 16 and map through vanishing H2 of the target shores; graph-cycle injectivity shows they are the full kernel, with image rank 10 and cokernel Z². For q≥4 neither final shore contributes H2. The closing line of Proof Step 5 uses source ambiguously at s=q−1, but both endpoint H_q groups are zero and the asserted map range is unambiguous.
 
-Complete public primary proof texts for intact affine incidence Rips topology and for deletion of a *whole* affine parallel class were inspected, alongside the closest projective-plane vertex-puncture theorem and qualifying arXiv metric Rips literature. The existing affine results cover the two endpoints; neither provides the intermediate erasure homotopy formulas or natural integral maps. An indexed semantic search for equivalent, dominating, table and parameter formulations found no coverage. This is a bounded conclusion, not proof that every mathematical text has been checked. The pushout approach itself is known; no new method is claimed.
+## originality
 
-## Value — PASS
+PASS
 
-Erasing line landmarks successively within one genuine parallel class is a geometric robustness operation. The result gives an all-order, non-Desarguesian-independent classification of how the radius-two homotopy and primitive integral homology maps change under those faults. It distinguishes gradual linear and exponential class losses from the last-step dimension shift, including a sharp noninjective three-order exception. Neither the topological endpoint types nor their ranks determine these maps.
+The known endpoints and full-affine cover technique are not claimed here as new. The supported distinct contribution is the intermediate deletion family and its integral inclusion maps, especially the final degree-two kernel in order three. The strongest inspected matching geometry concerns whole-class deletion or the intact graph; the fault results with natural maps concern projective geometry and do not supply these varying discrete join factors or the exceptional map.
 
-## Closest work and scientific limitations
+## value
 
-The primary related papers are arXiv:2103.01040 and arXiv:2302.14664. The closest same-object public results are the full affine case (https://github.com/published-finding corpus/2026/blob/main/2026/10/11/SCOPE-affine-plane-incidence-rips-complexes-have-two-sphere-dimensions--3087baeea0a4/RESULT.md), whole-parallel-class deletion (https://github.com/published-finding corpus/2026/blob/main/2026/11/1/SCOPE-complete-integral-graph-metric-rips-filtration-after-deleting-an--86bc27e5515f/RESULT.md), and projective-plane puncture. The theorem excludes arbitrary erasure patterns, other graph metrics and radii. An unindexed equivalent proof is a residual bibliographic risk; no independent validation is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+In a natural erasure of one affine direction the graph-cycle summand decreases uniformly, whereas a different homological degree appears at the last step. At order three those new classes sit in the same degree as the decreasing graph summand and constitute a rank-16 kernel despite primitive image. This is a useful integral boundary phenomenon and an all-stage map classification, not a re-evaluation of the endpoint Betti numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

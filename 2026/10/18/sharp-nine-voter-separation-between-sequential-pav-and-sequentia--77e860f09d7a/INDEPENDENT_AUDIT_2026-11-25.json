@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:32:23.519068Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–59; frozen VERIFICATION.md and verify.py inspected without executing the source checker.",
+        "Independent exact replay: /workspace/branches/71ad8b75-cf5c-4caf-84c9-5495d9c4bb76/independent_census.py (output independent_census.txt). Enumerated all 11,439 anonymous nonempty-ballot profiles through nine voters using integer comparisons, found counts 0 through eight and exactly six at nine, one orbit. The argument above rather than this replay covers larger electorates."
+      ],
+      "rationale": "Both rules elect the unique largest approval support in round one. With first winner C and support d, an eligible second candidate with s>0 approvals and u supporters outside C has doubled PAV marginal s+u and Phragmen load 1/d+(d-u)/(ds). The common load is feasible without lowering anyone's existing load because u<=s<d. A zero-approval candidate cannot be a unique second winner in a strict disagreement. Naming A the Phragmen choice and B the PAV choice gives b+q>a+p and a(d-q)>b(d-p). For t=a-b=0 these conflict. If t>0, q>=p+t+1 and a>=p+2t+1, while dt>a(q-p)+tp. For t=1 these force n>=9+4p, with n=9 allowing only d,a,b,p,q=7,3,2,0,2. For t>=2 they force d>=2t+4 and n>=3t+5. If t<0, h=b-a and r=p-q must obey 1<=r<=h-1 and b(h-r)<h(p-r-1); this gives p>=3 and n>=2p+h+1>=9. Equality forces p=3, r=1, h=2, a=3, b=5, d=6, for which 9>12 would be required and fails. The only surviving support tuple at nine determines all ballots, with six distinct relabelings. For the representative, PAV scores are 3/2 and 2 and Phragmen loads are 10/21 and 1/2. Extra C-only ballots preserve the PAV comparison and make the Phragmen comparison 3(d-2)>2d, true for every d>=7.",
+      "residual_risks": [
+        "Only strict selections with the stated ballot domain, candidate count and seat count are claimed. Anonymous profiles are counted with candidate labels, not voter labels."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Example 13.6 has distinct two-seat outcomes with 3,550 voters; Example 13.8 has 53 voters and four candidates, with first choice A then B for Phragmen or D for Thiele.",
+          "No exact theorem was located in the thesis/database searches; no negative conclusion is drawn from this."
+        ],
+        "reasoning": "A two-seat example with a unique common first candidate can be restricted to that candidate and the two different second winners, discarding any ballots made empty. This yields a three-candidate disagreement, but the checked examples do not give a universal lower bound on electorate size or uniqueness at the first size.",
+        "searches": [
+          "Janson §13 Examples 13.5, 13.6 and 13.8",
+          "Targeted thesis and small-profile searches for strict sequential PAV versus sequential Phragmen"
+        ]
+      },
+      "checked_sources": [
+        "Janson arXiv:1611.08826 §§4.2 and 13",
+        "Lackner–Skowron chapter 2",
+        "Resultary 07394ea18f47 and 671629f408c9",
+        "Bounded thesis and small-profile searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Deleting candidate C in Janson 13.8 leaves 21 AB, 20 A and 12 D. After relabeling, this is the same ballot-support template as in the new witness. It retains both decisive comparisons, since approvals and prior loads among the retained candidates are unchanged."
+        ],
+        "reasoning": "The pattern of a common first winner with a partially overlapping second choice against a disjoint candidate is therefore prior. Reducing counts and minimizing within that pattern does not rule out other patterns at smaller electorates, and does not show that all nine-voter profiles have that pattern. The exact strict inequalities and both support-order cases are what give the new boundary and exhaustive orbit.",
+        "searches": [
+          "Janson Example 13.8 p. 32 and Example 13.6 pp. 30–31",
+          "Actual findings of Resultary 07394ea18f47 and 671629f408c9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Janson's Thiele addition method gives each supporting voter a marginal 1/(k+1); his globally optimized PAV is separately identified. Lackner–Skowron explicitly uses seq-PAV for the greedy harmonic rule."
+        ],
+        "reasoning": "Janson's addition examples are directly relevant under an alias; globally optimized PAV, SAV and bloc approval voting are not equivalent to this sequential comparison.",
+        "searches": [
+          "Janson arXiv:1611.08826 §4.2, Thiele addition and optimization methods",
+          "Lackner–Skowron chapter 2, sequential wPAV-Thiele / seq-PAV",
+          "Resultary: exact-title and sequential Phragmen/Thiele addition three-candidate searches"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Janson Example 13.8 lists 21 AB, 20 AC and 12 D, not a nine-voter census. Resultary 07394ea18f47 gives the sharp six-voter AV/SAV split in the same three-candidate/two-seat domain. Resultary 671629f408c9 gives ten-voter house-nonnesting for globally optimized PAV."
+        ],
+        "reasoning": "Tables for other rules or different comparison questions do not classify these strict disagreements. The fresh nine-voter census checks correctness and is not independent evidence of publication priority.",
+        "searches": [
+          "Janson §13 example profiles including 13.6 and 13.8",
+          "Resultary exact-title and minimum/orbit profile searches, including 07394ea18f47 and 671629f408c9",
+          "Targeted search for profile databases and theses with the nine-voter minimum"
+        ]
+      },
+      "rationale": "Prior two-seat disagreement is explicit in Janson, and one prior example yields the same three-ballot support pattern by restriction to the two differing committees' union. The contribution supported here is the sharp nine-voter minimum, proof of impossibility below it, the complete single-orbit classification at it, and strict witnesses for every size thereafter. The underlying rules, qualitative divergence and support template are not credited as new.",
+      "residual_risks": [
+        "The literature search does not rule out an unindexed exact classification or a stronger comparison theorem not retrieved. The older examples share more than just the fact of divergence and are credited accordingly."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Priority for the rules, divergence and (by deletion) the support template; inspected statements do not establish nine-voter minimality or the orbit classification.",
+          "evidence": [
+            "Example 13.6 starts AB1 for Phragmen and AC1 under Thiele.",
+            "Example 13.8 uses 21 AB, 20 AC, 12 D and compares AB with AD after two seats."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1611.08826",
+          "material_read": "PDF §4.2 pp. 14–15 near offset 42420; §13 Examples 13.5–13.6 pp. 29–31 near 84050 and 85850, and Example 13.8 p. 32 near 91000",
+          "method": "OA primary PDF excerpts",
+          "title": "Phragmen's and Thiele's election methods",
+          "trigger": "Original rules and closest separating examples under Thiele's addition alias"
+        },
+        {
+          "assessment": "Confirms the equivalence to the sequential harmonic Thiele rule, not a boundary result.",
+          "evidence": [
+            "Sequential wPAV-Thiele is explicitly called seq-PAV."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/978-3-031-09016-5_2",
+          "material_read": "Chapter 2 p. 8 near OA offset 20850",
+          "method": "OA primary-text excerpt",
+          "title": "Multi-Winner Voting with Approval Preferences, chapter 2",
+          "trigger": "Modern terminology and rule identity"
+        },
+        {
+          "assessment": "Same kind of finite question but different scoring rules.",
+          "evidence": [
+            "Three candidates, two seats and nonempty ballots: AV and SAV first disagree at six voters, one orbit."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-six-voters-are-the-sharp-unique-committee-split-between-bloc-app--07394ea18f47",
+          "material_read": "RESULT.md opening Finding",
+          "method": "Local Resultary mirror",
+          "title": "Six voters are the sharp unique-committee split between bloc approval and SAV",
+          "trigger": "Closest exact threshold and orbit calculation in the same candidate/seat domain"
+        },
+        {
+          "assessment": "Optimized PAV and failure of nesting across seat counts, not this greedy rule comparison.",
+          "evidence": [
+            "Ten voters, three candidates; three labeled extremizers in one orbit."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-ten-voters-are-necessary-and-sufficient-for-tie-independent-pav--671629f408c9",
+          "material_read": "RESULT.md opening Finding",
+          "method": "Local Resultary mirror",
+          "title": "Ten voters are necessary and sufficient for tie-independent PAV house-nonnesting",
+          "trigger": "Exact small-voter PAV boundary under superficially similar terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 15–55",
+        "Janson §13 prior witnesses"
+      ],
+      "rationale": "Three candidates and two seats are the first nontrivial domain: with one seat the rules are both approval voting, and two seats with two candidates choose the whole set. Removing dependence on ties distinguishes real score differences from tie policy. The sharp minimum and the complete extremal orbit supply a precise benchmark for comparing methods with the same first-round behavior but different second-round weighting, beyond an example of divergence.",
+      "residual_risks": [
+        "The result does not estimate typical disagreement probabilities or settle tied elections or larger committee sizes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

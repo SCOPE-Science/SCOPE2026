@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact conditioning representation for uniform partitions is proved from multiplicity weights. A growing-window total-variation approximation follows from the independent geometric model via explicitly justified lattice local central limits; overlapping absent-run starts have vanishing cluster factorial moments. Their nonoverlapping starts yield the stated inhomogeneous Poisson process, and the first-location law follows. The finite verifier has 600 independent exact cross-checks. The result deliberately does not infer moment convergence from weak convergence.
+## correctness
 
-**Originality — PASS within inspected evidence.** The foundational 2022 paper introduces the chain statistic and its *sum* generating function, and explicitly calls for asymptotics in Problem 6. The 2023 follow-up establishes bijective identities, not the random-chain onset law. The 1994 approximation theorem supplies general independent-process techniques but does not state a partition-chain Poisson process. Nearby results on least multiplicity gaps, congruence-class missing parts and overpartitions concern different events, and cannot imply the present scale and all-orders arrival process simply by parameter substitution. A potentially unindexed equivalent remains a genuine residual risk.
+PASS
 
-**Mathematical value — PASS.** The first consecutive empty run is an intrinsic statistic introduced for arithmetic partition identities. Its exponent \(r/[2(r+1)]\) differs structurally from the classical first single gap, and the full point-process result determines the joint limiting counts and order statistics of rare absent runs. This adds a probability-theoretic structural picture rather than a routine finite computation or a relabeling of the classical minimal excludant.
+The independent product of geometric multiplicities has constant mass on configurations of total weight n, so conditioning is exact. At β=c/√n the mean and variance integrals are respectively β^−2 times π²/6 with O(β^−1) error and β^−3 times π²/3 with relative o(1) error. Removing the first m=o(√n) coordinates costs O(nm) variance. For both the full and tail sums the centered third absolute moments sum to O(β^−4), by bounding j³ times the third geometric moment by a constant times j³ exp(−βj)/(1−exp(−βj))³ and summing. For the uniform local estimate, retain a contiguous block j∈[a√n,b√n] above the cut: squared-angle estimates bound the cosine sum below for |t|≤δ/√n, uniform Riemann sums of 1−cos(uj/√n) bound it for δ≤|u|≤M, and the geometric-sum bound O(1/|t|) dominates outside M/√n by taking M large. This gives an integrable Gaussian bound after variance rescaling and an exponentially small far tail, so Fourier inversion yields the stated uniform o(n^−3/4) error. The resulting likelihood ratio of the low coordinates tends to one in probability and has mean one; twice its mean negative deviation equals the mean absolute deviation, which tends to zero. For the point process, the sums of individual run probabilities tend to the stated intensity by Riemann sums. With t distinct starts grouped into s clusters the required number of absent parts is at least rs+t−s, and only O(n^(α_r s)) locations are possible. This suppresses all s<t terms in joint factorial moments. Omitting repeated or adjacent starts from the product-of-means sum costs O(n^−α_r); all remaining disjoint windows factor. Bounded factorial moments and Poisson moment determinacy give independent limiting interval counts and the locally finite vague limit; the two order-statistic formulas are exactly Poisson count tails on [0,y], including y=0.
 
-The accessible literature leaves possible unpublished or unindexed equivalents, and the proof is not independently audited. No asymptotic formula for the aggregate sum of chain excludants is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The chain mex itself is established, as is the independent-process conditioning framework. The inspected chain-mex papers derive identities or pose an asymptotic question about sums; they do not give the point process of all starts. Nearby catalogue results use different observables. The distinctive claim is the scaling and nonconstant intensity for all starts, including a proof that overlapping starts do not create a cluster process in the limit.
+
+## value
+
+PASS
+
+The exact intensity resolves the onset scale of a previously studied partition statistic and supplies all fixed-order starts and independent interval counts as well as the first gap. Proving that overlapping absence events are asymptotically negligible and that the conditioning is harmless on the growing window explains why the limit is Poisson rather than clustered. It is more informative than a standalone first-point fit or enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

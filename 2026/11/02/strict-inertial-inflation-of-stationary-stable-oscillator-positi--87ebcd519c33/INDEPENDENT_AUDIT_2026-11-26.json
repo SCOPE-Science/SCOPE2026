@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:04:49.971403Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The stable linear drift has force-to-position impulse G_m=(exp(-λ_s t)-exp(-λ_f t))/Δ with positive decay rates. The stationary Lévy convolution exists, any initial deterministic contribution decays, and the position characteristic exponent uses I_m=∫G_m^α. The substitution u=exp(-Δt/m) gives the beta integral mΔ^(-α-1)B(a,α+1); the recurrence and the relations among a, m and Δ give the displayed gamma formula. At the repeated root G_mc=(t/m_c)exp[-γt/(2m_c)], so direct integration gives the stated critical value, also recovered from the gamma ratio. For 1<α<2 the log derivative of the gamma factor is positive by the frozen digamma integral and strict sinh inequality; a increases from 0 to infinity, with continuous endpoint scales. Larger dilation strictly increases absolute-value tails at positive thresholds, not the signed laws in stochastic order. Common-noise coupling yields an upper bound on W1 given by the difference of mean absolute values, which is also a lower bound by the triangle inequality. The Fourier moment integral (2/π)∫(1-exp(-s^α))/s² ds gives E|Zα|=2Γ(1-1/α)/π by parts. Independently expand the beta integral by subtracting 1 inside its integrand: B(a,α+1)=1/a-ψ(α+1)-γ_E+O(a). The pole term is Δ^(-α)/(αλ_s)=I0[1+(2α-1)δ+O(δ²)] for δ=κm/γ², and the finite term contributes -I0 α[ψ(α+1)+γ_E]δ. This gives exactly Rα and the reported linear W1 coefficient, positive by the strict log derivative at a=0. Read RESULT.md, VERIFICATION.md, check.py and the recorded 197-check output; the frozen script was not run. The finite evidence does not justify the universal claims; these apply only to the position marginal and the stated noise and mass range.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jin–Tao give W1≤C m^(1/α) for α∈(1,2) and sufficiently small m under general drift hypotheses.",
+          "For |t-s|<1, Theorem 1 makes g(x)=[Γ(x+t)/Γ(x+s)]^(1/(t-s))-x decreasing with limit (s+t-1)/2 and a strict lower bound by that limit."
+        ],
+        "reasoning": "Set s=1,t=α: g(a)>α/2 and g decreases, so H(a)^(1/(α-1))=2/[1+(g(a)-α/2)/(a+α/2)] strictly increases by an immediate prior implication. That gamma-quotient sign is not novel. The general stochastic bound does not force a finite nonzero slope, and the Wallis theorem does not give the digamma coefficient of that slope.",
+        "searches": [
+          "arXiv:2610.32217 Theorem 1.2",
+          "Elezović–Giordano–Pečarić Theorem 1, DOI 10.7153/mia-03-26"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check.py, check_output.txt",
+        "arXiv:2610.32217, 1704.02119, 2207.09357",
+        "Qi and Agarwal, DOI 10.1186/s13660-019-1976-z, abstract and reference to Elezović–Giordano–Pečarić",
+        "DOI 10.7153/mia-03-26, Theorem 1",
+        "Resultary 1f30dcaa8e6e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier impulse integral and the Wallis inequality supply a route to strict mass comparison once the beta parameterization is obtained. The general m^(1/α) estimate supplies neither the linear exponent as an equality with remainder nor its constant.",
+          "Baldovin et al. give the overdamped harmonic law and inertial harmonic protocols, not the nonoscillatory small-mass correction in W1 in the inspected passages."
+        ],
+        "reasoning": "The first-order correction requires accounting for the slow exponential and the fast initial layer, as seen from the finite part after removal of the beta pole. Its value is not a substitution in the general bound. This is a sharp oscillator specialization with credited monotonicity machinery, not a generally improved bound or a new gamma-ratio theorem.",
+        "searches": [
+          "arXiv:1704.02119 eqs. (11)–(16)",
+          "arXiv:2610.32217 §1.1",
+          "arXiv:2207.09357 §II.A and §III",
+          "DOI 10.7153/mia-03-26 Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The width w_x^α in Dybiec et al. is the same stable convolution integral after rescaling noise and impulse parameters.",
+          "Indexed 1f30dcaa8e6e compares fourth cumulants of telegraph and planar active-Brownian noise in an underdamped oscillator, not position scales for strictly stable noise."
+        ],
+        "reasoning": "The convolution width and I_m are interchangeable with matching units. The integral representation is prior; its beta evaluation and the sharp positive derivative of W1 at m=0 are the distinct quantitative claim assessed here.",
+        "searches": [
+          "Resultary: stationary symmetric alpha-stable harmonic oscillator mass monotonicity invariant position scale small-mass Wasserstein coefficient",
+          "Resultary: stable Lévy harmonic oscillator invariant position scale increases with inertia mass nonoscillatory gamma ratio Wasserstein-1 small mass",
+          "arXiv:1704.02119, eqs. (5)–(10) and (15)–(16)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior exact stable width is an unevaluated kernel integral; the Wallis-ratio limit gives the critical-endpoint gamma factor once the beta evaluation is available."
+        ],
+        "reasoning": "No discrete census or standalone number is claimed. The exact expressions cover a continuum of α and mass values; neither a numerical width table nor the impulse integral alone is the stated coefficient.",
+        "searches": [
+          "arXiv:1704.02119 eqs. (15)–(16) and p. 5 damping discussion",
+          "DOI 10.7153/mia-03-26 Theorem 1 and Wallis-ratio limit"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the evaluated harmonic invariant-position scale and its quantitative Wasserstein mass response, especially the explicit strictly positive first-order coefficient. The stationary impulse integral is already known. The sign inequality for the evaluated quotient is also implicitly covered by a classical Wallis-ratio theorem and is not credited as a new inequality. Neither this special-function result nor the known oscillator integral or general bound gives the explicit coefficient without evaluating and expanding the singular small-mass scale. No inspected source gives that quantitative conclusion.",
+      "residual_risks": [
+        "Other Lévy-oscillator or gamma-ratio sources may already evaluate and expand the exact scale; the bounded source search cannot certify priority.",
+        "No novelty is awarded to the stationary impulse integral, the W1 identity for dilations in isolation, or the gamma-ratio sign itself."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_BOUND_NOT_EXACT_LINEAR_ASYMPTOTIC",
+          "evidence": [
+            "For α∈(1,2) and under the drift hypotheses, W1≤C m^(1/α) for m≤m0."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.32217",
+          "material_read": "Abstract and §1.1 Theorem 1.2, pp. 1–2, OA offsets 725 and 5700",
+          "method": "OA primary PDF passages",
+          "title": "Wasserstein bounds for invariant measures in the Smoluchowski-Kramers approximation with stable noise",
+          "trigger": "Direct general small-mass invariant-measure bound"
+        },
+        {
+          "assessment": "EXACT_PRIOR_IMPULSE_AND_SCALE_INTEGRAL",
+          "evidence": [
+            "Stationary position width to power α is σ^α∫|G|^α; the inspected strong-damping discussion concerns position dominance and energy, not the positive linear invariant-position W1 correction."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1704.02119",
+          "material_read": "Eqs. (5)–(16), OA offsets 11800, 18000; damping discussion offsets 41900–46051",
+          "method": "OA primary PDF passages",
+          "title": "Underdamped stochastic harmonic oscillator driven by Lévy noise",
+          "trigger": "Same harmonic Lévy oscillator and exactly matching scale integral"
+        },
+        {
+          "assessment": "PRIOR_OVERDAMPED_LAW_AND_RELATED_INERTIAL_MODEL",
+          "evidence": [
+            "The overdamped stationary law is exact; the inspected inertial section treats the oscillatory case and protocols."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2207.09357",
+          "material_read": "§II.A eqs. (14)–(15), p. 3 offset 16800; §III eqs. (34)–(42), pp. 7–8 offsets 60800–64656",
+          "method": "OA primary PDF passages",
+          "title": "Shortcuts To Adiabaticity for Lévy processes in harmonic traps",
+          "trigger": "Stable harmonic equilibrium and inertial protocols"
+        },
+        {
+          "assessment": "BROADER_THEOREM_IMPLIES_GAMMA_QUOTIENT_SIGN",
+          "evidence": [
+            "Strict lower bound by the limiting shift and decreasing residual hold after substituting s=1,t=α, proving the sign without the frozen sinh argument."
+          ],
+          "identifier_or_url": "https://files.ele-math.com/articles/mia-03-26.pdf",
+          "material_read": "§2 Theorem 1, eq. (6) and limit, pp. 240–241, OA offsets 4780–6716",
+          "method": "OA primary PDF theorem and consequence",
+          "title": "The best bounds in Gautschi’s inequality",
+          "trigger": "General Wallis theorem may subsume the midpoint gamma-quotient inequality"
+        },
+        {
+          "assessment": "DIFFERENT_NOISE_AND_INVARIANT",
+          "evidence": [
+            "Fourth-cumulant crossover for two kinds of active noise in the oscillatory regime does not encode a stable-law position scale or W1 rate."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-sharp-damping-threshold-for-reversal-of-matched-active-noise-f--1f30dcaa8e6e/RESULT.md",
+          "material_read": "Finding, OA offset 0",
+          "method": "OA local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A sharp damping threshold for reversal of matched active-noise fluctuations",
+          "trigger": "Closest indexed oscillator damping comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The harmonic model is a natural benchmark for the invariant-measure Smoluchowski–Kramers bound. An exact, strictly positive linear coefficient distinguishes its error from the general m^(1/α) estimate and from mass-independent Gaussian behavior. The formula across all nonoscillatory masses additionally quantifies a position-marginal comparison, not just kinetic energy or qualitative damping regimes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

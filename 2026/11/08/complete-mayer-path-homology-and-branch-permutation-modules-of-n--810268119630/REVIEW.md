@@ -1,15 +1,21 @@
-# Assessment of the nontransitive directed theta classification
+# Independent mathematical audit
 
-## Correctness
-The fully invariant path groups have dimensions \(m+2,2m,m-1\) in degrees zero, one, two. The two explicit boundary maps have ranks \(m+1,m-1\), and their composition is the scalar \(\xi(1+\xi)\) times the branch augmentation inclusion, which vanishes exactly at order two. Their kernels, images, and equivariant quotients determine all displayed Mayer groups. The accompanying verifier checks 224 parameter triples with exact finite-field arithmetic. The infinite-parameter conclusion is proved algebraically rather than inferred from finite checks.
+## correctness
 
-## Originality
-The 2026 defining paper contains selected low-order calculations for the four-node biparallel motif and the classification of square-type two-path generators; these are not claimed as new. The all-order, arbitrary-branch and complete branch-permutation module formulas go beyond those statements. A published augmentation-block theorem covers *transitively complete* layered digraphs, whereas the missing direct source-sink edge here is essential and violates that hypothesis. The separate monotone-ladder classification has a different edge pattern. Semantic and topical searches located no equivalent all-order representation classification. The full text of the closest indexed augmentation-block finding was unavailable through the public interface, leaving a residual risk of an unmentioned reduction or broader theorem.
+PASS
 
-## Value
-The primitive-root and index dependence makes an apparently elementary family a useful calibrating example for the new homology theory. The natural branch-permutation symmetry distinguishes a stable rank-three degree-zero phenomenon, a threshold for degree-two augmentation classes, and the disappearance of ordinary positive-degree path homology. All parameters and the complete symmetry representation are classified rather than a single finite motif.
+The missing s→t face enters each two-path boundary with the same nonzero ξ coefficient, so full invariance is exactly the augmentation kernel in degree two: the second boundary is a zero-chain and there are no further restrictions. On the two trivial mean-branch lines D1 has rank two, leaving one trivial vertex line. On the U_m blocks in degrees 2,1,0, D2 is v↦(ξ²v,v) and D1 is (a,b)↦a+ξb. For N≥3 their composition ξ(1+ξ) is nonzero; thus the chain splits into a length-three U_m string plus an isolated middle U_m. The trivial part is two length-two strings and one isolated degree-zero line. A length-ℓ string contributes at a position iff fewer than q steps lead downward and fewer than N−q lead upward. This gives all three displayed tables, including disjoint cases for N=3 and q=2. For N=2 the U_m part instead has two length-two strings; all length-two strings are acyclic at q=1, leaving only the isolated trivial degree-zero line. Symbolic verification over C is decisive; 8·(1+⋯+7)=224 archived modular cases only corroborate dimensions, not modules.
 
-## Limits
-Complex coefficients and a fixed nontransitive two-level network only; no integral or persistent analogue is asserted. The published four-vertex low-order instance is excluded from any claim of independent novelty.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The low-order biparallel example and generic generators are prior work. Best-of-knowledge novelty is the full module answer on arbitrary branches and root order, not the general string method or those numerical examples.
+
+## value
+
+PASS
+
+A canonical no-shortcut motif generalizes the motivating L2 example. The full invariant gives a clean calibration: ordinary positive degrees vanish, while q≥3 detects the standard branch representation, with an all-index account of endpoint and augmentation contributions instead of isolated Betti checks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

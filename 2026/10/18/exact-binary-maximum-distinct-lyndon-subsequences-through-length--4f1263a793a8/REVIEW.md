@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The recurrence \(E(wc)=E(w)\cup E(w)c\) is exact, and the binary-tree encoding is injective. For each input word, the checker maintains the complete subsequence set, classifies Lyndon words by strict cyclic-rotation comparison, and counts new distinct Lyndon words once. Both next-letter branches are explored at every depth; the enumeration reaches all \(2^{20}\) length-twenty words. Expected maximum and optimizer counts are asserted for every length. A second implementation using greedy subsequence matching independently rechecks the entire domain through length fifteen and every claimed length-sixteen-to-twenty winner.
+PASS
 
-## Originality: PASS, with residual priority uncertainty
+The frozen claim is a census of distinct, nonempty scattered Lyndon strings in each linear binary host, with 0<1 and no quotient on host words. The append/omit set recursion and strict cyclic rotation test are correct, including single letters and exclusion of periodic longer candidates. An independent full census instead inserted every strictly least rotation word up to length 20 into a shared-prefix trie. At each prefix, the earliest greedy embedding leaves maximal space for continuation; a failed next occurrence rules out all longer completions from that prefix. Each reachable terminal therefore contributes one distinct subsequence. The host loops are exhaustive, not merely witness checks: 2^n visits at each length, 2,097,150 total and 1,048,576 at n=20. Replay: `python /workspace/branches/3c7fd282-4efa-422e-bc8e-d396524b8025/replay_trie.py 20`; `replay_trie_n20.txt` and `comparison.txt` in that directory record exact agreement with all 20 frozen maxima, tie counts and complete optimizer lists. In particular n=20 has count 4701 and unique word 00010101010101101011. The two source programs were inspected but not executed; the packaged second program has only longer-length witness checks, whereas this reproduction establishes the entire finite upper-bound classification. No length beyond 20 is established.
 
-The original 2021 paper explicitly records the maximum-distinct-subsequence extremal quantity as open while determining its multiplicity-weighted and average analogues. The 2023 longest-Lyndon-subsequence paper addresses length optimization, and the standard OEIS sequence concerns contiguous factors. No implication yields this exact \(1\)-through-\(20\) table or optimizer classification. Searches did not locate an equivalent public result, but absence from searchable literature cannot establish universal priority.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The computed quantity is not a newly invented invariant: it is the precise maximum-distinct question expressly posed in the primary source. The classification settles twenty consecutive finite instances, including a million-word extremal case, and provides all witnesses and reproducible baseline data for a possible general theorem. It also concretely distinguishes the extremizers from those for the published total-with-multiplicity problem.
+The checked distinct contribution is the complete finite binary MDS census through length 20, including all equality cases. The strongest accessible primary source defines the very same maximum and leaves its exact determination open; multiplicity, expectation, longest-length optimization, and contiguous-factor counts are different. Bounded catalogue comparisons did not establish a matching or stronger census. The broad primary literature lookup and exact-OEIS-query access were unavailable; this neither proves priority nor defeats the affirmative statement-level distinctions from the strongest accessible sources.
 
-## Scope and residual risks
+## value
 
-No assertion is made for length greater than twenty or for nonbinary alphabets. Exhaustive correctness is conditional only on the elementary verified program invariant and the ordinary execution of the provided standalone C++ source; independent external audit has not occurred. An unindexed equivalent computation is possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The maximum is a natural explicitly open invariant in primary combinatorics literature, distinct from the solved occurrence maximum. The census gives exact best values and all equality cases on the full binary space through the million-host depth-20 level. It supplies useful benchmark data, reveals nontrivial ties and eventual uniqueness within the measured range, and distinguishes the optimum from the known multiplicity extremizer as early as length six. The cutoff marks the demonstrated exhaustive range, not a claimed structural threshold or an answer for general n.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

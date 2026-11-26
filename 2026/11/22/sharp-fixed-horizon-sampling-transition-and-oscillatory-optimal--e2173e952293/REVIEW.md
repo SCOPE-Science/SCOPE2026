@@ -1,15 +1,21 @@
-# Review: sharp pinned-rotation frame sampling
+# Independent mathematical audit
 
-## Correctness — PASS
-The explicit Cauchy–Binet determinant and derivative sinusoid are valid for every positive damping, frequency and horizon; strict amplitude inequality prevents degenerate stationary points. The endpoint sign change gives the exact threshold, period decay confines the global optimum to the first rotation, and a uniform implicit expansion produces alternating long-horizon deviations. The independent Python diagnostic checks 382 finite examples, not the universal theorem.
+## correctness
 
-## Originality — PASS, qualified
-The published equal-spaced oscillator calculation uses times 0,h,2h and does not optimize an independently free third event at fixed terminal time. Pinned two-real-exponential and pinned Jordan-frame results were inspected in full and have different regression families, thresholds and nonoscillatory limiting behavior. The 2026 semigroup-frame paper and 2017 complex OU design article have different mathematical objectives. Older specialized optimal-design literature may implicitly contain an equivalent theorem, so publication priority is not guaranteed.
+PASS
 
-## Mathematical value — PASS
-This complete classification specifies exactly when independent endpoint replication is optimal, proves uniqueness and global first-rotation localization for arbitrarily long horizons, and identifies an infinite oscillatory sign reversal invisible to finite-horizon or real-mode analogues. It is a natural sensor-placement invariant with directly motivated experimental meaning, not an arbitrary numerical sample.
+Cauchy–Binet gives the sum of three squared minors including a zero minor for coincident times, so independent replicates yield equal objective values at the endpoints. The reduced objective has derivative with the sign pattern of an affine sinusoid of period π: its amplitude strictly exceeds the offset by the squared-amplitude test, since sinh(ηΦ)>η|sin Φ|. The endpoint derivative signs force only a minimum in the short interval; at Φ=θ the terminal zero crosses downward, so it is positive immediately to the left and there is still no interior maximum. For θ<Φ<π the negative terminal derivative beats both equal endpoints; there is at most one interior downward crossing. For Φ≥π the multiplicative decay per π excludes every later period from positive global optimality, and the test x=θ strictly beats the endpoints of [0,π], including resonances. For Φ=π (and all integral multiples) factoring the sin² gives x=θ directly. Uniform convergence to the limiting objective and F₀′(θ)=−2 then give an O(q) root displacement; Taylor expansion and the uniformly bounded phase derivative of the perturbation give the stated first-order term and O(q²) remainder. Fixing small positive and negative residual phases makes that leading sign alternate on unbounded sequences. An independent direct Gram-matrix calculation spot-checked the reported two interior examples and a multiple-period resonance.
 
-## Limitations and closest work
-The result has three equal-variance independent scalar events, two fixed endpoints, known stable planar rotation, and determinant rather than E-optimal or unknown-frequency objective. Full closest inspected records: equal-spaced oscillator frame (2026/11/2), pinned exponential pair (2026/11/8), pinned Jordan regression (2026/11/2); see RESULT.md for identifiers and source comparison. A broader published exact-design theorem may imply it.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified pass for the exact horizon partition and unique all-horizon interior optimizer with signed oscillatory drift under the stated three-event design. The closest prior conclusions either constrain the times to a different design or use different mode families or objectives. The determinant reduction and perturbation methods alone are standard.
+
+## value
+
+PASS
+
+The exact threshold resolves whether to spend a third real measurement on replication or on a new sample, and the first-period conclusion avoids a global search over an arbitrary number of periods. The sign of the long-horizon bias is a substantive distinction from monotonically approaching an optimal placement. These conclusions are naturally tied to the information design and not fine-tuned examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

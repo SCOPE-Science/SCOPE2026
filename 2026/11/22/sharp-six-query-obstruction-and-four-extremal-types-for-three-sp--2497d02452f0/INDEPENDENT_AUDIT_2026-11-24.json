@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:18:55.630924Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, checks.txt and bundled verifier sources (inspected, not executed)",
+        "independent_results.jsonl and best_kernels_9.txt (compared against replay)",
+        "/workspace/review-replays/2.py and 2.out"
+      ],
+      "rationale": "Triple XOR on distinct indexed columns is exactly evaluation on the queries; columns themselves can repeat. Only full-rank matrices can shatter or reach 63 at d=6. I independently enumerated kernels by the jumps of their highest-bit filtration and counted covered cosets by bitset translation unions. All seven Gaussian-binomial counts and full trace distributions matched. In particular, 788035 nine-coordinate three-planes yield the claimed maximum of 63 and the same set of 2304 extremizers. Generator-column multiplicities up to GL(3,2) independently recover their four S9 orbits of sizes 1260, 756, 252 and 36 and verify the named representatives. Direct triple XOR verifies the four covering witnesses and the near-cover witness. Padding and the bound of 56 hypotheses at eight coordinates complete the minimality claims.",
+      "residual_risks": [
+        "Exact finite results only, on static queries for weight exactly three; the 2304 count is of kernels, not named matrices."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Guingona et al. abstract and introduction count VC and Littlestone dimensions for zero sets of all nontrivial linear combinations.",
+          "Achlioptas–Theodoropoulos abstract and introduction use random short XORs for model counting.",
+          "Davydov et al., arXiv:2609.16078v2 abstract, states binary covering-code length/saturating-set bounds."
+        ],
+        "reasoning": "A dimension result for the full coefficient space does not fix the dimension after restricting to coefficients of weight exactly three. Random hashing guarantees address a different quantifier, and radius-three coverings permit any weight at most three.",
+        "searches": [
+          "arXiv:2109.04805",
+          "arXiv:1707.09467",
+          "Binary saturating sets and radius-three covering-code length tables"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ae952dc1c398, 7499a8b054ac, 4abf711d3224",
+        "arXiv:2109.04805, 1707.09467, 2609.16078v2 (passages as above)",
+        "Frozen statement and comparison section"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The nine-coordinate witness itself covers every syndrome at weight at most three by adding the empty sum for the missing zero; it still fails at weight exactly three.",
+          "Neither a pair-sum trace count nor disjoint functional recovery cardinalities specify how the weight-three words meet the kernel cosets."
+        ],
+        "reasoning": "Even a prior radius-three cover of the same length would not decide exact-three shattering: the witness is a concrete counterexample to that implication. None of the inspected adjacent claims supplies the four extremal orbits.",
+        "searches": [
+          "arXiv:2609.16078v2 and Resultary 7499a8b054ac, 4abf711d3224"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 7499a8b054ac covers exactly-two-coordinate parity and static/adaptive pair-sum problems.",
+          "Resultary ae952dc1c398 catalogs threefold sumsets of binary Gold graphs at specific relative degrees."
+        ],
+        "reasoning": "Two-sum bases use a different weight sphere. Triple sums of a special Gold graph do not classify arbitrary lists of indexed signatures, including repeated entries, or their kernel orbits. The Gold-graph comparison is limited to its catalogued scope.",
+        "searches": [
+          "Resultary: exact-three binary additive covering and sparse parity shattering",
+          "Primary search: restricted triple sums in binary vector spaces and parity shattering"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest exact local shattering tables were for weight two; 4abf711d3224 concerns six simultaneous functional batch requests and disjoint recoveries, not single weight-three traces. The index also returns the identical assigned record.",
+          "The identified binary length-function bounds are indexed by redundancy and covering radius, not the weight-three quotient count or its S9 classes."
+        ],
+        "reasoning": "No inspected table supplies the exact weight-three trace census. The matching assigned entry is not an independent antecedent.",
+        "searches": [
+          "Resultary sparse parity and triple-sum search; 7499a8b054ac, ae952dc1c398, 4abf711d3224",
+          "Primary search for binary linear radius-three covering-code length tables"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the small exact-three static thresholds and the 63-of-64 obstruction with its full kernel classification, not the signature reduction alone. The nearest shattering and code results inspected differ in the permitted supports, in the criterion, or in the object classified.",
+      "residual_risks": [
+        "The Gold-graph full text and complete prior covering-code tables were not inspected; equivalent historical exact-weight classifications remain possible. This is a bounded assessment, not proof of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified broader hypothesis class, not the exact-weight restriction",
+          "evidence": "Abstract quantifies over all nontrivial linear combinations of linearly independent functions.",
+          "identifier_or_url": "https://arxiv.org/pdf/2109.04805",
+          "material_read": "PDF first page, abstract and start of introduction",
+          "method": "OA PDF text preview",
+          "title": "Littlestone and VC-dimension of families of zero sets",
+          "trigger": "Broader linear-form shattering theorem"
+        },
+        {
+          "assessment": "Different question",
+          "evidence": "Abstract targets random parity constraints that preserve guarantees for probabilistic model counting.",
+          "identifier_or_url": "https://arxiv.org/pdf/1707.09467",
+          "material_read": "Abstract and introduction opening",
+          "method": "OA PDF text preview",
+          "title": "Probabilistic Model Counting with Short XORs",
+          "trigger": "Cited sparse-XOR framework"
+        },
+        {
+          "assessment": "Different weight criterion; not a review of all internal tables",
+          "evidence": "Abstract relates covering-radius length to projective saturating sets and lists new bounds at specifically larger redundancies.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.16078v2",
+          "material_read": "Abstract and length-function statement, PDF page 1",
+          "method": "OA PDF text preview",
+          "title": "Further results on binary linear covering codes and saturating sets in projective spaces",
+          "trigger": "Closest covering-code formulation"
+        },
+        {
+          "assessment": "Adjacent but not matching by stated objects; unresolved contents identified",
+          "evidence": "Gold-graph families at relative degrees versus general coordinate lists; weight two versus weight three.",
+          "identifier_or_url": "Resultary ae952dc1c398; 7499a8b054ac",
+          "material_read": "Catalog statements; mirror bodies not retrieved",
+          "method": "Local Resultary results and attempted lawful mirror passage retrieval",
+          "title": "Exact threefold additive covering of binary Gold graphs; Static and adaptive shattering of two-coordinate parity hypotheses",
+          "trigger": "Closest local triple-sum and learning records"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen signature reduction, obstruction and orbit result",
+        "Independent kernel census"
+      ],
+      "rationale": "This is an exact additive-covering problem intrinsic to a fixed-weight learning class. The cardinality lower bound would allow nine coordinates for six queries, but the algebraic obstruction forces ten. The classification identifies all ways to get the best near-cover, rather than showing a gap by examples alone.",
+      "residual_risks": [
+        "No asymptotic or adaptive consequence established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:41:05.798713Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Write μ_j and S_j for the attachment-weighted empirical depth mean and variance. The update μ_j−μ_{j−1}=p_j(1+ξ_j) gives the stated coefficient 1+(n−j)p_j in the centered path length. The empirical variance updates to (1−p_j)S_{j−1}+p_j(1−p_j)(D_j−μ_{j−1})², giving the stated recurrence on taking expectations, since the squared term conditionally has mean 1+S_{j−1}. Orthogonality and fixed-prefix lower bounds give scaled variance divergence when Q=∞. When Q is finite, the recurrence gives bounded v_j if the summed inputs p_j(1−p_j) are finite; otherwise v_j eventually exceeds 1, so ∑p_j² is finite and v_j=O(sqrt(j)). Thus ∑v_j/j² is finite; the two martingale series and Kronecker's lemma dispose of the two remainders almost surely, and orthogonality/dominated convergence dispose of them in L². The recurrence barriers give the subcritical local constant 1/c and the balanced one c/(c²+1/2); beyond 1/2 the summed drift loss is lower order than the accumulated input. Multiplying each v_j by p_j² and summing with (1−j/n)² yields the three beta constants, the logarithmic coefficient at 2/3, and Q beyond it. No assertion of necessity for almost-sure convergence alone is made. /workspace/review_checks/check_1.py independently compares exact seven-vertex moments for three schedules; it does not prove the limits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gałązka–Wdowicka's sufficient result does not demand a power asymptotic for W_n, but it demands p_n=O(1/n). The general characterization is explicitly asked for in §10.",
+          "Resultary 20f2fa6f2d3a gives all five regimes for an exact power schedule with 0<c<1."
+        ],
+        "reasoning": "Neither hypothesis dominates arbitrary deterministic weights, and an exact power schedule does not dominate asymptotic equivalence. The stretched-exponential examples lie outside the earlier sufficient condition.",
+        "searches": [
+          "arXiv:2610.00614v1, abstract and §§2, 6, 10",
+          "Resultary 20f2fa6f2d3a, opening theorem"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2610.00614v1",
+        "Resultary d6bff5a16a98 and 20f2fa6f2d3a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior innovation representation and variance recurrence supply the starting point. The earlier exact-power analysis overlaps the super-half recurrence asymptotics and the 2/3 conclusions."
+        ],
+        "reasoning": "Necessity follows quickly from nonnegative variance contributions, but sufficiency for general weights also needs control of the unweighted innovation average. That control and the competing drift/input balance at and below 1/2 do not follow from merely substituting into the prior convergence theorem or the earlier high-a formulas.",
+        "searches": [
+          "arXiv:2610.00614v1 §§5, 6, 10",
+          "Resultary d6bff5a16a98 proof and prior-work discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary d6bff5a16a98 covers exact p_j=cj^(-a) with 1/2<a<1",
+          "Gałązka–Wdowicka, arXiv:2610.00614v1, §6 Theorem 6.2 covers p_j=O(1/j)"
+        ],
+        "reasoning": "These are the same unweighted sum of depths on a weighted-attachment tree, not results for a different depth aggregate. The exact-power high-a regime is genuinely covered, but no equivalent arbitrary-weight criterion or sub-half analysis occurs in those inspected statements.",
+        "searches": [
+          "Resultary: weighted recursive tree total path length square summability criterion martingale limit variance polynomial stretched exponential weights",
+          "Primary query: Total Path Length in Power-Weight Recursive Trees weighted recursive tree path length deterministic weights stretched exponential"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier exact-power record gives the same beta, logarithmic and limiting-energy constants in its three high-a regimes. The later exact-power record also reports both low-a constants."
+        ],
+        "reasoning": "No natural classification table for arbitrary deterministic schedules was identified; the exact published-repository formulas are the relevant analogue. Exact coincidence on a family does not give the criterion across all schedules.",
+        "searches": [
+          "Resultary exact variance comparisons d6bff5a16a98 and 20f2fa6f2d3a"
+        ]
+      },
+      "rationale": "Pass for the arbitrary-weight necessary-and-sufficient criterion and the additional local transition through a=1/2 under mere asymptotic equivalence. Credit substantial earlier Resultary coverage of the 2/3 transition and all three constants for exact powers in 1/2<a<1; that portion alone is not an original contribution. The later exact-power record also overlaps all five regimes, but date alone is not used to adjudicate equivalence or credit.",
+      "residual_risks": [
+        "Bounded comparison: stronger implicit deductions in uninspected profile or martingale treatments are possible. The overlapping exact-power results should be credited explicitly in any further presentation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Innovation framework and convergence under a stronger sufficient condition; no stated general iff",
+          "evidence": [
+            "Thm. 6.2 assumes p_n=O(1/n); §10 asks for a broader characterization."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.00614",
+          "material_read": "v1 abstract p. 1, §§2.1 and 2.3 pp. 4–5, §6 Thm. 6.2 p. 11, §10 p. 18; innovation identities compared with the frozen proof",
+          "method": "Targeted OA full-text inspection",
+          "title": "Total Path Length in Power-Weight Recursive Trees: Martingale Limits and Global Fluctuations",
+          "trigger": "Same positive deterministic attachment model and path-length theorem"
+        },
+        {
+          "assessment": "Already covers the exact-power portion for 1/2<a<1",
+          "evidence": [
+            "2/3 transition, corresponding three variance regimes, and joint convergence above 2/3."
+          ],
+          "identifier_or_url": "d6bff5a16a98",
+          "material_read": "Mirrored RESULT.md offsets 0–8028",
+          "method": "Local Resultary search and mirror inspection",
+          "title": "Sharp fluctuation transition in stretched-exponential weighted recursive trees",
+          "trigger": "Earlier materially overlapping indexed result"
+        },
+        {
+          "assessment": "Parallel overlap for exact powers; no arbitrary-weight iff in compared statement",
+          "evidence": [
+            "Exact power p_j=cj^(-a) with 0<c<1; all five regimes and convergence above 2/3."
+          ],
+          "identifier_or_url": "20f2fa6f2d3a",
+          "material_read": "Mirrored RESULT.md offsets 0–2913",
+          "method": "Local Resultary search and mirror inspection",
+          "title": "Two critical variance exponents for stretched-exponential weighted recursive trees",
+          "trigger": "All five fluctuation regimes in a closely matching indexed result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The innovation-energy criterion resolves a mathematically motivated question for all positive deterministic weights, including irregular schedules outside simple power regimes. The low-a analysis identifies a separate local mechanism and a critical leading coefficient, rather than only reproducing the known 2/3 transition for exact powers.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

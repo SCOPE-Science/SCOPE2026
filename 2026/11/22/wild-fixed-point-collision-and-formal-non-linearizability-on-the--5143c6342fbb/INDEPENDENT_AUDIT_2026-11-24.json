@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:15:41.684885Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 24–56; VERIFICATION.md and verify.py inspected as evidence, not executed",
+        "Independent symbolic replay, branches/independent_replay.py, case 5"
+      ],
+      "rationale": "Normalize the first three ordered markings to infinity, 0, 1. After the relabelling their values are 0, 1, u, so the normalizing map is x ↦ u(x−1)/((u−1)x). The fixed equation for the last marking sets v=u/(u−1); substituting into the other yields −(u²−u−1)/(u−1). In the quotient u(u−1)=1, v=u+1=u² and u−v=−1, so all the deleted factors remain units; this proves an equalizer, not merely an equation on geometric points. A stable genus-zero tree with five markings has at most two nodes, hence at most two boundary divisors through any geometric point, whereas every pair-of-labels divisor is in a free orbit of five. No boundary point can belong to the equalizer in any fiber. The quadratic is monic of rank two and has discriminant five; modulo five it is (u−3)². The Jacobian at (3,4) has rows (2,4) and (1,0) modulo five. Its nilpotent part has rank one and square zero. Conjugacy would identify the completed equalizers, but the tangent model fixes a formal line whereas the actual equalizer has local length two. Independently replayed elimination, the reduced Jacobian and boundary-label permutation with `python3 branches/independent_replay.py 5` from the workspace root.",
+      "residual_risks": [
+        "The replay is ancillary algebra, not formal verification of the moduli-space results or of the formal-conjugacy argument. The assertion concerns the standard split relabelling action and not the analytic type or resolution of its quotient."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boitrel gives an order-five Cremona lift and its two free five-orbits on the ten exceptional curves. Wolter identifies the two complex fixed points. The usual tame fixed-locus theorem applies only where five is invertible."
+        ],
+        "reasoning": "The curve-permutation result supplies the main ingredient for boundary exclusion, but does not control local lengths or the tangent model. The complex and tame conclusions do not extend as assertions about the characteristic-five scheme.",
+        "searches": [
+          "arXiv:2304.05328, Lemma 3.23 and Proposition 3.24 in the retrieved version",
+          "DOI:10.1112/jlms.12905, §3.1.5 in arXiv:2303.16170",
+          "arXiv:1808.05396v1, §4 Lemma 4.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1808.05396v1 §4 Lemma 4.1",
+        "arXiv:2304.05328 p. 21",
+        "arXiv:2303.16170 §3.1.5 (DOI:10.1112/jlms.12905)",
+        "Resultary d46201fb4bb4, 6be37a1d7eaa, 3bfc04fd1d42, 5bc10f42f904"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "RESULT.md line 66 reports an earlier tame quotient calculation with the same quadratic and a restriction away from five, but does not identify it bibliographically. The available Cremona equation was checked directly against the claimed interior equations.",
+          "Formal conjugacy preserves equalizers; isolated fixed support for the nonlinear action and a positive-dimensional fixed locus of the unipotent tangent action rule out conjugacy."
+        ],
+        "reasoning": "Do not credit the known tame points, the coordinate map, the quadratic as a tame equation, or the fixed-dimension obstruction method as new. The asserted global integral scheme and wild computation require the scheme-level elimination and units/boundary checks, and are not entailed by tame point-count or quotient-type statements alone. The actual text of the unattributed tame comparison was not located, so no assertion about its unseen contents is made.",
+        "searches": [
+          "arXiv:1808.05396v1 §4",
+          "arXiv:2303.16170 §3.1.5 equation (7)",
+          "Resultary: tame finite field quotient A4 singularities degree five del Pezzo cross-ratio fixed equations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dolgachev–Martin describe an order-five lift on the four-point blowup. On x₂≠0 their map in affine ratios is (x,y)↦(1−y,1−y/x). On the complement of the boundary lines, its fixed equations yield y=1−x and x²+x−1=0, the same quadratic after u=x+1."
+        ],
+        "reasoning": "This is a substantial coordinate-level precursor, not a distinct action. The prior authors give the map over fields of odd characteristic; the cited statement does not calculate its fixed ideal, verify that the integral equalizer stays off the boundary, or compare the completed wild equalizer and its tangent model. The coordinate map makes the local computation possible, including at five.",
+        "searches": [
+          "Resultary: Mbar_0,5 five-cycle fixed locus u^2-u-1",
+          "Resultary: wild automorphism order 5 del Pezzo fixed scheme nonreduced tangent formal linearization",
+          "arXiv:2303.16170 §3.1.5 equation (7)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct Klein-cubic entry d46201fb4bb4 gives the same ramified quadratic over Z_(5) for invariant lines on the Klein cubic, viewed on its Fano surface, and a size-two unipotent tangent block. Entries 6be37a1d7eaa, 3bfc04fd1d42 and 5bc10f42f904 concern the same del Pezzo surface but respectively three-cycle, four-cycle/double-transposition, and transposition actions."
+        ],
+        "reasoning": "The Fano-surface result already exhibits the same fixed-algebra phenomenon, not the equalizer for this del Pezzo action. None of the inspected distinct records with this del Pezzo surface has the five-cycle as its acting element. No exact same-action wild entry was identified; that is not a claim of exhaustive coverage.",
+        "searches": [
+          "Resultary: quintic del Pezzo order five fixed points characteristic five equalizer Mbar 0,5",
+          "Resultary: tame finite field quotient A4 singularities degree five del Pezzo cross-ratio fixed equations"
+        ]
+      },
+      "rationale": "The two complex fixed points and the order-five automorphism itself are established prior work. The supported distinct contribution is the entire integral equalizer with no boundary support, its isolated length-two fiber in characteristic five, and the resulting obstruction to formal linearization for this action. Earlier explicit coordinate maps make the elimination short, and the obstruction method is general, but the checked sources neither assert this invariant nor give a general fixed-scheme theorem whose specialization states it.",
+      "residual_risks": [
+        "The unnamed tame finite-field quotient source has not been independently identified. Its reported characteristic restriction is not a statement about an inspected full text.",
+        "An explicit prior Cremona map reduces the interior calculation to elementary elimination; the wild specialization may have been independently noted. No publication priority is certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the geometric complex fixed points, not integral or wild equalizers in the inspected passage",
+          "evidence": [
+            "Two fixed points Q1,Q2 and other orbits of length five."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1808.05396v1",
+          "material_read": "§4 around Lemma 4.1, HTML offsets 24100–30000",
+          "method": "Open arXiv text, bounded passage",
+          "title": "Equivariant birational geometry of quintic del Pezzo surface",
+          "trigger": "Same surface and cyclic subgroup"
+        },
+        {
+          "assessment": "Covers the Cremona lift and exceptional-curve permutation; not a fixed-ring assertion in the inspected result. Numbering in the frozen citation differs from the version read.",
+          "evidence": [
+            "Two disjoint five-orbits on the ten exceptional curves."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2304.05328",
+          "material_read": "PDF p. 21, arXiv text near offset 95350; Lemma 3.23 and Proposition 3.24 in retrieved version",
+          "method": "Read relevant open PDF passage",
+          "title": "Del Pezzo surfaces of degree 5 over perfect fields",
+          "trigger": "Same order-five action, including fields of positive characteristic"
+        },
+        {
+          "assessment": "Strong ambient-action coverage; the fixed-ring calculation can start from (7), but the integral invariant and wild formal assertion are not stated there",
+          "evidence": [
+            "Four-point blowup with S5 automorphism group and explicit order-five quadratic Cremona transformation."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2303.16170 (DOI:10.1112/jlms.12905)",
+          "material_read": "§3.1.5, PDF p. 9, text offsets 28000–30357, equation (7)",
+          "method": "Read open arXiv version after journal endpoint unavailable; compare its affine fixed equations",
+          "title": "Automorphisms of del Pezzo surfaces in odd characteristic",
+          "trigger": "Explicit order-five transformation valid in wild characteristic"
+        },
+        {
+          "assessment": "Close structural analogue, different ambient surface and action",
+          "evidence": [
+            "Fano surface of lines has a quadratic fixed algebra a²−a−1 and a length-two wild collision."
+          ],
+          "identifier_or_url": "2026/10/27/SCOPE-two-cyclotomic-fixed-locus-collisions-on-the-klein-cubic-in-char--d46201fb4bb4",
+          "material_read": "RESULT.md opening Finding",
+          "method": "Bounded local record read",
+          "title": "Two cyclotomic fixed-locus collisions on the Klein cubic in characteristic five",
+          "trigger": "Same ramified quadratic and tangent-block dimension on a surface"
+        },
+        {
+          "assessment": "Other conjugacy classes, not evidence of priority or prior coverage for the five-cycle",
+          "evidence": [
+            "Three-cycle in characteristic three; four-cycle, double transposition and transposition in characteristic two."
+          ],
+          "identifier_or_url": "2026/11/22 records 6be37a1d7eaa, 3bfc04fd1d42, 5bc10f42f904",
+          "material_read": "Opening Findings of each distinct record",
+          "method": "Bounded local record reads",
+          "title": "Distinct fixed schemes on the quintic del Pezzo surface",
+          "trigger": "Same ambient surface and scheme-theoretic degenerations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–20 and 34–56",
+        "Wolter, §4; Dolgachev–Martin, §3.1.5; Fano-surface analogue d46201fb4bb4"
+      ],
+      "rationale": "For the canonical five-cycle on the split quintic del Pezzo surface, the integral equalizer is a natural invariant. It determines that the tame fixed points merge rather than disappear or enter the boundary, specifies the wild fixed algebra, and answers whether one can replace the wild local action by its linear representation. Neither the arithmetic degeneration nor the distinction between tangent and actual fixed dimensions is captured by just counting geometric points or quoting the automorphism group.",
+      "residual_risks": [
+        "This is one canonical action, not a theorem on arithmetic twists or the wild quotient's singularity/resolution. The analogous length-two collision in a different surface and the general dimension obstruction are not new claims."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:30:04.726937Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, pointwise and moment proofs and assumptions; frozen VERIFICATION.md, CHECKS.txt and verify_crosswork.py (recorded checks; packaged verifier not executed)",
+        "Own exact finite reproduction: /workspace/branches/f95e8422-4cca-4610-aa30-d7f1fbc3d05f/replay_record1.py and replay_record1.txt, every permutation for 2≤n≤8 and every full map for 2≤n≤6"
+      ],
+      "rationale": "For integral displacements the sum of the absolute displacements at the two neighboring positions equals twice the central absolute displacement except for a correction of two at a fixed point. Directly subtracting at the two endpoints gives −f(1) and f(n)−(n+1), including n=2. In S_n the double-centered squared norm of |i−j| divided by n−1 gives Var D=(n+1)(2n²+7)/45. Conditioning on each fixed-point event deletes one row and column, yielding Cov(D,F)=−(n+1)/3. Sampling the two endpoint images without replacement gives Var Δ=n(n+1)/6 and Cov(D,Δ)=−n(n+1)/6; conditioning on an endpoint fixed gives Cov(F,Δ)=1. Together with Var F=1 this gives (2)–(3), including strict negativity at n=2,3 and positivity for n≥4. For R=2F+Δ, Var R=n(n+1)/6+8 and Cov(D,R)=O(n²). Its variance after regression on D is n²/6+O(n), yielding the leading correlation loss Var(R residual)/(8 Var D) = 15/(32n)+O(n^−2). The centered R has standard deviation O(n), negligible compared with the n^(3/2) footrule scale, so the standard combinatorial CLT for the double-centered footrule array (entry size O(n) versus standard deviation of order n^(3/2)) transfers to W. As an independent algebraic route for full maps, independence gives Var D=(n²−1)(3n²+8)/(60n), Var F=1−1/n, Cov(D,F)=−(n²−1)/(3n), Var Δ=−Cov(D,Δ)=(n²−1)/6 and Cov(F,Δ)=(n−1)/n. Substituting in the identity gives (5). Each centered independent W row contribution is O(n), negligible at the n^(3/2) total scale, so Lindeberg applies. The leading variance coefficients are 8/45 and 1/5, giving 8/9. Uniform image marginals give the same mean in both laws, without assuming permutation images independent.",
+      "residual_risks": [
+        "The replay checks finite identities and moments, not a distributional limit; the limit uses the standard combinatorial CLT and independent-array Lindeberg theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Udo–Owai–Francis Theorems 3.21 and 3.23 give totals for S_n and T_n; dividing by their sizes produces the same claimed mean.",
+          "Francis–Ranaivomanana Theorem 2.7 independently gives the T_n total, and its mean is obtained by dividing by n^n.",
+          "The footrule CLT concerns D, not W; its transfer uses the exact decomposition or, alternatively, a general assignment CLT."
+        ],
+        "reasoning": "First-moment formulas on both spaces and neighboring extremal cross-work results do not specify their second moments or the joint cross-work/footrule moment. General assignment and independent-coordinate methods provide the tools for a calculation; their applications to other statistics do not give the exact covariance sign switch here.",
+        "searches": [
+          "Udo–Owai–Francis arXiv:2610.34902 §§2–3",
+          "Francis–Ranaivomanana §2 full transformations",
+          "Diaconis–Graham footrule variance and central limit theorem in original PDF"
+        ]
+      },
+      "checked_sources": [
+        "Udo–Owai–Francis arXiv:2610.34902",
+        "Francis–Ranaivomanana, Palestine Journal of Mathematics 15(1), 673–688",
+        "Resultary 413aa6318ee6 and self-match 616d63211465",
+        "Diaconis–Graham original author copy (attempt; not passage-verified)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For both measures E W depends only on the uniform one-image marginal. Var W in S_n also depends on invariance under two-image sampling without replacement, unlike under T_n.",
+          "The fixed-point and endpoint terms are correlated with D, and the endpoint term produces the leading 1/n loss from perfect correlation."
+        ],
+        "reasoning": "The common mean is fully covered. Neither known marginal footrule fluctuations nor cross-work totals give the joint corrections; the endpoint and fixed-point covariance calculations and the two-law comparison are the distinct contributions. The CLTs and correlation expansion once the moments are obtained are consequences, not separate priority claims.",
+        "searches": [
+          "Compare frozen decomposition and mixed moments with Udo–Owai–Francis totals and Resultary 413aa6318ee6 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Udo–Owai–Francis Definition 2.1 and Francis–Ranaivomanana Definitions 1.1 and 1.5 define the same adjacent-pair sum.",
+          "Francis–Ranaivomanana Definition 1.7 calls cross-work total divided by total shift count 'displacement'; this is not the rowwise footrule D or a variance."
+        ],
+        "reasoning": "Names such as shift, displacement and work must be checked for the actual sum and normalization. Definition coverage is exact for W but neither the definition nor the displacement quotient states the pointwise correction connecting W to D.",
+        "searches": [
+          "Primary literature on cross work over transformations and permutation footrule/displacement",
+          "Resultary cross-work and permutation footrule exact moments"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record 413aa6318ee6 gives known exact footrule mean/variance and moments with squared displacement and Spearman rho, not cross-work.",
+          "The exact indexed topic match 616d63211465 is the assigned result itself."
+        ],
+        "reasoning": "The two covariance partners differ: squared displacement is a rank statistic already tabulated there, but does not supply covariance with the adjacent cross-work statistic. A self-match is not an independent earlier source.",
+        "searches": [
+          "Resultary: cross-work exact finite permutation fluctuations; footrule exact permutation-null correlation"
+        ]
+      },
+      "rationale": "Cross-work itself, its two means, and the classical footrule variance and normal limit are not new. The checked sources do not supply the fixed-point and endpoint correction with its resulting exact cross-work/footrule covariance and two-law fluctuation comparison. Normality as such uses standard limit theory, not an originality claim.",
+      "residual_risks": [
+        "The Diaconis–Graham scan was not passage-verified. Bounded source comparison does not rule out an equivalent earlier finite second-moment calculation under other terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of the definition and means; no second-moment statement in the decisive totals passages",
+          "evidence": "The same adjacent-pair absolute differences are summed, and the totals over S_n and T_n give (n−1)(2n−1)/3 after normalization.",
+          "identifier_or_url": "https://arxiv.org/html/2610.34902",
+          "material_read": "Definition 2.1 and Theorems 3.21 and 3.23, offsets around 5000, 38200 and 41800",
+          "method": "Read bounded primary OA HTML passages",
+          "title": "Cross work induced by transformations on the symmetric group and related transformation semigroups",
+          "trigger": "Identical cross-work statistic and both probability spaces"
+        },
+        {
+          "assessment": "Prior full-map mean and adjacent distances; displacement is a different normalization, not a second moment",
+          "evidence": "Theorem 2.7 gives W×(T_n)=n^n(n−1)(2n−1)/3; displacement divides the total by the number of individual shifts.",
+          "identifier_or_url": "https://pjm.ppu.edu/sites/default/files/papers/PJM_15(1)_2026_673_to_688.pdf",
+          "material_read": "Abstract/introduction, Definitions 1.1–1.7, §2 Theorem 2.7 and following mean/displacement formula passages (around 15337 and 20106–21184)",
+          "method": "Primary OA PDF passage comparison",
+          "title": "Cross Work Performed by Partial Transformations",
+          "trigger": "Cited work; despite the title, includes the full transformation monoid"
+        },
+        {
+          "assessment": "Prior footrule marginal moments; different covariance partner",
+          "evidence": "This record correlates footrule with squared displacement/Spearman rho rather than cross-work.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-exact-permutation-null-correlation-of-spearman-footrule-and-rho--413aa6318ee6",
+          "material_read": "Mirrored Finding, moment and correlation statements",
+          "method": "Local Resultary statement comparison",
+          "title": "Exact permutation-null correlation of Spearman footrule and rho",
+          "trigger": "Related exact finite correlation and same footrule marginal"
+        },
+        {
+          "assessment": "No source-level priority inference from access failure; footrule CLT is already credited as classical",
+          "evidence": "Primary extraction was unsuccessful. The frozen analysis needs only the standard normal limit for the footrule, which is also supplied by a combinatorial array CLT with bounded rescaled entries.",
+          "identifier_or_url": "https://mathweb.ucsd.edu/~ronspubs/77_04_spearmans.pdf",
+          "material_read": "No extractable theorem passage obtained from the author's copy",
+          "method": "OA PDF locate on variance and central limit theorem, attempted retrieval",
+          "title": "Spearman's Footrule as a Measure of Disarray",
+          "trigger": "Original cited classical footrule fluctuation result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding; prior mean formulas for the same two sampling spaces; independent exact moment replay"
+      ],
+      "rationale": "The same natural transformation statistic has identical means but different exact fluctuations under sampling with and without replacement. The decomposition identifies which local coincidences and endpoints affect those fluctuations; the small-order covariance reversal versus strong positive asymptotic correlation and the nonunit variance ratio quantify meaningful differences that a mean or a general CLT would conceal.",
+      "residual_risks": [
+        "The scope is uniform full maps and permutations only; not a statement about all partial transformation statistics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

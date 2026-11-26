@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:22:53.855829Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The eight tests determine all equality and ternary product atoms with entries from e,a,b; sets of pointed extension types, not their multiplicities, characterize two-round equivalence. For nonidentity rotations the special b are e,a,a^(-1),a^2, roots of a, and rotational involutions. There are at most eight exclusions, so for n>=9 a generic noninvolution exists; reflections give a generic involution. The possible collisions or root patterns are exactly those given by orders 2,3,4, and rootability for higher order (one root for odd n; zero or two for even n). In particular r is a nonrootable high-order rotation for even n>=10, and r^2 is then rootable of order >=5. Identity and reflection types are always realized. Direct polygon-permutation computation of complete diagrams for n=3..24 confirmed the five isolated small indices in that range, the coincidence of 7 and 11, and the thirteen least representatives (replay `python3 /workspace/branches/check_dihedral_small.py`). The large-index arithmetic proves all remaining cases; 3|n and 8|n first coexist at n=24, so the family bound is 48. The all-ranks transfer citation is not needed for correctness of the given direct proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The thesis claims a dihedral/cyclic transfer in exactly the relational language, and separately gives depth bounds. The converse proof simply assumes the response to a rotation can be chosen to be a rotation. The 2010 paper was not independently inspected in full text."
+        ],
+        "reasoning": "Do not invoke the thesis converse uncritically at all ranks: D_3 and D_4 have the same rank-one types, whereas C_3 and C_4 differ on the existence of a nonidentity involution. The rank-two specialization needed here has a short independent justification given in the implication check.",
+        "searches": [
+          "Gomaa, Model Theory and Complexity Theory (2007), Def. 3.1, Def. 3.5, Remark 3.1, Lemma 3.10, Theorem 3.14",
+          "Gomaa, Descriptive Complexity of Finite Abelian Groups (2010), DOI 10.1142/S0218196710006047"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5e238dda3b5e and 8d9ebcd5302a, actual Findings",
+        "Gomaa 2007 UMD thesis, relational vocabulary and Lemma 3.10/Theorem 3.14",
+        "Gomaa 2010 DOI 10.1142/S0218196710006047 (full text not obtained)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a rotation a, adding reflection choices b only adds the nonidentity involution type at a=e and the generic involution extension at a!=e. The pointed reflection profile is universal for n>=3. Parity is itself visible at rank two: an unsquare noninvolution occurs exactly for even n>=3 (use r)."
+        ],
+        "reasoning": "Parity and the dihedral spectra recover the cyclic profiles: for each nonidentity noninvolution, keep the generic involution extension exactly when n is even and a^2 is not an involution. For square-rootable involutions remove that generic extension (the sole rotational involution equals a). The universal reflection profile is kept as the rootless involution profile, with generic involution extension removed, exactly when n is even and no square-rootable involution profile occurs. At identity keep the nonidentity involution type exactly when n is even. This gives exact two-way transfer from the eight tests, without the thesis's all-ranks assumption. Applying it to the prior cyclic table gives all claimed classes and twice the maximal minimum cyclic representative order.",
+        "searches": [
+          "Cyclic Resultary record 5e238dda3b5e, Finding and eight-bit profile reduction",
+          "Gomaa thesis Lemma 3.10 proof at pp. 87–88"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinct record uses D_(2n) of order 2n in the same named-identity ternary-relation language. It gives the same exceptional indices and classifies the rest by gcd(n,24)."
+        ],
+        "reasoning": "gcd(n,24)=2^min(v2(n),3) times 3 if and only if 3 divides n (otherwise times 1). The differing names and arithmetic notation do not change the theorem or quantify over a different family.",
+        "searches": [
+          "Resultary: 2026/11/2/SCOPE-thirteen-two-round-theories-of-finite-dihedral-groups--8d9ebcd5302a, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The cyclic table includes isolated 1 and 2 in addition to precisely the five dihedral exceptions, and its remaining classes use gcd(n,24). The distinct dihedral entry gives exactly the thirteen frozen representatives, including 24 for order 48."
+        ],
+        "reasoning": "Dropping indices 1 and 2 and translating the rank-two equivalence yields the same finite table. The dihedral entry is demonstrable exact overlap regardless of catalogue chronology; the earlier cyclic entry and actual transfer also establish coverage by implication.",
+        "searches": [
+          "Resultary: 2026/10/26/SCOPE-fifteen-two-round-theories-of-finite-cyclic-groups-with-a-sharp--5e238dda3b5e, Finding",
+          "Resultary: 2026/11/2/SCOPE-thirteen-two-round-theories-of-finite-dihedral-groups--8d9ebcd5302a, Finding"
+        ]
+      },
+      "rationale": "The exact rank-two census is covered, not merely similar to known work. There is a distinct indexed dihedral result with the identical partition and bound. Moreover, the earlier exact cyclic census yields these same classes by a direct rank-two transfer; the dihedral calculation is a different proof of the covered invariant. The later catalogue date of the exact dihedral match is not evidence of earlier priority.",
+      "residual_risks": [
+        "The exact dihedral record's later catalogue date does not settle priority. The coverage decision rests also on the earlier cyclic table and verified rank-two transfer.",
+        "No claim about the validity of transfer above rank two or about whole-document contents of the inaccessible journal version."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known exact table whose restriction and transfer cover the frozen result",
+          "evidence": [
+            "Fifteen classes with exceptions 1,2,3,4,5,6,8 and gcd(n,24) elsewhere; the language names 0 and uses ternary addition."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-fifteen-two-round-theories-of-finite-cyclic-groups-with-a-sharp--5e238dda3b5e/RESULT.md",
+          "material_read": "Finding, scope, eight-atom proof and EF reduction, offset 0 onward",
+          "method": "Local Resultary lookup, read matching mirrored passage by offset",
+          "title": "Fifteen two-round theories of finite cyclic groups, with a sharp 24-element kernel",
+          "trigger": "Exact cyclic classification that can transfer in the same relational language"
+        },
+        {
+          "assessment": "Exact duplicate mathematical coverage in a distinct indexed record, not a claim of its earlier priority",
+          "evidence": [
+            "Same ternary language, exceptions 3,4,5,6,8, gcd(n,24) outside the exceptions, same thirteen widths and bound 48."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-thirteen-two-round-theories-of-finite-dihedral-groups--8d9ebcd5302a/RESULT.md",
+          "material_read": "Finding, scope and start of cyclic-transfer proof, offset 0 onward",
+          "method": "Local Resultary lookup, read matching mirrored passage by offset",
+          "title": "Thirteen two-round theories of finite dihedral groups",
+          "trigger": "Exact alias of the dihedral census"
+        },
+        {
+          "assessment": "Asserts general transfer and provides depth bounds rather than the exact table; converse as printed has a rotation-response gap, immaterial to the verified rank-two implication",
+          "evidence": [
+            "Lemma 3.10 explicitly states D_m equiv_l D_n iff Z_m equiv_l Z_n; the converse writes the response as a rotation without justifying that choice."
+          ],
+          "identifier_or_url": "https://api.drum.lib.umd.edu/server/api/core/bitstreams/5a564fe0-5c19-4da2-8ce0-2cc76964e427/content",
+          "material_read": "Defs. 3.1 and 3.5 and Remark 3.1 (pp. 46, 51); Lemma 3.10 and Theorem 3.14 (pp. 87–89; offsets 142220–145564 for decisive comparison)",
+          "method": "Open archived thesis, read bounded primary passages by offset",
+          "title": "Model Theory and Complexity Theory",
+          "trigger": "Primary statement of the dihedral-to-cyclic rank comparison"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The family and exact cutoff are natural, but the claimed invariant is already available from the exact cyclic table by the elementary rank-two profile transfer, and a distinct indexed claim also states it explicitly. The alternative direct profile proof and finite corroboration do not furnish a distinct mathematical invariant or consequence in this finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

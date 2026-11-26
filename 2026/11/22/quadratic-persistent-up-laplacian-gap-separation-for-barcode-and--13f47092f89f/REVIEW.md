@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The two simplicial complexes have matched stagewise face vectors and integral barcodes. The book Gram spectrum follows from a rank-one perturbation of \(2I\). The punctured-bipyramid Gram is a Dirichlet prism Laplacian; an explicit trial vector and a pinned-path Poincaré bound prove the quadratic spectral collapse. The checker executes independent finite consistency tests but is not an infinite proof.
+## correctness
 
-## Originality — PASS
-The nearest primary results define and analyze persistent up-Laplacians, nonbranching dual-graph structure and one-simplex spectral stability, but do not supply this matched two-family quadratic-gap contrast. Semantic published-record searches and accessible prior claims yielded no implication covering the exact statement. Unindexed prior work remains a risk.
+PASS
 
-## Mathematical value — PASS
-This matched-barcode and matched-face-vector quantitative separation is a benchmark for determining how much persistent non-harmonic spectra can distinguish filtrations when basic topological and combinatorial summaries are fixed. It establishes sharp quadratic scaling of the positive spectral-gap ratio.
+The two connected level-zero graphs have integral cycle rank m=(2m+1)−(m+2)+1. The book retracts to its shared edge; deleting an open facet from the bipyramid sphere leaves a disk, and the n−1 leaf additions do not change contractibility. The leaf additions give the disk the same vertex and edge counts as the book. Thus the integral modules are one essential degree-zero interval and m degree-one intervals [0,1), with identical face vectors at each level. Keeping the entire edge space makes the persistent up-Laplacian BBᵀ, with nonzero spectrum given by BᵀB. The book Gram matrix is 2I+11ᵀ; the disk Gram matrix is the vertex-pinned principal submatrix of the prism graph Laplacian, as seen by orienting the sphere coherently. This includes n=3 (both rings are simple triangles). Paths from pinned to surviving vertices have length at most n, so the path energy bound gives μ≥1/[n(2n−1)]. Using sin(πi/n) on both rings vanishes at the pinned vertex; rung energies vanish and each ring's quotient is that of the Dirichlet n-edge path. Thus μ≤2(1−cos(π/n))≤π²/n². The disk's largest eigenvalue lies between 3 (test a coordinate vector) and 6 (Gershgorin), so both stated ratios have the claimed orders. Independent replay for 3≤n≤12 checked both Gram constructions and full column rank modulo a prime with floating-point eigenvalue checks. The supplied checker uses floating-point rank and omits zero leaf rows in its disk spectra; exact ranks, leaf-adjusted counts and all-n bounds follow from the proof, not that finite code.
 
-## Closest literature and limits
-See arXiv:2611.09610, arXiv:2408.16741 and arXiv:2506.21352. The result addresses the up-part only, for unweighted two-level simplicial filtrations, with no claim of independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The claim surviving comparison is an explicit quantitative extreme-eigenvalue separation for pairs matching both integral persistence and levelwise face vectors. Spectral information beyond the barcode, the definition of the operator and graph-Laplacian estimates are not new. The closest available statements do not give the paired construction or imply its gap ratios with these controls.
+
+## value
+
+PASS
+
+The witness rules out recovering even the asymptotic order of this gap from the barcode augmented by levelwise face counts. Exact simplex counts and ranks make the growing disparity attributable to incidence geometry, not unequal size or homology. It gives both a quadratic lower-end contrast and a linear upper-end contrast in explicit complexes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

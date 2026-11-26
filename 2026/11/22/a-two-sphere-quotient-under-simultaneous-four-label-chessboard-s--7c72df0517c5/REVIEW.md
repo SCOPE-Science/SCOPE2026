@@ -1,9 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness: PASS.** The claim is about the ordinary geometric quotient of the exact \(4\times4\) rook complex by simultaneous \(S_4\) label permutations. The source is simply connected by the classical connectivity theorem, and the full diagonal action fixes the barycenter of the diagonal four-rook facet. The quotient is therefore simply connected by Armstrong's theorem. An exhaustive orbit-flag integer chain computation, with \(19,59,66,24\) cells and verified \(\partial^2=0\), cancels exactly \(18+41+24\) primitive boundary pairs and leaves one zero-cell and one two-cell. Hurewicz and homological Whitehead prove the claimed sphere homotopy type. Risk: the finite proof depends on the correctness of the transparent standalone generator/cancellation algorithm; no independent external check has been performed.
+## correctness
 
-**Originality: PASS relative to inspected evidence.** The 1994 full-text paper supplies the connectivity theorem and discusses labelled complexes and a \(3\times4\) column action, but not this diagonal \(S_4\) orbit space. A complete published classification of the \(3\times4\) column quotients was read: it expressly fixes three rows and acts *only* on four columns, hence does not cover the \(4\times4\) diagonal action. The inspected square-grid graph matching quotient also concerns a different graph (not the full bipartite rook complex). Searches for the simultaneous-label action and equivalent partial-permutation conjugation formulation found no dominating statement. Missing or unindexed prior work remains a priority risk; unsuccessful search alone does not establish absolute novelty.
+PASS
 
-**Value: PASS.** This natural diagonal action identifies partial injections up to simultaneous relabeling, distinct from the better-studied column, transpose and two-sided actions. The first square board in the simple-connectivity range has a quotient with exactly one essential two-sphere, a stronger integral homotopy result than an Euler characteristic or rational invariant rank. The finite exact classification gives a reproducible benchmark for equivariant methods without claiming an unrestricted family.
+For the full 4-by-4 chessboard, the classical connectivity bound gives min(4,4,floor(9/3))-2=1, so the source is simply connected. The barycenter of the full diagonal placement is fixed by the whole diagonal S4; the orbit fundamental group theorem kills the entire acting group. A barycentric flag has strictly distinct face cardinalities. Therefore any identification between points in the same closed flag simplex preserves supporting vertices and their coefficients, and the image of each closed simplex is embedded. Its ordered boundary descends by single entries omitted with the ordinary alternating signs, without stabilizer factors. As an independent computation I enumerated placements by their row and column supports, generated flags recursively by taking every strict nonempty submask below the top face, and used canonical minimum images under simultaneous label permutations. This gave face ranks (16,72,96,24), flag ranks (208,1056,1440,576) and orbit ranks (19,59,66,24). I checked the two boundary compositions and calculated Smith forms of all three integer boundaries independently of the frozen unit-pivot routine: ranks (18,41,24), with all nonzero diagonal invariant factors units. Consequently all boundary cokernels are torsion-free, hence so are the homology subgroups of those cokernels; the homology ranks are (1,0,1,0). Hurewicz represents a generator of H2 by a map from S^2, which is a homology equivalence and hence a homotopy equivalence by simply connected Whitehead.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The distinct claim is the exact integral homotopy type of the full 4-by-4 chessboard under simultaneous relabeling. The nearest checked same-action result is for five labels and explicitly does not generalize across sizes; the nearest same-board results have a different group action. None covers this integral calculation on the evidence available.
+
+## value
+
+PASS
+
+The diagonal group action is intrinsic when row and column labels refer to the same finite set and placements are partial bijections, so this is not an arbitrary subgroup or sub-board cut. The full integral homotopy type provides a useful low-size benchmark for how simultaneous symmetry changes a standard matching complex: here a single free 2-sphere, in contrast with the nearby five-label Moore type and the different-action transpose quotient. The method addresses an integral issue that rational orbit data cannot decide.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

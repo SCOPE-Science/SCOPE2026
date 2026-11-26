@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:12:00.406244Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md equations (1)–(3) and Proof, lines 43–93",
+        "Frozen VERIFICATION.md, verify.py and verify_output.txt (inspected, not executed)",
+        "Replay: python /workspace/review_evidence/graph_checks.py 3"
+      ],
+      "rationale": "Every non-hub open neighborhood is a clique, so it meets the parity rule automatically in a proper coloring. At the hub the number of occurrences of a peripheral color equals its blade incidence count. On a fixed k-set of peripheral names the polynomial (product_i s_i!) times product_i e_{s_i} tracks these counts. Averaging over signs multiplied by their product projects onto exponents odd in every coordinate, hence onto colorings using all k names. Grouping signs by j negative coordinates yields K_{k,s_i}(j); choosing the hub and the used peripheral names gives (1). The upper summation limit can equivalently be S because binom(q−1,k)=0 for larger k at positive integer q. For odd t, s peripheral colors work and a blade requires s. For even t, the number k of peripheral colors is even and k(t−1)≥ts. The least qualifying even k also satisfies k≤ts, so distribute ts−k in increments of two over k initial unit column sums without exceeding t−1. These column sums can be realized by placing each column's ones in consecutive rows cyclically starting where the previous column ended, yielding s entries per row since there are ts placements. This also checks t=2, when each color can occur only once. Direct replay agrees with the signed formula on 4,046,901 hub-normalized proper assignments across 54 comparisons and verifies 570 uniform constructions.",
+      "residual_risks": [
+        "The finite replay covers nine small size lists and q=1–6, plus cyclic constructions for 2≤t≤20 and 1≤s≤30. The projector and construction, not those ranges, prove the general claims."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The accessible block-graph paper gives a linear-time optimizer and describes ColorRoot on the cliques at the root, pooling peripheral colors by parity. A bouquet is a block graph with the hub as the sole cut vertex.",
+          "Caro et al. give χso(G)=χ(G²) for claw-free G. The two-blade bouquet is claw-free and squares to a clique, covering its scalar."
+        ],
+        "reasoning": "These primary results cover optimal coloring computationally or in the two-blade case, not a full named-palette generating formula. The decision about the formula uses the indexed proof with the exact character identity, not a claim that an optimization algorithm counts assignments.",
+        "searches": [
+          "Primary literature: strong odd coloring of windmills and block graphs, optimum and named-palette enumeration",
+          "Pradhan et al., arXiv:2610.01441 §4; Caro et al., arXiv:2410.02336 claw-free graph result"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Relationship to prior work",
+        "Local Resultary fb1ea8e5dc0f, 37cf422240c4, cebdb2d805e7 and 08d96cc0f3bf",
+        "arXiv:2610.01441 §4 and arXiv:2410.02336 claw-free result"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "37cf422240c4 writes the indicator for prescribed blade subsets S as 2^(−k) times the sum over signs of (product of all signs) times (product over rows of the signs on S). This identity has no equal-cardinality or minimum-palette hypothesis.",
+          "fb1ea8e5dc0f uses the independent row-sums factorization, the grouping by j negative coordinates, and the factor from ordering the colors within each blade. Both sources supply exactly the frozen uniform optimum."
+        ],
+        "reasoning": "In the written indicator sum, summing over |S_i|=s_i instead of a common s replaces E_s^t by product_i E_{s_i} and (s!)^t by product_i s_i!. The all-odd condition already enforces positive use; partition arbitrary-palette colorings by their actual peripheral k-set and choose it in binom(q−1,k) ways. This is a direct derivation of (1) from the inspected proof, not merely a shared method suggested by similar titles.",
+        "searches": [
+          "Resultary fb1ea8e5dc0f Proof, offsets 2250–5196, and 37cf422240c4 Proof, offsets 2450–5330; compare the indicator before specializing row cardinalities"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "fb1ea8e5dc0f Proof steps 1 and 3 give an iff with ordered blade color subsets of odd total incidence and an exact character indicator for those subsets.",
+          "37cf422240c4 Proof gives the all-odd column incidence formulation and the same signed elementary-symmetric sum."
+        ],
+        "reasoning": "Windmills of uniform blade size are the same graph family as the uniform bouquet, not a different coloring notion. In the incidence reduction properness acts within each blade independently, so none of the local parity reasoning requires the row sums to coincide.",
+        "searches": [
+          "Resultary: strong-odd coloring of clique bouquets, generalized windmills, friendship graphs, and parity-incidence character sums"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "fb1ea8e5dc0f and 37cf422240c4 give exact equal-blade optimum counts in the same character-sum form; neither finding states the full heterogeneous polynomial.",
+          "The same-day cebdb2d805e7 complete multipartite profile gives the all-palette count for the all-singleton-blade star subfamily. The 08d96cc0f3bf friendship spectrum covers the s=2 optimum."
+        ],
+        "reasoning": "For optimal palettes the count is the same after identifying the common blade size and the minimum number of peripheral names. The star case is exact overlap on a restricted family. The evidence does not equate an optimal-only numerical table with the all-palette result.",
+        "searches": [
+          "Resultary: full versus optimal named-palette counts for clique bouquets, windmills, and friendship graphs"
+        ]
+      },
+      "rationale": "The strongest indexed windmill results state the same uniform optimum and the same sign-filter count on the optimal palette. Their proofs already supply the parity-incidence criterion and the parity indicator before summing over the chosen blade subsets. Neither prints the arbitrary-size arbitrary-palette formula. However, their exact indicator applies regardless of subset sizes: summing independently with sizes s_i replaces the common factor E_s^t by the product of E_{s_i}, and summing over the actually used k-set introduces binom(q−1,k). These two immediate counting operations exhaust the claimed extension; no new incidence constraint or counting argument is needed. The failure is proof-level mechanical coverage, not an assertion of an identical formula in the comparator or of historical priority.",
+      "residual_risks": [
+        "The ranked catalogue and primary searches were bounded. Neither uniform-count record is asserted to print the heterogeneous formula, and catalogue date labels are not used to infer historical priority. The assessment rests on the exact scope of their proof-level identities."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit uniform optimum and count, mechanically extensible summation in the proof",
+          "evidence": [
+            "For a fixed named palette the indicator sum T uses the t-th power of the sign-weighted sum over one blade subset; its symmetry and grouping produce the same inner binomial expression."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-optimal-strong-odd-coloring-counts-for-generalized-windmil--fb1ea8e5dc0f/RESULT.md",
+          "material_read": "Finding and Proof steps 1–3, including offsets 2250–5196",
+          "method": "Local Resultary and exact mirrored passages",
+          "title": "Exact optimal strong odd coloring counts for generalized windmills",
+          "trigger": "Exact uniform optimum and matching parity-incidence count"
+        },
+        {
+          "assessment": "Uniform optimum stated; row-wise parity projector in the proof already provides the heterogeneous count by independent summation",
+          "evidence": [
+            "The indicator is a product over the actual row subsets and uses only the sign vectors. It is written before the row-sums simplification to E_s^t and expressly notes that every counted color must be used."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-strong-odd-colorings-and-optimal-coloring-census-of-clique--37cf422240c4/RESULT.md",
+          "material_read": "Finding and Proof, especially offsets 2450–5330",
+          "method": "Local Resultary and exact mirrored passages",
+          "title": "Exact strong odd colorings and optimal coloring census of clique bouquets",
+          "trigger": "Exact same graph, uniform formula and likely proof-level all-palette implication"
+        },
+        {
+          "assessment": "All-palette overlap only for the star comparator; no same-day priority inference",
+          "evidence": [
+            "With all s_i=1 the bouquet is complete bipartite K_{1,t}, so the odd-block formula applies."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-strong-odd-colorings-of-complete-multipartite-graphs-are-odd-blo--cebdb2d805e7",
+          "material_read": "Finding and odd-block count, mirrored offsets 0–1100 and 1450–4765",
+          "method": "Local Resultary and mirror",
+          "title": "Strong odd colorings of complete multipartite graphs are odd blocks",
+          "trigger": "Same-day broader exact count that includes stars"
+        },
+        {
+          "assessment": "Exact scalar coverage for s=2, not the full named-palette census",
+          "evidence": [
+            "The minimum is 3 with an odd number of triangles and 5 with an even number."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-strong-odd-color-count-spectrum-of-friendship-graphs--08d96cc0f3bf",
+          "material_read": "Finding at mirror offset 0 onward",
+          "method": "Local Resultary and mirror",
+          "title": "Strong odd color count spectrum of friendship graphs",
+          "trigger": "Triangular-blade special case"
+        },
+        {
+          "assessment": "Accessible optimizer for a broader family, not a census in the inspected sections",
+          "evidence": [
+            "The root procedure chooses colors from the largest clique's palette, arranges even occurrences outside that clique, and completes the remaining vertices with new colors. This constructs an optimal coloring, rather than counting all colorings into a palette."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.01441",
+          "material_read": "Abstract and §4 pp. 7–8, including ColorRoot, offset 26700 onward",
+          "method": "OA primary PDF passage review",
+          "title": "On the Classical and Parameterized Complexity of Strong Odd Coloring",
+          "trigger": "Potentially stronger theory of the invariant on block graphs"
+        },
+        {
+          "assessment": "Two-blade scalar coverage",
+          "evidence": [
+            "For claw-free G the square chromatic number equals the strong-odd chromatic number; here G² is complete when t=2."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2410.02336",
+          "material_read": "PDF p. 4, offset around 8000, claw-free equality",
+          "method": "OA primary PDF passage review",
+          "title": "On strong odd colorings of graphs",
+          "trigger": "Known exact scalar on claw-free graphs"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md equations (1) and (2)",
+        "Resultary fb1ea8e5dc0f and 37cf422240c4 parity enumeration proofs"
+      ],
+      "rationale": "A named-palette enumeration on arbitrary bouquets is a natural question. Here the all-palette display is obtained by row-wise substitution in the explicitly available incidence projector and grouping by support; the separate uniform scalar is already stated. The frozen extension provides no further structural classification, nontrivial evaluation, or independently useful unknown exact fact beyond this direct calculation.",
+      "residual_risks": [
+        "No conclusion is drawn about the value of future heterogeneous optimum formulas or substantially different bouquet counting results."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

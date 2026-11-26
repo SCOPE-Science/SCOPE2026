@@ -1,19 +1,21 @@
-# Review of the weighted moving-MAD variation theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact three-sample MAD identity \(\min(|d_i|,|d_{i+1}|,|d_i+d_{i+1}|)\) follows by sorting the triple. Each local map is separately \(1\)-Lipschitz in its two first-difference variables. Changing one input edge affects only two neighboring output entries, giving the weighted column bound; telescoping across input edges gives the global two-input inequality. Strict finite rational windows \((-3/2,1,-3)\), with the middle first difference increased by \(1/10\), make the two output changes equal and opposite, saturating all three weighted contributions. Boundary-edge witnesses saturate the remaining ratios. No assumptions about genericity or numerical approximation enter the proof. The standalone rational checker corroborates every class of witness and the elementary algebra.
+PASS
 
-## Originality — PASS, qualified
+RESULT.md lines 5–60: on sorting a triple, the middle absolute deviation is the smaller successive gap, hence in input-edge coordinates it is min(|s|,|t|,|s+t|). Each section is 1-Lipschitz. Varying one internal edge by epsilon changes at most the two incident output entries, by magnitudes at most |epsilon| each. Their adjacent differences have weights v[j-2], v[j-1], v[j] and bounds |epsilon|, 2|epsilon|, |epsilon|. Edge-coordinate telescoping proves the bound for arbitrary real pairs including ties, and a constant input difference changes no MAD. For (d[j-1],d[j],d[j+1])=(-3/2,1,-3), direct evaluation gives changes -epsilon,+epsilon for 0<epsilon<1/2, attaining all three bounds simultaneously; (1,3) on the first edge and its reflection give the stated boundary columns. These perturbations integrate to actual single-step changes of the signal. A single output at n=3 has zero variation. The largest unit-weight columns are 2, 3 and 4 for n=4, n=5, and n>=6. Exact independent replay: python3 -I /workspace/review-work/replay.py 1 evaluated MAD directly for 92,750 step pairs (n=3–6) and recovered every maximum column variation for the tested weight profiles. This is finite corroboration only. The supplied checker was inspected, not executed; in particular line 76 uses a nonzero float tolerance despite rational witness quotients. The exact analytic witnesses do not depend on that tolerance.
 
-The original MAD and Hampel-filter papers define and use this robust scale, but the 1993 paper studies scale efficiency, breakdown and influence functions, and the full 2016 Hampel paper addresses outlier-replacement filters, root/implosion sequences, and data-replication weighting. Neither computes an adjacent-variation two-input modulus with separately weighted input and output edges. Indexed running-median, morphology and sliding-standard-deviation results address different signal transforms and do not state an implication yielding this MAD coefficient; comparison was by operator definition and claim implication, not by title or matching sample count. Relevant full text inspected: author-hosted Rousseeuw–Croux (1993) and open Pearson et al. (2016). The 2015 conference record was inspected for date and provenance, while the longer 2016 article was read for the overlapping scientific content. Residual risk: unindexed older equivalent formulas and a conference-version detail not independently read in full.
+## originality
 
-## Value — PASS
+PASS
 
-The output is the local scale used to determine robust Hampel thresholds. While MAD reduces the effect of extreme observations in its usual statistical sense, that robustness does not imply nonexpansivity of the *difference between two moving-scale outputs* in discrete variation. The complete formula gives a sharp worst-case perturbation budget under arbitrary positive input/output edge weights, a precise nonexpansivity test and concrete attaining signals. The dimension onset and saturation at fourfold amplification are properties of the local scale itself, not of the median-replacement filter. This resolves a natural stability question for the smallest genuine moving-MAD window, rather than an arbitrarily selected numerical slice. The theorem makes no claim for longer windows or other filtering operators.
+The supported distinction is the sharp two-input seminorm coefficient for the full-window three-sample minimum-gap scale with independently weighted input/output edges, not MAD itself, Hampel filtering, or the general use of step-column bounds. The closest catalogued filters and primary moving-MAD leads do not show equivalent coverage of this claim in the material available. No claim of historical priority is made.
 
-## Sources and residual risks
+## value
 
-Primary sources: Rousseeuw–Croux (1993), DOI 10.1080/01621459.1993.10476408; Pearson–Neuvo–Astola–Gabbouj (2016), DOI 10.1186/s13634-016-0383-6; EUSIPCO 2015 version DOI 10.5281/zenodo.35878. The full 2016 article's sections on local MAD, weighted replication, case studies and conclusions and the 1993 paper's MAD definition and scale-estimation analysis were inspected. The 2015 conference PDF download was inaccessible through the textual retrieval route; the 2016 expanded full article is available. Published summaries of finite-window morphology and running median stability were checked as potentially stronger coverage and found to concern other operators. Residual risk is limited to unlocated historical equivalent statements, not a missing step in the direct proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The worst-case change of a classical local robust scale is a useful error-propagation invariant distinct from the statistical robustness of each window. The formula gives both a sharp decision under arbitrary edge weighting and explicit witnesses that distinguish genuine amplification from an artifact of separate scalar bounds. The onset at four input samples and ceiling at six or more arise from how neighboring output windows share edges. No extension to general MAD windows or to the replacement filter is inferred.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

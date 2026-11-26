@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:12:27.775158Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 22–44",
+        "Frozen VERIFICATION.md, including recorded finite counts, and verification/check_medians.py (inspected, not executed)",
+        "Independent bounded enumeration of all binary signals for 1≤p,q≤3; lattice threshold identities on ternary lists of lengths 1–6; weighted example at integer R=1,…,8"
+      ],
+      "rationale": "A thresholded lower median is high iff strictly more than half the samples are high, including when the threshold equals an observed value. Each updated part is constant. At every threshold where the updated parts differ the input cut has weight at least c_w; integrating the cut inequality gives the stated upper bound. Positive weights and connectedness give c_w>0, and the binary indicator of a minimizing cut attains W/c_w. For unit weights the cut is [pq−(p−2|A|)(q−2|B|)]/2. Opposite strict-majority labels maximize the product at −1 when both sizes are odd and at 0 when at least one size is even, using that even part as the nonmajority part at a tie. If some part has size at least two, one can label the opposite part all high and put one high vertex in that part: the majorities differ but positive weight remains uncut. For the weighted K_{2,2} example, a cut can omit the heavy column by labeling it and both row vertices high, leaving exactly the two weight-one edges cut, and all eligible cuts cross at least two edges. The iteration just swaps the two constants, with a fixed point when they coincide. These arguments establish the one-input assertion, not a two-data Lipschitz bound.",
+      "residual_risks": [
+        "The supplied replay path is verification/check_medians.py relative to the source package; the separately coded finite checks corroborate and do not replace the coarea proof. Expert, independent-audit and Lean fields in the frozen package were marked not_performed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected tree finding is unweighted and does not contain cyclic K_{p,q}; the weighted-star record studies a closed-neighborhood two-input modulus with a different median convention.",
+          "The available IEEE abstract addresses center-weighted graph median filters; it does not provide the asserted sharp variation comparison."
+        ],
+        "reasoning": "Here weights measure edge variation only; they neither weight the neighbor samples nor include a self sample. An exact two-input result for a different update cannot be restricted to give this one-input result. Full IEEE text remains unassessed.",
+        "searches": [
+          "Resultary e16ec3a51444 and fbae8d8250dc",
+          "Center-weighted median graph filters, DOI 10.1109/GlobalSIP.2016.7905859"
+        ]
+      },
+      "checked_sources": [
+        "Resultary/local mirror: e16ec3a51444, ad8aa4c0c8cb, fbae8d8250dc",
+        "arXiv:1405.2486, p. 2",
+        "DOI 10.1109/GlobalSIP.2016.7905859, official abstract only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An existing period-two theorem controls eventual states, not variation from the initial state to the first update.",
+          "The tree theorem gives an exact unweighted subfamily, not the weighted majority-cut optimization on K_{p,q}."
+        ],
+        "reasoning": "Coarea mechanically lifts a proven sharp binary inequality to real signals but supplies neither the cycle-family parity optimization nor the sharp unbounded weighted example. An upper bound or an eventual dynamics claim would not certify attainability.",
+        "searches": [
+          "arXiv:1405.2486, p. 2, Eq. (1.1) and Theorem 1.1",
+          "Resultary e16ec3a51444, Finding and Assumptions and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The lower median is a lattice polynomial: the minimum of maxima over subsets of size ⌈r/2⌉. Thresholding gives strict-majority high labels, hence the majority dynamics and weighted cut formulations.",
+          "The same-day tree result agrees on unit-weight K_{1,q} for odd q. For even degree its self-inclusive convention is different.",
+          "The opened majority-dynamics passage treats ±1 states and eventual period two under its neighbor/tie convention, not an exact one-step weighted variation ratio."
+        ],
+        "reasoning": "The binary restriction is exact by coarea, not merely an analogy. Existing period-two or lattice-filter formulations do not specify the optimizing weighted majority cut or its value on cyclic complete bipartite graphs.",
+        "searches": [
+          "Primary-literature lookup on graph median/rank filters, coarea and exact total-variation gain",
+          "Resultary graph majority-median and tree variation record e16ec3a51444",
+          "arXiv:1405.2486, Eq. (1.1) and Theorem 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "e16ec3a51444 gives exact unweighted constants, including the shared odd-star cases. ad8aa4c0c8cb covers the same complete bipartite graphs but a centered maximal-average operator. fbae8d8250dc covers a different star operator and quotient."
+        ],
+        "reasoning": "The strongest exact indexed numbers on a shared domain are credited; the reviewed invariant runs over arbitrary real positive edge arrays and is not tabulatable by part sizes alone, as shown already on K_{2,2}. No inspected exact result covers that invariant.",
+        "searches": [
+          "Resultary lookup for sharp median/majority variation on trees, stars and complete bipartite graphs; e16ec3a51444, ad8aa4c0c8cb, fbae8d8250dc"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the attained positive-edge-weight one-input cut formula for open-neighborhood lower medians on complete bipartite graphs, with the nontrivial cyclic parity and weighted amplification consequences. The threshold method and periodicity are not credited as new, and the exact unweighted odd-star overlap with a distinct same-day record is credited explicitly without inferring priority.",
+      "residual_risks": [
+        "The full 2016 center-weighted graph-median paper remains inaccessible in the attempted lawful routes; partial coverage cannot be excluded. No exhaustive novelty or same-day priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material same-day partial coverage, not domination",
+          "evidence": "Unweighted trees, neighbors at odd degree and a self-inclusive rule at even degree; on unit-weight odd stars the value is 2q/(q+1) as here.",
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-finite-order-variation-amplification-by-tree-majority-medi--e16ec3a51444",
+          "material_read": "Finding and Assumptions and scope, mirrored RESULT.md, opening passage",
+          "method": "Resultary search and local mirror passage inspection",
+          "title": "Sharp finite-order variation amplification by tree majority medians",
+          "trigger": "Exact one-input variation for overlapping star subfamily"
+        },
+        {
+          "assessment": "Different operator",
+          "evidence": "Uses centered graph-ball maximal averages, not a lower order statistic over open neighborhoods.",
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-cut-variation-and-one-sided-rigidity-for-centered-maximal--ad8aa4c0c8cb",
+          "material_read": "Finding in mirrored RESULT.md",
+          "method": "Resultary search and local mirror passage inspection",
+          "title": "Sharp cut variation and one-sided rigidity for centered maximal operators",
+          "trigger": "Exact cut-signal variation on the same graph family"
+        },
+        {
+          "assessment": "Related, later and different quotient and update",
+          "evidence": "Weighted stars, closed-neighborhood median and two-input differences.",
+          "identifier_or_url": "2026/11/17/SCOPE-sharp-weighted-edge-variation-stability-of-closed-neighborhood-m--fbae8d8250dc",
+          "material_read": "Finding in mirrored RESULT.md",
+          "method": "Resultary search and local mirror passage inspection",
+          "title": "Sharp weighted edge-variation stability of closed-neighborhood medians",
+          "trigger": "Weighted edge-variation modulus for a graph median"
+        },
+        {
+          "assessment": "Prior periodicity, not the sharp gain",
+          "evidence": "Theorem 1.1 attributes eventual two-periodicity on finite graphs to Goles and Olivos; this passage does not quantify input-to-first-output variation.",
+          "identifier_or_url": "https://arxiv.org/abs/1405.2486",
+          "material_read": "PDF p. 2, Eq. (1.1), tie convention and Theorem 1.1",
+          "method": "Direct lawful OA original, located by period and read at offset 3860",
+          "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+          "trigger": "Known prior periodicity for threshold-filter dynamics"
+        },
+        {
+          "assessment": "Abstract insufficient to decide possible partial overlap",
+          "evidence": "Center-weighted graph median filtering is addressed; no exact positive-edge-weight K_{p,q} variation modulus is established from the accessible material.",
+          "identifier_or_url": "https://doi.org/10.1109/GlobalSIP.2016.7905859",
+          "material_read": "Official abstract only",
+          "method": "Primary-literature lookup, IEEE and identified alternate access attempts; no lawful full-text copy retrieved",
+          "title": "Center-weighted median graph filters",
+          "trigger": "Plausible older graph rank-filter overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof, especially lines 36–40",
+        "Overlapping unweighted tree result e16ec3a51444"
+      ],
+      "rationale": "Edge variation and the standard open-neighborhood order statistic motivate the sharp question independently of computation. The exact constant determines when this nonlinear filter can be relied on not to amplify edge variation. The result gives a complete positive-weight nonexpansivity boundary and a fixed four-vertex example with arbitrarily large attained gain, in contrast to the universal factor at most two for uniform edges. Those conclusions and the parity correction make the contribution more than the generic coarea lifting rule.",
+      "residual_risks": [
+        "The weighted minimum is a finite characterization, not a claimed efficient algorithm; the result does not predict a two-input modulus."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

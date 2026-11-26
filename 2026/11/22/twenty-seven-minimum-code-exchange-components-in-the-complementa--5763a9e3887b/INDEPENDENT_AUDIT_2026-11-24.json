@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:30:03.937295Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding–Verification; VERIFICATION.md; exact_hitting_census.cpp and direct_trace_census.py (inspected, not run)",
+        "python3 /workspace/audit_evidence/finite_checks.py 3"
+      ],
+      "rationale": "The closed-neighborhood hitting reduction is exact: the neighborhood constraints test nonemptiness and the pairwise symmetric-difference constraints test all trace inequalities. A fresh independent set-based reproduction constructs adjacency by explicit modular predicates and checks all 63004 subsets of sizes 0–7 by taking the set of the 18 literal traces; there are no codes below seven and 90 at seven, including the stated witness. Equal-size codes are adjacent exactly when they have a common six-element subset, so grouping optima over those subsets independently reconstructs all exchange edges. It gives 81 edges and nine components of each reported degree pattern. In a five-vertex component the universal vertex leaves four vertices of degree one after deletion, hence two disjoint edges and a bowtie; the other two patterns force P3 and K2. Applying all 18 simultaneous rotations/reflections gives the six listed representatives, orbit sizes, degrees and component types and covers all optima. The same actions preserve the host relation (both cycle layers and the matching) and hence identifying traces and exchanges.",
+      "residual_risks": [
+        "The C++ checker does not explicitly check membership of the named witness as the prose suggests; the independent checker does. This is not a gap in the counting proof. No slide or general-cycle claim is verified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cycle-family theorem is a bounded additive estimate around 7n/9, not an exact formula; Lemma 3 gives a seven-code at n=9.",
+          "The general complementary-prism bounds yield 6<=gamma_ID<=9 at n=9; the exact complete-bipartite and split classifications concern other hosts."
+        ],
+        "reasoning": "The known construction improves the combined upper bound to seven but these statements leave six versus seven open.",
+        "searches": [
+          "arXiv:1507.05083v1 Lemmas 3–5 and Theorem 6",
+          "Felix–Cappelle Corollary 3.6 and Theorem 3.7"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5763a9e3887b (self-match)",
+        "arXiv:1507.05083v1",
+        "DOI 10.21711/231766362023/rmc5516"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lemma 4 is a conditional reshaping argument with at least six complement-layer selections, not a classification of all small codes. An alleged six-code must use at least one cycle-layer vertex to dominate the cycle layer, so it would not even meet that threshold.",
+          "An admissible seven-code supplies no exhaustive separation test at size six. Bounds on minimum size do not determine optimum adjacency, components or orbits."
+        ],
+        "reasoning": "Exact optimum proof and the finite reconfiguration structure require new checks beyond the known witnesses and estimates.",
+        "searches": [
+          "arXiv:1507.05083v1 Lemmas 3,4,5; Theorem 6",
+          "Felix–Cappelle Corollary 3.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The host is C9 and its complement with the natural perfect matching; identification uses distinct nonempty closed traces, equivalent to meeting all neighborhoods and all pairwise symmetric differences.",
+          "This is not the ordinary circular ladder, an ordinary locating-dominating code, or a zero-error code in a product of channels."
+        ],
+        "reasoning": "Compare the exact same complementary prism and predicate; indexed hits on other code definitions or host graphs are not coverage.",
+        "searches": [
+          "arXiv:1507.05083v1 identifying codes in the complementary prism of cycles",
+          "Felix–Cappelle DOI 10.21711/231766362023/rmc5516, p. 2",
+          "Resultary: identifying codes complementary prism of nine-cycle C9, minimum seven labelled codes 90, exchange graph components bowties and dihedral orbits"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary exact entry 5763a9e3887b is the assigned record itself. Nearby matches concern other identifying-code hosts or other code predicates.",
+          "The directly inspected cycle-family construction lists an admissible pattern, not the labelled minimum families or the exchange graph."
+        ],
+        "reasoning": "The exact self-match does not establish earlier coverage; an unindexed exact analysis is not excluded.",
+        "searches": [
+          "Resultary exact fingerprint C9, 90 optima, 27 components or nine bowties",
+          "Focused literature lookup identifying codes complementary prism C9",
+          "arXiv:1507.05083v1 main theorem and construction"
+        ]
+      },
+      "rationale": "The exact optimum-family and exchange classification for the nine-cycle is distinct from the known seven-code construction and the asymptotic size theorem. The latter and the later complementary-prism bounds do not themselves force this minimum, let alone the census.",
+      "residual_risks": [
+        "The journal landing page was unavailable; the primary arXiv version was available. The 2009 locating-domination paper was not read in full and concerns another named invariant. The bounded search cannot rule out unindexed equivalent exact computations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap on construction of a seven-code, not the exclusion of six-codes or the optimizer/exchange census in the material read",
+          "evidence": [
+            "At n=9 the periodic construction uses seven selections; the lower bound given is 7n/9 minus 12 and the main result is 7n/9 plus a bounded additive term."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1507.05083v1",
+          "material_read": "Lemma 3 p. 4 (offset ~11800), Lemma 4 pp. 4–5 (offset 13000), Lemma 5 p. 5 (offset ~18000), Theorem 6 p. 10 (offset 38530)",
+          "method": "Lawfully accessible primary preprint PDF, bounded passages",
+          "title": "Identifying Codes in the Complementary Prism of Cycles",
+          "trigger": "Same identifying predicate and full cycle-prism family"
+        },
+        {
+          "assessment": "Same complementary product; bounds do not force the seven optimum for C9",
+          "evidence": [
+            "Corollary 3.6 gives 2 ceil(log2(n+1))−2 through n; Theorem 3.7 is for complete bipartite hosts."
+          ],
+          "identifier_or_url": "https://doi.org/10.21711/231766362023/rmc5516",
+          "material_read": "Primary PDF on the society CDN, abstract p. 1, complementary-prism definition p. 2, Corollary 3.6 and Theorem 3.7 p. 7 (offsets 12868 and 13086)",
+          "method": "OA primary full-text passages",
+          "title": "On Identifying Codes in Complementary Prisms",
+          "trigger": "General bounds and possible exact specializations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:1507.05083v1 Lemma 3",
+        "Frozen theorem and fresh exchange census"
+      ],
+      "rationale": "Nine columns are the fundamental block size of the known seven-per-nine construction, not an arbitrary truncation. A complete answer there determines exactly which optimal deployments can be reached without adding a landmark and distinguishes several component geometries and symmetry types; neither the asymptotic size nor a single optimal example answers that question.",
+      "residual_risks": [
+        "This finite exchange obstruction need not repeat in larger cycle prisms; no extension is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

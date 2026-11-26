@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The weighted Laplacian and single diagonal pin have a strictly positive quadratic form. The exact-rational verifier establishes four disjoint characteristic-root intervals for each of twelve pinned matrices, exhausting the degree-four spectra. Its interval-ratio comparisons prove all nine strict global winner inequalities; continuity proves at least two switches and robust winner identities. A separate grounded-principal-minor argument proves vertex 2 uniquely minimizes the condition number for all sufficiently large gains. This is a finite exact theorem, not an inference from approximate eigenvalues.
+PASS
 
-## Originality — PASS, subject to literature coverage
+The quadratic form is the sum of three positively weighted squared differences and a strictly positive pin penalty, so the pinned matrix is positive definite. The supplied continuant correctly evaluates det(A_v-lambda I); four disjoint strict sign brackets exhaust the positive degree-four spectrum, and the interval quotient bounds compare the entire set of sites. Independently constructing all twelve characteristic polynomials and isolating their real roots using SymPy's exact polynomial interval procedure reproduced the nine strict winner inequalities for 2,4,2. For g tending to infinity, a unit Rayleigh minimizer has pinned coordinate tending to zero because the constrained Rayleigh minimum bounds its cost uniformly; compactness then gives convergence to the grounded principal minimum. Dividing the matrix by g in operator norm gives convergence to the rank-one projector and lambda_max/g -> 1. The minimum for site 2 is exactly 1: the isolated [1] block attains it and the other block minus identity has determinant 91 and positive first diagonal entry. The stated other-site test vectors have exact quotients 1/3, 650/677 and 110/147, each less than 1. A positive gap between the limiting scaled ratios therefore gives an eventual strict site-2 winner. Continuity and the finite strict margins give distinct changes in (10,50) and (50,500) and persistence under simultaneous small perturbations. The verifier docstring saying no floating-point operation is used is overbroad: line 67 converts exact bounds for diagnostic printing; no comparison assertion uses those floats.
 
-Jalili, Askari Sichani and Yu (2015) use the same extremal eigenratio and optimize driver placement, and Orouskhani, Jalili and Yu (2016) separately optimize driver sets and gains. The latter already recognize dependence of optimal driver sets on gain, so that general observation is prior knowledge. The inspected works do not state or imply the exact return of a unique optimum on a fixed four-vertex weighted path. Jafarizadeh (2024) derives a more general weighted-network optimization program including singly pinned paths, but optimizes edge weights and feedback gains jointly; that does not provide these fixed-parameter comparisons. Indexed public mathematical research comparisons and the available historical claim corpus did not reveal this same finite example. Incomplete and unindexed coverage leaves a publication-priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-One-time centrality rankings and simple monotonic-in-gain rules for pin-location selection are appealing shortcuts for a computationally intensive eigenratio objective. The strict, exact and perturbation-stable return on the smallest practical example explored here shows such monotone rules are unsound in general, and supplies a tiny reproducible regression test for gain-aware pinning optimization. Its significance is the robust qualitative counterexample, not its graph size or a quantitative gain-factor improvement.
+The fixed-gain site-placement problem and augmented-Laplacian eigenratio are prior. The supported distinct claim is the strict return of the uniquely optimal site on one fixed weighted four-path, with a provable eventual winner and finite-gain perturbation robustness, not the general dependence of site choices on gain. The 2024 weighted path paper is the most plausible unresolved comparison; no claim about its unexamined fixed-gain content is made.
 
-## Scope and residual risks
+## value
 
-Three specified positive gain values and the eventual large-gain winner are classified, with no minimum-order assertion, full switching diagram, independent audit, or dynamical stability theorem beyond the chosen proxy. The closest primary texts are listed in RESULT.md; related results absent from indexes may exist.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A strict switch and return among all four placements on one simple fixed graph refutes the idea that a change in common gain generates only a one-way ordering of preferred sites. The test is exact, persists under simultaneous parameter perturbations, and includes a provable high-gain tail, so it is useful as a structural counterexample and a tiny regression case for gain-aware placement rather than a numerical tie or an isolated spectral value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Review of the fixing-polynomial comparison
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Pointwise-stabilizer failure is exactly containment in a nonidentity automorphism's fixed set. The root-neighborhood six-cycle bounds Shrikhande automorphisms by 192; twelve explicit connection-preserving matrices and sixteen translations meet this bound. Seven distinct order-four kernels yield precisely 28 maximal cosets. The rook group is the full wreath-type row/column group; its nonidentity fixed sets yield precisely twelve slabs and twenty-four transversals. Exact subset counts follow from finite intersection counting; positive polynomial coefficients yield the entire Bernoulli reliability comparison. An independently written graph-isomorphism-based verifier and a formula-based verifier each check all 65,536 subsets on each graph. No infinite-domain assertion is made.
+PASS
 
-## Originality — PASS, with historical priority risk
+Nonbases are precisely subsets of a nonidentity automorphism's fixed set. The Shrikhande neighborhood six-cycle and the distinct signatures of the nine other vertices bound a root stabilizer by 12; the twelve connection-preserving matrices attain the bound. The seven order-four kernels are the six cyclic subgroups and the subgroup of all elements of order dividing two. Translating their kernels yields exactly 28 maximal fixed sets; a triple in one of them generates its order-four subgroup by differences, so no triple is double counted. Rook automorphisms preserve or swap the two row/column clique families. Nonidentity preservers leave at most two fixed rows or at most two fixed columns, while swappers have fixed sets contained in permutation transversals. Each slab and each full transversal is attained, and they are incomparable. The independent adjacency-bijection check, without assuming either group formula, obtained 192 and 1152 automorphisms and recovered both maximal families and their full down-closures. The coefficient difference from degrees 3 to 8 is (448,784,672,336,96,12). It gives determining numbers 3 and 4, guarantees at 5 and 9, respectively, and a strict difference under i.i.d. Bernoulli selection, since every positive coefficient has positive weight p^k(1−p)^(16−k) in the open interval.
 
-Boutin (2006) establishes the fixing/determining notion and stabilizer methods, and Boutin (2009), Lemma 1, supplies a more general Cartesian-product criterion, explicitly **covering the general rook membership test**. These precedents are credited. An earlier centroidal-locating census on this same graph pair already establishes the twelve failing rook eight-slabs and a stronger nine-sensor rook guarantee, which implies our nine-set fixing claim; these components are explicitly credited as covered. Neither accessible foundational primary text nor the earlier centroidal statement establishes the 28 Shrikhande four-cosets or the exact six-term positive **fixing**-polynomial difference for the canonical strongly regular graph pair. Accessible mathematical-record searches for the fixing polynomial, pointwise bases, cosets, transversals, and graph-pair aliases did not identify a dominating exact statement. A later general fixing-parameter source was only available as an abstract, so an unindexed or inaccessible prior full enumeration remains a real residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-The two graphs have identical strongly regular parameters and the fixing-polynomial comparison differentiates every uniform independent detector deployment probability in the open interval. The full classification establishes the exact failure configurations, thresholds for guaranteed success, and all-cardinality counts. This is a natural complete symmetry-recovery classification, not an arbitrary parameter slice, although it has no asserted extension beyond these two graphs.
+The rook obstruction criterion is covered as a specialization of the known Cartesian-product determining-set criterion, and the high-cardinality centroidal comparison also overlaps. The Shrikhande coset classification and precise coefficientwise pointwise-fixing comparison are the distinct supported contribution; neither a general fixing-set method nor a count of sensor sets under a different predicate yields them in the inspected evidence.
 
-## Scientific limitations
+## value
 
-Reproduction requires Python 3, with NetworkX 2.8+ for the independent adjacency-based script. The historical search does not prove universal novelty. The numerical verifiers independently rederive a finite claim but are not external validation. The general Cartesian-product criterion already contains the abstract rook test.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The graphs share (16,6,2,2), so the difference is a concrete invariant invisible to their strongly regular parameters. The Shrikhande coset description yields the exact shape of failures, not merely their count or a minimum base size. The combined all-cardinality census proves uniform Bernoulli advantage rather than just a threshold difference; the alternative sensor predicates show why specifying the fixing event matters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-Cherry contraction gives the exact \(s\)-cherry inclusion probability, enabling a complete mixed-factorial-moment proof. Repeated physical cherries across multiple index types are \(O(n^{-1})\) because at least three independent trees must contain the same cherry. An exact clade-size probability and a uniform \(O(n^{-1})\) bound eliminate all shared clades larger than cherries. Finite covariance follows from total covariance and the exact PDA cherry variance. Standalone rational enumeration checks 231 assertions up to six leaves. The complete joint limit is analytic; finite enumeration is corroboration only.
+## correctness
 
-## Originality — PASS with historical-priority qualification
-Steel (1988) and Bryant–Steel (2008) establish the two-tree/single-reference Poisson background and are not claimed as new. Zhu–Than–Wu (2014) establish clade-probability identities; McKenzie–Steel (2000) studies one-tree cherry distribution. None of the examined accessible material states the joint law of all pairwise rooted PDA clade overlaps for fixed \(q\ge3\) plus its finite shared-index covariance. A research index contains a superficially related theorem on common **edges** of independent Cayley trees; it neither uses PDA trees nor counts shared clades. Steel's 1988 full text was inaccessible through the inspected publisher page, so an earlier joint refinement cannot be categorically excluded.
+PASS
 
-## Value — PASS
-Multiple independent inferred phylogenies are often compared via a matrix of pairwise Robinson–Foulds distances. Known marginal null distributions do not show whether multiple comparisons can be simultaneously calibrated as independent. The full joint convergence and explicit finite positive dependence answer that question in the natural uniform PDA null model, including the probability of all pairwise maximal distances. The precise finite covariance exposes a meaningful boundary to asymptotic independence.
+Contraction gives the claimed joint cherry probability for specified disjoint pairs. In the mixed factorial moment let g be the number of distinct leaf pair labels, v the number of distinct leaves, and e the number of incidences (distinct leaf pair, tree required to contain it). A feasible pattern contributes O(n^(v-e)); v<=2g and e>=2g. A repeated label across different overlap coordinates makes e>=2g+1, and a leaf shared by distinct labels makes v<=2g-1. The remaining distinct disjoint configurations give 8^(-R). The contraction formula for each clade size has increasing successive ratios; sizes 3 through n-2 are bounded by the equal endpoint probabilities, and size n-1 contributes n/(2n-3)^2. The resulting O(1/n) error transfers the array for fixed q; the joint zero event is a continuity set when tested using a box with half-integer bounds. In the exact covariance calculation, conditional independence given the shared tree reduces the covariance to its cherry-count variance times (2n-3)^(-2). The variance follows from the first two factorial moments, E C=binom(n,2)/(2n-3), E(C)_2=6 binom(n,4)/[(2n-3)(2n-5)], and simplifies to the stated positive expression for n>=4. Disjoint index pairs involve independent inputs.
 
-## Limits
-The number of trees is fixed, no rate in multivariate total variation is proved, and the covariance statement concerns cherries rather than full finite-sample common clades. Historical-priority uncertainty and absence of independent validation remain.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported incremental claim is the complete fixed-q array in the rooted PDA model with an explicit finite-size shared-tree dependence contrast. The one-pair Poisson law, its rooted/unrooted relabeling, and the one-tree cherry variance are not credited as new. The closest all-pairs analogue has a different tree distribution and a different event (edge intersection).
+
+## value
+
+PASS
+
+The relevant statistical object for more than two trees is the distance matrix, not a single entry. The full law answers a simultaneous extreme-distance event that scalar limits do not determine, and separates finite shared-tree dependence from limiting independence. This is a modest, meaningful extension in the standard uniform topology model; the scalar law and conditional variance algebra alone would not justify acceptance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

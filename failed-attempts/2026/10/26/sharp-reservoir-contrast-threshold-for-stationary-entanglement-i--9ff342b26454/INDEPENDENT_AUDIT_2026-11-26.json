@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:02:16.170552Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A stationary state exists by finite-dimensional time averaging. Its support must be invariant under every jump (take the stationary equation on its kernel); the four nonzero local raising/lowering jumps generate the full matrix algebra, hence it is faithful. The adjoint fixed-point dissipation identity, traced against this state, forces every fixed observable to commute with every jump, so only scalars are fixed and the trace-one stationary state is unique. Phase covariance gives the stated X form. Independent exact replay with python3 /workspace/checks/qubit_algebra.py confirmed the generator equations, signs for c=ρ_10,01, and the concurrence polynomial and complementary-bath factorization. Solving gives z=(1+t²)⁻¹, c=2iJdz/(κ+iΔ) and the two extremal populations q²−d²z,(1−q)²−d²z, both positive under the strict occupation bounds. Thus the sign is that of F(z)=−h²+2d²(1−h)z−d²(1+d²)z². When d≠0 the maximizer is strictly inside (0,1), and both end values are negative. Its maximum is positive iff d²(1−2h)>h². Equality gives zero rather than positive concurrence. The strictly decreasing bijection from t≥0 to z∈(0,1] maps the two roots to the asserted finite open interval. At q=1/2 the inequality reduces to t²−2|m|t+1−m²<0, with the claimed roots and width. The result quantifies existence over J, not positivity at every J. The supplied checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2003.01426v2 Eqs. (6)–(9) solve the local model with Γ_h and Γ_c separately, and Sec. 4.1 gives the exact entanglement test. Eq. (4) gives the positive-temperature bosonic physical specialization; the algebra of Eqs. (3), (6)–(9) uses the four rate coefficients, not a bosonic restriction.",
+          "Brask et al. p. 4 and Sec. V discuss fermionic rates and inversion at resonance without requiring equal rates. In contrast, Wang et al. arXiv:1812.04799 use a nonsecular Bloch–Redfield equation, and Tacchino et al. use collective coupling modes."
+        ],
+        "reasoning": "The earlier rate-symbol solution treats unequal totals and detuning; specializing its equations to this model is stronger evidence than similarity of X forms in the two other Lindbladians. Brask et al. complement the scope comparison on p>1/2, rather than proving a detuned phase diagram.",
+        "searches": [
+          "Khandelwal–Palazzo–Brunner–Haack, Critical heat current for operating an entanglement engine",
+          "Brask et al., Operational nonclassicality in minimal autonomous thermal machines",
+          "arXiv:1812.04799 and arXiv:1710.01377"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_lindblad.py",
+        "arXiv:2003.01426v2, 2106.11928v2, 1504.00187, 1812.04799 and 1710.01377",
+        "Resultary 25a4a404999e and 1e0867d1d987"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Set γ_j^+=κp_j, γ_j^−=κ(1−p_j), and x=4g²/(κ²+δ²). The prior expressions give (1+x)r_1=q²x+p_1p_2, (1+x)r_4=(1−q)²x+(1−p_1)(1−p_2), and (1+x)|c|=|d|√x. With D=d² the prior inequality is −h²x²+[2D(1−h)−2h²]x−[(q²−D)((1−q)²−D)]>0. Its discriminant is 4D[D(1−2h)−h²].",
+          "For D>0, positive discriminant implies positive sum of the roots; their product is positive under strict occupations. Thus the two positive roots give precisely the same interval in t=√x. For q=1/2 one has r_1=r_4, and taking the square root of the prior inequality immediately gives t²−2|m|t+1−m²<0."
+        ],
+        "reasoning": "The elimination is a direct quadratic discriminant calculation on previously supplied populations and entanglement sign, not a new bound or stronger feasibility theorem. Detuning disappears from the coefficient test by the rate normalization already visible in the prior solution.",
+        "searches": [
+          "arXiv:2003.01426v2 Eqs. (6)–(9), Sec. 4.1; γ_h^± and γ_c^± specialized to equal totals"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Khandelwal et al. use the same exchange and independent local D[σ_±] terms, with rates γ_j^±. Removing the common energy term proportional to n_1+n_2 leaves the detuning Hamiltonian; matching the hot/cold ordering fixes the sign of δ without changing |c|.",
+          "Their negativity positivity condition is |c|²>r_1 r_4, the same criterion as positive concurrence here. Brask et al. explicitly use Γ_j^+=γ_j p_j and Γ_j^−=γ_j(1−p_j) in the resonant uncharged fermion case and admit negative-temperature population inversion."
+        ],
+        "reasoning": "For two qubits positivity of either entanglement measure agrees; in this X form both criteria see exactly the coherence and the two extremal populations. The Khandelwal formulas are algebraic in the γ_j^± and the generator is the same for fixed positive jump rates, regardless of which bath statistics realizes them.",
+        "searches": [
+          "two qubits local dissipation stationary entanglement exchange equal total rates critical population inversion coupling threshold concurrence",
+          "arXiv:2003.01426v2 Eqs. (2)–(9) and Sec. 4.1",
+          "arXiv:2106.11928v2 uncharged fermions and population inversion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest checked archive records use global Poisson resets, with J X_1 X_2 and local bit flips (25a4a404999e), or pair conversion with local dephasing (1e0867d1d987). Neither has the same dynamics.",
+          "The relevant prior exact data are the symbolic stationary populations and coherence in arXiv:2003.01426v2, not a table of numerical threshold values."
+        ],
+        "reasoning": "Reset thresholds in the archive are not interchangeable with a pump/loss threshold. The primary paper supplies the exact functions needed to compute the boundary throughout the rate domain; no pointwise concurrence table is needed.",
+        "searches": [
+          "Resultary local amplitude pump/loss exchange concurrence threshold and two-qubit reset entanglement",
+          "25a4a404999e",
+          "1e0867d1d987",
+          "arXiv:2003.01426v2 Eqs. (6)–(9)"
+        ]
+      },
+      "rationale": "The exact local detuned exchange Lindbladian, general rate-symbol stationary X-state, and exact entanglement criterion were already given by Khandelwal et al. (2020). After imposing equal total rates the claimed condition and entire coupling interval are the discriminant and positive-root interval of a quadratic directly in those displayed formulas. The inverted fermionic realization in Brask et al. corroborates the resonant model for occupations above one half; it is not necessary to identify the formal Lindblad rates with physical positive-temperature bosonic rates. The earlier authors did not need to state the boundary in (q,d) coordinates for the implication to hold.",
+      "residual_risks": [
+        "The comparison is not a global historical priority determination. Khandelwal et al.'s bosonic physical realization is narrower in occupations than the frozen abstract rate model; the demonstrated coverage is an algebraic implication of their rate-symbol formulas for the identical generator, not a claim that a positive-temperature bosonic bath realizes inverted occupations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive prior coverage on the level of the generator, algebraic steady state and entanglement sign; simple elimination gives the claimed boundary",
+          "evidence": [
+            "Eqs. (2)–(3) give exchange and four local jumps. Eqs. (7)–(9) give r_1,r_4,c in terms of the rates and detuning; Sec. 4.1 explicitly uses |c|²>r_1 r_4."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2003.01426",
+          "material_read": "arXiv v2 Eqs. (2)–(4), offsets 6630–8516 and 10750–13271; Eqs. (6)–(9), offsets 13580–15450; Sec. 4.1, offsets 23350–24795",
+          "method": "Original OA PDF, bounded passages and direct algebraic comparison",
+          "title": "Critical heat current for operating an entanglement engine",
+          "trigger": "Exact matching two-qubit exchange and local weak-coupling Lindblad model with detuning"
+        },
+        {
+          "assessment": "Resonant local model covers fermionic occupations and inversion; operational metrics and idealized extremal-bath example are not asserted to give the full detuned formula",
+          "evidence": [
+            "Rates are γ_j times n_FD and 1−n_FD, and Sec. V allows T_A<0 with n_FD>1/2."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2106.11928v2",
+          "material_read": "Fermions without charge, p. 4/offsets 21850–25330, and Sec. V/offsets 52300–57350",
+          "method": "Targeted literature search; original OA PDF passages",
+          "title": "Operational nonclassicality in minimal autonomous thermal machines",
+          "trigger": "Local fermionic pumping and losses with possible inversion and the same flip-flop interaction"
+        },
+        {
+          "assessment": "Earlier related local-jump thermal realization and concurrence optimization, but the cited passage does not state this arbitrary-rate discriminant",
+          "evidence": [
+            "Two independent flux-qubit bath raising/lowering operators, thermal excitation and relaxation rates, and optimized stationary concurrence versus temperatures."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1504.00187",
+          "material_read": "Flux-qubit realization, p. 6, Eq. (10) and following text, offsets 15180–17291",
+          "method": "Original OA PDF passage",
+          "title": "Autonomous quantum thermal machine for generating steady-state entanglement",
+          "trigger": "Earlier two-qubit entanglement machine and optimization over coupling"
+        },
+        {
+          "assessment": "Similar entanglement competition but a distinct master equation",
+          "evidence": [
+            "Nonsecular Bloch–Redfield rates depend on bath occupations at system transition frequencies."
+          ],
+          "identifier_or_url": "arXiv:1812.04799",
+          "material_read": "PDF pp. 3–6, exchange interaction, Eqs. (10)–(15), stationary concurrence",
+          "method": "Original OA PDF passages",
+          "title": "Steady-state entanglement and coherence of the coupled qubit system in equilibrium and nonequilibrium environments",
+          "trigger": "Exact related steady state and X-state concurrence"
+        },
+        {
+          "assessment": "Different collective dissipative mechanism",
+          "evidence": [
+            "Effective reservoirs couple to symmetric and antisymmetric combinations of the qubit operators, rather than to separate local pump/loss operators."
+          ],
+          "identifier_or_url": "arXiv:1710.01377",
+          "material_read": "PDF pp. 1–2, symmetric/antisymmetric jumps and Eq. (4)",
+          "method": "Original OA PDF passages",
+          "title": "Steady state entanglement beyond thermal limits",
+          "trigger": "Two-qubit machine with analytic concurrence"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The explicit occupation coordinates and bounded window are convenient, and the derivation is correct, but the central feasibility result is a one-variable discriminant test of the prior exact stationary state and positivity criterion. The complementary-bath width is a further direct simplification. The record does not establish a substantive uncovered result beyond this reparameterization and elimination.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

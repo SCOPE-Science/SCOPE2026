@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:00:07.313060Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, definitions, exact Markov identity, and full table; VERIFICATION.md; verify_exact.py",
+        "Separate exact replay: /workspace/branches/3347929a-026a-4c5a-8944-7555b04fa5f2/independent_check.py and full_check.txt"
+      ],
+      "rationale": "The first-step linear system uses weights 1/(n d_receiver), 1/(n d_sender) and 1/(2|E|) for VM, IP and LD respectively. The diagonal retains all no-op attempts and the fair-i.i.d. average divides by 2^n, including the absorbing initial states with zero time. A connected graph admits a positive-probability sequence of copies down a spanning tree that makes any configuration monochromatic, so the transient resolvent exists. At n<=2 there is no eligible nonedge; at n=3 only the path-to-triangle case occurs. At n=4 the trees give one star and two path orbits, the unicyclic paw and C4 give one orbit each, and the diamond gives the sole five-edge orbit. A separately written exact-rational solver reproduced the entire table: n=3 differences in VM/LD/IP order are (0,-1/2,-3/2); the four-vertex positive counts are 2/0/1, with all six LD differences negative. It recovered the VM star-to-paw 155/208, LD star-to-paw -1/17 and IP square-to-diamond 35/88, as well as five-vertex LD star means 613/48 before and 693195/52592 after, yielding 32327/78888. These establish sharp boundaries 4,5,4 in VM/LD/IP order. The frozen program was inspected, not executed.",
+      "residual_risks": [
+        "Witness only at five vertices, not a complete order-five classification. The calculation is for attempts, not discordant-only updates or fixed per-edge total clocks across different graphs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Existing work handles exact configuration equations with balanced starts, asymptotic effects of changing density in two-clique LD networks, and discordant-only copying."
+        ],
+        "reasoning": "A finite graph maximizer under a different start does not order the endpoints of every marked edge insertion for the fair-i.i.d. mean. Family-level and discordant-clock results likewise do not subsume the classification.",
+        "searches": [
+          "Iwamasa–Masuda arXiv:1404.6360, pp. 3–4",
+          "Masuda arXiv:1403.4763, pp. 3,8",
+          "Cooper–Dyer–Frieze–Rivera arXiv:1604.06884, p. 2"
+        ]
+      },
+      "checked_sources": [
+        "Named Resultary mirror records and four OA primary papers above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An LD increase with decreased variance implies a mean increase at five, but excluding that joint event through four does not exclude a mean increase alone. The balanced finite-state calculation supplies a method but not the iid average across all Hamming strata or the marked-nonedge sign comparison."
+        ],
+        "reasoning": "The known LD upper bound and exact VM equivalence are credited; the uncovered mean-only and IP statements plus the joint layer distinguish the result.",
+        "searches": [
+          "Indexed mean–variance Finding and Complete finite census, offsets 0 and 3350",
+          "Iwamasa–Masuda balanced initialization and exact small-state setup"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The November record's exchangeable-law formula specializes to the same VM fair start; total rate four converts 155/832 and 35/7488 to 155/208 and 35/1872. The protocols also appear as receiver-first voter, sender-first invasion and uniformly oriented link copying."
+        ],
+        "reasoning": "The VM equivalence is exact, not an apparent difference due to terminology or time unit. It gives neither the invasion contrast nor all three rules.",
+        "searches": [
+          "Resultary voter consensus edge addition slowdown and minimum order",
+          "2026/11/2/SCOPE-exchangeable-initial-law-invariance-and-the-first-edge-induced-c--9d2df4014132, Finding",
+          "arXiv:0712.4288 p. 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "November VM record gives the same two positive VM entries. The same-day LD moment-pair census makes paired-sign claims and verifies one different positive mean witness at five; the table of paired-sign counts cannot rule out an LD increase with nondecreasing variance at four. The diversity reversal record gives a binary/three-opinion contrast at six, not this three-rule table."
+        ],
+        "reasoning": "The located exact results give real partial coverage. The sought IP and joint VM/LD/IP mean table were not located in the inspected statements.",
+        "searches": [
+          "Resultary: four/five-agent link-dynamics mean–variance; six-agent diversity reversal; VM exchangeable initial law and edge insertion",
+          "arXiv:1404.6360, §III"
+        ]
+      },
+      "rationale": "The supported distinct claim is the joint sharp cross-rule boundary, specifically the IP cutoff and complete IP contrasts at the same six edge orbits, the LD mean-only exclusion through four paired with the star witness, and the comparison of all three rules on the same changes. This is not a pass for the VM subresult in isolation: a distinct November indexed record covers it exactly after clock and initial-law conversion. The same-day LD mean–variance record already covers the LD star-to-paw delta and that a five-agent mean slowdown is possible; it does not state the mean-only exclusion or the same star witness. Neither the indexed overlaps nor the primary passages supply the full three-rule classification. Record dates do not determine priority.",
+      "residual_risks": [
+        "Unindexed exact finite tables are possible. The VM match and LD partial overlap are established, not treated as access uncertainty; historical priority is not assessed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of the VM boundary and two positive differences, not IP or LD",
+          "evidence": [
+            "Equal after applying the exchangeable-law relation and total rate four."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exchangeable-initial-law-invariance-and-the-first-edge-induced-c--9d2df4014132",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exchangeable initial-law invariance and the first edge-induced consensus slowdown",
+          "trigger": "Exact-looking VM cutoff"
+        },
+        {
+          "assessment": "Same probability model; joint mean/variance conditions, not the six mean-only signs",
+          "evidence": [
+            "Shares -1/17 at four and gives a different positive LD mean witness at five."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-four-and-five-agent-mean-variance-tradeoffs-under-added-vo--ba98d8521d40",
+          "material_read": "Mirrored Finding and complete census, offsets 0 and 3350",
+          "method": "Local Resultary mirror",
+          "title": "Sharp four- and five-agent mean–variance tradeoffs under added voter-model links",
+          "trigger": "Same-day LD moment and sharp cutoff overlap"
+        },
+        {
+          "assessment": "Different sharp boundary",
+          "evidence": [
+            "Binary slowdown versus three-opinion acceleration under receiver-first copying."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-six-agents-are-the-sharp-threshold-for-opinion-diversity-reversa--ed2280e18d93",
+          "material_read": "Mirrored Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Six agents are the sharp threshold for opinion diversity reversal",
+          "trigger": "Related same-day edge slowdown result"
+        },
+        {
+          "assessment": "Established protocols, not a marked-edge census",
+          "evidence": [
+            "Definitions of VM, IP and LD with time 1/N per update."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0712.4288",
+          "material_read": "OA PDF p. 2, offset 7100",
+          "method": "OA primary PDF passage",
+          "title": "Voter Models on Heterogeneous Networks",
+          "trigger": "Same three update rules"
+        },
+        {
+          "assessment": "Closest established exact method, different initialization and optimization question",
+          "evidence": [
+            "Uses balanced starts and exact equations; compares graph maximizers rather than all single-edge insertion signs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1404.6360",
+          "material_read": "OA PDF pp. 3–4, offsets 7000 and 10300",
+          "method": "OA primary PDF passages",
+          "title": "Networks Maximizing the Consensus Time of Voter Models",
+          "trigger": "Exact small-network calculation and four-vertex example"
+        },
+        {
+          "assessment": "Related family, not a minimum over simple connected graphs",
+          "evidence": [
+            "Interclique-link density produces O(N) to O(N^2) crossover."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1403.4763",
+          "material_read": "OA PDF pp. 3 and 8, offsets 5300 and 20400",
+          "method": "OA primary PDF passages",
+          "title": "Voter Model on the Two-Clique Graph",
+          "trigger": "Changing edge density in LD"
+        },
+        {
+          "assessment": "Different transition and clock convention",
+          "evidence": [
+            "Updates are conditioned on a discordant edge."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1604.06884",
+          "material_read": "OA PDF p. 2, offset 6800",
+          "method": "OA primary PDF passage",
+          "title": "Discordant voting processes on finite graphs",
+          "trigger": "Alternative voter slowdown formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, four-vertex table and five-vertex witness; separate exact replay"
+      ],
+      "rationale": "The same elementary network intervention can help one rule and harm another, and the sharp first orders expose a real distinction between node- and link-sampling, not just a change of units. The six-orbit layer locates where signs diverge, and the LD witness shows the absence of four-agent slowdowns does not extend a single step further. This is useful under the specified normalization independently of a full five-vertex census.",
+      "residual_risks": [
+        "No persistence, broader monotonicity, or application to other start/clock conventions is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

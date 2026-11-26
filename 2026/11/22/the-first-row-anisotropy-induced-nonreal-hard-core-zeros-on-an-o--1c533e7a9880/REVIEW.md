@@ -1,15 +1,21 @@
-# Review of the row-anisotropic five-rung hard-core zero threshold
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim quantifies over every positive homogeneous row ratio, every ladder size through five, and all complex shared fugacities. The three-state transfer counts all allowed occupation configurations, and the exact discriminants reduce to positive polynomials for lengths two through four and to a single Descartes-sign polynomial at five. Disjoint rational sign brackets rigorously establish the simple real baseline at row ratio one; root continuity and a simple discriminant collision prove the complete transition. Exact symbolic identities and a separately formulated direct enumerator replay successfully. The proof makes no assertion about lengths greater than five.
+## correctness
 
-## Originality — PASS on inspected evidence, with priority risk
-Wang–Zhu's general second-order recurrence result covers the symmetric baseline but not the row-asymmetric three-state family or its five-rung failure threshold. Leake–Ryder's general multivariate claw-free criterion yields existence of bad independently chosen vertex weights on clawed graphs; it does not entail a critical **uniform-per-row** ratio, the fact that four rungs are protected, or the degree-five discriminant. Zhu–Lu's composite-graph log-concavity arguments are not an exact zero census for this family. Search of the published mathematical-research database under row-anisotropic ladder, five-rung discriminant, hard-square strip and Lee–Yang aliases found no implication-level match. An earlier unindexed specialized small-graph calculation cannot be ruled out and is the residual historical-priority risk.
+PASS
 
-## Mathematical value — PASS
-A row-wise two-activity hard-square strip is a canonical finite-width equilibrium lattice gas. Whether its negative real fugacity zeros survive symmetry breaking is structurally meaningful because real-rootedness constrains coefficient log-concavity and analytic zero geometry, while the unrestricted multivariate class is known not to enjoy real-rootedness on graphs with claws. The threshold identifies the first physically natural finite-size strip that loses the property, together with the exact two-sided anisotropy window; it is neither an arbitrary isolated coefficient nor a routine restatement of a known scalar recurrence.
+The rung states and their predecessor rules enumerate the weighted independent sets, and row exchange maps (z,t) to (tz,1/t). Independently enumerating two no-adjacent-one rail masks with zero intersection checks every bivariate coefficient through five rungs. I recomputed the discriminants via exact resultants and used exact root counts and gcd checks at t=1 (python3 /workspace/branches/independent_exact.py ladders, SymPy). For t>0 the degree never drops and all coefficients are positive. The first through fourth degrees stay simple and negative by continuity, since their discriminants never vanish. For degree five the normalized discriminant is −G(v), v=(t−1)^2/t; the single sign variation of G and opposite signs at zero and positive infinity give exactly one simple positive root. On t>1 this yields a simple discriminant crossing at T, independently bracketed by 4.01178730250453 and 4.01178730250455. To justify the multiplicity step, the Sylvester determinant of P and its z-derivative would have zero first derivative at any rank defect at least two, so its simple zero forces gcd degree exactly one, hence just one double root. The other three simple real roots persist locally. The sign flip of the discriminant changes the colliding pair to nonreal conjugates; no further collision is possible on that connected outer interval. Reciprocity supplies the other critical point and its outer interval. Strict positivity of the coefficients excludes nonnegative real zeros throughout. Five is the first rung count admitting some positive bias with nonreal zeros, not a claim of nonreal zeros for every bias, every longer ladder or physically positive fugacity.
 
-## Scope and closest prior literature
-The sharp theorem covers only lengths one through five and constant row bias; there is no thermodynamic-limit claim. The baseline at equal row weights follows known real-rootedness recurrences. Closest inspected primary sources: Wang and Zhu, arXiv:1008.2605; Leake and Ryder, arXiv:1610.00805; Zhu and Lu, arXiv:1507.05754. All novelty judgments are relative to available cited literature and relevant recorded comparisons, not a proof of world-first priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The novelty supported is the all-positive-row-bias boundary, including the first admissible length for nonreal roots and the exact five-rung phase diagram. Scalar recurrence methods cover the symmetric baseline, and claw-free weighted real-rootedness already covers short claw-free cases as far as real-rootedness is concerned. Neither addresses a constrained row-homogeneous bias transition in the clawed ladders.
+
+## value
+
+PASS
+
+Uniform row bias is a natural activity perturbation of a finite-width lattice gas. The sharp first failure shows a genuine gap between isotropic, row-homogeneous and unrestricted-weight real-rootedness; in particular a claw alone does not predict the failure on this slice. The exact location and type of the first collision give a concrete benchmark for zero studies of weighted strips, without making an inference about the thermodynamic limit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:40:54.593829Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof §§1–3",
+        "Frozen VERIFICATION.md, verification_output.txt and verify.py (read only)",
+        "Independent exact replay: python3 /tmp/opencode/frozen_math_replay.py, cycles(). It builds the 16-state four-bit overlap matrix for literal pattern avoidance and calculates det(I-zA)=-(z+1)(z^5+z^3+z-1); closed walks are labelled memberships, so its logarithmic derivative counts the cyclic language without the run construction."
+      ],
+      "rationale": "Both domination conditions forbid 000 and 111. For n>=5 two distinct vertices share at most one neighbor, so a repeated nonempty L-signature must consist of the sole central one in a cyclic 00100; the converse holds. In C3 only partitions with a single D vertex work; in C4 the four rotations of 0011 work and both alternating words fail by a two-neighbor collision. For the cyclic language, paired zero and one runs have length 1 or 2, and a singleton one-run cannot sit between two length-2 zero-runs. With k zero-runs, a labelled word has k choices for its distinguished run, while a linear list of k run pairs can be placed at n absolute starts. Comparing these marked objects yields n/k times the transfer trace, even for periodic words. The determinant and exceptional coefficients give the claimed OGF. Its factor 1-z-z^3-z^5 has a simple unique smallest-modulus zero rho by the equality condition of the triangle inequality; the log derivative contributes rho^(-n) with unit amplitude. Positive counts for every n also follow by composing lengths 2 and 3 from zero-runs of length one, except that n=4 needs its separate graph witness.",
+      "residual_risks": [
+        "The count uses labels, ordered sides and open-neighborhood signatures; it is not a rotation quotient or a two-locating-side count."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The EJC article establishes mixed-partition existence in isolate-free graphs; the earlier indexed cycle theorem 12e5f9516f57 requires both sides to be locating-dominating and adds the forbidden pattern 11011.",
+          "The stronger bivariate record gives the complete cardinality-resolved enumerator for the mixed class and separately for the two-sided subclass."
+        ],
+        "reasoning": "Neither existence nor counting a strict subclass can give the mixed count. The full size-refined count of the exact same set, on the other hand, necessarily does.",
+        "searches": [
+          "Chakraborty et al. DOI 10.37236/14049",
+          "Foucaud et al. arXiv:2506.12933",
+          "Resultary 12e5f9516f57 and db04d4cd229b"
+        ]
+      },
+      "checked_sources": [
+        "OEIS A001636",
+        "Resultary db04d4cd229b and 12e5f9516f57",
+        "DOI 10.37236/14049; arXiv:2506.12933 and arXiv:0908.2750"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substituting t=1 into the size-refined polynomial P_A(z,t)=1-tz^2-t^2z^3-t^2z^4-t^2z^5-t^3z^6 gives exactly the target denominator, and its stated log derivative gives the exact coefficients at all n>=5. Pole extraction gives the same growth, and C3/C4 are direct small exceptions."
+        ],
+        "reasoning": "All substantive mixed-cycle statements are explicit or immediate from the refined theorem. The older code-minimization paper and the earlier stricter cycle class alone do not subsume the result.",
+        "searches": [
+          "Resultary db04d4cd229b, Finding and proof §1",
+          "Earlier Resultary 12e5f9516f57, two locating sides; Chen–Lu–Miao arXiv:0908.2750"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed bivariate theorem gives these exact three forbidden patterns for the one-sided class, on the same ordered labelled cycles with ones denoting L.",
+          "OEIS A001636 has the scalar sequence counted by the same determinant log derivative, though its catalogue interpretation is not the mixed partition one."
+        ],
+        "reasoning": "The weighted theorem matches object and constraints, not just numbers. The OEIS equivalence is only scalar and needs the exceptional-degree adjustments.",
+        "searches": [
+          "OEIS A001636 Fielder sequence, offset 1",
+          "Resultary mixed dominating/locating partitions, cyclic avoidance of 000,111,00100; db04d4cd229b"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "With offset 1, A001636 starts 0,2,3,6,10,17,21,38,57. Its rational generating function equals the log derivative before subtracting 2z^2 and 2z^4. The bivariate record likewise notes the identification in its scalar specialization."
+        ],
+        "reasoning": "The match holds for the entire rational series, not just the leading coefficients. The target counts differ at degree four and exclude the non-cycle degree two; neither change requires a new stable-range computation.",
+        "searches": [
+          "OEIS A001636, initial values, recurrence, and generating function",
+          "Resultary db04d4cd229b, Finding and discussion near offset 6500"
+        ]
+      },
+      "rationale": "A distinct size-marked catalogue result explicitly covers the same one-sided class and forbidden patterns for n>=5. Its t=1 specialization gives the complete stable-range scalar OGF and hence its asymptotic. The underlying scalar sequence is also indexed as OEIS A001636 apart from the short-cycle corrections. The stronger catalogue record's date is later than the frozen source path; exact mathematical coverage does not establish historical priority or dependence.",
+      "residual_risks": [
+        "The exact coverage decision does not assign historical priority; the later catalogue path is not proof of a prior discovery.",
+        "The external literature inspection is bounded and does not establish absence from all earlier papers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Dominating exact enumerator for n>=5, same class and forbidden patterns",
+          "evidence": "P_A(z,t) marks |L| and its t=1 projection is the frozen determinant; the proof identifies the same sole collision.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-bivariate-enumeration-and-exponential-scarcity-of-two-sided-loca--db04d4cd229b/RESULT.md",
+          "material_read": "Finding, assumptions and local proof §1, offsets 0–3509; scalar discussion near offset 6500",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Bivariate enumeration and exponential scarcity of two-sided locating-dominating cycle partitions",
+          "trigger": "Strong result with size-marked mixed counts"
+        },
+        {
+          "assessment": "Same scalar coefficients after explicitly accounting for short lengths; no claim of identical graph interpretation",
+          "evidence": "OGF equals the pre-correction log derivative; coefficients at n=2 and n=4 are 2 and 6.",
+          "identifier_or_url": "https://oeis.org/A001636",
+          "material_read": "Entry, offset 0; list, OFFSET 1,2, recurrence and generating function",
+          "method": "Public sequence database entry inspection",
+          "title": "OEIS A001636 (Fielder sequence)",
+          "trigger": "Exact scalar sequence match"
+        },
+        {
+          "assessment": "Shares obstruction analysis, but counts a proper subclass",
+          "evidence": "It excludes 11011 in addition to 000,111,00100 because D must also be locating-dominating.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-exact-enumeration-of-two-locating-dominating-partitions-of-cycle--12e5f9516f57/RESULT.md",
+          "material_read": "Finding, offset 0; local proof, offset 2574",
+          "method": "Local mirror, same snapshot",
+          "title": "Exact enumeration of two locating-dominating partitions of cycles",
+          "trigger": "Earlier related cycle result"
+        },
+        {
+          "assessment": "Direct support for the model and existence comparison; not a whole-paper negative result",
+          "evidence": "General existence for isolate-free graphs and a polynomial construction.",
+          "identifier_or_url": "https://doi.org/10.37236/14049",
+          "material_read": "Article opening/abstract, p.1, offset 0",
+          "method": "Primary journal material",
+          "title": "A note on partitioning the vertex set of a graph into a dominating set and a locating dominating set",
+          "trigger": "Foundational same mixed partition object"
+        },
+        {
+          "assessment": "Two locating parts and different graph classes in the inspected result",
+          "evidence": "The existence classes named include distance-hereditary and maximal outerplanar graphs.",
+          "identifier_or_url": "https://arxiv.org/abs/2506.12933",
+          "material_read": "Opening statement, p.1, offset 3771",
+          "method": "Open-access primary passage",
+          "title": "Locating-dominating partitions for some classes of graphs",
+          "trigger": "Potential neighboring partition theorem"
+        },
+        {
+          "assessment": "Different radius/minimum-code questions",
+          "evidence": "The stated cycle results address identifying codes and radius-two locating domination, not mixed complementary counts.",
+          "identifier_or_url": "https://arxiv.org/abs/0908.2750",
+          "material_read": "Opening/abstract, p.1, offset 0",
+          "method": "Open-access primary passage",
+          "title": "Identifying codes and locating-dominating sets on paths and cycles",
+          "trigger": "Potential earlier cycle invariant"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Resultary db04d4cd229b, exact size-resolved Finding",
+        "OEIS A001636"
+      ],
+      "rationale": "A mixed-partition counting interpretation is intrinsically natural, but the full weighted version with the same local characterization is already available in the checked catalogue. The residual C3/C4 adjustments and pole simplification do not amount to a separate contribution. No distinct surviving repair is supported.",
+      "residual_risks": [
+        "Standalone usefulness of the graph interpretation is distinct from incremental value in the presence of the exact indexed comparison."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

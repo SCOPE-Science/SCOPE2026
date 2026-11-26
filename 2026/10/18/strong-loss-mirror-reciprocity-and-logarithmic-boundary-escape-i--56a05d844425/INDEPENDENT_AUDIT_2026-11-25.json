@@ -1,0 +1,167 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:51:38.759426Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–102, VERIFICATION.md and verify_loss.py (inspected, not executed)",
+        "Yuce–Ramezani arXiv:2212.02879v3 Eq. (1), signs and loss convention",
+        "Independent replay: python /workspace/branches/independent_replay.py 4; direct integrated tensor-equation check on a nonsymmetric profile with repeated weights at three loss scales and transformed coefficient quadrature. At Γ=3000 the maximum channel discrepancy was about 7.58e-5; C(0.3,0.5)=0.7375030870428989 by quadrature."
+      ],
+      "rationale": "The stated open-end signs give eigenvectors u_k(j)=i^j√[2/(N+1)] sin(jq_k) of A with simple eigenvalues t_2 cos(q_k). The zero endpoint sines give the stated Wu_k even at the ends. Its squared magnitude is 2F_{j,k}/(N+1), strictly positive since sin(q_k)>0 and sin(jq_k), cos(jq_k) never both vanish. At finite loss, an eigenvector with real eigenvalue would have B=0 by dissipativity; then it would be an A eigenmode annihilated by W, impossible. Thus all evolution decays and its norm-balance identity gives unit total integrated loss. For the infinite-time strong-loss calculation let η=1/Γ. The zero cluster of ηH_Γ at η=0 is the A subspace; the fast spectrum is that of -iD and lies uniformly below the real axis at fixed N. Analytic spectral projections give an O(η) fast initial component; a fixed contour below -i min(w_j)/2 around the fast cluster bounds its propagator by C exp[-min(w_j)t/(2η)], without requiring simple fast eigenvalues. Its weighted squared integral is O(η²). The slow Schur complement of H_Γ is A-iηWD^-1W+O(η²), with B amplitudes -iηD^-1Wu_k+O(η²). The slow expansion coefficients tend to the overlaps with u_k. Since r_k=<u_k,WD^-1Wu_k>>0, the diagonal time integrals have leading η^-1/(2r_k); off-diagonal integrals are bounded by the nonzero frequency gaps and vanish after multiplying by the O(η) channel prefactor. The fast–slow interference also vanishes, by Cauchy–Schwarz. This proves the finite-sum branching formula and its strict positivity and normalization. Reflection preserves F, giving w_jπ_j=w_{N+1-j}π_{N+1-j} with no symmetry hypothesis on w_j. For the sequential limit the denominator divided by H_N tends to (t_1²+t_2² sin²q)/2 uniformly away from endpoints by the bounded interior cosine sums with weights 1/j. Each F is at least min(t_1²,t_2²) sin²q and F_1 is at most (t_1²+t_2²) sin²q, so the scaled summand is uniformly bounded even near the endpoints. The sine source weight for S=N and the Riemann sum then give exactly the stated integral; H_N/log N→1, and π_N=π_1/N already holds at every fixed size in this profile.",
+      "residual_risks": [
+        "The fast/slow and off-diagonal estimates are at fixed N. Neither the proof nor the bounded checks imply a joint N,Γ limit."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Reiter–Sørensen provide a separate effective Lindblad operator for each decay process. Kessler and Azouit et al. describe slow/fast reductions in broader dissipative settings.",
+          "Uniform-loss analyses cover spatial decay behavior in a special dissipation regime but do not provide the arbitrary-weight identity or a harmonic gradient asymptotic."
+        ],
+        "reasoning": "General elimination overlaps the effective channel construction. It does not state the integrated branching limit on the growing-in-Γ decay time, nor evaluate the modal denominators and lattice reflection or their N-asymptotics in this chain. Uniform loss is not a dominating hypothesis for arbitrary positive nonsymmetric weights.",
+        "searches": [
+          "Reiter–Sørensen arXiv:1112.2806v2, effective operator Eqs. (3)–(5)",
+          "Kessler arXiv:1205.5440v1; Azouit–Sarlette–Rouchon arXiv:1603.04630v1",
+          "Wang–Liu–Zhang arXiv:2011.07441v1; Hu et al. arXiv:2306.08676v2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5f817ec7069b and 73ddd6723d84",
+        "arXiv:2212.02879v3, 2306.08676v2, 2011.07441v1, 1112.2806v2, 1205.5440v1 and 1603.04630v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inspected Green-function representation expresses rather than evaluates the graded, strongly absorbing limit. Its uniform-loss exponent relation α_e=α_b−1 is not the right-end source, linearly graded sequential limit.",
+          "The effective jump formalism identifies leading channel operators; the survival-time integration with nonzero slow-frequency gaps and harmonic-width sum must still be justified to yield the frozen formula and C(t_1,t_2)."
+        ],
+        "reasoning": "Neither the broad exact representation nor finite-parameter numerical concentration implies the stated sharp coefficient or arbitrary-weight pairwise law by restriction alone. The specifically evaluated trigonometric channel fractions and the endpoint-controlled harmonic limit supply distinct statements.",
+        "searches": [
+          "Yuce–Ramezani arXiv:2212.02879v3 graded model and figures",
+          "Hu et al. arXiv:2306.08676v2 uniform-loss exponent relation",
+          "Reiter–Sørensen arXiv:1112.2806v2 effective jump operators"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Yuce–Ramezani define the same hopping signs, B-only loss and integrated site-resolved absorption, and specialize to γ_n=γ n. Their inspected high-loss discussion describes changes of peaks, not an evaluated infinite-loss distribution.",
+          "Hu et al. express the same type of integrated escape observable via a Green function but their edge exponent comparison is for uniform loss."
+        ],
+        "reasoning": "The mirror identity is a relationship between limiting integrated output channels, not reflection of an instantaneous state or a generic finite-loss symmetry. Comparing loss probabilities rather than terminology reveals common observables but different exact claims.",
+        "searches": [
+          "Literature and Resultary: graded non-Hermitian walk, strong loss, quantum Zeno and site-resolved escape",
+          "Yuce–Ramezani arXiv:2212.02879v3 Eqs. (1)–(3)",
+          "Hu et al. arXiv:2306.08676v2 Eqs. (2) and (7)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day Resultary match 5f817ec7069b gives an exact time-integrated survival operator and mean for a path with one terminal sink. The earlier 73ddd6723d84 concerns capture ranks in a rhombic graph with a single detector and a mixed initial state.",
+          "The graded walk paper's numerical profiles do not tabulate exact arbitrary-N infinite-loss probabilities."
+        ],
+        "reasoning": "None of the inspected exact records or numerical profiles states the spatially resolved many-sink distribution and its mirror values. A single-channel mean or eventual-capture probability does not determine relative weights of multiple channels.",
+        "searches": [
+          "Resultary: weighted strong-loss absorption, site-resolved escape and logarithmic boundary asymptotics",
+          "Yuce–Ramezani numerical graded-loss comparisons"
+        ]
+      },
+      "rationale": "The Hamiltonian, integrated-loss observable, linear gradient and numerical edge-burst behavior are prior. General effective decay-channel elimination and Green-function representations are prior tools. The inspected sources do not supply the evaluated fixed-size distribution in this regime, its inverse-weight reflection identity for arbitrary positive profiles, or the sequential logarithmic law and coefficient. The comparison supports the explicit chain-specific evaluation and consequences, not a new general elimination method or the discovery of the physical effect.",
+      "residual_risks": [
+        "This is a bounded statement-level comparison. An unlocated treatment with a specialized evaluation for graded loss or another formulation of the harmonic law may overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers model and finite-loss behavior; no evaluated frozen limit in inspected passages",
+          "evidence": [
+            "A left/right hopping is +it_2/2 and -it_2/2, W hops are real, B alone carries -iγ_n; γ_n=γ n in the linear example."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2212.02879v3",
+          "material_read": "PDF pp. 2–3, Eqs. (1)–(3), numerical discussion at text offsets about 3500, 10200, 15400",
+          "method": "Open primary PDF, model/observable and discussion comparison",
+          "title": "Non-Hermitian edge burst without skin localizations",
+          "trigger": "Identical walk and linear loss gradient"
+        },
+        {
+          "assessment": "Related formalism and a different scaling law",
+          "evidence": [
+            "Integrated loss via Green functions; bulk–edge exponent relation α_e=α_b−1 for the uniform-loss model."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2306.08676v2",
+          "material_read": "PDF p. 2 Eq. (2) and pp. 3–4 Eq. (7), around offsets 12100 and 19500",
+          "method": "Primary PDF, comparison of observable and loss profile",
+          "title": "Steady-state edge burst: From free-particle systems to interaction-induced phenomena",
+          "trigger": "General resolvent and candidate stronger boundary scaling"
+        },
+        {
+          "assessment": "Uniform-loss special setting, not an arbitrary-profile strong-loss result",
+          "evidence": [
+            "Identical loss on B sites in the model considered."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2011.07441v1",
+          "material_read": "PDF pp. 1–2, offsets 0 and about 4900",
+          "method": "Primary PDF, model/decay-probability comparison",
+          "title": "Quantum dynamics on a lossy non-Hermitian lattice",
+          "trigger": "Same hopping motif and boundary escape"
+        },
+        {
+          "assessment": "General ingredient, not the evaluated escape or log law",
+          "evidence": [
+            "One effective Lindblad operator per decay channel."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1112.2806v2",
+          "material_read": "PDF pp. 1–2, offsets 0 and about 6000, Eqs. (3)–(5)",
+          "method": "Primary PDF, effective operators and comparison with integrated channels",
+          "title": "Effective operator formalism for open quantum systems",
+          "trigger": "Closest general channel-resolved elimination"
+        },
+        {
+          "assessment": "Methodological overlap only in passages inspected",
+          "evidence": [
+            "Perturbative effective Liouvillian for slow and fast sectors."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1205.5440v1",
+          "material_read": "PDF pp. 1–2, offsets 0 and about 7800",
+          "method": "Primary PDF, scope and perturbative construction",
+          "title": "Generalized Schrieffer-Wolff formalism for dissipative systems",
+          "trigger": "Broader slow/fast dissipative theory"
+        },
+        {
+          "assessment": "General theory does not state the frozen channel conclusions in inspected passages",
+          "evidence": [
+            "Reduced Lindblad dynamics for a strongly dissipative fast subsystem."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1603.04630v1",
+          "material_read": "PDF pp. 1–2, offsets 0 and about 6400",
+          "method": "Primary PDF, first-order reduction and hypotheses",
+          "title": "Adiabatic elimination for open quantum systems with effective Lindblad master equations",
+          "trigger": "Strong-dissipation reduced dynamics"
+        },
+        {
+          "assessment": "Single terminal sink and different observable; no priority inference from same date",
+          "evidence": [
+            "The output is the integrated survival operator and mean, not per-channel strong-loss weights."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-absorption-time-operator-and-size-independent-sink-optimum--5f817ec7069b",
+          "material_read": "RESULT.md finding and hypotheses for the absorption-time operator",
+          "method": "Local Resultary mirror and comparison of graph, sinks and integrated observables",
+          "title": "Exact absorption-time operator and size-independent sink optimum",
+          "trigger": "Closest Resultary path-absorption record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–26 and 77–108; Yuce–Ramezani graded edge-burst discussion"
+      ],
+      "rationale": "The known numerical remote-edge concentration motivates an exact question for a canonical graded chain. The inverse-loss ratio is geometry-dependent through reflection yet exact for all positive profiles and all source sites at fixed size. For linear loss the exact endpoint ratio N coexists with vanishing absolute end escape probabilities on the two different logarithmic scales; the explicit coefficient is quantitatively useful. This goes beyond observing a peak or writing down a generic elimination equation.",
+      "residual_risks": [
+        "The result does not select an optimal finite loss or describe a simultaneous strong-loss, large-size regime."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

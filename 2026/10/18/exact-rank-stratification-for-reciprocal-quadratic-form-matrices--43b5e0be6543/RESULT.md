@@ -46,7 +46,7 @@ R(X,Y)={}&u_0Y^{p-3}+X^{p-3}+u_{p-3}X^{p-3}Y^{p-1}\\
 &+\sum_{r=1}^{p-4}(u_r+u_{r+p-1})X^rY^{p-3-r}.
 \end{aligned}
 \]
-Let \(V=(i^r)_{0\le i,r<p}\) be the evaluation Vandermonde matrix. It is invertible over \(\mathbb F_p\), and \(M_p(c,d)=VCV^{\mathsf T}\). Hence \(M_p(c,d)\) and \(C\) have the same rank. The displayed nonzero positions occupy disjoint rows and columns except that the rows indexed \(0\) and \(p-1\) share column \(p-3\). The row \(p-3\) has the nonzero entry \(1\) in column \(0\), and the row \(0\) has a nonzero entry \(u_0\) in column \(p-3\). All remaining potentially nonzero positions are isolated in distinct rows and columns. It follows **exactly**, not merely as a bound, that
+Let \(V=(i^r)_{0\le i,r<p}\) be the evaluation Vandermonde matrix. It is invertible over \(\mathbb F_p\), and \(M_p(c,d)=VCV^{\mathsf T}\). Hence \(M_p(c,d)\) and \(C\) have the same rank. The boundary block on rows and columns \(\{0,p-3,p-1\}\) has rank two: row \(p-3\) has entry \(1\) in column \(0\), while rows \(0\) and \(p-1\) have entries only in column \(p-3\), with \(u_0\ne0\) in row \(0\). All potentially nonzero entries outside this block occupy disjoint rows and columns, none in the boundary block. It follows **exactly**, not merely as a bound, that
 \[
 \operatorname{rank}(M_p(c,d))=2+\mathbf1_{u_{p-2}\ne0}+\sum_{r=1}^{p-4}\mathbf1_{u_r+u_{r+p-1}\ne0}.
 \]
@@ -75,7 +75,7 @@ The exponent \(2\) is excluded because the boundary monomials occupying rows \(0
 
 A standalone standard-library Python verifier (`verify.py`) computes the multiplicative order of \(z\) in the explicitly represented quadratic extension \(\mathbb F_{p^2}\), independently performs modular Gaussian elimination on the full \(p\)-by-\(p\) matrix, and checks the formula for **all** irreducible parameter pairs \((c,d)\) at primes \(p=5,7,11,13,17,19,23\): **724 comparisons**, all successful. The proof establishes the universal quantifiers; these finite tests do not establish the infinite result.
 
-For instance, at \(p=19\), \((c,d)=(1,10)\) has a nonsquare discriminant and \(t=4\); the exact rank is \(15\), implying \(19^4\mid D_{19}(1,10)\). This is stronger than the generic square-divisibility statement when the latter applies. At \(p=19\), \((c,d)=(1,2)\) has \(t=20\), giving rank \(17\) and a cubic divisibility bound.
+For instance, at \(p=19\), \((c,d)=(1,10)\) has a nonsquare discriminant and \(t=4\); the exact rank is \(15\), implying \(19^4\mid D_{19}(1,10)\). This is stronger than the generic square-divisibility statement when the latter applies. At \(p=19\), \((c,d)=(1,2)\) has \(t=20\), giving rank \(17\), nullity \(2\), and \(19^2\mid D_{19}(1,2)\).
 
 ## Relationship to prior work
 

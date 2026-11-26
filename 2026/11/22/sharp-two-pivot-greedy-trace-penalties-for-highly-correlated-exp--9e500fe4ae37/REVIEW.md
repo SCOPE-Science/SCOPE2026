@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
-The kernel is the nondegenerate stationary AR(1) covariance. Its conditional-variance formula is established by direct two-site inversion plus the Markov property. All sums, finite boundaries, and strict separation of pivots are given. The uniform expansion uses \(n(1-\rho_n^2)\to0\), and global convergence follows from a strictly convex continuum objective on a compact triangle. The minimax and maximin greedy endpoints are checked carefully: the *maximum* limiting greedy loss occurs at a first pivot at an endpoint **or the midpoint**, not only at an endpoint. Exact rational program checks provide corroboration without substituting for proof.
+## correctness
 
-## Originality: PASS on checked sources, with residual risk
-The tested statement is the sharp \(5/4\)-to-\(5/3\) two-pivot diagonal-greedy trace-loss interval on stationary exponential Toeplitz kernels in the joint large-size/high-correlation limit. Liu–Matthies (2015) specifies the greedy mechanism, and Chen–Epperly–Tropp–Webber (2024) recognizes generic first-pivot tie problems but does not provide this family or its sharp ratio. Mukherjee (2002) and Baldi Antognini–Zagoraiou (2010) treat OU optimal prediction designs: their broader design question could cover the *unrestricted* two-point optimum, which is credited and not itself claimed novel. The sharp **relative penalty under the diagonal-greedy constraint** is not given by the inspected material. Their inaccessible full texts remain a material source-priority risk; this judgment is not proof of uniqueness.
+PASS
 
-## Value: PASS
-Constant kernel diagonals make the initial diagonal-greedy decision completely indifferent, so tie handling is an algorithmically natural concern. The fact that even the best possible tie break incurs at least a 25% asymptotic trace-error penalty and that a determinant-optimal endpoint pair incurs 66.7% supplies a sharp benchmark for subset selection in a standard Markov covariance family. The conclusion is limited to two columns and the specified double limit; no universal low-rank error claim is made.
+Inverting the selected 2×2 covariance with off-diagonal ρ^(j−i) gives the stated conditional diagonals inside the interval, and the farther covariance coordinate is a multiple of the nearer one outside, so the exterior diagonals reduce to 1−t^distance. After one pivot these latter diagonals increase strictly with distance, including the exact midpoint tie. For ε=1−t, (1−t^k)/(kε) is the average of 1,t,...,t^(k−1), between 1−(k−1)ε/2 and 1. This bounds both factors and the denominator of the bridge term uniformly, even for short gaps. Summing and scaling gives the uniform objective F(x,y)=x²/2+(1−y)²/2+(y−x)²/6 with error O(nε+1/n). Its strictly convex minimum is 1/10 at (1/5,4/5). The discrete greedy domain converges to the two reflected half-edges, including midpoint ties; on (x,1), 0≤x≤1/2, F=1/8+(2/3)(x−1/4)². Compactness and density give exactly the claimed extreme values 1/8 and 1/6 and the limiting optimizing sites (up to reflection), so the ratios are 5/4 and 5/3. Finally 1−t^(j−i) increases strictly with separation, proving unique finite determinant maximization by the endpoint pair. The analytic argument is sufficient; recorded finite checks were inspected, not rerun.
 
-## Literature comparison and limitations
-Liu–Matthies arXiv:1505.06195 is read as a primary full-text source. The open-access full text of Chen et al., doi:10.1002/cpa.22234, was inspected, notably its discussion of ties and the comparison of greedy and randomized pivoting. Harbrecht et al., doi:10.1016/j.apnum.2011.10.001, was available only as a repository abstract. The Mukherjee dissertation record (2002) provided an abstract but not the dissertation text; the 2010 optimal-design paper was accessible at abstract level. This is a qualified self-review rather than independent priority certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the AR(1) conditional covariance, maximum-residual-diagonal rule, and historical OU design setting to prior work. The supported distinct claim is the sharp simultaneous grid-limit envelope over allowed greedy tie choices and the trace cost of deterministic determinant maximization on this same family. The strongest available related statements do not give these comparisons; this is a bounded judgment, not a priority guarantee.
+
+## value
+
+PASS
+
+This is a natural normalized covariance family with ubiquitous first-pivot ties. The best possible tie still leaves a 25% asymptotic trace penalty, and an endpoint or central start incurs a 2/3 excess over optimal; determinant maximization selects the same asymptotically worst trace choice. These sharp comparisons distinguish criteria and quantify a practical tie-choice effect, beyond identifying the already-studied optimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

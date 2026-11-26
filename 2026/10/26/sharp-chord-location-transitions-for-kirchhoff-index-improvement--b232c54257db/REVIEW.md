@@ -1,11 +1,21 @@
-# Scientific review: one-edge path resistance reduction
+# Independent mathematical audit
 
-**Correctness (PASS).** The rank-one identity on the mean-zero Laplacian subspace gives the exact objective. Centering the explicit path-current ramp yields the squared-norm polynomial and its strictly negative squared tail-imbalance penalty. A two-neighbor averaging argument rigorously rules out every parity-mismatched chord, with a separate exact comparison at the boundary. The remaining strictly unimodal one-parameter family has the stated exact rational crossings and no skipped phases. The standalone exact-rational check independently constructs grounded inverses and verifies 1,587 configurations, but is not substituted for an infinite proof.
+## correctness
 
-**Originality (PASS, subject to residual risks).** The 2006/2008 Ghosh–Boyd–Saberi paper minimizes effective resistance by reallocating edge weights on fixed graphs. The 2008 Yang–Jiang full text classifies global unweighted unicyclic graph extrema; its bounds and one-tailed formulas do not imply the optimum within all two-tailed path chords as a function of continuously variable shortcut conductance. The 2025 Zhou–Zehmakan–Zhang full text provides the generic edge-addition rank-one formula and approximation algorithms, not an exact path-family location staircase. Statement-level comparison and four meaning-based external research-database searches found no covering result. An uncatalogued specialty result or a different reformulation could still provide prior coverage; no comprehensive proof of global novelty is claimed.
+PASS
 
-**Value (PASS).** This answers a natural one-link network reinforcement problem exactly for every path size and prescribed real positive shortcut conductance. In contrast with simply adding the longest chord, its globally optimal location changes as the new conductance varies, with an exact nine-vertex onset and all subsequent critical weights determined, explaining the interaction of cycle span and tail balance. The phase boundaries supply reproducible benchmark cases for edge-selection algorithms.
+With h=1/t the chord gain is n times the centered ramp variance divided by d+h, using the mean-zero inverse of the path Laplacian. Summing the ramp and its squares, with left and right constant tails, gives C_n(d)−d^2(l−r)^2/(4n). In wrong parity the best imbalance is one; for d>=3 the mean of the two neighboring centered numerators exceeds this by (n−d)^2/(4n), and the denominators average exactly. At wrong-parity d=2 the d=3 neighbor wins both in bare numerator and in numerator divided by length, so it wins for all h>0. For the centered samples, the adjacent difference after positive cross multiplication is h(d−1)(n+1−d)−d(d−2)(4d−3n−4)/6. The derivative of the continuous interpolant has positive numerator up to 3n/4, then a strictly decreasing numerator with derivative (n/2−x)(x+h). Any equality at an adjacent pair therefore places the unique peak strictly between those two lengths and makes that tie global. Positive crossing criteria form a contiguous block from the top; at each crossing the next lower pair is still ordered toward the higher length, so the times are strictly ordered. The first possible crossing is n=9 and has t=7/4. Independent exact-rational checks sum electrical series/parallel resistances, separating path-tail segments from the two cycle arcs; they reproduced the optimal values and all minimizing endpoints at the checked parameters.
 
-**Scientific limits.** Only one added nonadjacent edge is optimized; the path's original conductances stay equal to one. The 2006 foundational conference version has a public conference-date interval but an unverified precise initial release day. The review is not independent validation, and the results have not been checked against every possible prior formulation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact gain update and the unit-conductance optimizer are existing coverage, not distinct contributions. The supported distinct content is the ordered transition classification, including every tie and strict exclusion of asymmetric placements, for the freely prescribed positive conductance and all path orders. The sources compared do not supply this variable-conductance family.
+
+## value
+
+PASS
+
+For the canonical transport network P_n and a single fixed-strength repair, a complete classification of where to put the new edge is meaningful. The thresholds show exactly when preferring a long chord to a centered shorter chord ceases to be optimal, and when uniqueness fails. The all-conductance statement is not the catalogue's unit-edge computation or just a use of the inverse update.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

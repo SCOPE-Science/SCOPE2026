@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:54:08.801024Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For agent i, filling in all indices between a coalition's extremal indices a,b leaves its range unchanged and increases its size. The strongest requirement is thus the maximum of h+z_a−z_b over a<=i<=b, which separates into two independent extrema and yields a concrete attaining block. In particular rho_i>=h>0. With d=x_(i+1)−x_i, each of the nonnegative increments of the running prefix maximum and suffix minimum is at most max(0,d−h). Hence each forbidden endpoint increases by at least min(d,h). A feasible point strictly avoids all agent locations, so in gap k the left exclusions reduce to y>=R_k and the right exclusions to y<=L_(k+1); the sentinels correctly clip the outer gaps to [0,1]. Endpoints remain allowed and coincident agents or empty gaps cause no exception. The slope 2k−n and intercept S_n−2S_k follow by expanding absolute values; testing one endpoint per nonflat gap and retaining whole flat maximizing gaps gives the exact optimum and argmax, or reports infeasibility. The scans use linear arithmetic after sorting. At alpha=2 the midpoints of n equal subintervals each give radius 1/(2n), leaving exactly n+1 isolated endpoints. The prior factor-two existence theorem extends to larger alpha by weakening all inequalities. The strict UFS comparison profile has PF optimum 31/24 and permits 37/24 under UFS, as claimed. Independent reproduction `python3 -B /workspace/review_checks.py 2` verified 1,004 rational instances using direct subset demands, all exclusion cells, and critical-point welfare. The source checker also has an auxiliary sorted endpoint sweep; the stated linear complexity is for the ordered gap scan, not that auxiliary test.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 13 in the inspected PDF proves existence at alpha=2 using groups, intervals, and induction/merging.",
+          "The introductory welfare results concern 2-IFS and 2-UFS and discuss PF as an extension."
+        ],
+        "reasoning": "The existence proof need not produce the entire set or its extremal feasible placements. Welfare optimized under the weaker UFS axiom need not satisfy the strong coalitional axiom, as the exact three-agent example shows.",
+        "searches": [
+          "Obnoxious facility proportional fairness envelope and welfare optimization literature",
+          "arXiv:2301.04340 pp. 2–3, 16–17 and p. 38"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2301.04340 accessible unversioned PDF",
+        "arXiv:2111.01566",
+        "Resultary e3c37f844010"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The existing existence proof supplies a fair point, not all gap endpoints; the welfare optimum for a convex objective could be obtained from the two extremes of the exact feasible set, but neither inspected construction determines those extremes in general.",
+          "At x=(0,17/24,3/4), y=1 has maximal unrestricted welfare and passes 2-UFS, but fails the strongest PF demand of the agent at 3/4."
+        ],
+        "reasoning": "Existence, a weaker optimizer, and attractive contiguous-coalition checking do not logically impose the exact all-coalition optimum or the n+1 component classification. The distinct mathematical content is the endpoint separation and its ordered geometry.",
+        "searches": [
+          "arXiv:2301.04340, Definition 9/Theorem 13 and appendix proof",
+          "arXiv:2111.01566, Definition 6",
+          "Resultary e3c37f844010"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The classic attractive PF statement uses an upper distance/cost condition, whereas the obnoxious statement uses a lower distance bound for each coalition member.",
+          "Lam et al. use open intervals around location groups in proving existence; the frozen intervals instead use the largest of all individual coalition demands."
+        ],
+        "reasoning": "Taking a region outside an open interval is not equivalent to the attractive feasible geometry. Even granting a known contiguous-block reduction, it gives up to quadratically many candidate blocks; it does not state the factorization and ordered forbidden boundaries. The cited footnote wording was not recovered in the independent comparison and is not relied on for acceptance.",
+        "searches": [
+          "arXiv:2111.01566 Definition 6 and contiguous-coalition reference",
+          "arXiv:2301.04340 §6 Definition 9 and Appendix proof of Theorem 13"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary e3c37f844010, RESULT.md Finding, addresses randomized Global Pair with two facilities and a three-site social-cost approximation factor."
+        ],
+        "reasoning": "The nearby hit does not solve deterministic one-facility alpha-PF on arbitrary sorted inputs. This all-input theorem does not arise from an exact finite table; ranked non-retrieval of an equivalent is not evidence that one cannot exist.",
+        "searches": [
+          "Resultary: obnoxious facility PF envelope and welfare; nearest inspected published hit e3c37f844010"
+        ]
+      },
+      "rationale": "The obnoxious PF axiom and universal factor-two existence are prior results. The distinct claim is the all-alpha per-agent exact envelope, ordered gap geometry and linear after-sorting optimization with a sharp disconnectedness bound. The checked existence proof and welfare analysis for weaker notions do not give this full statement. No novelty is claimed for completing coalitions to contiguous blocks as a general technique.",
+      "residual_risks": [
+        "The versioned v1 PDF of arXiv:2301.04340 timed out and section-number differences with the frozen citation could not be resolved. The theorem itself was confirmed in the accessible version.",
+        "Unindexed equivalent algorithms or a general envelope theorem outside the inspected texts are not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known axiom and nonemptiness; no exact complete-set/welfare coverage in the inspected material",
+          "evidence": "Definition 9 and Theorem 13 in the accessed version give the same axiom and factor-two existence. Its appendix uses groups and interval merging; the welfare claims use 2-IFS/2-UFS.",
+          "identifier_or_url": "https://arxiv.org/pdf/2301.04340",
+          "material_read": "Accessible PDF §6 pp. 16–17 (offsets 56000–62447), p. 38 existence proof (163900–168441), introduction pp. 2–3 (6650–11828)",
+          "method": "Compared the statement, proof construction and welfare axioms",
+          "title": "Proportional Fairness in Obnoxious Facility Location",
+          "trigger": "Same strong axiom and closest existence and welfare theorems"
+        },
+        {
+          "assessment": "Related attractive axiom, not the obnoxious exclusion geometry",
+          "evidence": "The cost is upper-bounded, unlike the distance lower bound at issue. The frozen text already excludes the contiguous reduction from its novelty claim.",
+          "identifier_or_url": "https://arxiv.org/pdf/2111.01566",
+          "material_read": "Definition 6 p. 11, near offset 28793; specifically cited footnote not recovered",
+          "method": "Compared definitions and sought the footnote in accessible text",
+          "title": "Strategyproof and Proportionally Fair Facility Location",
+          "trigger": "Potential prior reduction to contiguous coalitions"
+        },
+        {
+          "assessment": "A different two-facility problem",
+          "evidence": "Randomized Global Pair approximation on three occupied sites is not a one-facility coalitional envelope.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-finite-population-phase-transition-for-three-site-distance--e3c37f844010",
+          "material_read": "Local mirrored RESULT.md, Finding and problem scope",
+          "method": "Compared rule, number of facilities, objective and input regime",
+          "title": "Exact finite-population phase transition for three-site distance",
+          "trigger": "Closest topical indexed record, considered irrespective of date"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The complete fair region and certifying coalition demands address a natural shortcoming of a pure existence result. The sharp n+1 components demonstrate that there is genuinely linear-size set-valued output to represent, and the strict UFS/PF welfare separation shows why the established weaker optimization cannot simply be reused. The result does not claim incentives or multi-facility scope.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

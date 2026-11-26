@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The standalone checker is `verify.py`, requiring only Python 3's standard library. Execute `python3 verify.py` from the directory containing this document and the script. The supplied execution reported:
+## correctness
 
-```
-PASS: 23097 exact-rational equalities and shape checks; four-person optimum checked.
-The proof of the universal no-more-than-one-turn law is analytic, not by enumeration.
-```
+PASS
 
-The checker independently constructs the finite polynomial from binomial counts, differentiates it, checks the analytical formula at rational points, and tests the derivative's sign against a reparameterized exact-power comparison. It verifies the minimum for four-person three-of-four adoption, its rational value, and the absence of two- or three-person reversals. It checks samples at group sizes two through ten, integer thresholds, seven rational active-type proportions, and twenty rational homophily values per parameter combination; it does not enumerate infinitely many real parameter choices.
+Differentiating the binomial tail telescopes to n·binom(n−1,m−1) z^(m−1)(1−z)^(n−m); the two latent components give opposite derivatives with the same positive factor pq. For 0<h<1, t=h/(1−h) makes the sign that of L(t)=a log(1+t/p)−b log(1+t/q). The numerator of L′ is a−(n−1)p+(a−b)t. With L(0)=0 and growth at infinity of sign a−b, this gives the full strict-sign/one-turn alternatives, also at p=p_c and with either exponent zero. Equal exponents are positive for n≥2 and give the stated comparison with p=1/2; at p=1/2 symmetry gives F=1/2. For n=2,3 the exponents are equal or one is zero, so none can turn. For n=4, m=3, p=4/5 the positive root is t=8/5. Direct integer evaluation of the mixture, using component probabilities 12/13 and 4/13 at the root, gives the claimed endpoint and minimum fractions 512/625, 8704/10985, 4/5. At a positive root the numerator of L′ has already passed its only zero, hence the turning point is nondegenerate. The grid values of the smooth threshold away from ties converge to their hard indicators; the fixed-degree polynomial and two derivatives converge uniformly, preserving a local extremum of the same kind, not necessarily the global phase diagram. Replay: RESULT.md lines 23–81; inspected verify.py lines 86–140 and VERIFICATION.md's frozen 23,097 finite checks, not rerun. Only the group-level response under the stated fixed-size mixture is validated.
 
-The universal theorem depends on the displayed analytic identity for the binomial-tail derivative and the affine numerator of the logarithmic derivative. The finite-steepness persistence claim depends on coefficientwise, hence derivative-uniform, convergence of fixed-degree polynomials. No external audit or independent validation has been performed.
+## originality
+
+PASS
+
+The exact law of composition, averaged group response, and hard-threshold binomial-tail representation are already in Ribordy et al. The surviving distinction is the finite-size derivative phase diagram for the unconditional adoption probability, including the minimal turning example. The ordinary perturbation argument for smooth local persistence is a consequence of the newly classified nondegenerate turn, not a separate novelty basis.
+
+## value
+
+PASS
+
+The unconditional group adoption fraction is a defined observable in the motivating model, not an arbitrary chosen statistic. Its exact finite-size phase boundary answers when homophily changes from helping to hurting adoption or vice versa, and the minimal four-person witness gives a precise benchmark below both endpoints. These are useful facts about behavioral aggregation without asserting any corresponding epidemic-threshold, prevalence, or policy conclusion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

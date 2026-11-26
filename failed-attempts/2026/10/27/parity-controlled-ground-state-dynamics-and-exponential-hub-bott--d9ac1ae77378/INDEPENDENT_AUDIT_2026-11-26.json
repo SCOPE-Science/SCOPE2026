@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:05:47.207257Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof §§1–5",
+        "Frozen VERIFICATION.md, verify.py and verification_output.txt (inspected, not executed)",
+        "Independent s=r=2 count and flux check"
+      ],
+      "rationale": "For degree d and u agreeing open neighbours, the closed-neighbourhood rule flips iff 2u >= d; the change in monochromatic edges is d-2u. Outside the claimed block levels a peripheral update lowers energy by at least 1 (odd s) or 2 (even s), so no such state is recurrent. Balancing each edge-disjoint clique maximizes the cut independently. At odd s all these states are absorbing, including s=1. At even s, for fixed hub spin the moves are the connected inclusion graph on the two middle subset levels of each block; the hub changes only when all blocks have exactly half their peripheral spins opposite it. Reverse moves have the same 1/N probability, and an inactive hub supplies a self-loop. The probability of a strictly decreasing move before entrance is at least 1/N; summing the expected stopped energy decrements gives the claimed uniform entrance estimate. The stationary fraction of exit-enabled states in either hub sector is q^r, with q=(ell+1)/(2ell+1). A start conditioned on that sector remains dominated by twice the stationary law, so the chance of exit in t steps is at most t q^r/N, giving the stated ceil(N/(4 q^r)) lower bound. Independent hand check for s=r=2: 18 recurrent states, conductance 4/45, mixing lower bound 3 and entrance bound 15.",
+      "residual_risks": [
+        "The frozen 21-case exact transition-graph output is finite corroboration; the all-parameter check rests on the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The arbitrary-size bouquet theorem covers m>=2, maximum-cut recurrence, all-odd absorbing singleton counts and all-even irreducibility with uniform law and exact hub-flip rate.",
+          "Theorem 19 of the inspected arXiv PDF supplies the balanced versus near-balanced clique attractors when r=1."
+        ],
+        "reasoning": "Set every private size r_i=s and m=r, use binomial symmetry and Pascal's identity, and combine with the one-clique result. Even-s self-loops follow immediately from an inactive hub at a nonbalanced blade.",
+        "searches": [
+          "Resultary 2026/11/8/…775e9880280b, RESULT.md offsets 0 and 7528",
+          "arXiv:1011.5119, §4.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§1–5 and references",
+        "Resultary records …775e9880280b and …63f342240c6c",
+        "arXiv:1011.5119 §§3.1 and 4.1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The bouquet proof gives an available strictly cut-increasing peripheral move at every inadmissible state. The earlier minority paper supplies cut monotonicity."
+        ],
+        "reasoning": "The integer cut gain of such a move is at least 1 for odd s or 2 for even s, and the move has selection probability 1/N. The frozen attempted-update bound is then exactly the edge-count range divided by this uniform minimal drift. The bouquet's stationary hub rate and mixing formula specialize with no additional mixing argument.",
+        "searches": [
+          "Bouquet RESULT.md, proof §1",
+          "arXiv:1011.5119, §3.1 Lemma 8 and Corollary 9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The bouquet theorem uses the identical update with the selected vertex included and the same tie retention; it counts private spins agreeing with the hub, instead of opposing it."
+        ],
+        "reasoning": "Complementing the count within each blade turns its admissible levels into the frozen levels. Stationary symmetry gives conductance across one hub sector equal to the total stationary rate of changing hub colour.",
+        "searches": [
+          "Resultary comparison: stochastic minority, clique windmill, clique bouquet, friendship graph",
+          "arXiv:1011.5119"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The friendship-graph record gives the exact s=2 sector conductance and mixing bound; the bouquet result gives the exact product formula in full generality."
+        ],
+        "reasoning": "Coverage is by exact symbolic results, not by a numerical table or the frozen finite enumerations. The friendship specialization is corroborating overlap rather than the decisive broader claim.",
+        "searches": [
+          "Resultary 2026/11/8/…63f342240c6c",
+          "Resultary 2026/11/8/…775e9880280b"
+        ]
+      },
+      "rationale": "The central equal-blade maximum-cut recurrence, parity class counts and explicit even-s mixing obstruction are covered by a distinct Resultary theorem for arbitrary blade sizes, combined with the classical single-clique theorem for r=1. The extra uniform entrance estimate follows directly from the already established local strict-decrease property by a stopped range-over-drift estimate; it is not a distinct substantive finding for this claim. This is a coverage finding, not a claim that the November catalogue entry preceded the frozen record in time.",
+      "residual_risks": [
+        "The matching catalogue paths are dated later than the frozen path. Historical priority or dependence is not inferred from path dates. The review establishes mathematical coverage, not publication order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive broader coverage for at least two blades",
+          "evidence": [
+            "Exact ground-state count and decomposition; stationary flip rate and same mixing formula; an increasing peripheral move outside admissible levels."
+          ],
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-one-odd-clique-blade-pins-the-hub-exact-attractors-of-asynchrono--775e9880280b/RESULT.md",
+          "material_read": "Finding, scope, local rule and all-even argument (offsets 0 and 7528)",
+          "method": "Local Resultary mirror",
+          "title": "One odd clique blade pins the hub: exact attractors of asynchronous minority on clique bouquets",
+          "trigger": "Same glued cliques and update, arbitrary sizes"
+        },
+        {
+          "assessment": "Exact narrower overlap",
+          "evidence": [
+            "Same s=2 sector conductance and mixing lower bound."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-rare-hub-flip-bottleneck-in-asynchronous-minority-dynamics-on--63f342240c6c",
+          "material_read": "RESULT.md, Finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A rare hub-flip bottleneck in asynchronous minority dynamics on friendship graphs",
+          "trigger": "Triangles glued at hub are s=2"
+        },
+        {
+          "assessment": "Supplies monotonicity and the r=1 case, not the all-r bottleneck",
+          "evidence": [
+            "Balanced even cliques have stable states; odd cliques have one near-balanced recurrent class. The theorem is numbered 19 in the inspected version."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1011.5119",
+          "material_read": "PDF §3.1 p.6 (Lemma 8 and Corollary 9); §4.1 p.11 (Theorem 19)",
+          "method": "Open arXiv text",
+          "title": "Stochastic Minority on Graphs",
+          "trigger": "Original update and clique result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§3–5",
+        "Bouquet theorem and friendship-graph specialization"
+      ],
+      "rationale": "The classification provides a natural exact test case separating rapid entry into the maximum-cut set from exponentially slow equilibration within it. Its explicit bottleneck ties the time scale to a precise collective balance event rather than a fitted finite trend. The finite-size example and the crude entrance bound alone would not supply that value.",
+      "residual_risks": [
+        "The lower bound does not establish sharp mixing asymptotics or cover other update conventions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

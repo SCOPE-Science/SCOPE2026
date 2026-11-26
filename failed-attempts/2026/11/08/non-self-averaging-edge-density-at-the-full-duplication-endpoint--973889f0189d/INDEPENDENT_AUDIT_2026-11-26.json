@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T10:03:59.176301Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 21–92, VERIFICATION.md and verify.py",
+        "Independent exact scaled root-split recurrence reproduced in rationale",
+        "Féray–Rivera-Lopez arXiv:2306.04278, §1.4 and Propositions 1.13–1.14"
+      ],
+      "rationale": "A birth adds d_U+ξ edges. For two-stars, old neighbors contribute Σ_(w~U)d_w, linking the parent contributes ξd_U, and the new vertex contributes choose(d_U+ξ,2). Using Σd=2E and Σd²=2S+2E recovers all three conditional recurrences and their stated polynomial solutions with the singleton initial values. (E_n−EE_n)/(n(n+1)) is bounded and has constant conditional expectation because centered increments multiply the previous centered count by (n+2)/n. This gives almost-sure and L² convergence of F_n and its limiting moments; the complement couples the same parent sequence with flipped coins, including deterministic endpoints. An independent check encodes the graph by a binary split tree with one coin per internal vertex: conditional on the tree, Var(E_n)=r(1−r) times Σ_v (a_v b_v)^2, with child leaf counts a_v,b_v. For an ordered root split the first subtree size is uniform on 1,…,n−1 by the unit-seeded Pólya urn, and the within-subtree choices are uniform conditional on the sizes. Thus H_1=0 and (n−1)H_n=Σ_{a=1}^{n−1}[(a(n−a))²+H_a+H_(n−a)] for the expectation of the sum. Substitution or the power-sum identity Σ a²(n−a)²=(n⁵−n)/30 gives H_n=n(n−1)(n²+n+3)/18. A bounded replay of this recurrence in scaled integers J_n=18H_n checked orders 2–64 (J_2 through J_5 are 18,90,276,660). The limit proof is not based on that bounded check.",
+      "residual_risks": [
+        "The frozen uploaded verifier was inspected, not executed; the stated proof covers the singleton seed and the complete-neighbor-inheritance endpoint only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Thm. 1.11 is a.s. convergence of the whole graphon under the same dynamics; taking edge density and using boundedness gives the scalar a.s./L² convergence",
+          "Hermann–Pfaffelhuber excludes the independent parent edge; Dey et al. exclude full inheritance",
+          "Chapuy's Brownian co-graphon variance is 1/30 at 1/2, not the recursive model's 1/18"
+        ],
+        "reasoning": "Same-model graphon convergence is genuinely stronger. The other papers explain distinctions but do not undo that overlap.",
+        "searches": [
+          "arXiv:2306.04278 Thm. 1.11 and Props. 1.12–1.14",
+          "arXiv:1408.0904 Def. 2.3 and Thm. 2",
+          "arXiv:2611.00123 Thm. 2.6",
+          "arXiv:2306.07911, pp. 1–3"
+        ]
+      },
+      "checked_sources": [
+        "Féray–Rivera-Lopez arXiv:2306.04278",
+        "Resultary 4487f8d69a40 and 4bc7b3738f93",
+        "arXiv:1408.0904, arXiv:2611.00123, arXiv:2306.07911",
+        "Stufler arXiv:1906.10355 and Bassino et al. arXiv:1907.08517 for uniform cographs"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Integrating the prior split graphon gives X=U²X_1+(1−U)²X_2+2U(1−U)S in law, with independent X_i, U uniform and S Bernoulli(r). Thus E X=r and V=(2/5)V+(2/15)r(1−r), yielding V=2r(1−r)/9",
+          "By Prop. 1.14, edges in an exchangeably labelled finite sample over disjoint vertex pairs have covariance V, while overlapping pairs have covariance r(1−r)/3: in the exact three-vertex process just one of the three adjacent edge pairs uses the same first coin for both edges and two use independent coins",
+          "Hence Var(E_n)=r(1−r)[choose(n,2)+2 choose(n,3)+(4/3) choose(n,4)]=r(1−r)n(n−1)(n²+n+3)/18. Division by choose(n,2)² gives the precise claimed finite formula"
+        ],
+        "reasoning": "Integrate the already-stated graphon split, then count identical, adjacent and disjoint pairs of edges in its already-stated finite sample. This directly computes both exact formulas with no new stochastic or combinatorial mechanism. Endpoint and complement conclusions are immediate from the prior coin law.",
+        "searches": [
+          "Féray–Rivera-Lopez Propositions 1.13 and 1.14, original §1.4 pp. 8–9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Féray–Rivera-Lopez start from one vertex, copy all neighbors of a uniform vertex and attach the twin pair with probability 1−p",
+          "r=1−p identifies the complete process including seed and coin"
+        ],
+        "reasoning": "The graphon and finite laws in the 2023 paper are for the same process, not just a different cograph sampling convention.",
+        "searches": [
+          "Resultary and primary literature: recursive cograph, uniform twin-insertion, Yule/increasing binary cotree, edge-density variance",
+          "arXiv:2306.04278 §1.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 4487f8d69a40 matches the model with q=r but gives one-vertex degree marginals rather than edge-count covariance",
+          "The indexed 973889f0189d is the frozen finding and not independent evidence",
+          "4bc7b3738f93 treats intermediate inheritance strictly below one",
+          "Prop. 1.14 gives all finite graph probabilities and the graphon finite-sampling identity"
+        ],
+        "reasoning": "No inspected separate scalar table is needed to establish coverage: the exact prior finite law supplies enough joint moments analytically. The degree marginal by itself would not suffice.",
+        "searches": [
+          "Resultary: exact moments of recursive-cograph density and beta-binomial vertex degrees",
+          "arXiv:2306.04278 Prop. 1.14"
+        ]
+      },
+      "rationale": "Féray–Rivera-Lopez already analyze the identical recursive cograph process, not merely a related duplication process. Their Theorem 1.11 proves a.s. graphon convergence, Proposition 1.13 gives the full split law, and Proposition 1.14 identifies exact finite marginals as graphon sampling. The displayed scalar variances are not quoted verbatim in the examined source, but both are mechanical second-moment corollaries of these exact statements, demonstrated below. The materially stronger same-process source is absent from the frozen prior-work discussion.",
+      "residual_risks": [
+        "No historical claim about who first printed these closed scalar formulas: coverage here is by explicit implication from the inspected stronger theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Dominating same-model coverage",
+          "evidence": [
+            "The twin-link probability is 1−p; a.s. recursive cographon convergence; independent uniform split and Bernoulli off-diagonal block; equality between exact graph law and expected induced densities"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2306.04278",
+          "material_read": "§1.4, PDF pp. 8–9, offsets roughly 23950–28174; generator, Thm. 1.11, Props. 1.12–1.14",
+          "method": "Read the original exact model, split and finite-distribution statements; derive scalar moments explicitly",
+          "title": "The permuton limit of random recursive separable permutations",
+          "trigger": "Prior recursive cograph process and complete law"
+        },
+        {
+          "assessment": "Same process; different statistic, and points to decisive antecedent",
+          "evidence": [
+            "Beta-binomial one-vertex laws; explicit credit for the prior graphon and general finite graph law"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-beta-binomial-degrees-and-all-size-uniformity-in-recursive--4487f8d69a40",
+          "material_read": "Mirrored Finding and prior-work credit",
+          "method": "Match q to r and distinguish marginals from joint statistics",
+          "title": "Exact beta-binomial degrees and all-size uniformity in recursive cographs",
+          "trigger": "The same process with exact distributional invariants"
+        },
+        {
+          "assessment": "Does not cover the independent parent-link model",
+          "evidence": [
+            "No parent-link coin; full-copy limit from a deterministic connected seed"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1408.0904",
+          "material_read": "Def. 2.3 and Thm. 2, PDF pp. 3 and 7, Remark 2.13 p. 9",
+          "method": "Read model, convergence and urn scope",
+          "title": "Large-scale behavior of the partial duplication random graph",
+          "trigger": "Full-copy endpoint in a related process"
+        },
+        {
+          "assessment": "Excluded endpoint in the inspected theorem",
+          "evidence": [
+            "Neighbor copying is strictly between zero and one"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.00123",
+          "material_read": "Abstract and Theorem 2.6",
+          "method": "Compare allowed neighbor-copy probabilities",
+          "title": "Uniform duplication-divergence random graphs I: Degrees and Local Limits",
+          "trigger": "Same family with neighbor-copy parameter"
+        },
+        {
+          "assessment": "Different cographon",
+          "evidence": [
+            "Brownian moment 17/60 at bias 1/2, in contrast with the recursive law; the two random graphons are also separated in Prop. 1.12 of arXiv:2306.04278"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2306.07911",
+          "material_read": "PDF pp. 1–3, definition and moment formula",
+          "method": "Compare sampling law and precise second moment",
+          "title": "On the Edge-Density of the Brownian Co-Graphon and Common Ancestors of Pairs in the CRT",
+          "trigger": "Same invariant on a potentially equivalent graphon"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md theory and prior-work section",
+        "Féray–Rivera-Lopez Thm. 1.11, Props. 1.13–1.14 and the explicit implication above"
+      ],
+      "rationale": "Non-self-averaging and an exact variance are natural statistics, but the actual new-claim remainder is only a routine second-moment readout of an exact same-model graphon and sampling law. The alternative scalar martingale and star recurrence are sound, yet do not create a distinct unsupported-in-prior-work invariant or extend the model, distribution or parameter range. Within the stated standard no substantive remainder warrants repair.",
+      "residual_risks": [
+        "Pedagogical usefulness of a standalone scalar derivation is not denied; failure concerns the distinct mathematical contribution claimed by the record."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

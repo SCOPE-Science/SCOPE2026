@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:12:46.262838Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The antipodal pairs are graph edges, so every independent simplex is disjoint from its antipodal translate and embeds with its boundary in the quotient. The independent audit replay rebuilt the 197 faces including the empty face and checked the 98 nonempty orbit cells (6,24,38,24,6). It treated the frozen CERTIFICATE.json rows as data: the eleven tree edges span the 1-skeleton, and the 37 valid triangles add one new edge at a time until all 48 are covered, killing every non-tree generator. The action is free on this simply connected complex, giving π1(Y)=C2. All 32 collapse pairs were replayed as unique cofaces in the remaining quotient and verified upstairs in disjoint antipodal pairs; the residual vector (6,16,12) gives Euler characteristic 2 and a 2-dimensional model. H2 is a subgroup of a free top chain group and has rank one. The nonzero degree-one mod-two class has integral Bockstein the order-two summand of H²(Y;Z)=Z⊕Z/2. That summand is not in the image of multiplication by two, so its mod-two reduction, Sq¹(x)=x², is nonzero. UCT gives two degree-two classes and there are no higher degrees, proving the ring. The replay inputs are the frozen graph definition and CERTIFICATE.json (tree, triangle and collapse rows); the supplied verify.py was inspected, not executed, and no separate replay program was retained. The given prior cover statement is correct, but its citation should point to Agarwal–Basak arXiv:2608.30601v1, Theorem 11, not Theorem 12. This reference-number error does not affect the independent geometric argument or correctness of the theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Agarwal–Basak classifies the relevant ordinary independence complexes: for n=4k+2 their M_(2n) has independence complex a wedge of three S^(2k). In particular M12 has cover homotopy type a wedge of three 2-spheres.",
+          "The mod-two Gysin sequence holds for all real vector bundles, including the associated real line of any such double covering. The rank-one Euler class is the class in degree one classifying that cover."
+        ],
+        "reasoning": "The prior wedge theorem immediately supplies a simply connected cover with cohomology concentrated in degrees zero and two. Together with freeness, this is sufficient for the generic argument below: no exact integral action matrix or collapse sequence is needed.",
+        "searches": [
+          "Agarwal–Basak arXiv:2608.30601v1, Theorem 11",
+          "Hatcher Vector Bundles and K-Theory §3.2, Gysin sequence"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, CERTIFICATE.json and verify.py",
+        "Agarwal–Basak arXiv:2608.30601v1",
+        "Hatcher §3.2",
+        "Resultary baaa00f0cf91, 7339638cffe4, 0f8bdf6c2ab1 and 06c44f5257cf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "No independent simplex contains both vertices of a rung, so the known wedge-of-three-2-spheres cover is the universal double cover, giving π1=C2 and integral H1=C2. The rank-one mod-two Gysin segment is H^i(X)→H^i(Y) —cup x→ H^{i+1}(Y)→H^{i+1}(X), where x classifies the cover. Connectedness makes pullback on H⁰ an isomorphism, and H¹(X)=0; hence H¹(Y)=F₂·x. The same vanishing makes cup x injective from H¹ to H², so x²≠0. For i≥3 both cover terms vanish; cup x is then an isomorphism. Finiteness forces H^i(Y;F₂)=0 for every i≥3.",
+          "Rational transfer gives vanishing away from degrees zero and two and χ(Y)=χ(X)/2=2 gives free rank one in H2. Integral transfer and the torsion-free homology upstairs force all quotient torsion to have exponent at most two. Mod-two UCT in degrees at least three excludes torsion from integral H2 and all higher groups. In degree two it adds the H1 torsion contribution to free rank one, producing exactly two mod-two generators and the asserted ring by degree."
+        ],
+        "reasoning": "The earlier rational character or covering-space fundamental-group theorem alone does not yield the full ring, but the known wedge type plus the classical line-bundle sequence and elementary transfer do yield the entire stated classification. In particular the square is automatic; it does not distinguish the specific deck action from other free involutions with the same covering hypotheses.",
+        "searches": [
+          "Agarwal–Basak arXiv:2608.30601v1 Theorem 11, p. 8",
+          "Hatcher §3.2 pp. 88–89, disk/sphere Gysin exact sequence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-day Möbius-ladder record 7339638cffe4 studies Ind₂(M12), not the ordinary independence complex; the later 06c44f5257cf uses a reflection with fixed points, not the antipodal rotation.",
+          "The integral rotation-lattice result 0f8bdf6c2ab1 computes lattice coinvariants under a rotation on the cover, not homology of this geometric quotient."
+        ],
+        "reasoning": "Neither changing the independence condition nor taking ordinary coinvariants or a nonfree reflection computes the geometric orbit space in the Finding. The relevant alternate formulation is the unit sphere of the real line bundle associated with this free double cover.",
+        "searches": [
+          "Resultary: M12 antipodal geometric quotient, integral homology and mod-two cup square",
+          "Resultary 7339638cffe4, 0f8bdf6c2ab1 and 06c44f5257cf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "baaa00f0cf91 gives rank-three rational H2 of the ordinary cover and trace −1 for its antipodal rotation, consistent with the quotient free rank one. It does not explicitly give the quotient torsion or ring.",
+          "The inspected same-day and later hits concern either a different independence complex, a lattice on the cover, or a different involution. No exact printed table for this antipodal quotient was identified in the bounded results."
+        ],
+        "reasoning": "This is an exact-invariant search, not a claim of absence from the literature. The rational table overlaps but is not in itself an integral calculation; the actual coverage follows from the stronger prior cover theorem and the standard sequence.",
+        "searches": [
+          "Resultary exact title and M12 antipodal quotient cup-square queries; inspected ranked matches",
+          "Resultary baaa00f0cf91, 7339638cffe4, 0f8bdf6c2ab1 and 06c44f5257cf"
+        ]
+      },
+      "rationale": "The exact quotient homology and ring in the Finding are mechanically determined by the prior M12 cover homotopy type and the ordinary rank-one Gysin sequence, not by any new graph-specific obstruction. The elementary quotient collapse is a valid alternate proof, but a new certificate does not make these invariants new. No reliance on an unavailable source or presumed priority of a same-day record is needed for this decision.",
+      "residual_risks": [
+        "Ranked lookup does not exclude unindexed papers that explicitly list these quotient invariants.",
+        "No homotopy equivalence with RP² ∨ S² is asserted or inferred. The failure is prior implication for the frozen invariants, not a finding that the collapse certificate is invalid."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the full cover hypothesis; does not explicitly state the quotient invariants",
+          "evidence": "Theorem 11 treats the even n=4k+2 case with a wedge of three S^(2k); Theorem 12 there concerns odd n.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.30601v1",
+          "material_read": "p. 8, offset 28280, Theorem 11 and adjacent theorem numbering",
+          "method": "OA PDF bounded theorem passage",
+          "title": "The Homotopy Types of the Independence and Perfect Matching Complexes of Möbius and Circular Ladder Graphs",
+          "trigger": "Identical covering independence complex"
+        },
+        {
+          "assessment": "Applicable classical theorem; its rank-one map is cup product with the class of the cover",
+          "evidence": "The exact sequence for the disk/sphere pair under the Thom isomorphism uses cup product with the Euler class and is defined with mod-two coefficients for every real bundle.",
+          "identifier_or_url": "https://pi.math.cornell.edu/~hatcher/VBKT/VB.pdf",
+          "material_read": "§3.2, printed pp. 88–89, PDF offset 273590–276086",
+          "method": "OA PDF literal Gysin lookup and bounded passage reading",
+          "title": "Vector Bundles and K-Theory",
+          "trigger": "General double-cover cohomology implication through the associated line bundle"
+        },
+        {
+          "assessment": "Displays rational cover action and implies quotient rational rank, not integral invariants by itself",
+          "evidence": "Antipodal rotation has trace −1 on the three-dimensional rational H2 at n=6.",
+          "identifier_or_url": "Resultary 2026/10/11 baaa00f0cf91",
+          "material_read": "Finding, local mirror offset 180",
+          "method": "Resultary search and local mirror passage",
+          "title": "Dihedral rational homology representations of Möbius-ladder independence complexes",
+          "trigger": "Identical cover and actual antipodal action on rational H2"
+        },
+        {
+          "assessment": "Different independence condition and homotopy type",
+          "evidence": "Its M12 result treats Ind₂ and obtains a wedge of six 3-spheres.",
+          "identifier_or_url": "Resultary 2026/10/18 7339638cffe4",
+          "material_read": "Finding at local mirror offset 0",
+          "method": "Resultary search and local mirror passage",
+          "title": "Five exact higher-independence homotopy types for Möbius ladders",
+          "trigger": "Same-day exact M12 hit"
+        },
+        {
+          "assessment": "Later cover representation, not the geometric quotient",
+          "evidence": "The rotation orbit coinvariants there are Z/4, a different construction.",
+          "identifier_or_url": "Resultary 2026/11/1 0f8bdf6c2ab1",
+          "material_read": "Finding and comparison at local mirror offsets 0 and 1192",
+          "method": "Resultary search and local mirror passages",
+          "title": "The nonsplit integral rotation lattice of the twelve-vertex Möbius ladder",
+          "trigger": "Close exact integral symmetry invariant on the same cover"
+        },
+        {
+          "assessment": "Later quotient under a different nonfree involution",
+          "evidence": "Uses i↦−i and obtains S², rather than the free rotation i↦i+6.",
+          "identifier_or_url": "Resultary 2026/11/8 06c44f5257cf",
+          "material_read": "Finding at local mirror offset 0",
+          "method": "Resultary search and local mirror passage",
+          "title": "A two-sphere reflection quotient of the twelve-vertex Möbius ladder independence complex",
+          "trigger": "Strong apparent match in geometric quotient terminology"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The example illustrates the difference between homology of a cover and its quotient, and the elementary-collapse certificate is sound. But the claimed quotient invariants are a standard consequence of the known homotopy type and freeness; neither the torsion nor the nonzero square is new geometric information here. The Finding does not claim a finer homotopy invariant for which the explicit collapse would be indispensable.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

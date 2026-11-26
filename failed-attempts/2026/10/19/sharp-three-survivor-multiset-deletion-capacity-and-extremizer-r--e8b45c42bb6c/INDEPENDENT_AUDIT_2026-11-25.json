@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:33:12.076746Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, distinction between exactly three survivors, pairwise compatibility, threshold constructions and rigidity",
+        "VERIFICATION.md, check.py, and CHECKS.txt (recorded 30007 profiles; inspected, not executed)"
+      ],
+      "rationale": "Sharing a deletion output is precisely having intersection weight I≥3: select three units from the coordinatewise minimum. Each word with a triple uses a coordinate no other such word can use for a triple, so there are at most q heavy words. For two light words x,y the coordinate maxima total at most 2q, giving I≥2n−2q≥4. Above 2q a light word cannot exist. Pure words and one capped word of the required mass (when it fits) attain the bounds. At n=q+1 the two supplied light vectors have intersection exactly 2: two opposite-half singleton overlaps for even q, or a single doubled overlap for odd q. At either rigidity length there must be exactly q heavy words assigned to different coordinates and a single light word. At 2q every light entry is 2, forcing purity of all heavy words. At 2q−1 there is precisely one light entry 1, at s, with all others 2. At an assigned coordinate other than s the two units of allowed overlap are exhausted, and at s the remaining budget of one forces at most one unit off s (each other light entry is 2). All q choices for the s-word are mutually distinct choices of codebook and compatible with the other words, and the light word distinguishes the q choices of s. This gives the stated 1 and q² counts without extrapolation.",
+      "residual_risks": [
+        "The mathematical proof is uniform. The packaged computation only corroborates small parameter ranges; it does not exhaust all large codebooks."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The v2 proposition bounds by q+binom(q,2). The v3 Corollary 9 instead gives the exact two regimes for all q≥2 and also gives the exact n=q+1 value. The distinct indexed result covers the same regimes and the boundary witness for q≥2, together with the maximum-code heavy-coordinate structure."
+        ],
+        "reasoning": "The version matters: the v2 bound is weaker and is not cited as full coverage; the accessible v3 theorem and indexed all-alphabet theorem directly subsume the assigned q≥5 formula. The covering v3 and indexed article have later displayed dates; this is a scope comparison, not an inference of priority from their dates.",
+        "searches": [
+          "arXiv:2601.05636v2 §4.4 Proposition 12; v3 Corollary 9",
+          "Local Resultary exact three-survivor code over arbitrary alphabets, da6ffbe21ef7"
+        ]
+      },
+      "checked_sources": [
+        "Resultary da6ffbe21ef7, d3a62a71c505 and 10c1013a7401",
+        "arXiv:2601.05636v2 and v3",
+        "arXiv:2003.00483"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed structure explicitly gives one capped vector and exactly one heavy word assigned to each coordinate. The only capped profiles at 2q and 2q−1 are 2 everywhere or 2 except a single 1. For each assigned coordinate with light value 2, overlap ≤2 immediately forces zero elsewhere; for the coordinate with light value 1, at most one unit can lie elsewhere, so there are q choices, and choosing the singleton coordinate gives another factor q."
+        ],
+        "reasoning": "Those two endpoint counts follow by substituting the only possible capped vectors into the known coordinate structure and the same local intersection inequality. This is a mechanical consequence, not an additional packing theorem or an unclassified remaining shape.",
+        "searches": [
+          "da6ffbe21ef7, proof steps 1 and 5 (local mirror offset 0)",
+          "arXiv:2601.05636v3, Corollary 9 proof (offset 72218)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Correcting at most n−3 deletions and exactly n−3 deletions are equivalent here: an output of larger cardinality shared by two inputs would contain a common size-three output. The indexed result uses the same intersection criterion. In the capped family, x↦2−x preserves ℓ¹ distance and turns the problem into a ternary constant-weight code of weight 2q−n."
+        ],
+        "reasoning": "The different deletion-budget wording is not a different capacity. The constant-weight equivalence supplies the light-word packing ingredient, not a separate full multiset theorem on its own.",
+        "searches": [
+          "SCOPE-exact-three-survivor-multiset-deletion-codes-over-arbitrary-alph--da6ffbe21ef7, Finding and proof steps 1, 5",
+          "arXiv:2601.05636v3, Corollary 9 and proof",
+          "arXiv:2003.00483, Theorem II.1(b,c)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The ternary and quaternary spectra are only small-alphabet matches. The arbitrary-alphabet record and v3 corollary match all assigned capacity entries exactly. Neither inspected theorem states the two labeled endpoint counts as a table."
+        ],
+        "reasoning": "The direct match comes from general exact formulas and not an extrapolation from q=3,4 or from a finite numerical census.",
+        "searches": [
+          "Resultary arbitrary-alphabet record da6ffbe21ef7; ternary record d3a62a71c505; quaternary record 10c1013a7401",
+          "arXiv:2601.05636v3 Corollary 9"
+        ]
+      },
+      "rationale": "The exact capacity and strict first boundary are covered by distinct, stronger accessible statements. The remaining endpoint enumeration, though made explicit here, is a direct consequence of the indexed theorem's heavy/light structure and its confusability rule. This is mathematical coverage in the checked corpus, not a determination that the covering texts predate or were independent of this frozen result.",
+      "residual_risks": [
+        "The displayed later dates of the overlapping v3 and arbitrary-alphabet record do not resolve original priority, dependence or common provenance. Failure rests on exact and implied coverage, not a claim that the frozen proof was historically preceded by either one."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct capacity coverage and endpoint-count implication",
+          "evidence": "q≥2, identical two regimes and strict first boundary, plus a single light word on the plateau and a bijection between heavy words and their unique triple coordinates.",
+          "identifier_or_url": "SCOPE-exact-three-survivor-multiset-deletion-codes-over-arbitrary-alph--da6ffbe21ef7",
+          "material_read": "Finding and proof steps 1–6, RESULT.md offset 0",
+          "method": "Local mirror",
+          "title": "Exact three-survivor multiset deletion codes over arbitrary alphabets",
+          "trigger": "Exact indexed match with broader alphabets and maximum-code constraints"
+        },
+        {
+          "assessment": "Weaker v2; exact stronger capacity in v3",
+          "evidence": "v3 gives q+1, q in the assigned regimes plus the exact boundary q+floor(q/ceil((q−1)/2)); its proof complements capped words to ternary constant weight.",
+          "identifier_or_url": "https://arxiv.org/html/2601.05636v2 ; https://arxiv.org/html/2601.05636v3",
+          "material_read": "v2 §4.4 Proposition 12, offset 71375; v3 Corollary 9 and proof, offset 72218",
+          "method": "Lawful OA HTML passages",
+          "title": "Multiset Deletion Codes: Cyclic Constructions, Bounds, and Exact Results",
+          "trigger": "Same deletion problem, regime and metric; later revised theorem"
+        },
+        {
+          "assessment": "Equivalent light-word packing ingredient",
+          "evidence": "Distance above twice the weight allows one word; distance twice the weight imposes disjoint supports and the exact support-count bound.",
+          "identifier_or_url": "https://arxiv.org/pdf/2003.00483",
+          "material_read": "Theorem II.1(b,c), PDF p. 2",
+          "method": "Lawful OA theorem passage",
+          "title": "Optimal codes with small constant weight in the ℓ¹-metric",
+          "trigger": "Exact ternary constant-weight reduction in the v3 proof"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen endpoint rigidity statements",
+        "Resultary da6ffbe21ef7, confusability and equality structure",
+        "arXiv:2601.05636v3 Corollary 9"
+      ],
+      "rationale": "The capacity phase transition is a natural exact coding invariant and would be of substance on its own. In comparison with the verified coverage, however, the only proposed increment is to count the labels of the two forced capped vectors and the at-most-one extra unit dictated by the already available structure. There is no independent additional classification of compatible codes beyond this endpoint specialization.",
+      "residual_risks": [
+        "The review does not address optimizers at interior plateau lengths, which could be a different problem."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

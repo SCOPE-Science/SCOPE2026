@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:24:49.950246Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–39 and 41–74",
+        "Frozen VERIFICATION.md, lines 19–29",
+        "Frozen CHECK.py, lines 10–114"
+      ],
+      "rationale": "The simplex has volume ∏s_i/n!, and each facet has area nV times the norm of the gradient of the vanishing barycentric coordinate. This gives precisely the two end terms and the adjacent-pair norms in the stated objective. Normalize the product, and use t_i=log(1/s_i) with ∑t_i=0. Weighted Cauchy–Schwarz bounds the second directional derivative of each edge norm below by (e^{2u}h²+e^{2v}k²)/sqrt(e^{2u}+e^{2v}), so the full Hessian is positive definite. The objective dominates exp(max t_i), and max t_i≥||t||∞/(n−1) on the constraint, proving coercivity. Equating derivatives and summing gives the Euler system with multiplier M_n/n; strict convexity gives its unique positive normalized solution. Reversal preserves the objective. If y_1≥y_2, for n≥3 the difference of the first two derivatives is positive because the subtracted term y_2²/sqrt(y_2²+y_3²) is strictly smaller than y_2≤y_1 and the shared-edge contribution is nonnegative. For n=2 reversal yields equality; for n=3 the reduced equation 2r²−1=sqrt(1+r²) selects r=√5/2, giving M_3=5(2/√5)^{1/3}. Scaling proves the ratio and its exact equality condition at every prescribed positive volume. The finite Gram and numerical KKT checks in VERIFICATION.md were inspected, not rerun; they are not needed for the proof.",
+      "residual_risks": [
+        "Scope is positive real weights in this simplex family, not discrete integer optimization, general simplices, or an assertion of an elementary closed form for n≥4."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 42bf6cea393e concerns diameter-normalized volume and solid angle",
+          "Resultary 2e533cdc3108 concerns rank-one augmented cubes"
+        ],
+        "reasoning": "The solid-angle result uses a different metric objective; the cube optimization uses a different family. Neither settles minimization of total Euclidean facet measure within weighted chain simplices.",
+        "searches": [
+          "Primary literature: orthoscheme fixed-volume minimum surface area",
+          "Resultary: orthoscheme and fixed-volume surface optimization comparators"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary d78541f59e2a (identical), 6acb2545362c, 42bf6cea393e, 2e533cdc3108",
+        "Gao–Vitale, arXiv:math/0011052, Theorem 2",
+        "Frozen RESULT.md, lines 79–91"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior arbitrary-weight formula A_n/V_n=n∑q_i",
+          "Fixed orthoscheme intrinsic-volume computation"
+        ],
+        "reasoning": "The formula supplies the objective; a separate coercive strictly convex log-coordinate problem, endpoint comparison and equality analysis are needed to establish the asserted optimizer. The frozen record correctly credits the area identity.",
+        "searches": [
+          "Local Resultary mirror, record 6acb2545362c, RESULT.md offsets 1380 and 6660",
+          "Gao–Vitale, arXiv:math/0011052, Theorem 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest exact Resultary match is the identical frozen record d78541f59e2a, not a second result",
+          "Gao–Vitale, arXiv:math/0011052, Theorem 2 treats the fixed standard chain orthoscheme"
+        ],
+        "reasoning": "Viewing the body as a chain orthoscheme with consecutive orthogonal edge lengths s_i, or as the diagonal image of the standard chain simplex, does not turn an intrinsic-volume computation for a single equal-leg orthoscheme into a minimization over positive edge lengths. Indeed the equal-leg shape is not optimal for n≥3.",
+        "searches": [
+          "Resultary: weighted lecture-hall simplex fixed-volume surface area optimizer",
+          "Primary literature: orthoscheme fixed-volume minimum surface area"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed match is d78541f59e2a itself",
+          "The closest prior formula record, 6acb2545362c, contains no table or statement of these optimizing weights"
+        ],
+        "reasoning": "There is no single finite table that could certify the continuum of weights and all dimensions. For the exact low-dimensional overlap risk, the equal-weight right triangle is elementary and is not a separate novelty; the inspected fixed standard orthoscheme does not give the unequal-leg three-dimensional optimizer.",
+        "searches": [
+          "Local Resultary: weighted lecture-hall surface-area optimization, including the three-dimensional ratio"
+        ]
+      },
+      "rationale": "The known exact area formula and standard convex optimization tools are not the contribution. The distinct supported finding is the all-dimensional fixed-volume optimizer with shape, sharp ratio and equality conditions. No inspected antecedent states or already implies that classification.",
+      "residual_risks": [
+        "An older or unindexed optimization theorem for orthoschemes might cover equivalent shapes or the three-dimensional case. The focused external search supplied no such verified source and is not proof of historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the formula, not the constrained minimizer",
+          "evidence": [
+            "A_n/V_n=n∑q_i for arbitrary positive weights; also gives ridge/second-Steiner expressions."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-a-critical-exponent-and-universal-curvature-to-surface-law-for-p--6acb2545362c",
+          "material_read": "RESULT.md, passages at offsets 1380 and 6660, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror, bounded passages",
+          "title": "A critical exponent and universal curvature-to-surface law for power lecture-hall simplices",
+          "trigger": "Same bodies and surface metric; cited antecedent"
+        },
+        {
+          "assessment": "Related fixed-body computation, not same optimization",
+          "evidence": [
+            "The standard chain orthoscheme is fixed in the intrinsic-volume calculation; no free diagonal weights are minimized in the theorem."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0011052",
+          "material_read": "Theorem 2, PDF p. 2, text offset 4078",
+          "method": "Open-access text passage",
+          "title": "Intrinsic Volumes of the Brownian Motion Body",
+          "trigger": "Same chain-orthoscheme geometry"
+        },
+        {
+          "assessment": "Indexed problem has a different objective",
+          "evidence": [
+            "Diameter-normalized volume and minimum solid angle, not boundary area at fixed volume."
+          ],
+          "identifier_or_url": "Resultary 42bf6cea393e",
+          "material_read": "Indexed scientific statement",
+          "method": "Local Resultary search",
+          "title": "Sharp minimum-solid-angle fullness comparison for three dimensions",
+          "trigger": "Orthoscheme optimization comparator"
+        },
+        {
+          "assessment": "Distinct model; no priority inference from the matching date",
+          "evidence": [
+            "The admissible bodies are rank-one augmented cubes, not weighted lecture-hall simplices."
+          ],
+          "identifier_or_url": "Resultary 2e533cdc3108",
+          "material_read": "Indexed scientific statement",
+          "method": "Local Resultary search",
+          "title": "Sharp Euclidean surface optimization of a rank-one augmented cube",
+          "trigger": "Same objective and a three-dimensional exact case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–29, 43–73",
+        "Prior area formula, Resultary 6acb2545362c"
+      ],
+      "rationale": "Weighted chain simplices are a natural Euclidean family with a known general surface formula. That formula alone does not distinguish the standard equal-weight shape from its competitors at fixed volume. The uniqueness and strict end-weight comparison resolve this for every dimension, and the Euler characterization determines the sharp scale-free constant even without radicals for n≥4.",
+      "residual_risks": [
+        "This is a family-specific sharp bound, not a general simplex isoperimetric theorem or a full monotonicity classification of the weights."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

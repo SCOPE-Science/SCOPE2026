@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:03:49.837298Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For an inverse step y=g_a(x), the defining identity gives y^(−α)−x^(−α)=y^(−α)[1−(1+2^a y^a)^(−α)]. Expanding separately for a=α and a=β, and using y/x=1+O(x^α) for all intermediate points in a pair, gives c+α2^βu^(−θ)−α(1+α)2^(2α)u^(−1)/2+O(u^(−η)), η=min(2,β/α)>1, in either order. Each branch decreases positive x, and the limit must be zero, so u_n∼cn. For θ<1, summing u_j^(−θ) gives c^(−θ)n^(1−θ)/(1−θ) and the logarithmic and summable terms are negligible. For θ≥1 the preliminary bound u_n=cn+O(log n) fixes the coefficient of the harmonic sum with a bounded error. At resonance 2^β=2^(2α) and the two inverse-power coefficients add to give +2^(α−1)(1−α) log n; above it the β term is summable, leaving −2^(α−1)(1+α) log n. The coefficients do not depend on phase or starting point. This is a pair clock, for fixed parameters 0<α<1 and β>α, not a uniform near-resonance crossover or a full-map first-return distribution. Inspected checker.py and verification notes without executing the uploaded script; the conclusion is analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Dulac theorem includes parabolic analytic germs with a standard quadratic-domain extension and finitely generated real power supports; its §6 algorithm successively corrects the residual of the Abel equation and classifies where the correction contributes to the divergent part.",
+          "Bahsoun–Bose provide a random-schedule leading first-return law; Ji and Korepanov–Leppänen treat broader schedules but target avoidance or memory-loss observables."
+        ],
+        "reasoning": "For a>0, g_a(x)=xF_a(x^a) where F_a is analytic near zero by the analytic implicit function theorem applied to F(1+2^a zF^a)=1, F(0)=1. The composite is x times an analytic function of (x^α,x^β), on consistent branches. It has a convergent real-power series with exponents 1+mα+nβ; in the logarithmic covering plane these expressions are holomorphic with uniform asymptotics in a far-right half-plane in −log x, hence on a standard quadratic domain there. Both phases are attracting parabolic Dulac germs, satisfying the substantive hypotheses of the main theorem. The other nonstationary sources do not furnish this implication.",
+        "searches": [
+          "arXiv:1710.01268 Defs. 2.2–2.4, main Theorem and §6.1.1–2/Prop. 6.1",
+          "arXiv:1503.06157v3, Thms. 1.1–1.2",
+          "arXiv:2611.11758v1 Thm. A and arXiv:2410.20994v2 Thm. 1.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1710.01268",
+        "arXiv:2610.01879v1",
+        "arXiv:1503.06157v3",
+        "arXiv:2611.11758v1",
+        "arXiv:2410.20994v2",
+        "Resultary local index and distinct mirror records 03332ee9004b and c2ddb25c5fdb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Put A=2^α, c=αA, γ=β−α, d=2^β/A, e=A(1+α)/2. The leading coordinate in the published construction is Ψ₁=x^(−α)/c. Its first Abel residual 1−[Ψ₁(f(x))−Ψ₁(x)] is −d x^γ+e x^α+o(x^α) from the local inverse series. Eqs. (6.6)–(6.7) eliminate its first block by integrating its leading monomial divided by the signed leading displacement −A x^(1+α).",
+          "If γ<α, that integral has first correction −d x^(γ−α)/[A(α−γ)]. If γ≥α, the residual at order α has coefficient L=e−d at equality and L=e otherwise; the integral is −(L/A) log x. Prop. 6.1 and the main theorem make later blocks lower order in the fractional case and bounded after the logarithmic block (the later residual has order >α)."
+        ],
+        "reasoning": "Write x^(−α)=u. Evaluating the coordinate along x_n gives n plus a constant. In the fractional case inversion yields u_n=cn+[α2^β c^(−θ)/(1−θ)]n^(1−θ)+o(n^(1−θ)). In the logarithmic cases Ψ=u/c+(L/c)log u+O(1), so u_n=cn−L log n+O(1). Since d=A at equality, these are exactly the positive and negative coefficients in the claim. The comparable one-map source covers only the negative coefficient, but the older general construction directly gives the entire trichotomy.",
+        "searches": [
+          "arXiv:1710.01268 §6.1.1 Eqs. (6.4), (6.6)–(6.7), §6.1.2 Proposition 6.1 and main Theorem",
+          "arXiv:2610.01879v1 §2 Eqs. (2.1)–(2.2)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:1710.01268 Definition 2.4 defines Ψ(f(x))−Ψ(x)=1; thus pair iterates x_n satisfy Ψ(x_n)=Ψ(x_0)+n (after entering the germ domain). Its §6 computes the required asymptotic coordinate.",
+          "arXiv:2610.01879 §2 Eqs. (2.1)–(2.2) give a single-branch coordinate whose coefficients already produce the frozen supercritical clock log."
+        ],
+        "reasoning": "The paired clock is equivalently the inverse of the Abel/Fatou coordinate of f=g_β∘g_α, or of the reversed composition. The published Dulac construction is not restricted to the one-branch family and can be applied to this composite.",
+        "searches": [
+          "Resultary: alternating nonautonomous LSV and Pomeau–Manneville inverse-branch clock, survival and subprincipal neutral asymptotics",
+          "The Fatou coordinate for parabolic Dulac germs, arXiv:1710.01268",
+          "Rigorous and effective numerics for Liverani–Saussol–Vaienti maps, arXiv:2610.01879v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical indexed frozen entry is not independent evidence. The distinct moving-boundary entry estimates the one-map survivor mass and uses a leading inverse-time term. The distinct density entry gives a subprincipal invariant-density expansion for one LSV map."
+        ],
+        "reasoning": "There is no discrete exact-value table for this continuous-parameter asymptotic; the analogue is an exact formula comparison in the index. Neither inspected distinct Resultary result gives the three pair-clock coefficients. This negative comparison does not negate general primary coverage.",
+        "searches": [
+          "Resultary: positions of LSV return/survival boundaries and subprincipal neutral fixed point asymptotics",
+          "2026/10/25/SCOPE-a-complete-moving-boundary-survival-crossover-for-an-intermitten--03332ee9004b",
+          "2026/10/11/SCOPE-subprincipal-density-asymptotics-at-an-intermittent-neutral-fixe--c2ddb25c5fdb"
+        ]
+      },
+      "rationale": "A stronger preexisting result covers the complete clock law, not just the previously known negative log. Mardešić–Resman–Rolin–Županović, arXiv:1710.01268, give an actual Abel coordinate for parabolic Dulac germs, with a finite divergent-part algorithm whose first correction, specialized here, gives all three regimes and exact coefficients. There is no need for a new theorem in order to pass from their algorithm to the displayed clock. The lack of a distinct identical Resultary entry does not change this implication.",
+      "residual_risks": [
+        "No claim that the exact LSV formulas had already been printed verbatim, or that all historical reports were found. The dispositive failure is direct constructive implication from a verified stronger theorem, not a priority inference from indexing."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broader constructive theorem covers the composite and mechanically gives all frozen terms",
+          "evidence": "The principal/infinitesimal decomposition is realized by an actual Abel coordinate. Its block integral rule yields a negative-power correction, log correction, or decaying correction according to the residual exponent relative to the leading displacement exponent minus one.",
+          "identifier_or_url": "https://arxiv.org/pdf/1710.01268",
+          "material_read": "Defs. 2.2–2.4 (pp. 5–6, offset 17740 onward); main Thm. (p. 6, 20190 onward); §6.1.1 Eqs. (6.4)–(6.7) (pp. 19–21, offsets 64611 and 70390); §6.1.2 Prop. 6.1 (pp. 21–22, offset 74622)",
+          "method": "OA PDF, keyword locations followed by bounded decisive text reads and hypothesis/specialization check",
+          "title": "The Fatou coordinate for parabolic Dulac germs",
+          "trigger": "Potential general asymptotic theorem for the alternating composite, not just single-map LSV"
+        },
+        {
+          "assessment": "Partial single-branch overlap",
+          "evidence": "The x^(−α) and log coefficients in the one-map Abel coordinate imply the same negative-log term when the alternating β contribution is summable.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.01879v1",
+          "material_read": "§2 Eqs. (2.1)–(2.2), pp. 3–4, offsets 11900 and 18004",
+          "method": "OA PDF bounded text",
+          "title": "Rigorous and effective numerics for Liverani–Saussol–Vaienti maps",
+          "trigger": "Potential coincidence of the negative logarithm with an established LSV clock expansion"
+        },
+        {
+          "assessment": "Random leading law, not the alternating subleading law",
+          "evidence": "The inverse branch position is asymptotic to a constant times n^(−1/α) depending on the probability of drawing the smaller exponent.",
+          "identifier_or_url": "https://arxiv.org/abs/1503.06157v3",
+          "material_read": "§1.1 and Thms. 1.1–1.2, pp. 3, 6–7, offsets 7065 and 18682",
+          "method": "OA PDF bounded text",
+          "title": "Mixing rates and limit theorems for random intermittent maps",
+          "trigger": "Leading LSV inverse-orbit and return-tail asymptotics under random schedules"
+        },
+        {
+          "assessment": "One exponent and leading clock, not exact alternating corrections",
+          "evidence": "For the cutoff at a fixed horizon it obtains a_n^(−α)=h_n^(−α)+c_α n+O(nh_n^α).",
+          "identifier_or_url": "2026/10/25/SCOPE-a-complete-moving-boundary-survival-crossover-for-an-intermitten--03332ee9004b",
+          "material_read": "RESULT.md Finding and Proof §2",
+          "method": "Local Resultary mirror",
+          "title": "A complete moving-boundary survival crossover for an intermittent map",
+          "trigger": "Closest distinct Resultary clock/survival result"
+        },
+        {
+          "assessment": "Different single-map observable",
+          "evidence": "Expands the invariant density, not the inverse pair clock.",
+          "identifier_or_url": "2026/10/11/SCOPE-subprincipal-density-asymptotics-at-an-intermittent-neutral-fixe--c2ddb25c5fdb",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Subprincipal density asymptotics at an intermittent neutral fixed point",
+          "trigger": "Closest distinct Resultary subprincipal LSV expansion using an Abel coordinate"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The resonance is well motivated and the short elementary illustration is useful pedagogically. As a standalone mathematical finding, however, the fixed-parameter trichotomy is the first-block specialization of the existing general construction, with no new uniform near-resonance estimate or extension to a statistical observable. It does not supply an independently unresolved structural fact after that implication. No substantive surviving repair is established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

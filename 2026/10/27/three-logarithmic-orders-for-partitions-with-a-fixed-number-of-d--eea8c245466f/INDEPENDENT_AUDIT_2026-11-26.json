@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:52:15.764591Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–54; VERIFICATION.md lines 19–28; verify.py lines 10–88, inspected, not run."
+      ],
+      "rationale": "For fixed k, the ordered unrestricted count is the cumulative additive k-fold convolution of d(m), and distinct sizes give exactly k! orderings. To check smoothing, the signed difference between the divisor measure and (log y+2γ)dy on [1,∞) has cumulative mass O(√Y). Against the decreasing residual-allocation convolution its integral is bounded by O(√X) times that test's maximum (use its interval-layer decomposition, including end atoms). Telescoping over the k replacements costs O_k(X^(k-1/2)L^(k-1)); the integrable log tail on y in (0,1) costs at most O_k(X^(k-1)L^k). The scaled simplex integral has volume 1/k!, and log derivatives of its two-coordinate moment Γ(1+s)Γ(1+t)/Γ(k+1+s+t) are -H_k and, for the mixed log derivative, H_k^(2)-ζ(2). Adding the product of first derivatives gives exactly the unrestricted coefficients. An equal-size pair has cumulative mass ∑_a binom(floor(X/a),2)=ζ(2)X²/2+O(X log X), by the convergent square-sum and the harmonic error. Replacing this measure by ζ(2)y dy and smoothing the other k-2 factors by the same monotonicity estimate gives the leading collision coefficient ζ(2)/k! since the scaled y-moment is 1/k!. The error from replacing the pair is O_k(X^(k-1)L^(k-1)), lower than the claimed third-order remainder. For any equality block of size r≥2, summing O((X/a)^r) over its common size costs O_r(X^r); intersections of two or more equalities leave at most k-3 singleton blocks and hence at most k-3 logs. This proves the stated third coefficient after subtraction of binom(k,2) equal-pair terms and division by k!. At k=2 the simplex polynomial terminates, there are no higher intersections, and both the cutoff extension and pair error are dominated by O(X^(3/2)L). This checks real cutoffs, k fixed, and the separate k=2 error claim.",
+      "residual_risks": [
+        "The bundled coefficient and residual checks are finite. They are not the evidence for the error bounds, which follow from the monotone convolution estimate and the equality-block count. No uniform or pointwise estimate is certified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Agarwal–Garg (1.6) supplies exact identities for general k rather than a summatory estimate. Keith's inspected exact formulas are for k=2,3 and its main focus is congruences. The classical divisor summatory estimate is for one copy of d, without the distinct-size constraint."
+        ],
+        "reasoning": "The broader exact enumeration is prior and is credited. A generic divisor estimate does not itself give the shifted simplex log moments or the sizes of the collision-class contributions. The possible additional coverage in Kim cannot be assessed from its title.",
+        "searches": [
+          "Agarwal–Garg arXiv:2610.18371 Theorem 1.2 and article locates for summatory/asymptotic; Keith arXiv:1502.00366 Introduction and exact equations (1)–(2); DOI:10.1016/j.jnt.2012.01.003 retrieval"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.18371 Theorem 1.2",
+        "arXiv:1502.00366 Eqs. (1)–(2) and bibliography",
+        "DOI:10.1016/j.jnt.2012.01.003, attempted only",
+        "DOI:10.1007/s00009-026-03168-2, abstract and definition",
+        "OEIS A002133 and A365676",
+        "Resultary targeted searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Summing Keith's two-size identity gives 2P_2=U_2-∑_{n≤X}σ_1(n)+D(X). The σ_1 sum gives the known main collision mass ζ(2)X²/2, but U_2 still needs its full additive simplex calculation and power-saving remainder. The arbitrary-k error and third coefficient require distinguishing a single repeated size from a repeated block of three or two disjoint repeated pairs."
+        ],
+        "reasoning": "The k=2 component is particularly close to a standard analytic consequence of a known exact formula, not an independent new counting identity. For general k no inspected asymptotic statement can simply be specialized to obtain the result: the mixed logarithmic moment and the matching-order collision mass have to be combined and higher intersections bounded.",
+        "searches": [
+          "Statement-level comparison of Keith Eq. (1), Agarwal–Garg Eq. (1.6), and the classical divisor summatory estimate with frozen RESULT.md §§1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Keith's ν_k(n) and Agarwal–Garg's p^(k)(n) explicitly count sizes, not summands. Keith gives exact identities including 2ν_2=d*d-σ_1+d, and Agarwal–Garg Theorem 1.2 gives exact coefficient identities. Merca's inspected definition instead restricts to odd multiplicities and uses signs."
+        ],
+        "reasoning": "The exact enumeration is the same under the first two notations; the summatory log-polynomial with a fixed-k error is not an equivalent restatement of the enumerations. Neither an odd-multiplicity restriction nor an exactly-k-summands theorem represents this unrestricted multiplicity question.",
+        "searches": [
+          "Resultary: partitions into exactly k distinct part sizes cumulative asymptotic logarithmic coefficients fixed k",
+          "Resultary: cumulative asymptotic partitions into exactly k different part sizes logarithmic expansion",
+          "Keith arXiv:1502.00366 and Agarwal–Garg arXiv:2610.18371"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A002133 supplies the exactly-two-sizes sequence and exact formulas; A365676 supplies the triangle and its generating function. No materially overlapping Resultary claim was returned by the listed searches."
+        ],
+        "reasoning": "These entries are exact enumerations but do not tabulate or state the three summatory coefficients. An unsuccessful index search is only a scope limitation, not evidence of priority.",
+        "searches": [
+          "OEIS A002133 and A365676",
+          "Resultary: distinct part sizes p^(k)(n) k! divisor convolution cumulative X^k (log X)^k",
+          "Resultary: three logarithmic orders partitions fixed number of distinct part sizes collision correction zeta(2)"
+        ]
+      },
+      "rationale": "Pass for the cumulative three-term fixed-k theorem and its explicit uniform-in-X first collision correction at each fixed k, not for the exact counting identities or the leading divisor smoothing. The inspected closest known identities supply the pointwise counts and the exact k=2 starting formula, not the third-order summatory estimate at arbitrary fixed k. The Kim source remains unresolved; no verdict is inferred from failed access.",
+      "residual_risks": [
+        "Kim's 2012 full text was not available in this review. The external discovery search produced no useful source; the opinion is based on inspected mathematical statements and is not absolute priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact enumeration, not the claimed asymptotic in the passage",
+          "evidence": "Defines exactly k distinct part sizes; Theorem 1.2 is a coefficient identity in partition sums.",
+          "identifier_or_url": "https://arxiv.org/html/2610.18371",
+          "material_read": "Abstract offset 400; Theorem 1.2 and Eq. (1.6) offset 5400; targeted literal locates",
+          "method": "OA HTML primary text",
+          "title": "A Combinatorial Proof of Partition Identities for the Number of Distinct Part Sizes",
+          "trigger": "Exact same statistic for general k"
+        },
+        {
+          "assessment": "Same count, exact starting formulas; its Kim citation does not resolve the 2012 article",
+          "evidence": "Eq. (1) gives 2ν_2=d*d-σ_1+d. The Kim reference is a 2009 overpartition divisibility paper, not the 2012 JNT work.",
+          "identifier_or_url": "https://arxiv.org/html/1502.00366",
+          "material_read": "Abstract/Introduction offset 0; Eqs. (1)–(2) at 6200; Kim references at 2807, 23843 and 39263",
+          "method": "OA HTML primary text",
+          "title": "Partitions into a small number of part sizes",
+          "trigger": "Exact identities for k=2 and 3; potential route to Kim"
+        },
+        {
+          "assessment": "Access unresolved; this paper is not evidence either for or against coverage",
+          "evidence": "The title alone does not even settle whether the count is of exactly k distinct sizes with unrestricted multiplicities; the publisher passage was unavailable and the checked papers did not identify a lawful alternate copy.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jnt.2012.01.003",
+          "material_read": "Title and bibliographic citation only, no theorem or introductory passage",
+          "method": "DOI and publisher article/PDF retrieval attempts; checked whether the accessible Keith and Agarwal–Garg texts identified an alternate copy",
+          "title": "On the number of partitions of n into k different parts",
+          "trigger": "Plausible earlier same-statistic result"
+        },
+        {
+          "assessment": "Different statistic",
+          "evidence": "The signs and odd-multiplicity restriction do not match the unrestricted positive multiplicities.",
+          "identifier_or_url": "https://doi.org/10.1007/s00009-026-03168-2",
+          "material_read": "PDF abstract p. 1 offset 100 and definition p. 3 offset 5700",
+          "method": "OA primary PDF passage inspection",
+          "title": "Signed Enumeration of Partitions with Exactly k Distinct Magnitudes of Odd Multiplicity",
+          "trigger": "Potential variant of the same partition statistic"
+        },
+        {
+          "assessment": "Same enumeration, not a summatory log-polynomial table",
+          "evidence": "The two-size entry gives generating function and divisor-convolution formula; the triangle gives the exactly-k-size convention and generating function.",
+          "identifier_or_url": "OEIS A002133 and A365676",
+          "material_read": "A002133 offset 1750 and A365676 offset 0, exact generating-function passages",
+          "method": "OA database text inspection",
+          "title": "Partitions with exactly two sizes; partitions by number of distinct sizes",
+          "trigger": "Exact sequence/table coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–16 and 28–54; Keith arXiv:1502.00366 exact counting identities"
+      ],
+      "rationale": "Partitions stratified by the number of sizes admit exact convolutions, but their smooth growth does not distinguish the distinctness constraint until the third logarithmic order. Isolating that coefficient explains exactly where and by how much symmetrized unrestricted divisor tuples cease to model the partition count. The general fixed-k result is useful for comparisons at that order and gives a full polynomial with a quantitative error in the first nontrivial two-size case.",
+      "residual_risks": [
+        "The mathematical contribution is the quantitative summatory comparison, not a new enumeration method or a pointwise partition estimate."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

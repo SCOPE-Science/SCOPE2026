@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:10:41.567702Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–71",
+        "Frozen VERIFICATION.md and verify.py inspected; supplied script was not executed",
+        "Independent example replay: use T(q)=1.85−0.05q−0.85q²−0.05q³ and D(q)=0.855−0.045q−0.855q²+0.045q³; solve T′ρ−D′=0 with ρ=(T+sqrt(T²−4D))/2 on q∈[0.2,0.35]. At this level λ>L, the cubic λ²−λT+D has positive constant, linear and cubic coefficients, hence at most two positive roots counting multiplicities; its double root at the stationary point proves this is the unique global maximum in the example."
+      ],
+      "rationale": "For row-vector occupancy the catastrophe step precedes colonization, yielding the frozen transient product. At zero distance its Perron eigenvalue is 1−r; at infinity the triangular limit gives L=1−r/2. For positive finite distance the off-diagonals are positive, the eigenvalues are distinct, and the smaller eigenvalue is below M₁₁<L. Thus the characteristic polynomial at L has the opposite sign to ρ−L. Direct expansion gives det(LI−M)=(r/4)[rq−c(A−Bq)], so all three comparisons reduce to the level r of q^(k−1)(A−Bq) on 0<q<A/B. For k≤1 this positive function strictly decreases with q from a value above r to zero. For k>1 differentiation puts its sole maximum at q*=(k−1)A/(kB). The maximum H_r(k) strictly decreases with k by comparing at the interior maximizer for the larger k, and its endpoint limits are A>r and 0. Hence the unique critical k, all counts and directions of crossing, tangency and strict inequalities follow. Continuity and the limit at infinity imply finite attainment whenever there is a strict gain, and exclude it in the strict no-gain regime. For k=2 the quadratic threshold and the two example endpoints check. Independently differentiating the larger eigenvalue in q and bisecting near q=0.25654375 gives ρ≈0.957274401341 at d≈1.360456062, consistent with the quoted approximate point up to about 4.4×10⁻⁸ in distance.",
+      "residual_risks": [
+        "The proof's phrase 'compact region 0<q≤A/B' is imprecise; strict comparison at the interior maximizer supplies the needed monotonicity without that wording.",
+        "The last digits of the approximate example distance should not be read as exact or as a high-precision certificate.",
+        "The classification is of gain over the limiting Perron factor, not uniqueness of the maximizing distance in both strict-gain regimes or a result about mean extinction time."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "fe260ea93f6a compares optimal mean- and tail-persistence spacings for a continuous-time generator with independent extinction, recolonization and common shocks; d_T≤d_M<∞ under its assumptions.",
+          "The Blowes–Connolly abstract discusses decay rates and adjacent/intermediate optima for demographic covariance/quasi-extinction; its full theorem assumptions were unavailable.",
+          "The other indexed records concern travel/recruitment on a ring, accessible sites, and stationary joint occupancy with external recruitment, respectively."
+        ],
+        "reasoning": "None of the inspected stronger-looking results uses the same discrete-step transient operator with the limiting benchmark. A continuous-time model with different initiation and extinction dynamics does not include the frozen matrix as a parameter choice.",
+        "searches": [
+          "Resultary fe260ea93f6a exact Finding and scope",
+          "Blowes–Connolly doi:10.1890/11-0952.1 and JCU repository item 22629",
+          "Resultary a4ed2c325fdc, 176bdf9bdf73, and 212035f9f876 exact Findings"
+        ]
+      },
+      "checked_sources": [
+        "Wagner–Ross–Possingham arXiv:math/0309255v1 and v2",
+        "Resultary fe260ea93f6a, a4ed2c325fdc, 176bdf9bdf73 and 212035f9f876",
+        "Blowes–Connolly abstract, doi:10.1890/11-0952.1 and JCU item 22629"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older algebraic eigenvalue expression is an input, but determining the sign against L over all parameters requires a smaller-root bound and a global one-variable level-set argument, including strict monotonicity and endpoint behavior in k.",
+          "The continuous-time result orders two finite optima and the demographic-covariance abstract discusses different objective surfaces."
+        ],
+        "reasoning": "Neither the existence of an algebraic eigenvalue nor the numerical plateau establishes the exact nonattainment and tangency regimes; these are the reviewed distinctions.",
+        "searches": [
+          "WRP v1 eigenvalue derivation description; v2 §§2–3 and conclusion",
+          "Resultary fe260ea93f6a exact spacing theorem; Blowes–Connolly abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "v2 §§2.1–2.2 gives both exponential probabilities and the E×C baseline. Its full-chain second eigenvalue is the Perron root of the transient block because the absorbing state contributes eigenvalue one.",
+          "v2 §3 evaluates spacing curves for fixed example parameters and discusses near-plateaus, not the exact q^(k−1)(A−Bq) level test."
+        ],
+        "reasoning": "The spectral objective is equivalent and already known; the result is an exact benchmark classification within that objective, not a differently named occupancy model.",
+        "searches": [
+          "Resultary: two-reserve catastrophe/colonization Perron eigenvalue; finite versus infinite separation benchmark; Wagner–Ross–Possingham title terms",
+          "Wagner–Ross–Possingham arXiv:math/0309255v1 and v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "WRP presents numerical example families (including r=0.5, α=0.1 and μ=5,10,20 in Figure 6), not an exact table for H_r(k)=r. The closest distinct Resultary records catalog different model thresholds, not this one."
+        ],
+        "reasoning": "A plotted plateau or apparently favorable spacing does not distinguish a finite improvement, tangency or a nonattained limit; the searches do not exclude another exact source.",
+        "searches": [
+          "Resultary: exact finite versus infinite spacing benchmark; WRP and critical decay-rate terms",
+          "WRP v2 §3/Figure 6 and discussion; v1 page 4"
+        ]
+      },
+      "rationale": "The baseline process, exponential kernels and Perron objective belong to Wagner–Ross–Possingham. Their inspected baseline passages calculate the eigenvalue and discuss numerical optima and an apparent plateau. The supported distinct contribution is the exact all-parameter comparison with its infinite-distance limit, including a bounded gain interval, equality at a single interior distance, and no finite maximizer. The closest indexed result concerns a different continuous-time model and compares two finite optima. The bounded comparison is not a claim of historical priority.",
+      "residual_risks": [
+        "Blowes–Connolly full text was not accessible via identified lawful copies. Its qualitative overlap remains material but supplies no evidence of exact coverage.",
+        "This is a best-of-knowledge decision for the frozen baseline, not a claim about all literature on optimal marine spacing or priority over all versions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers model, eigenvalue and qualitative/numerical spacing comparison. The inspected baseline passages do not give the benchmark discriminant and all-parameter threshold.",
+          "evidence": "The two probabilities decay exponentially; persistence maximizes the second eigenvalue of E×C. Early version describes algebraic calculation and graphical substitution; later discussion describes example finite optima and near-plateaus.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0309255",
+          "material_read": "v2 §§2.1–3 at offsets near 8966, 10650–10913, 12431; conclusion near 22938; v1 PDF p. 4 near 10813",
+          "method": "Bounded open primary HTML/PDF passage inspection across versions",
+          "title": "Catastrophe Management and Inter-Reserve Distance for Marine Reserve Networks",
+          "trigger": "Same discrete-time baseline and spectral objective"
+        },
+        {
+          "assessment": "Related persistence question but not an equivalent theorem",
+          "evidence": "Exact amplitude regimes and ordering 0≤d_T≤d_M<∞ for a continuous-time model, not a comparison with an infinite-distance discrete-time Perron benchmark.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-mean-persistence-reserve-spacing-is-never-shorter-than-tail-pers--fe260ea93f6a/RESULT.md",
+          "material_read": "Finding and scope starting at offset 0",
+          "method": "Bounded local-mirror passage inspection",
+          "title": "Mean-persistence reserve spacing is never shorter than tail-persistence spacing",
+          "trigger": "Closest distinct indexed exact reserve-spacing classification"
+        },
+        {
+          "assessment": "Different covariance-based model by abstract; exact analogue or priority cannot be resolved from the abstract",
+          "evidence": "Relative decay rates influence adjacent or intermediate spacing and multiple local maxima can occur. This does not establish the all-parameter benchmark criterion.",
+          "identifier_or_url": "https://doi.org/10.1890/11-0952.1",
+          "material_read": "Abstract and JCU repository item 22629 description; no full text read",
+          "method": "Lawful publisher HTML/PDF and identified repository copy checked; JCU's published PDF is restricted",
+          "title": "Risk spreading, connectivity, and optimal reserve spacing",
+          "trigger": "Material overlap in how two decay rates affect spacing optima and quasi-extinction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, proof and limitations",
+        "WRP v2 baseline spacing discussion and Figure 6"
+      ],
+      "rationale": "The exact criterion separates three scenarios that numerical persistence curves can make indistinguishable: an interior strict advantage, an exactly tied finite optimizer, and a limiting benchmark unattained anywhere finite. The natural comparison applies for the entire model parameter domain and explains why a plateau does not prove either a finite optimum or its absence. It is a theoretical diagnostic for this baseline, not a fitted conservation recommendation.",
+      "residual_risks": [
+        "Changing the persistence objective, adding immigration or local extinction, or fitting an empirical dispersal/catastrophe model may change the conclusion."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

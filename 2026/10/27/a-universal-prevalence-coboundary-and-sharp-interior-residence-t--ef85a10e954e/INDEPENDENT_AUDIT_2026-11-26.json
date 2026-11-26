@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:46:59.970225Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Writing a=γ+μ, the interior derivatives of logit(n), log I and S+I are respectively ε₂[1+θ−(2+θ)x], βS−a and μ(1−x−S)−aI. With the stated coefficients the x and S terms cancel and the constant is μ/β−μ/[a(2+θ)], giving H'=I−I_c independently of the x equation. Interior initial conditions keep both logs defined over finite times. Integrating against an invariant probability with compact interior support eliminates the bounded endpoint differences, giving ∫I=I_c, ∫x=(1+θ)/(2+θ), ∫S=1/ℛ₀ and, by the I equation, β∫SI=aI_c. Positivity excludes such measures at and below threshold, including criticality. On the entire prescribed strip, the displayed numerator bounds the oscillation of H and (δ−I_c)T≤ΔH, yielding the bound only for δ>I_c. Above threshold S*=1/ℛ₀, x*=(1+θ)/(2+θ), I*=I_c, and R*=1−S*−I*>0 (indeed S*+I*<1/(2+θ)); βI*/(βI*+μ)=f*, so the chosen costs with n*=f* cancel the payoff. These values and the rational example satisfy all equations. No assertion about arbitrary costs, global eradication or boundary-reaching averages is supported. Replay: RESULT.md lines 37–70. VERIFICATION.md and verify.py were inspected, not run; the finite checks are corroborative.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 6723a6feffc8 uses logarithmic balances to constrain interior invariant prevalence in a delayed vaccination-memory SIR model.",
+          "Doncel–Gast–Gaujal §3.1 Eq. (1) uses finite-horizon vaccination control without demographic births or perceived risk; Props. 3–4 address timing."
+        ],
+        "reasoning": "Neither checked setting gives a stronger theorem for this ODE as a specialization. The control input independence here comes from the same recruitment and risk-feedback couplings used in the cancellation.",
+        "searches": [
+          "Resultary: vaccination memory, compact invariant mean infection, 6723a6feffc8",
+          "Doncel–Gast–Gaujal DOI 10.1017/S0269964820000522"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Liu–Wu arXiv:2207.05964",
+        "Doncel–Gast–Gaujal author-accessible paper",
+        "Resultary 6723a6feffc8 and 1ad37f9516e1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The interior fixed-point condition (2+θ)C/(C−V_L)<ℛ₀<(2+θ)C/(C−V_H) encodes the existential cutoff ℛ₀>2+θ when positive costs may be chosen.",
+          "Fixed-point equations are necessary only at equilibrium and give no endpoint control along general trajectories."
+        ],
+        "reasoning": "Credit the equilibrium threshold to the existing analysis. Extending it to all compact interior invariant probabilities and to finite residence with payoff-independent constants uses a different, trajectory-level argument.",
+        "searches": [
+          "Liu–Wu arXiv:2207.05964, fast-epidemic reduction equations (6)–(7) and associated interior fixed-point condition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Eq. (5) is the weak-selection coupled dynamics before the fast-epidemic reduction; the record needs its perceived-risk equation but not its payoff response.",
+          "The finite-time coboundary is a particular combination of log infection, log odds of perceived risk, and susceptible plus infected mass."
+        ],
+        "reasoning": "Compare integrated balance laws and elimination of vaccination input, not just the presence of a behavioral logit or agreement of equilibrium infection. The inspected equations supply the model, but the inspected analysis does not state its finite-time identity or a bound on arbitrary continuous interior segments.",
+        "searches": [
+          "Liu–Wu arXiv:2207.05964, equations (1), (5), (6)–(7)",
+          "Resultary: exact prevalence balance, logistic perceived risk, Liu–Wu"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "6723a6feffc8 Finding gives a compact-invariant mean relation for delayed vaccination memory; 1ad37f9516e1 Finding concerns SIS and self-protection."
+        ],
+        "reasoning": "Those indexed identities do not match the ODE or provide its finite-time H or strip bound. A numerical threshold table would not establish the quantified identity for arbitrary trajectories and parameters.",
+        "searches": [
+          "Resultary: exact prevalence balance, logistic risk and Liu–Wu; matches 6723a6feffc8 and 1ad37f9516e1"
+        ]
+      },
+      "rationale": "The positive-interior equilibrium threshold allowing choice of costs is already encoded in Liu–Wu's fixed-point condition and is not credited as new. The distinct part is the exact finite-time elimination for the unreduced SIR/perceived-risk equations, including arbitrary admissible vaccination input, and its compact-invariant mean and uniform interior residence conclusions. The strongest inspected catalogue match has similar mean-balance methods for a different vaccination-memory model, not the same flow or constant.",
+      "residual_risks": [
+        "The cancellation is elementary and may exist in uninspected work on logarithmic Lyapunov functions or time-averaging; the scoped comparisons do not certify priority.",
+        "The source's weak-selection ODE is not its original finite-selection update rule; the balance requires the specified SIR and logistic perceived-risk equations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same precursor equations, and substantial equilibrium overlap; comparison bounded to the inspected analysis",
+          "evidence": [
+            "Demographic SIR Eq. (1); weak-selection logistic perceived-risk component in Eq. (5); interior fixed-point interval above."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2207.05964",
+          "material_read": "Eq. (1), p. 2 (offset 9780); Eq. (5), p. 3 (16238); reduction and interior fixed points, pp. 4–5 (22722, 29129)",
+          "method": "Lawful OA PDF passages",
+          "title": "Co-evolution of Vaccination Behavior and Perceived Vaccination Risk can lead to a Stag-Hunt like Game",
+          "trigger": "Original model and likely coverage of threshold and recurrence"
+        },
+        {
+          "assessment": "Different controlled epidemiological model and optimization question",
+          "evidence": [
+            "No demographic births or evolving perceived risk in Eq. (1); optimal and equilibrium vaccination timing rather than the prevalence coboundary."
+          ],
+          "identifier_or_url": "https://josudoncel.github.io/publicat/PEIS_2020.pdf",
+          "material_read": "Abstract, §3.1 Eq. (1) (offset 7400), Props. 3–4 (24243)",
+          "method": "Lawful author-accessible PDF passages",
+          "title": "A Mean Field Game Analysis of SIR Dynamics with Vaccination",
+          "trigger": "Alternative SIR vaccination-control formulation"
+        },
+        {
+          "assessment": "Methodological overlap, strongest for the delayed vaccination-memory SIR model, without exact coverage",
+          "evidence": [
+            "Different memory-based feedback in the former; SIS/self-protection in the latter."
+          ],
+          "identifier_or_url": "Resultary 6723a6feffc8; 1ad37f9516e1",
+          "material_read": "Findings in the two RESULT.md records",
+          "method": "Resultary query and local text comparison",
+          "title": "Constant health information makes vaccination memory oscillation…; An exact finite-amplitude prevalence penalty from oscillatory epidemic…",
+          "trigger": "Exact prevalence balances for invariant laws in behavioral epidemic models"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The endpoint observable removes two time-dependent quantities, S and vaccination coverage, and constrains trajectories without a fast-epidemic approximation or particular payoff dynamics. It replaces equilibrium-only information with a universal mean for compact interior recurrence and a quantitative residence obstruction even before an asymptotic regime; it does not predict global disease clearance. The threshold alone is not the contribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:49:22.366806Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The feasible complements are exactly the subsets meeting every projective line in at most three points. I independently ran python3 /workspace/reproduction/2.py. It constructs PG(2,4) by polynomial field arithmetic and joins of point pairs, checks all 9- and 10-subsets (no feasible 10-subset, which by heredity also excludes every larger one), and computes all exchange edges by pairwise Hamming distance rather than generating moves. It obtains the three given profiles of sizes 1120, 10080, 280 and the per-type degree matrices ((0,27,0),(3,12,0),(0,0,0)) and ((27,135,0),(15,141,3),(0,108,0)). Incidence-preserving permutations give complete orbits for the three classes, so BFS for one representative per orbit determines the eccentricities for all vertices in their components; the independent run checked all six published layer vectors. The Hermitian form x³+y³+z³ vanishes at exactly the nine projective points with two nonzero coordinates, and its orbit is the 280-state class. Conversely a nine-point unital has 12 three-secants and nine tangents by incidence counting, giving the required complement profile. The one-exchange graph has 90720 edges and a connected 11200-state core with radius and diameter 8, plus the 280 isolated states. For budget two, the code verifies 907200 edges, full reachability, and the three eccentricities 5,4,5, giving radius 4 and diameter 5. For total domination, each incidence-graph shore separately has minimum 12 by primal-dual symmetry; a replacement across shores would reduce one to 11. The Cartesian product hence has 11480²=131790400 vertices, a core-square of size 125440000 with diameter 16, 560 size-11200 components and 78400 singletons (78961 components in all). This last deduction is symbolic, not a simulation of all pairs. The two frozen verifiers were inspected, not executed; their representative BFS counts rely on the orbit check explicitly performed in the Python source and independently confirmed. The check does not generalize to other planes or exchange rules.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Henning–Yeo prove a general double-total-domination bound and identify the Heawood equality case, an incidence graph of the Fano plane.",
+          "Suzuki–Mouawad–Nishimura use addition/deletion of one vertex in the family of ordinary dominating sets of size at most k, including a diameter construction for that rule.",
+          "De Beule et al. construct blockers for other finite planes and relate them to small double blockers in Desarguesian planes."
+        ],
+        "reasoning": "None of these general statements fixes the graph of labeled minimum two-fold blockers with exchanges at fixed cardinality in PG(2,4). In particular a one-point exchange at minimum size is not an addition or deletion of a vertex.",
+        "searches": [
+          "Henning–Yeo double total domination and strong transversals, Theorem 3",
+          "arXiv:1401.5714 domination reconfiguration",
+          "De Beule–Héger–Szőnyi–Van de Voorde, EJC 23(2) P2.5 introduction"
+        ]
+      },
+      "checked_sources": [
+        "Govaerts thesis Appendix A.2",
+        "doi:10.1137/090777001",
+        "arXiv:1401.5714",
+        "doi:10.37236/5717",
+        "Resultary 8f2ffcc83c47 (self-match), 3d506c83b9c0, b6eec7926c28 and 2ff15d411d81"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Govaerts Corollary A.2.2 on printed p. 127 gives exactly three isomorphism types; Remark A.2.3 identifies the Hermitian curve by the complement's secant profile. The classification supplies states but not distances or the interclass adjacency analysis.",
+          "The hyperoval result cannot be specialized by changing exchange budget alone: its states are six-point sets with no line meeting them in more than two points, not nine-point complements with at most three collinear points."
+        ],
+        "reasoning": "Although static geometry can help prove special features (e.g. isolated unital complements), the joint graph connectivity, radii and eccentricities are new questions about pairs and paths of labeled configurations. The inspected assertions do not establish those results. The double total domination product is a direct interpretation of the newly established dynamics, not a claim of a new general domination theorem.",
+        "searches": [
+          "Govaerts A.2 three 12-point classes compared with edges between classes and exchange distances",
+          "Resultary 3d506c83b9c0 hyperoval budget threshold and b6eec7926c28 unital shattering compared with double-blocker moves"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A 12-set is a double blocker exactly when its nine-point complement meets every line at most three times. Complementation preserves symmetric difference and hence both graphs.",
+          "Govaerts classifies twelve-point blockers up to projective isomorphism and identifies the Hermitian complement. The exact Resultary match 8f2ffcc83c47 is this assigned record itself."
+        ],
+        "reasoning": "The complement, blocker and equivalent fixed-shore incidence-graph descriptions must not be counted as independent discoveries. No distinct inspected source gives the exchange assertions for that same labeled family in any of those forms.",
+        "searches": [
+          "PG(2,4) minimum double blocking sets or complements of nine-point 3-arcs, exchange reconfiguration and diameters",
+          "Govaerts thesis Appendix A.2 Theorem A.2.1 and Corollary A.2.2",
+          "Resultary PG(2,4) labeled exchange configurations and Hermitian unitals"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "3d506c83b9c0 classifies exchanges of 168 six-point hyperovals in PG(2,4), with budgets 1 and 2 edgeless and budget 3 connected with diameter 2.",
+          "b6eec7926c28 considers Boolean shattering by the 280 Hermitian unitals. It is a distinct same-day item on one relevant type but not on its exchange adjacency or the full family.",
+          "2ff15d411d81 considers 234 six-point blockers in PG(2,3) and gives the one-exchange graph diameter 6 there."
+        ],
+        "reasoning": "The strongest exact comparisons concern a different family in the same plane, a different invariant of part of the family, or a different plane. None contains the one-/two-exchange graph data of the 11480 labeled minimum states; shared dating of any records is not evidence of order.",
+        "searches": [
+          "Resultary PG(2,4) exact point-exchange connectivity, radius and diameter",
+          "Resultary 3d506c83b9c0, b6eec7926c28, 2ff15d411d81 actual Findings",
+          "Govaerts Appendix A.2 tables and secant/isomorphism classification"
+        ]
+      },
+      "rationale": "The supported contribution is the exact labeled exchange graph data for minimum double blockers of PG(2,4), in particular the frozen class for one exchange and the sharp two-exchange connectivity threshold and distance invariants. The static minimum, the three isomorphism forms and the Hermitian complement description are prior, not newly established for originality by enumerating them again.",
+      "residual_risks": [
+        "Statement-level comparison is bounded; older unindexed finite geometry computations or equivalent labeled exchange results cannot be excluded.",
+        "The static minimum and isomorphism classification are prior. Historical priority is not inferred from the catalogue's same-day publication dates or from absence of additional hits."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same object, known static classification and Hermitian type; the appendix has no dynamic classification",
+          "evidence": [
+            "Corollary A.2.2: ‘Up to isomorphism, there are exactly three double blocking sets of size 12 in PG(2,4).’ Remark A.2.3 identifies the unital as the Hermitian curve. Printed p. 128 begins Appendix B, not A.2."
+          ],
+          "identifier_or_url": "https://backoffice.biblio.ugent.be/download/521804/1874798",
+          "material_read": "Appendix A.2, printed pp. 124–127 (rendered PDF pp. 138–141); Theorem A.2.1, Corollary A.2.2, Remark A.2.3",
+          "method": "Rendered original pages inspected because the text extraction did not give readable matching passages",
+          "title": "Classifications of Blocking Set Related Structures in Galois Geometries",
+          "trigger": "Primary exact same-family static classification; possible exchange coverage"
+        },
+        {
+          "assessment": "Bound on double total domination and Fano equality case, not fixed-cardinality exchanges",
+          "evidence": [
+            "The Heawood graph is the equality graph in the inspected result."
+          ],
+          "identifier_or_url": "https://pure.royalholloway.ac.uk/ws/files/6351130/090777001.pdf",
+          "material_read": "Theorem 3 around PDF text offset 30600 before journal p. 1339",
+          "method": "Lawful author repository copy, same paper as DOI 10.1137/090777001",
+          "title": "Strong Transversals in Hypergraphs and Double Total Domination in Graphs",
+          "trigger": "Broader double total domination and incidence graph results"
+        },
+        {
+          "assessment": "Not the stated minimum fixed-size double domination rule",
+          "evidence": [
+            "D_k(G) uses ordinary dominating sets of size at most k and moves by addition or deletion of one vertex."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1401.5714",
+          "material_read": "Abstract, offset 0",
+          "method": "Primary arXiv paper text",
+          "title": "Reconfiguration of Dominating Sets",
+          "trigger": "Potentially broader domination reconfiguration theorem"
+        },
+        {
+          "assessment": "Different goals; passages concern constructions, not exchange metrics",
+          "evidence": [
+            "Introduces blocking set constructions in Hall and André planes through small double blockers in Desarguesian planes."
+          ],
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v23i2p5/pdf",
+          "material_read": "Introductory passages, pp. 2–3 at offsets about 2800 and 5500",
+          "method": "Primary OA PDF passages",
+          "title": "Blocking and Double Blocking Sets in Finite Planes",
+          "trigger": "Broader finite-plane double-blocking constructions"
+        },
+        {
+          "assessment": "The six-point hyperoval vertex family is different",
+          "evidence": [
+            "For 168 hyperovals, first connectivity at budget three, diameter two."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-three-point-exchange-connectivity-and-geodesic-multiplicit--3d506c83b9c0",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "Sharp three-point exchange connectivity and geodesic multiplicities",
+          "trigger": "Strongest distinct same-plane exchange theorem"
+        },
+        {
+          "assessment": "Different invariant, only the unitals not the full minimum-blocker family",
+          "evidence": [
+            "Shattering assertions about the 280 nine-point Hermitian unitals are not exchange-graph assertions."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-boolean-shattering-of-the-280-hermitian-unitals-in-the-qua--b6eec7926c28",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "Exact Boolean shattering of the 280 Hermitian unitals in the quaternary plane",
+          "trigger": "Distinct same-day item on the same Hermitian configurations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The three geometric types alone do not tell whether one can move between optimal blockers without passing through a nonoptimal state. Exactly which minimum family is immobile under one exchange, whether a simultaneous second exchange suffices, and the distance of optimizers from each other are natural precise invariants. The count and metrics give a useful test case for minimum-multicover reconfiguration and immediately determine the component structure of a much larger incidence-graph optimization problem. The computational scope is finite but the budget transition and distance questions are not arbitrary slices of the static classification.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

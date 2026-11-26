@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:08:56.999473Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The protocol is completely jammed large rods first, then small rods; the infinite-substrate limit precedes k→∞ and K/k→L. Pinsky's gap law and parking limit give the first-stage inputs with density per original site. For F_k(y)=M_k(floor(ky))/k, the discrete first-placement sum is exactly the integral of this step function up to A_k=(floor(ky)−k+1)/k, multiplied by 2/A_k and with 1 added. The first strip is constant, and bounded convergence using 0≤F_k(y)≤y propagates convergence strip by strip to the continuum recurrence, including the Riemann-sum limit without reliance on values at strip endpoints. In the gap formula s=exp(−z/K), the scaled prefactor is K(1−exp(−z/K)) and the exponential is exp(−(ℓ+1)z/K); uniform domination by z exp(−a₀z) holds for ℓ/K≥a₀>0. One may choose a₀<1/L on the entire second-stage sum. The limiting scaled gap density and the rod count yield the factor 2/L² and inner exponent −zy/L. The delay identity ((y−1)C(y))′=1+2C(y−1), starting from the jump 1 at y=1, gives matching derivatives below order m−1 and first jump d_m=2d_(m−1)/(m−1) at m. Method of steps gives analyticity on each open strip; the kernel is analytic locally in L and y where Re(y/L)>0 by exponential domination. Splitting at fixed strip boundaries and applying Leibniz leaves a single jump at order m in Φ, equal to w(m,m)d_m. This gives the claimed coefficient and strict positivity. An independently written bounded quadrature reproduced Φ(2), Φ(2.5), Φ(3) and I to the stated displayed accuracy, and confirmed the coefficients for m=2,3,4; replay via /workspace/branches/738ac5fc-165e-4136-b4c7-87cd9a6f7d64/bounded_quadrature.py. The supplied CHECK.py was not used as a fresh run, and finite quadrature does not verify the universal hierarchy.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorems 2 and 4 are exact discrete inputs; Theorem 8 has 1<L≤2 only, and the following discussion flags L>2.",
+          "SCOPE-first-order-approach-to-continuum-coverage-in-two-stage-lattice--94eae3d992ab fixes the smaller rod length s≥2 while the larger length diverges, with nonuniform remainder when s grows.",
+          "The cited Reeve–Wattis full text returned HTTP 403 on the identified deposit; its precise scope was not independently established."
+        ],
+        "reasoning": "The discrete formula by itself supplies neither uniform control of gap weights nor scaling of the finite-interval fill recurrence across every reachable length strip. Fixed s is a divergent size ratio, not a broader theorem of fixed K/k. Unavailable full text is not evidence of noncoverage.",
+        "searches": [
+          "Pinsky arXiv:2608.04730 Theorems 2, 4, 8 and open-ratio remark",
+          "Resultary: first-order continuum coverage in two-stage lattice adsorption",
+          "Reeve–Wattis, Random sequential adsorption with two components: asymptotic analysis and finite size effects"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and frozen verification evidence",
+        "Independent bounded quadrature",
+        "Pinsky arXiv:2608.04730",
+        "Resultary fixed-small-rod correction record",
+        "Hassan et al. arXiv:cond-mat/0110036v2",
+        "Reeve–Wattis deposit (attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For L>2, gaps long enough to fit multiple second-stage rods make C(y)>1 on (2,L).",
+          "The distinct fixed-small-rod result disclaims uniformity for growing small rods; the published small-ratio formula never samples beyond the one-car interval."
+        ],
+        "reasoning": "Scaling the gap kernel uniformly for the contributing sizes and retaining the full finite-interval parking expectation are required even to identify the observable. The nonzero high-order jumps require both the propagated singularities of that expectation and the extra integration at the varying upper endpoint; neither follows from the restricted one-rod expression or an error term at fixed second-stage rod length.",
+        "searches": [
+          "Pinsky Theorems 2, 4, 8 with the L>2 remark",
+          "Resultary fixed-small-rod continuum-correction Finding and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pinsky's Model I first completes large-rod deposition and then adsorbs smaller rods into its gaps; its exact finite-length decomposition is the same starting point.",
+          "Hassan et al. select a species probabilistically at each deposition step; the inspected formulas focus on ratios at most two."
+        ],
+        "reasoning": "A fixed species mixture is not equivalent to conditioning on a fully jammed large-rod stage. No limiting competitive result in an identified source was found that both establishes equivalence in the needed limit order and gives the joint fixed-ratio coverage for L>2.",
+        "searches": [
+          "Resultary: sequential staged binary parking and integer-ratio smoothness",
+          "Pinsky arXiv:2608.04730 Theorem 4 (Model I)",
+          "Hassan et al. arXiv:cond-mat/0110036v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Pinsky's tabulated analytic regime gives precisely the simplified coverage integral for L≤2, where C(y)=1 in the integral.",
+          "The closest distinct Resultary entry gives an exact fixed-small-length asymptotic coefficient but no sequence of derivative jumps at finite integer ratios."
+        ],
+        "reasoning": "The known exact restricted formula is credited, not offered as new. Its analytic extension by the same expression beyond two omits multirod gaps; it does not represent the full function and cannot have the asserted jump hierarchy.",
+        "searches": [
+          "Resultary: two-stage lattice/continuum coverage exact formula and derivative jumps",
+          "Pinsky arXiv:2608.04730 Eq. (1.19)"
+        ]
+      },
+      "rationale": "The distinct content is the all-fixed-ratio scaling law beyond the credited L≤2 case and the exact differentiability hierarchy of its coverage function. Neither the first-stage gap density, the finite discrete gap decomposition, nor the single-length parking recurrence is distinct by itself. Pinsky explicitly isolates L>2 as an open regime in the inspected text. The related same-day fixed-small-rod result and competing-species formulas do not cover the scaling or regularity asserted here.",
+      "residual_risks": [
+        "Earlier equivalent sequential-parking work under different terminology has not been ruled out.",
+        "The Reeve–Wattis deposit was unavailable and the bounded external search supplied no positive coverage evidence.",
+        "No priority conclusion follows from catalog dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact discrete inputs and equivalent restricted continuum case; no coverage of fixed L>2 or integer hierarchy in inspected results",
+          "evidence": "Exact gap density and staged gap sum precede a continuum result restricted to 1<L≤2 and explicit interest in L>2.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.04730",
+          "material_read": "Theorem 2 p. 4 Eq. (1.3) at offset 11035; Model I and Theorem 4 pp. 8–9 Eqs. (1.10)–(1.11) around offsets 20500 and 23135; Theorem 8 pp. 13–14 Eq. (1.19) and open-case remark around offsets 35464 and 37503",
+          "method": "Bounded OA PDF passages",
+          "title": "A new look at some aspects of one-dimensional random sequential adsorption and its continuum limit",
+          "trigger": "Exact same protocol, model inputs and closest continuum result"
+        },
+        {
+          "assessment": "Same protocol with a distinct limit, not equivalent or stronger for this regime",
+          "evidence": "Small rods of fixed length s≥2; the remainder is not uniform when s grows.",
+          "identifier_or_url": "2026/11/22/SCOPE-first-order-approach-to-continuum-coverage-in-two-stage-lattice--94eae3d992ab",
+          "material_read": "RESULT.md Finding and scope on the fixed smaller length and remainder",
+          "method": "Local mirror passage",
+          "title": "First-order approach to continuum coverage in two-stage lattice adsorption",
+          "trigger": "Strongest distinct same-day Resultary match"
+        },
+        {
+          "assessment": "Competitive arrival, with small-ratio formulas",
+          "evidence": "At each trial a species is selected with probability q or 1−q rather than completing the larger-species stage first.",
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0110036",
+          "material_read": "Abstract and p. 1, offsets 0–2500, v2",
+          "method": "Bounded OA PDF passage",
+          "title": "Jamming coverage in competitive random sequential adsorption of a binary mixture",
+          "trigger": "Closest older binary continuum parking result inspected"
+        },
+        {
+          "assessment": "Residual risk, not a verdict on scope",
+          "evidence": "The identified full-text route returned HTTP 403.",
+          "identifier_or_url": "https://nottingham-repository.worktribe.com/OutputFile/751795",
+          "material_read": "Citation only; linked text unavailable",
+          "method": "Attempted lawful author-institution deposit",
+          "title": "Random sequential adsorption with two components: asymptotic analysis and finite size effects",
+          "trigger": "Potentially relevant cited binary-adsorption asymptotics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The limit resolves the specified previously untreated physical size-ratio regime and shows exactly how new gap-filling possibilities affect a macroscopic observable: coverage remains smooth to progressively higher order but has a nonzero prescribed jump at every integer threshold. The statement supplies a useful continuum benchmark beyond the one-rod-gap regime, restricted to the two-stage expectation and stated limit order.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

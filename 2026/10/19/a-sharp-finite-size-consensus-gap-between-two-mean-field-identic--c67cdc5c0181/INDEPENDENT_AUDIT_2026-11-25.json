@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:54:34.373461Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With replacement from the other N−1 vertices, the two interior jump rates are positive, and a finite path to either endpoint gives almost-sure absorption. Dividing the generator drift by N and taking N large gives the stated common drift, because x+(1−x)=1 and x²−(1−x)²=2x−1. The harmonic equation gives consecutive increments in ratio ((N−j)/j)^(q−1); multiplying telescopes to binomial powers. The binomial theorem and Vandermonde normalize the q=2 and q=3 laws exactly. For m=N−1≥2 the squared-binomial-to-binomial mass ratio is strictly increasing up to the central set and then strictly decreasing, except for the possible central tie. There are negative tails and a positive central part. For m odd the left half has zero total difference, and for m even the left half without the central atom has difference minus half that atom's positive difference; this proves strict negativity for all prefixes strictly below the midpoint and reflection proves the other sign. On the upper half the successive difference crosses zero when binom(m,k) decreases through binom(2m,m)/2^m; equality yields the adjacent tie and the stated index test. Compact-uniform Stirling expansions and Chebyshev truncation using variances m/4 and m²/[4(2m−1)] give the two moving-threshold Gaussian limits. The local ratio tends to √2 exp(−2s²), and the monotone discrete crossing is bracketed by any two positive offsets straddling √log(2)/2. Substituting in the limiting distribution difference yields the stated 0.08303203749… limit. Nonvanishing in the window means separation at nonzero fixed scaled offsets and a positive limiting maximum, not a uniform positive lower bound all the way down to the midpoint. Independent safe-integer recurrence comparisons covered all 204 counts for N=3,…,19, including the stated N=5 example; verify_exit.py was inspected, not executed, and its frozen reported finite checks are not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The nonlinear voter drift formula in Ramirez et al. gives identical deterministic q=2 and q=3 dynamics directly.",
+          "The later general q theorem covers both finite absorption laws; classical symmetric hypergeometric normal approximation supplies a standard asymptotic ingredient."
+        ],
+        "reasoning": "These sources cover the model, its individual laws and standard approximation tools. A quantitative comparison still has to compare the normalized local masses, locate the discrete crossings and control the maximum on the divergent critical scale.",
+        "searches": [
+          "Ramirez et al. arXiv:2310.20548v1, Eqs. (7), (9), (10)",
+          "Resultary 5a1848843215, Exact binary fixation probability",
+          "Mattner–Schulz arXiv:1404.7657 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_exit.py",
+        "Resultary 5a1848843215",
+        "arXiv:2310.20548v1, 0907.1775, 2502.10172, 1107.0366 and 1404.7657"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Castellano et al. use a backward diffusion approximation including q=4; Doniec et al. use a different generalized biased rule and finite-state calculations.",
+          "The exact general binary result implies the separate CDFs, but the strict majoritarian sign and tie/argmax criterion use the single crossing of h_j/p_j, and the asymptotic maximum uses moving-index local limits."
+        ],
+        "reasoning": "The exact maximizer and asymptotic constant are not extracted by setting q in a single prior formula for those quantities. These are short deductions using standard tools but establish a model-specific quantitative gap absent from the inspected sources.",
+        "searches": [
+          "ArXiv:0907.1775, exit-probability analysis",
+          "arXiv:2502.10172 §D/E",
+          "Resultary 5a1848843215 exact binary proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 5a1848843215 gives the exact binary fixation probability as the normalized prefix sum of binom(N−1,j)^(q−1) for the same rates.",
+          "Setting q=2 and q=3 respectively and applying Vandermonde gives exactly the two frozen CDFs; the hypergeometric interpretation is the equal-size sampling-without-replacement distribution on a population of size 2(N−1), not the microscopic panel sampling rule."
+        ],
+        "reasoning": "The fixation-law aliases match under both parameter substitutions, so the two identities are not an independent contribution relative to that stronger formula. The sharp quantitative difference of the CDFs is a separate comparison, not a renaming of either CDF.",
+        "searches": [
+          "Nonlinear q-voter complete graph with replacement exact exit/fixation probability powers of binomial coefficients, q=2 versus q=3 and hypergeometric",
+          "Local Resultary search for binary fixation, binomial powers and complete-graph nonlinear voter dynamics"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest exact catalogue source found is the q-power formula in 5a1848843215, covering all N and both q, but without a discrete maximizing index or the 0.083032… limiting maximum.",
+          "The targeted search surfaced a one-dimensional exact-exit study (arXiv:1107.0366), not a complete-graph table of the gap."
+        ],
+        "reasoning": "A general expression for two probabilities permits evaluations or numerical maximization, but is not an exact catalogue of the comparison and its optimizing scale. No like-for-like prior table stating that information was checked.",
+        "searches": [
+          "Local Resultary search for exact finite-N exit laws and q=2/q=3 consensus gap",
+          "Targeted primary search on complete-graph exit laws and binomial/hypergeometric comparison"
+        ]
+      },
+      "rationale": "Credit established coverage of the common drift and of the two exact fixation CDFs under specialization of the later general catalogue formula. The supported distinct contribution is the strict same-drift finite-N comparison, exact maximizing-index characterization and sharp limiting maximal separation for these two panels. The checked earlier diffusion treatments and the later binary fixation formula do not supply that comparison. Chronology is not used as a substitute for comparing the statements.",
+      "residual_risks": [
+        "A prior exact binomial-versus-symmetric-hypergeometric comparison with the same parameter relation could subsume the optimized gap without any voter-model language; this was not found in the bounded checks. The verdict is not a claim of historical priority for the fixation CDFs or for the Gaussian tools."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the exact CDFs, not the sharp q=2 versus q=3 gap",
+          "evidence": "Normalized binomial-power prefix sum with exponent q−1 for the same binary jump rates.",
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-binary-envelopes-for-multistate-nonlinear-voter-dynamics--5a1848843215",
+          "material_read": "RESULT.md Finding and Exact binary fixation probability proof, around mirror offsets 0 and 4900",
+          "method": "Local Resultary search and mirrored statement inspection",
+          "title": "Sharp binary envelopes for multistate nonlinear voter dynamics",
+          "trigger": "Exact matching complete-graph binary fixation laws for a wider q range"
+        },
+        {
+          "assessment": "Covers rates and drift equality",
+          "evidence": "The mean-field drift at q=2 and q=3 is x(1−x)(2x−1); the inspected passages do not quantify exit-law separation.",
+          "identifier_or_url": "https://arxiv.org/abs/2310.20548v1",
+          "material_read": "pp. 4–5, Eqs. (7), (9), (10)",
+          "method": "Open-access full-text passage inspection",
+          "title": "Ordering dynamics of nonlinear voter models",
+          "trigger": "Same nonlinear complete-graph model and deterministic drift"
+        },
+        {
+          "assessment": "Relevant approximation, not the exact finite comparison",
+          "evidence": "The inspected exit treatment uses a Fokker–Planck/backward equation and includes a q=4 example.",
+          "identifier_or_url": "https://arxiv.org/abs/0907.1775",
+          "material_read": "pp. 1 and 6–7, model and backward diffusion analysis",
+          "method": "Open-access full-text passage inspection",
+          "title": "The non-linear q-voter model",
+          "trigger": "Original q-voter exit-probability analysis on the fully connected network"
+        },
+        {
+          "assessment": "Different generalized biased dynamics",
+          "evidence": "Discusses diffusion and finite-state exit calculations, not the exact unforced two-panel comparison.",
+          "identifier_or_url": "https://arxiv.org/abs/2502.10172",
+          "material_read": "§D/E, pp. 7–9",
+          "method": "Open-access full-text passage inspection",
+          "title": "Modeling biases in binary decision-making within the generalized nonlinear q-voter model",
+          "trigger": "Finite-state calculation of q-dependent exit probabilities"
+        },
+        {
+          "assessment": "Different geometry and dynamics",
+          "evidence": "One-dimensional nonlinear exit results are not the complete-network replacement-panel law.",
+          "identifier_or_url": "https://arxiv.org/abs/1107.0366",
+          "material_read": "§III",
+          "method": "Open-access full-text passage inspection",
+          "title": "Exit probability in a one-dimensional nonlinear q-voter model",
+          "trigger": "Search hit for exact nonlinear q-voter exit law"
+        },
+        {
+          "assessment": "Provides classical asymptotic context, not a model-specific comparison",
+          "evidence": "Treats normal approximation to individual symmetric hypergeometric distributions.",
+          "identifier_or_url": "https://arxiv.org/abs/1404.7657",
+          "material_read": "Abstract",
+          "method": "Open-access abstract inspection for scope",
+          "title": "On normal approximations to symmetric hypergeometric laws",
+          "trigger": "Standard probability ingredient potentially covering the Gaussian limit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result answers an identifiable modeling question: two rules indistinguishable at the deterministic drift level can yield a sizeable, precisely quantified difference in consensus predictions. The effect does not disappear in the maximal critical window, even though the fixed-density predictions agree. The strict finite comparison, exact optimizer test and limiting location and size make the example usable as a benchmark; displaying two standard CDFs alone would not establish that value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

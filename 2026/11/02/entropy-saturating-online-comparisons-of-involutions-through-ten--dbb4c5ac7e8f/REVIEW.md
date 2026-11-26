@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-The all-order VC bound follows from cyclically inconsistent comparison orientations; the reverse-block involution construction realizes every adjacent-labeling pattern. The finite Littlestone upper bounds are cardinality bounds using exact involution counts; the matching lower bounds use complete depth-specific tree certificates with witnesses, independently replayed by a distinct involution-generation procedure. Blockwise direct sums prove the all-order subsequence lower bound. The exact table is not extrapolated beyond ten letters.
+## correctness
 
-## Originality
-The inspected 2017 full text on matching descents studies distributions, bijections and asymptotics rather than comparison-shattering trees. The inspected 2021 full text on zero-set VC/Littlestone dimensions studies nontrivial linear-combination zero sets, not involution-restricted rankings. Available comparison-class results for full permutations or special pattern restrictions do not imply a lower-bound adaptive tree for all involutions. Relevant terminology and parameter searches did not identify a covering result. This is evidence of a gap, not proof of global uniqueness.
+PASS
 
-## Value
-The all-n VC result is a useful normalization, but the distinguishing result is a verified entropy-saturating adaptive table through ten letters and a quantitative unbounded gap in the inverse-symmetric permutation subclass. The natural pairing interpretation of involutions and the canonical pair-comparison domain motivate this invariant. The ten-letter depth gives a reusable block construction rather than an arbitrary isolated small case.
+A graph of statically shattered queries has no cycle: a consistent label choice on the cycle would force cyclic strict inequalities. Consecutive descending blocks, each reversed and using only its own values, give involutions realizing all adjacent labels, proving VC=n−1 even at n=1. Fixed-or-transposed status of the largest letter gives the involution recurrence, and distinct permutations induce distinct strict rank comparisons. Each hypothesis follows one path through a complete tree, so cardinality gives the depth upper bound. Independent replay (python3 /workspace/branches/ec09e412-d310-43a9-af98-389cbfbd9ed6/verify_involutions_independent.py --max-n 10 --output /workspace/branches/ec09e412-d310-43a9-af98-389cbfbd9ed6/independent_check_n1-10.json) validated the frozen JSON under its sorted involution catalogue and explicit query/branch indexing. All paths and distinct witnesses passed; n=10 had 8191 queries and 8192 leaves. The depths are 0,1,2,3,4,6,7,9,11,13. Disjoint contiguous ten-letter blocks with their own shifted value sets allow independent involutions, hence concatenation yields 13s and a gap at least 3s+1. No exact adaptive value beyond n=10 is claimed.
 
-## Closest literature and risks
-Gene B. Kim, *Distribution of descents in matchings* (2017), arXiv:1710.03896v1; Guingona–Kolesnikov–Nierwinski–Soucy, *Littlestone and VC-dimension of families of zero sets* (2021), arXiv:2109.04805v1. Earlier descent enumerations and unindexed alternative formulations remain historical-priority risks. Independent expert validation has not been performed; finite depth beyond ten remains unknown in this work.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The comparison framework, cardinalities and direct-sum technique are not the contribution. The supported distinct result is adaptive saturation for the full involution class through ten, together with the resulting static/adaptive gap for this family; the closest catalogue records concern different hypothesis classes.
+
+## value
+
+PASS
+
+Involutions are a natural inverse-symmetric restriction on total orders, and static shattering does not decide whether a full adaptive tree saturates the information bound. Exact witnesses through ten pin down the first separation and a depth ratio strictly larger than one that can be amplified, rather than just reporting a small numerical improvement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:21:10.827901Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–31",
+        "Frozen VERIFICATION.md, verify_subdivision.py and verification_output.txt (inspected; not executed)"
+      ],
+      "rationale": "Fix the selected old set A, leaving b omitted old vertices C. Subdivision vertices internal to A are forbidden. Each of the b-choose-2 subdivision vertices internal to C can independently be selected and each old vertex in A has a disjoint b-way pool from which to select at most one neighbor. This proves the weighted D summand including b=0. For b>0, maximality forces all internal C subdivisions and exactly one crossing neighbor per selected old vertex, giving a function f:A→C and size 2(n−b)+binom(b,2). No new subdivision can then be added; an omitted old vertex has b−1 selected neighbors from internal C edges, and any selected crossing subdivision to it would become degree two on its addition. Hence it is blocked iff b≥3 or it lies in the image of f. For b=1 the image is the only element since n≥3; for b=2, both omitted vertices must be hit, giving 2^(n−2)−2 mappings (zero at n=3); for b≥3 all functions work, including the empty function at b=n. At b=0 the all-old set is maximal. These are exactly the four summands. The strict discrete convexity of the size for b≥1 gives minimum 2n−3 at b=2,3 and possible maximum only at 1,n. Comparing with size n and using binom(n,2)>2n−2 for n≥5 proves both asserted uniqueness ranges and the gap. Direct substitution verifies M_3 and M_4.",
+      "residual_risks": [
+        "The 2,131,008 recorded subset tests for n=3–6 are finite corroboration only; the independent all-b maximality argument establishes the infinite result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "3b6797f0f13c counts K_{a,b} minus a matching, covering S(K_3)=K_{3,3} minus a perfect matching",
+          "Tu–Li–Du bound total maximal counts by order, and Yuan et al. bound total dissociation counts for connected graphs with specialized tree/unicyclic treatments"
+        ],
+        "reasoning": "For n≥4 each subdivision vertex misses n−2≥2 potential old neighbors, so it cannot belong to the deleted-matching host family. Order extrema bound but do not tabulate the two cardinality distributions or the omitted-old-vertex fibers.",
+        "searches": [
+          "Resultary 3b6797f0f13c",
+          "arXiv:2103.01402 Theorems 1.1–1.3",
+          "arXiv:2412.17095 pp. 1–2",
+          "10.26493/1855-3974.1013.46a"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 24fc074e8484, 68d40fe5e7c1, 3b6797f0f13c, 3a1144b1760f",
+        "10.26493/1855-3974.1013.46a",
+        "arXiv:2103.01402",
+        "arXiv:2412.17095",
+        "10.1016/j.amc.2024.128711"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "3a1144b1760f has an onto-map fiber for maximal incidence-edge induced matchings",
+          "Earlier work on uniformity and global extremal counts does not specify the b-dependent degree obstruction"
+        ],
+        "reasoning": "The onto condition here is restricted to two omitted old vertices. For three or more omitted vertices, maximality is automatic after the forced internal selections, which has no implication from the induced-matching onto condition. Recovering both polynomials and the extrema requires these fiber distinctions, not a routine application of global order bounds.",
+        "searches": [
+          "Resultary 3a1144b1760f offsets 0 and 3200",
+          "arXiv:2103.01402 pp. 1–3",
+          "Uniformly dissociated graphs, p. 293"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior P3-convexity result concerns vertices outside the chosen set; taking two old vertices is dissociated but violates P3-convexity at their common subdivision vertex",
+          "The same-day edge-open-packing polynomial counts edges of the incidence graph, and the later induced-matching onto-map condition is for induced matchings of those edges"
+        ],
+        "reasoning": "Complementing dissociation sets does give P3-vertex covers and reverses sizes, with maximality mapped to minimality; none of the same-host retrieved P3-convex, open-packing or induced-matching statements is that cover enumerator. In particular the incidence-edge polynomial has linear coefficient n(n−1), not n+binom(n,2) for n≥4.",
+        "searches": [
+          "Resultary 24fc074e8484, 68d40fe5e7c1, 3a1144b1760f; complete subdivision and P3-cover/dissociation formulations",
+          "Brešar–Hartnell–Rall DOI 10.26493/1855-3974.1013.46a"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The deleted-matching record gives D_3=1+6z+15z²+14z³+3z⁴ and M_3=2z³+3z⁴ under its K_{3,3} specialization",
+          "Same-host exact tables retrieved count P3-convex sets or edge-open packings; no matching all-n dissociation table identified"
+        ],
+        "reasoning": "The n=3 overlap is exact and receives no novelty credit. It establishes no coefficients for n≥4, where even the host incidence missing-neighbor pattern differs from the deleted-matching model.",
+        "searches": [
+          "Resultary 3b6797f0f13c exact faces/facets formula",
+          "Resultary 24fc074e8484 and 68d40fe5e7c1 same-host exact polynomial comparison"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the uniform labeled cardinality polynomials and maximality/extremal classification across complete subdivisions beyond the already covered cycle boundary. Same-host indexed results count different objects. The known complement equivalence with three-vertex-path covers is credited; the inspected published extremal results do not provide this family distribution.",
+      "residual_risks": [
+        "An inaccessible or unindexed equivalent exact size enumerator under minimal P3-vertex-cover terminology could still exist. A retrieved lead on optimum three-vertex-path covers was inaccessible after redirect errors; it was not relied on as evidence of noncoverage. No global priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different vertex family",
+          "evidence": "P3-convexity constrains the neighbors of outside vertices, not the induced degree of selected vertices.",
+          "identifier_or_url": "2026/10/25/SCOPE-matching-polynomial-enumeration-and-extremal-rigidity-of-p-3-con--24fc074e8484",
+          "material_read": "RESULT.md Finding, initial passage from offset 0",
+          "method": "Resultary lookup and local mirror passage inspection",
+          "title": "Matching-polynomial enumeration and extremal rigidity of P3-convex sets in complete-graph subdivisions",
+          "trigger": "Earlier same-host size enumeration with related P3 terminology"
+        },
+        {
+          "assessment": "Different counted objects; no priority inference from same day",
+          "evidence": "Uses labeled subsets of incidence edges, not vertex sets of the subdivision.",
+          "identifier_or_url": "2026/10/26/SCOPE-edge-open-packing-decomposition-and-exact-polynomial-for-complet--68d40fe5e7c1",
+          "material_read": "RESULT.md Finding from offset 0, Eq. (3)",
+          "method": "Resultary lookup and local mirror passage inspection",
+          "title": "Edge-open-packing decomposition and exact polynomial for complete-graph subdivisions",
+          "trigger": "Same-day same-host exact polynomial"
+        },
+        {
+          "assessment": "Covers exactly the n=3 boundary of this family",
+          "evidence": "K_{3,3} minus a perfect matching is C6, but higher complete subdivisions have multiple missing cross edges per subdivision vertex.",
+          "identifier_or_url": "2026/10/18/SCOPE-dissociation-faces-and-facets-of-complete-bipartite-graphs-with--3b6797f0f13c",
+          "material_read": "RESULT.md Finding from offset 0",
+          "method": "Resultary lookup and local mirror passage inspection",
+          "title": "Dissociation faces and facets of complete bipartite graphs with a deleted matching",
+          "trigger": "Earlier formulas for the identical two statistics on a bipartite family"
+        },
+        {
+          "assessment": "Different invariant despite similar fiber language",
+          "evidence": "The onto map encodes induced matchings of incidence edges, not selected subdivision and old vertices.",
+          "identifier_or_url": "2026/11/2/SCOPE-maximal-induced-matchings-of-complete-graph-incidence-families-e--3a1144b1760f",
+          "material_read": "RESULT.md offsets 0 and 3200",
+          "method": "Resultary lookup and local mirror passage inspection",
+          "title": "Maximal induced matchings of complete-graph incidence families",
+          "trigger": "Same-host maximality and onto-map resemblance"
+        },
+        {
+          "assessment": "Relevant structural predecessor; whole-text scope not resolved",
+          "evidence": "Concerns uniformly dissociated graphs rather than advertising a labeled size enumerator.",
+          "identifier_or_url": "https://doi.org/10.26493/1855-3974.1013.46a",
+          "material_read": "p. 293 abstract and available front matter",
+          "method": "Primary-paper retrieval; full theorem text not in retrieved extraction",
+          "title": "Uniformly dissociated graphs",
+          "trigger": "Primary uniformity and P3-cover predecessor"
+        },
+        {
+          "assessment": "Extremal results by order, not a family enumerator",
+          "evidence": "Statements concern extremal counts and corresponding graph classifications, not the size-refined polynomial for each S(K_n).",
+          "identifier_or_url": "https://arxiv.org/pdf/2103.01402",
+          "material_read": "PDF pp. 1–3, especially Theorems 1.1–1.3",
+          "method": "Lawful OA PDF passage",
+          "title": "Maximal and Maximum Dissociation Sets in General and Triangle-Free Graphs",
+          "trigger": "Primary maximal-count bounds and classification"
+        },
+        {
+          "assessment": "Extremal count under different conditions",
+          "evidence": "Addresses extremal counts in connected graphs and specialized classes such as trees and unicyclic graphs.",
+          "identifier_or_url": "https://arxiv.org/pdf/2412.17095",
+          "material_read": "PDF pp. 1–2",
+          "method": "Lawful OA PDF passage",
+          "title": "The number of dissociation sets in connected graphs",
+          "trigger": "Primary broader all-set count results"
+        },
+        {
+          "assessment": "No whole-document exclusion inferred",
+          "evidence": "Accessible description concerns grid, cyclical-grid and cylindrical-grid graphs.",
+          "identifier_or_url": "https://doi.org/10.1016/j.amc.2024.128711",
+          "material_read": "Search bibliographic/abstract description only; publisher full text returned 403",
+          "method": "Literature search and publisher retrieval attempt",
+          "title": "Enumerating maximal dissociation sets in three classes of grid graphs",
+          "trigger": "Plausible primary exact maximal enumeration methodology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 6–31",
+        "Resultary 3b6797f0f13c for the already covered cycle boundary"
+      ],
+      "rationale": "The full subdivision of a complete graph is the natural incidence graph of the complete two-uniform set system. The b-dependent extension test identifies precisely when local maximality forces an onto assignment and when the incidence structure alone blocks all omitted vertices. The exact size distribution and sharp unique extremal sets expose a quadratic disparity between locally maximal solutions; by complement they also quantify sizes of minimal three-vertex-path covers in this family. These are not implied by an optimum value or an order-based bound alone.",
+      "residual_risks": [
+        "No general complexity improvement or arbitrary-subdivision extension is claimed. The contribution is the uniform labeled family enumeration and structural maximality split, not the tiny known boundary instance."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:40:58.902159Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For samples 0 through 3 the entries are (1,r,rt,t^3); r and t are recovered from entries 1 and 2 (with entry 0 equal to 1). The phase map is onto, with kernel {(0,0),(π,π)}. Factoring the coherence as (1+t)(r+t²−t+1) proves that t=−1 gives an entire circle; otherwise the unit-modulus condition is |2 cos(arg t)−1|=1, giving precisely the three listed quotient points. The equation α+3β=π mod 2π parametrizes a single circle by β; each isolated quotient point has two lifts. For any orthogonal set, its second coordinates lie in one rotated fourth-root set. A repeated second coordinate forces opposite first coordinates and excludes both adjacent fourth-root values: an adjacent value would require the same ratio r/t to each member of the repeated class. Four points therefore consist of two antipodal second-coordinate values, each with two opposite first coordinates, yielding A(z). With no repeats, all four fourth-root values occur, and all adjacent pairs force r/t to be constant, yielding B. These conditions also suffice by the ratio test. Translation preserves the multiplicities that distinguish the two types, and column length is 2. Verified for the unrestricted phase torus only. The source checker was inspected, not executed; its reported grid figures can be recovered independently as a 16-vertex degree-7 Cayley graph (56 edges) and two A choices plus one B choice through the identity (8 and 4 cliques, respectively, by double counting).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Fresnel model gives the quadratic aperture phase, but the recovery theorem assumes at least ten aperture samples and gives a sufficient sparse recovery condition.",
+          "The order-four Hadamard theorem operates on arbitrary unimodular orthogonal matrices modulo broader operations."
+        ],
+        "reasoning": "Neither theorem states or supplies the zero locus for the four samples or the narrower constrained classification without a separate analysis of the intersection.",
+        "searches": [
+          "Daei–Fodor–Skoglund, arXiv:2609.31299, Fresnel steering model and Theorem 2.3",
+          "Tadej–Życzkowski, arXiv:quant-ph/0512154, §5.4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, and checker.py",
+        "arXiv:quant-ph/0512154",
+        "arXiv:2609.31299",
+        "Resultary 47f1c08c4cbe",
+        "Resultary f8559da4c3f3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ordinary-exponential theorem implies the Fourier configuration in the equal-weight setting but does not constrain pairs with distinct quadratic parameters.",
+          "The cubic root-grid parity theorem concerns roots in one Fourier variable with fixed coefficients; it does not compute the two-variable locus or its pairwise quotient constraints."
+        ],
+        "reasoning": "An additional unit-circle intersection calculation and analysis of the four-column compatibility conditions are needed. No inspected prior result implies the entire claim under the stated phase equivalences.",
+        "searches": [
+          "arXiv:quant-ph/0512154, Definition 2.2 and §5.4",
+          "Resultary 47f1c08c4cbe and f8559da4c3f3, Findings and proofs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The ambient Hadamard equivalence allows independent diagonal row and column factors and row permutations; under the allowed chirp translation and permutations alone, second-coordinate multiplicities separate A and B.",
+          "For ordinary characters (β=0), r=t, and the fourth-root basis in 47f1c08c4cbe is exactly B up to a common translation."
+        ],
+        "reasoning": "The ambient one-parameter classification does not describe its intersection with the quadratic phase constraint under the narrower equivalence; the ordinary-character specialization accounts for B but not A(z).",
+        "searches": [
+          "Tadej–Życzkowski, arXiv:quant-ph/0512154, Definition 2.2 and §5.4",
+          "Resultary 47f1c08c4cbe, ordinary-exponential orthogonality on four consecutive sites"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "39adaaa75406 is the identical assigned record; 47f1c08c4cbe gives the ordinary special case; f8559da4c3f3 analyzes roots of equal-modulus cubics on root-of-unity grids.",
+          "The Hadamard parametrization catalogs ambient equivalence classes, not phase-torus zeros or chirp-preserving orbits."
+        ],
+        "reasoning": "An index match and a known Fourier matrix are not independent coverage of the full continuous phase problem. A finite root grid cannot account for the arbitrary circle parameter.",
+        "searches": [
+          "Resultary search for four-sample quadratic chirp zero coherence and orthogonal bases; inspected hits 39adaaa75406, 47f1c08c4cbe and f8559da4c3f3",
+          "Tadej–Życzkowski, §5.4, formulas (62)–(67)"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the full continuous zero locus and exhaustive inverse-image classification under chirp-preserving equivalences. The isolated Fourier example and the abstract order-four Hadamard family are established objects, not new configurations in the ambient Hadamard classification. An exact same-day overlap on the ordinary-character case is credited without assigning priority from the date.",
+      "residual_risks": [
+        "An equivalent description may be in older phased-array or constrained Hadamard design literature; statement-level comparisons here do not establish historical priority.",
+        "The equal-weight ordinary Fourier case overlaps a distinct same-day record; date alone does not establish ordering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broader ambient equivalence; partial coverage",
+          "evidence": "Every order-four complex Hadamard matrix has a representative in a one-parameter family; the equivalence allows diagonal unitaries and row and column permutations.",
+          "identifier_or_url": "https://arxiv.org/abs/quant-ph/0512154",
+          "material_read": "Definition 2.2 (p. 4) and §5.4 (p. 18), equations (62)–(67)",
+          "method": "Located and read bounded passages in the open paper",
+          "title": "A concise guide to complex Hadamard matrices",
+          "trigger": "Exact order-four classification"
+        },
+        {
+          "assessment": "Model overlap, not the four-sample conclusion",
+          "evidence": "Linear-plus-quadratic aperture phase; QPAC theorem with at least ten samples for uniform exact recovery.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.31299",
+          "material_read": "Model on p. 3; §2.2, equations (2.5)–(2.7), pp. 11–12; Theorem 2.3, p. 17",
+          "method": "Located and read bounded passages in the open paper",
+          "title": "A Mathematical Theory of Near-Field Super-Resolution",
+          "trigger": "Closest cited quadratic steering model"
+        },
+        {
+          "assessment": "Exact ordinary-character special case",
+          "evidence": "Four orthogonal ordinary exponentials require uniform weights and give the translated fourth-root characters; for β=0 this is B.",
+          "identifier_or_url": "Resultary 47f1c08c4cbe",
+          "material_read": "Finding in RESULT.md",
+          "method": "Read matching record in the local Resultary mirror",
+          "title": "Complete Fourier orthogonality stratification of four consecutive sites",
+          "trigger": "Same length and exact basis question"
+        },
+        {
+          "assessment": "Related algebraic rigidity, not the phase-torus classification",
+          "evidence": "Three unit-circle roots of the equal-modulus cubic must include an antipodal pair; the exact grid analysis is for an ordinary Fourier variable.",
+          "identifier_or_url": "Resultary f8559da4c3f3",
+          "material_read": "Finding and proof in RESULT.md",
+          "method": "Read matching record in the local Resultary mirror",
+          "title": "Parity classification of Fourier zeros for phase-only consecutive supports",
+          "trigger": "Unimodular cubic Fourier zeros"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Four consecutive samples are the first size where, after fixing the initial entry to one, the quadratic chirp imposes a constraint on the remaining phase entries: two noninitial entries already determine both torus coordinates. At this cutoff the result gives exact exceptional coherence differences and all orthogonal bases under the natural phase equivalence, including a rigorous obstruction to using three distinct combined phases. This is useful as a complete finite benchmark, not a claim about physically feasible arrays or a new abstract Hadamard family.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

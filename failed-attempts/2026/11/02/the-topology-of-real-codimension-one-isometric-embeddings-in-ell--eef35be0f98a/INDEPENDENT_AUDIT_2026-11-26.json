@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:58:47.005022Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 26–79; VERIFICATION.md, lines 19–29; check_graph.py, lines 10–74 (inspected, not run)",
+        "Fresh reproduction: python3 /workspace/branches/cf0fa128-87da-425e-a9d3-c47ea0333bac/independent_graph_check.py"
+      ],
+      "rationale": "The equality of the two-column plus/minus norm sum forces disjoint support: Jensen at exponent p/2 followed by strict subadditivity (p<2) or superadditivity (p>2) gives a fixed strict sign for each row with two nonzero entries. This includes p=1, and the converse follows by summing over disjoint supports. With n−1 nonempty supports in n rows there is either one blank row or exactly one doubled column. A doubled column with fixed signs has the interval parameter t=|b|^p; its endpoints are precisely the two singleton placements. The intervals and vertices form a compact graph mapped continuously and bijectively onto the Hausdorff embedding space. Counting the signed row placements gives V=2^(n−1)n!, and moving any one column into the blank row with either sign gives degree 2(n−1), hence the stated E. The unsigned moves generate all permutations; an out-and-back move flips any one column sign. Collapsing the spanning tree gives a homotopy-equivalent quotient wedge of E−V+1 circles; the source's wording 'deformation-retracts onto' need not hold as a literal subspace assertion. Its stated homotopy and homology conclusions hold. The entrywise signed power p/q preserves the supports and maps p-unit columns to q-unit columns with a continuous inverse. The n=2 graph is a four-cycle. A fresh bounded enumeration found (V,E,beta_1)=(4,4,1),(24,48,25),(192,576,385),(1920,7680,5761),(23040,115200,92161), each connected and of the stated degree. It checks finite incidence only, not the all-dimensional homeomorphism.",
+      "residual_risks": [
+        "The support argument does not apply at p=2; complex, p=infinity, and higher codimension are outside this assessment."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dalfollo-Daley et al. give the disjoint supports and fixed-support products of open simplices/sign components, not the global boundary attachments.",
+          "Phillips's path rigidity is for surjective isometries; the complex Resultary counterpart 09f8234705d4 is not the real embedding theorem.",
+          "5a7458a790aa gives the stronger Cayley description and also a map to the Hilbert Stiefel manifold."
+        ],
+        "reasoning": "The cited ingredient results do not settle the global gluing; the exact published graph does.",
+        "searches": [
+          "Resultary: isometric embeddings l_p finite dimensional support transformation simplex strata topology Proposition 4.5",
+          "Resultary: Phillips surjective isometry Lp underlying set transformation path rigidity nonsurjective embeddings topology",
+          "Dalfollo-Daley et al., arXiv:2610.32615v1, Theorem 3.18 and Proposition 4.5; Phillips arXiv:1201.4196v1, Lemma 6.22"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4: 5a7458a790aa and 09f8234705d4",
+        "arXiv:2610.32615v1, Theorem 3.18 and Section 4; arXiv:1201.4196v1, Lemma 6.22"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed finding explicitly gives the wedge, free fundamental group and rank of H_1. The higher reduced homology vanishes for that connected one-dimensional graph.",
+          "The equal-dimension signed-permutation contrast follows directly from disjoint supports, as there is no spare row."
+        ],
+        "reasoning": "The same scientific content survives only as the already-covered theorem; the small examples and consequences are not an original remainder.",
+        "searches": [
+          "5a7458a790aa, RESULT.md Finding offset 0 and gluing/graph proof offsets 2700–6258",
+          "Frozen RESULT.md, lines 50–79"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The strongest hit gives the Cayley graph of the even-signed permutation group W(D_n) with the two signed swap generators for each column.",
+          "A signed injection has a unique even-signed completion by filling the blank row in column n with the sign making the number of negatives even. Right multiplication by the two swaps with column n moves column i into the blank row and gives the two possible signs; the other actual columns do not change."
+        ],
+        "reasoning": "This is a bijection of the vertex sets and exactly matches the open-interval incidences. The norm exponent and equality of operator- and entrywise-matrix topologies are the same in both statements.",
+        "searches": [
+          "Resultary: real codimension-one isometric embeddings ell_p finite graph signed support graph topology",
+          "Resultary: signed partial injections graph blank row swaps cycle rank regular graph isometric embeddings",
+          "5a7458a790aa, RESULT.md Finding and Assumptions, offset 0; proof offsets 2700–6258"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed graph record has the exact same formulas in n and the small ranks 1,25,385.",
+          "The primary literature counts uniform restricted/full isometries in a subclass, not the topology or homology of the complete space."
+        ],
+        "reasoning": "Agreement holds symbolically for all admissible n and is not a match merely of small rank values. The later small sample values follow by substitution.",
+        "searches": [
+          "Local Resultary 5a7458a790aa, RESULT.md offset 0",
+          "Dalfollo-Daley et al., Theorem 4.3 and Corollary 4.4, OA offsets 47900–51782"
+        ]
+      },
+      "rationale": "The distinct published sparse Stiefel graph record 5a7458a790aa explicitly identifies the same topological embedding space as the same signed graph, with the same degree, vertex and edge counts, exponent independence and homotopy invariants. Its Cayley presentation is a stronger identification, not a different space. The date on that record path is later than the frozen record path; exact equivalent published coverage is established, but chronological priority, independence and provenance are not inferred. Neither the elementary equal-dimension contrast nor additional sample evaluations leave a separate finding.",
+      "residual_risks": [
+        "This is not an exhaustive history of signed partial injection graphs.",
+        "The later-dated path does not establish which formulation came first or any attribution claim; the decision is based on exact mathematical coverage in a distinct published record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage and stronger group identification",
+          "evidence": "Identical norm, dimensions, real scalars and exponents; explicit interval graph and W(D_n) Cayley presentation, exact counts, wedge/free-group rank and exponent independence.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-the-sparse-stiefel-graph-of-real-codimension-one-isometries--5a7458a790aa/RESULT.md",
+          "material_read": "Finding and assumptions at offset 0; proof offsets 2700–6258",
+          "method": "Local mirrored full-file passages",
+          "title": "The sparse Stiefel graph of real codimension-one isometries",
+          "trigger": "Strongest Resultary hit for the identical space and topology"
+        },
+        {
+          "assessment": "Different scalar field",
+          "evidence": "Complex embeddings are treated, not the real signed interval graph.",
+          "identifier_or_url": "2026/11/1/SCOPE-free-fundamental-groups-of-complex-codimension-one-ell-p-isometr--09f8234705d4",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local mirror",
+          "title": "Free fundamental groups of complex codimension-one ell-p isometries",
+          "trigger": "Close Resultary match for the codimension and topology"
+        },
+        {
+          "assessment": "Structural ingredients and fixed-support topology, not global incidence in the passages checked",
+          "evidence": "Disjoint unit column supports; products of open simplices and real sign components with support fixed; uniform-subclass counts.",
+          "identifier_or_url": "https://arxiv.org/html/2610.32615v1",
+          "material_read": "Theorem 3.18 and proof, OA offsets 26400–30562; Theorem 4.3, Corollary 4.4 and Proposition 4.5, offsets 47900–56047",
+          "method": "Open full-text passages",
+          "title": "Restricted isometries in finite-dimensional ell-p-spaces",
+          "trigger": "Primary source on finite-dimensional supports, counting and strata"
+        },
+        {
+          "assessment": "Surjective path-rigidity scope does not give the nonsurjective graph",
+          "evidence": "A norm-continuous path of surjective spatial isometries has a constant underlying set transformation.",
+          "identifier_or_url": "https://arxiv.org/html/1201.4196v1",
+          "material_read": "Section 6, Lemma 6.22 and lead-in, OA offsets 165990–170790",
+          "method": "Open full-text passage",
+          "title": "Analogs of Cuntz algebras on L^p spaces",
+          "trigger": "Cited topology of isometries"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–24 and 50–79; sparse Stiefel graph RESULT.md Finding"
+      ],
+      "rationale": "The first non-surjective dimension gap is natural: the embedding space changes from a discrete signed-permutation space to a connected graph with growing first Betti number. The global gluing and homotopy type are worthwhile mathematical content. The exact known graph leaves no new valuable remainder for repair.",
+      "residual_risks": [
+        "No value claim about a classification beyond one spare coordinate."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

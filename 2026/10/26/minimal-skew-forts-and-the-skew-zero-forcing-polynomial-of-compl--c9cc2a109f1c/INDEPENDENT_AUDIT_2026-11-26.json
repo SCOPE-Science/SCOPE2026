@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:06:45.070491Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With both colors eligible to act, the first-layer neighbor count is a−1_{i∈A}+1_{i∈B}, and similarly for the other layer. For a nonempty skew fort neither side can be empty. A singleton side requires the other side to be exactly the complementary indices, which is possible precisely at n≥4. A side of size two requires its indices to be in the opposite side, so the set contains a two-column fort. Both side sizes at least three always give a fort; after excluding two common columns, the inclusion-minimal possibilities are 3+3 with overlap at most one (possible starting at n=5). These and the singleton-layer forts have no proper subfort. A skew fort blocks the first force into it and a terminal nonempty white set is such a fort, validating the obstruction test independent of forcing choices. Avoidance gives the disjoint cases by side sizes, with overlap at most one in the side-two case; the apparent duplicates of the two orientations occur exactly at 1+1 and 2+2 and account for the two subtractions in W_n. For n=3 only the three two-column obstructions occur, giving twelve successful four-white sets. The top white coefficient is 56 for n=4, and 2+2n(n−1)+2 C(n,2)(C(n,2)−C(n−2,2)) for n≥5. A minimum-size skew fort has four vertices, and success/failure are monotone in opposite directions, yielding the claimed failed size and span including n=3,4. Counting 3+3 configurations with overlap zero or one gives the stated fort count. Independent adjacency and legal-move DP checked all 87360 initial subsets across 3≤n≤8, exact minimal families, coefficient vectors, and both extremal quantities and span. Minimal-fort totals: 3,14,50,227,805,2284; minimum-set counts: 12,56,182,332,548,842. Replay: python3 /workspace/reproductions/check_fan_crown_skew.py skew. The file verification/verify_skew_prism.py was inspected at its actual nested path; its claimed 174720 checks are reported evidence, distinct from the independent reproduction. The local analysis, not the finite test, establishes all orders.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jacob gives the span identity for the skew variant, including its exceptional undefined-failure case; that exception does not occur here.",
+          "The inspected Abiad et al. skew results concern joins and tensor constructions; §3.2 is positive semidefinite forcing, contrary to the frozen bibliography's suggestion of a skew Cartesian treatment.",
+          "The cited Johnson et al. result concerns F^−=1; here F^−≥2. Skew throttling on paths, cycles and balanced spiders is a different invariant."
+        ],
+        "reasoning": "The general span identity computes the span once the two extremal parameters are given; none of these inspected statements supplies the matched-clique forbidden white sets or their enumerator.",
+        "searches": [
+          "Jacob, arXiv:2309.06234, pp. 2–3",
+          "Abiad et al., arXiv:2111.12343, §3.2 and skew join/tensor passages",
+          "Johnson, Vick and Narayan, arXiv:2209.09379, p. 2",
+          "Curl, Geneson and Hogben, arXiv:1909.07235, p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verification/verify_skew_prism.py",
+        "Resultary records 94aacf8a747d, 7e7715a7522c and d7c3e2b9981e",
+        "arXiv:2309.06234, 2111.12343, 2209.09379, 1909.07235, 2303.17419"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Span follows directly from F^− and Z^−; a scalar or its difference does not specify the successful subsets at each cardinality.",
+          "In skew forcing a white actor is allowed, changing the fort test from exterior-only to all vertices; a blocked ordinary or leaky position is not certified as blocked under the skew rule."
+        ],
+        "reasoning": "The known consequences and adjacent variants do not mechanically produce the three minimal families or the W_n coefficients.",
+        "searches": [
+          "Same-graph Resultary RESULT.md membership statements and scope; Jacob span identity; Abiad et al. §3.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 94aacf8a747d and 7e7715a7522c use the same graph but respectively one-leaky and ordinary blue-only rules, not either-color forcing.",
+          "Cooper and Fickes discuss skew closure and nullvector loci; a closure framework is not an exact calculation of all labeled generators in this family."
+        ],
+        "reasoning": "Successful complements are precisely the sets avoiding minimally stalled white sets under the skew rule. The ordinary and leaky rules inspect different actors and their blockers cannot be substituted here.",
+        "searches": [
+          "Resultary: K_n square K_2 / complete prisms / matched cliques, skew forts, failed skew forcing and skew polynomial",
+          "Jacob, arXiv:2309.06234",
+          "Cooper and Fickes, arXiv:2303.17419"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed clique-bouquet skew-polynomial record has a universal hub and different minimal forts; the indexed complete-prism all-size formula is for one leak, and the other indexed matched-clique entry excludes skew forcing."
+        ],
+        "reasoning": "No inspected exact catalog comparison supplies the skew coefficient array or its all-order description; same-family or same-date titles do not settle coverage or priority.",
+        "searches": [
+          "Resultary exact family/variant comparison: d7c3e2b9981e, 94aacf8a747d, 7e7715a7522c"
+        ]
+      },
+      "rationale": "The supported distinct claim is the complete-prism skew obstruction classification and full labeled forcing polynomial. Neither the same-graph one-leaky/ordinary records nor the same-parameter clique-bouquet record covers that claim. The span relation is already known and is not credited as new.",
+      "residual_risks": [
+        "The 2016 failed-skew paper's full text was inaccessible in the lookup, leaving uncertainty in particular about priority for the failed extremum. The pass is on the inspected evidence for the structural/all-cardinality contribution, not a global priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the span identity and convention, not evidence of the family classification",
+          "evidence": [
+            "For each applicable variant the span is F−Z+1; skew feasibility exceptions are separately noted."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2309.06234",
+          "material_read": "v1 pp. 2–3, around text offsets 1800 and 6500",
+          "method": "Bounded original OA passage inspection",
+          "title": "The zero forcing span of a graph",
+          "trigger": "Exact skew polynomial and span parameter"
+        },
+        {
+          "assessment": "Different rule, not equivalent coverage",
+          "evidence": [
+            "The claim counts one-leaky standard forcing, not skew forcing."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-all-one-leak-zero-forcing-sets-of-complete-prisms-a-closed-polyn--94aacf8a747d",
+          "material_read": "Indexed RESULT.md forcing regime and polynomial statement",
+          "method": "Local Resultary mirror passage comparison",
+          "title": "All one-leak zero-forcing sets of complete prisms",
+          "trigger": "Same exact graph and a closed all-cardinality polynomial"
+        },
+        {
+          "assessment": "Ordinary only",
+          "evidence": [
+            "Its scope expressly excludes skew forcing."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-complete-zero-forcing-and-minimal-fort-distributions-for-matched--7e7715a7522c",
+          "material_read": "Indexed finding and scope of RESULT.md",
+          "method": "Local Resultary mirror passage comparison",
+          "title": "Complete zero forcing and minimal-fort distributions for matched cliques",
+          "trigger": "Same graph and minimal-fort distributions"
+        },
+        {
+          "assessment": "Different graph, not a general theorem that covers complete prisms",
+          "evidence": [
+            "The statement has a shared universal hub and clique bouquets, with span 2r−2 in its non-triangle case."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-skew-zero-forcing-polynomials-and-uniform-forcing-spans-of-cliqu--d7c3e2b9981e",
+          "material_read": "Indexed RESULT.md family and theorem",
+          "method": "Local Resultary mirror passage comparison",
+          "title": "Skew zero forcing polynomials and uniform forcing spans of clique bouquets",
+          "trigger": "Same invariant and apparent related clique family"
+        },
+        {
+          "assessment": "Cartesian passage is PSD, not skew; inspected skew results are on other constructions or scalar parameters",
+          "evidence": [
+            "The Cartesian-product section does not state an all-set skew result."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2111.12343; DOI 10.13001/ela.2022.6737",
+          "material_read": "§3.2 p. 5 and skew join/tensor passages",
+          "method": "Bounded original OA passage comparison",
+          "title": "Constructions of cospectral graphs with different zero forcing numbers",
+          "trigger": "Possible Cartesian-product and skew coverage"
+        },
+        {
+          "assessment": "Undetermined coverage; not used as negative evidence",
+          "evidence": [],
+          "identifier_or_url": "Failed skew zero forcing on a graph (2016)",
+          "material_read": "Bibliographic identification only; original full text not read",
+          "method": "Lawful full-text lookup returned HTTP 403",
+          "title": "Failed skew zero forcing on a graph",
+          "trigger": "Possible coverage of the failed skew extremum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Complete prisms form a natural Cartesian-product family. The three obstruction types give an all-set membership criterion and exact full coefficient array, including small-order transitions and both success and failure extrema, useful in distinguishing skew from ordinary and one-leaky forcing on the same family. This is more than an application of the known span identity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

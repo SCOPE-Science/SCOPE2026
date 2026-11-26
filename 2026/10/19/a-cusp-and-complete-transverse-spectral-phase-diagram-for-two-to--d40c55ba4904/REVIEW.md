@@ -1,11 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact Jacobian characteristic polynomial \(\lambda(\lambda^2-Q)\) reduces the question to zeros of the same scalar function on both circles. The upper arc has one simple zero. The lower zero-level function has derivative controlled by an explicit function with one nondegenerate minimum, proving the full two/three/four-point count, positive fold levels, a unique cusp, boundary multiplicities, and index-three nilpotency. The standalone verifier replays the Jacobian/derivative identities and six representative root counts. The continuum classification is an analytic result, not a computational extrapolation.
+## correctness
 
-**Originality — PASS with historical risk.** The originating 2019 full article (Sections 1–6) contains the two-circle vector field, geometry and numerical Lyapunov/bifurcation pictures, but does not give the local transverse zero-count phase diagram or the cusp formula. Published work on a cloud-shaped equilibrium curve and on other equilibrium-circle flows concerns inequivalent vector fields and does not imply this two-circle result. The reduction uses standard differentiation and one-variable calculus. An unindexed earlier model-specific classification remains possible.
+PASS
 
-**Mathematical value — PASS.** Because every point on the equilibrium circles is nonisolated, numerical chaos diagnostics do not describe the changing local transverse spectral type of the equilibria. The theorem supplies a natural complete parameter classification with exact fold boundaries and a codimension-two cusp, including a concrete open regime with twice the ordinary number of nilpotent points per circle. This is a structural dynamical invariant, not an arbitrary parameter slice.
+At a smooth equilibrium the Jacobian has nonzero blocks (1,-ay-by^2)^T and (2x-sign(x),2y), so its characteristic polynomial is lambda(lambda^2-Q), with Q=cos(theta)-(a/2)sin^2(theta)-(b/4)sin^3(theta) on either circle; the c-term vanishes. The first quadrant contains exactly one strictly decreasing crossing and the second none. Below the axis solve for b=G_a: the quadrant with cos(theta)<0 is strictly decreasing from +infinity to 2a, the join has derivative -4, and the other quadrant uses u=-sin(theta) and B_a'(u)=2(A(u)-a)/u^2. A diverges at both ends and its derivative changes sign once at u_* because 2u^4-9u^2+6 has precisely one simple root there. This proves the fold order, the 2/3/4 counts, the nondegenerate folds, and the unique triple cusp (the derivative's double zero and nonzero a-unfolding). Fold heights are positive by substitution. The simple crossings, endpoints and the (10,20) witness check; the excluded origin is never counted. At any neutral point the first row of J^2 is nonzero, and J^3=0, proving index three. The spectral sign statement makes no inference of nonlinear stability.
 
-**Limits.** The origin is nonsmooth; purely imaginary transverse spectra do not establish nonlinear stability; the cusp concerns spectral-zero point counting, not equilibrium creation, and no result on global chaos is asserted. No independent mathematical review has taken place.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact vector field and the two touching equilibrium circles are prior art. The eligible claim is the all-positive-parameter classification of pointwise transverse degeneracies for that field, including the fold and cusp multiplicities, not the circles or trajectory chaos.
+
+## value
+
+PASS
+
+The census identifies precisely where the smooth equilibrium manifold loses its nonzero transverse pair and detects an otherwise hidden four-point region and index-three degeneracies. This is useful for selecting parameter ranges for local nonlinear analysis of an existing flow. The justification is the complete diagram and its degeneracies, not routine Jacobian computation or a nonlinear stability claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

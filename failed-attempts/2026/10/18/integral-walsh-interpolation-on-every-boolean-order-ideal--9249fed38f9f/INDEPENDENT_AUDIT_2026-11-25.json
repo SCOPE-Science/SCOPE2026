@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:44:12.917179Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–51, VERIFICATION.md and verify.py, inspected not executed"
+      ],
+      "rationale": "For f(S)=(−1)^|S|, its Boolean Möbius transform at C is the binomial sum (−2)^|C|. Every subset of A∩B is retained by downward closure, so the exact integral congruence is H=Z diag((−2)^|C|) Zᵀ with Z the unit lower-triangular incidence matrix. Unimodularity, changing signs and sorting by cardinality give the divisibility chain 2^|C|. The same congruence gives the signed determinant and Sylvester inertia. Multiplying the two Boolean inverse-zeta entries and summing over C⊇A∪B gives the stated inverse, including its sign. Invertible basis changes persist modulo 2^r; the one-coordinate kernel of 2^k has 2^min(k,r) elements. All factors are units modulo odd integers, and at n=0 the singleton ideal gives [1].",
+      "residual_risks": [
+        "The frozen verifier's lines 38–40 only calculate a predicted kernel size and assert it is positive; they do not check actual modular kernels despite the supporting description. The proof, not those lines, establishes the modular claim.",
+        "The result does not cover arbitrary principal subsets, distinct row and column supports, or numerical conditioning."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Korkee 2004 quotes the general inverse for meet-closed sets, using the inverse zeta and the Möbius transform in its denominator. Every Boolean ideal in the finding is meet-closed.",
+          "The lower-ideal incidence congruence is the standard zeta expansion of an arbitrary f of a meet; the entries of Z are integral with determinant one."
+        ],
+        "reasoning": "For a lower ideal the denominator in (3.22) is just the Möbius transform at x_k: a proper element below x_k already occurs earlier in the linear extension. The general inverse reduces to the exact frozen formula, and the same congruence supplies the other invariants.",
+        "searches": [
+          "Haukkanen, On meet matrices on posets; Korkee and Haukkanen 2001 via Korkee (2004), equation (3.22)",
+          "Knill, arXiv:1907.09092, Theorem 1 and Green-Star theorem"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and support package",
+        "Korkee 2004, equation (3.22)",
+        "Knill arXiv:1907.09092; Brent–Osborn arXiv:1208.3819",
+        "Resultary 16a955cfcc7a and 52fb6118ea85"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From the known configuration of zeta and Möbius factors the only specialization is ∑_{T⊆C}(−1)^|C\\T|(−1)^|T|=(−2)^|C|. It fixes the integral congruence and its inverse.",
+          "Divisibility of increasing powers of two makes the signed diagonal a Smith form after sign changes. The inertia and modular kernel sizes are immediate from the same diagonal."
+        ],
+        "reasoning": "This is demonstrable prior implication even if the exact Fourier terminology and all modular consequences never appeared together. The frozen result does not add a nonmechanical arithmetic property to the specialized meet matrix.",
+        "searches": [
+          "Frozen lines 29–45 versus Korkee (2004) pp. 57, 64 and classical meet-matrix incidence factorization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Korkee (2004), p. 57, defines the meet matrix as f(x_i∧x_j); taking ∧=intersection and f(S)=(−1)^|S| gives exactly the frozen matrix.",
+          "Knill arXiv:1907.09092 instead counts nonempty shared subfaces, with kernel 2^|A∩B|−1."
+        ],
+        "reasoning": "The general weighted meet formulation is equivalent, not only an analogy. Knill's particular unweighted count differs and does not itself cover the arithmetic.",
+        "searches": [
+          "Meet matrices on posets and lower-closed incidence matrices, including Haukkanen and Korkee",
+          "Resultary principal Walsh and Sylvester–Hadamard submatrices"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day 16a955cfcc7a gives ranks and absolute determinants of 4×4 Walsh submatrices, not all principal ideals. The later 52fb6118ea85 gives det(2^−n HᵀH) on the radius-two ball, implying the example |det H|=2^(n²) for its supported n≥5.",
+          "Brent–Osborn's abstract concerns subdeterminants of maximal-determinant matrices and tables through order 21, not the all-ideal Smith factors. The Hacıoğlu full text was not obtained."
+        ],
+        "reasoning": "There is partial catalogue overlap but no need to infer a full Smith classification from finite tables. The broader poset calculation already implies it.",
+        "searches": [
+          "Resultary 16a955cfcc7a and 52fb6118ea85",
+          "Brent–Osborn arXiv:1208.3819 (minor value tables)",
+          "Hacıoğlu DOI 10.3906/mat-1112-18 (design Smith forms)"
+        ]
+      },
+      "rationale": "The principal Walsh matrix is exactly a classical meet matrix: take the Boolean meet-semilattice, the downward-closed family, and the weight f(S)=(−1)^|S|. The standard integral incidence factorization and meet-matrix inverse specialize with the single binomial transform (−2)^|C|. Because those diagonal moduli already divide one another in face order, the Smith and modular conclusions require no additional structural theorem about Walsh matrices.",
+      "residual_risks": [
+        "Full text of Hacıoğlu and of Haukkanen's 1996 On meet matrices on posets was not obtained. The decisive general inverse was read in Korkee's open paper and the broader incidence implication was checked mathematically. The failure does not depend on the inaccessible texts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The quoted meet-closed inverse covers the Walsh inverse after Boolean specialization; no A-set hypothesis is needed for the quoted formula",
+          "evidence": "Defines (S)_f by f(x_i∧x_j), and quotes Korkee–Haukkanen, Theorem 7.1, with two inverse-zeta entries over the Möbius transform denominator.",
+          "identifier_or_url": "https://www.nntdm.net/papers/nntdm-10/NNTDM-10-3-57-67.pdf",
+          "material_read": "p. 57 (offset 0); p. 64, equation (3.22) and surrounding explanation (offset 25170 onward)",
+          "method": "Lawful OA PDF",
+          "title": "On meet and join matrices on A-sets and related sets",
+          "trigger": "General meet-matrix definition and one-to-one match of the inverse"
+        },
+        {
+          "assessment": "Related but a different kernel",
+          "evidence": "Counts nonempty shared subfaces and gives unimodularity and a star-based inverse for that matrix.",
+          "identifier_or_url": "https://arxiv.org/abs/1907.09092",
+          "material_read": "Abstract, Theorem 1 and Green-Star theorem (PDF offsets 155, 4700, 6781)",
+          "method": "Lawful OA PDF",
+          "title": "The counting matrix of a simplicial complex",
+          "trigger": "Related face-incidence congruence"
+        },
+        {
+          "assessment": "Later special-case determinant overlap, not the full Smith classification",
+          "evidence": "The determinant exponent −nm+2n+4 binom(n,2) for 2^−n HᵀH gives |det H|=2^(n²) on that ball.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-quadratic-walsh-concentration-on-hamming-balls-and-the-sha--52fb6118ea85",
+          "material_read": "RESULT.md Finding, determinant of the radius-two concentration matrix",
+          "method": "Resultary local mirror",
+          "title": "Exact quadratic Walsh concentration on Hamming balls",
+          "trigger": "Exact determinant for a special ideal"
+        },
+        {
+          "assessment": "Unresolved, not a reason for failure",
+          "evidence": "No claim about its exact assumptions or tables is made from title or metadata.",
+          "identifier_or_url": "https://doi.org/10.3906/mat-1112-18",
+          "material_read": "No readable paper text was obtained through DOI or DergiPark",
+          "method": "Lawful DOI and repository lookup",
+          "title": "Derived and residual Sylvester-Hadamard designs and the Smith normal form",
+          "trigger": "Plausible overlapping Smith tables"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–45 and 53–59",
+        "Classical meet-matrix comparison in Korkee 2004"
+      ],
+      "rationale": "The exact modular sample count is useful information, but in this scope it is a routine coordinatewise consequence of a classical incidence diagonalization specialized by the binomial theorem. The finding does not address stability, unequal row and column supports, or another nonmechanical sampling invariant.",
+      "residual_risks": [
+        "The failure is for the research value of the original claim, not the correctness or pedagogical usefulness of the Fourier example."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

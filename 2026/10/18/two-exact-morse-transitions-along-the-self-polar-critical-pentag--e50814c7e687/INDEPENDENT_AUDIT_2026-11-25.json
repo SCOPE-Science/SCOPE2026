@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:53:49.288021Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 17–98, VERIFICATION.md, check_phase.py (read only)",
+        "Independent replay: python3 -B /workspace/reviews/reproduce_1_5.py (triangle moments, multiplication-matrix eliminants, exact point brackets and positive-denominator coefficient certificates)"
+      ],
+      "rationale": "The endpoint signs and positive derivative of the centroid cubic isolate its unique physical root. The vertices satisfy the supporting-line inequalities and each consecutive edge dual is a negative vertex, so the strictly convex polygon is centered and self-polar up to sign. Independently, the perspective map y→y/(1+ξ·y) has Jacobian (1+ξ·y)^(-3). Expanding its area and the area of the translated body's polar by the same Jacobian gives normalized quadratic terms 6 ξᵀCξ + 6 xᵀCx − 3 x·ξ. This recovers both the full Hessian and the Schur-complement sign test at each covariance eigenvalue 1/4. Independent triangle integrations and quotient-algebra determinants recover the two factored eliminants. The quadratic X has one physical root, and the quartic Y is strictly decreasing on [1/2,2] with opposite endpoint signs. The exact signs at b=3/4,1,5/4 establish that each candidate is attained on the physical branch, by different factors and on opposite sides of 1. Consequently there are exactly two degeneracies; each has one null direction and the other reduced direction is negative. The central maximum conclusion follows by the negative definite reduced Hessian, not by an unreduced maximum test.",
+      "residual_risks": [
+        "The frozen checker’s interval for F enclosing zero would not by itself prove opposite signs at the bracket endpoints; the independent replay evaluates both endpoints exactly and supplies the missing check. No higher-order conclusion at either crossing is made."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 2.2 gives a general second-variation identity. Klartag gives a necessary covariance inequality for local Mahler-volume minimizers. Neither read passage gives transition locations or exhaustiveness on this curve. Published IMRN text not available through the lawful routes tried."
+        ],
+        "reasoning": "The general identity gives the correct threshold test in terms of moments, but not its physical-branch zero set; a local-minimizer inequality is not an inertia classification.",
+        "searches": [
+          "arXiv:2303.17794v1 Proposition 2.2",
+          "arXiv:1710.08084v2 Theorem 1.1",
+          "IMRN DOI 10.1093/imrn/rnad310"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2303.17794v1 and 1710.08084v2",
+        "Resultary 2f5040468d15",
+        "DOI 10.1093/imrn/rnad310 attempted"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The paper establishes a saddle at a specified member plus covariance information near one endpoint. This leaves both admissible branch-specific elimination and the between-threshold sign pattern to be proved."
+        ],
+        "reasoning": "Prior formulas give inputs to the computation, not the sign conclusions: the physical-branch sign certificates are essential because a resultant zero alone does not prove it corresponds to the actual pentagon.",
+        "searches": [
+          "arXiv:2303.17794v1 Theorem 1.2 and Section 4, including the moment computation and saddle example"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior family's defining geometry is the same and its volume-product Hessian is known. The inspected family discussion uses numerical covariance-trace information rather than exact zeros of both relevant eigenvalue functions."
+        ],
+        "reasoning": "The equivalent formulations are full Hessian inertia and the signs of 4λ−1 in each reflected coordinate, hence reduced Hessian inertia. A covariance trace, even on this same family, does not in general fix both signs.",
+        "searches": [
+          "Resultary local search for the paper/topic and both decimal transitions",
+          "arXiv:2303.17794v1 Theorem 1.2 and Section 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest inspected indexed pentagon transition (2f5040468d15) concerns prescribed cone-volume vectors with fixed equally spaced normals. The prior paper has a numerical curve for a covariance-trace condition."
+        ],
+        "reasoning": "The cone-volume threshold concerns a different invariant and fiber; the numerical plot cannot certify the two exact physical roots, their nullities, or no others. No matching indexed exact result was found in the searches attempted.",
+        "searches": [
+          "Resultary local indexed searches by thresholds and projective critical pentagon terms",
+          "arXiv:2303.17794v1 Section 4 closing discussion"
+        ]
+      },
+      "rationale": "Credit the family, criticality, covariance Hessian, and saddle example to Balacheff–Solanes–Tzanev. The distinct result is an exhaustive exact zero and sign classification for the two covariance coordinates on the physical branch, including the precise Santaló-optimized local maximum interval. The available preprint's numerical exploration does not settle that classification.",
+      "residual_risks": [
+        "The journal version could not be read; it may elaborate the preprint. Indexed searching is bounded. No certification of historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong antecedent: family, formula and one saddle, not the exact exhaustive classification",
+          "evidence": "The whole-family exploration is explicitly numerical and the saddle proof singles out one parameter.",
+          "identifier_or_url": "https://arxiv.org/abs/2303.17794v1",
+          "material_read": "Theorem 1.2 p. 2 (offset 8400), Proposition 2.2 pp. 2–3 (6922,11999), Section 4 pp. 7–10 (26900,34000,41200)",
+          "method": "OA full-text PDF passages",
+          "title": "Projective transformations of convex bodies and volume product",
+          "trigger": "Same critical-pentagon family and Hessian"
+        },
+        {
+          "assessment": "Unresolved version risk",
+          "evidence": "No journal passage read; direct attempts at later arXiv versions did not locate a copy.",
+          "identifier_or_url": "https://doi.org/10.1093/imrn/rnad310",
+          "material_read": "Published full text unavailable; lawful fallback was preprint v1 only",
+          "method": "OA DOI retrieval, alternate routes and arXiv versions attempted",
+          "title": "Projective transformations of convex bodies and volume product (journal version)",
+          "trigger": "Possible later elaboration of Section 4"
+        },
+        {
+          "assessment": "General minimizer condition, not a phase diagram",
+          "evidence": "Cov(K°) ≥ (n+2)^(-2) Cov(K)^(-1) is necessary for a local Mahler-volume minimizer.",
+          "identifier_or_url": "https://arxiv.org/pdf/1710.08084v2",
+          "material_read": "p. 2, Theorem 1.1, offset 4980 onward",
+          "method": "OA full-text PDF passage",
+          "title": "Isotropic constants and Mahler volumes",
+          "trigger": "Broader projective second variation"
+        },
+        {
+          "assessment": "Different mathematical question",
+          "evidence": "Counts polygons for fixed equally spaced normals and prescribed cone-volume vector (t,t,1,1,t).",
+          "identifier_or_url": "Resultary 2f5040468d15",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp one-to-three solution transition for a reflection-symmetric pentagon problem",
+          "trigger": "Closest indexed exact pentagon transition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 25–36 and 67–98",
+        "Balacheff–Solanes–Tzanev v1, Theorem 1.2 and Section 4"
+      ],
+      "rationale": "This resolves where a natural, previously introduced critical family is a saddle or a strict projective local maximizer after centering. The exact thresholds and absence of other degeneracies supply information that an isolated saddle and a numerical plot cannot, and give precise boundary cases for the projective second-variation test.",
+      "residual_risks": [
+        "No extremality for arbitrary convex bodies, no global bound, and no higher-order analysis at the degeneracies."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

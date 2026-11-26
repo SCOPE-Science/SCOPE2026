@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:58:03.677860Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For Q=BBᵀ=(r−λ)I+λJ, Q is positive definite and the factors Q^(1/4) and Q^(−1/4)B have constant squared row and column norms N/v and N/b, where N=tr√Q. Their Schur bound equals the weighted nuclear norm at the uniform pair. Write Y=√(Q/b) and X=√H(z). The difference in the trace-square-root tangent inequality is exactly (1/2)tr[Y^(-1)(X−Y)^2], nonnegative with equality iff X=Y, even for singular H(z). The linear tangent term vanishes on the simplex because c_sᵀY^(-1)c_s is constant across k-sets. Pair constraints imply the point moments by summing over the k−1 pairs through a point in each block, and imply normalization by summing over all pairs. The strictly positive uniform vector gives the full affine dimension b−rank A. For complete systems with k≤v−2, subtracting two k-set equations that differ in one point forces all pair coefficients equal and then zero; for k=v−1 the equations on complements force all column-relation coefficients equal and then zero. This review is analytical; the supplied exact finite verifier was inspected but not executed, and the frozen independent-verification statuses are not_performed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier Resultary statement quantifies over both arbitrary simplex row weights w and block weights z, and characterizes attainment iff w=1/v and Qz=(λ/b)1.",
+          "Levene's variational norm and automorphism averaging supply a framework but not that equality criterion in the inspected lemmas."
+        ],
+        "reasoning": "The earlier joint classification directly implies the fixed-uniform-row classification, without any symmetry assumption on the block design.",
+        "searches": [
+          "5e33b042fe05 Finding and proof Steps 3–4; Levene arXiv:2611.08419v1 Lemmas 2.3 and 2.5."
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_design_optimizer_face.py (inspection only)",
+        "Resultary 5e33b042fe05 and 5673568ea7ad",
+        "arXiv:2611.08419v1, arXiv:2312.03937v1 and arXiv:2211.00591 (abstract for the last)",
+        "Classical Gottlieb characteristic-zero inclusion-matrix rank formula, used here only to identify the standard rank specialization"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fixing the earlier theorem's first argument at 1/v gives both the claimed necessary and sufficient condition and the dimension.",
+          "Point–block spectral data and the numerical Schur norm are distinct from that equality assertion; it is the earlier exact equality theorem that decides coverage."
+        ],
+        "reasoning": "Neither strict concavity as an alternate proof nor spelling out a standard incidence rank creates a new optimizer classification.",
+        "searches": [
+          "5e33b042fe05 proof Steps 3–4; Levene Lemmas 2.3 and 2.5; Shramchenko–Shramchenko arXiv:2312.03937v1 Corollary 2."
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 5e33b042fe05 Finding writes its pair-by-block matrix as Q, not A, but states exactly Qz=(λ/b)1 for the optimal block weights, with dimension b−rank Q.",
+          "The distinct same-day 5673568ea7ad Finding concerns a cyclic two-neighbor mask and does not give these design moment constraints."
+        ],
+        "reasoning": "The notation change does not change the incidence map or weight polytope. Distinctness and coverage are established from the original statements, not title similarity.",
+        "searches": [
+          "Configured Resultary search for uniform-row Schur norming weights, block-design pair moments and optimizer faces; local mirror 5e33b042fe05 and 5673568ea7ad."
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier indexed record gives the same general dimension b−rank A and illustrates it on 2-(6,3,4). Its inspected statement does not tabulate the complete k-uniform family.",
+          "The remaining explicit complete-family rank is the characteristic-zero inclusion-matrix rank min(binomial(v,2),binomial(v,k)), also obtained by the elementary line-26 argument."
+        ],
+        "reasoning": "The exact general formula already exists. For the symbolic complete-family refinement, an example table would not settle coverage; the standard incidence-rank specialization gives the displayed binomial difference or zero.",
+        "searches": [
+          "Configured Resultary search for design-incidence optimizer sets and dimension; 5e33b042fe05 Finding and dimension example; frozen RESULT.md lines 24–26."
+        ]
+      },
+      "rationale": "The frozen main claim is already covered by a distinct earlier Resultary record that classifies all joint normers, not merely those with uniform point weights, and gives the identical affine dimension. The complete-system dimension specialization adds the standard rank calculation for the pair-versus-k-set inclusion matrix, not a distinct optimizer theorem.",
+      "residual_risks": [
+        "No full-text assessment of Christensen's possible stronger equality result; already established independent coverage is decisive.",
+        "No absolute priority claim is made for the earlier Resultary finding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct and stronger coverage of the core finding",
+          "evidence": "Φ(w,z)=Γ iff w=1/v and Qz=(λ/b)1; dimension b−rank Q.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-schur-norming-weights-of-block-design-incidence-matrices-form-th--5e33b042fe05",
+          "material_read": "RESULT.md Finding at offset 0; proof around offset 4922, Steps 3–4; dimension statement and example",
+          "method": "Configured Resultary search and local original mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Schur norming weights of block-design incidence matrices form the fractional-design polytope",
+          "trigger": "Strongest Resultary match on the actual equality set"
+        },
+        {
+          "assessment": "Different mask and optimizer constraints",
+          "evidence": "Cyclic two-neighbor Schur mask, not pair-balanced block designs.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-parity-transition-from-unique-weights-to-a-regular-polygon-of--5673568ea7ad",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local original mirror",
+          "title": "A parity transition from unique weights to a regular polygon",
+          "trigger": "Distinct same-date norming-weight result"
+        },
+        {
+          "assessment": "Known variational framework, not the optimizer characterization in these passages",
+          "evidence": "The norm is a weighted nuclear-norm supremum; automorphism averaging gives an invariant maximizing pair.",
+          "identifier_or_url": "https://arxiv.org/html/2611.08419v1",
+          "material_read": "Lemma 2.3(a) at offset 15230; Lemma 2.5 at offset 19503",
+          "method": "OA HTML bounded passages",
+          "title": "A half-line of Schur idempotent norms",
+          "trigger": "Potential general weighted nuclear-norm equality theorem"
+        },
+        {
+          "assessment": "Point–block spectral background; not an equality-polytope result",
+          "evidence": "Its incidence spectra do not characterize maximizing block probability vectors.",
+          "identifier_or_url": "https://arxiv.org/html/2312.03937v1",
+          "material_read": "Introduction and Corollary 2 around offset 32974",
+          "method": "OA HTML bounded passages",
+          "title": "Mutual incidence matrix of two balanced incomplete block designs",
+          "trigger": "Design-incidence spectral and rank overlap"
+        },
+        {
+          "assessment": "Unknown whether this is another source of coverage; not needed for decision",
+          "evidence": "No full-text comparison is asserted.",
+          "identifier_or_url": "https://arxiv.org/abs/2211.00591",
+          "material_read": "Landing-page abstract only; PDF attempt returned 404, identified ar5iv route did not yield the text",
+          "method": "Bounded OA attempts for the same paper",
+          "title": "Norm optimal factorizations of scalar and block matrices",
+          "trigger": "Possible broader norm-optimal equality theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Exact norming weight geometry is a worthwhile question, but this record repeats only a restricted part of an existing joint optimizer classification. Beyond that established result it supplies a routine complete-design inclusion-rank specialization, not a new optimizer phenomenon or independently useful unresolved invariant.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

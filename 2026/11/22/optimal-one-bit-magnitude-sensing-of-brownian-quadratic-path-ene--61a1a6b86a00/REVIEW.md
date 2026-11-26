@@ -1,19 +1,21 @@
-# Scientific review: one-bit Brownian quadratic-energy observation
+# Independent mathematical audit
 
-## Correctness — PASS
-The result is an unconditional Bayes squared-error statement for \(Q=\int_0^1W_t^2dt\), exactly one prechosen snapshot \(W_x\), and every deterministic or independently randomized binary encoder. Gaussian regression gives the exact centered conditional projection \(g(x)(Z^2-1)\) with \(g(x)=x(1-2x/3)\); exact Brownian fourth moments give \(\operatorname{Var}(Q)=1/3\). A fixed-bit-probability rearrangement proves global magnitude-threshold sufficiency and uniqueness, without assuming a threshold as a design restriction. The strict Gaussian-hazard and exponential-tilt argument certifies a single scalar optimal threshold, while elementary differentiation gives unique time \(3/4\). Independent high-precision Gaussian integral checks reproduce the constants. The proof itself, not finite tests, establishes all quantifiers.
+## correctness
 
-## Originality — PASS, provisional
-The cited Brownian polynomial-approximation work studies path representations and full-valued Gaussian conditional expectations; the one-bit Gaussian-estimation literature studies sign-quantized linear Gaussian channel models; causal rate-constrained Wiener coding studies event-triggered *path tracking* with time stamps carrying additional information. Standard scalar two-cell centroid quantization, Gaussian regression, the conditional-mean decoder, and earlier full-valued Brownian-energy observation design are acknowledged prior methods. The precise global unrestricted one-bit Brownian quadratic-energy design, uniqueness of a two-sided magnitude threshold, and sharp explained-variance constant were not found in the inspected primary material or semantic mathematical finding searches. This is an evidence-based comparison, not a guarantee of historical priority. An older continuous-time estimation/quantization source has different signal-plus-noise repeated-sampling assumptions and inaccessible complete publisher PDF, which leaves a residual historical-search risk.
+PASS
 
-## Mathematical value — PASS
-The object is the path energy of a fundamental stochastic integrator, and the information budget is exactly one bit from one actual path-value observation. The theorem replaces a potentially infinite-dimensional joint design over observation time and arbitrary measurable binary encoders by a unique physical sensor time, a unique nonzero radial comparator, explicit decoder values and a sharp 55.03% variance-recovery benchmark. In particular, ordinary sign sensing conveys zero information about this even functional, whereas a rare-event magnitude bit carries substantial information. The claim is restricted to unit Brownian motion, the specified quadratic functional and Bayes mean-square loss; it does not assert a general theorem for arbitrary Gaussian-process energies or noisy/adaptive sensing.
+Gaussian regression and integration of min(t,x)^2 give E[Q|W_x]=1/2+x(1-2x/3)(Z^2-1), and the Gaussian fourth-moment formula gives Var(Q)=1/3. Any independent-randomized binary kernel induces r(y)=P(B=1|Z^2=y); at fixed nontrivial bit mass and with the positive covariance convention, moving any mass below the upper-tail cutoff to above it strictly improves the objective unless the kernel already equals the tail indicator almost surely. Thus randomized encoding cannot improve the optimum. The time factor is positive for x>0 with unique maximum 3/8 at 3/4; x=0 transmits no information. For chi-square-one Y and cutoff c, differentiating centroid distortion gives the sign of 2c-mu_--mu_+. The lower-cell scaled centroid strictly decreases by the exponential tilt on (0,1). The upper-cell scaled survival ratio decreases strictly since z h(z) strictly increases for positive z (h is the normal hazard, with h'=h(h-z)>0 by Mills' inequality). Hence the sum of scaled means decreases from infinity to one, proving the unique interior global cutoff. Normal integration by parts gives the stated equation, conditional means and risk. A separate 60-digit solution gave a=1.48207243570106119220381297475, F=1.30448970814641475910340001849, risk=0.14988946812524375783441770573, and the two decoder values 1.5690062644358755 and 0.3283977640627816. The supplied script and stored output were inspected, not executed; sampled monotonicity in that evidence is not used as proof.
 
-## Sources and residual risks
-- Foster, Lyons, Oberhauser, *An optimal polynomial approximation of Brownian motion* (arXiv:1904.06998), particularly introduction and Section 3, provides the natural stochastic path-integral setting but not the one-bit optimum.
-- Fesl, Koller, Utschick, *On the Mean Square Error Optimal Estimator in One-Bit Quantized Systems* (arXiv:2212.04470), particularly Sections I–III, concerns sign quantization of Gaussian linear channels, not the nonlinear quadratic energy bit.
-- Guo and Kostina, *Optimal Causal Rate-Constrained Sampling of the Wiener Process* (arXiv:1909.01317), uses event-triggered path tracking, not one preselected observation of quadratic energy.
-- Lloyd, *Least Squares Quantization in PCM* (IEEE Trans. Inform. Theory, 1982), provides classical two-centroid quantizer ideas; these are not asserted as new.
-- Newton, *Observation sampling and quantisation for continuous-time estimators* (2000, DOI:10.1016/S0304-4149(99)00117-9), considers asymptotic many-sample observation preprocessing and signal-plus-white-noise filtering. The accessible article text does not establish the present one-snapshot Brownian energy law, but publisher full text could not be obtained for a definitive whole-document comparison.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The full-value one-time location and Lloyd–Max stationarity are not credited as new. The supported distinct result is the sharp Brownian one-bit design: uniqueness over kernels, the explicit chi-square-one cutoff, and the exact loss for the path energy. The inspected sources do not determine that claim.
+
+## value
+
+PASS
+
+For a natural Brownian path functional, the result specifies what one bit should measure and exactly what information it retains. A sign observation is useless, the best magnitude bit retains about 55% of prior variance, and a full snapshot retains about 84%. The globally unique magnitude design over arbitrary kernels, with a sharp quantitative benchmark, is more than a numerical Lloyd iteration or a rederivation of the full-value time.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

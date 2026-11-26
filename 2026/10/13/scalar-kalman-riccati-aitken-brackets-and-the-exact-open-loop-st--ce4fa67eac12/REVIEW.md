@@ -1,17 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The scalar Kalman covariance map is Möbius with one positive and one negative fixed point. Cross-ratio conjugation makes the iteration exactly geometric, and a direct three-point calculation shows that Aitken squares the one-step projective error. For \(|a|\le1\), the first raw covariance lies beyond the fixed-point midpoint, forcing every squared projective coordinate into \((0,1)\) and hence every Aitken extrapolate strictly above the stabilizing covariance. The unstable counterfamily gives a negative first extrapolate for every \(|a|>1\). The embedded verifier checks the symbolic identity and exact examples.
+## correctness
 
-## Originality
-PASS. The closest full-text Kalman source develops projective Riccati geometry and recalls monotone convergence, but contains no Aitken discussion. A 2026 paper applies Aitken to a different nonsymmetric transport-theory Riccati equation; only abstract/reference material was accessible, so it remains a stated comparison risk rather than evidence of whole-document noncoverage. Targeted searches combining Kalman covariance, scalar Riccati, Möbius/cross-ratio, Aitken/Delta-squared, and steady-state brackets found no implication-equivalent statement.
+PASS
 
-The main residual risk is older scalar Riccati or continued-fraction literature using different terminology.
+Reconstructed RESULT.md lines 60–194 in exact arithmetic. The fixed-point quadratic has product -qr/h² and sum q-(1-a²)r/h². Since p>q and h²p+r=a²rp/(p-q)>a²r, and h²p+r>r, the projective multiplier ρ lies strictly between zero and one. Write t=t(P_n) and Δ=P_{n+1}-P_n. From the inverse φ(t)=(p-mt)/(1-t), the ratio of successive increments is ρ(1-t)/(1-ρ²t), so the second difference divided by Δ is (ρ-1)(1+ρt)/(1-ρ²t). Substituting gives φ(ρ²t²) for the extrapolate wherever defined. For 0<|a|≤1, P₁≥q>(p+m)/2, so -1<ρt<0 for all triples from a lower start: no denominator vanishes, raw iterates increase below p, and squared coordinates give decreasing upper bounds. With h=r=1, P₀=0 and 0<q<a²-1, the second difference is positive and the first extrapolate is -q(q+1)/(a²-1-q), independently verifying sharpness. The formal identity at arbitrary t is understood only away from poles and zero differences. The proof does not cover finite precision, feedback of extrapolates, matrix covariances or over-starts.
 
-## Value
-PASS. The result produces a computable two-sided certificate for the steady scalar Kalman covariance using only three ordinary Riccati iterates, with exact projective interpretation. The sharp unstable-side counterexample also shows when the same numerical accelerator can output an impossible negative covariance, making the boundary relevant to safe numerical filtering.
+## originality
 
-## Closest literature and limitations
-Carli--Sepulchre supplies the closest projective Riccati framework. Han--Zhang verifies primary MSC \(93\mathrm E11\) for Riccati-based filtering. Xie--Ma--Li is the closest Aitken--Riccati comparison but concerns a different equation and was only partially accessible. The theorem is scalar, lower-start, and exact-arithmetic; matrix Riccati equations and recursively fed extrapolates are not classified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The inspected material covers the projective viewpoint, convergence, or Aitken robustness separately, not the coupled exact relation, monotone covariance certificate, and sharp parameter-uniform bracketing boundary. Credit the classical projective conjugacy and raw monotonicity separately; this is a best-of-knowledge finding about the stated combination, not a priority claim about those ingredients.
+
+## value
+
+PASS
+
+An exact signed error law explains when a standard extrapolation certifies an upper covariance bound and gives an explicit nonphysical extrapolate beyond the uniform threshold. This matters as a diagnostic for extrapolation, even though the scalar fixed point can itself be found by a quadratic formula. It is not a claim of a faster or more stable finite-precision solver.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

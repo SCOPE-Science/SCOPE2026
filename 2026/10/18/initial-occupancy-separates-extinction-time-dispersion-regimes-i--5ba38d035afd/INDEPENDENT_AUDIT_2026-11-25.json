@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:24:46.323333Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An independent derivation uses successive first passages i→i−1 for the dimensionless process (time scaled by μ). By the strong Markov property the passage times that sum to extinction from j are independent. For rates d_i=i and b_i=i(3−i)x the transform satisfies φ_i(s)=d_i/[d_i+b_i+s−b_i φ_{i+1}(s)], with φ_3=3/(3+s). Its mean and variance satisfy M_i=(1+b_i M_{i+1})/d_i and W_i=M_i²+(b_i/d_i)(W_{i+1}+M_{i+1}²), with (M_3,W_3)=(1/3,1/9). In particular M_2=1/2+x/3, M_1=1+x+2x²/3. Summing mean and variance increments gives all three stated means and, after dividing variance by squared mean, the stated F_j. Subtracting one leaves numerators x(4x²+16x+9), 4(4x²−4x−9) and −24(2x+3) over their respective squared denominators. The signs and threshold follow. The quartic governing −F_1' has one sign change, is negative at zero, and tends to +∞; F_2' changes sign only at the positive zero of 4x²−8x−27, and F_3' has positive factors 2x+1 and 6x+13. These give strict monotonicity on the stated intervals. At x=0 the three values are 1, 5/9 and 49/121, and all tend to 1 at infinity. The dimensionless means have strictly positive derivatives. The supplied verify.py was inspected, not executed: it compares mean and relative-variance formulas and F_j−1 identities at eleven rational x, but does not itself test the derivative identities despite the description at RESULT.md line 53. The latter were checked algebraically; separate bisection of the quartic on [0,2] gives 1.1009654228408214.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ward–López-García gives all moments through the transient inverse power and proves that graph-automorphism lumping preserves absorption distributions and moments. The two-patch catalogue result treats a different rate-budget family and full initial occupancy; the three-habitat turning-point entry has a linear OU model and stationary aggregate variance."
+        ],
+        "reasoning": "The inverse-power formula produces the rational functions after finite algebra, but does not itself settle the signs and zero counts as x varies. The other two results are not generalizations of the frozen CV curves.",
+        "searches": [
+          "doi:10.1007/s41109-019-0206-4",
+          "2026/10/18/SCOPE-a-distributional-symmetry-and-sharp-balanced-rescue-optimum-in-t--9951fe7701bf",
+          "2026/10/18/SCOPE-two-dispersal-turning-points-first-appear-on-a-three-habitat-cha--c9ab5cd5ea31"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding–Proof and related work",
+        "VERIFICATION.md and verify.py (read only)",
+        "All sources listed in source_inspections, at the stated access levels"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The phase-type formula gives moments for any fixed transient matrix; monotonicity of F_3 and the two maxima require the rational-derivative signs. A hazard statement for a mixture specifies neither the variance divided by the squared mean for each component nor the start from two. Its threshold differs from the F_2 crossover and extremum."
+        ],
+        "reasoning": "The algebraic moment evaluations are applications of known machinery; the sign classification, including the quartic uniqueness and the only positive crossing from below, is the part not directly supplied by the compared theorems. No noncoverage inference was drawn from sources that could not be read.",
+        "searches": [
+          "doi:10.1007/s41109-019-0206-4",
+          "doi:10.1006/jtbi.1999.1060",
+          "doi:10.1046/j.1365-2656.2000.00430.x",
+          "2026/11/8/SCOPE-a-sharp-recolonization-threshold-for-bathtub-shaped-regional-ext--b8cc41b0d9d4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Etienne–Heesterbeek (2001), printed pp. 391–392, equations (6)–(8), uses the same count generator under n=3, e_r=μ, c_r=λ, but equation (10) studies a quasi-stationary mean based on a nonzero eigenvalue.",
+          "Peterson p. 1 defines the standard complete-graph contact process, whose K₃ count rates coincide after rescaling. The results inspected concern a large-size random-weight process, not the fixed K₃ CV profiles."
+        ],
+        "reasoning": "An identical generator is acknowledged as such; the quasi-stationary start and mean-only invariant are not equivalent to the three deterministic starts and the relative-variance thresholds.",
+        "searches": [
+          "doi:10.1086/321986",
+          "arXiv:1005.0810",
+          "2026/11/8/SCOPE-a-sharp-recolonization-threshold-for-bathtub-shaped-regional-ext--b8cc41b0d9d4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matched same-generator published Finding at mirror offset 0 has a hazard threshold at c=1 for the half-singleton/half-full mixture, not an indexed table of separate initial-state CV thresholds. The two-patch Finding gives extinction law and moments for a different initial-state set. The 2001 source's reported persistence is a mean, not an exact catalogue of these CV turning points."
+        ],
+        "reasoning": "The exact-data analogue here is an exact three-start profile/threshold law on a parameter half-line. An exact threshold for a different statistic is not a match, and numerical moment samples could not supply the global classifications.",
+        "searches": [
+          "2026/11/8/SCOPE-a-sharp-recolonization-threshold-for-bathtub-shaped-regional-ext--b8cc41b0d9d4",
+          "2026/10/18/SCOPE-a-distributional-symmetry-and-sharp-balanced-rescue-optimum-in-t--9951fe7701bf",
+          "doi:10.1086/321986"
+        ]
+      },
+      "rationale": "The count process, general phase-type moments and mean-persistence framing are prior material. The supported distinct claim is the exact, initial-occupancy-specific relative-variance regime: two different maxima, an intermediate-start crossing of one, and monotonic convergence from below only from full occupancy. The closest same-generator statement inspected analyzes the hazard of a particular initial mixture, not this trichotomy. This is a bounded assessment, not a priority claim.",
+      "residual_risks": [
+        "Full-text comparison to Etienne–Heesterbeek (2000) and Keeling (2000) remains incomplete, and other presentations under phase-type or contact-process terminology may exist.",
+        "No claim of first priority is made; catalogue dates do not decide coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same generator; different starting law and statistic in checked passage",
+          "evidence": [
+            "Rates ke_r and kc_r(n−k); reported persistence T_ext=−1/ℓ₂."
+          ],
+          "identifier_or_url": "https://dspace.library.uu.nl/handle/1874/8113",
+          "material_read": "Printed pp. 391–392, equations (6)–(8) and (10)",
+          "method": "OA repository paper passages",
+          "title": "Rules of Thumb for Conservation of Metapopulations Based on a Stochastic Winking-Patch Model",
+          "trigger": "Same homogeneous patch generator"
+        },
+        {
+          "assessment": "Same count-rate specialization, no fixed-three-patch CV theorem in inspected material",
+          "evidence": [
+            "Total up rate sums rate per occupied–empty link; theorem concerns large graph size and random weights."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1005.0810",
+          "material_read": "P. 1 definition and statement of scope",
+          "method": "OA PDF passage",
+          "title": "The Contact Process on the Complete Graph with Random Vertex-Dependent Infection Rates",
+          "trigger": "Equivalent complete-graph generator"
+        },
+        {
+          "assessment": "General prior moment and lumping machinery",
+          "evidence": [
+            "E[T^k]=(−1)^k k! τ T^(−k)1, with moments preserved under the stated lumping."
+          ],
+          "identifier_or_url": "doi:10.1007/s41109-019-0206-4",
+          "material_read": "P. 1 abstract, p. 6 Summary statistics, pp. 10–11 Graph-automorphism lumping",
+          "method": "OA full-text passages",
+          "title": "Exact analysis of summary statistics for continuous-time discrete-state Markov processes on networks using graph-automorphism lumping",
+          "trigger": "Potential stronger first-passage moment theory"
+        },
+        {
+          "assessment": "Closest model match; different initial law and statistic",
+          "evidence": [
+            "Half-singleton/half-full mixture; bathtub/decreasing hazard threshold c=1."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-a-sharp-recolonization-threshold-for-bathtub-shaped-regional-ext--b8cc41b0d9d4",
+          "material_read": "RESULT.md Finding, mirror offset 0",
+          "method": "Bounded mirror passage",
+          "title": "A sharp recolonization threshold for bathtub-shaped regional extinction hazard",
+          "trigger": "Same three-patch count model and exact threshold"
+        },
+        {
+          "assessment": "Two patches and different rate question",
+          "evidence": [
+            "Starts fully occupied; compares directional rates under a fixed budget."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-a-distributional-symmetry-and-sharp-balanced-rescue-optimum-in-t--9951fe7701bf",
+          "material_read": "RESULT.md Finding, mirror offset 0",
+          "method": "Bounded mirror passage",
+          "title": "A distributional symmetry and sharp balanced rescue optimum",
+          "trigger": "Full extinction distribution and variance in small patch model"
+        },
+        {
+          "assessment": "Not a first-passage occupancy model",
+          "evidence": [
+            "Stationary aggregate variance of a heterogeneous OU chain, with a minimum followed by a maximum."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-two-dispersal-turning-points-first-appear-on-a-three-habitat-cha--c9ab5cd5ea31",
+          "material_read": "RESULT.md Finding, mirror offset 0",
+          "method": "Bounded mirror passage",
+          "title": "Two dispersal turning points first appear on a three-habitat chain",
+          "trigger": "Same-day three-habitat variance turning-point law"
+        },
+        {
+          "assessment": "Residual full-text risk, not negative evidence",
+          "evidence": [
+            "Frozen related-work notes describe persistence mainly through the mean; no direct full-text determination was possible."
+          ],
+          "identifier_or_url": "doi:10.1006/jtbi.1999.1060",
+          "material_read": "No primary full text obtained in bounded retrieval",
+          "method": "Lawful OA lookup",
+          "title": "On optimal size and number of reserves for metapopulation persistence",
+          "trigger": "Cited earlier finite-patch work"
+        },
+        {
+          "assessment": "Residual full-text risk, not negative evidence",
+          "evidence": [
+            "The frozen description distinguishes a moment-closure setting; detailed claims could not be checked directly."
+          ],
+          "identifier_or_url": "doi:10.1046/j.1365-2656.2000.00430.x",
+          "material_read": "No primary full text obtained in bounded retrieval",
+          "method": "Lawful OA lookup",
+          "title": "Metapopulation moments: coupling, stochasticity and persistence",
+          "trigger": "Cited moments and persistence comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Three patches are the smallest system with an intermediate occupied count distinct from both the singleton and full starts. That start changes from underdispersion to overdispersion and then reaches a different maximum from the singleton start, while the full start remains underdispersed. The comparison with strictly increasing means isolates a qualitative effect that mean persistence obscures. The exact thresholds and curves give a benchmark in this natural finite occupancy model; they do not justify broad ecological or intervention claims.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

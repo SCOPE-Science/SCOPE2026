@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:43:59.075566Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–69; VERIFICATION.md and check_symbolic.py, check_regular.py, check_support_count.py inspected",
+        "Independent analytic reconstruction: /workspace/review-evidence/correctness.md §3"
+      ],
+      "rationale": "Left translation by a group element preserves rank and normalizes the support to {1,h,h²,w} for a reflection w. The left convolution on each right coset of <h,w> is an identical 2m-dimensional operator, giving the multiplier N/m. Independently using the cyclic Fourier basis, at each m-th root z pair sum_k z^(-k)h^k with sum_k z^k h^k w: h acts with eigenvalues z,z^(-1), and w swaps them. Each pair has determinant Q(z+z^(-1)), with Q(t)=ac t²+b(a+c)t+(a-c)²+b²-d². Since d≠0, a singular pair contributes exactly one; traces at ±2 have one preimage when present and interior traces two. Since ac≠0, at most two traces vanish; there is only one interior trace at m=3,4, and at least two for m≥5. The two explicit coefficient constructions prescribe any desired distinct trace roots, including opposite pairs, without a zero tap; adding roots outside [-2,2] attains 0, 1 and 2, while one endpoint and one interior root attain 3 and two interior roots attain 4 where available. For the count, two possible progression centers p,q with third point r would satisfy 2p=q+r and 2q=p+r, forcing 3(p-q)=0; the step then has order 3. Order-three triples are subgroup cosets with three centers and two orientations each, while all higher orders have one center and two orientations. This gives the census and disjointness for all H in scope.",
+      "residual_risks": [
+        "The recorded small-group matrix checks are numerical corroboration only and were not rerun; correctness here is based on the exact argument, not numerical thresholds or formal verification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General group-determinant factorization into representation factors; general n-Cayley characteristic-polynomial/block decomposition."
+        ],
+        "reasoning": "These are broader spectral frameworks, but a determinant alone detects singularity, not the attainable ranks on the constrained nonzero coefficients. The quadratic trace weights, root realizations and group-incidence census still require separate arguments.",
+        "searches": [
+          "Yamaguchi arXiv:1405.1900 pp. 2–3, Thm. 8",
+          "Arezoomand–Taeri DOI:10.37236/3105, p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records d4787ab578c7, eb09d9b17153 and 0f28cf825a80",
+        "Yamaguchi arXiv:1405.1900",
+        "Arezoomand–Taeri DOI:10.37236/3105"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Balanced four-tap Finding assumes two points in each coset, unit weights and odd kernel order for the main formula. Prime three-tap Finding is about three points only. D10 exactly implies the finite specialization, not the general statement."
+        ],
+        "reasoning": "The general results explain the Fourier reduction. Neither the balanced weight/support geometry nor the three-tap family yields attainable ranks with three rotation points and one reflection. No comparison gives the general support census from stated hypotheses.",
+        "searches": [
+          "Resultary: balanced four-tap generalized-dihedral convolution, ID d4787ab578c7",
+          "Resultary: complete three-tap odd-prime dihedral spectrum, ID eb09d9b17153",
+          "Yamaguchi, Thm. 8; Arezoomand–Taeri, p. 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "D10 Finding: ranks {6,7,8,9,10} on each fixed 3+1 support; §2: all rotation triples are equivalent to {0,1,2}.",
+          "Odd-prime record Finding: three total support points, unrestricted nonzero coefficients, coset-dependent strata."
+        ],
+        "reasoning": "Rank and nullity are complementary; the D10 result exactly matches H=C5, m=5, N/m=1, but does not cover the other progression orders or the index factor. The three-tap theorem has the wrong support cardinality.",
+        "searches": [
+          "Resultary: exact four-tap Fourier-rank geometry on the ten-element dihedral group; three-plus-one rank spectrum",
+          "Resultary: complete three-tap Fourier-rank spectrum on odd-prime dihedral groups"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The table gives the exact rank spectrum and 100 distinct 3+1 supports across both orientations; the rotation-majority orientation has 50 by the enumerated C5 triples and reflection choices."
+        ],
+        "reasoning": "Both numbers relevant to the specialization match: nullities {0,1,2,3,4} and 5²·4/2=50 supports. The table concerns only the ten-element group.",
+        "searches": [
+          "Resultary D10 record Finding table, ID 0f28cf825a80"
+        ]
+      },
+      "rationale": "The cyclic-five specialization overlaps exactly with a distinct same-day record, both in attainable ranks and the corresponding support count. No within-day priority is inferred, and the cyclic-five case receives no separate originality credit. The supported distinction is the classification for every progression order and fixed support in arbitrary finite abelian inversion kernels, with nonzero coefficient attainability and the general support census. Classical determinant and spectral methods supply the reduction, not that classification as stated or as an immediate corollary of the passages read.",
+      "residual_risks": [
+        "The two records carrying the D10 overlap share a date and their within-day order was not established.",
+        "The targeted literature query yielded generic dihedral background only, not evidence of absence. Broader or unindexed sparse convolution classifications may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap at H=C5; no general theorem or same-day ordering established",
+          "evidence": "3+1 ranks 6–10; cyclic triples equivalent to {0,1,2}; 100 supports across both coset orientations.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-four-tap-fourier-rank-geometry-on-the-ten-element-dihedral--0f28cf825a80",
+          "material_read": "RESULT.md Finding table and §2",
+          "method": "Published local mirror, bounded passages",
+          "title": "Exact four-tap Fourier-rank geometry on the ten-element dihedral group",
+          "trigger": "Exact small-order candidate"
+        },
+        {
+          "assessment": "Distinct support and coefficient regime",
+          "evidence": "Two points per coset, unit taps, odd abelian kernel order in the main theorem.",
+          "identifier_or_url": "2026/11/8/SCOPE-balanced-four-tap-generalized-dihedral-convolution-three-nullity--d4787ab578c7",
+          "material_read": "RESULT.md Finding",
+          "method": "Published local mirror",
+          "title": "Balanced four-tap generalized-dihedral convolution: three nullity strata and a sharp quadratic spectral gap",
+          "trigger": "Same group class and tap count"
+        },
+        {
+          "assessment": "Related method, separate claim",
+          "evidence": "Every fixed three-point support in D_(2p), not four taps with a rotation progression.",
+          "identifier_or_url": "2026/11/16/SCOPE-complete-three-tap-fourier-rank-spectrum-on-odd-prime-dihedral-g--eb09d9b17153",
+          "material_read": "RESULT.md Finding",
+          "method": "Published local mirror",
+          "title": "Complete three-tap Fourier-rank spectrum on odd-prime dihedral groups",
+          "trigger": "Same attainable-rank invariant"
+        },
+        {
+          "assessment": "Classical tools, not the exact achievable spectra or census",
+          "evidence": "Frobenius factorization and group-algebra context for dihedral and generalized quaternion groups.",
+          "identifier_or_url": "https://arxiv.org/pdf/1405.1900",
+          "material_read": "§§1.2–2.1, PDF pp. 2–3, Thm. 8",
+          "method": "Lawful OA PDF, bounded passage",
+          "title": "Factorization of group determinant in some group algebras",
+          "trigger": "Potential general determinant implication"
+        },
+        {
+          "assessment": "Scope comparison to stated general result only",
+          "evidence": "Representation block decomposition for n-Cayley adjacency matrices and characteristic polynomials.",
+          "identifier_or_url": "https://doi.org/10.37236/3105",
+          "material_read": "PDF p. 1, abstract",
+          "method": "Lawful OA, bounded passage",
+          "title": "On the Characteristic Polynomial of n-Cayley Digraphs",
+          "trigger": "Potential wider Cayley matrix classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof; D10 Finding table as comparison"
+      ],
+      "rationale": "The support embeds the smallest rotational progression with both cosets represented, a natural sparsity class. A user of regular convolution can now tell which losses of rank are possible on each fixed support, including exactly where the fourth packet first becomes possible and how identical subgroup components amplify rank loss. The accompanying incidence count answers how often each step order arises, independently of the rank calculation. This is a complete classification across all orders, not a re-computation of the known small case.",
+      "residual_risks": [
+        "No result on non-progression support, condition numbers, eigenvalue gaps, or equal-weight coefficients follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

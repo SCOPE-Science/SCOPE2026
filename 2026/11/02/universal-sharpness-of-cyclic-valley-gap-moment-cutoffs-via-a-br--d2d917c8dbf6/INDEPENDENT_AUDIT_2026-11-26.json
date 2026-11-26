@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:48:14.773204Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The re-audited claim in repairs/2/RESULT.md assumes i.i.d. continuous ranks and defines ν consistently. Conditional on the peak priority, sorted admissible priorities on the two sides have factorial denominators; summing their count split gives the binomial in the excursion kernel. The triangular substitution yields mean defect a_i/(i+3) per site. At K₀, coincident equal gaps and the two shared-endpoint offsets have unchanged weights; different endpoint pairs require two separating arcs of length at least 2, hence exactly 2 each. The two conventional boundary offsets collide and the surviving joint probability is the four-kernel trace with M twice. Single means are unchanged, and expanding M−u⊗u yields the exact covariance defect. Positivity follows from the pointwise kernels, including the diagonal case, and does not presuppose operator definiteness of A_i. This also independently checks the slope by disjoint-window cancellation above the threshold. The supplied finite fractions and quadrature are diagnostic; the scripts were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "v2 Prop. 3.1 p. 6, PDF text offsets 19407–19627, proves linearity for K≥i+j+7.",
+          "Resultary 78e599bc494f gives asymptotic Gaussian–Poisson independence for root counts and rare gaps, not an exact covariance at the first subthreshold size."
+        ],
+        "reasoning": "Neither large-cycle exact formulas restricted to sufficient K nor a rare-gap asymptotic theorem provides the wrapped offset calculation at K₀.",
+        "searches": [
+          "Web: Matijasevick 2610.21094 Proposition 3.1 Remark 3.2 cyclic valley gap covariance exact linearity sharpness",
+          "Resultary: Matijasevick Gaps between roots ballistic deposition on a strip Proposition 3.1 Remark 3.2 exact linearity"
+        ]
+      },
+      "checked_sources": [
+        "Matijasevick arXiv:2610.21094v1 and v2",
+        "Resultary 78e599bc494f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Remark 3.2 gives the min(s,t) excursion integral and proves the strict all-index mean defect; it does not evaluate the integral to (i+4)a_i in that passage or show strict covariance for every pair.",
+          "The inspected indexed result on the same process treats Gaussian/Poisson limit statistics."
+        ],
+        "reasoning": "Mean sharpness is already covered and the numerical factor is directly derivable from the existing integral. Covariance sharpness requires the new merger of two offsets and a four-factor positive-kernel trace; it does not follow from individual mean failures or linearity above the cutoff.",
+        "searches": [
+          "Resultary: For every i,j>=1 Cov(D_i,K0,D_j,K0)/K0-c_ij equals tr(A_i B A_j B)>0 with K0=i+j+6",
+          "arXiv:2610.21094v2, Remark 3.2, offsets 20243–20463 and neighboring covariance passage"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The deposition-root statistic is the cyclic successive-valley gap statistic under uniform random ranks; v2 works with the same gap counts."
+        ],
+        "reasoning": "Renaming roots as valleys is not new; compare the boundary covariance on the same cyclic process.",
+        "searches": [
+          "Resultary: cyclic valley gap covariance sharp moment threshold Brownian bridge trace",
+          "Resultary: Universal sharpness of cyclic valley-gap moment cutoffs via a Brownian-bridge trace",
+          "arXiv:2610.21094v2 §2 and Proposition 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "v1 Remark 3.2 p. 5 reports finite tests through K=13; v2 p. 6 extends covariance tests through K=14, including variance i=1,…,4 and i<j with i+j+6≤14."
+        ],
+        "reasoning": "Credit those computed entries; they do not imply all-index covariance strictness or its exact defect.",
+        "searches": [
+          "Resultary: D_i,K cyclic valleys i+j+6 covariance trace strict positive K=i+3 mean Matijasevick",
+          "arXiv:2610.21094v1 and v2, literal Remark 3.2"
+        ]
+      },
+      "rationale": "The frozen novelty framing overcounts the mean contribution: the pre-freeze v2 of Matijasevick already proves universal strict mean failure, using precisely the shared-neighbor integral. The explicit mean equality is a companion evaluation of that known integral, not the basis for acceptance. The repaired finding claims the universal positive covariance/variance correction, for which v2 still reported only finite sharpness cases. The covariance contribution remains distinct after comparison at the level of hypotheses, offsets and conclusion.",
+      "residual_risks": [
+        "General cyclic pattern-overlap or older runs covariance literature may encode further related formulas; ranked searches do not certify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "All-index strict mean failure covered; covariance failures reported for finite index ranges",
+          "evidence": [
+            "v2 header: 30 October 2026; Prop. 3.1 thresholds; Remark 3.2 shared-neighbor integral and finite covariance tests."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.21094v2",
+          "material_read": "Header p. 1, Proposition 3.1 and Remark 3.2 p. 6",
+          "method": "Located and read bounded versioned PDF passages",
+          "title": "Gaps between roots in ballistic deposition on a strip: linear variance, Gaussian limits and a Poisson regime (v2)",
+          "trigger": "Same statistic and exact cutoffs; version precedes the frozen record"
+        },
+        {
+          "assessment": "Frozen description of finite mean checks applies to v1 only",
+          "evidence": [
+            "Finite checked mean, variance and mixed covariance sharpness cases."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.21094v1",
+          "material_read": "Remark 3.2 p. 5, offsets around 17197–17417",
+          "method": "Compared bounded passages between versions",
+          "title": "Gaps between roots in ballistic deposition on a strip (v1)",
+          "trigger": "Frozen novelty comparison cited v1"
+        },
+        {
+          "assessment": "Adjacent asymptotic result, not the first-subthreshold covariance",
+          "evidence": [
+            "Joint Gaussian root-count and rare-long-gap Poisson fluctuations, plus a mixed-test error bound."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/10/26/SCOPE-joint-gaussian-poisson-independence-for-bulk-roots-and-rare-long--78e599bc494f/RESULT.md",
+          "material_read": "Finding and prior work discussion, offsets 0 and 6108",
+          "method": "Local mirrored statement comparison",
+          "title": "Joint Gaussian–Poisson independence for bulk roots and rare long gaps",
+          "trigger": "Closest indexed same-model result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The surviving correction proves the optimal exact-linear covariance and variance thresholds uniformly in both gap lengths, closing the specific all-index gap left by the source's experiments. The explicit positive bridge trace explains why neither mixed nor diagonal boundary deviations can cancel. It adds finite-size structure, not just more computed examples or a second derivation of known mean sharpness.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

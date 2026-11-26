@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:12:50.416700Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–35",
+        "Frozen VERIFICATION.md and verify.py (read, not executed)",
+        "Fresh replay: python3 /workspace/branches/ef719fad-fb93-4a98-8a21-81f5e3681dff/independent_check.py; output independent_check.out in the same directory"
+      ],
+      "rationale": "A cyclic word with q^n-1 distinct n-windows gives a closed edge-simple trail in the directed de Bruijn graph. Subtracting its balanced degrees from the full degrees shows that the sole missing edge is a loop, hence a^n. Removing such a loop from a full tour is exactly deletion within its constant run; the run cannot be longer because the loop occurs only once. Deleting outside the q disjoint constant windows preserves every loop and therefore cannot yield a qualifying trail. This gives qn successful indexed positions and q distinct outcomes. In a shortened trail the vertex a^(n-1) has q-1 outgoing incidences. Inserting the missing loop at each restores a full tour. Distinct gaps yield distinct cyclic tours since deleting the unique loop recovers the cyclic order of distinct old edges with the gap identified. Thus double counting gives q D_q(n)/(q-1) with the stated classical D_q(n). Independently, deleting a loop leaves all rooted arborescence counts unchanged and changes just one BEST factorial from (q-1)! to (q-2)!, verifying the fixed-letter count. For n=1 the graph has one vertex and q labeled loops; deletion works at every letter, there are (q-2)! shortened cyclic orders per missing letter, and insertion has q-1 gaps, including the single gap for q=2.",
+      "residual_risks": [
+        "The fresh exhaustive checks are restricted to (q,n)=(2,1),(2,2),(2,3),(2,4),(3,1),(3,2),(4,1). They confirm deletion sets, restoration fibers and both census formulas only in those cases; the graph proof is general."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier two-defect classification says a two-element missing set containing a constant consists of two constants. Given any one-deficit cycle, take one of its present constant loops and delete that loop from its trail. The earlier theorem forces its original missing word to be constant for q>=3,n>=2.",
+          "The earlier proof states that deleted edges must preserve balance, and that loop removal changes no arborescence count. Both apply immediately to one edge, including q=2.",
+          "Cameron–Gündoğan–Sawada describe a one-symbol loop cut and alphabet extensions; Nellore–Ward give the broader floor/ceiling occurrence conditions, which do not alone identify the missing symbol."
+        ],
+        "reasoning": "The overlap with the earlier two-defect source is an actual reduction and a literal specialization of its proof, not merely a similar title or matching parameters. The one-vertex order-one case is the elementary labeled cyclic-order count.",
+        "searches": [
+          "Earlier Resultary exact two-window-defect enumeration, RESULT.md Proof §§1–3",
+          "Cameron–Gündoğan–Sawada §§4.2, 5.2",
+          "Nellore–Ward Proposition 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary two-deficit record 91541f51dfe4",
+        "Goresky–Klapper §8.2.4",
+        "Gabric–Holub–Shallit arXiv:1903.05442 Tables 1 and 4 and discussion",
+        "Cameron–Gündoğan–Sawada arXiv:2205.02815",
+        "Nellore–Ward arXiv:2108.07759"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Omitting one balanced edge forces a loop; for a specified loop BEST keeps the tree factor and divides the degree-factorial product by q-1. This recovers the full census by summing over q letters, without needing an additional structural lemma.",
+          "With the loop restriction known, deletion succeeds exactly within one of the constant windows by the classical puncturing rule and preservation of any constant window not intersecting the edit. Distinct inverse gaps use the unique restored loop and the edge labels, giving q-1.",
+          "The neighboring trace-spectrum result is for all distinct deletion-output necklaces, not a prior explicit filter to window-distinct outputs."
+        ],
+        "reasoning": "Census and edit fragility require only immediate consequences of prior balance, loop counting and puncturing; the combined statement is not an independent addition to that coverage.",
+        "searches": [
+          "Prior two-defect proof §§1–3",
+          "Goresky–Klapper §8.2.4",
+          "Resultary neighboring one-deletion trace spectrum"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Classical puncturing deletes the distinguished constant n-window's letter; §8.2.4 gives the reverse insertion rule, the q-1 occurrences of the constant (n-1)-block, and the count of full cycles.",
+          "At length q^n-1 for n>=2, every (n-1)-word occurs because each has q possible n-word extensions and at most one can be missing. Thus the frozen shortened cycles coincide with the prior generalized de Bruijn classes at that length, with the same rotation convention."
+        ],
+        "reasoning": "The aliases describe overlapping families, not a newly defined object. The converse from general distinct-window cycles is supplied directly by the prior missing-edge argument (below), and the prescribed-letter puncturing model supplies the insertion/deletion direction.",
+        "searches": [
+          "Resultary semantic searches for one-symbol puncturing and q-ary one-deficit cycles",
+          "Goresky–Klapper §8.2.4: punctured or modified de Bruijn sequences",
+          "Gabric–Holub–Shallit arXiv:1903.05442, Proposition 1: generalized de Bruijn words"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 1 (associated with OEIS A317586) gives binary lengths 1,3,7,15,31 as 2,2,4,32,4096 respectively; Table 4 gives 134217728 at length 63. The text explicitly states twice the full count for binary length 2^n-1, citing Fredricksen.",
+          "The same printed discussion gives 36 at ternary length 8, the q=3,n=2 value, and corrects the authors' earlier nonbinary near-power formula; that discussion does not give the unrestricted one-deficit formula.",
+          "The indexed two-defect RESULT gives B_{q,n}/(q-1)^2 for a fixed pair of absent constants. Restoring either one specified missing loop has q-1 possible gaps and recovers the fixed-letter count B_{q,n}/(q-1)."
+        ],
+        "reasoning": "The binary count is prior at theorem level as well as in the table. Ternary instance agreement alone would not prove broader coverage; the earlier symbolic count and its one-loop implication do.",
+        "searches": [
+          "Gabric–Holub–Shallit Tables 1 and 4 and closing discussion, arXiv:1903.05442",
+          "Resultary one-deficit and exact two-deficit searches"
+        ]
+      },
+      "rationale": "The binary count is explicitly prior, and the nonbinary structural and census claims are mechanically implied by an earlier indexed two-deficit classification and its actual balance/BEST argument together with the classical puncturing rules. The identification of successful indexed deletions and their fibers is a direct consequence, not an independent remaining claim. This does not assert that the exact combined wording was previously printed.",
+      "residual_risks": [
+        "The initial broad literature query was unavailable; the lawful OA material and exact earlier indexed argument supply positive coverage evidence. The survey does not pin down the earliest explicit q-ary wording or the historical priority of every deletion corollary."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically implies the one-deficit classification and count; not an explicit one-deficit statement",
+          "evidence": "An edge set deleted from a closed trail is balanced; among two missing edges a constant is accompanied by another constant; loop deletions leave tree counts unchanged and contribute one factor 1/(q-1) per affected vertex.",
+          "identifier_or_url": "2026/10/26/SCOPE-exact-two-window-defect-enumeration-of-nonbinary-de-bruijn-neckl--91541f51dfe4",
+          "material_read": "RESULT.md Finding scope, Proof §§1–3 (offsets 2290–5105), and prior work discussion",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact two-window-defect enumeration of nonbinary de Bruijn necklaces",
+          "trigger": "Strongest earlier Resultary overlap and reduction"
+        },
+        {
+          "assessment": "Explicit puncturing, restoration and background counts",
+          "evidence": "Delete a letter from the unique distinguished constant window; reverse by insertion into any constant (n-1)-block; gives occurrence formula and total full-cycle count.",
+          "identifier_or_url": "https://www.math.ias.edu/~goresky/pdf/algebraic0.pdf",
+          "material_read": "§8.2.4, printed p. 176, OA offset 477657",
+          "method": "Lawful OA PDF full-text passage",
+          "title": "Algebraic Shift Register Sequences",
+          "trigger": "Classical pseudonoise, modified and punctured cycles"
+        },
+        {
+          "assessment": "Explicit binary one-deficit census and nonbinary instance only in inspected tables/discussion",
+          "evidence": "Binary 2^n-1 count is twice the full-cycle census; ternary length 8 is 36. Proposition 1 identifies the generalized words by the two critical lengths.",
+          "identifier_or_url": "https://arxiv.org/abs/1903.05442",
+          "material_read": "Proposition 1 p. 3; Table 1 p. 6; Table 4 and closing discussion p. 12",
+          "method": "Lawful OA PDF passages at offsets 7780, 17980 and 33890",
+          "title": "Maximal State Complexity and Generalized de Bruijn Words",
+          "trigger": "Earlier two-defect record's relevant generalized-word and exact-table citation"
+        },
+        {
+          "assessment": "Constructive overlap, not the decisive universal-count source",
+          "evidence": "Binary cut of loop Z_1=[0] and wider-alphabet cut-down construction.",
+          "identifier_or_url": "https://arxiv.org/abs/2205.02815",
+          "material_read": "§4.2 pp. 9–10 and §5.2 pp. 16–17",
+          "method": "Lawful OA PDF passages",
+          "title": "Cut-Down de Bruijn Sequences",
+          "trigger": "Cited one-symbol cut"
+        },
+        {
+          "assessment": "Occurrence bounds, not an explicit fixed-missing-letter census in this passage",
+          "evidence": "The floor/ceiling counts describe the balance property, not the identity of the absent word.",
+          "identifier_or_url": "https://arxiv.org/abs/2108.07759",
+          "material_read": "§1.1, Proposition 1.1 p. 2",
+          "method": "Lawful OA PDF passage",
+          "title": "Arbitrary-Length Analogs to de Bruijn Sequences",
+          "trigger": "Other broader arbitrary-length definition"
+        },
+        {
+          "assessment": "Related observable but different filter",
+          "evidence": "Counts deletion-output classes without requiring their length-n windows to be distinct.",
+          "identifier_or_url": "2026/11/22/SCOPE-an-invariant-one-deletion-trace-spectrum-for-every-de-bruijn-cyc--09f6b02deb24",
+          "material_read": "Indexed finding on all distinct deletion necklaces",
+          "method": "Resultary semantic comparison",
+          "title": "An invariant one-deletion trace spectrum for every de Bruijn cycle",
+          "trigger": "Neighboring Resultary hit on one-symbol deletions"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "Earlier two-deficit RESULT.md §§1–3",
+        "Goresky–Klapper §8.2.4",
+        "Gabric–Holub–Shallit closing discussion"
+      ],
+      "rationale": "One-symbol deletion robustness and complete short-cycle census are natural questions, and the exact numbers are useful as background. The statement as an independent contribution reduces to the one-edge balance argument, one standard factorial ratio, and classical single-loop insertion/deletion. No separately useful unknown exact invariant remains beyond those mechanically implied facts.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:22:55.896014Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every primitive signed excursion of semilength ℓ has C_{ℓ−1} shapes per sign and contributes that semilength in the matching occupation variable and one return, including at the terminal step. Thus with P(z)(1−P(z))=z the marked function is F=1/[1−u(P(x)+P(y))]. At u=1 the Catalan divided difference has coefficient C_n in each occupation. Its u-derivative is F(x,y,1)^2−F(x,y,1), giving the stated conditional mean. Subtracting adjacent coefficient rectangles leaves the positive middle Catalan sum before the center and the zero central tie for odd n; reflection gives the other half. The endpoint is C_{n+1}/C_n−1=3n/(n+2). Stirling asymptotics of the Catalan products uniformly away from the boundary convert √n times the increments to the integral of [v(1−v)]^{−3/2}/√π from t to 1−t. The uniform bound on earlier unscaled increments follows by bounding the half-sum by a constant times Σ_{s≥j+1}s^{−3/2}, so the initial δn increments contribute O(√δ) after scaling. Integrating the resulting increment profile yields (8/√π)√{t(1−t)}, including the center by the same summation. Conditional fair signs give E[A|lengths]=n/2 and E[(A−n/2)²|lengths]=H/4, H=Σℓ_i². Marking one excursion of squared length gives 2D²P/(1−2P)^2; a return mark adds the factor (1+2P)/(1−2P) for KH. Coefficients give E[H]=n(n+2)/3, E[KH]=4^{n−1}n(n+3)/binom(2n,n)−E[H], and E[K]=4^n/binom(2n,n)−1. Subtraction and the factor 1/4 yield the exact negative covariance and its stated limit. At n=1 all means equal one and both covariances vanish; at n=2 the means are (3/2,2,3/2) and quadratic covariance −1/9. Frozen verification notes and verifier were inspected, not executed. Neither the reported enumeration nor a Brownian scaling analogy is used as proof of pointwise conditioning.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Banderier–Flajolet pp. 40–41 supplies general bridge/excursion framework; Pitman pp. 388–391 describes the bridge occupation density and Rayleigh local-time marginal.",
+          "A continuum signed-excursion calculation gives E[L_1^0|U=t]=4√(2/π)√{t(1−t)}, consistent with the frozen profile after √2 scaling, but this identity does not prove convergence under conditioning on individual discrete occupation levels.",
+          "Decisive full texts of de Vos–Vervaat and Fitzsimmons–Getoor were not available in the bounded retrieval, including the identified Tilburg memorandum and Radboud repository link for de Vos–Vervaat."
+        ],
+        "reasoning": "Generic excursion enumeration and continuum correspondence are substantial background. Even weak joint convergence to an occupation/local-time law does not determine a pointwise mean conditioned on single lattice levels whose probabilities go to zero.",
+        "searches": [
+          "Banderier–Flajolet, Basic analytic combinatorics of directed lattice paths; Pitman, The distribution of local times of a Brownian bridge",
+          "de Vos Vervaat \"Local Times of Bernoulli Walk\" 1987 research memorandum repository full text joint sojourn time number visits zero bridge",
+          "Fitzsimmons–Getoor DOI 10.1016/0304-4149(95)00008-V"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (inspection only)",
+        "Lachal arXiv:1003.5009; Banderier–Flajolet pp. 40–41; Pitman pp. 388–391",
+        "Distinct Resultary 2026/11/2/SCOPE-excursion-conditional-transfer-between-bridge-energy-and-signed--1a0b1166c1c0 and 2026/11/2/SCOPE-zero-contacts-suppress-quadratic-energy-in-symmetric-random-walk--626344189f2b",
+        "de Vos–Vervaat and Fitzsimmons–Getoor (limited bibliographic access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Differentiating the prior marked generating function at v=1 and extracting occupations mechanically gives the raw conditional-count coefficient and hence the Catalan convolution once the unmarked divided difference is used. The frozen proof goes on to a positive adjacent difference and then controls summed boundary increments in the scaling limit.",
+          "Uniform occupation alone determines no K-profile. The indexed conditional moment identity controls X² conditional on lengths, and its stated calculation for Cov(K,X²) does not provide conditional asymptotics for K at an exact occupation level."
+        ],
+        "reasoning": "No independent novelty is assigned to the mere mark, the formal extraction from the indexed joint table, or the quadratic covariance. The shape and fixed-ratio conditional asymptotic still require evaluating and estimating occupation-specific increments; neither follows as a parameter substitution in the exact table or from the continuous marginal.",
+        "searches": [
+          "Distinct Resultary 2026/11/2/SCOPE-excursion-conditional-transfer-between-bridge-energy-and-signed--1a0b1166c1c0, offsets 0–3279 and 3680–5544; frozen RESULT.md lines 64–91",
+          "Lachal Theorem 6.1–6.2; Pitman pp. 388–391"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lachal's T_{2n}=2A: its positivity convention counts the downward step from +1 to 0 and excludes the upward step from −1 to 0. It gives the uniform occupation conditional on a bridge.",
+          "The distinct indexed result defines X as the sum of odd-height signs; each excursion of semilength ℓ contributes ±ℓ, so X=2A−n and K agrees including the terminal return. Its Cov(K,X²) is exactly four times the frozen quadratic covariance, not an approximate analogy."
+        ],
+        "reasoning": "The occupation aliases are mathematically equivalent for these bridges. The covariance is not a distinct exact invariant relative to that indexed source. Its different principal theorem is an excursion-length conditional identity involving squared-height energy, not the profile E[K|A=j].",
+        "searches": [
+          "Resultary: Chung–Feller occupation and return count; centered signed-occupation covariance and marked excursions",
+          "Lachal arXiv:1003.5009 definition of sojourn, §6.1–6.2",
+          "Resultary 2026/11/2/SCOPE-excursion-conditional-transfer-between-bridge-energy-and-signed--1a0b1166c1c0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Lachal's G_0(x,y) and uniformity are the unmarked case, available explicitly.",
+          "The distinct Resultary G(z,u,v)=[1−vP(ze^u)−vP(ze^{−u})]^{-1} with v marking K is exactly the joint table in implicit form: at fixed [z^n] read the exponential monomial e^{u(2j−n)} to recover each occupation j. Its exact covariance and coefficient moments match under X=2A−n."
+        ],
+        "reasoning": "Joint-count encoding and second moments are real exact coverage; the consulted table encoding does not itself state the evaluated conditional regression's strict shape or its pointwise interior limit. The record on quadratic bridge energy is about a different observable.",
+        "searches": [
+          "Resultary: excursion conditional transfer bridge energy signed occupation; zero contacts and quadratic energy",
+          "Lachal arXiv:1003.5009 Theorems 6.1–6.2; distinct Resultary marked GF proof, offsets 3680–5544"
+        ]
+      },
+      "rationale": "Credit exact overlap in a distinct Resultary record for the signed-occupation covariance and the full marked generating function, without inferring priority from indexing dates. The supported distinct contribution is the evaluated conditional return-count profile, its discrete strict shape, and the pointwise fixed-occupation-fraction asymptotics. The indexed overlap uses the generating function to take occupation moments, not to estimate returns conditional on each occupation or to prove a conditional limit. Classical Chung–Feller, standard excursion enumeration and the covariance in isolation do not establish originality of the full profile.",
+      "residual_risks": [
+        "Older discrete local-time or lattice-path treatments may evaluate the occupation-conditional profile; the bounded comparison did not establish historical priority.",
+        "Distinguish the exact overlap for marked generating functions and covariance from the remaining structural/profile result. No novelty is claimed for the common identities or for the continuous analogue as such."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact unmarked occupation coverage",
+          "evidence": "Step ending at zero is positive if coming from +1; G_0 has two square-root terms, and occupation conditional on endpoint zero is uniform.",
+          "identifier_or_url": "https://arxiv.org/abs/1003.5009",
+          "material_read": "p. 3 positivity convention and §6.1–6.2 pp. 25–26, Theorems 6.1–6.2; offsets 8512 and 103628",
+          "method": "Bounded primary PDF inspection",
+          "title": "Sojourn time in Z⁺ for the Bernoulli random walk on Z",
+          "trigger": "Same midpoint-positive Chung–Feller occupation"
+        },
+        {
+          "assessment": "Exact equivalence for covariance and marked joint table, different main result",
+          "evidence": "Eq. (3) and G(z,u,v) map exactly to frozen covariance and F; main transfer conditions on the whole length vector, not on occupation, and its displayed asymptotic is for an averaged covariance.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-excursion-conditional-transfer-between-bridge-energy-and-signed--1a0b1166c1c0/RESULT.md",
+          "material_read": "Finding/definitions and proof, offsets 0–3279 and 3680–5544",
+          "method": "Resultary search and local-mirror inspection",
+          "title": "Excursion-conditional transfer between bridge energy and signed occupation",
+          "trigger": "Centered occupation covariance and same excursion-return mark"
+        },
+        {
+          "assessment": "Framework precedent; no claim of full-document exclusion",
+          "evidence": "Definitions and general enumeration, not the specific occupation-conditioned return profile in inspected passages.",
+          "identifier_or_url": "Banderier and Flajolet, Theoretical Computer Science 281 (2002), 37–80",
+          "material_read": "pp. 40–41, PDF offsets 12220–13119",
+          "method": "Bounded primary text inspection",
+          "title": "Basic analytic combinatorics of directed lattice paths",
+          "trigger": "General framework might encode the bridge enumeration"
+        },
+        {
+          "assessment": "Related continuum distributions, not the finite conditional regression",
+          "evidence": "Occupation-density normalization and Rayleigh local-time marginal at zero.",
+          "identifier_or_url": "https://www.numdam.org/item/SPS_1999__33__388_0.pdf",
+          "material_read": "pp. 388–391",
+          "method": "Bounded primary PDF inspection",
+          "title": "The distribution of local times of a Brownian bridge",
+          "trigger": "Continuum analogue of bridge return counts and occupation"
+        },
+        {
+          "assessment": "Plausible additional coverage, unresolved",
+          "evidence": "Tilburg and the CORE link did not yield readable text; no absence conclusion drawn.",
+          "identifier_or_url": "https://doi.org/10.1111/j.1467-9574.1988.tb01516.x",
+          "material_read": "Bibliographic metadata, including Tilburg research memorandum FEW 244; no decisive full text",
+          "method": "Lawful bounded retrieval of paper and identified repository variants",
+          "title": "Local Times of Bernoulli Walk",
+          "trigger": "Potential same discrete local-time and sojourn joint law"
+        },
+        {
+          "assessment": "Potential continuum precedent, unresolved",
+          "evidence": "The available identification concerns Lévy bridges/excursions; no lattice-level implication was verified.",
+          "identifier_or_url": "https://doi.org/10.1016/0304-4149(95)00008-V",
+          "material_read": "Bibliographic identification; decisive full text not retrieved",
+          "method": "Bounded lawful OA attempt",
+          "title": "Occupation time distributions for Lévy bridges and excursions",
+          "trigger": "Potential stronger continuum occupation/local-time law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Uniform occupation and an unconditional return-count law do not answer how frequent zero returns are among bridges with a specified imbalance. The evaluated shape and conditional scaling distinguish a bounded endpoint mean from a √n interior mean and locate the maximizing occupations exactly. This is usable for comparing occupation-conditioned bridge ensembles; the value does not depend on the separately indexed covariance being new or on asserting any ordering of full conditional distributions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

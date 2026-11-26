@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The source-independent proof applies to every CPTP map preserving input diagonals as output diagonals. Its crucial Heisenberg observable is a traceless Hermitian contraction because diagonal states remain diagonal. A direct eigenvalue-polytope argument bounds its Hilbert–Schmidt norm by the exact even/odd constant. The dual pairing and equality construction are algebraically verified, including positive input eigenvalues, both parities, Kraus trace preservation, and the output marginal. The attached standalone code checks dimensions \(2\)–\(12\); the infinite family is established analytically. Mathematical risk: none identified within the stated finite-dimensional assumptions.
+## correctness
 
-## Originality — PASS, with residual risks
-Cheng–Hall (arXiv:1508.03240, Sec. II C) proposed the underlying quantity; Rana–Parashar–Lewenstein (arXiv:1511.01854, Sec. IV) already disproved monotonicity and exhibited ancilla-erasure amplification. The latter implies the present lower bound in even dimensions, and this known mechanism is explicitly credited. The contribution assessed is the exact global upper bound over **all** maximally incoherent \(d\)-to-qubit channels, the parity-sharp constant and attainment by SIO on full-rank inputs. It is not a new counterexample to monotonicity. Primary-text checks found no corresponding optimality theorem. A 2020 study with a directly relevant title could be inspected only through a first-page preview; equivalent bounds in less-targeted norm literature remain a genuine priority risk.
+PASS
 
-## Value — PASS
-Dimension-limited coherence concentration is a natural quantitative question precisely because Hilbert–Schmidt coherence is nonmonotone. The result supplies a complete sharp capacity factor for all input dimensions and a broad operational class, including a dimension-three no-amplification boundary and unbounded high-dimensional growth. Full-rank saturation shows the effect is not merely a low-rank edge case. This does not rehabilitate the invalid coherence measure or solve general output dimensions.
+For a qubit, the maximum expectation of an equatorial Pauli observable is twice the modulus of its off-diagonal entry, whereas its Hilbert–Schmidt coherence is √2 times that modulus. The adjoint of a trace-preserving positive map preserves the order interval [−I,I], and diagonal-state preservation makes the adjoint image H of each such observable zero on the diagonal. For the trace-zero Hermitian contraction H, let r be the sum of its positive eigenvalues, also the sum of the absolute negative eigenvalues. If their counts are p and q, then Tr(H²)≤2r≤2min(p,q)≤2 floor(d/2). Pairing with the input off-diagonal part by Hilbert–Schmidt Cauchy–Schwarz proves the claimed factor. For equality put m=floor(d/2) and use the pair-folding Kraus matrices and the singleton on odd dimensions. Their initial supports partition all basis vectors, giving trace preservation, and the row and column sparsity gives strict incoherence. The input I/d+εZ has unit trace and minimum eigenvalue 1/d−ε>0; its paired entries give coherences ε√(2m) at input and √2 mε at output. This gives exact equality for all d≥2, including d=2,3; input with zero coherence maps to zero coherence by hypothesis.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The prior ancilla example already gives the amplification mechanism, including the even-dimensional lower bound and, with an unused basis state, the odd-dimensional lower mechanism. Neither that example nor the closest compared catalog records establishes the universal parity-sensitive upper bound for all diagonal-preserving d-to-qubit channels. Credit attaches to that exact class-wide bound and matching classification, not to nonmonotonicity, the even-dimensional witness in isolation, or the elementary trace-zero spectral inequality.
+
+## value
+
+PASS
+
+Knowing that Hilbert–Schmidt coherence is not generally monotone does not quantify the maximum attainable increase. The universal sharp bound for a natural fixed qubit output gives a complete dimension classification, including exact contractivity in dimension three and an odd-dimensional improvement over the unrefined √(d/2) estimate. Full-rank SIO saturation shows that neither boundary inputs nor larger operation classes are needed to attain it.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

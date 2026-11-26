@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:14:40.965338Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With real potentials, the adjacency commutator is real skew-symmetric and has the same norm on the complex vertex space. Pair-fixing automorphism averaging preserves the target difference and cannot increase the norm. For the hubs the resulting three-dimensional skew block has squared norm (2m+4)s²+2mu² at hub difference 2s, minimized at u=0. For two leaves, projection onto the symmetric hub vector bounds the difference by the operator norm, and opposite unit leaf potentials attain equality. In the hub–leaf case only the two hubs, target leaf and unit aggregate of other leaves remain; the skew block has half squared Hilbert–Schmidt norm S_m and Pfaffian tx(1−v). The radicands are squares of the sum and difference of the two singular speeds, and column bounds give compact sublevels when m≥2. Compression to a smaller induced book proves monotonicity; the triangle gives the lower bound on r_m and the x=2b/t, v=b/t derivative at zero makes r_m<√2 strict. At a minimizer the aggregate column gives |x|≤2/t, so the target-leaf column gives √2−√2/t+O(t^−2) as a lower bound for large t. The explicit b=1−t^−1/4 trial gives radicands 2[(1±b−b/t)²+3b²/t²]; the smaller positive linear term is of order t^−1/4. The square-root corrections are O(t^−7/4), and replacing b by one incurs O(t^−5/4). Reciprocation yields the stated error and coefficient in m−1. The supplied check_book.py was inspected, not executed; sampled matrix checks and finite numerical optimizations do not certify global optima or the asymptotic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected works give general bounds, explicit paths and edge-deletion comparisons. Related exact Results 1e12db461c4b and 0ca556eebe1a use the same metric on triangular and cross-polytope graphs respectively."
+        ],
+        "reasoning": "General bounds and analogous graph-family formulas do not evaluate the finite spine-edge optimization; no inspected deletion result makes adding this edge norm-invisible.",
+        "searches": [
+          "arXiv:2105.09056, graph bounds and pruning",
+          "arXiv:2409.04146, Birkhoff–James orthogonality",
+          "arXiv:2610.07718, edge deletion",
+          "Resultary: adjacency-Dirac triangular and cross-polytope graphs"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2105.09056",
+        "arXiv:2409.04146",
+        "arXiv:2610.07718",
+        "arXiv:hep-th/9912217",
+        "ccac81bc329c",
+        "1e12db461c4b",
+        "0ca556eebe1a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The bipartite hub–leaf distance (1+√(m−1))/√(2m) has the same first two asymptotic terms and an O((m−1)^−1) remainder. In the normalized book compression the extra hub edge contributes the skew entry −x, changing the norm minimization."
+        ],
+        "reasoning": "Even a matching upper bound from edge deletion would not establish the lower bound required for the book expansion. The record proves it with an explicit near-optimal book potential. Neither the neighboring family nor the fixed diamond leaf value supplies the two-variable book formula.",
+        "searches": [
+          "ccac81bc329c exact K_{2,m} specialization",
+          "arXiv:2610.07718 deletion comparisons",
+          "arXiv:hep-th/9912217, Proposition 5(ii)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The adjacency-commutator metric uses the same operator norm as the graph spectral-distance literature. The book is K2 joined with m independent leaves, equivalently K_{2,m} plus one hub–hub edge; a friendship graph with triangles sharing one vertex is not the same graph."
+        ],
+        "reasoning": "An equivalence of metric definitions does not identify the families. For example the spine changes the hub–hub distance from √(2/m) to √(2/(m+2)).",
+        "searches": [
+          "Adjacency-commutator or Connes distances for book, split join, and edge-sharing triangles",
+          "arXiv:2105.09056, §4",
+          "arXiv:2409.04146, §§3–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "At n=4 with one missing link, Proposition 5(ii) covers the two leaves of the diamond B2 and gives one. The small path formulas are restricted to paths. The exact bipartite catalog entry gives all three corresponding distances without the book spine."
+        ],
+        "reasoning": "The known leaf value for the diamond is an exact overlap, but does not give the hub–leaf value or a table covering arbitrary spine-edge books.",
+        "searches": [
+          "arXiv:hep-th/9912217, Proposition 5(ii), complete graph minus an edge",
+          "arXiv:2409.04146, §4, small path formulas",
+          "Resultary ccac81bc329c, exact complete bipartite distances"
+        ]
+      },
+      "rationale": "The bounded comparison supports the exact orbit distances on the spine-edge book K2 ∨ independent m-set, in particular the attained hub–leaf prescription, and the fact that its hub–leaf asymptotic retains the first correction despite the spine edge. The analogous complete bipartite family already has the same leaf–leaf distance and the same first hub–leaf coefficient; these facts are not novel on their own. A previously known diamond-graph leaf pair is an exact special-case overlap.",
+      "residual_risks": [
+        "Unlocated general formulas for split joins or small-graph tables could overlap. Searches for friendship-family terminology did not supply a usable matching passage; that access or search limit is not evidence of absence. No chronological priority is inferred for same-date records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General estimates and chain results",
+          "evidence": "Distance bounds and chain calculations do not give a three-orbit spine-edge book metric.",
+          "identifier_or_url": "https://arxiv.org/abs/2105.09056",
+          "material_read": "§4.1, p. 12 (PDF offset 39800), and §4.2, p. 14 (offset 49000)",
+          "method": "Primary OA PDF",
+          "title": "Estimating noncommutative distances on graphs",
+          "trigger": "Same metric with potentially broader pruning statements"
+        },
+        {
+          "assessment": "Exact formulas are for paths in the relevant portions",
+          "evidence": "In particular the four-vertex example is a path, not the diamond.",
+          "identifier_or_url": "https://arxiv.org/abs/2409.04146",
+          "material_read": "Introduction and §3 (PDF offset 6500), §4 p. 20 (offset 70200)",
+          "method": "Primary OA PDF",
+          "title": "Noncommutative Distances on Graphs: An Explicit Approach via Birkhoff–James Orthogonality",
+          "trigger": "Explicit metric classification or small-graph table"
+        },
+        {
+          "assessment": "Potentially useful comparisons, no exact book claim in inspected material",
+          "evidence": "The stated targets are deletion comparisons including weighted four-cycles and cycles, not an equality between these two families.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.07718",
+          "material_read": "Abstract and statement of scope, p. 1 (PDF offset 0)",
+          "method": "Primary OA PDF",
+          "title": "The effect of edge deletion on noncommutative distances on graphs",
+          "trigger": "The book differs from a complete bipartite graph by one edge"
+        },
+        {
+          "assessment": "Exact fixed-case leaf-pair overlap",
+          "evidence": "At four vertices the endpoints of the single deleted link have distance one, the book leaf–leaf pair.",
+          "identifier_or_url": "https://arxiv.org/abs/hep-th/9912217",
+          "material_read": "§VI Proposition 5(ii), p. 9 (PDF offset 27000)",
+          "method": "Primary OA PDF",
+          "title": "Distances in Finite Spaces from Noncommutative Geometry",
+          "trigger": "B2 is a uniformly coupled complete graph minus one link"
+        },
+        {
+          "assessment": "Strong partial overlap, but the hub–hub edge is absent",
+          "evidence": "The bipartite leaf distance is one; the bipartite hub–leaf expansion has the same first coefficient, but its hub–hub distance differs.",
+          "identifier_or_url": "ccac81bc329c",
+          "material_read": "Finding and distance formulas specialized to K_{2,m}",
+          "method": "Local Resultary mirror",
+          "title": "Complete bipartite Connes distances from sharp operator-nuclear duality",
+          "trigger": "Closest exact neighboring family and leading correction"
+        },
+        {
+          "assessment": "Method and observable analogue on a different graph family",
+          "evidence": "The one-variable prescription and two-term expansion apply to triangular graphs J(n,2).",
+          "identifier_or_url": "1e12db461c4b",
+          "material_read": "Finding and family specification",
+          "method": "Local Resultary mirror",
+          "title": "Exact adjacency–Dirac edge distance and its avoided-crossing asymptotics",
+          "trigger": "Same metric and closely related spectral optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Books are a natural one-edge change to a standard complete bipartite family. The operator metric responds differently on its three orbits, and the exact result separates the changed hub–hub law from the persistence of the leading hub–leaf behavior. The finite attained reduction makes the remaining distance evaluable for each m without optimizing over all vertex potentials. This is a useful exact invariant and edge-edit comparison, not a claim of a new asymptotic coefficient independent of the graph family.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

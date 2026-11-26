@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** For the exact finite noncyclic majority map, the predecessor dynamic program counts all length-\(m+2\) input words. Saturation at two preserves whether the count is exactly one. The attached Python program reconstructs thirty reachable saturated states, four accepting states, and verifies \((T^9-T^8-T^7+T^6-2T^4-T^3-T-I)f=-2e_0\) by exact integer arithmetic, with no return into the initial state. Thus the recurrence and rational series hold at every positive output length; brute-force checks for lengths one through thirteen provide a separate finite check. A weakness is the absence of an independent human proof review of the computer-enumerated matrix identity.
+## correctness
 
-**Originality: PASS, qualified.** Jen's 1989 full text supplies predecessor recurrences for each Rule-232 target, but the inspected sections do not sum the indicator of exactly one predecessor over all length-\(m\) targets. The 2026 first-image and cyclic-image studies count targets with at least one predecessor under their respective boundary conditions, not the singleton target count. The 2021 transformation-complexity and 2022 generalized-inverse studies ask different questions. The new closed rational spectrum is not an immediate corollary of those evaluated formulas. Unindexed equivalent counting results remain possible; pointwise preimage formulas furnish relevant prior general machinery.
+PASS
 
-**Value: PASS.** Unique inversion of an observed finite output is a natural one-step reconstruction property, distinct from mere attainability. An exact nine-term recurrence, a rational series, and a finite-state recognition mechanism give the complete count for every length, rather than a table of examples. This quantifies the distribution of uniquely reversible outputs for the majority local rule and complements known image-language results.
+The before-reading state counts each two-bit starting pair once. Appending a bit gives exactly one new input realization for each compatible previous realization and endpoint pair. The end pairs are all counted; no end constraint is imposed. Saturation at two preserves the exact-one predicate because no contributions are negative. An independent present/multiple-set construction yielded 30 reachable states, four accepting, and no edge back to the start. The whole-vector residual of the degree-nine polynomial is -2 at the start and zero elsewhere; applying the transition operator kills that residual. This gives the recurrence for every m>=1 (not at m=0), and exact low coefficients give the displayed numerator. All 16 listed counts and a separate brute-force histogram through m=12 agreed.
 
-**Closest literature and limitations.** Jen (1989, pp. 441–442), Biehl–Witkowski (2021), Salo (2022), and the two 2026 majority-image studies are the closest inspected sources. The theorem assumes free linear boundaries, not cyclic rings. It is about one update and singleton inverse fibers only. Priority is not independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The contribution is the evaluated singleton count over all unrestricted-end output words by length, not the pointwise predecessor recurrence or the existence of a finite-state representation. The strongest same-day periodic singleton result is a material neighbor but assesses different fibers, and the closest classical pointwise formula does not evaluate this global threshold count.
+
+## value
+
+PASS
+
+An attainable observation need not determine the unobserved source word, including its two end bits. The all-length singleton spectrum resolves this exact finite reconstruction invariant for a classical local rule. It gives both an effective test for an individual target and a recurrence for how many targets pass, complementing the earlier image-language and per-target counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

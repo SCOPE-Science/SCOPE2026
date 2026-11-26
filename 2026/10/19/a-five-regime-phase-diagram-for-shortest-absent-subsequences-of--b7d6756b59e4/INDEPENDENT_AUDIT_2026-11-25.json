@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:03:54.563495Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Earliest-position embedding is optimal by induction on the scanned letters. A requested run of length r starts at the first fresh host block of the correct symbol; with host capacity c it skips exactly floor((r−1)/c) intervening blocks of the opposite symbol. Each change of requested symbol then advances one block. For length L this gives terminal host index δ+L+Σ[2 floor((r−1)/c)−(r−1)], where δ is 1 iff the candidate starts in 1. For both capacities ≥2 all penalties are nonpositive; equality occurs for odd r at capacity 2, and only r=1 at larger capacities. Hence all lengths below 2k are present, and at 2k the absent words are exactly those starting in 1 with all penalties zero. These even-length words have an even number of runs, i.e. a sequence of 1-run/0-run pairs; the phrase 'even number of alternating symbol-pairs' in the proof should be read as an even number of runs, not a parity restriction on the number of pairs. The run-pair generating functions give coefficients F_{2k}, 2^{k−1} and 1. When a capacity is one, one symbol per block embeds every word of length k and a constant word fails at k+1. For a=1<b, at length k+1 a word with z between 1 and k−1 zeros contributes at most z−1 in zero-run penalties and hence is present; the all-one word also fits. With k zeros only putting the lone 1 first fails; with k+1 zeros the constant word fails. Reversal and complement give the swapped case. With both capacities one the failure threshold allows no switch from an initial 0 and at most one switch from an initial 1, giving exactly k+2 words. This includes k=1. Inspected the frozen verifier and reported checks; the general result follows from the proof, not the finite sample.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general arch theorem yields the lengths via universality; general SAS algorithms enumerate words instance by instance",
+          "The extremal theorem maximizes over all words of length n, not this family"
+        ],
+        "reasoning": "The class at two different capacities and its uniform enumeration require evaluating the binding conditions, not just invoking the general arch theorem or a global maximum.",
+        "searches": [
+          "Kosche et al., arXiv:2108.13968v6, arch factorization and SAS-tree",
+          "Manea et al., arXiv:2504.21471v1, general algorithms",
+          "Resultary Fibonacci extremal record 1a6556f14d28"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 06eff8b8a564, 1a6556f14d28",
+        "arXiv:2108.13968v6 and arXiv:2504.21471v1",
+        "Okhotin 10.3233/FI-2010-252 and Troníček, On Problems Related to Absent Subsequences (retrieval attempts, no full text compared)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known theory covers the shortest lengths, can compute finite instances and directly overlaps the equal-capacity-two branch",
+          "Run-cost equality at c=2 versus c≥3 explains new mixed regimes and gives the exact uniform word sets"
+        ],
+        "reasoning": "The distinct contribution is the closed symbolic interaction of the two capacities; it is neither the arch characterization itself nor a new claim of the doubled-run branch in isolation.",
+        "searches": [
+          "arXiv:2108.13968v6, SAS length, conditions and enumeration",
+          "Resultary 06eff8b8a564 and 1a6556f14d28"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 06eff8b8a564 gives the length-r shortest layer of minimal absent subsequences of r doubled runs; r=2k gives exactly the same odd-run class and count F_{2k}"
+        ],
+        "reasoning": "Shortest absent implies inclusion-minimal absent; the cited minimal-absent spectrum has the same lowest layer for doubled runs, not just the same Fibonacci number. It does not cover variable run capacities. Catalogue dates alone do not settle priority.",
+        "searches": [
+          "Resultary: full five-regime SAS theorem and odd-run/Fibonacci SAS and MAS of alternating doubled-run words",
+          "Kosche et al., arXiv:2108.13968v6, Theorems 3.1 and 3.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The doubled-run spectrum is an exact checked branch overlap. The extremal bound evaluates to F_{2k+3} at total input length 4k and is not the family count F_{2k}."
+        ],
+        "reasoning": "The checked entries do not give a complete evaluated classification for all positive a,b,k.",
+        "searches": [
+          "Resultary exact-title and related five-regime, Fibonacci and periodic run-family queries"
+        ]
+      },
+      "rationale": "The general arch length rule and the exactly overlapping doubled-run Fibonacci branch are credited. The supported distinct content is the uniform classification across both run capacities, including the parity-to-singleton change and the mixed-capacity word families. The checked general algorithmic results do not establish this symbolic classification without the family-specific argument.",
+      "residual_risks": [
+        "Priority of the equivalent doubled-run branch was not inferred from display dates.",
+        "Okhotin and Troníček full texts were not retrieved; an earlier evaluated automation example or equivalent family specialization is not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact shortest layer overlap at a=b=2; not the full family",
+          "evidence": "For r=2k its host and length-r layer coincide with the frozen ones; its total F_{r+2} counts all minimal absent words.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-fibonacci-length-spectrum-for-minimal-absent-subsequences-of-dou--06eff8b8a564",
+          "material_read": "Mirrored finding giving the minimal-absent length spectrum and odd-run characterization",
+          "method": "Local mirror passage comparison",
+          "title": "Fibonacci length spectrum for minimal absent subsequences of doubled-run binary words",
+          "trigger": "Exact doubled-run candidate overlap"
+        },
+        {
+          "assessment": "Different quantifier and count",
+          "evidence": "It maximizes over all hosts of that length.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28",
+          "material_read": "Mirrored extremal statement at fixed input length",
+          "method": "Local mirror passage comparison",
+          "title": "Fibonacci extremals for shortest absent subsequences of binary words",
+          "trigger": "Fibonacci multiplicity over binary words"
+        },
+        {
+          "assessment": "Lengths directly covered by general theory; uniform five-regime equality classification not supplied",
+          "evidence": "Theorem 3.4 characterizes SAS via one position in each arch and Theorem 4.19 gives the SAS-tree.",
+          "identifier_or_url": "https://arxiv.org/abs/2108.13968v6",
+          "material_read": "pp. 202–205 (offsets 12000–23996), pp. 226–227 (offsets 89200–95125)",
+          "method": "OA primary PDF passages",
+          "title": "Absent Subsequences in Words",
+          "trigger": "General SAS characterization could subsume the claim"
+        },
+        {
+          "assessment": "Algorithmic evidence only, no document-wide claim",
+          "evidence": "The abstract states preprocessing and delay bounds and longest-MAS algorithms, not a specialized formula.",
+          "identifier_or_url": "https://arxiv.org/abs/2504.21471v1",
+          "material_read": "Abstract, PDF p. 1",
+          "method": "OA primary PDF passage",
+          "title": "Efficiently Finding All Minimal and Shortest Absent Subsequences in a String",
+          "trigger": "Later strong SAS/MAS algorithms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Two-run block powers form a natural periodic test family for subsequence universality. Giving whole word sets, not just lengths or sample counts, identifies the exact capacity threshold at which the shortest-absent language loses odd runs and the corresponding growth changes from Fibonacci to powers of two to a singleton. This distinguishes hosts with the same minimum absent length and is more than enumerating instances of a general algorithm.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

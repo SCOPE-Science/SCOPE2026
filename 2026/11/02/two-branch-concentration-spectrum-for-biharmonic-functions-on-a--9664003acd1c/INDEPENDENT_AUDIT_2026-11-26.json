@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:42:03.577274Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:5–95",
+        "VERIFICATION.md:19–25",
+        "biharmonic_concentration_check.py:20–122"
+      ],
+      "rationale": "Almansi separation and angular orthogonality give a complete direct sum of two regular radial modes per harmonic, with the same orthogonality after cutoff. For p=2m+d their full-ball radial Gram matrix has entries 1/(p+2i+2j) (i,j in {0,1}); the restricted matrix is t^(p/2) diag(1,t) G diag(1,t). Thus its determinant ratio is t^(p+2). An orthonormal radial basis after factoring out r^m is √p and √(p+4)((p+2)r²−p)/2. Integrating its two squared norms over the cutoff gives trace t^(p/2)[(p+2)²(1−t)²+8t]/4. Vieta gives the stated roots, distinct since t∈(0,1), and the inner and outer integrals are strictly positive on every nonzero radial polynomial. Tilting every coefficient-vector quotient by r² strictly decreases it; taking a maximizer in degree m+1 and a minimizer in degree m gives the two strict eigenvalue comparisons. The upper root is asymptotic to the trace, and dividing the product by it gives the lower root and both constants. Compactness follows from decay of the upper root. Taking logs gives cutoff degrees (L±2 log L)/ell+O(1); multiplying their separation (4/ell) log L+O(1) by the leading multiplicity 2(L/ell)^(d−2)/(d−2)! gives the stated difference coefficient. The cumulative multiplicity 2M^(d−1)/(d−1)!+O(M^(d−2)) yields cancellation of the two first-order shifts in the total; the second-order terms O(L^(d−3)(log L)^2) fit the remainder. These arguments include m=0 and retain multiplicities at cross-block collisions. The checker was read, not run.",
+      "residual_risks": [
+        "All asymptotics keep d and t fixed; the finite checker does not establish uniformity or the infinite-degree results."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first paper gives finite matrices for radial polyanalytic Toeplitz operators on disks; the second develops polyharmonic Bergman spaces on unions of rotated balls.",
+          "f7281c76f624 gives branch asymptotics and cancellation for order q≥3 on the complex disk."
+        ],
+        "reasoning": "The block-reduction principle is established and does not merit an originality claim. The inspected theorems do not extend the planar weighted-count result to d≥3 with the angular harmonics and unweighted concentration of this record.",
+        "searches": [
+          "arXiv:2009.14301v2 pp. 20–23",
+          "arXiv:1912.02035v1 pp. 1–3",
+          "Resultary f7281c76f624"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 006121c65ee5, f7281c76f624, 903492a35b21, f8174cc43f38",
+        "arXiv:2009.14301v2, arXiv:1912.02035v1",
+        "DOI:10.1016/j.jmaa.2016.12.034"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact disk formula transfers to even-d radial blocks as noted; its angular count has bounded rather than polynomial degree multiplicity.",
+          "903492a35b21 compares a single hyperbolic-harmonic branch to an ordinary harmonic one, while f8174cc43f38 uses slab Fourier fibers rather than discrete angular blocks."
+        ],
+        "reasoning": "A comparable logarithmic asymptotic in a different operator does not imply the sharp real-ball count. Here the reciprocal quadratic factors are combined with h_(m,d) at a moving cutoff; the specific coefficient and cancellation remainder were not supplied by a stronger inspected statement.",
+        "searches": [
+          "Resultary 006121c65ee5 and f7281c76f624: exact planar block and log-shift statements",
+          "Resultary 903492a35b21 and f8174cc43f38: operator and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 006121c65ee5 gives explicit two-branch matrices and a product identity for bianalytic disk concentration.",
+          "Bianalytic disk angular blocks of nonnegative index use the same two monomials and p=2m+2."
+        ],
+        "reasoning": "The relevant change is not terminology: positive-frequency disk blocks share the radial calculation (with an index shift for even d), but the full operators, angular multiplicities, dimensional regimes and therefore the counts are not equivalent.",
+        "searches": [
+          "Resultary: biharmonic and polyanalytic radial concentration, spectral branches and logarithmic excess",
+          "arXiv:2009.14301v2 radial Toeplitz block representation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The close indexed entries have respectively a bianalytic disk, higher-order polyanalytic disk, weighted hyperbolic-harmonic four-ball, and biharmonic half-plane slab as their operators."
+        ],
+        "reasoning": "None of the inspected spectral formulas is a matching complete table for the frozen real-ball operator. Same-day entries are compared mathematically, without deducing priority.",
+        "searches": [
+          "Resultary spectrum/count search; inspected IDs 006121c65ee5, f7281c76f624, 903492a35b21, f8174cc43f38"
+        ]
+      },
+      "rationale": "The radial block method and extremely close planar block formula are prior, as is the phenomenon of opposite logarithmic count corrections in other settings. The supported distinction is the ordinary real-ball d≥3 biharmonic operator with the dimension-dependent spherical multiplicities and sharp branch excess and total count. In even dimensions the radial eigenvalues can already be read by shifting the mode parameter of the bianalytic disk block: 2m+d=2(m+d/2−1)+2. That algebraic overlap is not a new block method or even a new scalar formula at those indices. The inspected disk results do not supply the real spherical-harmonic multiplicities or the resulting L^(d−2) log L coefficient for this operator.",
+      "residual_risks": [
+        "Bounded search does not establish priority, especially among neighboring same-day results. Pessoa–Santos full-text coverage remains unresolved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Close equivalent radial calculation, different global spectrum and counts",
+          "evidence": "Unweighted bianalytic disk, finite degree blocks with exact eigenvalues and product.",
+          "identifier_or_url": "Resultary:006121c65ee5",
+          "material_read": "RESULT.md finding and operator hypotheses",
+          "method": "Resultary search and local mirror",
+          "title": "Radial rigidity and the sharp spectral gap for polyanalytic disk concentration",
+          "trigger": "Exact two-branch concentration spectrum and product"
+        },
+        {
+          "assessment": "Related mechanism, not broader coverage of this operator",
+          "evidence": "Full order q≥3 in the complex disk, not real d≥3 biharmonicity.",
+          "identifier_or_url": "Resultary:f7281c76f624",
+          "material_read": "RESULT.md finding and polyanalytic order/domain assumptions",
+          "method": "Resultary search and local mirror",
+          "title": "Factorial spectral stratification of compact-core concentration",
+          "trigger": "Branchwise log correction and cancellation"
+        },
+        {
+          "assessment": "Different weighted operator and comparison",
+          "evidence": "Four-ball L² log L excess compares hyperbolic and ordinary harmonic spectra.",
+          "identifier_or_url": "Resultary:903492a35b21",
+          "material_read": "RESULT.md finding and comparator",
+          "method": "Resultary search and local mirror",
+          "title": "Logarithmic spectral excess for hyperbolic-harmonic concentration",
+          "trigger": "Logarithmic excess in a higher-dimensional ball"
+        },
+        {
+          "assessment": "Different geometry, fibers and question",
+          "evidence": "Half-plane slab Fourier-fiber optimization.",
+          "identifier_or_url": "Resultary:f8174cc43f38",
+          "material_read": "RESULT.md finding and slab setting",
+          "method": "Resultary search and local mirror",
+          "title": "D-optimal slab concentration for biharmonic Bergman modes",
+          "trigger": "Same differential equation and two-dimensional concentration blocks"
+        },
+        {
+          "assessment": "Block method precedent on planar spaces",
+          "evidence": "Finite matrices for radial Toeplitz operators on polyanalytic disks.",
+          "identifier_or_url": "https://arxiv.org/abs/2009.14301",
+          "material_read": "v2 PDF pp. 20–23, radial operator and Toeplitz representations",
+          "method": "OA passage inspection",
+          "title": "Radial Operators on Polyanalytic Weighted Bergman Spaces",
+          "trigger": "General radial Toeplitz matrices plausibly subsume a block calculation"
+        },
+        {
+          "assessment": "Relevant background; checked passages do not state the concentration spectrum",
+          "evidence": "Polyharmonic spaces and reproducing kernels for unions of rotated balls.",
+          "identifier_or_url": "https://arxiv.org/abs/1912.02035",
+          "material_read": "v1 PDF pp. 1–3, problem and setup",
+          "method": "OA passage inspection",
+          "title": "The Polyharmonic Bergman Space for the Union of Rotated Unit Balls",
+          "trigger": "Polyharmonic Bergman structure on balls"
+        },
+        {
+          "assessment": "Unresolved full-text comparison, not evidence of noncoverage",
+          "evidence": "The compared bibliographic setting is the upper half-plane rather than a concentric real-ball cutoff.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jmaa.2016.12.034",
+          "material_read": "Identification only; full text not obtained",
+          "method": "Bounded lawful retrieval and repository lookup",
+          "title": "Polyharmonic Bergman Spaces and Bargmann Type Transforms",
+          "trigger": "Possible polyharmonic operator decomposition precedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:25–46,75–95",
+        "Resultary 006121c65ee5, f7281c76f624, 903492a35b21"
+      ],
+      "rationale": "The two branch counts describe how many independent fourth-order modes actually concentrate in a concentric core. The leading total count alone conceals the opposite logarithmic shifts; the explicit excess coefficient quantifies a distinction absent from a single harmonic branch. The centered cutoff and ordinary biharmonic extension are natural choices, and the result uses the real dimension rather than merely restating a disk block calculation.",
+      "residual_risks": [
+        "No claim about nonconcentric cutoffs, boundary-value spectra, or arbitrary polyharmonic order."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

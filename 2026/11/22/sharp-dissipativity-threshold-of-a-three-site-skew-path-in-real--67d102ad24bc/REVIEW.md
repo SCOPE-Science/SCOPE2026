@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The real \(\ell_4^3\) duality formula is exact. The numerator and norm separate in antisymmetric and symmetric coordinates. In the positive-sign branch, two displayed polynomial sum-of-squares identities force the normalized magnitude below \(1/2\); in the negative-sign branch, moving off the antisymmetric plane strictly lowers the quotient. The remaining scalar maximization has one interior critical root with a sign-changing derivative, all equality cases follow, and differentiating \(\|e^{tG}x\|_4^4\) yields the sharp prefactor-one exponential rate. The standalone integer/rational diagnostic passed 15,626 assertions. No numerical sample is being used to prove a universal inequality.
+## correctness
 
-## Originality — PASS, with documented priority risk
-The full 2026 Banach numerical-range paper gives general frameworks and an unrelated two-dimensional \(L^1/L^2\) semigroup example. The complete Martín–Merí–Popov text gives generic numerical-index bounds and two-coordinate skew rotation constants, not the additional three-site normer-rigidity inequality. The full public conditional-expectation-commutator result was inspected: its skew triangle has three nonzero edges and its constant is not the path constant; in particular the exact value of the *triangle* would cover an equilateral cyclic rotation, but not the present two-edge path. Searches for path, tridiagonal, logarithmic norm, equivalent skew rotations, and matrix-support reductions found no directly implying theorem. This is a best-knowledge originality assessment rather than a proof of global bibliographic uniqueness.
+PASS
 
-## Mathematical value — PASS
-The three-site nearest-neighbor skew coupling is a natural non-block-diagonal finite-dimensional energy-preserving rotation. Its sharp non-Hilbert dissipativity threshold is an exact algebraic invariant, and the theorem determines all normers and proves they lie in an invariant plane despite a nonlinear interacting kernel direction. For positive damping below the threshold, all eigenvalues are strictly stable but the \(\ell_4\) semigroup initially expands; the sharp boundary is needed to decide prefactor-one contractivity. The contribution is a full sharp classification for this natural first three-vertex path, not a routine scalar substitution into a published two-coordinate bound.
+Reconstructed the real quartic quotient in the antisymmetric and kernel coordinates. The two polynomial identities bound the nonnegative-sign branch strictly below 1/2; on the opposite branch removing the kernel coordinate strictly increases the quotient unless it was already zero. The value 2/3 at u=1/2 excludes the first branch. The derivative on the remaining interval has sign given by the strictly decreasing cubic in u^2, which changes sign once; restoring the one-sided numerator sign gives exactly the claimed maximizing line. The norm derivative yields the bound for both signs of beta (and beta=0); a norming initial vector proves optimality with prefactor one. Skew symmetry and the characteristic polynomial give the contrast with Euclidean contractivity and spectral stability. Independently expanded the polynomial identities and derivative and isolated the cubic root by rational signs at 0.23310321709649116 and 0.23310321709649117 (python3 /workspace/branches/review_replay.py 4). The bundled diagnostics were inspected, not run, and are not an all-vector proof.
 
-## Closest work and limits
-Boubaker–Gernandt–Selmi (arXiv:2608.19913v1) motivate the numerical-abscissa question but do not compute this path. Martín–Merí–Popov (arXiv:1011.4785v1) cover the two-site background. The published three-point conditional-expectation commutator gives the distinct three-edge triangle value and full normer orbit; its entire result text was read. The present conclusion is restricted to real quartic norm and equal path edges; general exponents, complex scalars, unequal edges, and full numerical ranges are not proved. A possible unindexed equivalent remains a residual originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct result is the path-specific global maximization including exclusion of the kernel coordinate, the cubic value and the full set of normers. The logarithmic-norm-to-semigroup implication and two-coordinate benchmarks are existing results; no inspected comparison provides the path extremum or its normers.
+
+## value
+
+PASS
+
+The minimal equal-edge path with a nontrivial continuous kernel direction is a useful test case for whether an invariant subspace controls a non-Hilbert contraction threshold. The complete normer classification resolves that issue rather than only producing a lower bound from the plane. The exact scalar threshold gives a usable benchmark distinguishing initial norm growth from spectral and Euclidean stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

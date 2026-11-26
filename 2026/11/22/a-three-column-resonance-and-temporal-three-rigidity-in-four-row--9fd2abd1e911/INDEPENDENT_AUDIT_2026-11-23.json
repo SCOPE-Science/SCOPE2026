@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:50:11.851422Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For triples of four-bit columns (a,b,c), put an edge to (b,c,d) exactly when applying the column rule f three times on the shrinking window (a,b,c,d) returns a at its first site. The overlap forces every indexed closed walk to encode exactly one labelled space word satisfying F^3 x=x, and conversely, also at circumference 3 where input columns wrap. Independent exact reconstruction over 16^4 tuples gave 4096 vertices, 10824 edges and cyclic SCC sizes 1,1,3,3,8,136; the only cyclic components containing any state with f(a,b) different from a are the two simple triangles of alternating columns 5 and 10. Their words are repetitions of (5,5,10) and (5,10,10), up to horizontal phase. The update shifts those words because the center and north inputs are opposite in each cell. Each triangle contributes three indexed starts iff 3 divides n. Every other closed walk is fixed by F, so the six labelled states form exactly two primitive temporal three-orbits when they exist; no spatial quotient was taken. Direct cellwise checks at n=3,4,5 gave fixed/F^3-fixed counts (22,28),(42,42),(266,266), corroborating rather than replacing the all-length SCC argument. Private replay: /workspace/branches/df81a38a-7468-4771-a068-7d26579f1fae/independent_graph.py and independent_graph.log (the logged digest uses comma separators, unlike the frozen colon serialization). The supplied scripts were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jen's publicly indexed first-page text describes a general matrix technique for fixed points and limit cycles of one-dimensional automata with periodic boundary; full text was not independently accessible.",
+          "Makowiec includes deterministic evolution at noise-parameter endpoint epsilon=1 but the passages studied address square-lattice critical and stationary behavior. Gács proves a thickness result for a modified rule R+ on the square lattice."
+        ],
+        "reasoning": "Coding a four-cell column as a symbol fits general cylindrical methods, but producing that graph does not imply the structural decomposition separating F-fixed states from the two exceptional components. The stated critical and thickness results do not entail the finite-torus orbit count.",
+        "searches": [
+          "Erica Jen 1988 Cylindrical Cellular Automata Communications Mathematical Physics 118 569 590 Project Euclid pdf",
+          "Makowiec cond-mat/9808247v1, section 2 and conclusion",
+          "Gács math-ph/0102009, abstract and introduction"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: 050d0ee3cc56",
+        "Jen DOI 10.1007/BF01221109 (indexed first-page description; full text attempted)",
+        "arXiv:cond-mat/9808247",
+        "arXiv:math-ph/0102009",
+        "APS DOI 10.1103/PhysRevE.56.5195 (retrieval attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The available Jen description mentions generic period enumeration; no specific NEC height-four classification is established by that description.",
+          "Height-three dynamics admits vertical rotating waves and a substantially different classification."
+        ],
+        "reasoning": "Computability from a generic transfer graph is not the same as an evaluated all-circumference classification. The decisive extra exact computation is that every cyclic SCC except the two triangles is locally fixed by F. Jen's uninspected sections cannot be ruled out on the basis of first-page text.",
+        "searches": [
+          "Jen, DOI 10.1007/BF01221109 and Project Euclid 1104162165, indexed first page and lawful full-text retrieval attempts",
+          "Resultary height-three primitive orbit proof and statement comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinct 050d0ee3cc56 theorem treats a height-three torus with vertical rotating waves and gives primitive three-cycles at every circumference at least three.",
+          "The exact height-four hit in that search was the frozen finding itself, not separate prior coverage."
+        ],
+        "reasoning": "Three vertical rows have different wraparound dynamics and cannot be turned into four rows by swapping horizontal and vertical axes. The closest distinct result gives vertical rotations rather than the horizontal shifts and the circumference congruence obstruction here.",
+        "searches": [
+          "Resultary: four-row NEC/Toom temporal period three, third iterate fixed points, translating waves and cylindrical limit cycles"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "050d0ee3cc56 RESULT.md, Finding at offsets 0–1434, supplies a different all-circumference formula at height three (in particular a nonzero count at widths not divisible by three)."
+        ],
+        "reasoning": "That exact enumeration does not tabulate or imply the height-four count. A table at a finite list of circumferences would also not imply this periodic divisibility obstruction at arbitrary circumference.",
+        "searches": [
+          "Resultary: deterministic Toom finite strips, primitive cycles and transfer spectra for three and four rows"
+        ]
+      },
+      "rationale": "The NEC rule and finite-state periodic-state enumeration are not new. The distinct supported claim is the universal circumference classification at height four: exactly two horizontal translating temporal-three orbits on multiples of three, and none otherwise. The strongest distinct catalogue match has height three and a materially different spectrum; the published statements inspected concern general enumeration machinery, stationary/critical states, or erosion and consensus. Access limitations are recorded separately.",
+      "residual_risks": [
+        "Jen's relevant sections and the exact 1997 ground-state article were not independently available in full; potential earlier equivalent coverage is not excluded.",
+        "Historical priority is not certified by bounded searches or by the dates of catalogue neighbors."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different strip height, wave directions and count; same-day indexing alone says nothing about priority",
+          "evidence": "Height three has primitive vertical rotating waves at every n>=3 rather than just two horizontal orbits at multiples of three.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-vertical-rotation-exhausts-primitive-three-cycles-in-three-row-t--050d0ee3cc56",
+          "material_read": "RESULT.md Finding and assumptions, offsets 0–1434",
+          "method": "Local Resultary mirror",
+          "title": "Vertical rotation exhausts primitive three-cycles in three-row Toom dynamics",
+          "trigger": "Identical rule, torus setting and least temporal period"
+        },
+        {
+          "assessment": "General precursor according to accessible text; specific prior coverage remains an access risk, not disproved",
+          "evidence": "First-page description outlines a matrix method for fixed points and limit cycles on periodic one-dimensional systems, and section 2 is said to describe the general method.",
+          "identifier_or_url": "https://doi.org/10.1007/BF01221109",
+          "material_read": "Publicly indexed abstract and section roadmap on first page only; relevant full sections not independently accessed",
+          "method": "Primary websearch located Project Euclid 1104162165; OA PDF and first-page retrieval there and Springer/Academia alternatives attempted",
+          "title": "Cylindrical Cellular Automata",
+          "trigger": "General periodic-state method may cover or specialize to the same finite graph"
+        },
+        {
+          "assessment": "Inspected results concern stationary/critical behavior rather than temporal-three strip rigidity",
+          "evidence": "Stochastic parameter family on the square lattice has epsilon=1 as deterministic endpoint.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/9808247",
+          "material_read": "Abstract p. 1; section 2 pp. 1–2 from offset 4050; conclusion p. 5 near offset 17000",
+          "method": "Primary OA PDF, bounded passages",
+          "title": "Critical properties of Toom cellular automata",
+          "trigger": "Comparable NEC dynamics including deterministic parameter endpoint"
+        },
+        {
+          "assessment": "Different result on the square lattice",
+          "evidence": "The thickness theorem is for R+, a consensus variant, with the classical rule R introduced for minority suppression.",
+          "identifier_or_url": "https://arxiv.org/pdf/math-ph/0102009",
+          "material_read": "Abstract and introduction p. 1 at offset 0",
+          "method": "Primary OA PDF, bounded passage",
+          "title": "A Toom rule that increases the thickness of sets",
+          "trigger": "Published analysis of NEC and variants"
+        },
+        {
+          "assessment": "Unresolved historical comparator, not evidence for or against coverage",
+          "evidence": "Retrieval failed; no negative claim about the contents.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.56.5195",
+          "material_read": "No independent readable full text or abstract from the attempted route",
+          "method": "APS retrieval attempted",
+          "title": "Ground-state configurations for Toom cellular automata: Experimental hints",
+          "trigger": "Potentially related deterministic configuration enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Temporal three is the first candidate for a three-step return distinct from a fixed state or flip. At this natural strip width the calculation classifies the entire periodic sector uniformly in circumference, not a few sizes, and shows that the richer height-three behavior collapses to two explicitly described waves. The result is useful as an exact obstruction and benchmark for recurrence in anisotropic majority dynamics.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

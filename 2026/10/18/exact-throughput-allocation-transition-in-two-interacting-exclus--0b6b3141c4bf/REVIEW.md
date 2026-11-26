@@ -1,24 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is a complete mathematical optimization for every coupling \(c\ge0\) and all lane densities \(u,v\in[0,1]\), conditional on the separately established product-stationary flux. Replacing densities by their sum and product makes the objective affine in the product, reducing every global optimum to the diagonal or boundary unless there is a flat fiber; all flat-fiber alternatives are rigorously excluded. The diagonal stationary root is explicit, its value strictly decreases across the unique cubic coexistence root, and exact derivatives, Hessian eigenvalues and feasible witness paths establish both local-stability thresholds, including the degenerate equality cases. The source's microscopic hop-rate construction shows the sign of cross-inhibition does not make the stochastic model invalid. The extracted Python standard-library verifier reports 181,403 passed assertions, including exact-rational identities, but no general theorem depends upon the finite tests.
+PASS
 
-## Originality — PASS, with residual risk
+The stationary law gives physical signed total current B J_c; B>0 has no effect on maximizers. Expanding in s=u+v and p=uv gives J_c=s-s^2+p[2-c(2-s)]. The product interval [max(0,s-1),s^2/4] reduces maximization to boundary or diagonal except for a flat fiber. The empty-lane edges attain 1/4 uniquely at half filling; full-lane edges are strictly below the global envelope. On a flat fiber with 1<c<2, s(1-s) can attain 1/4 only at c=4/3, where the exact diagonal witness is 260/1029>1/4; for c>=2 the fiber is nonpositive, and c<=1 gives no interior flat fiber. The first root of 1-2(1+c)q+3cq^2=0 is the unique diagonal maximum, has strictly positive value, and the value decreases from 1/2 to 0 since its c-derivative is -2q^2(1-q). Equating the value to 1/4 yields the strictly increasing cubic in the finding. The inward derivative at the half-filled edge changes sign at 4/3; there the feasible perturbation u=1/2-2v/3 gives the positive leading term v^2/9. The diagonal has negative parallel Hessian eigenvalue and its transverse eigenvalue vanishes at c_s=(5-sqrt(5))/2. Along u=q+h+d, v=q+h-d at c_s, h=-c_s d^2/A gives (c_s^2/A)d^4+O(d^6)>0 with A=2(1+c_s-3c_s q), so equality is not a local maximum. The two exact witnesses, 260/1029 at 4/3 and M(c_s)=(sqrt(5)-1)/5, bracket the unique global crossing. Replay: RESULT.md lines 50–87 and the identities above; python3 /workspace/review_evidence/bounded_checks.py confirms c*=1.35700320530497618. The frozen verifier was inspected, not rerun; its random grid cannot prove uniqueness or exhaust the square. The result is optimization across product measures at independently variable densities, not dynamical selection at conserved lane numbers.
 
-The flux polynomial and Bernoulli stationarity are long established. Popkov–Schmidt–Schütz (arXiv:1410.8026, Eq. (2)), Schütz's 2017 lecture notes (Eq. (254)) and Popkov's 2026 proof (Eqs. (7)–(11)) all take precedence over any claim to those formulas. The surviving addition is the unrestricted two-density **global throughput allocation classification**, its algebraic exchange-symmetric discontinuous switch and its separate local stability thresholds at \(4/3\) and \((5-\sqrt5)/2\). Evans–Kafri–Sugden–Tailleur (2011), Curatolo et al. (2016) and Amir–Bahadoran–Busani–Saada (2025) analyze flux extrema and diagrams for *different* interacting-particle generators or constrained relaxation manifolds, not the same two-density cubic objective. Targeted semantic published-finding searches and the accessible preceding research ledger did not disclose an equivalent or a dominating theorem. Search non-detection is not novelty proof: an unlocated more general density-allocation theorem, or an optimization contained without explicit emphasis in the broader literature, remains a genuine residual risk. Some related primary papers were read only in their relevant sections. Independent literature validation is still required.
+## originality
 
-## Value — PASS
+PASS
 
-The chosen object is the measurable combined stationary transport current in a physical two-lane exclusion model with independently controlled conserved occupancies. Its competition between density-induced self-blocking and cross-inhibition is exactly the design question of whether it is better to populate both lanes or idle one. The sharp switch is a discontinuous change between structurally distinct optimal operating states; the two different local-stability thresholds identify a genuine interval of coexisting positive-throughput local extrema. These are a complete infinite-coupling classification, not isolated numerical examples or a trivial normalization change. No physical hysteresis or dynamical phase-transition mechanism is asserted.
+The flux law is prior and explicitly credited. An indexed record with a later date states the same complete global optimizer classification under a sign change. That is exact coverage of the global part, not evidence of antecedence relative to the frozen record's date; absolute priority and provenance are not established. The two strict local thresholds and their equality behavior were not in the matched statement. Earlier inspected sources either provide the current only or study different constrained objectives. The decision credits only the independent-density allocation/stability classification against the dated evidence, not the stationary current itself.
 
-## Closest literature and limits
+## value
 
-- Popkov (2026), arXiv:2605.06949: exact Bernoulli stationary law, unrestricted signed interaction, and current formula; the present density optimization is additional.
-- Popkov, Schmidt and Schütz (2014/2015), arXiv:1410.8026, Eq. (2): same two-lane current law; focuses on dynamical universality classes.
-- Schütz (2017), lecture notes, Section 4.1: the same cubic current and normal-mode analysis.
-- Evans et al. (2011), arXiv:1103.4677; Curatolo et al. (2016), arXiv:1510.04150; Amir et al. (2025), arXiv:2501.19355: distinct multilane extrema and phase-shape settings. The 2025 source has transverse particle hopping and a fixed-total-density relaxation curve; it is not the independent-density cross-inhibited objective here.
+PASS
 
-No independent audit, theorem certification or external reproduction is represented.
+The full-square signed-flux optimization is a natural stationary comparison and has an exact first-order change in the maximizing allocation. Exhausting flat fibers rules out extra optima at coexistence. The two distinct spinodals, including their non-maximal equality cases, give a nonzero interval of coexisting local optima and distinguish the global transition from a Hessian instability. No dynamical hysteresis or open-system selection is inferred.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

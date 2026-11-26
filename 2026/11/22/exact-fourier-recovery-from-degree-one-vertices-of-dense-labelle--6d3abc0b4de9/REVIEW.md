@@ -1,15 +1,21 @@
-# Scientific review: degree-one profile Fourier recovery
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The all-order multiplier formula follows by first forcing a fixed collection of degree-one vertices: their internal graph is a matching, every unmatched vertex chooses one external neighbor, and external edges remain arbitrary. Inclusion–exclusion gives all Walsh coefficients with no false independence assumption. The positivity argument for graph orders at least eight and the conditional one-vertex argument for strict spectral ordering from order nine are strict at their respective endpoints, and their numerical bounds decrease with order. Exact small-order arithmetic covers the missing finite cases. The claimed sharp condition bound and asymptotic have complete proofs. Reproducible enumeration and transform checks in `verify.py` passed 591 exact assertions; computation is corroboration, not the all-order proof.
+## correctness
 
-## Originality
-**PASS under a bounded comparison, with residual historical-priority risk.** Lin and Reinert (arXiv:0912.4812v1) study the joint degree-count process, approximation bounds, and degree-indicator dependence. Their inspected HTML text, including the construction and proofs, contains no Fourier sign classification for the set of degree-one vertices. Ghosh, Goldstein and Raič (arXiv:1106.0048v1) address concentration of the degree-zero count and do not state the graph-leaf-set Walsh spectral theorem. Published semantic searches returned related claims on degree-one covariances of fixed-edge bipartite graphs and on edge-coordinate Fourier frames, but these concern different probability spaces and statistics; neither determines the full Boolean-character spectrum, the exceptional minimizers, or the uniform condition constant eight. The underlying independent-edge and matching counting are not themselves claimed as new. Searches and limited accessibility do not certify absolute priority, and earlier signed joint-degree-moment tables remain a plausible risk.
+PASS
 
-## Value
-**PASS.** The object is the naturally observed set of vertices of degree exactly one in a uniformly sampled dense graph, a dependent incidence vector. Fourier invertibility is precisely the information-recovery question for XOR convolution by that vector. The result determines the complete spectrum for every order, a sharp global dimension-free inverse condition bound, a structurally unusual shift in the extremal character weight (and multiplicity) in the first positive orders, plus a quantitative stabilization law. These data are motivated before computation and are not simply re-expression of a one-vertex degree probability or a previously published degree-count approximation.
+For any forced set J, its internal edges form a matching; every unmatched vertex in J independently chooses an outside neighbor (choices may coincide), and outside edges are arbitrary. Expanding the product of 1−2 times the degree-one indicators gives the probability-normalized Walsh formula, including J empty and J=[n]. Independent replay /workspace/replay/audit_3.py, run with Python 3, counts graphs by extending the joint degree-zero/degree-one bitsets one vertex at a time and directly sums the profile characters. All weight vectors through n=8 agree, including exactly rank two at 2 and 3, minima at weights 2,3 for n=4 and weight 4 for n=5, and strict decrease for n=6,7,8. Read the binomial multiplicity as the contribution of a weight layer; equal eigenvalues from different layers have summed multiplicity, as in the stated ten at n=4. For n≥8, twice the expected number of leaves bounds the eigenvalue deficit and is below one. For n≥9, conditional on a specified vertex being a leaf, the probability of any second specified leaf is [1+(n−2)^2]/[(n−1)2^(n−2)], separating the cases where the first leaf does or does not choose the second. The consecutive spectral difference is twice the first leaf probability times a conditional parity expectation bounded below by 1−2(n−1)q_n>0; the subtracted quantity is 100/128 at nine and decreasing. The maximum eigenvalue is one, and the n≥9 reciprocal bound is at most 16/7, so eight is attained only at n=4. At weight n the difference between odd-count probability and mean count is bounded by twice the second factorial binomial moment; that moment and the squared first moment are both O(n^4/4^n), proving the reciprocal expansion. The finite replay is not used as an all-order certificate.
 
-## Boundaries
-The model is uniform simple labelled graphs with fair independent edges; no claim is made for other edge probabilities, constrained graphs, or endpoint inverse norms. No independent audit is asserted. An unindexed exact signed-moment identity could supersede some conclusions.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The checked count/concentration papers and related profile convolutions do not cover the all-order positive spectrum, extremal weights and sharp conditioning of the labeled degree-one set in unconditioned simple G(n,1/2). Common methods and the coincident small-order singularity pattern are not credited as new.
+
+## value
+
+PASS
+
+The profile is a natural label-sensitive graph statistic. The collapse at n=2,3 does not anticipate the exact recovery threshold at n=4, the two exceptional minimum-weight layers, or the global change to a unique least-stable all-vertex mode. The exact sharp uniform stability and the decay of the conditioning deficit answer substantive recovery questions beyond the elementary expectation that degree-one vertices become rare.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:16:53.747723Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Assumptions and Proof; VERIFICATION.md; artifacts/verify_prefix_content.py (read, not run)",
+        "arXiv:2609.16296v2, equations (1.2)–(1.3) and Theorem 2.3(i)",
+        "Replay: python3 /workspace/branches/independent_reproduction.py 2; an Euler-tour digit generator and all parser cycles in four codes, including orders up to 8, checked 34 cycles for period, orbit size and separation"
+      ],
+      "rationale": "The ratios are exactly b^(-|c_i|/s), with positive code lengths because the maps are contractions. Kraft equality and strong separation give dimension s. A de Bruijn digit cycle has b^k distinct length-k blocks. Parsing at every residue defines a finite self-map; on any directed cycle its positive total digit length is a multiple of b^k, and individual advances are at most L. A shorter symbol period would induce a digit period divisible by b^k and thus an earlier return to the same parser residue. At distinct parser residues a common symbol prefix encodes at most k-1 digits. Applying its similarity to distinct first-level pieces gives the stated gap. The resulting cardinalities tend to infinity, exactly as required by the critical-content definition, and the normalized gap is at least (b/L)δ^s. The unequal-ratio example has separated invariant interval images, with minimum interval gap 3/16.",
+      "residual_risks": [
+        "The finite replay is corroboration only and sampled only single-winding cycles; the proof does not assume single winding."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.1 gives dimension equality and an upper bound on normalized separation; §5 explicitly asks about positive critical content in the unequal-ratio case.",
+          "The strongest distinct Resultary match read establishes the unequal two-map special case, not a larger class encompassing arbitrary complete codes."
+        ],
+        "reasoning": "A dimension equality or a critical upper bound is not a critical lower bound. No broader statement covering the explicit complete-code lower bound was established in the inspected evidence.",
+        "searches": [
+          "arXiv:2609.16296v2, Theorem 1.1 and §5 Question 5.1",
+          "Local Resultary searches for strongly separated inhomogeneous critical content"
+        ]
+      },
+      "checked_sources": [
+        "Kong–Wang–Yu, arXiv:2609.16296v2",
+        "Resultary f867b43e8ea4",
+        "Frozen RESULT.md and references",
+        "Targeted primary-literature lookup; returned an irrelevant result and did not contribute negative evidence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 2.3(i) supplies the criterion once a uniform positive lower normalized gap has been shown.",
+          "The prior two-codeword parse is not a complete code over the full binary shift; a complete prefix tree with just two leaves necessarily has two equal lengths."
+        ],
+        "reasoning": "Neither the criterion nor the homogeneous digit cycle guarantees that variable-length boundaries of its digit shifts close into a primitive IFS-symbol orbit retaining the required separation. The directed parser cycle, least digit period and weighted-prefix estimate supply that missing implication.",
+        "searches": [
+          "arXiv:2609.16296v2, (1.2)–(1.3), Theorem 2.3(i), Proposition 3.3",
+          "Resultary f867b43e8ea4, exact finding and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proposition 3.3 uses ordinary de Bruijn words for a common ratio.",
+          "Record f867b43e8ea4 uses a Golden-Mean constrained universal cycle, parsing 0 as 0 and 1 as 10, for ratios ρ and ρ²."
+        ],
+        "reasoning": "The natural alternative description is a weighted shift with contraction scale determined by the sum of code lengths. The unequal-length parser advances by a variable number of digits; a digit shift is not the original IFS shift. The two-map Golden-Mean construction is analogous, but does not give a cycle with the asserted weighted separation for arbitrary finite full digit trees.",
+        "searches": [
+          "Local Resultary searches for prefix-code/weighted-de Bruijn critical periodic content",
+          "arXiv:2609.16296v2, Proposition 3.3",
+          "Resultary record f867b43e8ea4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact RESULT.md of the two-map match gives Fibonacci orbit counts and positivity for the ratio pair, not the b/L lower bound for complete codes. No distinct same-date broader match surfaced in the bounded lookup."
+        ],
+        "reasoning": "The result is an all-size theorem rather than an enumerated table entry. The relevant indexed record was compared by exact claim; neither search rank nor failure to locate another record proves novelty.",
+        "searches": [
+          "Local Resultary semantic comparison for complete prefix codes, variable lengths and critical periodic content; closest match f867b43e8ea4"
+        ]
+      },
+      "rationale": "The supported distinct claim is quantitative critical positivity for every strongly separated system with finite complete-prefix-code ratios. It extends the known homogeneous construction to unequal ratios through a block-boundary cycle argument. The closest distinct Resultary record uses a related coding construction for an unequal two-map pair, not the complete-code family. This is a bounded best-of-knowledge decision, not a priority determination.",
+      "residual_risks": [
+        "The inspected primary version is v2 rather than the frozen citation's v1.",
+        "Bounded lookup does not exclude unindexed or differently formulated weighted-cycle constructions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines the invariant, covers homogeneous positivity and states the inhomogeneous question; inspected results do not imply this variable-length lower bound",
+          "evidence": "The supremum defining P_n^s ranges over periods at least n; Proposition 3.3 assumes a common ratio; Question 5.1 concerns unequal ratios.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.16296v2",
+          "material_read": "pp. 3–4 equations (1.2)–(1.3) and Theorem 1.1; p. 7 Theorem 2.3(i); p. 11 Proposition 3.3; p. 17 Question 5.1",
+          "method": "Targeted lawful OA passages",
+          "title": "Asymptotic separation of periodic orbits and fractal dimension",
+          "trigger": "Exact definition and plausible prior coverage by the source that poses the question"
+        },
+        {
+          "assessment": "Related symbolic proof, not covering the complete-prefix-code family",
+          "evidence": "SSC systems with a two-map pair are encoded through the Golden-Mean constraint, with Fibonacci growth rather than all b^k digit positions.",
+          "identifier_or_url": "Resultary 2026/10/4/SCOPE-positive-critical-periodic-content-for-the-rho-rho-2-contraction--f867b43e8ea4",
+          "material_read": "RESULT.md finding and construction, offsets 0–8210",
+          "method": "Configured local mirror",
+          "title": "Positive critical periodic content for the {ρ,ρ²} contraction pair",
+          "trigger": "Closest distinct indexed prior coding construction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, finding and unequal-ratio example",
+        "arXiv:2609.16296v2, Question 5.1"
+      ],
+      "rationale": "At the critical exponent, dimension equality permits every large-period normalized gap to shrink to zero. This result rules that out quantitatively for a structurally defined, genuinely inhomogeneous class. The bound gives explicit data for constructing large separated orbits, and the parser-cycle argument works for arbitrarily many length levels. Its value is as a constructive partial answer, not as a solution for all uneven ratios.",
+      "residual_risks": [
+        "No optimality of the lower bound or extension outside the exact code-derived ratio class is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

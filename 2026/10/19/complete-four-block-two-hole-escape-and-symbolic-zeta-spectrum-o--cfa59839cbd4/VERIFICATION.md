@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and checks
+# Independent mathematical audit
 
-Run `python3 certify_binary_pair_holes.py` with Python 3 (standard library only). The script constructs all \(\binom{16}{2}=120\) binary four-word hole pairs and the corresponding integer \(8\)-state adjacency matrices. It computes their characteristic polynomials through exact integer Faddeev–LeVerrier recurrence; exact rational polynomial gcd and Sturm sequences certify each Perron radius interval and strict separation. It also compares direct enumeration to matrix survival counts at \(n=0,\ldots,7\) for every pair, producing \(960\) independent finite-time integer comparisons.
+## correctness
 
-The script checks the exact multiplicity vector, the number of distinct characteristic polynomials and spectral radii, and the complete pair lists attaining the extremal roots. All tests must terminate with no assertion errors and a `CERTIFIED` output. The code uses no numerical eigenvalue approximations and no external libraries. The infinite-time escape limit and symbolic zeta formula are consequences of nonnegative-matrix spectral theory and the trace-log determinant identity, not of extrapolation from finite trajectories.
+PASS
 
-Scientific limitations: the result is exactly a finite classification of two fixed length-four binary holes. Symbolic periodic orbit counts are not asserted to equal geometric interval counts where two binary boundary codings coincide. Independent validation has not been performed.
+For n steps the fair-word measure is the number of paths of length n in the allowed three-block graph divided by 2^(n+3); this includes n=0. The total entry sum of A^n is comparable in fixed dimension to a matrix norm, so its nth-root limit is the spectral radius without a primitivity assumption. A based closed path is the uniquely coded binary point fixed by the corresponding shift iterate, including when the iterate is shorter than three, and trace/determinant gives the symbolic zeta. In a fresh exact reproduction of all 120 pairs, characteristic polynomials were recomputed with SymPy and the largest real roots isolated over the rationals. Merely placing roots in the same rational interval, as the uploaded classifier does, would not prove equality within a row. The independent check additionally verified that every polynomial in a row is divisible over Q by its listed row factor, that the factor changes sign across the row interval, and that every characteristic polynomial has exactly one distinct root in that interval. Thus each row shares its largest root exactly. Verified 26 polynomials and 16 ordered radii with multiplicities (2,22,10,4,6,8,4,4,28,4,4,2,4,4,6,8), both extremizer lists, and the witness zeta factorizations. Replay: python /tmp/opencode/frozen_review_reproduce.py holes, with SymPy 1.14.0.
+
+## originality
+
+PASS
+
+The supported distinct result is the exhaustive binary length-four classification, including its exact multiplicities and all equality cases, not a new general method for obtaining an escape rate or zeta function. The strongest general formulas give an individual pair's rate, and the applicable comparison conditions do not provide this binary ordering. The indexed complement-avoidance classifications ask a different question even when a cubic factor agrees.
+
+## value
+
+PASS
+
+This is a complete benchmark at a natural fixed cylinder resolution in the fair binary map, with sharp loss rates for equal-measure holes and an exact witness of what the escape rate forgets: one pair's periodic zeta has extra cyclotomic factors although its leading escape rate agrees with another's. The exact multiplicities and equality cases matter to comparison at this resolution, rather than constituting a collection of selected examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

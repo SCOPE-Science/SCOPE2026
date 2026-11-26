@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The accompanying `verification/check.py` runs using the Python 3 standard library only. Run `python3 verification/check.py` from the extracted finding root. It uses `fractions.Fraction` for every cost, payment and residual balance, with no floating-point tolerance.
+## correctness
 
-Observed output:
+PASS
 
-```
-VERIFY_OK support_pairs= 2547 fully_funded_cost_profiles= 383958 laminar_pairs= 1269 crossing_pairs= 1278 crossing_constructed_witnesses= 1278
-WITNESS_OK (Fraction(2, 5), Fraction(0, 1), Fraction(1, 5)) (Fraction(1, 5), Fraction(0, 1), Fraction(2, 5)) third_project_cost=3/10
-```
+The iff is about universal agreement over the common full-funding domain, not disagreement at every feasible pair of costs when the sets cross. If both projects are paid, the direct residual balances sum to the rebalancing budget and give every voter total endowment h after including prepayments. The mean endowment is h, so maximizing the minimum forces every endowment to equal h and gives the same unique balances. Charges on disjoint sets commute. If S⊆T, paying T first imposes u/|S|+v/|T|≤h for full payment of S; thus the reverse order also pays both costs uniformly on their respective sets. For crossing sets normalize h=1, let k be the intersection size, and charge each project its support size times a common θ>1/2. Taking θ<min(s/(s+k),t/(t+k),n/(s+t)) is possible and guarantees full payment in both orders. Common supporters exhaust their balances in the second charge, and each exclusive second supporter receives a strictly higher charge than θ without paying more than 1. An exclusive supporter therefore has different positive residuals, and a singleton-supported third project with cost between them is affordable exactly in the order with the larger residual. For S={1,2}, T={2,3} and both costs 6/5 at h=1, the common voter pays 3/5 then 2/5, and the second project's exclusive voter pays 4/5; this checks the displayed vectors and 3/10 discriminator. Three nonempty regions require at least three voters, and a change in funded sets requires at least one project besides the two funded in both orders.
 
-The checker compares all distinct nonempty supporter pairs with up to six voters, and a bounded rational grid of positive project costs, rejecting profiles when either order is not fully financed. The checker also constructs a witness for every crossing pair on these finite sizes. It verifies a three-voter example where an optional single-support project is affordable after only one preallocation order.
+## originality
 
-The analytical argument is necessary to cover arbitrarily many voters and arbitrary positive real costs. The proof of the rebalancing step uses equality between the aggregate endowment and the available budget plus paid project costs. The crossing construction requires positive intersection and both nonempty exclusive regions, guaranteeing a nonempty parameter interval. If mandatory-project costs cannot be financed completely in either order, the claim does not apply. Neither the checker nor these notes certify originality or constitute independent scientific validation.
+PASS
+
+The paper introducing MES-Style already demonstrates order dependence. The supported distinct contribution is the universal laminarity classification on the common full-funding domain, with a construction for every crossing pair and a sharp smallest downstream witness. No priority is assigned to order sensitivity itself or to the underlying MES charge.
+
+## value
+
+PASS
+
+The classification gives a simple support-only diagnostic for when an unspecified preallocation order is guaranteed irrelevant regardless of costs in the full-funding domain. The necessity direction shows that every crossing pattern can change a later funded set, rather than just exhibiting another order-sensitive example. The narrow two-project scope is a natural first boundary for the rule.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

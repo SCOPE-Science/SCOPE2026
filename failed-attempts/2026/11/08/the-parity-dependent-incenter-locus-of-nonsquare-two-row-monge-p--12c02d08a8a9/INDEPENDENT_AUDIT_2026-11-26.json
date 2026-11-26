@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:02:34.034734Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof (lines 31–66)",
+        "Frozen VERIFICATION.md and verify_monge_two_row.py, including LP constraints at lines 61–73",
+        "Erickson–Kretschmann arXiv:2311.07522, Theorem 5.3"
+      ],
+      "rationale": "For the sum-one Euclidean hyperplane each projected coordinate normal has norm alpha_m=sqrt(1-1/(2m)); adjacent Monge normals already lie in the translation space and have norm 2. The polytope is full dimensional there (positive entries with small strictly decreasing row differences suffice), and nonadjacent inequalities telescope. Thus radius r requires entries at least alpha_m r and successive row-difference gaps at least 2r. With d_j=b_j-a_j, the excess entry mass in column j is at least |d_j|, with equality exactly when one entry is at its lower bound. Pairing j with m+1-j gives |d_j|+|d_{m+1-j}| >= 2r(m+1-2j); summing gives r floor(m^2/2), with an additional zero middle term in the odd equality case. This proves the radius bound, attained by the displayed construction. Equality in the outermost pair forces all successive gaps to equal 2r; either the odd middle difference is zero or the even innermost pair has opposite weak signs. This is exactly theta=0 or -1<=theta<=1 respectively. One coordinate per column varies at absolute speed rho_m in the even segment, proving the length 2rho_m sqrt(m). The facet system is irredundant; all adjacent facets and one coordinate facet per column touch, plus a second coordinate facet in the unique zero-difference column when present. The asymptotic follows by division by m^2. The packaged LP checker and recorded assertions were inspected, not executed; the exact result follows from the proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The October 18 theorem ranges over all p,q>=2 in the identical metric and gives dimension gcd(p,q)-1 of the complete locus. The October 25 entry gives a similar rectangular statement.",
+          "The October 11 theorem is square-only and does not imply the m>=3 family by itself. Erickson–Kretschmann supply the facet system and a distinct normalized-volume theorem."
+        ],
+        "reasoning": "The general rectangular theorem includes every stated parameter value without taking limits, changing normalization, or embedding rectangles as square faces.",
+        "searches": [
+          "f4e4e7c33724, Finding and Assumptions",
+          "3e50eb77bbfb, Finding and center proof",
+          "b3dc6b94166a, square Finding",
+          "arXiv:2311.07522, Theorems 5.3 and 5.6"
+        ]
+      },
+      "checked_sources": [
+        "Resultary f4e4e7c33724, 3e50eb77bbfb and b3dc6b94166a, cited mirror passages",
+        "Erickson–Kretschmann arXiv:2311.07522",
+        "Frozen RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior tangent counts are (p-1)(q-1) adjacent facets and p+q-g+e coordinate facets for e endpoint parameters. Substitution gives m-1 adjacent contacts, m+1 odd coordinate contacts and m+e even coordinate contacts.",
+          "In the prior center parametrization for even m the lone delta enters U_1 and enters V_j with opposite sign for the last half of the columns. Exactly one entry per column varies at speed r, so the known parameter interval has length 2r sqrt(m)."
+        ],
+        "reasoning": "Both geometric refinements are immediate consequences of the already explicit theorem. The large-m limit likewise follows from the radius specialization; no independent scientific claim survives.",
+        "searches": [
+          "f4e4e7c33724, Finding, explicit parameter and facet formulas, offsets 0–2462",
+          "Frozen Finding and geometry proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier theorem writes the normalized entries for zero-based indices as X_ij=r[alpha+U_i+V_j-2ij]. With p=2,q=m, the row differences in one-based j are d_j/r=U_1-2(j-1). The prior rules give U_1=m-1 for m odd and m-1+delta_1 with delta_1 in [-1,1] otherwise.",
+          "The formulas therefore give precisely the frozen row-difference profile; at the optimal radius the two-row equality condition forces the smaller entry per column to be alpha r and fixes both entries from the difference."
+        ],
+        "reasoning": "The reparametrization delta_1=theta, plus the switch from zero-based to one-based columns, does not yield a distinct incenter locus. A centroid is a different invariant and is not relied upon.",
+        "searches": [
+          "Local Resultary semantic search for rectangular and square Monge Chebyshev centers and Euclidean inballs",
+          "f4e4e7c33724, explicit center parametrization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier exact parametric radius denominator is pq sqrt(1-1/(pq))+(p^2q^2-p^2-q^2+g^2)/6, g=gcd(p,q). For p=2 this correction is (3m^2-4+g^2)/6, i.e., (m^2-1)/2 in the odd case and m^2/2 in the even case."
+        ],
+        "reasoning": "The prior formulas, not just isolated numerical rows, give the exact frozen numbers for all m by substituting p=2.",
+        "searches": [
+          "Local Resultary full-claim hits f4e4e7c33724 and 3e50eb77bbfb and local mirror Finding passages"
+        ]
+      },
+      "rationale": "The complete two-row result is a direct specialization of the distinct earlier general rectangular inball theorem f4e4e7c33724, which uses the same monotonicity convention, normalization and intrinsic Frobenius metric. It gives the radius, every center, and facet contacts; their specialization also yields the segment length and large-m asymptotics. The cited square theorem is not the relevant upper limit of prior coverage.",
+      "residual_risks": [
+        "No absolute historical priority is assigned; additional external searching is not required to establish the demonstrated coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers full two-row result by specialization",
+          "evidence": [
+            "All p,q>=2; exact radius, explicit gcd-controlled affine cube of centers, adjacent and coordinate contact counts in the sum-one intrinsic Frobenius metric."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-a-greatest-common-divisor-law-for-euclidean-inballs-and-center-c--f4e4e7c33724",
+          "material_read": "Mirrored RESULT.md Finding, explicit formulas and Assumptions, offsets 0–2462",
+          "method": "Local Resultary search and direct local mirror passage inspection",
+          "title": "A greatest-common-divisor law for Euclidean inballs and center cubes of rectangular Monge polytopes",
+          "trigger": "Strongest indexed general rectangular result"
+        },
+        {
+          "assessment": "Also supplies the general radius and dimension; not needed for coverage given the October 18 statement",
+          "evidence": [
+            "The dimension and radius specialize to the claimed odd/even conclusions under the same metric."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-gcd-controlled-euclidean-inballs-of-rectangular-monge-polytopes--3e50eb77bbfb",
+          "material_read": "Mirrored RESULT.md Finding and center proof, offsets 0–9200",
+          "method": "Local Resultary search and local mirror passage comparison",
+          "title": "Gcd-controlled Euclidean inballs of rectangular Monge polytopes",
+          "trigger": "Second full-rectangle exact result"
+        },
+        {
+          "assessment": "Square-only; includes the excluded 2 by 2 case",
+          "evidence": [
+            "Its matrices are n by n, not arbitrary two-row matrices."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-an-affine-n-1-cube-of-euclidean-incenters-for-square-monge-polyt--b3dc6b94166a",
+          "material_read": "Mirrored RESULT.md Finding, offsets 0–1257",
+          "method": "Local mirror passage comparison",
+          "title": "An affine n-1-cube of Euclidean incenters for square Monge polytopes",
+          "trigger": "Cited prior exact incenter result"
+        },
+        {
+          "assessment": "Provides needed facets and a distinct volume result",
+          "evidence": [
+            "Adjacent Monge and nonnegativity inequalities describe the facets; the inspected two-row theorem measures normalized volume rather than Euclidean inradius."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2311.07522",
+          "material_read": "Theorem 5.3, PDF pp. 10–11, offsets 42117–46105; Theorem 5.6, p. 13, offset 51996",
+          "method": "Open-access passage inspection",
+          "title": "The structure and normalized volume of Monge polytopes",
+          "trigger": "Prior rectangular facet and two-row invariant statements"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "Resultary f4e4e7c33724, Finding and explicit parameter formulas"
+      ],
+      "rationale": "The parity of incenter uniqueness and the contact pattern are meaningful geometric data, but the exact data are already available for a strictly larger class. Here the interval length, tangency and asymptotics are routine evaluations of the explicit known parametrization. The direct two-row proof explains the specialization but does not establish a separately valuable result beyond it.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

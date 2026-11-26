@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:29:05.451611Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–48 and VERIFICATION.md",
+        "Frozen REPRODUCE.sh, verify_bitset.py, verify_group.cpp and verify_orbits.py",
+        "Independent replay: /workspace/branches/dd87525a-480d-4d7d-81e8-953a2bf22d36/doyle_holt_exact_check.py",
+        "Independent output: /workspace/branches/dd87525a-480d-4d7d-81e8-953a2bf22d36/doyle_holt_exact_check.log"
+      ],
+      "rationale": "A new standard-library set-based enumeration independently reproduced the full finite finding. It checks the reciprocal degree-four coordinate graph, exhausts the 27 singleton, 351 pair and 2925 triple seeds and updates from the start-of-round observed set; the empty seed plainly cannot observe any vertex. It finds minimum size 3 and 567 triples, with rounds 5:351 and 6:216 and distance types (2,3,3):513 and (3,3,3):54. Enumerating every one-element exchange on that exact state set, with the exchanged vertices adjacent for a slide, yields 5400 and 1242 edges. Full BFS verifies both graphs connected, jump radius/diameter 4/4, slide 7/8 and slide eccentricities 7:432 and 8:135. Its 160461 unordered pairs give the reported 0–5 excess histogram (12501,34830,54189,47250,11340,351) and 54 pairs with distances (1,6); the stated length-six witness is legal and BFS confirms its minimality. Backtracking preserves every mapped adjacency and nonadjacency and considers all unused vertex images, so it enumerates all 54 automorphisms, not only selected generators. Complete group images give the 1 size-27 and 10 size-54 triple orbits, and 3 size-27 and 5 size-54 maximal-penalty pair orbits. The frozen reproduction programs were inspected, not executed.",
+      "residual_risks": [
+        "Exhaustion applies to the identified coordinate graph, standard synchronous forcing with N[S] at round one, and reconfiguration at exactly the optimum cardinality. It is not a formal proof-assistant certificate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bjorkman et al. define power-domination reconfiguration moves and study TAR and token jumping. Brimkov et al. define the polynomial whose coefficients count power-dominating sets by cardinality."
+        ],
+        "reasoning": "The move definitions give no exact distances for this state space. A polynomial specialized to this exact graph would cover the optimum size and count via its first nonzero coefficient, but neither polynomial coefficients nor a general counting definition record rounds, simultaneous move constraints, distances or orbits. No checked passage supplied such a specialized polynomial or metric theorem.",
+        "searches": [
+          "arXiv:2201.01798v1, abstract and p. 1",
+          "arXiv:1805.10984v1, p. 1, plus DOI-independent arXiv text locators Doyle and Holt"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary comparisons and the primary works in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Pappus record gives 486 minimum triples and a sharp five-move penalty attained by 486 pairs on its own state space. The general reconfiguration and polynomial work provides the vocabulary and counting framework."
+        ],
+        "reasoning": "This is a genuine precedent for the same sharp locality phenomenon, but Pappus does not imply the Doyle–Holt maximum, counts or orbit census: both the feasible sets and exchanged-vertex adjacencies change. No temporal priority was inferred from same-day indexing. The frozen record's graph-specific exhaustive calculation is not an instance of an inspected theorem giving these outputs without that calculation.",
+        "searches": [
+          "2026/11/22/SCOPE-five-symmetry-classes-and-a-sharp-five-move-locality-penalty-for--2a18810eefed, RESULT.md Finding",
+          "arXiv:2201.01798v1 and arXiv:1805.10984v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Doyle describes the 27-vertex degree-four graph also discovered by Holt. The locally indexed Pappus result is for an 18-vertex graph, not an alternate name for this graph."
+        ],
+        "reasoning": "The Doyle and Holt names refer to the same graph; coordinate relabeling and the group presentation do not make the invariants into new results. Neither the graph description nor a constraint for a different graph of another order can supply the matching census. A simple 27-vertex cubic graph cannot be an alias: by the handshaking lemma degree three requires an even order.",
+        "searches": [
+          "Resultary: Doyle Graph, Holt graph and Doyle–Holt degree-four 27-vertex power domination and relocation",
+          "arXiv:math/0703861v1, p. 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit 2026/11/22/SCOPE-exact-power-domination-and-five-step-relocation-obstructions-in--a654b0dd27ba is the bound record itself. No separately identified Doyle/Holt counting table was recovered from the local query. The House of Graphs attempts did not yield an inspectable row, and the MathWorld page did not yield a readable passage in the OA check."
+        ],
+        "reasoning": "The identical record contributes no independent priority evidence. The inaccessible rows provide no inference about coverage. An entry for the graph or even its power-domination number alone would not establish the distance-gap and orbit claims.",
+        "searches": [
+          "Resultary: Doyle/Holt graph power-domination number, minimum triples, power-domination polynomial, exact jump versus slide distance and obstruction tables",
+          "https://houseofgraphs.org/",
+          "https://mathworld.wolfram.com/DoyleGraph.html"
+        ]
+      },
+      "rationale": "The reconfiguration setup and the graph presentation are existing work. No matched comparison supplies or forces the Doyle–Holt graph's combined optimum census, minimum-state metric obstructions and symmetry structure. The same-day Pappus exact comparison is materially related, but only for a different named graph. The graph-invariant index access limitations leave a bounded priority risk.",
+      "residual_risks": [
+        "A graph-index or unpublished table under a different alias could cover portions of the census; public table access was insufficient to check that directly.",
+        "The inspected literature and indexed results support a bounded best-knowledge judgment, not historical exclusivity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Graph construction background, not the sensor or move metrics",
+          "evidence": [
+            "Order 27, degree four, independent discovery by Holt."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0703861",
+          "material_read": "PDF p. 1, OA offset 1710",
+          "method": "OA primary-text passage",
+          "title": "A 27-vertex graph that is vertex-transitive and edge-transitive but not 1-transitive",
+          "trigger": "Confirm graph identity and aliases"
+        },
+        {
+          "assessment": "General groundwork and definitions; no Doyle–Holt distance census in inspected material",
+          "evidence": [
+            "Studies TAR and token jumping, and distinguishes the sliding move in the introduction."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2201.01798",
+          "material_read": "PDF p. 1, abstract and definitions, OA offsets 470 and 3100",
+          "method": "OA primary-text passages",
+          "title": "Power domination reconfiguration",
+          "trigger": "General results in the same reconfiguration model"
+        },
+        {
+          "assessment": "The invariant could cover the optimum count only if specialized to this graph; no matched specialization was verified",
+          "evidence": [
+            "The coefficient counts successful sets at each size, not transitions or shortest paths."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1805.10984",
+          "material_read": "PDF p. 1, definition, OA offset 575; literal locators Doyle and Holt",
+          "method": "OA primary-text passage and locator checks",
+          "title": "Power domination polynomials of graphs",
+          "trigger": "Potential exact table of successful seeds by cardinality"
+        },
+        {
+          "assessment": "Material phenomenon overlap, different graph and census",
+          "evidence": [
+            "18-vertex Pappus graph, 486 minimum triples, maximum penalty five for 486 pairs."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-five-symmetry-classes-and-a-sharp-five-move-locality-penalty-for--2a18810eefed",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror original passage",
+          "title": "Five symmetry classes and a sharp five-move locality penalty for power-domination reconfiguration",
+          "trigger": "Strongest distinct indexed exact comparison"
+        },
+        {
+          "assessment": "Unresolved exact-table access, not noncoverage",
+          "evidence": [
+            "No inspectable row or distinct table identifier was returned."
+          ],
+          "identifier_or_url": "https://mathworld.wolfram.com/DoyleGraph.html ; https://houseofgraphs.org/",
+          "material_read": "No usable page passage or invariant row",
+          "method": "OA public-page attempts",
+          "title": "Doyle Graph (MathWorld) and House of Graphs public index",
+          "trigger": "Potential exact public graph invariant table or alias entry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and witness",
+        "Independent exhaustive enumeration",
+        "Compared Pappus exact metric result and general power-domination reconfiguration definitions"
+      ],
+      "rationale": "Doyle–Holt is a natural small symmetric benchmark, rather than an ad hoc graph picked by numerical outputs. Its sharp example shows that base-graph symmetry and connected minimum-state reconfiguration do not prevent a single unrestricted relocation from requiring six legal local moves. The exact histogram and extremal-pair orbits distinguish coverage delays, connectedness and the number of essentially different geometric bottlenecks; they are useful benchmarks for theory and algorithms for constrained power-domination moves, not merely a recomputation of the graph's order or automorphism count.",
+      "residual_risks": [
+        "It is a finite single-graph classification and does not bound these obstructions on other graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

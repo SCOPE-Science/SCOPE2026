@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:50:57.522262Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent transfer calculation: let A_n and B_n be the signed expectations restricted to odd and even current last-packet length, respectively. Appending a card after a cut starts a new odd packet without changing sign. Without a cut, the sign flips exactly when the old last length was odd, since appending adds that many inversions to its reversal. Therefore A_{n+1}=p A_n+B_n, B_{n+1}=-q A_n, starting from (1,0). The transfer polynomial is r²-pr+q; the combined expectation at n=2 is p-q, compatible with epsilon_0=epsilon_1=1. The resulting formal series has numerator 1+qz and denominator 1-pz+qz². The discriminant vanishes once in (0,1), at 2(sqrt(2)-1); above it, 0<r_-<r_+<1 and (1-r_-)r_+^n>(1-r_+)r_-^n. At the repeated root r=sqrt(2)-1, the initial values give r^n(1+sqrt(2)n). Below the threshold the normalized expectation is a nonzero phased cosine for 0<theta<pi/2. An irrational orbit and each of its tails are dense and hit open arcs of both signs; at rational resonance the full-period sum is zero and the n=0 term is +1, so both signs recur infinitely often. Sign multiplicativity yields the exact all-pass parity law (at t=0 its power is 1), and parity projection gives the lower bound, not an equality claim, for full-deck TV. Global reversal has the stated deterministic sign. The fixed-p and n≥2 hypotheses matter, and the phase statement applies to in-place reversal without the physical correction. The proof is analytical; I inspected check.py but did not execute its finite tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jiang Theorem 1.1 and Jonasson's mixing-time theorem treat the same in-place convention. Jiang obtains full-deck cutoff and treats the exact spectrum of the card-position marginal separately.",
+          "Pemantle's identified PDF returned 403 on the bounded lawful access attempt."
+        ],
+        "reasoning": "The asymptotic TV scale is broader about full-deck mixing but does not determine this finite-n eigenvalue or prove its sharp parameter threshold. No negative inference is drawn from the inaccessible paper.",
+        "searches": [
+          "Jiang arXiv:2610.00137v1, fixed-p cutoff and one-card spectrum",
+          "Jonasson arXiv:math/0501401v2",
+          "Pemantle, Randomization time for the overhand shuffle (1989)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "arXiv:2610.00137v1",
+        "arXiv:math/0501401v2",
+        "Archibald et al. JIS 23 PDF",
+        "arXiv:2605.20253",
+        "Resultary bb4600d005aa, 422f28d3b25d and f30d3de5d0f1",
+        "Pemantle JTP 2 (1989), 37–49 (access attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The named mixing and projection results use the same independent-cut chain but quantify different observables. Same-day sign analogues use a stopping PGF or a cubic product law under uniform permutations and doubly stochastic kernels, not this one-pass expectation."
+        ],
+        "reasoning": "Sign being an eigenfunction for convolution gives the iterated parity formula conditional on knowing its eigenvalue, not the Bernoulli-weighted expectation. A negative discriminant alone also does not settle strict sign recurrence at rational phases without the period argument. The work claims the model-specific evaluation and boundary, not multiplicativity or an upper bound on mixing.",
+        "searches": [
+          "Jonasson §2.2; Jiang §§3.1–3.2 and Theorem 1.1; Resultary bb4600d005aa, 422f28d3b25d and f30d3de5d0f1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jonasson §2.2 and Jiang §3.1 give the global reversal relating the in-place and physical conventions. The latter sign is (-1)^{n(n-1)/2} times the former.",
+          "Archibald et al. and Santos count inversion pairs of ordered composition parts. Resultary f30d3de5d0f1 concerns covariance between fixed points and inversions, not permutation-sign expectation."
+        ],
+        "reasoning": "Comparison across shuffle conventions requires the deterministic parity correction. The packet sign instead weights each part length l by (-1)^{l(l-1)/2}, so parity of inter-part inversions or the sign of a covariance does not furnish the expectation.",
+        "searches": [
+          "Overhand shuffle packet reversal sign/parity character and physical reversal",
+          "Bernoulli runs and inversion/parity generating functions on integer compositions",
+          "Resultary packet reversal fixed points, inversions and sign reversal"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Jiang's exact eigenvalue list is indexed by one-card cosine modes. The inspected composition generating functions track inversions between parts or part counts, not reversal parity. Resultary bb4600d005aa gives an exact sign threshold for a different quadratic-binomial stopping PGF and different parameter."
+        ],
+        "reasoning": "The linear permutation module on card positions splits into trivial plus standard and does not contain the sign module for n≥3 (the n=2 coincidence cannot determine this sequence). No inspected exact table or formula is for the claimed sign invariant across all n and p.",
+        "searches": [
+          "Jiang §3.2 Proposition 3.2 equation (3.1), exact overhand spectrum",
+          "Resultary: sign reversal in packet reversal; coefficient-sign thresholds; same-day exact sign results",
+          "Archibald et al., generating functions on p. 10"
+        ]
+      },
+      "rationale": "The exact in-place sign-character sequence and its sharp deck-size sign dichotomy are distinct from the one-card spectrum or cutoff, the standard multiplicativity observation, and the close composition or covariance studies. No inspected earlier or same-day statement gives this evaluation or threshold. This is a bounded assessment; Pemantle's full paper could not be compared.",
+      "residual_risks": [
+        "Pemantle's full historical primary text was unavailable, so possible character results there were not assessed.",
+        "An unindexed Bernoulli-run identity or earlier full permutation spectrum could supply the same eigenvalue; the focused comparison is not a proof of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same-model cutoff and one-card spectrum; not the sign-character sequence in these results",
+          "evidence": "Theorem 1.1 gives fixed-p cutoff at (p²/(2q pi²)+o(1))n² log n. Proposition 3.2 explicitly concerns the card-position kernel; §3.1 gives the global reversal.",
+          "identifier_or_url": "https://arxiv.org/html/2610.00137v1",
+          "material_read": "Abstract near offset 501, Theorem 1.1 near 6615, §§3.1–3.2 near 25500–28300",
+          "method": "Bounded OA HTML and literal searches for relevant parity and sign terms",
+          "title": "Cutoff for the Overhand Shuffle",
+          "trigger": "Same chain and exact spectrum claim"
+        },
+        {
+          "assessment": "Same cut-and-reverse model; cited eigenfunction argument is one-card, not sign",
+          "evidence": "Independent cuts of the gaps, in-place packet reversal and physical-deck reversal convention are explicit.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0501401",
+          "material_read": "§2.2, p. 3, near PDF text offset 9018",
+          "method": "Bounded OA PDF extraction",
+          "title": "The overhand shuffle mixes in Θ(n² log n) steps",
+          "trigger": "Earlier primary source for this model and spectral lower bound"
+        },
+        {
+          "assessment": "Composition statistic differs",
+          "evidence": "An inversion compares the sizes of two ordered parts, not the inversions within a reversed packet.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL23/Archibald/arch3.pdf",
+          "material_read": "pp. 1 and 10, offsets about 1357 and 27574",
+          "method": "Bounded OA PDF extraction",
+          "title": "Inversions and Parity in Compositions of Integers",
+          "trigger": "Equivalent signed composition formula risk"
+        },
+        {
+          "assessment": "Different statistic",
+          "evidence": "Inversion is a pair i<j with part alpha_i larger than part alpha_j.",
+          "identifier_or_url": "https://arxiv.org/html/2605.20253",
+          "material_read": "Introduction defining inversions, offset about 4100",
+          "method": "Bounded OA HTML",
+          "title": "Distributions of Inversions and Descents over Integer Compositions",
+          "trigger": "Related exact composition generating functions"
+        },
+        {
+          "assessment": "Different PGF, different permutation product law, and different covariance statistic respectively",
+          "evidence": "The stopping-PGF threshold is about 0.51531 and concerns another family; cubic dispersion uses uniform permutations; the packet-reversal result conditions on packet count and measures fixed-point/inversion covariance.",
+          "identifier_or_url": "Resultary bb4600d005aa, 422f28d3b25d, f30d3de5d0f1",
+          "material_read": "Matching statements and statistic definitions from the local catalogue comparison",
+          "method": "Local Resultary search and statement comparison",
+          "title": "Sign thresholds and packet-reversal statistic comparisons",
+          "trigger": "Strongest same-day sign matches and same-model covariance hit"
+        },
+        {
+          "assessment": "Unresolved full-text coverage, not evidence of absence",
+          "evidence": "The earlier mixing paper is named in the frozen references; no readable exact sign statement was obtained from it.",
+          "identifier_or_url": "Robin Pemantle, Journal of Theoretical Probability 2 (1989), 37–49",
+          "material_read": "Citation/identification only; no full text retrieved",
+          "method": "Bounded direct lawful retrieval attempt returned 403",
+          "title": "Randomization time for the overhand shuffle",
+          "trigger": "Historical primary model source potentially containing a parity calculation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sign is a natural full-permutation observable not seen by a single-card projection. The result determines the exact parity bias for every fixed cut probability, deck size and pass count, and distinguishes all-size positivity from infinitely recurring biases in both directions. This gives a precise mode-specific contrast to full-deck mixing rather than a routine re-expression of the known cutoff or a claim that parity governs total mixing.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

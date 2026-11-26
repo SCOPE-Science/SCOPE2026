@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:13:27.524318Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–104",
+        "Frozen VERIFICATION.md and verify_triangle.py (inspected, not executed)",
+        "/workspace/review_replay.py, record 1 (executed)"
+      ],
+      "rationale": "Reviewed the unnormalized edge-coordinate count with multiplicities, not a probability kernel or full-pair transform. Expanding each edge sign and contracting the imposed co-block edges counts B_{c(F)}; precisely the subsets containing the triangle gain one extra component relative to a forest. This proves the sector formula and independence of all attachments. The Poisson moment U(n,k) has terminal value at k=n-1 given by Poisson size bias, namely the positive number of singleton-free partitions; the adjacent difference is twice the previous-row entry. In the triangle sector the moment factor is Q(X)=X(X^2-6X+4), and adjacent differences likewise come from the previous row. In the boundary moment for s>=6, the m=0,2 terms vanish; after removing the common e^-1, the positive m=6 contribution 4^s/30 dominates the absolute bound 1+5/2+2^(s+1)/3+3^s/24 from m=1,3,4,5, since the normalized bound is strictly decreasing and holds at s=6. The positive s=7 row has a unique last minimum even though it is not monotone; subsequent rows are strictly decreasing by the difference identity. Subtracting the triangle boundary from the minimum forest value gives 2U(s+2,s)>0 (including s=0 by U(2,0)=2). Thus the full edge character is uniquely smallest at n>=10; B_n is the largest absolute multiplier by the triangle inequality. The finite rows and their binomial multiplicities give all exceptional negative indices and gaps, with no zeros. Independent replay `python3 /workspace/review_replay.py 1` enumerated partitions by least-vertex blocks for two attachment constructions through n=10, recovered the seven negative-index/gap pairs and the n=10 minimum 1347, and checked the exact domination base inequality. The analytic proof, not that replay, certifies all orders.",
+      "residual_risks": [
+        "The attachment examples may coincide up to graph isomorphism at the smallest orders; shape independence comes from the contraction argument, not the examples."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The universal co-block expansion covers every frequency of the present problem. Graphical Bell numbers count unsigned proper-block partitions. The set-partition statistics abstract treats moments of other statistics."
+        ],
+        "reasoning": "No inspected broader statement supplies the specialized sign and ordering inequalities. The universal formula yields exact signed sums, not their all-order positivity or ordering by frequency.",
+        "searches": [
+          "Resultary 8c788e5d89ed, exact character expansion and limitations",
+          "Duncan–Peele JIS Article 09.7.1; Chern–Diaconis–Kane–Rhoades DOI 10.1186/2197-9847-1-2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 8c788e5d89ed",
+        "JIS 09.7.1",
+        "DOI 10.1186/2197-9847-1-2",
+        "OEIS A126617"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier exact formula restricts directly to the U/V expression, and the earlier valuation classification expressly does not settle arbitrary integer multipliers or optimal inverse norms. The known moment signs do not settle the requisite weighted differences."
+        ],
+        "reasoning": "The Poisson domination and strict cross-sector comparison prove additional inequalities not mechanically furnished by these prior statements. Credit overlap for the formula; pass the complete inertia and sharp all-edge extremum.",
+        "searches": [
+          "Resultary 8c788e5d89ed, Finding, exact character expansion and Limitations",
+          "OEIS A126617"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 8c788e5d89ed is the same multiplier problem before restricting the frequency graph to a specified graph's edge set; ordinary adjacency spectra from the literature lookup are a different operator."
+        ],
+        "reasoning": "This identifies genuine equality of the signed sums, but the comparable earlier result stratifies dyadic valuations, not signs or extremal real magnitudes.",
+        "searches": [
+          "Resultary: co-block equivalence-relation Walsh and triangle-unicyclic partition-profile inertia",
+          "Literature: Bell/Poisson Walsh spectrum of triangular unicyclic partition profiles"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A126617 tabulates a(k)=E[(X-2)^k] for unit-mean Poisson X and records positivity from k=8. Indeed V(s,s)=a(s+3)-8a(s+1)-8a(s)."
+        ],
+        "reasoning": "The table supplies exact numbers for this boundary combination at finite orders. Eventual positivity of a(k) alone does not give the sign of the difference or any comparison with the other sectors.",
+        "searches": [
+          "OEIS A126617, entry definition, terms, comments and Dobiński-type formula"
+        ]
+      },
+      "rationale": "The exact expansion is prior and the boundary numbers are expressible via a prior sequence. The surviving distinct contribution is the all-order inertia, sharp transition and exact unique minimum in the triangle-unicyclic class, not the spectral expansion or shifted Bell moments in isolation.",
+      "residual_risks": [
+        "The search is bounded; an earlier signed Bell-moment or graph-partition specialization may exist. No priority claim is made for the general multiplier identity or tabulated moments."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the coefficient identity; does not establish triangle-sector inertia or gap",
+          "evidence": "W_n(H)=sum_{F subset H}(-2)^|F| B_{c(F)}; stated classification is modulo/dyadic, with optimal inverse norms left open.",
+          "identifier_or_url": "Resultary 2026/11/16/SCOPE-exact-dyadic-walsh-valuations-for-equivalence-relation-supports--8c788e5d89ed",
+          "material_read": "Mirrored RESULT.md at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4, Finding and Exact character expansion at offset 0, Limitations at offset 5657",
+          "method": "Local published-record mirror",
+          "title": "Exact dyadic Walsh valuations for equivalence-relation supports",
+          "trigger": "Strongest exact co-block Walsh hit"
+        },
+        {
+          "assessment": "Inspected definition is unsigned and is background, not the Walsh extremum",
+          "evidence": "Graphical partitions have independent blocks.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL12/Peele/peele5.pdf",
+          "material_read": "First page defining graphical partitions",
+          "method": "OA paper",
+          "title": "Bell and Stirling Numbers for Graphs",
+          "trigger": "Graphical Bell-count formulation"
+        },
+        {
+          "assessment": "The inspected passage concerns moment averages; not an all-character sign classification",
+          "evidence": "Abstract describes averages of set-partition statistics.",
+          "identifier_or_url": "https://doi.org/10.1186/2197-9847-1-2",
+          "material_read": "First-page abstract",
+          "method": "OA paper",
+          "title": "Closed expressions for averages of set partition statistics",
+          "trigger": "Set-partition adjacency statistics"
+        },
+        {
+          "assessment": "Prior exact moment numbers and a sign theorem for the uncombined moment sequence",
+          "evidence": "a(k)=exp(-1) sum_{m>=0}(m-2)^k/m!, positive from k=8.",
+          "identifier_or_url": "https://oeis.org/A126617",
+          "material_read": "Entry offset 0–2162, definition, sample terms, comments, formulas and table link",
+          "method": "OA website text",
+          "title": "OEIS A126617: shifted Bell transform",
+          "trigger": "Exact signed Bell-moment sequence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and sharp comparison between sectors"
+      ],
+      "rationale": "This is the first cyclic dependency type beyond forest co-block profiles. Across a natural infinite family, the result distinguishes invertibility from positive definiteness, locates the exact transition at ten vertices, and identifies the unique worst-recovered mode and exact stability constant at every larger order. These sign and ordering facts are not supplied by the known coefficient formula or by computing a small table.",
+      "residual_risks": [
+        "No implication for unicyclic graphs with longer cycles or arbitrary signed partition weights is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

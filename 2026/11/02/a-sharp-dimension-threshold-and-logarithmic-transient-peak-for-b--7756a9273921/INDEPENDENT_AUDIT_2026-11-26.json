@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:40:05.275253Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–104, VERIFICATION.md, verification_check.py (read, not executed)",
+        "Replay: OPENBLAS_NUM_THREADS=1 python3 /workspace/reproduction.py 2"
+      ],
+      "rationale": "In the real Hamming free space, shortest paths express every normalized molecule as an average of unit edges. In each direction the parallel edge molecules use disjoint pairs; an arbitrary choice of edge signs is realized by a two-valued 1-Lipschitz function, so their span has the exact ℓ1 norm. Outside-coordinate flips convolve the edge with the product flip law; the direction-coordinate flip gives the factor r_i. The only nonnegative coefficient of the image of that edge under I−T_t is at the original pair (allowing zeros). Its exact ℓ1 norm is the asserted direction formula. Translations are isometries, hence the heat average is a contraction. The n=1,2 values are strictly below one at finite times; for n≥3 each direction is 1+r_i b_i(t), where b_i tends to 1−2^(2−n)>0 and b_i′ tends to zero, so the max eventually exceeds one and decreases to one. In the isotropic case the subtracted factor in the derivative with respect to ρ is strictly increasing from 2^(2−n) to n+1. This gives the unique maximum, and setting the original distance equal to one gives the entry time (n≥3). With ε=1−ρ_n the log equation and −log(1−ε/2)≥ε/2 first give ε≤2 log(n+1)/(n−2); uniform Taylor expansion then gives ε=2log(n)/n+O(log²(n)/n²). The peak identity 1+ρ_n−ρ_n(1+ρ_n)/(1+nρ_n) gives the claimed second term as well as the leading deficit. Independently ran 30 primal transport LPs through dimension four with zero reported discrepancy and evaluated the peak equation at four increasing dimensions; these are finite diagnostics only.",
+      "residual_risks": [
+        "No weighted metric, nonpositive rates, or nonuniform peak uniqueness is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The strongest shadow result states a theorem for indicator symbols; Defant et al. Theorem 3.1 is a sup-norm projection constant formula. Neither states a Lipschitz-space norm theorem for every Walsh multiplier."
+        ],
+        "reasoning": "The projection proof's gradient bound and sign witness can be generalized; that is substantial methodological overlap, not a distinct general-multiplier theorem found in those sources. It does not supply the positive-rate overshoot threshold and quantitative peak laws.",
+        "searches": [
+          "Resultary 6d24f15eba8d and 09cc2fe527dc; arXiv:2310.01868v1, 2104.11519v1 and 2302.00233v2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6d24f15eba8d, 09cc2fe527dc, ff6b31c1982f, caec40c6443e, 4f4e256fae40",
+        "arXiv:2310.01868v1, 2104.11519v1, 2302.00233v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The projection proof writes D_i Q_A as a shadow convolved with D_i f. Reworking it with symbol 1−∏r_j gives the same edge-calculation mechanism, but the earlier projection theorem cannot be applied to that symbol as an indicator."
+        ],
+        "reasoning": "Credit the prior proof mechanism. The adaptation and rate/product analysis yield an all-rate heat profile with a sharp dimension distinction and a logarithmic unique-peak law not asserted in the compared results.",
+        "searches": [
+          "6d24f15eba8d Finding, proof and scope; 2310.01868v1 abstract/§1; 2104.11519v1 introduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact dual is the norm of I−P_t on rooted Lipschitz functions modulo constants; the same-date complete multipartite and tree records calculate the heat operator's own W1 amplification, not its distance from I."
+        ],
+        "reasoning": "Duality preserves the distance claim but does not identify it with pairwise transport of the heat rows alone. Neither alternative graph family nor removing I is an equivalent formulation.",
+        "searches": [
+          "Resultary: cube heat difference, transient Wasserstein amplification and Walsh-coordinate shadows",
+          "Primary query: (Lipschitz-free OR Wasserstein-1) Boolean hypercube independent-coordinate heat semigroup operator norm distance identity transient amplification"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest other indexed transient cube result (ff6b31c1982f) concerns a time-weighted derivative ℓ1 norm, while caec40c6443e and 4f4e256fae40 concern heat amplification on different graphs."
+        ],
+        "reasoning": "The claim is an analytic continuum-time profile, not a table lookup; the closest exact indexed profiles inspected do not give this invariant.",
+        "searches": [
+          "Resultary catalogue, exact anisotropic heat norm and isotropic maximum in cube/free-space aliases"
+        ]
+      },
+      "rationale": "Supported as the exact heat distance profile and its sharp temporal consequences, not as a new coordinate-shadow norm technique. The prior projection argument is very close and extends to general real multipliers, but its stated theorem for indicator symbols does not give the norm of a non-idempotent heat difference, and projection norms alone give at most triangle bounds on mixtures. No implication-equivalent result was identified in the compared statements.",
+      "residual_risks": [
+        "An earlier arbitrary-multiplier or equivalent signed-transport theorem could cover the norm formula. The close projection antecedent is not evidence for an independently new gradient method. A bounded search is not a priority guarantee; no same-day priority inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Projection theorem and transferable method; no heat profile",
+          "evidence": "D_i Q_A = T_{A_i} D_i for 0/1 symbols with sign witness.",
+          "identifier_or_url": "Resultary 2026/10/11, 6d24f15eba8d",
+          "material_read": "RESULT.md Finding/proof starting at mirror offset 0 and scope at offset 5952",
+          "method": "Local mirror",
+          "title": "Coordinate-shadow norm formula for Walsh projections on Hamming Lipschitz-free spaces",
+          "trigger": "Closest antecedent, same metric space and exact norm method"
+        },
+        {
+          "assessment": "Different graph families and operator invariant",
+          "evidence": "The stated quantities are ||H_t|| or a transport quotient of two evolved probabilities, not ||I−H_t||.",
+          "identifier_or_url": "Resultary caec40c6443e; 4f4e256fae40",
+          "material_read": "Both mirrored findings at offset 0",
+          "method": "Local mirror",
+          "title": "Exact heat kernel transport on complete multipartite graphs; Exact transient Wasserstein amplification on two-level regular trees",
+          "trigger": "Same-day candidates for equivalent transient transport maxima"
+        },
+        {
+          "assessment": "Heat-process and geometric-inequality background in inspected passages",
+          "evidence": "The passages treat Hamming-cube embedding and heat-flow methods, not the asserted distance norm.",
+          "identifier_or_url": "https://arxiv.org/html/2310.01868v1",
+          "material_read": "Abstract and §1",
+          "method": "OA HTML excerpt",
+          "title": "Some geometric applications of the discrete heat flow",
+          "trigger": "Same Boolean heat process"
+        },
+        {
+          "assessment": "Orbit-space projections, not independent-coordinate noise differences",
+          "evidence": "Projection range is the free space over an orbit space.",
+          "identifier_or_url": "https://arxiv.org/html/2104.11519v1",
+          "material_read": "Introduction, OA offset 2544",
+          "method": "OA HTML excerpt",
+          "title": "Projections in Lipschitz-free spaces induced by group actions",
+          "trigger": "Free-space operators generated by isometries"
+        },
+        {
+          "assessment": "Different normed space and projections",
+          "evidence": "The projection constant is the expectation of the absolute Walsh sum for a spectral family in the sup-norm cube.",
+          "identifier_or_url": "https://arxiv.org/html/2302.00233v2",
+          "material_read": "§3 Theorem 3.1, OA offset 30068",
+          "method": "OA HTML excerpt",
+          "title": "Asymptotic insights for Projection, Gordon–Lewis and Sidon Constants in Boolean Cube Function Spaces",
+          "trigger": "Absolute kernel norm for Walsh operators"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–31, 76–104"
+      ],
+      "rationale": "Distance from identity can exceed one even for a canonical family of contractive heat flows. Establishing dimension three for every positive rate vector and quantifying the unique equal-rate peak and approach to the ceiling 2 are useful structural distinctions beyond the norm technique alone.",
+      "residual_risks": [
+        "No general transport amplification conclusion for other graph metrics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

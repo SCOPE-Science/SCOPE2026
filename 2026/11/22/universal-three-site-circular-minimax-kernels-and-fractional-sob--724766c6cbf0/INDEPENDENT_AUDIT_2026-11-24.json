@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:26:37.572485Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Interlacing gives k + max |K(g_i)| for the three cyclic gaps. At the candidate level each gap lies in [d,2d] or [1-2d,1-d]; fewer or more than one long gap cannot sum to 1, and equality with one long gap requires (d,d,1-2d) cyclically. At those gaps the off-diagonal matrix is sign-conjugate to the matrix with all off-diagonals -p, giving k+p twice and k-2p once. The Sobolev evaluation-map squared norm is the top Gram eigenvalue. Differentiation on compact subarcs follows from the uniform Dirichlet test; the Laplace sine representation has positive integrand on the open half-circle, with partial geometric sums dominated by C e^{-u} uniformly away from zero angle. In the sum at 1/6 and 1/3 odd harmonics cancel, and the remaining coefficient at 2m is 2 cos(2 pi m/3); this gives the exact strict sign for 2s>1. Locally uniform convergence to the log-sine kernel traps the critical root by sign. For H_s=K_s(2 pi)^{2s}/2, H_s(t)+H_s(2t) has value -4^{-s}(1+o(1)) and derivative -3 pi sqrt(3)+o(1) at t=1/6, with uniformly convergent derivatives near the limiting root. The shift thus costs one third of the leading gain over equal spacing, leaving the normalized coefficient 2/3. Independently replayable `python /workspace/branches/audit_checks.py sobolev` checks the polylog roots, the s=1 normalization, the critical root (~0.1194571600), and both large-s coefficients (s=15: 0.06125876625 and 0.66666666591); these are corroboration, not proof. The frozen checker was inspected, not executed. The endpoint s=1/2 is a node-location limit only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General RKHS node placement in Wang–Zhang minimizes worst-case error after choosing a reconstruction method.",
+          "Krieg–Sonnleitner rate/distance comparisons concern Sobolev-to-L^q approximation from point evaluations."
+        ],
+        "reasoning": "Neither broader setting gives a top-eigenvalue minimizer of the raw three-sample evaluation operator under the stated circular monotonicity and sign hypotheses.",
+        "searches": [
+          "Resultary: general kernel criterion and fractional Sobolev three-point designs",
+          "arXiv:1207.5871 §2",
+          "arXiv:2009.11275 opening and approximation setting"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e4c7a6f7a5fa and 79110a56a034",
+        "arXiv:1207.5871",
+        "arXiv:1311.1528",
+        "arXiv:1609.01146",
+        "arXiv:2009.11275"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Scalar integration of a Fourier mode, weighted quadrature, and recovery error are all distinct minimands from the raw three-coordinate norm.",
+          "The prior-coverage comparison at s=1 fixes one Bernoulli kernel and does not prove the strict monotonicity and modulo-six sign for the fractional family or the root asymptotics."
+        ],
+        "reasoning": "No inspected comparison contains an implication to the distinct classification and asymptotics.",
+        "searches": [
+          "Resultary records e4c7a6f7a5fa and 79110a56a034, Findings and scope",
+          "arXiv:1207.5871 §2",
+          "arXiv:1311.1528 §3",
+          "arXiv:1609.01146 §1",
+          "arXiv:2009.11275 opening"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "An exact same-day s=1 match gives the same sharp three-output energy norm and optimizer for the derivative norm.",
+          "A same-day frame-potential result uses the sum of squares of Gram entries, not the top Gram eigenvalue."
+        ],
+        "reasoning": "The s=1 formulation is genuinely equivalent, whereas reconstruction residuals and the Hilbert–Schmidt Gram objective are different quantities even for identical sites.",
+        "searches": [
+          "Resultary: general circular kernel criterion; fractional Sobolev three-point designs; H^1 trace value",
+          "arXiv:1207.5871 §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Distinct indexed record e4c7a6f7a5fa gives (11+sqrt(21))/150 and gap (9-sqrt(21))/30 in its Finding. Both records date to 2026-11-22 UTC; this does not establish order.",
+          "The nearby record 79110a56a034 minimizes a different Gram functional; the assigned record itself is not additional evidence of coverage."
+        ],
+        "reasoning": "Credit the exact s=1 overlap without awarding chronology; it does not tabulate the full fractional family, the limiting root, or the two high-smoothness coefficients.",
+        "searches": [
+          "Resultary: H^1 three-output trace value and fractional three-point Sobolev design"
+        ]
+      },
+      "rationale": "The exact s=1 design is covered and expressly excluded from novelty in RESULT.md. The supported distinct claim is the general circular criterion, all real s>1/2 for the specified Sobolev scale, and the sharp limiting design and gain laws. The closest examined sources do not establish or imply that extension.",
+      "residual_risks": [
+        "Bounded comparisons cannot exclude unindexed spectral-design equivalents or an unlocated stronger circular theorem.",
+        "Same-calendar-day s=1 coverage does not determine priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of the credited s=1 special case only; order not established",
+          "evidence": [
+            "Mean-zero real periodic H^1, derivative energy, unweighted three samples, exact minimum (11+sqrt(21))/150 and unique orbit of (0,t*,2t*) with t*=(9-sqrt(21))/30."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-nonuniform-three-point-sobolev-trace-design-on-a-circle--e4c7a6f7a5fa",
+          "material_read": "RESULT.md Finding and scope, mirror offset 0",
+          "method": "Resultary search and local mirror statement inspection",
+          "title": "Sharp nonuniform three-point Sobolev trace design on a circle",
+          "trigger": "Same minimand and exact s=1 constants"
+        },
+        {
+          "assessment": "Different objective",
+          "evidence": [
+            "Minimizes the squared Hilbert–Schmidt Gram norm; scope excludes the operator-norm objective."
+          ],
+          "identifier_or_url": "79110a56a034",
+          "material_read": "RESULT.md Finding and scope, mirror offset 0",
+          "method": "Resultary search and local mirror statement inspection",
+          "title": "Three-point periodic Sobolev frame potential",
+          "trigger": "Same domain and number of sites"
+        },
+        {
+          "assessment": "Different operator and objective",
+          "evidence": [
+            "Objective is best reconstruction error in L^p under use of the best reconstruction method."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1207.5871",
+          "material_read": "p. 2, introduction and §2, OA offsets 6500–10970",
+          "method": "Primary OA PDF text passage inspection",
+          "title": "Optimal Sampling Points in Reproducing Kernel Hilbert Spaces",
+          "trigger": "General RKHS optimization over point sites"
+        },
+        {
+          "assessment": "Different minimand",
+          "evidence": [
+            "The target is estimation of the scalar coefficient I_k(f)=integral f(x) exp(-2 pi i kx) dx."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1311.1528",
+          "material_read": "§3 pp. 5–6, OA offsets 14000–18989",
+          "method": "Primary OA PDF text passage inspection",
+          "title": "Complexity of Oscillatory Integration for Univariate Sobolev Spaces",
+          "trigger": "Periodic Sobolev point samples"
+        },
+        {
+          "assessment": "Different minimand",
+          "evidence": [
+            "Worst-case error of weighted integral formulas in H^1([0,1]) and equidistant nodes depending on n and k."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1609.01146",
+          "material_read": "Abstract and §1 pp. 1–2, OA offsets 1000–5499",
+          "method": "Primary OA PDF text passage inspection",
+          "title": "Optimal Quadrature Formulas for the Sobolev Space H1",
+          "trigger": "Sharp Sobolev node placement"
+        },
+        {
+          "assessment": "Recovery-error/distance result, not a three-site spectral theorem",
+          "evidence": [
+            "W_p^s to L^q approximation from point values on bounded convex domains, controlled by norms of distances to sample sites."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2009.11275",
+          "material_read": "Abstract and opening p. 1, OA offsets 0–3463",
+          "method": "Primary OA PDF text passage inspection",
+          "title": "Random points are optimal for the approximation of Sobolev functions",
+          "trigger": "Broader geometry of Sobolev sampling"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Solves the natural worst-case simultaneous sample-energy minimization for three equally weighted sensors across an entire fractional scale, not only a parameter instance. The kernel theorem isolates why clustered sites can beat equal spacing and gives equality rigidity, and the two asymptotic coefficients quantify precisely how the improvement vanishes. It does not make claims about recovery-error-optimal points.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:04:50.978254Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–5 and VERIFICATION.md; inspected verify.py without execution",
+        "Independent replay: python /workspace/evidence/independent_checks.py 5; formal symbolic numerator and second-order normalized thin-end expansion"
+      ],
+      "rationale": "Slicing at S=sum X_i gives density n s^(n−1)/(1−t^n) and independent uniform barycentric proportions. Their second-moment matrix yields transverse eigenvalue E[S²]/[n(n+1)] and axial eigenvalue Var(S)/n; dividing their determinant by (a/n!)² proves the stated profile and simplex baseline. For the derivative, an independent formal chain rule in t and u=t^n recovers the sparse numerator −n(n+2)t^(n−1)(1−t)B_n. Analyticity of H at 1 follows by setting S=1−hY: the law of Y on [0,1] has a normalized polynomial weight, and the factor h² in Var(S) cancels the volume-square factor. The substitutions a(1/t)=−t^−n a(t), and likewise for b,c, give H(1/t)=H(t) and H'(1)=0. With the derivative prefactors, this forces (1−t)^6 to divide B_n. Its quotient has degree 2n−3 and is palindromic. Its coefficients through degree n−2 come from ((n−1)−(n+3)t)/(1−t)^6 and equal positive [(5(n−1)−4j)/5] binom(j+4,4); reflection covers every coefficient including n=2. Thus H'<0 on (0,1), with continuity giving strict decrease from t=0 too. Expanding E and a gives the first deficit (n−1)(n+2)t^n. The thin slice has E[S²]→1 and Var(S)/h²→1/12; using volume a/n! gives the stated finite endpoint and e²/12 dimensional limit. Independent second-order expansion using the density of Y proportional to (1−hY)^(n−1) gives zero linear term and relative quadratic term (n−1)(n+3)h²/30. Both coefficients are nonzero for all n≥2; no assertion assigns an isotropic constant to the degenerate t=1 body.",
+      "residual_risks": [
+        "The independent checks concern this single-vertex family only; no use is made of a global simplex extremum claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rademacher addresses possible global maximizers. The Godbersen record treats the same K_{n,t} but computes mixed volumes. The homothetic-frustum theorem compares an affine polar-volume-product factor, not a covariance determinant."
+        ],
+        "reasoning": "Broader domains alone do not imply coverage: the latter two theorems estimate different functionals, and a maximizer characterization supplies no comparison of two positive depths.",
+        "searches": [
+          "Rademacher arXiv:1404.5662; same-family Resultary dda979276949; arbitrary-base homothetic-frustum Resultary 3dbfdaf0b359"
+        ]
+      },
+      "checked_sources": [
+        "Resultary c3289643fc03, c67dcb1ee1b8, dda979276949 and 3dbfdaf0b359",
+        "Rademacher arXiv:1404.5662; frozen citation to the unlocated entropy-bound manuscript"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Even the global simplex bound as described in the frozen record gives only H_n(t)<1 for t>0. The dimension-three theorem gives pairwise ordering and both rates at n=3 alone."
+        ],
+        "reasoning": "An upper bound against t=0 does not compare H_n(t_1) to H_n(t_2) at positive depths, nor imply the endpoint rates. The all-dimensional claim needs an additional argument, here a positive coefficient certificate.",
+        "searches": [
+          "Exact-title Resultary and arXiv-index lookup for A sharp entropy bound and the simplex inequality for isotropic constants; Rademacher arXiv:1404.5662; c3289643fc03 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "c3289643fc03 uses the identical affine depth in dimension 3. Multiplying the frozen H_3 by 9/8000 gives its L^6, including coefficients −9/800 and 1/3240 at the two ends.",
+          "c67dcb1ee1b8 truncates all vertices uniformly, not a single vertex."
+        ],
+        "reasoning": "Differences in writing L^6 or a normalized ratio do not distinguish the 3D claims. The all-vertex construction is a different path, and the 3D theorem does not extend by affine equivalence to other dimensions.",
+        "searches": [
+          "Resultary: isotropic constant profile, one-vertex simplex truncation, homothetic frustum; c3289643fc03 and c67dcb1ee1b8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed n=3 profile includes ratio 500/729, the same cubic and quadratic contacts in normalized units. The exact general-dimensional table of formulas in dda979276949 lists opposite-body mixed volumes, not this isotropic invariant."
+        ],
+        "reasoning": "The material exact match is dimension three, not a tabulation or formula of the claimed invariant in arbitrary dimension.",
+        "searches": [
+          "Resultary exact isotropic profile for tetrahedron-to-triangular-prism cut, c3289643fc03 Finding; same-family exact formulas in dda979276949 Finding"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the all-dimensional ordered profile with both exact endpoint contacts. An indexed theorem exactly matches the dimension-three specialization, not the n-dependent theorem; the exact normalization, ordering and contacts there must not be counted as an additional new result. The inspected same-family mixed-volume and homothetic-frustum polar-volume theorems concern different invariants. Raw covariance moments admit a standard homothetic subtraction calculation, but that calculation alone is not ordered monotonicity in all dimensions. No inspected result supplies the all-dimensional ordering and derivative sign mechanism.",
+      "residual_risks": [
+        "The entropy-bound manuscript was not independently available; its reported scope is not asserted as independently verified.",
+        "An older frustum-moment or ordered isotropic-profile result could be unindexed. No priority finding is made for the matching 3D result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact n=3 overlap only",
+          "evidence": "Same K_t and L^6; exact profile, strict decrease, ratio 500/729 and both matching endpoint coefficients.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-strict-isotropic-constant-interpolation-from-a-tetrahedron-to-a--c3289643fc03/RESULT.md",
+          "material_read": "Offset 0, Finding, assumptions and start of Proof §1",
+          "method": "Local mirror, bounded primary text",
+          "title": "Strict isotropic-constant interpolation from a tetrahedron to a triangular prism under a one-vertex cut",
+          "trigger": "Exact matching parameter and invariant in dimension three"
+        },
+        {
+          "assessment": "Different path in the indexed statement",
+          "evidence": "The profile concerns simultaneous uniform cuts of all vertices.",
+          "identifier_or_url": "c67dcb1ee1b8",
+          "material_read": "Indexed scientific description of cut family",
+          "method": "Resultary search; no whole-text noncoverage inferred",
+          "title": "The exact isotropic constant profile of uniformly vertex-truncated simplices",
+          "trigger": "Possible all-dimensional isotropic profile"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Exact opposite-body mixed volumes and Godbersen deficits, not the affine isotropic constant.",
+          "identifier_or_url": "dda979276949",
+          "material_read": "Local RESULT.md Finding, offset 0",
+          "method": "Local mirror, bounded primary text",
+          "title": "Exact Godbersen mixed-volume profile for one-vertex simplex truncations",
+          "trigger": "Identical family with exact parameter profile"
+        },
+        {
+          "assessment": "Different monotonic quantity",
+          "evidence": "Strict increase of a Santaló volume-product factor for arbitrary convex bases.",
+          "identifier_or_url": "3dbfdaf0b359",
+          "material_read": "Local RESULT.md Proof §4, offset 6766",
+          "method": "Local mirror, bounded primary text",
+          "title": "Universal Santaló and volume-product laws for homothetic frusta",
+          "trigger": "Broader homothetic-frustum family and monotonicity"
+        },
+        {
+          "assessment": "Does not give the parameter comparison",
+          "evidence": "Conditional restriction on a global isotropic-constant maximizer, not an exact truncation law.",
+          "identifier_or_url": "https://arxiv.org/pdf/1404.5662",
+          "material_read": "P. 1, offset 1936",
+          "method": "Targeted primary PDF text",
+          "title": "A simplicial polytope that maximizes the isotropic constant must be a simplex",
+          "trigger": "Global extremality might constrain the truncated family"
+        },
+        {
+          "assessment": "Access limitation; not treated as negative coverage evidence",
+          "evidence": "By the frozen description the result compares each body to a simplex, which would not imply ordered truncation depths.",
+          "identifier_or_url": "Exact title in frozen References §1; no primary identifier resolved",
+          "material_read": "Frozen description of Thm. 1.1 and §7; primary manuscript not independently retrieved",
+          "method": "Exact-title Resultary lookup and attempted arXiv search",
+          "title": "A sharp entropy bound and the simplex inequality for isotropic constants",
+          "trigger": "Claimed strict global simplex inequality"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§2–5; dimension-three scope of Resultary c3289643fc03"
+      ],
+      "rationale": "The all-dimensional strict ordering is stronger than a simplex-endpoint inequality and captures how the affine-normalized covariance changes under a natural one-vertex deformation. The exact, different contact orders quantify how weakly a small removed cap changes this invariant and how the normalized thin endpoint is reached. The coefficient mechanism is uniform, not an isolated depth sample or a recasting of the known dimension-three calculation.",
+      "residual_risks": [
+        "This gives no universal stability exponent or claim for simultaneous or arbitrary cuts."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

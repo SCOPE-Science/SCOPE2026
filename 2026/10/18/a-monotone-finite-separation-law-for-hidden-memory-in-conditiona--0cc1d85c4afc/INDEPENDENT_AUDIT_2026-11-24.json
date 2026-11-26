@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:13:16.137977Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the stated tie rule and reflection symmetry the one-flight sign imbalance is M_a(x)=J_0²+2Σ_{j=1}^{a−1}J_j²+J_a². Independent exponential flights give a symmetric Markov kernel at reset events, with strictly positive flip probability and fair invariant law. The chain is stationary with that initialization as assumed for the correlation; it need not start stationary from a prescribed sign. The centered eigenvalue is its exponential average m_a, hence the stationary lag-k correlation is m_a^k. Bessel recurrences telescope to M'_a=−2aJ_a²/x, with M_a(0)=1 and limit 0, proving the asserted flux integral, strict 0<m_a<1 and strict rate and fixed-rate site monotonicities (the site increment of M_a is J_a²+J_(a+1)²). The Bessel product transform gives F'_a=(2/π)Q_(a−1/2)(1+z²/(2a²)); in the positive Q integral the substitution w=2a sinh(t/2) yields the Abel kernel and the probability law W_a of the stated coupling. W_a decreases strictly in a and exceeds E, with strict comparison visible on E>z. This gives all the strict inequalities for z>0; equality at the zero endpoint is consistent. The limiting Abel derivative is 2K_0/π. For an independent check of the uniform coefficient, let Θ be independently uniform on (0,π/2); h_z(W_a) is the conditional probability W_a sin Θ≤z. Thus F_a is the angle average of 1−exp[−2a asinh(w/(2a))] at w=z/sin Θ. Taylor-expanding the survival function gives e^(−w)(1+w³/(24a²))+O(a^−4) uniformly for w≥0: below a^(1/5) the error is bounded by a^−4 times an exponentially decaying polynomial, and above the cutoff both tails are exponentially small by monotonicity. Angular averaging preserves uniformity. Changing back to w, the coefficient is −z/(12π) times ∫_z^∞ e^(−w)w²/√(w²−z²) dw, equal to −(z³K_0+z²K_1)/(12π). This also verifies the negative sign and the continuous value at zero. `python3 /workspace/branches/independent_checks.py 5` numerically compares the direct finite Bessel sum to the angular survival representation and tests the correction at three positive z; it does not establish the uniform bound. Uploaded verify.py was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Konno supplies the free-flight ballistic arcsine weak law. Given E, the scaled sign threshold is z/E, so the atomless weak limit gives h_z(E); exponential averaging and bounded convergence imply the leading crossover in this reset model.",
+          "Durand supplies sizable prior coverage of the large-degree Legendre-to-Bessel expansion at fixed scaled argument (here j=a−1/2); the scaled variable in that calculation is z√(1−1/(4a²)). This is the same asymptotic regime at each fixed positive z, not a finite-a stochastic comparison or a proved uniform estimate for its integrated CDF over z≥0."
+        ],
+        "reasoning": "The leading crossover and general asymptotic machinery are not credited as new. A fixed-argument expansion of the derivative is not by itself an error bound for the integrated law uniformly through z=0 and arbitrarily large z. No inspected broader result settles the strict all-a ordering for this varying-argument integral.",
+        "searches": [
+          "Konno arXiv:quant-ph/0408140v5, Theorem 1",
+          "Durand arXiv:1803.09396v1, Eqs. 25 and 28–29",
+          "Focused literature lookup: toroidal half-integer Legendre Q with varying argument, K0 inequality and monotonicity, conditional resetting"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and metadata/self-review",
+        "arXiv:2308.14040v2",
+        "arXiv:quant-ph/0408140v5",
+        "arXiv:1803.09396v1",
+        "Resultary entries 42cf90c4a9a4 and a67da816d0fc"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The reset-history kernel implies the event-index correlation by elementary diagonalization; the transform to Q is already Eq. 58. The later exact correlation uses the same sum of integrated left-flight probabilities.",
+          "An exact integral or fixed-argument Bessel expansion alone does not give the sign of the change between consecutive distances at every z. The positive-law representation identifies the monotone variable pathwise and the global density or survival expansion yields the uniform estimate after bounded averaging.",
+          "The Oct. 26 entry emphasizes event-anchored continuous-time lifetime and fixed-rate short-time/large-distance laws; those limits have different quantifiers from fixed z=ra/γ and do not give the stated order and correction."
+        ],
+        "reasoning": "The finite scaled comparison is the novelty-bearing claim, not the mere extraction of an elementary Markov covariance or a general special-function transform. Unverified extensions of older asymptotics are not treated as evidence of either coverage or uniqueness.",
+        "searches": [
+          "Acharya–Gupta Eqs. 27–31 and 58–60 versus spectral and scaling claims",
+          "Konno Theorem 1 versus mixed leading limit",
+          "Durand Eqs. 25, 28–29 versus exact coupling and uniform remainder",
+          "Oct. 26 Resultary entry 42cf90c4a9a4 versus full finite-distance scaling"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Eqs. 27–31 give the same position-to-sign split and conditional history recursion; averaging an iid exponential interval gives a two-state transition matrix directly. Eq. 53 concerns one-time occupation, not the cross-reset correlation.",
+          "The clipped-arcsine expectation is the CDF of W_a sin Θ for independent Θ uniform on (0,π/2); the characteristic kernel is equivalently an integrated Legendre Q at degree a−1/2 with argument 1+z²/(2a²)."
+        ],
+        "reasoning": "Neither the two-state formalism nor rewriting the Laplace transform is a new physical model. The exact law under simultaneous rate/distance scaling has useful monotone coupling and error properties that go beyond those reformulations of the transition matrix.",
+        "searches": [
+          "Resultary: conditional tight-binding resetting, hidden reset-label memory, Poisson symmetric reset sign, exponential–arcsine finite separation",
+          "Acharya–Gupta arXiv:2308.14040v2, Eqs. 27–31, 53, 58"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/26/SCOPE-hidden-exponentially-persistent-reset-label-memory-in-a-conditio--42cf90c4a9a4 gives (1−2p_a)^n with p_a=½b_a+Σ_{j>a}b_j and b_j=λ Q_(j−1/2)(1+λ²/(2γ²))/(πγ). This is exactly the same event-indexed memory/eigenvalue after identifying λ=r.",
+          "2026/11/2/SCOPE-distance-dependent-zeno-memory-in-a-conditionally-reset-quantum--a67da816d0fc uses the same finite Bessel-square imbalance kernel for a continuous-time occupation observable. Neither retrieved statement includes the inverse-distance-rate stochastic ordering with the uniform correction."
+        ],
+        "reasoning": "The later exact event-index overlap is not just a shared keyword or parameter, but it is partial and later-dated. The searches retrieved no earlier exact table for the combined scaled law and finite-separation results. Bounded non-detection is not a uniqueness claim.",
+        "searches": [
+          "Resultary: exact reset-epoch label correlation, finite-distance arcsine coupling and signed uniform inverse-square correction",
+          "Resultary: distance-dependent Zeno memory under conditional quantum resetting"
+        ]
+      },
+      "rationale": "The protocol and one-flight transition structure are antecedents, and the geometric event-index correlation follows directly from that kernel. The ballistic limit itself is a consequence of Konno's free-flight weak law mixed over the independent exponential duration. The supported increment is a positive probability coupling for the finite scaled law, its strict all-separation comparison, and the signed explicit correction with a uniform order-four error in z. Prior Bessel–Legendre identities and asymptotics overlap the method and local asymptotic information; inspected passages do not supply that combined finite comparison and uniform estimate. Later catalogue overlap with the exact event-index correlation is explicitly credited, not taken to establish earlier priority.",
+      "residual_risks": [
+        "An unindexed equivalent scaled probability law or an uninspected uniform toroidal-function theorem could imply more than the retrieved passages.",
+        "The exact relationship between the October entries is not established by their listed dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same single-flight assignment, history kernel and Bessel–Legendre transform. Does not state the scaled strict order and uniform correction in those passages.",
+          "evidence": [
+            "The conditional-recursion equations furnish the embedded sign kernel, Eq. 53 is a one-time occupation reduction, and Eq. 58 is the product Laplace transform used in the frozen proof."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2308.14040v2",
+          "material_read": "Eqs. 27–31, 53, 58–60; HTML offsets about 43200, 68644, 74169",
+          "method": "Original OA article passages",
+          "title": "Tight-binding model subject to conditional resets at random times",
+          "trigger": "Identical reset protocol and likely kernel/transform overlap"
+        },
+        {
+          "assessment": "Leads directly to the limiting profile after exponential averaging, not to finite-a stochastic ordering or a rate of convergence.",
+          "evidence": [
+            "The rescaled continuous-time displacement has the arcsine weak limit."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/quant-ph/0408140v5",
+          "material_read": "Theorem 1, p. 6 / text near offset 18950",
+          "method": "Original OA PDF passage",
+          "title": "Limit Theorem for Continuous-Time Quantum Walk on the Line",
+          "trigger": "Ballistic arcsine limit for the exact free process"
+        },
+        {
+          "assessment": "Large-degree expansion with fixed scaled argument, relevant to pointwise correction. The same-order uniform CDF error, probability coupling and monotonicity are not conclusions of these passages.",
+          "evidence": [
+            "Eq. 25 gives the leading K term; Eq. 28 expands Q to explicit order 1/[j(j+1)], with Eq. 29 describing a logarithm–digamma coefficient at x near 1."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1803.09396v1",
+          "material_read": "Eqs. 25, 28–29, pp. 6–7; text offsets 30950–40497",
+          "method": "Original OA PDF passages",
+          "title": "Asymptotic Bessel-function expansions for Legendre and Jacobi functions",
+          "trigger": "Potential asymptotic coverage for Q at the precise transition scale"
+        },
+        {
+          "assessment": "Exact event-index overlap in a later-dated entry, with different physical-time and fixed-rate refinements. No priority inferred from the match alone.",
+          "evidence": [
+            "Correlation (1−2p_a)^n with the same integrated flip probability, then event-anchored continuous-time lifetime and other fixed-rate limits."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-hidden-exponentially-persistent-reset-label-memory-in-a-conditio--42cf90c4a9a4",
+          "material_read": "RESULT.md Finding, event-indexed correlation and subsequent asymptotic claims",
+          "method": "Local mirror of published result",
+          "title": "Hidden exponentially persistent reset-label memory in a conditionally reset quantum walk",
+          "trigger": "Exact correlation and eigenvalue hit in the same model"
+        },
+        {
+          "assessment": "Same Bessel kernel but a continuous-time occupation observable, not the finite-distance reset-count scaling theorem.",
+          "evidence": [
+            "Its Zeno memory law uses a finite Bessel-square imbalance, with different observable and limiting regime."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-distance-dependent-zeno-memory-in-a-conditionally-reset-quantum--a67da816d0fc",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror of published result",
+          "title": "Distance-dependent Zeno memory in a conditionally reset quantum walk",
+          "trigger": "Same imbalance kernel and distance law keywords"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The event-indexed sign correlation is a natural observable of the established conditional-reset protocol; fair stationary marginals do not encode its lag dependence. The all-distance ordering at fixed ballistic distance–rate product tells which side of the limit every finite lattice realization lies on, and the uniform finite-distance correction quantifies the corresponding spectral gap deviation even as z varies. This is useful beyond a sampled fit or the known leading limit. It makes no inference about laboratory-time correlations, asymmetric resetting, or general geometries.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

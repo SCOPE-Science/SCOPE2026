@@ -1,19 +1,21 @@
-# Scientific review: exact residue-class entropy bias
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stated Markov entropy is the stationary conditional Shannon entropy, with uniform stationary law because the skew tent map preserves Lebesgue measure. Every complete source cell maps affinely onto a length-\(L/s\) output interval, and its row-entropy contribution is a periodic function of the cell index of period \(s\). The only exceptional source cell, when present, crosses the turning point; both partial images share their terminal output coordinate, and the proof counts their **overlapping** bin masses without double-counting. This establishes the exact expression for \(NH_N\), hence the \(L\)-step additive recursion, the full finite-resolution formula, and the universal sharp error order. For the \((1,4)\) example, the exact symbolic difference is \((2/25)\log(32/27)\), so positivity is not a floating-point inference.
+PASS
 
-The standalone checker constructs the Markov matrix by inverse-branch intersections with exact rational arithmetic and independently tests 338 parameter-and-resolution triples; it returns `VERIFY_OK`. These finite tests complement, but do not replace, the all-integer proof. The claimed sign change and the scope of stationary within-cell resampling are checked in the original domain.
+The inverse branch lengths add to the output length, giving a doubly stochastic transition matrix and the asserted uniform average of row entropies. In fact the stationary law is unique: full-branch cylinders shrink uniformly and map onto the interval, so every input cell contains a cylinder from which every output cell is reached along a positive-measure orbit segment, giving a positive-probability path in the resampled chain. In N-scaled coordinates, complete input cells have the given one-branch density, and shifting their index by s translates their images by the integer L, leaving entropy unchanged. When the turn is not aligned (equivalently L does not divide N by coprimality), the only leftover row is obtained by adding the two branch masses in each bin, not their entropies; both images are anchored at the integer output endpoint N, so the reflected bins and τ determine this row without any additional N dependence. Increasing N by L adds p and q full rows and keeps this row unchanged. This yields the exact recursion and all residue constants, including the aligned case N=L and N=1. Each full row has positive entropy because its image length is greater than one scaled output bin. An independent replay at (p,q,N)=(1,4,4), intersecting each input cell with clipped output-bin preimages [k/20,(k+1)/20] and [1−(k+1)/5,1−k/5] and multiplying by 4, gave rows (1,1,1,2)/5, (0,0,2,3)/5, (0,3,2,0)/5, (4,1,0,0)/5. The four full right-branch rows in a period contribute two binary entropies at each of 1/5 and 2/5, and the left gives log 5. This yields the stated H∞ and C_4=(2/25)log(32/27)>0, with C_1=−H∞<0. The fixed sign repeats by the exact recursion, not finite extrapolation. Frozen verification notes and verify.py were read, not executed; their broader finite checks do not prove the unrestricted statement.
 
-## Originality — PASS, with residual risk
+## originality
 
-The closest primary source is Yano, arXiv:1205.1848 (2012). Its Theorem 4.1 establishes the limiting entropy and its Section 5 evaluates that limit for rational skew tent maps. Yano's Equation (4.27) already supplies the per-complete-cell entropy calculation; that ingredient is explicitly credited. The material inspected does not state an **exact** \(L\)-periodic scaled error for every finite resolution, perform the crossing-cell overlap computation, or identify the exact above-limit residue classes in the \((1,4)\) family. The new statement is a quantitative finite-resolution strengthening, not a rebranding of Yano's limiting formula.
+PASS
 
-Related work on transfer-operator spectra for Markov coarse-graining (MacKernan–Nicolis, 1994) and deterministic finite-alphabet threshold coding concerns different invariants or processes. Query comparisons for finite-grid entropy, rational slopes, and modular oscillations identified no equivalent or dominating prior statement. These searches are not a proof of historical priority. A full text of all possible later work was not available; unindexed derivations remain a residual risk.
+Yano already treats the same entropy, gives the full-cell row formula and computes the limit, including the stated limit in the sign example. Credit those ingredients to Yano. The distinct result supported here is the exact scaled finite-resolution bias for all rational skew tents and its explicit two-sided sign witness in the same map. The prior limit argument discards relevant boundary information and does not supply that bias or witness.
 
-## Mathematical value — PASS
+## value
 
-The motivating 2012 paper determines the zero-noise entropy, but finite-resolution data need not approach that limit uniformly from one side. The theorem gives the exact leading error **at every resolution** for a natural two-parameter rational skew tent family, a finite algorithm for every phase coefficient, optimal \(1/N\) convergence, and a concrete all-resolution sign reversal. The positive phase occurs on an infinite congruence class, rather than being an isolated numerical anomaly. These facts are relevant to finite-resolution entropy extrapolation and to understanding arithmetic resonance of coarse-graining grids. The result does not assert a general formula beyond rational breakpoints or interpret the resampled chain as a deterministic symbolic observation process.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This determines the signed leading discretization bias exactly in a standard expanding family and supplies a strict witness against one-sided or monotone convergence, in both directions infinitely often for the same map. The periodic correction is useful for selecting unbiased grid sizes and cannot be recovered from the limiting entropy alone. The scientific claim is restricted to the resampled chain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

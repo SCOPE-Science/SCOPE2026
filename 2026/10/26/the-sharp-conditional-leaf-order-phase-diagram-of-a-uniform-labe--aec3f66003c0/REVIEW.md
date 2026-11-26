@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The ordinary Prüfer bijection gives the full conditional law \(L_d\overset{\mathrm d}=\mathbf1_{\{d=1\}}+X_{n-d-1}\). A common-prefix construction proves all positive stochastic-order arrows. Explicit strict support endpoints disprove every omitted interior comparison, with no numerical extrapolation. The degree-three mean crossing follows from an exact rational expression and a strictly negative real derivative; higher degrees follow from an explicit lower bound and finite rational endpoint checks. The separately executed standard-library verifier passed 129 exact tests, including all tree codes through seven vertices. This is corroboration, not the all-\(n\) proof.
+## correctness
 
-**Originality — PASS (provisional historical assessment).** Published-record searches compared conditional degrees, leaves, Prüfer occupancy, stochastic-order comparability, and the sharp reversal at order nine. Seo–Shin's full combinatorial paper describes reverse Prüfer codes and degree/leader enumeration, not the total-leaf conditional-order classification. Addario-Berry et al.'s accessible full paper develops Foata–Fuchs coding and stochastic order for **leaf distances** with a fixed degree-sequence type, not the leaf-count distributions conditional on one vertex degree. Drmota–Gittenberger's abstract describes asymptotic degree-count distributions; its full text could not be reviewed, so an equivalent older special case is a residual historical risk. Elementary occupancy laws and the Prüfer correspondence are not claimed as original. The complete stochastic **incomparability** phase diagram and size-nine mean reversal were not found explicitly or as a decisive consequence in inspected comparisons.
+PASS
 
-**Mathematical value — PASS.** Local degree is a natural conditioning statistic, while total leaves is a fundamental global tree observable. The distributional result locates exactly where monotonicity survives or fails—not merely the sign of one covariance—and identifies an exact, stable failure of stochastic comparability. The reversal at tree order nine shows that conditional mean comparisons can change direction even though the distributions remain incomparable at every admissible interior degree. This combination gives a complete finite-size dependence classification and a sharp, mathematically motivated boundary.
+In the uniform Prüfer word, conditioning on d−1 marked labels leaves n−d−1 iid draws on the other n−1 labels, plus one marked leaf iff d=1. Prefix coupling gives the strict increasing order for d≥2, and adding one draw for d=1 can remove at most one empty box, with a repeat occurring with positive probability (strict comparison with d=2). The star law is the point mass n−1 and strictly dominates L1. At every interior d≥3, the lower endpoint is at least d, whereas L1=2 has positive mass; the upper endpoint is at most n−2, whereas L1=n−1 has positive mass. The two endpoint tails cross. With q=n−1 the degree-three difference is f(q)−1, f(q)=(2−1/q)(1−1/q)^(q−3). The displayed log derivative is negative already by log(1−1/q)≤−1/q. I checked f(7)=16848/16807>1 and f(8)=252105/262144<1. The d=4 expression is positive for q≥11 since (1−1/q)^(q−4)>e^(−1) and 3−3/q+1/q²≥331/121>e; direct exact checks for q=4..10 have smallest positive difference 44020511/100000000. Strict stochastic monotonicity then handles all d>4. Replay: /workspace/replays/recheck_frozen.py, leaves(), inclusion–exclusion tail checks at n=5..20 and exact boundary arithmetic. The analysis, not the bounded checks, handles all n.
 
-The key limitation is historical priority, particularly classical joint degree-count enumerations and occupancy order results; originality is not independently certified. The finding does not assert a monotone ordering of entire random trees or a new Prüfer bijection.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The earlier indexed stochastic-valley result already covers the exact law, conditional means as a formula and the monotone chain with its degree-two valley. The incomparability follows readily from that law’s support and is not credited alone. The supported distinct result is the full conditional mean sign classification, in particular the sharp reversal at nine while first-order incomparability persists. The later 0e8a59994112 record is genuine statement-level overlap on the full stochastic diagram and crossing, not a mere topical hit. Its later path date is not evidence that it predates this frozen result, and its compared Finding and reversal proof do not give the higher-degree all-size mean inequality, which does not follow just from the crossing and the chain for n≥9. Historical priority is not certified.
+
+## value
+
+PASS
+
+A marked vertex's degree is a natural predictor for the global leaf count. The result turns the known degree-two valley into a complete set of comparisons and pinpoints a nontrivial all-size sign pattern for means: degree three switches at nine while the stochastic incomparability never changes, and degree four and above never switch. The useful distinction is between prediction in expectation and full tail order, not a new occupancy model or a census through an arbitrary n.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

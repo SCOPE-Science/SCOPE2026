@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The public `RESULT.md` proof is an all-\(n\) argument using Lagrange interpolation, an exact orthogonal unipotent conjugator, Vandermonde rank, and classical sixteen-line geometry. No finite computation substitutes for its universal steps.
+## correctness
 
-The standalone `verify.py` checker was executed using standard-library Python. It verified two families of exact rational moment and matrix-product identities for every integer \(5\leq n\leq10\), then checked complete sign families and nilpotent ranks of explicit finite-field examples in dimensions five, six and seven, including four exact conjugation parameters each. All tests passed. The finite-field examples check algebraic identities, not the characteristic-zero quantifiers directly.
+PASS
 
-The known classical sixteen-line theorem is used as a cited standard geometric classification, not treated as a new computation. Originality is compared against the initiating arXiv paper and relevant accessible geometric literature; an author's dissertation and relevant book chapters remained uninspected and are specified as priority risks. Independent validation has not been performed.
+For n≥5 and any simple complex spectrum, Lagrange interpolation cancels moments through degree 3, so the skew matrix N=u(Du)^T−(Du)u^T has N²=NDN=0. Orthogonal conjugation by I+tN gives the exact commutator direction for all t. A three-column Vandermonde factorization gives rank 3 and the degree-4 residue gives Q²=uu^T for n=5 and Q²=0 for n≥6, with Qu=0 in both cases. Nonzero off-diagonal entries and a triangle comparison rule out projective sign coincidences other than global reversal. Distinct eigenvalues imply smoothness of the two-quadric surface; its classical sixteen lines already exhaust the sixteen distinct barycentric images, and commutation by D is an invertible diagonal rescaling in Plücker coordinates. No classification of the whole isospectral cone is needed. The rational and modular evidence was inspected, not run, and is supplementary.
+
+## originality
+
+PASS
+
+The strongest inspected prior results give generic higher-dimensional existence and classical common-isotropic geometry, including the degree-four del Pezzo line count and sign action. They do not supply the stated all-simple-spectrum symmetric isospectral orbit, its precise Jordan-type transition, or the Plücker-commutator realization. The pass is for this spectral construction and its refinements, not for generic existence or the sixteen-line classification.
+
+## value
+
+PASS
+
+For the natural rigidity-versus-existence problem this gives a uniform, directly computable nontrivial orbit even at nongeneric simple spectra. The exact rank and abrupt change from Jordan type (3,2) to square-zero distinguish the affine direction itself, and the geometric realization explains the distinguished sixteen in the first nonrigid dimension. This supplies more than generic existence or a routine enumeration of del Pezzo lines.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

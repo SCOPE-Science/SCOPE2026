@@ -1,26 +1,21 @@
-# Scientific review: alphabet rigidity of the one-gap three-deck at length thirteen
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof's arbitrary-alphabet step is the letterwise-map identity: for any target pattern, its number of gapped occurrences equals the sum of the source-pattern counts mapping to it. It follows that every putative collision with at least three jointly occurring letters would descend to a collision using all three letters of a ternary alphabet, contradicting the exhaustive ternary census. Distinct pairs of original alphabet letters therefore yield independent disjoint edges. Counting those edges gives the maximum-codebook and maximum-codebook-enumeration formulas. The binary census also rules out collisions at lengths three through twelve over arbitrary alphabets by mapping disagreement letters to the two binary values.
+PASS
 
-The finite critical premise is replayable: `gapped3_qary_cert.cpp` enumerates every binary word of lengths three through thirteen and every ternary word of length thirteen and compares complete exact multiplicity arrays, not probabilistic hashes. It checks the exact list of twelve ternary collision pairs and their binary projections; the standalone independent direct-index and dynamic-programming counter provides a separate calculation of individual signatures. Count arithmetic fits the explicitly bounded 16-bit histogram cells, and the complete ternary word universe fits the 32-bit enumeration index. All proof quantifiers and the exceptional two-letter degenerate length are explicit.
+For each pattern, applying a letter map sums the exact occurrence counts of its preimages since admissible position tuples are independent of the labels. A disagreement survives a map assigning its two symbols distinct labels. If a third symbol is present, preserve it as a third label; that would give a genuinely three-symbol ternary collision. The independently reproduced census excludes this and establishes the stated exact binary pairs and binary injectivity for lengths 3 through 12. At length 13 the exhaustive run finds 8188 distinct binary decks among 8192 words and 1594311 distinct ternary decks among 1594323 words. The only nonsingletons are four and twelve doubletons, respectively, and the ternary pairs are exactly the unordered two-letter embeddings of the binary pairs. Replay with Python 3 and NumPy using evidence/1/owned_deck_census.py; the exact class output is evidence/1/full_census.txt. The reproduction decodes all words by base-q digits, enumerates each allowed tuple and groups full fixed-width byte keys, not hashes; each count fits in one byte since it is bounded by max(13,66,165), and every repeated fiber was required to have size two. The frozen C++ and supplementary Python code were inspected, not executed. The four binary pairs are closed under swapping labels, and every endpoint uses both symbols, so arbitrary-q collisions form a matching with four disjoint edges per support pair. Choosing all isolated vertices and one endpoint per edge proves both codebook formulas. The lower lengths follow by binary projection at a disagreement. Literal length 2 is degenerate (01 and 10 collide), excluded explicitly by the frozen Finding.
 
-## Originality — PASS, with residual literature risk
+## originality
 
-The prior binary shortest-collision length and four binary collision pairs are not new and are stated as existing baseline information. The new scientific assertion is the arbitrary-\(q\) rigidity: no three-letter collision survives at length thirteen, hence the full reconstruction graph is a matching of exactly \(4\binom q2\) edges and has exactly \(2^{4\binom q2}\) optimal labeled codebooks. An arbitrary-alphabet alphabet-aggregation argument alone does not imply ternary rigidity from the binary classification; complete ternary analysis supplies an independent premise. The primary studies of Golm et al. (2022) and Rigo et al. (2023) establish the deck framework and investigate constructions/complexities, but the inspected material does not establish the stated exact arbitrary-alphabet class partition. Related two-multispectrum and deletion-channel classifications concern different observations.
+PASS
 
-There is residual risk of a previously published all-alphabet reconstruction equivalence hidden in unindexed or uninspected work. A failed search by itself is not novelty evidence; the positive comparison here distinguishes the new three-letter exclusion and codebook count from the scopes of the closest identified papers.
+Pass is for the first nondegenerate arbitrary-alphabet classification and exact labeled maximum-codebook count, not the known binary threshold, the exhibited example, or a claim to priority for the four binary pairs. The ternary-support exclusion is an additional finite mathematical fact, and the aggregation argument transfers it to all finite alphabet sizes.
 
-## Mathematical value — PASS
+## value
 
-The complete characterization determines the exact largest zero-error reconstruction code, the exact number of maximizing codes, and every confusable pair for all alphabet sizes in the first nontrivial collision regime. It is useful for transferring a binary reconstruction threshold to larger-alphabet sequence models, where binary collision enumeration alone gives no prohibition against additional three-symbol collisions. Unlike a routine relabeling, the ternary rigidity is a substantive additional fact and is necessary for the all-alphabet classification. The theorem does not address larger source lengths or stronger/noisier observations.
+PASS
 
-## References and limitations
+This determines every confusion at the first nondegenerate collision length, including the new exclusion of genuine three-symbol support, and gives the exact reconstruction-code optimum and number of labeled optimizers for any alphabet size. The first finite cutoff is a natural one fixed by the binary threshold; the exhaustive ternary check supplies a structural conclusion that is then uniform in the alphabet rather than a standalone tally for an arbitrary parameter choice.
 
-- R. Golm, M. Nahvi, R. Gabrys, O. Milenkovic, *The Gapped \(k\)-Deck Problem* (2022), arXiv:2201.12671, https://arxiv.org/abs/2201.12671.
-- M. Rigo, M. Stipulanti, M. A. Whiteland, *Gapped Binomial Complexities in Sequences* (ISIT 2023), https://orbi.uliege.be/handle/2268/302524.
-
-The finite ternary step is an exact computer-assisted lemma with independent spot-checking, not a symbolic closed-form proof. No claim is made of higher-length uniqueness or completeness of unindexed literature.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

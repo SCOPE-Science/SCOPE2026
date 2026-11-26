@@ -1,19 +1,21 @@
-# Review: Reentrant equal spacing in a two-opportunity seed-bank rescue model
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stated exact objective has domain \(0<\kappa\le4\), positive horizon and rate, and an allocated interval including endpoints interpreted as omitted opportunities. The bijection to variables \(xy=q\) makes their sum range over exactly \([2\sqrt q,1+q]\). Expanding both failure factors gives a strict positive quadratic in this sum. Projecting its vertex proves all global optimizers and all exact phase boundaries, including \(\kappa=3,4\); no unobserved critical point can win. The independently written standard-library verifier passed 204786 finite arithmetic assertions. The proof, not the tests, establishes the continuous parameter domain.
+PASS
 
-## Originality — PASS with residual priority risk
+The original duration bounds are essential: x,y∈[q,1] with xy=q=exp(−λT). Their sum covers [2√q,1+q] with one symmetric preimage at the lower endpoint, the two skips at the upper endpoint, and two exchanged preimages inside. Expanding the failure product gives a strictly convex quadratic in that sum with vertex (1+κq)/2. The constrained minimum is precisely its projection. The upper-end condition is (κ−2)q≥1. The lower-end condition is κv²−4v+1≤0 with v=√q∈(0,1), giving the two stated times, only one relevant crossing when κ≤3, and an isolated touch at κ=4. At T₀>0 the vertex is still strictly above the lower end, so T₀<T₁. At κ=4 and T>T₀ perfect success is attainable, and zero product of nonnegative failures requires at least one duration exactly log(2)/λ. This also proves all ties and the feasible quadratic-root formula. A direct derivative of the failure product independently recovers the illustrated unequal allocations and the threshold decimals.
 
-The closest ecological and analytical references are McCarthy, Possingham and Gill (2001; stochastic dynamic programming for stand-age- and density-dependent policies), Tucker and Cadotte (2013; fire-return variance and seeder-resprouter coexistence), Tonnabel and colleagues (2012; age-dependent resource allocation under exogenous fire regimes), Agne et al. (2022; stand regeneration data), and Plumanns Pouton et al. (2024; seedbank occurrence versus fire history). Their inspected objects and objectives do not state or directly imply the closed-form independent-rescue four-regime classification. An exact general polynomial/scheduling result could still dominate it, and the 2013 paper was only partially available through its substantial indexed content, not a retrieved complete manuscript.
+## originality
 
-## Value — PASS
+PASS
 
-The emergence, disappearance and re-emergence of equal spacing as a global optimum, controlled by the peak-success parameter, is a structurally motivated counterexample to a standard assumption that uniformly spaced restoration opportunities are always best. Thresholds are explicit, all optimizer geometries are classified, and omission of one opportunity is allowed at small horizons. The finding is an analytically reproducible benchmark for designing and testing richer ecological timing models. It is not a measured conservation policy.
+Qualified pass for the complete constrained optimizer classification of the stated two-opportunity law, especially the restoration and later loss of the equal split and the κ=4 boundary. The parallel reliability identity and projection technique themselves are standard. Closest inspected sources use different failure laws, objectives or controls; access limitations preclude a broad priority claim.
 
-## Limitations
+## value
 
-The two success events are independent, environmental cohorts do not interact, maturation and viability rates are equal, and fire intervals are not stochastic. Published studies motivate the gap but do not empirically validate the model. Historical priority remains open to broader comparison.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a fully resolved minimal example showing why symmetry and exchangeability alone do not fix an optimal allocation, even between identical independent opportunities. The narrow intermediate equal-split regime and its isolated perfect-success limit give a structural counterexample to monotone symmetry loss as the horizon grows. The small quadratic reduction is a means to the classification, not the asserted contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

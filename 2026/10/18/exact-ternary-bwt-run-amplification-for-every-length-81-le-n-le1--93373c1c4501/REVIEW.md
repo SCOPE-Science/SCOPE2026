@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For each of the 80 consecutive listed lengths, the included BWT last column has pairwise unequal consecutive symbols, one stable-rank LF cycle, and Hamming distance \(\lceil n/2\rceil\) from its sorted first column. The standalone checker independently reconstructs a primitive necklace, explicitly computes the sorted-rotation BWT, and counts its cyclic runs. The published factor-two lower bound supplies the opposite inequality. The exact range and cyclic-versus-linear normalization are explicit.
+## correctness
 
-**Originality — PASS within examined evidence.** Kumallagov's original paper supplies small values through length 12 and particular primitive-root families; the latter do not imply complete consecutive sharpness over the interval \(81\le n\le160\) (notably at composite-related lengths 128 and 160). Fici and collaborators prove unclustered *existence* without minimizing input runs. Targeted public-literature and mathematical-research-record searches identified no covering consecutive finite theorem. Unindexed computations remain a priority risk.
+PASS
 
-**Value — PASS.** The result extends a difficult open extremal BWT question by 80 *consecutive* exact-length cases of this conjectured exact extremal property beyond the original paper's tabulated range. It crosses numerous lengths not supplied by the existing arithmetic prime constructions, and provides simple independently replayable objects rather than an unverified search tally. It is a meaningful finite cutoff, not a proof of the full conjecture.
+The cyclic-to-linear factor-two bound applies on this nonconstant primitive interval. Independently, among sorted rotations starting with a letter a, first come those whose first non-a letter is below a, then those for which it is above a. In the former group the last rotation has maximal initial a-streak in that group, and in the latter the first rotation has maximal streak. These terminal/initial rotations cannot have predecessor a, as prepending that a would give a longer streak in the same group. Since consecutive L entries differ, pair each L=F rotation in the below group with its successor and in the above group with its predecessor. This injects matches into mismatches, which count input cyclic boundaries. For the upper bound, independently reconstructed 80 inverse words by stable inverse-permutation traversal, sorted their rotations from scratch and checked primitivity, all last columns, linear runs n, and cyclic runs (n+1)//2. A ternary witness keeps all lexicographic comparisons in every larger stated ordered alphabet. Constant-necklace conventions and sentinel variants are outside the claim. Replay: /workspace/branches/independent_replays/replay3.py with the frozen BWT_WITNESSES.tsv, output replay3.out (ALL_80_ROTATION_CENSUSES_OK). This is a finite certificate, not extrapolation.
 
-**Scientific limitations.** The result relies on finite explicit certificates and a published general lower bound. It does not prove sharpness for lengths beyond 160, nor count all optimal solutions. The originality search does not guarantee historical priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The factor-two inequality, cycle criterion, Hamming identity and already constructed special lengths are not original here. The supported distinct contribution is contiguous attainment on the entire 81–160 interval, specifically the lengths not covered by the inspected prime families or other interval results. Real overlaps at named lengths are credited; no inspected source yields the whole interval, and the residual risk is not a priority conclusion.
+
+## value
+
+PASS
+
+This certifies a substantial contiguous block of exact cases of a stated extremal conjecture, rather than isolated rechecks or ordinary unclustered feasibility; it includes lengths outside the arithmetic families. Explicit extremal inputs across both parities can be used to test candidate structure theorems about sharp necklaces. It does not resolve the general conjecture or characterize all minimizers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

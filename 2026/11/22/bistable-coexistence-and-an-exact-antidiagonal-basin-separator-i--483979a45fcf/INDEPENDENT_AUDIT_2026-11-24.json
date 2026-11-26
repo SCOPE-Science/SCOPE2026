@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:55:08.161980Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the invariant antidiagonal T(x)=f_a(x)-2bx is odd. The primitive antipodal-cycle equation is h(s)=(s−1)e^(−s)=(1−2b)/a, s=r²; the stated strict band is exactly 0<(1−2b)/a<e^(−2), with two branches separated by s=2. For 0<r≤1 the modulus contracts. On r≥1 the radius map is increasing because G′=2b−a e^(−s)(2s²−5s+1)>1−a(e^(−2)+8e^(−3))>0. Its displacement sign, monotonicity and continuity give all three claimed limit cases, in particular no overshoot and convergence from arbitrarily large finite radii. At the antipodal points the same Jacobian occurs twice by evenness of f′; eigenvalues of the return map are the squares of the symmetric and antisymmetric one-step factors. The displayed bounds give a contracting symmetric factor, with antisymmetric factor below −1 at the inner branch and in (−1,0) at the outer branch. Both origin factors a and a−2b have modulus below one. This is the endomorphism sink criterion, allowing a zero multiplier. The sinks have ambient open basins; the exact partition concerns only the antidiagonal. For the endpoints, h″(2)=−e^(−2) yields the stated fold coefficient. For the outer large root g(s)=s−log(s−1)=L, the trial s=L+log L gives residual O(log L/L) while g′ is bounded away from zero there, justifying the stated error. The contents of verify.py were inspected; finite cases are diagnostics, not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "f463338d3c52 proves common compact absorption for −1/2≤b<1/2 and expressly excludes classification of finite attractors and basins inside it.",
+          "The original paper describes numerical fixed-point and cycle stability regions through period ten and synchronized/antisynchronized chaotic examples at a=3.9,b=0.48."
+        ],
+        "reasoning": "Absorption of all orbits does not determine which finite attractor they approach. The cited primary numerical results do not establish an analytic all-initial-condition antidiagonal threshold throughout 0<a<1.",
+        "searches": [
+          "Resultary f463338d3c52, Finding and Limitations",
+          "Soula et al. doi:10.3390/math11061517, PDF pp. 2–3 and 7"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.3390/math11061517",
+        "Resultary f463338d3c52",
+        "Resultary b57744b79f57",
+        "Resultary 1691465f8282"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "b57744b79f57 finds expanding large fixed-point branches and possible coexistence of attracting equilibria with escaping orbits on b_old<−1/2, whereas the positive-coupling outer period-two branch in the frozen band attracts.",
+          "1691465f8282 proves a first-passage clock from r0>√2 for b>1/2 and explicitly cites this record for negative-detuning periodic orbits."
+        ],
+        "reasoning": "The root equations and some local derivatives are transferable algebra, but these statements do not yield invariant intervals/no overshoot and convergence for every starting radius in the frozen band. That requires a separate order argument for the radius dynamics.",
+        "searches": [
+          "Compare the fixed-point multiplier and no-global-attraction qualification in b57744b79f57, the boundedness limitations in f463338d3c52, and the sign of detuning in 1691465f8282"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The antiphase fixed-point theorem gives (1−u)e^(−u)=(1+2b_old)/a, its Lambert-W census, and coefficient 2e/√a in the square-root fold.",
+          "With b_old=b−1 the equation and the distance from the fold are exactly the same as for the frozen cycles."
+        ],
+        "reasoning": "This is equivalent coverage of the amplitude algebra. The two signed scalar maps differ by 2x (T_old=T_new+2x), not by a conjugacy supplied by this shift. In particular the one-step antisymmetric fixed-point multiplier is the cycle's one-step factor plus two, and the cycle return factors are squared. The basin statements are not interchangeable.",
+        "searches": [
+          "Resultary: Gaussian cubic diffusive coupled map antidiagonal antipodal cycles and antiphase fixed points Lambert W",
+          "Resultary b57744b79f57, Finding at offset 0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest catalogue census is exact for the shifted fixed points, rather than a table of positive-coupling basins.",
+          "The escape-clock Finding gives the same auxiliary large root after setting ε=1/2−b in its root equation; its Reference [3] identifies the frozen record 483979a45fcf as the source for the large-cycle asymptotic."
+        ],
+        "reasoning": "Do not count the same root twice as independent novelty, or the later use of that root in the same catalogue as prior coverage of its cited source. The inspected numerical portraits and exact related formulae do not enumerate the antidiagonal basin partition in the frozen parameter band.",
+        "searches": [
+          "Soula et al. numerical stability portraits and phase-plane examples, PDF pp. 3 and 7",
+          "Resultary b57744b79f57 and 1691465f8282, Findings and latter's Reference [3]"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact antidiagonal basin partition on the full real line in the strict low-gain band, with its full-plane period-two Floquet split and coexistence with the origin sink. The frozen record already excludes the shifted fixed-point root count and fold as independent novelties. The positive-detuning escape-clock record cites this very frozen result for the outer-cycle scale, rather than providing independent earlier coverage of the basin partition. The distinct same-day fixed-point theorem proves material root/fold overlap, not the positive-coupling dynamics.",
+      "residual_risks": [
+        "Unindexed low-gain basin analysis may exist; the additional literature query wave was deferred, not negative evidence.",
+        "Full text of Ding–Yang doi:10.1103/PhysRevE.54.2489 and the sine-map doi:10.11648/j.acm.20221101.12 was not retrieved. They are related but cited for different coupling/local laws. No definitive coverage inference is made from failed retrieval.",
+        "No intra-date priority is inferred for distinct Resultary records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same recurrence and earlier numerical analysis, not demonstrated coverage of the low-gain basin theorem",
+          "evidence": [
+            "Coupled Gaussian-cubic recurrence on p. 2; numerically constructed stability regions on p. 3; example of synchronized and antisynchronized chaotic attractors at a=3.9,b=0.48 on p. 7."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/math11061517",
+          "material_read": "Publisher OA PDF pp. 2, 3, 7, offsets 5800, 12900, 24800",
+          "method": "Bounded original PDF passages via identified OA publisher copy",
+          "title": "Dynamics and Global Bifurcations in Two Symmetrically Coupled Non-Invertible Maps",
+          "trigger": "Originating model and prior bifurcation/coexistence analysis"
+        },
+        {
+          "assessment": "Supplies absorption but leaves the finite-attractor/basin question open within that regime",
+          "evidence": [
+            "Common compact absorption precisely for −1/2≤b<1/2; the limitations explicitly exclude finite-attractor and basin classification."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-sharp-global-boundedness-interval-and-logarithmic-critical-esc--f463338d3c52",
+          "material_read": "Original Finding at offset 0 and Limitations near offset 6500",
+          "method": "Resultary lookup and bounded mirror passages",
+          "title": "A sharp global boundedness interval and logarithmic critical escape in a coupled Gaussian map",
+          "trigger": "Exact broader boundedness result for the same map"
+        },
+        {
+          "assessment": "Exact root/fold equivalence; distinct stability and dynamics",
+          "evidence": [
+            "Zero, two or four nonzero antidiagonal fixed points depending on c; same pair of Lambert-W branches and same fold scale after b_old=b−1. Specifies that no global-attraction claim is made."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-antiphase-sink-ceiling-and-coexistence-with-escape-in-a--b57744b79f57",
+          "material_read": "Original Finding and scope at offsets 0–2598",
+          "method": "Resultary lookup and bounded mirror passages",
+          "title": "A sharp antiphase sink ceiling and coexistence with escape in a coupled Gaussian map",
+          "trigger": "Exact overlapping fixed-point root geometry after translating b"
+        },
+        {
+          "assessment": "Uses the large-root scale for positive detuning and cites the frozen result itself for the negative-detuning cycle; not independent basin coverage",
+          "evidence": [
+            "a(Uε−1)e^(−Uε)=2ε and Uε=Lε+log Lε+o(1); reference [3] explicitly has the frozen title and identifier 483979a4-5fcf-47cd-ac80-e1a8fb37478a."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-universal-softplus-escape-clock-near-the-critical-coupling-of--1691465f8282",
+          "material_read": "Finding and scope offsets 0–2525; Relationship and Reference [3] offsets 6000–8738",
+          "method": "Resultary lookup and bounded mirror passages",
+          "title": "A universal softplus escape clock near the critical coupling of a Gaussian map",
+          "trigger": "Identical large-root equation and potential previous negative-detuning classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact sink/saddle split and full antidiagonal basin separator answer a dynamical question left open by compact absorption and numerical stability charts: which attractor is approached from every amplitude along the invariant line, with two genuinely attracting objects in the plane. A stable two-cycle arbitrarily remote as b approaches the endpoint is a structural complement to parameter-by-parameter absorption. The value does not rest on reparameterizing a Lambert-W equation or on interpreting the line separator as the whole planar basin boundary.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

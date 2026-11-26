@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "The only simple cycles are unions of exactly two arms, so the Alexander-dual facets are complements of those cycles. Dominated-vertex collapses reduce the dual to the (m-3)-skeleton of a simplex, with torsion-free reduced homology of rank m-1. Integral Alexander duality gives the unique group in dimension N-m, and full two-skeleton plus Hurewicz/Whitehead yields the asserted wedge for every m≥3 and all arm lengths≥2. Ten exhaustive finite cross-checks corroborate the construction; no infinite claim depends on enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 31 of arXiv:2307.13271 is for cactus graphs, whose distinct cycles intersect in at most one vertex; multi-theta cycles share both poles.",
+        "Theorem 34 covers complete bipartite graphs, supplying the all-length-two arm case only.",
+        "2024 Example 3.8 is a different graph-complex functor, not a stronger theorem for induced acyclic vertex sets."
+      ],
+      "reasoning": "No inspected theorem with broader graph hypotheses and the same vertex-induced-acyclic condition covers arbitrary path subdivisions. Graph subdivision changes the vertex set and the Alexander-duality dimension; the claim requires a separate proof.",
+      "searches": [
+        "\"forest filtration\" \"generalized theta\" paths",
+        "\"induced forest\" \"generalized theta\" \"homotopy\"",
+        "arXiv:2307.13271 Theorem 31 cactus graphs and Theorem 34 complete bipartite",
+        "doi:10.1007/s13398-024-01594-z Example 3.8"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2307.13271",
+      "doi:10.1007/s13398-024-01594-z"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 25 analyzes a cycle plus a chord; it has a direct pole edge and does not treat multi-theta graphs of exclusively length-at-least-two arms.",
+        "Theorem 31 restricts to cactus graphs; Theorem 34 supplies the known K_{2,m} specialization.",
+        "The 2024 paper computes I(G), not the complex of all acyclic induced vertex subsets."
+      ],
+      "reasoning": "For m≥3 and unequal subdivisions the graph is neither a complete bipartite graph nor a cactus; it is outside the verified source statements. None of the checked statements implies the claimed sphere dimension N-m for all choices of arm lengths.",
+      "searches": [
+        "arXiv:2307.13271 Proposition 25, Theorem 31, Theorem 34",
+        "doi:10.1007/s13398-024-01594-z Example 3.8",
+        "\"induced forest\" \"theta\" \"Alexander dual\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2307.13271: vertex-induced forest definition (Section 3); Proposition 25 addresses a chorded cycle including a direct pole edge; Theorem 34 includes K_{2,m}.",
+        "Springer DOI 10.1007/s13398-024-01594-z, Example 3.8: theta independence complexes are defined by forbidding graph edges, not by forbidding cycle vertex sets."
+      ],
+      "reasoning": "The Alexander dual of the proposed induced-forest complex is a multi-block simplex skeleton after strong collapses. The independence-complex literature instead removes every adjacent vertex pair, leading to unrelated face systems. No exact equivalent statement was found.",
+      "searches": [
+        "\"induced forest complex\" \"theta graphs\" homotopy",
+        "\"acyclic vertex\" \"theta\" \"simplicial complex\" homotopy",
+        "\"forest complex\" \"theta\" \"subdivision\" topology",
+        "arXiv:2307.13271, Section 4.1.1 and Theorem 34"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The known exactly matching special case K_{2,m}, all arms of edge length two, is credited to the 2023 primary source.",
+        "No exact full variable-length parameter table or theorem appeared among indexed findings examined."
+      ],
+      "reasoning": "Finite tabulations and the all-length-two case cannot imply the general integer-parameter assertion without an appropriate subdivision invariance theorem; the dual-block proof supplies such a mechanism only for this family.",
+      "searches": [
+        "\"forest complex\" \"theta graph\" induced forests homotopy wedge spheres",
+        "vertex-induced forest complex subdivisions K_{2,m} with varying length paths and rank m-1",
+        "\"forest complex\" \"generalized theta\" graph simplicial"
+      ]
+    },
+    "rationale": "The closest primary 2023 source calculates the unsubdivided biclique K_{2,m}, chorded cycles, and cactus induced-forest complexes. It does not state or imply the arbitrary unequal-arm subdivision result, and no cited graph operation provides the required dimension-shifting generalization. The 2024 theta-graph example studies the distinct independence complex. Indexed claim-level searches found no broader exact variable-length induced-vertex-forest classification. This is a best-knowledge conclusion with the enumerated residual risks.",
+    "residual_risks": [
+      "An unpublished or unindexed equivalently formulated theorem could exist.",
+      "A broader abstract theorem for simplicial complexes with minimal nonfaces of two-arm-union form might imply this as a corollary, even if not identified through searched descriptions.",
+      "The literature comparisons are a same-model assessment and not an independent novelty certificate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Known all-arm-length-two special case and other different families; no covering variable-length statement in the inspected source",
+        "evidence": [
+          "arXiv:2307.13271 Section 3 definition of F_infty",
+          "Proposition 25 lines concerning C_n+e",
+          "Theorem 31 cactus hypotheses",
+          "Theorem 34 complete bipartite hypotheses"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2307.13271",
+        "material_read": "Definitions and preliminary theorems in Sections 2-3; Sections 4.1.1 (Proposition 25), 4.1.3 (Theorem 31), and 4.2.1 (Theorem 34), including proof paragraphs",
+        "method": "Accessible complete HTML-extracted arXiv article; direct inspection of actual theorem and proof statements, not merely abstract",
+        "title": "The Forest Filtration of a Graph",
+        "trigger": "Defines the exact functor and has the closest results for cactus, chorded cycle and complete bipartite graph families"
+      },
+      {
+        "assessment": "Different complex: ordinary independence I(G) versus induced-forest F_infty(G); not a covering result",
+        "evidence": [
+          "Example 3.8 explicitly calls the invariant I(theta)",
+          "Section 3 description of ordinary independence complexes"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s13398-024-01594-z",
+        "material_read": "Sections 3.1 and 3.2 context; Proposition 3.6; Example 3.8 and its explicit theta graph formulas and definitions",
+        "method": "Direct inspection of open-access primary article HTML, especially the complete relevant theta-graph example and preceding definitions",
+        "title": "Khovanov homology, wedges of spheres and complexity",
+        "trigger": "Has a theta-graph subdivision homotopy classification and a plausible naming overlap"
+      }
+    ],
+    "status": "PASS"
+  },
+  "previously_published_pending_reaudit": false,
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "500c0c05-01a0-4b16-a6c7-7abbe6b8e5c9",
+  "value": {
+    "rationale": "A complete integral homotopy classification for all multi-theta series-parallel graphs with no direct pole edge extends beyond the 2023 cactus and complete-bipartite special-family calculations. It isolates two independent natural combinatorial effects: adding an arm increases sphere rank by one, while subdividing an existing arm raises homotopy dimension without changing rank. This sharp all-parameter structural law is motivated by overlapping-cycle topology, rather than by a selected finite example or a recomputation of the known K_{2,m} case.",
+    "status": "PASS"
+  }
+}

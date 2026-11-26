@@ -1,15 +1,21 @@
-# Scientific review: exact five-cycles for odd parameters
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For odd \(k\), every prime state other than \(2\) maps to an even composite, whereas every composite maps to a prime. Consequently every odd-length cycle contains \(2\). A five-cycle cannot have \(2\) followed immediately by a composite, because its final odd prime could not return to \(2\). The other possibility forces \(2\to k+2\to2(k+1)\to q\to k+q\to2\), with \(q=P^+(k+1)\). The necessary and sufficient conditions are precisely primality of \(k+2\), oddness of \(q\), and \(2\)-power status of \(k+q\). All five states are provably distinct, and uniqueness follows from the forced visit to \(2\). The alternative parameterization follows by divisibility of \(2^m+1\) and the largest-prime-factor condition. Exact finite calculations check the formulas but are not used as proofs of the infinite theorem.
+## correctness
 
-## Originality
-**PASS within inspected evidence.** The originating 2023 Das paper introduces the map and asks loop questions without the full odd-parameter five-cycle classification. The closest earlier mathematical statements treat exact periods two, three, and four (IDs `a6fb565f-372c-4ebb-9055-037c1563acd6` and `9113f264-80c9-4b61-9cc6-3b7754ef99d2`), so the original proposed period-three Fermat theorem was excluded as already covered. The separate five-cycle theorem is not a corollary of those shorter-period statements. The complete finite odd-parameter cycle census and even-parameter cycle-locator records were read in full, and neither supplies this unbounded odd-parameter characterization. Dubickas's broader framework does not fix the deterministic map's composite transition to its largest prime factor. Direct published-finding corpus and web searches by the map name, aliases, period-five language, and arithmetic criterion found no equivalent claim. Search non-detection is not a novelty proof; unindexed equivalent work remains a residual risk.
+PASS
 
-## Mathematical value
-**PASS.** Exact cycle length is a central structural invariant of the originating paper's arithmetic dynamics. Unlike a finite numerical census or a routine parity observation alone, the result classifies every odd parameter admitting the next unresolved odd cycle length, proves uniqueness of each such orbit, and gives an explicit prime-divisor/smoothness parameterization in terms of \(2^m+1\). It provides a reproducible arithmetic decision criterion for a natural infinite parity class and clarifies where the odd-cycle obstruction arises.
+Away from 2, an odd prime maps to an even composite and a composite to a prime, so an odd cycle must contain 2. If k+2 is composite, the next steps from 2 go through an odd prime and an even composite to a prime at step four; that either returns too early or has an even composite at step five. Otherwise the first three steps end at P+(2(k+1))=q; q=2 returns too early and q>2 gives the last composite k+q. It returns to 2 exactly for a power of two. Conversely q<=k+1<k+2 separates the three primes and also precludes equality of the two even composites. Determinism yields uniqueness. In the divisor parametrization 2^m+1=q+(k+1)=qh, so h>=3 is odd, and P+(q(h-1))=q iff P+(h-1)<=q; reversing gives all hypotheses and positive odd k. The separate direct return-time test from 2 using trial division reproduced exactly (5,3,3), (21,11,5), (51,13,6), (59,5,6), (1365,683,11) for the stated finite range.
 
-## Closest literature and limitations
-See Das (arXiv:2312.06629v1), Dubickas (*Axioms* 13 (2024), 107), the two prior period-two/three/four classifications identified in `RESULT.md`, and the two full-inspected published published-finding corpus records. No statement for even \(k\), no infinitude assertion, and no independent mathematical audit are claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the exact characterization and uniqueness for every positive odd shift, with its divisor reformulation. Das defines the same map and discusses attainable periods but does not supply this classification in the inspected text. A very close later record is credited explicitly; it does not establish prior coverage of the assigned result. This is a best-of-knowledge finding, not proof of priority.
+
+## value
+
+PASS
+
+This classifies the next odd period after three in a natural published dynamical system, for all positive odd shifts, and explains why there is at most one such cycle. The exact tests reduce the search to prime divisors of 2^m+1 and a cofactor check. Value lies in the exhaustive parameter characterization, not the isolated examples or the algebraic recoding alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

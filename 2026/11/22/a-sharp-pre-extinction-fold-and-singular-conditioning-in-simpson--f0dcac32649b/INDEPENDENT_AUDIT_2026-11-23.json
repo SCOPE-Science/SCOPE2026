@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:48:56.766547Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–5, VERIFICATION.md and checker.py (inspected, not executed).",
+        "Independent bisection of F on [0.4,0.45] and substitution into sqrt(−4sqrt(ξ*/6)F′(ξ*)) and sqrt(ξ*/6)/G: ξ*=0.4365745125924404, G≈1.4751534132015147, ratio≈0.18285901466201185; these reproduce the quoted approximations at floating-point accuracy."
+      ],
+      "rationale": "In the exact-data scalar model the perimeter is 2πR and the curvature-squared integral is 2π/R. Dividing by 2πR₀ gives Hξ(y)=y+ξ/(6y)−B(ξ), so the positive-radius domain excludes the spurious y=0 introduced by multiplying through at ξ=0. For ξ>0 the first two terms have unique minimum 2sqrt(ξ/6), diverge at both ends, and decrease then increase; subtracting B gives the two/one/no-root classification. F=B−2sqrt(ξ/6) is strictly decreasing from 1 to a negative value at 1/2. The stronger bound ξ*<9/20 puts the exact-flow radius on the increasing side of Hξ. Simpson overestimates the exact dissipated energy because g⁽⁴⁾>0 for g(s)=(1−2s)^(−1/2), so Hξ at the exact radius is positive and y₊ lies strictly below it. The one-panel residual at the exact radius is (105/2880)ξ⁵+O(ξ⁶), and the y derivative there tends to 1; this independently recovers the −7/192 coefficient. Factoring Δ=F(F+4sqrt(ξ/6)) gives the root-gap constant, and Hξ′(y₊)=(y₊−y₋)/y₊ gives the stated normalized inverse Jacobian. Round two-sphere dissipation is the constant 16π, yielding the unique exact positive radius throughout its lifetime.",
+      "residual_risks": [
+        "Decimal evaluation is not certified interval arithmetic. The proof concerns a scalar exact-data radius residual, not the Newton matrix or solvability of the spatial BDF–PFEM scheme."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 2.4 assumes a solved nondegenerate step; §4 treats conditional invertibility of a coupled Newton Jacobian.",
+          "For this model the necessary bound from Eq. (2.15) reduces to ξ(1+4/sqrt(1−ξ))/6<1, true up to physical extinction and hence also beyond ξ*."
+        ],
+        "reasoning": "Neither conditional energy decrease nor the weaker condition supplies the sharper existence threshold, and local full-system invertibility is not the scalar fold.",
+        "searches": [
+          "arXiv:2611.01593v1 Proposition 2.4, Eq. (2.15), and §4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.01593v1 original PDF",
+        "Resultary exact-topic lookup and identity check"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The necessary criterion omits the implicit positive endpoint dissipation, whose competition with y creates the minimum and the fold.",
+          "Constant dissipation for round spheres makes the contrast immediate once the scalar closure is specified; it is not a separate priority claim."
+        ],
+        "reasoning": "The Simpson weights and classical error sign alone do not establish exact branch counts or the threshold and inverse-Jacobian law. The proof supplies those properties only for the additional scalar model.",
+        "searches": [
+          "arXiv:2611.01593v1 Eq. (2.11), Eq. (2.15), §4 and §6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed same-statement match f0dcac32649b is this assigned finding, not independent evidence.",
+          "Eq. (2.11) uses the same quadrature coefficients but evaluates endpoint dissipation on predicted geometry. The scalar unknown entering energy and 2π/R₁ simultaneously is an additional closure."
+        ],
+        "reasoning": "The equivalent normalized quadratic and positive-domain minimum are not supplied by relabeling the paper's predictor-based scheme; the data and dependence on the unknown differ.",
+        "searches": [
+          "Resultary: Simpson energy-increment shrinking circle positive-radius fold with implicit endpoint dissipation",
+          "arXiv:2611.01593v1 §2, Eq. (2.11)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The only materially matching indexed hit was the frozen claim itself.",
+          "The primary paper's shrinking-circle tables are repeated-step convergence benchmarks, not values of a positive-root existence boundary or its conditioning constants."
+        ],
+        "reasoning": "Those tables cannot recover the normalized one-step positive-radius cutoff, much less bound it for all ξ.",
+        "searches": [
+          "Resultary nearest-result check for the exact-data Simpson circle threshold",
+          "arXiv:2611.01593v1 §6, pp. 16–17"
+        ]
+      },
+      "rationale": "The prior flow identities, Simpson formula and generic double-root behavior are not the contribution. The supported distinct claim is the sharp branch and conditioning classification for the specified exact-data positive-radius closure. No examined independent source provides this classification or a stronger result that specializes to it.",
+      "residual_risks": [
+        "Literature search is bounded; an equivalent analysis of an implicit energy-variable quadrature or an unindexed earlier scalar calculation could predate it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Methodological antecedent, not coverage of the assigned sharp scalar closure",
+          "evidence": "The endpoint geometry is predicted; solved-step dissipation and conditional Jacobian invertibility do not imply exact-model existence. The circle benchmark tests convergence under a different, coupled algorithm.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.01593",
+          "material_read": "v1 §2 pp. 6–8, including Eq. (2.11), Prop. 2.4 and Eq. (2.15); §4 p. 11; §6 pp. 16–17",
+          "method": "Open-access PDF passage inspection at offsets near 21400, 26912, 38256, 55850 and 59600",
+          "title": "Energy-Dissipative, High-Order BDF Schemes for Simulating Geometric Flows via Energy Increments",
+          "trigger": "Same Simpson energy-increment mechanism and a shrinking-circle benchmark"
+        },
+        {
+          "assessment": "Identical finding, excluded as independent prior evidence",
+          "evidence": "Same exact-data positive-radius fold, scalar conditioning law and sphere comparison.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-pre-extinction-fold-and-singular-conditioning-in-simpson--f0dcac32649b",
+          "material_read": "Finding and scope",
+          "method": "Resultary identity comparison with the frozen RESULT.md",
+          "title": "A sharp pre-extinction fold and singular conditioning in Simpson energy increments for shrinking circles",
+          "trigger": "Exact indexed statement match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md scope and fold theorem",
+        "Pan–Jiang–Jia §2, particularly the conditional dissipation proposition and necessary solvability condition"
+      ],
+      "rationale": "The exact-data reduction is motivated as a diagnostic for geometric integrators rather than an arbitrary example: even removing numerical start and midpoint error, an energy-decreasing scalar design can have no positive-radius solution while the exact circle still exists. Its exact cutoff and inverse sensitivity inform whether a failed or ill-conditioned scalar solve can be blamed on input errors. The exact sphere contrast identifies constant versus increasing dissipation as a useful distinction, without a claim about the coupled algorithm.",
+      "residual_risks": [
+        "Practical behavior of a predicted or discretized geometry, and conditioning of the full solver, remain outside this value judgment."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

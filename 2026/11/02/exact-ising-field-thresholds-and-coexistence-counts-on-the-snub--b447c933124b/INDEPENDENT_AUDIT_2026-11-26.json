@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:19:14.556007Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, verify_geometry.py, verify_field_census.py, snub_edges.txt, verification_output.txt and VERIFICATION.md",
+        "/workspace/repairs/1/RESULT.md",
+        "/workspace/review-evidence/1/geometry.py, direct_census.py and replay.txt"
+      ],
+      "rationale": "For the repaired text, corrected the coordinate-parity ambiguity: all six permutations are used and exactly four sign triples per permutation satisfy the stated parity match. Restriction to even permutations would yield only 12 vertices. A standard-library rational-bracket calculation independently verified the real coordinate ordering, 60 shortest pairs, 5-regularity, 32 triangles and the exact labelled edge file. A direct-edge, integer histogram over every pair of complementary configurations reproduced every B_k and N_k; it fixes bit 23 off in 2^23 masks and adds their complements, checking every sector size against binomial(24,k). This uses neither frozen recurrence. Reduction H/J=60−2|δ(S)|−(h/J)(2k−24) and spin reversal reduce positive h to down-spin counts j≤12, and the two affine sector slopes in j are 2h/J−10 and 2h/J−2. They vanish only at 5 and 1 respectively. The census gives 18 at h=0 and throughout the low field, 201 from sectors 8..12 at h=J, 3 at the plateau M=8, 5302 at h=5J and 1 beyond it. No symmetry quotient is taken. The repaired geometric verification notes distinguish approximate original coordinate sorting/gap checking from exact distance equality and give an exact interval remedy; the theorem and labelled data are unchanged.",
+      "residual_risks": [
+        "Independent replay checks the exact finite labelled graph and all spin states, not literature priority or other Ising models. Frozen uploaded scripts were inspected, not executed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhuang–Lannert PDF pp. 7–8 covers this network but presents specific heat; Strečka–Karľová–Madaras discuss all five Platonic graphs, excluding the Archimedean snub cube; Žukovič–Bobák use different finite triangular-lattice clusters."
+        ],
+        "reasoning": "Neither related physics methods nor a larger paper on different graphs yield this graph's exact constrained maxima. Identical site/bond counts in the zero-field paper establish object overlap, not coverage of the field result.",
+        "searches": [
+          "Zhuang Lannert small-network approximations geometrically frustrated Ising snub cube",
+          "arXiv:1502.04449 regular Ising polyhedra",
+          "arXiv:1310.3298 geometrically frustrated spin clusters"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1107.2893v1, 1502.04449 and 1310.3298; Resultary d067ae207579 and f72c9a2d66bb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The later proof bounds C≤min(5q,32+q) and exhausts equality configurations, including 201 at the low critical field. The earlier independence table attains C=5q only until q=8."
+        ],
+        "reasoning": "At fixed size q, C=5q−2e(S). For q>8 the mere absence of independent sets neither determines the minimizing positive number of induced edges nor counts the minimizers. The new-at-date result establishes those data and the low-field envelope.",
+        "searches": [
+          "f72c9a2d66bb Finding and Proof, offsets 3600–7495",
+          "arXiv:1107.2893v1 pp. 7–8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same exchange graph and uniform coupling; the linear field term labels the fixed-cardinality cut optimum by magnetization. The 2026-11-08 f72c9a2d66bb record gives exactly the same thresholds, labelled degeneracies, and cut envelope."
+        ],
+        "reasoning": "These formulations are equivalent when the vertex signs and field conventions are matched; the full later overlap is substantive, not a title match.",
+        "searches": [
+          "snub cube Ising magnetization field",
+          "snub cubical graph maximum cut Ising"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "October independence data yield the empty set plus 5301 nonempty independent sets, giving 5302 and all optimizers in j≤8. The separate f72c9a2d66bb proof contains the exact j=8..12 histogram 3,24,84,72,18."
+        ],
+        "reasoning": "The earlier exact table does not give minima of induced-edge counts at cardinalities with no independent sets. The later table does, but its date does not show earlier availability.",
+        "searches": [
+          "snub cubical independence complex wedge twenty-six four-spheres independent set counts",
+          "snub cube Ising magnetization field"
+        ]
+      },
+      "rationale": "Bounded to the 2026-11-02 finding: the demonstrated earlier coverage is the known high-field/independence portion, which is explicitly excluded. The strongest current-catalogue match completely overlaps even the low-field counts, but bears a later visible date (2026-11-08); it does not establish earlier coverage of the frozen claim, and the records' provenance is unresolved. The closest older same-body primary source discusses zero-field specific heat rather than the exact field-resolved maxima or coexistence. The repaired text distinguishes those findings and now credits the full later overlap. The pass concerns the exact finite low-field/cut classification beyond the prior independence data, not priority over all sources or a claim to currently unique catalogue content.",
+      "residual_risks": [
+        "Cannot infer independence, derivation provenance, or unrecorded precedence from dates. Full October independence text was not retrieved. The comparison with the 2011 source is based on the material actually read, not a global conclusion from a keyword miss."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Inspected same-graph analysis addresses specific heat, not exact low-field coexistence",
+          "evidence": [
+            "24 vertices, 60 bonds and triangular-lattice heat capacity comparison."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1107.2893",
+          "material_read": "Primary PDF pp. 7–8, OA text offsets 42800–46892; generic usage of magnetic field located separately",
+          "method": "Lawful full arXiv PDF and bounded passages",
+          "title": "Small-Network Approximations for Geometrically Frustrated Ising Systems",
+          "trigger": "Same snub-cube Ising network"
+        },
+        {
+          "assessment": "Overlapping method but not the same graph",
+          "evidence": [
+            "The stated scope is the five regular Platonic polyhedra."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1502.04449",
+          "material_read": "PDF pp. 1–2, OA offsets 500 and 8200",
+          "method": "Primary full-text passages",
+          "title": "Giant magnetocaloric effect, magnetization plateaux and jumps of the regular Ising polyhedra",
+          "trigger": "Exact graph-theoretic Ising field plateaux on polyhedra"
+        },
+        {
+          "assessment": "Different clusters",
+          "evidence": [
+            "Examples concern triangular-lattice rhombi, hexagons, triangles and ladders."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1310.3298",
+          "material_read": "PDF pp. 1–3, offsets 500 and 5400",
+          "method": "Primary full-text passages",
+          "title": "Entropy of spin clusters with frustrated geometry",
+          "trigger": "Finite frustrated antiferromagnetic Ising clusters"
+        },
+        {
+          "assessment": "Credit the already attributed independent-set branch, without claiming inspection of the full October text",
+          "evidence": [
+            "No independently read earlier low-field claim; the explicit published independence counts alone give the upper endpoint."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-the-snub-cubical-independence-complex-is-a-wedge-of-twenty-six-f--d067ae207579",
+          "material_read": "Indexed listing and explicit attributed data in frozen RESULT.md line 81 and the later exact Ising record; direct full mirror file unavailable",
+          "method": "Local Resultary lookup and bounded comparison with the two descriptions; independently reproduced the mathematical counts",
+          "title": "The snub cubical independence complex is a wedge of twenty-six four-spheres",
+          "trigger": "Exact smaller-size sector and upper endpoint already known"
+        },
+        {
+          "assessment": "Equivalent scientific coverage in a distinct indexed record visibly dated after the frozen finding",
+          "evidence": [
+            "Face incidence gives the same B_q envelope; square-compatible histogram gives 201 and all component counts; independence histogram gives 5302."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-field-thresholds-and-critical-degeneracies-of-the-snub-cub--f72c9a2d66bb/RESULT.md",
+          "material_read": "Finding and proof, especially OA offsets 3600–7495",
+          "method": "Local Resultary match and mirrored full-text passages",
+          "title": "Sharp field thresholds and critical degeneracies of the snub cubical Ising antiferromagnet",
+          "trigger": "Strongest materially equivalent same-graph table and thresholds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen and repaired findings; arXiv:1107.2893v1 snub-cube section; comparison with October independence branch and later f72c9a2d66bb"
+      ],
+      "rationale": "The snub cube was already a finite benchmark for frustrated antiferromagnetism. The full constrained-cut classification supplies the ground states under every uniform field, notably the one-third plateau, exact coexistence at the low field, and its magnetization-resolved counts; these are useful exact benchmarks not determined by high-field saturation data or heat capacity comparisons. The fixed-size histograms also explain the lower envelope rather than only checking a few fields. Value is assessed for the frozen-date contribution, not for recomputing the earlier independence counts.",
+      "residual_risks": [
+        "This exact finite magnetic classification does not by itself imply a thermodynamic or other-polyhedron theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

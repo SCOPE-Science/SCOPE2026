@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:03:41.786299Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n≥2 a nonempty hub-free fort must select both endpoints and have no adjacent omissions; the hub then sees at least two selected vertices. These path conditions are upward-closed among subsets, so testing individual deletions here suffices: an interior 1 can be removed exactly when flanked by 1's. With the hub selected, the remaining selected path set must dominate the path. A minimal dominator can contain a path fort only by being that fort. In a path fort no omitted vertex is private to a selected vertex; minimal domination therefore requires every selected vertex to be isolated among selected vertices. This leaves precisely the odd endpoint-to-endpoint alternating word. For the dominator series, singleton runs self-witness, while each end of a doubleton run needs a private zero: an internal gap incident to such a run has length 2, and an external gap incident to it has length 1. All remaining gaps are those permitted by domination. The resulting two-state transfer matrix has determinant 1−z²−z³−z⁴+z⁶ and gives the stated series; the one-or-two 1-block construction gives F. The declared n=0,1 conventions also agree with the series. Independent adjacency/proper-subset enumeration over all 262121 nonempty fan subsets for 2≤n≤16 matched both exact families; independent private-neighborhood tests and series coefficients matched at those orders, giving minimal-fort totals 3,2,6,5,10,12,18,24,34,47,65,90,125,173,240. Replay: python3 /workspace/reproductions/check_fan_crown_skew.py fan. The supplied code's expansion to 100 is not comparison to independent counts past 16; neither bounded run proves the general theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The path minimal-fort count is already given by a Padovan recurrence; Proposition 20 preserves minimal forts of a connected factor of order at least two under a join.",
+          "Join preservation by itself does not classify hub-containing forts."
+        ],
+        "reasoning": "The prior results cover the path part; the exact fan membership theorem supplies the missing mixed case.",
+        "searches": [
+          "Becker et al., arXiv:2404.05963, Corollary 12 and Proposition 20"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_fan_forts.py, verification_output.txt",
+        "Earlier Resultary fan RESULT.md, f3b2c94da283",
+        "arXiv:2404.05963",
+        "OEIS A253412"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With the hub white, the absence of blue endpoint pairs and blue consecutive triples means precisely that every blue path vertex has a white path neighbor; thus the white path part dominates. When the hub is blue, the failed white path parts are exactly the path forts from the earlier rule on the path.",
+          "Inclusion-minimize the dominating path parts and remove those containing a path fort. A minimal dominator that is also a path fort lacks any private omitted vertex; hence it has no adjacent selected vertices and must be the odd alternating word."
+        ],
+        "reasoning": "The explicit correction and total series are recovered by direct duality, the private-neighbor test, and addition of the already known component series.",
+        "searches": [
+          "Earlier fan membership theorem; arXiv:2404.05963; OEIS A253412"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier fan record, RESULT.md membership theorem: if the hub is in the initial blue set, the path part must zero-force the path; otherwise a blue endpoint pair or a consecutive blue triple is necessary and sufficient.",
+          "Minimal forts are complements of maximal failed blue sets, not coefficients of the earlier polynomial."
+        ],
+        "reasoning": "Apply the duality to the exact membership test, which contains far more information than the earlier cardinality polynomial alone.",
+        "searches": [
+          "Local Resultary lookup on fan zero forcing / minimal forts: 2026/10/4/SCOPE-zero-forcing-polynomial-of-fan-graphs--f3b2c94da283",
+          "Becker et al., arXiv:2404.05963"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A253412 gives (1+z²)(1+z−z³)/(1−z²−z³−z⁴+z⁶); its numerator is 1+z+z²−z⁵, exactly the frozen D(z)."
+        ],
+        "reasoning": "The database gives the exact path-dominator ingredient, not a separately asserted complete fan-fort census.",
+        "searches": [
+          "OEIS A253412, minimal dominating sets of labeled paths",
+          "Local Resultary fan-family lookup, earlier fan membership record"
+        ]
+      },
+      "rationale": "The earlier exact membership theorem for fan zero forcing and existing component enumerators mechanically give the frozen split and rational count. This is demonstrated implication, not an assertion that the exact formula was printed verbatim or that the frozen mathematics is false.",
+      "residual_risks": [
+        "No comprehensive priority certification; exact republication of the fan-fort formula was not established. The FAIL relies on shown mathematical implication, not on absence of a search result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the full forcing decision and implies the fort split by duality; no verbatim fort formula established here",
+          "evidence": [
+            "The presence of the hub selects the path rule; in its absence an endpoint pair or a consecutive triple triggers success."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-zero-forcing-polynomial-of-fan-graphs--f3b2c94da283",
+          "material_read": "RESULT.md, exact membership theorem and trigger cases",
+          "method": "Local Resultary identification and statement-level read of the matched record",
+          "title": "Zero forcing polynomial of fan graphs",
+          "trigger": "Exact same fan family and all-subset rule"
+        },
+        {
+          "assessment": "Covers path enumeration, join inclusion, and the duality used in the direct implication",
+          "evidence": [
+            "Corollary 12 supplies the path recurrence; Proposition 20 supplies preservation and does not assert exhaustion."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2404.05963",
+          "material_read": "Corollary 12, pp. 7–8; Proposition 20, §5.1, p. 13; fort/failed-set duality",
+          "method": "Bounded original-PDF passage inspection",
+          "title": "On the Number of Minimal Forts of a Graph",
+          "trigger": "Potential general path/join coverage"
+        },
+        {
+          "assessment": "Exact match for D(z)",
+          "evidence": [
+            "Multiplying the supplied numerator factors gives the frozen numerator."
+          ],
+          "identifier_or_url": "https://oeis.org/A253412",
+          "material_read": "Sequence identification and generating function",
+          "method": "Public entry passage comparison",
+          "title": "Number of minimal dominating sets of a path graph",
+          "trigger": "Plausible exact lookup of D(z)"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "An explicit minimal-fort census is convenient, but the frozen narrow invariant is mechanically extractable from the prior exact fan membership characterization, known path counts and a direct overlap test. The audited claim does not supply a separate nonroutine unknown result.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

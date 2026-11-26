@@ -1,19 +1,21 @@
-# Scientific review: two conjugacy classes among three unresolved binary two-to-one cellular automata
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The three five-site Boolean polynomials have been copied directly from the three question-mark rows of Appendix B in Haugland--Larsen--Omland--Rustad (2026). The proposed factorization is a Boolean identity on every five-bit input: \(A=PD\), \(B=DP\). The proposed two-sided local inverse of \(P\) is verified on its entire seven-bit support. Locality extends these identities from their exhaustive finite support to every bi-infinite configuration, so \(P\) is a genuine shift-commuting homeomorphism. The complete 32-state ring graphs give time-cycle length profiles \((1,10)\), \((1,10)\), \((1,5)\); their fifth-time fixed-point cardinalities are therefore \(1,1,6\). Shift-commuting conjugacy would preserve both the spatial period-five subspace and these counts. The proof uses this invariant only for the nonconjugacy conclusion and does not improperly extrapolate ring data to global dynamics.
+PASS
 
-## Originality (PASS; priority uncertainty remains)
+In the primary Appendix B the first three binary five-site question-mark entries are the displayed A, B, C with the same coordinate order; its surrounding text identifies the open two-to-one cases. Over the Boolean ring, (1+c+d)(d+e)=cd+(c+d+1)e verifies A=PD, and adding consecutive P outputs gives B=DP. Both directions of the stated inverse were independently checked on every one of the 128 seven-bit contexts covering their dependence, so they hold on the full shift. Equivalently, if σx_i=x_{i+1}, the rule σ^{-1}P flips x_i when (x_{i−1},x_{i+1},x_{i+2})=(1,0,1); every active flip leaves its own three trigger bits fixed, and a flip of a trigger bit for another site forces a different required trigger bit there to stay at a prohibiting value. Thus the mask is invariant and σ^{-1}P is an involution. Consequently A∘P=P∘B with P an invertible shift-commuting sliding block map. An independently written exhaustive checker confirmed both factorizations, the inverse and the conjugacy identities, and all 32 cyclic transitions per rule on X5. Temporal cycle lengths are (1,10), (1,10), (1,5), giving fifth fixed counts (1,1,6). A shift-commuting homeomorphism and its inverse preserve X5, and a dynamical conjugacy must preserve these counts. On spatial rings 1–4 the three temporal cycle spectra agree, supporting minimality for this temporal-spectrum comparison only. LEO is invariant under homeomorphic conjugacy; no LEO status or arbitrary non-shift-commuting conjugacy obstruction is inferred. Independent replay: /workspace/branches/b21bc157-3c8a-4481-b87a-c8f3e98df3fe/independent_check.py and independent_check_output.txt. The supplied verifier and recorded output are reference evidence, not the independent replay.
 
-The 2026 source (arXiv:2610.33131v1, Appendix B, page 27) tabulates exactly the same three two-to-one binary maps but poses the LEO questions separately and does not assert a conjugacy or the periodic-point separation. The 2024 source (arXiv:2411.00721v1, Example 1.3) already identifies \(P\) as a reversible local rule; no discovery of its reversibility is claimed here. Its known bijectivity alone neither identifies \(A=PD\), \(B=DP\), nor separates \(C\). Comparison of those logical implications, targeted mathematical-record queries and previously accessible claim statements did not produce the three-representative conjugacy classification. An author might have recognized the \(PD/DP\) relationship without publishing it, and unindexed or subsequent results might duplicate it. No independent priority certification is claimed.
+## originality
 
-## Value (PASS)
+PASS
 
-These three maps are precisely the outstanding two-to-one, five-site examples in a recent systematic small-diameter LEO study. A complete two-class conjugacy classification is a natural structural invariant of that distinguished family, not an arbitrary numeric slice. The explicitly reversible conjugacy proves that two unresolved LEO decisions are equivalent; the fifth-iterate obstruction certifies that the third representative cannot be folded into the same shift-preserving conjugacy class. This reduces the dynamical classification and the number of independent questions still to examine. It is not a purported resolution of either LEO question.
+The Appendix B representatives and reversibility of P are established prior facts. Other indexed records contain the exact factorizations separately, so the positive A/B comparison is a direct consequence once those are combined; those records are catalogued later and do not establish prior publication of the comparison. Crucially, the complete two-class result also uses a period-five temporal obstruction separating C; the checked structural and table records do not give it or imply it from their stated invariants.
 
-## Sources and limitations
+## value
 
-Primary sources: Haugland--Larsen--Omland--Rustad, *Locally eventually onto cellular automata*, arXiv:2610.33131v1 (Appendix B, p. 27); Haugland--Omland, *New classes of reversible cellular automata*, arXiv:2411.00721v1 (Example 1.3). The symbolic calculations and complete period-five graphs are reproducible through `verify.py`. The theorem applies to these three displayed local-rule representatives and shift-commuting conjugacy; the LEO status of the two classes, conjugacy without shift commutation, and classification beyond this trio remain open or unaddressed. Earlier private or unindexed work could affect novelty.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The objects are a naturally specified list of unresolved cases from a published classification, and the invariant directly tests the equivalences that can transfer LEO status. Showing that two decisions coincide by conjugacy and that the third cannot be folded in by a shift-commuting conjugacy gives a concrete reduction and an exact obstruction a researcher can reuse. The claim is useful without deciding LEO or equating inequivalence with unequal LEO status.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

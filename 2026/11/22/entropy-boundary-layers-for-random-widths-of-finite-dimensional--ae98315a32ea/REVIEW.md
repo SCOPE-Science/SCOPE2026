@@ -1,21 +1,21 @@
-# Scientific review: entropy boundary layers for random widths of norm balls
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim fixes \(d\ge2\), the dual exponents, normalized Euclidean-sphere measure, and **full** projection widths. Hölder duality and strict power means identify all extremizers; near axes, the two competing local terms are \((2/q)\sum|z_i|^q\) and \(-\|z\|_2^2\); near diagonals, the spherical Hessian of the half-width is \((q-2)f_q I\). Tangent-area normalization gives precisely the \(2d/A_d\) and \(2^d/A_d\) factors. The limit as \(q\to2\) is a uniform first variation of the norm, and the logarithmic entropy endpoint follows from \(r^2\log(1/r^2)\), not from a quadratic approximation. The proof supplies the infinite limiting arguments, while the finite checker supplies independent diagnostic tests. The proof and checker agree on all four regimes and on the different order of limits. Independent verification is not claimed.
+PASS
 
-## Originality — PASS, provisionally
+Hölder duality gives the full width 2||u||_q. Strict norm comparison localizes the tails to the 2d signed axes or 2^d signed diagonals. In the orthogonal tangent chart, area density tends to one. The leading axis contact is (2/q)sum|z_i|^q for q<2 and a deficit ||z||² for q>2; differentiating the q-norm on the sphere at a diagonal gives Hessian (q-2)f_q I for the half-width and the claimed full-width quadratic coefficient. Uniform radial sandwiches yield the four volumes and their conditional uniform-ball limits. Taylor expansion on the closed simplex is uniform since x^a log^k x stays bounded near a=1, yielding (W-2)/(2-q)=H/2+O_d(|q-2|). Squared Gaussian coordinates give the Dirichlet law. At an axis the entropy is r²log(1/r²)+O_d(r²) uniformly in angle, so H≤2t has squared radius asymptotic to 2t/log(1/t); at a diagonal H=log d-2||z||²+O_d(||z||³). This verifies both entropy constants and marks with the correct extremizer multiplicities and full-width normalization.
 
-The relevant pre-2016 source Barthe–Guédon–Mendelson–Naor (2005, arXiv:math/0503650) establishes probabilistic geometry of \(\ell_p\)-balls, spherical norm moments and extremal section comparisons, not these fixed-dimensional endpoint probabilities and logarithmic entropy limit. Gorbunov–Vorontsova–Gasnikov (arXiv:1804.03722) addresses expectations and concentration. Kaufmann (2021, doi:10.15559/21-VMSTA182) addresses high-dimensional sharp large deviations, including projection lengths, but with the dimension, rather than the fixed-\(d\) width deficit or exponent distance from \(2\), tending to a limit. The exact connection between widths and dual norms is expressly treated as prior knowledge.
+## originality
 
-Indexed work on covariance signs of powers of dual-norm widths, singular-curvature chord tails, and entropy first variations of hyperplane-section volumes was also compared. These are adjacent but do not imply the claimed **full fixed-dimensional four-tail classification together with the logarithmic lower endpoint of the near-Euclidean entropy limit**. The nearby indexed research records were available chiefly through their public summaries, so an unindexed or inaccessible equivalent remains a residual priority risk. A negative search result is not proof of novelty.
+PASS
 
-## Value — PASS
+Best-of-knowledge pass for the combination of sharp fixed-d endpoint laws and local marks for support width and the sharp logarithmic Shannon boundary layer in the Euclidean-order limit. The support-function identity, spherical norm model, Rényi reparametrization, and Gaussian/Dirichlet sampling identity are standard and are not credited as new.
 
-Directional projection widths of norm balls are natural geometric observables. The four-case theorem determines exact rare-viewing probabilities and distinguishes the nonquadratic coordinate-contact exponent for \(p>2\) from quadratic diagonal contact. The Euclidean limit is singular rather than a trivial interpolation: its lower-tail probability acquires a logarithmic correction that is not uniform in the fixed-\(p\) extreme-width limit. These coefficients also determine the sharp number of independent random viewing directions required to observe widths within a given absolute tolerance of the optimum, using the identity \(\Pr\{\min_{j\le N}W_j>W_{\min}+\varepsilon\}=(1-F(\varepsilon))^N\). The matching tangent-ball marks explain the geometric source of each constant. It is a complete natural classification rather than an arbitrary sample of exponents.
+## value
 
-## Closest literature and limitations
+PASS
 
-The claims are fixed-dimensional; do not infer a dimension-uniform limit or an all-scale joint \(p\to2\), \(\varepsilon\to0\) crossover. The endpoints \(p=1,\infty\) require separate arguments. The evaluated primary literature does not certify global historical novelty. Numerical diagnostics are not proof; proof details appear in `RESULT.md`.
+The tails quantify how frequently random directions see nearly extremal full widths and how those directions are distributed within their shrinking neighborhoods. The singular axis law versus quadratic contacts is a genuine difference, and the logarithmic Shannon endpoint explains why the near-Euclidean behavior is not read off by holding q fixed. Precise constants and changes of local shape are useful even in fixed finite dimension.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

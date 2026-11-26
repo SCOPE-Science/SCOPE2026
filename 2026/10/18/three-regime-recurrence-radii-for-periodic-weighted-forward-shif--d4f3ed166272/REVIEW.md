@@ -1,11 +1,21 @@
-# Scientific review of three-regime periodic-shift recurrence radii
+# Independent mathematical audit
 
-**Correctness — PASS.** The diagonal similarity \(W=\gamma DSD^{-1}\) is exact because the weight product closes the positive diagonal after one period. Uniform bounds on \(D,D^{-1}\) settle the strictly decaying and expanding cases. In the critical case, each residue class fixes the squared orbit norm, while weak nullity of the unilateral forward shift eliminates the cross term; a minimizing residue is a syndetic set of permissible returns. Conversely, all residues are eventually outside every tolerance below their minimum. Rational–radical calculations certify the nonconvex two-period example. The proof is analytic; standalone finite tests do not certify its universal quantifiers.
+## correctness
 
-**Originality — PASS, subject to independent priority review.** Alshammari–Benchiheb (2026), Sections 2–4, define the base-point recurrence radius, prove lower semicontinuity and stable-orbit thresholds, and discuss weighted backward shifts; they do not classify nonstable periodic forward shifts or exhibit nonconvex recurrence-radius sublevels. The general lower-bound inequality and stable-orbit theorem from that paper are insufficient to give equality in the critical oscillatory regime. A contraction-specific Hilbert-space recurrence theorem yields convex ellipsoidal sublevels, but its hypotheses fail for the noncontractive alternating shift, and even similarity to a contraction does not preserve metric recurrence radii. Literature searches concerning weighted-shift expansivity, numerical radii, and periodic orbits address other invariants, not the claimed base-point syndetic radius. The later Alshammari article on *uniform* approximate periods concerns the entire translated forward orbit and is not the base-point definition. Broad priority risk from earlier ergodic/linear-dynamics literature remains.
+PASS
 
-**Mathematical value — PASS.** The result is a complete parameter-product classification for a canonical natural operator family, not an arbitrary finite parameter slice. Its critical formula produces the exact geometry of infinitely many-dimensional recurrence classes and a striking obstruction: nonconvexity persists for a power-bounded operator similar to an isometry, whereas contraction models have convex radius balls. The explicit 2-period witness is the smallest naturally modulated periodic case and diagnoses a genuine structural boundary of quantitative recurrence. The subcritical formula is acknowledged as following from known stable-orbit theory; the original mathematical content is the critical-phase classification and resulting convexity failure.
+The periodic diagonal D gives W=gamma DSD^{-1} with ratios uniformly bounded above and away from zero. Below and above unit geometric mean, orbit norms respectively vanish and diverge (the latter for nonzero vectors only). At gamma=1, S^n tends weakly to zero, as is seen by testing against the tails under (S*)^n. On residue r the orbit norm squared is exactly Q_r(x), so the limiting squared displacement is ||x||^2+Q_r(x). The tail of a minimizing progression is syndetic for every strictly enlarged tolerance, including at the boundary radius; below the minimum a sufficiently small enlargement leaves at most finitely many returns. This proves the exact sublevel description, including x=0. Independently evaluating the two phase forms gives (34/25,1) at A, (1,23/20) at B, and ((107+2 sqrt(14))/100,(67+4 sqrt(14))/80) at their midpoint, with both midpoint entries greater than 1. W is power bounded by 2 but ||We_1||=2. This is an exact counterexample, not a numerical orbit inference. The frozen verify.py was inspected, not executed; the conclusion uses the symbolic proof and exact arithmetic.
 
-**Closest literature and limits.** Alshammari–Benchiheb, *Journal of Function Spaces* 2026, DOI 10.1155/jofs/9920770; Alshammari, *Mathematics* 14 (2026) 1986, DOI 10.3390/math14111986 (distinct translated-orbit definition). Standard similarity theory for periodic weighted shifts is used, not claimed as novel. The theorem does not treat nonperiodic or complex-phase weights or classify every case of convexity. Priority is not independently established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported contribution is the exact periodic-forward phase minimum and its nonseminorm witness. The base-point tolerance framework and the vanishing-orbit mechanism are not new. The strongest indexed companion theorem assumes contractivity in the given Hilbert norm and therefore neither covers nor contradicts this example. No claim of historical priority is needed.
+
+## value
+
+PASS
+
+The critical example isolates a structural boundary: contractive geometry cannot be extended to power boundedness even under similarity to an isometry. The exact phase-minimum formula explains the failure rather than just exhibiting an isolated nonconvex set. The two outer regimes by themselves would not be the substantive contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

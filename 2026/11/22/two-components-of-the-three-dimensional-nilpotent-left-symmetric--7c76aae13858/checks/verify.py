@@ -1,84 +1,63 @@
-"""Standalone finite-field checks for the nilpotent 3D dialgebra geometry theorem.
-Usage: python3 verify.py. Only the standard library is needed.
-These tests corroborate but do not replace the all-field proof.
-"""
+"""Fixed-flag census for the two versions of the fourth identity."""
+
 from itertools import product
 
-def mk(a,b,u,v,c,d,e,f,h=0,j=0,q=2):
-    # T[0] is dashv, T[1] is vdash, indices are 0,1,2.
-    T=[[[[0]*3 for _ in range(3)] for _ in range(3)] for _ in range(2)]
-    T[0][0][0]=[0,a%q,u%q]
-    T[1][0][0]=[0,b%q,v%q]
-    T[0][0][1]=[0,0,c%q]
-    T[0][1][0]=[0,0,d%q]
-    T[1][0][1]=[0,0,e%q]
-    T[1][1][0]=[0,0,f%q]
-    T[0][1][1]=[0,0,h%q]
-    T[1][1][1]=[0,0,j%q]
-    return T
 
-def apply(T,which,x,y,q):
-    out=[0,0,0]
-    for i in range(3):
-        for j in range(3):
-            if x[i] and y[j]:
-                for k in range(3):
-                    out[k]=(out[k]+x[i]*y[j]*T[which][i][j][k])%q
-    return out
+def check(p):
+    # The first basis vector is 0, the second is 1, and the annihilator is 2.
+    triples = tuple(product(range(2), repeat=3))
+    equal_count = unequal_count = 0
+    for a, b, u, v, c, ell, d, f, h, j in product(range(p), repeat=10):
+        if not (a or b) or not (c or ell or d or f or h or j):
+            continue
+        left = ((0, a, u), (0, 0, c), (0, 0, d), (0, 0, h))
+        right = ((0, b, v), (0, 0, ell), (0, 0, f), (0, 0, j))
 
-def sub(x,y,q): return [(a-b)%q for a,b in zip(x,y)]
+        def r(M, x, y):
+            ans = M[2*x:2*x+2]
+            return tuple(sum(y[i]*ans[i][k] for i in range(2)) % p for k in range(3))
 
-def add(x,y,q): return [(a+b)%q for a,b in zip(x,y)]
+        def l(M, x, y):
+            return tuple((x[0]*M[y][k] + x[1]*M[y+2][k]) % p for k in range(3))
 
-def is_lsda(T,q):
-    E=[[1,0,0],[0,1,0],[0,0,1]]
-    a=lambda r,x,y:apply(T,r,x,y,q)
-    for x,y,z in product(E,repeat=3):
-        # Axioms (1.1)-(1.4) of the motivating paper.
-        if a(0,x,a(0,y,z)) != a(0,x,a(1,y,z)): return False
-        if a(1,a(0,x,y),z) != a(1,a(1,x,y),z): return False
-        left=sub(a(0,x,a(0,y,z)),a(0,a(0,x,y),z),q)
-        right=sub(a(1,y,a(0,x,z)),a(0,a(1,y,x),z),q)
-        if left!=right: return False
-        left=sub(a(1,x,a(0,y,z)),a(1,a(0,x,y),z),q)
-        right=sub(a(1,y,a(1,x,z)),a(1,a(1,y,x),z),q)
-        if left!=right:return False
-    return True
+        def sub(x, y):
+            return tuple((v-w) % p for v, w in zip(x, y))
 
-def check_normal_form(q):
-    n=0
-    for vals in product(range(q),repeat=8):
-        a,b,u,v,c,d,e,f=vals
-        if not (a or b) or not (c or d or e or f):continue
-        T=mk(*vals,q=q)
-        valid=is_lsda(T,q)
-        predicted=(a==b and a!=0 and c==e and bool(c or d or f))
-        assert valid==predicted, (q,vals,valid,predicted)
-        n+=valid
-    target=(q-1)*q*q*(q**3-1)
-    assert n==target,(q,n,target)
-    # In every characteristic the rank-two 2-step algebra has both products nonzero.
-    F7=mk(0,0,0,0,0,0,0,0,q=q)
-    F7[0][0][0]=[0,1,0]
-    F7[1][0][0]=[0,0,1]
-    assert is_lsda(F7,q)
-    # Valid one-parameter degeneration from a non-2-step algebra to F7.
-    for t in range(q):
-        T=mk(1,1,1,0,0,t,0,t,q=q)
-        assert is_lsda(T,q), (q,t)
-    return n
+        first_three = True
+        fourth = altered_fourth = True
+        for x, y, z in triples:
+            xy = 2*x+y
+            yx = 2*y+x
+            yz = 2*y+z
+            xz = 2*x+z
+            if (r(left, x, left[yz]) != r(left, x, right[yz]) or
+                    l(right, left[xy], z) != l(right, right[xy], z) or
+                    sub(r(left, x, left[yz]), l(left, left[xy], z)) !=
+                    sub(r(right, y, left[xz]), l(left, right[yx], z))):
+                first_three = False
+                break
+            rhs = sub(r(right, y, right[xz]), l(right, right[yx], z))
+            fourth &= sub(r(right, x, right[yz]), l(right, right[xy], z)) == rhs
+            altered_fourth &= sub(r(right, x, left[yz]), l(right, left[xy], z)) == rhs
 
-def full_counts(q):
-    L=q*q+q+1
-    Z=1+L*(q**8-1)
-    U=L*(q+1)*(q-1)*q*q*(q**3-1)
-    R=L*(q*q-1)*(q*q-q)
-    return Z,U,R,Z+U+R
+        eq = bool(not (h or j) and a == b and a and c == ell and (c or d or f))
+        neq = bool(not (h or j or c or f) and a != b and ell and ((b-a)*d-a*ell) % p == 0)
+        assert (first_three and fourth) == (eq or neq)
+        assert (first_three and altered_fourth) == eq
+        equal_count += eq
+        unequal_count += neq
 
-if __name__=='__main__':
-    for q in (2,3):
-        n=check_normal_form(q)
-        print('F_%s fixed-flag normal forms: %s' %(q,n))
-    for q in (2,3,4,5):
-        print('F_%s: rank<=1, rank2 non-2-step, rank2 2-step, all = %s' %(q,full_counts(q)))
-    print('LSDA_TWO_COMPONENT_GEOMETRY_CHECKS_OK')
+    assert equal_count == (p-1)*p*p*(p**3-1)
+    assert unequal_count == p**3*(p-1)**2
+    lines = p*p+p+1
+    flag_count = lines*(p+1)
+    two_step = 1+lines*(p**8-1)+lines*(p*p-1)*(p*p-p)
+    narrow = two_step + flag_count*equal_count
+    wide = narrow + flag_count*unequal_count
+    print(p, equal_count, unequal_count, narrow, wide)
+    return narrow, wide
+
+
+assert check(2) == (2416, 2584)
+assert check(3) == (110241, 115857)
+print('FIXED_FLAG_CENSUS_PASS')

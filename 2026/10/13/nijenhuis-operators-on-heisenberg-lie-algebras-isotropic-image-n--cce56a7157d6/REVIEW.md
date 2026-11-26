@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The center-image obstruction is reconstructed explicitly: the horizontal part of the Nijenhuis equation for a central argument gives a nondegeneracy contradiction unless the center is preserved. Expansion of the remaining torsion identity gives the necessary and sufficient isotropic-image condition without dividing by any scalar. Ordered isotropic-frame counting divided by basis counts establishes the full rank enumeration, and the geometric statement follows from smooth isotropic Grassmann bundles and Lagrangian containment. The bundled verifier directly checks all 3-by-3 linear maps over the fields with two and three elements, all relevant 4-by-4 shifted matrices over the field with two elements, and additional rank/random tests. The computations support but do not replace the unrestricted proof.
+## correctness
 
-## Originality: PASS, subject to residual risk
-The full text of the motivating general Nijenhuis–Leibniz paper (arXiv:2306.06428v1) does not present Heisenberg normal forms or symplectic rank enumeration. Zhikhareva's arXiv:2410.10536v1 considers only regular semisimple three-dimensional operators, excludes the nonabelian nilpotent case in that regime, and records elementary central special cases; it is not a classification of the nonsemisimple operators counted here. Ma–Zhao (arXiv:2507.12692v1) classifies thirteen real three-dimensional Leibniz cases but neither all symplectic Heisenberg dimensions nor finite-field strata. Gao and collaborators (arXiv:2308.12121v1) treat different pre-Lie/associative objects. Published Heisenberg counting literature inspected concerns automorphisms or commutativity degrees rather than these torsion-zero operators. Possible older algebraic Nijenhuis varieties and uncatalogued equivalent enumerations remain residual risks. A failed search alone is not treated as proof of novelty.
+PASS
 
-## Value: PASS
-The object is a natural operator structure associated with deformation theory on all Heisenberg Lie algebras. The theorem classifies every operator, not just named examples, and determines the complete natural rank strata uniformly across all dimensions and characteristics. The exact finite-field counts and geometric irreducibility describe both arithmetic and geometry of the operator space; the scalar-center identity and isotropic-image constraint explain that structure. These are not arbitrary small-parameter slices or repetitions of known single examples.
+Writing N(z)=b+dz and N(v)=Av+ℓ(v)z, the horizontal component of torsion on (v,z) forces ω(v,b)b=0 for every v, hence b=0. The remaining torsion is precisely ω((A−dI)v,(A−dI)w)z, with no condition on ℓ. This is bidirectional and uses neither division by 2 nor algebraic closedness. For rank(S)=r, successively choosing an independent orthogonal frame gives ∏(q^(2m−i)−q^i); dividing by the number of bases and multiplying by the number of surjections V→W and q^(2m+1) gives the claimed count. Independent small-matrix enumerations reproduced (1,9), (1,32), (1,225,3150) for (m,q)=(1,2),(1,3),(2,2), before the scalar and functional factors. The isotropic Grassmannian has codimension binom(r,2): the tangent map to the alternating restriction is surjective even in characteristic two, by choosing a triangular representative bilinear form and lifting it through V/W→W*. Isotropic frames form iterated open vector bundles, which gives geometric irreducibility of the Grassmannian. Surjections onto the tautological r-plane form an open vector-bundle locus, giving the stated rank-stratum dimension. Every isotropic image extends to a Lagrangian; the Lagrangian incidence bundle maps onto the reduced variety and its rank-m part is dense, giving the full dimension. The rank statistic is rank(S), not rank(N); no claim about nonreduced torsion schemes is verified.
 
-## Limitations and closest work
-This does not classify conjugacy under Lie automorphisms or nonreduced scheme structure, and the finite verification is not an infinite proof. Central/scalar and regular-semisimple special cases are already known. The primary literature is listed and scientifically compared in the main result; equivalent formulations in broader operator-geometry work may exist.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct content is the all-field, all-dimension labeled classification for ordinary Heisenberg Lie algebras and the resulting complete rank(S) census. Standard symplectic Grassmannian geometry and counts are ingredients, not independent novelty claims. The strongest matched indexed records either change the identity or restrict the operators and rank statistic; no inspected source supplies the full classification.
+
+## value
+
+PASS
+
+A labeled classification valid in every Heisenberg dimension, including characteristic two, converts the full operator identity to a familiar geometric object. The rank census and stratum dimensions specify invariants usable for comparison with other central extensions and operator identities; this is not an isolated small-field enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

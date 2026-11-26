@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:53:31.224723Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A split is fully represented by counts x_i in [0,L_i]: positions within a constant run can be allocated in a contiguous prefix and suffix with no effect on the induced words. Guessing zero, full, or interior fixes which fragments appear, including forced exclusion of the interior state when L_i=1. On each track remove absent fragments and merge adjacent surviving identical symbols. If the resulting symbol sequences agree, equality of corresponding run lengths is necessary and sufficient. After the fixed counts are substituted, an interior variable x_i has one positive incidence from each track, because its opposite fragment has length L_i−x_i. Hence each column is one ordinary or one doubled incidence, giving at most r vertices and at most r edges in the stated graph. Shift each lower bound by one and subtract its incidences from the demands; negative demands are rejected. If a matching solver omits loops, a loop of residual capacity U at v is represented by a triangle on v,a,b with new vertices of exact demand U and all three edge capacities U. Then the two edges at v have the same value x and contribute 2x, and the third has value U−x. Parallel ordinary edges can be collapsed by summing capacities and their recovered multiplicities distributed integrally afterward. These transformations are internal to solving the given loop-allowed instance and preserve O(r) size. Letchford–Reinelt–Theis §1–2 supplies binary-capacity polyhedral separation, including the perfect case: alternatively maximize cardinality under bounded degrees and test saturation of all demands. This provides polynomial-bit-time feasibility and integral recovery without expanding capacities into unit edges. The construction and recovery are therefore valid in 3^r poly(r,S). The stated empty-word convention is consistent. The frozen verifier and notes were inspected, not run: the code compares independent descriptions on tested allocations and stops at the first successful allocation on positive instances. It does not exercise the matching algorithm or solve the large-capacity witness from scratch.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 1 applies to k-ary words and characterizes all runs, while the later low-run examples include prior four-run binary criteria. The cited unrestricted recognition theorem is NP-completeness even on a binary alphabet; the subsequence-cover algorithms are about a different problem."
+        ],
+        "reasoning": "The broad characterization and low-run criteria do not state the quantitative 3^r compressed-input algorithm. Binary alphabet hardness is independent of binary encoding of lengths and does not address a fixed or parameterized number of runs.",
+        "searches": [
+          "arXiv:2503.22043, §§1.2–1.3 and 3.1",
+          "arXiv:2503.22043, Proposition 1 and canonical-twins construction",
+          "arXiv:2509.05827, §1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2503.22043, 2509.05827 and math/0607088",
+        "Bulteau–Vialette, TCS 806 (2020) (primary access attempted; secondary description read)",
+        "Resultary records 9f2f21b3d6b2, 6dd602f692b0 and 8856539f3341"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier nest-free graph has same-symbol edges and exact input-run degrees, with loops and parallel edges. The matching literature already supplies polynomial perfect capacitated b-matching."
+        ],
+        "reasoning": "For the earlier graph, map each edge to its sorted endpoint pair. A strict reversal between two such pairs is exactly a nest; hence the support is a monotone chain in the r×r grid. Each such chain extends to a monotone unit-step grid path. Enumerating at most binom(2r−2,r−1) paths and allowing positive multiplicities only on eligible cells gives a 4^r poly(r,S) algorithm with up to 2r−1 cells per instance and a compressed witness. Thus single-exponential compressed recognition is already obtainable by combining the graph characterization and matching. The new 3^r enumeration with at most r edges does not follow from this path argument; it optimizes lengths via equality of aligned output runs rather than placing variables on the possible input-run pairs.",
+        "searches": [
+          "arXiv:2503.22043, §2.1, definition of nest and Proposition 1",
+          "Letchford–Reinelt–Theis, arXiv:math/0607088, pp. 1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Grytczuk–Pawlik–Ruciński use ordered multigraphs with input runs as vertices, prescribe their degrees, and prohibit nests; canonical twins are recovered by the two ordered degrees of each input run. Subsequence Covers of Words distinguishes its subsequence-cover problem from shuffle closure and cites binary shuffle-square hardness."
+        ],
+        "reasoning": "The prior ordered graph gives a genuinely equivalent feasibility characterization and a count-based witness, but its graph constraints are on allowed input-run pair supports, not one independent multiplicity per split input run. The frozen reduction needs the additional observation that aligned merged output runs compress each remaining count to two incidences.",
+        "searches": [
+          "arXiv:2503.22043, §§1.4 and 2.1, Proposition 1",
+          "arXiv:2509.05827, §1, plus checks for alignment/path formulations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The four-run shuffle-power record applies its contribution to q≥3 and credits prior work for q=2. The other inspected records concern the DFA for interleaving two given two-run words and contiguous five-run square factors."
+        ],
+        "reasoning": "A numerical table is not an appropriate certificate for this general binary-input algorithm; the exact algorithm index search found related problems and a genuine special-case criterion, not the claimed matching bound. Same-day dates do not decide equivalence or priority.",
+        "searches": [
+          "Targeted Resultary searches for shuffle-square run reductions and compressed recognition",
+          "Resultary records 9f2f21b3d6b2, 6dd602f692b0 and 8856539f3341"
+        ]
+      },
+      "rationale": "Best of current knowledge: the supported distinct claim is the specific 3^r bound with at most r matching edges and r indeterminates after aligning output runs, on binary run lengths, including witness recovery. Run-parameter tractability, single-exponential solvability without that bound, and ordered graph representations should not be credited separately.",
+      "residual_risks": [
+        "The focused web query did not identify relevant additional publications; that does not exclude an equivalent or better compressed path/track method under alternate terminology.",
+        "The original 2020 hardness paper was not read in full."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct characterization overlap and prior implication of a weaker algorithm bound",
+          "evidence": "Nest-free ordered multigraph with exact run degrees and same-symbol edges characterizes shuffle squares and reconstructs canonical twins; low-run binary criteria are already available.",
+          "identifier_or_url": "https://arxiv.org/abs/2503.22043",
+          "material_read": "§§1.2–1.4 pp. 3–6; §2.1 pp. 7–8, nest definition and Proposition 1 (PDF text around offsets 17800–24978); §3.1 pp. 11–12",
+          "method": "Lawful open primary PDF, bounded passages",
+          "title": "Shuffle Squares and Ordered Nest-Free Graphs",
+          "trigger": "Exact recognition problem and graph model on runs"
+        },
+        {
+          "assessment": "Access limited; no assertion about whole-document coverage",
+          "evidence": "Publisher retrieval returned HTTP 403; the accessible survey of the proof explicitly describes a Bin Packing reduction with related ordered graphs.",
+          "identifier_or_url": "Theoretical Computer Science 806 (2020), 116–132",
+          "material_read": "No primary full text; bibliographic identification and summary in arXiv:2503.22043 §§1.2 and 2",
+          "method": "Lawful publisher access attempt and accessible neighboring paper",
+          "title": "Recognizing binary shuffle squares is NP-hard",
+          "trigger": "Graph constructions for the same recognition problem"
+        },
+        {
+          "assessment": "Related problem, not a covering theorem in the inspected passage",
+          "evidence": "The article separates s-covers from shuffle closure and places shuffle squares in the latter problem family.",
+          "identifier_or_url": "https://arxiv.org/abs/2509.05827",
+          "material_read": "§1 p. 2, PDF text around offset 6850",
+          "method": "Lawful open primary PDF, bounded passage",
+          "title": "Subsequence Covers of Words",
+          "trigger": "Possible broader subsequence-cover or alignment algorithm"
+        },
+        {
+          "assessment": "Supports the imported algorithmic ingredient",
+          "evidence": "Defines integer multiplicities on capacitated edges, gives polynomial separation for the capacitated polytope and explicitly includes perfect capacitated matching.",
+          "identifier_or_url": "https://doi.org/10.1137/060664793; https://arxiv.org/abs/math/0607088",
+          "material_read": "PDF pp. 1–2, including offset 6400 onward in the authorized preprint",
+          "method": "Lawful DOI recovery to the same paper's open preprint",
+          "title": "Odd Minimum Cut Sets and b-Matchings Revisited",
+          "trigger": "Binary-capacity polynomial-time ingredient"
+        },
+        {
+          "assessment": "Later comparator; prior q=2 low-run scope is a genuine but narrower overlap",
+          "evidence": "Four-run q-copy criteria with the q=2 case credited to the earlier classification, not an arbitrary-r binary-input reduction.",
+          "identifier_or_url": "2026/11/8/SCOPE-four-run-binary-shuffle-powers-exact-classification-enumeration--9f2f21b3d6b2",
+          "material_read": "Finding and Relationship to prior work, offsets 0 and 6500",
+          "method": "Local Resultary mirror",
+          "title": "Four-run binary shuffle powers: exact classification and enumeration",
+          "trigger": "Closest indexed special case"
+        },
+        {
+          "assessment": "Different input and recognition problem",
+          "evidence": "DFA for interleavings of two fixed words, rather than testing whether an input admits two identical full tracks.",
+          "identifier_or_url": "2026/10/26/SCOPE-two-phase-normal-form-and-exact-dfa-complexity-of-opposite-run-b--6dd602f692b0",
+          "material_read": "Finding and scope",
+          "method": "Local Resultary mirror",
+          "title": "Two-phase normal form and exact DFA complexity of opposite-run interleavings",
+          "trigger": "Same-day run/shuffle algorithm hit"
+        },
+        {
+          "assessment": "Different notion of square",
+          "evidence": "Counts contiguous factors, not partitions into scattered identical subsequences.",
+          "identifier_or_url": "2026/10/26/SCOPE-five-run-binary-square-factors-synchronized-lengths-sharp-extrem--8856539f3341",
+          "material_read": "Finding and scope",
+          "method": "Local Resultary mirror",
+          "title": "Five-run binary square factors",
+          "trigger": "Possible same-day low-run square recognition overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The compressed model allows lengths exponential in the input bits, so an algorithm on expanded positions is not an adequate baseline. After accounting for the earlier nest-free graph, the surviving contribution is an exponential reduction from the straightforward grid-path enumeration and a one-variable-per-input-run formulation with no explicit nest constraints inside each instance. This makes matching feasibility and witness recovery directly applicable to the hard recognition problem and is useful without claiming first run-parameter tractability or an optimal exponential base.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

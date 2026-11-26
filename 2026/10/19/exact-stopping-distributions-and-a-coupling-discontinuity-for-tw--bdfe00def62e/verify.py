@@ -1,12 +1,11 @@
-"""Reproduce exact two-coordinate RCGLS stopping laws using rational arithmetic.
+"""Finite corroboration of exact two-coordinate stopping laws with idle draws.
 
 Run: python verify.py
 Requires Python 3 and SymPy. All matrix/sample-path checks use Fractions.
-This is finite corroboration; the full distribution and infinite-time claims are proved analytically.
+The full distribution and infinite-time claims are proved analytically.
 """
 from fractions import Fraction as Q
 from itertools import product
-from collections import defaultdict
 import sympy as sym
 
 
@@ -19,10 +18,10 @@ def dot(u, v):
 
 
 def rcgls(H, e0, choices):
-    """Source algorithm's equivalent error/direction form, S=e_i/sqrt(H_ii).
+    """Signed-error variant with S=e_i/sqrt(H_ii) and idle draws.
 
-    With gradient g=H*e, the sketched gradient is (g_i/H_ii)*e_i.
-    If a denominator vanishes its quotient is set to zero.
+    The rule in this variant sets both zero-denominator quotients to zero;
+    every draw stores the new direction and counts as a completed update.
     """
     e = [Q(x) for x in e0]
     direction = [Q(0), Q(0)]

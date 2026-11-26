@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:09:58.184631Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–38; VERIFICATION.md and verify.py inspected without running them",
+        "Zheng arXiv:2610.13063v1, Cor. 4.9 and Thm. 6.2"
+      ],
+      "rationale": "Independently recovered the joint order and tree law: with seen set S, current x and u=n−|S|, a specified next new label y with predecessor z∈S has probability (1+u·1[z=x])/(nu). The immediate jump contributes 1/n only for z=x; summing strings of one or more old draws ending at z contributes 1/(nu). Multiplication yields the stated order weights times a common factor, with the first root discovery contributing a common numerator n. For the permutation expansion, remove the ancestor-closed prefix, write a=τ_i and b=τ_{i+1}. In a valid suffix input the first scanned symbol has b as its first available ancestor in the forest without a. Reinserting a later than first prepends a to that first chain exactly when p(b)=a; otherwise b would precede a. Reinserting a first always works since a has no un-emitted ancestor. Erasing a preserves the shorter expansion, so this induction exhausts the distinct input permutations, giving exactly the displayed product. The latest scanned leaf is the latest output: leaves cannot be emitted earlier, and every internal vertex precedes an output descendant leaf. Uniform permutations assign each leaf probability 1/|Λ(T)|. This also covers k=1, a unique leaf, and suppression of holding steps.",
+      "residual_risks": [
+        "The mass comparison for the last discovery is specific to uniform complete-graph transitions and does not extend in this proof to arbitrary edge weights or intermediate discovery ranks."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "First-entrance and last-exit tree distributions compared in Fredes–Marckert Remark 25",
+          "Zheng p. 20 says later-position marginals remain to be analyzed"
+        ],
+        "reasoning": "A tree-distribution identity is not a joint identity of tree and last vertex, and by itself cannot yield the conditional leaf law. The full-order formula is broader as a probability description, but leaves a weighted sum to be evaluated: the fiber construction produces the exact symmetry rather than assuming an automorphism of the tree.",
+        "searches": [
+          "Zheng Theorem 6.2, Example 6.3; Fredes–Marckert, Remark 25 and heap/golf-sequence proofs"
+        ]
+      },
+      "checked_sources": [
+        "Zheng arXiv:2610.13063v1, Fredes–Marckert arXiv:2102.08639v2",
+        "Resultary ec87e1cee166, 2b607d0cfc50, 45da9f177f4a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Zheng p. 12 unrefined sum k!, p. 16 individual weighted order probabilities, p. 20 open later-position marginals",
+          "Fredes–Marckert Remark 25, p. 18"
+        ],
+        "reasoning": "The sum over orders ending in a specified leaf needs a leaf-preserving count or an equivalent argument. Neither the unrefined sum nor equality of unconditional tree laws partitions its mass equally over leaves, particularly leaves in different automorphism orbits.",
+        "searches": [
+          "Compare the precise marked leaf mass to Zheng Cor. 4.9 and Thm. 6.2, and the cover-time last-exit identity reported by Fredes–Marckert"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zheng Cor. 4.9, Thm. 6.2, Example 6.3 and p. 20 discussion",
+          "Resultary ec87e1cee166, Finding"
+        ],
+        "reasoning": "Full weighted linear-extension mass specifies the marginal by summation but does not evaluate its equality over leaves. The cycle-conductance result gives a different last-vertex distribution with different conditioning, not this fixed-tree result.",
+        "searches": [
+          "Resultary and primary search for last discovery conditional on first-entrance tree, leaf-uniform mass, and ancestor-expansion or shuffle formulations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary ec87e1cee166, 2b607d0cfc50 and 45da9f177f4a, Findings"
+        ],
+        "reasoning": "The closest entries concern last-vertex symmetry after conductance mixing or the last part on a complete bipartite graph. Their conditioning and candidate vertices differ; no matching tree-conditioned table or formula was found.",
+        "searches": [
+          "Resultary ranked search for terminal discovery and first-entrance trees, including bipartite and conductance variants"
+        ]
+      },
+      "rationale": "The contribution is the fixed-tree terminal marginal and its leaf-refined fiber identity. Zheng already gives the full weighted order law and total normalization and explicitly leaves later-position marginals for analysis; the inspected sources do not derive the uniform terminal-leaf marginal.",
+      "residual_risks": [
+        "An equivalent weighted permutation-to-tree shuffle or cover-time joint law under different terminology might remain unindexed. The focused external search miss was not counted as evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior full-order law and total mass; terminal refinement is distinct",
+          "evidence": [
+            "Cor. 4.9 sums all orders to k!; p. 20 says later-position marginals remain to be analyzed."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.13063",
+          "material_read": "Cor. 4.9 p. 12, Thm. 6.2 and Ex. 6.3 p. 16, discussion p. 20",
+          "method": "OA PDF passages",
+          "title": "The Order Mass Identity of Rooted Forests, with a Direct Proof of the Extended Aldous–Broder Theorem",
+          "trigger": "Exact conditional discovery-order law for the same walk"
+        },
+        {
+          "assessment": "Inspected claims concern tree law or path rearrangements, not terminal-leaf mass at fixed tree",
+          "evidence": [
+            "Remark 25 states equality in distribution of first-entrance and cover-time last-exit trees, not a tree/last-discovery joint law."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2102.08639",
+          "material_read": "Introduction, pp. 11–13, Remark 20 p. 15, Remark 25 p. 18",
+          "method": "OA PDF passages",
+          "title": "A combinatorial proof of Aldous–Broder theorem for general Markov chains",
+          "trigger": "Reversed last-exit trees and combinatorial rearrangements could give a stronger map"
+        },
+        {
+          "assessment": "Different conditional law",
+          "evidence": [
+            "Uniform over all non-start vertices of a cycle conditional on an unordered conductance multiset, not on a realized tree."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-exchangeable-edge-conductances-restore-uniform-last-discovery-on--ec87e1cee166",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Exchangeable edge conductances restore uniform last discovery on a cycle",
+          "trigger": "Nearest catalogue theorem with uniform last vertex"
+        },
+        {
+          "assessment": "Different sample spaces and observables",
+          "evidence": [
+            "The laws track the last vertex's part, not the last leaf of a given entrance tree."
+          ],
+          "identifier_or_url": "2b607d0cfc50; 45da9f177f4a",
+          "material_read": "RESULT.md Findings",
+          "method": "Resultary search and local mirror",
+          "title": "Complete-bipartite last-discovery laws",
+          "trigger": "Nearby exact terminal-rank results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and expansion proof; Zheng p. 20 discussion"
+      ],
+      "rationale": "It evaluates a concrete outstanding marginal of the complete-graph order law, nontrivially independent of asymmetries of the fixed tree. The permutation lift both explains the marginal and realizes all weights, rather than recomputing isolated trees or invoking nonexistent leaf symmetry of the conditioned tree.",
+      "residual_risks": [
+        "No claim of an intermediate-position formula or an extension to other walks."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

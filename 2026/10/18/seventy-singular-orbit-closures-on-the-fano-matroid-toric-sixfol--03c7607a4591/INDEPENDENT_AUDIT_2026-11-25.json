@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:08:12.352140Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the rank-six affine lattice, Edmonds' inequalities cover every facet. Singleton, complement-of-singleton and Fano-line inequalities suffice: rank-two pair constraints follow from the coordinate upper bounds and all rank-three upper constraints follow from the coordinate lower bounds and total sum. The candidate supporting vertex sets of affine rank 5 give 21 actual facets. Taking all intersections (including the full and empty faces) gives 772 faces, with proper nonempty face vector (28,126,245,238,112,21). At a d-face the normal cone is spanned by the distinct primitive active facet rays (1_{i∈S}−1_{7∈S})_{i=1}^6 and has dimension k=6−d. Regularity is exactly k rays with determinant divisor 1 in the ambient lattice, equivalently a basis of the saturated span. The exhaustive replay gives 308 nonregular cones and no simplicial nonregular ones. The orbit closure order is the face inclusion order, so the 70 maximal singular faces yield exactly the irreducible components of the reduced locus: (dimension, vertices, rays)=(3,4,4)×21, (2,4,5)×21, (2,3,5)×28. All invertible binary point transformations were checked; each of the three types is one orbit. For each such cone the transverse toric chart uses the saturated span; the determinant divisor 1 for the full ray set makes the dual divisor-sequence cokernel torsion free, and k+1 rays give free rank one. This establishes Cl≅Z, and cone simpliciality is the local Q-factoriality criterion. A finite quotient of a smooth germ is Q-factorial, so it cannot describe these generic singularities. Fresh standard-library replay: python3 /workspace/branches/284f24b9-91f2-4abb-a478-b24e8f372f80/reproduce_fano_normal_fan.py; results in fano_reproduction.log alongside it. The frozen checker was inspected, not executed. The proof concerns the reduced singular locus of this toric variety, not any scheme multiplicities or a classification of general matroids.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The sparse-paving theorem with r,n−r≥3 gives 2n+h facets and Cl(U_B)≅Z^(1+t(B)) at every fixed chart; for the Fano data these are 21 facets and Z^4 at each fixed point.",
+          "The Fano Gröbner paper proves absence of a regular unimodular flag triangulation for the Fano base polytope. Gorenstein matroid classification treats a different property."
+        ],
+        "reasoning": "The broader family covers a genuine subset of the census data. Fixed chart singularity is weaker than an orbit-by-orbit decision; a triangulation of the base polytope is not a regularity test for its normal cones.",
+        "searches": [
+          "ab9ef237f801 all sparse-paving matroids, Finding and limitations",
+          "arXiv:2606.11014 Theorem 1.1 and §5.1",
+          "arXiv:2005.08359 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_fano_singular.py (read only)",
+        "Resultary ab9ef237f801 and ranked exact-claim comparisons",
+        "arXiv:2606.11014 Theorem 1.1 and §5.1; arXiv:0901.3534, 1408.0419 and 2005.08359 opening passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Applying the fixed-chart theorem to F_7 implies all 28 fixed orbits are singular; it does not identify which higher-dimensional orbits have nonsimplicial normal cones or whether their ray spans have index one.",
+          "The directly inspected triangulation obstruction and abstract-level toric ideal generator results do not state the positive-dimensional class groups or the normal-fan classification."
+        ],
+        "reasoning": "Some ingredients and fixed-point conclusions are established coverage, not original findings. The independently reproduced saturation, maximal-orbit and symmetry census is necessary additional information; neither existence of standard tools nor the partial theorems gives this census as an immediate specialization.",
+        "searches": [
+          "ab9ef237f801 RESULT.md offset 0 and 7483–9223",
+          "arXiv:2606.11014 Thm 1.1 and §5.1; arXiv:1408.0419 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Maximal singular faces correspond under the reversed order to minimal nonregular cones, not maximal cones of the fan. The latter index fixed points.",
+          "ab9ef237f801 gives a local class group at each fixed point chart but explicitly does not classify positive-dimensional strata."
+        ],
+        "reasoning": "A fixed-point chart and a transverse chart of a generic component are different normal cones; comparing only the word singularity or only cone counts would conflate them.",
+        "searches": [
+          "Resultary: Fano matroid base polytope normal fan singular locus 70 irreducible components; 308 singular torus orbits; 21/21/28 split",
+          "Resultary ab9ef237f801, Finding and limitations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest exact-census query surfaced ab9ef237f801, which gives the fixed-point and facet information only; no full matching census was returned.",
+          "Kim studies flags and the cd-index; the face-vector discussion in the Fano Gröbner paper is about a triangulation complex, not the singular portions of the original face lattice."
+        ],
+        "reasoning": "Even a polytope face vector would not specify the ray-lattice tests for an individual stratum. Negative catalogue results are bounded.",
+        "searches": [
+          "Resultary Fano matroid normal fan exact counts 70 components, 308 singular strata, 21/21/28",
+          "arXiv:0901.3534 abstract and arXiv:2606.11014 §5.1"
+        ]
+      },
+      "rationale": "The distinct result is the exhaustive positive-dimensional component and singular-orbit classification, including unimodularity of all simplicial cones and the generic transverse class groups. Resultary ab9ef237f801 is materially overlapping: it implies the Fano facet count and the singular, non-Q-factorial fixed points. It does not classify positive-dimensional strata, and its fixed-point theorem does not imply the claimed component types, total strata count, or transverse class groups. Neither the common catalogue date nor the titles decide priority. The previously inaccessible Fano-specific source was inspected at its relevant theorem and triangulation section; these are not the asserted normal-fan classification.",
+      "residual_risks": [
+        "The same-day fixed-point theorem materially overlaps; neither comparison determines historical order.",
+        "The bounded primary and catalogue inspections do not establish absence of an unpublished computation or an uninspected relevant passage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantive overlap for facets and fixed points, not positive-dimensional classification; no priority inferred from the shared date",
+          "evidence": [
+            "2n+h facets and fixed-chart class group Z^(1+t(B)); explicit limitation on positive-dimensional singular strata."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-canonical-cartier-phase-transition-in-sparse-paving-matroid-to--ab9ef237f801",
+          "material_read": "RESULT.md offsets 0 and 7483–9223 at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror exact statement and limitations",
+          "title": "A canonical Cartier phase transition in sparse-paving matroid toric varieties",
+          "trigger": "Fano is a member of this broader family; same toric singularity and class-group setting"
+        },
+        {
+          "assessment": "Relevant passages concern triangulations and Gröbner bases, not the claimed normal-fan census",
+          "evidence": [
+            "Theorem 1.1 gives no regular unimodular flag triangulation of the Fano base polytope; §5.1 discusses the triangulation-complex f-vector."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.11014",
+          "material_read": "Thm 1.1 at arXiv HTML offset 3097 and §5.1 near offset 45372",
+          "method": "Primary OA HTML excerpts",
+          "title": "There are matroid toric ideals without quadratic Gröbner bases",
+          "trigger": "Fano-specific base polytope and toric ideal study"
+        },
+        {
+          "assessment": "Related face/flag enumeration background; no whole-document noncoverage assertion",
+          "evidence": [
+            "Flag structure and cd-index."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0901.3534",
+          "material_read": "Abstract and introductory passage, offset 0",
+          "method": "OA excerpt",
+          "title": "Flag enumerations of matroid base polytopes",
+          "trigger": "Potential exact polytope face data"
+        },
+        {
+          "assessment": "The inspected material concerns generators and complete intersections, not the stratum count",
+          "evidence": [
+            "Toric ideals, their minimal generators and matroid minor methods."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1408.0419",
+          "material_read": "Abstract and introductory passage, offset 0",
+          "method": "OA excerpt",
+          "title": "Matroid toric ideals: complete intersection, minors and minimal systems of generators",
+          "trigger": "Potential algebraic description of the same toric variety"
+        },
+        {
+          "assessment": "Pertinent algebraic properties, without evidence of the target census in the inspected material",
+          "evidence": [
+            "Characterizations of Gorenstein matroid base and independence polytopes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2005.08359",
+          "material_read": "Abstract and introductory passage, offset 0",
+          "method": "OA excerpt",
+          "title": "Gorenstein matroids",
+          "trigger": "Potential general matroid polytope singularity result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a complete geometric classification for a canonical matroid, not a sample of cone singularities. The 70 components in two dimensions and three symmetry types, 308 strata and equality of singular and non-Q-factorial loci distinguish the variety substantially beyond fixed-point information. The generic class-group statement describes the local failure of Q-factoriality on every component type.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

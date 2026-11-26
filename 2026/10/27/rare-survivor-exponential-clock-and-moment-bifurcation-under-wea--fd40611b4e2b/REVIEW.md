@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The published independent-searcher survival representation is rewritten as an intrinsic survival term plus an initial-mortality term. A common-process coupling proves the total-variation estimate; the rare-survival calculation uses exponential bare-search tails and two direct dominated-convergence limits. Conditional convergence follows by conditioning on initial-searcher death. For all real positive moment orders a fixed positive-mass subset of promptly completed bare searches gives an exponential domination bound, allowing the limit to be exchanged with an unbounded time integral. Two independent exact-law examples passed 24 computational comparisons. Risks are restricted to the stated exponential-moment and independent-clock hypotheses; they are explicitly included.
+PASS
 
-## Originality (O): PASS with residual priority risk
+Each recruit has a defective success delay: it is τ if it survives to τ, and infinity otherwise. The count of successful immigrant arrivals by t is Poisson with mean βε J_{δε}(t). Its first-arrival time is independent of the initial searcher and equals the system completion time on initial failure. On u=εt>0, εJ_{δε}(u/ε) tends to u by bounded convergence, the initial-failure factor divided by ε tends to δm, and the light bare tail is o(ε). This proves both normalized survival and the conditional clock, including for bare laws with atoms. The coupling agrees up to τ if no birth or initial death occurs before τ, giving the TV bound. For moments the S(t) part is dominated by the bare moment integral. In the rescaled failure term, g_{δε}/ε≤δm and J_{δε}(t)≥c(t−M)_+ for fixed M with P(τ≤M)>0 and c>0 uniform for small ε. This dominates by a constant times u^{q−1}exp(−βcu), integrable for every q>0. Integrating gives δmΓ(q+1)/β^q with prefactor ε^{1−q}; the bounded bare part supplies the q<1 and q=1 limits. At q=2 the bounded squared mean is negligible, giving 2δ/[m(β+δ)^2] for ε times squared CV.
 
-The exact survival probability and the discontinuous small-turnover **first moment** are already published in arXiv:2602.11095v1. arXiv:2601.07096v1 independently gives the same survival formula and analyzes the opposite, high-turnover coefficient-of-variation regime. The reviewed addition is a quantified low-turnover rare-event profile, a conditional limiting clock, and the full real-order moment phase diagram. Targeted searches produced no identical stated result. Since the new laws are derived from a known exact expression by asymptotic reasoning, their priority might be implicit in broader first-passage or rare-event literature. Full access to every supplementary section of the second source could not be confirmed, leaving that comparison as a residual risk.
+## originality
 
-## Value (V): PASS
+PASS
 
-The source's unexpected mean jump becomes quantitatively intelligible through the exact distribution of a vanishingly rare subpopulation of long-delayed searches. This yields a robust reliability consequence: arbitrarily close first-passage distributions in total variation can have variance growing as the reciprocal turnover rate, and higher moments have different divergence exponents. The criterion concerns a natural stochastic-detection model and a physically meaningful distinction between typical delay and failure-induced tail risk.
+This is a close extension of a known same-model, same-regime analysis. The exact survival formula, first-moment discontinuity and qualitative rare-mortality/long-wait mechanism are prior. The existing weak-rate survival expansion also essentially supplies the macroscopic profile once its error is controlled at t=u/ε. Credit the joint quantified result, particularly the conditioning on initial failure and the real-order transition with sharp constants and uniform control of the moment integrals, not rediscovery of the mechanism or a new solution of the finite-rate survival problem.
 
-## Closest literature and boundaries
+## value
 
-- G. Mercado-Vásquez and D. Boyer, arXiv:2602.11095v1: exact survival and small-rate mean behavior, but no stated all-real-moment singular law in the inspected complete text.
-- S. Linn and A. Kumar, arXiv:2601.07096v1: same general survival structure, high-turnover CV analysis in accessible supplementary section S2; uninspected material elsewhere remains a comparison risk.
-- No claim covers non-exponential baseline tails, vanishing rate ratios, or dependent searches.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Typical completion times and risk-sensitive summaries can behave differently even with a light-tailed bare passage law: O(ε) of the mass survives on an O(1/ε) time scale. Quantifying that tail and proving the entire positive-moment transition distinguishes small changes in the distribution from variance divergence and gives usable leading constants, not just a first-moment discontinuity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

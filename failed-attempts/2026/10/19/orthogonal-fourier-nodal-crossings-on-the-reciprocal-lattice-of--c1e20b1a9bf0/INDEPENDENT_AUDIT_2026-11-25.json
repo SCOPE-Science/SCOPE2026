@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:59:27.665535Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–76; independent integration and Taylor checks",
+        "VERIFICATION.md, check_hexagon.py and checks.txt, inspected without executing the uploaded script"
+      ],
+      "rationale": "Integrating e^(−2πi(su+tv)) first over the two stated vertical sections of H₀ yields det(A) times the stated cosine quotient. The three projections q=(s−t,t,−s) sum to zero, have unit physical normals 120° apart, and give the equivalent normalized numerator form F/area(H)=−sum_i q_i cos(2πq_i)/(6π² q₁q₂q₃). The hexagon is the Voronoi tile of AM Z² (the shortest-vector half-planes give the six sides and the area agrees with the lattice covolume), so its nonzero dual points are zeros, including the axial points. At integer nodes away from the three axes the first numerator term is quadratic, proportional to sum_i q_i(δq_i)²; its Cartesian trace vanishes because the normals are unit and sum_i q_i=0. Direct substitution gives the specified nonzero complex-square jet with coefficient 3√3/[8mn(m−n)], including the sign of its mixed term. The Hessian is indefinite and nonsingular, so the real-analytic Morse lemma gives exactly two transverse arcs, with the orthogonal null lines specified by the angle law. At integer axial nodes one factor cancels analytically; the linear jets at (0,n),(m,0),(m,m), before multiplying by det(A), are (−δs+2δt)/n, (2δs−δt)/m, (δs+δt)/m. At the other dual nodes all q_i have a common nonintegral residue with nonzero sine, and the numerator derivative is a nonzero multiple of sum_i q_i δq_i. Thus every other nonzero dual zero is simple. The covolume, index three, and O(R+1) contribution of the three lines give both density constants. The statement is about reciprocal-lattice nodes, not all zeros.",
+      "residual_risks": [
+        "The finite 288-node and quadrature checks are corroboration only. The proof's wording that continuity covers axial points is not sufficient if applied only to a discrete node set; tiling orthogonality and the explicit axial Taylor jets separately justify those points."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tiling/spectral theory supplies zeros at all nonzero dual nodes. The general A_d source identifies the regular hexagon as the A₂ fundamental domain. The diffraction source gives polygonal aperture and edge-wave methods.",
+          "The inspected convex-body theorem classifies directions to nearest zeros, not the orders of dual nodes; explicit kernel expressions, rather than general tiling or closest-zero results, are decisive."
+        ],
+        "reasoning": "A general location or diffraction result alone does not imply perpendicular tangents. The Li–Sun–Xu specialization supplies the product with equally spaced projection directions that makes the derivative harmonic.",
+        "searches": [
+          "Li–Sun–Xu Theorem 2.1 and Proposition 2.2, arXiv:0712.3093",
+          "Li–Xu arXiv:0809.1079 fundamental domains of A_d",
+          "Huang–Christian–McDonald DOI 10.1364/JOSAA.23.002768, Eqs. (1)–(2)",
+          "Gómez-Serrano et al. arXiv:2609.10517, Theorem 1.7"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0712.3093 §§2.1, 3.1 and 3.3",
+        "arXiv:0809.1079 introduction; arXiv:2609.10517 Theorem 1.7 and §4",
+        "Huang–Christian–McDonald Eq. (1)–(2)",
+        "Ye–Entezari metadata and access attempts",
+        "Resultary 2d3222d8e549 and 1a27a9f4b8a6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Formula (3.9) has the factor (Θ_n−Θ_{n−2})/(6n²) plus a bounded cosine term times n⁻². In (3.10) this difference becomes a first derivative of the product of three sine factors as the scale approaches one. After normalization it is P+(1/3)EP.",
+          "For q=(s−t,t,−s), the relation ∏sin(πa q_i)=−(1/4)sum_i sin(2πa q_i) also gives the exact frozen cosine quotient from this limit. The zero counts and first jets result from which sinc factors vanish and, in the fractional classes, which cotangents agree."
+        ],
+        "reasoning": "This is a direct specialization and differentiation of a prior explicit expression, not merely substituting the frozen paper's freshly derived formula into an unrelated sampling theorem. The nodal crossing follows by the ordinary analytic Morse lemma once the leading harmonic quadratic is read off; there is no remaining case whose geometry needs a new argument beyond these operations.",
+        "searches": [
+          "arXiv:0712.3093 Theorem 3.5 and Eqs. (3.7), (3.9)–(3.10), pp. 11–12, offsets 32700–39207",
+          "Riemann-sum scaling Φ_n*(x/n) and Taylor expansion of the resulting sinc product at the three residue classes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Li–Sun–Xu Eq. (2.6) identifies the normalized Fourier transform of the tile with its continuous cardinal kernel; §3.1 uses the regular hexagon, which is the frozen tile after normalization and an orthogonal coordinate identification.",
+          "The off-axis normalized quotient is the same as the elementary differential form P+(1/3)EP of the rescaled kernel (3.9)–(3.10), using sum q_i=0."
+        ],
+        "reasoning": "The sinc/cardinal formulation changes scale and normalization, not the local multiplicities or the Euclidean angles. The finite-degree kernel at fixed n is not itself the frozen transform; its rescaled Riemann-sum limit is.",
+        "searches": [
+          "Hexagonal cardinal interpolation kernel, hexagonal sinc, A₂ Fourier aperture",
+          "Li–Sun–Xu arXiv:0712.3093 §2.1, §3.1, §3.3; Ye–Entezari DOI 10.1109/TIP.2011.2162421"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2d3222d8e549 gives zero strata for the uniform Sierpiński carpet measure; 1a27a9f4b8a6 is a finite six-frequency sixth-moment result.",
+          "Neither is the Fourier transform of the plane regular-hexagon indicator. The package's 288 finite nodes are not a prior table and cannot give the infinite result."
+        ],
+        "reasoning": "No exact tabulation was identified in the ranked index search. The originality reason is mathematical coverage by the publicly available explicit kernel, not a matching parameter or index absence.",
+        "searches": [
+          "Resultary: reciprocal-lattice Fourier zeros, hexagonal aperture, multiplicity/orthogonal nodes and zero density",
+          "Resultary 2d3222d8e549 and 1a27a9f4b8a6 findings"
+        ]
+      },
+      "rationale": "The strongest coverage is the mechanically implied classification from the published Li–Sun–Xu hexagonal kernel, not the fact that a generic Fourier integral can be differentiated. Their explicit (3.7), (3.9)–(3.10) give a direct scaling limit. In their homogeneous coordinates write x=(x₁,x₂,x₃), sum x_i=0, and q=((x₁−x₂)/3,(x₂−x₃)/3,(x₃−x₁)/3). By (3.7), Φ_n*(x/n) is a normalized Riemann sum for the Fourier transform of the regular hexagon (boundary weights have vanishing contribution); taking j=(u,v,−u−v) identifies the oblique frequencies s=(x₁−x₃)/3, t=(x₂−x₃)/3. In (3.9)–(3.10) the two Θ products have numerator sine scales 1±1/n after rescaling, and their shared denominator is asymptotic off the three lines to π³q₁q₂q₃/n³. The cosine correction is O(n⁻²). The resulting normalized continuous kernel is (1/3) times the derivative at a=1 of a³∏_i sinc(πa q_i), with sinc(z)=sin(z)/z. It is therefore G=P+(1/3)E P with P=∏_i sinc(πq_i) and E the radial Euler derivative. This published-product limit gives the claimed geometry directly, even without the frozen proof's transform formula. At integer nodes off the axes P has leading term proportional to the product of the three displacement linear forms. Their unit normals are 120° apart, so the cubic product is harmonic; the radial derivative at a nonzero node gives a nonzero harmonic quadratic, and its linear differentiation gives the displayed coefficient and half-angle law. On the integer axes P has just two simple vanishing factors and their radial derivative leaves a nonzero linear term. At the two fractional residues P≠0 and G/P=(π/3)sum_i q_i cot(πq_i). Common residues immediately give zero and derivative proportional to sum_i q_i δq_i≠0. The index and density then follow from the residue classes and removal of three lines. The inspected paper does not state the nodal theorem verbatim, but its explicit product representation, standard limit and first Taylor terms already mechanically entail it. The unavailable sinc paper is not the reason for failure.",
+      "residual_risks": [
+        "Ye–Entezari full text was inaccessible, so whether it gives an explicit continuous formula or the local classification remains unresolved. No inference from access failure or an empty exact index match is used.",
+        "The prior implication is a statement comparison, not a claim that Li–Sun–Xu stated the classifications verbatim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Zeros explicit by cardinality; full local result mechanically implied by rescaled product",
+          "evidence": "The weighted finite hexagonal Fourier sum and closed product difference give the continuous kernel as a first dilation derivative of the three sine factors in the normalized limit.",
+          "identifier_or_url": "https://arxiv.org/pdf/0712.3093",
+          "material_read": "Theorem 2.1, Proposition 2.2 and Eq. (2.6), PDF pp. 4–5; §3.1, pp. 7–8; Proposition 3.4, Theorem 3.5 and Eqs. (3.7), (3.9)–(3.10), pp. 11–12, offsets 32700–39207",
+          "method": "OA PDF passage inspection and independent rescaling and differentiation of the printed product",
+          "title": "Discrete Fourier Analysis, Cubature and Interpolation on a Hexagon and a Triangle",
+          "trigger": "Same hexagonal cardinal transform; possible direct local-order implication"
+        },
+        {
+          "assessment": "Unresolved additional coverage, not negative evidence or the failure reason",
+          "evidence": "The metadata concern multivariate sinc functions and cannot distinguish the transform formula from a local-order theorem.",
+          "identifier_or_url": "10.1109/TIP.2011.2162421",
+          "material_read": "Metadata; no publisher or repository full text retrieved",
+          "method": "DOI/publisher and lawful OA repository lookup",
+          "title": "A Geometric Construction of Multivariate Sinc Functions",
+          "trigger": "Likely same hexagonal sinc; possible explicit local classification"
+        },
+        {
+          "assessment": "Background diffraction formulations",
+          "evidence": "The inspected passages give Fresnel integrals and edge-wave representations rather than the particular dual-site multiplicity classification.",
+          "identifier_or_url": "https://www.salfordphysics.com/gsmcdonald/32_JOSAA_v23_p2768_2006.pdf",
+          "material_read": "Abstract and Eqs. (1)–(2), PDF pp. 1–2, offsets around 3900 and 9200",
+          "method": "OA author PDF passage inspection",
+          "title": "Fresnel Diffraction and Fractal Patterns from Polygonal Apertures",
+          "trigger": "Same polygonal aperture methods"
+        },
+        {
+          "assessment": "Generalizes the lattice-domain setup; no local-order comparison from inspected passages alone",
+          "evidence": "The paper identifies the hexagon as the A₂ fundamental domain and discusses interpolation, cubature and discrete Fourier analysis.",
+          "identifier_or_url": "https://arxiv.org/pdf/0809.1079",
+          "material_read": "Abstract and introduction, PDF pp. 1–2, offsets around 500 and 7400",
+          "method": "OA PDF passage inspection",
+          "title": "Discrete Fourier Analysis on Fundamental Domain of A_d Lattice and on Simplex in d-Variable",
+          "trigger": "A₂ reformulation and potential broader root-lattice coverage"
+        },
+        {
+          "assessment": "Nearest-zero directions are a different invariant",
+          "evidence": "For the regular hexagon it gives vertex directions for the nearest zeros, not all nonzero reciprocal nodes and their Taylor jets.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.10517",
+          "material_read": "Theorem 1.7 p. 6, offset about 17500, and §4 p. 16 around 65000",
+          "method": "OA PDF passage inspection",
+          "title": "An isoperimetric problem for Fourier zeros of centrally symmetric convex bodies",
+          "trigger": "Recent claim directly about Fourier zeros of regular polygons"
+        },
+        {
+          "assessment": "Different measure and zero geometry",
+          "evidence": "Self-similar carpet measure and isolated zeros of unbounded even order, not regular-hexagon crossings.",
+          "identifier_or_url": "Resultary 2d3222d8e549",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "Isolated Fourier zeros and ternary multiplicity strata of the uniform Sierpiński carpet measure",
+          "trigger": "Potential match on Fourier zero multiplicity and density"
+        },
+        {
+          "assessment": "Different Fourier object",
+          "evidence": "It is a moment problem for a six-frequency polynomial with unit-modulus coefficients.",
+          "identifier_or_url": "Resultary 1a27a9f4b8a6",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "Sharp sixth-moment range and sixth-root phase rigidity on the A₂ Fourier hexagon",
+          "trigger": "Shared A₂/Fourier hexagon terminology"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and local Taylor classifications",
+        "Li–Sun–Xu arXiv:0712.3093 cardinal-kernel context"
+      ],
+      "rationale": "As mathematical content the complete local classification on the natural cardinal lattice distinguishes regular nodal arcs from exact right-angle crossings and explains why the latter have positive density. This is a useful geometric characterization of the interpolation kernel, not just a check that certain sampled values vanish. The value assessment does not credit incremental originality for the mechanically implied result.",
+      "residual_risks": [
+        "The result describes the reciprocal-lattice nodes only; arbitrary Fourier zeros or general affine metrics are not covered."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

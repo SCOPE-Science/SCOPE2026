@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The circumradius area-product identity parametrizes every selected triangle by three positive gaps. Strict log-sine concavity orders all but the one incomparable pair of configurations; their exact trigonometric difference is positive, and counting starting records proves multiplicities. The proof covers every integer \(m\ge3\). An independently coded Cartesian-coordinate reconstruction checks all 707,434 selected triangles for 26 polygon orders; it is not claimed as a proof of the infinite theorem.
+## correctness
 
-**Originality — PASS, historical priority provisional.** The inspected 2020 largest-triangle algorithm manuscript and 2021 area-inscribed-polygon manuscript concern maximal selection or convex-polygon performance guarantees, not the first four distinct area shells of regular triple-order vertex sets. The 2026 OEIS record A400213 gives the sine-product formula and equal-area classification; neither alone states the global exact first-four ordering or the cubic third/fourth splitting. Published related findings on circumscribed support triangles and conditional random triangle area moments address different invariants. The full Zenodo source linked from OEIS could not be inspected; an equivalent formula there or in older recreational literature is a nonzero priority risk.
+PASS
 
-**Value — PASS.** The first four distinct area levels form the sharp stability landscape immediately below the equilateral maximum for every three-divisible polygon order. The two configurations competing for ranks three and four are incomparable by the usual majorization order. Their exact universal cubic near-tie, versus quadratic first-two gaps, gives a qualitative multi-scale feature useful for distinguishing near-maximizers. This is a complete, uniform infinite-family ranking with all equality multiplicities, not merely a computation for a chosen order.
+With circumradius one and positive cyclic gaps summing to N, the chord formula gives area 2 times the product of their half-angle sines. Its logarithm is strictly Schur-concave. In a sorted triple with sum 3m, minimum at least m forces balance; minimum m-1 leaves exactly two possibilities; minimum at most m-2 forces maximum at least m+1 and hence majorization of (m-2,m+1,m+1). Strictness rules out every other shape even as a tie once the incomparable pair is ordered. As a separate gap calculation, the oriented shoelace formula gives half the sum of the three gap central-angle sines. Put x=2π/N, φ=2π/3 and g(t)=sin(φ+t). The three gaps are respectively sin φ(1-cos x), sin φ sin²x+cos φ sin x(1-cos x), and -2 cos φ sin x(1-cos x). These reduce to the three stated formulas and are positive throughout m≥3. Their expansions give the asserted quadratic/quadratic/cubic separation. Counting N starts per distinct gap ordering and dividing by three yields N/3, 2N, N, N, valid also at N=9. The accompanying Cartesian floating-point checker is supplementary, was inspected rather than executed, and is not needed for all-m ordering. Summing binom(3m,3) for 3≤m≤28 confirms the stated size of its test range.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Rank 1 and its count and the sine-product parametrization are not new. The supported distinct claim is the complete ordering of the next three vertex-triangle levels with equality cases and the exact positive cubic splitting. Checked sources do not supply it or imply it without the dominance and incomparable-pair arguments; priority remains provisional, specifically against the unread linked Huber text.
+
+## value
+
+PASS
+
+For a regular polygon the leading discrete departures from the equilateral maximizer are natural measures of optimization stability. The fourth level is motivated by the two opposite nearly balanced gap shapes with the same quadratic deficit. The exact result distinguishes them at cubic scale, proves no other gap shape intrudes, and gives multiplicities rather than just four values. This is a useful exact boundary across an infinite natural family, beyond the routine maximum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

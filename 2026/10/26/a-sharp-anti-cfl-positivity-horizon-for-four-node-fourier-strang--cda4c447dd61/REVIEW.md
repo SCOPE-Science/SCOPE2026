@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The four Fourier symbols produce an exact real circulant heat propagator with coefficient \(c=(1-2q+q^4)/4=(1-q)(1-q-q^2-q^3)/4\). Its single positive-root threshold, the stochasticity of its rows, and the cubic reaction map prove invariance of the unit cube at and above \(t=\theta\). The opposite output from an impulse saturates to \(1-2a<0\) below that threshold, proving a finite-reaction counterexample. The heat-only threshold follows from \(H_t^2=H_{2t}\), and the fixed-reaction counterexample below half-threshold follows from the derivative of the nonlinear flow at zero. The standalone checker passed 3,533 checks, but analytic steps—not tests—prove the universal quantifiers.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The October 2026 Strang/Allen–Cahn source contains continuum bounds and Fourier numerics, not this exact finite-grid all-reaction classification. Dong Li's 2021 extensive work is close and already analyzes effective maximum principles and Fourier-collocation Strang schemes. Its inspected sections do not state the present four-node universal cutoff or nonlinear factor-two separation; earlier general observation that spectral maximum principles can fail is not claimed new. Published positivity-time semigroup and lattice-scheme results cover neighboring but nonidentical implications. The search does not certify absolute priority, and older specialized grid calculations could overlap.
+PASS
 
-## Mathematical value — PASS
-A strict maximum principle is a structural property of numerical reaction–diffusion, not a routine detail of accuracy. The theorem provides a complete smallest-grid threshold and a concrete interval where even positive full-heat propagation is defeated by nonlinear composition. The result offers an exact diagnostic for implementation choices and for interpreting numerical maximum-principle evidence.
+Inverting the four modes gives the heat weights (A,B,C,B)=((1+2q+q⁴)/4,(1−q⁴)/4,(1−2q+q⁴)/4,(1−q⁴)/4) for q=e^(−t), with row sum one. Only C can be negative for t>0; 4C=(1−q)(1−q−q²−q³) has the asserted simple interior threshold. When C≥0 both heat stages preserve the cube, and the exact scalar flow does as well since its squared denominator minus z² is e^(−2ρ)(1−z²). When t<θ, C<0 and A>A(θ)=q*>1/2. For the impulse e_0 the first heat stage has signs +,+,−,+, all nonzero. Taking the exact reaction flow to its sign limit makes the opposite composition coordinate converge to C+2B−A=1−2A<0; the strict limit ensures failure already at a finite ρ for each such t. For ρ=0 the map is H_(2t) with nonnegative threshold t=θ/2, including equality. Below θ/2 the derivative of the composition at zero is e^ρ H_(2t); its strictly negative opposite component on e_0 gives arbitrarily small failing inputs for each fixed finite ρ. This does not assert the intermediate-regime threshold for each fixed ρ. Independent replay `python3 /workspace/independent_reproduction.py 4` used the full matrix exponential, giving H_(2t)e_0 opposite +0.07419904 but opposite split output −0.08922606 at e^(−t)=0.6 and ρ=log(100), and gives a small-amplitude failure below θ/2. The analytic sign limits, not these finite checks, prove the universal quantifiers.
 
-## Limits
-The result is specific to the standard four-node periodic Fourier pseudospectral Laplacian, exact substeps, and the all-reaction-strength quantifier. Fixed-strength thresholds for every value, higher grids, and between-node positivity are not established. Existing work on effective maximum principles should be consulted before claiming broader priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Li already studies effective maximum principles and counterexamples for the same Fourier-collocation Allen–Cahn Strang scheme. Credit that direct precedent and the prior general phenomenon of eventual linear positivity. The supported distinct claim is the exact four-node nonnegative-cube cutoff uniform over all reaction strengths, with the sharp factor-of-two distinction from the full heat map. Neither the prior effective bound nor the closest indexed linear positivity results supply this exact finite nonlinear classification.
+
+## value
+
+PASS
+
+The four-point grid is the first standard periodic Fourier grid with a negative off-diagonal Laplacian entry (two and three nodes are Metzler). The complete cutoff at that minimal size diagnoses a real failure mode: even a nonnegative full heat kernel can give a negative split result after strong pointwise reaction. That quantified distinction is useful for interpreting maximum-principle tests in a canonical spatial discretization; it is not a claim about accuracy, unconditional stability, or positivity between nodes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

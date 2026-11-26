@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:29:55.617048Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, formal statement at lines 14–32 and Proof §§1–4",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)"
+      ],
+      "rationale": "The equilibrium line follows by substitution under the common K condition. Differentiating the relative entropy cancels the linear incidence terms, leaving susceptible dissipation and two nonnegative weighted Cauchy–Schwarz deficits. At quadratic order the latter are positive multiples of the squared within-type differences of relative class displacements. An orbit in the linear dissipation kernel must have zero susceptible displacement and equal relative class displacements within each type; the susceptible equation then forces the weighted sum of those type displacements to vanish. This leaves precisely the stationary tangent. Positive definite nonincreasing quadratic energy excludes an unstable eigenvalue and a Jordan block at zero; the remaining spectrum is strictly stable on each compact interior subsegment. For any bounded slow-time window choose a larger compact interior segment containing the limiting trajectory, and use local tracking up to first exit, not invariance at the ends of a truncated segment. The exact weighted-observable identity in Proof §3 gives the slow drift: on the neutral line U_i=T_i h_i/K, and the common first-order susceptible correction eliminates under the constraint G_1+G_2=0, giving the denominator h_1 T_2+h_2 T_1. Equivalently, in the O(ε) attraction tube the common factor KS−1 cancels to first order in the derivative of T_1 log U_1−T_2 log U_2, leaving ε(δ_1−δ_2)+O(ε²). Integration and inversion of the strictly increasing weighted logarithm give uniform convergence and prevent a first exit from the larger interior segment. The assay variable is the force fraction in the formal statement and needs time rescaling, not an extra time shift. Equal T_i give the logistic special case; equal δ_i give zero limiting drift. Neither is a counterexample to the qualified non-logistic claim for unequal moments and nonzero advantage.",
+      "residual_risks": [
+        "The finite numerical checks are supplementary and were not rerun; normal attraction and the slow-time limit were checked analytically.",
+        "Uniformity is for fixed compact slow-time windows and the stated initial equilibrium, not for unbounded time or fixation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The infection-age model analyzes asymptotic equilibria and coexistence when several populations attain the maximum reproduction number. The co-colonization studies derive slow dynamics under perturbations to an interaction model, not under the frozen proportional perturbation with unequal class-removal profiles."
+        ],
+        "reasoning": "Equilibrium and coexistence results at fixed parameters do not address the joint small-parameter, long-time limit. General slow reduction gives a framework but still requires the neutral stability calculation and the projection giving these moments.",
+        "searches": [
+          "Girel–Richard arXiv:2603.29464, §2 Theorem 2.5",
+          "Gjini–Madec DOI 10.1007/s12080-016-0320-1, slow-fast decomposition and broken symmetry",
+          "Madec–Gjini DOI 10.1007/s11538-020-00816-w, §§3.1–3.2"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1007/s11538-026-01673-9",
+        "arXiv:2603.29464",
+        "DOI 10.1007/s11538-020-00816-w",
+        "DOI 10.1007/s12080-016-0320-1",
+        "Resultary fbb1f90164cc and c20db74919f6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Competitive exclusion at fixed strict advantage does not say what fraction has changed by times of order 1/ε. The delayed exchange result gives a derivative for one antisymmetric mode, not the nonlinear speed throughout an interior frequency range. The discrete weak-selection clock uses a different map and update law."
+        ],
+        "reasoning": "A linear relaxation rate or eventual fate does not fix a nonlinear path. The frozen model needs the stage-weighted projection identity and transverse tracking, whose combination determines the particular denominator and its logarithmic integral.",
+        "searches": [
+          "Barril–Vegué Appendix Proposition 3",
+          "Girel–Richard Theorem 2.5",
+          "Resultary fbb1f90164cc and c20db74919f6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Barril–Vegué use the same potential and prove exclusion under a strict maximum. Madec–Gjini obtain a slow-time replicator from a neutral manifold in a co-colonization model with perturbed interaction parameters."
+        ],
+        "reasoning": "The profile can be written as a logistic equation after a frequency-dependent change of clock, but that does not determine the clock in physical slow time. A strict winner identifies the sign of selection, not its frequency-dependent speed.",
+        "searches": [
+          "Barril–Vegué DOI 10.1007/s11538-026-01673-9, Appendix Proposition 3",
+          "Madec–Gjini DOI 10.1007/s11538-020-00816-w, §§3.1–3.2, eqs. (10) and (13)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact catalogued clocks are a linear exchange eigenvalue in a delayed model and an inverse-imbalance passage law in a discrete Volterra map. The frozen single numerical example is not the general result."
+        ],
+        "reasoning": "No standard numerical table applies to this parametric limit theorem; the relevant exact overlap would be a catalogued normalized frequency profile or genuinely equivalent clock. The inspected exact formulas have different state variables, perturbations, or conclusions.",
+        "searches": [
+          "Resultary fbb1f90164cc, neutral strain continua and sharp exchange damping",
+          "Resultary c20db74919f6, exact weak-selection clock for a two-sex Volterra map",
+          "Frozen RESULT.md Proof §4 and VERIFICATION.md"
+        ]
+      },
+      "rationale": "The model, transmission potential, qualitative selection, tied coexistence, and slow-manifold methods have established precedents. The surviving distinct contribution is the explicit unequal-moment drift and weighted-logarithm frequency profile on bounded slow-time windows in this abstract model, including attraction at the interior tie. The compared results give eventual exclusion, tied equilibria, slow replicators in different models, or linear exchange rates, not this profile or its coefficient.",
+      "residual_risks": [
+        "The feasible comparison does not settle priority for equivalent generation-time weighted reductions in other formulations.",
+        "No credit is given for the general idea of a slow selection clock or the original compartment model."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model, different result under a strict maximum",
+          "evidence": "Global competitive exclusion of populations with lower transmission potential; no near-tie slow-time coefficient in the inspected proposition.",
+          "identifier_or_url": "https://doi.org/10.1007/s11538-026-01673-9",
+          "material_read": "Appendix Proposition 3, PDF pp. 24–26, OA offset about 79963 onward",
+          "method": "OA primary passage comparison",
+          "title": "Virulence Evolution in Host Populations with Heterogeneous Immune Responses: The Weakening of the Uncommon Weak",
+          "trigger": "Exact source model and potential"
+        },
+        {
+          "assessment": "Tied equilibria and asymptotic behavior rather than the stated perturbative limit",
+          "evidence": "Several populations may share maximal reproduction number; the theorem concerns attraction and coexistence.",
+          "identifier_or_url": "https://arxiv.org/pdf/2603.29464",
+          "material_read": "§2 Theorem 2.5, p. 9, offset about 47100",
+          "method": "OA primary passage comparison",
+          "title": "On the Global Asymptotic Stability of an Infection-Age-Structured Competitive Model",
+          "trigger": "Tied fitness and age-structured competition"
+        },
+        {
+          "assessment": "Established reduction methodology, different coefficients and model",
+          "evidence": "The slow replicator describes perturbations of co-colonization interactions.",
+          "identifier_or_url": "https://doi.org/10.1007/s11538-020-00816-w",
+          "material_read": "§3.1 eq. (10), p. 9, offset about 24800; §3.2 eq. (13), pp. 10–11, offset about 29600",
+          "method": "OA primary sections",
+          "title": "Predicting N-Strain Coexistence from Co-colonization Interactions: Epidemiology Meets Ecology and the Replicator Equation",
+          "trigger": "Near-neutral slow-time selection law"
+        },
+        {
+          "assessment": "Different SIS co-colonization perturbation",
+          "evidence": "Breaks neutral symmetry using interactions rather than the frozen proportional type perturbation with persistently different class profiles.",
+          "identifier_or_url": "https://doi.org/10.1007/s12080-016-0320-1",
+          "material_read": "Slow-fast decomposition, p. 3, offset about 11500; broken symmetry and slow manifold, pp. 3–4, offset about 23400",
+          "method": "OA primary sections",
+          "title": "A slow-fast dynamic decomposition links neutral and non-neutral coexistence in interacting multi-strain pathogens",
+          "trigger": "Neutral attraction and perturbed selection"
+        },
+        {
+          "assessment": "Different delayed model and linear exchange statistic",
+          "evidence": "Damping is linear to leading order in the common saturation perturbation, not a nonlinear frequency trajectory law.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-neutral-strain-continua-and-sharp-exchange-damping-in-a-delayed--fbb1f90164cc",
+          "material_read": "RESULT.md statement on the neutral segment and antisymmetric eigenvalue",
+          "method": "Resultary lookup and local-mirror comparison",
+          "title": "Neutral strain continua and sharp exchange damping in a delayed model",
+          "trigger": "Neutral coexistence and inverse-perturbation exchange time"
+        },
+        {
+          "assessment": "Analogous clock for a different discrete map",
+          "evidence": "Inverse-imbalance slow passage and a logarithmic clock with different variables and update law.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-weak-selection-clock-for-a-two-sex-volterra-map-near-its-n--c20db74919f6",
+          "material_read": "RESULT.md finding on near-neutral passage time",
+          "method": "Resultary lookup and local-mirror comparison",
+          "title": "Exact weak-selection clock for a two-sex Volterra map near its neutral locus",
+          "trigger": "Exact logarithmic weak-selection clock"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Assumptions and Proof §§2–4",
+        "Barril–Vegué Appendix Proposition 3"
+      ],
+      "rationale": "An eventual winner does not tell how weak asymmetry resolves a tie at intermediate times. The model-specific result identifies when a fixed-rate logistic approximation fails and gives the precise bounded-window frequency profile even though baseline potentials coincide. This is a meaningful distinction between equilibrium fitness and transient dynamics in an abstract compartment system, not a claim about calibration or control of real organisms.",
+      "residual_risks": [
+        "The statement does not extend to altered removal rates, generic nonequilibrium starting states or fixation-scale errors."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

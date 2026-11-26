@@ -1,11 +1,21 @@
-# Review
+# Independent mathematical audit
 
-**Correctness — PASS.** Theorem 5.3 of the source covers every odd prime at least five, and Theorem 5.5 covers two. For the only remaining prime three, all differences except the two divisors not divisible by three are multiples of three; the two exceptional differences satisfy an explicit incompatible difference and doubled-value equation. A hypothetical triple entirely divisible by three descends by a square factor, while a unit factor is excluded by the published maximal-difference lemma. No infinite conclusion is inferred from finite tests.
+## correctness
 
-**Originality — PASS, with risk.** The original paper's Lemma 5.6 handles precisely the first exponent, while its general prime-dominance theorem excludes every larger odd prime, leaving the three-power ray. The November 2026 study treats Δ-primitive squares, not this uniform two-prime-root ray. The searches compared aliases in factor-difference and delta-triple terminology, own accessible claim summaries and published-finding corpus results. An unpublished modular descent remains possible and is a documented risk.
+PASS
 
-**Mathematical value — PASS.** The theorem closes the complete natural class of squares of twice a prime power. This class is singled out by the sharp prime-dominance threshold: after known results exclude every prime at least five, a full infinite exceptional ray remains. The proof supplies an elementary three-adic obstruction and removes the final exceptional support without any exponent cutoff. It does not claim a general two-prime-square theorem.
+Reconstructed the divisor argument, including repeated summands and the unit-divisor issue in descent. For any odd q the positive differences for 1<d<2q^b are from the three divisor classes q^j (1≤j≤b), 2q^j and 4q^j (0≤j<b); the upper bound in the last class uses 4/q<2. The only differences not divisible by q are B=2M−2 and C=M−4, M=q^(2b). The strictly largest difference is B. A single exceptional occurrence fails modulo q; if both B,C occur once the only possible placement is B=C+D, which fails since B−C=M+2 is not divisible by q. Two copies of C must sum to the other exceptional value (2C≡−8≠0 mod q), but B−2C=6; B cannot be a summand. Therefore all factors and complements in the triple are divisible by q and division gives the same relation scaled to 4q^(2b−2). If the least new divisor is 1, its difference is n'−1 and every summand at a divisor ≥2 is ≤n'/2−2, so even their sum is <n'−1. Otherwise descent contradicts minimal exponent (n'=4 at b=1 has no allowed divisor). This independently validates the proof's exceptional case and in fact gives a self-contained proof for all odd q. For q=2 the cited prime-power exclusion applies; alternatively all factors and complements are even, so iterating the same division by 2 gives an impossible unit case or an empty allowed divisor interval.
 
-**Limitations.** The result does not classify arbitrary square roots with two distinct prime factors. The proof relies on the cited original Corollary 2.2. Independent verification remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit only the missing infinite subfamily 4·3^(2b) for b≥2 and the resulting complete ray classification. The other primes and b=1 are already covered by the explicitly cited results; they are not original claims. Neither the dominating-prime criterion nor the later positive Pell family yields the exceptional negative classification.
+
+## value
+
+PASS
+
+The missing case is the single odd prime outside dominance when the root contains exactly one factor of two. Filling it requires excluding an infinite ray, not checking small squares. The modular pair isolation and unit-safe descent explain why the natural dominance threshold need not hold in this boundary case and give a clean exclusion for future classification by prime support.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

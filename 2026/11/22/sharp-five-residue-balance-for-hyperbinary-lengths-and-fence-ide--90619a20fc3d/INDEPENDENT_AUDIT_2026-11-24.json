@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:32:17.792755Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Parity forces the lowest digit to be 1 for 2k+1 and allows 0 or 2 for 2k, giving the two stated recurrences and the seed (t,1). The adjacent evaluations follow the stated transitions for every positive index by halving. In the fifth-cyclotomic quotient the coefficients relative to the fifth bucket determine the spread, since the only relation among the five basis powers is their sum. I independently constructed the orbit in a five-integer array representation modulo all-ones, with cyclic rotation for multiplication by t and subtraction of the minimum for normalization. `python3 /workspace/independent_replay.py hyperbinary` checks the 120 exact states against the frozen table, both successors of each, histogram (10,100,10), and 31 distinct first coordinates. Binary-index induction, not a bounded run over indices, proves the full bound. At m=0 the zero expansion is the only one; direct digit enumeration at m=10 gives lengths 2,3,3,4,5 and residue counts (1,0,1,2,1). I separately checked the all-fence transfer without relying on access to the cited corollary: binary digits b_i and hyperbinary digits e_i are linked by e_i+c_i=b_i+2c_{i+1}, with 0/1 carries and boundary carries zero. For b_i=0 the allowed interior carry relation is c_i≤c_{i+1}, and for b_i=1 it is c_i≥c_{i+1}. The length equals the binary popcount plus the number of nonzero carries. Choose an even binary word with leading 1 and trailing 0: both boundary inequalities are automatic, and the internal bits realize any prescribed path of order-ideal membership inequalities. Thus every oriented path occurs (possibly using a dual orientation convention), and the resulting monomial shift, or shift plus exponent reversal in the cited correspondence, preserves spread. The empty fence has one ideal. Digits 1010 yield the three-vertex fence with two minima below a common maximum and ideal counts (1,2,1,1,0), attaining spread two.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Byakuno–Ren–Yanagawa arXiv:2603.08439v2 primary PDF abstract explicitly states that the whole matrix group G_q(ζ) is finite for primitive roots of orders 2,3,4,5, not just its projective specialization.",
+          "Alekseyev's primary PDF abstract and an indexed Theorem 19 statement give spread at most one for the three modulo-three length buckets. Kogiso et al. primary PDF abstract states the denominator-vanishing equivalences at orders three and four; the precise fifth-root Example 7.8 passage could not be retrieved."
+        ],
+        "reasoning": "The specialized matrix-group result covers the underlying mechanism of finiteness, not automatically the exact coordinates or sharp oscillation of this particular integral orbit. Modulo-three balance does not force a modulus-five bound, and vanishing criteria do not determine nonzero coordinate spreads.",
+        "searches": [
+          "q-deformed modular group primitive fifth root finite icosahedral A5 q-deformed rational numbers absolute numerator denominator fifth roots Ovsienko Stern polynomials",
+          "Alekseyev Theorem 19; Kogiso et al. arXiv:2403.08446v2 Proposition 7.5 and Example 7.8"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 90619a20fc3d, 17b06025c42e, 17ef6a7d2dbd, 70499081e108",
+        "arXiv:2603.08439v2, 2611.01243v1, 2508.20026v1, 2403.08446v2 (passages identified above)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Writing q=t⁻¹ and S=diag(t,1), direct multiplication gives S⁻¹T₀S=t·[[q,1],[0,1]] and S⁻¹T₁S=t²·[[q,0],[q,1]], the q-modular generators in their upper/lower parabolic convention, up to finite-order scalar factors.",
+          "The specialized-group abstract gives finiteness, and the independent exact table calculates specific normalized orbit vectors; the modulus-three theorem gives a different bound for a different cyclotomic quotient."
+        ],
+        "reasoning": "Finiteness does imply existence of some bound for this route; no numerical uniform bound of two follows from finiteness alone. That requires the actual translation of the specified integral orbit into five-coordinate differences and bounding all entries, with an exact attaining example. The fence theorem then follows from that bound, not independently from the prior correspondence.",
+        "searches": [
+          "arXiv:2603.08439v2 finiteness of q-deformed modular group specializations; arXiv:2508.20026v1 length polynomials and q-rationals",
+          "Alekseyev Theorem 19 and Corollary 20; Kogiso et al. arXiv:2403.08446v2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "McConville–Propp–Sagan primary PDF p.1 abstract identifies the length polynomial and fence ideal/refinement isomorphism. The frozen proof quotes Alekseyev Eq. (49), giving exponent reversal and a shift; the deterministic carry construction separately verifies the transfer of spread.",
+          "Modulo the fifth cyclotomic relation, the four coefficients are exactly differences from the fifth length bucket, rather than residues of Stern numbers themselves."
+        ],
+        "reasoning": "The length, fence rank (up to permutation of residues) and cyclotomic integer coordinate spread are equivalent for the relevant claim. The prior correspondence is a translation between settings, not the bound on the resulting vector.",
+        "searches": [
+          "Resultary hyperbinary length residue classes modulo five and fence ideal sizes",
+          "McConville–Propp–Sagan arXiv:2508.20026v1; Alekseyev arXiv:2611.01243v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact bound with the 120-state certificate matched 90619a20fc3d, the assigned record itself. The two Stern modulo-five records concern discrepancies among Stern-sequence values, and the distinct same-day 70499081e108 summarizes quadratic-character statistics on dyadic rows."
+        ],
+        "reasoning": "A Stern-value residue or its character on a dyadic row is not the residue of the length of an expansion. The identical self-record is not independent coverage. Nothing about unseen tables is inferred from unavailable full text.",
+        "searches": [
+          "Resultary 90619a20fc3d, 17b06025c42e, 17ef6a7d2dbd, 70499081e108; 120 states, five residue buckets"
+        ]
+      },
+      "rationale": "The distinct claim is the exact uniform spread at most two for all five length residues and its sharp all-fence counterpart, with an explicit exact orbit. The fence/length correspondence and the underlying prospect of finite fifth-root evaluations are not credited as new. In particular, a substantial identified prior group-finiteness theorem already explains existence of a finite specialized orbit, but its available statement neither calculates the normalized coefficient spread nor gives sharpness or the 120-state histogram. Prior statements about modulus three, modular Stern values, and zeros of q-rational denominators are not equivalent to the sharp mod-five length claim. The strongest matching Resultary scientific summary is the frozen record itself.",
+      "residual_risks": [
+        "Exact sections of the matrix-group specialization paper and of the fifth-root denominator example were unavailable within bounded retrieval. An explicit fifth-root integral coefficient table or sharp bound could occur in uninspected q-Stern literature; no claim of settled priority or whole-document noncoverage is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves finiteness of the specialized group, hence explains finite orbits; no support in the read statement for the exact hyperbinary spread",
+          "evidence": [
+            "The abstract explicitly includes primitive fifth roots and discusses finite sets of traces and specialized Jones values."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2603.08439",
+          "material_read": "v2 PDF p.1 abstract and introductory q-rational setup; exact specialized proof/table passage could not be retrieved",
+          "method": "Primary bounded preview, attempted decisive full-text retrieval, and direct matrix conjugation",
+          "title": "Applications of the finite specializations of the q-deformed modular group",
+          "trigger": "Strong general result under the exact fifth-root specialization and matrix equivalence"
+        },
+        {
+          "assessment": "Three-residue bound; known transfer but no five-residue bound in passages read",
+          "evidence": [
+            "Counts in the three length classes modulo three differ by at most one."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.01243v1",
+          "material_read": "Primary abstract p.1 and indexed Theorem 19 statement; Corollary 20 and Eq. (49) as quoted in the frozen record, not independently retrieved",
+          "method": "Primary bounded preview plus exact-statistic comparison; independently derived carry transfer",
+          "title": "Halving Partitions and Hyperbinary Expansions",
+          "trigger": "Same length statistic and analogous residue balance"
+        },
+        {
+          "assessment": "Underlying correspondence credited; available text does not determine sharp spread",
+          "evidence": [
+            "Hyperbinary length polynomial used in q-rational quotient; refinement poset realized as fence ideal lattice."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2508.20026v1",
+          "material_read": "Primary abstract p.1 and indexed Theorem 3.16 reference",
+          "method": "Primary bounded preview and comparison to carry construction",
+          "title": "Hyperbinary partitions and q-deformed rationals",
+          "trigger": "Exact polynomial and fence correspondence"
+        },
+        {
+          "assessment": "Available statement bounds arithmetic vanishing rather than residue spread; uninspected example not asserted to rule out coverage",
+          "evidence": [
+            "Denominator vanishing at primitive third or fourth roots is tied to divisibility of the denominator by 3 or 4."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2403.08446v2",
+          "material_read": "Primary abstract p.1 and frozen account of §7, not the exact Example 7.8 passage",
+          "method": "Primary bounded preview and attempted targeted lookup",
+          "title": "Arithmetic on q-deformed rational numbers",
+          "trigger": "Fifth roots in adjacent q-rational theory"
+        },
+        {
+          "assessment": "Exact match is the record itself; neighbouring statements measure residues of Stern values instead of expansion lengths",
+          "evidence": [
+            "Neither Stern-value discrepancy nor character cancellation is the stated polynomial coefficient spread."
+          ],
+          "identifier_or_url": "Resultary 90619a20fc3d, 17b06025c42e, 17ef6a7d2dbd and 70499081e108",
+          "material_read": "Scientific summaries and frozen RESULT.md for the identical record",
+          "method": "Identifier check and comparison of counted statistics",
+          "title": "Sharp five-residue balance for hyperbinary lengths and fence ideals; Stern residue discrepancies and quadratic-character cancellation",
+          "trigger": "Exact/table and analogous modulo-five hits"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural length-refined count, not just the Stern total, has an exact uniform bound across all indices. The sharp spread quantifies a gap that group finiteness alone leaves open and gives the same constraint for every rank distribution of an arbitrarily oriented fence. The explicit exact orbit provides a short reusable certificate for the unbounded family, and m=10 is a genuine extremizer.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

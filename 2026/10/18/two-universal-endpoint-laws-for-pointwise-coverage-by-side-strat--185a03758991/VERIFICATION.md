@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification information
+# Independent mathematical audit
 
-Run `python3 checker.py` with a Python 3 interpreter. The file has no third-party software dependencies, uses a fixed pseudorandom seed, and separately computes geometric containment by oriented-edge determinants, the closed corner expression, the wedge expression, and numerical integrations of depth-level sets.
+## correctness
 
-On the reviewed source package the checks passed: 3000 wedge/corner depth comparisons; 330000 four-side convex-hull containment trials including affine transformation equivalence; boundary/center tests; and three finite quadrature levels for each endpoint. The observed normalized lower-end ratios were approximately 2.8546, 3.0708, 3.2149 for \(\varepsilon=\exp(-8),\exp(-12),\exp(-16)\), approaching the proved limit 4 slowly. The upper-end ratios were approximately 0.82378, 0.80759, 0.79533 for \(\varepsilon=0.015,0.005,0.001\), approaching the proved \(\pi/4\). These checks are numerical approximations and sampling experiments; the exact inequalities and limiting coefficients depend on the symbolic proof in `RESULT.md`.
+PASS
 
-Independent mathematical audit: not performed. No mechanized infinite proof or external certificate is asserted.
+A nonsingular affine map preserves the four independent uniform side parameters, containment, and normalized area. On the square the four omitted corner triangles have disjoint interiors. Conditioning on one intercept gives the stated corner integral and summing the two active corners in the wedge gives the frozen depth formula, with continuous zero depth on the boundary. Both wedge derivatives are positive where needed to reach the unique maximum at the center. There the logarithms expand to give a uniform quadratic deficit with coefficient 4 in both affine coordinates; localization and disk comparison give the upper coefficient π/4. On y≥η>0 the inverse low-depth width is uniformly ε/log(1/ε). For y≤√ε the inequality D≥2x bounds the area by O(ε^1.5), and for √ε≤y≤η the further log(y/x) term bounds the scaled width by 2. Eight wedges therefore give the lower coefficient 4. This proves the two limits for the pointwise depth at an independent area-uniform point, not for the area of the random hull. The frozen checker.py and VERIFICATION.md were inspected, not executed; reported Monte Carlo and numerical integration are supplementary only.
+
+## originality
+
+PASS
+
+Best-of-knowledge pass for the four-side depth-level result, with the exact depth field providing its derivation. The closest same-date triangular profile contains the identical elementary corner calculation, which receives no originality credit. Applying it around the square is direct; the claim of interest is the resulting full four-side field with its two sharp area-of-level-set laws. No inspected source gives or implies those endpoint evaluations in this model.
+
+## value
+
+PASS
+
+For a natural sampling model these quantify where almost no realizations and where nearly all realizations cover an independent location. The exact constants and distinct boundary and center rates are not supplied by the expected hull area or an area density. The lower limit in particular must control the corners, where naive uniform edge inversion fails.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

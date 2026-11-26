@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** Every two-gap insertion is a complete singleton type. In the independent-uniform-points representation, each old point's disagreement indicator is conditionally independent Bernoulli with parameter \(p=U+V-2UV\). Its product-uniform logarithmic mixing density gives the exact beta integral. The finite rational sum follows by a polynomial expansion. The beta central limit theorem and uniformly bounded rescaled densities plus uniformly bounded second moments justify passing the logarithmic singularity to the Gaussian limit. The special-function evaluation of the half-normal log expectation supplies the constant. The independent exact checker agrees with direct enumeration for all \(n\le6\) and with the hypergeometric formula through \(n=12\).
+## correctness
 
-**Originality (PASS, provisional).** The closest primary source, Bhattacharya–Mukherjee, arXiv:1503.03582, explicitly proves the limiting continuous density \(-\log|1-2t|\). That established result is not presented as new. Its convergence of normalized degree proportions neither specifies a point mass at an individual integer degree nor supplies a central local crossover and Euler-constant correction. The specific exact coefficient formula, Gaussian-smoothed critical window and constant were not found in the inspected primary source or targeted published-result searches. Residual risks include a differently indexed local limit or an equivalently expressed beta-mixture asymptotic.
+PASS
 
-**Mathematical value (PASS).** The central degree is a genuine singularity of the known macroscopic law, where weak convergence gives no coefficient-scale estimate. Its finite-size resolution changes the magnitude from \(O(n)\) in the regular bulk to \(\frac12 n\log n\) at the center, and gives a universal nonconstant crossover over a natural \(\sqrt n\) window. This quantifies an actual information gap for the graded finite-base logical extension invariant, beyond evaluating a routine finite count.
+The repaired headline is the central coefficient asymptotic, not a finite-law originality claim. The two independent rank orders induce independent uniform new-point gaps independent of the reduced old permutation. Given the new coordinates (u,v), each old point disagrees independently with probability u+v−2uv, so the conditional-binomial formula and the factor (n+1)^2 are exact. The product of two uniform variables on [−1,1] gives the stated logarithmic density after transformation; polynomial parity gives the rational sum with denominators (2r+1)^2. The two gamma representations of the beta variable and the delta method give sqrt(n)(2B−1)⇒N(2s,1), including the floor. The maximum beta density is O(sqrt(n)) by Stirling at its mode, so the rescaled density is uniformly bounded; the log singularity contributes at most O(delta(1+|log delta|)), and bounded rescaled second moments control its positive tail. This yields the profile and −E log|Z|=(gamma+log 2)/2. For bulk fractions away from 1/2, the beta log density has a uniform order-n gap between its interior mode and a fixed neighborhood of the singularity, so the logarithmic integral over that neighborhood tends to zero. Independent check: at k=floor(n/2), under the even integral the density of 2B−1 is proportional to (1−x²)^floor(n/2) for either parity (the odd term cancels); the square has Beta(1/2,floor(n/2)+1) law. Thus M/(n+1)=sum_{j=0}^{floor(n/2)}1/(2j+1), checked by enumerating inversion degrees of all vertices of all permutations on n+1 places for n=1–7. This is supporting exact evidence only; the general profile follows analytically. The frozen checker was inspected, not executed.
 
-The scope is expectation over uniformly random fully named permutation bases. Finite checks are not infinite proof, and no claim is made about almost-sure histogram concentration. First public source date refers to the initiating prior work, not publication of this finding. Historical priority is not independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The frozen record presents the finite exact law among its original findings, but that part is directly implied by the published independent-point permutation kernel and its explicit mixing density. The repaired RESULT and SLOGAN credit this implication and limit the originality claim to the fixed-offset central local asymptotic with its O(1) Gaussian-log correction. Best-of-knowledge pass for that remainder only.
+
+## value
+
+PASS
+
+The worthwhile remainder resolves the natural microscopic singular window of a known global degree distribution. It distinguishes the order n log n central coefficient from order n bulk levels and resolves differences within the central window to additive order n, with an explicit nonconstant profile. This precise finite-size information is not supplied by weak convergence, a middle-vertex CLT, or an exact count at a few n. It concerns expectation, not concentration of an individual histogram.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

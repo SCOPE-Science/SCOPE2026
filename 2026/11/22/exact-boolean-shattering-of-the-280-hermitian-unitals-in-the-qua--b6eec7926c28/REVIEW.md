@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact scope is the incidence concept class of all 280 Hermitian nine-point unitals on the 21 points of \(\operatorname{PG}(2,4)\). The key exhaustive lemma says: each contained six-set has exactly 64 traces and a unique containing unital; each contained five-set is in exactly two unitals. `verify_hermitian.py` and `verify_triangles.cpp` reconstruct these facts from two algebraically different representations, independently of precomputed incidence tables. The necessity of containment follows from the all-positive trace; seven-query obstruction follows from unique six-set containment; sufficiency follows by extension to and restriction from a shattered six-set. Counting each support once yields the face polynomial and the split of 23,520 maximal faces. Tests cover the full declared finite domain, not a random sample. Replayed runs completed without assertion failures.
+## correctness
 
-## Originality — PASS within searched evidence
-Sources inspected include the full available mathematical material of De Bruyn–Gao (accepted manuscript, introduction and §3, including unital representation and parity results) and Della Vedova–Pagani–Pianta (open-access HTML, particularly §§3 and 5 including the complete 280-unital census). The source facts about 280 unitals, nonconcurrent-line decompositions and incidence codes are not claimed as new. Neither inspected source gives the 280-row binary projection-trace result, the all-six-set shattering theorem, or its complete support polynomial. Semantic searches in published mathematical records were conducted for unitals, Hermitian incidence, six-point trace universality, punctured code projections, and similar configurations. The closest distinct published results address the \(\operatorname{PG}(2,4)\) cap complex, two-line-union shattering, and general affine-flat shattering. A hidden equivalent incidence-table consequence remains a residual priority risk. A failure to find matching language alone is not taken as proof of novelty.
+PASS
 
-## Value — PASS
-A Hermitian unital system is a canonical highly symmetric, nontrivial finite incidence family linked to Witt designs and binary projective-plane codes. The exact, unexpectedly strong all-pattern interpolation property on every supported six-set has a sharp obstruction at seven and determines the entire pure shattering complex, including two different geometric types of top supports. These exact finite projections are independently meaningful as an incidence/design benchmark, not merely a recomputation of the number of unitals or a trivial parameter bound. The result is finite and does not assert general ramifications beyond the proven domain.
+Independently enumerated all 293,930 nine-point subsets using lines defined by normalized projective covectors over F4. Exactly 280 have line intersections in {1,3}, matching the XORs of nonconcurrent line triples. Such a triple is projectively equivalent to the coordinate triangle, whose XOR is the zero set of the identity Hermitian form. Conversely nonsingular Hermitian forms are congruent and their zero loci are unitals. Instead of the supplied trace loops, tallied global containing-unital multiplicities and performed Boolean Möbius inversion on each contained six-set: all 64 counts are positive on each of 23,520 sets, with minimum count 1. Every contained five-set occurs twice, every contained six-set once. The all-positive pattern forces containment; any contained support of size at most six extends to a shattered six-set, whereas a six-positive/seventh-negative request fails by six-set uniqueness. This gives the exact polynomial 1+21z+210z^2+1330z^3+5880z^4+17640z^5+23520z^6 and purity. The independent run also gives the collinear/noncollinear three-point complement split 3,360/20,160. It is exhaustive in PG(2,4), not an extrapolation. Replay: python3 /workspace/branches/independent_unitals.py.
 
-## Limitations and closest prior literature
-The authors above supply the classical incidence constructions and coding relationships; their published classifications are broader with respect to geometric objects but do not appear to imply this specific Boolean trace property. Full historical-priority certification and independent validation are outstanding. Only two code-realization routes and one exact finite field order are established. No claim of homology or optimal adaptive learning depth is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The family and its geometric construction are classical. The additional assertion is local universality on every contained six-set of the restricted 280-member family, with the sharp obstruction and full face counts. No checked source establishes that assertion or a theorem giving it by specialization.
+
+## value
+
+PASS
+
+For a canonical finite incidence family the answer tells exactly which six membership queries admit every labeling, not just the maximum number of queries. Uniqueness at six pinpoints the first obstruction, and the exact support counts and complement types distinguish incidence cases that a generic VC upper bound cannot resolve. This is useful for point-query and finite-design comparisons without assuming generalization to higher field orders.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

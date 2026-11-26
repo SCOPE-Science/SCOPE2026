@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The semi-Markov renewal equation explicitly accounts for competition among emission, dark entry, and complete ground resets. Its scalar denominator has first three derivatives sufficient to obtain the long-time count rate, Fano factor, and third count cumulant. The proof checks finite positive reset rates, arbitrary finite dark-channel counts, non-exponential dwell laws including atoms, equality boundaries, inverse Laplace uniqueness and infinite unreset dark-time variance. Strict decrease of the survival-transform functional proves the **global**, not just local, one-crossing statement. A separate exact tilted-generator test for two exponential dark channels and forty numerical cumulant checks corroborate rather than replace the infinite-domain arguments.
+PASS
 
-## Originality — PASS, qualified
+The quantified threshold, tomography, third-order witness, and Pareto asymptotic hold for the stated regenerative emitter. In G the reset is a self-loop; in E the next clock has rate gamma+sum(s_i)+r. A failed attempt adds a fresh min(U_i,Exp(r)) if shelved, otherwise zero, and restarts in G. The attempts give the displayed Laplace transform f(z)=p*gamma/H(z) and an exponential moment. For the cumulant step, the renewal MGF has time Laplace transform (1-f(z))/(z(1-exp(x)f(z))). The interarrival distribution has a density, hence |f(iu)|<1 for u!=0; f decays as O(|u|^-2) uniformly in a small strip by the displayed formula. Thus in a smaller strip for complex x near zero the only pole of the renewal MGF transform is the simple root H(z(x))=p*gamma*exp(x). Shifting the inversion contour (subtract 1/z first) gives an analytic nonzero leading residue and uniform exponentially smaller error; local Cauchy differentiation yields c_j=z^(j)(0). Three implicit derivatives give the reported ratios, including F-1=2p*gamma*(p*K-1)/H'(0)^2 and c3/c1=1-(p*gamma)^2*H'''(0)/H'(0)^3 at equality. H'''(0)>0. K strictly decreases to zero from half the weighted second moment (possibly infinite). Right continuity upgrades Laplace uniqueness to all t>0; decomposition into channels is not generally identifiable. After the Pareto rescaling v=rt, v^(1-alpha)*exp(-v) dominates, giving the exact amplitude by Gamma integration. The headline 'nonanalytic' should not be read as universal: for alpha=3/2, putting z=sqrt(r*tau) makes z*K(r) analytic and nonzero at z=0 by the erfc formula, so the threshold r(p) itself is analytic at zero by the implicit function theorem. The precise displayed power-law claim is correct. Fano equality concerns the limiting variance-to-mean ratio, not all second-order time correlations.
 
-The closest previously available three-state model yields the special one-exponential-dark formula. Liu (2023), arXiv:2308.02214, provides general counting-statistics renewal machinery and two-level demonstrations, but the studied sections and examples do not state the arbitrary semi-Markov multi-dark Fano sign theorem or aggregate inverse-threshold tomography. Lachman et al. (2024), doi:10.1103/PhysRevResearch.6.033254, present a single exponential dark-branch emitter without external resetting. Volkán-Kacsó (2014), doi:10.1063/1.4881460, treats power-law blinking and binned intensities without a controlled reset-rate Fano transition. The substantive additional content here is the distribution-free crossing, rigorous infinite-variance boundary, entire-curve recovery of aggregated survival, and strictly non-Poisson third-cumulant fingerprint. Targeted literature and research-record comparisons did not identify a stronger implication, but the generic renewal framework makes unrecognized implicit prior coverage a genuine remaining risk; this is a self-review, not a claim of guaranteed priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A single controllable shot-noise sign boundary directly links an observable to a Laplace transform of otherwise inaccessible dark dwell laws. The exact all-channel classification and nonparametric identification offer structural insight beyond recomputing the classical three-state answer; the Pareto asymptotic shows a qualitatively new nonanalytic weak-pump regime when the unreset second moment diverges. The inverse measurement requires a continuum of noiseless ideal experiments, and individual dark laws remain nonidentifiable, so laboratory reconstruction is not claimed.
+Credit the exact one-exponential-channel crossing and third-cumulant witness to the distinct matching record; same-day indexing establishes overlap, not priority. Neither that scalar case nor the inspected general renewal machinery supplies the combined arbitrary-law sign criterion and inverse observable. PASS is for the distinct arbitrary-law result, not a separate claim to the Markov specialization or Laplace uniqueness.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The shot-noise boundary is a naturally measurable invariant of a non-Markov dark sector. The exact all-rate sign criterion both decides the number of crossings even with infinite unreset moments and turns the full threshold curve into an identifiable aggregate observable. A strictly non-Poisson third-order witness at F=1 further distinguishes matching shot noise from a Poisson count. The mathematical utility is not the already available three-level rational example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:08:39.695226Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof, lines 4–64",
+        "Frozen VERIFICATION.md and verify_fifth.py, inspected only",
+        "/workspace/independent_replays.py, fifth()"
+      ],
+      "rationale": "Expansion with t=2x+1 gives 16F+4=5U, U=(t^2+1)^2. For each t=±1 mod 5 the derivative of U is a unit and Hensel lifting gives exactly one branch onto 4+5 Z_5. On t=5v, U=1+50(vS(v))^2 with S(v)^2=1+(25/2)v^2, S(v)=1 mod 5. The difference S(v)-S(w) equals (25/2)(v-w)(v+w)/(S(v)+S(w)), so vS(v)-wS(w) is v-w times a unit congruent to 1 mod 5. This proves bijectivity on each finite reduction (thus also on Z_5). For each t=±2 mod 5, lifting t^2=5z-1 produces the bijection z=(t^2+1)/5, so U=25z^2 on both outer branches. The output branches reduce to 4,1,0 mod 5 and are disjoint. For k>=3, regular lifts contribute 2*5=10 per image residue. In a critical ball the normalized variable runs independently modulo 5^(k-1), whereas the square is specified modulo 5^(k-3); this gives 25 times the square-root count per ball. At k=1 all five inputs map to 1; at k=2 residues 1,11,6 have counts 10,5,10. A nonzero square of valuation 2h<j has two nonsingular unit roots modulo 5^(j-2h), with 5^h extra lifts each; the zero equation requires valuation at least ceil(j/2). Thus Q(j) and R_k follow by counting two of four unit classes at each permissible even valuation, plus zero. The square set has measure (2/5)/(1-1/25)=5/12; scaling the regular and two square components yields (1/5+1/60+1/60)/5=7/150. Independent replay compared complete fibers via the valuation formula to direct modular evaluations on all 488280 inputs through k=8, giving 1,3,7,31,147,731,3647,18231 image sizes. Replay: python3 /workspace/independent_replays.py 5.",
+      "residual_risks": [
+        "The exact proof uses five-adic lifting and makes no assertion for other primes or exponents; the finite census is supplementary."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 25 gives 5 and then 13*5^(n-2) values for independent x^5+y^5 mod 5^n, not for (x+1)^5+(-x)^5. The 2019 treatment studies sums of powers in independently varying coordinates, with §3 on squares.",
+          "Resultary 6a065e0bd9a3 is a full image/fiber result for D_p at p>=5, not degree-four D_4 at p=5. The same-day a42373675dcf specializes to (x+1)^(3^s)-x^(3^s) over Z_3."
+        ],
+        "reasoning": "An image census on all input pairs does not determine the image or individual fibers on the adjacent-input subvariety. A theorem for D_p does not specialize to D_4 over Z_5, and a ternary family does not include the fifth-power difference.",
+        "searches": [
+          "Arias–Borja–Anaya JIS 23.8.1, Theorem 25",
+          "Arias–Borja–Rubio JIS 19.6.7, p. 1 and §3",
+          "Resultary: prime-index Dickson polynomials; consecutive prime-power difference images"
+        ]
+      },
+      "checked_sources": [
+        "Resultary f539e1fa82a3, a42373675dcf, 8ac73addd4cb and 6a065e0bd9a3",
+        "JIS 23.8.1 and JIS 19.6.7",
+        "Bremser–Gomez-Calderon DOI 10.1016/0022-314X(91)90087-R (limited access only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The independent-variable theorem does not distinguish adjacent-input representations. The Frobenius-minus-linear theorem gives a regular p^2 Z_p branch and p-1 translated square branches for a different polynomial, without identifying the two distinct critical output levels and fibers here.",
+          "An all-parameter exact Dickson theorem may be relevant, but the 1991 document's theorem text was not obtainable."
+        ],
+        "reasoning": "No established implication of the complete three-branch classification was found among the examined statements. Standard Hensel and square-root lifts are tools, not a prior classification of this specific map.",
+        "searches": [
+          "JIS 23.8.1 Theorem 25, p. 12",
+          "Resultary 8ac73addd4cb, Finding and Proof §2; 6a065e0bd9a3, Finding",
+          "Bremser–Gomez-Calderon DOI and identified publisher/alternate source attempts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "U=(t^2+1)^2=D_4(t,-1/2)+1/2 for t=2x+1. The map F=(5U-4)/16 is not an invertible output transform mod 5^k; it moves U precision to k-1 and adds a factor 5 to finite multiplicities.",
+          "The retrieved 1991 material identifies Dickson value sets over Galois rings, but no actual theorem passage settling this specialization was accessible."
+        ],
+        "reasoning": "A complete image/fiber theorem for this D_4 at the shifted levels would cover the claim, including the Haar density by taking the limit. The normalization itself is not evidence that such a theorem is stated or implied by the accessed materials.",
+        "searches": [
+          "Resultary: consecutive fifth-power differences, five-adic scaled-square image and fiber multiplicities",
+          "Bremser–Gomez-Calderon DOI 10.1016/0022-314X(91)90087-R, quartic Dickson specialization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "f539e1fa82a3 is the identical assigned record, not independent prior evidence. The closest separate outputs inspected were a42373675dcf (regular and square sheets over Z_3), 8ac73addd4cb (x^p-px, including p=5), and 6a065e0bd9a3 (D_p)."
+        ],
+        "reasoning": "None of those distinct exact classifications covers the stated polynomial, even after the Dickson normalization; no separately identified exact table of these fibers was found in the comparisons.",
+        "searches": [
+          "Resultary: exact five-adic adjacent fifth-power image and fiber distribution, and analogous prime-power value sets"
+        ]
+      },
+      "rationale": "The inspected statements establish independent-variable power-sum image counts and related but different prime-power classifications, not the adjacent fifth-power image or its full fibers. There is a substantive equivalence to a precision-shifted quartic Dickson value-set/fiber problem, so the inaccessible directly relevant 1991 article remains a material priority risk, without verified coverage.",
+      "residual_risks": [
+        "The 1991 Dickson value-set article remains the principal potential priority overlap, especially for the exact quartic image or preimage counts. Bounded lawful retrieval did not provide decisive theorem text.",
+        "The comparison cannot exclude unindexed exact tables or equivalent older specializations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material overlap risk, no whole-document noncoverage inference",
+          "evidence": [
+            "The article concerns Dickson value sets over Galois rings; exact D_4(t,-1/2) coverage at 5 could not be assessed from accessible theorem text."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0022-314X(91)90087-R",
+          "material_read": "Available landing/abstract-level and indexed identification only, no decisive theorem text",
+          "method": "Lawful DOI and publisher retrieval and identified alternate access attempt; publisher and ResearchGate returned HTTP 403",
+          "title": "Value sets of Dickson polynomials over Galois rings",
+          "trigger": "Exact quartic Dickson normalization gives a plausible broader prior theorem"
+        },
+        {
+          "assessment": "Different input domain and no adjacent-input fiber law",
+          "evidence": [
+            "For x^5+y^5 the value count is 5 mod 5 and 13*5^(n-2) mod 5^n for n>=2."
+          ],
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL26/Borja/borja4.pdf",
+          "material_read": "Theorem 25, p. 12, PDF offset 31680",
+          "method": "Lawful OA PDF passage",
+          "title": "Counting Integers Representable as Sums of k-th Powers Modulo n",
+          "trigger": "Exact fifth-power count at powers of five"
+        },
+        {
+          "assessment": "The inspected independent-variable and quadratic-form results do not include this offset-constrained quartic",
+          "evidence": [
+            "Studies sums c_i*x_i^k; section 3 treats sums/differences of squares in independent variables."
+          ],
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL22/Borja/borja3.pdf",
+          "material_read": "p. 1, offset 0; §3, p. 12, offset 31055",
+          "method": "Lawful OA PDF passages",
+          "title": "Counting Integers Representable as Images of Polynomials Modulo n",
+          "trigger": "Broader polynomial-image methodology"
+        },
+        {
+          "assessment": "Different prime and exponent family; same-day date does not settle priority",
+          "evidence": [
+            "Regular/square branches and complete fibers for exponents 3^s at 3."
+          ],
+          "identifier_or_url": "Resultary a42373675dcf",
+          "material_read": "Mirrored RESULT.md, Finding, offsets 0–2311",
+          "method": "Local Resultary mirror",
+          "title": "Two-sheet and square-sheet ternary images of consecutive prime-power differences",
+          "trigger": "Closest adjacent-power family analogue"
+        },
+        {
+          "assessment": "Different normalized polynomial and number of singular components",
+          "evidence": [
+            "x^p-px has a regular component and p-1 translated/scaled-square branches."
+          ],
+          "identifier_or_url": "Resultary 8ac73addd4cb",
+          "material_read": "Mirrored RESULT.md, Finding and Proof §2, offsets 0–3176",
+          "method": "Local Resultary mirror",
+          "title": "Exact prime-power value sets of a Frobenius-minus-linear polynomial",
+          "trigger": "Same prime and similar square-branch architecture"
+        },
+        {
+          "assessment": "Degree p at prime p>=5, not D_4 at 5",
+          "evidence": [
+            "The degree equals the prime in its image/fiber theorem."
+          ],
+          "identifier_or_url": "Resultary 6a065e0bd9a3",
+          "material_read": "Mirrored RESULT.md, Finding, offsets 0–3876",
+          "method": "Local Resultary mirror",
+          "title": "Exact prime-power value sets of prime-index Dickson polynomials",
+          "trigger": "Closest exact Dickson classification in Resultary"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, complete branch and fiber classifications and Prior work",
+        "Arias–Borja–Anaya Theorem 25 for the unconstrained comparison"
+      ],
+      "rationale": "The polynomial is the natural fixed-unit-step fifth-power difference, and 5 is the prime dividing its exponent. Knowing its targetwise multiplicities solves local representability for this constrained expression, rather than merely reporting a density or sample of values. The two inequivalent critical ball mechanisms, together with the regular two-sheet lifting, explain the exact finite distribution and remain useful at all depths. The result is narrow but its solution uses the geometry of the singular balls, not a substitution in an identified prior count.",
+      "residual_risks": [
+        "Interpretation is limited to the adjacent difference at the prime five; no other exponents or number-theoretic consequences are claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

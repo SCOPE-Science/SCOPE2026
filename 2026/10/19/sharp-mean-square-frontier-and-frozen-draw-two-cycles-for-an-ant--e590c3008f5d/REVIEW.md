@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exponential-weight formula simplifies exactly to the stated tanh map. The nonstandard global drift inequality is proved via negative covariance under the squared-size-biased Gaussian law; it remains strict at the critical parameter. The small-input second- and fourth-moment expansion establishes necessity and the endpoint coefficient, while a nonnegative-supermartingale argument proves almost-sure convergence. The frozen-draw reduction has an exact scalar equation for a locally attracting two-cycle. The 295 numerical checks corroborate but do not replace the proof.
+## correctness
 
-**Originality — PASS, with disclosed residual risk.** The primary 2025 splitting paper explicitly leaves finite Monte Carlo errors outside its guarantees. The 2023 paper supplies the HJ sampling formula; the accessible full 2026 high-temperature sampled analysis uses independently sampled proposals and a growing sample-count condition, not a fixed perfectly antithetic pair. Neither inspected treatment implies this simultaneous sharp mean-square frontier and frozen-sample cycle probability. The abstract-only expanded 2026 operator-splitting paper could still contain an equivalent calculation, as could unindexed dependent-sampling literature; these risks remain open. Mathematical-record searches and accessible prior ledger claims did not identify a covering result. This is a best-knowledge novelty assessment, not uniqueness certification.
+PASS
 
-**Mathematical value — PASS.** Fixed-pair antithetic sampling is a natural low-cost variance-control choice for normalized Gaussian proximal estimates, and freezing versus refreshing random numbers is a consequential implementation choice. A universal sharp stability threshold with a critical quartic descent law, paired with an exact positive probability of spurious frozen-draw attraction, identifies a genuine convergence-versus-reuse distinction not furnished by population proximal contractivity. The theorem is exact and usable as a low-dimensional benchmark; no broader solver-performance claim is made.
+The ratio of the two Gibbs weights is exp(−2cZx/a), giving the stated odd map. For x>0 set b=cx/a and H=tanh(b|Z|)/(b|Z|). Under the probability tilt dQ=Z²dP, H decreases strictly with Z² and lies strictly between zero and one except on a null set. The independent-copy covariance identity gives E_Q[Z²H]≤E_Q[Z²]E_Q[H]=3E_Q[H]; replacing H by H² makes the bound strict. Thus E[Z²tanh²(bZ)]<3b E[Z tanh(bZ)], proving strict descent even at c=2/3. Expansion of the map gives (1−cZ²)x+c³Z⁴x³/(3a²)+O(c⁵|Z|⁶|x|⁵/a⁴). Gaussian moments justify the squared expansion, yielding the linearized second moment 1−2c+3c² and quartic coefficient 2c³(1−5c)/a², equal to −112/(81a²) at the boundary. Hence above the boundary small nonzero starts fail one-step descent, not necessarily almost-sure convergence. Fresh independent draws give a nonnegative square supermartingale, and telescoping gives finite total expected drift. Continuity and strict positivity of that drift away from zero exclude a positive limit of the squares. For frozen z≠0 the scaled map is v−tanh(dv), d=cz²: strict magnitude decrease at all v≠0 for d≤2 yields global convergence by continuity. For d>2, the slope at zero is below −1; tanh(dv)/v decreases from d to 0 and crosses 2 exactly once at v*>0. Strict concavity of tanh on positive arguments gives 0<d sech²(dv*)<tanh(dv*)/v*=2, so the cycle multiplier is below one in magnitude. The Gaussian two-sided tail of d>2 is erfc(1/√c), not an assertion about all initial points in that regime. The supplied numerical checker does not replace these analytic checks.
 
-**Scope and scientific limits.** Scalar quadratic, exactly two dependent Gaussian proposals, real arithmetic, positive fixed parameters. No extrapolation to independent batches or to general splitting schemes. The expanded 2026 primary source was not available for full-text comparison.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The underlying Gaussian proximal formula and scalar flip tools are established. The inspected nearby antithetic and period-two records concern different update maps, and the closest primary convergence results concern exact integrals, Monte Carlo estimation error, or independent proposals with variable sample size. None of the compared statements covers the fixed two-point antithetic quadratic estimator's global one-step boundary, neutral endpoint coefficient and contrasting reuse laws. This is a bounded comparison, not historical priority certification.
+
+## value
+
+PASS
+
+An antithetic pair is a natural low-cost Gaussian estimator, and reusing random samples changes the iteration rather than the population proximal map. The sharp all-input step restriction, strict quartic drift at the neutral endpoint and positive-probability frozen instability even where fresh draws converge give an actionable distinction between these policies. A local multiplier alone would miss that distinction and would not resolve the neutral endpoint.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

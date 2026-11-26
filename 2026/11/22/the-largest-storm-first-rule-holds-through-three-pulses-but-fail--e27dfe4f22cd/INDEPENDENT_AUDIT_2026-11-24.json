@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:19:35.141269Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 7–53; VERIFICATION.md lines 19–21; verify.py lines 6–59 (read, not executed)",
+        "Independent replay: python3 /tmp/opencode/storm_four_replay.py"
+      ],
+      "rationale": "For one to three pulses, telescoping the clipped update gives R = sum(h) - (1-q) sum(s before the last pulse) - s_final. For the first-two exchange starting empty, the larger-first order lowers post-second storage by at most (1-q) times the increase in post-first storage; this gives no greater runoff by balance and no worse identical suffix by monotonicity. For the endpoint exchange z,y,x versus x,y,z, the required difference in retained/lost mass is (1-q)(c-a+B-A)+V-U in the notation of RESULT.md. I checked the unsaturated-middle Lipschitz bound, both branches with saturated middle and z≤C, and the saturated-first branches with z>C; in the last branch the bound is (1-q)(C-x)-((1-q)C-x)_+≥0. The non-strict inequalities cover ties and exact saturation. Moving a maximum from second or third to first therefore preserves optimality. In an independent exhaustive replay, storing in units of 1/64 and computing runoff from conservation, all 24 orders were evaluated: the unique minimum was (12,11,1,13) with 8/64, and the six 13-first spill numerators were 65,17,16,112,80,112, agreeing with the frozen table. The result concerns positive pulse counts and the specified deterministic finite-horizon model only; the rational grid in the supplied verifier is not a proof of the universal result.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Browning–Kumin pp. 414–415 use stochastic inflow and overflow/emptiness probabilities, not deterministic multiset reordering.",
+          "6830145589ea fixes order and optimizes one gap; 56bb6286d54f varies fill and uses two heterogeneous roofs."
+        ],
+        "reasoning": "The broader stochastic mechanisms and overlapping deterministic models do not give a dominating permutation result at the specified common retention and finite horizon.",
+        "searches": [
+          "Primary-literature lookup on finite-dam, spill, and ordering/scheduling formulations",
+          "Browning–Kumin DOI 10.4236/ajor.2016.65038",
+          "Resultary 6830145589ea and 56bb6286d54f"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d7dd28e86fa3, 6830145589ea, 56bb6286d54f, 07bb1eea2167",
+        "DOI 10.4236/ajor.2016.65038 pp. 414–415",
+        "JSTOR stable 2098739 and DOI 10.1080/07362994.2011.564448 (limited to indexed or landing material)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The periodic result’s clipping thresholds are evaluated in stationary cycles; the convex envelope in 6830145589ea is evaluated as a gap parameter varies at fixed order; stochastic finite-dam formulas average over inputs."
+        ],
+        "reasoning": "These do not compare the actual empty-start endpoint exchange with fixed middle pulse or imply the finite-horizon optimizing permutation. Similarity of the update rule is established and not claimed as new.",
+        "searches": [
+          "d7dd28e86fa3 (periodic window), 6830145589ea (overflow envelope), and Browning–Kumin pp. 414–415"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "d7dd28e86fa3 optimizes over the two cyclic orders at their endogenous unique periodic states.",
+          "07bb1eea2167 optimizes demand service in an empty fill–cap–serve tank, not spill with multiplicative inter-event retention."
+        ],
+        "reasoning": "Cutting a cycle to begin at the maximum does not change periodic total runoff; the same rotation changes the boundary conditions of the empty-start problem. Changing the storage map and objective does not give an equivalent tank formulation.",
+        "searches": [
+          "Resultary semantic lookups for largest-first saturation runoff, finite-dam and finite-buffer scheduling equivalents",
+          "Resultary d7dd28e86fa3 and 07bb1eea2167 Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The frozen record was the exact indexed hit. The distinct matches 6830145589ea and 56bb6286d54f state different comparisons in their Findings."
+        ],
+        "reasoning": "The nearest fixed-depth records do not list the four-pulse instance or its optimum; a runoff table for fixed inputs could cover a witness but would not settle the universal theorem. No matching table was identified.",
+        "searches": [
+          "Resultary searches for the exact empty-start three-pulse theorem and four-pulse witness"
+        ]
+      },
+      "rationale": "The strongest statement-level matches treat the periodic steady state, fixed pulse order with variable timing, heterogeneous retentions, or different storage objectives. None establishes the combination of an empty-start largest-first existence theorem and its sharp four-pulse failure. This is a bounded judgment, not a historical-priority certification.",
+      "residual_risks": [
+        "The two last finite-dam sources could not be read in full by lawful retrieval; indexed evidence suggests stochastic inflows, releases or expected overflow, not a verified statement-level exclusion. Broader rearrangement and scheduling literature remains a priority risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial overlap only",
+          "evidence": "Two three-storm cyclic orders are compared in the unique periodic state over a sharp capacity interval.",
+          "identifier_or_url": "Resultary 2026/11/2/d7dd28e86fa3",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary and mirrored text",
+          "title": "A sharp storm-ordering window for saturation runoff in a periodic linear store",
+          "trigger": "Closest same-recurrence ordering result"
+        },
+        {
+          "assessment": "Different control variable",
+          "evidence": "The pulse order is fixed and the middle-event time is optimized.",
+          "identifier_or_url": "Resultary 2026/11/22/6830145589ea",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary and mirrored text",
+          "title": "Convex overflow envelope and exact gap allocation for three rainfall pulses",
+          "trigger": "Same-day, empty-store, three-pulse spill"
+        },
+        {
+          "assessment": "Different regimes and claim",
+          "evidence": "Two orders are compared under heterogeneous retention and varying initial fill.",
+          "identifier_or_url": "Resultary 2026/11/22/56bb6286d54f",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary and mirrored text",
+          "title": "Three exact storm-order reversals across two heterogeneous retention systems",
+          "trigger": "Same-day exact storm order comparison"
+        },
+        {
+          "assessment": "Different update and objective",
+          "evidence": "Fill–cap–serve demand update; the objectives are volume served and days fully supplied.",
+          "identifier_or_url": "Resultary 2026/11/22/07bb1eea2167",
+          "material_read": "RESULT.md Finding and Assumptions and scope, offset 0",
+          "method": "Local Resultary and mirrored text",
+          "title": "An exact interval of disagreement between rainwater volume and fully supplied days",
+          "trigger": "Tank-permutation analogue"
+        },
+        {
+          "assessment": "Inspected formulation is not the fixed-multiset permutation problem",
+          "evidence": "The finite-dam threshold is Z_t+X_t>k and the inquiry uses random inputs and probabilities of overflow or emptiness.",
+          "identifier_or_url": "https://doi.org/10.4236/ajor.2016.65038",
+          "material_read": "PDF pp. 414–415, text offsets 0 and about 3800",
+          "method": "Open-access text",
+          "title": "Stochastic Reservoir Systems with Different Assumptions for Storage Losses",
+          "trigger": "Finite-dam antecedent with storage losses"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 13–53; independent four-pulse replay; periodic and gap-allocation comparisons"
+      ],
+      "rationale": "The theorem gives the exact first horizon where the natural greedy starting choice ceases to be guaranteed, uniformly in depths, capacity and retention below that horizon. The initial exchange works with any common suffix, but the second exchange only justifies the three-pulse horizon. The four-pulse strict, unique optimum rules out tie artifacts and is useful for testing optimization methods for this specific clipped recurrence, without implying empirical hydrological significance.",
+      "residual_risks": [
+        "No extension to varying gaps, weighted spill or actual catchment response is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For each integer cycle length at least three, the absolutely convergent Bessel winding series provides a phase-resolved amplitude expansion. Relative winding parities prove the all-time first-derivative blind points. The two shortest paths into the unique even antipode or pair of odd farthest sites determine the nonzero leading constants; all remaining vertices have strictly higher information order. In odd length, reflected farthest sites cancel potentially misleading odd-order error terms. The quantum-information identity follows from commuting shifts and the initial vertex's vanishing first and second shift moments. A standalone independent matrix-exponential/spectral program completed 784 finite comparisons. Risks: isolated zero-probability flux values are nonregular; asymptotics are only at fixed nonblind flux and do not commute with taking a flux limit to a blind point.
+## correctness
 
-**Originality — PASS, with explicit priority risk.** Full scientific text of Zanoli–Ragazzi–Bordone–Paris (Frontiers, 2026, sections 2.2, 3.2, and conclusion) concerns ground-state initialization; its zero magnetic QFI is not the same statement as localized-vertex preparation. Material pages 1–3 of Amorim–Cerutti–de Sá Neto–de Oliveira (APS Open Science, 2026) concern a discrete-time coined walk and absorption readout estimating an input qubit. The closely relevant Luppi preprint (arXiv:2608.12519v1) establishes winding/return and Leggett–Garg formulas and highlights localized flux metrology as unresolved, but its original full text could not be inspected; priority is not independently certified. Actual published semantic-index searches for site-resolved Fisher information, magnetic flux cycle aliases, blind points, and quantum sensing returned no comparable result among the inspected top hits. An unindexed derivation or an implicit calculation in the inaccessible Luppi full text remains a genuine risk. The earlier all-size stroboscopic cycle chirality and fixed-state quantum sensing records are not equivalent to the present vertex-readout Fisher theorem.
+PASS
 
-**Value — PASS.** The quantitative information cost of restricting magnetic-flux sensing to one position measurement is a natural operational question explicitly motivated by recent ring metrology and localized sequential-measurement work. The exact all-size parity dichotomy, complete first-order blind-flux sets, farthest-vertex dominance and explicit factorial constants identify when, where and at what time scale direct site readout can infer flux. This is a precise measurement-design boundary rather than a renamed generic Fourier or QFI identity. The QFI comparison is carefully limited to the fixed specified Peierls encoding, not sold as a gauge-independent precision guarantee.
+The replacement retains the theorem and fixes the odd-ring remainder argument. The frozen proof's exact p_±=A(x)±B(x,φ) formula incorrectly makes the average flux independent; even winding harmonics are allowed there (already for n=3, the farthest-site cos(2φ) coefficient begins at −x^6/40). In the replacement, complex conjugation and reflection instead give p_j(φ,−t)=p_{−j}(φ,t) and the same exchange for flux derivatives. Each farthest-site FI quotient extends analytically at t=0 after factoring its x^{2r} denominator; the sum is even, so the order-2r+3 Taylor term vanishes. The winding phase (−i)^{nℓ} establishes the all-time blind sets. Shortest-path interference yields the stated coefficients, with all nearer-site terms bounded using |q|+|q'|≥n for distinct windings. The leading constants prove the converse at fixed nonexceptional flux. Commutation gives the QFI as 4t² times the variance of ∂φH in the input; the two distinct one-hop sites give variance 2J²/n² even for n=3. The repaired analysis applies to the pointwise ordinary score and not to limiting information at support zeros.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge pass for the joint all-time ordinary position-blindness classification and sharp short-time position information law. Neither the winding technique nor the standalone commuting-generator QFI formula is claimed independently novel. The repaired symmetry proof does not change the observation model or conclusion. Luppi is the closest verified literature overlap and provides an earlier return-only parity law, not these resolved-site statements.
+
+## value
+
+PASS
+
+Resolved positions are a natural experimentally accessible readout. The exact blind fluxes and coefficient-bearing latency penalty distinguish that readout from rooted returns and from fixed-encoding QFI. The opposite parity powers and their farthest-site carriers quantify which outcomes matter before long-time dynamics, while the support-zero caution avoids claiming that first-order blindness prevents all inference.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

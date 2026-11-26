@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:43:25.818155Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–38 and VERIFICATION.md",
+        "Frozen package verify.py, inspected but not executed; package-relative replay: python3 verify.py",
+        "Independent Python computation independent_four_prime_check.py and direct proper-divisor cross-check"
+      ],
+      "rationale": "The divisor lattice of a product of four ordered prime powers is indexed by coordinatewise subvectors, including zeros. Induction on exponent sum gives the same recursive-divisor value under replacement by 3,5,7,11, which can only lower the product and so preserves the strict ample inequality. Thus it is enough to exhaust positive exponents on that support through the attained boundary. Setting the other three coordinates to one and comparing exact powers gives upper bounds (22,15,13,10). Proper subvectors form the union of the nonempty coordinate faces f_i<=e_i-1. Inclusion–exclusion on these faces computes their sum T from earlier prefix sums, including T=0 at the origin. Then A=1+T and its inclusive prefix sum is 1+2T. All predecessor tuples precede the current tuple in lexicographic order. An independently written exact implementation computed all 56672 table vectors, filtered 2757 candidates and returned only (11,5,3,2), product 22975412315625, A=24786437787648. Direct proper-divisor recursion on each of the 864 boundary subvectors agreed. This finite computation is exhaustive after the analytic support and exponent reductions; it does not impose a cutoff on the original odd primes.",
+      "residual_risks": [
+        "The frozen program asserts the minimum by retaining the least successful tuple, not by counting successes in a separate assertion. The independent reproduction counted exactly one, as stated. The result is confined to exactly four distinct primes, not a classification of all odd ample integers."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fink's unrestricted odd minimum in Section 3.3 has factorization 3^9*5^5*7^2*11*13 on five primes. The two distinct catalog entries for exactly three primes both give 3^20*5^9*7^6; the later listed entry also excludes fewer than three primes."
+        ],
+        "reasoning": "The unrestricted minimum gives only a lower bound for the constrained search, and its optimizer is inadmissible. Neither excluding at most two primes nor minimizing at three produces a sharp minimum at four. Distinguishing the catalog matches relies on their actual parameter regimes, not their dates.",
+        "searches": [
+          "arXiv:2008.10398v1, Section 3.3 and adjacent table",
+          "Resultary entries 8cca5657935b and 672e07d30247"
+        ]
+      },
+      "checked_sources": [
+        "Fink arXiv:2008.10398v1 and arXiv:2307.09140v1",
+        "OEIS A067824",
+        "Resultary 8cca5657935b and 672e07d30247"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prime-replacement reduction and ordered-factorization identity make a finite evaluation possible. The three-support optima do not constrain the value on four-coordinate exponent vectors sharply enough, and the known five-support optimizer cannot keep its exponent profile after deleting a prime."
+        ],
+        "reasoning": "The prior machinery supplies a method, not the result of the finite decision. Establishing which of the 2757 four-support candidates first meets the strict inequality is the substantive exact computation, not a parameter substitution into a published minimum formula.",
+        "searches": [
+          "Fink 2020 Definition 1 and Section 3.3; Fink 2023 Theorem 3; prior three-prime Resultary Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fink's 2020 definition is the same recurrence, independent of the actual primes. Fink's 2023 Theorem 3 expresses the recursive divisor function through ordered factorizations as kappa_0=1*K. The adjoining three-prime records use the same recurrence under the same odd restriction but with a different number of distinct primes."
+        ],
+        "reasoning": "The ordered-factorization formulation is an equivalent way to evaluate the function, not an assertion about its first crossing of n with four distinct odd primes. Counting primes with multiplicity would be a different extremal problem.",
+        "searches": [
+          "Recursive divisor ample odd four distinct prime factors",
+          "Resultary: least odd ample with exactly four distinct primes; 22975412315625",
+          "Fink arXiv:2008.10398v1, Definition 1",
+          "Fink arXiv:2307.09140v1, Theorem 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A067824 indexes recursive-divisor counts by n; its definition and divisor-chain descriptions concern the same function. The primary paper's displayed odd optima are for unrestricted odd integers and for odd integers not divisible by 3, not a support-four census. The closest returned Resultary Findings have support three."
+        ],
+        "reasoning": "A definition or evaluation table for a(n) alone is not an exhaustive ordered list of ample odd integers filtered by distinct-prime support through N. No exact competing four-support minimum or applicable complete table was established in these inspections.",
+        "searches": [
+          "OEIS A067824",
+          "Resultary exact decimal 22975412315625 and four-distinct-prime extremum",
+          "Fink 2020 Section 3.3, displayed odd optima and nearby table"
+        ]
+      },
+      "rationale": "The function, prime-independence and finite recursion are known or routine and are not credited as new. The distinct assertion is the exact least odd ample integer at support size four. The closest primary result minimizes without that constraint and has a five-prime witness; the closest catalog statements fix three primes. None of these comparisons supplies the four-support answer or bounds that force the reported tuple.",
+      "residual_risks": [
+        "An unindexed or separately distributed exact odd-ample census might contain the answer; the selected literature and database comparisons do not establish absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Unrestricted odd and odd not divisible by 3 are different optimization domains from support four",
+          "evidence": "First unrestricted odd ample factorization 3^9*5^5*7^2*11*13 has five prime divisors.",
+          "identifier_or_url": "https://arxiv.org/abs/2008.10398v1",
+          "material_read": "Definition 1 (PDF p. 4); Section 3.3 and immediately adjacent table (PDF p. 7)",
+          "method": "Lawful OA PDF passages",
+          "title": "Recursively abundant and recursively perfect numbers",
+          "trigger": "Introduces same function and reports an odd extremum"
+        },
+        {
+          "assessment": "Evaluation machinery, not a stated support-four extremum",
+          "evidence": "kappa_0=1*K, i.e. a divisor sum of ordered-factorization counts.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.09140v1",
+          "material_read": "Theorem 3, PDF p. 2",
+          "method": "Lawful OA PDF passage",
+          "title": "Properties of the Recursive Divisor Function and the Number of Ordered Factorizations",
+          "trigger": "Alternative expression for exactly the same arithmetic function"
+        },
+        {
+          "assessment": "Same function, not a filtered extremal census in the inspected material",
+          "evidence": "Recursion gives 1 plus the sum over proper divisors.",
+          "identifier_or_url": "https://oeis.org/A067824",
+          "material_read": "Recurrence and divisor-chain comments",
+          "method": "OA public database entry",
+          "title": "Recursive divisor count",
+          "trigger": "Potential direct table coverage"
+        },
+        {
+          "assessment": "Both fix three distinct primes rather than four",
+          "evidence": "Both specify 3^20*5^9*7^6 at support three; one also states that support below three is impossible.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-the-least-odd-ample-integer-with-three-distinct-prime-factors--8cca5657935b ; https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-the-least-odd-ample-integer-with-three-distinct-prime-divisors--672e07d30247",
+          "material_read": "Both Findings and relevant scope",
+          "method": "Local full-text mirror",
+          "title": "The least odd ample integers with three distinct prime factors or divisors",
+          "trigger": "Closest separate catalog claims with same objective"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, scope and reductions",
+        "Fink 2020 Section 3.3",
+        "Resultary three-prime Findings 8cca5657935b and 672e07d30247"
+      ],
+      "rationale": "The number of available odd primes is a natural constraint in the recursive-abundance extremum. Four is immediately below the support size of the known unrestricted odd optimizer and immediately above the studied minimal-support case. Its exact optimum quantifies the cost of removing a support degree of freedom; it is a full unbounded-in-primes extremal statement, not an arbitrary box result. The methods are routine, but the exact threshold does not follow mechanically from the adjacent published optima or an existing table.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

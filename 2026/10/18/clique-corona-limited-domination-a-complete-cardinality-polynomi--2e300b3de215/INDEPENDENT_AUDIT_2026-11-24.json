@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:35:59.945830Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–52",
+        "VERIFICATION.md, verify_clique_corona.py and verification_output.txt (inspected, not executed)",
+        "/workspace/branches/independent_replay.py, corona()"
+      ],
+      "rationale": "Condition on the exact core intersection B. An omitted core requires a private selection to cover its cluster; each selected private vertex then sees s+1−j outside, so the lower cutoff for its occupancy is max(1,s+1−k). A selected core covers its cluster and sees s−j+d_B(v) outside, which dominates the private vertices' outside count. This gives cutoff max(0,s+d_B(v)−k), including the empty range, and binomial multiplicity on each of the disjoint private cliques. It proves the full polynomial without double-counting. Every cluster has at least max(1,s+1−k) selected, and the all-private construction attains that bound. For k≤s, equality in an included-core cluster forces d_B(v)=0, equivalently the whole component must be chosen, with the two binomial weights as stated. For k>s equality forces one vertex per cluster and bounds d_B(v) by k−s; each omitted core contributes s choices. Both descriptions agree at k=s; k≥s+Δ(H) makes every core set feasible. Independent set-based enumeration checked the full distributions and minimum classifications by core choice in 71 configurations including connected and disconnected cores. Replay: python /workspace/branches/independent_replay.py 1.",
+      "residual_risks": [
+        "The independent finite enumeration is not the general proof. The result is about labeled sets and does not give a polynomial-time algorithm on arbitrary cores. The theorem's declared lower limit is s=2; original s=1 checks are auxiliary."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The leaf-corona characterization for connected graphs of even order gives overlap with the scalar k=1 minimum at s=1, outside the declared s≥2 scope.",
+          "Tepeh studies general Cartesian products and examples such as grids, prisms and hypercubes in the inspected introduction; the two graph operations are different, and the paper's leaf match is in a reduction gadget."
+        ],
+        "reasoning": "General minimum bounds and the Cartesian product results are not stronger versions of the claimed enumerator. Scope is only what was inspected, not a whole-literature exclusion.",
+        "searches": [
+          "Božović et al. arXiv:2606.22422, definition, Theorem 13 and Corollary 15",
+          "Tepeh arXiv:2606.22428, Cartesian products"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.22422",
+        "arXiv:2606.22428",
+        "Resultary b0e1531dac94 and e5e8f8d5f62a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At the ordinary-domination endpoint the formula collapses to ((1+z)^(s+1)−1)^n, since occupying each cluster suffices; this is not new.",
+          "Neither the scalar leaf result nor the prism distributions or location-partition enumerator give local occupancy effects for a selected core with arbitrary d_B(v), or the equality component rigidity at k≤s and cut tolerance at k>s."
+        ],
+        "reasoning": "The closest prior results do not mechanically imply the low/intermediate-capacity enumerator and optimizer classification on the arbitrary-core clique corona.",
+        "searches": [
+          "Frozen RESULT.md lines 7–34",
+          "arXiv:2606.22422 Theorem 13 and Corollary 15",
+          "Resultary b0e1531dac94 and e5e8f8d5f62a"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The capacity condition is deg_D(x)−deg_out(x)≥deg_G(x)−2k at each selected x. Thus it is a degree-dependent defensive threshold together with domination, not a fixed-threshold global alliance on the generally nonregular corona.",
+          "Section 4 identifies (1,d−k)-domination for d-regular graphs; private and core degrees in this corona are s and s+deg_H(v)."
+        ],
+        "reasoning": "The equivalence in the regular regime and the degree-dependent reformulation do not give the binomially weighted all-core cut sum in the nonregular general case.",
+        "searches": [
+          "arXiv:2606.22422 Section 4, regular-graph (1,t)-domination duality",
+          "Defensive-alliance degree inequality and ordinary-domination endpoint"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Finding of b0e1531dac94 gives full limited-domination distributions and an optimizer transition for K_n square K_2, with transition at 2k=n.",
+          "The Finding of e5e8f8d5f62a counts role-specified dominating/locating-dominating complementary partitions of H corona K_r, with no k-limited condition."
+        ],
+        "reasoning": "One has the same invariant on another graph family; the other has the same graph family but a different invariant. The same date of the former proves no priority ordering.",
+        "searches": [
+          "Resultary limited-domination distributions and optimizer transitions; clique-corona enumerators",
+          "Resultary b0e1531dac94 and e5e8f8d5f62a"
+        ]
+      },
+      "rationale": "The supported contribution is the full cardinality distribution and equality-case transition for arbitrary uniform clique coronas. It is not the scalar minimum in known regimes, ordinary domination, or a new general equivalence to domination with degree-dependent requirements. In the sources inspected, none of these known equivalences or different graph-family formulas gives the new core-cut enumeration at limited capacities. The relationship paragraph's characterization of Tepeh as studying Cartesian products of leaf coronas is not substantiated by the passages checked; that attribution is not needed for the mathematical result or originality decision.",
+      "residual_risks": [
+        "No separate general corona-polynomial primary theorem was retrieved. An unlocated threshold-dependent domination or alliance enumerator could provide an equivalent formulation; the search is not proof of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Overlap in parameter and leaf-corona/regular cases; inspected statements do not imply the claimant's enumerator",
+          "evidence": "Definition and regular equivalence are scalar or special-case family results, not a distribution on arbitrary uniform clique coronas.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.22422",
+          "material_read": "PDF pp. 1–3 definitions, §4 pp. 8–9 and Theorem 13/Corollary 15 on pp. 10–11 (offsets 2400–6382, 25400–28932 and 30475–35544)",
+          "method": "Bounded open PDF passages and literal polynomial locator",
+          "title": "On k-limited domination in graphs",
+          "trigger": "Definition, general bounds, exact leaf-corona precedent and possible domination duality"
+        },
+        {
+          "assessment": "No implication in inspected passages; frozen description of this citation is imprecise",
+          "evidence": "The opening discusses Cartesian graph products, not arbitrary clique-corona distributions.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.22428",
+          "material_read": "Abstract and introduction pp. 1–3, offset 1800–6957, and leaf reference p. 6 offset 20267",
+          "method": "Bounded open PDF and literal locators",
+          "title": "On k-limited domination: complexity and Cartesian products",
+          "trigger": "Cited adjoining construction"
+        },
+        {
+          "assessment": "Conceptual overlap without demonstrated prior coverage",
+          "evidence": "Different graph family in the first case and different admissibility constraints in the second.",
+          "identifier_or_url": "Resultary:b0e1531dac94; Resultary:e5e8f8d5f62a",
+          "material_read": "Original Finding passages, offsets 0–3409 and 0–3911 respectively",
+          "method": "Local Resultary search and mirrored RESULT.md reading",
+          "title": "Full limited-domination distributions of clique prisms; Complete enumerator of dominating–locating complementary partitions of clique coronas",
+          "trigger": "Closest published results by invariant and graph family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 19–38 and 48–52",
+        "Independent cut-count comparison P₃ versus K₃"
+      ],
+      "rationale": "The whole distribution and equality classification separate two genuinely different ways core geometry enters the constraint. In the low regime the minimum count depends only on component sizes; at k=s+1, even connected cores of the same order can differ: on three vertices P₃ has two admissible singleton core sets (its ends), whereas K₃ has none; larger core sets are all admissible in both, giving a minimum-count difference 2s². This is a meaningful exact structural refinement of the topology-independent scalar minimum, not a claim to improve computational complexity.",
+      "residual_risks": [
+        "The closed expression can require exponential work and is specific to straight clique occupancy."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

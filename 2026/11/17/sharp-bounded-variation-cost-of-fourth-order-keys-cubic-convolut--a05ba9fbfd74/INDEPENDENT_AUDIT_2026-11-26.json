@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T15:36:34.249909Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–106; VERIFICATION.md and checker.py (inspected, not executed)",
+        "Independent symbolic cell reconstruction: python3 -B /workspace/branches/reproduce_345.py 5"
+      ],
+      "rationale": "Absolute summability of the forward jumps gives a finite left limit and an absolutely convergent sum of translated steps. Cardinal partition of unity removes the constant; the compactly supported step derivative has an absolutely convergent series of translates in L¹, giving the upper bound by its L¹ norm. Finite sums converge also to the interpolant (bounded response), identifying the derivative of the limit. The unit step has variation one and attains this bound, and linearity gives the two-input statement. Independently reconstructed both kernels' cell moments and step polynomials. For the six taps the first two excursions have absolute heights 1/81 at t=2/3 and (260+43√43)/5832 at t=(5+√43)/18; the center is monotone by its positive derivative. Reflection from the even partition-of-unity kernel supplies the other two excursions. Their total is 1+4/81+4(260+43√43)/5832. For the four taps the first outer piece is t²(t−1)/2 with extreme −2/27, the middle t(−2t²+3t+1)/2 is strictly increasing, and reflection gives the same variation on the other side. This proves 35/27 and the strict radical excess. Neither endpoint boundary conventions nor sampled-only output variation enter the argument.",
+      "residual_risks": [
+        "The general operator bound follows from the L¹ jump expansion, not random stress checks. No minimax comparison of fourth-order schemes or finite-grid end rule is proved."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Keys p. 1160 describes support-three symmetric cubics, O(h⁴) approximation and six sample points versus four",
+          "Indexed 914665cad692 concerns global cardinal cubic spline interpolation; frozen RESULT.md lines 108–120 distinguishes two-dimensional zooming/TV restoration"
+        ],
+        "reasoning": "Approximation order bounds measure smooth-data reconstruction error, not sharp gain on finite-variation sequences. Changing the kernel to a cardinal spline or including nonlinear restoration changes the operator and cannot transfer this coefficient.",
+        "searches": [
+          "Resultary: Keys fourth order cubic convolution total variation overshoot exact constant",
+          "Keys (1981) PDF, literal fourth-order, p. 1160 offsets 49550 and 55375",
+          "Malgouyres–Guichard, total variation interpolation zooming (targeted OA attempt)"
+        ]
+      },
+      "checked_sources": [
+        "Keys printed p. 1160; Meijering–Unser printed p. 478 and author abstract",
+        "Resultary a05ba9fbfd74, c6616c0111cd, 914665cad692, 287732549e93",
+        "Primary target-specific discovery search and frozen RESULT.md pp. identified at lines 108–120"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Keys p. 1160 specifies the published kernel and polynomial approximation order",
+          "Meijering–Unser p. 478 gives reproduction through degree three and the formal equivalence",
+          "The reconstructed step has two different lobe heights, each paired by reflection"
+        ],
+        "reasoning": "The known kernel supplies the starting formula, not the attained ℓ¹-jump-to-BV norm. A published table of all signed excursions with monotonic intervals could imply the sharp constant via the jump reduction; maximal overshoot or a single lobe value cannot, since both kinds of excursion contribute. The bounded published passages read do not supply that table.",
+        "searches": [
+          "Henderson step response and 1/81 overshoot (Resultary variants)",
+          "Author-hosted Meijering–Unser PDF p. 478 offset 10650",
+          "Frozen RESULT.md proof lines 52–102"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Meijering–Unser (2003), p. 478: explicitly identifies Henderson osculatory and fourth-order Keys interpolation as formally equivalent; also compares third-order Keys and Karup–King",
+          "Author publication page abstract, offset 500"
+        ],
+        "reasoning": "Henderson under these conventions is not a different operator, so a prior exact norm or full step-response variation for it would cover the six-tap claim. The retrieved equivalence passage identifies the operator and order, not a variation bound.",
+        "searches": [
+          "Resultary: Henderson osculatory interpolation Keys cubic convolution step response overshoot equivalence",
+          "Meijering–Unser author-hosted full PDF, literal Henderson",
+          "Primary: Henderson Keys fourth order cubic convolution step response overshoot total variation ringing interpolation osculatory exact 1/81"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "a05ba9fbfd74 is the assigned record itself",
+          "c6616c0111cd contains the four-tap value 35/27 at the affine-reproducing parameter in a later-dated broader four-tap family",
+          "287732549e93 concerns a finite four-knot natural-spline operator"
+        ],
+        "reasoning": "The same exact six-tap hit was a self-hit. The four-tap table is genuine overlap for the comparator but does not give the six-tap radical; its later date does not establish prior coverage. The same-day natural-spline result has different support and boundary conditions.",
+        "searches": [
+          "Resultary: sharp bounded variation norm fourth order Keys cubic convolution step response exact radical",
+          "Resultary: Catmull Rom Karup King Keys cubic convolution variation norm 35/27"
+        ]
+      },
+      "rationale": "Credit the sharp attained six-tap variation invariant and quantitative comparison, not the interpolation formula, osculatory equivalences, or approximation orders. The specific old formulas are indeed the same operators. An old full variation calculation for their step responses would be substantive coverage; the inspected primary passages and indexed comparisons establish the equivalences and neighboring results, but do not show such coverage of the six-tap invariant.",
+      "residual_risks": [
+        "Older Henderson/actuarial or signal-processing work may contain the complete step-excursion calculation under different terminology. The image-zooming paper and more extensive older osculatory literature were not independently compared in full. An irrelevant search result is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Kernel and order are established prior work; inspected passage establishes approximation order, not sharp variation",
+          "evidence": "Support (−3,3), six samples compared to four, and coefficients A₂=−7/12, A₃=1/12 for O(h⁴).",
+          "identifier_or_url": "doi:10.1109/TASSP.1981.1163711; https://ncorr.com/download/publications/keysbicubic.pdf",
+          "material_read": "PDF p. 8 / printed p. 1160, fourth-order construction and summary, offsets 49550–57007",
+          "method": "Lawful OA PDF literal locate and bounded offset reads",
+          "title": "Cubic Convolution Interpolation for Digital Image Processing",
+          "trigger": "Original fourth-order kernel and possible step-stability calculation"
+        },
+        {
+          "assessment": "Direct equivalence, not verified step-norm coverage",
+          "evidence": "Explicit equivalence of 'Henderson osculatory interpolation and Keys fourth-order cubic convolution interpolation'; Henderson formula from 1906 and reproduction through third degree. Comparison also names third-order Keys and Karup–King.",
+          "identifier_or_url": "https://bigwww.epfl.ch/publications/meijering0301.pdf",
+          "material_read": "Full-paper passage printed p. 478, offset 10650 through 12766; also author-page abstract offset 500",
+          "method": "Lawful author-hosted OA PDF and website excerpt",
+          "title": "A Note on Cubic Convolution Interpolation",
+          "trigger": "Classical alias for the identical six-tap operator"
+        },
+        {
+          "assessment": "Full scope unconfirmed; available characterization concerns different restoration context",
+          "evidence": "Frozen relationship-to-prior-work passage describes TV-based restoration and direction preservation.",
+          "identifier_or_url": "doi:10.1137/S0036142999362286",
+          "material_read": "Frozen prior-work description at lines 108–120; cited OA passage retrieval timed out",
+          "method": "Frozen citation and attempted primary-text retrieval",
+          "title": "Edge Direction Preserving Image Zooming: A Mathematical and Numerical Analysis",
+          "trigger": "Image-zooming work tied to total variation"
+        },
+        {
+          "assessment": "Exact four-tap comparator overlap; does not state the six-tap norm",
+          "evidence": "35/27 at the affine-reproducing parameter of the four-tap family.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-bounded-variation-phase-diagram-of-parametric-cubic-convol--c6616c0111cd",
+          "material_read": "Indexed statement",
+          "method": "Resultary",
+          "title": "Sharp bounded-variation phase diagram of parametric cubic convolution",
+          "trigger": "Same comparator coefficient and a larger kernel family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–19 and 52–102; independently derived step polynomials"
+      ],
+      "rationale": "This is an exact sharp stability invariant for a widely used accuracy-motivated reconstruction. Measuring full variation exposes both near and far ringing lobes, unlike a pointwise overshoot metric. The unit-step equality and strict four-tap comparison quantify the precise stability cost of this particular classical higher-order choice; the result is useful without a universal comparison across kernels.",
+      "residual_risks": [
+        "No inference to every fourth-order interpolant, nonuniform grid, or multidimensional image TV."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

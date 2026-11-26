@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:31:49.086922Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditional on seed x in T−v, the two complementary cases are that all incident edges are closed, or exactly one edge xy is open and all remaining edges incident to either endpoint are closed. This yields the frozen formula after averaging over n−1 post-deletion seeds, including isolated seeds and order two. I inspected the proof, verification notes and checker, and independently generated tree shapes by adding a leaf at every location of each previous shape; deduplication by the smallest recursively sorted rooted encoding over all choices of root is complete up to isomorphism. I summed seed counts for components of size at least three by exhaustive edge-state enumeration, padding ignored incident edges so all candidates share the same degree n−1 Bernstein basis. Coefficientwise comparisons certify a common minimizer in 23 of 24 shapes; nonzero nonnegative differences are strictly positive on the open interval. The only exception is the subdivided double claw at order seven. Its bridge, hub and leaf numerators (denominator 6) are 6p², 9p²−5p³ and 15p²−11p³+2p⁴. Leaf-minus-bridge and leaf-minus-hub are strictly positive throughout (0,1), and hub-minus-bridge is p²(3−5p)/6, giving the stated three-way tie and both strict phases. Replay: python3 -I /workspace/review_math.py 3. The proof uses independent bonds, not independent outgoing Markov SIR transmissions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Schneider et al. propose a susceptible-size measure based on the sizes of clusters remaining after immunization.",
+          "Altarelli et al. balance vaccination costs against final expected infection in a message-passing formulation.",
+          "Resultary 757e19de7038 shows possible disjoint mean and tail argmins on general five-vertex graphs; it does not classify possible changes of tail argmin on trees."
+        ],
+        "reasoning": "The broader methods and criteria do not supply the required all-transmissibility tree classification for one vaccinated vertex and component size at least three. The outbound query returned no hits, which is not itself evidence against prior coverage.",
+        "searches": [
+          "Primary literature query: (outbreak size OR epidemic size) vaccination percolation tree uniformly chosen seed probability at least three cases vaccination vertex",
+          "Schneider et al. arXiv:1102.1929, Methods",
+          "Altarelli et al. arXiv:1309.2805, introduction",
+          "Resultary searches for broader immunization and parameter switches"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local catalogue, including 639f57a81324, 4262c7d8c976, 8974612ce954, 9ba80a93d3d8 and 757e19de7038",
+        "Holme arXiv:1708.06456",
+        "Schneider et al. arXiv:1102.1929",
+        "Altarelli et al. arXiv:1309.2805"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-day mean vaccinee claim (639f57a81324) has a common optimizer through seven. On the exceptional tree here, bridge removal leaves two three-vertex paths and hub removal a four-vertex path and two isolates. Mean after bridge removal minus mean after hub removal is (2p−2p³)/6>0 for every interior p, even where the bridge strictly minimizes the three-case probability.",
+          "8974612ce954 instead optimizes mean reduction by removing an edge. The same-day three-case extrema record optimizes over unvaccinated connected tree shapes."
+        ],
+        "reasoning": "The contrasting mean comparison shows why even identical seeding and transmissibility rules do not imply the exact optimal-site tail statement. The edge-cut and unvaccinated shape extrema also lack the vertex-deletion quantifier and cannot establish the first-switch classification.",
+        "searches": [
+          "Same-day comparisons 639f57a81324, 4262c7d8c976, and 8974612ce954 by exact Finding/model passages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Uniform surviving seed means the objective is expected mass of vertices in retained components of size at least three, divided by n−1.",
+          "4262c7d8c976 uses the same retained-component tail as a statistic of unvaccinated trees but finds extremal connected tree shapes.",
+          "Holme treats expected outbreak size under rate-based Markov SIR, not an iid bond tail."
+        ],
+        "reasoning": "Keeping the same tail statistic does not make the optimization domains equivalent: deleting one vertex produces constrained families of possibly disconnected forests. Pairwise marginal agreement on trees between Markov and bond models does not imply equality in a component-size tail.",
+        "searches": [
+          "Resultary searches for three-case independent-bond tail risk and one-vaccinee tree optimization",
+          "Three-person outbreak extrema record 4262c7d8c976, Finding",
+          "Holme arXiv:1708.06456, model and vaccination passages"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Holme's exact computations cover graphs as small as those at issue, but compute and compare other metrics, including mean outbreak size from a random seed.",
+          "Resultary mean-objective exact records 639f57a81324 and 9ba80a93d3d8 report stability through order seven and onset at eight."
+        ],
+        "reasoning": "A list of graph shapes, rankings at selected parameters or mean-risk data is not the collection of all deletion-induced threshold-risk curves. No matched exact tail-risk table for this domain and parameter interval was identified in the inspected material.",
+        "searches": [
+          "Resultary search and Finding comparison for size, single vaccinee, and outbreak criterion",
+          "Holme arXiv:1708.06456, pp. 1–2 exact small-graph setup and objective"
+        ]
+      },
+      "rationale": "The distinct claim is the first tree order, unique exceptional shape, and exact change in optimal pre-exposure vertex removal for the three-case tail event under iid bonds and a uniform surviving seed. The closest same-day mean-objective result gives a different classification, and the same-day exact three-case result optimizes over unvaccinated tree shapes rather than choices within a tree. The reviewed work does not establish priority beyond the comparisons made.",
+      "residual_risks": [
+        "Ranked catalog results and one narrow outbound query do not exclude an unlocated threshold-specific classification or a stronger ordering theorem for deletion forests.",
+        "Same-day dates are not used to infer publication order; distinctions above are of scientific content."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mean objective, not the frozen tail result; not dismissed by publication date.",
+          "evidence": [
+            "Objective is expected infected vertices; every tree on two through seven vertices has a parameter-independent optimal vaccinee."
+          ],
+          "identifier_or_url": "Resultary 639f57a81324",
+          "material_read": "RESULT.md Finding (offset 0)",
+          "method": "Local published-record mirror passage",
+          "title": "Sharp eight-vertex onset of transmissibility-dependent optimal vaccination",
+          "trigger": "Same-day single-vaccinee boundary, same independent-contact setup"
+        },
+        {
+          "assessment": "Same risk statistic but different optimization over unvaccinated connected tree shapes.",
+          "evidence": [
+            "The extrema are taken over trees themselves, with star/path comparisons."
+          ],
+          "identifier_or_url": "Resultary 4262c7d8c976",
+          "material_read": "RESULT.md Finding (offset 0)",
+          "method": "Local published-record mirror passage",
+          "title": "Sharp six-vertex change of extremal trees for three-person outbreaks",
+          "trigger": "Same-day exact tail-event calculation on trees"
+        },
+        {
+          "assessment": "Distinct intervention and risk measure.",
+          "evidence": [
+            "Claims are about edge deletion and mean outbreak-size reduction."
+          ],
+          "identifier_or_url": "Resultary 8974612ce954",
+          "material_read": "RESULT.md scope (offset 1890)",
+          "method": "Local published-record mirror passage",
+          "title": "First transmissibility-sensitive optimal edge cuts in tree epidemics",
+          "trigger": "Same-day transmission-dependent intervention on small trees"
+        },
+        {
+          "assessment": "Demonstrates objective-dependent argmins on general graphs, not first switching under one tail criterion on trees.",
+          "evidence": [
+            "Two connected five-vertex graph types can have disjoint argmins on 1/4<p<3/4."
+          ],
+          "identifier_or_url": "Resultary 757e19de7038",
+          "material_read": "RESULT.md at offsets 0 and 4637",
+          "method": "Local published-record mirror passages",
+          "title": "Five vertices are sharp for disagreement between mean outbreak and three-case risk",
+          "trigger": "Later direct comparison of nearby criteria"
+        },
+        {
+          "assessment": "Markov rate-based process and mean final size; not this tail event.",
+          "evidence": [
+            "Transmission is rate β along infectious-susceptible contacts and recovery has rate ν; vaccination importance is framed in terms of expected outbreak size."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1708.06456",
+          "material_read": "PDF pp. 1–2, vaccination, model and mean from random seed, text offsets 516, 9300, 12120",
+          "method": "Primary OA PDF passage comparison",
+          "title": "Three faces of node importance in network epidemiology",
+          "trigger": "Exact same-order vaccination calculations"
+        },
+        {
+          "assessment": "Different component-size summary and use case.",
+          "evidence": [
+            "Optimizes susceptible size defined using the connected clusters remaining after immunization."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1102.1929",
+          "material_read": "PDF pp. 1–2, abstract and Methods, offsets 1387 and 12150",
+          "method": "Primary OA PDF passage comparison",
+          "title": "Suppressing Epidemics with a Limited Amount of Immunization Units",
+          "trigger": "Percolation-based immunization"
+        },
+        {
+          "assessment": "Not a threshold-three finite-tree boundary.",
+          "evidence": [
+            "Balances vaccination cost with final (stationary) expected infection."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1309.2805",
+          "material_read": "Page 1, offset 781",
+          "method": "Lawful arXiv full-text passage located from DOI 10.1103/PhysRevX.4.021024",
+          "title": "Containing Epidemic Outbreaks by Message-Passing Techniques",
+          "trigger": "Broad targeted-immunization optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Size three is the first outbreak threshold that tests more than whether any transmission occurred. The exact bridge-versus-hub switch resolves when targeting that tail event requires tuning the intervention to transmissibility, and separates the answer from that for mean case count in the same simple model. The tight order and single exceptional topology provide a motivated benchmark for finite-tree risk optimization, not a claim about practical vaccine efficacy.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

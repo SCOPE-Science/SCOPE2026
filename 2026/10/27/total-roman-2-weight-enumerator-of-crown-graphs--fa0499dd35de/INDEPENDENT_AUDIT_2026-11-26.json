@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:42:37.141457Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At the paired opposite vertex a singleton positive support supplies neither a positive neighbor nor any defensive weight. Thus both side supports have at least two positives, which also suffices for totality. Defense at a zero a_i uses exactly W_B-B_i. The only nonautomatic cases with this support size are two ones (force both paired opposite positions positive) and an ordered 2,1 pair (force only the position paired with the 2). Subtracting these cases and the support sizes 0,1 from the unrestricted product gives R; fixing one or two positive coordinates gives the stated F1 and F2 after the same exclusions. Combining side types gives R squared and the two mixed robust terms, with both orientations; two weight-2 sides must have identical support, a weight-2 and weight-3 side must also have identical support, and for two weight-3 sides the second ordered pair either has the same 2-index and arbitrary different 1-index or reverses the first pair. These give exactly the three low-regime coefficients. In degree 5 the extra robust mixed term is n(n-1)(n-2), adding to 2n(n-1); in degree 4 only matching two-one supports contribute. Substituting z=1 yields the stated total and dividing by 9^n gives the quoted asymptotic. Boundary n=3 is included. `python3 /workspace/reviews/replay_finite.py 4` independently exhausts labeled pairs via the original neighborhood tests for n=3–7 and agrees in every coefficient (totals 328, 4422, 48974, 488266, 4609770). The frozen verification code and recorded output were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cabrera García et al. and Ahangar et al. give general domination parameters, inequalities and complexity results.",
+          "764872539b41 gives a full enumerator for complete multipartite graphs with the same target label constraints."
+        ],
+        "reasoning": "The missing-edge graph is not complete multipartite: for distinct i,j the vertices b_i and b_j are nonadjacent, a_i and b_i are nonadjacent, but a_i and b_j are adjacent. The exact missing-pair defense constraints do not follow by substituting part sizes. Parameter bounds do not give label multiplicities.",
+        "searches": [
+          "arXiv:2101.02537, definition and Proposition 2.1",
+          "DOI:10.7151/dmgt.2316, definition",
+          "Resultary 764872539b41, complete multipartite enumerator"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 593cd8fa3b8d, 764872539b41, ec56691004a8, d48e4d60806e, 01768fb0113b, 070f66b8aef5",
+        "arXiv:2101.02537",
+        "DOI:10.7151/dmgt.2316 (OA manuscript)",
+        "DOIs 10.1051/ro/2023121 and 10.3390/math12182771 (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The minimum theorem identifies only functions with two ones on each of the same paired indices.",
+          "The complete-multipartite result has no individual matched missing neighbor; the parameter inequality contains no counting statement."
+        ],
+        "reasoning": "The compatibility counts between supports at weight 5 and higher and the all-weight formula require new arguments. Neither the known minimum nor its full classification mechanically implies the remaining coefficients.",
+        "searches": [
+          "Resultary 593cd8fa3b8d and 764872539b41 FINDING passages",
+          "arXiv:2101.02537, Proposition 2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "593cd8fa3b8d proves the same minimum 4, exactly the same pair-supported minimum functions and the same binomial count.",
+          "The ordinary total Roman and total perfect Roman enumerators require respectively at least one or exactly one adjacent 2 at a zero; the ordinary Roman enumerator also omits totality."
+        ],
+        "reasoning": "Two adjacent ones defend a zero in the target but not under the neighboring-2 rule. Indeed the all-1 paired-support minimizers furnish a direct separation. The exact same-definition minimum result does not count higher weights.",
+        "searches": [
+          "Resultary: total Roman {2} weight enumerator, crown graph, K_n,n minus a perfect matching",
+          "Resultary 593cd8fa3b8d, ec56691004a8, d48e4d60806e, 01768fb0113b and 070f66b8aef5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected exact catalogue coverage on the same graph and definition is the weight-4 slice only; inspected full catalogue enumerators have the graph or constraint mismatch described above."
+        ],
+        "reasoning": "No retrieved table gives the matched n-indexed rows under the actual definition. This is a bounded catalogue comparison, not evidence that no such table exists.",
+        "searches": [
+          "Resultary: crown graph full total Roman {2} weight enumeration and related Roman domination polynomials",
+          "Resultary 593cd8fa3b8d and 764872539b41"
+        ]
+      },
+      "rationale": "Pass applies to the full enumerator and additional counts, not to the already stated minimum 4 or its full minimum-function classification and binomial multiplicity. The closest exact prior catalogue finding covers these minimum claims only. Other full-polynomial hits either count the same constraint on a different graph or impose a different zero constraint on the crown. No inspected finding or primary result covers the full target polynomial.",
+      "residual_risks": [
+        "Equivalent higher-weight enumeration in unindexed sources remains possible; the deferred broader search supplied no evidence.",
+        "Chen's paper and the survey were not assessed at relevant full-text passages."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior coverage of minimum value, minimizers, and minimum count, not full distribution",
+          "evidence": [
+            "All minima put 1 on a_i,a_j,b_i,b_j for one chosen pair i<j."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-minimum-total-roman-2-dominating-functions-of-crown-graphs--593cd8fa3b8d",
+          "material_read": "Mirrored RESULT.md, Finding",
+          "method": "Local catalogue and mirror",
+          "title": "Minimum total Roman {2}-dominating functions of crown graphs",
+          "trigger": "Same graph and condition"
+        },
+        {
+          "assessment": "Graph family excludes the target",
+          "evidence": [
+            "Complete multipartite part-neighborhood rule lacks the crown's deleted matching."
+          ],
+          "identifier_or_url": "Resultary 764872539b41",
+          "material_read": "Mirrored RESULT.md, Finding",
+          "method": "Local catalogue and mirror",
+          "title": "Weight enumerator of total Roman {2}-domination on complete multipartite graphs",
+          "trigger": "Full polynomial under same constraint"
+        },
+        {
+          "assessment": "Different defense rule",
+          "evidence": [
+            "Zero-labeled vertices need an adjacent 2; minimum is 6, not 4."
+          ],
+          "identifier_or_url": "Resultary ec56691004a8 and d48e4d60806e",
+          "material_read": "Both mirrored RESULT.md Findings",
+          "method": "Local catalogue and mirror",
+          "title": "Total Roman weight enumerator of crown graphs; The total Roman domination polynomial of crown graphs",
+          "trigger": "Close full-enumerator titles on the exact graph"
+        },
+        {
+          "assessment": "Different defense or totality condition",
+          "evidence": [
+            "Perfect total requires exactly one adjacent 2; the Roman variant lacks the positive-neighbor totality condition."
+          ],
+          "identifier_or_url": "Resultary 01768fb0113b and 070f66b8aef5",
+          "material_read": "Mirrored Findings, and assumptions for the perfect variant",
+          "method": "Local catalogue and mirror",
+          "title": "Total perfect Roman domination polynomial of crown graphs; Roman domination polynomial of crown graphs",
+          "trigger": "Other full-enumerator crown matches"
+        },
+        {
+          "assessment": "Definition and parameter-level comparison, not a weight-enumerator implication",
+          "evidence": [
+            "Proposition 2.1 bounds the minimum by the total domination number for graphs without isolates."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2101.02537",
+          "material_read": "Printed p. 3 definition and p. 5 Proposition 2.1",
+          "method": "OA PDF passages",
+          "title": "Total Roman {2}-domination in graphs",
+          "trigger": "Foundational same-parameter literature"
+        },
+        {
+          "assessment": "Same definition; abstract reports bounds and complexity; no whole-document noncoverage inferred",
+          "evidence": [
+            "Zero defense by neighborhood weights and positive support totality coincide with the target constraint."
+          ],
+          "identifier_or_url": "https://rodin.uca.es/bitstream/10498/24377/1/SC2020_308.pdf",
+          "material_read": "Abstract and p. 1 definition",
+          "method": "OA manuscript passages",
+          "title": "Total Roman {2}-Dominating Functions in Graphs",
+          "trigger": "Potential general results under same definition"
+        },
+        {
+          "assessment": "Unresolved access, no negative inference",
+          "evidence": [
+            "Chen's stated graph families are Cartesian products of paths and cycles; survey coverage of the target polynomial was not established."
+          ],
+          "identifier_or_url": "10.1051/ro/2023121 and 10.3390/math12182771",
+          "material_read": "Landing-page/abstract only where accessible; no relevant full-text passages inspected",
+          "method": "Bounded lawful OA checks",
+          "title": "Algorithmic aspect on total Roman {2}-domination of Cartesian products of paths and cycles; Survey on Roman {2}-Domination",
+          "trigger": "Related results and survey that might point to additional coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The full weight law on a natural deleted-matching graph is informative beyond the already known minimum and its minimizers: it identifies how missing matched neighbors couple opposite label supports, gives exact next-weight multiplicities and quantifies the exponentially rare excluded assignments. It can serve as an exact comparison with the complete bipartite and neighboring-2 variants.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:21:26.245195Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions and scope, Proof; VERIFICATION.md; check.py inspected without executing it",
+        "Independent replay: python3 /workspace/independent_evidence/bfloat_replay.py"
+      ],
+      "rationale": "The two displayed operations define closed finite graphs. Multiplication by 2^133 encodes each format value as an integer, including the subnormals; the nonnegative remainder is exactly the integer residue in these units. The exact real sums before final rounding are less than 2 (the staged quotient is at most R(1/5)); the staged product is at most 200. I reconstructed both transition rules and independently evaluated every code with an exponent-local quotient/remainder rounder instead of a neighbor-table search. The local spacing is 2^max(0,floor(log2(n/d))-7) in scaled units; an exact midpoint chooses an even quotient, with recoding at exponent boundaries. The replay tests all adjacent midpoints through 256. Separate Floyd walks from every start locate first cycle entries and traverse the primitive cycles. All representatives, associated periods and basin sizes agree, not just their multisets: A has the zero, 18- and 24-cycles; B has two fixed points and eight 3-cycles. The respective maximum depths are 51 and 44; precisely 3,545 of the 16,385 successors differ.",
+      "residual_risks": [
+        "This is exhaustive for the stated encodings and exact rounding trees only, not for different hardware semantics, negative inputs, or continuum orbits."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Klöwer et al. Eq. (5) is the generalized Bernoulli map (beta x) mod 1; p. 4 compares narrow multiply/subtract with wider multiplication. Bfloat16 appears in the logistic-map discussion. Moysis et al.'s accessible abstract establishes the real-map remainder-addition context; the figure and equation were not accessible."
+        ],
+        "reasoning": "The Bernoulli analysis is not an encompassing theorem for the added contraction and staged remainder; the abstract of the direct antecedent establishes no rounded census and does not settle what its unread pages cover.",
+        "searches": [
+          "Klöwer et al., DOI 10.1038/s41598-023-37004-4, pp. 4–6",
+          "Moysis et al., DOI 10.3390/math10152801"
+        ]
+      },
+      "checked_sources": [
+        "The named original literature and Resultary mirror statements above, in addition to the frozen references and evidence."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known output bounds and finite directed-graph structure establish eventual periodicity. The inspected binary16 shift has periods 1,3,8,18,164 versus 1,3,4,24,41 under its two semantics."
+        ],
+        "reasoning": "These results imply neither eight staged 3-cycles nor the 18/24 versus 1/3 nonzero period contrast or the stated basin pairing. Obtaining them requires the actual bfloat16 successor computation.",
+        "searches": [
+          "Klöwer et al. Eq. (5) and arithmetic discussion",
+          "Mirrored real-family confinement and binary16 beta-shift findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The mirrored confinement result gives the real signed-remainder family x/k+rem(ax,1), with transport at k=1. The other direct match is the assigned record itself."
+        ],
+        "reasoning": "The same real map family does not encode intermediate product rounding or the nearest-even graph; the k=1 result does not specialize to either graph here.",
+        "searches": [
+          "Resultary: exact remainder-added recurrence x/10 + rem(100x,1), bfloat16 and two rounding orders",
+          "Resultary 2026/11/1 SCOPE-a-sharp-confinement-transition-and-exact-golden-ratio-transport--2024fba9948d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected binary16 table concerns beta=3/2 Bernoulli shifts and 512 changed edges; the same-day bfloat16 table concerns (11/2)x(1-x)/(1+x) on [0,1], with 1,371 changed edges. Neither is a table for the reviewed transitions."
+        ],
+        "reasoning": "Different transition formulas or formats give different successor functions. The distinct same-day record was compared on its merits without inferring chronology. No exact table other than the assigned record was identified in these searches.",
+        "searches": [
+          "Resultary: bfloat16 remainder-map cycle census and basins",
+          "Resultary 2026/11/8 SCOPE-two-exact-cycle-spectra-for-differently-rounded-half-precision-b--384041ddfda5",
+          "Resultary 2026/11/22 SCOPE-exact-bfloat16-basin-spectra-of-the-rational-logistic-map-under--65300f233979"
+        ]
+      },
+      "rationale": "The reviewed distinction is the exact paired graph census for this remainder-added map and these roundings, not the underlying recurrence, the existence of finite-precision cycles or sensitivity to evaluation order. The closest inspected statements do not cover that census.",
+      "residual_risks": [
+        "Moysis et al. Eq. (23) and Figure 5 were not independently confirmed. Bibliographic attribution is distinct from the verified explicit finite graph.",
+        "Ranked search and the inspected passages do not exclude an unindexed identical census."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Attribution and any article-specific rounded overlap not independently established",
+          "evidence": [
+            "Abstract describes remainder-operator addition to one-dimensional maps; no figure caption or arithmetic census verified."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/math10152801",
+          "material_read": "Landing/abstract material only; Eq. (23) and Figure 5 not read",
+          "method": "Lawful publisher page/XML/PDF and identified Semantic Scholar and AURA repository copies attempted; access or size limitations",
+          "title": "Chaotification of One-Dimensional Maps Based on Remainder Operator Addition",
+          "trigger": "Exact recurrence and claimed Figure 5 parameters"
+        },
+        {
+          "assessment": "Relevant mechanism and different map in the decisive passages",
+          "evidence": [
+            "Bernoulli recurrence is (beta x) mod 1; bfloat16 remarks nearby address logistic behavior, not a remainder-added contraction."
+          ],
+          "identifier_or_url": "https://doi.org/10.1038/s41598-023-37004-4",
+          "material_read": "Nature PDF pp. 4–6; Eq. (5) and nearby arithmetic discussion, extracted offsets about 21800, 29262, 36614",
+          "method": "Open PDF passage inspection",
+          "title": "Periodic orbits in chaotic systems simulated at low precision",
+          "trigger": "Low-precision arithmetic, Bernoulli and bfloat16 dynamics"
+        },
+        {
+          "assessment": "Different real model and invariant",
+          "evidence": [
+            "Signed real remainder, confinement/escape, and k=1 transport."
+          ],
+          "identifier_or_url": "2026/11/1/SCOPE-a-sharp-confinement-transition-and-exact-golden-ratio-transport--2024fba9948d",
+          "material_read": "Finding and scope",
+          "method": "Resultary lookup and exact local mirrored RESULT.md",
+          "title": "A sharp confinement transition and exact golden-ratio transport statistics for a remainder-added linear map",
+          "trigger": "Same recurrence family"
+        },
+        {
+          "assessment": "Different format and map",
+          "evidence": [
+            "Binary16 beta=3/2 generalized Bernoulli map, 512 changed successors."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-two-exact-cycle-spectra-for-differently-rounded-half-precision-b--384041ddfda5",
+          "material_read": "Finding and scope",
+          "method": "Resultary lookup and exact local mirrored RESULT.md",
+          "title": "Two exact cycle spectra for differently rounded half-precision beta shifts",
+          "trigger": "Exact rounding-order cycle census"
+        },
+        {
+          "assessment": "Distinct recurrence, not duplicate coverage",
+          "evidence": [
+            "(11/2)x(1-x)/(1+x) on [0,1], 1,371 changed successors."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-bfloat16-basin-spectra-of-the-rational-logistic-map-under--65300f233979",
+          "material_read": "Finding and scope",
+          "method": "Resultary lookup and exact local mirrored RESULT.md",
+          "title": "Exact bfloat16 basin spectra of the rational logistic map under two arithmetic orders",
+          "trigger": "Same-day same-format two-order census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and independently replayed full maps; inspected real map family and low-precision literature"
+      ],
+      "rationale": "A complete format-scale baseline for a published remainder-addition family can be used to test implementations and isolate the effect of moving rounding across a discontinuity. The striking exact difference is not generic eventual periodicity: a dominant 24-cycle and an 18-cycle are replaced by eight distinct 3-cycles and a nonzero fixed point, with measured encoding basins and depths completing the comparison. The scope is a single explicit parameter example, but the state set and arithmetic choices are natural and the exact census is useful on its own.",
+      "residual_risks": [
+        "No randomness, security, hardware-policy, or general precision claim is supported."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

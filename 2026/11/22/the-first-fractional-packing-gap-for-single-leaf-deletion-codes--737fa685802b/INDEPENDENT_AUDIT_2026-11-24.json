@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:24:49.685351Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, checker.py, reproduce.sh, witnesses.json, incidence7.txt, dlx.cpp and branch.cpp",
+        "/workspace/branches/replay3.py and completed slice logs"
+      ],
+      "rationale": "For each missing label, subdividing any of the 2n−5 edges of an (n−1)-leaf output and adding that label produces a different extension; deletion and suppression recover that edge. Summing the constraints for one fixed label bounds the objective by (2n−7)!!, and the uniform weight 1/(2n−5) attains it. The witnesses at n=4,5,6 cover every output exactly once; the n=6 construction pairs the unique noncherry leaf of each five-leaf receiver with the missing label. Independently generated all topologies by taking the smallest leaf as an anchor to an unordered binary hierarchy on all other labels; constructed the receiver by literally deleting the leaf, contracting and rerooting at the smallest surviving label. Compared all 945×7 incidences with incidence7.txt, and validated the smaller codebooks. For n=7 a 105-word code must cover all 735 receivers exactly once, with seven receivers per source and nine sources per receiver. Independent bitmask exact cover partitions possible covers by the unique selected row covering receiver 0, then recursively chooses an uncovered receiver with minimum support among eligible rows; the children select each covering row in turn and discard all overlapping rows. A branch with an unsupported receiver is impossible and an empty residual receiver set is success. All nine initial slices returned false, with 1,630,010 recursive calls across the slices; the rule scans all residual columns for a zero rather than stopping at the first unit, so the count need not match the frozen solvers. Replay with python3 /workspace/branches/replay3.py; completed slice logs replay3-012.txt, replay3-345.txt and replay3-678.txt in /workspace/branches. No uploaded code was executed. This confirms the first strict optimum-value gap, not a classification of all vertices of the packing polytopes.",
+      "residual_risks": [
+        "The calculation rules out equality at n=7; it does not find the exact integer optimum there or address larger n, other tree models, or multiple deletions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Martin and Thatte maximize agreement for two restricted trees; Vakati and Fernández-Baca characterize existence of supertrees in terms of cuts; Koperwas and Walczak include leaf pruning and contraction as edits in a distance problem."
+        ],
+        "reasoning": "The shared restriction or pruning operation is not a theorem on simultaneously disjoint receiver fibers of a family, or on tightness of its fractional bound.",
+        "searches": [
+          "Martin and Thatte arXiv:1201.5168 p. 2",
+          "Vakati and Fernández-Baca DOI 10.1186/1748-7188-9-13 p. 1",
+          "Koperwas and Walczak DOI 10.1186/1471-2105-12-204 pp. 1–2"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary records and indexed search",
+        "Martin and Thatte; Vakati and Fernández-Baca; Koperwas and Walczak"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Quartet Fourier recovery is distributional injectivity from many marginal or joint observables on a six-leaf family, not simultaneous injectivity after any of seven known-label deletions.",
+          "The uniform bound P_n=(2n−7)!! is a direct degree count. Nonattainment at n=7 requires ruling out exact covers of the incidence over all missing labels."
+        ],
+        "reasoning": "Agreement, tomography and counts of outputs do not impose the exact-cover obstruction, and the known exact rooted-shape packing table cannot be specialized to this channel.",
+        "searches": [
+          "Martin and Thatte definition of agreement",
+          "357afb0253bc RESULT.md Finding",
+          "2039ce6eec54 RESULT.md Finding and Assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen statement is equivalent at n=7 to nonexistence of a simultaneous bijective extension family for every missing label.",
+          "The matching-looking plane-tree result 2039ce6eec54 is for rooted ordered unlabeled full binary shapes, with no missing-label side information."
+        ],
+        "reasoning": "A perfect extension design would answer the question, but no such equivalent result was located. Forgetting labels or imposing a root and left-right order changes the sets packed and the receiver fibers.",
+        "searches": [
+          "Resultary: phylogenetic tree deletion codes known missing leaf labeled binary tree restriction code perfect packing extension design",
+          "Websearch: phylogenetic tree code leaf deletion perfect code extension packing binary labeled unrooted trees"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact table hit ending 737fa685802b is the assigned source. The 2039ce6eec54 table is for plane-tree pruning and gives 205/13 at six internal nodes.",
+          "The related 357afb0253bc record computes the dimension of spaces of quartet observables on the same 105 six-taxon trees; its theorem gives ranks 1,31,105, not a code capacity.",
+          "Ranked results for the quartet record included 90834d3d183e, whose summary describes a shattering polynomial for seven-taxon individual quartet membership, not code packing."
+        ],
+        "reasoning": "The appearance of 105 same-size objects in a different invariant or a differently defined gap is not exact coverage of the seven-taxon receiver packing.",
+        "searches": [
+          "Resultary: single-leaf-deletion codes unrooted binary phylogenetic trees fractional packing integrality gap exact cover seven taxa",
+          "Resultary: Two-quartet Fourier tomography of arbitrary six-taxon tree mixtures"
+        ]
+      },
+      "rationale": "Leaf restriction as an operation and the counting/packing argument are not novel. Neither same-object statistics nor adjacent tree-channel results checked yield the seven-taxon nonattainment in this known-missing-label channel. The visible exact hit ending 737fa685802b is the assigned record itself, not independent coverage.",
+      "residual_risks": [
+        "The single broad literature query had weak recall for specialized perfect-extension terminology; unindexed designs or alternate encodings are not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_CHANNEL_AND_FAMILY",
+          "evidence": [
+            "Rooted ordered unlabeled shapes, unknown prune location, internal-node size, fractional threshold 205/13 at size six."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-the-first-fractional-pruning-packing-gap-for-plane-binary-tree-c--2039ce6eec54",
+          "material_read": "RESULT.md Finding lines 5–15 and Assumptions",
+          "method": "Local mirror and frozen record",
+          "title": "The first fractional pruning-packing gap for plane binary tree codes",
+          "trigger": "Same code and first-gap language on binary trees"
+        },
+        {
+          "assessment": "RELATED_OPERATION",
+          "evidence": [
+            "A pairwise common leaf subset objective, not packing of families under fixed-cardinality restrictions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1201.5168",
+          "material_read": "PDF p. 2, offset about 4800, agreement definition",
+          "method": "OA PDF",
+          "title": "The maximum agreement subtree problem",
+          "trigger": "Same leaf restriction on phylogenetic trees"
+        },
+        {
+          "assessment": "DIFFERENT_QUESTION",
+          "evidence": [
+            "Characterizes compatibility and agreement of given inputs through supertree questions and cuts."
+          ],
+          "identifier_or_url": "https://doi.org/10.1186/1748-7188-9-13",
+          "material_read": "PDF p. 1, offset about 400",
+          "method": "OA PDF",
+          "title": "Characterizing compatibility and agreement of unrooted trees via cuts in graphs",
+          "trigger": "Agreement and restriction on unrooted trees"
+        },
+        {
+          "assessment": "RELATED_OPERATION",
+          "evidence": [
+            "Uses leaf removal and forced contraction to study edit distances, not the fractional first gap."
+          ],
+          "identifier_or_url": "https://doi.org/10.1186/1471-2105-12-204",
+          "material_read": "Abstract and pruning discussion, PDF pp. 1–2, offsets about 1018 and 5350",
+          "method": "OA PDF",
+          "title": "Tree edit distance for leaf-labelled trees on free leafset",
+          "trigger": "Prune then contract in labeled trees"
+        },
+        {
+          "assessment": "DIFFERENT_OBSERVABLE_AND_INVARIANT",
+          "evidence": [
+            "Contrasts linear spans of single and joint resolved-quartet observables on distributions on the 105 trees."
+          ],
+          "identifier_or_url": "2026/11/16/SCOPE-two-quartet-fourier-tomography-of-arbitrary-six-taxon-tree-mixtu--357afb0253bc",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Two-quartet Fourier tomography of arbitrary six-taxon tree mixtures",
+          "trigger": "Same labeled unrooted binary trees at n=6 and cited rank result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen definition and proof; smaller exact codebooks; independently exhausted seven-leaf exact cover"
+      ],
+      "rationale": "This is the first failure of the natural per-missing-label counting bound for a standard family, not a computation at an arbitrarily selected size. For every earlier feasible size in scope there is simultaneous perfect decoding, including the structural three-cherry construction. Seven taxa still have exactly regular nonempty fibers, but these cannot be satisfied simultaneously. The precise transition provides a finite obstruction and a benchmark for any general capacity argument.",
+      "residual_risks": [
+        "The result is a threshold for attaining a counting bound, not exact capacity at seven, not an asymptotic bound, and not a classification of packing vertices."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

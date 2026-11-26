@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact normalized second-Hermite ambiguity formula is the established \(e^{-s/2}L_2(s)\). The critical new identities \(L_2(s)^2-1=s(s-4)(s-2)^2/4\) and \(D'(s)=-(s-1)(s^2-8s+14)\) establish all stationary-point signs and boundary cases. The polynomial derivative of \(F_{1/4}\) yields its three strict monotonicity intervals and unique second crossing. For larger disks, the lower envelope consists of a strictly decreasing interior-minimum branch and a strictly increasing endpoint branch, proving the unique intersection and all asymptotics. The checker verifies the precise polynomial identities using rational arithmetic, independently integrates the Hermite ambiguity, and tests both optimizer branches. Finite tests are not substituted for this continuous proof. At the isolated radius \(T=2\), optimizer nonuniqueness is accounted for explicitly.
+## correctness
 
-## Originality — PASS relative to investigated sources
-Alaifari–Yang (arXiv:2410.05486; inspected introduction, Hermite-window §2.2 and stability discussion) state the general Laguerre ambiguity formula and propose window coverage but do not give the sharp Gaussian/second-Hermite weighted minimax. Bertolini–de Dios Pont–Pineau–Ramos–Taylor (arXiv:2605.20527; inspected full accessible HTML introduction and main results) prove a distinct local signal-space stability theorem. The Gaussian/first-Hermite disk minimax problem uses a linear Laguerre factor and is not a theorem covering the second-Hermite protected plateau, the exact exit radius, or the fourth-power limit. Semantic searches of published mathematical records for the second-Hermite minimax and its exact exit condition returned no implication covering this claim. This does not establish comprehensive publication priority; unexplored optimal-design terminology remains a risk.
+PASS
 
-## Value — PASS
-The two-window squared ambiguity gain is the exact pointwise denominator in an experimentally motivated direct-inversion procedure. A previously unquantified second-order phenomenon is established: after an ordinary Gaussian-only regime, a *single precisely quarter-weighted design* protects the worst-case margin on a disk whose dimensionless squared radius expands from \(4\) to \(8.8327\ldots\) at zero additional loss, before the bottleneck splits into two equalized active radii. The full optimizer and asymptotic \(T^4e^{-T}/4\) are sharp and useful for deciding window allocation rather than relying on qualitative coverage plots.
+The stated normalized windows give squared radial ambiguity multipliers e^(−s) and e^(−s)L(s)^2. The factorization L²−1=s(s−4)(s−2)²/4 forces the Gaussian optimum before 4 except at T=2, where the pointwise inequalities give the exact interval [0,η]. With u=2−s the threshold function is 4∫_0^1 e^(−tu)dt/[u(2−u)(2+u)]; its log is strictly convex in 0<u<2, so the interior minimizer can be found by a single stationarity equation. At s=4 all weights agree. The derivative there is e^(−4)(4w−1), and the w=1/4 derivative factorization proves the plateau and specifies its exit on the descending branch. This gives the whole optimizer interval at T=4 and strict uniqueness on 4<T≤T_*. Thereafter reflection about s=2 and the monotonicity of D on (2+√2,4) locate the inner minimum. The outer interval has endpoint minimum, so the strictly decreasing inner envelope and increasing outer endpoint as functions of w cross exactly once. For every s≥T_*>8, D(s)≤D(8)=−84, so F_w(T) strictly decreases in T for all w and the crossing moves strictly to the right. Near w=1 the inner active radius differs from 2+√2 by O(1−w); hence the inner envelope has leading term e^(−2−√2)(1−w), which proves both large-T limits. Independent bounded reproduction yields η=0.745182361841, T_*=8.83273551863978 and, at T=10, w=0.388201417353 and Γ=0.016964744328. Replay: branches/9b32dbc9-4bef-407a-b999-18e9a72e28fa/reproduce.py and reproduce-output.txt. Numerical samples are corroboration only. Frozen CHECK.py and VERIFICATION.md were inspected, not executed. The result is pointwise linear conditioning, not global nonlinear stability.
 
-## Remaining limitations
-The result does not bound nonlinear signal reconstruction, sampling error or stochastic estimation beyond the explicitly defined pointwise linearized gain. Source inspection establishes novelty only relative to available texts. An equivalent earlier design calculation under different vocabulary is possible. Independent review and independent priority assessment have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct contribution is the exact finite-radius optimizer diagram for the Gaussian/second-Hermite restriction, particularly the protected plateau and exit. The high-radius law is already covered by the inspected general two-Hermite catalogue result; no distinct originality credit is given to that law. The conclusion is a bounded judgment, not a date-based priority inference.
+
+## value
+
+PASS
+
+For these two natural normalized windows, the exact design identifies a range of disk sizes where enlarging the disk costs no worst-case gain and fixes the unique precision split that achieves that property. The exit and the exact equalization beyond it directly answer a continuous conditioning-design question not settled by coverage maps or asymptotics. No global nonlinear recovery claim is needed for this value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

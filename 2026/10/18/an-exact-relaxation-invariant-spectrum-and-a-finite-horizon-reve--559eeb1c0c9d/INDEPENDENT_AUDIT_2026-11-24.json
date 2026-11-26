@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:37:35.994101Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, ordered operator and proof",
+        "Frozen VERIFICATION.md and verify.py",
+        "Independent exact symbolic projector/reflection replay"
+      ],
+      "rationale": "For the ordered pair (reflection first in the second line), use the frame at each line. If Q is rotation by pi/m, the first pair's linear part multiplied on the right by Q is K=[[c,0],[(1-lambda)sin(pi/m),lambda*c]]. Conjugation by Q^j includes the wrap-around because Q^m=-I, giving M=-K^m. The off-diagonal geometric sum for K^r is c^r tan(pi/m)(1-lambda^r), also valid at 0 and 1. This proves both eigenvalues and the exact power law. The affine offsets affect only the constant term; rho(M)=c^m<1 gives the unique globally attracting fixed point, and (1,tan(pi/m)) attains the asymptotic rate. At lambda=1 the power is scalar; for lambda<1 its first column has norm strictly greater than c^(mk) for every k>=1. This is a comparison relative to each method's own fixed point, including inconsistent lines. Independent replay: python3 /workspace/branches/replay_exact_audit.py 3 symbolically multiplies the original pairs at m=3,4,6 with indeterminate relaxation and compares the first two powers exactly. The frozen checker was inspected, not run; its reported finite trials are not the universal proof.",
+      "residual_risks": [
+        "No claim for arbitrary orders, nonregular directions, different weights by pair, or common feasibility objectives."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The defining paper's Theorem 3 and (84)-(86) concern regularity-based local convergence bounds. Two-set affine Friedrichs-angle shadow convergence and two-set relaxation are different statements; they do not give the m-set power law."
+        ],
+        "reasoning": "A more general convergence theorem or sharp two-set shadow rate does not specify the fan's two distinct eigenvalues, their eigenvectors, or the across-relaxation operator norm.",
+        "searches": [
+          "Dinh–Jansen–Luke arXiv:2502.12285, Theorem 3",
+          "arXiv:1504.03721, Theorem 4.4",
+          "arXiv:1709.05984",
+          "Luke–Martins–Tam 2018 workshop paper by exact title"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2502.12285",
+        "arXiv:1303.1859",
+        "arXiv:1504.03721",
+        "arXiv:1709.05984",
+        "Luke–Martins–Tam 2018 bibliographic citation",
+        "Resultary d52a19fbce8e and d549f7251aa1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The theorem needs the regular rotating-frame identity and the nonzero shear proportional to 1-lambda^(mk); none of the examined rates or endpoint results provides it for the given cycle."
+        ],
+        "reasoning": "Even exactly identifying the two endpoint rates would not imply the intermediate spectrum, or strict comparison of every power. The observed overlap is credited without inferring historical priority from record dates.",
+        "searches": [
+          "Compare arXiv:2502.12285 (3b)-(3c), Theorem 3; arXiv:1303.1859 section 3; Resultary d52a19fbce8e"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The defining two-line map and wrap-around product agree after reindexing. Borwein–Tam is precisely the lambda=1 endpoint. The local two-row Kaczmarz record compares asymptotic and finite-sweep optima, but for a different update and geometry."
+        ],
+        "reasoning": "The comparisons are of actual iterations and ordered products, not of algorithm names; none supplies the full relaxation dependence.",
+        "searches": [
+          "Ordered cyclic relaxed DR on equally spaced affine lines, arXiv:2502.12285 (3b)-(3c)",
+          "Resultary: regular line fan, relaxation-invariant spectrum, finite-horizon norm"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE record d52a19fbce8e has the same cos^N(pi/N) attenuation for a symmetric mode of rank-one tangent projection transport, with a preserved skew mode. Record d549f7251aa1 concerns exact finite-sweep transient cost for two-row Kaczmarz."
+        ],
+        "reasoning": "The strongest numerical-form match is not the same matrix product on the same state space; the closest finite-horizon match is not an equivalent operator. No separate standard table of this parameterized matrix comparison was identified.",
+        "searches": [
+          "Local Resultary searches for exact fan rate, projection transport and finite-horizon transients"
+        ]
+      },
+      "rationale": "Best of the inspected evidence: the identifiable distinct claim is the joint all-relaxation spectrum and strict all-positive-horizon optimum for the specified cyclic fan, not the algorithm, local convergence in general, or the separate projection and unrelaxed endpoints. No equivalent or dominating theorem was established in the checked sources.",
+      "residual_risks": [
+        "2018 workshop manuscript not retrieved in full; unindexed angle-product calculations may overlap.",
+        "Bounded evidence is not a historical priority determination."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact algorithm covered; exact fan calculation not supplied by the inspected convergence theorem",
+          "evidence": "The theorem bounds distance to Fix T with a gauge and regularity constants, rather than giving exact cycle eigenvalues or norms.",
+          "identifier_or_url": "https://arxiv.org/pdf/2502.12285",
+          "material_read": "p. 3 (3b)-(3c); pp. 24–26, Proposition 4 and Theorem 3 (84)-(86)",
+          "method": "Original OA PDF, passage inspection",
+          "title": "Cyclic Relaxed Douglas–Rachford Splitting for Inconsistent Nonconvex Feasibility",
+          "trigger": "Identical algorithm and ordering; potential general rate implication"
+        },
+        {
+          "assessment": "Endpoint and convergence covered; not the all-relaxation comparison",
+          "evidence": "The ordered full-DR cycle is the lambda=1 case; the convergence theorem there assumes nonempty intersection of convex sets.",
+          "identifier_or_url": "https://arxiv.org/pdf/1303.1859",
+          "material_read": "p. 4, section 3, Theorem 3.1; abstract",
+          "method": "Original OA PDF, passage inspection",
+          "title": "A Cyclic Douglas–Rachford Iteration Scheme",
+          "trigger": "Unrelaxed cyclic endpoint"
+        },
+        {
+          "assessment": "Different shadow and two-set iteration",
+          "evidence": "The shadow P_U T^n x converges linearly at a Friedrichs-angle rate; that rate does not compute the cyclic fan's full-iterate norms.",
+          "identifier_or_url": "https://arxiv.org/pdf/1504.03721",
+          "material_read": "pp. 15–16, Theorem 4.4",
+          "method": "Original OA PDF, passage inspection",
+          "title": "The Douglas–Rachford Algorithm for Two (Not Necessarily Intersecting) Affine Subspaces",
+          "trigger": "Plausible exact affine angle/rate overlap"
+        },
+        {
+          "assessment": "Different two-set comparison",
+          "evidence": "Scope is relaxed two-set DR with regularity-based convergence, not ordered m-line fan powers.",
+          "identifier_or_url": "https://arxiv.org/pdf/1709.05984",
+          "material_read": "p. 2, setting and relaxation description",
+          "method": "Original OA PDF, passage inspection",
+          "title": "A convergent relaxation of the Douglas–Rachford algorithm",
+          "trigger": "Related relaxed operator"
+        },
+        {
+          "assessment": "Unresolved access risk, not counted as negative evidence",
+          "evidence": "No statement about fan examples could be checked from this source.",
+          "identifier_or_url": "Luke–Martins–Tam, ICML workshop, 2018; cited by arXiv:2502.12285",
+          "material_read": "Bibliographic identification only; workshop landing-page probe did not yield the manuscript",
+          "method": "Citation and lawful open-copy probe",
+          "title": "Relaxed Cyclic Douglas–Rachford Algorithms for Nonconvex Optimization",
+          "trigger": "Same cyclic method; plausible specialized example"
+        },
+        {
+          "assessment": "Same factor in a different projection product, no equivalent relaxed fan comparison",
+          "evidence": "Consecutive tangent projections on the rank-one real 2x2 manifold preserve a skew mode and attenuate symmetric modes.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-attenuation-and-first-order-holonomy-defect-of-rank-one-pr--d52a19fbce8e/RESULT.md",
+          "material_read": "Finding and its tangent-transport setting",
+          "method": "Local Resultary mirror",
+          "title": "Exact attenuation and first-order holonomy defect of rank-one projection transport",
+          "trigger": "Same cosine-power factor"
+        },
+        {
+          "assessment": "Related question, distinct operator and parameter tradeoff",
+          "evidence": "Finite-sweep cost for a row-projection iteration does not cover the fan's relaxation-invariant DR rate.",
+          "identifier_or_url": "2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1/RESULT.md",
+          "material_read": "Finding and two-row setting",
+          "method": "Local Resultary mirror",
+          "title": "Exact finite-horizon cost of asymptotically optimal two-row Kaczmarz",
+          "trigger": "Closest finite-horizon comparison in the catalogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exact spectrum, cycle powers and norm comparison in RESULT.md",
+        "Dinh–Jansen–Luke, arXiv:2502.12285"
+      ],
+      "rationale": "This canonical symmetric affine test includes inconsistent instances and separates a spectral factor from the worst achievable error after any prescribed number of cycles. Knowing the common spectral radius alone gives no preference among relaxation weights, while the exact power law supplies a strict preference on the finite-cycle operator norm. This is a useful benchmark for tuning and for testing claims that relaxation improves cyclic DR; it does not compare feasibility residuals or different fixed points.",
+      "residual_risks": [
+        "Value is as an exact benchmark, not a general recommendation for inconsistent or nonconvex feasibility."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:50:05.517315Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The original proof of the three-distinct-side remainder was not correct as written: it asserted that every zero forces coincident samples. For a unit square, assign the points (0,0), (0.4,0), and (1,0) to the left, bottom, and right sides respectively. They are distinct and collinear. These endpoint zeros belong to the compact coordinate box and cannot just be deleted as null events before bounding its small-area neighborhoods. The complete corrected RESULT.md in /workspace/repairs/5 treats both types of zero. At a collision, linear independence of the incident directions and W!=V makes at least one coordinate derivative of signed double area nonzero. At a distinct-point zero the collinear samples must occupy the two endpoints and the interior of one side; an endpoint's assigned side is nonparallel to the line, so its derivative is nonzero. Finite boxes, a uniform local derivative bound, and Fubini give the claimed O_K(t) per distinct-side pattern. Nonadjacent singleton patterns also have O_K(t) volume since their supporting-line distance is bounded below. Independently splitting the adjacent-side product integral at the singleton-length cutoff gives the exact 4 ell_i t/sin(alpha) log(ell_i ell_j sin(alpha)/(2t)) + 4t^2/(ell_j sin(alpha)^2). Multiplying by three label allocations and dividing by P^3, followed by t=P^2 s, gives the coefficient. The zero atom comes only from all points sharing a side, up to null events. Equality in C>=24 requires all angles right, hence exactly four sides. The repaired mark calculation uses the retained Jacobian 4t db du dz/(u sin(alpha)); in log-gap, normalized position and area coordinates the rescaled density tends to the unit-cube density, and integrating s^(q-1) bounds the mass q>1 by O(1/log(1/s)). This proves the joint conditional limit and the pattern weights without changing the stated scope. VERIFICATION.md and check_small_area.py were inspected without execution; their statements and calculations do not require replacement, and none purports to certify the omitted geometric case by simulation. The original package is unmodified.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The chord-cut record uses two iid endpoints, smaller-fragment area, a corner coefficient 4 sum csc(alpha), and an angle-only corner distribution with two limiting uniform marks. The three-point law instead has a repeated-side gap with triangular density, an additional lower-coordinate mark, and length-weighted corner contributions.",
+          "The smooth strictly convex C^3 record uses the same three-point observable but has a t^(2/3) law and no polygonal side atom. Reitzner–Schütt–Werner studies expected hull facet counts and volume loss, not the lower tail for a fixed sample of three."
+        ],
+        "reasoning": "The same area-product mechanism is known locally from adjacent-side endpoints, but the two-endpoint theorem's assumptions and remainder do not cover any of the three-distinct-side patterns. The smooth result and expected hull statistics cannot specialize to the marked polygonal probability.",
+        "searches": [
+          "Resultary a82d823c1b3b, Finding, Eqs. (1)–(4), proof Eqs. (6) and corner-mark density",
+          "Resultary 36a2639eeafd, Finding",
+          "arXiv:1911.05917, pp. 3–4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_small_area.py",
+        "Corrected RESULT.md under /workspace/repairs/5/",
+        "Resultary b972c9513f97, a82d823c1b3b and 36a2639eeafd",
+        "arXiv:1804.11007 and 1911.05917",
+        "Bárány–Steiger DOI 10.1016/j.comgeo.2012.01.003 (abstract/landing only); Bäsel polygon chord-distance PDF and Math Stack Exchange 4877892 (access attempts only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The triangle-host result implies the triangle-only asymptotic (e.g. coefficient 4/3 for equilateral in host-area normalization), not the convex polygon assertion. The one-point-per-side component has no repeated-side logarithmic mass.",
+          "The two-endpoint corner product formula supplies the adjacent-side leading kernel after weighting by the repeated-side gap density proportional to ell_i-u. The weight also creates the new free coordinate, and the old bound for non-neighboring chord endpoints (O(t^2)) does not constrain generic three-point near-collinearity. The three-side zero-set estimate in the repair is needed to show that no other logarithmic term survives."
+        ],
+        "reasoning": "Credited the local product reduction and the excluded exact special case. Neither prior theorem, specialized to the repaired assumptions, gives both the complete coefficient and disappearance of competing configurations with the claimed mark law.",
+        "searches": [
+          "Resultary b972c9513f97, mixture statement and limiting CDF",
+          "Resultary a82d823c1b3b, bounded OA mirror passages at offsets 0 and 3386",
+          "Maesumi arXiv:1804.11007, full CDF passage"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact triangular-host whole-perimeter sample law (Resultary b972c9513f97) is the same sampling experiment with m=3. In host-area normalization Z=A/Area(K) its CDF has a atom, repeated-side product component, and one-point-per-side component. Maesumi covers the third component, not the arclength mixture.",
+          "Interior-uniform polygon/triangle picking has a different measure; sampling one point per prescribed side also changes the near-degenerate mechanism."
+        ],
+        "reasoning": "Compared identical arclength sampling and the area observable after scaling, rather than equating host-area and perimeter-area normalization, prescribed-side samples or interior samples. The triangle host is explicitly excluded, not renamed.",
+        "searches": [
+          "Resultary: three boundary-arclength points, polygon triangle small area and marked logarithmic law",
+          "Maesumi arXiv:1804.11007",
+          "Literature: area distribution triangle three independent uniform points perimeter convex polygon rectangle square boundary random triangle small area logarithmic edge arclength"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier triangular record has F_Z(z)=q0+q1(z^2-2z log z)+q2 F_R(z), giving exactly 2q1 for its leading log coefficient in host-area normalization. This is complete exact coverage of that special case. The polygon-cut record's additional exact triangle law is for smaller chord fragments, not triples.",
+          "The square-boundary question is indexed at one positive threshold. Answer text was not available via the attempted routes, so no claim about its full-law coverage is made."
+        ],
+        "reasoning": "The matching exact distribution was read, not inferred from title. Numerical tables or a single fixed-threshold probability would not supply the sought fixed-shape endpoint law, though an unseen exact square distribution could overlap with that example.",
+        "searches": [
+          "Resultary b972c9513f97, exact triangular perimeter-sample CDF",
+          "Resultary a82d823c1b3b, exact adjacent-side corner products and triangular-host cut formula",
+          "Math Stack Exchange question 4877892"
+        ]
+      },
+      "rationale": "Reassessed the repaired theorem at unchanged scope. Three samples on a triangular host already have an exact law, and the corner-product mechanism on arbitrary polygonal hosts is already used for two-sample chord cuts. Neither covers the repaired result for three perimeter samples on a general m>=4 polygon, its distinct-side control and length-weighted leading coefficient, rectangle-only extremizer, and joint mark including the repeated-side location. These overlaps are credited in the corrected file.",
+      "residual_risks": [
+        "An unindexed exact distribution or equivalent endpoint calculation may overlap, particularly for square or rectangle special cases. The square-question answers, Bäsel full text and Bárány–Steiger full text were not inspected; no absence of coverage is inferred from those access limits.",
+        "What is credited as distinct is the general three-sample polygon law and additional mark, not the local product-tail mechanism or the prior triangular-host law."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers excluded triangle-host full law and hence its small-area term",
+          "evidence": "Three components have weights q0, q1, q2 and laws 0, |U-V|W, and UVW+(1-U)(1-V)(1-W); the mixture displays the logged term explicitly.",
+          "identifier_or_url": "2026/10/25/SCOPE-sharp-area-law-ordering-and-shape-reconstruction-for-triangles-s--b972c9513f97",
+          "material_read": "Mirrored RESULT.md mixture statement around offset 322, CDF around offset 3900 and primary-source comparison around 7920",
+          "method": "OA local Resultary mirror",
+          "title": "Sharp area-law ordering and shape reconstruction for triangles sampled by boundary arclength",
+          "trigger": "Exact same sampling measure and observable on triangular hosts"
+        },
+        {
+          "assessment": "Same corner-product subproblem; different two-sample observable and shape weights",
+          "evidence": "The smaller cut has scaled coefficient 4 sum csc(alpha_i); the exact corner integral uses two uniform endpoint distances. The inspected nonincident estimates control two moving chord endpoints, not three separately sampled positions.",
+          "identifier_or_url": "2026/11/17/SCOPE-logarithmic-dust-and-angular-rigidity-for-random-polygon-boundar--a82d823c1b3b",
+          "material_read": "Mirrored RESULT.md offsets 0–3386 and 3386–6143, Finding Eqs. (1)–(5), proof Steps 1–4 including Eq. (6)",
+          "method": "OA local Resultary mirror",
+          "title": "Logarithmic dust and angular rigidity for random polygon-boundary cuts",
+          "trigger": "Closest matching polygonal logarithmic and marked theorem; potential local reduction"
+        },
+        {
+          "assessment": "Smooth positively curved boundary and different near-degeneracy",
+          "evidence": "The C^3 strictly convex smooth case gives t^(2/3), not the polygonal atom plus t log(1/t).",
+          "identifier_or_url": "2026/11/8/SCOPE-a-sharp-small-area-law-for-inscribed-random-triangles-and-the-op--36a2639eeafd",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "OA local Resultary mirror",
+          "title": "A sharp small-area law for inscribed random triangles",
+          "trigger": "Closest co-observable boundary triangle asymptotic"
+        },
+        {
+          "assessment": "Exactly one point per side of a triangle only",
+          "evidence": "The side allocation is fixed rather than multinomial, so the unconditional mixture with repeated-side patterns is not that theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/1804.11007",
+          "material_read": "Abstract PDF p. 1, offset 360, and CDF pp. 5–6, offset 13500",
+          "method": "OA preprint PDF passages",
+          "title": "Triangle Inscribed-Triangle Picking",
+          "trigger": "Primary exact random triangle area distribution"
+        },
+        {
+          "assessment": "Different statistic and sampling asymptotic",
+          "evidence": "The targets are expected facet counts and missed volumes of hulls from N boundary samples, not the lower-area distribution of one triangle.",
+          "identifier_or_url": "https://arxiv.org/abs/1911.05917",
+          "material_read": "PDF pp. 3–4, statements of hull facet and volume statistics",
+          "method": "OA preprint PDF passages",
+          "title": "The Convex Hull of Random Points on the Boundary of a Simple Polytope",
+          "trigger": "Plausible broader polytope boundary sampling result"
+        },
+        {
+          "assessment": "Fixed-threshold question; unseen answer scope unresolved",
+          "evidence": "The identified question concerns probability at a single positive threshold, not expressly the zero-endpoint asymptotic.",
+          "identifier_or_url": "https://math.stackexchange.com/questions/4877892",
+          "material_read": "Question identification only; no answer text obtained",
+          "method": "Website-mode OA direct and alternate route returned HTTP 403",
+          "title": "Probability that a triangle inscribed in a square comprises at least one quarter of the square",
+          "trigger": "Same square example and area observable"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The surviving repaired claim quantifies a natural random-geometric degeneracy outside the exact triangular special case and separates the positive-area law from the atom. The explicit leading coefficient and rectangle-only equality classify the best shape up to aspect ratio in the natural perimeter normalization. The additional normalized location mark explains the geometric origin of rare triangles beyond the two-endpoint analogue. This remains useful without controlling degenerating polygon families or the full area distribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

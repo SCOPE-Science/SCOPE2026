@@ -1,9 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The precise domain is \(q\ge3,n\ge2\) and each nonconstant length-\(n+1\) word. An edge-labelled Euler-circuit contraction, the directed BEST/Matrix-Tree identities, and the nilpotent part of the de Bruijn adjacency power yield an exact probability formula. The first overlap coefficient partitions all words into boundary constant, alternating, and other cases. Signed geometric tail bounds prove the sharp inequalities and unique equality families in all orders. A separate exhaustive successor-permutation enumeration and complete low-parameter Matrix-Tree calculations reproduce the formula; exhaustive small-pattern checks confirm the full claimed equality classification. Infinite quantifiers rely on the analytical argument, not on the finite enumerations.
+## correctness
 
-**Originality — PASS within examined evidence.** The 2025 Sawada–Gabrić paper provides uniformly random cycle generation but not the uniform lower probability or extremizer classification. Cowan's 1991 full text provides an *exact conditional pattern-expectation formula* for any finite-state Markov source given transition counts; this subsumes individual marginals at an implicit determinant-count level, so no novelty is claimed for those marginals in isolation. The new content is a simultaneous sharp all-order optimization and complete equality rigidity, not obtained by merely fixing a parameter in Cowan's statement. Tesler's 2017 work enumerates multi de Bruijn cycles; Rødland (2006) and Dawson–Good (1957) concern broader count distributions, so an implicit overlap and an alternative derivation remain plausible. The accessible contents of Rødland's paper and the original 1957 article were limited; this and unindexed later work remain priority risks.
+PASS
 
-**Value — PASS.** The bound supplies a uniform positive probability for every feasible nonconstant next-order factor, independent of de Bruijn order; it gives an explicit probabilistic guarantee for covering all such patterns with independent random samples, and completely classifies the least and most likely patterns. This is a natural extremal parameter motivated by unbiased cyclic-word sampling, not an arbitrary finite table. It does not determine joint probabilities or independence.
+The single prescribed pair consists of distinct labelled arcs except for the excluded constant word. Contraction to one labelled arc is reversible up to rotation, including loops and parallel arcs, and lowers just the middle outdegree from q to q−1. Thus BEST gives the tree-count ratio divided by q−1. The rank-one row-Laplacian update is (e_a−e_b)(e_b−e_c)^T; for the grounded minor one subtracts a constant from the full solution to set the root component to zero, and the difference functional is unchanged. The powers of adjacency count overlaps before m=n−1 and A^m is all-ones, so the finite geometric inverse gives (1). The zero-index coefficient is 0 exactly when one of the n-letter end blocks is constant (then one update vector is zero), −2 exactly for alternation, and −1 otherwise. For −1, the absolute residual tail is strictly less than 2/[q(q−1)], which gives a strict gap from both bounds even at q=3. For alternation the coefficients are −2,+2,…, and summation gives (q−1+2(−1/q)^m)/(q²−1); the lower endpoint occurs only at m=1 and alternation cannot attain the upper endpoint. The equality counts and union bound follow. I inspected verify.py and the frozen verification_output.txt, including the 24 ternary order-two cycles and both extremal counts; these are recorded finite corroboration, not an all-orders proof or a fresh run.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Pass is limited to the order-uniform sharp two-sided nonbinary bounds and full equality classification. The support theorem, labelled cyclic counting framework, general conditional expected counts, and the contraction/BEST count are not new. The most relevant general count machinery permits individual computations, but the inspected results do not implement or mechanically supply the order-uniform optimization over overlap patterns.
+
+## value
+
+PASS
+
+The improvement from qualitative support to explicit probability bounds independent of order changes what can be guaranteed when sampling cycles to cover local windows. The equality classification distinguishes two concrete overlap mechanisms (boundary runs and the shortest alternating return) and establishes sharp constants without exhaustive enumeration. The application is marginal/union-bound only, not independence of motifs within a cycle.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

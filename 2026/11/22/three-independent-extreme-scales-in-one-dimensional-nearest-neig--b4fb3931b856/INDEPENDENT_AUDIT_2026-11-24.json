@@ -1,0 +1,163 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:52:07.124376Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–88; VERIFICATION.md; verify_extremes.py",
+        "Bahadır–Ceyhan arXiv:1605.01940 Lemma 2.1 for comparison of the geometry"
+      ],
+      "rationale": "The directed maximum is the maximum of adjacent-pair minima and the two one-sided boundary gaps. A mutual edge is precisely an interior strict local gap minimum or a one-sided boundary minimum. In the exact Dirichlet spacing representation with n+1 independent exponential coordinates and their sum S, the interior window counts for a large single gap, adjacent-pair minimum and strict local minimum have site probabilities exp(−u_1), exp(−2u_2) and exp(−3u_3)/3 respectively. There are n−1, n−2, n−3 sites, giving the three exact mean rates with the stated centerings. I checked distinct overlapping windows: adjacent local minima are incompatible; two pair windows need three above u_2, and two nonadjacent overlapping local minima need five above u_3. A single-gap event alongside a pair or triple requires the one above u_1 and one above u_2 or two above u_3. A mixed pair/triple requires two above u_2 and at least one other above u_3. The slowest of these is O(n^(−4/3)); disjoint sites are independent. For an independent confirmation of the no-exceedance limit, partition the exponential coordinates into disjoint blocks of length ceil(sqrt(n)), dropping the O(n/block length) windows crossing cuts, whose total probability is o(1). In each block use the union bound and its second Bonferroni lower bound: summed over blocks, the intersection correction is O(n^(−1/3)) from spatially overlapping sites and O(block length/n) from disjoint sites within a block. The block-hit probabilities have maximum o(1) and sum tending to exp(−x)+exp(−y)+exp(−z); their no-hit product gives the joint CDF. The boundary exceedances are of orders n^(−1/2) and n^(−2/3), respectively, and replacing S by n perturbs every scaled maximum by O_P(log n/sqrt(n)) since the largest exponential is O_P(log n). Thus the three marginal and joint centerings are correct for actual spacings. The uploaded finite checker was inspected but not executed; it is not used to support the infinite limit.",
+      "residual_risks": [
+        "The uploaded lattice loop corroborates the same-color B–B and C–C implications, not every mixed window type despite its broad comment. All mixed overlap inequalities were checked analytically instead.",
+        "No finite-n independence, concentration rate for the normalized maxima, or density-robustness result is inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mijatović–Vysotsky prove an extreme-value theorem for sums of k adjacent spacings, including longest gaps at k=1; a7482687ed1b considers simultaneous spatial Poisson/Gumbel limits for such fixed-length spacing sums.",
+          "Gupta–Iyer's inspected theorem is about an ordinary largest nearest-neighbor link for exponential-tailed densities in dimensions at least two."
+        ],
+        "reasoning": "The marked strict local minimum is neither a higher-spacing sum nor a longest ordinary link. The inspected results do not specialize to this joint law. General Poisson machinery still needs the model-specific site intensity e^(−3u)/3 and the mixed overlap estimates; the existence of such machinery is not coverage of the explicit result.",
+        "searches": [
+          "Literature search for largest reciprocal/reflexive nearest-neighbor links on the uniform line",
+          "Mijatović–Vysotsky arXiv:1508.00944 Theorem 1; Gupta–Iyer arXiv:math/0604599 Theorem 1.2",
+          "Resultary a7482687ed1b joint spatial k-spacing extreme fields"
+        ]
+      },
+      "checked_sources": [
+        "Bahadır–Ceyhan arXiv:1605.01940",
+        "Mijatović–Vysotsky arXiv:1508.00944",
+        "Gupta–Iyer arXiv:math/0604599",
+        "Resultary a7482687ed1b, 90a96b2212ac, 948cba0b2188, 58929be679e6",
+        "Dette–Henze DOI 10.2307/3214317 (retrieval attempts only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-day 948cba0b2188 result treats covariance of the longest gap and adjacent-pair minimum on a circle, with no third maximum. Its model and claims differ even though two local window types coincide away from boundaries.",
+          "The count theorem supplies the indicator for each locally minimal gap but not its large-value intensity or simultaneous exceedance control alongside two other scales. Spacing-sum limits do not include the condition that two neighbors must exceed the selected central gap."
+        ],
+        "reasoning": "The closest statements establish useful ingredients and motivated analogues but do not imply the missing third mark or independence of the triple. Same-day dates are not evidence of priority.",
+        "searches": [
+          "Resultary a7482687ed1b, 90a96b2212ac, 948cba0b2188, 58929be679e6 findings",
+          "Bahadır–Ceyhan pp. 2–4 and Mijatović–Vysotsky Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bahadır–Ceyhan identify reflexive nearest-neighbor pairs exactly by the locally minimal gaps used here, including both one-sided boundaries. Their inspected results analyze how many pairs occur.",
+          "Resultary 58929be679e6 treats the same interval notion of mutual-pair length, but couples the count to total length, not the maximum. Resultary 90a96b2212ac concerns the maximum reciprocal edge, but in an iid complete random-link graph rather than a line metric."
+        ],
+        "reasoning": "The local-minimum wording is truly equivalent for selecting edges. A count or total does not track the largest selected gap; complete random links need not be generated by sums of line spacings, so their reciprocal maximum is not the same random variable.",
+        "searches": [
+          "Resultary semantic search for uniform one-dimensional reflexive/reciprocal/mutual nearest-neighbor maxima and independent Gumbel gap extremes",
+          "Bahadır–Ceyhan arXiv:1605.01940, Lemma 2.1 and sections on the resulting counts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Catalogue neighbors a7482687ed1b, 90a96b2212ac, 948cba0b2188 and 58929be679e6 were compared by their actual findings; none of these entries gives the triple or the same reciprocal maximum normalization. The web query gave only an unrelated result, not evidence of absence."
+        ],
+        "reasoning": "This is a joint limit rather than a finite table. A credible exact-index match would need the interval model and all three statistics with their asymptotic centerings; the close records do not match that combination.",
+        "searches": [
+          "Resultary semantic search for the interval triple and reciprocal normalization",
+          "Targeted literature query for longest mutual/reflexive edges"
+        ]
+      },
+      "rationale": "The longest-gap marginal, the local-minimum description of mutual pairs, and Poisson machinery are anteceded. The available close papers and catalogue entries address counts, summed spacings, total length, different models, or fewer statistics. The distinct supported claim is the reciprocal maximum's marked-gap extreme scale and its joint independence with the other two centered interval extremes, not the ordinary gap or directed-link marginals on their own.",
+      "residual_risks": [
+        "Dette–Henze full text and the 2005 one-dimensional exponential-geometric study cited by Gupta–Iyer were not available in this comparison. A broader unlocated marked-window extremes theorem or earlier reciprocal-maximum treatment remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct geometric antecedent; inspected claims are about counts",
+          "evidence": "One-sided boundary and strict interior gap minima characterize the mutual pairs.",
+          "identifier_or_url": "https://arxiv.org/abs/1605.01940",
+          "material_read": "PDF pp. 2–4, including Lemma 2.1 and ensuing count analysis; offsets ~8000–19300",
+          "method": "Primary PDF passages",
+          "title": "On the Number of Reflexive and Shared Nearest Neighbor Pairs in One-Dimensional Uniform Data",
+          "trigger": "Same point model and exact mutual-edge selector"
+        },
+        {
+          "assessment": "Covers largest-gap marginal, not the marked triple",
+          "evidence": "Takes maxima of sums of k uniform spacings.",
+          "identifier_or_url": "https://arxiv.org/abs/1508.00944",
+          "material_read": "PDF pp. 1–3, Theorem 1",
+          "method": "Primary PDF passages",
+          "title": "On the Weak Limit Law of the Maximal Uniform k-Spacing",
+          "trigger": "Broader maximal spacing theorem candidate"
+        },
+        {
+          "assessment": "Different law, dimensions and selector",
+          "evidence": "Exponential-tailed densities in dimension d≥2; ordinary largest nearest-neighbor link.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0604599",
+          "material_read": "PDF pp. 1–3, Theorem 1.2",
+          "method": "Primary PDF passages",
+          "title": "Criticality of the Exponential Rate of Decay for the Largest Nearest Neighbor Link in Random Geometric Graphs",
+          "trigger": "Long nearest-neighbor extreme precedent"
+        },
+        {
+          "assessment": "Independent spatial limits for different observables",
+          "evidence": "Fixed-length k-spacing sums, not local-minimum-marked spacings.",
+          "identifier_or_url": "Resultary a7482687ed1b",
+          "material_read": "Matching Finding",
+          "method": "Local Resultary mirror",
+          "title": "Independent spatial extreme fields for finitely many maximal uniform spacings",
+          "trigger": "Strongest joint uniform-spacing extreme analogue"
+        },
+        {
+          "assessment": "Different metric model",
+          "evidence": "Independent complete-graph random links rather than spacings of uniform line points.",
+          "identifier_or_url": "Resultary 90a96b2212ac",
+          "material_read": "Matching Finding",
+          "method": "Local Resultary mirror",
+          "title": "Two independent extreme clocks in the symmetric random-link nearest-neighbor model",
+          "trigger": "Joint reciprocal-edge extreme analogue"
+        },
+        {
+          "assessment": "Two circle statistics and covariance, not the triple",
+          "evidence": "Longest gap and adjacent-pair minimum maximum on a circle; no reciprocal mark.",
+          "identifier_or_url": "Resultary 948cba0b2188",
+          "material_read": "Matching Finding",
+          "method": "Local Resultary mirror",
+          "title": "A sign reversal and a sharp residual covariance for two extreme spacing statistics",
+          "trigger": "Overlap with longest-gap and directed-neighbor maxima"
+        },
+        {
+          "assessment": "Different summary of length",
+          "evidence": "Count and total length, not the maximum length.",
+          "identifier_or_url": "Resultary 58929be679e6",
+          "material_read": "Matching Finding",
+          "method": "Local Resultary mirror",
+          "title": "Exact count–length coupling of mutual nearest-neighbor pairs on an interval",
+          "trigger": "Same interval model and mutual length"
+        },
+        {
+          "assessment": "Residual risk, not negative evidence",
+          "evidence": "No decisive passage retrieved.",
+          "identifier_or_url": "https://doi.org/10.2307/3214317",
+          "material_read": "No usable full text in the checks",
+          "method": "Bounded OA attempts",
+          "title": "The Limit Distribution of the Largest Nearest-Neighbour Link in the Unit d-Cube",
+          "trigger": "Potential antecedent for longest nearest-neighbor links"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and exact rate calculations",
+        "Bahadır–Ceyhan's local-minimum count antecedent and the matched extreme-spacing comparisons"
+      ],
+      "rationale": "The distinction between a long outgoing link and a long mutual link is natural even on a line; mutuality requires a different local event, giving a genuinely shorter leading scale and a nontrivial centering constant. Establishing that all three extremes decouple despite being driven by the same gaps is stronger than deriving separate marginals, and it quantifies how mutuality changes extreme geometry in a baseline sampling model.",
+      "residual_risks": [
+        "Restricted to iid uniform interval points, not arbitrary densities, other dimensions, or finite-sample independence."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

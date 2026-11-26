@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:44:00.915195Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§ Finding, Proof; VERIFICATION.md and verify.py (inspected, not run)",
+        "Peter Sin, arXiv:1401.8210, Theorem 3.6",
+        "Independent determinant and rank check for W_{2,3}(5)"
+      ],
+      "rationale": "The displayed structure constants define the Lie ring on the free Z-module with the stated basis (not a free Lie algebra on generators). The alternating CE differential sends X_i to −T∧Y_i and is zero on the T-containing summand. Thus H^j splits into the degree-j kernel and the degree-(j−1) cokernel of the derivation. In characteristic two this derivation squares to zero and factors as a tensor differential; each pair contributes homology in exterior degrees 0 and 2, giving H_δ=(1+q²)^r(1+q)^s. The kernel dimensions are half the sum of the exterior and δ-homology dimensions, yielding (1). The torsion of the integral cokernel survives unchanged in CE cohomology, and the difference of rational and F₂ ranks counts exactly the even Smith factors. For the rational kernel one can also group by singly occupied pairs and sum the middle binomial coefficients of their Boolean lattices, giving the characteristic-zero profile cited in the record. Multiplication by (1+q)^s and a one-degree shift give (2), and Vandermonde gives (3). For r≥3 the three-singly-occupied-pair block already has a 3×3 minor of determinant ±2 on its isolated middle map, yielding a rank drop in that block. The r=3 and r=4 examples agree with the profiles. An independent W_{2,3}(5) test gave determinant −48 and ranks 6 and 9 in characteristics 2 and 3, as expected from its diagonal form; this is not a full-complex replay.",
+      "residual_risks": [
+        "Read 'free integral Lie ring with the identical basis and structure constants' as the explicitly prescribed Lie ring free as a Z-module. Neither (2) nor the frozen check script establishes individual Smith exponents in general."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The older Lie-cohomology results give the characteristic-zero length-two case but do not give modular or integral information.",
+          "Wilson's t,k-subset result over Z yields a diagonal with entries binom(k−i,t−i) of multiplicity binom(n,i)−binom(n,i−1) in the range t≤min(k,n−k). An adjacent-level block outside that range can be complemented and transposed to put it in range."
+        ],
+        "reasoning": "The integral theorem on the actual constituent matrices is stronger than the claimed rank decrement and covers every block, including blocks of unequal row and column sizes. No extension from a characteristic-zero Lie result to characteristic two is needed.",
+        "searches": [
+          "Wilson, European J. Combin. 11 (1990) 609–615; verified statement via arXiv:1401.8210 §3.3",
+          "Armstrong–Sigg DOI 10.1017/S0004972700021936, Theorem 1 and examples",
+          "Armstrong–Cairns–Jessup DOI 10.1090/S0002-9939-97-03607-1"
+        ]
+      },
+      "checked_sources": [
+        "Wilson 1990 as stated in Sin arXiv:1401.8210 Theorem 3.6",
+        "Armstrong–Sigg DOI 10.1017/S0004972700021936",
+        "Frozen RESULT.md",
+        "Local Resultary distinct-family and exact-profile search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For fixed m=|S| and X layer a, take j=min(a,m−a+1); after complement/transpose if needed the entries are j−i for i=0,…,j−1 with known binomial-difference multiplicities. Counting those divisible by 2 yields exactly the summands counted in (2), and rank modulo 2 gives (1); the same entries give all primary exponents after taking their prime-power parts.",
+          "For W_{2,3}(5) the entries are 3, four copies of 2, and five copies of 1, matching the independent check and displaying integral information stronger than the claimed parity profile."
+        ],
+        "reasoning": "The rank difference and graded sum use only the CE splitting and a standard direct-sum basis organization. Expressing those ranks with compact generating polynomials does not escape the stronger theorem.",
+        "searches": [
+          "arXiv:1401.8210 Theorem 3.6 and its complement identity",
+          "RESULT.md Proof, integral differential and rank difference"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fix the fully occupied pairs, the singly occupied pairs S and the selected Z variables in a monomial basis ordered by pair. A subset A of S records the X positions. Replacing one X by its Y produces A minus that position with coefficient +1; degree-zero derivation and pair ordering give no signs.",
+          "The map from the a-X layer to the (a−1)-X layer is W_{a−1,a}(|S|), up to transpose/index convention. Distinct layers have disjoint domain and image summands, so the full differential is their integral direct sum with zero summands."
+        ],
+        "reasoning": "This is exact integral equivalence by basis permutations, not an analogy between ranks or a similarity in title.",
+        "searches": [
+          "Peter Sin, Smith normal forms of incidence matrices, arXiv:1401.8210 §3.3 Theorem 3.6, citing Wilson 1990",
+          "RESULT.md Proof: degree-preserving derivation X_i↦Y_i"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-profile catalogue hit 2026/11/22/SCOPE-modular-betti-and-integral-two-primary-torsion-profiles-of-squar--82b5fb462004 is this record itself.",
+          "2026/10/25/SCOPE-integral-cohomology-torsion-and-modular-resonance-of-positive-we--13c900e3ddfa treats a positive diagonal action; 2026/11/22/SCOPE-lie-cohomology-realizes-the-weight-enumerators-of-binary-cyclic--aa514f394cb5 treats irreducible multiplication. Neither has the square-zero pair blocks."
+        ],
+        "reasoning": "Distinct catalogued near matches are not identical; the decisive prior evidence is the general inclusion-matrix result, not a prior Betti table under the same title.",
+        "searches": [
+          "Local Resultary: square-zero almost-abelian CE Betti profile in characteristic two and integral Smith torsion",
+          "Local Resultary integral almost-abelian torsion and characteristic-two CE records, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4"
+        ]
+      },
+      "rationale": "The prior integral Boolean inclusion diagonal form covers all the nonzero component maps of the frozen CE differential exactly. The finite-characteristic Betti and even-order rank profiles are mechanical graded counts from those same diagonal forms; they are not new exact facts independent of that stronger result. This assessment is based on an explicit integral block identification and a verified statement of Wilson's theorem, not on absence of direct matches or failure to retrieve Wilson's own copy.",
+      "residual_risks": [
+        "The primary PDFs of Wilson and Armstrong–Cairns–Jessup did not yield usable passages. This does not undo the exact matrix-level implication verified from Sin's theorem and the frozen CE differential."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verifies the stronger statement as attributed to Wilson",
+          "evidence": "The integer diagonal for W_{t,k} has binomial entries with binomial-difference multiplicities. For adjacent layers these entries reduce to k−i; complementation reverses the layers.",
+          "identifier_or_url": "https://arxiv.org/pdf/1401.8210",
+          "material_read": "§3.3, p. 9, Theorem 3.6 and complement identity, OA offset 32500; bibliography offset 55702",
+          "method": "OA PDF inspection, followed by coefficient and block comparison",
+          "title": "Smith normal forms of incidence matrices",
+          "trigger": "Exact integral diagonal form for Boolean inclusion maps"
+        },
+        {
+          "assessment": "Original copy inaccessible, but the mathematical implication is verified from the available precise theorem statement",
+          "evidence": "Sin attributes the integral diagonal form in §3.3 to Wilson [36], Eur. J. Combin. 11 (1990), 609–615.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0195669813800467",
+          "material_read": "No usable primary full text via identified ScienceDirect, Core and DOI routes; exact result read in Sin's Theorem 3.6 above",
+          "method": "Lawful OA access attempts and a separately identified published statement of the result",
+          "title": "A diagonal form for the incidence matrices of t-subsets vs. k-subsets",
+          "trigger": "Original diagonal-form theorem"
+        },
+        {
+          "assessment": "Characteristic-zero antecedent only",
+          "evidence": "The base is C and the abelian ideal has codimension one; the length-two case is linked to the explicit Armstrong–Cairns–Jessup computation.",
+          "identifier_or_url": "https://doi.org/10.1017/S0004972700021936",
+          "material_read": "pp. 517–520, Theorem 1 and length-two example, OA offsets 0 and 2500",
+          "method": "OA PDF hypothesis and theorem comparison",
+          "title": "On the cohomology of a class of nilpotent Lie algebras",
+          "trigger": "Same CE cohomology family and more general Jordan blocks"
+        },
+        {
+          "assessment": "Confirmed antecedent for the characteristic-zero family, not used as evidence about modular or integral coverage",
+          "evidence": "Armstrong–Sigg explicitly relates the length-two family to this paper.",
+          "identifier_or_url": "https://doi.org/10.1090/S0002-9939-97-03607-1",
+          "material_read": "No usable full text from AMS or identified Citeseer copy; family identified on p. 518 of Armstrong–Sigg",
+          "method": "Lawful OA access attempts; cross-reference inspected",
+          "title": "Explicit Betti numbers for a family of nilpotent Lie algebras",
+          "trigger": "Direct real Betti formula cited in the frozen proof"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md §§ Finding, Proof",
+        "Wilson diagonal form as reproduced in Sin Theorem 3.6"
+      ],
+      "rationale": "The Lie family is natural, but the claimed new finite-characteristic and integral invariants are rank projections of already diagonalized integer maps, with no new rank determination required after the standard decomposition. A convenient two-primary rank summary does not supply an independent new invariant result; even the torsion orders omitted by this record are available blockwise from the older form. There is no distinct valuable remainder in the submitted claim to repair.",
+      "residual_risks": [
+        "This assessment does not address a different claim about the multiplicative structure of cohomology or actions with longer Jordan blocks."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

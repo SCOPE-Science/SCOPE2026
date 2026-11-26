@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:38:38.922059Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§1–5",
+        "Frozen VERIFICATION.md and CHECK.py, inspected as evidence only",
+        "Independent enumeration for 3≤n≤8: 913 exact assertions including k=1,2,3, and exact checks at (20,19,6) and (100,50,12)"
+      ],
+      "rationale": "One-round inclusion–exclusion, independence across rounds, and strict monotonicity of positive integer powers on nonnegative bases give the exact identity and sign. At the minimum feasible overlap the union is either infeasible or, for disjoint targets, the inclusion probability of the second target strictly decreases after conditioning on inclusion of the first. The final overlap j=s has b_s=a>a². After the initial zero plateau for b_j the b_j increase strictly, so equality with a² is possible at most once. The omitted-element representation proves the r=n−1 boundary including equality. Expanding log((r)_t/(n)_t) uniformly for t=O(√n) has remainder O(t³/n²); subtracting twice the s expansion from the 2s−j expansion yields the frozen log ratio. For the power difference the base is 1−2a_n+O(a_n²) uniformly along the segment between the two bases, giving e^(−2λ), with the correct prefactor λ(R_j−1). No sign is inferred at critical equality. Hypergeometric factorial moments give the Poisson overlap limit. For nonintegral τ, its two bracketing integers eventually have strict opposite signs, and monotonicity then gives the entire asymptotic sign census, including the claimed conditional fraction.",
+      "residual_risks": [
+        "Finite checks do not prove either asymptotic limit; the analytic argument does. The recorded source replay (`python3 CHECK.py` from the frozen package) was not executed in this review."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary cover-time limits are stated for fixed target and draw sizes. The Johnson-walk result is Markovian with fixed sizes and its Poisson variable counts unseen subsets, not the overlap of two independently selected targets. The older covering-design paper was not available in full text through the DOI and OA recovery."
+        ],
+        "reasoning": "A stronger-looking cover-time or count-distribution theorem in another regime is not a dominating pair-covariance theorem here.",
+        "searches": [
+          "arXiv:2304.01145, introduction and Theorems 2.1–2.3",
+          "Published Resultary record 2026/11/2/SCOPE-gumbel-shadow-cover-times-for-fixed-size-johnson-walks--9b800a9dcc5a",
+          "doi:10.1006/jcta.1996.0065 (lawful full-text retrieval attempted)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2304.01145",
+        "Resultary/SCOPE 3189eaadf964, 37418c61ba8c, 9b800a9dcc5a, 053907168747",
+        "doi:10.1006/jcta.1996.0065 (access attempt only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact joint law follows immediately from the published union input and round independence. At s∼c√n, the quadratic contribution in the log of the falling factorial survives, competing with the gain from fixed overlap. The frequency-switch result varies a different statistic."
+        ],
+        "reasoning": "The census uses standard hypergeometric-to-Poisson convergence, but its sign criterion requires the model-specific critical asymptotic. Neither inspected fixed-size limit implies that criterion or the covariance scaling in this regime.",
+        "searches": [
+          "arXiv:2304.01145, Lemma 3.1 proof and Theorem 2.3",
+          "Resultary 3189eaadf964, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The coupon paper computes pair collection by the union size 2s−j. The pooled-detection record writes a genuine analog q_u(m)−q_r(m)q_s(m), but changes sampling depth without replacement, not target overlap under independent block rounds."
+        ],
+        "reasoning": "The union, inclusion–exclusion and complement dual formulations share an elementary finite input. Neither inspected formulation gives the positive-versus-negative crossover at proportional block size and s of order √n.",
+        "searches": [
+          "arXiv:2304.01145, §3, Lemma 3.1 proof",
+          "Published Resultary record 2026/10/18/SCOPE-an-irreversible-co-detection-sign-switch-under-incidence-based-r--37418c61ba8c"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day 3189eaadf964 concerns Cov(U,M_r) versus coupon frequency. The square-root record 053907168747 concerns exact-load occupancy in iid balls into boxes. The other two records concern pooled detection and a Johnson walk, respectively."
+        ],
+        "reasoning": "These were compared by mathematical statement, not excluded by dates or titles. None tabulates or gives the claimed sign census. A finite value table by itself would not establish this sequence-limit result.",
+        "searches": [
+          "Published Resultary/SCOPE: 3189eaadf964, 37418c61ba8c, 9b800a9dcc5a, 053907168747"
+        ]
+      },
+      "rationale": "Prior work is credited for the model and exact pair-union probability; the finite identity consequently has little independent originality. The supported distinct result is the proportional-block, square-root target crossover, with its time-scaled covariance and global sign fraction. No equivalent result or stronger result giving these conclusions was found in the bounded statement comparisons.",
+      "residual_risks": [
+        "An equivalent result in sampling or covering-design literature could predate the frozen result. The older covering-design source was not read in full. No publication priority is certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial coverage, not the critical pair-sign result",
+          "evidence": "The pair inclusion probability is determined by the union size; the stated Gumbel limit addresses full coverage with fixed parameters.",
+          "identifier_or_url": "https://arxiv.org/abs/2304.01145",
+          "material_read": "PDF pp. 1–4, 6–8: introduction, Theorems 2.1–2.3, Lemma 3.1 proof",
+          "method": "Targeted OA full-text inspection by passage",
+          "title": "On a generalisation of the coupon collector problem",
+          "trigger": "Same coupon model and published pair-inclusion input"
+        },
+        {
+          "assessment": "Related, not equivalent",
+          "evidence": "Unseen count versus exactly-r frequency count, ordered by frequency rather than pair overlap.",
+          "identifier_or_url": "2026/11/2/SCOPE-one-strict-covariance-switch-across-positive-coupon-frequencies--3189eaadf964",
+          "material_read": "RESULT.md Finding, offset 0–3385",
+          "method": "Local published-result mirror",
+          "title": "One strict covariance switch across positive coupon frequencies",
+          "trigger": "Closest same-setting covariance-switch match"
+        },
+        {
+          "assessment": "Formal analogue, different sampling and varying parameter",
+          "evidence": "The two-detection covariance has form q_u−q_rq_s; the sign switch varies survey depth.",
+          "identifier_or_url": "2026/10/18/SCOPE-an-irreversible-co-detection-sign-switch-under-incidence-based-r--37418c61ba8c",
+          "material_read": "RESULT.md Finding, offset 0–2994",
+          "method": "Local published-result mirror",
+          "title": "An irreversible co-detection sign switch under incidence-based sampling",
+          "trigger": "Alternative union and complement formulation"
+        },
+        {
+          "assessment": "Not a coverage implication",
+          "evidence": "Poisson limit for unseen subset counts under a walk with fixed r,s.",
+          "identifier_or_url": "2026/11/2/SCOPE-gumbel-shadow-cover-times-for-fixed-size-johnson-walks--9b800a9dcc5a",
+          "material_read": "RESULT.md Finding, offset 0–3332",
+          "method": "Local published-result mirror",
+          "title": "Gumbel shadow cover times for fixed-size Johnson walks",
+          "trigger": "Subset-coupon Poisson limit"
+        },
+        {
+          "assessment": "Different statistic and regime",
+          "evidence": "Exact-load counts for iid allocations into boxes, not missed overlapping targets.",
+          "identifier_or_url": "2026/10/25/SCOPE-square-root-covariance-windows-for-consecutive-square-occupancy--053907168747",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-result mirror",
+          "title": "Square-root covariance windows for consecutive square occupancy",
+          "trigger": "Potential alternate square-root covariance formulation"
+        },
+        {
+          "assessment": "Unresolved access risk; no noncoverage inference",
+          "evidence": "Full-text retrieval yielded no identified OA repository copy.",
+          "identifier_or_url": "https://doi.org/10.1006/jcta.1996.0065",
+          "material_read": "No full text; landing/abstract only available",
+          "method": "Lawful OA DOI lookup, direct and alternate routing and DOI recovery",
+          "title": "Random covering designs",
+          "trigger": "Earlier covering literature cited by the frozen text"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§4–5",
+        "arXiv:2304.01145, Lemma 3.1 and Theorems 2.1–2.3"
+      ],
+      "rationale": "The natural depletion scale s≈√n separates two competing mechanisms: fixed overlap favors co-collection, while fixed-cardinality sampling suppresses it. The threshold and census quantify a genuine failure of the intuition that overlap implies positive association, including a regime where most overlapping pairs have negative covariance. This is useful information beyond the known one-round formula or isolated negative examples.",
+      "residual_risks": [
+        "Does not settle multivariate association, growing-overlap scaling, or cover-time limits."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

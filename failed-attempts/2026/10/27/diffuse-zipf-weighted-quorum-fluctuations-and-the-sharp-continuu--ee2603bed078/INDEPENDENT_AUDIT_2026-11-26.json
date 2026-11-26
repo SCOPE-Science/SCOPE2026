@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:19:28.896594Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 19–66 and 68–132",
+        "Frozen VERIFICATION.md, lines 3–27",
+        "Frozen verify.py, lines 10–62: inspected quadrature, finite mean and variance, and convergence diagnostics without executing the file"
+      ],
+      "rationale": "For v_N=u_N+z/√N, the sum of third absolute moments of the scaled centered Bernoulli summands is O(N⁻¹ᐟ²): their failure probabilities exponentially suppress the large normalized weights. The scaled sum has variance tending to V>0, and √N times its mean excess over θ tends to zD, by local uniform convergence of the differentiated mean sums. The exact strict-crossing event is that the weight exceeds θ at v_N; normal continuity justifies the inversion without excluding finite ties. For the displacement, use the undiscovered mass, not a Riemann-sum error estimate on the singular discovered-mass integrand. The undiscovered-mass integrand extends smoothly at zero, with uniform O(N⁻¹) error near the root, smaller than N^(s−1). Its integral has c-derivative (1−θ−uD)/b at c=b. With c_N−b=−b²ζ(s)N^(s−1)+o(N^(s−1)), the sign and constant of the stated inverse displacement follow. Adding this shift to the tight finite-root fluctuation gives exactly the stated cases, including the condition δ≠0 on supercritical divergence.",
+      "residual_risks": [
+        "Parameters are fixed. The frozen theorem does not resolve continuum centering at a zero leading coefficient when s>1/2. The finite numerical checks are not proof or formal verification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Müller–Šebek prove the same continuum-root law of large numbers, not the stated inverse CLT or normalization bias in Theorem 5.3.",
+          "Chebunin–Zuyev study fixed summable infinite urn probabilities, not this triangular probability vector.",
+          "c9271edb3c25 treats the same parameter range and also resolves the unique cancellation curve and its second s=3/4 boundary."
+        ],
+        "reasoning": "Neither an LLN nor the cited infinite urn formulation gives the frozen result. The stronger indexed theorem does, including at δ=0.",
+        "searches": [
+          "arXiv:2607.08551v1, Theorem 5.3",
+          "arXiv:1906.10949v2, introductory hypotheses",
+          "Resultary c9271edb3c25, Finding and Assumptions and scope"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, especially lines 25–55 and 138–152",
+        "Resultary c9271edb3c25 and 05cca1011618",
+        "arXiv:2607.08551v1 and arXiv:1906.10949v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed remainder O(N^(2s−2)+N⁻¹) is o(N^(s−1)) for all fixed 0<s<1. Its exceptional-curve limit is centered for s≤1/2 and agrees with the frozen claim when δ=0.",
+          "The earlier first-order theorem alone gives no N^−1/2 or N^(s−1) expansion."
+        ],
+        "reasoning": "Restriction of the stronger indexed result implies the entire frozen finding; no previously uncovered subclaim is obtained by dropping the cancellation case. This implication establishes coverage, not historical priority.",
+        "searches": [
+          "Resultary c9271edb3c25, displayed root expansion and continuum limits",
+          "arXiv:2607.08551v1, Theorem 5.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "c9271edb3c25, Finding: its C, u_*, L and W_N equal b, u, D and λτ/N, with identical V and strict event. Its B_1=−C²ζ(s)(J_s(a_*)−e^(−a_*))/(sL). Integrating the derivative of x^b exp(−a_*x^(−s)) gives 1−θ−uD=b(J_s(a_*)−e^(−a_*))/s, so B_1=δ.",
+          "05cca1011618, Finding: the discovery clocks have homogeneous rate λ/N, not rates λq_i."
+        ],
+        "reasoning": "The first source is equivalent in model and leading coefficient, not just in exponent. The second has a different fluctuation mechanism and does not cover the aligned model.",
+        "searches": [
+          "Resultary c9271edb3c25: finite aligned Zipf weighted quorum, exact mean-centered CLT and centering exponents",
+          "Resultary 05cca1011618: Zipf-weighted quorum Gaussian/Bernoulli crossover"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed c9271edb3c25 theorem directly gives V/L² and B_1 with the exact profile and root; 05cca1011618 does not share the clock law."
+        ],
+        "reasoning": "The relevant database is the theorem index. A parameter or numerical table is inapplicable to this continuous-parameter asymptotic law.",
+        "searches": [
+          "Resultary c9271edb3c25 and 05cca1011618"
+        ]
+      },
+      "rationale": "No distinct part of the frozen finding survives comparison with the distinct published Resultary record c9271edb3c25: the latter gives the same strict-crossing model, centering, variance, leading displacement coefficient and s=1/2 transition, and also analyzes the cancellation case excluded by the frozen finding. This is a finding of equivalent and stronger indexed coverage at review, not a finding that the Nov. 8 record preceded the Oct. 27 frozen result or that either depended on the other. The earlier literature inspected does not itself establish the second-order claim.",
+      "residual_risks": [
+        "This comparison does not determine historical priority or provenance. The indexed match is dated later than the frozen record. No assertion of exhaustive earlier literature coverage is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact and stronger statement coverage, not proof of earlier priority",
+          "evidence": [
+            "Same exact-root Gaussian theorem and variance; B_1 root expansion; s=1/2 regimes and a second-order analysis at the cancellation threshold"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-gaussian-fluctuations-and-two-critical-centering-exponents-for-f--c9271edb3c25/RESULT.md",
+          "material_read": "Finding, Assumptions and scope (offset 0); prior-work passage (offset 7900)",
+          "method": "Resultary index and local mirror; algebraic comparison of coefficients",
+          "title": "Gaussian fluctuations and two critical centering exponents for finite Zipf quorum times",
+          "trigger": "Same aligned model and apparent centering theorem"
+        },
+        {
+          "assessment": "Related, not equivalent",
+          "evidence": [
+            "Homogeneous discovery rates λ/N give different regimes"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-gaussian-to-bernoulli-series-transition-in-zipf-weighted-quorum--05cca1011618/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary index and local mirror",
+          "title": "Gaussian-to-Bernoulli-series transition in Zipf weighted quorum times",
+          "trigger": "Same vocabulary and critical exponent"
+        },
+        {
+          "assessment": "First-order coverage",
+          "evidence": [
+            "Convergence in probability to the root of the same diffuse continuum profile"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.08551v1",
+          "material_read": "Theorem 5.3 and proof, PDF pp. 8–9, OA offset 30269",
+          "method": "Primary OA PDF",
+          "title": "Weighted-threshold Coupon Collection",
+          "trigger": "Same aligned model and continuum root"
+        },
+        {
+          "assessment": "Different hypotheses and observable",
+          "evidence": [
+            "Fixed infinite probability sequence, not a normalized finite Zipf array and strict quorum crossing"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1906.10949v2",
+          "material_read": "PDF pp. 1–2, OA offset 0",
+          "method": "Primary OA PDF",
+          "title": "Functional Central Limit Theorems for Occupancies and Missing Mass Process in Infinite Urn Models",
+          "trigger": "Plausible general occupancy/missing-mass CLT"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–55",
+        "Müller–Šebek, Theorem 5.3"
+      ],
+      "rationale": "The distinction between the exact finite root and the continuum root materially changes uncertainty estimates for a natural weighted-quorum model. The displacement and Gaussian width explain when the continuum approximation is or is not suitable as a fluctuation center. The mathematical question is worthwhile even though the frozen answer is not distinct in the index.",
+      "residual_risks": [
+        "The finding does not quantify a uniform finite-size approximation or establish applications outside the aligned model."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,12 +1,21 @@
-# Research review
+# Independent mathematical audit
 
-## Correctness — PASS
-A nonzero integer resultant of \(\Phi_m(X)\) and \(\Phi_m(X+1)\) bounds all shared prime factors, and a full finite factor table for each \(m=1,\ldots,28\) is verified by exact determinant identity and independent primality checks. There are 97 prime/index entries and 178 common-residue roots; all prime-square lifts are tested by exact integer Taylor congruences. No lift survives. At index \(29\), direct integer evaluation provides the prime-square witness \(59^2\) at \(n=298\). Proof covers all integer arguments, not a finite search over them. Risks: symbolic-computation implementation or table transcription, mitigated by an executable recomputation; no formal independent reimplementation.
+## correctness
 
-## Originality — PASS on inspected evidence
-The direct parent source De Nápoli (arXiv:2010.02668, inspected complete HTML sections) treats multiplicative/index identities and Ramanujan sums, not consecutive-input squarefull gcd thresholds. Sanna–Szikszai (arXiv:1704.01738, inspected article text) treats blockwise coprimality for degree-two/three polynomials, not a complete prime-square classification for cyclotomic indices. Relevant earlier exact degree-two and degree-six classifications cover isolated subsets, not an index-optimal threshold. Exact-title and equivalent-formulation searches in published research records and the literature produced no implication covering the universal exclusion through index \(28\) together with the witness at \(29\). Residual priority risk: a known general resultant algorithm may make the specific cutoff implicit in an unindexed table.
+PASS
 
-## Mathematical value — PASS
-This answers the natural first-obstruction question for prime-power common divisors of a central arithmetic-polynomial family. The cutoff is uniform in integer argument and records the first structural failure of squarefreeness, stronger than any bounded-input computation; it separates the first 28 indices from the next one. The complete, compact exact certificate makes this nontrivial finite threshold checkable rather than a bare exploratory record.
+The frozen proof and checker give nonsquarefreeness at the witness, but divisibility by 59² alone does not show the whole gcd is squarefull. Also 1 must be excluded from the squarefull least-index claim (it satisfies the vacuous exponent condition, and occurs already at index 1). The corrected files state and verify G_29(298)=3481=59², hence both least-index conclusions, with squarefull gcd required to be nontrivial. The lower-index proof is valid: the only unit-circle pairs z,z+1 have orders three and six, so the integer resultant is nonzero; its Bézout identity bounds every gcd including if one value vanishes. Every possible square divisor has a prime in the exact factorization and lies over a common residue; the two first-order lift constraints remain valid at zero derivatives and cover all integers. Independent monic division and Bareiss Sylvester determinants verify the factorizations and 178 common roots at 97 index–prime entries, then the candidate lift (or singular-case incompatibility) at each; none lifts simultaneously. Exact integer Horner evaluation and Euclidean gcd give 3481. The repaired checker separately passed using the unchanged certificate; the original evidence was kept unchanged.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The repaired claim isolates the same first nonsquarefree index as the frozen proof, now with a verified exact nontrivial squarefull witness. Known identities, coprimality theorems and indexed exact profiles cover its ingredients or a proper subset of the indices. None of the compared statements establishes the sharp index boundary with its witness.
+
+## value
+
+PASS
+
+The sharp parameter is the index, not an arbitrarily bounded list of input pairs. The correction identifies the first possible repeated prime in these otherwise highly restricted adjacent gcds, uniformly for every integer input across all smaller indices, and shows that the whole first witness is a pure prime square. Distinguishing a repeated prime of the resultant from an actual simultaneous lift is substantive; the verified cutoff and witness give concrete tests for any general prime-power theory of shifted cyclotomic values.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

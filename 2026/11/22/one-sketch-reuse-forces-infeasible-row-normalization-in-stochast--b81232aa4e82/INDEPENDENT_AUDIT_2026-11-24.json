@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:03:07.680617Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Verified the literal update and step range in RESULT.md:6–27. The selected row alone is multiplied by 1+β−βu², where β=ηn and u=√n||x_i||. Initially 0≤u≤√n by the orthogonal-projector diagonal bound. The multiplier is positive on this interval. For a nonzero row, u_next−1=(u−1)[1−βu(u+1)], and 0<βu(u+1)≤(1+1/√n)/2<1. Thus each positive amplitude stays between its current value and 1 and converges to 1 on its visitation subsequence (the only admissible positive fixed point); zero rows and directions remain unchanged. Every coordinate is visited infinitely often almost surely, proving the deterministic limit and preserving full column rank by positive diagonal scaling, even at the limit. The limiting Gram trace is s/n; matrix Cauchy–Schwarz gives both exact lower bounds, and n=p with X0=I gives equality. Direct differentiation also verifies the factor of 1/2 in the shared-sample expected-surrogate gradient; independent samples instead factor the expectation. VERIFICATION.md and verify.py were inspected, not executed. The claimed 96,768 finite checks are package-reported and do not certify the infinite-time assertion. Exact arithmetic, fixed positive step in the stated interval, and zero tangential term are essential scope boundaries.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Eq. (III.4) uses B with two separate indices and specifies independence in the preceding sketch construction.",
+          "The current Vary et al. PDF §3.3, p. 21, Eq. (49), uses independent copies for the corresponding expectation.",
+          "The distinct same-day coupling-singularity record summary concerns moments of symmetric oblique low-rank tangent projections as sketches approach shared sampling."
+        ],
+        "reasoning": "The independence-dependent theorems do not apply to this biased normal recursion; results about tangent-projection moments do not state dynamics of this scalar coordinate normalization. Generic separable-descent reasoning supplies a technique but no checked broader theorem giving the exact full-frame limit and dimension-sharp obstruction for this coupling.",
+        "searches": [
+          "arXiv:2605.31505 §III.A",
+          "arXiv:2405.01702 §3.3",
+          "Resultary: SCOPE-20261122-359d8df14ce8"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.31505",
+        "arXiv:2405.01702v1 and current PDF",
+        "SCOPE-20261122-b81232aa4e82",
+        "SCOPE-20261122-359d8df14ce8",
+        "SCOPE-20261102-327ffe54e5f9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Both checked normal-field constructions estimate an orthogonality penalty by a product of separate samples. For identical factors here the selected-row increment instead depends only on that row's own magnitude and preserves its direction."
+        ],
+        "reasoning": "An independent-sketch convergence or unbiasedness statement cannot imply the shared-sketch limit: the mean field no longer vanishes at general feasible frames. The reviewed conclusion requires stability of the nonlinear positive-amplitude map and the Gram trace obstruction, rather than a reuse of those expectation identities.",
+        "searches": [
+          "arXiv:2605.31505 Eq. (III.4)",
+          "arXiv:2405.01702v1 p. 2 Eqs. (2)–(3) and current PDF §3.3 Eq. (49)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two landing papers put separate random indices in the two normal factors; Goyens et al. explicitly require independence.",
+          "The four-column Hadamard record's indexed summary compares with- and without-replacement draws for exact rank failure, not equality of two factors of the same product."
+        ],
+        "reasoning": "Perfect coupling changes the actual estimator and its conditional mean; it is not a relabeling of independent samples or of sampling with replacement. The resulting separable quartic is an equivalent description of this recursion's mean field, but it does not identify the recursion with published independent landing.",
+        "searches": [
+          "arXiv:2605.31505 §III.A and Eq. (III.4)",
+          "arXiv:2405.01702 v1 and current PDF, p. 2 normal estimator",
+          "Resultary: SCOPE-20261102-327ffe54e5f9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The direct semantic match is the same frozen record, not an independent source. The distinct indexed coupling and sampling records available for comparison describe projection moments and Hadamard rank-failure laws respectively."
+        ],
+        "reasoning": "Neither summary states a table or exact law for the limiting Gram violation of this update on every Stiefel frame. Full mirror passages for those distinct ledgers were not available; the incomplete index check is not proof of absence.",
+        "searches": [
+          "Resultary: exact shared coordinate sketch and Stiefel row normalization, SCOPE-20261122-b81232aa4e82",
+          "Resultary: SCOPE-20261122-359d8df14ce8",
+          "Resultary: SCOPE-20261102-327ffe54e5f9"
+        ]
+      },
+      "rationale": "Qualified to the exact all-frame limit and sharp Stiefel feasibility floor for forced reuse of a rank-one coordinate sketch in the two normal factors. The estimator with independently drawn factors and the general observation that reusing a stochastic factor can change its mean are not novel claims.",
+      "residual_risks": [
+        "The distinct Resultary coupling and rank-failure comparisons are limited to indexed summaries.",
+        "An alternate publication under stochastic double sampling or separable nonconvex coordinate methods may already state the exact shared-coupling specialization. No exhaustive priority certification is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit independent-sketch law, not the modified shared law",
+          "evidence": [
+            "§III.A: two independent sketches; Eq. (III.4): two indexed factors"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2605.31505",
+          "material_read": "OA PDF §III.A pp. 2–3, text offsets 13857 and 17990",
+          "method": "Original PDF passage comparison",
+          "title": "The sketched landing method for large-scale optimization under orthogonality constraints",
+          "trigger": "Primary source of the normal direction and sketch sampling"
+        },
+        {
+          "assessment": "Same separation of random factors, not exact reuse; equation numbering varies by version",
+          "evidence": [
+            "v1 p. 2 displays the two-factor normal estimator with the components of Eq. (2), numbered (3); current PDF displays the estimator with Eq. (2) and uses independent copies in Eq. (49)"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2405.01702",
+          "material_read": "v1 p. 2 offsets 12200–15773; current PDF p. 2 offset 13058 and §3.3 p. 21 offset 126219",
+          "method": "Original OA PDFs, checked relevant equation in the cited first version and the current version",
+          "title": "Optimization without retraction on the random generalized Stiefel manifold",
+          "trigger": "Earlier stochastic normal estimator"
+        },
+        {
+          "assessment": "Summary concerns near-sharing moment thresholds and oblique tangent projections; does not establish coverage of the reviewed limit",
+          "evidence": [
+            "Observable is moment/risk for oblique low-rank projection, not deterministic row magnitudes of a normal iterate"
+          ],
+          "identifier_or_url": "SCOPE-20261122-359d8df14ce8",
+          "material_read": "Resultary indexed summary; full local mirror unavailable",
+          "method": "Local Resultary semantic comparison to the accessible summary",
+          "title": "A sharp sketch-coupling singularity for symmetric oblique low-rank projections",
+          "trigger": "Plausible same-day overlap on nearly shared sketches"
+        },
+        {
+          "assessment": "Different sampling problem; no full-text claim implied from the summary",
+          "evidence": [
+            "With/without replacement in four-column Hadamard sampling and rank failure"
+          ],
+          "identifier_or_url": "SCOPE-20261102-327ffe54e5f9",
+          "material_read": "Resultary indexed summary; full local mirror unavailable",
+          "method": "Local Resultary summary-level comparison",
+          "title": "Exact rank-failure laws distinguish affine types in four-column sketches",
+          "trigger": "Possible confound about duplicate sampling"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A plausible implementation shortcut in a concrete sparse landing method changes the target, not just estimator variance. The theorem supplies an exact universal limit from feasible frames and a sharp dimension-dependent violation that cannot be removed by making the fixed step smaller. This is stronger and more actionable than a one-step bias example, without claiming independent-sketch failure or generalizing to arbitrary couplings.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

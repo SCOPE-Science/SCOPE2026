@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Computational verification
+# Independent mathematical audit
 
-Run `python3 artifacts/verify.py` alongside `artifacts/orbit_certificate.tsv` using Python 3 without third-party packages. The script enumerates all 192 undirected maximal antipodal geodesics; the 384 automorphisms; all 4,368 five-vertex and 8,008 six-vertex subsets; and all 50 symmetry orbits with 48 exclusion witnesses. It checks both proposed families constructively and verifies that they coincide exactly with all accepted subsets.
+## correctness
 
-A complete run returned:
+PASS
 
-```
-TWO_CONSTRUCTIVE_FAMILIES_OK sphere8=8 prism32=32
-NO_FIVE_VERTEX_TRANSVERSALS_OK tested=4368
-ALL_SIX_VERTEX_SETS_EXHAUSTED_OK tested=8008 hits=40
-FIFTY_AUTOMORPHISM_ORBIT_CERTIFICATE_OK all=8008 accepted_orbits=8,32 rejected=48
-VERIFY_OK
-```
+Every shortest path flips distinct coordinates; if any coordinate is unused the path can be extended, so the maximal paths are exactly the antipodal ones. Each ordering traces a maximal Boolean-lattice chain, which can be translated to any starting vertex. Their 192 vertex sets were generated independently; all 4,368 five-subsets fail and exactly 40 of the 8,008 six-subsets hit them. Upward closure excludes smaller sizes. The distance-intermediate-value argument applies to the middle spheres and to the Q3 projections, establishing the two constructions. The successful masks are exactly the eight spheres and 32 lifted neighborhoods. Independent replay checked all 50 certificate orbits, disjoint complete coverage, and each of the 48 disjoint-path witnesses. Translations and coordinate permutations are transitive on each family, and the induced independence vs matching distinguishes them. Replay: python3 /workspace/review_evidence/cube.py.
 
-The certificate is a complete finite proof only for \(Q_4\). No computational extrapolation, external proof certification or independent mathematical audit is claimed. Review status is confined to the self-review recorded in `REVIEW.md` and `AUDIT.json`.
+## originality
+
+PASS
+
+The claim credited as distinct is the exhaustive labelled census and the two-orbit classification, not the minimum six or the known middle spheres. The strongest plausible compatible earlier statements inspected establish the minimum and give an extremizer but do not classify the minimizers. A later Resultary record explicitly treats the forty minima as known starting states. The conflicting earlier preprint claim of eight is not compatible coverage.
+
+## value
+
+PASS
+
+At a natural first small case of the hypercube transversal problem with a known sharp minimum, identifying all equality cases resolves whether the standard layer construction is forced. It is not: all the other optima form a single structurally different matching orbit. The resulting explicit extremizer set supports further questions about the geometry and reconfiguration of optimal transversals, distinct from computing the scalar minimum again.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every odd prime the polynomial \(n(n+1)+c\) has two simple and distinct Hensel-root branches when \(p\mid c\). Three shifts by \(0,p^s,2p^s\) split each branch into exactly three distinct depth-\(s+1\) children, because \(p\) is odd. The exhaustive cylinder partition proves every trivariate probability, including the characteristic-three absence of the central cell. The three-level intersection condition yields the finite mixed-moment sum, its closed formula, and a strictly increasing connected cumulant with one negative case. A standalone integer checker verified 400 entire finite-block histograms (1,396,368 triples) independently of the local-root derivation. Finite tests do not replace the all-depth proof.
+PASS
 
-## Originality — PASS on inspected evidence
+The frozen formulas are correct; in the repaired claim the auxiliary law is credited and the support-to-moment argument is made explicit. Each shifted polynomial has two simple lifted roots, and corresponding centers are equal modulo p^s but pairwise distinct modulo p^(s+1), since p is odd. The common clipped variable Y and disjoint excesses U_i give pair and triple raw moments E[Y^2]+2s E[U_i] and E[Y^3]+3s^2 E[U_i]. Summing geometric power tails gives the repaired rational formula. At s=1 it is negative for p=3 and positive for p>=5; the successive difference is positive for every admissible p,s, and kappa(3,2)=2/9. The finite-block claim for any clipping depth follows from residue periodicity, including k<=s; in the unbounded integer average a residue-tail count and the O(log N) maximum make the cubic tails vanish uniformly in the required double limit. That estimate covers mixed monomials by the cube of the maximum coordinate. The independently written modular check agrees with the exact clipped census at tested depths and the rational moments at tested scales. The proof, not these finite tests, handles all p,c,s and N tending to infinity.
 
-Snyder, *Products of p-Adic Valuation Trees* (arXiv:2308.11718v1, first public 2023-08-22) and Boultinghouse et al., *The p-Adic Valuation Trees for Quadratic Polynomials for Odd Primes* (arXiv:2309.16637v1), establish valuation-tree structure for products and single quadratics. An earlier general bivariate simple-root valuation theorem is **stronger on two-coordinate marginals** and fully covers every pairwise covariance in the present problem; no pairwise novelty is asserted. Pair distributions alone do not determine a three-way centered moment. The new claim is specifically the complete trivariate law and its sharp, positive-pair/negative-triple ternary exception, which was not found in relevant primary full texts or targeted comparisons. Unindexed higher-order local zeta results remain a publication-priority risk, not an assertion of exhaustive uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Connected three-point dependence is a natural invariant when pairwise arithmetic correlations conceal collective behavior. Here the all-prime-power joint census yields a genuine sign reversal at the minimum ternary scale: all three pairwise covariances are positive, yet the third centered cumulant is negative. The exact classification, its strict monotonicity by prime-power separation and the ternary versus larger-prime dichotomy supply structural information unavailable from a one-coordinate valuation tree or a two-variable probability law.
+PASS only for the repaired focus on the evaluated connected third cumulant, its unique ternary negative case and its scale dependence. The frozen text's claim of a distinct trivariate law not entailed by the bivariate laws fails as written: the indexed pairwise theorem forces the joint support and all its cell probabilities for these special shifts. The repair credits the indexed result and uses the trivariate census only as an auxiliary consequence. No distinct inspected statement gave the third-cumulant sign theorem. The demonstrable implication is not a claim about which same-day record came first.
 
-## Limitations and priority risks
+## value
 
-Only positive prime-divisible constants, odd primes and the natural three-term equal-spacing pattern are included. No independent mathematical audit has been performed, and multivariate local-zeta literature may contain an equivalent statement in another language.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Even after removing independent novelty credit for the law and both pairwise and marginal calculations, the surviving result supplies a motivated higher-order dependence witness. The first possible odd-prime scale produces strictly positive covariances in all three pairs but a negative connected third cumulant, and the theorem locates exactly where that discrepancy disappears in a natural equally spaced family. It concerns a precise third-order statistic rather than evidence against independence in general.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

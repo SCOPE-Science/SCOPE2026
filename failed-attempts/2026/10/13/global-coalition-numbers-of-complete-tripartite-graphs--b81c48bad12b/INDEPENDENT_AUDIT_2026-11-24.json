@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:12:27.775274Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 12–36; VERIFICATION.md, verify.py (expected finite result for 31 profiles of orders 3..10, not a fresh replay)"
+      ],
+      "rationale": "The complement is the union of three cliques, so domination there is exactly meeting every part, which suffices to dominate the original graph as well. For c=1 the unique C-block misses A or B, and every other block both needs it and meets that missing part; hence at most a+1 blocks. For c=2 defect at most one allows at most one nonsingleton, whose support could complement singleton blocks from only one part. The other two parts cannot fit in a single block of size at most two. For c>=3, defect at most two would force a singleton in each part: if three or more vertices of a part P lie entirely in nonsingletons, they either occupy a block of at least three vertices (which consumes the defect and, if pure, still needs a mixed partner), or must lie in two pairs one of which is a pure P-pair with no eligible partner. The three singleton types then require three distinct mixed partners. The proposed attaining partitions have the right complements of each block support, including a=b=c=1 and a=b=c=2.",
+      "residual_risks": [
+        "The checker uses the proved support lemma and only checks finite orders. The proof supplies the complete upper bounds and attainability."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The arXiv text describes global domination on every complete multipartite graph as the transversal property. The indexed exact four-partite result and the eventual exactness result in arity at least four do not cover triples. The two-fair coalition result reaches N-3 for dense triples but restricts its proper two-fair dominating sets to three-vertex transversals."
+        ],
+        "reasoning": "In the complement, ordinary domination on the disjoint cliques also means meeting all parts, so coalition formulations using that domination give the same support condition. The two-fair invariant is not that dominance test. The arXiv statements do apply directly to the frozen graph family.",
+        "searches": [
+          "arXiv:2509.15386v4 §3; Resultary 57478535c457, 8c0fcbce528d and 0ec617c3601d"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2509.15386v1, v2 and v4; named Resultary records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "v1 and v2 give only the complete multipartite lower bound n1+nm in the inspected passage. v4 gives both the global-domination transversal equivalence and the complete tripartite calculation; its proof expresses coalition eligibility as union of supports {1,2,3}."
+        ],
+        "reasoning": "The lower bound entails no sharp upper bound and can be strictly smaller than the tripartite formula. The later accessible text is a direct match, not a conjectured implication of the earlier proposition.",
+        "searches": [
+          "arXiv:2509.15386v1 Proposition 1; v2 Proposition 1; v4 §3 pp. 4–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2509.15386v4 §3 Theorem 7, p. 5: n1+1 for n3=1, n1+n2 for 2<=n3<=3, N-3 for n3>=3."
+        ],
+        "reasoning": "At n3=2 the middle expression is N-2; at n3=3 the middle and last expressions coincide. This covers every frozen case under the same coalition definition.",
+        "searches": [
+          "Global coalition complete tripartite and multipartite; local Resultary; arXiv:2509.15386 v1, v2, v4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Returned exact adjacent catalogue findings covered r>=4 or a different coalition invariant; the exact formula was obtained from the primary text of arXiv:2509.15386v4, not inferred from a table."
+        ],
+        "reasoning": "The finite frozen profile computation is neither a prior database nor evidence for an exact all-triple result. The absence of an exact Resultary hit does not counter the primary theorem.",
+        "searches": [
+          "Two ranked Resultary searches for exact tripartite global coalition numbers and support-equivalent complete multipartite formulations"
+        ]
+      },
+      "rationale": "There is full equivalent coverage in the accessible arXiv:2509.15386v4, Theorem 7, not just in the earlier lower-bound proposition. It gives the same complete tripartite formula and uses the same support criterion. A distinct contribution is not established; the version date of this match is later than the frozen record's displayed date and this decision does not establish earlier publication or independent priority for either presentation.",
+      "residual_risks": [
+        "v3 PDF was not available from the attempted OA route; when Theorem 7 first entered the preprint is unestablished. The conference abstract's date and precise contents were not determined. Neither limitation changes the verified equivalent coverage in v4."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Early lower-bound context",
+          "evidence": "GC(K_n)=2, GC(K_{n,m})=n+m, GC(K_{n1,...,nm})>=n1+nm.",
+          "identifier_or_url": "https://arxiv.org/pdf/2509.15386v1",
+          "material_read": "§1 p. 3, Observations 2–3 and Proposition 1 (offsets 10400–13151)",
+          "method": "Bounded OA PDF text",
+          "title": "Global coalition sets in graphs",
+          "trigger": "Defining source and earlier multipartite bound"
+        },
+        {
+          "assessment": "The inspected proposition retains the lower bound",
+          "evidence": "Multipartite inequality, not an exact formula in this passage.",
+          "identifier_or_url": "https://arxiv.org/pdf/2509.15386v2",
+          "material_read": "p. 3, Proposition 1 (around offset 10800)",
+          "method": "Bounded OA PDF text",
+          "title": "Global coalition sets in graphs, v2",
+          "trigger": "Version history of exact coverage"
+        },
+        {
+          "assessment": "Exact coverage of every case and the support criterion",
+          "evidence": "Transversals are exactly the globally dominating sets; supports of partners jointly meet all three parts; Theorem 7 states n1+1, n1+n2, N-3 on the equivalent regimes.",
+          "identifier_or_url": "https://arxiv.org/pdf/2509.15386v4",
+          "material_read": "Version dated 25 Oct 2026; §3 p. 4 (offset 13839), Theorem 7 and proof p. 5 (from offset 15700)",
+          "method": "Bounded OA PDF text",
+          "title": "Global coalitions in graphs, v4",
+          "trigger": "Exact same-invariant tripartite theorem"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Uses proper two-fair dominating sets, not unrestricted transversals for global domination.",
+          "identifier_or_url": "Resultary 0ec617c3601d",
+          "material_read": "RESULT.md Finding in the local mirror",
+          "method": "Bounded OA local-mirror text",
+          "title": "Sharp two-fair coalition dichotomy on dense complete multipartite graphs",
+          "trigger": "Same construction and dense-case value"
+        },
+        {
+          "assessment": "Neither theorem includes arity three",
+          "evidence": "Four-partite formula; eventual regime with at least four parts.",
+          "identifier_or_url": "Resultary 57478535c457; 8c0fcbce528d",
+          "material_read": "Local mirror theorem scope",
+          "method": "Bounded OA local-mirror text",
+          "title": "Exact global coalition numbers for complete four-partite graphs; Eventual exactness and rigidity of multipartite global coalitions",
+          "trigger": "Broader or adjacent multipartite domain"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md and arXiv:2509.15386v1 Proposition 1, v4 Theorem 7"
+      ],
+      "rationale": "The mathematical content resolves the first non-bipartite level of a natural exact invariant; the support/defect argument distinguishes bottlenecks of multiplicities one and two from the genuinely three-support regime. It would answer the exact lower-bound question rather than merely retabulate finite examples. The value of that theorem does not overcome full overlap.",
+      "residual_risks": [
+        "No distinct valuable remainder was isolated from the equivalent coverage."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

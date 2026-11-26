@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof constructs a feasible convex combination of signed cycle roots in every distance regime and verifies the sufficient-and-necessary projection support criterion using coordinate differences. The squared residual lengths are exact; the total weights are one. The antipodal even-cycle tie and the shortest lengths are included. Convexity plus the strict variance identity and pairwise distinct root residuals exclude all nonvertex maximizers. Exact rational tests covered 8,982 exhaustive ordered roots and a further 19,550 direction-separated cases; 302 independent numerical projections agreed. These tests are corroborative, not replacements for the all-dimensional proof.
+## correctness
 
-## Originality — PASS, with historical-priority risk
-The leading literature establishes symmetric edge polytopes, their facet theory, and cycle/Kantorovich–Rubinstein interpretations (arXiv:1807.07678, arXiv:1910.05193, arXiv:1812.00397); examination of their relevant definitions, statements and cycle sections found no matching explicit Euclidean projection shell law. A related existing result gives root-to-path approximation distances, but adding the cycle closing edge changes the convex feasible set: its equality cases and separation-three value do not follow from the path theorem. Additional semantic-record and exact-phrase comparisons found related inball and cycle facet results, not this claim. Unidentified equivalent work remains possible; this review is not a publication-priority guarantee.
+PASS
 
-## Mathematical value — PASS
-The result gives the full Euclidean metric discrepancy, projection certificates, shell multiplicities, sharp saturation threshold, and full continuous extremizer set for the natural sparse-cycle approximation of the complete type-A root polytope. It identifies a structural geometric resolution cutoff at four graph hops. This is a complete natural metric invariant of an infinite polytope family, not a one-off normalization exercise.
+In the stated unrescaled inner product, a convex combination y of signed edges is the projection exactly when each signed-edge inner product with x−y is at most ⟨x−y,y⟩. For d=1 the residual is zero; for d=2, y=x/2 and the nonadjacent endpoints give support 1/2 and squared norm 1/2. For d=3 along the chosen arc, the weights (3,1,3,2,2)/11 yield residuals (6,2,−2,−6)/11 along the arc, with 2/11 immediately before it and −2/11 immediately after it. Adjacent differences have magnitude at most 4/11, including the closing −2/11 to 2/11 jump at n=6, and all five selected signed edges attain that support. The squared norm is (72+16)/121=8/11. For d≥4 both arcs separate the two triples of nonzero values by at least one zero; the quarter-weighted incident edges attain support 1/4 and the residual has squared norm 2(1/2)^2+4(1/4)^2=3/4. The support test also gives uniqueness and covers both shortest-arc choices at a tie. For a convex combination of roots, the squared norm of the corresponding combination of their residuals bounds the squared distance above. Equality at the maximum requires all contributing residuals to have the maximal norm and be identical by the strict variance identity. The unique extrema in each such residual recover the ordered endpoints. Thus no nonroot is farthest. The root counts are 2n per nonantipodal cyclic separation and n at an antipodal separation, giving all three stated Hausdorff and farthest-count regimes. Reading the supplied checker corroborates the certificate design; its two directions of an even antipodal separation coincide as ordered-root inputs and the all-n proof does not rely on this finite test.
 
-## Limits
-Unit unweighted cycles and inherited Euclidean geometry only; prior-art coverage remains provisional; finite tests cannot certify all dimensions.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The standard symmetric edge hull and normal-cone criterion are not new. The distinct result is the combination of exact cycle-specific Euclidean shells (including saturation at four) and the full set of continuous maximizers. The strongest indexed analogue uses a path; it shares an interior 3/4 value but is not a statement of this law.
+
+## value
+
+PASS
+
+The cycle is the natural closed counterpart of the path, and its exact Hausdorff error against the complete root hull measures the Euclidean effect of keeping only rim edges. The short-shell transition and saturation explain why many ordered roots, rather than two path endpoints, tie for worst error. Classifying the equality locus in the full continuous hull, not merely identifying a root with maximal error, is independently useful for extremal comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:19:41.462328Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reviewed RESULT.md:5–158, VERIFICATION.md, both scripts, and the nonstandard imported lemmas in Ma–Zhang arXiv:2611.01064v1 (Lemma 2.1, Lemma 3.1 Eq. (7), §3.2 Eq. (10)). Uniform inputs and equally likely pairs give posterior weights proportional to embeddings, with Z=4 binom(n+2,2) by filling the two unused positions independently. Thus minimizing Φ=sum e log2 e maximizes the entropy. The verified run formula and strict adjacent-increment bound charge at least c_n per nonsingleton run, with equality only at length two. For one such run of length r, the two weights sum to n+r+2; strict convexity minimizes at balanced integer weights, and the minimum is strictly increasing in their sum. Thus r=2 and |s_0−s_1|<=1 characterize equality. For q>=2, the weight sum is n+U+q+1>=n+3q+1. The Jensen bound G_n(q) lies more than 1 above G_n(1), since on t>=1, n>=4 its derivative exceeds (3/4)n−2>=1. The integer balancing loss at q=1 is less than 1 by the bound using f''(x)=1/(x ln 2); hence no q>=2 case ties. At n=2,3 there is no q>=2 case. The alternating maximum is strict by the cited Theorem 2.2, so subtracting its Φ gives the positive stated Δ_n; division by Z yields the entropy gap. One balanced position for even n and two for odd n, each with both starting bits, give the word counts. The expansion Δ_n=(6 log2 3−9)n+3 log2 n+O(1) and Z=2(n+1)(n+2) give the stated limit. At n=1 there is no strict second level. Independent replay: python3 /workspace/branches/replay_frozen_review.py 4 counted each two-position insertion witness and compared exact products, checking the run formula for all 2,044 words at n=2..10 as well as both top levels and complete tie classes. This is finite corroboration, not the all-length argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Singhvi–Sabary–Bar-Lev–Yaakobi characterize the entropy minimum for k=2 and list the maximum as open in this version.",
+          "The locally distinct histogram record c5a46f7c5888 treats fixed words over q>=3 and disclaims maximization over arbitrary received words; ff1021eefb1a treats a random planted word and mutual information."
+        ],
+        "reasoning": "A more general channel formula, a different extreme, or a random-word average does not order fixed binary received words once the best words are removed. The same-day histogram result was compared rather than discounted by date.",
+        "searches": [
+          "arXiv:2407.10026v2 maximal input entropy for k=2",
+          "Resultary c5a46f7c5888 and ff1021eefb1a: fixed two-deletion histograms and planted multiplicity laws"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.01064v1 and its ancillary results.json",
+        "arXiv:2407.10026v2 / DOI 10.1109/TIT.2025.3581849",
+        "Resultary c5a46f7c5888, ff1021eefb1a, and identical record 0c810d0de547"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary paper gives the exact run functional and the positive adjacent-increment bound for nonsingleton lengths r>=3; it uses these for the alternating optimum, and gives finite strict runner-up data."
+        ],
+        "reasoning": "Those lemmas are not new, but their comparisons against the alternating word do not alone rule out multiple nonsingleton runs as the best nonalternating competitor. The new inequality for G_n and the discrete rounding estimate, with strict equality analysis, resolve that comparison for every n.",
+        "searches": [
+          "Ma–Zhang arXiv:2611.01064v1 Lemma 3.1 Eq. (7), §3.2 Eq. (10), Theorem 2.2 and §6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Entropy ordering is exactly reverse ordering of the embedding functional Φ, or of the integer product Π e^e.",
+          "Ma–Zhang's Theorem 2.2 proves that the two alternating words alone minimize this functional over all received words.",
+          "The Resultary exact title/ID match 0c810d0de547 is the same finding, not another source."
+        ],
+        "reasoning": "The prior unconstrained minimum is not the minimum with its minimizers excluded. The compared distinct sources do not give an equivalent second-extremum theorem in entropy, run-functional, or embedding-product form.",
+        "searches": [
+          "Binary two-deletion posterior input entropy second largest, strict runner-up and balanced single double run",
+          "arXiv:2611.01064v1 Lemma 2.1 and Theorem 2.2; Resultary input-entropy runner-up"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "§6 reports deletion maxima for n=2..8; the ancillary records cover n=1..10 with finite strict-runner-up witnesses and histograms for n=2..10, including 0110 at n=4 and 010010 at n=6; n=1 has no strict runner-up."
+        ],
+        "reasoning": "Credit the exact finite prior values and witnesses. These data do not include an all-length classification or a field encoding complete runner-up tie counts, and do not imply the strict all-length gap and its limit.",
+        "searches": [
+          "Ma–Zhang §6 and https://arxiv.org/src/2611.01064v1/anc/results.json, D mode k=2, strict_runner_up"
+        ]
+      },
+      "rationale": "The first entropy maximum, the run-functional machinery, and finite runner-up examples are prior. The supported distinction is the strict all-length second level, full balanced-double-run equality class, and its explicit gap and asymptotic, proved by a uniform separation of every multi-defect run pattern. The closest primary theorem and data were read and compared at statement level.",
+      "residual_risks": [
+        "An earlier unindexed all-length stability theorem could cover the refinement. Finite witnesses and the main run tools are already explicit prior art and are not credited as original."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the ingredients and first maximum, not the all-length second level",
+          "evidence": [
+            "H=log2 Z−Φ/Z; alternating maximum; h_n(r)>=rB_n+c_n with equality at length two and the strict increment for r>=3."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.01064",
+          "material_read": "Printed pp. 2,3,5 (Lemma 2.1 Eq. (3), Theorem 2.2, Lemma 3.1 Eq. (7) at offset 6417, §3.2 Eq. (10) at offset 14384); §6 p. 7 and data statement p. 10",
+          "method": "Lawful OA primary PDF passages",
+          "title": "Maximal input entropy for binary two-deletion and two-insertion channels",
+          "trigger": "Same channel, exact run formula and all-length first maximum"
+        },
+        {
+          "assessment": "Material finite overlap; no all-length assertion or complete tie-count field",
+          "evidence": [
+            "Exact finite witnesses agree with balanced runs at n=4 and n=6."
+          ],
+          "identifier_or_url": "https://arxiv.org/src/2611.01064v1/anc/results.json",
+          "material_read": "Two-deletion D/k=2 records n=1..10, strict_runner_up and histogram fields",
+          "method": "Public arXiv ancillary JSON checked directly",
+          "title": "Ma–Zhang ancillary exact comparison data",
+          "trigger": "Direct same-channel runner-up data"
+        },
+        {
+          "assessment": "Does not supply the second maximum; its two-deletion characterization concerns the minimum",
+          "evidence": [
+            "The maximization problem is stated as unresolved in that version."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2407.10026v2",
+          "material_read": "p. 16, offset 90162, open problem Maximal Input Entropy for k=2",
+          "method": "Lawful OA primary PDF passage",
+          "title": "Conditional Entropies of k-Deletion/Insertion Channels",
+          "trigger": "Earlier conditional input-entropy extrema and general representation"
+        },
+        {
+          "assessment": "Different alphabet and word class; no unrestricted extremum",
+          "evidence": [
+            "Fixed locally distinct words, q>=3, no maximization over arbitrary outputs."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-complete-two-deletion-embedding-histogram-for-locally-distinct--c5a46f7c5888",
+          "material_read": "Finding in local mirror RESULT.md, offset 0",
+          "method": "Resultary lookup and mirror passage",
+          "title": "A complete two-deletion embedding histogram for locally distinct words",
+          "trigger": "Distinct all-length two-deletion exact histogram"
+        },
+        {
+          "assessment": "Random planted multiplicities, not an order of fixed received words",
+          "evidence": [
+            "Studies a multiplicity law and a mutual-information constant."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-the-fixed-two-deletion-planted-embedding-law-and-its-mutual-info--ff1021eefb1a",
+          "material_read": "Finding in local mirror RESULT.md, offset 0",
+          "method": "Resultary lookup and mirror passage",
+          "title": "The fixed-two-deletion planted embedding law and its mutual-information constant",
+          "trigger": "Nearby exact two-deletion multiplicity result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Given the known alternating maximum, the exact entropy loss to the best nonalternating observation is a natural stability invariant. Knowing the complete centrally balanced one-defect equality class and a positive limiting n-scaled gap says more than either a strict maximum or a finite runner-up table. The conclusion is for uniform binary two-deletion channels, not general synchronization errors.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

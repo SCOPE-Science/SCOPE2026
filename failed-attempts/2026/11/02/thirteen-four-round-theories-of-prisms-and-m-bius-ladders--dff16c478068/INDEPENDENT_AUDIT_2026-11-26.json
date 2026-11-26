@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:43:04.180924Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–47",
+        "code/orbit_types.py, code/direct_types.py, data/classification.tsv, data/direct_types.txt",
+        "Independent replay: `python3 /workspace/branches/ef_replay.py ladders 32`; output `/workspace/branches/ef_ladders.txt`"
+      ],
+      "rationale": "The pure adjacency/equality classification is correct. In the finite recurrence, fixed-depth exact set interning (including repeated picks) is equivalent to both directions of the next-move condition; the terminal labels distinguish equality, adjacency and neither. I independently computed all ordered vertex choices with masks for the fourth-point profiles, without orbit reduction: widths 3–8 give twelve distinct types, and both twists at every width 9–32 give one distinct common type. For the unbounded range, a short signed cyclic gap of matching length has a mod-two constraint on its two endpoint offsets. Splitting at equal positions gives consistent new constraints because transport parities add, even when the old gap goes once around from a sole selected column to itself. In a long gap, at most one subgap is below the next cutoff; match that subgap and its parity, or leave both new gaps above the cutoff. Repeated columns respect the offset, including rungs and repeated vertices. Terminal length-one gaps preserve all horizontal adjacency. This proves the unbounded bridge through width 32 and the sharp within-family 18-vertex bound. At width nine the ordinary prism is planar and the twisted ladder nonplanar. The PASS is for the stated pure-language finding; the blanket scope remark about adding column/rung predicates should instead specify an expansion or say richer signatures are not addressed.",
+      "residual_risks": [
+        "Finite replay does not prove the gap lemma; it was checked separately. No claim for richer languages or higher ranks."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Verbitsky's inspected bounds concern graph definability; Heinig's concern cycle spaces of graphs and define the same ladders. Brown–Hoshino concerns paths and cycles and its scan had no extractable text through the attempted reader. The Brown–Woodrow report was not located."
+        ],
+        "reasoning": "No need to infer the exact table from generic locality or algebraic graph invariants: direct prior exact coverage is independently decisive. The other checks do not prove absence of further historical coverage.",
+        "searches": [
+          "Verbitsky arXiv:math/0401361v1, abstract and introduction",
+          "Heinig arXiv:1112.5101v1, Theorem 1 and Definition 7",
+          "Brown–Hoshino publisher PDF; Brown–Woodrow bibliographic lead"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact match",
+        "SCOPE-2f443c965dd8 full Finding and scope",
+        "Guy–Harary",
+        "Verbitsky",
+        "Heinig",
+        "Brown–Hoshino and Brown–Woodrow access/bibliographic leads"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior biconditional is (n,m≥9) or (3≤n=m≤8 and the twists agree), exactly the bound theorem."
+        ],
+        "reasoning": "The claims imply one another without an additional lemma or computation. The planarity contrast follows from the width-nine pair and the established nonplanarity of Möbius ladders, so it does not rescue an original remainder.",
+        "searches": [
+          "Frozen RESULT.md lines 3–16 versus SCOPE-2f443c965dd8 Finding and Assumptions, offset 0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior record defines the same graphs on column times layer, with the same rung edges, wrap twist and pure adjacency/equality rank convention."
+        ],
+        "reasoning": "Identify L(n,e) with the earlier L_n^e by the identity map on coordinates. The Möbius cycle-with-antipodal-chords notation also represents the same graph, not another parameter regime.",
+        "searches": [
+          "Resultary lookup for adjacency-only rank-four prism and Möbius circular ladder equivalence",
+          "SCOPE-2f443c965dd8, RESULT.md, offset 0, Finding and Assumptions and scope"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "That record's Finding gives twelve individual rank-four types for widths 3–8, a common class for both twists at widths ≥9, and the optimal representative ceiling eighteen within the union."
+        ],
+        "reasoning": "This is the complete exact table and the same cutoff, not merely overlapping numerical parameters or a similarly titled hit.",
+        "searches": [
+          "Resultary; 2026/10/25/SCOPE-thirteen-rank-four-theories-of-ordinary-and-m-bius-circular-ladd--2f443c965dd8"
+        ]
+      },
+      "rationale": "A distinct earlier published SCOPE record states exactly the frozen final theorem and its sharp representative bound. This is established duplicate coverage, not a failure to retrieve literature. The signed-gap proof component does not make the exact theorem new.",
+      "residual_risks": [
+        "The external search did not return usable evidence; no absence inference.",
+        "Further historical coverage is unresolved and would not alter the exhibited duplicate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of frozen theorem",
+          "evidence": [
+            "Biconditional for n,m≥9 or identical n≤8 and twist; graph and signature identical; 13 classes and optimal 18-vertex ceiling."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-thirteen-rank-four-theories-of-ordinary-and-m-bius-circular-ladd--2f443c965dd8/RESULT.md",
+          "material_read": "Finding, Assumptions and scope, and start of Proof, offset 0",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Thirteen rank-four theories of ordinary and Möbius circular ladders",
+          "trigger": "Exact indexed overlap"
+        },
+        {
+          "assessment": "Covers graph definition and nonplanarity; not the logical classification in these passages",
+          "evidence": [
+            "Cycle with opposite-vertex chords; every Möbius ladder is minimally nonplanar."
+          ],
+          "identifier_or_url": "doi:10.4153/CMB-1967-046-4",
+          "material_read": "pp. 493, 495–496; offsets 0 and 5200 onward",
+          "method": "Lawful Cambridge PDF passages",
+          "title": "On the Möbius Ladders",
+          "trigger": "Graph identity and topology"
+        },
+        {
+          "assessment": "Different target invariant in inspected passages",
+          "evidence": [
+            "Minimum rank against all nonisomorphic graphs; bounds for specified graph classes and paths/cycles."
+          ],
+          "identifier_or_url": "arXiv:math/0401361v1",
+          "material_read": "Abstract and introduction, offsets 0 and 4200",
+          "method": "ArXiv PDF passages",
+          "title": "The First Order Definability of Graphs with Separators via the Ehrenfeucht Game",
+          "trigger": "Potential general EF result"
+        },
+        {
+          "assessment": "Not used as decisive evidence",
+          "evidence": [
+            "Earlier ladder record cites Section 4, Theorem 4.1 for cycles; this is a secondary lead here."
+          ],
+          "identifier_or_url": "https://combinatorialpress.com/article/ars/Volume%20083/volume-83-paper-13.pdf",
+          "material_read": "Attempted publisher scan; no extractable text on this route for this comparison",
+          "method": "Lawful publisher OA scan",
+          "title": "The Ehrenfeucht–Fraïssé Game for Paths and Cycles",
+          "trigger": "Adjacent EF graph families"
+        },
+        {
+          "assessment": "Unresolved; not treated as negative evidence",
+          "evidence": [
+            "Full report not retrieved."
+          ],
+          "identifier_or_url": "Brown and Woodrow technical report, 1984",
+          "material_read": "Bibliographic lead only, frozen RESULT.md lines 53 and 59",
+          "method": "Citation inspection",
+          "title": "Ehrenfeucht Games and Graphs",
+          "trigger": "Potential earlier graph-game coverage"
+        },
+        {
+          "assessment": "Different invariant in inspected passages",
+          "evidence": [
+            "Hamilton circuits generating cycle spaces; matching definitions of prisms and Möbius ladders."
+          ],
+          "identifier_or_url": "arXiv:1112.5101v1",
+          "material_read": "Abstract, Theorem 1, Definition 7; offsets 678, 4734, 26200",
+          "method": "OA arXiv passages",
+          "title": "On prisms, Möbius ladders and the cycle space of dense graphs",
+          "trigger": "Same graph families"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The cutoff for loss of twist information is a natural logical invariant, but the frozen result recomputes a known exact classification, representative ceiling and topology contrast rather than adding a new boundary or application. The alternative tail proof bridges the same finite classification with a coarser rank-four sufficient bound than the earlier record's width 16; no independently valuable new final theorem is established as a repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

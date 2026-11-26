@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:55:21.168456Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a uniformly chosen forced r-subset let m=n−r be the number of unforced positions. Two unforced endpoints contribute half their probability at each edge. For an ordinary consecutive pair (i,i+1), the cases with exactly one forced position combine to r(m−1)/[n(n−1)]: conditional on an unforced image differing from its own position, the eligible lower and upper ranks in the two orientations sum to (i−1)+(n−i−1)=n−2. Two forced endpoints make no ordinary descent. For the wrap comparison any forced endpoint gives a descent; otherwise its probability is 1/2. Thus the summed mean when r<n is n/2−r(r−1)/[2(n−1)] (r=n−1 gives the identity directly), and for r=n the actual mean is 1. Multiplying by the factorial moment, which has expectation 1, gives the claimed covariances. Fixed-class inclusion–exclusion then yields the quadratic plus alternating derangement correction; the r=n mixed-moment value must be used rather than the quadratic extrapolation of zero. For m≥2, D_m≥m−1 and the correction term h_m=(m−1)(−1)^m/D_m has absolute value at most one. For n≥4 the classes k=1,2 are feasible and the selected positive correction strictly separates them, beats all other nonidentity classes, and yields mean greater than one. The written comparison to h_(n−2) does not apply at n=3, where k=2 is infeasible: direct means of 1,2,1 at k=0,1,3 prove the theorem there. This is a proof boundary clarification, not a change to the claim. Independent exact replay in branches/11d352fe-6a50-4928-bfad-a6c7c0ac07a6/independent_check.py checked 46,230 permutations through n=8 and 279 assertions, including the joint first moments, conditional means, factorial covariances and unique maxima. The all-size argument rests on counting and inclusion–exclusion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "6e228e1e9495 gives zero circular covariance for each individual fixed-point indicator; 5455c3336f55 gives zero covariance for F with any cyclic consecutive pattern count, including the length-two decreasing pattern; 5ddb21b162c3 gives a wrapped covariance formula over the Ewens family with zero at θ=1.",
+          "Eriksen–Freij–Wästlund enumerate derangements with ordinary descents in prescribed positions. The weighted ordinary descent composition enumerator in Eq. (3.2) handles arbitrary fixed-point counts."
+        ],
+        "reasoning": "The earlier covariance identities are broader for pattern type or law parameter but involve just the first factorial moment of F. Varying the Ewens parameter weights all cycles rather than independently marking fixed points. The ordinary descent enumerator genuinely covers the linear mixed moments, but not the distribution of the endpoint comparison by fixed-point count.",
+        "searches": [
+          "Resultary 6e228e1e9495, 5455c3336f55, 5ddb21b162c3, exact mirrored Findings",
+          "Gessel–Zhuang Eq. (3.2), Theorem 3.8",
+          "Eriksen–Freij–Wästlund arXiv:0811.1925 abstract and definitions"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Independent replay in branches/11d352fe-6a50-4928-bfad-a6c7c0ac07a6/independent_check.py",
+        "Resultary 6e228e1e9495, 5455c3336f55, 5ddb21b162c3, 9036947ecc85",
+        "Gessel–Zhuang FPSAC 2020 pp. 9–10",
+        "arXiv:0811.1925 and arXiv:math/0703454"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eq. (3.2) yields the ordinary-descent mixed moments by specializing the variables to a finite principal alphabet and extracting the coefficient for the first moment; it does not include the endpoint comparison.",
+          "The separate wrap analysis for each forced r-set uses the event that at least one endpoint is forced, with probability 1−(n−r)(n−r−1)/(n(n−1)). Adding this to the linear moment with the proper weights and treating r=n gives the claimed hierarchy. Inclusion–exclusion is then an exact change of basis, not an independent new hierarchy.",
+          "The prior zero covariance covers r=1 but does not determine the correction term or its strictly alternating parity effect."
+        ],
+        "reasoning": "There is substantial linear and first-covariance overlap. To use the stronger linear enumerator one still needs a separate fixed-subset endpoint count and its interaction with the linear term, particularly the identity correction. No direct specialization in the inspected prior works supplies the wrapped moments at all orders or the parity-maximizing class.",
+        "searches": [
+          "Gessel–Zhuang Eq. (3.2), fixed-point-weighted descent-composition generating function",
+          "Earlier circular-covariance Findings 6e228e1e9495, 5455c3336f55, 5ddb21b162c3",
+          "Frozen Proof §§1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gessel–Zhuang Eq. (3.2) is an exact weighted enumerator for descent compositions and fixed-point count; Theorem 3.8 refines ordinary descents with peaks and fixed points.",
+          "Foata–Han defines dez from the word with fixed-point entries replaced by zero, not from the original word read across its end-to-start boundary."
+        ],
+        "reasoning": "The equivalent target is the first C-moment coefficient by fixed-point count, or its falling-factorial transform. Descents within permutation cycles and descents of a zero-modified word are not equivalent. Even the ordinary full descent set and F do not identify an individual wrap comparison: 2413 and 3412 have F=0 and ordinary descent set {2} but opposite wrap comparisons.",
+        "searches": [
+          "Resultary: circular or cyclic one-line descents conditioned on exact fixed-point count; mixed factorial fixed-point descent covariance",
+          "Gessel–Zhuang FPSAC 2020, Eq. (3.2) and Theorem 3.8",
+          "Foata–Han arXiv:math/0703454, §1 definition of dez"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed hit 9036947ecc85 is the assigned record itself, not independent evidence of earlier coverage.",
+          "Classical rencontres numbers give the number of permutations in each fixed-point class. Rotating positional words to place 1 first gives the circular Eulerian marginal n times an ordinary Eulerian number at (n−1,c−1)."
+        ],
+        "reasoning": "Neither pair of marginals nor an exact table for linear descents is a table of the joint wrapped statistic. In particular positional rotation can change the number of fixed points. The limited exact enumeration corroborates the regression but does not establish its all-size novelty or truth.",
+        "searches": [
+          "Resultary: exact parity maximizer and conditioned cyclic-descent first moment; 9036947ecc85, 5455c3336f55 and 5ddb21b162c3",
+          "Gessel–Zhuang Eq. (3.2)",
+          "Eriksen–Freij–Wästlund arXiv:0811.1925"
+        ]
+      },
+      "rationale": "Pass for the all-order factorial mixed covariances, exact wrapped conditional first moment and parity selection. Cov(F,C)=0 is established in earlier indexed results, one of which covers all cyclic consecutive patterns, and the usual linear descent/fixed-point enumerator is stronger for the linear part. The linear data omit the conditional wrap event. No inspected prior statement supplies the full new wrapped regression or the corresponding hierarchy; this is not a priority certification. The Foata–Han citation should not be read as identifying its modified descent statistic with ordinary descents.",
+      "residual_risks": [
+        "An exact joint or endpoint-refined enumerator for wrapped descents and fixed points under other terminology could subsume the result; absence from the inspected passages is not a historical priority claim.",
+        "The cancellation at r=1 is established elsewhere and must not be credited as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material coverage of the linear statistic, not its conditional wrap contribution",
+          "evidence": "Text offset 26250–28824: Eq. (3.2) tracks descent composition and fix; Theorem 3.8 gives a joint (pk,des,fix) enumerator.",
+          "identifier_or_url": "https://www.mat.univie.ac.at/~slc/wpapers/FPSAC2020/15-Zhuang.pdf",
+          "material_read": "§3.4, Eq. (3.2), Theorem 3.8, pp. 9–10",
+          "method": "Lawful OA PDF bounded passage",
+          "title": "Counting permutations by peaks, descents, and cycle type",
+          "trigger": "Stronger exact enumerator involving fixed points and ordinary descents"
+        },
+        {
+          "assessment": "Covers derangements and prescribed ordinary descents in those statements, not the wrapped regression at general k",
+          "evidence": "Offset 430: definition of a descent as π_i>π_(i+1) on the linear sequence; abstract states the derangement prescribed-position enumeration.",
+          "identifier_or_url": "https://arxiv.org/html/0811.1925",
+          "material_read": "Abstract and opening definitions",
+          "method": "Lawful OA article HTML bounded passages",
+          "title": "Enumeration of derangements with descents in prescribed positions",
+          "trigger": "Same conditioning at k=0 and exact descent-position counts"
+        },
+        {
+          "assessment": "The modified-descent variable is not the ordinary or circular descent count in the frozen claim",
+          "evidence": "Offset 12550–14199: Z_σ is obtained by replacing fixed entries by zeros and dez is des Z_σ.",
+          "identifier_or_url": "https://arxiv.org/html/math/0703454",
+          "material_read": "§1, modified-word definition and Eq. (1.7) comparison",
+          "method": "Lawful OA article HTML bounded passages",
+          "title": "Fix-Mahonian Calculus III; A Quadruple Distribution",
+          "trigger": "Cited fixed-point and descent joint enumerator"
+        },
+        {
+          "assessment": "The covariance cancellation for the uniform law is covered; the inspected statements do not supply conditional means or higher factorial covariances",
+          "evidence": "6e228e1e9495 Eqs. (7)–(8); 5455c3336f55 cyclic-pattern covariance box at m=2; 5ddb21b162c3 covariance box evaluated at θ=1.",
+          "identifier_or_url": "Resultary 6e228e1e9495; 5455c3336f55; 5ddb21b162c3",
+          "material_read": "Exact mirrored Findings and opening scope/proof passages for all three",
+          "method": "Local Resultary and published-record mirror excerpts",
+          "title": "Boundary localization of fixed-point–descent dependence in a uniform permutation; Boundary covariance and cyclic orthogonality for fixed points and consecutive permutation patterns; Cyclic fixed-point–descent covariance reverses sign at the unbiased Ewens law",
+          "trigger": "Same one-line circular statistic, covariance, and stronger parameter ranges"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The regression quantifies dependence invisible to the known zero covariance and settles, for all sizes, a natural fixed-class extremum. The competing leading conditional means for k=1 and k=2 tie, so the alternating derangement term, though small at large n, is mathematically decisive. The higher factorial moments supply exact testable information about the dependence without purporting to give the full joint law.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

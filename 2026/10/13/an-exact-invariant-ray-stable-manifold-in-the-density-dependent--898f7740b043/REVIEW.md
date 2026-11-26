@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The ratio equation gives an exact invariant ray on the stated parameter surface. The ray dynamics are logistic, and the transverse derivative gives the stated second eigenvalue. Exact symbolic replay verifies the rational witness, the source's bistable inequalities, both positive equilibria, and the saddle spectrum.
+PASS
 
-## Originality
+Set t=br, u=y/x and A=b−1−bd. On the given parameter surface the ratio equation factors as u′=u(1−tu)(x+A/(1+u)). Thus u=1/t is invariant; in fact the coefficient of x forces this slope for any invariant positive ray. The restricted equation is x′=x(κ−x); κ>0 gives forward convergence at every x>0 on the ray. The linearization in (x,u) is triangular, with entries −κ and −κ−tA/(1+t)=b[d+r−2br(1−d)]/(1+t). When the latter is positive, local stable manifold uniqueness and backward uniqueness of a trajectory that eventually enters that local manifold exclude all off-ray initial points in the quadrant. I independently solved the two nullclines using w=x/(x+y), checked the printed inequalities at the rational witness, and obtained eigenvalues −9/1100 and 18/275 at E1 and trace −963171/7896100 and determinant 1260441/98701250 at the stated E2. Thus the local-attraction sign is verified directly from the vector field. Bounded exact arithmetic: independent_checks.py 1. No conclusion about an entire attraction-basin boundary or cases with κ≤0 or zero transverse eigenvalue.
 
-PASS. Stable manifolds and ratio-dependent predator-prey systems are prior topics. The accepted contribution is the exact source-specific cancellation that makes the saddle stable manifold a straight ray, together with its logistic reduction and a bistable rational witness. The motivating source, its direct predecessor, later same-family work, and indexed published findings were compared without locating an implication that covers this formula.
+## originality
 
-## Value
+PASS
 
-PASS. The saddle stable manifold is a central geometric object in the motivating source's bistable phase portrait, and later same-family work uses it to explain long transients. An exact analytic separatrix is therefore structurally useful rather than a routine parameter calculation.
+The supported distinction is the exact parameter surface and straight stable manifold with its scalar dynamics for this specific autonomous field, not the existence of a stable manifold or bistability in ratio-dependent models. No tested available result covers that distinction; full-text priority in the older same-family papers remains unresolved.
 
-## Closest literature and limitations
+## value
 
-The direct predecessor studies equilibrium and bifurcation geometry of the ratio-dependent core. Later slow-fast work discusses trajectories near a saddle stable manifold numerically. Neither inspected source gives the exact invariant ray above.
+PASS
 
-The straight manifold is codimension one in parameter space, and the result does not identify the entire global attraction-basin boundary.
+The coexistence saddle's stable set is a natural geometric object organizing trajectories in the two-equilibrium regime. The ray formula gives its exact location and time parametrization and a realizable benchmark within that regime, not merely the equilibrium coordinates or a plot. The codimension-one restriction is the precise condition that enables straightness and is not an arbitrary numerical choice.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

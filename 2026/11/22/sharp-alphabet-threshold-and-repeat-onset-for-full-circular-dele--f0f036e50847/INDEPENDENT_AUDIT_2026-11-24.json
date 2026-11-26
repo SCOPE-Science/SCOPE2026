@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:13:08.465096Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A full shadow means injectivity on all indexed t-subsets with equality of outputs only up to rotation. Equal symbols joined by an arc of d≤t edges collide: erase its d−1 interiors, either endpoint, and the same t−d outside positions, which exist since n−d−1≥t−d. This covers every pair for n≤2t+1. Distinct labels make every mask recoverable from the surviving set, proving the short-length iff. In the construction the unique surviving marker labels specify the marker deletions, and any surviving marker fixes the cyclic origin so the data subsequence is read linearly. If no marker remains, the t marker positions exhaust the deletion budget. Otherwise, with r≤t data deletions, the j-th retained data index lies in [j,j+r], so its residue modulo the data period t+1 is unique in that interval; hence the data mask is determined, including the empty subsequence case. The length 2t+1 gives the universal alphabet lower bound, and at 2t+2 the data block first repeats a letter, as claimed. This is not a minimum-alphabet assertion for each larger length.",
+      "replay": "python3 /workspace/branches/55bc1563-9dba-4430-a9bd-64bf06bdf871/independent_check.py; independent_check_output.txt in the same directory. The fresh bounded check covered 30 construction cases (4,287 masks), 5,629 short source words (50,799 masks), and repeat onset for t=2,3,4. Frozen verify.py was inspected but not executed; its recorded output is not the universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li et al. count linear subsequences, with extremal results at fixed run count. The circular trace paper allows rotation but studies stochastic recovery and sample complexity."
+        ],
+        "reasoning": "Linear mask injectivity need not survive quotienting by output rotation. The stochastic channel uses a related output model but its sample complexity results do not imply any word achieves the exact support bound.",
+        "searches": [
+          "Li–Wang–Fu arXiv:2601.06493, linear nonbinary deletion balls and Theorem 17",
+          "Burudgunte–Valiant–Wang arXiv:2512.02412, circular trace model"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verification_output.txt",
+        "Local Resultary: one-deletion, permutation-power and linear run-pattern findings",
+        "arXiv:2412.03289; arXiv:2512.02412; arXiv:2601.06493"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Extending the earlier adjacency obstruction after common deletions explains the short-arc obstruction, but the earlier one-marker rooting argument does not handle masks spending one deletion on the marker when t>1. The periodic orbit theorem cannot separate masks related by source period shifts."
+        ],
+        "reasoning": "The construction must exhaust a t-position deletion budget if all anchors vanish, and must also control the retained-index displacement for up to t deletions. The sharp upper construction and the matched arbitrary-source lower bound are not given by the cited one-deletion theorem or by direct application of linear or orbit-counting results.",
+        "searches": [
+          "One-deletion Resultary finding, proof steps 1–2; permutation-power Resultary injectivity and collision proofs; linear deletion-ball Theorem 17"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For t<q the permutation-power result injects orbits under shifts by a full period, not the indexed masks themselves. Luchinin et al. ask whether the cyclic-subword collection determines an unknown source necklace."
+        ],
+        "reasoning": "A full shadow is injectivity from indexed masks of a single fixed word to output necklaces. Quotienting masks as well, or changing the domain to different input necklaces, changes the injectivity assertion.",
+        "searches": [
+          "Resultary: circular deletion shadows with all indexed masks and a sharp alphabet; deletion necklaces of permutation powers",
+          "Luchinin–Puzynina–Rao arXiv:2412.03289, pp. 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A distinct same-day record gives the exact maximum n for t=1 and q≥3 via one marker, plus exponential prevalence. The linear run-pattern record gives a first-collision threshold, but for run-level deletion patterns and linear words."
+        ],
+        "reasoning": "Those exact entries overlap with the limiting one-deletion case or a different deletion-pattern domain, not the all-t circular alphabet and length thresholds. The shared date is not a priority or coverage decision.",
+        "searches": [
+          "Resultary: full one-deletion shadows of nonbinary necklaces; exact run-pattern collision thresholds; circular full-shadow alphabet and repeat onset"
+        ]
+      },
+      "rationale": "The closest prior evidence already contains the marker technique for one deletion and repetition-based linear constructions. The supported distinct content is the sharp simultaneous result for t≥2: a lower bound for arbitrary circular sources at the critical length, a marker budget that works against all masks at every length, and the exact repeat onset. Neither the one-deletion result nor source-orbit injectivity establishes these statements.",
+      "residual_risks": [
+        "The bounded search does not rule out an unindexed extension of the marker construction or another equivalent higher-deletion argument. The lower-bound mechanism is related to the older adjacency obstruction and the marker technique itself is not new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Real one-deletion and marker-method overlap; not the t≥2 result",
+          "evidence": [
+            "The theorem is for exactly one deletion and uses 2 followed by an alternating binary word; deleting the sole marker exhausts that budget."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-full-one-deletion-shadows-of-nonbinary-necklaces-are-exponential--36e95250619b",
+          "material_read": "Finding, assumptions and proof steps 1–2; mirror offset 0",
+          "method": "Local Resultary mirror, full relevant passages",
+          "title": "Full one-deletion shadows of nonbinary necklaces are exponentially typical among proper circles",
+          "trigger": "Distinct same-day exact theorem in the same circular model with a marker construction"
+        },
+        {
+          "assessment": "Different mask domain and special sources",
+          "evidence": [
+            "For t<q injectivity is on orbits under full-period shifts; specified collisions occur at t=q."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-short-deletion-necklaces-of-permutation-powers-exact-orbit-count--16ccfbf22eda",
+          "material_read": "Finding, assumptions, gap-reconstruction proof; mirror offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Short-deletion necklaces of permutation powers: exact orbit counts and the first phase-wrap collision",
+          "trigger": "Exact circular t-deletion result with periodic source"
+        },
+        {
+          "assessment": "Linear run-level domain, not all indices with rotational output equality",
+          "evidence": [
+            "Uses run-deletion patterns and counts linear outputs at fixed run count."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-run-pattern-collision-thresholds-and-short-deletion-extrem--2036e6f8e3be",
+          "material_read": "Finding and proof, mirror offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact run-pattern collision thresholds and short deletion extremal counts",
+          "trigger": "Exact threshold under alternative deletion-pattern encoding"
+        },
+        {
+          "assessment": "Linear outputs; does not settle the cyclic anchor or exact circular threshold",
+          "evidence": [
+            "D_t is a set of linear subsequences; Theorem 17 gives a balanced fixed-run extremal result."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2601.06493",
+          "material_read": "Definition of D_t, p. 1 (offset 2450); Theorem 17, p. 14 (offset 67480)",
+          "method": "Primary OA paper, focused passages",
+          "title": "On the Number of Subsequences in the Nonbinary Deletion Channel",
+          "trigger": "Closest primary nonbinary t-deletion cardinality result"
+        },
+        {
+          "assessment": "Different injectivity domain",
+          "evidence": [
+            "Recovers cyclic binary words from their collections of scattered cyclic subwords, without multiplicity."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2412.03289",
+          "material_read": "Problem and definitions, pp. 1–2 (offsets 4540–5975)",
+          "method": "Primary OA paper, focused passage",
+          "title": "Recovery of cyclic words by their subwords",
+          "trigger": "Cyclic-subword injectivity and reconstruction"
+        },
+        {
+          "assessment": "Stochastic recovery rather than exact all-mask extremum",
+          "evidence": [
+            "Random deletions and rotation enter trace sample complexity bounds, not a universal full-shadow alphabet theorem."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2512.02412",
+          "material_read": "Model and results, pp. 1–2 (offsets 0–4790)",
+          "method": "Primary OA paper, focused passages",
+          "title": "New Bounds for Circular Trace Reconstruction",
+          "trigger": "Closely matched circular deletion channel"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result settles when the cardinality ceiling imposed by the indexed deletion budget remains attainable despite loss of the cyclic origin. It gives a sharp universal alphabet and the first admissible repetition, with a constructive method that works uniformly in length rather than a count for a special periodic source or a finite sample.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

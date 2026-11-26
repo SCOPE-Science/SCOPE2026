@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:33:50.639306Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–82; VERIFICATION.md and check.py inspected, not executed",
+        "Replay: python3 /workspace/branches/independent_replay.py 3"
+      ],
+      "rationale": "Write each nonzero value uniquely as a/2^s with a odd. The magnitude restriction gives bit length ≤s, the significand gives bit length ≤p, and the smallest tick forces s≤L=E+p−1. Conversely if b is the numerator bit length, exponent b−1−s≥−E yields a normal by left-padding to p bits; below that exponent the integer a·2^(L−s) is below 2^(p−1) and occupies a subnormal slot. Under doubling followed by reduction, for s>1 the residue modulo 2^(s−1) is odd and nonzero, so the exponent falls by one; for s=1 the image is zero. Both operations are exact: the product fits with exponent up through zero, and any subtraction of one from a product in [1,2) is exact by the binary representability of the difference (or Sterbenz's lemma with gradual underflow). Thus the lifetime is s, counted by the 2^(min(s,p)−1) odd numerators. Every eligible exponent s≤L−t occurs in the t-th image with its entire allowable numerator set because a/2^(s+t) is a preimage. Counting these bottom L−t exponent levels gives the support, while counting the bottom min(t,L) levels and normalizing gives the CDF. Both formulas meet at their stated endpoints, also when E=1 or p=1; the least positive tick always realizes L. The IEEE parameters, state counts and optional extra initial endpoint agree. A distinct integer-valuation and low-bit masking replay checked histogram, CDF and support in 57 formats (24,285 initial states), including full binary16.",
+      "residual_risks": [
+        "At p=1 the least positive tick is normal, not a positive subnormal as stated in the surrounding prose. The checker output labels L the 'last nonzero step'; L is the first all-zero step, and L−1 the last step with a surviving nonzero image. These labels do not affect the formulas or their boundary cases.",
+        "The CDF grows by doubling initially, but need not be small at t=p (it equals 2/(E+1)). The result concerns exact numerical states, not a hardware mode that drops subnormals or a continuously uniform draw followed by rounding."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary papers address finite-precision effects across several maps and rounding settings, giving finite-time collapse or a computed reachable-state trajectory for doubling.",
+          "The close catalog neighbor 384041ddfda5 enumerates cycle and basin spectra for β=3/2 and two binary16 rounding orders."
+        ],
+        "reasoning": "Broader empirical applicability, or exact results at a different noninteger multiplier and rounding order, do not imply this exact all-format transient classification at β=2. The inspected bit-shift mechanism accounts for individual lifetimes given the occupied bits but does not count such bit patterns across distinct values in the format.",
+        "searches": [
+          "Ah-Weng and Coveney, Collapse of effective state space and Testing the mechanism on four chaotic maps",
+          "Klöwer et al., pp. 4–5",
+          "Resultary: binary doubling 149 updates finite precision Bernoulli map image support"
+        ]
+      },
+      "checked_sources": [
+        "Resultary searches above",
+        "Ah-Weng and Coveney arXiv:2611.15344v1 and Klöwer et al. Scientific Reports 13, 11410, in cited passages",
+        "Boghosian et al.: lawful retrieval attempted only for primary text"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The paper propagating equal-state mass uses a capped-occupation statistic in the comparison; its K plot is not a histogram of first visits to zero. Reported maximum collapse time and total initial state count fix only endpoints, not the distribution of lifetimes.",
+          "The inaccessible Boghosian article is credited with finite-time collapse via the inspected later discussion, not with an unverified detailed distribution."
+        ],
+        "reasoning": "Support carries presence, whereas first-hit statistics require the number of original states that enter zero by a time. Their exact relation in this case follows from the counted denominator levels and lifting argument; it is not a consequence of qualitative absorption or the endpoint count alone.",
+        "searches": [
+          "Ah-Weng and Coveney offsets 13700 and 17100–20700; Klöwer et al. offsets 13183, 22900–28500, 33800; Boghosian et al. DOI: 10.1002/adts.201900125"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ah-Weng and Coveney explicitly define the reachable-image cardinality K(n) in the rounding-to-nearest setting, plot it in Fig. 3 and report collapse after 149 updates at every tested precision.",
+          "Klöwer et al. explain finite-time collapse by bit shift and give the limiting point mass. The precise catalog match is the assigned record itself."
+        ],
+        "reasoning": "The reachable-image statistic is the same observable once the format and endpoints are matched, not a new observable here. A plotted trajectory or a shift description does not report the exact count of representable odd numerators at each reduced denominator or the resulting all-p,E support and lifetime laws. The published +1 state convention for the larger count is consistent with adding the initial endpoint 1.",
+        "searches": [
+          "Resultary: complete image support cardinality trajectory B^t(S) binary floating-point doubling subnormals",
+          "Resultary: exact first hitting time distribution dyadic denominator exponents gradual underflow floating-point Bernoulli",
+          "Ah-Weng and Coveney arXiv:2611.15344v1, locators 149, single precision, state space",
+          "Klöwer et al., locators β = 2 and Revisiting the generalised Bernoulli map"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The plot supplies numerical support information and the reported depth, and Klöwer et al. give the exact Float32 initial-state count. The sole exact catalogue match is the same record."
+        ],
+        "reasoning": "Those fixed-format observations are covered to the extent reported; they are not evidence of a matching all-p,E table or formula. Numerical supplements and source data could cover additional individual cases and were not checked.",
+        "searches": [
+          "Resultary: CDF equal represented numerical values zero absorption floating-point Bernoulli doubling",
+          "Resultary: complete image support cardinality trajectory B^t(S) binary floating-point doubling subnormals",
+          "Ah-Weng and Coveney Fig. 3; Klöwer et al. p. 2 via 1,065,353,216"
+        ]
+      },
+      "rationale": "Prior work already establishes finite-precision collapse, its bit-shift mechanism and degenerate limit, the Float32 state count, and a computed support trajectory/cutoff under tested precision conventions. The supported distinct result is the pair of exact transient censuses for arbitrary p and E, including their different transition indices and the equal-distinct-state first-hitting law.",
+      "residual_risks": [
+        "The inaccessible earlier Boghosian text, uninspected supplements or numerical raw data, and unindexed equivalent formulas limit priority. No absolute priority is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior qualitative and numerical support coverage, not the inspected parameterized closed forms",
+          "evidence": [
+            "Reachable-state definition of K; 149 steps at every tested precision (not a universal statement for IEEE formats); 1,065,353,217 in the reported q=24 convention."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.15344v1",
+          "material_read": "Collapse of effective state space; Testing the mechanism on four chaotic maps; Fig. 3 discussion",
+          "method": "OA HTML keyword locators and bounded passages at offsets 13700 and 17100–20700",
+          "title": "On the statistical reliability of chaotic simulations at reduced precision",
+          "trigger": "Same map, same image-support observable, computed collapse time"
+        },
+        {
+          "assessment": "Prior Float32 count, collapse mechanism and invariant measure",
+          "evidence": [
+            "1,065,353,216 distinct Float32 initial conditions in [0,1); β=2 binary shift and collapse to δ0."
+          ],
+          "identifier_or_url": "https://doi.org/10.1038/s41598-023-37004-4",
+          "material_read": "Main text pp. 2, 4 and 5",
+          "method": "OA PDF bounded passages, offsets 13183, 22900–28500 and 33800",
+          "title": "Periodic orbits in chaotic systems simulated at low precision",
+          "trigger": "Same map, format and dynamics"
+        },
+        {
+          "assessment": "Prior collapse credited; finer formulas unresolved from this source",
+          "evidence": [
+            "The later paper explicitly attributes β=2 finite-time collapse to Boghosian et al."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/adts.201900125",
+          "material_read": "No primary passage; attribution in Klöwer et al. p. 4",
+          "method": "DOI and identified Wiley page via lawful OA direct and alternate routes; denied",
+          "title": "A New Pathology in the Simulation of Chaotic Dynamical Systems on Digital Computers",
+          "trigger": "Original cited finite-time collapse work"
+        },
+        {
+          "assessment": "Different multiplier, rounding comparison and census",
+          "evidence": [
+            "Exhaustive binary16 cycle/basin spectra at β=3/2."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-two-exact-cycle-spectra-for-differently-rounded-half-precision-b--384041ddfda5",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Two exact cycle spectra for differently rounded half-precision Bernoulli maps",
+          "trigger": "Closest distinct finding in catalog on exact rounding dynamics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, exact support and CDF and IEEE examples; prior computed support in Ah-Weng and Coveney"
+      ],
+      "rationale": "Finite-precision collapse is known, but it does not say how many distinct states remain reachable or how much original mass has already collapsed. The exact trajectories quantify these different questions at different clocks (E−1 and p), explain their order dependence on exponent depth versus precision, and give a practical reference for interpreting finite-precision experiments under the equal-state convention without enumerating binary32 or binary64.",
+      "residual_risks": [
+        "This elementary benchmark does not model arbitrary chaotic maps, formats without gradual underflow, or a distribution uniform over reals."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

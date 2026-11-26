@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:23:17.997557Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The 4k facets of the join arise from one edge in one factor; a vertex misses only two, both in its own factor. Its excess is k-1 in dimension 3k-1. Baumbach–Winter's bound on vanishing order at a face applies in the join's affine hull under the paper's interior nonvanishing convention. At degree k-1 the Taylor polynomial around every vertex would have only its common top homogeneous part; comparing vertices gives periods spanning the ambient space. A polynomial constant on the integer multiples of each period is constant along the corresponding line, so that homogeneous part would be constant, a contradiction. The lower bound also follows directly under the frozen record's potentially weaker convention on zeros of q: let T=sum_i t_i and homogenize q and the p_v relative to T=1 to degrees h and h+1 with h at least deg(q) and max_v deg(p_v)-1. The resulting polynomials satisfy sum_{v in i} P_v=t_i Q by layer precision. On a facet the extended coordinates of nonincident vertices vanish by nonnegativity and affine precision; hence their numerators vanish there, using continuity from the dense set q!=0. Each homogeneous P_v for layer i is thus divisible by both of its nonincident homogeneous facet forms (vanishing on a relatively open patch of each facet hyperplane suffices). Both forms use only that layer's three homogeneous variables. Therefore t_i Q has block degree at least two in each monomial, so Q has block degree at least one in that layer. For k>=2 the ideal of those three variables is prime and does not contain T; removing the extra powers of T used to homogenize q leaves its genuine degree-d homogenization in every block ideal. Its monomials meet all k disjoint blocks, forcing d>=k. For sharpness, the homogeneous factor construction gives alpha_{i,a}=t_i beta_{i,a}(z_i/t_i), with a polynomial common denominator of degree at most k; normalization and the two kinds of affine precision follow separately block by block. At t_i=0 its coordinates extend by 0<=alpha_{i,a}<=t_i; for surviving layers continuity follows from the factor coordinates on the closed quadrilateral. For instance after affine normalization to (0,0),(1,0),(a,b),(0,1), with a,b>0 and a+b>1, let ell=b(1-x)+(a-1)y and m=a(1-y)+(b-1)x. The four nonnegative weights ell*m, b*x*m, (a+b-1)*x*y, a*y*ell reproduce (x,y) after division by their affine sum ab+b(b-1)x+a(a-1)y, positive even on the closed boundary. This confirms the construction for arbitrary shapes. Products of parallelograms have polynomial tensor-product coordinates. Independent replay: python3 /workspace/independent_checks.py 4 verifies factor identities and closed-boundary positivity in 336 model evaluations, not the universal lower bound.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lemma 2.8 forces face excess as local order; at any one vertex this only gives k-1.",
+          "Theorem 2.9 concerns numerator degree (here k+1); Example 2.11 constructs join coordinates but does not determine their minimum denominator degree.",
+          "The adjoint-focused literature is pertinent to the upper bound, not automatically a lower bound for other representations."
+        ],
+        "reasoning": "There is no specialization of these inspected statements that immediately yields the minimum. The inequality at all vertices must be combined with the polynomial translation argument, or with a separate block argument.",
+        "searches": [
+          "Baumbach–Winter Lemma 2.8, Theorem 2.9 and Example 2.11",
+          "arXiv:2508.04275v1 adjoint degree and polytope operations"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.02110v1",
+        "Resultary b887097afdcd",
+        "Resultary 7b4aad67706d",
+        "Targeted subject lookup of arXiv:2508.04275v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known construction establishes degree at most k. The stated local theorem gives degree at least k-1.",
+          "A nonzero polynomial of degree k-1 cannot realize vanishing order k-1 at an affinely spanning set; that extra global obstruction distinguishes the present statement from simply applying the cited formula for excess."
+        ],
+        "reasoning": "Credit the substantial earlier upper-bound and vanishing results; their direct specializations stop short of exactness. The proof uses additional information from all the vertices, which is not supplied by the product geometry or the adjoint degree.",
+        "searches": [
+          "arXiv:2611.02110v1 section 2.6 Lemma 2.8 and Example 2.11; Resultary b887097afdcd Finding and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Section 2.3 distinguishes the degree of a Wachspress adjoint from the minimum over rational GBC denominators.",
+          "Affine join uses independent homogenized blocks with total weight one, unlike the product of the original polygons in a direct affine space."
+        ],
+        "reasoning": "An adjoint result gives an upper bound and the same number need not be the general minimum. An exact product minimum does not transfer through a coordinate change: the dimensions and facet incidences differ.",
+        "searches": [
+          "Resultary minimum denominator degree affine join, Wachspress denominators, product versus join",
+          "arXiv:2611.02110v1 sections 2.3, 2.5–2.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "b887097afdcd studies Cartesian products, includes degree k for products of k non-parallelogram quadrilaterals and degree zero in the parallelogram product case.",
+          "7b4aad67706d gives the planar minimum for individual convex polygons, including quadrilaterals."
+        ],
+        "reasoning": "These are related sharp-degree results, not tables on joins; the all-square join requires degree k even though the corresponding product has degree zero. No priority inference is made from the product record having the same date.",
+        "searches": [
+          "Resultary sharp rational barycentric denominator degrees for products and Wachspress denominators on convex polygons"
+        ]
+      },
+      "rationale": "Credit Baumbach–Winter for the general local lower bound and the join upper-bound construction. The distinct assertion supported here is the exact minimum among arbitrary rational GBC systems on these joins: the simultaneous constraints across all vertices close the remaining one-degree gap. The parallelogram product comparison is a consequence, not a new product formula. The verdict is provisional with respect to historical priority.",
+      "residual_risks": [
+        "A more general sharp lower bound for joins or an earlier simultaneous vanishing argument could cover this family. The cited local estimate and inspected join example do not by themselves settle that question of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong partial coverage: all-face local lower bound and join upper-bound method",
+          "evidence": "The order bound is the count of containing facet hyperplanes minus face codimension. The numerator bound and join construction are not a denominator-minimality result.",
+          "identifier_or_url": "https://arxiv.org/html/2611.02110v1",
+          "material_read": "Sections 1.2, 2.3, 2.5–2.6; Lemma 2.8 and proof around offsets 17600–24060, Theorem 2.9 and Example 2.11 (join passage around 23440)",
+          "method": "Targeted full arXiv OA HTML passages",
+          "title": "Rational barycentric coordinates and low degree adjoints",
+          "trigger": "Decisive general vanishing theorem and prior join construction"
+        },
+        {
+          "assessment": "Exact coverage of product comparison, not the join theorem",
+          "evidence": "The classified operation is the Cartesian product and its exact degrees distinguish the non-parallelogram factors.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-rational-barycentric-denominator-degrees-for-products-of-p--b887097afdcd",
+          "material_read": "RESULT text offsets 0–7977",
+          "method": "Resultary search and local mirror passages",
+          "title": "Sharp rational barycentric denominator degrees for products of polytopes",
+          "trigger": "Same minimum invariant and closely related quadrilateral family"
+        },
+        {
+          "assessment": "Covers planar factors, not affinely joined families",
+          "evidence": "An individual parallelogram has degree zero; a non-parallelogram quadrilateral has degree one. Neither result prescribes the join's minimum.",
+          "identifier_or_url": "2026/11/8/SCOPE-wachspress-denominators-have-minimum-degree-on-every-convex-poly--7b4aad67706d",
+          "material_read": "Indexed statement on planar minimum degrees",
+          "method": "Resultary search",
+          "title": "Wachspress denominators have minimum degree on every convex polygon",
+          "trigger": "Potential exact prior covering constituent quadrilaterals"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This settles a sharp natural invariant for all shapes in an unbounded-dimensional family and shows that even factors with polynomial coordinates can require a denominator of growing degree when joined. The all-vertex obstruction is useful beyond verifying a particular Wachspress formula: it separates optimality over all rational systems from the degree of one construction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

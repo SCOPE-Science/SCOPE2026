@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-Exact one- and two-cell occupancy probabilities yield the moment formula. The two explicit nonnegative lower-deficit identities, the upper-deficit/mass-merging argument, and signed row/column averaging prove the entire theorem in all integer dimensions and ranks. The included exact-rational checker independently enumerates signed rook placements in 72 test instances and checks 2,380 exact deficit identities; enumeration does not establish the universal theorem. Real coefficients and all equality cases were separately checked from the formulas.
+## correctness
 
-## Originality — PASS, qualified
-The nearest inspected primary full texts are Malandro (arXiv:1110.5679, original October 25, 2011), whose rook-monoid spectral decomposition is not a sharp fourth-moment theorem, and Pass--Spektor (arXiv:1412.7859, original December 25, 2014), whose pairwise-independent ±1 sign setting is not the zero-sparse matching law here. Searches across partial signed permutations, rook rank, matching signs, L4 norms, equivalent formulas and the critical \(n=3k-2\) condition found no exact coverage. The known full-permutation rank n boundary does not imply the intermediate-rank transition or critical additive equality set. An abstract-only reflection-monoid source could not be evaluated in full. No absolute novelty guarantee is claimed.
+PASS
 
-## Mathematical value — PASS
-The sharp range, every equality family, two exact stability decompositions and optimal Euclidean distortion classify a natural two-parameter family of finite-dimensional coefficient function spaces. The one-third rank transition is not a change of notation: it switches the shape of all minimizing magnitudes from flat to row/column-supported, through a positive additive equality polytope at criticality. These statements remain meaningful independently of any later application.
+Independently checked cell and disjoint-pair occupancy and sign cancellation, giving the normalized simplex quadratic in RESULT.md lines 36–50. Expanding that quadratic into constant, row, column and zero-margin parts gives the first exact deficit. Interpolating from the critical quadratic to the full-permutation endpoint gives the second deficit via the permutation variance. Its equality conditions force a pairwise-intersecting support and constant permutation sum, hence a whole row or column of equal masses. At criticality the only constraint besides simplex membership is zero interaction. The upper proof uses the clique support reduction by strict convexity on a pair of conflicting cells and the uniform masses on a largest matching; the only q>1 cases are (2,2) and (3,3), and q=1 only at (4,4). The sphere gives the interval. Averaging both quadratic comparison inequalities over row/column signs and permutations removes off-diagonal terms and makes the diagonal constant, proving the claimed exact Banach–Mazur distance. The supplied checker and its verification description were inspected, not executed; the proofs do not depend on exhaustive experiments. 'Positive slice' means the nonnegative simplex intersection, as the stated extremizers can include zeros.
 
-## Scope and limitations
-Real coefficients, fixed-size uniform random matchings, independent fair signs, and fourth moments only. Results are not claimed for complex coefficients, biased samples, rectangles or higher moments. Residual bibliographic uncertainty remains. Independent external validation was not undertaken.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The full-rank fourth-moment and equality theorem has exact indexed overlap, not an independently new special case; the catalog date does not establish order. The supported distinction is the sharp fixed-rank family, in particular the codimension away from complete matchings, the transition n=3k−2 and the critical equality set. No inspected source supplies these or a theorem implying them by parameter substitution.
+
+## value
+
+PASS
+
+Fixed cardinality is a natural regime between a single occupied cell and a signed permutation. The entire equality family changes structure at a specific density, where the minimizing set gains nontrivial row-column degrees of freedom. This gives usable optimum and distortion data, not just another calculation at an isolated size.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

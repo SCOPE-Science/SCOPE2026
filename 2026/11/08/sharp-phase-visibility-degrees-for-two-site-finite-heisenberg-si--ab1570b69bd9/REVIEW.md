@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The finite Heisenberg central and modulation weights independently constrain every monomial that survives restriction to a two-site signal. Below the stated thresholds the only admissible monomials are relative-phase independent; two explicit symmetrized monomials attain both bounds. The argument includes arbitrary cyclic dimensions and the antipodal order-two case. The included finite checker passed 3,016 assertion groups; it is supporting evidence, not an infinite proof.
+## correctness
 
-**Originality — PASS relative to accessible evidence.** Katz, *Unitary Invariants of the Finite Heisenberg Group*, arXiv:2602.13373v1, §§3–6, supplies generic degree-six projective separation and the pre-existing degree-\(N\) invariant. The inspected paper does not state the exact exceptional two-site phase-visibility thresholds \(\min\{N,2m\}\) and \(2m\). Other nearby published records discuss sparse STFT support, group representation projectors or Fourier moment phase onset, none of which implies the polynomial-degree classification. Older invariant-theory equivalences remain a priority risk, and the broader orbit-recovery paper was not read exhaustively.
+PASS
 
-**Value — PASS.** A sharp, unbounded blind-spot threshold for sparse time-frequency orbit invariants is a meaningful boundary to a generic reconstruction theorem. It characterizes every cyclic separation and tells exactly when any polynomial invariant can first respond to relative phase. No claim of complete phase-orbit separation at that degree is made.
+For a surviving monomial write the net exponents at the two sites as w and z. Its relative-phase Fourier frequency is z and its degree is at least |w|+|z|. Modulation forces m|z; multiplying by the finite center forces N|w+z; scalar-circle invariance instead forces w+z=0. Any z≠0 thus costs at least 2m if w+z=0 and at least N otherwise. These constraints apply monomial-by-monomial by independence of the characters and coordinate monomials. The orbit sum Q_d achieves 2m and the holomorphic I_N achieves N; restriction of Q_d is a single exponential unless 2d=0, when its two conjugate terms produce nonconstant 2a²b²cos(2θ). This includes N=2 as well as composite separations. Independently minimizing |w|+|z| for w,z=-N..N subject to the weight rules confirmed both lower-cost formulae for all 378 (N,d) with 2<=N<=28. Replay proof: frozen RESULT.md lines 23–53; CHECK.py is an inspected finite witness/congruence check, not a proof or a replay used for this audit. For primes p, projective phase blindness below 2p holds on the whole two-site family, not on generic signals; variation alone need not imply complete phase-orbit separation.
 
-**Scientific limitations.** Only two-site signals with fixed positive magnitudes are treated. The result is deterministic and exact, with no noisy stability theorem; there is no independent publication-priority or mathematical verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact mixed-polynomial threshold and nongeneric obstruction are distinct from the known holomorphic witness, generic bispectrum separation and two-spike Fourier rank phenomena.
+
+## value
+
+PASS
+
+This gives a sharp and unbounded-in-prime-length obstruction to extending a known low-degree generic projective recovery result to sparse signals. The arithmetic dependence on cyclic order and the different finite-center and circle thresholds make the exact invariant useful for deciding whether moment measurements can see phase at all; this does not claim noise robustness or full separation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

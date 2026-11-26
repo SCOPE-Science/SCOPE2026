@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:21:35.471453Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For H=P−F connected, the required complex is the clique complex of the square of H, not a deletion from P². I inspected the frozen orbit, cover-reversal and acyclicity code and the recorded output; the frozen script was not executed. An independently written exact replay, `python /workspace/reproduce_petersen.py`, uses outer-cycle/inner-star labels (with an explicit disjointness-label isomorphism) and Floyd–Warshall, and enumerates all 576 sets of sizes 0–3 without orbit reduction. For sizes 0,1,2 respectively, all 1,15,105 graphs are connected with a radius-two cone vertex. For size 3 it finds 10 disconnected, 200 cones, 180 other contractible, 60 with rank-one H₂ and 5 with rank-four H₂. For every connected noncone case it constructs the flag complex and uses elementary free-face collapses to a complex of dimension at most two, not the frozen matching/pivot list. It then contracts a spanning tree in the edge/triangle presentation and kills every remaining generator by a sequence of triangle relators with exactly one still-unknown generator; this certifies simple connectedness. H₂ of a finite 2-complex is free, with rank χ−1 here; representatives of a basis by Hurewicz give a homology equivalence from the corresponding wedge of 2-spheres, hence a homotopy equivalence by simply connected Whitehead. The case rank zero is contractible. The replay also checks that the five rank-four cases are precisely the distinguished three-edge sets described in the originality comparison. The frozen output header 'facets-by-cardinality' counts all faces rather than only maximal faces; that naming does not affect the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Adamaszek–Adams Theorem 1 gives a wedge of 3-spheres for intact binary hypercubes",
+          "Feng–Nukala Theorem 10 for symmetric-difference metrics restricts at n=2,m=5 to the rank-four wedge of 2-spheres",
+          "Indexed Resultary near matches concern Kneser independence complexes, Petersen line-graph Rips, the geodesic general-position complex under faults, or the dominance complex under faults"
+        ],
+        "reasoning": "The metric hypotheses of the hypercube and symmetric-difference theorems do not include arbitrary squares of faulted Petersen graphs. The latter theorem applies to the recognized special orbit by an exact isomorphism. Results for the line graph or different functors on faulted graphs do not give the Rips table.",
+        "searches": [
+          "arXiv:2103.01040 graph-metric radius-two Rips theorem",
+          "arXiv:2302.14664 finite metric scale two Theorem 10",
+          "Resultary 84f75d8665a1, 0727b76827f5, 331869f9ff16, a86b57a72d70"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2302.14664 §1 and §4 Theorem 10 (primary text)",
+        "arXiv:2103.01040 abstract and §1 Theorem 1 (primary text)",
+        "Resultary 96a542818355, 0727b76827f5, 6528c3d40f8c, 84f75d8665a1, 331869f9ff16 and a86b57a72d70 (indexed statements)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 10 gives the known wedge of four 2-spheres; the relabeling in equivalent_formulations supplies the exact reduction for five faults",
+          "By the replay, another 60 connected faults give a single 2-sphere and 380 are contractible, and no homotopy change occurs with fewer than three faults"
+        ],
+        "reasoning": "Credit the prior theorem for the homotopy conclusion for complexes identified with Ind(P); recognizing all five as faults of that form, excluding further rank-four faults, and proving the sphere count, contractible count and first-change threshold remain distinct. The same-day indexed fault papers concern different complexes rather than the same claim under renaming.",
+        "searches": [
+          "Feng–Nukala arXiv:2302.14664 §4 Theorem 10 at the two-subsets of a five-set",
+          "Resultary 0727b76827f5 two-subset Kneser independence homology, 331869f9ff16 geodesic general position, a86b57a72d70 dominance splitting"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Feng–Nukala arXiv:2302.14664 §1 and §4 Theorem 10; Resultary 0727b76827f5 and 6528c3d40f8c",
+          "Independent five-case square-complement isomorphism checked in reproduce_petersen.py"
+        ],
+        "reasoning": "VR at radius two is Cl((P−F)²)=Ind(complement((P−F)²)). For a marked ground element s, delete the three disjointness edges whose endpoint labels both omit s. The four labels containing s are branch vertices of a once-subdivided K4, and each of the six other labels A is incident with the branch vertices indexed by the two elements of ([5]−{s})−A. Keep the labels containing s and replace every other label by its two-element complement in [5]−{s}. Farther-than-two adjacency now means disjoint labels: branch-branch distances are two, branch to nonincident subdivision distances are three, and two subdivision vertices are at distance four exactly for disjoint endpoint pairs. Hence the square complement is exactly Petersen up to relabeling in these five cases. The fixed-label complexes differ from Feng–Nukala, but these five are isomorphic as abstract complexes to Ind(P), not merely of matching Betti rank or homotopy type.",
+        "searches": [
+          "Petersen graph three edge deletion fault recomputed graph square clique complex Vietoris Rips homotopy classification independence complex graph square complement",
+          "\"Petersen graph\" \"square\" \"complement\" \"subdivision\" K4 three edge deletion subdivision of K4",
+          "Resultary Petersen edge-fault Rips and two-subset Kneser independence-complex comparisons"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 96a542818355 repeats the entire table and is the identical frozen record",
+          "Distinct 0727b76827f5, 6528c3d40f8c, 84f75d8665a1, 331869f9ff16 and a86b57a72d70 were identified as the near matches. The two primary searches yielded generic graph/Rips results and other unrelated graph invariants, not another deletion table."
+        ],
+        "reasoning": "The exact self-hit is not priority evidence. Rank four in Ind(P) is a true overlap for the distinguished orbit, but is not a count of radius-two Rips fault patterns. No independent full-table match was located in these bounded checks.",
+        "searches": [
+          "Resultary Petersen recomputed-radius-two three-edge deletion classification",
+          "Primary searches for edge-deleted Petersen graph-square clique or complement-independence classification and subdivision equivalence"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the complete radius-two edge-fault threshold and 380/60/5 classification with the exact disconnecting count, not a previously unknown four-sphere wedge of 2-spheres. There is demonstrable isomorphism-level prior coverage of that homotopy type once the five faulted graphs are recognized as subdivided tetrahedra. The inspected broader results do not imply which deletion patterns realize it or the full fault classification.",
+      "residual_risks": [
+        "Some close Resultary full files were not available; comparison is limited to inspected statements and the verified square-complement reduction.",
+        "A broader table of squares of faulted strongly regular graphs or an unindexed direct classification could still encompass this table. No absence claim follows from unsuccessful retrieval or searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior homotopy-type coverage of one recognized orbit via Ind(P); not the full fault classification",
+          "evidence": "Theorem 10 at n=2,m=5 gives four copies of S². Radius-two edges for the symmetric-difference metric join intersecting labels, producing Ind(P).",
+          "identifier_or_url": "https://arxiv.org/abs/2302.14664",
+          "material_read": "Primary arXiv PDF/HTML, abstract and §1 symmetric-difference metric, §4 Theorem 10",
+          "method": "Targeted lawful OA search followed by direct public arXiv copy when the specialized passage tool timed out; explicit relabeling comparison",
+          "title": "On Vietoris-Rips Complexes of Finite Metric Spaces with Scale 2",
+          "trigger": "Same ten labels and a matching wedge type; possible exact equivalent formulation"
+        },
+        {
+          "assessment": "An intact-hypercube theorem, not a recomputed faulted Petersen theorem",
+          "evidence": "The theorem concerns the hypercube shortest-path metric and produces a wedge of 3-spheres.",
+          "identifier_or_url": "https://arxiv.org/abs/2103.01040",
+          "material_read": "Primary arXiv p. 1 abstract and §1 Theorem 1",
+          "method": "Targeted lawful primary-source read",
+          "title": "On Vietoris–Rips Complexes of Hypercube Graphs",
+          "trigger": "Broader scale-two graph-metric Rips theorem"
+        },
+        {
+          "assessment": "Covers relevant homology of Ind(P), not the fault-to-complex correspondence or table in the indexed statement",
+          "evidence": "At five ground elements the indexed independence-complex homology has rank four in degree two.",
+          "identifier_or_url": "Resultary 0727b76827f5",
+          "material_read": "Indexed statement; full local mirror file not retrieved",
+          "method": "Resultary lookup and targeted mirror attempt",
+          "title": "The integral symmetric-group homology module of two-subset Kneser independence complexes",
+          "trigger": "Closest equivalent indexed independence-complex result"
+        },
+        {
+          "assessment": "Different simplex criteria, no indexed 380/60/5 statement",
+          "evidence": "One indexed result concerns geodesic general-position sets and the other facets of a dominance complex, rather than pairwise distance-at-most-two cliques.",
+          "identifier_or_url": "Resultary 331869f9ff16 and a86b57a72d70",
+          "material_read": "Indexed summaries only; mirror passage retrieval unavailable",
+          "method": "Resultary search and statement-level comparison",
+          "title": "Petersen single-fault geodesic general position and Petersen dominance-complex edge-fault splitting",
+          "trigger": "Same graph and edge-fault operation, possible criterion equivalence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Petersen graph is a canonical diameter-two graph, so its intact metric gives a simplex and the first change under recomputed distances is a natural robustness invariant. The classification resolves the whole minimal fault budget: most connected triple deletions leave contractibility, but there are two sharply different integral homotopy outcomes. The exact correspondence to the five subdivided tetrahedra and known Petersen independence topology aids interpretation; merely recalculating that known wedge would not by itself be the contribution. No general fault theorem, other-scale claim, or persistence-map statement is needed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact Poisson–Parseval identity converts the boundary-speed variance into a sum of zero power-sum squares. The admissible class is coercive, so a global minimizer exists. Newton coordinates exhibit the comparison configuration with its first forced residual at order \(n+1\). Every minimizer localizes near the origin, and the analytic tail has vanishing Hessian at the origin, making the finite-dimensional energy strictly convex. Differentiated Newton identities and stationary equations determine the sharp factorial defect and root corrections. The truncated exponential has simple zeros. The packaged checker passed 118 finite diagnostics; they are not a substitute for the analytic proof.
+## correctness
 
-## Originality — PASS, best-knowledge
-Kovalev–Yang's pointwise angular-speed extremal theorems and Gluchoff–Hartmann's radial Hardy-mean results do not imply fixed-complex-centroid minimization of integrated square speed. Related equiradial angular-Hessian and maximal-zero-radius variational problems have different constraints; neither conclusion implies minimization at fixed complex centroid. Actual published-finding corpus searches for power sums, Poisson energy, aliases, and truncated exponential optimization found no equivalent result. An unlocated classical formulation as constrained atomic moment energy remains a historical-priority risk.
+PASS
 
-## Value — PASS
-Fixing the first Fourier coefficient of a degree-\(n\) boundary-speed function is a natural spectral design constraint. The exact optimal excess above the unavoidable \(2|s|^2\) and its \(1/(n!)^2\) coefficient identify a sharp all-degree structural obstruction; the unique minimizing zero geometry is also classified. This is not merely a finite computation or renaming of a preexisting bound.
+The frozen geometry sentence excluded collinearity without a degree restriction, false for two distinct points on an affine line, and was imprecise about the sign in the reciprocal relation. The complete repaired RESULT gives the degree-two roots explicitly, proves noncollinearity for n≥3, and states the negative-reciprocal relation. Re-audit: Poisson/Parseval gives twice the sum of power-sum squares; the diagonal terms diverge at the circle while the real off-diagonal terms each exceed −1/2. Newton coordinates give the feasible comparison with S_2 through S_n zero and force every global minimizer into the feasible convex slice where the tail Hessian is small. Normal convergence of the complexified tail justifies the derivatives and positive Hessian there. From the truncated logarithm S_{n+1} is (n+1) times the first omitted coefficient of the exponential. Its baseline and differentiated baseline give the stated sign and factorial coefficient in Wirtinger stationarity; uniform Cauchy bounds after rescaling S_k/s^k give a geometric remainder starting at m=n+2, and the refinement S_k/s^k=O(|s|²) gives the other remainder of the same order. Squaring verifies the variance defect with its factor of 2. The limiting reversed polynomial equals z^n T_n(−1/z); T_n and T_n' cannot share a root. Simple-root perturbation yields order |s|³ for the zeros. For n≥3 the second limiting power sum forces an affine line, if any, to be purely imaginary in direction, whereupon the real part of the third sum is −2/n² instead of zero.
 
-## Limitations and evidence
-The result holds for each fixed \(n\ge2\) and sufficiently small nonzero complex \(s\); no explicit threshold, degree-uniform estimate, or large-centroid classification is claimed. Relevant primary materials were read where accessible and independent mathematical audit has not been performed. Exact code assertions cover a finite sample of degrees and parameters.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified to global variance minimization under a fixed complex sum for each fixed degree and small |s|, with the exact leading defect, correcting each intermediate power sum, and the resulting limiting minimizing geometry. The classical Poisson identity and truncated exponential zero facts alone are not claimed as new. The repaired affine-line observation is a consequence, not the originality case.
+
+## value
+
+PASS
+
+Fixing the first Fourier coefficient is a natural design constraint on angular speed. A sharp all-degree next term isolates the obstruction left by the finite number of movable zeros; global uniqueness and the factorial scale with limiting root geometry are substantially stronger than a lower bound from this coefficient alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

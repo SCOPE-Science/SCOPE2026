@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:30:02.193011Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–5 and check_local.py",
+        "/workspace/replay_fermat.py (independent logarithmic coefficient formula, exact tangent-cone and generic branch polynomial checks for 31 allowed n through 101)",
+        "Tafazolian arXiv:2611.08176v1 Prop. 2.3 and Lemma 2.1"
+      ],
+      "rationale": "On e1=1, the exact invariant-ring quotient gives a smooth affine curve with function field that of D_n. Expanding -n[z^n]log(1-e1 z+e2 z²-e3 z³) gives the top ordinary part n(-1)^(d-1)u^(d-1)(v-u), so Q is smooth. On e1=0, points with e3=0 are the three permutations of [1:-1:0]; the invariant equation with e2 normalized to 1 has linear terms proportional to e3-e1, so the map extends there to Q. Tangency at any other point requires X^(n-1)=Y^(n-1)=Z^(n-1); the only equally sized triples summing to zero are the two cube-root points up to scale. Stabilizers are trivial at the remaining points: a transposition's +1 line on e1=0 gives [1:1:-2] up to permutation, not on the Fermat curve; its -1 point is in the special orbit; the 3-cycle eigenpoints are already accounted for. At a generic orbit the ratio e3²/e2³ determines the unordered normalized root triple up to scale and separates cubic branch coefficients. At a cube-root point e1,e2 are local coordinates after e3=1 because the roots are distinct; direct coefficient extraction gives e2=(ell+1)e1²+… in residue 5 and e1=-ell e2²+… in residue 1. Thus the intersection order upstairs is 1 or 2 respectively. The order-three quotient changes the orders of (a,b) from (3,3) or (3,6) to (1,1) or (1,2), with the reported leading coefficient in each case. Bezout exhausts the normalization branches: ell or ell-1 generic plus one distinguished. Distinct unit cubic coefficients give contact 3; the special branch gives contact 1 or 2. This yields the tangent cones, delta and Milnor formulas, node at 11 and tacnode at 13. Independently, the degree-six Riemann–Hurwitz ramification sum is 3(n+1)+4, giving the stated genus and total defect.",
+      "residual_risks": [
+        "The invariants classify contacts, not analytic moduli. The finite symbolic samples only corroborate the all-n proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tafazolian gives g(D_n)=(n-1)(n-5)/12 and the irreducible equation N_n",
+          "Tzermias gives genus 5 and a model at n=11"
+        ],
+        "reasoning": "These results supply genus and normalization but do not determine how the branches of this singular compactification meet.",
+        "searches": [
+          "arXiv:2611.08176v1 Theorem A, Lemma 2.1, Prop. 2.3",
+          "Tzermias §§3–4, DOI:10.4064/aa108-1-3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary findings 335596993af0 (self) and 61ef3ff37a98",
+        "arXiv:2611.08176v1",
+        "Tzermias, DOI:10.4064/aa108-1-3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Arithmetic genus minus the credited normalization genus gives only a total defect and cannot generally distinguish individual contact multiplicities",
+          "Separating generic orbits by e3²/e2³ and computing the distinguished local order distinguish contact 1 from 2 and force pairwise contact 3 within the generic family"
+        ],
+        "reasoning": "The invariant equation and genus are reusable inputs, not a theorem of local contacts. Even the scalar delta is a consistency consequence once the degree and singular locus are controlled; priority is not claimed for the quotient-genus formula.",
+        "searches": [
+          "Prop. 2.3 and Lemma 2.1 comparison with frozen Proof §§2–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tafazolian Prop. 2.3 uses precisely the same affine invariants",
+          "Tzermias Prop. 4.3 uses distinct affine coordinates r,s for F_11/S_3",
+          "Resultary 61ef3ff37a98 concerns a Weierstrass invariant at Q, not a contact invariant at P"
+        ],
+        "reasoning": "A birational model of the same quotient need not give the same singularity at infinity, and smooth canonical point invariants do not give plane branch intersections.",
+        "searches": [
+          "Resultary: branch contacts at infinity of symmetric Fermat quotient Newton power-sum plane model",
+          "Primary Fermat quotient ordinary-plane singularity search"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact contact theorem indexed under 335596993af0 is the assigned record itself",
+          "The distinct 61ef3ff37a98 entry gives semigroup <4,5,11> and vanishing sequence (0,1,2,5,6) at Q on D_11"
+        ],
+        "reasoning": "The nearest exact table is for the wrong point/invariant. The older n=11 model does not tabulate node/tacnode or branch contacts of the given ordinary closure across n.",
+        "searches": [
+          "Resultary exact model/contact search",
+          "arXiv:2611.08176v1 Prop. 2.3",
+          "Tzermias §4"
+        ]
+      },
+      "rationale": "The quotient, affine model and quotient genus are prior. The supported distinct result concerns the specific ordinary plane model and its full branch-level contact data in both residues, not the abstract smooth quotient or a different compactification.",
+      "residual_risks": [
+        "Re's Supersingular quotients of Fermat curves, cited by Tafazolian, was not separately inspected. Other classical or unindexed Newton-sum compactifications may overlap; the bounded literature comparison does not certify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior quotient, genus and affine model; does not establish the ordinary-plane contact profiles in these passages",
+          "evidence": [
+            "u=e2/e1² and v=e3/e1³; D_n is smooth projective model of N_n=0",
+            "g(D_n)=(n-1)(n-5)/12"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.08176v1",
+          "material_read": "Theorem A; Lemma 2.1 (HTML offsets 13550–17950); Proposition 2.3 (17121–22120)",
+          "method": "Bounded OA source passages",
+          "title": "Fermat quotients with CM Jacobians and trivial automorphism group",
+          "trigger": "Identical affine Newton power-sum equation and normalization"
+        },
+        {
+          "assessment": "Different affine plane model, not the branch analysis of N_11",
+          "evidence": [
+            "g(F_11/S_3)=5; rational map with S_3-orbit fibers in variables r,s"
+          ],
+          "identifier_or_url": "https://doi.org/10.4064/aa108-1-3",
+          "material_read": "§4 Lemma 4.1 (printed p.31) and Prop. 4.3 (pp.32–33, text offset 17169)",
+          "method": "OA PDF source passages",
+          "title": "Parametrization of low-degree points on a Fermat curve",
+          "trigger": "Earlier same quotient at n=11 and possible alternate plane model"
+        },
+        {
+          "assessment": "Same normalization at n=11, different invariant at Q; no same-day priority inferred",
+          "evidence": [
+            "Vanishing sequence (0,1,2,5,6) and semigroup <4,5,11> at Q, which is smooth on the Newton plane model"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-the-rational-weight-four-weierstrass-point-on-the-symmetric-ferm--61ef3ff37a98",
+          "material_read": "Finding and identification of the image of (1:-1:0)",
+          "method": "Resultary local mirror",
+          "title": "The rational weight-four Weierstrass point on the symmetric Fermat quotient",
+          "trigger": "Same-day nearby exact infinity-point data"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof §§2–5",
+        "Tafazolian Prop. 2.3; Tzermias §4"
+      ],
+      "rationale": "For the natural affine equation from symmetric invariants, the ordinary plane closure is an easy model to write down but normalization/genus alone hides how it fails to be smooth. The uniform branch profiles, explicit tangent types and allocation of the entire genus defect to P make this plane model usable in local intersection calculations. The two small examples illustrate a general distinction valid also at composite allowed degrees.",
+      "residual_risks": [
+        "No claim of analytic equivalence between different n or of arithmetic reduction is supported."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

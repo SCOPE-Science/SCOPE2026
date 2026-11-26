@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Checks and reproducibility
+# Independent mathematical audit
 
-Run `python verify.py` and `python verify_f4.py` from this package. The first script directly verifies the six basis multiplication identities for every proposed normal-form map over five prime fields, compares ranks with the theorem, and exhausts all matrices over \(\mathbb F_2\) and \(\mathbb F_3\). The second exhausts all \(4^9\) matrices over \(\mathbb F_4\) for each nonzero parameter, using explicit arithmetic modulo \(X^2+X+1\).
+## correctness
 
-Observed outputs:
+PASS
 
-```
-VERIFY_OK 23 prime-field parameters; exhaustive all 3x3 maps for p=2,3
-F4_EXHAUSTIVE_OK 3 parameters x 262144 matrices
-```
+The given basis has square S=Ku+Kv and the square-zero locus of S is exactly Ku, in every characteristic since lambda is nonzero. Thus T(u)=au and T(v)=cu+dv. The uv and v² relations give d²=d, a(d−1)=0 and a+(2d−lambda)c=d². The v coefficient in T(w)² forces T(w)=su+rw. The remaining uw, vw, w² identities give exactly the two disjoint, sufficient families. In A the equation r(2s+r)=0 gives q maps in characteristic two or 2q−1 otherwise, including zero and otherwise rank one. In B with a≠0 one has r=1 and (lambda−4)c=0; with a=0 one needs lambda≠2, s=−(1+c)r and ((lambda−4)/(lambda−2))r²=0. These equations give each rank coefficient, including the q−1 rank-two maps precisely at lambda=4. In A the only nonzero composition-idempotent requires r=1 (possible only in odd characteristic); in singular B idempotence is equivalent to r=0 or r=1, and the only invertible idempotent is the identity. The resulting totals, in the stated order, are 3, 3, 5, 4. Integers 2 and 4 are field elements, so neither exceptional parameter occurs in characteristic two. These are composition-idempotent maps, not element idempotents.
 
-The finite checks do not constitute an exhaustive verification for arbitrary fields. The all-fields proof is the algebraic normal-form derivation in `RESULT.md`. No independent mathematical audit has occurred.
+## originality
+
+PASS
+
+The inspected evidence gives the family, its invertible stratum and the exceptional plane, but not the classification of singular maps or the field- and parameter-dependent rank and retraction census. The invertible stratum and the image plane are credited as known; the distinct contribution is the singular map and composition-idempotent classification.
+
+## value
+
+PASS
+
+For a fixed non-solvable family with stable square, the complete map census answers which subalgebra dimensions actually arise as endomorphism images, and which such images are retracts. It isolates the additional singular-map transition at lambda=2 that automorphisms alone cannot detect and handles characteristic two and extension fields uniformly. The value lies in the exact singular and retraction data, not in repeating the known automorphism group.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

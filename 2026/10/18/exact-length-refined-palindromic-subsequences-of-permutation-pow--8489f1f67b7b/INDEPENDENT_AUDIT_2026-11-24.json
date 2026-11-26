@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:28:26.587213Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–70",
+        "Frozen VERIFICATION.md, check_spectrum.py and verification_output.txt (inspected, not executed)",
+        "Independent bounded reproduction: /workspace/branches/7ce30169-67d8-4269-a7d9-ce04ee65776a/palindrome-spectrum-independent.py and palindrome-spectrum-independent-output.txt"
+      ],
+      "rationale": "A strict increase in letter index can stay within a copy; each adjacent weak descent must advance at least one copy. Greedy placement meets this bound exactly. In either parity the reflected unequal links contribute one weak descent and the equal links two, with an extra central descent in even length. Thus a palindrome needs 1+t+e copies, with e counting adjacent equal pairs in the appropriate half. The binomial link enumerators count words, not embeddings; the minimum-copy series and the factor 1/(1−z) give the stated bivariate GF. The support and longest count follow by taking e=0; setting u=1 yields the checked recurrence and a simple, strictly dominant positive pole. This includes m=0 for the GF and m=1 for the first nonempty spectrum.",
+      "residual_risks": [
+        "Independent set-extension enumeration, minimum-copy checks and GF coefficient comparisons were bounded to 14 alphabet/period cells and 64 label permutations at the stated small sizes. The universal result follows from the proof, not from the runs; no Lean or expert attestation is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2026-11-02 partial-period finding states the identical membership criterion at s=0 and gives the frozen general-alphabet GF plus an increment proportional to s, the final prefix length. The literature passages inspected concerning LCS backtracking and regular-expression-constrained subsequence matching concern optimization or feasibility, not counting distinct palindromes in permutation powers."
+        ],
+        "reasoning": "Setting s=0 in the later broader result really does reproduce the complete q≥3 formula. That is exact overlap, not evidence of prior coverage as of the frozen record. A result for general hosts and a different task such as optimization is not a theorem giving the stated count.",
+        "searches": [
+          "Resultary 85b73838625b: partial cyclic-permutation powers",
+          "Hasan et al. DOI 10.1007/s11786-016-0288-7; Amarilli et al. arXiv:2504.16288; Brodal et al. DOI 10.4230/LIPIcs.ESA.2024.35"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–30 and 78–91",
+        "Resultary local mirror 0908d82f9069, 42120300c87a, 85b73838625b",
+        "Primary papers and access limitation listed in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known binary alternating longest-length statement covers the binary maximum, and taking the even coefficients of the same-day record covers the whole binary spectrum. The automata paper was not available in full for a mechanical-implication check."
+        ],
+        "reasoning": "The all-alphabet result uses the reflected forward/backward comparison in the order of a general period, including the cost of equal links and the q−1 ways of changing. The binary formula does not entail this. An automaton for the outputs of a specified host could, in principle, permit counting on that input, but availability of an algorithm on each fixed finite host does not itself yield a uniform bivariate closed form.",
+        "searches": [
+          "Müllner and Ryzhikov arXiv:1901.07502 §4; same-day alternating-prefix Resultary record 0908d82f9069; palindromic-subsequence automata DOI 10.1007/s11786-016-0288-7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 0908d82f9069, 2026-10-18, gives the even-prefix GF 2uz(1+uz)/((1−z)(1−u²z(1+z))), exactly q=2 in the frozen GF. Resultary 42120300c87a, 2026-10-25, also counts all binary alternating prefixes and their Fibonacci totals."
+        ],
+        "reasoning": "Relabeling each period to increasing order and identifying a binary even prefix of length 2m with P^m proves exact equality in the binary case, not merely a matching sequence of initial totals. The binary formula itself has no variable alphabet size or q−1 choices for a change of letter.",
+        "searches": [
+          "Resultary: distinct scattered palindromic subsequence spectra of permutation powers and alternating words",
+          "Literature search for length-refined distinct palindromic subsequences in cyclic permutation powers and alternating words"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "0908d82f9069 contains an exact symbolic binary match; 42120300c87a gives binary Fibonacci totals; 85b73838625b contains the general-alphabet match with a later catalogue date."
+        ],
+        "reasoning": "The symbolic enumerators are stronger evidence than a table of initial counts. Totals at u=1 erase the length refinement and binary tables cannot supply the symbolic q-dependence.",
+        "searches": [
+          "Resultary checks for the alternating binary generating function, Fibonacci totals, and general permutation-power spectrum"
+        ]
+      },
+      "rationale": "The distinct contribution supported by the comparison is the uniform length spectrum and bivariate enumeration for permutation powers over arbitrary alphabet sizes. The full binary specialization is demonstrably covered by a distinct same-day indexed record; its publication order is not established and the binary spectrum should not be credited here as a separate original result. The binary longest-length result was already known earlier. The exact general-alphabet match inspected is catalogued later and extends the result to unfinished periods; the record dates do not establish attribution or provenance.",
+      "residual_risks": [
+        "The 2017 automata article remains inaccessible in full; an unlocated exact specialization is possible. No conclusion about who first derived the binary spectrum or about provenance of the later generalization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of the binary specialization; priority within the date unresolved",
+          "evidence": [
+            "The even-prefix GF equals the q=2 formula and counts the same distinct nonempty scattered words."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-palindrome-length-enumerator-and-gaussian-law-for-alternat--0908d82f9069/RESULT.md",
+          "material_read": "Finding, assumptions, greedy classification and even/odd generating functions, offset 0–4402",
+          "method": "Resultary local mirror",
+          "title": "Exact palindrome-length enumerator and Gaussian law for alternating binary words",
+          "trigger": "Same-day exact-spectrum match on binary words"
+        },
+        {
+          "assessment": "Binary overlap; later catalogue date",
+          "evidence": [
+            "Gives length-refined binary prefix enumeration and exact Fibonacci total formulas."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-fibonacci-spectra-for-scattered-palindromes-of-alternating--42120300c87a/RESULT.md",
+          "material_read": "Finding on binary prefix length enumerators and totals",
+          "method": "Resultary local mirror",
+          "title": "Exact Fibonacci spectra for scattered palindromes of alternating words",
+          "trigger": "Possible exact binary count and GF"
+        },
+        {
+          "assessment": "Exact general-alphabet overlap under s=0; later catalogue date",
+          "evidence": [
+            "The full GF is the frozen expression plus a term proportional to s. The underlying membership test at s=0 is m+e(h)<k."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-scattered-palindrome-spectrum-of-partial-cyclic-permutatio--85b73838625b/RESULT.md",
+          "material_read": "Finding, assumptions, greedy embedding and mirrored-link argument, offset 0–4122",
+          "method": "Resultary local mirror",
+          "title": "Exact scattered-palindrome spectrum of partial cyclic-permutation powers",
+          "trigger": "Strongest general-alphabet candidate"
+        },
+        {
+          "assessment": "Binary longest length known, not the full spectrum",
+          "evidence": [
+            "Alternating binary words contain a palindrome of length n−1; an even alternating source is not itself a palindrome."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1901.07502",
+          "material_read": "Section 4 p. 6, near text offset 24650",
+          "method": "Primary PDF passage",
+          "title": "Palindromic Subsequences in Finite Words",
+          "trigger": "Prior bound for alternating binary words"
+        },
+        {
+          "assessment": "Optimization/backtracking, not a formula for distinct length counts",
+          "evidence": [
+            "Studies conditions under which an LCS algorithm recovers a longest palindrome."
+          ],
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.ESA.2024.35",
+          "material_read": "Primary paper abstract and introduction pp. 1–2",
+          "method": "Primary PDF passage",
+          "title": "On Finding Longest Palindromic Subsequences Using Longest Common Subsequences",
+          "trigger": "Possible general longest-palindrome reduction"
+        },
+        {
+          "assessment": "The inspected regex-matching results solve different tasks and do not cover a uniform count of palindromes",
+          "evidence": [
+            "The stated problems concern feasibility and optimization with regular expressions; unrestricted palindromes on two or more letters form a nonregular language."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2504.16288",
+          "material_read": "Primary PDF p. 1, abstract near offset 1500",
+          "method": "Primary PDF passage",
+          "title": "Linear Time Subsequence and Supersequence Regex Matching",
+          "trigger": "Possible general constrained-subsequence reduction"
+        },
+        {
+          "assessment": "Residual possibility of a relevant counting specialization; no negative whole-paper conclusion",
+          "evidence": [
+            "The frozen record describes a general palindromic-subsequence representation, not an explicit periodic-power formula."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11786-016-0288-7",
+          "material_read": "Frozen abstract/preview account only; no independently accessible full-text passage obtained",
+          "method": "Attempted lawful DOI and publisher PDF routes; no alternate repository copy recovered",
+          "title": "Palindromic Subsequence Automata and Longest Common Palindromic Subsequence",
+          "trigger": "Potential counting implication of an automaton for palindromic outputs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–30 and 39–70",
+        "Exact binary and partial-period comparisons in source_inspections"
+      ],
+      "rationale": "A complete exact length distribution for this natural periodic host class replaces embedding enumeration or longest-word optimization. The minimum-period invariant explains why the count is independent of the positions of unequal letters in the period once reflected links are paired, and the closed GF connects length counts, extremal multiplicities and total growth for all alphabet sizes. Value does not rely on rediscovering the alternating binary result.",
+      "residual_risks": [
+        "The analysis is for repetitions of a permutation, not arbitrary periodic words with repeated letters inside a period."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

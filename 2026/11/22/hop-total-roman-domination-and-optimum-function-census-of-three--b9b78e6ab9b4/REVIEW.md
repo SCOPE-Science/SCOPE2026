@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For \(n\ge8\) the two-step neighborhoods in \(\operatorname{KG}(n,3)\) are the other triples intersecting the centre. A defender family of size \(m\) and union size \(u\) forces at least \(\binom{n-u}3\) one-labels. The resulting bound separates all possible \(m\) from the unique minimum cases, and equality forces the three stated partial-triple-packing structures. The positive induced graph has no isolates because it uses ordinary disjointness adjacency; in the one-overlap case at least one further disjoint defender supplies the required neighbors. The factorial counts separately account for the free points and the unique shared point. Direct distance calculations and independent support and construction enumerations check the finite cases. The proof, not these finite tests, establishes all orders.
+PASS
 
-## Originality — PASS (priority provisional)
+At n>=8, distinct intersecting triples have a common disjoint triple since their union has at most five elements; disjoint triples are adjacent, not at distance two. With m defenders and union U, every triple outside U is a mandatory 1 and all other nondefenders are allowed 0 by the hop condition. Thus the weight is at least 2m+C(n-|U|,3), in turn at least 2m+C(max(n-3m,0),3). With n=3r+s, the no-defender weight C(n,3) and m>=r+1 exceed 2r. For 1<=m<=r-2 the relaxed bound is decreasing as m increases and its endpoint is 2r-4+C(6+s,3)>2r; that range is empty for r=2. Comparing m=r-1 and r yields exactly 2r-1 for s=0 and 2r for s>0 as lower bounds. Equality at s=0 forces disjoint defenders with precisely one complementary triple carrying 1. For s>0 equality forces r defenders, no 1s, and at most two unused points. Thus the incidence excess 3r-|U| is zero or (only at s=1) one, the latter forcing exactly two triples to share one point. Ordinary disjointness gives no positive isolates: in that exceptional case r>=3, and another disjoint defender supplies neighbors. This includes n=8, where the two disjoint defenders suffice. Choosing distinguishable 1/2 blocks gives n!/[6^r(r-1)!] at s=0; disjoint 2-blocks give n!/[s!6^r r!] at s>0. The extra s=1 family divides n! by the 2! for unused points, the (2!)^2 for two unordered two-point branches, the 2! interchanging branches and 6^(r-2)(r-2)! for the other triples. An independent bounded check using computed shortest-path masks and exhaustive defender sets at the candidate weight or lower reproduces all minima for n=8,9,10, including 37800 overlapping and 2800 disjoint assignments at n=10. The structural proof handles all n, not just the replays.
 
-The 2023 source introducing hop-total Roman domination determines paths, cycles and several general properties; its complete article could not be inspected page by page, a stated residual risk. Zec and Grbić's complete open-access Kneser paper treats ordinary, total, and signed Roman functions whose zero defenders use adjacency, not graph distance exactly two. Public full-text results on triangular-graph Roman polynomials and Kneser total-Roman reconfiguration were also compared; they do not imply the current rank-three, mixed-adjacency function classification. Searches for intersection/hypergraph, complementary graph and optimizer-count formulations found no covering result. Possible unindexed equivalent earlier work remains a risk, and no absolute uniqueness claim is made.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This solves both the exact minimum and the complete optimal-function census of an infinite canonical graph family for a well-defined mixed-neighborhood invariant. The optimum differs sharply by \(n\bmod3\), with a unique extra geometric family when the remainder is one. The enumerator counts a nontrivial one-overlap family and supplies structural benchmarks for further Kneser studies; it is not a mere alternate notation for an existing result.
+The examined results on the same graphs concern other adjacency-based invariants; the exact hop-total results use different graphs. The rank-two intersection-graph enumerator gives a close support-counting analogue, not the rank-three residue law and full optimum census. This pass is for that precise census and theorem, not the underlying hop-total definition or the general method of using the union of defenders.
 
-## Closest literature and limits
+## value
 
-Ahangar et al., “Hop total Roman domination in graphs” (2023), DOI 10.1080/09728600.2023.2184288, establishes the invariant and its exact two-neighborhood condition. Zec and Grbić, “Several Roman domination graph invariants on Kneser graphs” (2022/2023), arXiv:2204.05664, solves different Roman variants. Accessible published results on the triangular-graph Roman polynomial and the total-Roman Kneser reconfiguration graph share an underlying set-system language but not the claimed implication. Rank other than three, \(n<8\), complete weight enumeration, and independent scientific verification remain outside scope.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The ordinary disjointness and hop intersection conditions coexist on a canonical infinite family. The result identifies exactly when as little as one unit of overlap in the defender family is possible at equality, counts all labeled optima in all residue classes, and yields explicit benchmarks beyond a scalar minimum. The extra overlapping census is not an artifact of enumeration at small n.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

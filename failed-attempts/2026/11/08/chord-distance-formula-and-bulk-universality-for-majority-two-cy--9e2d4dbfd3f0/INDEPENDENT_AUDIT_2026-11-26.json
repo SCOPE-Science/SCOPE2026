@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:40:41.115484Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a flipper of degree two, both neighbors must supply the new bit in both phases; hence they flip in the opposite phase. This propagates along the interior of each arc up to both endpoints. If neither interior flips, a lone endpoint flipper would see three constant inputs and cannot flip back. With opposite endpoint phases, a stationary arc with one interior vertex can carry either bit; longer stationary arcs have exactly the words with run lengths at least two, protecting the two boundary sites in both phases. Their unsigned and alternating run counts use z²/(1−z−z²) and z²/(1−z+z²). When both arcs are stationary their two endpoint bit pairs must be complementary. One flipping arc must have odd edge length in the opposite-phase case and the other arc is unrestricted among admitted stationary words. When both arcs flip, the only phase assignments are the two alternating configurations at even n (both arcs odd, or both even with the chord neighbor not supporting the flip). These disjoint cases yield the stated normalization, since every primitive orbit has two phases. Binet's formula and |D|≤1 give bounds by positive multiples of φ^n uniformly for large n; if both arcs grow, the mixed terms divided by A_u A_v tend to zero, leaving (2/5)φ^(n−4). The parity cases also give existence at every legal chord and the usual bare-cycle count. Independent replay: python3 /workspace/reproductions/2.py directly applied bitwise synchronous majority on 64 reflection-distinct graphs for 4≤n≤18, 3,844,784 initial states, checking every population and both endpoint flips, including P(4,2)=6. Finite counts corroborate the all-length proof. Frozen verification statuses and recorded script reports are not independent certification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Goles–Olivos abstract states an eventual period bound, not the population of initial recurrent configurations. Nakar–Ron p. 4 defines periodicity for one-dimensional cyclic majority, not the single exceptional edge. The indexed proof §1 explicitly proves that both chord endpoints flip, including the case of no interior flips."
+        ],
+        "reasoning": "The general eventual-period bound does not establish this census, but the exact catalog theorem and proof do cover its all-distance and rigidity statements.",
+        "searches": [
+          "doi:10.1016/0012-365X(80)90121-1",
+          "arXiv:2205.08972",
+          "SCOPE-a-single-chord-activates-and-enumerates-majority-two-cycles-on-o--59a6c7d954ec, proof §1"
+        ]
+      },
+      "checked_sources": [
+        "2026/11/1/SCOPE-a-single-chord-activates-and-enumerates-majority-two-cycles-on-o--59a6c7d954ec",
+        "doi:10.1016/0012-365X(80)90121-1",
+        "arXiv:2205.08972"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier f_l=F_(l−2) for l≥3, f_2=1, and |q_l|≤1. Both arc lengths increasing makes the product ≍φ^(n−4), with asymptotic φ^(n−4)/5; the single-Fibonacci terms are little-o of the product in this regime."
+        ],
+        "reasoning": "The same product is uniformly comparable to φ^(n−4) even with one bounded arc; the bounded signed residue correction cannot offset it. Binet's formula therefore directly gives both stated asymptotics from the earlier exact census. This is implication, not a claim that the earlier text explicitly gives the bulk coefficient.",
+        "searches": [
+          "Earlier RESULT.md Finding and Proof, including Fibonacci/residue formulas and first proof step"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier RESULT.md, offsets 0 and 1400–3506, defines the identical majority rule and counts the pairs {x,F(x)} with F²(x)=x≠F(x). In its notation, f_d=A_(d−1), q_d=D_(d−1), including the length-two exception; the same applies to the other arc, m=n−d."
+        ],
+        "reasoning": "The only normalization change is each two-orbit supplying two configurations. Neither counting convention imposes a spatial quotient.",
+        "searches": [
+          "Resultary: primitive majority two-cycles on a labelled cycle with one nonconsecutive chord; Fibonacci orbit counts",
+          "SCOPE-a-single-chord-activates-and-enumerates-majority-two-cycles-on-o--59a6c7d954ec, RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier exact indexed formula, RESULT.md offset 1400, gives N=f_d f_m+q_d q_m+2(1_{d odd}f_m+1_{m odd}f_d)+1_{n even} for every allowed pair, not just matching sample entries."
+        ],
+        "reasoning": "After doubling, the entire count and hence all tabulated values are covered.",
+        "searches": [
+          "Resultary single-chord majority orbit census; catalog record 2026/11/1/…59a6c7d954ec"
+        ]
+      },
+      "rationale": "An earlier indexed and text-inspected result gives the same exact graph family, update, and all-distance census up to the factor of two from counting ordered phases instead of unordered temporal orbits. Its proof also includes the endpoint flip property. The uniform entropy and the bulk coefficient are direct consequences of the earlier Fibonacci formula, so the apparent additions cannot support an independent repaired claim.",
+      "residual_risks": [
+        "Full text of the original 1980 threshold article was not obtained; the disciplinary search is not exhaustive. The exact catalog overlap alone is decisive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent all-distance census and rigidity; asymptotics follow",
+          "evidence": "Finding defines the labelled graph and same tie rule, gives N in Fibonacci form; §1 concludes that both chord endpoints must flip.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-a-single-chord-activates-and-enumerates-majority-two-cycles-on-o--59a6c7d954ec/RESULT.md",
+          "material_read": "Finding, assumptions, proof §§1–4, paste-free bounded passages, including offsets 0, 1400–3506 and 7708 onward for limitations; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror",
+          "title": "A single chord activates and enumerates majority two-cycles on odd rings",
+          "trigger": "Exact-object catalog match"
+        },
+        {
+          "assessment": "Accessible statement is broader as to graphs but answers a different question",
+          "evidence": "States eventual period at most two, without a census in the accessible material.",
+          "identifier_or_url": "doi:10.1016/0012-365X(80)90121-1",
+          "material_read": "Accessible landing page/abstract; full text not retrieved",
+          "method": "Lawful OA lookup",
+          "title": "Periodic behaviour of generalized threshold functions",
+          "trigger": "General threshold dynamics precedent"
+        },
+        {
+          "assessment": "Inspected periodicity definitions do not address the chord graph",
+          "evidence": "Uses cyclic one-dimensional neighborhood geometry, not two degree-three endpoints.",
+          "identifier_or_url": "arXiv:2205.08972",
+          "material_read": "p. 4, extracted offset 8945",
+          "method": "OA paper passage",
+          "title": "The structure of configurations in one-dimensional majority cellular automata: from cell stability to configuration periodicity",
+          "trigger": "Equivalent ring-majority formulation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Considered as mathematics, an all-distance census with rigidity for a minimal graph perturbation answers a natural dynamics question: it distinguishes recurrence from convergence and detects the appearance of oscillations on every odd ring. The already available classification has this value. Once the overlapping classification is credited, change of counting convention and routine Binet asymptotics do not constitute a separately valuable repair.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

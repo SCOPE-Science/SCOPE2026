@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:17:58.277661Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Polar integration of normalized monomials with t=|z|^2 gives the exact gamma moments. The bounded positive-measure mask gives 0<lambda_n<1 and lambda_n tending to zero, so the multiplicity of a nonzero eigenvalue is its number of index occurrences. The integration-by-parts identity for adjacent differences has the stated sign and factorial. Dividing an exponential sum by its smallest exponential and using Rolle bounds its distinct zeros by one fewer than its number of distinct terms. Every consecutive pair of equal-level indices supplies a zero in its corresponding interval of sampled difference arguments, by either an exact zero or a sign crossing in a zero sum of positively weighted differences. These intervals are disjoint. With the first endpoint actually zero, not merely permitted to be zero, its term vanishes on the positive argument domain and the bound is 2m-1. The monic weighted L1 minimization is coercive on the finite-dimensional lower coefficients and differentiable in those coefficients because the zeros have measure zero. If its polynomial had fewer than 2m positive sign changes, the product of the corresponding linear factors would be a forbidden lower-degree test of one strict sign after multiplication by sgn Q. Thus all roots are simple, positive and distinct; the orthogonality of sgn Q gives precisely the first 2m half moments. These equalities use all 2m-1 zeros of the endpoint sum, whose final sign is negative by the largest base. Hence the plateau is at the top and the whole tail strictly decreases. Equality in the convex L1 midpoint inequality forces any two minimizers to have equal sign almost everywhere, hence identical roots; conversely a half-moment mask's root polynomial is an L1 minimizer by the sign supporting inequality. Independent high-precision root solve using a finite integer-shape gamma tail sum in reproductions/frozen_checks.py (argument 1) reproduces the m=1,2 squared endpoints and the tested tails; the general result is analytic. The polynomial roots are normalized squared radii as defined in RESULT.md, not the unsquared radii mentioned informally in the slogan.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The shell-count result allows complex dimension d>=1, gives the endpoint difference expression and its at-most-2m-1 zero estimate, and sharply bounds strict local peaks. The tomography finding identifies every mask of at most m positive annuli from the first 2m labeled responses, so it directly covers uniqueness conditional on existence for the half-energy target in its domain.",
+          "Esmeral García–Maximenko's abstract is about approximating convergent sequences by broader radial symbol classes; Bdarneh's abstract concerns eigenvalue representations and Fock Toeplitz algebras; Svela–Trapasso's abstract concerns concentration/optimizers in a different generality."
+        ],
+        "reasoning": "The shell-count proof ingredients also give the frozen multiplicity inequality by aggregating differences in disjoint index blocks, and give tail monotonicity conditional on an equal initial block. Its strict peak statement by itself does not apply to a nontrivial plateau, and neither this result nor tomography asserts existence and attainment of the half-energy plateau. Approximate realization with general symbols or a general formula does not give the constrained exact multi-annulus design.",
+        "searches": [
+          "2026/11/1/SCOPE-a-sharp-shell-count-law-for-angular-momentum-peaks-in-gaussian-f--41fa2b45e61f, Finding and Proof §§1–2",
+          "2026/11/16/SCOPE-sharp-finite-hermite-spectral-tomography-of-concentric-gaussian--e1ef3ba1736e, Finding",
+          "arXiv:2503.23276v1; arXiv:2609.20652v2; arXiv:2605.28786v2"
+        ]
+      },
+      "checked_sources": [
+        "Knutsen (2020), DOI 10.1007/s00041-020-09751-9",
+        "Hobby–Rice (1965), classical theorem; original full text not retrieved",
+        "Resultary 57fcc645d909, 41fa2b45e61f and e1ef3ba1736e",
+        "arXiv:2503.23276v1, arXiv:2609.20652v2 and arXiv:2605.28786v2 (abstract comparisons)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical sign quadrature and weighted-L1 extremality account for the half-moment existence principle; the sign-root uniqueness mechanism is classical. Shell-count zero bounds yield the general level cap on translating equal-level visits into zeros, and tomography directly subsumes the conditional uniqueness subclaim."
+        ],
+        "reasoning": "Credit those implications rather than treating each subclaim as independently original. The meaningful remaining operator result is to recognize the admissible half-moment interpolation as saturating the multiplicity bound specifically at the norm, using exhaustion of the allowable zeros and the largest-endpoint sign to prove a strict infinite tail. This is a synthesis of the two mechanisms on the same constrained geometry, not a restatement of either inherited result or a single-ring parameter substitution.",
+        "searches": [
+          "Hobby–Rice, A Moment Problem in L1 Approximation, Proc. Amer. Math. Soc. 16 (1965), 665–670",
+          "Knutsen §3.1 single-ring spectrum",
+          "Resultary 41fa2b45e61f difference and zero-count proof; e1ef3ba1736e uniqueness Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Under the normalized Bargmann identification the same radial interval variable is t=pi*(x^2+xi^2) in Gaussian STFT. Knutsen Theorem 2.1 and (2.6) give those incomplete-gamma indexed responses.",
+          "First 2m responses equal to 1/2 means the two-valued sign 1-2*1_S annihilates the first 2m ordinary moments with weight exp(-t). Under x=exp(-t) these become the ordinary Hobby–Rice functions (-log x)^k, k=0,...,2m-1."
+        ],
+        "reasoning": "These translations credit both the known operator diagonalization and the classical implicit existence route to the balanced mask: the annihilator has at most 2m sign changes, and a lower-degree sign test forces exactly 2m. Neither formulation alone establishes that those indexed modes are all and only the maximal ones with strict tail ordering.",
+        "searches": [
+          "Resultary: finite Gaussian annuli, gamma/Hermite crossings, repeated spectral levels and exact half-concentration design",
+          "Knutsen DOI 10.1007/s00041-020-09751-9, Theorem 2.1 and Eq. (2.6), §3.1",
+          "Hobby–Rice, A Moment Problem in L1 Approximation (1965), classical sign-annihilation theorem"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 10/18 catalog record gives exact single-ring maximizing modes and two adjacent top modes at positive integer crossing; single-ring unimodality also yields the at-most-two level count there.",
+          "The shell-count record concerns strict extrema; the tomography record concerns determining a preexisting mask from labeled moment observations. Neither provides an exact general half-energy top-design classification."
+        ],
+        "reasoning": "The one-ring record is material prior special-case coverage. The distinct multi-ring records overlap critical mechanisms and conditional conclusions, not a catalog table or theorem giving the full joint construction. No bibliographic conclusion follows merely from these records' displayed dates.",
+        "searches": [
+          "Resultary: Gaussian annulus level multiplicity, Hermite-mode equalities and half-energy interval designs",
+          "2026/10/18/SCOPE-exact-gaussian-annulus-eigenmode-crossings-and-a-bernoulli-secon--57fcc645d909",
+          "2026/11/1/SCOPE-a-sharp-shell-count-law-for-angular-momentum-peaks-in-gaussian-f--41fa2b45e61f",
+          "2026/11/16/SCOPE-sharp-finite-hermite-spectral-tomography-of-concentric-gaussian--e1ef3ba1736e"
+        ]
+      },
+      "rationale": "The gamma diagonalization, exponential zero-count mechanism, moment bisection and extremal-polynomial ideas are inherited. The narrow supported contribution is the simultaneous operator conclusion for every finite component count: a sharp arbitrary-level multiplicity cap saturated at the operator norm by a canonical half-energy design, with the entire remaining spectrum strictly decreasing. The checked earlier annular analyses cover the single-ring phenomenon, and the distinct multi-ring Resultary records provide the endpoint zero estimate and uniqueness conditional on prescribed initial moments separately. Neither their findings nor the classical existence principle alone gives the joint top-plateau design. This is a bounded assessment of that synthesis, not novelty for its ingredients or a priority finding based on a catalogue date.",
+      "residual_risks": [
+        "Historical priority in classical Chebyshev-system sign quadrature and weighted L1 polynomial literature remains incompletely resolved. The original Hobby–Rice text and the attempted Daubechies publisher route were not accessible; the exact inherited gamma formula was checked in Knutsen.",
+        "The nearby catalog results provide substantial partial overlap, and chronology of those entries alone does not establish provenance. No exhaustive literature-wide claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact gamma diagonalization is prior; single-ring ordering is related. No finite-m half-energy spectral synthesis in the inspected passages",
+          "evidence": [
+            "Theorem 2.1 attributes weighted radial spectrum to Daubechies; (2.6) gives the indicator mask expression; §3.1 near extracted offset 18854 treats one ring"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00041-020-09751-9",
+          "material_read": "Theorem 2.1, Eq. (2.6), PDF pp. 5–6; §3.1 single-ring analysis, pp. 7–8",
+          "method": "Read OA extracted primary PDF and compare the Hermite indices, scaled variable and ring scope",
+          "title": "Daubechies’ Time–Frequency Localization Operator on Cantor Type Sets I",
+          "trigger": "Closest prior primary paper using the same Gaussian radial formula and a single ring"
+        },
+        {
+          "assessment": "Gives existence of an annihilator with at most 2m changes, hence an admissible bisection after the polynomial sign argument; no audit assertion about all material in unavailable full text",
+          "evidence": [
+            "Standard Hobby–Rice theorem for 2m integrable functions on [0,1]"
+          ],
+          "identifier_or_url": "Hobby–Rice, Proc. Amer. Math. Soc. 16 (1965), 665–670",
+          "material_read": "Classical theorem statement; not the 1965 full paper",
+          "method": "Compare the known sign-annihilation statement via x=exp(-t); attempt AMS OA and DOI retrieval without access",
+          "title": "A Moment Problem in L1 Approximation",
+          "trigger": "Classical general existence route to sign balancing all the relevant moments"
+        },
+        {
+          "assessment": "Special-case double maximum and unimodal spectrum; does not treat multi-component construction",
+          "evidence": [
+            "Positive integer H(a,w) yields precisely the two maximizing modes h_(H-1) and h_H"
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-exact-gaussian-annulus-eigenmode-crossings-and-a-bernoulli-secon--57fcc645d909",
+          "material_read": "Mirrored RESULT.md Finding and adjacent-difference argument",
+          "method": "Read local mirror Finding at offset 0 and compare its one-annulus crossings",
+          "title": "Exact Gaussian-annulus eigenmode crossings and a Bernoulli second-order concentration law",
+          "trigger": "Same geometry and earlier exact mode degeneracy for one ring"
+        },
+        {
+          "assessment": "General zero-count ingredient covers the cap by the disjoint-block argument; strict peak classification at fixed observation mass does not give a half-energy plateau",
+          "evidence": [
+            "Normalized first difference is the same endpoint sum at d=1; §2 bounds its zeros by 2q-1; strict maxima and minima exclude ties"
+          ],
+          "identifier_or_url": "2026/11/1/SCOPE-a-sharp-shell-count-law-for-angular-momentum-peaks-in-gaussian-f--41fa2b45e61f",
+          "material_read": "Mirrored RESULT.md Finding, Assumptions, Proof §§1–2; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4 at offset 0",
+          "method": "Compare the stronger dimension range, indexed gamma formula, and exact proof bound with the level-visit problem",
+          "title": "A sharp shell-count law for angular-momentum peaks in Gaussian Fock localization",
+          "trigger": "Same multi-annulus sequence and general exponential zero bound"
+        },
+        {
+          "assessment": "Covers uniqueness given existence; no top equal-block existence or general arbitrary-level multiplicity claim",
+          "evidence": [
+            "Any mask of at most m centered separated annuli uniquely determined by its first 2m Hermite-indexed eigenvalues"
+          ],
+          "identifier_or_url": "2026/11/16/SCOPE-sharp-finite-hermite-spectral-tomography-of-concentric-gaussian--e1ef3ba1736e",
+          "material_read": "Mirrored RESULT.md Finding and Assumptions at offset 0",
+          "method": "Match the normalized squared-radius intervals and labeled first 2m measurements",
+          "title": "Sharp finite Hermite spectral tomography of concentric Gaussian Gabor masks",
+          "trigger": "General injectivity theorem for exactly the measurements used in the half-energy design"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The number of components is an intrinsic geometric budget, and the simultaneous count and constructive sharpness at the operator norm answer a motivated inverse-design question. It matters that the saturated degeneracy consists of the first Hermite modes at exactly half-energy, is uniquely specified in the finite-component class, and cannot be exceeded by any later modes. This carries more information than unimodality of one annulus, a strict peak count, or generic moment existence alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

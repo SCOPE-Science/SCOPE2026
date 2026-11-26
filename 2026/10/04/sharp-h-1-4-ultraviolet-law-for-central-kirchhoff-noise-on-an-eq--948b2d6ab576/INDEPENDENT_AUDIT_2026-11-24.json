@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:59:38.685583Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With edge coordinates increasing from the center, Green's identity against a deterministic Kirchhoff eigenmode pairs the noisy sum of outward derivatives with its common central value up to sign. The symmetric sector has Neumann–Neumann modes with values (Nℓ)^−1/2 at zero frequency and (2/(Nℓ))^1/2 at frequency nπ/ℓ; the sum-zero sector has Dirichlet–Neumann modes with central value zero. The cutoff contains exactly the symmetric modes 0 through M; any sum-zero modes it also contains are unforced. Integrating squared Ornstein–Uhlenbeck kernels gives the term t/(Nℓ) at zero and (1−exp(−2λ_nt))/(Nℓλ_n) for n≥1; correlations from the same Brownian driver do not enter the trace in an orthonormal basis. At the endpoint subtracting 1/(Nπn) from each weighted variance leaves O(n^−3) plus an exponentially small term at every fixed t>0. Hence the finite constant is the zero-mode variance plus Euler's constant divided by Nπ plus that convergent series. Elsewhere the summand is asymptotic to π^(4α−2)ℓ^(1−4α)n^(4α−2)/N, yielding the stated power law and L² summability precisely below 1/4. A Hilbert-valued Gaussian version has finite second moment and contractive spectral projections, so divergent projected moments exclude it. The finite numerical verifier was inspected, not executed; it is not needed for this proof. The argument makes no time-path endpoint claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published quantum-graph statements cover α<1/4 regularity in broader graph classes.",
+          "bb08944133fd gives the critical coefficient SΓ(Q)/(2π) in log Λ and the supercritical coefficient SΓ(Q)/[π(4α−1)] in Λ^(2α−1/2), with SΓ(Q)=Σ_v Q_vv/deg(v)."
+        ],
+        "reasoning": "Take SΓ(Q)=1/N and Λ=1+(Mπ/ℓ)^2 to recover both leading asymptotics. The broader endpoint theorem has only o(log Λ) control after subtraction; it does not recover the finite part or the exact finite-M trace.",
+        "searches": [
+          "arXiv:2207.01944 Theorem 3.8 and Example 3.10",
+          "arXiv:2401.11866 Proposition A.1",
+          "Resultary general endpoint and degree dependence: bb08944133fd"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (not executed)",
+        "arXiv:2207.01944",
+        "arXiv:2401.11866",
+        "DOI:10.1080/17442509308833817 (limited material)",
+        "Resultary 948b2d6ab576 and bb08944133fd"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The adjoint and unforced modes fix the noise interface but the strong Feller result does not evaluate modal energies.",
+          "An o(log Λ) remainder need not converge; it can even be unbounded.",
+          "The exact symmetric-mode coefficients allow harmonic subtraction with an absolutely summable O(n^−3) error."
+        ],
+        "reasoning": "The already-covered leading terms are not counted as independent novelty. The precise finite-time spectral trace and its convergent renormalized critical value require the normalized modal evaluation and summable control, beyond the available general asymptotic.",
+        "searches": [
+          "Fkirine–Kovács–Sikolya Proposition 4.3, Example 4.8 and Proposition A.1",
+          "Resultary bb08944133fd endpoint and power laws"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proposition 4.3 gives B*=−L; Example 4.8 identifies central-vanishing modes on the same star.",
+          "The symmetric star reduces isometrically to one Neumann interval forced by a boundary amplitude 1/√N.",
+          "The accessible interval-paper description concerns necessary and sufficient linear existence conditions; full text could not be inspected."
+        ],
+        "reasoning": "An interval law with the same norm and sharp cutoff, if known, would transport by multiplying the trace by 1/N. Neither the inspected strong Feller example nor the available interval description gives the exact finite-time trace or an additive endpoint finite part.",
+        "searches": [
+          "Resultary exact star cutoff, central Kirchhoff flux/adjoint, and interval boundary-noise formulations",
+          "Fkirine–Kovács–Sikolya arXiv:2401.11866, Proposition 4.3 and Example 4.8",
+          "Da Prato–Zabczyk DOI:10.1080/17442509308833817"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "948b2d6ab576 is the bound record itself.",
+          "Distinct indexed record bb08944133fd covers the leading terms by specialization, but not the exact trace and additive remainder."
+        ],
+        "reasoning": "The exact identity with the frozen record is not independent precedent. The distinct record's demonstrable overlap is credited regardless of the displayed dates. No separate exact trace or finite-part theorem was located in these matches.",
+        "searches": [
+          "Resultary exact star law: 948b2d6ab576",
+          "Resultary central flux, degree-weighted endpoint and interval boundary noise: bb08944133fd and related matches"
+        ]
+      },
+      "rationale": "Credit the prior subcritical regularity and vertex-evaluation identity, and credit the separate general Resultary theorem for both leading coefficients and endpoint failure. The supported distinct claim is the exact star cutoff trace, including zero mode and time dependence, and the additive critical finite-part law C+o(1), not the subcritical threshold or an exclusive claim to either leading coefficient.",
+      "residual_risks": [
+        "The full Da Prato–Zabczyk interval paper was not accessible; equivalent one-edge formulas would be directly relevant.",
+        "The comparison does not exclude an older exact interval law under another normalization or resolve publication priority from dates alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broader subcritical regularity; inspected passages do not supply the finite part.",
+          "evidence": "Continuous Hα versions for α<1/4 under a vertex-eigenfunction bound, with a unit-length example.",
+          "identifier_or_url": "https://arxiv.org/abs/2207.01944",
+          "material_read": "Theorem 3.8 p. 11 and Example 3.10 p. 13",
+          "method": "OA PDF full-text passages",
+          "title": "On the parabolic Cauchy problem for quantum graphs with vertex noise",
+          "trigger": "Original subcritical graph regularity and possible sharpness precedent"
+        },
+        {
+          "assessment": "Covers input identity, central-vanishing star modes and subcritical theorem; example addresses controllability, not the exact trace.",
+          "evidence": "B*=−L; strong Feller obstruction with multiple unforced leaves; fixed range α<1/4 for regularity.",
+          "identifier_or_url": "https://arxiv.org/abs/2401.11866",
+          "material_read": "Proposition 4.3 p. 13, Example 4.8 pp. 18–19, Proposition A.1 p. 23",
+          "method": "OA PDF full-text passages",
+          "title": "On the strong Feller property of the heat equation on quantum graphs with Kirchhoff noise",
+          "trigger": "Same star and noise operator"
+        },
+        {
+          "assessment": "Exact interval coverage unresolved; no negative finding about the full paper.",
+          "evidence": "Available description concerns necessary and sufficient existence criteria, not a verifiable cutoff finite-part formula.",
+          "identifier_or_url": "https://doi.org/10.1080/17442509308833817",
+          "material_read": "Accessible publisher search description; full-text and publisher retrieval unavailable, no lawful repository copy identified",
+          "method": "DOI/publisher OA attempts and alternate-copy check",
+          "title": "Evolution equations with white-noise boundary conditions",
+          "trigger": "Equivalent one-interval forcing and possible endpoint precedent"
+        },
+        {
+          "assessment": "Identical record.",
+          "evidence": "Same central-only star and leading and finite-part laws.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-h-1-4-ultraviolet-law-for-central-kirchhoff-noise-on-an-eq--948b2d6ab576",
+          "material_read": "Resultary indexed match compared to the frozen finding",
+          "method": "Local Resultary search and bound original",
+          "title": "Sharp H1/4 ultraviolet law for central Kirchhoff noise on an equilateral star",
+          "trigger": "Exact indexed match"
+        },
+        {
+          "assessment": "Covers endpoint failure and both leading coefficients, not an exact projected trace or the stronger finite remainder.",
+          "evidence": "Degree weight SΓ(Q)=1/N here and logarithmic factor (2π)^−1 become (Nπ)^−1 in log M; the remainder supplied is o(log Λ).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-degree-weighted-critical-regularity-for-kirchhoff-vertex-noise-o--bb08944133fd",
+          "material_read": "RESULT.md finding and asymptotic passages, offsets 0 and 5457",
+          "method": "Local Resultary mirror",
+          "title": "Degree-weighted critical regularity for Kirchhoff vertex noise",
+          "trigger": "Strongest broader exact-parameter coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The equilateral star is a natural test case for Kirchhoff boundary-noise normalization. The exact finite-time trace and convergent renormalized endpoint energy distinguish a finite additive correction from an uncontrolled sublogarithmic error, and provide a benchmark for spectral approximation that the general leading-law coefficients do not supply.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

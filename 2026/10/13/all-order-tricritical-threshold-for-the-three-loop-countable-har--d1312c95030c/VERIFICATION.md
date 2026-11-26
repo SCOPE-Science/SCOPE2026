@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was checked against the published translation-invariant system for the three-loop compatibility graph.
+# Independent mathematical audit
 
-1. Dividing the two equal-loop equations gives \(z_1/z_2=((1+z_1)/(1+z_2))^k\). Solving this relation with \(r=e^{2s}\) yields the stated pair \((z_1,z_2)\) reversibly.
-2. Substitution into \(c=z_1/(1+z_1)^k\) yields \(c_k(s)\). The nonloop coordinates then sum to \(S-m_k(s)\), which gives the exact total-activity formula and its positivity condition.
-3. The merger expansion was derived through order \(s^4\). Exact rational coefficient arithmetic gives \(Q_{k,\lambda_*}=0\) and the negative quartic coefficient
-\[
--\frac{\lambda_*}{c_*}\frac{k(k+1)(37k^2+110k+37)}{1080(k-1)}.
-\]
-4. The large-\(s\) comparison \(S_{k,\lambda}(s)=O(e^{(2-2/k)s})\) versus \(m_k(s)\sim e^{2s}\) forces a finite admissibility endpoint. For \(\lambda>\lambda_*(k)\), continuity then gives a branch maximum above the merger level and two nonsymmetric parameters for every intermediate level.
-5. A separate intermediate-value argument proves existence of a symmetric positive solution for the same total activity. Summability gives membership in \(\ell^{(k+1)/k}\), so the source's normalisability criterion applies.
-6. `verify_three_loop.py` replays the branch substitutions and exact coefficient identities. Its expected successful output is `VERIFY_OK exact_orders=2..100 residual_cases=39 worst_residual=5.274e-16 k2_threshold=49/9`.
+## correctness
 
-Finite checks are corroborative only. No exact global count for \(k>2\), uniqueness of the branch maximum, extremality, stability, or thermodynamic dominance is asserted.
+PASS
+
+Checked the normalized equations for the star with loops at 0,1,2 against source §5. For z1>z2, r=(1+z1)/(1+z2)>1 and z1=r^k z2 give z2=(r−1)/[r(r^(k−1)−1)]; r=e^(2s) gives the two recorded hyperbolic formulas reversibly. Substitution gives c_k; the sum of nonloop coordinates is (Λ−2λ)/S^k, proving the total-activity formula and the strict positivity criterion S>m. Conversely for any positive summable activities with this total the reconstructed law solves every coordinate. At s=0, m=(k+1)/(k−1), c=c_*, and an admissible local merger requires λ>λ₀ as used in the orientation statement. For the independent expansion use m=sinh((k+1)s)/sinh((k−1)s) and a=c_k/c_*. Then (Λ−2λ)/(λ/c_*)=S_*a^(−1−1/k)−ma^(−1). The log-sinh Taylor series gives the recorded quadratic term, vanishing at S_*=k(3k+1)/[3(k−1)^2], and the quartic there divided by λ_*/c_* is −k(k+1)(37k²+110k+37)/[1080(k−1)]. The symbolic replay `python3 /workspace/branches/independent-checks.py 1` confirms these identities with symbolic k, not finite extrapolation. This root yields λ_*>λ₀. For λ>λ_* the curve first rises; since S grows like e^(2(k−1)s/k) and m like e^(2s), a first zero of S−m exists and the continuous extension there equals 2λ<Λ_c. The maximum is interior, and every level strictly between Λ_c and that maximum has a crossing on each side. They yield two unequal oriented laws and both reversals. The symmetric self-consistency residual tends to +∞ at z→0 and −∞ at z→∞ since S(z)=λ^(1/k)(1+z)z^(−1/k)=o(z) at infinity. All five laws are in ℓ¹, hence ℓ^((k+1)/k), so the source's normalizability and injectivity for normalized laws give five distinct measures. The checker and frozen record of verification were inspected, not executed. The result is local in the threshold and a lower bound in count, not a global uniqueness, stability, or extremality claim.
+
+## originality
+
+PASS
+
+The same-model paper already has the general equations, the binary value 49/9, and an exact binary five-measure interval; these are not new. The supported extension is the all-order local threshold with signed quartic and a proved coexistence interval for general k. Leading distinct comparators concern different graphs, control variables or classes of laws, not an equivalent all-order theorem for this graph.
+
+## value
+
+PASS
+
+The binary constant is explained by an explicit all-order sign change, including the actual direction at its degenerate setting. The same curve then yields a concrete coexistence conclusion for every tree order, beyond presenting a normal form or a few finite examples. The threshold concerns local branch orientation, not thermodynamic dominance, and the interval does not imply an exact global count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

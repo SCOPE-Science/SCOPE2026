@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,23 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification instructions
 
-Compile and regenerate the complete finite collapse certificate:
+# Independent mathematical audit
 
-```sh
-g++ -std=c++17 -O2 compute_q4_orbit.cpp -o compute_q4_orbit
-./compute_q4_orbit q4_orbit_certificate.txt
-```
+## correctness
 
-Or directly replay the supplied certificate without compiling:
+PASS
 
-```sh
-python3 verify_q4_orbit.py q4_orbit_certificate.txt
-```
+The acting group is exactly the 384 coordinate permutations and bit translations: after translating the image of zero back, an automorphism permutes the four singletons, and a vertex of higher weight is determined by its set of singleton neighbors at minimum distance. In the barycentric subdivision, each chain vertex has a distinct face cardinality. If two points of the same closed flag simplex are identified, the group element must take the positive support to itself rank by rank and preserve all coefficients, so the cell closure embeds. This gives the claimed regular CW orbit model with distinct facets obtained by deleting the ranked vertices. A chain with terminal face of size k is an ordered partition of that face into its nonempty increments, giving an independent total flag count. The separate replay checked every supplied representative and orbit for disjointness and coverage (742 nonempty faces, 2,199,938 flags, 6,721 orbit cells with the stated dimension vector). It rebuilt all signed-rank-independent facet incidences and replayed all 3,360 pairs in order: both cells were live and the face was a facet with a unique live immediate coface. In each embedded simplex closure there would be at least two immediate cofaces of a face lying two or more ranks below that simplex, so no unsupplied higher coface can obstruct a step. Inductively these are actual CW elementary collapses. Only vertex 0 remains, proving the geometric quotient claim and its consequences.
 
-The Python 3 standard-library verifier independently reconstructs the cube's adjacency relation, all independent faces, the full affine symmetry group of order \(384\), the orbit of every chain, the face incidences and the dynamic free-face conditions for all \(3360\) collapse pairs. The complete dictionary of distinct flags has cardinality \(2,199,938\), also certified by an independent ordered-Bell formula. Expected final output:
+## originality
 
-`VERIFY_OK_Q4_INDEPENDENCE_FULL_ORBIT_COLLAPSIBLE faces=742 flags=2199938 group=384 cells=6721 collapses=3360 remaining_vertex=0`
+PASS
 
-The certificate consists of \(6721\) explicit orbit-cell representatives and \(3360\) ordered collapse pairs. Every index is checked against the same data actually supplied. The assertion is finite and exact. No independent third-party scientific audit is claimed, and no general conclusion for higher cube dimensions is certified.
+The strongest same-object full-action result gives rational acyclicity only, and the strongest inspected primary grid table gives the unquotiented homology. The separate same-day antipodal record has a different acting subgroup and different quotient. None supplies a collapse of the full ordinary geometric quotient. This is a statement-level conclusion on the inspected evidence, not exhaustive priority.
+
+## value
+
+PASS
+
+The natural full symmetry of the smallest cube with this known noncontractible independence complex poses an ordinary quotient question the prior rational character cannot settle. A replayable elementary collapse completely resolves its ordinary integral and simple-homotopy behavior; it provides a precise benchmark distinct both from nontrivial topology upstairs and from the proper antipodal quotient. This is a meaningful exact invariant, not merely a rerun of rational ranks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

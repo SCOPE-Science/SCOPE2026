@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:21:32.067045Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 32–95; VERIFICATION.md; check.py (inspected, not executed)",
+        "/workspace/audit_checks.py 4"
+      ],
+      "rationale": "Lucas factors the binomial-cube sum digit by digit, including zero-padded digits since f(0)=1. All eleven digit values are units, and the two-digit convolution is positive at all ten units. In the cyclic exponent coordinate the autocorrelation polynomial reduces at primitive tenth roots to 9+2X-2X²+2X³-2X⁴ = 11−2Φ₁₀(X), and at primitive fifth roots to 5−2X²−2X³ after subtracting 24Φ₅(X). The remaining evaluations at 1 and −1 are 121 and 1. This gives the stated spectral multiplicities, and Parseval with normalization 1/10, deleting just the trivial character, yields the centered variance, also at r=0. Any aligned block is a permutation of the unit histogram by multiplication by its prefix value. Fourier inversion costs at most (9/10)11^(r/2) per block; up to ten blocks of each size and the geometric sum give the stated arbitrary-cutoff constant. The variance lower bound implies the 1/5 lower bound for at least one unit at each depth, not a lower bound for every fixed unit. An independent exact raw-residue transfer through depth 12 and direct binomial sums at all 121 indices below 11² passed; replay with python3 /workspace/audit_checks.py 4.",
+      "residual_risks": [
+        "Independent computation is finite; the uniform conclusion is deductive. No assertion modulo higher powers of eleven or of sharpness for each individual unit."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The linear p-scheme papers define and generalize one-state Lucas digit products. The Sun papers treat weighted finite sums and prime or prime-square congruences."
+        ],
+        "reasoning": "The schemes give digit transfer as a method, not its mod-11 characteristic magnitudes. The congruence sums inspected do not control the output-residue counts in complete or arbitrary prefixes.",
+        "searches": [
+          "arXiv:2111.08641; arXiv:2211.15240; arXiv:1112.1034; Z.-H. Sun, Congruences for sums involving Franel numbers"
+        ]
+      },
+      "checked_sources": [
+        "Resultary hits 3fb537900478 and d1c4b8a11bf4",
+        "Sun arXiv:1112.1034; Z.-H. Sun, Int. J. Number Theory 14 (2018), 123–142",
+        "Henningsen–Straub arXiv:2111.08641; Beukers arXiv:2211.15240"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lucas transfer plus character inversion generally expresses block errors in terms of digit eigenvalues. Here the autocorrelation reduction at Φ₁₀ is exactly 11 and at Φ₅ gives 6±√5; neither is fixed by the one-state recurrence for a general input."
+        ],
+        "reasoning": "Even a general aligned-block discrepancy theorem parameterized by a spectral gap would need the special maximal modulus and its nontrivial modes to imply the sharp exponent and exact variance; unit support and spectral decay alone do not give the claim.",
+        "searches": [
+          "arXiv:2111.08641, p. 1; arXiv:2211.15240, pp. 1–2; checked Resultary mod-5 correlation record"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary hit 3fb537900478 is the audited record itself; distinct hit d1c4b8a11bf4 concerns shifted mod-5 quadratic-character correlations (mirror RESULT.md, offset 60).",
+          "Henningsen–Straub, arXiv:2111.08641, p. 1; Beukers, arXiv:2211.15240, pp. 1–2."
+        ],
+        "reasoning": "The equivalent probability problem is the power of the multiplicative digit transfer on the ten units, or the spectrum of the corresponding cyclic walk. The same-day distinct record shares the Lucas factorization but not the modulus, observable or statistic; no priority ordering inferred.",
+        "searches": [
+          "Local Resultary search: Franel residues modulo eleven, square-root discrepancy and exact variance",
+          "Primary literature search: Franel mod 11, Lucas digit multiplication and automatic-sequence discrepancy"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A000172 indexes Franel values, not the centered variance of their mod-11 prefix histograms. The available exact corpus match is the self-match, and the distinct corpus passage concerns a different correlation statistic."
+        ],
+        "reasoning": "A table of raw Franel values can recover the eleven seed digits, but does not thereby state or establish the infinite exact variance and discrepancy law.",
+        "searches": [
+          "Local Resultary Franel comparison including entries 3fb537900478 and d1c4b8a11bf4",
+          "OEIS A000172 (sequence identifier and scope as cited in the frozen reference)"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact mod-11 variance spectrum and the sharp uniform-in-unit square-root exponent including arbitrary cutoffs. Neither the Lucas product nor the reusable convolution and Fourier framework is new. The primitive-order-ten constant modulus and the smaller nontrivial modes depend on the special Franel digit distribution, and are not implied without an exact spectral calculation by the prior structural results inspected.",
+      "residual_risks": [
+        "Limited literature coverage: unindexed exact digit spectra or a more explicit general discrepancy theorem could overlap. This is a best-of-knowledge assessment, not a priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related, not covering",
+          "evidence": "Fixed-shift block correlations of the mod-5 quadratic character rather than unit frequencies modulo eleven.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-complete-signed-correlation-spectrum-for-franel-numbers-modulo--d1c4b8a11bf4",
+          "material_read": "RESULT.md, offset 60, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local corpus search and mirrored source passage",
+          "title": "A complete signed correlation spectrum for Franel numbers modulo five",
+          "trigger": "Strongest distinct corpus match"
+        },
+        {
+          "assessment": "Different statistic",
+          "evidence": "Weighted finite sums and congruences modulo p or p², not frequency or prefix discrepancy estimates.",
+          "identifier_or_url": "https://arxiv.org/abs/1112.1034",
+          "material_read": "PDF pp. 1–2, abstract and equations (1.4)–(1.10), offsets 844 and 5885",
+          "method": "Lawful OA PDF passage reading",
+          "title": "Congruences for Franel numbers",
+          "trigger": "Classical mod-prime study of the same sequence"
+        },
+        {
+          "assessment": "Different statistic",
+          "evidence": "Studies sums of binom(2k,k) f_k / m^k modulo p, not counts by output residue.",
+          "identifier_or_url": "https://maths.hytc.edu.cn/__local/3/45/77/77F7497DDFD531E8688ED13C0D0_262306C8_24EB4.pdf",
+          "material_read": "PDF p. 1, offset 674",
+          "method": "Lawful OA PDF passage reading",
+          "title": "Congruences for sums involving Franel numbers",
+          "trigger": "Prime-level exact computations for the same sequence"
+        },
+        {
+          "assessment": "Supplies standard digit product, not exact spectrum",
+          "evidence": "Identifies the digit product with a single-state linear p-scheme.",
+          "identifier_or_url": "https://arxiv.org/abs/2111.08641",
+          "material_read": "PDF p. 1 abstract and introduction, offsets 551 and 1553",
+          "method": "Lawful OA PDF passage reading",
+          "title": "Generalized Lucas congruences and linear p-schemes",
+          "trigger": "Potential broader Lucas-property implication"
+        },
+        {
+          "assessment": "Supplies the transfer setting, not the specialized theorem",
+          "evidence": "Lucas-property examples and the matrix-scheme definition, with no mod-11 census in the inspected passages.",
+          "identifier_or_url": "https://arxiv.org/abs/2211.15240",
+          "material_read": "PDF pp. 1–2, offsets 654 and 7137",
+          "method": "Lawful OA PDF passage reading",
+          "title": "p-Linear schemes for sequences modulo p^r",
+          "trigger": "Broader transfer/automatic formulation including Franel-type examples"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Sections 3–5 of the proof; primary comparisons in originality"
+      ],
+      "rationale": "For a classical sequence and a small prime with a zero-free digit table, it is natural to ask how the unit residues balance and at what rate. The exact variance quantifies finite-block nonuniformity and reveals a four-mode spectral edge exactly at the square-root scale, which turns a qualitative digit recurrence into a sharp discrepancy exponent for arbitrary prefixes. This is more than recomputing a table or reporting a generic spectral-gap bound.",
+      "residual_risks": [
+        "The cutoff constant is an upper bound, not claimed optimal; the result concerns one prime and uniformity over its unit residues."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

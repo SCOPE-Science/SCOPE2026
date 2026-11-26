@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness: PASS
-The claim is an all-parameter assertion, not a finite extrapolation. Shortest-path distances give an explicit and exhaustive simplicial decomposition into two full simplices and one octahedral boundary for each arm. The intersection of every octahedron with the two-simplex core consists of two triangles sharing the pole edge. Collapsing this contractible core yields an actual wedge of the corresponding two-sphere quotients and an integral arm-labelled basis. The pole reversal is a determinant-positive involution on each octahedral two-sphere, so the integral basis is permuted without any orientation twist. For arbitrary subgroups, the core quotient stays contractible and the stabilizer of an individual arm acts either trivially or by an octahedral half-turn. Both local geometric quotients have the homotopy type of a two-sphere. This proves the stated orbit-count formula for every subgroup. The exact standard-library verifier exhaustively reproduced the decomposition, mod-two Betti numbers and two independent signed Lefschetz traces for arm counts two through six. Finite tests are corroboration, not an infinite proof.
+## correctness
 
-## Originality: PASS against inspected material
-The 2017 metric-gluing theorem of Adamaszek et al. already covers the **nonequivariant wedge** at a short shared edge. This is explicitly excluded from the novelty claim. The inspected 17 November 2026 two-edge-spine hexagon-book result gives a **different** integral pole-reversal sign and a **contractible** full quotient, and does not imply the unsigned one-edge symmetry representation or the entire family of subgroup quotient types. The inspected 11 October 2026 hexagon-packing theorem assumes edge-disjoint hexagons; the present cycles all share a graph edge. The inspected general line-graph result concerns Rips complexes of line graphs, not the original graph, and does not yield its group action. Exact and alias-based searches of public research results found no covering theorem. This is evidence for best-knowledge originality, not proof that an unindexed equivalence is impossible.
+PASS
 
-## Value: PASS
-The integral orientation character and homotopy of **every** genuine subgroup orbit space, in particular the full quotient sphere, distinguish one-edge overlap from the two-edge overlap where the sphere orientation sign reverses and the quotient collapses. This is a natural sharp geometric change in the overlap spine of equal-length hexagon books. The quotient classification is a structural invariant of a motivated infinite family; the previously known sphere count is not used as the value claim.
+At inclusive vertex scale two, the only cross-arm interior edges join two first-depth vertices or two last-depth vertices, since a two-step path must pass through their common neighboring pole. The two resulting full simplices meet in the pole edge, and the remaining faces are on the individual six-cycles. Each six-cycle has precisely three excluded opposite pairs and hence is an octahedral sphere. The union of the two full simplices and its intersection with each local sphere contract linearly to the pole-edge midpoint, compatibly with all symmetries. Collapsing this contractible subcomplex gives the wedge and its integral fundamental-class basis. Reversal acts by three coordinate sign flips and a transposition of the first and third axes, with determinant +1 and eigenvalues (1,-1,-1); it is a half-turn, not a reflection. For arbitrary H, subdivide to remove inversions before collapsing the contractible image of the common subcomplex in the actual orbit space. Each arm orbit leaves the quotient of one local sphere by its stabilizer, with the image of the contractible attaching subset collapsed. That stabilizer acts either trivially or by the half-turn, whose sphere quotient is a sphere (double the angular coordinate around its rotation axis). The argument uses stabilizers, not a product assumption on H, so also covers subgroups in which reversal is coupled to an arm permutation. The poles are the only vertices of degree greater than two, including h=2, giving exactly the stated automorphism group.
 
-## Closest work and limits
-Adamaszek et al., arXiv:1712.06224, Theorems 3.13 and 3.15: nonequivariant short-path gluing; the full HTML document was examined. *Two-edge hexagon books*, public result 2026-11-17: full RESULT.md read and compared. *A hexagon-packing classification of scale-two graph Rips complexes*, public result 2026-10-11: full RESULT.md read. *Hexagon two-cell model for scale-two Rips complexes of line graphs*, public result 2026-11-08: full RESULT.md read. The result does not discuss later scales, continuum-metric graphs, homotopy quotients, or equivariant fixed-point homotopy. Bibliographic risk of unindexed equivalences remains.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The absolute wedge type is an acknowledged consequence of prior Rips gluing. The supported distinct claim is the unsigned integral action including pole reversal and the homotopy classification of all genuine subgroup quotients in the one-edge Rips book. The strongest comparisons in the local index concern a two-edge Rips book (different orientation and quotient) and a directed multipath complex (different faces and acting group). Neither gives this classification.
+
+## value
+
+PASS
+
+The theorem isolates a sharp symmetry distinction between overlapping six-cycle books of the same scale and absolute homotopy type. A single spine edge gives a rotation quotient rather than the collapse seen for two spine edges. The all-subgroup statement computes genuine homotopy types, including groups coupling pole reversal to arm permutations, not just ranks or rational character averages.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

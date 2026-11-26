@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Two compilable C++17 source files are included: `verify_a.cpp` and `verify_b.cpp`. Build with `g++ -std=c++17 -O2` and execute separately. `check_a.log` and `check_b.log` are actual program outputs.
+## correctness
 
-Checker A constructs the cyclic Fano-plane incidence graph and applies recursive exact branch-and-bound edge-coloring, pruning exactly the creation of a bichromatic cycle, then enumerates normalized alternating-path switches. Checker B constructs the same abstract graph from the seven nonzero binary triples using incidence under the zero dot product, enumerates all proper edge-colorings before applying independent DSU acyclicity filtering, then constructs every normalized swap by BFS over an edge-component graph. Both check graph traversal and symmetry of adjacency.
+PASS
 
-Each checker found 119784 acyclic normalized states, 2874816 labelled states, 832440 undirected legal transitions, one component of size 119784, and the identical degree histogram. Checker B separately found 230336 proper normalized states. Source A prints elapsed seconds; this timing field is not deterministic and is not part of the mathematical certificate. All other integer results should reproduce across compatible C++17 runs.
+The incidence model with differences {0,1,3} gives all 21 Heawood edges; those three residues have every nonzero ordered difference once, so each pair of distinct points lies on exactly one common line. A proper coloring fixes three distinct root colors, and prescribing their names in line order gives one representative per global permutation orbit. A cubic three-coloring would have a bichromatic 2-factor and is not acyclic; a proper assignment of the root names and identification of the fourth name gives all 24 labeled colorings per class. Independently enumerated all 213 unoriented simple cycles, then all 230336 root-normalized proper edge assignments in fixed edge order. A state was excluded exactly when a cycle's two parity masks were each contained in one color class; properness makes the two colors different. This leaves 119784 quotient states and 2874816 labeled states. Every two-color component was traversed as an edge set, swapped once, renormalized, and accepted exactly on lookup in the independently completed acyclic-state set; loops and duplicate neighbors were dropped. The resulting adjacency was symmetric. The histogram for degrees 8 through 21 is [672,2688,6384,8904,17584,15624,16968,16632,18480,10752,3472,1176,336,112]; it has degree sum 1664880, hence 832440 edges. Traversal from one state reached all 119784. This agrees with both frozen outputs and respects maximal nonempty paths and color-permutation quotienting, not graph-automorphism quotienting.
 
-The proof is an exhaustive finite case analysis, not an asymptotic assertion. The published general proper Kempe-equivalence theorem does not supply the acyclicity-preserving conclusion. Full independent external review has not been performed, and searches do not prove absolute publication novelty.
+## originality
+
+PASS
+
+The supported contribution is the exact restricted Kempe graph, in particular its connectedness and degree and edge data. Credit the prior palette-existence and unrestricted proper-coloring results, and recognize the later exact overlap in the underlying state census. Neither unrestricted connectivity nor a census with single-edge moves implies the restricted maximal-path result.
+
+## value
+
+PASS
+
+Heawood is the natural Fano incidence graph and a canonical cubic example for testing acyclic reconfiguration at the optimal palette. Connectivity at that palette under acyclicity-preserving swaps asks a different question from unrestricted Kempe equivalence. The exact degree and edge data complement a useful reachability determination rather than merely counting colorings; the comparison with the disconnected single-edge graph shows that allowing multi-edge path moves makes a qualitative difference.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

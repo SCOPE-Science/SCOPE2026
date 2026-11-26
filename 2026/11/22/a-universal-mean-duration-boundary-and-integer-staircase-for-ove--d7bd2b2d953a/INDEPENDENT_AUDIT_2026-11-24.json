@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:09:38.057163Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–71, benchmark line 76",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent evaluation of the exponential example by direct substitution for all 15 counts"
+      ],
+      "rationale": "A start in a silent gap of length g escapes capture on a phase set of mean length E[(g-L)_+]. Thus PQ=P-sum_i E[(g_i-L)_+]=A+sum_i H(g_i), also for events long enough to wrap around the circle. Increasing A at fixed n by shortening any gap strictly improves capture, since 1-S(u)>0 for u>0. Full budget leaves A=B-n*h>0 and total gap c+n*h; strict concavity of H gives exactly the equal-gap equality cases, independent of the allocation of active lengths. The derivative of the relaxed numerator is M_h(h+c/x)-h, with M_h(g)=H(g)-(g-h)S(g), M_h'(g)=(g-h)f(g)>0, and limit m, since g*S(g)<=2*integral_(g/2)^g S(u)du tends to zero. This settles strictness at h=m and identifies d_h when h<m. Each adjacent difference has derivative S(h+c/(n+1))-S(h+c/n)>0, limits H(h)-h<0 and m-h, and is strictly decreasing in n at fixed c by strict concavity of the count envelope. This proves the ordered roots and exact adjacency ties; the mean-value theorem traps c_n strictly between n*d_h and (n+1)*d_h. The asymptotic uses the same root equation for unbounded mathematical n, independently of the finite feasible prefix at any fixed budget. N=1 and the excluded zero-length count when B/h is integral are consistent. Independent substitution of H=1-exp(-g) and ranking n=1,...,15 reproduces n=5, Q_5=0.7614450862358281 and Q_1=0.7074075836218131 (runner-up n=6 with 0.7609650547093678).",
+      "residual_risks": [
+        "The finite arithmetic example is illustrative. Some frozen checks compare formula implementations against the same algebra rather than independently establishing calculus identities; the analytic proof is decisive. The count relaxation before clipping is on x>0, not a claim that infeasible fractional counts are schedules."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yau et al. address travel downtime and multiple locations, with the periodic sum theorem assuming zero travel overhead.",
+          "The atomic-rate record proves a full staircase for independent site rotation under a time deadline, with log-failure objective n*phi((H+c)/n-c), phi=-log E[exp(-Lambda*t)], and an all-deadline boundary -log(q)/lambda_0 when there is a positive minimum-rate atom."
+        ],
+        "reasoning": "The concave-perspective proof architecture overlaps, including neighboring real-count candidates, but the theorem for negative log Laplace transforms of Poisson encounter rates does not apply to a general integrated duration survival function. The role of the feasible prefix and the tail mechanism determining the boundary differ.",
+        "searches": [
+          "Yau et al. §5 and Theorems 5.1–5.2",
+          "Resultary 2026/11/22/SCOPE-an-atomic-minimum-rate-criterion-and-exact-integer-staircase-for--1c57ff16e046"
+        ]
+      },
+      "checked_sources": [
+        "Yau et al. (2010), cited theorem passages",
+        "Distinct indexed Resultary records --1c57ff16e046 and --a27abbb498d2",
+        "Frozen RESULT.md proof and prior-work limits",
+        "Bounded external search, no decisive additional result"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Apply strict Jensen to Yau's functional at fixed silent time: the fixed-count optimizer and value given the live-time budget follow immediately. The older formula does not compare different counts under per-activation energy-equivalent costs.",
+          "The indexed rotation theorem uses large-t behavior of a tilted rate law, whereas the present adjacent difference tends to E[L]-h and is strictly increasing in P-B."
+        ],
+        "reasoning": "The mean-boundary and global switch classification require analyzing adjacent differences with the overhead shifting the total silent time, not just plugging a schedule into the older sum. The independent-site result offers a transferable method, not a dominating duration-law theorem.",
+        "searches": [
+          "Yau et al. periodic survival-integral sum, Theorem 5.2",
+          "Resultary --1c57ff16e046 Finding and Proof §§1–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Yau et al. state the same survival-integral and periodic sum objectives, under continuity of L and translation of present/absent intervals to active/silent arcs.",
+          "The fixed-duration transient-episode Resultary record --a27abbb498d2 gives an exact calendar for fixed n, with decreasing survival weights from the nonuniform time origin and strictly increasing chronological gaps."
+        ],
+        "reasoning": "Minimizing summed integrated noncapture per gap is the same fixed-schedule problem in the zero-travel periodic formula; adding an explicit activation-budget cost and optimizing n is a distinct optimization. The fixed-duration calendar cannot be converted to uniform circular phase by shifting the origin or equating durations.",
+        "searches": [
+          "Yau et al. (2010), DOI 10.1145/1824766.1824774, Theorems 4.2 and 5.2",
+          "Resultary searches for cyclic partial-overlap monitoring and activation-budget count selection"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest distinct indexed comparisons give an exact n-window calendar recurrence and an exact threshold table by equation, respectively, for other sampling models."
+        ],
+        "reasoning": "The target is a theorem over continuous duration laws and budgets, not recomputation of an instance from a table; in particular neither indexed exact equation generates the c_n for arbitrary H in this model. The exponential benchmark is not the originality claim.",
+        "searches": [
+          "Resultary cyclic capture and integer staircase matches, including --a27abbb498d2 and --1c57ff16e046"
+        ]
+      },
+      "rationale": "The survival-gap functional is known and fixed-count balancing is a direct consequence; neither is credited as distinct in isolation. Credit the exact distribution-universal mean-duration cost boundary with its equality and sharpness, and the precise all-count ordered transition rule in the cyclic, energy-budget model. The two close indexed models each overlap a substantial component, but the inspected claims and restrictions do not jointly or separately entail this classification.",
+      "residual_risks": [
+        "General scheduling or concave optimization results outside the inspected material could contain equivalent count rules. Same-day indexed records were compared on mathematics; date alone establishes no order or priority. No novelty inferred from an unsuccessful search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the fundamental functional; no demonstrated coverage of the energy-budget count theorem.",
+          "evidence": "Theorem 4.2 counts starts in present time and surviving starts in absence; Theorem 5.2 sums this over the periodic schedule at zero travel overhead. Theorem 5.1 treats actual out-of-range travel time.",
+          "identifier_or_url": "https://www.math.purdue.edu/~yipn/papers/qomTOSN2010.pdf",
+          "material_read": "Theorems 4.2 (paper p. 13, offset near 40591), 5.1 (pp. 25–26, near 74600–77900), and 5.2 (p. 28, near 82250)",
+          "method": "Lawful OA PDF passages",
+          "title": "Quality of Monitoring of Stochastic Events by Periodic and Proportional-Share Scheduling of Sensor Coverage",
+          "trigger": "Directly matching periodic-surveillance capture objective and related overhead model"
+        },
+        {
+          "assessment": "Material structural overlap but neither an equivalent nor broader law on the stated objects.",
+          "evidence": "Independent random Poisson rates yield a product of Laplace transforms, cost is elapsed relocation time for all but first site, and the infinite staircase or no-rotation phase is determined by the rate atom.",
+          "identifier_or_url": "2026/11/22/SCOPE-an-atomic-minimum-rate-criterion-and-exact-integer-staircase-for--1c57ff16e046",
+          "material_read": "Finding, assumptions, and Proof §§1–3 start, offset 0",
+          "method": "Resultary search and exact local mirror passage",
+          "title": "An atomic minimum-rate criterion and exact integer staircase for heterogeneous survey rotation",
+          "trigger": "Closest matching staircase, boundary and count-relaxation theorem"
+        },
+        {
+          "assessment": "Overlapping objective, different arrival/horizon and optimization variables.",
+          "evidence": "Exponential arrival and duration; fixed common active length and count; no deadline or switching penalty; unique chronology of increasing optimal gaps.",
+          "identifier_or_url": "2026/11/22/SCOPE-fixed-duration-transient-episode-monitoring-has-a-sharp-algebrai--a27abbb498d2",
+          "material_read": "Finding, assumptions and proof §§1–3, offset 0",
+          "method": "Resultary search and exact local mirror passage",
+          "title": "Fixed-duration transient-episode monitoring has a sharp algebraic-to-exponential detection transition",
+          "trigger": "Closest matching positive-overlap interception design"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen count boundary, switch brackets and example",
+        "Yau et al. prior fixed-schedule functional and distinct Resultary design regimes"
+      ],
+      "rationale": "The energy constraint makes splitting live time neither free nor always beneficial. An exact all-law cutoff in measurable event-duration units and a global integer choice including ties give a usable design classification, not just a fixed-count balance or numeric comparison. It locates the costs at which experimental scheduling decisions change and separates the count restriction from the timing-law thresholds.",
+      "residual_risks": [
+        "Interprets a partial-overlap capture objective and energy-equivalent overhead only; may not predict field recognizability, wake-up latency or ecological estimator quality."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:37:09.878086Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The original identification with Belardinelli–Zhang contraction is false: Definition 4.1 gates the addition of the falsifiers of θ at sources satisfying Box θ, not θ. The repaired theorem concerns exactly the original displayed truth-gated dynamics, not that contraction. Unchanged truth sets force the next update to be unchanged. A shrinking inner Box p set gives the one-step existential-outer bound and the two-step universal-outer bound; an increasing inner Diamond p set gives a growing nonempty proper truth set in the double-diamond case and must grow at every nonterminal strict update in the Box Diamond case. Explicit witnesses realize all bounds. The original double-diamond cycle wrongly claimed an empty terminal false set: induction gives D={k+1,…,n−1}, T={k,…,n−2} at the stage k=n−2−t, and the last strict addition saturates the true rows against the still-false vertex n−1. Independent replay at n=3 through 8 matches this endpoint and the n−1 lifetime (branches/dd49d72a-8016-44f9-8b8d-bc93b3fe274c/cycle-terminal-replay.md). The nar­row n=2 bound also follows symbolically: a strict second edge would have to go from the initially inactive vertex to the active vertex, but if missing, the inactive vertex cannot see the first changed row and so remains inactive. The supplied checker was inspected, not executed; the replacement maintains the finite test ranges and adds the cycle endpoint assertion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.2 gives a complete axiomatization; §5 studies preservation and Moorean formulas. The indexed believed-announcement result gives a sharp state-count bound for an edge-deleting update."
+        ],
+        "reasoning": "Neither a general reduction axiom nor an edge-deletion bound gives the four sharp edge-insertion lifetimes. In particular the directed-path and directed-cycle witnesses depend on the stated source and target tests.",
+        "searches": [
+          "arXiv:2606.31861, Theorem 4.2 and §5",
+          "SCOPE-sharp-state-count-stabilization-bound-for-finite-believed-announ--65b4b662c65e, Finding and update"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–43 and 49–61; VERIFICATION.md; checker.py",
+        "arXiv:2606.31861",
+        "SCOPE:5680885de989",
+        "SCOPE:cac8fc2eab7c",
+        "SCOPE:65b4b662c65e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The possibility result activates Box Diamond p-worlds but inserts falsifiers of Diamond p. In the repaired Box Diamond p case the same guard inserts falsifiers of Box Diamond p. With an initial directed path and P={0}, the previous operation adds a self-loop at the terminal vertex; the repaired rule cannot add that loop."
+        ],
+        "reasoning": "The coincidence of path lifetime is not statement-level implication: at the first update the two payloads differ even in the extremizing geometry. The other repaired classifications require their own shrinking/enlarging support-set arguments.",
+        "searches": [
+          "Prior possibility-contraction RESULT.md, Finding, assumptions and proof equation (1)",
+          "arXiv:2606.31861, Definition 4.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Definition 4.1 adds the θ-falsifiers at a Box θ-world. The repaired statement adds the falsifiers of φ at φ-worlds. The web hits were not relevant to this exact claim."
+        ],
+        "reasoning": "Substituting φ for θ changes the guard, while substituting Box θ for φ changes the payload. Monotone edge insertion is common but the maps are not the same.",
+        "searches": [
+          "Resultary: Belardinelli Zhang global falsifier hedged contraction repeated modal formula stabilization lifetime",
+          "Web: \"Belief Contraction in Dynamic Epistemic Logic\" \"hedged\" iterated modal depth two Belardinelli Zhang",
+          "arXiv:2606.31861, Definition 4.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Top hit SCOPE-sharp-finite-convergence-of-iterated-possibility-contraction--5680885de989 gives exact lifetime n for belief-gated contraction on the single content Diamond p. The indexed propositional result SCOPE-idempotence-and-exact-commutation-of-propositional-hedged-contra--cac8fc2eab7c gives idempotence and commutation for a fixed propositional payload."
+        ],
+        "reasoning": "These are exact indexed results but not a table or formula for this truth-gated quartet; the content/guard and payload determine which rows and edges change.",
+        "searches": [
+          "Resultary: Sharp exact maximum lifetime for iterated hedged contraction on depth-two modal formulas Diamond Box p Box Box p Diamond Diamond p Box Diamond p"
+        ]
+      },
+      "rationale": "For the repaired truth-gated rule, no covering statement for the four exact lifetimes was established from the inspected evidence. The strongest indexed comparison uses the same row formula Box Diamond p and a path with the same n-step lifetime, but genuinely different target predicates, with different updated relations already at the initial path step. The defining paper's result for the different belief-gated operator cannot be claimed as context for an identical rule.",
+      "residual_risks": [
+        "The indexed possibility-contraction comparison is structurally close even after the guard/payload distinction. A different terminology for truth-gated edge insertion could hide an earlier exact classification; the bounded searches do not settle priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different rule; the original attribution was incorrect",
+          "evidence": "Definition 4.1 displays the Box θ guard with payload {v:v satisfies not θ}. Theorem 4.2 is axiomatization; §5 is preservation.",
+          "identifier_or_url": "https://arxiv.org/pdf/2606.31861",
+          "material_read": "Definition 4.1 (offset 20093), Theorem 4.2 (offset 23662), §5 (offsets 25006 and 26532)",
+          "method": "OA primary PDF",
+          "title": "Belief Contraction in Dynamic Epistemic Logic",
+          "trigger": "Original operation attribution and broader update theory"
+        },
+        {
+          "assessment": "Exact same bound n for a related, nonidentical dynamics",
+          "evidence": "Single content Diamond p, guard Box Diamond p, falsifiers of Diamond p as targets, sharp directed-path witness.",
+          "identifier_or_url": "2026/10/26/SCOPE-sharp-finite-convergence-of-iterated-possibility-contraction--5680885de989",
+          "material_read": "Finding, assumptions and proof equation (1)",
+          "method": "OA local mirror",
+          "title": "Sharp finite convergence of iterated possibility contraction",
+          "trigger": "Strongest exact-lifetime match"
+        },
+        {
+          "assessment": "Different guard and invariant fixed propositional target set",
+          "evidence": "Rows S⊆P acquire W∖P; c_P(c_P(S))=c_P(S).",
+          "identifier_or_url": "2026/10/4/SCOPE-idempotence-and-exact-commutation-of-propositional-hedged-contra--cac8fc2eab7c",
+          "material_read": "Finding and propositional row operation",
+          "method": "OA local mirror",
+          "title": "Idempotence and exact commutation of propositional hedged contractions",
+          "trigger": "Known one-update result"
+        },
+        {
+          "assessment": "Different edge-deleting dynamics",
+          "evidence": "The update intersects with arrows to satisfying targets rather than adjoining arrows to falsifiers.",
+          "identifier_or_url": "2026/10/4/SCOPE-sharp-state-count-stabilization-bound-for-finite-believed-announ--65b4b662c65e",
+          "material_read": "Finding and accessibility update",
+          "method": "OA local mirror",
+          "title": "Sharp state-count stabilization bound for finite believed announcements",
+          "trigger": "Adjacent sharp stabilization result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired rule is a natural single-formula directed closure: connect every currently satisfying source to every currently falsifying target, then reevaluate on the enlarged relation. A complete classification of the four length-two modal words shows that interchanging outer and inner modalities can change the sharp lifetime from constant to linear. The two linear bounds differ by one for a structural reason and require different cycling and propagation witnesses. This is a result about the exact rule used, not a claim to resolve lifetimes for the established contraction rule.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

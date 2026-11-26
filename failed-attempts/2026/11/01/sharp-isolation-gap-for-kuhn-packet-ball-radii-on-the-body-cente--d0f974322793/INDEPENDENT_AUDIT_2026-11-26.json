@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:16:31.259603Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Proof §§1–4 and VERIFICATION.md; inspected verify_bcc.py without execution",
+        "Independent replay: python /workspace/evidence/independent_checks.py 4; exact scaled-integer shell check, determinant, centroid and second-level witness"
+      ],
+      "rationale": "Every nonempty subset sum of the independent frame occurs as a vertex with the origin in some ordering, hence must have length at most 2 times the packet radius. Below 1/sqrt(2) all such sums lie in the 14-vector short shell: the six signed axial units and eight half diagonals. Two independent axial units have a length-sqrt(2) sum. With one axial unit, the other vectors must be half diagonals opposite to it in that coordinate; their sum can only be the negative of the axial unit, violating independence. Thus all three are half diagonals. A non-antipodal pair of them is short in sum only when it differs in two signs, so the triple is exactly three distinct vectors of one H_eta. Their Gram matrix has diagonal 3/4 and off-diagonal −1/4, eigenvalues 1,1,1/4, and determinant 1/4. This gives lattice determinant magnitude 1/2, the covolume of the unscaled BCC lattice. Every prefix tetrahedron then has vertices all at squared distance 5/16 from its centroid. Averaging the four squared distances from any other center adds the squared displacement to this value, proving the radius is minimal, not just circumscriptive. The two sign classes give eight unordered and 48 ordered minimizers. The complement has radius at least 1/sqrt(2); for the explicit frame the long pair 0,e_1+e_2 forces this value, and the six stated centers give squared upper bounds 1/2 in four orders and 5/16 in two. Independently checking that arithmetic and the eight shell survivors in doubled integer coordinates confirms the certificates. Vertex containment suffices by convexity of each ball. Long vectors cannot escape the subset-sum obstruction, so the proof covers arbitrary sublattice frames, not just the enumerated shell.",
+      "residual_risks": [
+        "Neither the proof nor this audit claims classification of every frame attaining the second threshold. The auxiliary count of second-level short frames is not used for the Finding."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General kappa-covering minima formalize the optimization. The Kuhn-covering theorem and parallelohedron construction use fitting translations and obtuse superbases. The vectors of H_eta do form an obtuse superbase, but those results do not establish what happens to the radius for each other BCC frame."
+        ],
+        "reasoning": "A construction of one suitable basis, or an existence theorem for obtuse superbases, does not quantify a sharp gap over all other independent frames. Same-scope catalogue coverage, not generic framework, settles the comparison.",
+        "searches": [
+          "Xue arXiv:2610.39034 definition and Prop. 2.4; Lian–Xue arXiv:2606.14584 Thm. 1.1 and Prop. 3.10; Kurlin arXiv:2201.10543 Def. 2.5 and Thm. 2.8"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 8e6d7843a500",
+        "arXiv:2610.39034, 2606.14584 and 2201.10543; Labelle §4.3; Choudhary–Kachanovich–Wintraecken §1.2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed theorem imposes no primitivity and uses the same two parity tetrahedra and independently fitted balls. Its gap witness is the simultaneous negative of the frozen witness. The Coxeter/Sommerville result identifies the optimal tetrahedral geometry but not the gap."
+        ],
+        "reasoning": "Central reflection preserves every prefix-simplex radius, and converting the two thresholds to a multiplicative factor produces sqrt(8/5) with no new conclusion. The alternate wording does not isolate a surviving distinct claim.",
+        "searches": [
+          "8e6d7843a500 Finding, assumptions and short-subset-sum proof; Choudhary–Kachanovich–Wintraecken §1.2; Lian–Xue Prop. 3.10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "8e6d7843a500 defines kappa_B by exactly the same min-center/max-over-simplex operation. Xue uses the general fitting-radius version for K and independent frames, including proper sublattices."
+        ],
+        "reasoning": "For the Euclidean unit ball the fitting radius is the minimum enclosing radius. The minimum over frames is the kappa-covering minimum, but the specific sharp second level is a stronger frame-by-frame statement. The exact Resultary theorem states that stronger statement too.",
+        "searches": [
+          "Resultary: BCC Kuhn packet radius, rigid optimum, sharp second level; Xue arXiv:2610.39034 p. 1 on kappa-covering minima"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "8e6d7843a500 states sqrt(5)/4 and 1/sqrt(2), with the two H_eta classes, eight unordered/48 ordered optimizers and sharp attainment of the next level. Labelle's sqrt(15)/6 radius-edge ratio matches the optimal simplex after unscaled BCC edge normalization."
+        ],
+        "reasoning": "The classical single-simplex ratio is not an all-frame table. The indexed full theorem is directly exact coverage, even without a table of packet radii.",
+        "searches": [
+          "Resultary 8e6d7843a500 Finding and proof of first-two-level theorem; BCC Delaunay radius-edge ratio in Labelle thesis §4.3"
+        ]
+      },
+      "rationale": "The separate indexed RESULT.md 8e6d7843a500 demonstrably covers the complete claim: same unscaled lattice, maximum over the six prefix-simplex minimum enclosing radii with independent centers, arbitrary independent frames, exact two thresholds, optimizer sets and counts, automatic basis property, and a centrally reflected sharpness example. Its proof uses the same subset-sum shell argument. This is a coverage judgment, not a claim that its later-dated catalogue record precedes the frozen source or a judgment about historical attribution. The earlier kappa-covering and Delaunay literature gives relevant context but is not the reason for the FAIL.",
+      "residual_risks": [
+        "The exact matching record has a later catalogue path. The provenance relationship is unresolved; equivalent coverage does not establish order or priority.",
+        "The original Conway–Sloane text was unavailable; the bounded search does not establish historical first discovery."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Distinct indexed record with complete mathematical coverage; no priority inference",
+          "evidence": "Defines identical kappa_B, including proper sublattice frames, and proves both thresholds and exactly the same optimum orbit and counts.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-rigid-optimal-kuhn-packets-and-the-sharp-second-level-for-the-bo--8e6d7843a500/RESULT.md",
+          "material_read": "Finding and assumptions at offset 0, subset-sum proof §§1–2 and sharpness comparison",
+          "method": "Resultary search and bounded local-mirror text",
+          "title": "Rigid optimal Kuhn packets and the sharp second level for the body-centered cubic lattice",
+          "trigger": "Potential exact BCC first-two-level duplicate"
+        },
+        {
+          "assessment": "Same functional in more general setting, not this classified gap",
+          "evidence": "The fitting radius for a frame takes the maximum over its permutation simplices with separate translations, then the minimum is taken over independent frames.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.39034",
+          "material_read": "P. 1, offsets 1834–4146, and Prop. 2.4, p. 4, offset about 15000",
+          "method": "Open primary PDF, targeted passages",
+          "title": "On kappa-covering minima",
+          "trigger": "Earlier exact formulation of the frame functional"
+        },
+        {
+          "assessment": "Covering criterion and representation, not fixed-BCC all-frame exclusion",
+          "evidence": "Translated Kuhn tetrahedra yield lattice coverings and represent 3D parallelohedra using obtuse superbases and Delaunay data.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.14584",
+          "material_read": "Thm. 1.1 p. 2 and Prop. 3.10 pp. 15–17",
+          "method": "Open primary PDF, targeted passages",
+          "title": "Minimal Covering Bodies and a Minkowski-Type Criterion for Lattice Coverings",
+          "trigger": "Kuhn-packet covering and 3D lattice reduction"
+        },
+        {
+          "assessment": "General superbase structure",
+          "evidence": "Every 3D lattice has an obtuse superbase; this says nothing about radii of competing frames outside that structure.",
+          "identifier_or_url": "https://arxiv.org/abs/2201.10543",
+          "material_read": "Def. 2.5 p. 4, Thm. 2.8 p. 5",
+          "method": "Open primary PDF, targeted passages",
+          "title": "A complete isometry classification of 3-dimensional lattices",
+          "trigger": "Potential implication from obtuse-superbase geometry"
+        },
+        {
+          "assessment": "Matches the optimal geometry but not the all-frame gap",
+          "evidence": "BCC Sommerville tetrahedron with radius-edge ratio sqrt(15)/6, yielding sqrt(5)/4 at shortest edge sqrt(3)/2.",
+          "identifier_or_url": "https://www2.eecs.berkeley.edu/Pubs/TechRpts/2007/EECS-2007-104.pdf",
+          "material_read": "§4.3, printed p. 86, PDF p. 96, offset about 144465",
+          "method": "Open full thesis, targeted section",
+          "title": "Tetrahedral Mesh Generation with Good Dihedral Angles Using Point Lattices",
+          "trigger": "Historical BCC Delaunay simplex radii"
+        },
+        {
+          "assessment": "Classical tetrahedron identified, not all-frame comparison",
+          "evidence": "BCC vertex set of the Coxeter triangulation and Sommerville type II tetrahedral shape.",
+          "identifier_or_url": "https://doi.org/10.1007/s11786-020-00461-5",
+          "material_read": "§1.2, p. 3, offset about 7626",
+          "method": "Targeted primary text",
+          "title": "Coxeter Triangulations Have Good Quality",
+          "trigger": "Possible optimum among BCC triangulations versus frame certification"
+        },
+        {
+          "assessment": "Unresolved original-source access, not negative evidence",
+          "evidence": "Primary retrieval returned 403; accessible later sources give the general obtuse-superbase theorem.",
+          "identifier_or_url": "Conway–Sloane (1992), Thm. 8 as cited in Lian–Xue Prop. 3.10",
+          "material_read": "Lian–Xue citation and application only; primary original not accessible",
+          "method": "Lawful OA retrieval attempt and repository-copy check",
+          "title": "Conway–Sloane 1992 obtuse-superbase result",
+          "trigger": "Original superbase result cited by the closely matching framework"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–4; Resultary 8e6d7843a500 Finding and proof; Xue arXiv:2610.39034"
+      ],
+      "rationale": "The exact second level is a well-motivated rigidity benchmark for the kappa-covering certificate, and would be useful independently of the classical BCC covering radius. As a distinct narrow finding here, however, it adds no new extremal fact, classification or mechanism to the matching complete first-two-level theorem. Reversing the witness or expressing the gap as a ratio gives no additional mathematical value beyond that coverage.",
+      "residual_risks": [
+        "This does not deny the value of the theorem as mathematics or attribute its discovery to either record."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

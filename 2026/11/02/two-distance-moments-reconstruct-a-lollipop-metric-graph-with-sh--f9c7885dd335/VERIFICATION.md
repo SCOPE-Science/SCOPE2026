@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Verification of the distance-moment inverse
+# Independent mathematical audit
 
-The included `verify.py` is independently executable using the Python 3 standard library:
+## correctness
 
-```bash
-python verify.py
-```
+PASS
 
-Observed output:
+With total length normalized to one, integrating |x−y| on the pendant square, the shorter circular distance on the loop square, and x+y on the two mixed rectangles reproduces both moment polynomials. Separate exact integration also verifies the stated collision example. The derivative of H is −t[10(t−3/4)²+3/8]/30, strictly negative on (0,1); the endpoint limits give the claimed open range. The sign change of μ′=t(5t−4)/4 distinguishes all mean fibers, excluding the unattainable shape endpoint t=1 when μ=1/4. Integration of −H′ gives H(t)−H(s)≥(s²−t²)/160 for 0<t<s<1 and ≥δ(s−t)/80 for t,s≥δ. The comparison of t=ε and s=2ε makes both input differences O(ε²), excluding any larger uniform inverse exponent. H in its range alone is not sufficient for consistency of a measured pair. The uploaded code was read, not executed; exact integrals and the collision can be replayed in review_checks.py, lollipop().
 
-```text
-VERIFY_OK 22414 checks: exact identities, sharp inequalities, independent integration, seeded simulation
-```
+## originality
 
-The script compares the two expanded moments against an independent three-case conditional construction at 199 exact rational parameters. It checks the exact contrast identity and range, all 7,260 pairs of a 121-point exact rational grid for injectivity and the quadratic inverse lower bound, numerical two-dimensional midpoint integration of the intrinsic shortest-path distance at nine parameters, a closed-form noncongruent mean-collision example, four seeded samples of 75,000 independent point pairs, and the small-loop quadratic differences for seven scales. The distance evaluator computes the shortest circular route and the route through the junction directly, not using the claimed moment formulas.
+PASS
 
-The proof in `RESULT.md`, not the finite grid, establishes the universal injectivity, all-positive-length quantifiers, exact mean fiber classification and optimal exponent. Quadrature and Monte Carlo tolerance checks are numerical corroboration, not infinite-domain certificates. Full-text comparisons and historical priority have residual access and search limitations, documented in `REVIEW.md` and `AUDIT.json`. No independent validation is asserted.
+The distinct content supported by the comparison is fixed-length recovery from only two scalar moments, the precise first-moment ambiguity, and sharp inverse regularity. Credit the available forward network formulas and the broader full-law inverse. This is a best-of-knowledge judgment, not a historical priority guarantee.
+
+## value
+
+PASS
+
+This distinguishes the information of a mean, a low-dimensional pair of moments, and a complete distribution on a natural minimal unicyclic shape family. It gives an exact feasibility and reconstruction test and identifies where inversion necessarily becomes ill conditioned, rather than just tabulating moments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

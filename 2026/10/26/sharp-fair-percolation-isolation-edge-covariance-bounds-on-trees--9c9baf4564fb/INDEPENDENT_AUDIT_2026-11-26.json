@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:34:09.260797Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions and Proof; VERIFICATION.md and verify.py (inspected only)",
+        "Independent replay: python3 /workspace/reproductions/boundaries.py, percolation(); rational DP retaining every optimizing hub multiset over all admissible item charges, n=5..42"
+      ],
+      "rationale": "Conditioning on isolation of a vertex v removes its d_v incident edges from the mean retained-edge count and does not affect any other edge, so its covariance contribution is −d_v2^(−d_v)/2. The function d2^(−d) equals 1/2 at 1,2 and is strictly smaller from degree 3 onward; equality for the lower bound therefore forces the path. The degree budget is B=n−2=Σ(d−1); a positive degree list of that sum has a Prüfer realization. For the upper bound hub profits at degrees 3,4,5,6 are 4,8,11,13 in units of 1/32, at costs 2,3,4,5. Any degree ≥7 is dominated by two fours with profit 16 at cost 6 and any remaining budget can be filled with degree-two vertices. The listed exchanges with a three, four fours, or two sixes are strictly profitable. A sole three can use a spare unit to become a four for B≥3. Two spare units buy a hub; one spare unit strictly improves any surviving degree 4,5,6 by replacing it with 5,6,(4,4), respectively. Thus there is no slack in an optimum and only (a,b,c) with 3a+4b+5c=B, a≤3,c≤1 survive. The scaled profit is 11B−a−3c; checking these eight (a,c) pairs yields exactly the four residues and their listed ties, with the three-fours case infeasible at B=5. At n=4 the star yields −15/16; at n=2,3 only the path is possible.",
+      "residual_risks": [
+        "Frozen edge-mask enumeration checks representatives of degree multisets through order ten, not every tree separately; the analytic covariance identity supplies the reduction. No result for non-fair retention or non-tree equality classes is inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The chemical-tree/fixed-leaf lead was unavailable in primary full text (HTTP 403); applicability beyond that indexed scope was not determined.",
+          "The inspected percolation and random-graph passages concern giant clusters of random split trees, a growing graph isolation CLT, and regular-graph root-cluster moments, respectively."
+        ],
+        "reasoning": "A theorem limited to chemical trees would exclude degree-five and degree-six hubs, and fixing the leaf count changes the optimization. The other primary results do not bound the relevant exact covariance over all finite tree degree profiles.",
+        "searches": [
+          "S0096300320302502, general degree-based indices, chemical trees and fixed leaf count",
+          "arXiv:1902.08109",
+          "arXiv:1910.02668",
+          "arXiv:2111.01982"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 1578d7ac2ea5, 9e09a93c1291, cf951f62ca90",
+        "arXiv:1902.08109, arXiv:1910.02668, arXiv:2111.01982",
+        "S0096300320302502 (indexed description only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Conditioning or differentiation reduces the problem to an additive degree index. Maximizing gain per charged unit picks five as the default hub, but does not decide each residue or when the degree-six versus three-degree-four tie is feasible.",
+          "The prior variance result depends on edgewise degree adjacency rather than the degree multiset alone."
+        ],
+        "reasoning": "The pointwise lower bound is immediate from the identity, but the upper equality classes require a discrete budget and exact exchanges. Neither differentiation, a best slope, nor the different variance objective supplies those exact all-order residuals and ties.",
+        "searches": [
+          "Generic vertex-degree-index lead S0096300320302502",
+          "Resultary 1578d7ac2ea5 (differentiation identity) and cf951f62ca90 (bond isolation variance)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Differentiating E_p I=Σ(1−p)^d gives Cov(I,M)=p(1−p)(d/dp)E_p I. Thus maximizing the fair covariance is minimizing Σ d2^(−d) over tree degree multisets.",
+          "The local site-occupancy counterpart uses the same differentiation mechanism for survivor counts."
+        ],
+        "reasoning": "The translation is exact, including reversed sign of the extremum; the derivative identity is not novel. A prior minimization of this degree sum over unrestricted trees with the same ties would cover the upper result regardless of percolation terminology.",
+        "searches": [
+          "Covariance via product-Bernoulli differentiation for isolation and total retention",
+          "Variable vertex-degree sum Σ d a^d at a=1/2; primary lead S0096300320302502",
+          "Resultary 1578d7ac2ea5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "1578d7ac2ea5 is a site-percolation covariance sign-switch/classification problem; 9e09a93c1291 is a site-percolation variance reversal for degree-matched pairs.",
+          "cf951f62ca90 uses fair bond retention on a fixed tree, but studies Var(I), not Cov(I,M); its objective includes an adjacent-degree edge sum absent here."
+        ],
+        "reasoning": "Neither nearby thresholds for stars and paths nor exact finite orders for isolated-vertex variance enumerate the same optimum. No inspected catalogue finding supplies this four-residue classification; same-day results were compared, not excluded by date.",
+        "searches": [
+          "Local Resultary comparisons for fair bond percolation isolation versus retained-edge covariance and extremal tree degree sums",
+          "Resultary 1578d7ac2ea5, 9e09a93c1291, cf951f62ca90"
+        ]
+      },
+      "rationale": "The fixed-graph conditioning identity and path bound are elementary. The relevant distinct result is the exact unrestricted-tree covariance maximum and complete equality classification, particularly the degree-five hub economy and modulo-four corrections. The inspected adjacent results do not cover it. A possibility of coverage by generic degree-index optimization is retained as a bounded access risk, not dismissed from a snippet.",
+      "residual_risks": [
+        "Full-text coverage of generic variable degree-index optimization was not established. DOI 10.1016/j.spl.2020.108714 (paths/rings/stars) was also unavailable for bounded full-text comparison. These are source-access risks, not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Genuine method overlap, different retention process and statistic",
+          "evidence": [
+            "Site occupancy and singleton survivors; derivative of mean with respect to site probability gives their covariance up to pq."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-a-sharp-tree-interval-for-the-occupancy-isolation-covariance-swi--1578d7ac2ea5",
+          "material_read": "RESULT.md opening finding and covariance identity",
+          "method": "Local Resultary mirror",
+          "title": "A sharp tree interval for the occupancy–isolation covariance switch",
+          "trigger": "Closest covariance and differentiation comparison"
+        },
+        {
+          "assessment": "Different statistic and site retention",
+          "evidence": [
+            "Pairs of degree-matched trees first reverse an isolation variance ordering at nine patches."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-nine-patches-are-the-sharp-threshold-for-degree-matched-isolatio--9e09a93c1291",
+          "material_read": "RESULT.md offsets 0–2321 and 2500–4797",
+          "method": "Local Resultary mirror",
+          "title": "Nine patches are the sharp threshold for degree-matched isolation variance reversal",
+          "trigger": "Isolation on trees and sharp small-order classification"
+        },
+        {
+          "assessment": "Same I but optimized Var(I)",
+          "evidence": [
+            "Degree adjacency affects variance; the (5,6) double star beats the star at order eleven, not a modulus-four covariance result."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-the-eleven-vertex-reversal-in-isolated-cluster-variance-under-bo--cf951f62ca90",
+          "material_read": "RESULT.md offsets 0–2293 and 6000–7765",
+          "method": "Local Resultary mirror",
+          "title": "The eleven-vertex reversal in isolated-cluster variance under bond percolation",
+          "trigger": "Same host and fair retention model"
+        },
+        {
+          "assessment": "Exact theorem and implications unresolved",
+          "evidence": [
+            "Indexed scope is chemical trees with fixed order and leaf count; no statement-level conclusion from this description."
+          ],
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0096300320302502",
+          "material_read": "Only indexed description; full text unavailable",
+          "method": "Primary literature lookup and lawful OA attempt, HTTP 403",
+          "title": "Vertex-degree-based indices on chemical trees (indexed lead)",
+          "trigger": "Potentially general theorem for equivalent additive degree index"
+        },
+        {
+          "assessment": "Different statistic and host distribution",
+          "evidence": [
+            "Giant-cluster fluctuations for bond retention on large random split trees."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1902.08109",
+          "material_read": "p. 1, offsets about 900–3270",
+          "method": "OA PDF bounded passages",
+          "title": "The fluctuations of the giant cluster for percolation on random split trees",
+          "trigger": "Frozen citation on percolation on trees"
+        },
+        {
+          "assessment": "Different host and observable",
+          "evidence": [
+            "Isolation CLT in a growing preferential-attachment graph rather than a fixed-host bond covariance extremum."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1910.02668",
+          "material_read": "p. 1 and p. 7, offsets about 400 and 25000–27588",
+          "method": "OA PDF bounded passages",
+          "title": "A central limit theorem for the number of isolated vertices in a preferential attachment random graph",
+          "trigger": "Frozen citation on isolated-vertex fluctuations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and degree-exchange proof",
+        "Resultary site covariance and bond isolation-variance comparisons"
+      ],
+      "rationale": "The covariance measures isolation sensitivity to edge density at a central retention parameter, and the fixed-order question asks how different tree hosts can make that sensitivity. The optimum does not asymptotically select either standard example (path or star); it selects degree-five hubs with exact modular corrections and distinct ties. The classification gives sharp sensitivity and exact equality for every order, information not supplied by a generic leading-rate bound or edge-conditioning calculation.",
+      "residual_risks": [
+        "Maximizers are classified by degrees, not completely by unrooted isomorphism; only fair bond percolation is considered."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

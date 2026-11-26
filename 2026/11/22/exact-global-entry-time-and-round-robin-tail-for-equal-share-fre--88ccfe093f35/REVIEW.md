@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The theorem reduces the equal-share score update to subtracting one from a largest head. Exactly \(\lfloor u_i-\delta\rfloor\) priorities in stack \(i\) exceed or equal \(\delta+1\). Because a head at the global initial minimum \(\delta\) is never selected while any such priority remains, their total is the exact first entrance time to head spread strictly less than one. The resulting head is exactly its fractional remainder, independent of tie resolution. A selected head drops below every unselected head in a width-less-than-one block, giving one election per index in each block of \(m\) steps; the \(m\)-step return follows by cancellation of the equal-share drift. Coordinate integrality forces every positive period to be divisible by \(m\). These arguments hold for every real initial vector. The extracted rational checker independently passed 3403 tests; finite tests support but do not establish the infinite quantified theorem.
+## correctness
 
-## Originality (O): PASS within inspected evidence
-The 10 November 2026 preprint of Conze, Janson and Öberg proves \(Q\)-periodicity for initial values in a small cube (Theorem 6.1) and eventual period a multiple of \(Q\) for arbitrary starting vectors (Theorem 6.4), while explicitly posing eventual exact period \(Q\) for arbitrary states as Problem 6.3. The new statement resolves the equal-vote subclass for every number of candidates and, additionally, supplies an explicit tie-independent first-entry time and vector. A previously recorded finding based on the same preprint concerns irrational three-party Birkhoff mean-square discrepancy, not rational equal-vote finite-time orbits. Adler et al. (2005) prove boundedness for general convex greedy dynamics. Adler et al. (2009/2010) describe invariant fundamental-domain entry for limited dimensions, but the available abstract does not settle the all-dimensional explicit first-entry formula; the full text was unavailable and historical-priority risk remains. Standard priority-stack merging could encode this calculation implicitly in earlier literature; absence from inspected sources is not proof of absolute novelty.
+PASS
 
-## Value (V): PASS
-The specific equal-vote case is a canonical and maximally symmetric rational family of an explicit open eventual-period problem. The exact global transient time \(\tau\), the explicitly determined entry state, and the complete infinite tail word give a full finite-time classification for arbitrary real starts and arbitrary candidate count, beyond asserting periodicity. The result is tied directly to algorithmic stabilization and state geometry, and its deterministic first-entry formula cannot be inferred from a theorem that only establishes eventual periodicity. This does not solve unequal rational shares, and the strictly narrow equal-share assumption is essential.
+Passes for the repaired scope in repairs/3/RESULT.md. The fixed-priority theorem was correct, but the frozen scope note extended its m-block counts to varying tie choices without distinguishing aligned from sliding blocks. With m=2 and u=(0,0), choose winner 1 at the initial tie and winner 2 at the tie two steps later. The sequence 1,2,2,1 has aligned blocks (1,2) and (2,1) but the middle length-two sliding block repeats 2. The repair keeps the tie-independent entry and aligned counts, and limits the sliding assertion to fixed priority. The proof counts exactly floor(u_i-delta) stack terms at or above delta+1 for every i, with a term exposed whenever any such term remains and a head at delta throughout. This certifies both strict nonentry before the total count and the exact state upon entry, including integer offsets and tau=0. After entry, a decremented head is below every not-yet-selected head within its aligned round, so every such block selects each index once. Fixed tie priority repeats the same order and hence gives all sliding blocks. The state returns after m steps; recurrence after d steps requires the integer win increment in each coordinate to equal d/m, proving the least period. The exact example u=(0,1) with lowest-index tie rule distinguishes strict-width entry from preperiod. The frozen checker was inspected, not run; its fixed-priority tests are unaffected by the repair and did not address the variable-tie extension.
 
-## Limits and closest literature
-The first strict range-one entry need not equal the shortest preperiod. The strict head-range condition may momentarily cease between consecutive returns, notably at tied maxima. The 2009 publisher abstract was accessible but its complete primary text was not, so an implicit stronger result remains a nontrivial historical-priority risk. This is a self-review, not independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The repaired theorem retains the natural exact threshold formula and the full all-real fixed-priority equal-share result, but does not claim newness for the update rule or the greedy stack device. Earlier results on initialized or projected orbits and general eventual period divisibility do not supply the exact unprojected entry time and state from arbitrary real scores. The known boundedness results do not count threshold selections. The scope repair makes no claim of novelty for the explicit variable-tie counterexample itself.
+
+## value
+
+PASS
+
+The strict-width boundary for the uniform-share dynamics makes the upcoming schedule completely determined, and the exact first-hit time and state quantify recovery from arbitrary score perturbations, including those with arbitrarily long delays. The result is not just a boundedness guarantee or repetition from a standard initialization: it identifies the recovery state and proves the unprojected eventual least period for every real input. It separates entry from shortest preperiod and now specifies exactly what arbitrary tie handling preserves.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

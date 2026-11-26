@@ -1,19 +1,21 @@
-# Scientific review: sparse diagonal quartic stabilization
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The constructive parameters are explicit and strictly positive. Direct substitution cancels the per-capita growth at the prescribed positive equilibrium. Differentiation gives exact Jacobian entries and a strict Gershgorin left-half-plane inequality with any specified spectral margin. A maximum-coordinate comparison proves nonnegative forward invariance, a uniform absorbing box, and global forward existence. The worst-case diagonal-only support lower bound follows from the decoupled constant-negative-growth instance, where one monomial necessarily has a positive derivative at the required fixed point. The separately executable rational verifier passes all 1,400 generated cases. These calculations corroborate, but do not establish, the quantified statements.
+PASS
 
-## Originality — PASS, with limitations
+Independently reconstructed the proof. Write the fixed per-capita residual at the target as R_i=r_i+(Sz)_i. The equilibrium condition eliminates alpha_i by alpha_i=beta_i z_i-R_i/z_i^2. This leaves the off-diagonal Jacobian z_i S_ij unchanged and the diagonal equal to z_i S_ii-2R_i-beta_i z_i^3. Since z_i>0, increasing beta_i makes alpha_i positive and the rightmost edge of the row Gershgorin disc strictly less than -gamma. Polynomial local uniqueness and invariant coordinate hyperplanes give nonnegativity. With M=max_i x_i, at a maximizing coordinate the derivative is at most M(R+LM+UM^2-BM^3), where R=max_i|r_i|, L=max_i sum_j |S_ij|, U=max_i alpha_i and B=min_i beta_i>0. At and above the stated K>max(1,4R/B,4L/B,4U/B), the upper Dini derivative is at most -BM^4/4, giving an invariant, finite-entry box and excluding finite-time escape. For the worst case S=0, r_i=-1, z_i=1, no monomial fails equilibrium and a lone c x_i^p requires c=1 and gives positive eigenvalue p, on every coordinate. This is a support lower bound in the stated self-only class, not a claim of global attraction or unrestricted support optimality. The package's rational checker is a finite spot check; I inspected but did not execute it.
 
-The main comparison is Çelik et al., *Stable Coexistence in Ecologies and Games*, Theorem 4.2 (arXiv:2609.09286v1). That theorem obtains a stable equilibrium with unconstrained higher-order tensors, using mixed-species total-population polynomials. It does not imply a self-only positive-quadratic/negative-cubic intervention, sharp diagonal support budget, arbitrary prescribed abundance, or uniform dissipativity. Cui et al. (arXiv:2405.18333), particularly Theorem 5, Remark 7, and Corollaries 3–6, give restrictive tensor sign/dominance criteria, not the present universal fixed-pairwise self-only realization. Classical density-dependent stability theory is credited and is not asserted to be novel. The scalar lower-bound calculation is proved independently; it does not claim priority over existing third-order obstructions. No equivalent stronger statement was identified in the searches performed, but absence from search results cannot certify historical priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The unrestricted high-order existence result left the structural question of whether distinct-species higher-order terms are necessary to overcome arbitrary fixed pairwise obstructions. The theorem answers negatively with a sign-constrained and **support-minimal diagonal intervention**, while adding dissipativity and an adjustable stability margin. This is a precise sparse realization result, not merely a new numerical threshold or a reparameterization of an already fixed-point feasible system. It distinguishes cross-species interactions from density regulation within species, an ecologically meaningful modeling choice.
+Credit the existing fixed-r,S prescription with unrestricted tensors and the close indexed self-only construction. Neither source establishes the complete sharp self-only support and orthant-wide finite-entry absorbing-box result. The distinct mathematical content is the universal sharp sparse realization with dissipativity, not the general existence of stabilizing higher-order terms, a new interpolation method, or independent novelty of arbitrary targets and margins.
 
-## Scientific limitations and residual risks
+## value
 
-Local exponential stability does not imply global convergence, unique coexistence, exclusion of alternative boundary equilibria, or biological reasonableness of the potentially large intervention coefficients. Support optimality is restricted to own-density degree-two and degree-three terms, and is not asserted among unrestricted cross-species or arbitrary-degree polynomial interventions. Archival indexing may omit an older equivalent sparse realization argument; no independent validation has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The restriction to own-density terms answers a specific feasibility question left open by allowing arbitrary mixed tensors. The sharp worst-case support cost and the guaranteed absorbing box give usable information under arbitrary fixed, possibly destabilizing pairwise data; they are not benefits inferred from numerical examples or claims of global coexistence. Value is in the constraint and its sharp guarantee, not the standard Gershgorin or polynomial comparison tools.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

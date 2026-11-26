@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:58:15.358432Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An order-three multiplicative character, extended as zero at zero, gives B_a(u)=1+omega^(-a)chi(u)+omega^(-2a)chi(u)^2, equal to three on the desired nonzero coset and zero on the other two. On permitted starts the product counts the word with weight 81. Summing first over the entire field, the empty-support term is p and one-position terms vanish. On support size k≥2 the polynomial has k distinct roots and exponents in {1,2}, so not a constant times a cube; the distinct-root Weil bound is (k-1)sqrt(p) for each unit-modulus-weighted term. The counts at k=2,3,4 give 24+64+48=136. At each excluded start exactly one argument is zero, so B_a(0)=1 bounds the total subtraction by 4 times 27. Thus 81N≥p-136sqrt(p)-108, positive at 19000 by squaring 19000-108>0 and increasing thereafter. The independent finite code uses trial division, verifies primitive roots using all prime divisors of p-1, constructs cosets by explicit cubing and multiplication (not discrete-log or Euler color labels), and analyzes every x=1,…,p-4. Replay: python3 /workspace/branches/074f9253-f40d-4057-92d4-e86062111ed1/direct_cube_coset_check.py 19000. The accompanying full-run.txt matches all 39 listed exceptions out of 1072 eligible primes; it records exactly (0,2,2,0) absent with g=2 at 547, all 81 at 571, and last all-cubic failure at 379. Combined with the infinite bound this gives 571 as the first eligible prime beyond the last failure, not an assertion that every admissible prime below 571 fails. Replacing the primitive root multiplies the color index by a unit mod 3, leaving color zero fixed and either fixing or interchanging the other two colors. Frozen checker and verification evidence inspected; uploaded code not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hu–Chen p. 6053 counts simultaneous cubic residues a+a^(-1),a-a^(-1)",
+          "Resultary 36e56e09e753 treats length four but power index four (256 patterns); 5a92ab0389ae treats cubic cosets but length three"
+        ],
+        "reasoning": "The inverse transforms are not the four successive shifts. Quartic and cubic subgroup labels are not nested quotients of one another, so the quartic theorem cannot be projected to the cubic one. A complete marginal of length three gives no guarantee all its one-color extensions occur.",
+        "searches": [
+          "Hu–Chen DOI 10.3934/math.2020388 and later cubic-residue distribution papers",
+          "Resultary: consecutive cubic and quartic power-coset patterns, exact universal cutoffs"
+        ]
+      },
+      "checked_sources": [
+        "Lehmer–Lehmer Proc. AMS 13 (1962) 102–106 and Lehmer et al. Math. Comp. 16 (1962) 407–415",
+        "Hu–Chen DOI 10.3934/math.2020388",
+        "Resultary 5a92ab0389ae and 36e56e09e753",
+        "RePEc abstracts for DOI 10.1007/s13226-024-00540-4 and DOI 10.1007/s13226-022-00299-6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The order-three character expansion and distinct-root bound imply eventual occurrence and the sufficient analytic cutoff 19000",
+          "The compared published consecutive-coset thresholds concern different length or subgroup index; the analytic lower bound here cannot certify completeness near 571"
+        ],
+        "reasoning": "Eventual occurrence and the character-sum technique are classical. Getting the sharp threshold and classifying all bad primes requires the length-four spectrum computation and gap-free connection to the large-prime range; neither follows mechanically as a specialization of an inspected cutoff theorem.",
+        "searches": [
+          "Weil multiplicative character bounds for distinct polynomial roots",
+          "Resultary 5a92ab0389ae and 36e56e09e753, and primary consecutive-residue runs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "On Runs of Residues pp. 102,104 defines the least positive start r(k,l,p) and gives unbounded limsup for k=3,l=4",
+          "Machine Proof p. 408 uses the same three-class convention but gives a theorem for three consecutive cubic residues and points to the related run literature"
+        ],
+        "reasoning": "The least positive start for the single all-zero length-four pattern can grow without bound even when every word occurs somewhere for each sufficiently large prime. Neither that assertion nor the zero-word criterion for length three is equivalent to full length-four completeness.",
+        "searches": [
+          "Primary literature: runs of four consecutive cubic residues and four-position cubic-coset patterns",
+          "Lehmer–Lehmer 1962 On Runs of Residues",
+          "Lehmer–Lehmer–Mills–Selfridge 1962 Machine Proof of a Theorem on Cubic Residues"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "5a92ab0389ae provides a 27-word length-three threshold at 307; the 1962 Machine Proof concerns exceptional primes for the all-cubic length-three run",
+          "The independently reproduced length-four table includes a final mixed obstruction at 547 while its final zero-word obstruction is at 379"
+        ],
+        "reasoning": "Earlier tables for other word sets or other lengths do not specify the 39 exceptional primes for this word set, or distinguish the final mixed obstruction from the zero-word obstruction. The new finite check is correctness evidence, not evidence of historical priority.",
+        "searches": [
+          "Resultary: 81 four-letter cubic-coset words, 547/571 boundary and exact exceptional primes",
+          "Primary literature: cubic residue run exceptions and distribution tables"
+        ]
+      },
+      "rationale": "Available sources establish related residue runs, distributions or word thresholds, not this full 81-word classification and sharp cutoff. The classical character-sum argument is prior machinery; the supported distinct result is the exact four-position classification. Published priority remains bounded by the inspected sources.",
+      "residual_risks": [
+        "Full text of the two later cubic-residue distribution papers was not obtained; abstracts cannot establish document-wide noncoverage.",
+        "The targeted literature search cannot exclude unindexed, inaccessible or equivalent work under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "a different extremal question",
+          "evidence": "least positive starting point and A(3,4)=infinity, not absence of all runs or all color words",
+          "identifier_or_url": "https://www.cs.umd.edu/~gasarch/TOPICS/res/ll.pdf",
+          "material_read": "pp. 102 and 104, OA offsets 1419 and 6200",
+          "method": "OA PDF",
+          "title": "On Runs of Residues",
+          "trigger": "same length and cubic power in a run theorem"
+        },
+        {
+          "assessment": "three consecutive cubic residues, not four arbitrary coset colors",
+          "evidence": "the exceptional-prime theorem and class definitions are accompanied by an aside directing length-four questions to the run literature",
+          "identifier_or_url": "https://www.cs.umd.edu/~gasarch/TOPICS/res/llms.pdf",
+          "material_read": "discussion on p. 408, PDF offsets 4090–6070, and bounded theorem context",
+          "method": "OA PDF",
+          "title": "Machine Proof of a Theorem on Cubic Residues",
+          "trigger": "closest classical exceptional-prime census"
+        },
+        {
+          "assessment": "different arithmetic arguments, not a consecutive-word spectrum",
+          "evidence": "count with a+a^(-1) and a-a^(-1) both cubic residues",
+          "identifier_or_url": "https://doi.org/10.3934/math.2020388",
+          "material_read": "count definition, p. 6053, PDF offset 6811",
+          "method": "OA publisher PDF",
+          "title": "On distribution properties of cubic residues",
+          "trigger": "named primary source for cubic distributions"
+        },
+        {
+          "assessment": "different length and count",
+          "evidence": "27 length-three words and threshold 307",
+          "identifier_or_url": "Resultary 5a92ab0389ae",
+          "material_read": "Finding of RESULT.md",
+          "method": "local mirror",
+          "title": "Sharp universal completeness threshold for three consecutive cubic-residue coset colors",
+          "trigger": "exact same color convention, adjacent length"
+        },
+        {
+          "assessment": "different power subgroup",
+          "evidence": "256 length-four words for quartic cosets, not cubic cosets",
+          "identifier_or_url": "Resultary 36e56e09e753",
+          "material_read": "Finding of RESULT.md",
+          "method": "local mirror",
+          "title": "Sharp universal threshold for all 256 consecutive quartic-coset quadruples",
+          "trigger": "same consecutive positions but plausible power-index overlap"
+        },
+        {
+          "assessment": "abstract points to another distribution problem; full comparison unresolved",
+          "evidence": "counts with a±a^k for k=2,3",
+          "identifier_or_url": "https://doi.org/10.1007/s13226-024-00540-4",
+          "material_read": "RePEc abstract, offset 833; no full text obtained",
+          "method": "OA abstract and lawful full-text retrieval attempts",
+          "title": "Cubic residues and their new distributive properties",
+          "trigger": "plausibly broad newer distribution theorem"
+        },
+        {
+          "assessment": "full comparison unresolved; the abstract does not verify the frozen record's more specific inverse-related description",
+          "evidence": "computations on special integer sets and exact counting functions described, no full theorem relied on",
+          "identifier_or_url": "https://doi.org/10.1007/s13226-022-00299-6",
+          "material_read": "RePEc abstract, offset 177; no full text obtained",
+          "method": "OA abstract and lawful full-text retrieval attempts",
+          "title": "On cubic residues and related problems",
+          "trigger": "potentially broader cubic-residue counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Complete residue-color words are a natural strengthening of classical consecutive-power runs, and the exact uniform cutoff resolves when every local four-argument cubic condition is simultaneously available as an existence assertion for each specified word. The last obstruction is mixed rather than all-cubic, so the cutoff is not a restatement of the classical run question or a tiny improvement to the Weil estimate. The exhaustive classification is connected to an infinite theorem, with a sharp finite witness.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

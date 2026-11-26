@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The factorial recurrence gives a deterministic 64-state transition table. The supplied code exhaustively checks indegree five and the strict positive 4-step transition matrix (minimum four and maximum sixteen labeled paths per ordered state pair); hence the uniform stationary law and quantitative mixing are rigorous. The terminal-digit classification gives the exact 64-cell triple law, and a base-five block decomposition transfers it to natural density with a power-saving bound. Independent direct factorial arithmetic and all finite cases corroborate the derivation. The finite tests alone are not used as an infinite proof.
+PASS
 
-## Originality — PASS on inspected evidence
+Verified the recurrence independently: (5q+r)! is 5^q q! times the product of the factors not divisible by five. After removal of trailing zeros, the latter contributes (-1)^q r! modulo five with a compensating 2^(−q), giving 2^q r! modulo five; stripping zeros leaves an even integer for all indices at least two, so this also gives the stated mod-10 formula. The auxiliary e_1=0 is legitimate for the five children of index one. Applying the recurrence twice gives the two-coordinate carry for residue 4 and all five triple rows. Independently recomputed the exhaustive finite certificate: for each of the 64 starting states (a,b,t), for j=0,…,624 evaluate e_(625q+j) by applying e↦e+t+γ_digit, t↦5t+digit modulo four to the four padded base-five digits of j. Evaluate the next exponent with j+1 and the same prefix unless j=624, when the prefix is (b,t+1) and the suffix is 0000. Tally each target pair and (625t+j) mod 4. Over all 4096 entries the minimum and maximum are 4 and 16; every row totals 625. A separate single-digit carry tally verified each column sum 5, pair counts 20 of 320 in every cell, and every triple entry equal to the indicator formula with counts 0,4,8,16 on 24,24,4,12 cells respectively. Uniform stationarity and subtracting the common minorant 4/625 from each entry of P^4 yield contraction by 369/625 every four levels. A base-five greedy cutoff gives at most four complete descendant blocks of each size; the geometric sum of their errors is O(N^(1−δ)), and sorting child indices by n mod 5 applies the same bound to triples. The table proves the exact tail exclusions, with positive density for each allowed word. The finite prefix also does not add forbidden words: the three triples starting at 2,3,4 can be checked directly, and the auxiliary index one handles starts 5–9. Read VERIFICATION.md and verify.py without executing the frozen script; its comparisons beyond full factorials through 500 use the digit recurrence, not independent large full-integer factorials.
 
-Lipka (2018) determines automaticity. Sobolewski (2018) supplies frequencies of a multi-digit *suffix of one factorial*, rather than joint values of three different consecutive factorials. Dresden describes the block recursion. These sources were read in full; neither states the forty-word three-index distribution or the uniform sixteen-pair law. Existing general automaton constructions can enable further computation but do not directly supply the evaluated theorem. Unindexed or other not-yet-inspected equivalent literature is a genuine residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-The complete distribution is a motivated invariant of a classical digit sequence: uniformly independent adjacent digits coexist with twenty-four forbidden triples, three precise positive triple frequencies, and power-saving counting discrepancy. This structural transition is not an arbitrary isolated numeric slice, nor merely repetition of the generating recurrence.
+The evidence supports the explicit consecutive factorial joint law, not the already known decimal digit recursion or single-symbol uniformity. The closest exact analogue shares every headline multiplicity but has a different cellwise distribution and a different underlying indexed sequence. This is a best-of-knowledge comparison of inspected sources, not historical certification.
 
-## Limitations
+## value
 
-Only decimal final nonzero digits at consecutive factorial indices are treated. The matrix-positivity lemma is a reproducible exhaustive finite certificate rather than a handwritten symbolic classification. No statement is made about all larger lags or other bases; bibliographic originality is best knowledge, not proof of uniqueness.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The three-symbol law is the first place the adjacent pair uniformity fails to extend to a joint independence law; the exact forbidden words, per-cell frequencies, and effective natural-density estimate quantify that failure. This is structural information about a familiar deterministic number-theoretic sequence, not just another prefix count or a restatement of automaticity. The rate is a valid sufficient rate, not claimed optimal.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

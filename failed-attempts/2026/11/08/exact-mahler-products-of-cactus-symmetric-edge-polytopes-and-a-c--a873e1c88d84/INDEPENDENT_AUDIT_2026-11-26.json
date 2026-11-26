@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:56:32.732648Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, all four proof parts and scope",
+        "VERIFICATION.md and check_cactus_mahler.py; inspected, not executed",
+        "Bartha–Fodor–González Merino, arXiv:2005.08292, section integral and p. 5 asymptotic expansion"
+      ],
+      "rationale": "The edge-root spans at an articulation form a direct sum; affine invariance permits product coordinates. With block dimensions a,b the free-sum primal volume gains a!b!/(a+b)!, canceled by normalization; the polar is a Cartesian product. A bridge contributes one. On a cycle the signed edge differences identify the polar with the central section of the cube [-1,1]^n, with absolute determinant n on the zero-sum hyperplane. Coarea gives polar volume 2^(n−1)f_n(n/2)/√n for the [0,1]-uniform sum density, and inclusion–exclusion gives the stated finite density sum. For odd n the polar vertices have one zero coordinate and balanced remaining signs, giving simplicial primal facets. For even n they are balanced sign vectors; the resulting facet's unique affine dependence equates the positive- and negative-side barycenters. Subtracting the smallest positive-side convex coefficient from all that side's coefficients and adding it on the other side gives the stated triangulation, with disjoint interiors. Every simplex cone uses a signed path-root basis of Gram determinant n. This yields the stated primal volume and the product including the listed small factors. The density's sinc integral has relative correction −3/(20n); expansion near zero with Gaussian domination and exponentially small off-center contribution gives relative O(n^−2). Stirling supplies −1/(4n) for even n and +1/(4n) for odd n in the rescaled binomial, hence −2/5 and +1/10 in the product.",
+      "residual_risks": [
+        "The finite hull checks are approximate and are not used as proof. The large-n expansion is for one cycle factor, not a uniform asymptotic over cacti as their total order grows. The result does not claim monotonicity at every cycle length."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Alexander et al. describe the ℓ1-sum for one-point gluing and the biconnected decomposition. Bartha et al. give the central diagonal section formula and expansion including relative terms −3/(20n) and −13/(1120n²). D’Alì et al. give polar Ehrhart information via cuts/flows. Ohsugi–Tsuchiya's cactus theorem at p. 2 is for the graph suspension."
+        ],
+        "reasoning": "The general gluing result specializes to cactus blocks immediately, and the stronger central-section expansion transfers through the elementary cycle difference map. The related Ehrhart cut/flow and suspension results need not by themselves state this product.",
+        "searches": [
+          "Primary lookup on symmetric edge polytope cycle/cactus Mahler products; arXiv:1911.10642 and arXiv:2005.08292",
+          "arXiv:2307.04933, §5, Proposition 5.1; arXiv:2008.08621, p. 2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary a873e1c88d84 (self-hit), 68c4f55dac08",
+        "arXiv:1911.10642, 2008.08621, 2201.10501, 2005.08292 and 2307.04933"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known one-point gluing plus known primal h* and central section formulas give every exact factor. In terms of I_n, the central volume for the unit-side cube, the factor is √n I_n times the normalized binomial b_n. The earlier I_n expansion already has the relative coefficient −3/20 at order 1/n."
+        ],
+        "reasoning": "Multiply I_n by the standard expansion of √n b_n, whose correction is −1/4 when n is even and +1/4 when n is odd; the respective sums are −2/5 and +1/10. The only coordinate bridge for the polar is the invertible consecutive difference map with image the zero-sum hyperplane. Neither the parity coefficient nor the complete block product requires a substantive new estimate or new volume information.",
+        "searches": [
+          "Alexander et al., arXiv:1911.10642, p. 2 and Theorem 3.3",
+          "Ohsugi–Tsuchiya, Example 5.2",
+          "Bartha et al., arXiv:2005.08292, pp. 1, 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The cycle polar is the zero-sum cube section in consecutive potential-difference coordinates. The earlier graph Lipschitz-free paper treats the primal and polar in this general language. In the same-day slab record §3, W_n(t)t tends to 2n binom(n−1,floor((n−1)/2))/n!, and V_n(t)/t tends to 2^n f_n(n/2) with f_n for uniforms on [0,1]."
+        ],
+        "reasoning": "Scale the slab's normal coordinate by 1/t; the body converges to the central cube section times a segment. Indeed the rescaled body lies between products of the segment with section scalings 1−t/n and 1+t/n. Normalized volume product is unchanged by the segment factor and is polar-invariant. Thus the slab's normalized limiting product equals the normalized cycle product; the two limits stated in §3 give exactly the same binomial–density factor. There is no same-day priority inference.",
+        "searches": [
+          "Resultary: cycle polar-volume/cube section and Mahler profiles; 68c4f55dac08",
+          "arXiv:1911.10642, 2005.08292, 2307.04933"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned record is an exact self-hit, not separate prior work. Ohsugi–Tsuchiya display the cycle gamma-polynomial with coefficients binom(2i,i); Kálmán–Tóthmérész reproduce cycle Ehrhart data. The earlier Lipschitz-free paper explicitly covers the four-cycle equality."
+        ],
+        "reasoning": "The Ehrhart h* value at one is normalized primal volume. With the stated gamma coefficients it is 2^(n−1) times Σ_{i≤floor((n−1)/2)}binom(2i,i)/4^i; telescoping the sum gives n binom(n−1,floor((n−1)/2)). Thus lack of a separately indexed exact Mahler table does not leave the primal or the joint numbers uncovered.",
+        "searches": [
+          "Resultary cactus/block factor, cycle parity, cube section/binomial and cycle polar-volume lookups; self-hit a873e1c88d84 and distinct slab hit 68c4f55dac08",
+          "arXiv:2008.08621, Example 5.2; arXiv:2201.10501, §6.2"
+        ]
+      },
+      "rationale": "The exact cactus formula follows by simple block multiplication of known primal cycle data and known central cube section volumes, related to the cycle polar by the signed edge differences. The apparent remaining contribution, the parity correction, is also the direct product of the already published section expansion (which includes even its n^−2 term) and standard central-binomial Stirling estimates. An inspected distinct same-day slab record also supplies the exact normalized cycle factor as its thin-slab limit. That comparison is equivalent coverage, not evidence of ordering; the originality rejection rests on the direct implications of the earlier primary sources.",
+      "residual_risks": [
+        "No historical claim about who first wrote the final combined formula or the same-day slab comparison is made. Earlier coverage is through the stated geometrical identification and direct multiplication of the verified primary-source components."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers gluing mechanism and C4 equality, not relied on as the exact cycle census",
+          "evidence": "Identifying distinguished points gives an ℓ1-sum; biconnected decomposition describes the graph factors; four-cycle example has Mahler equality.",
+          "identifier_or_url": "https://arxiv.org/abs/1911.10642",
+          "material_read": "p. 2 offset 8800, p. 3 offset 12400, Theorem 3.3 p. 7 offset 35000",
+          "method": "OA original passages",
+          "title": "Geometry and volume product of finite dimensional Lipschitz-free spaces",
+          "trigger": "Same graph-polytope volume products under graph gluing"
+        },
+        {
+          "assessment": "Determines the primal factor; separate cactus statement is for suspensions",
+          "evidence": "For C_n the displayed gamma coefficients are binom(2i,i), giving its normalized volume by h*(1).",
+          "identifier_or_url": "https://arxiv.org/abs/2008.08621",
+          "material_read": "p. 2 offset 6800 and Example 5.2 p. 11 offset 34700",
+          "method": "OA original passages",
+          "title": "Symmetric edge polytopes and matching generating polynomials",
+          "trigger": "Earlier exact cycle primal Ehrhart data and possible cactus coverage"
+        },
+        {
+          "assessment": "Covers primal Ehrhart data",
+          "evidence": "Reproduces cycle gamma-polynomial formula, citing Ohsugi–Tsuchiya.",
+          "identifier_or_url": "https://arxiv.org/abs/2201.10501",
+          "material_read": "§6.2, pp. 25–26, offset 95300",
+          "method": "OA original passage",
+          "title": "Ehrhart theory of symmetric edge polytopes via ribbon structures",
+          "trigger": "Exact volume of cycle symmetric edge polytope"
+        },
+        {
+          "assessment": "Covers exact section data and gives stronger section asymptotics than needed",
+          "evidence": "Unit-side section I_n has √(6/π) times (1−3/(20n)−13/(1120n²)+lower-order error). The n^−1 coefficient of this earlier expansion suffices for both claimed product corrections.",
+          "identifier_or_url": "https://arxiv.org/abs/2005.08292",
+          "material_read": "p. 1 opening exact integral and section formulas; pp. 4–5 around offsets 14000–18100, Gaussian expansion",
+          "method": "OA original passages",
+          "title": "Central diagonal sections of the n-cube",
+          "trigger": "Same polar section and possible higher-order expansion"
+        },
+        {
+          "assessment": "Related general discrete polar structure",
+          "evidence": "Polar-dilate lattice points correspond to cut vectors and dual flows; not used as an explicit product calculation.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.04933",
+          "material_read": "§5, Proposition 5.1, p. 13, offset 44900",
+          "method": "OA original passage",
+          "title": "On a generalization of symmetric edge polytopes to regular matroids",
+          "trigger": "Equivalent polar cut/flow-space description"
+        },
+        {
+          "assessment": "Exact normalized thin-slab limit implies the same single-cycle factor; no priority assigned",
+          "evidence": "§3 gives exact W_n(t)=(B_n/t+C_n)/n!, B_n=2n binom(n−1,floor((n−1)/2)), and V_n(t)/t as the mean central density times 2^(n+1) under the [-1,1] normalization. Affine rescaling identifies the limit with section times segment.",
+          "identifier_or_url": "Resultary 68c4f55dac08",
+          "material_read": "Finding and §3, original offsets 4400–6842",
+          "method": "Local publication mirror",
+          "title": "Mahler profiles of diagonal cube slabs: a parity reversal and a sharp three-dimensional profile",
+          "trigger": "Same diagonal section and binomial factor in a distinct same-day finding"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, exact factor, asymptotics and limitations",
+        "Earlier gluing, primal volume and section-expansion passages listed above"
+      ],
+      "rationale": "Cactus blocks and diagonal cube sections are natural objects, and the formula is a useful synthesis. Under this scope, however, no independently useful unknown exact fact remains: the patching of blocks and all numerical and asymptotic input are already supplied by known gluing, Ehrhart, central-section and binomial formulas. The work does not add a classification of new extremizers, a global parity monotonicity theorem, or even a new central-section estimate that could constitute a separate finding.",
+      "residual_risks": [
+        "No judgment against future cactus-volume or cycle-extremal results is implied. No substantive repaired finding was established."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

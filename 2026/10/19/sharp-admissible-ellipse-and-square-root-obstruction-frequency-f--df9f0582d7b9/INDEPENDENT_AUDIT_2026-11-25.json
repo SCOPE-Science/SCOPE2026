@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:08:51.720527Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 45–80; independently reconstructed midpoint identities, Gram determinant, and angular measure",
+        "Frozen VERIFICATION.md, lines 19–23 and verify_elliptic.py, lines 10–63, inspected without execution"
+      ],
+      "rationale": "Reconstructed the three replacements by the squared-distance midpoint formula d(k,mid(i,j))=(d(k,i)+d(k,j))/2−d(i,j)/4, where d denotes squared distance. Acting on labels by the stated cycle sends the final 03, 01, 02 entries to 01, 02, 03 respectively and returns D/4 with parameters (−3x/2−y,x). The return preserves Q, has determinant 1 and trace −3/2, which cannot be the rational algebraic-integer sum of two roots of unity. In the Gram basis of edge vectors v1,v2+v3,v2−v3 from vertex 0, writing s=x+y and t=x−y gives diagonal entries 23+4s,2+2s,10 and off-diagonals 6+9s/2,t/2,t. Its determinant divided by 4 is 25−35Q/4; the original first two leading minors are positive on Q≤2 by the dual norm estimates. The two intermediate winners are tied at squared lengths 20 and 10; the other three variable entries stay below these lengths using |x|,|y|<2. Thus only s≥−3/4 remains, and Q=(7s²+t²)/2 gives cutoff 63/32 with unique negative contact. The orbit visits the open violating arc at every higher level if an infinite admissible branch is hypothesized, without requiring physicality of the whole higher ellipse. On Q≤2 the arc fraction is arctan(sqrt((q−q_c)/q_c))/π above threshold, proving the frequency and onset; its endpoints have zero angular measure. Midpoint replacement preserves nondegeneracy, compact phase images give compact shape sets, and the two fixed squared lengths 20 force the scale factor to be one at marked returns; finite relabelings cannot eliminate infinitely many distinct normalized parameters. The determinant minimum 995/128 and diameter-squared maximum 26 are simultaneous at (3/8,3/8), proving the sharp marked volume bound.",
+      "residual_risks": [
+        "The script's four finite samples are diagnostics only. Frequency is verified only through q≤2; the sharp volume bound is only at block boundaries. No specified tie-breaking rule beyond longest-edge legality is imposed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The multiform bisection paper proves convexity of cells for a common pattern and treats the R1+ family, not the active constraints on the specified affine plane.",
+          "Michaud–Korotov give finite-orbit examples and study shape evolution in other families."
+        ],
+        "reasoning": "Neither general convexity nor finite-orbit normalization supplies the exact stage comparisons, active contact, or beyond-threshold density for this rotating family.",
+        "searches": [
+          "arXiv:2609.26522v1 Lemma 4 and §5.3 (pattern-cell convexity and finite-state refinement)",
+          "arXiv:2512.07315v1 §§3.2–3.4 (normalized shape orbits)",
+          "Resultary searches on invariant irrational longest-edge return and degeneration"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.08846v1 §4.2",
+        "arXiv:2512.07315v1 §§3.2–3.4",
+        "arXiv:2609.26522v1 Lemma 4 and §5.3",
+        "Resultary search and inspected LAB record 2604f6e90e43"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Irrational rotation gives density once a nonempty illegal arc is known; the known sample ellipse and pattern convexity do not give that arc. The stage calculations and the supporting line x+y=−3/4 identify it; the exact determinant and diameter establish simultaneous volume equality."
+        ],
+        "reasoning": "Neither prior existence at a small level nor generic equidistribution is a covering theorem for the sharp numerical/legal and geometric assertions. The latter requires the complete phase and shape analysis, not merely a new label for the original construction.",
+        "searches": [
+          "arXiv:2609.08846v1 §4.2 and arXiv:2609.26522v1 Lemma 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same squared-edge plane, word, quadratic level, and rotation occur in §4.2; Theorem 4.5 uses Q=1/16. Remark 4.3 excludes a claim about always following opposite-edge tie-breaking.",
+          "Resultary 2026/9/18/SCOPE-lab-boundary-attractor-degeneration-rates--2604f6e90e43 concerns a largest-dihedral-angle rule, not this longest-edge word."
+        ],
+        "reasoning": "Comparing the identical rotation and legality in squared-edge, Gram, and projective coordinates distinguishes the known construction from optimizing the full invariant disk and measuring its forbidden arc. The angle-selected Resultary example is not equivalent.",
+        "searches": [
+          "Resultary: sharp ellipse cutoff 63/32 and marked three-step longest-edge return",
+          "arXiv:2609.08846v1 §4.2, equations (35)–(39), Lemmas 4.1–4.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The former gives Q=1/16, not an optimized level; the latter gives numerical angle and normalized-volume examples on other tetrahedra. The strongest inspected Resultary hit uses the largest-dihedral-angle rule."
+        ],
+        "reasoning": "No matching exact cutoff, forbidden-block formula, or normalized-volume value for the same family was identified in those records. Bounded database coverage is not a priority proof.",
+        "searches": [
+          "Resultary: 63/32, specified three-bisection word, title and cited authors",
+          "arXiv:2609.08846v1 §4.2 and arXiv:2512.07315v1 §3.4"
+        ]
+      },
+      "rationale": "The exact marked return, affine ellipse, and irrational dynamics are prior. The supported increment is the sharp entire-family cutoff, its all-phase obstruction and formal angular frequency/onset, and the sharp marked-boundary normalized-volume bound. These are not in the inspected proof on the sample ellipse or supplied by convexity of pattern cells.",
+      "residual_risks": [
+        "Resultary semantic ranking was noisy and a targeted general web lookup was unproductive; neither is negative evidence. A less accessible exact admissibility computation in other refinement work remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the exact construction but not the sharp extension in those passages",
+          "evidence": [
+            "Q=1/16 chosen for admissibility; opposite-edge tie-breaking is not enforced throughout."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.08846v1",
+          "material_read": "§4.2, rendered text offsets approximately 76000–89999; Lemmas 4.1–4.4, Remark 4.3, Theorem 4.5",
+          "method": "Open-access primary HTML, direct passage comparison",
+          "title": "Degenerating orbits of the Longest Edge Bisection process",
+          "trigger": "Exact same word, family and rotation"
+        },
+        {
+          "assessment": "Shape evolution and finite orbits for different examples",
+          "evidence": [
+            "Perturbations and finite orbit lengths; 40-iteration angle and volume examples."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2512.07315v1",
+          "material_read": "§§3.2–3.4, rendered text around offsets 27000 and 54000",
+          "method": "Open-access primary HTML",
+          "title": "On the Orbits of Similarity Classes of Tetrahedra Generated by the Longest-Edge Bisection Algorithm",
+          "trigger": "Orbit classification and shape-quality comparison"
+        },
+        {
+          "assessment": "General convex pattern cells, not an evaluated cell on this invariant plane",
+          "evidence": [
+            "Convexity for a given pattern and finite refinement descriptions for R1+."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.26522v1",
+          "material_read": "Lemma 4 and §5.3, rendered text around offsets 28700 and 41000",
+          "method": "Open-access primary HTML",
+          "title": "Multiform Longest Edge Bisection of Tetrahedra via Sextuple Permutations",
+          "trigger": "Potential broader coverage by a general pattern-region theorem"
+        },
+        {
+          "assessment": "Different choice rule and attracting family",
+          "evidence": [
+            "Concerns boundary attraction and degeneration under the largest-dihedral-angle rule."
+          ],
+          "identifier_or_url": "2026/9/18/SCOPE-lab-boundary-attractor-degeneration-rates--2604f6e90e43",
+          "material_read": "RESULT.md finding",
+          "method": "Resultary local mirror",
+          "title": "Largest-dihedral-angle bisection: boundary attractor degeneration rates",
+          "trigger": "Nearest inspected Resultary result on tetrahedral bisection dynamics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof; arXiv:2609.08846v1 §4.2"
+      ],
+      "rationale": "For a prescribed nonperiodic refinement mechanism, the maximum invariant set by quadratic level is a natural robustness question. The cutoff decides legality simultaneously for every phase, rules out all infinite repetitions above it, and quantifies near-boundary failure and guaranteed block-boundary shape quality. It is an exact range of the known mechanism rather than another arbitrarily small legal example.",
+      "residual_risks": [
+        "This is not a classification for all words or a practical guarantee under other tie-breaking rules."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

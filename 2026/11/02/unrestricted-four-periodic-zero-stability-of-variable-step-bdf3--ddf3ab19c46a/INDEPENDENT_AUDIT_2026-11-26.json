@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:24:22.519810Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 19–80; VERIFICATION.md; the two supplied Python checkers and full TSV certificate",
+        "Independent exact reproduction /workspace/branches/independent_bdf_check.py; SHA-256 of frozen TSV is 651229cf9a6e925a43a40e6a7e8e681f1702d40d0594cdee20ec774ba1b76f82"
+      ],
+      "rationale": "Independently differentiating the Newton interpolant through 0,−a,−a−b,−a−b−c and substituting nodal differences yields precisely the published P/D and −U/D entries with unit shift below. At four successive chronological phases the product has trace T/Δ and determinant E/Δ; the positive one-step determinants also justify conjugacy under phase shift. The quadratic Schur test reduces to Δ−T+E, Δ+T+E, and Δ−E strictly positive. An independent integer polynomial-ring product matches every TSV entry, all of degree twenty, with counts 271,267,271 and minimum coefficients 6,6,3. This proves strict positivity on the full positive orthant, not a sampled set. In the full nodal state the constant coordinate is triangularly coupled to the damped difference block, so 1 is simple and geometric decay of differences gives convergence. The separate exact substitution h_i=r^i gives trace −1+6r−74r²/3+O(r³) and determinant r⁵/3+O(r⁶); the simple branch near −1 has modulus 1−6r+O(r²) and dominates the branch tending to 0. This proves sharpness of the supremum without weakening the pointwise strict inequality.",
+      "residual_risks": [
+        "All assertions are for each fixed repeated positive pattern and y′=0. A strict Floquet damping margin uniform over quadruples is false; no general-grid estimate is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li–Liao Thm. 3.1 uses adjacent-ratio bound R₃≈2.553 in a perturbed/general-grid result. The smooth-grid proof of Söderlind–Fekete–Faragó places ratios near unity. The cited older stability sources could not all be directly read."
+        ],
+        "reasoning": "The periodic ratios of (1,r,r²,r³) include r⁻³, so arbitrarily extreme fixed patterns lie outside either available hypothesis. Larger method or equation scope under bounded ratios is not dominance on the grid domain.",
+        "searches": [
+          "arXiv:2201.00527v1 Thm. 3.1",
+          "arXiv:1804.04553 BDF3 discussion",
+          "doi:10.1007/BF01386395",
+          "https://arts.units.it/handle/11368/1703201"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact three-period BDF3 record and narrower indexed grid comparisons",
+        "Li–Liao arXiv:2201.00527 and Söderlind–Fekete–Faragó arXiv:1804.04553",
+        "Calvo–Grande–Grigorieff and Guglielmi–Zennaro access-limited as noted"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "All positive triples are covered by the closest indexed theorem; the known general-grid criteria inspected cover only bounded or near-unity ratios for BDF3.",
+          "No comparison supplied control of the four-factor monodromy or its simple branch at −1 for this reset."
+        ],
+        "reasoning": "The three-period result cannot be chained to four: each factor uses the actual two preceding steps and its cyclic neighbors change with the period. Nor does spectral stability of shorter products alone give four-factor stability for these noncommuting matrices.",
+        "searches": [
+          "Nov. 2 three-periodic BDF3 record, Finding and scope, offset 0",
+          "Li–Liao BDF3 Theorem 3.1, offset 53200",
+          "Söderlind–Fekete–Faragó, smooth BDF3 grids, offsets 47100–55077"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The three-period record uses a three-factor product over an arbitrary positive triple and approaches one along (t,1,t⁻¹) with 16/(3t).",
+          "Li–Liao and the frozen record both build BDF3 from actual variable interpolation nodes; the grid class and strength of the bounds differ."
+        ],
+        "reasoning": "Using increments rather than nodal values removes the simple constant mode, not a step from the period. Scaling or cyclically permuting four generic steps does not turn them into a three-periodic grid.",
+        "searches": [
+          "Resultary four-periodic BDF3 and geometric-reset 1−6r searches",
+          "SCOPE-exact-floquet-stability-of-bdf3-on-every-positive-three-periodic--90fe05898983",
+          "arXiv:2201.00527v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Relevant retrieved tables or exact statements were for the three-step BDF3 product and the alternating two-step BDF3 product, or the higher-order paired BDF4 product. Focused search did not retrieve the four-step BDF3 coefficient table or its geometric reset expansion."
+        ],
+        "reasoning": "These products differ either in order or in the number/order of chronological steps. A finite exact table for another product is not a certificate or calculation for all quadruples.",
+        "searches": [
+          "Resultary four-periodic BDF3 with 1−6r geometric reset",
+          "SCOPE-exact-floquet-stability-of-bdf3-on-every-positive-three-periodic--90fe05898983",
+          "SCOPE-sharp-1-5-floquet-damping-for-bdf3-on-alternating-grids--8639cc7a1b91",
+          "SCOPE-sharp-uniform-floquet-damping-for-paired-step-mathrm-bdf4--4a7134a4fc58"
+        ]
+      },
+      "rationale": "The closest indexed all-ratio theorem is for three-periodic BDF3, not for four independent spacings. Its exact product and its boundary family are different. Relevant available BDF3 literature uses ratio or smoothness conditions not satisfied by the four-step geometric reset. The supported distinction is this exact fixed four-period positive family and its sharp reset branch, not the general Floquet method or Schur signs as a technique.",
+      "residual_risks": [
+        "The older Calvo–Grande–Grigorieff and Guglielmi–Zennaro full texts were not secured. No priority is inferred from search misses or same-day records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Conceptual prior overlap, not implication for four-periodic BDF3",
+          "evidence": "All positive triples, supremum one, tail −16/(3t) from one on (t,1,t⁻¹).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-floquet-stability-of-bdf3-on-every-positive-three-periodic--90fe05898983/RESULT.md",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "Primary local mirror, ordered step and expansion comparison",
+          "title": "Exact Floquet stability of BDF3 on every positive three-periodic grid",
+          "trigger": "Closest all-ratio periodic interpolation theorem"
+        },
+        {
+          "assessment": "Ratio condition excludes the degenerating family",
+          "evidence": "Adjacent ratio threshold near 2.553, with a step-size assumption in the ODE theorem; its introduction also reports older results.",
+          "identifier_or_url": "https://arxiv.org/abs/2201.00527",
+          "material_read": "Introduction pp. 2–3, offsets 7000–10798; Thm. 3.1 on p. 13, around offset 53200",
+          "method": "OA primary text, hypothesis comparison",
+          "title": "Stability of variable-step BDF2 and BDF3 methods",
+          "trigger": "General variable-ratio BDF3 stability could dominate"
+        },
+        {
+          "assessment": "Does not cover arbitrary fixed alternations",
+          "evidence": "Mesh variation in the relevant analysis gives ratios near one.",
+          "identifier_or_url": "https://arxiv.org/abs/1804.04553",
+          "material_read": "BDF3 and smooth grids, pp. 14–16, offsets 47100–55077",
+          "method": "OA primary text",
+          "title": "On the zero-stability of multistep methods on smooth nonuniform grids",
+          "trigger": "Potential general-grid implication"
+        },
+        {
+          "assessment": "Unresolved priority risk, not a negative result",
+          "evidence": "Available secondary description emphasizes sufficient ratio bounds; it cannot exclude ancillary specialized theorems.",
+          "identifier_or_url": "https://doi.org/10.1007/BF01386395",
+          "material_read": "Primary full text not secured; result summarized in Li–Liao introduction",
+          "method": "Bounded lawful DOI and identified author-copy attempts; secondary scope context",
+          "title": "On the Zero Stability of the Variable Order Variable Stepsize BDF-Formulas",
+          "trigger": "Classical variable-step zero-stability result"
+        },
+        {
+          "assessment": "Unresolved specialized prior-art risk",
+          "evidence": "Known topic is spectral-radius analysis of variable-step multistep methods; retrieved evidence does not demonstrate the exact four-period theorem.",
+          "identifier_or_url": "https://arts.units.it/handle/11368/1703201",
+          "material_read": "Institutional record; full text not secured; Li–Liao introduction for context",
+          "method": "Institutional OA retrieval attempt and secondary comparison",
+          "title": "On the zero-stability of variable stepsize multistep methods: the spectral radius approach",
+          "trigger": "Strongest classical match to exact product method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, proof, and scope",
+        "Existing three-periodic BDF3 record and ratio-restricted literature"
+      ],
+      "rationale": "Four-periodic grids are a natural next full Floquet family after two and three, not a single chosen ratio. The proof gives unrestricted stability across that entire family despite arbitrarily large adjacent ratios, and the exact reset limit identifies why fixed-grid damping cannot have a common strict spectral margin. The full-degree certificate tests a genuine gap not closed by an existing short-period stability test.",
+      "residual_risks": [
+        "No larger-period, nonlinear, or forced stability classification follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

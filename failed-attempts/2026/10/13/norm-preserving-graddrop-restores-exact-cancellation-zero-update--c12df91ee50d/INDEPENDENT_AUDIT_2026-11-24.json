@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:27:28.762367Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The public Lingvo documentation's live _Gradient source rendering agrees with the frozen formula: it returns transformed_grad * original_grad_norm / (transformed_grad_norm + p.epsilon), with keep_gradnorm_constant=True and epsilon=1e-7 by default. Writing r=||g|| and d=||tilde g||, the norm is rd/(d+epsilon)≤r in exact arithmetic; the update vanishes iff r=0 or d=0. Under the stated same-task aggregate assumption, exact cancellation forces r=0 for every mask and the bound gives vanishing escape amplitude near cancellation. In the scalar zero-leak, identity-activation example, equal positive and negative mass gives P=1/2 and the raw result is ±a almost surely, stronger than the positive probability of a nonzero update needed by the pure Proposition 1. This is not a theorem about optimizer states or all Lingvo versions: the historical cbceb3a source quoted in issue #254 divides the other way; that formula has norm d²/(r+epsilon) and need not vanish at r=0. The paper's prose supports the intended norm-preserving operation, not the exact regularizer or any assertion about historical builds. The frozen verify.py was inspected, not run; it checks a transcription of the intended formula, not package revision history.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Algorithm 1 and Proposition 1 concern the pure masked aggregation. The adjoining text says many experiments renormalize final gradients to keep the L² norm constant; Appendix A.1 analyzes the unrescaled scalar mask.",
+          "The proposed quotient in issue #254 specifies the exact epsilon-regularized map for arbitrary gradient tensors, not just the cancelling pair."
+        ],
+        "reasoning": "The general public formula already determines the update for every input and raw output. The original pure stable-point theorem is not a claim about the rescaled map, and its failure to transfer does not refute that theorem.",
+        "searches": [
+          "Chen et al., arXiv:2010.06808v1 Algorithm 1 and §§3.3–3.4, Proposition 1",
+          "NeurIPS 2020 supplementary Appendix A.1",
+          "Lingvo issue #254, reply proposing intended quotient"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Public Lingvo current and historical generated source",
+        "Lingvo GitHub issue #254",
+        "arXiv:2010.06808v1",
+        "NeurIPS 2020 supplemental Appendix A.1",
+        "Focused Resultary GradDrop searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Taking the norm of the previously proposed update gives r d/(d+epsilon). Positivity of epsilon gives ≤r directly, setting r=0 gives zero, and r→0 forces the stated limit for any masks.",
+          "The pure sign rule at equal positive and negative masses produces the two raw signs; applying the already specified scale gives zero in both cases."
+        ],
+        "reasoning": "This is verified mechanical coverage of the exact accepted scope, not merely an older mention of similar keywords. Restricting to the intended formula or one cancelling pair leaves the same implication; the historical reversed quotient is a different claim, not a repair of the frozen result.",
+        "searches": [
+          "Prior proposed quotient in Lingvo issue #254 against the frozen norm/zero-set claims",
+          "arXiv:2010.06808v1 scalar sign-mask algorithm and Proposition 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Issue #254 first quotes the opposite historical quotient, then the author's 2021-02-12 reply proposes exactly transformed_grad * original_grad_norm / (transformed_grad_norm + p.epsilon). The live public documentation displays that latter quotient in _Gradient.",
+          "No direct GradDrop catalogue hit was identified in the focused Resultary queries."
+        ],
+        "reasoning": "With original_grad=g and transformed_grad=tilde g, the prior proposed formula is an exact variable renaming. It is important not to mistake the earlier reciprocal branch for the claimed norm-preserving map.",
+        "searches": [
+          "Resultary: GradDrop norm renormalization; GradDrop exact cancellation; GradDrop zero update zero set; GradDrop stable point Proposition 1",
+          "Lingvo GitHub issue #254, historical and proposed gradient norm quotients",
+          "Lingvo public _modules/lingvo/core/graddrop.html, keep_gradnorm_constant and transformed_grad_norm"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A numerical table is inapplicable to this universal algebraic assertion, but the exact formula is on record: the issue writes both the historical reciprocal and its proposed correction, and the public rendered implementation returns the correction.",
+          "No distinct exact result in the searched Resultary entries supersedes this direct evidence."
+        ],
+        "reasoning": "The code expression and its exact earlier proposed replacement are more decisive than a table of selected gradients; they fix which quotient gives the reported zero set.",
+        "searches": [
+          "Resultary GradDrop norm renormalization, cancellation and stable point queries",
+          "GitHub issue #254, cited lingvo/core/graddrop.py lines 184–185 and 2021-02-12 reply",
+          "Official Lingvo generated source for _Gradient"
+        ]
+      },
+      "rationale": "The exact regularized ratio in the frozen finding was publicly specified before this record in Lingvo issue #254, 2021-02-12. Under the frozen same-aggregate hypothesis the claimed all-dimensional norm bound, exact cancellation, and vanishing near-cancellation are immediate special cases of that exact formula. The paper already supplies both pure masking and the stated norm-preservation goal. The specific application to a conflicting scalar mask is an explanatory example of the known composition, not a distinct mathematical finding under the prior-implication standard.",
+      "residual_risks": [
+        "The exact release where the old quotient changed and which research builds used each branch were not established. The issue is decisive prior formula evidence regardless of that release history.",
+        "No claim is made about floating-point nonfinite values, empirical incidence, or optimizer-level stationary points."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms the frozen ratio for this source, including its default; not authority for earlier revisions",
+          "evidence": "keep_gradnorm_constant=True, epsilon=1e-7; after the optional bypass it returns transformed_grad * original_grad_norm / (transformed_grad_norm + p.epsilon).",
+          "identifier_or_url": "https://tensorflow.github.io/lingvo/_modules/lingvo/core/graddrop.html",
+          "material_read": "Params, OA text around offsets 2518–3100; _Gradient branch, offsets 7007–7632",
+          "method": "Official public source rendering, direct bounded text/code inspection",
+          "title": "Lingvo official generated source: lingvo.core.graddrop",
+          "trigger": "Distinguish the current public rendering from historical source before judging the implementation claim"
+        },
+        {
+          "assessment": "Direct prior statement of the exact proposed formula, independently of historical code direction",
+          "evidence": "Opening post cites cbceb3a lines 184–185 with transformed norm in numerator. The 2021-02-12 reply quotes the paper's intention and writes original norm over transformed norm plus epsilon.",
+          "identifier_or_url": "https://github.com/tensorflow/lingvo/issues/254",
+          "material_read": "Opening post and 2021-02-11/12 replies, OA offsets 577–1826",
+          "method": "Public issue text and cited source line comparison",
+          "title": "Lingvo issue #254, GradDrop norm quotient discussion",
+          "trigger": "Potential exact prior formula and conflicting historical implementation"
+        },
+        {
+          "assessment": "Confirms older reciprocal branch; direct master .py retrieval was not available in the independent check",
+          "evidence": "Historical rendering returns transformed_grad * transformed_grad_norm / (original_grad_norm + p.epsilon), unlike the live official docs.",
+          "identifier_or_url": "https://github.com/tensorflow/lingvo/blob/06197ccddebd51e3b555ae9c61b2014b2508b8a5/_modules/lingvo/core/graddrop.html",
+          "material_read": "Params and compiled rendering of _Gradient, OA offsets 9800–14909 and 28500–31832",
+          "method": "Commit-pinned generated source inspection",
+          "title": "Lingvo historical generated graddrop source",
+          "trigger": "Revision-specific countercheck on the reported quotient"
+        },
+        {
+          "assessment": "Pure-mask proof and explicit experimental renormalization intent; does not identify which revision implements it",
+          "evidence": "Algorithm 1 returns newgrad. The adjacent prose says many experiments retain the gradient L² norm. Proposition 1 states that the pure signal is always zero iff all constituent gradients are zero.",
+          "identifier_or_url": "https://arxiv.org/pdf/2010.06808v1",
+          "material_read": "Algorithm 1 and §§3.3–3.4, PDF pp. 4–5, OA offsets 16000–20489",
+          "method": "Primary PDF passage and quantifier comparison",
+          "title": "Just Pick a Sign: Optimizing Deep Multitask Models with Gradient Sign Dropout",
+          "trigger": "Definition of pure mask, norm-preservation intent, and stable-point property"
+        },
+        {
+          "assessment": "Related scalar theory for the unrescaled mask",
+          "evidence": "Expected changes and variance are developed before the separate norm rescaling.",
+          "identifier_or_url": "https://proceedings.neurips.cc/paper/2020/file/16002f7a455a94aa4e91cc34ebdb9f2d-Supplemental.pdf",
+          "material_read": "Appendix A.1, pp. 1–2, OA offsets 0–3972",
+          "method": "Primary supplemental PDF scalar calculation inspection",
+          "title": "Just Pick a Sign supplemental material",
+          "trigger": "Check whether the source theory already treats the scalar renormalized case"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As an implementation diagnostic, the exact cancelling pair separates a pure sign-mask guarantee from the default rescaled update and gives a concrete unit test for a consequential distinction. The near-cancellation bound explains what kind of stochastic escape cannot survive a small aggregate norm. This is useful even though the outcomes are already implied by public material and do not meet originality.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

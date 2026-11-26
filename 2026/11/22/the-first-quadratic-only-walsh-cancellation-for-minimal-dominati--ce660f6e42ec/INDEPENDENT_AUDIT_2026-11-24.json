@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:08:50.771041Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A closed-neighborhood dominating mask is minimal iff removing any one selected vertex breaks domination, by monotonicity; this is equivalent to the stated private-neighbor condition. The independently written python3 /workspace/branches/independent_finite.py paths (NumPy integer arithmetic) uses shifted-mask domination, actual deletions and direct signed character sums, rather than the supplied enumeration and forward transform. It matches the full table at all orders 1–17 and the published 268-mask digest. At 17 it matches all fifteen pairs and the complete zero-degree histogram: 19,516 zeros, no constant or singleton zeros, higher-degree zeros as well, rank 111,556, least nonzero modulus 2 and maximum modulus 268. No smaller positive order has both a zero and no singleton zeros. The condition number is 134 on the nonzero singular spectrum with the stated convolution normalization. A separate recursive inverse transform of the nonzero-mode indicator gives integer absolute sum 3,341,768 before division by 2^17. The resulting kernel gives both endpoint norms by absolute column or row sums. Translation conjugation preserves the range, the property of acting identically on it, and the norm; averaging any projection over translations therefore gives another projection with no larger norm. Scalar action on the distinct Walsh characters forces the averaged map to have multiplier one on surviving modes and zero elsewhere, over either real or complex scalars. Thus the ratio 417721/16384 is the sharp minimum over all endpoint projections. The title's quadratic-only shorthand describes the first support size witnessing cancellation, not an absence of higher-degree cancellations.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first two sources give algorithms to enumerate minimal dominating sets on graph classes and the private-neighbor criterion. The interval-graph paper covers path family enumeration and counting."
+        ],
+        "reasoning": "Enumeration algorithms can regenerate the masks, but the inspected results do not count their signed parity balances or supply quantitative Walsh support information; unsigned total counts alone give only the constant mode. Generic Fourier projection theory gives optimality of the canonical projection but not its path-specific kernel norm without the computed support.",
+        "searches": [
+          "Kanté et al., arXiv:1407.2053 and arXiv:1407.2036",
+          "Kanté et al., interval and permutation graph counting, author-hosted PDF"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1407.2053",
+        "arXiv:1407.2036",
+        "Kanté et al., 2013 author-hosted interval/permutation-graph paper",
+        "Resultary 08fb6f2eedbe",
+        "Resultary a6b4c4377a52"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The private-neighbor criterion gives an exact unsigned admissibility test; the cited counting results and other-family Walsh results do not assert the zero-singleton/nonzero-nullity combination at order 17 or the inverse-transform norm of its Fourier support indicator."
+        ],
+        "reasoning": "A count of minimal dominating sets can give a parity obstruction to any zero, but cannot determine exactly when even counts permit cancellation at specified degrees, or which multipliers survive. The finite signed calculation and endpoint constant are not supplied by those results.",
+        "searches": [
+          "arXiv:1407.2053, p. 3",
+          "Kanté et al. interval and permutation graph count, introductory statements",
+          "Resultary total-domination path and maximal-independent cycle Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Inclusion-minimal closed-neighborhood domination is equivalently minimal transversality of the neighborhood hypergraph. The closest exact same-day path comparison uses all total dominating masks of the open-neighborhood hypergraph. The exact same-family target hit is the assigned record itself."
+        ],
+        "reasoning": "Walsh parity balance on a support is equivalent to equal even and odd intersection counts of minimal transversals. Open-neighborhood total domination with no minimality filter is a different collection; its spectrum does not determine the surviving modes or the projection kernel of the target collection.",
+        "searches": [
+          "Resultary: minimal domination of paths, Walsh/Fourier nullity, quadratic blind spots and endpoint projection",
+          "Kanté et al., arXiv:1407.2053, private-neighbor characterization",
+          "2026/11/22/SCOPE-fourier-recovery-and-the-sharp-fourfold-spectral-gap-of-total-do--08fb6f2eedbe"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The maximal-independent cycle record treats degrees at most two and reports exceptions at lengths 4 and 9. The total-domination path record gives a different singularity criterion, n congruent to 1 modulo 3, and a gap of four there. Neither states the exact minimal-closed-neighborhood path census."
+        ],
+        "reasoning": "Maximal independence omits minimal dominating sets with adjacent vertices, such as {2,3} on P4, and cycles change the boundary conditions. Neither comparison can be used as an exact table of the family or frequencies under review.",
+        "searches": [
+          "Resultary: 17-vertex path minimal dominating masks and Walsh zeros, pair census and Fourier projection norm",
+          "2026/11/22/SCOPE-the-only-quadratic-walsh-blind-spots-of-maximal-independent-sets--a6b4c4377a52",
+          "2026/11/22/SCOPE-fourier-recovery-and-the-sharp-fourfold-spectral-gap-of-total-do--08fb6f2eedbe"
+        ]
+      },
+      "rationale": "The supported distinction is the sharp labelled-path support-degree boundary and associated exact spectral and projection data for the inclusion-minimal closed-neighborhood family. General enumeration tools, the private-neighbor lemma and the averaging mechanism are not claimed to be novel. The inspected exact Walsh comparisons concern different admissible masks or graphs; same-day listings do not establish priority.",
+      "residual_risks": [
+        "The exact 2009 article was not independently inspected in full text; that access limitation is not a finding of non-coverage.",
+        "An unindexed signed-transversal or weighted-domination calculation could establish an equivalent finite spectrum. The same-day comparison dates do not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Admissibility criterion and enumeration precedent",
+          "evidence": "A dominating set is minimal iff every member has a private neighbor; no signed cancellation or norm follows from that statement.",
+          "identifier_or_url": "https://arxiv.org/abs/1407.2053",
+          "material_read": "Abstract, PDF p. 1 offset 0, and private-neighbor criterion, p. 3 offset 11618",
+          "method": "Lawful OA full-text passages",
+          "title": "On the Enumeration of Minimal Dominating Sets and Related Notions",
+          "trigger": "Same minimal-domination family and minimal-transversal characterization"
+        },
+        {
+          "assessment": "Enumeration framework, not signed path spectra in the inspected statement",
+          "evidence": "Polynomial-delay listing of minimal dominating sets of chordal graphs.",
+          "identifier_or_url": "https://arxiv.org/abs/1407.2036",
+          "material_read": "Abstract, PDF p. 1 offset 611",
+          "method": "Lawful OA passage",
+          "title": "On the Enumeration of Minimal Dominating Sets in Chordal Graphs",
+          "trigger": "Enumeration algorithm on a class containing paths"
+        },
+        {
+          "assessment": "Broader enumerative/counting coverage, no signed statistics in the inspected statements",
+          "evidence": "Enumeration of inclusion-wise minimal dominating sets in interval and permutation graphs, with polynomial-time counting.",
+          "identifier_or_url": "https://perso.isima.fr/~makante/articles/kanteLMNU13.pdf",
+          "material_read": "Abstract and Introduction, p. 1, offset 558",
+          "method": "Lawful OA author-hosted full-text passage",
+          "title": "On the Enumeration and Counting of Minimal Dominating Sets in Interval and Permutation Graphs",
+          "trigger": "Counting the exact admissible-set family on a class containing paths"
+        },
+        {
+          "assessment": "Not used as evidence of non-coverage; the frozen record describes it as counting all dominating sets",
+          "evidence": "Article routes returned access failures and no lawful repository copy was located in the bounded check.",
+          "identifier_or_url": "https://doi.org/10.1155/2009/542040",
+          "material_read": "Bibliographic title only; independent full-text inspection unavailable",
+          "method": "DOI and identified publisher/OA copy retrieval attempts",
+          "title": "Dominating Sets and Domination Polynomials of Paths",
+          "trigger": "Plausible early same-graph enumeration source"
+        },
+        {
+          "assessment": "Different neighborhood convention and no inclusion-minimal filter",
+          "evidence": "Open-neighborhood total dominating masks have singularity n congruent to 1 modulo 3 and a least positive multiplier of four there.",
+          "identifier_or_url": "2026/11/22/SCOPE-fourier-recovery-and-the-sharp-fourfold-spectral-gap-of-total-do--08fb6f2eedbe",
+          "material_read": "Finding, offset 0 onward",
+          "method": "Resultary and local mirror text",
+          "title": "Fourier recovery and the sharp fourfold spectral gap of total domination on paths",
+          "trigger": "Closest exact path Walsh comparison"
+        },
+        {
+          "assessment": "Different admissible family and cycle graph",
+          "evidence": "A degree-at-most-two classification for maximal independent sets on cycles with exceptions at lengths 4 and 9.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-only-quadratic-walsh-blind-spots-of-maximal-independent-sets--a6b4c4377a52",
+          "material_read": "Finding, offset 0 onward",
+          "method": "Resultary and local mirror text",
+          "title": "The only quadratic Walsh blind spots of maximal independent sets",
+          "trigger": "Exact low-degree Walsh cancellation analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The finite cutoff is motivated by the mismatch between singleton tests and invertibility: this is the first path for which every individual coordinate test survives but exact recovery still fails on pair modes. The explicit pairs, nullity and sharp endpoint projection norm quantify the discrepancy and provide a reproducible test case for recovery and parity-enumeration methods. No asymptotic or all-order classification is inferred.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof reduces nonlinear two-input variation to path variation of selector images of single jumps, using the finite piecewise-linear structure of order statistics. In a window crossing a fixed input cut, the number of right-side observations among the lowest \(q\) cannot decrease. For each fixed count, an opposing pair of monotone order-statistic thresholds permits at most one downward color switch. This gives the \(2q-1\) bound and its upper-rank dual; the fully explicit integer permutation witnesses exactly \(2\min\{q-1,w-q\}+1\) changes. The proof covers every stated radius, rank, length and real input. The executable checks match this analysis; they are not substituted for proof.
+PASS
 
-## Originality — PASS, qualified
+On a strict coordinate-order cone the filter is an index selector. Decomposing a perturbation into a constant plus cut steps reduces its TV operator norm to the maximum number of left/right selector transitions across a cut. Through the mixed region a shift removes a left entry and adds a right one, with clamped copies counted. The number k of right entries in the bottom q cannot decrease. At fixed 0<k<q the two bottom-group thresholds (left rank q−k and right rank k) move monotonically in opposite directions, so the selected side switches at most once, from right to left. This gives at most q between-block and q−1 within-block transitions; sign reversal gives the complementary bound. The proof may extend the centers beyond the sampled path to include the pure left/right windows for cuts near endpoints; restricting centers cannot increase variation. There are no left/right value ties under strict order, and the bound extends to any two inputs by integration along the segment and continuity. In the sharp construction, the low left values precede an increasing-value list alternating right and left. In the prefix windows the selecting rank in this list, when positive, is i−2s, with enough right entries already present (i such entries); in the late suffix windows deleting j of its initial left entries shifts the q-th survivor's original rank to q+j. Both count rules select right exactly at odd centers i>2s; q≤r+1 ensures that the suffix alone has enough entries even without extra copies of the maximum. A positive step of arbitrarily small size preserves the value order, so this pattern produces equality in TV. Negating the base values handles the complementary ranks, and constant continuation from n=2r+2 preserves the requisite first n outputs. Independent exact integer reproduction: python3 /workspace/checks/1.py; /workspace/checks/1.out. Exhausted strict orders and cuts in 60 (n,r,q) cells for n=4…7, checking equality where n≥2r+2, and checked 3264 exact positive-step witnesses for radii through 32 including longer paths. Frozen CHECKER.py was inspected, not executed. No extension of the claimed sharpness to shorter paths is inferred.
 
-Maragos–Schafer (1987) provides the general morphological max–min representation and threshold compatibility; the material inspected describes representations and median roots, not a sharp two-signal path-variation coefficient. Restrepo–Chacón (1994) establishes one-signal variation diminution for median smoothing rather than variation of output differences; its publicly available manuscript PDF could not be fetched reliably in full. Published mathematical records of the central median and the two endpoint ranks imply particular cases but not all intermediate ranks, including their width-independent constants. Statement-level comparison, not a title match, supports a provisional originality judgment. Unindexed early filter-stability literature remains a priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The complete rank formula distinguishes two-input robustness of every sliding quantile, rather than a single median or an arbitrarily selected filter. It reveals a sharp ladder with the perhaps counterintuitive result that the second-smallest rank always has coefficient three for arbitrarily wide odd windows, while the middle rank has coefficient equal to the full window width. Explicit finite witnesses and a uniform endpoint-clamped length guarantee make the classification useful for interpreting nonlinear filtering stability.
+The exact attained median and end-rank coefficients are previous results on the relevant geometry (or the same min/max windows modulo repeated entries). Pass is for the noncentral intermediate ranks and their all-rank interpolation, not for those special cases, order-statistic representations, or single-input smoothing. The closest inspected findings do not supply the rank-dependent two-input transition bound and matching witness. Historical literature access is a residual risk, not negative coverage evidence.
 
-## Closest literature and limits
+## value
 
-The original order-statistic morphology framework and the older one-input median-variation result are essential context; neither supplies the all-rank two-input theorem in the material accessible here. The claimed domain is restricted to real scalar data, odd symmetric fixed windows, clamped endpoints, unweighted path variation, and paths of at least one more sample than the window width. No claim is made for shorter paths or more general filters.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For running quantile filters the distance from an extreme, rather than just window size, controls two-input instability in TV. The exact transition law quantifies all intermediate ranks and shows in particular that going one place in from an extreme increases the factor to 3 independently of radius (with an arbitrarily small attaining perturbation). That is useful for comparing robust filters on a finite path and not implied by known median/min/max factors. No usefulness for cyclic, weighted, or multistage filters is assumed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

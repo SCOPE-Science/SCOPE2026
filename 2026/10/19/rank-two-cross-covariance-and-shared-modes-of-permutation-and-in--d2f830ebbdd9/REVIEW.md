@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact formula is verified by conditioning on placements of the two distinguished values: two occupied positions contribute \(2/[n(n-1)]\) to the signed-product expectation; the four single placements contribute \(4(j-i-1)(b-a-1)/[n(n-1)(n-2)]\); other placements contribute zero. The covariance follows by division by four. This classification exhausts all arrangements for \(n\ge3\). The Gram matrix of a single comparison family is strictly positive definite through \(\Sigma=(\mathrm I+B^\mathsf TB)/12\), and the two inversion-invariant statistics are shown explicitly to lie in both linear spans. Cross-Gram rank two forces residual orthogonality, not independence. Exact-rational exhaustive checks over all permutations of sizes two through seven and rank checks for larger integer sizes corroborate the analytic arguments.
+## correctness
 
-## Originality — PASS, subject to documented risks
-Petersen's 2012 manuscript and Visontai's 2012/2013 paper treat two-sided Eulerian aggregates of adjacent comparisons. Their materially inspected full texts do not state the arbitrary-pair cross-covariance kernel or the exact two-dimensional intersection of the comparison spans. The materially inspected public incidence-precision theorem (original RESULT.md) treats covariance within *one* inversion vector, not covariance between a permutation and its inverse. The classical invariance of inversion count and the weighted-displacement identity are supporting inputs and are not claimed novel. The historical Durbin–Stuart article was available only as a bibliographic summary: a general implicit statement about rank comparisons cannot be excluded from that source. No independent priority certification is asserted.
+PASS
 
-## Mathematical value — PASS
-The complete rank-two cross-covariance formula solves a natural joint-dependence question for all pairwise rankings, not just adjacent descents or aggregate inversion counts. It identifies exactly what linear information a ranking and its inverse share, proves a sharp canonical-correlation collapse from \(\binom n2\) coordinates to two, and determines that the two orthogonal residual subspaces are uncorrelated. This separation is structurally useful in finite-sample rank-based statistical analysis; it is not a parameter relabeling or a generic algebraic restatement of an aggregate moment.
+For S=2X−1 and T=2Y−1, condition on how many of a,b occupy i,j. With none the sign S is balanced by swapping the values at i,j without altering T; with both, ST=1 for two ordered placements. In the exactly-one case, e.g. π(i)=a, the free value at j and the free position of b range independently over n−2 options apiece: each pair of choices has (n−3)! completions. Their signed biases are (2a−n)/(n−2) and (2i−n)/(n−2). In the four cases the signed products sum to (h_a−h_b)(t_i−t_j), where h_b=(2b−n−2)/(n−2) and t_j=(2j−n−2)/(n−2); each case has mass (n−2)/[n(n−1)]. Dividing the resulting E[ST] by 4 gives the frozen formula with positive coefficients on the independent constant and shifted-gap vectors. The displacement identity follows by summing j−i over inverted pairs: the contribution at r is r times (# earlier larger minus # later smaller) = r(r−π(r)). Invariance of I and D under inversion gives two shared modes. Within each family the incidence Gram formula is positive definite: disjoint pairs have zero covariance and shared endpoints give the signed 1/12 from the six three-point orders, with diagonal 1/4. Orthogonal projection between the spans therefore has rank two, fixes both independent common modes, and maps their orthogonal complement to zero. This verifies the intersection, residual orthogonality and the two unit canonical correlations. For n=2 the lone comparisons agree pointwise and have variance 1/4.
 
-## Literature and scope limits
-Primary full-text comparisons: T. K. Petersen (2012), *Two-sided Eulerian numbers via balls in boxes*, https://arxiv.org/pdf/1209.6273 ; M. Visontai (2013), *Some remarks on the joint distribution of descents and inverse descents*, https://www.combinatorics.org/ojs/index.php/eljc/article/download/v20i1p52/pdf/ . Additional comparison: J. Durbin and A. Stuart (1951), *Inversions and Rank Correlation Coefficients*, https://doi.org/10.1111/j.2517-6161.1951.tb00095.x , bibliographic summary only. A related published incidence result is indexed in RESULT.md. The theorem is for uniform permutations and linear second moments, not higher-order independence. A historical implicit occurrence remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the full index-resolved mixed kernel and the exact common linear subspace/projection. Earlier within-family covariance, aggregate adjacent-descent distributions, and scalar Kendall–displacement correlations are materially related but do not supply them. Classical inversion invariance, within-family incidence covariance and weighted-inversion identities are not credited as new.
+
+## value
+
+PASS
+
+The exact projection solves a natural joint-dependence question about the complete forward and inverse comparison families, not only an aggregate covariance. It identifies which two interpretable rank statistics account for all shared second-order information and shows that every other pair of residual linear modes is uncorrelated, while the indexed kernel also gives exact covariance for arbitrary weights.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

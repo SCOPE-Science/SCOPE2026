@@ -1,19 +1,21 @@
-# Review of the one-third BK-gap optimizer
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof identifies the disjoint-witness event exactly as \(S_n\ge2k\), then establishes an exact first-difference equation for the gap. Two terms of the binomial mass dominate before one third. After one third, the factorial ratio of the two disjoint-witness masses decreases by at least a factor six at successive admissible thresholds; the sole delicate residue class \(n\equiv0\pmod3\) is settled by a strictly monotone three-coin coupling and explicit initial values. This supplies a complete all-integer proof, not extrapolation from enumeration. Binomial large deviations give the rate corollary. A standalone exact-integer checker corroborates 1,311,695 test assertions including every dimension through 1100.
+PASS
 
-## Originality — PASS (qualified)
+Two disjoint witnesses require and are supplied by two disjoint k-subsets of the one-coordinates. Subtraction gives ΔG=b₂ₖ+b₂ₖ₊₁−bₖ(aₖ+aₖ₊₁). Before ⌈n/3⌉ both masses on the right are at least bₖ by binomial symmetry and unimodality (and the k=0 difference is positive separately). At the boundary the factorial ratios are less than one in the n≡1,2 cases where aₖ+aₖ₊₁≥1. For n=3m the ratio is (3m+1)/(2m+1)<3/2, and adding three fair bits changes the tail sum by (−qₘ₊₁+3qₘ+5qₘ₋₁+qₘ₋₂)/8>0, with 11/8 and 99/64 at m=1,2. After the boundary the consecutive factorial ratio bound 1/6 puts all remaining nonzero ratios below one before the witness mass vanishes, whereupon the difference is directly negative. This covers n≥2 and n=1 is direct. The deficit 2L−L²+R has the common binomial-tail exponential rate, including the rounding offsets at both tails. The analytic proof supplies the all-n quantifier; the frozen finite checker is supplementary.
 
-Tesio, arXiv:2610.32658v1, proves quantitative BK-gap lower bounds and discusses selected threshold events, but the inspected full text does not state an exact all-integer optimizer. Cerf–Tesio, arXiv:2607.02272v2, treats equality, not gap maximization. General binomial-tail and prior limiting-window analyses do not imply strict finite-dimensional unimodality of this specific difference without an additional argument. Mathematical-record searches for fair-cube BK gaps, aliases and the \(n/3\) optimizer did not identify an equivalent theorem. Such searches cannot prove priority, and a stronger unpublished or differently phrased binomial inequality remains a possibility.
+## originality
 
-## Value — PASS
+PASS
 
-The restricted optimization is natural: for a fixed cube dimension and a canonical one-parameter family of increasing events, it identifies exactly which threshold makes disjoint occurrence most deficient relative to the BK product bound. The optimizer is unique in every dimension, including all congruence classes, and the resulting maximum has a sharp entropy decay of its distance from one. This resolves a complete finite extremal question that asymptotic threshold-window descriptions alone do not answer. It is not claimed to be a general improvement of the BK inequality for arbitrary increasing events.
+The strongest same-day Resultary match has the identical diagonal tail formula and studies limiting windows, but does not determine the exact maximizing threshold. Its sharp tail equivalent is for a different product-space gap. Neither that record nor the inspected primary statements give the strict integer optimization. The entropy computation itself is standard once the relevant thresholds are known.
 
-## Scientific limitations
+## value
 
-All assertions concern identical Hamming thresholds under fair independent bits. The supplementary computer verification is finite and not an independent proof. Historical-priority comparison cannot exclude all stronger results. Independent mathematical verification has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Identical Hamming thresholds form a natural canonical subfamily for asking how far disjoint occurrence falls short of the BK bound. A unique exact threshold in every dimension, including the delicate divisible-by-three case, gives a usable sharp benchmark that neither a limiting window nor the bare large-deviation computation would supply. No value claim is made for a general BK improvement or biased optimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

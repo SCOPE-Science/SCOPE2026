@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:20:44.329035Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Count distinct parents of each length-four receipt, not deletion positions. The 15 first-occurrence equality patterns exhaust all receipts up to relabeling; direct deletion in each verifies at most two adjacent-repeat parents. Counting the union of the two adjacent equalities gives |A_q|=2q^2-q. An independent replay, branches/ebd6a027-7d8f-488c-b1c9-3832938cb61c/independent-reproduction.js, constructs the forbidden triples of distinct parents as a hypergraph and recursively tests target sizes, pruning only sets already containing a forbidden triple. At cardinalities 6,7 for q=2 and 15,16 for q=3 it gives respectively 1,0 and 1,0, with both singletons of the feasible layers equal to A_q as labeled sets. The combinatorial layer sizes are 28,8 and 17383860,13037895; downward closure excludes every larger size. The independently generated four-letter receipt histogram for the displayed 29-word code is (29,77,150,0,0) for list sizes 0 through 4. In a mixed receipt with three symbols in one full block and one outside, the only possible replaced in-block parent is obtained by removing the outside symbol. Among remaining mixed parents an equal pair must come from the three in-block positions. If exactly two are equal, the third is the only possible deletion making the equal pair; if all three are equal, an adjacent-repeat triple must leave the outside symbol at an end, with at most one possible such end (the count of in-block symbols on each side sums to three). Thus at most one mixed parent survives, and the three cases of the lift give the claimed bound for every q>=4. The frozen C++ checker and output were inspected, not executed; it prints the visited layer counts, but contrary to the prose does not separately assert their expected totals. The successor proof, observed counts and independent replay suffice. No exact optimum for q>=4 is inferred.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Con–Doron–Ribeiro give binary long-block insertion list-decoding capacity, and Kiah–Wei–Zeng v1 §8.2 gives fixed-list binary insertion asymptotic rate bounds, including list sizes two and three.",
+          "The closest Johnson-type paper was not retrievable; its description as a distance-based result is secondary (Kiah–Wei–Zeng v1 §1.2)."
+        ],
+        "reasoning": "An asymptotic rate bound does not establish a finite ternary packing optimum, let alone literal equality classification or an alphabet-wise patch construction. No exclusion rests on the inaccessible paper.",
+        "searches": [
+          "Con–Doron–Ribeiro arXiv:2607.03989v1 Introduction, Theorems 1.1 and 3.1",
+          "Kiah–Wei–Zeng arXiv:2609.21395v1 §8.2",
+          "Hayashi–Yasunaga DOI 10.1109/TIT.2020.2981321"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.cpp and verification-output.txt",
+        "Resultary 8182be3b8653, eebc56a7fc03, 6b2b88cfef87, 777a6308e057, e156c97c4d80",
+        "Con–Doron–Ribeiro arXiv:2607.03989v1 and Kiah–Wei–Zeng arXiv:2609.21395v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The packing constraints are integral upper capacities on receipts; fractional covering on the identical incidence specifies lower capacities. No direct implication yields the packing equality case or feasible replacement code. The alphabet lift uses a local mixed-receipt argument not supplied by the asymptotic results or the length-two table."
+        ],
+        "reasoning": "Partial overlaps in incidence data or capacities do not give the claimed sharp threshold and proof of uniqueness. The constructive large-alphabet benefit is a lower bound, not a new exact capacity theorem beyond q=3.",
+        "searches": [
+          "Resultary e156c97c4d80, 777a6308e057 exact statements",
+          "Kiah–Wei–Zeng arXiv:2609.21395v1 Abstract and §8.2",
+          "Frozen RESULT.md Steps 2–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact hit 8182be3b8653 is the frozen finding itself. The same three-to-four distinct-parent incidence occurs in e156c97c4d80, but its constraints are fractional coverage sums >=1, not binary packing sums <=2.",
+          "The two one-deletion length-three findings use receipts of length two. Reversing the incidence between lengths two and three does not give the parent hypergraph between lengths three and four, and exchanges the optimization constraints."
+        ],
+        "reasoning": "The forbidden-triple hypergraph equivalence checks the packing interpretation without confusing coincident deletion embeddings with distinct parents or equating the packing with the fractional covering.",
+        "searches": [
+          "Resultary 8182be3b8653: exact three-symbol single-insertion list-two packing",
+          "Resultary e156c97c4d80: fractional covering by three-symbol subsequences",
+          "Resultary eebc56a7fc03 and 6b2b88cfef87: length-three two-list one-deletion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two-symbol-source insertion record obtains maxima 3 and 6 at alphabets two and three, for length-two, not length-three, codewords. The finite table 6b2b88cfef87 gives deletion maxima 14,21,30,50 at alphabets 4,5,6,8, again for different receivers.",
+          "The only located table for this exact packing problem is part of the identical 8182be3b8653 record."
+        ],
+        "reasoning": "Even when the alphabet, list size or source length match, the receipts and resulting forbidden hypergraphs in the other tables do not. No equivalent independent exact size or labeled uniqueness table was evidenced.",
+        "searches": [
+          "Resultary 777a6308e057: two-symbol list-two insertion–deletion separation",
+          "Resultary 6b2b88cfef87 and eebc56a7fc03: exact finite length-three code sizes"
+        ]
+      },
+      "rationale": "The inspected exact and broader matches treat a different receipt length, a different objective, or asymptotic rates. They do not cover the length-three integral list-two insertion rigidity and the first alphabet size at which it breaks. Full-text access limits are named below; the verdict is a bounded statement comparison, not a priority guarantee.",
+      "residual_risks": [
+        "The Hayashi–Yasunaga full text was not retrievable; any short-block specialization there remains unexcluded.",
+        "Equivalent hypergraph packing or exact short-code classifications may be indexed differently. The relevant Kiah–Wei–Zeng passages were inspected, not a proof of absence anywhere in that text or the literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical frozen result, not a prior covering result",
+          "evidence": "Same q=2,3 maxima and labeled uniqueness and the +floor(q/4) block construction.",
+          "identifier_or_url": "Resultary 8182be3b8653",
+          "material_read": "RESULT.md at offsets 0 and 5011, Finding and proof",
+          "method": "Local Resultary mirror",
+          "title": "Adjacent-repeat rigidity and its sharp alphabet threshold in single-insertion two-list codes",
+          "trigger": "Exact catalogue hit"
+        },
+        {
+          "assessment": "Distinct channel",
+          "evidence": "Length-two receipts distinguish the Steiner-type bound and exact deletion table from the insertion packing.",
+          "identifier_or_url": "Resultary eebc56a7fc03; 6b2b88cfef87",
+          "material_read": "Each RESULT.md Finding and assumptions, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp two-list one-deletion capacity at length three; sharp length-three two-list deletion codes",
+          "trigger": "Matching finite source length and list size"
+        },
+        {
+          "assessment": "Different source length",
+          "evidence": "Exact optima for two-symbol words do not determine optima for three-symbol words.",
+          "identifier_or_url": "Resultary 777a6308e057",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A sharp two-symbol list-two insertion–deletion separation",
+          "trigger": "Matching list size and insertion channel"
+        },
+        {
+          "assessment": "Different optimization problem",
+          "evidence": "Fractional covering minimizes with lower receipt constraints, unlike the list-two integral upper constraints.",
+          "identifier_or_url": "Resultary e156c97c4d80",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact fractional covering of four-symbol supersequences by three-symbol subsequences",
+          "trigger": "Identical receipt and parent lengths and incidence"
+        },
+        {
+          "assessment": "Long-block binary capacity results, not finite ternary rigidity",
+          "evidence": "Rate/capacity analysis on a different quantification, without an exact size-three equality case.",
+          "identifier_or_url": "https://arxiv.org/html/2607.03989v1",
+          "material_read": "Abstract/Introduction and Theorems 1.1 and 3.1, offsets 0, 12300, 29600",
+          "method": "Lawful OA HTML passages",
+          "title": "The Insertion List-Decoding Capacity and an Improved Bound on the Deletion List-Decoding Capacity",
+          "trigger": "Primary insertion list-decoding result"
+        },
+        {
+          "assessment": "Relevant sections accessible; no finite packing statement evidenced there",
+          "evidence": "Binary fixed-list asymptotic rate bounds, including L=2,3; v1 matches the cited title.",
+          "identifier_or_url": "https://arxiv.org/html/2609.21395v1",
+          "material_read": "Abstract and §8.2 Binary insertion codes, offsets 0 and 118690",
+          "method": "Lawful OA version-pinned HTML passages",
+          "title": "Constant-List Insertion–Deletion Codes: New Bounds and an Improvement of Levenshtein’s Lower Bound",
+          "trigger": "Named initially inaccessible result on constant lists"
+        },
+        {
+          "assessment": "Unresolved full-text exclusion, not adverse evidence",
+          "evidence": "Only the secondary description of the Johnson-type bound is relied on.",
+          "identifier_or_url": "https://doi.org/10.1109/TIT.2020.2981321",
+          "material_read": "No original substantive passage; §1.2 of Kiah–Wei–Zeng v1 gives secondary context",
+          "method": "Lawful OA direct and configured VPN attempts returned HTTP 202",
+          "title": "On the List Decodability of Insertions and Deletions",
+          "trigger": "Potential Johnson-type implication at short block length"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The length is a natural smallest setting with nonadjacent repetitions and all-distinct parents. The work establishes a genuine rigidity cutoff of the simple adjacency construction: exact labeled optima in the first two alphabets, a finite minimal failure witness at four, and a repeatable improvement in every larger alphabet. The uniform block mechanism makes this more than an isolated one-code improvement or an unsupported search output, while preserving the stated lower-bound scope.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

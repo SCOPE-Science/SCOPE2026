@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,28 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The verifier constructs the half graph \(H_n\) directly for every \(2\le n\le8\). It computes all-pairs vertex distances with breadth-first search and forms each edge distance by taking the minimum distance to its two endpoints.
+# Independent mathematical audit
 
-For each \(n\), every pair of distinct elements of \(V(H_n)\cup E(H_n)\) is converted into the bit mask of landmarks that distinguish that pair. The checker then exhausts every vertex subset of size at most \(n\). It verifies that no subset of size less than \(n\) intersects every separator mask, and that the size-\(n\) solutions are exactly \(\{a_n,b_1\}\) together with one choice from every internal diagonal pair.
+## correctness
 
-Recorded output:
+PASS
 
-```text
-n=2: order=4, edges=3, elements=7, subsets_size_le_n=11, bases=1
-n=3: order=6, edges=6, elements=12, subsets_size_le_n=42, bases=2
-n=4: order=8, edges=10, elements=18, subsets_size_le_n=163, bases=4
-n=5: order=10, edges=15, elements=25, subsets_size_le_n=638, bases=8
-n=6: order=12, edges=21, elements=33, subsets_size_le_n=2510, bases=16
-n=7: order=14, edges=28, elements=42, subsets_size_le_n=9908, bases=32
-n=8: order=16, edges=36, elements=52, subsets_size_le_n=39203, bases=64
-VERIFY_OK
-n_range = 2..8
-subsets_checked_size_at_most_n = 52475
-minimum_bases_checked = 127
-all smaller subsets failed mixed resolution
-all size-n mixed bases matched the forced-endpoint diagonal-transversal classification
-```
+A vertex at a leaf is the unique separator of its incident edge from the other endpoint, forcing a_n and b_1. For the prefix list (a_1,a_1b_2,…,a_1b_i), only indices 2 through i affect the list: each selected a-coordinate cuts at one threshold, and each selected b-coordinate can isolate only one item. Thus i distinct codes require at least i−1 effective landmarks. The reflected suffix list gives the n−i bound on indices i through n−1. At total size n the two internal counts overlap only at index i; their sum forces at least one at every internal pair, then exactly one. For sufficiency, the (b_1,a_n) signatures separate types except within individual shores, within internal edges and within each boundary star together with its center. Distinct A-vertices are distinguished at their smaller index, distinct B-vertices at their larger index. For edges with different A-index the smaller A-index works; otherwise the larger B-index works. A star edge is distinguished from its center at the leafward endpoint's index. At n=2 the seven signatures are already distinct and the forced landmarks give the lower bound. The frozen verifier and output were read, not executed. An independently written BFS/mixed-code check exhausted subsets of size at most n for 2≤n≤6 and found no smaller solutions and exactly 1,2,4,8,16 bases with the stated form; the frozen output reports the longer n≤8 enumeration, which is not a general proof.
 
-The finite computation is corroborative only. The theorem for arbitrary \(n\) follows from the forced endpoint landmarks, the prefix and suffix class-count inequalities, and the explicit sufficiency argument in the proof.
+## originality
+
+PASS
+
+The closest earlier exact catalogue result is edge metric bases of the same graph. Reversing indices converts its pairs to {a_{k+1},b_k}, k=1,…,n−1, and its dimension is n−1. Its proof already uses threshold/singleton counting on edge stars. Those results do not yield the mixed dimension or its diagonal transversals: adding the star center as a competing element changes which landmarks are effective, forces the leaves, and shifts the two critical ranges. Even the simple edge lower bound does not combine additively with the two leaves, which can themselves contribute to edge resolution. Neither the published mixed-family formulas nor the other inspected half/chain resolving invariants cover this exact mixed classification. The Bhat–Hanif–Sudhakara full text remains an explicit limitation, not negative evidence.
+
+## value
+
+PASS
+
+Mixed dimension is a standard invariant, and the canonical twin-free nested bipartite family is a natural family on which vertex–edge resolution is not captured by the previously solved edge or vertex variants. The exact all-n family of optimal witnesses exposes a different pairing structure from edge resolution and supplies both sharp dimension and a complete basis count. The value is the structural classification, not a new general resolving proof technique or finite computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

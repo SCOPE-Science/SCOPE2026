@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The two backward equations have distinct *outgoing* absorption data, giving an exactly constant difference in the exit-probability pair and an exactly affine difference in the mean-time pair. The resulting algebra identifies the total spatial reversal integral and its first moment. Finite expected absorption is ensured by a uniform chance of an uninterrupted passage to a boundary. Positivity, exponential tilts, and moment-preserving cosine perturbations give the complete image, sharpness, and nonuniqueness. A seeded, independent trajectory simulation agrees with predictions to sampling accuracy; it is not the analytic proof.
+PASS
 
-## Originality
+At any live state, the probability of reaching the facing endpoint within the next L/v without reversal is at least exp(−K); the Markov property at blocks of length L/v gives a geometric lifetime bound. The outgoing conditions are h_−(0)=0, h_+(L)=1 and m_−(0)=m_+(L)=0 for exit side and time, respectively. Independently solving gives h_+−h_−=p constant and m_+−m_−=τ−2x/v. Integrating h_−'=pλ/v and m_−'=(1+λ(τ−2x/v))/v gives the stated p and τ; at λ=0 the only pair is (1,L/v). For K>0 the centroid B/K is strictly between the endpoints. In the smooth exponential tilt with fixed mass, its derivative with respect to the tilt is L times a strictly positive variance of x/L, and concentration at the two endpoints yields the full open range and sharp unattained edges. A cosine has zero first moment by symmetry about L/2 and zero integral over a period, so small signed perturbations preserve both moments and stay positive on the compact interval; this works for every interior pair, not the deterministic p=1 pair. The supplied simulation uses integrated hazards and bisection, and the archived simulation is only a consistency check; no uploaded code was run.
 
-PASS. The relevant 2014 paper treats arbitrary spatial motility/reversal with reflecting left and absorbing right endpoints; the 2017/2018 finite-interval theory treats homogeneous reversal; the 2023 general boundary analysis treats homogeneous bulk reversal. The sharp *paired* probability/mean-time region under two absorbing walls and inward injection was not identified in their complete relevant texts. A related sharp mean-time optimization for interior start with balanced initial orientations does not imply this injected joint observable. General inverse-transport priority risk and one uninspected 2019 variable-speed full text remain.
+## originality
 
-## Value
+PASS
 
-PASS. The result gives a natural exact feasibility test for joint measurements, constructive realizations of all admissible pairs, and an explicit, infinite-dimensional obstruction to reconstructing a spatial tumble-rate profile from those two statistics. Its sharp endpoints have a physical interpretation as reversal concentrated next to the injection wall or the far wall. The complete range is meaningful independently of higher-order moments.
+Credit the previously available splitting equations and their direct integrated-rate specialization, as well as the reflecting/absorbing first-passage moment and its renewal relation to τ. The distinct claim assessed is the complete joint feasible region and inverse fibers for the two-absorbing-end injected protocol over arbitrary continuous nonnegative reversal profiles. The checked statements concern pieces, different rate families, or different boundary/start ensembles; no inspected theorem already classifies this joint design problem.
 
-## Limitations
+## value
 
-No diffusion, orientation-dependent rates, or partial reflection; no claim about higher exit-time moments or full profile identifiability. At the entrance state the initial wall contact is not counted as absorption. Residual source-access/priority risks are described in the structured review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The boundary-injection measurement protocol motivates the simultaneous calibration problem. The sharp feasible region says exactly which pairs of measurements can be matched by a smooth positive rate, and the moment fibers identify what this protocol can and cannot distinguish. These joint feasibility and inverse facts are useful separately from the rather short forward equations; no significance for full exit-time distributions or multi-start measurements is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

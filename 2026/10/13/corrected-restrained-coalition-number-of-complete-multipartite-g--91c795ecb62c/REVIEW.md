@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The restrained-dominating condition is reduced exactly to domination plus the requirement that the complement be empty or meet at least two partite classes. The three cases in the theorem are exhaustive. The maximal cases have explicit singleton partitions; the star case has only the whole vertex set as a restrained dominating set; and the unique-nonsingleton-part case with \(u\ge2\) has a matching \(u+2\) construction and upper bound via \(\operatorname{RDc}(G)\le C(G)\) and the direct computation \(C(G)=u+2\). Exhaustive labeled partition enumeration through order \(8\) agrees with the formula on all \(58\) profiles.
+## correctness
 
-## Originality
-PASS. The closest source is Proposition 2.17 of Nesam--Amutha--Anbazhagan (2025), which nominally states the stronger value \(\operatorname{RDc}(G)=|V(G)|\) for every complete multipartite graph. Taken with the standard convention \(n_i\ge1\), that statement is false: its own preceding star proposition conflicts with it, and the non-star graph \(K_{3,1,1}\) has value \(4\), not \(5\). The later Dobrynin--Glebov--Golmohammadi paper proves a general upper inequality and corrects cycles but does not give the multipartite boundary. Targeted literature-index and exact-web searches found no later corrected classification.
+PASS
 
-## Value
-PASS. This is a natural complete classification on a canonical graph family for a recently introduced invariant. It does more than restate a counterexample: it identifies the exact structural boundary caused by having a unique non-singleton part and explains why the parameter drops. The result also resolves an overbroad published proposition without relying on computation for the infinite claim.
+For complete multipartite graphs, a nonempty selected set dominates iff it meets two classes or fills one class; its complement has no isolate iff empty or meeting two classes. For p=0 every singleton qualifies when N≥3, and the two blocks in K₂ form a coalition. For p≥2, singleton-class vertices qualify by themselves; vertices in large classes can pair across two large classes, leaving members of both classes outside. This proves the maximum N in both cases. With one large class and u=1, the only restrained dominating set is all vertices, hence the maximum is two. When u≥2 each clique vertex is itself restrained dominating, and splitting the large class into two proper nonempty blocks gives the asserted u+2. Theorem 2.1 of Dobrynin–Glebov–Golmohammadi supplies the upper bound by the ordinary coalition number: every block containing a universal vertex must be its singleton in an ordinary coalition partition, and the large class can contribute at most two blocks, since a pair of its blocks dominates only if it covers that whole class. Independently, if three or more blocks lie entirely within the large class, a union of two such blocks cannot dominate, and a potential partner containing a clique vertex either is already RD (another clique vertex and a large-class vertex remain outside) or contains all clique vertices and its union still leaves an independent outside. This also excludes more than u+2 blocks directly. It gives 4 for K_{3,1,1}. The uploaded checker was inspected, not executed; it visits all 101632 candidate partitions on 58 profiles through order 8, with validity tests pruned by the incumbent order. The proof, not enumeration, covers all orders.
 
-## Closest literature and limitations
-The 2025 initiating paper is the decisive comparison because it explicitly claims a complete-multipartite formula. The present theorem agrees with that value on broad regimes but shows exactly where singleton partite classes invalidate it. The 2026 follow-up supplies the inequality used in one upper bound but no complete-multipartite theorem. A residual risk is that an erratum or poorly indexed later correction exists, or that some authors silently use a restricted convention excluding singleton partite classes.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The initiating paper states the order-N formula without a part-size restriction, while separately giving the correct star case. The new content is the exact corrected boundary, especially the non-star regime of one class of size at least three and at least two singleton classes. The later bound and the catalogue classifications of other coalition parameters do not supply that correction.
+
+## value
+
+PASS
+
+This corrects the published exact value for a standard graph family, distinguishes where the conclusion remains true, and gives a non-star counterexample and a complete proof rather than only pointing to the visible star inconsistency.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

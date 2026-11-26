@@ -1,11 +1,21 @@
-# Scientific review — transformation-idempotent centralizer rank spectra
+# Independent mathematical audit
 
-**Correctness (PASS).** The commuting equation forces a unique root map and independent maps from nonroot inputs to target blocks. Ordinary image sizes follow from inclusion-exclusion on selected nonroot targets; idempotent images follow from choosing fixed image points. The two rank-two cases (two distinct root images, or one root plus one nonroot image) give the universal low-rank laws. A separate direct-composition checker agrees in all 22 tested small block profiles, for every coefficient. Finite evidence is not the infinite proof.
+## correctness
 
-**Originality (PASS, qualified by historical uncertainty).** The 2003 full-text centralizer-automorphism treatment describes rank-one/rank-two characteristic subsets but not these numerical complete rank distributions. The 2011 work addresses regularity. Dolinka–East's 2014/2015 complete text enumerates idempotents in a larger uniform-partition-preserving monoid rather than idempotents in the section-preserving centralizer of one idempotent, and does not give the proposed unequal-block image-rank spectra. The prior total centralizer size and root-preserving decomposition are not claimed as new. The earliest cited source is archival; historical uniqueness is not established, especially without a complete full-text comparison against some older transformation-centralizer literature.
+PASS
 
-**Value (PASS).** Image rank is a canonical finite-semigroup invariant. The formulas classify every rank stratum for arbitrary unequal kernel profiles and for two natural classes (all centralizing transformations and their retractions). The low-rank block-profile rigidity and explicit rank-three counterexamples explain which information these invariants can and cannot detect. The same proof covers unbounded finite sets and supplies implementable exact counts, rather than a small numerical recomputation.
+From ef(x)=fe(x)=f(ρ_i) for x in B_i, a root must go to a root, and all of its block must land in the corresponding target block. Conversely these conditions give commutation and determine a unique root map g. For each hit target block the root is already an image point, and its M_j nonroot inputs are independently assigned. Choosing h nonroot targets and requiring each hit, with the root optional for these inputs, gives the displayed inclusion-exclusion factor W; separate target blocks contribute disjoint images. For idempotents, g is idempotent, so a hit target block lies in its own preimage and M_j≥b_j−1. Mark h nonroot image points and fix them; then all other M_j−h inputs go to any of the h+1 chosen image points. This is exactly V and fixes the entire image, hence is sufficient for idempotence. For rank one the only images are single roots. The rank-two cases are two roots, giving a surjection on the roots (or fixing the two targets for idempotents), or one root plus a nonroot of the same block. In the latter there are N choices of nonroot over all roots, and 2^N−1 allowed nonroot assignments (2^{N−1} after fixing it for idempotents). This proves both low-rank formulas including r=1 and N=0 with the stated conventions. Direct independent enumeration checks eight profiles, including both quoted profiles and low-rank degenerate cases. It confirms the profile-sensitive rank-three contrasts 108 vs 78 and 31 vs 19.
 
-**Boundaries.** Only the centralizer of one idempotent in a finite *full* transformation monoid is addressed. No result on regular-element spectra, arbitrary prescribed products, or simultaneous centralizers is asserted. Historical novelty remains subject to independent literature verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the known root-section normal form and low-rank structural strata. The supported distinct content is the pair of complete image-cardinality distributions, refining that normal form for arbitrary sizes with simultaneous low-rank profile independence and explicit evidence of when it can fail. Verified catalog statements closest in subject change the commuting transformation or the ambient monoid; the primary citations available via frozen passage reports establish substantial background but no covering rank-weighted pair of formulas. This is not a priority claim for low-rank structural types or unweighted centralizer sizes.
+
+## value
+
+PASS
+
+The polynomials provide a natural image-size invariant for all elements and all retractions in a standard transformation monoid with arbitrary unequal kernel blocks. They explain exactly why the two smallest positive strata do not distinguish profiles and exhibit the first possible distinction. This is useful beyond the already-known characterization of which maps commute, and does not require exhaustive listing of n^n transformations to obtain exact coefficients.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

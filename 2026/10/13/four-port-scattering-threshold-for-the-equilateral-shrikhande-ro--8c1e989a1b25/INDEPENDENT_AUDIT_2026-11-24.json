@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:48:27.224998Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For s=sin(kℓ)≠0 the finite-edge endpoint derivative at u is k(f_v−cos(kℓ)f_u)/s. With ordered lead inclusion P, amplitudes a,b, and z=6cos(kℓ), Kirchhoff therefore reads (zI−A)f=isP(b−a), with Pᵀf=a+b. At the stated resolvent energies, define G=Pᵀ(zI−A)⁻¹P. This gives S=−(I+isG)(I−isG)⁻¹, where the denominator is invertible because G is real symmetric. The inverse map G=(is)⁻¹(S+I)(S−I)⁻¹ is defined since S−I=−2(I−isG)⁻¹. In particular the proof does not need G itself invertible or a separate Dirichlet nonresonance assumption at the contact set. Multiplication by zI−A, using A²=4I+2J and AJ=6J, proves the claimed resolvent expansion. Its ordered port block depends injectively on A[T] since its A[T] coefficient is 1/(z²−4), nonzero. Both graphs have an edge and a nonedge; common-neighbor counts give a triangle and an induced path, and union-of-neighborhood bounds give a one-edge triple and an independent triple. All labelings are admissible, so these exhaust equality through three ports. Any rook row is a K4; the Shrikhande neighborhood is a chordless six-cycle by Cayley differences and precludes a K4. At kℓ=π/3 the K4 resolvent has off-diagonal 1/15, whereas any four Shrikhande contacts have a pair with entry −2/15. Independent replay: python3 /workspace/replay/contact_profiles.py verifies exact strongly regular identities by bit masks, the integer-multiplied z=3 inverse, and exhausts the ordered adjacency profiles (support sizes 1,2,8 in both, then 54 versus 63 at four). The all-allowed-frequency result follows from the analytic reduction, not this finite check. No assertion at excluded energies or for every four-port layout.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mugnolo–Pivovarchik address one appended lead and other graph classes. Band–Sawicki–Smilansky allow leads on vertex subsets in isospectral constructions. Lawrie–Gnutzmann–Tanner provide scattering Green-function methods. Kurasov et al. allow arbitrary finite contact sets and relate their S matrices to M-functions."
+        ],
+        "reasoning": "These provide general tools or isoscattering constructions, not a theorem specifying when varying contact layouts on same-parameter strongly regular graphs exhaust the same scattering matrices. The one-lead scope in particular does not contain a three-versus-four threshold.",
+        "searches": [
+          "arXiv:2211.05465, lead setup and scope",
+          "arXiv:1007.0222 §§1.3,3.1",
+          "arXiv:2309.11251, Green-function setup",
+          "arXiv:2505.16621, scattering and M-functions p. 2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2211.05465",
+        "arXiv:2505.16621",
+        "arXiv:1007.0222",
+        "arXiv:2309.11251",
+        "Resultary 2e582bde2af1",
+        "Resultary 9174c1f874d0",
+        "Resultary b4df55b6d4bf",
+        "Resultary 22be85a237ec"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Cayley connection is prior, and the different clique geometry is classical. The p. 2 M-function discussion concerns fixed contacts, and the absorption record uses a different boundary perturbation and observable."
+        ],
+        "reasoning": "The gap is not a new general scattering formula or a new graph invariant in isolation. It requires identifying an injective compression of the actual metric-graph scattering matrix throughout the specified domain, then proving equality of layout supports through three and a response that cannot be realized by any four-port layout on the other graph. Neither general input on its own supplies that classification; no theorem already giving the equivalent strongly regular response-profile rule was located in the comparisons.",
+        "searches": [
+          "arXiv:2505.16621 p. 2 formulas for S and M and definitions of isoscattering",
+          "arXiv:2211.05465 pp. 1–2",
+          "Resultary 2e582bde2af1 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest general M-function text compares fixed contact sets through their scattering matrices. Resultary 2e582bde2af1 gives induced-absorber-subgraph equivalence for the same pair, but concerns coherent absorption of adjacency hopping and an eventual-absorption threshold of nine sites."
+        ],
+        "reasoning": "The equivalent scattering test needs the full ordered boundary Green block and an injective scattering transform at each allowed energy. Eventual absorption and even matched induced-set absorption dynamics are different observables and do not give the attainable scattering sets.",
+        "searches": [
+          "Shrikhande–rook equilateral quantum graph multi-terminal scattering, projected resolvent, contact/response classification",
+          "Local Resultary: Shrikhande and rook plus scattering, absorbers and boundary spectra",
+          "arXiv:2505.16621, arbitrary contacts and M-functions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact-pair records 2e582bde2af1 and 9174c1f874d0 concern coherent absorption and two-sink capture. Record b4df55b6d4bf covers rectangular absorbers on rook networks, including the equal-weight 4×4 rook graph. Record 22be85a237ec is an all-boundary equilateral Dirichlet-to-Neumann pole result."
+        ],
+        "reasoning": "The shared graph pair, same-day object overlap, and equilateral boundary context were assessed on their statements, not dates. None of these records supplies the required ordered response-set cutoff.",
+        "searches": [
+          "Local Resultary: exact rook–Shrikhande pair with multiport quantum-graph scattering, rooted resolvents, detector and sink variants"
+        ]
+      },
+      "rationale": "Scattering via a boundary matrix, the strongly regular identities, and the clique contrast are known inputs. The supported distinct result is a sharp threshold for the sets of experimentally attainable ordered responses for this canonical pair, with an injective reduction to induced contact patterns throughout the stated frequency domain. The inspected literature and comparable records do not supply the induced-pattern classification of the scattering responses or the minimum-port theorem.",
+      "residual_risks": [
+        "A source on multi-terminal boundary resolvents, equilateral scattering, or rooted distance-regular graphs under a different description could contain an implication-equivalent result. The bounded literature and local queries are not priority evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "One-lead scope; no multiport rook–Shrikhande result",
+          "evidence": "Attaches one lead and discusses small graphs and trees, not this 16-vertex pair at multiple contacts.",
+          "identifier_or_url": "https://arxiv.org/abs/2211.05465",
+          "material_read": "pp. 1–2, OA PDF offsets around 0 and 7000",
+          "method": "OA full-text passage inspection",
+          "title": "Distinguishing co-spectral quantum graphs by scattering",
+          "trigger": "Direct premise of distinguishing cospectral equilateral graphs"
+        },
+        {
+          "assessment": "Prior M-function approach, not a classification of attainable sets for this pair",
+          "evidence": "Defines one semi-infinite lead per contact, connects scattering to M-functions, and compares graph/contact pairs with fixed specified contact sets.",
+          "identifier_or_url": "https://arxiv.org/pdf/2505.16621",
+          "material_read": "p. 2, PDF extraction offsets 8300–12270, Scattering on compact graphs and Isoscattering and isospectrality",
+          "method": "OA full-text passage inspection",
+          "title": "Families of isospectral and isoscattering quantum graphs",
+          "trigger": "Closest general result for finite sets of contacts"
+        },
+        {
+          "assessment": "General lead attachment and symmetry construction, not the claimed threshold",
+          "evidence": "Allows leads on subsets of vertices and applies isospectral constructions to graphs with leads.",
+          "identifier_or_url": "https://arxiv.org/abs/1007.0222",
+          "material_read": "§1.3 p. 5 and §3.1 p. 9, OA offsets around 12200 and 23000",
+          "method": "OA full-text passage inspection",
+          "title": "Scattering from isospectral quantum graphs",
+          "trigger": "Multi-contact isoscattering constructions"
+        },
+        {
+          "assessment": "Methodological overlap; no pair-specific claim in passage",
+          "evidence": "Uses vertex/subgraph scattering matrices to derive Green functions.",
+          "identifier_or_url": "https://arxiv.org/abs/2309.11251",
+          "material_read": "p. 1 Green-function and singularity discussion, OA offset around 1250",
+          "method": "OA full-text passage inspection",
+          "title": "Closed form expressions for the Green's function of a quantum graph—a scattering approach",
+          "trigger": "General resolvent/scattering equivalence"
+        },
+        {
+          "assessment": "Different perturbation and observable",
+          "evidence": "Nine-site complete absorption and two-sink bright-space capture for adjacency dynamics, not multilead metric scattering.",
+          "identifier_or_url": "Resultary 2e582bde2af1 and 9174c1f874d0",
+          "material_read": "Original RESULT.md openings and findings",
+          "method": "Local Resultary search and mirror inspection",
+          "title": "Nine-site coherent absorption census for the Shrikhande and rook graphs; Two-sink capture universality and site-resolved absorption on primitive strongly regular graphs",
+          "trigger": "Exact-pair rooted/induced boundary analogues"
+        },
+        {
+          "assessment": "No implied pair-specific scattering threshold",
+          "evidence": "The rook paper gives absorber rectangle thresholds only; the second concerns pole strength for an all-boundary Dirichlet-to-Neumann matrix.",
+          "identifier_or_url": "Resultary b4df55b6d4bf and 22be85a237ec",
+          "material_read": "Original RESULT.md openings and findings",
+          "method": "Local Resultary search and mirror inspection",
+          "title": "Rectangular detectors on weighted rook quantum networks; Signless Laplacian pole strength and optimal equilateral quantum graphs",
+          "trigger": "Same-object rook and equilateral boundary analogues"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Rook versus Shrikhande is a natural fixed test of how local probes distinguish a globally cospectral pair. The result establishes a sharp information limit for arbitrary layouts with fewer leads and an exact realizable four-lead design usable at a single frequency, rather than presenting only a numerical distinguishing example. The sets-of-responses distinction is explicitly narrower than identifying the graph for an arbitrary layout.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

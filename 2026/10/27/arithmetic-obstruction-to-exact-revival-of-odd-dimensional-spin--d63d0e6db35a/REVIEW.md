@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The displayed eight-by-eight matrix independently yields the second characteristic coefficient by the trace-square identity. For every odd dimension at least three its Galois conjugates have absolute value strictly below one, while the coefficient is nonzero; the algebraic norm therefore excludes it from the algebraic integers. Finite order would force algebraic-integral elementary symmetric coefficients, a contradiction. A determinant-one argument excludes scalar projective finite order. The established QBN harmonic intertwiner transfers the conclusion to the full walk, and orthogonal spectral projections yield the generic-state statement. The full-walk and reduced-matrix diagnostics pass 131 assertions, but no finite experiment substitutes for the all-dimension proof.
+## correctness
 
-**Originality — PASS (best knowledge).** Wang (arXiv:2610.14467) proves the harmonic invariant space and computes its spectrum, without asserting the all-odd projective nonperiodicity consequence. Kajiwara et al. (arXiv:1907.01725) apply cyclotomic nonperiodicity methods to a different three-state walk on cycles. Jayakody and Nanayakkara (arXiv:1806.07032) construct revival protocols using chosen coins. The precise spin-coupled QBN eight-mode all-odd obstruction is not implied by these inspected statements, and no matching published record or accessible prior finding was found. Residual risk: an unlocated theorem may already specialize to this matrix; priority is not independently certified.
+PASS
 
-**Value — PASS.** This resolves a naturally posed dynamical issue left by finite-dimensional spectral reduction: whether the invariant harmonic sector is exactly recurrent. It produces a uniform structural parity dichotomy across all hypercube dimensions, despite arbitrary spin values outside the central layers, and separates generic aperiodic projective evolution from special eigenstate revivals and from approximate returns. It is stronger than checking finitely many dimensions or isolated eigenvalues.
+Wang's Theorem 4.3 supplies a nonzero intertwined harmonic sector of dimension 8C_(m+1) under exactly the four-layer spin condition. From (4.20), only the pairs (0,1), (2,4), (3,5), (3,4), (6,7) contribute to half the second trace; their products give the stated coefficient A_d and agree with the source polynomial. The determinant is 1 (also checked by factoring out the row phases: their product is ω^(4d)=1 and the remaining rational matrix has determinant 1). For α=ζ+ζ⁻¹, A_d=(4−2d+dα)/d² is nonzero, since equality to zero would make α=2−4/d a rational nonintegral algebraic integer. All its conjugates have magnitude less than 1 for odd d≥3. A nonzero integer norm is therefore impossible. A scalar power would have scalar ξ with ξ⁸=1, so the matrix would have finite order and A_d would be an algebraic integer. This contradiction passes through the intertwiner and rules out scalar powers of the full walk. For precision about the entire set of nonreviving states, not just a full-measure open subset: partition the finite spectrum by λ∼μ iff λ/μ is a root of unity. A vector revives projectively exactly when its spectral support lies in one equivalence class (take a common multiple of the finite orders). The reviving states are thus a finite union of proper spectral subspaces, in either restriction or full space, since either spectrum has at least two classes. This also handles repeated eigenvalues without needing simplicity, and does not exclude eigenstate or approximate recurrence. The supplied floating-point tests were inspected, not treated as proof or executed.
 
-**Scope and limitations.** The established even-dimensional fixed subspace is an acknowledged comparison, not a novel theorem. Individual eigenstates can return projectively, and approximate recurrence remains possible. The spin condition on the central layers is necessary to invoke the reduction. Independent external scientific evaluation has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The invariant sectors and the explicit odd characteristic polynomial are prior. No exact scalar-power obstruction for those odd sectors, or the resulting generic projective nonrevival for this model, was located in the strongest inspected sources. The conclusion is limited to that distinct arithmetic use of the known spectrum.
+
+## value
+
+PASS
+
+The known eight-dimensional reduction leaves a qualitative dynamics question open: unit-circle spectral locations permit both exact global revival and nonperiodicity. A single exact obstruction resolves this uniformly in odd dimension and for both allowed signs, with arbitrary exterior spins, rather than checking individual spectra to a time cutoff. The result distinguishes generic projective nonrevival from recurrence of special states; the even comparison is a known fixed sector, not a statement that the full even walk revives.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

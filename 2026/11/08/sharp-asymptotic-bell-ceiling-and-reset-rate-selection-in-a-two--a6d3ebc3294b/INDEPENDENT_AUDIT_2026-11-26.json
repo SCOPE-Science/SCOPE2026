@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:56:26.152201Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The repaired theorem uses dimensionless time and explicitly fixes the units issue: r_*~Omega^2/(2J) does not imply r_*->0 along arbitrary j->infinity (e.g. Omega=j,J=j^2); with Omega fixed it does. CHSH is taken over nondegenerate projective spin observables. In the occupied subspace, A has energy -j and (B,S) is the block with diagonals -j,j and off-diagonals 1. Expanding B in its two eigenvectors cancels the entire lower-mode error; the remaining upper-mode vector is sin(theta)(exp(-i omega t)-exp(i omega t))/sqrt(2) times its unit eigenvector. Its norm bound yields the stated projector trace-norm bound pointwise and after averaging against any age law. Integration against qe^{-qt} gives the effective 00/11 block; the correlation singular values are 1,|kappa/(1+kappa^2)|,|kappa/(1+kappa^2)|. The Tsirelson operator-norm bound gives the Lipschitz constant 2 sqrt(2). The profile tends to 2 at both ends, so a positive profile gap off a compact neighborhood plus the all-rate bound gives interior attainment by continuity and forces every optimizer to kappa=1 asymptotically (no finite-j uniqueness claimed). The dropped fixed-j statement is correct under the same nondegenerate convention: dephasing leaves T_{yy}=1/[2(1+j^2)] and T_{zz}=(2j^2+1)/[2(1+j^2)]. An independent column-stacked stationary solve in /tmp/opencode/frozen_1_2_3_checks.py confirmed finite examples, e.g. j=40 at q=delta gives 2.235637382686. Read the uploaded check.py but did not execute it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kulkarni–Majumdar p. 4 and Appendix A give the same dimer and its stationary state; Eqs. A22–A24 deal with entropy scaling. Murauer et al. pp. 2–3 use a discrete per-step random protocol with related Hamiltonian. Horodecki's CHSH formula applies to general two-qubit states but is not a dynamics comparison."
+        ],
+        "reasoning": "A concurrence limit or discrete-step entanglement diagnostic does not supply the robust error in trace norm for the continuous projector. The exact stationary state and spectral data are prior inputs and may be used to derive further sharp information.",
+        "searches": [
+          "arXiv:2307.07485, Appendix A",
+          "arXiv:2610.40638",
+          "DOI:10.1016/0375-9601(95)00214-N"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "Repaired RESULT.md and SLOGAN.txt",
+        "Resultary 1c9d1d25a201 and b5037141c959",
+        "arXiv:2307.07485 and 2610.40638"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older matrix immediately gives fixed-scaling singular values. Its xz entry already has the global bound |2aR^2/D|<=1/(2a), illustrating that some all-rate CHSH bounds are accessible by further estimates; it is not a matrix of full-state projectors. The repaired proof computes the exact upper-mode error in the time domain before averaging."
+        ],
+        "reasoning": "Pointwise convergence alone leaves open escaping reset-rate sequences. Bounding the prior rational entries would be an alternative route for Poisson CHSH, but would not prove a time-uniform trace-norm estimate for evolving projectors and arbitrary ages by direct substitution. The submission now places that approximation first and uses the optimization as its application.",
+        "searches": [
+          "November 2 exact correlation tensor and subsequent pointwise scaling argument",
+          "Kulkarni–Majumdar Appendix A and Fig. 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "October 25 Finding uses R=s/alpha and profile 2 sqrt(1+(2s/(1+4s^2))^2). November 2 uses R=q/(2a) and the equivalent profile; its proof gives the identical fixed-j weak-reset value."
+        ],
+        "reasoning": "Since delta_j~1/(2j), these are the same pointwise scaled CHSH law and peak, not new under the splitting normalization. A time-uniform trace-norm estimate for the full projector is a different assertion and controls averaging other than exponentially weighted correlation data.",
+        "searches": [
+          "Resultary: resetting Ising dimer Bell nonlocality, strong-coupling/weak-reset window and all-rate optimization",
+          "2026/10/25/SCOPE-bell-nonlocality-in-a-strong-coupling-quantum-reset-window--1c9d1d25a201",
+          "2026/11/2/SCOPE-a-singular-bell-nonlocality-window-for-two-interacting-spins-und--b5037141c959"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "November 2 RESULT.md proof, near offset 2782: exact Pauli tensor T(a,R) with denominators D=(1+R^2)^2+4a^2R^2 and E=4a^2+R^2+4. Both records already contain the exact peak and weak-reset calculation."
+        ],
+        "reasoning": "This is stronger than a finite table and covers the full finite-rate CHSH value implicitly via singular values. It is not a record of trace-norm deviations of the full unreset evolution or of the averaged state for arbitrary age sampling.",
+        "searches": [
+          "Resultary: strong-coupling reset rate CHSH ceiling sqrt(5), exact tensor and limiting weak reset",
+          "November 2 exact-correlation-matrix passage"
+        ]
+      },
+      "rationale": "PASS applies to the repaired uniform-in-time approximation of the evolving density projector, robust under age averaging, with global Poisson optimization as its consequence. The pointwise CHSH window, its sqrt(5) peak, and the fixed-j zero-rate limit are directly covered by earlier Resultary findings and are no longer presented as new. The nearest prior finite-rate tensor determines the Bell function and could be used to derive uniform estimates by additional bounds; it does not give the repaired trace-norm theorem or state the all-rate optimizer conclusion. This comparison is based on primary passages and does not assert priority beyond them.",
+      "residual_risks": [
+        "A separate, unindexed uniform projector comparison or rate optimization may exist; finite-rate rational formulas make independent uniform estimates plausible. The bounded passage comparison is not an exhaustive priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct overlap with the window and endpoints, no statement of robust time-domain bound in the passages",
+          "evidence": [
+            "Proof around offset 2782: exact T and subsequent R=q/(2a) fixed-q limit. The weak-reset sum of squared singular values is ((2a^2+1)^2+1)/(4(a^2+1)^2)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-singular-bell-nonlocality-window-for-two-interacting-spins-und--b5037141c959/RESULT.md",
+          "material_read": "Finding and proof, including exact matrix and endpoint/scaling calculations",
+          "method": "Local mirror passages",
+          "title": "A singular Bell-nonlocality window for two interacting spins under resetting",
+          "trigger": "Closest same-model exact CHSH calculation"
+        },
+        {
+          "assessment": "Identical fixed-scaling peak and profile; explicitly restricted to the scaling family",
+          "evidence": [
+            "The maximum is sqrt(5) at s=1/2 with R=s/alpha."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-bell-nonlocality-in-a-strong-coupling-quantum-reset-window--1c9d1d25a201/RESULT.md",
+          "material_read": "Finding, limiting profile and scope",
+          "method": "Local mirror passages",
+          "title": "Bell nonlocality in a strong-coupling quantum-reset window",
+          "trigger": "Earlier same-model scaling peak"
+        },
+        {
+          "assessment": "Exact state and scaling background, not the claimed time-domain comparison",
+          "evidence": [
+            "Offsets 29249, 60529, 63401 and 84399; Fig. 5 concerns concurrence, Eqs. A22–A24 entropy."
+          ],
+          "identifier_or_url": "arXiv:2307.07485",
+          "material_read": "Model p. 4, concurrence pp. 8–9 and Appendix A pp. 10–12",
+          "method": "OA PDF passages",
+          "title": "Generating Entanglement by Quantum Resetting",
+          "trigger": "Same model and stationary scaling"
+        },
+        {
+          "assessment": "Discrete reset/unitary steps and entanglement observables in inspected passages, not the same continuous-age CHSH theorem",
+          "evidence": [
+            "Offsets 10511 and 19821 distinguish the per-step reset probability p and the Hamiltonian."
+          ],
+          "identifier_or_url": "arXiv:2610.40638",
+          "material_read": "OA abstract and protocol/Hamiltonian passages on pp. 2–3",
+          "method": "Lawful full PDF accessible; bounded passage inspection",
+          "title": "Entanglement diagnostics of stochastic-resetting steady states: theory and measurement on superconducting qubits",
+          "trigger": "Potential same-model priority lead cited as abstract-only in the original"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An explicit time-uniform two-state approximation keeps the correct slow energy gap, avoiding secular phase errors and allowing arbitrarily long or widely distributed ages. Its all-rate consequence rules out better Bell values at escaping reset scales and answers an optimization question not settled by a scaling-family peak. The selected physical scale and its dimensional qualification are usable without claiming newness for the old window or endpoints.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

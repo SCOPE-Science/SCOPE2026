@@ -1,19 +1,21 @@
-# Scientific evaluation
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The 27 labelled edges correspond exactly to the named Sage Goldner–Harary construction. The binary update is unambiguous even at degrees six and eight because tie retention is explicit. One program evaluates all \(2^{11}\) states by integer bit-count comparisons and proves the whole functional graph classification by indegree peeling. A second independently builds the graph from all individual edges, uses signed-neighbor sums, and traces every orbit until repetition. Their separately constructed cycle identities, exact basin catalog, and entrance distributions agree on all 2,048 inputs. A third program verifies all degree-compatible graph automorphisms and their recurrent orbit classes. The depth-four witness is \(179\to119\to51\to49\to0\).
+PASS
 
-## Originality
+Independently reconstructed the supplied 27-edge graph as the triangle on {1,3,10}, both vertices {4,7} joined to all three, and six degree-three ears, one for each choice of two triangle vertices and one degree-six vertex. Adding a self-vote only at even degree gives exactly the specified strict majority with tie retention, since a one-vote self term cannot overturn a strict open-neighbor majority. Enumerated the 2,048 masked states using that rule. From the states with F²x=x, a reverse-edge breadth-first traversal reaches all states, tracks each eventual basin, and gives first-entry depths with counts (96,742,850,324,36). The only fixed masks are 0 and 2047, each with basin 935; all 49 individual catalog rows agree. The 47 two-cycle basins have sizes 2,6,8 with multiplicities 27,18,2, totaling 178 states. The fractions reduce to 935/1024 and 89/1024. Depth four gives F⁶=F⁴, while the witness 179→119→51→49→0 gives F⁵≠F³. Distinct degrees force automorphisms to preserve the triangle and the pair of degree-six vertices; their independent permutations each extend uniquely because the ears have distinct neighbor triples. Acting on unordered phase pairs gives seven classes of sizes 2,3,6,6,6,12,12, with the two constant masks fixed separately.
 
-PASS within the checked literature, with historical-priority risk. The graph-specific numerical and geometric census is not implied by the classical period-two theorem (Goles–Olivos, 1981; Benjamini et al., arXiv:1405.2486v1). Lima, Moreira and Araújo (arXiv:1205.5297v1) study stochastic majority-vote critical behavior on larger Apollonian networks, not finite deterministic synchronous attraction basins. The Sage source provides only the exact graph. Published exact majority basins on other named graphs do not imply the Goldner–Harary values. Searches for aliases, exact counts, the same graph and equivalent models found no dominating prior result. An unindexed enumeration could exist.
+## originality
 
-## Value
+PASS
 
-PASS. The Goldner–Harary graph is the canonical smallest non-Hamiltonian maximal planar graph, and a planar 3-tree. The full finite census determines a natural, previously non-implied invariant: \(935/1024\) initial states reach consensus even though the network supports 47 oscillating attractors, all with extraordinarily small individual basins. The distinction between attractor quantity and basin weight, and the exact four-step cutoff, are directly informative for deterministic opinion dynamics on a natural dense planar network. No broader planar-graph law is asserted.
+The general period-at-most-two result and the named graph are established. The distinct contribution is the exact evaluated census, including individual basins, sharp entry time and graph-automorphism classes for this explicit deterministic system. The checked deterministic prior work does not tabulate this graph, and the superficially related Apollonian majority-vote study has a different update law and different observables. No inspected result supplies this full graph-specific classification.
 
-## Closest work and limitations
+## value
 
-Most pertinent sources are the full-text 2012 Apollonian majority-vote preprint and the 2014 majority-dynamics preprint, together with the explicit Sage graph construction. Only the specified finite deterministic model is classified; global novelty against unindexed computations and independent reproducibility remain unresolved.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The input is a canonical small maximal planar graph, not an arbitrary selected mask or subgraph. The exact census quantifies two different aspects of stabilization on it: very many periodic attractors (47 against two fixed points) despite only 89/1024 of initial states entering any such attractor. The sharp stopping time, catalog and symmetry reduction are useful for exact comparison of dynamics on other named networks or validation of finite majority algorithms. The result is a complete finite invariant, not a claim about consensus on planar graphs generally.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

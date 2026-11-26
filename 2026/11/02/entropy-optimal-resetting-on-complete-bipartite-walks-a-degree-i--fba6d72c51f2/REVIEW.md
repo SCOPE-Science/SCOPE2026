@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact stationary distribution follows by class balance and direct vertex inflow. The entropy formula combines row entropies with their correct stationary weights and merges the reset probability with ordinary neighbor probability at the distinguished vertex. The finite-size envelope, its strict local maximum and global decrease in the fixed-part regime, and an explicit upper bound locating every proportional-regime optimizer justify the limits for *all* global maximizers. The finite transition-matrix checker passed 5633 deterministic assertions; it is supporting evidence, not an infinite proof.
+## correctness
 
-**Originality — PASS, qualified.** Wang–Chen's 2022 paper supplies the resetting entropy framework and numerical optimization on regular networks, Cayley trees, and preferential-attachment networks, but its analyzed statements do not imply the two distinct complete-bipartite optimizer scales or their constants. Riascos–Boyer–Herringer–Mateos studies general reset-walk stationary and passage-time distributions; those formulas do not themselves determine entropy optima. Publicly indexed comparable findings in bipartite hitting-time and entropy problems have different observables. Remaining risk is an overlooked explicit two-class entropy maximization in earlier Markov/restart literature, so novelty is not externally certified.
+PASS
 
-**Value — PASS.** A large degree imbalance changes the optimum resetting strength from inverse graph-part size to a three-quarter-power law. This is a structural, natural prediction for network entropy optimization, not an arbitrary parameter slice or a routine unquantified positive-gain statement. Both sharp first-order gain constants and all-global-maximizer localization are proved.
+For the repaired claim, aggregation at the reset destination and class masses 1/(2-r), (1-r)/(2-r) yield the observed-row formula and endpoint values. Revealing the Bernoulli indicator gives a pointwise upper envelope U, with conditional-entropy loss at most (1-r)/m times log(ea/b) before class weighting. At scale s=(m^3 n)^(-1/4) this loss is O(log m/m)=o(s), and the normalized envelope converges uniformly on compact sets to t(1-log t). U''<0 up to m^(-1/2); U'<0 thereafter by the 5/9 lower bound on the log m coefficient up to 1/2, then by its sign. Strict envelope barriers at (1±ε)s below the actual value at s localize every maximizer, and compact convergence gives the gain. In the original proportional regime the compact profile instead uses m(log m-g_m)→(1+t)log(1+t)-t and the same envelope excludes all r≥T/m for large fixed T. The proof, not the frozen script's reported finite assertions, supplies both infinite limits; no finite-size uniqueness or external attestation is claimed.
 
-**Limitations.** Only one fixed reset target on complete bipartite graphs, with independent Bernoulli resets and uniform ordinary neighbor steps. Intermediate regimes and finite-size optimizer uniqueness remain open here. One highly relevant primary paper was inspected in full accessible text; the second was assessed from its public abstract, which leaves limited residual priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+For the narrowed finding only, no inspected exact source covers each fixed n≥2 with the coefficient n^(-1/4) for both the optimizer and its gain. A one-leaf-star specialization and a positive-ratio asymptotic cannot be substituted for that regime. No absolute priority is inferred.
+
+## value
+
+PASS
+
+The surviving result quantifies both the sharp global optimum and its positive gain for every fixed opposite part larger than a star, with an explicit dependence on that part's size. It distinguishes this boundary regime from dense scaling without treating a nonuniform limit as a proof.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

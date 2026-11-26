@@ -1,22 +1,21 @@
-# Review of the coalitional-envelope finding
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The precise claim is a fixed-profile identity for all nonempty coalitions at every positive approximation factor, followed by geometric and welfare consequences. The proof first fills the outermost coalition indices without widening its range, then separates the two free endpoints into a prefix maximum and suffix minimum. This produces an exact radius for every agent and an explicit attaining contiguous coalition. Both forbidden-ball endpoint sequences are proved nondecreasing, permitting an exact gap decomposition even when agent positions tie or gaps collapse. The welfare objective is affine on each gap; the endpoint optimizer is exact. The extremal equally spaced profile attains the component bound for all positive population sizes. The finite rational verifier checks 2,548 profiles/parameter combinations and further examples; it is not substituted for the universal proof.
+PASS
 
-## Originality — PASS, with residual priority risk
+For agent i, filling in all indices between a coalition's extremal indices a,b leaves its range unchanged and increases its size. The strongest requirement is thus the maximum of h+z_a−z_b over a<=i<=b, which separates into two independent extrema and yields a concrete attaining block. In particular rho_i>=h>0. With d=x_(i+1)−x_i, each of the nonnegative increments of the running prefix maximum and suffix minimum is at most max(0,d−h). Hence each forbidden endpoint increases by at least min(d,h). A feasible point strictly avoids all agent locations, so in gap k the left exclusions reduce to y>=R_k and the right exclusions to y<=L_(k+1); the sentinels correctly clip the outer gaps to [0,1]. Endpoints remain allowed and coincident agents or empty gaps cause no exception. The slope 2k−n and intercept S_n−2S_k follow by expanding absolute values; testing one endpoint per nonflat gap and retaining whole flat maximizing gaps gives the exact optimum and argmax, or reports infeasibility. The scans use linear arithmetic after sorting. At alpha=2 the midpoints of n equal subintervals each give radius 1/(2n), leaving exactly n+1 isolated endpoints. The prior factor-two existence theorem extends to larger alpha by weakening all inequalities. The strict UFS comparison profile has PF optimum 31/24 and permits 37/24 under UFS, as claimed. Independent reproduction `python3 -B /workspace/review_checks.py 2` verified 1,004 rational instances using direct subset demands, all exclusion cells, and critical-point welfare. The source checker also has an auxiliary sorted endpoint sweep; the stated linear complexity is for the ordered gap scan, not that auxiliary test.
 
-The 2023 initiating paper introduces this specific strong obnoxious PF axiom and proves existence at factor two, not the complete feasible region or its utility-maximizing facility. The 2021 attractive-facility paper explicitly observes that contiguous coalitions suffice for verifying PF; this preexisting observation is credited and excluded from the novelty claim. The assessed contribution is the further exact prefix/suffix decomposition, ordered forbidden interval geometry, tight component bound and deterministic exact fair-welfare optimizer. A strict example shows that previously optimized weaker UFS does not imply the new optimization result. Search results in the consulted indexed mathematical record did not reveal an equivalent statement. Unindexed or inaccessible specialist work may contain equivalent techniques, so publication priority is not independently certified.
+## originality
 
-## Value — PASS
+PASS
 
-The original literature establishes that the strong coalition axiom is universally feasible at factor two but focuses welfare optimization on weaker fairness axioms. The complete set-valued characterization and exact linear-time optimizer answer a natural missing question: which placements satisfy **all** coalitions and which of those maximizes total distance? An explicit profile exhibits a strict optimal-welfare loss relative to weaker fairness, while the tight number of components shows that feasible placements can be genuinely disconnected and that a full representation may require linear output. This is a structural algorithmic result rather than a renamed existence statement or a single arbitrary finite example.
+The obnoxious PF axiom and universal factor-two existence are prior results. The distinct claim is the all-alpha per-agent exact envelope, ordered gap geometry and linear after-sorting optimization with a sharp disconnectedness bound. The checked existence proof and welfare analysis for weaker notions do not give this full statement. No novelty is claimed for completing coalitions to contiguous blocks as a general technique.
 
-## Relevant literature and limitations
+## value
 
-- Lam et al., *Proportional Fairness in Obnoxious Facility Location*, arXiv:2301.04340 (Section 6, Lemma 5, Theorem 11, Appendix S): known 2-PF existence and the distinction between PF and UFS.
-- Aziz et al., *Strategyproof and Proportionally Fair Facility Location*, arXiv:2111.01566 (Section 3, footnote 20): known reduction to contiguous coalitions in the distinct attractive-facility model.
+PASS
 
-The conclusion assumes a line segment, equal agent weights and absolute-distance utilities, with a sorted-input arithmetic model. It does not establish truthfulness, an approximation-ratio bound, or a result for networks or multiple facilities. Priority against inaccessible specialist literature is a remaining uncertainty.
+The complete fair region and certifying coalition demands address a natural shortcoming of a pure existence result. The sharp n+1 components demonstrate that there is genuinely linear-size set-valued output to represent, and the strict UFS/PF welfare separation shows why the established weaker optimization cannot simply be reused. The result does not claim incentives or multi-facility scope.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

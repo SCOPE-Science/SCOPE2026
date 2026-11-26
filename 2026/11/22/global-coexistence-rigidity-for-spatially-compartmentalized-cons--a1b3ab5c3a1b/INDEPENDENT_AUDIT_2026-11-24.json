@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:13:19.859234Z",
+  "axes": {
+    "correctness": {
+      "rationale": "I reconstructed the entropy derivative for arbitrary s,m rather than extrapolating the finite checker. In normalized shared and local concentrations u,v and stationary ratio t=T*/R*, the local consumer growth term cancels the current-biomass part of local uptake. Combining the remaining terms with the equilibrium supply offset leaves, per exchange pair after division by beta R*, the expression (1-1/u)(1-t-u+tv)+(1-1/v)(u-tv)-(1-t)(v-1). It is affine in t: at t=1 it is -(u-v)^2/(uv), and at t=0 it is 3-1/u-u/v-v=-P/(uv). The three positive terms 1/u,u/v,v have product one and are all one only at u=v=1. Direct consumption and the shared loss produce the stated shared square. Strict positive isolation (including theta_i=1) gives 0<t<1; the zero-dissipation set thus fixes all nutrients, and requiring invariance fixes every biomass from the local balance. Entropy sublevels are compact in the positive orthant, so continuation and LaSalle prove convergence and the equality set proves uniqueness. For hyperbolicity, the quadratic part of P is (du)^2-du dv+(dv)^2, and the positive entropy Hessian gives a nonpositive quadratic dissipation with kernel exactly the biomass subspace. In the Hermitian form, any eigenvector with nonnegative real part must be in that kernel, but the biomass-to-local-nutrient Jacobian is injective there. This proves strictly negative real parts and local exponential attraction, not a uniform global rate. The proof assumes a positive equilibrium exists, not that one always does. RESULT.md, VERIFICATION.md and verify_global.py were inspected without executing the supplied code; its rational 3-by-2 example does not prove the all-size identity or hyperbolicity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ballyk and coauthors prove a Lyapunov global result for two species and two substitutable resources with additional structural conditions including proportionality. Sari treats one shared substrate; Ruan–He concerns a different nutrient recycling mechanism. The supplement studies survivor bounds under a narrower preference/isolation structure."
+        ],
+        "reasoning": "These hypotheses and equations do not dominate arbitrary unequal compartment isolation and unrestricted positive uptake matrices. The fixed model does not reduce to a single shared substrate or a proportional two-species system merely by summing nutrient equations.",
+        "searches": [
+          "Ballyk–McCluskey–Wolkowicz (2005), Theorem 5.2",
+          "Ruan–He (1998), multispecies nutrient recycling",
+          "Sari (2010), variable-yield chemostat",
+          "ElGamel–Mugler supplementary equations (S35)–(S41)"
+        ]
+      },
+      "checked_sources": [
+        "ElGamel–Mugler arXiv:2611.00222v1",
+        "Ballyk–McCluskey–Wolkowicz (2005)",
+        "Ruan–He (1998), abstract",
+        "Sari (2010), abstract",
+        "Resultary 44e97c901f6c and 1842984adea3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing stationary balance identities and the full-isolation one-nutrient global theory do not control the derivative for partial, unequal isolation with several nutrients. Standard LaSalle arguments require the all-pair dissipation identity and its equality set first."
+        ],
+        "reasoning": "The new implication is an all-parameter result conditional on positive coexistence, not a claimed discovery of the model or a generic deduction that every coexistence equilibrium is stable. The decisive calculation combines exchange and uptake per compartment and the rank of the local biomass coupling eliminates neutral modes.",
+        "searches": [
+          "ElGamel–Mugler §II (3)–(5); supplement (S35)–(S41)",
+          "Ballyk–McCluskey–Wolkowicz Theorem 5.2",
+          "Resultary 44e97c901f6c and 1842984adea3 theorem scopes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "ElGamel–Mugler §II gives the same local/global consumer uptake mechanism in the one-nutrient equations; the inspected multinutrient supplement treats full isolation with common preferences.",
+          "Resultary 44e97c901f6c and 1842984adea3 use the same mechanism in one-nutrient regimes."
+        ],
+        "reasoning": "Rewriting nutrient exchange as recycling, or incorporating isolation into uptake coefficients, does not eliminate the separate local nutrient equation and its biomass coupling. The two archive results are actual special cases of the model family, not independent complete statements of the arbitrary fixed-isolation theorem.",
+        "searches": [
+          "Resultary: shared local nutrients, fixed isolation, global convergence and coexistence",
+          "ElGamel–Mugler arXiv:2611.00222 §II and supplement",
+          "Primary literature: global stability of compartment and chemostat competition models with multiple nutrients"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "44e97c901f6c classifies stationary survivor sets and hyperbolically attracting equilibria for a single nutrient and common isolation, without asserting global convergence. 1842984adea3 gives global convergence and extinction-threshold laws in the fully isolated single-nutrient system, including boundary/nonhyperbolic cases."
+        ],
+        "reasoning": "These are exact partial overlaps, not an indexed theorem for the stated all-size interior basin. In particular, the boundary conclusions are complementary and not claimed here. Their same-day dates do not establish priority.",
+        "searches": [
+          "Resultary local-mirror records 44e97c901f6c and 1842984adea3, Finding and assumptions",
+          "ElGamel–Mugler supplement, exact survivor equations (S35)–(S41)"
+        ]
+      },
+      "rationale": "The uptake mechanism and certain stationary and dynamical special cases are prior coverage. The supported distinction is the conditional global rigidity and strict hyperbolicity for arbitrary species and nutrients with genuinely species-specific positive isolation allowed, using the compartment entropy identity. No inspected stronger theorem was shown to apply with all these hypotheses.",
+      "residual_risks": [
+        "The search does not rule out general compartment or chemostat results under a different representation; abstract-level inspections were not treated as whole-document exclusions.",
+        "The same-day one-nutrient statements show real partial coverage but do not establish relative priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Original mechanism and narrower equilibrium results, not verified all-size global rigidity",
+          "evidence": [
+            "§II gives the single-nutrient equations; the inspected supplement uses full isolation and common preferences for the reported equilibrium survivor bounds."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.00222v1",
+          "material_read": "§II (3)–(5), PDF p. 2, near text offset 9955; supplementary (S35)–(S41) near 59500",
+          "method": "Lawful OA arXiv PDF, bounded passages",
+          "title": "Spatial structure promotes coexistence, resilience, and synergy in microbial communities",
+          "trigger": "Original local/global uptake model and multinutrient extension"
+        },
+        {
+          "assessment": "Related Lyapunov theorem with different equations and additional hypotheses",
+          "evidence": [
+            "The theorem treats two species and two resources and uses a parameter proportionality condition."
+          ],
+          "identifier_or_url": "Ballyk, McCluskey and Wolkowicz, J. Math. Biol. 51 (2005), Theorem 5.2",
+          "material_read": "Theorem 5.2, p. 470 / PDF p. 12, text near 39000",
+          "method": "Lawful OA bounded PDF passage",
+          "title": "Global analysis of competition for perfectly substitutable resources with linear response",
+          "trigger": "Plausible global-stability theorem for multiple substitutable nutrients"
+        },
+        {
+          "assessment": "Related mechanism; inspected evidence does not establish applicability",
+          "evidence": [
+            "Reports global results for multispecies chemostat recycling models including delay; this is not evidence of a theorem allowing the specified local uptake compartments."
+          ],
+          "identifier_or_url": "Ruan and He, SIAM J. Appl. Math. 58 (1998), 170–192",
+          "material_read": "Abstract, p. 1, text offset 0",
+          "method": "Lawfully accessible PDF abstract passage",
+          "title": "Global Stability in Chemostat-Type Competition Models with Nutrient Recycling",
+          "trigger": "Plausible implication via recycling compartments"
+        },
+        {
+          "assessment": "Single shared substrate precedent",
+          "evidence": [
+            "The reported global result concerns several species competing for one substrate under chemostat hypotheses."
+          ],
+          "identifier_or_url": "Sari, C. R. Acad. Sci. Paris, Ser. I 348 (2010), 747–751",
+          "material_read": "Abstract, p. 1, text offset 0",
+          "method": "Lawfully accessible PDF abstract passage",
+          "title": "A Lyapunov function for the chemostat with variable yields",
+          "trigger": "Plausible competition Lyapunov precedent"
+        },
+        {
+          "assessment": "Credited stationary/local overlap only in its parameter regime",
+          "evidence": [
+            "Common isolation and one nutrient; explicitly no assertion of global convergence of every positive trajectory."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-survivor-staircases-and-a-resource-ceiling-in-a-shared-loc--44e97c901f6c",
+          "material_read": "RESULT.md Finding and assumptions",
+          "method": "Configured Resultary local mirror",
+          "title": "Sharp survivor staircases and a resource ceiling in a shared-local nutrient model",
+          "trigger": "Same model family; exact equilibrium and stability overlap"
+        },
+        {
+          "assessment": "Credited global convergence for the full-isolation one-nutrient model, with extra boundary results",
+          "evidence": [
+            "Full isolation and one nutrient are essential to the statement; extinction and nonhyperbolic thresholds are outside the frozen claim."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-universal-critical-extinction-at-successive-microbial-nutrient-e--1842984adea3",
+          "material_read": "RESULT.md Finding and assumptions",
+          "method": "Configured Resultary local mirror",
+          "title": "Universal critical extinction at successive microbial nutrient thresholds",
+          "trigger": "Strongest same-model archive dynamical overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Existence by itself frequently gives little global dynamical information in multiresource competition. Here a model-specific entropy decomposition makes coexistence uniquely attracting despite simultaneous exchange and unequal isolation, and the local compartments remove invisible biomass modes even if shared uptake vectors are dependent. This gives a substantive all-size structural prediction and separates coexistence rigidity from the unaddressed boundary and existence problems.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

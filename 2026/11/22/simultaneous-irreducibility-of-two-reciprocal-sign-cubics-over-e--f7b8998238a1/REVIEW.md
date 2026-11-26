@@ -1,15 +1,21 @@
-# Review of the paired-cubic irreducibility theorem
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact rational-map model gives both discriminants and five geometric branch values, with an order-three branch shared by the two covers. Independence of the quadratic subfields forces full product \(S_3\times S_3\) monodromy, yielding genus \(13\) by Riemann–Hurwitz. A Frobenius twist with a pair of three-cycles has nine points over each qualifying unbranched parameter and at most \(93\) points above all exceptional base parameters. The Weil bound therefore proves the explicit estimate and positivity above the cutoff. Exhaustive exact modular arithmetic checks every prime up to \(850\); the finite checker and direct-root cross-check pass.
+## correctness
 
-## Originality
-PASS, with residual priority risk. Jones (arXiv:2611.20332v1) studies arithmetic monogenicity of the overarching polynomial family, not this all-prime paired irreducibility criterion. Pan (DOI 10.1017/S0004972725100671) counts irreducibility for a different quadratic/cubic pair. General Chebotarev specialization theory already implies the qualitative main-term asymptotic once the product monodromy is known, so the asymptotic is **not** claimed independently novel. The specified genus, effective numerical constant, finite exception cutoff and exact four-prime list are the assessed advance. Search cannot exclude every earlier equivalent treatment.
+PASS
 
-## Mathematical value
-PASS. Simultaneous irreducibility of a canonical sign-paired specialization in a recent number-theoretic polynomial family is a natural arithmetic question. Unlike a generic existence-for-sufficiently-large-primes statement, the result decides existence for *every* prime, identifies exactly four obstructions and provides a geometric explanation with an explicit effective bound. It exhibits a finite-field Galois phenomenon not settled by the monogenicity problem from which the family arose.
+Negating X in Q reduces the test to f_c and f_−c. Independently checked the cubic discriminant −t²(3t²−14t+27), the derivative of −X³/(X²+X+1) and the quadratic resultant 63504. For p≥11 the poles are simple; the geometric inertia types are a 3-cycle at 0 and transpositions at the two simple discriminant roots for each cover. Each cover is connected with S3 closure. The two quadratic discriminant square classes differ at their disjoint simple roots, so the two geometric closures have trivial intersection: any nontrivial common S3 quotient would have the quadratic quotient. The arithmetic action embeds in S3×S3 and already contains the geometric product, so there is no constant extension. Tame inertia in the compositum is cyclic, of order three at the common branch point and two at the four remaining ones. Riemann–Hurwitz gives genus 13; the twist fiber on an unramified rational base point contributes either zero or the centralizer size nine, since irreducibility is the 3-cycle class in each coordinate. No finite ramified parameter qualifies. At most 12+4·18+9=93 extra points can lie over the exceptional parameters including infinity, giving the claimed estimate by Weil. For p≥851, p+1−26√p−93 is increasing and positive already at 851 (759²>676·851). A separately written direct-root test of both polynomials, not the uploaded rational-map sieve, exhausted all 146 primes through 850 and returned exactly 2,3,5,13 as the zero counts. Opposite parameters then give pairs for all remaining odd primes. The bound is proved for p≥11 only, and no extension-field classification is asserted.
 
-## Limits
-The cover argument invokes standard Weil bounds and twist theory; no claim about finite extension fields, optimal error constants, or arithmetic monogenicity is made. The finite certificate does not verify those standard infinite theorems. Possible implicit prior coverage is retained as a research priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct contribution is the concrete genus-13 calculation and explicit all-prime existence classification for this sign pair, including the finite cutoff and exception list. The polynomial family and general Chebotarev mechanism are antecedents, not new. The exact algebraic and arithmetic comparison was made against the available overlapping statements; no conclusion about absolute priority is inferred from search misses or limited access.
+
+## value
+
+PASS
+
+A natural pair of specializations of a single family is classified at every prime, rather than only for a density-one set or sufficiently large unknown primes. The regular compositum and explicit genus give a calculable cutoff, and the exceptions include 13 as well as very small characteristics. This is a meaningful finite-to-uniform classification, not a table with an arbitrary search bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

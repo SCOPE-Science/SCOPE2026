@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:25:47.823903Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the specified forward cycle, the first row is q_j(s)=(1+2 exp(-ds) cos(s-2πj/3))/3. For d≥√3 the negative fractional power is irreducible Metzler, giving strict positivity at t>0. For 0<d<√3 an entry can be negative only on its arc cos(s-2πj/3)<-1/2. The viable arcs, rather than the full overlapping negative-cosine lobes, have cells (2πn/3,2π(n+1)/3) and component (n+2) mod 3. The damped negative cosine has its maximum at γ_n-arctan d; the log peak decreases in d with derivative -(γ_n-arctan d). The strict peak inequality gives the ceiling, correctly excluding a tangency. The first arc starts with equality at s=0 and has positive derivative of the damped negative cosine there. For the last nonpositive time, the largest eligible index with weak peak inequality is floor[(3/(2π))(B(d)-π/3)]; its peak is within O(1) of log(2)/d, which is also an upper bound for the last root. Rescaling gives both asserted constants. At d=0 the row is a permutation at s∈(2π/3)Z and otherwise has exactly one negative entry. Row sum one then gives the norm formula. An independent high-precision solve of H_1(d)=0 gave d=0.228903469804774575 and α_1=2.570230659003062518. Replay: frozen RESULT.md, Proof, with the cell restriction above. The bundled verify.py was inspected, not executed; its finite tests are supplementary.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The staircase record allows arbitrary positive damping and rotation, including the entire superunit fractional path below α=3.",
+          "Benzi et al. supply the directed-cycle discrete Fourier formula. Daners–Glück supply qualitative uniform eventual positivity under spectral and smoothing hypotheses, not the window count."
+        ],
+        "reasoning": "It is the stronger exact circulant theorem, not merely the availability of a spectral formula or qualitative eventual positivity, that covers the classification.",
+        "searches": [
+          "Resultary: three-state circulant positivity-time staircase",
+          "arXiv:1912.07288 §5",
+          "arXiv:1801.05179v1 Theorem 3.1"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary index and mirrored record 5fb4df709da8",
+        "arXiv:1912.07288 §5",
+        "arXiv:1801.05179v1 Theorem 3.1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With Π the constant projection and J=(Pᵀ-P)/√3 for the assigned P, -L^α=-δ(I-Π)-ωJ, the transpose of the indexed generator. Its strict inequality 2k+1<R(d) is γ_k<B(d).",
+          "The last weak cell lies O(1) below the envelope log(2)/d; at zero damping the same entry formulas reduce to a rotation with nonnegativity only at permutation angles."
+        ],
+        "reasoning": "The substitution entails the full central window census and threshold ladder. Although the indexed δ>0 statement does not include α=3 or state the last nonpositive time expansion, both are elementary from the displayed exact exponential and cell bounds.",
+        "searches": [
+          "Resultary circulant staircase, Finding and Proof §§1–4",
+          "frozen RESULT.md, Spectral formula through Last time and singular asymptotics"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The circulant staircase gives the entrywise nonnegativity envelope exp(a s)≥max(-2 cos s, cos s+√3|sin s|) and reduces it to 2 cos(s-(2k+1)π/3) on angular cell k."
+        ],
+        "reasoning": "The two row conventions are transposes, which preserves the sign-time sets. Setting a=δ/ω=d identifies every cell and its root equations, not just the spectral values.",
+        "searches": [
+          "Resultary: exact sign intervals, tangency thresholds and eventual positivity for the directed fractional triangle and damped three-state circulants",
+          "A sharp positivity-time staircase for three-state circulant semigroups, Finding and Proof §§1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching full text gives N(a)=ceil((3H(a)/(πa)-1)/2), thresholds R(a_k)=2k+1, first a_k decimals and N(a)~3log(2)/(2πa)."
+        ],
+        "reasoning": "Since H(d)/d=B(d), this is an exact formula match; the threshold decimals are incidental to that identity.",
+        "searches": [
+          "Resultary: damped circulant exact count and critical orders",
+          "Resultary record 2026/11/22/SCOPE-a-sharp-positivity-time-staircase-for-three-state-circulant-semi--5fb4df709da8, Finding"
+        ]
+      },
+      "rationale": "The broader indexed three-state circulant staircase contains the advertised central classification: exact time test, count, endpoint equations, threshold ladder and divergent count. Specialization is exact under δ=3^(α/2)cos(πα/6), ω=3^(α/2)sin(πα/6), with transposition to accommodate the directed-cycle convention. This is demonstrated statement coverage, not a claim about which of the two same-day records came first. The record-specific labels, last-time asymptotic and α=3 boundary are direct consequences of the already explicit kernel and cells; they do not restore originality to the frozen central claim.",
+      "residual_risks": [
+        "Both Resultary statements bear the same date; the evidence does not order them in UTC or identify historical priority.",
+        "The comparison is bounded; no exhaustive historical claim is made about other circulant or Markov embedding literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the central theorem as a stronger result; chronology unresolved",
+          "evidence": [
+            "Exact time test, ceiling, strict threshold criterion, endpoint equation and count asymptotic under arbitrary δ,ω>0."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-sharp-positivity-time-staircase-for-three-state-circulant-semi--5fb4df709da8/RESULT.md",
+          "material_read": "Finding and Proof §§1–4, beginning at text offset 0; local mirrored snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary local search and bounded reading of mirrored original",
+          "title": "A sharp positivity-time staircase for three-state circulant semigroups",
+          "trigger": "Indexed exact match for normalized 3×3 damped circulant semigroups"
+        },
+        {
+          "assessment": "Supplies the spectral ingredient, not the inspected high-order sign census",
+          "evidence": [
+            "Directed-cycle Fourier eigenvectors and fractional-power formula; transition-probability discussion for 0<α<1."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1912.07288",
+          "material_read": "§5, PDF p. 21, text near offset 82000",
+          "method": "Lawful OA original, located passage",
+          "title": "Nonlocal network dynamics via fractional graph Laplacians",
+          "trigger": "Cited directed fractional cycle framework"
+        },
+        {
+          "assessment": "Qualitative eventual positivity, not the reentrant intervals",
+          "evidence": [
+            "Sufficient spectral and smoothing conditions for uniform eventual strong positivity."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1801.05179v1",
+          "material_read": "Theorem 3.1, near text offset 23000",
+          "method": "Lawful OA original, located theorem",
+          "title": "A criterion for the uniform eventual positivity of operator semigroups",
+          "trigger": "Potential general positivity implication"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The sharp sign-time staircase is a useful quantitative phenomenon, but it is already supplied in a broader exact classification. In the frozen record the fractional path amounts to a parameter substitution; the component labels, zero-damping permutation endpoint and last-time estimate are immediate from the explicit kernel and bounded-width final cell. No separately motivated, substantive unaddressed invariant survives as a valuable repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

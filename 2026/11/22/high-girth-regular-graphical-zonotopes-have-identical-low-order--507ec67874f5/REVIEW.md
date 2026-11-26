@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The homomorphism-count lemma holds by a well-founded induction on forest vertex count, using the exact \(n^c d^e\) homomorphism enumeration and discarding cyclic quotients that cannot inject into a graph of girth exceeding the edge bound. It handles disconnected forest supports, repeated edge variables and noninduced embeddings. Gaussian radial decomposition gives an exact positive gamma quotient. Determinant-sum volume and the exact integer reduced-Laplacian calculations establish the nonisometric witness. The packaged verifier agrees for all forest supports of sizes one through four; the finite check does not replace the infinite-family proof.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The 2021 Padrol–Pilaud–Poullot graphical-zonotope treatment concerns deformation cones and normal fans; its full accessible text does not give random width moments. The published first/second and cubic-motif formulas account for moment orders through three, not the fourth-order/girth-bounded arbitrary-order identity. The 2026 bounded-degree CLT concerns limiting laws, not finite exact identities. General homomorphism counts and spanning-tree determinants are prior tools, and the 2021 Borbényi–Csikvári–Luo work is credited for the high-girth regular-graph forest setting. Searches for high-girth width moments and dodecahedron–Desargues moment collisions found no equivalent formula, but a less-indexed exact Gaussian graph-functional result is possible.
+PASS
 
-## Mathematical value — PASS
-This is a natural all-order finite-dimensional universality statement for Euclidean projection widths, with the graph girth providing a sharp structural ceiling on the forest-support argument. The explicit pair of equal-order, equal-degree, noncongruent graphical zonotopes witnesses a substantive loss of geometric information: four whole projection-width moments are exactly the same despite an 18.5% discrepancy in Euclidean volume. It is neither a known lower-order formula restatement nor an arbitrary low-dimensional numerical slice. The result offers a systematic obstruction to reconstructing zonotopal metric invariants from low-order random projection statistics.
+Full width is the sum of absolute edge differences, with no factor of two. The centered isotropic Gaussian in the (n−1)-dimensional hyperplane has independent χ_(n−1) radius and Haar direction, so moments reduce by the same positive radius moment in both graphs. For a forest F with e≤k edges and c components, hom(F,G)=n^c d^e. The partition by identified vertices has zero contributions for looped quotients and for cyclic quotients (the simplified quotient has at most e edges, strictly below girth). The remaining proper quotients are smaller forests and give an induction for universal injective counts, including disconnected supports. In the moment expansion each ordered edge tuple is a surjection onto its edge support; summing over such orderings with repeats depends only on the abstract forest by Gaussian exchangeability. For the witness I reconstructed the two graphs as GP(10,2) and GP(10,3): edge-deletion shortest paths give girths 5 and 6, canonical forest encodings give identical census through four edges, and exact rational reduced-Laplacian elimination gives spanning-tree counts 5184000 and 6144000. Reduced tree incidence matrices after any one row deletion have determinant ±1, hence by Cauchy–Binet each independent generator set contributes √20 to volume. The volume ratio is 32/27.
 
-## Limits and comparison
-The theorem does not identify the earliest order at which either example can be separated, weighted variants, or all possible pairs of graphs. The fourth-order forest tables are verified without numerical integration; this is sufficient because graph-isomorphic forest supports have identical Gaussian expectations. Historical priority remains provisional. The finding has not received independent review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit prior first-through-third width moments, high-girth forest counting and the spanning-tree volume identity. The supported distinction is exact finite-dimensional universality at every order strictly below girth, including a four-moment collision despite unequal volume, not novelty of any standard ingredient.
+
+## value
+
+PASS
+
+The theorem supplies an exact geometric invariant shared by all regular graphs in the stated girth regime, not just a low-order formula or limiting distribution. The explicit same-dimension, same-degree collision shows why four measurable width moments cannot recover intrinsic Euclidean volume even in a natural class.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

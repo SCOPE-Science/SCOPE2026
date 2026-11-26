@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:34:44.321471Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py (inspected only), verify_output.txt",
+        "Independent exact replay: python3 /workspace/branches/replay-1.py"
+      ],
+      "rationale": "For a rank-two generator matrix with N nonzero columns, a projective message annihilates exactly one column direction P, and its weight is N−m(P). Each message direction supplies q−1 equal weights. Their sum is qN, so the enumerator recovers the multiset of multiplicities, and equal length recovers the zero count. Monomial equivalence is precisely the projective orbit of that profile (column representatives can be independently rescaled). The faithful group orders give all permutations for q=2,3. For q=4, translations, dilations and inversion generate the projective group and each is even, giving A5 by order. Any repeated multiplicity supplies an odd stabilizer, so only an all-distinct profile splits; its minimal total support length is 0+1+2+3+4=10, which leaves no zero columns at length ten and gives exactly two orbits. In the family the distinct weights are consecutive from 4t+6 to 4t+10, each with multiplicity three. Relative to ordered weights, every permitted isomorphism across the two monomial classes gives an odd permutation. Every such permutation produces at least one ratio above one and one below; the closest possible ratios to one are (4t+10)/(4t+9) and its reciprocal. Swapping those two alone attains the lower bound through the identity message map for the displayed bases. Independent exact replay classified all sorted rank-two nonzero-column profiles through length ten by projective orbit and minimized over all 180 invertible maps for seven test parameters (including 100/81 at t=0). The all-t claim follows from the ratio proof, not finite sampling.",
+      "residual_risks": [
+        "Only rank two and field-linear equivalence; allowing Frobenius enlarges the quaternary image to S5 and erases the claimed split. The result does not give a bound for general inequivalent codes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 8 November entry gives one orbit for repeated weights and two for distinct weights, with cross-class distortion the square of the minimum adjacent weight ratio. This directly implies the entire quaternary family and threshold, including 100/81 for the length-ten enumerator.",
+          "The inspected code-distortion discussion concerns general computational problems, not that evaluated parity formula."
+        ],
+        "reasoning": "The later catalogue result is substantive broad coverage, not merely a similar title, but the evidence does not establish an earlier theorem covering the frozen claim. Its quaternary scope also does not replace the binary and ternary discussion.",
+        "searches": [
+          "Resultary 2026/11/8/SCOPE-the-parity-split-in-quaternary-rank-two-code-distortion--c2ab438c2c3e, Finding and relevant passage near offset 6777",
+          "Bennett–Fox–Morrell arXiv:2607.26261, Eq. (1) and §1.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.26261",
+        "Dodunekov–Simonis, EJC 5 R37",
+        "Bouyukliev–Bouyuklieva–Kurz",
+        "Resultary c2ab438c2c3e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The classical dictionary plus the PGL actions and minimum sum gives the small-field rigidity and first split; these are short structural deductions, not a new code classification method.",
+          "The exact metric additionally uses the parity of the relative weight matching and independent lower and upper sharp bounds on the extreme ratios. The later broader theorem indeed gives it by specialization."
+        ],
+        "reasoning": "The older definitions and reductions do not themselves evaluate the optimal field-linear distortion. The contribution beyond those antecedents is the sharp quantitative evaluation linked to the first failure of enumerator determination.",
+        "searches": [
+          "Dodunekov–Simonis pp. 1–4 and Bennett–Fox–Morrell pp. 2–3",
+          "Resultary c2ab438c2c3e, stated general adjacent-weight-ratio theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dodunekov–Simonis identify monomial code classes with projective multisets and hyperplane-intersection weights; their monoidal maps omit Frobenius.",
+          "Bouyukliev–Bouyuklieva–Kurz include field automorphisms, merging the exact profiles that split under PGL_2(4)."
+        ],
+        "reasoning": "A classification only up to semilinear equivalence cannot establish the two monomial classes or the strictly linear distortion. The projective formulation is genuinely equivalent when convention is held fixed.",
+        "searches": [
+          "Local Resultary search on rank-two isospectral codes, PGL parity, monomial equivalence and quaternary length threshold",
+          "Dodunekov–Simonis, EJC 5 (1998), R37, pp. 1–4",
+          "Bouyukliev–Bouyuklieva–Kurz, Computer classification of linear codes, p. 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The November Resultary record reports the exact length-ten parameter and value, as well as examples for every length ≥10.",
+          "Table V is for 4-divisible quaternary codes, under the larger equivalence convention. Weights 6–10 violate divisibility. The code-table page did not expose substantive content and the identified 2005 PDF did not open."
+        ],
+        "reasoning": "The inspected table cannot dominate the frozen rank-two examples. The later exact Resultary match is recorded; failed full-text access gives no negative originality evidence.",
+        "searches": [
+          "Resultary searches for [10,2]_4, weights 6–10 and 100/81",
+          "Bouyukliev–Bouyuklieva–Kurz Table V and p. 18",
+          "Attempted codetables.de and lawful access to Bouyukliev–Östergaard (2005)"
+        ]
+      },
+      "rationale": "Older primary work supplies the projective-multiset reduction, and the code-distortion paper supplies the metric. Neither inspected result evaluates the parity-constrained minimum for isospectral rank-two pairs. A distinct Resultary entry explicitly overlaps and generalizes the quaternary theorem, including the exact length-10 gap and all-t specialization. Its catalogue date is later; the evidence establishes overlap, but not anterior coverage or shared provenance. Relative to verified antecedents, the distinct content is the strict-linear isospectral parity threshold and the exact optimal near-unit distortion, not the projective dictionary.",
+      "residual_risks": [
+        "A monomial-only earlier catalogue or an older parity calculation may exist; the single external lookup did not establish absence.",
+        "No scientific conclusion from the code-table landing page or the inaccessible 2005 self-orthogonality paper; no priority claim relative to the separate broader catalogue entry."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines the field-linear metric and monomial isometries; inspected results do not give the claimed rank-two evaluation",
+          "evidence": [
+            "Distortion is the maximum weight ratio divided by the minimum, minimized over invertible linear maps."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2607.26261",
+          "material_read": "p. 2 Eq. (1); p. 3 §1.1",
+          "method": "OA PDF passage inspection",
+          "title": "The Code Distortion Problem",
+          "trigger": "Exact metric and same-type code equivalence"
+        },
+        {
+          "assessment": "Projective correspondence and weight formula; does not give a distortion calculation in the inspected passages",
+          "evidence": [
+            "Monoidal maps permute and rescale coordinates; weights are complementary to hyperplane intersections."
+          ],
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v5i1r37/pdf",
+          "material_read": "pp. 1–2 and §2.1 pp. 3–4",
+          "method": "OA PDF passage inspection",
+          "title": "Codes and Projective Multisets",
+          "trigger": "Classical structural equivalent under strict monomial equivalence"
+        },
+        {
+          "assessment": "Larger equivalence convention and restricted divisible catalogue, not the claimed monomial length-ten count",
+          "evidence": [
+            "Field automorphisms are allowed; the quaternary table is restricted to 4-divisible codes."
+          ],
+          "identifier_or_url": "https://epub.uni-bayreuth.de/id/eprint/4618/1/LinCodeAugmentation_arxiv.pdf",
+          "material_read": "p. 1 equivalence definition, p. 15 Table V scope, p. 18 software note",
+          "method": "OA PDF passage inspection",
+          "title": "Computer classification of linear codes",
+          "trigger": "Quaternary class tables and equivalence convention"
+        },
+        {
+          "assessment": "Later catalogue record explicitly covers and generalizes the quaternary results; provenance unresolved",
+          "evidence": [
+            "Minimum adjacent ratio squared for all distinct weights, exact 100/81 at length ten, and near-unit examples at every length ≥10."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-the-parity-split-in-quaternary-rank-two-code-distortion--c2ab438c2c3e",
+          "material_read": "Finding and passage near offset 6777",
+          "method": "Local Resultary and mirror search/inspection, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "The parity split in quaternary rank-two code distortion",
+          "trigger": "Direct matching and dominating quaternary parameters"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Findings and Proof",
+        "Bennett–Fox–Morrell Eq. (1)",
+        "Comparison with semilinear equivalence in Bouyukliev–Bouyuklieva–Kurz"
+      ],
+      "rationale": "The weight enumerator is a natural but coarse invariant and the metric measures how close inequivalent linear codes can be to isometric. This identifies their first separation in the rank-two setting and quantifies it, including an infinite family with exact nonunit gaps tending to one. The strict-linear versus semilinear distinction affects the result itself, rather than merely changing terminology. The exact optimization and intrinsic minimal threshold make the result more than re-enumeration of code classes.",
+      "residual_risks": [
+        "No general-dimensional law or algorithmic consequence is proved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

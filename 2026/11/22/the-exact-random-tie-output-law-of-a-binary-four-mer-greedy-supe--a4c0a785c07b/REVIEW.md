@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness (PASS).** The fully specified uniform ordered-pair tie rule gives a finite, acyclic exact-fraction recurrence on merge states. Two stand-alone implementations, one using original-read endpoint paths and one using literal merged strings, return the same normalized seven-point distribution. Direct output strings and an independent substring-position lower bound establish the \(11\)-bit optimum. The finite verification is an exhaustive proof for the stated instance, not a general theorem about arbitrary inputs.
+## correctness
 
-**Originality (PASS against inspected evidence).** The 2026 false-greedy-conjecture article and 2015 four-letter presentation discuss extremal approximation bounds, not this fixed random-tie transition law. An existing exact binary four-mer extremal record covers the worst possible output and identifies the eight-read obstruction; that does **not** determine the probability of its occurrence or any intermediate output probability. published-finding corpus searches for random ties and the rational \(13939/1995840\) returned no covering claim. Residual risk: an unindexed computation may already contain the probability distribution.
+PASS
 
-**Value (PASS).** Worst-case approximation alone cannot determine how likely a bad output is when ties are broken at random. The entire exact performance law for a smallest known strict \(3/2\) obstruction quantifies a natural robustness question: an admissible bad sequence exists, but the failure event occurs with probability below one percent. This is an intrinsically motivated finite algorithmic invariant, not a random parameter slice or a consequence of the extremal ratio.
+A literal multiset of component strings is a sufficient state. For each ordered pair of distinct component positions the proper overlap is tested; all maximizers, including zero if necessary, receive equal conditional mass and are counted separately even when leading to the same next state. Each transition reduces component count by one, so exact rational recursion over the resulting states is exhaustive. Fresh literal replay, not the frozen endpoint reduction, evaluated 418 states and exactly reproduced every listed mass, normalized to one. Weighting by length gives 3209609/249480. No output above 17 occurs; one legal path to 17 uses overlaps 3,3,3,3,2,1,0 and ends at 00001000100110101. A word of length m has m−3 four-mer positions, so eight distinct four-mers require m≥11, attained by 00101000011. Thus length 17 alone exceeds (3/2)·11. Reversal reverses every ordered pair and its merged word, while complementation preserves pair order; each maps maximal-overlap choices bijectively at every state and preserves probabilities.
 
-**Limits.** One symmetry orbit and one precise tie distribution; no claims for other four-mer sets, higher read lengths or distinct randomization procedures. Independent scientific validation was not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge support is for the full exact stochastic output-length law of the specified instance, not the previously indexed existence, minimal input size, orbit, optimum 11, maximum 17, or generic tie recurrence. The strongest distinct same-day records cover those deterministic endpoints on exactly this input. A same-day random-tie study computes a law for all binary three-mers, not this subset of four-mers. No compared statement supplies the exact probability distribution for this input without new state evaluation. The common catalogue date does not establish relative priority.
+
+## value
+
+PASS
+
+The instance is motivated by the smallest strict 3/2 binary four-mer obstruction and the sharp extremal ratio, not by selecting a random small parameter slice. The exact stochastic invariant determines the robustness of that genuine worst-case obstruction to a natural tie rule: the failure probability is about 0.698%, and the full law quantifies the other outputs. This is additional usable benchmark data for randomized tie behavior, not a recomputation of the deterministic maxima.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

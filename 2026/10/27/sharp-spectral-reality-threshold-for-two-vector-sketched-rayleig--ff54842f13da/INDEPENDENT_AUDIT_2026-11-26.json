@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:15:44.854590Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the entire joint subspace the embedding gives ||G-I||<=epsilon and G11 positive definite. With R=YC the least-squares formula gives the perturbation G11^(-1)G12 C. For unit y let q=||G11^(-1)G12 y||; for q>0 project onto its normalized direction u and y. The bound gives (a-1)^2+a^2 q^2<=epsilon^2 with a=u^T G11 u, hence q<=epsilon/sqrt(1-epsilon^2); zero perturbation is immediate. For the sharp two-dimensional bound, let h=Delta/2 and write the additive real map on the complex plane as z times the argument plus w times its conjugate, in an eigenbasis of the centered symmetric Ritz matrix. Its real operator norm is |z|+|w| since a unit argument can align the two terms. The centered symmetric reference has conjugate-linear coefficient h (choose the eigenbasis order accordingly). If the pair is nonreal with imaginary part gamma>0, its discriminant identity gives |Im z|=sqrt(gamma^2+|h+w|^2). By the triangle inequality in R^2, sqrt(gamma^2+h^2)<=sqrt(gamma^2+|h+w|^2)+|w|<=||E||. This proves both reality at equality and the exact upper envelope. The frozen SPD witness has the required Schur complement and R=r times an isometry; its exact Gram square identity proves the full-space embedding and its normalized off-diagonal realizes E=delta J. The witness has a nonzero square-zero centered part at delta=h and the claimed conjugate pair above it. Exact replay for Delta=6,r=4 in reproductions/frozen_checks.py (argument 2) gives squared half-gaps 9,0,-175/9 at epsilon=0,3/5,4/5 respectively. This is a worst-case envelope over admissible inputs, not a characterization of whether a particular sketch above the threshold has real spectrum.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "520e06c04fb6 proves the same sharp residual-to-perturbation norm transfer in arbitrary trial dimension and a general strict reality-and-simplicity criterion. Its equality and supercritical formulas are for the exhibited witness.",
+          "Gubler et al. use a definite Hermitian pencil, not the same least-squares extractor. Stewart's oblique-projector paper was not accessible in the bounded OA attempt."
+        ],
+        "reasoning": "Credit the broader norm and strict reality result as covering their two-vector specializations, and continuity covers reality at equality. A witness establishes a lower bound on a supremum, whereas the broader result's perturbation estimate alone (via ordinary eigenvalue disks) only bounds imaginary magnitude by the perturbation norm, not its sharp combination with the half-gap. The additional sharp real two-dimensional optimization supplies the needed upper bound.",
+        "searches": [
+          "2026/11/2/SCOPE-a-sharp-embedding-threshold-for-real-sketched-ritz-spectra--520e06c04fb6, Eqs. (1)–(3), Proof Steps 2–4",
+          "arXiv:2608.24529 Eq. (14)",
+          "Stewart DOI 10.1137/100792093, oblique projectors"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 520e06c04fb6, 1d926bce4460 and 2d2f13f8fb2c",
+        "Nakatsukasa–Tropp arXiv:2111.00113",
+        "Liu–Liu arXiv:2610.22261v1",
+        "Gubler et al. arXiv:2608.24529",
+        "Stewart DOI 10.1137/100792093 (OA attempt only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The broader record uses separated normal spectral disks and homotopy to give all-real simple spectra for norm error less than half the gap. In the overlap regime the disk argument does not force a conjugate pair to lie in both disks, and Eq. (3) by itself only gives attainment.",
+          "The Lanczos result has gap sqrt((alpha-beta)^2+4a^2), with a rank-one perturbation supported in a fixed column of the Lanczos basis. In particular its sharp imaginary-part formula differs even on its equal-diagonal witness family."
+        ],
+        "reasoning": "The remaining theorem is a sharp upper bound for all admissible problems, not just the onset of nonreality. Its discriminant and exact real 2x2 norm argument produce dependence on both half-gap and perturbation budget in the complex regime. The shared threshold and witness should not be counted as distinct novelty on their own.",
+        "searches": [
+          "Resultary 520e06c04fb6 Steps 2–4 and Limitations",
+          "Resultary 1d926bce4460 and 2d2f13f8fb2c Findings and Assumptions",
+          "arXiv:2111.00113 §§6.3,6.8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nakatsukasa–Tropp use the same pseudoinverse extraction and explicitly say it need not return real eigenvalue estimates even for symmetric input. Liu–Liu similarly note the nonsymmetric projection for SPD input and introduce a real-Schur response.",
+          "The exact extraction and transition in Resultary 520e06c04fb6 coincide at k=2 after matching its delta=Delta/2, gamma=r and beta equal to the Ritz center."
+        ],
+        "reasoning": "These are genuine equivalents for the extraction, and the catalog comparison also for the reality transition and attained candidate formula. The older qualitative warnings do not classify the worst imaginary magnitude. A real-Schur presentation of the same map does not remove nonreal eigenvalues.",
+        "searches": [
+          "arXiv:2111.00113 §6.3 Eq. (6.12), §6.8",
+          "arXiv:2610.22261v1 ordinary sRR and real-Schur formulation",
+          "Resultary: two-vector sketched Ritz reality, embedding distortion, projected gap and residual norm"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 11/2 record's Eq. (3) yields precisely the frozen attained value (and equal threshold) but only for its explicit witness. The 10/25 two-step Lanczos record 1d926bce4460 assumes rank-one residual from fixed Lanczos structure and bounds the imaginary part by sqrt([a*(b*epsilon/sqrt(1-epsilon^2)-a)]_+). The 10/25 angular record 2d2f13f8fb2c uses codimension-one coordinate projection and a spectral-width/angle bound."
+        ],
+        "reasoning": "The first comparator directly overlaps the threshold and extremizer but does not bound every supercritical problem by that value. Neither earlier finite-parameter formula allows all admissible Gram operators with a rank-two residual and the fixed Ritz gap. A coordinate drop with full joint-space injectivity is a restrictive sketch model.",
+        "searches": [
+          "Resultary local mirror: 520e06c04fb6, 1d926bce4460, 2d2f13f8fb2c",
+          "Resultary: sharp gap–residual–epsilon envelope, conjugate Ritz pair, positive-definite witness"
+        ]
+      },
+      "rationale": "Credit the known nonsymmetric extraction and its qualitative pathology. The distinct supported contribution is the universal sharp imaginary-part envelope for arbitrary real whole-joint-subspace embeddings of two-vector extraction, conditional on both the full unsketched Ritz gap and residual norm. The 11/2 Resultary record has the same sharp transfer constant, critical reality transition, Gram construction and attaining eigenvalue formula after relabeling; it proves a strict real-and-simple threshold for general trial dimension. It does not prove a universal gap-dependent upper bound for the magnitude of nonreal parts in the two-vector class. This is a material overlap, not independent novelty for the threshold, and its catalogue date is not evidence of independent development or priority. Earlier records concern structurally restricted or differently parameterized problems. The envelope upper bound is a separate sharp perturbation optimization, not the stated normal-disk estimate or the exhibited witness alone.",
+      "residual_risks": [
+        "Classical sharp obliqueness and real 2x2 perturbation bounds may encompass intermediate lemmas. Stewart's full text was not accessible in the attempted OA routes; no whole-document verdict made.",
+        "Catalogue chronology does not settle provenance for the overlapping threshold and witness. The scientific pass is for the verified distinct universal upper envelope, not priority of all ingredients."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broader transfer and strict reality theorem; equal transition/witness. Does not establish the sharp universal imaginary bound above threshold",
+          "evidence": [
+            "Eq. (1) bounds the norm; (2) is a real/simple criterion; Eq. (3) explicitly refers to witness construction; Step 3 uses separated disks"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/11/2/SCOPE-a-sharp-embedding-threshold-for-real-sketched-ritz-spectra--520e06c04fb6/RESULT.md",
+          "material_read": "Finding Eqs. (1)–(3), Assumptions, Proof Steps 1–4 and Limitations in mirrored RESULT.md",
+          "method": "Read local mirror at offsets 0 and 5340, match parameters and distinguish quantified upper bound from witness",
+          "title": "A sharp embedding threshold for real sketched Ritz spectra",
+          "trigger": "Closest distinct indexed statement, with identical sharp embedding transfer and witness"
+        },
+        {
+          "assessment": "Restricted rank-one residual geometry, not the rank-two worst case",
+          "evidence": [
+            "Bound sqrt([a*(b*epsilon/sqrt(1-epsilon^2)-a)]_+) with Lanczos coefficients a,b"
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-sharp-embedding-distortion-reality-certificate-for-two-step-sket--1d926bce4460",
+          "material_read": "Local mirror Finding and Assumptions, offset 0",
+          "method": "Compare gap, residual rank and sharp formula",
+          "title": "Sharp embedding-distortion reality certificate for two-step sketched symmetric Lanczos",
+          "trigger": "Earlier sharp embedding threshold and envelope for same extractor on a Lanczos plane"
+        },
+        {
+          "assessment": "Fixed projection and angle/spectral-width formulation, not the joint distortion/gap/residual envelope",
+          "evidence": [
+            "S=[I_s 0]; bound depends on L-m and the smaller singular value of SQ"
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-sharp-angular-envelope-for-nonreal-sketched-ritz-values-under-co--2d2f13f8fb2c",
+          "material_read": "Local mirror Finding, Assumptions and start of normal form Proof, offset 0",
+          "method": "Compare admissible sketches and constrained parameters",
+          "title": "Sharp angular envelope for nonreal sketched Ritz values under codimension-one coordinate sampling",
+          "trigger": "Earlier exact imaginary envelope for a real two-vector Ritz extraction"
+        },
+        {
+          "assessment": "Exact map and qualitative warning already known; no quantified sharp envelope in these passages",
+          "evidence": [
+            "Eq. (6.12), (SB)^dagger(SAB); §6.8 explicitly says the method does not always return real estimates"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2111.00113",
+          "material_read": "PDF pp. 17,19 §§6.3,6.8",
+          "method": "Compare the formula and symmetric-case warning",
+          "title": "Fast & Accurate Randomized Algorithms for Linear Systems and Eigenvalue Problems",
+          "trigger": "Foundational equivalent extraction and symmetric-input issue"
+        },
+        {
+          "assessment": "Acknowledges complex spectrum and real-arithmetic treatment; no gap-conditioned envelope in inspected passage",
+          "evidence": [
+            "SPD sketched matrix is generally nonsymmetric and approximate eigenpairs may be complex"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.22261v1",
+          "material_read": "HTML introduction passage near offset 6200 on the SPD projection issue and real-Schur remedy",
+          "method": "Read exact motivation and distinguish re-expression from numerical bound",
+          "title": "Real-Arithmetic Sketched Eigensolvers for Symmetric Matrices",
+          "trigger": "Motivating exact same complex-eigenvalue phenomenon and possible competing spectrum result"
+        },
+        {
+          "assessment": "Different eigenproblem",
+          "evidence": [
+            "H_j y_i=theta_i G_j y_i, H_j,G_j Hermitian with G_j positive definite"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2608.24529",
+          "material_read": "PDF p. 4, Eq. (14)",
+          "method": "Compare definite Hermitian pencil with nonsymmetric least squares",
+          "title": "Randomized Block Davidson Eigensolvers for Plane-Wave Density-Functional Theory",
+          "trigger": "Alternative extraction with real Ritz values"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the smallest subspace on which a real conjugate pair can occur, the result quantitatively controls the worst size of the imaginary part after reality fails, not merely whether failure can occur. Conditioning on the symmetric Ritz gap and the unsketched residual is natural for sketched eigensolvers; the attained gap-sensitive upper bound is strictly more informative than a generic perturbation norm disk and remains necessary even for positive-definite input. Exact-arithmetic worst-case scope is essential.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

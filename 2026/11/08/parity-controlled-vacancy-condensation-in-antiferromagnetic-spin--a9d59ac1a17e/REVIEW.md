@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The local bond identity and its exact nonnegative equality conditions establish the all-size occupation-sector inequalities. For even rims, the alternating full rim and a hub vacancy exhaust all nonempty zero-field sectors. For odd rims, an occupied-path boundary cost, the odd rim frustrated bond, and the even-path obstruction with exactly one vacancy rule out competing sectors. Explicit equality cases give the claimed degeneracies, including the coincident thresholds at the four-vertex wheel. Two independent programs, one brute-force and one boundary-state contraction, were executed successfully. Finite calculations corroborate but do not replace the analytic proof.
+PASS
 
-## Originality — PASS on available evidence, with priority limitations
+With r occupied rim sites, Q=r+t² and exchange B in units of J, expansion gives B+r=Σ(s_i+s_(i+1))(s_i+s_(i+1)+t)/2; every summand is nonnegative. For even n a full alternating rim attains −n for any hub spin, exhausts equality at r=n and supplies both occupied lines. At δ=1 only t=0 can tie zero, with every rim edge enforcing s_(i+1)=−s_i, hence the two alternating rims and the zero assignment. For odd n and t=0, every nonempty occupied path pays at least 1 from its two vacancy boundaries; a full odd rim costs at least 2 above −n. For t≠0 and one rim vacancy, all local costs cannot vanish because an even alternating occupied path cannot have both ends −t; integer costs then give B≥−(n−2). A full odd rim likewise costs at least 1 above −n. Together with B≥−r for t≠0, these give the stated sector lower bounds. For δ<1 lower nonzero occupancies cannot tie Q=n−1, and Q=n is strictly beaten by Q=n−1 for δ>0 or by full occupation for δ≤0. For δ≥1 the odd nonempty sectors have positive energy. At full odd occupancy equality is one −t,−t defect, giving 2n assignments. At Q=n−1 there are 2n zero-hub alternating-path choices; for t≠0, each occupied path would need odd length and endpoints −t, so the odd total n−2 excludes two separate paths. The two vacancies are adjacent, giving another 2n. The crossings of the attaining lines are at 1/2 and (n−2)/(n−1), and coalescence for n=3 yields counts 6+12+1. For even n the two crossings give 4+2 and 2+1, respectively. These equality and comparison arguments apply for every stated real δ, independent of finite replay.
 
-Public searches for the wheel graph, the spin-one Blume–Capel Hamiltonian, vacancy thresholds, and exact ground-state multiplicities were compared at the level of graph, assumptions, parameter and conclusion. Pawłowski's full preprint treats square-lattice antiferromagnetic order and Wang–Landau thermodynamics (arXiv:cond-mat/0703299), not the wheel. Guo and collaborators' 2016 transfer-matrix treatment of an infinite sawtooth chain (DOI:10.1103/PhysRevE.93.052151) has a different periodic graph and does not state the wheel-specific parity formula in the available text. Kimel and collaborators' 1987 square-lattice work (DOI:10.1103/PhysRevB.35.3347) and Hwang and collaborators' 2016 kagomé work (DOI:10.1088/1742-6596/750/1/012016) are also different lattices. The full texts of some related sources could not be inspected, and an unindexed equivalent treatment remains possible; the review does not claim a proof of historical uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The wheel is a canonical finite network of frustrated triangles. A zero spin can resolve alternating-spin obstructions, so its exact vacancy thresholds and coexistence multiplicities are physically and combinatorially motivated. The result is a natural, complete, infinite-family classification: odd rim parity produces a positive-width phase with two vacancies, whereas even parity produces a distinct hub-vacancy transition. The exact lengths of the interval and the linear-in-size boundary degeneracies are not merely a generic consequence of knowing a finite-state transfer algorithm.
+The full-occupancy sector for n≥4 is already covered by the earlier exact zero-field Ising-wheel specialization up to the additive crystal-field constant; no independent novelty is assigned to that exchange energy or count. The distinct claim is how allowing spin zero changes global optima, vacancy locations, thresholds and all boundary multiplicities. The closest matched model/geometry comparisons do not derive this classification; priority remains provisional.
 
-## Scope and risks
+## value
 
-Classical nearest-neighbor model, uniform exchange, zero temperature and zero magnetic field only. No thermal or quantum phase transition is claimed. The priority assessment depends on retrieved public literature and must remain open to later expert evaluation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Wheel triangles couple a global hub choice to the parity obstruction of a rim. The exact all-size classification distinguishes a single hub vacancy on even rims from two structurally different ways to accommodate two vacancies on odd rims and pins down crossings and exceptional K4 coexistence. The surviving quantitative result is useful as a finite frustrated-cluster benchmark, independently of the already covered nonvacant Ising sector.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

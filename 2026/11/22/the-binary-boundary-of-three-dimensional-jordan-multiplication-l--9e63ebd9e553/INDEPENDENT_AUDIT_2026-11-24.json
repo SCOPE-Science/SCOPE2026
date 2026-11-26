@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:43:33.275188Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently exhausted the 2^18 possible symmetric basis-output tensors. Let L_i be multiplication by e_i and S_i multiplication by e_i^2. In the pointwise defect the coefficient of the reduced function x_i is [S_i,L_i], and that of x_i x_j is [S_i,L_j]+[S_j,L_i]. Evaluating at one- and two-coordinate binary vectors proves their necessity; these are all reduced terms and hence suffice. For extension stability the unreduced terms x_i^2 x_j are distinct and each coordinate degree is at most 3, so separate vanishing is necessary already over F4 by interpolation and is sufficient over every extension. Commutativity makes associativity equivalent to all L_i commuting. The replay python3 /tmp/opencode/frozen_nov24_jordan.py uses these operator tests and traverses orbits by two swaps and one involutive elementary addition (they generate GL_3(F2)), rather than testing every product pair and every basis as in the frozen C++ code. It recovered 2858/47, 1898/32 and 988/16 labelled laws/classes, the orbit histogram, stabilizer sums 7896/5376/2688 and the entire byte-identical representative table (SHA-256 b0b9545d04c73a084153374d50f9a3508187f1547c0bf7fcfdb4b7950b53a2e5). For the witness only the e_3 component survives subtraction; it is ab(a+b) times the e_1-coordinate of y, hence zero over F2 and 1 at a=1,b=omega,y=e_1. Associative laws stay associative after extension, so all 15 exceptional orbits are nonassociative. Inspected the frozen checker; only the independent code was executed. No claim about quadratic Jordan structures is verified by this test.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first paper's general algebraic classification excludes fields of two elements. Hegazi–Abdelwahab cover nilpotent algebras in dimension at most three over arbitrary fields. Cedilnik–Jerman require x^2=0; Cedilnik requires x^2 in the span of x. The frozen explicit boundary law has e_2^2=e_2 and e_1^2=e_1+e_3, so escapes all three subclass hypotheses."
+        ],
+        "reasoning": "Each prior subclass is meaningful coverage where applicable, but none gives the full binary theorem; the larger geometric field domain is not a broader rational orbit count.",
+        "searches": [
+          "arXiv:2611.00315v1, abstract",
+          "arXiv:1301.6349v4, abstract",
+          "10.24330/ieja.662996, §1",
+          "10.24330/ieja.1217445, Definition 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, REVIEW.md, AUDIT.json, check_jordan_f2.cpp and representatives.tsv",
+        "arXiv:2611.00315v1",
+        "arXiv:1301.6349v4",
+        "doi:10.24330/ieja.662996",
+        "doi:10.24330/ieja.1217445",
+        "Resultary 63f049af71c4 and the assigned exact census match"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The geometric classification is of algebraically closed characteristic-two varieties; laws violating the formal coefficients never occur there. The rational classification explicitly says more than two elements. The arbitrary-field subclass sources restrict the algebra rather than addressing the omitted F2 case for all algebras."
+        ],
+        "reasoning": "Even complete knowledge of the geometric variety would not count reduced-identity-only laws. Obtaining the rational strict count from a geometric classification would additionally require descent and rational orbit accounting; it would not recover the 15 extra classes.",
+        "searches": [
+          "arXiv:2611.00315v1, abstract",
+          "arXiv:1301.6349v4, abstract",
+          "Cedilnik–Jerman §1 and Cedilnik Definition 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact-census query led to the assigned record itself. The primary low-dimensional paper treats algebraic closure in characteristic two separately from its field-dependent classification over fields with more than two elements.",
+          "Strict polynomial-identity testing over F4 is equivalent to extension stability here, but rational F2 orbits cannot be counted simply by listing geometric or F4 classes."
+        ],
+        "reasoning": "The comparison distinguishes ordinary bilinear Jordan products from quadratic Jordan structures and the reduced binary identity from the formal polynomial identity. Neither a change in terminology nor extension of scalars preserves the census without further work.",
+        "searches": [
+          "complete classification three-dimensional Jordan algebras over F_2 characteristic two isomorphism classes",
+          "three-dimensional Jordan algebras over F2 exact census pointwise extension-stable 2858 47 1898 32 15",
+          "arXiv:2611.00315v1, abstract"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact numerical match identifies the frozen record, not an independent source. The distinct same-day indexed item concerns the associative locus within square-zero products over even fields; its summary counts q^3 of q^9 labelled products."
+        ],
+        "reasoning": "A square-zero locus satisfies the formal Jordan condition automatically and omits even the nonzeropotent associative laws, all the binary-only laws, and the orbit census of the full problem. No distinct matching comprehensive table was found in the bounded search.",
+        "searches": [
+          "Resultary exact-census query with 2858 47 1898 32 15",
+          "SCOPE-the-associative-stratum-of-three-dimensional-square-zero-jordan--63f049af71c4"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the simultaneous full binary census and the pointwise/extension-stable boundary. The most closely scoped low-dimensional classification explicitly excludes the two-element field from its rational isomorphism classification. Its geometric classification and the existing proper subclasses are genuine prior coverage but do not supply this simultaneous binary census. The associative subcensus is treated as comparative data, not a claim of isolated priority for the enumeration of rings of order eight.",
+      "residual_risks": [
+        "The bounded search does not exclude an unindexed small-algebra or ring table or a prior rational descent calculation.",
+        "Only the named portions of the related papers were independently read; no whole-document or historical priority certification is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The two stated scopes exclude a complete rational F2 pointwise classification",
+          "evidence": [
+            "Abstract lines 15–22 explicitly state more than two elements and algebraically closed field in the respective parts."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.00315",
+          "material_read": "Primary PDF abstract; subsections were not independently retrieved",
+          "method": "Indexed search and lawful OA arXiv PDF",
+          "title": "Isomorphism classes and geometric classification of three-dimensional Jordan algebras and the length function",
+          "trigger": "Strongest nearby complete classification"
+        },
+        {
+          "assessment": "Arbitrary-field result covers the nilpotent subclass only",
+          "evidence": [
+            "Abstract lines 14–26 explicitly limit the classification to nilpotent Jordan algebras. A nonzero idempotent rules out nilpotence for the boundary witness."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1301.6349",
+          "material_read": "Primary PDF abstract; no independent page-level read of Theorem 34",
+          "method": "Lawful OA arXiv PDF",
+          "title": "Construction of Nilpotent Jordan Algebras Over any Arbitrary Fields",
+          "trigger": "Arbitrary-field table with dimension three"
+        },
+        {
+          "assessment": "Genuine prior coverage of all-square-zero laws, not the full Jordan locus",
+          "evidence": [
+            "The introduction defines zeropotence as x^2=0 for every element."
+          ],
+          "identifier_or_url": "doi:10.24330/ieja.662996",
+          "material_read": "Primary journal PDF abstract and §1 definition",
+          "method": "Lawful open journal PDF",
+          "title": "Classification of three-dimensional zeropotent algebras",
+          "trigger": "Complete three-dimensional classification allowing F2"
+        },
+        {
+          "assessment": "Only laws satisfying x^2 in span{x}; the binary-only witness lies outside this scope",
+          "evidence": [
+            "Definition 1.1 explicitly lists this condition; the opening includes examples over the two-element field."
+          ],
+          "identifier_or_url": "doi:10.24330/ieja.1217445",
+          "material_read": "Primary journal PDF abstract, Definition 1.1 and opening of §1",
+          "method": "Lawful open journal PDF",
+          "title": "Classification of three-dimensional isopotent algebras",
+          "trigger": "Another low-dimensional arbitrary-ground-field table"
+        },
+        {
+          "assessment": "Proper-subclass overlap, no same-day priority claim",
+          "evidence": [
+            "Square-zero over even fields; labelled associative locus, not the full binary pointwise/strict orbit split."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-the-associative-stratum-of-three-dimensional-square-zero-jordan--63f049af71c4",
+          "material_read": "Indexed statement summary only",
+          "method": "Local Resultary search",
+          "title": "The associative stratum of three-dimensional square-zero Jordan laws",
+          "trigger": "Strongest distinct indexed overlap in characteristic two"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the first field size excluded by the nearby low-dimensional classification, not an arbitrary finite cutoff. The complete least-representative table gives concrete rational forms, and the 15 extra orbits together with the F4 witness quantify a material difference between testing a polynomial identity over the ground field and requiring it formally. The count pertains to one natural dimension and convention, not to quadratic Jordan algebras or higher dimensions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

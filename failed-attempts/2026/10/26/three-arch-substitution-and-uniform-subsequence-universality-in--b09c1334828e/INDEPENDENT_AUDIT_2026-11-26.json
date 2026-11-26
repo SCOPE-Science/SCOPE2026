@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:43:04.373522Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 3–50",
+        "VERIFICATION.md and verify_arch.py inspected, not executed",
+        "Schnoebelen–Veron arXiv:2304.11932, p. 4",
+        "Richomme–Saari–Zamboni arXiv:0904.2872, Proposition 2.6, PDF p. 13",
+        "Independent arithmetic replay: python3 /workspace/review-checks/2_bounds.py. Each prefix of t=tau(t) decomposes into full images plus at most one terminal 0; iterate to write its letter-2 discrepancy as sum eps_j*d_j, eps_j in {0,1}, with d_j=|tau^j(0)|_2-lambda^(-3)|tau^j(0)|. The Tribonacci recurrence and initial values give the second-order recurrence with characteristic polynomial z^2+(lambda-1)z+lambda^(-1): d_2+(lambda-1)d_1+lambda^(-1)d_0=0. For factor discrepancies take differences of such sums; the program bounds sum |d_j| via the first 11 terms and a geometric tail from the conjugate roots."
+      ],
+      "rationale": "Write tau^3(0)=A010, tau^3(1)=A01, tau^3(2)=A. Thus t=tau^3(t) begins with A, and the next arches are the intervening suffixes followed by A, namely B,C,A according to the source letter 0,1,2. Each block contains 0 and 1 before its unique final 2. Alternatively the three identities tau^3 d=d sigma hold and iterate from d(A)=tau^2(0), verifying the whole arch fixed point. Greedy arch count equals universality index: each complete arch supplies any requested next symbol, while the sequence of arch-end letters followed by a symbol absent in the suffix is not realizable. Thus the prefix formula holds, and three successive emission counts give |tau^n(0)|_2=|tau^(n-3)(0)| for n>=3. In a factor with r occurrences of 2 every complete arch consumes at least one 2, and the r-1 disjoint intervals from a 2 up to the next 2 contain the alphabet. This gives exactly the claimed two-sided envelope, with the r=0 case handled separately. For the strict all-factor discrepancy, Richomme–Saari–Zamboni Proposition 2.6 states that the prefix discrepancy for 2 lies strictly between -0.88 and 0.62. A factor discrepancy is the difference of its two endpoint prefix discrepancies (including the zero-length prefix), so is strictly less than 1.5 in absolute value. The index differs from the 2 count by at most one, proving the strict 5/2 bound and uniform limit. The original's attribution of the 3/2 input to the nominated Lejeune–Rigo–Rosenfeld paper was not substantiated in the inspected material; the mathematical input is verified directly in Richomme–Saari–Zamboni, independently corroborated by the discrepancy-series argument.",
+      "residual_risks": [
+        "No optimal discrepancy constant or exact individual-factor index formula is shown. Finite runs of either checker alone do not prove any of the infinite assertions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The multinacci result for every m>=2 gives exact entire greedy arch factorization, the rarest-letter index for all prefixes, U_m(L_n)=L_(n-m), and limiting prefix density lambda_m^(-m).",
+          "The general theorem identifies the finite index with the number of complete arches."
+        ],
+        "reasoning": "Applying m=3 gives the key claims for the identical fixed point, not merely for a related substitution or under stronger hypotheses. The indexed statement is earlier dated and demonstrably covers these claims; the underlying historical priority was not independently adjudicated.",
+        "searches": [
+          "Resultary 06c42dc2835a, Finding and proof",
+          "Schnoebelen–Veron arXiv:2304.11932, greedy arch theorem"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 06c42dc2835a",
+        "arXiv:2304.11932 p. 4",
+        "arXiv:0904.2872 Proposition 2.6",
+        "Lejeune–Rigo–Rosenfeld repository PDF bounded lookup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Each known arch ends in its unique 2 and includes all letters before or at that terminal position. Consequently every complete 2-to-before-2 gap is rich, and a factor with r twos has at least r-1 disjoint rich blocks and no more than r arches.",
+          "The difference of two published prefix discrepancies lies strictly between -1.5 and 1.5. Adding the at-most-one defect gives the submitted <5/2 bound and hence the location-uniform limit."
+        ],
+        "reasoning": "The non-prefix inequalities are a direct implication of the known exact decomposition and letter-frequency bound, without a further structural or sharpness theorem. The exact constant need not have appeared word-for-word for this to count as coverage.",
+        "searches": [
+          "Resultary 06c42dc2835a Finding, exact letter containment and terminal rare-letter condition",
+          "arXiv:2304.11932 p. 4 and arXiv:0904.2872 Proposition 2.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 06c42dc2835a gives x=P B_(x_0) B_(x_1)...; for m=3 this is A followed by the letter code 0->B, 1->C, 2->A.",
+          "The returns starting on 2 and ending immediately before the next 2 are 2010, 2010010 and 201010. Let psi relabel tau so that psi(A)=B, psi(B)=BC, psi(C)=BA. For U=BCB one has psi^3(X)U=U sigma(X) for all three letters, as checked by expansion."
+        ],
+        "reasoning": "The arch process is a shifted and recoded return structure. The earlier coding gives the entire arch sequence; taking the third power and moving its common prefix U to the other side gives the explicit sigma. An alternative presentation and finite word identities are not separate universality results.",
+        "searches": [
+          "Resultary: Tribonacci/multinacci arch factorization, rarest-letter index and morphism",
+          "Return words of 0 and 2: explicit computation in the Tribonacci fixed point"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The archive lists the exact arch blocks via a uniform closed formula, stronger than a finite list or sampled factor table; at m=3 the lengths are 4,7,6 and the words are A,B,C.",
+          "The published balance proof contains explicit numerical prefix-discrepancy bounds of width 1.5 for the letter 2."
+        ],
+        "reasoning": "The strongest comparison is exact analytic data, not an infinite lookup table of factors. The exact arch types are already encoded in the archive; the numeric input behind the claimed uniform index bound is already in the published proposition.",
+        "searches": [
+          "Resultary 06c42dc2835a exact arch formula and length set",
+          "Richomme–Saari–Zamboni arXiv:0904.2872, Proposition 2.6"
+        ]
+      },
+      "rationale": "The earlier indexed multinacci result gives exactly the three arch types and their ordered coding at m=3, the prefix equality, the substitution-length formula and the prefix density. The displayed sigma is a conjugate coding of the known substitution power, not a distinct derived system. The arbitrary-factor statements are not quoted verbatim in that record, but are immediate from its explicit arch structure together with the prior sharp-enough prefix discrepancy proposition. The failure is demonstrated coverage and direct implication, not failure to access literature or a mathematical counterexample.",
+      "residual_risks": [
+        "Exact historical priority of the return-word language was not established; the Justin–Vuillon full text was unavailable after bounded attempts. This does not affect the demonstrated equivalent archive coverage and consequences.",
+        "Other sources may give an even sharper factor bound. The failure does not rely on such unverified overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger exact arch and prefix result; factor inequalities follow, though not separately stated there",
+          "evidence": "x=P B_(x_0)B_(x_1)..., each arch ends in the unique rare letter, U_m(N) is its prefix count, and U_m(L_n)=L_(n-m).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-a-self-similar-arch-factorization-for-all-multinacci-words--06c42dc2835a/RESULT.md",
+          "material_read": "Finding, assumptions and exact substitution formulas at offset 0, further proof excerpt at offset 5100; mirror 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary mirror and explicit m=3 specialization",
+          "title": "A self-similar arch factorization for all multinacci words",
+          "trigger": "Same arch and prefix-index problem at general alphabet size"
+        },
+        {
+          "assessment": "General index-from-arches theorem used by both records",
+          "evidence": "The number of complete greedy arches is the universality index.",
+          "identifier_or_url": "https://arxiv.org/abs/2304.11932",
+          "material_read": "PDF p. 4, text offset 11100",
+          "method": "OA PDF passage",
+          "title": "On arch factorization and subword universality for words and compressed words",
+          "trigger": "Equivalent general concept and index theorem"
+        },
+        {
+          "assessment": "Direct prior input; stronger than the coarse 2-balance statement for this purpose",
+          "evidence": "For every prefix of length N, -0.88 < |prefix|_2-N/beta^3 < 0.62. Subtracting the two endpoint values proves the exact <3/2 estimate used.",
+          "identifier_or_url": "https://arxiv.org/abs/0904.2872",
+          "material_read": "PDF p. 13, Proposition 2.6 and proof, text offsets 31850–34999",
+          "method": "OA PDF locate for Proposition 2 and subsequent offset read",
+          "title": "Balance and Abelian complexity of the Tribonacci word",
+          "trigger": "Prior bound underpinning the exact 5/2 index estimate"
+        },
+        {
+          "assessment": "Attribution not verified; keyword misses do not prove absence, and the same mathematical input is verified in arXiv:0904.2872",
+          "evidence": "The inspected abstract addresses k-binomial complexity; this attribution is not needed for the correctness or coverage conclusions.",
+          "identifier_or_url": "https://orbi.uliege.be/bitstream/2268/244495/1/version_kronecker.pdf",
+          "material_read": "Abstract and passages located through bounded balance, frequency and discrepancy queries; no confirming passage obtained",
+          "method": "Lawful repository PDF retrieval and literal passage lookup",
+          "title": "Templates for the k-binomial complexity of the Tribonacci word",
+          "trigger": "Original's attribution for the exact discrepancy input"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and proof",
+        "Resultary 06c42dc2835a",
+        "arXiv:0904.2872 Proposition 2.6"
+      ],
+      "rationale": "The relationship between uniform subsequence universality and Tribonacci occurrences is mathematically natural. Here, however, the exact arch/prefix structure is already available, and the remaining all-factor envelope and sufficient constant merely apply the known blocks and subtract two known prefix bounds. No sharp discrepancy threshold, new endpoint rule, or other independent substantive remainder is established. Thus no scientifically valuable distinct narrowing of this frozen result is delivered.",
+      "residual_risks": [
+        "The decision does not deny pedagogical usefulness of the explicit substitute presentation or scientific value of a different, sharper factor-index theorem."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

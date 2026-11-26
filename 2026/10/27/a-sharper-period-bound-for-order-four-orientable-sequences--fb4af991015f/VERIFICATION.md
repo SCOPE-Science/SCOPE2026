@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,6 +21,23 @@
 
 ## Checks and limits
 
-The graph-counting proof was reconstructed directly from the definitions. The number of reversal-pairs in the graph with symmetric length-four words removed is \((k^4-k^2)/2\). The complement of the sequence-subgraph is reversal-closed; its divergence over \(P=\{aab:a\ne b\}\) is \(k(k-1)\). Pairwise contributions are bounded by \(2\) only for \(\{aacc,ccaa\}\), with at most \(\binom{k}{2}\) such pairs, and by \(-1\) for every omitted pair incident to a uniform triple. Since each uniform triple has odd out-degree before deletion and even out-degree in the sequence-subgraph, at least \(k\) such pairs are omitted. The resulting inequality is \(r\ge\binom{k}{2}+2k\), hence \(m\le(k^4-2k^2-3k)/2\).
+For the universal bound, count the reversal-pairs after removing palindromes, check the divergence of the omitted pairs on \(P=\{aab:a\ne b\}\), and use parity at the uniform vertices. Ordinary cyclic-window uniqueness and absence of reverse matches are both required before counting \(2m\) distinct edges in the sequence and its reversal. The proof of the upper bound does not require a computation.
 
-No computation is required for the proof. The result is an upper bound only; it does not certify attainability or optimality. No independent audit or independent validation is claimed.
+For the two exact cases, obtain `witness.txt` from each of references [5, 6] in `RESULT.md`. The following standalone check accepts the file paths as command-line arguments, in quaternary and six-symbol order respectively:
+
+```python
+from pathlib import Path
+from sys import argv
+
+assert len(argv) == 3
+for path, k, m in zip(argv[1:], (4, 6), (106, 603)):
+    s = Path(path).read_text().strip()
+    assert len(s) == m and set(s) <= set('012345'[:k])
+    cyclic = s + s[:3]
+    windows = [cyclic[i:i+4] for i in range(m)]
+    assert all(w != w[::-1] for w in windows)
+    assert len({min(w, w[::-1]) for w in windows}) == m
+    print(k, m)
+```
+
+The expected lines are `4 106` and `6 603`. This verifies attainment only at the two stated alphabet sizes, not optimality of the general formula for all even alphabets.

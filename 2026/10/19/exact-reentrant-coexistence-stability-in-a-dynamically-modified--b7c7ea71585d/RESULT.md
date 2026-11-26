@@ -1,15 +1,15 @@
-# Exact reentrant coexistence stability in a dynamically modified three-species food web
+# Exact reentrant linear stability of coexistence in a dynamically modified three-species food web
 
 ## Finding
-Consider the cyclic, symmetric higher-order interaction model of Van Giel, Daly, Baetens and De Baets, with fixed pairwise magnitude \(\alpha=2\), negative modifier strength \(\beta<0\), and modifier speed \(\omega>0\). The model has exactly one strictly positive coexistence equilibrium. An explicit cubic in \(\omega\), given below, decides its complete **linear** stability: positive values mean local asymptotic stability, negative values mean two eigenvalues in the right half-plane, and zeros mean one simple imaginary conjugate pair with all other eigenvalues in the open left half-plane.
+Consider the cyclic, symmetric higher-order interaction model of Van Giel, Daly, Baetens and De Baets, with fixed pairwise magnitude \(\alpha=2\), negative modifier strength \(\beta<0\), and modifier speed \(\omega>0\). The model has exactly one coexistence equilibrium with all three species abundances positive. An explicit polynomial of degree at most three in \(\omega\) classifies its linear spectrum: positive values mean a Hurwitz Jacobian, negative values mean two eigenvalues in the right half-plane, and zeros mean one simple imaginary conjugate pair with all other eigenvalues in the open left half-plane. A Hurwitz Jacobian implies local exponential stability of the nonlinear equilibrium, and a right-half-plane pair implies instability. The zero case is a spectral statement only.
 
-At the natural interaction-nullification strength \(\beta=-9\), the unique coexistence state is \((u,v,z,h)=(7/9,11/9,1/9,0)\). It is locally asymptotically stable precisely when
+At the natural interaction-nullification strength \(\beta=-9\), the unique coexistence state is \((u,v,z,h)=(7/9,11/9,1/9,0)\). Its Jacobian is Hurwitz precisely when
 \[
 0<\omega<\omega_-\quad\text{or}\quad\omega>\omega_+,
 \qquad
 \omega_\pm=\frac{43}{15}\pm\frac{2\sqrt{3679}}{45}.
 \]
-For \(\omega_-<\omega<\omega_+\), the equilibrium has exactly two unstable eigenvalues. At either endpoint, it has one simple purely imaginary conjugate pair and two eigenvalues with negative real parts. This stable–unstable–stable sequence persists for every modifier strength in some open interval containing \(\beta=-9\).
+For \(\omega_-<\omega<\omega_+\), the equilibrium has exactly two unstable eigenvalues. At either endpoint, it has one simple purely imaginary conjugate pair and two eigenvalues with negative real parts. The sequence of two Hurwitz intervals separated by an unstable interval persists for every modifier strength in some open interval containing \(\beta=-9\).
 
 ## Assumptions and scope
 The four-dimensional autonomous ODE is
@@ -87,7 +87,7 @@ For the first inequality, \(m>-1/4\) implies \(4m^2+32m+29>21\); for the second,
 \[
 AB>C\quad\text{and}\quad ABC>C^2+A^2D.
 \]
-Because \(C,D,A>0\), the second strict inequality automatically implies the first. Thus the equilibrium is locally asymptotically stable exactly when \(\Delta_\beta(\omega)>0\). When \(\Delta_\beta(\omega)<0\), the first Routh-column entries are \(1,A,(AB-C)/A,\Delta_\beta/(AB-C),D\) if \(AB\ne C\), producing exactly two sign changes for either sign of \(AB-C\). At \(AB=C\) the determinant equals \(-A^2D<0\), so the same count follows by continuity (no imaginary root can occur unless the determinant vanishes). When \(\Delta_\beta(\omega)=0\), the identity
+Because \(C,D,A>0\), the second strict inequality automatically implies the first. Thus the Jacobian is Hurwitz exactly when \(\Delta_\beta(\omega)>0\). When \(\Delta_\beta(\omega)<0\), the first Routh-column entries are \(1,A,(AB-C)/A,\Delta_\beta/(AB-C),D\) if \(AB\ne C\), producing exactly two sign changes for either sign of \(AB-C\). To treat \(AB=C\), perturb \(B\) while fixing the other coefficients. At the unperturbed coefficients, \(D>0\) excludes a zero eigenvalue, and substitution of \(i\nu\) for real \(\nu\ne 0\) would force \(\nu^2=C/A\) and \(\Delta_\beta=0\). Since \(\Delta_\beta=-A^2D<0\) here, no eigenvalue can cross the imaginary axis under a sufficiently small perturbation, and the same count holds. When \(\Delta_\beta(\omega)=0\), the identity
 \[
 \det(\lambda I-J)
 =\left(\lambda^2+\frac CA\right)

@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:19:22.432900Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–64, VERIFICATION.md, checker.py and checker_output.txt",
+        "Independent replay: python3 /workspace/review-evidence/2_jordan.py; output /workspace/review-evidence/2_jordan.txt"
+      ],
+      "rationale": "Checked over every odd field. Without a linear part, the multiplication map squares to zero, with rank 2 for nonzero quadratic part, rank 1 for a pure nonzero cubic, and rank 0 for zero. Otherwise choose x along a nonzero coefficient and write f=xu+v in B⊕xB for B=k[y,z]/(y²,z²), u invertible. Dividing by u preserves every power rank; the kernel for x+w, w=v/u, is exactly (−wc,c) with w²c=0, so the first rank is 4 except for support three, where it is 5. The square has rank 2 for support at least two and rank 1 for support one precisely when the complementary quadratic coefficient is nonzero; otherwise the square is zero. The cube is 6a₁a₂a₃xyz. Rank differences give the displayed partitions; counting linear supports and the free higher coefficients recovers the seven multiplicities summing to q⁷, the conditional probability 1−1/q, and the scalar-shift assertion. Independent enumeration using multiplication columns confirmed the full counts at 3 and 5.",
+      "residual_risks": [
+        "The finite replay uses two prime fields; the algebraic proof supplies extension fields and all odd characteristics. No characteristic-two result is adjudicated. Generic means the open locus of nonzero linear coefficients, not an assertion that it accounts for a majority of the finite points."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lundqvist–Nicklasson Theorem 3.8 gives a strong Lefschetz criterion for monomial complete intersections in at least three variables. For socle degree 3 and exponents 2, it separates p≥5 from p=3. Harima–Migliore–Nagel–Watanabe give general Lefschetz context with characteristic zero as their default."
+        ],
+        "reasoning": "A Lefschetz criterion is about the existence and ranks of powers of a linear form on homogeneous pieces. Its relevant implications are credited; it does not directly give the multiplicity of each partition among all, potentially nonhomogeneous, radical elements.",
+        "searches": [
+          "arXiv:1604.06820 Theorem 3.8; arXiv:math/0208201 p. 1; targeted public search for exact algebra and Jordan type"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 778c383f08b9, 6fd6b605a52d and 5570b61d52fb",
+        "arXiv:1802.07383",
+        "arXiv:1604.06820",
+        "arXiv:math/0208201"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The sources establish an exact same-algebra linear type, a general strong Lefschetz criterion, and exact all-element counts for other algebras. The frozen proof distinguishes two Jordan types on the same linear support by a complementary quadratic coefficient and weighs them by 1 and q−1."
+        ],
+        "reasoning": "The measured nonlinear jump and the resulting full distribution do not follow from the inspected statements; the generic larger-characteristic partition alone is not distinct.",
+        "searches": [
+          "arXiv:1802.07383 p. 44; arXiv:1604.06820 Theorem 3.8; Resultary 6fd6b605a52d and 5570b61d52fb"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Artinian algebras and Jordan type PDF p. 44 sets B=R/(x²,y²,z²) and states P_(x+y+z,B)=(4,2,2). It concerns the linear operator for one form, not the distribution over all radical elements."
+        ],
+        "reasoning": "Operator, algebra and one partition agree. Rescaling nonzero linear coefficients does not decide whether an element with only one nonzero linear coefficient has a complementary quadratic term. Multiplication by x and by x+yz illustrate the distinction in every odd characteristic.",
+        "searches": [
+          "Resultary: finite-field all-element Jordan type distribution, squarefree three-variable complete intersection; arXiv:1802.07383, same-algebra example"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "778c383f08b9 is the identical assigned record. 6fd6b605a52d counts for k[x,y]/(x²,yⁿ); 5570b61d52fb counts for F_q[x,y]/(x³,y³)."
+        ],
+        "reasoning": "The self-hit is not independent coverage. Neither two-variable local algebra has embedding dimension three, nor is there a substitution of the reported counts that preserves this labeled radical and its nonlinear support-one strata.",
+        "searches": [
+          "Indexed Resultary exact match 778c383f08b9; distinct census entries 6fd6b605a52d and 5570b61d52fb (RESULT.md Findings)"
+        ]
+      },
+      "rationale": "Pass for the all-element odd-finite-field table including its nonlinear support-one distinction, not for the already known higher-characteristic strong Lefschetz type or detection of the characteristic-three Lefschetz obstruction. The closest inspected distinct finite-field censuses use different algebras; the same-algebra primary example uses a linear element and supplies no counts for its nonlinear strata.",
+      "residual_risks": [
+        "An older or differently indexed all-element census could still cover the exact algebra. An unsuccessful exact public query alone is not evidence of novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct linear-type overlap, not all-radical multiplicities. The p. 8 characteristic remark should not be used for characteristic three.",
+          "evidence": "The p. 44 example displays (4,2,2) for x+y+z in the same squarefree quotient; in characteristic three its cube actually vanishes.",
+          "identifier_or_url": "https://arxiv.org/abs/1802.07383",
+          "material_read": "PDF pp. 1, 8 and 44, especially offset 146576",
+          "method": "Lawful OA PDF passages",
+          "title": "Artinian algebras and Jordan type",
+          "trigger": "Jordan type of multiplication in the same eight-dimensional algebra"
+        },
+        {
+          "assessment": "Covers the Lefschetz obstruction, does not count nonlinear multiplication operators.",
+          "evidence": "The condition t<p applies here for p≥5, neither of its alternatives for p=3.",
+          "identifier_or_url": "https://arxiv.org/abs/1604.06820",
+          "material_read": "Theorem 3.8, PDF p. 10, offset about 32916",
+          "method": "Lawful OA PDF passage",
+          "title": "On the structure of monomial complete intersections in positive characteristic",
+          "trigger": "A stronger-looking general positive-characteristic classification"
+        },
+        {
+          "assessment": "Background; not evidence of exact positive-characteristic finite-field counts.",
+          "evidence": "The introduction defines the Lefschetz properties and defaults to characteristic zero.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0208201",
+          "material_read": "Introduction and definitions, PDF p. 1 offset about 2879",
+          "method": "Lawful OA PDF passage",
+          "title": "The Weak and Strong Lefschetz Properties for Artinian K-Algebras",
+          "trigger": "General Lefschetz results for complete intersections"
+        },
+        {
+          "assessment": "Different local algebra; no specialization to embedding dimension three.",
+          "evidence": "The complete table is for the two-variable quotient with truncations 2 and n.",
+          "identifier_or_url": "Resultary 2026/11/2/6fd6b605a52d",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Indexed local mirror",
+          "title": "Complete Jordan type distribution on k[x,y]/(x²,yⁿ) over finite fields",
+          "trigger": "An all-element finite-field distribution for a monomial complete intersection"
+        },
+        {
+          "assessment": "Different dimension and truncation, not an equivalent table.",
+          "evidence": "The stated algebra has dimension nine and two variables.",
+          "identifier_or_url": "Resultary 2026/10/13/5570b61d52fb",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Indexed local mirror",
+          "title": "The finite-field Jordan-type distribution of F_q[x,y]/(x³,y³)",
+          "trigger": "Another exact finite-field census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 11–24 and 34–60",
+        "arXiv:1802.07383 p. 44; arXiv:1604.06820 Theorem 3.8"
+      ],
+      "rationale": "The radical of this natural product of three squarezero algebras is parametrized in a way that separates homogeneous Lefschetz effects from the effect of higher terms. The precise distribution is usable in comparisons of multiplication strata over different fields, and the support-one stratum demonstrates that knowing the initial linear form can systematically give the wrong Jordan partition, with exact conditional frequency. The full-field scope and completeness matter; a rederivation of the generic linear case alone would not suffice.",
+      "residual_risks": [
+        "The classification is limited to the specified algebra and odd finite fields; no broader classification or complexity claim follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

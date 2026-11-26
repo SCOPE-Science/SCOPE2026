@@ -1,15 +1,21 @@
-# Scientific review: fixed-composition two-deletion-ball spectrum
+# Independent mathematical audit
 
-## Correctness — PASS
-The asserted theorem has one common object: the cardinality of the distinct exact-two-deletion output set of a binary word. Every descendant has exactly one leftmost greedy embedding. The source-mask classification in `RESULT.md` separates the last-two deletion, adjacent deletions, and nonadjacent deletions, giving the per-word formula, including the length-two boundary. Alternating run compositions are a bijective parametrization of binary words. The displayed formal series marks length, Hamming weight, and the **same** cardinality, so its coefficient counts the complete distribution with no multiplicities from masks. Sampling without replacement gives the exact mean, and the standard fixed-content runs central limit theorem plus an explicit local-variance bound gives the stated Gaussian law. The bundled checker compares the entire distribution with direct descendant construction through length 13 and checks coefficient masses and exact means through length 18. Finite checks do not substitute for the general proof.
+## correctness
 
-## Originality — PASS, with residual risk
-The exact per-word double-deletion run formula is classical and expressly excluded from novelty. An accessible published result gives the unconditioned binary variance, and an accessible historical claim gives the unconditioned finite-alphabet law; neither records a Hamming-weight-marked conditional spectrum or the density-dependent conditional Gaussian limit. The 2018 supersequence/embedding work conditions the *received subsequence* or counts compatible parents, not the distribution of distinct descendants across all **fixed-weight source words**. The 2022 fixed-length Levenshtein-ball work counts a different channel (deletion followed by insertion). The 2012 deletion-channel work gives extremal and per-word methods, not this joint coefficient array. Actual semantic searches for the conditional formulation, its mean and its aliases did not identify an equivalent closed law. Negative search is not proof of priority; an unindexed conditional enumeration is a genuine remaining risk.
+PASS
 
-## Mathematical value — PASS
-Constant-composition constraints are natural in channel coding, constrained storage and distribution matching. Uniform independent bits do not model a fixed number of ones; consequently an unconditioned size law does not determine conditional sphere-size variability. The result specifies every conditional mass for all lengths and weights, obtains a simple exact mean, and quantifies the sharp \(n^{3/2}\)-scale fluctuations at every interior density. The explicit Gaussian coefficient changes with composition and cannot be recovered from the unconditioned variance alone. The independent-word law and classical per-word formula motivate, but do not themselves provide, the complete new fixed-content classification.
+Greedy embedding gives one canonical mask per distinct descendant. Classifying by adjacent, nonadjacent, and final-pair deletions yields the two endpoint and interior singleton penalties, including n=2. Alternating positive run compositions then give the full marked series; sampling distinct coordinates without replacement gives the mean, with the disjoint-pair term absent for n<4. For the limit, conditioning on the endpoint types turns floor(R/2), up to an integer shift, into a hypergeometric variable with population n−2, k−1 successes, and n−k−1, n−k, or n−k−2 draws respectively. This follows by complementing one run-composition binomial. Each endpoint law gives transition variance asymptotic to 4n alpha²(1−alpha)² and mean 2k(n−k)/n+O(1), so the hypergeometric CLT gives the same limit in the mixture. The bounded-by-O(n) singleton corrections and centered quadratic remainder vanish on the n^(3/2) scale. Multiplication by the limiting derivative 2 alpha(1−alpha) gives exactly the claimed centered Gaussian variance. A separately written prefix-subsequence DP reproduces the full histograms, means, and transition moments for all 16,380 words at lengths 2–13.
 
-## Closest literature and limits
-Most relevant: Swart–Ferreira (2003, per-word two-deletion run identity); Liron–Langberg (arXiv:1202.1644, extremal descendant counts); Atashpendar et al. (arXiv:1802.00703, supersequence-embedding distribution and entropy); Wang–Wang (arXiv:2204.02201, fixed-length Levenshtein ball concentration); published research on the unconditioned binary two-deletion variance. The conditional law excludes other alphabets and more deletions, and its normal limit requires a composition density bounded away from zero and one. Bibliographic coverage remains incomplete and no independent scientific audit was conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The per-word run identity and runs CLT are not credited as original. The supported distinction is the fixed-content law of distinct descendants, with the marked exact spectrum, mean and composition-dependent normal limit together. Prior inspected laws either omit the source-weight coordinate, enumerate a different ball, or condition on the received word. The foundational Swart–Ferreira text was not accessible; no inference about its whole contents is made.
+
+## value
+
+PASS
+
+Fixed composition is a natural coding constraint that removes the random weight component of variation. The exact distribution across each weight class gives ball sizes and probabilities unavailable from the unconditional law; the limit quantifies nonzero residual fluctuations and how their leading scale changes with density. This is a complete conditional classification, not just an isolated conditional moment or a new proof of the run identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

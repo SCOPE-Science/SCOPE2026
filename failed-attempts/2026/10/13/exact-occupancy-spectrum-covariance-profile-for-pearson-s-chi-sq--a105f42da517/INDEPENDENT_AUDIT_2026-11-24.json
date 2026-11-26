@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:20:01.580112Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:2–239",
+        "VERIFICATION.md",
+        "checker.py and CHECKER_OUTPUT.txt (inspected, not executed)",
+        "/workspace/audit_replays/frozen_math.py 4"
+      ],
+      "rationale": "Writing C for the colliding sample-pair count gives Q=m-n+2mC/n. Conditional on N_1=r, the expected collisions are binom(r,2)+binom(n-r,2)/(m-1), while unconditional mean is binom(n,2)/m. Centering and multiplying by m p_r and 2m/n gives the claimed polynomial covariance including r=0 and r=n. Distinct pair-collision indicators are pairwise independent even when they share one draw under uniform sampling, giving the stated Var(Q). The two-cell multinomial mass gives Var(K_r), with 0^0=1 when m=2 and n=2r. For the fixed-load limit, put lambda_m=n/m. The ratio p_rr/p_r^2 equals (n-r)_r/(n)_r times (1-2/m)^(n-2r)/(1-1/m)^(2(n-r)), with falling factorials. Its logarithm is [2r-lambda_m-r^2/lambda_m]/m+O(m^-2), giving the claimed limiting variance with p_r converging to pi_r. The limiting variance is strictly positive: it is the variance of the residual after linearly projecting 1{Z=r} on a Poisson(lambda) variable Z, and this indicator is not affine on the full nonnegative-integer support. The covariance polynomial limit and Var(Q)/m→2 give the correlation; for r=1 the lower formal zero at lambda=0 is outside the stipulated positive-load regime. Independent replay: python3 -I -B /workspace/audit_replays/frozen_math.py 4, with 312 exact frequency strata via multinomial compositions for 2<=m<=7 and 2<=n<=9.",
+      "residual_risks": [
+        "The frozen second exact loop verifies conservation and singleton orthogonality but its Pearson variance comparison is tautological; the separate brute exact loop and independent reconstruction do verify the variance. The fixed-load result keeps r fixed and is not an independence statement."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "October 13 covers every real cell score h via (n-1)(m-1)/m times E[Delta^2 h(Y)], Y binomial(n-2,1/m).",
+          "The generalized urn Edgeworth framework treats decomposable frequency sums including Pearson asymptotics; the inspected Krawtchouk decomposition concerns an empirical distribution of sampled multinomial configurations rather than this one-sample count profile."
+        ],
+        "reasoning": "Choosing the indicator score h(k)=1{k=r} gives the frozen theorem for all n,m,r. The general urn and orthogonal-polynomial passages by themselves were not used as evidence of exact finite coverage.",
+        "searches": [
+          "October 13 Pearson covariance discrete curvature theorem, Eq. (1)",
+          "Mirakhmedov–Jammalamadaka–Mohamed DOI 10.1007/s10959-012-0454-z",
+          "Diaconis–Griffiths arXiv:1802.07122v3, equations (34)–(35)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local index and the three identified October findings",
+        "arXiv:0809.4387",
+        "DOI 10.1007/s10959-012-0454-z",
+        "arXiv:1802.07122v3",
+        "Nakata DOI 10.1239/aap/1396360108 (different collision setup)",
+        "Good–Gover–Mitchell DOI 10.1080/01621459.1970.10481078 (bibliography only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indicator score gives three binomial masses; their Poisson limits give pi_r[(lambda-r)^2-r]/lambda after the elementary normalization.",
+          "The same-day curvature identity applied to h(k)=(m/n)k^2 gives Var(Q)=2(m-1)(n-1)/n. Binomial and joint two-cell masses give the remaining marginal variance by the standard expansion.",
+          "Barbour–Gnedin concerns covariance among frequency counts, not exact finite Pearson mixed covariance."
+        ],
+        "reasoning": "The exact signs are already explicit in the collision theorem. The limiting correlation is the ratio of the directly implied covariance limit and the elementary marginal limits; a missing displayed correlation is not a substantive gap.",
+        "searches": [
+          "October 13 Eq. (1) with indicator and quadratic scores",
+          "Barbour–Gnedin arXiv:0809.4387, Section 5 equation (5.1)",
+          "October 18 uniform frequency sign-law theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "October 18 gives Cov(C,K_r)=binom(n,2)(m-1)/m^2 [b_{n-2}(r)-2b_{n-2}(r-1)+b_{n-2}(r-2)] and the singleton sign sgn(n-2m).",
+          "The theorem's sign polynomial is m^2r^2-m(2n+m-2)r+n(n-1), equal to the frozen Delta.",
+          "Pearson Q=m-n+(2m/n)C under the equal-cell null."
+        ],
+        "reasoning": "Rescaling the collision covariance by 2m/n gives the same covariance for Q. Factoring p_r out of the three binomial masses gives the same polynomial and normalization, with out-of-range masses set to zero.",
+        "searches": [
+          "Resultary Pearson occupancy-spectrum covariance, collisions, and additive cell scores",
+          "October 18 indexed convex collision association Finding and Proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day and October 18 entries are distinct exact all-size records. The October 12 entry instead gives moments of Pearson conditional on observed richness, related to the r=0 endpoint only."
+        ],
+        "reasoning": "This is an unrestricted symbolic formula, not a matched set of test parameters or finite values. The distinct indexed statements give exact coverage, whereas a table of Pearson distributions alone would not give the mixed statistic.",
+        "searches": [
+          "Resultary exact profile and singleton and empty-cell endpoints",
+          "2026/10/12/SCOPE-exact-pearson-moments-conditional-on-the-number-of-empty-multino--2268ec3a4e81",
+          "October 13 discrete curvature and October 18 collision indexed findings"
+        ]
+      },
+      "rationale": "The entire finite covariance is a direct specialization of a distinct same-day indexed theorem for all additive cell scores. The October 18 indexed collision theorem also gives the same profile, including exact signs, through the affine relation between Q and pair collisions. No within-date order or historical priority is inferred. The fixed-load correlation is a direct normalization of this already covered covariance using the binomial/two-cell variance expansion and exact Pearson variance, not a separate uncovered mechanism.",
+      "residual_risks": [
+        "No within-day chronology established. The inaccessible exact-distribution paper and differently parameterized prior formulations could affect historical attribution but do not alter the verified coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage by indicator specialization; relative priority within the date unknown",
+          "evidence": "For arbitrary h, covariance is (n-1)(m-1)/m times binomial expected second discrete difference.",
+          "identifier_or_url": "2026/10/13/SCOPE-pearson-covariance-is-exactly-a-binomial-average-of-discrete-cur--4e1ebdd17a01",
+          "material_read": "RESULT.md Finding and assumptions at offsets 0–3081, Eq. (1)",
+          "method": "Resultary index and lawful local mirror text",
+          "title": "Pearson covariance is exactly a binomial average of discrete curvature",
+          "trigger": "Same model and Pearson covariance with a general score"
+        },
+        {
+          "assessment": "Equivalent finite covariance and sign classification after rescaling; later indexed date",
+          "evidence": "Uniform theorem gives the three-mass formula and same quadratic sign polynomial for every frequency.",
+          "identifier_or_url": "2026/10/18/SCOPE-convex-collision-association-and-two-threshold-frequency-depende--9485777d7c83",
+          "material_read": "RESULT.md Finding, assumptions and beginning of proof offsets 0–3603",
+          "method": "Resultary index and lawful local mirror text",
+          "title": "Convex collision association and two-threshold frequency dependence in multinomial occupancy",
+          "trigger": "Exact pair-collision covariance with the same frequency coordinate"
+        },
+        {
+          "assessment": "Relevant to r=0 but not full profile",
+          "evidence": "Conditional mean and variance of Q given number of occupied cells.",
+          "identifier_or_url": "2026/10/12/SCOPE-exact-pearson-moments-conditional-on-the-number-of-empty-multino--2268ec3a4e81",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Resultary index and lawful local mirror text",
+          "title": "Exact Pearson moments conditional on the number of empty multinomial cells",
+          "trigger": "Related exact empty-cell/Pearson statistic"
+        },
+        {
+          "assessment": "Related frequency-count covariance limits, not the finite Pearson mixed covariance in inspected material",
+          "evidence": "Poissonized and infinite-urn analyses focus on spectrum-count pairs.",
+          "identifier_or_url": "https://arxiv.org/abs/0809.4387",
+          "material_read": "Abstract/§2 offsets 0 and 4860; §5 Eq. (5.1), p. 10 offset 43864",
+          "method": "Targeted OA PDF text",
+          "title": "Small counts in the infinite occupancy scheme",
+          "trigger": "Primary covariance theory for frequency counts"
+        },
+        {
+          "assessment": "Broad asymptotic framework; inspected passages do not state finite mixed covariance",
+          "evidence": "Sums of functions of frequencies and Pearson Edgeworth formulas.",
+          "identifier_or_url": "https://doi.org/10.1007/s10959-012-0454-z",
+          "material_read": "Abstract and introduction offset 0; §4 p. 12 offset 37618",
+          "method": "Targeted OA PDF text",
+          "title": "On Edgeworth Expansions in Generalized Urn Models",
+          "trigger": "General decomposable urn statistics including Pearson"
+        },
+        {
+          "assessment": "Different sampling construction in inspected decomposition",
+          "evidence": "The chi-square statistic decomposed there is for an empirical distribution over multinomial configurations.",
+          "identifier_or_url": "https://arxiv.org/abs/1802.07122v3",
+          "material_read": "Abstract; §3.1 pp. 15–16, Eqs. (34)–(35), offsets 0 and 45980",
+          "method": "Targeted OA PDF text",
+          "title": "Reproducing kernel orthogonal polynomials on the multinomial distribution",
+          "trigger": "Potential Krawtchouk expression of same mixed covariance"
+        },
+        {
+          "assessment": "Unresolved access; no inference about coverage",
+          "evidence": "Title concerns exact marginal distributions; full text was unavailable for mixed-covariance comparison.",
+          "identifier_or_url": "https://doi.org/10.1080/01621459.1970.10481078",
+          "material_read": "Bibliographic record only; full text not retrieved",
+          "method": "Lawful OA retrieval and alternate-copy lookup",
+          "title": "Exact Distributions for Chi-square and for the Likelihood-Ratio Statistic for the Equiprobable Multinomial Distribution",
+          "trigger": "Exact Pearson law for the same equal-cell null"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:2–131",
+        "October 13 discrete-curvature Eq. (1)",
+        "October 18 uniform frequency sign law"
+      ],
+      "rationale": "The load-dependent signs are interpretable for goodness-of-fit analysis, but the same exact profile and threshold behavior are already covered by the indexed curvature and collision identities. Expressing the result as a correlation by marginal variance normalization adds no distinct boundary, limit mechanism, or inferential conclusion. This is useful exposition of an existing relation, not a separate unknown exact invariant.",
+      "residual_risks": [
+        "No additional law of dependence is established by zero covariance or by the limiting correlation."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof identifies the unreversed complex as the nerve of equal-length circular arcs, proves that each new transitive triple is unique to its reversed edge, and classifies all higher-dimensional faces created by the two reversals. When the separation is nonextremal, two primitive two-cell attachments to a circle give a sphere; at maximal separation a unique tetrahedron has a free face and collapses to the established single-reversal contractible complex. These are complete arguments for all \(m\ge2\), not finite extrapolations. A standalone checker independently verified 21 configurations (orders through 15), complete face differences, free-face collapses, and small-dimensional mod-two homology. Remaining risk: independent specialist proof verification has not occurred.
+## correctness
 
-## Originality — PASS against inspected evidence
-The earliest primary tournament-topology reference is Govc (2020), on directed-flag complexes and a finite regular-tournament census. The 2021 tournament-filtration paper studies a different construction, and the 2014 circular-arc nerve theorem supplies the base circle rather than a reversed-arc classification. The closest indexed result, *A single adjacent reversal contracts the cyclic tournament flag complex* (published-finding corpus, 2026), was read in full: it adds one triangular disk but has neither a second disk nor their exceptional tetrahedral interaction. Its one-reversal conclusion alone does not imply the nonextremal sphere or the sharp maximal-separation exception. A separate search of two-reversal and equivalent transitive-subtournament formulations found no direct coverage. Residual risk: unindexed or nonaccessibly worded literature or stronger theorem may imply the claim; literature searches are not novelty proofs.
+PASS
 
-## Value — PASS
-The finding gives a complete, sharp homotopy classification for a natural two-defect perturbation of a canonical regular tournament. It demonstrates a structural discontinuity: one local reversed arc kills the base circle, two separated arcs restore a genuine \(S^2\), but maximal separation makes a unique tetrahedron remove it again. The result is an infinite-family integral homotopy statement, not an arbitrary isolated calculation or tiny numerical improvement.
+The original transitive faces are exactly the subsets of cyclic blocks of length m+1, by the source-vertex test. Endpoints of a reversed short arc are consecutive in the order of any original face containing them; disjoint adjacent swaps preserve that order's transitivity. A changed triple contains at most one reversed edge. For i→i+1 there is exactly one original cycle containing it, with third vertex i+m+1. A new face must therefore contain one of these two triangles. For τ_0, any fourth vertex v in 2,…,m creates the old directed cycle on {0,v,m+1}, and any in m+2,…,2m creates the old directed cycle on {1,v,m+1}. Neither can be removed by the second disjoint reversal unless that edge is {v,m+1}; only d=m and v=m allow it. Reflection v↦d+1−v reverses all arrows and swaps the roles of the reversed edges, proving the symmetric test. For d=m, the order 1,m+1,0,m verifies the sole new tetrahedron, and no larger face is possible. For the integral attachment argument, the explicit K_s collapses are valid: each length-s endpoint edge has a unique supporting block and the proposed pairs, processed in decreasing size, remove its whole star. In K_m each edge of ∂τ_i is homotopic relative endpoints to its forward segment of lengths 1,m,m in the cyclic polygon, within the corresponding block simplex. The concatenation winds once in K_1. Thus each attaching boundary is a homotopy equivalence to the base circle, the first disk contracts it, and the second disk adds S². In the extremal case the free τ_0–tetrahedron collapse instead leaves a single disk attached to the circle by that equivalence. This also covers m=2 and requires no extrapolation from finite instances.
 
-## Limits
-Only vertex-disjoint consecutive reversed arcs and the stated separation normalization are covered. No all-reversal or equivariant classification is claimed. Exact finite computations corroborate, but do not replace, the proof. An independent audit remains unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The inspected one-arc results cover a genuine ingredient. Neither they nor the two-reversal classifications starting from a transitive tournament imply the interaction and extremal exception in the cyclic-tournament family.
+
+## value
+
+PASS
+
+This is a natural next interaction question after the single-flip contraction. It gives an exact all-orders threshold: two disk attachments normally create a sphere, but at extremal separation a new common coface cancels it. This distinguishes genuine integral homotopy behavior, not just Euler characteristic or small-instance counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

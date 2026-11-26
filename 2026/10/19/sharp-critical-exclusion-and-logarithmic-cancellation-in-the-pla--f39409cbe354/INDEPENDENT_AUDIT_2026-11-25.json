@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:16:37.113318Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–88",
+        "Baigent et al. DOI 10.1080/10236198.2023.2222855, Theorem 3.6 R3",
+        "Frozen VERIFICATION.md and verify.py, inspected as evidence",
+        "Independent replay: python3 /workspace/branches/frozen-review-checks.py 2"
+      ],
+      "rationale": "The cited global theorem applies inclusively at s=beta*r: alpha*s<r, both growth parameters lie strictly between 0 and 2, and the isoclines cannot coincide. Thus x tends to r and y tends to zero for strictly positive starts. In q=x-r+alpha*y the exact second update has exponent -gamma*y-beta*q, so y'/y tends to one. Taylor's formula gives q'=(1-r)q-alpha*gamma*y^2+O(q^2+y|q|+y^3). Dividing by the slowly varying y^2 yields an affine contraction asymptotically with multiplier 1-r, so q/y^2 tends to -alpha*gamma/r. Subtracting this quadratic and applying the same estimate with forcing O(y^3) gives the claimed cubic remainder without assuming initialization on a center manifold. With w=1/y the recurrence then reads w'=w+gamma+A/w+O(w^-2), where A=gamma^2/2-alpha*beta*gamma/r. It implies w/n tends to gamma, then w=gamma*n+O(log n). Subtracting (A/gamma) log n leaves summable increments of order log(n)/n^2 and hence a finite offset. This confirms the cancellation location and the signs whenever parameters remain admissible. Independent finite trajectories with two initial states per parameter set exhibit both signs and cancellation, and corroborate the stable-coordinate coefficient; they do not prove convergence.",
+      "residual_risks": [
+        "Fixed parameters and strictly positive starts only; no uniformity at flip or neutral-foliation boundaries. The global convergence step invokes the published theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The accessible related paper attributes center/invariant manifold and transcritical studies to Luís–Elaydi–Oliveira. No lawful full text of that 2011 paper was obtained in these checks."
+        ],
+        "reasoning": "Center-manifold theory supplies a reduction, not the evaluated cubic coefficient and corrected limit without the appropriate expansion and stable-orbit control. An implicit equivalent calculation in the unavailable source remains a risk.",
+        "searches": [
+          "10.1080/17513758.2011.581764, local stability and bifurcations, lawful OA lookup and publisher full-text/PDF routes",
+          "10.3390/math10071076, pp. 3,7 and ref. 34"
+        ]
+      },
+      "checked_sources": [
+        "Baigent et al. OA theorem passage",
+        "Kulakov et al. OA primary paper passages",
+        "Luís–Elaydi–Oliveira access attempts and secondary discussion",
+        "Resultary records 2a5a09a48e5b and 196d57cbc210"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "R3 gives convergence but no extinction clock. Bifurcation conditions identify an exchange of local stability; the indexed flip uses second iterates, not a transcritical extinction recurrence."
+        ],
+        "reasoning": "None of the inspected results directly gives the explicit residual drift -alpha*beta/r in the reciprocal logarithmic coefficient, its cancellation, or summability of the corrected increments for every positive start.",
+        "searches": [
+          "Baigent et al. Theorem 3.6 R3",
+          "Kulakov et al. transcritical cases, p. 7",
+          "Resultary 196d57cbc210, asymptotic statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The threshold s=beta*r falls on the equality side of the already proved R3 exclusion regime. Related semitrivial/coexistence transcritical curves appear in Kulakov et al., p. 7."
+        ],
+        "reasoning": "Changing from an invasion-neutral boundary description to R3 does not make the convergence new; the rate statement is additional and uses a specific coordinate and expansion.",
+        "searches": [
+          "10.1080/10236198.2023.2222855, planar Ricker Theorem 3.6 R3",
+          "10.3390/math10071076, transcritical boundaries"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2a5a09a48e5b treats neutral composition and leafwise flips at alpha*beta=1; 196d57cbc210 has a two-step logarithmic clock at symmetric r=s=2, for an interior equilibrium and a normalized mean coordinate."
+        ],
+        "reasoning": "Neither exact statement has this extinction variable and parameter regime. The difference is mathematical and does not rely on record dates.",
+        "searches": [
+          "Local Resultary: critical Ricker invasion-boundary reciprocal asymptotics and logarithmic cancellation",
+          "Mirrored RESULT.md records 2a5a09a48e5b and 196d57cbc210, opening findings"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the universal explicit logarithmic coefficient, the finite corrected constant for every interior orbit, the quantitative slaving term, and the resulting cancellation surface. Global convergence and the local transcritical mechanism are prior inputs, not new results.",
+      "residual_risks": [
+        "The inaccessible 2011 paper remains a specific implicit-asymptotic priority risk. External search was uninformative; absence of a hit is not evidence of novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "exact coverage of global convergence, not its rate in this theorem",
+          "evidence": "Noncoincident isoclines, 0<r,s<2, alpha*s<=r and s<=beta*r imply global attraction to (r,0).",
+          "identifier_or_url": "https://doi.org/10.1080/10236198.2023.2222855",
+          "material_read": "OA submitted-version PDF, Theorem 3.6 R3, journal p. 9 (text offset 26566)",
+          "method": "lawful OA PDF theorem passage",
+          "title": "A global picture for the planar Ricker map: convergence to fixed points and identification of the stable/unstable manifolds",
+          "trigger": "same map and critical invasion line"
+        },
+        {
+          "assessment": "unresolved relevance to the exact coefficient; no negative full-text conclusion",
+          "evidence": "Accessible secondary discussion describes stability, invariant manifolds and transcritical/period-doubling bifurcations.",
+          "identifier_or_url": "https://doi.org/10.1080/17513758.2011.581764",
+          "material_read": "bibliographic entry and characterization in the 2022 paper, pp. 3 and 22; no original full text obtained",
+          "method": "lawful alternate-copy lookup and publisher PDF/full-text attempts; publisher returned 403",
+          "title": "Stability of a Ricker-type competition model and the competitive exclusion principle",
+          "trigger": "same map, plausible implicit local coefficient overlap"
+        },
+        {
+          "assessment": "bifurcation overlap, not the explicit extinction rate in the passages",
+          "evidence": "Transcritical curves exchange stability of semitrivial and interior fixed points.",
+          "identifier_or_url": "https://doi.org/10.3390/math10071076",
+          "material_read": "pp. 2–3 and 7, plus reference 34",
+          "method": "OA full-text passages",
+          "title": "The Ricker Competition Model of Two Species: Dynamic Modes and Phase Multistability",
+          "trigger": "related map and transcritical classification"
+        },
+        {
+          "assessment": "different criticality",
+          "evidence": "The invariant composition and continuum of equilibria assume alpha*beta=1, excluded here.",
+          "identifier_or_url": "Resultary 2026/10/12, 2a5a09a48e5b",
+          "material_read": "mirrored RESULT.md, Finding",
+          "method": "local Resultary search and mirror passage",
+          "title": "Composition-controlled flip criticality on a neutral Ricker competition map",
+          "trigger": "same-family index match"
+        },
+        {
+          "assessment": "different observable, limits and criticality",
+          "evidence": "The logarithmic two-step mean-coordinate clock is for symmetric r=s=2 and interior coexistence.",
+          "identifier_or_url": "Resultary 2026/11/1, 196d57cbc210",
+          "material_read": "mirrored RESULT.md, Finding",
+          "method": "local Resultary search and mirror passage",
+          "title": "Global critical relaxation and a logarithmic clock in symmetric Ricker dynamics",
+          "trigger": "strongest exact-form index analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 9–23 and 64–88",
+        "Baigent et al. Theorem 3.6 R3"
+      ],
+      "rationale": "At invasion neutrality the excluded population dies algebraically and linearization alone predicts no timescale. The next-order log coefficient distinguishes two opposite drifts and an exact cancellation, where subtracting the leading linear reciprocal term suffices for a finite offset. The assertion is for the whole basin and provides a quantitative distinction beyond the existing global convergence and generic normal form.",
+      "residual_risks": [
+        "The orbit-specific constant is not given in elementary form; no parameter-uniform crossover is shown."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

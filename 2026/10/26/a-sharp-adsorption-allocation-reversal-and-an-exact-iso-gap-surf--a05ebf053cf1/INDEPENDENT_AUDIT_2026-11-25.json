@@ -1,0 +1,169 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:51:14.560843Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Detailed balance gives W=diag(a/d,1,M,1,b/d) and successive conductances (a,1,1,b). A weighted-mean-zero function supported on the two ends has Rayleigh quotient d and is not an eigenvector (the adjacent bulk equations would not hold); connectedness then gives 0<λ_gap<d. Eliminating the ends for λ<d leaves the symmetric tridiagonal with diagonal (1−λ−γa,2−Mλ,1−λ−γb), γ=λ/(d−λ), and off-diagonal −1. Its determinant is the claimed F; F(0)=0 and F_λ(0)=−(M+2+B/d). Its first positive root is simple by the irreducible symmetric path and the nonsingular Schur factors; hence F_λ there is positive. At balance the antisymmetric eigenfunction at ℓ has central coordinate zero; at M_c the same eigenvalue persists with central coordinate 1−ℓ−γa and outer bulk coordinates ±1. Here ℓ is the unique root on (0,d), since any root there must also satisfy λ<1 and (1−λ)(d−λ) decreases on (0,min(1,d)) while Bλ/2 increases. To identify the gap independently, write W^(-1/2)KW^(-1/2)=AᵀA with A=C^(1/2) D W^(-1/2) for the oriented path differences D and diagonal edge conductances C. The constructed eigenfunction strictly decreases from left to right (at criticality its central coordinate has modulus at most 1−ℓ). Thus C^(1/2)Df is strictly positive and is an eigenvector of AAᵀ, whose negative off-diagonals and irreducibility identify it with the lowest eigenvalue by Perron–Frobenius on a shifted negative matrix. This is the first positive eigenvalue of AᵀA. Implicit differentiation gives dλ/dP=−(2−Mλ)γ²/F_λ for P=ab. For M≠M_c the factor 2−Mλ cannot vanish: F=0 would then force 2(1−λ)=γB and λ=ℓ, implying M=M_c. Continuity fixes its sign from balance, while P strictly decreases with |a−b|. All strict inequalities and the exact plateau follow. The open domain excludes zero adsorption; below M_c the statement is a unique balanced minimum, not an attained fastest split at a prohibited endpoint. Independent replay `python3 /workspace/independent_reproduction.py 3` constructs the generator in the original coordinates. At B=3,d=2 it verifies the eigenvector at M=4,λ=1/2 symbolically for the entire split and checks orientations numerically for M=1 and 16.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Castillo–Zaballa Theorem 1.1 provides strict eigenvalue variation along specified rate rays b_(i+1)=r a_i or b_i=r a_i; the opposite-end, fixed-sum perturbation with rates d and central rates 1/M fixed is not such a ray.",
+          "Sticky Brownian jump-generator approximations supply relevant methodology, not the stated finite-chain fixed-sum parameter sign or plateau."
+        ],
+        "reasoning": "General eigenvalue sensitivity can furnish a derivative, but the derivative sign across all splits and the exact common root still require the particular model reduction. No inspected dominating theorem identifies them as a specialization.",
+        "searches": [
+          "arXiv:1906.08644 Theorem 1.1",
+          "arXiv:1906.06803 pp. 3, 13–15",
+          "Resultary 708685d27d1e"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1212.6547, pp. 1–2 and §II Eqs. 16–17",
+        "arXiv:1906.06803, pp. 1, 3, 13–15",
+        "arXiv:1906.08644, Theorem 1.1",
+        "Resultary 708685d27d1e, 6537bca3d71d, cb14bc751105, c5d477ba354b and ccfd8e9d0e03"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The wall-diffusion Laplace-domain mean-squared displacement and time-dependent diffusivity do not determine the fixed-total allocation derivative for the specified finite generator.",
+          "The Jacobi ray theorem does not apply to the signed opposite-end change. The model determinant yields a product derivative proportional to 2−Mλ and identifies exactly when it can vanish while retaining the gap, information not in the rate-ray result.",
+          "The weighted-path cap theorem changes a different feasible family, and the ring weak-bond formula concerns asymptotic N-dependent splitting."
+        ],
+        "reasoning": "Established ingredients are credited, but neither matching hypotheses nor a direct corollary giving the critical plateau or both strict directions was found.",
+        "searches": [
+          "arXiv:1212.6547 Eqs. 16–17",
+          "arXiv:1906.08644 p. 3 Theorem 1.1",
+          "Resultary cb14bc751105 and 708685d27d1e"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The continuum wall-adsorption model uses equal wall kinetics and derives transport observables, not an optimizer across two positive unequal rates with a three-compartment interior.",
+          "The indexed weighted-path allocation result fixes masses while controlling conductances. For the present weighted-path reformulation the two end masses vary with a,b and are tied to conductances by the common desorption rate.",
+          "The same-day dimer adsorption result concerns stationary mutual information and excludes dynamical relaxation claims."
+        ],
+        "reasoning": "Reversible path and birth–death formulations describe the same target chain but do not erase the conductance–mass coupling. Neither wall-transport observables nor stationary information are equivalent to its first positive eigenvalue.",
+        "searches": [
+          "arXiv:1212.6547, adsorption/desorption model and Eqs. 16–17",
+          "arXiv:1906.06803, jump-generator approximation",
+          "Resultary 708685d27d1e and c5d477ba354b"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed plateau result concerns a saturating run-and-tumble process. The indexed weak-bond adsorption result gives an asymptotic gap on a dimer ring; the cap and price allocation results optimize a weighted path at fixed masses or a cycle across all edges.",
+          "No exact M_c formula for the specified five-state split was located in the bounded statement comparisons."
+        ],
+        "reasoning": "The similar plateau and optimization labels refer to different objects and constraints; even the adsorption-gap asymptotic is not an exact finite-parameter entry for this chain. No inference of global database absence is made.",
+        "searches": [
+          "Resultary 708685d27d1e, 6537bca3d71d, cb14bc751105, c5d477ba354b and ccfd8e9d0e03",
+          "arXiv:1212.6547 §II"
+        ]
+      },
+      "rationale": "The supported distinct claim is the fixed-total, positive endpoint-split first-gap reversal and entire critical iso-gap surface in this specific five-state reversible chain. Neither established adsorption modeling nor general Jacobi spectral tools are claimed new. The historically closest wall-diffusion article was accessible and its relevant analytical passages were compared; no earlier directly covering claim was identified in the bounded comparisons.",
+      "residual_risks": [
+        "The wall-diffusion article was read at the relevant passages, not asserted to exclude all other latent specializations.",
+        "Earlier compartment modeling or finite Jacobi perturbation work under other terminology could contain mathematically equivalent coverage beyond this bounded comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Adsorption and desorption at two continuum walls, not the finite allocation-gap theorem",
+          "evidence": [
+            "Common wall rates in continuous bulk diffusion; Laplace-domain MSD and time-dependent diffusion coefficient."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1212.6547",
+          "material_read": "Full original accessible; abstract, model pp. 1–2 (offsets 0 and 4800), §II Eqs. 16–17 (offset 9500)",
+          "method": "Targeted OA original PDF passages after primary literature lookup",
+          "title": "Molecular diffusion between walls with adsorption and desorption",
+          "trigger": "Closest original adsorption-transport article; frozen review had incomplete access"
+        },
+        {
+          "assessment": "Related modeling method, not exact endpoint allocation dominance",
+          "evidence": [
+            "Markov-jump approximation of a sticky diffusion generator."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1906.06803",
+          "material_read": "Abstract/intro p. 1 and numerical-method passages pp. 3, 13–15, offsets 10674, 47130 and 52383",
+          "method": "OA original PDF model and method passages",
+          "title": "Sticky Brownian Motion and its Numerical Solution",
+          "trigger": "Plausible reduction to sticky boundary jump-chain approximations"
+        },
+        {
+          "assessment": "Specified monotone rate directions differ from the present constrained derivative",
+          "evidence": [
+            "Strict increase of nonzero eigenvalues on the indicated rate-ray families."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1906.08644",
+          "material_read": "Theorem 1.1, p. 3, offset 11200",
+          "method": "OA original PDF theorem passage",
+          "title": "On variation of eigenvalues of birth and death matrices and random walk matrices",
+          "trigger": "Potential dominating general eigenvalue monotonicity theorem"
+        },
+        {
+          "assessment": "Fixed masses rather than masses dependent on the variable end conductances",
+          "evidence": [
+            "Path conductance budget with one capped edge, two-regime law."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-single-cap-phase-law-for-fastest-reversible-mixing-on-we--708685d27d1e",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "A sharp single-cap phase law for fastest reversible mixing on weighted paths",
+          "trigger": "Closest path-gap optimization analogue"
+        },
+        {
+          "assessment": "Different process and parameter",
+          "evidence": [
+            "Relaxation rate meets a continuum spectral edge beyond a gradient threshold."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2, 6537bca3d71d",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Spectral staircase and finite-gradient relaxation plateau for a saturating run-and-tumble process",
+          "trigger": "Indexed relaxation plateau"
+        },
+        {
+          "assessment": "Weak-bond asymptotic in a different many-body chain",
+          "evidence": [
+            "γ_N(ε)=4ε/N+O_N(ε²) for a weak closing bond."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22, cb14bc751105",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Weak-bond spectral splitting and metastable coverage on odd reversible-dimer rings",
+          "trigger": "Indexed reversible adsorption spectral gap"
+        },
+        {
+          "assessment": "No material overlap in invariant of interest; same-day date not used to infer priority",
+          "evidence": [
+            "Stationary mutual information; excludes relaxation rates."
+          ],
+          "identifier_or_url": "Resultary 2026/10/26, c5d477ba354b",
+          "material_read": "RESULT.md Finding and scope, offset 0",
+          "method": "Local published-record mirror",
+          "title": "A logarithmic-to-one-bit information transition in reversible dimer adsorption",
+          "trigger": "Same-day adsorption record"
+        },
+        {
+          "assessment": "Cycle and priced allocation, different feasible family",
+          "evidence": [
+            "Conductances can vary over all links of a cycle."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2, ccfd8e9d0e03",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Exact active-edge allocation on a five-cycle with one priced link",
+          "trigger": "Nearby finite edge-allocation optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The allocation problem fixes a natural physical budget and changes only one central storage parameter; it distinguishes a unique balanced fastest split from a unique balanced slowest split. At the critical capacity, different equilibrium surface weights cannot be distinguished by the first relaxation rate because the whole allocation curve is exactly flat. This is a useful identifiability and control benchmark for a motivated reversible compartment model, independent of whether the same effect persists in continua.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

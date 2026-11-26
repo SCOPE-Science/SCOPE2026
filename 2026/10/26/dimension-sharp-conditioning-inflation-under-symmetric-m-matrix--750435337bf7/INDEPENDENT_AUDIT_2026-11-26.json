@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:02:13.418681Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:48–104",
+        "Frozen CHECK.py, CHECK_OUTPUT.txt and VERIFICATION.md (inspected, not executed)",
+        "Independent star computation: c=1/2 and m=8 gave spread 1.79464892 and balanced extreme eigenvalues 1 and 5.18202526; at m=10^6 the respective normalized quantities were 0.50000150 and 0.33333600."
+      ],
+      "rationale": "The strictly convex objective (x^T A x)/2-sum(log x_i) is coercive since the quadratic dominates d log||x||, and its interior sublevel sets are bounded away from a zero coordinate. Its unique critical point satisfies Ax=x^(-1). With lambda_-,lambda_+ the extreme eigenvalues, summing the unit row equations gives ||x||^2<=d/lambda_-, while the Z-matrix signs imply 1<=A_ii x_i^2<=lambda_+ x_i^2. These prove the spread bound. The signs and row sums give XAX=I+L for a positive-weight graph Laplacian, so its minimum eigenvalue is 1 also in reducible cases; the congruence norm bound gives the maximum at most dK. For the star, the span of hub and uniform leaves has unscaled eigenvalues 1±c and the leaf-contrast space has eigenvalue 1. The two row equations yield t^2-gamma_m t-1=0; evaluating the polynomial at sqrt(m)/c gives m(1-c^2)/c^2>0, so the positive root has q_m>0 and t>1. The scaled star is I plus the uniform-weight star Laplacian with edge weight c t/(sqrt(m) q_m), giving exactly the eigenvalues 1, 1/q_m on leaf contrasts, and (1+t^2)/q_m-1. Then t/sqrt(m) tends to c and q_m tends to 1-c^2, yielding both claimed constants. The proof requires fixed K>1 for a nonzero sharpness coefficient; K=1 and d=1 pose no problem for the inequalities.",
+      "residual_risks": [
+        "These are sharp dimension powers at fixed K, not optimal constants for given d and K, and the numerical check does not certify the general bounds."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Liu–Sidford–Tu bound an iterate's spread by 10q, with q=||A||_infinity ||x_0||_2^2, and analyze approximate scaling algorithms. Vladu gives approximate scaling complexity via an interior-point method."
+        ],
+        "reasoning": "An iterate bound in problem- and initialization-dependent quantities is not a bound of the claimed sharp dimension order at fixed K for the exact scaled operator. The broader algorithmic results do not assert the witness or its balanced spectrum.",
+        "searches": [
+          "Resultary: sqrt(dK) scale spread and dK balanced conditioning",
+          "arXiv:2610.22302, Claim 3.8 and Theorems 3.9, 3.11",
+          "arXiv:2504.20619, p. 4"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary index and the two inspected scaling records",
+        "arXiv:2610.22302",
+        "arXiv:2504.20619",
+        "arXiv:1401.5766",
+        "van der Sluis bibliographic hit only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact balanced matrix has its bottom eigenvalue pinned to one by the signed row sums. The universal bound additionally uses the identity x^T A x=d; the growth witness uses the objective-specific hub/leaf row equations at fixed c."
+        ],
+        "reasoning": "The elementary norm and Laplacian identities are not standalone novelty; together with a star that attains linear inflation at fixed K they settle a different extremal question from algorithmic spread control or near-singular and condition-optimal scaling.",
+        "searches": [
+          "arXiv:2610.22302, Claim 3.8 and algorithmic theorems",
+          "Resultary Frobenius-optimal star and condition-optimal windmill findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Liu–Sidford–Tu and Vladu use the same symmetric scaling objective (approximate in their algorithmic statements). James–Langou–Lowery use diagonal similarity for row/column norm balancing.",
+          "The prior indexed Frobenius-optimal positive-edge star is sign-congruent to the audited star; the same operation does not preserve a fixed signed unit row-sum constraint."
+        ],
+        "reasoning": "Conjugating by the hub sign flip preserves the input spectrum and commutes with positive diagonal X, but it changes B1=1 into B'(S1)=S1, not B'1=1. Frobenius optimality and equal-norm similarity therefore do not transfer the optimizer or the claimed output condition number.",
+        "searches": [
+          "Resultary: SPD Z-matrix unit signed row-sum congruence",
+          "arXiv:2610.22302, p. 1",
+          "arXiv:2504.20619, p. 2",
+          "arXiv:1401.5766, pp. 1, 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier Frobenius star entry uses the same input family up to signs, with a near-singular penalty for a different objective. The windmill record solves a condition-minimization objective on a different graph family."
+        ],
+        "reasoning": "These are exact spectral calculations for differently selected scalings, not a table or expression for the fixed-K, growing-dimension unit-row-sum star tradeoff. No exact indexed match to that tradeoff surfaced.",
+        "searches": [
+          "Resultary: fixed-K weighted-star scaling ratio and balanced spectrum",
+          "Resultary: Frobenius-optimal star conditioning penalty and condition-optimal windmill scaling"
+        ]
+      },
+      "rationale": "The signed row-sum congruence objective, scaling algorithms, and use of related star inputs are not new. The supported remainder is the pair of universal dimension-order bounds with a simultaneous sharp fixed-input-condition-number witness, including its final balanced spectral conditioning. None of the inspected scaling objectives or algorithmic bounds supplies that theorem.",
+      "residual_risks": [
+        "Classical equilibration literature could contain an equivalent extremal example; van der Sluis full text was not retrieved. The review does not assert unqualified priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same scaling problem and relevant iterate analysis, not the extremal balanced spectral theorem",
+          "evidence": [
+            "Claim 3.8 bounds kappa(X) by 10q for path-following iterates; theorems give approximate row sums and complexity."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.22302",
+          "material_read": "v1 p. 1 and pp. 11–13, Claim 3.8 and Thms. 3.9, 3.11",
+          "method": "OA primary PDF excerpts",
+          "title": "Near-Optimal Parallel M-Matrix Scaling",
+          "trigger": "Identical signed symmetric row-sum objective and scaling-spread estimate"
+        },
+        {
+          "assessment": "Scaling residual and runtime, no final balanced spectral condition theorem in inspected statement",
+          "evidence": [
+            "Approximate positive diagonal signed-row-sum scaling and complexity."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2504.20619",
+          "material_read": "pp. 2 and 4, problem and main theorem",
+          "method": "OA primary PDF excerpts",
+          "title": "Breaking the Barrier of Self-Concordant Barriers: Faster Interior Point Methods for M-Matrices",
+          "trigger": "Earlier solver for the same scaling objective"
+        },
+        {
+          "assessment": "Distinct similarity transformation and norm objective",
+          "evidence": [
+            "Balances D^(-1)AD in row and column norms, rather than XAX in signed row sums."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1401.5766",
+          "material_read": "pp. 1 and 3",
+          "method": "OA primary PDF excerpts",
+          "title": "On Matrix Balancing and Eigenvector Computation",
+          "trigger": "Could known harmful balancing be the same result?"
+        },
+        {
+          "assessment": "Matrix-family overlap, not objective or limit overlap",
+          "evidence": [
+            "Positive-edge star and near-singularity asymptotic for Frobenius distance-to-identity minimization."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-quadratic-conditioning-penalty-from-frobenius-optimal-diagonal--18e1415f2a68",
+          "material_read": "Mirrored RESULT.md finding and objective",
+          "method": "Local mirror statement comparison",
+          "title": "A quadratic conditioning penalty from Frobenius-optimal diagonal scaling",
+          "trigger": "Same star input up to sign"
+        },
+        {
+          "assessment": "Different graph class and condition-optimal scaling rather than row-sum scaling",
+          "evidence": [
+            "Positive-edge windmills with a globally condition-optimal scaling objective."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-a-sharp-mode-switch-law-for-optimal-diagonal-scaling-on-windmill--8c423dd752b2",
+          "material_read": "Mirrored RESULT.md finding and objective",
+          "method": "Local mirror statement comparison",
+          "title": "A sharp mode-switch law for optimal diagonal scaling on windmill graphs",
+          "trigger": "Exact spectral diagonal scaling on related structured matrices"
+        },
+        {
+          "assessment": "Unresolved text comparison; not negative evidence",
+          "evidence": [
+            "Identified as a classical equilibration reference; no scientific inference made from failed retrieval."
+          ],
+          "identifier_or_url": "A. van der Sluis, Numerische Mathematik 14 (1969), 14–23",
+          "material_read": "Bibliographic search hit only; full-text request timed out",
+          "method": "Targeted literature lookup and OA retrieval attempt",
+          "title": "Condition Numbers and Equilibration of Matrices",
+          "trigger": "Plausible classical equilibration or condition bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:3–46 and 79–104",
+        "arXiv:2610.22302, definition and scaling guarantees"
+      ],
+      "rationale": "A unique normalization selected to give a well-structured matrix need not be a good conditioning transform. The example keeps the input condition number fixed at any prescribed K>1 and simultaneously forces sqrt(d) scaling spread and linear balanced conditioning, so the loss is not explained by a nearly singular input. Matching upper dimension powers and explicit asymptotic coefficients answer a concrete limitation of this specific balancing operation.",
+      "residual_risks": [
+        "No claim about the conditioning of all preconditioned formulations, approximate scaling, floating-point algorithms, or optimal constants in the joint K,d regime."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

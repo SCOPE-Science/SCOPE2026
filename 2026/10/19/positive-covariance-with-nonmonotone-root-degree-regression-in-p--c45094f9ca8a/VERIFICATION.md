@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -17,6 +20,4 @@
 ---
 # Verification
 
-Run `python verify.py` in the directory containing this document and the checker. The script requires only Python 3 and built-in modules. It enumerates all individual attachment histories through nine vertices with their exact rational probabilities, rather than assuming a precomputed joint law. It checks the degree-one and degree-two root masses, conditional leaf-count means, covariance, and both marginal first/second moments. It also compares direct rational moment recurrences through 79 vertices and tests numerical approach to the asymptotic coefficients at 100001 vertices. The executed script reported 397 passed assertions. These finite checks are separate from the analytic proof and cannot establish historical originality or a theorem for all sizes on their own.
-
-The full theorem proof appears in `RESULT.md`. No independent scientific audit or external formal proof certification has been performed.
+Run `python3 verify.py` in the directory containing the checker. The script uses only Python's standard library. It enumerates parent-selection histories through nine vertices with exact rational probabilities. It compares the root degree-1 and degree-2 masses and the leaf-count means under those events with the theorem, and checks the conditional mean at maximum root degree. The history loop also checks the covariance, both marginal means and the root-degree second moment, not a separate exact leaf-count second-moment identity. Further recurrence and numerical asymptotic checks include the previously published covariance and the variance scales. The packaged execution reported 397 deterministic assertions. The finite checks corroborate the all-size proof in `RESULT.md`; they do not establish publication priority.

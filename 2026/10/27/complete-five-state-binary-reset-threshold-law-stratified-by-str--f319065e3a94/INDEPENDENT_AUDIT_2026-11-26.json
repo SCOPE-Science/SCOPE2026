@@ -1,0 +1,173 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:39:51.160136Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:5–57",
+        "reset_enum.cpp:8–51; reset_independent.cpp:11–50 (inspected, not executed)",
+        "VERIFICATION.md:19–27; counts_bfs.txt; counts_layers.txt; joint_counts.csv (frozen recorded outputs)",
+        "/workspace/replay/five_state_preimages.py and /workspace/replay/five_state_preimages.csv (fresh Python 3 replay; compared all rows to joint_counts.csv)"
+      ],
+      "rationale": "The base-five map encoding is a bijection and the ordered product includes loops, repeated letters and all disconnected cases without normalization. A word resets iff it sends the full subset to a singleton. The queue and frontier programs use exact image masks with shortest-layer semantics; if the full set reaches a singleton, a shortest path is simple and fits the supplied loop bound. Strong connectivity, not merely reachability from one root, is equivalent to full forward and reverse closure from a root. The prose at line 55 imprecisely calls this one-vertex reachability, but both implementations test the correct graph property. For an independent complete replay I used reverse preimages starting from all five singletons; the first reach of the full set certifies the shortest length, and exhaustion certifies infinity. A digraph is strongly connected iff it has no nonempty proper forward-closed subset, checked here via intersection of the closed-subset masks for the individual letters. The 47 conjugacy classes of first maps cover all 3125 maps, and multiplying each first-map representative's full second-map scan by its first-map orbit size is exact: conjugation bijects the second maps and preserves threshold and connectivity. The replay matches every published joint row, returns zeros at all larger bins, totals 7,211,281 and 2,554,344 and finite first moments 18,821,345 and 11,030,640. Division gives the stated reduced means and the maxima are read from the table. As a boundary check, tau=1 is equivalent to a constant letter: 2*5*3125−25=31,225. Strong connectivity then requires the other letter's orbit from the constant target to visit all five states, giving 2*5*4!*5=1,200, with no strongly connected both-constant case.",
+      "residual_risks": [
+        "This is an exhaustive five-state computational result, not an all-size theorem or formal verification. The original programs were inspected rather than rerun. The fresh replay does not depend on a prior bound of 16 or a published isomorphism-orbit conversion."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Experiments on reset conjectures give evaluation ranges and attainable-value results give existence information, not frequency weights.",
+          "Chapuy–Perarnau treat high-probability asymptotics, and Szykuła’s inspected survey section describes sampled average-threshold experiments, not a complete finite histogram split by connectivity."
+        ],
+        "reasoning": "Neither attainable lengths nor general asymptotic bounds determine this exact probability mass function; sampling averages also cannot determine the full bivariate finite census.",
+        "searches": [
+          "arXiv:1607.04025, Table 2; Dżyga et al. MFCS 2017, p. 3",
+          "arXiv:2207.14108v2, p. 1; arXiv:2608.24245, §2.7"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1609.06853 §4.4; arXiv:1607.04025 Table 2; MFCS 2017 paper 40 p. 3; arXiv:2207.14108v2 p. 1; arXiv:2608.24245 §2.7",
+        "Resultary 0ed29a47b807, c176f0fc06e0, add2e90918b8 and 7f7c2dad36ac"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Multiplication by 240 when justified reproduces only the six upper labelled marginal totals. It says nothing about the connectivity labels or frequencies outside that tail.",
+          "The same-universe synchronizing subtotal fixes total nonsynchronizing mass by subtraction, but it does not give either connectivity component, any short-length count, or the conditional moments.",
+          "Published experiments motivate the average but do not supply these exact conditioned data."
+        ],
+        "reasoning": "The prior results imply or supply some marginals and extremes, not the split or the distribution. The independent exhaustive computation establishes the information not determined by those prior outputs.",
+        "searches": [
+          "Compare reset-length class marginal in arXiv:1609.06853 §4.4 to the labelled joint histogram",
+          "Compare same-population subtotal and alternative invariant in Resultary 0ed29a47b807",
+          "arXiv:2608.24245 §2.7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published quotient counts at 11 through 16 are 46, 43, 23, 11, 4, 1. The five labels and two ordered letters give possible orbit size 5!*2!=240, and 240 times those counts agrees exactly with the corresponding independently reproduced marginals."
+        ],
+        "reasoning": "An isomorphism count is not in general a labelled count. Trivial stabilizers are needed for multiplying by the group size; the matching exhaustive labelled counts are the check here, not an unconditional conversion of class counts. This high-tail comparison does not cover the short bins, nonsynchronizing split or joint structure.",
+        "searches": [
+          "Five-state binary deterministic automata, reset lengths versus slow synchronization/synchronization length",
+          "Don–Zantema–de Bondt, arXiv:1609.06853, §4.4",
+          "Resultary: reset threshold, five-state automata, strong connectivity census"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "0ed29a47b807 enumerates the same 5^10 population and gives exactly the same synchronizing subtotal 8,063,385, but tabulates a different compression statistic.",
+          "c176f0fc06e0 and add2e90918b8 count extremal triple-rendezvous and avoidance cases, respectively; 7f7c2dad36ac counts a specified subset of the nonsynchronizing cases.",
+          "The published threshold table covers only the high-tail class-count marginal."
+        ],
+        "reasoning": "No inspected exact source gives the 17-row connectivity cross-tabulation. Identical population size or coincident extremizer counts under different statistics do not identify that joint table.",
+        "searches": [
+          "Resultary 0ed29a47b807, c176f0fc06e0, add2e90918b8 and 7f7c2dad36ac",
+          "arXiv:1609.06853, §4.4, p. 16"
+        ]
+      },
+      "rationale": "The high-threshold marginal class counts and the maximum 16 are prior, and a same-universe indexed census already gives the synchronizing subtotal. The distinct contribution that passes is the full exact threshold-by-strong-connectivity distribution and its conditional and structural consequences in the ordered labelled universe. The strongest prior table and indexed comparisons provide proper fragments or different statistics, not the joint law.",
+      "residual_risks": [
+        "Older unindexed computational data or an equivalent full table under another presentation could exist. Only the inspected survey section, not the entire literature, was checked for the average-threshold comparison. The relationship between the triple-rendezvous extremizers and the reset extremizers was not needed and is not asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap with quotient high-tail marginals; not the full labelled joint table",
+          "evidence": "Lengths 16 through 11 have counts 1, 4, 11, 23, 43, 46, matching the reproduced labelled high-tail marginals after scaling by 240.",
+          "identifier_or_url": "https://arxiv.org/pdf/1609.06853",
+          "material_read": "§4.4, p. 16, PDF text offset 39800",
+          "method": "Bounded OA full-text inspection",
+          "title": "Slowly synchronizing automata with fixed alphabet size",
+          "trigger": "Exact five-state two-letter published high-tail counts"
+        },
+        {
+          "assessment": "Inspected table gives verification ranges, not the joint histogram",
+          "evidence": "Reports experimental verification ranges for conjectures.",
+          "identifier_or_url": "https://arxiv.org/abs/1607.04025",
+          "material_read": "Table 2, p. 11, PDF text offset 33520",
+          "method": "Bounded OA full-text inspection",
+          "title": "Experiments with Synchronizing Automata",
+          "trigger": "Small-state enumerations could contain finite histograms"
+        },
+        {
+          "assessment": "Existence, not counts under the frozen probability model",
+          "evidence": "Attainable-threshold intervals and discussion of strongly connected automata.",
+          "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol083-mfcs2017/LIPIcs.MFCS.2017.40/LIPIcs.MFCS.2017.40.pdf",
+          "material_read": "p. 3, PDF text offset 9673",
+          "method": "Bounded OA full-text inspection",
+          "title": "Attainable Values of Reset Thresholds",
+          "trigger": "Threshold ranges including strong connectivity"
+        },
+        {
+          "assessment": "Related distributional setting, different asymptotic conclusion",
+          "evidence": "With-high-probability results for short synchronization, not an exact finite table.",
+          "identifier_or_url": "https://arxiv.org/abs/2207.14108v2",
+          "material_read": "p. 1, offset 0",
+          "method": "Bounded OA full-text inspection",
+          "title": "Short Synchronizing Words for Random Automata",
+          "trigger": "Uniform two-letter random automaton model"
+        },
+        {
+          "assessment": "Supports scientific motivation; the inspected section reports sampling rather than complete tabulation",
+          "evidence": "Mean-threshold experiments use at least 1000 sampled automata per n; no five-state connectivity stratification in that section.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.24245",
+          "material_read": "§2.7, pp. 40–41, PDF text offsets 24017–27217",
+          "method": "OA PDF, relevant section inspected",
+          "title": "Synchronizing Automata: Open Problems",
+          "trigger": "Closest survey discussion of average reset thresholds, inaccessible to the frozen author"
+        },
+        {
+          "assessment": "Exact overlap on global synchronizing subtotal; different statistic",
+          "evidence": "Reports 8,063,385 synchronizing pairs and 9,120 extremizers for its compression statistic, all strongly connected.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-compress-with-another-spectrum-of-binary-five-state-automa--0ed29a47b807",
+          "material_read": "Mirrored RESULT.md, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirrored result reader",
+          "title": "Exact compress-with-another spectrum of binary five-state automata",
+          "trigger": "Same entire 5^10 population and exact binary-state census"
+        },
+        {
+          "assessment": "Different invariant; no equivalence inferred from the shared count",
+          "evidence": "Counts 240 maximal triple-merging cases, not the full-set threshold distribution.",
+          "identifier_or_url": "Resultary c176f0fc06e0",
+          "material_read": "Indexed finding",
+          "method": "Configured Resultary search",
+          "title": "The five-state binary triple rendezvous extremal is unique",
+          "trigger": "Five-state, binary, 240 labelled extremizers"
+        },
+        {
+          "assessment": "Avoidance rather than reset threshold",
+          "evidence": "960 avoiding extremizers in four symmetry classes; no reset-threshold rows provided by that statement.",
+          "identifier_or_url": "Resultary add2e90918b8",
+          "material_read": "Indexed finding",
+          "method": "Configured Resultary search",
+          "title": "Four extremal five-state binary avoiding threshold classes",
+          "trigger": "Same labelled automata regime and extremal frequencies"
+        },
+        {
+          "assessment": "Special subset of the infinity bin, not its full split",
+          "evidence": "2880 primitive nonsynchronizing examples in 12 classes.",
+          "identifier_or_url": "Resultary 7f7c2dad36ac",
+          "material_read": "Indexed finding",
+          "method": "Configured Resultary search",
+          "title": "The smallest binary primitive nonsynchronizing nonpermutation examples",
+          "trigger": "Nonsynchronizing cases in the same finite space"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:5–43; joint_counts.csv",
+        "arXiv:2608.24245 §2.7 (sampled averages) and arXiv:2207.14108v2 p. 1 (random two-letter model)"
+      ],
+      "rationale": "This exhaustive small-state model directly calibrates sampled averages and randomized two-letter reset experiments with exact denominators. Strong connectivity is a meaningful stratifier: the finite conditional means differ materially, and at this size the positive nonsynchronizing mass and the disappearance of non-strongly-connected finite cases above length 10 are separately measurable, unlike in a single high-tail marginal. The value is the full natural finite benchmark and these comparisons, not re-verification of the already known overall maximum.",
+      "residual_risks": [
+        "The benchmark cannot be used as evidence for an all-state reset bound, a limiting law, or any model that conditions on accessibility/minimality or uniformly samples isomorphism classes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

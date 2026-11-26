@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact two-class multinomial law gives two means and a nonzero covariance. When known \(q\) exceeds baseline \(\alpha\), their ratio recovers \(\psi/(1-\psi)\), and the two false-positive probabilities and exponential rate then follow uniquely. At \(q=1\), explicit Jacobian and full Fisher determinant algebra yield an objective vanishing at both gap endpoints and an equation with strictly one crossing, so a unique global maximizer follows. The Lambert-function expression, parameter monotonicity and rare-prevalence expansion are algebraic consequences. Exact rational checker evaluations corroborate the nonstandard information determinant. Critical limits: stationary site class, known detector quality, independent conditional outcomes, positive parameters and local information criteria.
+PASS
 
-## Originality — PASS relative to checked evidence
+For the stated latent-class model, put s=1−ψ, a=α and b=a exp(−δt). The assay outcomes are conditionally, not marginally, independent (the opening word 'independent' should be read in the sense specified in the assumptions). With U=E[q−Y0], V=E[q−Yt] and K=E[(q−Y0)(q−Yt)], conditioning gives U=s(q−a), V=s(q−b) and K=s(q−a)(q−b)>0. Thus s=UV/K and a,b,δ follow uniquely. At one fixed date even with ψ held fixed one can vary δ and keep α exp(−δt) fixed (at date 0, δ simply drops out). At q=1 the three probabilities P(Y0=0), P(Yt=0), P(00) have Jacobian determinant of magnitude s²(1−a)(1−b) in (ψ,a,b). They are unit-determinant linear coordinates on three cells; the cell-coordinate Fisher determinant is the reciprocal of the product of all four cell probabilities. The additional squared Jacobian is (tb)², giving D(t)=s t²/[ψ exp(δt)+s a²]. Its log derivative in z=δt is 2/z−1/(1+C exp(−z)), C=sa²/ψ>0, strictly decreasing from positive to negative with D vanishing at both endpoints. The root is z=2+W(2C exp(−2)); monotonicity and the rare-prevalence expansion follow from W being increasing and W+log W=log(2C exp(−2)). An independent exact moment check recovered (ψ,a,b)=(2/7,3/5,1/4) for q=7/8 and q=1; independent Newton iteration gave z=2.291275616944311 at the stated example. The frozen checker was inspected, not executed; the conclusion rests on the derivation, not finite tests or field validation.
 
-The mixture model is not itself novel: Royle and Link (2006) supply that class. Pilliod et al. (2013) demonstrate empirical eDNA persistence and decay; Lahoz-Monfort et al. (2015) review false-positive eDNA occupancy analysis. Their inspected material does not state the particular joint two-date inverse or the exact three-parameter Lambert-function revisit design. The closest retrieved mathematical findings optimize either a stationary Markov occupancy turnover gap or marker clearance rate for one-time classification, rather than infer a residual marker's decay. Search coverage is not a uniqueness proof. The complete Royle–Link (2006) text was inaccessible, so a subsuming general mixture-design theorem remains a priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-Distinguishing living occupancy from residual genetic or other biological evidence is a motivated monitoring problem. The exact joint-identification and time-design result shows why observing the *change in residual evidence* can recover three quantities from two labeled tests, why making the visits arbitrarily close or far apart loses information, and why the optimal interval exceeds two clearance times and grows strongly for rare occupancy. Those quantitative boundaries are useful as analytic calibration checks, though not direct field recommendations. The idealizations and unmodeled delay costs substantially limit operational applicability.
+The two-component likelihood and calibrated moment inversion are standard algebra, not independently compelling novelty. The supported distinct benchmark is the exact unique joint-information optimum and its dependence on prevalence and decay in this specific two-date experiment. The strong same-day comparator has a different constrained design and neither states nor implies this benchmark.
 
-## Source and verification limits
+## value
 
-The 2013 paper's author-accessible accepted manuscript was inspected through methods and results; the 2015 author's manuscript was inspected through model assumptions and inferential discussion. The most relevant retrieved research results were read in their available source files. The foundational 2006 study could only be accessed as bibliographic and abstract material; full-text institutional retrieval was not possible. No independent scientific audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The benchmark quantifies a real design tradeoff: visits too close give no decay leverage, and at large gaps empty-site positives become too scarce. The optimal separation is always above two decay times and grows logarithmically at rare occupancy, a parameter-sensitive answer that a fixed 'wait one decay time' rule cannot supply. It is an exact mathematical reference for the specified idealized model, not a field recommendation without calibrated q, an appropriate detection law, conditional independence and a cost model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

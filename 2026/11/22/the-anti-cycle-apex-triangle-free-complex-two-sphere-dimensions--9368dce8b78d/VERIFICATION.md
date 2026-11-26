@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and evidence limits
+# Independent mathematical audit
 
-Run `python verify.py` from this folder with standard Python 3; no third-party library is needed. Its output should end in `ALL FINITE CHECKS PASSED; infinite conclusion requires the geometric proof.` The recorded output is `verification_output.txt`.
+## correctness
 
-The checker reconstructs the forbidden triangles of the apex-joined complement of each cycle with \(3\le n\le12\) and enumerates every simplicial face. It verifies the deletion's exact facets against all disjoint cycle-edge pairs for \(6\le n\le12\), checks the expected face counts, and independently verifies signed orientability of the three-sphere top chain and rotation/reflection signs. It calculates mod-two homology by explicit boundary elimination for \(3\le n\le10\).
+PASS
 
-The all-length theorem is proved symbolically in `RESULT.md` using matching--cover duality on induced cycle path forests, the Gale evenness facet classification of cyclic four-polytopes, the actual apex-link cofiber, and dihedral orientation chains. Finite verification is not a substitute for these steps; in particular the checker does not compute integral homology for arbitrarily large lengths or supply an external certification. No independent mathematical audit has been performed.
+Checked RESULT.md lines 4–33. At n=3 there are no forbidden triples, even with h. At n=4,5 the deletion is a simplex and the link is the cycle. For n≥6 each selected proper cycle subset induces a union of paths; five vertices force an independent triple and four avoid one exactly when matched by two disjoint cycle edges. All smaller admissible faces extend to those facets. Gale evenness gives exactly those facets of the cyclic 4-polytope, including wraparound. The simplicial pushout along the actual link is the mapping cone of a null map S¹→S³. The natural exact sequence identifies H₂ with the link's orientation line and H₃ with the deletion's. For the asserted integral top cycle, a ridge consisting of an edge and an isolated vertex has the two completions at the predecessor/successor of the isolated vertex, which delete opposite positions of the oriented second edge. A ridge consisting of three consecutive vertices has the predecessor/successor completions deleting the first/last position of the oriented four-vertex string. In both cases the coefficients cancel. Each facet occurs once with unit coefficient; reflection reverses both edge blocks, so fixes the generator, whereas it reverses the link. This proves the actual signs without any claim about equivariant wedge equivalence. The recorded finite checker was inspected, not executed; its dimension/rank checks do not certify the all-n proof or the H₂ action.
+
+## originality
+
+PASS
+
+The supported distinct content is the natural cone-over-anti-cycle clique-avoidance classification with both integral dihedral characters, not the shellability of the deletion or the general Gale facet description. Small n overlaps the triangle-free-base regime and is not a separate originality claim.
+
+## value
+
+PASS
+
+The natural universal-vertex operation on a cycle-complement avoidance complex exposes two consecutive sphere dimensions and distinguishes the actual reflection characters even though the ordinary wedge gives no such information. The equivariant homology calculation for the entire family is reusable, beyond recomputing a cyclic-polytope boundary or a finite list of Betti numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

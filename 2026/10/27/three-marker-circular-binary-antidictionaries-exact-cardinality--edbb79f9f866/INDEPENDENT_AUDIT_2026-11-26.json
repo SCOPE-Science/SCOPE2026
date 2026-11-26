@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:48:25.622862Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 28–88; VERIFICATION.md lines 19–30; verify.py lines 12–98, inspected, not run."
+      ],
+      "rationale": "For a word using both symbols, let C(k) be periodic factor complexity and B(k) the bispecial count. Counting missing two-sided extensions with both one-sided extensions present gives m(k+2)=2C(k+1)-C(k)-C(k+2)+B(k). At length at least the least period, the phase is determined up to equivalence, so the complexity difference vanishes. The total is 1+sum B(k). The maximal gap gives exactly M zero-only bispecials including the empty word. After dihedral reordering, the one-marker outer-gap contexts are (a,b),(b,c),(c,a) with a<=b<=c. In each coordinate an eligible context must meet the threshold and another must exceed it. This gives no one-marker bispecial with all gaps equal, just (a,a) with a repeated gap, and (a,a),(a,b),(b,a) with distinct gaps. An internal gap has two phases only if repeated (or all equal); in the two-phase case the outer contexts are swapped with distinct entries, forcing both thresholds to be the smaller entry. With three or more markers, two complete consecutive gaps fix the phase unless all gaps are equal, in which case every marker already fixes the least-period phase. Thus the bispecial totals are M, M+2 and M+3. For 111 the constant language has exactly the single-letter obstruction 0. Writing S=n-3, maximum equality in the repeated or distinct cases requires the smaller gaps to sum to 0 or 1 respectively, and balanced two-equal triples attain the lower bound when S is not divisible by 3. This proves the formula and extrema for unbounded gaps, including zero gaps and nonprimitive words.",
+      "residual_risks": [
+        "The recorded 1,000-triple check is bounded; its fixed-length extrema loop uses the predicted counts, not new word enumeration. The general proof, not the loop, establishes the extrema."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Crochemore et al., §4: periodic-factor convention and circular MAW computation. Fici–Restivo–Rizzo, Lemmas 2–3, Eq. (4): reduction to doubled words and general cardinality bound; bispecial example concerns the Fibonacci class."
+        ],
+        "reasoning": "The general theory computes individual antidictionaries and bounds the cardinality by n for binary words using both symbols. Neither the bound nor the algorithm supplies an all-gap count or characterizes equality at fixed weight three.",
+        "searches": [
+          "Targeted primary-literature search on three-one periodic binary antidictionaries; direct inspection of the circular MAW papers arXiv:1506.04917v2 and arXiv:1707.04450v3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local index and exact prior record 2aa2ec2e3dfc",
+        "arXiv:1506.04917v2 §4",
+        "arXiv:1707.04450v3 Lemmas 2–3 and bispecial passage",
+        "DOI:10.1587/transfun.2023TAP0015 page 1 and targeted searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Both maximizing gap multisets contain zero; one has a repeated gap. The published general equality example [a^(n-1)b] is not a weight-three classification. Ota–Manada's inspected abstract concerns reconstruction conditions."
+        ],
+        "reasoning": "A periodic-word algorithm specialized at fixed parameters is not a symbolic classification. One must separately analyze phase coincidences at repeated gaps and factors with adjacent markers; the strict-positive prior does not imply these cases by a limiting argument in discrete gap lengths. The all-gap result gives the sharp minima and identifies all maximizers.",
+        "searches": [
+          "Direct comparison with Resultary 2aa2ec2e3dfc, Fici–Restivo–Rizzo Lemma 3, and Ota–Manada's reconstruction paper"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 2026/10/18/…2aa2ec2e3dfc, RESULT.md Finding: exact antidictionary and cardinality c+4 for circular 0 1^a 0 1^b 0 1^c, 1<=a<b<c."
+        ],
+        "reasoning": "Alphabet exchange preserves minimal absence and gives exactly M+4 for three positive distinct zero gaps. Neither exchange, reversal, nor rotation changes the number of distinct gaps or removes a zero gap. This is exact prior coverage of a proper subclass, independent of priority attribution.",
+        "searches": [
+          "Resultary: exact title/claim; periodic binary words with three ones; the M+1, M+3, M+4 formula"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest exact indexed match is the positive distinct-gap Resultary result ending 2aa2ec2e3dfc; its hypotheses are strict inequalities and positivity, not all cyclic triples."
+        ],
+        "reasoning": "The match is credited for its exact subclass. No inspected table or indexed claim gave the repeated/zero-gap strata and the fixed-length extrema; finite instances would not cover a formula with three unbounded gaps.",
+        "searches": [
+          "Resultary: exact formula, periodic three-marker class and weight-three extremizers"
+        ]
+      },
+      "rationale": "Pass for the all-gap weight-three classification and its extremizers, not for novelty of the positive distinct-gap count in isolation. The strongest prior Resultary finding gives an even stronger antidictionary description on that subclass. It excludes zero gaps and repeated gaps, and therefore does not cover either maximizing family or the all-gap theorem. The published length bound is also prior; it does not identify the weight-three equality cases.",
+      "residual_risks": [
+        "Bounded primary-literature search and targeted reconstruction-paper inspection are not exhaustive; text misses are not negative evidence.",
+        "The positive-distinct subclass should be credited explicitly in any public novelty description."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact partial coverage under alphabet exchange",
+          "evidence": "Complete set, cardinality c+4, and 1<=a<b<c for the three one-gaps between zeros.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-the-complete-circular-antidictionary-of-three-distinct-binary-ga--2aa2ec2e3dfc",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "The complete circular antidictionary of three distinct binary gaps",
+          "trigger": "Exact-looking three-gap count"
+        },
+        {
+          "assessment": "Prior periodic-factor definition and algorithms",
+          "evidence": "Distinguishes periodic-factor and length-truncated circular definitions and relates them; the inspected statements are not gap-stratum counts.",
+          "identifier_or_url": "https://arxiv.org/html/1506.04917v2",
+          "material_read": "Section 4, offsets 27600 and 31350",
+          "method": "OA full-text passage inspection",
+          "title": "Linear-Time Sequence Comparison Using Minimal Absent Words & Applications",
+          "trigger": "Same circular language"
+        },
+        {
+          "assessment": "Prior general n bound for binary words using both letters; not an equality classification in this weight class",
+          "evidence": "Lemma 2 uses doubled words, Lemma 3 Eq. (4) gives the bound, and the inspected explicit bispecial formulas concern Fibonacci words.",
+          "identifier_or_url": "https://arxiv.org/html/1707.04450v3",
+          "material_read": "Introduction, offsets near 3300; Lemmas 2 and 3, offsets near 23100 and 25000; bispecial discussion near 40429",
+          "method": "OA full-text passage inspection",
+          "title": "Minimal Forbidden Factors of Circular Words",
+          "trigger": "Same invariant and sharp upper bound"
+        },
+        {
+          "assessment": "Accessible PDF; no relevant three-gap theorem in the material inspected",
+          "evidence": "Abstract describes reconstruction from substring frequencies and minimal absent words, not the queried distribution.",
+          "identifier_or_url": "https://doi.org/10.1587/transfun.2023TAP0015",
+          "material_read": "J-STAGE PDF page 1 abstract and targeted text lookups",
+          "method": "Lawful OA PDF, literal passage search",
+          "title": "A Reconstruction of Circular Binary String Using Substrings and Minimal Absent Words",
+          "trigger": "Plausible same-object reconstruction result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Steps 2–5; structural comparison with Resultary 2aa2ec2e3dfc and arXiv:1707.04450v3 Lemma 3"
+      ],
+      "rationale": "This gives the exact antidictionary size without enumerating factors for the entire natural three-marker class. It resolves when marker contexts coincide, including adjacency and reduced period, and supplies a sharp equality classification and minimum at fixed length. These uses go beyond the generic n bound and the already known positive-distinct count.",
+      "residual_risks": [
+        "No claim for more markers or for the truncated language."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The verifier is `verify.py` (Python 3 standard library). Execute `python3 verify.py` in the directory holding the complete package. Its reproduced output is `verify_output.txt`.
+## correctness
 
-The checker builds \(D(w)=\{w_2w_3,w_1w_3,w_1w_2\}\) as a **set** of distinct deleted-position outputs for each codeword, then counts, independently for each \(y\in X_q^2\), the number of codewords whose set contains \(y\). It checks all receiver outputs, the complete codebooks and their sizes, nonrepetition of words, symbol-range validity, the exact one/two/three-output stratification, and the complete receiver-list histograms.
+PASS
 
-The calculated capacities and incidences are \((q,|C|,E)=(4,14,30),(5,21,48),(6,30,72),(8,50,126)\). Each output is produced by one or two codewords; all thirty-six outputs at \(q=6\) are produced by exactly two. The cyclic translation symmetry and both proposed conflict triangles are directly tested.
+With duplicate deletion histories collapsed, a two-output word has an adjacent repeated pair and uses exactly one diagonal receiver. Constants also use one diagonal receiver. Thus A+B≤2q and A≤q for the one- and two-output strata, and the complete receiver incidence count E≤2q², giving 3|C|=E+(A+B)+A≤2q²+3q. An independent receiver-side exhaustive insertion check reproduced (q, size, E, number of list-one receivers, number of list-two receivers) = (4,14,30,2,14), (5,21,48,2,23), (6,30,72,0,36), (8,50,126,2,62), with no empty or overfull receivers. The six-symbol equality conditions and its cyclic construction check out; a three-output word with a diagonal output cannot occur in an equality case because constants and two-output words exhaust the diagonal capacity. The two displayed conflict triangles have distinct edge witnesses (20,24,23) and (43,63,03), and the cyclic action is free, so the nondivisibility arguments apply to all optima of the other three sizes. The enumeration is over receivers of the exhibited codes only, not over all codebooks; the general bound provides optimality.
 
-The upper-bound proof is mathematical, not computational: with \(A\) one-output words, \(B\) two-output words, and \(C_3\) three-output words, use \(A\le q\), \(A+B\le2q\), and \(A+2B+3C_3\le2q^2\) to derive \(3(A+B+C_3)\le2q^2+3q\). This certifies global optimality of the checked codebooks without enumerating all candidate codebooks. No finite check is claimed to establish an infinite-family construction.
+## originality
 
-The two conflict triangles show that the **presented** optimal codes at \(q=5\) and \(q=8\) are not unions of two uniquely-decodable subcodes. They do not prove that all optimum codes at those alphabet sizes are similarly nondecomposable. No independent audit has been performed.
+PASS
+
+The strongest indexed overlap shares the formula and exact deletion model, but the stated Steiner alphabet classes exclude all four alphabets here. Credit the shared bound/framework, not a second independent priority claim for it. The scoped four constructions and exact capacities, with the noted structural witnesses, are not established by the inspected coverage. This is a bounded finding, not certification of priority.
+
+## value
+
+PASS
+
+The four sizes are motivated first representatives beyond the usual Steiner classes, not an arbitrary sample. The universal upper bound cannot decide sharpness there. Concrete saturation, symmetry and odd-cycle witnesses distinguish genuine list-two packing from simply combining unique codes and give reusable test cases for future general constructions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

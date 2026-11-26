@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof applies to all \(0<a<1\), \(r>0\), \(0<q<1\), \(T>0\), and every post-pulse initial state in \([0,1]\). The scalar autonomous flow remains ordered; its per-capita growth is a quadratic whose reflection identity forces a unique maximum of the gain ratio. This proves a unique saddle-node cutoff without relying on finite scans. Separation of variables yields the logarithmic critical time. The return-map second derivative yields a negative nondegenerate quadratic tangency and the claimed \(1/n\) coefficient. A standalone program checks the key symbolic identities and independently integrates a sampled subset. The proof, not finite computation, establishes generality.
+## correctness
 
-## Originality — PASS, with residual literature risk
-The closest biological motivation is Stier et al. (2022): cubic depensation with stochastic/observation-based harvest, not a fixed-percentage impulse at a freely varying interharvest interval. The 2020 threshold-harvesting paper examines discrete overcompensatory population maps and strategies, not the continuous cubic flight equation analyzed here. Meyer et al. (2023) establish general *local* flow-kick saddle-node continuation, with an additive-kick logistic example. Their theorems are compatible with the existence of the present fold but do not imply its unique global position, the complete basin classification or the explicit critical slowing constant. Relevant impulsive fisheries and other population results remain possible prior sources; an equivalent specialist calculation cannot be ruled out by negative searches.
+PASS
 
-## Value — PASS
-A closed formula in the Allee threshold and retained proportion identifies the exact minimal safe period for a managed population to admit a persistent deterministic basin, including the sharp impossibility when retention does not exceed the Allee threshold. The critical \(1/n\) law quantifies slow relaxation and the danger of judging near-threshold persistence from short runs. This is a complete natural parameter classification rather than an arbitrary numerical slice.
+For q≤a every first image is at most a, and the only fixed point there is zero, including the boundary q=a. For q>a every positive fixed point requires a<x<q; its flight time is H(x)=∫_x^{x/q} dz/f(z). H diverges at both endpoints. Writing f(x)=xg(x) with g(z)=r(1−z)(z−a), the sign of H′ is the sign of g(x)−g(x/q), equivalently x+x/q−1−a. The unique minimum is therefore x*=q(1+a)/(1+q), and partial fractions at the two endpoints give the displayed positive logarithmic cutoff. The sign of the map displacement on (a,q) is the sign of T−H(x); off that interval the displacement is negative except at zero. The increasing map preserves each side of any fixed point, so this sign pattern proves the full basins, including x_0=0 and x_0=1, and excludes nontrivial cycles. At the fold, q f(y*)/f(x*)=1 and ∂_T P_T(x*)=q f(y*)>0. Differentiating the first-variation formula once gives P″=(f′(y*)−f′(x*))/f(x*)<0, with the stated rational coefficient −2/P″. Taylor expansion and telescoping reciprocals of the positive forward-iterate deviations give the n(x_n−x*) limit. A fresh ODE integration at (a,q,r)=(0.37,0.78,1.3) gave the claimed tangency and critical scale (finite-difference estimate 0.476473858 versus formula 0.476473842).
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The distinct claim supported by the inspected evidence is the exact cutoff, global basin classification, and explicit critical amplitude for the specified cubic flow with fixed periodic multiplicative removals. Strong-Allee bistability, fold mechanisms, flight-time methods and the generic parabolic 1/n rate are not claimed as original.
+
+## value
+
+PASS
+
+For pulse removals under depensation it matters whether any positive stock can persist at a given retention and recovery interval. The closed interval cutoff and the all-stock basins answer that question without time-stepping or fitting, and the exact one-sided rate distinguishes slow critical persistence from ordinary attraction. The amplitude and global cutoff supply predictive information beyond the generic observation that saddle nodes occur.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

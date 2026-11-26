@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** For three distinct sides the oriented area is separately affine in each edge coordinate, giving the midpoint-triple area. Cyclic trigonometric summation yields the stated exact contribution. The repeated-edge case uses \(\mathbb E|U-V|=1/3\) and a supporting-line distance sum, giving the second contribution. The squared-area identity follows by expanding independent centered determinants. The derivative sign proof uses a strictly increasing elementary function; Taylor series give all asymptotic coefficients. The sample experiment is corroborative, not a substitute for these proofs.
+## correctness
 
-**Originality — PASS (bounded-search, provisional).** The 2006 full transcription of Madras–KC was inspected through its introduction, Theorem 2, and its formulas and proofs for three *vertices*, a discrete model. The Reitzner–Schütt–Werner arXiv full text was inspected through its introduction, Theorems 1.1–1.2, and stated use of asymptotic \(N\to\infty\) estimates. Neither comparison implies the exact moments for continuous arclength sampling at fixed three-point sample size and varying polygon side count. The circle limit and triangle/square cases are acknowledged. published-finding corpus searches for boundary-sampled regular polygon triangle moments and quartic convergence did not return the same claim. The accessible relevant previous geometrical claims concern general large-sample vertex counts, asymptotic area deficits, and exact triangle/parallelogram cases, which do not imply the higher regular-polygon sequence without new calculations. Residual risk is uncatalogued exact formulas in older recreational geometry or secondary literature.
+PASS
 
-**Mathematical value — PASS.** The expectation and second moment form a complete exact finite-dimensional moment classification of a natural stochastic-geometric observable for every regular polygon, not an arbitrary parameter slice. The proved strict shape ordering and exactly quartic approach to the circle, despite the polygon boundaries having quadratic geometric approximation error, reveal a non-obvious cancellation that is meaningful when comparing discrete polygonal versus smooth boundaries. The result is self-contained; no conjectural general downstream theorem is required.
+Equal edges give independent uniform labels and uniform coordinates along each edge. By convex cyclic order the oriented area for distinct edges has nonnegative sign and is separately affine, so averaging is equivalent to using their midpoints. Summing over gap triples a+b+d=m with the cyclic starting index counts each midpoint triangle three times; summing its three sine terms gives the stated weighted sine sum. If exactly two points share side i, their mean separation is 2 sin(π/m)/3; the mean height on side j is its midpoint's distance to the supporting line, and summing these heights gives m²cos(π/m). Exactly three on a side contribute zero. For the second moment, rotation gives centered covariance (1+2cos²(π/m))I/6; the square of the determinant of the two differences has three terms with expectation 2 det Σ each, and mixed terms vanish by independence and centering. Normalizing by the area gives both formulas. In the derivative test for Q all denominators are positive, and H′(z)=3 sin(z)(z−sin(z)cos(z))>0; thus m=3 is the unique upper endpoint and the disk value is an unattained lower limit. The Taylor coefficients agree through order m^−6. In particular the variance coefficient at m^−4 is π²/15−3/10>0, not another cancellation.
 
-**Limits.** Only three iid uniform-arclength boundary samples, regular polygons, first two area moments, and mean monotonicity are established. Unsearched literature may already contain an equivalent formula. The general covariance identity is standard and is used as a proof tool, not claimed as independent new work.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct content is the evaluated all-m moment pair, strict mean ordering and quartic approach in both moments for the arclength model. The general gap integral in the related parallelogram record covers the mean as an exact integral, the triangle and square records cover specific endpoints, and the covariance identity used for the second moment is standard. These overlaps are credited rather than counted as novelty. The inspected statements do not cover the full regular-polygon side-count result, and catalog dates alone do not decide priority.
+
+## value
+
+PASS
+
+The first two exact moments quantify the finite-sidedness error in a natural boundary sampling experiment. The shared cancellation of the quadratic term, despite the quadratic geometric discrepancy between a regular polygon and its circumcircle, and the strict ordering at all side counts provide information beyond the isolated endpoint laws or a general unevaluated integral. A researcher using regular polygons to approximate the disk boundary can use the distinct mean and variance corrections without assuming the geometric approximation rate carries over to these statistics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

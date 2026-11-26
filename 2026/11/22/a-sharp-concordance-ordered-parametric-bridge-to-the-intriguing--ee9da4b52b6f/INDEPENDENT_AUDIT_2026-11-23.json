@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:20:13.018925Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Separately reconstructed the margins and mixed derivative. As x approaches 0 the powers stay bounded uniformly in y; as x approaches 1 the exponent tends to 1 and remains bounded away from zero, giving joint boundary continuity. For 0≤γ≤1, set s=1−x, t=1−xy and b=γs/x. The term −log t−s(1−t)/t is nonnegative on [s,1] by differentiation. The resulting lower bound on ∂x∂y C is s^b[1−γx−(γs/x)log s], strictly positive throughout the open square. Integrating on interior rectangles and passing to the continuous boundary proves two-increasingness. At x→1 with fixed y<1 the density tends to 1−γ−γ log(1−y). For γ>1 use y=0 and then continuity to obtain a negative interior rectangle; for γ<0 fix an interior y sufficiently near 1. For a≥1 the function u^a(−log u)/(1−u) is strictly increasing, as follows by factoring out u^(a−1) and differentiating the a=1 case. The parameter derivative is a positive prefactor times its difference at t and s; this proves the strict pointwise order and, by integration, strict Spearman ordering. Read VERIFICATION.md and check_int1.py without running the uploaded script; its sampled derivative and inequality tests are not used as a universal certificate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1 imposes conditions on f for x y^f(x); it does not use the chord between powers with bases 1, 1−x and 1−xy.",
+          "The inspected ratio constructions use (b+1)xy/[b+φ(x,y)] or xy φ(x)φ(y)/[φ(1)φ(xy)] with their separate hypotheses."
+        ],
+        "reasoning": "The general variable-power theorem does not apply to the chord density by setting f=a; the ratio constructions supply neither an application verifying their respective conditions for the chord nor the necessary exclusion of both exterior parameter ranges. The general criterion of two-increasingness is background, not a classification of these exponents.",
+        "searches": [
+          "Chesneau variable-power copula general validity, Theorem 1, DOI 10.3390/axioms12040392",
+          "Chesneau parametric ratio families, DOI 10.3390/sym15050977 and 10.3390/modelling4020008"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_int1.py",
+        "Resultary ee9da4b52b6f",
+        "10.3390/axioms12040392",
+        "10.3390/sym15050977",
+        "10.3390/modelling4020008"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proposition 6 explicitly remarks that no parameters are involved.",
+          "The classical mixture (1−γ)xy+γ C₁ is a different family; at fixed x,y, powers are exponential functions of γ, so interpolating the exponent is not generally mixing the copula values."
+        ],
+        "reasoning": "The known endpoint and convexity of the class of copulas do not prove this nonlinear bridge. The sharp density exclusion above and below the interval and the strict order for the actual chord remain separate contributions.",
+        "searches": [
+          "10.3390/axioms12040392 §4.1 Proposition 6, §2 Theorem 1 and §2.2 Function 5",
+          "Local Resultary ee9da4b52b6f for exact statement comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary ee9da4b52b6f is the assigned result itself.",
+          "Proposition 6 Eq. (6) gives exactly the parameter-free γ=1 endpoint; Function 5 gives the affine exponent specialization in the monomial copula x y^a."
+        ],
+        "reasoning": "The Int1 endpoint is prior. The same-exponent monomial is not an alias for the chord: at x=y=1/2, γ=1, it is 1/8 while the chord is 9/32. The monomial decreases as γ increases at interior points, opposite to the chord.",
+        "searches": [
+          "Local Resultary: Int1/intriguing-1, affine interpolation of the exponent 1/x, power-chord exact validity and concordance order",
+          "10.3390/axioms12040392, Proposition 6 and Function 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalog match in Resultary is the assigned record; the published explicit listing has Int1 and the separate monomial family.",
+          "No standalone tabulated constant would settle the joint all-parameter assertion; the sought exact objects were the family, domain and order."
+        ],
+        "reasoning": "An entry for Int1 or the interval [0,1] attached to a different copula does not tabulate the proposed bridge. No independent exact listing was identified in these checks.",
+        "searches": [
+          "Local Resultary formula and exact interval/order lookup for the Int1 power-chord bridge",
+          "Chesneau 2023 §4.1 Proposition 6 and §2.2 Function 5, the closest located catalog of explicit copulas"
+        ]
+      },
+      "rationale": "The strongest source already contains exactly Int1 and exactly the proposed varying exponent, but in different constructions. The inspected results do not imply the sharp admissibility and strict ordering of the proposed interpolation. This is a bounded assessment, not a determination of historical priority.",
+      "residual_risks": [
+        "Bounded literature coverage does not exclude a stronger construction stated with unrelated notation.",
+        "The ratio comparisons use the specific inspected passages, not blanket exclusion of entire papers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the endpoint and the varying exponent in another model, not the sharp bridge result.",
+          "evidence": [
+            "Proposition 6 has exponent 1/x and says no parameters are involved.",
+            "Function 5 takes f=1+β(x^(−α)−1); α=1, β=γ recovers the exponent only."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/axioms12040392",
+          "material_read": "PDF pp. 3–4 §2 Theorem 1, p. 7 §2.2 Function 5, p. 19 §4.1 Proposition 6 Eq. (6); text offsets 13659, 30268, 94018",
+          "method": "Bounded primary OA PDF passages",
+          "title": "Theoretical Validation of New Two-Dimensional One-Variable-Power Copulas",
+          "trigger": "Exact Int1 endpoint and strongest same-exponent/broader-coverage candidate"
+        },
+        {
+          "assessment": "The inspected scheme is algebraically different; this is not a whole-paper exclusion.",
+          "evidence": [
+            "Abstract specifies a ratio construction (b+1)xy/[b+φ(x,y)]."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/sym15050977",
+          "material_read": "PDF p. 1, abstract, text offset 586",
+          "method": "Bounded primary OA PDF passage",
+          "title": "A Collection of Two-Dimensional Copulas Based on an Original Parametric Ratio Scheme",
+          "trigger": "Same-author parametric scheme that could supply a stronger result"
+        },
+        {
+          "assessment": "Different ratio form; no implication of the power-chord theorem in the inspected material.",
+          "evidence": [
+            "Equation (3) uses xy φ(x)φ(y)/[φ(1)φ(xy)]."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/modelling4020008",
+          "material_read": "p. 104, Eq. (3), text offset 8195",
+          "method": "Bounded primary OA PDF passage",
+          "title": "Theoretical Advancements on a Few New Dependence Models Based on Copulas with an Original Ratio Form",
+          "trigger": "Possible generalization from the same author"
+        },
+        {
+          "assessment": "Identical assigned result; not separate priority evidence.",
+          "evidence": [
+            "Both statements specify the Int1 power-chord bridge, exact interval and strict pointwise order."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-concordance-ordered-parametric-bridge-to-the-intriguing--ee9da4b52b6f",
+          "material_read": "Indexed statement and frozen result, especially Finding and §Proof",
+          "method": "Local Resultary search and frozen-text comparison",
+          "title": "A sharp concordance-ordered parametric bridge to the intriguing-1 copula",
+          "trigger": "Exact indexed match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Int1 is a published asymmetric dependence model without a tuning parameter. A natural nonlinear interpolation now admits exact validity limits and a strict dependence order without relying on sampled densities or assuming closure under exponent interpolation. The result tells users exactly which parameter values are available and how their dependence compares; no claims about fitting or estimation are needed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

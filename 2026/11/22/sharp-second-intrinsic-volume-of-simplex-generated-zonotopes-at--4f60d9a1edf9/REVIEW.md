@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof first uses the published intrinsic-volume identity \(V_2(Z)=\sum_{i<j}\lVert p_i\wedge p_j\rVert\). Separating segment lengths from directions, weighted Cauchy–Schwarz gives \(S^2\le AB\). The exact length identity \(A=A_*-Q/2\) and trace-of-frame-operator identity \(B=B_*-E/2\) provide both sharp bounds. All constants and dimensions agree with regular-simplex equality; the equality classification follows from the rank-\(d\) Gram projection on \(d+1\) columns, rather than assuming equiangularity. The exact deficit identity and two coercive inequalities are checked algebraically. The verifier passed 11 rational/simplex checks and 900 independent random configurations, including degeneracies. The latter do not prove the general theorem.
+PASS
 
-## Originality — PASS (with residual priority risk)
+For full-dimensional Z in dimension d≥3 represented by at most d+1 segments, use the Steiner-normalized area sum S=Σ a_i a_j sin θ_ij. Setting B=Σ w_ij sin²θ_ij, expansion gives A=A_*−Q/2 and B=B_*−E/2: tr(T²) includes the weighted squared inner products, and the diagonal terms cancel in L²−tr(T²). The angular weighted variance gives AB−S²=AH. Subtracting AB from A_*B_* gives the displayed identity and both nonnegative lower bounds, by writing the difference as A_*E/2+BQ/2 or B_*Q/2+AE/2. At equality Q=E=0, so all d+1 lengths are positive/equal, and the unit-direction Gram matrix is (d+1)/d times the orthogonal projection off a one-dimensional kernel. Its diagonal one forces all kernel magnitudes to be 1/√(d+1); column signs turn that kernel into the all-ones direction, and all signed off-diagonals equal −1/d. Conversely the simplex attains the bound. Sign changes just translate the zonotope. The checked zonotope convention gives mean width 2κ_(d−1)L/(dκ_d), so fixing L is equivalent to fixing mean width. RESULT.md lines 45–86 give an exact replay; verify.py is finite corroboration only and was not executed in the review.
 
-The strongest directly relevant source, Joós–Lángi (arXiv:2206.03204), proves the equilateral case in Theorem 6 and asks the unrestricted case in Problem 3; neither their formulation nor their inspected proofs contain the weighted length/frame isotropy inequality. Brazitikos–McIntyre (arXiv:2102.05900) compares different normalizations and proves its \(p=1\) result for \(d\) vectors, not the sharp fixed-sum \(d+1\) case. Ivanov (arXiv:1804.10055) optimizes cube projections with a Parseval-frame condition, not arbitrary weighted generators at fixed mean width. Relevant results in the indexed research collection treat circumradius, inradius, volume fractions, or width variance; no implication to the present sharp \(V_2\) law was established. Exact/alias/stronger coverage searches are recorded in the structured audit. Unindexed equivalent work remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result fills a specifically named gap in the geometry of zonotopes: the \(k=2\) instance of Joós–Lángi's fixed-mean-width Problem 3 in all \(d\ge3\). The unrestricted variation in generator lengths matters; the published theorem assumes equal lengths. The identity exhibits a structural and quantitative rigidity mechanism linking angular scatter, segment-length imbalance and the frame operator. No claim is made for other \(k\).
+The distinct result is the sharp fixed-mean-width maximum allowing unequal generator lengths, plus an exact quantitative defect identity. No separate originality credit is given for the equilateral maximum, the wedge-area formula, or the characterization of a real unit-norm tight frame with d+1 columns as signed simplex directions.
 
-## Scope and outstanding limits
+## value
 
-The result is a self-review only. The proof is self-contained conditional on the explicitly credited classical intrinsic-volume formula. The tests are finite corroboration. The originality review cannot exclude obscure equivalent statements, and no independent mathematical audit is available.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This settles a concrete intermediate-index case of the fixed-mean-width problem when generator lengths are unrestricted. The equality and exact defect decomposition also distinguish geometric mechanisms of near equality: the squared deficit controls length dispersion and isotropy independently. The result does not extrapolate to higher intrinsic volumes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

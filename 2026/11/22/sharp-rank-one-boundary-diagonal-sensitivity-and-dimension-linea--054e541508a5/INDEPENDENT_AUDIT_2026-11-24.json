@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:09:39.744581Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At P-eta Q the isolated eigenvalue 1 has derivative u^T H u and its eigenvector derivative orthogonal to u is QHu/(1+eta), giving PHP+(PHQ+QHP)/(1+eta). At the limit the first diagonal output pairs with the symmetric coefficient matrix P E+E P-P E P for E=e_1 e_1^T. Its sum of absolute entries is exactly the scalar support norm over symmetric H, since the elementwise sign matrix is symmetric. For p=u_1^2 and s=sum_{j>1}|u_j| this gives 2p-p^2+2 sqrt(p)(1-p)s+p s^2; equality in Cauchy–Schwarz gives the profile and the stated sign witness. Its derivative is positive to 1/4, strictly decreasing from there to 1/2 and negative at 1/2 for n>=3. In (1/2,(n+1)/(2n)) the factor (4p-1)sqrt((1-p)/p) is at least one by squaring; thereafter the two terms in the derivative are nonpositive with one strict. This proves the unique maximizer, and n=2 has its limiting max at 1/2. The nonsingular directional quotients are actual two-matrix lower bounds; only afterwards is eta decreased to zero. Frobenius nonexpansivity supplies the upper bound n, not an exact unrestricted coefficient. The critical equation gives p_n=1/2-1/(2 sqrt(n))+O(1/n); in rescaled coordinates z=sqrt(n)(p-1/2) the constant-order term of F_n is 1/2-z-z^2, hence 3/4 at the maximizing z. An independent adjoint-norm and LAPACK central-difference check (/workspace/reproductions/frozen_diagnostics.py 4) passed all 54 determinate differences. The frozen program was inspected but not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Malick–Sendov expressly gives the Clarke generalized Jacobian at any symmetric input. The distinct same-day 79a64f1ddf26 summary reports dimension-proportional sensitivity and a rank-one boundary amplification asymptotic to sqrt(mn)/4 for Frobenius projection onto the spectral-norm ball, not onto the PSD cone."
+        ],
+        "reasoning": "The spectral-ball comparison is material: for positive-definite X near I, spectral-ball projection on symmetric matrices obeys proj(X)=I-(I-X)_+, so symmetric witnesses near the upper threshold can transfer order bounds. The accessible summary does not specify that reduction or this one-positive, flat-negative input stratum and optimized diagonal profile. Consequently the exact profile is not shown covered; overlap of the coarser growth conclusion via a stronger prior witness cannot be excluded.",
+        "searches": [
+          "Malick–Sendov, public manuscript Abstract and §1.1",
+          "arXiv:1810.09856; arXiv:1908.01606",
+          "Resultary 79a64f1ddf26"
+        ]
+      },
+      "checked_sources": [
+        "Malick–Sendov public manuscript, Abstract and §1.1",
+        "Resultary e19c93a79149, 3b499f2228aa and 79a64f1ddf26 (summaries)",
+        "arXiv:1810.09856 and arXiv:1908.01606 (citation only)",
+        "Resultary 054e541508a5 (self)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Nonsingular derivative existence and the divided-difference framework are prior. Embedding a 2x2 example only gives a constant lower bound. Standard Frobenius nonexpansivity and norm conversion give only the upper bound here."
+        ],
+        "reasoning": "Taking the support norm, maximizing the complement l1 mass and solving the resulting single-coordinate extremum are mathematical steps beyond the compared statements. The similar spectral-ball scale is not independent evidence of the exact optimization.",
+        "searches": [
+          "Malick–Sendov, public preprint §1.1 and its cited Theorem 3.7",
+          "Resultary 79a64f1ddf26 and e19c93a79149, indexed statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Frobenius nearest PSD projection is the spectral positive part. The exact quantity at issue is the independent symmetric-entry cube support function for one diagonal coordinate, optimized over rank-one P after the nonsingular derivative has been computed."
+        ],
+        "reasoning": "A general positive-part Jacobian gives the functional, not its sharp maximization across P. Results for row-sum norm, Frobenius norm, off-diagonal outputs, or 2x2 matrices need not cover this coefficient.",
+        "searches": [
+          "Resultary: entrywise sensitivity of spectral clipping and PSD projection; rank-one max-norm Lipschitz",
+          "Malick–Sendov, Clarke generalized Jacobian of the projection onto the cone of positive semidefinite matrices"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest distinct summaries explicitly report 3/2 for the 2x2 entrywise maximum and 9/8 for 2x2 off-diagonal output, or exact 2x2 constants for independent-entry norms. The exact rank-one hit 054e541508a5 is the assigned work itself."
+        ],
+        "reasoning": "These are genuine low-dimensional antecedents; 3/2 is excluded from novelty. They do not supply the higher-dimensional one-variable profile or optimizing masses. No distinct exact indexed match for those n>=3 quantities was verified.",
+        "searches": [
+          "Resultary: sharp diagonal and off-diagonal entrywise amplification in semidefinite projection",
+          "Resultary e19c93a79149 and 3b499f2228aa"
+        ]
+      },
+      "rationale": "Best of current knowledge for the exact rank-one-positive flat-negative limiting diagonal profile in dimension n>=3 and its optimizing geometry and expansion. Credit the general PSD projector differential and the previously known n=2 results. The conclusion about unrestricted linear order is a corollary here; it is not an exact unrestricted modulus or a claim of priority for dimension growth across all projection sets.",
+      "residual_risks": [
+        "Relevant complete catalogue texts and several primary body passages could not be retrieved. An existing symmetric spectral-ball witness or a direct PSD calculation may already yield the coarse order bound; the exact diagonal stratum optimization is the supported distinction. Earlier exact max-entry optimizations under an equivalent formulation remain a priority risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verifies general Jacobian scope; no whole-document noncoverage claim",
+          "evidence": "Abstract says the Clarke generalized Jacobian is given at any symmetric matrix; introduction states the Fréchet and Clarke questions and cites Theorem 3.7.",
+          "identifier_or_url": "https://www.stats.uwo.ca/faculty/hssendov/Publications/CGJPCPSDM.pdf",
+          "material_read": "Public manuscript Abstract and introduction §1.1, including reference to Theorem 3.7; later body passage not independently recovered",
+          "method": "Public PDF excerpt after dedicated passage retrieval and identified alternate attempt",
+          "title": "Clarke Generalized Jacobian of the Projection onto the Cone of Positive Semidefinite Matrices",
+          "trigger": "Broader differential formula for exactly the same projection"
+        },
+        {
+          "assessment": "Different projection; conditional symmetric reduction worth distinguishing from actual coverage",
+          "evidence": "Summary describes rectangular spectral-ball maximum-entry sensitivity and rank-one tangent amplification asymptotic to sqrt(mn)/4.",
+          "identifier_or_url": "Resultary 79a64f1ddf26",
+          "material_read": "Indexed summary only",
+          "method": "Resultary search; original passage retrieval unavailable",
+          "title": "Linear entrywise instability of Frobenius projection onto the spectral-norm ball",
+          "trigger": "Strong same-day conceptual overlap in Frobenius projection, rank-one limit and asymptotic scale"
+        },
+        {
+          "assessment": "Exact n=2 overlap acknowledged, no stated high-dimensional profile",
+          "evidence": "3/2 maximum-entry constant; separate off-diagonal and independent-entry norm constants.",
+          "identifier_or_url": "Resultary e19c93a79149 and 3b499f2228aa",
+          "material_read": "Indexed summaries only",
+          "method": "Resultary search; original passages unavailable",
+          "title": "Sharp diagonal and off-diagonal amplification in two-by-two semidefinite projection; Sharp independent-entry Lipschitz constants for 2×2 semidefinite projection",
+          "trigger": "Exact known low-dimensional cases for the same norm and projector"
+        },
+        {
+          "assessment": "No independent full-text noncoverage conclusion",
+          "evidence": "RESULT.md lines 100–113 identify the general derivative and Frobenius error settings.",
+          "identifier_or_url": "arXiv:1810.09856 and arXiv:1908.01606",
+          "material_read": "Citations and original record's comparison, not body passages",
+          "method": "Dedicated public passage retrieval attempted",
+          "title": "Spectral operators of matrices: semismoothness and characterizations of the generalized Jacobian; Accuracy of approximate projection to the semidefinite cone",
+          "trigger": "General spectral differentials and PSD-projection error background cited by the frozen record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Frobenius nonexpansivity alone leaves open whether individual coordinate errors can accumulate with dimension. This boundary class demonstrates the linear growth via actual finite perturbations, determines the precise coefficient for the class and identifies the spread of eigenvector mass causing the amplification. The exact unrestricted constant remains open in the record.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

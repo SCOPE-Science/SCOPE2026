@@ -1,11 +1,21 @@
-# Review of three-word code ambiguity classification
+# Independent mathematical audit
 
-**Correctness — PASS.** Full equality-pattern reduction covers all alphabets: the seven symbol positions have exactly 877 set partitions, 825 satisfying the distinct-short-word requirement. The packaged exhaustive Sardinas–Patterson test finds exactly 10 nondecipherable patterns and checks agreement with both structural families for each. Witness identities prove each exceptional family has a length-five ambiguity. Counting is disjoint and exact. The standard-library checker additionally tests all literal codebooks for alphabet sizes two through five. This is finite exhaustive proof on all possible equality structures, not extrapolation from small alphabets.
+## correctness
 
-**Originality — PASS, qualified.** The 1953 Sardinas–Patterson decision framework is prior art. The principal 2001 three-word paper proves equivalence of decipherability notions for two equal-length words; the 2002 paper addresses further structural cases. The inspected relevant material did not identify an exact enumeration of non-UD codes of profile (2,2,3), a two-type classification, or the sharp universal five-symbol witness. Related indexed findings on Kraft-equality codes and non-overlapping codes concern different predicates and parameters. An earlier unindexed short-code classification remains a plausible residual risk; absence from indexed search is not uniqueness proof.
+PASS
 
-**Mathematical value — PASS.** The length profile (2,2,3) is the first odd-long-word case after two length-two codewords: the longer word cannot itself be a concatenation of short words, so the classification isolates overlap-driven ambiguity rather than immediate substitution. A natural alphabet-wide formula and a sharp uniform certificate bound determine the entire failure population and its vanishing density as the alphabet grows. The work does not claim an all-length characterization.
+For z=abc the only possible initial Sardinas–Patterson residual is c, requiring ab in X. A one-letter residual follows the edge p→q from each short word pq. Its only possible transition to length two is a→bc by stripping a from z. If z is nonconstant then bc differs from ab, so bc cannot be cancelled from the front of z; nor can it make any transition with a length-two word other than equality. Thus nonconstant ambiguity requires bc in X and reachability of a from c using the two edges a→b and b→c. This holds exactly when c=a (if c=b≠a the only outgoing edge from c loops; otherwise c outside {a,b} is a sink). If z is constant, aa in X suffices and is necessary by the initial prefix test. The displayed concatenations give witnesses of length five; no shorter length has two distinct feasible length patterns or more than one factorization with a fixed pattern. Counting the disjoint families as unordered short-word pairs gives q(q−1)(q+2) and the stated probability.
 
-Scientific limitations: only the explicitly stated length profile and ordinary concatenation; computational symbolic proof is reproducible but not independently audited. Exact public dating of the earlier 2001 article is uncertain; 2002-05-22 is the verified day-resolved source used for dating.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass the explicit two-pattern classification with the uniform sharp five-letter witness and closed labeled count, not the decision algorithm or general study of three-word decipherability. The 2001 family is a real scope overlap; no inspected statement establishes equivalent structural or witness coverage for this profile. The limited access risk is material and remains open.
+
+## value
+
+PASS
+
+The smallest mixed-length profile with two distinct shortest words, no one-letter words, and a longer third word gives a natural test case for witness length. The surprising absence of any codes whose first ambiguity appears after length five is stronger than a routine test of an individual codebook; the complete failure locus also gives the baseline random-codebook failure rate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

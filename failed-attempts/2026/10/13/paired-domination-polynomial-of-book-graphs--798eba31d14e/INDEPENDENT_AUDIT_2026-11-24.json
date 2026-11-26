@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:34:16.898165Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The graph is the Cartesian product of the star and P_2, with a shared spine edge and no edges between distinct pages away from the spine. With no spine selected, an empty page is undominated and a singleton is unmatched, so all pages must be full. With only a selected, domination or matchability forces every x_i to be selected, and exactly one x_i can lack its partner y_i: it must match a, and parity requires it. The reflected case uses b. With both spine vertices selected, domination is automatic and a singleton page can match only its corresponding spine vertex; hence there is at most one of each orientation, and parity permits only zero or two. The constructive matchings in all admissible states verify sufficiency. This counts sets, not matchings. The contributions are x^2(1+x^2)^n, n(n-1)x^4(1+x^2)^{n-2}, 2n x^{2n}, and x^{2n}; n=2 gives x^2+9x^4+x^6. Thus the spine is the unique minimum for n>=2, and evaluating at one gives the claimed total. For n=1 each of the four edges of C_4 gives a paired dominating set, as does the full graph. The frozen verification description and finite checker were read without executing it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Choudhary et al., Theorem 3 and corollary, give scalar paired domination inequalities, not subset counts. The complete-prism record enumerates K_n Cartesian K_2, not the star prism. The quadrilateral-books theorem supplies both the all-set and inclusion-minimal enumerations of this exact family."
+        ],
+        "reasoning": "Only the quadrilateral-books comparison fully subsumes the claim; neither the scalar inequalities nor the complete-prism coefficients can be used as such a transfer.",
+        "searches": [
+          "Choudhary, Margulies and Hicks, DOI 10.37236/2535, Cartesian product paired domination",
+          "Resultary: SCOPE-paired-domination-polynomial-and-large-set-threshold-for-complet--802b2a8143e0",
+          "Resultary quadrilateral-books Finding"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Indexed quadrilateral-book, complete-prism and 2-rainbow book records above",
+        "Choudhary–Margulies–Hicks, DOI 10.37236/2535"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed proof explicitly permits both spines with no singleton pages or with two opposite singleton pages; with one spine it permits one compatible singleton and all other pages full; with no spine all pages are full."
+        ],
+        "reasoning": "All four all-set classes occur in the indexed proof itself. Its separate statement of four inclusion-minimal classes is a further result, not the basis for the equivalence. The frozen minimum, uniqueness and total are immediate from the same polynomial and the inclusion of the spine pair.",
+        "searches": [
+          "Resultary quadrilateral-books RESULT.md, Finding, scope and hub/page cases"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Quadrilateral books' Finding and scope identify B_r=K_{1,r} Cartesian K_2 for r>=2 with exactly the same spine/page edges. K_2=P_2 and its polynomial counts labeled paired-dominating vertex subsets, each once."
+        ],
+        "reasoning": "The renaming r=n, z=x, (u,v)=(a,b) identifies the graph, the accepted sets and weights without any change in parameters or normalization. Ordinary and 2-rainbow domination are not equivalent formulations of this invariant.",
+        "searches": [
+          "Resultary semantic comparisons: square book, quadrilateral book, star prism, K_{1,n} Cartesian K_2, paired-domination polynomial",
+          "Resultary: SCOPE-paired-domination-polynomial-and-minimal-set-gap-of-quadrilatera--7cd5e8a6684a"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected quadrilateral-books Finding is x^2(1+x^2)^n+n(n-1)x^4(1+x^2)^{n-2}+(2n+1)x^{2n}, with the same total at x=1 and the same vertex-subset convention. The 2-rainbow book result is a different invariant. No full family list of the 2016 polynomial paper was obtained."
+        ],
+        "reasoning": "The exact closed form is independently located in the indexed corpus for the complete claimed range, not just in a sample table. Its later index date does not settle historical priority; 2016 noncoverage is not asserted.",
+        "searches": [
+          "Resultary quadrilateral-books and square-book domination polynomial comparisons",
+          "Published search: Introduction to Paired Domination Polynomial of a Graph Puttaswamy Alwardi Nayaka 2016 full text pdf book graph"
+        ]
+      },
+      "rationale": "There is demonstrable full coverage in a distinct indexed theorem: the quadrilateral-books result states the identical all-set polynomial for every n>=2 and proves the equivalent four-class census. It also gives a refined inclusion-minimal classification that the frozen record does not claim. This is a finding about exact coverage in the checked corpus, not a claim that the later-dated record was available first, that the frozen record derived from it, or that the result was known at the time of the frozen record. The unresolved 2016 source is not a reason for failure.",
+      "residual_risks": [
+        "Historical provenance and priority are unresolved; the exact equivalent indexed statement is later-dated. No inference of derivation is made.",
+        "The scope of the 2016 paired-domination polynomial paper remains unverified; its inaccessibility does not decide originality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full exact coverage; indexed later than the frozen record",
+          "evidence": "Identical polynomial for K_{1,r} Cartesian K_2 and equivalent four-way decomposition of all accepted sets; the additional minimal-set polynomial is not asserted by the frozen record.",
+          "identifier_or_url": "2026/10/26/SCOPE-paired-domination-polynomial-and-minimal-set-gap-of-quadrilatera--7cd5e8a6684a",
+          "material_read": "Finding, assumptions and all three hub cases; mirror offsets 0–3953",
+          "method": "Indexed local source text",
+          "title": "Paired-domination polynomial and minimal-set gap of quadrilateral books",
+          "trigger": "Exact indexed square-book coefficient formula"
+        },
+        {
+          "assessment": "Scalar bounds, not exact enumeration",
+          "evidence": "For two factors it bounds gamma_pr(G) gamma_pr(H) by 6 gamma_pr(G Cartesian H).",
+          "identifier_or_url": "https://doi.org/10.37236/2535",
+          "material_read": "p. 2, Theorem 3 and corollary",
+          "method": "Lawful OA PDF text",
+          "title": "A Note on Total and Paired Domination of Cartesian Product Graphs",
+          "trigger": "Broader graph product theorem for same domination notion"
+        },
+        {
+          "assessment": "Unresolved scope; no positive or negative coverage finding",
+          "evidence": "Both identified publisher routes denied access; no lawful accessible full-text alternate was identified in the targeted lookup.",
+          "identifier_or_url": "https://publications.waset.org/abstracts/52964/introduction-to-paired-domination-polynomial-of-a-graph",
+          "material_read": "No primary full text obtained; abstract description reported by frozen record, family list not independently verified",
+          "method": "Targeted search and lawful direct/VPN access attempts on publisher abstract page and abstract PDF",
+          "title": "Introduction to Paired Domination Polynomial of a Graph",
+          "trigger": "Earlier paper computing paired-domination polynomials for some graph families"
+        },
+        {
+          "assessment": "Different base graph family",
+          "evidence": "The first factor is complete, not a star.",
+          "identifier_or_url": "2026/11/2/SCOPE-paired-domination-polynomial-and-large-set-threshold-for-complet--802b2a8143e0",
+          "material_read": "Finding, offset 0",
+          "method": "Indexed local source text",
+          "title": "Paired-domination polynomial and large-set threshold for complete prisms",
+          "trigger": "Exact prism polynomial for the same invariant"
+        },
+        {
+          "assessment": "Different domination condition and counting objects",
+          "evidence": "It counts 2-rainbow functions; its related ordinary-domination construction uses a product with C_4.",
+          "identifier_or_url": "2026/10/13/SCOPE-2-rainbow-domination-polynomial-of-book-graphs--a728e7eb98e0",
+          "material_read": "Finding, offset 0",
+          "method": "Indexed local source text",
+          "title": "2-rainbow domination polynomial of book graphs",
+          "trigger": "Same graph and similar polynomial name"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The square book and its paired-domination polynomial are natural and the exact census is useful in isolation. Under the distinct-contribution requirement for a narrow invariant, however, the whole census, polynomial and classifications are already available in the checked corpus. The frozen claim does not leave a further mathematical contribution beyond that documented coverage; this does not diminish the usefulness of the formula itself.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:16:03.661110Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 29–56; VERIFICATION.md and CHECK.py, read-only",
+        "Fresh complete target counts and period witnesses for (p,h)=(3,1),(3,2),(5,2); /workspace/branches/fe23f70d-ddfe-417e-8d60-2dcec5aa5102/fiber_reproduction.py"
+      ],
+      "rationale": "There is exactly one factor of p in (p+1)!. On n=r+pt with r nonzero modulo p, cancel the unique linear factor pt and reduce the remaining product modulo p to obtain F(r+pt)=rt+pQ_r(t), Q_r integral over Z_p. Divided differences are units after extracting t-u, so the map induces a bijection at every precision and on Z_p. On n=pt cancel two factors of p before dividing by the factorial, obtaining G(t)=F(pt)/p with G(t) congruent coefficientwise to t(t-1). The exact symmetry G(1-t)=G(t) gives G(1/2+s)=G(1/2)+s^2 W(s^2) with W congruent to 1. The unique root E(s) of W(s^2) congruent to 1 exists by Hensel lifting; E(s)-E(u) is divisible by p(s-u), since E(s)+E(u) is a unit and the difference of their squares is divisible by p(s-u). This makes s*E(s) an isometric bijection. Alpha_p=pG(1/2) has valuation one. Counting solutions of the resulting square equation modulo p^(h-1) gives p lifts per root modulo p^h, including the modulus-one convention. The falling-factorial denominator proves periodicity with shift p^(h+1); F(1+p^h) has valuation h-1 whereas F(1)=0, so the least period, which divides p^(h+1), is not a proper divisor. The target-class restriction and h=1 boundary both follow.",
+      "residual_risks": [
+        "Finite reproductions cover only the listed parameters. The general proof is by the isometries, not enumeration."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Taking a=q=1 in the universality corollary gives binomial(n,p+1) modulo each p^h. Taking modulus p^h, primitive of the constant 1 and s=p+1=(11)_p in the period proposition gives p^(h+1)."
+        ],
+        "reasoning": "Both are broader results about coarser properties; surjectivity and length of a period fix neither the multiset of fiber cardinalities nor the square-root counts on the singular class.",
+        "searches": [
+          "Sun–Zhang arXiv:0812.3089, Corollary 1.3 and definition of universality; Fiorot–Gilblas–Tonolo arXiv:2307.02366, Lemma 3.1 and Proposition 3.4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 604e339dbb14, c5b9d086114e, 68ab08bc975b; catalogue-only 78410696e6db",
+        "Sun–Zhang arXiv:0812.3089; Fiorot–Gilblas–Tonolo arXiv:2307.02366"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ternary statements identify the singular branch for one polynomial. The general universality and period statements hold on every odd-prime domain but do not give the singular divided polynomial G(t) or its global square conjugacy."
+        ],
+        "reasoning": "Known root counts for squares give the formula only after the correct critical value and a global measure-preserving conjugacy on the whole remaining input branch have been established for p+1. The proof supplies this via exact reflection symmetry, coefficientwise control modulo p and a unit-root argument, not by restating the period or interpolating from the ternary case.",
+        "searches": [
+          "Local mirror Findings and Proofs 604e339dbb14 and c5b9d086114e; Sun–Zhang pp. 2, 5; Fiorot–Gilblas–Tonolo pp. 2, 10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "604e339dbb14 and c5b9d086114e both give exact counts for binomial(n,4) modulo 3^h and a global square normal form at alpha_3=3/128. Their additional term at multiples of 3 is 3R_{3^(h-1)}(y/3-1/128)."
+        ],
+        "reasoning": "Computing binomial(3/2,4)=3/128 identifies both formulations exactly with the p=3 slice. It does not identify the higher-odd-prime columns with binomial(n,4).",
+        "searches": [
+          "Local Resultary: Pascal/binomial column exact p-adic fibers, fourth column/pentatope numbers, quadratic critical values; 604e339dbb14, c5b9d086114e, 78410696e6db, 68ab08bc975b",
+          "Bounded primary-literature search on the first post-prime Pascal column modulo prime powers, frequencies and p-adic fibers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Two exact all-precision results for the ternary fourth column cover p=3. 68ab08bc975b gives 2+2*1_{2|y}+8*1_{8|y} for the fifth column modulo 2^h when h>=3. The summary for 78410696e6db also deals with the fifth column, modulo 3^h."
+        ],
+        "reasoning": "The exact formula catalogues are relevant substitutes for a table; they cover specific columns and primes. A finite table cannot settle the all-primes and all-precisions theorem, and none of these inspected statements determines the fibers for the moving column p+1 beyond p=3.",
+        "searches": [
+          "Local Resultary exact residue spectra 604e339dbb14, c5b9d086114e, 68ab08bc975b and catalogue summary 78410696e6db"
+        ]
+      },
+      "rationale": "The exact p=3 case and its square branch occur in two materially overlapping same-day records; their timestamps do not decide priority. The supported distinct claim is the entire odd-prime exact law, in particular its extension beyond the known ternary column. The literature inspected establishes universality and the least period, which the frozen claim already excludes from novelty; it does not establish the general singular-branch law or frequencies.",
+      "residual_risks": [
+        "Same-day ternary overlaps establish equivalence at p=3, not priority. One adjacent-column entry was only available as a summary. An unindexed matching general theorem or stronger parametrization is not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact ternary specialization",
+          "evidence": [
+            "Period 3^(h+1), square branch and target frequencies with the shift 1/128 after division by 3."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-ternary-residue-fiber-spectrum-of-the-fourth-binomial-column--604e339dbb14",
+          "material_read": "Local RESULT.md Finding and Proof",
+          "method": "Local mirror statement inspection",
+          "title": "Ternary residue fiber spectrum of the fourth binomial column",
+          "trigger": "Exact p=3 specialization"
+        },
+        {
+          "assessment": "Exact ternary specialization",
+          "evidence": [
+            "Zero additional count off multiples of 3; square term shifted by 3/128 on those multiples."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-three-adic-residue-fibers-of-the-pentatope-numbers--c5b9d086114e",
+          "material_read": "Local RESULT.md Finding and Proof",
+          "method": "Local mirror statement inspection",
+          "title": "Exact three-adic residue fibers of the pentatope numbers",
+          "trigger": "Pentatope alias for fourth binomial column"
+        },
+        {
+          "assessment": "Summary indicates a different fixed column; no whole-document scope conclusion",
+          "evidence": [
+            "Summary treats binomial(n,5) modulo powers of 3 and two quadratic critical values."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-ternary-fibers-and-singleton-density-law-for-the-fifth-binomial-column--78410696e6db",
+          "material_read": "Resultary catalogue summary only; bound RESULT.md unavailable in the mirror",
+          "method": "Local catalogue inspection with mirror lookup",
+          "title": "Exact ternary fibers and singleton density law for the fifth binomial column",
+          "trigger": "Adjacent exact p-adic fiber law and quadratic critical values"
+        },
+        {
+          "assessment": "Known analogue, distinct modulus and column",
+          "evidence": [
+            "Period 2^(h+2) and a divisibility-based formula for h>=3."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-three-level-2-adic-fibers-of-the-fifth-binomial-column--68ab08bc975b",
+          "material_read": "Finding",
+          "method": "Local mirror statement inspection",
+          "title": "Exact three-level 2-adic fibers of the fifth binomial column",
+          "trigger": "Frozen cited exact-fiber comparator"
+        },
+        {
+          "assessment": "Surjectivity covered; exact count not stated by these results",
+          "evidence": [
+            "p^h is (p^a q+1)-universal for the eligible odd-prime parameters; setting a=q=1 applies."
+          ],
+          "identifier_or_url": "arXiv:0812.3089",
+          "material_read": "Universality definition p. 2; Corollary 1.3, PDF p. 5, offset about 11200",
+          "method": "OA full-text definition and theorem inspection",
+          "title": "Binomial coefficients and the ring of p-adic integers",
+          "trigger": "General binomial universality including p+1"
+        },
+        {
+          "assessment": "Least period already covered",
+          "evidence": [
+            "The s-primitive of the constant 1 is binomial(n,s); the proposition at s=p+1 gives period p^(h+1)."
+          ],
+          "identifier_or_url": "arXiv:2307.02366",
+          "material_read": "Lemma 3.1 PDF p. 2 and Proposition 3.4 PDF p. 10, offset about 28300",
+          "method": "OA full-text lemma and proposition inspection",
+          "title": "Modular binomials with an application to periodic sequences",
+          "trigger": "General least-period formula for binomial sequences"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, normal form and fiber proof; Sun–Zhang universality; exact ternary comparators 604e339dbb14 and c5b9d086114e"
+      ],
+      "rationale": "At the first column just past the prime, one input residue class ceases to be a regular Hensel branch. Counting all target residues identifies exactly how that class redistributes mass, which surjectivity cannot answer. The exact square normal form gives a usable structural description at every precision and for every odd prime, not a numerical extension of a ternary table or a new proof of the known period alone.",
+      "residual_risks": [
+        "No corresponding claim for arbitrary lower indices or the prime two."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

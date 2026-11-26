@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:16:05.889469Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The scalar Padé quotient at −x is ((x−3)²+3)/((x+3)²+3)>0 and is 1 at x=0, giving positive definiteness, positive diagonal and conservation. The Taylor coefficients satisfy c_j=c_(j−1)/2−c_(j−2)/12 for j≥3: c_1 through c_5 are positive, c_6=0 and c_7=−1/1728. In Q=A−dI, a distance-j geodesic has j! coordinate orders. At distance six the seventh power contributes exactly −7d·6! (one diagonal stay by parity); at distance seven it contributes 7!. This proves the claimed sharp near-zero boundary and coefficients for each fixed d, not a uniform-in-d estimate. At infinity the positive Laplacian eigenvalues give I−12 L†/h+O_d(h⁻²). For an edge, subtract the stationary part of the tensor-product heat kernel and use s=e^(−2t): the Green coefficient is 2^(−d−1) times the integral of [(1−s)(1+s)^(d−1)−1]/s on (0,1). The integral is 1/6 at d=3 and increases strictly thereafter; this controls large-step edges. Independently solving the (d+1)-state distance-shell linear system reproduces exactly the Q_2 and Q_3 formulas, including positive denominators and the two positive nonedge numerators in Q_3. Q_1 follows from the single positive Laplacian eigenvalue; h=0 gives I. Descartes' rule and opposite signs at zero and infinity give exactly one positive zero of the Q_3 edge quartic, approximately 8.583763463733358. Replay: /workspace/branches/independent_small_checks.py. Inspected, did not execute, the frozen artifacts/verify_gauss_hypercubes.py. No intermediate-step classification in dimensions beyond three is inferred.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2010 abstract asserts general failure at arbitrarily small step; the 2012 constructive example is the nilpotent shift.",
+          "Later d5410a2c25f5 proves eventual edge negativity for even-stage Gauss, which includes two stages. Later 15a59396529c treats all-step feasibility for d≥13 and a positive example at h=1/3 through d=12."
+        ],
+        "reasoning": "Failure of a general positivity guarantee does not classify this family. The broader even-stage result does imply the edge portion, but the inspected entry is dated November 8, after this October 27 finding.",
+        "searches": [
+          "2010 and 2012 Zappavigna et al. on positivity under diagonal Padé discretization",
+          "Absolute monotonicity, doi:10.1007/BF01389539",
+          "Resultary d5410a2c25f5 and 15a59396529c"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, artifacts/requirements.txt and artifacts/verify_gauss_hypercubes.py",
+        "Resultary 4aad2a3f58ab, d5410a2c25f5 and 15a59396529c",
+        "Zappavigna et al. 2010 and 2012 repository copies"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same coefficient −1/1728 is established on a nilpotent shift; the frozen proof requires cube geodesics and parity at distance six.",
+          "The September twenty eight-state result gives a pure-birth stochasticity window, not a three-cube window.",
+          "The later Q_3 record gives the same full sign statement, not just a numerical root."
+        ],
+        "reasoning": "Earlier general examples supply the mechanism and coefficient but do not give the cube Green-function sign or three-cube cutoff. Later statements fully imply their respective frozen portions but do not reverse their observed chronology.",
+        "searches": [
+          "2012 repository PDF p. 14; earlier 4aad2a3f58ab Finding; later d5410a2c25f5 §§4–5 and 15a59396529c §5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2012 Zappavigna et al., p. 14: same c_7 on a nilpotent shift",
+          "Resultary 4aad2a3f58ab: conservative eight-state chain, a distinct generator"
+        ],
+        "reasoning": "Gauss–Legendre's completed step is the [2/2] Padé map. The directed shift and pure-birth examples are not Laplacians of symmetric unit-edge binary cubes; eight vertices alone do not make them Q_3.",
+        "searches": [
+          "Resultary: two-stage Gauss positivity, [2/2] Padé Markov positivity and Boolean/Hamming cube thresholds",
+          "Primary web search for Gauss/Padé positivity on binary cubes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "November 8 d5410a2c25f5 gives the same Q_3 quartic, same interval and the same unconditional d≤2 cutoff.",
+          "November 22 15a59396529c states the exact same near-zero d=7 barrier and distance-seven coefficient."
+        ],
+        "reasoning": "These are real exact overlaps, not mere title matches or the identical frozen record. Both entries postdate the frozen entry; neither establishes earlier coverage. No earlier exact cube threshold entry was found in the bounded comparison.",
+        "searches": [
+          "Local Resultary: exact Q_3 Gauss cutoff, cube dimension barriers and distance-seven expansion"
+        ]
+      },
+      "rationale": "As of the frozen record, the known seventh-order Padé obstruction does not yield the cube-specific classification, in particular the exact Q_3 horizon and the dimension-three eventual edge barrier. Distinct later indexed records exhibit exact coverage of portions of the frozen claim; this is recorded explicitly and is not evidence of an earlier result. The general obstruction itself is not credited as original.",
+      "residual_risks": [
+        "No proof of historical priority. A specialist earlier cube or Green-function treatment could overlap; the primary search did not yield an earlier exact match.",
+        "The 1986 full text was unavailable and the 2010 inspection was limited. Subsequent catalogue coverage does not imply priority over the October record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General mechanism covered, cube thresholds not implied by example",
+          "evidence": "Eight-state nilpotent shift with (1,8) entry −h⁷/1728.",
+          "identifier_or_url": "https://mural.maynoothuniversity.ie/id/eprint/3761/1/SK_Essentially_Negative.pdf",
+          "material_read": "Repository preprint, p. 14, extracted-text offset 38300",
+          "method": "OA PDF",
+          "title": "Essentially Negative News About Positive Systems",
+          "trigger": "Earlier [2/2] counterexample using the same coefficient"
+        },
+        {
+          "assessment": "General small-step failure supported by inspected abstract only",
+          "evidence": "States that arbitrarily small sampling times can lose positivity.",
+          "identifier_or_url": "https://mural.maynoothuniversity.ie/id/eprint/2195/1/SK-pade_MTNS10_long.pdf",
+          "material_read": "Opening and abstract at offset 0; subsequent targeted retrieval did not return text",
+          "method": "OA PDF",
+          "title": "On the preservation of co-positive Lyapunov functions under Padé discretization for positive systems",
+          "trigger": "Earlier diagonal Padé positivity discussion"
+        },
+        {
+          "assessment": "Different graph family, no cube cutoff implied",
+          "evidence": "Small-step safety through seven states; conservative eight-state pure-birth witness and exact window for that chain.",
+          "identifier_or_url": "Resultary 2026/9/20 4aad2a3f58ab",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror",
+          "title": "Eight-state barrier for Markov positivity of the [2/2] Padé map",
+          "trigger": "Earlier exact Markov threshold and eight-state witness"
+        },
+        {
+          "assessment": "Exact coverage of three-cube cutoff and two barriers concerning arbitrary/large steps; subsequent entry",
+          "evidence": "Same quartic root, only negative edges beyond it, unconditional nonnegativity exactly through d=2, and large-step negative edges for all even-stage methods in d≥3.",
+          "identifier_or_url": "Resultary 2026/11/8 d5410a2c25f5",
+          "material_read": "RESULT.md opening finding and §§4–5",
+          "method": "Local mirror",
+          "title": "Hypercube dimension barriers and a sharp three-cube threshold for Gauss positivity",
+          "trigger": "Exact cube cutoff hit"
+        },
+        {
+          "assessment": "Exact near-zero overlap and stronger feasibility claim; subsequent entry",
+          "evidence": "Same d=6/7 boundary and coefficient −35/12; positive at 1/3 through d=12 and no nonnegative positive step in d≥13.",
+          "identifier_or_url": "Resultary 2026/11/22 15a59396529c",
+          "material_read": "RESULT.md opening theorem and §5",
+          "method": "Local mirror",
+          "title": "A sharp dimension-twelve feasibility boundary for positive Gauss stepping",
+          "trigger": "Cube feasibility and local barrier hit"
+        },
+        {
+          "assessment": "Not assessed at passage level",
+          "evidence": "No statement-level inference made from unavailable text.",
+          "identifier_or_url": "https://doi.org/10.1007/BF01389539",
+          "material_read": "No full text obtained from DOI/publisher attempts",
+          "method": "Lawful OA retrieval attempts",
+          "title": "Absolute monotonicity of rational functions occurring in the numerical solution of initial value problems",
+          "trigger": "General rational positivity theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The unweighted cube is a natural product graph for diffusion. The result separates loss near zero from loss at large timesteps despite positive eigenvalues and conservation, and gives an exact allowable timestep and sign pattern on the first cube with eventual failure. These are usable matrix-positivity conclusions, not a claim of a new Padé mechanism or a table of isolated tests.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

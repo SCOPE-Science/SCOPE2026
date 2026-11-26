@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:42:06.860890Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, proof and hypotheses",
+        "VERIFICATION.md, generate_certificates.py, verify_certificates.py, two_factor_certificates.json and verification_output.txt, inspected as supplied evidence",
+        "/workspace/branches/04f08ce5-cf88-4eb7-86d9-335e92ac14ad/independent_two_factor_check.py and independent_two_factor_check.txt, separate exact replay"
+      ],
+      "rationale": "Independent exact enumeration returned 1,3,12,70 labeled two-factors; VC dimensions 0,1,3,4; and Littlestone dimensions 0,1,3,5. For K6 the shattered support counts in sizes 0 through 6 were 1,15,105,395,360,0,0. The Littlestone recurrence over the two nonempty branches of each splitting edge visited 32,853 states for K6. The structural upper bounds also check: any five-edge subset of a two-factor contains vertex-disjoint two-edge paths, and requiring the first path and forbidding the second forces an impossible completion; a depth-six tree would require 32 hypotheses in a positive first branch with only 28. Bridge coordinates are fixed zero and the remaining coordinates give the full disjoint-coordinate product. VC ranks add by restriction and concatenation; Littlestone ranks add by tree concatenation and the fact that at least one branch decreases the queried factor rank. Distinct attachment vertices guarantee maximum degree at most six.",
+      "residual_risks": [
+        "The independent computation checks the four finite orders; the infinite family is established by the product argument, not by numerical extrapolation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "75fb99d75e09 gives exact pairs through seven and VC dimension n−2 for n≥5. The two-factor class is expressly distinguished from Hamiltonian cycles there.",
+          "Polychromatic factor colorings require color incidence, not Boolean shattering; all-simple-cycle hypergraphs need not span the host and the compared theorem does not address Littlestone dimension."
+        ],
+        "reasoning": "The indexed two-factor result dominates the finite core on its actual definitions. The named primary comparisons are related but do not give that coverage.",
+        "searches": [
+          "Resultary 75fb99d75e09, Finding and Limitations",
+          "Axenovich et al., arXiv:1612.03298v1, pp. 1–2",
+          "Mofidi, DOI:10.22108/toc.2021.127880.1832, Theorem 3.3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary:75fb99d75e09",
+        "Resultary:3eaf6a69af80",
+        "Resultary:8d305f194b4c",
+        "arXiv:1612.03298v1",
+        "DOI:10.22108/toc.2021.127880.1832"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "No bridge can be selected in a two-factor, and connecting the blocks with such edges does not couple the 70 choices per block.",
+          "The ordinary product rank proof gives s times either dimension; attaching at distinct vertices adds at most one to a vertex degree. The Hamiltonian-cycle product record uses independent block choices but does not claim one global Hamiltonian cycle."
+        ],
+        "reasoning": "The unstated connected amplification is a direct consequence of the already covered K6 table and elementary product reasoning. No independent new dimension calculation remains in that family.",
+        "searches": [
+          "Resultary 75fb99d75e09 K6 dimension entry",
+          "Resultary 3eaf6a69af80 product amplification",
+          "Frozen RESULT.md bridge and disjoint-coordinate product argument"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "75fb99d75e09 treats labeled spanning two-factors on the same edge domain and states exactly the four assigned dimension pairs; this does not require switching to Hamiltonian cycles.",
+          "3eaf6a69af80 also gives the same dimensions through six for Hamiltonian cycles and a disjoint-block product for that different class. The bond/hyperplane-complement hit 8d305f194b4c concerns different graph families and concepts."
+        ],
+        "reasoning": "The first match is an exact match for the finite core. The auxiliary matches are not treated as exact two-factor equivalences by title or parameter alone.",
+        "searches": [
+          "Resultary two-factor and Hamiltonian-cycle edge-query shattering; matched 75fb99d75e09 and 3eaf6a69af80",
+          "Focused primary-literature lookup on graph edge-incidence two-factor VC and Littlestone dimensions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 75fb99d75e09 table for spanning two-factors includes (0,0),(1,1),(3,3),(4,5) for n=3,4,5,6, respectively, and includes shattered-support polynomials through seven. Counts of hypotheses for the four cases also follow from enumerating single cycles and the ten triangle pairs at n=6."
+        ],
+        "reasoning": "Exact table coverage is established from the mirrored statement, not from the title or the success of either computation.",
+        "searches": [
+          "Resultary complete-graph edge-query dimension tables; 75fb99d75e09, Finding",
+          "Resultary 3eaf6a69af80, Finding"
+        ]
+      },
+      "rationale": "The central finite result has demonstrable equivalent coverage in a distinct indexed result (75fb99d75e09), including the first complete-graph gap with exactly the same concept and query domains. The connected bounded-degree family is not stated there, but follows directly from its K6 entry by adjoining fixed-zero bridge coordinates to a Cartesian product. This is a finding of substantive coverage relative to the inspected catalogue, not a determination of historical priority or an assertion that the Nov 2 entry predates the Oct 26 record.",
+      "residual_risks": [
+        "Catalogue dates and the inspected passages do not establish precedence or dependence. The primary-literature search is bounded; the failure rests on direct exact catalogue coverage and the mathematical implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers the finite core; connection by bridges is a consequence, not quoted as a theorem of this source",
+          "evidence": "Same dimension pairs through six, wider table through seven, and static formula n−2 for n≥5.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-edge-query-shattering-of-hamiltonian-cycles-and-spanning-t--75fb99d75e09",
+          "material_read": "Mirrored RESULT.md Finding, offset 0, and Relationship to prior work and Limitations, offset 8175",
+          "method": "Configured local Resultary search and GitHub mirror at commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp edge-query shattering of Hamiltonian cycles and spanning two-factors",
+          "trigger": "Potential exact match and stronger theorem on the same two-factor class"
+        },
+        {
+          "assessment": "Relevant parallel result, not the exact connected two-factor class",
+          "evidence": "The (4s,5s) product uses separate Hamiltonian cycles on disjoint groups and excludes between-group queries.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-hamiltonian-cycle-edge-shattering-exact-vc-dimension-and-a-first--3eaf6a69af80",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Configured local Resultary search and GitHub mirror",
+          "title": "Hamiltonian-cycle edge shattering: exact VC dimension and a first adaptive gap",
+          "trigger": "Same first gap and additive numerics in a neighboring class"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "The task is to see all colors in a factor, not to realize all Boolean edge patterns or paths.",
+          "identifier_or_url": "https://arxiv.org/abs/1612.03298v1",
+          "material_read": "PDF p. 2, OA offset 5550, coloring problem and statements",
+          "method": "Open primary PDF passage",
+          "title": "Polychromatic colorings of complete graphs with respect to 1-, 2-factors and Hamiltonian cycles",
+          "trigger": "Same spanning objects on complete graphs"
+        },
+        {
+          "assessment": "Does not treat the same class or adaptive rank",
+          "evidence": "All simple cycles are admitted; a two-factor is spanning and may contain multiple cycles.",
+          "identifier_or_url": "https://doi.org/10.22108/toc.2021.127880.1832",
+          "material_read": "Theorem 3.3, p. 35, OA offset 19119",
+          "method": "Open primary passage",
+          "title": "On the VC-dimension, covering and separating properties of the cycle and spanning tree hypergraphs of graphs",
+          "trigger": "Same static invariant with cycle incidence"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md finite table and Connected amplification",
+        "Resultary:75fb99d75e09 exact covering table"
+      ],
+      "rationale": "Finding the first gap for a natural spanning class is a motivated exact problem. Here the precise table and onset are already available in the compared catalogue result. The only extra construction attaches fixed-zero edges to otherwise independent hard instances, so it gives no new rank information about genuinely interacting connected blocks. It is useful as an illustration of the gap, but adds only a routine consequence rather than a distinct exact result under review.",
+      "residual_risks": [
+        "The value decision does not dispute the interest of the first-gap calculation considered in isolation, or determine which record originated it."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

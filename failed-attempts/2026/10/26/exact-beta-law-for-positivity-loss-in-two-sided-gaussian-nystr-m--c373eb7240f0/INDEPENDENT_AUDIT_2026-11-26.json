@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:12:20.292452Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–38, 42–80",
+        "Frozen VERIFICATION.md and verifier.py"
+      ],
+      "rationale": "Write Omega=QJ with J invertible almost surely and choose a unit normal v. Conditional on the sketch range, X=Psi^T Q and y=Psi^T v are independent standard Gaussians; full column rank gives (XJ)^dagger=J^-1 X^dagger. Thus P=[[I,b],[0,0]] with b=X^dagger y in orthonormal coordinates. For b nonzero the leading singular value is simple and truncation keeps exactly the block [[1,||b||],[0,0]] on span(b,v), making D=(sqrt(1+||b||^2)-1)/2. Independently reconstruct the regression law: conditional on X, b has the law of (X^T X)^-1/2 g for an independent standard Gaussian g. Separate its radius and direction; orthogonal invariance replaces the resulting directional inverse-Gram quadratic form by the first diagonal entry in law, independently of the radius. The Schur complement identifies that inverse entry as 1/(X_1^T(I-Pi_{X_{-1}})X_1); the projected Gaussian norm squared has t-k+1=ell+1 degrees of freedom (also for k=1 with empty X_{-1}). Therefore ||b||^2 has law U/V with independent chi-squares, and b is nonzero almost surely. The beta change of variable yields the exact CDF, including x=0. Integrating the beta density at zero gives the stated coefficient and sharp endpoint; the mean integrates its inverse square root. At k=6,ell=4 the beta quotient is 105/64, giving 41/128. The distribution extends to ell=0, but finiteness of the mean requires ell>0; the Finding states ell>=4. The frozen verifier was inspected, not run, and its simulations do not prove these laws.",
+      "residual_risks": [
+        "Finite-dimensional exact arithmetic only; no implication for positive preservation along integrated trajectories or for arbitrary inputs or target ranks."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary gives the exact error representation for general residual spectra and the rank-one beta-prime law with an arbitrary fixed orthonormal range; it explicitly allows conditioning on the right sketch of generalized Nyström.",
+          "Lam–Ceruti–Kressner eqs. (8)–(9) identify the method; Theorem 2 gives a Frobenius error moment bound. Theorems 13–14 of arXiv:2302.12761 give structural and expected-error formulas."
+        ],
+        "reasoning": "The generic error bounds do not themselves cover D. The stronger exact residual theorem does: its law conditional on Q does not depend on Q for this identity input and hence holds unconditionally.",
+        "searches": [
+          "Resultary 23a3fc6123ad, scope and proof",
+          "arXiv:2409.06384v1 §2.3",
+          "arXiv:2302.12761 §3.1 / DOI:10.1002/nla.2576"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 23a3fc6123ad",
+        "arXiv:2409.06384v1",
+        "arXiv:2302.12761 / DOI:10.1002/nla.2576"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The existing estimator Q(Y^T Q)^dagger Y^T A is P after taking A=I and setting Y=Psi; the residual statistic is R=1+||b||^2.",
+          "The deterministic codimension-one block gives D=(sqrt(R)-1)/2; no extra random direction, independence assertion or distributional lemma is needed."
+        ],
+        "reasoning": "The exact finite CDF, asymptotic tail with coefficient, and threshold all follow by a scalar change of variables, with the mean an ordinary beta integral. The signed-spectrum interpretation is not an independent distribution theorem.",
+        "searches": [
+          "23a3fc6123ad/RESULT.md, exact law and conditional scope, mirror offsets 2200–6073",
+          "Frozen RESULT.md lines 42–80"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 23a3fc6123ad Proof §§1 and 3: independent Gaussian regression decomposition and exact rank-one residual reconstruction beta-prime law.",
+          "Frozen Proof §§1–2: the same b is the off-diagonal block of P and determines D by a two-dimensional eigensolve."
+        ],
+        "reasoning": "Use the identical statistic R=1+||b||^2=(1+2D)^2, not a matching tail exponent alone. The web results were generic Wishart references; that is not evidence of absence.",
+        "searches": [
+          "Resultary local comparison: codimension-one Gaussian Nyström, rank-one residual beta prime and truncation signed spectrum",
+          "Web query: Gaussian random oblique projector symmetrized spectrum canonical angles Student regression inverse Wishart beta ratio"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue entry 2026/10/12/…--23a3fc6123ad, Proof §3, gives the exact density of T=R-1 with shapes (r/2,(left width-r+1)/2)."
+        ],
+        "reasoning": "This is a continuously parameterized law, not an isolated numerical table match; apply the reciprocal map to 1+T to obtain the exact audited beta law at every allowed k and ell.",
+        "searches": [
+          "Resultary local comparison: exact Gaussian sketched residual with codimension one, beta-prime or F law, normalized Frobenius error"
+        ]
+      },
+      "rationale": "The exact distribution is covered by an already indexed theorem for the same Gaussian Nyström estimator, not merely by a Wishart analogy. In Resultary 23a3fc6123ad take A=I_(k+1), r=k, left test width t=k+ell and condition on the right sketch. Its orthogonal residual B=I-QQ^T has rank one and squared Frobenius norm 1. Its normalized squared reconstruction error R equals ||I-P||_F^2=1+||b||^2 exactly. In codimension one the only nonorthogonal block gives 1+2D=sqrt(R) under rank-one SVD truncation. The existing R-1~BetaPrime(k/2,(ell+1)/2) specializes to the claimed R^-1 beta law; the tails, moments and numerical mean are its direct transformations. The earlier record need not name the signed eigenvalue to cover that stochastic result. This is evidence of coverage, not a claim about authorship or historical priority.",
+      "residual_risks": [
+        "An earlier source may express the same relationship using projector angles or signed spectra. That is not required for the established coverage decision and no priority is certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers exact scalar law under the identity/codimension-one specialization",
+          "evidence": [
+            "Pythagorean rank-one residual R=1+||G^dagger h||^2; normalized density is beta prime. The conditional generalized Nyström specialization is explicit."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-residual-spectrum-convex-ordering-and-the-exact-gaussian-sketch--23a3fc6123ad/RESULT.md",
+          "material_read": "Scope at offset 2200 and Proof §§1–4 through offset 6073",
+          "method": "Local mirror RESULT.md",
+          "title": "Residual spectrum convex ordering and the exact Gaussian sketch reconstruction law",
+          "trigger": "Exact same estimator and rank-one residual Gaussian regression ratio"
+        },
+        {
+          "assessment": "Same algorithm, no exact D law in inspected material",
+          "evidence": [
+            "Oblique approximation followed by SVD truncation and an L_q Frobenius error bound."
+          ],
+          "identifier_or_url": "arXiv:2409.06384v1",
+          "material_read": "§2.3 equations (8)–(9) and Theorem 2, offsets 16200–20399",
+          "method": "OA HTML text",
+          "title": "Randomized low-rank Runge-Kutta methods",
+          "trigger": "Exact two-sided sketch and rank truncation in the cited source"
+        },
+        {
+          "assessment": "Gives Frobenius error identities and expectation, not truncated signed spectrum",
+          "evidence": [
+            "Mean squared residual results do not determine a signed-eigenvalue distribution."
+          ],
+          "identifier_or_url": "arXiv:2302.12761; DOI:10.1002/nla.2576",
+          "material_read": "§3.1 Theorems 13–14, p. 16, around OA offset 47500",
+          "method": "OA PDF text",
+          "title": "Randomized low-rank approximation of parameter-dependent matrices",
+          "trigger": "Oblique projection residual identity and expected error"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof §§1–4",
+        "Resultary 23a3fc6123ad Proof §§1 and 3",
+        "arXiv:2409.06384v1 §2.3"
+      ],
+      "rationale": "Positivity is a legitimate diagnostic and the identity stress test is natural. But for this narrowly codimension-one construction the entire sharp quantitative result is a scalar re-expression of the already known error law for the very same samples. The 2-by-2 block immediately gives indefiniteness and the change of variable; no additional invariant independent of that error statistic, or nontrivial remaining classification, is established. The interpretation is useful exposition, but does not rescue the submitted claim as an independently valuable new exact law.",
+      "residual_risks": [
+        "A separate result for broader residual rank, another input family or a genuinely different positivity statistic would require a new scientific evaluation; none is claimed here."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

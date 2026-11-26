@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:02:17.553941Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–30 and proof lines 32–86",
+        "Frozen VERIFICATION.md and verify.py (read only; 15,310 assertions are reported finite evidence, not independent proof)",
+        "/workspace/repairs/4/RESULT.md, complete replacement text and corrected boundary proof"
+      ],
+      "rationale": "The frozen headline and assumptions overlap the one- and two-update cases: with X_star=e_1 e_1^T and X_0=e_2 e_1^T, exactly one factor is orthogonal, but the right factor is already aligned and W=X_star, so the target is reached in one update, not two. The repaired Finding, scope and proof explicitly give precedence to any aligned factor and reserve exactly two steps for one orthogonal factor and a strictly interior angle on the other side. I rechecked the repaired theorem. The double-orthogonal projection is zero; with exactly one orthogonal and the other strictly interior the first projection is rank one with the orthogonal-side span corrected and the nonaligned opposite span unchanged. In the interior the old-factor Gram off-diagonals are positive and the left dominant eigenvalue is strictly between c^2 and c^2+a^2 d^2. Its slope is strictly between zero and a/c, with the symmetric argument on the right. This yields simple leading singular values, strictly decreasing positive angle sines, and convergence to zero by continuity on the compact region bounded away from double orthogonality. The target-basis Gram entries are exactly ab^2 c^3 and a^2 b d^3. The dominant-eigenvector formula in that basis yields the two cubic angle recurrences with uniform relative errors O(a^2+b^2). The scale deficit is bounded by a^2 b^2 and is negligible relative to the new maximum angle. Negative log angle sums satisfy S_{k+1}=3S_k+o(1) and differences D_{k+1}=-D_k+o(1), giving S_k=C 3^k+O(1) with C>0 by divergence, and D_k=O(k). The log matrix error equals minus the smaller negative log angle up to a bounded term, proving log 3 for the relative double-log precision limit. The correction leaves this interior theorem and the basin intact.",
+      "residual_risks": [
+        "No rate is asserted for terminating or undefined starts, and no convergence guarantee is inferred for partial observations, noise, finite precision, higher rank or other retractions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wu et al. prove a local high-probability quadratic guarantee under Gaussian observations and spectral initialization. The orthographic results concern a local population neighborhood or an RIP initialization regime."
+        ],
+        "reasoning": "A local quadratic bound for the same algorithm does not control arbitrary full-data starts, identify the degenerate tangent-projection set, or imply the sharper exponent. Different retractions and local hypotheses do not dominate the repaired claim.",
+        "searches": [
+          "Wu–Cai–Xu–Yang Theorem 3.1",
+          "Cai–Lu–You Eq. (14), Lemma 5.3",
+          "RISRO Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Wu–Cai–Xu–Yang Algorithm 1 and Theorem 3.1",
+        "Cai–Lu–You Algorithm 2 and Lemma 5.3",
+        "RISRO Theorem 1 and retraction identification",
+        "Configured Resultary self and distinct near matches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Specializing the prior tangent solve gives W=P_T(X_star), but the repaired result requires proving singular-value simplicity and angle improvement across the entire interior, and extracting the two signed cubic monomials that control the logarithmic dynamics."
+        ],
+        "reasoning": "The prior results give the map and local bounds, not its global orbit classification or its exact interior rate. That classification and rate survive the clarified boundary statement.",
+        "searches": [
+          "Wu–Cai–Xu–Yang tangent normal equation and Algorithm 1, Theorem 3.1",
+          "Cai–Lu–You Algorithm 2 and population Lemma 5.3",
+          "RISRO Theorem 1 and retraction comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wu et al.’s truncated SVD retraction gives exactly the same update with identity measurements. The orthographic update in Cai–Lu–You instead recovers in one local population step; RISRO likewise identifies its retraction as orthographic."
+        ],
+        "reasoning": "Only the Wu et al. update is equivalent to this update in the given regime. The orthographic identity cannot be transferred by renaming a rank-one retraction.",
+        "searches": [
+          "Wu–Cai–Xu–Yang arXiv:2611.01542v1 §2.2 and Algorithm 1",
+          "Cai–Lu–You arXiv:2609.17048 orthographic population identity",
+          "RISRO arXiv:2011.08360, Algorithm 1 and Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit is the frozen record itself. Two distinct same-day double-log matches concern residual-difference/short-BB on two-level linear systems with a steepest-descent warm start and exponent log(sqrt(2)). The matrix-themed finite-termination match is singular-value thresholding on matching patterns."
+        ],
+        "reasoning": "The theorem is not a database count or a table; the strongest indexed exact-rate and SVD-related matches describe different maps, so neither is equivalent coverage.",
+        "searches": [
+          "Resultary: SVD-retracted rank-one Riemannian Gauss–Newton full-data basin, all-start double-log rate, related matrix finite termination"
+        ]
+      },
+      "rationale": "The repaired result uses a prior SVD-retracted Gauss–Newton algorithm. Its supported distinct claim is the deterministic full-data rank-one basin and sharp double-log exponent for all interior starts, not the update itself. Rechecking after boundary correction does not change this comparison. The exact two-step condition is not credited as a separate originality claim.",
+      "residual_risks": [
+        "Bounds are drawn from targeted primary passages and indexed results; unindexed full-data orbit analyses are not ruled out. The self-match establishes no prior independent coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same algorithm in the specialization; different guarantee",
+          "evidence": "Retraction is the best rank-r SVD approximation; theorem treats local quadratic convergence for Gaussian sensing with spectral initialization.",
+          "identifier_or_url": "https://arxiv.org/html/2611.01542v1",
+          "material_read": "§2.2 and Algorithm 1; §3.1 Theorem 3.1",
+          "method": "OA targeted HTML offsets 20400–22598 and 21800",
+          "title": "Rank-Optimal Sample Complexity of Riemannian Gauss-Newton for Low-Rank Matrix Recovery",
+          "trigger": "Same SVD-retracted method and possibly stronger rate"
+        },
+        {
+          "assessment": "Different retraction and local result",
+          "evidence": "The population orthographic composite maps directly to X_star when the initial error in its stated norm is at most sigma_r(X_star)/4.",
+          "identifier_or_url": "https://arxiv.org/html/2609.17048",
+          "material_read": "Retraction definition and Algorithm 2; §5.3 Eq. (14), Lemma 5.3",
+          "method": "OA targeted HTML offsets 18000, 22000, 40500 and 55800",
+          "title": "Near-Optimal Nonconvex Matrix Completion",
+          "trigger": "Population GN recovery could overlap"
+        },
+        {
+          "assessment": "Orthographic, local under RIP and initialization hypotheses",
+          "evidence": "Noiseless rate is quadratic; Step 7 is identified as orthographic retraction.",
+          "identifier_or_url": "https://arxiv.org/pdf/2011.08360",
+          "material_read": "Theorem 1 (p. 11) and identification of Algorithm 1 Step 7 (p. 14)",
+          "method": "OA PDF targeted offsets 49800 and 63800",
+          "title": "Recursive Importance Sketching for Rank Constrained Least Squares: Algorithms and High-order Convergence",
+          "trigger": "Earlier high-order rank-constrained convergence claim"
+        },
+        {
+          "assessment": "Distinct operators and regimes, not a date-based exclusion",
+          "evidence": "The first two treat short-BB residual evolution and a different exponent. The third treats singular-value thresholding on matching observation patterns, not GN tangent solves and truncations.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-all-start-doubly-exponential-decay-for-residual-difference--df4e091a200b; 2026/11/22/SCOPE-sharp-all-start-double-log-rate-for-residual-difference-spectral--e4d106d38983; 2026/10/4/SCOPE-exact-rank-staircase-and-finite-termination-resonance-for-svt-on--008b7842a13f",
+          "material_read": "RESULT.md findings, offset 0 for each",
+          "method": "Configured Resultary catalogue and local mirror at 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp all-start doubly exponential decay for residual difference; Sharp all-start double-log rate for residual-difference spectral iteration; Exact rank staircase and finite-term resonance for SVT",
+          "trigger": "Strongest same-day exact-rate and matrix-completion non-self matches"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md Finding and proof",
+        "Wu–Cai–Xu–Yang local SVD guarantee and Cai–Lu–You orthographic population identity"
+      ],
+      "rationale": "The repaired all-start classification supplies a deterministic baseline for a published algorithm: it finds exactly when the method is not defined, distinguishes finite termination from the interior dynamics, and gives an exact precision exponent strictly more informative than a local quadratic bound. The different population outcome under orthographic retraction makes the exact SVD analysis useful rather than a mere rescaling or a generic local estimate.",
+      "residual_risks": [
+        "The boundary correction does not turn the rank-one full-data benchmark into a general matrix recovery guarantee."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

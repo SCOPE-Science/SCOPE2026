@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:02:17.256515Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently derived the Jacobian on the moving equilibrium and characteristic polynomial λ³+22λ²+b(k+2)λ/(k+1)+24b. The positive coefficients and Routh first-column signs give no right-half-plane roots below 10 and two above 10; above 10 neither a positive real root nor an imaginary pair is possible. At 10 the factors are λ+22 and λ²+12b/11, with simple roots for every b>0. Implicit differentiation with respect to k on the moving equilibrium gives the crossing b/(5324+12b). Independently recomputed the Lyapunov coefficient from the field Hessians and the resolvents by adjugates. In the replay, if ν=iω and A is the critical Jacobian, Π=(A+22I)(A+νI)/((ν+22)2ν) is the spectral projector. Normalize q=Πe_z/Π_zz; the row e_zᵀΠ then gives the correctly paired left functional with value 1 on q. This gives exactly the frozen positive formula for ℓ₁ as well as the crossing. The positive radial cubic and positive crossing give a nondegenerate subcritical branch for k<10 sufficiently close to 10 at each fixed b. The critical equilibrium itself is unstable by the repelling cubic on its center manifold. The small branch has radial expansion and contraction in the transverse direction continuing −22, in addition to the neutral orbit direction. The reflection maps the entire branch to the one near the other distinct equilibrium. No uniform k-neighborhood in b is asserted; b=0 is excluded and the critical frequency vanishes there. Replay: python review_evidence/finite_checks.py, section labelled 1, for the crossing and coefficient; local branch and Floquet claims use the Hopf theorem, not direct orbit numerics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2022 test is broader in damping parameters and includes the entire linear stability region at fixed reference damping.",
+          "The recurrence shell controls invariant-measure RMS quantities, not sign or bifurcation type of the local normal form.",
+          "General Hopf theory gives the branch conditionally on transversality and a signed coefficient, not the required uniform sign for this field. The related Physica D article was inspected only at accessible landing page/abstract level."
+        ],
+        "reasoning": "The prior linear specialization is complete. The general bifurcation theorem and same-flow invariant-measure theorem do not mechanically imply the assessed nonlinear theorem; whether the inaccessible related paper treats this field and parameter remains unestablished.",
+        "searches": [
+          "Original DOI Eqs. (6)–(10); same-flow recurrence shell Finding; DOI:10.1016/j.physd.2026.135160; Kuznetsov, Elements of Applied Bifurcation Theory"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3390/fractalfract6120740 (decisive full-text passages)",
+        "0eb4288eae95",
+        "DOI:10.1007/s11071-011-0235-8 (k=0 ancestry identified in the recurrence record)",
+        "DOI:10.1016/j.physd.2026.135160 (access-limited)",
+        "Kuznetsov, Elements of Applied Bifurcation Theory, 3rd ed. (general Hopf theorem and convention)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original Routh–Hurwitz plus its characteristic polynomial gives the threshold and spectral stability boundary without the new work.",
+          "The numerical survey and orbit coding do not determine the sign of the cubic Hopf coefficient or existence of the specified local branches. The same-flow recurrence bound does not address local criticality."
+        ],
+        "reasoning": "The added statement is the verified transverse *subcritical* transition, distinguished from the already-known boundary by a nondegenerate nonlinear coefficient and ensuing local saddle cycles. Exact criticality is not a change of notation or threshold recomputation.",
+        "searches": [
+          "Original DOI Eq. (2), Eqs. (6)–(10), Section 2.2.4, Table 2",
+          "0eb4288eae95 Finding and hypotheses"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Eq. (2) is the identical field, and its equilibrium and Routh–Hurwitz formulas specialize to the exact k=10 boundary when a=12 and c=10, for every b>0.",
+          "The generalized Sprott-C precursor DOI:10.1007/s11071-011-0235-8 is identified in the same-flow recurrence record as the k=0 ancestor, not an equivalent k=10 model."
+        ],
+        "reasoning": "Matching the exact equations and specializing the general stability test is decisive prior linear coverage. A k=0 precursor and any differently normalized Lyapunov coefficient must be compared by vector field, parameter and sign, not merely by the Sprott-C label.",
+        "searches": [
+          "Wang–Dong–Li variable-boostable and hidden-attractor flow, modified Sprott C aliases, Hopf threshold and Lyapunov coefficient",
+          "DOI:10.3390/fractalfract6120740 Eq. (2) and Eqs. (6)–(10)",
+          "SCOPE-exact-recurrence-shell-in-the-wang-dong-li-variable-boostable-fl--0eb4288eae95"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Strongest examined same-field indexed result 0eb4288eae95 states an invariant-measure RMS shell and strict off-equilibrium bound.",
+          "The original paper's k-sweep fixes b=100. Table 2 lists unstable periodic orbits of topological length at most three in a hidden attractor, not an arbitrarily small equilibrium-local saddle branch."
+        ],
+        "reasoning": "Neither the tabulated orbits nor indexed recurrence exact result equates to a branch shrinking to the reference equilibria for each b>0. The comparison rests on their stated quantities and quantifiers, not a keyword miss.",
+        "searches": [
+          "Resultary same-flow Wang–Dong–Li recurrence, stability and local Hopf matches",
+          "DOI:10.3390/fractalfract6120740 Section 2.2.4 and Table 2"
+        ]
+      },
+      "rationale": "Pass for the nonlinear exact subcritical Hopf theorem, including the uniform sign, normalized coefficient and local saddle-cycle consequence. The linear stability cutoff k=10 is already implied exactly by the original DOI's general Routh–Hurwitz criterion, not merely suggested by its numerical scan. The original and strongest same-flow recurrence comparator do not supply the nonlinear conclusion in the inspected passages. Do not count the equilibrium formula, linear criterion, or its cutoff specialization as original. One named related Physica D source remains a priority risk.",
+      "residual_risks": [
+        "The 2026 Physica D comparison did not reach full text and may conceal closer prior nonlinear coverage.",
+        "No exhaustive priority conclusion for unindexed same-flow bifurcation calculations or supplementary files.",
+        "The published exact linear criterion must be credited; novelty is assessed only for the nonlinear claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Fully covers linear threshold by specialization; inspected nonlinear material does not establish the assessed Hopf theorem",
+          "evidence": "Same ODE and exact general stability criterion, plus a numerical k-sweep at b=100 and coded attractor orbits.",
+          "identifier_or_url": "https://doi.org/10.3390/fractalfract6120740",
+          "material_read": "Original PDF Eq. (2) p. 3, Eqs. (6)–(10) p. 4, Section 2.2.4 p. 10, Table 2 p. 16 (text offsets about 13000, 16600–20094, 50187 and 75400)",
+          "method": "OA PDF; read and specialize the Routh criterion, compare the scan and cycle table",
+          "title": "A New Variable-Boostable 3D Chaotic System with Hidden and Coexisting Attractors: Dynamical Analysis, Periodic Orbit Coding, Circuit Simulation, and Synchronization",
+          "trigger": "Original and strongest exact model/parameter comparator"
+        },
+        {
+          "assessment": "Same field, non-covering invariant-measure conclusion",
+          "evidence": "Exact invariant-measure RMS shell and off-equilibrium bound, not a Lyapunov coefficient or Hopf direction.",
+          "identifier_or_url": "2026/10/4/SCOPE-exact-recurrence-shell-in-the-wang-dong-li-variable-boostable-fl--0eb4288eae95",
+          "material_read": "RESULT.md Finding and related-family discussion",
+          "method": "Published-record mirror; compare model and conclusion",
+          "title": "Exact recurrence shell in the Wang–Dong–Li variable-boostable flow",
+          "trigger": "Strongest inspected same-model published-record match"
+        },
+        {
+          "assessment": "Access-limited scope; no whole-document conclusion",
+          "evidence": "Named related model family; exact same-field coverage and treatment of nonlinear Hopf remain unresolved.",
+          "identifier_or_url": "https://doi.org/10.1016/j.physd.2026.135160",
+          "material_read": "Accessible landing page/abstract only; no lawful full copy located",
+          "method": "OA access and identified repository-copy check",
+          "title": "Dynamics and integrability of a modified Sprott C system",
+          "trigger": "Potential related modification under an alternative model label"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a fixed published model the exact all-b sign distinguishes a local saddle branch on the stable-equilibrium side from supercritical stable-cycle onset or a change of Hopf criticality as b varies. That geometric information is not supplied by the known linear boundary, sweep, or coded attractor orbits. It informs local stability and future basin questions without claiming a basin boundary or chaos theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

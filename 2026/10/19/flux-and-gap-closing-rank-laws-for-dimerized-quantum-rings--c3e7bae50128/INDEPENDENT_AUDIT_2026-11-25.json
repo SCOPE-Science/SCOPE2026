@@ -1,0 +1,167 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:38:19.919470Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–61, including flux gauge and zero-energy sector",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed; recorded 250 profiles and 50,500 entries)"
+      ],
+      "rationale": "Reconstructed the rank using the Gram span of the vertexwise products ψ_E,i overline(ψ_E,j) within common energy spaces, from the complex-Hermitian Cesàro projection. A nonzero Bloch block has energies ±|a+b exp(iθ)| and flat intensities, so simple levels all give the same all-ones direction. Since ab>0, distinct cell angles can share a positive magnitude only as negatives of each other, which requires 0 or π flux modulo 2π. For such a pair the product lies at cell shift frequency ±(j−k), with two-sublattice line of coordinate ratio equal to one of the squared phases of a+b exp(iθ). The signed energy blocks generate the same product lines. At odd m the congruence 2j=ℓ or 2j+1=ℓ has one solution for each ℓ≠0, giving one line per activated frequency. At even m it has either two or no solutions. The two angles differ by π; parallel lines would make the quotient of the two complex off-diagonal entries real, contrary to Im[(a+b exp(iθ))(a−b exp(−iθ))]=2ab sinθ. At the self-inverse nonzero frequency the two orientations of a single collision still give independent conjugate lines, since θ=±π/2 and a,b are both positive. The counts are m/2−1 nonzero even frequencies at zero flux and m/2 odd frequencies at π. Finally a=b and θ=π produces two independent sublattice intensities at frequency zero rather than just the uniform direction. It occurs exactly at the claimed parity and twist boundary. This accounts for all product vectors, including m=2 and a=b, and gives exactly the stated table without tolerance-based rank inference.",
+      "residual_risks": [
+        "The recorded finite verifier uses numerical eigengap and rank tolerances; it is not a proof of exact degeneracy close to the exceptional sets.",
+        "The classification assumes positive hoppings and exact infinite-time Cesàro averaging; it does not imply a uniform finite-time approach near flux or gap closing."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The real adjacency spectral formula generalizes by conjugation to Hermitian H. Levine et al. give the simple-spectrum scalar circulant uniform result. The odd-order abelian Cayley invertibility theorem does not cover 2m vertices."
+        ],
+        "reasoning": "These results explain how to form the matrix or why flat eigenvectors give uniform mixing, but neither computes the coincident-energy product span at exceptional flux and unequal hoppings nor supplies the precise boundary jump.",
+        "searches": [
+          "Coutinho et al. arXiv:2208.08971v1 §2 and EJC 25(4), P4.14 §5",
+          "Levine et al. arXiv:2605.04414v2 §5, Theorem 5",
+          "Primary literature search for SSH dimerized rings and Bloch/Cayley average mixing"
+        ]
+      },
+      "checked_sources": [
+        "Primary literature and distinct Resultary records listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The generic rank-one argument follows immediately once simple spectrum and flat eigenvectors are established. Uniform cycle formulas already fix the zero- and half-flux uniform ranks. Neither determines whether two dimerized equal-energy products at the same frequency are parallel."
+        ],
+        "reasoning": "The independent squared-phase lines and arithmetic activation count at 0 and π require a separate block calculation for a≠b. Combining the known uniform result with that new comparison identifies where closing the gap adds exactly one mode.",
+        "searches": [
+          "Levine et al. Theorem 5 and Coutinho et al. projector formulas",
+          "Resultary 10f1e5181e0b and 7a0cdb9f3eaa compared under the uniform-cycle reduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At a=b the alternating-bond gauge reduces to the homogeneous 2m-cycle with the same total flux, so the ordinary/magnetic cycle results compare directly there.",
+          "The Roy et al. ring contains the alternating hopping construction, with additional cosine site modulation in its studied model."
+        ],
+        "reasoning": "Gauge can redistribute phases but not change unequal bond magnitudes. Dimerized rings are not the ordinary one-site circulant, and studying the energy levels or circular currents does not give the rank of their time-averaged transition matrix.",
+        "searches": [
+          "Resultary comparisons for SSH and dimerized magnetic rings, ordinary-cycle average mixing and uniform half-flux cycles",
+          "Adamczak et al. arXiv:0708.2096 Eq. (35) and following",
+          "Roy–Ganguly–Maiti DOI 10.1038/s41598-023-31354-9, Eqs. (1)–(2)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "10f1e5181e0b gives (J+I−P)/n with antipodal P at half flux on an even uniform cycle, rank n/2+1, and a stated detuned uniform regime. It covers the corresponding a=b slice exactly.",
+          "7a0cdb9f3eaa gives the ordinary cycle factor formula, including the even n=2m untwisted rank m, thus covering a=b at zero flux.",
+          "1bbfec294157 gives an exact parity and resonance rank law for the prism C_n square K_2, a different two-layer Hamiltonian."
+        ],
+        "reasoning": "The prior tables explain multiple entries on the homogeneous slice and are not credited as new. No compared indexed claim gives the full alternating-hopping dependence or the dimerized parity/gap comparison.",
+        "searches": [
+          "Local Resultary comparisons for even uniform magnetic cycles, ordinary cycles, and two-layer resonant average mixing"
+        ]
+      },
+      "rationale": "Credit is limited to the joint two-band exceptional-flux rank law for genuinely dimerized rings and its rank transition at gap closing relative to the known uniform cases. The equal-hopping slices have material prior coverage; generic rank one uses the standard flat-simple-eigenvector argument. The passages inspected do not already yield the exact exceptional-flux collision ranks at arbitrary positive alternating hoppings.",
+      "residual_risks": [
+        "Xu's full text was not read. The search does not exclude an unlocated alternating-ring rank result; documented partial prior coverage is not a claim of exhaustive priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant to the uniform slice only",
+          "evidence": "Cycle average distribution from a start vertex, not an alternating-bond or flux-dependent rank table.",
+          "identifier_or_url": "https://arxiv.org/abs/0708.2096",
+          "material_read": "Abstract p. 1, pp. 10–11 around Eq. (35), PDF text offset about 32000",
+          "method": "OA primary PDF",
+          "title": "Non-uniform mixing of quantum walk on cycles",
+          "trigger": "Untwisted ordinary-cycle probabilities"
+        },
+        {
+          "assessment": "Order hypothesis excludes the reviewed graph size",
+          "evidence": "Invertibility consequence for Cayley graphs of abelian groups of odd order, including odd cycles.",
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v25i4p14/pdf",
+          "material_read": "§5 p. 10, OA offset about 24500",
+          "method": "OA primary PDF",
+          "title": "A New Perspective on the Average Mixing Matrix",
+          "trigger": "Potential Cayley rank theorem"
+        },
+        {
+          "assessment": "General method, not the evaluated magnetic rank law",
+          "evidence": "Sum of Schur squares of the real spectral idempotents.",
+          "identifier_or_url": "https://arxiv.org/html/2208.08971v1",
+          "material_read": "§2, OA offsets 8700–9400",
+          "method": "OA primary HTML",
+          "title": "Irrational quantum walks",
+          "trigger": "General average mixing formula"
+        },
+        {
+          "assessment": "Strong model overlap, different invariant",
+          "evidence": "Flux-threaded two-hopping ring plus site modulation; focus on spectral/circular-current properties.",
+          "identifier_or_url": "https://doi.org/10.1038/s41598-023-31354-9",
+          "material_read": "§2, p. 2, Eqs. (1)–(2), OA offset about 12000",
+          "method": "OA primary text",
+          "title": "Interplay between hopping dimerization and quasi-periodicity on flux-driven circular current in an incommensurate Su–Schrieffer–Heeger ring",
+          "trigger": "Magnetic SSH ring with alternating hoppings"
+        },
+        {
+          "assessment": "Covers scalar simple-spectrum circulant mechanism, not exceptional two-band rank",
+          "evidence": "Fourier eigenvectors are flat; simple circulant eigenvalues imply a uniform average mixing matrix.",
+          "identifier_or_url": "https://arxiv.org/html/2605.04414v2",
+          "material_read": "§5 Theorem 5, OA offset about 30300",
+          "method": "OA primary HTML",
+          "title": "Uniform Mixing in Chiral Quantum Walks",
+          "trigger": "Generic rank-one mechanism and magnetic circulants"
+        },
+        {
+          "assessment": "Full-text comparison unavailable",
+          "evidence": "No verified open copy surfaced in the bounded attempt; independent cycle coverage is documented elsewhere.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.77.061127",
+          "material_read": "No readable relevant primary passage",
+          "method": "DOI and alternate lawful OA retrieval attempt",
+          "title": "Continuous-time quantum walks on one-dimensional regular networks",
+          "trigger": "Possibly overlapping ordinary cycle formulas"
+        },
+        {
+          "assessment": "Direct partial prior coverage",
+          "evidence": "At half flux the uniform cycle average is (J+I−P)/n; at specified small detunings it is J/n.",
+          "identifier_or_url": "2026/10/12/SCOPE-detuning-bottleneck-and-sinc-crossover-for-quantum-mixing-on-hal--10f1e5181e0b",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "Detuning bottleneck and sinc crossover for quantum mixing on half-flux cycles",
+          "trigger": "Exact same uniform magnetic slice"
+        },
+        {
+          "assessment": "Covers the homogeneous untwisted slice",
+          "evidence": "Includes the standard ordinary even-cycle average mixing formula.",
+          "identifier_or_url": "2026/10/13/SCOPE-exact-resonance-corrections-and-rank-revival-in-cycle-clique-qua--7a0cdb9f3eaa",
+          "material_read": "RESULT.md Assumptions and scope, cycle-factor formula, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact resonance corrections and rank revival in cycle–clique quantum mixing",
+          "trigger": "Exact ordinary-cycle rank overlap"
+        },
+        {
+          "assessment": "Method analogue, not the same model",
+          "evidence": "Exact parity and resonance ranks for an unweighted prism without alternating bonds or twist.",
+          "identifier_or_url": "2026/10/12/SCOPE-modulo-twelve-resonance-in-quantum-average-mixing-on-prisms--1bbfec294157",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Modulo-twelve resonance in quantum average mixing on prisms",
+          "trigger": "Indexed two-layer exact rank and Fourier resonance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Fourier-block proof"
+      ],
+      "rationale": "Rank of the stationary Cesàro transition map measures the dimension of distinguishable initial-site information in time-averaged position readout. The exceptional ranks give a complete classification for a natural clean dimerized ring, and isolate exactly when a closing band gap adds a sublattice memory mode. That distinction is not available from generic flat-eigenvector mixing or the uniform cycle alone.",
+      "residual_risks": [
+        "The invariant does not quantify finite-time observability near rank jumps or behavior under disorder and extra bonds."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

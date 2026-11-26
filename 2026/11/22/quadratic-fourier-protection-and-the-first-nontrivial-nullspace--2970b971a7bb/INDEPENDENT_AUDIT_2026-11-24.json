@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:20:30.654324Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Successor arcs form increasing directed paths, bijectively giving placements with no repeated source or destination. Unnormalized counting convolution is diagonal in the Walsh basis. All signs are 1 modulo 2. The Touchard identity T_(n+1)=x(T_n+T_n') and T_n''=0 modulo 2 give B_(n+2)=B_(n+1)+B_n modulo 2, with period 1,1,0. Deleting the target of a marked arc is injective into partitions on n−1 letters, giving the claimed union bound. Dobiński log-convexity makes B_n/B_(n−1) nondecreasing; a fixed positive Poisson atom at any integer larger than a putative ratio bound proves divergence. Together with B_7>4 B_6 this proves positivity from n=7. For n=3,4 the odd totals exclude zeros, and exact finite checks give the negative examples and positivity for n=5,6. Fresh columnwise rook enumeration with direct signed counting (not the supplied transform) reproduced the minima (5,1,−1),(15,5,−1),(52,22,2),(203,99,25), and at n=5 precisely 162 zero coefficients, degree histogram {3:10,4:12,5:42,6:48,7:33,8:14,9:3}, and witness counts (23,26,3,0). The exact finite run covers orders 3–6, not singularity at later even-Bell orders.",
+      "replay": "python3 /workspace/branches/2cc300dd-bfcb-4206-b3ad-6b5a58476fa3/audit_record3.py 6",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mitchell Definition 2.1 counts placements by their size; Varvak's q-rook and Miceli–Remmel's q-rook passages weight by inversion or uncancelled-square statistics."
+        ],
+        "reasoning": "The inspected univariate factorizations and prescribed q-weights do not specify arbitrary independent −1 signs on the selected cells.",
+        "searches": [
+          "arXiv:math/0407007",
+          "doi:10.37236/809",
+          "arXiv:math/0402376"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0402376",
+        "arXiv:math/0407007",
+        "doi:10.37236/809",
+        "Resultary:090be6836ed5",
+        "Resultary:d959f279b56a",
+        "Resultary:8c788e5d89ed",
+        "Resultary:006bcae293e6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ordinary counts give W_n(empty)=B_n; Bell parity gives invertibility when that count is odd. Noncrossing positivity uses Catalan counts, not the all-partitions Bell bounds."
+        ],
+        "reasoning": "Neither the parity argument on the excluded congruence class nor the unsigned counts determine the signs or exact zeros there. In particular, even parity at n=5 alone allows zeros but forces neither their existence nor the count 162.",
+        "searches": [
+          "arXiv:math/0402376 §3 and q-rook passage",
+          "Resultary:090be6836ed5, Finding and positivity proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Varvak §3, Corollary 3.4 identifies staircase rook numbers with Stirling counts by placement size.",
+          "Resultary 090be6836ed5 uses the same arcs for noncrossing partitions. For example crossing arcs (1,3),(2,4) are present together in the current support and forbidden there. Resultary 8c788e5d89ed uses all same-block pairs, not successors."
+        ],
+        "reasoning": "Classical staircase counts identify the support size, not the sign of each frequency. Neither a proper restriction of the support nor transitive-closure coordinates preserves these Walsh multipliers. Same-day record dates establish no priority.",
+        "searches": [
+          "arXiv:math/0402376",
+          "Resultary: staircase rook placements Walsh spectrum / set partition successor arcs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact tables in d959f279b56a concern seven labels with no singleton blocks (162 support vectors, not 162 zero frequencies); 006bcae293e6 concerns noncrossing/nonnesting partitions and pair-incidence coordinates."
+        ],
+        "reasoning": "These exact results count different objects or statistics. The freshly reconstructed n=5 table is verification, not evidence of priority by itself.",
+        "searches": [
+          "Resultary: exact staircase-board Walsh zero census 162 / signed rook enumerator",
+          "Resultary:d959f279b56a",
+          "Resultary:006bcae293e6"
+        ]
+      },
+      "rationale": "The Bell parity recurrence and rook/set-partition interpretation are not novel. The supported distinct claims are about the specific signed spectrum: finite-band protection and its first singular-order census. No materially equivalent or stronger result establishing those claims was found in the bounded comparisons.",
+      "residual_risks": [
+        "An unindexed multivariate signed rook specialization may cover more than the inspected ordinary and q-rook passages.",
+        "The same-day related catalogue records are not evidence of priority or dependence in either direction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Underlying enumeration, no location-specific independent sign conclusion in these passages",
+          "evidence": [
+            "Staircase Stirling numbers; R_k(B,q) sums q^inv(C)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0402376",
+          "material_read": "Corollary 3.4, p. 4; q-rook section, pp. 9–10",
+          "method": "Open-access PDF passages",
+          "title": "Rook numbers and the normal ordering problem",
+          "trigger": "Exact staircase-board object and broader q-weights"
+        },
+        {
+          "assessment": "Ordinary rook counts, not the Walsh spectrum",
+          "evidence": [
+            "The defining coefficients count placements by their size."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0407007",
+          "material_read": "Introduction p. 1 and Definition 2.1 p. 2",
+          "method": "Open-access PDF passages",
+          "title": "The inverse rook problem on Ferrers boards",
+          "trigger": "Ferrers factorization / inverse theorem"
+        },
+        {
+          "assessment": "The checked weight is prescribed by cancellations, not a mask of cells",
+          "evidence": [
+            "Uses q raised to the uncancelled-square statistic u_B(P)."
+          ],
+          "identifier_or_url": "https://doi.org/10.37236/809",
+          "material_read": "Introduction p. 1 and q-rook construction p. 6",
+          "method": "Open-access primary passages",
+          "title": "Augmented Rook Boards and General Product Formulas",
+          "trigger": "Weighted rook product formulas"
+        },
+        {
+          "assessment": "Same encoding and regime, distinct support and spectra",
+          "evidence": [
+            "Catalan 6-label support has 25 cubic zeros; ordinary Bell 6-label support is invertible."
+          ],
+          "identifier_or_url": "Resultary:090be6836ed5",
+          "material_read": "RESULT.md Finding and positivity proof; opening reproduced by local mirror",
+          "method": "Original statement and support comparison",
+          "title": "Quadratic Fourier positivity and a cubic resonance in noncrossing-partition arcs",
+          "trigger": "Same-day, same successor-arc embedding and degree threshold"
+        },
+        {
+          "assessment": "Different support and invariant",
+          "evidence": [
+            "No singleton blocks; 162 input vectors and 19 cubic zeros."
+          ],
+          "identifier_or_url": "Resultary:d959f279b56a",
+          "material_read": "RESULT.md opening",
+          "method": "Local mirror",
+          "title": "Exact Fourier range and sharp endpoint recovery for seven-point successor arcs",
+          "trigger": "Exact nearby signed spectrum with number 162"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural staircase support is fixed by the one-in/one-out incidence constraints. Its exact first nontrivial loss of information, with every quadratic statistic still recoverable but ten cubic modes missing, is a useful benchmark in that fixed encoding. The uniform fixed-band estimate also measures asymptotic stability; it is not a claim of full invertibility in all orders.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

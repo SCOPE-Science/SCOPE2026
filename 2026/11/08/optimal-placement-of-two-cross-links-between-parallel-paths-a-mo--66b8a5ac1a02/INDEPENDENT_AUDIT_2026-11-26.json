@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:29:53.794716Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–50; independently recomputed by cycle masses and bridge cuts",
+        "Frozen VERIFICATION.md and verify_two_rungs.py, inspected only: rational inverse-Laplacian check and finite objective enumeration",
+        "Independent symbolic identity and parity arithmetic: python /workspace/audit_replay.py, resistance check passed"
+      ],
+      "rationale": "The graph reduces to a 2q-cycle and two tails each of lengths l and r. A tail bridge separating h vertices from the rest contributes h(2m−h) to the unordered-pair index, independently of all other bridges. For the cycle contribution, collapse each tail to its corner, adding mass l or r there. On a length-L cycle the kernel at distance d is d(L−d)/L, the pair sum is (L³−L)/12 and the row sum is (L²−1)/6. Across either rung use d=1; among the four left-right pairs there are two each at d=q−1 and q. Adding the base cycle, the extra corner masses and the bridge sums exactly reproduces the stated expression, including zero tails. At fixed q the only imbalance term is m(l−r)²/2; balance yields the parity penalty in F_m. Recomputing the neighbor differences of H=5(q−(3m+6)/5)²+3ε gives the stated two tables. Further to the right the quadratic grows more than the maximal parity loss and −3m/q increases strictly. Moving d steps left loses at most (5/2)d from −3m/q because q≥2 and m/q_*≤5/3; the quadratic-parity increment is at least 4 at d=1 and at least 5d²−4d−3 for d≥2, both strictly larger than (5/2)d. Therefore q_* is the unique legal optimal cycle parameter, even at the small endpoint cases. Only m≡0 mod 5 has an odd tail sum at q_*, so it supplies exactly the two reflected placements. With q_*=(3/5)m+O(1) the cubic part gives (5−6·(3/5)+5·(3/5)²)/6=8/15; all remaining terms are O(m²) or smaller.",
+      "residual_risks": [
+        "The proof optimizes only over two distinct corresponding unit rungs on equal unit-resistance rails; unrestricted links, conductances and rail lengths are not assessed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The ladder paper explicitly studies Green functions, resistances and Kirchhoff indices for a related perturbation class. Article-level conditions and any design section were not accessible.",
+          "The frozen bibliography describes Chen–Yan as giving a general matching-theoretic index identity. Crossref verified the article identity and relevant bibliography, but the theorem text was not independently retrieved. Two related chain papers were identified in that bibliography and their full texts were also unavailable."
+        ],
+        "reasoning": "A generic evaluation identity could dominate an index formula but is not itself an argmin theorem. No whole-paper noncoverage is inferred from the abstract or metadata of any inaccessible article.",
+        "searches": [
+          "Carmona–Encinas–Mitjana, DOI 10.1002/qua.24740, publisher-deposited abstract and lawful full-text attempts",
+          "Chen–Yan, DOI 10.1016/j.dam.2021.05.007, metadata, references and lawful OA attempt",
+          "Carmona–Encinas–Mitjana, DOI 10.1016/j.endm.2014.08.029 and 10.1007/s10910-015-0478-6, metadata and lawful OA attempts"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, graph model and optimization proof",
+        "Local Resultary exact self-match and distinct one-link comparison",
+        "DOI 10.1002/qua.24740 (abstract)",
+        "DOI 10.1016/j.dam.2021.05.007, 10.1016/j.endm.2014.08.029 and 10.1007/s10910-015-0478-6 (metadata)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Index evaluation under the unicyclic reduction leaves a two-parameter placement problem. Even after balancing, both parity and a rational correction enter the exact optimizer. A continuous minimizer or a one-link criterion does not resolve all five integer residue cases or orientation ties."
+        ],
+        "reasoning": "The all-m optimization here requires the strict comparisons of balanced cycle lengths, including a rational tie-break in some residues. The verified comparator statements do not directly or mechanically imply that classification. General chain coverage beyond the accessed material remains a risk.",
+        "searches": [
+          "Carmona–Encinas–Mitjana ladder abstract, DOI 10.1002/qua.24740",
+          "Chen–Yan, DOI 10.1016/j.dam.2021.05.007, metadata and frozen reference description",
+          "Distinct one-link Resultary finding 60416c4dd674",
+          "Frozen RESULT.md, balancing and discrete cycle-length proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two-rail graph is exactly an even cycle C_(2q) with four tails l,l,r,r attached at the endpoints of two opposing rung edges. The corners and tail symmetry matter; a generic extremal unicyclic graph with fixed cycle length is not the same constrained problem.",
+          "The same-day one-link placement result instead starts with a single path and adds one chord. If both l and r are positive there are four leaves, impossible in a graph obtained by adding one edge to one path.",
+          "The early ladder source's abstract starts from a 2n-path and adds consecutive weighted opposite edges; it describes resistance/index evaluations, not an equivalent optimizing rule in the inspected abstract."
+        ],
+        "reasoning": "The unicyclic equivalence identifies candidate formula and extremal sources precisely. It does not identify the general four-tail case with the one-link class. The full ladder-like-chain family and its exact overlap with this formulation could not be established from an abstract.",
+        "searches": [
+          "Resultary local index: Kirchhoff index, effective resistance, two corresponding rungs between parallel paths, plus one-link placement",
+          "Frozen RESULT.md, exact resistance decomposition",
+          "DOI 10.1002/qua.24740, Crossref abstract"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest exact hit was the assigned 66b8a5ac1a02 finding itself, identified by the identical graph and formula, not an independent earlier matching theorem.",
+          "The closest distinct catalog hit is the one-link result 60416c4dd674, with k=floor((n−2)/8), optimizers (k+1,n−k) on one path and leading coefficient 7/96 in its n convention."
+        ],
+        "reasoning": "The other catalog result treats a structurally different family and modulus, not an optimizer table for the present two-rung geometry. Date is not the basis of this distinction.",
+        "searches": [
+          "Local Resultary query for the two-rung Kirchhoff-index optimizer on equal paths and for analogous one-link repair; exact Finding passages"
+        ]
+      },
+      "rationale": "The formula for evaluating a unicyclic resistance index uses known principles. The creditable claim is the exact all-m discrete minimizer and tie classification in the two-rung design family, with the resulting sharp leading value. Comparisons found related ladder-like calculations, a distinct one-link design theorem and general unicyclic formula leads, but no demonstrated coverage of that optimizer. Full-text access limits are material to historical priority, not a negative finding about what those papers contain.",
+      "residual_risks": [
+        "Full texts of the closely related ladder-like and unicycle-chain papers were unavailable in the lawful retrieval performed; possible more specific coverage remains unresolved. The pass is a best-of-current-knowledge decision based on verified statements, not a claim of historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Definite related evaluation formulas; optimizer and exact graph-class inclusion unresolved",
+          "evidence": "Abstract describes adding consecutive weighted opposite edges to a 2n-path and obtaining Green-function, resistance and index formulas.",
+          "identifier_or_url": "https://doi.org/10.1002/qua.24740",
+          "material_read": "Publisher-deposited abstract via Crossref; no readable full text",
+          "method": "Bibliographic and abstract inspection; bounded lawful direct/VPN and repository lookup",
+          "title": "Effective resistances for ladder-like chains",
+          "trigger": "Related ladder chain with added opposite-vertex links and Kirchhoff-index formulas"
+        },
+        {
+          "assessment": "Exact theorem and scope not independently verified from paper",
+          "evidence": "Confirmed identity and chain-paper citations; no inference about optimization based on title alone.",
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2021.05.007",
+          "material_read": "Crossref bibliographic record (pp. 19–24) and references, no abstract or readable theorem",
+          "method": "Metadata inspection and lawful OA attempt",
+          "title": "On the Kirchhoff index of a unicyclic graph and the matchings of the subdivision",
+          "trigger": "Possible broader index identity including this unicyclic family"
+        },
+        {
+          "assessment": "Residual risk, not an established coverage or noncoverage result",
+          "evidence": "Source identified from references; no inspectable optimizer statement.",
+          "identifier_or_url": "https://doi.org/10.1016/j.endm.2014.08.029",
+          "material_read": "Bibliographic metadata, pp. 217–224; no readable full text or abstract",
+          "method": "Bounded lawful OA lookup",
+          "title": "The Kirchhoff index of unicycle weighted chains",
+          "trigger": "Potentially close match to weighted-cycle/tail formulation in Chen–Yan references"
+        },
+        {
+          "assessment": "Residual risk; actual coverage unresolved",
+          "evidence": "Source identified from references, but no substantive theorem was accessible.",
+          "identifier_or_url": "https://doi.org/10.1007/s10910-015-0478-6",
+          "material_read": "Bibliographic metadata, pp. 1195–1206; no readable full text or abstract",
+          "method": "Bounded lawful OA lookup",
+          "title": "Kirchhoff index of periodic linear chains",
+          "trigger": "Related chain formula mentioned in Chen–Yan references"
+        },
+        {
+          "assessment": "Related methodology but not the same graph class or optimizer",
+          "evidence": "Single path plus one shortcut, optimizing pair (k+1,n−k) with k=floor((n−2)/8).",
+          "identifier_or_url": "2026/11/8/SCOPE-optimal-one-link-resistance-repair-of-a-path-an-exact-eight-step--60416c4dd674",
+          "material_read": "RESULT.md Finding, offset 101 onward",
+          "method": "Local catalog mirror",
+          "title": "Optimal one-link resistance repair of a path: an exact eight-step law",
+          "trigger": "Distinct catalog record on exact discrete effective-resistance link placement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–21 and 30–54",
+        "Earlier ladder-like evaluation and one-link optimizer comparators"
+      ],
+      "rationale": "Adding two corresponding cross-links on equal paths is a natural constrained design problem, and total pairwise resistance is a standard connectivity objective. The exact result determines where to put the links at each size and when two designs tie. It rules out an end-rung heuristic, exhibits an interior 1/5–4/5 rule, and quantifies the minimum at cubic order. That complete classification is useful beyond a circuit identity or finite graph enumeration.",
+      "residual_risks": [
+        "No consequences are claimed for heterogeneous networks, extra rungs, or other network objectives."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

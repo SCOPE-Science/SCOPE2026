@@ -1,15 +1,21 @@
-# Three-axis mathematical review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The smoothness criterion comes from the cubic discriminant \(b^2-4a^3\ne0\) in characteristic seven and gives exactly \(42\) pairs. The involution \(Y\mapsto-Y\) gives a genus-one quotient and a connected two-dimensional Prym over the base field. For every odd extension degree, squares and fourth powers of the finite multiplicative group have the same image and kernel; consequently the Prym reciprocal-root odd power sums vanish, forcing an even quadratic-in-\(T^2\) Weil numerator. Newton identities give the exact \(t,u\) extraction. A full, independently cross-checked finite-field enumeration for all \(42\) models determines all \(13\) Weil types and exactly four Prym types. `verify.py` and `SPECTRUM.json` are complete standalone artifacts. The general odd-extension statement is proved algebraically, not inferred from finite samples.
+## correctness
 
-## Originality
-**PASS with residual historical-priority risk.** The same geometric cyclic quartic pencil and its geometric Prym superspeciality were already classified; the closest explicit published result [4] states no zeta-function or Frobenius-sign conclusion. The Newton-polygon classification [2] is coarser than a rational Weil polynomial. Goodson's generalized Legendre character sums [1] can compute individual point counts, including over \(\mathbb F_{49}\), but no thirteen-class rational Weil/Prym table was located in the inspected material. The present classification is therefore assessed only for its fully evaluated arithmetic isogeny census, not the prior geometric conditions or standard point-count techniques. An older table under transformed parameters would supersede this priority assessment if found; lack of a search hit is not proof of priority.
+PASS
 
-## Mathematical value
-**PASS.** A natural special genus-three cyclic-cover family, previously studied through its geometric Newton polygons, has a nontrivial arithmetic refinement: precisely four Frobenius isogeny types of its everywhere-geometrically-superspecial Prym surfaces, producing thirteen full Jacobian isogeny types among 42 marked equations. Thus the same geometric Prym \(p\)-divisible behavior does not fix the rational isogeny class. The explicit classification supplies usable rational Frobenius data and point counts for arithmetic moduli/isogeny comparisons and resolves a precise small-field type spectrum, rather than an arbitrarily chosen polynomial coefficient.
+On the affine chart a singularity occurs exactly at y=0 and a repeated root of x^3+ax+b; the unique point at infinity is smooth by the Z derivative. The cubic discriminant is b^2-4a^3 modulo 7. The three nonzero square a each exclude two b, and (0,0) is also excluded, leaving 42. The involution has elliptic quotient E:z^2=x^3+ax+b; norm composed with pullback is multiplication by two, so the Jacobian is isogenous over F7 to E times the connected norm kernel P. Over every odd extension the two homomorphisms y↦y^2 and y↦y^4 have the same kernel and image, and each curve has one point at infinity. Their odd-degree counts coincide, so the Prym's first and third power sums vanish. Newton identities and the degree-four abelian-surface functional equation give 1+uT^2+49T^4. The full second power sum is t^2-14-2u, giving t=8-N1 and u=(N2-64+t^2)/2. I independently counted all (x,y) pairs over F7 and over F7[r]/(r^2-3), where 3 is nonsquare, with direct equation tests for each of the 42 smooth assignments. The reconstructed pairs, their complete partition into 13 classes, all expanded numerators and all four Prym multiplicities agree with both the printed table and SPECTRUM.json. Each of the six b=0 cases has t=0 and u=14. Distinct (t,u) pairs give distinct numerators already by the first two nonconstant coefficients -t and 7+u. Finite-field isogeny classification gives the stated Jacobian and Prym types, over F7 only.
 
-## Closest literature and limitations
-Goodson [1]: same generalized Legendre family, character-sum point counting, not an evaluated \(\mathbb F_7\) type census. Li–Mantovan–Pries–Tang [2]: Newton polygons for the cyclic family, not individual rational Weil polynomials. Cavalieri–Pries [3]: nonordinary mass in a different congruence regime. Published result [4]: same pencil, geometric superspecial Prym and Deuring-polynomial criterion, explicitly without zeta data. The arithmetic census counts literal smooth coefficient pairs, not isomorphism classes. No claims of first-ever existence of the family, its Prym splitting, the odd-degree point-count principle, or any independent audit are made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The four-branch cyclic quartic family, the geometric Prym superspeciality and the isogeny classification of ambient abelian varieties are prior. On the checked sources the distinct result is the evaluated characteristic-seven realization and distribution of arithmetic types for all literal marked equations, including the actual pair-to-polynomial map. The exact Resultary hit at characteristic seven was the assigned target, not a separate result.
+
+## value
+
+PASS
+
+The whole inert-characteristic pencil is a natural testing ground for the arithmetic distinction between geometrically superspecial Pryms and their forms over the base field. At the fixed trace t=4, for example, there are two incompatible second-extension counts, so the available geometric data and the base count genuinely leave an ambiguity. The complete marked assignment resolves that ambiguity uniformly for this small field and gives exact realization data usable in arithmetic comparisons, rather than merely recomputing the ambient isogeny catalogue.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

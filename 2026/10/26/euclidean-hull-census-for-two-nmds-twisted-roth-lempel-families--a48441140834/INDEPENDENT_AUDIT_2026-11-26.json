@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:13:08.903497Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–53",
+        "Frozen verify_hull_census.py and VERIFICATION.md (read only)",
+        "Independent replay: python3 /workspace/audit_evidence/3/recount.py",
+        "Full replay output: /workspace/audit_evidence/3/recount.txt"
+      ],
+      "rationale": "I reproduced the full census from the defined generator, without using the published symmetric-sum NMDS conditions or executing uploaded code. The generator has rank 5: a nonzero polynomial of degree at most 5 cannot vanish at all 11 evaluation points. A left kernel vector of GG^T yields precisely a hull word by the injective map u↦uG. For NMDS, every four-column subset must be independent, at least one five-column subset must be dependent, and every six-column subset must span F_37^5. Indeed primal distance 8 means the largest nonspanning set has size 5, while dual distance 5 means the smallest dependent set has size 5. Exact residues and rank tests over every four-, five-, and six-subset and all 2592 parameter cases reproduce the totals (hull 0, hull 1)=(1266,30) and (1258,38), the NMDS splits (584,9) and (943,27), both ordered exception lists, and the two NMDS LCD examples. The modular rank routine uses a nonzero pivot and its scaled Schur complement, so it does not rely on numerical rank tolerances.",
+      "residual_risks": [
+        "Exhaustion is of parameters, not equivalence classes of codes, and only for the two specified positions and evaluation set."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prescribed-hull theorem gives full-evaluation [q+2,k]_q GRL constructions under q=p^e>4 and 2j dividing e; the other paper treats GRL extension matrices and Hermitian self-orthogonal families and characterizes NMDS cases for s=2,3."
+        ],
+        "reasoning": "Neither construction theorem classifies the Gram ranks of all twists in an 11-point subset of F_37. Full evaluation and Hermitian or Galois self-orthogonality cannot silently be substituted for this Euclidean hull calculation.",
+        "searches": [
+          "arXiv:2609.20453v1, Theorem IV.6 and Corollary VII.1",
+          "arXiv:2604.11350v2, Definition II.1 and stated NMDS/Hermitian contributions"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.17304v1; arXiv:2604.11350v2; arXiv:2609.20453v1 (specific passages above)",
+        "Resultary ranked hits and record 313d3312e276"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorems 4.2 and 4.3 give necessary and sufficient NMDS tests for the two twists. The current record separates those distance conditions from arithmetic of GG^T; in the very same distance class the reproduction finds both hull dimensions."
+        ],
+        "reasoning": "The NMDS subset can be computed from the source and is not a new general distance theorem. Neither its distance predicates nor a standard hull-nullity identity supplies the joint rank classification without an additional calculation on this benchmark.",
+        "searches": [
+          "arXiv:2609.17304v1, Theorems 4.2 and 4.3; compare frozen RESULT.md lines 37–49"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary family uses the same twisted polynomial basis and two appended coefficient coordinates. A claimed classification of Gram rank 4 or LCD under that definition would count as equivalent to the hull classification. The nearest catalogue result uses full-field GRL evaluation and nontrivial Galois indices 1≤j≤e−1."
+        ],
+        "reasoning": "In F_37, e=1, this range is empty; the index in that result is a power of Frobenius, not a polynomial twist position. Matching the words Roth–Lempel and hull does not identify the families.",
+        "searches": [
+          "Resultary targeted TRL Gram-rank/Euclidean hull lookup",
+          "arXiv:2609.17304v1, Definition 2.4 and Example 4.4",
+          "Resultary 2026/9/18/SCOPE-grl-galois-hulls-arbitrary-index--313d3312e276"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact all-pair census among the returned ranked results. Example 4.4 gives the two same-parameter NMDS [13,5,8]_37 codes at (4,1,1) and (3,3,1), without their hull ranks or a table across both twists."
+        ],
+        "reasoning": "An NMDS example at the exact benchmark is prior coverage of that distance assertion, but not of the hull counts or the list of all non-LCD NMDS pairs.",
+        "searches": [
+          "Resultary lookup for the F_37, twist positions 3 and 4 exact hull/NMDS census",
+          "arXiv:2609.17304v1, Example 4.4"
+        ]
+      },
+      "rationale": "The distance criterion, family, and benchmark examples are known. The three closely relevant GRL sources inspected deal with different evaluation regimes or Hermitian/Galois hulls, and none covers this joint Euclidean hull census. The exact overlap with the benchmark is credited, not claimed as novel; the supported increment is the joint all-parameter classification, including the two example hulls.",
+      "residual_risks": [
+        "Statement-level comparison is bounded to the inspected statements and known related constructions; a different unindexed parametrization or census is not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the code definition, NMDS tests and two examples as NMDS; not the joint hull classification",
+          "evidence": "Example 4.4 takes n=11, k=5, evaluation set 1,…,11 in F_37 and the two triples stated above.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.17304v1",
+          "material_read": "Definition 2.4 (PDF p. 4, text offset 14400); Theorems 4.2–4.3 (PDF pp. 17,19, including offset 86200); Example 4.4 (PDF p. 22, offset 103850)",
+          "method": "Bounded OA PDF passage inspection",
+          "title": "On Twisted Roth-Lempel Codes",
+          "trigger": "Identical code family and exact benchmark"
+        },
+        {
+          "assessment": "Different Galois range, different evaluations and construction, not the parameter census",
+          "evidence": "Evaluates at all q field elements and prescribes j-Galois hull dimensions with 1≤j≤e−1; s=2 gives length q+2.",
+          "identifier_or_url": "2026/9/18/SCOPE-grl-galois-hulls-arbitrary-index--313d3312e276",
+          "material_read": "RESULT.md theorem, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4, offset 0",
+          "method": "Configured Resultary lookup and local mirror passage inspection",
+          "title": "Full-field generalized Roth–Lempel Galois hulls for arbitrary indices",
+          "trigger": "Strongest neighboring Resultary match"
+        },
+        {
+          "assessment": "Relevant GRL NMDS/Hermitian work, not a matching Euclidean TRL census",
+          "evidence": "The definition uses an extension matrix; the stated results characterize NMDS s=2,3 and construct Hermitian self-orthogonal families.",
+          "identifier_or_url": "https://arxiv.org/pdf/2604.11350v2",
+          "material_read": "Contributions and Definition II.1 (PDF p. 2, offsets 9680 and 12100)",
+          "method": "Bounded OA PDF passage inspection",
+          "title": "Generalized Roth-Lempel Codes: NMDS Characterization, Hermitian Self-Orthogonality, and Quantum Constructions",
+          "trigger": "Related GRL family and hull-type question"
+        },
+        {
+          "assessment": "Construction and LCD corollary are scoped to full evaluation and a Galois hull assumption",
+          "evidence": "The theorem prescribes hull dimensions for full-evaluation [q+2,k]_q GRL AMDS/NMDS codes under q=p^e>4 and 2j dividing e.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.20453v1",
+          "material_read": "Theorem IV.6 (PDF p. 17, offset 106439) and Corollary VII.1 (PDF p. 27, offset 157350)",
+          "method": "Bounded OA PDF passage inspection",
+          "title": "Galois Hulls of Generalized Roth-Lempel Codes and Their Applications to EAQECCs",
+          "trigger": "Potential dominating hull result previously listed as inaccessible"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2609.17304v1, Example 4.4",
+        "Frozen RESULT.md, lines 5–33",
+        "Independent replay totals and lists in /workspace/audit_evidence/3/recount.txt"
+      ],
+      "rationale": "This is a complete parameter selection rule at a benchmark chosen by the originating paper, not a field and sample picked only to obtain a computable example. At identical NMDS distances it locates exactly the non-complementary dual exceptions and shows every such hull is one-dimensional. A researcher using the benchmark who needs a particular Euclidean hull outcome can select parameters from this classification rather than infer it incorrectly from NMDS or rerun a census. This is a finite result, not a claim of general hull control.",
+      "residual_risks": [
+        "No demonstrated classification up to code equivalence and no evidence of the same distribution on other evaluation sets or fields."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

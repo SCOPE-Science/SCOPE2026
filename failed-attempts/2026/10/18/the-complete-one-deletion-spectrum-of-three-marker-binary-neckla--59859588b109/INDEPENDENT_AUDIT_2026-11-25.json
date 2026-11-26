@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:14:46.278127Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The rotation-only source quotient is exactly cyclic triples of zero gaps. The marker-deletion outputs are unordered complementary pairs {x,s−x}; distinct positive gaps can be complementary only if the third gap is zero. The two nonidentity cyclic shifts in the comparison of (a−1,b,c) with (a,b−1,c) yield exactly a=b=c or a=b=c+1, including (1,1,0). Thus all deletion collisions are exhausted, and the two weight classes of outputs are disjoint. Anchoring at the sole zero gap gives s−1 ordered positive pairs, the repeated positive value ranges from 1 to floor((s−1)/2), and inclusion–exclusion on equalities of positive ordered triples gives the stated numerator for C_{s,6}, divided by their orbit size three. Burnside gives the stated total, including the periodic equal-gap orbit. s=0 and s=2 give the claimed exceptions; (1,2,s−3) witnesses B=6 for every s≥6. The mean defect numerator is 4C_{s,2}+3C_{s,3}+2C_{s,4}+C_{s,5}=2s+f_s+2+3e_s+z_s+h_s; the number outside the size-six class is s+f_s. These and N_s=s²/6+O(s) verify both asymptotics. RESULT.md lines 51–77 prove the full family; the reviewed verify.py is finite corroboration, not used as proof. The wording about labeled-word sampling should be read as a distinction between sampling conventions, not as saying they differ at every length: if 3 does not divide s, the label multiplicities are all equal.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Narayanan–Ren distinguish random trace distributions of specially chosen three-one circular strings; they do not census distinct exact-one-deletion outputs for all such necklaces.",
+          "Linear fixed-length Levenshtein balls involve insertions and do not quotient output rotations, so those radius-one statements are not upper-scope versions of this census."
+        ],
+        "reasoning": "Related larger channel models do not themselves determine the pointwise outdegrees and all-length uniform necklace histogram. Exact coverage instead comes from the same-scope catalogue result.",
+        "searches": [
+          "Narayanan and Ren arXiv:2009.01346, Theorem 1.6 and §5",
+          "arXiv:2103.01681, linear fixed-length Levenshtein balls"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "29e5e80ff472",
+        "15954dd9e6c4",
+        "2aa2ec2e3dfc",
+        "1f4a31bc89e1",
+        "arXiv:2009.01346"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "29e5e80ff472 proves the same equal-gap and (t,t,t−1) collision conditions, and the length-nine threshold. Sums ∑_j c_j(n) and ∑_j j c_j(n) give the exact total and mean; their expansions also give both first-order asymptotics.",
+          "The older trace-reconstruction paper's conditional deletion-of-a-1 argument is for a chosen pair of strings and does not imply the sibling zero-deletion collisions."
+        ],
+        "reasoning": "There is no new result in the mean or asymptotics after the exact all-length histogram is available. The date of the overlapping indexed record does not imply it was prior art for the frozen October publication.",
+        "searches": [
+          "29e5e80ff472, Finding and proof by cyclic gap comparisons",
+          "Narayanan–Ren §5 and conditional one-marker deletion passage"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "29e5e80ff472 uses length n rather than zero count s, but c_j(n)=C_{n−3,j} on exactly the same objects and channel.",
+          "15954dd9e6c4 counts unbordered indexed shifts, 2aa2ec2e3dfc counts absent factors and 1f4a31bc89e1 classifies attractor sizes; none of those statistics is the deletion shadow size."
+        ],
+        "reasoning": "Changing from the coefficient sequence to its ordinary generating function and changing the length index do not change the result. Shared use of oriented zero-gap coordinates, by itself, does not establish equivalence for the other three-marker statistics.",
+        "searches": [
+          "Resultary comparison of exact one-deletion shadow spectrum of binary necklaces with three ones",
+          "Resultary comparisons with three-marker unbordered conjugates, circular antidictionaries and circular attractors"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source gives F_1=z³, F_2=z⁴/(1−z)+z⁶/(1−z³), F_3=z⁵, and explicit F_4, F_5 and F_6, and states all other F_j vanish.",
+          "Coefficient z^(s+3) in F_6 is one third of binom(s−1,2)−3 floor((s−1)/2)+2[3 divides s] for s≥1, with the source's small-s conventions."
+        ],
+        "reasoning": "This is an exact match to the entire table, not just a finite sequence match. Reading F_4 and F_5 similarly gives the corrections at n=5 and n≡2 mod 3 (s≡2 mod 3, s≥5).",
+        "searches": [
+          "Resultary 2026/11/22/SCOPE-exact-one-deletion-shadow-spectrum-of-binary-necklaces-with-thre--29e5e80ff472, RESULT.md, Finding"
+        ]
+      },
+      "rationale": "Exact equivalent coverage exists in a distinct indexed record, not the assigned record returned under an alias. Its rotation-only three-one, exact-one-deletion shadow generating functions recover every histogram coefficient, its gap proof has the same pointwise exceptions, and the mean and sharper asymptotics are direct weighted sums and expansions of those counts. No noncovered scientific increment was found. This is a statement about independently verifiable overlap in the current corpus, not evidence that the November record preceded the October record, or a finding about historical authorship or priority.",
+      "residual_risks": [
+        "Historical priority and the relationship between the two catalogue records are not established by matching mathematics or record dates.",
+        "Older circular coding literature is not exhaustively covered; the external keyword search yielded no useful additional lead and is not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_EQUIVALENT_COVERAGE",
+          "evidence": "F_j give all histograms after taking [z^(s+3)], and the proof includes (1,1,0) and the all-positive exceptional pattern. The file is from a distinct, later-dated record.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-one-deletion-shadow-spectrum-of-binary-necklaces-with-thre--29e5e80ff472/RESULT.md",
+          "material_read": "Finding, assumptions and gap collision proof",
+          "method": "Bounded primary RESULT.md passages from the published corpus mirror",
+          "title": "Exact one-deletion shadow spectrum of binary necklaces with three ones",
+          "trigger": "Exact same object and deletion statistic"
+        },
+        {
+          "assessment": "RELATED_DIFFERENT_CLAIM",
+          "evidence": "Sample complexity of distinguishing trace distributions, rather than support-degree enumeration for every three-marker input.",
+          "identifier_or_url": "https://arxiv.org/abs/2009.01346",
+          "material_read": "Theorem 1.6 (PDF p. 4), conditional deletion passage (p. 6), §5 (p. 14)",
+          "method": "Lawful OA primary PDF passages",
+          "title": "Circular Trace Reconstruction",
+          "trigger": "Same circular deletion model and three-marker examples"
+        },
+        {
+          "assessment": "DIFFERENT_STATISTIC",
+          "evidence": "Its statistic counts unbordered shifts via gap comparisons, not descendants or output rotations.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-unbordered-conjugate-spectrum-of-binary-words-containing-t--15954dd9e6c4",
+          "material_read": "Finding on indexed unbordered shifts",
+          "method": "Published corpus primary text",
+          "title": "Exact unbordered conjugate spectrum of binary words containing three ones",
+          "trigger": "Distinct same-day, same source weight match"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As a mathematical result this is a complete infinite-family degree census for a natural sparse cyclic deletion channel: it separates period-driven and genuine cross-position collisions, identifies the length-nine onset of the generic degree, and quantifies ambiguity under uniform sampling. This is more informative than simply enumerating input necklaces. Mathematical usefulness does not make it a distinct contribution given the exact equivalent record.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

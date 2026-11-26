@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every nonzero coefficient follows from Lucas's theorem and the complete ternary no-carry condition. The only negative local factor occurs on an adjacent \(11\) digit pair. The explicit three-state signed matrix satisfies \(B^3=3B+I\), proving all-length signed recurrences and the rational generating function. Its simple real leading eigenvalue and eigenvector bounds rigorously establish both the signed asymptotic and the sharp arbitrary-prefix exponent. The standalone checker independently compares ordinary integer binomial residues through \(n=2599\), as well as all complete ternary blocks through length seven; this is finite supplementary verification, not a proof substitute.
+## correctness
 
-**Originality — PASS within inspected evidence.** The previously published prime-relative Fuss–Catalan study covers the **identical prime-three nondivisibility support** but not the signed residue imbalance. Its full principal result and proof were read. The closest other published signed imbalance concerns a different ray and modulus five, and its full proof was examined. General results of Barat–Grabner supply digit-block transfer machinery but not the particular exact numerator/denominator polynomial or optimal exponent. OEIS A188022 records a recurrence with matching shifted values in a different matrix interpretation, but not the binomial-residue identity and global cutoff law. Unlocated equivalent specializations remain a real priority risk; no independence is claimed.
+PASS
 
-**Mathematical value — PASS.** Once the support of four-ary Fuss–Catalan nondivisibility is known, the next natural arithmetic question is whether the two unit residues are equally frequent and at what rate. The theorem identifies an asymmetric finite-scale law, proves eventual relative balance at an explicitly optimal rate, and gives an exact arithmetic interpretation of a signed spectral recurrence. Its optimal all-prefix exponent is stronger than a generic qualitative equidistribution statement; the unsigned support is expressly not sold as new.
+In 4n=n+3n, a carry forces divisibility by 3; without carries the only Lucas factor equal to -1 mod 3 is the adjacent pair 11. Leading and trailing zeros contribute unit factors. This gives the symmetric signed transfer matrix B, with B² rows (3,0,1), (0,2,1), (1,1,1) and B³=3B+I. Thus D_0,D_1,D_2=1,3,4 yield the rational series and positive recurrence at all complete cutoffs. Its simple dominant pole gives the stated positive residue coefficient; the other real roots have moduli 2 cos(2pi/9) and 2 cos(4pi/9). Conversely, on a ternary-aligned block whose upper digits are admissible, fixing the first upper digit amounts to an extra terminal matrix factor selecting that digit; the absolute block sum is at most ||B^(j+1)||_2=theta^(j+1) for a block of length 3^j. There are at most two blocks per scale in [0,X), giving the uniform bound; the nearest lower power of three proves the lower bound for max_{X<=Y}. The unsigned transfer growth is greater than theta, proving relative equidistribution on the nonzero support. Exact independent binomial counts through n<3^7 gave D_0..D_7=1,3,4,10,15,34,55,117 and (N_0,N_1,N_2)=(572,106,51) at L=6 and (1834,235,118) at L=7. Replay: branches/cd8a9689-48f6-4c88-9154-3d152592732d/independent_direct_counts.py and check_log.md. The frozen checker was read, not executed. Its loop checks L=7 but does not print that row, contrary to the minor reporting detail in RESULT.md:70; this does not affect the finding.
 
-**Limitations and closest literature.** The claims are specific to prime three and the four-ary Fuss–Catalan numerator. The general block-multiplicative framework of Barat and Grabner is a strong methodological antecedent. A complete historical survey beyond examined sources and an independent audit remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The support count, numerical recurrences as sequences, and standard digit-transfer methods are known. What remains distinct is the identification of the signed unit-residue count for this binomial diagonal with that particular sequence, and the sharp signed bound for arbitrary prefixes. The strongest same-family and same-method matches were inspected at statement level and do not give that identification or bound.
+
+## value
+
+PASS
+
+The result resolves more than support density or a table of complete intervals: it identifies a systematic positive bias between the two unit residues and proves the optimal discrepancy scale uniformly over arbitrary ternary prefixes. This quantitative refinement of the natural nondivisibility census needs sign information discarded by valuations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

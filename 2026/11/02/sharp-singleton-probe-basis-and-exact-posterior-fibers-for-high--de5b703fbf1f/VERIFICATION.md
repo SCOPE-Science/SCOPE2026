@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The self-contained `checker.py` was executed using the Python standard library. It enumerates 35 finite \((n,d)\) grid instances (1,281 mass vectors), compares complete binary-threshold observational fibers with singleton profiles and pairwise products, checks the exact count and fiber-size formulas, independently evaluates 3,445 Walsh identities, and tests 42 excluded-singleton witnesses. The recorded terminating marker was `ALL_CHECKS_OK`.
+# Independent mathematical audit
 
-These enumerations are exact finite checks, not certificates for arbitrary real probability vectors. The general claim is established by the coordinate-complement/normalization argument, the sign-Walsh identity, and disjoint class counting in `RESULT.md`. Source overlap was assessed using the specified semantics paper, existing phase-retrieval literature and published mathematical records; coverage outside inspected materials remains a risk. No external independent audit or formal-proof certificate is claimed.
+## correctness
+
+PASS
+
+Rational upper cuts determine the larger binary fiber mass, including the endpoint 1/2. Every changed coordinate under singleton agreement must be complemented, and normalization forces its changed-coordinate set to carry half its cardinality in mass. This allows exactly two changes, a swap, or none; the degenerate swaps between Dirac measures are in one class. These swaps preserve every binary cut. The coefficients of the distinct degree-two sign characters in the squared cut profile are twice the off-diagonal products, and normalization recovers the constant coefficient from those products. Stars and bars minus the disjoint Dirac and unequal swap identifications gives the stated denominator-grid count, including n=1 and d=1. The omitted-coordinate witness works for each n>=3; complementation gives the n=2 exception. Sharpness is only within the family of singleton probes. An independent integer replay, `python3 /workspace/branches/independent_replay.py 4`, checked the product/singleton partition and census on 48 grids (4,998 distributions); the real-simplex statement rests on the proof.
+
+## originality
+
+PASS
+
+The semantics, the Walsh expansion and a Dirac ambiguity are known ingredients; the supported distinct claim is the complete labeled-simplex ambiguity classification with a sharp restricted observation basis and an exact denominator-grid count. The inspected neighboring results do not supply this combination or subsume the observation-basis theorem.
+
+## value
+
+PASS
+
+The exact classification identifies when a local posterior is recoverable despite losing the orientation of every binary observation, and separates unavoidable ambiguity from redundant observation effort. It replaces all subset queries by a provably inclusion-minimal singleton family for n>=3, and gives an exact finite-grid state count. These conclusions matter for this fragment, not for the full modal language.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

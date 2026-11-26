@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:49:27.028559Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–48 and verify_three_sentinel_winners.py",
+        "/workspace/repairs/5/RESULT.md",
+        "/workspace/branches/audit_sentinels.py",
+        "/workspace/branches/audit_sentinels.log"
+      ],
+      "rationale": "Independent edge opening on a tree gives probability p^distance from each seed, and the sentinel's own seed adds one before division by n. Summation by parts proves strict ordering for strictly dominated cumulative profiles; identical profiles cannot yield strict winners. Independently decoded every Prufer word through order eight, deduplicated by canonical rooted codes at maximum-degree vertices, and computed distance profiles by recursion. The counts and maxima match the corrected table. The single eight-vertex exception is a five-edge path with two extra leaves at one endpoint; its second path score strictly exceeds the third by p^2(1-p)^2 even though both profiles are cumulatively nondominated. For the nine-vertex broom the nondominated vertex set is exactly {0,5,6}; both differences match coefficientwise. The decreasing root factors and r<s establish the strict winning order and the two isolated maximum ties. Replay: python3 /workspace/branches/audit_sentinels.py.",
+      "residual_risks": [
+        "Lower bound is a finite exact census and not an arbitrary-tree extremal formula. It does not bound other types of rank reversal."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The catalogue gives multiple phases for an arbitrary broom parameter but restricts the topology. Tsakas treats endpoint optimizers via degree and closeness and gives simulations of intermediate behavior."
+        ],
+        "reasoning": "Neither controls the number of strict winners for every tree through order eight.",
+        "searches": [
+          "Resultary 5d05a9b4e6b1 Finding and Proof",
+          "Tsakas arXiv:1604.05582"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5d05a9b4e6b1, 58308e3188a3, 9ba80a93d3d8, 51f5bbdc1318",
+        "DOI:10.7146/math.scand.a-106210",
+        "Tsakas arXiv:1604.05582 and Working Paper 04-2016",
+        "/workspace/repairs/5/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known cumulative ordering alone leaves three candidates for an eight-vertex tree. The corrected proof verifies exact all-p comparison of two candidates and exhausts all other tree shapes."
+        ],
+        "reasoning": "The prior frontier criterion does not by itself eliminate the extra candidate or count frontiers. The exact broom witness supplies attainment, not all-tree exclusion.",
+        "searches": [
+          "DOI:10.7146/math.scand.a-106210 Proposition 2.2",
+          "Resultary 5d05a9b4e6b1 Finding and Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The classical decay score equals n times sentinel detection minus one. In the broom record the expected component size from a chosen source is exactly 1+C_v, so swapping seed and detector interpretations is not new."
+        ],
+        "reasoning": "Under uniform seed and symmetric open paths the objectives have identical maximizers. Broom v0,v1,v2 map to 6,5,0 and the geometric-sum roots are exactly r,s.",
+        "searches": [
+          "Decay centrality, generalized closeness, distance-layer polynomial",
+          "Resultary 5d05a9b4e6b1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The primary table counts all-ranking stable trees (19 of 23 at order eight), not distinct unique winners. Nearby exact catalogue results concern weighted path reentrance, vaccination removals, or pairwise reversals."
+        ],
+        "reasoning": "Counts of whole-ranking stability or pairwise crossings do not determine the maximum number of different strict global winners among the remaining trees.",
+        "searches": [
+          "DOI:10.7146/math.scand.a-106210 Table 1",
+          "Resultary 58308e3188a3, 9ba80a93d3d8, 51f5bbdc1318"
+        ]
+      },
+      "rationale": "Pass applies to the repaired all-tree obstruction and resulting globally sharp minimum with credited attainment. The nine-vertex witness itself, its three leaders and both crossover values are explicitly covered by the catalogue's broom theorem. That family theorem cannot exclude another smaller tree having three leaders.",
+      "residual_risks": [
+        "Uninspected text of Decay Stability of Unicyclic Graphs and differently indexed tree-winner enumerations could contain overlap. Catalogue dates alone do not decide priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Attainment covered; all-tree lower bound not covered",
+          "evidence": "Broom B_{2,6} and three leaders at geometric-sum thresholds; result restricted to the broom family.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-multi-stage-epidemic-source-migration-on-broom-contact-tre--5d05a9b4e6b1/RESULT.md",
+          "material_read": "Finding and Proof, offsets 0–4893",
+          "method": "Local mirror; compare labels, objective and exact roots",
+          "title": "Exact multi-stage epidemic source migration on broom contact trees",
+          "trigger": "Same nine-vertex graph and winner changes"
+        },
+        {
+          "assessment": "Known dominance and a different exact enumeration",
+          "evidence": "Counts stability of the whole vertex ranking, not strict maximizing vertices.",
+          "identifier_or_url": "https://doi.org/10.7146/math.scand.a-106210",
+          "material_read": "pp.39–40 definition; Prop.2.2 p.43; Table 1 p.45",
+          "method": "Primary text and table comparison",
+          "title": "On Decay Centrality in Graphs",
+          "trigger": "Exact tree enumeration for decay centrality"
+        },
+        {
+          "assessment": "Endpoint comparisons, not the all-tree cutoff",
+          "evidence": "Discusses degree and closeness for small and large decay parameters and simulations.",
+          "identifier_or_url": "https://papers.econ.ucy.ac.cy/RePEc/papers/04-16.pdf",
+          "material_read": "pp.3–4, PDF offsets about 4200–6000",
+          "method": "Working-paper text comparison",
+          "title": "On Decay Centrality",
+          "trigger": "Parameter-dependent centrality maximizers"
+        },
+        {
+          "assessment": "Full text unchecked",
+          "evidence": "Abstract describes ranking stability; it does not resolve potential tree-related discussion in the body.",
+          "identifier_or_url": "2026-11-02 preprint by title",
+          "material_read": "Abstract only",
+          "method": "Public landing-page read; full-text retrieval not successful",
+          "title": "Decay Stability of Unicyclic Graphs",
+          "trigger": "Potential adjacent low-order graph centrality results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "/workspace/repairs/5/RESULT.md and SLOGAN.txt",
+        "/workspace/branches/audit_sentinels.log",
+        "Coroničová Hurajová–Gago–Madaras Table 1"
+      ],
+      "rationale": "The first size allowing a third strict leader distinguishes full-parameter behavior from the two known endpoint criteria. The all-tree obstruction is useful beyond the broom example, applies to continuous transmissibility without grid sensitivity, and has a concrete exceptional profile comparison where a naive frontier count is insufficient.",
+      "residual_risks": [
+        "Scope is homogeneous independent edge percolation on trees, not a surveillance result under general epidemic dynamics or unequal source weights."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

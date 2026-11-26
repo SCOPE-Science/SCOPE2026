@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The assumptions fix the true Pareto parameter in \((0,1)\) and retain the null as all positive shape parameters. The proof uses a truncated strong law to show that the fitted moment shape tends to one, derives exact Kolmogorov and Cramér–von Mises discrepancies, and controls the refitted triangular bootstrap by bounded truncations plus DKW. Conditional quantile convergence and the false-rejection conclusion follow without wrongly applying a finite-mean central limit theorem. The 23 checker assertions independently confirm the algebra and reproduce the direction of the effect. No assertion about infinite-sample behavior rests solely on simulation.
+## correctness
 
-## Originality — PASS, with residual historical-priority risk
-Inspected primary materials include the 2023 Fourier-test preprint and full published open-access version, and the full 2022 Pareto comparative paper including its estimators, bootstrap specification and discussion of shape-one size distortion. The earlier paper already explicitly warns that moment fitting assumes finite mean and demonstrates a size problem at \(\beta=1\), which narrows the novelty. Its finite-sample warning does not state the full \(0<\beta<1\) exact discrepancy constants and joint refitted-bootstrap rejection theorem. published-finding corpus searches for the source, both statistics, infinite-mean moment fitting, exact gaps and bootstrap collapse revealed no directly equivalent archived claim. Search cannot establish uniqueness; an inaccessible related thesis and the broader infinite-mean bootstrap literature are residual risks.
+PASS
 
-## Value — PASS
-This is a motivated calibration boundary for classical EDF tests explicitly used as comparators in a published Pareto-testing framework. It distinguishes failure under an actual member of the null from ordinary low power against an alternative and shows that resampling the estimated model does not resolve the defect. Exact nonzero limits for two distinct classical tests, together with conditional bootstrap collapse, provide a concrete diagnostic for test design and interpretation. The result does not impugn tests fitted by maximum likelihood or the original Fourier statistic.
+Truncated strong laws on a countable set of truncation levels force the observed sample mean to diverge, so the fitted shape converges to 1 from above. The fitted CDF varies uniformly near 1 (its shape derivative is bounded by sup over x≥1 of x^(-1/2)log x on a neighborhood of 1). Glivenko–Cantelli gives the uniform observed discrepancy limit; maximizing x^(-β)-x^(-1) gives x*=β^(-1/(1−β)) and dβ as stated. The CvM integrand converges uniformly to the square of a bounded continuous function, so one can also pass to the weak limit of the fitted integration measure. The substitution u=1/x gives cβ=2(1−β)^2/[3(β+2)(2β+1)], as obtained from the three displayed fractions. Conditional on almost every data path, each bootstrap row has its own fitted shape. For any fixed K, choose a common finite L with the truncated mean at shape 1 greater than 2K; continuity gives mean >3K/2 along the row sequence eventually. Bounded concentration gives row-average truncations >K with probability tending to one, without any triangular-array untruncated LLN. Thus the bootstrap refit also converges to 1, and distribution-free DKW shows D*n→0 in conditional probability and W*n/n≤(D*n)^2→0. Nonnegativity and any fixed upper quantile level strictly between 0 and 1 imply the quantile limits, hence eventual rejection almost surely on those paths. This verifies the stated known endpoint, fixed subunit shape, and ideal conditional refitting only. Independently checked d(1/2)=1/4 and c(1/2)=1/30 exactly; a bounded illustration sampled X=(1−U)^(-2) with 24 independently refitted bootstrap replicates per n using U uniform. At n=4000 and 50000 the observed (KS,CvM/n) were (0.262197,0.034498) and (0.248342,0.033061), against empirical .95 bootstrap pairs (0.059398,0.001488) and (0.040694,0.000834). Replay with NumPy default_rng(5015), sorted fitted CDF values u_i, one-sided KS jump-end formulas, and CvM/n=mean((u_i−(i−1/2)/n)^2)+1/(12n²). The uploaded checker was read, not run; its shape grid and special-case tolerances are floating-point and its simulated statistic is KS only. Those observations do not affect the exact theorem.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Qualified pass for the exact fixed-shape separation and asymptotic size-one theorem under ideal conditional refitting, not for identifying the moment-existence restriction or the possibility of distortion.
+
+## value
+
+PASS
+
+For genuine heavy-tail null data, nominal calibration can fail as badly as possible even when every repetition refits. The two distinct exact EDF gaps and the conditional control distinguish this diagnostic from a generic warning about infinite means and specify which fitting workflow to avoid. It does not diagnose MLE, Fourier tests or boundary shape 1.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

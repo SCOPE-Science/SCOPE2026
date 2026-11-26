@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:58:06.564857Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–53; VERIFICATION.md, verify_formula.py and verify_direct.cpp inspected, not executed",
+        "/workspace/branches/4bce9ccc-ce19-485f-9b6a-094db900d38f/independent_check.py (fresh direct token-graph enumeration and hub-state check)"
+      ],
+      "rationale": "The cover of token edges by q(2q−1) lifted triangles is an edge partition: the moved parent edge determines its petal and the common token determines the external-token lift or the within-petal lift. The hub–leaf coloring lifted by pair parity saturates every triangle; maximum cuts are therefore exactly the colorings with no monochromatic lifted triangle. Fix the two hub-token colors per petal. The within-petal color has one completion for a pure hub pair, two for a mixed pair. Each cross-petal 2×2 array is independent and must obey its two row and two column forbidden-constant constraints. For two equal pure states the array has no zero row/column after color symmetry (2 permutation, 4 three-one, 1 all-one); opposite pure states force exactly the two permutations. Pure/mixed has 9 row-admissible arrays and subtracts 1+4−1 invalid arrays; mixed/mixed has 9 and subtracts 2+2−1, giving 5 and 6. Grouping hub states gives mixed site weight 4 and the displayed multinomial sum. The 1/2 quotient is free color reversal, not a quotient by petal permutations. For the asymptotic, the two all-equal pure states contribute 2 to the ordered normalized sum. A positive fraction of mixed petals, or positive fractions of both pure types as in the proof, incurs an exp(−Ω(q²)) penalty against the exp(O(q)) total site weights. Otherwise a pure majority with d defects contributes at most binom(q,d)8^d(5/7)^(dq/2) for either color. Summing over d≥1 tends to zero by the binomial bound. This proves both asymptotic and uniform-optimum concentration. Independent direct enumeration fixing one token color gave (value, count)=(2,3),(12,97),(30,17239) for q=1,2,3; a separate hub-completion sum matched the six listed counts, not a substitute for the asymptotic proof.",
+      "residual_risks": [
+        "Applies only to labelled, unweighted two-token friendship hosts with q≥1 and unordered cuts under color reversal",
+        "Finite check does not establish the infinite formula or asymptotic; those rely on the exact factorization and analytic bounds"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general token-graph method yields 2q(2q−1) on this triangle partition",
+          "Split-host, single-edge-deleted complete-host and cycle results have different host hypotheses, not a theorem on this windmill family"
+        ],
+        "reasoning": "The strongest broad result actually covers the scalar as a specialization. The available exact optimizer classifications impose host structures that do not give the general friendship degeneracy.",
+        "searches": [
+          "arXiv:2611.25153v1 Proposition 7 and Eqs. (9)–(10)",
+          "Resultary 9c686d18a910, a36ba5973cee and c46a125db54b"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary and published SCOPE mirror",
+        "arXiv:2611.25153v1",
+        "Bounded retrieval attempts for the two older DOI sources named above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substituting the explicit friendship triangle packing gives the scalar and forces every triangle of any maximum cut to be bichromatic",
+          "The separation into hub site weights and cross-petal completion matrices, and the normalizing 7^(q(q−1)/2) asymptotic, are not provided by those statements"
+        ],
+        "reasoning": "Credit the exact prior implication for the value and the trivial equality condition. Counting constrained assignments and showing suppression of every nonconstant hub pattern are necessary additional results.",
+        "searches": [
+          "arXiv:2611.25153v1 §3.2 Eq. (9), Proposition 7 and lift near Eq. (10)",
+          "Resultary split-graph and almost-complete host Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equality in the triangle cut bound is equivalent to a nonmonochromatic binary coloring of the lifted triples; one need not restrict to parity-lift colorings",
+          "The scalar criterion only tests for and exhibits saturation, whereas degeneracy counts all labelled saturated cuts"
+        ],
+        "reasoning": "The equivalent coloring problem shares the old saturation criterion; the reduction itself is not credited as a new scalar theorem. The count and concentration still require a completion argument.",
+        "searches": [
+          "Local Resultary: two-token maximum-cut degeneracy, friendship/windmill and optimizer structure",
+          "Alejandro-Soto et al., arXiv:2611.25153v1 §3.2",
+          "2012 Token graphs DOI 10.1007/s00373-011-1055-9; 2020 On the 2-token graph of a graph DOI 10.1016/j.akcej.2019.05.002"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "14822342468f is the same record; K_n−ab has, for example, 16 unordered optima at n=5, but that is a different host; the split-graph and cycle records give other formulas"
+        ],
+        "reasoning": "A lookalike exact count or host order is not a match; the independently checked small terms are verification and not originality evidence.",
+        "searches": [
+          "Local Resultary exact maximum-cut value and count records, 14822342468f, 9c686d18a910, a36ba5973cee, c46a125db54b"
+        ]
+      },
+      "rationale": "The scalar cut value and the underlying triangle-lift method are covered. Pass only the distinct optimizer multiplicity and concentration: exact local weights and all-q evaluation of the nonmonochromatic-coloring count, and dominant-state asymptotics. The most closely matched inspected records concern distinct hosts or the scalar value. The assigned record's own catalogue hit is not independent corroboration.",
+      "residual_risks": [
+        "Equivalent optimizer enumeration in older or differently indexed literature remains possible",
+        "Same-day dates give no intra-day ordering; the distinct same-day results inspected have materially different hosts"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Implies the exact scalar, not the enumerator",
+          "evidence": "When edge-disjoint triangles cover all edges and a cut is bichromatic on each, it crosses twice the triangle count; the token triangle lifts apply here",
+          "identifier_or_url": "https://arxiv.org/html/2611.25153v1",
+          "material_read": "§3.2 Eq. (9), Proposition 7, discussion to Eq. (10), OA offsets about 41000–46968",
+          "method": "Primary OA full-text passage",
+          "title": "Max-Cut on Token Graphs",
+          "trigger": "Strong generic equality method for the exact host family"
+        },
+        {
+          "assessment": "Different host",
+          "evidence": "For K_r joined with an independent set, n≥r gives the mixed-versus-pure unique optimum",
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-sharp-split-graph-threshold-and-uniqueness-for-two-token-maximum--9c686d18a910/RESULT.md",
+          "material_read": "Finding at mirror offset 0",
+          "method": "Local Resultary and mirror passage",
+          "title": "Sharp split-graph threshold and uniqueness for two-token maximum cuts",
+          "trigger": "Same-day optimizer classification"
+        },
+        {
+          "assessment": "Different host",
+          "evidence": "Classifies maxima of F₂(K_n−ab), including 16 unordered maxima at n=5",
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-single-edge-deletion-stability-of-maximum-cuts-in-two-token-comp--a36ba5973cee/RESULT.md",
+          "material_read": "Finding at mirror offset 0",
+          "method": "Local Resultary and mirror passage",
+          "title": "Single-edge-deletion stability of maximum cuts in two-token complete graphs",
+          "trigger": "Same-day exact degeneracy comparison"
+        },
+        {
+          "assessment": "Different host, no matching count",
+          "evidence": "Cycle decomposition and scalar F₂(C_n) cut values",
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-an-equal-length-cycle-decomposition-and-exact-maximum-cut-of-two--c46a125db54b/RESULT.md",
+          "material_read": "Finding at mirror offset 0",
+          "method": "Local Resultary and mirror passage",
+          "title": "An equal-length cycle decomposition and exact maximum cut of two-token cycle graphs",
+          "trigger": "Same-day exact token-graph value and edge decomposition"
+        },
+        {
+          "assessment": "Identical assigned record, not separate priority evidence",
+          "evidence": "Same q-triangle host and exact count",
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-exact-maximum-cut-degeneracy-in-two-token-friendship-graphs--14822342468f/RESULT.md",
+          "material_read": "Finding at mirror offset 66",
+          "method": "Local Resultary and mirror passage",
+          "title": "Exact maximum-cut degeneracy in two-token friendship graphs",
+          "trigger": "Identical title and formula"
+        },
+        {
+          "assessment": "Access limitation, not a noncoverage determination",
+          "evidence": "Springer redirects and ScienceDirect returned 403 in those attempts; older exact optimizer enumeration is not ruled out by this",
+          "identifier_or_url": "DOIs 10.1007/s00373-011-1055-9 and 10.1016/j.akcej.2019.05.002",
+          "material_read": "No decisive original full text retrieved; arXiv:2611.25153v1 §3.2 attributes the triangle lifts to the earlier work",
+          "method": "Bounded lawful retrieval attempts and comparison with inspected citing text",
+          "title": "Token graphs; On the 2-token graph of a graph",
+          "trigger": "Earlier token/double-vertex literature and historical attribution of triangle lifts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–12 and 17–50",
+        "arXiv:2611.25153v1 §3.2 for scalar-method context"
+      ],
+      "rationale": "A natural frustrated graph family already has an accessible scalar optimum; the labelled maximum-cut multiplicity measures an independent feature. The exact solution captures a large number of optimal cross-petal colorings together with strong concentration on a single unordered hub pattern, information not given by the cut value. This is an all-parameter ground-configuration benchmark, not a small-instance rerun.",
+      "residual_risks": [
+        "No general claim for weighted token graphs, arbitrary cactus hosts, or symmetry-orbit counts"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:35:28.642050Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions and scope, Proof; VERIFICATION.md, verify.py (inspected only), certificate.json",
+        "Independent replay: python3 /workspace/reproductions/boundaries.py, borda(); generate all permutations and test monotonicity, then enumerate 11 anonymous profile regimes through six alternatives, including three alternatives at both three and five voters"
+      ],
+      "rationale": "With an odd electorate, at least r+1 peaks lie on the median's side of each challenger; monotone within-side rankings make the median peak the unique Condorcet winner. If w<h, those with peaks at or right of h place the d−1 intervening alternatives strictly between h and w, imposing a Borda loss of at least d=h−w. The other at most r voters contribute at most m−1 in the reverse direction. Reflection handles w>h. A unique winner has strictly positive score margin over h for d>0, giving (r+1)d≤r(m−1)−1 by integrality; the bound is nonnegative even at m=2. In the construction a=1+floor((m−1)/(r+1)) lies in the agenda. The two ballots are single-peaked, their median peak is m−1, and all voters prefer a to y<a. For y>a the majority ballot gives y a score advantage of y−a and the minority ballot ranks y exactly y ranks below a; the aggregate gap in favor of a is (r+1)a−y>0. Thus the matching winner is unique, even when the two ballots coincide at small m. The loss of one unit in the integer numerator is necessary for uniqueness, and the maximum m−2 for m≥3 is first achieved when r≥m−1. The first disagreement counts follow by substitution.",
+      "residual_risks": [
+        "The frozen certificate records 13 finite exhaustive regimes (including six alternatives at three voters) and 1960 construction checks. The independent replay covers a different finite verification scope. Neither is the unrestricted proof. Ties, even electorates and metric policy distances are outside the claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1 assumes Euclidean rankings and feasibility of the entire line; p. 174 gives divergence on a restricted continuous interval. These complement the discrete counterexample explicitly given on p. 169.",
+          "The 2025 results give expected median winners and asymptotic agreement under a specified culture and an agreement-probability bound. The 2019 scoring-rule article could not be retrieved in OA full text."
+        ],
+        "reasoning": "Continuous spatial feasibility is not dominance over all finite agenda profiles, and distribution-specific agreement does not control the maximum discrepancy among realizable individual profiles. No applicability judgment on the inaccessible theorem is inferred from its title.",
+        "searches": [
+          "Feld–Grofman Theorem 1 and p. 174",
+          "Mousseau–Surugue–Wilczynski DOI 10.3233/FAIA251226 §3.2, Theorem 9, Corollary 10, Proposition 11",
+          "2019 Condorcet consistent scoring rules and single-peakedness, PII S0165176519301879"
+        ]
+      },
+      "checked_sources": [
+        "Feld–Grofman DOI 10.1007/BF00054452",
+        "Mousseau–Surugue–Wilczynski DOI 10.3233/FAIA251226",
+        "Resultary 6dcae398d15c and 0130077fb831",
+        "Klamler DOI 10.1007/s11238-005-5459-y, Black DOI 10.1086/256633 and PII S0165176519301879 (access unresolved)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Borda scores can be written as the sum of all individual top-k approval score vectors, but a bound on the unique winner of one approval election does not bound the winner of the sum; a sum-winner need not win any given summand.",
+          "The novel assertion requires both the uniform rank-loss inequality with a strict margin and attainment by a profile defeating all challengers, not merely the median."
+        ],
+        "reasoning": "Known disagreement, coincidence under full spatial feasibility, and individual scoring-rule maxima do not by specialization give the unique Borda sum-winner displacement and its all-parameter sharp witness.",
+        "searches": [
+          "Resultary 6dcae398d15c, RESULT.md finding",
+          "Feld–Grofman pp. 169–170 and 174; Mousseau et al. Theorem 9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Here odd strict single-peakedness makes the Condorcet winner identical to the median peak, so replacing one name with the other is equivalent only in that domain. Candidate-axis index steps are neither preference edits nor metric distances between ideal points.",
+          "Feld–Grofman's three xyz and two yzx ballots on x<y<z give x Condorcet and y Borda, exactly the m=3, five-voter witness in different labels."
+        ],
+        "reasoning": "Prior examples of this equivalent disagreement notion are already known, including a saturating instance. The passage does not give the maximal step count as a function of both finite parameters.",
+        "searches": [
+          "Feld–Grofman DOI 10.1007/BF00054452, p. 169, finite case and Theorem 1",
+          "Klamler DOI 10.1007/s11238-005-5459-y, distance to Condorcet consistency",
+          "Worst-case single-peaked Borda vs Condorcet or median peak on finite agenda"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "6dcae398d15c is a same-day exact displacement law for five voters and top-k approval, not the Borda rule. 0130077fb831 gives a three-alternative probability for unique plurality–Borda disagreement under a Walsh culture, first at four voters.",
+          "The known finite p. 169 Borda example covers the m=3, r=2 lower-bound witness only."
+        ],
+        "reasoning": "Neither catalogue result gives the exact worst-case Borda/median array or its onset at 2m−1. A random-culture comparison against plurality does not use the same median criterion, and a known witness is not an all-order table of maxima.",
+        "searches": [
+          "Two local Resultary comparisons for sharp finite single-peaked Borda displacement, median/Condorcet and odd-electorate thresholds",
+          "Resultary 6dcae398d15c and 0130077fb831; Feld–Grofman p. 169"
+        ]
+      },
+      "rationale": "The distinct claim is the exact maximum displacement on a finite candidate axis with a unique Borda winner for every m and every odd electorate 2r+1 with r≥1. Feld and Grofman explicitly exhibit finite ordinal single-peaked disagreement, indeed an attaining example for m=3, r=2; they then prove a different continuous-domain coincidence result. Neither they nor the closest checked catalogue or probabilistic results give the all-parameter sharp bound and threshold. This does not claim priority for disagreement or for the median-voter fact.",
+      "residual_risks": [
+        "Primary full texts for Black (background only), Klamler, and the 2019 scoring-rule lead were inaccessible in the bounded lookup. Their absence cannot establish priority. Older worst-case results under different language remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Finite disagreement and one attaining example covered; continuous coincidence theorem is different",
+          "evidence": [
+            "p. 169 explicitly states single-peakedness is insufficient in the finite case and supplies xyz three times and yzx twice on xyz.",
+            "Theorem 1 requires all points along the line to be feasible. p. 174 instead describes a restricted-interval example with ideals 0, 10, 15 and Borda/Condorcet divergence."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/BF00054452",
+          "material_read": "Journal pp. 169–170 and 174, author-hosted PDF offsets 5750–7525 and 14900–17632, plus located Theorem 1 proof",
+          "method": "OA author-hosted exact passages",
+          "title": "The Borda count in n-dimensional issue space",
+          "trigger": "Direct comparison of Borda and Condorcet under single-peakedness"
+        },
+        {
+          "assessment": "Expected or high-probability agreement rather than maximum displacement",
+          "evidence": [
+            "The culture framework leads to expected median outcomes and asymptotic agreement for Walsh's distribution."
+          ],
+          "identifier_or_url": "https://ac.tuwien.ac.at/comsoc2025/comsoc2025-papers/107.pdf",
+          "material_read": "p. 1 abstract, §3.2, Theorem 9 and Corollary 10 (p. 7), Proposition 11 (p. 8)",
+          "method": "OA PDF bounded passages",
+          "title": "Agreement Among Voting Rules Under Single-Peaked Preference Distributions",
+          "trigger": "Potential general finite or asymptotic voting-rule agreement"
+        },
+        {
+          "assessment": "Same-day analogue for another scoring rule and restricted electorate",
+          "evidence": [
+            "Its unique winner is selected by top-k approval with five voters."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-a-sharp-five-voter-displacement-law-for-top-k-approval-under-sin--6dcae398d15c",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A sharp five-voter displacement law for top-k approval under single-peaked preferences",
+          "trigger": "Nearest structural match for winner displacement from the median"
+        },
+        {
+          "assessment": "Probability for another comparator",
+          "evidence": [
+            "Accounts for unique plurality and Borda disagreement for three alternatives under Walsh culture; it is not a distance from the median peak."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-plurality-borda-disagreement-and-its-sharp-decay-under-thr--0130077fb831",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact plurality–Borda disagreement and its sharp decay",
+          "trigger": "An exact finite-agenda Borda disagreement comparison"
+        },
+        {
+          "assessment": "Exact implications unresolved",
+          "evidence": [
+            "Frozen record distinguishes profile/ranking modifications from candidate-index displacement; this attribution could not be checked in the primary text."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11238-005-5459-y",
+          "material_read": "Citation and frozen description only, no primary full text",
+          "method": "Lawful OA lookup; repeated redirect at Springer and repository recovery did not provide full text",
+          "title": "Borda and Condorcet: Some distance results",
+          "trigger": "Potential equivalent use of distance terminology"
+        },
+        {
+          "assessment": "Exact theorem applicability unresolved",
+          "evidence": [
+            "Indexed subject is scoring-rule consistency on single-peaked domains; no statement-level exclusion made."
+          ],
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/abs/pii/S0165176519301879",
+          "material_read": "Indexed lead only",
+          "method": "Primary literature search and OA attempt, HTTP 403",
+          "title": "Condorcet consistent scoring rules and single-peakedness",
+          "trigger": "Plausible broader scoring-rule consistency result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen finding and matching proof; Feld–Grofman pp. 169–170 and 174"
+      ],
+      "rationale": "The standard median outcome controls all pairwise majorities, but finite-agenda scoring can move the selected outcome along the axis. Existence examples give no scale for that movement. The bound and saturating profiles quantify the largest possible shift as a joint function of agenda and electorate size, distinguishing the unique-winner regime and giving a sharp threshold for near-end-to-end movement. This is meaningful finite-agenda information beyond a restatement of the median-voter theorem or Borda disagreement.",
+      "residual_risks": [
+        "Displacement is ordinal index displacement, not welfare loss or physical policy distance."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:46:58.135287Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–47",
+        "VERIFICATION.md and CHECK.py (inspected, not executed)",
+        "/workspace/reproductions/frozen_checks.py, shell_rank()"
+      ],
+      "rationale": "Put T=Σxᵢ and u=n−2k. The trivial components of the three homogeneous Walsh spaces restrict to 1,u,(u²−n)/2. The centered degree-one map is injective by coordinate swaps, and the centered degree-two partner restricts to u times the same function since Σaᵢ=0. For edge coefficients with zero row sums, the shell value is four times their sum over pairs contained in A. In the squared norm of this sum, ordered pairs of equal, adjacent and disjoint edges contribute respectively D, −2D, D, where D=Σ|cᵢⱼ|²: the adjacent sum follows by squaring each zero row sum, and the disjoint sum by squaring the zero total sum. The probabilities that each type is contained in A give the positive coefficient in the proof. This sector is orthogonal to constants and point-standard functions by its zero total and row sums. The unsigned incidence has rank n over C (aᵢ+aⱼ identically zero forces all aᵢ=0), so the remaining visible sector has dimension n(n−3)/2. Distinct geometric sequences with bases 1,e^(−2τ/n),e^(−4τ/n) have the stated Vandermonde ranks in every sector, including at m=1. The resulting generic, central and square cases give exactly the asserted nullities. Independent replay: python3 /workspace/reproductions/frozen_checks.py 4 gives 80 bounded rank witnesses at heat step multiplier 1/3, including full stacked matrices at n=9,k=3 and 6. Modular pivots give lower bounds at this rational specialization, and the analytic argument supplies the upper bounds and all other heat steps. The frozen CHECK.py's last three assertions merely check a₀∈{2,3}; they do not independently verify square-resonant ranks.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The static proof gives injectivity of B₂ and separates its constant, point-standard and zero-row-sum blocks. Its constant eigenvalue calculation explicitly lists the three degree-specific mean factors.",
+          "Finite-index dynamical sampling gives the eigenspace-spanning criterion, and graph Paley–Wiener dynamical sampling uses the corresponding finite-graph framework.",
+          "The q-ary all-degree record is static with q≥3, not the binary time-dependent result."
+        ],
+        "reasoning": "The abstract frame criterion alone is only a qualitative test. Combining known Hamming-shell blocks and the diagonal heat factors resolves not only eventual uniqueness but the full rank at each m by the standard finite Vandermonde determinant.",
+        "searches": [
+          "Resultary 7e1319aedf95, Proof §§2–3",
+          "Cabrelli et al., arXiv:1702.03384 Theorem 4.1",
+          "Bulai et al., arXiv:2609.25472 §4.2",
+          "Resultary f3d01cadaa90, q-ary static sampling"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 7e1319aedf95, e1322080df54, 2f3d3e9f24ff, f3d01cadaa90",
+        "Rao arXiv:2111.03213",
+        "Cabrelli et al. arXiv:1702.03384",
+        "Bulai et al. arXiv:2609.25472"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For B₂, the prior proof gives point arrays cᵢⱼ=aᵢ+aⱼ and the zero-row-sum subspace, latter with positive eigenvalue binom(n−4,k−2) for B₂ᵀB₂. The mean of each Walsh character by degree is 1, u/n or (u²−n)/(n(n−1)), before squaring.",
+          "For cᵢⱼ=aᵢ+aⱼ with Σaᵢ=0, the row sums are (n−2)aᵢ and B₂c=(k−1)Σaᵢbᵢ; the degree-two restriction is [4(k−1)−2(n−2)]Σaᵢbᵢ=−2uΣaᵢbᵢ. The degree-one map is −2Σaᵢbᵢ. For a zero-row-sum array, the Walsh restriction is 4B₂c."
+        ],
+        "reasoning": "The prior known spatial decomposition therefore has exactly a₀ active trivial copies, a₁ active standard copies with the very same spatial image, and one active quadratic copy. Tensoring each with its degree-specific geometric time vector gives min(m,a₀), (n−1)min(m,a₁) and n(n−3)/2 immediately. The central and off-central infinite-time losses are the resulting vanishing component coefficients, with no further shell-rank or observability obstacle.",
+        "searches": [
+          "Resultary 7e1319aedf95 RESULT.md §§2–3, mirror offset 3200",
+          "arXiv:1702.03384 Theorem 4.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "On the k-slice, set bᵢ=1_{i∈A}, so xᵢ=1−2bᵢ and xᵢxⱼ=1−2(bᵢ+bⱼ)+4bᵢbⱼ. Restriction in the low Walsh basis is exactly the degree-0, 1, 2 incidence combination.",
+          "The prior single-shell static analysis works with these same incidence columns and separates constants, point-standard functions and the quadratic orthogonal sector."
+        ],
+        "reasoning": "The time problem is a stack of the same spatial maps multiplied by degree-dependent geometric factors. Rao supplies related general slice Fourier machinery; the explicit incidence decomposition in the October 11 record is the stronger direct route.",
+        "searches": [
+          "Resultary: quadratic-band Walsh Hamming-shell concentration, exact heat sampling ranks",
+          "Rao, arXiv:2111.03213 Theorem 1.1 and Johnson basis"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier record 7e1319aedf95 gives the same one-snapshot rank and complete static spatial decomposition. Its named positive spectral collision has n=r²+1 and |u|=r±1, not u²=n.",
+          "Same-day results e1322080df54 (coordinate-face heat ranks) and 2f3d3e9f24ff (static weighted pair of shells) are closely related but change the observation set or omit time."
+        ],
+        "reasoning": "No separate exact published time-rank table for this shell was identified in this bounded comparison. The identical one-snapshot value is known, the two same-day records are not used to assert priority, and the decisive evidence is the direct implication from earlier formulas.",
+        "searches": [
+          "Resultary: square-dimension Walsh shell spectrum and heat-sampling ranks"
+        ]
+      },
+      "rationale": "The full formula is a direct consequence of the degree-resolved shell incidence blocks already supplied by the 2026-10-11 quadratic-band static analysis and the standard time Vandermonde. The earlier static paper does not print the temporal formula or claim its own positive-eigenvalue collision at u²=n; those are different statements. The failure is because the frozen finite-time characterization is mechanically implied by the prior spatial blocks, not because the two named resonances are identical.",
+      "residual_risks": [
+        "The sources inspected do not establish that the explicit formula was previously printed. The decision is the demonstrated direct implication, not a claim about first publication of that wording."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive spatial inputs; previous static collision differs from persistent temporal obstruction",
+          "evidence": "Full rank of B₂, dimensions and orthogonality of the three sectors, the three degree-specific radial means, and B₂ᵀB₂ on point arrays and zero-row-sum arrays.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-square-dimension-spectral-resonances-for-quadratic-band-walsh-co--7e1319aedf95/RESULT.md",
+          "material_read": "Finding; Proof §§2–4, mirror offset 3200–7578",
+          "method": "Resultary lookup and local full-text mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Square-dimension spectral resonances for quadratic-band Walsh concentration on Hamming shells",
+          "trigger": "Earlier full static spectrum of the same Walsh band and same single interior shell"
+        },
+        {
+          "assessment": "Relevant static restriction identities, not an explicit time-rank statement",
+          "evidence": "Relates slice Fourier coefficients to coordinate restrictions and uses the Johnson graph eigenspaces.",
+          "identifier_or_url": "https://arxiv.org/abs/2111.03213",
+          "material_read": "Theorem 1.1 PDF p. 2 offset 6354; p. 3 offset 12924",
+          "method": "Lawful OA PDF passages",
+          "title": "The Fourier Transform of Restrictions of Functions on the Slice",
+          "trigger": "Fourier restriction from the cube to a single slice"
+        },
+        {
+          "assessment": "Standard temporal framework; does not compute the shell restriction blocks",
+          "evidence": "Abstract condition via spanning the sampled projections in each eigenspace.",
+          "identifier_or_url": "https://arxiv.org/abs/1702.03384",
+          "material_read": "Theorem 4.1, PDF p. 18, offset 63265",
+          "method": "Lawful OA full-text passage",
+          "title": "Dynamical Sampling on Finite Index Sets",
+          "trigger": "Rank/injectivity of observations stacked in time over a finite set"
+        },
+        {
+          "assessment": "General graph framework, not an explicit shell formula",
+          "evidence": "Restricts graph dynamics to a spectral band and samples finitely many graph vertices.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.25472",
+          "material_read": "§4.2, PDF pp. 21–22, offset 65739",
+          "method": "Lawful OA full-text passage",
+          "title": "Dynamical Sampling in Graph Paley–Wiener Spaces",
+          "trigger": "Graph-bandlimited spectral spaces and evolved vertex samples"
+        },
+        {
+          "assessment": "Distinct scopes, not the decisive overlap",
+          "evidence": "The first samples coordinate faces, the second samples weighted pairs statically, and the third treats static q≥3 sampling.",
+          "identifier_or_url": "Resultary e1322080df54, 2f3d3e9f24ff, f3d01cadaa90",
+          "material_read": "Each RESULT.md Finding at mirror offset 0",
+          "method": "Resultary lookup and local mirror",
+          "title": "Exact heat sampling ranks of Boolean cube faces; Exact quadratic Walsh sampling spectra on arbitrary weighted pairs of shells; An all-degree spectral law for Fourier sampling on q-ary Hamming spheres",
+          "trigger": "Closely related time-dependent or shell-sampling catalogue results"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–47 and Limitations",
+        "Resultary 7e1319aedf95 Proof §§2–3",
+        "arXiv:1702.03384 Theorem 4.1"
+      ],
+      "rationale": "Heat recovery on a symmetric sampling set is well motivated and the formula is useful as a worked example. Here the radial zeros, invisible dimensions and time thresholds are the immediate rank bookkeeping of known shell incidence sectors with three Vandermonde columns. No independently new invariant, sharper stability bound or additional obstruction survives that implication.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

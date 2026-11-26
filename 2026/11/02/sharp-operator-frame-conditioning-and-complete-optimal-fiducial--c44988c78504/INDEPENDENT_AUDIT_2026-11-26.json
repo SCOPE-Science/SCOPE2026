@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:44:56.590949Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently decomposed the real Hermitian frame by the four sign characters. Write Q=sum |v_i|^4 and U=(a conjugate(b))^2+(b conjugate(c))^2+(c conjugate(a))^2. The diagonal block is a circulant with diagonal 4Q and off-diagonal 2(1-Q), hence eigenvalues 4, 6Q−2, 6Q−2. Each oriented off-diagonal coordinate pair has a real two-by-two block equal to eight times the sum of the three real-imaginary outer products of a conjugate(b), b conjugate(c), c conjugate(a); the two eigenvalues are 2(1−Q) ± 4|U| in each of the three blocks. The trace is twelve and the scalar eigenvalue is four. Thus lower-frame equality or singular-value condition-number equality forces all eight other eigenvalues to be one, equivalent to Q=1/2 and U=0, also for zero coordinates. At the given seed the squared moduli are 2/3,1/6,1/6 and the real part of the square of either small coordinate is −1/48, giving U=0. Pairing the second moment against X tensor Y verifies the equivalence to S(X)=X+tr(X)I. The sum of all intensities is 4tr(X), giving the 1/16 correction. The only divisor of twelve compatible with spanning nine Hermitian dimensions is twelve; real seeds miss all imaginary-skew directions. Inspected check_a4.py and VERIFICATION.md; the recorded symbolic run was not rerun. The proof above is not limited to the script's seeds.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Invariant harmonics give an orbit-design criterion; the tetrahedral example inspected is the order-24 binary group on C^2, not this order-12 representation on C^3.",
+          "General tight-IC theory provides optimality of tight designs without classifying seeds in this orbit."
+        ],
+        "reasoning": "The general criteria reduce the task to identifying the specific invariant equations and solving attainment; they do not themselves supply the representation-specific equations or a seed.",
+        "searches": [
+          "arXiv:2308.02499, Lemma 2.1, Theorem 2.2 and Examples 7.1–7.2",
+          "arXiv:quant-ph/0604049, Proposition 13"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, proof lines 45–100",
+        "Scott quant-ph/0604049",
+        "Mohammadpour–Waldron 2308.02499",
+        "Resultary 2d2182bbdfea"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The scalar trace bound follows universally for this first moment; tightness yields the standard inversion. The quartic equations require the particular sign and cyclic modules and attainment is not supplied by those prior theorems.",
+          "The later catalogue spectrum implies the frozen sharp bound and the full equality locus, with no new numerical distinction."
+        ],
+        "reasoning": "Credit the generic bounds and inversion and acknowledge exact later equivalence; no inspected earlier statement already evaluates the core fixed-representation classification.",
+        "searches": [
+          "Scott arXiv:quant-ph/0604049, Proposition 13",
+          "Mohammadpour–Waldron arXiv:2308.02499, Eq. (2.9) and Example 7.1",
+          "Resultary entry 2d2182bbdfea"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Scott equates rank-one tight IC measurements and projective 2-designs. The normalized first moment here makes P_g/4 a POVM.",
+          "Resultary 2026/11/16 record 2d2182bbdfea uses the same representation and equivalent invariants D=Q and C_v=U."
+        ],
+        "reasoning": "The design, operator tightness and condition number express the same equality in this orbit. Credit existing general equivalence, not a novel proof of it.",
+        "searches": [
+          "Scott, arXiv:quant-ph/0604049, Proposition 13 and Eq. (61)",
+          "Resultary search: signed-cycle tetrahedral qutrit tomography / complex projective 2-design"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "That distinct entry states the frame spectrum and least-eigenvalue equality iff D=1/2, C_v=0 in the same order-12 action, together with projective-design attainment and reconstruction."
+        ],
+        "reasoning": "This is exact mathematical overlap, not merely shared terminology. Its catalogue date is later; the comparison does not establish when its mathematics was first obtained or establish historical priority.",
+        "searches": [
+          "Resultary: 2026/11/16/SCOPE-sharp-tomography-spectrum-and-a-twelve-point-projective-2-design--2d2182bbdfea, mirrored RESULT.md at 36a7204b5741b75430355c38bf9bf0ef7468c2a4"
+        ]
+      },
+      "rationale": "The general tight-measurement/design equivalence, trace obstruction, and canonical inversion are antecedents. The supported distinct claim as of the frozen record is the completed fixed-representation quartic classification with exact attainment by this signed-cycle tetrahedral qutrit orbit. A later-dated catalogue entry gives exact equivalent coverage of the core and a full spectrum; no inspected evidence places it before the frozen claim. This is not exclusive or absolute priority.",
+      "residual_risks": [
+        "Other group-covariant qutrit constructions may contain the same representation or equations in an unrecognized basis.",
+        "The dates of the catalogue entries do not settle provenance outside the indexed records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General implication, not the specific orbit classification",
+          "evidence": [
+            "Rank-one tight IC iff projective 2-design under the outcome distribution."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/quant-ph/0604049",
+          "material_read": "Proposition 13, Eq. (61), arXiv PDF p. 10, text offset about 51600",
+          "method": "OA PDF passage and mathematical comparison",
+          "title": "Tight informationally complete quantum measurements",
+          "trigger": "Exact equivalent tight-frame formulation"
+        },
+        {
+          "assessment": "Different tetrahedral representation and unevaluated general criterion for the present action",
+          "evidence": [
+            "The invariant harmonics must vanish at a fiducial; the concrete binary tetrahedral example acts on C^2, and the invariants depend on the representation."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2308.02499",
+          "material_read": "Lemma 2.1 Eq. (2.9) and Theorem 2.2, pp. 5–6, plus Examples 7.1–7.2, p. 17",
+          "method": "OA PDF bounded passages",
+          "title": "Complex spherical designs from group orbits",
+          "trigger": "Potentially covering tetrahedral orbit-design criterion"
+        },
+        {
+          "assessment": "Exact equivalent coverage of the core in a later-dated entry, not evidence of earlier priority",
+          "evidence": [
+            "Same signed-diagonal and cyclic generators, D=Q, C_v=U, same eigenvalue optimum and equality locus."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-sharp-tomography-spectrum-and-a-twelve-point-projective-2-design--2d2182bbdfea",
+          "material_read": "Mirrored RESULT.md, statement of the full spectrum and sharp equality",
+          "method": "Local Resultary search and mirror read",
+          "title": "Sharp tomography spectrum and a twelve-point projective 2-design",
+          "trigger": "Strongest indexed match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The complete equality test and explicit attainable qutrit seed give an exact example of covariant informationally complete tomography over a natural nonabelian orbit rather than another generic frame inequality. The example differs from four mutually unbiased bases: the signed element fixing the hub coordinate and negating the others gives squared overlap 1/9. This is useful as a non-MUB benchmark; no statistical or phase-retrieval gain is inferred.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

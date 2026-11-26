@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of exact Folkman matching-spectrum calculation
+# Independent mathematical audit
 
-The binary edge-coordinate model is the subdivided double of \(K_5\), with a BFS spanning tree of 19 edges and 21 chords. The C++17 verifier generates its 40 edges from the explicit construction, checks every vertex has degree four, enumerates all perfect matchings by two distinct procedures (direct right-vertex backtracking and regular-tournament clone assignments), and compares the full reduced \(2^{21}\) incidence arrays. Each procedure returns 768 distinct matching patterns. Integer Walsh--Hadamard transformation returns 1,262,164 zero and 834,988 nonzero reduced Fourier multipliers, with 18 signed levels and least positive modulus 32. A second integer transform recovers the original data exactly. Transforming the nonzero-character indicator gives endpoint norm \(56,520,123/262,144\). Result token: `FOLKMAN_WALSH_PASS`.
+## correctness
 
-The independent Python verifier constructs the same graph through a distinct source representation, independently enumerates regular orientations and assignments, performs its own integer Walsh transform, checks every signed-level count, verifies Parseval's identity and 14 direct signed-frequency sums, and reproduces the endpoint norm. Result token: `INDEPENDENT_FOLKMAN_WALSH_PASS`. It requires Python 3 with NumPy; C++17 alone reproduces the full spectrum without third-party dependencies.
+PASS
 
-These computations are **exhaustive for a proved complete finite search space**; the gauge-reduction and matching bijection, not mere tested examples, justify extension from the 21-dimensional calculation to all 40-edge characters. The general translation-average proof supplies optimality of the orthogonal Fourier range projection. No independent mathematical audit or external certification has been performed.
+Each matching sends a base edge to the endpoint whose clone is matched, giving two incoming edges per vertex; within that orientation the two clone assignments at each of five vertices contribute a signed sum in {−2,0,2}, proving 32-divisibility. A vertex star flip gives a common minus sign, and the connected graph's star group has rank 19; fixing a spanning tree to positive signs covers every coset. Independent exact int64 replay python3 /workspace/review_checks/4.py (NumPy) uses clone-choice recursion instead of tournament assignments and a bit-tensor transform on both a different spanning tree and the specified BFS tree. It finds 768 matchings, reproduces the full reduced signed histogram in the BFS gauge and finds 1262164 zeros, 834988 nonzeros, least nonzero modulus 32 and maximum 768. The two gauges give common support-transform absolute sum 452160984. The full rank/nullity are these reduced counts times 2^19; there is no normalization factor in the convolution eigenvalues. The inverse transform of the support indicator vanishes off the orthogonal complement of the star group and its kernel ℓ¹ norm is 452160984/2^21. A convolution matrix's column and row absolute sums both equal this norm. Translation averaging of any projection onto the invariant range is again a projection onto that range (each conjugate is the identity there), cannot increase either norm, and gives the unique translation-invariant projection. The same argument holds over the reals since these characters are real. This establishes endpoint optimality, not just the norm of a selected projector.
+
+## originality
+
+PASS
+
+Pass the Folkman-specific signed edge-incidence spectrum, divisibility/gap and exact optimal endpoint constant. The unsigned count 768 is positively identified in prior work and already credited by the original; the graph construction, Fourier diagonalization and averaging method are not novel. Other signed-matching computations show substantive methodological overlap, not the same spectral or projection result.
+
+## value
+
+PASS
+
+The Folkman graph is a natural small semisymmetric test case and its doubled construction gives a local reason for strong Fourier divisibility. The rank and spectral floor quantify recoverable modes and ℓ² stability in the exact signed matching model, whereas the much larger sharp endpoint projection norm distinguishes a different functional-analytic cost. Even in a finite example that exact constant answers a natural optimization over all projections and cannot be recovered from matching-polynomial data or generic orbit averaging. This is a graph-specific result rather than novelty for the general Fourier method.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

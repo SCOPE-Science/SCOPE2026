@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:41:43.674897Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof Steps 1–4",
+        "Frozen VERIFICATION.md and proof_check.py, inspected statically"
+      ],
+      "rationale": "For positive temperatures, 0<u<1 and independent full Poisson resets with centered marks of covariance mI, conditioning on the last reset gives the stationary OU mixture. The shifted Lyapunov equation has a unique solution and diagonal difference 2(T_y−T_x)/(r+2). The conditional future mean e^{−(A+rI)τ}Z_t gives C_r(τ)=C_r e^{−(A+rI)τ} (A symmetric); negative lags transpose. In the high-rate limit the age and noise go to zero in probability and g is bounded and continuous at the mark almost surely since R>0. Put W=R² and f=E[cos(2Θ)|W]. The exact attainable set of f is |f|≤1 with E[Wf]=0: conditional antipodal axis masses implement every such f and give zero cross moment and zero mean. The qualifier E[Wf]=0 is implicit from the preceding constraint and is needed in the implementation paragraph. For an explicit optimizer, use a median b>0 of the probability law with weight W/EW and let f be +1 below b, −1 above b, balancing its value at b. Then E[Wf]=0 and E[f]=E|1−W/b|. The upper bound E[f]≤E|1−aW| for every a≥0, followed by sign flip and scaling, proves the entire closed interval, including atoms and single-radius laws. At the two specified radii, the weighted masses are both 9/10; the dual objective is 4/5 on [1/9,1]. For r=5000 the norm drift/noise bound is at most 9/10000+sqrt(12/5000), giving error strictly below 509/1250 in E[g] and opposite angular velocities beyond ±491/2500, while L=2/5002 for both. The zero-reset Gaussian integral is strictly positive because the diagonal difference is T_y−T_x>0. Writing Ω(r) as r times the Laplace transform of the bounded fixed-age angular expectation also gives real analyticity for r>0; opposite signs therefore entail a strict crossing, not a zero plateau. The observable is the specified continuous-flight forward mean, not winding or jump rotation.",
+      "residual_risks": [
+        "The support script checks symbolic and two-radius identities, not the general extremum or the renewal proof. No uploaded code was executed.",
+        "The finite-rate result certifies two signs only; sharpness concerns limiting velocities, not a uniform finite-rate envelope."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Olsen's abstract gives general linear dependence of polynomial stationary moments on reset moments, with explicit harmonic one-coordinate examples.",
+          "Majumdar et al. average fixed-point laws over uniformly chosen angles at one radius (Eq. 51); Eq. 62 gives the matching angular momentum formula."
+        ],
+        "reasoning": "Mixing fixed-point laws and departing from a fixed direction are existing ideas. Neither statement optimizes the nonlinear angular statistic over radius-dependent orientations under E[Wf]=0.",
+        "searches": [
+          "arXiv:2310.04840v1",
+          "arXiv:2611.06322v1, §4",
+          "Resultary: gyrator resetting/angular velocity"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.06322v1",
+        "arXiv:2310.04840v1",
+        "Resultary ffa5a1f89e59 (self-match)",
+        "Resultary 31be0d301f69"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior renewal and angular identities imply that integrating over reset marks yields angular expectations, and low-moment closure explains the covariance match.",
+          "Fig. 10 compares fixed points (1,0) and (0,1); the reversal there need not preserve positive angular momentum or match the two-time covariance."
+        ],
+        "reasoning": "Those facts leave the weighted isotropy constraint and its sharp range unresolved. The optimized envelope and the finite-rate matched example are not stated outcomes of those calculations.",
+        "searches": [
+          "arXiv:2611.06322v1, §§3.7–3.8 and 4.4, Eqs. (44), (49) and (62)",
+          "arXiv:2310.04840v1, abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The fixed-point paper uses the identical forward normalized angular observable and shows an orientation-dependent sign reversal for two same-radius fixed points.",
+          "Those nonzero deterministic marks are not centered and do not have a common isotropic second moment."
+        ],
+        "reasoning": "Matching the angular statistic and radius does not match the moment constraints; the exact one-moment constrained extremum is the distinct formulation. Weighted-median duality itself is standard.",
+        "searches": [
+          "Resultary: radial-law envelope; fixed-radius extremization; covariance-matched opposite signs; gyrator resetting/angular velocity",
+          "arXiv:2611.06322v1, Eqs. (44), (48)–(49), Fig. 10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact catalogue hit ffa5a1f89e59 is the assigned result itself.",
+          "Distinct hit 31be0d301f69 concerns uniform-angle resetting on a single circle and weak-coupling susceptibility, with u→0 taken first."
+        ],
+        "reasoning": "The susceptibility study does not fix an arbitrary radial law and vary the conditional angle or compare two matched laws. This comparison does not infer priority from the shared catalogue date.",
+        "searches": [
+          "Resultary: radial-law envelope; fixed-radius extremization; covariance-matched opposite signs; gyrator resetting/angular velocity"
+        ]
+      },
+      "rationale": "Credit the prior forward angular formula, ordinary moment closure, and fixed-point orientation-dependent reversal. The supported distinct result is the sharp constrained range at an arbitrary prescribed radial law, with a covariance-matched pair that has opposite signs at one finite rate while both angular momenta stay positive. The covariance formula itself follows routinely from the linear renewal model and is not the independent novelty claim.",
+      "residual_risks": [
+        "Priority is best-of-knowledge, not settled by the catalogue date or the bounded source search.",
+        "Related distributed-reset literature beyond the inspected primary material may contain an equivalent one-moment angular optimization; no exhaustive priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers definitions, formulas, and a non-matched fixed-point reversal; not the constrained envelope",
+          "evidence": "Eqs. (44), (48)–(49), (51), (62); Fig. 10 discussion gives reversal for (1,0) but not (0,1).",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.06322",
+          "material_read": "PDF pp. 21–25 and Eq. (62), p. 33; §§3.7–3.8 and circular resetting",
+          "method": "Bounded primary OA PDF text and displayed formulas",
+          "title": "Brownian gyrator model with stochastic resetting",
+          "trigger": "Same physical model, observable and orientation-dependent reversal"
+        },
+        {
+          "assessment": "Inspected result supports moment closure, not a comparison of all full-text claims",
+          "evidence": "Abstract gives polynomial moments as linear combinations of reset-law moments; the angular ratio is not such a moment.",
+          "identifier_or_url": "https://arxiv.org/pdf/2310.04840",
+          "material_read": "Abstract and beginning of introduction, p. 1",
+          "method": "Bounded primary OA PDF read",
+          "title": "Steady-state moments under resetting to a distribution",
+          "trigger": "Possibly broader distribution-reset moment result"
+        },
+        {
+          "assessment": "Different optimization target and order of limits",
+          "evidence": "Uniform angle at one fixed radius; takes the weak-coupling derivative before the high-reset limit.",
+          "identifier_or_url": "2026/11/22/SCOPE-beyond-all-orders-angular-velocity-susceptibility-under-circular--31be0d301f69",
+          "material_read": "RESULT.md, statement and limit regime",
+          "method": "Configured local catalogue mirror",
+          "title": "Beyond-all-orders angular-velocity susceptibility under circular resetting",
+          "trigger": "Closest distinct Resultary record in the same model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof Steps 2–4",
+        "arXiv:2611.06322v1, §§3.7–3.8"
+      ],
+      "rationale": "The nonlinear angular observable can reverse sign even when all position covariance functions and the reset radial law agree, and even when angular momentum remains positive. The exact extremum identifies how radial heterogeneity and angular allocation produce this identifiability failure, rather than merely giving another example of unequal higher moments.",
+      "residual_risks": [
+        "A mathematical benchmark for instantaneous full resetting and a specific forward observable, not an experimental or winding-number result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

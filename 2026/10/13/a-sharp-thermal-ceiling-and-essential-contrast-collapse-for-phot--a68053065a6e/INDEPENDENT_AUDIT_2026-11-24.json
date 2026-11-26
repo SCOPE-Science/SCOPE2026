@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:03:01.460982Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the proof in RESULT.md lines 39–110. The normalized negative-binomial law yields G; single and double silence probabilities u=G(1−h), v=G(1−2h) give the correctly normalized Q_B=(N−1)(v−u²)/[u(1−u)], with positive denominator. Log(v/u²)=B−m(A−B). B is strictly increasing in β, with B(0)=0 and B(β*)=A, so the strict integer threshold and equality rules follow (at β=β* all finite orders have positive Q_B). Inverting via βh/(1+βh) gives β_m. The derivative ratio (∂_h B)/A' decreases strictly at fixed positive β, so its A'-weighted mean B/A decreases and each β_m increases in h. Taylor expansion uniformly for the bounded cutoff near h=0 gives √[m/(m+1)]; expanding 1−√(1−e^{−mA/(m+1)}) near h=1/2 gives the stated coefficient. At ideal h=1/2, v=G(0)=0 so the witness is strictly negative for every finite β and m≥1. For fixed h<1/2 and β below ceiling, u=wλ^m. Negative contrast is positive for some order and tends to zero at large m, ensuring a finite maximum. With Δ=A−B and t=B/Δ, the upper bound (N−1)wλ^t/h follows from u≤1−h; the lower bound at m=floor(t)+2 is (N−1)wλ^{t+2}(1−e^{−Δ}). The printed upper estimate at line 90 is only finite as written for β>0, because w=1 and t=0 for β=0; the uniform estimate above avoids that removable proof-line issue and the asserted theorem is unaffected. Differentiating B gives c_h=2h²(1−2h)/(1−h), so for ε=β*−β, εt→A/c_h and λ→1−2h; ε log(1−e^{−Δ})→0. The two bounds give the stated exponent. Read VERIFICATION.md and artifacts/verify.py without running the uploaded script. Its finite candidate window is corroboration, not a proof of global optimality; that comes from the analytic bounds.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Barnett et al. give the all-m negative-binomial counting law.",
+          "Lee et al. extend click nonclassicality tests to unbalanced layouts.",
+          "Gebhart–Bohmann study click-based finite-sample recognition and a moment comparison for photon-added thermal examples."
+        ],
+        "reasoning": "Generality in layouts or in photon counts does not supply an optimum over all m or the logarithmic asymptotic of this particular balanced population statistic. A qualitative detection difficulty at increasing mean is not the fixed-h exponent in the seed mean.",
+        "searches": [
+          "arXiv:1806.09475 p. 9 Eq. (60)",
+          "arXiv:1606.04826 p. 1 Eq. (2)",
+          "arXiv:2003.01605 §IVA and Fig. 4 discussion"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local catalogue and record 7658ad27e27c",
+        "Sperling–Vogel–Agarwal arXiv:1205.4669",
+        "Barnett et al. arXiv:1806.09475",
+        "Lee et al. arXiv:1606.04826",
+        "Gebhart–Bohmann arXiv:2003.01605"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substitution of the established ingredients does yield v/u² and hence the sign inequality; routine inversion gives the ceiling and order cutoffs.",
+          "The optimized asymptotic additionally needs uniform-in-m control and an integer-order lower bound near a diverging threshold."
+        ],
+        "reasoning": "The inspected formulas are acknowledged prior coverage of the starting expression, not prior coverage of the optimized logarithmic limit. Even the sign criterion alone gives no lower bound on the witness magnitude.",
+        "searches": [
+          "arXiv:1205.4669 Eq. (8) and arXiv:1806.09475 Eq. (60) jointly",
+          "arXiv:2003.01605 §IVA",
+          "Resultary SCOPE 7658ad27e27c Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sperling–Vogel–Agarwal derive the same click witness and specialize to a single added photon.",
+          "Resultary SCOPE 7658ad27e27c compares integrated Wigner-negative volume for one versus two additions after a thermal attenuator."
+        ],
+        "reasoning": "The no-click covariance formulation is equivalent to the witness itself; a Wigner-negative volume after attenuation is not equivalent to a second-order click covariance or to an integer-order optimum over all m.",
+        "searches": [
+          "Resultary: photon-added thermal click witness, all-order ceiling and optimized contrast",
+          "Focused literature search on the all-addition-order ceiling and optimal negative click contrast",
+          "arXiv:1205.4669 Eqs. (8), (20)–(22)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest catalogue hit reports a different witness and order comparison; the primary figure addresses finite sample recognition in particular examples."
+        ],
+        "reasoning": "No identified exact-value table is natural for this continuous ceiling asymptotic. Finite figures or example distributions cannot establish the supremum or its exponent.",
+        "searches": [
+          "Resultary search on the all-order balanced-click ceiling and contrast",
+          "Gebhart–Bohmann arXiv:2003.01605 §IVA Fig. 4 discussion"
+        ]
+      },
+      "rationale": "The established counting law and click moment identity directly give the sign expression, and the ceiling/cutoff algebra starts from those known ingredients. Credit the distinct claim for the integer-order optimized population contrast and its sharp essential exponent, with a complete strict ceiling classification, not for the witness or photon-counting law themselves.",
+      "residual_risks": [
+        "An all-order optimization may exist in other quantum-optics literature or under equivalent detector parametrizations not covered by the targeted searches. No priority beyond the inspected evidence is certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers the witness formula and a fixed-order example, not the optimized exponent.",
+          "evidence": "No-click covariance form and single-photon-added thermal calculation.",
+          "identifier_or_url": "https://arxiv.org/pdf/1205.4669",
+          "material_read": "p. 2 Eq. (8), offset 15300; p. 4 Eqs. (20)–(22), offset 22300",
+          "method": "OA PDF text passages",
+          "title": "Sub-binomial light",
+          "trigger": "Same second-order witness and same input at m=1"
+        },
+        {
+          "assessment": "Supplies the general input count law; not an optimization over click contrast.",
+          "evidence": "Photon-added thermal statistics are negative binomial in the excess count.",
+          "identifier_or_url": "https://arxiv.org/pdf/1806.09475",
+          "material_read": "p. 9 Eq. (60), offset 64400",
+          "method": "OA PDF text passage",
+          "title": "Statistics of photon-subtracted and photon-added states",
+          "trigger": "All-order law for the same state family"
+        },
+        {
+          "assessment": "Witness definition and unbalanced-layout motivation do not dominate the balanced all-order asymptotic.",
+          "evidence": "Defines Q_B and considers the problem of unequal multiplexing.",
+          "identifier_or_url": "https://arxiv.org/pdf/1606.04826",
+          "material_read": "p. 1 Eq. (2), offset 1300",
+          "method": "OA PDF text passage",
+          "title": "Sub-Poisson-Binomial Light",
+          "trigger": "Broader multiplexed witness setup"
+        },
+        {
+          "assessment": "Qualitative finite-sample similarity is not a fixed-h population Q_B threshold or its exponent.",
+          "evidence": "The network recognizes mostly inputs close to one- and two-photon-added vacuum; larger means are difficult to distinguish from thermal data. The passage compares sampled click distributions and moments.",
+          "identifier_or_url": "https://arxiv.org/pdf/2003.01605",
+          "material_read": "§IVA and Fig. 4 discussion, text offset 23970",
+          "method": "OA arXiv PDF alternate for DOI 10.1103/PhysRevResearch.2.023150",
+          "title": "Neural-network approach for identifying nonclassicality from click-counting data",
+          "trigger": "Click statistics and distinguishability of several photon-added thermal inputs"
+        },
+        {
+          "assessment": "Different witness, noise model and order comparison; no priority inference from the catalogue date.",
+          "evidence": "Unique crossover for integrated Wigner-negative volume comparing one and two additions after thermal attenuation.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-a-universal-one-to-two-photon-addition-crossover-in-thermally-at--7658ad27e27c/RESULT.md",
+          "material_read": "RESULT.md Finding",
+          "method": "Local catalogue mirror",
+          "title": "A universal one-to-two photon-addition crossover in thermally attenuated light",
+          "trigger": "Closest catalogue thermal photon-addition crossover"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a standard detector witness the natural question is not only whether any amount of photon addition works, but whether the best possible population contrast remains appreciable near the cutoff. The optimized exponent shows it collapses faster than any power, even after choosing the order; mere negativity or a fixed-order formula would miss this obstruction. This is not a statement about experimental sample complexity, alternative statistics, or classicality of the state.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

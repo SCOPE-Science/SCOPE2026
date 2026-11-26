@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:30:42.278540Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof lines 3–50",
+        "Frozen VERIFICATION.md, atomic-tail estimate and diffuse lower bound"
+      ],
+      "rationale": "Write λ=μ_c and m=λ(K). The atomic component is the norm limit of the finite-rank maps keeping only the first N point masses, with error bounded by the p-th root of the tail mass. In the direct sum, composing with the contractive diffuse projection gives one essential-norm inequality, and adjoining the compact atomic map to a diffuse approximant gives the other; thus the essential norm equals that of the diffuse component. Its ordinary norm is m^(1/p), giving the upper bound and resolving m=0. For a check of the lower bound that does not require generating Rademachers, cover the image of the continuous unit ball under any compact S:C(K)→L^p(λ) by finitely many ε-balls. Approximate the centers by simple functions within ε and refine their partitions to a common partition. Bisect each positive-mass cell using nonatomicity and let r be +1 on one half and −1 on the other. For any simple center g on the common partition, convexity gives (|1−g|^p+|−1−g|^p)/2≥1, even for complex g, hence distance at least m^(1/p). Radon density and clipping give f in the continuous unit ball with ||f−r||_p<ε. Use the center for Sf to obtain ||J_c−S||≥m^(1/p)−3ε. This proves the lower bound, including p=1. The frozen sequential proof achieves the same separation by independence against finite-coordinate approximants followed by a convergent subsequence of Sf_n; its standard nonatomic space and density hypotheses hold. Essential norm zero is equivalent to compactness by norm closure of compact operators.",
+      "residual_risks": [
+        "No numerical verification is needed. The statement concerns the canonical map, which need not be injective if μ does not have full support, and does not extend here to p=∞."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.1 applies over a nonatomic σ-finite measure with Fatou spaces and X separable or Y reflexive. For finite λ and 1<p<∞ take X=L∞(λ), Y=L^p(λ), multiplier 1. Theorem 4.5 instead gives a comparability statement for the mixed-space setting; Theorem 4.7 is for sequence spaces.",
+          "The inspected Lang et al. passages concern measures of noncompactness of Sobolev-type embeddings, not the present function-space source and target. Hencl full text was inaccessible."
+        ],
+        "reasoning": "The reflexive-target theorem has broader multiplier scope and gives the exact diffuse value. Its mixed-space comparison alone would not prove an exact constant, but for this particular inclusion the atomic component has zero essential norm. The L¹ endpoint needs the separate argument below; there is no application of the reflexivity hypothesis at p=1.",
+        "searches": [
+          "Kiwerski–Tomaszewski arXiv:2212.06723, definition of Köthe function space and Theorems 4.1, 4.5 and 4.7",
+          "Lang–Musil–Olšák–Pick arXiv:2003.11854; Hencl DOI 10.1002/mana.200310085"
+        ]
+      },
+      "checked_sources": [
+        "Kiwerski–Tomaszewski arXiv:2212.06723 v5",
+        "Resultary 27c6cbf9599e",
+        "Lang–Musil–Olšák–Pick arXiv:2003.11854",
+        "Hencl DOI 10.1002/mana.200310085 (access attempts)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For 1<p<∞, Theorem 4.1 makes the diffuse L∞→L^p essential norm exactly m^(1/p). Define Qh in C(K)** by Qh(η)=∫ h dη_ac, with η_ac the λ-absolutely-continuous part of the regular measure η. Q is a contraction, and testing against L^q densities gives J_c**Q=M_1. The second adjoint of a compact map is compact, and the target at p>1 is reflexive. Therefore each compact approximant to J_c gives one to M_1 with no larger error.",
+          "For p=1 and compact S:C(K)→L¹(λ), take conditional expectation P onto a sufficiently fine finite measurable partition. Using a finite net of the compact image and approximating that net by simple functions on a common partition gives ||S−PS||_{C→L¹}<ε. The finite-rank map PS is bounded into L∞, say by M on the unit ball. For each p>1, m≤||J_p−PS||^p≤(1+M)^(p−1)(||J_1−S||+ε) by pointwise boundedness and the p>1 essential-norm value. Let p↓1, then ε↓0. This gives m≤||J_1−S|| for every compact S; the reverse bound is immediate."
+        ],
+        "reasoning": "The first reduction is canonical by the Riesz representation of C(K)* and compactness of the second adjoint. The finite-rank endpoint approximation and elementary L^p estimate give the exact nonreflexive endpoint without relying on any assertion that an approximation property alone computes the measure of noncompactness. Reinstating the compact atomic summand yields the entire frozen result, including the compactness criterion. No new law is needed for the mixed case or the endpoint.",
+        "searches": [
+          "arXiv:2212.06723 Theorem 4.1, p. 14, text offset 55351, and §4.2, pp. 21–22",
+          "Frozen RESULT.md: atomic reduction and p range"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 4.1 in arXiv:2212.06723 gives essential norm equal to operator norm for nonatomic Köthe multipliers under either domain separability or target reflexivity.",
+          "The adjacent Resultary weighted-composition result is about C(K)→C(L), not a general L^p target."
+        ],
+        "reasoning": "The ordinary norm of J is just the p-th root of total mass and does not distinguish an entirely atomic measure. The exact essential norm instead reduces to the diffuse part, and on that part the multiplier and continuous-domain essential norms agree: one inequality is by restriction, the other by a contractive bidual lift. This is a scientific equivalence, not a comparison of titles.",
+        "searches": [
+          "Local Resultary: exact C(K) to L^p essential norm and diffuse mass; compact approximation for C(K) operators",
+          "Primary literature: essential norm or ball measure of noncompactness for the L∞ to L^p finite-measure multiplier"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest exact indexed formula, record 27c6cbf9599e, gives the distance to compact operators for weighted composition maps into C(L) by a finite-fiber threshold, not this Radon measure formula."
+        ],
+        "reasoning": "This is an operator norm formula over arbitrary compact metric spaces and finite measures, not a tabulated sequence. The exact indexed statement was inspected for direct or equivalent coverage. The demonstrated prior coverage comes from the multiplier theorem, not from a numerical table or exact-index-wording hit.",
+        "searches": [
+          "Local Resultary: diffuse mass, canonical inclusion, C(K) essential norm and weighted composition maps"
+        ]
+      },
+      "rationale": "Kiwerski–Tomaszewski Theorem 4.1 gives an exact nonatomic multiplier norm from L∞ to L^p for every 1<p<∞. The same value for the continuous domain follows by a contractive bidual lift on the absolutely continuous band of measures; the atomic part is compact. The endpoint p=1, outside that theorem's hypotheses, follows from the p>1 values by approximating a compact map into L¹ by bounded simple-function maps and sending p down to 1. These implications recover the full claimed range and mixed-measure value from the stronger prior theorem and standard operator facts. The original argument is correct, but a direct proof is not evidence that the formula is a new exact invariant.",
+      "residual_risks": [
+        "No prior passage was identified that prints the exact mixed C(K) formula verbatim. The decision is based on the verified stronger theorem and the displayed implications, not on literal duplication.",
+        "Hencl was not available in full; the review is not an exhaustive priority history."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger exact diffuse theorem for the reflexive targets; implications give the frozen formula with the stated endpoint argument",
+          "evidence": "Theorem 4.1 gives essential norm equal to multiplier norm under the Fatou and separable-domain or reflexive-target conditions. §4.2 compares ball measures and essential norms under a compact approximation hypothesis; its exact tail formula concerns sequence spaces.",
+          "identifier_or_url": "https://arxiv.org/pdf/2212.06723 ; DOI 10.1002/mana.70174",
+          "material_read": "Definition of Köthe function space, p. 7 (offset about 27000); Theorem 4.1, p. 14 (offset 55351); Theorem 4.5, p. 19 (about 74296); §4.2 and Theorem 4.7, pp. 21–22 (offsets 79470–81619)",
+          "method": "Open arXiv PDF v5, bounded passage inspection",
+          "title": "Essential Norms of Pointwise Multipliers in the Non-Algebraic Setting",
+          "trigger": "Exact essential norm for L∞ to L^p as a multiplier"
+        },
+        {
+          "assessment": "Related invariant but not the same target",
+          "evidence": "Distance to compact maps C(K)→C(L) uses a finite-fiber threshold for weighted composition.",
+          "identifier_or_url": "2026/9/20/SCOPE-weighted-composition-exact-s-number-profile--27c6cbf9599e",
+          "material_read": "RESULT.md opening Statement/Theorem",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "Weighted composition exact s-number profile",
+          "trigger": "Exact essential norm of operators on continuous functions"
+        },
+        {
+          "assessment": "Related method, different embedding and measurement",
+          "evidence": "The statements inspected concern finite-ball covers and Sobolev or Lorentz–Sobolev domain embeddings, not the atomic/diffuse essential norm for the canonical map here.",
+          "identifier_or_url": "https://arxiv.org/pdf/2003.11854",
+          "material_read": "Definition of ball measure of noncompactness on p. 2, text offset 5757; embedding discussion pp. 3–4, offset 13378",
+          "method": "Open PDF passage inspection",
+          "title": "Maximal non-compactness of Sobolev embeddings",
+          "trigger": "Exact maximal noncompactness methods for embeddings"
+        },
+        {
+          "assessment": "No full-text decision about its mathematical coverage",
+          "evidence": "The stated subject is classical Sobolev embeddings. Inaccessibility is not used to infer noncoverage or justify rejection.",
+          "identifier_or_url": "https://doi.org/10.1002/mana.200310085",
+          "material_read": "Bibliographic identification; full text unavailable",
+          "method": "DOI and Wiley access attempts returned 403; no lawful repository copy surfaced",
+          "title": "Measures of non-compactness of classical embeddings of Sobolev spaces",
+          "trigger": "Cited antecedent on embedding noncompactness"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen lower-bound argument",
+        "Kiwerski–Tomaszewski Theorem 4.1 and the endpoint implication above"
+      ],
+      "rationale": "The essential norm is a meaningful natural invariant, and the Rademacher argument is a clean self-contained calculation. But the exact constant, atomic decomposition and p=1 endpoint follow from the prior general multiplier theorem by the bidual comparison and standard finite-rank approximation. The frozen result does not establish a distinct exact invariant or resolve a gap after this coverage is accounted for. Narrowing to the endpoint would leave the same direct consequence.",
+      "residual_risks": [
+        "This judgment concerns value as a new finding, not the utility of a short standalone proof for exposition."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

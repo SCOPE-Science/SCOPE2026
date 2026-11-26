@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:14:03.401560Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–80",
+        "Frozen VERIFICATION.md and verify.py (inspection only)"
+      ],
+      "rationale": "Under the stated two-sided convention the transfer amplitudes from independent white-noise coordinates can be normalized to [(b+iω)+tρ, t sqrt(1-ρ²)] divided by (a+iω)(b+iω), with a common sqrt(2D_x). The squared norm gives the displayed PSD with c>0. For z=ω² the derivative has numerator a²b²-c(a²+b²)-2cz-z², strictly decreasing on z>=0. Its unique positive root when c<h gives the stated peaks (two strict local maxima attaining the same global value). Otherwise it is negative for z>0; at equality the leading drop in ω is -2D_x c ω^4/(a^4 b^4). The peak criterion is t²+2bρt+b^4/(a²+b²)<0: this requires negative ρ and its minimum over positive t is negative exactly at the claimed strict ρ gate. The limiting threshold uses t=b²/sqrt(a²+b²), not a peak at equality. For an independent covariance check, the stationary moment equations give Var(Y)=D_y/b, (a+b) Cov(X,Y)=kD_y/b+2ρsqrt(D_xD_y), and a Var(X)=D_x+k Cov(X,Y). For τ>=0, C_x'+a C_x=k Cov(X,Y) exp(-bτ). Solving gives the two-exponential expression when a differs from b and the affine-times-exponential expression at a=b. In a peaked case c<h<min(a²,b²), so the slower term is negative and the faster one positive, with positive sum at zero and strictly decreasing positive-to-negative-magnitude ratio; for a=b the affine bracket has strictly negative slope. This proves one sign change and also checks the equal-rate example. The frozen numerical verifier was inspected, not used as the universal proof.",
+      "residual_risks": [
+        "A covariance crossing alone is not claimed to imply a PSD peak; the crossing can also occur outside c<h. No assertion for singular noise covariance, hidden modes, or nonstationarity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wallace et al. connect a spectral peak to stable-focus quasi-cycles and separately report no peak for their stable-node functionally feedforward avalanches.",
+          "The algebraic rational form shows that the condition c<h is a general second-order spectral test; no historical novelty is credited to the rational derivative alone.",
+          "Full text for the MacKay comparison was not recovered in this audit; the attempted general CARMA passage retrieval timed out."
+        ],
+        "reasoning": "A generic mode/resolvent or rational-spectrum representation yields formulas to start from, but does not itself assert the constrained gain optimization or the associated sign crossing as a physical-parameter theorem. Unread sources are not deemed non-covering.",
+        "searches": [
+          "Wallace et al., DOI 10.1371/journal.pone.0014804, PDF pp. 6 and 9",
+          "MacKay, DOI 10.1098/rsos.201442, attempted OA full-text recovery",
+          "arXiv:1402.5978, attempted rational-spectrum comparison"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6d295eeff398 Finding",
+        "Wallace et al., PLOS PDF pp. 6 and 9",
+        "Frozen RESULT.md lines 38–89"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The rational peak test can be obtained by scalar differentiation; a spectral representation with freely chosen c does not encode c=b²+t²+2btρ and t>0.",
+          "The feedback-window and stable-focus claims address different hypotheses and mechanisms, and their inspected passages do not assert a feedforward correlation threshold with a one-crossing covariance diagnostic."
+        ],
+        "reasoning": "The contribution is the feasibility boundary on physical parameters plus the time-domain consequence, not the PSD calculus or the broad counterexample to identifying every peak with a complex pole. No verified stronger statement entails that whole constrained classification.",
+        "searches": [
+          "Resultary 6d295eeff398 Finding",
+          "Wallace et al., PDF pp. 6 and 9",
+          "Frozen RESULT.md lines 49–72 versus the real-pole rational form"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The mRNA resonance record obtains finite-frequency peaks with two negative real relaxation eigenvalues, but in a transcription feedback model with diagonal reaction-noise intensities.",
+          "The frozen spectrum is the real-pole rational form with numerator proportional to ω²+c; it can be written in scalar CARMA(2,1) form with MA scale sqrt(c)."
+        ],
+        "reasoning": "There is genuine spectral-shape and real-mode overlap. A feedback/diagonal-noise window or abstract MA coefficient is not a threshold on correlated inputs of the specified feedforward pair.",
+        "searches": [
+          "Resultary real-relaxation spectral resonance comparison, 6d295eeff398",
+          "CARMA(2,1) rational-spectrum parameter comparison"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The verified exact threshold window in 6d295eeff398 is for transcription feedback strength, not the optimized rho gate.",
+          "Wallace et al. distinguish concrete noise-driven mechanisms, not a classified table over rho and k."
+        ],
+        "reasoning": "A finite table of cases is not applicable to this continuous parameter boundary. Relevant exact catalogued formulas were compared rather than treating the absence of a numerical match as evidence.",
+        "searches": [
+          "Resultary spectral peaks with real relaxation modes lookup (verified comparison 6d295eeff398)",
+          "Wallace et al. PDF Discussion, p. 9"
+        ]
+      },
+      "rationale": "Standard second-order rational spectra and linear-mode covariance formulas, and the broader observation of PSD peaks with real poles, are not new here. The distinct supported claim is the exact correlation-versus-gain feasibility boundary and one-crossing consequence in the stated two-input triangular model. The closest verified indexed real-pole resonance uses feedback and a different forcing structure; the examined stable-focus literature does not supply the anticorrelation gate. This is not an exhaustive priority determination.",
+      "residual_risks": [
+        "A specialized feedforward noise-cancellation or CARMA result could contain an equivalent statement. The bounded external search yielded no decisive additional match, and two relevant full-text comparisons were not completed.",
+        "Real-pole spectral peaks in themselves and standard spectral/inverse-spectral formulas are established ideas, not the distinct contribution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material conceptual overlap, different model, parameters and noise mechanism",
+          "evidence": [
+            "Negative transcription feedback produces a finite window bounded by two feedback thresholds with two distinct real negative relaxation modes."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-reentrant-mrna-spectral-resonance-with-purely-real-relaxation-mo--6d295eeff398",
+          "material_read": "RESULT.md Finding, OA offset 0",
+          "method": "Resultary lookup and local-mirror primary passage read",
+          "title": "Reentrant mRNA spectral resonance with purely real relaxation modes",
+          "trigger": "Exact noise-driven spectral thresholds despite real negative eigenvalues"
+        },
+        {
+          "assessment": "Relevant background on mechanisms; not the same correlated-noise pair",
+          "evidence": [
+            "Stable-focus quasi-cycles have a spectral peak; the authors contrast these with a functionally feedforward avalanche regime lacking that peak."
+          ],
+          "identifier_or_url": "https://doi.org/10.1371/journal.pone.0014804",
+          "material_read": "PLOS PDF p. 6 (OA offset 36580) and p. 9 (offset 52113)",
+          "method": "Primary OA PDF passage inspection",
+          "title": "Emergent Oscillations in Networks of Stochastic Spiking Neurons",
+          "trigger": "Prior stable-focus versus feedforward spectral comparison"
+        },
+        {
+          "assessment": "Unresolved direct comparison; not evidence of absence or of coverage",
+          "evidence": [
+            "The frozen report identifies §2 as general modal background; the independent retrieval did not confirm its exact scope."
+          ],
+          "identifier_or_url": "https://doi.org/10.1098/rsos.201442",
+          "material_read": "PMC landing/abstract only; relevant full-text section not recovered",
+          "method": "Lawful OA attempts through PMC, DOI and the identified Europe PMC article endpoint",
+          "title": "Inference of dominant modes for linear stochastic processes",
+          "trigger": "General linear-mode and correlated-noise framework cited by the frozen report"
+        },
+        {
+          "assessment": "Retrieval timed out; no statement-level finding attributed to this paper",
+          "evidence": [],
+          "identifier_or_url": "https://arxiv.org/pdf/1402.5978",
+          "material_read": "No passage recovered",
+          "method": "Targeted lawful OA paper retrieval for the power-spectrum passage",
+          "title": "Flexible and Scalable Methods for Quantifying Stochastic Variability in the Era of Massive Time-domain Astronomical Data",
+          "trigger": "Potential broader scalar CARMA formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 12–28 and 55–89",
+        "Resultary 6d295eeff398 Finding",
+        "Wallace et al. PDF pp. 6, 9"
+      ],
+      "rationale": "The useful exact result is a falsifiable boundary for when an apparent resonance can be produced by an overdamped feedforward system. It tells which anticorrelations cannot work at any positive gain, and identifies a time-domain signature consisting of one negative tail rather than repeated oscillations. This is a natural restricted null model and a sharp inferential countermechanism, not just a computed extremum at one parameter point.",
+      "residual_risks": [
+        "No mechanism is identifiable from a peak alone; the model-specific boundary cannot be applied to arbitrary experimental systems."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

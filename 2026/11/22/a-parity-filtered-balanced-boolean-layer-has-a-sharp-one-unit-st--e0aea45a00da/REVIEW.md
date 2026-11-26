@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The all-one/all-zero complement contradiction proves the VC upper bound. An adaptive root in the first odd block has two residual parity classes, each shown to shatter an \((m-1)\)-support via the consecutive-integer exterior-count interval. The all-positive path supplies the matching adaptive upper bound. On a one-point shore the family reduces to one uniform layer. Complete finite enumeration through ten coordinates corroborates both dimensions; finite experiments alone are not claimed as proofs.
+PASS
 
-## Originality — PASS with priority qualification
+The frozen proof counts i+α selected X′ points at the zero-branch endpoint t=m, although the queried trace is empty. This is a real counting error in the proof, not a counterexample to the theorem. The replacement proves that the one possible completion has exactly α=2u−i selected X′ points, even by the zero branch's choice of i. I checked the full corrected argument: complement pairs halve the slice and make the all-zero and all-one traces incompatible for a support of size m. After querying x₀, the two branches choose opposite parities of i from {u−1,u}; both exterior blocks are nonempty. For 0<t<m the lower endpoint max(0,t−β) is strictly smaller than both α and t, so the needed parity is always attainable. At the other endpoint t=0 in the one branch, the full support has the required odd count. This yields a complete depth-m tree and a static support of size m−1. No complete tree can exceed m because an all-positive path cannot repeat queries or use more than m positives. If a=1 the singleton is absent; if b=1 its label is fixed by m. Each residual class is a full k-of-(2m−1) layer with both dimensions min(k,2m−1−k)=m−1, including m=1. The unrestricted slice has both dimensions m by the same uniform-layer argument.
 
-Full primary text of Hu–Weinberger–Shayevitz [1], including its constant-weight section, and the general adaptive-learning results [2] were compared by implication, with additional searches for parity-constrained balanced layers, Johnson slices, and equivalent constant-weight codes. The former addresses asymptotic code rate under Hamming-distance constraints, not the fixed parity-filtered layer's exact adaptive threshold; the latter gives general bounds without the sharp two-odd-block theorem. The nearest available research records concern two-coordinate parity functions, Johnson graph neighborhoods, or unrelated Fourier spectra. No equivalent or dominating implication was identified. Historical priority in unindexed literature is a residual risk; failed search is not uniqueness proof.
+## originality
 
-## Value — PASS
+PASS
 
-This gives a complete infinite parameter classification, including a sharp geometric boundary and a one-unit static–adaptive discrepancy forced by the interaction of a constant-weight constraint and a single parity equation. It establishes the precise difference from the unrestricted balanced slice, rather than a numerical isolated case.
+The exact simultaneous dimension classification, in particular preservation of depth m by different static supports after the first answer, survives the local proof correction unchanged. No materially compared source gives that implication. This is a qualified originality judgment, not priority certification.
 
-## Limitations
+## value
 
-Only odd block sizes and a balanced layer are covered; no complete support polynomial or independent audit is asserted. The underlying broad VC and adaptive notions are classical.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The model is a natural constant-weight class with one parity check. The sharp result distinguishes fixed from adaptive coordinate access at every size and explains why the gap disappears at a singleton block. The adaptive certificate consists of two explicit branchwise static supports. The value is this structural mechanism and complete boundary, not a numerical gap at a selected size or the standard uniform-layer formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

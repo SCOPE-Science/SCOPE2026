@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:54:50.900620Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–37, VERIFICATION.md and verify.py; uploaded script inspected, not executed. Independent inverse-subset BFS agreed on 105 exact optima for 2<=n<=16 and 1<=m<=7; replay with python3 /workspace/reproductions/inverse_automata_audit.py."
+      ],
+      "rationale": "State n-1 is fixed by all letters. Each of the n starting distances from it must be the sum of the values of those instructions that actually move that start, so the multiset of letters in a reset word must have all subset sums 0 through n-1. Sort the letters. The first value greater than the previous prefix sum plus one leaves that very integer missing, since taking any of the remaining letters already exceeds it. Every prefix before that gap covers through its total and its next increment is at most min(m,1+prefix total). Thus the best possible coverage after k letters is bounded by S_k with S_0=0 and S_{j+1}=S_j+min(m,1+S_j); doubling before the cap and constant increments after it give the sum in the claim. For the matching word take those extremal increments in decreasing order. If remaining distance t is bounded by the total of the remaining letters, using the largest letter d either subtracts d or leaves t<=d-1, which is no greater than the total after dropping d. Induction ends at distance zero. This proves the exact threshold rather than just feasibility of subset representations; it includes n=2 and the stated m=1, m=2 and uncapped regimes.",
+      "residual_risks": [
+        "The computation checks only the stated finite rectangle; the parametric result follows from the proof. The equality need not apply with clipping, arbitrary missing values, or negative shifts."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary paper includes unit-coordinate moves on an integer box and provides a corner-hypothesis upper bound. The indexed monotonic result concerns the worst shortest word for synchronizable subsets across binary monotonic automata."
+        ],
+        "reasoning": "Neither entails the precise lower/upper threshold for arbitrary positive jumps and m. A target step of length two, when it moves some state, fails monotonicity across the boundary; worst-case subset length in another class is also a different statistic.",
+        "searches": [
+          "Bradshaw–Clow–Stacho Sections 3–4 and Theorem 4.1; Resultary binary monotonic subset-synchronization excess record"
+        ]
+      },
+      "checked_sources": [
+        "Bradshaw–Clow–Stacho arXiv:2405.00826, fixed passages above; three strongest inspected Resultary records; frozen prior-work comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proposition 3.2 illustrates unit-coordinate commands, while Theorem 4.1 is an upper-bound theorem under a corner hypothesis. The no-gap subset-sum condition yields only a necessary constraint on letters until the action order is controlled."
+        ],
+        "reasoning": "The reviewed result shows the largest-first word actually performs a capped subset-sum representation simultaneously for all starting distances under the stay-put rule. The inspected prior bounds and terminology do not supply this sharp equality. The subset-sum principle itself is expressly not credited as new.",
+        "searches": [
+          "Bradshaw–Clow–Stacho Proposition 3.2 and Theorem 4.1; Resultary positive translations, absorbing endpoint and subset-sum search; frozen proof steps 2–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bradshaw–Clow–Stacho allow delta(q,c) in {q,q+c} intersect Q, which includes the frozen semantics upon removing large identity letters. The closest cyclic-block result has a rotation and a block collapse. The closest radix result synchronizes a carry, not the distances of an absorbing interval."
+        ],
+        "reasoning": "The target is a directed specialization of difference DFAs, not either indexed model under relabeling. Its cycle structure is trivial for each letter; a cyclic rotation of all states is not one of its letters. A clipping model would instead allow an overshoot trajectory to move by less than the instructed jump, destroying the same subset-sum constraint.",
+        "searches": [
+          "Resultary semantic searches for exact bounded translations, interval addition with stay-put, endpoint reset and subset sums; Bradshaw–Clow–Stacho arXiv:2405.00826, difference-DFA definition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Returned ranked formulas were on other maps and parameter domains. The frozen table/check is restricted to a small finite grid and is not earlier published coverage."
+        ],
+        "reasoning": "No returned exact table or formula covered the same full transition family. A ranked search or two public keyword queries cannot establish the absence of an unindexed result.",
+        "searches": [
+          "Resultary exact sum-of-minima and bounded-positive-translation searches; frozen VERIFICATION.md"
+        ]
+      },
+      "rationale": "The general stay-put difference-DFA framework and the no-gap subset-sum argument are known ingredients. The exact capped all-state reset threshold and the optimal word for this directed interval family were not established by the plausible nearby indexed or primary results inspected. This is a best-of-knowledge pass for the specialized exact invariant, not for the general DFA model or for the complete-sequence principle.",
+      "residual_risks": [
+        "The searches were ranked and bounded; an unindexed result for bounded additive controls or an exact change-making reformulation could overlap. The general Volkov survey was not separately inspected. No claim of exhaustive novelty is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model and some elementary examples covered; no matching exact capped-jump threshold in these passages",
+          "evidence": "The definition permits q or q+c; Proposition 3.2 uses coordinate unit moves on a box; Theorem 4.1 supplies an f-corner upper bound.",
+          "identifier_or_url": "https://arxiv.org/pdf/2405.00826",
+          "material_read": "p. 1 abstract, p. 6 definition, pp. 6–7 Proposition 3.2, p. 12 Theorem 4.1; passage offsets about 1194, 17800, 20400, 42399",
+          "method": "OA preprint PDF passages",
+          "title": "A cornering strategy for synchronizing a DFA",
+          "trigger": "Identical translate-or-stay model in a broader geometric setting"
+        },
+        {
+          "assessment": "Different transitions",
+          "evidence": "A cyclic +1 letter and a terminal-block collapse give a different length formula; this is not a family of positive interval shifts with a fixed endpoint.",
+          "identifier_or_url": "2026/10/13/SCOPE-exact-reset-thresholds-for-cyclic-automata-with-one-consecutive--967ac6af616f",
+          "material_read": "Finding, offset 0 onward",
+          "method": "OA local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact reset thresholds for cyclic automata with one consecutive block collapse",
+          "trigger": "Closest exact parametric reset-length hit"
+        },
+        {
+          "assessment": "Different family and invariant",
+          "evidence": "The quantity is T_2(n) for subsets over all binary monotonic automata and the finite cutoff is n=9.",
+          "identifier_or_url": "2026/10/13/SCOPE-the-first-binary-monotonic-subset-synchronization-excess-occurs--654adf45f820",
+          "material_read": "Finding and scope, offset 0 onward",
+          "method": "OA local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "The first binary monotonic subset-synchronization excess occurs at nine states",
+          "trigger": "Nearby exact shortest-word phenomenon"
+        },
+        {
+          "assessment": "Different carry transitions",
+          "evidence": "The length 2k-1 concerns a digit-dependent carry automaton, not bounded positive translations.",
+          "identifier_or_url": "2026/11/22/SCOPE-all-shortest-zero-synchronizing-words-for-a-one-inflated-digit-r--82c5cb0f2a5b",
+          "material_read": "Finding and assumptions, offset 0 onward",
+          "method": "OA local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "All shortest zero-synchronizing words for a one-inflated-digit radix family",
+          "trigger": "Absorbing target and radix/greedy analog"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof; Bradshaw–Clow–Stacho general difference-DFA framework and upper-bound comparison"
+      ],
+      "rationale": "The endpoint synchronization cost for a canonical finite directed translation geometry is a natural exact invariant. The stay-put obstruction is materially different from clipping. The formula explains the regime change from capped, effectively linear growth to logarithmic cost with an ample alphabet, and gives a provably shortest uniform control word. Even though the subset-sum ingredient is elementary, the equality closes a meaningful upper/lower gap for all interval sizes and command caps and is useful as a benchmark for nearby difference DFAs.",
+      "residual_risks": [
+        "The motivation and value are specific to this complete positive alphabet and stay-put boundary, not an asserted guarantee for arbitrary geometric control."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:37:22.545685Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 19–50",
+        "Frozen VERIFICATION.md and verify.py (read, not executed)",
+        "Bavula, Theorem 2.14 and Corollary 2.15",
+        "Independent signed basis pairing and two-generator square calculation"
+      ],
+      "rationale": "Bavula's automorphism decomposition applies over odd finite fields and gives the tangent-identity kernel U as the product with unique factors of the odd inner parameters modulo the odd center and the degree≥3 odd generator substitutions. The respective dimensions of their coordinate sets are h−1_{n odd} and n(h−n), giving the claimed u_n. For a diagonal tangent involution, eigenvalues on odd basis monomials are the signs (−1)^(number of negative generators in the monomial). For mixed signs, toggling membership of one positive and one negative generator is a parity-preserving sign-reversing bijection; this proves O_+=O_− as integer dimensions without inferring integer multiplicities from a trace modulo the characteristic. The top central odd monomial removed when n is odd has sign (−1)^b. The substitution coordinate space Hom(V,W) is acted on by conjugation via the linear representative and its fixed maps preserve sign spaces, giving a(O_+−a)+b(O_−−b). Uniqueness of the two factors gives |C_U(L)|=q^f. For L≠I, an involutive lift generates a complement to the odd-order U in U⋊<L>, so all lifts are U-conjugate and the number of lifts is |U|/|C_U(L)|. For L=I the only square-one element of U is the identity. Choosing the negative subspace and then its complement gives the Gaussian factor times q^(ab). Sign eigenspaces give the grading and recover the involution uniquely in odd characteristic, while conjugacy of tangent involutions at fixed b and of their lifts gives n+1 graded-isomorphism types. Independently at n=2, write a substitution as a linear part A and a column z of top-degree coefficients; the square condition is A²=I and (A+det(A)I)z=0. It gives 1, q²(q+1), q² for the three types, agreeing with the formula. In the mixed cases the leading total exponent is (n+1)2^(n−2)+1_{n odd,b even}−1_{n odd} with unit leading coefficient; b=n has exponent h−1_{n odd} and b=0 exponent zero, both strictly smaller than the maximum. This proves the stated limiting uniform laws.",
+      "residual_risks": [
+        "The finite square tests are corroboration only. The verifier uses int.bit_count(), so a replay should use Python 3.10 or newer rather than relying on the verification note's Python 3.9 claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bavula gives the full decomposition over reduced coefficient rings with two invertible, including the finite-field case. The result does not evaluate C_U(L) at each tangent sign rank or deduce the distribution. The survey distinguishes finite automorphism-group work from its own infinite-dimensional grading setting."
+        ],
+        "reasoning": "A more general structural theorem is a prerequisite, not the requested order-specific enumeration. The extra information is the simultaneous rank-dependent fixed spaces and their cancellation in the leading count. The supplemental web lookup was not informative and does not exclude further prior work.",
+        "searches": [
+          "Bavula arXiv:math/0703352, Theorem 2.14 and Corollary 2.15",
+          "Guimarães arXiv:2508.15628, introduction",
+          "finite dimensional exterior algebra finite field number of involutions automorphism Grassmann counts negative eigenspace gradings conjugacy Goncalves finite over field"
+        ]
+      },
+      "checked_sources": [
+        "Bavula Theorem 2.14 and Corollary 2.15",
+        "Guimarães–Koshlukov §2.1",
+        "Guimarães survey introduction",
+        "Resultary d65e5b9dcbcf, 391410cf76e4 and 47997eb6cbdc"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The order-two complement argument supplies a centralizer index, but the fixed sign monomials in the two nonlinear factors must still be counted, in particular subtracting the odd central top form only at even b. The commutative jet counts instead use symmetric powers and parity of truncation."
+        ],
+        "reasoning": "The odd-top correction and the all-n leading-exponent cancellation are not supplied by the structural decomposition alone and do not transfer from commutative jets. The same-day jet record is compared on statement, not discarded on date.",
+        "searches": [
+          "Bavula, Theorem 2.14 and Corollary 2.15",
+          "Resultary 391410cf76e4, Finding",
+          "Resultary 47997eb6cbdc, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Counting ordered even/odd grading subspaces is exactly equivalent to counting actual square-one automorphisms, including the identity, via their eigenspaces; conjugacy instead counts gradings up to graded isomorphism.",
+          "The Guimarães–Koshlukov comparison explicitly uses the infinite-dimensional Grassmann algebra in characteristic zero; nearby Resultary jet censuses use commutative algebras."
+        ],
+        "reasoning": "The grading alias does not disguise a previously inspected finite-field census. Neither infinite-dimensional gradings nor finite commutative jets match the actual finite exterior-algebra count.",
+        "searches": [
+          "Resultary finite Grassmann automorphism involution census, exterior algebra grading and tangent negative rank",
+          "Guimarães–Koshlukov arXiv:2009.00175, §2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two-generator table counts all automorphisms by dimension of the fixed space on the algebra; it is not restricted to square-one maps and does not resolve tangent negative rank. The commutative jet papers give exact counts but for different multiplication relations."
+        ],
+        "reasoning": "There is genuine prior enumeration on E_2, but the tabulated statistic is not the claimed one and cannot serve as an all-n exact database. The accessible jet formulas are not specializations to the exterior algebra.",
+        "searches": [
+          "Resultary d65e5b9dcbcf two-generator exterior-algebra fixed-space spectrum",
+          "Resultary 391410cf76e4 and 47997eb6cbdc joint involution strata and parity"
+        ]
+      },
+      "rationale": "The distinct supported claim is the census of actual finite-field square-one maps by tangent negative rank and the fixed-n parity selection as q grows. The automorphism-group decomposition, coprime conjugacy argument, and grading/involution correspondence are prior ingredients. The strongest inspected finite exterior-algebra record gives an unstratified-by-order fixed-space spectrum for n=2, not this census, and the close parity analogues concern commutative truncated polynomial algebras, not exterior algebras.",
+      "residual_risks": [
+        "The finite-field graded-identity lead in the survey bibliography was not verified in full text and unindexed finite grading work may contain closer coverage. This is a bounded originality judgment, not a historical-priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior structural theorem, no order-two stratum calculation in these passages",
+          "evidence": "Gives the inner, parity-preserving substitution, and linear factors under the coefficient-ring hypotheses.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0703352",
+          "material_read": "Theorem 2.14, PDF p.23 (offset 70645); Corollary 2.15, p.24 (offset 73866)",
+          "method": "Open primary PDF passages",
+          "title": "The Jacobian map, the Jacobian group and the group of automorphisms of the Grassmann algebra",
+          "trigger": "Candidate broader source for automorphism structure and involutions"
+        },
+        {
+          "assessment": "Different dimension and field scope",
+          "evidence": "Infinite-dimensional Grassmann algebra in characteristic zero; the grading/square-one correspondence is present.",
+          "identifier_or_url": "https://arxiv.org/abs/2009.00175",
+          "material_read": "Abstract, p.1 (offset 0), and §2.1, p.5 (offset 15900)",
+          "method": "Open primary PDF passages",
+          "title": "Automorphisms and superalgebra structures on the Grassmann algebra",
+          "trigger": "Direct grading and involution terminology match"
+        },
+        {
+          "assessment": "Infinite-dimensional grading survey with relevant bibliographic leads, not a finite census",
+          "evidence": "Its scope differs, while algebra automorphism descriptions for finite dimensions are recognized separately.",
+          "identifier_or_url": "https://arxiv.org/abs/2508.15628",
+          "material_read": "Abstract and introductory comparison (offsets 0 and 7625), references (p.10, offset 33200)",
+          "method": "Open primary PDF passages",
+          "title": "Interplay between Z2-gradings and automorphisms in the Grassmann algebra: a survey",
+          "trigger": "Broader survey and bibliography of finite-field graded identity leads"
+        },
+        {
+          "assessment": "Different invariant, genuine overlap of objects at n=2",
+          "evidence": "The finding counts all automorphisms by dimension of fixed space and gives an element-orbit count, not square-one maps by tangent rank.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-fixed-space-spectrum-of-automorphisms-of-the-two-generator-exter--d65e5b9dcbcf/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Fixed-space spectrum of automorphisms of the two-generator exterior algebra",
+          "trigger": "Exact same algebra at n=2, prior table"
+        },
+        {
+          "assessment": "Methodological analogue, different algebra and asymptotics",
+          "evidence": "Commutative F_q[x,y]/(x,y)^N and parity in N, rather than n-generator exterior algebra at fixed n and growing q.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-parity-switching-involution-classes-in-finite-two-variable-jet-a--391410cf76e4/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Parity-switching involution classes in finite two-variable jet algebras",
+          "trigger": "Same-day exact involution count and parity effect"
+        },
+        {
+          "assessment": "Different algebra and sign-space calculation",
+          "evidence": "Counts order-two maps in multivariable commutative jets; does not supply exterior odd-center correction.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-involution-populations-and-a-parity-driven-phase-transition-in-m--47997eb6cbdc/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Involution populations and a parity-driven phase transition in multivariable finite jets",
+          "trigger": "Exact counts by tangent negative rank with similar mechanism"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Bavula decomposition for the underlying natural automorphism group",
+        "Resultary d65e5b9dcbcf for the distinct fixed-space statistic"
+      ],
+      "rationale": "The population of each grading symmetry type is a natural invariant not captured by knowing the number of conjugacy classes. It distinguishes the sizes of equally valid linearized grading types, and the limiting uniform law on only certain ranks comes from a single central odd monomial that is invisible to a crude order estimate. The exact all-rank counts and this parity-sensitive consequence go beyond a small-instance inventory.",
+      "residual_risks": [
+        "The population law applies at fixed n as odd field order grows, not to characteristic two, infinite generator rank, or equivalence by graded polynomial identities."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,178 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:18:31.144605Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–46 and VERIFICATION.md; verification/check_henson_threshold.py and verification/output.txt inspected without executing the package",
+        "Henson (1971) Thm. 2.3; Conant arXiv:1401.1570v1 §3 Prop. 3.4",
+        "Independent replay: python3 /workspace/audit-evidence/replay_5.py"
+      ],
+      "evidence": [
+        "Independent direct graph-diagram enumeration by edge subsets ran 28 comparisons for m=4,5 at the empty, short and first detecting arities on representative named bases; separates K_{1,3} and K_{2,2} as 475 vs 463 and 32599 vs 32543. General correctness is algebraic and model-theoretic, not extrapolated from the replay."
+      ],
+      "rationale": "Every admissible finite graph diagram embeds in H_m by universality; homogeneity moves the embedded named base back onto A. An isomorphism fixing each named vertex and each corresponding tuple coordinate extends to an automorphism, so the full ordered injective types are exactly the labelled admissible diagrams, with no quotient by shore or tuple permutations. Since the old clique number is two, all diagrams are admissible with s<m−2, including the empty tuple. At r=m−2 a forbidden clique must use all r new vertices and an old adjacent pair, one from each part. It exists iff the new vertices form a clique and each old part contains a vertex with all-one incidence to the new clique. Counting incidence assignments on the two parts independently gives (q^a−h^a)(q^b−h^b); this counts a whole forbidden diagram once, regardless of how many old adjacent pairs witness it. Fix n from t_1=2^n (r>=2). Subtracting the corrections at (a+1,b−1) and (a,b) by expanding the cross terms gives (q−h)(qh)^a(q^(b−a−1)−h^(b−a−1)), strictly positive for b−a>=2 because q−h=1. Thus t_r strictly decreases along distinct steps toward balance. No shorter prefix separates K_{1,n−1} from K_{2,n−2} for n>=4; n=2,3 have unique positive unordered splits. The ambient is fixed throughout. Homogeneity makes every higher numerical count invariant under base isomorphism, with no canonical renaming required.",
+      "residual_risks": [
+        "The full packaged finite diagnostic ranges were not independently rerun and are not necessary for the proof. No inference for arbitrary triangle-free bases or a varying ambient is intended."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Same-day 23c76a333cc8 has m>=5 and complete l-partite bases with l<=k=m−2. It gives t_1=2^n and t_2=2·4^n for l<k, covering biclique invisibility at arities 1,2 (all positive arities below r for m=5). Its reconstruction theorem from (t_1,t_2) is for critical l=k, not for l=2<k.",
+          "Older 8c8e5c9b100b fixes arity two and assumes maximal r-partite bases in H_{r+1}, r>=4. The formula in 141a441755d6 treats the triangle-free ambient H_3, outside the stated m>=4 scope. The older unary 7c84dde7c650 covers t_1=2^n by restricting neighbor subsets to K_{m−1}-free sets."
+        ],
+        "reasoning": "A broader base family at arity two covers the particular low-arity counts where its ambient hypotheses apply; it does not reach the r-new-coordinate obstruction at m−2. Maximal multipartite or triangle-free ambient formulas have different old and new clique capacities and do not specialize to the distinct recovery claim.",
+        "searches": [
+          "Resultary 23c76a333cc8, 8c8e5c9b100b, 141a441755d6 and 7c84dde7c650",
+          "Henson 1971 Thm. 2.3; Conant §3"
+        ]
+      },
+      "checked_sources": [
+        "Henson Thm. 2.3; Conant §3 Prop. 3.4; Dobrinen arXiv:1901.06660 Question 1.1",
+        "Resultary 23c76a333cc8, 7c84dde7c650, 8c8e5c9b100b, 141a441755d6, 5d62697fc5af"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical finite-diagram realizability is an input: the exact correction still requires recognizing that every first obstruction uses the full new clique and one old vertex on each side, then counting without counting a diagram twice. Detectability at that arity needs strict monotonicity at fixed n, which does not follow solely from the existence of forbidden diagrams.",
+          "The inspected critical-shore theorem recovers a different invariant regime; for bicliques in its m>=5 scope its actual pair totals are constant over equal-order bicliques."
+        ],
+        "reasoning": "Credit the elementary free-diagram consequences rather than claiming the counting setup as new. The natural inverse and sharpness result needs the obstruction census and the strict gap argument, not a numerical special case or mechanical parameter substitution in the compared formulas.",
+        "searches": [
+          "Henson Thm. 2.3 and Conant Prop. 3.4 compared with frozen RESULT.md lines 29–43",
+          "Resultary 23c76a333cc8 critical-shore hypotheses and noncritical formula; 5d62697fc5af graded statistic"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A complete type here is an orbit of indexed, injective tuples under the pointwise stabilizer of the base, equivalently a labelled finite extension. Henson's Thm. 2.3 and Conant's Prop. 3.4 identify the admissible structures; neither expresses the first numerical reconstruction arity.",
+          "Resultary 5d62697fc5af recovers multipartite sizes from counts of singleton types graded by how many named neighbors they have, not from the total numerical counts by tuple arity.",
+          "Dobrinen's Question 1.1 and big Ramsey degree definition count colors unavoidable on a subcopy, not named-base orbits."
+        ],
+        "reasoning": "The labelled extension formulation is equivalent, but a graded unary generating function has information unavailable in the unary total and does not settle the inverse problem posed here. Ramsey degrees change the counting experiment even though they concern the same ambient graphs.",
+        "searches": [
+          "Local Resultary: Henson biclique tuple-type arity and reconstruction, finite named-base extension counts",
+          "Web: Henson graphs complete bipartite parameters number of tuple types finite extension orbit counts reconstruction bipartition arity forbidden clique m-2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected counts cover unary totals, free pair counts in noncritical cases, or corrections for different clique/tuple parameters. No inspected exact table includes the forbidden correction (q^a−h^a)(q^b−h^b) at arity m−2 for all positive a,b. The examples 475/463 and 32599/32543 were independently replayed as correctness checks, not used to infer priority."
+        ],
+        "reasoning": "Exact agreement of a short prefix is demonstrable overlap; it cannot recover a bipartition. Exact counts at different arities with different base clique number are not a table of the distinguishing invariant.",
+        "searches": [
+          "Local Resultary: numerical type counts over named bicliques and Henson graphs; 23c76a333cc8, 8c8e5c9b100b, 7c84dde7c650, 141a441755d6"
+        ]
+      },
+      "rationale": "The supported distinct claim is numerical recovery of the two positive part sizes at their first detecting tuple arity m−2, uniformly in fixed H_m, with exact spacing under balancing. Finite-extension admissibility, unary counts, and (for m>=5) the two-type invisibility of these bases have documented coverage. Same-day coverage of pieces does not order the records or give the later-arity correction and inverse result.",
+      "residual_risks": [
+        "A specialist or unindexed count of finite extensions might give an equivalent inverse classification. No priority ordering established among same-day records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Core prior input; no numerical inverse in the theorem",
+          "evidence": [
+            "G_p is homogeneous and its age is exactly the finite K_p-free graphs."
+          ],
+          "identifier_or_url": "https://msp.org/pjm/1971/38-1/pjm-v38-n1-p09-p.pdf",
+          "material_read": "Theorem 2.3, print p.74, PDF p.7, offsets 13450–15601",
+          "method": "Open primary PDF, targeted theorem",
+          "title": "A family of countable homogeneous graphs",
+          "trigger": "Classical homogeneous age controlling realizable finite diagrams"
+        },
+        {
+          "assessment": "Prior finite-diagram admissibility, not the count reconstruction",
+          "evidence": [
+            "Optimal solutions give the clique-free consistency criterion for the adjacency types treated there."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1401.1570v1",
+          "material_read": "§3, Prop. 3.4, offsets 11600–14097",
+          "method": "Open primary article, targeted theorem",
+          "title": "Forking and dividing in Henson graphs",
+          "trigger": "Strong general characterization of graph types"
+        },
+        {
+          "assessment": "Direct partial overlap in free 1- and 2-type counts; later biclique recovery not established by its theorem",
+          "evidence": [
+            "For m>=5 and l<m−2, t_1=2^n and t_2=2·4^n; l=m−2 has critical two-type recovery. The present bases have l=2, noncritical there."
+          ],
+          "identifier_or_url": "Resultary 23c76a333cc8",
+          "material_read": "Mirrored RESULT.md offsets 0–3182",
+          "method": "Local Resultary and mirror",
+          "title": "Two numerical types recover every multipartite shore at the critical clique number",
+          "trigger": "Same-day numerical multipartite recovery, also proves lower-arity blindness"
+        },
+        {
+          "assessment": "Demonstrated coverage of unary claim, already credited",
+          "evidence": [
+            "Types correspond to K_{m−1}-free induced neighbor subsets; all are allowed for a biclique when m>=4."
+          ],
+          "identifier_or_url": "Resultary 7c84dde7c650",
+          "material_read": "Mirrored RESULT.md offsets 0–2895",
+          "method": "Local Resultary and mirror",
+          "title": "Exact finite-parameter 1-type counting in Henson graphs is #P-complete",
+          "trigger": "Earlier exact count over arbitrary finite named sets"
+        },
+        {
+          "assessment": "Distinct clique number and detecting mechanism",
+          "evidence": [
+            "The prior base is maximal r-partite in H_{r+1}, r>=4, not a biclique."
+          ],
+          "identifier_or_url": "Resultary 8c8e5c9b100b",
+          "material_read": "Mirrored RESULT.md offsets 0–2938",
+          "method": "Local Resultary and mirror",
+          "title": "A collision law for two-types over maximal multipartite parameter graphs in Henson structures",
+          "trigger": "Earlier multipartite correction at arity two"
+        },
+        {
+          "assessment": "Different ambient, no direct specialization across forbidden clique orders",
+          "evidence": [
+            "The formula applies to triangle-free H_3 and bases in its age."
+          ],
+          "identifier_or_url": "Resultary 141a441755d6",
+          "material_read": "Mirrored RESULT.md offsets 0–2790",
+          "method": "Local Resultary and mirror",
+          "title": "Higher-arity Henson type enumeration and exact-counting hardness",
+          "trigger": "Earlier general type enumeration at higher arities"
+        },
+        {
+          "assessment": "Different data; priority not inferred from date",
+          "evidence": [
+            "Uses one-point types graded by the size of the neighborhood in the base, rather than the ungraded totals by tuple arity."
+          ],
+          "identifier_or_url": "Resultary 5d62697fc5af",
+          "material_read": "Mirrored RESULT.md offsets 0–2771",
+          "method": "Local Resultary and mirror",
+          "title": "Finite-jet reconstruction of complete multipartite Henson type spectra",
+          "trigger": "Same-day reconstruction from numerical spectra"
+        },
+        {
+          "assessment": "Different invariant; no document-wide absence claim",
+          "evidence": [
+            "Measures the smallest number of colors on copies of A remaining in some subcopy of the ambient graph, not extension types over pointwise named A."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1901.06660",
+          "material_read": "Page 1 abstract excerpts and Question 1.1 / big Ramsey degree definition, offsets 2660–4078",
+          "method": "Focused literature search and open primary passage",
+          "title": "The Ramsey theory of Henson graphs",
+          "trigger": "Primary web hit on finite pattern counts for the same homogeneous graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–21, 33–43 and 48–54",
+        "Resultary 23c76a333cc8 and 5d62697fc5af for comparison with neighbouring inverse problems"
+      ],
+      "rationale": "Numerical tuple-type totals are natural invariants of pointwise named finite bases, and a biclique is the first family here with fixed clique number two but varying internal geometry at a fixed size. The theorem determines precisely when that geometry first becomes detectable from totals alone, gives quantitative separation between successive unordered sizes, and proves uniform impossibility below the threshold. The benign low-arity formula itself is routine; the value is the exact inverse boundary and spacing, potentially useful when comparing or calibrating reconstruction from finite extension counts.",
+      "residual_risks": [
+        "Small elementary structural result; does not classify arbitrary bases, graded vs ungraded recovery generally, or reconstruction with unknown m."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

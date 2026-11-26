@@ -1,19 +1,21 @@
-# Scientific review: infinite two-sided commutator inertia of compact power-decaying Rhaly operators
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The weight-ratio assumption gives a positive finite limit for \((n+1)^sa_n\), hence \(R_a\) is Hilbert–Schmidt and \(K_a\) is trace class. The exact self-commutator matrix (equation (1) in `RESULT.md`) has eventually negative diagonal entries with a strictly negative leading coefficient. Widely separated coordinate vectors provide negative definite subspaces of every finite dimension. Independently, the exact finite-support actions of the adjoint on second-difference vectors give strictly positive quadratic forms with the leading coefficient \(2s\); their normalized remote cross-terms tend to zero, giving positive definite subspaces of every dimension. Compact self-adjoint spectral theory then gives infinitely many eigenvalues on both sides of zero. The numerical checker replayed 182 supplementary finite/high-precision assertions; the asymptotic proof is the essential evidence for the unbounded dimension conclusion.
+PASS
 
-## Originality — PASS (qualified)
+The ratio of successive (n+1)^s a_n is 1+O((n+1)^(-2)); summing its logs, including the tail estimate, gives a_n=c(n+1)^(-s)(1+O(1/n)), c>0. The squared Hilbert–Schmidt norm is the convergent sum of (n+1)a_n^2; both commutator products are trace class with equal trace. Direct row and column multiplication gives (1). Tail summation gives K_jj asymptotic to -2(s-1)c^2(j+1)^(1-2s)/(2s-1); for fixed sufficiently large i, K_ij is O_i((j+1)^(-s)), so the normalized entries tend to zero as O_i((j+1)^(-1/2)). For v_j=e_j-2e_(j+1)+e_(j+2), Rv_j has only two coordinates and R*v_j has its first j+1 coordinates equal to the second weight difference δ_j. The given ratio gives δ_j=O(a_j/(j+1)^2), and subtracting the exact squared norms leaves 2s a_j^2/(j+1)+O(a_j^2/(j+1)^2). The remote cross-term is minus δ_j times the coordinate sum of R*v_i, and normalizes to O_i((j+1)^(-3/2)). In each sign one can choose arbitrarily many indices successively so that every normalized absolute row sum off the diagonal is less than 1, proving definite subspaces of arbitrarily large dimension and hence infinite inertia by compact self-adjoint spectral theory. Finite prefix changes cause no issue, and (n+β)^(-s) has the required ratio. The supplied checker.py and its recorded 182 diagnostics were inspected, not executed; the all-dimensions claim is proved analytically, not by those checks. Reference 3 has a non-substantive bibliographic error: Rhaly's Terraced matrices is Bull. London Math. Soc. 21 (1989), 399–406; Houston J. Math. 15 (1989), 137–146 is p-Cesàro matrices.
 
-The directly relevant Gallardo-Gutiérrez–Partington paper (arXiv:2408.03182, 2024-08-06) reports compactness and nonhyponormality for power-decaying Rhaly operators and studies the spectrum of \(R_a\) and invariant subspaces. Its nonhyponormality implies only that the commutator has *some* negative spectrum; it does not imply infinite negative **and** positive inertia. The later Bellavita–Dellepiane–Stylogiannis paper (arXiv:2503.21930, 2025-03-27) characterizes compactness and Schatten properties of \(R_a\); it does not establish signed eigenvalue counts of \(K_a\). Related Cesàro commutator classifications concern nonidentical triangular kernels. No equivalent signed-inertia theorem was found in the examined literature, but this negative search is not a proof of global priority. Residual risk: older unindexed terraced-matrix/commutator literature or a broad factorable-matrix inertia theorem may contain the statement.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The natural family of compact Rhaly operators was previously known to be nonhyponormal, leaving the **dimension of the failure of hyponormality** open in the compared sources. A compact operator's commutator can have finite or infinite negative index, and trace zero does not distinguish these possibilities. This theorem establishes infinite negative as well as positive spectral inertia for every power-decay exponent above the Cesàro boundary, and proves a stable version under second-order ratio perturbations. It answers a structural operator-theoretic question beyond the already known qualitative compactness and nonhyponormality.
+The supported distinct claim is infinite inertia on both sides of zero for the stated positive, row-constant Rhaly class. Compactness, Schatten membership and failure of hyponormality for power weights are prior. The strongest inspected related signed-inertia result uses a different geometric dependence on the column index and does not cover these operators.
 
-## Limitations and comparison risks
+## value
 
-The result gives signs/inertia, not sizes or precise Weyl asymptotics of eigenvalues. It covers positive real weights with the stated second-order ratio condition; arbitrary complex, oscillatory, or merely first-order regularly varying weights remain outside the claim. Independent mathematical validation is not yet available. The checker is only supplementary to the analytic argument. Literature and equivalence searches cannot rule out inaccessible historical sources.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A qualitative failure of hyponormality leaves open how many directions have each sign, even for a compact trace-zero commutator. The two infinite indices give a structural answer across the natural power-decay regime beyond the ordinary Cesàro exponent and tolerate second-order ratio perturbations. No claim is made about eigenvalue asymptotics or the endpoint s=1.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

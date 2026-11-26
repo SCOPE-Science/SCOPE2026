@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:22:44.231415Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For w=pi*nu the one-sided ambiguity integrals give exp(-u|T|)/(2u) and exp(-v|T|)/(2v), with u=a+iw and v=b-iw. Changing variables in the four-factor integral gives convolution in delay; splitting the two-kernel convolution at 0 and T and then applying (1/u)-partial_u gives the stated three-kernel expression. None of its denominators vanish on the real w axis for a>b>0. An independent algebra check writes the zero-equation right side R exactly as -(1+lambda*T)+(3*lambda*T/2)x+((3-lambda*T)/2)x^2-x^3/2 for x=lambda/u. Thus the first reciprocal-w correction is imaginary and the frozen second-order coefficient also agrees. The limiting equation is strictly convex with negative derivative at zero and a unique transverse positive crossing at T_*. With w=(pi*(n+1/2)+theta/2)/T the real Jacobian at infinite index is diagonal with entries F'(T_*) and exp(d*T_*). Analytic implicit continuation therefore produces real zeros; the imaginary correction gives theta=O(1/n), the real equation gives T-T_*=O(1/n^2), and the frequency and spacing laws follow. At fixed delay the complex derivative tends to -2i*T_*exp(d*T_*), and the ambiguity function is holomorphic near each real frequency by its exponential tails. For the boundary limit let h=d/lambda and y=d*T_*; h=y/(exp(y)-1) implies y tends to infinity, and y=log(1/h)+log(y+h) gives y/log(1/h) tending to 1 and then the log-log term with o(1) remainder. This verifies RESULT.md lines 49–129 for fixed rates, with a separate limit for T_* only. The inspected checker and its recorded nine roots are corroboration, not the asymptotic certificate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Even totally positive windows have ambiguity zeros; repeated one-sided exponentials with the same polarity are zero-free. The moment-based theorem bounds a local zero-free region."
+        ],
+        "reasoning": "Neither symmetry nor common polarity holds for the mixed-polarity family, and a bounded zero-free region cannot describe the unbounded string. The hypotheses distinguish the claimed regime from both classical examples.",
+        "searches": [
+          "arXiv:1811.03937, §3 and Theorem 4.2",
+          "arXiv:math/0606397, Theorem 3.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py, requirements.txt and verification_output.txt",
+        "Resultary ranked search and inspected sech and radial-window records",
+        "arXiv:1811.03937",
+        "arXiv:math/0606397"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior paper explicitly distinguishes higher convolutions from the worked two-factor family. The closest catalogue asymptotics count zeros of a different pulse with delay held fixed, not zeros at varying real delay converging to a positive balance point."
+        ],
+        "reasoning": "The target requires the transverse cancellation of two unequal jump amplitudes and a genuine real two-equation construction; no inspected result implies this by substitution. The Lambert-W inversion after that balance equation is standard, not an independent novelty claim.",
+        "searches": [
+          "arXiv:1811.03937, end of §3 and Theorem 4.2",
+          "Resultary sech-power record, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The broad web query returned no useful comparison. The OA two-factor formula includes reversal of one exponential, proves nonvanishing for unequal rates, and explicitly discusses the equal-rate even window with zeros."
+        ],
+        "reasoning": "Neither reversing a factor nor rescaling rates removes the third factor or makes the stated asymmetric kernel equal to the previous even example. The two-factor result does not cover the target.",
+        "searches": [
+          "ambiguity function zeros totally positive functions three exponential convolution mixed signs repeated Schoenberg exponential splines high frequency Grochenig Jaming Malinnikova",
+          "arXiv:1811.03937, Example 3 and Lemma 3.1",
+          "Resultary: mixed-polarity exponential convolution and high-frequency ambiguity zeros"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest catalogue record gives a fixed-delay real zero count and small-delay Bessel scaling for sech powers. The radial Gaussian-polynomial record treats a different higher-dimensional geometry."
+        ],
+        "reasoning": "This is a rate-dependent asymptotic theorem, not a tabulated sequence. The relevant exact comparison finds other unbounded families but no equivalent limiting line or rate law.",
+        "searches": [
+          "Resultary: high-frequency real ambiguity zeros and delay–Doppler asymptotics",
+          "2026/10/26/SCOPE-spherical-bessel-delay-scaling-for-all-integer-power-hyperbolic--a9366ccdb6a1",
+          "2026/10/25/SCOPE-sharp-doppler-null-thresholds-and-a-dimension-induced-topology-c--0e6509f16d66"
+        ]
+      },
+      "rationale": "The pass concerns the quantitative cofinite simple-zero string and limiting-delay law for the specified asymmetric three-factor family. It does not credit the qualitative observation that totally positive windows can have ambiguity zeros.",
+      "residual_risks": [
+        "The comparison is not exhaustive; equivalent asymptotics under exponential splines or rational filters could be unindexed. A nonpertinent web result carries no negative evidentiary weight."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related qualitative and two-factor results only in the relevant passages",
+          "evidence": "Unequal two-factor reversed convolution is zero-free; the even equal-rate case has zeros; the all-forward repeated family is zero-free.",
+          "identifier_or_url": "https://arxiv.org/pdf/1811.03937",
+          "material_read": "Example 3/Lemma 3.1 pp. 5–6, end of §3 p. 7, Theorem 4.2 pp. 8–9",
+          "method": "OA PDF, bounded offsets around 17100–22296, 25100 and 32900",
+          "title": "Zeros of the Wigner distribution and the short-time Fourier transform",
+          "trigger": "Primary plausible coverage of totally positive exponential windows"
+        },
+        {
+          "assessment": "Local rather than large-Doppler control",
+          "evidence": "The exclusion concerns a convex hull defined by time and frequency spreads.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0606397",
+          "material_read": "Theorem 3.1, p. 5, offset near 18900",
+          "method": "OA PDF passage",
+          "title": "Zero-free regions of radar ambiguity functions and moments",
+          "trigger": "Potential broader control on Doppler zeros"
+        },
+        {
+          "assessment": "Different pulse and delay regime",
+          "evidence": "At fixed nonzero delay the zero count is |T|R+O(1); the separate Bessel scaling concerns small delay.",
+          "identifier_or_url": "2026/10/26/SCOPE-spherical-bessel-delay-scaling-for-all-integer-power-hyperbolic--a9366ccdb6a1",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Bounded local mirror read, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Spherical Bessel delay scaling for all integer powers of the hyperbolic secant",
+          "trigger": "Strongest indexed overlap in unbounded real Doppler zeros"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The next mixed-polarity repeated convolution is a natural test against zero-free unequal two-factor and same-polarity families. It gives infinitely many genuine real nulls, not numerical near-cancellations, and explains where they concentrate and how that limiting delay escapes near equal rates. The quantitative location and simplicity answer a more precise question than the already known existence of zeros for some totally positive functions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

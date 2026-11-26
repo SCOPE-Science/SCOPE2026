@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:48:48.425149Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–63",
+        "Frozen VERIFICATION.md, line 19"
+      ],
+      "rationale": "Submodularity makes adjoining a rank-zero line rank-preserving. For any nonloop secret S there is a rank-two plane through S: otherwise the induction on sums of two hyperplanes containing S in RESULT.md propagates rank one to E. Such a plane supplies a nonreconstructing line in every complement to S. If the matroid has a loop L, the rank-one plane S+L has a nonloop line other than S and L (its intersection with the loop subspace is exactly L); choose a complement of S containing that line to obtain a reconstructing line as well. In the loop-free nonuniform case, choose S in a rank-one plane; its intersection with any complement supplies a reconstructing line. Either yields two lines with different reconstruction behavior in one port, impossible for any integer dimension threshold, including an empty port. In the uniform case adjoining S increases dimension by one and increases rank exactly at dimensions zero and one, giving threshold two.",
+      "residual_risks": [
+        "This is a symbolic rank-axiom check, not a Lean proof or expert attestation; no computation is required."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "MRD-code-induced generalized ports are threshold in the first paper. The second paper treats uniform q-matroids at general rank but in the forward direction, and still poses the classification question."
+        ],
+        "reasoning": "Both are sufficient conditions, not broader converse theorems. Neither rules out nonuniform rank-two abstract q-matroids, in particular those with loops.",
+        "searches": [
+          "arXiv:2504.18294, Proposition 6",
+          "arXiv:2601.07567v1, Proposition 41 and conclusion; later version Proposition 45"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2504.18294",
+        "arXiv:2601.07567v1 and later version",
+        "Resultary record db2f9e82bdf9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior sufficient statements do not force all planes to have rank two; the rank-two proof excludes mixed reconstructing and nonreconstructing lines even with loops.",
+          "The local rank-two code statement concerns full-recovery multiplicities and has no quantifier over all nonloop-line ports."
+        ],
+        "reasoning": "The converse is not obtained by restricting a known general forward implication to rank two.",
+        "searches": [
+          "arXiv:2504.18294, Proposition 6",
+          "arXiv:2601.07567v1, Proposition 41 and conclusion",
+          "Resultary record db2f9e82bdf9, RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proposition 41 gives uniform-to-threshold, while the conclusion identifies classification of q-matroids with threshold or near-threshold ports as open.",
+          "The closest local Resultary statement (db2f9e82bdf9) concerns optimizing full-recovery coverage by balancing projective-direction multiplicities of rank-two codes."
+        ],
+        "reasoning": "Comparing reconstruction ports as access structures, including the code-induced formulation, does not turn the forward proposition or the code coverage optimum into the universal converse.",
+        "searches": [
+          "Resultary semantic searches on rank-two q-matroid uniformity and dimension-threshold reconstructing ports",
+          "arXiv:2601.07567v1, Proposition 41 and conclusion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The rank-two code hit optimizes a coverage statistic, not a reconstructing-port classification."
+        ],
+        "reasoning": "A finite table of individual code or matroid instances is not a plausible source of coverage for the unbounded field, dimension, and abstract-rank quantifiers; the relevant overlap would be a structural classification, checked at statement level.",
+        "searches": [
+          "Resultary local searches for published q-matroid port characterizations, including the closest rank-two code hit db2f9e82bdf9"
+        ]
+      },
+      "rationale": "The surviving distinct claim is the converse with all nonloop secret lines and complements, for arbitrary rank-two q-matroids including those with loops. The uniform-to-threshold direction is prior work. No equivalent or dominating statement was established by the inspected primary sources and bounded Resultary searches.",
+      "residual_risks": [
+        "Bounded comparison does not rule out an unindexed equivalent converse. No higher-rank or rational q-polymatroid classification is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers an MRD-induced sufficient condition only",
+          "evidence": "The proposition concerns threshold behavior of generalized q-polymatroid ports induced by MRD codes.",
+          "identifier_or_url": "https://arxiv.org/abs/2504.18294",
+          "material_read": "Proposition 6, p. 9",
+          "method": "Primary open-access text, bounded reading",
+          "title": "Secret Sharing in the Rank Metric",
+          "trigger": "First cited threshold-port result"
+        },
+        {
+          "assessment": "Covers the frozen converse's reverse direction, not the converse itself",
+          "evidence": "Uniform q-matroids give threshold ports; classifying q-matroids with threshold or near-threshold ports is left open.",
+          "identifier_or_url": "https://arxiv.org/abs/2601.07567",
+          "material_read": "v1 Proposition 41, p. 22 and conclusion pp. 26–27; later version Proposition 45, p. 25 and conclusion",
+          "method": "Primary open-access text, targeted passage comparison",
+          "title": "A q-Polymatroid Framework for Information Leakage in Secure Linear Network Coding",
+          "trigger": "Closest general uniformity and port-classification source"
+        },
+        {
+          "assessment": "Different claim",
+          "evidence": "The optimization over projective-direction multiplicities for rank-two codes does not characterize reconstructing ports.",
+          "identifier_or_url": "Resultary/2026/2026/10/4/SCOPE-exact-rank-two-optimum-for-dna-coverage-depth--db2f9e82bdf9",
+          "material_read": "RESULT.md, coverage objective and optimum",
+          "method": "Local published-record mirror",
+          "title": "Exact rank-two optimum for DNA coverage depth",
+          "trigger": "Closest local search hit for rank-two codes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof",
+        "arXiv:2601.07567v1, conclusion"
+      ],
+      "rationale": "It settles a natural first nontrivial rank of a documented classification question. It shows exactly when threshold access survives every choice of secret line and complement, using a mixed-line obstruction that detects both loops and dependent planes. This is a structural converse, not another example of the known sufficient condition.",
+      "residual_risks": [
+        "The result concerns all ports jointly and gives no classification for a single port, higher rank, or near-threshold behavior."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

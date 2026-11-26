@@ -1,136 +1,60 @@
-# Exact complex-Gaussian randomized Ritz tails and a logarithmic mean-angle penalty
+# Exact finite-angle Ritz-vector law and logarithmic mean-angle penalty for a square Gaussian sketch
 
 ## Finding
 
-The square complex-Gaussian randomized Rayleigh–Ritz (RRR) pencil can have a sharp distinction between high-probability eigenpair convergence and mean-square performance, even for a positive-semidefinite diagonal matrix with a simple exterior target eigenvalue. The following is an **exact finite-sample distributional result**, not an asymptotic simulation.
+Let \(A=\operatorname{diag}(0,a,b)\) with \(a,b>0\). For \(0<\theta<\pi/2\), write \(s=\sin\theta\), \(c=\cos\theta\), and let \(W=[(c,0,s)^{\mathsf T},e_2]\). Draw a \(3\times2\) matrix \(\Omega\) of independent standard circular complex Gaussian entries and form the pencil \(\Omega^*AWy=\mu\Omega^*Wy\). Use the eigenvalue branch starting from \(0\) as \(\theta\downarrow0\), not a closest-eigenvalue selection from the computed spectrum. Let \(\widehat v=Wy/\|Wy\|_2\) for this branch.
 
-Fix real numbers \(a,b>0\), and let \(0<\theta<\pi/2\). Set
+Set \(\beta=bs^2\), \(\gamma=bsc\) and \(q=\gamma^2/((a-\beta)^2+\gamma^2)\in(0,1]\). If \(S=1-|e_1^*\widehat v|^2\), the exact finite-angle law and mean are
 \[
-A=\operatorname{diag}(0,a,b),\qquad
-w_1=(\cos\theta,0,\sin\theta)^\mathsf T,\quad
-w_2=e_2,\quad W=[w_1,w_2].
+ S\stackrel d=s^2+c^2\frac{qV}{U+qV},\qquad U,V\text{ independent unit exponentials},
 \]
-Draw \(\Omega\in\mathbb C^{3\times2}\) with independent standard circular complex-normal entries, \(\mathcal{CN}(0,1)\). Form the generalized compressed eigenproblem
 \[
-\Omega^*AWy=\mu\Omega^*Wy.
+ \Pr\{(S-s^2)/c^2\le z\}=\frac{z}{q+(1-q)z}\quad(0\le z\le1),\qquad
+ \mathbb ES=s^2+c^2\Phi(q),
 \]
-Here \(W\) is orthonormal and \(\Omega^*W\) is invertible almost surely. Define the randomized eigenvalue branch \(\mu\) by continuation from the eigenvalue zero as \(\theta\downarrow0\), and let \(\widehat v\) be its unit-normalized randomized Ritz vector. The other compressed eigenvalue is exactly \(a\); the branch labels are algebraically unambiguous except on a null event.
-
-Write
 \[
-s=\sin\theta,\quad c=\cos\theta,\quad
-\beta=bs^2,\quad \gamma=bsc,\qquad
-q=\frac{\gamma^2}{(a-\beta)^2+\gamma^2}\in(0,1].
+ \Phi(q)=\frac{q(q-1-\log q)}{(1-q)^2}\quad(0<q<1),\qquad \Phi(1)=\frac12.
 \]
-For the squared sine of the angle to the true eigenvector \(e_1\),
+In particular, the normalized angle excess is uniform at the resonance \(a=bs^2\). For fixed \(a,b>0\),
 \[
-S=1-|e_1^*\widehat v|^2,
+ \mathbb ES=2(b/a)^2\theta^2\log(1/\theta)+O(\theta^2).
 \]
-there is the **exact law**
-\[
-S\ \stackrel{d}{=}\ s^2+c^2\frac{qV}{U+qV},
-\qquad U,V\ \text{independent }\operatorname{Exp}(1).
-\]
-In particular, for \(0\le z\le1\),
-\[
-\Pr\!\left\{\frac{S-s^2}{c^2}\le z\right\}
-=\frac{z}{q+(1-q)z},
-\]
-and
-\[
-\boxed{\quad \mathbb ES=s^2+c^2\,\Phi(q),\qquad
-\Phi(q)=\frac{q(q-1-\log q)}{(1-q)^2}\quad(0<q<1),\qquad
-\Phi(1)=\tfrac12.\quad}
-\]
-The unrefined randomized eigenvalue has the exact shifted radial tail
-\[
-\Pr\{\,|\mu-\beta|>t\,\}=\frac{\gamma^2}{t^2+\gamma^2}\quad(t\ge0),
-\]
-so \(\mathbb E|\mu|^2=\infty\) for every \(0<\theta<\pi/2\), even though \(\mu\to0\) in probability as \(\theta\downarrow0\).
-
-For fixed \(a,b>0\) as \(\theta\downarrow0\),
-\[
-\boxed{\quad\mathbb ES
-=2\frac{b^2}{a^2}\,\theta^2\log(1/\theta)+O(\theta^2).\quad}
-\]
-The deterministic Hermitian Rayleigh–Ritz vector on the *same* trial space is exactly \(w_1\), with squared sine error \(s^2\sim\theta^2\). Thus the ratio of randomized expected squared-angle error to the deterministic squared-angle error grows without bound, at the precisely identified logarithmic rate.
+On the same trial space the ordinary Hermitian Ritz branch near zero has eigenvector \((c,0,s)^{\mathsf T}\) with squared sine \(s^2\sim\theta^2\). The exact law explains why the randomized vector may have a small angle with high probability while its expected squared sine exceeds the deterministic baseline by a logarithmic factor.
 
 ## Assumptions and scope
 
-The matrix is finite-dimensional, Hermitian positive semidefinite and diagonal, with the eigenvalue zero simple. The trial space is precisely the two-dimensional subspace specified above. The random test matrix is **square with respect to the trial dimension** and consists of independent standard circular complex Gaussians; no oversampling, symmetrization, truncation, or residual-based rejection is performed. All assertions concern exact arithmetic. The labeled eigenbranch is the eigenvalue converging to zero in probability, not whichever eigenvalue happens to be numerically closest to zero after observing a particular sketch.
-
-The result proves neither an infinite-dimensional statement nor a bound for an arbitrary Hermitian matrix or trial subspace. A real-Gaussian sketch has different heavy-tail exponents and is not covered by the formulas.
+The target is the simple lowest eigenvalue of the stated diagonal matrix. The projected pencil is square with respect to the trial dimension. The sketch, trial plane and normalized eigenvector are as above; no oversampling, symmetrization, truncation or residual-based rejection is used. All statements concern exact arithmetic. At a deterministic compressed eigenvalue tie \(\beta=a\), the ordinary compressed eigenvector is not unique; the small-angle comparison concerns only the branch where \(\beta\ne a\) near zero. The random pencil has simple roots almost surely at each stated angle, including that resonance.
 
 ## Proof
 
-1. **Exact compressed pencil.** Let \(u=-se_1+ce_3\). Then \([w_1,e_2,u]\) is an orthonormal basis, and \(Aw_1=\beta w_1+\gamma u\), while \(Ae_2=ae_2\). Put \(G=\Omega^*W\) and \(h=\Omega^*u\). Almost surely \(G\) is invertible; with \(r=G^{-1}h=(r_1,r_2)^\mathsf T\),
+The kernel of \(\Omega^*\) is almost surely a unitarily invariant complex line, represented by a vector \(K=(K_1,K_2,K_3)^{\mathsf T}\) of independent standard circular complex Gaussian coordinates. At the non-spectator root write the unnormalized Ritz vector as \((c,\eta,s)^{\mathsf T}\). The projected eigen-equation is exactly that
 \[
-G^{-1}\Omega^*AW=\begin{pmatrix}\beta+\gamma r_1&0\\\gamma r_2&a\end{pmatrix}.
+ (-\mu c,(a-\mu)\eta,(b-\mu)s)^{\mathsf T}\in\operatorname{span}K.
 \]
-Thus the eigenbranch of interest is \(\mu=\beta+\gamma r_1\). As long as \(\mu\ne a\), its coefficient eigenvector is proportional to \((1,\eta)^\mathsf T\), where
+Eliminating the proportionality factor gives
 \[
-\eta=-\frac{\gamma r_2}{a-\beta-\gamma r_1}.
+ \mu=\frac{bsK_1}{sK_1-cK_3},\qquad
+ \eta=-\frac{bscK_2}{(a-b)sK_1-acK_3}.
 \]
-Since \(r_1\) has a continuous law, \(\mu=a\) has probability zero. Consequently \(\widehat v=(w_1+\eta e_2)/\sqrt{1+|\eta|^2}\) up to a unit complex phase, and
-\[
-S=s^2+c^2\frac{|\eta|^2}{1+|\eta|^2}.
-\]
+For fixed \(\theta\), both denominators are nonzero almost surely. The first also certifies nonsingularity of \(\Omega^*W\): its singularity would mean the null line lies in the trial plane, i.e. \(sK_1-cK_3=0\). The other compressed eigenvalue is exactly \(a\), since \(e_2\) is a true eigenvector; equality of the two roots would make the second denominator zero. For a single fixed sketch, \(K_3\ne0\) almost surely, so the displayed non-spectator root tends to zero as \(\theta\downarrow0\).
 
-2. **Exact projective Gaussian representation.** The \(2\times3\) matrix \([G,h]=\Omega^*[w_1,e_2,u]\) has independent standard complex-normal entries. Its kernel is almost surely a random one-dimensional subspace whose law is invariant under every unitary transformation of \(\mathbb C^3\). It is therefore Haar-distributed on complex projective two-space. The kernel is spanned by \((-r_1,-r_2,1)^\mathsf T\), whereas a Haar random line is spanned by \((Z_1,Z_2,Z_3)^\mathsf T\) with independent \(Z_j\sim\mathcal{CN}(0,1)\). Absorbing signs into these symmetric Gaussians gives
-\[
-(r_1,r_2)\stackrel d=(Z_1/Z_3,Z_2/Z_3).
-\]
-In particular \(\eta\) has the same distribution as \(-\gamma Z_2/[(a-\beta)Z_3-\gamma Z_1]\). The denominator \(D=(a-\beta)Z_3-\gamma Z_1\) is independent of \(Z_2\) and is circular complex normal with variance \((a-\beta)^2+\gamma^2\). Hence \(|\eta|^2\stackrel d=qV/U\), with independent \(U,V\sim\operatorname{Exp}(1)\). This proves the asserted law for \(S\).
-
-3. **Distribution and mean.** For \(0\le z\le1\),
-\[
-\Pr\{qV/(U+qV)\le z\}
-=\Pr\{V/U\le z/[q(1-z)]\}
-=\frac{z}{q+(1-q)z},
-\]
-with the endpoint interpreted by continuity. Differentiating yields density \(q/[q+(1-q)z]^2\) on \((0,1)\). Equivalently, using the ratio density of two independent unit exponentials,
-\[
-\mathbb E\frac{qV}{U+qV}
-=\int_0^\infty\frac{q}{(r+q)(1+r)^2}\,dr
-=\frac{q(q-1-\log q)}{(1-q)^2}.
-\]
-At \(q=1\), exchangeability of \(U,V\) gives mean \(1/2\), and the fraction is uniform on \([0,1]\). In particular, the resonance \(a=b\sin^2\theta\), whenever attainable, gives an exactly uniform normalized angle excess.
-
-4. **Eigenvalue tail and infinite second moment.** The complex Gaussian ratio satisfies
-\[
-\Pr\{|Z_1/Z_3|^2>x\}
-=\mathbb E e^{-x|Z_3|^2}=\frac1{1+x}\quad(x\ge0).
-\]
-Since \(\mu-\beta\stackrel d=\gamma Z_1/Z_3\), this proves the stated tail. Integrating \(\Pr\{|\mu-\beta|^2>t\}\) over \(t\) proves that its second moment diverges. A finite deterministic shift \(\beta\) does not make the second absolute moment finite. At the same time \(\gamma\to0\) and \(\beta\to0\), proving \(\mu\to0\) in probability.
-
-5. **Logarithmic mean-angle asymptotic.** As \(\theta\downarrow0\), \(s=\theta+O(\theta^3)\), \(c=1+O(\theta^2)\), \(\beta=O(\theta^2)\), and
-\[
-q=(b/a)^2\theta^2+O(\theta^4).
-\]
-Direct expansion of the proven exact expression gives \(\Phi(q)=-q\log q+O(q)\), hence
-\[
-\mathbb ES=2(b/a)^2\theta^2\log(1/\theta)+O(\theta^2).
-\]
-Finally, the deterministic compressed matrix \(W^*AW=\operatorname{diag}(\beta,a)\) has Ritz eigenvector \(w_1\) for its branch near zero, giving squared sine exactly \(s^2\). This completes the comparison.
+The linear form \((a-b)sK_1-acK_3\) is independent of \(K_2\), and has variance \((a-b)^2s^2+a^2c^2=(a-\beta)^2+\gamma^2\). Thus \(|\eta|^2\stackrel d=qV/U\). Normalization of \((c,\eta,s)^{\mathsf T}\) gives the asserted law for \(S\). The ratio of unit exponentials has CDF \(x/(1+x)\) for \(x\ge0\), giving the CDF on \([0,1]\). Integrating its complement, \(q(1-z)/[q+(1-q)z]\), over that interval gives \(\Phi(q)\); for \(q=1\) the integral is \(1/2\). Since \(q=(b/a)^2\theta^2+O(\theta^4)\) and \(\Phi(q)=-q\log q+O(q)\), the stated mean-angle penalty follows. Finally, \(W^*AW=\operatorname{diag}(\beta,a)\) supplies the deterministic comparison.
 
 ## Verification
 
-The standalone `verify.py` evaluates the integral identity with high-precision quadrature, tests the small-angle coefficient, verifies the resonance case, constructs the compressed matrices from independent complex-Gaussian sketches, and compares their eigenbranch and eigenvector statistics with the exact CDF, expectation and eigenvalue tail. It checks the reduced triangular form directly. Run with `python verify.py` using Python 3, NumPy and mpmath; the script raises an exception if a test fails. Random sampling supplies finite consistency checks, **not** the proof of the exact law or infinite second moment.
+The included `verify.py` (Python 3, NumPy and mpmath) checks the analytic expectation integral and resonance, and compares direct compressed Gaussian pencils with the CDF and mean at several angles. Its finite statistics are consistency checks; the exact vector law and logarithmic asymptotic follow from the proof. The program also checks the known eigenvalue tail as a diagnostic of the branch and sketch.
 
 ## Relationship to prior work
 
-Shao (2026, arXiv:2604.01037, first public version April 1, 2026) introduced this square complex-Gaussian RRR pencil and established nonasymptotic, high-probability eigenpair convergence, including a probabilistic linear bound for Ritz-vector angles. Section 5.3 experimentally studies success frequencies. Those guarantees do not give the present exact angle distribution, mean-square logarithmic coefficient, or infinite second moment of the unrefined eigenvalue. There is no contradiction: a random variable can converge in probability while its second moment is infinite.
-
-Nakatsukasa and Tropp's sketched Rayleigh–Ritz analysis uses embedding sketches, typically with oversampling, and compares sketched and standard compressed problems. Its §6.8 notes that sketching Hermitian problems need not yield real eigenvalues; it does not establish the square Gaussian law derived here. Haas and Nakatsukasa (2025) give sharp deterministic Rayleigh–Ritz eigenvalue bounds, but not this random test-space distribution.
-
-The complex Gaussian ratio and its heavy tails are classical probability facts. The mathematical claim here is their exact propagation through the **specific randomized eigenpencil and normalized eigenvector geometry**. Earlier literature may contain an equivalent specialized distribution under different terminology; this is a bibliographic limitation rather than a proven uniqueness assertion.
+Shao [1] establishes high-probability convergence for the square Gaussian pencil. The general spectator-subspace law in [2] already gives \(\Pr(|\mu-\beta|>t)=\gamma^2/(t^2+\gamma^2)\) and \(\mathbb E|\mu|^2=\infty\) here, by taking spectator \(e_2\) and residual norm \(\gamma\). The oversampling law in [3] gives another direct specialization to the same eigenvalue tail. These eigenvalue facts are background, not part of the new claim. A more general first-order joint error law [4] describes limiting, normalized errors as the trial plane approaches a true eigenvector. Such a weak limit alone does not recover the finite-angle normalized eigenvector law or the expected squared sine: its heavy tail requires controlling the finite-angle saturation. The distinction here is the exact finite-angle eigenvector statistic and its mean asymptotic in the stated geometry, not priority for the Gaussian quotient identity or for the pencil itself.
 
 ## Limitations
 
-This is a tractable model with a diagonal \(3\times3\) matrix and a two-dimensional trial space. It demonstrates a genuine boundary of interpreting high-probability convergence as mean-square convergence, not failure of the underlying algorithm on typical sketches. It does not establish the rate for arbitrary matrices, oversampled versions, alternative eigenpair-selection policies, symmetrized projections, or real Gaussian tests. The unrefined complex Ritz value is used for the infinite-second-moment statement; a refined real Rayleigh quotient of a Hermitian matrix is bounded and does **not** share that divergence.
+No claim is made for other trial spaces, higher dimensions, alternative branch selectors, refined Rayleigh quotients, real sketches or oversampling. An equivalent special-case angle law in unexamined literature remains possible.
 
 ## References
 
-1. N. Shao, *Stabilizing the Rayleigh–Ritz procedure by randomization*, arXiv:2604.01037v1, first public April 1, 2026. https://arxiv.org/html/2604.01037v1
-2. Y. Nakatsukasa and J. A. Tropp, *Fast Randomized Algorithms for Linear Systems and Eigenvalue Problems*, §6 (sketched Rayleigh–Ritz), available draft. https://tropp.caltech.edu/drafts/NT21-Fast-Accurate-draft.pdf
-3. I.-B. Haas and Y. Nakatsukasa, *Sharp error bounds for approximate eigenvalues and singular values from subspace methods*, arXiv:2506.01207, first public June 1, 2025. https://arxiv.org/pdf/2506.01207
+1. N. Shao, *Stabilizing the Rayleigh–Ritz procedure by randomization*, [arXiv:2604.01037v1](https://arxiv.org/html/2604.01037v1), Algorithm 1 and Theorem 2.
+2. *Three independent Gaussian Ritz sketches recover the exact residual mean-square scale*, [Resultary record 6cfe0d1021ce](https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-three-independent-gaussian-ritz-sketches-recover-the-exact-resid--6cfe0d1021ce), Proof steps 1–2.
+3. *Sharp real–complex Gaussian oversampling thresholds for sketched Ritz moments*, [Resultary record ec7a4a7d4b05](https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-sharp-real-complex-gaussian-oversampling-thresholds-for-sketched--ec7a4a7d4b05).
+4. *Sharp joint complex-Cauchy error law for two-dimensional randomized Rayleigh–Ritz*, [Resultary record 629c63caaa73](https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-joint-complex-cauchy-error-law-for-two-dimensional-randomi--629c63caaa73).

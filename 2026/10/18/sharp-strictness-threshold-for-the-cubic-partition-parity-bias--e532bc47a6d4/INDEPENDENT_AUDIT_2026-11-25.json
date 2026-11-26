@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T16:44:58.166358Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The parity-adjusted signed unrestricted generating function is the product of (1+(-q)^(m^3))^(-1). On the factor family m=2^a u for a fixed positive odd u, the a=0 term is (1-z)^(-1) with z=q^(u^3), and the a>=1 terms divide out factors 1+z^(2^(3a)) from its binary product. Coefficientwise this cancellation is legal, and the surviving subset weights are distinct by their 2-adic valuations and odd cube roots. An independently written exact convolution of the signed multiplicity sums through degree 373 and a separate direct enumeration of the 1,024 subsets of the ten base weights (`python3 /workspace/branches/independent_checks.py 1`) produced all 23 listed zeros, no other zeros through 373, and verified every base sum from 124 through 373 (not 374 for those base weights). The certified interval adjoins its translate by 250, reaching 623, and overlaps its translate by the fresh weight 343, reaching 966. At that point 729<=966-123; each following overlap margin increases by 2v^3-(v+2)^3, positive for v>=9 since (1+2/v)^3<2. Each added odd cube is a fresh weight, and the accumulating right endpoints diverge. This gives every n>=124 without extrapolation. The empty partition is counted, and 123 is an actual zero, so the boundary is sharp.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The sign theorem is printed with strict inequalities, but the combinatorial convolution proof concludes a_S(n)>=0 (PDF pp. 4–5). The asymptotic in equation (38) gives strictness in the limit and explicitly allows small equality cases (p. 14). A292560 displays a(8)=0, an actual counterexample to all-n strictness."
+        ],
+        "reasoning": "The broader true sign and eventual strictness results apply to cubes, but give neither an effective cutoff in the inspected passages nor its optimal value. The invalid printed strictness cannot establish prior coverage of the complete equality set.",
+        "searches": [
+          "arXiv:2002.05682v2 Theorems 2–3 and equation (38)",
+          "Ciolan Equidistribution and inequalities for partitions into powers cubic partitions strict positivity effective threshold exceptional zeros Section 7 arXiv 2002.05682; exact OEIS A292560 signed cubic-partition coefficients table through 20000"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2002.05682v2",
+        "OEIS A292560 entry",
+        "Resultary a35da3468c2e, 79ce84b602d6, f414928a973d (summaries)",
+        "Frozen RESULT.md, VERIFICATION.md and verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior positivity method leaves small equalities unspecified; the nearest exact corpus cutoffs treat exponents 2 and 4."
+        ],
+        "reasoning": "Neither the general asymptotic nor the other exponent thresholds implies the exact cubic right tail. The essential additional steps are the specific zero and solid-interval certificate and its unbounded extension by fresh odd cubes, not another expression for the signed coefficient.",
+        "searches": [
+          "arXiv:2002.05682v2 combinatorial proof and equation (38)",
+          "Resultary cubic signed partition zero set and square/fourth-power positivity analogues"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ciolan's a_k(n)=(-1)^n(p_k(0,2,n)-p_k(1,2,n)) is the same adjusted coefficient for k=3. OEIS A292560 has the same reciprocal cube product before sign compensation; alternating sign does not change its zero set."
+        ],
+        "reasoning": "The earlier formulations cover the statistic and its generating product, but the explicit all-n threshold is a property of its coefficient support not established merely by either definition.",
+        "searches": [
+          "signed cubic partition coefficient zero set strict positivity cutoff",
+          "cube partitions parity adjusted even odd count all n threshold",
+          "arXiv:2002.05682v2 §2.2; OEIS A292560"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A292560 states its linked table covers 0–20000 and displays a zero at 8. The b-file itself was not retrieved, so complete matching of its entries is not claimed. Resultary summaries returned the square (a35da3468c2e, 65) and fourth-power (79ce84b602d6, 145) cutoff analogues and the cubic even-part-mass asymptotic (f414928a973d)."
+        ],
+        "reasoning": "If the table is accurate, it already contains the first 23 zeros in its finite range, but no finite range can exclude arbitrarily later zeros by itself. The indexed powers differ in allowed weights, and even-part mass is a different statistic from parity of the number of parts.",
+        "searches": [
+          "https://oeis.org/A292560",
+          "https://oeis.org/A292560/b292560.txt",
+          "cubic partition parity bias strict positivity complete zero set threshold 124 (Resultary)"
+        ]
+      },
+      "rationale": "Credit the signed product, sign pattern with possible equality and eventual strictness to earlier work. The novelty supported by the comparison is the exact all-n cubic zero classification and optimal effective threshold. Ciolan's printed strict statements cannot be a correct all-n comparator in the presence of explicit cubic zeros and the paper's own equality caveat. A finite coefficient table supplies existing individual zeros where it lists them, not an infinite tail proof.",
+      "residual_risks": [
+        "The b-file was not independently obtained; only the finite range claimed by its entry and displayed initial coefficients were read.",
+        "Full texts of the neighbouring corpus hits were not obtained. An earlier equivalent all-n cutoff in an unindexed source is not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same adjusted invariant and eventual sign, but actual proof only nonnegative globally and strictly positive eventually; no effective cubic cutoff there",
+          "evidence": "The proof concludes a_S(n)>=0; the relevant asymptotic passage says large n and notes possible small-n equalities. Cubes actually have a zero at n=8.",
+          "identifier_or_url": "https://arxiv.org/pdf/2002.05682",
+          "material_read": "v2 PDF pp. 2–5, Theorems 2–3 and proof (text offsets about 7200 and 19500), §2.2 convention, p. 14 eq. (38) and following caveat",
+          "method": "OA primary PDF bounded passages",
+          "title": "Equidistribution and inequalities for partitions into powers",
+          "trigger": "General parity-inequality theorem and plausible stronger or effective cubic bound"
+        },
+        {
+          "assessment": "Same finite data up to alternating sign; full attached entries not inspected; no universal assertion verified",
+          "evidence": "The product is the signed cubic parity count; displayed offset starts at degree 0 and degree 8 is zero; linked range 0–20000.",
+          "identifier_or_url": "https://oeis.org/A292560",
+          "material_read": "Entry formula, displayed initial terms, offset and advertised b-file range",
+          "method": "OA entry reading; unsuccessful bounded b-file retrieval",
+          "title": "Expansion of Product of reciprocal cube factors",
+          "trigger": "Exact coefficient list and possible prior equality set"
+        },
+        {
+          "assessment": "Summarized statements differ by power or statistic, not a claim about unseen details",
+          "evidence": "The exact cutoffs in those summaries are 65 for squares and 145 for fourth powers; the cubic summary concerns even-part mass, not part-count parity.",
+          "identifier_or_url": "SCOPE-20261018-a35da3468c2e; SCOPE-20261018-79ce84b602d6; SCOPE-20261122-f414928a973d",
+          "material_read": "Search summaries, including stated exponents, cutoffs and statistic",
+          "method": "Local Resultary searches; full mirrored texts not recovered",
+          "title": "Resultary square and fourth-power parity cutoff records and cubic even-part mass record",
+          "trigger": "Nearest indexed exact thresholds or same-exponent comparable statistics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a sharp effective answer to a standard partition-parity question for a natural exponent, and it identifies the finite equalities that strict phrasing in the original literature misses. The value is not enumerating another table: the small interval is a succinct certificate that closes the infinite gap left by qualitative eventual positivity. The result gives the precise range in which strictness may be used without further caveats; it does not claim novelty for the known generating function or asymptotic.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

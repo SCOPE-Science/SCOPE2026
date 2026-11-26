@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The package contains `checker.py`, a standalone Python 3.10+ exact-rational certificate. Run `python3 checker.py` in the extracted directory. It enumerates every labeled simple graph on one through five vertices using all \(2^{\binom n2}\) edge masks; it verifies all 772 neighboring-support likelihood-ratio cross products, and independently compares sequential recursion against direct enumeration of all priority orders in each of the 1,099 graph cases. It checks the sharp six-vertex example with exact fractions and the predicted family formula for fourteen further parameters. All these checks completed successfully at preparation.
+# Independent mathematical audit
 
-The infinite family statement is justified symbolically in `RESULT.md`; fourteen computations do not constitute its proof. The five-vertex universal statement is covered by a complete finite certificate, not a sample. The finite enumeration depends on the correctness of the clearly stated graph-generation, independence, maximality and recursion algorithms; code has not been independently audited. Historical priority has not been independently established.
+## correctness
+
+PASS
+
+For each labeled graph through order five, I counted static sets by excluding subsets of larger independent sets and sequential masses by all arrival permutations. All 832 positive-support pair cross-products pass (772 adjacent checks); the empty graph is trivial. The six-vertex witness gives static counts (1,2,2) and sequential permutation counts (120,200,400). For every m>=2 a first universal vertex gives size one; otherwise exactly one edge endpoint parks and the star center is earliest within its star with conditional probability 1/(m+1), since relabeling star priorities preserves the conditioning event. This gives the two analytic laws; the size-two to size-one LR ratio falls by (m+3)/(2(m+1))<1, while both CDF inequalities hold. The infinite family follows analytically, not from the finite census.
+
+## originality
+
+PASS
+
+The distinct contribution is likelihood-ratio dominance on all orders through five and its separation from first-order dominance on the explicit join family. First-order dominance through five on connected graphs and the existence of a six-vertex counterexample to universal sequential-over-static first-order dominance are prior, and the latter already implies some likelihood-ratio failure at six. Do not credit order-six existence in isolation as new.
+
+## value
+
+PASS
+
+The result answers a natural strengthening question for two model laws. A minimum-order witness with three support points isolates a difference between stochastic orders without merely refuting dominance, and the join family shows the separation persists at every subsequent order.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

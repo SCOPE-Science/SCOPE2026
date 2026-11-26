@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:42:04.355597Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let H be the Boolean adjacency matrix with zero diagonal shore-blocks and off-diagonal blocks M and its transpose, where M represents R. At each step the full adjacency is cubed: the off-diagonal block is exactly M_t M_t^T M_t, and backtracking retains each old edge. Thus H_t=H^(3^t). A walk of that odd length exists exactly for an opposite-shore pair with finite distance at most 3^t: any shorter path has the same parity and can be padded by retracing one edge. Therefore the first fixed point is the first round that reaches the entire cross-diameter (an earlier fixed point could not later grow). The empty relation is stable at round zero under the stated convention. A simple odd path uses equally many vertices from both shores, hence length at most 2h−1; the balanced path realizes the bound including h=1, with surplus vertices isolated. Each odd separation 2j−1 has 2h−2j+1 possible starting positions along the path, giving exactly J_t(2h−J_t). The anchored recurrence instead gives the off-diagonal block of H^(2t+1), which also checks its comparison. This is an unrestricted proof, not reliance on the frozen finite tests; verify.py was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Backhouse–Voermans equation (33) and Theorem 34 characterize the fixed point R=R R^T R.",
+          "SCOPE-triangle-check-peeling-is-graph-powering-with-exact-stopping-par--b32795dfce2f gives graph squaring and a 2^t distance law.",
+          "SCOPE-sharp-parallel-stabilization-of-right-euclidean-closure-on-finit--1c943a730ef2 gives a different depth law with graph squaring after two rounds."
+        ],
+        "reasoning": "Neither the static equivalence nor the indexed graph-squaring results generalize the specified odd cross-shore powering recurrence. The latter are distinct same-day records and their dates do not determine priority.",
+        "searches": [
+          "Backhouse–Voermans arXiv:2309.02017 Section 3.4",
+          "Resultary graph-powering parallel closure and sharp stopping searches"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Cao–Chen–Kerre",
+        "Backhouse–Voermans",
+        "Uezato–Nakamura",
+        "Local Resultary same-record entry and the two distinct related records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The classical power/star closure of the frozen comparison recovers eventual reachability but does not distinguish algorithms that achieve it.",
+          "The directly inspected anchored rule and frozen self-composition have separately verifiable H^(2t+1) and H^(3^t) laws."
+        ],
+        "reasoning": "No stronger theorem on rounds for this update was identified. The genuinely different formulas depend on how the rule is evaluated; their assembly here uses only elementary prior graph and relation machinery, which limits value even though the specific claim was not found in the inspected sources.",
+        "searches": [
+          "Cao et al. recurrence and least-extension assertion; Backhouse–Voermans fixed-point characterization; Uezato–Nakamura Boolean semantics"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cao et al. before Lemma 2 give R T_t^(-1) R, not R_t R_t^(-1) R_t.",
+          "Uezato–Nakamura p. 3 and Section 2 identify Boolean matrix multiplication with relation composition; the inspected passages are about relation calculus and circuit evaluation."
+        ],
+        "reasoning": "The latter supplies the standard Boolean formulation; it does not state the trajectory or extremal stopping time of the particular update. Transposing the anchored recurrence still leaves its outer factors fixed and cannot turn linear distance growth into repeated cubing.",
+        "searches": [
+          "Focused literature search for synchronous difunctional/Z-closure, Boolean adjacency powers and exact base-three depth",
+          "Cao–Chen–Kerre arXiv:1012.2148",
+          "Uezato–Nakamura arXiv:2609.26778"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact 0c23521a34cf indexed match is this same finding, not independent evidence.",
+          "The distinct indexed graph-squaring and right-Euclidean findings give cutoffs for other algorithms, not this two-shore cutoff or alternating-path profile."
+        ],
+        "reasoning": "The indexed comparisons concern rival exact formulas, not a numerical tabulation of all relations. The radius, quantifiers and update conventions differ.",
+        "searches": [
+          "Resultary semantic search for exact synchronous difunctional-closure depth and distance profile",
+          "Inspection of the two neighboring graph-powering records' RESULTS"
+        ]
+      },
+      "rationale": "Credit is limited to the explicit trajectory, sharp two-shore stopping time and path profile for simultaneous self-composition and their contrast with the anchored rule. The fixed point, walk-power ingredients and analogous uses of graph powering are not original. No inspected result gives the specific claim package for this update.",
+      "residual_risks": [
+        "Bounded comparison; the explicit law may have been observed elsewhere using ordinary Boolean powers.",
+        "Original Riguet text and the cited Zarrad–Gumm passage were not confirmed directly; the classical limiting closure is not credited here as new.",
+        "No priority order inferred from same-day dating."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different rounds, same least extension",
+          "evidence": "Outer factors stay at original R, middle factor uses the previous round's inverse.",
+          "identifier_or_url": "https://arxiv.org/pdf/1012.2148",
+          "material_read": "PDF p. 10, definition immediately before Lemma 2",
+          "method": "Targeted OA PDF extraction",
+          "title": "Bisimulations for Fuzzy Transition Systems",
+          "trigger": "Closest published Z-closure algorithm"
+        },
+        {
+          "assessment": "Static condition, not finite trajectory",
+          "evidence": "R R^T R subset R iff R R^T R=R; credits Riguet.",
+          "identifier_or_url": "https://arxiv.org/pdf/2309.02017",
+          "material_read": "Section 3.4, PDF pp. 8–9, equation (33) and Theorem 34",
+          "method": "Targeted OA PDF extraction",
+          "title": "The Index and Core of a Relation",
+          "trigger": "Classical difunctionality and equation for saturation"
+        },
+        {
+          "assessment": "Gives standard algebraic machinery, not the layer law",
+          "evidence": "Composition is Boolean matrix multiplication.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.26778",
+          "material_read": "PDF p. 3 and Section 2, PDF p. 16",
+          "method": "Targeted OA PDF extraction",
+          "title": "An Exponential Succinctness Gap between Three-Variable Logic and the Calculus of Relations",
+          "trigger": "Possible equivalent Boolean powering formulation"
+        },
+        {
+          "assessment": "Close analogues, not equivalent rules",
+          "evidence": "The first uses squaring, giving 2^t, and the second reaches squaring only after two rounds.",
+          "identifier_or_url": "2026/11/22/SCOPE-triangle-check-peeling-is-graph-powering-with-exact-stopping-par--b32795dfce2f; 2026/11/22/SCOPE-sharp-parallel-stabilization-of-right-euclidean-closure-on-finit--1c943a730ef2",
+          "material_read": "RESULT.md findings and graph-powering arguments (mirror offsets 693/3906 and 0/549)",
+          "method": "Local Resultary search and mirror passage inspection",
+          "title": "Triangle check peeling is graph powering; Sharp parallel stabilization of right-Euclidean closure",
+          "trigger": "Closest same-day indexed distance and depth laws"
+        },
+        {
+          "assessment": "Not independently assessed",
+          "evidence": "The cited PDF returned 404; no inference from unavailability.",
+          "identifier_or_url": "https://www.mathematik.uni-marburg.de/~gumm/Papers/Transitivity_and_Difunctionality_of_Bisimulation.pdf",
+          "material_read": "No full text obtained at cited URL",
+          "method": "Targeted OA retrieval attempt",
+          "title": "Transitivity and Difunctionality of Bisimulations",
+          "trigger": "Citation for classical power/star closure"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The synchronous-versus-anchored distinction is useful exposition, but the new quantitative content is a routine graph-powering deduction. The typed adjacency cube is the update itself, so every layer follows from ordinary odd walk lengths and backtracking. The maximum is then exactly the elementary upper bound on the length of a simple alternating path, attained by the path, and the profile just counts vertex positions at each separation on that path. No further closure obstruction or non-obvious extremal phenomenon is demonstrated; the sharp formulas here are not enough to elevate the textbook calculation to a separate scientific finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

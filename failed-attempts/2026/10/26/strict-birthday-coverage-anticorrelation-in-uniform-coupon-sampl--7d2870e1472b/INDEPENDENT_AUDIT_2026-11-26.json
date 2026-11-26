@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:53:25.546695Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–93",
+        "Frozen VERIFICATION.md lines 19–23",
+        "Frozen verify_coupon_cov.py lines 7–105, inspected only; direct size-two check conditions on whether the first two labels coincide"
+      ],
+      "rationale": "On this same label stream, write G_r for the number of draws after reaching r distinct labels until reaching r+1. The independent spacings have success probability (m−r)/m. The event B_m>b is exactly that the first b draws are distinct; hence E[C_m|B_m>b]=b+mH_(m−b), including b=m. Expanding B_m as the sum of its tail indicators gives the negative double sum, with a strictly negative b=2 contribution even for m=2 (covariance −1/2). On B_m=b≤m the bth draw is a repeat and the future is an independent collection started with b−1 labels. Adjacent conditional laws therefore differ under the shared-spacings coupling by a geometric variable minus one, positive with positive probability, or by the final geometric variable for b=m versus m+1. The same conditional mean formula gives 1−x²/2 by summing r/(m−r) for r up to b−2 on the birthday scale. In the covariance sum, b/√m→x gives the Gaussian survival e^(−x²/2) and penalty x²/2. The b≤m/2 part is bounded on the scaled grid by a Gaussian times a quadratic, and b>m/2 contributes at most a polynomial-log factor times e^(−(m−2)/8). The resulting integral is sqrt(pi/8). The survival bound also justifies both Rayleigh moment limits for B_m, so Var(B_m)/m→(4−pi)/2; the independent geometric variances give Var(C_m)/m²→pi²/6 and the claimed correlation constant.",
+      "residual_risks": [
+        "Strict stochastic order here means ordinary first-order order with unequal laws, not strict inequality at every cutoff. Unequal label weights and independent-stream models are excluded."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier exact index record also supplies conditional PGFs and an L² profile.",
+          "Anceaume et al. handle arbitrary coverage thresholds via a subset-state Markov chain; Flajolet et al. address birthday waiting times and occupancy thresholds."
+        ],
+        "reasoning": "Only the earlier indexed theorem is verified to dominate the full joint claim. The older primary passages provide broader marginal techniques, not the mixed stopping-time theorem.",
+        "searches": [
+          "Indexed first-collision/full-collection exact negative regression",
+          "Anceaume–Busnel–Sericola arXiv:1402.5245v1; Flajolet–Gardy–Thimonier RR-0720"
+        ]
+      },
+      "checked_sources": [
+        "Earlier and later indexed records above",
+        "RR-0720 primary scan",
+        "Pósfai Eq. (1.1)",
+        "Anceaume–Busnel–Sericola §§1–2, pp. 1–2",
+        "Holst retrieval attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Joint conditional laws and exact covariance follow by conditioning the classical geometric spacings on the initial no-repeat run; the sharp mixed asymptotic further requires control of the weighted tail sum.",
+          "The earlier indexed theorem directly states even these mixed asymptotics and the conditional profile."
+        ],
+        "reasoning": "Separate marginal results alone are not statement-level equivalence, but their joint spacing construction provides an elementary route to the finite identities. No new application or conclusion remains relative to the exact indexed precedent.",
+        "searches": [
+          "Earlier indexed theorem and proof",
+          "Pósfai §1.1 eq. (1.1)",
+          "Flajolet–Gardy–Thimonier §§3–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/10/12/SCOPE-first-collision-versus-full-collection-times-exact-negative-regr--2d3dc1ccb992 uses the same iid uniform draws and inclusive indices.",
+          "In the spacing formulation C_m=1+sum G_r and B_m is determined by the initial run of unit spacings, with B_m=m+1 if every spacing is one."
+        ],
+        "reasoning": "The indexed negative regression concerns full coverage on the same stream, not an independent collector or a recurrence distance. Both formulations identify identical random times.",
+        "searches": [
+          "Local Resultary: birthday first collision versus full coupon collection, negative regression, same stream",
+          "Pósfai arXiv:1006.3531v1, geometric spacings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/12/SCOPE-first-collision-versus-full-collection-times-exact-negative-regr--2d3dc1ccb992, RESULT.md offsets 0–3272 and 3200–7053, matches all formulas and limits.",
+          "2026/11/2/SCOPE-birthday-to-coverage-negative-regression-with-sharp-covariance-d--5b6258e3fa64 also overlaps, adding negative-quadrant dependence, but is later-dated."
+        ],
+        "reasoning": "This is prior exact statement-level coverage, not an inference from tabulated small-m values, an adjacent same-day title, or the frozen record itself.",
+        "searches": [
+          "Local Resultary exact covariance sum, conditional profile and birthday correlation constants"
+        ]
+      },
+      "rationale": "The distinct indexed 2026/10/12 record already states the identical covariance, strict conditional order, conditional-mean limit and both asymptotic constants for the same stopping times, and supplies further conditional PGF and L² information. The mathematical claim is already covered regardless of unresolved priority in older published literature.",
+      "residual_risks": [
+        "Holst (1986) and uninspected portions of the older occupancy literature could contain equivalent published results. This does not diminish the verified indexed overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier dated exact coverage and some stronger outputs",
+          "evidence": [
+            "Identical exact covariance sum, strict order, conditional mean profile and both constants; additionally gives PGFs and L² profile."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-first-collision-versus-full-collection-times-exact-negative-regr--2d3dc1ccb992",
+          "material_read": "RESULT.md offsets 0–3272 and 3200–7053",
+          "method": "Local mirror and statement/formula comparison",
+          "title": "First collision versus full collection times: exact negative regression",
+          "trigger": "Strongest indexed exact overlap"
+        },
+        {
+          "assessment": "Later overlap, not evidence of earlier priority",
+          "evidence": [
+            "Same conditional order and covariance/correlation limits; adds negative-quadrant dependence."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-birthday-to-coverage-negative-regression-with-sharp-covariance-d--5b6258e3fa64",
+          "material_read": "Indexed finding",
+          "method": "Local comparison",
+          "title": "Birthday-to-coverage negative regression with sharp covariance decay",
+          "trigger": "Indexed match by statistic and normalization"
+        },
+        {
+          "assessment": "Birthday and collection stopping-time marginal results in the passages inspected",
+          "evidence": [
+            "The first-hit case and the uniform full-collection mean are treated separately."
+          ],
+          "identifier_or_url": "INRIA RR-0720 (1987), HAL inria-00075832",
+          "material_read": "Primary scan pp. 8–11, §§3–4",
+          "method": "OA PDF passages",
+          "title": "Birthday paradox, coupon collectors, caching algorithms and self-organizing search",
+          "trigger": "Unification of classical stopping-time problems"
+        },
+        {
+          "assessment": "Established geometric stages supply the key representation but are not in themselves a statement of the mixed constants",
+          "evidence": [
+            "Independent geometric spacings for successive new labels."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1006.3531v1",
+          "material_read": "§1.1 Eq. (1.1), PDF p. 3",
+          "method": "Primary PDF and stopping-rule comparison",
+          "title": "Approximation Theorems Related to the Coupon Collector’s Problem",
+          "trigger": "Spacings as a possible equivalent representation"
+        },
+        {
+          "assessment": "Unresolved as published priority evidence; not used to decide originality",
+          "evidence": [
+            "Retrieval did not expose the original article text for equation-level comparison."
+          ],
+          "identifier_or_url": "https://doi.org/10.2307/1403255",
+          "material_read": "Bibliographic identification; full text not inspected",
+          "method": "Lawful retrieval attempt",
+          "title": "On Birthday, Collectors’, Occupancy and Other Classical Urn Problems",
+          "trigger": "Plausible earlier common Poisson-embedding treatment"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–25 and 61–93",
+        "Earlier exact indexed theorem"
+      ],
+      "rationale": "As a theorem the joint comparison has substance: it explains why strict dependence persists for every size while correlation vanishes at a specified sharp rate, and identifies the scale at which conditional mean deviations remain visible. These are useful joint statistics of two standard stopping rules, beyond verifying their marginal formulas. The present record does not add to the exact earlier indexed result.",
+      "residual_risks": [
+        "No joint limit theorem or heterogeneous sampling consequence is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

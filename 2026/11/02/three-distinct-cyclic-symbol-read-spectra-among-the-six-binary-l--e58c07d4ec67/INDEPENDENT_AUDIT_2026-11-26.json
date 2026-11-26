@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:02:46.731372Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Assessed the corrected RESULT.md under /workspace/repairs/5. The six masks are exactly the monic odd quintics with neither x+1 nor x²+x+1 as a factor; every reducible quintic has a factor of degree at most two, and 31 is prime, so the irreducible quintics are primitive. The parity-check columns are all distinct nonzero five-bit vectors, giving dimension 26 and distance 3 (any two distinct columns sum to a third). The bundled finite recurrences count internal windows at append and the remaining b−1 cyclic windows at closure; the second uses character orthogonality instead of retaining syndrome states. Independent enumeration used neither recurrence: evaluate all 2²⁶ binary polynomial multiples of each degree-five p with degree at most 30, exactly the words satisfying c(α)=0, and count nonzero windows by popcount of the OR of b consecutive cyclic rotations. All 576 coefficients, reciprocal pairs, and nine displayed coefficient pairs matched. Replay: /workspace/branches/05-direct-multiples.py; arrays: /workspace/branches/05-direct-multiples-output.json. Reversal sends a polynomial to x³⁰c(x⁻¹) and takes C_p to the code of the reciprocal polynomial without altering the cyclic window count. The frozen first-moment explanation used independence of the window columns, which is not sufficient to prove uniformity of the projection from the kernel. The repaired proof uses the complementary columns: at least 27 distinct nonzero columns cannot lie in a proper subspace, so every window pattern has 2^(26−b) completions. Summing over the 31 window positions proves the invariant for all eighteen arrays. The repair changes no coefficients, parameter ranges or classification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Vega's pp. 2213–2214 require an irreducible parity-check polynomial; here the generator is primitive and the complementary degree-26 parity-check polynomial contains x+1.",
+          "The --089d7cd75f06 theorem covers all primitive cyclic binary Hamming lengths but returns the span dimensions of low pair-weight words.",
+          "The Shi–Özbudak–Solé DOI and an identified alternate listing were located, but no readable full text was obtained."
+        ],
+        "reasoning": "The verified irreducible-code scope misses these primal codes. The generation profile has broader parameters but is not a b-symbol weight multiplicity distribution. A defining-zero coset is not necessarily a single nonzero spectral coset of the code itself; the exact hypotheses of the inaccessible result cannot be decided from those phrases.",
+        "searches": [
+          "DOI:10.1007/s10623-023-01193-w",
+          "DOI:10.1109/TIT.2021.3069772; web: Geometric Approach to b-Symbol Hamming Weights of Cyclic Codes Shi Özbudak Solé pdf arxiv coset",
+          "Resultary 2026/10/4 --089d7cd75f06"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and corrected RESULT.md; spectra.json, VERIFICATION.md, verify.py and crosscheck.py",
+        "arXiv:1911.02184 and arXiv:2103.16299",
+        "DOI:10.1007/s10623-023-01193-w and indexed citation DOI:10.1109/TIT.2021.3069772",
+        "Resultary --089d7cd75f06, --c881c25b1ed2, --395253d8cd05 and --dfa2bc77f2ec"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ma–Luo's simplex enumerators do not distinguish the six choices, whereas the primal distinguishing coefficients differ.",
+          "The earlier primitive Hamming generation result measures dim span of words of bounded pair weight, not how many words have each read weight.",
+          "The reciprocal equivalence and the ordinary Hamming parity check explain why there are at most three spectra per b, not why the three are distinct."
+        ],
+        "reasoning": "A formula using only the one-variable simplex b-symbol enumerator cannot recover the different primal spectra from identical dual inputs. The span dimensions and generalized support minima are insufficient to recover the coefficient arrays. Generic enumeration methods may compute them but the inspected results do not supply the equality-and-separation classification.",
+        "searches": [
+          "Ma–Luo arXiv:1911.02184 Theorem 2",
+          "Vega DOI:10.1007/s10623-023-01193-w introduction",
+          "Resultary --089d7cd75f06, Finding and assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The natural cyclic simplex codes in Ma–Luo are the duals of the frozen codes; their enumerators are 1+31z^24, 1+31z^28, and 1+31z^30 at b=2,3,4 for all six choices.",
+          "The same-day --c881c25b1ed2 record counts spectra of coordinate orders of the extended [8,4,4] code."
+        ],
+        "reasoning": "Duality is not equality of the primal and dual enumerators: the dimensions and multiplicities are different. Ordinary permutation equivalence preserves Hamming weights but not cyclic windows. The extended code census uses different lengths and a different set of coordinate orders; it is not an equivalent formulation. No relative priority is inferred from the same date.",
+        "searches": [
+          "Resultary: six primitive degree-five length-31 cyclic Hamming codes, b=2,3,4 symbol-read weight enumerators",
+          "arXiv:1911.02184, §4 Theorem 2",
+          "Resultary 2026/11/2 --c881c25b1ed2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The near catalogue tables concern the extended [8,4,4] code, length-7 Hamming interleavers, and a weight-four pair count across length-15 interleavers.",
+          "Liu–Pan's examples concern lexicographic Hamming codes of lengths 7 and 15 and generalized subcode support weights."
+        ],
+        "reasoning": "The exact arrays examined do not contain the length-31 primal multiplicities. In particular the three types in the length-7 interleaver census are across arbitrary interleavings and not three types among primitive degree-five generator choices.",
+        "searches": [
+          "Resultary: length-31 primitive binary Hamming b-symbol spectrum reciprocal pairs",
+          "Resultary --c881c25b1ed2, --395253d8cd05, --dfa2bc77f2ec",
+          "arXiv:2103.16299, Examples 4.3–4.4"
+        ]
+      },
+      "rationale": "The supported distinct claim is the explicit complete set of length-31 cyclic primal Hamming enumerators at b=2,3,4 and the exact three-way split for each b. Inspected adjacent work concerns simplex duals, smaller or differently ordered codes, subcode hierarchies, or generation dimensions, not the same coefficient multiplicities. No precise covering result was established. The corrected prior-work paragraph withdraws the categorical nonapplicability claim for Shi–Özbudak–Solé; full-text coverage of its specialized claims remains unresolved.",
+      "residual_risks": [
+        "Shi–Özbudak–Solé remains a plausible overlap requiring full-text comparison, including what its single-coset hypotheses mean; access failure is not evidence of absence.",
+        "Unindexed tables and differently phrased run or support-distribution formulas could contain equivalent coverage. This is a bounded statement-level audit, not certification of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact dual distribution, not exact primal coverage",
+          "evidence": "All nonzero cyclic simplex words have the same b-symbol weight",
+          "identifier_or_url": "arXiv:1911.02184",
+          "material_read": "§4 Theorem 2, pp. 10–11, offsets 31600–39031",
+          "method": "OA PDF passage",
+          "title": "Symbol-pair weight distributions of some linear codes",
+          "trigger": "Exact b-weight theorem for the dual code"
+        },
+        {
+          "assessment": "Smaller codes and a distinct hierarchy statistic",
+          "evidence": "Lexicographically ordered [7,4,3] and [15,11,3] examples, with generalized weight matrices",
+          "identifier_or_url": "arXiv:2103.16299",
+          "material_read": "§4 pp. 14–16, Examples 4.3–4.4, offsets 35500–47980",
+          "method": "OA PDF passage",
+          "title": "Generalized b-symbol weights of linear codes and b-symbol MDS codes",
+          "trigger": "Hamming-code tables in a larger b-symbol framework"
+        },
+        {
+          "assessment": "Proven irreducible-code hypothesis excludes C_p",
+          "evidence": "Irreducibility defined for (x^n−1)/g, not g",
+          "identifier_or_url": "10.1007/s10623-023-01193-w",
+          "material_read": "Abstract and introduction, pp. 2213–2214, offsets 0–5924",
+          "method": "OA PDF passage",
+          "title": "The b-symbol weight distributions of all semiprimitive irreducible cyclic codes",
+          "trigger": "A complete distribution theorem that might apply via primitive-polynomial terminology"
+        },
+        {
+          "assessment": "Unresolved; no theorem-level exclusion or overlap established",
+          "evidence": "Relevant publication identified; precise hypothesis and its consequences could not be checked",
+          "identifier_or_url": "10.1109/TIT.2021.3069772",
+          "material_read": "Indexed citation and alternate listing; full text not available for inspection",
+          "method": "Lawful DOI direct/VPN and identified alternate-copy attempts",
+          "title": "Geometric Approach to b-Symbol Hamming Weights of Cyclic Codes",
+          "trigger": "Potential single-coset and general cyclic weight results for the same metric"
+        },
+        {
+          "assessment": "Broader family but different statistic",
+          "evidence": "γ is dimension of a span, giving connectivity at bounded pair radii",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-generation-profiles-of-cyclic-binary-hamming-codes-collapse-by-p--089d7cd75f06/RESULT.md",
+          "material_read": "Finding, scope and start of proof, mirror offset 0",
+          "method": "Resultary search and local-mirror reading",
+          "title": "Generation profiles of cyclic binary Hamming codes collapse by pair radius six",
+          "trigger": "Identical family in all primitive degrees and exactly the pair metric"
+        },
+        {
+          "assessment": "Different family, length and coordinate class",
+          "evidence": "Extended [8,4,4], 30 codebooks, five pair spectra",
+          "identifier_or_url": "2026/11/2/SCOPE-five-symbol-pair-spectra-of-coordinate-ordered-extended-hamming--c881c25b1ed2",
+          "material_read": "Finding",
+          "method": "Resultary search and local-mirror passage",
+          "title": "Five symbol-pair spectra of coordinate-ordered extended Hamming codes",
+          "trigger": "Same-day exact Hamming weight-enumerator classification"
+        },
+        {
+          "assessment": "Different length, ensemble and read-length scope",
+          "evidence": "All 30 indexed [7,4,3] interleavers, only b=2",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-symbol-pair-spectra-of-all-length-seven-binary-hamming-int--395253d8cd05",
+          "material_read": "Finding",
+          "method": "Resultary search and local-mirror passage",
+          "title": "Exact symbol-pair spectra of all length-seven binary Hamming interleavers",
+          "trigger": "Exact Hamming spectrum census also finding three types"
+        },
+        {
+          "assessment": "Only a single low-weight count, across length-15 interleavers",
+          "evidence": "Distribution of the number of pair-weight-four words, not the complete spectra here",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-local-pair-weight-profile-of-the-length-fifteen-binary-ham--dfa2bc77f2ec",
+          "material_read": "Finding",
+          "method": "Resultary search and local-mirror passage",
+          "title": "Exact local pair-weight profile of the length-fifteen binary Hamming code",
+          "trigger": "Exact multiplicity census for Hamming codes in the pair metric"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Primitive cyclic order is intrinsic to how these codes are used in a cyclic read metric, while their ordinary weight enumerators are invariant under permutation. Length 31 is a natural first degree at which several reciprocal classes of primitive binary generators are available: degrees 3 and 4 have two primitive polynomials each forming one reciprocal pair, and degree 2 has only one. The complete spectra show that reversal accounts for all equalities at each tested read width and precisely quantify how distinct orderings with identical ordinary Hamming and dual b-symbol enumerators separate. Those coefficients are useful as exact benchmarks for order-sensitive cyclic metrics; no claim is made for arbitrary interleavers, longer lengths, or all b.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

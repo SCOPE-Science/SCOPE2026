@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:00:19.995553Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions and Proof; VERIFICATION.md; verify_exhaustive.py and verify_independent.py (inspected only)",
+        "Independent replay: python3 /workspace/reproductions/1.py",
+        "Defant–Kravitz, arXiv:1809.09158v2, Definition 1.1"
+      ],
+      "rationale": "Each maximum 2 separates binary input blocks; the hare recursion concatenates their sorted images and appends all twos. Conversely every descent 10 needs a separator in such a factorization, and cutting exactly at the descents and padding by empty blocks realizes any permitted prefix, also when the prefix is empty or c=0. The positive internal runs and optional endpoint runs give precisely binom(a,j) binom(b,j) prefixes with j descents. The maximum j=min(a,b) is realized by alternating, so the cutoff is necessary and sufficient. A deterministic debt counter with finite-state memory of the last symbol accepts at zero debt in a terminal-two phase (or zero at the end of the binary prefix); the prefixes (10)^j have pairwise distinct right quotients. Summing the three binomial-geometric series gives the stated rational functions. The cubic g(t)=1-2t+t^2-t^3 has one simple real root r in (0,1); its conjugate roots have modulus sqrt(1/r), and the additional pole at 1 is farther away. The simple-pole coefficient is -1/[r(1-r)g'(r)], agreeing with the frozen K and lambda. The independent ascending-input stack simulation (pop strictly smaller top, push on equality) exhausted lengths 0–10 and matched all support sets and Parikh counts. All-length and nonregularity assertions are proved, not extrapolated from that run.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general Defant–Kravitz hook formula evaluates how many preimages an individual output has.",
+          "Indexed record ending 022fd35d4fe2 treats an exact regular image for every finite-alphabet tortoise, not hare. Campbell–Rampersad discuss both conventions and note binary hare is ordinary sorting."
+        ],
+        "reasoning": "Binary hare plus the general recursion supply the starting point, not the ternary if-and-only-if and enumerator. The larger-alphabet result has the wrong map, even when specialized to three symbols.",
+        "searches": [
+          "arXiv:1809.09158v2, Theorem 3.2; arXiv:2604.25811v3, §2",
+          "Resultary: finite-alphabet stack-sort image language and renewal entropy"
+        ]
+      },
+      "checked_sources": [
+        "Defant–Kravitz arXiv:1809.09158",
+        "Campbell–Rampersad arXiv:2604.25811",
+        "Resultary 6c21b2d55722, e29424595bbe, 022fd35d4fe2 and fbac5051a1a7",
+        "Chen–Luo DOI 10.1007/s00026-025-00791-w (snippets only, full text unavailable)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The standard binary fact and hare recursion give the necessary block structure. The reverse construction using the minimum number of cuts, the fixed-content count, and the infinite-state lower bound are the explicit additional arguments.",
+          "General individual fertilities give a decision method for an output word, not an explicit evaluated all-content classification or a language-class consequence in the inspected passages.",
+          "The Springer PDF route for DOI 10.1007/s00026-025-00791-w was unavailable, including the identified publisher PDF alternate."
+        ],
+        "reasoning": "The new claim is a closed symbolic description across all ternary words, together with rational enumeration and nonregularity, not merely deciding any one output via the known algorithm. The inaccessible paper is a possible comparison, not grounds to conclude coverage or noncoverage.",
+        "searches": [
+          "arXiv:1809.09158v2, Definition 1.1 and Theorem 3.2",
+          "arXiv:2604.25811v3, §2",
+          "A Disproof of Two Conjectures on Stack-Sorting Maps for Words, DOI and targeted lawful open-copy lookup"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same Resultary record ending 6c21b2d55722 has the identical d10 condition. The distinct ternary tortoise record ending e29424595bbe instead gives a regular image language.",
+          "Hare pushes a symbol on a stack top of the same value; tortoise does not. For example hare(221)=122 whereas tortoise(221)=212."
+        ],
+        "reasoning": "A test of positive hare fertility or membership in the one-pass hare image is equivalent. Calling tortoise a word stack-sort does not make its output support or automaton class equivalent. Likewise, counting classes among subwords of a fixed infinite sequence restricts the input rather than exhausts the three-letter image.",
+        "searches": [
+          "Resultary: ternary hare image language, Parikh spectrum and growth, with parallel tortoise results",
+          "Defant–Kravitz, arXiv:1809.09158v2, Definition 1.1; Campbell–Rampersad, arXiv:2604.25811v3, §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The only exact indexed Parikh-spectrum match inspected is this same record.",
+          "The related indexed result ending fbac5051a1a7 studies squared tortoise fiber sizes. Defant–Kravitz mention recurrences for words sortable by a map, not distinct output words with that content."
+        ],
+        "reasoning": "Words sortable to the fully sorted word are one fiber. Summing squared fiber sizes is another statistic. Neither gives an exact table for the number of positive hare fibers at fixed ternary content.",
+        "searches": [
+          "Resultary: fixed-content hare outputs and ternary stack-sorting image counts",
+          "Defant–Kravitz abstract and Theorem 3.2"
+        ]
+      },
+      "rationale": "Pass for the explicit ternary hare support, Parikh spectrum and their language-class and growth consequences. The stack map, recursive machinery, binary sorting fact, and general individual-preimage machinery are already known. The strongest related exact language results checked concern a genuinely different equal-letter convention. The paper by Chen and Luo remains an explicit access risk, not negative evidence.",
+      "residual_risks": [
+        "Uninspected full text of Chen–Luo may contain an equivalent specialization.",
+        "The finite searches do not exclude unindexed ternary output classifications."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides both conventions and general machinery, not an evaluated ternary hare language or its spectrum in the passages checked",
+          "evidence": "Theorem 3.2 expresses the preimage count of a given word using hook configurations; the abstract discusses sortable-word counts.",
+          "identifier_or_url": "https://arxiv.org/abs/1809.09158",
+          "material_read": "v2 abstract p. 1; Definition 1.1 p. 3 at OA offset about 9100; Theorem 3.2 p. 12 at about 42600",
+          "method": "OA PDF passages",
+          "title": "Stack-sorting for Words",
+          "trigger": "Original definitions and strongest general individual-fertility theorem"
+        },
+        {
+          "assessment": "Discusses hare as well as tortoise; binary and subword results do not give the full ternary support in the inspected material",
+          "evidence": "Binary hare sorts every word; the subword complexity counts equivalences of factors from a chosen sequence.",
+          "identifier_or_url": "https://arxiv.org/abs/2604.25811",
+          "material_read": "v3 abstract and §2, pp. 3–4, OA offsets about 5350–10638",
+          "method": "OA PDF passages",
+          "title": "Subword enumeration up to stack-sorting equivalence",
+          "trigger": "Stack-sort output/equivalence enumeration, possible alternative formulation"
+        },
+        {
+          "assessment": "Different map, not equivalent coverage",
+          "evidence": "Both give regular tortoise image languages; the second ranges over all finite alphabet sizes.",
+          "identifier_or_url": "Resultary e29424595bbe and 022fd35d4fe2",
+          "material_read": "Both RESULT.md findings, local mirror offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary catalogue and local mirror",
+          "title": "Exact ternary tortoise image language and rational growth; Renewal entropy of the finite-alphabet tortoise image language",
+          "trigger": "Strongest apparent exact or broader image-language matches"
+        },
+        {
+          "assessment": "Full-document coverage unassessed",
+          "evidence": "The snippets distinguish the conventions for equal letters; no claim about the paper's full theorems follows from that material.",
+          "identifier_or_url": "https://doi.org/10.1007/s00026-025-00791-w",
+          "material_read": "Indexed identifying snippets on the equal-letter convention only; no full text obtained",
+          "method": "Configured lawful OA direct and VPN attempts and identified Springer PDF route; alternate-copy search did not identify an open repository copy",
+          "title": "A Disproof of Two Conjectures on Stack-Sorting Maps for Words",
+          "trigger": "Closely related work on both maps and the equal-letter convention"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, language classification and series",
+        "Campbell–Rampersad §2, binary baseline",
+        "Resultary ternary tortoise record e29424595bbe"
+      ],
+      "rationale": "The first nonbinary alphabet is the first case where ordinary sorting ceases to explain the hare output space. The characterization gives a useful comparison at exactly the alphabet size where tortoise still has regular image support. It pinpoints one unbounded arithmetic obstruction while giving a sharp threshold at each content and a rational growth law despite nonregularity; this is more useful than merely re-evaluating individual fertilities.",
+      "residual_risks": [
+        "No extension to higher alphabets or iteration, and no claim to classify all preimage multiplicities."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

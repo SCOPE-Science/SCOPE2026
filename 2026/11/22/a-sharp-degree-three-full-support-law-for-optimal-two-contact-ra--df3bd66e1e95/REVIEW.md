@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The final claim is exactly the maximum-degree-three full-support theorem, its resolvent sampling formula and uniform lower bound, with an exact degree-four obstruction. The trace expansion uses centered identity covariance, two independent draws of the **same** edge distribution, and symmetric idempotent averaging operators. The quadratic is strictly positive definite because its matrix is \(I/2+C^{\mathsf T}C/4\). The resolvent equation follows from simplex stationarity, with correct normalization. A contractive map on the cube proves resolvent nonnegativity, and the two endpoint equations imply the quantitative lower bound. The double-star KKT inequality certifies global optimality, including at the non-strict boundary; strict convexity certifies uniqueness. The delivered exact-rational checker passed all 526 graph cases; this is supplementary to the universal proof.
+PASS
 
-## Originality (PASS, with bibliographic risk)
+For fixed iid draws independent of the initial disagreement, the rank-one endpoint projections give trace(P_e P_f)-1=n-3+(b_e^T b_f)^2/4, so the matrix is A=(1/2)I+(1/4)C^TC=I+(1/4)Adj(L(G)), positive definite even if C is rank deficient. Thus there is one simplex minimizer. The interior condition Ap=lambda*1 gives p proportional to C^T w with (2I+CC^T)w=1. The vertex fixed point sends [0,1/3]^V into itself, with maximum row contraction 3/5 at degree 3. On an edge, each endpoint equation with other neighbors moved to the right is >=1/3; adding gives 6(w_u+w_v)>=2/3, and Z<=2m/3 proves the positive bound. Independently, substituting a=(1-b)/(2k) into the balanced double-star quadratic gives (k+3)/(8k)+(k-3)b/(4k)+(5k+3)b^2/(8k). Its minimum over 0<=b<=1 yields exactly the two cases in the theorem; at k=3 the excess is 3b^2/4. Symmetry of the unique optimizer justifies uniform leaf probabilities. The frozen rational checker was inspected, not run. A separate mask count gave 1, 4, 38 and 472 labeled connected subcubic graphs at orders 2–5, consistent with the 526 counted cases after the three extra graphs and eight double-stars. The theorem is proved for arbitrary size, not by that count.
 
-Actual published-record and primary-literature searches found the foundational asymptotic-averaging-rate SDP of Boyd et al. and periodic deterministic convex-weight optimization, both different objectives. A pre-existing exact two-contact path result already gives the quadratic objective for general graphs and a path-only optimizer; the new universal support theorem, signless-resolvent formula on arbitrary subcubic graphs, quantitative bound and degree-four obstruction are not corollaries of its **path-specific conclusion**. A separate balanced-double-star bridge-deletion result concerns Laplacian spectral width, a different objective. Query matching and inspection did not identify an identical or stronger support theorem; this absence is evidence-limited, not proof that no equivalent unpublished or unindexed formulation exists.
+## originality
 
-## Value (PASS)
+PASS
 
-Whether a short-budget communication policy can discard a contact link is a structural design question that matters for graph connectivity and subsequent use of the same sampling law. The exact maximum-degree-three boundary provides a graph-size-independent guarantee, together with an explicit constructive distribution and nonzero probability margin. The degree-four double-star gives a sharp, naturally motivated loss-of-connectivity counterexample. The statement is stronger than a single numerical example and distinguishes finite-budget optimization from asymptotic connectivity-based designs.
+The general finite-horizon objective, uniqueness and interior inverse criterion have an exact counterpart in a distinct same-day path record. The comparable double-star result has a different objective despite the same family and sharp cutoff. The verified surviving content is the graph-class positivity theorem with quantitative bound and the sharp boundary for this particular objective, not the quadratic reduction or a generic inverse formula.
 
-## Closest literature and limitations
+## value
 
-Boyd et al. (2004/2006) treat the same pairwise averaging operators but optimize an asymptotic spectral objective, not two-contact covariance-isotropic risk. *Towards optimal convex combination rules for gossiping* (2013) studies periodic deterministic schedules and an adjustable averaging coefficient. A prior two-contact path statement supplies the general objective but not the new all-subcubic positivity theorem. Only finite connected simple graphs, exactly two iid contacts, arithmetic averages, and covariance-isotropic initial disagreement are covered. Stronger equivalents in inaccessible historical sources remain possible; independent review has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Optimal support is an operationally meaningful invariant: subcubic graphs retain every interaction with a quantitative guarantee, but the smallest permitted maximum-degree increase can yield a uniquely optimal disconnected support. The exact double-star solution distinguishes a boundary equality from a strictly active bridge constraint and illustrates why a two-contact optimum does not guarantee long-run consensus. These are structural conclusions beyond the standard quadratic reduction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

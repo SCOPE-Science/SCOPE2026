@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:47:02.024084Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With k selected candidates there are 2k incidences; each adjacent selected pair corresponds to one twice-represented voter and subtracts 1/2 from that incidence total. Thus swaps strictly improve the score precisely when they reduce the selected adjacency count a (equivalently increase the number of one-runs). Removing the middle of a triple removes two adjacencies; if it cannot be swapped profitably, all zeros must have two selected neighbors, which with the specified counts forces alternation. At a nonoptimal local maximum only singleton and double-one runs remain. A zero with no selected neighbors gives an improvement by swapping out one member of a double. The patterns 1100, 0011, and boundary 011 or 110 also give explicit improving moves by moving the one beside the relevant gap into the adjacent zero. It follows that the a extra zeros, after paying one zero per interior gap, are either second zeros between two singleton runs or a boundary zero next to a singleton. A block of t singleton runs can pay for at most t extra zeros, because at least one double-one run exists and the block cannot touch both ends. Therefore a≤s where k=2a+s, yielding a≤floor(k/3). The displayed sharp word has exactly floor(k/3) doubles and only singleton-supported extra zeros. Deleting a singleton loses one run; deleting from a double leaves the run count unchanged but leaves every originally zero position adjacent to some remaining one. No swap can increase the number of runs. Alternation gives the global value and is forced at a=0. The k=3 word is a witness, not a uniqueness statement (its reflection also works). The package's finite checker was inspected rather than run; the all-k proof does not rely on it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broader exact one-swap framework gives a tight general 2/3 score bound. The voter-interval and at-most-two-approvers tractability results concern global winner determination. The ESA result addresses lengths of improving sequences."
+        ],
+        "reasoning": "Neither knowing the global optimum nor bounding the time for an improving process establishes the score of its terminal local maxima. The general 2/3 bound is weaker and lacks the sharp finite-k correction here.",
+        "searches": [
+          "Peters–Vaish–Yadav arXiv:2609.07554, exact local-PAV definition and Table 2",
+          "arXiv:2604.05953 and arXiv:2607.28575, global Thiele optimization on interval and two-approval domains",
+          "ESA 2024 doi:10.4230/LIPIcs.ESA.2024.82, swap-process complexity"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md, VERIFICATION.md and verify_path_pav.py",
+        "Resultary cdb2caa952c0, 0a5c0bbc3986 and 671629f408c9",
+        "arXiv:2305.01769, arXiv:2609.07554, arXiv:2604.05953, arXiv:2607.28575",
+        "doi:10.4230/LIPIcs.ESA.2024.82"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The shared constant is sharp for half-size greedy committees on cycles of size divisible by six, whereas the frozen guarantee quantifies over every path swap-local committee. The general one-swap theorem quantifies over the correct move but lacks the restricted extremal profile."
+        ],
+        "reasoning": "Closing the voter path changes the interval incidence and availability of a swap; for instance adjoining an unselected closing edge to the k=3 witness allows a cycle swap that removes the adjacency at the initial double. Sequential tie resolutions are also not a statement about every exchange-stable committee. The previously inspected claims thus do not supply the no-improving-swap upper bound on a or its matching path witnesses.",
+        "searches": [
+          "Resultary cdb2caa952c0, assumptions, proof and equality cases",
+          "arXiv:2609.07554 p. 3 and Table 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The path is P_(2k) in the established encoding where edges are candidates and vertices voters. The cycle result uses the same per-adjacency penalty. The maximum-bisection record instead treats voters as edges on regular graphs and studies coalition stability."
+        ],
+        "reasoning": "The equivalent path problem is to maximize the number of selected-induced adjacencies subject to no single exchange decreasing that number. Hardness of counting greedy winners and coalition stability give no such path bound.",
+        "searches": [
+          "Resultary: path/run adjacency minimization at fixed weight under swaps; graph-based and cyclic two-approval PAV (cdb2caa952c0 and 0a5c0bbc3986)",
+          "arXiv:2305.01769, graph-edge approval encoding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected exact catalogued score spectrum is for cyclic sequential PAV; the exact small voter-interval example concerns house nonnesting with a different parameter count. The literature table gives the general approximation ratio, not this path family."
+        ],
+        "reasoning": "The assigned profile over all k (including the first strict loss at k=3) is not one of the inspected exact tables or catalogue formulas. A failed narrow search is not itself evidence of novelty.",
+        "searches": [
+          "Resultary narrow path/fixed-weight/run searches and exact PAV cases cdb2caa952c0, 671629f408c9",
+          "arXiv:2609.07554 Table 2"
+        ]
+      },
+      "rationale": "The inspected work establishes graph-based score encodings, global tractability, or different swap/greedy claims, not the exact worst stable obstruction on the specified path. The leading analogue shares both the score identity and 11/12 but concerns sequential construction on a cycle, rather than arbitrary one-swap local maxima on a path.",
+      "residual_risks": [
+        "The primary web query did not surface an additional usable match; that is not negative evidence. An equivalent fixed-weight path exchange theorem under other terminology may exist. Catalogue dates by themselves do not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong analogue, different graph and algorithm",
+          "evidence": "Gives 2|W|−A(W)/2 and the 11/12 bound for all tie resolutions of sequential PAV on cycles, with equality at half size when the cycle size is divisible by six.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-greedy-pav-score-spectrum-on-cyclic-two-approval-elections--cdb2caa952c0/RESULT.md",
+          "material_read": "Finding, Assumptions and Proof at offset 0; related work at offset 7000",
+          "method": "Local Resultary mirror passage retrieval",
+          "title": "Sharp greedy PAV score spectrum on cyclic two-approval elections",
+          "trigger": "Same score penalty and sharp ratio 11/12"
+        },
+        {
+          "assessment": "Same encoding, no path-local score theorem in inspected result",
+          "evidence": "Each graph edge is a candidate approved by its two endpoints; the theorem addresses hardness of counting greedy Thiele winners.",
+          "identifier_or_url": "https://arxiv.org/abs/2305.01769",
+          "material_read": "p. 11, Theorem 4.3, offset 43069",
+          "method": "Lawful OA passage inspection",
+          "title": "Ties in Multiwinner Approval Voting",
+          "trigger": "Prior graph-edge two-approver encoding"
+        },
+        {
+          "assessment": "Different stability concept and graph encoding",
+          "evidence": "Uses candidate vertices and edge voters on regular graphs and derives a cost-of-stability formula, not a fixed-cardinality swap bound.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-maximum-bisection-exactly-measures-coalition-stability-subsidies--0a5c0bbc3986/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror passage retrieval",
+          "title": "Maximum bisection exactly measures coalition stability subsidies",
+          "trigger": "Graph-based PAV stability formula"
+        },
+        {
+          "assessment": "General local-PAV bound, not the exact path profile",
+          "evidence": "One elected/unelected swap and tight score ratio 2/3 in the general setting.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.07554",
+          "material_read": "p. 3, Efficiency Properties of Local PAV, offset 11359; p. 11, Table 2, offset 36592",
+          "method": "Lawful OA passage inspection",
+          "title": "Finding Representative and Approximately Efficient Committees",
+          "trigger": "Exact same local-PAV move and score-approximation question"
+        },
+        {
+          "assessment": "Improvement path length, not terminal score",
+          "evidence": "Studies sequences of welfare-improving swaps and gives a super-polynomial lower bound for lexicographic local search.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.ESA.2024.82",
+          "material_read": "p. 1, offset 956",
+          "method": "Lawful OA passage inspection",
+          "title": "A Lower Bound for Local Search Proportional Approval Voting",
+          "trigger": "Single-swap PAV local search"
+        },
+        {
+          "assessment": "Global optimization and value concavity, not locality",
+          "evidence": "Proves polynomial-time global optimization and concavity across committee sizes.",
+          "identifier_or_url": "https://arxiv.org/abs/2604.05953",
+          "material_read": "pp. 1–2, offsets 1378 and 7572",
+          "method": "Lawful OA passage inspection",
+          "title": "Polynomial-Time Algorithm for Thiele Voting Rules with Voter Interval Preferences",
+          "trigger": "Broader interval domain that includes the frozen path"
+        },
+        {
+          "assessment": "Winner determination, not score of swap-local committees",
+          "evidence": "Polynomial-time global optimization when each candidate has at most two approvers.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.28575",
+          "material_read": "pp. 1 and 14, offsets 0 and 52949",
+          "method": "Lawful OA passage inspection",
+          "title": "Algorithms for Structured Elections under Thiele Voting Rules",
+          "trigger": "Structural tractability for exactly the two-approver constraint"
+        },
+        {
+          "assessment": "Different quantified obstruction",
+          "evidence": "Concerns house nonnesting across committee sizes, not score quality at a fixed-size one-swap local maximum.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-ten-voters-are-necessary-and-sufficient-for-tie-independent-pav--671629f408c9/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror passage retrieval",
+          "title": "Ten voters are necessary and sufficient for tie-independent PAV house nonnesting",
+          "trigger": "Near indexed exact voter-interval PAV obstruction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Even the canonical path of two-person supports has suboptimal local maxima, although its global optimum is immediate. The exact floor correction gives the first obstruction and a sharp quantitative guarantee for every size; the singleton-run charging proof identifies why the loss is limited. This separates the performance of fixed-size local exchange from tractability of global optimization on a natural restricted election domain.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

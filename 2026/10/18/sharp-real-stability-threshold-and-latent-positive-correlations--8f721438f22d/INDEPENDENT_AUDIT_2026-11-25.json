@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:34:43.029749Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 14–56",
+        "Frozen VERIFICATION.md and verify.py (read, not executed)",
+        "Independent symbolic calculation: /workspace/branches/08a0ad00-44d6-4dd6-b518-fe30481e6e31/independent_check.py",
+        "arXiv:0707.2340, Theorem 4.1"
+      ],
+      "rationale": "The prefix Boolean occupancy is an autonomous eight-state continuous-time Markov chain: arrivals set the first bit, and a gate empties its bit and sets the next bit only when carrying a nonempty batch. With r>0 one can clear the prefix without arrivals and build any target occupancy from right to left, proving irreducibility. An independent symbolic solve and polynomial expansion reproduce every displayed stationary mass and Rayleigh quadratic. Each quadratic has positive leading coefficient for r>0, with the same discriminant r^6(r²−16r−16)/[256(1+r)^10]. The all-real Rayleigh criterion therefore gives precisely 0<r≤8+4√5, including equality. Evaluating the three differences at the all-ones point gives strict negative unweighted covariances. Under the positive middle-site tilt the covariance of the endpoints is −Δ_13(t)/F(1,t,1)^2; the denominator is positive and the numerator sign reduces to r²(t²−t)+4(r+1). Its two roots lie in (0,1) above threshold, as stated, and at equality the covariance is zero rather than positive at t=1/2. The prefix is the same marginal in any longer finite stationary ASIP, and specialization of a stable Boolean generating polynomial at 1 preserves stability here because the marginal is nonzero. No low-rate claim for longer chains follows.",
+      "residual_risks": [
+        "The field is a statistical probability tilt, not a change to the dynamics, and the result does not characterize stability for all longer chains below the threshold."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Reuveni et al. give exact interval-load probabilities; Lauber Bonomo and Reuveni compute the covariance matrix of integer site populations. Borcea–Brändén–Liggett provide the general criterion and field closure.",
+          "Founding ASIP article full text was unavailable; the available scope and later primary papers do not give a basis for claiming all its results were compared."
+        ],
+        "reasoning": "Knowing interval loads or count covariances is not the same as knowing the all-real Rayleigh inequalities of a three-bit occupancy law. Even an antecedent full stationary PGF would supply the law, not itself the critical sign classification.",
+        "searches": [
+          "DOI:10.1103/PhysRevE.84.041101",
+          "arXiv:1309.2894v1, introduction and §VII.4",
+          "arXiv:1905.02170, Eq. (17)",
+          "arXiv:0707.2340, Theorem 4.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, lines 58–68",
+        "arXiv:0707.2340, 1309.2894v1 and 1905.02170",
+        "DOI:10.1103/PhysRevE.84.041101 (limited)",
+        "Resultary:0c601a6eed5c, 0c825f613efd, 339216ab2e7c and 2c3715075ad4 (last limited to search summary)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The stability criterion is an iff test for a specified multiaffine polynomial, without specifying any ASIP critical ratio. The exact common discriminant and sign interval were verified by solving the prefix generator and expanding the three differences.",
+          "Integer-count covariances cannot substitute for covariances of vacancy/nonvacancy indicators; in particular negative ordinary covariances do not establish all-real polynomial inequalities."
+        ],
+        "reasoning": "The general theory establishes why a positive tilted covariance is an obstruction and how to prove sufficiency. It does not give the particular threshold or prove that one positive field already witnesses the entire unstable range.",
+        "searches": [
+          "arXiv:0707.2340, all-real criterion and closure under fields",
+          "arXiv:1309.2894v1, Eqs. (58)–(59)",
+          "arXiv:1905.02170, Eq. (17)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Real stability of the Boolean generating polynomial is equivalent to all-real Rayleigh differences. The same differences encode pairwise covariances under positive statistical fields after normalization.",
+          "Catalogued finite-model correlation sign reversals and strong-Rayleigh boundaries use coupon draws or Gibbs spins, not the batch-transfer ASIP process."
+        ],
+        "reasoning": "The algebraic stability and negative-dependence descriptions are compared as equivalent where warranted. Covariances in the unweighted law alone are strictly weaker and do not detect the transition.",
+        "searches": [
+          "ASIP strongly Rayleigh real stability Boolean occupancy external field and critical ratio",
+          "arXiv:0707.2340, Theorem 4.1 and external fields",
+          "Resultary:0c825f613efd and 339216ab2e7c"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-model 0c601a6eed5c gives negative integer-count covariances and periodic-rate long-distance asymptotics, not Boolean stability. The coupon-draw example gives a different threshold 2+√7 in another model; the Gibbs example concerns spin covariances.",
+          "Interval probabilities are indexed by count and contiguous interval, not by all three-bit configurations with arbitrary fields. The staircase hit's mirror statement was unavailable."
+        ],
+        "reasoning": "Neither common language about anticorrelations nor a sharp three-variable threshold in a different law is an exact table or theorem match. No exact comparison was prejudged on the unavailable staircase source.",
+        "searches": [
+          "Resultary: ASIP Boolean occupancy, real-stability threshold, latent positive correlations",
+          "Resultary:0c601a6eed5c, 0c825f613efd, 339216ab2e7c and 2c3715075ad4",
+          "arXiv:1309.2894v1, §VII.4"
+        ]
+      },
+      "rationale": "The ASIP model, stationary probability methods, and the multiaffine real-stability criterion are known. The distinct supported result is the exact joint Boolean stability boundary and the exact field-induced endpoint correlation reversal despite strictly negative ordinary covariances. Inspected occupation laws and integer-count covariance results do not state or give this threshold without a fresh Boolean joint-law and Rayleigh sign calculation. No equivalent earlier ASIP statement was substantiated; the founding article is an explicit full-text access risk.",
+      "residual_risks": [
+        "The 2011 ASIP article was not accessible in full, and the precise staircase analogue was not retrieved. Neither limit is negative evidence.",
+        "The comparison does not exclude unindexed exact ASIP calculations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior analytic criterion, not the ASIP evaluation",
+          "evidence": [
+            "A real multiaffine polynomial is stable iff every pair satisfies the Rayleigh inequality at all real points; strong Rayleigh is closed under positive external fields."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0707.2340",
+          "material_read": "Theorem 4.1, p. 13, Eq. (5), and external-field passage p. 24",
+          "method": "Lawful OA PDF, offsets 46684 and 83759",
+          "title": "Negative dependence and the geometry of polynomials",
+          "trigger": "General strong-Rayleigh iff criterion and closure under fields"
+        },
+        {
+          "assessment": "Exact contiguous interval-load statistics; no threshold in inspected passages",
+          "evidence": [
+            "P_l(k,m) is the probability of exactly l particles in a consecutive interval."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1309.2894v1",
+          "material_read": "Introduction and §VII.4, Eqs. (58)–(59)",
+          "method": "Lawful OA PDF, offsets 3960 and 65800",
+          "title": "Occupation probabilities and fluctuations in the asymmetric simple inclusion process",
+          "trigger": "Exact same-model occupancy probabilities could encode the joint law"
+        },
+        {
+          "assessment": "Different observable",
+          "evidence": [
+            "The covariance matrix is for the integer occupation vector X(n,t), not the Boolean generating polynomial or a field-tilted law."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1905.02170",
+          "material_read": "pp. 6–7, Eq. (17)",
+          "method": "Lawful OA PDF, offset 28800",
+          "title": "Occupancy correlations in the asymmetric simple inclusion process",
+          "trigger": "Prior same-model pairwise dependence results"
+        },
+        {
+          "assessment": "Unresolved full-text risk, not negative evidence",
+          "evidence": [
+            "The source introduces the underlying batch-transfer process; full small-chain comparisons were not possible from the available record."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.84.041101",
+          "material_read": "Available abstract-level record only; full text not read",
+          "method": "Lawful access attempt returned 403; no repository copy recovered",
+          "title": "Asymmetric inclusion process",
+          "trigger": "Founding primary source may have small-chain stationary formulas"
+        },
+        {
+          "assessment": "Different observable, rates and scale",
+          "evidence": [
+            "The result concerns negative covariances of integer counts and a periodic-rate long-distance limit."
+          ],
+          "identifier_or_url": "Resultary:0c601a6eed5c",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror, offset 0",
+          "title": "Periodic-rate broadening of long-range anticorrelations in the ASIP",
+          "trigger": "Closest same-model catalogued correlation theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and correlation reversal",
+        "arXiv:0707.2340, dependence and external-field criterion",
+        "arXiv:1905.02170, comparison with count correlations"
+      ],
+      "rationale": "This is a sharp, interpretable boundary in a standard interacting-particle model, not just an isolated sign check. Ordinary pairwise correlations remain negative throughout, but one concrete physical-site reweighting distinguishes all rates above the boundary and quantifies the full detection interval. The three-site obstruction immediately rules out strong Rayleigh for every longer homogeneous prefix above threshold.",
+      "residual_risks": [
+        "There is no characterization of longer lengths below threshold or identification of the field with a dynamical gate change."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

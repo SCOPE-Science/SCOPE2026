@@ -30,7 +30,7 @@ For the complete elliptic integral \(E(k)=\int_0^{\pi/2}\sqrt{1-k^2\sin^2u}\,du\
 \qquad \mathbb E[\mathcal R^2]=\frac{(a^2+b^2)^3}{8a^2b^2}.
 \]
 
-**Exactly two interior square-root caustics.** The only interior critical values of the radius map are \(b\) and \(a\). Its density extends continuously to those values, and, as \(h\downarrow0\),
+**Exactly two interior square-root caustics.** The smooth extension of the circumradius to the full angular torus has exactly two interior critical values, \(b\) and \(a\). Its critical configurations have coincident vertices; the circumradius restricted to triangles with distinct vertices has no critical points. The radius density extends continuously to \(b\) and \(a\), and, as \(h\downarrow0\),
 \[
 \boxed{\begin{aligned}
 p_{\mathcal R}(b-h)&=p_{\mathcal R}(b)-\frac{12\sqrt2\,a\sqrt b}{\pi^2d^{3/2}}\sqrt h+O_{a,b}(h),\\
@@ -74,6 +74,8 @@ Applying the standard circumradius identity \(\mathcal R=|P_1-P_2|\,|P_2-P_3|\,|
 \mathcal R=\frac1{ab}\prod_{i<j}q\left(\frac{\theta_i+\theta_j}{2}\right).
 \]
 
+The right-hand side is smooth on the full angular torus, giving the unique continuous extension of the radius as a function of the parameters. This does not assign a circumcircle to a degenerate triangle.
+
 **2. The nontrivial independence.** On the three-dimensional angular torus, the integer-linear map
 \[
 (\theta_1,\theta_2,\theta_3)\longmapsto
@@ -92,18 +94,18 @@ Changing to \(\log U\) yields \(g\); the sum of three independent log speeds min
 \]
 is the Euler beta-integral representation of the Gauss hypergeometric function. Independence gives the exact radius moments. The first moment uses \(\int_0^\pi q(t)\,dt=2aE(k)\); the second uses \(\mathbb E[q(T)^2]=(a^2+b^2)/2\).
 
-**4. Critical-value census and both caustics.** Regard the product \(F(t_1,t_2,t_3)=q(t_1)q(t_2)q(t_3)/(ab)\) as a smooth function on \((\mathbb R/\pi\mathbb Z)^3\). Since \(q'\) vanishes exactly at \(t=0,\pi/2\) modulo \(\pi\), its eight isolated critical points have exactly four critical values: \(b^2/a\) (one minimum), \(b\) (three saddles of Morse index one), \(a\) (three saddles of Morse index two), and \(a^2/b\) (one maximum). Every Hessian is nondegenerate because \(a>b\).
+**4. Critical-value census and both caustics.** Regard the product \(F(t_1,t_2,t_3)=q(t_1)q(t_2)q(t_3)/(ab)\) as a smooth function on \((\mathbb R/\pi\mathbb Z)^3\). Since \(q'\) vanishes exactly at \(t=0,\pi/2\) modulo \(\pi\), its eight isolated critical points have exactly four critical values: \(b^2/a\) (one minimum), \(b\) (three saddles of Morse index one), \(a\) (three saddles of Morse index two), and \(a^2/b\) (one maximum). Every Hessian is nondegenerate because \(a>b\). The half-sum map is a local diffeomorphism. At each critical point at least two half-sums agree modulo \(\pi\), which forces the two original angles not common to those half-sums to agree modulo \(2\pi\). Thus all critical points of the extended angular map are excluded from the distinct-vertex domain. Omitting that null set does not change the pushforward distribution.
 
 At a saddle of value \(b\), translate the local torus coordinates to that saddle, with the coordinate corresponding to \(q=a\) first. Taylor expansion gives
 \[
 F=b-Ax^2+B(y^2+z^2)+O(\|(x,y,z)\|^4),\quad
 A=\frac{bd}{2a^2},\quad B=\frac d{2b}.
 \]
-In smooth Morse coordinates the quadratic form is exact, and the Jacobian of the change of coordinates is \(1+O(\|(x,y,z)\|)\), with its odd linear part canceling under the local reflection symmetries. Locally the density of the quadratic form is computed by integrating \(\delta(s+Ax^2-B(y^2+z^2))\) in polar coordinates \((y,z)\). Its nonanalytic contribution is precisely
+Choose Morse coordinates with identity derivative at the saddle, so the quadratic form is exact, and use a smooth cutoff supported in the chart, equal to one near the saddle. In polar coordinates in \((y,z)\), put \(w=B(y^2+z^2)\). After integration in \(w\), the local pushforward at \(s=r-b\) is \(\pi/B\) times the integral over \(x\) with \(s+Ax^2\ge0\) of the angularly averaged cutoff times Jacobian, evaluated at \((x,w)=(x,s+Ax^2)\). The angular average is smooth in \(w\ge0\) up to zero (Taylor expansion cancels each odd radial power), equals one at \((0,0)\), and can be extended smoothly across \(w=0\). Integrating the extension over all \(x\) gives a smooth function of \(s\) near zero. For \(s<0\) the removed interval \(|x|<\sqrt{-s/A}\) has integrand \(1+O(|x|+|s|)\), so the leading nonsmooth term, up to \(O(|s|)\), is
 \[
--\frac{2\pi}{B\sqrt A}\sqrt{(-s)_+},\quad s=r-b.
+-\frac{2\pi}{B\sqrt A}\sqrt{(-s)_+}.
 \]
-The original angular density is \(\pi^{-3}\), and there are three disjoint congruent saddles. The complement of small saddle neighborhoods is a regular-value pushforward with smooth density; the higher-order even Morse-Jacobian corrections contribute \(O(|s|)\) or smaller to its local expansion. Thus the total coefficient at \(b\) is \(6/(\pi^2B\sqrt A)=12\sqrt2a\sqrt b/(\pi^2d^{3/2})\), with the loss occurring for \(r<b\). At a saddle of value \(a\), the signs reverse and
+The angular density in the product torus is \(\pi^{-3}\), and there are three disjoint congruent saddles at \(b\). The complementary cutoff gives a regular-value pushforward with smooth density near \(b\). Thus the total coefficient at \(b\) is \(6/(\pi^2B\sqrt A)=12\sqrt2a\sqrt b/(\pi^2d^{3/2})\), with the loss occurring for \(r<b\). At a saddle of value \(a\), the signs reverse and
 \[
 F=a+Ax^2-B(y^2+z^2)+O(\|(x,y,z)\|^4),\quad
 A=\frac{ad}{2b^2},\quad B=\frac d{2a}.
@@ -144,7 +146,7 @@ There is no assertion of a new classical extremal curvature radius, a new unifor
 
 1. Ronaldo A. Garcia, *Centers of inscribed circles in triangular orbits of an elliptic billiard*, arXiv:1607.00179v1, initially public July 1, 2016, primary MSC 51M04. https://arxiv.org/abs/1607.00179 .
 2. Olga Romaskevich, *On the incenters of triangular orbits in elliptic billiard*, arXiv:1304.7588, initially public April 29, 2013. https://arxiv.org/abs/1304.7588 .
-3. *The universal astroid law and sharp cusp scaling of random ellipse circumcenters*, published mathematical research record (2026), full mathematical statement and proof: https://github.com/published-finding corpus/2026/tree/main/2026/11/17/SCOPE-the-universal-astroid-law-and-sharp-cusp-scaling-of-random-ellip--d371bd320795 .
-4. *An aspect-ratio-invariant Delaunay fan for points sampled on ellipses*, published mathematical research record (2026), full mathematical statement and proof: https://github.com/published-finding corpus/2026/tree/main/2026/11/17/SCOPE-an-aspect-ratio-invariant-delaunay-fan-for-points-sampled-on-ell--b6c235a8e49b .
-5. *Sharp dilogarithmic acuteness law for affine-uniform ellipse triangles*, published mathematical research record (2026), full mathematical statement and proof: https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-sharp-dilogarithmic-acuteness-law-for-affine-uniform-ellipse-tri--a5911e351b92 .
+3. *The universal astroid law and sharp cusp scaling of random ellipse circumcenters*, Resultary (2026), https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-the-universal-astroid-law-and-sharp-cusp-scaling-of-random-ellip--d371bd320795/RESULT.md .
+4. *An aspect-ratio-invariant Delaunay fan for points sampled on ellipses*, Resultary record b6c235a8e49b (2026).
+5. *Sharp dilogarithmic acuteness law for affine-uniform ellipse triangles*, Resultary record a5911e351b92 (2026).
 6. Eric W. Weisstein, *Ellipse*, Wolfram MathWorld, reference for classical ellipse geometry: https://mathworld.wolfram.com/Ellipse.html .

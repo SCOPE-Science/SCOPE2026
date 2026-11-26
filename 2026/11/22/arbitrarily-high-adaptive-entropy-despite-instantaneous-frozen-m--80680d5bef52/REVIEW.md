@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The proof checks the actual strictly positive Markov reset rows, the unique equilibrium by strict sign of \(q_m(t)-t\), the local eigenvalues \(\pm1/\sqrt2\), the disjoint swap \(L\leftrightarrow R\), and the \(m\)-full-branch map \(q_m^2|_L\). Applying standard entropy identities yields exact subsystem entropy \(\tfrac12\log m\) and the full-square lower bound, for every integer \(m\ge2\). Exact rational checks verify construction details for finite test values; they do not establish the infinite proof by themselves.
+PASS
 
-## Originality (PASS in inspected evidence)
+The identical rows send every distribution to Bernoulli(q_m(θ)) in one step and give its unique frozen stationary distribution. Interpolation preserves [1/8,7/8] and continuity at each junction, including the parity-dependent value at b. The fixed unit-curvature loss produces the old-distribution gradient θ−x, so the update is F_m(x,θ)=(q_m(θ),x), not a one-variable update using the new distribution. On each affine piece outside the central interval both endpoint differences have the required strict sign relative to 1/2; on the central piece q_m(t)−t=1/4−t/2. Thus there is only the equilibrium (1/2,1/2). The central square is forward invariant and its second iterate scales displacements by 1/2, proving local exponential attraction. On L the second iterate g=q_m²|_L has m equal-length surjective affine branches with absolute slope m. For an independent entropy check, g^k has m^k full branches. Taking every other branch leaves intervening gaps, so inverse-branch words give an (N,δ_k)-separated set under g^k of size ceil(m^k/2)^N, with δ_k>0 independent of N. Taking k to infinity gives h(g)≥log m, while the Lipschitz bound gives h(g)≤log m. The same entropy holds on R by affine conjugacy. On the compact union K=L∪R the second iterate preserves both pieces, so h(q_m|_K)=log(m)/2. Finally F_m² acts as q_m×q_m, giving exactly log(m)/2 on the invariant K×K by the product and iterate identities. This is a lower bound for the full square, not an exact numerical claim about it.
 
-Galatolo–Lippi (arXiv:2611.15649v1) introduce the coupled self-consistent transfer formulation, small-step local convergence, and numerical oscillations; their investigated statements do not dominate the arbitrary-degree exact-entropy construction. Piliouras–Yu (arXiv:2201.10483v1, Theorem 4.6) previously show **single-agent** performative chaos; this fact is prior, not claimed as a discovery. A related two-state frozen-refresh/convex-loss calculation determines a sharp stability and attracting-two-cycle boundary, but does not imply entropy unbounded across full-branch examples. The specific stronger simultaneous constraints—one-step maximal mixing, unique attracting equilibrium, arbitrary growing subsystem entropy—were not located in inspected sources. An equivalent earlier embedding may exist and is an acknowledged priority risk.
+## originality
 
-## Value (PASS)
+PASS
 
-The theorem separates stochastic plant relaxation from global deterministic learning complexity. It explicitly proves no universal bound on adaptive entropy follows from maximal frozen mixing, strong convexity and a unique locally stable equilibrium. Its \(m\)-indexed exact invariant subsystem gives a quantitative boundary, rather than merely demonstrating one divergent trajectory or one two-cycle.
+Coupled transfer and averaged-gradient control, strong frozen mixing with finite-step oscillations, performative chaos, and full-branch entropy formulas are not new. The distinct claim is unbounded topological entropy coexisting with the specified one-step frozen mixing, fixed uniformly quadratic loss, uniform positivity, and a unique locally exponentially attracting equilibrium. The inspected results do not supply this simultaneous construction or a stronger theorem entailing it.
 
-## Limits
+## value
 
-Piecewise-affine parameter dependence becomes less Lipschitz as \(m\) increases; no uniform bound on controller sensitivity is claimed. The equilibrium is locally rather than globally attracting. The exact entropy is for the invariant subsystem, not the full square. The learning update uses expected gradients rather than finite-sample randomness. Historical priority and independent validation remain open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a quantitative obstruction to inferring global simplicity of adaptive dynamics from stochastic relaxation and pointwise convexity alone. The controller can preserve a locally stable equilibrium and still realize arbitrarily many branches away from it, even when each plant forgets its state distribution in one transition. Exact invariant-subsystem entropy distinguishes this from a single cycle or a weak example of nonconvergence; it identifies parameter sensitivity as a resource not bounded by frozen mixing and positivity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

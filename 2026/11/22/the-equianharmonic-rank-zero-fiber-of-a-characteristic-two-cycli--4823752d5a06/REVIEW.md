@@ -1,19 +1,21 @@
-# Scientific review: equianharmonic Cartier-rank jump in a cyclic-septic genus-six family
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The order-seven Kummer curve is smooth for every \(t\notin\{0,1\}\) and has four fully ramified points, giving genus six by Riemann--Hurwitz. Valuations at the finite branch points and infinity yield an explicit basis of six regular differentials. Exact characteristic-two Cartier extraction gives the displayed semilinear six-by-six matrix. Its rank is four, and its square has rank three on the entire smooth parameter line. The threefold return on the one-dimensional denominator-three character equals multiplication by \(t^{1/8}+(1+t)^{1/4}\), vanishing exactly at \(t^2+t+1=0\). The remaining cyclic blocks prove the full stable-rank sequence: generic stable rank three, exceptional ranks \((4,3,2,1,0)\). The finite-field verifier independently constructs the matrix by coefficient extraction and checks all smooth parameters in \(\mathbf F_4\) and \(\mathbf F_8\). Those tests are not used as an infinite proof.
+PASS
 
-## Originality — PASS, provisional
+For t not 0 or 1, Riemann–Hurwitz for four full tame ramification points gives genus 6. The six listed differential forms are regular; at a finite branch the bound 6-j suffices (at x=0 the actual order for x^i dx/y^j is 6-j+7i); the infinity orders follow from x,y,dx having orders -7,-3,-8. Kummer characters distinguish the groups, and 1,x are independent in each double group. Write c=sqrt(t), d=sqrt(1+t). Extracting odd coefficients of x^i f for odd j, and of x^i for even j, checks the action, including C(e5)=e0 and C(e1)=C(e4)=0. Put v=c e2+e3 and w=c sqrt(c) e4+(sqrt(c)+d)e5. Image C has basis v,e4,e5,e0 because c,d are nonzero, so image C^2 has basis w,v,e0. On this latter space, e0 maps to v, v to w, and w to sqrt(sqrt(c)+d)e0, with inverse-Frobenius semilinearity. The last coefficient is zero exactly when t=(1+t)^2. In that case subsequent images are span(v,w), span(w), and zero; otherwise the three-line image is stable. Stable rank is the 2-rank and the Cartier kernel dimension is the a-number. The two roots are exchanged equivariantly by x=tX, rescaling y by a seventh root of t^3. The recorded finite-field replay starts at C^1 and matches both profiles; the code and record were inspected, not rerun, and the symbolic proof handles all t.
 
-The natural cyclic-cover family and its local arithmetic setting are classical: Moonen (2010) treats cyclic covers, Bouw–Wewers (2012) examines superelliptic reduction, and Li–Mantovan–Pries–Tang (2018) studies Newton polygons of special cyclic-cover families. The relevant publications inspected did not state the exact characteristic-two ramification-type \((1,1,1,4)\) Cartier-power jump at \(t^2+t+1=0\). published-finding corpus searches for order-seven genus-six characteristic-two covers returned nearby characteristic-five septic and characteristic-two trigonal results, not this theorem. Other literature could present the same family under a changed exponent vector or hypergeometric description; this remains a priority risk. No claim of independent novelty certification is made.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem solves a complete natural one-parameter moduli problem: the stable Cartier rank jumps from three to zero at one geometric equianharmonic class while the initial Cartier rank, hence Jacobian \(a\)-number, remains constant. The full nilpotent rank sequence identifies a finer arithmetic boundary, not a small finite example or a standard consequence of knowing only the branch points. The relationship of wild Frobenius action to the finite order-seven character cycle is structurally informative.
+The family-wide classification of ranks, the exact locus of the jump, and its interpretation as one exceptional cover class were not covered in the inspected comparisons. The exceptional member's Cartier profile itself is already a consequence of the Fermat-curve result of Pries–Ulmer and should not be credited as a stand-alone novelty. The generic stable rank is also the natural character-orbit upper bound; the substantive comparison is exact everywhere outside the exceptional locus and for all powers, not just a bound or an example of attainment.
 
-## Limitations
+## value
 
-No complete Newton polygon or Ekedahl–Oort classification is asserted, nor an occurrence statement outside this particular ramification-labeled family. Bibliographic priority remains provisional.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a natural tame family rather than an isolated table entry, the explicit return scalar detects a dramatic smooth-fiber drop of stable rank even though the first two ranks never jump. The full power profiles identify when the degeneration becomes visible and what nilpotence it produces. This exact coefficientwise invariant is useful for distinguishing these fibers; the covered Fermat case alone would not satisfy the value bar.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

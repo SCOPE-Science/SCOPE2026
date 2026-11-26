@@ -2,97 +2,61 @@
 
 ## Finding
 
-**Theorem (two sharp surface-area levels).** For each integer \(n\geq5\), among all connected simple unicyclic graphs \(G\) with \(n\) vertices, put
+The new assertion concerns the **second distinct** surface-area level. Let \(G\) be a connected simple unicyclic graph on \(n\ge5\) vertices, and define
 \[
-Z_G=\sum_{\{u,v\}\in E(G)}\left[-\frac{e_u-e_v}{2},\frac{e_u-e_v}{2}\right]
-\subset \left\{x\in\mathbb R^n:\sum_i x_i=0\right\},
-\qquad A(G)=\mathcal H^{n-2}(\partial Z_G).
+Z_G=\sum_{\{u,v\}\in E(G)}\left[-\frac{e_u-e_v}{2},\frac{e_u-e_v}{2}\right],\qquad
+A(G)=\mathcal H^{n-2}(\partial Z_G).
 \]
-The unique surface-area minimizer up to graph isomorphism is the triangle with all \(n-3\) extra vertices attached as leaves to one triangle vertex. The unique second minimizer, meaning the next *distinct* area value, is the triangle with \(n-4\) leaves on one triangle vertex and one leaf on a second triangle vertex. Their exact respective areas are
+The boundary is intrinsic to the coordinate-sum-zero hyperplane with its inherited Euclidean metric. Exclude the minimizing graph, a triangle with all \(n-3\) extra vertices attached as leaves to one triangle vertex. Among the remaining graphs, the minimum is uniquely attained, up to isomorphism, by the triangle with \(n-4\) leaves on one triangle vertex and one leaf on a second vertex. Its area is
 \[
-A_1(n)=(6n-14)\sqrt{n-1}+2\sqrt{2(n-2)},
-\qquad A_2(n)=(6n-16)\sqrt{n-1}+2\sqrt{2(n-2)}+2\sqrt{3(n-3)}.
+A_2(n)=(6n-16)\sqrt{n-1}+2\sqrt{2(n-2)}+2\sqrt{3(n-3)}.
 \]
-Thus every unicyclic \(G\) except the first graph has \(A(G)\ge A_2(n)\), with equality precisely for the specified second graph, and the sharp positive gap is
+The gap above the minimum \(A_1(n)=(6n-14)\sqrt{n-1}+2\sqrt{2(n-2)}\) is
 \[
-\boxed{A_2(n)-A_1(n)=2\left(\sqrt{3(n-3)}-\sqrt{n-1}\right)>0.}
+A_2(n)-A_1(n)=2\bigl(\sqrt{3(n-3)}-\sqrt{n-1}\bigr)>0.
 \]
-For completeness, in order \(n=4\) the only two types are a triangle with one attached leaf, of area \(10\sqrt3+4\), and the four-cycle, of area \(8\sqrt3+8\), the latter having larger area by \(4-2\sqrt3\).
-
-**All-unicyclic surface formula.** Let \(C\) be the unique cycle of \(G\), of length \(\ell\), and let \(B\) be its set of bridge edges. For a bridge \(e\), let \(s_e\) be the number of vertices in the component detached from \(C\) by removing \(e\). For two distinct cycle edges \(e,f\), let \(s_{ef}\) be either resulting component size after their deletion. Then, for every \(n\ge3\),
-\[
-\boxed{A(G)=2\ell\sum_{e\in B}\sqrt{s_e(n-s_e)}
-+2\sum_{\{e,f\}\subset E(C)}\sqrt{s_{ef}(n-s_{ef})}.}
-\]
-This is independent of all choices of which component to count.
+The first-level benchmark and the general area identity used below are not claimed as new.
 
 ## Assumptions and scope
 
-Graphs are finite, connected, loopless, simple, and have exactly one cycle. The geometric realization and the Euclidean scalar product are the *canonical coordinate ones*, not arbitrary affine images. The intrinsic dimension of \(Z_G\) is \(n-1\), and \(A(G)\) is its \((n-2)\)-dimensional boundary measure, counting each geometric facet once. A graph isomorphism acts by an orthogonal coordinate permutation, so area is isomorphism-invariant. All stated inequalities concern integers \(n\ge5\), except the separately stated \(n=4\) comparison.
+Graphs are finite, connected, simple and have exactly one cycle. The edge generators are the coordinate vectors \(e_u-e_v\) of Euclidean length \(\sqrt2\); no quotient norm, affine distortion or edge weight is used. Area sums each geometric facet once, and graph isomorphism acts by orthogonal coordinate permutation. The second-level theorem is for \(n\ge5\). At \(n=4\) there are just two graphs; the same area identity gives \(10\sqrt3+4\) for a triangle with one leaf and \(8\sqrt3+8\) for the four-cycle, in that order.
 
 ## Proof
 
-**1. The facet-to-cut identity.** Let \(H\) be any connected graph on \(k\) labeled vertices and \(Z_H\) its graphical zonotope. Its intrinsic \((k-1)\)-volume is \(\sqrt{k}\,\tau(H)\), where \(\tau(H)\) is its number of spanning trees (and for \(k=1\), the zero-dimensional volume and \(\tau(H)\) are both one). Indeed, the standard zonotope volume decomposition sums the absolute determinants of all \((k-1)\)-element generator sets. A nonzero summand occurs precisely at a spanning tree. Each tree incidence matrix has squared Gram determinant \(k\), by the matrix-tree identity applied to an incidence basis; therefore each nonzero summand is \(\sqrt k\).
-
-A facet normal \(a\) of \(Z_G\) must satisfy \(\langle a,e_u-e_v\rangle=0\) on precisely those edge generators spanning a codimension-one subspace. Thus the zero-slope subgraph has exactly two connected components, \(G[S]\) and \(G[V\setminus S]\), for a nonempty proper set \(S\). Equivalently, the crossing edge set is an inclusion-minimal bond. Conversely every bond supplies two opposite supporting facets. The facet is, up to translation, the orthogonal Minkowski product of \(Z_{G[S]}\) and \(Z_{G[V\setminus S]}\) in disjoint coordinate subspaces. By the previous volume identity, the area of each such facet is
+**Area identity and first-level benchmark.** Write \(F_j=\sqrt{j(n-j)}\). If the cycle has length \(\ell\), the identity in [1, Eq. (4)] in unordered cut notation is
 \[
-\sqrt{|S|(n-|S|)}\,\tau(G[S])\tau(G[V\setminus S]).
+A(G)=2\ell\sum_{e\text{ a bridge}}F_{s_e}
+  +2\sum_{\{e,f\}\subset E(C)}F_{s_{ef}},
 \]
-Summing the two opposite facets over unordered connected bipartitions gives the exact general identity
-\[
-A(G)=2\!\sum_{\substack{\{S,V\setminus S\}\\G[S],G[V\setminus S]\ \mathrm{connected}}}
-\sqrt{|S|(n-|S|)}\,\tau(G[S])\tau(G[V\setminus S]).
-\tag{1}
-\]
-There is no multiplicity from different bond edges: each unordered bipartition contributes one antipodal facet pair.
+where \(s_e\) is the order of the component separated from the cycle by deleting the bridge \(e\), and \(s_{ef}\) is either component order after deleting two cycle edges. In [1], the second sum is written over ordered cyclic intervals: their complement symmetry counts each unordered pair twice.
 
-**2. Specialization to one cycle.** In a connected unicyclic graph every minimal edge cut is either one bridge or two distinct edges on the unique cycle. After deletion of a bridge, exactly one side retains the cycle (with spanning-tree count \(\ell\)), while the other side is a tree (count one). Deletion of any two cycle edges yields two trees (counts one). Substituting these cases into (1) proves the boxed all-unicyclic formula and its normalization.
+For the geometric normalization, a facet of a connected graphical zonotope occurs when the zero-slope generators for a supporting normal span a codimension-one subspace. The zero-slope edges then form two induced connected shores. For each such bipartition there are two opposite facets, each an orthogonal product of the shores' graphical zonotopes up to translation. A connected shore of order \(k\) has intrinsic zonotope volume \(\sqrt{k}\,\tau\), with \(\tau\) its spanning-tree count: the generator-volume sum runs over its incidence bases, and each tree basis has squared Gram determinant \(k\). This includes the singleton convention. Consequently a shore pair contributes \(2F_j\) times the product of its spanning-tree counts. In a unicyclic graph the minimal cuts are the single bridges and the pairs of distinct cycle edges. In the former case the shore retaining the cycle has \(\ell\) spanning trees and the other has one; in the latter both shores are trees. This gives the factor \(2\ell\) and the factor \(2\) above.
 
-**3. Cycles of length at least four are never among the first two.** Put \(F_j=\sqrt{j(n-j)}\), so \(F_j\ge F_1=\sqrt{n-1}\) for every \(1\le j<n\). For cycle length \(\ell\ge4\), there are exactly \(n-\ell\) bridge terms with coefficient \(2\ell\) and \(\binom\ell2\) two-cycle-edge terms with coefficient two. Therefore
-\[
-A(G)\ge \ell(2n-\ell-1)F_1\ge 4(2n-5)F_1.
-\tag{2}
-\]
-The second inequality follows because \(\ell\mapsto \ell(2n-\ell-1)\) is concave and its values at \(\ell=4\) and \(\ell=n\) satisfy \(n(n-1)-4(2n-5)=(n-4)(n-5)\ge0\). Subtracting the proposed second value from the right side of (2) gives
-\[
-(2n-4)F_1-2(F_2+F_3)>0
-\]
-for every \(n\ge5\): use \(F_1\ge2\), \(F_j\le n/2\), and \(2(2n-4)>2n\). Thus any graph among the first two must have a triangle cycle.
+Reference [1, Eq. (1)] proves that for each fixed cycle length \(\ell<n\) the unique minimizer puts all extra vertices as leaves at a single cycle vertex, and gives its area. At \(\ell=3\) this yields \(A_1(n)=6(n-3)F_1+2(F_2+2F_1)\). We compare every longer cycle to the proposed second triangle below, which also confirms the first benchmark as the global minimum.
 
-**4. Triangle cases and non-leaf penalties.** Suppose \(C\) is a triangle, and let \(w_1,w_2,w_3\ge1\) be the numbers of vertices in the three trees rooted at its vertices, including the roots, so \(w_1+w_2+w_3=n\). Deleting two triangle edges isolates one rooted tree, and the cycle contribution is exactly \(2\sum_{i=1}^3F_{w_i}\). The bridge contribution is \(6\sum_{e\in B}F_{s_e}\). Since \(j\mapsto F_j=\sqrt{j(n-j)}\) is strictly concave on \((0,n)\), the most majorizing triple \((n-2,1,1)\) uniquely minimizes the cycle sum; hence
+**Longer cycles are above the proposed second level.** Each split has \(F_j\ge F_1\), so for \(4\le\ell\le n\), including the bare cycle, the area identity gives
 \[
-\sum_iF_{w_i}\ge F_{n-2}+2F_1=F_2+2F_1.
-\tag{3}
+A(G)\ge\bigl(2\ell(n-\ell)+\ell(\ell-1)\bigr)F_1
+\ge 4(2n-5)F_1.
 \]
-There are \(n-3\) bridges and every one contributes at least \(F_1\), with equality only when its detached component is one leaf. In particular, if any bridge is not incident to a detached leaf, its detached component has \(2\le s_e\le n-3\), and its contribution exceeds the baseline \(F_1\) by at least \(F_2-F_1\). Such a graph has
-\[
-A(G)\ge A_1(n)+6(F_2-F_1)>A_1(n)+2(F_3-F_1)=A_2(n).
-\tag{4}
-\]
-The strict middle inequality follows from strict concavity, \(F_3-F_1<2(F_2-F_1)\) for \(n\ge5\). Consequently **both** first area levels are attained among graphs whose noncycle vertices are all individual leaves.
+The quadratic \(\ell(2n-\ell-1)\) is concave, and the value at \(\ell=n\) minus its value at \(4\) is \((n-4)(n-5)\ge0\). The difference between this lower bound and \(A_2(n)\) is \((2n-4)F_1-2(F_2+F_3)>0\): use \(F_1\ge2\), \(F_2,F_3\le n/2\), and \(4n-8>2n\) for \(n\ge5\).
 
-**5. Sharp second level and equality classification.** For an all-leaf triangle graph write \(w_i=1+a_i\), with integers \(a_i\ge0\) and \(\sum a_i=n-3\). The bridge contribution is constant: \(6(n-3)F_1\). Among the triples \((w_1,w_2,w_3)\), up to permutation, \((n-2,1,1)\) is uniquely maximal in majorization order. Among *all other* triples, \((n-3,2,1)\) majorizes every one: the largest entry of a distinct triple is at most \(n-3\), and the sum of its largest two entries is at most \(n-1\). Strict concavity of \(F\) proves that the unique first and second cycle-sum levels occur at those two triples. Substituting into the surface formula yields precisely \(A_1(n)\) and \(A_2(n)\) as stated, with equality only for the two asserted graph types. Their gap is positive because \(3(n-3)>n-1\) for \(n>4\).
+**Non-leaf attachments on a triangle are also above the proposed second level.** Let the three rooted trees (each including its cycle vertex) have orders \(w_1,w_2,w_3\ge1\) with sum \(n\). Removing two cycle edges isolates one such tree, so the cycle-area term is \(2\sum_i F_{w_i}\). The strictly concave function \(t\mapsto\sqrt{t(n-t)}\) gives \(\sum_i F_{w_i}\ge F_2+2F_1\) by majorization by \((n-2,1,1)\). There are \(n-3\) bridges. If any noncycle vertex is not a leaf, some bridge separates a component of size between \(2\) and \(n-3\), with \(F_{s_e}\ge F_2\). Hence the area is at least \(A_1(n)+6(F_2-F_1)\), strictly above \(A_1(n)+2(F_3-F_1)=A_2(n)\), since \(F_2>F_1\) and strict concavity gives \(F_3-F_1<2(F_2-F_1)\).
 
-For \(n=4\) there are exactly the two graph types listed: a triangle with one leaf and a four-cycle. Evaluating the all-unicyclic formula gives the stated values and difference. This completes the proof.
+**Second level among all-leaf triangles.** Their bridge term is the constant \(6(n-3)F_1\). After excluding \((n-2,1,1)\), the largest entry of any permissible sorted integer triple \((w_1,w_2,w_3)\) is at most \(n-3\) and the two largest sum to at most \(n-1\). Thus \((n-3,2,1)\) majorizes every remaining triple. Strict concavity gives equality in the minimal cycle-area term only for permutations of this triple, i.e. one graph up to isomorphism. Substitution gives \(6(n-3)F_1+2(F_3+F_2+F_1)=A_2(n)\); the gap is strict since \(3(n-3)>n-1\). This also covers \(n=5\), where the split leaf allocation is \((2,2,1)\) in rooted-tree orders.
 
 ## Verification
 
-The bundled standalone checker `check_unicyclic_surface.py` uses exact nonisomorphic graph generation and two *independent finite numerical area calculations*: (a) enumeration of connected graph bipartitions with spanning-tree factors from (1), (b) the special bridge/paired-cycle-edge formula. For \(4\le n\le9\), it compares every nonisomorphic unicyclic graph (counts \(2,5,13,33,89,240\)), sorts the actual areas, and checks the two values and unique graph levels. For \(4\le n\le6\), it additionally constructs the zonotope in an orthonormal basis of the intrinsic hyperplane and checks the area of its convex hull for the first four graphs by increasing area. This is finite corroboration only; the proof above covers every permitted \(n\).
+The bundled checker `check_unicyclic_surface.py` uses enumeration of nonisomorphic unicyclic graphs and compares area via connected bipartitions and via the bridge/cycle-pair formula; these are finite floating-point consistency checks. It also compares to convex-hull areas in selected cases through order six. The comparisons of all excluded classes and the strict-concavity equality argument above, not this enumeration, prove the second level for every \(n\ge5\). The checker requires Python 3, NetworkX, NumPy and SciPy.
 
-Run `python check_unicyclic_surface.py` with Python 3 and the packages `networkx`, `numpy`, and `scipy` installed. A successful run prints `UNICYCLIC_GRAPHICAL_ZONOTOPE_FIRST_TWO_SURFACE_LEVELS_PASSED` followed by the enumeration data.
+## Relationship to prior work and limitations
 
-## Relationship to prior work
+The earlier unicyclic result [1] gives both the exact area formula and the unique minimizer **within every fixed cycle length** with off-cycle vertices. In particular the triangle benchmark is already an exact specialization; only a comparison across cycle lengths is needed for the global first level. Its balanced maximum and stability bound within the direct-leaf family address another end of the area range, not the least area after removing the minimizer. The additional result here is the sharp second level over *all* connected simple unicyclic graphs, with the unique extremizer and exact gap. The separation from the longer cycles and from non-leaf attachments is needed before a discrete second-level optimization over leaf allocations can establish this global statement.
 
-Padrol–Pilaud–Poullot develop the face and normal structure of graphical zonotopes [1], including the connected-bipartition description of facets. Joós–Lángi establish general Euclidean intrinsic-volume decompositions and investigate isoperimetric problems for abstract zonotopes [2]. These two sources supply a framework for step 1; neither contains the graph-specific sharp first/second unicyclic surface-area classification or the strict discrete second-level gap proved in steps 3–5. A general bound on abstract \((n-1)\)-dimensional zonotopes with \(n\) generators does not order the unicyclic incidence-vector realizations. A related result for **tree** graphical zonotopes concerns an edge-cut sum with different facet multiplicities and does not imply the present unicyclic ordering. Equivalences under other names for bond energies or edge-cut Euclidean norms remain a priority risk.
-
-A motivating distinction is that every unicyclic graph on \(n\) vertices has \(n\) edge generators and hence the same first intrinsic volume/mean-width scaling, whereas the canonical surface area varies. Within the triangle-cycle subclass even intrinsic \((n-1)\)-volume is fixed at \(3\sqrt n\) because there are exactly three spanning trees; the sharp surface-area hierarchy therefore compares bodies with the same volume and generator count.
-
-## Limitations
-
-The theorem classifies only the two lowest distinct surface-area values, not the entire surface-area spectrum or the maximizer. It requires connected simple unicyclic graphs with canonical unit graph-root generators and the usual Euclidean metric; weighted edges, multiple cycles, or nonorthogonal affine changes are not covered. Historical priority is provisional, and independent mathematical validation has not been performed. Numerical enumeration of dimensions at most nine is not an infinite-dimensional proof.
+Padrol–Pilaud–Poullot [2] give the face and normal framework for graphical zonotopes. Joós–Lángi [3] give the general Euclidean intrinsic-volume decomposition; their abstract zonotope isoperimetry does not itself order these incidence-vector realizations. The second-level result does not describe the rest of the spectrum, the maximum among all unicyclic graphs, or weighted, multicyclic or affinely distorted realizations. Priority beyond the sources compared is provisional.
 
 ## References
 
-[1] A. Padrol, V. Pilaud, G. Poullot, *Deformed graphical zonotopes*, arXiv:2111.12422, publicly posted 2021-11-24. https://arxiv.org/abs/2111.12422
-
-[2] A. Joós, Z. Lángi, *Isoperimetric problems for zonotopes*, arXiv:2206.03204, publicly posted 2022-06-07. https://arxiv.org/abs/2206.03204
+1. *Sharp minimum and stability of surface area for unicyclic graphical zonotopes*, Resultary record `fa812a991423`, 2026-10-25, Eqs. (1) and (4). https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-sharp-minimum-and-stability-of-surface-area-for-unicyclic-graphi--fa812a991423
+2. A. Padrol, V. Pilaud and G. Poullot, *Deformed graphical zonotopes*, arXiv:2111.12422. https://arxiv.org/abs/2111.12422
+3. A. Joós and Z. Lángi, *Isoperimetric problems for zonotopes*, arXiv:2206.03204. https://arxiv.org/abs/2206.03204

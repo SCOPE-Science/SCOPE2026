@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The coefficient/central-index normalization is explicit. Reduction via Frobenius holds over \(\mathbf F_3\) for every ternary digit of every nonnegative index. The bounded carry range is proved, not assumed. Two finite reachable graphs are fully displayed, and a standalone implementation independently generates their nodes and digit edges. The final-parity filter selects exactly the appropriate branch. Both closed recurrences have been checked on enough exact levels to combine their degree-two/degree-three annihilators with the eighteen-state characteristic polynomial, giving a finite-to-infinite proof by Cayley–Hamilton. Positivity and the sharp dominant exponential root follow from elementary recurrence analysis. The direct polynomial coefficients checked through \(n=728\) are independent computational cross-checks, not substitutes for that proof.
+PASS
 
-## Originality — PASS within inspected evidence
+Frobenius factorization gives the stated carry transitions in F_3; the parity-conditioned starts encode twice the floor of 3n/2, and the parity filter counts each ternary word exactly once, including zero. Integral transitions stay in the five carries −2 through 2. The independently rebuilt graphs have 8 and 10 states and the stated counts satisfy the candidate recurrences through L=25. After multiplying the candidate annihilators by the combined graph's degree-18 characteristic polynomial, zero initial differences of lengths 20 and 21 suffice for equality at all levels. A direct algebraic check collapses the two sign partners in the tables: let h=1 for support, h=−1 for signed count, and let A,C,D be the continuation series at even-branch states 0,2,1. They satisfy A=1+z(A+C+D), C=1+z(2A+hD), D=hz(A+D). The odd start contributes zA/(1−hz), by its two transient states. Eliminating gives total (1+z)(1+(1−h)z)/(1−(1+h)z−2z²+(2h−1)z³), which is exactly the pair of claimed series. The bias recurrence is positive and its positive root dominates because the other two roots are conjugate with modulus √(3/ρ)<ρ; the numerator is positive at the dominant pole. Direct polynomial multiplication for all n<729 independently agreed on every full block through L=6. Replay: direct_polymul_check.py and independent_transfer_check.py in /workspace/branches/810b7590-de31-41ce-8264-3d2c524b9080. Uploaded code was not executed. No assertion is made for arbitrary cutoffs or higher prime powers.
 
-The exact object differs from a fixed-index prime-square quadrinomial congruence. Mechacha's arXiv:2307.16768v1 and Belbachir–Otmani (Integers 23, A27) were read in their substantive theorem/proof portions. Hoggatt–Smith's historical central-triangle paper and OEIS A005190 were inspected for tables and recurrence statements. Their stated conclusions do not give the complete \(3\)-residue census of the central diagonal at every ternary power or the rational signed-bias series. The general automata approach can in principle generate such results but does not logically imply these particular exact formulas without nontrivial specialization. Searches of a mathematical research index and older available claims found no same-statement match. This is not a priority proof: an equivalent hidden in an older general algorithm or indexed with different terminology is a realistic risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The central coefficient is the maximal coefficient of the classical quadrinomial row, so its modular distribution is a canonical arithmetic statistic. The theorem simultaneously identifies a Fibonacci support, all three exact residue counts, a strict signed-class preference, and the sharp secondary scale. The two nonzero classes are asymptotically balanced yet not exactly balanced, a meaningful refinement of simple modular nondivisibility. These are infinite all-scale structural identities rather than a small parameter table.
+The supported new content is the evaluated all-level ternary-block census for the central quadrinomial sequence, in particular the signed secondary term alongside the Fibonacci support. The base sequence and generic congruence-automaton construction are known. None of the examined exact matches for the underlying sequence, alternate indexing, special-index congruences, or general automata provides the evaluated paired counts. This bounded assessment does not establish historical priority.
 
-## Boundaries
+## value
 
-The result does not extend to all cutoffs, arbitrary four-term coefficients, or modulus nine; automated general methods could have equivalent implicit coverage. Independent auditing has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Complete ternary blocks are the natural padded-digit sample space, and the central coefficient is a standard object. The count determines all three residues at every depth and separates the nonzero-support rate from the strictly smaller but positive bias rate, a feature genuinely beyond a nonvanishing census or ordinary sequence table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

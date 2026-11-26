@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:18:30.890372Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Allowed returns have length 1 plus a permitted zero gap. Prime valuations give exactly the rs-power intersection and hence the signed partition e^(-p)(D_r+D_s-D_rs). Inducing on a marker gives mean return <=1/rho, with equality exactly on full marker saturation by Kac; the complement is the all-zero atom up to null recurrence exceptions. Abramov plus the entropy-rate bound and relative entropy show that equality requires the stated tilted marginal and independent returns, with no zero atom; stationary reconstruction is unique. The mean under the tilt falls strictly from infinity to 2 by the variance derivative. For Euler summation the L1 norm of the second x derivative scales as p^(1/k), also for the two logarithmic p derivatives. The objective at p=p0(1+y), p0=q*rho, has unperturbed increment q(y-log(1+y)); the saddle gives y=-(B*alpha/q)p0^alpha+o(p0^alpha). The sum of the quadratic base term and the linear change in Bp^alpha is -B^2*alpha^2*p0^(2alpha)/(2q). Combined with -B^2*p0^(2alpha)/2 and the overlap -Cp0^beta this reproduces Q and the three cases; -p and the Euler constant have higher exponents. The case (2,3) and stated coefficient formulas agree. Inspected VERIFICATION.md and verify.py; did not execute the uploaded checker. The reported 24 finite numerical witnesses do not certify the asymptotic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Haydarov et al. describe the full induced shift on return blocks and Bernoulli laws for renewal potentials. Climenhaga–Thompson prove intrinsic ergodicity for S-gap shifts and their factors."
+        ],
+        "reasoning": "The general renewal results explain why the Bernoulli optimizer is natural; intrinsic ergodicity concerns the unconstrained maximum. Even granting a general exact tilted envelope, evaluating its second term needs the specific inclusion-exclusion expansion and movement of the saddle. Neither work supplies an already evaluated mixed-power law in the read material.",
+        "searches": [
+          "arXiv:2606.17031, inducing and Bernoulli laws for renewal potentials",
+          "arXiv:1011.2780, intrinsic ergodicity of S-gap shifts and factors"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 1db74ef026b2 and 281543b1266b",
+        "Haydarov et al. arXiv:2606.17031",
+        "Climenhaga–Thompson arXiv:1011.2780",
+        "Baker–Ghenciu arXiv:1411.7167, opening scope as background"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the mixed shift the exact intersection term -D_rs leads to relative size p^(1/r-1/(rs)); the first relative addition Bp^(1/r-1/s) creates both a logarithm square and the saddle feedback. Comparing these effects gives beta-2alpha=(2r-s-1)/(rs)."
+        ],
+        "reasoning": "The generic framework does not furnish the signs and competing terms, and the square-only formulas have no second exponent to cause this competition. This is not a parameter specialization of the read exact results. The extra quantitative calculation, rather than the variational representation alone, is the originality basis.",
+        "searches": [
+          "Resultary 1db74ef026b2, single-square theorem and partition",
+          "Resultary 281543b1266b, §1 square-gap envelope",
+          "arXiv:2606.17031, induced renewal laws"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Inducing on [1] codes each admissible zero gap as one symbol representing the return block of length gap+1. The older square-gap theorem uses just sum_m exp(-p(m^2+1)); the current exact partition necessarily has two added power sums and a subtracted intersection sum."
+        ],
+        "reasoning": "The single-power shifts embed separately in the mixed shift, so their constrained entropies give lower bounds. The mixed shift also has sequences using both gap kinds, and is not their union. Neither subshift entropy determines the mixed renewal sum or its optimum.",
+        "searches": [
+          "Resultary: square-gap and mixed perfect-power sparse-marker entropy; renewal/return partition; coprime-power union",
+          "Resultary 1db74ef026b2 and 281543b1266b original RESULT.md",
+          "Haydarov et al., arXiv:2606.17031, pp. 2–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier explicit square-only expansion has correction -sqrt(rho/(2*pi)); the mixed square/cube result instead has positive first correction at rho^(1/6) and combined second correction at rho^(1/3). The same-day stability record also uses the single-power square gap set."
+        ],
+        "reasoning": "This is a continuum asymptotic over a class of gap unions, not an integer table lookup. The closest exact formulas are for a different allowed set and lack the claimed overlap and threshold; no matching independently indexed expansion was identified in the bounded comparison.",
+        "searches": [
+          "Resultary: power-gap sparse marker entropy, mixed squares/cubes and correction order",
+          "Resultary 1db74ef026b2 and 281543b1266b, explicit formulas"
+        ]
+      },
+      "rationale": "The density-constrained tilt and the Euler-summation and saddle methods are not treated as original. The supported distinct claim is the explicit second-correction order and coefficients for the union of two coprime perfect-power gap families, where the shared-power subtraction competes with the variational feedback. The closest read single-power results and general inducing machinery do not give that evaluated transition.",
+      "residual_risks": [
+        "An unindexed or differently named equivalent mixed renewal expansion cannot be ruled out. The comparison does not claim historical priority.",
+        "Only fixed coprime exponents and the indicated sparse-density limit are compared; the generic renewal optimizer itself is not new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the square-only optimizer and its expansion, not the union theorem.",
+          "evidence": [
+            "The leading quadratic-root correction is -sqrt(rho/(2*pi)); the allowed zero gaps are m^2 only."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-theta-cubic-law-for-sparse-marker-entropy-in-the-square-gap-sh--1db74ef026b2/RESULT.md",
+          "material_read": "Finding, square-gap assumptions and return partition; offset 0 and adjoining text",
+          "method": "Configured local mirror original-result passages",
+          "title": "A theta-cubic law for sparse-marker entropy in the square-gap shift",
+          "trigger": "Closest explicit constrained-entropy expansion"
+        },
+        {
+          "assessment": "Tilted single-power envelope and a stability theorem, no mixed-power crossover.",
+          "evidence": [
+            "Its return law uses precisely the square-gap partition."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-three-scale-optimal-free-energy-stability-in-the-square-gap-shif--281543b1266b/RESULT.md",
+          "material_read": "Section 1, opening statement and exact square-gap envelope",
+          "method": "Configured local mirror original-result passages",
+          "title": "Three-scale optimal free-energy stability in the square-gap shift",
+          "trigger": "Distinct same-day constrained-entropy envelope"
+        },
+        {
+          "assessment": "Relevant renewal mechanism; no evaluated mixed-power low-density coefficient in the inspected result.",
+          "evidence": [
+            "Inducing on [1] identifies the induced system with a full shift over admissible return blocks and provides Bernoulli induced laws for renewal-type potentials."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.17031",
+          "material_read": "Open PDF pp. 2–3, induced coding and renewal-type potential description (extraction around offset 5000)",
+          "method": "Read lawful open original PDF passage",
+          "title": "Effective Intrinsic Ergodicity for renewal-type potentials on S-gap shifts",
+          "trigger": "Broader inducing theory could cover the optimizer"
+        },
+        {
+          "assessment": "Unconstrained uniqueness of the maximal-entropy measure is not the density spectrum.",
+          "evidence": [
+            "The result gives intrinsic ergodicity for S-gap shifts and their factors."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1011.2780",
+          "material_read": "Open PDF introduction and result statement, p. 1 (offset near 3500)",
+          "method": "Read original open PDF passage",
+          "title": "Intrinsic ergodicity beyond specification: beta-shifts, S-gap shifts, and their factors",
+          "trigger": "Potential more general uniqueness and entropy coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Combining two natural gap families changes the entropy spectrum in a way that depends on the arithmetic of their overlap and cannot be read off from either family separately. The signed coefficients and sharp crossover distinguish which mechanism controls the second correction for every fixed coprime pair; the tie is an actual, realizable regime. This is useful information beyond applying a known unconstrained entropy or reporting a numerical trend.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

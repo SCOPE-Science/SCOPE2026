@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:11:27.021736Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Assumptions and Proof; VERIFICATION.md and verify_steiner_graph.py inspected, not executed",
+        "Independent replay: python3 /workspace/independent_checks.py 3 (SymPy and python-flint); /workspace/check-3.txt",
+        "Dolgachev Topics §5.4.2, Proposition 5.4.5 and Lemma 5.4.6; Bergvall arXiv:2106.13072 §§2.5–2.6"
+      ],
+      "rationale": "Over an algebraic closure in characteristic ≠2, an odd theta characteristic remains odd after translation by a≠0 precisely when its quadratic refinement vanishes on a; the resulting pairs give Steiner membership. Independently I used even subsets of eight letters modulo complement: q(S)=|S|/2 mod 2 has 36 zeros, and its polarization is parity of intersection, with radical removed by the complement quotient. The 28 nonsingular classes are the pairs and label the odd refinements q+ω(v,−); the 63 nonzero classes label complexes. The resulting integer incidence has row degree 27, column degree 12 and BB^t=16I+11J, yielding a connected 91-vertex, 756-edge graph and cycle rank 666. The exact Laplacian characteristic polynomial and integer cofactor agree; the latter factors as 2^124·3^36·7^26·11^27. Direct Smith reduction of the cofactor returns 1×28,2×6,4×20,12×9,132,924×20,1848×6. This verifies the full integer invariant, not only mod-prime ranks. The source's minimum-valuation pivot argument uses invertible operations modulo the stated prime powers, with all final pivot valuations below precision.",
+      "residual_risks": [
+        "The result is geometric and specifically for this theta-theoretic design, not all abstract 2-(28,12,11) designs, nor a Frobenius-module statement. The Néron-component application is conditional on the prescribed split regular unit-thickness dual graph."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The accessible theta passages give the membership test, sizes and binary coordinates, not the critical group.",
+          "Full text was not obtained for Crnković–Mikulić Crnković (DOI, Hindawi and Wiley attempts) or Blokhuis–Calderbank (publisher access and alternate copy attempts). The precise reach of their theorems was not established."
+        ],
+        "reasoning": "An applicable general Levi-graph Smith theorem would be substantive coverage. General design parameters give a rational Gram spectrum, while a theorem only about the rectangular incidence matrix does not itself supply the graph-Laplacian Smith factors. Unretrieved full text is a residual risk, not evidence of either coverage or absence.",
+        "searches": [
+          "General quasi-symmetric design Smith normal forms: DOI 10.1007/BF00124897 and lawful OA retrieval attempts",
+          "Symplectic 2-(28,12,11) design construction/code literature: DOI 10.1155/2011/137356 §5",
+          "Bergvall arXiv:2106.13072 §§2.5–2.6"
+        ]
+      },
+      "checked_sources": [
+        "Resultary b76c5509eb43, a645560ae6f5 and e49b5f236b21",
+        "Dolgachev Topics §5.4.2",
+        "arXiv:2106.13072 §§2.5–2.6",
+        "arXiv:1008.4104v2 §5",
+        "DOIs 10.1155/2011/137356 and 10.1007/BF00124897 (bibliographic/retrieval checks only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "b76c5509eb43 gives 1×7,2×14,4×6,12 for the map B from complex sums to bitangents. The square Laplacian instead has diagonal blocks 27I and 12I and off-diagonal blocks −B and −B^t.",
+          "In particular at p=2 eliminating the unit block 27I leaves a matrix proportional over Z_(2) to 324I−B^tB. The separate Smith list of B and rational eigenvalues do not give the integer Smith form of this shifted Gram matrix: the coefficient pairing is not preserved by independent unimodular left and right Smith changes of B."
+        ],
+        "reasoning": "The classical design data and rectangular Smith form overlap with the proof inputs and some coarse invariants, but a new integral calculation is needed to obtain all shifted-block valuations and align them. The frozen claim's full 2-primary depth, not just the order or the rectangular exponent, is decisive.",
+        "searches": [
+          "Resultary b76c5509eb43, Integral Steiner reconstruction lattice of plane-quartic bitangents, Finding",
+          "Classical theta and Steiner descriptions: Dolgachev §5.4.2; Bergvall §2.5; Plaumann–Sturmfels–Vinzant §5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The theta-incidence set Σ(a) is exactly the odd refinements q with q(a)=0; this identifies the geometric graph with the specified symplectic design Levi graph, not just the same abstract parameters.",
+          "Same-day a645560ae6f5 uses 288 Aronhold heptads and has 316 vertices; e49b5f236b21 uses 21 Klein quadruple points and has 49 vertices. Both are distinct graph Jacobians."
+        ],
+        "reasoning": "The equivalent names are graph Jacobian or critical group of this particular design Levi graph. Identical bitangent labels with a different block set do not give that graph.",
+        "searches": [
+          "Resultary: bitangent–Steiner incidence critical group versus related bitangent graph Jacobians",
+          "Symplectic 2-(28,12,11) design Levi graph reduced-Laplacian Smith form",
+          "Dolgachev Topics §5.4.2; Bergvall arXiv:2106.13072 §2.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest distinct catalog findings a645560ae6f5 and e49b5f236b21 are on different graphs, and b76c5509eb43 tabulates a 28×63 rectangular Smith group.",
+          "Exact older design tables could not be checked in the inaccessible 2011 paper."
+        ],
+        "reasoning": "None of the exact available distinct tables is a matching reduced cofactor or equivalent presentation; the inaccessible table comparison remains bounded.",
+        "searches": [
+          "Resultary: 91-vertex bitangent–Steiner graph and same-day bitangent incidence groups",
+          "Crnković–Mikulić Crnković DOI 10.1155/2011/137356 symplectic design tables (access attempted)"
+        ]
+      },
+      "rationale": "The theta incidence is established. The closest distinct exact integral results are a rectangular Steiner-sum map on the same design and graph Jacobians with different block families; none of the compared statements gives the complete Smith form of this 91-vertex graph Laplacian. There are material access limitations for two plausible older design references. This is a best-of-knowledge judgment on the full integral graph group, not on the design, or on every coarser invariant separately.",
+      "residual_risks": [
+        "Possible equivalent coverage in the inaccessible 2011 symplectic-design paper or 1992 general design Smith-form paper remains unchecked at theorem/table level. Unindexed design tables or Levi graphs under other names remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same incidence, not the computed graph group",
+          "evidence": "There are 2^(2g)−1 complexes, each of size 2^(g−1)(2^(g−1)−1); q belongs to Σ(v) iff q(v)=0.",
+          "identifier_or_url": "https://mathweb.ucsd.edu/~eizadi/207A-14/Dolgachev-topics.pdf",
+          "material_read": "§5.4.2, Proposition 5.4.5 and Lemma 5.4.6, pp. 134–135, PDF offset 419000",
+          "method": "OA full text by bounded passage",
+          "title": "Topics in Classical Algebraic Geometry",
+          "trigger": "Geometric incidence identification"
+        },
+        {
+          "assessment": "Classical construction, no reduced-Laplacian Smith form in compared statements",
+          "evidence": "One complex for each nonzero 2-torsion class; its 12 members are the odd refinements vanishing on that class.",
+          "identifier_or_url": "arXiv:2106.13072",
+          "material_read": "§§2.5–2.6 pp. 6–7, offsets 19200–22877",
+          "method": "OA original PDF passages",
+          "title": "Arithmetic and topology of classical structures associated with plane quartics",
+          "trigger": "Same theta/Steiner construction and neighboring geometries"
+        },
+        {
+          "assessment": "Geometric Gram matrices, not graph critical-group computation",
+          "evidence": "The 63 Steiner complexes correspond to 63 rank-three Gram matrices.",
+          "identifier_or_url": "arXiv:1008.4104v2",
+          "material_read": "§5 pp. 13–14, offset 44200",
+          "method": "OA original PDF passage",
+          "title": "Quartic Curves and Their Bitangents",
+          "trigger": "Closest primary geometric reconstruction of Steiner complexes"
+        },
+        {
+          "assessment": "Full-text coverage unresolved",
+          "evidence": "Access errors/absence of a retrieved copy do not establish that a relevant table is absent.",
+          "identifier_or_url": "DOI:10.1155/2011/137356",
+          "material_read": "Bibliographic identification only; §5 not obtained",
+          "method": "Lawful DOI, Hindawi, Wiley and alternate-copy attempts",
+          "title": "On Some Combinatorial Structures Constructed from the Groups L(3,5), U(5,2), and S(6,2)",
+          "trigger": "Design construction and possible exact tables; cited §5"
+        },
+        {
+          "assessment": "Exact theorem coverage unresolved",
+          "evidence": "Publisher redirects and no available alternate full text located; no assertion of noncoverage from this failure.",
+          "identifier_or_url": "DOI:10.1007/BF00124897",
+          "material_read": "Bibliographic identification only; decisive original theorem not obtained",
+          "method": "Lawful publisher and alternate-copy attempts",
+          "title": "Quasi-symmetric designs and the Smith Normal Form",
+          "trigger": "Potential broader Smith theorem for relevant design class"
+        },
+        {
+          "assessment": "Different maps or graph vertex sets",
+          "evidence": "The first uses the 28×63 rectangular map, and the other two use different block vertices and square graph Laplacians.",
+          "identifier_or_url": "Resultary b76c5509eb43, a645560ae6f5, e49b5f236b21",
+          "material_read": "RESULT.md Findings",
+          "method": "Resultary and local mirror",
+          "title": "Integral Steiner reconstruction lattice of plane-quartic bitangents; same-day Aronhold and Klein bitangent incidence group results",
+          "trigger": "Same incidence data or closely related graph critical groups"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, Proof §4 and Limitations; independent exact 90-entry Smith calculation",
+        "Dolgachev §5.4.2; Rectangular comparator b76c5509eb43"
+      ],
+      "rationale": "The natural theta-to-Steiner incidence gives a characteristic-independent geometric graph in the stated range. Its complete graph Jacobian records higher 2-adic torsion and the combined exponent 1848, neither read from the tree number nor from the known rectangular Steiner-sum group. The exact quotient is useful for integral chip-firing on this design or as the component group for a suitable split regular unit-thickness smoothing of a stable curve with that graph.",
+      "residual_risks": [
+        "Finiteness and computation alone do not provide an equivariant refinement or a canonical degeneration of the given quartic; neither is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

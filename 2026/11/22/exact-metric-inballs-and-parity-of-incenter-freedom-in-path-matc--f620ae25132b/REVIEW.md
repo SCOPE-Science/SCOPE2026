@@ -1,15 +1,21 @@
-# Review: exact metric inballs of path matchable-subgraph polytopes
+# Independent mathematical audit
 
-## Correctness — PASS
-The object is the zero-inclusive perfectly matchable vertex-subset polytope, realized by the full-rank unsigned path incidence map from the path stable-set polytope. The metric is explicitly the Gram form with diagonal \(2\) and adjacent entries \(1\), not an unspecified affine-equivalent metric. Its exact inverse gives every facet's intrinsic Euclidean normal length. Combining two coordinate lower bounds with each adjacent upper bound proves a global ball-radius upper bound, and the weight-proportional center attains it. Equality conditions and a strictly feasible relative-interior perturbation prove the complete incenter affine dimensions, including the small cases. Checks on the actual delivered `verify.py` independently corroborate exact Gram inversion, vertex sets, facet distances, LP optima and optimizer constraints. The proof covers all integers \(n\ge3\); finite experiments are not substituted for an infinite proof.
+## correctness
 
-## Originality — PASS (provisional priority)
-The defining 2022 paper by Mori studies algebraic properties of these polytopes, not the metric claim. The 1983 foundational bipartite formulation is credited, though its publisher full text was not accessed. The closest published indexed stable-set result computes ordinary-metric facet areas, while the present Euclidean image has a nonorthogonal incidence Gram form. Full-text comparisons of path connected-block, path symmetric-edge and alternating adjacent-sum results show different bodies or metrics and no implication of this incenter theorem. Actual published-finding corpus alias and implication searches found no equivalent indexed claim. The residual risk is an earlier unindexed weighted-stable-set or network-polytope incenter formula; database absence is not novelty proof.
+PASS
 
-## Mathematical value — PASS
-The natural vertex-subset embedding is the defining realization of perfectly matchable subgraph polytopes. Its complete maximum-ball and all-center calculation gives a geometrically motivated new invariant across a Fibonacci-size infinite family, including an odd/even optimizer-dimension split. The theorem also demonstrates a substantial geometric distinction: the very same combinatorial polytope has constant inradius and a unique optimal center in natural edge coordinates, yet radius \(\asymp n^{-1/2}\) and nearly full-dimensional center freedom in vertex coordinates. This comparison motivates why the precise metric answer matters beyond routine LP calculation.
+Independently reconstruct the proof in the vertex coordinates y=Bx. Path matchings cover precisely the even-component subsets: each selected edge contributes its two endpoints, and every even component has its unique consecutive-pair matching. In edge coordinates, the consecutive-sum inequalities characterize the stable-set hull: choose one uniform threshold in [0,1], assign odd positions the initial intervals of length x_i and even positions the terminal intervals of length x_i; consecutive intervals overlap at most on a null boundary, so the resulting stable-set indicator has expectation x. The image of B is the orthogonal complement of the alternating-sign vector of squared length n. The functional x_i is represented in vertex coordinates by the alternating sum on the first i positions; projecting its representing vector onto the image gives squared norm i−i²/n. The functional x_i+x_(i+1) is y_(i+1), giving projected squared norm 1−1/n. The full containment system therefore has exactly the stated clearances. Feasibility at radius r is equivalent to all r(w_i+w_(i+1)+u)≤1, because the coordinatewise minima x_i=r w_i simultaneously attain the least adjacent sums. The difference between consecutive adjacent-sum weights is w_(i+2)−w_i; symmetry and strict increase toward the middle give one central maximizing pair in odd order and two overlapping maximizing pairs in even order. At optimal r their endpoints are forced; all other upper constraints have slack at the minima, and raising every free coordinate a sufficiently small amount puts the center in the relative interior of the claimed codimension-two or codimension-three subspace. This includes n=3 and 4 with no free coordinates. In the ordinary matching-edge metric all pairs are maximizing, which fixes every coordinate and gives 1/(2+√2). The central weights sum asymptotically to √n, yielding the stated scale.
 
-## Remaining limitations
-Priority is provisional, no publication is asserted, and independent mathematical audit has not been performed. The closed-form optimal center **set** is given by inequalities, not an enumerated face lattice.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass for the exact inball and full optimal-center classification in the vertex-incidence metric. Existing work on this polytope's incidence/toric description, ordinary path stable-set coordinates and different path polytopes does not supply the parity-split intrinsic metric result.
+
+## value
+
+PASS
+
+This is an exact family-wide comparison of two natural realizations of the same polytope. It explains why one inradius is constant with a unique center while the canonical vertex-incidence inradius shrinks and its optimizer freedom has a parity split. The full optimizer locus and the proof of which constraints impose its affine dimension are useful information not captured by a face-lattice equivalence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

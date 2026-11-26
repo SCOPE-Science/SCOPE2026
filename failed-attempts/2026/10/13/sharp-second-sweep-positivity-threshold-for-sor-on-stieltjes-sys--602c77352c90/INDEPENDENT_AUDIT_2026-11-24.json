@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:28:48.102017Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 2–21 and 23–92",
+        "VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent exact two-sweep recurrence at the stated 3×3 instance"
+      ],
+      "rationale": "Positive diagonal normalization preserves signs. With R=(I−ωL)^−1=Σ_{j=0}^{n−1}ω^j L^j, y^(1)=ωRc≥0. The second-sweep map is ω[R+(1−ω)R²+ωRUR], and the coefficient of ω^jL^j in R+(1−ω)R² is j+2−(j+1)ω. Together with RUR≥0 this proves inclusion of the endpoint ω=1+1/n when n≥2; for n=1 the threshold is 2, outside the stipulated open convergence interval. For L=εS and U=εSᵀ, a product S^aSᵀS^b contributes to entry (n,1) exactly for a+b=n and 1≤a,b≤n−1, giving (n−1)ω^n ε^(n+1) in RUR. The resulting bracket in (Q₂)_{n1} is n+1−nω+(n−1)ω²ε². Above the threshold it is strictly negative at sufficiently small positive ε, which also preserves positive definiteness by diagonal dominance. A separately computed rational two-sweep recurrence at n=3, ω=7/5, ε=1/10, b=e₁ gave x^(2)=(10843/12500,14651/312500,−68943/15625000), matching the frozen witness.",
+      "residual_risks": [
+        "The analysis concerns exact arithmetic, zero start and the first two completed forward sweeps. Neither monotonicity of the sequence nor safety of later sweeps is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The November Resultary theorem works for nonsingular M-matrices and gives the stronger index-q sufficient bound 1+1/q. Vigna's accessible passages discuss weighted error-norm contraction for M-matrices, not positivity of this iterate. The accessible Haynes–MacLachlan–Wang passages are about a different positivity-preserving algorithm."
+        ],
+        "reasoning": "An SPD Stieltjes matrix is a nonsingular M-matrix. The broader theorem supplies both the sign guarantee on that subclass and the same obstruction within that subclass, unlike generic convergence results.",
+        "searches": [
+          "2026/11/2/SCOPE-the-sharp-1-1-n-two-sweep-positivity-frontier-for-sor--8cdb24643e45, Finding and proof",
+          "Literature: \"second iterate\" SOR componentwise nonnegative positivity M-matrix splitting monotone iterates successive overrelaxation",
+          "Vigna, arXiv:1404.3327v1, introduction and convergence result"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local index and both named Resultary records",
+        "arXiv:1404.3327v1",
+        "arXiv:2306.03210v1",
+        "DOI 10.1137/0712013 (attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The broader proof gives the same nilpotent coefficient boundary and the same small-coupling SPD path family, with negative leading term ω^n ε^(n−1)(n+1−nω) above the threshold and a higher-order correction."
+        ],
+        "reasoning": "No additional sharpness or specialized theorem is needed to recover the frozen claim from that coverage: restrict the sufficiency theorem, use the witnesses as given, and note that SOR converges for these SPD witnesses on (0,2).",
+        "searches": [
+          "2026/11/2/SCOPE-the-sharp-1-1-n-two-sweep-positivity-frontier-for-sor--8cdb24643e45, Finding and proof (local-mirror RESULT.md offsets 0, 1800–5988)",
+          "RESULT.md lines 23–68"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The later broader record's Finding states the same finite-horizon positivity property from zero, not asymptotic convergence or monotonicity. The 2026/10/4 three-halves record states precisely the n=2 special case."
+        ],
+        "reasoning": "The second-sweep positivity property for every nonnegative b is entrywise nonnegativity of the second-sweep linear map, the invariant being compared in the records.",
+        "searches": [
+          "Resultary: second SOR sweep finite-step componentwise nonnegativity sharp relaxation threshold SPD Stieltjes matrix dimension 1+1/n weak coupling path",
+          "Resultary: componentwise monotone iterates nonnegative cone finite sweeps Gauss-Seidel successive overrelaxation M-matrix splitting nilpotent lower triangular index positivity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 4 record is an exact dimension-two precedent. The November 2 record explicitly acknowledges that precedent, but the passages and metadata inspected do not identify a relationship with the frozen October 13 record."
+        ],
+        "reasoning": "There is exact indexed coverage at arbitrary dimension in a distinct record; a date label alone does not determine which result was reached first.",
+        "searches": [
+          "2026/10/4/SCOPE-a-sharp-three-halves-second-iterate-positivity-frontier-for-sor--7f04f29ca2ea, Finding",
+          "2026/11/2/SCOPE-the-sharp-1-1-n-two-sweep-positivity-frontier-for-sor--8cdb24643e45, Finding, Relationship to prior work, SOURCE.md, SOURCE.json, REVIEW.md"
+        ]
+      },
+      "rationale": "The distinct indexed record 2026/11/2/SCOPE-the-sharp-1-1-n-two-sweep-positivity-frontier-for-sor--8cdb24643e45 covers the same dimension-sharp result for all nonsingular M-matrices (with the same SPD weak-path witnesses), and also gives an ordering-dependent refinement. Restricting that theorem to SPD Stieltjes matrices gives the frozen finding, including failure within the convergent SPD class. The explicitly evaluated O(ε^(n+1)) correction in the frozen witness is a refinement of the arithmetic of that witness, not a distinct sharp frontier. This is a finding of demonstrable present coverage, not a finding of chronological priority, derivation or copying; the covering catalogue entry is labelled later and no derivation history was established.",
+      "residual_risks": [
+        "No chronological claim is made from record names or revision timestamps. Full text of James–Riha, Marek–Zítko, Axelsson's chapter, and Yun's cited splitting work was not retrieved; their precise overlap remains unassessed. The originality failure rests on the direct readable catalogue coverage, not on inaccessible material."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct broader coverage; derivation and priority unresolved",
+          "evidence": "Nonsingular M-matrix theorem with an index-q bound, SPD weak-path witnesses, and explicit acknowledgement of the 2-D precedent. No explicit comparison with the October 13 frozen record.",
+          "identifier_or_url": "2026/11/2/SCOPE-the-sharp-1-1-n-two-sweep-positivity-frontier-for-sor--8cdb24643e45",
+          "material_read": "RESULT.md Finding, proof and relationship section (offsets 0, 1800–5988, 5850–9025); SOURCE.md, SOURCE.json and REVIEW.md for relationship",
+          "method": "Local Resultary mirror",
+          "title": "The sharp 1+1/n two-sweep positivity frontier for SOR",
+          "trigger": "Exact arbitrary-dimension bound in a larger class"
+        },
+        {
+          "assessment": "Covered n=2, not arbitrary n",
+          "evidence": "Exact universal SPD Stieltjes threshold 3/2 and a coupling-specific analysis.",
+          "identifier_or_url": "2026/10/4/SCOPE-a-sharp-three-halves-second-iterate-positivity-frontier-for-sor--7f04f29ca2ea",
+          "material_read": "RESULT.md Finding (offset 0)",
+          "method": "Local Resultary mirror",
+          "title": "A sharp three-halves second-iterate positivity frontier for SOR",
+          "trigger": "Exact special case"
+        },
+        {
+          "assessment": "Different invariant in inspected passages",
+          "evidence": "Weighted error-norm contraction, not a two-sweep order-cone statement.",
+          "identifier_or_url": "https://arxiv.org/pdf/1404.3327v1",
+          "material_read": "PDF pp. 1–2, OA offsets 0–4739",
+          "method": "Bounded OA PDF passages",
+          "title": "Supremum–Norm Convergence for Step–Asynchronous Successive Overrelaxation on M-matrices",
+          "trigger": "Convergence and positivity comparison for SOR"
+        },
+        {
+          "assessment": "Different algorithm",
+          "evidence": "Inverse positivity and positivity-preserving unigrid iterates; weighted Jacobi and GS are discussed as smoothers.",
+          "identifier_or_url": "https://arxiv.org/pdf/2306.03210v1",
+          "material_read": "Abstract and PDF pp. 3–5 (OA offsets 14800–17387 and 21100–23699)",
+          "method": "Bounded OA PDF passages",
+          "title": "A positivity-preserving unigrid method for elliptic PDEs",
+          "trigger": "Finite-iterate positivity under relaxation"
+        },
+        {
+          "assessment": "Unresolved external literature risk, not basis for the verdict",
+          "evidence": "Full-text retrieval did not succeed.",
+          "identifier_or_url": "10.1137/0712013",
+          "material_read": "No lawful full text retrieved",
+          "method": "DOI and publisher retrieval attempts; no accessible repository copy identified",
+          "title": "Convergence Criteria for Successive Overrelaxation",
+          "trigger": "Classical SOR on nonpositive off-diagonal matrices"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 2–8 and 23–68",
+        "2026/11/2/SCOPE-the-sharp-1-1-n-two-sweep-positivity-frontier-for-sor--8cdb24643e45"
+      ],
+      "rationale": "The mathematical question is worthwhile: even in the classical convergence interval, a nonnegative input can yield a negative intermediate iterate in two sweeps. The dimension-exact safety margin with a sparse SPD witness is a meaningful boundary, not a convergence restatement. This is an assessment of the substance of that boundary, not independent credit for the same finding already covered on the originality axis. The next-order arithmetic of this one witness is not on its own a proposed surviving result.",
+      "residual_risks": [
+        "No claims for all subsequent sweeps or for floating-point sign safety."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

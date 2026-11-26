@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:04:06.038530Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For C2, averaging over the whole group gives O=(P+Q)/2; summing subgroup averages adds the trivial subgroup term P to give F=(3P+Q)/2. The displayed edge lists make (0 1) a nonidentity automorphism and its orbit quotient has a loop contributed by edge (0,1) in both examples. Duplicate quotient edges impose duplicate constraints and can be collapsed. A set partition into k color classes, t of which contain an edge or loop, contributes (x-y) falling t times (x-t) falling (k-t): assign distinct unrestricted colors to the t classes, then assign the other classes distinct unused colors. An independent sparse integer polynomial calculation gives P_A-P_B=-2T and Q_A-Q_B=6T, so F agrees and O_A-O_B=2T, with value 64 at (3,1). Independent vertex augmentation, with canonicalization over permutations ordered by degree, generated 2,4,11,34,156,1044 unlabeled graphs on 2 through 7 vertices. Deleting a vertex from any graph and relabeling the remainder to its representative proves completeness of this extension generator. All 5,823 nonidentity involutory automorphisms were tested, with 2,680 distinct 3P+Q keys and no equal keys with distinct P+Q. The generator includes disconnected graphs; orders zero and one admit no faithful action. Thus the result does not rest on the frozen graph-atlas dependency or finite evaluation of polynomials. Replay: python3 /workspace/branches/6b857cbc-b2a5-4f64-bfe7-0f11a5fc53bf/independent_exact_check.py; full output independent_exact_check_full.txt in the same directory. The frozen script was inspected but not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The paper defining F formulates the unanswered implication for general group actions; the inspected primary passage does not settle C2. Dohmen–Lange-Geisler defines the older orbital invariant via coloring orbits, not the multiorbital comparison."
+        ],
+        "reasoning": "A verified negative instance for a faithful C2-action is enough to refute the general implication; the inspected general definition and reverse-direction negative instance do not yield that conclusion. The bound at eight remains restricted to C2.",
+        "searches": [
+          "arXiv 2609.01866 Gerling multiorbital bivariate chromatic polynomial converse open question definition orbital polynomial",
+          "arXiv:2009.08235v6 p. 1",
+          "arXiv:2609.01866v2 p. 25 and v5 p. 4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.01866v2 and v5",
+        "arXiv:2009.08235v6",
+        "Resultary searches including 2cb3631de27b and 584bfb24df3e",
+        "Frozen atlas-based verifier and its recorded output"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older witness has DeltaP+DeltaQ=0 with 3DeltaP+DeltaQ nonzero; the present one requires 3DeltaP+DeltaQ=0 with DeltaP+DeltaQ nonzero. No inspected source gives a construction exchanging those constraints or a previously proved minimal-order bound for the latter."
+        ],
+        "reasoning": "Changing implication direction is not a renaming: the coefficients on the ordinary graph term differ and the two linear constraints are distinct. The exact witness and the complete lower-order polynomial comparison address genuinely different evidence from the published opposite counterexample.",
+        "searches": [
+          "Gerling arXiv:2609.01866v2 p. 4, p. 25; v5 pp. 3–4",
+          "Dohmen–Lange-Geisler arXiv:2009.08235v6 p. 1",
+          "Resultary: multiorbital polynomial orbital polynomial Gerling F O graph action"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gerling v2 p. 4 offset 12793 and p. 25 offset 70508 state that equality of F implying equality of O is open. The v5 p. 4 passage at offset 11800 explicitly repeats the direction. The corresponding C2 expressions are based on the same colors and the same loop-retaining quotient.",
+          "The v5 three-vertex example near offset 7100 has equal O and different F."
+        ],
+        "reasoning": "The two subgroups of C2 reduce the forward question exactly to whether equality of 3P+Q implies equality of P+Q; this is not the question with those expressions reversed. It also differs from nonisomorphic graphs merely sharing one invariant.",
+        "searches": [
+          "Resultary: multiorbital polynomial orbital polynomial Gerling F O graph action",
+          "Resultary: y(x-y)(x^4-4x^3-4x^2y+10x^2+12xy-16x+y^2-12y+12)",
+          "arXiv:2609.01866v2 and v5: converse"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The raw graph atlas is a universe of unlabeled simple graph inputs, not a listing of loop-preserving quotient-polynomial collision data. Returned same-day comparators 2cb3631de27b and 584bfb24df3e concern respectively outerplanar color refinement and rooted-tournament orbit recovery."
+        ],
+        "reasoning": "Enumerating input graphs does not resolve whether different involutory actions share 3P+Q while differing in P+Q. Neither same-day comparator compares these polynomial invariants or examines the required actions. The independent graph generator avoids any premise about completeness of an uninspected online atlas copy.",
+        "searches": [
+          "Resultary: multiorbital bivariate chromatic polynomial converse orbital eight vertex C2 counterexample",
+          "Resultary: A sharp eight-vertex counterexample to the multiorbital-to-orbital converse",
+          "Frozen record: Read and Wilson's Atlas of Graphs and NetworkX graph-atlas dependency"
+        ]
+      },
+      "rationale": "The primary paper explicitly asks this implication. Its published counterexample is in the reverse direction. The verified C2 example resolves the forward implication in the negative and the lower-order search establishes the first possible order in the specified class. This does not claim priority for the invariant, its definitions or the graph-class enumeration.",
+      "residual_risks": [
+        "The bounded searches cannot rule out an unindexed solution or quotient polynomial database. A GitHub mirror lookup of the assigned record and an online NetworkX source lookup were unavailable; neither is used to infer that the claim is new or to certify lower-order exhaustion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines the invariant and poses the exact direction left open, rather than covering this counterexample.",
+          "evidence": [
+            "F is the sum of subgroup averages; the explicitly open direction is equality of F implying equality of O."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.01866v2",
+          "material_read": "Title page; p. 4 offset 12793; p. 25 offset 70508",
+          "method": "Bounded OA primary PDF reads.",
+          "title": "The Multiorbital Bivariate Chromatic Polynomial: A Subgroup-Lattice Refinement",
+          "trigger": "Originating definitions and closest statement on the converse"
+        },
+        {
+          "assessment": "The relevant direction stays open in the inspected passage. Prior witness is for O equal, F unequal.",
+          "evidence": [
+            "The passage explicitly asks whether equality of multiorbital polynomials implies equality of orbital polynomials. Quotient loops are retained; the three-vertex F difference is y(1-x)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.01866v5",
+          "material_read": "Color convention p. 3 offset 10299, loop and orbit conventions near offset 12090, three-vertex example near offset 7100, and open-question passage read directly from offset 11800.",
+          "method": "OA PDF with literal converse locator and bounded primary passages.",
+          "title": "The Multiorbital Bivariate Chromatic Polynomial: A Subgroup-Lattice Refinement (v5)",
+          "trigger": "Check later version for a possible solution or altered conventions"
+        },
+        {
+          "assessment": "Introduces the orbital coloring-orbit invariant, not the later multiorbital implication.",
+          "evidence": [
+            "Counts group orbits of generalized proper colorings."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2009.08235v6",
+          "material_read": "PDF p. 1, offset 0.",
+          "method": "Bounded primary PDF read.",
+          "title": "The Orbital Bivariate Chromatic Polynomial",
+          "trigger": "Check orbital normalization and possible pertinent earlier result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A concrete nonzero difference at equal multiorbital invariant answers an explicitly posed implication question. The exact cutoff shows how early the failure occurs in the simplest nontrivial acting group and gives a small regression example with all smaller actions excluded. This is useful beyond recomputing known atlas counts.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:55:08.900839Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–47 and 49–64",
+        "VERIFICATION.md",
+        "certificate.json",
+        "verify_by_matchings.py and .out; verify_by_subsets.cpp and .out, inspected without executing",
+        "Independent replay: python3 /workspace/independent/paired_domination.py"
+      ],
+      "rationale": "Reconstructed GP(8,3) from the 24 stated edges. Each paired-dominating set must be balanced in the parity bipartition, so exhaustive enumeration need only examine t vertices from each side at size 2t. The independent enumeration tests closed-neighborhood coverage and all Hall inequalities; for t=1,2,3,4 it finds 0,0,0,684 sets. A slide crosses the bipartition and destroys balance. For the other moves I classified every unordered pair of optimum sets by its differences, applying Hall again on the common six vertices for partner preservation. Independent BFS reproduces all reported metrics: J has 3504 edges and eccentricities 6:216,7:432,8:36 on its sole component; E has 2016 edges, a 630-state component of eccentricity 6 and 54 isolates; Q has 1392 edges, the same 54 isolates, and components of orders 432,168,30 with eccentricity profiles (9:192,10:240), (9:96,10:72), (4:30). In each pair graph the isolate index set equals the set of optima inducing exactly four edges, hence 4K2 because a perfect matching exists. The certificate's graph, state list, three edge lists, eccentricity arrays and induced-edge counts agree exactly with the fresh computation. Partner preservation is an edge-wise existential condition on vertex sets, not a claim about lifting paths to a space with fixed matching labels.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Wang et al. title specifies P(n,1) and P(n,2), not inner step 3; lawful full text was not retrieved. The frozen bibliography identifies general paired-domination and Cartesian-product bounds, not exchange-space classifications.",
+          "371270f6d358 uses triangular graphs L(K_n), whereas GP(8,3) is cubic bipartite."
+        ],
+        "reasoning": "A result for inner steps 1 and 2 or triangular graphs cannot be specialized to this instance from the evidence inspected; even an optimum-size bound would not determine the optimum family, much less the shared-matching transition components. The inaccessible source is not counted as evidence of noncoverage.",
+        "searches": [
+          "Wang–Xu–Yang–Lü, DOI 10.1007/s10878-009-9266-1",
+          "Haynes–Slater, Paired-domination in graphs; Brešar–Henning–Rall, Paired-domination of Cartesian products of graphs and rainbow domination",
+          "Resultary paired-domination slides of triangular graphs, 371270f6d358"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local mirror entries 587dd6ac5a63, 4378d18b0724, 68d0d1e90545, 371270f6d358",
+        "arXiv:2106.15907, p. 2",
+        "Wang et al., DOI 10.1007/s10878-009-9266-1, bibliographic title",
+        "Frozen RESULT.md prior-work discussion and bibliography for context on general paired domination"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bipartition balance immediately rules out slides in the frozen state space, but the other moves preserve balance and so are not settled by that observation.",
+          "Neither generic movement definitions nor the indexed alternate state spaces provide the claimed 4K2 isolate set, exact distances, or split of the nontrivial component when the matching test is imposed."
+        ],
+        "reasoning": "Only the slide obstruction is a direct elementary implication. The order, isolate characterization and relative geometry of the other graphs require information about the actual optimum family and cannot be read off from the inspected prior claims.",
+        "searches": [
+          "Bodlaender–Groenland–Swennenhuis, arXiv:2106.15907 p. 2",
+          "Resultary statement comparisons for 587dd6ac5a63, 4378d18b0724, 68d0d1e90545 and 371270f6d358"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Paired domination is domination by the endpoint set of a perfect matching on the selected vertices; different matchings can represent one state. The local records for secure domination, full perfect matchings and minimum maximal matchings have 336, 33 and 176 states, respectively, under different predicates.",
+          "The reconfiguration paper uses token-jump and token-slide terminology for different state families."
+        ],
+        "reasoning": "The state-set predicate and transition rule determine the problem, not the terminology. An existential shared matching on six vertices is not an alternating-cycle flip on perfect matchings or a one-edge exchange of maximal matchings.",
+        "searches": [
+          "Resultary: paired domination, minimum guard sets, GP(8,3), Möbius–Kantor graph, matched-pair relocation and matching exchanges",
+          "Bodlaender–Groenland–Swennenhuis arXiv:2106.15907, p. 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-graph hits catalogued secure-dominating 7-sets, perfect matchings, or minimum maximal matchings. The same-topic hit instead tabulates a different graph family. No inspected entry tabulates these 684 paired-dominating 8-sets and their four move spaces."
+        ],
+        "reasoning": "An exact graph match is not an exact table match unless both the vertex-set optimality predicate and the moves match. A ranked search is not an exhaustive census of catalogues.",
+        "searches": [
+          "Resultary: GP(8,3)/Möbius–Kantor paired-domination minima, exact move statistics and frozen states; local record statements 587dd6ac5a63, 4378d18b0724, 68d0d1e90545 and 371270f6d358"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the exact comparison of move spaces on the same minimum paired-dominating family, especially the induced-4K2 isolation criterion and the splitting under the existential shared-matching condition. The abstract balance obstruction to slides is elementary and not credited as an original claim. The strongest accessible matches concern different state sets or graph families; none supplies or makes routine the stated transition classification. This is a best-of-knowledge judgment, not a priority certificate.",
+      "residual_risks": [
+        "The Wang et al. full text and the full texts of the cited general paired-domination papers were not independently compared; an unindexed exact table or earlier reconfiguration calculation remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related movement terminology; no same-state specialization in the inspected passage",
+          "evidence": "The jump/slide definitions are used for independent-set reconfiguration in the passage, not for minimum paired-dominating 8-sets of GP(8,3).",
+          "identifier_or_url": "https://arxiv.org/pdf/2106.15907",
+          "material_read": "p. 2, offset around 5000",
+          "method": "OA PDF passage inspection",
+          "title": "Parameterized Complexities of Dominating and Independent Set Reconfiguration",
+          "trigger": "Could generic movement-model results imply the claimed geometry?"
+        },
+        {
+          "assessment": "Title concerns steps 1 and 2; cannot exclude an internal mention of step 3",
+          "evidence": "The named families P(n,1) and P(n,2) are not the stated P(8,3).",
+          "identifier_or_url": "10.1007/s10878-009-9266-1",
+          "material_read": "Bibliographic title; full text inaccessible",
+          "method": "DOI, publisher PDF and lawful OA lookup",
+          "title": "On the distance paired domination of generalized Petersen graphs P(n,1) and P(n,2)",
+          "trigger": "Paired domination on the same parent graph family"
+        },
+        {
+          "assessment": "Different state space",
+          "evidence": "336 minimum secure-dominating 7-sets, not 684 paired-dominating 8-sets.",
+          "identifier_or_url": "Resultary 587dd6ac5a63",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "Minimum secure guard relocation on the Möbius–Kantor graph",
+          "trigger": "Same graph, guard relocation and jump/slide graphs"
+        },
+        {
+          "assessment": "Different state space and adjacency",
+          "evidence": "33 full perfect matchings under alternating-cycle trades.",
+          "identifier_or_url": "Resultary 4378d18b0724",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "Sharp six-versus-eight cycle matching trade geometry of the Möbius–Kantor graph",
+          "trigger": "Same graph, matching trade geometry"
+        },
+        {
+          "assessment": "Different optimality predicate and states",
+          "evidence": "176 minimum maximal matchings with one-edge exchanges on the matchings themselves.",
+          "identifier_or_url": "Resultary 68d0d1e90545",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "The minimum maximal matching exchange graph of the Möbius–Kantor graph",
+          "trigger": "Same graph, minimal matchings under exchanges"
+        },
+        {
+          "assessment": "Different graph family",
+          "evidence": "Triangular graphs L(K_n), not the Möbius–Kantor graph.",
+          "identifier_or_url": "Resultary 371270f6d358",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "Paired-domination slides of triangular graphs as square bouquets",
+          "trigger": "Same type of constraint and a move in common"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Findings 1–4 and the stated partner-preservation predicate",
+        "Independent Hall/BFS comparison and certificate arrays"
+      ],
+      "rationale": "The smallest paired-dominating states of this named symmetric cubic graph provide an exact comparison where changing the rule has distinct effects: all states communicate by individual jumps; adjacency-only slides disappear; adjacent pair replacement leaves exactly the induced-matching states frozen; preserving partnerships does not freeze new individual states but splits the mobile part into three. The same explicit benchmark and the isolate test are useful for distinguishing instantaneous matchability from retention of a partnership. The complete finite geometry is more informative than an isolated optimum number or an arbitrary metric from a census.",
+      "residual_risks": [
+        "No general reconfiguration theorem or matching-labeled path result follows from this one finite example."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

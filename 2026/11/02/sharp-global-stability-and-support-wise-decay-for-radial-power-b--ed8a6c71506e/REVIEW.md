@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The radial dual map \(x\mapsto (1+\|x\|^{p-2})x\) is invertible for \(p>2\). In the stated step interval, every active component of the next dual vector has absolute multiplier strictly below the radial factor. This yields strict Euclidean-radius contraction, including at the endpoint \(\eta=2/a_{\max}\); compactness and continuity turn strict contraction into convergence. The scalar axis map gives the exact inequality, two-cycle boundary, and monotone magnitude divergence. The nonseparable update becomes coordinatewise in dual variables with a common coefficient tending to \(\eta\), so inverse-power differences prove the exact support-wise asymptotic. The proof treats finite coordinate extinctions separately. The companion verifier passed all described finite checks. No experiment is used as an infinite proof.
+PASS
 
-## Originality — PASS, qualified
+With q=p−2 and H(r)=1+r^q, the radial dual map has strictly increasing modulus rH(r) onto [0,∞). The next dual coordinate is [H(r)−ηa_i|x_i|^q]x_i; for each nonzero coordinate and η≤2/a_max the subtracted term is positive and at most 2r^q<2H(r). The norm strictly contracts after radial inversion, including at η=2/a_max. A positive limiting radius would, by compactness, give a nonzero limit point whose next radius contradicts continuity and strict contraction. On axis i, modulus comparison to t+t|t|^q reduces exactly to (ηa_i−2)|t|^q<2. At equality the un-inverted dual update is the negative of the current dual vector, hence a flip; outside it magnitudes strictly increase, reverse sign on every step, and no finite limiting magnitude above the flip radius can satisfy the continuous iteration. A maximum-weight axis supplies divergence for every larger η. Zeros are absorbing. On a surviving coordinate, z_k=|y_i^k| eventually obeys z_{k+1}=z_k(1−c_k z_k^q) with c_k=ηa_i/H(r_k)^(q+1)→ηa_i, and the multiplier is eventually in (0,1). Taylor expansion gives z_{k+1}^{−q}−z_k^{−q}→qηa_i; averaging and H→1 prove the coordinate limit. Raising the coordinate asymptotic to p/q and multiplying by a_i/p yields the exponent −2/q on a_i in the objective constant. Finite extinction and noninteger p>2 are covered by the analytic argument, not the floating-point tests.
 
-The primitive update is not original. Ding–Li–Toh's arXiv:2306.14522 explicitly uses the radial polynomial kernel and analyzes stochastic robustness, but its inspected Introduction, Sections 3–5 and associated derivations do not provide this weighted homogeneous fixed-step global frontier, the exact unstable axis basin, or the asymptotic coefficient by surviving coordinate. Bolte–Sabach–Teboulle–Vaisbourd (arXiv:1706.06461) and Lu–Freund–Nesterov (arXiv:1610.05708) provide relative-smoothness convergence guarantees at sufficient stepsizes, which do not imply this exact sharp threshold and explicit divergence beyond it. Dragomir–d'Aspremont–Bolte (arXiv:1901.10791) permits more aggressive selected steps via dynamic descent checks, but does not classify this unconditional fixed-step family. The published mathematical-finding index was searched for the objects, aliases, rates, and threshold; two closest hits concern different algorithms or kernels, and no equivalent or dominating claim was found in their visible summaries. This is not a proof of universal novelty, and a specialized equivalent dynamical-systems derivation remains a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-A natural non-Lipschitz test class, used to motivate polynomial Bregman kernels, admits an exact fixed-step global-stability ceiling independent of exponent and dimension. It also shows a sharply contrasting unstable regime with a computable separatrix and an initialization-independent leading decay constant for each surviving coordinate. Both the step-size diagnostic and the support-wise rate are mathematically motivated benchmarks for nonlinear mirror-gradient dynamics, going beyond restating a standard sufficient descent condition.
+The mirror update, radial kernel and even the exact scalar quartic special case as a toy model were known. The available comparisons do not give the exact all-start weighted-power frontier with the endpoint included, the unstable axial classification, or surviving-coordinate constants. The novelty assessment is limited to this phase portrait, not the algorithm or kernel.
 
-## Scope and integrity
+## value
 
-All formulas apply to the deterministic exact-gradient model; they do not imply a stochastic or neural-network convergence theorem, a dimension-free wall-clock guarantee, or a classification of the nonaxial unstable basin. Publication priority is not independently validated. Source text is cited for prior methods rather than copied.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For an existing kernel family, the exact all-start boundary distinguishes sufficient safe steps from a sharp guarantee and includes the critical endpoint. The axial two-cycle and escape above it give constructive obstructions, not merely a lost descent estimate. The leading constants on the surviving support explain why initializations that extinguish coordinates need not have the same objective asymptotic. This is a useful deterministic control case rather than a generic performance claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

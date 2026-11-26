@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:01:11.048371Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§1–6 of Proof (especially lines 44–66)",
+        "VERIFICATION.md and verify.py (inspected; not executed)"
+      ],
+      "rationale": "The block tree makes spanning trees a Cartesian product of single edge deletions, whose weight factors are inverse conductances. A vertex incident to at least two blocks retains degree at least two; only original leaves and degree-two vertices on a cycle contribute. Thus weighting and the discriminant test (also for monomials and linear factors) follow. For a mixed unit-weight cycle with a active-active and c inactive-inactive edges and r active runs, its middle coefficient is 2r; each of the c+r inactive vertices requires a distinct exterior vertex, by the block tree. Thus N≥a+2c+3r. If ac>0 and N≤6 only a=c=r=1 fits, giving discriminant zero. At N≤9, r=1 allows ac≤4 by checking c=1,2,3; r≥2 gives a+2c≤3 and ac≤1. Mixed patterns have 2r>0, so the factors have contiguous support and log-concavity survives convolution via order-two Toeplitz minors. The pentagon and octagon with two adjacent pendant attachments give, after shift and normalization, (1,2,2) and (1,2,5), proving the exact orders. The claim about missing terms in the local proof uses the actual attainable patterns, not arbitrary quadratics with an internal zero.",
+      "residual_risks": [
+        "The universal cutoffs follow from the inequalities, not the reported atlas/pattern enumeration. The cutoff portion is restricted to unit weights."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Noguchi–Zamfirescu's interval-of-leaf-counts theorem covers all connected graphs, hence support contiguity here.",
+          "Hladký–Nachmias–Tran treat asymptotic dense-graph leaf density; Bahrani–Lumbroso enumerate/sample the cactus graphs themselves."
+        ],
+        "reasoning": "Broader support coverage receives credit, but does not establish inequalities on probabilities or real zeros.",
+        "searches": [
+          "arXiv:2312.13674",
+          "arXiv:1711.09788",
+          "arXiv:1711.10647"
+        ]
+      },
+      "checked_sources": [
+        "Resultary b9d995671245, c86ea9117bb1, a2b78ff21819, 57f17c94e3c2",
+        "Noguchi–Zamfirescu, Hladký–Nachmias–Tran, Bahrani–Lumbroso",
+        "Aldous DOI access attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The seven-vertex example has contiguous, log-concave coefficients but complex roots; the ten-vertex example has contiguous coefficients yet is not log-concave."
+        ],
+        "reasoning": "Support contiguity cannot imply these shape thresholds. Standard log-concavity closure is used but not claimed as new; it needs the additional sharp active-run bound and witnesses.",
+        "searches": [
+          "arXiv:2312.13674, interval theorem",
+          "Resultary c86ea9117bb1, a2b78ff21819 and 57f17c94e3c2, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary b9d995671245 is the same record; a2b78ff21819 treats multi-theta leaf counts and c86ea9117bb1 treats ladders.",
+          "Resultary 57f17c94e3c2 factors refreshed MST deletion changes, a different statistic and sampling model."
+        ],
+        "reasoning": "Neither the alternative block-based statistic nor the exact PGFs for other graph families cover the stated weighted cactus leaf law and shape obstructions.",
+        "searches": [
+          "Resultary cactus/tree leaf-count laws and real-rootedness/log-concavity",
+          "primary literature search for cactus spanning-tree leaf probabilities and shape"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalog hit is this same record. The NetworkX atlas describes small unlabeled graphs, not leaf-shape thresholds; the stated checker reaches only seven vertices for the graph census."
+        ],
+        "reasoning": "A catalog of graphs is not a table of the distributions and does not supply the global minimum failure of log-concavity at ten.",
+        "searches": [
+          "Resultary exact shape thresholds and finite leaf-count laws",
+          "frozen verifier's graph-atlas evidence description"
+        ]
+      },
+      "rationale": "The best matching catalog entry is the identical frozen record, not an independent antecedent. Distinct leaf-law and cactus comparisons and the broader leaf-support theorem do not give the probability shape classification or either minimal order. This supports the distinct combined result, not priority for cycle-block factorization or leaf support.",
+      "residual_risks": [
+        "Aldous full text was not assessed for overlap by the initial lookup.",
+        "Search was targeted rather than exhaustive; a distinct unindexed leaf-law result remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical record, not independent coverage",
+          "evidence": "Same inverse-conductance PGF, discriminant condition and two minimum orders.",
+          "identifier_or_url": "Resultary 2026/11/8/SCOPE-sharp-seven-and-ten-vertex-shape-thresholds-for-random-cactus-sp--b9d995671245",
+          "material_read": "Mirrored statement and prior-work/limitations, including offsets 6900–10308",
+          "method": "Local mirror reading",
+          "title": "Sharp seven- and ten-vertex shape thresholds for random cactus spanning-tree leaf counts",
+          "trigger": "Exact catalog match"
+        },
+        {
+          "assessment": "Distinct family",
+          "evidence": "Finite leaf PGF and CLT for ladders.",
+          "identifier_or_url": "Resultary c86ea9117bb1",
+          "material_read": "Finding at mirror opening",
+          "method": "Local mirror reading",
+          "title": "An exact leaf-count law and Gaussian fluctuations for ladder spanning trees",
+          "trigger": "Exact leaf law in a related family"
+        },
+        {
+          "assessment": "Distinct family and conclusion",
+          "evidence": "Exact PGF and stochastic-order balancing in multi-theta graphs.",
+          "identifier_or_url": "Resultary a2b78ff21819",
+          "material_read": "Finding at mirror opening",
+          "method": "Local mirror reading",
+          "title": "Stochastic leaf-count monotonicity under balancing in multi-theta graphs",
+          "trigger": "Exact finite leaf law"
+        },
+        {
+          "assessment": "Structural overlap only",
+          "evidence": "Counts changed deletions under i.i.d. weight refresh, not conductance-sampled leaves.",
+          "identifier_or_url": "Resultary 57f17c94e3c2",
+          "material_read": "Finding at mirror opening",
+          "method": "Local mirror reading",
+          "title": "Sharp noise-stability ordering and Poisson refresh transition for cactus MSTs",
+          "trigger": "Same graph class and independent deletions"
+        },
+        {
+          "assessment": "Covers support but not probability shape",
+          "evidence": "All intermediate leaf counts occur for any connected graph.",
+          "identifier_or_url": "https://arxiv.org/abs/2312.13674",
+          "material_read": "Leaf-count interval theorem, PDF p.3 offset 8712",
+          "method": "Lawful open text",
+          "title": "Spanning trees for many different numbers of leaves",
+          "trigger": "Broader leaf-support result"
+        },
+        {
+          "assessment": "Inspected claim is asymptotic and on a different graph class",
+          "evidence": "Asymptotic leaf density for dense graph sequences.",
+          "identifier_or_url": "https://arxiv.org/abs/1711.09788",
+          "material_read": "Abstract, p.1 offset 0",
+          "method": "Lawful open text",
+          "title": "The local limit of the uniform spanning tree on dense graphs",
+          "trigger": "Uniform spanning-tree leaves"
+        },
+        {
+          "assessment": "Inspected characterization is for sampling/counting cacti",
+          "evidence": "Split-decomposition and grammar rather than leaf statistics of a sampled spanning tree.",
+          "identifier_or_url": "https://arxiv.org/abs/1711.10647",
+          "material_read": "Abstract and introduction, offsets 0–4492",
+          "method": "Lawful open text",
+          "title": "Split-Decomposition Trees with Prime Nodes: Enumeration and Random Generation of Cactus Graphs",
+          "trigger": "Random cactus structures"
+        },
+        {
+          "assessment": "Unresolved, not negative evidence",
+          "evidence": "Access attempt did not produce a readable passage.",
+          "identifier_or_url": "https://doi.org/10.1137/0403039",
+          "material_read": "No decisive text retrieved",
+          "method": "DOI retrieval (403)",
+          "title": "The random walk construction of uniform spanning trees and uniform labelled trees",
+          "trigger": "Classical spanning-tree leaf statistics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md eqs. (1), (2), (5) and both extremal examples",
+        "Noguchi–Zamfirescu interval theorem"
+      ],
+      "rationale": "The finite weighted law gives a reusable exact description of tree leaves on cyclic block structures. The distinct sharp orders separate two common distribution-shape properties over an entire natural graph class; neither a single counterexample nor a leaf-support theorem gives those minima.",
+      "residual_risks": [
+        "No thresholds for general weighted graphs or noncactus graph classes are established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

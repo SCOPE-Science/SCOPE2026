@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:39:24.050659Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 19–38 and VERIFICATION.md",
+        "Frozen verify_quartic_projection.py (inspected, not run)",
+        "/workspace/branches/quartic_replay.py and quartic_replay.txt"
+      ],
+      "rationale": "The convolution matrix has constant absolute row and column sum, attained respectively by aligning the input phases with one row and by a point mass. At nonzero arguments the raw kernel consists of four quartic periods, each repeated (p−1)/4 times. Since −1 is in the opposite coset, the periods pair by conjugation. The quadratic Gauss sum gives real parts (√p−1)/4 and (−√p−1)/4, neither zero. For J(χ,χ), the x↔1−x pairing has an even number (p−5)/4 of real nonfixed pairs and fixed term −1, so Re J≡−1 mod 4; its Gaussian norm p then gives Re J=−a. Taking real parts in τ(χ)²=√p J and using |τ(χ)|²=p gives the two asserted squared moduli U_p/16 and V_p/16; expanding the square roots uniformly gives the stated asymptotic. RESULT.md line 28 should allow either imaginary sign (p=5, g=2 gives J=−1−2i); choosing the conjugate quartic character if needed fixes the convention without changing any claim, since only the real part is used. The nonvanishing and the two triangle equality conditions give exactly the stated complex ℓ∞ extremizers. For clarity on the indirect ℓ¹ comment: two distinct occupied input sites would force K(t)/|K(t)| to be an additive character, by proportional translated phases and primeness. Then the spectrum H would be symmetric about that character's frequency. For |H|>1, summing H gives zero, forcing the center to be zero, contrary to −1∉H; hence only point masses attain ℓ¹ there. At p=5 the kernel is a single character and the ℓ¹ extremizers are that modulation of nonnegative inputs up to global phase. A fresh nine-prime raw-kernel check, including ± values of a, matched the norm and attainment; this is floating-point corroboration, not the proof.",
+      "residual_risks": [
+        "No result for the real quartic regime, composite conductors, or intermediate operator norms; the arbitrary-character imaginary sign in the written proof must not be used as an identity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary text gives the period polynomial for precisely p≡5 mod 8, with p=s²+4t² and s≡1 mod 4, including its X² and X coefficients (p+3)/8 and ((2s+1)p+1)/16."
+        ],
+        "reasoning": "The polynomial covers richer arithmetic data than the pair of moduli used by the record. This is the same s=a convention and the same quartic periods, not a substitution from the cubic case.",
+        "searches": [
+          "Barcanescu arXiv:1402.3833 §VI.3, pp. 21–22 (extracted offsets 56800–59341)"
+        ]
+      },
+      "checked_sources": [
+        "Barcanescu arXiv:1402.3833 §VI.3",
+        "Green–Konyagin arXiv:math/0601565v2 Introduction",
+        "The two Resultary RESULT.md texts detailed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With pair sums S₀=(√p−1)/2 and S₁=(−√p−1)/2, the factors X²−SⱼX+Qⱼ have Q₀+Q₁=(3p+1)/8 and Q₀−Q₁=(a−1)√p/4 by direct coefficient comparison. This gives Q₀=U_p/16 and Q₁=V_p/16. The repeated periods and K(0) then give exactly the boxed endpoint norm by absolute row sum."
+        ],
+        "reasoning": "No new period evaluation is necessary. Positivity and the generic equality argument give the classification as well; the asymptotic is a uniform expansion of the same expression.",
+        "searches": [
+          "Barcanescu §VI.3, compare X² and X coefficients after factoring by the two conjugate pairs",
+          "Exact cubic-residue Lebesgue constants from Gaussian period arithmetic, local RESULT.md offsets 0–5303"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The common endpoint norm equals the normalized absolute Fourier sum of the indicator of H, i.e. its Fourier-algebra norm. Green–Konyagin study lower bounds for a minimum over half-density sets, not this fixed index-four subgroup."
+        ],
+        "reasoning": "Fourier-algebra norm and convolution Lebesgue constant are equivalent formulations here; change of norm terminology does not create a new arithmetic invariant. The half-density lower bound by itself is not equivalent to this exact computation.",
+        "searches": [
+          "Green–Konyagin arXiv:math/0601565v2, Abstract and Introduction",
+          "Barcanescu arXiv:1402.3833 §VI.3, quartic Gaussian periods and absolute coset sums"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The cubic record sums three real cubic periods with arithmetic branching. The later half-band record studies unions of two of the same four quartic cosets; it does not evaluate the one-coset projection via a parameter choice in its theorem."
+        ],
+        "reasoning": "The inspected indexed matches do not directly state the target scalar formula. The decisive source is symbolic prior period data rather than a numerical table or a priority inference from dates.",
+        "searches": [
+          "Local Resultary comparison: 2026/10/11/SCOPE-exact-cubic-residue-lebesgue-constants-from-gaussian-period-arit--36f40db19f8d; 2026/11/16/SCOPE-sharp-adjacent-coset-half-band-fourier-projections-on-primes-con--2fa0290df077",
+          "Barcanescu arXiv:1402.3833 §VI.3 (symbolic period data)"
+        ]
+      },
+      "rationale": "The scalar endpoint formula is a mechanically extractable specialization of published quartic period coefficients, using the generic absolute convolution row sum. The phase classification is the generic triangle equality for a nonzero row, enabled here by the known real parts. No independent mathematical remainder of the claimed contribution is established. This is demonstrable implication, not a claim that a prior source prints the identical projector theorem.",
+      "residual_risks": [
+        "No exhaustive priority finding about an explicitly worded one-coset norm; rejection is instead supported by direct implication from inspected prior data."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the arithmetic data that imply the norm",
+          "evidence": "X² and X coefficients with sign convention s≡1 mod 4 give the conjugate-pair products by two linear equations.",
+          "identifier_or_url": "https://arxiv.org/abs/1402.3833",
+          "material_read": "§VI.3 d=4, pp. 21–22, including the p≡5 mod 8 polynomial",
+          "method": "OA primary PDF, located by section and read by extracted offset",
+          "title": "The Coefficients of the Period Polynomials",
+          "trigger": "Same prime congruence and quartic Gaussian periods"
+        },
+        {
+          "assessment": "Framework only; different quantified result",
+          "evidence": "Normalized transform and lower bound on the minimum over half-density sets.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0601565",
+          "material_read": "v2 Abstract and Introduction, pp. 1–2",
+          "method": "OA primary text",
+          "title": "On the Littlewood Problem Modulo a Prime",
+          "trigger": "Equivalent prime cyclic Fourier-algebra norm"
+        },
+        {
+          "assessment": "Methodological precedent, different index and arithmetic",
+          "evidence": "Index-three real period sum and representation 4p=L²+27M².",
+          "identifier_or_url": "2026/10/11/SCOPE-exact-cubic-residue-lebesgue-constants-from-gaussian-period-arit--36f40db19f8d",
+          "material_read": "RESULT.md offsets 0–5303",
+          "method": "Local Resultary mirror",
+          "title": "Exact cubic-residue Lebesgue constants from Gaussian period arithmetic",
+          "trigger": "Exact subgroup projector norm"
+        },
+        {
+          "assessment": "Different family, later-dated; not priority evidence",
+          "evidence": "Unions of two cosets, comparing adjacent and opposite pairs, not one coset.",
+          "identifier_or_url": "2026/11/16/SCOPE-sharp-adjacent-coset-half-band-fourier-projections-on-primes-con--2fa0290df077",
+          "material_read": "RESULT.md offsets 0–5671",
+          "method": "Local Resultary mirror",
+          "title": "Sharp adjacent-coset half-band Fourier projections on primes congruent to five modulo eight",
+          "trigger": "Same quartic cosets and endpoint projector norm"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "Barcanescu arXiv:1402.3833 §VI.3",
+        "Local cubic-residue projector record"
+      ],
+      "rationale": "This is a natural projection and the closed expression is a useful expository calculation, but the exact fact is mechanically implied by existing explicit period data and the universal row/column sum rule. The extremizers in the record are generic phase alignment, and the expansion is routine; there is no separately established nonroutine invariant or new phenomenon that survives removal of the covered calculation.",
+      "residual_risks": [
+        "This assesses the frozen claim; it does not rule out valuable claims involving other exponents or spectral comparisons."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

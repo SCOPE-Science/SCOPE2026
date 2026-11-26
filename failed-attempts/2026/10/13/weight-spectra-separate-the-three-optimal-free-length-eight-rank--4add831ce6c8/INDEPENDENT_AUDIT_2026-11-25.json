@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:10:29.934890Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The three numerical spectra are correct for the intended representatives, but the frozen statement and its scope expressly identify them as the [8,2,4] entries of Table 10. In the cited arXiv:2512.12335v1, the exact matrices occur under Table 8, l2-optimal free codes (Part II), p. 20, not Table 10, which is headed l4-optimal free codes. The later available arXiv copy places them in Table 11, not Table 10. The journal table numbering was not independently verified. In the intended row order the first-row supports are {1,4,5,7}, {1,4,5,6,7,8}, {1,6,7,8} and the second-row support is always {2,3,4,5}. Using x*kappa=x and additive characteristic two, the four column counts (00,10,01,11) are (2,2,2,2), (0,4,2,2), (0,4,4,0). For message coefficients a,b, a 10 coordinate is a, 01 is b, and 11 is a+b. There is one zero word; each of the patterns a nonzero alone, b nonzero alone, and a=b nonzero contributes three words; six messages have a,b distinct and nonzero and activate every nonzero column. Columns 10 and 01 occur in all three matrices, so all messages give distinct words. This proves the numeric formulas and distinctness for the intended matrices; the independent `python3 /workspace/reviews/reproduce.py 4` verifies all 48 messages. The frozen script was inspected, not executed. Correcting the locator alone would not remedy originality or value.",
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Greene's Hamming–Tutte identity for q-ary linear codes; accessible Greene-type formula in arXiv:2210.16490v3",
+          "The column matroid of a binary matrix is unchanged under scalar extension to F4"
+        ],
+        "reasoning": "For the q=4 extension with column matroid M and rank 2, W(X,Y)=Y^(n-2)(X-Y)^2 T_M((X+3Y)/(X-Y),X/Y), with X for zero and Y for nonzero. Setting X=1 recovers the requested univariate weight enumerator. The printed generators give this input exactly. The direct check of the formula's consequences by the four column types agrees in every case.",
+        "searches": [
+          "Curtis Greene 1976 Weight enumeration and the geometry of the linear codes Tutte polynomial weight enumerator formula original paper",
+          "Britz et al., arXiv:2210.16490v3, Theorem 4.4 and Corollary 4.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and artifacts/verify.py",
+        "Pinned and later arXiv copies of Kushwaha–Prakash",
+        "Kushwaha–Debnath–Prakash residue code theorems",
+        "Greene identity with accessible later exposition",
+        "Resultary lookup for exact code family and spectra"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The three complete column-multiplicity vectors are visible from the published matrices",
+          "For column counts m00,m10,m01,m11, the directly obtained weight exponents of the three nonzero coefficient lines are m10+m11, m01+m11, m10+m01; all six other nonzero messages have weight 8-m00"
+        ],
+        "reasoning": "The four-symbol additive reduction plus the general weight-enumerator identity applies without any new case theorem. Even without evaluating a Tutte polynomial, counting the 16 messages from each printed matrix gives the same three binomials/trinomials plus the constant term. The distinctness is then a coefficient comparison, not a new inequivalence classification or a nonmechanical exact invariant.",
+        "searches": [
+          "arXiv:2512.12335v1, p. 20 printed generators",
+          "arXiv:2501.03016 Theorem 3.2 and Greene's general weight enumerator identity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kushwaha–Prakash: x=u*kappa+v*zeta, x*kappa=x",
+          "Kushwaha–Debnath–Prakash, Theorems 3.2 and 3.8"
+        ],
+        "reasoning": "An additive coordinatewise bijection u*kappa+v*zeta -> u+omega*v in F4 preserves zero and commutes with coefficients 0 or 1 in the support matrix. It sends the entire set of ring codewords to the F4-linear code given by exactly the same binary matrix, preserving Hamming weights. This is a support-preserving relabeling, not a ring isomorphism.",
+        "searches": [
+          "Resultary: non-unital ring E, optimal free length eight rank two [8,2,4], Hamming weight distribution",
+          "ArXiv:2512.12335 and arXiv:2501.03016, ring decomposition, residue and free generators"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Pinned v1 p. 20, Table 8 at offset 103271; the three rows at offsets 104237, 104506 and 104760",
+          "Pinned v1 Table 10 caption at offset 109542 is l4-optimal free codes",
+          "Later arXiv copy p. 26, Table 11 contains the same three representatives"
+        ],
+        "reasoning": "The source table prints the exact generators, not the three univariate weight distributions. The closest superficial Resultary result located is on binary locally recoverable codes with availability two, a different problem. The table match is attribution of all the input matrices and parameters, not a claim that the source explicitly printed the coefficients.",
+        "searches": [
+          "arXiv:2512.12335v1 PDF: Table 8, Table 10 and [8, 2, 4",
+          "Current arXiv:2512.12335 PDF: Table 11, l2-optimal free codes (Part III)",
+          "Resultary: exact E-code spectra and optimal length-eight rank-two codes"
+        ]
+      },
+      "rationale": "The numerical enumerators are covered as direct instances of the known linear-code weight-enumerator formula applied to the completely printed residue generators. The argument uses neither an unproved equivalence of rings nor a new fact about the classification. The numerical expressions need not already be printed verbatim for this implication to hold.",
+      "residual_risks": [
+        "The publisher version's numbering could differ from both readable arXiv versions. The rejection for prior implication and table recomputation does not depend on that numbering, on access to Greene's original PDF, or on whether a separate source prints these coefficients verbatim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact matrices and order verified; cited Table 10 incorrect for this version; coefficients not listed in the rows",
+          "evidence": [
+            "The three [8,2,4] entries with the stated supports sit in the left-hand l2 table; Table 10 is labeled l4-optimal free codes"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2512.12335v1",
+          "material_read": "p. 20, Table 8 heading offset 103271 and its [8,2,4] generator rows around offsets 104237–104760; Table 10 caption offset 109542",
+          "method": "Lawful arXiv PDF, literal locator followed by bounded offset reading",
+          "title": "Hulls of Free Linear Codes over a Non-Unital Ring, pinned arXiv v1",
+          "trigger": "Frozen primary citation and exact three generators"
+        },
+        {
+          "assessment": "Confirms matrices, ring identities and known binary reduction; renumbering does not match the frozen locator",
+          "evidence": [
+            "Table 10 is Part II in this copy; the three [8,2,4] rows are in Part III, Table 11",
+            "Theorem 4.1: free E-linear codes are permutation-equivalent iff their residue codes are"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2512.12335",
+          "material_read": "p. 3, ring decomposition and right multiplication by kappa; p. 19, Theorem 4.1; p. 26, Table 11, around offsets 88000–92000",
+          "method": "Lawful arXiv full text; publisher DOI lookup recovered this submitted copy rather than version of record",
+          "title": "Hulls of Free Linear Codes over a Non-Unital Ring, later arXiv copy",
+          "trigger": "Numbering across versions; source conventions and residue equivalence"
+        },
+        {
+          "assessment": "Structural coverage, independent of these numeric spectra",
+          "evidence": [
+            "A free code has generator rG from a generator G of its residue; permutation equivalence is determined by the residue"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2501.03016",
+          "material_read": "pp. 5–6, Theorem 3.2 around extraction offset 15700 and Theorem 3.8 around 18400",
+          "method": "Lawful arXiv PDF passages",
+          "title": "Classification of LCD and self-dual codes over a finite non-unital local ring",
+          "trigger": "Prior direct residue generator description"
+        },
+        {
+          "assessment": "General covering theorem as corroborated independently of original access",
+          "evidence": [
+            "Greene's theorem relates the Hamming weight enumerator of a linear code to the Tutte polynomial of its column matroid"
+          ],
+          "identifier_or_url": "10.1002/sapm1976552119",
+          "material_read": "Bibliographic metadata; original primary PDF not retrieved",
+          "method": "Lawful Wiley and repository search; used accessible later exposition of identity",
+          "title": "Weight Enumeration and the Geometry of Linear Codes",
+          "trigger": "General Hamming weight enumerator of the F4 extension"
+        },
+        {
+          "assessment": "Supports the general enumerator comparison",
+          "evidence": [
+            "Greene-type Tutte weight-enumerator substitution for linear codes"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2210.16490v3",
+          "material_read": "Introduction p. 1 and pp. 16–17, Theorem 4.4 and Corollary 4.1, extraction offsets about 40450–44600",
+          "method": "Lawful arXiv PDF passages",
+          "title": "Harmonic Tutte Polynomials of Matroids II",
+          "trigger": "Accessible exposition of the general Greene identity"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The source's optimal free rank-two stratum is natural and Hamming weights are relevant invariants, but this frozen claim merely evaluates a mechanically determined certificate for three already classified matrices. Each evaluation is an inspection of eight columns and four coefficient cases, already covered by the general weight theorem. Correcting the table number, showing reproducibility, or noting an alternative inequivalence certificate does not add a substantive unknown exact fact. No surviving valuable repair was established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

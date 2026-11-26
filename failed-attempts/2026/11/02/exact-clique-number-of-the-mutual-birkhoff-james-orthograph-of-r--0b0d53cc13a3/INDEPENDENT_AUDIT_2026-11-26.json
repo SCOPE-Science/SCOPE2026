@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:31:17.270856Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a real unit vector x the inactive coordinates have a strict gap at zero; the slopes of the active affine pieces give right and left derivatives max and min of sign(x_i)y_i on the active set. Convexity gives sign straddling. Rounding y (normalized first, which does not affect orthogonality) zeros some of these products, preserving straddling, and rounding x leaves its active signs unchanged. A pair rounding to the same projective ternary point has uniformly strict same-sign products, so cannot be an edge. On ternary lines the directed test fails precisely for signed support inclusion in the directed sense; the ternary graph is induced and rounding fixes it. A uniformly signed, uniformly ordered coordinate chain meets each rank uniformly modulo antipodes; the Lubell sum bounds every antichain by the largest rank, which attains equality. The rank ratio 2(n-k)/(k+1), with the tie at n=2 mod 3, gives the stated rank including n=1. Stirling at the Bin(n,2/3) mode gives the stated asymptotic. The supplied verify.py and recorded grid/chain checks were inspected and are only diagnostics; the proof requires no replay or finite-grid extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "October 11 includes real and complex constructions but leaves the upper bound open. Theorem 1.1 of arXiv:2402.13416 concerns clique finiteness and dimension in a directed graph. The older full-sign example is reported as size 2^(n-1) in the two records, not independently verified in the paper."
+        ],
+        "reasoning": "Neither a broader-field lower bound nor finiteness for general norms is an exact upper bound; the October 18 result instead covers exactly the complete real projective domain.",
+        "searches": [
+          "Resultary 3cf446af3e2f",
+          "arXiv:2402.13416 Theorem 1.1",
+          "DOI:10.1016/j.jmaa.2021.125203"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Proof and Relationship to prior work; VERIFICATION.md and verify.py",
+        "Resultary bf693fb0911d",
+        "Resultary 3cf446af3e2f",
+        "arXiv:2402.13416",
+        "DOI:10.1016/j.jmaa.2021.125203 (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "October 18 proves the upper bound via active signed patterns, uniform rank chains and LYM, and attains it by a full ternary layer. October 11 proves only that last construction."
+        ],
+        "reasoning": "The exact bound is already explicit. The target's structural wording follows pairwise from the same obstruction and the direct ternary sign/zero test.",
+        "searches": [
+          "bf693fb0911d RESULT.md offsets 1500–5058",
+          "3cf446af3e2f RESULT.md Finding and Limitations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "October 18 RESULT.md proof §1 defines the same signed-support order modulo global sign and proves comparable patterns obstruct even one directed relation; every two-vertex clique maps injectively to an incomparable pair."
+        ],
+        "reasoning": "Taking the ternary representative of the projective active pattern is exactly the target's rounding map; the two-vertex version is the edge statement, not just a cardinality comparison.",
+        "searches": [
+          "Resultary comparison of real sup-norm Birkhoff–James mutual clique number, signed active patterns and active-coordinate rounding; exact-match record bf693fb0911d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "bf693fb0911d Finding and proof §§2–4: max_k binom(n,k)2^(k-1), mode rank and asymptotic for all n."
+        ],
+        "reasoning": "The index supplied a direct closed-form match for every dimension, stronger than matching isolated table entries.",
+        "searches": [
+          "Resultary exact clique number of the real Birkhoff–James orthograph of ell infinity"
+        ]
+      },
+      "rationale": "The distinct October 18 Resultary record states and proves the same unrestricted real projective clique number, maximizing rank and asymptotic using the same projective signed active-support obstruction and LYM bound. It is exact coverage, not merely the October 11 lower bound. Rounding as a graph retraction is directly implied, not a substantive surviving claim: apply the earlier pairwise obstruction to a two-vertex clique to get incomparable images. For incomparable ternary patterns, in each orientation there is either a zero on the active support or both product signs, which gives directed orthogonality from a constant coordinate or max(|1+lambda|,|1-lambda|) >= 1. Rounding fixes these ternary lines. The decision uses actual mathematical coverage, not ordering inferred solely from dates.",
+      "residual_risks": [
+        "The 2021 article and the plausible 2022 survey chapter noted in the prior record were not fully inspected; older priority is not resolved. Neither limits the verified exact coverage by bf693fb0911d."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage",
+          "evidence": "Defines signed active patterns, proves the directed obstruction for all real vectors, counts antichains by LYM and attains the same formula.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-clique-number-of-the-real-birkhoff-james-orthograph-of-ell--bf693fb0911d/RESULT.md",
+          "material_read": "Finding; proof §§1–4 (offsets 1500–5058); prior-work comparison",
+          "method": "Resultary search and local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact clique number of the real Birkhoff–James orthograph of ell infinity",
+          "trigger": "Exact title, invariant and real projective domain"
+        },
+        {
+          "assessment": "Construction covered; exact bound not proved there",
+          "evidence": "Same fixed-rank family over both fields; expressly does not prove the upper bound.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-ternary-support-cliques-of-order-3-n-sqrt-n-in-the-birkhoff-jame--3cf446af3e2f",
+          "material_read": "Finding and proof/limitations around offsets 3900–5350",
+          "method": "Resultary local mirror",
+          "title": "Ternary-support cliques of order 3^n/sqrt(n) in the Birkhoff–James orthograph",
+          "trigger": "Frozen reference cites the same lower bound"
+        },
+        {
+          "assessment": "Different conclusion in inspected theorem",
+          "evidence": "Directed graph clique finiteness/dimensionality equivalence.",
+          "identifier_or_url": "https://arxiv.org/abs/2402.13416",
+          "material_read": "Theorem 1.1, p.3 around offset 10750",
+          "method": "OA arXiv full-text passage",
+          "title": "Birkhoff–James classification of norm’s properties",
+          "trigger": "Frozen reference on orthogonality graph clique numbers"
+        },
+        {
+          "assessment": "Secondary comparison only",
+          "evidence": "The frozen and October 11 records describe a full-support sign family of size 2^(n-1).",
+          "identifier_or_url": "https://doi.org/10.1016/j.jmaa.2021.125203",
+          "material_read": "Landing page/abstract and secondary quotation of Example 3.7",
+          "method": "DOI and lawful OA lookup; full text not retrieved",
+          "title": "Symmetrized Birkhoff–James orthogonality in arbitrary normed spaces",
+          "trigger": "Same mutual graph; purported full-support example"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The unrestricted clique invariant would be meaningful if new. Here the exact answer and the signed-pattern reduction are already available, and the explicit retraction wording is a routine consequence of that reduction, with no additional distinct theorem of demonstrated value.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

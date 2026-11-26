@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The subspace-lattice counting formula is exact: every failing ordered read sequence is contained in one or more proper binary subspaces, and their Möbius weights are \(1,-2,8\). A Fano incidence double count proves every nonsimplex multiset has a four-position plane; this supplies an analytic strict inequality at all deadlines of at least seven reads. At deadlines three through six the complete census of \(3432\) column multisets, including all \(2696\) full-rank multisets, is checked twice by algebraic inclusion–exclusion and an independently implemented subspace-state dynamic program. Both checks give sharp integer differences \(24,192,1080,5280\) and exactly 42 minimizers at each deadline. Zero and repeated columns are included, and the theorem's length, rank, and sampling assumptions are explicit.
+## correctness
 
-## Originality — PASS, with limitations
-The prior rank-two DNA coverage-depth optimizer and the 2025/2026 expected-depth literature do not imply the asserted seven-column, rank-three, deadline-by-deadline comparison. Kovačević's independent-sample theorem does cover the three-read optimum; the original assertion therefore concerns the stronger all-deadline distribution order, especially at four or more reads. The October 2026 general expected-optimality theorem does not establish stochastic dominance. Searches of related public mathematics records and earlier established claims found no tail theorem with this exact hypothesis/conclusion. An October 2026 distributed-storage paper was accessible at abstract level only, leaving the specific possibility of an equivalent inaccessible full-text result. Novelty is provisional pending a broader independent literature audit.
+PASS
 
-## Value — PASS
-In noiseless molecular retrieval, a deadline guarantee is stronger than minimizing the average number of samples: an all-tail ordering simultaneously optimizes all bounded-time failure probabilities and any nondecreasing waiting-time cost. The seven-point Fano model is the smallest nontrivial binary rank-three full-projective code, and the 42 sharp runner-up multisets exhibit the first stability gap. The finite verification covers the small outstanding deadlines while the geometric argument handles the entire unbounded tail; the result is not a selected arbitrary statistic or a restatement of code distance.
+The random choices are independent physical positions. For t>=1 the failure numerator is the sum of plane-mass powers minus twice the sum of rank-one-subspace mass powers plus eight times the zero-mass power: a tuple spanning a plane, a line, the zero space, or the whole space is counted with respective weights 1, 3-2, 7-14+8, 0. In the simplex this is 7*3^t-14. The sum of plane occupancies is 21+4c0. If c0=0 and all occupancies are at most three, they equal three; the incidence Gram matrix 2I+J and total mass seven force every nonzero multiplicity to be one. Any nonsimplex thus has a plane with at least four positions, giving failure numerator at least 4^t > 7*3^t for t>=7. For t=3 through 6, independently enumerated all 3432 nonnegative eight-tuples of total seven (2696 full rank), testing rank via an independent triple of distinct nonzero vector types with nonzero XOR. For each exact subset of physical positions, a surjection from the reads to that subset counts precisely the tuples using all of it. Summing surjection counts over deficient subsets verifies the four baseline numerators, strictness, minima 24,192,1080,5280 and precisely the 42 stated profiles at every deadline. This is different from the frozen subspace dynamic program, which was inspected, not executed. Replay: node /workspace/branches/independent-checks.js (record 3 block). For two or fewer reads spanning is impossible; rank and the tails are invariant under row-basis changes and column permutations.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Credit the known probability formula, t=3 optimum, and later general non-strict rank-tail theorem. The distinctive supported contribution is the explicit strict Fano comparison by deadline, in particular the exact second-place gaps and all minimizers at four deadlines; the later non-strict result comes close to the order statement but none of the inspected results determines those gaps. The expectation census has the same second-place geometry for a different objective, not the four pointwise comparisons. Record dates are not used as proof of precedence.
+
+## value
+
+PASS
+
+Single-deadline reliability is a natural objective when the read budget is fixed; expected stopping time does not determine it. The sharp quantitative gaps and identification of every nearest competitor at the first four nontrivial deadlines give a reusable benchmark for the smallest binary projective instance and distinguish the unique optimum from its next-best multiplicity pattern. The cutoff at seven is mathematically motivated by the plane bound, not an arbitrary search horizon.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

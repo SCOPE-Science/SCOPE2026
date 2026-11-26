@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:43:35.369260Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–105",
+        "Frozen VERIFICATION.md and check_unifrac.py (inspected, not executed)",
+        "Independent symbolic replay: python3 /workspace/branches/review-5-quartet.py (SymPy); reports agreement for both 15-pair profiles and shared-reference witnesses"
+      ],
+      "rationale": "At fixed richness, Jaccard is constant across distinct pairs on at most three tips and on four tips at richness other than two (or there is no pair). At richness two the only Jaccard values are 2/3 for overlap and 1 for disjointness. Independently enumerating the 15 pairs of the six communities for each quartet by unions, intersections and symmetric differences of symbolic root-path edge sets reproduced both frozen score multisets and the common-reference witnesses. In the balanced case, f(x)=(2-x)/(3-x) is decreasing and exceeds 2(1-x)/(3-x) on (0,1), so the maximum overlap is f(min(a,b)); the minimum disjoint score is 2(2-a-b)/(4-a-b). Their difference has the stated numerator and positive denominator. Equality therefore gives no strict reversal, and the equal-stem transition is 2−sqrt(2). In the pectinate case the maximum overlap is f(a): f(b) and f(a+b) are smaller, and the other potentially competing term 2(1-b)/(3-a-b) is smaller by a positive difference with numerator (4-a)(b-a)+a. The minimum disjoint score is (4-a-2b)/(4-a-b); the resulting margin is strictly negative because b<1. These exhaust both rooted bifurcating shapes. No numerical grid is used to justify the signs or all-real scope.",
+      "residual_risks": [
+        "The result does not address alternate roots or an ancestral stem, unequal richness, nonultrametric trees, or weighted UniFrac."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhao et al., PDF p. 2, cover both weighted and unweighted UniFrac as branch-feature computations, not rank preservation relative to ordinary tip Jaccard.",
+          "Resultary bf2f4439a272, RESULT.md offsets 455 and 5259, classifies a census threshold for Bray–Curtis and weighted UniFrac on three tips with positive abundances."
+        ],
+        "reasoning": "Neither general metric identity compares these two orderings, and the three-tip abundance result does not specialize to binary two-of-four subsets, even with equal abundance on present tips.",
+        "searches": [
+          "Resultary: weighted Jaccard tree distances phylogenetic UniFrac ordering distortions reversal",
+          "Resultary: Jaccard versus UniFrac phylogenetic tree distance order distortion weighted Jaccard",
+          "Resultary: UniFrac is weighted Jaccard phylogenetic branches branch weights 2026"
+        ]
+      },
+      "checked_sources": [
+        "DartUniFrac DOI 10.1038/s41587-026-03260-8, PDF p. 2",
+        "Resultary records 104f6573b274 and bf2f4439a272"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "On the balanced family the maximum-overlap/minimum-disjoint order changes with the two stem lengths despite the same tip-set Jaccard values. On the pectinate family the qualifying order never changes.",
+          "The accessible weighted-Jaccard formula gives a method to compute individual scores but not the extremizing pairs, the necessary-and-sufficient length inequality, or the pectinate exclusion."
+        ],
+        "reasoning": "Computing the topology-specific extrema and their signs uniformly over variable branch lengths is the additional claim. No inspected ranking theorem subsumed that work.",
+        "searches": [
+          "Zhao et al., DOI 10.1038/s41587-026-03260-8, weighted-Jaccard identity",
+          "Lozupone–Knight, DOI 10.1128/AEM.71.12.8228-8235.2005; Ives–Helmus, DOI 10.1086/656486 (OA attempts)",
+          "Resultary 104f6573b274 and bf2f4439a272, compared at the statement level"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zhao et al., DOI 10.1038/s41587-026-03260-8, PDF p. 2, express unweighted UniFrac as 1 minus weighted Jaccard on present branch-length features."
+        ],
+        "reasoning": "Matching both sides requires two feature spaces: the first index in the finding uses tip sets, not the induced branch sets. The branch-weighted equivalence does not give their order relationship.",
+        "searches": [
+          "Resultary: rooted ultrametric quartet equal richness Jaccard UniFrac strict rank reversal balanced pectinate criterion",
+          "Resultary: Jaccard UniFrac rank reversal topology criterion",
+          "Literature: weighted Jaccard tree metric UniFrac phylogenetic beta diversity rank reversal distance ordering tree distortion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 104f6573b274, RESULT.md offsets 850 and 6460, has a same-day classification at four species for Jaccard versus turnover Simpson.",
+          "Resultary bf2f4439a272, RESULT.md offset 455, gives t(N−3)>1 for another distance pair and a different community model."
+        ],
+        "reasoning": "The former uses Venn-signature changes at gamma richness four, without a phylogenetic tree; the latter uses equal integer census, not equal support richness. Neither is a table of the quartet score profiles or their margins. The same-day result was compared on content, not rejected on date.",
+        "searches": [
+          "Resultary: rooted ultrametric quartet equal richness Jaccard UniFrac strict rank reversal balanced pectinate criterion",
+          "Resultary: Jaccard UniFrac rank reversal topology criterion"
+        ]
+      },
+      "rationale": "The distinct claim is the complete sharp strict-order comparison of ordinary tip-set Jaccard and fixed-root unweighted UniFrac for equal richness on at most four tips, including both signed margins. The closest verified sources either represent the metric in branch features or classify a different index comparison. No inspected statement or immediate implication supplies this classification.",
+      "residual_risks": [
+        "Ives–Helmus Appendix C and the original Lozupone–Knight article were not accessible for primary-text comparison; an older or unindexed exact ordering criterion or stronger result could subsume this one.",
+        "The bounded search is not a proof of absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identity for branch features verified; not a tip/branch ranking criterion in the inspected material",
+          "evidence": "At offset 7377: U=1−J_w on length-scaled branch-presence vectors.",
+          "identifier_or_url": "https://doi.org/10.1038/s41587-026-03260-8",
+          "material_read": "PDF front matter and p. 2, OA offsets 7160, 7800, 8800",
+          "method": "OA PDF passage search and bounded page reads",
+          "title": "Megascale microbiome analysis with DartUniFrac",
+          "trigger": "Possible general weighted-Jaccard equivalence"
+        },
+        {
+          "assessment": "Different indices and parameter space",
+          "evidence": "Classifies three Venn-signature pairs for Jaccard–turnover-Simpson, with no branch lengths.",
+          "identifier_or_url": "2026/10/12/SCOPE-jaccard-simpson-species-similarity-first-reverses-at-four-specie--104f6573b274",
+          "material_read": "RESULT.md statement, scope and limitations at offsets 850 and 6460",
+          "method": "Resultary search and local mirror passage read",
+          "title": "Jaccard–Simpson species similarity first reverses at four species",
+          "trigger": "Same-day four-species Jaccard rank-reversal neighbor"
+        },
+        {
+          "assessment": "Related but different statement",
+          "evidence": "Strict reversal iff t(N−3)>1 for positive abundance communities on three ultrametric tips.",
+          "identifier_or_url": "2026/10/13/SCOPE-a-sharp-census-threshold-for-bray-curtis-versus-weighted-unifrac--bf2f4439a272",
+          "material_read": "RESULT.md offsets 455 and 5259",
+          "method": "Resultary search and local mirror passage read",
+          "title": "A sharp census threshold for Bray–Curtis versus weighted UniFrac",
+          "trigger": "Closest local UniFrac ordering criterion"
+        },
+        {
+          "assessment": "Unverified overlap risk",
+          "evidence": "No conclusion from access failure.",
+          "identifier_or_url": "https://doi.org/10.1086/656486",
+          "material_read": "No full-text passage; OA retrieval returned HTTP 403 with no available copy located",
+          "method": "OA DOI and UniFrac passage attempt",
+          "title": "Phylogenetic Metrics of Community Similarity",
+          "trigger": "Prior comparison of community similarity indices, especially Appendix C"
+        },
+        {
+          "assessment": "Background source not independently inspected at statement level",
+          "evidence": "No conclusion about priority from access failure.",
+          "identifier_or_url": "https://doi.org/10.1128/AEM.71.12.8228-8235.2005",
+          "material_read": "No primary passage obtained: HTTP 403 at publisher and timeout at PMC alternate",
+          "method": "OA DOI and lawful alternate attempt",
+          "title": "UniFrac: a New Phylogenetic Method for Comparing Microbial Communities",
+          "trigger": "Foundational definition and potential early examples"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–29, 46–105",
+        "DartUniFrac, PDF p. 2, for the distinction between branch-feature and tip-feature comparisons"
+      ],
+      "rationale": "The four-tip boundary is intrinsic: four tips at richness two first produce two Jaccard levels, and both bifurcating shapes are classified over their full positive ultrametric length domains. The threshold tells a researcher exactly when branch sharing alone can reverse a presence/absence ordering even at controlled richness; the signed margin and three-community witness distinguish a sharp obstruction from an isolated example or a numerical tie.",
+      "residual_risks": [
+        "This establishes a minimal mathematical phenomenon, not its prevalence in empirical datasets or any biological inference."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

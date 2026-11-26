@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The claim is a rational six-decimal enclosure, not an assertion of an exact algebraic constant. The moment expansion is obtained from Parseval, the complex phase bound is termwise triangular, the strict lower witness is checked by exact integers, and the upper bound is a complete finite degree-eight nonnegative-coefficient certificate on a midpoint subdivision of the amplitude simplex. The full embedded checker constructs the proof objects and validates 81 nodes, 61 leaves, and depth 13. Boundary two-frequency maximizers are eliminated by the exact binomial-moment inequality \(70/16<9.221770\).
+PASS
 
-## Originality
+Parseval applied to P^4 for normalized Haar measure yields the sum of squared fourth-convolution coefficients. Taking coefficient magnitudes individually can only increase the sum. For positive magnitudes, the z^3 coefficient has the two nonzero contributions 4ab^3 and 4a^3c, so equality requires the asserted phase congruence. Any collision of multinomial exponents differs by an integer multiple of (2,−3,1), so this condition also aligns all other collisions. The degree-eight difference 9221771(a²+b²+c²)^4−10^6 M needs only be checked on the positive barycentric simplex by homogeneity, with the origin automatic. The four exact scaled linear substitutions cover each parent simplex; nonnegative leaf coefficients therefore give a valid bound on the whole octant. An independent exact-integer replay constructed M from fourth convolution and reproduced 18 monomials, 81 total nodes, 61 certified leaves and depth 13; it also independently checked the strict lower witness inequality at (576602,605492,548552). Compactness of the energy-one sphere gives a maximizer. With at most two terms, the fourth-power frequency indices are distinct and the ratio is 1+12s+6s² with s the product of the two energy fractions, 0≤s≤1/4. It is at most 70/16, strictly below the witness. Thus every maximizer has three nonzero terms and, since its magnitude-matched phase-aligned counterpart cannot improve it, the stated phase condition holds for every maximizer.
 
-PASS (best knowledge). The reference circle-extension paper treats a \(B_3\)-type arithmetic regime; relevant results for this same triple treat its sixth moment, whereas available eighth-moment results concern different triple supports and different fourth-order additive collision patterns. Search and implication comparisons did not show the claimed certified eighth-moment enclosure. Some directly relevant public repository full text could not be fetched; this is explicitly retained as a priority risk, not described as fully inspected.
+## originality
 
-## Value
+PASS
 
-PASS. The minimal cubic-resonance Hardy–Littlewood triple is a standard benchmark for failure of naive sparse Fourier decoupling. Its sharp sixth-moment behavior is studied, but the next nontrivial even-moment constant is an independent extremal optimization problem. A globally certified six-decimal eighth-moment bound together with phase rigidity gives a reproducible quantitative benchmark for comparing resonance regimes and testing any proposed exact higher-moment classification; it does not assert a complete classification or paper-sized downstream theorem.
+The bounded comparison supports the frozen interval and its compact exact certificate, not credit for an algebraic value or a full classification of extremizers. There is direct mathematical coverage by a stronger same-support, same-exponent Resultary finding with a later catalogue path; its different Taylor-box localization and Hessian certificates are not the 81-node bound certificate here. No earlier coverage of the frozen sharp enclosure was established, and the date distinction is not a determination of priority or provenance.
 
-## Limitations
+## value
 
-The exact algebraic optimum and uniqueness of its magnitudes remain unproved. Source-text access for some published comparison records was unavailable. This is a self-contained finite symbolic proof of the stated rational enclosure, with no assertion of independent checking.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The support is the Hardy–Littlewood resonant triple, not an arbitrary finite sample. Its optimal eighth-moment ratio depends on multiple fourth-order convolution collisions; the other nearby triples and the same support at order six do not give the value. The narrow rational enclosure is globally certified by a small portable exact tree, and the phase theorem removes the complex freedom for every maximizing tuple. The certificate remains a useful direct verification of the narrow bound even in view of the more elaborate later-path characterization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

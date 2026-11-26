@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Exact checks and their scope
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and no dependencies. It prints three `*_OK` or `EXACT` markers and exits successfully. The certificate works with cyclic sequences of integer-affine functions \(c n+d\) rather than substituting a finite collection of Hirzebruch parameters. It enumerates the exact self-intersection replacement rule for every admissible star subdivision from the two minimal classes, using four steps after \(\mathbb P^2\) and three after \(\mathbb F_n\).
+## correctness
 
-It yields \(13\) cyclic/dihedral sequence classes from \(\mathbb P^2\), all containing \(-2\); the \(21\) formal classes from \(\mathbb F_n\) all contain \(-2\) for \(n=0,1,2,3,4\), and all contain a constant \(-2\) term for \(n\ge5\). The latter argument is symbolic over all integers \(n\ge5\), not merely over the checked small values.
+PASS
 
-The checker also verifies cyclic determinant-one conditions and self-intersections for the displayed eight-ray fan, verifies the nine-ray subdivision, and repeats the two-subdivision growth operation twelve times for each base. The unrestricted growth theorem is the algebraic local identity in `RESULT.md`, not an inference from twelve tests. The categorical equivalence relies on the published toric criterion, and the minimal fan classification is standard. No independent external audit was performed.
+Ito–Zeng–Zeng use classical (thick) generation by all integral tensor powers; their proper-toric criterion applies to this smooth complete complex fan. The anticanonical polytope is full-dimensional because the origin is strictly inside all defining half-spaces, and bounded by completeness. Thus X itself passes the big/anti-big criterion; points do also. Adjunction on each invariant P¹ gives anticanonical degree 2+D_i², so the remaining obstruction is exactly an invariant (−2)-curve. For the gap, the standard minimal-model list reduces seven rays to four star subdivisions of the projective-plane fan or three of a Hirzebruch fan. A separate geometric replay used v_i+v_{i+1} at every cyclic edge and computed each self-intersection as −det(v_{i−1},v_{i+1}). All 360 plane histories give (−2), with 13 dihedral strings. All 120 Hirzebruch histories give a constant (−2) entry, with 21 formal strings: in the starting fan (1,0),(0,1),(−1,n),(0,−1) only y coordinates depend on n, which remains true after subdivisions and makes every determinant affine; evaluation at n=0 and 1 recovers its constant and slope exactly. Thus there is no cutoff in n in this replay. The small fans have strings (1,1,1), (0,0,0,0), (0,−1,−1,−1,0) up to rotation, and all −1 at six rays. The specified eight- and nine-ray strings were independently recovered, respectively (−3,−1,−3,−1,−3,−4,0,3) and (−3,−1,−3,−1,−4,−1,−5,0,3). For each, the stated two-edge operation preserves a triple with central −1 and both neighbors ≤−3, proving the infinite tail by induction, not by finite iterations. The toric divisor sequence gives ρ=r−2; Noether's formula uses χ(O_X)=1 and e(X)=r, giving K²=12−r.
+
+## originality
+
+PASS
+
+The general categorical criterion is prior and the invariant (−2)-curve statement is its direct toric-surface specialization. The listed small ray counts already have qualifying examples in an earlier Resultary theorem. The supported distinct claim is the unique seven-ray exclusion together with attainability of all higher ray counts, not the individual numerical criterion or the small examples.
+
+## value
+
+PASS
+
+A geometric condition for a naturally specified line bundle leads to a complete, nonmonotonic existence spectrum: the only missing Picard rank is five, while explicit families work at every larger rank and have K² unbounded below. This answers which ranks a researcher can realize, rather than merely testing individual fans or repeating the categorical criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

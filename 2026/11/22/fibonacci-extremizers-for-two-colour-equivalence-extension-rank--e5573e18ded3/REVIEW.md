@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The relative separation lemma is proved by induction on the number of extension moves, with both red and blue requests to marked classes and both new-class requests handled separately. Restriction to each monochromatic induced substructure gives an independent staircase lower bound of \(t(t+1)/2\) per colour. At equality, unique largest red and blue classes force the dichotomy of a common \((t,t)\) class and crossed \((t,t-1),(t-1,t)\) classes; the same separation lemma shows the residual structure has the correspondingly optimal smaller rank. Induction proves sufficiency and disjointness of the recursive cases, giving the Fibonacci census. The extracted executable independently compares defining-game and separation-lemma ranks for all finite coloured-equivalence hosts through seven vertices and completely enumerates extremal couplings through level five.
+PASS
 
-## Originality — PASS within inspected evidence
+The theorem and proof survive unchanged. Induction on remaining depth separates a marked position into the per-colour capacities of its marked classes and the rank of the unused union: an existing-class move spends one unit of one capacity, and a new-class move uses a witness inside the unused union. For the one-colour projection, consecutive fresh-class requests require distinct capacities at least t,t-1,...,1; conversely, taking the largest free class on each fresh request meets those bounds even when some intermediate moves go to marked classes. Applying this to each named colour gives the sharp size lower bound and forces both staircases at equality. The first red and blue requests force the unique classes carrying each maximum t and require the other colour at least t-1. A shared maximum leaves a level-(t-1) host. For distinct maxima the classes must be (t,t-1) and (t-1,t); a second red fresh-class request after red must use the latter, leaving a level-(t-2) host. Both branches suffice by the separation lemma, are disjoint, and are uniquely peeled; t=0 and t=1 give 1 and 2. The lower bound at t+1 rules out larger rank. The frozen finite checker did not implement its stated full marked-profile sweep: line 72 tests r+b>0 (b the total blue capacity), not whether red or blue was actually selected. For example, the empty selection in a blue singleton is wrongly marked. The replacement evaluates the direct game with separate marked/free lists and classifies by actual selection; its fresh execution reproduces 573 host types, 24,963 profile visits and 199,704 depth comparisons, and the complete staircase-coupling census through t=5. The replacement log is the actual new output.
 
-The 2026 Fraïssé-rank paper introduces the one-point-extension game but does not classify the coloured-equivalence minimum hosts. The previously published finite two-coloured equivalence results concern rank-two first-order sentence equivalence between two structures, not the all-prime-extension game within one finite host. The ordinary uncoloured equivalence staircase supplies only independent marginal constraints; these do not imply the joint Fibonacci compatibility theorem. Queries of a mathematical-result index found no equivalent or stronger all-level coloured statement. Historical priority is not guaranteed for unindexed literature.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem determines an exact structural threshold for a natural hereditary model-theoretic class and, beyond the minimum size, enumerates every minimum host up to colour-preserving isomorphism. The Fibonacci dichotomy records a genuine constraint between the two colour projections, not a straightforward independent product of uncoloured staircases. The result gives explicit families of sharp witnesses for every rank level and motivates extending the analysis to more named colours.
+The uncoloured staircase law and the general rank definition are available premises. The distinct surviving claim is the classification of compatible couplings of the two forced staircases and its Fibonacci count. The same marginals can fail rank t, so the uncoloured theorem does not imply this classification.
 
-## Relevant literature and limitations
+## value
 
-López-Callejas and Navarro-Castillo, *A rank function for Fraïssé classes and the rank property*, arXiv:2604.14461v1 (2026-04-15), is the defining rank source. Two 2026 studies of coloured equivalence first-order rank-two theories provide the closest shared-signature comparison but cover a different invariant. The theorem is restricted to the finite, exactly two-colour case; historical priority outside inspected sources is uncertain. A computational census verifies low levels only, with generality supplied by the proof. External mathematical validation is pending.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The equality classification answers which pairs of individually optimal resources can coexist in a single minimum universal-extension host. This is a natural structural problem not answered by the sharp numerical lower bound; the unique peeling rule and exact named-colour isomorphism census are mathematically useful beyond a finite count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:33:34.625242Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–75",
+        "Frozen VERIFICATION.md and verify_odd4.py inspected, not executed; source replay is python3 verify_odd4.py using the standard library"
+      ],
+      "rationale": "The distance shells of disjointness adjacency B are A₃,A₁,A₂ in order. Independent 35-vertex integer multiplication gave B²=4I+A₁, B³=7B+2A₂ and (B−4I)(B+3I)(B−2I)(B+I)=0. The traces of I,B,B²,B³ are 35,0,140,0, forcing the multiplicities 1,6,14,14 at 4,−3,2,−1. This reconstructs all the requisite shell eigenvalues. For D_p=2^pA₁+3^pA₂+A₃, the first two centered eigenvalues are strictly negative (for the first use 3^p>(2^{p/2})³ and minimize 3u³−5u²+3≥229/243), and 3(3^p−2^p)−1 increases strictly from −1 at p=0 to 2 at p=1. The centered Gram rank is therefore 34 before and 20 at the root. Euclidean realizations have distinct points; their Gaussian kernel is strictly positive definite for t>0 by the tensor-power Gram expansion and polynomial separation of finite points. Above threshold the offending centered eigenvalue of the entrywise exponential is negative for sufficiently small t by the linear term −tD_p. For p=1, x=e^(−t) gives centered factors (1−x)(1−2x+3x²), (1−x)(1+3x+3x²), (1−x)(1−3x²). The first two and the trivial eigenvalue are positive for 0<x<1. This proves the PSD cutoff and ranks 1,21,35 with the t=0 constant matrix handled separately.",
+      "residual_risks": [
+        "No individual-bandwidth assertion for p>p* other than p=1. The decimal approximation and the supplied rational sample tests are not the proofs of the universal signs or ranks."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2d47a7d8d2a9 treats a general radial bridge with a designated common eigenvalue, and works out the entire centered spectrum of O₄ for k=3. The general finite-metric and graph spectral papers provide machinery but do not list the frozen individual cutoff in the inspected passages."
+        ],
+        "reasoning": "The decisive overlap is the exact O₄ evaluation in the bridge result, not a claim that an abstract metric characterization alone supplies all forceful signs and endpoints.",
+        "searches": [
+          "Radial odd-graph/folded-cube bridge 2d47a7d8d2a9; Aalipour et al. Theorems 3.9–3.10; Sánchez Corollary 2.4; Tanaka Theorems 2 and 4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2d47a7d8d2a9, 9535d19cf47d, 1dc112430f69",
+        "arXiv:1509.01196, arXiv:1108.0451, arXiv:2208.11002 and arXiv:2609.11729 (abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For x=e^(−t)>0, substitute a=x,b=x² in the linear shell formulas, multiply by x, and add 1: K=I+x(A₃+xA₁+x²A₂). Substitution gives the four polynomials in the frozen result. The factor 1−x cancels for 0<x<1, with only 1−3x² affecting the sign; the active multiplicity is 14. The spectral bipartiteness article's abstract concerns an adjacency-spectrum invariant rather than individual kernel bandwidth."
+        ],
+        "reasoning": "The bridge Finding states the p threshold and endpoint dimension explicitly; strict negativity there below threshold gives dimension 34. It need not state the number (log 3)/2 for the remaining claim to be covered by its directly applicable exact table.",
+        "searches": [
+          "2d47a7d8d2a9 proof offset 3700, especially k=3 centered shell formulas and row sum",
+          "Tanaka arXiv:2208.11002; spectral bipartiteness arXiv:2609.11729 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2d47a7d8d2a9 Finding offsets 0–2976 states the same root 3(3^p−2^p)=1 on O₄, endpoint rank 20 and the all-bandwidth PSD regime; Tanaka Theorem 2 gives the all-scale Hilbert/CND equivalence."
+        ],
+        "reasoning": "Squared-distance embedding of d^p is equivalent to embedding the snowflake d^{p/2}; the entrywise q^d and e^(−td) questions are equivalent for q=e^(−t). All-bandwidth and individual-bandwidth claims were checked separately.",
+        "searches": [
+          "Local Resultary: O4, KG(7,3), radial exponential PSD and powered negative type",
+          "Primary-literature query: ‘KG(7,3)’ OR ‘O4’ odd graph ‘q-matrix’ distance exponential positive semidefinite cutoff bandwidth"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2d47a7d8d2a9 gives 5a−3b−3 [6], 2−3b [14], 3b−3a−1 [14] and row sum 4+12a+18b, with a=2^p, b=3^p, by inserting the Johnson eigenvalues in each shell. It identifies the same unique obstruction. The generalized quadrangle and Hadamard entries have different graph objects and cutoff constants."
+        ],
+        "reasoning": "The coefficients and multiplicities are the exact table needed, not just parameter-matched titles. Distinct-scale strictness for the Gaussian follows from the supplied squared-distance realization and distinctness.",
+        "searches": [
+          "Local Resultary 2d47a7d8d2a9 full centered table proof offset 3700; radial PSD analogues 9535d19cf47d and 1dc112430f69"
+        ]
+      },
+      "rationale": "A distinct Resultary record explicitly classifies powered negative type on this same graph, gives the endpoint dimension and supplies the full centered shell spectra. The remaining individual ordinary-distance bandwidth cutoff and ranks follow by direct substitution into those displayed spectra. Its later catalogue date does not establish historical priority; this comparison establishes coverage, not copying or precedence.",
+      "residual_risks": [
+        "The overlapping bridge record is catalogued later. Mathematical coverage now verified is not a historical priority finding.",
+        "The targeted query did not identify a paper stating the individual cutoff; it does not establish the absence of such a paper."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact powered-distance coverage; exact shell table directly implies remaining bandwidth result",
+          "evidence": "Centered eigenvalues and their multiplicities, root of 3(3^p−2^p)−1, endpoint dimension 20.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/11/1/SCOPE-a-radial-spectral-bridge-between-odd-graphs-and-folded-cubes-wit--2d47a7d8d2a9/RESULT.md",
+          "material_read": "Finding offsets 0–2976; k=3 spectral and sign proof offsets 3700–5708",
+          "method": "Pinned local mirror bounded passages",
+          "title": "A radial spectral bridge between odd graphs and folded cubes",
+          "trigger": "Same O₄ root and dimensions within a wider radial-kernel result"
+        },
+        {
+          "assessment": "General distance/spectral machinery",
+          "evidence": "Eberlein eigenvalues and multiplicities for Kneser and Johnson relations.",
+          "identifier_or_url": "https://arxiv.org/abs/1509.01196",
+          "material_read": "§3.2, Theorems 3.9–3.10, PDF p. 10, offset 41305",
+          "method": "OA PDF passage",
+          "title": "On the distance spectra of graphs",
+          "trigger": "Kneser distances and Johnson eigenspaces"
+        },
+        {
+          "assessment": "General characterization, no O₄ evaluated root in passage",
+          "evidence": "Finite-metric threshold criterion in terms of the powered-distance matrix.",
+          "identifier_or_url": "https://arxiv.org/abs/1108.0451",
+          "material_read": "Corollary 2.4, PDF p. 5, offset 17650",
+          "method": "OA PDF passage",
+          "title": "On the supremal p-negative type of a finite metric space",
+          "trigger": "Finite negative-type threshold from the distance matrix"
+        },
+        {
+          "assessment": "All-bandwidth equivalence and distance-regular classification, not an individual cutoff",
+          "evidence": "Determines positivity at all q via negative definiteness/embedding.",
+          "identifier_or_url": "https://arxiv.org/abs/2208.11002",
+          "material_read": "Theorems 2 and 4, Theorem 2 offset 5000",
+          "method": "OA passage",
+          "title": "Characterizing graphs with fully positive semidefinite Q-matrices",
+          "trigger": "Same entrywise exponential kernel in q notation"
+        },
+        {
+          "assessment": "Abstract studies an adjacency-spectrum statistic, not evidence for the kernel cutoff",
+          "evidence": "The statistic is (λ₁+λₙ)/n for distance-regular graphs; further text was not read.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.11729",
+          "material_read": "v1 abstract, PDF p. 1, offset 452",
+          "method": "OA abstract triage only",
+          "title": "Spectral bipartiteness in generalized odd graphs",
+          "trigger": "Closest scholarly hit in targeted individual-bandwidth search"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "2d47a7d8d2a9 exact O₄ spectra and negative-type classification"
+      ],
+      "rationale": "A sharp negative-type boundary and an exact covariance bandwidth are naturally motivated invariants on this graph. The former is explicitly covered in the broader bridge and the latter, including kernel ranks, is a routine degree-three substitution and sign check in the already available exact O₄ table. This record does not supply a separate useful unknown fact after that reduction.",
+      "residual_risks": [
+        "The value finding concerns this exact frozen package; it is not a claim that sharp bandwidth cutoffs on other graphs are routine."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

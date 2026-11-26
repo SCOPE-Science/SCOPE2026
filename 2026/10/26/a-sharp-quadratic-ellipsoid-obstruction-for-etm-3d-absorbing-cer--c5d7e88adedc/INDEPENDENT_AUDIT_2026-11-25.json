@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:53:14.246076Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 17–67; frozen VERIFICATION.md, check.py and requirements.txt inspected",
+        "arXiv:2610.04768v1 §2.1, equations (6)–(14)"
+      ],
+      "rationale": "In RESULT.md lines 25–63, coefficients of the distinct cubics x²y, x²z and xy² eliminate the three off-diagonal entries of W; the remaining xyz coefficient is a−2b+c. After translation, the even part of the boundary drift is the quadratic with diagonals (−2a,−b,−5c) and mixed coefficients b−aρ−cm_z, (b+c)ρ−am_x, and 2bm_y. Adding antipodal inequalities and rescaling every direction shows this form is negative semidefinite. The 2×2 minors bound the mixed coefficients by constants depending only on W, so m_x=(b+c)ρ/a+O_W(1), m_z=−aρ/c+O_W(1), m_y=O_W(1). Consequently f_y(m)=((2(b+c)−a)/c)ρ²+O_W(ρ)=3ρ²+O_W(ρ). At the positive y-boundary of the ellipsoid the exact drift is bt(f_y(m)−t), t=r/√b>0, giving the liminf. At the stated Euclidean center the completed-square drift is C−2(q_x+ρ)²−(q_y−h)²−5(q_z+(1−ρ)/2)². The shift has norm d; triangle inequality gives inward drift on the stated sphere and outside. Equality on the sphere would require both radial alignment with the shift and vanishing x,z coordinates after the shift; that is impossible since the shift has a nonzero x or z component for every ρ and C>0. Thus the sphere is forward invariant and entered in finite time from outside, by compactness of the intervening energy band. Rationalizing d−h and √C−h gives 5/12 and 13/12, respectively. The source's R(ρ) is the energy sublevel, not the radius. A bounded independent symbolic check of the antipodal and completed-square drift identities is replayable with `python /workspace/independent_reproduction.py`; no frozen code was executed.",
+      "residual_risks": [
+        "Only fixed W with cubic cancellation and forward-invariant ellipsoids; this is not an attractor-diameter bound. The constant 3, not the displayed subleading terms, is optimality-certified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Goyal, Pontes Duff and Benner give weighted energy preservation and a shifted trapping-ball criterion (pp. 7, 9). The ETM stability theorem covers 0≤ρ<ρ*≈2.188758627 and centered strict quadratic Lyapunov stability."
+        ],
+        "reasoning": "These sufficient Lyapunov/trapping criteria and the centered stability threshold do not yield the necessary scaling of translations and f_y(m) as ρ→∞.",
+        "searches": [
+          "arXiv:2308.13819v2 Eq. (11), Corollaries 1–2; Resultary same-flow stability threshold"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 997f2098aca6, 4e38fb84c26f, 65a6da5d0745",
+        "arXiv:2610.04768v1",
+        "arXiv:2308.13819v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The sharpness side and the metric classification are covered in the compared evidence. The lower side uses antipodal necessary semidefiniteness, which forces arbitrary invariant centers to specific leading coefficients, followed by the positive-axis obstruction."
+        ],
+        "reasoning": "The lower side is not a substitution into an already-proved upper ball or a centered small-ρ theorem, and remains the mathematically distinct result on the evidence inspected.",
+        "searches": [
+          "arXiv:2610.04768v1 §2.1; Resultary 997f2098aca6; arXiv:2308.13819v2 Corollaries 1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source writes Ωρ as the sublevel Vρ≤(d+√C)²/2 for one explicit center and W=I. It is exactly the matching Euclidean upper radius, not a minimax/invariance necessity statement."
+        ],
+        "reasoning": "Changing from sublevel value to y-semiaxis identifies the matching certificate without making that certificate a bound on all centers and compatible metrics. A bound for the actual attractor, even if available, would not automatically be a necessary bound in this certificate class.",
+        "searches": [
+          "Resultary: ETM-3D, compatible quadratic Lyapunov metrics, absorbing radius and high-parameter ellipsoid bounds",
+          "arXiv:2610.04768v1 §2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest same-flow record is the exact first saddle-node stability threshold, with different regime and center. Same-day quadratic coordinate sampling and spherical harmonic moment records treat SPD coordinate sampling and even spherical moments, respectively, not trapping.",
+          "No exact high-ρ semiaxis table or equivalent statement was identified in the inspected sources."
+        ],
+        "reasoning": "The overlap in flow/metric with 997f2098aca6 is real but not overlap in the bound; the other records are distinct by object, not excluded because of their dates.",
+        "searches": [
+          "Resultary: ETM-3D high-parameter sharp quadratic trapping radius and optimal shifted invariant ellipsoid",
+          "Resultary records 997f2098aca6, 4e38fb84c26f, 65a6da5d0745"
+        ]
+      },
+      "rationale": "The specific class-wide high-ρ lower bound is distinct on the inspected evidence. The published ETM construction gives an upper certificate; the closest same-flow theorem both overlaps the metric classification and resolves a different, small-ρ centered stability question. The fixed-metric necessity argument, including optimization over unrestricted centers, is the supported addition, not the ball or the cancellation definition.",
+      "residual_risks": [
+        "The general web search was deferred; the comparison rests on actual Resultary and primary OA passages, not exhaustive priority evidence. Other ETM-specific trapping optimizations may not have been indexed or retrieved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves the explicit sufficient Euclidean ball; inspected argument does not optimize the center or metric.",
+          "evidence": "Vρ is half the squared distance from (2ρ,0,1−ρ); R(ρ)=(d+√C)²/2; derivative bounded above by C minus a squared distance.",
+          "identifier_or_url": "https://arxiv.org/html/2610.04768v1",
+          "material_read": "§2.1, Eqs. (6)–(14), initial OA text window",
+          "method": "Primary HTML text and equation comparison",
+          "title": "ETM-3D: A One-Parameter Multistable Quadratic Flow with an Explicit Absorbing Set and Intermittent Chaos",
+          "trigger": "Same vector field and matching trapping ball"
+        },
+        {
+          "assessment": "Shares the classification but addresses the centered strict Lyapunov range below the first saddle-node, not large-ρ arbitrary-center confinement.",
+          "evidence": "0≤ρ<ρ*, with 2.188758<ρ*<2.188759; centered global exponential stability.",
+          "identifier_or_url": "Resultary 2026/10/11, 997f2098aca6",
+          "material_read": "Locally mirrored finding and mathematical stability statement",
+          "method": "Resultary and local mirror comparison",
+          "title": "Exact global-stability threshold at the first ETM-3D saddle-node",
+          "trigger": "Same flow and energy-compatible metrics"
+        },
+        {
+          "assessment": "Neither treats invariant trapping under the ETM vector field.",
+          "evidence": "Optimal fixed coordinate sampling in an SPD problem; normalized even moments on S².",
+          "identifier_or_url": "Resultary 4e38fb84c26f; 65a6da5d0745",
+          "material_read": "Full findings in the local mirror",
+          "method": "Statement-level comparison",
+          "title": "Sharp sampling phase transition for a frustrated three-coordinate quadratic; All-even-moment rigidity for quadratic spherical harmonics",
+          "trigger": "Distinct same-date search hits using quadratic terminology"
+        },
+        {
+          "assessment": "Covers general machinery; the inspected results give sufficient criteria, not the asserted optimized necessary constant.",
+          "evidence": "Weighted energy cancellation xᵀQH(x⊗x)=0 and shifted-system trapping-ball conditions.",
+          "identifier_or_url": "https://arxiv.org/pdf/2308.13819v2",
+          "material_read": "p. 7 Eq. (11) and Corollary 1; p. 9 Corollary 2",
+          "method": "OA PDF passage inspection at offsets near 32400 and 44700",
+          "title": "Generalized quadratic Lyapunov and trapping results for quadratic dynamical systems (Goyal, Pontes Duff and Benner)",
+          "trigger": "Potential general theorem in weighted metrics and translated variables"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and limitations; arXiv:2610.04768v1 §2.1"
+      ],
+      "rationale": "The source's conservative-looking radius raises a concrete certificate-design question: can the leading scale be reduced just by translating or reweighting the quadratic energy? The exact obstruction says no throughout a natural class and distinguishes certificate size from actual attractor size. This is stronger than constructing another sufficient ball.",
+      "residual_risks": [
+        "Does not identify a smaller certificate in any broader class or assert dynamical sharpness for the attractor."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

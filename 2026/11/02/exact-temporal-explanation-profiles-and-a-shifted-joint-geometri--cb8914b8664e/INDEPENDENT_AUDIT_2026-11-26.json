@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:30:17.864469Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§Assumptions and Proof 1–4",
+        "checker.py and VERIFICATION.md, inspected without executing supplied code",
+        "/workspace/branches/frozen_replay.py, ordinal 1"
+      ],
+      "rationale": "The strong-Until witness terms are incomparable by their distinct q-literals. On truth the present terms are exactly the minimal sufficient sets; a minimal transversal takes either all witness q-literals, or one p-literal at the earliest chosen blocker and exactly the q-literals for witnesses at or before that index. On falsehood a minimal lock is either all q-literals false or one false p_i and all q_j false through i; the latter is redundant at i=n−1. Minimal flips are the inclusion-minimal missing bits of a witness term. If the first true q is at z<n, its missing preceding p-bits dominate every later witness deficit, and a preceding q-deficit survives precisely through the last missing p before z. If all q are false the witness deficits have distinct q-bits and are incomparable. This accounts for n=1 and all-q-false traces. The last positive witness mass follows by multiplying its prefix probability 2^(−l−1) by the probability of no later witness; the last negative blocker mass sums a geometric run of (p=1,q=0) before the first true q. Earlier free bits supply the binomial factors. Dividing exact masses by the outcome probabilities and taking n→∞ yields the common geometric mixing variable G on {0,1,...} with parameter 1/2, and CXp count 1+G or 2+G. Coupling at the first false p and first true q gives a preconditioning failure probability at most 2^(1−n); the two conditioning probabilities stay positive. This yields TV convergence, and the geometric tails (or the finite mass formulas) justify moment convergence. The generating functions give E[A]=3/2, and Cov(A,C)=Var(G)/2=1. Independently compared complete minimal sets to completions through n=4 and matched every exact joint cell through n=8 by witness deficits and transversal enumeration. Replay: `python3 /workspace/branches/frozen_replay.py 1`.",
+      "residual_risks": [
+        "Finite enumeration is corroboration, not an all-length proof. The laws use independent fair observations; no claim is made for nested Until or nonuniform sampling."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fionda et al. establish hitting-set duality for finite-trace LTL and relate contrastive explanations to temporal causes; the finite-automata paper supplies general per-decision methods.",
+          "Ferrère et al. address temporal implicants, with the inspected semantics using infinite time domains.",
+          "The later local persistence record gives an exact descent/CXp law for G(p→X_w p), requiring a single proposition and a different predicate."
+        ],
+        "reasoning": "There is direct broader coverage of explanation semantics and methods, but no inspected dominating theorem on the target conditional fair-input count distribution.",
+        "searches": [
+          "Fionda–Ielo–Ricca arXiv:2610.35169v1, contribution and semantics passages",
+          "Cuartas Granada–Ignatiev–Stuckey arXiv:2602.13351v2, abstract and duality passage",
+          "Ferrère–Maler–Ničković 2015 temporal prime implicants"
+        ]
+      },
+      "checked_sources": [
+        "Fionda–Ielo–Ricca arXiv:2610.35169v1",
+        "Cuartas Granada–Ignatiev–Stuckey arXiv:2602.13351v2",
+        "Ferrère–Maler–Ničković ATVA 2015",
+        "Local persistence and two-event profile records",
+        "Meng–Alrajeh DOI and available secondary comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Duality and a nested monotone decision chain facilitate the profile derivation. They do not directly specify the last-witness and last-blocker masses on random traces or the one-unit shift at the joint-law level.",
+          "The one-proposition persistence law is supported by descents; the two-proposition Until law is generated instead by a geometric-binomial mixture."
+        ],
+        "reasoning": "This is not a parameter substitution in the inspected laws. The joint outcome conditioning and boundary mass require distinct probability calculations after the per-trace classification.",
+        "searches": [
+          "Compare Fionda et al.'s duality and the automata framework against frozen Proof 1–4",
+          "Compare local persistence RESULT.md Finding and proof opening, offsets 0–3452"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fionda et al. use the same finite strong-Until witness condition and fixed-length interventions. Finite automata also recognize this predicate, and the underlying explanation duality is established.",
+          "For this monotone alternating cascade, positive sufficient reasons are satisfied witness terms, and the other explanation sets can be described by blockers or minimal witness deficits. The frozen probabilistic invariant is about counts of sets, not set sizes."
+        ],
+        "reasoning": "Equivalent formal definitions and prime-implicant vocabulary match the object but do not by themselves state the fair-bit joint probabilities conditional on each outcome.",
+        "searches": [
+          "Ranked local Resultary: finite-trace Until abductive/contrastive profiles and joint geometric law",
+          "Fionda–Ielo–Ricca, fixed-length AXp/CXp semantics and strong Until",
+          "Cuartas Granada–Ignatiev–Stuckey, automaton decisions and minimal hitting sets"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The persistence record's exact finite count is binomial in the number of descents for a different formula; the two-event record tabulates maxima and AXp cardinalities, not this bivariate conditional count.",
+          "The same-date Dedekind-number record counts monotone algebra operations, with neither the temporal predicate nor AXp/CXp observations."
+        ],
+        "reasoning": "The applicable exact comparison is for a formula-specific table or joint probability law, not a single univariate sequence. None of the inspected exact hits has the target tuple of statistical observables and conditioning events; keyword misses do not prove absence.",
+        "searches": [
+          "Local Resultary exact profile-count and joint-law hits: persistence profiles, two-event Tribonacci AXps, and same-date monotone Boolean operations",
+          "Literal binomial/geometric locators in the two closest OA explanation papers, followed by relevant definitions and contribution passages"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the exact finite and limiting conditional joint law of the two explanation counts for strong Until, with explicit witness/blocker profiles supplying the count. The definitions, duality and general per-trace enumeration are established. The strongest matching finite-trace primary sources cover the setting and method but not the joint law in the inspected results. The closest catalog counting theorem concerns a different temporal predicate.",
+      "residual_risks": [
+        "Meng–Alrajeh's primary paper could not be lawfully retrieved; formula-specific overlap is not ruled out there.",
+        "A general theorem for nested canalizing functions could subsume some profile statements. Technical priority of the exact count law is not guaranteed by a bounded search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same semantics/duality; no inspected statement of the exact law",
+          "evidence": "Uses a witness k<|trace| with left operand true earlier and establishes AXp/CXp hitting-set duality for finite LTL.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.35169v1",
+          "material_read": "pp. 1–2, contributions (offset 5800) and Until semantics (offset 12332)",
+          "method": "OA PDF passage inspection",
+          "title": "Formal Explanations for Linear Temporal Logic over Finite Traces",
+          "trigger": "Strongest prior general finite-Until framework"
+        },
+        {
+          "assessment": "General framework, not an examined distributional theorem",
+          "evidence": "States the minimal hitting-set duality and gives methods for explanations of finite automaton decisions.",
+          "identifier_or_url": "https://arxiv.org/pdf/2602.13351",
+          "material_read": "v2 abstract and p. 2, offsets 6200–7222",
+          "method": "OA PDF passage inspection",
+          "title": "A Formal Framework for the Explanation of Finite Automata Decisions",
+          "trigger": "Automata explanation theorem covering the underlying recognition problem"
+        },
+        {
+          "assessment": "Related infinite-time temporal diagnostics",
+          "evidence": "Defines temporal implicants in infinite-time semantics rather than this fixed-length conditional pair census.",
+          "identifier_or_url": "https://thomasferrere.com/TraceDiagnosticsUsingTemporalImplicants.pdf",
+          "material_read": "Abstract, offset 950; temporal semantics p. 5, offset 11800",
+          "method": "OA author-manuscript passage inspection",
+          "title": "Trace Diagnostics Using Temporal Implicants",
+          "trigger": "Prime-implicant formulation of temporal diagnoses"
+        },
+        {
+          "assessment": "Exact counts for a different predicate and observable",
+          "evidence": "Analyzes persistence G(p→X_w p); e.g. counts violating words with a given number of descents.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-abductive-and-contrastive-explanation-profiles-for-finite--72388932d33d/RESULT.md",
+          "material_read": "RESULT.md offsets 0–3452",
+          "method": "Local mirror",
+          "title": "Exact abductive and contrastive explanation profiles for finite traces",
+          "trigger": "Topical catalog match for exact finite-trace explanation profiles"
+        },
+        {
+          "assessment": "Unresolved primary overlap; not treated as negative evidence",
+          "evidence": "The secondary discussion describes conjunctive counterfactual causes, not the dual sufficient-reason count law.",
+          "identifier_or_url": "https://doi.org/10.1145/3696630.3731617",
+          "material_read": "Bibliographic record and Fionda et al.'s secondary discussion at offsets 5800–7300; primary text not read",
+          "method": "Lawful DOI direct/VPN access attempts (403) and alternate-copy lookup",
+          "title": "Causal Detection in Linear Temporal Counterexamples",
+          "trigger": "Plausible formula-specific LTL violation results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof 1–4",
+        "Fionda–Ielo–Ricca finite-trace framework",
+        "Local persistence comparator"
+      ],
+      "rationale": "Strong Until is a canonical temporal operator, and exact explanation counts quantify the behavior of two standard explanation outputs on a fully specified test distribution. The joint shift and common AXp marginal give a nontrivial comparison across truth values, including correlation information unavailable from one marginal or from existence/duality alone. The finite law also gives an exact benchmark for implementations on this basic predicate.",
+      "residual_risks": [
+        "The benchmark value is specific to the two fair independent propositions and not claimed for more general inputs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

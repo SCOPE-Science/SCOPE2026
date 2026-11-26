@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every root pair \(u\ne v\) the selected closed-neighborhood cardinality is exactly \(d_H(u)+d_H(v)-\mathbf1_{\{uv\in E(H)\}}\). The inequality at all root pairs first forces a three-star if any degree equals three, and otherwise forces all degree-two roots to form a clique of size at most three. This is an exhaustive structural dichotomy, from which the five component types, labelled exponential count and maximality characterization follow by exact elementary reasoning. The matching counts and the two parity formulas are derived by separately counting each graph type. Independently written root-degree branch enumeration, direct-neighborhood enumeration and factorial-component computation agreed over their specified finite domains; the proof does not rely on them for general \(n\).
+PASS
 
-## Originality — PASS (qualified)
+In the selected-edge graph H⊆K_n, the neighborhood of each root pair uv contains d(u)+d(v)−1_{uv selected} selected edges; the test includes missing root edges. Degree ≥4 fails at an incident edge. Degree three forces every positive-degree vertex to be a leaf adjacent to that same center. With maximum degree two, all degree-two vertices are adjacent pairwise, so there are at most three; 0, 1, 2 and 3 yield a matching, one P₃, one P₄, or one triangle, with remaining edges a disjoint matching. All satisfy the inequality. Labelled core weights are 3/3!, 12/4!, 1/3! and 4/4! for P₃, P₄, triangle and lone star; the first three multiply the matching EGF while the star permits isolates only. For maximality, a matching extends when n≥3, and P₃ can close to a triangle. The star is saturated. A P₄ or triangle has at least two degree-two vertices, so increasing any of their degrees gives a forbidden non-star configuration. If no degree-two vertex is touched, an increased degree-one vertex could not be adjacent to all the preexisting degree-two vertices, so an extension must join two isolates. Thus zero or one isolate is exactly the condition for maximality. Multiplying the core weights by perfect matching counts on the other roots and by the isolate factor mandated by parity gives the stated coefficients (with a single full triangle at n=3). The coinciding size-three contributions at n=4 and n=5, the maximum formula, and the parity-dependent facet spectra all agree.
 
-The 2023 first-public preprint (arXiv:2308.16837) motivates limited-packing partitions, focusing on capacity two, whereas arXiv:2405.03237 develops total variants and capacity-two graph products. The inspected passages and searches for the same root-edge degree inequality, its line-graph equivalent, and the exact maximal/cardinality polynomials found no covering theorem. The earlier general closed-neighborhood estimates of Balister–Bollobás–Gunderson do not enumerate these objects. A related three-limited classification for rectangular rook graphs relies on a bipartite root graph and does not imply the triangle alternative or maximal polynomial in \(L(K_n)\). Historical priority remains provisional: obscure tables or unavailable full texts may yet contain equivalent results.
+## originality
 
-## Value — PASS
+PASS
 
-The triangle graph \(L(K_n)\) is a canonical, highly symmetric graph family. Closed-neighborhood limited packing models bounded local sensor occupancy. This result is an infinite-parameter **complete classification** and gives every subset cardinality and every inclusion-maximal cardinality, not just a minimum or maximum number. The sharp structural difference between maximum and maximal sets and the unbounded facet-size gap of the nonpure packing complex are natural information for enumeration and local search. The nonbipartite triangle component is essential, not a rename of the known bipartite case.
+Bounded comparisons support the exact closed-capacity-three classification and both labelled enumerators. The closest same-host polynomials concern distinct tests, and the same-day closed-capacity-three rook result has a different root graph and no corresponding triangular facet law.
 
-## Reproducibility and residual limitations
+## value
 
-All scripts and exact output tables are embedded with this result, with ordinary C++17/Python3 replay commands in RESULT.md and VERIFICATION.md. Verification is computationally exhaustive only over the listed small orders; the symbolic component classification supplies the all-orders proof. Literature-priority clearance is not exhaustive, and external independent validation has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+On the natural Johnson family the classification yields every labelled coefficient, not just a maximum. The facet polynomial exposes a strong qualitative gap: even orders have only a fixed-size star stratum and the largest stratum although their cardinalities separate arbitrarily far. Those exact multiplicities and the odd-order alternatives are useful data not supplied by general packing bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:38:31.834382Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–39 and 41–86",
+        "VERIFICATION.md and verify_wheel_zeros.py (inspection only)"
+      ],
+      "rationale": "The hub split gives the constant shift of the cycle transfer trace. At z >= -1/4 the trace is positive. For z(theta) = -sec(theta)^2/4, 0 < theta < pi/2, differentiating the trace gives -n*2^(1-n)*sec(theta)^(n+1)*sin((n-1)*theta). The d-1 interior sine zeros exhaust the derivative's degree, so even nonreal multiple roots cannot occur at other parameters. The odd critical points are nondegenerate minima of values -tau, ordered by strictly increasing sec(theta); the even maxima cannot be canceled by t >= 0. The d simple t=0 roots are the cosine zeros before pi/2. At each minimum a conjugate pair leaves, with the double root still counting twice at equality, and no degree change or zero crossing can introduce a new real branch. Dividing the second theta derivative by z'(theta)^2 gives the stated positive P''; the implicit function theorem in sqrt(delta) gives A=sqrt(2/P'') and the O(delta) remainder. Expanding log(sec(theta)) to quadratic order with O(theta^4) gives the fixed-j exponent. An independent recurrence/Sturm spot check gave n=8 counts 4,2,0 at t=0,1/8,1000 and n=7 double-root gcd z+1/3 at t=1/27. The frozen checker was inspected, not executed.",
+      "residual_risks": [
+        "The statement about no other real parameter is read inside the expressly stated t >= 0 scope; negative t can cancel a positive maximum. Finite probes supplement the proof only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ordinary one-variable claw-free real-rootedness; pendant-edge expansions; left-half-plane stability, respectively."
+        ],
+        "reasoning": "None entails this two-activity negative-real multiplicity census. For n >= 6 the wheel itself has an induced claw, independently of the fugacity issue.",
+        "searches": [
+          "Chudnovsky–Seymour Thm. 1.1",
+          "arXiv:math/0305227",
+          "arXiv:1802.02478"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 36aaf0497284 (target itself), 8cb7d499cc1e, fc2275a69a33",
+        "DOI 10.4230/LIPIcs.FSTTCS.2025.48",
+        "Chudnovsky–Seymour Thm. 1.1",
+        "arXiv:math/0305227",
+        "arXiv:1802.02478",
+        "MathWorld Independence Polynomial"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known unperturbed cycle roots and gaps from Chebyshev; distinct P_n(z)+uz right-half-plane count."
+        ],
+        "reasoning": "The Chebyshev formula is the input, but the staircase needs the evaluation and ordering of all critical values and their curvatures for an additive constant. The variable-linear perturbation does not determine these thresholds.",
+        "searches": [
+          "Prakash–Sharma, Cycle Graph, PDF p. 15",
+          "Resultary 8cb7d499cc1e, local-mirror Finding and assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target itself is the matching mirror record. Same-day 8cb7d499cc1e instead studies P_n(z)+uz and half-plane roots.",
+          "Prakash–Sharma use the opposite sign convention and give the unshifted cycle Chebyshev form and root gaps."
+        ],
+        "reasoning": "Neither changing the sign convention nor replacing a variable-linear term by a fixed constant yields an equivalent root-count problem.",
+        "searches": [
+          "Resultary: hard-core wheel, cycle independence polynomial, fixed hub activity, real-zero collision",
+          "Prakash–Sharma, DOI 10.4230/LIPIcs.FSTTCS.2025.48"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed wheel/whirl pencil concerns Ehrhart numerators. MathWorld lists ordinary cycle and wheel independence polynomials."
+        ],
+        "reasoning": "The table's uniformly fugacitated wheel and the unrelated Ehrhart pencil do not tabulate constant-shift thresholds, locations or multiplicities.",
+        "searches": [
+          "Resultary wheel and collision results",
+          "MathWorld Independence Polynomial, closed forms and recurrences"
+        ]
+      },
+      "rationale": "The standard cycle transfer/ Chebyshev formula, wheel independent-set split and generic double-root unfolding are not new. The distinct claim supported here is the full explicitly ordered constant-shift collision classification, with critical amplitudes and onset scale.",
+      "residual_risks": [
+        "One broad search returned irrelevant hits; this is not evidence of absence. A prior constant-shift classification under other polynomial terminology may have been missed. The same-day comparison establishes scope differences, not priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different perturbation and different root domain",
+          "evidence": "A common activity on K_h vee C_n gives P_n(z)+hz, and the result counts right-half-plane zeros, not negative-real roots.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-half-plane-zero-transitions-and-a-square-root-clique-thres--8cb7d499cc1e",
+          "material_read": "Finding and assumptions",
+          "method": "Exact RESULT.md, local mirror",
+          "title": "Sharp half-plane zero transitions and a square-root clique threshold",
+          "trigger": "Closest graph/model and zero-transition hit"
+        },
+        {
+          "assessment": "Covers the baseline, not the shifted problem",
+          "evidence": "Expresses the bare cycle polynomial in terms of T_n and computes unperturbed root separation.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.FSTTCS.2025.48",
+          "material_read": "Cycle Graph passage, PDF p. 15 (offset 54264); conclusion p. 16",
+          "method": "OA full-text inspection",
+          "title": "On the Roots of Independence Polynomial: Quantifying the Gap",
+          "trigger": "Same cycle Chebyshev polynomial"
+        },
+        {
+          "assessment": "Does not treat fixed hub activity",
+          "evidence": "Theorem for ordinary independence polynomials of claw-free graphs.",
+          "identifier_or_url": "https://www.ias.edu/sites/default/files/math/csdm/03-04/mchudnovsky_the_roots_of_the_stable_set.pdf",
+          "material_read": "PDF pp. 1–2, abstract and Theorem 1.1",
+          "method": "OA full-text inspection",
+          "title": "The Roots of the Independence Polynomial of a Clawfree Graph",
+          "trigger": "General real-rootedness theorem"
+        },
+        {
+          "assessment": "Different graph expansions",
+          "evidence": "Studies pendant-edge expansions G* and their relatives.",
+          "identifier_or_url": "arXiv:math/0305227",
+          "material_read": "PDF pp. 1–2, abstract and introduction",
+          "method": "OA full-text inspection",
+          "title": "On the Roots of Independence Polynomials of Almost All Very Well-Covered Graphs",
+          "trigger": "Cited early independence-root source"
+        },
+        {
+          "assessment": "Different root condition",
+          "evidence": "Hurwitz stability concerns membership in the left half-plane rather than real-axis multiplicities.",
+          "identifier_or_url": "arXiv:1802.02478",
+          "material_read": "PDF pp. 1–3, abstract and introduction",
+          "method": "OA full-text inspection",
+          "title": "On the Stability of Independence Polynomials",
+          "trigger": "Related zeros of independence polynomials"
+        },
+        {
+          "assessment": "Standard ordinary cycle and wheel tables",
+          "evidence": "Entries for cycle and wheel; no separate fixed nonnegative hub parameter in the ordinary wheel polynomial.",
+          "identifier_or_url": "https://mathworld.wolfram.com/IndependencePolynomial.html",
+          "material_read": "Closed-form and recurrence table descriptions, offsets 0 and 1423; rendered formulas not present in extraction",
+          "method": "OA public-page inspection",
+          "title": "Independence Polynomial",
+          "trigger": "Potential exact table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Proof, and Limitations"
+      ],
+      "rationale": "A wheel is a simple family with a genuinely independent universal-site activity. The exact robustness interval for real zeros, the complete subsequent phase count and local opening resolve a natural perturbation question uniformly in rim size. The exponentially small onset is informative without being a thermodynamic singularity claim.",
+      "residual_risks": [
+        "Value is specific to the uniform-rim, fixed-hub setting, not multivariate zero exclusion or a physical phase transition."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

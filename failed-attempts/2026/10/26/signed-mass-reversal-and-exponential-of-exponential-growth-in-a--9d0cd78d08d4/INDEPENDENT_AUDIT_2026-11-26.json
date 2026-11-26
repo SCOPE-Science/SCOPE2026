@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:46:27.064981Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Pezzella Eq. (3) and the GL(p) definition give forward Euler in the logarithms followed by one explicit trapezoid sweep at p=2. The predictor's weighted log increment is zero, so strict Jensen gives mass surplus away from equilibrium; the largest of the two predictor exponents gives its limit. Independent symbolic expansion of the corrected logarithms and re-exponentiation gives the normalized Taylor coefficients (1+r,0,0,-(1+r)(r-1)^4/(12r^2)). For r<1 the first log-endpoint is (sr/2) exp(s(1/r-r)) + O(s), the second is O(s); exchange components for r>1. This gives the boxed limit, and continuity plus the strict small-step sign gives a crossing but not uniqueness. At equilibrium both updates are constant. Positivity is exact-arithmetic positivity. Independently replay with python3 /workspace/audit_replay/exchange.py (SymPy); the script also proves the numerical example by rational exponential lower bounds. The recorded 324 assertions were inspected, not reused as independent evidence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2026-11-22 all-sweep Resultary record treats every fixed finite correction count, any positive initial data, and gives asymptotics for actual log mass, not just an unstable derivative. Patankar articles use different schemes; Pezzella's diagonal exactness is not a coupled exchange theorem."
+        ],
+        "reasoning": "Taking one correction in the indexed all-sweep theorem directly covers the central result.",
+        "searches": [
+          "Resultary: all-sweep exponential mass blow-up on conservative exchange",
+          "arXiv:1905.09237; arXiv:2108.07347; arXiv:2610.21857"
+        ]
+      },
+      "checked_sources": [
+        "Pezzella arXiv:2606.29523",
+        "Resultary 2026/11/22 record 0a1e4d196ac9",
+        "Öffner–Torlo arXiv:1905.09237",
+        "Torlo–Öffner–Ranocha arXiv:2108.07347",
+        "Öffner–Redle–Torlo arXiv:2610.21857 (abstract)",
+        "Frozen RESULT.md, VERIFICATION.md, verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For one correction log mass is asymptotic to (s/2) exp(|L0|); the exact L0 gives |L0| = s|r−1/r| + log(min(r,1/r)) eventually. The same endpoint formulas yield the cubic coefficient via Taylor expansion, and Jensen handles the predictor."
+        ],
+        "reasoning": "The leading constant is implied, not merely the order of growth. The sign reversal and finite crossing require only the direct expansion and continuity, not another structural argument beyond the known endpoint law.",
+        "searches": [
+          "Resultary 2026/11/22 all-sweep record, offsets 260–5690"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Resultary all-sweep record uses the same componentwise exponential trapezoid at nodes 0,1. Unit exchange rate is equivalent to s=ah; its (1,2) witness is the (2,1) witness with components swapped."
+        ],
+        "reasoning": "No distinction is created by the time scaling, variable names, or interpreting the same scheme in logarithmic variables.",
+        "searches": [
+          "Resultary: two-node exponential deferred correction on conservative exchange",
+          "Pezzella arXiv:2606.29523, Eq. (3) and GL(p) definition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact symbolic recurrence for all starts, explicit predictor and both corrected endpoint formulas, and the swapped worked example."
+        ],
+        "reasoning": "There is no finite census in this claim; the exact indexed symbolic formulas already determine the same mass function.",
+        "searches": [
+          "Resultary all-sweep record, Finding and Proof steps 1–4"
+        ]
+      },
+      "rationale": "The exact same exchange map and its defining large-step result are covered by the indexed all-sweep law, which contains this result's central claim as the one-correction case and gives identical closed endpoint formulas, including the example under a swap. The small-step cubic coefficient is not stated there, but follows by routine Taylor expansion of its exact formulas, and the crossing follows by continuity; no separate valuable revised claim was established. This is a coverage finding, not a determination of historical priority; the covering record has a later catalogue date.",
+      "residual_risks": [
+        "Catalogue path dates do not determine priority or independence of discoveries.",
+        "The bounded external literature search did not provide useful additional comparison evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers central claim and determines endpoints exactly",
+          "evidence": "Predictor and correction recurrence, exact (1,2) example, log-mass asymptotic from the preceding log ratio.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-all-sweep-exponential-mass-blow-up-on-a-conservative-exchange-fl--0a1e4d196ac9/RESULT.md",
+          "material_read": "Finding, scope, proof steps 1–4 and related work",
+          "method": "Resultary lookup and local mirror at offsets 260–5690, 7150–9843",
+          "title": "All-sweep exponential mass blow-up on a conservative exchange flow",
+          "trigger": "Same numerical map and exchange model"
+        },
+        {
+          "assessment": "Confirms scheme, not a coupled mass theorem",
+          "evidence": "Per-capita exponential update, p nodes and p−1 corrections; exactness theorem assumes a diagonal generator.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.29523",
+          "material_read": "PDF pp. 3, 14, 17: Eq. (3), Theorem 5.1/Eq. (33), GL(p) definition",
+          "method": "OA PDF passage inspection",
+          "title": "Stable Positive Integral Deferred Correction Methods for Positive Dynamical Systems",
+          "trigger": "Defining numerical method"
+        },
+        {
+          "assessment": "Different update",
+          "evidence": "Modified Patankar correction is positive and conservative, unlike the exponential map under audit.",
+          "identifier_or_url": "arXiv:1905.09237",
+          "material_read": "Abstract and Theorem 4.3, PDF p. 9",
+          "method": "OA PDF passage inspection",
+          "title": "Arbitrary high-order, conservative and positive preserving Patankar-type deferred correction schemes",
+          "trigger": "Conservation for deferred correction"
+        },
+        {
+          "assessment": "Related benchmark, different integrator",
+          "evidence": "Patankar-type overshoot and direction tests do not give SPIDeC mass asymptotics.",
+          "identifier_or_url": "arXiv:2108.07347",
+          "material_read": "Abstract and PDF p. 10 discussion of linear two-component overshoot",
+          "method": "OA PDF passage inspection",
+          "title": "Issues with Positivity-Preserving Patankar-type Schemes",
+          "trigger": "Two-compartment stability example"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The whole mass-law phenomenon is substantive: it distinguishes unconditional positivity from conservation and quantifies failure on a smallest conservative coupled test. This does not make the routine Taylor specialization of the covered map a standalone contribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

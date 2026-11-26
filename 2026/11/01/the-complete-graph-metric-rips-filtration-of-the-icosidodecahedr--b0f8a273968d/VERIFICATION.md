@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-The standard-library checker `verify_icosidodecahedron.py` and explicit `collapse_certificate.json` are complete standalone dependencies. From their directory execute:
+## correctness
 
-```sh
-python3 verify_icosidodecahedron.py collapse_certificate.json
-```
+PASS
 
-It reconstructs the graph from twelve original icosahedral vertices, confirms the rectification, all thirty shortest-path shell profiles, maximal distance five, twenty disjointly edged graph triangles, and all 15 antipodal pairs. It exhaustively enumerates every simplex at radii one, two, and three, checking their exact dimension-indexed face vectors.
+The repaired RESULT.md states the exact relative elementary collapse from K_3 to the included K_2, not just a homotopy equivalence. Independent reconstruction from the rectified icosahedral edge list gives 1,022 and 15,966 nonempty faces, respectively. In an independent replay with collapse_certificate.json as data, all 7,472 upper pairs were present, outside the target, codimension one, free with exactly one current immediate coface, and with maximal upper cells. The final face set equals the complete independently enumerated K_2. The contextual lower sequence of 426 pairs also replays to the exact prescribed fan surface, with f=(30,84,56), two triangles on each edge and connected cyclic links. The frozen verifier was inspected, not executed; the retained certificate and verification_output.txt identify the standalone replay. The original full stage and persistence claims are mathematically consistent but are not accepted as new. No equivariant or general collapse criterion is asserted.
 
-At radius two, the dimension-indexed face vector is `(30,180,380,330,102)`; at radius three it is `(30,300,1340,3150,4374,3800,2100,720,140,12)`. It replays 7472 plus 426 certificate pairs. For each, it checks present faces, codimension one, a unique surviving immediate coface, maximality, and exact equality with the target at completion. The final surface has face vector `(30,84,56)`, all edges in exactly two triangles, connected vertex links, connected one-skeleton, and Euler characteristic two. Any false certificate entry raises an assertion. The recorded actual execution ends with `ICOSIDODECAHEDRON_RIPS_COLLAPSE_CERTIFICATE_VERIFIED`.
+## originality
 
-**Limits.** The graph-metric and inclusivity convention are necessary. No perturbation/general-family claim and no independent audit is included.
+PASS
+
+Original breadth fails: the complete filtration and degree-two persistence are already covered, the actual inclusion was proved a homotopy equivalence, and the collapse onto a boundary fan follows substantially from the older Euclidean result after identifying the face sets. The repaired finding is ONLY the elementary collapse preserving every radius-two simplex. The directly checked older Euclidean sequence from the identical radius-three complex targets a proper subcomplex of radius two and deletes 404 pairs crossing the radius-two target; there are only 7,270 pairs entirely outside radius two, so filtering that sequence does not give the required relative collapse. The earlier graph-metric calculations use different targets or signed Morse boundary evaluations and do not furnish such a sequence. No stronger inspected result implies the repaired relative assertion.
+
+## value
+
+PASS
+
+The two adjacent nontrivial stages are canonically prescribed by a finite metric filtration. A reduction of the larger stage that is the identity on the entire smaller one is useful for relative or filtration-preserving simplicial computations, unlike separate reductions or a map known only up to homotopy. It supplies an exact reusable witness without subdivisions or expansions. The counts and the already-known barcode are not themselves credited as new value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

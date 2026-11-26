@@ -1,15 +1,21 @@
-# Mathematical review: sharp scalar EIN-ARS positivity threshold
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The five-row ARS(4,4,3) table agrees exactly with the independently published double Butcher tableau. The step value equals the final stage because the pair is globally stiffly accurate. An exact stage recurrence gives a polynomial in the compactified step variable \(x=t/(t+2)\). Its degree-four Bernstein coefficients are all nonnegative precisely on the claimed guaranteed interval \(0<r\le\rho\). Beyond the endpoint, the stiff-limit coefficient forces negative steps for \(\rho<r<1\); for all \(r\ge1\), a two-piece exact positive-polynomial certificate proves that the step \(t=4\) has negative amplification. The algebraic reconstruction, root isolation, and 77 rational checks in `verify.py` were replayed successfully. The finite cases are *not* substituted for the two global polynomial sign proofs.
+## correctness
 
-## Originality
-**PASS, with residual historical-priority risk.** Wu–Shu (2026) analyzes nonlinear energy stability and explicitly declares its energy criterion inapplicable to ARS(4,4,3); it does not conclude scalar endpoint positivity or derive a sharp physical/stabilizer ratio. Tan–Cheng–Shu (2022) studies stability of discretizations, including reported stabilization around \(0.54\), but not this if-and-only-if sign condition. Ascher–Ruuth–Spiteri (1997) supplies the underlying IMEX pair and linear stability theory. Further checks of positivity-preserving IMEX methods and published mathematical findings did not establish an implication that covers this scalar cubic frontier. However, classical absolute-monotonicity and unindexed coefficient analyses might already imply it; an independent literature audit remains desirable. The named method, its tables, and classical Bernstein positivity are not claimed as discoveries.
+PASS
 
-## Value
-**PASS.** Positivity is a physically meaningful admissible-state constraint in diffusion models and is distinct from energy decay. The exact ratio \(a_0/a\ge4.540674983\ldots\) is a natural calibration threshold for the unmodified third-order method's *completed scalar step*, not an arbitrary parameter slice: it characterizes every time step and exhibits failure on the smallest spatial Dirichlet heat discretization. It also gives a concrete situation in which the numerical energy decreases but a positive state turns negative. This matters when energy-only integration guarantees might be mistaken for nonnegativity. This is not a claim of general multi-node or nonlinear positivity and says nothing about whether strong over-stabilization is numerically accurate.
+With x=t/(t+2), the stage recurrence is Y_i=1-x-2x times the off-diagonal weighted sum of prior stages, where the weights are A^I+(r-1)A^E. In particular, Y_1=1-rx and Y_2=1-4rx/3+r(r+2)x^2/9. Exact substitution through the globally stiffly accurate last row gives the stated quartic; changing to the Bernstein basis gives the five listed coefficients. The cubic's derivative has exactly one zero in (0,1), a minimum of the cubic; the cubic starts positive, ends negative, and crosses between 0.22 and 0.221. For 0<r<=rho<1/3, r(3-r)^2<3 and all five coefficients are nonnegative. The zeroth term is strictly positive for any finite t. For rho<r<1 the limiting last coefficient is negative, hence so are all sufficiently large finite steps. At t=4, x=2/3 and R=-H/729; both the Bernstein certificate on [1,3/2] and the positive shifted power certificate on [3/2,infinity) check exactly. H(1)=51 gives -17/243. The root and reciprocal round as stated.
 
-## Closest literature and limitations
-The four closest substantive comparisons are Wu and Shu (2026, arXiv:2610.34539v1, §§3 and 4.6); Tan, Cheng and Shu (2022, DOI:10.1016/j.jcp.2022.111314, stability analysis and numerical tests); Ascher, Ruuth and Spiteri (1997, DOI:10.1016/S0168-9274(97)00056-1, method tableaux and linear stability); and the general positivity-preserving IMEX literature, which uses different modified schemes or SSP conditions. The scalar completed-step sign condition does not establish stagewise, nonlinear, or matrix positivity. A positive result for one heat grid node cannot be transferred to all grids. Historical novelty remains qualified because no search can prove the absence of an unpublished, unindexed, or differently phrased exact calculation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The ARS tableau, EIN construction and polynomial/Bernstein methods are not new. The narrow distinct result is the all-step necessary-and-sufficient scalar sign threshold for this unmodified pair and split, including finite-step failure at and above unit ratio. The strongest inspected same-method antecedents concern other invariants.
+
+## value
+
+PASS
+
+For an established third-order EIN method, the sharp ratio gives an actionable necessary scalar test for applications needing nonnegative heat data even at one interior node. It separates the stabilizer needed for this invariant from energy/Fourier stability and gives a finite counterexample outside the sign regime even where large-step limits alone do not settle the matter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

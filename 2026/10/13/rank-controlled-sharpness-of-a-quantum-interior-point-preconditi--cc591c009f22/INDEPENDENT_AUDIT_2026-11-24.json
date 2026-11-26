@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:07:53.092755Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The compared primary definitions give the same partition threshold, current-iterate ω and unnormalized reduced Y. Strict complementarity on the exact path yields x_N=O(μ), x_J bounded below, D_1=μ diag(x_J^−2) and D_2^−1=μ diag(s_N^−2), so the threshold identifies J. From Ax*=b≠0, r≥1. With B=A_J(I+D_1)^−1/2, let C=B diag(x_J²)Bᵀ. The push-through identity for S=B D_1^−1/2 gives G=SSᵀ(ĥ I+SSᵀ)^−1=C(C+μĥ I)^−1. In the fixed orthogonal decomposition ran A_J ⊕ ker A_Jᵀ, C is uniformly positive definite on the first summand and zero on the second. Thus G equals I+O(μ) and 0 respectively, and H=BBᵀ+μQ(μ) with Q(μ)→A_N diag((s_N*)^−2)A_Nᵀ. This gives Y blocks I+O(μ), O(μ²), O(μ), and μQ⊥/h₀+o(μ), respectively. Full row rank of A makes Q⊥ positive definite by its weighted Gram form. For r<m, two invertible elimination factors I+O(μ) reduce Y to its upper diagonal block and the Schur complement, changing the latter by O(μ³). Applying singular-value inequalities with those factors and their inverses gives relative factors 1+O(μ) for every singular value, so this argument does not confuse eigenvalues of a generally nonsymmetric Y with singular values. The r=m case directly gives Y→I and includes N empty. The source's additional norm normalization of its reduced equation leaves the condition number unchanged and tends to 1 here. For the integer witness, columns 1,2 give an admissible I₂ basis, both primal and dual are strictly feasible at the displayed positive μ points, and μ→0 gives a strictly complementary optimum. Inserting the diagonal blocks and ω=1 gives Y₁₁=(1+μ)/(1+γ₁μ(1+μ)), Y₂₂=2μ/γ₁, so μκ₂→γ₁/2; the original normal matrix is diag(1/μ,2μ). This independently verifies the example exactly, not by extrapolation. The frozen verification notes and rational checker were inspected read-only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "WYT explicitly adapts Chai–Toh and identifies its Lemma 3.1 as a special case of Chai–Toh Lemma 4.1. WYT Lemma 3.6 proves σ_min(Y)=Ω(μ) and κ(Y)=O(1/μ). Chai–Toh full text could not be recovered from publisher or the identified public CiteseerX pointer."
+        ],
+        "reasoning": "A general reciprocal-gap bound does not determine whether the full-rank case has κ₂→1, or whether the lower rank case attains the bound with this coefficient. An older general eigenvalue analysis would require a matching proxy and singular-value control; no such implication was established from the passages available.",
+        "searches": [
+          "WYT arXiv:2412.11307v1 §3.1 and Lemma 3.6",
+          "Literature: Preconditioning and iterative solution of symmetric indefinite linear systems Chai Toh filetype:pdf NUS repository 2007 9006",
+          "DOI 10.1007/s10589-006-9006-8"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and artifacts/verify.py",
+        "WYT arXiv:2412.11307v1",
+        "Chai–Toh DOI 10.1007/s10589-006-9006-8 via WYT discussion and lawful access attempts",
+        "Configured Resultary comparisons for exact scalar, support rank and witness"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "WYT requires an admissible basis with κ(A_B)≤κ(A); the example satisfies this and gives rank(A_J)=1<m=2. WYT provides an upper rate and does not assert attainment or a limit for fixed support rank."
+        ],
+        "reasoning": "Both κ=O(1) and κ∼c/μ are compatible with the older upper estimate under the very same normalization. Separating them and identifying c requires strict-complementarity asymptotics plus control of the off-diagonal blocks of Y. The witness proves attainment even with a stabilized partition.",
+        "searches": [
+          "arXiv:2412.11307v1 Assumption 3 and Lemma 3.6",
+          "Literature: Preconditioning and iterative solution Chai Toh rank deficient partition eigenvalue clustering singular values; Wu Yang Terlaky scalar preconditioner fixed sigma_min(A) asymptotic support rank"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "WYT defines exactly the scalar proxy used here, σ₀(A)=σ_min(A) for full row rank, and current-iterate ω as the infinity norm of the primal and slack coordinates. Its reduced equation's further norm normalization does not change κ₂."
+        ],
+        "reasoning": "The finding is about the same Y up to this harmless normalization, not a distinct matrix obtained by renaming or an eigenvalue theorem in a different inner product. The new statement concerns the small singular values of Y in Euclidean norm and their rank-controlled constants.",
+        "searches": [
+          "Resultary: central path support rank dichotomy singular values mu times compressed Q_perp for Wu Yang Terlaky preconditioned matrix Y",
+          "arXiv:2412.11307v1 Definition 2 and §3.1–3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The ranked matches concerned Nyström sketch orientation, Bregman preconditioning, diagonal congruence/inertia, and Lanczos residuals, rather than the same LP path and reduced coefficient. No exact witness or singular-value table was identified."
+        ],
+        "reasoning": "Neither a nearby condition-number result nor a matching low dimension on a different spectral problem is coverage. Bounded results do not establish priority.",
+        "searches": [
+          "Resultary: Wu Yang Terlaky Lemma 3.6 fixed scalar preconditioner gamma sigma_min(A)^2 over omega squared asymptotic singular values",
+          "Resultary: Chai Toh 2007 interior point Section 6 rank deficient partition clustered eigenvalues preconditioner",
+          "Resultary: integer 2 by 3 LP exact central path sharp reciprocal gap condition number preconditioner witness"
+        ]
+      },
+      "rationale": "Credit the exact support-rank dichotomy and leading compressed-Gram singular-value law for the WYT scalar, and the verified attaining witness. The preconditioner, the two-scale partition and the reciprocal-gap upper bound are prior work; the result does not establish that the broad rank-loss mechanism is new. Coverage by Chai–Toh beyond the verified comparison remains a limitation, not evidence that the law was previously known.",
+      "residual_risks": [
+        "Chai–Toh §6 and any stronger older estimates not recoverable from WYT's attribution were not independently inspected.",
+        "Bounded literature and catalogue checks do not establish global priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verifies matching normalization and prior upper estimate, not the asserted dichotomy",
+          "evidence": [
+            "Scalar γ₁σ₀(A)²/ω² and Y=G+(I−G)H/ĥ; admissible basis κ(A_B)≤κ(A).",
+            "Lemma 3.6 gives σ₀(Y)=Ω(μ) and κ(Y)=O(1/μ)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2412.11307v1",
+          "material_read": "PDF pp. 4–6 assumptions, p. 9 current-iterate ω, pp. 11–13 Definition 2 and §3.1–3.2, p. 15 Lemma 3.6; offsets near 7400, 15700, 24427, 30705, 33800 and 47500",
+          "method": "Open original arXiv PDF; read targeted passages",
+          "title": "A preconditioned inexact infeasible quantum interior point method for linear optimization",
+          "trigger": "Exact preconditioner, data assumptions, and prior bound"
+        },
+        {
+          "assessment": "Foundational overlap verified through WYT; exact Section 6 comparison remains unresolved",
+          "evidence": [
+            "WYT says it adapts Chai–Toh and explicitly identifies a special-case relationship to Chai–Toh Lemma 4.1."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10589-006-9006-8",
+          "material_read": "Attribution and description in WYT §3.1, PDF pp. 10–11, offset near 27000; no Chai–Toh full-text passage independently retrieved",
+          "method": "Lawful DOI and publisher requests, identified CiteseerX alternate attempt, and targeted OA literature search; no usable full text",
+          "title": "Preconditioning and iterative solution of symmetric indefinite linear systems arising from interior point methods for linear programming",
+          "trigger": "Foundational preconditioner and plausible older rank-dependent asymptotics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem explains exactly which strictly complementary LP limits saturate the specified preconditioner's prior worst-case bound. A verifiable geometric diagnostic, rank of the positive support, predicts whether conditioning tends to one or diverges, and the weighted projected Gram matrix gives a usable coefficient in the divergent case. The witness shows this is not an artifact of a misidentified partition or of unbounded integer data. This is narrowly useful for the specified linear-system stage, not a lower bound for quantum algorithms or arbitrary preconditioners.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

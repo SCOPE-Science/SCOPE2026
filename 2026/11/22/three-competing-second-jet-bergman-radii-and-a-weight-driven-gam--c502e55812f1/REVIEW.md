@@ -1,20 +1,21 @@
-# Self-review: Three competing second-jet Bergman radii and a weight-driven Gamma peak reversal
+# Independent mathematical audit
 
-## Correctness — PASS
-The automorphism unitary identifies the same-site second-jet representer space with the first three Taylor modes. Its exact expansion gives the three-term captured-norm expression, and an exact derivative factorization produces a shifted-Jacobi quadratic and cubic. The Christoffel endpoint transformation strictly interlaces their roots for all \(n\ge3\), \(\beta>1\), yielding exactly three maxima and two minima. Fixed-weight Jacobi-to-Laguerre convergence proves the sharp Gamma boundary law at all three possible optimizers. The \(\beta=2\) ranking is certified by rational root/exponential intervals; the large-\(\beta\) Hermite limit proves the opposite central-peak preference. This forces at least one crossover without alleging uniqueness. The independent three-by-three Gram calculation and the exact derivative identity were tested by the included standard-library checker (98 assertions). These finite tests are diagnostics, not infinite proofs.
+## correctness
 
-## Originality — PASS, best knowledge
-The 2019 Qu–Dang adaptive Bergman approximation paper supplies a motivating precursor; only its publisher abstract and metadata were accessible, so a worked-example priority risk remains. The full arXiv Qu–Qian–Deng 2020 text establishes generic multiple-kernel approximation existence rather than this explicit second-jet radial landscape, and the full 2021 Escudero–Haimi–Romero paper treats weighted Fock sampling density. A previously known Bergman value-plus-first-derivative theorem has only two local maxima. A published Gaussian Fock all-jet theorem gives a bulk Hermite scaling, whereas the present disk-Bergman theorem gives a boundary Gamma profile and a weight-dependent winning-peak reversal. DLMF/Gaussian-quadrature tables account for polynomial identities but were not found to give the claimed peak preference or transition. Classical Christoffel-function coverage remains a residual historical risk; negative queries are not proof of global novelty.
+PASS
 
-## Value — PASS
-The measurement consists of a natural and minimal same-site three-jet: value, first derivative, second derivative. Resolving all possible exact best radii for arbitrary degree and positive disk weight is mathematically substantive. The counterintuitive switch of the best high-degree sampling shell as weight varies is a new qualitative geometric boundary, not a small numerical optimization gain. It may guide constrained derivative-sampling placement. Scope is limited to monomial targets and a single sampling site.
+The disk involution and its reproducing-kernel cocycle give the weighted unitary; the order-three vanishing ideal at r is mapped to the one at zero, so the entire jet span maps to the first three orthogonal Taylor modes. Expanding (r−z)^n(1−rz)^{−(n+β)} gives exactly Q_j/j! times r^{n−j}; the monomial norms j!/(β)_j yield the displayed capture. A fresh symbolic calculation checks the full polynomial derivative identity for symbolic n and β, not just substituted integers. The Jacobi weights for Q_3 and Q_2 are v=x^{n−3}(1−x)^{β−1} and xv respectively. If S_2,S_3 are monic for v, then x times the monic quadratic for xv is S_3−[S_3(0)/S_2(0)]S_2. Evaluated at the three roots of S_3, its signs alternate by ordinary interlacing, so the two intervening roots are strict. The derivative is positive near zero and changes sign at each zero, giving exactly three interior peaks and two interior minima. The x=0 endpoint has capture zero (an endpoint minimum); the excluded x=1 endpoint has limit zero. Coefficient convergence under x=1−t/n and the gamma-ratio normalization give the locally uniform boundary limit; all possible global maximizers lie among the three Q_3 roots, which individually rescale to the three distinct Laguerre roots. A fresh exact rational certificate bisected the three β=2 root brackets and bounded exp(t) by a positive series and geometric remainder, reproducing the three stated disjoint height intervals. The replay /workspace/branches/replay_5.py checks these and both polynomial scalings. At large β the cubic in (t−β)/sqrt(β), after division by β^(3/2), tends to 3y−y³, and Stirling gives the stated Gaussian-polynomial heights. The central height wins strictly since e^(3/2)>4. Three continuous peak-value branches must share a global maximum somewhere when the unique winning index changes; the same strict endpoint rankings hold for all large n, giving the claimed finite-degree tie too. No uniqueness of the switch is proved or assumed.
 
-## Closest literature and limitations
-- Qu–Dang (2019), DOI:10.1002/mma.5648: abstract available, full article inaccessible.
-- Qu–Qian–Deng (2020), arXiv:2006.03290: full mathematical HTML checked; existence rather than sharp radial optimality.
-- Escudero–Haimi–Romero (2021), DOI:10.1007/s11785-020-01065-4: open-access full text; Fock sampling densities.
-- Classical Jacobi and Laguerre results: standard orthogonality/interlacing and fixed-degree scaling, without a sourced equivalence for this global weighted Gamma switch.
+## originality
 
-The theorem does not claim a unique crossing weight or a globally optimal unconstrained multi-site approximation. The comparison with inaccessible historical full texts is best-knowledge only. Verification is internal to the stated proof and accompanying checker.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The distinct claim is the second-jet weighted disk radial classification and, especially, the weight-driven change in the global winning Gamma peak, not the general use of repeated kernels or of classical polynomial scaling. The close first-jet result and the earlier Fock three-peak analogue are credited explicitly. Inaccessible primary text is a bounded residual risk, not an affirmative priority claim.
+
+## value
+
+PASS
+
+For the natural one-site second-order measurement, the result reduces an unrestricted radial optimization to exactly three computable candidates for all n≥3 and all standard positive Bergman weights. The change of the maximizing asymptotic root, and its finite-degree consequence, explain why a single persistent choice of sampling shell cannot solve this problem. That structural switch is stronger than adding one Taylor coefficient or improving a single numerical example. The claim is restricted to the monomial and the same-site jet.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

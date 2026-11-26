@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:45:46.533916Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Expanding gives |z²−s²|²=(x²+y²−s²)²+4s²y². If s²≤1/2 and y²≥1−s², then y²≥s², so minimizing the first square over x gives at least (y²+s²)²≥1 overall. Equality at the top latitude requires x=0, even at the junction. For s²≥1/2 the second term alone bounds the height by r=1/(2s); equality requires x²=s²−r². Any disk attaining the strip bound must have real center, and its top point lies in the closed sublevel set, fixing all possible centers. The centered branch attains its bound by the triangle inequality. On the other branch take c²=s²−r²: the boundary modulus squared is 4r²(c²+r² sin² t)≤1, and strict interior inclusion follows by maximum modulus. At s=0 this gives the unit disk; at s=1/sqrt(2) the two formulas coincide, and the pinched s=1 and disjoint regimes cause no new cases. The derivative of c² at the junction is 2sqrt(2), giving the claimed onset. Rigid normalization of a monic quadratic preserves radii (with no rotation needed for coincident roots); strict decrease with separation gives the sharp unit-root bound and exactly the antipodal equality case. Read the rational checker and recorded run notes without executing the frozen code; the continuum proof is decisive.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.1 gives lim n R_n=π/2 as n→∞ and explicitly states the caveat about finite degrees.",
+          "The later Cassini normal-multiplicity phase diagram 4e7a1d5960f0 concerns Gauss-map multiplicities, not largest contained circles."
+        ],
+        "reasoning": "The asymptotic degree theorem does not give the sharp finite-degree-two lower bound or its equality case. Normal multiplicity does not fix distances to a maximal disk center.",
+        "searches": [
+          "Geng–Qiu arXiv:2609.06461v1, Theorem 1.1 and finite-degree caveat",
+          "Resultary finite-degree roots-of-unity inradius and Cassini phase diagrams"
+        ]
+      },
+      "checked_sources": [
+        "Rabinowitz 2025, Theorem 33",
+        "Resultary c99a919f0262 and 4e7a1d5960f0",
+        "Geng–Qiu arXiv:2609.06461v1",
+        "Cassini Ovals (MathWorld, equation and shape background)",
+        "Grabusts DOI 10.3390/sym16030334 (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Rabinowitz constructs a doubly tangent auxiliary circle for a parallel tangent with two contacts; the statement makes no containment claim and does not cover the low branch with one top contact.",
+          "The roots-of-unity theorem is a model calculation. It supplies an upper bound for the universal quadratic minimum by an example, not the required lower bound for every other separation."
+        ],
+        "reasoning": "The exact radius theorem, unique-center/two-center classification and quadratic equality rigidity require the additional containment and strip-equality arguments; the older model and tangency conclusions are not stronger general theorems yielding them by substitution.",
+        "searches": [
+          "Rabinowitz Theorem 33, printed p. 340; Resultary c99a919f0262, Finding and proof; compare all separation regimes and unit-disk extremum"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Cassini focal product |z−s||z+s| equals |z²−s²|; fixing the product level to one by similarity makes the compared geometry exactly the same.",
+          "At s>1/sqrt(2), taking the point P on the focal diameter circle to be the upper contact (c,H) in Rabinowitz Theorem 33 gives the same candidate circle: the horizontal chord has projected endpoints c±H."
+        ],
+        "reasoning": "The prior construction is genuine mathematical overlap, not merely a shared name or threshold. Double tangency alone does not guarantee containment or optimality; the universal strip certificate and strict disk inclusion establish both here.",
+        "searches": [
+          "Cassini oval largest inscribed circle / quadratic polynomial lemniscate inradius with arbitrary root separation",
+          "Rabinowitz, Geometric Properties of a Cassini Oval, Theorem 33 and standard Cassini normalization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 11 model's n=2 formula evaluates to H_2=1/2, with displayed disk centers ±sqrt(3)/2, matching exactly at s=1.",
+          "Its text explicitly does not claim uniqueness of maximizing centers."
+        ],
+        "reasoning": "A match to the model's exact value and both displayed disks is credited, not claimed as new. It is not a match to the whole separation-dependent formula or to the necessity of those centers over all candidates.",
+        "searches": [
+          "Resultary inradius and center formulas for Cassini ovals / z^n−1; exact model c99a919f0262"
+        ]
+      },
+      "rationale": "Qualified to the complete unrestricted inradius and maximizing-center theorem and its arbitrary-quadratic extremal consequence. Prior work already has the antipodal model radius and displayed maximizing disks, the classical convexity threshold, and a Cassini double-tangent construction that includes the high-branch candidate. The retrieved statements do not supply the entire two-branch profile, strict containment and exhaustion of all optimal centers, or sharp minimization among all unit-disk quadratics.",
+      "residual_risks": [
+        "Older equivalent largest-circle geometry and the unobtained 2024 article remain historical-priority risks. The broad priority question is not decided by a limited search. The overlapping tangent construction and antipodal model are positively identified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Coincident high-branch candidate; tangent-circle statement does not give full inball result",
+          "evidence": "The circle with diameter the projections of chord AB onto FG is doubly tangent. For P=(c,H), this is the high-branch maximizing candidate.",
+          "identifier_or_url": "https://www.journal-1.eu/2025/65.%20Stanley%20Rabinowitz.%20Geometric%20Properties%20of%20a%20Cassini%20Oval,%20pp.%20325-348..pdf",
+          "material_read": "Theorem 33 and Figure 33, printed p. 340 (offset 18790), and reference [9] on printed p. 347",
+          "method": "OA PDF passage inspection and explicit substitution into the construction",
+          "title": "Geometric Properties of a Cassini Oval",
+          "trigger": "Same geometry and exact plausible incircle construction"
+        },
+        {
+          "assessment": "Exact endpoint radius and displayed disks covered",
+          "evidence": "α_2=π/6, q_2=1, H_2=1/2; rotating q_2 cos α_2 by both roots gives ±sqrt(3)/2. No uniqueness asserted.",
+          "identifier_or_url": "c99a919f0262",
+          "material_read": "Mirrored RESULT.md Finding and proof near offsets 0 and 4000",
+          "method": "Resultary search, local mirror passage read and n=2 substitution",
+          "title": "Exact finite-degree inradius of the roots-of-unity lemniscate",
+          "trigger": "Prior exact model includes s=1"
+        },
+        {
+          "assessment": "Asymptotic coverage, not finite-degree optimizer rigidity",
+          "evidence": "Universal (π/2−ε)/n lower bound only above a degree threshold.",
+          "identifier_or_url": "https://arxiv.org/html/2609.06461v1",
+          "material_read": "Theorem 1.1 and ensuing scope caveat (offset 3591)",
+          "method": "OA HTML literal locate and bounded passage read",
+          "title": "From log 2 to π/2: the sharp asymptotic inradius of polynomial lemniscates",
+          "trigger": "General extremal polynomial inradius theorem"
+        },
+        {
+          "assessment": "Unresolved source, not evidence of noncoverage",
+          "evidence": "Access did not supply an inspectable mathematically decisive passage.",
+          "identifier_or_url": "https://doi.org/10.3390/sym16030334",
+          "material_read": "Title/abstract and journal landing material only",
+          "method": "OA direct/VPN routes for article and PDF endpoints; full text not obtained",
+          "title": "Applications of the Symmetrical Structures of Cassini Ovals",
+          "trigger": "Plausible related Cassini geometry literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Largest contained disks are a natural sharp invariant of the full Cassini family, and the center classification is stronger than a radius or a tangent-circle construction. The exact bifurcation and rigidity hold over connected, pinched, and disconnected shapes and settle the unrestricted quadratic unit-root minimum with equality classification. This gives a precise finite-degree benchmark without claiming a higher-degree theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

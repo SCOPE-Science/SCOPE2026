@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The affine-coordinate forward adjoint applied to uniform density is exactly \(-\lambda\mathbf1^{\mathsf T}Ax-\gamma\binom d2\). For positive selection this is constant precisely when \(A\mathbf1=0\). Zero boundary-normal drift and covariance permit the killed forward identity; uniqueness of the stopped Wright–Fisher transition evolution identifies the exact quasi-stationary law. The positive product eigenfunction yields the invariant density of the Doob transform. Exact-fraction finite checks corroborate necessary algebra, not the universal assertion.
+PASS
 
-## Originality — PASS against inspected evidence
+The affine divergence of the selection drift is λ 1ᵀAx and the covariance double divergence is −γd(d−1); thus L*1=−γ binom(d,2)−λ 1ᵀAx. Necessity follows by interior compactly supported tests: the linear term must be constant, is zero at the barycenter, and vanishes at all vertices, giving A1=0 because λ>0. For sufficiency one can avoid a killed-generator core assumption: in the regular case h=∏x_i satisfies Lh=−αh with α=γ binom(d,2) and h=0 at the first boundary. Stopped Itô and boundedness on finite time intervals give P_t^k h=e^(−αt)h and hence a conservative h-transform. Its neutral drift γ(1−dx_i) is (2h)⁻¹∑_j ∂_j(h a_ij) in affine coordinates. The remaining drift b satisfies div(hb)=0 by the divergence identity and b·∇h=0. Boundary flux in the stationary integration by parts vanishes. This gives stationarity of hν for the transformed process by the well-posed compact-simplex martingale problem and invariant-measure criterion (neutral positive mutation plus a bounded Girsanov drift b=a(λ Ax/γ)). Undoing the transform with nonnegative f/h establishes the killed eigenmeasure identity for every measurable set, with no issue of unbounded f/h by monotone convergence. The invariant law after normalization is Dirichlet(2,…,2).
 
-The motivating tournament Wright–Fisher paper sets up the exact diffusion and develops Bernstein duality, without the inspected uniform quasi-stationary theorem. The neutral two-allele precedent does not imply uniform survival under nonzero cyclic selection in odd dimensions. A general multitype polynomial-drift duality is broader as a *duality framework* but is not evidence of the sharp uniform quasi-stationary classification. Searches of relevant mathematical records and accessible claims did not identify the same assertion. This is not a proof of global historical novelty; an uninspected older general spectral treatment remains a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-First species loss is a natural quantitative coexistence observable. The theorem characterizes exactly which nonreversible tournament interactions preserve uniform conditional coexistence, supplies an exact selection-independent exponential extinction law in every admissible dimension, and identifies a stationary conditioned diffusion with an explicit Dirichlet law. It is not a direct neutral-diffusion restatement.
+On the strength of the bounded comparison, the supported distinct result is the iff classification of uniform first-boundary quasi-stationarity for positive tournament selection, and its exact law in the regular case. The tournament generator, neutral laws, general adjoint methods and the Doob transform construction are not original here.
 
-## Scope and risks
+## value
 
-Selection must be positive for the converse. Uniform initial composition and first boundary absorption are essential. Other quasi-stationary laws, their uniqueness, and arbitrary-start attraction are not addressed. Published prior work on general conditioning might contain overlapping special cases not located in the inspected evidence.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result gives a checkable structural criterion for an exact first-species-loss law despite nonzero circulating selection. It distinguishes QSD of a killed law from deterministic coexistence and from stationarity of the conditioned diffusion, and gives the converse rather than only a construction of examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

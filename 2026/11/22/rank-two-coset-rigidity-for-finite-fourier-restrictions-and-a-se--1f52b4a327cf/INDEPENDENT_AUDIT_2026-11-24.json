@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:54:27.846417Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–61, VERIFICATION.md lines 19–25, CHECK.py and CHECK_OUTPUT.txt (inspected, not executed)",
+        "Independent exact replay: python3 /workspace/branches/reproduce.py 5; output /workspace/branches/reproduction.txt"
+      ],
+      "rationale": "In rank two choose independent unit-modulus rows u,v and write z_j=v_j/u_j. At most two ratio values imply at most two projective column classes, since each column is scaled from the evaluation of every row's two coefficients at that ratio. If at least three distinct values occur, every linear combination αu+βv that is an actual row must satisfy a constant real affine functional on at least three points of the unit circle; a nonconstant one has at most two. Hence αβ=0, giving at most two row classes. Rank one, including one-row or one-column shapes, has one class. Conversely at most two proportional classes in either direction bound the rank by two. For Fourier rows, proportionality means χ(r−s) is independent of χ∈C, exactly the H_C relation; the column condition is its K_R dual. This establishes the capped rank identity, not an exact rank above two. For 3p and four distinct indices no four-set lies in one mod-p fiber (capacity 3). Its differences generate the p-coordinate, and also the 3-coordinate unless the set is pure mod 3. Therefore H_C is trivial or the order-three subgroup, and likewise dually. Rank two means exactly one mod-3-pure side, opposite a set on two mod-p fibers; rank one is impossible. The two roles are disjoint because a mod-3-pure four-set has four distinct mod-p residues. The counts 3 binom(p,4) and (3+9+3) binom(p,2), multiplied by two, give the exact incidence law. The independent replay used exact cyclotomic determinants, not finite-field ranks, for all 3,969 nonempty rectangles at order six and affine-orbit weighted four-set pairs at orders 15 and 21, obtaining 4,500 and 66,150 rank-two pairs and no rank-one pairs at the latter two orders.",
+      "residual_risks": [
+        "For the frozen two-prime certificate the norm bound establishes that the maximum of the specialized ranks is the complex rank, not that each prime alone must preserve it. The code checks equality of the two ranks for its 1,089 representative pairs before reporting the data. Under independent row/column affine changes, the scalings produce both nonzero phases and a cyclotomic Galois automorphism; these preserve whether each complex minor vanishes. Finite tests corroborate only the stated moduli; the proof supplies the universal quantifiers."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The reported prime-order result gives full spark, and Meshulam gives a support-size inequality in adjacent divisor scales rather than rank of fixed submatrices. The frozen comparison of Krahmer–Pfander–Rashkov §3 reports selected exact rank tables and constructions of vanishing minors.",
+          "The 2008 Delvaux–Van Barel paper reportedly gives subgroup-based constructions and prime-power maximal defect; the 2007 abstract reports maximal deficient blocks constructed using subgroup rank-one tiles. The full 2007 article was not recovered. The inspected available statements do not assert a rank-at-most-two necessity for arbitrary rectangular restrictions."
+        ],
+        "reasoning": "Constructions of deficient submatrices or bounds on attainable defect/support do not characterize every fixed submatrix. The missing Kronecker-product article remains a plausible stronger match; scope is not inferred from its inaccessible portions.",
+        "searches": [
+          "arXiv:math/0611493, Section 3; arXiv:math/0308286; arXiv:math/0312407",
+          "Delvaux–Van Barel DOI 10.1016/j.laa.2008.04.043 and DOI 10.1016/j.laa.2007.05.009; exact low-rank Fourier and Kronecker submatrix classifications"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0290eba11adf, 6a97dfb3d140, 6d1752cd1bea, 9f007d7c322e (catalog statements)",
+        "Frozen cited reports on arXiv:math/0611493, arXiv:math/0308286, arXiv:math/0312407 and the two Delvaux–Van Barel papers; attempted targeted primary retrieval"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For independent rows u,v with three distinct ratios, choose those three columns and add any third row w. No columns of this 3×3 are proportional, already on u,v; these two rows are independent on the three columns. If the older lemma forces two proportional rows, w must be proportional there to u or v. The uniqueness of its two coefficients on any two different ratios extends this proportionality to every column. If there are fewer ratios the two-column-class conclusion is immediate. This formally shows how a verified older proportional-pair lemma would cover the arbitrary rectangle, with the Fourier criterion following by substituting the annihilator class counts.",
+          "An exact earlier 3×3 proportionality criterion just on Z_(3p) would suffice for the same argument on its rectangles and would make the larger-size occupancy count a short consequence. The earlier catalog descriptions give rank census and coincidence dependence without the exact general predicate needed for that implication; the frozen proof and later cited assessments acknowledge a small lemma, but do not quote its older hypotheses and conclusion."
+        ],
+        "reasoning": "The implication risk is substantial and specific, not a mere topic overlap. Do not assert the structural mechanism new, or claim it cannot follow from an earlier lemma. On the available statements the older exact data and stated scopes do not demonstrate coverage of the reviewed uniform occurrence and count.",
+        "searches": [
+          "Resultary 0290eba11adf and 6a97dfb3d140; attempted local mirror query for proportional-row/column implications in their RESULT.md; separate primary search for the exact unit-modulus 3×3 lemma"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen proof's Fourier coset counts are exactly row and column projective class counts. The catalog for 0290eba11adf states a coordinate-coincidence classification for 3×3 at 3p; 6a97dfb3d140 has a size-three incidence law for distinct-prime products. The frozen work attributes a known 3×3 unit-modulus rigidity lemma to the earlier context, but its exact older statement is not quoted in the available catalog or freshly retrieved text.",
+          "The precise sufficient earlier lemma would be: every singular 3×3 matrix of unit-modulus entries has a proportional pair of rows or columns. If available for arbitrary such matrices, it is equivalent by the reduction below to the rectangular rank-at-most-two statement, not just an analogy."
+        ],
+        "reasoning": "Small size in a title is not a scope defense. This exact proportional-pair predicate, not a claim about third-order counts alone, is what controls the earlier implication. Fourier annihilator language does not itself make the matrix lemma new.",
+        "searches": [
+          "Resultary: exact rank spectrum of three-by-three Fourier minors on Z_(3p), proportional rows columns, unit-modulus singularity and coordinate coincidences 0290eba11adf",
+          "Resultary 6a97dfb3d140; primary literature query on rank-two unit-modulus matrices with proportional rows or columns"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "6d1752cd1bea reports exactly 4,500 rank-two four-set pairs and no rank-one pairs at order 15; this is the identical p=5 specialization and is already known. The third-order counts concern a different selection size. The 9f007d7c322e synopsis concerns determinant singularity incidence for four-set restrictions of the order-nine ternary plane, not rank-two incidence at 3p."
+        ],
+        "reasoning": "A complete existing table at one modulus defeats novelty for that finite case, but by itself does not imply the count and coset characterization at every prime. The N=21 checks support correctness and are not asserted as a separate novel census.",
+        "searches": [
+          "Resultary 6d1752cd1bea order-15 fourth-order rank census; 0290eba11adf and 6a97dfb3d140 third-order censuses; 9f007d7c322e ternary affine plane fourth-order incidence"
+        ]
+      },
+      "rationale": "Credit the earlier exact order-15 census and earlier 3×3 incidence theorems. The supported contribution is the explicit finite-abelian all-rectangle coset criterion together with the exact occurrence classification and all-p 4×4 incidence formula. Do not credit the three-point unit-modulus obstruction as independently new. The known-three-point-lemma attribution is a material overlap risk, since the precise general 3×3 proportional-pair formulation would already imply the rectangular structural step. The available earlier statements establish size-three Fourier results and the single-modulus size-four census; they do not verify that decisive earlier formulation or the full all-p size-four implication.",
+      "residual_risks": [
+        "The exact older 3×3 lemma is decisive for priority of the structural step; a full proportional-pair formulation would make the rectangular generalization immediate and materially narrow the independent contribution. The frozen audit's reasoning that size three alone prevents the implication is not valid.",
+        "The full 2007 Kronecker-product text remains a specific residual risk. Neither failed retrieval nor the absence of a matching search result is treated as historical evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MATERIAL_THIRD_ORDER_OVERLAP_AND_UNRESOLVED_LEMMA_SCOPE",
+          "evidence": [
+            "The synopsis says coordinate coincidences determine third-order ranks for every p≥5. The exact proportional-pair assertion is not exposed by the synopsis."
+          ],
+          "identifier_or_url": "Resultary:0290eba11adf",
+          "material_read": "Local catalog statement of 3×3 diagonal rank incidence; frozen RESULT.md line 66 and AUDIT.json passage reports; exact older lemma not retrieved",
+          "method": "Local Resultary and identified mirror retrieval attempt, followed by mathematical local-to-global comparison",
+          "title": "Exact rank spectrum of three-by-three Fourier minors on Z_(3p)",
+          "trigger": "Older same-family theorem with closely related proportionality obstruction"
+        },
+        {
+          "assessment": "PRIOR_THIRD_ORDER_THEOREM; MECHANISM_OVERLAP_RISK",
+          "evidence": [
+            "The reported lemma is close enough to require a bounded implication test; no full earlier lemma wording independently verified."
+          ],
+          "identifier_or_url": "Resultary:6a97dfb3d140",
+          "material_read": "Catalog summary and frozen AUDIT.json lines 139–148 reporting an explicit 3×3 rigidity lemma; identified mirror did not return passage",
+          "method": "Compare available size-three statement and test the explicit mathematical implication of the suspected stronger lemma",
+          "title": "Complete third-order Fourier-minor rank incidence for distinct-prime cyclic products",
+          "trigger": "Same subject and possibly general 3×3 lemma"
+        },
+        {
+          "assessment": "COVERS_P5_EXACTLY",
+          "evidence": [
+            "The prior 4,500 rank-two pairs and absence of rank-one pairs at order 15 match precisely."
+          ],
+          "identifier_or_url": "Resultary:6d1752cd1bea",
+          "material_read": "Catalog census statement; frozen AUDIT.json lines 128–137 reports text scope",
+          "method": "Compare rank, modulus and unordered row/column-set conventions and substitute p=5",
+          "title": "Complete rank-incidence census for four-frequency Fourier sampling on the cyclic group of order fifteen",
+          "trigger": "Exact match of the smallest modulus and selection size"
+        },
+        {
+          "assessment": "REPORTED_STATEMENTS_DO_NOT_ESTABLISH_COVERAGE; KRONECKER_FULL_TEXT_UNRESOLVED",
+          "evidence": [
+            "Subgroup-tiled maximal deficient blocks and prime-power Hamming bounds do not by themselves decide the rank-two threshold for every submatrix."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.laa.2007.05.009 ; https://doi.org/10.1016/j.laa.2008.04.043",
+          "material_read": "Frozen abstract and inspection reports, especially subgroup-based constructions and the 2008 Theorem 10; fresh full-text attempts did not return usable pages",
+          "method": "Compare reported sufficient constructions and maximal-defect scopes against the per-restriction necessary-and-sufficient condition",
+          "title": "Rank-deficient submatrices of Kronecker products of Fourier matrices; Rank-deficient submatrices of Fourier matrices",
+          "trigger": "Potential broader rectangular and composite-order low-rank theorems"
+        },
+        {
+          "assessment": "PRIOR_RELATED_RANK_DATA; FRESH_TEXT_COMPARISON_INCOMPLETE",
+          "evidence": [
+            "Reported order-five and order-six rank data and subgroup-induced vanishing minors are not claimed here as new."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0611493",
+          "material_read": "Frozen RESULT.md line 64 and AUDIT.json lines 95–104 report Section 3, Table 1 and Proposition 3.6; fresh primary lookup incomplete",
+          "method": "Compare the reported finite tables and vanishing-minor claims with the general threshold theorem",
+          "title": "Uncertainty in time–frequency representations on finite Abelian groups and applications",
+          "trigger": "Earlier finite-abelian subgroup structure and rank tables"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–28, 35–56; independent proof and exact cyclotomic checks"
+      ],
+      "rationale": "The rank-two cutoff is a natural identifiability threshold for restrictions of a character table. The coset criterion replaces determinant searches by a direct structural test, and the 3p result gives the complete rank-two occurrence set and precise four-channel incidence over an infinite family, not merely a known small-modulus table or a singularity total that conflates defects. Value is assigned to this exact criterion and incidence, not to the elementary unit-circle observation by itself.",
+      "residual_risks": [
+        "No rank classification above two, singular-value bounds, or separate novelty for the p=5 example is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

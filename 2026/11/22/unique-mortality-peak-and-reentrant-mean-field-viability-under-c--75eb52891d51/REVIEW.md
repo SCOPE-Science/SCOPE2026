@@ -1,15 +1,21 @@
-# Review — clipped-Gaussian mortality and mean-field reentrance
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact expected mortality is defined for all positive noise intensities, and its derivative is decomposed into positive near-center and negative tail integrals. Their ratio increases strictly with noise intensity because the two supports are separated; its limits are zero and infinity. This establishes one and only one strict maximum. Dominated convergence proves the half-floor limit. The pure-defector mean-field velocity threshold is derived algebraically from the previously defined occupancy closure, while the rational witness proves two distinct crossings using an exact conditional-Jensen and normal-tail bound. `check_reentrant.py` reproduces the rational certificate; its optional quadrature merely estimates the two roots. No claim about the lattice process is being substituted for its mean-field proxy.
+## correctness
 
-## Originality — PASS, literature-bounded
-Kim, Son and Park (2026, arXiv:2606.18660v1, fully inspected Sections II–IV) define Gaussian environmental quality clipped below at 0.01, and use a local second-order small-noise correction to mean-field death rates. Their analytic and plotted phases do not give the global one-peak theorem or a reentrant regime. Park, Hilbe, Nowak, Kim and Jeong (2023, J. Theor. Biol. 575, 111629, inspected methods and ecological mean-field threshold) treat constant quality rather than Gaussian noise. Earlier work by Van den Broeck et al. (1997) identifies reentrant noise-induced transitions in a different multiplicative-noise system; the general phenomenon is not asserted as new. Rectified-Gaussian theory supplies the distribution, not the full model-specific mortality/viability comparison. Related indexed ecological noise results concern different dynamics and do not imply this one. Broad prior art on clipped-normal nonlinear expectations and noise-induced mean-field transitions is an outstanding historical-priority risk.
+PASS
 
-## Value — PASS
-The source's positive quadratic noise correction is valid locally but cannot decide the large-noise behavior of the actual floor-clipped mortality kernel. The theorem rigorously specifies its complete response to noise intensity and predicts a genuine *reentrant mean-field growth sign* at explicit rational ecological parameters, including exactly two transitions. This quantifies a modeling boundary relevant to the source's choice to impose a positive quality floor. A qualitative phase change, not a small parameter refinement, is obtained. The ecological inference is intentionally limited to a formal mean-field proxy, not a stochastic survival probability or fixed post-clipping mean-quality comparison.
+The integrand is Lipschitz in sigma with an integrable bound proportional to |Z|; the moving clipping point is a Gaussian null event. Pairing Z and -Z separates D' into a positive integral on (0,A-epsilon) minus a negative contribution from (A-epsilon,infinity). As a function of inverse variance lambda=1/(2 sigma^2), the derivative of log(N/P) is the mean u^2 under P minus the mean under N and is strictly negative. For small sigma one may lower-bound P on any fixed compact subinterval strictly inside its support; this dominates the exponentially smaller negative tail. For large sigma, P is bounded while N diverges monotonically, since its unweighted integrand is asymptotic to 1/(tu). Thus the unique zero is strict. Dominated convergence gives the half-floor limit, and strict decrease after the maximum gives the zero-noise comparison including equality. The mean-field velocity has sign rho-d, whose sole zero is 2-sqrt(2); both endpoint signs and the intermediate opposite sign are certified. Independent rational Machin, alternating-series and Jensen bounds gave D(1)>0.59426664>0.59, and independent quadrature gave roots 0.1477881754700885 and 6.480171581268562. The two-root proof does not depend on numerical quadrature.
 
-## Scientific limitations and risks
-The Gaussian quality has an unbounded favorable tail and a fixed negative-shock floor. Changing noise strength changes the mean *after* clipping. Exact lattice growth, finite-time survival probabilities, correlations, and nonlinear cooperator–defector competition are not established. Independent historical-priority assessment and empirical relevance of extreme noise intensities remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the exact global peak and crossing classification of the floored reciprocal-Gaussian expectation, and its rigorous two-crossing application to a specified existing mean-field closure. The mortality rule, lower floor, closure, and the generic reentrance phenomenon are not new. The nearest inspected annealed-noise calculation is a local Taylor approximation; it does not give the exact tail or sign pattern at all intensities.
+
+## value
+
+PASS
+
+A small-noise expansion cannot answer what happens at large fluctuations or how many times the formal viability sign changes. The exact mortality theorem identifies when a return below the baseline exists, and the certified example shows an actual pair of distinct mean-field thresholds instead of relying on an extrapolated phase diagram. The value is in the provable model-level boundary, not an asserted biological or spatial survival consequence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

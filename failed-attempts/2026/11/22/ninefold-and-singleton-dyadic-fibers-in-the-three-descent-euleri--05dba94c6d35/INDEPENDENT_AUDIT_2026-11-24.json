@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:50:57.871995Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Steps 1–4; VERIFICATION.md and verify.py inspected, not run",
+        "Independent reproduction: python3 /workspace/reproduce.py 1 (integer Eulerian recurrence followed by reduction modulo 2^k for complete blocks at 1≤k≤7; reproduced low-level exceptions, singleton even-index supply, and exceptional residues)."
+      ],
+      "rationale": "Checked the fixed three-descent convention and the classical inclusion–exclusion formula. The terms involving 2^n or 4^n vanish at the stated threshold. For n=2t the divided cubic difference (1−4(t²+ts+s²))/3 is odd; the divided exponential difference is even since v₂(9^h−1)=3+v₂(h). This proves the exact even-index isometry. For n=2t+1, subtracting V(t+4h)−V(t) and dividing by −8h gives the first term in 8ℤ₂ by v₂((9^4)^h−1)=5+v₂(h), and the other two terms are 3 and 3 mod 4 (t(t+1) is even). The normalized odd-index divided difference therefore has v₂=1, proving the isometries after division by 16, with centers 10,0,10,0 mod 16. Continuity extends these congruences to ℤ₂. A full block has 2^k samples of each parity; at k≥4 each of four odd charts contributes four counts per residue in its ball, and the even branch contributes one to each residue. Projection from a modulus-16 period gives k≤3 after dividing by the number of smaller periods. The asserted shifts preserve both charts (for k=1 use V even; for k≥2 the shift in t is divisible by 4), and odd shifts are impossible since infinitely many even indices give odd residues. An even shift 2d requires 2^k dividing d by the isometry, which proves minimality. Densities follow by division by the period, giving the stated compatible Haar density.",
+      "residual_risks": [
+        "Finite checks are only corroborative. The starting threshold is sufficient, not asserted sharp; no higher descent column or odd prime is covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The lawful author-hosted 2015 manuscript treats valuations along sparse index classes; its Theorem 3.6 is relevant at p=2 but not an all-residue fiber theorem.",
+          "Cao–Pan and Fulman–Röllin sum or distribute descent indices at fixed permutation size; Krattenthaler–Müller treats powers of 3, including central Eulerian numbers."
+        ],
+        "reasoning": "Valuations on a progression do not determine nonzero residues across the full input domain, and modular distributions of the descent statistic at fixed n are not distributions of the fixed-column counts as n varies. These do not supply the exact same implication as the distinct Resultary record.",
+        "searches": [
+          "Focused literature searches for Eulerian fixed-column residues and p-adic congruences",
+          "Castro–González–Medina Theorem 3.6; Cao–Pan Theorem 1.1; Fulman–Röllin Theorem 2.1; Krattenthaler–Müller abstract"
+        ]
+      },
+      "checked_sources": [
+        "Resultary and OEIS comparisons above; primary manuscripts of Castro–González–Medina, Cao–Pan, Fulman–Röllin, and abstract of Krattenthaler–Müller arXiv:1308.2856."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the covering proof even input shifts at even n have difference valuation v₂(h)−1; odd-index shifts divisible by 8 have valuation v₂(h)+1. The odd charts lie in 0 and 10 mod 16.",
+          "The two-descent result gives uniformly two preimages for a different Eulerian column."
+        ],
+        "reasoning": "For k=2,3 the shift 2^(k+1) is divisible by 8, and the cited valuation identities give preservation on both parities. For k=1 the odd values are even, and the even valuation identity still applies. Odd shifts cannot be periods at any level since even input indices realize odd outputs arbitrarily late; smaller even shifts fail by the even valuation identity. Reduce the modulus-16 histogram over its 32-step block to modulus 2^k and divide by 32/2^(k+1) repetitions to get the stated low-level multiplicities. Dividing the high-level counts by the period is exactly the stated Haar density on cylinders. These are mechanical consequences of the actual matching proof, not additional independent results.",
+        "searches": [
+          "First nonuniform dyadic residue law: Finding and proof equations (2)–(3), local mirror offsets 0 and 2199",
+          "Uniform dyadic residues in the two-descent Eulerian column with sharp onset: local mirror Finding at offset 0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinct Resultary record explicitly defines A(n,3) using exactly three descents and gives 1+8·1_{y=0,10 mod 16} in every block of length 2^(k+1) starting at N≥k for k≥4.",
+          "Its proof uses the same polynomial–exponential expression and same parity charts, in different coordinates."
+        ],
+        "reasoning": "The sequence, index convention, exceptional residues, block condition and least period coincide, not merely a title or a superficially similar congruence.",
+        "searches": [
+          "Resultary: fixed three-descent Eulerian column, dyadic fiber laws and least periods",
+          "OEIS A000498, fixed Eulerian column (fourth column with one-based counting)",
+          "First nonuniform dyadic residue law, RESULT.md offsets 0 and 2199"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS supplies the sequence identification and classical exponential formula, not the all-level histogram in the inspected passages.",
+          "The distinct same-day Resultary record explicitly gives both exact multiplicities and least period for every k≥4."
+        ],
+        "reasoning": "This is a direct exact theorem match in the indexed corpus, distinct from matching an existing table of ordinary terms.",
+        "searches": [
+          "OEIS A000498, formula and description",
+          "Resultary: exact residue histograms and periods of the three-descent column"
+        ]
+      },
+      "rationale": "The distinct Resultary record First nonuniform dyadic residue law in the three-descent Eulerian column proves the identical k≥4 histogram from the identical onset, the least period and its densities. Its actual proof also gives the even-index isometry and four odd-index charts with the same two centers, from which the low-level formulas, sufficiency from n≥4, and Haar density follow mechanically. Thus the exact frozen Finding is covered in substance. The two records have the same date; this is not a claim about priority, dependence, or copying.",
+      "residual_risks": [
+        "No within-day UTC ordering is established. The cubic-binomial local mirror file was unavailable; the indexed summary alone cannot establish its whole scope, and is not used to decide coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING",
+          "evidence": "Exact k≥4 theorem and valuation formulas that mechanically yield the k=1,2,3 cases.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-first-nonuniform-dyadic-residue-law-in-the-three-descent-euleria--cb0dc10c3fea/RESULT.md",
+          "material_read": "Finding, assumptions, proof including equations (1)–(3) and period argument, offsets 0 and 2199",
+          "method": "Local mirror statement and proof comparison",
+          "title": "First nonuniform dyadic residue law in the three-descent Eulerian column",
+          "trigger": "Same sequence and exact same two exceptional fibers"
+        },
+        {
+          "assessment": "DIFFERENT COLUMN",
+          "evidence": "Exactly two occurrences per residue for two descents, not the three-descent histogram.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-uniform-dyadic-residues-in-the-two-descent-eulerian-column-with--0b100cd06a37/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror statement comparison",
+          "title": "Uniform dyadic residues in the two-descent Eulerian column with sharp onset",
+          "trigger": "Adjacent column and same least period"
+        },
+        {
+          "assessment": "RELATED VALUATION RESULT",
+          "evidence": "The p=2 specialization gives v₂(E_(2^(a+1)m−1))=v₂(m)+a+2 for a≥4 on a sparse progression, not complete residue frequencies.",
+          "identifier_or_url": "https://sites.oxy.edu/lengyel/originals/papers/hivatkozo/EulerianFinal.pdf",
+          "material_read": "Author-hosted PDF Theorem 3.6, pp. 8–9, OA offset 22681",
+          "method": "Lawful alternate manuscript and theorem comparison",
+          "title": "The p-adic Valuation of Eulerian Numbers: Trees and Bernoulli Numbers",
+          "trigger": "Frozen record flagged this 2015 paper, related prime and fixed column"
+        },
+        {
+          "assessment": "DOES NOT IMPLY THE FINDING",
+          "evidence": "Congruences sum across descent indices at fixed permutation size.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0608564",
+          "material_read": "Theorem 1.1, p. 3, OA offset 7800",
+          "method": "Primary passage comparison",
+          "title": "Congruences on Stirling numbers and Eulerian numbers",
+          "trigger": "Possible broader congruence theorem"
+        },
+        {
+          "assessment": "DIFFERENT DISTRIBUTION",
+          "evidence": "The modular statistic is the number of descents at fixed size, not a modular count of permutations with exactly three descents over varying sizes.",
+          "identifier_or_url": "https://arxiv.org/pdf/2603.21464",
+          "material_read": "Abstract and Theorem 2.1, offsets 254 and 6208",
+          "method": "Primary theorem comparison",
+          "title": "Stein’s Method and the Modular Behavior of Eulerian Numbers",
+          "trigger": "Recent modular Eulerian result"
+        },
+        {
+          "assessment": "CLASSICAL INPUT ONLY IN INSPECTED PASSAGES",
+          "evidence": "Same exponential formula, but not the evaluated period and fiber law in the inspected passages.",
+          "identifier_or_url": "https://oeis.org/A000498",
+          "material_read": "Sequence description and formula at HTML offsets 1240 and 4181",
+          "method": "Table and formula comparison",
+          "title": "Eulerian numbers, exactly three descents",
+          "trigger": "Exact sequence entry"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and parity-chart derivation; First nonuniform dyadic residue law, Finding and equations (2)–(3); two-descent fixed-column result"
+      ],
+      "rationale": "The nonuniform law is a mathematically motivated contrast with the uniform two-descent column. But the separate indexed first-nonuniform-law record establishes that same contrast, exact high-level fibers, minimal period and their chart mechanism. The low moduli and the Haar-density formulation in the frozen Finding are direct consequences of the same distribution and valuation formulas, not distinct useful unknown invariants. The submitted result adds no sharp onset or other substantive further boundary.",
+      "residual_risks": [
+        "The assessment concerns distinct mathematical contribution, not date order or authorship."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

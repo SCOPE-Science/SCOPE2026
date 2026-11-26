@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Finite and symbolic verification
 
-The proof supplies the unrestricted validity claim. The standalone `check.py` computes scattered-\(01\) subsequences of all rotations, without using the height formula to compute these counts, and enumerates all words for \(5\le n\le15\) at coprime interior weights. It verifies the cyclic spread lower bound, the missing value \(n\), exactly \(n\) words in each of the first two classes, correct class representatives, and both exact sets of scattered-pair counts. The actual run produced:
+# Independent mathematical audit
 
-`CYCLIC_2_BINOMIAL_SPREAD_PASS n_range=5..15 coprime_classes=44 full_words_checked=33122 rotations_checked=457898 extremal_necklaces_checked=88`
+## correctness
 
-For a general \(n\), the residue classes of the prefix-height walk prove the possible first two spread strata. The two modified steps in the runner-up construction are explicitly checked, and the exact counts follow by summing heights. This finite program neither proves exhaustive coverage beyond length fifteen nor certifies originality. No external independent audit has been conducted.
+PASS
+
+For fixed composition, moving the first bit to the end changes the scattered 01 count by nw_i−b, so the height profile gives the exact rotation spread. Coprimality makes all n height residues distinct. Rotating to the unique minimum normalizes it to 0. Range n−1 forces the standard residue choice and hence the upper mechanical (Christoffel) word; range n repeats residue zero at its endpoints and is impossible. Range n+1 forces precisely the lift 1→n+1. At the lift the predecessor has residue b+1 and the successor a+1; a,b≥2 ensures that the entering and exiting steps swap from −b,+a to +a,−b and all other steps are unchanged. Closure gives exactly b ones. The mean over all cuts is ab/2, by counting the sum of the one positions in the normalized representative; the lift increases the mean height by 1 and gives the asserted two holes. A shorter cyclic period would repeat the rotation counts, so both necklaces have n representatives. An independent direct count (branches/e3de86da-8de0-4e43-bbba-ede5e6e13768/independent_check.py and independent_check_full.txt) covered 44 parameter pairs, 33,122 words and 457,898 rotations through n=15, reproducing the spectra and 88 extremal necklaces. The uploaded checker was read, not executed; the height argument proves the unbounded claim.
+
+## originality
+
+PASS
+
+The supported distinct contribution is the forbidden spread and unique next rotation class, with its exact punctured spectrum and explicit representative. Rotation-count distinctness, Christoffel balance, and familiar minimum-class regularity overlap with existing work. The closest same-statistic variance result supports the minimum case, not the exact range gap or constrained lift for the next case. No earlier or separate covering statement for that addition was found in the bounded comparison.
+
+## value
+
+PASS
+
+For the natural scattered-pair statistic, the result identifies the entire first departure from the balanced necklace, not just a stability estimate or a small-case table. The discrete gap, uniqueness, and explicit change of two steps explain how the smallest attainable imbalance arises at every allowed composition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

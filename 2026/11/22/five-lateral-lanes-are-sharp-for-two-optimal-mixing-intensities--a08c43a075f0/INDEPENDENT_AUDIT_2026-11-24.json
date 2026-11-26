@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:44:54.162244Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§Finding, Assumptions, Proof 1–5 and Verification; VERIFICATION.md; verification/check_certificates.py (inspected, not executed)",
+        "Independent replay: python3 /workspace/independent-checks/lane_peaks.py; /workspace/independent-checks/results.txt"
+      ],
+      "rationale": "For the dimensionless time x=mT, the derivative of the fixed score is a sum of at most n−1 distinct real exponentials. The multiplicity-counting Rolle argument bounds its zeros by n−2 unless it vanishes identically; two strict interior maxima require an intervening derivative zero. For five lanes, independently computed exact rational bounds from the direct signed Taylor series of xQ (not the supplied uniformization checker) establish +,−,+,− at x=0,1/2,1,4 for both q endpoints, hence for all intermediate q. The three forced roots are simple and exhaust the zero budget. Bisecting in exact arithmetic and using contraction of the stochastic semigroup to bound the derivative gives late-minus-early peak gaps in (−0.102309,−0.102273) at 95 and (0.089833,0.089870) at 97, on the 100C scale. The lane-four probability derivative has a double zero at zero by shortest-path counting and is eventually positive by the first cosine mode (probability coefficient −√5/10). It is initially positive; a negative excursion would require two crossings and an isolated tangency would also use at least two multiplicities. Neither fits the one remaining zero, so p'(x)>0 for x>0. Smooth simple stationary branches therefore have a strictly increasing late-minus-early gap, by differentiation at stationarity. At the unique tie both heights exceed the initial value 42 and the limiting value (109+q)/5, and there are no other extrema that could compete.",
+      "residual_risks": [
+        "Proof is for a fixed terminal reward and equal adjacent rates on a reflecting finite path; not an ecological calibration or a result for variable conductances. The displayed numerical tie is illustrative, not used as a certificate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hartich–Godec p. 3 reconstructs first-passage statistics from relaxation spectral data; the inspected statement is not about mixed-habitat terminal scores.",
+          "Resultary ...b7682f792857, Finding: a discrete-time absorbing birth–death chain with geometric reset, twelve states and a minimum followed by a maximum of a splitting probability."
+        ],
+        "reasoning": "Standard spectral machinery explains the upper bound, but none of the inspected broader statements proves attainment in the conservative homogeneous path or the equal global tie. Reset probability and mixing clock enter different operators.",
+        "searches": [
+          "Primary literature lookup: reversible Markov chains with bimodal first-passage densities",
+          "OA Hartich–Godec arXiv:1802.10049; Kijima DOI 10.2307/3214095",
+          "Resultary: geometric-reset splitting extrema on birth–death chains"
+        ]
+      },
+      "checked_sources": [
+        "Three distinct Resultary comparison records above, inspected via local mirror; exact tuple search",
+        "Hartich–Godec arXiv:1802.10049 p. 3; bounded access attempt for Kijima DOI 10.2307/3214095"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Shared exponential zero counting yields a necessary mode bound. The first-passage witness is not a path and does not produce the path reward or tune the two heights; the norm and resetting statements change the optimization objective."
+        ],
+        "reasoning": "Even where the mode bound transfers, the explicit sharp witness and its uniquely calibrated global tie do not follow from those statements.",
+        "searches": [
+          "Statement-level comparison of Resultary ...38ac1ba31442, ...ecbe5ad031f6 and ...b7682f792857 with RESULT.md Proof 1–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 2026/10/25 ...38ac1ba31442, Finding and Minimality/Attainment: two modes of first-passage density, five states sharp; the witness contains a triangle.",
+          "Resultary 2026/11/02 ...ecbe5ad031f6, Finding and Proof 1: two maxima of a Lipschitz operator norm on a path with conductances 1,3,9; the optimizing edge switches."
+        ],
+        "reasoning": "A killed-chain hitting density and a maximized norm are not a single fixed linear endpoint reward of a conservative equal-rate path. A four-vertex norm envelope can have two peaks without contradicting the zero bound for a fixed score.",
+        "searches": [
+          "Resultary: reversible five-state chain with bimodal first-passage density; fixed terminal suitability on a reflecting path",
+          "Resultary: weighted four-vertex path heat-gradient transient amplification"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact numerical normalization and interval [95,97] led to the assigned record ...a08c43a075f0, Finding, not a distinct matching record."
+        ],
+        "reasoning": "The self-hit checks identity rather than prior coverage; the nearby first-passage, norm, and resetting records were compared explicitly.",
+        "searches": [
+          "Resultary query with fixed suitability tuple (42,44,23,q,0) and two equal maxima"
+        ]
+      },
+      "rationale": "The supported distinction is sharp attainability for one fixed terminal suitability on an equal-rate path, and a uniquely tuned pair of equal global optima. The generic exponential zero bound and the analogous five-state first-passage threshold are not the contribution. None of the strongest inspected statements gives this path/reward/tie conjunction.",
+      "residual_risks": [
+        "A primary search returned unrelated results and gives no negative evidence; Kijima full text not verified. Equivalent fixed-reward constructions outside the inspected literature remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related, not equivalent",
+          "evidence": "Non-path reversible witness with a triangle; first-passage-time density instead of one terminal path reward.",
+          "identifier_or_url": "2026/10/25/SCOPE-a-reversible-five-state-chain-with-a-bimodal-first-passage-densi--38ac1ba31442",
+          "material_read": "RESULT.md Finding, Assumptions and Proof—Minimality/Attainment (mirror offset 0)",
+          "method": "Resultary search and local mirror",
+          "title": "A reversible five-state chain with a bimodal first-passage density",
+          "trigger": "Same sharp five-state threshold and two modes"
+        },
+        {
+          "assessment": "Different functional and rates",
+          "evidence": "The sharp operator norm maximizes over inputs/edges, with edge switching and unequal rates.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-unique-heat-gradient-migration-and-two-transient-amplification--ecbe5ad031f6",
+          "material_read": "RESULT.md Finding, Assumptions and Proof 1 (mirror offset 0)",
+          "method": "Resultary search and local mirror",
+          "title": "A unique heat-gradient migration and two transient amplification peaks on a weighted four-vertex path",
+          "trigger": "Two peaks on a smaller path"
+        },
+        {
+          "assessment": "Distinct same-date claim, no order inferred",
+          "evidence": "Endpoint splitting, discrete-time geometric reset and a minimum plus a maximum, not two equal optima.",
+          "identifier_or_url": "2026/11/22/SCOPE-twelve-states-are-the-sharp-threshold-for-two-geometric-reset-sp--b7682f792857",
+          "material_read": "RESULT.md Finding (mirror offset 0)",
+          "method": "Resultary search and local mirror",
+          "title": "Twelve states are the sharp threshold for two geometric-reset splitting extrema",
+          "trigger": "Nearby sharp-state extrema theorem"
+        },
+        {
+          "assessment": "Related framework, no implication in inspected passage",
+          "evidence": "Obtains first-passage statistics from a relaxation eigensystem.",
+          "identifier_or_url": "https://arxiv.org/abs/1802.10049",
+          "material_read": "p. 3, spectral formalism (OA offset 7898)",
+          "method": "OA passage read",
+          "title": "Interlacing relaxation and first-passage phenomena in reversible discrete and continuous space Markovian dynamics",
+          "trigger": "Potential spectral first-passage transfer"
+        },
+        {
+          "assessment": "Unresolved access, not negative evidence",
+          "evidence": "No source theorem independently read to infer coverage or noncoverage.",
+          "identifier_or_url": "https://doi.org/10.2307/3214095",
+          "material_read": "No readable full text in bounded retrieval; the close Resultary record's relationship and limitations describe abstract-only access",
+          "method": "OA/DOI retrieval attempt",
+          "title": "Spectral structure of the first-passage-time densities for classes of Markov chains",
+          "trigger": "Possible broader first-passage results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and Assumptions; independent endpoint enclosures and root-count argument"
+      ],
+      "rationale": "The minimum number of lanes makes this a structural counterexample to unimodality rather than an arbitrarily tuned time trace. The equal-height construction goes further: a single smooth mixing control has two separated true global optima, not just competing local optima. This is useful as a benchmark for idealized transport optimization even without a field-calibrated interpretation.",
+      "residual_risks": [
+        "No prediction about realistic river controls, mortality or early settlement; sharpness is model-specific."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

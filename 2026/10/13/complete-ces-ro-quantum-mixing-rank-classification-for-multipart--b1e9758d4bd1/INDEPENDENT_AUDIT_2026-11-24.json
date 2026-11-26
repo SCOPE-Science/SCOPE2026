@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:03:20.079111Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The distinct-eigenvalue Cesàro expansion is a sum of positive semidefinite Schur squares, so the kernel is their common kernel. On normalized part indicators the adjacency quotient is ww^T-diag(n_i), with w_i=sqrt(n_i); it has no zero vector in its kernel (a zero-mode equation in part values gives S=rS). Thus the zero projector is exactly the direct sum of within-part zero-sum projectors, using the zero operator if the zero eigenspace is absent. On a part of size m its Schur square is (1-2/m)I+J/m^2, so for m>=2 it leaves only the m=2 contrast in the kernel. The -1 quotient equation is (n_i-1)a_i=S: with a singleton it forces S=0 and leaves exactly singleton contrasts, and without singletons division would require 1=sum_i n_i/(n_i-1)>1. The corresponding singleton block excludes all singleton directions for s>=3, leaves a single contrast for s=2, and is absent for s=1, where the positive Perron projector detects the lone singleton direction. Orthogonality makes every other projector have equal columns at the vertices of each proposed contrast, so squaring entrywise does not remove those null vectors. This proves exactly the claimed kernel and rank, including K2, all-singleton graphs, and repeated non-singleton sizes. The supplied numerical and rational checks were inspected, not executed; the unrestricted result follows from the checked algebra, not finite examples.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Resultary theorem gives full rank for blow-up factor m>=3 and rank n+|{u:(E0)uu>0}| for m=2, with a clone-pair kernel at zero diagonal entries of E0; choosing base Kr gives the full balanced overlap for m>=2.",
+          "Complete bipartite results for arbitrary observation-time sampling concern uniform mixing; the other blow-up source's stated objectives are state transfer and cospectrality."
+        ],
+        "reasoning": "The equal-fibre theorem is broader in base graph but narrower in the sizes; it does not yield systematic unequal-size or mixed-singleton coverage. Neither a change of observation-time scheme nor general rank bounds imply the claimed equality.",
+        "searches": [
+          "Resultary equal-fibre independent blow-up record e5f910afa943, RESULT.md",
+          "arXiv:1709.03591v1, §5",
+          "arXiv:2308.16378v1, §3.1 Proposition 9",
+          "arXiv:2308.13887v2, abstract"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary e5f910afa943, RESULT.md",
+        "arXiv:1103.2578v3",
+        "arXiv:1709.03591v1",
+        "arXiv:quant-ph/0509059",
+        "arXiv:2308.16378v1",
+        "arXiv:2308.13887v2 (abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The all-singleton family is immediately prior by the complete-graph calculation; the balanced non-singleton family is immediately prior by taking an invertible complete-graph base in the blow-up theorem.",
+          "The inspected general results give a positive semidefinite spectral sum or a commutant projection; they do not identify the zero and -1 support conditions and the surviving common-kernel directions for unequal sizes."
+        ],
+        "reasoning": "The exact arbitrary-size classification needs the exceptional eigenspace analysis and elimination of other directions. The known subfamily specializations and the general machinery do not themselves mechanically yield the full claim.",
+        "searches": [
+          "Godsil Lemma 1.1; Coutinho et al. Lemmas 2.1–2.3 and §§3–5; Resultary e5f910afa943"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Godsil gives the identical distinct-projector expression for the matrix; Coutinho et al. give its equivalent Gram/commutant interpretation, including its restriction to diagonal matrices.",
+          "Lo et al.'s average-uniformity result concerns limiting vertex probabilities, not kernel of the matrix for all starting vertices."
+        ],
+        "reasoning": "An exact mixing matrix or a diagonal-commutant nullspace characterization for arbitrary part sizes could answer the same question under different language; the inspected general descriptions and uniformity results do not give that family-specific characterization.",
+        "searches": [
+          "Resultary: multipartite Cesàro rank; spectral-projector/Schur-square characterization; trace/diagonal commutant",
+          "arXiv:1103.2578v3, §1 Lemma 1.1 and §2",
+          "arXiv:1709.03591v1, §§2–5",
+          "arXiv:quant-ph/0509059, Definition 1 and Corollary 10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest indexed hit is the equal-fibre record. The complete-graph formula (1-2/n)I+2J/n^2 gives rank n except rank one for K2."
+        ],
+        "reasoning": "These give exact known subfamily entries, but not an exact catalogue or formula over arbitrary positive part sizes. An isolated checked graph or small table cannot establish novelty of a family theorem or cover all its cases.",
+        "searches": [
+          "Resultary multipartite average-mixing rank and trace/diagonal-commutant queries",
+          "arXiv:1709.03591v1, complete-graph example and rank examples"
+        ]
+      },
+      "rationale": "Credit the existing equal-fibre blow-up formula and the published complete-graph calculation. The finding passes only as the unified result for arbitrary part sizes and the interaction of the size-two and singleton exceptions, not as novelty of those subfamilies or of the spectral-projector machinery. Bounded comparison did not substantiate coverage of this general claim.",
+      "residual_risks": [
+        "A broader or differently phrased exact theorem for nonuniform blow-ups, twin classes or equitable partitions could cover the unequal-size case; no such statement was established in this bounded review."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "direct balanced-subfamily overlap",
+          "evidence": "B_m(G) uses equal independent fibres; the two-fibre contrast at u survives exactly when (E0)uu=0. Base Kr is invertible for r>=2.",
+          "identifier_or_url": "2026/10/12/SCOPE-spectral-gap-and-exact-quantum-average-mixing-rank-for-graph-blo--e5f910afa943",
+          "material_read": "RESULT.md rank and kernel statement, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "local Resultary mirror",
+          "title": "Spectral gap and exact quantum average mixing rank for graph blow-ups",
+          "trigger": "strongest indexed structural and exact-rank match"
+        },
+        {
+          "assessment": "same matrix, general machinery",
+          "evidence": "Cesàro average equals sum of Schur squares of distinct adjacency spectral projectors.",
+          "identifier_or_url": "https://arxiv.org/abs/1103.2578v3",
+          "material_read": "§1 Lemma 1.1 near text offset 2800 and §2 positivity",
+          "method": "lawful open full-text passage inspection",
+          "title": "Average Mixing of Continuous Quantum Walks",
+          "trigger": "original average-mixing theorem"
+        },
+        {
+          "assessment": "equivalent framework and exact complete-graph subcase",
+          "evidence": "The projection is M -> sum E_lambda M E_lambda. The complete-graph matrix is (1-2/n)I+2J/n^2.",
+          "identifier_or_url": "https://arxiv.org/abs/1709.03591v1",
+          "material_read": "§2 Lemmas 2.1–2.3 near text offset 5000, complete-graph example near offset 4200, §§3–5 diagonal restriction and rank results",
+          "method": "lawful open full-text passage inspection",
+          "title": "A New Perspective on the Average Mixing Matrix",
+          "trigger": "general rank and diagonal-projection statements and examples"
+        },
+        {
+          "assessment": "different invariant",
+          "evidence": "The definition in use tests asymptotic vertex-probability uniformity, not rank.",
+          "identifier_or_url": "https://arxiv.org/abs/quant-ph/0509059",
+          "material_read": "Definition 1, PDF p. 4, text offset 14466; Corollary 10, PDF p. 8, offset 27800",
+          "method": "lawful open full-text passage inspection",
+          "title": "Mixing of Quantum Walk on Circulant Bunkbeds",
+          "trigger": "balanced complete multipartite quantum average mixing"
+        },
+        {
+          "assessment": "different invariant and time averaging scope",
+          "evidence": "The proposition concerns uniform mixing under arbitrary observation-time sampling.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.16378v1",
+          "material_read": "§3.1 Proposition 9 near text offset 17000",
+          "method": "lawful open full-text passage inspection",
+          "title": "Unexpected Averages of Mixing Matrices",
+          "trigger": "complete bipartite average-mixing example"
+        },
+        {
+          "assessment": "scope indication only, not whole-document exclusion",
+          "evidence": "Stated focus is state transfer and cospectrality in equal-fibre blow-ups.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.13887v2",
+          "material_read": "abstract at text offset 0",
+          "method": "lawful open abstract inspection",
+          "title": "Quantum walks on blow-up graphs",
+          "trigger": "possible broader blow-up theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The complete multipartite family is a standard uneven blow-up family in which symmetry alone leaves several possible null directions. The uniform kernel tells exactly which initial-vertex distinctions are lost by averaging, exhibits two different twin mechanisms, and gives a sharp positive-definiteness criterion even with mixed part sizes. This is useful beyond the balanced and complete cases and is not just a recomputation of those ranks.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

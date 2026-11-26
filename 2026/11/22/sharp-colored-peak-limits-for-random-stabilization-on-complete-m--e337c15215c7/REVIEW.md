@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The result is conditional on the reconstructed published random-priority reduction in the 2026 initiating paper. The joint tails follow by uniform injection of priority prefixes across initial colors; direct exhaustive permutation/color enumeration confirms nine cases and 189 threshold comparisons. Four direct process-state enumerations independently test the cited reduction. The total-variation coupling is valid because a without-replacement uniform permutation can be coupled to independent replacement draws until the first repeated identity. The stopping-time collision bound and explicit geometric second moments give the stated uniform rate. A single-color marginal event within the \(k\ge2\) model proves the inverse-order rate is sharp, and the stated lower bound is an exact rational inequality. Finite experiments do not prove the infinite assertion; the proof is analytic and combinatorial.
+## correctness
 
-**Originality — PASS, subject to historical risk.** The 2026 initiating paper already contains its basic random-priority representation and the bipartite Erdős–Rényi limit, including the complete-bipartite boundary. The 2019 peak-counting paper gives monochrome peak-set enumerations, and the related Cholesky first-run result describes an uncolored ordering statistic. These are expressly not claimed as new. The specific joint initial-color tail formula for at least three graph parts and the quantitative \(N^{-1}\) total-variation coupling are not entailed by the inspected statements as stated, and neither was found in the accessible research records. Full text of one nearby repository result was unavailable; this leaves a historical priority risk and does not establish a global novelty guarantee.
+PASS
 
-**Value — PASS.** The theorem supplies a finite joint probability law for a natural network family and a sharp-order, non-Poisson distributional scaling law for a graph-coloring stabilization process. It distinguishes finite dependent color-resolved counts from their asymptotic independence and identifies the balanced-part negative-binomial law; this is a substantive refinement of available mean/variance and bipartite-limit results.
+For the repaired finding, recoloring introduces no conflict edge, so a random permutation thinned to currently conflicting vertices induces the uniform sequential process. A vertex survives exactly when last among its initial conflicting neighbors and itself; reversing order gives the initial same-part run within each color. Exchangeability of ordered prefixes conditioned on enough vertices of each color gives the falling-factorial evaluation. The accept-unused-identity coupling yields a uniform permutation and agrees with the replacement stream until its first collision. In the replacement stream the disjoint color subsequences are independent conditional on the marks and their laws do not depend on those marks. The first occurrence of a given color and the subsequent wait for a different part have geometric second moments bounded by 2k² and 2k²/ε². Consequently E[H²]≤4k³(1+ε⁻²) for the maximum completion time; summing the predictable collision hazards yields the stated upper bound. For a named color, the exact two-vertex tail is the color-occupancy factor times (NΣp_i²−1)/(N−1), giving the lower bound after dropping the factor and taking complements. It is at least ε/(N−1) in the upper bound's regime. Independent rational enumeration of actual activation with a valid maximum-unused-color rule matched all 183 tested joint tails and the marginal obstruction in four small distinct parameter cases. The coupling proof, not this finite check, gives the uniform bound.
 
-The claims exclude growing color counts and near-monopartite degenerations. The explicit constant is not asserted optimal. No independent review or external mathematical certification has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass for the repaired sharp-order two-sided total-variation result, not for novelty of the exact law or the qualitative limit. The strongest overlapping text supplies the whole finite distribution by averaging conditional laws and obtains the same qualitative limit, but neither proves a finite-profile O(1/N) error nor the matching multicolor obstruction.
+
+## value
+
+PASS
+
+The repaired comparison gives information not conveyed by the qualitative law: it approximates the full vector of dependent finite color counts by independent variables at a uniform inverse-size rate without replacing the empirical part proportions by their limits. A single identified marginal discrepancy proves that rate cannot be improved in order, including all profiles with a fixed non-dominance margin. The error bound also transfers to observables such as the stabilization count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The self-commutator is exactly the difference of two degree-weighted incidence Gram matrices. A proved indefinite Gram rank lemma reduces its rank to the radical of the inverse form on the incidence kernel. The kernel is completely classified by graph parity, yielding both the reciprocal-degree transition and the exact signed inertia. Edge reversal pairs eigenvalues. The trace-square and regular adjacency-spectrum corollaries follow from direct finite-dimensional algebra. The separate checker verifies 474 finite identities and numerical spectral comparisons without standing in for the proof.
+## correctness
 
-## Originality — PASS (priority qualified)
-Glover–Kempton's 2020 study supplies the ordinary Hashimoto eigenvalue/Ihara reduction and known regular spectral blocks, not the asserted irregular signed inertia. Jost–Mulas–Torres (2022) and Mulas–Zhang–Zucal (2023) study nonbacktracking Laplacian spectra and singular values, a distinct object or spectral statistic. Kwon (2026) explicitly supplies a general incidence factorization; this starting identity is credited and is not claimed original. The exact radical/inertia criterion for the unnormalized self-commutator was not located in targeted research-result searches or inspected primary literature. Historical unindexed matrix-inertia equivalences are still possible. The regular spectral formula is a corollary, not the independent originality basis.
+PASS
 
-## Mathematical value — PASS
-The precise number of signed nonnormality directions of a canonical oriented-edge operator is determined on an entire irregular graph family, with a sharp exceptional balance law not detectable from mere bipartiteness. The boundary distinguishes even irregular balanced and unbalanced bipartite examples; the universal trace-square identity adds a degree-correlation invariant. The finding does not claim a full irregular spectrum, normalized-walk extension or external independent certification.
+Checked the unnormalized directed-edge convention and the same-tail/head predecessor/successor counts. They give K=XWX^T−YWY^T with W=diag(d−2). An independent rank derivation uses orthonormal symmetric/antisymmetric vectors for each pair of arcs: K has zero diagonal blocks and off-diagonal block SWD^T, where S and D here are the unoriented and signed edge-by-vertex incidences. Connectivity gives im D^T=1^perp. The kernel of S is zero if nonbipartite and otherwise spanned by the bipartition sign b. Thus the block has rank n−1 except when b belongs to W(1^perp), precisely when 1^T W^(−1)b=0; then it has rank n−2. Block singular values give both signs. Independently checked the inverse-form radical argument in the record and the trace-square formula by X^TX=Y^TY=diag(d), X^TY=A. For the regular spectrum, each adjacency eigenvector at |lambda|<d generates a two-dimensional plane with the stated ± eigenvalues. At |lambda|=d, the overlap gives a one-dimensional common subspace, not a two-dimensional plane. If k is the count of these exceptional adjacency eigenvalues, that subspace contributes k zeros and the orthogonal complement contributes 2m−2n+k, yielding the stated 2m−2n+2k total. This clarifies the source's abbreviated attribution of zeros without changing its formula. Frozen script inspected only; its reported finite output is not the basis of acceptance.
 
-## Literature and remaining risk
-Closest full-text literature: Glover–Kempton 2020 (arXiv:2011.09385), Jost–Mulas–Torres 2022 (arXiv:2203.10824), Mulas–Zhang–Zucal 2023 (arXiv:2303.00373), Kwon 2026 (arXiv:2607.21294). Especially for Kwon, the Hashimoto incidence identity is a prior input while its entropy/inverse-realization conclusion does not cover this inertia classification. Search coverage is not a novelty certificate. The central claim is proved under explicit finite, simple, connected minimum-degree-three hypotheses.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct part is the signed inertia classification for irregular graphs, including the exact balance exception. Prior incidence and standard projection tools cover structural inputs, and the trace and regular formulas are natural corollaries rather than separate priority claims. No inspected earlier or distinct indexed claim gives the irregular balance classification.
+
+## value
+
+PASS
+
+The self-commutator measures nonnormality of a standard graph operator. The result determines its full signed rank profile in terms of elementary graph data, revealing an extra nullity jump among irregular bipartite graphs that regular formulas and bipartiteness alone miss. The balance test is operational without forming a 2m-by-2m matrix and distinguishes K_{3,4} from the balanced irregular K_{4,4} minus an edge. This structural payoff does not rely on treating the regular corollary as novel.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

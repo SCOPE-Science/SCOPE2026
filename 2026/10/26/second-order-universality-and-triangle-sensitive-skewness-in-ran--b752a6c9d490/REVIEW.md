@@ -1,23 +1,21 @@
-# Review of the orientation-score moment theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The fixed-host random orientation measure is a product of independent fair edge signs. Expanding centered squared vertex scores into pairwise products of incident edge signs gives a distinct quadratic monomial for each wedge of the simple host. Pairwise orthogonality fixes the variance; every surviving third-order product is exactly a three-cycle of the host's line graph. Common-vertex triples contribute positively and actual host triangles negatively because the incidence signs reverse at the edge endpoints. There are exactly six orderings of each triple. This proves all claimed identities for every finite simple host, including disconnected hosts. Separately, exact conditional enumeration across a shared edge gives the regular-host histogram covariance formula; binomial orthogonality gives its projection spectrum.
+PASS
 
-`check.py` independently enumerates all orientations of every graph through four vertices and larger contrasting regular hosts, with 444 exact arithmetic assertions. The finite tests corroborate, rather than establish, the arbitrary-size proof. All necessary proof steps and checker code are included.
+With signed incidence matrix B and independent fair edge signs z, Q=||Bz||^2/4. Its expectation is |E|/2 and 2(Q-EQ) has one quadratic monomial for each unordered incident edge pair. In a simple host distinct pairs give orthogonal monomials, so the variance is one fourth the wedge count. In the cube an edge sign must occur with even multiplicity: the only surviving triples consist of three distinct monomials forming a triangle on the line graph. The six orderings all have coefficient +1 for three edges at one vertex and -1 for a host triangle, because in the latter case each edge has one incidence sign at each of its endpoints. This gives the third central moment exactly, with no connectedness assumption. For the histogram on a nonempty host of positive common degree, nonadjacent degrees are independent; a shared edge distributes its sole win across the pair and the remaining d-1 signs per vertex are independent. This gives pair covariance -1/4 times the product of the two binomial mass differences, which equal 2(2r-d)p_r/d and 2(2s-d)p_s/d. Combining nd such ordered terms with n same-vertex terms and whitening subtracts the orthogonal constant and binomial-linear directions from the identity; d=1 gives the zero projection. The dispersion formulas also hold on an empty graph, where whitening is not defined. Independent orientation enumeration checked the triangle and claw (opposite cubic signs), a matching, the prism and K_{3,3}, including regular histogram ranks and every covariance entry for the tested regular hosts (python3 /workspace/review-checks.py, orientation section).
 
-## Originality — PASS (bounded to the inspected literature)
+## originality
 
-The complete primary paper of Sanchez and Kolesnik (arXiv:2009.09322, 2020) characterizes feasible and mean score sequences using graphical zonotopes, but does not provide these second/third moments or the exact regular-host covariance projection. Claesson et al. (arXiv:2209.03925, 2022) count possible score sequences rather than study uniform random orientations and higher moments. Lin and Reinert (arXiv:0912.4812, 2009) study joint degrees of random undirected graphs, which does not directly imply the fixed-host orientation-score statement. Published published-finding corpus similarity comparisons and the accessible previously recorded claims were checked for the exact formulas and stronger equivalents. No inspected result covers the combined claim. In particular, an earlier result about cyclic triangles versus an additive score functional on *complete* random tournaments is a distinct cross-covariance identity, not the third centered moment across arbitrary host graphs.
+PASS
 
-The identity is expressed using classical independent-sign moment expansion, so a general theorem about quadratic Rademacher forms or random graphical zonotopes might imply it. Priority and independent assessment remain open; the search result is not a proof of uniqueness.
+The supported distinct result is the exact signed star-versus-triangle identity for the cubic dispersion moment on arbitrary fixed simple hosts and its use to recover triangle counts that second-order regular score data cannot distinguish. First and second moments use classical sign orthogonality and are not asserted to be new general moment methods. The histogram half has a direct published tournament precursor and its extension to regular graphs follows routinely from the already published pair calculation and independence of nonadjacent vertices; it is not credited as standalone originality. The close prior angular-width result recovers triangles from a different random observable and does not yield this identity.
 
-## Value — PASS
+## value
 
-Degree-sequence invariance of all histogram covariances contrasts sharply with the degree-insensitive third-moment change \(\tfrac34 t(H)\): the third cumulant gives an exact observable fingerprint for a structural graph invariant. The triangular prism and \(K_{3,3}\) furnish explicit connected equal-size, equal-degree examples for which **the complete second-order histogram covariance coincides** yet skewness of a natural quadratic score statistic differs. The result is an exact all-graph identification and a natural full-covariance classification, not a chosen-parameter table or a textbook asymptotic. This has a plausible role in score-based inference and in distinguishing uniform orientation models.
+PASS
 
-## Limits and residual risks
+The centered squared score is a natural measure of dispersion of random orientation data. The exact cubic dependence recovers a host subgraph count from the statistic once degrees are known, even for disconnected simple hosts; regular hosts such as the triangular prism and K_{3,3} have entire second-order histograms indistinguishable in the covariance sense but distinct third dispersions. This supplies a concrete information threshold, not just a generic chaos expansion or a finite table. It does not identify the entire orientation-score law or remove the need for known degrees.
 
-Uniformly fair, independent orientations and a simple fixed host are essential. The degree sequence is needed to infer triangle count; the first three moments do not determine the full law. Primary-paper comparison does not exhaust historical probability and Rademacher-chaos sources. No external independent scientific validation has been performed.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

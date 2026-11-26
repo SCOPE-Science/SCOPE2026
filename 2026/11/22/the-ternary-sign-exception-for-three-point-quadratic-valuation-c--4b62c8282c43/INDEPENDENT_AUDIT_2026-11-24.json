@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:57:40.563875Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Proof and Verification; VERIFICATION.md; verify_triple.py (inspected only)",
+        "Repaired /workspace/repairs/2/RESULT.md, especially the common-clipping, cumulant and integer-average arguments",
+        "Independent replay: python3 /workspace/reproductions/2.py"
+      ],
+      "rationale": "The frozen formulas are correct; in the repaired claim the auxiliary law is credited and the support-to-moment argument is made explicit. Each shifted polynomial has two simple lifted roots, and corresponding centers are equal modulo p^s but pairwise distinct modulo p^(s+1), since p is odd. The common clipped variable Y and disjoint excesses U_i give pair and triple raw moments E[Y^2]+2s E[U_i] and E[Y^3]+3s^2 E[U_i]. Summing geometric power tails gives the repaired rational formula. At s=1 it is negative for p=3 and positive for p>=5; the successive difference is positive for every admissible p,s, and kappa(3,2)=2/9. The finite-block claim for any clipping depth follows from residue periodicity, including k<=s; in the unbounded integer average a residue-tail count and the O(log N) maximum make the cubic tails vanish uniformly in the required double limit. That estimate covers mixed monomials by the cube of the maximum coordinate. The independently written modular check agrees with the exact clipped census at tested depths and the rational moments at tested scales. The proof, not these finite tests, handles all p,c,s and N tending to infinity.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The single-quadratic theorem gives two infinite branches in this case because the discriminant equals one modulo p.",
+          "Snyder's factor-product identity explains persistence of p-adic root branches, but the inspected section does not give the centered mixed moment or its sign.",
+          "The bivariate law covers arbitrary polynomials with simple roots at their residue zeros and applies to all three pairs of shifted quadratics."
+        ],
+        "reasoning": "The marginal root structure is prior, and the bivariate collision theorem is broader in polynomial choice but has no evaluated three-point cumulant. The sign change as p and s vary requires a third mixed moment and the scale inequality.",
+        "searches": [
+          "Boultinghouse et al., arXiv:2309.16637, Theorem 1.1",
+          "Snyder, arXiv:2308.11718, §6 and Proposition 6.1",
+          "Resultary f6b288710442, Finding, assumptions and Proof §§1–2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary f6b288710442",
+        "Boultinghouse et al., arXiv:2309.16637",
+        "Snyder, arXiv:2308.11718"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Every pair of shifts is at depth s in both root classes. The pair law implies equal values clipped at s, and no pair has both coordinates above s. Hence the three marginals give all lower diagonals and elevated coordinate masses; the central mass is 2p^(-s) minus three times 2p^(-s-1).",
+          "The pair covariance formula with two matches gives exactly the frozen positive covariance. No source inspected computes kappa or analyzes its sign across all odd primes and positive scales."
+        ],
+        "reasoning": "The trivariate law and its depth-k census are corollaries of the bivariate law here, despite pairwise laws not determining a triple in general. Computing the connected third cumulant, proving strict monotonicity, and identifying its sole negative case is the genuinely surviving claim, not an additional claim of priority for the distribution.",
+        "searches": [
+          "Resultary f6b288710442, exact finite joint tail formula and root-tree intersection proof, local mirror offset 0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matching distinct Resultary record gives a joint generating function and tail law for two polynomial valuations with simple residue roots; each shift pair here has two collision depths both equal to s.",
+          "A third joint cumulant is the centered third mixed moment, not the third marginal moment, a pair covariance, or the valuation of the product."
+        ],
+        "reasoning": "The pairwise result is partly equivalent in the specific equal-depth geometry after the support argument below, not for general triples. Marginal or product trees do not state the mixed-cumulant sign comparison.",
+        "searches": [
+          "Resultary: joint polynomial valuations, simple-root collision laws, higher joint moments and quadratic cumulants",
+          "Primary-literature search for three shifted quadratic p-adic valuations and their joint law"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Distinct same-day record ending f6b288710442 gives exact pair frequencies and covariances, and implies the clipped trivariate census for the special shifts via support. Its Finding states a covariance trichotomy for two quadratics, not a third-cumulant sign table."
+        ],
+        "reasoning": "The only overlapping exact census established here is credited as covered. The first-ternary-scale exception for the third cumulant is different from an exception for pairwise covariance with just one shared residue root.",
+        "searches": [
+          "Resultary: root-collision laws, equally spaced quadratic shifts and ternary cumulant sign",
+          "Targeted primary-literature lookup for joint valuations of shifted quadratics"
+        ]
+      },
+      "rationale": "PASS only for the repaired focus on the evaluated connected third cumulant, its unique ternary negative case and its scale dependence. The frozen text's claim of a distinct trivariate law not entailed by the bivariate laws fails as written: the indexed pairwise theorem forces the joint support and all its cell probabilities for these special shifts. The repair credits the indexed result and uses the trivariate census only as an auxiliary consequence. No distinct inspected statement gave the third-cumulant sign theorem. The demonstrable implication is not a claim about which same-day record came first.",
+      "residual_risks": [
+        "The distinct indexed records share a date; no historical ordering is established.",
+        "The limited primary-literature search does not exclude unindexed higher-correlation or multivariate-local-zeta computations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers all three pairwise laws and forces the trivariate census under the present constraints; not an evaluated third cumulant",
+          "evidence": "Its exact two-coordinate tail count is N_min p^(k-max); here N_min=2 up to depth s and zero afterward.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-root-collision-law-for-joint-polynomial-valuations-and-a-quadr--f6b288710442",
+          "material_read": "RESULT.md Finding, assumptions and proof of the tail formula, local-mirror offset 0; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary catalogue followed by local-mirror passage",
+          "title": "A root-collision law for joint polynomial valuations and a quadratic covariance trichotomy",
+          "trigger": "Strongest distinct mathematical overlap; exact bivariate law in the same collision regime"
+        },
+        {
+          "assessment": "Marginal valuation tree comparator",
+          "evidence": "Discriminant criterion determines the tree of a single quadratic, with two infinite branches for this unit square discriminant.",
+          "identifier_or_url": "https://arxiv.org/abs/2309.16637",
+          "material_read": "Theorem 1.1, p. 4, OA text offset 8900",
+          "method": "OA paper passage",
+          "title": "The p-Adic Valuation Trees for Quadratic Polynomials for Odd Primes",
+          "trigger": "Same odd-prime quadratic and branches"
+        },
+        {
+          "assessment": "Explains branches of factors in a product but does not supply the evaluated target cumulant in the inspected material",
+          "evidence": "The proposition describes how p-adic root branches persist in the valuation tree of the polynomial product.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.11718",
+          "material_read": "§6, pp. 19–20, Proposition 6.1, OA text offset 49900",
+          "method": "OA paper passage",
+          "title": "Products of p-Adic Valuation Trees",
+          "trigger": "Potential distribution from product of translated polynomials"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired Finding and sign proof",
+        "Indexed pairwise covariance trichotomy (different statistic)"
+      ],
+      "rationale": "Even after removing independent novelty credit for the law and both pairwise and marginal calculations, the surviving result supplies a motivated higher-order dependence witness. The first possible odd-prime scale produces strictly positive covariances in all three pairs but a negative connected third cumulant, and the theorem locates exactly where that discrepancy disappears in a natural equally spaced family. It concerns a precise third-order statistic rather than evidence against independence in general.",
+      "residual_risks": [
+        "No claim beyond the stated polynomial and prime-power shift family, and no general independence or association implication."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

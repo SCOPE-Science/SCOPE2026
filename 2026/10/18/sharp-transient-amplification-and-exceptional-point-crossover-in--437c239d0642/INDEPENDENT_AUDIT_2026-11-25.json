@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:15:44.794513Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–41 and 45–80; VERIFICATION.md lines 19–23; verification.py lines 7–85."
+      ],
+      "rationale": "For the stated dimensionless matrix, direct multiplication gives A²=−k²I, tr A=0 and ||A||_F²=2+2h². The undamped exponential therefore has determinant one and squared Frobenius norm 2+4h²(sin(kτ)/k)², including its linear-in-τ Jordan form at k=0. These fix both singular values and the displayed arsinh norm. When r≥h, arsinh and |sin| bounds give log gain ≤(h−r)τ and the maximum one. For r<h, on the first half-wave the log derivative equals −r+h cos(kτ)/sqrt(1+(h/k)² sin²(kτ)). The derivative of the second term has sign −sin(kτ) there (its positive denominator and factors do not vanish), so there is exactly one critical point, in the first quarter-wave. Every later half-wave repeats the same undamped norm with a strict damping penalty. Solving for the tangent at the critical point and inserting the corresponding sine yields the stated t* and G. At k=0 the derivative is −r+1/sqrt(1+τ²), supplying the Jordan limits directly; the h=0 case is just decay. With r=sk one has v²=1−(1+s²)k² and k²+r²=k²(1+s²), giving both limits and the stated scaling. Differentiating log Ψ cancels the rational terms and leaves −arctan(1/s); the endpoint limits are 2 and 2/e with the specified rescaling.",
+      "residual_risks": [
+        "Proof audit, not formal verification. The frozen numerical grid was inspected, not executed. It cannot certify uniqueness of the optimum or uniform behavior of double limits."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sornette et al. give a Kreiss lower bound for a nonnormal network model, not an exact peak formula in this structure. The Makris DOI/publisher recovery returned 403, and the attempted lawful OA recovery did not yield an alternate full copy."
+        ],
+        "reasoning": "A lower bound in a different model does not entail an equality or unique optimizer here. The more directly relevant inaccessible paper remains a material coverage risk, not a comparison proving noncoverage.",
+        "searches": [
+          "Makris, Transient growth and dissipative exceptional points, DOI 10.1103/PhysRevE.104.054218; Sornette et al. arXiv:2205.08661 p. 3 Eq. (3)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.04450",
+        "DOI 10.1103/PhysRevE.104.054218",
+        "arXiv:2205.08661",
+        "Resultary 1b3aca384765, 0d924c253823, 442a602e3c82"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inspected model spectrum fixes k and the defective boundary, and the symmetric part fixes the sign of initial norm growth. The frozen peak calculation additionally uses both singular-value constraints and selects the unique maximizing half-wave and the unique critical point within it."
+        ],
+        "reasoning": "The onset is mechanically implied and not credited. Although the trace/determinant technique is standard, the optimization and the nonconstant fixed-r/k limit with two distinct endpoints are not given by the inspected spectrum or onset result.",
+        "searches": [
+          "Rippa et al. arXiv:2610.04450, p. 2 threshold and p. 3 exceptional-point passage; Sornette et al. arXiv:2205.08661 Eq. (3)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rippa et al. give the same matrix and stability spectrum and their p_T is the sign change of p(h−r), the largest eigenvalue of the symmetric generator part. Their inspected passages give neither peak value/time nor fixed-r/k asymptotics."
+        ],
+        "reasoning": "The thresholds coincide after reparameterization. The onset test alone cannot decide the time-dependent singular norm or the global optimum. An equivalent general planar result is plausible because an orthogonal change of basis represents A as [[0,1+h],[h−1,0]], but no inspected result supplies the corresponding peak and crossover.",
+        "searches": [
+          "arXiv:2610.04450 Eqs. (3), (6), (7), numerical abscissa and exceptional points; DOI 10.1103/PhysRevE.104.054218; local Resultary two-population nonreciprocal exceptional point gain"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed statements concern an L∞ modal projection, initial-direction-dependent position amplification in a coupled saddle flow, and a defective Floquet multiplier in a forced oscillator, respectively."
+        ],
+        "reasoning": "These are not entries for the Euclidean induced norm of this linearized semigroup or its joint weak-damping crossover. No ordering inference was made from a shared directory date.",
+        "searches": [
+          "Local Resultary exceptional point transient gain, Euclidean peak, damping and frequency crossover; 1b3aca384765, 0d924c253823, 442a602e3c82"
+        ]
+      },
+      "rationale": "The gain onset is precisely the known numerical-abscissa threshold for this model, and neither the exceptional point nor the two-dimensional trace/determinant method is new. The supported distinct contribution is the quantitative all-time profile/unique peak and the joint approach with fixed r/k and their exact limiting functions. The strongest inspected statements did not supply this optimization and crossover together or a general result that directly subsumes them. Makris's relevant full paper and the model supplement could not be compared; neither access issue was used as evidence of novelty.",
+      "residual_risks": [
+        "Equivalent general 2×2 formulas for the exact peak or joint scaling may exist; Makris full text and Rippa et al. supplementary material were unavailable. This is a bounded, best-of-knowledge decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same matrix, onset and exceptional point; exact peak and fixed-r/k limit not supplied in the inspected text; supplement pointer lacks a usable URL",
+          "evidence": [
+            "The symmetric-part eigenvalue p(h−r) encodes the same onset as p_T; eigenvalue coalescence is already identified."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.04450",
+          "material_read": "Main-text p. 2 Eqs. (3), (6), (7) and p_T discussion, offsets 10000, 12600, 13800; p. 3 EP lines offset 24600; p. 6 supplement pointer offset 42400",
+          "method": "Bounded primary OA PDF passages",
+          "title": "From Equilibrium Criticality to Universal Collective Phases through Nonreciprocal Coupling of Ordered Systems",
+          "trigger": "Primary source for the identical model and transient-growth criterion"
+        },
+        {
+          "assessment": "Indeterminate coverage for this source; publisher 403 and no recovered alternate",
+          "evidence": [
+            "Topic is directly relevant; absence of access is not evidence that this paper lacks an equivalent formula."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.104.054218",
+          "material_read": "Bibliographic/abstract-level information only; no full-text formula read",
+          "method": "Publisher/DOI access and attempted lawful OA alternate recovery",
+          "title": "Transient growth and dissipative exceptional points",
+          "trigger": "Plausible broader theory of transient gain and dissipative exceptional points"
+        },
+        {
+          "assessment": "A lower bound in a different network model",
+          "evidence": [
+            "The Kreiss-constant estimate is a bound, not an exact Euclidean gain and time for the given two-population matrix."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2205.08661",
+          "material_read": "PDF p. 3 Eq. (3), offset 21900",
+          "method": "Bounded primary OA PDF passage",
+          "title": "Non-normal interactions create socio-economic bubbles",
+          "trigger": "Broader nonnormal transient-growth analysis"
+        },
+        {
+          "assessment": "Different observable and planar flow",
+          "evidence": [
+            "Studies Euclidean position amplification dependent on initial search direction, not the norm of the full damped linear semigroup here."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-global-transient-pulse-and-sharp-misalignment-gain-in-a-planar-c--0d924c253823/RESULT.md",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Local Resultary search and bounded mirror reading",
+          "title": "Global transient pulse and sharp misalignment gain in a planar coupled flow",
+          "trigger": "Closest indexed exact Euclidean transient-profile comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 20–35 and 59–80; arXiv:2610.04450 numerical-abscissa passage."
+      ],
+      "rationale": "An onset threshold says whether there is amplification but not how large it gets nor how long that takes. The exact optimum answers both and distinguishes two physical scales near the defective line. In particular the crossover quantifies gain of order 1/k for r/k fixed, recovers saturation at 2 for the rescaled weakly damped gain, and gives the distinct damped Jordan coefficient 2/e at the other endpoint. The peak and moving-parameter limit are useful even though elementary matrix identities supply the norm calculation.",
+      "residual_risks": [
+        "Linearized Euclidean problem only, not a guarantee about a prescribed perturbation, nonlinear dynamics, or a uniform expansion for unbounded r/k."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

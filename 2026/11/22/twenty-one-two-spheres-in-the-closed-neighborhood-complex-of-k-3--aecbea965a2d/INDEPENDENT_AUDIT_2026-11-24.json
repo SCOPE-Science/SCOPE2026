@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:30:53.779784Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding and Proof; VERIFICATION.md; verify.py and verify_output.txt (inspected, not executed)",
+        "python3 /workspace/audit_evidence/finite_checks.py 1"
+      ],
+      "rationale": "The Cartesian adjacency rule gives twelve distinct equal-sized closed neighborhoods of five vertices, so these are exactly the maximal faces. An independent set-based reconstruction tests subsets of the 12-vertex universe for containment in one of them and gives all 250 nonempty faces and vector (12,54,112,60,12). At each pivot, toggling that vertex defines disjoint candidate pairs, so successive removal within a stage makes the same matching as simultaneous removal. For all three specified pivot orders the independent code obtained 114 pairs and critical vector (1,0,21,0,0), and used depth-first cycle detection on all 744 directed cover incidences, orienting just the paired ones upward. Finite discrete Morse theory therefore gives a CW complex with one vertex and just 21 two-cells, all attached to the vertex by constant maps; its ordinary homotopy type is the asserted wedge, proving the integral homology and fundamental-group conclusions. Finite-field ranks are not needed for the strongest conclusion.",
+      "residual_risks": [
+        "This matching is checked for the specified graph only. It establishes a nonequivariant homotopy equivalence, not an equivariant statement or a theorem for other cycle lengths."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The clique-fiber theorem requires a triangle- and four-cycle-free base and gives the stable S^1 wedge 4n two-spheres for C_n and width 3.",
+          "The square-completion theorem instead requires the entire graph to be triangle-free; the target has triangle fibers. Matsushita's product example has two complete factors, and C4 is not complete."
+        ],
+        "reasoning": "No verified broader theorem here has hypotheses which include the target graph and complex.",
+        "searches": [
+          "bcf5b8b96c75, Finding and assumptions",
+          "006bbbe8a937, Finding and assumptions",
+          "Matsushita arXiv:2511.12608 Example 3.4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2511.12608",
+        "bcf5b8b96c75",
+        "006bbbe8a937",
+        "f164015126af",
+        "aecbea965a2d (identical record)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The stable clique-fiber argument uses unique bridging pairs. Opposite C4 vertices have two common neighbors, so that argument does not specialize.",
+          "The out-of-scope substitution n=4 in the stable formula would incorrectly retain a circle and give only 16 spheres; the exact Morse matching instead decides both the missing circle and the number of spheres."
+        ],
+        "reasoning": "The result is not mechanical substitution or computation of a known complete-factor case. It resolves the exceptional closed-neighborhood instance, with the homotopy equivalence rather than just ranks.",
+        "searches": [
+          "bcf5b8b96c75, Finding and beginning of Proof",
+          "Matsushita Example 3.4",
+          "006bbbe8a937, graph hypotheses"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "It is the closed neighborhood complex for the Cartesian product, equivalently the vertex-centered closed Čech construction at unit radius under the cited conventions. Scale two in the intrinsic nerve uses balls of radius 2/2; Matsushita's graph-vertex metric Čech notation uses radius 1.",
+          "An open Lovász neighborhood deletes each center; the graph-square clique complex instead uses pairwise distance. Neither defines these same facets."
+        ],
+        "reasoning": "Changing the radius convention without changing the closed neighborhoods is equivalent; changing open/closed or replacing the common center condition with pairwise proximity is not.",
+        "searches": [
+          "Matsushita arXiv:2511.12608 §1.1",
+          "bcf5b8b96c75, Assumptions and scope",
+          "Resultary: closed neighborhood complex of triangular square prism K3 Cartesian C4, integral wedge of 21 spheres or exceptional clique fiber Cech at four-cycle"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit aecbea965a2d is the assigned record. The primary text of the surfaced K5 square-boundary record f164015126af treats the open complex and produces 53 two-spheres and four three-spheres.",
+          "A separately cited triangular-cylinder open result could not be retrieved through its cited identifier; the open scope for that specific record is reported by the frozen source, not independently confirmed."
+        ],
+        "reasoning": "The verified exact hit is identical, not independent coverage; the inspected indexed short-cycle result is different in both width and predicate.",
+        "searches": [
+          "Resultary query for triangular square prism closed-neighborhood integral homotopy and 21 spheres",
+          "Focused primary web lookup for Cartesian product closed-neighborhood and Čech homotopy",
+          "Local mirror aecbea965a2d and f164015126af"
+        ]
+      },
+      "rationale": "A genuine short-cycle exception to the verified closed Čech clique-fiber theorem. The closest closed theorem excludes base four-cycles, the classical complete-factor theorem has different hypotheses, and the nearby short-cycle open-complex computations do not state or imply the closed-complex homotopy type here.",
+      "residual_risks": [
+        "The triangular-cylinder cited primary file was unavailable, and a bounded search cannot exclude an unindexed earlier exact classification. No conclusion rests on a failed retrieval."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines the same complex; example only for two clique factors",
+          "evidence": [
+            "Closed Čech at radius r equals the closed-neighborhood complex of the threshold graph; the product computation assumes K_m Cartesian K_n."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2511.12608",
+          "material_read": "§1.1 (offset ~4200); Example 3.4 (offset ~29000)",
+          "method": "OA primary PDF passages",
+          "title": "Closed neighborhood complexes of graphs",
+          "trigger": "Same object and Cartesian product example"
+        },
+        {
+          "assessment": "Exact longer-cycle formula but excludes C4",
+          "evidence": [
+            "For triangle- and four-cycle-free H the scale-two complex is H wedge e(m−1)^2 two-spheres. Its closed balls have intrinsic radius r/2."
+          ],
+          "identifier_or_url": "bcf5b8b96c75",
+          "material_read": "Finding, assumptions and start of proof, mirror offset 0",
+          "method": "Local full-text mirror passage",
+          "title": "Clique-fiber Čech nerves over graphs of girth at least five",
+          "trigger": "Closest closed-complex family"
+        },
+        {
+          "assessment": "Fails triangle-free hypothesis on the target graph",
+          "evidence": [
+            "Requires a finite connected simple triangle-free graph and codegree at most two."
+          ],
+          "identifier_or_url": "006bbbe8a937",
+          "material_read": "Finding and assumptions, mirror offset 0",
+          "method": "Local full-text mirror passage",
+          "title": "Square-completion splitting of closed-neighborhood complexes with codegree at most two",
+          "trigger": "Closed complexes with interacting squares"
+        },
+        {
+          "assessment": "Different graph width and open-neighborhood functor",
+          "evidence": [
+            "The center color is explicitly excluded from its own fiber's neighborhood in width five."
+          ],
+          "identifier_or_url": "f164015126af",
+          "material_read": "Finding and neighborhood formula, mirror offset 0",
+          "method": "Local full-text mirror passage",
+          "title": "A mixed-dimensional sphere wedge at the four-cycle boundary of clique-fiber neighborhood complexes",
+          "trigger": "Same four-cycle boundary and nearby product width"
+        },
+        {
+          "assessment": "Frozen record describes an open-complex result; primary scope not independently verified",
+          "evidence": [
+            "The accessible frozen comparison expressly distinguishes the open functor from the closed one."
+          ],
+          "identifier_or_url": "3f9179cdd224",
+          "material_read": "Frozen report's relationship paragraph only; primary result unavailable at the cited identifier",
+          "method": "Bounded local-mirror retrieval attempt and frozen comparison",
+          "title": "The triangular-cylinder neighborhood complex: a torus except at length four",
+          "trigger": "Possibly same graph parameter"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "bcf5b8b96c75 stable family and scope",
+        "Frozen result and independently reconstructed Morse matching"
+      ],
+      "rationale": "This is the first base cycle precisely excluded by the natural longer-cycle theorem, where its bridging hypothesis fails. The computation decides that the stable fundamental circle disappears and provides the exact replacement homotopy type with a small replayable Morse certificate, rather than a homology-only sanity check.",
+      "residual_risks": [
+        "The contribution is the specific motivated boundary case, not a new all-width or all-cycle theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

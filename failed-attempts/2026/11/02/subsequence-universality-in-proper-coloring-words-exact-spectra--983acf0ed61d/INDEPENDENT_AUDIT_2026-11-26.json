@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:09:00.020354Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Greedy minimal complete-alphabet blocks compute the index: their completion letters followed by a letter missing from the remainder give a nonembedded target. In a proper word with j letters seen, j−1 legal repeats and q−j acquisitions give the stage products. The first position contributes q rather than q−1 choices, including the correct separate empty word. Under uniform legal transitions, the acquisition hazards depend only on j, so strong Markov restart gives independent geometric delays and independent arch lengths. This yields the stated moments, the CLT for q≥3 and the ternary binomial survival law; for q=2 the length is deterministically two. For the bounded moment errors, it is 1−φ that has a simple zero at 1: the differentiated renewal series have poles of orders two and three. With s=1−z and a=E[L(L−1)]/2, the first moment series starts μ⁻¹s⁻²+(a/μ²−1)s⁻¹, and the second factorial moment series starts 2μ⁻²s⁻³+(4a/μ³−4/μ)s⁻². Coefficient extraction and centering give (2a+μ−μ²)n/μ³+O(1); span one and exponential moments isolate the dominant singularity. At length qk all arches are permutations and each later first letter must avoid the last letter of the previous arch. Independent finite check: generate every proper host for q=2,3,4,5 with n≤8,10,8,5 respectively; test all targets up to floor(n/q) by a forward subsequence scan. This counted 17,914 hosts, 157,505 pattern tests and matched all 15 nontrivial ternary survival cases tested. At q=3,n=9 the exact-index counts were (6,138,528,96), and at q=4,n=8 they were (1524,6792,432). The frozen verify.py is an additional documented replay path, inspected but not executed; finite checks do not establish the asymptotics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Adamson counts and ranks unrestricted universal words; Adamson et al. treat counting on regular languages; Barker et al., Proposition 10, identifies the index with the number of arches."
+        ],
+        "reasoning": "The proper-host condition is regular, so general algorithms compute fixed-length counts and hence exact-index differences. The inspected general results are not the explicit proper-word rational and renewal formula; actual exact coverage is the mirror.",
+        "searches": [
+          "arXiv:2304.04583",
+          "arXiv:2311.10658",
+          "arXiv:2003.04629"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md; verify.py structure",
+        "Resultary 4cd9e1de10a7",
+        "arXiv:2304.04583",
+        "arXiv:2311.10658",
+        "arXiv:2003.04629"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The mirror gives the same μ_q, v_q and renewal limits and gives the kth-arch generating functions. It does not spell out the ternary binomial tail."
+        ],
+        "reasoning": "From its ternary generating function the normalized arch law is z³/(2−z), i.e. 2+Geom(1/2). Thus its kth-epoch convolution gives the exact binomial tail, an elementary reformulation of already specified coefficients.",
+        "searches": [
+          "Resultary: 4cd9e1de10a7, mirrored RESULT.md offsets 0–10921",
+          "arXiv:2003.04629, Definition 6 and Proposition 10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mirror offsets 0–4877 and 4877–8703 give the labeled adjacency-distinct host distribution with E_q=(q−1)!z^(q−1)/∏_{h=0}^{q−2}(1−hz) and H=Σ_{j<q}E_j/(1−(j−1)z). Its series is (1+qzH+uzE_q)/(1−u(q−1)zE_q)."
+        ],
+        "reasoning": "Substitute A=(q−1)zE_q and B=1+(q−1)zH in the frozen expression and collect its numerator over 1−uA. The identity and model agree, including n=0 and all q≥2.",
+        "searches": [
+          "Resultary: adjacency-distinct words exact enumeration and renewal laws, 4cd9e1de10a7; mirrored RESULT.md at 36a7204b5741b75430355c38bf9bf0ef7468c2a4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed finding supplies the ternary rational function and the exact minimum-length count q!((q−1)(q−1)!)^(k−1)."
+        ],
+        "reasoning": "This is stronger than matching a table of numerical examples: it supplies exact coefficients throughout the same parameter range.",
+        "searches": [
+          "Resultary: 4cd9e1de10a7, mirrored RESULT.md offsets 0–4877 and 4877–8703"
+        ]
+      },
+      "rationale": "A distinct indexed result gives the same proper-host model, full all-q distribution, ternary rational law, renewal constants and Gaussian law, and shortest-host enumeration. This is a failure to establish a distinct mathematical finding against existing coverage, not a finding of who derived it first. The mirror path date is later than the frozen record date, and neither the relationship nor priority is established. The binomial-tail phrasing absent from the mirror follows by summing its exact distribution (or by expanding the kth power of its ternary arch generating function); it does not supply a distinct remainder.",
+      "residual_risks": [
+        "The relationship and priority order of the two distinct records are not established by the visible path dates.",
+        "Earlier literature comparison was targeted, not an exhaustive priority search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent coverage of the central finding; does not establish priority",
+          "evidence": [
+            "Equivalent all-q rational identity, same ternary law, shortest-host count and renewal asymptotics"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-subsequence-universality-in-adjacency-distinct-words-exact-enume--4cd9e1de10a7",
+          "material_read": "RESULT.md at commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4, offsets 0–4877, 4877–8703, 8703–10921",
+          "method": "Resultary index and bounded local mirror reading",
+          "title": "Subsequence universality in adjacency-distinct words: exact enumeration and renewal laws",
+          "trigger": "Same host condition and exact distribution"
+        },
+        {
+          "assessment": "Unrestricted host framework; not the exact proper-host distribution in passages read",
+          "evidence": [
+            "Fixed-length unrestricted counts and ranking"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2304.04583",
+          "material_read": "pp. 1–2, abstract and setup",
+          "method": "Targeted OA full-text passages",
+          "title": "Ranking and Unranking k-subsequence universal words",
+          "trigger": "Counting universal words"
+        },
+        {
+          "assessment": "General count algorithm applicable to the language; not the closed form in passages read",
+          "evidence": [
+            "Counts universal words accepted by a finite automaton"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2311.10658",
+          "material_read": "pp. 3–4, counting and §4 discussion",
+          "method": "Targeted OA full-text passages",
+          "title": "k-Universality of Regular Languages",
+          "trigger": "Proper-coloring words form a regular language"
+        },
+        {
+          "assessment": "Prior combinatorial ingredient",
+          "evidence": [
+            "Arch factorization dates to Hébrard; index equals number of complete arches"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2003.04629",
+          "material_read": "p. 5 Definition 6 and Remark 7; p. 9 Proposition 10",
+          "method": "Targeted OA full-text passages",
+          "title": "Scattered Factor-Universality of Words",
+          "trigger": "Arch characterization"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As mathematics, this is a useful exact solution for a natural regular host language: it replaces generic automata counting with a uniform closed form and a tractable probabilistic law for a canonical constrained-word model. That value does not imply distinctness, and the elementary ternary-tail rewrite alone would not rescue the covered contribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

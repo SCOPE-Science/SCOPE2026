@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:53:30.041478Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exception set is over all positive integers; zero relative density among the evens also follows since their count up to X is asymptotic to X/2. The cited prime-block lemma applies to the minimal consecutive-prime product for every sufficiently late starting index. Its deduction from the divisor-sum interval lemma is valid: sigma(A_k)/2 is integral and eventually exceeds cp_k (there are at least two prime factors, with the second tending to infinity), and by symmetry is below sigma(A_k)-cp_k. Oddness and squarefreeness are automatic for late starts, and disjoint blocks give pairwise coprimality. Minimality bounds the product of (1+1/p) by 8/3, and the corresponding finite product of (1-1/p^2) exceeds the full odd-prime Euler product 8/pi^2, giving the strict 3/pi^2 bound. For fixed Z, any N coprime to Z gives a reduced residue N-Z modulo Z^2. Choosing a prime in each of the finitely many reduced classes works uniformly once N exceeds twice their maximum; Dirichlet alone suffices. Then N-p is positive in the Z residue modulo Z^2, so it is Z times a positive coprime factor and is Zumkeller by lifting the divisor partition. CRT gives the exact product density and taking K arbitrarily large after the limsup in X gives zero. Conjecture 4.21 has two parts; this argument proves no square-summand result. The frozen verification files were inspected without running the uploaded program; finite checks on eleven blocks and on 945 and its progression multiples are not proofs of the infinite inputs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li proves alpha(x) much less than x/(log log x)^A for an explicit A>0, not just o(x).",
+          "The exponent-one record proves alpha(X) much less than X/log log X and gives consecutive-prime blocks with totient ratio 1/2+O(1/P) and obstruction-density product asymptotic to K times 2^(-r) at depth r."
+        ],
+        "reasoning": "Both upper bounds dominate the frozen density claim. The second also quantitatively controls the block parameters and the CRT product, in contrast to the fixed-depth qualitative theorem.",
+        "searches": [
+          "arXiv:2610.19574v1 Theorem 1.2 and Lemma 3.2",
+          "Resultary exponent-one log-log saving, 24f4a08027dd"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md and frozen verification package",
+        "arXiv:2310.14149, Lemmas 2.1 and 3.1–3.3 and Conjecture 4.21",
+        "Benkoski–Erdős, Lemmas 1–2",
+        "arXiv:2610.19574v1",
+        "Resultary 24f4a08027dd and odd-target comparisons d798476efd98 and 25ef5c1bdf13"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior seed progression has modulus 2z rad(z) to enforce parity for even targets. Omitting the 2 for odd squarefree z leaves modulus z^2; the same least-prime and coprime-multiple argument now applies to every target coprime to z.",
+          "Taking K sufficiently late prior seeds makes each totient ratio greater than 3/pi^2. The obstruction is exactly the CRT product of their individual coprimality-failure fractions."
+        ],
+        "reasoning": "The frozen envelope is not the earlier headline verbatim, but follows from the identical seed construction and progression argument at fixed depth. The straightforward parity-neutral choice of modulus and weaker constant leave no distinct substantive claim.",
+        "searches": [
+          "arXiv:2610.19574v1 Lemmas 2.2–2.4 and 3.2",
+          "24f4a08027dd Proof steps 1–4, extracted offsets 0–7033"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Li's alpha(x) counts exactly the same positive integers not of form z+p, and Li's Conjecture 1.1 restates the prime part of Conjecture 4.21.",
+          "The 2023 conjecture separately treats the square-summand exceptional set, which is not the present theorem."
+        ],
+        "reasoning": "Order of summands, notation, and emphasizing the even subpopulation do not change the all-integer prime assertion.",
+        "searches": [
+          "Prior-work comparison of all-integer prime plus Zumkeller and Conjecture 4.21",
+          "arXiv:2310.14149 Conjecture 4.21",
+          "arXiv:2610.19574v1 Section 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 25 finding has the exact same all-integer exception function; proof steps 1–5 use the same family and CRT obstruction.",
+          "The October 18 odd-only finding counts representations for each sufficiently large odd target, not the even-target exceptional set."
+        ],
+        "reasoning": "This is an infinite theorem, not a table of checked N or checked seeds. The decisive indexed comparison is a theorem for the same counting function; an odd-only hit alone would not cover the claim.",
+        "searches": [
+          "Resultary: prime plus Zumkeller, exceptional density and coprime prime blocks",
+          "RESULT.md of October 25 exponent-one record 24f4a08027dd",
+          "Resultary odd-target record d798476efd98"
+        ]
+      },
+      "rationale": "Li's Theorem 1.2 already proves the same all-integer density limit with a quantitative gain. The distinct earlier exponent-one catalogue result uses the very same minimal blocks, with substantially sharper coprimality factors and the same CRT argument. The fixed-class envelope for all integers follows by a direct fixed-modulus specialization of their representation mechanism, not an independent arithmetic conclusion.",
+      "residual_risks": [
+        "The earliest historical treatment of the equivalent mechanism was not determined; the directly compared stronger results already suffice.",
+        "The prime-block input rests on cited classical subset-sum results rather than the finite verification package."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified seed input and original conjecture wording, not prior proof of the density statement",
+          "evidence": [
+            "Lemma 3.3 proves every sufficiently late minimal block is Zumkeller; Theorem 3.4 selects disjoint blocks and uses residue classes modulo their squares.",
+            "Conjecture 4.21 requests separate prime and square limits."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2310.14149",
+          "material_read": "Section 3 definition and Lemmas 3.1–3.3 from HTML offset 10800; Conjecture 4.21 near HTML offset 51200 (PDF p. 16)",
+          "method": "Open primary paper passages",
+          "title": "Some Results on Zumkeller Numbers",
+          "trigger": "Decisive prime-block and conjecture premises"
+        },
+        {
+          "assessment": "Input supports the seed proof; the cited exposition is terse",
+          "evidence": [
+            "Lemma 1 is the distinct-prime-sum input, attributed to Brun's method; Lemma 2 yields a central interval of divisor subset sums for the prime blocks."
+          ],
+          "identifier_or_url": "Benkoski–Erdős, cited as reference 5 of arXiv:2310.14149",
+          "material_read": "p. 621, PDF p. 5, offsets 11600–12496, Lemmas 1–2",
+          "method": "Open cited primary PDF passage",
+          "title": "On Weird and Pseudoperfect Numbers",
+          "trigger": "Underlying nonstandard divisor-subset-sum result"
+        },
+        {
+          "assessment": "Direct coverage of the density claim and same even-target local mechanism",
+          "evidence": [
+            "Theorem 1.2 bounds the identical count by x/(log log x)^A for explicit A>0.",
+            "Lemma 3.2 supplies a uniform representation threshold for even n coprime to an odd seed z."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.19574v1",
+          "material_read": "Section 1 exception-set definition, Conjecture 1.1 and Theorem 1.2, HTML from offset 3100; prelude and Theorem mechanism, Lemma 3.2 locator 11862",
+          "method": "Open primary arXiv HTML",
+          "title": "Li's quantitative prime–Zumkeller theorem",
+          "trigger": "Same conjecture and stronger bound"
+        },
+        {
+          "assessment": "Dominating quantitative bound and near-identical finite-depth CRT mechanism",
+          "evidence": [
+            "Disjoint squarefree minimal prime blocks have coprimality-failure product asymptotic to a constant times 2^(-r).",
+            "Progression modulo 2z rad(z) and CRT control the even exceptional count; the odd count is handled separately."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-an-exponent-one-log-log-saving-for-sums-of-a-prime-and-a-zumkell--24f4a08027dd/RESULT.md",
+          "material_read": "Finding, Assumptions and Proof steps 1–6, offsets 0–7033",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "An exponent-one log-log saving for sums of a prime and a Zumkeller number",
+          "trigger": "Stronger catalogue theorem on exactly the same exception function"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The conjecture and its even-target difficulty are mathematically meaningful. As a separate finding, however, the weaker asymptotic limit and routine fixed-depth residue formulation do not add a new bound, new seed family or distinct obstruction mechanism to the stronger prior work. The shorter qualitative proof may be instructional but there is no independently valuable unresolved remainder in the frozen claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

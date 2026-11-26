@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:35:46.682434Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 19–55",
+        "VERIFICATION.md lines 19–27 and VERIFY.py lines 8–48 (inspected, not executed)",
+        "Nill arXiv:math/0407491v1 §2",
+        "Sancho de Salas–Moreno González–Sancho de Salas arXiv:1809.09070v1 §7.2, Theorem 7.8"
+      ],
+      "rationale": "With n active bounds the remaining entry is C = k(A+B)-nB. The condition -A<C<B constrains k to an open interval of length one; at an endpoint the all-bound multiset is unique. Thus all vertices are a single permutation orbit, integral and primitive (both bounds occur; at the simplex endpoint B=1). On the sum-zero real representation its second-moment matrix has identical diagonal entries and identical off-diagonal entries, hence restricts to (R s/n)I. A nonzero functional has at least R/n nonzero evaluations by the squared-norm bound. A Demazure root would have only two nonzero evaluations, -1 and 1, since the ray sum vanishes. The interior-free orbit has at least n(n+1) vertices; the all-bound nonsimplex orbit has at least choose(n+1,2) with n≥3. The only exceptional nonsimplex case is n=3,A=B=1, where a root would vanish on two of the three opposite ray pairs; subtracting the resulting integral character equations gives equal coefficients in each pair of coordinates and an even evaluation on the remaining ray. At (n,1) the simplex evaluations are all congruent modulo n+1, again excluding a root. The complete toric root theorem therefore gives identity component T. Every lattice fan automorphism preserves primitive vertices and hence Q. For A<nB both coordinate bounds are facets: set the other entries to A/n or -B/n to exhibit relative interior points. Their normal lines are permuted, and the unique all-ones dependence forces one common signed scaling, which unimodularity makes ±1. Inversion preserves the facets' support values exactly for A=B. At the simplex endpoint only upper facets remain, so the common sign is positive. Finally T is characteristic, and any automorphism preserves its unique dense orbit; translating the image of the torus identity back to identity makes its restriction the group automorphism given by conjugation on T. Thus the fan group is an actual finite complement, not just a quotient of the expected size.",
+      "residual_risks": [
+        "The finite orbit/character checks are ancillary; the audit relies on the all-parameter argument, not on extrapolating them or on a different lattice."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general toric theorems describe root subgroups and components in terms of fan symmetries and roots; Wu constructs the entire parameter family"
+        ],
+        "reasoning": "The machinery applies but leaves the primitive ray support and exact lattice symmetry tasks, including two arithmetic exceptions, undetermined.",
+        "searches": [
+          "Nill arXiv:math/0407491v1 §2",
+          "Sancho de Salas–Moreno González–Sancho de Salas arXiv:1809.09070v1 Theorem 7.8",
+          "Wu arXiv:2608.14115v1 §3–4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 905966f8658b",
+        "Wu arXiv:2608.14115v1",
+        "Liu–Zhu arXiv:2607.04005v1",
+        "Nill arXiv:math/0407491v1",
+        "Sancho de Salas et al. arXiv:1809.09070v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Wu identifies the specialization; the matching Resultary group contributes one point in each dimension, while (1,1) gains inversion and (n,1) has a different, simplex ray orbit"
+        ],
+        "reasoning": "There is no parameter or lattice equivalence transferring the specialized result across these orbit and facet changes. Applying the structural theorems requires the new family-specific computations, not a substitution alone.",
+        "searches": [
+          "Liu–Zhu Proposition 2.1",
+          "Wu Remark 4.3",
+          "Nill §2",
+          "Sancho de Salas–Moreno González–Sancho de Salas Theorem 7.8",
+          "Resultary finding 905966f8658b"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wu §3 equations (3.1)–(3.2) and Proposition 3.2 give the same family in difference coordinates",
+          "The cyclic-difference map from the quotient integer lattice to the sum-zero lattice is bijective: integrate any sum-zero tuple around the cycle, uniquely modulo a constant"
+        ],
+        "reasoning": "The apparently different lattice descriptions do not give different families. The inspected equivalent constructions concern alpha values and toric geometry, not the claimed full groups.",
+        "searches": [
+          "Resultary: toric box-section family and automorphism groups",
+          "Wu arXiv:2608.14115v1 §3",
+          "Liu–Zhu arXiv:2607.04005v1 §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/18/SCOPE-full-automorphism-group-of-the-liu-zhu-small-alpha-toric-fano-va--905966f8658b gives exactly T⋊S_(n+1) in the same lattice for all n≥2 at (2n−1,2)"
+        ],
+        "reasoning": "This is demonstrable exact subfamily coverage regardless of same-day indexing; it is not full-interval coverage or evidence of priority ordering. A related local-class-group record treats a different invariant.",
+        "searches": [
+          "Resultary: (2n−1,2) specialization; box-section toric automorphism groups"
+        ]
+      },
+      "rationale": "Passes for the full coprime parameter interval and endpoint distinctions only. The (2n−1,2) group result is explicitly known in a distinct indexed finding, and the family and structural toric tools are already known. Neither constitutes the family-wide root exclusion and precise component classification.",
+      "residual_risks": [
+        "Broader unindexed or unretrieved component-group calculations may exist; no priority is established. The supplementary external search was deferred; the assessment rests on inspected relevant primary passages and the indexed specialization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical general geometric family; not the group classification in these passages",
+          "evidence": [
+            "Difference coordinates and full parameter range; explicit Liu–Zhu specialization"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.14115v1",
+          "material_read": "§3 eqs. (3.1)–(3.2) and Prop. 3.2, PDF p. 3, offset 9580; §4 Rem. 4.3, PDF p. 5, offset 14780",
+          "method": "OA PDF passage comparison",
+          "title": "The alpha spectrum of K-polystable toric Q-Fano varieties",
+          "trigger": "Same box-section family"
+        },
+        {
+          "assessment": "Covers geometric specialization, not its group in the inspected construction",
+          "evidence": [
+            "Cyclic integer differences; bounds −(2n−1) and 2"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.04005v1",
+          "material_read": "§2 Prop. 2.1, PDF p. 3, offset 10501",
+          "method": "OA PDF, lattice comparison",
+          "title": "K-polystable toric Fano varieties with small alpha invariants",
+          "trigger": "Same specialized polytope"
+        },
+        {
+          "assessment": "General structural input",
+          "evidence": [
+            "Root subgroups for the identity component and generation using fan-lattice automorphisms"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0407491v1",
+          "material_read": "§2, PDF p. 5, offset 12953",
+          "method": "OA PDF passage comparison",
+          "title": "Complete toric varieties with reductive automorphism group",
+          "trigger": "Potential theorem implying general group"
+        },
+        {
+          "assessment": "General description, not the family calculation",
+          "evidence": [
+            "Component quotient from fan automorphisms modulo root-related factors"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1809.09070v1",
+          "material_read": "§7.2 Theorem 7.8, PDF p. 22, offset 77374",
+          "method": "OA PDF passage comparison",
+          "title": "Automorphism group of a toric variety",
+          "trigger": "Potential direct component-group result"
+        },
+        {
+          "assessment": "Exact overlap for (2n−1,2), not the full family",
+          "evidence": [
+            "Same lattice, all n≥2, identity component T and component group S_(n+1), with the same coordinate action"
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-full-automorphism-group-of-the-liu-zhu-small-alpha-toric-fano-va--905966f8658b",
+          "material_read": "RESULT.md Finding and displayed lattice/bounds",
+          "method": "Resultary local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Full automorphism group of the Liu–Zhu small-alpha toric Fano variety",
+          "trigger": "Distinct catalogue result with exact specialization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Wu §3–4",
+        "RESULT.md lines 5–17, 27–55, 61–69",
+        "Resultary 905966f8658b"
+      ],
+      "rationale": "This determines the connected and disconnected symmetries across a natural alpha-spectrum family in its actual lattice, including the centrally symmetric inversion jump and the potentially misleading simplex endpoint. The uniform orbit estimate and the endpoint arithmetic give a reason for rigidity beyond reiterating the previously computed specialization. The exact symmetry group is useful for identifying torus actions and possible equivariance in this family, without a claim about all toric Fanos.",
+      "residual_risks": [
+        "No claim of new alpha values or priority for the known specialization."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

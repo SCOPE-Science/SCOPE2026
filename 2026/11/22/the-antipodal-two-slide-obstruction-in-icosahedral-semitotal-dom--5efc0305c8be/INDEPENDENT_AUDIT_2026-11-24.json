@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:42:02.418653Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–44, VERIFICATION.md, verify_geometry.py and check_networkx.py (inspected, not executed)",
+        "Independent replay: python3 /workspace/branches/independent-02.py"
+      ],
+      "rationale": "Independently constructed the graph from the 12 golden-ratio icosahedron vertices with exact integer-pair arithmetic and checked isomorphism to the stated two-ring graph by adjacency-preserving backtracking. Computed distances by Floyd–Warshall, exhausted every subset of size at most 3, and tested set equality with the two specified families (both directions). Enumerated 120 automorphisms by backtracking and checked transitivity on each sector. Tested every pair of states for membership in each move graph by its symmetric difference and the underlying exchanged pair's adjacency; Floyd–Warshall and per-state invariants give degrees (13,9)/(7,9), eccentricities (3,3)/(4,3), 480/300 edges and finite distances throughout. Among all 3160 pairs the differences have counts 2440/690/30. Exact equality of the extremal set with the retained-antipodal-pair and exchanged-antipodes predicate holds, and every extremal pair has distances (1,3). Closed neighborhoods each have size six and a dominating pair must be disjoint in closed neighborhoods, hence antipodal and infeasible; enumeration separately covered the smaller sizes. All move paths stay among global minima.",
+      "residual_risks": [
+        "Exact finite certificate concerns unlabelled tokens on the single icosahedral graph only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The survey's abstract specifies independent, dominating and connected dominating state families. Křišťan–Svoboda's abstract gives shortest dominating-set sliding on trees and interval graphs. The linear-time semitotal optimization is for strongly chordal graphs; an induced pentagon excludes the icosahedron."
+        ],
+        "reasoning": "Neither the relevant optimization theorem nor shortest-path results for different state spaces compute the required distances within minimum semitotal sets.",
+        "searches": [
+          "Bousquet et al. arXiv:2204.10526; Křišťan–Svoboda arXiv:2307.10847; Tripathi–Pandey–Maheshwari arXiv:2109.02142"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 46–56; primary arXiv abstracts and DOI item identified above",
+        "Resultary 5efc0305c8be, 7775b781dc4f, afe70695ac53, 2c1db03a1a91, c31664aca328"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The paired case has reported slide/jump diameters 6/4; the resolving case uses one from each of three distinct antipodal pairs and compares slides with transport. The same-day induced path result concerns complementary induced six-vertex paths, and the same-day rainbow case concerns 36 optima of a different condition."
+        ],
+        "reasoning": "These results do not determine the states or move adjacency of this semitotal optimum subspace. In particular, computing shortest paths in a larger family of ordinary dominating sets does not give the distances within it.",
+        "searches": [
+          "Resultary 7775b781dc4f, afe70695ac53, 2c1db03a1a91 and c31664aca328; primary reconfiguration papers above"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tripathi et al. use exactly the domination-plus-distance-2-witness predicate. Published paired domination, resolving sets, rainbow domination and induced-path partitions instead specify different feasible states, even when using antipodality as a structural invariant."
+        ],
+        "reasoning": "The obstruction means retained antipodes from one pair and exchanged antipodes from a different pair. It is not a detour statement for arbitrary antipodal exchanges or other optimal state predicates.",
+        "searches": [
+          "Resultary meaning search: minimum semitotal icosahedron, token jumping and sliding, two-slide excess iff antipodal exchange",
+          "Tripathi–Pandey–Maheshwari arXiv:2109.02142"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact local entry is the bound record itself. Distinct catalogue entries 7775b781dc4f and afe70695ac53 have 135 minimum paired four-sets and 160 minimum resolving triples respectively; neither is the 80-state family. The cited 2016 result is reported as the ordinary icosahedral domination number two; the DOI metadata alone does not verify Lemma 2.8."
+        ],
+        "reasoning": "Ordinary domination is not the semitotal census. Equal ambient graph, or equal triple size for resolving sets, does not make the metric table equivalent.",
+        "searches": [
+          "Resultary meaning search for the 80 states and the 30 extremal pairs; exact target 5efc0305c8be; DOI 10.12732/ijpam.v107i3.5"
+        ]
+      },
+      "rationale": "The distinct content is the classification and exact local-versus-global move metric on the minimum semitotal family, especially the complete obstruction criterion; not the ordinary domination number, semitotal predicate, or token-move definitions.",
+      "residual_risks": [
+        "Papers were not inspected beyond stated passages and the 2016 lemma text was unavailable. Related Resultary comparisons use catalogue statements, not full records. Unindexed semitotal tables not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same feasibility definition; strongly chordal optimization is not exact reconfiguration for this input",
+          "evidence": "The abstract states the selected witness distance ≤2 and the linear-time strongly chordal algorithm.",
+          "identifier_or_url": "https://arxiv.org/pdf/2109.02142",
+          "material_read": "v1 PDF abstract, lines 17–29",
+          "method": "Original PDF text preview after bounded OA attempt",
+          "title": "A linear-time algorithm for semitotal domination in strongly chordal graphs",
+          "trigger": "Same semitotal predicate, possible specialized consequence"
+        },
+        {
+          "assessment": "Shared move definitions and other feasible state spaces",
+          "evidence": "Lists independent set, dominating set and connected dominating set as its underlying problems.",
+          "identifier_or_url": "https://arxiv.org/pdf/2204.10526",
+          "material_read": "v1 PDF abstract, lines 23–40",
+          "method": "Original PDF text preview",
+          "title": "A survey on the parameterized complexity of the independent set and (connected) dominating set reconfiguration problems",
+          "trigger": "Broader reconfiguration survey and move aliases"
+        },
+        {
+          "assessment": "Ordinary dominating sets in other graph classes",
+          "evidence": "States shortest-sequence algorithms on trees and interval graphs.",
+          "identifier_or_url": "https://arxiv.org/pdf/2307.10847",
+          "material_read": "v1 PDF abstract lines 9–21 and opening definitions",
+          "method": "Original PDF text preview",
+          "title": "Shortest Dominating Set Reconfiguration under Token Sliding",
+          "trigger": "Exact shortest paths under local moves"
+        },
+        {
+          "assessment": "Lemma passage not independently read; report credits ordinary domination, not an independent no-overlap finding",
+          "evidence": "Bibliographic match; ordinary domination number two is also independently compatible with the antipodal neighborhood partition.",
+          "identifier_or_url": "https://doi.org/10.12732/ijpam.v107i3.5",
+          "material_read": "DOI bibliographic response; Lemma 2.8 locator from frozen citation",
+          "method": "DOI lookup and comparison against frozen reference",
+          "title": "Results on Domination Number and Bondage Number for Some Families of Graphs",
+          "trigger": "Prior icosahedral domination comparison"
+        },
+        {
+          "assessment": "Self-match; other claims are different state predicates despite common graph and exchange theme",
+          "evidence": "Paired four-sets, resolving triples, two-forest path partitions and rainbow optima have different families from the 80 semitotal triples.",
+          "identifier_or_url": "Resultary 5efc0305c8be, 7775b781dc4f, afe70695ac53, 2c1db03a1a91, c31664aca328",
+          "material_read": "Local catalogue summaries",
+          "method": "Local Resultary meaning search; bounded mirror retrieval attempted",
+          "title": "Resultary icosahedral optimal-state and exchange-metric comparisons",
+          "trigger": "Direct graph and invariants overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding; independent-02.py reproduction"
+      ],
+      "rationale": "Minimum semitotal domination is a motivated constraint between ordinary and total/paired domination; the regular icosahedron is a natural highly symmetric test case. Comparing sliding and jumping exposes a precise shortest-path phenomenon explained by the ambient antipodal involution, rather than only a finite count of minima. The exact iff description and its distances are useful as a benchmark for constrained reconfiguration.",
+      "residual_risks": [
+        "One canonical graph, not a theorem for a wider graph family."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

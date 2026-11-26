@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Exact Weyl-character orthogonality converts the operator-lifting rank into the number of nonzero ambiguity coefficients; every nonzero moment-curve difference has exactly one representation and the zero-shift Fourier coefficients vanish precisely for permutation cubics. A direct binary-quadratic count proves the complete permutation classification for every prime at least five. The embedded exact checker reproduces all component formulas for eight primes; the analytic argument supplies the universal quantifier.
+## correctness
 
-**Originality — PASS (best-knowledge).** The 2015 Bojarovska–Flinth full preprint proves general cyclic Gabor lifting/ambiguity identities; the 2019 Alaifari–Wellershoff paper studies discrete Gabor ambiguity and stability. Neither determines the arithmetic operator rank for a cubic moment-curve support in a three-dimensional prime-field group. The closest indexed tomography results concern hyperbolic quadratic shells and one-dimensional prime cyclic positive rational windows. Their premises do not include this curve and the requisite cubic-permutation zero set. The exact new rank and complete Weyl-basis kernel were not found in the recorded searches, though negative searches alone cannot establish global novelty.
+PASS
 
-**Mathematical value — PASS.** Operator span rank and its missing Weyl directions are natural precise recovery invariants for a structured finite Gabor measurement ensemble. The cubic moment curve is the first moment-curve dimension in which zero-shift cancellation depends on genuinely cubic permutation polynomials; this creates an exact transition between two prime congruence classes beyond the support-difference count. The formula supplies a concrete arithmetic benchmark for sparse-window operator tomography, not merely an improved decimal constant. The classical cubic-permutation fact is not asserted to be novel separately.
+Independent proof reconstruction for primes p≥5: conjugation sends each Weyl input to a distinct output character times its ambiguity coefficient. The input Hilbert–Schmidt norm is p^(3/2), the output character norm p^3, so singleton intersections give singular value sqrt(p). For a nonzero curve difference the first coordinate is the nonzero parameter increment and the second uniquely fixes the base parameter; this yields precisely p(p−1) nonzero shifts, with one term at every frequency on those shifts and no terms at other nonzero shifts. At zero shift the multiplicity polynomial has degree at most p−1, and a primitive pth-root zero forces it to be 1+X+…+X^(p−1). Hence cancellation is exactly permutation. Nonconstant linear phases permute; genuine quadratic phases have a reflection collision. After depression of a cubic to t^3+ut, any u≠0 gives a distinct-input collision: for c=−4u the number of solutions of 3s²+v²=c is p−χ(−3)>2, and at most two have v=0. The character-sum identity follows by factoring (s−b)(s+b)=a≠0. For u=0, the cube map permutes exactly for p≡2 mod 3. Counting yields the stated two ranks, the full complementary Weyl basis, and precisely p^4(p−1) supported nonzero-shift singular directions, without claiming this is the total multiplicity of sqrt(p). Applies to the full complex-linear map, not pure-state injectivity. The frozen finite verification was inspected, not re-executed; it is not the arbitrary-prime evidence.
 
-**Closest-source limitations.** The two highly relevant methodological primary works were materially inspected, including the full 2015 preprint and the full public 2021 journal HTML. Related indexed result abstracts did not expose complete scientific packages, so their absence of coverage is assessed only where incompatible domains and hypotheses settle the comparison. An older unindexed Gabor/moment-curve calculation or a disguised operator-rank identity remains a residual originality risk. This theorem does not assert pure-state phase-retrieval impossibility and does not classify all nonzero cubic exponential-sum magnitudes.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Weyl diagonalization, prime-root permutation criterion, and cubic permutation facts are not the novelty. The closest indexed exact-rank result has a different ambient space, shift geometry, and permutation family. None of the inspected statements gives or mechanically specializes to the cubic moment-curve rank, kernel and supported nonzero-shift band together. This is a scoped judgment from the evidence, not a priority guarantee.
+
+## value
+
+PASS
+
+The standard cubic moment curve is a natural sparse window with maximal uniqueness of its ordered nonzero differences. Exact tomography rank and a full operator nullspace determine the recoverable linear directions; the supported nonzero shifts also have a fixed singular scale. The arithmetic deficit at zero shift distinguishes the two prime classes in a way a difference-set count or generic Gabor theorem alone does not. This is a narrow structural invariant, not a claim of phase retrieval or general stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

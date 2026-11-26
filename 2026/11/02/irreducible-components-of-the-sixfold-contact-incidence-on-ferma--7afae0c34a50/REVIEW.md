@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For the reduced pointed-line incidence on the Fermat degree-\(d\) fourfold, the contact conditions to order six become six moment equations. Grouping coordinate ratios and inverting a Vandermonde matrix of size at most six proves that every block has vanishing Fermat sum and at least two coordinates. The reverse polynomial identity gives contact exactly \(d\) or a contained line. All partial block-partition incidence families are irreducible of dimension three and distinguished by their generic coordinate-ratio profiles. The nine combinatorial shapes, weighted by \(d\) choices per two-coordinate block, give exactly \(15d^3+45d^2+90d+51\). The full proof is in RESULT.md. The exact enumeration checker is supplementary.
+## correctness
 
-## Originality — PASS (bounded literature comparison)
-Beheshti–Mukhopadhyay, arXiv:2610.28558v1, prove the dimension-three theorem for order-six contact and mention the classical \(15d^3\) Fermat planes. They do not classify the remaining contact components. Patel–Riedl–Smith–Tseng, arXiv:2208.04393v1, give an order-five dimension theorem, not this sixfold-contact component count. Moe–Toft, arXiv:2412.16993v2, study osculating curves of Fermat plane curves, not fourfold pointed-line incidence. Targeted comparison of equivalences, broader implication, tabulated exact counts, and near claims in published mathematical records identified no dominating result. Search absence alone does not establish uniqueness, and uninspected relevant full texts remain a literature-priority risk.
+PASS
 
-## Mathematical value — PASS
-This answers a motivated structural question left open by a dimension-only theorem: which components actually realize the expected dimension in an explicit symmetric family? It gives a full infinite-family component census, identifies \(45d^2+90d+51\) additional components beyond the familiar Fano-plane contribution, and proves the disappearance of finite contact orders between five and \(d\). The invariant is intrinsic to the contact incidence, not an arbitrary numerical slice.
+Over C with d≥6 the six Taylor coefficients in degrees 0–5 are the power moments of the distinct ratios v_i/p_i, each weighted by the sum of p_i^d on its block. Their first k equations have invertible k-by-k Vandermonde matrix since k≤6. Each resulting block sum is zero, so singleton blocks are impossible, and the one full-support block would give the zero direction modulo p. Conversely the exact restriction is t^d times the sum of w_i^d on the zero-coordinate complement; this proves the contact gap, including d=6. For a fixed partition and size-two root choices, the marked-point base is the open projectivized product of block cones, of dimension |T|-k-1. A block hypersurface of positive dimension in projective space is irreducible here because it is smooth and any distinct positive-degree factors would meet. The direction space is the projectivization of the rank k+|R|-1 bundle obtained by quotienting the allowed vector bundle by the tautological point line. Its dimension k+|R|-2 gives total dimension three. The exact support, pair-root ratios, and generic equality classes of the slopes are intrinsic; if two closures coincided their dense constructible loci of distinct block slopes would meet, contradicting recovery of that data. An independent recursion assigning each label to an existing block, a new block or the complement reproduced the nine shape counts 15,20,15,6,45,60,15,10,15 in the source order. Multiplication by d for each pair block gives 15d³+45d²+90d+51, with 5451 at d=6. These are reduced-locus statements only.
 
-## Limitations
-The classification is reduced and does not determine scheme multiplicities or pairwise intersections. It requires complex characteristic zero, six homogeneous coordinates and \(d\ge6\). The 2022 contact paper was compared from accessible abstract and secondary precise theorem statements, not from its complete full text. Independent evaluation of correctness and originality remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The prior dimension-three result and the classical Fermat planes are not credited as novel. The supported contribution is the full reduced pointed-contact block classification and contact gap for this Fermat family. The strongest same-date record treats canonical and degree data for the general six-contact scheme and expressly omits its number of components; the related contained-line thickening is also not the full census.
+
+## value
+
+PASS
+
+The dimension theorem leaves the geometry of the special Fermat locus open. The partition-and-root classification supplies all topological components, including those generically not contained in the hypersurface, and it detects an actual contact-order gap. These are concrete invariants for comparing general and special contact loci, beyond recounting the classical planes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The forbidden-factor window is exactly six symbols. Relabeling the three symbols preserves the admissibility of every extension, making the 49-state weighted canonical-suffix quotient exact for labeled words. The included symbolic checker establishes the characteristic polynomial \(t^{41}Q(t)\) by an exact 49-by-49 determinant; Cayley–Hamilton and verified early coefficients establish the recurrence and numerator for all lengths. The unique primitive 30-state recurrent component justifies the simple dominant root and the positive asymptotic coefficient. An independent checker enumerates literal labeled words without symmetry quotient and confirms the same counts.
+## correctness
 
-## Originality — PASS, qualified
-The primary 2004 paper proves exponential growth and lists initial counts for the strictly smaller language avoiding all Abelian cubes, not this finite-type two-block-length truncation. The 2012 primary paper describes antidictionary construction for finite root cutoffs and bounds the full-language exponential rate, but its tabulated result uses root lengths through eight and does not give this exact root-two numerator, denominator, or limiting constant. The unrestricted-result table and the two-period language have different counts from length nine. Targeted semantic searches of the existing mathematical record and exact literature searches found no equivalent polynomial or stronger statement implying these explicit values. Risk: a historical unindexed root-two automaton or an unpublished derivative of the general 2012 computational method may have already evaluated this special case.
+PASS
 
-## Value — PASS
-The shortest two Abelian-cube periods form the first nontrivial regular outer approximation to a classical infinite-antidictionary problem on the smallest alphabet supporting global Abelian-cube avoidance. The exact entropy base \(2.607914749\ldots\), compared with the published global upper bound \(2.371237\), reveals a quantitatively large contribution from forbidden longer blocks; the rational enumerator and recurrence make this local cutoff exactly usable rather than simply numerically estimated. The fact is deliberately confined to the precise natural cutoff and does not claim a new global entropy bound.
+The all-length formula was reproduced with signed forbidden-word clusters rather than the source's suffix quotient. The minimal forbidden set is the three constant triples and 24 length-six words formed by repeating the same distinct unordered pair three times, ordering each pair independently. A length-six word made of three identical-letter pairs already contains a constant triple. None of the 27 minimal forbidden words properly contains another. For a cluster ending in w, the recurrence is x_w = -z^|w| - sum_v x_v times the overlap polynomial sum_k z^(|w|-k) over proper suffix-prefix overlaps from v to w. Separating a signed marked word into unmarked letters and maximal clusters gives 1/(1-3z-sum_w x_w), by cancellation of marked subsets of occurrences. The exact five-class cluster system yields the stated coprime numerator and denominator and the initial values. The literal 180-state length-five suffix graph is strongly connected (forward and reverse reachability from 01201) and has cycles of lengths 3 and 4 (periodic 012 and 0012); it is primitive. Perron–Frobenius and the exact series give a simple unique dominant pole with positive residue coefficient. Q changes sign on (0,1) and (2,3), and Descartes' rule permits only two positive roots. Evaluation at the pole gives alpha=2.607914749105280... and C=1.474405450809276..., consistent with the reported approximations. The source's alternate 49-state proof, including the Cayley–Hamilton shift to n>=49 and the early coefficients, is consistent with the independent result.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The exact labelled ternary series and entropy for the root-length-two cutoff are distinct from the full-language counts and growth bound, from a reusable finite-antidictionary construction, and from the indexed binary cutoff. The precise evaluated ternary cutoff was not found in the inspected material. This is a best-of-knowledge assessment, not a priority certificate.
+
+## value
+
+PASS
+
+The cutoff is motivated by the shortest two block lengths, the first regular approximation that captures nonconstant anagram cubes. Its exact growth rate shows a material gap from the published full-avoidance upper bound (2.607914749... versus 2.371237), and the exact enumerator and residue provide a reusable baseline for successive finite cutoffs. This is not a new bound for full avoidance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-Execute `python3 verify_bfloat_spm.py` in a directory containing the attached standalone file. The program uses only the Python standard library's exact-rational `fractions`, integer bit manipulations and graph algorithms. It computes all 16,257 successors of each rule and performs every calculation with exact integers or rationals; the host's binary floating-point rounding is not used. Both rational rounding implementations produce identical successor arrays, and both exhaustive graph decompositions agree on each state's basin and preperiod. The asserted cycle table and 2,205 changed successors are produced directly by this computation.
+## correctness
 
-`certificate.json` records the 3 and 2 cycles, their sorted exact 16-bit codes, the complete basin cardinalities and the SHA-256 digests of the entire successor arrays. Recomputing the digests checks transcription of the finite arrays but does not replace the executable exact proof. No infinite-state or real-measure claim is inferred from this finite certificate.
+PASS
+
+The original table, cycle codes and hash fingerprints are correct, but the Finding's literal 'all other nonzero states' includes 1, which maps to zero in both rules. The replacement RESULT.md states that the period-20 basin is exactly the representable open interval and corrects what the supplied verifier asserts versus prints. The real polynomial is the Paul et al. Table 2 logistic entry at C=1. Exact rounding was independently reconstructed in integer units of 2^−133: for consecutive scaled values u,v, compare the rational argument with (u+v)/2 and choose the even encoding at equality. The exact A argument is at most 3.98/4; the staged product is at most (255/64)(1/4). Both maps thus stay in the specified code interval. I generated all 16,257 successors for each rule and replayed every orbit to first repetition separately. For A the period/basin/max-depth triples are (1,2,1), (5,2026,77), (22,14229,87); for B they are (1,2,1), (20,16255,83). In both maps the zero-basin codes were 0000 and 3f80. The 2,205 edge differences, every cycle code and both digests matched the frozen certificate. The replacement preserves the correct finite census and does not rely on the asserted strength of the supplied verifier.
+
+## originality
+
+PASS
+
+The distinct repaired claim is the complete graph invariant of a published state-dependent logistic polynomial at its maximal external control under the two specified rounding rules, not the polynomial itself or eventual periodicity. Close same-date bfloat16 censuses use materially different functions and rounding trees; neither states nor mechanically implies this comparison. No ordering is inferred from their common date.
+
+## value
+
+PASS
+
+For a motivated real design at its documented control endpoint, the audit gives the exact collapse from two distinct nonzero recurrent basins to one under a specified arithmetic change. The depths, sizes, and changed-arrow count make this a reproducible benchmark for rounding sensitivity rather than just an example of eventual periodicity. The correction preserves that quantitative insight and distinguishes it from the unchanged {0,1} basin.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

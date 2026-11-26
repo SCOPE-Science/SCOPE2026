@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproduction of the exact integral homotopy classification
+# Independent mathematical audit
 
-Place `verify_tietze.py` and `collapse_certificate.json` together, then run
+## correctness
 
-```sh
-python3 verify_tietze.py collapse_certificate.json
-```
+PASS
 
-The verifier reads the exact labeled graph, checks it is cubic with exactly one triangle and diameter three, reconstructs every pairwise distance and enumerates every Rips face at radii one, two and three. At radius two it recomputes 319 nonempty faces, validates all 119 proposed elementary collapses as sequential free-face deletions, validates an eleven-edge spanning tree in the residual complex, and computes all triangular attaching words after contracting the tree. The 27 specified generator cancellations are validated *in order* by finding a remaining two-cell whose word is precisely the single generator, with sign. The resulting zero-skeleton has one point, no one-cells and four trivially attached two-cells. This yields the integral wedge of four two-spheres.
+Contracting the specified triangle gives Petersen: for vertices 0 through 8 and the contracted vertex, the two-subset labels 34,15,24,35,45,25,23,13,14,12 give adjacency by disjointness. At scale one the filled triangle is a contractible subcomplex and its quotient is a connected graph with 10 vertices and 15 edges. The independent radius-two replay recomputed the face counts (12,51,96,87,51,19,3) from the vertex metric and checked the full proper-coface condition for each of 119 sequential elementary collapses. The residual complex has 12 vertices, 38 edges and 31 triangles. Contraction of the checked spanning tree gives one based vertex and 27 edge generators; at each of 27 checked steps a single-generator two-cell and its edge make a contractible subcomplex, so the quotient is a homotopy equivalence and deletes that generator from the other attaching words. The four remaining two-cells have trivial attaching maps. This proves a wedge of four 2-spheres, not merely four independent mod-two classes. The graph has diameter three; the zero stage is discrete and the third stage is a simplex. All distances are integral, and no degree has nonzero reduced homology at successive stages, so the listed half-open integral intervals are complete.
 
-The mod-two boundary-rank checks at radii one and two are an independent finite arithmetic cross-check, not a proof of integral torsion-freeness. The integral homotopy conclusion follows instead from the simplicial and CW collapses. Radius-zero and radius-three outcomes are immediate from the graph's twelve vertices and diameter three. The output in `verification_output.txt` was obtained by running the supplied verifier with the supplied certificate.
+## originality
 
-Scientific limit: a proof of one fully enumerated finite graph does not establish results for all cubic graphs, any local-expansion family or continuum graph metrics. This is a self-review; no external or independent validation is claimed.
+PASS
+
+The nontrivial supported contribution is a certificate and full intact-graph filtration determination, with an integral homotopy type at radius two. The same-day edge-fault record explicitly mentions the exact intact radius-two wedge as context; that mathematical overlap is credited. Its actual metric family and theorem are single-edge deletions; the mention does not supply an independent derivation or a chronological determination about the intact claim. The other inspected results do not establish that intact classification.
+
+## value
+
+PASS
+
+Tietze is a standard cubic graph, with a natural contrast to Petersen: a triangle expansion changes the scale-two Rips type from a simplex to a four-sphere wedge. Since homology ranks would not give this homotopy classification, the explicit integral certificate is useful as an exact test case for graph powers and as the intact baseline for fault comparisons. The routine endpoint stages complete the classification rather than constituting its value on their own.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific review: The fourteen-element fundamental group of the seven-cycle four-colour quotient
+# Independent mathematical audit
 
-**Correctness — PASS.** The finite product-of-simplices complex and all sevenfold orbits are completely enumerated. The exact quotient cellular boundary contracts by 3957 unit pivots to Smith factors \(1\) and \(14\). Independently constructed oriented two-cell attaching words agree in every abelianized coordinate with the integral boundary, and 1140 valid Tietze eliminations give one generator and order-fourteen relators. The seven-sheeted exact covering then gives the source fundamental group of order two.
+## correctness
 
-**Originality — PASS relative to inspected literature and database.** Kozlov's Theorem 7.2 supplies cohomology of the original seven-cycle Hom complex, not its sevenfold orbit-space fundamental group. The fully inspected pentagon four-colour dihedral orbit result has different source and action, so it does not entail this result. Searches for cycle-colouring, rotation, equivariant Hom complex, cyclic-cover and seven-four-colour aliases disclosed no exact or stronger coverage. The relevant 2004 odd-cycle paper was inspected only at abstract/theorem-summary level, and unindexed equivalent work is a residual risk.
+PASS
 
-**Value — PASS.** The natural first seven-cycle extension of the classical four-colour pentagon Hom example has nontrivial cyclic covering topology that is not detected by rational invariants or the known cohomology of its covering complex. The complete fundamental-group classification is mathematically more substantial than another small Betti-number computation, while the boundaries and higher homotopy are stated conservatively.
+With nonempty neighboring-disjoint subsets, a cell cannot be invariant under any nontrivial 7-cycle rotation: all seven coordinates would have to agree. A fixed point would force just such an invariant open cell. The actual ordinary quotient therefore has one cell per free orbit; rotations induce the Koszul sign on the oriented product factors. I independently generated orbit representatives using a different canonical order, checked the full chain squares, and reduced the integral boundary by degree-descending sparse unimodular unit-pivot cancellation. The cell counts are (312,1452,2640,2340,1008,168); the different pivot order gives 3958 cancellations, leaving ranks (1,1,1,1,0,0) and the sole nonzero boundary [−14] in degree 2. This gives the claimed integral groups. The cover one-skeleton is connected by single-coordinate changes through all 2184 proper colorings. In the quotient, a spanning tree leaves 1141 generators, with actual triangle and square words having the correct exponent sums on all 2640 two-cells. A different tree and Tietze order gave 1140 single-occurrence eliminations and one generator, with 42 nonzero relators of length 14. With a single generator, a cyclically reduced length-14 relator is g^14 or g^(−14). The difference from 46 in the frozen transcript reflects the choice of reduction, not a difference in presented groups. The connected regular seven-fold cover gives kernel the unique index-seven subgroup C₂ of C₁₄. Replay: python /workspace/checks/hom.py (helper words.py; transcript /workspace/checks/hom.txt). No CW chain calculation was taken to determine higher homotopy or a manifold model.
 
-**Limitations.** No full homotopy type, manifold model, or formula for general odd cycles. The finite verification covers one exactly defined complex, not an infinite family. Publication priority is not established independently.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass is for the exact fundamental groups of the cover and rotation quotient, with an explicit finite presentation rather than a calculation of its abelianization alone. The quotient homology itself follows from Kozlov's cited covering-space cohomology computation by standard covering spectral-sequence arguments; it is not an independently novel invariant here. The related pentagon result has a different source cycle and uses a different action, and the strongest inspected general sources do not show the requisite fundamental group of the seven-cycle cover.
+
+## value
+
+PASS
+
+The passage from the pentagon benchmark to seven source vertices gives a natural next orbit-space case. Knowing that the actual group is cyclic, not just that the abelianization has order fourteen, determines the fundamental-group extension and the fundamental group of its natural covering space. This topology is not read off from cohomology and is useful in comparing combinatorial cycle-colouring spaces and their symmetry quotients. The homology replay is supporting context; the value does not rest on recomputing that already implied table or claiming a lens-space homotopy type.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

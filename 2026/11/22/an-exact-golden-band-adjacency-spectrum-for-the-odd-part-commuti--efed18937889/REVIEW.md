@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The complete 8-dimensional odd-part graph is explicitly defined. In odd characteristic two odd elements commute exactly when their exterior product vanishes. Separating degree two and four yields the two equations, which classify the vertices into one clique of size \(q^4\) and \(qL\) cliques of size \(s=(q-1)q^3\). The incidence block is point–hyperplane orthogonality, with the exact projective identity \(N^TN=q^2I+(q+1)J\). Direct invariant subspace decomposition accounts for all \(q^8\) eigenvalues and gives the three-dimensional quotient \(Q_q\). The determinant is nonzero for \(q\ge3\). The standalone direct-product, incidence and compressed-spectrum checker passed; finite checks are not a replacement for the symbolic proof.
+PASS
 
-## Originality — PASS, provisionally
+Odd anticommutation in odd characteristic reduces the edge test to zero degree-two and degree-four products. For v≠0, the label (projective v, normalized pairing divided by the scalar of v) specifies a clique of size s; the v=0 clique joins these by point–hyperplane incidence. Counting hyperplanes through one or two points gives NᵀN=q²I+(q+1)J. The clique, dual-scalar and label contrasts have the asserted scalar eigenvalues; the nonconstant incidence modes couple by q√[(q−1)qs]=s and give the golden pair. The singleton zero and two global constants give precisely Q_q. Total dimension is q⁸. Independently, writing D=q⁴−1 and l=q³−1, expansion gives det Q_q=D[1−s+q⁴(2l−D+1)]=−D[q⁷(q−2)+q³(q−1)−1]; it is strictly negative for q≥3. The other blocks also exclude zero. These counts use finite-field dimensions and hold also over extensions.
 
-Domokos–Zubor's archival theorem establishes maximal commutative subalgebras and odd-part zero-product facts, not spectral data. Published same-algebra papers on all-arity commuting tuples and commutator fibers were read in full and provide aggregate counts or adjoint ranks, not the complete adjacency-spectrum and nonsingularity statement. The proof here builds the additional point–hyperplane spectral decomposition. Residual risk: a generic clique blow-up or graph association-scheme result could imply this formula under another formulation; publication priority has not been independently certified.
+## originality
 
-## Value — PASS
+PASS
 
-The odd elements are a canonical maximal parity component of a fundamental noncommutative algebra and every element squares to zero; commutativity in this component is therefore intrinsically motivated. The exact spectral characterization produces a family of golden-ratio eigenvalue bands of projective multiplicity and proves uniform nonsingularity of exponentially large finite-field commuting graphs. These are global graph invariants not recovered from commuting probabilities alone.
+Passes for the full adjacency spectrum and nonsingularity of this specified odd-part graph to best current knowledge. The closest same-algebra sources give multiplication/commutation equations, adjoint ranks, commuting-tuple counts, or fibers, not the normalized class splitting or the action on the projective nonconstant modes. Equitable quotients and projective-design singular values are standard; the distinct claim is their graph-specific synthesis and the complete result, not those tools.
 
-## Scientific limitations
+## value
 
-The graph includes zero and every odd element; the conventional graph on noncentral elements is a different object. Only four generators and odd finite fields are covered. The three-field numerical checker is corroboration; the proof supplies the unrestricted finite-field statement. Independent audit has not been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This graph is intrinsically defined on the whole odd component, where graded and ordinary commutation are related by zero products. The exact multiplicities and uniform invertibility are structural information about a q⁸-vertex adjacency operator, not recovered from commuting-pair totals. The argument explains the golden bands by matching clique size to the nonconstant projective-incidence coupling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

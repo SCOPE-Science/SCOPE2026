@@ -1,119 +1,52 @@
-# Graph-isomorphism completeness for perfect and simple evolution algebras over fixed finite fields
+# Graph-isomorphism completeness for simple evolution algebras over a fixed finite field
 
 ## Finding
 
-Fix a prime power \(q\ge 2\). Given two finite-dimensional evolution algebras over the **same fixed field** \(\mathbb F_q\), each specified by its natural-basis structure matrix, deciding whether they are isomorphic as \(\mathbb F_q\)-algebras is graph-isomorphism complete (GI-complete) under deterministic polynomial-time many-one reductions, even if both algebras are promised to be perfect. **The same conclusion holds if both algebras are promised to be simple.**
-
-More explicitly, the following two reductions hold.
-
-1. An arbitrary \(n\)-dimensional perfect evolution algebra can be encoded as a directed graph with two edge colors on exactly \(n(q-1)\) vertices. Two such algebras are isomorphic if and only if their colored directed graphs are isomorphic. For fixed \(q\), the encoding and its conversion to an ordinary undirected graph are polynomial time.
-2. For every undirected simple graph \(G\) on \(n\ge 1\) vertices, there is an explicit simple evolution algebra \(E_G\) of dimension \(4n+6\), with structure coefficients all in \(\{0,1\}\), such that \(G\cong G'\) if and only if \(E_G\cong E_{G'}\). These algebras are simple over **every** field; fixed finite fields are used only for the upper reduction.
-
-Here GI-complete means polynomial-time many-one interreducible with the ordinary isomorphism problem for finite undirected simple graphs. The finite field is not part of the input. This is not a claim about the complexity when \(q\) varies and is supplied in a succinct encoding.
+Fix a prime power \(q\ge2\). Graph isomorphism reduces in deterministic polynomial time to isomorphism of **simple** evolution algebras over \(\mathbb F_q\), supplied by their natural-basis structure matrices. For an \(n\)-vertex input graph with \(n\ge1\), the reduction constructs a \((4n+6)\)-dimensional algebra with all structure constants in \(\{0,1\}\). The construction gives simple algebras over every field, and over each field it preserves and reflects graph isomorphism. The known upper reduction for perfect evolution algebras applies to simple algebras, giving GI-completeness on this promise over each fixed finite field.
 
 ## Assumptions and scope
 
-An evolution algebra \(E(A)\) associated with \(A=(a_{ij})\in M_n(K)\) has a designated basis \(e_1,\dots,e_n\), with \(e_ie_j=0\) for \(i\ne j\) and \(e_i^2=\sum_j a_{ij}e_j\). It is perfect when \(A\) is invertible. An algebra is simple when it has no nonzero proper two-sided ideals and has nonzero square; the constructed examples satisfy this in every characteristic.
-
-All isomorphisms are \(K\)-linear algebra isomorphisms, not semilinear or isotopy maps. Graph isomorphisms preserve directions and colors when those are specified. Matrices can have arbitrary entries of the fixed field in the upper reduction. No promise of connectedness or nonzero diagonal entries is made in the upper reduction. The lower reduction uses connected graphs to produce simple algebras.
+All graphs used as inputs are finite, undirected and simple. An evolution algebra over a field \(K\) has a natural basis \(e_i\) with \(e_ie_j=0\) for \(i\ne j\); its row structure matrix \(A=(a_{ij})\) satisfies \(e_i^2=\sum_j a_{ij}e_j\). Isomorphisms are \(K\)-linear. Perfect means \(E^2=E\), equivalently \(A\) is invertible. Simple means \(E^2\ne0\) and there are no nonzero proper ideals. The lower reduction does not require a finite field; the upper reduction is used only with a finite field fixed outside the input.
 
 ## Proof
 
-**1. Monomial rigidity and its exact equations.** Let \(E(A),E(B)\) be perfect of the same dimension and let \(\varphi:E(A)\to E(B)\) be an algebra isomorphism. Write \(\varphi(e_i)=\sum_k p_{ik}f_k\). For \(i\ne j\),
-
+**Monomial isomorphisms.** Suppose \(E(A)\cong E(B)\) are perfect and \(\varphi(e_i)=\sum_k p_{ik}f_k\). For distinct \(i,j\), multiplying their images gives \(\sum_k p_{ik}p_{jk} f_k^2=0\). The \(f_k^2\) are a basis, so each column of the invertible \(P=(p_{ik})\) has exactly one nonzero entry, as does each row. Therefore \(\varphi(e_i)=s_i f_{\sigma(i)}\) for a permutation \(\sigma\) and \(s_i\ne0\). Such a map is an isomorphism exactly when
 \[
-0=\varphi(e_ie_j)=\sum_k p_{ik}p_{jk}f_k^2.
+a_{ij}s_j=s_i^2 b_{\sigma(i),\sigma(j)} \qquad\text{for all }i,j.
+\tag{1}
 \]
+In particular the directed support of the structure matrix, including its diagonal, is preserved and reflected.
 
-Since \(B\) is invertible, the \(f_k^2\) form a basis. Consequently, \(p_{ik}p_{jk}=0\) for every \(k\) and distinct \(i,j\). Each column of the invertible matrix \(P=(p_{ik})\) has exactly one nonzero entry, so each row does also. Thus there are a permutation \(\sigma\in S_n\) and nonzero scalars \(s_i\) with \(\varphi(e_i)=s_i f_{\sigma(i)}\). Comparison of squares yields the necessary and sufficient equations
+**Faithful connected graph encoding.** From \(G\) on \(n\ge1\) vertices, form \(H(G)\) by adding a hub adjacent to all old vertices and to \(n+2\) new leaves, with no other new edges. This connected graph has \(m=2n+3\) vertices. Its unique hub has degree \(2n+2\), compared with at most \(n\) at any other vertex. The induced graph on the nonhub vertices of degree at least two is precisely \(G\) with its isolated vertices removed. The number of removed isolates is determined by \(n=(m-3)/2\) and the size of the recovered graph. Thus \(G\cong G'\) if and only if \(H(G)\cong H(G')\); forward isomorphisms are extended by mapping hubs to hubs and new leaves bijectively.
 
+**Simple-algebra gadget.** Given a connected graph \(H\) on \(m\ge1\) vertices with adjacency matrix \(C\), take natural basis vectors \(x_v,y_v\) and products
 \[
-  a_{ij}s_j=s_i^2 b_{\sigma(i),\sigma(j)}\qquad(1\le i,j\le n).
-  \tag{1}
+x_v^2=x_v+\sum_{w\sim v}x_w+y_v,\qquad y_v^2=x_v.
 \]
-
-Conversely, any permutation and nonzero scalars satisfying (1) give an algebra isomorphism. This also rederives the standard natural-basis rigidity theorem for perfect evolution algebras.
-
-**2. Reduction to graph isomorphism.** Fix \(K=\mathbb F_q\) and fix a generator \(g\) of the cyclic multiplicative group \(K^\times\). For a structure matrix \(A\), form a directed graph \(\mathcal C(A)\) with two distinct arc colors \(\alpha,\beta\), and vertex set
-
+The matrix in the order \(x\) then \(y\) is
 \[
-  V(A)=\{(i,t):1\le i\le n,\ t\in K^\times\}.
+M_H=\begin{pmatrix}I_m+C&I_m\\ I_m&0\end{pmatrix}.
 \]
+Its kernel over any field is zero: the bottom equation forces the first coordinate block to vanish, and the top forces the second. Its multiplication digraph (arc \(i\to j\) for a nonzero \(a_{ij}\)) is strongly connected, since the \(x\)-vertices induce the bidirected connected graph \(H\) with loops and each pair \(x_v,y_v\) is joined in both directions. To see simplicity, take a nonzero element of an ideal and multiply by a basis vector at a nonzero coordinate. This puts the corresponding basis square into the ideal. Whenever the square of basis vector \(i\) lies in the ideal and \(i\to j\), multiplying that square by basis vector \(j\) gives a nonzero scalar times the square of \(j\). All basis squares lie in the ideal by strong connectivity, and span the algebra by perfection.
 
-Place the \(\alpha\)-arc \((i,t)\to(i,gt)\) for each vertex. For every \(a_{ij}\ne0\), place the \(\beta\)-arc
+An isomorphism of graphs \(H\to H'\) induces the same permutation of \(x\)- and \(y\)-vectors and preserves all products. Conversely, any algebra isomorphism is monomial by (1). The \(x\)-vectors are exactly the vertices with a loop, and the off-diagonal arcs induced on them encode exactly the edges of \(H\). Consequently the induced permutation on the \(x\)-vectors is an isomorphism \(H\to H'\). Combining this with the hub encoding gives \(E_G=E_{H(G)}\) of dimension \(2m=4n+6\). If input graphs of order zero are allowed, map the empty graph separately to the one-dimensional algebra with \(e^2=e\), which is simple and is not isomorphic to any positive-order image. The construction of the structure matrix is polynomial in the size of the graph input.
 
-\[
-  (i,t)\longrightarrow (j,t^2a_{ij})
-  \quad(t\in K^\times).
-\]
+**Upper bound over a fixed finite field.** For completeness, the finite-field reduction for the perfect case is as follows. Simplicity implies perfection since \(E^2\) is a nonzero ideal (the product of any vector with a vector in \(E^2\) is again a product of two vectors in \(E\)). Fix a generator \(g\) of \(\mathbb F_q^\times\). Use vertices \((i,t)\) with \(t\in\mathbb F_q^\times\) and two separate directed arc relations: one contains \((i,t)\to(i,gt)\); the other contains \((i,t)\to(j,t^2a_{ij})\) for each nonzero \(a_{ij}\). The first relation forces isomorphisms to take the form \((i,t)\mapsto(\sigma(i),ts_i)\), also when \(q=2\) and the cycles are singleton loops. The second relation enforces exactly (1): arcs at \(t=1\) enforce it on the nonzero coefficients and preservation of the relation enforces the zero pattern; (1) suffices at every \(t\). There are \(n(q-1)\) vertices and at most \((n+n^2)(q-1)\) arcs.
 
-The two arc relations are separate: a pair of vertices may carry arcs of both colors, including loops. The \(\alpha\)-arcs form exactly \(n\) disjoint directed cycles of length \(q-1\), including singleton loops if \(q=2\). Any two-color graph isomorphism must permute these cycles and commute with their successor action. Therefore it is necessarily of the form
-
-\[
-  (i,t)\longmapsto (\sigma(i),t s_i)
-\]
-
-for some permutation \(\sigma\) and \(s_i\in K^\times\). For each \(i,j\), the presence or absence of \(\beta\)-arcs between the corresponding cycles forces \(a_{ij}=0\iff b_{\sigma(i),\sigma(j)}=0\). When these entries are nonzero, preservation of the \(\beta\)-arc at \(t=1\) is precisely equation (1). Conversely, (1) ensures preservation of every \(\beta\)-arc at every \(t\), while the form of the map automatically preserves \(\alpha\)-arcs. Thus
-
-\[
-  E(A)\cong E(B)\iff \mathcal C(A)\cong\mathcal C(B).
-  \tag{2}
-\]
-
-There are exactly \(n(q-1)\) vertices, \(n(q-1)\) \(\alpha\)-arcs and at most \(n^2(q-1)\) \(\beta\)-arcs. For fixed \(q\), this is polynomial in the structure-matrix input length. A finite directed graph with two colored arc relations reduces in polynomial time to an undirected simple graph. First form a vertex-colored undirected incidence graph: keep one vertex of a base color for every original vertex, and for each directed arc \(u\to v\) of color \(c\), add two new vertices of distinct colors \((c,\mathrm{out})\), \((c,\mathrm{in})\), joined along the path \(u-(c,\mathrm{out})-(c,\mathrm{in})-v\). This preserves and reflects source, target, arc color, loops and simultaneous arcs. Then replace the finitely many vertex colors by distinguishable constant-size attached marker gadgets to get an ordinary uncolored simple graph. Thus colored directed graph isomorphism reduces to GI in polynomial time. Therefore perfect evolution-algebra isomorphism reduces to ordinary GI. The simple subclass inherits this reduction.
-
-**3. Connected graph encoding of arbitrary undirected graphs.** Let \(G\) be a finite undirected simple graph on \(n\ge1\) vertices. Make a new graph \(H(G)\) by adjoining one vertex \(h\) adjacent to every old vertex, and \(n+2\) new leaves adjacent only to \(h\). The graph \(H(G)\) has \(m=2n+3\) vertices and is connected. Its hub has degree \(2n+2\), whereas each old vertex has degree at most \(n\) and each new leaf has degree one. Thus the hub is unique. From \(H(G)\), knowing \(m\) and hence \(n\), one canonically recovers the subgraph induced by its non-hub vertices of degree at least two: that is \(G\) with all isolated vertices removed. The number of omitted isolated vertices is \(n\) minus the number of recovered vertices. Therefore
-
-\[
-  G\cong G'\iff H(G)\cong H(G').
-  \tag{3}
-\]
-
-**4. Encoding connected graphs as simple evolution algebras.** Let \(H\) be any connected undirected simple graph on \(m\) vertices, with adjacency matrix \(C\). Over any field \(K\), define an evolution algebra \(E_H\) with natural basis \(x_v,y_v\) indexed by \(v\in V(H)\), with
-
-\[
-  x_v^2=x_v+\sum_{w\sim v}x_w+y_v,\qquad
-  y_v^2=x_v,
-\]
-
-and all mixed products of different basis elements zero. Its structure matrix, in the order \(x_1,\ldots,x_m,y_1,\ldots,y_m\), is
-
-\[
-  M_H=\begin{pmatrix}I_m+C&I_m\\ I_m&0\end{pmatrix}.
-\]
-
-This matrix is invertible over **any** field: if \(M_H(u,v)=0\), the bottom block gives \(u=0\) and then the top block gives \(v=0\). Hence \(E_H\) is perfect. Its multiplication digraph is strongly connected: the \(x_v\) vertices contain the two-way edges of connected \(H\), and each \(x_v\) and \(y_v\) are joined in both directions. For completeness, strong connectivity and perfection imply simplicity directly: any nonzero ideal contains some \(x_v^2\) or \(y_v^2\) by multiplying a nonzero element by a basis vector; further multiplication along directed edges propagates containment to all squares, which span the algebra. Therefore every nonzero ideal is the whole algebra.
-
-Any graph isomorphism \(H\to H'\) permutes the \(x\)-basis and the correspondingly indexed \(y\)-basis and gives an algebra isomorphism. Conversely, suppose \(E_H\cong E_{H'}\). By Step 1, every such algebra isomorphism is monomial. The \(x_v\) are exactly the natural basis elements with a nonzero self-coefficient in their square, and the \(y_v\) are exactly those without one; hence each type is preserved. The self-coefficient of each \(x_v^2\) is one, so equation (1) forces its scale factor to be one. Each \(x_v^2\) has exactly one nonzero \(y\)-coefficient, identifying \(y_v\), and comparison of that coefficient forces the scale of \(y_v\) to be one as well. The remaining coefficients of \(x_v^2\) are exactly the adjacency relation in \(H\). Consequently
-
-\[
-  E_H\cong E_{H'}\iff H\cong H'.
-  \tag{4}
-\]
-
-Combining (3) and (4), define \(E_G=E_{H(G)}\). It has dimension \(2m=4n+6\), is simple over any field, and isomorphism of these algebras is equivalent to isomorphism of the input graphs. This is a polynomial-time many-one reduction from GI to the isomorphism problem restricted to simple evolution algebras.
-
-Together with Step 2, this proves GI-completeness for both simple and perfect evolution algebras over every fixed finite field. \(\square\)
+To remove colors and directions, replace each arc by a length-three path with two fresh vertices having distinct tail and head colors for that arc relation. Give the original vertices a fifth color. Loops become triangles with the two new colors; simultaneous arcs use distinct fresh vertices. This is a faithful encoding in vertex-colored undirected simple graphs. To remove the vertex colors, attach a distinct number of pendant leaves (at least two) for each color. The old vertices are exactly those of degree at least two in the final graph; the number of degree-one neighbors recovers their colors. This proves a polynomial upper bound for fixed \(q\).
 
 ## Verification
 
-The accompanying standard-library checker constructs the two-colored graph, computes its graph-isomorphism canonical signature by exhaustive vertex permutations for all invertible two-dimensional structure matrices over \(\mathbb F_2\) and \(\mathbb F_3\), and independently tests the exact monomial algebra-isomorphism equations on every ordered pair. The two methods agree on all \(2{,}340\) comparisons. An additional \(225\) comparisons drawn from the \(180\) invertible two-dimensional matrices over \(\mathbb F_4\) use explicit arithmetic in \(\mathbb F_2[X]/(X^2+X+1)\). The checker also constructs the simple-algebra lower-bound gadget for every simple undirected graph with one through four vertices, checks invertibility over characteristics two and three, checks strong connectivity, and verifies recovery of graph isomorphism classes. This covers \(75\) graphs, with respective numbers of isomorphism classes \(1,2,4,11\).
+The proof establishes the result over the entire stated domain. The accompanying `checker.py` gives bounded corroboration: it tests the two-relation upper encoding against the monomial equations on all invertible \(2\)-by-\(2\) matrices over \(\mathbb F_2\) and \(\mathbb F_3\) and a fixed sample over \(\mathbb F_4\). On the lower side it checks invertibility in characteristics two and three, connectivity and graph recovery on the 75 labelled input graphs of orders one through four. The recorded output is in `verification_output.txt`. The checker does not prove the polynomial bound, all-characteristic simplicity, or the reductions for arbitrary dimensions.
 
-Execute \(\texttt{python3 checker.py}\). The text file \(\texttt{verification_output.txt}\) records the actual deterministic result. Enumeration confirms the tested finite cases; the proof above, rather than finite checking, establishes arbitrary dimensions and all fixed prime powers.
+## Relationship to prior work and limitations
 
-## Relationship to prior work
-
-Kaygorodov, Martín González and Viruel explicitly ask, in Question 50 of their October 15, 2026 survey, for the complexity of isomorphism of perfect evolution algebras over finite fields relative to graph isomorphism. Their survey also records natural-basis monomial rigidity and contains a graph-to-algebra construction for realizing automorphism groups. Those inputs do not state the pairwise isomorphism-completeness theorem or the linear-sized finite-field upper encoding given here.
-
-Elduque and Labra established the graph-theoretic description and automorphism structure of perfect evolution algebras; monomial rigidity is used here, with a short independent derivation. Falcón, Falcón and Núñez (2019) constructed a total-colored graph functor for evolution algebras and isotopisms using vertices \((x,y)\) from the full vector space. Because that construction ranges over vectors in the algebra, its size can grow exponentially in the natural-basis dimension over a fixed finite field; moreover its described categorical direction concerns isotopisms. It is not the present \(n(q-1)\)-vertex isomorphism-equivalence reduction. The present two-sided polynomial-time complexity classification and the simple-algebra hardness gadget were not identified in the literature compared below.
-
-## Limitations
-
-The field \(\mathbb F_q\) is fixed outside the input. The graph construction has \(n(q-1)\) vertices, so it is not claimed polynomial in \(\log q\) when the field varies. The algebra input is a structure matrix in a supplied natural basis; recognizing such a basis for an arbitrary multiplication table is a different problem. No algorithm for GI itself is claimed, nor any NP-completeness result. The lower-bound algebras have a special form, but the theorem does not classify all simple evolution algebras. Earlier literature could contain a complexity-equivalent graph encoding expressed in other language; historical priority is not independently certified.
+The contribution is the lower reduction **under the algebraically simple promise**, not the perfect-algebra GI-completeness result, the finite-field upper encoding, or monomial rigidity. Costoya, Ligouras, Tocino and Viruel give a pairwise isomorphism-preserving reduction to regular (perfect) evolution algebras over every field, not just an automorphism-group construction. Their Definition 3.2 has vertex basis elements \(b_v\) with \(b_v^2=b_v\); whenever the dimension exceeds one, \(K b_v\) is a nonzero proper ideal, so that construction does not furnish the simple-algebra hardness reduction. The earlier perfect-algebra GI-completeness record gives the fixed-field upper reduction with two directed relations; its perfect lower-bound construction is not needed here. The survey's Question 50 concerns the perfect case. The total-colored graph construction of Falcón, Falcón and Núñez addresses isotopisms and uses vectors of the full algebra, not a polynomial-size isomorphism reduction of the form used for the upper bound. No priority assertion is made beyond these comparisons. The result does not treat fields varying with the input, semilinear isomorphisms or the problem of finding a natural basis from an arbitrary multiplication table.
 
 ## References
 
-1. I. Kaygorodov, C. Martín González and A. Viruel, *Evolution algebras: a survey of results and a list of open problems*, arXiv:2610.22248v1 (first posted October 15, 2026), especially Theorem 4 and Question 50, https://arxiv.org/html/2610.22248.
-2. A. Elduque and A. Labra, *Evolution algebras and graphs*, arXiv:1312.4685 (2013), https://arxiv.org/abs/1312.4685.
-3. A. Elduque and A. Labra, *Evolution algebras, automorphisms, and graphs*, arXiv:1902.02191 (2019), https://arxiv.org/abs/1902.02191.
-4. R. M. Falcón, Ó. J. Falcón and J. Núñez, *An Application of Total-Colored Graphs to Describe Mutations in Non-Mendelian Genetics*, Mathematics 7 (2019), 1068, https://doi.org/10.3390/math7111068.
+1. C. Costoya, P. Ligouras, A. Tocino and A. Viruel, *Regular evolution algebras are universally finite*, [arXiv:2002.03338v3](https://arxiv.org/abs/2002.03338v3), Definition 3.2, Theorem 3.1 and Lemma 3.6.
+2. *Graph-isomorphism completeness of perfect evolution-algebra isomorphism*, [Resultary 58409c6864d5](https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-graph-isomorphism-completeness-of-perfect-evolution-algebra-isom--58409c6864d5).
+3. I. Kaygorodov, C. Martín González and A. Viruel, *Evolution algebras: a survey of results and a list of open problems*, [arXiv:2610.22248v1](https://arxiv.org/abs/2610.22248v1), Theorems 4 and 6 and Question 50.
+4. A. Elduque and A. Labra, *Evolution algebras and graphs*, [arXiv:1312.4685](https://arxiv.org/abs/1312.4685); *Evolution algebras, automorphisms, and graphs*, [arXiv:1902.02191](https://arxiv.org/abs/1902.02191).
+5. R. M. Falcón, Ó. J. Falcón and J. Núñez, *An Application of Total-Colored Graphs to Describe Mutations in Non-Mendelian Genetics*, *Mathematics* 7 (2019), 1068, DOI:10.3390/math7111068.

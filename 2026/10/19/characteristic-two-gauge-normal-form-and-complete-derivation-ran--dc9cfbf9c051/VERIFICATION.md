@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility of the derivation-rank formula
+# Independent mathematical audit
 
-Run `python3 verify.py` with standard Python 3, requiring no external packages. The program implements finite-field arithmetic over \(\mathbb F_2\), \(\mathbb F_4\), \(\mathbb F_8\), constructs actual model filiform Lie-algebra derivation matrices and computes ranks by independent Gaussian elimination. It compares the full empirical rank histogram to the stated formula.
+## correctness
 
-Exhaustive enumeration was performed for \(q=2\) and \(4\le n\le8\), and for \(q=4\) and \(n=4,5\); further random instances were tested for \(q=4,8\). The independent four-dimensional binary test checks the derivation identity directly on every one of the \(2^{16}\) possible linear maps. Another 960 gauge-conjugation checks use randomized even and odd polynomial data. The completed execution prints `VERIFY_OK_FILIFORM_DERIVATION_RANKS 10 configurations`.
+PASS
 
-For \((q,n)=(2,4)\), the complete rank histogram in ranks \(0,1,2,3,4\) is \((1,9,30,88,0)\). For \((q,n)=(4,5)\) it is \((1,267,948,30528,132096,98304)\). Each case sums to \(q^{2n-1}\).
+The alternating bracket and the coefficient of e_4 in the derivation equation for [e_2,e_3]=0 force D(e_2) into the abelian ideal V, including at n=4. The chain then forces D on V to be aE+M_w in F_q[t]/(t^d), with E=t d/dt; arbitrary a,v,w satisfy all basis equations. For a=0, multiplication by a nonzero w of valuation d−r has image dimension r, and the initial column adds rank precisely when v lies outside that image. For a≠0, the equation z+s f_1 z²=f_1 determines a unique formal series coefficient by coefficient (the factor s makes each step depend only on earlier coefficients). Applying the product rule to u=1+tz(t²) conjugates E+M_(w/a) to the operator with even multiplier f_0+s f_1 z. The unit and identity descend to the truncated ring, and the change in the even coefficients is a translation for fixed odd coefficients. The even and odd blocks are multiplication on lengths ceil(d/2) and floor(d/2), by that multiplier and its shift by 1. At resonance the nullity is the truncated valuation of the sole resonant block, including the zero multiplier; counting the first nonzero coefficient gives each W. Nonresonance requires a≠0 and w(0) outside {0,a}, giving the nonsingular term and fraction. The cases exhaust all q^(2n−1) choices. Fresh enumeration in branches/8f61e8ce-bd41-4ccd-8892-1e4f8ef95cf3/reproduce.py gave increasing-rank counts (1,9,30,88,0), (1,17,22,184,288,0), (1,75,1140,9024,6144), (1,267,948,30528,132096,98304) for (q,n)=(2,4),(2,5),(4,4),(4,5), respectively. The binary four-dimensional check tested all 65536 linear maps directly; the other runs used the parameterization. The frozen verifier was inspected, not executed, and the finite checks do not establish the general theorem.
 
-These finite computations do not certify the infinite theorem or novelty. The full proof is in RESULT.md. No independent mathematical audit has yet been performed.
+## originality
+
+PASS
+
+The supported contribution is the general dimension parity-gauge argument and resulting complete rank polynomial, not the four-dimensional polynomial or density in isolation. The earlier Resultary record 56eb755a310b gives the exact n=4 specialization for this object. The nearest other inspected statements concern cohomology, gradings, another filiform bracket, or a strictly different class of maps. The standard derivation description and the determinant read off from its diagonal are not credited here as separate new contributions. This judgment is bounded by the sources actually read, not a priority certification.
+
+## value
+
+PASS
+
+The standard chain has a natural linear-rank invariant not determined on its singular strata by the familiar triangular diagonal. The parity reduction explains how n controls the complete multiplicities of those strata over all finite characteristic-two fields; it is not a recomputation of the four-dimensional case or the determinant threshold. It also gives a reusable reduction for the truncated scalar operator E+M_f independently of the finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

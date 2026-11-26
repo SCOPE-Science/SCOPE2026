@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:09:27.220667Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The final claim is finite Boolean completeness for theoremhood in the unrestricted formula-indexed mu-extension semantics, with at most 2^s carrier elements for a formula with s distinct variable or implication subformulas. Let U contain the non-theorems among these subformulas and T(psi) be the non-theorem conjunctive blocks of psi. The proposed full valuation and full fallback yield U minus T(psi): conjunction uses union of the T sets, and the inclusion test on complements is exactly T(beta) subset T(alpha), the theoremhood test from Lemma 4.4 and Corollary 4.8. Implication therefore gives top on theorems and the prescribed singleton deletion otherwise. Non-theorem roots omit at least one atom; soundness is Theorem 7.2. For the separating formula every two-element evaluation gives top (split on p). The three required failed order tests hold on the stated chain and on its order-embedded copy in the four-element Boolean algebra. Two scientific notes in the frozen text were incorrect: the constructed U for this separator has five elements, so its canonical model is not the claimed tiny model; and the verifier's 576 cases at lines 100–108 concern three-leaf formulas, while the separator checks 32 assignments at lines 109–117. The two corrected complete Markdown files under /workspace/repairs/4 explicitly give the four-element witness and report the tested cases correctly; the proof and checker are unchanged and the verification front matter is preserved. Independent witness replay: python3 /workspace/review_evidence/4_boundary_witness.py (32 assignments and both refutations). The all-formula result rests on the symbolic induction, not on testing.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary completeness construction uses the quotient of the whole formula language; the abstract identifies finite-model-property investigation as an opportunity. The FMT and RmbC bounds concern different relational and algebraic semantics, respectively."
+        ],
+        "reasoning": "Completeness for unrestricted meet-semilattices does not supply a finite Boolean carrier preserving the relevant implication tests; the indexed bounds do not generalize to W by their stated hypotheses.",
+        "searches": [
+          "arXiv:2607.15664v1 Theorems 7.2, 7.3, 8.2",
+          "SCOPE-linear-witness-star-normalization-for-propositional-fmt-semantic--e337c0b249cf",
+          "SCOPE-linear-atom-countermodels-and-conp-completeness-for-rmbc--6409ec729ed8"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.15664v1",
+        "Resultary local mirror: 4e7b6e745350, e337c0b249cf, 6409ec729ed8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lemma 4.4 and Corollary 4.8 characterize theoremhood; the proof under review assigns missing atoms and inductively preserves each order decision in a finite Boolean powerset."
+        ],
+        "reasoning": "One must perform a model construction, not just substitute a parameter or read the bound off the syntax algorithm. A product of two-valued evaluations is also not the stated semantics: the branch decision in a powerset is global.",
+        "searches": [
+          "arXiv:2607.15664v1 Lemma 4.4, Corollary 4.8, Theorems 7.2–7.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest local construction bounds atoms in BALFI trace compression, with material implication and LFI operators. W's fallback is indexed by formula syntax and is unconstrained in a failed order test."
+        ],
+        "reasoning": "The Boolean carrier alone does not identify the two semantics; the reported BALFI theorem cannot be transported by equating the connectives.",
+        "searches": [
+          "arXiv:2607.15664v1 §§6–7; local Resultary search for W and formula-indexed finite Boolean countermodels",
+          "SCOPE-sharp-linear-atom-trace-preservation-for-boolean-algebras-with-l--4e7b6e745350"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The primary exact membership algorithm decides W but is not a finite-model size bound or a Boolean validity table. The matching local results give bounds for other logics."
+        ],
+        "reasoning": "An infinite formula theorem with a variable syntactic size parameter is not established by a table of examples, nor by the exact decidability test alone.",
+        "searches": [
+          "Resultary local index, closest matches 4e7b6e745350, e337c0b249cf, 6409ec729ed8",
+          "arXiv:2607.15664v1 §§7–8"
+        ]
+      },
+      "rationale": "The supported distinction is the finite Boolean reduction with its size bound and the two-value boundary in exactly W's semantics, not the earlier syntax test or general completeness. No stronger inspected statement covers it. The repairs correct the evidence and explicitly embed the already-given boundary countermodel, rather than asserting a new priority claim for the embedding.",
+      "residual_risks": [
+        "Targeted primary-literature search returned an uninformative Scholar page; not negative evidence. An equivalent Boolean reduction under older terminology remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies premises, not the finite Boolean construction",
+          "evidence": "Lemma 4.4 tests inclusion between non-theorem blocks in W'; Corollary 4.8 gives W'=W. Theorem 7.3 uses M_W=(L/W, meet, W).",
+          "identifier_or_url": "https://arxiv.org/abs/2607.15664v1",
+          "material_read": "Abstract p.1, Lemma 4.4 p.8, Corollary 4.8 p.10, §7 pp.13–15 and Theorems 7.2–7.3, Theorem 8.2",
+          "method": "Targeted OA full-text passage inspection",
+          "title": "Semantics for the minimal well-determined logic",
+          "trigger": "Exact syntax, semantics and potential coverage"
+        },
+        {
+          "assessment": "Different semantics; no inference from same date",
+          "evidence": "BALFI compression preserves finite traces and gives a linear atom bound for its operations, not W's arbitrary formula fallbacks.",
+          "identifier_or_url": "2026/10/13/SCOPE-sharp-linear-atom-trace-preservation-for-boolean-algebras-with-l--4e7b6e745350",
+          "material_read": "RESULT.md Finding, start of local mirror",
+          "method": "Targeted local mirror inspection",
+          "title": "Sharp linear atom trace preservation for Boolean algebras with LFI operators",
+          "trigger": "Strongest same-date Boolean compression overlap"
+        },
+        {
+          "assessment": "Related proof pattern, distinct relational semantics",
+          "evidence": "At most one root plus one witness per implication subformula in FMT frames.",
+          "identifier_or_url": "2026/10/12/SCOPE-linear-witness-star-normalization-for-propositional-fmt-semantic--e337c0b249cf",
+          "material_read": "RESULT.md Finding",
+          "method": "Targeted local mirror inspection",
+          "title": "Linear witness-star normalization for propositional FMT semantics",
+          "trigger": "Broader-looking finite witness bound"
+        },
+        {
+          "assessment": "Later structural analogue, not the same logic",
+          "evidence": "Bounds Boolean atoms for RmbC BALFI countermodels.",
+          "identifier_or_url": "2026/11/2/SCOPE-linear-atom-countermodels-and-conp-completeness-for-rmbc--6409ec729ed8",
+          "material_read": "RESULT.md Finding",
+          "method": "Targeted local mirror inspection",
+          "title": "Linear atom countermodels and coNP completeness for RmbC",
+          "trigger": "Local finite Boolean countermodel hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This addresses the finite-model question for a specific recently formulated semantics, giving a reusable formula-dependent Boolean countermodel instead of an unrestricted quotient. The small witness explains why validity in all finite Boolean carriers cannot be replaced by testing the two-element one. Neither sharpness of the general bound nor strong completeness for premise sets is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The complete set of 27 geometric lines is given by three coordinate pairings and nine cube-root choices per pairing. Exact determinants in the integral Eisenstein ring have only norms 0, 3 and 9, so no new line incidences appear outside characteristic 3. An exhaustive sweep of all 296010 six-subsets produces 72 sixers; the partner construction is checked to be a fixed-point-free involution with bijective missing partners, producing 36 double-sixes. The power map on cube roots is the exact Frobenius action. Counts 2 fixed sixers, 4 fixed unordered double-sixes with split/swapped decomposition 1/3 follow by complete enumeration; independent row reduction over characteristic 2 and 7 agrees. General finite-field Brauer triviality justifies the blow-down interpretation. No finite-field sample is promoted to an all-characteristics proof.
+## correctness
 
-## Originality (PASS, with residual risk)
-Das's paper supplies the general Weyl-group method for Frobenius-stable markings and a distribution of tritangents, but not this particular Fermat fixed-point and double-six half-swap census. Elsenhans--Jahnel study double-six descent in general but without this special arithmetic classification. Favacchio--Malara and a subsequent published mathematical refinement establish the 72 geometric sixers and their 18/54 orbit structure, not the specific 2/4/1/3 arithmetic counts or zeta factors in the material inspected. Their newer article's complete text was not accessible; its abstract and public companion code were examined. Historical-priority uncertainty remains, particularly possible reformulations under Weyl-group character tables. The statement/implication comparison was made with the accessible scientific records and the directly relevant prior claims.
+PASS
 
-## Mathematical value (PASS)
-The number of rational contractions of a cubic surface to a plane and the distinction between rational double-sixes and those admitting a rational half are intrinsic arithmetic-geometric descent questions. The new classification identifies three stable double-sixes with no stable half, an obstruction invisible to the 27-line rational point count or geometric orbit sizes, and determines counts over every finite extension by finite-étale zeta functions. These are natural complete invariants rather than an arbitrary numerical slice; the result does not claim a theorem for all cubic surfaces.
+In characteristic other than 3 the Fermat surface is smooth, and the 27 pairing/phase equations give distinct lines on it, hence all its lines by the classical smooth cubic count. Same-family meeting requires one common exponent; cross-family elimination reduces to one congruence modulo three, for example a+d=b+c between (01|23) and (02|13). Cross-family determinants that do not vanish are units times differences of third roots and have norm 3; skew same-family determinants have two such factors and norm 9. This proves reduction preserves the incidence graph even in characteristic two. Independently regenerated the graph by modular exponent congruences, found all sixers by clique recursion, and checked every pair of sixers against the double-six incidence (five neighbors on both sides). It yields the determinant norm census 135/162/54, 72 sixers, unique partners giving 36 double-sixes, and the exact two fixed sextuples printed in the source. The involution on unordered double-sixes has four fixed objects, one with both halves fixed and three swapped. All three fixed lines have zero exponents, absent from the fixed sixers, whose six elements therefore form three pairs each. Replay `python3 /workspace/branches/independent_reproduce.py` (section 2). The finite étale zeta factors follow from cycles of sizes 1 and 2. A Frobenius-stable sixer contracts uniquely up to target isomorphism and descends; the degree-nine target is Severi–Brauer and splits over a finite field. Conversely a blow-down to P² has exactly this exceptional sixer.
 
-## Closest literature and limits
-Das, *Arithmetic statistics on cubic surfaces* (2020); Elsenhans--Jahnel, *Cubic surfaces with a Galois invariant double-six* (2010); Favacchio--Malara, *On the Geometry of Sixers on the Fermat Cubic Surface* (2026); the published pairing-profile refinement (2026). The 2026 source's complete manuscript remains uninspected, while its abstract and public code have been examined. Characteristic three is excluded and no independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The standard 72 and 36 counts, geometric sixer classification and W(E₆) approach are not new. The supported distinct claim is the characteristic-uniform Fermat arithmetic fixed-set calculation and the explicit exchange/line structure. The later six-point-blowup table confirms numerical overlap and expressly carves out these earlier cases. The inspected pre-existing theory does not supply the Fermat census as a printed or automatic table lookup.
+
+## value
+
+PASS
+
+For a classical finite-field surface the calculation settles an exact natural descent invariant, including the distinction between a rational unordered marking and a marking rational half by half. It determines the fields of definition of all markings via the orbit spectra and counts distinct contraction morphisms. Although finite, the census is complete for this surface in every allowed characteristic and is useful independently of a broader Weyl-group count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

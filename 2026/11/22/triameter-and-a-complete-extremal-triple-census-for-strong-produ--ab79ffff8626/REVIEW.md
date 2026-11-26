@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The graph distance is the coordinatewise maximum. Allocating three pairwise distances to maximizing coordinates bounds the perimeter by twice the largest coordinate span plus the second-largest span, and an explicit three-vertex construction attains that bound. In the unique-longest regime, equality forces exactly two opposite-endpoint pairs in that coordinate; the other pair must be diametral in the remaining product. The count follows from an ordered-pair complement. In the tied-longest regime, a three-event inclusion-exclusion count per coordinate gives an exact exhaustive enumeration of diametral triples. The limiting law follows from all joint absence probabilities and conditioning on distinct points. All dimensions \(d\ge2\) and path orders \(q_i\ge2\) are covered. The independent finite checker corroborates the claim, but does not substitute for proof.
+PASS
 
-## Originality
+For coordinate ranges A≥B≥…, assign each pair one coordinate attaining its Chebyshev distance. A single witness for all three gives at most 2A by the line perimeter identity; multiplicity 2+1 gives at most 2A+B; three distinct witnesses give at most A+B+C≤2A+B. Three corners in the largest two coordinates attain the bound. If A>B, equality forces two diametral edges with a common outlier in the unique longest coordinate and distance B between the remaining pair. This gives exactly R times the number R²−S²(b²−2)^r of ordered pairs at distance B in the transverse box, because the three outlier choices and two endpoint orientations cancel the factor six for vertex labels. If A=B, all three pairs must attain A. In one leading coordinate a given label-pair event has 2a outcomes, each pairwise intersection has 2, and the triple intersection is empty. Inclusion–exclusion across the k independent coordinates gives the stated count with the unconstrained R³ factor and division by six. On a square board this counts 4a side-based constructions minus the four double-counted corner triples; on a nonsquare board the unique-longest formula gives 2n. For j specified failed pairs, the joint probability is [1−2j/q²+O(q⁻³)]^d, so their joint moments converge to e^(−2jλ), giving the binomial law by finite inversion. The collision bound 3/q^d controls conditioning on distinctness, and a union bound gives the infinite-ratio limit. A separate direct enumeration matched six boxes, including tied largest and tied second-largest sides. Replay: python3 /workspace/branches/498f0eb4-3154-491f-b4b6-81542ff7f3b8/small_box_check.py. The frozen 676,739-triple run is reported corroboration; the supplied verifier was inspected, not executed.
 
-PASS under the accessible-source comparison; historical priority remains provisional. Hak and Kozerenko (arXiv:2611.17259v1) establish general triameter inequalities and characterize extremal graphs under packing/connectivity hypotheses, but do not calculate these strong-product extremal triples. Bujtás et al. (arXiv:2510.02749, DOI 10.1007/s00026-026-00814-0) give the Chebyshev distance identity on strong products and results on packing domination, not a triameter optimizer census. Searches for king-graph triameters, Chebyshev maximum-perimeter triples and exact strong-product triametral counts did not identify a covering formula. The distance identity and inclusion-exclusion are standard and not claimed new. Unindexed equivalent geometric counting results remain a residual priority risk.
+## originality
 
-## Value
+PASS
 
-PASS. The triameter is a natural three-terminal distance invariant. The theorem solves both the extremal value and **every** maximum-triple count for a broad two-parameter-and-beyond family of king-grid networks, including a sharp transition when the two largest side lengths become equal. Its uniform-power corollary identifies the exact quadratic dimension scale on which a random triple shifts from almost never to almost always maximizing total pairwise distance, and a full limiting binomial defect law. This is a motivated structural census and scaling phenomenon, not a selection of arbitrary small graph cases.
+The invariant and the strong-product maximum metric are known. The supported distinct claim is the sharp two-range value together with the full equality census in both multiplicity regimes and the joint diameter-pair transition. The inspected graph-wide packing/connectivity bounds, product metric identity, and king-board results do not supply that census or its asymptotics. This is a bounded best-of-knowledge decision, not priority certification.
 
-## Literature and remaining limits
+## value
 
-The closest inspected papers are arXiv:2611.17259v1 and arXiv:2510.02749 / DOI 10.1007/s00026-026-00814-0. Their contributions and the nonimplication of the claimed exact counting formulas are explained in `RESULT.md` and the structured assessment. Some geometric literature may use different terminology for Chebyshev-diameter triangles; independent literature priority review remains necessary. No claims are made outside finite path strong products.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Perimeter maximizers are a natural test of the graph distance invariant. The result describes how a second maximal coordinate changes their geometry and multiplicity, including the fixed 2n count despite arbitrary lengthening of a nonsquare board. The full formulas also identify the scale d≈q² at which a typical triple becomes extremal and distinguish the failures of all three pairs, rather than only bounding the triameter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

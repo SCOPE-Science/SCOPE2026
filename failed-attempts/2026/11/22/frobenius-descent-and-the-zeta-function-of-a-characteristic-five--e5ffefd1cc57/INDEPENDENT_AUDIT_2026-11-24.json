@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:31:34.896164Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The conclusion is correct for the specified F5 models, not the Kummer quotient. The ground-field blowup identity requires compatible arithmetic models: BCCO Theorem 4.3 itself works geometrically, while Lemmas 4.1 and 5.1 give descended centers at I5×I5 and compatible III×III resolutions. At III×III the factors of u^4−v^4 are F5-linear and the last node has split tangent quadric cd=u²+v². The local small-resolution chain has three rational lines. For the IV cusp put s=t+2 and use the resolution chart y=xv, s=xw: the equation begins v²=4x+3w² in the terms determining x to order two, hence the initial base parameter is w(v²−3w²)/4. Since 3^(-1)=2, the two identical factors in the self-product give the actual descended cubic w(w²−2v²)=w'(w'²−2v'²), not the F25 split-chart cubic mistakenly used over F5. At infinity the nodal Weierstrass point has nonsplit tangent cone y²=2(x−1)²; reflection of the five-cycle fixes one node. Independently enumerated Weierstrass and cubic points with polynomial arithmetic over F5, F25 and F125 and the verified geometric corrections: Y=256,41426,2031376; cubic=31,801,15751; B=336,43576,2063376; small resolution=306,42926,2047626 (python3 /workspace/branches/independent_finite_fields.py). The frozen checker was inspected, not run. Hard Lefschetz on projective B and purity give trace 1075 at F25, saturating 43 eigenvalues of modulus 25, so their F5 roots are ±5. Trace 35 over F5 gives multiplicities 25 and 18. Blowing down the rational P1 removes one +5 in H2 and one +25 in H4; odd Betti numbers remain zero. Alternating determinants prove the full stated zeta for all degrees, without assuming semisimplicity from the trace check.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The quotient result calculates joint Frobenius/involution data for its further purpose and includes the undivided self-product data. The general crepant-resolution paper supplies existence and globalization methods, not the signed count. Burek's triple-product quotient zeta is for E^3/G, not this fibration."
+        ],
+        "reasoning": "Coverage comes from explicit calculations in the quotient record before applying the involution, not from confusing equality of the quotient and self-product zetas or transferring a theorem on E^3/G.",
+        "searches": [
+          "caf121dde64a complete quotient-zeta and self-product inputs",
+          "arXiv:2609.12522v1 §4/Table 1",
+          "Burek doi:10.1007/s00229-023-01524-0 pp. 1–2",
+          "BCCO arXiv:2611.15943v1 Theorem 4.3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary caf121dde64a and 4c88340b1488",
+        "arXiv:2611.15943v1 §§4–5",
+        "arXiv:2609.12522v1 §4/Table 1",
+        "doi:10.1007/s00229-023-01524-0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "BCCO's Betti data and even-extension counts fix squares but not signs absent a ground-field reconstruction. caf121dde64a supplies both the ground-field untwisted count and the complete signed H2 decomposition, not just a count on its quotient."
+        ],
+        "reasoning": "Using the explicit signed decomposition, the standard trace/determinant and duality formulas give immediately 1/[(1−T)(1−125T)(1−5T)^24(1+5T)^18(1−25T)^24(1+25T)^18]. Even without the printed signs, 336 for B and the explicitly stated quadratic count force them by saturation. Rechecking the local arithmetic and printing that equivalent formula does not salvage distinct content.",
+        "searches": [
+          "BCCO Lemmas 4.1/5.1, Theorem 4.3 and §4 counts",
+          "caf121dde64a Independent first-field consistency and Relationship to prior work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The mirrored caf121dde64a says in Independent first-field consistency that #B(F5)=336 and #Ŷ(F5)=306 and identifies the untwisted center. In Relationship to prior work it explicitly gives the resolved self-product degree-two spectrum of +5 with multiplicity 24 and −5 with multiplicity 18."
+        ],
+        "reasoning": "These are equivalent inputs to this zeta: H4 has reciprocal eigenvalues multiplied by 5^3, or five times the signed H2 eigenvalues here, and H0/H6 are 1/125 with no odd groups. Thus the same signed H2 statement under the same Betti data yields all factors even without a separately printed self-product zeta.",
+        "searches": [
+          "Resultary: characteristic-five resolved self-product non-liftable Calabi–Yau, F5 count 306, signed 24/18 spectrum and zeta",
+          "BCCO arXiv:2611.15943v1 §§4–5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "caf121dde64a gives 336 and 306 plus 24/18 for the exact same untwisted model, and distinguishes its twist. The cubic-model entry gives 31/51 for two descents but itself does not identify the actual exceptional model. The primary preprint table gives B over F25 as 43576; that table does not split the F5 signs by itself."
+        ],
+        "reasoning": "The matching arithmetic data are explicit, not a coincidence of one number or a record for a different threefold. The local cubic census by itself would not cover the global count.",
+        "searches": [
+          "Local Resultary exact counts 306 and the signed 24/18 spectrum",
+          "caf121dde64a RESULT.md offset 5950–8400",
+          "4c88340b1488 cubic-model Finding",
+          "BCCO §4 point-count table"
+        ]
+      },
+      "rationale": "A distinct indexed result about the further Kummer quotient, caf121dde64a, explicitly states 306 for the same resolved self-product and the same signed H2 multiplicities 24 and 18. Its main object differs, but these passages are about the identical untwisted self-product; with the same cohomological dimensions and Tate/Lefschetz pairing the whole asserted self-product zeta is mechanically implied, factor by factor. No relative order is inferred from the common date. This is demonstrated coverage, not failure to retrieve a source or doubt about the count.",
+      "residual_risks": [
+        "Relative historical ordering of the distinct same-date records is not established and is not needed for the coverage decision.",
+        "No exhaustive priority claim is made; the explicit already-indexed equivalent suffices."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the decisive identical self-product arithmetic despite a different main quotient theorem",
+          "evidence": [
+            "#B(k)=336, blowup difference 30, #Ŷ(k)=306, contrasted with the twisted 1386; explicit H2 +5 and −5 with multiplicities 24 and 18."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-the-complete-hasse-weil-zeta-function-of-a-non-liftable-characte--caf121dde64a",
+          "material_read": "Mirrored RESULT.md offset 5950–8400, Independent first-field consistency and Relationship to prior work",
+          "method": "Exact indexed passage comparison for the model, counts and signed eigenvalues",
+          "title": "The complete Hasse–Weil zeta function of a non-liftable characteristic-five Kummer Calabi–Yau",
+          "trigger": "Same resolved self-product used before further quotient; possible exact signed coverage"
+        },
+        {
+          "assessment": "Arithmetic and geometric model inputs established; F25 count and Betti numbers do not alone distinguish F5 signs",
+          "evidence": [
+            "I5 centers descend from the split Witt-vector charts; III local chain descends over F5. Betti data 43 and 42 in degrees two and four; B(F25)=43576."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.15943v1",
+          "material_read": "§4 Lemma 4.1, OA offsets 16416–23604; Theorem 4.3 and point counts around offsets 25717–39556; §5 Lemma 5.1 starting around 34773",
+          "method": "Primary OA sections compared with local arithmetic and cohomology proof",
+          "title": "A projective Calabi–Yau threefold in characteristic 5 non-liftable to characteristic 0",
+          "trigger": "Exact starting surface, resolution models, Betti and quadratic counts"
+        },
+        {
+          "assessment": "Local overlap only; does not identify the actual cubic used in the resolution",
+          "evidence": [
+            "Two F5 forms have counts 31 and 51. The actual model identification is supplied by the IV chart calculation."
+          ],
+          "identifier_or_url": "Resultary 4c88340b1488",
+          "material_read": "Mirrored Finding and model distinction",
+          "method": "Compare arithmetic forms and identify scope",
+          "title": "Arithmetic descent of two characteristic-five cubic exceptional models",
+          "trigger": "Exact local exceptional cubic count"
+        },
+        {
+          "assessment": "Geometric resolutions and globalization, not signed zeta of the specified model",
+          "evidence": [
+            "Resolution existence and configuration conditions, rather than F5 counting."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.12522v1",
+          "material_read": "§4 and Table 1, OA offsets 108331–112490",
+          "method": "Primary statement comparison",
+          "title": "Crepant resolutions of fiber products and Kummer fibrations of rational elliptic surfaces with non-reduced fibers",
+          "trigger": "Broader resolution/geometric construction"
+        },
+        {
+          "assessment": "Triple elliptic products are different from the surface self-fiber product over P1",
+          "evidence": [
+            "Kummer models E^3/G rather than the III/IV/I5 self-product."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00229-023-01524-0",
+          "material_read": "Opening pp. 1–2 and description of the quotient family",
+          "method": "Primary model comparison",
+          "title": "Zeta function of some Kummer Calabi–Yau 3-folds",
+          "trigger": "Same author area, possible broader zeta family"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The zeta of this specified self-product would be a worthwhile exact invariant if unresolved. Here the identified matching computation already supplies its full signed spectrum and point count. Removing that coverage leaves no stated independently useful unknown invariant: the determinant product is a routine reformulation of those exact data, and the isolated arithmetic checks don't count as a surviving new finding. No repaired claim is proposed.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

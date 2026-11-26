@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:22:02.791480Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 17–53, VERIFICATION.md and checker.py (read, not executed)",
+        "Gulgowski–Sawicki arXiv:2610.09810v1 Definitions 6–7 and Theorems 9, 12–14",
+        "Independent replay: python3 /workspace/reproductions/check_review_math.py, function blocks, confirms 7,450 admissible subsets on the first three blocks only"
+      ],
+      "rationale": "For fixed anchor i the blockwise top-coordinate selections are independent and finite-block truncation tends monotonically to A_i(x). Heredity holds using the same anchor, including when a subset no longer meets that block. Anchor 1 takes at least half the mass in every block and all the first block; lattice domination gives the upper bound. Equal mass on each of the first k blocks, uniform within each, gives A_i=1/k+(k-i)/(k2^i) on i<=k and zero thereafter, and maximum (k+1)/(2k); a coordinate vector attains the upper ratio. Thus the completion is ℓ1. For nonzero x, A_i(x) is bounded by the ℓ1 tail from i and hence an anchor attains the norm. Fix it when x_m tends coordinatewise to x with converging norms. Its contribution from j>J is at least 2^-i times the ℓ1 tail there. Subtract the continuous finite-head contribution and take limsup to bound the sequence tails by 2^i times the omitted contribution of x, tending to zero with J. The x=0 case follows from norm equivalence. A bounded sequence admits a coordinatewise convergent subsequence and Fatou gives an ℓ1 limit; finite equinorming supplies the upper bound on the limiting norms and the supremum of finite coordinate seminorms gives lower semicontinuity. Kadec then gives norm convergence. Conversely, a finite norm net and finite selections approximating its members' norms yield equinorming by Lipschitz continuity. In Definition 7, use uniform weights on D=B_i and on a whole B_j beyond any cutoff. Capturing more than half of D forces anchor i; the remote capture then has fraction at most 2^-i, which can be made smaller than any positive γ. This works throughout the source's admissible 0<γ<=1; γ>1 is outside that definition and impossible as a coverage fraction. Theorems 12–13 supply the compactness implication via Theorem 9, not in isolation.",
+      "residual_risks": [
+        "The argument for positive γ does not assert failure at γ=0 or classify the range λ>=1/2."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorems 12–13 require a positive secondary fraction retained exactly or in a limit (0,c), c>0. The uniform-block test rules out those hypotheses. Theorem 14 concerns failure at secondary fraction zero, a different condition.",
+          "Theorem 9 and the abstract seminorm Theorem 19 both use equinorming A-A. Example 1 of arXiv:2610.09810v1 has norm max(|x_1|,sum_{n>=2}|x_n|) and gives a bounded equinormed noncompact set."
+        ],
+        "reasoning": "Neither the difference-set criterion without an additional implication, nor ℓ1-equivalence alone, yields the one-set statement. The explicit uniform tail estimate under the frozen norm's attained anchor supplies the missing implication.",
+        "searches": [
+          "arXiv:2610.09810v1 Theorems 9, 12–14 and Examples 1, 3–4",
+          "arXiv:2111.10547v1 Theorem 19",
+          "arXiv:2404.01733v1 Section 4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.09810v1",
+        "arXiv:2111.10547v1",
+        "arXiv:2404.01733v1",
+        "Resultary SCOPE-20261018-ee98a8808bdb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier local capture estimate controls the earlier norm of a tail; it applies to geometrically separated occupied blocks. Enlarging that family changes the norm and equinorming hypothesis.",
+          "Even in an equivalent ℓ1 norm, bounded one-set equinorming can fail to imply compactness by Example 1. In the frozen family the heads and all later blocks can be optimized independently and anchor 1 controls the entire ℓ1 tail at fraction 1/2."
+        ],
+        "reasoning": "The earlier separation cannot prove the added ℓ1 realization by transport, heredification, or invoking the general compactness criterion. Dropping the gap leads to a genuinely different exact block norm and requires its own Kadec and sharpness argument.",
+        "searches": [
+          "Compare consequences of the sparse October 18 result and Gulgowski–Sawicki Theorem 9 and Example 1 against frozen RESULT.md lines 29–53"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Coordinatewise norm rigidity and the one-set equinorming criterion in the October 18 result are the same properties, with the same λ<1/2 and γ>0 failure range. It uses blocks 2^j and the same cap relative to principal index but requires successive occupied indices to at least double.",
+          "For example, taking a point from B_2 and one from B_3 is admissible in the frozen family; no sparse admissible set can contain both, so even hereditary closure of the sparse family cannot equate the two.",
+          "The sparse space contains uniformly isometric complemented ℓ∞^N; hereditary closure leaves its norm unchanged and does not turn it into ℓ1."
+        ],
+        "reasoning": "The two results solve the same qualitative separation problem but not for equivalent constructions. The substantive added restriction is the hereditary ℓ1 geometry; the local top-weight argument is closely related, not a new general method.",
+        "searches": [
+          "Resultary: coordinatewise norm rigidity or Kadec, equinorming and lack of uniform directedness",
+          "SCOPE-20261018-ee98a8808bdb, mirrored RESULT.md offsets 0–3962"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest catalogued construction SCOPE-20261018-ee98a8808bdb has the same block sizes and caps but a doubled-gap restriction and different norm geometry; it gives no sharp ℓ1 comparison.",
+          "The other inspected ℓ1-equivalent family examples use different block or incidence constraints; Gulgowski–Sawicki's relevant block examples retain positive directedness fractions."
+        ],
+        "reasoning": "A match in block sizes or sampling powers is not a match in allowable sets or in the norm. None of these inspected examples supplies the unrestricted-anchor ℓ1 norm, its sharp 1/2 constant and the claimed separation together.",
+        "searches": [
+          "Resultary: explicit weighted-directedness classes, block caps 2^(j-i), ℓ1-equivalence, and equinormed compactness",
+          "arXiv:2404.01733v1 Section 4, pp. 11–15; arXiv:2610.09810v1 Examples 3–4"
+        ]
+      },
+      "rationale": "The broad separation and its local tail-capture mechanism were already demonstrated by SCOPE-20261018-ee98a8808bdb; do not credit them as new on their own. This record does it for a hereditary family in an ℓ1 renorming with the sharp lower comparison 1/2. The earlier sparse family is strictly smaller even after taking its hereditary closure, and its completed space is not isomorphic to ℓ1. This is a supported distinction in geometry, not a distinction based only on wording or constants.",
+      "residual_risks": [
+        "An earlier equivalent hereditary ℓ1 realization could exist beyond these sources; the prior qualitative separation should be cited. No limiting-(0,0) classification is established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Definitions and compactness framework are prior; neither positive sufficient hypotheses nor Example 1 duplicates the affirmative ℓ1 example",
+          "evidence": [
+            "Definition 7 requires simultaneous weighted-large subsets of D and a sufficiently remote B in one C. Theorems 12–13 establish A-to-A-A equinorming; Theorem 9 converts that to compactness.",
+            "Example 1 is ℓ1-equivalent but has an equinormed bounded set that is not relatively compact."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.09810v1",
+          "material_read": "Theorem 9 p. 15; Example 1 p. 17; Definitions 6–7 pp. 18–19; Theorems 12–14 and Examples 3–4 pp. 20–21, OA offsets around 37000, 41000 and 47000–54900",
+          "method": "Compare simultaneous weighted captures, allowed parameters and one-set versus difference-set conclusions",
+          "title": "Compactness in Combinatorial Banach Spaces and Beyond",
+          "trigger": "Exact definitions and strongest same-problem sufficiency and obstruction results"
+        },
+        {
+          "assessment": "Covers the qualitative separation and tail-capture idea, not the hereditary ℓ1 realization and sharp norm comparison",
+          "evidence": [
+            "Requires i_{t+1}>=2i_t and a cap 2^(i_t-i_0); states complementably isometric ℓ∞^N for all N and not isomorphic to ℓ1."
+          ],
+          "identifier_or_url": "SCOPE-20261018-ee98a8808bdb",
+          "material_read": "Mirrored RESULT.md finding, assumptions and local tail capture, especially offsets 0–3962",
+          "method": "Compare block admissibility, completion geometry, tail argument and parameter failure statements",
+          "title": "Coordinatewise norm rigidity beyond uniform directedness in a combinatorial Banach space",
+          "trigger": "Exact match to the separation and closely related block construction"
+        },
+        {
+          "assessment": "General criterion asks for A-A, so not a covering one-set implication",
+          "evidence": [
+            "The criterion uses boundedness and equinorming of differences under a subsequence condition."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2111.10547v1",
+          "material_read": "Theorem 19 p. 9, OA offset 32600",
+          "method": "Compare equinorming hypotheses",
+          "title": "Compactness in normed spaces: a unified approach through semi-norms",
+          "trigger": "Potential broader abstract one-set compactness criterion"
+        },
+        {
+          "assessment": "Related Banach-space geometry; no coverage of the claimed combination in the inspected statements",
+          "evidence": [
+            "The inspected constructions include distinct product and ℓ1-equivalence examples rather than an anchored weighted-directedness separation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2404.01733v1",
+          "material_read": "Section 4, pp. 11–15, OA offsets 37900 and 43800",
+          "method": "Compare explicit Farah, product and block constructions and conclusions",
+          "title": "The ZOO of combinatorial Banach spaces",
+          "trigger": "Related block and ℓ1-equivalent families"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–13 and 29–53",
+        "Gulgowski–Sawicki Theorems 9, 12–14 and Example 1",
+        "SCOPE-20261018-ee98a8808bdb finding and admissibility formula"
+      ],
+      "rationale": "The prior sparse example shows that the sufficient directedness condition is not necessary in general. The frozen construction answers the more constrained question in a familiar hereditary ℓ1 setting, where the source also has a contrasting ℓ1-equivalent negative example. The sharp comparison and fixed-anchor control explain why one-set equinorming succeeds in this realization despite the failure of positive uniform capture. The point is not the numerical constant alone or a repeat of the qualitative existence claim.",
+      "residual_risks": [
+        "A concrete separation in one geometry; not a general criterion for hereditary families or equivalent ℓ1 norms."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

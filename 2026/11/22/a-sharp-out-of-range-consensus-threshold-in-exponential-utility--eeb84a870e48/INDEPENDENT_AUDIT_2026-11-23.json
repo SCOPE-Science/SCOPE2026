@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:41:34.662844Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the stated synchronous exponential rule, the gap is (1−2μ)^t d and the mean increment is μd r^t tanh(ar^t), with a=κd/2 and r=|1−2μ|. The gap retains admissibility and the increments sum absolutely. For μ≤1/2 the updates are convex combinations; for μ>1/2 the crossing function μ Σ r^j tanh(ar^j) increases strictly and continuously from tanh(a)/2 to infinity. At crossing the weak-gradient tanh bounds leave 1−μ_c between a(1−a²/3)/2 and a/2. The zeroth term in the strong-gradient equation bounds μ_c−1/2 by 1/(e^(2a)−1); the rest is O(ae^(−4a)), giving the claimed equivalent. Monotone sum–integral comparison at mesh −log(2μ−1) gives the stated divergence coefficient and bounded remainder. Independent bisection and series evaluation recover μ_c=0.764874065819… and L_0.9=1.691149330027… for κ=d=1 and x_0=0. One strictness sign in the mean-increment proof should be non-strict for t≥1 at μ=1/2, when the first update already gives consensus. The source's Eq. (1) directly uses 2μ; its algebra agrees at N=2, but it does not support attributing a general μN/(N−1) normalization to that equation. Neither issue changes the stated two-agent theorem. The supplied checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "8f1089ea0c11 studies a noisy aggregate in the fixed-population weak-noise limit with Gibbs exponent (N−1)/(1−μ). Its invariant-density integrability assumption fails for positive exponential utility on the real line."
+        ],
+        "reasoning": "A stationary distribution in a noisy regime, even where it exists, does not imply this deterministic trajectory limit and cannot supply the crossing or the asymptotic coefficients.",
+        "searches": [
+          "Resultary 8f1089ea0c11, Theorem and Assumptions and scope",
+          "arXiv:2605.21844v1, Model"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.21844v1",
+        "Resultary 8f1089ea0c11",
+        "Resultary 45d8b892f869 (summary only)",
+        "Resultary 84241bae59f5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eq. (1) supplies the recurrence, and Eq. (2) supplies its gap factor. The new calculation uses the sign-even drift and sums its entire history, then analyzes a strictly monotone crossing and a singular mesh limit."
+        ],
+        "reasoning": "The recurrence is the starting point, not a prior theorem evaluating the accumulated drift. Neither the gap contraction nor the Gibbs exponent entails the asserted exact threshold and scaling by specialization.",
+        "searches": [
+          "arXiv:2605.21844v1, Eqs. (1)–(2)",
+          "Resultary 8f1089ea0c11, Theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The relevant equivalent variables are signed gap and pair mean. The source specifies gap contraction but not where the mean converges relative to the initial endpoints.",
+          "The confidence threshold in 84241bae59f5 concerns a bounded opinion–action model, not hull exit at fixed receptiveness."
+        ],
+        "reasoning": "Convergence to agreement and confinement of its location are different properties; renaming a consensus or confidence threshold does not give the hull-exit condition.",
+        "searches": [
+          "arXiv:2605.21844v1, Model, Eqs. (1)–(2)",
+          "Resultary 8f1089ea0c11 and 84241bae59f5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-rule Gibbs record concerns a different observable. The other retrieved threshold subjects are adaptive ties and a confidence-radius condition."
+        ],
+        "reasoning": "The reviewed item is an analytic function of a continuously variable utility–gap product, not a tabulated constant. The closest corpus records do not give that function; a numerical value for one parameter would not establish the theorem.",
+        "searches": [
+          "Resultary search on two-agent exponential utility, convex-hull-exit/consensus thresholds and utility-weighted opinion averaging; comparison IDs 8f1089ea0c11, 45d8b892f869, 84241bae59f5"
+        ]
+      },
+      "rationale": "Credit the originating utility rule, real-valued opinion space, admissible high learning rates, and geometric gap contraction to the preprint. Pass only the unique deterministic exponential-utility hull-exit threshold, its endpoint asymptotics and its quantitative consensus divergence. The inspected comparisons do not already decide these claims.",
+      "residual_risks": [
+        "Priority is a bounded assessment; results on over-relaxed nonlinear averaging in other terminology may have been missed.",
+        "Exact text of 45d8b892f869 was not available for the comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the rule and exact difference contraction, not the stated threshold or asymptotics in the inspected passages.",
+          "evidence": [
+            "The rule uses 2μ and 0<μ<1. Opinions are not required to stay in [0,1]. The noiseless pair gap multiplier is 1−2μ."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.21844v1",
+          "material_read": "Model Eq. (1), page 1; two-agent gap Eq. (2), page 2",
+          "method": "OA primary full-text passages located by equation and section",
+          "title": "A Utility-Driven Bounded-Confidence Model for Opinion Dynamics",
+          "trigger": "Identical originating dynamics and admissibility of learning rates above one half"
+        },
+        {
+          "assessment": "Stochastic aggregate result, not a covering deterministic result.",
+          "evidence": [
+            "The theorem is for the mean in a weak-noise limit, under an integrability hypothesis; there is no diagnostic here of the final opinion relative to either initial endpoint."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-the-finite-population-gibbs-exponent-for-noisy-utility-weighted--8f1089ea0c11",
+          "material_read": "RESULT.md, Theorem and Assumptions and scope",
+          "method": "Resultary local mirror full-text passages",
+          "title": "The finite-population Gibbs exponent for noisy utility-weighted opinion averaging",
+          "trigger": "Same utility-weighted model and singular dependence on 1−μ"
+        },
+        {
+          "assessment": "Summary indicates a different outcome; no full-text noncoverage claim.",
+          "evidence": [
+            "The described threshold separates consensus from persistent disagreement with an adaptive tie, not in-range from out-of-range consensus."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-a-sharp-tie-strength-separatrix-and-critical-slowing-in-two-agen--45d8b892f869",
+          "material_read": "Indexed summary only; exact RESULT.md unavailable in the local mirror",
+          "method": "Resultary search and local mirror attempt",
+          "title": "A sharp tie-strength separatrix and critical slowing in two-agent opinion dynamics",
+          "trigger": "Two-agent opinion threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact boundary between in-range and out-of-range agreement is useful here because the source rule permits over-relaxation, yet its disagreement contracts at every fixed admissible learning rate. The unique boundary and its opposite-end asymptotics distinguish this structural effect from an isolated overshoot example. The result is limited to synchronous noiseless pairs and unclipped opinions, and is not a claim about larger or stochastic populations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact binary count transition \(\Pr(K_{n+1}=k+1\mid K_n=k)=(1-\alpha)/2+\alpha k/n\) follows directly from uniform historical copying. The continuous-time birth coupling has the standard Yule population-size distribution independent of its type choices. Its type-weighted branching equations produce \(A'=A^2+\alpha B^2\) and \(B'=(1+\alpha)AB\) with specified initial data. Their ratio yields the inverse-beta integral without missing initial factors. Positivity of the odd coefficients of the inverse and boundary analytic continuation isolate \(\pm R_\alpha\) as the two dominant singularities. Matching the pole coefficient and the parity sign gives \(d_{2m}\sim R_\alpha^{-2m}/(1+\alpha)\), with relative error \(O_\alpha(m^{-2\alpha/(1+\alpha)})\), and \(d_{2m+1}=0\). The supplied standalone rational checker compared 683 exact assertions at finite horizons and gave separate asymptotic diagnostics. Such checks are corroborative, not exhaustive proofs; complex singularity transfer is justified in the written proof.
+PASS
 
-## Originality — PASS against examined evidence
+The Yule embedding has uniform parent choice independent of birth times, so conditioning on population size gives the ordinary z^(n-1) series of the parity expectations. The two-type backward equations give A'=A^2+alpha B^2 and B'=(1+alpha)AB, with (A,B)(0)=(0,1). For v=A/B these give v'=alpha(1-v^2)^(1-h) and B=(1-v^2)^(-h), proving the stated local inverse, signs and first coefficients. At odd time, interchanging all bits interchanges the two position states. For the analytic step compressed at RESULT.md line 72, nonnegative Taylor coefficients and Pringsheim rule out a radius smaller than R: the real inverse is analytic all the way up to R. The derivative diverges as v tends to 1 there, giving radius exactly R. Monotone convergence gives the absolute coefficient sum 1 at R; positivity of the z and z^3 coefficients forces strict inequality |v(z)|<1 elsewhere on the circle except at -R. Local analytic ODE continuation then applies at those ordinary boundary points. To justify the dented domains at the two exceptions, write R-z=(1-v)^h times an analytic nonvanishing factor at v=1, take a local analytic h-th root of the factor, and invert the resulting regular map in (R-z)^(1/h); use oddness at -R. The leading contribution is 1/[(1+alpha)(R-z)] and the error has order (R-z)^(-1+1/h). The two pole terms add for the odd powers z^(n-1), and transfer gives the claimed relative O_alpha(n^(-1/h)); dividing the character by two gives TV. The integral gives R>2/(1+alpha)>1 and R=pi/2 at alpha=1/2. The uploaded check.py was inspected, not run; it has 680 counted exact comparisons/assertions and 3 floating diagnostics, despite the frozen summary calling the combined count 683 exact. This does not affect the proof.
 
-The April 8, 2026 Peres–Qin finite-group paper gives general exponential mixing and a binary two-step example but not the exact full binary generating function and leading asymptotic constant. The 2024 elephant-polynomial paper has the related characteristic recurrence but not the inverse-beta dominant-pole analysis of its zero evaluation. The 2026 local-limit paper proves Fourier upper estimates rather than an exact parity-frequency rate. A related near-total-reinforcement result takes \(n(1-\alpha_n)\to\lambda\), different from fixed \(0<\alpha<1\). A separate general transition-probability preprint was accessible only in its abstract, and unindexed prior generating-function methods could conceivably imply the calculation. The assessment is therefore best-knowledge originality, not independently certified priority.
+## originality
 
-## Value — PASS
+PASS
 
-The problem is a natural finite-group special case of a recently established exponential-mixing theorem, where a mere unspecified exponential upper bound leaves the true rate and its sharp prefactor unknown. Exactly identifying both rate and constant for every fixed nontrivial reinforcement parameter resolves a motivated convergence question, while the exact all-time inverse-beta generating function distinguishes strict parity cancellation from even-time relaxation. The nontrivial closed value \(R_{1/2}=\pi/2\) demonstrates the quantitative gain over unspecified bounds. It is deliberately a complete two-state result; it makes no unsupported general-group extrapolation.
+Credit prior exact odd-time uniformity, even-time positivity, the recurrence/evaluation representation and exponential convergence in the identical model. The distinct supported claim is the exact inverse-beta generating function and sharp fixed-alpha even-time exponential base, prefactor and relative error. The strongest same-model paper, inaccessible to the frozen author in full, was accessed for this review: it proves two-sided exponential bounds rather than that sharp asymptotic. The bounds, prior recurrence, and other regimes were assessed for implication, not just exact wording.
 
-## Closest literature and limitations
+## value
 
-Peres and Qin, *Mixing times of step-reinforced random walks*, arXiv:2604.07207 (2026); Guérin, Laulin and Raschel, *Elephant polynomials*, arXiv:2401.04959 (2024); Murahara and Tokumitsu, *Optimal Rates in Local and Central Limit Theorems for the Elephant Random Walk*, arXiv:2610.35019 (2026); Peres and Qin, *Transition probabilities of step-reinforced random walks*, arXiv:2604.07227 (abstract only). Primary uncertainty is historical completeness, especially the inaccessible full text of the last work or a more general analytic recurrence theorem. Parameter-endpoint uniformity is unproved.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The even-time character is the exact obstruction to uniformity in this minimal nontrivial finite group. Identifying its sharp mixing scale and normalization resolves what prior two-sided bounds leave undetermined. The inverse-integral series is a usable all-times description of the same probability (also the all-even-cluster probability), not merely another probabilistic encoding or a fitted finite rate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

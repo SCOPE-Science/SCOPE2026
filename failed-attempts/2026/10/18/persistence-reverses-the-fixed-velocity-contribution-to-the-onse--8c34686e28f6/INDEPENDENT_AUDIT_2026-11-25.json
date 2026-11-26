@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:47:29.454972Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, assumptions, explicit resolvent and proof",
+        "VERIFICATION.md and verify.py (inspected, not executed)",
+        "/workspace/replay/reset_replay.py (executed with Python 3)"
+      ],
+      "rationale": "Complete resetting makes excursions regenerative, so M'(0)=m^2-s/2. At a=0 the absorbing/reflected boundary conditions give the two stated passive moments, and the discriminant s-2m^2 has its unique interior zero c=1-1/sqrt(5) with slope -2sqrt(5)/15. At first order the joint generator sends the linear OU mode y to -eta*y. The linear coefficients solve (-d_x^2+eta)u=m_0' and (-d_x^2+eta)v=s_0'+2u with Dirichlet-Neumann conditions; thus differentiating the discriminant gives y(v-4m_0u) and the claimed implicit-root susceptibility. The moment expansion can be justified locally: for the passive path the drift likelihood is exp(zA_t-z^2 B_t/2), B_t=(1/2) integral_0^t Y_s^2 ds, and A_t conditional on Y is centered Gaussian with variance B_t. Its complex second absolute moment is E exp(|z|^2 B_t). Testing the OU generator on exp(b y^2) bounds this by a compact-in-y constant times exp(2 eta b t) for small |z| and b=O_eta(|z|^2). Cauchy-Schwarz with the passive killed survival gap gives exponentially integrable survival expansions with the first two moment weights. Interior elliptic estimates on the backward equations give local mixed spatial/parameter regularity and hence the simple-root implicit function theorem. The zero-eta polynomial inverses give 4/125. At the interior point c the first resolvent terms are m_0'(c)/eta and s_0'(c)/eta, the iterated resolvent is O(eta^-2), and the bracket equals the passive discriminant slope divided by eta; this yields -1/eta. An independent polynomial Neumann-series replay with a uniform tail bound brackets a sign-changing zero between 0.21122136935 and 0.21122136945, without asserting uniqueness.",
+      "residual_risks": [
+        "This is a local fixed-eta perturbation with full resetting, not a statement about global finite-reset-rate optima, fixed physical velocity at vanishing activity, or uniqueness of the relaxation-rate zero."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The distinct Resultary theorem covers arbitrary bounded deterministic reset velocities, including both signs in the frozen claim.",
+          "In the primary paper, the weak-activity survival expansion (Eqs. 14–29) retains even orders after integrating against the Gaussian start; Eq. 31 uses that Gaussian at each reset. Appendices A and B derive second-order survival corrections and C reports perturbation errors. Section 3.4 and Fig. 9 give simulation-based linear fits for prescribed normalized initial/reset velocities."
+        ],
+        "reasoning": "The Gaussian expansion cannot supply the odd orientation response and the fits are not an all-eta formula or a sign proof. The indexed deterministic result does supply both under broader velocity assumptions.",
+        "searches": [
+          "845ad3bf89f1 Assumptions and scope",
+          "arXiv:2609.21124v1 Eqs. (13)–(31), §§3.2 and 3.4 and Appendices A–C"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 845ad3bf89f1, RESULT.md",
+        "arXiv:2609.21124v1, fixed-velocity phase boundaries and appendices"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The other record's general deterministic-velocity theorem specializes without any additional analysis to the entire main frozen statement, including all persistence rates and the sign reversal.",
+          "The frozen elementary h formula is evaluation of the same Dirichlet–Neumann resolvent on a known cubic forcing, and R_eta^2=-partial_eta R_eta is the standard resolvent derivative."
+        ],
+        "reasoning": "The restricted velocity choices and extra elementary evaluation do not leave a distinct scientific claim. The mirror path displays a later date; that does not adjudicate which proof or statement was first.",
+        "searches": [
+          "845ad3bf89f1, RESULT.md scope and exact coefficient at offsets 0–4150",
+          "arXiv:2609.21124v1 §3.4 and Appendix A–C"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The local-mirror finding states precisely the same reflected/absorbed unit-interval dynamics, full position-and-velocity restart, initial-rate boundary, and passive root. Set its epsilon=a, gamma=eta and deterministic reset velocity equal to sigma.",
+          "Its A_gamma=R_gamma(1-x)=u, B_gamma=R_gamma(Q+2A_gamma)=h+2R_gamma u and mu=m_0. Its coefficient -3 sqrt(5) (2 mu A_gamma-B_gamma/2) is exactly (15/(2 sqrt(5)))(h+2 R_gamma u-4 m_0u)."
+        ],
+        "reasoning": "The two resolvent expressions are identical for every eta>0 after matching state, amplitude, and relaxation parameters; the comparison is stronger than matching the limits or numeric zero.",
+        "searches": [
+          "Resultary: fixed-velocity active Ornstein–Uhlenbeck resetting, persistence reversal and threshold susceptibility",
+          "845ad3bf89f1, RESULT.md, Finding and Assumptions and scope"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct local-mirror finding explicitly states 4/125, -1/gamma+O(gamma^-2), and the crossing near 0.2112213694, with no uniqueness assertion.",
+          "The primary paper gives the exact passive threshold and shows fixed-velocity phase data and approximate linear regressions, not the matching persistence-dependent analytic coefficient."
+        ],
+        "reasoning": "The exact numeric and asymptotic matches reinforce the proven formula identity. The overlap is not inferred from search hits, titles, or catalog order.",
+        "searches": [
+          "Resultary: fixed reset velocity, beneficial resetting onset, 4/125, 0.2112213694",
+          "845ad3bf89f1, Finding",
+          "arXiv:2609.21124v1 §3.2 Eqs. (39)–(40); §3.4 Fig. 9"
+        ]
+      },
+      "rationale": "The main theorem is covered exactly, and for a larger set of deterministic reset velocities, by the distinct indexed Resultary record 845ad3bf89f1. This is a conclusion about mathematical equivalence and lack of a distinct claim, not a finding of earlier publication, derivation, or misconduct. The additional elementary expression for one resolvent in the frozen record follows by integrating against the same Green kernel and does not yield a separate substantive result. In contrast, the motivating primary paper analytically treats Gaussian-averaged resets and probes the deterministic slope with numerical fits only.",
+      "residual_risks": [
+        "Catalog path dates do not establish priority, dependency or provenance of the two mathematically matching records; the FAIL is for demonstrated equivalent coverage and no distinct remainder."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the frozen mathematical claim; publication priority not adjudicated",
+          "evidence": "Identical unit-interval SDE and full restart, same x_*, S(gamma)=chi(eta) after parameter identification, same two limits and crossing; allows arbitrary bounded deterministic reset velocity.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-persistence-controlled-reversal-of-the-weak-resetting-threshold--845ad3bf89f1/RESULT.md",
+          "material_read": "Finding, Assumptions and scope, and Green-kernel coefficient (local-mirror offset 0–4150)",
+          "method": "Configured local mirror",
+          "title": "Persistence-controlled reversal of the weak-resetting threshold under fixed-velocity active propulsion",
+          "trigger": "Exact quantitative match with potentially broader deterministic velocity scope"
+        },
+        {
+          "assessment": "Covers passive threshold, general methodology and numerical fixed-velocity response, not the exact susceptibility",
+          "evidence": "Gaussian initialization and resetting eliminate the first odd order in the analytic survival expansion; simulations at signed prescribed velocities include approximate linear fits.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.21124v1",
+          "material_read": "Eqs. (13)–(31), pp. 4–7; §§3.2 and 3.4 and Fig. 9, pp. 11–14; Appendices A–C, pp. 17–19",
+          "method": "Primary OA PDF passages",
+          "title": "Persistence, resetting, and first-passage times of an active Ornstein–Uhlenbeck particle",
+          "trigger": "Same stochastic model and the motivating fixed-velocity phase boundary"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, susceptibility and persistence limits",
+        "arXiv:2609.21124v1 §3.4",
+        "/workspace/replay/reset_replay.py"
+      ],
+      "rationale": "The exact sign reversal is a substantive structural answer to the motivating physical question: the same outward reset orientation can enlarge or shrink the region in which small-rate resetting helps. The two persistence limits and explicit intermediate response explain more than the numerical phase-boundary examples and give a testable local prediction. This assesses mathematical interest of the described phenomenon, not incremental contribution over the exact matching indexed theorem; there is no substantive repair on the remaining elementary-resolvent detail alone.",
+      "residual_risks": [
+        "No global optimization, finite-amplitude threshold curve, or uniform joint small-amplitude/large-persistence limit follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

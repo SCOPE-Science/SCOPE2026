@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:40:25.653534Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 5–39 and 43–85",
+        "VERIFICATION.md and verify.py, inspected, not executed; finite numerical checks are supplementary"
+      ],
+      "rationale": "Conditioning on the center spin gives the two products; dividing by ∏q_i gives F(z)=∏(z+a_i)+z∏(1+a_i z). It is reciprocal, has degree m+1 and F(0)>0. For positive angles the lifted phase of B_m(z)/z is strictly convex, starts at zero, ends at (m−1)π, and is strictly greater than −π before the endpoint. Each positive odd level below the terminal value is crossed once with positive derivative, by convexity and the positive secant slope from zero. Conjugate symmetry and the single endpoint −1 when m is even give exactly m−1 simple unit roots, also for m=1. On (0,min a_i), B_m(−x) is positive strictly decreasing from P_m to zero, hence meets x once and transversely; reciprocity yields the distinct exterior root. The total exhausts the degree. At the inner root x/P_m=∏(1−t_i) with t_i=x(1−a_i²)/[a_i(1−a_i x)]∈(0,1). The union bound for this product, x<P_m and P_m/a_i≤a_*^(m−1) give the claimed uniform estimate. For m c_*>1 the phase of B_m(z)/z is increasing on the whole lifted interval. Counting the odd-phase lattice on a half-open interval incurs error at most 1. After dividing by m+1, subtracting the angular-length term and changing m+1 to m each incur at most 1/(m+1), giving the stated 3/(m+1). The averaged arc kernel is continuous and bounded in a∈[0,a_*], and the limiting circle measure has no atoms; the escaping pair contributes only 2/(m+1) against bounded continuous tests. The finite polynomial example also checks independently: division by z² and y=z+z⁻¹ give y²+40y+60, with exactly one y in (−2,2) and the other below −2.",
+      "residual_risks": [
+        "No assertion at zero bond strength, without a common a_* bound for the quantitative uniform asymptotics, or beyond the star with uniform field."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The antiferromagnetic graph results give homogeneous-coupling rational recursions, degree-class zero-free sectors and classwise circle-zero density. The ferromagnetic Cayley-tree result uses a different coupling regime and gives a Blaschke recursion and limiting measures."
+        ],
+        "reasoning": "Those theorems provide the relevant recursion or bounds in a graph class but do not dominate a finite, arbitrarily weighted star's product-relative estimate. The AF homogeneous recursion does supply the equal-coupling star polynomial.",
+        "searches": [
+          "arXiv:1810.01699, Theorem B",
+          "arXiv:1907.07479, Lemma 1.1 and Theorem 1.4",
+          "arXiv:1806.00403, Proposition 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary fd8334aa6b45 and 93e279e3f77c",
+        "arXiv:1512.05444v2, 1806.00403, 1810.01699, 1907.07479 and 2309.14562"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equation (7.3) gives the phase derivative as a sum of Poisson kernels; basic lifted-phase lattice counting explains the arc bound once one subtracts the z phase. The prior ferromagnetic star has the same kernel mixture but no exceptional pair. The primary AF square-lattice and infinite-range models are different graph families."
+        ],
+        "reasoning": "The bulk form and counting method have clear precursors and are not sufficient for acceptance alone. The explicit heterogeneous negative inner-root location and uniform multiplicative escape law require the AF fixed-point equation and the product control; they are not furnished by the located generic or ferromagnetic statements.",
+        "searches": [
+          "arXiv:1512.05444 §7; Resultary fd8334aa6b45, RESULT.md; arXiv:2309.14562, model descriptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The star equation is a fixed-point problem for −B_m. Given the interior fixed point, conjugate it to 0 by a disk automorphism and divide the conjugated product by z. For m≥2 the quotient is a degree-(m−1) Blaschke product; the boundary fixed points then solve quotient=1, exactly the simple-fiber situation of Corollary 7.6. Flipping the leaves reverses their field relative to the center, so the ferromagnetic dual is staggered-field, not uniform-field."
+        ],
+        "reasoning": "Classical fixed-point tools cover the qualitative circular count once the inner fixed point is located, and spin-flip duality does not convert the problem into the prior uniform-field star. Neither reduction estimates the inner fixed point relative to ∏a_i.",
+        "searches": [
+          "Resultary: heterogeneous Ising star Lee–Yang zeros, reciprocal couplings and negative outliers",
+          "Garcia–Mashreghi–Ross, arXiv:1512.05444, Eq. (7.3) and Corollary 7.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The ferromagnetic-star record has all roots on the circle and the same limiting kernel; the frustrated-cycle record has a negative reciprocal pair beyond a parity-dependent bond threshold. Neither finding has the arbitrary AF star's quantitative outlier law."
+        ],
+        "reasoning": "These are substantive partial overlaps, not an exact strong statement for the same parameters and graph. Ranked nonmatches are not a priority certificate.",
+        "searches": [
+          "Resultary: exact title, two negative reciprocal Lee–Yang outliers in heterogeneous antiferromagnetic stars",
+          "Resultary fd8334aa6b45 and 93e279e3f77c, RESULT.md"
+        ]
+      },
+      "rationale": "Credit classical Blaschke theory for the qualitative fixed-point count and the boundary Poisson-kernel derivative, and credit the prior ferromagnetic-star record for the same explicit bulk-density form. The supported distinct claim is the quantitative heterogeneous antiferromagnetic-star result, especially the negative pair's uniform product-relative escape estimate, with an explicit arc bound for the complementary spectrum. Neither the fixed-point count nor the bulk kernel alone is a novelty basis.",
+      "residual_risks": [
+        "Earlier weighted-star or staggered-field calculations could supply a quantitative product law. The standard circle count and known kernel form are explicitly not relied on as standalone novelties."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same bulk kernel form for reciprocal parameters, but positive bonds and all roots circular; no AF pair to estimate.",
+          "evidence": [
+            "Uniform field, J_i>0 and q_i<1; all m+1 zeros simple on the circle, with a Poisson-kernel mixture and finite moment estimates."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-coupling-law-tomography-from-lee-yang-zeros-of-inhomogeneous-isi--fd8334aa6b45",
+          "material_read": "RESULT.md, Finding and scope, mirror offsets 0–3883",
+          "method": "Resultary search and local mirror",
+          "title": "Coupling-law tomography from Lee–Yang zeros of inhomogeneous Ising stars",
+          "trigger": "Same heterogeneous star polynomial family and limiting kernel"
+        },
+        {
+          "assessment": "Negative reciprocal pair after a parity-dependent threshold in a cycle, not a heterogeneous AF star theorem.",
+          "evidence": [
+            "A cycle with n−1 equal ferromagnetic bonds and one variable bond."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-parity-sharp-lee-yang-circle-boundary-for-a-single-frustrated-bo--93e279e3f77c",
+          "material_read": "RESULT.md, Finding and scope, mirror offsets 0–3970",
+          "method": "Resultary search and local mirror",
+          "title": "Parity-sharp Lee–Yang circle boundary for a single frustrated bond",
+          "trigger": "Similar reciprocal outliers"
+        },
+        {
+          "assessment": "Combined with conjugation to the already identified interior fixed point, the standard simple boundary-fiber result covers the circle count. Derivative formula supplies the kernels; no AF product-relative estimate is used from this source.",
+          "evidence": [
+            "A finite Blaschke product of degree n takes every specified unit value at exactly n distinct boundary points; its boundary logarithmic derivative is a Poisson kernel sum."
+          ],
+          "identifier_or_url": "arXiv:1512.05444v2",
+          "material_read": "§7, p. 14: equations (7.2)–(7.4), Lemma 7.5 and Corollary 7.6; text offset 35200",
+          "method": "Original OA PDF",
+          "title": "Finite Blaschke Products: A Survey",
+          "trigger": "Established theorems that may subsume simple-circle count and kernel"
+        },
+        {
+          "assessment": "Ferromagnetic tree dynamics, not AF heterogeneous-star escape.",
+          "evidence": [
+            "Homogeneous rooted-tree zeros through iterates and full-tree zeros through a composition."
+          ],
+          "identifier_or_url": "arXiv:1806.00403",
+          "material_read": "Proposition 1.1, p. 2, text offset 2800",
+          "method": "Original OA PDF",
+          "title": "Limiting Measure of Lee–Yang Zeros for the Cayley Tree",
+          "trigger": "Ising zero distributions via Blaschke products"
+        },
+        {
+          "assessment": "Classwise sector and accumulation results, not quantitative per-star census.",
+          "evidence": [
+            "Zero-free radial sector and boundary accumulation under homogeneous AF coupling."
+          ],
+          "identifier_or_url": "arXiv:1810.01699",
+          "material_read": "Theorem B, p. 2, text offset 5250",
+          "method": "Original OA PDF",
+          "title": "Location of Zeros for the Partition Function of the Ising Model on Bounded Degree Graphs",
+          "trigger": "Broad AF zeros could cover the location theorem"
+        },
+        {
+          "assessment": "Homogeneous recursion includes the equal-coupling star, but statements do not classify one heterogeneous star's exceptional pair.",
+          "evidence": [
+            "Rational iteration and density/nowhere-density of classwise unit-circle zeros."
+          ],
+          "identifier_or_url": "arXiv:1907.07479",
+          "material_read": "Lemma 1.1, p. 2, offset 5250; Theorem 1.4, pp. 4–5, offset 8600",
+          "method": "Original OA PDF",
+          "title": "Lee–Yang Zeros of the Antiferromagnetic Ising Model",
+          "trigger": "AF tree recursions and qualitative location"
+        },
+        {
+          "assessment": "Square-lattice and mean-field AF models, not a star.",
+          "evidence": [
+            "Nearest-neighbor square lattice and infinite-range mean-field models are the abstract's two objects."
+          ],
+          "identifier_or_url": "arXiv:2309.14562",
+          "material_read": "Abstract and model specification, p. 1, offset 0",
+          "method": "Original OA PDF",
+          "title": "Yang–Lee Zeros of Certain Antiferromagnetic Models",
+          "trigger": "Same interaction sign, potential geometry overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding parts 1–3 and scope",
+        "Prior ferromagnetic star record fd8334aa6b45"
+      ],
+      "rationale": "A star is a natural high-degree tree where uniform-field antiferromagnetism allows violations of the circle theorem. Arbitrary bond heterogeneity could in principle complicate the zero geometry; the result isolates the exceptions and gives a uniform, explicit multiplicative estimate depending on the full interaction product. Together with the finite bulk discrepancy this is a useful quantitative local model, not a claim about a bulk phase transition.",
+      "residual_risks": [
+        "The uniform bound can be loose at small m and says nothing about higher-depth trees."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

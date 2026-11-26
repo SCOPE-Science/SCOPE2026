@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible mathematical verification
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3, SymPy and mpmath. The script exactly expands both \(2\times2\) commutator and four-product trace identities, tests a common eigenvector and the \(z_*=\sqrt5\) exact example, and evaluates 144 strict phase cases, 36 independently composed finite switching words at the resonance, and two opposite Floquet stability examples at 65-digit working precision. Matrix exponentials are computed directly, not from precomputed package paths. Numeric traces are compared at a magnitude-relative tolerance because the examples include exponentially amplified entries; the proof does not depend on those tolerances.
+## correctness
 
-The universal argument instead uses a strictly positive time-divided-difference coefficient in Cayley–Hamilton's \(2\times2\) exponential representation and the algebraic quadratic \(Q(z)\) with negative leading term and positive constant. At the unique positive zero the generators share an explicitly constructed strictly positive eigenvector, yielding all-order growth exactly. The code verifies necessary concrete algebraic identities and examples but does not purport to computationally enumerate all positive real rate tuples or to establish prior-art novelty. No independent external audit has been performed.
+PASS
+
+For the stated two irreducible Metzler generators the positive-duration exponentials and both products are strictly positive. Their equal positive determinant makes the Perron-root comparison exactly a trace comparison. Trace cyclicity and Cayley–Hamilton for the traceless commutator give tr(X²Y²)−tr(XYXY)=det[X,Y]. Exponentials are affine in their generators with positive slope by real spectral interpolation. As an independent root check, for either eigenvalue ℓ of B one can take w=((ℓ+b)/a,1); the eigenvalue sum equation is ℓ(w₁+1)=gw₁. Such a ray is shared exactly at z=b+(1+d/g)ℓ. The smaller eigenvalue is less than −b (the characteristic polynomial takes value −ab at −b) and the larger satisfies 0<λ<g. The commutator determinant is quadratic with leading coefficient −ag, and consequently factors into these two distinct roots, only one positive. This proves strict order with the stated signs for all positive durations. At the positive root both generators preserve the same positive ray, with eigenvalues −dλ/g and λ, so every finite product has the claimed positive Perron multiplier, including the balanced neutrality case. At most three slots with fixed totals can be merged to two by cyclic rotation and the phase semigroup law; at four the two distinct cyclic classes give the strict comparison. The grouped word contains two maximal constant-phase runs, not four physically distinct on-pulses. For large off-time v, scaling both products by exp(−2λv) gives positive rank-one limits X²P and (XP)² with nonzero Perron roots; both growth rates then tend to λ. A common scalar loss chosen strictly between those positive rates yields exactly the asserted opposing multiplier signs relative to one. RESULT.md Proof §§1–4 gives a replay route. VERIFICATION.md and verify.py were inspected, not run. This checks the linear model, not biological or clinical behavior.
+
+## originality
+
+PASS
+
+Credit the model-specific all-duration waking threshold and its exact resonance law, not the commutator method, generic common-ray invariance, or two-state pulse-dose modeling. The strongest inspected analogues each cover parts of the mechanism but not the rate-specific theorem.
+
+## value
+
+PASS
+
+An equal-budget spectral comparison avoids conflating scheduling with total exposure; in this natural linear model, the exact threshold decides it uniformly over a continuum of segment lengths and identifies a parameter where every finite ordering loses its spectral advantage. This is a useful complete classification, not a sampled schedule ranking or a dosing recommendation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

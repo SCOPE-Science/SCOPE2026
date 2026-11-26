@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The stated scheme and field hypotheses are explicit. Newton identities convert the consecutive power sums into an initial elementary-symmetric regular sequence, establishing the exact complete-intersection dimension and degree. The Jacobian is a truncated Vandermonde matrix. For fewer than \(p\) variables, any repeated-coordinate candidate would have nonzero multiplicities in the ground field, which the first moment equations contradict. With at least \(p\) variables, the coordinate vector of \(p\) ones and remaining zeros gives an actual singular point. At \(n=p\), the given binomial expansion is a triangular ideal equality, not merely a set equality. The unique singular vertex and multiplicity follow from the smooth \((p-1)\)-variable projective base and a homogeneous regular local sequence. The three border regimes follow from base dimension, degree, connectedness and Serre normality. Direct finite-field rank tests supplement but do not replace the full proof.
+## correctness
 
-## Originality: PASS (with residual priority risk)
-The full primary source [Giménez et al., arXiv:2610.32056v1] was examined in the geometric and projective sections. Its general normality and complete-intersection theorems do cover overlapping parameter ranges; they are explicitly acknowledged, not repackaged as new. Its results neither state the exact smoothness iff \(n<p\) for this homogeneous consecutive family nor identify the boundary ring as a polynomial extension with precise multiplicity and the low-dimensional trichotomy. The equivalent geometric formulation of these statements was searched using characteristic-wall, singular cone, and symmetric polynomial terminology. The closest published mathematical-record matches concern unrelated invariants. Exact earlier priority remains open because the translation argument is elementary and may occur in older work on modular symmetric invariants. No absence-of-search-result claim is treated as a proof of novelty.
+PASS
 
-## Mathematical value: PASS
-The motivating paper makes singular loci, normality, and geometric irreducibility of power-sum varieties its central subject. The theorem solves a natural sharp version of that problem for consecutive exponents and reveals a characteristic-controlled phase transition invisible in sufficient normality bounds: the first boundary is a fat point, multiple crossing lines, or a normal isolated-singularity cone depending on the gap between characteristic and the number of equations. The integral Hilbert--Samuel multiplicity \(m!\) is a natural invariant of that singularity and not an arbitrary enumerative slice. The result supplies a scheme-level geometric model useful when selecting smooth fibers for arithmetic applications. Its value is restricted to the explicitly stated consecutive family.
+The invertible Newton identities identify the ideal with the first m elementary symmetric generators, a regular sequence by the standard finite freeness over the symmetric subring. Thus the dimension and degree are as claimed. The Vandermonde rank calculation remains valid in the projective charts: Euler's identity on the zero locus makes the radial direction lie in the kernel. At a rank-deficient point the first r equations for the r distinct nonzero values force every such integer multiplicity to vanish modulo p. This rules out deficiency for n<p and forces the all-equal point at n=p. The p-ones witness works for all n≥p because m≥3. In the boundary translation the P_0 term is pT^j=0 and the remaining triangular change has unit diagonal. On a chart Y_i≠0, the translated projective cone is an affine-line product with the smooth base chart. On T≠0 the affine local model is graded with homogeneous regular-sequence equations, so its associated graded ring gives Hilbert–Samuel multiplicity m!. The Artinian case has that length; in the zero-dimensional smooth base case, the cone is reduced off the vertex and Cohen–Macaulay, hence reduced; in positive base dimension the smooth complete intersection is connected and the affine cone is S2 and R1, yielding normality and integrality. The single-point statement is about singular support, not a reduced singular subscheme: in the vertex chart the maximal Jacobian minors have degree m(m−1)/2, so impose no linear equations at 0 beyond the first power sum coming from the original ideal. The inspected verify.py and verification notes only concern finite rational-point sanity checks; the claims over k follow from the proof.
 
-## Closest literature and limitations
-Primary: Giménez et al., *Power Sum Varieties over Finite Fields*, arXiv:2610.32056v1, Section 3 and Section 3.1. Secondary: characteristic-zero power-sum ideals of Conca, Singh and Soundararajan. Earlier literature on modular invariant rings might render the observation implicit. The result is not a claim about nonconsecutive exponents, general coefficients or \(p\le m\). Finite computations cannot establish the all-\(n\) geometric theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The complete-intersection degree and the Jacobian/Vandermonde method have clear antecedents. The supported distinct result is the sharp wall for all consecutive m in the stated range together with the exact scheme-level cone and vertex multiplicity/trichotomy at n=p. The closest inspected findings cover special cases of the wall or separate ranges, not this result.
+
+## value
+
+PASS
+
+A first singular characteristic wall is a natural parameter in this moment family. The exact graded description distinguishes a fat point, a multiple-line cone and a normal integral cone and gives a uniform, usable local invariant where generic degree or sufficient normality results do not answer the question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

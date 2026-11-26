@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:45:36.329911Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For residuals P=X−x, Q=Y−y, differentiate P(f(y),y)=Q(g(y),y)=0 to get det(I−J)=det D(P,Q)=P_x Q_x(f′−g′). At an interior equilibrium P_x=−rx, Q_x=y/x, giving the factor −ry. H(0+)=1−1/(βb)<0 and every positive-y zero is an interior equilibrium because g(y)>0. At the first such zero H′≥0, with strict inequality if transverse. Hence p(1)=det(I−J)≤0 excludes strict Schur stability; at equality 1 is a multiplier, while strict negativity puts a real characteristic root above 1. The stated rx≤2 saddle test additionally requires transversality: writing A=βbxS(1+2cy)>0 and B=by e^{r(1−x)}S(1+2cy)>0, p(−1)=(2−rx)(1+A)+B>0, locating the other root strictly between −1 and 1. The displayed rx≤2 is a sufficient cutoff, not an iff threshold; no nonlinear conclusion follows just from H′=0. A fresh bisection/Jacobian reproduction (lower_equilibrium_reproduction.py with its output in the private numerical evidence; the frozen verification/verify.py was only inspected) agreed with the determinant test and gave multipliers 0.010601260510 and 1.019517400112 at r=1, and −1.994045049924 and 1.019721561378 at r=3, with (β,b,c)=(2,0.49,3). Those bounded checks reproduce the local examples, not a global root count. The analytic statement is conditional on exactly two positive equilibria and does not establish that hypothesis for arbitrary parameters.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-map count theorem gives an at-most-two bound and a strict maximum for the scalar equilibrium equation; it explicitly does not classify branch stability. Its increasing lower branch can in fact supply the crossing direction in its two-root regime, but not the Jacobian sign test by itself.",
+          "The other indexed cooperation threshold is a different Beverton–Holt-type map; the closest cited predation analogues have different recruitment/refuge mechanisms. The cited Taylor & Francis DOI routes did not give full texts."
+        ],
+        "reasoning": "An existence/fold theorem and a crossing direction do not on their own specify the two discrete multipliers or the sign at −1. Distinct models cannot be substituted for the present nullcline/Jacobian factors.",
+        "searches": [
+          "Same-map census SCOPE-20261012-f6b71c667177, count/fold and limitations",
+          "Resultary: alternative refuge/cooperation maps, including SCOPE-20261102-1ab64a212b1b",
+          "Cited 2019 no-refuge and 2023 Beverton–Holt articles by DOI"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verification/verify.py",
+        "Independent numerical lower-equilibrium replay",
+        "SCOPE-20261012-f6b71c667177 and SCOPE-20261102-1ab64a212b1b",
+        "Primary DOI 10.3934/math.2026868, access attempted; related DOIs 10.1080/17513758.2018.1555339 and 10.1080/17513758.2023.2242372, access attempted"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Implicit differentiation gives the general determinant identity; the same-map scalar count gives no p(−1) test. The actual Ricker Jacobian yields the positive B term and the rx≤2 saddle condition.",
+          "The motivating paper's numerical observation/open-problem wording is reported by the frozen record, not independently attributed as verified full text."
+        ],
+        "reasoning": "Standard machinery alone is not a prior stability theorem for these equilibria. The verifiable distinct part is its application to give the forced real multiplier and an explicit sufficient saddle condition, even crediting the overlapping instability mention. The unresolved primary-text access and possible cross-reference do not establish coverage or priority.",
+        "searches": [
+          "SCOPE-20261012-f6b71c667177 RESULT.md, offset 6115 onward: prior-work statement and limitations",
+          "De Silva–Jang DOI 10.3934/math.2026868, primary text access attempted; frozen RESULT.md lines 247–256 for its attributed open issue",
+          "Planar residual nullcline identity compared to the displayed map"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE-20261012-f6b71c667177 RESULT.md, offset 6115–8300, says a separate result identifies lower-equilibrium instability assuming exactly two equilibria. No citation for that result or spectral/saddle statement accompanies this sentence.",
+          "The supplied original gives an instability proof for transverse roots, and only a unit multiplier and failure of strict Schur stability in the nontransverse case."
+        ],
+        "reasoning": "The census notice materially overlaps with transverse lower instability; it could point to the same finding. It does not establish an independent equivalent theorem or supply the explicit saddle conclusion.",
+        "searches": [
+          "Resultary: lower-equilibrium instability and coexistence census for the discrete Ricker refuge/cooperation map",
+          "Primary-literature search by De Silva–Jang title and DOI, lower equilibrium and open problem"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed census gives sample equilibrium coordinates for r=1. The frozen record also has two illustrative local spectra, independently reproduced; no finite table can settle the continuous family or the saddle inequality."
+        ],
+        "reasoning": "No exact lookup table is a relevant substitute for the symbolic classification. Matching one set of coordinates or multipliers does not establish theorem-level coverage.",
+        "searches": [
+          "Resultary: exact Ricker lower coexistence stability vs equilibrium census",
+          "Frozen RESULT.md and VERIFICATION.md numerical examples for r=1 and r=3"
+        ]
+      },
+      "rationale": "The planar nullcline determinant identity is general and not itself new. The strongest same-map indexed overlap reports a separate result on instability of a lower equilibrium under the same two-equilibrium assumption, without naming or giving that result. This could refer to the frozen finding itself; it is evidence of overlap in the instability claim, not evidence of a distinct earlier theorem covering the model-specific Jury conclusion including the explicit saddle cutoff. Credit the supported joint refinement for this exact model, not novelty of the determinant technique or proof of priority for the lower-instability observation alone.",
+      "residual_risks": [
+        "The motivating paper's precise open-problem wording, proposition references and possible stability results were not verified in full text; the two cited analogue papers were not inspected in full.",
+        "The catalogue census mentions a separate result with substantially overlapping lower-instability wording; without an identifier, neither independence nor priority is established. No checked statement there covers the saddle cutoff.",
+        "The result classifies local linear behavior under its stated conditions, not all parameter regimes, all r x values, or degenerate nonlinear stability."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same-map branch count, plus relevant but unidentified cross-reference",
+          "evidence": [
+            "The census explicitly disclaims branch stability; its prior-work note says a separate result identifies instability assuming exactly two equilibria but gives no identifier or saddle condition."
+          ],
+          "identifier_or_url": "SCOPE-20261012-f6b71c667177",
+          "material_read": "RESULT.md Finding, count/fold proof and verification at offsets 0–6115; prior-work and limitations at offsets 6115–8300",
+          "method": "Resultary local mirror targeted passages",
+          "title": "Sharp coexistence-equilibrium census for a refuge and cooperation model",
+          "trigger": "Exact same map; possible independent reference to the lower-stability theorem"
+        },
+        {
+          "assessment": "Unresolved primary-source risk; not evidence of noncoverage",
+          "evidence": [
+            "The public search identified the exact publisher record, but no usable full-text copy was retrieved. The frozen report distinguishes the lower-equilibrium numerical observation from an analytic proof."
+          ],
+          "identifier_or_url": "https://doi.org/10.3934/math.2026868",
+          "material_read": "Public identifier/title only; full text unavailable. Proposition and discussion references known from the frozen result and same-map census, not verified from publisher text.",
+          "method": "Lawful publisher and DOI recovery attempts and exact-title web lookup",
+          "title": "Persistence, extinction, and chaotic dynamics in a predator-prey system with cooperative hunting and prey refuge",
+          "trigger": "Primary model and potential prior classification; exact statements about Jury tests and open problem"
+        },
+        {
+          "assessment": "Different Beverton–Holt-type model and no corresponding stability conclusion",
+          "evidence": [
+            "The indexed threshold counts positive equilibria rather than classifying multipliers."
+          ],
+          "identifier_or_url": "SCOPE-20261102-1ab64a212b1b",
+          "material_read": "Original Finding and model assumptions",
+          "method": "Resultary local mirror",
+          "title": "A unique sharp cooperation threshold for coexistence in a prey refuge model",
+          "trigger": "Nearby Resultary stability/coexistence hit"
+        },
+        {
+          "assessment": "Related analogues; not a verified whole-paper exclusion",
+          "evidence": [
+            "The supplied comparisons distinguish the 2019 no-refuge model and the 2023 Beverton–Holt prey nullcline from the current Ricker refuge model."
+          ],
+          "identifier_or_url": "10.1080/17513758.2018.1555339; 10.1080/17513758.2023.2242372",
+          "material_read": "No full texts available through the inspected DOI routes; frozen relationship-to-prior-work section and the census's model comparison",
+          "method": "DOI access attempts and marked secondary comparisons",
+          "title": "Cooperative hunting in a discrete predator-prey system II; Effects of prey refuge and predator cooperation on a predator-prey system",
+          "trigger": "Cited related saddle and coexistence results in other predator-prey maps"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The nullcline slope and a simple parameter cutoff settle a practical gap between counting coexistence equilibria and identifying their local dynamics in a concrete model. The lower unstable multiplier and the additional saddle conclusion supply analytic information beyond the numerical examples, while separating nontransverse and possible repeller cases.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

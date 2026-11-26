@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof recovers *every* coproduct from its value at the identity, reduces the constraints to comparable-vertex equalities of zero-padded coefficients, and establishes the unique extremal support on each bounded component. Substitution verifies coassociativity, while disjoint elementary-tensor images justify the exact finite-field rank polynomial and injection/counit criteria. The explicit diamond relation and its nonzero injective coproduct are verified algebraically. The packaged checker independently reconstructs the defining kernel for all topologically labeled posets of size at most five over two prime fields, 814 cases. Finite experiments supplement and do not replace the universal proof.
+## correctness
 
-**Originality — PASS, provisional.** Ocal (arXiv:2611.16024v1, §§2--4) gives a general injective-coproduct/QF-3 equivalence and canonical families but not the exhaustive componentwise space or linear-rank spectrum for arbitrary incidence posets. Artenstein--González--Lanzilotta (arXiv:1306.3964, §4.1) gives the familiar one-dimensional straight-chain case and a no-monomial-relations obstruction, while the diamond witness has a binomial identification. The nearby literature on incidence-algebra derivations, idempotent tuples and ordinary rank statistics counts different maps. Searches for equivalent componentwise statements and finite-field rank enumerators found no covering formula; absence of a retrieved hit is not a proof of novelty. A plausible source not indexed by the searched services might still cover the result.
+PASS
 
-**Mathematical value — PASS.** The classification determines the whole zeroth-Hochschild-type coproduct space, not a single constructed map, on all finite incidence algebras. It distinguishes existence of an arbitrary coproduct, injectivity, and counitality, computes every possible image rank and its multiplicity, and locates a concrete binomial-relation boundary to a published quiver obstruction. Those are intrinsic features motivated by the general non-counital Frobenius/QF-3 problem, rather than an arbitrary finite slice.
+For the outer actions, a bimodule map is determined by c=Δ(1) with (a⊗1)c=c(1⊗a). Multiplication by diagonal idempotents leaves only tensors e_ia⊗e_bi, b≤i≤a, in Δ(e_ii). For i≤j both expansions for Δ(e_ij) have coefficients of e_ia⊗e_bj, and if only one side supports a term, the tensor is still a valid basis element and its coefficient must vanish. Thus zero-padded coefficients are constant for fixed (a,b) on each comparability component. A nonzero coefficient forces b and a to bound the whole component and belong to it. Conversely the extremal tensor formula respects the outer actions and both triple coproducts are λ_C² e_xt⊗e_st⊗e_sy. Distinct intervals give distinct basis tensors and distinct components have disjoint supports, proving rank d_C per active component and the product enumerator, including the zero-map/empty-product case. A counit requires injectivity; if s≠t then the left counit on Δ(e_tt) has output proportional to e_st, not e_tt. On singleton components the inverse scalars are counit values. The diamond has nine intervals; in its presentation J³=0 and I is the one-dimensional subspace spanned by the difference of its two distinct length-two paths. It contains neither path, also in characteristic two. Thus it is admissible, has only a binomial relation, and the rank-nine coproduct is a valid witness against the unrestricted literal wording. Inspected VERIFICATION.md and incidence_noncounital_checker.py; the reported 814 finite tests solve the residual linear equations after diagonal reduction over F₂ and F₃. The triple-tensor check restates the symbolic formula and is not independent evidence of coassociativity. No uploaded code was executed.
 
-**Closest literature and limitations.** Ocal (2026) treats general QF-3 structure but not this familywide exact enumeration. Artenstein--González--Lanzilotta (2013) covers the straight-chain case. Artenstein--González--Mata (2020/2022) studies different general Frobenius dimensions. The diamond implication concerns the 2013 theorem *as literally stated*, not any unstated restriction intended by its authors. Independently verified historical priority is not asserted; the checker cannot certify beyond its finite range.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The general bimodule/Hochschild framework and existence characterization are prior work, and the chain case is old. The supported distinct contribution is the exact all-component parameterization including noninjective maps, its linear image-rank census, and the explicit binomial diamond scope witness. No covering theorem was established in the inspected sources.
+
+## value
+
+PASS
+
+The formula classifies all maps over arbitrary fields for a natural family of algebras. In particular it turns existence, counitality, and image rank into exact component invariants and gives a small, checkable boundary witness for a published quiver obstruction. The value is in the bounded-component rigidity and witness, not in finite-field coefficient counting by itself.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

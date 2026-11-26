@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:01:45.409824Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 15–62 and 76–78",
+        "Frozen verify_triangle.py lines 5–44 and VERIFICATION.md lines 19–23; inspected, not executed"
+      ],
+      "rationale": "The quotient gradient is −M∇V with M=[[2,1],[1,2]], by orthogonal reduction of the full zero-rotation gradient. The weighted Laplacian has nonzero eigenvalues 3 and 1+2w on the equal-side and antisymmetric directions, and bounds the full Hessian in both signs. Descent is strict for h<2/Λ even for a candidate wrapped fixed point (the potential is periodic), so fixed points are exactly the critical classes. Adding the two stationary equations gives y=−x or y=x+π; the first branch yields sin x(1+2w cos x)=0, and the second yields sin x=0. The binary mixed saddles have Hessian determinant −1; the antipodal class has eigenvalues −1, 2w−1; the extra pair has eigenvalues −1/(2w), (1−4w²)/(2w); the weighted Hessian has the same inertia. The full lift for h<1/Λ has uniformly positive definite Jacobian, is strongly monotone and proper, and descends equivariantly to a diffeomorphism. At equality its synchronous Jacobian is singular; for every larger h, the largest symmetric weighted Hessian eigenvalue varies continuously from Λ at synchrony to a negative value at a source, hence crosses 1/h. Summable descent forces gradients and step sizes to zero; a finite critical set and vanishing steps imply convergence to one class. A neighborhood of any noncritical point is wandering by a uniform first-step potential drop. The forward/backward invariant diagonal and antidiagonal contain respectively the unstable and stable curves of (π,π) when it is a saddle; neither mixed saddle lies on either. The two mixed saddles have the same potential, excluding connections by strict descent, which also excludes homoclinics. All other intersections are transverse (own stable/unstable eigenlines here are complementary; source and sink have the relevant full-dimensional manifolds). In the long-step interval, a nonsynchronous stable multiplier may be zero, so local invertibility there need not be assumed. In a small convex eigen-coordinate chart at each saddle or source, differences in the unstable cone |Δu|≥|Δs| stay in that cone and expand: the linear unstable minimum exceeds 1, the stable maximum is less than 1, and the derivative perturbation can be chosen smaller than both gaps. Thus the local forever-staying set projects injectively, with Lipschitz graph bounds, onto the lower-dimensional stable space and is null. The Jacobian determinant is analytic and nonzero at any source, so its zero set is null; elsewhere local smooth inverses preserve the null-preimage property, which iterates. This yields Haar-a.e. synchrony. Its exact strict Schur threshold follows from the two real multipliers; maximality of a.e. convergence is not asserted.",
+      "residual_risks": [
+        "The theorem excludes w=1/2. The stability boundary h=2/Λ is a linear strict-Schur boundary, not an assertion about nonlinear convergence beyond or at it."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The discrete-Huygens separable matrix criterion and weak added-link corollary supply general background, with additional-link strength restricted to a sufficiently small bound.",
+          "The large-step avoidance theorem assumes a forward-invariant convex setting, αL<2, and a null Hessian-degeneracy set containing no saddles."
+        ],
+        "reasoning": "A path has independent edge phases, whereas completing a triangle adds a constrained cyclic phase. A weak-link result does not dominate arbitrary positive w. General saddle avoidance does not give no heteroclinic connections or diffeomorphism sharpness, and its no-degenerate-Jacobian-at-saddles assumption is not automatic here: for w>3/2, h=1/(2w−1) is in the descent range and makes the stable multiplier at (π,π) zero.",
+        "searches": [
+          "Buescu–D'Aniello–Oliveira arXiv:2610.10993v1, matrix criterion and Corollary 5.9",
+          "Schaeffer–McCalla arXiv:1908.01753v1, Theorem 3.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.10993v1, 2503.13230v1, 2407.11314v2, 1908.01753v1",
+        "Resultary 55281249f0de, 2e5d3c4aa08c, 6f2776a4f153"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior census determines local signatures; neither it nor gradient descent rules out connections between saddles at different potential values.",
+          "The model-specific invariant circles separate the only potentially unequal-level saddles; the maximal diffeomorphism step follows separately by a Jacobian crossing."
+        ],
+        "reasoning": "The supported increment is the global discrete classification through the full diffeomorphism window and explicit synchronization result for the stated torus map. Credit the overlapping subclaims and do not infer that a.e. synchrony fails when the strict Schur interval ends.",
+        "searches": [
+          "Zhao–Zhou Lemma 1 and Proposition 1",
+          "Buescu–D'Aniello–Oliveira Corollary 5.9",
+          "Schaeffer–McCalla Theorem 3.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zhao–Zhou's continuous positive-coupling quotient has the same four/six critical classes after weight rescaling and the same degenerate merger at 1/2.",
+          "Buescu–Oliveira's equal-weight three-clock map with 0<a<1/3 has the reversed sine sign, two 120-degree sinks and synchrony a source."
+        ],
+        "reasoning": "The Euler and flow fixed-point equations coincide in the descent window; global discrete transversality and sharp step limits do not follow. Phase shifts cannot flip every edge sign on an odd cycle. An inverse Euler map is not the opposite-sign explicit Euler map, so the equal-weight repulsive result is not an equivalent attractive theorem.",
+        "searches": [
+          "Isosceles three-oscillator Kuramoto critical points arXiv:2407.11314v2",
+          "All-to-all discrete Huygens three-clock Morse–Smale arXiv:2503.13230v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-date 55281249f0de at r=1 is repulsive continuous-time equal-weight triangle barrier and equilibrium geometry.",
+          "2e5d3c4aa08c is a repulsive degenerate critical-weight triangle; 6f2776a4f153 is a repulsive arbitrary-weight three-clock path without a closing link."
+        ],
+        "reasoning": "These are the natural exact-family comparators in the indexed theorem catalogue. None of their inspected statements supplies the attractive Euler isosceles classification. Neither a shared date nor a matching critical numeric weight establishes equivalence.",
+        "searches": [
+          "Resultary targeted attractive arbitrary-weight Euler/Kuramoto/Huygens triangle comparison; IDs 55281249f0de, 2e5d3c4aa08c, 6f2776a4f153"
+        ]
+      },
+      "rationale": "The global attractive Euler-map Morse–Smale/no-connection theorem over all stated positive closing-edge weights and the precise step-window classification are supported as distinct. The continuous equilibrium census, Lyapunov descent, weak-link Morse–Smale precedent and large-step strict-saddle avoidance machinery are not independent novelty claims.",
+      "residual_risks": [
+        "An unlocated equivalent attractive all-weight theorem or stronger applicable network criterion remains possible. The credited equilibrium and avoidance results do not establish historical priority for the remaining classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General criteria and weak-link overlap; no all-weight attractive closing link",
+          "evidence": "Separable z+hK sin z criterion and sufficiently small extra-link strengths.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.10993",
+          "material_read": "p. 1 abstract, p. 2 introduction, p. 17 section 5.3 Corollary 5.9, offsets 52000–56470",
+          "method": "Lawful OA primary PDF targeted passages",
+          "title": "Morse–Smale dynamics in discrete Huygens networks",
+          "trigger": "Same dynamical framework and weak-link theorem"
+        },
+        {
+          "assessment": "Strong related result with opposite coupling sign",
+          "evidence": "Repulsive sine sign, synchrony source and two nonbinary sinks for 0<a<1/3.",
+          "identifier_or_url": "https://arxiv.org/abs/2503.13230",
+          "material_read": "pp. 6–7, equation (4) and fixed-point/transversality description, offsets 20000–22000",
+          "method": "Lawful OA primary PDF targeted passages",
+          "title": "Lyapunov functions for Morse–Smale synchronisation diffeomorphisms",
+          "trigger": "Equal-weight all-to-all discrete three-clock classification"
+        },
+        {
+          "assessment": "Direct continuous-time equilibrium overlap, not discrete theorem",
+          "evidence": "Four/six critical-point classes and merging threshold; no Euler step parameter.",
+          "identifier_or_url": "https://arxiv.org/abs/2407.11314",
+          "material_read": "v2 p. 1 equation (1), pp. 2–3 Lemma 1 and Proposition 1, offsets 3000 and 6000–11500",
+          "method": "Lawful OA primary PDF targeted passages",
+          "title": "Critical Points, Stability, and Basins of Attraction of Three Kuramoto Oscillators with Isosceles Triangle Network",
+          "trigger": "Same weighted equilibrium geometry"
+        },
+        {
+          "assessment": "Prior avoidance technique, not direct full-range torus coverage",
+          "evidence": "Null degeneracy set with no saddles, convex forward-invariant domain, and αL<2.",
+          "identifier_or_url": "https://arxiv.org/abs/1908.01753",
+          "material_read": "p. 6 Theorem 3.2, around offset 18200",
+          "method": "Lawful OA primary PDF targeted passage",
+          "title": "Extending the Step-size Restriction for Gradient Descent to Avoid Strict Saddle Points",
+          "trigger": "General larger-step a.e. saddle avoidance"
+        },
+        {
+          "assessment": "Not equivalent",
+          "evidence": "Equal-weight repulsive triangle at r=1 in continuous time with sublevel and barrier results.",
+          "identifier_or_url": "Resultary 2026/11/1/55281249f0de",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror, snapshot 36a7204",
+          "title": "First barrier topology and exact Morse census of repulsive Kuramoto systems",
+          "trigger": "Distinct same-date close equilibrium geometry"
+        },
+        {
+          "assessment": "Not equivalent",
+          "evidence": "Opposite sign and parabolic critical weak-edge case rather than the attractive hyperbolic window.",
+          "identifier_or_url": "Resultary 2026/10/11/2e5d3c4aa08c",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror, snapshot 36a7204",
+          "title": "Critical relaxation and an exceptional exponential circle in a discrete repulsive oscillator triangle",
+          "trigger": "Closest discrete weighted triangle analogue"
+        },
+        {
+          "assessment": "Different topology and sign",
+          "evidence": "Repulsive path; no closing edge and no cyclic constraint.",
+          "identifier_or_url": "Resultary 2026/11/8/6f2776a4f153",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror, snapshot 36a7204",
+          "title": "Arbitrary positive edge weights preserve Morse–Smale dynamics on the three-clock path",
+          "trigger": "Arbitrary-weight discrete Morse–Smale analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof sections 3–6",
+        "Buescu–D'Aniello–Oliveira Corollary 5.9 and Zhao–Zhou equilibrium result"
+      ],
+      "rationale": "The complete weighted triangle is the first cycle where extra coupling changes equilibrium types and invariant geometry. The exact global Morse–Smale window with a clean invariant-circle obstruction, and synchronization beyond that window, distinguish genuinely different dynamical properties. The result is not just a weighted-Laplacian calculation or a continuous equilibrium census.",
+      "residual_risks": [
+        "No extension to general signed, asymmetric or larger networks, and no maximal a.e. synchronization interval is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

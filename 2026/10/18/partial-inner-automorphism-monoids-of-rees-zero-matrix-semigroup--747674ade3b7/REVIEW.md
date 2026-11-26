@@ -1,19 +1,21 @@
-# Review: Partial inner automorphism monoids of Rees zero-matrix semigroups
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof explicitly classifies each generating domain from the two-sided identity equations: either the zero singleton, or a single maximal-group corner together with zero. It normalizes local coordinates using the nonzero sandwich entry and derives the transported map as inner conjugation. Explicit conjugators realize each pair of corners and each inner conjugation. Map-graph composition gives the Brandt multiplication, with separate checks for the zero matrix and group-with-zero boundary. It also gives a finite human-checkable separating example. Fourteen independently enumerated finite configurations verify all underlying generating-map graphs and predicted cardinalities; two seven-element semigroups have zero and 24 complete mappings respectively. Finite checks are supporting evidence, not the general proof. No unproved group-theoretic lemma is required beyond the elementary identification of the conjugation kernel with the center.
+PASS
 
-## Originality — PASS, subject to bibliographic risk
+The original domain calculation is valid for arbitrary group and sandwich support: nonzero a satisfying both domain equalities must have the two indices of gh, and its group coordinate cancels to force gh to be the local idempotent. With p=p_{λi}, q=p_{μj}, the normalized move is conjugation by tp when h=(j,t,λ), because sqtp=1. Choosing s=uq⁻¹ and t=u⁻¹p⁻¹ realizes every coset label, and different local domains meet only at zero. This gives the original Brandt rule with the all-zero and global-identity exceptions. The repaired example checks directly: both patterns have four idempotents, the same 16 local arrows plus identity and absorbing map, but different multisets of idempotent counts in the two fixed-last-index classes. In A, to keep all products except the zero input nonzero, three distinct images must be chosen among two elements; in B the displayed input-to-image and product lists are actual permutations. The use of α(0)=0 follows because any other preimage of 0 gives a second zero product. The finite checker was read but not run; the repaired proof decides both cases without enumeration.
 
-Araújo et al., arXiv:2605.00041, §3 provides the definition; §4 covers Rees matrix semigroups *without* a zero, and Problem 7.5 expressly leaves Rees zero-matrix semigroups open. The earlier 2023 preprint contains substantially overlapping framework and is acknowledged. The 2019 inverse-semigroup theory subsumes the Brandt inverse special case, not arbitrary noninverse Rees zero matrices. The recent complete-mappings paper arXiv:2608.25092 studies a different invariant. Semantic searches in published research records and web-indexed primary literature found no general covering theorem. The new content is the all-matrix zero-case classification and the explicit separation from complete-mapping existence. Residual risk: an equivalent older theorem under congruence or local-group terminology not indexed by the searches.
+## originality
 
-## Value — PASS
+PASS
 
-The result answers the explicitly formulated Rees zero-matrix problem from the motivating partial-inner theory for the full completely zero-simple class and beyond (even nonregular sandwich matrices). It exposes exactly what this inverse monoid forgets and, through a minimal explicit counterexample, shows it cannot detect complete mappings. The matrix support's detailed geometry matters for the latter but not for partial inner maps; this is a motivated structural boundary and not a mere finite lookup.
+The repaired finding is the explicit collision of partial inner monoids across opposite complete-mapping outcomes within the regular combinatorial class. The same Brandt classification on the regular class already appears in a distinct indexed record. The arbitrary-pattern extension is a short reduction to that core followed by a global-identity check, not needed in the repair. The general complete-mapping criterion decides either input separately; the cross-invariant separation requires a pair with equal support cardinality but opposite outcomes. No matching separation was established in the inspected sources; this does not assert first priority for the classification or the individual complete-mapping decisions.
 
-## Closest literature and limits
+## value
 
-Relevant inspected sources: arXiv:2605.00041v1 §§3, 4, 7; arXiv:2608.25092v1 §§4–7; arXiv:2301.04252v1 (earlier precursor, accessible abstract); Brookes arXiv:2002.00891 (separate full partial automorphism object, abstract). The full 2026 primary article on partial-inner theory and the open problem was materially examined. The 2026 complete-mappings work was examined at its Rees zero-matrix classification. The theorem concerns only partial inner maps, not every partial automorphism. A published equivalent outside accessible indexed literature remains possible. Independent mathematical audit is not asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sample is motivated by a structural question: how informative is the partial inner monoid for a naturally defined complete-mapping property of the original semigroup? The equal invariant, same support count and shape, and opposite answers in two regular combinatorial examples demonstrate precisely the information loss, without relying on degenerate zero rows, groups or the all-zero case. A concrete positive mapping and a clean obstruction provide a usable witness beyond classifying either pattern in isolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

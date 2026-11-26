@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:31:39.107332Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently enumerated subsets of each P_n by increasing cardinality, retaining dominating sets only when they contained no previously retained set. Enumerating membership traces by support size reproduced the VC sequence 0,1,1,2,2,2,3,3,4,4,4, with 48 shattered four-sets and no shattered five-set on P_11. Directly checked every leaf, query and branch of the frozen adaptive_trees.json against the independently enumerated concepts. The verified depths are 0,1,1,2,2,2,3,3,4,4,5 and the class sizes 1,2,2,4,4,7,9,13,18,25,36 each exclude the next depth by the one-concept-per-leaf bound. In the join every pendant/support pair contributes exactly one selected vertex, so no new edge is needed for domination inside any module. That selected vertex keeps the pendant as private neighbor, and any selected vertex outside the pair can use only private neighbors other than the changed support vertices. This gives a two-way concept-class equality, not just a check of some product members. VC additivity follows from independent traces; Littlestone additivity follows by tree concatenation and by choosing a rank-decreasing branch in the queried factor. The resulting connected tree has 11s vertices and at most two additional edges at each support. The first-gap exclusion concerns paths only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rote, Observation 1(3) and proof, identifies minimal dominating sets across a join at the two neighbors of pendant leaves.",
+          "Petr–Portier–Versteegen count minimum-cardinality dominating sets, not membership shattering of all inclusion-minimal ones."
+        ],
+        "reasoning": "Factorization is a broader transferable theorem. The minimum-cardinality counting results do not give the finite path shattering claim.",
+        "searches": [
+          "arXiv:1903.04517, private-neighbor property and joining trees at pendant supports",
+          "arXiv:2206.13182, minimum dominating sets"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_minimal_domination.py, path_census.json, adaptive_trees.json and verification_output.txt",
+        "Resultary 85d3ecbad804",
+        "Resultary 84ef6ec729bc",
+        "arXiv:1903.04517",
+        "arXiv:2206.13182"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier catalogue record gives exact dimensions (4s,5s) for the disjoint union; Rote's proof preserves the sets, not only their count."
+        ],
+        "reasoning": "Iterate Rote at the same support of the last copy (its leaf remains pendant). The query domain and membership functions never change, so both dimensions transfer verbatim to the connected tree. Maximum degree at most four follows by counting the joins per vertex.",
+        "searches": [
+          "Resultary 85d3ecbad804 disjoint-copy formulas; Rote arXiv:1903.04517 §2, Observation 1(3)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 85d3ecbad804 states equality for n≤10, and 36 concepts with dimensions 4 and 5 at n=11.",
+          "Nearby catalogue results on maximal independent sets or cycles use a different concept class or different graph domain."
+        ],
+        "reasoning": "The Oct. 26 result uses all inclusion-minimal dominating sets as concepts and vertices as queries; this is an exact formulation match, unlike minimum-cardinality dominating sets or maximal independent sets.",
+        "searches": [
+          "Resultary: first VC–Littlestone separation for minimal dominating sets of paths; adaptive versus static shattering by vertex membership"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Finding explicitly gives (36,4,5) and exactly rules out earlier path gaps."
+        ],
+        "reasoning": "The matching exact catalogue row and exclusion are enough to cover the finite boundary; different witnesses for the same VC lower bound do not change the result.",
+        "searches": [
+          "Resultary 85d3ecbad804, P_11 concept count and dimensions"
+        ]
+      },
+      "rationale": "The Oct. 26 Resultary record directly covers the first path gap, the exact 36-concept count and all displayed dimension formulas on the disjoint union. Rote's gluing observation identifies the entire minimal-dominating-set family before and after each pendant-support join. The connected-tree version is consequently the same Boolean concept class on the same vertex domain, not merely a different example with an analogous inequality. No distinct substantive remainder is established by the general arbitrary-edges wording of the auxiliary gluing lemma.",
+      "residual_risks": [
+        "The search does not establish comprehensive historical priority; the inspected earlier catalogue statement and primary gluing proof already settle coverage of the claimed formulas."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct path coverage and exact disjoint product dimensions",
+          "evidence": "All inclusion-minimal sets, 36 concepts at P_11, dimensions 4 and 5 there, equality through P_10, and dimensions 4s and 5s on s disjoint copies.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-first-vc-littlestone-separation-for-minimal-dominating-sets-of-p--85d3ecbad804/RESULT.md",
+          "material_read": "Finding, assumptions and opening proof, offsets 0–2899",
+          "method": "Indexed full record via local mirror",
+          "title": "First VC–Littlestone separation for minimal dominating sets of paths",
+          "trigger": "Exact parameters and concept domain"
+        },
+        {
+          "assessment": "Direct gluing principle implying equality of membership classes for the chain",
+          "evidence": "Connecting neighbors of chosen leaves leaves the admissible minimal dominating sets equal to the products of the original sets; the pendant leaf still forces exactly one element of the pair.",
+          "identifier_or_url": "arXiv:1903.04517",
+          "material_read": "§2, Observation 1(3) and proof, PDF pp. 3–4",
+          "method": "Lawful OA primary PDF passage inspection",
+          "title": "Minimal Dominating Sets in a Tree: Counting, Enumeration, and Extremal Results",
+          "trigger": "Candidate factorization across a support-vertex join"
+        },
+        {
+          "assessment": "Different family in the inspected scope",
+          "evidence": "Counts dominating sets of minimum cardinality, rather than membership dimensions of all inclusion-minimal dominating sets.",
+          "identifier_or_url": "arXiv:2206.13182",
+          "material_read": "Abstract, p. 1",
+          "method": "Lawful OA primary PDF passage inspection",
+          "title": "On the number of minimum dominating sets and total dominating sets in forests",
+          "trigger": "Possible alternative domination-family theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The base path boundary is a natural mathematical question, but it is an exact recomputation of an existing result. The candidate new connected-tree example preserves exactly the already analyzed product concept class by a published gluing rule. The resulting change of graph realization is a routine consequence, without a new threshold, obstruction or nontrivial extension established here.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

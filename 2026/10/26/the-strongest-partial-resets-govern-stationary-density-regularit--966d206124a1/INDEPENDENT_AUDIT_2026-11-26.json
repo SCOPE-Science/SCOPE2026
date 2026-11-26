@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:59:56.812343Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Checked the stationary two-sided Poisson construction: the age and preceding gaps are iid Exp(r), their Brownian increments mix to Laplace(a), and the contribution from j gaps back is multiplied by at most q_+^j. A synchronous coupling contracts by q_+ per reset and proves uniqueness. For f=ell*nu, nu=Law(QX'), only the Q=0 part gives an atom at 0 since X' has a density. Bounded difference quotients give the derivative jump -a^2 nu({0}); equivalently the jump comes from the delta term in (r-D partial_x^2)f=r nu. The positive-q_- case is a separate regime, not an additional hypothesis compatible with p_0>0. With h=-log q_-, the deterministic product upper bound gives log phi(a exp y)<=-y^2/h+O(y). Conditioning the first ceil(y/(-log b)) contractions to be <=b for any b>q_- costs only exp(-O(y)); the remaining factors have a uniform positive product by q_+<1. Summing the arithmetic progression in the bounded products and letting b decrease to q_- gives the sharp matching lower limit. All polynomial Fourier moments exist. For the 2k-th derivative, after t=a exp y, sandwich the exponent on y>=Y between (2k+1)y-(1/h±epsilon)y^2, with the remaining t<=a exp Y contribution at most exponential in k. The upper Gaussian integral and a fixed-width interval around the lower Gaussian maximizer yield h for the k^-2 log-limit. Positivity prevents cancellation, and factorial growth is o(k^2) on the log scale, proving zero Taylor radius. Analytic replay: RESULT.md §§1–4. Additional deterministic normalization check: for Q=q, multiplying the product by 1+(t/a)^2 gives Phi_q(qt), hence its even Fourier integrals satisfy I_{2k}/I_{2k-2}=a^2(q^{-(2k-1)}-1); summation reproduces the leading constant. Inspected verify.py and its recorded 223 finite checks without executing the uploaded code; they are not proofs of the limits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Assefa et al. allow reset marks and affine reset maps but the inspected results are moment and cross-moment formulas, not derivative-growth asymptotics.",
+          "Grzywny et al. Proposition 2.22 supplies smoothness for fixed proportional resetting of a strictly stable process."
+        ],
+        "reasoning": "The broader random-reset setup does not provide high spatial derivatives. The broader fixed-factor driving-noise class does not cover random contraction factors.",
+        "searches": [
+          "arXiv:2610.01363v1 randomized affine reset operator",
+          "arXiv:2412.15626 proportional resetting and stationary smoothness"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py, verify_output.txt",
+        "arXiv:2305.13722v2, 2412.15626, 2610.01363v1",
+        "Resultary 53ab45fd43ae, 6dfc6932c2a0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The atom in the general stationary adjoint gives r p_0 delta_0 and thus the cusp once a density and the Green kernel are known.",
+          "The deterministic product only gives one side of the random upper-frequency law by comparison with q_-. The other side requires paths near the essential infimum for O(log |t|) marks and control of their cost against the log-squared product."
+        ],
+        "reasoning": "The cusp is substantially implicit in the prior model, while the random leading exponent is not a mechanical corollary of the product or the generator moment identities.",
+        "searches": [
+          "Assefa–Keller-Ressel–Palmowski §2.1 and Resultary 6dfc6932c2a0 reset generator",
+          "Di Bello et al. Eqs. (26)–(30)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Brownian specialization of Di Bello et al. Eq. (27) is exactly Phi_q for deterministic q.",
+          "The same-day deterministic record has f^(2n)(0)=(-1)^n f(0)(r/D)^n q^(-n^2) product_{j=0}^{n-1}(1-q^(2j+1)) and a sharper log-periodic refinement."
+        ],
+        "reasoning": "These formulas cover or imply the deterministic leading coefficients but contain no random path comparison; replacing q by E Q or by a deterministic endpoint does not give equality of characteristic functions for random Q.",
+        "searches": [
+          "arXiv:2305.13722v2 §3.1, fixed partial-reset Fourier product",
+          "Resultary 53ab45fd43ae, exact non-Gevrey derivatives and log-periodic Fourier fingerprint"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching fixed-factor result explicitly computes all even derivatives and the leading Fourier coefficient. The random-multiplier result gives the generator and studies moment-rate identifiability, not the sharp spatial derivative exponent."
+        ],
+        "reasoning": "There is exact deterministic overlap, not a tabulation or formula covering the full essential-infimum family. The random and deterministic records have the same display date as the frozen finding; no order is assumed.",
+        "searches": [
+          "Resultary indexed exact non-Gevrey derivatives / fixed factor, 53ab45fd43ae",
+          "Resultary random contraction hidden-reset reflection, 6dfc6932c2a0"
+        ]
+      },
+      "rationale": "Credit the sharp universality over genuinely random iid contraction laws with positive essential infimum. The fixed-contraction special case has direct and even sharper overlap; the zero-atom formula is a useful but short consequence of the stationary adjoint equation, not a separate new method. Same display date does not settle priority.",
+      "residual_risks": [
+        "Uninspected perpetuity or Fourier smoothing theory may cover the same sharp random-law exponent.",
+        "No same-day priority is established, and standalone originality of the cusp is not claimed here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact fixed-contraction product antecedent",
+          "evidence": "Stationary characteristic function is the product of r/(r+D c^(alpha*l)|k|^alpha) over l>=0.",
+          "identifier_or_url": "https://arxiv.org/html/2305.13722v2",
+          "material_read": "§3.1 Eqs. (26)–(30), offset 25834 onward",
+          "method": "OA primary full-text passage",
+          "title": "Time-dependent probability density function for partial resetting dynamics",
+          "trigger": "Matching Brownian stationary Fourier product"
+        },
+        {
+          "assessment": "Fixed proportional reset C-infinity coverage only for this comparison",
+          "evidence": "Smooth stationary law for proportional resetting of a strictly stable process.",
+          "identifier_or_url": "https://arxiv.org/abs/2412.15626",
+          "material_read": "Proposition 2.22, offset 85128",
+          "method": "OA primary full-text passage",
+          "title": "Grzywny et al., proportional resetting of stable processes",
+          "trigger": "Broader regularity theorem"
+        },
+        {
+          "assessment": "Strictly stronger in the deterministic special case; not random-Q or zero-atom coverage",
+          "evidence": "Exact even-derivative product and refined log-periodic Fourier asymptotic are stated for Q=q.",
+          "identifier_or_url": "Resultary 2026/10/26/53ab45fd43ae",
+          "material_read": "RESULT.md offsets 0–6919",
+          "method": "Local Resultary mirror",
+          "title": "Exact non-Gevrey derivatives and a log-periodic Fourier fingerprint",
+          "trigger": "Same constants for fixed contraction"
+        },
+        {
+          "assessment": "Random-law modeling antecedent, no inspected derivative-growth estimate",
+          "evidence": "Random reset marks and affine maps yield a polynomial moment framework.",
+          "identifier_or_url": "https://arxiv.org/html/2610.01363v1",
+          "material_read": "Affine reset operator and §2.1, offsets 3500–6992 and 11800–15290",
+          "method": "OA primary full-text passages",
+          "title": "Moments of polynomial processes under affine resetting",
+          "trigger": "Broader randomized affine framework"
+        },
+        {
+          "assessment": "Implies the stationary point-source interpretation; addresses moment-rate tomography instead of the all-order derivative law",
+          "evidence": "The generator integrates g(qx)-g(x) against the multiplier distribution.",
+          "identifier_or_url": "Resultary 2026/10/26/6dfc6932c2a0",
+          "material_read": "RESULT.md Finding and generator near offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Hidden reset reflection and moment-rate tomography",
+          "trigger": "Same random-multiplier generator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The logarithmic derivative rate extracts the strongest essentially available contraction from the density even if contractions near that bound are rare. This is materially different from fixed-factor smoothness or finite moment identities. Distinguishing the zero atom by an exact spatial jump gives a useful contrasting diagnostic without extending the claim to the unresolved regime ess inf Q=0 with no atom.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

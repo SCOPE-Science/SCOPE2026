@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the explicitly stated weak-deficit linear-wake model, differentiation reduces the layout derivative to the difference of a strictly decreasing and a strictly increasing positive function. The pointwise strict sign conditions use \(0<\delta<3/10\) and hold on the entire feasible interval. The derivative is positive at the midpoint and its value at the right endpoint decreases strictly with total span, crossing zero once. Those facts prove global uniqueness, endpoint-to-interior switching, and strict downstream bias. A logarithmic expansion of the exact interior stationarity equation gives the \(\delta/(6\kappa^2 L)\) asymptotic. An independent, executable Python checker reported 19,724 finite probes, including exact-rational algebraic signs and numerical comparisons; the proof, not those probes, establishes the infinite-parameter assertion. The \(\ell=0\) mathematical endpoint is covered; practical distances require \(\ell>0\).
+PASS
 
-## Originality — PASS, with priority qualifications
+For the three specified positive inflow speeds and x in [ℓ,L−ℓ], direct differentiation gives P′=3δ(A−B_L). Differentiation of the squared-speed factors and the cubic distance factors gives A′<0 and B_L′>0 from −3+7δh(x)<0 and 3−3δh(L)−7δh(L−x)>0. At the midpoint A>B_L because only the last turbine receives the extra full-span deficit δh(L). At x=L−ℓ, A decreases and B_L increases with L; their difference has positive limit at 2ℓ (also for ℓ=0, using the continuous extension) and negative limit at infinity. Thus the unique crossing gives the stated endpoint regime, including equality, and the derivative has a unique interior zero strictly beyond the midpoint for larger L. For the asymptotic, set R=1+κL/2 and p=κ(x_L−L/2). Stationarity gives 3 log[(R+p)/(R−p)]=2 log(u₂/u₃). Positivity bounds the ratio of distances so both are of order R, making the right-hand side O(R⁻²). The left-hand side is at least 6p/R, so p=O(R⁻¹). Then u₂−u₃=δ/(1+κL)²+O(R⁻⁴), giving x_L−L/2=δR/[3κ(1+κL)²]+O(R⁻³) and the claimed leading term. An independent direct search of the cubic objective at δ=.2, κ=1, ℓ=.5, L=3 gave x≈1.511334 and power gain ≈1.0464×10⁻⁵ over the midpoint. That finite check is supplementary; the replay path for the proof is RESULT.md §§ Proof and Verification (lines 54–122 for the decisive steps). The supplied verification/wake_layout_check.py was inspected, not executed; no formal certification is asserted.
 
-The searched mathematical record and the accessible primary literature have no located implication of the particular unique critical-span threshold and strict nonmidpoint optimum for a **single movable middle turbine, two fixed endpoints, full overlapping linear Jensen/Park deficits and cubic power**. Stevens, Gayme and Meneveau (2015; doi:10.1002/we.1835) use extended regular arrays and LES; Peña, Réthoré and van der Laan (2015; doi:10.1002/we.1863) analyze a quadratic wake-merging model; Stevens, Hobbs, Ramos and Meneveau (2016; doi:10.1002/we.2016) focus on large-farm fluid/economic spacing. Ma, Archer and Vasel-Be-Hagh (2022; doi:10.5194/wes-7-2407-2022) document linear superposition as an existing wake convention but not this optimization theorem. General historical numerical turbine placement and wake-layout optimization are established prior art. Earlier Grady–Hussaini–Abdullah (2005; doi:10.1016/j.renene.2004.05.007) and Lissaman (1979; doi:10.2514/3.62441) could not be inspected in full, leaving a bounded historical-priority risk. No novelty assertion beyond the stated finite-array mathematical claim is made.
+## originality
 
-## Value — PASS
+PASS
 
-Fixed endpoints and a mandated minimum spacing are natural in an already bounded wind-farm row. This exact phase change distinguishes a boundary-constrained layout from a fully interior optimum and proves that exactly symmetric spacing is never best under a specified conventional wake simplification. The proof and the \(L^{-1}\) asymptotic offer a nonnumerical benchmark for testing layout solvers and for checking what linear overlapping-wake approximations predict. In the example, the gain over midpoint at \(L=3\) is only about \(10^{-5}\) in normalized power, so no claim of large engineering improvement is made. The theorem's mathematical value is a model-specific classification and reproducible benchmark, not practical yield or a general nonlinear wake law.
+Best-of-knowledge pass for the fixed-span, one-free-location theorem and its large-span coefficient. The Jensen/Park decay family, linear summation and the general wind-farm layout problem all predate the record. No checked primary passage or distinct indexed record proved a result covering the precise boundary crossing, optimizer uniqueness and bias. The comparison does not establish historical priority.
 
-## Limits and related evidence
+## value
 
-Other wake-deficit combinations, speed-dependent thrust, atmospheric recovery, yaw control, turbulence, and changing winds can alter the result. Weak-deficit \(\delta<3/10\) is sufficient, not claimed sharp. Historical priority remains provisional, and the finite checker cannot replace independent mathematical review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Fixed endpoints and a minimum gap give a motivated constrained layout problem. The exact classification supplies a test for whether a solver should return an active gap constraint or an interior stationary point, and identifies a structural asymmetry: the direct wake from the first to the last turbine lowers the marginal power cost of moving the middle one downstream. Without that term the cubic objective is symmetric in the two gaps and, in this regime, has its unique optimum at equal spacing. The value is the sharp global classification and quantitative bias for this model, not the tiny illustrated yield gain or a field design recommendation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

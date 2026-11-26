@@ -1,0 +1,195 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:36:52.591862Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–100, VERIFICATION.md lines 18–29, and inspected verify.py",
+        "Repaired /workspace/repairs/5/RESULT.md and SLOGAN.txt",
+        "Independent replay: python /workspace/review-evidence/5.py (exact symbolic systems and a bounded explicit subsequence-set/Stern comparison)"
+      ],
+      "rationale": "The repaired proof counts distinct words, not embeddings. Appending zero makes the complete ending-zero set equal to the old subsequence set with a zero appended, including previously present words. For inclusive counters (i,j) this gives (i+j,j), with the symmetric update for one and D=i+j-1. Splitting the weighted word sums by their last letter gives separate 2-by-2 and 3-by-3 systems for i,j and i^2,j^2,ij. I checked the determinants, adjugate entries and both resulting rational series by exact symbolic arithmetic independently of the frozen 9-state certificate. The empty term is one, and on either axis the series encode the unique constant word with D=n+1. Division by the binomial count normalizes the fixed-composition moments. Independently, the Stern-pair update gives D+1=d(2m+1) and taking the appropriate row differences gives the fair iid shifted-square OGF (4-z)/(1-5z/2+z^2/2); subtracting the shifted mean squared gives the stated, now attributed variance. The retained composition result and the attributed specialization are both mathematically correct.",
+      "residual_risks": [
+        "The small Stern examples are corroborative; the induction and row-difference argument support the unbounded specialization. No formal proof-assistant verification was performed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Biers-Ariel et al., PDF p. 5, Theorem 2.9, gives the first moment for any bias",
+          "Ekhad–Zeilberger p. 3 covers row sums of products of adjacent entries, and Stanley's follow-up introduction generalizes the recurrence of the binary place values",
+          "Stanley–Wilf abstract and introduction refine by the number of distinct powers used twice in an individual hyperbinary representation"
+        ],
+        "reasoning": "A full expectation polynomial determines first moments but not squares. Summing adjacent-entry products over a row or marking multiplicities inside hyperbinary representations is not summing square counts by the host word's own bit weight. General rationality or a known deterministic counter update is not the evaluated composition-resolved moment.",
+        "searches": [
+          "Websearch: Stanley Stern diatomic array sums powers Stern Carlitz squares bivariate generating function sum of binary digits Hamming weight weighted moments fixed digits abelian",
+          "Websearch: distinct subsequences biased binary random strings second moment variance random p 1-p alphabet composition",
+          "Stanley arXiv:1901.04647 and arXiv:2101.02131; Ekhad–Zeilberger arXiv:2103.12855; Stanley–Wilf Refining the Stern Diatomic Sequence; Biers-Ariel et al. arXiv:1704.08661"
+        ]
+      },
+      "checked_sources": [
+        "Collins Theorem 3; Biers-Ariel–Godbole–Kelley Theorem 2.9; Żak Theorem 1",
+        "Stanley equation (3), Stanley–Wilf, and Ekhad–Zeilberger Stern refinements and extensions",
+        "Local Resultary 4ce40b9cbccc; Mercier–Khabbazian–Bhargava access attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For m binary 1 followed by the complement of w, D(w)+1=d(2m+1). If r_n is Stanley's row square sum, the sum of (D+1)^2 over all length-n words equals (r_{n+2}-2r_{n+1}+r_n)/2",
+          "Weighted first moments form the degree-n biased mean in the independent basis p^a(1-p)^(n-a)",
+          "The exact deletion-ball formula after summing over both radii is a single-variable fair-source moment series"
+        ],
+        "reasoning": "Stanley's recurrence passes to the difference and gives the original fair iid variance after scaling and subtracting the known shifted mean; the apparent novelty of that specialization does not survive. No such subtraction or specialization of the inspected unweighted prior sums yields the individual composition coefficients. The new claim relies on the separately weighted square-state equations.",
+        "searches": [
+          "Stanley equation (3) and Żak Theorem 1 versus the given subsequence state",
+          "Biers-Ariel et al. Theorem 2.9 versus first-moment coefficient extraction",
+          "Resultary 4ce40b9cbccc with deletion markers z=w=1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Żak, arXiv:2210.00342v1, section 2, Theorem 1 and proof, gives the equivalent Euclidean count a+b-1 for its coded word",
+          "Stanley arXiv:1901.04647, p. 3, equation (3), evaluates the unweighted Stern row square series",
+          "Resultary 4ce40b9cbccc, offsets 0 and 4112, gives an exact full-length fair iid second moment when the deletion marks are both one"
+        ],
+        "reasoning": "The repaired formula is equivalently the all-bias iid second-moment polynomial at every length (substitute x=pz,y=(1-p)z); it is also a square-sum of odd Stern entries resolved by the Hamming weight of their interior binary bits. The fair diagonal identifies only a sum of the coefficients at each total degree, not the coefficients separately. None of the inspected assertions supplies the evaluated weighted square sum.",
+        "searches": [
+          "Resultary: exact second moments of distinct binary scattered subsequences, fixed composition and uniform variance",
+          "Websearch: distinct subsequences random binary string second moment variance fixed composition distinct subsequence words deletion ball enumerator moments Collins Biers Ariel Mercier",
+          "Websearch: binary word distinct scattered subsequences Stern diatomic sum squares fixed digit weight second moment Finding binary words with a given number of subsequences Stern fusc"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/11/2 record 4ce40b9cbccc materially matches the fair second-moment component, but its markers track deletion radii",
+          "Stanley arXiv:1901.04647 p. 3 records the Stern row-square sequence 1,3,13,59,269,... and proves its rational series"
+        ],
+        "reasoning": "These are exact comparators to the unweighted specialization, which is therefore excluded from the repaired originality claim. The investigated index did not establish a matching composition array or its generating function. A finite coefficient list is not the novelty-bearing object.",
+        "searches": [
+          "Local Resultary: fixed-composition second moments and exact joint deletion-ball size moments",
+          "Websearch: Stern square sums and Hamming weight in equivalently coded binary words"
+        ]
+      },
+      "rationale": "PASS applies to the repaired composition-resolved second-moment evaluation only. The original scope was too broad: the evaluated fair iid second moment and variance follow directly from Stanley's already evaluated Stern-row square sums and the known mean, and the composition first moments are determined by the published arbitrary-bias mean. The repaired Finding no longer claims any of those as new and makes the exact Stern reduction explicit. The strongest checked Stern results sum over all indices; the later exact joint deletion-ball result marks deletion radii under fair iid words. Neither separates binary host compositions. The retained explicit bivariate function has distinct content on the inspected evidence; this is not a proof of priority.",
+      "residual_risks": [
+        "The Mercier et al. full text was not recovered; specialized earlier Hamming-weight-resolved square sums or all-bias second-moment formulas may exist outside the inspected set.",
+        "The acknowledged fair iid implication does not claim that Stanley printed the subsequence variance in this notation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Fair first moment established; not the weighted second moment",
+          "evidence": [
+            "Theorem 3 gives the fair expectation 2(3/2)^n-1 including the empty word."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1310.7288",
+          "material_read": "pp. 1,3; Theorem 3 around offset 7082",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "The Number of Distinct Subsequences of a Random Binary String",
+          "trigger": "Prior fair iid diversity mean under the same convention"
+        },
+        {
+          "assessment": "Full first-moment implication only",
+          "evidence": [
+            "Theorem 2.9 gives the mean for every letter bias; adding back the empty word gives the convention here."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1704.08661",
+          "material_read": "Theorem 2.9, p. 5, PDF offset 21709; conclusion p. 10",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Expected Number of Distinct Subsequences in Randomly Generated Binary Strings",
+          "trigger": "Arbitrary bias, equivalent route to all fixed-composition moments of a given order"
+        },
+        {
+          "assessment": "Overlapping exact word-level count mechanism, no composition-moment evaluation in the inspected statements",
+          "evidence": [
+            "The Euclidean-coded word gen(a,b) has a+b-1 distinct subsequences; the proof uses two inclusive start/end-letter counts."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2210.00342v1",
+          "material_read": "Introduction and section 2, Definition 1 and Theorem 1 with start of its proof, HTML offsets 0–5251",
+          "method": "Lawful OA arXiv copy after publisher restriction",
+          "title": "Finding binary words with a given number of subsequences",
+          "trigger": "Closest published deterministic encoding of the same diversity count"
+        },
+        {
+          "assessment": "Implies fair iid variance; does not track host composition",
+          "evidence": [
+            "The row square series is (1-2z)/(1-5z+2z^2). Its second row difference selects the odd Stern entries needed for the shifted unweighted subsequence squares."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1901.04647",
+          "material_read": "pp. 2–3, PDF offsets 7640–11885, including equation (3) and proof setup",
+          "method": "Lawful OA primary PDF with exact change of variables and row differences",
+          "title": "Some linear recurrences motivated by Stern's Diatomic Array",
+          "trigger": "Decisive equivalent unweighted square-sum result"
+        },
+        {
+          "assessment": "Related unweighted sums and generalized place-value recurrences, not evaluated host-composition moments in the passages read",
+          "evidence": [
+            "The adjacent-product formula sums over all positions. The variant changes the powers in the product rather than weighting the binary index by digit composition."
+          ],
+          "identifier_or_url": "arXiv:2101.02131; arXiv:2103.12855",
+          "material_read": "Stanley pp. 1–2 opening product and exact prototype; Ekhad–Zeilberger p. 3, offsets 6850–9073, unweighted moments of adjacent terms",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Theorems and conjectures on some rational generating functions; Automated Generation of Generating Functions Related to Generalized Stern's Diatomic Arrays",
+          "trigger": "Potential stronger Stern generating function and transfer framework"
+        },
+        {
+          "assessment": "Different refinement on the defining representations",
+          "evidence": [
+            "The second parameter counts powers with multiplicity exactly two in a hyperbinary representation, not the ones in the canonical binary index."
+          ],
+          "identifier_or_url": "https://math.mit.edu/~rstan/papers/stern.pdf",
+          "material_read": "Abstract and introduction, offsets 0–3140",
+          "method": "Lawful author-hosted PDF passage inspection",
+          "title": "Refining the Stern Diatomic Sequence",
+          "trigger": "Plausibly matching bivariate Stern refinement"
+        },
+        {
+          "assessment": "Later record exactly overlaps in fair iid total second moment, not the composition result",
+          "evidence": [
+            "Setting both radius markers to one gives (2-u)(u^2-u+2)/((1-u)(2-3u)(u^2-5u+2)) for the fair total second moment series."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-joint-second-moments-of-binary-deletion-ball-sizes-at-all--4ce40b9cbccc",
+          "material_read": "RESULT.md Finding and all-radii specialization, offsets 0 and 4112",
+          "method": "Local published-record mirror and specialization",
+          "title": "Exact joint second moments of binary deletion-ball sizes at all deletion radii",
+          "trigger": "Closest indexed exact higher-moment claim"
+        },
+        {
+          "assessment": "Probe and extremal problems are different from random-host second moments",
+          "evidence": [
+            "The random probe on p. 4 varies the candidate subsequence of a fixed host, not the host composition-conditioned diversity statistic."
+          ],
+          "identifier_or_url": "10.37236/1761",
+          "material_read": "p. 1 extremal problem and p. 4 random-probe subsection, offsets 1600 and 8670",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Strings with Maximally Many Distinct Subsequences and Substrings",
+          "trigger": "Early extremal and probabilistic counting literature for the same statistic"
+        },
+        {
+          "assessment": "Residual access limitation only",
+          "evidence": [
+            "No technical second-moment implication was established or excluded from the inaccessible full text."
+          ],
+          "identifier_or_url": "10.1109/TIT.2008.924730",
+          "material_read": "Cited scope and identifier; full technical text not recovered",
+          "method": "Lawful OA and repository retrieval attempt",
+          "title": "On the Number of Subsequences When Deleting Symbols From a String",
+          "trigger": "Potential deletion-ball count coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md Finding and weighted proof",
+        "Stanley equation (3) and Biers-Ariel et al. Theorem 2.9 for the narrower prior information"
+      ],
+      "rationale": "For the natural count of all distinct binary deletion outcomes, the two-variable evaluation gives exact conditional variability for each composition without summing over the individual words. It distinguishes fluctuations within a fixed letter composition from fluctuations under mixing, and evaluates the moment for every Bernoulli bias. These uses belong to the nontrivial square-moment evaluation; the already implied unweighted formula and general expectation are not counted as new value.",
+      "residual_risks": [
+        "The result gives exact moments, not a distributional or tail theorem, and it is restricted to binary total scattered-subsequence diversity."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

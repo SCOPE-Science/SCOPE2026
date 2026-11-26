@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:28:58.916909Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen cutoff and finite matrices are mathematically correct; the reason for repair is coverage, not a failed identity. The repaired proof uses the zero mode and R(-z)=1-z/(1+z/2+z^2/12) to obtain I-12L^+/h+O(h^-2) at each fixed n. Summing the path resistance identity using the zero row sums of L^+ gives L^+_{01}=(n-1)(2n-7)/(6n). At distance seven only the unique length-seven walk contributes in the first nonzero Taylor term and its coefficient is -1/1728. An independent exact SymPy reconstruction produced the four-node threshold and the eight-node matrix; the latter has minimum 596772/61423369 only at (3,4) and (4,3) in zero-based indexing. The repaired standard-library integer check was replayed successfully with `python3 /workspace/repairs/3/artifacts/check_witness.py`; it verifies BN=61423369A, symmetry and every row sum. The uploaded checker was inspected, not run. Continuous dependence in h turns the exact witness into an open interval, not a classification of its endpoints.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "P2=K(1,1) and P3=K(1,2), so all-step positivity follows from the general multipartite theorem. P8 is not complete multipartite. The CTMC theorem for at most seven states supplies the general lower dimension bound, not the intermediate step for P8."
+        ],
+        "reasoning": "The repaired Finding does not rely on claiming a special case of either theorem as original.",
+        "searches": [
+          "2026/10/25/SCOPE-unconditional-fourth-order-gauss-pad-positivity-on-complete-mult--3b12f25d4b2d, Finding and Proof",
+          "2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab, Theorems 1–2",
+          "Zappavigna et al., Section 4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Proof and Verification; frozen VERIFICATION.md; artifacts/verify_gauss_path.py",
+        "Complete-multipartite Resultary record 3b12f25d4b2d",
+        "Eight-state Resultary record 4aad2a3f58ab",
+        "Zappavigna et al. repository PDF §4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The standard Taylor coefficient and shortest-distance argument immediately imply small-step failure for n>=8; they are credited as such. The general spectral expansion alone does not determine the sign of a pseudoinverse entry. The P4 cutoff implies eventual failure at n=4 but not for the family, and the pure-birth witness does not imply any intermediate positivity for an undirected path."
+        ],
+        "reasoning": "The distinctive geometric example is the entire sign pattern for one reversible path, with a separate reusable large-step obstruction, not the degree-seven sign by itself.",
+        "searches": [
+          "Zappavigna et al., Section 4 Example 3",
+          "Eight-state CTMC barrier, Proof §2 and Theorem 2",
+          "Complete-multipartite result, boundary example"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The complete-multipartite source uses the same row-basis completed scalar r(hL) and exactly the same P4 endpoint-adjacent fraction and cutoff. The eight-state CTMC source uses r(hQ), equivalent with Q=-L, but its witness is pure birth and absorbing, not a symmetric Laplacian."
+        ],
+        "reasoning": "Changing the sign convention for the scalar argument does not distinguish the maps. Changing from an absorbing chain to the connected reversible path changes the generator, the structure of the spectrum and the positivity region; no permutation or diagonal symmetrization equates them.",
+        "searches": [
+          "Resultary: fourth-order Gauss Padé positivity on graph Laplacians and paths",
+          "Resultary: eight-state Padé Markov positivity barrier"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier catalogue gives the exact P4 quartic h^4-6h^3-60h^2-108h-72 and root 11.8663785439266. Its distinct pure-birth window stops at 2 sqrt(3), below h=4; neither record gives the reversible P8 certificate or the path-family large-step coefficient."
+        ],
+        "reasoning": "The exact P4 hit is removed from the claim. The P8 entrywise certificate is for a different matrix, not an exact-table recheck of the absorbing chain.",
+        "searches": [
+          "Resultary graph-Padé matches for the exact four- and eight-vertex path benchmarks",
+          "Complete-multipartite RESULT.md, offsets 1230–6041",
+          "Eight-state CTMC RESULT.md, Theorem 2"
+        ]
+      },
+      "rationale": "Pass for the repaired claim only. The frozen package's exact P4 cutoff was already explicitly covered, and its P2 and P3 all-step benchmarks are instances of the same published complete-multipartite theorem. This is material coverage irrespective of priority attribution. The repaired result removes all three from its Finding and attributes the known seventh coefficient and shortest-walk obstruction. Its surviving claim is the large-step path coefficient and the strictly positive intermediate witness on the reversible eight-vertex path bounded by both failures; no inspected result supplies that conjunction or implies the exact witness mechanically.",
+      "residual_risks": [
+        "Statement-level comparisons were bounded; an unindexed graph-specific treatment or an older equivalent result may exist. The exact overlap for P4 is established without assigning scholarly priority.",
+        "No exact or complete P8 positivity set or positivity recovery for n>8 is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact P4 coverage and broader P2/P3 coverage; not the repaired P8 witness",
+          "evidence": "Same endpoint fraction, same defining quartic, all other orbits nonnegative, and positive diagonals. Multipartite positivity theorem includes P2 and P3.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-unconditional-fourth-order-gauss-pad-positivity-on-complete-mult--3b12f25d4b2d/RESULT.md",
+          "material_read": "Finding boundary and Proof, local full-text slice offsets 1230–6041",
+          "method": "Local mirror literal match then passage by offset",
+          "title": "Unconditional fourth-order Gauss–Padé positivity on complete multipartite graphs",
+          "trigger": "Potential exact lower-path overlap"
+        },
+        {
+          "assessment": "Exact general lower dimension bound and directed witness; reversible intermediate witness not covered",
+          "evidence": "Q* is unit-rate one-way pure birth with absorbing terminal state; its stochasticity set is {0} plus [h0,2 sqrt(3)].",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab/RESULT.md",
+          "material_read": "Theorems 1–2 and proof of Taylor and shortest-walk criterion, local full-text offsets 0–7160",
+          "method": "Local mirror bounded full-text passages",
+          "title": "Eight-state barrier for Markov positivity of the [2/2] Padé map",
+          "trigger": "Strongest competing nonmonotone Markov positivity example"
+        },
+        {
+          "assessment": "Prior coefficient and Metzler counterexample; different system and no reversible recovery certificate",
+          "evidence": "The nilpotent one-way shift yields a negative (1,8) entry; neither that shift nor the Hurwitz modification realizes the conservative reversible path.",
+          "identifier_or_url": "https://mural.maynoothuniversity.ie/id/eprint/3761/1/SK_Essentially_Negative.pdf",
+          "material_read": "Section 4, Example 3, PDF pp. 13–14",
+          "method": "Lawful OA primary PDF, bounded passages",
+          "title": "Essentially Negative News About Positive Systems",
+          "trigger": "Classical negative seventh coefficient and eight-dimensional example"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Reversibility and strictly positive intermediate entries are substantive restrictions absent from the absorbing example. The smallest possible path dimension gives a natural benchmark; the exact witness rules out a single downward or upward timestep threshold even in this simple conservative heat model, and the resistance-based coefficient shows that the large-step obstruction is not an accident of the witness. Covered small-path benchmarks and the known Taylor coefficient are not counted toward the value of the repair.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and its standard library, in the directory containing this document and `RESULT.md`. The checker computes the cyclic Fourier sums directly for real and integral powers, checks exact inertia signatures for 480 parameter/grid cases in the sufficient concavity interval, and examines 12 additional grid/damping tests against low-harmonic quadrature signs (492 total cases). The tests involve floating-point arithmetic and are intentionally secondary to the proof, which is complete for the stated infinite parameter ranges.
+## correctness
 
-**Correctness boundary.** The proof needs absolutely continuous first derivative, integrable second derivative, a nonzero signed Fourier endpoint coefficient and absolute Fourier series convergence; all are established for every fixed real exponent greater than one. Cyclic aliasing is exact and the parity condition requires an even sample count. The signs at finite continuum zero coefficients come from nonzero alias tails. The all-even-N assertion uses a sufficient concavity bound, including its endpoint. No assertion is made for odd sample counts, nonuniform sites or arbitrary powered-exponential covariance constructions.
+PASS
 
-**Originality and coverage boundary.** The source comparisons are best-knowledge and do not constitute a proof of historical uniqueness. In particular Wood's 1995 truncated-covariance paper was not fully accessible. No independent mathematical audit is reported.
+For f(θ)=exp(−tθ^α) on [0,π], α>1 ensures f′(0)=0 and an integrable f″=O(θ^(α−2)) at zero. Two integrations by parts give πm²b_m=(−1)^m f′(π)−∫f″cos(mθ)dθ. The remainder tends to zero, and f′(π)<0 gives strict eventual parity signs and an absolutely convergent Fourier series. The exact circulant identity Λ_{N,k}/N=Σ_{j∈ℤ}b_{|k+jN|} preserves parity for even N. All modes with k and N−k at least the tail threshold have the baseline sign; each of the finitely many remaining positive low frequencies pairs with its distinct mirror for sufficiently large N. Its nonzero b_k dominates an O(N⁻²) alias tail; if b_k=0, every alias other than b_k has the strict baseline sign. The zero mode is positive by its row sum. This yields exactly N/2−1+2J negatives and no zero eigenvalues eventually. On the stated weak-damping interval, h=−f″ is positive on (0,π), even at the upper t endpoint, and πm²b_m=∫h[cos(mθ)−(−1)^m]dθ gives strict parity signs for every m≥1. Aliasing then proves the stated count at every even N, including N=2. This is an analytic proof; the frozen finite floating-point checker is only corroboration. There is no uniform cutoff or odd-grid assertion.
+
+## originality
+
+PASS
+
+The checked continuum and finite-cycle results give overlapping Gaussian signs, individual negative witnesses, or moving positivity thresholds. None gives the full even-grid weak-damping inertia or the fixed-parameter finite index correction for all real α>1. The comparison establishes a distinct statement, not historical priority.
+
+## value
+
+PASS
+
+Non-positive definiteness alone does not distinguish a single unstable direction from a negative subspace of dimension asymptotically N/2. The result provides the full signature at a concrete all-size weak-damping boundary and an exact, parameter-dependent finite correction to the asymptotic count, with a resolution of exceptional continuum zeros. This gives a benchmark for discretizations of the intrinsic kernel beyond earlier existence or recovery-threshold results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

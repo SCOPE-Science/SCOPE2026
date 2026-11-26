@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:21:35.089967Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–79",
+        "VERIFICATION.md",
+        "checker.py",
+        "computation.txt"
+      ],
+      "rationale": "The zero- and one-one images contribute two types. For a window with at least three ones, the distance between the first two retained ones uniquely identifies the original first-one index, and their offset recovers the window start. Thus counting triple-window starts is valid. For exactly two ones at a_j,a_{j+1}, intersect the start conditions t>=0, t>a_{j-1} when present, t>=a_{j+1}-n+1, t<=a_j, and t<=a_{j+2}-n. The retained position a_{j+1}-t-1 is the sole image parameter. On scales C=d_k to D=d_{k+1}, k>=2, the initial triple windows cover 0 through a_{k-2} because a_{j+2}-a_{j-1}<=C for 1<=j<=k-2 and a_2<C. Put A=d_{k-2}, B=d_{k-1}. The new triple windows contribute the truncation of n-B-C to [0,A]; the earlier active two-one interval contributes its complement in A. The other active two-one interval contributes min(B,n-C) and is disjoint since A+B<=C. This gives 2+b^{k-2}+A+min(B,n-C), and b^{k-2}+A=b^{k-1}. At k=1 the single start t=0 switches from a two-one to a triple window just after d_0+d_1; the other interval contributes min(d_0,n-d_1). For n<b there is no pair; for b<=n<=d_1 only the initial pair fits. This includes b=2 and all shared endpoints. The rising and constant segments have diverging lengths, and evaluating P_b(n)/n at the eventual local minima d_k and maxima d_k+d_{k-1} gives the claimed liminf and limsup.",
+      "residual_risks": [
+        "The recorded finite tests are corroboration only. The proof is for one application and counts distinct images, not occurrences or a multi-iteration invariant."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first theorem compares tortoise and ordinary complexity up to a constant for linear-complexity words with bounded gaps. The gaps (b-1)b^j here are unbounded.",
+          "The second paper's gap-increasing class includes these positions under G(i)=b^{i-1}-1, but its complexity is ordinary subword complexity."
+        ],
+        "reasoning": "Neither the bounded-gap tortoise theorem nor the broader ordinary-factor theorem counts these transformed factors.",
+        "searches": [
+          "arXiv:2604.25811 Theorem 1, PDF pp. 6–7",
+          "arXiv:math/0512256 Theorems 1.2 and 2.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2604.25811",
+        "arXiv:math/0512256",
+        "Resultary 1ad577697b76",
+        "Resultary 82f7c56b9823"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ordinary factor counts supply no sizes or overlaps of two-one image-position sets. The exponential-position corollary gives order of growth for ordinary complexity, not exact one-step counts or limiting ratios."
+        ],
+        "reasoning": "The cancellation between the earlier two-one interval and newly eligible triple windows is additional image-specific information. Neither prior comparison nor a substitution of this gap sequence into ordinary complexity produces it.",
+        "searches": [
+          "arXiv:math/0512256 Theorems 1.2, 2.1 and exponential-distribution corollary",
+          "arXiv:2604.25811 Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Campbell and Rampersad's equality-of-tortoise-images formulation is exactly the invariant being counted at iteration one.",
+          "The indexed binary formula 2+min(n-2^{k-1},2^k), k=floor(log_2 n), becomes 2+2^{k-1}+min(n-2^k,2^{k-1}) on the frozen binary scale, so it is exact overlap, not a similar title."
+        ],
+        "reasoning": "The operator is prior work; the indexed binary specialization is identical after rewriting, not evidence of coverage for b>2.",
+        "searches": [
+          "arXiv:2604.25811 PDF p. 5, offsets 13000 and 18506–18953",
+          "Resultary search for one-step tortoise complexity of binary/geometric power-marker words"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first is an exact b=2 overlap and additionally gives the binary defect n-1; its catalog date is later than the assigned record's path. The second counts a different invariant (parsing) on the same family."
+        ],
+        "reasoning": "No checked earlier table gives the exact tortoise counts; the later binary overlap should be disclosed but does not establish earlier priority or all-radix coverage.",
+        "searches": [
+          "Resultary 2026/11/22/SCOPE-exact-tortoise-complexity-defect-of-the-binary-power-marker-word--1ad577697b76; mirrored RESULT.md offsets 0–7947",
+          "Resultary 2026/11/8/SCOPE-exact-ziv-lempel-parsing-of-radix-power-marker-words--82f7c56b9823"
+        ]
+      },
+      "rationale": "The inspected earlier work does not give or imply this exact all-radix image complexity. A later indexed record has a genuinely equivalent binary formula but does not cover the all-radix result. This is a bounded literature judgment, not an assertion of priority over unindexed sources.",
+      "residual_risks": [
+        "The exact binary overlap is later by catalog date; dependence and independent discovery cannot be inferred. Unindexed antecedents may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same invariant, theorem excludes the present unbounded gaps",
+          "evidence": "Moves the first k ones to the end; the additive-constant comparison assumes bounded gaps.",
+          "identifier_or_url": "https://arxiv.org/abs/2604.25811",
+          "material_read": "PDF p. 5 definition and pp. 6–7 Theorem 1, offsets 13000, 18506–18953 and 21934–25903",
+          "method": "Primary OA PDF bounded passage reading",
+          "title": "Subword enumeration up to stack-sorting equivalence",
+          "trigger": "Defining source and potential bounded-gap comparison"
+        },
+        {
+          "assessment": "Covers untransformed word complexity, not image collisions",
+          "evidence": "The exact increasing-gap theorem applies to the support, but defines ordinary length-n distinct factors.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0512256",
+          "material_read": "PDF pp. 2, 5: definition, Theorems 1.2 and 2.1, exponential-position corollary, offsets 3918–7188 and 12234–14620",
+          "method": "Primary OA PDF bounded passage reading",
+          "title": "The subword complexity of a class of infinite binary words",
+          "trigger": "General increasing-gap word formulas and exponential positions"
+        },
+        {
+          "assessment": "Exact binary specialization in later catalog record; no all-radix formula",
+          "evidence": "The piecewise binary count agrees algebraically for all n>=2 and the record also gives the ordinary-minus-tortoise defect.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-tortoise-complexity-defect-of-the-binary-power-marker-word--1ad577697b76",
+          "material_read": "Mirrored RESULT.md offsets 0–4576 and 4576–7947",
+          "method": "Resultary search and local mirror statement/proof reading",
+          "title": "Exact tortoise complexity defect of the binary power marker word",
+          "trigger": "Closest exact indexed claim"
+        },
+        {
+          "assessment": "Different invariant in indexed claim; no whole-document exclusion inferred",
+          "evidence": "The stated analysis counts Ziv–Lempel parsing, not one-step tortoise images.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-ziv-lempel-parsing-of-radix-power-marker-words--82f7c56b9823",
+          "material_read": "Indexed claim summary",
+          "method": "Resultary search",
+          "title": "Exact Ziv–Lempel parsing of radix power marker words",
+          "trigger": "Same indexed geometric support family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 4–19 and 24–79",
+        "arXiv:2604.25811 Theorem 1",
+        "arXiv:math/0512256 Theorems 1.2 and 2.1"
+      ],
+      "rationale": "Geometric gaps are a canonical sparse, unbounded-gap test case for an established transformed-factor invariant whose bounded-gap theorem does not apply. The exact interval collision count exhibits long rising runs and plateaus and yields two distinct normalized limits, making visible behavior that a linear-growth estimate or ordinary factor count cannot resolve. The all-radix formula and collision method give a meaningful exact benchmark for other unbounded-gap words.",
+      "residual_risks": [
+        "No analogous result is established for arbitrary gap-increasing words or iterated tortoise maps."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

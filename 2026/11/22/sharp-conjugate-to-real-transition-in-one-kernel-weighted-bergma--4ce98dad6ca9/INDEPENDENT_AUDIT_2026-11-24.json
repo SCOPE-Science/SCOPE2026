@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:47:26.465876Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With λ=α+2>1 and a≥0, projection onto the one-dimensional kernel span gives P=(1−|w|²)^λ|1+aw−w²|²; its boundary value is zero and its value at the origin is one. The monomial norms give the stated total squared norm, so subtracting the captured norm gives the exact squared error. At each positive r the modulus squared is a concave quadratic in x=cos θ with vertex a(1−r²)/(4r); the constrained optimizer is the vertex clipped at 1. The unconstrained envelope is (1+a²/4)(1−r²)^λ(1+r²)². Its only interior radial maximum for 1<λ<2 is at r₀²=(2−λ)/(2+λ); it is strictly decreasing for positive r when λ≥2. For λ<2 the vertex is feasible at r₀ exactly when a≤a_c. This gives the two phases, merger, and captured norm, including a=0. For a>0 the clipping boundary r_b solves a=4r_b/(1−r_b²); in the real-site cases the outer branch decreases from r_b. At r_b the branches share their derivative, since their difference before radial weighting is [4r−a(1−r²)]²/4. The inner objective increases from zero radius and its positive stationary point solves a=h_λ(r) on (0,1/√(λ+1)); h increases from 0 to infinity since its derivative numerator after factoring λ+2 equals (1−r²)²+λr²(1+r²)>0. Beyond that interval the inner derivative is negative. Thus the root is below r_b in the real-site regime, and equals r₀ at merger; the origin uniquely wins at a=0 for λ≥2. The exact arccos phase gives the square-root asymptotic. Evaluating h′ at r₀ gives 8(λ+2)/λ³, hence the claimed positive one-sided radius derivative. The finite numerical checker was inspected, not run; no finite grid establishes the optimizer counts.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general n-best results supply existence; weighted Bergman formulas supply the objective and kernel. They do not characterize the global maximizers in the present quadratic family.",
+          "The additional weighted Bergman approximation lead at DOI:10.1002/mma.5648 did not yield readable primary text on the attempted routes."
+        ],
+        "reasoning": "Existence and the kernel's formula are inputs, not optimizer-location theorems. Wider application or existence results do not fix the angular feasibility boundary or radial merger; the blocked lead is not treated as a negative finding.",
+        "searches": [
+          "arXiv:2006.03290 Theorem 1.4",
+          "arXiv:2201.07228 weighted Bergman and existence passages",
+          "Reproducing kernel approximation in weighted Bergman spaces DOI:10.1002/mma.5648"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "Qu–Qian–Li–Zhu §5, Qu–Qian–Deng Theorem 1.4, Qian weighted Bergman and existence passages",
+        "Local Resultary self-match; Findings f20c71a79508 and 1cb1432b025a; related records 1d5972f127b4 and 1df75c4e4cbb",
+        "DOI:10.1002/mma.5648 access attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The angular linear term in cos θ and the negative quadratic term compete; the sparse 1+az^m theorem instead optimizes alignment with a single Fourier term. The Fock analogue has a different radial weighting and parameter dependence.",
+          "Two kernels for z² and a quadratic fourth-moment objective optimize different functionals."
+        ],
+        "reasoning": "The standard projection does not imply a priori where the global optimum lies. The clipping, its matching with the radial maximum, and the uniqueness of the constrained real continuation are new steps for this family, not substitutions in the retrieved statements.",
+        "searches": [
+          "Qu–Qian–Li–Zhu §5, direct full text around offset 41300",
+          "Resultary f20c71a79508 and 1cb1432b025a, respective Findings",
+          "Resultary 1d5972f127b4 and 1df75c4e4cbb, related catalogue descriptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Qu–Qian–Li–Zhu §5 states the equivalent normalized point-evaluation objective. Their monomial example has a full circle of optima, not two conjugate points and a merger.",
+          "The mirrored Bargmann–Fock quadratic Finding, 1cb1432b025a, also has conjugate-site splitting, but on the plane with Gaussian kernel weight and with quadratic coefficient −a rather than −1."
+        ],
+        "reasoning": "The normalized pointwise extremum is the same optimization and was searched as such. The Fock weighting and polynomial family change the radial optimization; they are not an equivalent reformulation of the claimed disk classification.",
+        "searches": [
+          "Resultary: one-kernel approximation 1+a z-z^2 weighted Bergman complex optimal points",
+          "Resultary: phase diagram for unrestricted weighted Bergman point maximum of a real quadratic polynomial",
+          "Web: weighted Bergman one kernel approximation normalized point evaluation quadratic \"best kernel approximation\" off-axis conjugate maximizers 1+az-z^2 disk sampling sites"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact match 4ce98dad6ca9 is the assigned result itself.",
+          "The distinct weighted-disk transition f20c71a79508 concerns 1+az^m and an origin-to-orbit transition, with two real sites for m=2 after its threshold; 1cb1432b025a gives a reentrant phase diagram in Fock space. Neither states this critical curve or radius derivative."
+        ],
+        "reasoning": "The distinct records are compared by assumptions and statements, not discarded by date. The exact catalogue self-match is not independent coverage.",
+        "searches": [
+          "Resultary: a_c=2 sqrt(4-lambda^2)/lambda conjugate Bergman maximizer",
+          "Resultary: weighted disk Bergman kernel point objective conjugate-to-real transition radius derivative"
+        ]
+      },
+      "rationale": "Credit the standard one-kernel objective, prior existence and prior examples of nonuniqueness. The distinct result is the complete sharp weighted-disk phase diagram for the specific quadratic, with its exact critical curve, radius behavior and captured norms. The inspected related claims do not contain this phase diagram.",
+      "residual_risks": [
+        "Unindexed weighted polynomial extremum results may represent the objective under other terminology.",
+        "The additional weighted Bergman paper at DOI:10.1002/mma.5648 did not yield full text; its possible overlap was not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicitly covers the formulation, not the quadratic optimizer diagram",
+          "evidence": "Maximizes (1−|w|²)^((2+α)/2)|f(w)| and gives a full circle of optimal sites for a monomial.",
+          "identifier_or_url": "https://fie.must.edu.mo/id-14973/file/view/id-11806.pdf; DOI:10.1016/j.amc.2021.126749",
+          "material_read": "§5 n=1 objective and nonuniqueness example, around offset 41300",
+          "method": "Lawful direct full-text PDF passage read",
+          "title": "Best kernel approximation in Bergman spaces",
+          "trigger": "Closest general primary source for precisely the same objective"
+        },
+        {
+          "assessment": "General existence under structural conditions, not explicit classification",
+          "evidence": "DBVC and n-LIC furnish existence of best approximation.",
+          "identifier_or_url": "https://arxiv.org/abs/2006.03290",
+          "material_read": "Theorem 1.4, PDF p. 6, around offset 22695",
+          "method": "Lawful arXiv PDF passage read",
+          "title": "A sufficient condition for n-Best Kernel Approximation in Reproducing Kernel Hilbert Spaces",
+          "trigger": "General theorem might subsume the one-kernel problem"
+        },
+        {
+          "assessment": "Supplies general existing framework, not target optimization formulas",
+          "evidence": "Contains existence results and the weighted Bergman reproducing kernel.",
+          "identifier_or_url": "https://arxiv.org/abs/2201.07228",
+          "material_read": "Theorem and weighted Bergman passages, pp. 5 and 15, offsets 18588 and 57302",
+          "method": "Lawful arXiv PDF passage read",
+          "title": "n-Best Kernel Approximation in Reproducing Kernel Hilbert Spaces",
+          "trigger": "Broader existence and weighted Bergman coverage"
+        },
+        {
+          "assessment": "Same general objective, different family and geometric transition",
+          "evidence": "For 1+az^m, center-to-orbit transition; at m=2 the post-threshold pair is real.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-first-order-sampling-site-transition-for-sparse-weighted-bergm--f20c71a79508",
+          "material_read": "Mirrored Finding at offset 0",
+          "method": "Local Resultary GitHub mirror",
+          "title": "A first-order sampling-site transition for sparse weighted Bergman targets",
+          "trigger": "Closest distinct weighted-disk catalogue analogue"
+        },
+        {
+          "assessment": "Substantive analogy, not coverage of this disk/weight/polynomial combination",
+          "evidence": "Uses 1+az−az² in normalized Bargmann–Fock space and exhibits reentry.",
+          "identifier_or_url": "2026/11/22/SCOPE-reentrant-real-to-conjugate-to-real-optimal-coherent-sites-for-a--1cb1432b025a",
+          "material_read": "Mirrored Finding at offset 0",
+          "method": "Local Resultary GitHub mirror",
+          "title": "Reentrant real-to-conjugate-to-real optimal coherent sites",
+          "trigger": "Mathematically close conjugate-site and square-root behavior"
+        },
+        {
+          "assessment": "Application-oriented lead; statement-level overlap remains unverified",
+          "evidence": "403 on both attempts; no inference of noncoverage from this.",
+          "identifier_or_url": "https://doi.org/10.1002/mma.5648",
+          "material_read": "Search identification only; no primary text obtained",
+          "method": "Lawful direct and VPN DOI access attempts",
+          "title": "Reproducing kernel approximation in weighted Bergman spaces",
+          "trigger": "Additional closely named primary literature returned by web search"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The quadratic family is the simplest type here with interference of both first and second angular harmonics; real coefficients do not force an optimal sampling site to be real. The theorem answers which weights and coefficients give nonunique sites, explains when the symmetry-related pair merges, and quantifies the angular scale and radial kink. The result is a complete global optimizer classification for a natural kernel objective, not merely another existence example or a single optimizer computation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

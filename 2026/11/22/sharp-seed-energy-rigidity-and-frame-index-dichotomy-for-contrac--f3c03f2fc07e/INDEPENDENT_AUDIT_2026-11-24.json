@@ -1,0 +1,86 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:56:41.877110Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Re-audited repairs/3/RESULT.md. Frozen RESULT.md line 37 incorrectly suggests E_N need not be monotone. Writing R_N=P_(N+1)^(-2), the exact decrement is E_N−E_(N+1)=A x_(N+1)(R_N−1)≥0, now stated and proved. In the repaired claim the diagonal Stein relation gives the partial-trace lower bound s_M+Σ_(n<M)x_n s_n; summing initial diagonals is exactly seed energy by nonnegative summation. Strong stability of W* gives the tight defect construction, even for infinite trace. At finite equality the β-ratios are at most one and their limits with summable q_k give lim s_n=A and s_n=A where x_n>0. At zero-deficit indices the sequence cannot decrease before the next pinned value or the limit A, so all s_n=A; positivity then forces S=AI. Rank and the positive-product Riesz orbit establish the cardinality assertions. The repaired booster has diagonal A up to N and A/P_k² thereafter, and the exact energy formula and limit remain unchanged. Frozen checker.py is only a finite exact diagnostic; the proof and decrement calculation are the replay path, without executing the supplied script.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General frame-index theory minimizes defect dimension over similar contractions rather than seed energy. The weighted-shift paper treats the identical weight range, gives the positive-product Riesz orbit and proves infinite index assuming strictly subunit supremum."
+        ],
+        "reasoning": "An infinite defect rank for the given shift alone does not rule out finite index among similar contractions. The missing norm-one zero-product exclusion follows here from the divergent partial-trace lower bound.",
+        "searches": [
+          "arXiv:2506.00567 Theorems 1.1 and 1.3; arXiv:2611.20029 §3.7.5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py; revised repairs/3/RESULT.md",
+        "Resultary f3c03f2fc07e (identical finding)",
+        "arXiv:2611.20029 and arXiv:2506.00567, passages identified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "§3.7.5 gives β_k e_k with bounds α² and 1 when the product is α>0; for zero product it excludes finite families under sup ω_k<1. Theorem 4.2 supplies the cardinality of tight generators in the general setting."
+        ],
+        "reasoning": "The overlap covers both the positive-product construction and the tight rank count, which are explicitly credited in the repair. Neither inspected implication proves the arbitrary-frame budget, its finite equality condition or the booster/decrement construction. Specializing the similarity characterization still needs an obstruction for norm-one vanishing products.",
+        "searches": [
+          "arXiv:2611.20029 §3.7.5 pp. 21–22; arXiv:2506.00567 Theorems 1.3 and 4.2 pp. 3, 11"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Energy is the trace of Q=S−WSW* for the orbit frame operator S. The Parseval index equals the defect rank, and canonical tight seeds factor I−WW*."
+        ],
+        "reasoning": "Taking the trace of the canonical factorization gives its energy, but not its optimality among arbitrary (not necessarily tight) orbit frames or why every finite-energy equality case is tight. The diagonal boundary term s_M is essential and cannot be dropped by cyclically tracing an infinite operator difference.",
+        "searches": [
+          "Resultary: sharp seed energy, frame index and contractive weighted shift",
+          "Optimal Dynamical Frames, arXiv:2506.00567, Theorems 1.3 and 4.2",
+          "Dynamical frames through Sz.-Nagy–Foiaș dilations, arXiv:2611.20029, §3.7.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact budget/rigidity/dichotomy catalogue match is the assigned finding itself. No separate applicable budget or booster table was established in the returned relevant hits."
+        ],
+        "reasoning": "The identical frozen finding is not separate coverage. A finite rational test table would not establish the formula over arbitrary infinite weight sequences.",
+        "searches": [
+          "Resultary: 2026/11/22/SCOPE-sharp-seed-energy-rigidity-and-frame-index-dichotomy-for-contrac--f3c03f2fc07e"
+        ]
+      },
+      "rationale": "For the corrected finding, credit the known Parseval defect-rank index, canonical shift defect seeds, and one-generator positive-product and strict-contraction index cases. The distinct claim is the sharp budget over arbitrary seed families, finite-energy equality rigidity, the explicit nonincreasing finite-seed approximation, and the extension by the budget to all zero-product shifts.",
+      "residual_risks": [
+        "The comparison is bounded, not a historical priority guarantee. Equivalent energy or diagonal trace extremality formulations outside the inspected sources remain possible; a general frame-index formula alone is not affirmative coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers canonical defect family, positive-product case, and strict-contraction infinite-index case, not the energy comparison in the inspected section.",
+          "evidence": "(3.32) gives the defect diagonals; (3.33) uses α>0; the zero-product paragraph adds sup ω_k<1 before invoking Proposition 3.15.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.20029",
+          "material_read": "§3.7.5, pp. 21–22, offset 60341 onward",
+          "method": "Lawful original arXiv PDF, literal section locator and bounded offset read",
+          "title": "Dynamical frames through Sz.-Nagy–Foiaș dilations",
+          "trigger": "Identical class of weighted shifts and plausible all-case index coverage"
+        },
+        {
+          "assessment": "General results cover Parseval existence and rank, not arbitrary-frame seed-energy optimization.",
+          "evidence": "Theorem 1.3(i) and Theorem 4.2 give defect rank; Theorem 1.3(ii) minimizes ranks over similar contractions, not traces of seed operators.",
+          "identifier_or_url": "https://arxiv.org/pdf/2506.00567",
+          "material_read": "Theorems 1.1, 1.3 and 4.2, including bounded opening of proof of Theorem 4.2",
+          "method": "Lawful original arXiv PDF, literal theorem searches with statement offset reads",
+          "title": "Optimal Dynamical Frames",
+          "trigger": "General characterization may imply weighted-shift index or tight-family cardinality"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result separates two useful design budgets: one seed may suffice while every energy-minimizing family needs infinitely many, and norm-one shifts may still rule out all finite acquisition families. The sharp energy and explicit near-minimizers quantify that distinction, including boundary examples. The corrected monotonicity supplies an exact improvement guarantee as the truncated defect family is enlarged.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:23:57.223727Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Example 4.1 gives the fixed plane curve, distinct from the ambient K3. On taking a coordinate-sign quotient, squaring the flipped coordinate gives a quadratic; its discriminant is 32(t⁴+3t²+1) for x₀ and 32(t⁴−3t²+1) for each of x₁,x₂. These give smooth genus-one models after rescaling over ℂ (the two distinct nonzero roots for t² yield four distinct roots), and t→it identifies the two forms. Substitution u=(w+1)/t² gives (u²−1)t²=2u+a, so X=2u and Y=2t(u²−1) yield the stated cubic with roots −2,2,−a. The Legendre parameter is (2−a)/4=−1/4 or 5/4, giving j=148176/25 by the Legendre formula. Exact independent checks: python3 -B /workspace/audit-evidence/4_legendre_check.py, output in 4_replay.txt in that directory. Squaring all coordinates gives the full sign-group quotient (generic fibers are the sign orbits); its conic determinant is −80. The invariant holomorphic forms for each involution thus have dimension one and no common trivial character, so they are the three different nontrivial Klein-four characters. By conjugation over ℂ the same holds for H¹(O), the tangent space of Pic⁰, so the sum of pullbacks on the Jacobians is an isogeny onto Jac(C). No product polarization or isomorphism of underlying abelian varieties follows.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Take three identical HLP inputs y²=x(x²+Ax+1), A=6/√5, Δ_i=A²−4=16/5, and P_i chosen so d_i=−4/√5, giving R=−64/(5√5). Their twisting factor is T=−32√5≠0. Proposition 15 gives all mixed coefficients (−A²+AR/Δ_i)/2=−6 and an isogeny from those identical factors over ℂ.",
+          "The closest Resultary hits treat flexes of the same pencil, coincidences of two factors for a hyperelliptic family, or characteristic-three Ciani rank distributions. None is a replacement for the directly covering HLP proposition."
+        ],
+        "reasoning": "HLP with these permitted inputs yields the exact transformed curve and even gives extra isogeny structure; the comparison is stronger than noting that Ciani quartics tend to split.",
+        "searches": [
+          "arXiv:math/9809210 Proposition 15 pp. 24–25 and twisting factor p. 21",
+          "Resultary f46d8d49f941, d3d9fe4b2424, 6f14e73f5755"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2312.14722",
+        "arXiv:math/9809210",
+        "Resultary:f46d8d49f941",
+        "Resultary:d3d9fe4b2424",
+        "Resultary:6f14e73f5755",
+        "Resultary:b74f68ea14b7",
+        "Resultary:8316359aacd9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "HLP derives precisely the double covers and the degree-eight product-to-Jacobian isogeny from the coefficient data. The displayed valid HLP parameter choice reproduces the symmetric version of Example 4.1 with all three input elliptic curves identical.",
+          "The quotient formulas apply also in the original signed coordinates, and directly give the displayed E_± models. The j-value is an ordinary Weierstrass invariant of the quotients already supplied by that proof."
+        ],
+        "reasoning": "Every substantive part of the frozen finding is an explicit application of the older result and its formulas. Neither presenting the example in K3 terminology nor printing the reduced fraction leaves a distinct scientific result.",
+        "searches": [
+          "arXiv:math/9809210 pp. 21, 24–25, Proposition 15 and proof",
+          "arXiv:2312.14722 Example 4.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Multiplying x₀ by i changes both positive mixed coefficients to −6 without changing fourth powers; the signs commute with this change. This is the symmetric Ciani pencil member C_(−6).",
+          "HLP p. 25 gives the invariant-field model v²=(d²−4B₁B₂)y⁴+(2de−4B₁f)y²+(e²−4B₁B₃). With original mixed coefficients (6,6,−6) or cyclic permutation and all B_i=1, this is exactly 32 times the frozen ±3 quartics."
+        ],
+        "reasoning": "Coordinates or normalization do not distinguish the claim from the general equation-level prior formula. Symmetry makes the equality of the three quotient isomorphism classes automatic in the transformed coordinates.",
+        "searches": [
+          "arXiv:2312.14722 Example 4.1",
+          "arXiv:math/9809210 §4.1 Proposition 15 and proof",
+          "Resultary: symmetric Ciani pencil and split Jacobian elliptic quotient coincidences"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The initiating Example 4.1 lists the exact curve, not its j; the same-pencil Resultary hit names special flex parameters 0 and 3, not a quotient-j table for −6.",
+          "The HLP formulas for the normalized coefficients d=e=f=−6 give A_X=−48 and B_X=320 in Y²=X³+A_X X²+B_X X. Substituting in 256(A_X²−3B_X)³/[B_X²(A_X²−4B_X)] gives 148176/25."
+        ],
+        "reasoning": "A literal table entry for 148176/25 is not needed: the exact invariant is recovered by a mechanical evaluation of the prior explicit quotient formula. No claim about identity with a separately named catalogue member is needed.",
+        "searches": [
+          "arXiv:2312.14722 Example 4.1",
+          "arXiv:math/9809210 explicit quotient invariants in proof of Proposition 15",
+          "Resultary f46d8d49f941 symmetric quartic parameter catalogue"
+        ]
+      },
+      "rationale": "Howe–Leprévost–Poonen Proposition 15 and its proof already give the plane Ciani-quartic construction, the coordinate-sign quotient formula and the product pullback isogeny (indeed its degree and polarized kernel description). After the diagonal change x₀=iX, x₁=Y, x₂=Z, Example 4.1 is exactly a single specialization with symmetric mixed coefficients −6. The required parameters and j follow by direct substitution, not by a new theorem about a special locus.",
+      "residual_risks": [
+        "The exact catalogue aliases of the pencil member were not exhaustively resolved; no inequivalence with other named models is asserted. The demonstrated HLP coverage does not depend on that issue.",
+        "The checked passage of the initiating paper is not a claim about what is absent in every section of that paper."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives the exact curve but is not the covering Jacobian source",
+          "evidence": "Example 4.1 gives the fixed smooth genus-three curve with mixed coefficients (6,6,−6).",
+          "identifier_or_url": "https://arxiv.org/abs/2312.14722",
+          "material_read": "Example 4.1, PDF p. 14; surrounding K3 quotient, lattice, and automorphism description",
+          "method": "Lawful OA PDF, passage at offset 43142",
+          "title": "On strictly elliptic K3 surfaces and del Pezzo surfaces",
+          "trigger": "Exact defining equation and identification of C"
+        },
+        {
+          "assessment": "Covers the frozen claim by exact parameter specialization",
+          "evidence": "Proposition 15 gives the mixed coefficients and polarized Jacobian; its proof displays the quartic quotient, the cubic coefficients, and the degree-eight isogeny. The inputs A=6/√5, B=1 and negative signs for all d_i produce precisely C_(−6).",
+          "identifier_or_url": "https://arxiv.org/pdf/math/9809210",
+          "material_read": "§4.1 p. 21 twisting factor; Proposition 15 and proof pp. 24–25; quotient models and pullback kernel",
+          "method": "Lawful OA PDF, bounded passages around offsets 82800 and 96000",
+          "title": "Large torsion subgroups of split Jacobians of curves of genus two or three",
+          "trigger": "Test whether explicit prior plane-quartic formulas cover the whole specialization"
+        },
+        {
+          "assessment": "Same pencil, different invariant",
+          "evidence": "Flex-point monodromy and named special parameters 0 and 3, not an elliptic quotient genus, j, or isogeny classification.",
+          "identifier_or_url": "Resultary:f46d8d49f941",
+          "material_read": "Finding for C_a and branch parameters",
+          "method": "Resultary search and local mirror",
+          "title": "Regular S₄ monodromy of flexes in a symmetric quartic pencil",
+          "trigger": "Exact underlying pencil match"
+        },
+        {
+          "assessment": "Different curves and quotient coincidence",
+          "evidence": "Hyperelliptic genus three and two factors, not this nonhyperelliptic plane curve or its three factors.",
+          "identifier_or_url": "Resultary:d3d9fe4b2424",
+          "material_read": "Finding on hyperelliptic quotient coincidence",
+          "method": "Resultary search and local mirror",
+          "title": "The rational nonsymmetric coincidence sextic for two elliptic quotients",
+          "trigger": "Possible claim overlap on coincidence of elliptic factors"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The fixed curve and its Jacobian are natural objects, but the three models and common j are direct evaluations of existing Ciani quotient formulas and the cube isogeny follows already from the explicit prior construction. Reporting the arithmetic evaluation for the K3 example is useful exposition, not a surviving unknown exact invariant under the audit standard. There is no substantiated distinct claim to repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

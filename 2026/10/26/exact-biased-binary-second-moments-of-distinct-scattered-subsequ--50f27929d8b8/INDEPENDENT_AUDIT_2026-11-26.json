@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:19:55.666192Z",
+  "axes": {
+    "correctness": {
+      "rationale": "After appending b the entire set of distinct subsequences ending in b is exactly {wb: w is an old subsequence, possibly empty}: old words ending in b are included in this image, not counted a second time. Words ending in the other symbol are unchanged. Thus the two shifted coordinates start at (1,1), add one to the other, and sum to H_n, not C_n. The expectation matrix has eigenvalues 1±sqrt(t) and output values 2,3 at n=0,1, giving the mean. Expanding the three quadratic monomials gives the stated positive matrix T_p. In λ−1 coordinates its characteristic polynomial is (λ−1)^3−5t(λ−1)−2t. Cayley–Hamilton gives the moment recurrence, whose first values are 4,9,16+18t (the n=2 outcomes are H=4 or 5); multiplying the OGF by its denominator gives numerator 4−3z+(1−2t)z². At λ=(1+s)^2 the characteristic polynomial is s²(s⁴+6s³+7s²−2s−2); the parenthesis is strictly convex on [0,1/2] with endpoint values −2 and −7/16, hence is negative. This gives a larger real root; for interior p strict positivity gives a simple dominant Perron root and a positive scalar projection onto it. It exceeds the squared-mean exponential rate, so subtracting the squared mean leaves the leading second-moment growth. In the fair case symmetry eliminates the antisymmetric eigenmode at 1/2 and the remaining two eigenvalues have sum 5/2 and product 1/2; initial M_0,M_1 give the stated coefficients. The endpoints p=0,1 are deterministic C_n=n+1. The growth is asymptotic for fixed interior p, not a finite-n strict monotonicity statement, not uniform near the endpoints, and not a result about convergence in probability. Independent replay `python3 /workspace/reproduce_reviews.py 1` explicitly enumerated index-subset outputs through length 9 and matched 70 exact bias/length cases, including deterministic endpoints and the fair quadratic recurrence. The frozen verifier was read, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The October 25 exact expectation GF covers positive iid sources but only first moments. The November 2 joint GF covers every pair of deletion sizes simultaneously, with a transfer matrix explicitly averaged with fair weights. The weighted-mediant search result did not yield inspectable full text."
+        ],
+        "reasoning": "The fair-bit transfer method can be adapted to unequal weights, but the later stated joint result does not supply the evaluated biased rational function and strict inequality; it is broader in observables, narrower in bias, and later. Weighted Stern–Brocot/GLE overlap was not ruled out wholesale.",
+        "searches": [
+          "SCOPE-20261025-13f6eea33de9, Finding",
+          "SCOPE-20261102-4ce40b9cbccc, Finding, Assumptions and transfer construction",
+          "Weighted Stern–Brocot sequences, random matrix products and generalized Lyapunov exponents"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1704.08661v1",
+        "arXiv:1310.7288v1",
+        "arXiv:1901.04647v1",
+        "SCOPE-20261025-13f6eea33de9",
+        "SCOPE-20261102-4ce40b9cbccc"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Biers-Ariel–Godbole–Kelley give the biased mean (adding the empty subsequence when comparing conventions) and raise concentration widths as further work; Collins gives the known fair mean. Combining Stanley's exact fair quadratic recurrence and the fair mean gives the fair variance and exponential relative growth."
+        ],
+        "reasoning": "First-moment coverage does not determine the quadratic moment or establish strict separation of its growth from the squared mean for every fixed interior p. The fair recurrence can be converted algebraically and is not treated as separate novelty.",
+        "searches": [
+          "arXiv:1704.08661v1, Theorem 2.9 and §4(c)",
+          "arXiv:1310.7288v1, §1.2 Theorem 3",
+          "arXiv:1901.04647v1, §2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two shifted counts take the Stern shear updates (u+v,v) and (u,u+v). For fair bits, 2^n M_n=(3u_2(n+1)−u_2(n))/2 for Stanley's Stern row sums u_2; the initial values and shared recurrence establish equality. The November 2 fair-bit record counts the identical statistic as the sum of deletion-ball sizes and gives its unshifted second moment."
+        ],
+        "reasoning": "The unweighted Stern power sums already encode the fair answer, and setting the deletion markers to 1 gives the same observable, not another statistic. A biased measure weights each sequence of shears by its two letter counts, which is not encoded by the inspected unweighted recurrence.",
+        "searches": [
+          "Resultary: iid biased binary distinct scattered subsequence mean/variance and deletion balls",
+          "arXiv:1901.04647v1, §2 and Eq. (3)",
+          "SCOPE-20261102-4ce40b9cbccc, all-length moment specialization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Stern values 1,3,13,59,… and recurrence supply the whole unweighted table, and the November 2 GF yields the same fair variance constant and squared-CV base (5+sqrt(17))/9. No exact indexed table for the identical all-bias H_n² statistic was located among the inspected sources."
+        ],
+        "reasoning": "A fair table does not recover expectations with p-dependent weights; the bias-specific completeness of the claimed recurrence is the distinct part.",
+        "searches": [
+          "arXiv:1901.04647v1, §2 exact initial u_2 table and Eq. (3)",
+          "SCOPE-20261102-4ce40b9cbccc, exact GF of E[T_n²]",
+          "Resultary: biased binary subsequence second moments"
+        ]
+      },
+      "rationale": "The distinct supported contribution is the all-interior-bias second-moment law and the strict all-bias relative L² growth, not the known mean or the covered symmetric Stern power sums. The strongest later fair-bit joint-moment result substantially overlaps at p=1/2 but does not give the claimed biased law in its stated scope. No earlier exact biased formula or domination of the strict comparison was established in the inspected material.",
+      "residual_risks": [
+        "An equivalent weighted Stern-tree or random-matrix moment formula could cover the all-bias recurrence under other terminology. The adjacent weighted-mediant paper was inaccessible. No exhaustive priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior biased mean, not the claimed second moment in the inspected results",
+          "evidence": [
+            "Theorem 2.9 gives the expected count; §4(c) discusses concentration widths as further work."
+          ],
+          "identifier_or_url": "arXiv:1704.08661v1",
+          "material_read": "PDF Theorem 2.9 p. 5 (offset 19100); §4(c) p. 10 (offset 44178)",
+          "method": "Read OA theorem and concentration discussion, reconcile empty-word conventions",
+          "title": "Expected Number of Distinct Subsequences in Randomly Generated Binary Strings",
+          "trigger": "Exact same biased iid input and possible moment/concentration result"
+        },
+        {
+          "assessment": "Known fair mean",
+          "evidence": [
+            "Expected distinct count including empty is 2(3/2)^n−1."
+          ],
+          "identifier_or_url": "arXiv:1310.7288v1",
+          "material_read": "PDF §1.2 Theorem 3 p. 3, from offset 5300",
+          "method": "Read OA theorem",
+          "title": "The Number of Distinct Subsequences of a Random Binary String",
+          "trigger": "Foundational exact fair-bit count"
+        },
+        {
+          "assessment": "Encodes the fair moment, not the biased expectation in the inspected theorem",
+          "evidence": [
+            "The Stern row square sums have u_2(0)=1,u_2(1)=3 and recurrence u_2(n+2)=5u_2(n+1)−2u_2(n)."
+          ],
+          "identifier_or_url": "arXiv:1901.04647v1",
+          "material_read": "PDF §2 pp. 2–3, Eq. (3), offset 7300",
+          "method": "Read OA checked recurrence and matched the initial values under the fair transform",
+          "title": "Some Linear Recurrences Motivated by Stern's Diatomic Array",
+          "trigger": "Encoded Stern tree second-moment observable"
+        },
+        {
+          "assessment": "Covers the mean, not the second moment",
+          "evidence": [
+            "Exact expectation GF for all nonempty distinct subsequences under positive iid sampling; biased-binary unbordered-fraction law."
+          ],
+          "identifier_or_url": "SCOPE-20261025-13f6eea33de9",
+          "material_read": "Mirrored RESULT.md Finding, offsets 0–3433",
+          "method": "Compare expectation GF and bias hypotheses",
+          "title": "The tilted unbordered law for distinct scattered subsequences",
+          "trigger": "Earlier Resultary result for the same biased observable"
+        },
+        {
+          "assessment": "Exact fair specialization and broader fair observable, but later and no all-bias result stated",
+          "evidence": [
+            "Summing deletion sizes includes each distinct subsequence once, including empty; the rate (5+sqrt(17))/4 and variance coefficient agree."
+          ],
+          "identifier_or_url": "SCOPE-20261102-4ce40b9cbccc",
+          "material_read": "Mirrored RESULT.md total-count consequence, Assumptions and pair transfer, offset 1120",
+          "method": "Read exact statements and fair iid averaging assumption",
+          "title": "Exact joint second moments of binary deletion-ball sizes at all depths",
+          "trigger": "Exact second-moment overlap"
+        },
+        {
+          "assessment": "Inaccessible plausible adjacent work; no statement-level verdict on it",
+          "evidence": [
+            "HTTP 403; listing is insufficient to compare weighted mediants with Bernoulli weights on paths."
+          ],
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0022314X21003061",
+          "material_read": "Search listing only; full text not retrieved",
+          "method": "Focused literature search and attempted lawful full-text retrieval",
+          "title": "Stern-Brocot sequences from weighted mediants",
+          "trigger": "Possible equivalent weighted Stern formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete second moment for the total distinct count answers a naturally motivated fluctuation question beyond the known mean. The strict rate separation throughout the nondegenerate bias range gives a quantitative obstruction to relative L² concentration, not a single numerical instance or a claim about typical deviations unsupported by moments. The rational law can also be used to evaluate finite biased variances exactly.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

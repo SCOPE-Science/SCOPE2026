@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Reconstructed the dimensionless logarithmic slope and its exact derivative, checked the stationary-curve bijection \(y=g(u)\), the monotonicity and endpoint limits of \(u/g(u)^\delta\), and the critical double root. For \(p=1\), \(q=3\), exact rational evaluation gives the sharp ratio \(81/169\) and the polynomial factorization; standalone `checker.py` passed 3,668 supplementary deterministic assertions. The derivation covers all positive amplitudes, offset and exponents with \(p<q\). Numerical sampling alone is not used as a proof.
+PASS
 
-## Originality — PASS, subject to the stated priority risks
+On setting y=1+t/c and u=ky^δ with k=(A/B)c^δ, logarithmic differentiation gives E=(1−1/y)(p+δ/(1+u)). Its derivative has numerator H=δ²u[g(u)−y], with the stated g>1. The map t↦u has positive derivative; κ(u)=u/g(u)^δ=k(y/g)^δ along this map, so zeros of E' have the same multiplicities as those of κ−k and the opposite sign off the zeros. κ runs monotonically from zero to infinity for δ<1, and from zero to 1/p for δ=1 (neither upper endpoint is attained). For δ>1, the sign of κ' is that of C+a(1−δ)u+b(1+δ)/u, which decreases strictly from infinity to minus infinity. Thus κ has a nondegenerate maximum k_* and tends to zero at both ends. This proves the two simple zeros and the +,−,+ sign sequence below k_*, the single double derivative zero at equality with strict increase, and monotonic increase above it. The same sign argument gives a unique global maximum in each one-zero case. For p=1,δ=2, the critical u=9 gives g=13/3 and k_*=81/169; the exact factorization at k=1/3 gives y=3 and a unique positive cubic root (one sign change), whose bisection gives t≈8.419900819340 and E≈0.952304494038. The original intensity is decreasing at all t. The gap criterion quantifies existence of a suitable k; for fixed k one also needs k<k_*.
 
-Statement-level comparison: the historical 1995 additive two-power formula has exponent gap exactly one and does not imply the strictly greater-than-one two-turn threshold; Sornette and Sornette (1999) analyze branching-convolution power-law regimes, not this explicitly summed curve; Lolli et al. (2009) compare other aftershock decay model classes. The closest indexed mathematical result for nonmonotone apparent Omori slopes varies **offsets with common exponent**, whereas here **one offset is fixed and the exponents vary**. No searched publication was found to establish the same sharp threshold. Generic work on mixtures and historical priority beyond inspected material remains a substantive residual risk, so novelty has not been independently certified.
+## originality
 
-## Value — PASS
+PASS
 
-The sharp threshold distinguishes a common-offset, two-component decay that merely steepens or relaxes its apparent log-time slope from one with two opposing slope transitions. It gives an exact mechanism by which a monotonically decreasing rate can have reentrant apparent decay, and a sharp negative criterion for the historically used first-plus-second inverse powers. The result directly clarifies potential misinterpretation of local slopes, without asserting any empirical mechanism.
+Apparent-exponent reversals of positive mixtures are not new by themselves. The closest inspected exact Omori result varies offsets at identical exponents, while the strongest alternative formulation inspected is the generalized failure rate of a common-scale two-Lomax mixture. None of the inspected statements gives this mixture's complete exponent-gap and amplitude classification with the double stationary boundary.
 
-## Limitations and closest literature
+## value
 
-Utsu, Ogata and Matsu’ura (1995), https://doi.org/10.4294/jpe1952.43.1 ; A. and D. Sornette (1999), https://arxiv.org/abs/cond-mat/9905314 ; Lolli, Boschi and Gasperini (2009), https://doi.org/10.1029/2008JB005614 . The historical review was materially inspected in Sections 2 and 4.1 (historical additive powers and secondary sequences), not exhaustively. Stochastic inference and physical validation are absent. The underlying formula shares the shape of other positive mixture problems, whose possible stronger theory is unresolved.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete classification shows when a genuinely declining, two-component rate can nevertheless look as though its decay first steepens, then flattens, then steepens again. The exact gap and amplitude conditions, including the stationary merger, make this a testable structural distinction within the model rather than a generic qualitative crossover or a single synthetic example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:51:47.778485Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–74 and normalization lines 35–41; VERIFICATION.md and verify.py (recorded finite checks, not the basis of the universal proof)"
+      ],
+      "rationale": "For the symmetric irreducible kernel, the weighted Laplacian has kernel exactly the constants; the inverse trace on their orthogonal complement is the zero-diagonal Kemeny sum. Periodicity adds no exception. The resistance pair sum counts four copies of each core pair and 2m-1 contributions from each pendant bridge; dividing by 2m gives the asserted trace formula, including when the positive core support is a connected subgraph. For a positive definite Q the inverse-trace second variation in a nonzero symmetric direction D is twice tr(S²Q^-1)>0 with S=Q^-1/2 D Q^-1/2. Averaging over core automorphisms extended to the leaves therefore preserves the mean pendant rate and improves strictly unless the kernel was invariant. At fixed invariant pendant rate a, increasing the common core rate to (1-a)/d strictly improves the cost unless already saturated. Irreducibility gives 0<a<1. Thus the exact constrained minimum is B/(1-a)+C/a, and completing the square gives precisely the displayed regret and its sharp equality case. The cyclic specialization follows from the reciprocal Laplacian sum; for example the equal-edge cost is (3/2)B+3C, giving the stated polynomial and limiting ratio.",
+      "residual_risks": [
+        "No extension to nonuniform stationary distributions or nonsymmetric kernels is certified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "6e4ca784153c already allows every integer r>=1 on the same vertex- and edge-transitive cores, and proves unrestricted uniqueness over symmetric kernels.",
+          "The primary Kemeny papers give general convex optimization or sparsity-preserving perturbation frameworks, not the decisive specific formula in the inspected passages."
+        ],
+        "reasoning": "The substantially stronger Resultary theorem includes the frozen main claim directly.",
+        "searches": [
+          "Resultary multi-leaf corona 6e4ca784153c",
+          "Agharkar–Patel–Bullo (2014), Theorem 4",
+          "Durastante–Gnazzo–Meini, 10.1007/s10543-026-01152-6"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–41 and 43–74; Resultary 6e4ca784153c; primary papers above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The broader record averages every feasible kernel over automorphisms by strict convexity; the pendant rate becomes the original average. Its invariant formula is A/b+(r+1)C_H/a, strictly decreasing in the core rate at fixed b. The saturated formula is R/u+S/(1-u).",
+          "Fastest-mixing literature minimizes a different objective and is not needed for this implication."
+        ],
+        "reasoning": "For fixed original pendant mean, averaging followed by saturation yields the exact minimum and strict equality conditions without varying that mean. At r=1 subtracting the unrestricted minimum and completing the square is exactly the advertised regret; no further estimate or new rigidity argument is required.",
+        "searches": [
+          "6e4ca784153c mirrored proof offsets 3430–4880 (averaging) and 4850–9183 (transfer, feasible region and cycle)",
+          "Boyd et al., arXiv:0709.0955"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the other record a is the core edge probability, b the pendant edge probability, and u=rb. For r=1, u is the frozen record's pendant probability and the other record's R,S are exactly C,B respectively."
+        ],
+        "reasoning": "Relabeling probabilities and setting r=1 gives the same closed-form optimizer, minimum, normalization and admissible class—not just matching constants.",
+        "searches": [
+          "Resultary: unique Kemeny optimizer, transitive leaf corona, square-root allocation, fixed mean pendant weights",
+          "6e4ca784153c mirrored RESULT.md, Finding and §§1–4 of proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue match gives exact cycle core trace (n²-1)/12 and K_md=(d+r)[A+(r+1)C_H], plus their asymptotic comparisons."
+        ],
+        "reasoning": "The claim is a symbolic family rather than an isolated tabulated invariant. Setting d=2, r=1 in this formula gives the exact equal-edge cost and the ratio tends to 3/2, so the strongest exact-catalogue comparison covers both.",
+        "searches": [
+          "Resultary: sunlet and cycle Kemeny exact optimum and maximum-degree walk",
+          "6e4ca784153c proof §4"
+        ]
+      },
+      "rationale": "A distinct indexed record gives the same unrestricted optimization in the strictly larger family with any fixed number r of private leaves per core vertex. Its proof already gives the exact fixed-mean minimum with the same equality conditions. The regret display is an algebraic rewrite of that minimum and the sunlet comparison is its r=1 cycle specialization. This is demonstrated statement/proof coverage, not an inference about publication order from a shared date.",
+      "residual_risks": [
+        "The shared catalogue date does not establish publication order.",
+        "Primary full-text scope of Liu (2020) remains unchecked; coverage is decisive from the distinct indexed stronger result regardless."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the optimizer and cycle results directly at r=1, and implies the sharp regret with equality.",
+          "evidence": "Strict averaging; exact spectral transfer A/b+(r+1)C_H/a; saturation at da+rb=1; exact maximum-degree formula.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-universal-square-root-kemeny-allocation-law-for-symmetric-walk--6e4ca784153c/RESULT.md",
+          "material_read": "Finding; proof §§1–4, especially mirrored offsets 3430–4880 and 4850–9183",
+          "method": "local Resultary GitHub file mirror",
+          "title": "A universal square-root Kemeny allocation law for symmetric walks",
+          "trigger": "Same Kemeny objective and transitive corona support with broader leaf multiplicity"
+        },
+        {
+          "assessment": "General convex framework; no exact corona formula in examined passages.",
+          "evidence": "Convexity on the fixed-stationary reversible-chain feasible set.",
+          "identifier_or_url": "https://motion.me.ucsb.edu/pdf/2014b-apb-conference.pdf",
+          "material_read": "PDF pp. 1, 3, Theorem 4",
+          "method": "OA PDF passage inspection",
+          "title": "Robotic surveillance and Markov chains with minimal first passage time",
+          "trigger": "Prior general fixed-stationary Kemeny optimization"
+        },
+        {
+          "assessment": "Different criterion.",
+          "evidence": "Minimizes the second-largest eigenvalue modulus, not the inverse spectral sum.",
+          "identifier_or_url": "arXiv:0709.0955",
+          "material_read": "PDF p. 1, abstract and introduction",
+          "method": "OA PDF passage inspection",
+          "title": "Fastest mixing Markov chain on graphs with symmetries",
+          "trigger": "Optimal stochastic weights by graph symmetry"
+        },
+        {
+          "assessment": "General algorithmic perturbations, not the inspected exact transitive corona result.",
+          "evidence": "Fixed-stationary sparse perturbation setting with small-norm controls.",
+          "identifier_or_url": "10.1007/s10543-026-01152-6",
+          "material_read": "PDF pp. 1 and 3",
+          "method": "OA PDF passage inspection",
+          "title": "Kemeny’s constant minimization for reversible Markov chains via structure-preserving perturbations",
+          "trigger": "Related fixed-stationary Kemeny design"
+        },
+        {
+          "assessment": "Exact primary overlap unassessed; not the reason for FAIL.",
+          "evidence": "The frozen proof attributes the structural resistance principle to earlier work; the exact external statement could not be verified.",
+          "identifier_or_url": "https://www.iaeng.org/IJAM/issues_v50/issue_4/IJAM_50_4_22.pdf",
+          "material_read": "Citation in frozen RESULT.md; no full text read",
+          "method": "OA PDF retrieval attempted at listed and alternate host spellings",
+          "title": "Resistance Distance and Kirchhoff Index of the Diamond Hierarchical Graph and the Generalized Corona Graph",
+          "trigger": "Weighted-corona resistance comparison"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 17–32 and 56–74; 6e4ca784153c proof §§1–4"
+      ],
+      "rationale": "The unrestricted exact design problem is worthwhile, but after removing the covered optimizer and sunlet formulas the only changed deliverable is the completed-square expression of the already available fixed-mean minimum. Its sharpness and equality classification are inherited unchanged. That is a convenient presentation, not an independently useful new mathematical gap resolved by the frozen finding; the alternate resistance derivation does not add a claimed new structural theorem.",
+      "residual_risks": [
+        "No distinct remainder was identified that would justify a substantive repair."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

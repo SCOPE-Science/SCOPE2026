@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The sample matrix is a diagonal multiplier composed with a complete discrete Fourier transform. Two standard spin-raising identities and associated-Legendre parity give the exact zeros and rational-squared spectral amplitudes. The resonance equation reduces to the Pell equation, whose positive solutions and parity are handled symbolically. The Wigner differential equation rules out double equatorial zeros and an explicit Vandermonde inversion proves recovery from the minimum possible number of derivative point readings. The independent exact-arithmetic factorial/Wigner checker passes 3717 modes at 59 degrees, with 59 Wigner column normalization identities. Experiments corroborate but do not replace the all-degree proof.
+## correctness
 
-## Originality — PASS with explicit priority limitations
-The complete relevant 2005 Wiaux–Jacques–Vandergheynst article was inspected, including equations (14)–(15), and explicitly contains the pointwise coefficient factor underlying this argument; no originality is claimed for that factor or the standard eth calculus. The 2010 Huffenberger–Wandelt full-sphere Wigner-grid transform and the 2018 multi-ring spin sampling paper were inspected. Neither source states the one-ring Pell classification, its exact Fourier image, or the sparse derivative repair. The claim is narrower than, and logically derived using, parts of the earlier general harmonic identities; publication-priority uncertainty remains because the formula may make some components recognizable corollaries and not all related older or thesis material was accessible.
+PASS
 
-## Mathematical value — PASS
-Single-ring spin-polarization sampling is a natural severe-data-reduction problem. The result quantifies the exact finite Fourier information loss for every degree, distinguishes a previously unclassified infinite arithmetic family of extra blind spots, and prescribes a sharp, concrete, minimum-number pointwise normal-derivative repair. It is a complete classification plus a constructive boundary remedy, rather than a tabulated numerical anomaly.
+Reconstructed the spin-raise expression using the scalar equation R''=(m²−ℓ(ℓ+1))R at the equator; spin lowering changes the sign of the mR' term. Legendre parity gives only the stated zeros, and the Pell recurrence preserves x+y≡1 mod 4 with y even, making every positive resonance admissible after omitting degree one. The 2ℓ+1 Fourier orders are distinct residues; the amplitudes and ordinary-area normalization give the stated Gram eigenvalues and image. A blind polar Wigner solution cannot also have zero first derivative at the regular equator. After subtracting visible modes, row multiplication by z=e^{iMφ} turns the two-column system into (1,z²) at (1,i), and the three-column system into (1,z,z²) at (1,i,−1). Both are nonsingular. The one-order and empty cases are immediate; the d-dimensional old kernel proves the lower bound for complex-linear probes. This applies also to the complete repaired RESULT.md. Frozen verify_spin2.py and VERIFICATION.md were inspected, not executed; the recorded finite Wigner and Pell checks do not verify derivative recovery.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Bounded pass for the repaired measurement theorem only: exact optimal sparse derivative completion, with explicit longitudes for each fixed-degree spin-two blind set. Known pointwise identities and indexed blind-order coverage are background. No inspected source supplies that optimal completion for this system; no priority assertion for the point-only rank is accepted.
+
+## value
+
+PASS
+
+For a prescribed equatorial measurement ring, the useful unresolved design question is how many additional realizable point probes make recovery injective and where to put them. The repair attains the information-theoretic lower bound with at most three normal-derivative readings in every degree, without adding a full ring or differentiating everywhere. Exact recovery is not a stability or noise claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

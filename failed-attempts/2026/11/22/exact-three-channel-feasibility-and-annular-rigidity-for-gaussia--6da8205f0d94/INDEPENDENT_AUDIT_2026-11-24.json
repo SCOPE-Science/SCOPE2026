@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:32:43.930236Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The squared Gaussian spectrogram at Hermite index j is e^(-x) x^j/j! for x=pi|z|^2, and integration over angle gives the radial measure dx. In particular 1-h replaces all three responses by their complements. For fixed mass p, crossing the thresholds -log(1-p) and -log p gives the lower disk and upper tail first-moment bounds: subtract the threshold times the matching mass, and the remaining integrand difference has fixed sign. Positivity away from the single threshold forces uniqueness on the two edges. At 0<p<1 the interval of mass p has e^(-a)=u, e^(-b)=u-p; its first moment is strictly decreasing in u with derivative log((u-p)/u), and its endpoint moments are precisely q_+ and q_-. At a strict interior pair the two distinct roots a,b are positive and finite. Subtracting the matching zero-th and first moments from the difference in r leaves one half the integral of (x-a)(x-b)(h-h_-), which equals the claimed absolute-value integrand everywhere by sign. It vanishes only for h=h_- almost everywhere. Complementation proves the analogous maximum identity and uniqueness; interpolation of these masks gives every intermediate r, and the edge masks and p=0,1 cases are already forced. The exponential antiderivative gives R. At p=q=1/2, independent 70-digit quadrature and root solving give a=0.435551673686811025..., b=1.917950871301904402..., and r_min=0.291158321988844511...; the last displayed digits of the approximate endpoints in the record differ by floating-point roundoff, without changing the result. See RESULT.md Steps 1–5 for exact replay and checker.py for inspected finite diagnostics only. The identities are interior only, and the claim concerns labelled responses for bounded radial masks, not ordered eigenvalues or fixed area.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Koshevoy–Mosler support theorem allows general finite-first-moment vector laws; the lifted exponential parabola has finite first moments, with positive measure on each nonempty x-interval and zero measure at a finite set of roots. Lemma 3.1 already identifies the one-dimensional lift zonoid through its two tail-integral curves.",
+          "The inspected Dette–Schorning result admits unrestricted (in particular atomic) measures on a compact interval and is not itself the needed bounded-density theorem. The Gaussian localization papers compare different constraints/objectives: prescribed area and a single concentration objective, or ordered spectrum."
+        ],
+        "reasoning": "The general support theorem genuinely covers this admissible class and determines the exact body, not just a qualitative similarity. The competing moment-space and fixed-area spectral formulations are not the basis of the coverage.",
+        "searches": [
+          "Koshevoy–Mosler, Lift zonoids (1998), Theorem 2.1, Eq. (2.2), Lemma 3.1 and Theorem 3.1",
+          "Dette–Schorning arXiv:1306.4872 §2 Lemma 2.1",
+          "Winkler (2000), bounded or bell-shaped moment classes",
+          "arXiv:2106.03423 and arXiv:2503.07069, Gaussian localization comparisons"
+        ]
+      },
+      "checked_sources": [
+        "Koshevoy–Mosler (1998) Theorem 2.1, Eq. (2.2), §3",
+        "arXiv:1306.4872 §2",
+        "arXiv:2106.03423 Theorem 1.1",
+        "arXiv:2503.07069 §1",
+        "Winkler (2000), access attempts",
+        "Published Resultary exact and nearby Gaussian findings cited above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For any score L=d·W the difference between the support value and the score of h in the proof of Eq. (2.2) is E[L_+-Lh]=E[|L||1_{L>0}-h|]. Equality forces the indicator off the score-zero set. On a fixed (p,q) slice take L=-(X-a)(X-b)/2 to expose the minimum r, and apply the complementary slice for the maximum. The affine terms cancel exactly, giving both recorded gap identities, not only bounds.",
+          "Use the linear scores from the same theorem to obtain the two tail bounds; fitting the positive interval of the quadratic score uses only e^(-a)-e^(-b)=p and the first moment. The scalar curve is strictly monotone by log((u-p)/u)<0, giving the complete domain of the parameter. Its exponential tail integrals give q_± and R; central symmetry and convex slicing supply the second endpoint and all intermediate r."
+        ],
+        "reasoning": "The exact optimizer, rigidity, weighted gap and feasible interval follow from the proved support formula and its pointwise inequality by taking these standard polynomial directions. Fitting the two endpoints and doing the elementary antiderivatives is a routine evaluation of a fully determined earlier exact body, not a new moment inequality or stability estimate.",
+        "searches": [
+          "Koshevoy–Mosler Theorem 2.1 and pointwise comparison in its proof around Eq. (2.2)",
+          "Koshevoy–Mosler §3 exact definition and central symmetry"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Let X have exponential law of rate one and F be the law of (X,X^2/2). The audited body is exactly Z-hat(F) in §3 of Koshevoy–Mosler, since on this curve every admissible measurable density is precisely a function of X in [0,1].",
+          "Theorem 2.1, applied to the lifted law of W=(1,X,X^2/2), gives the exact support function in direction d as E[(d·W)_+] and the indicator {d·W>0} as a supporting mask."
+        ],
+        "reasoning": "The feasible-body statement is an exact equivalent instance of the bounded-density support geometry, with the optical part only identifying the coordinates. It is not a principal-representation problem over unrestricted measures.",
+        "searches": [
+          "Lift zonoid support function, fixed density bound, exponential moment body",
+          "Koshevoy–Mosler (1998), Theorem 2.1 and §3",
+          "Resultary: radial Gaussian bounded masks and labelled Hermite responses"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact published hit ending --6da8205f0d94 is the same finding. The related --e1ef3ba1736e finds uniqueness of up-to-m-annulus masks from 2m labelled responses; --48a004f6469a instead minimizes worst-band loss using a single annulus of prescribed area."
+        ],
+        "reasoning": "The nearby Gaussian results do not by themselves claim the whole fixed-(p,q) region with deficits; the self-match is not independent. No separate matching decimal table is required for general-theorem coverage.",
+        "searches": [
+          "Published Resultary: exact three-channel Gaussian feasible body, annular rigidity, two Hermite moment inversion"
+        ]
+      },
+      "rationale": "The complete attainable body is exactly a classical lift zonoid, and both weighted identities are pointwise support losses in the proof of its general support theorem. The quadratic form and exponential inverse in this application follow by taking the sign of a quadratic and integrating three elementary moments; the paper of Koshevoy–Mosler need not separately list Gaussian channels for this coverage. The failure is for concrete implication by a prior exact theorem, not for inability to inspect some related moment literature.",
+      "residual_risks": [
+        "Earlier more explicit exponential or Gaussian instances may exist. The Winkler full text was not accessible. Neither issue is needed to establish the concrete lift-zonoid implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger exact claim; covers the audited specialization",
+          "evidence": "The lift is the zonoid of the law with a mass coordinate, the support value is the integral of the positive part of the score, and the proof compares pointwise with its positive-score indicator. Subtraction gives the weighted support deficit used in the audited fixed-coordinate slices.",
+          "identifier_or_url": "https://wisostat.uni-koeln.de/sites/dep_econometrics/pdf_publikationen/1998_KoshevoyM98.pdf",
+          "material_read": "Bernoulli 4(3) (1998), pp. 377–399: opening metadata; Theorem 2.1 and proof (p. 380, around offset 10165); lift definition and (3.1) around offset 15160; Lemma 3.1 and Theorem 3.1 around offset 16800",
+          "method": "Primary OA PDF passage inspection and direct specialization to the exponential parabola",
+          "title": "Lift zonoids, random convex hulls and the variability of random vectors",
+          "trigger": "Exact convex bodies with mass coordinates and densities between zero and one"
+        },
+        {
+          "assessment": "Related principle with different hypotheses",
+          "evidence": "Restrictions to a compact interval and general measures rather than a density bounded by a fixed reference make this an unlike extremal problem in the inspected theorem.",
+          "identifier_or_url": "https://arxiv.org/html/1306.4872",
+          "material_read": "§2 and Lemma 2.1, HTML offsets 3500–6999 and 7200–12107",
+          "method": "Primary passage inspection and comparison of allowed measures",
+          "title": "Complete classes of designs for nonlinear regression models and principal representations of moment spaces",
+          "trigger": "Chebyshev-system moment space with extremal next moments"
+        },
+        {
+          "assessment": "Other objectives and constraints",
+          "evidence": "The former optimizes a single concentration objective over sets of prescribed area and signals. The latter's ordered eigenvalue/partial-sum comparisons do not fix two labelled responses of an arbitrary bounded radial mask.",
+          "identifier_or_url": "arXiv:2106.03423; arXiv:2503.07069",
+          "material_read": "First paper Theorem 1.1 around offset 7000; second paper §1, offsets 6200–9699 and 12200–19653",
+          "method": "Primary passage comparison",
+          "title": "The Faber–Krahn inequality for the Short-time Fourier Transform; The Isoperimetric Inequality for Partial Sums of Toeplitz Eigenvalues in the Fock Space",
+          "trigger": "Gaussian concentration and annulus extremizers under other normalizations"
+        },
+        {
+          "assessment": "Distinct tasks: inversion on restricted masks versus a full moment body",
+          "evidence": "At most m annuli can be identified from 2m labelled responses, but that inversion does not establish that a particular mask is extremal over all bounded measurable profiles.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-sharp-finite-hermite-spectral-tomography-of-concentric-gaussian--e1ef3ba1736e/RESULT.md",
+          "material_read": "Opening finding and sign-polynomial and linearized inverse passages around offsets 3486 and 4744",
+          "method": "Published mirror statement and relevant proof-passage comparison",
+          "title": "Sharp finite Hermite spectral tomography of concentric Gaussian Gabor masks",
+          "trigger": "Same moment normalization with annuli, sign polynomials and rigidity"
+        },
+        {
+          "assessment": "Unresolved as additional coverage; not needed for the decision",
+          "evidence": "The cited work is a candidate for related moment-space theory, but no uninspected theorem is relied upon.",
+          "identifier_or_url": "https://doi.org/10.1002/1522-2616(200007)215:1%3C161::AID-MANA161%3E3.0.CO;2-A",
+          "material_read": "Full text not retrieved; the bibliographic citation is known",
+          "method": "Lawful DOI and publisher-page access attempts",
+          "title": "Moment Sets of Bell–Shaped Distributions: Extreme Points, Extremal Decomposition and Chebysheff Inequalities",
+          "trigger": "Plausible additional moment-set coverage"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Conditional Hermite calibration is a natural use of the formulas. But under the standard for exact invariants, the proposed result is the existing support theorem for a specific law, with direct score substitution, fitted endpoints and elementary exponential quadrature. Both stability identities are the same general pointwise slack, so they leave no separately supported novel stability claim after removing covered content. Practical convenience in this application does not supply a surviving mathematical finding for repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

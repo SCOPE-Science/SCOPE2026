@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:18:01.167100Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Read the frozen proof and supporting files. In either horizontal face the two coordinate cubes are faces; only their Hamming-distance-one edges qualify within a cube. Each nonempty mixed pair is exposed by giving the two supports tied positive score, with negative scores elsewhere. Across layers an exposing functional exists exactly when the base functional has a unique maximum S and unique minimum T; shifting its height coefficient ties the chosen vertices. For nonempty mixed pairs take +1 on S, −1 on T, small negative weights on the rest of S's class, and small positive weights on the rest of T's class. For a common class the cube forces strict complementary signs, and weights in the other class can be made smaller in total magnitude than either nonzero extremum. When one endpoint is empty, all coordinates must have the same strict sign at that extremum; the other endpoint must fill a class and can be made the unique opposite extremum by choosing that class dominant. Both empty is impossible. This verifies the four edge types and their squared lengths. The longest two are the cross-layer full-class pairs (p+q+4); the norm bound and antipodality give diameter squared 4(q+1), strictly larger since p≤q. Dividing the three class counts by q·2^q at finite c gives weights proportional to 1,4c,0; at c=∞ dividing by 2^(p+q) shows cross-class dominance. For any nonzero cross-class limiting mass both part sizes diverge, so independent conditioned binomial sizes give concentration at normalized length 1/2. The c=0 endpoint needs no such conditional concentration. Independent bounded integer-score enumeration agreed for (2,2),(2,3),(3,3), giving opposite-layer totals 26,54,114 and total edge counts 60,128,260. Witness scores were restricted to [−4,4]; this is supporting evidence only. The shipped clique checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Aprile et al. Hansen result bounds a vertex–facet product, not f1 or a metric histogram.",
+          "The split-graph paper centers its face-number results on split graphs; K_{p,q} contains an induced four-cycle and is not split for p,q≥2."
+        ],
+        "reasoning": "The split-graph family does not dominate the tested parameters. The general base-STAB adjacency characterization applies only in each layer; it is not an opposite-layer adjacency or length formula.",
+        "searches": [
+          "arXiv:1702.03187v2 §3.2",
+          "arXiv:1804.00360v3 stable-set 1-skeleton",
+          "arXiv:1201.5790 §§2–4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1702.03187v2",
+        "arXiv:1804.00360v3",
+        "arXiv:1201.5790",
+        "10.7146/math.scand.a-11716 (citation; full text not read)",
+        "Resultary exact family and related metric searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The stable-set criterion is connectedness of the symmetric-difference induced graph, which does imply the frozen same-layer classification.",
+          "Neither that characterization nor the vertex–facet trade-off identifies pairs of unique opposite extrema or samples their endpoint set sizes by length."
+        ],
+        "reasoning": "Do not credit the base-layer edge rules as new. The explicit cross-layer census, its embedding-specific length multiplicities and the crossover weights are the additional consequences not supplied by those prior statements.",
+        "searches": [
+          "arXiv:1702.03187v2 §3.2 and Appendix 0.E",
+          "arXiv:1804.00360v3 adjacency theorem",
+          "arXiv:1201.5790 face counting",
+          "DOI 10.7146/math.scand.a-11716"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Aprile–Cevallos–Faenza define Hans(G) as conv((P,1) ∪ (−P,−1)), with P=STAB(G).",
+          "The same-result search identifies the frozen item; related indexed graph-associahedron and transversal-polytope findings are on different constructions and length or width statistics."
+        ],
+        "reasoning": "The graph-join description gives a convex hull of two coordinate cubes at the base; the metric under review still needs exposed mixed edges of the twisted prism. An affine sign-coordinate census would have to be transferred with the corresponding metric, not just with face incidence.",
+        "searches": [
+          "Resultary: Hansen polytope complete bipartite stable set twisted prism edge length polynomial logarithmic crossover",
+          "Hansen polytope graph join complete bipartite edge f vector adjacency twisted prism free sum bipartite metric edge spectrum standard orthonormal",
+          "arXiv:1702.03187v2 §3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Mathematical reference and search results gave the Hansen construction and typical examples, not a K_{p,q} length histogram.",
+          "Aprile et al. Appendix 0.E provides a path-graph computational comparison, not a complete-bipartite length census."
+        ],
+        "reasoning": "Even an f1 table would sum the polynomial at one variable value and omit its length-bin weights; no exact covering table was identified.",
+        "searches": [
+          "Resultary Hansen exact length polynomial query above",
+          "Hansen polytope graph join complete bipartite edge f vector adjacency twisted prism free sum bipartite metric edge spectrum standard orthonormal"
+        ]
+      },
+      "rationale": "The base skeleton and twisted-prism construction are antecedents. The searched sources do not give the full length-weighted twisted-prism skeleton in this realization or its crossover. The passage from known base edges to opposite-layer edges and normalized metric weights is explicitly verified, not treated as a rescaling of an established metric formula.",
+      "residual_risks": [
+        "An earlier general adjacency criterion for a signed or dual Hansen realization may reduce the opposite-layer proof.",
+        "A stronger exact metric enumeration or a prior equivalent free-sum formulation could exist; no exhaustive priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same construction; vertex–facet inequality and different finite edge computation",
+          "evidence": [
+            "Section 3.2 starts with the twisted prism definition, followed by Lemma 5 on the vertex–facet trade-off; path P7 example has 622 edges."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1702.03187v2",
+          "material_read": "Section 3.2 and relevant path-graph and Appendix 0.E passages",
+          "method": "Compared the realization, counted faces and scope of example",
+          "title": "On 2-Level Polytopes Arising in Combinatorial Settings",
+          "trigger": "General Hansen construction and possible stronger face/edge count"
+        },
+        {
+          "assessment": "Covers a proper subproblem, not the twisted-prism metric",
+          "evidence": [
+            "The theorem addresses edges between independent-set indicators in STAB(G)."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1804.00360v3",
+          "material_read": "Abstract and stable-set adjacency discussion",
+          "method": "Compared the object of the connected symmetric-difference criterion to both prism layers",
+          "title": "Stable Set Polytopes and Their 1-Skeleta",
+          "trigger": "General criterion potentially deriving same-layer edge types"
+        },
+        {
+          "assessment": "Split-graph face theorem is not coverage of this non-split family",
+          "evidence": [
+            "Definition 4.1 requires a clique–stable-set vertex partition; Theorem 4.6 is in the split-graph section."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1201.5790",
+          "material_read": "Abstract and relevant Hansen/split class definitions and face-number statements",
+          "method": "Matched graph hypotheses and face observables",
+          "title": "Face Numbers of Centrally Symmetric Polytopes Produced from Split Graphs",
+          "trigger": "Hansen graph-family face enumeration"
+        },
+        {
+          "assessment": "Priority risk remains for an older general skeleton theorem",
+          "evidence": [
+            "The construction is independently identified and credited in Aprile et al. §3.2 and Freij et al.; original full-text edge claims were not verified here."
+          ],
+          "identifier_or_url": "https://doi.org/10.7146/math.scand.a-11716",
+          "material_read": "Identified citation and later descriptions; direct full-text retrieval unsuccessful",
+          "method": "Checked DOI and identified journal PDF endpoint; did not infer absence from the inaccessible full text",
+          "title": "On a Certain Class of Polytopes Associated with Independence Systems",
+          "trigger": "Original construction; possible general incidence theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A full metric census for a standard embedding is useful beyond an ordinary edge count: it makes the competing edge populations explicit and proves a sharp imbalance scale where both short and dimension-scale squared lengths retain positive probability. The complete result includes two very different endpoint regimes and distinguishes the longest edges from the vertex diameter. It requires no arbitrary length cutoff or finite-instance conjecture.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

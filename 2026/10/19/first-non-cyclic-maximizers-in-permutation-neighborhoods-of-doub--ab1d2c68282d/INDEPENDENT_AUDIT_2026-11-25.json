@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:31:05.875116Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions and scope, Proof and Verification; VERIFICATION.md; enumerate_interleavings.py; enumerate_pairings.py; verify.py; degree_table_k5.json; degree_table_k6.json",
+        "Independent reproduction: python3 /workspace/reproductions/4.py; /workspace/reproductions/4.txt"
+      ],
+      "rationale": "A canonical word corresponds bijectively to the perfect matching of its paired positions, and a qualifying split puts one endpoint of each pair in each side. For fixed γ, the endpoints in the ordered first side match the γ-indexed endpoints in the ordered second side. I independently enumerated balanced position cuts with 0 on the first side, then every bijection between the two sides. Each pairing was recorded once per induced permutation using a set of matching codes; entering the same code at the inverse permutation accounts for the omitted swapped cuts. This exhausts both all words and all splits without counting multiple witnesses as extra words. All entries of both supplied tables for k=5,6 agree. At k=2,3,4 the maxima 2,9,33 have cyclic maximizers, with the listed maximizing sets. At k=5,6 the maxima and their entire argmax sets are 134 at 34521 and 54123, and 532 at 345621 and 651234. The cyclic lists in shift order are [42,115,123,123,115] and [132,396,508,278,508,396]. The word counts also agree with the double factorials.",
+      "residual_risks": [
+        "The result is a finite exact census of canonical double-occurrence words through k=6, not a theorem classifying maximizers at larger k or for other word classes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The follow-up degree theorem bounds word-side degrees in an abstract constraint graph to get avoidability.",
+          "He et al. count aggregate shuffle and reverse-shuffle squares over alphabets."
+        ],
+        "reasoning": "Neither result tabulates neighborhoods by prescribed permutation on canonical double-occurrence words. The focused lookup added no relevant primary source and is not evidence of absence.",
+        "searches": [
+          "More Variations on Shuffle Squares, DOI 10.3390/sym15111982, Theorem 2 and later discussion",
+          "Shuffle Squares and Reverse Shuffle Squares, arXiv:2109.12455, abstract",
+          "Focused scholarly lookup for maximum permutation-side shuffle-graph degree"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2308.13882 §2.4; DOI 10.3390/sym15111982 Theorem 2; arXiv:2109.12455 abstract",
+        "Resultary a30546ec04ae, 2e93295cd498, 07a749473b9e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary paper asks: ‘What is the maximum vertex degree in G′_k?’ after observing the identity does not maximize at k=3.",
+          "The indexed binary and ternary results minimize the number of permutations needed to cover their word universes."
+        ],
+        "reasoning": "The question does not supply the new maxima. Covering numbers optimize over unions of neighborhoods and neither identify the largest individual neighborhood nor imply its cyclic deficit.",
+        "searches": [
+          "Variations on Shuffle Squares §2.4, discussion after Proposition 3",
+          "Resultary 2e93295cd498 and 07a749473b9e, Finding and Assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The paper restricts its incidence graph to canonical words C_k and inverse-class representatives S'_k.",
+          "The frozen predicate is unchanged under inversion by exchanging its two subsequences."
+        ],
+        "reasoning": "Passing from all permutations to inverse representatives preserves every permutation-side degree and the maximum; the listed maximizing pairs become single inverse classes. This is a genuine equivalent formulation for the permutation side.",
+        "searches": [
+          "Grytczuk–Pawlik–Pleszczyński arXiv:2308.13882, §2.4, PDF pp. 8–10",
+          "Local Resultary: permutation-neighborhood degrees of double-occurrence shuffle words"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed same-family entry counts shuffle-square decompositions per word, including witness multiplicities. The primary paper includes the small graph example and the Catalan identity degree."
+        ],
+        "reasoning": "Neither witness multiplicities nor the prior small graph and identity column determine the new k=5,6 full-row maxima or the cyclic comparison. A ranked search does not exclude an unindexed exact census.",
+        "searches": [
+          "Local Resultary: exact maxima 134 and 532, fixed-permutation neighborhood degrees",
+          "Resultary a30546ec04ae, Finding and Assumptions, offset 0",
+          "Variations on Shuffle Squares §2.4, p. 10"
+        ]
+      },
+      "rationale": "The incidence graph, the identity degree, and the small k=3 calculation are established background. The exact k=5 and k=6 permutation-side maxima, their maximizing inverse classes, and the failure of cyclic shifts at k=5 were not found in the inspected sources. The original question asks for the maximum vertex degree; the frozen record gives finite permutation-side results, not a general solution.",
+      "residual_risks": [
+        "An equivalent unindexed small-case census remains possible. The search does not establish absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly frames the problem, prior small and identity degrees, no new finite maxima in passages inspected",
+          "evidence": "The p. 10 maximum vertex degree question is for G′_k; p. 8 defines its canonical-word and inverse-representative vertex classes.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.13882",
+          "material_read": "§2.4, PDF p. 8 at offset 23600 and p. 10 at offset 32100",
+          "method": "Primary OA PDF text",
+          "title": "Variations on Shuffle Squares",
+          "trigger": "Same incidence graph and posed maximum-degree problem"
+        },
+        {
+          "assessment": "Different graph and optimization target",
+          "evidence": "Theorem 2 uses a word-graph degree bound to conclude avoidability.",
+          "identifier_or_url": "https://doi.org/10.3390/sym15111982",
+          "material_read": "Abstract, Theorem 2 and discussion on pp. 1, 3 and 10",
+          "method": "Publisher OA PDF passages",
+          "title": "More Variations on Shuffle Squares",
+          "trigger": "Follow-up from the same authors and a graph-degree theorem"
+        },
+        {
+          "assessment": "Advertised aggregate counts, no whole-document exclusion inferred",
+          "evidence": "The abstract describes counts and asymptotics over a fixed alphabet.",
+          "identifier_or_url": "https://arxiv.org/abs/2109.12455",
+          "material_read": "PDF p. 1 abstract",
+          "method": "Primary OA PDF text, abstract only",
+          "title": "Shuffle Squares and Reverse Shuffle Squares",
+          "trigger": "Possible enumeration overlap"
+        },
+        {
+          "assessment": "Multiplicity statistic, not a fixed-permutation degree",
+          "evidence": "Counts unordered shuffle-square decompositions of each word and their distribution.",
+          "identifier_or_url": "Resultary a30546ec04ae",
+          "material_read": "Finding and Assumptions, offset 0",
+          "method": "Local catalogue and mirrored record",
+          "title": "Witness multiplicities and rare-event moments for double-occurrence shuffle squares",
+          "trigger": "Identical word-family structure"
+        },
+        {
+          "assessment": "Different covering invariant",
+          "evidence": "Minimizes covering-set size across even binary words.",
+          "identifier_or_url": "Resultary 2e93295cd498",
+          "material_read": "Finding and Assumptions, offset 0",
+          "method": "Local catalogue and mirrored record",
+          "title": "The first five binary permutation-covering numbers for shuffle squares",
+          "trigger": "Same permutation/word incidence framework"
+        },
+        {
+          "assessment": "Different covering invariant",
+          "evidence": "Gives a minimum number of permutations covering even ternary words of length eight.",
+          "identifier_or_url": "Resultary 07a749473b9e",
+          "material_read": "Finding and Assumptions, offset 0",
+          "method": "Local catalogue and mirrored record",
+          "title": "Seven permutations suffice and are necessary for ternary length-eight shuffle covering",
+          "trigger": "Same permutation/word incidence framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Proof, Relationship to prior work; Variations on Shuffle Squares §2.4"
+      ],
+      "rationale": "The primary paper motivates the precise maximum-degree invariant independently of the computation. The complete consecutive cases establish a boundary for the natural cyclic-shift candidate subclass, with gaps of 11 and 24 at k=5,6 and noncyclic maximizing inverse classes in both. This is useful finite extremal data for the stated problem, not just a count of shuffle representations.",
+      "residual_risks": [
+        "The small-size classification does not predict the form or growth of maxima for larger k."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

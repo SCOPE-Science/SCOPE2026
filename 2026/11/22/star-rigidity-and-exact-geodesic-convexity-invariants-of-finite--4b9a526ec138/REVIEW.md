@@ -1,15 +1,21 @@
-# Supported self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof works directly from projective-plane axioms. First, a nonincident point–line pair generates all vertices by two rounds of all-geodesics interval closure. It follows that every proper convex set must be a substar with its center, and every such substar is indeed convex. Counting these subsets with duplicate flags subtracted establishes the polynomial. Explicit extremal configurations and exhaustive four-element hull casework prove the Carathéodory, Helly and Radon values; the full-star containment argument proves the VC upper bound, and a selected pencil of lines realizes the lower bound. Prime-field finite checks at orders two, three and five agree. This is an all-order incidence-axiom proof, not an extrapolation from enumeration.
+## correctness
 
-## Originality — PASS (best-knowledge comparison)
-The inspected foundational 2005 path-convexity paper supplies definitions and a Helly criterion, not this projective-plane classification. A complete recent proof about geodetic *covering* bases in projective-plane incidence graphs concerns a different notion and establishes parameter \(2q\), rather than geodesic-convex closure. The full Heawood \(P_3\)-convexity classification uses a stronger and different two-neighbor closure, producing 366 sets instead of our 93 sets at order two. Targeted published-result searches for projective-plane geodesic convexity, Helly/Radon and shattering did not uncover stronger coverage. Non-indexed sources and the uninspected complete 2013 monograph remain priority risks; a failed search alone is not used as novelty proof.
+PASS
 
-## Value — PASS
-This is a natural complete all-order classification on incidence graphs of a fundamental geometric design, not a narrow arbitrary numerical computation. It simultaneously determines every convex subset, the full two-shore enumerator, all maximal proper sets, three classical finitary convexity parameters and an unbounded VC dimension, showing a nontrivial separation between certificate complexity and shattering complexity.
+A nonincident point p and line L have distance three, and their interval contains all of L and the pencil at p. For any other point z outside L take M=pz and a point a on L other than M∩L; the geodesic M,z,za,a adds z. The second closure produces all points and hence all lines. A proper convex set thus contains no nonincident mixed pair; two same-shore vertices force their unique joining vertex, and all other selected vertices must lie in that centered star. The converse uses the unique two-step paths between star leaves. Only the flags are counted twice, giving the bivariate formula and the 2v largest proper stars. A set not contained in a centered star has a nonincident pair or a noncollinear/nonconcurrent triple with full hull; for a set contained in a star, only the center can need adding, by two leaves. This gives c=3, sharp using three noncollinear points. For Helly, the four triple hulls of a four-set have a common vertex: if there is a nonincident pair the two proper candidates share the other two vertices; a mixed set without such a pair has a common star center; for one shore either all four share a joining vertex or at most one triple has proper hull. A minimal disjoint family of size at least four with one witness for each single-set deletion would contradict this four-witness property. The hulls of the three pairs of noncollinear points give h≥3. For Radon, use a full-hull pair/triple if available; otherwise split leaves across a star's center or use two collinear/concurrent pairs. The noncollinear triple gives r≥4. A shattered set of at least four must have all triple hulls proper. Any same-shore pair then confines the set to its centered star; the whole star cannot be shattered since two leaves force its center. The entire neighbor set of a center is shattered. These arguments use only the incidence axioms. Inspected the supplied BFS/interval-closure checker; the enumerations over selected prime-field planes are corroboration, not the basis of the all-plane proof, and were not rerun.
 
-## Reproducibility and limits
-The included standard-library Python verifier independently constructs shortest paths and star families, exhausts all 14-vertex subsets at order two, checks all relevant four-vertex and five-vertex certificates at order three, and tests all three-vertex hulls at order five. The proof is required for arbitrary order and non-Desarguesian cases; the code alone does not establish those universal statements. No independent external audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The centered-star classification and invariant package are distinct from the inspected covering results and short-path convexity results on the same graphs. General geodesic-convexity results furnish tools but no inspected result subsumes the classification at these parameters.
+
+## value
+
+PASS
+
+A complete geometric description of a natural closure system is useful beyond producing its cardinality. It determines hull witnesses for every existing plane, including non-Desarguesian ones, and gives a natural growing-VC family with uniformly bounded Carathéodory, Helly and Radon numbers. The two-step forcing mechanism explains that separation without fitting values from small instances.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

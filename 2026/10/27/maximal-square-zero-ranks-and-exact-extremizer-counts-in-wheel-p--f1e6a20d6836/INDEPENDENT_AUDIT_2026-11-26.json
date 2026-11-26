@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:54:47.611452Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–62",
+        "VERIFICATION.md lines 19–21",
+        "wheel_squarezero_checker.py lines 11–99 and wheel_squarezero_check_output.txt lines 1–10 (inspected, not executed)"
+      ],
+      "rationale": "A partial injection is square-zero exactly when domain and image are disjoint. If the hub belongs to the domain and maps to v, at most two other images can be rim neighbors of v, giving rank at most three; inversion handles the image-hub case. The disjointness bound already gives floor(n/2) for even n. For odd n≥7 a larger rank uses the hub but would exceed three. For n=5 a hypothetical rank three has image {v−1,v,v+1}; the two other domain vertices v−2 and v+2 are adjacent, but v−1 and v+1 are not. Two disjoint alternating independent rim sets give the claimed attainable rank, and restriction gives all lower ranks. On the rim, adjacency determines the metric. Red domain and blue image therefore must have identical multisets of path-component orders. For a fixed red composition of k, blue orders contribute r!/∏ m_j!, isomorphisms contribute ∏ m_j!·∏ b_j^(m_j), and b_j is one for singletons and two otherwise. For even n a marked red start has n labels and represents a pair with its map r times, yielding n(r−1)! times the coefficient in B^r. For odd n deleting the unique unused vertex cuts a line, and equal run counts force unlike end colors, yielding 2n r! times that coefficient. With a hub, rank two counts directed rim edges avoiding the other domain vertex (2(n−2) choices); rank three counts the nonedges in the path remaining after deleting v and its neighbors, namely binom(n−3,2)−(n−4), and has two bijections for each. Multiplying by n and by two for inversion gives exactly the listed hub corrections; there are none at rank at least four.",
+      "residual_risks": [
+        "Replay with python3 wheel_squarezero_checker.py directly enumerates disjoint labeled maps for rim sizes 4–12 and larger ranks for 5 and 7; the computations for 13–25 are formula evaluations only. The comment about partitions in the excess-rank checker should be read as a restriction of the direct tests, not a combinatorial restriction on set partitions of larger odd wheels."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The complete multipartite result enumerates square-zero elements of every rank in that family; W_4 is K_{1,2,2}, hence its rank and count are covered.",
+          "The wheel rank-polynomial result counts all maps by domain rank with aggregate hub corrections, not only those with disjoint domain and image.",
+          "The general graph framework groups maps by induced-subgraph type."
+        ],
+        "reasoning": "W_n for n≥5 is not complete multipartite, as nonadjacency on its rim is not transitive. Counting all maps of a given rank or sorting by induced type does not by itself count isomorphisms of disjoint subsets, which is the joint condition needed here.",
+        "searches": [
+          "arXiv:1809.04422 Proposition 3.1",
+          "Resultary aab2f4eae4e5, complete multipartite rank distribution",
+          "Resultary d147c97c6256, wheel domain-rank polynomial"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2307.16257",
+        "arXiv:2205.02196",
+        "arXiv:1809.04422",
+        "Resultary 32e0cfa664d8",
+        "Resultary aab2f4eae4e5",
+        "Resultary d147c97c6256"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The intrinsic cycle formula N_(n,2)−N_(n,1) does enumerate positive-rank square-zero maps in the cycle monoid under its index convention. It does not enumerate the additional maps allowed by the inherited metric.",
+          "The inspected wheel rank formula aggregates over all domain/image intersections, and its hub corrections track hub use, not all intersections. The graph framework gives counts by isomorphism type without the needed disjoint-pair distribution."
+        ],
+        "reasoning": "Neither specialization of intrinsic cycle statistics nor selection of a rank coefficient in the all-map wheel formula produces the required disjoint count. The alternating path-run match, including the marking factor in the even case and the deleted-vertex cut in the odd case, is additional work.",
+        "searches": [
+          "Resultary 32e0cfa664d8, index-at-most-h formula",
+          "Resultary d147c97c6256, aggregate wheel hub correction",
+          "arXiv:1809.04422 Proposition 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fernandes's rank theorem concerns minimum generator count, not domain cardinality. Jajcay et al. classify partial graph automorphisms by induced-subgraph type.",
+          "The intrinsic cycle results deal with actual cycle distances or dihedral restrictions, not the adjacency-only metric inherited by the rim from the wheel."
+        ],
+        "reasoning": "Wheel rim maps are induced-subgraph isomorphisms with disjoint sides, but are not generally intrinsic cycle isometries. For instance, on a rim of size six, {1,4} and {2,6} are disjoint and both distance-two pairs in the wheel, but have unequal intrinsic cycle distances.",
+        "searches": [
+          "Wheel square-zero elements, partial graph automorphisms with disjoint domain and image, and intrinsic cycle nilpotency; arXiv:2307.16257, 2205.02196, 1809.04422; Resultary 32e0cfa664d8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The located exact formula entries are for the intrinsic cycle, the complete multipartite family and the all-map wheel rank distribution. None demonstrates an exact match for the general wheel square-zero extremal count.",
+          "The OEIS lookup timed out and provides no comparative evidence. The supplied finite table is corroboration of the frozen formulas, not independent prior art."
+        ],
+        "reasoning": "These are distinct counted sets, even where graph names or some early values may coincide. The multipartite W_4 value is genuinely covered regardless of table lookup. No conclusion of database absence follows from the timeout.",
+        "searches": [
+          "Local Resultary/SCOPE: 32e0cfa664d8, aab2f4eae4e5 and d147c97c6256",
+          "OEIS exact-value lookup for the wheel extremal counts"
+        ]
+      },
+      "rationale": "The supported distinct claim is the uniform extremal enumeration in the inherited wheel metric, with disjointness built into the cyclic or linear run counts and explicit hub exceptions. The disjointness criterion, induced-subgraph model, earlier general-type enumerations, and the n=4 complete multipartite special case are not credited as distinct contributions.",
+      "residual_risks": [
+        "The exact-sequence lookup and follow-up mirror retrieval were incomplete, and specialist disjoint-embedding enumerations might contain an equivalent formula. The decision rests on the comparisons of the actual inspected counts, not an absence claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same monoid but different rank statistic in the inspected theorem",
+          "evidence": "Rank denotes minimum generating-set size; the theorem gives 4 for DPW_4 and floor(n/2)+3 for n≥5, not extremal element ranks or counts.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.16257",
+          "material_read": "PDF p. 1 rank convention (offset near 436) and p. 13 Theorem 4.4 (offset near 62061)",
+          "method": "OA PDF passages",
+          "title": "On the monoid of partial isometries of a wheel graph",
+          "trigger": "Same wheel monoid and a rank theorem"
+        },
+        {
+          "assessment": "Intrinsic cycle metric; no direct transfer of its count",
+          "evidence": "Cycle partial isometries are dihedral restrictions, and the cardinality and rank are for that monoid.",
+          "identifier_or_url": "https://arxiv.org/abs/2205.02196",
+          "material_read": "PDF p. 1, opening description at offset 0",
+          "method": "OA PDF passage",
+          "title": "On the monoid of partial isometries of a cycle graph",
+          "trigger": "Possible transfer to the wheel rim"
+        },
+        {
+          "assessment": "Structural ingredient, not the disjoint-pair formula",
+          "evidence": "Partial graph automorphisms are induced-subgraph isomorphisms, with D-classes identified by induced-subgraph isomorphism type.",
+          "identifier_or_url": "https://arxiv.org/abs/1809.04422",
+          "material_read": "Definitions and PDF p. 8, Proposition 3.1 near offset 33754",
+          "method": "OA PDF passages",
+          "title": "Inverse monoids of partial graph automorphisms",
+          "trigger": "General induced-subgraph isomorphism counting framework"
+        },
+        {
+          "assessment": "Supplies square-zero counts for the intrinsic cycle, not the inherited wheel metric",
+          "evidence": "Difference of index bounds two and one gives the square-zero distribution in the intrinsic cycle monoid. The separate nφ(n) formula is for rank n−1 and index n.",
+          "identifier_or_url": "Resultary 32e0cfa664d8",
+          "material_read": "RESULT.md Finding at offset 0, bounded-index formula and maximal nilpotent rank",
+          "method": "Local Resultary mirror",
+          "title": "Rank and nilpotency-index enumerators for partial isometries of cycle graphs",
+          "trigger": "Exact rank-refined nilpotent enumeration on the rim graph"
+        },
+        {
+          "assessment": "Covers W_4=K_{1,2,2} only among these wheels",
+          "evidence": "Full square-zero rank polynomial of complete multipartite graphs, with maximum-rank law; larger rims violate the multipartite nonadjacency equivalence.",
+          "identifier_or_url": "Resultary aab2f4eae4e5",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "The complete square-zero rank distribution of multipartite partial isometries",
+          "trigger": "Broader exact square-zero enumeration in a graph family overlapping W_4"
+        },
+        {
+          "assessment": "Inspected formula counts all maps of each domain rank, not the square-zero refinement",
+          "evidence": "The rank polynomial and hub corrections have no filter requiring disjoint domain and image; no square-zero formula was found in the inspected passages.",
+          "identifier_or_url": "Resultary d147c97c6256",
+          "material_read": "RESULT.md passages near offsets 437 and 9149",
+          "method": "Local Resultary mirror; follow-up retrieval timed out",
+          "title": "A finite-rank hub correction for wheel partial-isometry monoids",
+          "trigger": "Same wheel, rank enumeration and hub corrections"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 4–35 and 37–59",
+        "arXiv:2307.16257 rank convention",
+        "Resultary 32e0cfa664d8 intrinsic cycle comparison"
+      ],
+      "rationale": "Square-zero elements expose a genuine difference from the ambient symmetric inverse monoid in odd wheels. The count at the largest attainable rank is a natural semigroup invariant: the parity distinction and hub exceptions give an exact count of the maps with the tightest possible disjointness constraint. The useful contribution is the exact uniform rim/hub enumeration, not the elementary rank upper bound alone.",
+      "residual_risks": [
+        "No full rank distribution, higher-index nilpotency enumeration or larger graph-family generalization is credited."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

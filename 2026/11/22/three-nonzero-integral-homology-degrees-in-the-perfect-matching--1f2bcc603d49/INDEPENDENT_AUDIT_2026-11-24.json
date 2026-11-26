@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:42:48.339929Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Proof and Verification; VERIFICATION.md and check_grid46_homology.py inspected, not executed",
+        "Independent replay: python /workspace/branches/grid-morse-reproduction.py 4 6 (small probe 4 4 first)"
+      ],
+      "rationale": "The face complex contains exactly the nonempty submatchings of the perfect matchings, plus the empty face. A new row-sweep domino enumerator and submask enumeration recovered 281 facets and the entire stated face vector (511,338 nonempty faces). The edge-pivot matching gives only legitimate disjoint codimension-one pairs: at each pivot, a face belongs to at most one candidate pair. Independent depth-first cycle detection on the full oriented cover graph checked all 511,338 vertices, and found 255,663 pairs with 1,2,8,1 critical cells in degrees 0,3,4,5. Integral signed boundary accumulation in reverse topological order gives the reported 2×8 matrix with unique entry −1 at the first row/column and zero 8×1 matrix in degree five. Each substitution uses the signed incidence unit and the other boundary faces, with paths terminating by acyclicity. The unit entry kills one direct summand without torsion. Forman's acyclic matching theorem gives a homotopy-equivalent CW model with one vertex and no 1- or 2-cells, implying 2-connectivity by cellular approximation. Thus the listed reduced integral groups are complete; the vanishing cellular degree-five boundary does not determine the attaching map.",
+      "residual_risks": [
+        "Finite statement for a nonperiodic rectangular grid only; no attaching-map or arbitrary-width claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first proves a single sphere dimension (or contractibility in its base case) on 3×2n, the second treats ladders and polygonal line tilings, and the third is for honeycombs."
+        ],
+        "reasoning": "None encompasses a four-row, six-column rectangular grid, and the width-three formulation cannot be rotated to cover it.",
+        "searches": [
+          "arXiv:2611.18058 Theorem 1.1 and §3",
+          "arXiv:2407.05809 Theorem 1.1",
+          "DOI 10.37236/11525 abstract"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.18058, arXiv:2407.05809, DOI 10.37236/11525",
+        "Resultary d33d17c761d3, 557d374d590c, f1b5ea641880, b95382aacf1f and identical target 1f2bcc603d49"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cited single-degree theorem depends on a three-row decomposition. Smaller four-row computations are individual instances and furnish no recurrence determining the 4×6 integral Morse differential."
+        ],
+        "reasoning": "Neither a narrower homotopy classification nor the counts of perfect tilings force the ranks or absence of torsion here; exact signed cancellation in a new complex is necessary.",
+        "searches": [
+          "arXiv:2611.18058 §§1,3; Resultary d33d17c761d3 and 557d374d590c Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "This is the simplicial complex of all subsets of perfect domino tilings, not all disjoint domino placements. The ordinary matching-complex entries for P4×P4 and P4×P5 give different groups from their perfect-extendibility counterparts."
+        ],
+        "reasoning": "Equal grid notation does not equate the two complexes, and tiling enumeration alone does not encode oriented homology.",
+        "searches": [
+          "Resultary: P4 Cartesian P6, 4×6 perfect-matching extendibility/domino-submatching complex, integral homology",
+          "Cited three-row preprint, §1 definition",
+          "Resultary f1b5ea641880 and b95382aacf1f"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "1f2bcc603d49 is the identical finding. The two distinct entries give S²∨S²∨S³ on 4×4 and a wedge of five S³ on 4×5, not this integer chain result. The outbound query yielded no directly comparable paper."
+        ],
+        "reasoning": "No inspected separate table supplies the 4×6 entry. The same result under its own catalog ID is not earlier independent coverage; nonretrieval by itself does not support historical priority.",
+        "searches": [
+          "Resultary width-four perfect-matching topology: 1f2bcc603d49, d33d17c761d3, 557d374d590c",
+          "Focused primary-literature lookup for 4×6 perfect-matching complex homology/census"
+        ]
+      },
+      "rationale": "No identified earlier distinct result supplies the complete integral homology or an implying homotopy classification for this four-row grid. The same-width neighboring instances, the full three-row family and ordinary matching-complex data have different hypotheses.",
+      "residual_risks": [
+        "Bounded searches cannot rule out an unindexed integer calculation/census of this exact complex. No priority conclusion from the identical result or same-day entries."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same complex definition, narrower row count.",
+          "evidence": [
+            "Perfect matchings are facets; n=1 contractible, otherwise a wedge of spheres of dimension n−1 for exactly three rows."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.18058",
+          "material_read": "§1 Theorem 1.1 p. 2 and §3 pp. 3,6",
+          "method": "OA PDF",
+          "title": "Perfect Matching Complexes of 3×2n Grid Graph",
+          "trigger": "Closest broad rectangular-grid homotopy theorem"
+        },
+        {
+          "assessment": "The stated line/ladder results do not cover four rows.",
+          "evidence": [
+            "2×n ladders and chains of polygons."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2407.05809",
+          "material_read": "p. 2 Theorem 1.1",
+          "method": "OA PDF",
+          "title": "Perfect Matching Complexes of Polygonal Line Tilings",
+          "trigger": "Grid family via tilings"
+        },
+        {
+          "assessment": "Honeycomb setting, not a rectangular square grid; no whole-document noncoverage inference from an abstract.",
+          "evidence": [
+            "The named graph family is H_{k×m×n}."
+          ],
+          "identifier_or_url": "https://doi.org/10.37236/11525",
+          "material_read": "p. 1 abstract",
+          "method": "OA source",
+          "title": "Perfect Matching Complexes of Honeycomb Graphs",
+          "trigger": "Earlier tiling-topology theorem"
+        },
+        {
+          "assessment": "Individual 4×4 case only.",
+          "evidence": [
+            "S²∨S²∨S³."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-the-four-by-four-grid-perfect-matching-complex-is-a-mixed-dimens--d33d17c761d3",
+          "material_read": "Finding and complex definition",
+          "method": "Local mirror",
+          "title": "The four-by-four grid perfect-matching complex is a mixed-dimensional sphere wedge",
+          "trigger": "Nearest prior even-column case"
+        },
+        {
+          "assessment": "Different grid, same-day listing does not determine order.",
+          "evidence": [
+            "A wedge of five S³ on 4×5."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-five-three-spheres-in-the-four-by-five-grid-perfect-matching-com--557d374d590c",
+          "material_read": "Finding and complex definition",
+          "method": "Local mirror",
+          "title": "Five three-spheres in the four-by-five grid perfect-matching complex",
+          "trigger": "Nearest dimensions"
+        },
+        {
+          "assessment": "Identical target, not an independent source of priority.",
+          "evidence": [
+            "Exact match in graph, complex, connectivity and integer homology."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22, 1f2bcc603d49",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror offset 0",
+          "title": "Three nonzero integral homology degrees in the perfect-matching complex of the 4×6 grid",
+          "trigger": "Exact catalog match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and Limitations",
+        "arXiv:2611.18058 Theorem 1.1",
+        "Resultary d33d17c761d3 and 557d374d590c"
+      ],
+      "rationale": "This is the next even-column instance of the first wider rectangle family beyond the three-row theorem, following 4×4 and the neighboring 4×5 result. Its three consecutive integral degrees distinguish it from the three-row single-degree pattern and the smaller same-width cases. The complete torsion and connectivity information is useful when testing candidate grid homotopy formulas, and is not mechanically available from the facet count or Euler characteristic.",
+      "residual_risks": [
+        "An exact finite invariant, not a general-width family or a homotopy wedge theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

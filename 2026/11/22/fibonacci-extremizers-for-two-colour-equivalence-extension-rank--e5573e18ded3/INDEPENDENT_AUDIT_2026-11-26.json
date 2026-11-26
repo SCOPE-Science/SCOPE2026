@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T15:15:48.485790Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–84",
+        "Frozen VERIFICATION.md lines 19–25",
+        "Frozen verify_colored_equivalence_rank.py lines 14–48, 66–79, 82–131 and verification_output.txt",
+        "Validated replacement checker and log retained from previous/5/repair and delivered in repairs/5; replay with python3 /workspace/repairs/5/verify_colored_equivalence_rank.py",
+        "repairs/5/VERIFICATION.md distinguishes selection-profile visits from distinct marked positions and describes the corrected marked-class condition; original front matter unchanged."
+      ],
+      "rationale": "The theorem and proof survive unchanged. Induction on remaining depth separates a marked position into the per-colour capacities of its marked classes and the rank of the unused union: an existing-class move spends one unit of one capacity, and a new-class move uses a witness inside the unused union. For the one-colour projection, consecutive fresh-class requests require distinct capacities at least t,t-1,...,1; conversely, taking the largest free class on each fresh request meets those bounds even when some intermediate moves go to marked classes. Applying this to each named colour gives the sharp size lower bound and forces both staircases at equality. The first red and blue requests force the unique classes carrying each maximum t and require the other colour at least t-1. A shared maximum leaves a level-(t-1) host. For distinct maxima the classes must be (t,t-1) and (t-1,t); a second red fresh-class request after red must use the latter, leaving a level-(t-2) host. Both branches suffice by the separation lemma, are disjoint, and are uniquely peeled; t=0 and t=1 give 1 and 2. The lower bound at t+1 rules out larger rank. The frozen finite checker did not implement its stated full marked-profile sweep: line 72 tests r+b>0 (b the total blue capacity), not whether red or blue was actually selected. For example, the empty selection in a blue singleton is wrongly marked. The replacement evaluates the direct game with separate marked/free lists and classifies by actual selection; its fresh execution reproduces 573 host types, 24,963 profile visits and 199,704 depth comparisons, and the complete staircase-coupling census through t=5. The replacement log is the actual new output.",
+      "residual_risks": [
+        "The computational sweep is bounded and counts profile visits, not inequivalent marked positions; the argument at arbitrary depth is analytic. No claim for three or more colours."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "López-Callejas and Navarro-Castillo define precisely the broader rank framework and study rank properties for free-amalgamation classes, tournaments, and linear orders. Their inspected results do not provide the finite two-colour extremal order/equality classification."
+        ],
+        "reasoning": "Existence of a high-rank host or a general definition of rank does not determine the size or structure of a minimum host. No inspected broader enumeration specializes to this recursion.",
+        "searches": [
+          "Resultary: arbitrary q named unary colours equivalence relation one-point-extension rank extremal size",
+          "Resultary: general one-point-extension rank rank property equivalence classes finite minimum witnesses",
+          "arXiv:2604.14461v1, abstract, introduction, §2 Definition 2.3 and Theorem 4.18"
+        ]
+      },
+      "checked_sources": [
+        "Exact Resultary row and four distinct indexed equivalence records listed above",
+        "López-Callejas and Navarro-Castillo arXiv:2604.14461v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The uncoloured result gives exactly t(t+1)/2 per marginal with unique staircase; the rank-two logical results compare two structures by a two-round EF game. At t=3, the coupling {(3,1),(2,2),(1,3)} meets both marginal minima but has no valid initial red choice at depth 3."
+        ],
+        "reasoning": "Use the uncoloured theorem for the lower bound; it neither forces the two launch classes nor determines which marginal matchings pass. The EF census is about a different rank. Same-day distinct records were compared without inferring date order.",
+        "searches": [
+          "Resultary: one-point extension rank rank property Fraisse classes finite hosts rank games arbitrary colours equivalence relations",
+          "Resultary: two-round first-order rank-two theories finite two-coloured equivalence structures one-host extension game",
+          "Same-day uncoloured staircase Finding, offset 0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact matching Resultary Finding is the assigned record itself. The uncoloured staircase and partial-transversal Findings use one-host rank, but neither class permits the asserted red-blue coupling problem."
+        ],
+        "reasoning": "Neither forgetting the predicate nor restricting it to at most one red point in each class is an equivalent formulation. The primary keyword search did not give a decisive result; it is not evidence of absence.",
+        "searches": [
+          "Resultary: two-colour equivalence relation one-point extension rank minimum host size t(t+1) Fibonacci extremizers",
+          "Resultary: coloured equivalence structures extension rank extremal finite hosts named unary predicates class count recursion",
+          "Primary search: \"one-point-extension rank\" finite equivalence structures unary predicate two colours extremal Fibonacci rank"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary match is the assigned record; the nearby indexed censuses count 207 two-round sentence theories with sharp representative bound 13, or two extremizers for the different partial-transversal rank game."
+        ],
+        "reasoning": "These are not catalogues of extremizers for this class; standard tables of Fibonacci numbers supply only the sequence, not the correspondence.",
+        "searches": [
+          "Resultary: exact minimum hosts all levels two named colours equivalence one-host rank t(t+1) F_{t+2}",
+          "Resultary: rank-two unary-coloured equivalence relation 13-element bound two-round theories finite equivalence structures"
+        ]
+      },
+      "rationale": "The uncoloured staircase law and the general rank definition are available premises. The distinct surviving claim is the classification of compatible couplings of the two forced staircases and its Fibonacci count. The same marginals can fail rank t, so the uncoloured theorem does not imply this classification.",
+      "residual_risks": [
+        "Unindexed work on this specific rank game or an equivalent formulation may exist. Search gives no historical priority conclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "IDENTICAL_RECORD",
+          "evidence": "Exactly two named colours, t(t+1), F_{t+2} and both specified branches.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-fibonacci-extremizers-for-two-colour-equivalence-extension-rank--e5573e18ded3",
+          "material_read": "Finding and hypotheses; frozen proof",
+          "method": "local published mirror and frozen record",
+          "title": "Fibonacci extremizers for two-colour equivalence extension rank",
+          "trigger": "exact match"
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Uncoloured staircase criterion, t(t+1)/2, one extremizer; covers the marginals only.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-the-staircase-law-for-one-point-extension-ranks-of-finite-equiva--23acc2a81818",
+          "material_read": "Finding, offset 0",
+          "method": "local published mirror",
+          "title": "The staircase law for one-point extension ranks of finite equivalence relations",
+          "trigger": "closest exact extremal theorem"
+        },
+        {
+          "assessment": "DIFFERENT_SCOPE",
+          "evidence": "At most one predicate point per class; t(t+3)/2 and two extremizers.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-rooted-staircase-rank-law-for-finite-partial-transversal-equiv--3296ad94c3b0",
+          "material_read": "Finding and Assumptions, offset 0",
+          "method": "local published mirror",
+          "title": "A rooted staircase rank law for finite partial-transversal equivalence structures",
+          "trigger": "one unary predicate and same rank concept"
+        },
+        {
+          "assessment": "COVERS_FRAMEWORK_ONLY",
+          "evidence": "Definition 2.3 uses all prime extensions at the next lower rank; the inspected rank-property results do not classify minimum hosts in the two-coloured equivalence class.",
+          "identifier_or_url": "https://arxiv.org/html/2604.14461v1",
+          "material_read": "Abstract, introduction near offset 4700, §2 Definition 2.3 near 12680, Theorem 4.18 near 54062",
+          "method": "OA original HTML",
+          "title": "A rank function for Fraïssé classes and the rank property",
+          "trigger": "general rank paper cited by the record"
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT",
+          "evidence": "207 first-order quantifier-rank-at-most-two sentence theories; 13-element representative bound.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-sharp-thirteen-element-rank-two-model-bound-for-unary-coloured--e2acfc789698/RESULT.md",
+          "material_read": "Finding and Assumptions, offset 0",
+          "method": "local published mirror",
+          "title": "A sharp thirteen-element rank-two model bound for unary-coloured equivalence relations",
+          "trigger": "same language and rank terminology"
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT",
+          "evidence": "Two-round EF comparison of structures; 207 classes and 13-element bound.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-two-round-theories-of-finite-two-coloured-equivalence-structures--42cafa4a9c35/RESULT.md",
+          "material_read": "Finding and proof setup, offset 0",
+          "method": "local published mirror",
+          "title": "Two-round theories of finite two-coloured equivalence structures",
+          "trigger": "same language and rank terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md proof of necessity and sufficiency, lines 64–78; comparison with the uncoloured staircase Finding"
+      ],
+      "rationale": "The equality classification answers which pairs of individually optimal resources can coexist in a single minimum universal-extension host. This is a natural structural problem not answered by the sharp numerical lower bound; the unique peeling rule and exact named-colour isomorphism census are mathematically useful beyond a finite count.",
+      "residual_risks": [
+        "No classification of all nonminimum hosts or extension to additional colours is assessed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

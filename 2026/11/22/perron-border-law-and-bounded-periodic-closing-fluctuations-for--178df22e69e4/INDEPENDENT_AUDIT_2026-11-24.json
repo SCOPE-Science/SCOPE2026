@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:56:16.823512Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen and repaired proofs yield the exact signed rule: a border gives a period p<n whose missing closing edge is already inside the word (w_p=w_0), and a smaller period would force a longer border. With no border one takes the shortest positive directed return to the first symbol after the prescribed n−1 edges, including the case of a single letter. The k-border count is exactly tr(B^(n−k)), as the length-(n−k) prefix is a labeled closed walk with starting position fixed. PF word-count bounds provide a uniform tail for all k including overlapping borders. In the repair I checked the growing-block estimate explicitly: divide each bridge entry by its positive PF rank-one limit, giving a uniform relative error O_B(θ^(n−2s)) for s-block pairs after normalization. Summing against the product boundary probabilities preserves this bound in total variation. The two coherent boundary strings then give the signed limit after truncating at floor(n/3); a geometric tail times a polynomial controls the discarded moments on either law. In the example the endpoint event of terminal symbol one advance ahead has limiting probability 1/3; length one cannot match, all k≥2 match probabilities sum to 1/3, and a length-two constant match of mass 1/12 is disjoint from this endpoint event. Thus the residual union bound proves a positive negative atom, not an independence heuristic. Independent replay python3 /workspace/branches/independent_checks.py 3 compared periodic completions, the exact rule and trace counts for every word of lengths 1..8 in three primitive graphs, including one with no loops. The frozen checker was inspected, not run. The finite tests do not certify the limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pannipitiya's primitive finite-type bound is deterministic n+K−1; full-shift statistics and independent Bernoulli letter bounds are not results about uniform constrained words.",
+          "The earlier finite-state record treats irreducible graphs but bounds tails for (n−η)_+ and gives moment thresholds, n+O(1) and bounded variance, not exponential total variation to a particular signed law."
+        ],
+        "reasoning": "A broader graph class with weaker output dominates some frozen assertions but not the repaired limit. Dropping the negative part loses the entire directed-overhead observable.",
+        "searches": [
+          "arXiv:2611.13416v1 Proposition 2.27, Theorem 2.23 and Proposition 4.5; §§4.2,5.2",
+          "Resultary 22e18f2d92a1 Finding and proof",
+          "Literature query on Markov-source word borders"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, REVIEW.md, AUDIT.json, METADATA.json, SLOGAN.txt and check.py",
+        "Corrected files in repairs/3",
+        "arXiv:2611.13416v1",
+        "arXiv:1509.05240v1",
+        "Resultary 22e18f2d92a1, ce7ef1cd5963, 491b08dec094, fb6f7b997adb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Dividing tr(B^(n−k)) by 1ᵀB^(n−1)1 and computing its PF asymptotic gives the original fixed-k constant. Geometric summation gives the earlier aggregate trace-limit coefficient. The canonical normalized limits follow from Eη=n+O(1), Varη=O(1) and log N_n=n log λ+O(1).",
+          "No collection of single-length incidences alone shows the probabilities of simultaneous border events or their compatibility with endpoint distances. The two independent boundary chains and uniform relative bridge control supply this extra input; the directed witness explicitly uses an incompatible border event."
+        ],
+        "reasoning": "The original numerical border constants and normalized conclusions are prior consequences and are demoted. The remaining mathematical prediction requires the joint and signed law, not just a PF evaluation of available scalar counts or a change of parameters in existing tail bounds.",
+        "searches": [
+          "Resultary 22e18f2d92a1 Finding and limit caveat",
+          "arXiv:2611.13416v1 §§2.4,4.2,5.2",
+          "arXiv:1509.05240v1 §§2–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Period-dividing-p continuations with p<n are equivalent to borders of length n−p, so the November 17 trace-sum observable is the exact proper-border count.",
+          "Holub–Shallit give exponential longest-border convergence for unrestricted uniform words. In the full shift the positive directed return is always one edge, so D_n is exactly the longest border and has no negative part."
+        ],
+        "reasoning": "The aliases show actual overlap of shorter-period counts and exact full-shift special cases. The general adjacency constraint alters the end laws and may impose a longer closing path, so unrestricted border laws do not give the repaired signed theorem.",
+        "searches": [
+          "Resultary: periodic cylinder closure, shortest period and uniform Markov word borders",
+          "Resultary 22e18f2d92a1 Finding and proof",
+          "arXiv:1509.05240v1 §§2–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier exact trace sum covers the expected proper-border count, not the complete pmf of the signed deficit. Pannipitiya §4.2 gives the exact full-alphabet fixed-length border probability.",
+          "The two same-day golden-mean/Fibonacci records overlap on the same count of unbordered admissible words, one with parity corrections and the other with a weight refinement. For n≥2, the unbordered golden-mean words have different endpoints and hence the closing edge exists, so η=n. The single-letter word '1' is an exception to the equivalence because its symbol lacks a loop; this does not affect large-n comparisons.",
+          "The same-day modular-gap case treats maximal penetration delay in a strictly sofic shift, not the primitive zero-one symbol presentation under study."
+        ],
+        "reasoning": "The shared golden-mean observable for n≥2 is a special-case atom, not coverage of a general signed law. Its shared date establishes no priority order. No exact match for the directed three-state negative atom was found in these inspected sources.",
+        "searches": [
+          "Resultary 22e18f2d92a1, ce7ef1cd5963, 491b08dec094 and fb6f7b997adb Finding sections",
+          "arXiv:2611.13416v1 §4.2"
+        ]
+      },
+      "rationale": "PASS applies to the repaired signed distributional and moment limit with its directed negative atom, not the complete original novelty claim. The November 17 finite-state closure record covers the uniform model in broader irreducible scope, sums the exact shorter-period trace counts and proves bounded mean correction and variance. In that setting the frozen incidence and expected-border constants follow mechanically by PF from the trace count, and so do the normalized mean and variance statements from the earlier bounds. The repair gives those results explicit priority credit and promotes only the signed law, exponential convergence (including to limiting unnormalized corrections), and the directed example. The identified earlier tails and trace counts do not give the joint border-endpoint process needed for this law.",
+      "residual_risks": [
+        "The bounded primary search on Markov-source border laws did not return a useful matching paper; this is not evidence of absence. Older overlap theorems for constrained words may cover portions of the revised law.",
+        "The inspected same-day findings do not settle any shared-day priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of trace counts; broader irreducible scope with weaker signed distributional conclusions",
+          "evidence": "Expected shorter-period count is (∑_(p<n) tr B^p)/N_n, alongside clipped-deficit tail bounds and bounded fluctuations.",
+          "identifier_or_url": "2026/11/17/SCOPE-entropy-sharp-periodic-cylinder-closure-and-parity-oscillating-s--22e18f2d92a1",
+          "material_read": "Mirrored RESULT.md Finding/proof (offset 0) and Limitation (offset about 9100)",
+          "method": "Resultary and local mirror",
+          "title": "Entropy-sharp periodic cylinder closure and parity-oscillating subsequences",
+          "trigger": "Strongest exact prior on uniform word closing and border counts"
+        },
+        {
+          "assessment": "Primitive deterministic upper bound, and prior narrower random-source results",
+          "evidence": "Cylinder bound n+K−1 for primitive matrices; full-shift normalized statistics and border incidence q^(−k); geometric Bernoulli-letter bound.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.13416v1",
+          "material_read": "Proposition 2.27 §2.4 PDF p.21 (offset 63500); Theorem 2.23 §2.3 p.18 (54400); Proposition 4.5 §4.2 pp.34–36 (105800–112975); independent Bernoulli discussion §5.2 pp.50–51 (157300)",
+          "method": "OA PDF passage comparison",
+          "title": "Local Periodic Orbit Penetration in Dynamical Systems",
+          "trigger": "Original motivation and possible primary full-shift/primitive overlap"
+        },
+        {
+          "assessment": "Prior unrestricted-word special case",
+          "evidence": "Exponential convergence of fixed maximum-border probabilities and expected period n−α+o(1) for uniform unrestricted words.",
+          "identifier_or_url": "https://arxiv.org/abs/1509.05240v1",
+          "material_read": "Abstract p.1 and §§2–3 pp.2–3 (offsets 0, 3200, 8200)",
+          "method": "OA PDF passage comparison",
+          "title": "Periods and Borders of Random Words",
+          "trigger": "Exact probability limit for long random words"
+        },
+        {
+          "assessment": "Golden-mean special case on a single atom; not an earlier general signed theorem",
+          "evidence": "Fraction with η=n has limit 0.1556298471…, with generating law and parity corrections; uses the unbordered equivalence for the relevant lengths.",
+          "identifier_or_url": "2026/11/22/SCOPE-golden-mean-periodic-cylinders-a-mahler-law-and-a-sharp-parity-s--ce7ef1cd5963",
+          "material_read": "Mirrored RESULT.md Finding/proof, offsets 0–3516",
+          "method": "Resultary and local mirror",
+          "title": "Golden-mean periodic cylinders: a Mahler law and a sharp parity asymptotic",
+          "trigger": "Closest same-day finite-type atom calculation"
+        },
+        {
+          "assessment": "Weight-refined count in one shift, with an exact overlap with ce7ef1cd5963 for the unbordered observable and no date-based priority claim",
+          "evidence": "Counts unbordered 11-avoiding words by Hamming weight and gives the same limiting proportion.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-weight-refined-border-free-spectrum-for-fibonacci-admissible-b--491b08dec094",
+          "material_read": "Mirrored RESULT.md Finding, offsets 201–1400",
+          "method": "Resultary and local mirror",
+          "title": "A weight-refined border-free spectrum for Fibonacci-admissible binary words",
+          "trigger": "Same-day equivalent unbordered golden-mean observable"
+        },
+        {
+          "assessment": "Related but distinct strictly sofic presentation and extremal observable",
+          "evidence": "Maximal delay n+m−1 and its positive density for a modular-gap shift, not the primitive matrix setting.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-maximal-periodic-penetration-delays-and-their-lambert-w-de--fb6f7b997adb",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Sharp maximal periodic penetration delays and their Lambert W description",
+          "trigger": "Same-day positive-density directed delay comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The signed law distinguishes a genuine excess-period obstruction from the earlier deterministic upper bound or positive-part tail results, and gives limiting unnormalized fluctuations rather than simply bounds. The limiting boundary construction captures how repeated chunks of a cylinder interact with the directed endpoint constraint. The explicit positive negative atom shows that going beyond an unrestricted longest-border model makes a necessary mathematical difference. This value does not depend on reclaiming the trace counts or normalized limits.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

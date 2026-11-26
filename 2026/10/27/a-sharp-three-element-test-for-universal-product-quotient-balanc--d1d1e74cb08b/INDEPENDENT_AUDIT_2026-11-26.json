@@ -1,0 +1,171 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:29:57.273396Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For distinct a,b the mixed products cannot collide with either square. If a,b commute, the two product squares coincide exactly when ab⁻¹ has order two, which also detects the quotient collision. If they do not commute and have equal squares, (ab⁻¹)²=1 would imply that ab⁻¹ commutes with b, a contradiction. Thus precisely the noncommuting unequal-square pairs witness size two. If all noncommuting pairs have equal squares, choose one such pair and set c=a²=b². It is central in the generated subgroup. Applying the same condition to (a,ab) and (b,ba) gives (ab)²=(ba)²=c, while (ab)²=c implies ba=ab⁻¹=c⁻¹ab. Squaring forces c=c⁻¹; c=1 would force commutation. The quotient by ⟨c⟩ has two distinct nontrivial commuting involutions represented by a,b and hence order four; the resulting order-eight presentation is quaternion. On {1,a,b} the products are {1,a,b,c,ab,cab} and the quotients are {1,a,ca,b,cb,ab,cab}, establishing size three. For abelian groups, on {0,g,3g} the sum residues 0,1,2,3,4,6 and difference residues 0,±1,±2,±3 give (5,6) at order six and (6,7) at larger orders. Without such an element, primary decomposition gives the listed exceptions or a subgroup C₃², C₅² or C₄×C₂, with direct independent-generator counts (6,7), (6,7), (5,6) on {0,a,b}. Finally, exponent two gives identical sets pointwise and orders three through five saturate both sets whenever 2|A|>|G|; smaller subsets balance by the pair calculation. These arguments cover all quantifiers, including the trivial group and empty subset. The proof in RESULT.md §§1–4 is replayable by exact set arithmetic. VERIFICATION.md and verify.py were inspected but the attached script was not executed; its finite checks do not establish the classification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Amit et al. §§1.1–1.2 study proportions and moments; Miller–Vissuet Theorem 1.1 supplies an asymptotic density-one statement.",
+          "Penman–Wells classify finite abelian groups with strict sum dominance. Herrmann studies small strict sum-dominant sets. Ascoli et al. and Mandal–Neetu supply family-specific small-size results."
+        ],
+        "reasoning": "Asymptotically frequent balance permits finite small witnesses. Sum dominance rules out only one sign of discrepancy. Family results cover some cases exactly, not arbitrary groups or the reduction to quaternion subgroups.",
+        "searches": [
+          "arXiv:2610.12912v1",
+          "arXiv:1308.2344v2",
+          "Penman–Wells Theorem 1.1",
+          "arXiv:2608.22189v2",
+          "arXiv:2210.00669v1",
+          "arXiv:2602.09073v1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, REVIEW.md and VERIFICATION.md",
+        "Resultary 33ef0cfde372, 5cb2822192ab, d542dd4596cd",
+        "Penman–Wells OA PDF",
+        "arXiv:1308.2344v2, 2610.12912v1, 2509.04717v2, 2509.00611v3, 2210.00669v1, 2602.09073v1, 2608.22189v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "C₆ has no strict sum-dominant set under Penman–Wells, but {0,1,3} has five sums and six differences. Exhaustive three-point counts for dihedral groups restrict the group hypotheses and do not cover the quaternion or general abelian branches."
+        ],
+        "reasoning": "The inspected general and family-specific statements do not imply the combined universal-exception and minimum-witness result. The calculation for two points and building blocks need not individually be new.",
+        "searches": [
+          "Penman–Wells Theorem 1.1",
+          "arXiv:1308.2344v2 Theorem 1.1",
+          "arXiv:2210.00669v1 Lemma 2.2 and Theorem 1.8",
+          "Resultary 33ef0cfde372"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mouli–Saldin Theorem 1.1 and Duvivier et al. Theorem 1.5 compare the two quotient sets AA⁻¹ and A⁻¹A."
+        ],
+        "reasoning": "Replacing AA by the other quotient set is not an equivalent convention: the other condition holds in every abelian group, whereas C₆ already fails the frozen universal equality. Inverting A can switch the right/left quotient framing, but cannot turn AA into the other quotient.",
+        "searches": [
+          "Resultary: exact frozen title and minimum-witness formulation (50 ranked hits per query)",
+          "arXiv:2509.04717v2",
+          "arXiv:2509.00611v3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct Resultary dihedral record gives the entire three-subset discrepancy distribution in Dₙ; the dicyclic record gives fixed-size frequencies. The inspected dicyclic tables cover the Q₈ small-subset case.",
+          "Same-day UT₄ record d542dd4596cd counts maximum pairwise-noncommuting subsets, not product/quotient equality."
+        ],
+        "reasoning": "Credit existing family information and table values. Neither the family ranges nor the table invariants encode the minimum over all finite groups; no identical classification was found among the ranked results.",
+        "searches": [
+          "Resultary exact-title and minimum-witness queries",
+          "Resultary 33ef0cfde372, 5cb2822192ab and d542dd4596cd",
+          "arXiv:2602.09073v1 small-size tables"
+        ]
+      },
+      "rationale": "The supported distinct claim is the all-finite-group classification together with the minimum witness size, not the existence of a specific quaternion, dihedral, or cyclic witness in isolation. No equivalent or dominating statement was identified in the inspected evidence.",
+      "residual_risks": [
+        "Ranked semantic and literature coverage is bounded. The short subgroup argument may occur in unindexed small-set or equal-square group literature. The judgment is not absolute priority and does not claim novelty for previously counted families."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct dihedral-family overlap only",
+          "evidence": "The discrepancy takes values in {−1,0,1,3}, with a distribution specified for all three-point subsets of Dₙ, n≥3.",
+          "identifier_or_url": "Resultary 2026/10/25, 33ef0cfde372",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "The exact product–quotient discrepancy law for three-point dihedral subsets",
+          "trigger": "Same statistic and three-point size"
+        },
+        {
+          "assessment": "Different quantitative claim",
+          "evidence": "Asymptotic fixed-size discrepancy law and reversal for size at least six.",
+          "identifier_or_url": "Resultary 2026/10/18, 5cb2822192ab",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Binomial dominance law and a six-point reversal in dicyclic groups",
+          "trigger": "Quaternion and dicyclic overlap"
+        },
+        {
+          "assessment": "One-sided strict sum dominance",
+          "evidence": "In particular excludes sum-dominant subsets for every group of order below twelve, including C₆ which has a difference-dominant triple.",
+          "identifier_or_url": "https://repository.essex.ac.uk/10944/1/361-384.pdf",
+          "material_read": "Theorem 1.1, pp. 362–363, text offset 3457",
+          "method": "Lawful OA PDF",
+          "title": "Sum-dominant sets and restricted-sum-dominant sets in finite abelian groups",
+          "trigger": "Plausible finite abelian classification"
+        },
+        {
+          "assessment": "Asymptotic, not universal",
+          "evidence": "Probability of full coverage by both sets tends to one in growing finite groups.",
+          "identifier_or_url": "arXiv:1308.2344v2",
+          "material_read": "Abstract and Theorem 1.1, offsets 0 and 2896",
+          "method": "OA PDF passages",
+          "title": "Most Subsets are Balanced in Finite Groups",
+          "trigger": "Almost identical terminology"
+        },
+        {
+          "assessment": "Different quantifiers",
+          "evidence": "Proportions and moments across large groups, not exclusion of all small witnesses.",
+          "identifier_or_url": "arXiv:2610.12912v1",
+          "material_read": "Abstract and §§1.1–1.2, offsets 0 and 7361",
+          "method": "OA PDF passages",
+          "title": "Product and Quotient Set Dominance in Finite Groups",
+          "trigger": "Same two sets in all-group probabilistic analysis"
+        },
+        {
+          "assessment": "Inequivalent sets",
+          "evidence": "AA⁻¹ and A⁻¹A, automatically equicardinal in abelian groups.",
+          "identifier_or_url": "arXiv:2509.04717v2",
+          "material_read": "Abstract and Theorem 1.1, offsets 0 and 2881",
+          "method": "OA PDF passages",
+          "title": "Classification of Finite Groups With Equal Left and Right Quotient Sets",
+          "trigger": "Universal two-set equality classification"
+        },
+        {
+          "assessment": "Inequivalent sets",
+          "evidence": "Size bounds apply to the two quotient sets, not a product and quotient.",
+          "identifier_or_url": "arXiv:2509.00611v3",
+          "material_read": "Theorem 1.5, PDF p. 5, offset 11534",
+          "method": "OA PDF passage",
+          "title": "Comparing Left and Right Quotient Sets in Groups",
+          "trigger": "Analogous minimum witness bounds"
+        },
+        {
+          "assessment": "Partial family coverage",
+          "evidence": "Dihedral/generalized-dihedral small-size results include a comparison of size-three MSTD and MDTS subsets.",
+          "identifier_or_url": "arXiv:2210.00669v1",
+          "material_read": "Theorem 1.8 and Lemma 2.2, offsets 7462–10583",
+          "method": "OA PDF passages",
+          "title": "Sum and Difference Sets in Generalized Dihedral Groups",
+          "trigger": "Exact small-set dominance results"
+        },
+        {
+          "assessment": "Family-specific antecedent",
+          "evidence": "Counts both signs and equality for small subsets of dicyclic groups.",
+          "identifier_or_url": "arXiv:2602.09073v1",
+          "material_read": "Abstract and introductory tables, offsets 0 and 7405",
+          "method": "OA PDF passages",
+          "title": "Exact and Asymptotic Counts of MSTD, MDTS, and Balanced Sets in Dicyclic Groups",
+          "trigger": "Exact two- and three-point counts for groups including Q₈"
+        },
+        {
+          "assessment": "One-sided and different range",
+          "evidence": "Nonexistence of size-five MSTD sets and small MSTD classifications in fields do not exclude quotient-dominant triples.",
+          "identifier_or_url": "arXiv:2608.22189v2",
+          "material_read": "Abstract and Theorem 1.1, offsets 0 and 3499",
+          "method": "OA PDF passages",
+          "title": "Herrmann, small sum-dominant sets",
+          "trigger": "Sharp small-set classifications"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the standard sum/difference statistic, universal balance is decided by subsets of size at most three, with a sharp size threshold and a local structural obstruction. This is a useful exact complement to larger-subset count and asymptotic-balance results. The quaternion reduction explains why pair testing alone is insufficient even for nonabelian groups; the result is not merely a small-order census.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

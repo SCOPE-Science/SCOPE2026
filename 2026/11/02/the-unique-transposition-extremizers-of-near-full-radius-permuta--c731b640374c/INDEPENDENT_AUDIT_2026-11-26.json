@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:02:46.909375Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–67",
+        "Frozen VERIFICATION.md, verify_direct.py, verify_structure.py, direct_output.txt and structure_output.txt (inspected, uploaded scripts not run)",
+        "Replay: python3 -I /workspace/branches/frozen_independent_checks.py (output labelled 2)"
+      ],
+      "rationale": "Left multiplication preserves Hamming distance and reduces the centers to e and sigma. Complementing the balls gives n!-2D_n+Q(sigma), where Q counts derangements also avoiding the moved edges of sigma. Prescribing one moved edge leaves n-2 disjoint forbidden diagonal cells on n-1 rows, so U=D_(n-1)+D_(n-2). Prescribing two distinct edges leaves respectively n-2, n-3 or n-4 such cells according to the number of symbols in their union, giving the common upper bound V=D_(n-2)+2D_(n-3)+D_(n-4). A transposition uses only two edges with overlap D_(n-2), giving the claimed value. Any other nonidentity type moves at least three points; Bonferroni for those three events bounds Q by D_n-3U+3V, below the transposition value by at least D_(n-1)-D_(n-2)-6D_(n-3)-3D_(n-4). This is 1, 20, 161 for n=5,6,7 and by recurrence (n-3)D_(n-2)+(n-8)D_(n-3)-3D_(n-4)>0 for n>=8. Thus equality is possible only for a transposition. An independent direct enumeration of survivors agreeing in both balls counted every relative cycle type for n=3 through 8: maxima 3, 10, 56, 358, 2612, 21514, including exactly the stated small-length exceptions.",
+      "residual_risks": [
+        "Enumeration is bounded and only corroborates the theorem; strictness for unbounded n is established by the three-event analytic inequality. The result does not apply to arbitrary radius below n-1."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abdollahi et al., Theorem 1.1: the transposition maximum value is proved for fixed r=5,6,7; Sec. 2 reports earlier formulas at prescribed distance 2,3,4 and a large-n result for r>=5, and states N(n,r)=I(n,2,r) as a conjecture in the general regime.",
+          "Abdollahi et al., Theorem 4.2: general character-based computation for the maximization problem."
+        ],
+        "reasoning": "Fixed-radius statements and large-n qualifications do not establish the entire growing-radius diagonal. The general character formula permits computing the maximum but does not, in the inspected statement, show that the unique maximizing relative type is a transposition for every n on it.",
+        "searches": [
+          "arXiv:2601.02844v1 Theorem 1.1, Conjecture 2.1, Theorem 4.2",
+          "DOI:10.1007/s10623-024-01509-4",
+          "arXiv:2210.11864v2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, lines 69–81",
+        "arXiv:2601.02844v1",
+        "arXiv:2210.11864v2",
+        "DOI:10.1007/s10623-024-01509-4 (indirect scope and bibliographic only)",
+        "Resultary 6eb1f0fe59d3 and 3698ed40fe98"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sec. 2 attributes all-radius prescribed-distance-two counts to Wang–Fu–Konstantinova, but treats transposition extremality as the separate conjectural comparison. Theorem 4.2 and Table 2 supply a general evaluation method and finite maxima."
+        ],
+        "reasoning": "Even if the full formula for a pair at distance two is substituted at r=n-1, that gives only a lower bound for the unrestricted maximum until all other types are compared. An equality in maximum values at individual parameters also does not show their maximizing type is unique. The Bonferroni argument proves both missing comparisons in one uniform bound.",
+        "searches": [
+          "arXiv:2601.02844v1 Sec. 2 offsets 8400–11948 and Sec. 4 offsets 34800–39591",
+          "DOI:10.1007/s10623-024-01509-4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact reduction here is maximize Q(sigma), the common neighbors of e and sigma in the derangement Cayley graph, by minimizing a union of prescribed forbidden-edge events.",
+          "Wang–Konstantinova arXiv:2210.11864v2 PDF p. 4 supplies ordinary derangement and ball-volume formulas; its abstract addresses prescribed center distances 2r and 2r-1."
+        ],
+        "reasoning": "Single-ball volume, forbidden-position counts at a fixed relative permutation, and extremality over distinct relative types are different claims. A theorem on all-type common-neighbor extremality in the derangement graph would cover this result, but no such statement was verified in the located material.",
+        "searches": [
+          "Permutation Hamming-ball reconstruction, transposition maximizing intersection, derangement and forbidden-edge overlap",
+          "arXiv:2210.11864v2",
+          "arXiv:2601.02844v1 Sec. 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 2 gives N(9,8)=197864 and N(10,9)=2012014, exact existing overlaps, and the accompanying text reports finite confirmation of the distance-two conjecture.",
+          "6eb1f0fe59d3 Finding concerns translated limited-magnitude error balls in Z^n; 3698ed40fe98 Finding concerns feasible mismatch counts for multiset permutations."
+        ],
+        "reasoning": "The tabulated diagonal values must be credited as known finite cases, not claimed new. Neither indexed near hit counts intersections in this metric space; neither the finite table nor the indexed hits imply the strict infinite classification.",
+        "searches": [
+          "arXiv:2601.02844v1 Table 2",
+          "Resultary queries for the derangement formula, near-full radius, reconstruction/transposition and forbidden-position overlap",
+          "Resultary 6eb1f0fe59d3 and 3698ed40fe98"
+        ]
+      },
+      "rationale": "The prescribed distance-two count and known finite maxima are prior coverage. The supported distinct claim is the uniform strict classification over all distinct centers along the unbounded diagonal r=n-1, not a new count at prescribed distance two or a determination of the conjecture at arbitrary radius. The closest accessible reconstruction source proves fixed small radii and tabulates further lengths; that evidence does not give the infinite strict diagonal conclusion.",
+      "residual_risks": [
+        "The closest earlier Wang–Fu–Konstantinova full text could not be lawfully retrieved, so potential implicit diagonal coverage there remains a risk. Bounded searches are not proof of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Existing fixed-radius and finite value overlap; inspected statements do not give infinite diagonal strictness",
+          "evidence": "Exact fixed r=5,6,7; general character formula; Table 2 diagonal values 197864 and 2012014.",
+          "identifier_or_url": "https://arxiv.org/html/2601.02844v1",
+          "material_read": "Abstract, Theorem 1.1, Sec. 2 Conjecture 2.1 and preceding review, Theorem 4.2 and Table 2",
+          "method": "OA HTML passage reads at offsets 0, 3320–7313, 8400–11948, 34800–39591",
+          "title": "The Sequence Reconstruction of Permutations under Hamming Metric with Small Errors",
+          "trigger": "Same reconstruction maximum, includes diagonal numerical values"
+        },
+        {
+          "assessment": "Earlier prescribed-distance counts credited; direct full-text comparison unavailable",
+          "evidence": "The later paper explicitly describes three prescribed center distances and a sufficiently-large-n qualification, not a uniform diagonal equality-case result.",
+          "identifier_or_url": "https://doi.org/10.1007/s10623-024-01509-4",
+          "material_read": "Bibliographic identification and scope as reported in arXiv:2601.02844v1 Sec. 2; no original full text",
+          "method": "DOI and Springer URL attempts failed on redirects; no lawful repository copy identified",
+          "title": "The sequence reconstruction of permutations with Hamming metric",
+          "trigger": "Closest earlier prescribed-distance results and original transposition conjecture"
+        },
+        {
+          "assessment": "Earlier methodology and different prescribed-separation regime",
+          "evidence": "Abstract treats d=2r and a lower bound at d=2r-1; p. 4 has standard derangement count.",
+          "identifier_or_url": "https://arxiv.org/abs/2210.11864v2",
+          "material_read": "PDF abstract p. 1 and p. 4 derangement/ball-volume passages",
+          "method": "OA passage reads at offsets 0 and 8950–14126",
+          "title": "The sequence reconstruction problem for permutations with the Hamming distance",
+          "trigger": "Earlier reconstruction and derangement treatment"
+        },
+        {
+          "assessment": "Different model",
+          "evidence": "Translated balls in the integer lattice and a coordinate-polynomial formula.",
+          "identifier_or_url": "2026/10/4/SCOPE-exact-arbitrary-center-intersections-of-limited-magnitude-error--6eb1f0fe59d3",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local mirror passage",
+          "title": "Exact arbitrary-center intersections of limited-magnitude error balls",
+          "trigger": "Highest apparent indexed intersection match"
+        },
+        {
+          "assessment": "Different target",
+          "evidence": "Possible mismatch counts in multiset permutations, not intersections of balls.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-fixed-point-support-and-constructive-mismatch-spectrum-for--3698ed40fe98",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local mirror passage",
+          "title": "Exact fixed-point support and constructive mismatch spectrum",
+          "trigger": "Same-day indexed permutation Hamming match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–17 and 45–75",
+        "arXiv:2601.02844v1 Conjecture 2.1 and Table 2"
+      ],
+      "rationale": "This treats a natural extremal boundary of an existing permutation reconstruction conjecture at every length, not just a finite extension of its tables. The strict equality-case classification and sharp n=3,4 behavior say which center geometries create the worst ambiguity; the short forbidden-position comparison replaces a length-by-length maximization over cycle types.",
+      "residual_risks": [
+        "No arbitrary-radius result or classification of suboptimal pairs is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:51:50.317007Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–81",
+        "Frozen verify.py and VERIFICATION.md; inspected, not executed"
+      ],
+      "rationale": "Use an orthonormal pair beginning with b for Galerkin and one beginning with Ab/h for minimal residual. In either case the projected independent Gaussian in the direction of the first sketched vector has law N(0,1) independent of the chi length of that vector. Thus the laws stated are marginal, not a coupling. Z/R has density Cₘ(1+z²)⁻⁽ᵐ⁺¹⁾⁄², giving the minimal-residual index m and constant 2Cₘ(c/h²)ᵐ/m. The Galerkin denominator has positive continuous density at zero; integrating it over (−1/t,1/t) gives the stated index 1 and constant 2f(0). Subtracting a fixed exact solution changes the Euclidean error from |θ| by at most a constant, and norm equivalence preserves thresholds in the energy norm. At m=1 both cutoffs equal 1; m=2 is still outside the minimal-residual mean-square regime. The sign probability follows from √m Z/R ∼ tₘ and tends to zero since R grows in probability. Expanding the energy error as bᵀA⁻¹b−2θ+aθ² and using E[R⁻²]=1/(m−2) proves the squared-error formula (including the stated rational example). The c=0 excluded case is genuinely deterministic.",
+      "residual_risks": [
+        "Claims are exactly for the unconditioned one-step real Gaussian law, not embedding-conditioned, regularized, or finite-precision calculations. No independent attestation in frozen metadata."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Record 38a83f9c9464 states sharp moment cutoffs and an exact FOM pole-tail result for all nonterminal Krylov steps; record 8e6624cf650a describes a k-step moment frontier with Gaussian regression Student density. The cited papers give the algorithm constructions and embedding-conditioned bounds or qualitative instability, not this unconditional moment theorem in the passages inspected."
+        ],
+        "reasoning": "The earlier multi-step analyses include a nonterminal first step. An embedding assumption in prior high-probability analyses neither covers nor contradicts the unconditioned pole.",
+        "searches": [
+          "Resultary 38a83f9c9464 and 8e6624cf650a, Findings",
+          "Güttel–Schweitzer arXiv:2208.11447, Sections 2–3",
+          "Timsit–Grigori–Balabanov arXiv:2302.07466, Proposition 3.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6bf113754aed, 38a83f9c9464, 8e6624cf650a",
+        "arXiv:2208.11447",
+        "arXiv:2302.07466"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior bounds and exact laws yield E|θF|^q infinite for q≥1 and finite for q<1, and E|θM|^q finite exactly for q<m; prior Student density and its second moment also give the sign probability and energy formula."
+        ],
+        "reasoning": "The error from a fixed solution is a bounded shift in coefficient magnitude and the energy-squared error a fixed quadratic. Neither converts the covered exact law into a distinct material result.",
+        "searches": [
+          "Resultary 6bf113754aed, one-step Finding/Proof",
+          "Resultary 38a83f9c9464, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior scalar Galerkin law is reciprocal affine Student and the minimal-residual law is affine Student on the same unconditioned one-dimensional Gaussian problem. Its sketch dimension ℓ is this claim's m."
+        ],
+        "reasoning": "Choosing the coordinates (b,(Ab−ab)/c) rewrites the earlier law exactly in a,c,h; changing from coefficient to deterministic-solution error does not alter the exponent or Euclidean leading constant.",
+        "searches": [
+          "Resultary search for Gaussian sketched FOM/GMRES pole, Student regression and moment separation",
+          "Resultary record 6bf113754aed, Finding and Proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 1D exact law and pole coefficient are explicitly present in the catalogue record. The affine Student expression fixes the exact minimal-residual tail constant by integrating its density."
+        ],
+        "reasoning": "There is no integer-sequence table issue; the relevant exact benchmark and constant were checked in the published mathematical records.",
+        "searches": [
+          "Resultary catalogue for first-step Student laws, exact pole coefficient, and moment thresholds; 6bf113754aed"
+        ]
+      },
+      "rationale": "The material conclusions are already covered, not merely suspected to overlap: an earlier Resultary record gives the same one-step marginal Student and reciprocal-Student laws, the sharp moment contrast, and the Galerkin pole coefficient. Bounded shift transfers its coefficient-tail constant to the indicated Euclidean error; the minimal-residual constant, direction probability and energy mean-square expression follow directly from the prior marginal laws. The prior numerical-linear-algebra papers alone would not establish this overlap, but the local record does.",
+      "residual_risks": [
+        "The external search was noisy and does not resolve widest publication priority; the rejection is based on directly inspected catalogue coverage, not on that search failing. A later closely related entry c6f69d14c72b is not used as prior evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the central claim",
+          "evidence": [
+            "States both one-step marginal laws, both sharp moment cutoffs, and the same sharp coefficient pole constant."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-an-all-oversampling-infinite-risk-law-for-gaussian-sketched-fom--6bf113754aed/RESULT.md",
+          "material_read": "RESULT.md Finding and Proof, passage starting at offset 0",
+          "method": "Resultary search and local mirror text",
+          "title": "An all-oversampling infinite-risk law for Gaussian-sketched FOM",
+          "trigger": "Direct matching Gaussian one-step law"
+        },
+        {
+          "assessment": "Broader moment and FOM tail coverage",
+          "evidence": [
+            "Nonterminal k and finite Gaussian oversampling, sharp moment cutoffs for both and an exact Galerkin tail constant."
+          ],
+          "identifier_or_url": "38a83f9c9464",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror text",
+          "title": "An oversampling-proof infinite-mean barrier for Gaussian-sketched FOM",
+          "trigger": "A stronger nonterminal-step theorem"
+        },
+        {
+          "assessment": "Broader moment coverage",
+          "evidence": [
+            "Student density from Gaussian regression and a k-step frontier."
+          ],
+          "identifier_or_url": "8e6624cf650a",
+          "material_read": "RESULT.md Finding and Proof, offset 0",
+          "method": "Resultary local mirror text",
+          "title": "Sharp moment separation between Gaussian-sketched Galerkin and minimal residual",
+          "trigger": "Competing Gaussian-regression moment theorem"
+        },
+        {
+          "assessment": "Standard formulations and qualitative overlap",
+          "evidence": [
+            "Defines skewed Galerkin orthogonality and minimal sketched residual, notes possible projected eigenvalues with negative real part even for Hermitian A."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2208.11447",
+          "material_read": "p. 3 Eq. (2.3), p. 7 Eq. (2.7) discussion, Section 3 p. 8",
+          "method": "Primary OA full-text passages",
+          "title": "Randomized sketching for Krylov approximations of large-scale matrix functions",
+          "trigger": "Same algorithms and instability"
+        },
+        {
+          "assessment": "Conditional control, not the unconditional sharp law",
+          "evidence": [
+            "Proposition 3.2 assumes an ε-embedding."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2302.07466",
+          "material_read": "p. 6 Definition 2.1; p. 12 Proposition 3.2",
+          "method": "Primary OA full-text passages",
+          "title": "Randomized Orthogonal Projection Methods for Krylov Subspace Solvers",
+          "trigger": "Same sketched Petrov–Galerkin setup"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 16–41 and 75–87",
+        "Resultary 6bf113754aed, exact scalar law and moment separation"
+      ],
+      "rationale": "The unconditioned moment contrast is a useful solver diagnostic in its own right, but that diagnostic and the sharp benchmark are already available. The remaining numerical-linear-algebra details are direct consequences of the same prior scalar laws: integrating the Student tail, reading the denominator sign, or taking the expectation of a quadratic. The record does not establish a further phenomenon or an independently useful unknown invariant beyond this known benchmark.",
+      "residual_risks": [
+        "This is not a judgment against the value of the original pole obstruction or a claim that the frozen calculations are false."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

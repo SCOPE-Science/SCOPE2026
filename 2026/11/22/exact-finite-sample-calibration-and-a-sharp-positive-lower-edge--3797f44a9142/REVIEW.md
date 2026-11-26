@@ -1,9 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness (C): PASS.** In one dimension the Čech Euler characteristic equals the count of components separated by internal gaps exceeding twice the radius, which reduces the entire supremum to one-sided evaluations at the gap jumps. The uniform order-statistic simplex identity supplies the exact joint law. A finite cell allocation and inclusion-exclusion prove the full CDF. A disjoint ordered box below the unique truncation transition proves the product formula; midpoint concavity ensures a feasible sharp lower endpoint, and a Taylor expansion yields the positive sharp coefficient. The supplied checker independently recomputes 53 numerical and finite formula comparisons; no finite experiment substitutes for the proof. Risks: exact-null centering and full radius scope are indispensable.
+## correctness
 
-**Originality (O): PASS, with historical-priority uncertainty.** The original full preprint and open journal text address Euler-characteristic testing, asymptotic theory, implementation and simulation calibration, without presenting this finite-sample full-filtration uniform null CDF and sharp endpoint law. The closest published-finding corpus searches found general uniform-spacing covariance and exceedance-count theorems, not this supremum distribution. Older Durbin and Koziol spacing-based goodness-of-fit studies provide strong adjacent background; only accessible summaries were obtained for those, and their full texts could contain additional implications. The claimed contribution is strictly the statistic-specific formula and edge law, not the classical Dirichlet or inclusion-exclusion method.
+PASS
 
-**Value (V): PASS.** The result directly resolves a specific calibration gap for a published topological goodness-of-fit statistic: the null law is finite, computable without resampling for modest sample sizes, and has a deterministic nonzero lower support boundary plus a sharp rare-tail power. The concentration-edge coefficient gives a principled way to check small-sample critical values and simulator implementations. It neither claims a faster general-purpose algorithm nor asserts high-dimensional or composite-null generality.
+Under the fully specified uniform null and full radius range, ordered internal gaps alone determine the Čech Euler curve (by the nerve theorem for intervals and component counting). With m=n−1, its one-sided deviations at a jump are k−mp_k and k−1−mp_k. Between jumps the centering is monotone. This verifies the two rank-band inequalities and the 1/2 lower bound. In Step 1 read the undefined typographical ‘ν_k’ in A_k as the immediately defined upper bound u_k, as required by H_k=1−p_k^(1/n). Translation of the uniform full-spacing simplex gives the nth-power joint survivor; grouping boxes by counts gives the stated multinomial inclusion–exclusion. For z<1 the gap rank intervals are ordered, so the product formula holds while the top corner lies in the simplex. Strict midpoint concavity gives slack >2/(n+1) at z=1/2; at z=1 the first upper gap is 1, and another strictly positive upper gap exists if n≥3. Thus the unique crossing β_n exists. The affine density n!m!(1−∑h_k) integrates to the stated product and each width is asymptotic to its derivative times ε, giving the positive constant. The maximizing endpoint m is approached by clustered observations; continuity on the gap simplex and positive interior density give the full support. For n=2, p_1 is uniform and Z_2=max(p_1,1−p_1). Independent diagnostic `python /workspace/independent_replay.py 4`: polygon clipping and affine quadrature at n=3 gave CDF 0.088481599367537735094 at 0.7, 0.5946462869292811287 at 1, and 1 at 2; rescaled CDF at ε=10⁻⁷ gave 2.1918309480047137269. This is not an all-n computational certification.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The known one-sample Euler test and classical Dirichlet spacing laws are not new; the supported distinct contribution is their explicit finite calibration for internal gaps, in particular the sharp feasible left edge, its exact product interval and leading small-ball coefficient.
+
+## value
+
+PASS
+
+For a published goodness-of-fit statistic, an exact calibration benchmark independent of resampling, a sharp deterministic cutoff at 1/(2√n) on the original scale, and the product region with its fixed-n small-ball coefficient address a concrete calibration gap. The formula is combinatorial, not a claim of scalable implementation or improved power.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:23:10.541190Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–95",
+        "Frozen VERIFICATION.md, lines 19–23; verify.cpp, lines 4–48 (inspected, not executed)",
+        "Independent replay: python3 /tmp/opencode/potts_bipyramid_review.py. Exact rim transfer counts indexed by first/last colors, field occupation and penalty, plus apex-color orbit multiplicities. 2878 rational probes cover every envelope cell and boundary separately for n=6..24."
+      ],
+      "rationale": "For k favored rim spins and t favored apices, the forced bond cost is at least max(0,2k-n)+tk. The k-breakpoints are 0, floor(n/2), ceil(n/2), n; for 0<x<=2 the mixed or all-favored apex lines at the positive breakpoints cost t(k-x) more than the nonfavored-apex line, and k=0 cannot beat -x floor(n/2) since floor(n/2)>=3. For 2<=x<=n the line n(1-x) bounds all competing lines by their endpoint gaps, with only k=n at x=n; that is a three-sector apex tie, and the greatest slope in magnitude takes over beyond n. The rim equality patterns have no extraneous nonfavored bond costs when counted as proper colorings after excluding the apex colors. On the odd rim at x=1, the two boundary k-sectors add, while at x=2 all independent nonfavored rim sets contribute 3*2^|R|+6. The cyclic independence transfer eigenvalues give both terms of D_n; near activity 2 the top eigenvalue gives density 1/3 for R and variance O(n), so the limiting favored fraction is 2/3. At x=0 proper colorings are counted by whether apices coincide; x=n gives 4^2 apex choices. No unsupported finite-temperature inference is needed.",
+      "residual_risks": [
+        "The replay is finite; the analytic inequalities and equality counting, rather than that replay, support the all-size quantifier."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Weighted proper colorings forbid monochromatic edges; exact partition-function examples concern cliques of hubs; periodic Eulerian triangulation results concern a different limit and graph class."
+        ],
+        "reasoning": "The general models supply machinery, not the compared fixed-graph envelope with admitted finite exchange defects.",
+        "searches": [
+          "arXiv:0908.2375 Sec. E",
+          "arXiv:1009.1182 pp. 1, 13, 19, 34",
+          "arXiv:1108.1743 pp. 1–2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary comparison IDs c2a2bf28f112, 351c4c99b7bc and exact self-hit 3f797a40e305",
+        "arXiv:0908.2375",
+        "arXiv:1009.1182",
+        "arXiv:1108.1743"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At x=2 the distinct-nonfavored-apex sector has six color choices and forces a unique nonfavored rim color, akin to the Lucas-counted wheel. Equal nonfavored apices instead allow two colors on each independent defect site and dominate the count exponentially."
+        ],
+        "reasoning": "The known single-hub Lucas calculation does not supply the activity-2 term, the density 2/3, or the odd-rim extra plateau. The known proper-coloring subcase at zero field is not the distinguishing content.",
+        "searches": [
+          "Resultary c2a2bf28f112, Finding and derivation",
+          "arXiv:1009.1182 Sec. VII"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The bipyramid is an independent double-apex join, not the p=2 clique join. The latter adds a monochromatic bond if apices agree; that affects relative apex-sector energies, not a uniform additive shift."
+        ],
+        "reasoning": "Neither a wheel/suspension alias nor dropping the edge from an adjacent-hub formula preserves ground state weights at fixed field.",
+        "searches": [
+          "Resultary catalogue: Potts bipyramid/wheel, parity, Lucas coexistence",
+          "arXiv:1009.1182 §§III, VII"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue hit 3f797a40e305 is this same record. The preceding three-color wheel gives g(2)=2L_n. The separate same-day ladder has a Lucas count 3L_(2n/3) at h=1 and cubic-root growth at h=2."
+        ],
+        "reasoning": "Compared the families and exact counts, not publication-day ordering; no separate table found governing the frozen family.",
+        "searches": [
+          "Resultary catalogue, published wheel and Potts parity/field records",
+          "2026/11/8/SCOPE-two-magnetic-thresholds-and-lucas-degeneracy-on-three-state-anti--c2a2bf28f112",
+          "2026/11/22/SCOPE-two-sharp-entropy-spikes-for-a-row-staggered-three-state-potts-a--351c4c99b7bc"
+        ]
+      },
+      "rationale": "The strongest inspected comparators establish overlapping wheel mechanisms or solve other Potts models. They do not cover the full finite-exchange four-color two-nonadjacent-apex family, the odd-rim J crossing or the activity-2 entropy selection.",
+      "residual_risks": [
+        "Search is bounded; it does not rule out a non-indexed equivalent finite-field table or a bipyramid specialization treated elsewhere. Primary search yielded no closer result; that is not itself evidence of novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial coverage only",
+          "evidence": "Three colors, one hub; thresholds 2J,nJ, Lucas degeneracy 2L_n and log(phi) residual entropy.",
+          "identifier_or_url": "2026/11/8/SCOPE-two-magnetic-thresholds-and-lucas-degeneracy-on-three-state-anti--c2a2bf28f112",
+          "material_read": "Finding and proof, local RESULT.md offsets 0–9204",
+          "method": "Resultary catalogue and original text in GitHub mirror",
+          "title": "Two magnetic thresholds and Lucas degeneracy on three-state antiferromagnetic Potts wheels",
+          "trigger": "Closest positive-field classification"
+        },
+        {
+          "assessment": "Distinct model and theorem",
+          "evidence": "Cyclic two-row ladder, row-staggered field and lengths divisible by three.",
+          "identifier_or_url": "2026/11/22/SCOPE-two-sharp-entropy-spikes-for-a-row-staggered-three-state-potts-a--351c4c99b7bc",
+          "material_read": "Finding, local RESULT.md starting at offset 0",
+          "method": "Resultary catalogue and original text in GitHub mirror",
+          "title": "Two sharp entropy spikes for a row-staggered three-state Potts antiferromagnet",
+          "trigger": "Same-day Potts field/coexistence result"
+        },
+        {
+          "assessment": "Partial methodological overlap",
+          "evidence": "Colorings proper throughout; wheel has one hub.",
+          "identifier_or_url": "https://arxiv.org/abs/0908.2375",
+          "material_read": "PDF p. 1 and Sec. E, p. 19",
+          "method": "OA PDF text passages",
+          "title": "Weighted Graph Colorings",
+          "trigger": "One-favored-color wheel count"
+        },
+        {
+          "assessment": "Different multihub family",
+          "evidence": "p-wheel uses K_p joined with the cycle; one preferred color is s=1.",
+          "identifier_or_url": "https://arxiv.org/abs/1009.1182",
+          "material_read": "PDF pp. 1, 13, 19, 34, including §VII and p=2 example",
+          "method": "OA PDF text passages",
+          "title": "Exact Results on Potts Model Partition Functions in a Generalized External Field and Weighted-Set Graph Colorings",
+          "trigger": "Closest primary exact multi-hub partition functions"
+        },
+        {
+          "assessment": "Conceptual context, not the target finite-field classification",
+          "evidence": "Bulk transition and zero-temperature proper-coloring mapping, rather than a finite nonadjacent-double-apex field study.",
+          "identifier_or_url": "https://arxiv.org/abs/1108.1743",
+          "material_read": "PDF pp. 1–2",
+          "method": "OA PDF text passages",
+          "title": "Finite-temperature phase transition in a class of 4-state Potts antiferromagnets",
+          "trigger": "Four-state Eulerian triangulation comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and critical-field count, RESULT.md lines 9–39 and 83–95",
+        "Three-state wheel comparator c2a2bf28f112"
+      ],
+      "rationale": "This completes a natural graph-family classification and separates three phenomena quantitatively: a parity defect creates an extra field interval, local freedom at coexistence produces a third macroscopic favored density, and the final saturation threshold scales with apex degree. Knowing the full labeled degeneracy matters to uniform ground-state sampling; the energy envelope alone cannot predict the 2/3 density.",
+      "residual_risks": [
+        "Value is for the exact finite-graph and critical ground-state ensemble, not for a bulk positive-temperature phase diagram."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:55:39.309653Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–40",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent replay: /workspace/branches/801beef6-fa2d-4493-a520-28013b3fad08/independent_check.py"
+      ],
+      "rationale": "There are t+1 full-alphabet blocks, so every length-(t+1) target embeds and any constant length-(t+2) target fails. Greedy matching within I_q uses a new copy exactly at weak descents. If any of the first t comparisons is a strict increase, the first t+1 symbols fit in I_q^t and the last fits in π. If all are weak descents, the first t+1 cannot fit in I_q^t, so any embedding must use π for at least its last two letters. They fit exactly when their π-positions increase, and then placing the first t targets one per I_q copy suffices. For pivot v the first t symbols have binomial(q−v+t,t) choices by multisets and the last symbol has p_π(v) choices, with the q=1 case also covered. An independent distinct-subsequence-set check covered all 99 hosts with q≤4, t≤3 (34,477 length-(t+2) candidates). A separate exact subset-state dynamic program reproduced every endpoint, omission and support size for t=2, q≤7, including the cutoff among q≥3; no inference from a partial sweep was needed.",
+      "residual_risks": [
+        "The analytic characterization is all-q,t; the tested and credited finite spectrum has t=2 and q≤7. No independent formal verification is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kosche et al. give a one-position-per-arch description of SAS, and a weak-descent description for powers of one increasing permutation.",
+          "The separate one-switch record gives a two-pivot-order test and binomial product count for P^a Q^b, plus extrema and growth laws.",
+          "Adamson et al. give bounds for absent subsequences at fixed length and arch count, not the exact permutation-score support."
+        ],
+        "reasoning": "Taking P=I_q, Q=π, a=t, b=1 in the one-switch record gives exactly the frozen criterion and score for q≥2. This is demonstrable overlap independently of the later catalogue date. Neither the broader formula nor its optimizers give the pattern of holes at t=2.",
+        "searches": [
+          "arXiv:2108.13968 §3, Theorems 3.1 and 3.4 and Proposition 3.6",
+          "arXiv:2407.18599 pp. 2–3",
+          "Resultary 2c21f758a96b Finding"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2108.13968 §3",
+        "Vořechovský (2012) §3.4.1",
+        "arXiv:2407.18599 pp. 2–3",
+        "Resultary 2c21f758a96b and f7b066958a2d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For permutation arches the witness inequalities in the general theorem read as weak descents in the order of each corresponding arch. In the last arch the order is that of π; binomial pivot summation then yields the frozen formula.",
+          "The one-switch formula specializes to that same pivot sum. The stronger result is separately dated November 2; that timing is not treated as evidence of earlier priority."
+        ],
+        "reasoning": "The characterization and formula are not independent grounds for accepting novelty against the arch theory and exact overlapping formula. The t=2 support question is a separate all-permutations realizability problem absent from the inspected implications.",
+        "searches": [
+          "arXiv:2108.13968 Theorem 3.4 with successive permutation arches",
+          "Resultary 2c21f758a96b Steps 2–4 vs frozen lines 29–40"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At t=1, the count is binomial(q+2,3) plus half the sum of squared rank displacements; §3.4.1 gives its possible values (the q=3 exception included).",
+          "At t=2 the weights are consecutive triangular numbers, not affine ranks. Neither that rank-displacement law nor the aligned permutation example determines its attainable values."
+        ],
+        "reasoning": "The t=1 case is exactly the classical support law after translation and scaling and is excluded. For t=2 the support is the dot product of permuted consecutive ranks with fixed triangular weights, a nonlinear weighting not obtained by this translation or scaling.",
+        "searches": [
+          "Resultary one-switch permutation arches and repeated-permutation SAS spectra",
+          "Vořechovský (2012) §3.4.1 rank-displacement support"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact one-switch Finding states endpoints and special maximizing/minimizing orders, but not the seven nonlinear supports or endpoint-gap transition.",
+          "The ternary MAS record covers (012)^m and its shortest layer, not arbitrary appended order. The exact rank-displacement support is linear-weight t=1.",
+          "Independent support DP gives support sizes 1,2,6,21,63,139,251, with substantial interior holes for q=3,4,5 but none except the two endpoint-neighbor gaps at q=6,7."
+        ],
+        "reasoning": "Extremal values give only the bounding interval. A new exhaustive support calculation or structural proof is needed to establish attainability of all its nonexcluded scores; none of the inspected sources supplies it for these triangular weights.",
+        "searches": [
+          "Resultary one-switch permutation exact spectra 2c21f758a96b; exact ternary MAS f7b066958a2d",
+          "Vořechovský §3.4.1 compared with t=2 supports"
+        ]
+      },
+      "rationale": "Credit the exact nonlinear t=2 attainable supports and the first endpoint-only gap transition, not the general arch method, the aligned case, or the t=1 support. The two-order criterion and count can be recovered by specializing a prior general SAS characterization and counting pivot choices. A separate Resultary record also gives a directly specializing formula and extrema, but not the exact attainable supports or transition. Those require deciding which intermediate scores are realizable across permutations, not merely evaluating any one score.",
+      "residual_risks": [
+        "The bounded comparison does not exclude an equivalent table or range theorem indexed under triangular-weight permutation sums. It does establish meaningful overlap in the SAS characterization and formula, which are not credited as the decisive original component."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Generic characterization specializes; no nonlinear support theorem in these passages",
+          "evidence": [
+            "One witness position in each arch for SAS, with positional conditions for minimality; aligned powers yield weakly decreasing SAS."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2108.13968",
+          "material_read": "§3, Theorems 3.1 and 3.4 and aligned B_k discussion/Proposition 3.6, journal pp. 203–206, extracted offsets near 15500 and 19000",
+          "method": "Primary full-text passages",
+          "title": "Absent Subsequences in Words",
+          "trigger": "Stronger general arch theorem and aligned powers"
+        },
+        {
+          "assessment": "Covers linear weights, not triangular weights",
+          "evidence": [
+            "Squared displacement takes all even values in the interval except 4 for q=3."
+          ],
+          "identifier_or_url": "https://www.fce.vutbr.cz/stm/vorechovsky.m/papers/19j.pdf",
+          "material_read": "§3.4.1, PDF p. 5, offsets 46300–52200",
+          "method": "Primary full-text passage",
+          "title": "Correlation control in small sample Monte Carlo type simulations II",
+          "trigger": "Exact support of classical t=1 rank displacement"
+        },
+        {
+          "assessment": "Different extremal question",
+          "evidence": [
+            "Fixed-length and arch-count extremal bounds do not list the possible scores of one-switch words with one arbitrary terminal permutation."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2407.18599",
+          "material_read": "pp. 2–3, around offset 6900",
+          "method": "Primary full-text passage",
+          "title": "Tight Bounds for the Number of Absent Subsequences",
+          "trigger": "Broader exact counts or optimizers at fixed arch count"
+        },
+        {
+          "assessment": "Covers criterion, count and extrema via specialization; not the attainable support and finite gap transition",
+          "evidence": [
+            "For P^a Q^b the count is the sum of binomial(a+q−p(c),a) binomial(b+s(c)−1,b); setting b=1 gives the frozen weights times s(c)."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-one-switch-permutation-arches-exact-shortest-absent-spectra-and--2c21f758a96b",
+          "material_read": "RESULT.md Finding and Steps 1–4, mirror offsets 0–5466",
+          "method": "Resultary search and local mirror passages",
+          "title": "One-switch permutation arches: exact shortest-absent spectra and sharp order extrema",
+          "trigger": "Strongest exact catalogue overlap"
+        },
+        {
+          "assessment": "Aligned ternary words and MAS length layers, not the permutation-score support",
+          "evidence": [
+            "Studies (012)^m by a transfer characterization and recovers weakly decreasing SAS in the shortest layer."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-ternary-minimal-absent-subsequence-spectrum-of-repeated-pe--f7b066958a2d",
+          "material_read": "RESULT.md Finding, mirror offsets 0–5353",
+          "method": "Resultary search and local mirror passage",
+          "title": "Exact ternary minimal-absent-subsequence spectrum of repeated permutation arches",
+          "trigger": "Near-exact catalogue wording, including spectra"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen t=2 table and rearrangement endpoint argument",
+        "Independent exact support DP",
+        "Comparison with the t=1 rank-displacement support"
+      ],
+      "rationale": "The first nonlinear weighting of a natural order-dependent SAS count asks whether the extremal interval is actually filled. The two immediate endpoint gaps are intrinsic: sorting any nonextremal rank assignment toward its extremum by adjacent swaps gains at least two, the smallest difference between triangular weights. Thus q=6 is the first case among q≥3 attaining every value not ruled out by the immediate endpoint obstruction, with q=7 a second exact instance. This is a meaningful finite cutoff and gives exact data for broader support questions, not just a list at arbitrary sizes.",
+      "residual_risks": [
+        "The frozen scope ends at q=7; no larger-alphabet classification is needed or credited as part of the record."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

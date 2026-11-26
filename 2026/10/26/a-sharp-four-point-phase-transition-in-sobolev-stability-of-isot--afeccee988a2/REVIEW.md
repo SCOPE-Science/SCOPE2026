@@ -1,15 +1,21 @@
-# Scientific review: four-point Sobolev stability of isotonic regression
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact domain is the four-point real increasing-sequence cone, ordinary Euclidean isotonic least squares, and the quadratic perturbation norm \(\|z\|_\gamma^2=\|z\|_2^2+\gamma\sum_{i=1}^3(z_{i+1}-z_i)^2\) with \(\gamma>0\). The proof verifies eight possible consecutive pooling partitions; every partition has a nonempty open data cell. The global map is a continuous piecewise-linear selection of its block-averaging matrices, so the global Lipschitz constant is the maximum matrix norm. Exact generalized characteristic determinants and rational comparisons yield the two formulas and the unique crossing at \(\gamma=1/2\). The degree-bounded interpolation checker certifies the requisite polynomial identities over all parameters, rather than extrapolating from a finite numerical sample. Two explicit rational input pairs independently demonstrate exact attainment at distinct couplings. The universal open-cell argument proves attainment at all positive couplings.
+PASS
 
-## Originality — PASS with residual risks
+The estimator is the Euclidean projection, not Sobolev projection; only the input/output norm uses Q=I+gamma D^T D. Every contiguous block composition has a strict KKT interior: take centered strictly decreasing residuals inside each block (all proper prefix sums positive) and strictly increasing block means. On that cell P is block averaging. For a straight segment the finitely many affine pieces give the maximum-cell norm bound by summing segment lengths, also on faces by continuity. Inside any strict cell a small displacement in an operator-norm maximizing direction gives an actual sharp pair. Independently, with B the block-indicator matrix and G=(B^TB)^(-1), I compressed the nonzero eigenvalues of Q^(-1) E Q E to those of G(B^T Q B)G(B^T Q^(-1)B); the exact factorization for n=2,3,4 and KKT checks for both printed attaining pairs are replayable with python /workspace/checks/2.py using SymPy (output /workspace/checks/2.txt). The only nonunit largest roots are A, B, H as printed. H is strictly dominated, A-B has the sign of 2 gamma-1 and derivative 1/126 at equality. The crossing gives 15/14 and a derivative jump of 1/126 for the squared modulus, with all four maximizing cells at equality. The leading coefficient ratio is 14/9; n=2 has no amplification and the mirror pair-cells tie for all gamma>0 at n=3. No limiting argument for larger n or unsupported inference from numerical data is needed. The submitted checker was inspected, not executed.
 
-The closest published contraction theorem of Yang and Barber (arXiv:1706.01852) characterizes **when** ordinary isotonic projection is contractive in an arbitrary seminorm via the neighbor-averaging condition; it neither computes this noncontractive Sobolev modulus nor distinguishes the pooling patterns across a coupling threshold. The full texts of Yeganova–Wilbur (2009, DOI:10.1007/s10957-008-9477-0) and Németh–Németh (arXiv:1503.08458) concern fitting methodology and projection order properties, respectively. The publicly available finite-chain \(\ell_p\) stability result treats a permutation-invariant coordinate metric rather than the neighbor-coupled path norm here. The accessible previous findings on convex regression, anti-Monge projection, and graph-Sobolev truncation concern different operators or metrics and do not imply this exact isotonic modulus. An unindexed prior finite-dimensional matrix-norm computation could remain equivalent; priority is not independently established.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is the first chain length with competing pooling geometries and a sharp switch in the optimizer. The explicit \(\gamma=1/2\) phase transition and norm cusp quantify a genuine condition-number effect that cannot be read from ordinary Euclidean contractivity or a yes/no Sobolev contraction criterion. It is a small but complete and motivated stability model with actual maximizing perturbations, useful as a diagnostic for shape-constrained regression under correlated, gradient-weighted error metrics. No theorem for longer chains is asserted.
+The supported distinct claim is the sharp finite-positive-coupling amplification and its change of maximizing pooling patterns. Yang–Barber's same-map theorem supplies a criterion for contractivity, not the modulus above one; another same-map Resultary record studies only the gradient seminorm without vertex masses. Exact formula and transition do not follow from either. Remaining literature access risks are stated separately.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Ordinary isotonic denoising applied to data with path-weighted errors can amplify the gradient contribution even though it is Euclidean-nonexpansive. The smallest chain with a change in the extremizing block geometry and an exact cusp is a useful sharp sensitivity benchmark, not merely an example of failure of contraction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

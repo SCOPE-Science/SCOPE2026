@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:51:46.162449Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The continuous specified null gives iid uniforms after the probability-integral transform and density (m−1)! with respect to the first m−1 spacing coordinates. Iterating adjacent sums and dividing by the sum on each level cancels intermediate normalizations; the resulting linear windows are the Pascal rows of B_k. AM–GM bounds each negative log product by j log j, and the first level forces the unique equality point D₀=1/m. The first-level log barrier and lower bounds on later levels confine all small sublevel sets to that point. In D=D₀+Az coordinates, the differential of each normalized j-window vector is m P_j B_k A/(j2^k); this follows by quotient differentiation at a constant vector whose unnormalized sum is j2^k/m. At the uniform vector the linear term of the negative log product annihilates every tangent change, including second-order normalization terms. Its Hessian is j² times the pullback of the Euclidean quadratic form by that differential, giving exactly Q_m. The first level m²AᵀA has determinant m^(2m−1) and is positive definite; all additions are positive semidefinite. For m≥3, B₁ applied to the tangent e₁−e_m gives e₁−e_(m−1), so its centered contribution is nonzero, strictly increasing the determinant after conjugating by the first level's inverse square root. The Taylor remainder gives a two-sided ellipsoid squeeze after rescaling by √ε, with volume of the unit ball times 2^((m−1)/2)/√det Q_m and the stated Dirichlet density factor (no extra Jacobian in these coordinates). The score event is exactly T_m−b_m≤b_mη/(1−η). For m=2 the exact raw-excess CDF is √(1−exp(−ε)), and for m=3 det Q₃=1215/4 yields C₃=8π/√1215 and ratio 2/√5. `python /workspace/replay_checks.py 5` independently differentiates the recursive log expressions at m=2,…,5, matching the exact Hessian at m=3 and the four listed determinants. The theorem is fixed-size, at the regularity endpoint only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original §2 states that equidistant spacings minimize RPS, identifies the first level as Moran, and gives the bounded score; §3 gives the one-observation CDF and uses a numerical approximation for n≥2. The thesis passage was not retrieved; the exact-title primary lookup returned the related multivariate application rather than a lawful thesis alternate."
+        ],
+        "reasoning": "A general local quadratic law gives the geometric volume once a Hessian is known, and the paper's minimum fixes its center. Neither gives the full normalized chain's Hessian or its determinant ratio without a statistic-specific derivative and positive-addition analysis. No stronger analytic all-size lower-endpoint theorem was shown by the retrieved evidence.",
+        "searches": [
+          "Original RPS paper §§2–3.1, analytic versus numerical null calibration",
+          "Shtembari TUM thesis 1707763, RPS near minimum and Hessian",
+          "DOI:10.1103/PhysRevD.108.123006, recursive product of spacings"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, REVIEW.md, VERIFICATION.md, checker_regular.py, checks.txt",
+        "arXiv:2111.02252v2 §§2–3.1 (passages)",
+        "Resultary b7be79c98183 (catalogue), 27ce3bbdde5b and 2eae002a7fda (mirror passages)",
+        "TUM 1707763 and DOI:10.1103/PhysRevD.108.123006 (bounded access attempts/metadata as noted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The upper-tail records reduce the probability to two simplex corners with diverging log terms. The original paper's first-level identity with Moran gives the baseline portion of the Hessian, while the inspected null-calibration sections do not determine the higher-level Hessian contributions."
+        ],
+        "reasoning": "Corner integrals cannot determine the local expansion at the interior equispaced vector. Even knowing the exact global minimizing point and the Moran first level does not fix the other levels' curvature or establish the strict determinant comparison. Those are the full-chain additions credited here.",
+        "searches": [
+          "Original arXiv:2111.02252v2 §§2–3.1 and Resultary mirror Findings/proofs 27ce3bbdde5b and 2eae002a7fda"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the original article n observations means m=n+1 spacings. The article's bounded score is minimum divided by raw RPS, so the equivalence is between the raw lower endpoint and bounded upper endpoint. The exact original n=1 CDF covers m=2.",
+          "The retrieved same-day mirror Findings 27ce3bbdde5b and 2eae002a7fda use n or m respectively but both have upper raw exponential rate 2/m, with the bounded score tending to zero, not one."
+        ],
+        "reasoning": "A change of notation reconciles the two clustering laws with each other, not with this interior small-excess power law. The one-observation formula is equivalent on its own size and is credited as prior.",
+        "searches": [
+          "Eller–Shtembari, arXiv:2111.02252v2, §§2–3 and Eqs. (2.5), (2.6), (3.1)",
+          "Resultary: fixed-sample near-equispaced lower raw endpoint, exact rational Hessian determinant and Moran small-excess comparison"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit is the assigned record b7be79c98183. The two distinct same-day RPS hits 27ce3bbdde5b and 2eae002a7fda list large-raw-score exponential tails (including 2B(1/3,1/3) for two observations), not the near-minimum determinant constant. The original calibration gives an exact analytic law only for one observation within the inspected sections."
+        ],
+        "reasoning": "Neither calibration away from the endpoint nor the table/constant for the opposite endpoint is an all-fixed-size near-minimum coefficient table. This is a statement about returned and inspected sources only.",
+        "searches": [
+          "Resultary: fixed-sample near-equispaced lower raw endpoint; RPS minus minimum; exact Hessian determinant and Moran comparison",
+          "Original RPS §3 null calibration table/formulas"
+        ]
+      },
+      "rationale": "The origin paper already supplies the statistic, its minimum, its one-observation distribution, and the interpretation of the first level as Moran. The generic ellipsoid argument and the one-observation case are not new. The supported distinct piece is the explicit full-chain rational Hessian for every fixed size, its leading determinant coefficient, and the quantitative strict comparison with the Moran coefficient. The inspected extreme RPS tails concern the opposite endpoint; priority against the inaccessible doctoral thesis remains unresolved.",
+      "residual_risks": [
+        "The relevant thesis remains the principal access-limited priority risk. The later multivariate article was not examined in full either.",
+        "The reviewed evidence does not establish exhaustive historical priority; neither same-day dates nor inability to retrieve full text is negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the statistic, minimum, normalization, first-level Moran identity and n=1 law; inspected passages give numerical, not near-minimum analytic, calibration for n≥2",
+          "evidence": [
+            "Section 2 says equidistant spacings yield the smallest possible RPS and local clusters increase it; bounded score is min(RPS)/RPS. Section 3 derives the bounded CDF for n=1, then turns to numerical approximation and simulation for n≥2."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2111.02252v2",
+          "material_read": "§§2–3, Eqs. (2.5), (2.6), (3.1), and §3.1 calibration discussion",
+          "method": "Targeted arXiv full-text source inspection",
+          "title": "A goodness-of-fit test based on a recursive product of spacings",
+          "trigger": "Original statistic, minimum, and null calibration"
+        },
+        {
+          "assessment": "Unresolved priority risk for fixed-size near-minimum asymptotics, explicit Hessian, and Moran ratio",
+          "evidence": [
+            "Known thesis identifier is 1707763; lookup did not supply an accessible alternate full text. Neither repository identification nor access failure excludes coverage."
+          ],
+          "identifier_or_url": "https://mediatum.ub.tum.de/doc/1707763/1707763.pdf",
+          "material_read": "Repository identification and frozen discussion at RESULT.md lines 73–81; no thesis passage retrieved",
+          "method": "Bounded OA and repository PDF/landing-page attempts, followed by exact-title literature lookup for a lawful alternate",
+          "title": "On non-parametric tests for discovery and limit setting in one and multiple dimensions",
+          "trigger": "Same author and thesis likely to cover RPS in greater depth"
+        },
+        {
+          "assessment": "Different endpoint",
+          "evidence": [
+            "Pr(R_n>t) is asymptotic to C_n exp(−2t/(n+1)) as t→∞. Two endpoint-cluster configurations contribute; bounded score tends to zero."
+          ],
+          "identifier_or_url": "Resultary 27ce3bbdde5b",
+          "material_read": "Mirror Finding and accompanying proof discussion of endpoint configurations",
+          "method": "Resultary and local mirror passage inspection",
+          "title": "Sharp endpoint-cluster tail of the recursive product of spacings",
+          "trigger": "Strong same-day same-statistic overlap"
+        },
+        {
+          "assessment": "Matches the other clustering endpoint in substance under m=n+1, not the assigned regularity result; same date implies no priority ordering",
+          "evidence": [
+            "Pr(R_m>t) is asymptotic to A_m exp(−2t/m) from the two simplex endpoints, with A_3=2B(1/3,1/3)."
+          ],
+          "identifier_or_url": "Resultary 2eae002a7fda",
+          "material_read": "Mirror Finding and proof discussion of two corners",
+          "method": "Resultary and local mirror passage inspection",
+          "title": "Two-corner extreme-tail law for the recursive product of spacings",
+          "trigger": "Second close same-day formulation for the same statistic"
+        },
+        {
+          "assessment": "Related application; no document-wide exclusion",
+          "evidence": [
+            "The returned metadata identify a multivariate goodness-of-fit paper, not an alternative thesis text."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevD.108.123006",
+          "material_read": "Bibliographic hit and frozen attribution only; no full-text passage independently retrieved",
+          "method": "Primary lookup and focused OA passage attempt",
+          "title": "Goodness-of-fit tests for arbitrary multivariate models",
+          "trigger": "Related subsequent spacing-test application returned in the thesis search"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact near-regular null calibration is useful for a published statistic whose inspected paper calibrates multi-observation samples numerically. The full-chain curvature is a natural nontrivial invariant, supplies every fixed-size leading probability, and quantifies why comparing equal raw excesses to Moran is not neutral. This is not a general finite-threshold or test-power claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

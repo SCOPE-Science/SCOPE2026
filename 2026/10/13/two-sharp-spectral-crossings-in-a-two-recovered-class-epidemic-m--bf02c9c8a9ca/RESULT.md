@@ -88,7 +88,7 @@ For \(m=1/100\), direct differentiation gives
 \[
 G'(x)=-\frac{20000x^2+200x+101}{(200x+1)^2}<0.
 \]
-The function maps \((0,99/100)\) bijectively onto \((0,1)\), with reverse orientation.
+Since \(G(0)=1\) and \(G(1)=0\), the map \(G:(0,1)\to(0,1)\) is bijective with reverse orientation.
 
 **2. Characteristic polynomial.** In coordinates \((I,R_1,R_2)\), the endemic Jacobian is
 \[
@@ -129,7 +129,7 @@ Q\left(\frac1{100}\right)<0,
 \qquad
 Q\left(\frac1{50}\right)>0
 \]
-produce two distinct positive roots in disjoint intervals. Hence there are exactly two positive roots, both simple. They lie within \((0,99/100)\). The quartic is positive below \(x_a\), negative between \(x_a\) and \(x_b\), and positive above \(x_b\), since \(Q(0)=1>0\) and no other positive roots exist.
+produce two distinct positive roots in disjoint intervals. Hence there are exactly two positive roots, both simple. They lie within the endemic range \((0,1)\). The quartic is positive below \(x_a\), negative between \(x_a\) and \(x_b\), and positive above \(x_b\), since \(Q(0)=1>0\) and no other positive roots exist.
 
 **4. Stability and crossings.** Because \(G\) is decreasing, \(x>x_b\) corresponds to \(\gamma<\gamma_-\), \(x_a<x<x_b\) corresponds to \(\gamma_-<\gamma<\gamma_+\), and \(x<x_a\) corresponds to \(\gamma>\gamma_+\). The sign of \(AB-C\) gives the stated complete stability classification.
 

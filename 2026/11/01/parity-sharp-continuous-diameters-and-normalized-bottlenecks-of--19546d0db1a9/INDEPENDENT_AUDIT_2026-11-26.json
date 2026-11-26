@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:52:29.908805Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 41–117; verify_wheel.py and VERIFICATION.md",
+        "Independent edge-pair check and completed output"
+      ],
+      "rationale": "For rim points the only competitive routes are along the rim or via the hub; the latter has length 2s plus the two nearest-rim-vertex offsets. At even order opposite midpoints simultaneously attain the two separate bounds. At odd order the midpoint triangle inequality gives d_C+δ(x)+δ(y)≤floor(n/2)+1, and one midpoint paired with a point moving from the opposite edge midpoint to its endpoint attains the three branches. A rim–spoke pair similarly has distance min(t+s+δ,s−t+r) for hub coordinate t and rim distance r from the spoke base. The bound r+δ≤ceil(n/2) is attained at a farthest edge midpoint, and balancing or clipping t gives B_n. Same-spoke distance is at most s; distinct spokes give at most min(2s,s+floor(n/2)/2) by the hub/rim alternatives. Maximizing each normalized branch gives the unique even and odd optima claimed, since in each n≥4 case B_n has strictly smaller normalized maximum than A_n; direct substitution gives D_3(s)=1+s for all s>0. The independent exact-rational edge-pair envelope checker found agreement in 75 parameter cases at n=3,…,11, including breakpoints and their neighborhoods, and recovered the normalized optima at the claimed s. No frozen script was run.",
+      "replay_paths": [
+        "/workspace/branches/80220b38-e863-4960-99f1-7f68ba86a9b8/wheel_edgepair_check.py",
+        "/workspace/branches/80220b38-e863-4960-99f1-7f68ba86a9b8/wheel_edgepair_full.txt"
+      ],
+      "residual_risks": [
+        "The exact reproduction is finite and only corroborates the universal interval and normalization arguments. There is no claim about arbitrary weighted wheels or about all diametral pairs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bose et al. address farthest-point diagrams on continuous networks. De Carufel et al. minimize diameter by augmenting paths or cycles. Ahn et al. prove a length/diameter inequality involving leaves and cyclomatic number and characterize tightness."
+        ],
+        "reasoning": "General algorithm availability does not give explicit symbolic edge-class maxima or their parity thresholds. The shortcut minimization has different feasible choices, and a global length inequality does not specify the piecewise dependence on the common spoke length.",
+        "searches": [
+          "Bose et al., arXiv:1304.1909, p. 1 abstract",
+          "De Carufel et al., arXiv:1512.02257, p. 1 abstract",
+          "Ahn et al., arXiv:2608.08716, §3 Thm. 2"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary record passages and primary or abstract passages listed in source_inspections",
+        "Frozen RESULT.md, lines 21–39 and 131–146"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The frozen odd-order rim-pair proof needs the additional inequality d_C+δ(x)+δ(y)≤floor(n/2)+1 and moving witnesses; the rim–spoke envelope controls a different branch. The compared general results do not furnish either branch or their normalized comparison."
+        ],
+        "reasoning": "Specializing the available abstract methods does not mechanically yield the exact parity/equality statements; the optimization and sharp witnesses within this family are the contribution.",
+        "searches": [
+          "Ahn et al. Theorem 2 and general farthest-point methods versus frozen RESULT.md equations (1)–(8) and the sharp-equality statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chen–Garfinkel abstract treats points off the nodes and a finite candidate set. Resultary spoke-weight and parity negative-type wheel records use only the finite vertex metric."
+        ],
+        "reasoning": "Generalized/continuous/intrinsic shortest-path diameters on a continuum of edges are the relevant aliases. A vertex extremum or a wheel quadratic-form invariant cannot substitute for the continuous diameter; edge-interior witnesses are essential here.",
+        "searches": [
+          "Resultary: continuous intrinsic diameter of metric wheel, equal spokes and rim segments; vertex-wheel invariants",
+          "Literature: continuous/generalized graph diameter and Chen–Garfinkel DOI 10.1002/net.3230120310"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The analogous one-edge-deformed K_n finding gives a continuous, length-normalized diameter result but varies a single exceptional edge. Exact wheel catalogue results inspected concern sharp vertex Lipschitz variance or negative type and Euclidean rank."
+        ],
+        "reasoning": "Neither an exact formula for a different parametric metric graph nor a vertex-wheel table gives the all-point, equal-spoke wheel law. No exact match was established in this bounded catalogue comparison.",
+        "searches": [
+          "Local Resultary: one-edge-deformed complete metric graph, spoke-weighted wheels, and parity law for wheel negative type"
+        ]
+      },
+      "rationale": "The available comparisons cover general all-edge-point diameter methods, nearby extremal problems and different invariants of wheels, but did not establish this parity-sensitive law or its normalized equality cases for the fixed symmetric family. The result passes on the distinct formulas, not on the general diameter notion or finite-candidate method. The most plausible older source is only partly accessible; that remains a historical risk.",
+      "residual_risks": [
+        "Chen–Garfinkel full text was not accessible; an earlier specialization there remains possible. The literature and catalogue comparisons do not establish chronological priority or absence of equivalent unindexed results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Overlapping framework, not an identified equivalent formula",
+          "evidence": "Farthest-point diagrams and queries with points on positively weighted edges.",
+          "identifier_or_url": "https://arxiv.org/abs/1304.1909",
+          "material_read": "Abstract, PDF p. 1, offset 561",
+          "method": "Bounded OA PDF passage",
+          "title": "Network Farthest-Point Diagrams and their Application to Feed-Link Network Extension",
+          "trigger": "Same continuous network distance"
+        },
+        {
+          "assessment": "Different feasibility and optimization target",
+          "evidence": "Adds shortcuts to paths and cycles to reduce continuous diameter.",
+          "identifier_or_url": "https://arxiv.org/abs/1512.02257",
+          "material_read": "Abstract, PDF p. 1, offset 1056",
+          "method": "Bounded OA PDF passage",
+          "title": "Minimizing the Continuous Diameter when Augmenting Paths and Cycles with Shortcuts",
+          "trigger": "Continuous diameter with cycle shortcuts"
+        },
+        {
+          "assessment": "General inequality, not the asserted parametric law",
+          "evidence": "Relates length and diameter with cyclomatic number and leaves, including a tightness characterization.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.08716",
+          "material_read": "§3, Theorem 2, PDF p. 6, offset 20260",
+          "method": "Bounded OA primary theorem passage",
+          "title": "Diameter and Length of Metric Graphs",
+          "trigger": "Potential broader theorem controlling normalized diameter"
+        },
+        {
+          "assessment": "Materially relevant; wheel-specific coverage unresolved",
+          "evidence": "Abstract allows edge points other than nodes and obtains a finite candidate set for the diameter.",
+          "identifier_or_url": "https://doi.org/10.1002/net.3230120310",
+          "material_read": "Indexed Wiley abstract only; no primary full-text passage",
+          "method": "OA lookup and direct publisher route, including configured alternate access; publisher 403 and no lawful repository copy located",
+          "title": "The generalized diameter of a graph",
+          "trigger": "Older directly relevant all-point diameter method; possible examples cover wheels"
+        },
+        {
+          "assessment": "Topically close; different family",
+          "evidence": "One exceptional edge of K_n, not all equally weighted spokes of a wheel.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-three-tier-intrinsic-diameter-law-for-one-edge-deformed-comple--b39fcbd533d9/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Bounded Resultary local-mirror full-text passage",
+          "title": "A three-tier intrinsic diameter law for one-edge-deformed complete metric graphs",
+          "trigger": "Exact continuous diameter law and length-ratio optimization"
+        },
+        {
+          "assessment": "Distinct invariant on vertex metric; no same-date ordering inferred",
+          "evidence": "Lipschitz variance, rather than diameter over points on both edge types.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-two-domain-walls-give-the-sharp-lipschitz-spread-of-spoke-weight--2e13b85c333c/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Bounded Resultary local-mirror full-text passage",
+          "title": "Two domain walls give the sharp Lipschitz spread of spoke-weighted wheels",
+          "trigger": "Same wheel parameterization and extremal metric problem"
+        },
+        {
+          "assessment": "Distinct invariant on vertex metric",
+          "evidence": "Negative type and Euclidean rank, not total-length normalization of continuous distances.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-parity-law-for-maximal-negative-type-and-critical-euclidean-ra--8874c7ce5bf8/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Bounded Resultary local-mirror full-text passage",
+          "title": "A parity law for maximal negative type and critical Euclidean rank",
+          "trigger": "Parity and an exact metric wheel regime"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–39 and proof steps 1–4",
+        "Ahn et al., §3 Theorem 2 and the compared continuous-diameter formulations"
+      ],
+      "rationale": "The wheel is a canonical two-route network and its vertex diameter misses the edge-interior bottlenecks. The result resolves the full parameter range, including the extra odd-order rim constraint, the takeover by a rim–spoke pair at large s, and the sharp and differently attained efficiency of worst distance per total length. The explicit witnesses and equality cases make this useful as an exact comparison family for metric-graph diameter; it is not merely a computed value at one length.",
+      "residual_risks": [
+        "The useful comparison is within the symmetric wheel family; no optimum over all networks or Euclidean wheel embeddings is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

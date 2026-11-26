@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:02:00.302409Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–4; VERIFICATION.md and verifier source and recorded output inspected, not executed",
+        "Independent replay: python3 /workspace/checks/frozen_math.py 1"
+      ],
+      "rationale": "For the specified completed two-half-step map the coefficient of (hL)^k is (-1)^k[(k+1)/2^{k-1}-1]. In particular the cubic cancels and the fourth coefficient is -3/8. At distance 1 and 2 the first nonzero coefficients are positive, and diagonals tend to one. For distance-three u,v, factoring L^4 as L^2 L^2 independently recovers the key identity: at a midpoint i in U=N(u), (L^2)_{ui}=-|U|-1-p_i-|N(i)∩W|, while (L^2)_{iv}=p_i. V=N(v) gives the symmetric terms; W contributes x_w y_w, and the endpoints contribute zero. Keeping one cross edge and deleting others increases this expression. Conditioning on whether w meets the two surviving edge endpoints gives exactly max(0,ab-2) as its maximal contribution for |U|=a, |V|=b. Balancing a,b for each sum and evaluating the short bound tables gives -1 and 4. Independent integer matrix-vector Laplacian iteration and breadth-first distances on the two witnesses confirm both equality cases have diameter 3. The fourth-order coefficient of the failing entry is -3/2. The sign rule at distance three requires a nonzero fourth coefficient; the bounds and witness used in the theorem satisfy this, but one cannot apply that rule to a general pair with vanishing coefficient.",
+      "residual_risks": [
+        "No claim for weighted graphs, diameter exceeding three, or all time steps."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The geodesic rule first gives a negative distance coefficient at distance four for refinement factor two; the all-step finite threshold concerns diagonals only.",
+          "TR-08-13 supplies general extrapolation recurrence (2.3a), not a fourth-Laplacian extremum."
+        ],
+        "reasoning": "The general distance obstruction does not decide distance three because its leading cubic coefficient vanishes, and a diagonal theorem does not bound this off-diagonal entry.",
+        "searches": [
+          "Resultary 4d0e4c9eba68 and 56edd79ad0f3",
+          "Constantinescu–Sandu, TR-08-13, §2"
+        ]
+      },
+      "checked_sources": [
+        "TR-08-13 §2",
+        "Resultary c9c2b9f6d7e1, c08f9b38b493, 4d0e4c9eba68, 56edd79ad0f3, cf8fc1888ee6",
+        "CS-77-20 and journal alternate attempted"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The harmonic sequence recurrence specializes to twice the fine integration minus the coarse integration for the first two levels.",
+          "The archived Lawson–Morris report was not extractable in the inspected reader, and the journal route was unavailable."
+        ],
+        "reasoning": "The recurrence already supplies the map, not the sharp maximum of its fourth-order coefficient over constrained graph pairs. No whole-document exclusion is asserted for Lawson–Morris.",
+        "searches": [
+          "Constantinescu–Sandu TR-08-13 equations (2.1)–(2.3a)",
+          "Lawson–Morris Waterloo CS-77-20 / DOI 10.1137/0715082; retrieval attempted"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary c9c2b9f6d7e1 gives a scalar threshold; c08f9b38b493 gives re-entrant positivity in a directed pure-birth chain."
+        ],
+        "reasoning": "A scalar amplification inequality does not specify the signs of individual entries of a spectrally defined matrix. Directed-chain positivity is entrywise, but reversibility and simple unweighted Laplacians are essential here.",
+        "searches": [
+          "Resultary: Richardson/backward Euler positivity, small-step graph order thresholds",
+          "Primary-literature lookup: Richardson backward Euler graph Laplacian entrywise positivity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest numeric match is a ten-vertex obstruction for Radau IIA on cycles, different both in method and (diameter five) witness."
+        ],
+        "reasoning": "The matching order is not the same finite invariant. The reviewed order cutoff and L^4 tables for the stated extrapolation were not found in the inspected records.",
+        "searches": [
+          "Resultary: ten vertices small-step positivity; inspected cf8fc1888ee6 and related exact-threshold records"
+        ]
+      },
+      "rationale": "Known extrapolation and known positivity failures do not establish the minimum order under the frozen graph restriction, nor the two sharp pairwise bounds. No inspected source gives or implies that distinct claim. This is a bounded literature judgment, not proof of priority.",
+      "residual_risks": [
+        "Older graph-specific positivity work not indexed or not recovered, including unread material in the Lawson–Morris report."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The extrapolation construction is prior; the inspected result is not a graph-local positivity extremum.",
+          "evidence": "(2.3a) with harmonic ratios gives the first two-level extrapolate.",
+          "identifier_or_url": "https://eprints.cs.vt.edu/archive/00001037/01/ExImex.pdf",
+          "material_read": "§2, equations (2.1)–(2.3), Table 2.1 and start of §2.1, text offsets 6950–10817",
+          "method": "Lawful OA PDF, literal Richardson locator followed by offset",
+          "title": "Achieving Very High Order for Implicit Explicit Time Stepping: Extrapolation Methods",
+          "trigger": "Source cited for the extrapolation construction"
+        },
+        {
+          "assessment": "Unresolved access risk, not negative evidence.",
+          "evidence": "Report text unavailable in the reader; journal route inaccessible.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/research/tr/1977/CS-77-20.pdf",
+          "material_read": "No primary statement confirmed from the attempted copies",
+          "method": "OA Waterloo report, attempted journal DOI 10.1137/0715082 as alternate",
+          "title": "The Extrapolation of First Order Methods for Parabolic Partial Differential Equations I",
+          "trigger": "Exact backward Euler construction cited by the frozen record"
+        },
+        {
+          "assessment": "Different scalar domain.",
+          "evidence": "Positive scalar amplification cuts off at 2+2√2 for refinement factor two.",
+          "identifier_or_url": "Resultary c9c2b9f6d7e1",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "Local indexed record and mirror",
+          "title": "Richardson acceleration creates a sharp positivity barrier for backward Euler",
+          "trigger": "Same method and positivity criterion"
+        },
+        {
+          "assessment": "Outside the graph class.",
+          "evidence": "Homogeneous absorbing pure-birth chain, with a five-state obstruction.",
+          "identifier_or_url": "Resultary c08f9b38b493",
+          "material_read": "Finding, offset 0",
+          "method": "Local indexed record and mirror",
+          "title": "Re-entrant positivity of Richardson-extrapolated backward Euler",
+          "trigger": "Small-step entrywise counterexample"
+        },
+        {
+          "assessment": "Distance-four obstruction does not imply the distance-three cutoff.",
+          "evidence": "For factor two the first negative geodesic coefficient occurs at distance four.",
+          "identifier_or_url": "Resultary 4d0e4c9eba68",
+          "material_read": "Finding, assumptions and geodesic coefficient, offsets 0 and 3800",
+          "method": "Local indexed record and mirror",
+          "title": "A sharp geodesic positivity barrier for every Richardson refinement factor",
+          "trigger": "Same scheme on graphs, possible stronger implication"
+        },
+        {
+          "assessment": "All-step diagonal, not local off-diagonal, positivity.",
+          "evidence": "The failure witness is a negative hub diagonal on a 29-vertex star at a finite step.",
+          "identifier_or_url": "Resultary 56edd79ad0f3",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "Local indexed record and mirror",
+          "title": "The sharp 28/29 self-transition barrier for Richardson acceleration",
+          "trigger": "Other sharp order threshold on graph Laplacians"
+        },
+        {
+          "assessment": "Different method and graph hypotheses.",
+          "evidence": "Two-stage Radau IIA on cycles, failing at order ten and diameter five.",
+          "identifier_or_url": "Resultary cf8fc1888ee6",
+          "material_read": "Finding, offset 0",
+          "method": "Local indexed record and mirror",
+          "title": "Ten-vertex small-step positivity barrier and oscillatory lattice tails for Radau IIA",
+          "trigger": "Closest title and numerical threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Taylor cancellation, extremal argument, and sharp witnesses; nearby scalar and geodesic barriers"
+      ],
+      "rationale": "The cubic cancellation creates a natural boundary where graph distance alone no longer decides the sign. The extremal argument explains which cross edges and common midpoints can make the first surviving coefficient negative in the update; it proves protection of every smaller graph in scope, not just a witness. This is useful for understanding loss of positivity under second-order acceleration.",
+      "residual_risks": [
+        "The value assessed is the local small-order extremum, not an all-step positivity criterion."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

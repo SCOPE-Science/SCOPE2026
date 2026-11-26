@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:59:53.986089Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, equilibrium conditions and proof, lines 5–82",
+        "VERIFICATION.md and verify.py: exact-rational congruence and polynomial difference checks (read, not replayed)"
+      ],
+      "rationale": "The complete-graph coupling is c times the sum minus Mc times the local coordinate. After rotation and use of the equilibrium radii, the quadratic form is c|Tv|²−2κ|Uv|², with Tv=Σv_j and (Uv)_j=w_j·v_j. When the polygon is noncollinear, U is onto and T maps ker U onto the plane, so (T,U) is onto. In a basis lifting its image and completing with its kernel, the form is congruent to diag(cI₂,−2κI_M,0_{M−2}). The derivative of polygon closure on the fixed-radius product has rank two because the rotated w_j span the plane. Thus the kernel is the tangent space of the equilibrium manifold. Continuity and the separated nonzero spectrum give local normal hyperbolicity, not a uniform bound up to the collinear set. At collinearity signs of the w_j drop out: the transverse block is c11ᵀ, and the longitudinal block is −2D+c11ᵀ with D=diag(β_j−Mc)>0. Congruence by D^(−1/2) gives M−1 negative directions and the sign of 2(τ−1) for the last longitudinal direction. The transverse block adds one positive and M−1 zeros, so the critical equality and both strict inequalities give exactly the displayed cases; each is unstable. I read the rational checker but did not run it; the argument is exact for arbitrary permitted lengths.",
+      "residual_risks": [
+        "Conditional on a closed polygon with all sites active. No conclusion about nonlinear behavior at the collinear threshold, reactive coupling, or global hyperbolicity is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The later b12a07d1a349 also treats inactive sites and both signs of real coupling, and specializes to the full frozen classification.",
+          "Zhao–Uchida §5 treats polygon formation and sampled stability, generally with complex coupling; the checked sections in Kemeth et al. and Ku et al. study restricted cluster configurations and their transverse or internal modes."
+        ],
+        "reasoning": "The broader later catalogue record is real coverage, but not earlier evidence. Existing polygon dimension and restricted cluster spectra do not specify the joint rank of the radial and closure maps or the fourth case boundary.",
+        "searches": [
+          "Resultary b12a07d1a349, exact inertia under real coupling",
+          "Zhao–Uchida §§3,5; Kemeth et al. arXiv:1807.11231v2; Ku–Girvan–Ott arXiv:1412.3803v1, §IV"
+        ]
+      },
+      "checked_sources": [
+        "Zhao–Uchida arXiv:2610.08239v1",
+        "Kemeth et al. arXiv:1807.11231v2",
+        "Ku–Girvan–Ott arXiv:1412.3803v1",
+        "Resultary 23d7895fdd2d and b12a07d1a349"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known gradient structure ensures real spectrum after rotation, and the noncollinear polygon tangent directions supply neutral modes. Neither statement counts the positive modes or the additional collinear radial zero.",
+          "On the shared regime the later b12a07d1a349 classification directly implies the asserted inertias."
+        ],
+        "reasoning": "Getting the complete indices from the prior structural results still requires analyzing radial cancellation by closure, and evaluating the collinear rank-one form. Standard congruence tools are not themselves model-specific coverage.",
+        "searches": [
+          "Zhao–Uchida arXiv:2610.08239v1, Eqs. (7)–(11), (42)–(47), (55)–(59)",
+          "Kemeth et al. arXiv:1807.11231v2, two-cluster analysis; Ku–Girvan–Ott arXiv:1412.3803v1, clump perturbations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zhao–Uchida identifies the same polygon equilibria and the real-coupled gradient system; the rotating-frame Jacobian here is the negative Hessian with the sign of its inertia inverted.",
+          "Resultary 23d7895fdd2d states the same four cases and uses R=cΣ_j[2(β_j−Mc)]^(−1)=τ, with the same all-active positive-real-coupling hypotheses."
+        ],
+        "reasoning": "A different threshold symbol or gradient/Hessian convention does not distinguish the claims where the parameters agree. The exact matching catalogue item is dated after this record.",
+        "searches": [
+          "Resultary: balanced polygonal Stuart–Landau waves, zero-mean states, exact linearized inertia, two-mode instability and collinear threshold",
+          "Zhao–Uchida arXiv:2610.08239v1, §§3,5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two exact catalogue matches are later; Zhao–Uchida's reported instability proportions are from sampled Jacobians."
+        ],
+        "reasoning": "A sampled table of shapes is not a uniform inertia classification. A finite table cannot cover arbitrary real growth parameters and M unless accompanied by a theorem or symbolic certificate.",
+        "searches": [
+          "Resultary search by exact noncollinear inertia and collinear criterion: 23d7895fdd2d, b12a07d1a349",
+          "Zhao–Uchida §5, Eqs. (55)–(59) and surrounding stability analysis"
+        ]
+      },
+      "rationale": "The rotating-frame gradient system and closed-polygon zero-mean family, with its generic dimension, are prior work. In the primary passages inspected, I found no prior determination of all the indices for arbitrary all-active fixed-length shapes under positive real coupling, or of the exact singular collinear threshold. Two later catalogue records cover the same theorem, one as a special case of a wider classification. Their later dates do not support earlier priority; the overlap is substantive and does not make these three different mathematical results on the common regime.",
+      "residual_risks": [
+        "A bounded catalogue and primary-source comparison cannot settle priority against all earlier work on gradient-coupled oscillator states.",
+        "Exact later coverage is established; the relationship between the records is not established from dates and statements alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the gradient reduction and polygon manifold; inspected stability analysis does not supply the complete real-coupling inertia",
+          "evidence": "Fixed active radii, closure and dimension N_a−2; stability analysis using sampled Jacobians.",
+          "identifier_or_url": "https://arxiv.org/html/2610.08239v1",
+          "material_read": "§3 Eqs. (7)–(11), text offsets 8000–10795; §5 Eqs. (42)–(47) and (55)–(59), offsets 29900–38794",
+          "method": "Primary HTML passages",
+          "title": "Heterogeneity-induced chaos in globally coupled Stuart–Landau oscillators",
+          "trigger": "Same model and polygon equilibria"
+        },
+        {
+          "assessment": "Different scope",
+          "evidence": "Identical oscillators and transverse stability of two-cluster states, not general heterogeneous balanced polygons.",
+          "identifier_or_url": "https://arxiv.org/html/1807.11231v2",
+          "material_read": "Model and two-cluster stability discussion, text offsets 6000–10200",
+          "method": "Primary HTML passages",
+          "title": "Cluster singularity: the unfolding of clustering behavior in globally coupled Stuart–Landau oscillators",
+          "trigger": "Related cluster transverse stability analysis"
+        },
+        {
+          "assessment": "Different stability problem",
+          "evidence": "Clump-orbit and within-clump exponents are not indices for the entire heterogeneous polygon family.",
+          "identifier_or_url": "https://arxiv.org/html/1412.3803v1",
+          "material_read": "Two-clump perturbations and §IV internal stability, offsets 14100–18100 and 33100–37276",
+          "method": "Primary HTML passages",
+          "title": "Dynamical Transitions in Large Systems of Mean Field-Coupled Landau-Stuart Oscillators: Extensive Chaos and Clumped States",
+          "trigger": "Incoherent and clumped states in a related model"
+        },
+        {
+          "assessment": "Later exact overlap",
+          "evidence": "All-active positive real coupling, (2,M,M−2) noncollinear, same three collinear cases at R=1.",
+          "identifier_or_url": "Resultary 23d7895fdd2d (2026-11-22)",
+          "material_read": "Finding and inertia proof",
+          "method": "Published catalogue record text",
+          "title": "Universal two-mode instability and a sharp collinear threshold",
+          "trigger": "Exact matching classification"
+        },
+        {
+          "assessment": "Later broader coverage",
+          "evidence": "Includes inactive oscillators and either sign of real coupling.",
+          "identifier_or_url": "Resultary b12a07d1a349 (2026-11-17)",
+          "material_read": "Finding, including the all-active positive-coupling specialization",
+          "method": "Published catalogue record text",
+          "title": "Exact inertia of balanced polygonal Stuart–Landau waves under real coupling",
+          "trigger": "Broader catalogue classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and Proof",
+        "Zhao–Uchida arXiv:2610.08239v1, §5"
+      ],
+      "rationale": "The result replaces shape-by-shape stability analysis in the real-coupled regime by complete indices for every allowed size and heterogeneity. The two normally expanding directions at regular polygons and the sharp loss or gain of one longitudinal direction at collinearity separate degeneracies that the common-phase neutral mode alone would not reveal. This is a useful exact benchmark for these equilibria, without implying a nonlinear bifurcation.",
+      "residual_risks": [
+        "The value is local and restricted to the strictly dissipative all-active regime."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific assessment: mean records in a common-phase carry process
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS for the exact finite-\(N\) mean identity and its three-term expansion. The common-phase binary carry event is rigorously equivalent, off null rational boundaries, to the strict upper-record event for fractional parts. The precise record probability is a Farey-neighbor interval-length sum. Finite Möbius inversion yields formula (1), and differentiating the absolutely convergent Dirichlet series \(1/\zeta(s)\) at \(s=2\) yields the quadratic, linear, and constant coefficients with a uniform \(O((\log N)^2/N)\) remainder. The standalone program verifies 54 finite-denominator Farey classifications and 55 exact rational expectation identities; these checks are corroborating evidence, not an infinite proof.
+PASS
 
-## Originality
+Outside a null set the no-carry inequalities are exactly strict upper-record inequalities. In a cell just below r/d, if r/d is not reduced then j=d/gcd(r,d)<d beats the candidate. If reduced, the Farey predecessor a/b has rb−da=1. Just left of r/d the dth point is higher than all earlier points, with no ordering change in the Farey interval. To its left within the same cell, bε>1/d and bε<1 for ε=r/d−x, so {bx}=1+1/d−bε>{dx}. The inverse-residue map permutes the units and yields the stated per-index probability. Linearity needs no independence. The expected count is the positive off-diagonal coprime reciprocal sum on one triangle, giving (1) via Möbius inversion (including the empty sum at N=1). Uniform harmonic errors O(k/N) contribute O((log N)^2/N); the centered tail k>N of k^{-2}(1+log²(k/N)) is O(1/N). Absolute convergence justifies the first two derivatives of 1/ζ and gives the signs and constant in (2). Independent replay python /workspace/branches/independent_frozen_checks.py 3 checks exact floor-cell means through N=21 and the three numerical coefficients; it does not substitute for the all-N argument. This is a mean, not a typical-phase growth law.
 
-PASS, qualified, specifically for the **all-index exact mean and its complete three-term asymptotic**, not for the Farey-neighbor or extremal-Weyl identification. Zhigljavsky and Aliev (1999), Lemma 1, already characterize the minimum and maximum of each Weyl sequence by adjacent Farey fractions; this covers the geometric interval description. Their inspected full paper develops limiting laws for the two extreme gaps, not an exact expectation of the count of new upper records over all indices. Wu (arXiv:2606.20940v1) and Guo et al. (arXiv:2606.22997v1) address binomial GCD/Lucas conditions over integer parameters, rather than a uniformly sampled common real phase. The searched research records include a full-vector central-index independence result and a pairwise covariance result for the same carry variables; neither determines the simultaneous all-zero event or the all-denominator mean. A prior implicit three-term record-mean formula in continued-fraction or ergodic literature remains a genuine risk.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The expected number of upper records in a deterministic rotation sampled by one random phase is a natural global invariant of extremal arithmetic statistics. Establishing its leading \((3/\pi^2)(\log N)^2\) growth, the nonzero linear correction, an exact constant term, and a vanishing quantitative remainder separates the strongly dependent rotation model from the classical independent-record benchmark of logarithmic mean growth. The output is an exact full-parameter asymptotic and finite formula, not a small numerical observation or parameter substitution. The work does not settle the distribution or almost-sure behavior of records.
+Credit is restricted to the explicit finite mean and its constant-precision three-term expansion with an absolute vanishing error. The classical Farey extremum characterization and the individual interval geometry are covered and not counted as novel. The inspected related arithmetic and Weyl results do not give the evaluated count across all record times.
 
-## Literature and integrity limits
+## value
 
-The earlier 1999 geometric theorem is essential prior coverage and must not be portrayed as newly discovered. The research priority conclusion is limited to sources inspected and cannot exclude unindexed or implicit historical versions of the mean formula. All mathematical claims are proved in RESULT.md; no independent mathematical audit has been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The record count is a natural aggregate statistic of a classical rotation, distinct from the largest observed fractional part. The exact finite mean provides a benchmark at any depth; resolving the logarithmic and constant terms with a vanishing error quantifies the sizable bias left by the leading log-squared law. The usefulness is in the evaluated precision for that statistic, not in claiming the standard Möbius or harmonic tools as new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

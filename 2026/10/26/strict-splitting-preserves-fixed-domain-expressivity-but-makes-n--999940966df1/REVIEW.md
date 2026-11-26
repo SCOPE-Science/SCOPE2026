@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The finite-powerset lemma reduces convex union-closed families to upward families with a top. Intersection and strict disjoint split preserve the characterization; an explicit stable normal form uses only flat supports and the witness predicate. The 3-uniform hypergraph reduction identifies strict outer partition with a proper property-B coloring, and a polynomial-size assignment of team partitions witnesses NP membership. Standalone enumeration of all 1,043 3-uniform hypergraphs on at most five vertices (including the empty-edge-set cases by number of vertices) and a Fano negative instance reproduces the reduction; the strict property census matches independently generated convex union-closed families for 1, 2, and 3 valuation points.
+## correctness
 
-## Originality
-PASS within inspected evidence. The March 2025 *Convex Team Logics* text proves the **lax** expressive-completeness result, and October 2025 *Nonemptiness Is Not So Complex* explicitly uses **lax/overlapping** splitting to prove P-time model checking. Neither states NP-complete model checking for the disjoint variant or a common normal form under both conventions. Older strict-semantics literature for inclusion and other atoms does not directly prove this nonemptiness result; alternative formulations of disjoint-split team complexity remain a priority risk. Searches of published mathematical records for strict splitting, nonemptiness, NP-complete model checking, and property-B reductions found no matching claim; the closest team-semantics record concerns material-implication closure, not the strict split complexity separation.
+PASS
 
-## Value
-PASS. The contrast establishes that unchanged fixed-domain expressive power and preservation of convexity/union closure do not guarantee stable combined model-checking complexity. It determines a sharp P versus NP-complete boundary between two natural semantics of the same syntax, with NP-hardness inside a small, directly interpretable formula fragment.
+Over the fixed finite valuation universe, each nonempty convex union-closed family is upward closed inside its maximum team. Conjunction preserves this description in a nonempty intersection. For strict splitting, a successful partition can be extended to any larger team in the union of the operands' maximum teams by allocating each additional row to one permitted side. This proves soundness without assuming that a pair of arbitrary overlapping witnesses can be disjointed. Conversely, a flat test constrains the team to its maximum, and hitting the complements of all maximal nonmembers describes the family there. Each hit is expressible by a nonempty flat witness and its leftover, so the formula works under either split convention; bottom conjoined with NE covers the empty family. For strict model checking, certificates give one subset per split occurrence, and the explicit team and syntax tree make verification polynomial. Encoding distinct hypergraph vertices by binary valuations makes each edge test a polynomial-size flat minterm disjunction. Under strict splitting, both sides must hit all edges, exactly property B of a 3-uniform hypergraph; the lax witnesses can both be the whole team. The published lax P result applies. Scope is fixed declared domain for expressivity, variable domain and explicit team for combined complexity; no claim of locality. The supplied checker was inspected, not run. Its three-row closure calculation concerns an abstract subuniverse of valuations rather than all valuations of an exact alphabet of size log2(3); the general proof applies to actual declared domains.
 
-## Limitations and priority risks
-The expressive classification fixes the entire finite team domain; strict formulas need not be local under projection. Combined NP-completeness is not a claim of unconditional separation from P. A still-unlocated older disjoint-splitting theorem could cover the complexity claim under different terminology. Computations are finite corroboration, not the general proof. No independent audit was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the known lax P baseline and the prior expressive-completeness construction (which already yields common-semantics witnesses). The supported distinct claim is the complexity separation, in particular strict NP-completeness on a single self-split of a conjunction of positive edge tests, despite fixed-domain expressive equivalence. No inspected source covers this restricted strict model-checking result.
+
+## value
+
+PASS
+
+The separation shows why equal expressive power on a fixed valuation domain is not a reliable guide to combined model-checking complexity. Hardness already emerges from a single outer redundant-looking disjunction of identical positive formulas: disjointness alone creates the two-colour obstruction. This identifies a sharply restricted source of complexity without attributing novelty to property B or to the previous lax results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

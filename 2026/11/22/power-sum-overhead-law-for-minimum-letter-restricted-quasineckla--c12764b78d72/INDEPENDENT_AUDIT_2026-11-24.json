@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:59:18.321246Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof",
+        "Frozen VERIFICATION.md and verification/ scripts and captured output, inspected rather than executed",
+        "/workspace/branches/independent-replay.py, record 3"
+      ],
+      "rationale": "A nonconstant candidate has a unique initial zero run of length L and successor t; each remaining nonzero finishes a block with 0 through L zeros, and a block with L zeros has s-t+1 possible successors instead of s. The product counts literal words without either a missing cyclic boundary condition (the last letter is nonzero) or overcounting ties. For m=0 the sole word is all zero; for m=1 the empty product forces L=r. The bivariate identity follows by a formal geometric sum. In Burnside's count a rotation of order d fixes d repeats of a block and requires d to divide both counts. At fixed r and s, L=1 contributes binom(m-1,r-1)s^(m-r) times the power sum; L>=2 leaves only r-2 or fewer zeros to distribute and is O(m^(r-2)s^m). The identity rotation has leading term m^(r-1)s^m/r! and the others have at most s^(m/2) times a polynomial at fixed r. This proves the stated limiting ratio, ternary specialization, and growth after the m-limit. The L=1,2 terms give the exact two-zero law. Independent tuple/run classification and orbit-set enumeration matched the formulas on 72 slices and 86,870 words for s=2,3 and total lengths 1–8 (python3 /workspace/branches/independent-replay.py 3).",
+      "residual_risks": [
+        "The bounded calculation corroborates but does not prove the all-parameter identities or asymptotics. No joint r,m or unrestricted alphabet limit is assessed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4 bounds unrestricted Q_k(n) by O(N_k(n)); Section 3.1 counts by total length; Section 4.3 uses bounded sum of symbol values, not the count of zeros."
+        ],
+        "reasoning": "A bound for the total summed over all slices cannot bound a specific slice, and the sum of symbol values does not determine the zero count. The unrefined recurrence can motivate a refinement but does not state the conditional formula.",
+        "searches": [
+          "arXiv:2607.05324, Theorem 4 and Sections 3.1 and 4.3",
+          "Targeted primary-literature lookup for nonbinary fixed-minimum-letter quasinecklace overhead"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.05324",
+        "Resultary 88d9cf336fe0",
+        "Resultary dcae5275cf00",
+        "Resultary 526ea0af0f9e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Primary global overhead does not preserve the least-letter count in the comparison. The binary exact-content formula has no ordering among distinct nonzero successors."
+        ],
+        "reasoning": "The new enumeration uses successor-dependent weights and isolates singleton zero runs at fixed count; neither ingredient of the claimed asymptotic is supplied by the global bound or by binary specialization. The Burnside part is standard and is not the originality basis.",
+        "searches": [
+          "arXiv:2607.05324, Definition 3, Theorem 4 and Section 3.1",
+          "Resultary 2026-10-26 binary exact-content statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Definition 3 imposes the same maximal initial run and successor comparison, so the quasinecklace object is not new.",
+          "The 2026-10-26 binary Resultary formula is precisely the specialization s=1 with all block weights 1; its fixed-zero ratio equals r in the notation of the frozen record."
+        ],
+        "reasoning": "At s>=2 the number of legal successors of each tied maximal run depends on the first successor. This yields a power sum rather than the binary combinatorial factor; binary relabeling or independent s-fold coloring does not give the result. Fixed-zero count is not a prescribed full nonzero Parikh vector.",
+        "searches": [
+          "Resultary semantic lookup for prescribed minimum-letter count and fixed-content quasinecklace overhead",
+          "arXiv:2607.05324, Definition 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first two give a binary exact coefficient formula; the first gives the direct binary fixed-zero limit, while the second emphasizes the reverse fixed-one limit. The third concerns unrestricted binary length counts."
+        ],
+        "reasoning": "These are genuine related counts with different coverage. No matched indexed record supplied the s>=2 conditional family, and finite counts could not supply the asymptotic on their own.",
+        "searches": [
+          "Resultary: SCOPE-sharp-exact-content-overhead-for-binary-quasinecklaces--88d9cf336fe0",
+          "Resultary: SCOPE-sharp-first-order-fixed-content-quasinecklace-overhead--dcae5275cf00",
+          "Resultary: SCOPE-log-periodic-overhead-in-binary-quasinecklace-enumeration--526ea0af0f9e"
+        ]
+      },
+      "rationale": "The exact binary prior is credited, not reclaimed. No inspected source gives the nonbinary fixed-zero enumerator and conditional power-sum ratio; the primary global theorem neither fixes this count nor implies a conditional bound. This is a best-of-current-knowledge decision, not a claim of historical priority.",
+      "residual_risks": [
+        "Targeted literature retrieval did not identify another matching source; unsuccessful search is not evidence of absence.",
+        "An unindexed zero-marked refinement of the existing run recurrence may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same definition; inspected counts and bounds do not cover the fixed-zero conditional law.",
+          "evidence": "Longest minimum-symbol run plus successor test; total-length recurrence, global O(N) bound and a different bounded-weight statistic.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.05324",
+          "material_read": "Definition 3 p. 3; Theorem 4 p. 4; Section 3.1 p. 8; Section 4.3 p. 14",
+          "method": "Targeted OA full-text passage inspection, offsets 9871, 11865, 22506 and 39863",
+          "title": "Necklaces and Lyndon words in colexicographic order",
+          "trigger": "Originating nonbinary definition and plausible counting and generation coverage"
+        },
+        {
+          "assessment": "Exact binary prior only; excluded from novelty.",
+          "evidence": "The geometric block polynomial 1+x+...+x^L is F at s=1; ratio tends to the number of zeros.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sharp-exact-content-overhead-for-binary-quasinecklaces--88d9cf336fe0/RESULT.md",
+          "material_read": "Formula and fixed-zero limiting ratio",
+          "method": "Resultary lookup and local mirror statement comparison",
+          "title": "Sharp exact-content overhead for binary quasinecklaces",
+          "trigger": "Closest exact conditional formula"
+        },
+        {
+          "assessment": "Does not cover nonbinary fixed-zero power sum.",
+          "evidence": "Binary enumerator and an expansion increasing the number of zeros at fixed number of ones.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-first-order-fixed-content-quasinecklace-overhead--dcae5275cf00/RESULT.md",
+          "material_read": "Binary enumerator and fixed-one asymptotic statement",
+          "method": "Resultary lookup and local mirror statement comparison",
+          "title": "Sharp first-order fixed-content quasinecklace overhead",
+          "trigger": "Another exact and asymptotic conditional count"
+        },
+        {
+          "assessment": "Unrestricted binary length counts, not conditional.",
+          "evidence": "Ratio by total length without fixing the count of the minimum symbol.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-log-periodic-overhead-in-binary-quasinecklace-enumeration--526ea0af0f9e/RESULT.md",
+          "material_read": "Indexed scope and asymptotic statistic",
+          "method": "Resultary and local mirror comparison",
+          "title": "Log-periodic overhead in binary quasinecklace enumeration",
+          "trigger": "Asymptotic quasinecklace overhead overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen coefficient formula and asymptotic",
+        "arXiv:2607.05324, Theorem 4"
+      ],
+      "rationale": "The slice corresponds to a natural constraint when generating necklace representatives. The exact rule shows which candidate counts are inflated by ties, and the precise unbounded r/s growth after the m-limit exhibits a failure of uniform conditional overhead despite a global constant bound. It is useful as a benchmark for filtering, not a lower bound on every generator's runtime.",
+      "residual_risks": [
+        "No joint-limit estimate or algorithmic time bound is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

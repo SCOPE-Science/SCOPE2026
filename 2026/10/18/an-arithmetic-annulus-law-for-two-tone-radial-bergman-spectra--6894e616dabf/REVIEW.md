@@ -1,19 +1,21 @@
-# Scientific review: arithmetic annulus law for weighted Bergman radial spectra
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof diagonalizes the bounded radial Toeplitz operator in the monomial basis with the explicitly normalized weighted probability measure. The beta-integral calculation yields every eigenvalue exactly, while the standard gamma-ratio expansion controls the tail with \(O(n^{-1})\) error. Kronecker density, together with the vanishing mesh of \(\log n\), identifies the complete cluster set. Circle addition and the elementary diagonal Fredholm criterion prove the annulus/curve dichotomy, its sharp radii, area property and index statement. The accompanying checker independently compares direct integrals with gamma quotients. Finite tests do not prove the infinite assertions.
+PASS
 
-## Originality — PASS, qualified
+Radiality kills the off-diagonal moments in the complete normalized monomial basis. Under normalized weighted area, the substitution x=|z|² gives the eigenvalue beta-moment ratio, hence the exact gamma quotient. For fixed α,t the gamma ratio gives n^(-it)(1+O(n^-1)); the attenuation constant can also be checked directly by y=n(1-x), dominated convergence using (1-y/n)^n≤e^-y, and normalized gamma moments. Γ has no zeros in the stated range, and reflection and recurrence give the unweighted magnitude. Continuous positive logarithmic phase-time has every tail dense in the two-torus for irrational β/γ; for a rational ratio each tail contains the whole periodic orbit. Approximating the continuous times s_j→∞ by log of integers nearest e^s_j preserves phase limits. Thus the diagonal tail-cluster set is exactly the corresponding continuous image. Independent rotations and the relative-angle formula realize the whole irrational annulus, including the origin when a=b. In the rational case p≠q makes the relative phase sweep the circle, so both extremal moduli are still attained, although the compact analytic curve has planar area zero by bounded speed. Outside the cluster set the diagonal tail is boundedly invertible; within it weakly null coordinate vectors show failure of Fredholmness. Finite truncations give the upper bound for the essential norm, and compact operators send the normalized coordinate sequence to zero in norm, giving the limsup lower bound. The diagonal kernel and adjoint kernel have the same dimension when Fredholm, so the index is zero.
 
-Actual searches of indexed mathematical findings for imaginary-power Bergman Toeplitz symbols, Mellin gamma multipliers, and incommensurable spectral annuli returned related radial Bergman and spectral problems, not an implication covering this theorem. Li–Wang (2026) establishes a compactness criterion; Suárez (2007) characterizes radial Toeplitz sequence algebras and establishes the existence of arbitrary connected essential spectra in an operator closure; Maximenko–Pacheco (2025) proves diagonalization and logarithmic regularity. Their inspected theorem statements do not specify the two-tone symbols, exact gamma attenuation, or the rational/irrational curve-to-annulus classification. Grudsky–Vasilevski (2001) already establishes that radial essential spectra can be massive. Only its abstract was accessible; earlier explicit realizations remain a material historical-priority risk. The claim is not that positive-area Toeplitz spectra were previously unknown.
+## originality
 
-## Value — PASS
+PASS
 
-The natural smallest genuinely quasiperiodic symbol family, the sum of two bounded radial imaginary-power modes, gives a complete spectral geometry with no unspecified limits. The formula quantifies how Bergman averaging changes the radii from the raw symbol's boundary cluster set, characterizes the one-dimensional versus filled two-dimensional spectral transition by a precise arithmetic criterion, realizes entire disks by one balanced amplitude, and determines the exact Fredholm threshold. This is a specific constructive spectral classification motivated by recent work on radial weighted Bergman operators, rather than a restatement of general boundedness or compactness criteria.
+Best-of-knowledge pass only for the explicit two-tone power-weight Bergman family with its exact gamma attenuation and arithmetic transition. Earlier general realization of connected compact essential spectra and existence of radial bounded-symbol examples with nonempty interior are not claimed as new. The closest inspected local results are either about other observables or other symbol classes. The exact contents of Grudsky–Vasilevski's closely related examples remain a concrete priority risk, not contrary evidence or a scientific blocker.
 
-## Limits and related literature
+## value
 
-The investigation does not assert a novelty theorem over all unindexed papers, exact point spectra, or extensions to arbitrary radial weights. The inaccessible Grudsky–Vasilevski (2001) full text is the main originality risk; this review is not an external assessment. The closest accessible sources are arXiv:2608.23733, arXiv:0710.0797, and arXiv:2503.23649.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural question is what essential geometry an elementary combination of two boundary oscillations generates, not whether a general closure class can generate a prescribed set. This family gives explicit attenuation, a Fredholm threshold, and a sharp change from zero area to a solid annulus controlled by arithmetic alone. That is a useful exact classification for actual bounded radial symbols despite the prior general realization theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,189 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:14:59.729159Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each choice of how many sum-two reads represent 02 rather than 11 produces a looped undirected graph on the three symbols. A realizing word is precisely the vertex record of an Euler trail or an Euler circuit on its connected nonzero-degree support; a single loop handles cyclic m=1. For a trail, parity is automatic on three vertices. If a2>0 allocate all of it to 02 and the support is connected; if a2=0, there are exactly the three listed disjoint connectivity obstructions, counted by two binomial(m,2) terms and m-1. A circuit requires a1, a3 and the 02 multiplicity to have the same parity. With both adjacent cross-edge bins positive, they connect the support, and odd parity costs one sum-two read. With only one adjacent cross-edge bin positive it must be even, and a loop at the opposite end requires at least two sum-two reads to attach it. With neither adjacent cross-edge bin positive, a positive even a2 can all be allocated to 02, a positive odd a2 can only be realized at vertex 1 without outer loops, and with a2=0 exactly one nonempty loop bin remains. Summing the resulting disjoint geometric series yields the stated generating function. Its partial fractions at 1 have coefficients 1/2, -1/4, -17/8, 87/16 and -105/32 in descending pole order; the term at -1 is -9/[32(1+z)]. Coefficient extraction gives the stated quasipolynomial and leading coefficient. Selecting one word per histogram proves the finite-block code claim. Independent direct enumeration of 118,092 linear/cyclic words at m=1..9 matched both counts, as a finite check only. The frozen script was read and not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kiah et al. use q^ell oriented factor categories and graph-based counting, not the projected five-bin profile.",
+          "Ye–Elishco use substring composition observations in string reconstruction; Yehezkeally et al. use ordered substring profiles in multi-strand reconstruction.",
+          "The all-alphabet cyclic window-sum inverse-fiber theorem counts indexed outputs even at the exact ternary adjacent parameter."
+        ],
+        "reasoning": "These results give larger models, different observations or useful techniques, but no inspected theorem specializes to the exact unlabeled-position histogram support, much less to both boundary conditions at equal read count.",
+        "searches": [
+          "arXiv:1502.00517 profile definition and graph counting",
+          "arXiv:2208.14963 p. 1",
+          "arXiv:2108.11725 p. 1",
+          "SCOPE 3dd4b884b257"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE 3dd4b884b257",
+        "SCOPE 3e67d435e70c",
+        "SCOPE 4aee40122a4b",
+        "SCOPE 87bc1f36ef2d",
+        "SCOPE f0497779133f",
+        "SCOPE 08e655a29220",
+        "arXiv:1502.00517",
+        "arXiv:2208.14963",
+        "arXiv:2108.11725",
+        "SCOPE fec58989960d (reference only)",
+        "doi:10.3390/e24030433 (bibliographic evidence only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The profile results retain individual pair-category counts. The indexed-window theorem retains the order of read values. Neither quoted enumeration deduplicates across the five-bin fibers.",
+          "A sum-two count can arise from both edges 02 and loops 11. In the cyclic case an admissible choice of the split must satisfy parity and connectivity at once."
+        ],
+        "reasoning": "Applying the Euler criterion to a chosen graph is standard and does not count all projected outputs. Elimination of the split, followed by counting distinct feasible profiles in each parity and connectivity class, supplies the additional mathematics. Having a count or membership test for richer outputs is not a closed count of distinct projections.",
+        "searches": [
+          "SCOPE 3dd4b884b257, exact indexed-output/fiber statement",
+          "arXiv:1502.00517, definition of q^ell profiles",
+          "SCOPE 3e67d435e70c and 87bc1f36ef2d, exact profile statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE 3dd4b884b257 treats integer-sum cyclic windows for general alphabet and length, explicitly retaining output positions. At q=3 and window length two it is the closest indexed channel.",
+          "SCOPE 08e655a29220 includes singleton and six distinct unordered pair-composition types in its observation."
+        ],
+        "reasoning": "Erasing the order of an indexed sum vector or coalescing two pair types is a many-to-one map, not an equivalent reformulation. These counts do not count the image of that map. Same-day dating of the indexed-window result does not decide priority; the output distinction is decisive.",
+        "searches": [
+          "Resultary: ternary adjacent-sum multisets",
+          "Resultary: cyclic ternary pair profiles",
+          "SCOPE 3dd4b884b257, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The cyclic exact results 3e67d435e70c and 4aee40122a4b count unordered pairs without merging 02 and 11, and impose composition or run constraints respectively.",
+          "87bc1f36ef2d and f0497779133f give exact linear nine-entry ordered-pair counts. 08e655a29220 also uses singleton data.",
+          "The cited exact record fec58989960d was not retrieved; its precise contents were not inferred."
+        ],
+        "reasoning": "Even exact richer-profile counts cannot be used as a table of this projected image without handling overlaps; different profile vectors can give one and the same sum histogram. No exact matching table was established.",
+        "searches": [
+          "Resultary: linear adjacent-pair spectra",
+          "Resultary: cyclic pair-composition capacity",
+          "SCOPE 3e67d435e70c, 4aee40122a4b, 87bc1f36ef2d, f0497779133f and 08e655a29220"
+        ]
+      },
+      "rationale": "The exact counts concern the image after erasing read order and merging 02 with 11. The inspected closest results either keep read order or count richer pair-profile categories, and their cardinalities and inverse-fiber statistics do not determine the size of this image. The evidence supports distinct exact five-bin counts, subject to the cited comparison limits.",
+      "residual_risks": [
+        "The exact cyclic record fec58989960d and the full Sporring–Darkner paper were not retrieved; the statements in them were not verified.",
+        "An unindexed exact result for the five-bin additive image is not excluded by this bounded check."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Indexed-output/fiber counts, not the histogram image count",
+          "evidence": "The integer-sum output retains read positions and the theorem is cyclic only.",
+          "identifier_or_url": "SCOPE 3dd4b884b257",
+          "material_read": "Finding, local-mirror offset 0",
+          "method": "Local-mirror statement comparison",
+          "title": "Exact multilevel inverse-fiber spectrum of indexed cyclic windows",
+          "trigger": "Same-day exact cyclic sum channel including ternary length two"
+        },
+        {
+          "assessment": "Richer output with a source constraint",
+          "evidence": "Counts six unordered pair categories at prescribed positive symbol composition.",
+          "identifier_or_url": "SCOPE 3e67d435e70c",
+          "material_read": "Finding, coefficient formula and equal-composition specialization",
+          "method": "Local-mirror passage reading",
+          "title": "Exact capacities of ternary cyclic unordered-pair profiles at prescribed composition",
+          "trigger": "Exact ternary cyclic profile enumeration"
+        },
+        {
+          "assessment": "Different output and domain",
+          "evidence": "Counts six unordered pair categories and excludes three identical consecutive symbols.",
+          "identifier_or_url": "SCOPE 4aee40122a4b",
+          "material_read": "Finding and hypotheses",
+          "method": "Local-mirror passage reading",
+          "title": "Exact cyclic pair-composition capacity for ternary words with runs of length at most two",
+          "trigger": "Comparable cyclic counting formula"
+        },
+        {
+          "assessment": "Richer count, no projected cardinality",
+          "evidence": "The full linear profile has nine oriented pair categories.",
+          "identifier_or_url": "SCOPE 87bc1f36ef2d",
+          "material_read": "Finding",
+          "method": "Local-mirror passage reading",
+          "title": "Exact ternary adjacent-pair spectrum enumerator for linear words",
+          "trigger": "Exact linear adjacent profile enumeration"
+        },
+        {
+          "assessment": "Oriented profiles rather than sum bins",
+          "evidence": "Counts the nine-entry ordered adjacent-pair profile for linear ternary words.",
+          "identifier_or_url": "SCOPE f0497779133f",
+          "material_read": "Finding",
+          "method": "Local-mirror passage reading",
+          "title": "Exact ternary ordered bigram multispectrum counts",
+          "trigger": "Additional exact linear count surfaced by the search"
+        },
+        {
+          "assessment": "Singleton and richer pair-count data",
+          "evidence": "Uses compositions of factors of lengths one and two, including all six pair types.",
+          "identifier_or_url": "SCOPE 08e655a29220",
+          "material_read": "Finding and observation definition",
+          "method": "Local-mirror passage reading",
+          "title": "Ternary length-two composition profiles",
+          "trigger": "Integer sums as a possible coarsening of composition data"
+        },
+        {
+          "assessment": "Exact item not retrieved; no substantive conclusion about it",
+          "evidence": "Title and identifier are reported in the frozen reference list.",
+          "identifier_or_url": "SCOPE fec58989960d",
+          "material_read": "Bibliographic reference only",
+          "method": "Configured Resultary search and local-mirror retrieval attempt",
+          "title": "Exact ternary cyclic adjacent-pair profiles and the disconnected correction",
+          "trigger": "Frozen reference to possible cyclic-profile overlap"
+        },
+        {
+          "assessment": "Graph/Ehrhart machinery for a richer oriented profile",
+          "evidence": "The profile is the vector of counts of all q^ell ordered ell-grams, not an additive merging of the entries.",
+          "identifier_or_url": "arXiv:1502.00517",
+          "material_read": "Profile and method passages (PDF e.g. offsets 0 and 12889)",
+          "method": "OA PDF bounded passage reading",
+          "title": "Codes for DNA Sequence Profiles",
+          "trigger": "Possible general graph-profile counting theorem"
+        },
+        {
+          "assessment": "Related reconstruction formulation, different retained data",
+          "evidence": "The passage studies composition observations including prefix and suffix compositions and codes.",
+          "identifier_or_url": "arXiv:2208.14963",
+          "material_read": "PDF p. 1, offset 500",
+          "method": "OA PDF bounded passage reading",
+          "title": "Reconstruction of a Single String from a Part of its Composition Multiset",
+          "trigger": "Composition multiset as related aggregate readout"
+        },
+        {
+          "assessment": "Different observations and reconstruction objective",
+          "evidence": "Defines the ell-profile using substring counts for a multiset of strings.",
+          "identifier_or_url": "arXiv:2108.11725",
+          "material_read": "PDF p. 1, offset 1400",
+          "method": "OA PDF bounded passage reading",
+          "title": "Multi-strand Reconstruction from Substrings",
+          "trigger": "Possible more general profile-channel theorem"
+        },
+        {
+          "assessment": "Exact theorem not verified; no negative inference",
+          "evidence": "Only the cited bibliographic record and the frozen finding's characterization were available for comparison.",
+          "identifier_or_url": "doi:10.3390/e24030433",
+          "material_read": "Bibliographic/landing-page information only",
+          "method": "OA PDF and HTML full-text attempts unsuccessful (403 or landing page only)",
+          "title": "Reconstructing Binary Signals from Local Histograms",
+          "trigger": "Possible analogous local-histogram channel"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the first nontrivial collision of unordered pair types under ordinary addition on the given alphabet. Exact projected support counts are the useful finite-block code sizes for this observation, not just counts for a richer sensor. The all-length comparison at fixed number of observed windows isolates the arithmetic effect of closure: parity removes half the leading-order histograms, while connectivity governs the lower-order corrections. Standard Euler existence for a fixed graph does not mechanically give these projected counts.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Review of the Rule 73 primitive-six orbit census
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The claim concerns every indexed ring with at least three sites and one precise synchronous truth table. A finite temporal-column graph on ordered pairs of time-history symbols characterizes fixed points of each of the first, second, third and sixth iterates. Inclusion–exclusion gives six times the number of primitive six-orbits, so there is no confusion between configurations and orbits. Exact integer Newton identities verify the four determinant polynomials, including the additional sixth-return factor. The finite missing sizes follow from those polynomial traces. Explicit same-base closed walks of each length twelve through twenty-three contain both period-two and period-three column histories; their concatenations prove every larger circumference. The dominant strongly connected component has cycles of coprime lengths three and four, and exact Collatz–Wielandt inequalities isolate its leading rate above the period-two and three rates. Two standalone programs have passed on their actual package files. Finite enumeration alone is not used as an infinite proof.
+## correctness
 
-## Originality
-**PASS, qualified by historical priority.** The closest same-rule work includes Sutner's period-three existence and counts, a prior exact temporal-two zeta, a temporal-three occupation law, and a one-step image census. Their results do not entail the sixth-return polynomial, mixed-period bridge or exact six-cycle entropy. Stricker's finite-ring period-spectrum study may already show the small-size reentrance, but it does not state the all-length rational formula or constructive eventual support. Kang studies a different, spaced-neighbor model with the same local rule, and Wolfram describes periodic blocks rather than this exact census. No dominating equivalent was found among the searches and inspected relevant sections. Hidden, unpublished or unindexed equivalents remain possible.
+PASS
 
-## Value
-**PASS.** Period six is the first composite return time combining the previously studied periods two and three on this automaton. The sharp appearance-disappearance-reappearance pattern contrasts with monotone support and the period-three onset, while the rational function gives every orbit count and the growth exponent rather than another finite enumeration. The bridge construction explains why all sufficiently long rings support genuine six-cycles. This is a complete, motivated natural invariant of one well-studied dynamics, not an arbitrary parameter slice.
+For the three one-output neighborhoods 000, 011 and 110, a trace walk with a distinguished first site has exactly one valid time history for each state fixed by F^t; neither spatial shifts nor temporal starts are quotiented in that trace. Periods dividing six are 1,2,3,6, so subtraction of the two proper maximal-divisor fixed sets and addition of their intersection, followed by division by six, gives the primitive orbit number. The formal log-determinant derivative therefore has the stated signs and factor of 1/6. Independently built the time-column graph by mask arithmetic and recomputed every determinant with exact characteristic polynomials (`python3 /workspace/checks/rule73.py`, SymPy 1.14). Cyclic sizes matched [4], [8,1,1], [19], [23,8,8,8,1,1]; exact matrix powers recovered c_8=4, zeros at 1–7 and 9–11, and 12,13,14,45,116 at 12–16. A separate reachability calculation confirms a return from pair (0,21) of each length 12–23 visiting a least-period-three column; the start contains a period-two column. Their coexistence forbids every proper divisor of six, and concatenation with length-12 returns fills all larger n. Checked the indicated length-3 and length-4 cycles in the strongly connected 23-component, giving primitivity. Its determinant is (1+z²)(1+z+z²)²(1−z+z³)²E(z); exact positive-vector ratios enclose its radius in (1.61574,1.61576), hence its positive reciprocal in (.61,.63) where the other factors are nonzero. All other six-return cyclic components have radius one and the lower-time maxima are below 1.546. Trace asymptotics thus have coefficient one before division by six. The arithmetic certificates establish the finite graph facts; the bijection, concatenation and Perron argument establish the infinite claims. Frozen code and logs were read as evidence, not run.
 
-## Limitations
-The census applies only to immediately periodic temporal-six configurations on indexed nearest-neighbor Rule 73 rings, not to all attractors or attraction basins. Prior literature may have computed some finite entries or an equivalent formula not surfaced by the searches. Verification is reproducible, but independent mathematical audit is not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified for the explicit all-circumference primitive-six census, exact infinite support and growth base. Arbitrary fixed-time transfer methods and ultimately periodic existence spectra are prior; the early gap is within the scale of earlier finite cycle-spectrum work and is not credited by itself.
+
+## value
+
+PASS
+
+Six is the first return time combining the previously studied two and three clocks. Counting their genuinely mixed primitive orbits rather than all fixed states is a natural invariant. An explicit generating series with a separate growth exponent gives counts on every indexed ring, and the mixed-clock return walks explain precisely why the four-orbit first appearance is followed by a gap before permanent support. The result is more than replaying finite spectrum tables and does not claim anything about basins or other periods.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

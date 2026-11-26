@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:53:06.742618Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In a primitive rank-one factorization A=cuvᵀ, use the primitive generator u of the rational image line and divide the coordinate row by its content c. Then AXA=c(vᵀXu)A, so AXA=A forces c=1; conversely primitivity of u and v allows Xu=w with vᵀw=1. A unimodular basis with first vector u gives B(t,b) with primitive row. Any intertwinor preserves its primitive image line, so its form [ε,m;0,δ] gives b′=εtm+εδb, both necessary and sufficient; t=0 gives b=±1 and one class. Independently, a nonzero nilpotent N has the form ℓ(r,s)ᵀ(−s,r) with gcd(r,s)=1 and ℓ integral. Then det(B−N)=−ℓs(tr+bs); unimodularity is possible exactly for b≡±1 mod |t|, or |b|=1 at t=0. N=0 cannot work since B is singular. Thus the criterion does select one orbit, including moduli 1 and 2. For n>2 the sign action on units has no fixed points. Totient multiplicativity and the prime-power formula give φ(n)≤2 precisely at n=1,2,3,4,6; along primes p≥5 the proportion is 2/(p−1). I inspected the frozen code and its recorded CHECK_OK: it only tests the conjugation formula on a finite box and sign orbits through modulus 100, not fineness or unbounded statements.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shevchenko–Sidorov treat all integral matrices with the fixed split characteristic polynomial, not just regular ones; their repeated-root classification includes the integral nilpotent classes. The 2016 fine criterion does not require prior von Neumann regularity."
+        ],
+        "reasoning": "The regularity restriction changes the allowable residues to the units and reduces the nilpotent family to its primitive member; it introduces no additional conjugacy or fine invariant.",
+        "searches": [
+          "MathNet ivm1207, classification of integral matrices by split characteristic polynomial",
+          "Fine rings, Corollary 5.4 in author-hosted PDF",
+          "DOI 10.24330/ieja.1943809"
+        ]
+      },
+      "checked_sources": [
+        "MathNet ivm1207",
+        "DOI 10.1142/S0219498816501735, author copy",
+        "DOI 10.24330/ieja.1943809, metadata and attempted passage",
+        "Resultary 25753dbc08fc"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The canonical-table proof reduces the off-diagonal coordinate modulo the root difference, pairs opposite residues, and proves nonconjugacy of the retained parameters. The 2016 corollary selects exactly ±1 residues and its example uses [5,3;0,0]."
+        ],
+        "reasoning": "Select the coprime residues in the published table; of these precisely the signed pair of 1 is fine. Counting free sign orbits gives φ(n)/2 and all remaining prime proportions and extremal values immediately. The frozen record's unresolved question about the bare 2006 normal form is settled by the inspected theorem.",
+        "searches": [
+          "MathNet ivm1207 p. 60, proof and Theorem 4",
+          "https://www.math.ubbcluj.ro/~calu/fine.pdf, Corollary 5.4 and Example 5.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For fixed distinct integer roots, the canonical off-diagonal parameter in Theorem 4 ranges from 0 to floor(|α−β|/2), the residue interval after identifying the two signs. Corollary 5.4 is exactly fineness iff b≡±1 mod a for the one-row form."
+        ],
+        "reasoning": "With roots t and 0 (or by negating the matrix to reverse the sign of t as needed), this is exactly the one-row triangular trace stratum before imposing primitivity. Filtering the parameters by gcd(t,b)=1 yields the same quotient of unit residues.",
+        "searches": [
+          "Resultary: rank-one regular integral matrices trace strata fine similarity conjugacy",
+          "Shevchenko–Sidorov, MathNet ivm1207, Theorems 3–4",
+          "Călugăreanu–Lam, Corollary 5.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest catalogue record concerns idempotent averaging maps and conjugacy over fields, not rank-one integral matrices. Theorem 4 gives the explicit canonical representatives, and the primary 2016 article already prints B(5,3) as non-fine."
+        ],
+        "reasoning": "The Resultary hit is not a match. The general canonical table and the coordinate fine criterion jointly fix the full requested counts without a separate trace-stratum table.",
+        "searches": [
+          "Resultary exact title: Trace strata of rank-one regular integral matrices",
+          "Resultary 25753dbc08fc, Finding",
+          "MathNet ivm1207 Theorem 4",
+          "Fine rings, Example 5.6"
+        ]
+      },
+      "rationale": "The 2006 integral-similarity classification already gives the bare residue/sign classes (including the repeated-root classification at trace zero). The 2016 fine-ring paper already determines fineness on every triangular representative, and its Example 5.6 already exhibits the exact trace-five matrix. Imposing content one and counting the sign-orbits, of which exactly the distinguished orbit meets the fine congruence, is a direct conjunction of these results; no remaining new stratum computation is needed.",
+      "residual_risks": [
+        "The strongest 2006 proof and theorem formulas were inspectable despite noisy Russian text extraction. The 2026 full decisive passage was not recovered, but the failure rests on positive coverage in 2006 and 2016, not on that access limit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Canonical classifications are broader than the primitive rank-one stratum",
+          "evidence": "Theorem 4 lists one representative for each 0≤j≤floor(|α−β|/2), with proof reducing modulo the root difference and identifying opposite residues; Theorem 3 treats equal roots.",
+          "identifier_or_url": "https://www.mathnet.ru/eng/ivm1207",
+          "material_read": "Russian PDF, p. 60 proof and Theorem 4, OA offset 12908; p. 59 repeated-root Theorem 3",
+          "method": "OA PDF text including the formulas (noisy legacy text encoding)",
+          "title": "On the similarity of second-order matrices over the ring of integers",
+          "trigger": "Exact split integral conjugacy classification"
+        },
+        {
+          "assessment": "Directly covers fineness on the triangular representatives; supplies the very same witness",
+          "evidence": "Corollary 5.4 says b≡±1 mod a; Example 5.6 displays [5,3;0,0] and explicitly calls it not fine.",
+          "identifier_or_url": "https://www.math.ubbcluj.ro/~calu/fine.pdf",
+          "material_read": "Author copy pp. 14–15, Corollary 5.4 at OA offset 78780 and Example 5.6 at offset 81250",
+          "method": "OA author-hosted full-text passages",
+          "title": "Fine rings: A new class of simple rings",
+          "trigger": "Decisive fine criterion and exact witness"
+        },
+        {
+          "assessment": "No independent primary-passage verification here; regularity criterion is separately proved in this review",
+          "evidence": "Frozen RESULT.md attributes Theorem 3.2 and the witness to this source; the witness is independently located in 2016.",
+          "identifier_or_url": "https://doi.org/10.24330/ieja.1943809",
+          "material_read": "DOI and resolved publisher PDF identification only; attempted Theorem 3.2 passage not retrieved",
+          "method": "Lawful OA retrieval attempts to DergiPark PDF",
+          "title": "Rings whose von Neumann regular elements are fine",
+          "trigger": "Motivating paper and reported content-one regularity criterion"
+        },
+        {
+          "assessment": "Different objects, base field, and invariant",
+          "evidence": "Conjugacy of idempotent averaging linear maps on matrix algebras over fields, not of rank-one integer matrices.",
+          "identifier_or_url": "2026/10/25/Resultary 25753dbc08fc",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Catalogue mirror text",
+          "title": "Trace-biased conjugacy and Rogers–Ramanujan corank law for rank-one maps",
+          "trigger": "Nearest semantic result on trace and rank one"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The regular-fine question motivates the stratum, but the claimed refinement only filters an earlier canonical table by coprimality and selects the already known fine parameter. The totient counts and limiting proportion are immediate; no new classification step or independently useful noncovered invariant is established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

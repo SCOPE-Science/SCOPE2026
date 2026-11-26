@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:27:51.627639Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–83",
+        "Frozen VERIFICATION.md and check_equilibrium.py inspected, not executed",
+        "Peng et al., Symmetry 16 (2024), 990, Eq. (3) and §3.1"
+      ],
+      "rationale": "Use the explicitly defined map, agreeing with Peng et al.'s Eq. (3), not their candidate origin line. The third fixed-point equation forces x=y=p, and the common equation is cos(gamma*theta(p))=g(p) for g(p)=p*L(p)/k. The derivative k*g'=L+p*L' is positive: outside [0,1/2] the second term is nonnegative, and inside it is bounded below by -1/4 since t(1-2t)<=1/8 and the log argument is at least 2. Thus g takes both endpoint values -1,+1 uniquely, and all roots are trapped in [a,b] with b<k/log(2)<1/2 and theta'>0 there. For u=acos(g), gamma*theta-u is increasing. For the other branch, write its derivative as theta'*(gamma-R), with R=g'/(theta'*sqrt(1-g^2)). At each endpoint R is an inverse square root in the distance times a smooth positive factor; differentiation makes it strictly decreasing from the left and increasing to the right, and it is bounded away from the endpoints. For sufficiently large gamma this gives exactly two turns and endpoint turning strips of width O_mu(gamma^-2), with only O_mu(gamma^-1) phase variation. Counting lattice crossings on monotone pieces of each phase over every prefix gives gamma*(theta(t)-theta(a))/(2*pi)+O_mu(1) per branch, since u varies by at most pi. Branches can agree only at the two endpoints, including any endpoint equality; counting distinct roots uses only bounded corrections. Dividing the combined prefix count by its total gives uniform O_mu(1/gamma) CDF error. Integrating that error on the common compact support proves the W1 bound and differentiating the phase CDF gives the stated density. The Jacobian's upper block has symmetric and antisymmetric multipliers P' and P'+2h*sin(z); the third multiplier is 1. If any line fails expansion somewhere, the triangle inequality gives |P'|<=1+2|h|. At a root, the log-derivative term is bounded and the sine prefactor is bounded below by a positive constant times gamma. Hence |sin|=O_mu,h(1/gamma), so 1-|g|=O_mu,h(1/gamma^2), which forces the root into an endpoint strip of that width by the positive derivative of g. The prefix bound gives only O_mu,h(1) roots there, proving the all-z quantifier for the other lines.",
+      "residual_risks": [
+        "The supplementary grid detects sign-change candidates and is not an exhaustive isolator at tangencies; the analytic quantizations handle these. Constants are for fixed mu>0 and fixed h; no uniformity as mu approaches zero or h grows is claimed. The published claimed equilibrium at p=0 is inconsistent with Eq. (3) for nonzero k, but is not used by the frozen proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2024 paper defines a family allowing variable k, mu, gamma, h, but the passages on the map and equilibrium do not analyze asymptotic counts as gamma increases. The two-frequency sine-map record treats a phase-uniform linear fixed-point count and small nonexpanding proportion for its own system, not the inverse-log amplitude and parabolic phase of this map."
+        ],
+        "reasoning": "A broader definition of the model and related oscillatory-count arguments are not a dominating theorem for the target spatial and line-stability estimates. Earlier scalar full text was unavailable, not established noncovering.",
+        "searches": [
+          "Peng et al., 2024 primary map and stability analysis",
+          "Mansouri–Wang, DOI 10.1016/j.ins.2021.02.022, scalar-map antecedent",
+          "Resultary two-frequency density finding 18dfa76342c1"
+        ]
+      },
+      "checked_sources": [
+        "Peng et al., DOI 10.3390/sym16080990, official PDF",
+        "Mansouri–Wang, DOI 10.1016/j.ins.2021.02.022, bibliographic provenance only",
+        "Resultary b7d0000bf41d, 9abf457e989c, 18dfa76342c1 original findings",
+        "Focused primary-literature lookup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source equations supply the model and a local stability analysis, not the endpoint roots, uniform prefix quantization or concentration of possible nonexpanding roots into shrinking strips. The modular face result concerns a quadratic staircase with modular branches; the other exact result concerns two sine frequencies."
+        ],
+        "reasoning": "Specializing the published model to k=1/10 supplies the object, not the claimed consequences. Those require the distortion by theta, endpoint turning control and the uniform transverse argument. The neighboring exact results cannot be specialized to this claimed root law.",
+        "searches": [
+          "Peng et al. Eq. (3), §3.1 Eqs. (4)–(7)",
+          "Resultary modular logistic 9abf457e989c and two-frequency sine map 18dfa76342c1, actual findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The line census is exactly the number of distinct roots of the scalar cosine/log amplifier fixed-point equation, because z+x-y=z forces x=y. The 2024 article states a candidate E=(0,0,eta) and computes its local Jacobian; Eq. (3) in fact sends x=y=0 to x'=y'=k/log(3) for nonzero k."
+        ],
+        "reasoning": "The written map is the same, but a proposed equilibrium and local calculation are not a global census or a scalar empirical distribution. The origin line is not silently assumed valid.",
+        "searches": [
+          "Resultary: cosine–memristor equilibrium-line count, empirical fixed-point distributions and high-amplification expansion",
+          "Focused primary-literature query on the cosine/log amplifier and equilibrium counts",
+          "Peng et al. DOI 10.3390/sym16080990, Eq. (3) and §3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue hit b7d0000bf41d is this very record. The matched modular logistic record gives ceil(K)*(ceil(K)-1)/2 fixed points on w=0 and a two-dimensional Wasserstein limit at integer gain. The two-frequency record gives linear growth in a separate sine model. The 2024 source equilibrium passage does not provide a matching exact asymptotic table or coefficient."
+        ],
+        "reasoning": "A self-match is not independent coverage; the separate exact counts and numerical/limit statements have different equations and parameter regimes.",
+        "searches": [
+          "Resultary b7d0000bf41d, 9abf457e989c and 18dfa76342c1",
+          "Primary article equilibrium equation and reported simulations"
+        ]
+      },
+      "rationale": "The map and ordinary phase counting are not new. The inspected primary article and strongest matched catalogue findings do not contain or imply the phase-span coefficient and bounded counting discrepancy, quantitative spatial law, and uniform-over-z expansion exceptions for this fixed-parameter cosine–memristor map. The scalar-amplifier precursor remains a named partial-overlap risk; this is a best-of-knowledge decision, not a finding of historical priority.",
+      "residual_risks": [
+        "The inaccessible scalar precursor could contain a partial or equivalent count. No independent priority follows from a same-day match, and unindexed treatments are not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same printed map; local analysis rather than target asymptotics",
+          "evidence": "Eq. (4) gives the candidate origin line, inconsistent with Eq. (3) for k=1/10. This does not undermine the provenance of the map used in the result.",
+          "identifier_or_url": "https://doi.org/10.3390/sym16080990",
+          "material_read": "Official PDF p. 5 Eq. (3), OA offsets 35000–43762; p. 7 §3.1 Eqs. (4)–(7), around offset 69791; introduction and reference to scalar precursor",
+          "method": "Publisher OA static PDF; ordinary website route did not supply full text",
+          "title": "Simulink Modeling and Analysis of a Three-Dimensional Discrete Memristor Map",
+          "trigger": "Primary same-map paper and plausible equilibrium/stability coverage"
+        },
+        {
+          "assessment": "Exact overlap unresolved for the scalar part",
+          "evidence": "The cited 2021 source may cover root counts or scalar stability; its attribution cannot decide the content of its fixed-point analysis.",
+          "identifier_or_url": "https://doi.org/10.1016/j.ins.2021.02.022",
+          "material_read": "Bibliographic identification and scalar attribution through Peng et al., PDF pp. 1, 3, 14; no readable original full-text equilibrium passage obtained",
+          "method": "Lawful DOI/publisher and PDF access attempts yielded access denial or no usable full text",
+          "title": "A novel one-dimensional chaotic map generator and its application in a new index representation-based image encryption scheme",
+          "trigger": "Earlier scalar generator whose fixed-point roots are exactly the candidates"
+        },
+        {
+          "assessment": "Compound analogy, different piecewise modular map",
+          "evidence": "Count ceil(K)*(ceil(K)-1)/2, limiting density 2v du dv and one-sided expansion of nonzero face fixed points.",
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-a-quadratic-fixed-point-staircase-and-universal-boundary-distrib--9abf457e989c",
+          "material_read": "Original Finding, face w=0 count, integer-gain W1 and expansion claims",
+          "method": "Local Resultary mirror",
+          "title": "A quadratic fixed-point staircase and universal boundary distribution",
+          "trigger": "Closest compound claim of count, spatial law and expansion"
+        },
+        {
+          "assessment": "Partial methodological analogy, not coverage",
+          "evidence": "The model has a phase-uniform linear count and a vanishing weak-multiplier fraction, not this logarithmic cosine map's line census or W1 limit.",
+          "identifier_or_url": "Resultary 2026/11/1/SCOPE-uniform-phase-independent-fixed-point-density-in-a-two-frequency--18dfa76342c1",
+          "material_read": "Original Finding on the two-frequency sine map and multiplier estimate",
+          "method": "Local Resultary mirror",
+          "title": "Uniform phase-independent fixed-point density in a two-frequency map",
+          "trigger": "Earlier linear fixed-point count and nonexpanding exception asymptotics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, proof and Limitations",
+        "Peng et al., Eq. (3), §3.1 original equilibrium and stability discussion"
+      ],
+      "rationale": "For the actual published map, determining how many stationary lines occur and how they are placed is a natural global counterpart to a local equilibrium discussion and plots. The count and W1 law replace that discussion with a quantitative census, and the stability bound shows that the exceptional lines are negligible even when the criterion must hold for every z. These are specific useful benchmarks about the stationary geometry; they do not assign dynamical frequencies to typical orbits.",
+      "residual_risks": [
+        "No assertion about invariant chaotic measures, visits by forward orbits, or security follows; value is in the equilibrium geometry and transverse spectra at fixed parameters."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

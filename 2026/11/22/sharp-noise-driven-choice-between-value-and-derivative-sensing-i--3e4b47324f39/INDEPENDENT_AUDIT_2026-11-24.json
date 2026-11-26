@@ -1,0 +1,171 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:57:48.034154Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–130, assumptions and full branch and crossing proof",
+        "Frozen VERIFICATION.md and verify.py inspected as supporting evidence, not executed",
+        "Independent exact rational replay: L(47/100)=11797/337080<1/24<42/845=L(12/25); use monotonic D and t+1/24 to obtain the rational upper bound and strict gap above",
+        "Independent sextic evaluation and root isolation in (0.521,0.522) give y*=0.52123406574388195294… and L(y*)=0.12608521030225529508…; the reduction is 0.0340103816366493… and posterior risk approximately 0.0159896183633507. Replay by bisecting the displayed sextic on the stated bracket and evaluating L and the gain."
+      ],
+      "rationale": "The target J has Brownian stochastic-integral kernel (1−u)²/2 and variance 1/20. Taking inner products with (t−u) on [0,t] and with 1 on [0,t] gives C=t²(t²−4t+6)/24 and D=t(t²−3t+3)/6, respectively. The observation denominators are t³/3+η and t+η; the conditional mean minimizes MSE, so the squared-covariance gains are the correct objectives, with zero gain at deterministic time zero. For t>0 the derivative of the value gain is positive below x_0 and has the sign of η−H(t) on [x_0,1], apart from the zero at x_0 in the noiseless case. In H', the signed quartic after substitution u=1−t is 5u⁴+8u³+9u²−2u−2; it is negative for 0≤u≤0.3 because the positive terms total at most 1.0665. Thus H'>0 and the unique value optimum hits 1 exactly at η=1/24. For the derivative gain the sign before t=1 is that of η−L(t); it is positive below y_0, and L'=1/[3(1−t)³]−5/6>0 on [y_0,1) since y_0>1/3. The derivative optimum is unique, below 1. Relative to endpoint-value gain 1/[64(η+1/3)], every fixed derivative site y>1/3 has a strictly increasing ratio in η, and all maximizing derivative sites satisfy that restriction. Comparing at the earlier optimizer makes the optimized ratio strictly increasing; its limit is 64D(1)²=16/9. At η=1/24 the exact derivative gain upper bound 120207456/2998046875 falls short of the endpoint value gain 1/24 by 113067931/71953125000. Hence there is a single crossing above endpoint activation, and all smaller η are won by the value modality even before its endpoint is optimal. At stationarity G=D(y)(1−y)²; substitution in the equality with the endpoint gain gives the sextic without introducing roots in (y_0,1). The unique crossing thus consists of precisely the two stated sites in their respective modalities.",
+      "residual_risks": [
+        "Finite numerical root evaluation corroborates constants rather than proving the global crossing; the sign, monotonicity, and exact rational separation prove it. No formal verification was performed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Generic joint BQ posterior formulas; IWP function/derivative smoothing with polynomial trend; derivative-augmented GP information; Gauss–Hermite analogue using value readings",
+          "The indexed endpoint result is for whole-path loss; the precision-budget result optimizes variable precisions and a co-located design"
+        ],
+        "reasoning": "Generic posterior reductions can generate the two scalar objectives here after specialization, but not their global optimizer branches or their single transversal crossing. A mixed-channel optimum need not identify the best discarded single-channel design or the exact tie among distinct site choices. Changing the loss to a path trace likewise changes the objective numerator.",
+        "searches": [
+          "arXiv:1801.04153v7 Proposition 1; arXiv:2302.02053 §2.1; arXiv:1704.00060 abstract and section map",
+          "O'Hagan (1991) Bayes–Hermite quadrature, abstract and §3.2",
+          "Resultary broader IWP endpoint and same-target precision-budget comparisons"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, prior-work section and limitations",
+        "Mirrored Resultary records above, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+        "arXiv:1801.04153v7; arXiv:2302.02053; arXiv:1704.00060; O'Hagan (1991) primary article"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The generic posterior formulas provide the initial risk expression, whereas the nearby exact catalogue theorems concern quadratic energy, shared precision, whole-path activation or an integrated bridge prior."
+        ],
+        "reasoning": "None of the inspected premises supplies endpoint activation for the linear-integral value branch, strict growth of the optimized derivative/endpoint ratio, and the exact separating inequality at activation. Together these establish the all-noise global threshold and are the supported distinct claim.",
+        "searches": [
+          "arXiv:1801.04153v7, arXiv:2302.02053 and arXiv:1704.00060; O'Hagan (1991) §3.2; matching and neighboring Resultary statements below"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact indexed hit is the same record. The closest distinct equal-noise one-shot switch targets Q=∫X², and the closest distinct same-J design allocates precision over two co-located channels.",
+          "Wu–Aoi–Pillow use derivative information with function evaluations in GP quadrature; O'Hagan's Bayes–Hermite formulation instead takes value evaluations and a Gaussian integration measure on R^p."
+        ],
+        "reasoning": "Switching from a linear Gaussian integral to a quadratic energy changes the conditional-mean loss and the reduction objective, not merely notation. Two co-located readings with variable precision enlarge/change the feasible experiments. A change of terminology from process derivative to velocity or from quadrature to conditioning does not reconcile the mismatched model, target, or budget. Hermite in O'Hagan refers to the Gauss–Hermite quadrature analogue, not a choice between value and derivative sensing.",
+        "searches": [
+          "Local Resultary searches for a one-shot integrated-Wiener value-versus-derivative switch, informative site timing, and precision allocation",
+          "arXiv:1704.00060 abstract and section map; arXiv:2302.02053 abstract and §2.1",
+          "\"Bayes-Hermite quadrature\" 037837589190002V full text pdf derivative observations integrated Wiener"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The frozen self-match lists 0.126085210302255…; the quadratic-energy, precision-budget, endpoint-activation and integrated-bridge path entries instead report distinct constants with distinct parameter meanings",
+          "No independent exact source or tabulation for this crossing was identified in the compared material."
+        ],
+        "reasoning": "Tabulated quadrature sites or noise thresholds for a different estimand, measure or observation constraint cannot certify the exact sextic and branch identities for this switch. Similar decimals or the shared occurrence of an endpoint are not evidence of equivalence.",
+        "searches": [
+          "Resultary exact-match and threshold-neighbor searches with mirrored RESULT.md findings",
+          "Targeted public derivative-quadrature and Bayes–Hermite primary-source lookup"
+        ]
+      },
+      "rationale": "The inspected work covers standard conditioning, derivative-enhanced inference, or genuine modality switches for different targets, sensor budgets, or priors. It does not give or imply the specific freely timed one-reading, equal-variance switch for this integrated-Wiener linear integral, with its exact locations and crossing constant.",
+      "residual_risks": [
+        "Targeted literature and catalogue comparisons do not certify publication priority or rule out unindexed derivative-quadrature specializations. Same-day catalogue dating was not used to determine priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same record, no independent corroboration",
+          "evidence": "Same prior, instrument constraints, threshold and optimal locations.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-noise-driven-choice-between-value-and-derivative-sensing-i--3e4b47324f39",
+          "material_read": "Mirrored RESULT.md finding at offset 0 and crossing passage near offset 6200",
+          "method": "Resultary search and local mirror",
+          "title": "Sharp noise-driven choice between value and derivative sensing in integrated-Wiener quadrature",
+          "trigger": "Exact Resultary match"
+        },
+        {
+          "assessment": "Related switch, different estimand and risk",
+          "evidence": "Q=∫X² with threshold about 0.112491318 and derivative site about 0.577792, not the linear J design.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-modality-switch-for-one-shot-integrated-wiener-quadratic--7ee779b752f0",
+          "material_read": "Mirrored RESULT.md, Finding offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "A sharp modality switch for one-shot integrated-Wiener quadratic energy sensing",
+          "trigger": "Closest one-shot switch, same channels and noise calibration"
+        },
+        {
+          "assessment": "Related but distinct experimental constraints",
+          "evidence": "Variable total precision for co-located channels and derivative-only to mixed endpoint transition near budget 8.578152.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-precision-budget-switch-for-co-located-value-derivative--8499b026e52d",
+          "material_read": "Mirrored RESULT.md, Finding offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "A sharp precision-budget switch for co-located value–derivative sensing",
+          "trigger": "Same linear target and modalities"
+        },
+        {
+          "assessment": "Different loss; no modality comparison",
+          "evidence": "Whole-path integrated posterior variance gives the threshold 8/273.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-endpoint-activation-threshold-for-one-noisy-integrated-w--234c270723d5",
+          "material_read": "Mirrored RESULT.md, Finding offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "A sharp endpoint activation threshold for one noisy integrated-Wiener reading",
+          "trigger": "One-value endpoint threshold"
+        },
+        {
+          "assessment": "Different prior and loss",
+          "evidence": "Brownian-bridge-based prior and integrated posterior path variance; threshold about 0.03486395.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-displacement-to-velocity-sensing-switch-for-integrated-b--4112e6f7c49a",
+          "material_read": "Mirrored RESULT.md, Finding offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "A sharp displacement-to-velocity sensing switch for integrated Brownian-bridge design",
+          "trigger": "Equivalent measurement terminology and a noise switch"
+        },
+        {
+          "assessment": "Conditioning framework, no exact design implication",
+          "evidence": "Gives posterior mean and covariance for multi-output integrals, not this timing/modality optimization.",
+          "identifier_or_url": "https://arxiv.org/html/1801.04153v7",
+          "material_read": "Abstract and Proposition 1 near offset 23353",
+          "method": "Lawful OA primary text, targeted passages",
+          "title": "Bayesian Quadrature for Multiple Related Integrals",
+          "trigger": "General joint quadrature framework"
+        },
+        {
+          "assessment": "Smoothing and approximation, different aim",
+          "evidence": "Joint function and derivative inference and spline approximation with a polynomial-trend IWP formulation, not a one-reading quadrature optimum.",
+          "identifier_or_url": "https://arxiv.org/pdf/2302.02053",
+          "material_read": "p. 1 abstract and p. 4 §2.1, around offsets 1433 and 9406",
+          "method": "Lawful OA primary PDF, targeted passages",
+          "title": "Model-based Smoothing with Integrated Wiener Processes and Overlapping Splines",
+          "trigger": "Same process family and derivative observations"
+        },
+        {
+          "assessment": "Related derivative quadrature, no matching switch in the inspected statements",
+          "evidence": "Methods for first and second derivatives evaluated along with the function; derivative GP updating and quadrature applications.",
+          "identifier_or_url": "https://arxiv.org/pdf/1704.00060",
+          "material_read": "PDF p. 1 abstract and p. 3 section map, near offsets 2198 and 8342",
+          "method": "Lawful OA primary PDF, targeted passages",
+          "title": "Exploiting gradients and Hessians in Bayesian optimization and Bayesian quadrature",
+          "trigger": "Derivative information directly in Bayesian quadrature"
+        },
+        {
+          "assessment": "Gauss–Hermite analogue, not a derivative-vs-value choice",
+          "evidence": "The design conditions on evaluations of f at points. The Bayes–Hermite specialization uses a standard Gaussian integration measure over R^p and a Gaussian correlation, unlike the frozen zero-start IWP and freely selectable modality.",
+          "identifier_or_url": "https://gwern.net/doc/statistics/bayes/1991-ohagan.pdf",
+          "material_read": "O'Hagan (1991), pp. 245–246 abstract and introduction near offset 0, and pp. 251–252 §3.2 near offset 19230",
+          "method": "Lawful openly available copy of the same primary article after the publisher access failure",
+          "title": "Bayes–Hermite quadrature",
+          "trigger": "Plausible Hermite/derivative quadrature lead, with publisher access unavailable"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–45 and 71–130",
+        "Inspected neighboring precision-budget and quadratic-energy findings and the primary derivative quadrature literature above"
+      ],
+      "rationale": "When the target is the linear integral of an integrated-Wiener path, a value reading has better low-noise efficiency but the derivative covariance permits more variance reduction in the high-noise regime. Optimizing sites as well as instrument type is necessary to see the endpoint activation and the later, unique modality switch. The exact constants distinguish these two events, resolve the tie globally, and quantify the large-noise advantage in reduction rather than in total risk. This is useful for the specified single-reading calibrated design beyond a generic posterior formula or a pointwise modality comparison.",
+      "residual_risks": [
+        "The direct design conclusion is tied to the calibrated equal-variance loss model. Changing units, prior trend, sensor costs, or observations can change the switch."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

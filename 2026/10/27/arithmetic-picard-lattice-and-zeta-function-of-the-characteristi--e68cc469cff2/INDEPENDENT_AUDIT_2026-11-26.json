@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:02:25.751498Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact F₂ equation is Dolgachev–Kondō's sextic; the geometric 42 classes generate integrally and have incidence Gram matrix M=[−2I,P;Pᵗ,−2I]. Its integral kernel consists of the relations by nondegeneracy of the geometric intersection form. Over Q the kernel is parametrized equivariantly by (Pb/2,b) with sum b=0, since PᵗP=4I+J. Squaring on the F₄ labels has seven fixed points and seven fixed lines; the trace on the relation space is 7−1=6, so the lattice trace is 14−6=8 and the multiplicities are 15 and 7. Independent exact replay: python /tmp/opencode/frozen_audit_k3_independent.py. It rebuilds incidence from projective dot products in F₄, with O the 42-by-28 orbit-sum matrix. The nonzero Smith factors of M are 1^20,2^2; those of OᵗMO are 1^8,2^6,4, which are the factors of the orbit-sum lattice since the relation kernel splits over Z and the invariant rational pairing is nondegenerate. Let L be the geometric lattice, H its fixed lattice, S the orbit-sum span. Traces of arbitrary generating lifts lie in S, hence 2H⊂S. In the projection A of M to 22 independent rows, the Hermite covolumes of A and [2A,AO] are 2048 and 262144. Thus [L:2L+S]=128 and S/2S maps injectively into L/2L (its image has dimension 15). If x∈H, then 2x∈S∩2L=2S, proving H=S. The Smith order gives absolute discriminant 256; hyperbolic signature (1,14) gives positive sign. Pic⁰ is trivial and Br(F₂)=0, so the geometric invariants are the arithmetic lattice. The independent computation does not execute the frozen verifier and checks lattice assertions, not the geometry or novelty. Cycle classes span H² and contribute eigenvalues ±2 with the stated multiplicities. Independently, in any standard affine chart the singularities have the two base coordinates in F₄ and tangent equation c²=uv after translation. The exceptional conic is split, so resolving adds q per rational node. The radicial double cover is bijective on finite-field points; adding q for seven or 21 nodes gives exactly the asserted counts and zeta, including 21 and 105.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The established geometric U⊥D₂₀ result classifies the geometric discriminant group, not the fixed integral one. The targeted primary query returned no additional candidate."
+        ],
+        "reasoning": "The permutation character determines the invariant rank but not its integral saturation or Smith factors by a rational trace argument. No stronger result giving these invariants was found in the inspected statements.",
+        "searches": [
+          "Dolgachev–Kondō §§3.2, 3.9, 5.3",
+          "Primary search on the Mukai/21-node F₂ Picard lattice, Frobenius, discriminant 256 and zeta"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0112283",
+        "arXiv:1010.5835",
+        "arXiv:math/0304258",
+        "Resultary 72b72dcd3a59"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The rational Frobenius character and zeta are accessible from prior geometric input; the latter is also an immediate resolution point count. The rational rank of the orbit sums does not settle their index; one needs integral lattice and saturation analysis."
+        ],
+        "reasoning": "The geometric result provides the ingredients but does not itself answer whether the invariant classes lift integrally to orbit sums. The distinct contribution is the discriminant form's underlying group and primitive integral generation, together with the exact arithmetic package, not claiming independent originality for each quick zeta consequence.",
+        "searches": [
+          "Geometric Gram matrix and Frobenius description in arXiv:math/0112283 §§3.9, 4.2, 5.3; indexed cyclic-descent comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The symmetric sextic is literally the Dolgachev–Kondō equation. The inspected geometric Mukai and generalized Kummer descriptions identify the same curve configuration, but do not state the integral arithmetic group for the given F₂ model."
+        ],
+        "reasoning": "Geometric equivalence over an algebraic closure by itself does not identify the arithmetic forms or their fixed lattices. Credit the geometric model and integral 42 generators in full.",
+        "searches": [
+          "Dolgachev–Kondō arXiv:math/0112283 §§3.2, 3.9, 4.2, 4.4, 5.3",
+          "Katsura–Kondō arXiv:1010.5835 and Dolgachev arXiv:math/0304258 §11",
+          "Resultary sextic equation and fixed-lattice/Frobenius search"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Katsura–Kondō's inspected tables give elliptic/torsion incidences, not X(F_q) or arithmetic Smith data; the Dolgachev–Kondō table reference concerns Steiner-system octads. Resultary 72b72dcd3a59 treats w²=x⁵y+y⁵z+z⁵x and has node lengths 1,2,3,3,6,6 instead of 1^7,2^7."
+        ],
+        "reasoning": "The different Frobenius cycle distributions and zeta functions distinguish these specific F₂ descents. Neither the inspected tables nor the related indexed zeta calculation tabulate this primitive fixed lattice.",
+        "searches": [
+          "Resultary exact discriminant/Smith/orbit-sum terms and cyclic 21-node surfaces",
+          "Katsura–Kondō §4 pp. 9–11 tables and point-count keyword 105",
+          "Dolgachev–Kondō §3.5 table reference"
+        ]
+      },
+      "rationale": "The geometric K3, integral generators and squaring permutation are known, and the zeta function is a short consequence of the node geometry. The supported distinction is the integral arithmetic fixed-lattice calculation for this descent, especially its isomorphism type of the discriminant group and index-one orbit-sum generation. No inspected primary result or indexed finding was equivalent to this core; this is not a priority guarantee.",
+      "residual_risks": [
+        "The bounded comparison cannot exclude arithmetic lattice calculations under another presentation or in a more general census of F₂ forms. Geometry, rational rank/zeta deductions, and the integral result should not be conflated."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior geometry and label involution; no invariant integral Smith or index calculation in decisive passages",
+          "evidence": "The points/lines model gives U⊥D₂₀ and integral 42-class generation; the displayed sextic is x₀x₁x₂(x₀³+x₁³+x₂³).",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0112283",
+          "material_read": "§3.2 p. 4 (11297), §3.9 p. 8 (19150), §4.2 pp. 10–11 (25266), §4.4 p. 12 (30818), §5.3 p. 18 (45929), §3.5 table reference",
+          "method": "OA PDF bounded passages",
+          "title": "A supersingular K3 surface in characteristic 2 and the Leech lattice",
+          "trigger": "Identical sextic and geometric generators, possible arithmetic computation"
+        },
+        {
+          "assessment": "Geometric equivalence and incidence data, not the specific arithmetic lattice",
+          "evidence": "Identifies the 42 lines of the Mukai model; tables concern elliptic curves and point incidences.",
+          "identifier_or_url": "https://arxiv.org/pdf/1010.5835",
+          "material_read": "p. 2 (4240), §4 pp. 9–11 (20500,23500)",
+          "method": "OA PDF bounded passages and literal table comparison",
+          "title": "A note on a supersingular K3 surface in characteristic 2",
+          "trigger": "Alternative Mukai/Kummer model and possible tables"
+        },
+        {
+          "assessment": "Description of the q=2 configuration, not the primitive F₂ lattice calculation",
+          "evidence": "Describes the Mukai model and its point–line geometry.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0304258",
+          "material_read": "§11.1–11.2, pp. 36–37 (84952)",
+          "method": "OA PDF bounded passages",
+          "title": "Abstract configurations in algebraic geometry",
+          "trigger": "General configuration treatment that might cover the special surface"
+        },
+        {
+          "assessment": "Distinct finite-field equation and Frobenius data, no claimed integral fixed lattice for this descent",
+          "evidence": "Its node orbit lengths are 1,2,3,3,6,6 and its zeta function differs.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-frobenius-cycles-and-the-zeta-function-of-a-cyclic-21-node-insep--72b72dcd3a59",
+          "material_read": "Finding and comparison with the Dolgachev–Kondō sextic",
+          "method": "Local Resultary mirror",
+          "title": "Frobenius cycles and the zeta function of a cyclic 21-node inseparable double plane",
+          "trigger": "Closest indexed arithmetic surface comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a natural characteristic-two K3 descent, an arithmetic Picard basis need not be recoverable integrally from geometric orbits merely by counting invariants over Q. The index-one result makes those readily defined divisors sufficient, and the discriminant and Smith factors quantify the exact integral intersection lattice for future divisor or lattice calculations. This is a motivated arithmetic invariant of the specified surface, not just a recalculation of the geometric discriminant or a finite-field point census.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

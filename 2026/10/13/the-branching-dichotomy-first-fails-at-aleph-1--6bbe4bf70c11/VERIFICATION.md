@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,63 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The verification uses only exact set-theoretic identities and four checked source statements.
+# Independent mathematical audit
 
-For
-\[
-Q=\{A\subseteq D:D\setminus A\text{ is finite}\},
-\]
-the dual is
-\[
-Q^d=\{A\subseteq D:A\text{ is infinite}\}.
-\]
-For
-\[
-P_0=\{A:|A\cap X|\ge2\},
-\]
-we have
-\[
-P_0^d=\{A:|X\setminus A|\le1\}.
-\]
-For
-\[
-P_1=\{A:|A\cap Y|=\aleph_1\},
-\]
-we have
-\[
-P_1^d=\{A:|Y\setminus A|\le\aleph_0\}.
-\]
-Hence
-\[
-P^d=P_0^d\cap P_1^d.
-\]
+## correctness
 
-The source's Lemma 4.4 applies twice. First, \(P_0\) is \(\omega\)-small and \(Q\) is \(\omega\)-complete, so
-\[
-P_0\cdot Q=P_0\boxtimes Q.
-\]
-Second, \(Q^d\) is \(\omega_1\)-small and \(P_1^d\) is \(\omega_1\)-complete, so
-\[
-Q^d\cdot P_1^d=Q^d\boxtimes P_1^d.
-\]
-Proposition 2.4 transfers the second dominance statement through duality, and Lemma 7.1 combines the two outer components.
+PASS
 
-For the lower failure, the relation with rows
-\[
-R_y=D\setminus\{y\}\quad(y\in Y),
-\qquad
-R_x=\varnothing\quad(x\in X)
-\]
-belongs to \(P\cdot Q\). Any supposed \(P\)-by-\(Q\) rectangle must use an uncountable first-coordinate set contained in \(Y\), and a cofinite second-coordinate set. These sets intersect, forcing a forbidden diagonal point.
+The quantifiers are proper and upward monotone. Dominance can be checked without the branching lemmas. If two rows indexed by X are cofinite, their intersection is cofinite and every column there contains those two X-points. If uncountably many rows indexed by Y are cofinite, there cannot be infinitely many columns meeting Y in at most countably many points: choose countably many such columns; their Y-points form a countable union of countable sets, so some cofinite Y-row misses all chosen columns, a contradiction. Thus in either case cofinitely many columns are P-large. In the first witness the cofinite rows are the Y-rows, each omitting its diagonal point, so any P-large first side must be an uncountable subset of Y and cannot avoid the cofinite second side. For the dual witness Q^d means infinite, and P^d requires missing at most one X-point and at most countably many Y-points. Infinitely many special rows each omit one distinct X-point, so they qualify individually but their intersection does not qualify. Engström's Theorem 6.1 excludes smaller countable domains with exactly the stated hypotheses and branching alternatives. No cardinal arithmetic beyond ZFC is needed.
 
-For the upper failure, choose distinct \(x_n\in X\) and \(k_n\in Y\), and use rows
-\[
-S_{k_n}=D\setminus\{x_n\}.
-\]
-The set of large rows is countably infinite, so \(S\in Q^d\cdot P^d\). Any branching rectangle would require its second-coordinate set to omit infinitely many \(X\)-points, contradicting the exact dual condition \(|X\setminus B|\le1\).
+## originality
 
-Finally, the checked countable-domain theorem states that dominance on a countable domain forces one of the two branching equalities. Therefore no smaller cardinal can support a counterexample, and the construction on \(\aleph_1\) is minimal.
+PASS
 
-No finite enumeration, probabilistic experiment, or unproved infinitary extrapolation is used. The only cardinal closure fact beyond the definitions is that a countable union of countable sets is countable in ZFC.
+The strongest inspected arbitrary-quantifier counterexample is at ℵ₂, with a co-countable inner filter and a different small component and upper witness. Neither that example, the countable theorem, nor the measurable-cardinal two-filter example gives the ℵ₁ witness or exact minimum. No equivalent ℵ₁ result surfaced in the bounded comparison. The union mechanism itself is not new.
+
+## value
+
+PASS
+
+The construction closes the entire cardinal gap between the countable theorem and the known ℵ₂ failure, making the first failure sharp in ZFC. The cofinite filter and finite-threshold component show exactly how little is needed for both branching equalities to fail together despite dominance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

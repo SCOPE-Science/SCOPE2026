@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:12:29.389667Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:5–50,54–138",
+        "VERIFICATION.md and supplied checker.py (inspection only)",
+        "Replay: sum i(n−i) and i²(n−i)² on i=1,…,n−1 and divide by n² and n⁴ respectively to obtain A_n,B_n for θ=2. Use these with the complete-spacing covariance above. Compute 2Φ(−Φ⁻¹(.975)√6); the independent evaluation gives 1.57944924024×10⁻⁶. The finite n=100 variance is 0.00005665 and the stated printed-variance cutoff pair recomputes to [0.12991948,0.20008052]."
+      ],
+      "rationale": "For the specified fully known uniform null, the n+1 complete spacings have the Dirichlet(1,…,1) law. The statistic gives both endpoint weights zero. The diagonal term is nB_n and the ordered off-diagonal sum subtracts A_n²−B_n over the same denominator (n+1)²(n+2), giving the claimed correction. All interior weights are positive, so the gap is zero at n=2 and strictly positive from n=3. The profile integrals are m=1/[2(θ+1)] and b=2/[3(θ+2)(2θ+1)]; the exact variance times n tends to b−m²>0. For the fixed-order CLT, represent the spacings by independent unit exponentials divided by their sum, and center each coefficient by A_n/(n+1). The centered coefficients sum to zero and are uniformly bounded, their squared sum divided by n tends to b−m², and the third absolute moments give a Lyapunov ratio O(n^(−1/2)); the exponential sum divided by n tends to one. This proves the CLT and, comparing to the stated printed formula, gives b/(b−m²). The difference identities against 4 and 32/5 verify strict bounds and their sharp limiting orders. The exact-mean-centered two-sided normal rule rejects asymptotically at the claimed Gaussian tail, not nominal size. Independent rational power-sum checks for n=2,…,300 at θ=2 and the standard-normal tail reproduce the example and cutoffs. This decision verifies the theorem for the written statistic and variance; the correspondence with the cited article is supported by the frozen equation locators and matching numerical benchmark but not by independently inspected primary equations or Table 1.",
+      "residual_risks": [
+        "Original equation and Table 1 transcriptions not directly verified; the frozen source reports Table 1 Monte Carlo cutoffs [0.1497,0.1792]. Fixed θ, a fully specified uniform null, and the explicit exact-mean/printed-variance normal rule only; no claim about corrected, simulated or composite-null calibration."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mohamed et al. (2022) landing-page/abstract identifies the article; RESULT.md:48–50,138–150 gives equation/table locators and numerical values. No decisive page of the original or Huffer was obtained.",
+          "The general Dirichlet formula and asymptotic centered-profile variance apply to other weighting profiles; the frozen literature discussion reports different weights in the 2021/2024 leads."
+        ],
+        "reasoning": "The general exact variance and CLT are covered as mathematical techniques. They say nothing by themselves about the numerical distortion of a competing calibration for the CRTE family; the comparison needs that particular competing variance and both Tsallis profile integrals. The related distinct profiles are not assessed as covering or not covering by title alone.",
+        "searches": [
+          "Mohamed et al. 2022, DOI 10.3390/math10050771, equation (8), Theorem 7, equation (11), Table 1; publisher and alternate PDF requests",
+          "Huffer (1988), Divided differences and the joint distribution of linear combinations of spacings, J. Appl. Probab. 25, 346–354",
+          "Mohamed et al. 2021 fractional entropy DOI 10.1155/2021/5331260 and Abd El-Latif et al. 2024 DOI 10.3934/math.2024881 as related leads"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md:48–50,134–153, and independent mathematical checks",
+        "Indexed Resultary searches and strongest distinct comparison",
+        "Identified primary article/abstract, full-text attempts for that article and Huffer, erratum and exact-passage queries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact variance identity specializes directly from the complete Dirichlet law; the fixed-order CLT is a standard weighted-exponential argument.",
+          "The correction to the specific normal calibration compares b with b−m², yields the sharp interval (4,32/5), explains the excluded-order supremum at one, and gives the order-dependent Gaussian tail and severe θ=2 distortion."
+        ],
+        "reasoning": "Do not credit recalculation of the general variance as original. The surviving contribution notices and quantifies a calibration error, including the maximum asymptotic severity across a motivated family. The fact that the general tool enables the correction does not itself provide a published finding about the source's competing rule or the distortion across Tsallis orders.",
+        "searches": [
+          "Compare RESULT.md:54–132 and 140–146 with Huffer's general linear spacing distributions and the cited CRTE normal rule"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "RESULT.md:54–72 expresses the issue as missing pairwise negative spacing covariance; :93–100 expresses it via normalized independent exponentials.",
+          "The correction is equivalent to centered coefficient energy (n+1)B_n−A_n², whereas the frozen transcription of the variance is diagonal-only.",
+          "The erratum search yielded no decisive source; this is not evidence of absence."
+        ],
+        "reasoning": "Spacings, normalized exponentials and weighted order statistics are equivalent routes to the general covariance. The comparison of this written calibration to the true law, with sharp behavior as the entropy order varies, is the assessed claim.",
+        "searches": [
+          "Resultary: CRTE uniformity, Tsallis spacing covariance, variance inflation and calibration distortion",
+          "Websearch: correction/erratum for Mohamed et al., Cumulative Residual Tsallis Entropy-Based Test of Uniformity and Some New Findings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact CRTE hit is the assigned work itself, not an independently published predecessor. The nearby indexed spacing result is 2026/10/25/SCOPE-exact-uniform-spacing-sample-variance-covariance-and-its-pell-zero-ranks--0da55ac2843b, about rank-specific spacing/sample-variance covariance.",
+          "Frozen Table 1 attribution concerns empirical percentiles and wide printed-variance cutoffs, not a table of exact fixed-order inflation or limiting size. No original table passage was retrieved."
+        ],
+        "reasoning": "A catalogue result about a different covariance observable is not an exact result for the Tsallis interior-gap weights. The full original table and any erratum remain source-specific risks; failed retrieval does not settle either.",
+        "searches": [
+          "Resultary searches under the Tsallis/CRTE sharp variance inflation curve and spacing covariance",
+          "Websearch: exact article title, Theorem 7, Variance and 0.20008"
+        ]
+      },
+      "rationale": "Credit classical uniform-spacing covariance and limit theory and the original CRTE statistic and cutoffs. The supported distinction is a source-specific correction with a complete order-dependent inflation law, sharp bounds and a worked null-size consequence, not a new general spacing theorem. No earlier erratum or distinct catalogue entry was verified to supply that comparison. Primary access limitations leave source attribution and historical priority provisional.",
+      "residual_risks": [
+        "No independently retrieved original display or table; no demonstrated erratum absence. Priority for the Tsallis-specific sharp curve and size comparison remains provisional, especially in later CRTE calibrations or corrections."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Frozen locators and recalculated cutoffs support but do not independently establish the original attribution; no whole-paper absence claim",
+          "evidence": [
+            "RESULT.md:48–50,138–150 identifies equation (8), equation (11), Theorem 7 and Table 1. At n=100 and θ=2, the claimed printed formula recomputes to cutoffs approximately 0.1299 and 0.20008."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/math10050771",
+          "material_read": "Publisher/landing-page abstract material; exact original equations, Theorem 7 and Table 1 not independently read",
+          "method": "Publication identification, lawful full-text and alternate PDF attempts (no decisive text), focused erratum and exact-passage literature search",
+          "title": "Cumulative Residual Tsallis Entropy-Based Test of Uniformity and Some New Findings",
+          "trigger": "Reported erroneous normal variance and comparison with original Table 1"
+        },
+        {
+          "assessment": "General moment method credited regardless of source availability; exact Huffer passage unresolved",
+          "evidence": [
+            "RESULT.md:142,152 cites Huffer; complete Dirichlet covariance implies the weighted moment identity without needing an exact CRTE precedent."
+          ],
+          "identifier_or_url": "J. Appl. Probab. 25 (1988), 346–354; https://www.cambridge.org/core/journals/journal-of-applied-probability/article/abs/divided-differences-and-the-joint-distribution-of-linear-combinations-of-spacings/F1EB7BE22C2395CFBCC8A2BE1EA7D96B",
+          "material_read": "Citation and frozen description, no decisive primary passage",
+          "method": "Lawful full-text attempt timed out; mathematical comparison by deriving general covariance",
+          "title": "Divided differences and the joint distribution of linear combinations of spacings",
+          "trigger": "General linear-spacing distribution possibly covering the finite variance"
+        },
+        {
+          "assessment": "Different covariance and objective; no verified equivalent Tsallis calibration statement",
+          "evidence": [
+            "Indexed rank-specific spacing/sample-variance covariance. The exact inflation and size hit is the assigned record itself."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-exact-uniform-spacing-sample-variance-covariance-and-its-pell-zero-ranks--0da55ac2843b",
+          "material_read": "Indexed mathematical summary only",
+          "method": "Resultary search with CRTE and spacing aliases",
+          "title": "Exact uniform-spacing sample-variance covariance and its Pell zero ranks",
+          "trigger": "Closest distinct indexed spacing covariance result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:13–50,102–138; independently reproduced exact case"
+      ],
+      "rationale": "A correction to an actual proposed inferential calibration is worthwhile when the distortion materially changes the conclusions. The result gives the sharp size distortion profile across all fixed permitted entropy orders, attributes it to omitted spacing correlations, and shows that a nominal 5% rule can have asymptotic size about 0.000158% at θ=2. That is substantively more than displaying the standard covariance identity, while making no claim against simulation-calibrated implementations.",
+      "residual_risks": [
+        "Practical consequence is conditional on using the stated printed-variance normal formula, not on all instances of the CRTE test; power and moving-order behavior not addressed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

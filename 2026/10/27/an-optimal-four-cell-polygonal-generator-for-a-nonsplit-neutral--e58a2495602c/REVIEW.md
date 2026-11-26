@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The ternary-digit merge recovers the expanding coordinate, the exact lifted orbit identity reduces the two-sheet ambiguity to two dense-return threshold observables, and elementary piecewise-affine algebra shows the threshold pair is injective except at a two-point fiber. Finite-to-one entropy preservation and nonergodicity exclude three-letter generators. All ranges, torus seams, quantifiers and exceptional sets are explicit. Exact rational code checks are supplementary, not proof of almost-sure equidistribution.
+## correctness
 
-**Originality — PASS under inspected literature.** The motivating 2026 work studies linear toral entropy, product decompositions and a contraction-side obstruction; the closest geometric result gives the minimum for diagonal products, while another treats irrational rotation products. Their statements imply neither an injective pullback across the nonsplit two-fold covering nor an optimal four-atom polygonal code for the specified skew map. The *measurable minimum* alone is not claimed as independently new: the geometric realization and decoding mechanism are the contribution. Full relevant paper text and the two closest published proof texts were inspected. Earlier generic polygonal generator theory remains a priority risk.
+PASS
 
-**Value — PASS.** This matrix is the first primitive integral rank-two neutral–expanding triangular example with genuinely nontrivial eigenlattice index \(2\): the comparable multiplier-two off-diagonal-one matrix splits integrally, while multiplier three does not. Showing that a concrete four-cell line-segment partition can recover both sheets resolves a natural geometric minimization beyond entropy and directly probes how smooth finite generators survive a nontrivial toral covering. The exact unique ambiguous sheet pair makes the mechanism reproducible.
+The merged labels are precisely the greedy ternary digits of y. For a.e. y the points v_n=3^n y mod 2 are equidistributed on [0,2); this follows from ergodicity of tripling on the doubled circle and remains true for a.e. y in its subinterval [0,1). The recurrence gives x_n=z+v_n/2 mod 1 and y_n={v_n}, where z={x-y/2}. Sheet j=0,1 therefore supplies a dense set of comparisons {s+t/2}<3t with s={z+j/2}. Before wrap the comparison opens at 2s/5; on wrap it is true, giving threshold min(2s/5,2(1-s)). Taking the first label-0 infimum on each dense return set, or 1/3 if that label is absent, handles the maximum threshold and all equality conventions. Two distinct equal first thresholds force z'=1-z/5 with z<5/6<z'. Comparing the translated thresholds on z<1/3, 1/3<=z<1/2, and z>=1/2 gives only the nontrivial pair 5/12,11/12. The excluded fibers and atypical base orbits are Haar-null. Independently the Haar-preserving, piecewise-affine measurable conjugacy a={2x-y}, b={x-a/2} with inverse x={b+a/2}, y={2b}, gives (a,b)->(a,{3b}), entropy log 3 and nonergodicity. A generating three-letter name at that entropy must have entropy n log 3 for every length-n block and hence be uniform i.i.d., an ergodic process; fewer letters violate the entropy bound. Replay: RESULT.md lines 22–60. The frozen rational checker and recorded outputs were inspected, not executed; their samples do not establish equidistribution or the entropy obstruction.
 
-**Scope and risks.** This is a Haar-a.e. ordinary one-sided generator, not a Markov partition or an everywhere-finite decoder. Geometrically analogous constructions in older specialized literature might subsume the result. The exact checks do not replace the proof or external expert validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct contribution is the displayed generator with exactly four single polygonal cells in the original square, refining the original y digit partition by splitting only its bottom strip with the line x=3y. The optimal cardinality alone (even for piecewise-affine boundaries allowing disconnected atoms) is a corollary of the preceding split-product result via an explicit piecewise-affine measurable conjugacy and is not credited as new.
+
+## value
+
+PASS
+
+An optimal alphabet with a single straight cut of one of the original digit strips preserves direct access to the natural expanding coordinate. The doubled-circle decoder shows how this coarser geometric constraint can still retain the neutral sheet information, which a partition pulled back through the natural two-to-one factor cannot retain. The value is in this concrete simple coding and its decoder, not in a new entropy theorem, a general classification or a claim about Markov coding.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

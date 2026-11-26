@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:13:34.375772Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–93",
+        "Frozen VERIFICATION.md and verify.py"
+      ],
+      "rationale": "Independently reconstructed RESULT.md Steps 1–5. K_n is binomial with mean tending to lambda; the one-count frequency divided by mu_n tends to lambda by its binomial variance bound, and the row mean differs from mu_n by o_P(1) since mu_n/n tends to zero. Writing r=mu_n u_n, the two PGF remainders in the numerator and denominator have expectations n mu_n exp(-mu_n)(exp(r)-1) and n exp(-mu_n)(exp(r)-1-r). Markov at scales mu_n and r gives A_n/mu_n → lambda and (B_n-K_n)/r → lambda in probability. Each fixed K_n=k has limiting probability bounded away from zero, so these estimates survive conditioning; at k=0, r T_n → 1, at k>0, T_n → lambda/k. Tightness of K_n proves compactified weak convergence, with the undefined all-zero event negligible. For the calibration, set G=E[u^X], H=E[u^(2X)]/G^2. Use the centered, mean-normalized versions alpha, beta, gamma of X, X u^(X-1), u^X. The Taylor bias coefficient is E[alpha^2+gamma^2+alpha gamma-alpha beta-beta gamma]; PGF differentiation gives these five moments (in order) as 1/mu, H-1, u-1, u-1+1/mu, uH-1. The variance of beta-gamma is H[(1-u)^2+1/mu], and Cov(alpha,beta-gamma)=1/mu, yielding the stated first-order delta variance. H/n → 1/lambda, also in probability under mean plug-in. For lambda=1 the acceptance interval has its lower endpoint strictly between 1/25 and 1/24 and its upper endpoint above one; the endpoints have zero limiting mass, so the K=0 and K≥25 events give the stated exact limiting size. The on-disk checker was inspected, not run; the limit rests on the analytical argument.",
+      "residual_risks": [
+        "The delta formulas are an evaluated fixed-parameter approximation, not actual triangular-array moments.",
+        "Only the specified example and Gaussian rule give the 36.79% figure."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Aleksandrov–Weiß–Jentsch's accessible abstract describes Stein–Chen Poisson count-time-series tests and asymptotic distributions. The frozen comparison points to Theorem 1 and the fixed-parameter calibration in that paper and to the fixed-parameter analysis in the follow-up's Appendix A.3; those primary passages were not independently accessible."
+        ],
+        "reasoning": "Fixed-parameter Gaussian calibration does not entail a uniform approximation at a jointly changing mean and weight with an order-one zero count and a positive escape probability. Uninspected material is a remaining risk, not negative evidence.",
+        "searches": [
+          "Primary literature lookup for rare-zero Stein–Chen Gaussian calibration and the two cited articles",
+          "doi:10.1111/stan.12252",
+          "doi:10.1002/bimj.202200073"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search and mirrored 5730903ab8bc",
+        "doi:10.1111/stan.12252 (accessible abstract)",
+        "doi:10.1002/bimj.202200073 (retrieval attempted)",
+        "Frozen prior-work discussion, not independent full-text evidence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The closest distinct mirrored record considers a mean tending to zero, fixed weight and n times the squared mean governing double-count scarcity. It gives a centered Poisson difference limit, not pole behavior in the high-mean, vanishing-weight ratio."
+        ],
+        "reasoning": "The distinct record does not imply the finding after relabeling or reducing a parameter: its statistic, array and event accounting are different. Same-day dating is not used to infer priority.",
+        "searches": [
+          "Resultary 5730903ab8bc (local mirror)",
+          "Aleksandrov–Weiß–Jentsch doi:10.1111/stan.12252",
+          "Weiß–Puig–Aleksandrov doi:10.1002/bimj.202200073"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The ratio may be represented as a one-count-dominated numerator over a zero-count-dominated denominator, with a different leading denominator when there are no zeros. The nearest distinct inspected Resultary record is about an exponential Stein–Chen difference, not an equivalent ratio law."
+        ],
+        "reasoning": "Transforming an ordinary Poisson rare-count theorem by inversion accounts for the last mapping only after the numerator, denominator and zero stratum for this specific statistic have been analyzed.",
+        "searches": [
+          "Resultary semantic query for the dense rare-zero exponential Stein–Chen ratio and reciprocal-Poisson limit",
+          "doi:10.1111/stan.12252",
+          "doi:10.1002/bimj.202200073"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The hit for the bound record itself is not separate evidence. The closest distinct record's corresponding size example is 13.929% for the sparse difference statistic, not 36.79% for this ratio."
+        ],
+        "reasoning": "The meaningful exact comparison is a statement of the limiting law and rejection event, not a numeric coincidence; there is no fixed finite table that establishes this array limit.",
+        "searches": [
+          "Resultary semantic search for reciprocal-Poisson calibration and rare-zero exponential Stein–Chen limits",
+          "Resultary 5730903ab8bc, RESULT.md offset 0"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the published-statistic-specific reciprocal-Poisson law, the no-zero scaling, and the resulting exact Gaussian size failure; not for the test, the delta coefficients, or rare binomial-to-Poisson convergence.",
+      "residual_risks": [
+        "Full texts of the two cited primary works were not retrievable in this review.",
+        "A prior nonuniform ratio result or a separately published analysis of this critical triangular array may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Originating calibration credited; no independent full-text exclusion of triangular-array coverage",
+          "evidence": "https://econpapers.repec.org/article/blastanee/v_3a76_3ay_3a2022_3ai_3a1_3ap_3a35-64.htm describes Stein–Chen time-series tests and asymptotic distributions; publisher access refused.",
+          "identifier_or_url": "https://doi.org/10.1111/stan.12252",
+          "material_read": "EconPapers abstract, not full theorem",
+          "method": "Lawful publisher and full-text retrieval attempts; accessible bibliographic abstract at offset 586",
+          "title": "Goodness-of-fit tests for Poisson count time series based on the Stein–Chen identity",
+          "trigger": "Origin of the ratio and possible asymptotic coverage"
+        },
+        {
+          "assessment": "Credited fixed-parameter comparison; primary coverage incompletely checked",
+          "evidence": "Direct links returned refusal; no alternate full text identified by the lookup.",
+          "identifier_or_url": "https://doi.org/10.1002/bimj.202200073",
+          "material_read": "Citation and frozen account only, not the primary Appendix A.3",
+          "method": "Lawful DOI and publisher full-text attempts and external literature lookup for an alternate open copy",
+          "title": "Optimal Stein-type goodness-of-fit tests for count data",
+          "trigger": "Exact exponential-weight family and possible boundary asymptotics"
+        },
+        {
+          "assessment": "Thematic overlap, not an equivalent or stronger statement",
+          "evidence": "Sparse mean, fixed exponential parameter and difference-form statistic; critical scale n times mean squared.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sparse-poisson-rank-one-calibration-for-exponential-stein-chen-g--5730903ab8bc/RESULT.md",
+          "material_read": "Finding and model at offset 0",
+          "method": "Local mirror of published result",
+          "title": "Sparse Poisson rank-one calibration for exponential Stein–Chen goodness-of-fit",
+          "trigger": "Closest distinct Resultary match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, Proof and Limitations"
+      ],
+      "rationale": "The critical zero frequency is a natural boundary of the denominator, not an arbitrary numerical slice. An explicit escape atom and exact 36.79% null size identify the mechanism and a sharp failure of a real calibration rule while leaving its fixed-parameter domain intact.",
+      "residual_risks": [
+        "No practical frequency, finite-sample guarantee, or replacement calibration is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

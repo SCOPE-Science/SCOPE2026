@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:19:15.371143Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–106; VERIFICATION.md; verify_ou_budget.py and requirements.txt (inspected, not executed)",
+        "python3 /workspace/frozen_math_crosschecks.py 4 confirmed the weight equations at P=n for symbolic exp(−λ/(n+1)) at n=1,…,7 and the exact transition sign at g=d"
+      ],
+      "rationale": "Gaussian projection reduces risk to a quadratic kernel energy plus noise. Cauchy–Schwarz eliminates the precisions with equality for allocation proportional to absolute weight, leaving the squared l1 penalty divided by P; compact sites and uniform coercivity in the weights give a minimizer. For distinct active sites the Markov interpolation integrates to a strictly positive vector Qb, with Q=K_T^{-1}. The inverse of the Stieltjes matrix I+N^(1/2)QN^(1/2) is entrywise nonnegative with positive diagonal, so the noisy weights are strictly positive for every active set. Aggregate coincident readings by adding precisions. At an active endpoint the inward variation strictly decreases the energy; at any distinct interior site a symmetric split gains λw²ε+O(ε²) while leaving the noise penalty unchanged. These exclude endpoints and unused or duplicate sites and give strict improvement with an additional site. On each open gap the residual solves r''−λ²r=−2λ, with r(t_i)=c=Σw/P; the average of one-sided site slopes vanishes and the jump is 2λw_i. Hence adjacent weights coincide, the inner gaps coincide, and the two Robin boundary conditions give equal margins and the stated weight equation. Its sides are strictly monotone in opposite directions, so existence plus uniqueness of the root proves global optimality. At g=d the sign of the difference is the sign of P−n. The separate n=1 case is maximization of the positive kernel mean at 1/2. Evaluating the normal equations gives the stated risk and geometric sum.",
+      "residual_risks": [
+        "The gap transition is for n≥2, where d is defined; the single midpoint always has two equal boundary margins. The symbolic checks are not the proof for arbitrary designs. Results concern deterministic sites, known covariance, and continuously divisible precision."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first catalog record gives exact all-n noiseless OU nodes; the second gives exact noisy two-site nodes under a common noise variance. The remaining analogues give all-n precision allocation for Brownian motion and Brownian bridge. Cai et al. prove noisy quadrature complexity bounds; the available Mukherjee integral-estimation description does not state the claimed result."
+        ],
+        "reasoning": "Noiseless design is a limiting case, fixed equal noise is a smaller feasible set for two sites, and the Wiener/bridge kernels do not have the exponential residual differential equation and Robin normalization used here.",
+        "searches": [
+          "Resultary 971795799fba, b27c43c7986c, ca21be61c9e2 and 374266bc7b99",
+          "Cai et al. arXiv:2202.10615, abstract/introduction",
+          "Mukherjee Purdue thesis public abstract and author-hosted manuscript"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 971795799fba, b27c43c7986c, 4293b65a498d, ca21be61c9e2 and 374266bc7b99",
+        "arXiv:1808.10722, 1812.08509, 2202.10615 and 1808.03444; Mukherjee dissertation public abstract and related manuscript"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At n=2 put η=2/P and s=λd/2; the frozen mesh equation becomes exp(λ/2)=exp(s)+(1+η)exp(2s)sinh(s), exactly the fixed-noise catalog root. At P→∞ it gives g=d/2+λ^(-1)log cosh(λd/2), hence exactly the earlier noiseless equation. Karvonen et al. treat positivity for locally optimized designs in a broader kernel framework."
+        ],
+        "reasoning": "Both matching reductions are one-way. Free allocation changes the weight equations through a common residual level; positive weights alone do not prove it is best to spend precision at n distinct sites or that the global mesh obeys the finite-P equation.",
+        "searches": [
+          "Resultary 971795799fba and b27c43c7986c exact optimality statements",
+          "Karvonen et al. arXiv:1812.08509, Corollary 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Centered Gaussian scalar-integral posterior variance is the minimum linear quadrature MSE. The deterministic optimization may be written as kernel energy with an l1 penalty after elimination of precision. The earlier general quadrature/energy paper supports the energy framework."
+        ],
+        "reasoning": "The framework produces a variational objective but does not determine the finite-budget optimizer or show full sensor use. Integrated pointwise prediction variance is a different loss from scalar-integral variance.",
+        "searches": [
+          "Resultary: stationary exponential covariance, noisy OU integral design, total precision and trisection",
+          "Pronzato and Zhigljavsky arXiv:1808.10722, abstract and kernel examples"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "971795799fba prints the exact noiseless root nh+(2/λ)log cosh(λh/2)=1. b27c43c7986c prints the exact two-site root, risk and η=1 trisection. These are material exact matches for restricted regimes. The all-n finite-precision law is a continuous equation, not a tabulated sequence."
+        ],
+        "reasoning": "The tabulated source in the two-site case establishes the geometry when precision is prescribed equally, not the optimality of that prescription over heterogeneous precision designs.",
+        "searches": [
+          "Resultary: exact OU integral nodes, precision-budget meshes and two-site noise-universal trisection",
+          "Resultary 971795799fba and b27c43c7986c, Finding"
+        ]
+      },
+      "rationale": "The assessed distinction is the finite-P, all-n free allocation theorem. The exact noiseless design and the fixed-equal-variance two-site geometry, risk and transition are already covered by indexed records. Neither includes the all-n optimization over freely allocated precisions, the finite-budget margin law for n≥3, or strict improvement in sensor count at fixed total precision. Other primary passages give the quadrature/energy framework, weight positivity, error rates, or different OU criteria; they do not supply this joint-design theorem.",
+      "residual_risks": [
+        "The older integral-estimation dissertation section was not accessible; an equivalent treatment in older optimal-design literature remains possible. Same-day order of the restricted two-site theorem and this record is not established. The priority assessment only covers the checked differences."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact noiseless boundary of this design, not finite P",
+          "evidence": "Unique all-n noiseless OU nodes have symmetric margins and equal internal gap h satisfying nh+(2/λ)log cosh(λh/2)=1.",
+          "identifier_or_url": "Resultary 2026/11/8, 971795799fba",
+          "material_read": "Mirrored RESULT.md Finding, offset 143",
+          "method": "Local mirror passage inspection and algebraic limiting comparison",
+          "title": "Exact optimal nodes and stratification penalty for Ornstein–Uhlenbeck quadrature",
+          "trigger": "Same kernel and integral, exact all-n mesh"
+        },
+        {
+          "assessment": "Exact two-site geometry and risk conditional on equal individual noise; same-day ordering unknown",
+          "evidence": "The prescribed independent variance η is common to both sensors. The root and unique trisection at η=1 match the frozen theorem after imposing this allocation.",
+          "identifier_or_url": "Resultary 2026/11/22, b27c43c7986c",
+          "material_read": "Mirrored RESULT.md Finding at offset 0, including risk and transition",
+          "method": "Local mirror passage inspection and substitution s=λd/2 and η=2/P",
+          "title": "Noise-universal trisection for two-site exponential-kernel quadrature",
+          "trigger": "Same kernel, target, noisy roots and spacing transition"
+        },
+        {
+          "assessment": "Analogues, not same covariance",
+          "evidence": "Exact noisy point-design results for Brownian motion or a Brownian bridge, rather than the stationary OU prior.",
+          "identifier_or_url": "Resultary ca21be61c9e2 and 374266bc7b99",
+          "material_read": "Both mirrored Finding passages, offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "Sharp joint precision and time design for Wiener integral quadrature; Universal optimal sensing meshes under a Brownian-bridge precision budget",
+          "trigger": "Same budget and quadrature objective, candidate stronger allocation theorems"
+        },
+        {
+          "assessment": "Energy/BLUE background; the specific exponential example claimed by the frozen record was not located in these passages",
+          "evidence": "The read examples list squared-exponential and Matérn 3/2 and 5/2 kernels; the inspected text does not state the joint optimum here.",
+          "identifier_or_url": "https://arxiv.org/abs/1808.10722v1",
+          "material_read": "PDF p. 1 abstract and p. 7 kernel examples",
+          "method": "Bounded OA PDF passage inspection",
+          "title": "Bayesian quadrature and energy minimization for space-filling design",
+          "trigger": "Variational reformulation and alleged exponential-kernel example"
+        },
+        {
+          "assessment": "Relevant positivity conditions, not this allocation or gap characterization",
+          "evidence": "Positivity for locally optimized univariate designs under total positivity of the kernel, not freely distributed Gaussian noise precision.",
+          "identifier_or_url": "https://arxiv.org/abs/1812.08509v1",
+          "material_read": "PDF p. 1 abstract and pp. 4, 9 at Corollary 1",
+          "method": "Bounded OA PDF passage inspection",
+          "title": "On the Positivity and Magnitudes of Bayesian Quadrature Weights",
+          "trigger": "Possible general weight positivity or optimal-node result"
+        },
+        {
+          "assessment": "Complexity rates rather than finite-n OU optimizers",
+          "evidence": "Noisy black-box queries and average-case error rates in Matérn/Sobolev settings.",
+          "identifier_or_url": "https://arxiv.org/abs/2202.10615v1",
+          "material_read": "PDF p. 1 abstract/introduction",
+          "method": "Bounded OA PDF passage inspection",
+          "title": "Order-optimal error bounds for noisy kernel-based Bayesian quadrature",
+          "trigger": "Noisy Bayesian quadrature optimization"
+        },
+        {
+          "assessment": "Different objective",
+          "evidence": "Integrated mean-square pointwise prediction and entropy, not posterior variance of the path integral. The same distinction applies to Resultary 4293b65a498d (mirrored Assumptions, offset 1229).",
+          "identifier_or_url": "https://arxiv.org/abs/1808.03444",
+          "material_read": "PDF p. 1 abstract",
+          "method": "Bounded OA PDF passage inspection",
+          "title": "On the optimal designs for the prediction of complex Ornstein–Uhlenbeck processes",
+          "trigger": "Exact OU design precedent under a possible alternative criterion"
+        },
+        {
+          "assessment": "Relevant unresolved dissertation section; not used as negative evidence",
+          "evidence": "The abstract mentions exact OU designs for path IMSE and separately integral estimation; the author manuscript formulates path IMSE and cites integral estimation as related work.",
+          "identifier_or_url": "https://docs.lib.purdue.edu/dissertations/AAI3043760/",
+          "material_read": "Public abstract, plus related author-hosted manuscript https://websites.umich.edu/~bhramar/research/synote1.pdf pp. 2–4; full dissertation not available through the public abstract route",
+          "method": "Bounded public abstract and lawful related-manuscript passage inspections",
+          "title": "Optimal designs for estimating the path of a stochastic process",
+          "trigger": "Plausible older OU integral-estimation section"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof steps 3–6; Resultary 971795799fba and b27c43c7986c"
+      ],
+      "rationale": "The all-n result resolves whether it is preferable to concentrate a fixed sensing budget or spread it among extra sites: the exponential cusp strictly favors splitting and the global mesh is computable by one scalar root. The co-variation of boundary margins with budget and the exact P=n transition for n≥3 are useful predictions beyond the already solved noiseless and two-site regimes.",
+      "residual_risks": [
+        "The transition and strict gain rely on the stated exponential covariance and continuously adjustable precision; integer replication costs could change the design."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

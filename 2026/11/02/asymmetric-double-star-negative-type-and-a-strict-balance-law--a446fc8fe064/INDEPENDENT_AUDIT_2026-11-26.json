@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:31:44.273730Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 30–92",
+        "Li–Weston, arXiv:0901.0695, Theorem 5.4",
+        "VERIFICATION.md lines 19–31 and verify_bistar.py lines 12–99 (static review, not executed)",
+        "Independent determinant bisection for (2,4), (3,3) and the scaling examples"
+      ],
+      "rationale": "On the zero-sum space eliminate the second hub coefficient and write each leaf vector as its mean plus a zero-sum fluctuation. If A=2^p, the only remaining hub square is -2[u+AX/2-(A-2)Y/2]^2. Its complementary 2-by-2 form on the two leaf sums has diagonal U_m,U_n and off-diagonal -B after changing the sign. The fluctuations and hub variable are freely choosable in this decomposition. At p=1 the form is positive definite; at p_*<2 one diagonal vanishes and B>0 by strict concavity of log(3^p-1)-(2p-1)log 2 between its zeros at 1 and 2. Thus a root inside the interval is positive semidefinite of rank one. Li–Weston Theorem 5.4 excludes any higher negative type, hence also a second root in that interval, and gives strictness at every lower nonnegative exponent. The endpoint has one equality direction; equivalently the centered Euclidean Gram rank drops by one. For fixed S, at p_S=log_2(2+2/S) the diagonals are positive and B(p_S) is at most J(p_S-1)<2/S by B''<0 on p>=1 and J<2 log 2. The determinant is then positive, and all critical roots are above p_S. Beyond p_S the product-dependent term 2^(2p)(1+S(1-2^(p-1)))/(mn) strictly increases with mn. A larger product also lowers max(m,n), increasing p_*, so comparison at the smaller-product root stays inside the larger pair's positive-diagonal interval. For proportional growth the scaled equation is (1/rho-Lc)(1-Lc)=J^2 c^2/4; the left side strictly decreases until its first zero, giving the unique admissible root, whose rationalized form is the display. For fixed m the determinant instead forces U_n=O(n^-2) and gives 1/L. Independent bisection reproduced the two quoted examples to the displayed precision; this is diagnostic, not needed for proof.",
+      "residual_risks": [
+        "The proof is for unit lengths, all vertices, and both leaf counts at least two."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Doust–Weston provide a general lower bound for finite trees and a one-hub exact result, not the adjacent two-hub evaluation. Li–Weston provide the general strictness inheritance only. The mirrored root-and-branches exact formulas assume identical branches."
+        ],
+        "reasoning": "A lower bound, a general inheritance theorem, or a different symmetric family does not yield exact values and their product order for unequal branches.",
+        "searches": [
+          "Doust–Weston arXiv:0705.0411 §5, Corollary 5.5 and Theorem 5.6",
+          "Li–Weston arXiv:0901.0695 Theorem 5.4",
+          "Resultary 0d5dc64dc29b, Finding"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0705.0411",
+        "arXiv:0901.0695",
+        "Resultary 0d5dc64dc29b",
+        "Resultary 8688551d9acf",
+        "Targeted public search for double-star exact negative type/generalized roundness"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Strictness and endpoint exclusion use published inheritance. The centered-matrix characterization offers a test but not the explicit branch product term or its change of sign above p_S. The balanced equation has no unequal-branch variable and cannot give the distinct ratio laws."
+        ],
+        "reasoning": "Routine certification after the threshold and the balanced specialization are not contributions. The reduced asymmetric determinant with its allocation monotonicity and two asymptotic regimes supplies the gap not established by those implications.",
+        "searches": [
+          "arXiv:0705.0411 §5",
+          "arXiv:0901.0695 Theorem 5.4",
+          "Resultary 8688551d9acf and 0d5dc64dc29b"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The centered powered-distance Gram form gives the equivalent negative-type/Hilbert snowflake formulation. The balanced Resultary synopsis yields q*3^p=(q+1)*2^p+q and a one-dimensional critical equality space, precisely the restriction U_q=B. The exact mirror comparison has hubs separated by two edges when there are two branches, not adjacent hubs."
+        ],
+        "reasoning": "Generalized roundness and critical Hilbert dimension do not make the balanced case distinct. Changing hub adjacency changes the 2-by-2 form; the nearby mirrored tree computation is not an equivalent presentation of the asymmetric result.",
+        "searches": [
+          "Resultary 2026/11/2/SCOPE-exact-generalized-roundness-and-critical-hilbert-dimension-of-balanced-double-star-trees--8688551d9acf",
+          "Resultary 2026/11/2/SCOPE-exact-negative-type-thresholds-and-one-dimensional-critical-load--0d5dc64dc29b",
+          "arXiv:0901.0695, Theorem 5.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day balanced synopsis matches both the critical equation and the balanced coefficient 2/(3 log 3-2 log 2). The one-hub formula has leading coefficient 1/log 2 for a growing star but does not give the finite two-hub thresholds. The retrieved mirrored tree uses a central root and identical branches."
+        ],
+        "reasoning": "These are exact overlaps or comparisons for specified subfamilies. The synopsis is evidence at statement level, not full text or priority, and none of the sources supplies a two-parameter fixed-budget exact classification.",
+        "searches": [
+          "Resultary 8688551d9acf, catalogue synopsis and attempted pinned-mirror lookup",
+          "Resultary 0d5dc64dc29b, mirrored Finding",
+          "Doust–Weston arXiv:0705.0411 Theorem 5.6"
+        ]
+      },
+      "rationale": "Credit the balanced equation, equality dimension and balanced leading coefficient as material existing coverage. The supported distinction is the unequal-branch determinant classification, strict allocation order at fixed total leaf count and the full branching-ratio and fixed-branch laws. The strongest available exact comparisons concern either equal arms, the one-hub star, or a different hub separation.",
+      "residual_risks": [
+        "Full text and within-day sequence of the balanced comparison are unresolved; its symmetric coverage is credited regardless.",
+        "Unindexed or differently formulated exact asymmetric work is not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General lower bound, exact one-hub star; not an asymmetric double-star evaluation.",
+          "evidence": [
+            "Exact star formula uses a single center, with n leaves giving 1+log_2(n/(n-1))."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0705.0411",
+          "material_read": "§5, Corollary 5.5 p. 30 (offset 87250) and Theorem 5.6 p. 31 (offsets 88065–88981).",
+          "method": "Bounded primary PDF passage inspection.",
+          "title": "Enhanced negative type for finite metric trees",
+          "trigger": "Exact finite-tree results might already include double stars."
+        },
+        {
+          "assessment": "Inherited strictness, not a threshold formula.",
+          "evidence": [
+            "Negative type at a larger exponent implies strict negative type at all smaller nonnegative exponents."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0901.0695",
+          "material_read": "Theorem 5.4 p. 10 (offset 36846).",
+          "method": "Bounded primary PDF passage inspection.",
+          "title": "Strict p-negative type of a metric space",
+          "trigger": "Supplies a general statement needed in the proof; test its coverage of thresholds."
+        },
+        {
+          "assessment": "Related radial block analysis but inequivalent geometry and symmetric branches.",
+          "evidence": [
+            "A central root connects k identical branches; for k=2 the branch hubs are two edges apart."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2/SCOPE-exact-negative-type-thresholds-and-one-dimensional-critical-load--0d5dc64dc29b",
+          "material_read": "RESULT.md statement offsets 0–2142, pinned mirror commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4.",
+          "method": "Resultary lookup and exact local mirror statement inspection.",
+          "title": "Exact negative-type thresholds and one-dimensional critical load",
+          "trigger": "Strongest retrieved mirrored exact determinant and kernel-dimension comparison."
+        },
+        {
+          "assessment": "Material balanced coverage as indexed, not a priority conclusion or a whole-document assertion.",
+          "evidence": [
+            "The catalogue gives the balanced equation, equality-dimension drop, and balanced asymptotic coefficient."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2/SCOPE-exact-generalized-roundness-and-critical-hilbert-dimension-of-balanced-double-star-trees--8688551d9acf",
+          "material_read": "Catalogue statement only; pinned mirror lacked the directory despite targeted lookup.",
+          "method": "Local Resultary search and attempted decisive local mirror read.",
+          "title": "Exact generalized roundness and critical Hilbert dimension of balanced double-star trees",
+          "trigger": "Direct overlap for m=n; exact same-day match."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and Proof §§1–4",
+        "Doust–Weston, arXiv:0705.0411 §5",
+        "Resultary 8688551d9acf synopsis"
+      ],
+      "rationale": "This is an exact threshold and extremal allocation law for a natural tree family, with the size, asymmetry, and critical equality dimension all controlled. The strict leaf-budget order is not a restatement of the balanced value, and the two growth regimes quantify distinct ways of approaching the tree exponent 1.",
+      "residual_risks": [
+        "No claim of a stability modulus, weighted-edge classification or more-hub extension."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

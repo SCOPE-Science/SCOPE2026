@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:57:23.445996Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fourier decomposition of the kernel f(g⁻¹h) gives the stated 2×2 Hermitian blocks: the rotation diagonal terms are 1+2u cosθ ∓2v sinθ and the reflection terms are b+c exp(∓iθ). Frequencies 0 and π (when present) split into the required one-dimensional representations. The support-preserving automorphism averages to real equal reflection values without altering the mass. The exact symmetric constraint uses 2|t|z; the missing absolute-value qualification in (2) is harmless for maximizing, since multiplying by the sign character (r↦1, s↦−1) preserves feasibility and strictly improves mass if t<0. Thus (2) can be used with t≥0. For 3∤n, α and β exist, β is in (1/2,1), and the two-root witness is feasible. The two displayed positive multipliers satisfy λα+μβ=1 and λ(4α²−2)+μ(4β²−2)=−2, giving the mass gap; the two distinct contacts determine the unique u,t. For 3|n, contact at 1/2 fixes t=1−u, and sign changes of the factorized polynomial give exactly the nearest-sample endpoints. For n=3 only 1/2 and 1 occur; the sample at 1 imposes u≥1/4 and t≥0 imposes u≤1, including the feasible t=0 endpoint. At β or 1/2, respectively, the unaveraged square-root inequality at an interior angle is already saturated by its (b+c)²z² term, so (b−c)²(1−z²) and 4v²sin²θ vanish separately; this works even when b+c=0. The frozen numerical LP checker was inspected, not executed; the exact Fourier and dual certificates were checked algebraically.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bachoc–Pêcher–Thiéry determine theta values in the wider cycle-power family.",
+          "Resultary 4ee4fb06cb90 classifies a seven-point finite square-torus support with a different resonant dimension; e8ddc54a784b concerns the cyclic support {0,±1,±3} and real-even optimizers, not the dihedral complex face."
+        ],
+        "reasoning": "The wider theta-value formula dominates the scalar case only. The two later-dated catalog claims share methods or resonances, but neither has the same group and support or gives this equality classification.",
+        "searches": [
+          "arXiv:1103.0444 §§3.1–3.2, theta for powers of cycles",
+          "Resultary 4ee4fb06cb90 and e8ddc54a784b declarations of optimizer scope"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1103.0444",
+        "Resultary 4ee4fb06cb90",
+        "Resultary e8ddc54a784b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary text averages to translation-invariant matrices and constructs an optimal vector with a primal–dual certificate; averaging proves existence of a symmetric optimum, not symmetry of all optima.",
+          "The frozen proof compares an arbitrary dihedral block to the active averaged block, retaining the lost imaginary and asymmetric terms as nonnegative squares."
+        ],
+        "reasoning": "The known scalar certificate may furnish sample equalities, but these must be used with the dihedral PSD block to obtain the equality restrictions for every optimizer. The inspected comparison does not give the full claimed interval and rigidity in this class.",
+        "searches": [
+          "arXiv:1103.0444 §3.1 rotational averaging and §3.2 Definition 3.2 and Lemma 3.4",
+          "Frozen RESULT.md (1) and active-contact argument"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The support Cayley graph is C_{2n}²; the labels r^j↦2j and sr^j↦2j−1 work with left multiplication, and inversion identifies left and right Cayley conventions.",
+          "The positive-type mass is theta of the complement in the usual adjacency-zero convention. Graph symmetrization suffices for the same scalar value, not for a description of every allowed optimizer."
+        ],
+        "reasoning": "A dihedral positive-type function is an invariant Hermitian PSD kernel on this graph with a prescribed zero pattern. The invariant equality problem is not the unrestricted graph theta equality problem; the unrefined theta number is shared.",
+        "searches": [
+          "Resultary: five-element dihedral support positive type; antiprism or square-cycle theta equality faces",
+          "arXiv:1103.0444, Theorem 1.2, graph definitions and complement relation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact theta formula, transitive complement identity, and divisible case cover all the scalar T_n values, including the resonance.",
+          "The exact formula does not tabulate optimizer faces; a numerical scalar sequence or table does not encode the permitted interval or the eliminated coordinates."
+        ],
+        "reasoning": "The primary exact formula is stronger than a value table. A literal numeric sequence lookup for the face is not applicable: it is an exact set of functions with parameters, not a scalar integer sequence.",
+        "searches": [
+          "arXiv:1103.0444, Theorem 1.2 at k=2n,d=3 and §3.2 for d dividing k"
+        ]
+      },
+      "rationale": "The scalar mass is existing theta-value coverage, not a novelty. The supported distinct claim is the complete optimizer set for complex positive-type functions on the dihedral group with the specified support. The closest primary text supplies an invariant optimum and a scalar dual bound but does not resolve all equality directions for the allowable dihedral-invariant Hermitian kernels. The frozen argument uses an active interior block to exclude complex or asymmetric equality cases, including the n=3 endpoint.",
+      "residual_risks": [
+        "Uninspected theta equality or complementary-slackness literature might give an equivalent statement for these invariant kernels.",
+        "This is not a decision about all non-invariant optimizers of the unrestricted theta SDP or priority across unindexed sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Scalar is prior; inspected proof chooses invariant witnesses and does not state the dihedral complex equality face",
+          "evidence": [
+            "The transitive complement product connects the two theta conventions.",
+            "The PSD program is averaged over translations before reduction to a linear program."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1103.0444",
+          "material_read": "p. 2 Theorem 1.2; §3.1 pp. 4–5 near offset 8000; §3.2 pp. 7–8 near offset 18800, including Definition 3.2 and Lemma 3.4",
+          "method": "Bounded open-access PDF and reduction comparison",
+          "title": "On the theta number of powers of cycle graphs",
+          "trigger": "Exact covering scalar problem and closest primal–dual equality evidence"
+        },
+        {
+          "assessment": "Different group and seven-point support; a four-dimensional resonant face rather than the dihedral segment",
+          "evidence": [
+            "The record treats a hexagonal support in a finite square torus."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-exact-hexagonal-tur-n-masses-and-optimizer-face-rigidity-on-fini--4ee4fb06cb90",
+          "material_read": "Mirrored RESULT.md Finding and face proof, offsets 0 and 7400",
+          "method": "Local published-record mirror and hypothesis comparison",
+          "title": "Exact hexagonal Turán masses and optimizer-face rigidity on finite tori",
+          "trigger": "Closest catalog overlap in complex equality and divisibility by three"
+        },
+        {
+          "assessment": "Different cyclic support and restricted equality scope",
+          "evidence": [
+            "For odd order the claim concerns a real-even optimizer, not the full complex equality face."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-cyclic-tur-n-mass-for-the-separated-five-site-support-0-pm--e8ddc54a784b",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror and hypothesis comparison",
+          "title": "Exact cyclic Turán mass for the separated five-site support",
+          "trigger": "Five sites and a divisibility-by-three transition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a natural two-reflection, two-rotation support, the equality classification distinguishes recovery of one function from a genuine interval of solutions. It settles whether symmetrization loses extremizers and gives the arithmetic transition and endpoints. These are concrete stability and reconstruction benchmarks for this group problem beyond the prior scalar value; no claim about the whole graph SDP is needed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

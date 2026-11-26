@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:29:05.085886Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Assumptions and Proof; VERIFICATION.md and verify.py inspected, not executed",
+        "Independent replay: python3 /workspace/reproductions/1.py; actual integer values for 17 odd coefficients of both signs, verifying 459 normalized quotient shells modulo 32 at valuations −13 through 13."
+      ],
+      "rationale": "Positive integers are dense in Z_2 and division is continuous off zero denominators, so it suffices to take dyadic inputs. Every 1 mod 8 unit is a square: if an odd x is correct modulo 2^N, adding 0 or 2^(N−1) sets the next square bit for N≥3. The resulting approximate roots are Cauchy (they need not preserve the last bit of the preceding root). For x=2^k u with u a unit, divide f(x) by 2^(2k) and use t=u². Differences of t(c+2^(2k)t) on 1+8Z_2 are t−s times an odd factor, including k=0; this makes the induced maps injective on residues and therefore bijective onto the matching output ball modulo every 2^N. Compactness gives exact equality. Odd inputs give c+1+8Z_2; even inputs' normalized values are c+4 mod 8 for valuation k=1 and c mod 8 for k≥2. For c≡7 the odd ball is 8Z_2, giving every quotient; for c≡3 it is 4Z_2^×, so output valuations are even and varying an odd denominator fills every nonnegative even quotient valuation and all its units. For c≡1,5 odd inputs give the full valuation-one unit coset, which realizes the allowed odd quotient shells and all of 1+4Z_2 at valuation zero. At each positive even valuation 2r, input valuation pairs (r+1,1) and (r+2,2) give the normalized cosets 5 mod 8 and 1 mod 8 respectively. Inversion gives the negatives. The residue and parity restrictions are closed relative to Q_2^×, and f(2^k) with a fixed nonzero denominator tends to zero. Thus these are the exact closures, with the three proper parts distinct index-two subgroups.",
+      "residual_risks": [
+        "The finite replay is illustrative; the exact ball isometry and shell argument, not finite sampling, establish all dyadic precisions and all odd coefficients."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The polynomial-image criterion assumes roots of coprime multiplicities or a simple zero; outside c≡7 there is only the double zero.",
+          "The inspected multivariate form theorems address infinitely many or sufficiently large primes. The indexed theorem allows all even exponents ≥4 but uses two independent inputs."
+        ],
+        "reasoning": "A sufficient criterion does not give non-density when its hypothesis fails, and the broader form settings do not furnish the fixed-prime univariate closures.",
+        "searches": [
+          "arXiv:1807.08947 Theorem 1.2 and Corollary 1.3",
+          "arXiv:2308.08907 Theorems 1.1–1.2",
+          "Resultary 40c4b446eb9e, Finding and Assumptions"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary record 40c4b446eb9e",
+        "arXiv:1807.08947, 2201.04372 and 2308.08907"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The simple zero supplies full density in one residue class only. Neither it nor the binary criterion gives the normalized unit residues of the proper univariate closures.",
+          "The polynomial equality uses an isometry on the square-parameter ball and different quotient shell witnesses for even and odd valuations."
+        ],
+        "reasoning": "The all-precision proper closures do not follow from the known dense case, an equation in independent binary inputs, or a valuation obstruction alone.",
+        "searches": [
+          "arXiv:1807.08947 Corollary 1.3; arXiv:2201.04372 Theorem 1.1(1); Resultary 40c4b446eb9e boxed closure"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The factorization X²(X²+c) has a simple dyadic root precisely when −c is a square, i.e. c≡7 mod 8; the density part is a direct corollary.",
+          "For the seemingly similar binary form x⁴+cy⁴ the exact density condition is c≡15 mod 16. In particular c=7 is dense for the quartic polynomial but not for that form."
+        ],
+        "reasoning": "The dense case is existing coverage; replacing the polynomial image with the binary quartic is not an equivalent formulation of the remaining cases.",
+        "searches": [
+          "arXiv:1807.08947, Theorem 1.2 and Corollary 1.3; univariate polynomial image ratio sets",
+          "Resultary exact dyadic quotient closures, weighted even-power binary forms 40c4b446eb9e",
+          "arXiv:2201.04372, Theorem 1.1(1)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-date binary record gives an exact union of nine kinds of balls and valuations nZ+{0,d,−d} for x^n+cy^n in its nondense regime; its hypotheses allow independent x and y.",
+          "For c=1 and n=4 in that table, d=1 gives valuations 0,1,3 modulo 4; in the univariate H_1 all valuations occur."
+        ],
+        "reasoning": "The closest exact indexed closure table is materially different even in valuation support, so does not cover the three nonzero subgroups. The index date is not used to infer priority.",
+        "searches": [
+          "Resultary: dyadic quotient closures for quartic polynomial X^4+cX^2 and weighted even-power forms; match 40c4b446eb9e"
+        ]
+      },
+      "rationale": "The density conclusion for c≡7 mod 8 is known by the simple-root criterion. The supported distinct content is the three exact proper closures, which specify all unit cosets at all valuations. The closest indexed exact closure is for a genuinely different binary homogeneous form with a different density criterion even in degree four.",
+      "residual_risks": [
+        "Bounded literature and index search; the closest comparisons do not prove priority or exclude unindexed overlapping polynomial-image results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers the c≡7 mod 8 conclusion, not the proper closures",
+          "evidence": "Two zeros with coprime multiplicities suffice; a simple root suffices.",
+          "identifier_or_url": "https://arxiv.org/pdf/1807.08947",
+          "material_read": "Theorem 1.2 and Corollary 1.3, pp. 1–2, text offsets 2510 and 5330",
+          "method": "Primary OA PDF",
+          "title": "On the p-adic denseness of the quotient set of a polynomial image",
+          "trigger": "Same univariate quotient-set framework"
+        },
+        {
+          "assessment": "Different exact density boundary",
+          "evidence": "Binary density condition becomes −c a fourth-power residue modulo 16 in degree four.",
+          "identifier_or_url": "https://arxiv.org/pdf/2201.04372",
+          "material_read": "Theorem 1.1(1), p. 2, offset 6240",
+          "method": "Primary OA PDF",
+          "title": "p-Adic quotient sets: diagonal forms",
+          "trigger": "Binary quartic analogue at p=2"
+        },
+        {
+          "assessment": "Those results do not assert the fixed dyadic exact closures",
+          "evidence": "The inspected conclusions concern infinitely many or sufficiently large primes for forms.",
+          "identifier_or_url": "https://arxiv.org/pdf/2308.08907",
+          "material_read": "Theorems 1.1–1.2, pp. 2–3, offset 6940",
+          "method": "Primary OA PDF",
+          "title": "On p-adic denseness of quotients of values of integral forms",
+          "trigger": "Broader form-based denseness work"
+        },
+        {
+          "assessment": "Substantive analogue, not a covering theorem",
+          "evidence": "Its output is an exact ball union for x^n+cy^n; full density requires c≡−1 mod 2^(v_2(n)+2).",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-2-adic-quotient-closures-of-weighted-even-power-binary-for--40c4b446eb9e",
+          "material_read": "RESULT.md Finding, Assumptions and initial Proof, offsets 0–2900",
+          "method": "Local Resultary mirror",
+          "title": "Exact 2-adic quotient closures of weighted even-power binary forms",
+          "trigger": "Closest indexed exact closure statement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof of exact quotient shells; comparative binary-form closure and known simple-root criterion"
+      ],
+      "rationale": "The family tests the exact outcome of a polynomial-image quotient problem at the exceptional prime two, where the simple-root condition does not classify non-split cases. The result goes past showing failure of density: it identifies three distinct index-two kernels, and for two of them valuation support alone cannot distinguish the closures. The full shells give precise benchmarks for future local quotient-set analysis.",
+      "residual_risks": [
+        "The classification is only for closures at prime two and odd coefficients, not pointwise membership or a general quartic theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

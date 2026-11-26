@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:35:16.791465Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md stage equations and Proof",
+        "Frozen VERIFICATION.md and verify.py, inspected without executing the supplied code",
+        "Independent rational sign replay using the degree-39 and degree-40 alternating exponential sums on arguments 2s/9 and 4s/9"
+      ],
+      "rationale": "Multiplying the two stages with J²=−I gives coefficients a=1−x²/2 and b=x(1+3e^(−2x²/9))/4, x=hω. The norm and determinant factor a²+b² is exactly Q(x²), strictly positive since b>0 for x>0. Planar symplecticity is equivalent to determinant one, and testing pairs of vectors supported in each canonical block makes this condition blockwise. H starts at zero with negative slope, H''>0, and H' tends to 4, giving exactly one positive crossing. Before the zero of H', H+sH'<0; after it the derivative 2H'+sH'' is strictly positive, and H+sH'>0 at the H-crossing. This proves the unique strongest damping in the stable interval. The exceptional rotation has cos θ=1−s*/2 and b>0; the certified s*<2 and cos √s*>1−s*/2 give the stated phase inequality. The Taylor expansion gives log Q(ω²h²)=−ω⁴h⁴/12+O(h⁶); multiplication by the step count gives the stated exponential limit. It also shows loss vanishes on shorter time scales and tends to full damping on longer scales at fixed ω and nonzero initial energy. Independent exact-fraction exponential enclosures reproduce the stated brackets: at the lower and upper endpoints respectively the H upper/lower bounds are about −8.524×10^−13 and +1.301×10^−12, and those of H+sH' about −1.810×10^−12 and +2.603×10^−12. The signs are certified by alternating rational sums, not the displayed rounding.",
+      "residual_risks": [
+        "Exact shape values, fixed steps, positive fixed frequencies, harmonic canonical blocks, and exact arithmetic only. Strict loss or gain concerns nonzero energy; the zero mode stays zero."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Gaussian source reports bounded but nonconserved energy in a Duffing experiment and discusses generally symplectic variants as future work. The spectrum-level definition of absolute stability is prior. Full text of the related 2008 work was not obtained through direct or identified alternate access."
+        ],
+        "reasoning": "A qualitative nonlinear experiment or the definition |R|≤1 does not settle uniqueness of crossing or maximal damping for this particular fixed shape on harmonic modes; no negative coverage inference is made about the unread paper.",
+        "searches": [
+          "Gu–Chen–Jung journal §5, and §6 Example 5 and follow-up",
+          "Structure preservation of exponentially fitted Runge–Kutta methods, doi:10.1016/j.cam.2007.05.016, lawful access attempts"
+        ]
+      },
+      "checked_sources": [
+        "Gu–Chen–Jung preprint §§3.1 and 5 and journal §§5–6",
+        "Indexed projected-RK4 symplectic-step record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A Taylor expansion of the known multiplier gives the h⁴ logarithmic loss per step, so the long-time law follows by iteration once the coefficient is computed. The symplectic interpretation is standard linear algebra. Exact uniqueness of the unit-modulus crossing and of the damping optimum use the global sign and monotonicity arguments for H and H+sH', not a change of variables or the qualitative plot."
+        ],
+        "reasoning": "The time law and multifrequency obstruction are consequences, not separately new general methods. The global root and extremum classification is not a restatement or mechanically supplied specialization of a stronger stability theorem found in the inspected source.",
+        "searches": [
+          "Gu–Chen–Jung arXiv:2403.08253 §5 pp. 17 ff., with journal §5 comparison",
+          "Frozen RESULT.md derivative and damping proof compared with the published stability function"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact shape rule gives ω²/2 on harmonic modes. Substitution z=ix into the published R(z)=1+(1/4+3e^(2z²/9)/4)z+z²/2 gives exactly the frozen map and |R(ix)|²=Q(x²)."
+        ],
+        "reasoning": "The coefficient formula is an equivalent expression of prior work and is credited as such. It is not by itself a count of positive imaginary-axis crossings or extrema.",
+        "searches": [
+          "Gu–Chen–Jung arXiv:2403.08253, §3.1 Eq. (15) and §5 scalar stability function",
+          "Journal version doi:10.1007/s11075-025-02121-w §5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/18/SCOPE-a-unique-symplectic-timestep-and-sharp-modal-energy-reversal-in--3016d962c708 gives a unique symplectic step for a two-frequency, one-invariant projected classical RK4 scheme, using a different modal factor 1+x^6(x²−8)/576."
+        ],
+        "reasoning": "The earlier indexed work genuinely shares the symplectic-step phenomenon, but its method and modal multiplier differ and it does not give this Gaussian-method damping or time scale. No same-factor catalogue result surfaced in the bounded search.",
+        "searches": [
+          "Resultary semantic queries for Gaussian RBF-RK2 harmonic symplectic steps, modal damping and the long-time law",
+          "Local mirror of closest indexed symplectic-step record"
+        ]
+      },
+      "rationale": "Gu–Chen–Jung already give the full scalar stability function; evaluating it on the imaginary axis yields the very same modal matrix and energy multiplier, so those formulas are not independent contributions. The distinct part supported here is the exact harmonic-axis classification, particularly the proof of a single positive unit-modulus crossing and a single global minimum, together with the explicit consequences and long-time coefficient. The inspected source presents a stability plot and qualitative energy behavior rather than a stronger theorem giving those classifications.",
+      "residual_risks": [
+        "Best-of-knowledge statement only; no literature-wide priority certification. A related 2008 primary full text was unavailable, and the known stability formula and qualitative plot are substantial prior coverage of the analytical starting point."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact multiplier covered by substitution, classification not stated in the inspected material",
+          "evidence": "The two-stage stability function is 1+(1/4+3e^(2z²/9)/4)z+z²/2; at z=ix it gives the same a+ib.",
+          "identifier_or_url": "https://arxiv.org/pdf/2403.08253",
+          "material_read": "§3.1 Eq. (15), PDF p. 6, text offset near 18280; §5, p. 17, offsets 54300–57861",
+          "method": "Lawful OA primary PDF text",
+          "title": "Explicit radial basis function Runge-Kutta methods",
+          "trigger": "Identical test-equation function and shape rule"
+        },
+        {
+          "assessment": "Same stability function; qualitative Duffing observation, not a harmonic root count",
+          "evidence": "The authors say energy is bounded but not conserved in their experiment and mention generally symplectic RBF-RK2 as ongoing work.",
+          "identifier_or_url": "doi:10.1007/s11075-025-02121-w",
+          "material_read": "§5 p. 71 and §6 Example 5 and follow-up pp. 80–81, text offsets near 60720, 84100 and 87000",
+          "method": "Lawful OA primary text",
+          "title": "Explicit radial basis function Runge-Kutta methods, journal version",
+          "trigger": "Check published counterpart and quantitative energy claims"
+        },
+        {
+          "assessment": "Same qualitative phenomenon, different method",
+          "evidence": "Classical RK4 with one-invariant projection, two distinct frequencies, and a polynomial rather than the Gaussian modal factor.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-unique-symplectic-timestep-and-sharp-modal-energy-reversal-in--3016d962c708",
+          "material_read": "RESULT.md finding and modal-factor analysis at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror",
+          "title": "A unique symplectic timestep and sharp modal-energy reversal",
+          "trigger": "Strongest indexed overlap on exceptional symplectic steps"
+        },
+        {
+          "assessment": "Coverage not assessed from unavailable full text",
+          "evidence": "Related exponentially fitted methods remain a residual literature risk, not demonstrated equivalence.",
+          "identifier_or_url": "doi:10.1016/j.cam.2007.05.016",
+          "material_read": "Bibliographic identification only; no primary theorem passage obtained",
+          "method": "Lawful OA direct and alternate retrieval attempted",
+          "title": "Structure preservation of exponentially fitted Runge–Kutta methods",
+          "trigger": "Plausible related structure-preserving construction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof",
+        "Gu–Chen–Jung stability and energy discussions"
+      ],
+      "rationale": "The exact imaginary-axis crossing is the positive stability cutoff for harmonic use of a published integrator. Showing it is isolated and frequency-specific distinguishes accidental energy preservation from a structural symplectic method; locating the unique maximal-loss step and quantifying when a seemingly small decay becomes order one are useful for interpreting long runs. The contribution is the global analytical classification and its numerical meaning, not recopying the stability function or expanding a series alone.",
+      "residual_risks": [
+        "This does not construct a new integrator or settle preservation on nonlinear or coupled Hamiltonian systems."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

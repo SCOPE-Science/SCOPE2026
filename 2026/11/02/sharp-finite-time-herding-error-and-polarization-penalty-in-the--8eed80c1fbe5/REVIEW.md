@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is proved for every integer \(n\ge2\), every \(0<\alpha\le1\), each deterministic vector in \([0,1]^n\), and all integer \(t\ge0\). Key independent steps: (i) conditional independence and identical action averages give exact pathwise disagreement damping; (ii) conditional Bernoulli variance gives the scalar inhomogeneous recurrence for \(h_t=\mathbb E[p_t(1-p_t)]\); (iii) its decaying closed form forces the bounded martingale limit to be binary, without borrowing a disputed general convergence argument; (iv) the martingale terminal conditional expectation identifies \(h_t\) as actual squared distance to terminal consensus; (v) convexity under a fixed-sum constraint proves both sharp dispersion bounds. Exact arithmetic checks reproduce 380 time slices in 80 finite-state parameter cases and 117 dispersion extremum grid profiles. Unproved by code: arbitrary real parameters and infinite time; proved analytically above.
+PASS
 
-## Originality — PASS with priority uncertainty
+PASS for the supplied repair, not for the weaker literal conditioning in the frozen assumptions. The original gives the action law conditional on the current belief vector, but uses it conditional on the whole history. These differ: set n=3, alpha=1, all initial beliefs 1/2, and use fresh draws except at time 2 when p_2=1/3. The joint masses with p_1=1/3 and 2/3 are 1/6 and 1/12. In the former group transfer delta=1/108 from action vector 000 to 111, and in the latter transfer 2delta back. All probabilities remain valid and the transfers cancel conditional on p_2, preserving its product-Bernoulli law. Both outcomes are immediately absorbing, so E[p_1 B] decreases by delta/18 with the marginals fixed; the claimed error at t=1 changes by delta/9. The repair explicitly states the fresh full-history conditional kernel of the intended model. Rechecking that final claim: subtracting the common update leaves deterministic deviations (1-alpha)^t d_i. The conditional variance is alpha^2/n^2 times n p_t(1-p_t)-s^t D_0, hence h_(t+1)=r h_t+alpha^2 D_0 s^t/n^2. Solving and using 0<=s<r<1 gives binary martingale convergence; E[B|history]=p_t identifies h_t with terminal squared error. Deterministic deviations then give both individual errors and rank-at-most-one covariance. Moving mass at fixed sum to an endpoint maximizes the square-sum with at most one fractional opinion; interpolation fills the feasible interval. The positive geometric convolution gives strict comparison at positive t and the r-rate for interior means. The s=0, t=0 convention and constant boundary means are accounted for. The packaged finite rational recurrence code was inspected, not executed; it does not test arbitrary history couplings or prove convergence. The repaired proof and the exact n=2 check in its notes establish the applicable reading and illustrate the strict penalty.
 
-The 2017 initiating work specifies the general update and binary herding conclusion, includes conditional-variance identities, and treats convergence speed by simulation and a late-stage heuristic. It does not supply the two-exponential finite-time mean-square identity, pathwise deterministic disagreement-to-covariance reduction, or exact sharp fixed-mean dispersion envelope in its inspected main text and appendix. A 2020 public paper emphasizes stubborn-agent convergence and critiques the earlier proof; its reviewed portions do not give the new complete-mixing finite-time expression. The 2024 paper establishes strong convergence and moment convergence according to its public abstract, but its entire full text was not obtained, leaving the material possibility of an equivalent quantitative result. The originality assessment is best-knowledge, not an independent novelty certificate. Additional claim-level semantic comparisons were made against published related findings, including other consensus and stochastic-error models whose transition kernels and quantities do not imply this Bernoulli-herding formula.
+## originality
 
-## Value — PASS
+PASS
 
-Exact finite-horizon herding risk in a stochastic social model is a motivated quantitative gap beyond eventual convergence. The theorem simultaneously gives a calculable two-rate law, a sharp worst-case initial-polarization penalty at a fixed final outcome probability, and the covariance geometry of the whole population. Unlike an isolated small-size enumeration, the strict order and its attained extrema hold for all population sizes, learning rates and horizons. In particular the formula distinguishes slower ensemble-square convergence from previously noted pathwise late-stage decay. Applications outside the specified complete interaction are not asserted.
+For the repaired, standard fresh-draw process, credit the model, general herding and the one-step moment machinery. The closed finite-horizon terminal-error law at arbitrary initial heterogeneity, with its best possible fixed-mean dispersion envelope, was not covered by the checked statements. The repair clarifies the hypothesis rather than claiming the previously known transition rule as the contribution.
 
-## Limits and remaining scientific risks
+## value
 
-The uniform self-inclusive trust matrix is necessary to the proof's scalar closure. The existence of unpublished or uninspected equivalent results remains possible, particularly in the inaccessible full text of the 2024 article and specialized stochastic-gossip literature. No independent audit or external validation has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Complete self-inclusive mixing is a natural exactly solvable network baseline. The final result quantifies what general convergence does not: heterogeneous beliefs at the same mean make binary consensus harder to predict at every positive finite time, by a sharp amount and without changing its odds. The deterministic disagreement term and surviving leading penalty give an exact benchmark beyond the classical homogeneous resampling case or a numerical rate fit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

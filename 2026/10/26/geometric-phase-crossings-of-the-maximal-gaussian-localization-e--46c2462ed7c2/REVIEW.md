@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The Fock reproducing identity gives the exact rank-one integral and the normalized trace; the centered-disk Taylor expansion is valid in operator norm and in one derivative with respect to the triangle radius on every compact radius interval. The three coherent-state overlaps provide a complete, exactly computable rank-three Gram spectrum. At each \(R_m\), two different rotation sectors have equal *maximal* eigenvalue and nonzero derivative difference \(6R_m e^{-3R_m^2/2}\), separated by a positive gap from the third sector. Symmetry forbids mixing; simple-sector isolated eigenvalue perturbation and the intermediate-value theorem therefore give a unique local transverse crossing for every sufficiently small disk radius. The proof covers each nonnegative integer, disjointness, positive radius and the infinite-dimensional remainder. The checker reproduced three finite-disk crossings and three point-limit spectral comparisons; no infinite statement is inferred from finite truncations.
+PASS
 
-## Originality: PASS, subject to priority risk
+The normalized disk operator is exactly the sum of three centered averages of normalized Fock projectors; the area normalization gives trace 3 for disjoint disks. The coherent-vector power series and its real derivatives converge locally in Fock norm. Hence disk averaging cancels the first moments and gives O(epsilon^2) in operator norm for both the operator and its R derivative. The cyclic orbit of coherent vectors has one positive Gram level in each character, with off-diagonal magnitude rho=exp(-3R^2/2) and phase sqrt(3)R^2/2 up to choice of cyclic sign. At the stated odd-phase radii the levels are 1+rho twice and 1-2rho once. The derivative difference has magnitude 2 rho times sqrt(3) times sqrt(3) R = 6 R rho. On a small closed interval around each fixed radius the two selected sector branches are simple within their own sectors, and jointly separated from all other levels. Sector Riesz projections and the resolvent identity give C^1 branch errors of O(epsilon^2). Opposite endpoint signs and a derivative of fixed nonzero sign give one transverse zero, the mean-value theorem gives the claimed shift, and the spectral gap persists. The interval and the allowed disk radius can be shrunk to ensure disjointness, independently for each m. This also checks m=0 and leaves no claim uniform in m. The finite quadrature in triad_checker.py is supplemental, not an infinite-dimensional certificate; it was inspected, not run.
 
-The closest full primary texts are Nicola--Tilli's Gaussian STFT Faber--Krahn inequality, the Gómez--Guerra--Ramos--Tilli stability theorem, and Bauer--Fulsche--Rodríguez's survey of Fock Toeplitz operator classes. Their relevant inspected statements do not supply either the triple-disk double leading eigenvalue or the infinite sequence of transverse resonance radii. Targeted searches for coherent-state triangular Gram holonomy, multiple separated localization disks, and Gaussian Fock spectral degeneracies, as well as separate indexed mathematical-claim searches, found related but noncovering geometry and spectral results. Classical coherent-state Gram calculations and general perturbation theory are acknowledged; their combination here produces the exact finite-area localization claim. Residual risk: an older or specialized coherent-state multiwell paper might establish the same implication, and bibliographic coverage is not exhaustive.
+## originality
 
-## Value: PASS
+PASS
 
-The maximal eigenspace dimension controls the uniqueness and stability of optimal signals for a specified measurement region. It is therefore significant that genuine *finite-area, disconnected* phase-space regions possess an exactly double maximal eigenvalue at infinitely many distinct separation scales, despite the simple single-ball optimality picture. The explicit magnetic-phase resonance law and transverse character-sector mechanism identify structurally why this happens and suggest tests in other symmetric multi-site concentration models. The result is not a mere tabulation of a finite matrix: persistence to the infinite-dimensional operator and strict dominance of the two crossing levels are essential.
+The supported distinction is the per-resonance small-disk result: local uniqueness, transversality, exact top multiplicity two and quadratic radius shift for the actual disk operator. There is material overlap in coherent Gram phases and qualitative positive-disk doublets with the fixed-disk large-separation Resultary result; neither that statement nor the inspected literature gives the small-disk derivative control or the local crossing law. This is a bounded comparison, not a historical priority certification.
 
-## Limits and closest sources
+## value
 
-The theorem holds separately for each fixed resonance index with sufficiently small disks; there is no asserted uniform disk width or full classification of spectral crossings. The three primary papers are arXiv:2106.03423, arXiv:2307.09304 and arXiv:2405.20792. The exact full-text comparisons and residual priority risks are recorded in the accompanying structured review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The multiplicity counts the independent optimal signals for a fixed observation mask. The theorem gives an exact, stable-under-radius-tuning nonuniqueness mechanism for natural equal-area disconnected masks, not merely a repeated eigenvalue of a three-point surrogate. The local location, transverse behavior, and strict gap make the specified result stronger and more informative than a numerical coincidence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

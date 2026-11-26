@@ -1,25 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The minimum identifying-code size and the unique optimizer orbit are **known** from Gravier–Moncel–Semri [1]. For odd board size \(n=2m+1\ge5\), their optimum-support form is one isolated edge plus \(m\) disjoint four-vertex paths in the bipartite row–column graph. Counting row-pair and column-pair matchings establishes the optimizer count. Inspecting all possible one-cell removals establishes exactly two within-path leaf replacements, one internal central-edge replacement, and four central-edge replacements involving the isolated edge, for a total of \(7m\) disjoint legal replacements from each optimum. Thus regularity and the edge formula are all-order proofs. Two different exhaustive verifiers independently enumerate all \(\binom{25}{7}=480700\) candidate codes at board size five, check signatures and moves, and reproduce the 7200 optima, 50400 edges and exact ten-shell breadth-first-search distance spectrum. Known vertex transitivity makes the one-source diameter calculation global. The finite tests do not prove the infinite theorem.
+PASS
 
-## Originality — PASS with historical priority risk
+In the selected bipartite support, a 3-vertex component gives equal traces and at most one singleton or isolated edge is permitted (two small components force either equal or empty traces). The minimum size 3m+1 forces exactly m+1 tree components. A singleton then forces at least one P4, whose same-shore leaf with that singleton gives duplicate traces, so the components are one edge and m P4s. Sufficiency: for two cells sharing one endpoint to have equal traces, their other endpoints must be leaves at that shared vertex; for disjoint cells to have equal traces, nonempty star incidences force two isolated crossed edges. Neither configuration occurs. Pairing shores and choosing holes yields the stated count and transitivity. Deleting the isolated edge forces its reinsertion. Leaf deletion forces its singleton back onto its P3 at the other admissible endpoint. Central deletion leaves three K2s; either reconnect the newly separated pair through the other corner, or join one to the original K2 in two ways each. This gives 7 distinct neighbors per block; touching an intact P4 cannot give a valid decomposition. Independently generated all 7200 decompositions at n=5, tested all 6- and 7-cell candidates by precomputed board neighborhoods, and computed the exchange graph by shared six-cell cores. Replay: python3 /workspace/checks/2.py, output /workspace/checks/2.txt. Confirmed degree 14, 50400 edges, connectivity and all ten shell sizes. Transitivity turns this eccentricity into radius and diameter 9. Frozen C++ and Python sources were read, not executed.
 
-[1] proves the static minimum size and unique orbit, which are credited and not new. [2] provides an edge-identifying-code equivalence for line graphs and a biclique lower bound, and [3] concerns cardinalities for rectangular products. Those results do not give a legal single-cell exchange classification, an all-odd-order degree formula or a 5-by-5 reconfiguration metric. The closest mathematical database records concern the 4-by-4 rook graph and a crown graph, which do not imply the odd-order result. Search cannot rule out historical results absent from available literature; obscure earlier optimum-code relocation work remains a residual priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The minimum sensor layouts form an important natural family with a previously known static optimizer orbit. The new all-order local exchange law proves uniform mobility with an explicit degree, distinguishing moves within a four-vertex-path sensor block from moves mediated by the unique two-vertex block. The first odd case yields a complete nontrivial 7200-state relocation metric, connectedness and sharp diameter nine; this determines exact optimal-layout mobility rather than merely recomputing a known code cardinality.
+The static optimum size, orbit and consequent optimizer count are not passed as new. The supported distinction is the odd-order move classification and degree, plus the exact five-board exchange metric.
 
-## Closest literature and limitations
+## value
 
-[1] S. Gravier, J. Moncel, A. Semri, *Identifying codes of Cartesian product of two cliques of the same size*, EJC 15 (2008), N4, DOI and full text at https://www.combinatorics.org/ojs/index.php/eljc/article/download/v15i1n4/pdf/ .
+PASS
 
-[2] F. Foucaud et al., *Identifying codes in line graphs*, JGT 73 (2013), 425–448, https://arxiv.org/abs/1107.0207 .
+The exact move classification exposes which blocks can interact and gives a uniform all-order degree rather than another static count. The first odd case covered by the static classification has a complete exchange metric, not merely a selected pair distance or a sample. No larger-order connectivity or diameter is inferred.
 
-[3] W. Goddard, K. Wash, *ID codes in Cartesian products of cliques*, JCMCC 85 (2013), 97–106, https://combinatorialpress.com/article/jcmcc/Volume%20085/vol-085-paper%206.pdf .
-
-The general-order connectedness/diameter is not claimed; the complete metric is established only at order five. Earlier literature not indexed or available could contain equivalent exchange results.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

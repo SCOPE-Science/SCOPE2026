@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:46:51.295397Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Hou's strict-tournament specialization is exact: the domination case implies gamma eligibility; gamma tests the universal nonempty intersections because the pivot always beats the bottom block; beta tests a full intersection for an upper vertex. The empty-bottom branch contributes one point to each incoming neighbor. Set-valued score ties are retained. The independently written NumPy Boolean-adjacency census partitions the label-mask ranges into disjoint chunks, checks all 2, 8, 64, 1024, 32768 and 2097152 cases, and obtains 0, 0, 0, 0, 0 and 5040 failures. It verifies exact equality of the failing-mask set and the witness relabeling set, with all 7! masks distinct, and winner sizes (Copeland, DSR, intersection)=(1,2,1) throughout. Replay: python3 /workspace/reviews/evidence/dsr_census.py; output reviews/evidence/dsr_census.txt. Neither the original code nor a sample is relied on. The claim says nothing for n>=8.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 7 proves containment through order four; the conclusion suggests five is checkable and conjectures further extension.",
+          "The later tournament-solution abstract states general noncoincidence, but does not identify the same scoring rule or threshold; publisher full text was not accessible."
+        ],
+        "reasoning": "The preprint does not cover the complete theorem; abstract-level noncoincidence is weaker and is not treated as full comparison.",
+        "searches": [
+          "Hou arXiv:2403.16373 Proposition 7 and conclusion",
+          "Hou DOI 10.1080/03081079.2025.2493189",
+          "Hou DOI 10.1016/j.eswa.2025.130835 web abstract and OA retrieval"
+        ]
+      },
+      "checked_sources": [
+        "Hou arXiv:2403.16373v1",
+        "Resultary 2026/11/2/SCOPE-seven-alternatives-are-the-sharp-copeland-refinement-failure-for--0fcaed58e5ea",
+        "DOI 10.1080/03081079.2025.2493189 (access attempt)",
+        "DOI 10.1016/j.eswa.2025.130835 (abstract-level)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Its only failing class is the relabeling orbit of the score-vector witness with DSR maximizers {5,6} and Copeland maximizer {5}."
+        ],
+        "reasoning": "Equivariance propagates the common-winner conclusion to every failure, and reducing 5040/2^21 gives 315/131072. No uncovered part of the classification remains.",
+        "searches": [
+          "Matched Resultary RESULT.md, offsets 0–2328 and witness/orbit passage from offset 2250"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hou PDF pp. 8,14,22 gives the beta/gamma conditions, pivot partitions and score assignment.",
+          "Resultary 2026/11/2/SCOPE-seven-alternatives-are-the-sharp-copeland-refinement-failure-for--0fcaed58e5ea states the same strict-tournament winner containment with ties retained."
+        ],
+        "reasoning": "No alternative tie convention or different partition rule distinguishes the matched classification.",
+        "searches": [
+          "Resultary semantic lookup: strict DSR scoring, seven alternatives, Copeland containment and 5040 failures",
+          "Hou arXiv:2403.16373 Algorithm 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matched result states exactly 5040 of 2^21, one trivial-automorphism class, and the exact score vectors (6,3,2,4,5,14,14) and (3,3,2,2,2,5,4)."
+        ],
+        "reasoning": "This is a duplicate of the finite census, not a nearby numerical table or merely a shared parameter.",
+        "searches": [
+          "Resultary: seven-alternative Copeland-refinement failure; exact witness and orbit in the matched RESULT.md"
+        ]
+      },
+      "rationale": "A distinct indexed Resultary result covers the same exact rule, boundary, labeled count, witness score vectors and all-failure orbit. Common winners and the incidence fraction are direct consequences. The comparison is evidence of duplicate scientific coverage in the current corpus, not of earlier authorship: the matched record path is dated November 2 and the assigned path October 19. Inaccessible journal papers are not the basis for failure.",
+      "residual_risks": [
+        "The genealogy and priority of the two exact records are not determined by their path dates.",
+        "Full text of the two journal articles could refine earlier-priority attribution, not the observed duplicate coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact model source; covers n<=4, not the inspected census",
+          "evidence": "Definition 4, beta/gamma tests, Algorithm 2, Proposition 7 and conclusion.",
+          "identifier_or_url": "https://arxiv.org/pdf/2403.16373",
+          "material_read": "PDF pp. 8, 14, 22, 46 and 50; OA offsets near 25104, 44118, 68947, 147700 and 161700",
+          "method": "OA primary PDF passages",
+          "title": "A new social welfare function with a number of desirable properties",
+          "trigger": "Defines the exact rule and the prior small-order theorem"
+        },
+        {
+          "assessment": "Equivalent coverage in a distinct indexed record, not evidence of earlier priority",
+          "evidence": "Containment through six, 5040 labels at seven, same witness scores and one asymmetric class.",
+          "identifier_or_url": "2026/11/2/SCOPE-seven-alternatives-are-the-sharp-copeland-refinement-failure-for--0fcaed58e5ea",
+          "material_read": "Mirrored RESULT.md, offsets 0–2328 and witness/orbit passage from 2250",
+          "method": "Local Resultary semantic search and mirrored full-statement inspection",
+          "title": "Seven alternatives are the sharp Copeland-refinement failure",
+          "trigger": "Strongest exact Resultary match"
+        },
+        {
+          "assessment": "Unresolved external-priority risk",
+          "evidence": "No primary passage available for comparison.",
+          "identifier_or_url": "https://doi.org/10.1080/03081079.2025.2493189",
+          "material_read": "No independently retrievable primary passage",
+          "method": "Lawful OA retrieval; no repository copy identified",
+          "title": "A social welfare function based on dominating set relaxations",
+          "trigger": "Journal follow-up could strengthen the preprint"
+        },
+        {
+          "assessment": "General noncoincidence only on available evidence",
+          "evidence": "Copeland coincidence in a divisible case, but not generally; exact rule and census unverified.",
+          "identifier_or_url": "https://doi.org/10.1016/j.eswa.2025.130835",
+          "material_read": "Indexed abstract snippet only",
+          "method": "Primary literature search; lawful OA full text unavailable",
+          "title": "A tournament solution based on dominating-set-relaxed partitions",
+          "trigger": "Reports Copeland noncoincidence"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The sharp first counterexample and complete obstructing class answer a natural boundary question for a specific social choice rule. A single witness would not supply the universal lower-order guarantee, the frequency or the fact that the unique Copeland winner is always retained at the boundary. This is a useful exact comparison independently of the duplicate coverage.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

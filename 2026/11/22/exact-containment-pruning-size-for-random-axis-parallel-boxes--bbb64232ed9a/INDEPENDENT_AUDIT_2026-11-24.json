@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:51:56.044737Z",
+  "axes": {
+    "correctness": {
+      "rationale": "This pass is for the repaired result, not the original pointwise pruning statement. In the original definition, equality with another label excludes minimality. A realized input consisting of two identical labeled nonempty boxes can then lose both constraints, changing the optimum from 1 to 0. The replacement files state the original sampling rule's almost-sure equivalence, and give a correct deterministic rule for arbitrary finite inputs: deduplicate, then descend strict inclusion to a remaining minimal set. This change leaves the mean formulas unchanged. For a box with side lengths X_i, independent endpoints give a conditional domination mass Q=prod X_i². The conditional survival is (1-Q)^{n-1}, giving the binomial sum from the moments 2/[(2k+1)(2k+2)], including n=1. For S=-log prod X_i the convolution has density 2^d e^{-s} times a simplex integral with integrand prod(1-e^{-t_i}); subtracting from simplex volume is bounded by the sum of the integrals of e^{-t_i}, each O((1+s)^{d-2}). The change of variables u=sqrt(n) prod X_i yields an integrable Gaussian times a polynomial in |log u| after normalizing by sqrt(n)(log n)^{d-1}; the limiting integral is sqrt(pi)/(d-1)!. Independently, in dimension two integrate 4[(1+z)log(1/z)-2(1-z)] via I(a)=B((1+a)/2,n)/2 and its a-derivative. The exact result is n B(1/2,n)[psi(n+1/2)-psi(1/2)-4]+H_n+4. With psi(1/2)=-gamma-2log 2, the beta ratio and large-argument digamma give the specified planar coefficient and O(log n) error. Verified the repaired scope and proof against these calculations. The original check.py and reported tests are finite comparisons only and were not used as a proof of either asymptotic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tran's thesis §3.1 specifies exactly the iid product of two-independent-uniform-endpoint intervals, then Theorem 3.1.2 bounds the optimal piercing number, not the expectation of the size of the input inclusion frontier.",
+          "Coffman et al. use the same planar rectangle model for maximum disjoint packing. Chao et al. study union measure, but their full text was not independently retrieved."
+        ],
+        "reasoning": "A piercing optimum, a maximum pairwise-disjoint subset and covered Lebesgue measure are not the cardinality of the irredundant containment subfamily. More general methods for extrema or product integrals may exist; the inspected statements do not give a dominating theorem for this statistic.",
+        "searches": [
+          "Tran DOI 10.1002/rsa.20321; identified public Rutgers thesis Chapter 3",
+          "Coffman et al. DOI 10.1007/PL00008793, Introduction pp. 585–586",
+          "Chao–Hwang–Liang DOI 10.1239/jap/1032192865; product/Mellin and random extrema queries"
+        ]
+      },
+      "checked_sources": [
+        "Resultary c51867200019 and 65bf5632821e",
+        "Tran thesis Chapter 3 and DOI:10.1002/rsa.20321",
+        "DOI:10.1007/PL00008793",
+        "DOI:10.1239/jap/1032192865 (limited)",
+        "Targeted random-maxima/product-triangle and containment-pruning literature searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The one-dimensional exact result follows from a single beta integral. Multiplying those expectations would not give the multi-box frontier: simultaneous inclusion in all coordinates is tested against the same competitors, and conditioning gives n E[(1-prod X_i²)^{n-1}] instead.",
+          "Tran's optimum may be preserved by pruning while having different asymptotic bounds from the cardinality of retained constraints. Union measure uses probabilities of covering fixed points, not the probability of containing an entire sampled box."
+        ],
+        "reasoning": "The exact multidimensional result uses the new observable's lower-tail product density and its second term, not a substitution into the inspected singleton or optimization formulas. The first-moment conditioning by itself, and the finite-family redundancy rule, are elementary ingredients and are not credited independently.",
+        "searches": [
+          "Tran, Random Matrices and Random Boxes, §3.1 and Chapter 3 containment locators",
+          "Resultary c51867200019 exact inclusion frontier",
+          "Chao et al. expected union measure and product/Mellin comparisons"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The lower and reflected upper endpoints of each box are uniformly sampled on a triangle per coordinate: inclusion-minimality is ordinary coordinatewise maximality of the resulting 2d-vector. The two coordinates within each pair are dependent, so independent hypercube maxima formulas are not direct substitutions.",
+          "The same-day indexed c51867200019 minimal-interval integral equals the d=1 specialization exactly. The same-day 65bf5632821e concerns precedence under nonoverlap, not inclusion."
+        ],
+        "reasoning": "Containment duals and the dominance transformation were considered, rather than searching only the term pruning. One-dimensional containment coverage is exact; the indexed precedence law gives a different partial order. The product-triangle formulation leaves general polytope-extrema overlap as a genuine risk, not a located covering formula.",
+        "searches": [
+          "Resultary random-box containment minima, dual containment frontiers and random interval orders",
+          "Random dominance maxima of uniform ordered endpoint pairs on products of triangles; Pareto and random polyhedra extrema query"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "c51867200019 gives the explicit minimal-interval mean sqrt(pi) Gamma(n+1)/Gamma(n+1/2)-1 and additionally gives a different inclusion-maximal mean. Direct beta integration proves exact equality of its inclusion-minimal formula with the d=1 specialization here.",
+          "The exact boundary counts of 65bf5632821e belong to a precedence order. No distinct multidimensional formula, log-power coefficient or planar correction was encountered in the bounded indexed searches."
+        ],
+        "reasoning": "The exact one-dimensional hit is credited without inferring priority from the shared public date. It is not a table or closed law for the d>=2 multidimensional frontier.",
+        "searches": [
+          "Resultary: random-box containment counts, minimal and maximal frontiers, product and Mellin behavior, random interval orders",
+          "Same-day exact comparisons c51867200019 and 65bf5632821e, local mirror"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass on the repaired multidimensional exact mean, sharp fixed-d growth and planar correction. The shared d=1 identity is verified existing coverage and explicitly not a distinct contribution. Known piercing, packing and union observables do not imply this containment-frontier count. Deduplication and descending containment are standard, not novelty claims.",
+      "residual_risks": [
+        "The journal version of Tran and the Chao et al. full text could not be checked independently. The latter may contain relevant auxiliary product asymptotics.",
+        "Coffman et al.'s whole proof was not exhaustively inspected. General multivariate maxima or older geometric prefilter methods could give equivalent coverage for the product-of-triangles distribution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage for d=1 only; no priority inferred from date",
+          "evidence": "For inclusion-minimal intervals, the mean is sqrt(pi) Gamma(n+1)/Gamma(n+1/2)-1, equal to n B(1/2,n)-1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-dual-containment-frontier-means-for-random-intervals--c51867200019",
+          "material_read": "RESULT beginning at offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary and local mirror",
+          "title": "Exact dual containment-frontier means for random intervals",
+          "trigger": "Same endpoint sampling and identical one-dimensional observable"
+        },
+        {
+          "assessment": "Different order relation",
+          "evidence": "The frontier is for interval precedence by nonoverlap, not set inclusion.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-joint-boundary-counts-of-random-interval-orders-and-independent--65bf5632821e",
+          "material_read": "RESULT beginning at offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary and local mirror",
+          "title": "Joint boundary counts of random interval orders and independent Rayleigh extremes",
+          "trigger": "Related exact boundary-count law in the random pairing model"
+        },
+        {
+          "assessment": "Strong same-model comparison, different target theorem",
+          "evidence": "The boxes are products of independent random intervals with iid uniform endpoints. The focus is tau_d(n), minimum number of points piercing all boxes; nu_d(n) is the largest disjoint family, neither defined as the number of minimal input boxes.",
+          "identifier_or_url": "https://rucore.libraries.rutgers.edu/rutgers-lib/31202/PDF/1/ ; DOI:10.1002/rsa.20321",
+          "material_read": "Thesis §3.1, Theorems 3.1.1–3.1.2 and surrounding text, PDF pp. 18–20 as numbered in the thesis, extracted offset 44700 onward; Chapter 3 containment locators. Journal full text unavailable through attempted routes.",
+          "method": "Lawful open thesis after bounded journal/publisher and alternate-copy attempts",
+          "title": "Random Matrices and Random Boxes (Linh V. Tran), Chapter 3; related journal article Piercing Random Boxes",
+          "trigger": "Exactly the same multidimensional sampling model; possible auxiliary pruning result"
+        },
+        {
+          "assessment": "Main result on packing, auxiliary priority not exhaustively checked",
+          "evidence": "The two uniformly sampled independent intervals form a rectangle and the quantity optimized is the cardinality of a pairwise-disjoint packing.",
+          "identifier_or_url": "https://doi.org/10.1007/PL00008793",
+          "material_read": "Original PDF abstract and Introduction, pp. 585–586, extracted offset 0",
+          "method": "Lawful Springer PDF excerpt",
+          "title": "Packing Random Rectangles",
+          "trigger": "Same planar endpoint model; possibly uses containment as an auxiliary result"
+        },
+        {
+          "assessment": "Main observable differs; possible auxiliary product formulas unresolved",
+          "evidence": "The cited result concerns expected union measure. No negative inference about auxiliary formulas follows from inaccessible text.",
+          "identifier_or_url": "https://doi.org/10.1239/jap/1032192865",
+          "material_read": "Bibliographic objective and cited comparison; no independently retrieved full text",
+          "method": "Bounded OA retrieval attempt",
+          "title": "Expected Measure of the Union of Random Rectangles",
+          "trigger": "Product/Mellin integrals in a close rectangle model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The expected size after an exact redundancy-elimination step is a motivated finite-input invariant in the standard random piercing model. The corrected rule preserves the objective even with coincident constraints, and the random mean shrinks from linear to a dimension-dependent sublinear scale with a sharp constant and planar correction. This quantifies a natural preprocessing question without claiming an optimal hitting-set algorithm, a concentration bound or a runtime gain. The value does not depend on the known d=1 specialization or the elementary pruning rule considered alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

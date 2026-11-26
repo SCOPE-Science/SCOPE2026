@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:52:46.211881Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An interior equilibrium has u<U and u>m/(cb), so b>b₀ is necessary. On the predator nullcline v=(cbu−m)/η, the prey per-capita equation strictly decreases in u and has opposite signs at m/(cb) and U, proving sufficiency and uniqueness. Its two-equation Jacobian has positive determinant −ηF_u−cbF_v; implicit differentiation gives u_b′=(−ηv_b+cu_bF_v)/det J<0. The bounds on u squeeze it to U as b↓b₀, and bv_b<r and the predator equation give (u_b,v_b)→(0,0) as b→∞. Eliminating b and multiplying by u gives the stated f. For each 0<u<U, f(u,0)>0 and f decreases to negative infinity in v, so it defines a smooth positive graph v=q(u) with zero endpoint values from the limits of the equilibrium branch. At a stationary point q″=−f_uu/f_v<0 since both partial derivatives are strictly negative. A positive interior maximum exists, and two strict maxima would force an interior minimum, which violates that sign. The sole maximum therefore has the stated derivative signs on both sides; the decreasing u_b reverses their order and transfers strict curvature as q″(u_*)(u_b′)^2. Restricting b to (b₀,β] gives exactly the stated refuge maxima including β=b_*. At the witness, det J=32, u_b′=−1/4 and q″=−11/20, giving −11/320. The logistic estimates bound trajectories for each b, but no convergence or management conclusion is needed here. Frozen checker.py and VERIFICATION.md were inspected, not executed; they are a replay of the witness and finite examples, not of the universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary article's reported prey/refuge and predator/attack trends concern selected ranges only.",
+          "The earlier same-model global dynamics record treats convergence to the coexistence point and threshold extinction, not the shape of the parameterized coexistence branch.",
+          "The two older ecological comparators could not be examined in full text on the tested routes."
+        ],
+        "reasoning": "Even global convergence for each fixed b gives no signs for cross-parameter derivatives. A broader structural unimodality result could subsume this one, but none was established in the inspected statements; older ecological mechanism claims are not credited as new.",
+        "searches": [
+          "Ramraj–Poornima §6.2 and Figure 3",
+          "Holt–Hochberg 2001, chapter on indirect interactions, Fig. 2.2",
+          "Barbier–Wojcik–Loreau DOI 10.1111/oik.08043",
+          "Resultary 3206215d6907"
+        ]
+      },
+      "checked_sources": [
+        "Ramraj–Poornima 10.3389/frai.2026.1868693 §§2, 6 and Fig. 3",
+        "Resultary 3206215d6907 and 51346d9c0d76; exact self-match 2aebbdacb618",
+        "Holt–Hochberg 2001 and Barbier–Wojcik–Loreau 2021 (full text not assessed)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Coexistence above b₀ is directly prior, and Figure 3 supports one of the local slope signs for its chosen range.",
+          "Finding all interior stationary points to be maxima requires eliminating b and controlling f_uu at fixed v, followed by using u_b as a global coordinate."
+        ],
+        "reasoning": "The nondegenerate unique maximum is not an implication of the prior threshold or pointwise stability statements. The monotonicity of prey, the transfer of curvature to b, and the refuge restriction together establish the new optimization claim.",
+        "searches": [
+          "Ramraj–Poornima equilibrium conditions and §6.2",
+          "Resultary 3206215d6907 and 51346d9c0d76, indexed claims"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rescaling effective attack by c gives the same ODE in the October records; their invasion or critical-decay theorems do not compare predator densities across the full coexistence range.",
+          "The primary paper's β(1−δ) is the frozen b. Its equilibrium condition is b>m/(cU)."
+        ],
+        "reasoning": "The comparison holds after the reparameterization; the shared threshold and equilibrium facts are prior, but no transformation turns a pointwise stability or decay statement into a global optimizer.",
+        "searches": [
+          "Resultary 3206215d6907 and 51346d9c0d76, same equations with h=cb",
+          "Ramraj–Poornima 10.3389/frai.2026.1868693, §2 and equilibrium analysis"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue match 2aebbdacb618 is the assigned finding itself; the other two are distinct same-model records with different conclusions.",
+          "Figure 3 compares exact-model equilibria numerically around a fixed baseline, including decreasing v under increasing refuge in the depicted range."
+        ],
+        "reasoning": "The quantitative object is a universal root-count/curvature classification, not a plotted height or table value. The checked same-model quantitative material covers specific parameter variations, not the theorem.",
+        "searches": [
+          "Resultary 2aebbdacb618, 3206215d6907, 51346d9c0d76",
+          "Ramraj–Poornima Figure 3 and §6.2"
+        ]
+      },
+      "rationale": "The model, invasion threshold, uniqueness of coexistence, and qualitative possibility of intermediate-attack peaks are not claimed as new. The supported distinct claim is a parameter-uniform theorem of exactly one nondegenerate maximum for the rational fear/crowding and predator-interference equations, together with the feasible refuge classification. Neither the same-model stability papers/records nor the verified local parameter sweeps yield that cross-parameter theorem.",
+      "residual_risks": [
+        "The cited broader ecological treatments were not verified in full text. A prior generic concavity/unimodality theorem or a specialized exact-model optimizer not found by the bounded comparison could change priority.",
+        "The witness and universal theorem are for the mathematical coexistence branch, not empirical evidence of a refuge benefit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same ODE and coexistence threshold; sensitivity evidence is restricted to plotted ranges",
+          "evidence": "Predator per-capita term cβ(1−δ)u−m−ηv; §6.2 reports decreasing predator density with refuge and increasing predator density with attack rate in the displayed ranges",
+          "identifier_or_url": "https://doi.org/10.3389/frai.2026.1868693",
+          "material_read": "PDF §2 p. 2, offset 10500; equilibrium analysis p. 4, offset 22410; Fig. 3 p. 6, offset 34341; §6.2 pp. 9–10, offset 48230 onward",
+          "method": "Lawful OA publisher PDF passages",
+          "title": "Fear-driven predator–prey dynamics with prey refuge: analytical framework and physics-informed neural network approach",
+          "trigger": "Exact same model, equilibrium and sensitivity analysis"
+        },
+        {
+          "assessment": "Covers invasion, coexistence and global/critical dynamics, not equilibrium optimization",
+          "evidence": "Uses h=cb and classifies the limiting behavior on either side of the invasion threshold",
+          "identifier_or_url": "2026/10/18/SCOPE-a-sharp-global-predator-prey-threshold-and-universal-critical-ex--3206215d6907",
+          "material_read": "Published result statement",
+          "method": "Local catalogue comparison",
+          "title": "A sharp global predator–prey threshold and universal critical extinction",
+          "trigger": "Earlier theorem with same equations in different notation"
+        },
+        {
+          "assessment": "Different critical-dynamics question",
+          "evidence": "Same threshold and critical decay under the matching fear-refuge equations",
+          "identifier_or_url": "2026/10/13/SCOPE-fear-changes-the-critical-predator-extinction-clock-without-movi--51346d9c0d76",
+          "material_read": "Published result statement",
+          "method": "Local catalogue comparison",
+          "title": "Fear changes the critical predator extinction clock without moving the invasion threshold",
+          "trigger": "Older same-model exact analysis"
+        },
+        {
+          "assessment": "Cannot independently verify the scope of the chapter's optimization results",
+          "evidence": "No primary passage available",
+          "identifier_or_url": "https://people.clas.ufl.edu/rdholt/files/106.pdf",
+          "material_read": "No usable full-text passage from cited PDF",
+          "method": "Lawful OA PDF attempt; extract unavailable",
+          "title": "Indirect Interactions, Community Modules and Biological Control: a Theoretical Perspective",
+          "trigger": "Possible broader intermediate-attack optimum precedent"
+        },
+        {
+          "assessment": "Cannot exclude broader structural overlap from this source",
+          "evidence": "No primary passage available",
+          "identifier_or_url": "https://doi.org/10.1111/oik.08043",
+          "material_read": "No usable full-text passage",
+          "method": "Lawful DOI/Wiley route, HTTP 403",
+          "title": "A macro-ecological approach to predation density-dependence",
+          "trigger": "Possible broader predator-abundance theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The proof replaces range-dependent sensitivity plots with a global, nondegenerate classification valid for every admissible positive parameter set. It determines exactly when positive refuge maximizes equilibrium predator abundance and distinguishes that effect from the monotone prey response, with an exact interior witness. That is useful within this model even though the qualitative overexploitation mechanism is familiar.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

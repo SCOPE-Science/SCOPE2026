@@ -1,15 +1,21 @@
-# Scientific review: symmetric beta Gaussian negentropy
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns all strictly positive real symmetric beta shapes, forward KL divergence, and the unique moment-matched Gaussian. The Gaussian cross-entropy minimization is exact. Differentiation of the beta entropy and trigamma duplication yield a single derivative equation; the integral representation of its trigamma difference and strict AM–GM prove its sign globally. The decisive denominator comparison is the identity \((2a-1/2)^2-2(a-1)(2a+1)=9/4\), valid in the only regime where the positive term must be bounded. Integrating the proven large-shape derivative asymptotic establishes \(3/16\), and the exact beta law of odd uniform-sample medians supplies the stated \(3/4\) constant. The standalone verifier passed its independent finite diagnostics. Numerical checks do not substitute for either universal proof.
+PASS
 
-## Originality — PASS, with outstanding priority risk
+Gaussian cross-entropy at fixed positive variance is uniquely minimized at the true mean, after which optimizing the variance gives the true variance; both moments and differential entropy are finite for a>0. Strict positivity of forward KL follows from unequal laws (bounded beta support). Beta logarithmic moments, derivative of log B(a,a), and trigamma duplication give J'=-1/(2a+1)+(a-1)Delta(a), with Delta(a)=psi_1(a)-psi_1(a+1/2)>0. This is negative for 0<a<=1. For a>1, the trigamma difference integral is the Laplace transform of t/(1+exp(-t/2)). Strict AM–GM bounds Delta by 1/[2(a-1/4)^2]=2/(2a-1/2)^2; (2a-1/2)^2-2(a-1)(2a+1)=9/4, proving strict negativity. Independently, the kernel factor 1/(1+exp(-t/2))=1/2+t/8+O(t^3) near zero, giving Delta=1/(2a^2)+1/(4a^3)+O(a^(-5)) by Laplace integration, with exponentially small tails away from zero. Then J'=-3/(8a^3)+O(a^(-4)). To see J(infinity)=0, use Y=2X-1: its entropy is log B(1/2,a)-(a-1)[psi(a)-psi(a+1/2)]=(1/2)log(pi e/a)+O(1/a), by the gamma ratio and digamma expansions. The moment-matched Gaussian for Y has variance 1/(2a+1) and the same leading entropy. Integrating J' from infinity gives a^2 J(a) -> 3/16. The odd Uniform sample median has shape a=(n+1)/2, so the variance is 1/[4(n+2)], strict decrease holds for successive odd sizes including n=1 to 3, and n^2 K_n -> 3/4. Inspected requirements.txt, verify.py and VERIFICATION.md; the mpmath tests are diagnostics, not universal evidence, and the uploaded code was not run.
 
-The fully inspected arXiv:2205.04621v1 treats general order-statistic entropic convergence, includes an exact entropy lemma and remarks on a second-order symmetric approximation, but not the asserted strict *optimal Gaussian* negentropy monotonicity for every real symmetric beta shape; the asymptotic coefficient here is not claimed independently of that entropy formula. The fully inspected arXiv:2101.02094v5 studies beta concentration and central moments rather than KL-projection monotonicity. Searches using Gaussian negentropy, entropy gap, symmetric-beta KL, central uniform median, and trigamma aliases did not identify an implication that supplies the all-shape strict sign. The published 2023 journal expansion of the order-statistics work explicitly mentions monotonicity in its abstract and could contain closer material than the accessible preprint; its full text remains uninspected and is a specific priority risk. The review does not assert uniqueness against unpublished or inaccessible work.
+## originality
 
-## Value — PASS
+PASS
 
-A symmetric beta law passes from boundary-singular and U-shaped through uniform to interior-unimodal as its positive real shape varies; showing strictly improving moment-standardized Gaussianity across the entire family is not a discrete normal-approximation heuristic. The derivative proof supplies a global entropy ordering, while the median specialization gives an exact best-Gaussian projection and sharp finite-sample convergence constant, with strict improvement at every odd sample-size increment. The observation is natural for assessing the finite-sample Gaussian approximation of robust central order statistics. It does not establish the corresponding assertion for asymmetric shape profiles, arbitrary parents, or reverse KL divergence.
+The supported distinct core is the global strict derivative sign over the continuous symmetric-beta shape family for the optimal forward Gaussian KL projection. Exact beta entropy, Gaussian optimization, and the order-statistic entropy expansion are prior ingredients. The leading constant is a sharp consequence of known special-function asymptotic tools, not the main novelty. The published Cardone–Dytso–Rush discussion is a material remaining access risk, not evidence of equivalence or noncoverage.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+This settles a natural strict-order question for a canonical bounded family under an optimal information-theoretic approximation, across all positive shape parameters, not just the asymptotically normal regime. The global sign requires a uniform special-function inequality, and its exact sharp rate and consequence for the best Gaussian at every odd median sample size are independently interpretable. No reverse-KL, asymmetric-beta, or general order-statistic monotonicity is inferred.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

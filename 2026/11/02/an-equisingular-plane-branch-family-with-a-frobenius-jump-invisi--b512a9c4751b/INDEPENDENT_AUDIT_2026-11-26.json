@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:30:32.739526Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 20–54",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)"
+      ],
+      "rationale": "For algebraically closed k of prime characteristic p>=5, set y=t^(p+1), x=t^(p+2)u. The equation after dividing out t^((p+1)(p+2)) is u^(p+1)+1+lambda*t^(p^2-2p-5)*u^(p-1)=0. Its simple roots at t=0 lift. The orbit of x(t) under t->zeta*t has size p+1 by its leading exponent coprime to p+1; since the polynomial is monic of degree p+1 in x, this establishes irreducibility. In the Weierstrass basis 1,x,...,x^p over k[[y]], valuations are distinct modulo p+1, yielding semigroup <p+1,p+2> and delta p(p+1)/2. The coprime weighted initial Jacobian monomials x^p,y^(p+1) give mu=p(p+1). Writing M=x^(p-1)y^(p-1), the Jacobian relations give [f]=(5lambda/2)[M], and the maximal basis weight shows that (M) has basis M,yM. This gives the two Tjurina cases. For lambda nonzero the Frobenius induction keeps precisely the top monomial with exponent pair (p^e-1,p^e-1) at N=(p^e-1)/(p-1), killed by one more copy of f. At zero, f in (x^p,y^p) gives the upper bound p^(e-1)-1 on nu_e; at that degree the balanced binomial term is nonzero by Lucas and fits in the exponent box. Frobenius powers of the maximal ideal are preserved by local automorphisms, and units preserve ideal membership, so the distinct thresholds separate the p=5 strata. These exact arguments, not the finite script, cover all parameters.",
+      "residual_risks": [
+        "The parenthetical root-order wording at RESULT.md line 28 is imprecise: the simple equation in u at t=0 has degree p+1, not p+2. The stated substitution and Hensel premise yield the valuations and semigroup as verified above."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The corner residue theorem c*product(x_i^(q-1))+h with h in (x_i^q) gives the nonzero-parameter threshold directly when q=p and i=1,2.",
+          "Hernandez's diagonal formula covers the zero-parameter threshold; the separate binomial calculation does not take this trinomial as input. Ma–Zuo's positive-characteristic bound concerns a generalized Milnor/Tjurina quotient."
+        ],
+        "reasoning": "Threshold halves overlap with existing formulas and the later indexed general result; none of these statements gives the simultaneous Tjurina stratification and characteristic-five witness. The later index date is not itself proof of priority.",
+        "searches": [
+          "Resultary 2026/11/8/SCOPE-frobenius-corner-rigidity-and-a-smooth-tangent-cone-jump-in-f-pu--51cc0139d14e",
+          "arXiv:1112.2425 Theorem 3.1; arXiv:1112.2427 Introduction and references to Theorem 4.1/Algorithm 4.2",
+          "arXiv:2604.17757v2 abstract and Introduction"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary index and mirrored corner-rigidity RESULT.md",
+        "Svoray arXiv:2606.04014v3",
+        "Hernandez arXiv:1112.2425 and 1112.2427",
+        "Ma–Zuo arXiv:2604.17757v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior work already establishes that higher weighted-order terms can alter the F-pure threshold. The general corner formula and diagonal formula do not determine f's class in its Jacobian quotient."
+        ],
+        "reasoning": "The coefficient 5lambda/2 in the Jacobian quotient is what gives the characteristic-five Tjurina coincidence. The joint finding is not obtained by specializing the threshold formulas or the quoted quotient bounds alone.",
+        "searches": [
+          "Svoray arXiv:2606.04014v3 abstract and Example 3.10",
+          "Resultary corner theorem, RESULT.md at offset 0",
+          "Ma–Zuo arXiv:2604.17757v2 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Svoray obtains thresholds 1/4 and 1/3 in the (5,7) branch comparison x^5+y^7 and x^5+y^7+x^3y^3 over F_2.",
+          "The polynomial-specific web query returned unrelated material, not a statement match."
+        ],
+        "reasoning": "Same qualitative mechanism and fixed first semigroup generators, but a different field, different polynomials and thresholds, and no target characteristic-five equality/separation calculation.",
+        "searches": [
+          "Resultary semantic search for the branch trinomial and Frobenius-threshold jump at fixed Milnor and Tjurina numbers",
+          "Primary literature search for the quoted trinomial with F-pure threshold and Tjurina",
+          "arXiv:2606.04014v3 Example 3.10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed record computes a different family, sum(x_i^(q+1))+lambda*product(x_i^(q-1)), at a fixed smooth projective tangent cone. The inspected prior branch example concerns characteristic two."
+        ],
+        "reasoning": "The exact evidence would be a tabulation or formula for this prime-uniform family with the joint (semigroup, mu, tau, threshold) data or the same characteristic-five pair under contact equivalence. No such table was identified in the inspected material.",
+        "searches": [
+          "Resultary family search and inspection of the closest corner-rigidity record",
+          "Target trinomial web query; Svoray Example 3.10"
+        ]
+      },
+      "rationale": "Prior higher-weight threshold jumps and overlapping general threshold calculations are real. The supported distinct claim is the exact simultaneous branch, Jacobian/Tjurina and threshold calculation for this family, particularly separation at fixed mu=tau=30 in characteristic five, not a new general threshold method or the first threshold jump at fixed semigroup.",
+      "residual_risks": [
+        "The exact-example literature query was uninformative; a specialized trinomial formula or a contact-equivalent characteristic-five example could exist.",
+        "The overlapping indexed theorem establishes coverage of a threshold component, not historical priority for either record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior qualitative mechanism, not exact coupled claim",
+          "evidence": [
+            "The F_2 example gives beta_0=5, beta_1=7 and nu_e=floor((2^e-1)/3) for the trinomial."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.04014v3",
+          "material_read": "p.1 abstract; p.14 Example 3.10, offsets 68666–71053",
+          "method": "OA PDF text at the cited passages",
+          "title": "Bounds on the F-Pure Threshold of Isolated Hypersurface Singularities",
+          "trigger": "Higher-weight equisingular branch threshold jump"
+        },
+        {
+          "assessment": "Direct coverage of the nonzero threshold calculation only",
+          "evidence": [
+            "The q-power maximal-ideal residue criterion yields 1/(q-1); no target branch Tjurina calculation in the statement inspected."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-frobenius-corner-rigidity-and-a-smooth-tangent-cone-jump-in-f-pu--51cc0139d14e",
+          "material_read": "Mirrored RESULT.md, offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local published index and mirror",
+          "title": "Frobenius corner rigidity and a smooth tangent cone jump",
+          "trigger": "General formula with exactly the mixed corner residue"
+        },
+        {
+          "assessment": "Diagonal subcase covered",
+          "evidence": [
+            "Formula for sums of pure powers of distinct variables based on base-p carries."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1112.2425",
+          "material_read": "p.4 §3.1, Theorem 3.1, offset 14109",
+          "method": "OA PDF text",
+          "title": "F-invariants of diagonal hypersurfaces",
+          "trigger": "Threshold at lambda=0"
+        },
+        {
+          "assessment": "Not a trinomial formula",
+          "evidence": [
+            "Overview of the splitting-polytope binomial theorem and algorithm."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1112.2427",
+          "material_read": "p.1 Introduction, offset 3271",
+          "method": "OA PDF text",
+          "title": "F-pure thresholds of binomial hypersurfaces",
+          "trigger": "Possible general threshold implication"
+        },
+        {
+          "assessment": "General bounds, not exact branch family calculation",
+          "evidence": [
+            "The positive-characteristic bound concerns the generalized quotient; the usual quotient bound is described in characteristic zero."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2604.17757v2",
+          "material_read": "p.1 abstract and Introduction, offsets 394 and 2375",
+          "method": "OA PDF text",
+          "title": "The Quotient of Milnor Number by Tjurina Number of Hypersurface Singularities in Arbitrary Characteristic",
+          "trigger": "Possible joint Milnor/Tjurina coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "Svoray arXiv:2606.04014v3 Example 3.10"
+      ],
+      "rationale": "The two strata answer a concrete invariant-detection question: even fixing the branch semigroup and both conventional local algebra lengths, the Frobenius invariant detects a difference. The single family explains exactly why that coincidence occurs at five and disappears at larger primes, rather than just recomputing a familiar diagonal threshold.",
+      "residual_risks": [
+        "No classification of branches or of all contact classes with nonzero parameter is implied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

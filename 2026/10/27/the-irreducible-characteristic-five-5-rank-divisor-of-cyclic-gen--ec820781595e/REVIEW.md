@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The curve's genus and differential basis follow by tame Riemann–Hurwitz and valuation at infinity. The Cartier action is reconstructed directly using \(\mathcal C(h^5\omega)=h\mathcal C(\omega)\) and the \(x^{4+5j}\) coefficient rule. The semilinear square gives \(\mathcal C^2(u)=H^{1/25}u\), so the stable ranks are precisely zero and two. The irreducibility argument is genuinely algebraic: primitivity as a quadratic in \(a_0\), nonsquare specialized discriminant \(a_3^8(a_3^2+3)\), UFD square descent and Gauss's lemma. The final standalone verifier reproduces the eleven coefficients and checks all 2500 squarefree \(\mathbb F_5\)-quintics against independent \(\mathbb F_{25}\)-point counts. Finite enumeration is corroboration only.
+## correctness
 
-**Originality — PASS, subject to stated residual risk.** Baldwin et al. (arXiv:math/0612654, §2) study the same equation over characteristic zero. Bouw (2001) treats generic cyclic-cover p-ranks. Importantly, Özman–Pries–Weir (2022, Proposition 5.8) **already prove abstract moduli-stratum irreducibility** for this signature and prime congruence, and Proposition 5.9 gives codimension one. These results are excluded from the new claim; they do not state the eleven-term polynomial or prove the absolute irreducibility of this polynomial in five independent affine coordinates, a property not implied by a quotient moduli space's irreducibility alone. Relevant published mathematical-record queries did not show an equivalent coefficient-level result. Sohn (2025) is a genuinely close source but only its abstract was accessible, leaving a material matrix-duplication risk. Absence in search is not considered proof of novelty.
+PASS
 
-**Mathematical value — PASS.** The family is a standard, intrinsically motivated genus-four cyclic-cover family. The exact weighted-degree-16 equation identifies the entire nonmaximal p-rank locus on a full five-parameter family, and its absolute irreducibility is a nontrivial global assertion established by a discriminant calculation. The locus is neither an arbitrary narrow slice nor just the known abstract moduli irreducibility theorem. Potential uses include exact coefficient-level stratification and sampling of genus-four Jacobians; no further applications are claimed proved.
+The five finite branch points and infinity have tame index 3, so the genus is four. Orders at infinity of x,y,dx are -3,-5,-4, respectively; at a finite branch point dx has order 2 and y has order 1. These checks give the displayed regular basis. Rewriting u=dx/y as (y^-2)^5 f^3 dx and v_i=x^i dx/y^2 as (y^-1)^5 x^i f dx gives the stated off-diagonal Cartier blocks. The semilinear square on u has coefficient H^(1/25); when H=0 the cube kills the basis, and otherwise the span of u and Cartier(u) is the entire stable image of dimension two. Multinomial extraction at x exponents 4,9,14 verifies the eleven terms (the last coefficient is 3a_4). The weight of each alpha_i is 11-5i, and that of beta_i^5 is 5+5i. The leading coefficient in a_0 is 3a_4^6 while the constant term retains a_3^8 at a_4=0; hence the quadratic is primitive. Its discriminant at a_1=a_2=0,a_4=1 is a_3^8(a_3^2+3), which has simple roots and is not a square. A polynomial square in the fraction field of a UFD must already be a square in the ring, so specialization rules out a square and Gauss's lemma gives absolute irreducibility. Both polynomial examples meet the stated squarefree conditions and give H=0 and H=2, respectively, so the squarefree open meets the hypersurface and its complement.
 
-**Scientific limits and closest literature.** The full Sohn (2025) article remains uninspected; potentially overlapping Hasse–Witt matrix formulas are a residual originality risk. This statement does not determine Newton polygons or Ekedahl–Oort types and does not claim the existence or irreducibility of abstract p-rank strata as new. Relevant sources: Baldwin et al. (2006) https://arxiv.org/abs/math/0612654; Bouw (2001) DOI:10.1023/A:1017513122376; Özman–Pries–Weir (2022) DOI:10.1017/nmj.2022.12; Sohn (2025) DOI:10.23091/japm.2025.059.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit is limited to the explicit polynomial criterion and the irreducibility statement in full affine quintic coefficient space. Abstract moduli-level rank-zero irreducibility and codimension were known. A separate later-dated Resultary record demonstrably gives the exact same H and claims, plus additional a-number data; this rules out treating the two statements as distinct mathematics but does not establish coverage preceding the frozen record. No earlier covering statement for the explicit coefficient hypersurface was established in the bounded comparisons.
+
+## value
+
+PASS
+
+An explicit test in coefficients is usable for any smooth member without computing a Jacobian or passing to a moduli space. Proving the polynomial absolutely irreducible ensures the observed rank drop is a single divisor in this marked parameter space, a structural statement that an abstract quotient or a prime-field census does not give by itself. The claim is about this equation and its locus, not the already known abstract genus-four rank stratum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

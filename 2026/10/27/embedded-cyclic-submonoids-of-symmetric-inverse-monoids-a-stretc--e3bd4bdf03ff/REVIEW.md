@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The generator-multiplicity lemma distinguishes power index at least two from locally permutational elements; the cycle/path normal form then proves the exact embedded count. A cycle-length expectation bound proves the negligible totient-weighted term, and Laguerre/Bessel saddle analysis yields the precise constant. Exhaustive independent composition enumeration for sizes one through five and exact rational formula evaluation through size six both agree. The general asymptotic is proved analytically, not inferred from experiments.
+## correctness
 
-**Originality — PASS, with priority limitation.** Lipscomb (1986) gives cycle/path structural representations of the same symmetric inverse semigroup, and Elliott–Levine–Mitchell (2023) explicitly count abstract isomorphism types, not embedded ordinary cyclic submonoids. The related embedded full-transformation count allows arbitrary noninjective total maps and does not imply the partial-injection Laguerre-scale law or conditional Poisson defect distribution. Actual published-finding corpus semantic searches and existing accessible research claims revealed no equivalent statement. A complete inspection of Lipscomb's 1986 article was unavailable; only its abstract and metadata were examined, making priority a real residual risk. Originality here is the specific embedded enumeration *together with* its rare-event asymptotics and domain-defect law, not the cycle/path classification itself.
+PASS
 
-**Value — PASS.** Cyclic submonoids and their generator redundancies are intrinsic objects in the finite symmetric inverse monoid. The theorem distinguishes labeled embedded objects from isomorphism classes, describes exactly where redundant generators occur, identifies their sharp stretched-exponential rarity under a natural uniform model, and supplies the nondegenerate Poisson support profile of exceptional elements. These are structural and asymptotic results across all finite degrees, not a tiny numerical correction.
+For a nontrivial directed path, the eventual index of the power sequence is at least two, so the first power cannot equal any higher power and no higher power can generate it. Otherwise the partial map is a permutation on its domain and has exactly φ(o) generators of the same embedded ambient-unital cyclic submonoid, whether or not its local identity is the ambient identity. This includes the empty map and order one. Weighting each element by the reciprocal of its multiplicity gives Q_n−H_n+W_n with W_n the displayed totient sum. Independent direct enumeration of powers gave 2,7,33,198,1448 for n=1,…,5; a separate exact formula evaluation gave 12526 at n=6. For a uniform permutation of m points, the expected number of vertices in cycles of length at most J is J, so the largest cycle is at most J with probability ≤J/m. Since the order is at least the largest cycle and φ(v)≥sqrt(v/2), taking J=⌊m^(2/3)⌋ shows the mean reciprocal totient and probability of multiplicity one tend to zero. At defect j the local permutation count is n!/j!; the summable factorial tail gives W_n=o(n!), Q_n−M_n∼e n!, and the same equivalent for the number of event elements, but not an exact equality with the deficit. Dividing fixed-defect event counts by the latter equivalent proves the conditional Poisson(1) law. Finally Q_n/n!=L_n(−1). Against the Bessel weights n^k/(k!)², the ratio of successive weights concentrates k/√n at 1; on that scale (n)_k/n^k tends to e^(−1/2) by logarithmic expansion. Laplace's method for the Bessel integral gives e^(2√n)/(2√π n^(1/4)), establishing the stated constant.
 
-**Limitations.** Strong classical structural overlap remains, notably Lipscomb (1986); a future full-text priority comparison and independent proof check are desirable. Finite checker executions do not certify asymptotic arguments.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The standard structural and totient ingredients are not new. The inspected evidence does not cover the combined embedded ordinary count and sharp collision and conditional-defect laws. In particular the asymptotic laws are not established by a prior isomorphism-type enumeration or the classical asymptotic for the total number of partial injections.
+
+## value
+
+PASS
+
+The exact embedded census addresses a natural distinction from abstract classification. More substantially, the theorem quantifies when uniform generators fail to identify their power submonoids, giving a sharp constant for a stretched-exponentially rare event and the limiting rank defect conditional on that event. The factorial law reveals where collisions occur in a way the total count or a uniqueness-with-high-probability statement cannot.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

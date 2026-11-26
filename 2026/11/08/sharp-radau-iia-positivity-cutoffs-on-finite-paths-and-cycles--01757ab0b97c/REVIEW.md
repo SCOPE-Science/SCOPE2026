@@ -1,11 +1,21 @@
-# Review of the Radau IIA path–cycle positivity classification
+# Independent mathematical audit
 
-**Correctness — PASS.** The positivity classifications reduce to eleven explicit finite polynomial sign certificates. All sixty symmetry-reduced entries have exact integer numerator and denominator coefficients recorded in `CERTIFICATE.json`, and every coefficient is nonnegative with nonzero positive terms. `VERIFY.py` recomputes the exact rational functions and checks all coefficients. The complementary infinite cases follow from the rigorously reconstructed \(x^5/108\) term and the negative \(L^5\) entry for distance-five vertex pairs. The denominator is positive on the whole nonnegative Laplacian spectrum. No numerical rounding or finite sampling supplies an infinite conclusion.
+## correctness
 
-**Originality — PASS on inspected sources, with publication-priority limits.** The closest historical results are Bolley–Crouzeix (1978), which quantifies over *all* positivity-preserving generators, Lóczi–Ketcheson (2013), which analyzes rational absolute monotonicity, and Horváth–Song–Terlaky (2014), which derives polyhedral invariance step thresholds. These do not state the exact Radau IIA path cutoff five and cycle cutoff nine, nor imply the all-step positive exceptional cases via their stated theorems. The related known exact Gauss–Legendre cycle result uses a distinct stability function and yields a different threshold. Searches in relevant literature and mathematical research records returned no covering implication; this is not proof of priority, and specialists may know related unindexed boundary-specific results.
+PASS
 
-**Value — PASS.** This is an exact parameter-uniform classification for two canonical discrete heat geometries (open and periodic boundaries), not an arbitrary small graph census. The two boundary thresholds differ sharply, and the spectral stability of a high-order implicit integrator does not prevent a negative physical transition even as the time step tends to zero on larger domains. The finite certificates settle the maximal all-step-safe network sizes, while the general diameter-five lemma explains the infinite exclusions.
+For each unit undirected cycle, L is symmetric positive semidefinite with L1=0. The denominator polynomial of R has positive values on the nonnegative spectrum, so the exact step is a symmetric circulant matrix with row sums one. Rotation and reflection reduce the seven positive orders C3–C9 to 26 distance entries. The independent rational computation reconstructed the Laplacians and Q⁻¹B without running the supplied verifier: it checked all 26 cycle entries and also all 34 path entries of the original. Across those 60 entries there were 390 numerator and 390 denominator coefficients, all nonnegative, with every numerator nonzero and the minimum denominator coefficient 2. Each repaired claim of strict positivity follows for all h>0, not merely checked steps; h=0 is the identity. At distance five, powers below five have zero entry and (L⁵)ᵤᵥ is minus the number of shortest walks, so the Taylor coefficient 1/108 of x⁵ gives a strictly negative leading coefficient. This is independent of any finite cycle enumeration and covers every n≥10; the boundary check on C10 gives (L⁵)₀,₅=−2. Replay: /workspace/branches/83b8351e-6190-4d31-82dd-3f81bf65d746/exact_replay.py and exact_replay.json. The original mathematical claims checked; the repair is a scope and attribution change, with cycle-only RESULT.md and matching scientific verification notes.
 
-Limitations: unit weights, completed step only, no independent audit, and publication-priority uncertainty.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original bundle does not pass as a distinct contribution: both the unit-path cutoff and the distance-five lemma are prior, the latter already in a stronger positive-conductance form. The repaired result credits these and claims only the all-step cycle classification as a contribution. Its negative half and small/large-step positivity statements are also prior; the surviving advance is closing the intermediate-step gap for the entire positive side of the cycle classification. This is not a finding of global priority.
+
+## value
+
+PASS
+
+The repair settles a natural, motivated gap left by the known small-step cycle barrier. Finite cycle heat flows are standard periodic diffusion tests; unconditional entrywise positivity of a classical high-order step is strictly stronger than positivity in both asymptotic regimes. The exact signs prove that none of the possible short rings has an intermediate failure, so the already-known necessary boundary is also sufficient in this whole graph family. This value does not depend on the removed path claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

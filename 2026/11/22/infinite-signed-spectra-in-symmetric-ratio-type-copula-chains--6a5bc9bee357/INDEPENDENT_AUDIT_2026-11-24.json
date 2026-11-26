@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:55:24.120845Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The mixed derivative uses only f and f′ at separate coordinates and is continuous under the denominator condition. Copula admissibility makes it nonnegative with uniform marginals, and symmetry gives a compact self-adjoint Markov contraction preserving the centered space. For positive θ, θ|f(0)|²<1 and the geometric expansion has centered derivative features (u f(u)^j)′. The norm bound on these features gives a finite sum of the traces of their weighted positive rank-one operators. Infinite rank follows from the Vandermonde independence of the first m integrated features at arbitrary distinct interior nodes. Independently of the proof's valid bump approximation, H_m is exactly the form matrix of P_θ at the centered indicators 1_[0,u_i]−u_i, by stationarity and the copula formula. This also checks the transfer for negative θ: Cauchy's determinant and diagonal scaling give determinant sign (−1)^(m(m+1)/2) for every leading block, so the LDLᵗ pivots alternate starting negative and the matrix has the stated strictly signed indices. The corresponding indicator spans yield unbounded dimensions of both signs for P_θ. The covariance identity γ_n=⟨h,P_θ^n h⟩ then gives all finite-difference inequalities in the positive case from the spectral measure on [0,1], and strictly alternating covariances for a negative eigenfunction. At θ=0 the centered operator vanishes. The 2024 Table 1 row (7) confirms the cited generator and range; θ=1 fails denominator positivity at the origin and is correctly excluded. CHECKER.py was inspected, not executed; its finite diagnostics do not prove the unbounded inertia result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2024 source supplies the ratio construction, dependence context and exponential-generator parameters. Longla's general symmetric square-integrable copula expansion allows signed eigenvalues without imposing infinite multiplicities of either sign.",
+          "The inspected Ali–Mikhail–Haq passage gives mixing bounds in a subfamily."
+        ],
+        "reasoning": "An eigenfunction representation or mixing bound does not specify inertia. The positive geometric rank-one series here is not an orthogonal Lancaster expansion, and in the full negative range the signature argument does not require a convergent geometric expansion.",
+        "searches": [
+          "El Ktaibi–Bentoumi–Mesfioui DOI 10.3390/math12111743, ratio family and D^(7)",
+          "Longla DOI 10.1007/s00362-024-01559-9, equation (6) and Proposition 2.1",
+          "Longla–Mous-Abou–Ngongo DOI 10.1007/s44199-022-00045-1, Ali–Mikhail–Haq"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3390/math12111743",
+        "DOI:10.1007/s00362-024-01559-9",
+        "DOI:10.1007/s44199-022-00045-1",
+        "arXiv:1810.11358",
+        "Resultary:201ee12aa592",
+        "Resultary:e3d651e131f3; d3cec9569f5f; 30899b0f61c3 (summaries only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general finite matrix theorem applies to sorted grids after the Cauchy reduction. The asymmetric sign issue for arbitrary observables is resolved by identifying H_m with actual centered indicator covariance form matrices of P_θ.",
+          "Known quadrant signs and general spectral expansions do not constrain inertia this way; even a centered rank-one copula perturbation can be negatively quadrant dependent with only one nonzero mode."
+        ],
+        "reasoning": "The transfer through form matrices and compactness is essential to the infinite signed transition spectrum; neither pointwise quadrant ordering, a general existence theorem for eigen-expansions, nor the different rank-one comparison supplies that all-parameter assertion for this family.",
+        "searches": [
+          "arXiv:1810.11358 on strictly sign-regular matrices",
+          "DOI 10.3390/math12111743; DOI 10.1007/s00362-024-01559-9",
+          "Resultary 201ee12aa592, Finding and first proof step"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "After changing f to −f if needed, t_i=f(u_i)>0; for θ=−a<0, 1/(1+a t_i t_j)=(a t_i)^(-1)/(1/(a t_i)+t_j). For ordered nodes these are Cauchy minors with one order reversed, up to nonzero diagonal factors. The overall negative sign gives the signature ε_j=(−1)^(j(j+1)/2).",
+          "arXiv:1810.11358 §III.C describes the classical strictly sign-regular eigenvalue theorem, with the signs from successive signature products in Corollary 2."
+        ],
+        "reasoning": "The old theorem and Cauchy specialization account for the finite sign pattern, even under the reverse-Cauchy alias. They do not identify the sign counts of the Markov operator with mixed-derivative density: the sign-regular covariance kernel is not that transition kernel.",
+        "searches": [
+          "Resultary: ratio-type copula covariance inertia and infinite signed spectrum",
+          "Cauchy kernel 1/(1+xy), strict sign regularity and alternating spectra",
+          "arXiv:1810.11358, §III.C and Corollary 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 1 supplies f(u)=(1−u)e^(−u) and [−e²,1], not its transition-operator inertia.",
+          "Resultary 201ee12aa592 gives sharp envelopes for a copula of the form uv+δ times a separable single product; e3d651e131f3, d3cec9569f5f and 30899b0f61c3 were related catalogue hits."
+        ],
+        "reasoning": "The full-text exponential-quadratic comparison has a rank-one centered transition, hence cannot have the claimed infinite indices. Catalogue-only validity and other-chain mixing matches are not exact inertia tables; they are not used to infer whole-document noncoverage or priority.",
+        "searches": [
+          "Resultary: symmetric exponential/ratio-copula spectral, mixing and validity claims",
+          "El Ktaibi–Bentoumi–Mesfioui Table 1 row (7)"
+        ]
+      },
+      "rationale": "The supported distinct claim is the full centered transition-operator signature for the admissible ratio family, including infinitely many modes of both signs throughout its negative regime. The family, quadrant dependence, and parameter ranges are prior. The finite signature is a specialization of classical Cauchy/sign-regular matrix theory, not a new matrix-inertia principle, and complete monotonicity follows from the established positive spectrum by the spectral theorem.",
+      "residual_risks": [
+        "Older copula or oscillation-kernel literature may give an equivalent transfer to transition operators. Whole-record comparison was not possible for every related catalogue hit. No absolute priority is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model and confirmed prior admissibility result",
+          "evidence": "The table lists the symmetric exponential generator, extrema −e^(−2) and 1 for the stated derivative expression, and θ∈[−e²,1].",
+          "identifier_or_url": "https://doi.org/10.3390/math12111743",
+          "material_read": "Official paper, Table 1 row (7), pp. 5–6, PDF text near offset 25000",
+          "method": "Lawful OA PDF passage",
+          "title": "On the Ratio-Type Family of Copulas",
+          "trigger": "Exact defining family and D^(7) parameters"
+        },
+        {
+          "assessment": "General representation but not signed indices of the ratio family",
+          "evidence": "Square-integrable symmetric densities have a spectral expansion, including a signed extension.",
+          "identifier_or_url": "https://doi.org/10.1007/s00362-024-01559-9",
+          "material_read": "pp. 4335–4336 equation (6) and Proposition 2.1",
+          "method": "Lawful OA PDF passages",
+          "title": "New copula families and mixing properties",
+          "trigger": "Broader symmetric copula spectral representation"
+        },
+        {
+          "assessment": "Partial overlap in model, not in signed inertia",
+          "evidence": "The inspected section establishes mixing bounds for the classical subfamily.",
+          "identifier_or_url": "https://doi.org/10.1007/s44199-022-00045-1",
+          "material_read": "pp. 140–141, PDF text around offset 28125",
+          "method": "Lawful OA PDF passage",
+          "title": "On Some Mixing Properties of Copula-Based Markov Chains",
+          "trigger": "Ali–Mikhail–Haq subfamily transition analysis"
+        },
+        {
+          "assessment": "Covers finite sign theory upon applying the Cauchy formula; not the transfer to the copula Markov operator",
+          "evidence": "The consecutive signatures determine the sign of the corresponding eigenvalue and the full SSR case has real eigenvalues strictly ordered by magnitude.",
+          "identifier_or_url": "https://arxiv.org/abs/1810.11358",
+          "material_read": "Corollary 2 and §III.C, PDF pp. 12–13",
+          "method": "Lawful preprint PDF after publisher access failure",
+          "title": "On the spectral properties of nonsingular matrices that are strictly sign-regular for some order",
+          "trigger": "Plausible general theorem implying exact sampled inertia"
+        },
+        {
+          "assessment": "Distinct rank-one model and different spectral statistic",
+          "evidence": "Centered transition density is δα²g_α(u)g_α(v); the only possible nonzero eigenvalue is δα²∥g_α∥².",
+          "identifier_or_url": "Resultary:201ee12aa592",
+          "material_read": "RESULT.md Finding, assumptions, and proof opening",
+          "method": "Resultary and local mirror",
+          "title": "Sharp universal spectral and uniform-mixing envelopes for an exponential-quadratic copula",
+          "trigger": "Strong same-day spectral overlap"
+        },
+        {
+          "assessment": "No exact assertion in the inspected summaries; unresolved full-record comparison",
+          "evidence": "The summaries describe admissibility or mixing in related ratio constructions, not the transition signatures under review.",
+          "identifier_or_url": "Resultary:e3d651e131f3; Resultary:d3cec9569f5f; Resultary:30899b0f61c3",
+          "material_read": "Catalogue summaries only",
+          "method": "Local Resultary search; mirror access incomplete for these entries",
+          "title": "OR3 negative-parameter frontier; ratio-polynomial absolute-regularity extrema; ratio-logarithmic validity",
+          "trigger": "Related ratio admissibility or mixing catalogue hits"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The classification shows exactly why the sign of a quadrant-dependence parameter does not determine the signs of all time-series covariances. Positive parameters yield covariance moment sequences for every centered observable, while even strictly negative quadrant dependence in this family coexists with infinitely many positive as well as alternating modes throughout the admissible nonsingular negative range. The result is a structural property of an established family, not merely a new use of terminology for Cauchy matrices or a two-point numerical witness.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

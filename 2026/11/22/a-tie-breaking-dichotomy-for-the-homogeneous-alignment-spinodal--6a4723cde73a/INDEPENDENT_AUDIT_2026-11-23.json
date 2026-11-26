@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:39:37.559680Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–3 and explicit probability kernels",
+        "Frozen VERIFICATION.md and verify.py (static inspection)",
+        "Independent exact enumeration by replacing one coordinate at a time",
+        "Dias–Dickman–Rosembach arXiv:2604.22536v2, Sec. II algorithm and Eqs. (3)–(5)"
+      ],
+      "rationale": "For the explicitly defined, occupied-center iid-neighbor dynamics the symmetric point is fixed, and the orientation-permutation-equivariant derivative is scalar on the two-dimensional tangent space. Conditional on m occupied sites I re-enumerated the derivatives without multinomial weights: fix one position first to heading 1 and then to heading 2, average the difference of each event indicator over the 3^(m−1) other words, and sum over the differentiated positions. For the tied-and-central-1 event the center derivative and each neighbor derivative are treated separately. This gave unique-plurality numerators (1,2,12,36,120,420,1330) and tied-and-central-1 numerators (0,1,0,6,6,30,80), with denominators 3^(m−1). Binomial mixing gives P,T. The scalar derivative of the total tied-event probability is zero by exchange symmetry, so the reorientation derivatives are (1−3η/2)P and (1−3η/2)P+(1−η)T. The flow subtracts 1 from each rate. In the representation s=ρ/(1−ρ), the polynomial (1+s)^6(P−1)/s has a negative constant and strictly positive higher coefficients, so there is exactly one positive root; bisection gives ρ*=0.212447606903894 to the displayed precision. For I, the first two binomial-mixture entries of a_m+b_m are 1 and every subsequent entry exceeds 1. Thus P+T−1>0 at all 0<ρ≤1 and its leading term comes from two occupied neighbors, 15ρ²·(1/3)=5ρ². The strictly positive slope magnitude 3P/2+T gives a unique threshold in (0,1), asymptotic to (10/3)ρ². At ρ=1, P=1330/729 and T=80/729 give 601/1995 and 681/2075; at ρ=ρ*,η=0 the random-tie rate is exactly zero, not strictly stable. These checks establish the intrinsic closures defined in the frozen record, independently of the spatial paper's notation or dynamics.",
+      "residual_risks": [
+        "No marginal nonlinear classification, spatial-mode spectrum, or transport stability claim is established.",
+        "The source-paper comparison is of tie transition prescriptions, not a claim that the printed mean-field equations can be copied with their probability factors unchanged."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The seven-site source supplies transition rules and the independent-neighbor framework, then describes numerical integration and further spatial displacement steps.",
+          "The 19-site predecessor reports an independent-site mean-field critical noise estimate at full occupancy but noises each perceived voter and resolves two-way ties among the tied alternatives.",
+          "The simple-cubic majority-vote paper's primary full text was not retrieved from the DOI."
+        ],
+        "reasoning": "A general prescription for constructing a transition map does not itself report the spectrum or the sign region. The 19-site noisy-perception calculation differs both in neighborhood size and in where the noise acts and does not establish the paired seven-site formulas. The inaccessible simple-cubic source is a remaining access risk, not evidence of absence.",
+        "searches": [
+          "arXiv:2604.22536v2, Sec. II, Eqs. (3)–(5) and adjacent discussion",
+          "arXiv:2312.09492, pp. 6–7, 22–23; DOI 10.1103/6vh3-fx7f (bounded OA attempt)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact self-hit 6a4723cde73a and related semantic results",
+        "Dias–Dickman–Rosembach arXiv:2604.22536v2",
+        "Rosembach–Dias–Dickman arXiv:2312.09492",
+        "Kwak–Lee–Kim DOI 10.1103/6vh3-fx7f (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With probabilities conditioned on the incumbent, Eq. (5)'s M=0 transfers imply the (1−η)T contribution to DF after differentiating and using the zero derivative of total tie probability.",
+          "The source calls P(M,i) conditional in the prose but shows a central occupancy/orientation factor in Eq. (3), and its nearby tie example says 'randomly'; this is why the outgoing/incoming M=0 coefficients, not a literal whole-equation identification or that example alone, are the decisive kernel evidence.",
+          "The checked passages do not give the explicit comparison or the positive-root/zero-density dichotomy."
+        ],
+        "reasoning": "Recognizing the kernel gives the starting operator and directly motivates its derivative; it does not by itself give the finite derivative values, binomial-mixture sign change or the positive-at-all-densities incumbent assertion. The record proves these and does not identify them with the original model's spatial phase boundaries.",
+        "searches": [
+          "Direct comparison with arXiv:2604.22536v2, Sec. II algorithm, probability definition, M=0 bullet and Eq. (5); compare arXiv:2312.09492 full-occupancy comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact catalogue entry 6a4723cde73a is the assigned record itself.",
+          "The local Sec. II text chooses uniformly among all three headings on a tie. The M=0 mean-field bullet and Eq. (5) transfer η/3 to each alternative, retaining the incumbent with probability 1−2η/3."
+        ],
+        "reasoning": "For the homogeneous simplex, comparing the kernel's output derivative to one and comparing the continuous-time growth rate to zero are equivalent. Equating all ties to uniform random output would erase the genuine difference between R and I; they agree on tied events only at η=1. The two kernels are not novel; the sharp spectrum comparison is the target.",
+        "searches": [
+          "Resultary: homogeneous seven-site three-state majority alignment dilution threshold with random versus incumbent-preserving ties",
+          "Dias–Dickman–Rosembach arXiv:2604.22536v2, Sec. II, local update and M=0",
+          "Primary literature lookup for seven-site tie-dependent homogeneous stability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "6a4723cde73a is the same audited item and summarizes the same positive random-tie density barrier, all-positive-density incumbent instability, and quadratic low-density noise scale. No distinct matching coefficient table or threshold entry was verified."
+        ],
+        "reasoning": "The self-hit is not corroboration or prior coverage. An exact critical-noise value from a fully occupied simulation or the older 19-site closure would not establish the two variable-density functions.",
+        "searches": [
+          "Configured Resultary retrieval on six-neighbor diluted plurality, the two tie kernels and the homogeneous spinodal"
+        ]
+      },
+      "rationale": "The two response kernels are already motivated and specified in different parts of the same model paper: uniform ties in the simulation algorithm and η-dependent incumbent transfers in the mean-field equation. The incumbent derivative is consequently obtainable by taking the properly normalized homogeneous independent-neighbor derivative of that kernel; it is not an independent new update rule or a different physical model. The distinct checked contribution is the explicit paired six-neighbor growth-rate formulas and the all-density sign contrast, including the exact random-tie cutoff and the incumbent low-density scale. No distinct exact or dominating statement covering that comparison was verified.",
+      "residual_risks": [
+        "A broader or unindexed seven-site stability calculation may cover the result; there is no historical-priority claim.",
+        "The earlier model refers to further mean-field details, and the cited simple-cubic paper's full text was unavailable. Neither access limit is evidence against broader coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies already known kernels and independent-neighbor reorientation setup; the exact dichotomy was not found in these passages",
+          "evidence": [
+            "Particle tie: chooses randomly among three; M=0 mean-field bullet and Eq. (5): incumbent loses 2η/3, η/3 goes to each alternative.",
+            "The rate comparison here uses a conditionally occupied center and coherent normalized conditional probabilities, not the density-dependent spatial equations verbatim."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2604.22536v2",
+          "material_read": "Sec. II, simulation algorithm offsets around 10300–11200; probability setup (3)–(4) around 12370–14360; tie transfers and (5) around 14360–17277",
+          "method": "Bounded OA primary HTML passages and formula comparison",
+          "title": "Mean-Field Theory for the Three-State Active Lattice Gas Model",
+          "trigger": "Exactly the seven-site neighborhood and both relevant tie prescriptions"
+        },
+        {
+          "assessment": "Different neighborhood, noise kernel and tie rule",
+          "evidence": [
+            "Nineteen sites; noise corrupts each perceived heading before the plurality. A two-way tie chooses among the tied headings. Its quoted independent-site critical-noise estimate is for full occupancy."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2312.09492",
+          "material_read": "pp. 6–7, offsets 11700–13821; pp. 22–23, offsets 44780–45967",
+          "method": "Bounded OA primary PDF passages",
+          "title": "Three-state active lattice gas: a discrete Vicsek-like model with excluded volume",
+          "trigger": "Earlier related model with a mean-field critical-noise calculation"
+        },
+        {
+          "assessment": "Access-limited; no whole-paper comparison asserted",
+          "evidence": [
+            "Title identifies a simple cubic lattice, but the accessible material is insufficient to assess any general results inside the paper."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/6vh3-fx7f",
+          "material_read": "Bibliographic title; DOI primary-text attempt returned HTTP 403 by both configured routes",
+          "method": "Bounded OA retrieval attempt",
+          "title": "Three-state majority-vote model on a simple cubic lattice",
+          "trigger": "Closely related three-state majority-vote literature"
+        },
+        {
+          "assessment": "Same audited item, not an independent antecedent",
+          "evidence": [
+            "Same two tie rules, random-tie density cutoff, and vanishing-density incumbent instability."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-tie-breaking-dichotomy-for-the-homogeneous-alignment-spinodal--6a4723cde73a",
+          "material_read": "Index summary and frozen Finding",
+          "method": "Configured Resultary retrieval and frozen text comparison",
+          "title": "A tie-breaking dichotomy for the homogeneous alignment spinodal of a seven-site lattice gas",
+          "trigger": "Exact semantic match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and exact sign argument",
+        "Independent derivative enumeration",
+        "Dias–Dickman–Rosembach Sec. II tie prescriptions"
+      ],
+      "rationale": "In the same motivated homogeneous closure a change only on tied configurations changes whether dilute spontaneous alignment is linearly possible at zero noise. The negative first-density correction of R cancels for I, and the first positive alignment term for I comes from exactly two occupied neighbors; this yields a quadratic noise scale and explains why the qualitative phase portrait of the orientation modes differs. The exact all-density inequalities and threshold are stronger than a numerical comparison, without implying any spatial phase boundary.",
+      "residual_risks": [
+        "Physical conclusions beyond the specified homogeneous iid-neighbor closures are not supported."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

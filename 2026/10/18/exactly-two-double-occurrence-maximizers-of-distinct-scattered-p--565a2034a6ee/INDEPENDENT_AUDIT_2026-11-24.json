@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:49:58.752536Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a fixed nonempty support every noncentral letter must use its two host positions in mirrored pairs, and those intervals strictly nest. If all intervals nest there is one even value and one odd value (only the innermost letter can be central). Otherwise there is no even value; a prescribed center fixes the palindrome value and three distinct feasible centers would force every interval pair to nest by choosing a center outside that pair. Thus equality in the total bound forces two values for every support separately. A disjoint pair of intervals prevents either letter enclosing the other, giving zero for that support. Pairwise intersection with distinct endpoints then puts every first occurrence before every second occurrence. On full support an even value forces the whole word to be the reversed-tail palindrome. Otherwise the two odd centers c,d require reversal of each pair other than {c,d}, which must be nonreversed and consecutive in first-appearance order. Any letter first appearing after both would have both of their intervals enclosing its interval, making either center impossible. So only the two highest letters can be swapped. If a support contains both swapped letters, there is one interior occurrence of each inside the other interval (the later opener and earlier closer, respectively), giving exactly the two odd values; all other supports have the even/odd nested pair. Counting the supports of size k containing the swapped pair yields the stated binomial correction and all lengths. The two canonical words are distinct at q=2 as well, and labeling gives q! choices for each. The q=1 host has only its singleton and doubleton values. The uploaded checker's finite matching/permutation tests were inspected, not executed; the interval argument proves the unbounded statement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mahalingam–Pandoh establish a maximum for at least half as many distinct letters as positions and raise characterization as further work.",
+          "Resultary 24ceac73bbf9 keeps alphabet size and run budget fixed as length grows; Müllner–Ryzhikov optimize longest length rather than the number of distinct values."
+        ],
+        "reasoning": "The broader upper bound applies to these hosts but does not determine all equality cases. Neither the longest-length statistic nor fixed-parameter asymptotic rigidity specializes to this exact balanced varying-alphabet theorem.",
+        "searches": [
+          "arXiv:2108.02729 Theorem 5.4 and §6",
+          "arXiv:1901.07502, introduction and longest-palindrome setting",
+          "Resultary 24ceac73bbf9, run-bounded asymptotic and rigidity"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2108.02729 and 1901.07502",
+        "Holub–Saari author-hosted full-text passages",
+        "Resultary 1fcd9e1db0eb, 24ceac73bbf9, and 9f3da85d996d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The reflection identities apply to palindromic hosts; V_q is not a palindrome for any q≥2. The 2021 conclusion identifies a further characterization question rather than giving an exhaustive list."
+        ],
+        "reasoning": "The total bound, attainment and U_q spectrum are prior. Excluding every other matching and producing the crossed spectrum require equality constraints beyond those inputs.",
+        "searches": [
+          "arXiv:2108.02729 Proposition 5.1, Theorem 5.4 and §6",
+          "Resultary 1fcd9e1db0eb, AA^R and AcA^R graded formulas"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ordering the letters by first appearances identifies hosts with matchings of 2q positions; in those terms the two extremal matchings are the fully nested matching and the one with the innermost pair crossed.",
+          "Resultary 9f3da85d996d uses indexed embeddings of a fixed target, not distinct palindrome values in a host. Holub–Saari's binary reconstruction theorem starts with the entire palindrome set, not its cardinality."
+        ],
+        "reasoning": "Renaming by first appearance or describing occurrence intervals preserves the object and all distinct-value counts. Neither embedding multiplicity nor reconstruction from the entire set is an equivalent equality characterization.",
+        "searches": [
+          "Web search: distinct palindromic subsequences double-occurrence words maximum equality classification nested parity spectrum",
+          "Resultary: double-occurrence words and distinct scattered-palindrome spectra"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2021 text explicitly gives binom(q,k) for each length 2k−1 and 2k in the nested witness. Resultary 1fcd9e1db0eb also gives that spectrum by specializing its graded identities for AA^R to a distinct-letter A."
+        ],
+        "reasoning": "These exact expressions cover the nested case, not the crossed case or the total number of equality words. A witness or table of attained maxima cannot exclude other equality words.",
+        "searches": [
+          "arXiv:2108.02729 Proposition 5.1 and ensuing length-wise counts",
+          "Resultary 1fcd9e1db0eb, reflection decomposition Finding"
+        ]
+      },
+      "rationale": "Credit Mahalingam–Pandoh not only for the sharp maximum and the nested witness, but also for the nested length spectrum, which is explicitly stated after Proposition 5.1. The distinct supported claim is the exhaustive equality classification, including the unique crossed canonical case, its length spectrum, and the resulting labeled multiplicities. No inspected comparator provides those results directly or by specialization.",
+      "residual_risks": [
+        "The indexed comparisons do not exhaust unpublished, inaccessible, or differently phrased equality characterizations.",
+        "The conclusion is limited to double-occurrence words, not arbitrary multiplicities."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Already gives the maximum and full nested spectrum; does not give the two-form equality theorem in the inspected passages.",
+          "evidence": [
+            "Distinct nonempty values; balanced upper bound; binom(q,k) per odd/even length in U_q; broader extremal result and characterization direction."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2108.02729",
+          "material_read": "Definition p. 2; Proposition 5.1 and following witness p. 13; Theorem 5.4 p. 15; §6 p. 18.",
+          "method": "Inspected OA passages at offsets 7197, 42741, 53199 and 66340.",
+          "title": "Counting Scattered Palindromes in a Finite Word",
+          "trigger": "Identical statistic, host regime and maximum."
+        },
+        {
+          "assessment": "Binary reconstruction from the whole set is not extremal classification by its size.",
+          "evidence": [
+            "Same set of palindromic scattered subwords determines a binary word up to reversal."
+          ],
+          "identifier_or_url": "https://www.karlin.mff.cuni.cz/~holub/soubory/subpal.pdf",
+          "material_read": "Definition p. 2 and §4 Theorem 2 p. 4.",
+          "method": "Inspected author-hosted full-text passages.",
+          "title": "On Highly Palindromic Words",
+          "trigger": "Potential stronger result about sets of scattered palindromes."
+        },
+        {
+          "assessment": "Longest-length objective, not counts of distinct values.",
+          "evidence": [
+            "Defines extremal longest palindromic subsequence lengths and circular problems."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1901.07502",
+          "material_read": "Abstract and introduction pp. 1–2, circular-word setup.",
+          "method": "Inspected PDF at offsets 0–3444 and 7251–7471.",
+          "title": "Palindromic Subsequences in Finite Words",
+          "trigger": "Similar terminology and extremal setting."
+        },
+        {
+          "assessment": "Material overlap with the nested spectrum; no crossed classification or spectrum.",
+          "evidence": [
+            "Identities for AA^R and AcA^R; the former gives the frozen U_q binomial spectra for distinct-letter A."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-reflection-decomposition-of-the-distinct-scattered-palindrome-sp--1fcd9e1db0eb",
+          "material_read": "Finding and Relationship to prior work.",
+          "method": "Read local Resultary mirror at offsets 0 and 6608.",
+          "title": "Reflection decomposition of the distinct scattered-palindrome spectrum",
+          "trigger": "Exact graded enumerators for nested hosts."
+        },
+        {
+          "assessment": "Different asymptotic parameter regime; no balanced two-copy theorem.",
+          "evidence": [
+            "Alphabet size and run budget fixed in the length asymptotic."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-universal-run-bounded-asymptotics-and-rigidity-for-scattered-pal--24ceac73bbf9",
+          "material_read": "Finding.",
+          "method": "Read local Resultary mirror, offset 0.",
+          "title": "Universal run-bounded asymptotics and rigidity for scattered palindromes",
+          "trigger": "Same distinct-value statistic and extremizer rigidity."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The balanced boundary of a prior extremal problem has a natural exact equality question. An exhaustive all-q result showing one nested and one genuinely nonpalindromic form answers it, and the crossed spectrum describes exactly how even values are traded for odd values at fixed support size. This is a structural classification beyond the known maximum and nested spectrum.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

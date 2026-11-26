@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:08:57.886029Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed RESULT.md lines 29–66. A length-L window intersects at most one nonzero level-k block W, since these blocks are separated by at least two full zero blocks. All padded prefixes, padded suffixes, W itself and the all-zero word occur within the next iterate. Avoidance of 11 and 101 makes each one supply exactly one candidate instance of each of 001, 010 and 100, with the indicated boundary subtractions. Conversely subtracting the length-three extensions from each length-two count recovers the endpoint indicators. For K<R, cuts just after the K-th one and one place later have at least two leading pad zeros; cutting two places later is possible because one-positions differ by at least three. To have 00 at both ends, that last cut must leave two leading pad zeros. This holds automatically for K<=R−2, and for K=R−1 it leaves exactly q−3 pad zeros. To rule out extra mixed labels, note in particular that a one-symbol left pad requires the cut at L−1, where the last two included symbols of W are 00 by its terminal gap; reversal supplies the analogous one-symbol right pad. This proves the unique q=4 exception, including k=1. Projection onto one-letter endpoints gives the 2-Abelian count. Independent replay branches/6dace631-61f3-45d4-ad54-4faccaed72de/cantor_independent_small_enum.py directly compares all pattern counts through length three with labels for (q,k)=(4,1),(5,1),(4,3),(5,3), giving 6,7,36,37 classes. Frozen verifier and VERIFICATION.md inspected, not executed; the finite replay is not the all-depth argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2 of arXiv:1703.04063 concerns regularity for the q=3 fixed point for every equivalence order.",
+          "The 2022 generalized Cantor paper's abstract covers 2-Abelian regularity under conditions, not a higher-order enumeration."
+        ],
+        "reasoning": "All orders at q=3 do not cover q>=4, and regularity of the coarser statistic does not identify the refined classes. The full generalized papers were not accessible, so their bodies were not ruled out.",
+        "searches": [
+          "DOI:10.1016/j.tcs.2022.09.025",
+          "arXiv:1703.04063v1",
+          "DOI:10.1016/j.tcs.2015.12.022"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1703.04063v1 pp. 1–2",
+        "arXiv:1301.5104 p. 1",
+        "DOI:10.1016/j.tcs.2022.09.025 abstract",
+        "DOI:10.1016/j.tcs.2015.12.022 bibliographic record",
+        "Resultary 2c2d65468e5c, c6514954a16e, 1c52709974f8 Findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The third-order signature distinguishes windows with identical K and single-letter endpoints but different double-letter endpoints. The q=4 missing label depends on the final gap and the allowed padding."
+        ],
+        "reasoning": "Neither the general equivalence theory nor coarser regularity supplies which endpoint configurations are possible at fixed K, which is the substance of the census.",
+        "searches": [
+          "arXiv:1301.5104 definition; arXiv:1703.04063v1 Theorem 2; DOI:10.1016/j.tcs.2022.09.025 indexed abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Karhumäki–Saarela–Zamboni define equivalence via contiguous counts up to the designated length.",
+          "The ternary Cantor spectrum counts scattered subsequences at q=3, not contiguous patterns at q>=4."
+        ],
+        "reasoning": "The endpoint-labelled invariant agrees with the standard contiguous definition here by the 11/101 avoidance argument. Scattered and contiguous spectra are different invariants.",
+        "searches": [
+          "Resultary: generalized Cantor q^k 3-Abelian complexity and class labels",
+          "arXiv:1301.5104",
+          "Resultary 2026/11/2/SCOPE-ternary-length-2-binomial-spectra-of-the-binary-cantor-word--1c52709974f8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day result counts ambient singleton words over an alphabet, not classes of factors of a fixed point.",
+          "The generalized Cantor square-root finding counts roots at (q−1)q^k, not classes at q^k."
+        ],
+        "reasoning": "Neither result enumerates the frozen invariant, despite matching either the equivalence order or the morphism. The same-day date does not establish priority.",
+        "searches": [
+          "Resultary 2026/10/18/SCOPE-sharp-growth-of-3-abelian-singleton-words-over-every-alphabet--2c2d65468e5c",
+          "Resultary 2026/11/2/SCOPE-exact-square-root-multiplicities-in-generalized-cantor-words--c6514954a16e"
+        ]
+      },
+      "rationale": "Pass the explicit 3-Abelian label census and its sharp q=4 exception. Do not credit the definition, general endpoint reconstruction, ordinary factor complexity or a 2-Abelian regularity theorem as new. The two inaccessible same-family papers leave a residual access risk, not a determination of coverage.",
+      "residual_risks": [
+        "Full texts for DOI:10.1016/j.tcs.2015.12.022 and DOI:10.1016/j.tcs.2022.09.025 were not recovered; their appendices or other exact factor classifications may contain relevant information."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full text inaccessible; no whole-document verdict",
+          "evidence": "Title concerns permutation complexity, not 3-Abelian labels.",
+          "identifier_or_url": "10.1016/j.tcs.2015.12.022",
+          "material_read": "DOI bibliographic record and title only",
+          "method": "Lawful publisher and repository lookup",
+          "title": "On the permutation complexity of the Cantor-like sequences",
+          "trigger": "Same morphism and factor family, potential combinatorial coverage"
+        },
+        {
+          "assessment": "q=3 and a different claim",
+          "evidence": "c_(3n)=c_(3n+2)=c_n and c_(3n+1)=0; the k-Abelian complexity is 3-regular.",
+          "identifier_or_url": "arXiv:1703.04063v1",
+          "material_read": "PDF p. 1, offset 365, defining recurrence; p. 2, offset 4700, Theorem 2",
+          "method": "OA primary PDF",
+          "title": "On the k-abelian complexity of the Cantor sequence",
+          "trigger": "All orders of Abelian equivalence for a related fixed point"
+        },
+        {
+          "assessment": "Accessible result is coarser regularity; body coverage remains unresolved",
+          "evidence": "Abstract states regularity of the Abelian complexity of the 2-block coding and conditional 2-Abelian regularity.",
+          "identifier_or_url": "10.1016/j.tcs.2022.09.025",
+          "material_read": "Indexed abstract only; no readable full text or repository copy recovered",
+          "method": "Lawful DOI/publisher access and repository lookup",
+          "title": "On the 2-abelian complexity of generalized Cantor sequences",
+          "trigger": "Same family and nearest order of equivalence"
+        },
+        {
+          "assessment": "General framework, not a specialized factor census",
+          "evidence": "Equality of occurrence counts of words through the chosen order.",
+          "identifier_or_url": "arXiv:1301.5104",
+          "material_read": "PDF p. 1, offset 995, definition",
+          "method": "OA primary PDF",
+          "title": "On a generalization of Abelian equivalence and complexity of infinite words",
+          "trigger": "General equivalence framework"
+        },
+        {
+          "assessment": "Different counted object",
+          "evidence": "Polynomial growth in the number of 3-Abelian singleton words over a fixed alphabet.",
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-growth-of-3-abelian-singleton-words-over-every-alphabet--2c2d65468e5c",
+          "material_read": "RESULT.md Finding, offset 60",
+          "method": "Local Resultary mirror",
+          "title": "Sharp growth of 3-Abelian singleton words over every alphabet",
+          "trigger": "Same-day exact 3-Abelian result"
+        },
+        {
+          "assessment": "Different scale and invariant",
+          "evidence": "Counts nonzero square roots of lengths (q−1)q^k.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-square-root-multiplicities-in-generalized-cantor-words--c6514954a16e",
+          "material_read": "RESULT.md Finding, offset 60",
+          "method": "Local Resultary mirror",
+          "title": "Exact square-root multiplicities in generalized Cantor words",
+          "trigger": "Same morphism and exact power-scale census"
+        },
+        {
+          "assessment": "Different morphism parameter and occurrence relation",
+          "evidence": "q=3 and scattered subsequence counts.",
+          "identifier_or_url": "2026/11/2/SCOPE-ternary-length-2-binomial-spectra-of-the-binary-cantor-word--1c52709974f8",
+          "material_read": "RESULT.md Finding, offset 60",
+          "method": "Local Resultary mirror",
+          "title": "Ternary-length 2-binomial spectra of the binary Cantor word",
+          "trigger": "Exact factor spectra on a substitution-power scale"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural substitution-aligned lengths and the next finer Abelian equivalence order refine a previously studied statistic. The full classification identifies exactly which boundaries split each intermediate class and the single short-gap obstruction at q=4; it supplies more than a regularity assertion or finite table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

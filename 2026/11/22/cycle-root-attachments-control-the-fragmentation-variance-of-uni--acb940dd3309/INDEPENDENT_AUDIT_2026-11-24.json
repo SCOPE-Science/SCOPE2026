@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:20:40.796240Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:5–72; VERIFICATION.md; verify.py",
+        "Independent replay: python3 -B /workspace/reproductions/1.py; output /workspace/reproductions/1.out"
+      ],
+      "rationale": "Let S and E be the numbers of surviving vertices and edges, and Z the indicator that all cycle vertices survive. The surviving induced graph has cycle rank Z, including on the empty outcome, so K=S−E+Z and the mean follows from the host having n edges. In Var(E), only pairs sharing one vertex contribute off-diagonal terms, adding 2W p³(1−p) to n(p²−p⁴); Cov(S,E)=2n p²(1−p). For cycle covariance, each cycle vertex contributes p^ℓ(1−p) to Cov(S,Z). An edge on the cycle contributes p^ℓ(1−p²) to Cov(E,Z), and a cycle-to-off-cycle edge contributes p^(ℓ+1)(1−p). Every other edge is independent of Z; in particular a chord cannot exist. Subtraction gives Cov(S−E,Z)=−(ℓ+h)p^(ℓ+1)(1−p). Together with Var(Z) this proves the stated variance and sign, including zero variance at p=0,1. For n≤5, any possible h disagreement requires a triangle and two noncycle vertices; the one-attachment pendant chain has one leaf, while the two-attachment alternatives each have two leaves. For the displayed six-vertex pair the cycles are 345 and 124, and h=1 and 2 respectively at identical degrees. An independent union-find enumeration found labeled counts 1, 15, 222, 3,660 by order, and verified both raw moment polynomials by grouping retained subsets by size (7,796 exact equalities). Direct half-retention variances of the pair were 31/64 and 27/64. The proof, not the census, establishes the all-order law.",
+      "residual_risks": [
+        "The result is unconditional and assumes homogeneous independent vertex retention on a simple unicyclic host. No heterogeneous, correlated, multicyclic or ecological inference follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general Q law determines the full distribution on every finite graph, a broader computational result. The distinct same-day cactus record's index describes the expected component count and its maximizers on a larger graph class; the exact indexed mirror file was not available."
+        ],
+        "reasoning": "A full-distribution encoding enables graph-by-graph variance computation but is not a structural sufficiency or comparison theorem in n,W,ℓ,h. A mean-maximization result would not imply a second-moment effect, regardless of chronology; the cactus full-text comparison remains limited.",
+        "searches": [
+          "arXiv:0812.4147, probability interpretation and cycle example",
+          "Local Resultary: sharp universal interval for the cluster-count maximum in site-percolated cactus graphs, c3b9290b590a"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0812.4147 pp. 3,11",
+        "arXiv:1311.6856 p. 2",
+        "Local Resultary 54bd12285874 and summary c3b9290b590a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The tree record proves equal first two moments under degree matching and gives third-cumulant gap −6ΔL p⁴(1−p)². Q recovers moments by differentiating in z; Liao–Hou studies invariants determined by Q."
+        ],
+        "reasoning": "The tree proof covers the same forest-like covariance count but has Z identically zero; it cannot produce the cycle-incident correction. Computing moments from general coefficients needs the graph-family-specific identification of this correction to prove the h-ordering. The n≤5 structural exclusion and attaining six-vertex pair are also additional.",
+        "searches": [
+          "Resultary 54bd12285874, mirrored RESULT.md Finding and proof passages",
+          "Tittmann–Averbouch–Makowsky arXiv:0812.4147",
+          "Liao–Hou arXiv:1311.6856"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "If Q is the induced component polynomial, the probability generating function is (1−p)^n Q(G;p/(1−p),z) for 0<p<1. The simple-cycle specialization has h=0. The degree-matched tree result computes the same observable without a surviving-cycle term."
+        ],
+        "reasoning": "The generating-law and Euler-characteristic formulations describe the same statistic, but the general coefficient definition and the bare-cycle example do not identify which placement statistic controls variance among degree-matched graphs having attachments.",
+        "searches": [
+          "Local Resultary: unicyclic fragmentation variance, cycle-root attachments and degree-matched component moments",
+          "Induced component generating law and simple-cycle recurrence, arXiv:0812.4147",
+          "Subgraph component polynomial uniqueness and invariants, arXiv:1311.6856"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed older exact size-six pair is acyclic and concerns a third-cumulant difference, with degree multiset (1,1,1,2,2,3). The indexed unicyclic target itself is not independent precedent. The known q_ij can generate finite tables for any particular graph; no matching pre-existing h-invariant table or minimum pair was established in the sources compared."
+        ],
+        "reasoning": "The independently enumerated pairs corroborate the proof; they are not originality evidence. A six-vertex minimum for a different graph class and statistic does not establish this one.",
+        "searches": [
+          "Local Resultary: exact unicyclic degree/cycle-matched variance pair, sharp six-vertex distinction and attachment invariant",
+          "arXiv:0812.4147 p. 3: coefficient array q_ij; p. 11: cycle recurrence"
+        ]
+      },
+      "rationale": "General induced-component laws and the tree variance mechanism are existing coverage. The distinct result supported here is the reduction of unicyclic variance to the attachment count after degree and cycle-length matching, including strict all-p ranking and the sharp minimum pair. This is an exact structural comparison, not a new general procedure to compute the component law or a historical priority certification.",
+      "residual_risks": [
+        "Full comparison with the cactus record is limited by exact mirror availability. The search did not exhaust older graph-reliability or percolation work. The general computability of the moments is not new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the general encoding and simple-cycle subcase, not the matched attachment statement in the inspected results.",
+          "evidence": [
+            "q_ij counts vertex subsets with i vertices and j induced components; Q sums q_ij x^i y^j; the C_n recurrence treats cycles without attached trees."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0812.4147",
+          "material_read": "PDF p. 3 at extracted offset 12400; simple-cycle recurrence p. 11 at offset 32200",
+          "method": "Bounded primary OA PDF inspection",
+          "title": "The Enumeration of Vertex Induced Subgraphs with respect to the Number of Components",
+          "trigger": "General distribution for the same independent vertex-failure observable"
+        },
+        {
+          "assessment": "The passage concerns the graph information determined by Q, not the h-dependent variance law.",
+          "evidence": [
+            "Q counts induced component statistics across vertex subsets and is used to study graph invariants or classes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1311.6856",
+          "material_read": "PDF p. 2 around extracted offset 4900",
+          "method": "Bounded primary OA PDF inspection",
+          "title": "Note on the subgraph component polynomial",
+          "trigger": "Graph invariants recovered from the same component polynomial"
+        },
+        {
+          "assessment": "Very close acyclic comparison; no surviving-cycle term or attachment invariant.",
+          "evidence": [
+            "States matching means and variances on trees and third-cumulant distinction via three-edge paths; its sharp example has six vertices but no cycle."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-degree-matched-habitat-trees-conceal-fragmentation-in-the-first--54bd12285874",
+          "material_read": "Mirrored RESULT.md at offsets 0 and 4913, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary and bounded mirrored primary file inspection",
+          "title": "Degree-matched habitat trees conceal fragmentation in the first two moments, but not the third",
+          "trigger": "Closest exact degree-matched habitat-fragmentation comparison"
+        },
+        {
+          "assessment": "The indexed result concerns a different functional, the mean and its maximizers; uninspected text is not negative evidence.",
+          "evidence": [
+            "The summary describes an interval for the survival probability maximizing the expected component count on connected cacti."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-universal-interval-for-the-cluster-count-maximum-in-site-percolated-cactus-graphs--c3b9290b590a",
+          "material_read": "Local Resultary summary only; exact primary file was not retrieved from the indexed path.",
+          "method": "Local index comparison and attempted exact mirror retrieval",
+          "title": "A sharp universal interval for the cluster-count maximum in site-percolated cactus graphs",
+          "trigger": "Broader host family and same component-count observable"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:5–39,43–72",
+        "Independent exact moment and sharpness checks, /workspace/reproductions/1.out",
+        "Resultary 54bd12285874 for the tree comparison"
+      ],
+      "rationale": "When mean fragmentation and degree inventory agree, knowing the number of branches incident to the cycle is sufficient to order fluctuations strictly at every nondegenerate survival probability. This is a structural invariance and identifiability statement useful for comparing small redundant networks, not just two evaluated graphs. The six-vertex minimum identifies exactly when that distinction can first arise.",
+      "residual_risks": [
+        "The value is mathematical: component count is a snapshot statistic, not evidence about colonization, persistence, or actual ecological risk."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

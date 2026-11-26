@@ -1,19 +1,21 @@
-# Review of the exact cycle formula
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof establishes \(T\equiv q-1\pmod{q^n-1}\), and thus the exact factorization \(K^\times=HL^\times\) with \(H\cap L^\times=\mathbb F_q^\times\) and \(q-1\) representations per nonzero element. It then derives \(F^m(uz)=u^{r^m}\mathcal L^m(z)\), solves a cyclic power equation with exactly \(\gcd(r^m-1,S)\) roots when permitted, and counts precisely the nonzero vectors in each scalar eigenspace. The fixed-point and Möbius inversion identities follow without asymptotic assumptions. The self-contained checker directly verifies all cycles and all predicted iterate counts for seven parameter cases in three exact finite fields.
+PASS
 
-## Originality — PASS, with documented residual risk
+The stated gcd assumption gives T ≡ q−1 on the subfield and gcd(T,N)=S. Thus H=ker(x↦x^T) has order S, H∩L×=F_q×, and the product H·L× covers K× with constant multiplicity q−1. The congruence on r makes F(uz)=u^r Lcalligraphic(z), so the mth iterate acts separately on the two representatives. A fixed pair up to the overlap has Lcalligraphic^m(z)=λz and u^(r^m−1)=λ^(−1). The cyclic power map has g_m preimages of λ^(−1) exactly for λ^(S/g_m)=1, and the corresponding nonzero eigenspace has q^d−1 vectors. This includes S=1 and r=1, with gcd(0,S)=S. Dividing by q−1 and adding the fixed zero yields the exact count; divisor inversion gives the cycles. For r=1 the L× cosets are invariant copies of the nonzero base action, proving replication and its order/sign consequences. Independently replayed all three displayed cycle inventories in fields of sizes 64, 256 and 729.
 
-The precise all-iterate scalar-eigenspace and gcd formula is not stated in the motivating 2026 lift paper, which treats inverses and selected involutions. The 2026 linearized-cycle paper treats the smaller field without this nonlinear lift. Bors and Wang's full Section 6.2 provides a broad, pre-existing wreath-product cycle algorithm for generalized cyclotomic permutations, and hence an overarching route to calculate any particular example; this is acknowledged rather than misrepresented. Their general algorithm does not itself state the direct closed scalar-eigenkernel expression here. Multiple mathematical-result searches found no same claim. Residual risk remains that the expression is implicit or independently recorded in another treatment of cyclotomic maps.
+## originality
 
-## Value — PASS
+PASS
 
-The source construction introduces a new infinite family of nonlinear sparse permutation maps whose inverses are tractable but whose full iteration dynamics are not given. This formula recovers all periodic data for arbitrary exponents in that family through smaller-field linear algebra instead of enumerating the large extension. It unifies cycle lengths, order, and sign for exponent-one lifts and exhibits nontrivial cycle transitions for other exponents. The mathematical object and invariant are natural: full orbit decomposition of explicit permutation polynomial constructions.
+The supported distinct contribution is the nonenumerative Li-family all-iterate counting formula. The lift and its permutation/inverse theorem, ordinary cycle inversion, and linearized cycle theory are prior. The r=1 replication is an immediate consequence of the known lift formula and the coset factorization, not a separate originality claim.
 
-## Scope and risks
+## value
 
-No statement is made for arbitrary sparse maps. The existence of general cyclotomic cycle algorithms remains explicit prior art. The finite checker is a corroboration, not an infinite-domain proof or an independent certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This gives a usable cycle invariant for a naturally defined family of generally nonlinear sparse permutations. Computing a single gcd and at most q−1 base-field kernel dimensions per requested iterate avoids enumerating the extension-field elements or their quotient cycles. It covers more than the known inverse and involution problems. The Möbius step and the simple r=1 replication alone would not justify this assessment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

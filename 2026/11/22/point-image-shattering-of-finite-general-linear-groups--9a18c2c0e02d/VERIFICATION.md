@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-- Compile `verify_gl3.cpp` with a standard C++17 compiler. It enumerates all 168 invertible binary rank-three maps and tests every support of sizes one through three: counts 49, 882, 4704, with no mismatches against two-sided vector independence.
-- Run `verify_gl3_homology.py` in Python 3. It constructs 49 vertices, 882 edges and 4704 triangles, computes the exact mod-two triangle-boundary rank 834, and obtains first Betti number zero and second Betti number 3870.
-- Run `verify_gl2_ternary.py` in Python 3. It enumerates all 48 invertible ternary rank-two maps and all 2016 pairs of 64 possible point-image queries: the full polynomial is \(1+64z+1152z^2\).
+## correctness
 
-These are separate finite checks. The proofs for all \(q\) and \(d\) use the basis-extension principle and the strict union bound. The homology statement is limited to the stated binary dimensions and field coefficients. No independent audit or formal proof-system certification is claimed.
+PASS
+
+In RESULT.md 18–31, an all-positive realization preserves every source circuit; keeping all but one assignment in that circuit positive forces the remaining one, precluding shattering. Invertibility then gives target independence. Conversely, given p prescribed positives, invertible extensions act transitively on vectors outside the target span, so each forbidden equality has probability 1/(q^d-q^p). For p<k≤d and d≥2 the union bound is strictly less than one; p=k only requires extension of an isomorphism of subspaces. Ordering both independent tuples and dividing by k! counts supports; simultaneous basis extension proves purity, and the displayed nontransitive parallel pairs rule out a matroid. A fresh bounded Python calculation obtained (9,18) and connectivity in binary rank two, and (49,882,4704), connectivity, and GF(2) boundary ranks 48 and 834 in binary rank three. The resulting Betti numbers agree exactly.
+
+## originality
+
+PASS
+
+The supported distinct contribution is the complete signed point-image criterion for full GL on nonzero vectors, its enumerative and structural consequences, and the specified small homology. The inspected prior statements cover related settings or tools, not the signed-trace criterion on this ground set. This is a bounded best-of-knowledge determination, not historical priority.
+
+## value
+
+PASS
+
+The support criterion resolves every trace support on a canonical finite group action, not only maximum dimension. It identifies a pure nonmatroid complex admitting an explicit face inventory and supplies homology in its first two binary ranks, useful as concrete benchmarks for the topology of intersections of independence complexes. The contribution is structural, not a stand-alone small-number recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Uniform exponential localization follows from a two-arc cosh Lyapunov function and the strict inward drift margin. The scaled generator uniquely identifies the two-sided exponential conditional law; the stationary entropy-flux and orientation-moment identities reduce the limiting coefficient to explicit reciprocal differences. The numerical finite-volume checks approach the derived constants for linear and nonlinear arcs, including a distinct nonzero-load example. The proof does not infer an infinite limit from those calculations.
+## correctness
 
-**Originality — PASS, with residual risk.** Roberts--Zhen (2023, arXiv:2303.07880), Sections II--V, already provide the exact finite-diffusivity *linear* ratchet solution and a partial zero-noise entropy estimate. Paoluzzi--Puglisi--Angelani (2024, arXiv:2404.16955), Sections III--V, already provide a general entropy framework and explicitly reference linear ratchets. The new mathematical statement is the universal local-slope coefficient for an entire class of *nonlinear*, globally confining cusp ratchets, coupled with its rigorous scaled conditional stationary laws. Those claims are not implied by a finite-dimensional linear-ratchet solution without establishing a new singular localization theorem; the searched sources did not state or prove this shape-invariant extension. Risk remains that an unindexed analysis of cusp active matter already contains an equivalent theorem.
+PASS
 
-**Mathematical value — PASS.** A singular noise limit for irreversible active transport is quantitatively difficult because two large entropy-flux terms cancel. The result proves a precise finite limit, exhibits a localized boundary-layer distribution, and gives a universality principle reducing non-solvable nonlinear potentials to two measurable local slopes, with an explicit physical entropy observable. This is not an arbitrary numerical invariant or a mere reparameterization.
+At fixed D>0, elliptic diffusion on the compact circle with bounded drift and the irreducible two-state chain has a unique positive stationary law; orientation balance gives mass 1/2 each. For the piecewise distance r used in the proof the generator of cosh(ηr/D) has negative drift of order V/D beyond r=KD for small η. The derivative matches at the minimum and jumps down at the repeller, so the local-time correction cannot spoil the bound. This gives uniformly integrable rescaled moments. I checked the abbreviated boundary-layer passage without assuming that weak convergence alone passes a discontinuous drift. Stationary j_s'=γ(p_{−s}−p_s) gives total variation at most γ; the spatial mean of j_s is bounded uniformly by bounded drift, hence sup|j_s| is bounded. On any fixed rescaled interval the density u_{s,D}(y)=D p_s(Dy mod L) satisfies u'=b_s u−D j_s. Its mass is bounded, so there is a bounded starting value in a neighboring fixed interval; Grönwall gives a uniform local bound and then a uniform Lipschitz bound. Local uniform limits are continuous at zero, obey the stated frozen first-order equation on both open half-lines, and have mass 1/2 by localization. Their normalized law is q_s with mean 1/A_s−1/B_s. For the entropy convention, integration by parts using j_s' cancels the log-density term against the flip contribution; the integral of U' against the constant total current is zero by periodicity. A smooth periodic cutoff of the signed coordinate yields LJ exponentially small and E[σ b_σ]=2γ E[σψ]+exponentially small. Hence the limit is γv times the difference of the two conditional rescaled means, which simplifies to the stated sum with factor 2γv². At slopes 2 and 3 with f=0 and v=γ=1 this gives 11/12 exactly. The inspected checker covers three D values per unloaded example; the additional fourth value in RESULT.md was not independently reproduced and is not proof evidence.
 
-**Limits.** The theorem assumes a uniform inward-pointing drift on both arcs for both orientations, a unique attracting cusp, a positive switching rate, and the full-state Fokker--Planck entropy convention. It makes no assertion for smooth ratchets with orientation-dependent equilibria or for threshold equality. Earlier formulas and methods are credited, and independent scientific validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct result supported here is the shape-invariant local-slope coefficient and moment-convergent boundary-layer law on the entire strictly inward nonlinear cusp class. The exact linear solution, known confined zero-noise finiteness, and stationary entropy-flux identity are prior coverage, not this record's new contribution.
+
+## value
+
+PASS
+
+Even non-solvable force profiles in the specified class give the same singular finite entropy coefficient if their local slopes agree. The localization and first-moment reduction explain how to get a finite entropy limit from a flux with prefactor 1/D, while the conditional asymmetry supplies observable stationary information beyond mere confinement. This fills a precise gap left by the explicit linear solution and its partial small-noise evaluation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

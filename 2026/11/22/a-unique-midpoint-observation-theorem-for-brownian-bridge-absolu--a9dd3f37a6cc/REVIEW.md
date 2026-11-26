@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The bridge-to-stationary-OU logit change of variables is checked from the exact covariance. Gaussian Hermite projection yields a nonnegative explained-variance series whose convolution factors are strictly unimodal by an explicit derivative inequality. This proves global midpoint uniqueness for every finite nonnegative Gaussian observation-noise variance, without relying on sampled comparison times. Parseval establishes convergence; direct bivariate Gaussian moments establish the exact prior variance. Independent symbolic identities and numerical cross-formula calculations corroborate (but do not replace) the proof.
+## correctness
 
-## Originality
-PASS with residual historical-priority risk. The closest inspected full texts concern tracked-bridge quadratic gyration, signed Gaussian Brownian areas, and modulus integration-by-parts; none of those statements implies the noisy observation conditional variance for the nonlinear absolute-area target. Relevant published mathematical findings deal with local-time/absolute-area cross covariance or signed Brownian kernel quadrature, and are also non-covering. Searches included synonyms for absolute area, Gaussian posterior integrated modulus, noisy one-point sampling and logit-time Hermite arguments. This is not an assertion that every older publication is searchable or accessible. No novel claim is made for classical Gaussian regression or bridge moment identities in isolation.
+PASS
 
-## Value
-PASS. The absolute area is a natural nonlinear stochastic path integral. A single real-valued noisy observation can extract over half of its variance even though its correlation with the target is zero, so affine estimation fails completely. A globally valid sampling-time rule and a full risk/noise budget law, including a sharp quadratic high-noise decay, provide a concrete design benchmark beyond textbook signed-Gaussian-integral quadrature. The result is restricted to one fixed time and homogeneous Gaussian measurement noise, not arbitrary sensing protocols.
+For interior t, logit time yields unit Gaussian Z with correlation exp(−|u−v|/2), and the area measure is w(u)du with w(u)=1/(8 cosh³(u/2)). The standardized noisy datum gives correlation r(v) exp(−|u−v|/2), where r(v) decreases in |v| or is constant in the noiseless case. An independent projection check is to draw two paths conditionally independently given the same datum; their cross-correlation at u,u′ is the product of the two correlations with the datum. The covariance of the two absolute normal values is (2/π)(sqrt(1−ρ²)+ρ arcsin ρ−1); expanding its derivative (2/π)arcsin ρ reproduces the positive even-power coefficients in the risk series. Projection and Fubini are justified by the integrable w and Gaussian L². Each resulting convolution H_m has derivative m∫₀∞ e^(−my)[w(v+y)−w(v−y)]dy<0 for v>0, and is even and positive. The first term is nonzero and suffices for strictness, including η=0; both endpoint observations are uninformative. At the midpoint G1=4∫₀^(π/4) sin⁴θ dθ=3π/8−1; its contribution gives the sharp η^(−2) asymptotic, and higher terms are O((1+4η)^(−4)). The prior moments follow from the ordered-triangle Gaussian product integral (contributions 2π/105 and 17π/1680) and also from the published exact area moments. Reflection eliminates all affine gain. The long decimals in the frozen finding are uncertified 100-term estimates, not exact prefixes: independent quadrature after the substitution G_m=(4m)^(-1)∫₀∞ e^(−y)sech³(y/(2m))dy gave gain ≈0.01048443994 and risk ≈0.00800745631; the analytic series tail after M terms is bounded by 1/(48π M³) from G_m≤1/(4m) and the central-binomial coefficient bound. The 100-term values match the reported truncation; the tiny display discrepancy does not affect either the exact series or the scientific claim. VERIFY.py, its dependencies and VERIFICATION.md were read, not executed.
 
-## Closest literature and limits
-Alsolami–Burridge–Gnacik (2020, arXiv:2004.05394) study two-dimensional tracked-bridge shape, not single-observation nonlinear posterior risk. Swanepoel (2017) studies Gaussian signed areas. Grothaus–Voßhall (2016) gives modulus-law integration by parts but not the stated design. The published local-time/displacement covariance profile and stratified Brownian kernel quadrature results examine different conditioning targets and sampling models. Remaining risk: older nonlinear Gaussian functional estimation or experimental-design results could yield an equivalent midpoint theorem in different language. Analytic correctness and historical publication-priority validation remain independent-review questions.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bounded pass for the strictly optimal design for the specific nonlinear target and full noisy datum, its risk series and sharp noise scaling. Unconditional absolute-area moments and the area law are verified prior coverage, and the Gaussian correlation and even-chaos ingredients are standard. The strongest inspected design comparators are distinct in their observation or target; neither gives a more general theorem of which this specific risk theorem was found to be a special case.
+
+## value
+
+PASS
+
+A natural nonlinear path integral gives a concrete sensing problem where every affine estimator is uninformative yet the nonlinear observation at a precisely identifiable time removes more than half the prior variance in the noiseless model. The strict global design theorem, full risk series and quantitative high-noise rate describe this phenomenon across the entire model rather than a grid or arbitrary precision slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

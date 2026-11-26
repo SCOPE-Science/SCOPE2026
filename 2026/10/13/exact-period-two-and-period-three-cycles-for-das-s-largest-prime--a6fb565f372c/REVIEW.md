@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The period-two argument forces a prime-composite alternation, and \(P(p+k)=p\) is exactly equivalent to \(p\mid k\) together with \(P(k/p+1)\le p\). For period three, the cycle pattern must be prime-prime-composite; divisibility of the composite by the returning prime forces that first prime to be \(2\), after which \(P(2(k+1))=2\) is equivalent to \(k+1\) being a power of two. The converse arrows are immediate. The Fermat-prime reformulation uses the standard factorization of \(X^v+1\) for odd \(v>1\). A finite checker agrees with the theorem for \(k\le500\) and starting values through \(5000\), but is not used as proof.
+## correctness
 
-## Originality
-**PASS relative to the checked sources.** The defining Das paper proves eventual periodicity and finiteness of loops and gives examples, but does not state these exact short-cycle classifications. Dubickas gives broader boundedness and prime-subsequence structure without the two-cycle divisor criterion or the Fermat-prime three-cycle criterion. Targeted searches for equivalent formulations and implications found no checked covering result. Nearby database findings bound cycles or enumerate many loops at selected parameters rather than classify exact periods two and three. Residual risk remains that the elementary reduction appeared in an obscure or poorly indexed source.
+PASS
 
-## Value
-**PASS.** Periods two and three are the first nontrivial dynamical layers of the map and directly sharpen the source paper's questions about loop periods. The result converts these layers into transparent arithmetic data: divisors of \(k\) for period two and Fermat-prime parameters for period three. It is a complete, unbounded classification rather than a finite census.
+A composite always goes to a smaller prime, and a prime increases by k>0. In a two-cycle there is one prime p, and return requires P(p+k)=p. This gives p|k; conversely p+k=p(1+k/p) is composite and has largest prime p precisely when 1+k/p has no prime factor larger than p. The largest-prime-factor notation on this cofactor has its usual meaning for prime as well as composite inputs. Distinct p give distinct cycles. In a three-cycle there must be exactly one composite (two composites cannot be adjacent cyclically, and all-prime steps strictly increase). Rotate to p, p+k, p+2k, ending at the return to p. Then p|2k, and odd p would divide the strictly larger prime p+k, so p=2. The return requires 2(k+1) to be a power of two; the intervening integer 2^a+1 must be prime. These conditions suffice, and the three points are distinct, including k=1. A nontrivial odd factor of a would give a proper sum-of-odd-powers divisor of 2^a+1. Thus a is a power of two; no assertion about which Fermat numbers beyond known examples are prime is needed. Independently sieving largest prime factors up to 6500, composing the map twice and three times for 1<=k<=500 and 2<=n<=5000, and keeping only the smallest point of each exact cycle gave zero mismatches, 495 two-cycles in total, and three-cycle parameters 1,3,15,255. This bounded check corroborates, but does not replace, the proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The supported distinct claim is the complete two- and three-cycle classification, not the definition, general periodicity, isolated examples, or the classical factorization of Fermat numbers. The strongest exact indexed overlap is in a later-dated record; no evidence found makes it prior coverage. The checked earlier statements provide only ingredients and examples.
+
+## value
+
+PASS
+
+The short exact periods are natural invariants of Das's map. The result turns isolated period-three examples into a restriction to Fermat-prime parameters with one orbit at each admissible parameter, and gives an exact count for period two. The complete converse and the exclusion of all other parameters supply useful information even though the proof is elementary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

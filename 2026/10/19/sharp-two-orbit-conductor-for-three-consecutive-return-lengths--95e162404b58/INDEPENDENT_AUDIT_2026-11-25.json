@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:43:23.348344Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, assumptions and proof §§1–4",
+        "Frozen VERIFICATION.md and verify.py (inspected, not run)",
+        "Independent direct enumeration: /workspace/branches/fd9bb23e-6a4b-45af-8a83-8910e346e2ed/necklace_check_record3.py"
+      ],
+      "rationale": "A smaller binary period maps ones to ones and induces a repeated cyclic return word; conversely a repeated return word gives a shorter physical period. Thus primitive necklaces, not marked words or words modulo reflection, are the correct objects. For ℓ≥3 and total excess 2≤e≤2ℓ−2, reflect the excess alphabet if needed to take e≤ℓ. At e=2, a unique 2 with all other entries zero and the word starting with two adjacent ones with all other entries zero are inequivalent primitive examples. At 3≤e≤ℓ, anchoring the unique 2 leaves e−2 ones among ℓ−1 slots, with at least two choices giving inequivalent primitive words. This verifies the interval [ℓa+2,ℓ(a+2)−2]. Consecutive intervals leave max(0,a+3−2ℓ) missing integers. For odd a=2k+1, start at ℓ=k+2: the intervals cover M+1 onward, and at M the one-excess word of length k+2 is the only primitive word, since the only shorter candidate is the constant maximum-gap word. For even a=2k≥4, start at ℓ=k+1: the one hole between the first two intervals has distinct one-exception words of lengths ℓ and ℓ+1; at M only the ℓ-letter one-excess word is possible. For a=2 the only primitive orbit at 6 is (2,4); (3,4) and (2,2,3) fill 7 before the intervals start at 8. An all-zero convention does not affect any of these periods. Independent primitive-tuple enumeration confirmed all 11 endpoints and 396 subsequent periods for 2≤a≤12; the interval proof establishes the universal claim.",
+      "residual_risks": [
+        "The numerical enumeration is bounded and is not a formal proof certificate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dastjerdi–Jangjoo's theorem gives ζ(z)=1/(1−z^a−z^(a+1)−z^(a+2)) in this specialization.",
+          "De Jong treats all finite gap sets for least-period support."
+        ],
+        "reasoning": "The zeta identity gives exact counts after coefficient extraction and inversion but does not bound the last low-multiplicity coefficient uniformly in a. As a check on the distinction, support records M and M+1 as present in both cases, without telling whether the multiplicities differ.",
+        "searches": [
+          "arXiv:1108.3414, finite-gap zeta theorem",
+          "arXiv:2510.10848, Theorem 3.19"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1108.3414",
+        "arXiv:2510.10848",
+        "Resultary 34a570aa8e2a (indexed statement)",
+        "Frozen assigned record 4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The zeta and least-period-support results can be specialized without any two-necklace interval lemma.",
+          "The assigned two-gap companion yields bounds by using a coprime subalphabet; for odd a, the endpoints a,a+2 alone give a threshold (a+1)(a+2), not (a+1)(a+2)/2."
+        ],
+        "reasoning": "The claimed strict improvement and exact parity obstruction require ternary words; the extra middle length changes the count, and the two-gap cutoff neither yields the asserted threshold nor its singleton count. Knowing exact coefficients in principle from the zeta function is not a mechanical derivation of this all-parameter last-exception theorem.",
+        "searches": [
+          "arXiv:1108.3414, finite-gap zeta theorem",
+          "arXiv:2510.10848, §3.3",
+          "Frozen coprime two-gap result, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "De Jong's gap-shift theorem concerns which integers are attainable as least periods, not the count at those integers.",
+          "Resultary Rule 22 hit 34a570aa8e2a states an existence conductor for lattice circumferences supporting temporal five-cycles, in a different dynamical system."
+        ],
+        "reasoning": "The same theorem could be expressed as a last one-or-zero coefficient of the primitive weighted-necklace series, but the period-support set and the existence semigroup for Rule 22 do not retain those coefficients. The Rule 22 comparison is limited to the indexed statement.",
+        "searches": [
+          "Resultary semantic lookup: three consecutive return lengths, primitive weighted necklaces, two-orbit conductor",
+          "arXiv:2510.10848 §3.3 and Theorem 3.19",
+          "Public literature lookup for primitive orbit multiplicity in finite S-gap shifts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The zeta theorem is a coefficient generator, not a parameter-uniform table or formula for the last singleton.",
+          "The related indexed Rule 22 value 54 is a different invariant, not an entry in a table for Q_a(n)."
+        ],
+        "reasoning": "A list or calculation of Q_a(n) at particular a,n cannot certify this symbolic family of last exceptions. No exact table or parametric cutoff for this invariant was identified in the inspected sources.",
+        "searches": [
+          "Resultary semantic lookup for the exact two-orbit conductor",
+          "Finite-gap zeta theorem in arXiv:1108.3414, p. 7"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the exact last period with fewer than two primitive orbits, including the parity split and a=2 exception. Known support and zeta theorems cover existence and coefficientwise enumeration respectively, but neither supplies the closed threshold; obtaining it uses a uniform multiplicity argument and a separate endpoint obstruction. No matching statement was found in the inspected evidence; this is not a priority determination.",
+      "residual_risks": [
+        "A weighted-necklace or renewal-system source under different terminology could contain the same closed cutoff.",
+        "The exact mirrored Rule 22 text was not available; comparison was to the indexed claim only. The public search returned no useful result and is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the zeta function and coefficientwise counts, not the exact parity-dependent uniform cutoff.",
+          "evidence": "Finite S-gap zeta function is the reciprocal of 1 minus the sum of the allowed return monomials.",
+          "identifier_or_url": "https://arxiv.org/abs/1108.3414",
+          "material_read": "Theorem 2.3 in the inspected PDF, p. 7, text offset 23250",
+          "method": "Targeted primary OA PDF passage",
+          "title": "Computations on Sofic S-gap Shifts",
+          "trigger": "Exact counting for all finite return-length sets"
+        },
+        {
+          "assessment": "Classifies the support, not the multiplicities.",
+          "evidence": "The theorem specifies the set of least periods via almost sum-closure.",
+          "identifier_or_url": "https://arxiv.org/abs/2510.10848",
+          "material_read": "§3.3, Theorem 3.19, pp. 18–19, text offset 62600",
+          "method": "Targeted primary OA PDF passage",
+          "title": "On Sets of Periodic Orbit Lengths in Finitely Presented Dynamical Systems",
+          "trigger": "Potentially stronger finite-gap period classification"
+        },
+        {
+          "assessment": "The visible claim is different; no whole-document exclusion inferred.",
+          "evidence": "Listed generators 11,12,13 concern allowed ring sizes for temporal period five, with 54 the largest excluded size.",
+          "identifier_or_url": "Resultary 2026/11/17/34a570aa8e2a",
+          "material_read": "Indexed summary only; exact mirrored finding unavailable",
+          "method": "Local Resultary search and targeted mirror attempt",
+          "title": "A sharp 54-site gap and a renewal zeta for temporal five-cycles of Rule 22",
+          "trigger": "Strong related indexed consecutive-length conductor"
+        },
+        {
+          "assessment": "Distinct alphabets; subshift inclusion gives only a weaker bound in this comparison, not equality.",
+          "evidence": "Exactly two coprime lengths with cutoff max((a+1)b,2(a+b)).",
+          "identifier_or_url": "Frozen assigned record 4",
+          "material_read": "Finding and assumptions",
+          "method": "Direct frozen text",
+          "title": "Sharp two-orbit threshold for coprime two-gap shifts",
+          "trigger": "Companion sharp cutoff with the same multiplicity invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "De Jong §3.3 (support benchmark)",
+        "Dastjerdi–Jangjoo finite-gap zeta theorem (counting benchmark)"
+      ],
+      "rationale": "Three consecutive return lengths are the first interval alphabet beyond the two-gap case. Two distinct primitive orbits is the first multiplicity requirement not answered by existence spectra. The exact last obstruction, its even/odd difference, and the single internal hole requiring two different return counts are useful for periodic-orbit multiplicity comparisons without coefficient-by-coefficient testing. No general embedding or arbitrary-gap theorem is asserted.",
+      "residual_risks": [
+        "Value is for the precise threshold on this interval alphabet; it does not estimate higher multiplicities or classify arbitrary three-gap sets."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is for exactly three independent surface-density samples on \(S^2\). The proof derives the known homogeneous cap-containment law with correct sphere-area normalization, evaluates the Euclidean feasible-pair lens moments exactly, and applies uniform \(C^2\) Taylor expansion in bounded normal coordinates. The first-order term cancels by a genuine spherical isometry, the second-order tensors follow from rotational and reanchoring symmetry, and integration by parts produces the precise negative weighted Dirichlet correction. The homogeneous \(\varepsilon^6\) term is calibrated by the exact global uniform law, without assuming an unjustified smooth moving boundary. The standalone checker reproduces independent angular and planar integral identities; finite numerical checks do not replace the proof.
+## correctness
 
-## Originality — PASS, subject to bounded-source priority
-The closest exact prior result is the uniform spherical cap coverage formula in Bürgisser--Cucker--Lotz/Miles. It determines \(F_0\) but makes no statement about arbitrary varying spatial sample densities and their negative sixth-order weighted-gradient correction. Brauchart et al. (arXiv:1512.07470) give large-sample hole-radius statistics, including a positive nonuniform-density weighted expectation, but not this fixed-three-point sixth-order probability law. Reznikov--Saff concerns another large-sample asymptotic, and Fodor--Hug--Ziebarth concerns random convex-body approximation. The public `spherecover` software treats uniform finite-sample laws rather than arbitrary-density gradients. Nearby published findings on random spherical caps, enclosing circles, and curvature-gradient effects were compared by mathematical implication, not just title. None of the examined statements gives this fixed-three-point nonuniform spherical cap coefficient or its rigidity identity. Residual risk: unindexed nonuniform point-process tube expansions may imply the formula without matching keywords.
+PASS
 
-## Value — PASS
-The fixed-three-point maximal-empty-cap tail is a natural statistic of directional sampling, and the previous uniform exact law cannot distinguish an inhomogeneous sampling design. The new first coefficient measures cubic clustering density, while the sharp second coefficient measures the independent weighted spatial roughness functional. Their relation identifies a zero-gradient equality case uniquely as uniform sampling; conditional cluster locations follow the cubic density. The coefficient involves a nontrivial exact four-dimensional feasible-shape moment and a non-obvious curvature/density separation, not merely a normalization change or arbitrary parameter slice.
+The free-center event is the triple intersection of caps around the data points; antipodal reflection gives the complementary large-cap coverage event, up to the null boundary. For uniform samples, the lens of possible centers for the first two points dilated by ε gives the third-point region. Its spherical Steiner area is 2π−2cos(ε)γ−4cos(2ε)β; the two angular integrals are π(1−cos ε) and π sin²ε, giving the known F_0 and ε⁶ coefficient −1/4. In exponential coordinates the offsets have norm at most 2, and the possible center is within scaled distance 1 of the anchor. Uniform convergence of scaled distances on this compact set gives convergence of the event indicator except at planar enclosing radius 1, a null level by radial homogeneity in R⁴. For a planar anchor separation r, the allowed third-point area is 6 arccos(r/2)−(r/2)√(4−r²)+π. Its integrals against 2πr and 2πr³ give 9π² and T=15π², respectively. Swapping and reanchoring give isotropic second moment matrices T/2 for each offset and cross moment T/4. Rotation by π at the anchor cancels the first-order term exactly. Uniform C² Taylor remainders on the compact scaled domain and dominated convergence then give (T/2)∫ f²Δf+(T/4)D_3=−(3T/4)D_3 for the second-order density term. The anchor-independent constant-density kernel mass is exactly 16π²F_0/ε⁴, contributing −4π² I_3 to the sixth-order coefficient without differentiating a nonsmooth cluster boundary. The normalized leading kernel factors as the f³-weighted anchor law times the uniform law on the offset set. Positivity of f and connectedness give the stated rigidity. The ε=π/2 endpoint of the uniform formula follows by continuity; it is not needed for the expansion.
 
-## Limits and priority risk
-The law requires positive \(C^2\) densities, independent sampling, and a fixed dimension/tail regime. It neither asserts novelty of the classical uniform cap law nor extends to singular distributions. Some mathematical literature may remain unindexed or use different terminology; the priority decision is provisional. No independent audit is available.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit is for the evaluated nonuniform fixed-three-point sixth-order law, the weighted-Dirichlet identity and marked limit in this model. The exact homogeneous law is prior Miles coverage work, and leading anchor density powers arise more generally in local geometric pattern counts. No inspected statement gives the additional coefficient and localization here as a direct special case.
+
+## value
+
+PASS
+
+The enclosing cap of an iid triple is a natural clustering statistic, also measuring one intrinsic Čech face. The leading mass sees ∫f³ alone, whereas a curvature-subtracted sixth-order coefficient detects spatial roughness and vanishes exactly at uniformity. This interpretable separation and the marked limit are more informative than recomputing the uniform tail or testing isolated anisotropic families.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

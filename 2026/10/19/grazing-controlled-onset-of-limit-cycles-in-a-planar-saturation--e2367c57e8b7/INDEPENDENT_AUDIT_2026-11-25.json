@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:40:49.515635Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed b>0 the exact clockwise polar equations follow by writing d=z−Sat(z) and the vector field as (aI+bJ)z−((1+a)I+bJ)d. For initial excess η comparable to a^(2/3), bootstrap in a radial band |r−(1+η)|≤η/2: the angular speed is b+O_b(η); the defect is O(η) and vanishes outside four caps of width O(√η); the integrated radial variation is O_b(a+η^(3/2))=O_b(a)=o(η), strictly closing the band for a full turn. Freezing r costs O_b(a√η) in the clipping integral. Each parabolic cap integrates to (4√2/3)η^(3/2), and the skew projections contain an additional factor O(√η), so they contribute at most O_b(η²) to that integral. The displacement is (2πa−(16√2/3)η^(3/2))/b+O_b(a^(4/3)), with opposing signs at the stated section endpoints. At its zero, η=C_*a^(2/3)+O_b(a), and the bootstrap also gives the uniform radial estimate. At each switching root the normal velocity is of order b√η with nonzero sign, since the tangential coordinate is of order √η and the residual normal term at the line is only O(a). Moving cap boundaries cost at most O_b(a/√η), and the first-order time integral gives saturated time 8√(2η)/b+O_b(a^(2/3)). The continuous vector field gives identity saltation; Liouville's determinant uses divergence 2a or a−1 and equals the section derivative because start and return both have normal speed −b. The derivative is strictly between zero and one in the annulus. Any periodic trajectory crossing the positive ray has only one crossing per least period: by uniqueness it is a simple closed curve, and along that ray all transverse crossings have the same orientation since dy/dt=−bS(x)<0. Thus the fixed point proves the claimed local cycle uniqueness and the determinant gives the stated multiplier. The reciprocal angular-speed expansion gives the positive clipping correction (16√2/3b)η^(3/2) in physical time, and the fixed-point relation gives (2π/b)a+O_b(a^(4/3)). At a=0, the origin is an equilibrium and the positive-radius circles up to radius one are periodic; d/dt of Σ∫₀^{z_i} S(u)du equals −Σ(|z_i|−1)_+, so no periodic trajectory can spend time outside the unsaturated square. The frozen verify.py was inspected, not run; its documented replay with NumPy/SciPy checks four finite cases, ratios and integrated divergence, not the uniform remainders.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2005 title/landing record is SISO saturation; the frozen source reports three parallel zones and 2/3 and 1/3 powers and period expansions in its theorem. Primary full text was not independently retrieved; the 1999 full text was also unavailable.",
+          "Simpson's §10.2 theorem is for a hysteretic relay two-fold, with a period vanishing as a one-third power."
+        ],
+        "reasoning": "On the identified hypotheses a scalar saturation with two parallel switching boundaries does not dominate two independent coordinate saturations, and a vanishing-period relay theorem does not cover this finite-period boundary cycle. The exponents themselves are established antecedents, not originality evidence.",
+        "searches": [
+          "Freire–Ponce–Ros DOI 10.3182/20050703-6-CZ-1902.00763, cited Thm. 1 and single-input hypothesis",
+          "Freire–Ponce–Ros DOI 10.1142/S0218127499000638, center bifurcation in symmetric piecewise-linear systems",
+          "Simpson arXiv:1905.01329 §10.2 Thm. 10.3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1306.6880v1",
+        "arXiv:1905.01329",
+        "DOI 10.3182/20050703-6-CZ-1902.00763 (partial)",
+        "DOI 10.1142/S0218127499000638 (partial)",
+        "Resultary/SCOPE 9ade29c151e9, b24f77cdacfa, 28b868d87230"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The reported coefficients require the sum of four parabolic cap losses, the signed correction to angular speed, and the time spent in one-coordinate saturation. Ma et al.'s qualitative passage identifies where the cycle tends, not the excursion, physical clock or transverse contraction."
+        ],
+        "reasoning": "Knowledge of the exact vector field and of the limiting circle does not by itself imply the rates. The finite-period correction and the actual multiplier are not parameter substitutions into the identified relay or conservative-oscillator results.",
+        "searches": [
+          "Ma et al. §V against four-cap Poincaré balance and Liouville calculation in RESULT.md",
+          "Simpson Thm. 10.3 and catalogue 9ade29c151e9 versus physical period and contraction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ma et al.'s W=w₁₁I+w₁₂J system is the exact frozen vector field with w₁₁=1+a,w₁₂=b. They identify the limit-cycle regime, the w₁₁=1 critical periodic region and its unit-circle limit set.",
+          "Catalogue 28b868d87230 concerns a four-sector sign relay with a neutral return map, not the two clipped coordinates."
+        ],
+        "reasoning": "The exact model and qualitative bifurcation cannot count as contributions; the inspected exact-model sections do not provide the three numerical leading coefficients and their asymptotic errors. Merely matching four sectors does not identify the relay and clipped flow.",
+        "searches": [
+          "Ma et al. arXiv:1306.6880v1 §III Eq. (2) and §V",
+          "Prior terminology: two-cell saturating cellular neural network, critical Hopf/outer period-annulus onset",
+          "Resultary/SCOPE grazing saturation and four-sector return laws"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "9ade29c151e9 gives an exact period and a 3/2 period correction for an unforced scalar conservative saturation oscillator; b24f77cdacfa gives a one-sided 3/2 return loss in a four-dimensional rectified oscillator; 28b868d87230 gives a neutral crossing annulus in a sign relay."
+        ],
+        "reasoning": "The inspected findings include exact scaling or period results, but use different vector fields, state dimensions or neutral versus attracting dynamics. No equivalent table/record was identified in this bounded check.",
+        "searches": [
+          "Local Resultary/SCOPE mirror: saturation grazing oscillator, sharp grazing four-sector annulus, grazing circle return law"
+        ]
+      },
+      "rationale": "Best of current knowledge: the exact model, critical annulus and qualitative onset are prior, and the fractional exponents occur in other systems. Credit is limited to the quantitative four-cap theorem for this model, including uniform amplitude and the two physical dynamical coefficients. Reasonable retrieval left named source-access risks.",
+      "residual_risks": [
+        "The two Freire–Ponce–Ros full texts were not retrieved independently; a more general center theorem or another exact analysis of two-cell saturation may overlap.",
+        "The qualitative onset and fractional powers are prior; the PASS is for the quantitative model-specific theorem only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact model and qualitative onset already established; not the quantitative theorem in the inspected passages",
+          "evidence": "Displays componentwise Sat, the rotational W specialization, w₁₁=1 central periodic orbits and the unit-circle limit.",
+          "identifier_or_url": "https://arxiv.org/html/1306.6880v1",
+          "material_read": "§III Eq. (2), offsets 10800–15577; §V offsets 51000–54939",
+          "method": "OA full-text passages",
+          "title": "Lyapunov Functions in Piecewise Linear Systems: From Fixed Point to Limit Cycle",
+          "trigger": "Exact same two-channel model and threshold"
+        },
+        {
+          "assessment": "Different nonsmooth mechanism and time limit",
+          "evidence": "Hysteretic two-fold with coordinate amplitudes of orders μ^(2/3), μ^(1/3) and period of order μ^(1/3).",
+          "identifier_or_url": "https://arxiv.org/html/1905.01329",
+          "material_read": "§10.2, Thm. 10.3 and Eqs. (10.17)–(10.18), offsets 154574–158372",
+          "method": "OA full-text passages",
+          "title": "Twenty Hopf-like bifurcations in piecewise-smooth dynamical systems",
+          "trigger": "Known fractional scaling"
+        },
+        {
+          "assessment": "Credit identified SISO precedent; no full-document exclusion",
+          "evidence": "Single-input saturation; the frozen source describes a three-zone return and fractional powers.",
+          "identifier_or_url": "https://doi.org/10.3182/20050703-6-CZ-1902.00763",
+          "material_read": "Landing/abstract and frozen source's citation to Thm. 1; no independent full text",
+          "method": "DOI and specified lawful ResearchGate route tried; ResearchGate returned 403",
+          "title": "Limit cycle bifurcation in SISO control systems with saturation",
+          "trigger": "Closest quantitative saturation exponent precedent"
+        },
+        {
+          "assessment": "Retain priority risk",
+          "evidence": "The title scopes the comparison to symmetric piecewise-linear center bifurcation; the full hypotheses are not independently established.",
+          "identifier_or_url": "https://doi.org/10.1142/S0218127499000638",
+          "material_read": "Bibliographic/abstract-level evidence only",
+          "method": "DOI and OA-copy route tried without full-text access",
+          "title": "Limit cycle bifurcation from center in symmetric piecewise-linear systems",
+          "trigger": "Plausible earlier broader boundary-of-center result"
+        },
+        {
+          "assessment": "Mathematically different systems",
+          "evidence": "Conservative scalar periodic levels; one-sided loss in a four-dimensional rectified flow; neutral return map in a sign relay.",
+          "identifier_or_url": "9ade29c151e9; b24f77cdacfa; 28b868d87230",
+          "material_read": "Finding, offset 0 in each original record",
+          "method": "Resultary lookup and local mirror originals",
+          "title": "Indexed saturation grazing, rectified grazing circle and four-sector crossing annulus results",
+          "trigger": "Closest catalogue matches on scaling and period-annulus boundaries"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The system is a standard motivated two-cell saturation oscillator. The result quantifies its singular onset at a finite-radius annulus, distinguishing gain-independent leading radial selection from coupling-dependent relaxation and giving the physical rather than angular-period correction. Those three linked coefficients describe the amplitude, timing and loss of hyperbolicity in a regime where a smooth small-orbit Hopf approximation would give the wrong mechanism.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:42:16.102739Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Checked the killed Brownian resolvent by its boundary values, continuity, and derivative jump −2 for generator (1/2)∂². Integration over the full interval gives the mean duration of one attempt; integrating over the safe interval and multiplying by the alarm rate gives the probability of a fresh attempt. This probability is strictly below one because an attempt can exit before its alarm. The renewal quotient gives the stated mean with the cosh((L−a)sqrt(2r)) denominator and the no-alarm limit L². As a separate all-rate check, put c=1−a/L and y=L sqrt(2r). The numerator 2(cosh(y)−1)/y² is the moment-generating function of the sum X of two independent uniform variables on [−1/2,1/2]. By symmetry it equals E cosh(y sqrt(X²)). The function s↦cosh(y sqrt(s)) is strictly convex for y>0 by its power series, and E X²=1/6; strict Jensen proves that the numerator exceeds cosh(y/sqrt(6)) at all positive y. Above the critical c the coefficient of y² is negative in the ratio, providing an improving rate. For 0<a<L the mean diverges at high rate, giving an attained positive optimum in the improving regime. At a=0 positivity at every finite rate and asymptotic 1/r give an unattained zero infimum; a=L is in the never-beneficial regime. With z=y² and delta=c²−1/6 the expansion is 1−delta*z/2+(7/4320)z²+O(|delta|z²+z³); the quadratic coefficient follows also from E X⁴=1/15. Uniform high-rate growth near critical c and strict inequality at delta=0 for z>0 imply that all global minimizers converge to z=0. The stationary equation there has one branch by the implicit-function theorem, positive for small delta>0, with z=(1080/7)delta+O(delta²); converting time and substituting gives both claimed coefficients. The frozen finite-difference script was inspected, not executed; its recorded 157 checks are only corroborative. The exact argument requires no numerical optimization.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pal–Prasad and Chen–Huang use return to a fixed position on alarms with no position-dependent alarm killing. Bressloff absorbs when an internal occupation-state threshold is reached and considers resetting both position and state."
+        ],
+        "reasoning": "General or adjacent renewal formulas provide derivation tools, not an all-rate sign theorem for a spatial alarm-time switch. Neither changing the starting/reset point nor thresholding accumulated occupation time implements the Bernoulli restart-or-complete decision at the alarm.",
+        "searches": [
+          "arXiv:1812.03009, fixed-position renewal and first passage",
+          "arXiv:2109.11101 Eqs. (8)–(11)",
+          "arXiv:2205.13989, absorption rule in abstract"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2111.15241",
+        "arXiv:1812.03009",
+        "arXiv:2109.11101",
+        "arXiv:2205.13989",
+        "Resultary 30a5a19ba9b3",
+        "Resultary a02eb1d7ba06",
+        "Resultary a3f59746a433"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Grange’s fixed a/L=1/2 optimum is a point strictly inside the audited beneficial branch. The refractory comparison fixes that same geometry, and the partially reactive comparison changes the absorption mechanism."
+        ],
+        "reasoning": "A numerical or exact answer for one geometry does not imply where the variable-safe-zone mean first crosses below its zero-rate value. The primary fixed-ratio model has no approach to c²=1/6 that could yield the two critical coefficients or the near-critical uniqueness statement.",
+        "searches": [
+          "arXiv:2111.15241, §2, Eqs. (23)–(26), Fig. 2",
+          "Resultary 30a5a19ba9b3 and a02eb1d7ba06, Findings and Assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Grange’s interval is (−2π,2π), the safe zone (−π,π), and a geodesic reset outside that zone completes the winding. His mean, written with a digamma representation, concerns this exact law after diffusion time normalization; Fig. 2 gives a numerical optimum. Pal–Prasad’s conventional centered reset only has endpoint absorption and is the all-safe a=L limit."
+        ],
+        "reasoning": "The fixed midpoint ratio and all-safe endpoint are true overlaps, not different names for the variable feedback geometry. Brownian scaling changes the absolute length and rate, but cannot change the ratio a/L.",
+        "searches": [
+          "Grange arXiv:2111.15241 §2 and Eqs. (23)–(26)",
+          "Pal–Prasad arXiv:1812.03009 Eqs. (10), (14)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The refractory winding record keeps a/L=1/2 and obtains a threshold at a wait of E[T0]/9. A reflecting, partially reactive interval record has a different all-rate criterion F(u,eta) for conventional fixed-position resets. A third indexed winding result studies high-current large deviations, not mean-time optimization."
+        ],
+        "reasoning": "The wait-free winding formula overlaps at the fixed midpoint; neither its threshold on waiting time nor the partially reactive criterion has the same variable parameter and process. Ranked retrieval is not exhaustive and the dates do not by themselves establish priority.",
+        "searches": [
+          "Resultary: exact global resetting benefit threshold, geodesic Brownian winding, safe-zone and optimization",
+          "Resultary 30a5a19ba9b3, a02eb1d7ba06, a3f59746a433, Findings and Assumptions offset 0"
+        ]
+      },
+      "rationale": "The winding model of Grange gives the same process, mean, and a numerical optimizer at the fixed ratio a/L=1/2, and ordinary resetting covers the centered all-safe endpoint. The supported distinct content is the variable-radius policy’s exact all-rate threshold, strict critical case and unique near-onset optimizer with its rate and gain laws. Other published and indexed threshold results use different control parameters or stopping rules.",
+      "residual_risks": [
+        "Bounded catalogue retrieval and targeted passages do not exclude an equivalent in unindexed restart or position-selective killing literature. The occupation-time comparison used the abstract model statement rather than a whole-paper assessment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Genuine overlap at a/L=1/2; the inspected winding model fixes that geometry.",
+          "evidence": "Safe zone (−π,π) inside (−2π,2π); alarms in the complement complete a winding. Mean in Eq. (26) and numerical optimum in Fig. 2.",
+          "identifier_or_url": "https://arxiv.org/abs/2111.15241",
+          "material_read": "§2 PDF pp. 3–4, offset 7585 and Fig. 1; pp. 7–8 Eqs. (23)–(26), offsets 20470–24033 and Fig. 2",
+          "method": "Lawful OA primary PDF passages",
+          "title": "Winding number of a Brownian particle on a ring under stochastic resetting",
+          "trigger": "Shortest-route winding law may exactly match the conditional reset and absorption"
+        },
+        {
+          "assessment": "Conventional reset to the fixed initial position; not the feedback family.",
+          "evidence": "Endpoints absorb; each alarm returns the particle to the same initial configuration.",
+          "identifier_or_url": "https://arxiv.org/abs/1812.03009",
+          "material_read": "Abstract and pp. 3–4 Eqs. (10), (14), offset 23280",
+          "method": "Lawful OA primary PDF passages",
+          "title": "First passage under stochastic resetting in an interval",
+          "trigger": "Closest ordinary interval-resetting baseline and all-safe specialization"
+        },
+        {
+          "assessment": "Fixed reset position and boundary absorption; no selective alarm killing in the model inspected.",
+          "evidence": "Renewal for a fixed reset point in an absorbing spherical geometry.",
+          "identifier_or_url": "https://arxiv.org/abs/2109.11101",
+          "material_read": "PDF p. 1 abstract and p. 2 Eqs. (8)–(11), offset 15300",
+          "method": "Lawful OA primary PDF passages",
+          "title": "First passage of a diffusing particle under stochastic resetting in bounded domains with spherical symmetry",
+          "trigger": "Potential bounded-domain reset phase boundary"
+        },
+        {
+          "assessment": "Occupation-state threshold, not position at the alarm; comparison limited to inspected model description.",
+          "evidence": "Internal state driven by occupation time, with resetting of both position and state.",
+          "identifier_or_url": "https://arxiv.org/abs/2205.13989",
+          "material_read": "PDF p. 1 abstract offset 578 for model and absorbing threshold",
+          "method": "Lawful OA primary PDF passage",
+          "title": "Diffusion in a partially absorbing medium with position and occupation time resetting",
+          "trigger": "Possible threshold-reset equivalence"
+        },
+        {
+          "assessment": "Exact overlap in the wait-free fixed-half case, different policy parameter in the main theorem.",
+          "evidence": "Threshold on refractory wait with the safe zone fixed at |X|<L/2.",
+          "identifier_or_url": "Resultary 2026/11/8/SCOPE-a-sharp-one-ninth-refractory-threshold-for-topological-accelerat--30a5a19ba9b3",
+          "material_read": "Mirrored RESULT.md Finding and Assumptions offset 0",
+          "method": "Published Resultary local mirror",
+          "title": "A sharp one-ninth refractory threshold for topological acceleration",
+          "trigger": "Closest indexed winding mean and beneficial-rate boundary"
+        },
+        {
+          "assessment": "Different reset and boundary mechanism.",
+          "evidence": "Reflecting interval with a partially reactive endpoint, fixed interior reset and a criterion F(u,eta).",
+          "identifier_or_url": "Resultary 2026/11/2/SCOPE-an-exact-global-reset-benefit-threshold-for-a-partially-reactive--a02eb1d7ba06",
+          "material_read": "Mirrored RESULT.md Finding and Assumptions offset 0",
+          "method": "Published Resultary local mirror",
+          "title": "An exact global reset-benefit threshold for a partially reactive interval",
+          "trigger": "Closest indexed all-rate threshold in a bounded interval"
+        },
+        {
+          "assessment": "Shares winding geometry, but concerns a different observable.",
+          "evidence": "High-current large deviations rather than stationary choice of rate minimizing mean absorption time.",
+          "identifier_or_url": "Resultary 2026/11/8/SCOPE-a-factor-four-rare-winding-singularity-for-geodesically-reset-br--a3f59746a433",
+          "material_read": "Mirrored RESULT.md Finding and Assumptions offset 0",
+          "method": "Published Resultary local mirror",
+          "title": "A factor-four rare-winding singularity for geodesically reset Brownian motion",
+          "trigger": "Indexed geodesic winding model with same geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Varying the fixed safe-zone radius generalizes the winding policy in a way that poses a genuine control question: for which spatial policies can any positive alarm rate help? The strict global boundary rules out beneficial large rates when local perturbation alone cannot do so, and the onset laws quantify both the optimizing rate and the initially small gain. This is useful as an exact benchmark under the stated instantaneous, symmetric dynamics; it does not assert physical implementability, optimization over the cutoff itself, or global uniqueness far from threshold.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

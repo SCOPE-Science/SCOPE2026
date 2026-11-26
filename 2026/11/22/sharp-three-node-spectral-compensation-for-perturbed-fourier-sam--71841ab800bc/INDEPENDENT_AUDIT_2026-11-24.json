@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:21:21.152614Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conjugating the derivative by the normalized Fourier matrix gives the node term i[C,diag(ε)] with C=F*diag(0,1,2)F, and the weight term 3diag(ζ). The displayed diagonal phase makes the node term B(u)/√3 with the three positive off-diagonal entries u/√3, 1/√3, (1−u)/√3. At zero jitter the Gram norm defect is max|3v_j−1|. The uniform candidate has O(t) error, the expansion in the weight simplex is uniform, and the fixed trace bounds the norm by twice the half-spread. Thus all first-order near-minimizers have bounded scaled weight offsets; compactness and strictly positive realizations of each fixed tangent justify minimizing after reduction. The uniform Rayleigh quotient of the rescaled matrix is 4/3, and equality in operator norm forces the uniform vector to be an eigenvector. The unique balanced diagonal then gives the two remaining eigenvalues −2/3±√(1−3u(1−u)); the negative extreme reaches the norm bound at the two stated closed endpoints. Coercivity excludes another limiting attainment outside the interval. At u=1/2 reflection averaging reduces half-spread to diagonals (a,−2a,a); the minimum is at the crossing a=1/4 of the odd eigenvalue with the lower even eigenvalue. This gives the displayed half-spread and the opposite tangent, without needing to classify nonsymmetric minimizers. The unweighted and two optimized spectra give the three squared Frobenius values. At two nodes, the node derivative is off-diagonal in the Fourier basis and a traceless diagonal adjustment changes the two eigenvalues to ±√(a²+|b|²), so does not help either objective; one node is trivial. The three-node strict improvement witness is therefore minimal. The bundled verify.py was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "RESULT.md lines 83–89 credits an earlier first-variation decomposition and four-node spectral half-spread improvement.",
+          "The supplied literature comparison describes the other two papers as addressing exact/least-squares compensation and perturbed interpolation or quadrature stability, respectively."
+        ],
+        "reasoning": "A four-node witness bounds the minimum possible dimension by four but does not decide dimension three or the norm equality interval. A general theorem solving trace-preserving diagonal spectral loading could subsume the new result; such a statement was not established from the available material.",
+        "searches": [
+          "Wind-Andersen §8.3, alias geometry and spectral reweighting",
+          "Kircheis–Potts arXiv:2304.00094v2 §2",
+          "Austin–Trefethen arXiv:1612.04018",
+          "Literature search: Fourier spectral minimax density compensation"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md §§Finding, Assumptions and scope, Proof and Relationship to prior work",
+        "VERIFICATION.md",
+        "verify.py",
+        "Resultary indexed statements 836b3df8b0b2 and 34d52f2ee2dd"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fixed-Rayleigh equality condition forces constant row sums, and testing both remaining eigenvalues yields the specific quadratic inequality 27u²−27u+5≤0.",
+          "The half-spread optimum additionally needs the reflection reduction and eigenvalue crossing; the small-dimension obstruction compares weight tangents with off-diagonal node tangents."
+        ],
+        "reasoning": "The decomposition is an input but does not by itself give these extremal arguments. Neither even-grid uniform-weight rigidity nor quadrature positivity computes the balanced-matrix eigenvalues or the competing optima in this model. No verified stronger implication was found.",
+        "searches": [
+          "Wind-Andersen §8.3 versus RESULT.md §§2–5",
+          "Resultary 836b3df8b0b2 and 34d52f2ee2dd versus the three-node equality case"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "RESULT.md §§1–4 reduces the Fourier claim to real symmetric diagonal loading with fixed trace.",
+          "The condition-number expansion uses the eigenvalue spread, whereas the operator-norm floor fixes the largest absolute eigenvalue."
+        ],
+        "reasoning": "An earlier equivalent loading theorem would count even without Fourier terminology. A result optimizing squared Frobenius norm or quadrature feasibility is not equivalent to minimizing either spectral objective; the explicit symmetric optima even go in opposite directions.",
+        "searches": [
+          "Resultary: three-node Fourier spectral compensation and minimal size",
+          "Resultary: perturbed Fourier positive weights, operator minimax and spread",
+          "Wind-Andersen arXiv:2611.02379v1 §8.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact hit 71841ab800bc is the same record.",
+          "Distinct hit 836b3df8b0b2 describes spectral rigidity and globally optimal uniform weights for even-grid alternating displacements.",
+          "Distinct hit 34d52f2ee2dd describes a three-site positivity transition and noise blowup in Fourier quadrature."
+        ],
+        "reasoning": "The even-grid alternating model does not include this family of odd-grid three-node perturbations. The three-site positivity/noise statement has the right size but not the fixed-trace spectral minimax invariant. The indexed statements, not their same-day dates, provide the distinctions.",
+        "searches": [
+          "Resultary: exact three-node spectral phase window and opposite weight tangents",
+          "Resultary: nearby Fourier spectral and three-site positivity results"
+        ]
+      },
+      "rationale": "The supported contribution is the minimal three-node witness, sharp operator-norm equality window and exact difference of operator and half-spread optima in the symmetric example. The general possibility of improving half-spread at the expense of Frobenius error is credited to the four-node precedent. The closest indexed results and attributed literature statements do not establish prior coverage of the narrower finding; the decisive full-text access limits are retained below.",
+      "residual_risks": [
+        "Wind-Andersen §8.3 and the closest indexed full sources were not independently retrieved; a stronger analysis of three-node or general diagonal spectral optimization could cover the result.",
+        "Search misses and the self-hit establish no historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Four-node precedent is credited; finer coverage beyond the attributed example remains unverified.",
+          "evidence": [
+            "RESULT.md lines 83–85, 93."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.02379v1",
+          "material_read": "Attribution and comparison in RESULT.md lines 83–89; no primary §8.3 passage retrieved.",
+          "method": "Literal-query OA attempts on arXiv HTML and PDF timed out.",
+          "title": "Alias Geometry and Density Compensation in Perturbed Fourier Sampling",
+          "trigger": "Strongest cited precedent: same Gram first variation and related spectral objective"
+        },
+        {
+          "assessment": "The available statement treats a different family and uniform-weight optimum; broader full-text coverage not established.",
+          "evidence": [
+            "Even grid with displacements alternating; three nodes cannot be an even-grid specialization."
+          ],
+          "identifier_or_url": "Resultary: 2026/11/22/SCOPE-exact-spectral-and-positive-weight-rigidity-for-alternating-four--836b3df8b0b2",
+          "material_read": "Indexed statement on even-grid alternating displacements.",
+          "method": "Resultary search and attempted bounded mirror retrieval, which did not provide the full source.",
+          "title": "Exact spectral and positive-weight rigidity for alternating Fourier sampling",
+          "trigger": "Strongest indexed spectral-compensation match"
+        },
+        {
+          "assessment": "Available statement is about a different invariant; no spectral-minimax statement was obtained.",
+          "evidence": [
+            "Positivity feasibility and noise blowup, not first-order minimization of Gram operator norm or spread."
+          ],
+          "identifier_or_url": "Resultary: 2026/11/22/SCOPE-a-sharp-three-site-positivity-transition-and-quadratic-noise-blo--34d52f2ee2dd",
+          "material_read": "Indexed statement on positivity and noise.",
+          "method": "Resultary search and attempted bounded mirror retrieval.",
+          "title": "A sharp three-site positivity transition and quadratic noise blowup in Fourier quadrature",
+          "trigger": "Same small size and a sharp transition in Fourier weights"
+        },
+        {
+          "assessment": "Exact or least-squares reconstruction and interpolation stability do not as stated compute the two sharp minimax tangents.",
+          "evidence": [
+            "Frozen record's stated distinctions; primary comparisons are access-limited."
+          ],
+          "identifier_or_url": "arXiv:2304.00094v2; arXiv:1612.04018",
+          "material_read": "Attributions in RESULT.md lines 85, 95–97; no primary passages retrieved.",
+          "method": "Literal-query OA retrieval attempted.",
+          "title": "Optimal density compensation factors; Trigonometric interpolation and quadrature in perturbed points",
+          "trigger": "Broader Fourier compensation and perturbation results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Minimal dimension and a closed sharp equality window are informative for deciding when normalized positive reweighting improves a perturbed sampling design. The opposite corrections at symmetric motion give an exact warning that optimizing distance to identity, first-order conditioning, or Frobenius defect leads to genuinely different choices.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:06:11.330019Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–84; VERIFICATION.md and verify.py inspected, not executed",
+        "Independent exact replay: python /workspace/branches/replay_frozen_math.py (PASS, record 2 section)"
+      ],
+      "rationale": "Integrating the bridge kernel gives the piecewise cross-covariance for the derivative reading, prior trajectory risk 1/30, and area covariance t(1-t)/2. Squaring and integrating the cross-covariance gives the stated F, independently verified along with the derivative and high-noise gain ratio. The cubic f has one root in (2/5,5/12): it decreases to its only critical point in (0,1) and is negative from that minimum through 1. The noise coefficient changes sign at alpha; between beta and alpha both A and B_* increase strictly, while outside that interval their signs agree. Hence the derivative of the gain changes from positive to negative at exactly one interior time, with neither observation endpoint informative. Implicit differentiation gives positive noise sensitivity and simple-root Taylor expansions at zero and inverse noise zero. The terminal-area gain is strictly increasing in t(1-t), which is uniquely maximal at the midpoint; the high-noise path gain ratio is F(alpha)/F(1/2), not a ratio of posterior risks.",
+      "residual_risks": [
+        "Limited to a single deterministic derivative observation under the normalized bridge model. The approximate 2.23% is a limiting relative increase in explained variance, not in the total posterior risk."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The velocity proof gives its unique global optimum for all eta>0, including the noise range where displacement wins the mode comparison.",
+          "The beta-weighted theorem covers every positive integer n and finite eta>=0; it explicitly states t_1=1/2 at every variance."
+        ],
+        "reasoning": "The trajectory portion is covered without assuming that the velocity mode is selected. The area portion is a stated special case of a broader family.",
+        "searches": [
+          "ID 4112e6f7c49a §§1 and 3, exact derivative-only part of the two-mode proof",
+          "ID 4854c484cc2c Finding, assumptions and proof of global location"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "Resultary IDs 4112e6f7c49a, 4854c484cc2c, 2fe7f897a316, 3e4b47324f39",
+        "arXiv:1108.2132, 1406.2582 and 1604.05375; Šimák (2002); Purdue AAI3043760"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The velocity proof states beta and alpha as its endpoint roots, the exact J_v=F, and t_v<alpha<1/2. The moment proof states the unique area midpoint. The ratio is not quoted in the velocity paper but obtained by evaluating its J_v at alpha and 1/2.",
+          "The frozen first-order endpoint corrections are obtained by implicit differentiation of the very same velocity equation at its simple limiting roots."
+        ],
+        "reasoning": "Combining the two reported locations immediately yields strict conflict for every noise variance. The exact high-noise gain comparison is direct substitution into the reported trajectory gain as eta goes to infinity. This leaves no standalone nonmechanical remainder suitable for repair.",
+        "searches": [
+          "ID 4112e6f7c49a §§1, 3–4 (proof of velocity timing around mirrored offset 2740 through 5617); ID 4854c484cc2c mirrored offset 0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Velocity is the same reading X'(t)=B(t). Section 3 of ID 4112e6f7c49a gives eta=H_v(t)=t(1-t) f(t)/A(t), exactly eta A(t)+B_*(t)=0, with the same unique maximizer in (beta,alpha). Its §1 gives the same gain.",
+          "For ID 4854c484cc2c, A_1=integral of B=X(1), with one noisy B(t) reading. The n=1 risk reduces to 1/12-[t(1-t)]^2/[4(eta+t(1-t))]."
+        ],
+        "reasoning": "The velocity-mode and terminal-area representations agree with the frozen record at the level of the exact loss and observation operator, not merely Gaussian conditioning in general.",
+        "searches": [
+          "Resultary: 2026/11/22/SCOPE-a-sharp-displacement-to-velocity-sensing-switch-for-integrated-b--4112e6f7c49a",
+          "Resultary: integrated Brownian bridge noisy derivative observation trajectory integrated posterior variance versus terminal-area endpoint midpoint optimal sensor conflict ratio sqrt6-2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "ID 5692ba87bd94 is the frozen record itself. IDs 4112e6f7c49a and 4854c484cc2c are distinct direct mathematical matches to the two exact all-noise designs. The unconditioned integrated-Wiener records use a different prior, and in ID 3e4b47324f39 a different scalar integral."
+        ],
+        "reasoning": "The overlapping components are continuum statements with exact risks, not merely near-equal numerical sites or aliases. No date ordering is inferred.",
+        "searches": [
+          "Resultary IDs 5692ba87bd94, 4112e6f7c49a, 4854c484cc2c, 2fe7f897a316, 3e4b47324f39"
+        ]
+      },
+      "rationale": "Two distinct mirrored statements give exact coverage of the two constituent optimizations. The velocity-mode proof, not merely the threshold statement in its Finding, supplies the same root curve for every noise level and the exact gain. The beta-weighted one-point theorem supplies the midpoint and the exact area risk at n=1. The remaining endpoint Taylor coefficients, contrast and relative high-noise gain follow mechanically from the covered equations and locations. Neither source's date establishes chronological priority; the failure is mathematical coverage.",
+      "residual_risks": [
+        "Indexed dates do not establish which statement was first. The failure depends on exact comparison of the existing claims and their elementary consequences, not on that ordering.",
+        "The older dissertation full text was not available; its abstract is insufficient to assess priority or coverage beyond the measured exact matches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact derivative-only coverage for all positive noise, not just above the switch",
+          "evidence": "J_v=t^2(1-t)^2(8-4t-t^2)/60 and H_v increasing from zero to infinity on (beta,alpha).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-sharp-displacement-to-velocity-sensing-switch-for-integrated-b--4112e6f7c49a/RESULT.md",
+          "material_read": "§1 lines 38–57, §3 lines 70–80 and the comparison in §4",
+          "method": "Local Resultary mirror",
+          "title": "A sharp displacement-to-velocity sensing switch for integrated Brownian-bridge recovery",
+          "trigger": "Same trajectory, reading and loss in velocity mode"
+        },
+        {
+          "assessment": "Exact terminal-area coverage at n=1",
+          "evidence": "A_n=n times the integral of s^(n-1)B_s; exact covariance t(1-t^n)/(n+1); t_1=1/2 for every noise variance.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-noise-order-boundary-layer-for-beta-weighted-brownian-brid--4854c484cc2c/RESULT.md",
+          "material_read": "Finding, assumptions, exact posterior risk and unique global location; offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp noise-order boundary layer for Beta-weighted Brownian-bridge one-point quadrature",
+          "trigger": "Potential uniform-weight specialization for terminal area"
+        },
+        {
+          "assessment": "Related covariance setting, not the noise-optimal sensor theorem in this passage",
+          "evidence": "Defines the integrated Brownian bridge and describes covariance and prediction properties.",
+          "identifier_or_url": "https://arxiv.org/abs/1108.2132",
+          "material_read": "§5.2, PDF p. 17, offset 74864",
+          "method": "OA PDF",
+          "title": "A class of bridges of iterated integrals of Brownian motion related to various boundary value problems",
+          "trigger": "Integrated-bridge covariance and derivative prediction"
+        },
+        {
+          "assessment": "Relevant general derivative-field designs",
+          "evidence": "Discusses IMSE updates and empirical comparison; the inspected introduction does not supply the bridge-specific one-reading theorem.",
+          "identifier_or_url": "https://webdoc.sub.gwdg.de/ebook/diss/2003/tu-freiberg/archiv/html/MathematikSimakJaroslav459358.pdf",
+          "material_read": "Introduction p. 9, OA offsets 15631–21693",
+          "method": "OA PDF",
+          "title": "On Experimental Designs for Derivative Random Fields",
+          "trigger": "Integrated error with derivative information"
+        },
+        {
+          "assessment": "Possible historical overlap unresolved",
+          "evidence": "Abstract mentions exact designs for Brownian motion, the bridge and OU, and integral estimation, but not this integrated-bridge derivative experiment.",
+          "identifier_or_url": "https://docs.lib.purdue.edu/dissertations/AAI3043760/",
+          "material_read": "Public abstract only; full text unavailable",
+          "method": "Public Purdue catalogue",
+          "title": "Optimal designs for estimating the path of a stochastic process",
+          "trigger": "Historical integrated-error and integral design for bridge processes"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–36 and 76–80; two exact design comparisons above"
+      ],
+      "rationale": "The underlying classification makes a meaningful distinction between reconstructing a cumulative trajectory and estimating its terminal value with the same instrument. The systematic finite-noise displacement from the midpoint is more informative than claiming a large performance gain. As a narrow remainder after crediting the two existing designs, numerical evaluation of the relative gain and juxtaposition of the already classified locations do not support a distinct repaired finding.",
+      "residual_risks": [
+        "The relative gain is modest and the risk comparison concerns only the stated prior, sensor and losses."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

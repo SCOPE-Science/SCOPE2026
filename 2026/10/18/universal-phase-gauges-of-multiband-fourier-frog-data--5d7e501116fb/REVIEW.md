@@ -1,15 +1,21 @@
-# Scientific review of universal multiband FROG phase gauges
+# Independent mathematical audit
 
-## Correctness
-PASS. Equality of all zero-delay data for **all** complex Fourier coefficients is a polynomial identity. Comparison of distinct pair-sum monomial coefficients forces equality of the associated products of phase multipliers. The converse holds for every delay. Within-band second-difference relations force affine phase, cross-band adjacent pair relations synchronize the slopes, and Minkowski overlap precisely lists the remaining constraints. All endpoints and no-wrap conditions are explicit. The two-band intervals are disjoint except at the two possible stated overlaps, giving the sharp threshold and the exact number of phase-sensitive rows. Smith normal form treats all higher-band residual connected and finite parts. The included exact-integer relation enumerations test but do not replace these proofs.
+## correctness
 
-## Originality
-PASS at the level of compared sources, not a claim of worldwide priority. The 2017 FROG papers establish generic reconstruction on consecutive bands, and the 2021 analytic-signal paper studies a different restricted signal class and parity. Their pertinent theorem statements do not imply the uniform all-input gauge classification on disconnected Fourier bands. The nearest published two-block bispectrum theorem is a third-order invariant; the sparse-spectrum random-phase fourth-moment theorem is a phase-distribution statement, rather than FROG full-trace invariance. The exact two-band sharp threshold and its sensitive-row census were not found in the source and research-record comparisons. Residual risk: an equivalent algebraic result could occur under Freiman-homomorphism or experimental FROG ambiguity terminology.
+PASS
 
-## Mathematical value
-PASS. This is a complete natural structural classification for arbitrarily many spectral bands, not an isolated numerical or routine endpoint calculation. It identifies an all-delay information-theoretic obstruction to optical phase reconstruction that persists even at fixed nonzero Fourier magnitudes. The Smith-form criterion handles nonlocal resonances among multiple bands, while the sharp two-band boundary and exact frequency-row count quantify when band-relative phase becomes visible. The claims are limited to *universal diagonal gauges*, not generic fixed-signal uniqueness or stability.
+At m=0 the unordered-pair monomials in the complex amplitude have coefficients 1 or 2. The monomials in A and conjugate A are linearly independent as complex polynomials in the real and imaginary parts (an invertible linear change of variables), so the coefficient for each ordered selection of two distinct pair monomials forces equal phase products. Conversely those products give a common unit phase per row for every delay, including delays where some terms cancel. Adjacent equal sums make phase quotients constant within each interval; comparing (b_i+1)+b_j and b_i+(b_j+1) equates these quotients across intervals. Integer interval sums have no holes, so precisely the listed overlap relations survive after removing the uniquely fixed slope. Integral unimodular row and column operations reduce M to Smith form on the tori, giving the claimed dimension and component count. In the two-band case 2a<2b: the two possible intersection intervals [b,2a] and [2b,b+a+c] are disjoint, and either enforces equal offsets. On either nonempty intersection the flat-input intensity has a strictly positive cos(δ) coefficient; elsewhere there is only one pair type. Their inclusive endpoint counts therefore give H, also at equality in either threshold. The no-wrap bound ensures that none of these arguments misses a modular coincidence.
 
-## Scope of validation
-The finite-lattice and numerical checks are reproduced by the two bundled scripts and their execution record. Their stated finite ranges are not used as infinite proof. The source comparisons do not constitute an independent audit or exhaustive priority determination.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The standard consecutive-band scalar and frequency ramp, and the additive pair-sum viewpoint, receive no novelty credit. The supported distinct claim is the exact overlap compression for all nonwrapped interval unions, including the Smith description and the sharp two-band transition and active-row count. The strongest inspected FROG results establish known symmetries or generic reconstruction in other support classes; the closest catalog records handle quartic phase statistics or cubic invariants, not the stated classification.
+
+## value
+
+PASS
+
+A support-only classification decides when a continuum of indistinguishable band phases persists despite arbitrarily many delays and nonzero amplitudes. The compressed integer matrix makes this computable from interval endpoints rather than all frequencies. The exact two-band count quantifies the rows that can carry this phase information, beyond simply noting that a gap can hide it.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

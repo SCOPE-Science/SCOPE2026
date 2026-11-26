@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:19:07.640969Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "/workspace/branches/audit_finite_reproduction.py"
+      ],
+      "rationale": "For each set W of omitted originals, all edge-vertices internal to W are forced. These dominate every nonisolated vertex of G[W]; each remaining vertex v in W needs a nonempty selection from its incident star. Such stars are mutually disjoint and disjoint from internal edges. All other edge-vertices have a selected old endpoint and are free. The fixed-W generating product follows, including zero terms for omitted degree-zero originals. Its least feasible degree is n-|W|+e_W+|I_W|. The savings from n are the sum of |V|-|E| over nontrivial components, at most one per component. Edges taken one per component give an induced matching in G, and omitting the endpoints of a maximum induced matching attains the bound. Equality forces a tree in every nontrivial component and exactly the specified boundary choice at each isolate, with no selections in the free class; W is recovered from its dominating set, so the multiplicity formula does not overcount. The complete/biclique specializations follow by listing their eligible induced trees; the biclique star count subtracts its twice-counted single edges. The edgeless case forces all originals, including the empty set of a null graph. Independent replay on 79 graphs (all labeled roots through four vertices and additional complete, biclique and disconnected cases) checked 47,735 candidate subsets, full coefficients and the complete list of minimum sets against direct adjacency enumeration. Replay: python3 /workspace/branches/audit_finite_reproduction.py.",
+      "residual_risks": [
+        "The finite checks are corroboration only. The all-graph proof is for a single subdivision of every edge of a simple undirected root, not repeated subdivisions or multigraphs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ahmadi et al. §2 gives an induced-path upper bound and scalar theorems for complete, cocktail-party and complete-bipartite roots.",
+          "Kotek et al. give general domination-polynomial machinery. The available Ko–Shepherd indexed summary states a domination/induced-matching connection for simultaneous-cover complexity, but the article text was not accessible."
+        ],
+        "reasoning": "General graph recurrences can be used to calculate the polynomial of S(G). No inspected passage derives the claimed root-subset factorization or minimum-family classification as a specialization; the independent enumerator cannot count ordinary nonindependent terms. Full-text risk for the closely related matroid paper remains.",
+        "searches": [
+          "10.22044/jas.2023.12257.1649, subdivision domination §2",
+          "10.37236/2475, domination polynomial recurrence and splitting",
+          "10.1137/S089548019828371X and the query Ko Shepherd simultaneous matroid covers incidence subdivision induced matching domination degree two"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 4c890d66dbc6 and d94ae62f6ccd",
+        "Ahmadi et al., DOI 10.22044/jas.2023.12257.1649",
+        "arXiv:2204.10292v1",
+        "Kotek et al., DOI 10.37236/2475",
+        "Ko–Shepherd, DOI 10.1137/S089548019828371X (indexed summary only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier independent-domination theorem gives i(S(G))=|V|-im(G). If an ordinary dominating set selects s_uv adjacent to a selected original, delete s_uv when both endpoints are selected, or replace s_uv by the other endpoint otherwise. Domination persists because the only neighbors of s_uv are its two endpoints, and s_uv itself remains dominated. The number of selected subdivision vertices decreases; iteration gives an independent dominating set of no larger size.",
+          "Consequently gamma=i on the subdivision graph, and the general scalar identity is already implied even though the prior invariant has a different name."
+        ],
+        "reasoning": "The reduction preserves the minimum value, not sets or enumerator coefficients, and it discards the boundary-star choices. The credited result is the exact ordinary polynomial and classification, not the scalar as a new separate assertion.",
+        "searches": [
+          "4c890d66dbc6, Finding, for i(S(G))",
+          "Ahmadi et al., Theorems 2.2–2.4",
+          "Fujita et al., central-graph Theorem 2.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "S(G) is the vertex–edge incidence graph. The indexed independent enumerator fixes W and selects exactly internal edge-vertices, allowing only W with no induced isolates.",
+          "Central graphs also join originally nonadjacent originals; the two operations coincide for complete roots, not in general."
+        ],
+        "reasoning": "Independent and ordinary domination are different set enumerators even when their minima have the same size. An ordinary minimum in S(P4), for original P4=1–2–3–4, is {3,s_12,s_34}; 3 is adjacent to s_34, and omitted original 4 is isolated in G[W]. This minimum cannot be counted by the independent enumerator.",
+        "searches": [
+          "Full edge subdivision / incidence bipartite graph / ordinary versus independent domination and induced matching",
+          "2026/10/13/SCOPE-independent-domination-polynomial-and-induced-matchings-of-once--4c890d66dbc6",
+          "arXiv:2204.10292v1 central graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier indexed polynomial and its tree-union coefficient are for independent dominating sets.",
+          "The same-day biclique record explicitly gives the same minimum-count expression, and describes it as available from earlier ordinary-domination analysis; the earlier item is not identified in the passage."
+        ],
+        "reasoning": "The biclique numerical agreement is real, not evidence of a new exact count. It does not extend the exact indexed coverage to the ordinary all-root enumerator. Dates do not prove priority.",
+        "searches": [
+          "Resultary subdivision domination coefficients and induced matching searches",
+          "2026/10/13/SCOPE-independent-domination-polynomial-and-induced-matchings-of-once--4c890d66dbc6",
+          "2026/11/2/SCOPE-independent-domination-of-subdivided-bicliques-exact-polynomials--d94ae62f6ccd"
+        ]
+      },
+      "rationale": "The distinct result is the ordinary set enumerator and all-minima classification with its boundary-star factors. No separate novelty is credited to the scalar minimum: it follows from the earlier indexed independent-domination theorem once ordinary and independent domination are identified on these incidence graphs, and multiple scalar specializations already appear in the subdivision literature. Neither the independent polynomial nor the inspected scalar results give the extra ordinary choices. The exact biclique minimum count also appears as a value described as originating in earlier ordinary-domination analysis; its priority is not credited or resolved here.",
+      "residual_risks": [
+        "Full-text Ko–Shepherd comparison was not possible; unindexed enumerator or family-classification results remain possible.",
+        "The earlier source referred to by the biclique record was not identified from the matched passage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Scalar implied by an incidence-graph normalization; does not enumerate ordinary minima",
+          "evidence": [
+            "Independent domination polynomial restricts to omitted sets with no induced isolates; i(S(G))=|V|-im(G)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-independent-domination-polynomial-and-induced-matchings-of-once--4c890d66dbc6/RESULT.md",
+          "material_read": "Finding and scope, offsets 0–2200",
+          "method": "Resultary index and local mirror (36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+          "title": "Independent domination polynomial and induced matchings of once-subdivided graphs",
+          "trigger": "Same graph construction and scalar induced-matching identity"
+        },
+        {
+          "assessment": "Biclique count overlap; not ordinary polynomial coverage",
+          "evidence": [
+            "Minimum coefficient a(2^b-1)+b(2^a-1)-ab described as available from earlier ordinary analysis."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-independent-domination-of-subdivided-bicliques-exact-polynomials--d94ae62f6ccd/RESULT.md",
+          "material_read": "Finding, offsets 0–1050",
+          "method": "Resultary index and local mirror",
+          "title": "Independent domination of subdivided bicliques: exact polynomials",
+          "trigger": "Exact coefficient for the same special family"
+        },
+        {
+          "assessment": "Scalar special-case coverage, not ordinary enumeration",
+          "evidence": [
+            "Special scalar results for K_n, CP(s) and K_{r,s}; online April 2024, issue dated 2025."
+          ],
+          "identifier_or_url": "https://jas.shahroodut.ac.ir/article_3099_119cec81cde678f908b0392e4b1ccb85.pdf",
+          "material_read": "§2, Lemma 2.1 and Theorems 2.2–2.4, pp. 3–5; publication information p. 1",
+          "method": "OA primary journal PDF passages",
+          "title": "Domination Number and Identifying Code Number of the Subdivision Graphs",
+          "trigger": "Exact same operation and scalar invariant"
+        },
+        {
+          "assessment": "Different construction except on complete roots",
+          "evidence": [
+            "Central graph adds an edge between originally nonadjacent root vertices, eliminating the incidence-only neighborhood condition used by the polynomial proof."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2204.10292",
+          "material_read": "Abstract, p. 1; h on p. 3; Theorem 2.4 on p. 5",
+          "method": "OA primary PDF passages",
+          "title": "New classification of graphs in view of the domination number of central graphs",
+          "trigger": "Possible subdivision formula under different graph terminology"
+        },
+        {
+          "assessment": "General recurrences; no direct coverage established",
+          "evidence": [
+            "General relations and splitting formulas for D(G,x) apply to arbitrary graphs."
+          ],
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v19i3p47/pdf",
+          "material_read": "Abstract p. 1 and stated general setting",
+          "method": "OA primary PDF passage",
+          "title": "Recurrence relations and splitting formulas for the domination polynomial",
+          "trigger": "General domination-polynomial tools could subsume the subset formula"
+        },
+        {
+          "assessment": "No full-text coverage determination",
+          "evidence": [
+            "Summary reports simultaneous-cover complexity results based on connections between domination and induced matching; no enumerator implication can be read from that summary."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/S089548019828371X",
+          "material_read": "Indexed abstract-level summary only; SIAM and Bell Labs landing retrievals returned 403",
+          "method": "Publisher/OA attempt and identified Bell Labs posting search",
+          "title": "Bipartite Domination and Simultaneous Matroid Covers",
+          "trigger": "Plausible incidence-graph induced-matching reduction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen formula and classification",
+        "Earlier independent-domination enumerator and scalar comparison"
+      ],
+      "rationale": "The product formula expresses a standard graph invariant directly in root-graph data and explains precisely which boundary choices create nonindependent minima. It reduces the enumerative description from subsets of original and subdividing vertices to subsets of the originals and produces the entire minimum family, not just an optimum value recoverable from known work. That structural enumeration applies uniformly to all finite simple roots, including isolates and disconnected graphs.",
+      "residual_risks": [
+        "No unrestricted polynomial-time computation, nor new value for a known isolated scalar case, is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

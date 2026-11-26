@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:58:22.943075Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For p dividing n, tn+1 is a unit and removing the common p-power from the two Kummer summands gives column m=n/p^v_p(n). Otherwise the identity C_t(n)=binom((t+1)n,n-1)/n gives column m=n-1. The input is respectively mt or nt+1, with unit slope in both cases. For a fixed column the outgoing carry after j digits occurs exactly when the uniform j-digit residue of the input is at least p^j-(m mod p^j). This independently yields the stated digit-sum expectation by summing the carry probabilities. The two-state weighted transition counts p-d-c noncarry choices and d+c carry choices for input carry c; beyond the last nonzero digit the surviving carry continues with probability 1/p, giving the claimed geometric factor. Exact-value events are finite residue conditions, so the Haar calculations are natural densities, and B is nonzero because the top digit can start a carry. For threshold k, an outgoing carry at position L+k-2 already forces at least k carries. Conversely set all lower digits below the top nonzero column digit to zero. At k=1 vary that top digit across the carry threshold; at k>=2 start a carry there, continue it for k-2 digits, and vary the digit at L+k-2, which toggles whether the count reaches k. This rules out period p^(L+k-2) and hence any smaller period, since a minimal period divides the known p-power period. A unit-slope input preserves the decisive nonconstant cyclic digit function. The n=6,p=2 generating function also checks by direct multiplication of two carry matrices. The verification source was inspected but not run; evidence for all n,p,k is the proof, not its finite regressions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lu–Tsai give the established minimal period p^(L+k-1) for binomial residues modulo p^k. Barat–Grabner count over an expanding collection of rows with the column also varying."
+        ],
+        "reasoning": "Taking a function of residues establishes an upper bound only; it does not transfer minimality. The independent final-digit witness proves the missing lower bound. Aggregating over both binomial arguments does not give a marginal at an arbitrary fixed column.",
+        "searches": [
+          "Rowland arXiv:1102.1464 p. 5, Lu–Tsai minimal period",
+          "Barat–Grabner, Distribution of Binomial Coefficients and Digital Functions, pp. 1–2, 11–12"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Rowland arXiv:1102.1464, p. 5",
+        "Spiegelhofer–Wallner arXiv:1604.07089, §2.4",
+        "Barat–Grabner author-hosted Binomial.pdf",
+        "Resultary records 4b2115180ea3, 5aa645fd919f, 51eb70e0da22"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The present exponent equals the known finer residue period; the proof shows it does not drop even for the Boolean threshold test. Previously exact arbitrary columns in the binary framework and exact columns p^a-1 at all primes are credited."
+        ],
+        "reasoning": "Minimal period under a quotient statistic and the evaluated infinite tail over all arbitrary columns require separate evidence. The inspected results give inputs, upper bounds, or restricted cases rather than a stronger theorem of which this whole claim is a specialization.",
+        "searches": [
+          "Compare Lu–Tsai via Rowland p. 5 to capped valuations; Spiegelhofer–Wallner §2.4 and the Resultary 4b2115180ea3, 5aa645fd919f, 51eb70e0da22 statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Spiegelhofer–Wallner's rho_2(j,t) is exactly the binary fixed-column marginal after the binomial symmetry. The same-day dyadic isometric doubling record gives equality of stronger output laws for m and 2m and therefore a real binary marginal overlap."
+        ],
+        "reasoning": "The arity reduction is an affine change of argument, not a different valuation invariant. Thus fixed-column coverage is counted. The binary results do not supply arbitrary odd-prime digit laws or all-prime cap sharpness, and a shared catalogue date does not settle priority.",
+        "searches": [
+          "Fixed-column valuation density denoted rho_2(j,t), Spiegelhofer–Wallner arXiv:1604.07089 §2.4",
+          "Resultary fixed Pascal columns and fixed-shift valuation spectra: 4b2115180ea3, 5aa645fd919f, 51eb70e0da22"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prime-power Pascal record exactly covers m=p^a-1 and gives p^(a+k-1) at threshold k. The sparse-shift record gives low coefficients and a first correction at the gap, not the entire distribution."
+        ],
+        "reasoning": "These give actual exact overlaps, not merely related titles. Neither tabulates or classifies the valuations and periods for arbitrary mixed digit columns, which the reviewed transfer and sharpness lemma handle.",
+        "searches": [
+          "Resultary: complete prime-power Pascal column valuation densities and sharp periods 4b2115180ea3; first sparse-shift interaction in odd-prime binomial valuations 5aa645fd919f"
+        ]
+      },
+      "rationale": "Credit the known general binary column density framework, the complete prime-power-column case, and the precise Lu–Tsai least period for the full binomial residue. The distinct supported claim is the uniform arbitrary-digit, all-prime valuation law and sharpness for the coarser cap, with both reductions needed for the fixed-size Fuss–Catalan arity sequence. Neither the known period for the finer statistic nor the existing restricted column laws establish that combination.",
+      "residual_risks": [
+        "Classical digital-function work may contain other implicit general carry generating functions; the best-supported distinction is the combination with the exact coarser threshold period and the arity reduction.",
+        "This review does not infer historical priority from catalogue dates or establish anything about prime-free parts or joint cross-prime laws."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact least period for full residues, only an upper bound for the cap",
+          "evidence": "Minimal period M times the product, over primes dividing M, of p^floor(log_p r) for column r.",
+          "identifier_or_url": "https://arxiv.org/abs/1102.1464",
+          "material_read": "p. 5, Lu–Tsai theorem, around OA PDF offset 15964",
+          "method": "Open PDF text passage",
+          "title": "Two binomial coefficient conjectures",
+          "trigger": "Prior least period with exactly the same numerical exponent"
+        },
+        {
+          "assessment": "Covers general binary marginal densities",
+          "evidence": "Defines rho_2(j,t) as the density for a fixed t in binom(u+t,u), with coefficient formulas via P_j.",
+          "identifier_or_url": "https://arxiv.org/abs/1604.07089",
+          "material_read": "§2.4, p. 24, OA offset 64609",
+          "method": "Open PDF text passage",
+          "title": "An explicit generating function arising in counting binomial coefficients divisible by powers of primes",
+          "trigger": "Existing binary column density formulas"
+        },
+        {
+          "assessment": "Different index sampling",
+          "evidence": "The sampled counts sum over rows and varying columns rather than one fixed column.",
+          "identifier_or_url": "https://www.math.tugraz.at/~grabner/Publications/Binomial.pdf",
+          "material_read": "pp. 1–2 and 11–12, OA offsets 722 and 36727",
+          "method": "Author-hosted manuscript passages",
+          "title": "Distribution of Binomial Coefficients and Digital Functions",
+          "trigger": "Plausibly stronger general binomial valuation distributions"
+        },
+        {
+          "assessment": "Exact proper subcase",
+          "evidence": "W(N)=v_p binom(N-1,p^a-1) is the column m=p^a-1 after translation.",
+          "identifier_or_url": "Resultary:4b2115180ea3",
+          "material_read": "RESULT.md offsets 0 and 4900",
+          "method": "Published local mirror",
+          "title": "Prime-power Pascal columns: exact valuation densities and sharp threshold periods",
+          "trigger": "Both exact density and exact threshold period"
+        },
+        {
+          "assessment": "Partial coefficient overlap only",
+          "evidence": "Below-gap densities and first interaction correction at the gap, not arbitrary-column sharp periods.",
+          "identifier_or_url": "Resultary:5aa645fd919f",
+          "material_read": "RESULT.md statement, offset 0",
+          "method": "Published local mirror",
+          "title": "First-interaction law for sparse shifts in odd-prime binomial valuations",
+          "trigger": "Odd-prime fixed-shift spectra"
+        },
+        {
+          "assessment": "Binary valuation marginal overlap without the all-prime distribution or sharp cap period",
+          "evidence": "Equates the full 2-adic output laws for columns m and 2m.",
+          "identifier_or_url": "Resultary:51eb70e0da22",
+          "material_read": "RESULT.md statement, offset 0",
+          "method": "Published local mirror",
+          "title": "Dyadic isometric doubling of every fixed binomial column",
+          "trigger": "Distinct same-day fixed-column law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Fixing size and varying arity is a natural direction in the Fuss–Catalan family. The theorem gives an exact sampling modulus at every divisibility threshold and the entire distribution with the mean and tail, rather than just a parametrized congruence or an upper bound. The sharpness matters precisely because much finer residue information could in principle repeat on a longer period than divisibility.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

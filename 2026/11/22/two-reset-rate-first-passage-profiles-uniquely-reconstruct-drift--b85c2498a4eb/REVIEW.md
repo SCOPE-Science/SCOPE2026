@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stated generator convention is \(D f''+b f'\), with absorbing at zero and reflecting at \(L\). Renewal of reset cycles gives the exact mean profile \(m_r=(1-\phi_r)/(r\phi_r(x_\star))\). The positive Green-integral identity \(-p\phi_r'=r\int_x^L p\phi_r/D\) proves positive profile slopes. Strong Markov first-hitting factorization strictly orders the ratios \(\phi_r(y)/\phi_r(x)\) across reset rates, hence the logarithmic slopes and strictly positive Wronskian; Cramer's rule reconstructs the coefficients. Compactly supported perturbation shows that one rate is insufficient. The supplied numerical checker independently verifies example coefficients, Wronskian signs, and inverse normalization. No finite computation is substituted for the all-coefficient proof.
+PASS
 
-## Originality — PASS, qualified
+Under the stated C² coefficient, uniform positive diffusivity and absorbing–reflecting assumptions, renewal gives m_r=(1−φ_r)/(rφ_r(x⋆)), with φ_r the unreset hitting-time Laplace profile. The normalization is invertible: φ_r(x)=1−r m_r(x)/(1+r m_r(x⋆)). Integrating (pφ_r′)′=r(p/D)φ_r from x to L using reflection shows φ_r′<0 on x<L, hence m_r′>0. For y>x the ratio φ_r(y)/φ_r(x) is the Laplace transform of the strictly positive time to reach x from y, by path continuity and the strong Markov property. The positive integral expression for 1/H_r, where H_r=rφ_r/(−φ_r′), therefore strictly decreases with r. Subtracting the logarithmic slope equations gives W=m_1′m_2′(H_{r2}−H_{r1})/D>0 in the interior. Cramer's rule yields the stated signs and formulas; the endpoints are determined by continuity, not division at the reflector. The one-rate compactly supported perturbation of D and b is admissible in C² and keeps the same equation for m. For uniqueness of that nonlocal equation, a homogeneous difference a satisfies (r−L)a=r a(x⋆) with zero absorbing and reflecting derivative data, hence a(x)=a(x⋆)(1−φ_r(x)); evaluation at x⋆ forces a=0. Frozen CHECK.py was inspected but not executed; it uses the forward ODE to construct exact-form derivatives, not derivatives of noisy measurements. The proof, replayable from RESULT.md lines 29–95 with the uniqueness calculation above, does not depend on a numerical grid or any external certificate. W vanishes at the reflecting endpoint and no stability to discretization or noise is asserted.
 
-The initiating full primary text (Keidar–Reuveni–Sokolov, arXiv:2611.03831) concerns known constant diffusion, no resetting, and a potential inferred from a single MFPT profile. Bal–Chou (2004), whose full text was inspected, uses a complete FPT-time distribution at a fixed start, not two spatial MFPT scans. A drift-only inverse paper (Fok, 2013) was available only through bibliographic abstract. Searches for multiple Laplace hitting transforms, two resetting rates, coefficient recovery, Wronskian nonvanishing and inverse first-exit theory, including indexed result comparisons, did not identify a covering theorem. A general diffusion-inversion principle or unpublished equivalent could establish implicit prior coverage; novelty is a qualified scientific comparison, not a claimed exhaustive uniqueness certificate.
+## originality
 
-## Value — PASS
+PASS
 
-Two controllable reset-rate experiments provide an explicit and **minimal** way to identify two nonparametric spatial transport coefficients from just mean passage times. The strict denominator theorem makes this meaningful for every smooth nondegenerate drift/diffusion pair, not merely generic data, and the one-rate ambiguity proves the extra experiment carries indispensable information. This addresses model identifiability in reset-assisted search and transport. Practical finite-sample stability remains open; differentiation near the reflecting endpoint is fragile.
+Credit is limited to two known-rate resetting mean profiles (equivalently, two full spatial one-target Laplace profiles at those rates) with the specified mixed boundary conditions, pointwise strict determinant, and one-rate insufficiency. Prior two-rate identification from two absorbing-exit splitting profiles is a close but distinct observation scheme; the other source comparisons change the moment, boundary orientation, measurement geometry or unknown. No distinct source inspected establishes the assigned same-data result.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Rate variation gives a sharp experimental identifiability result with one fixed geometry and reset point: any two distinct positive controls suffice in the exact spatial regime, while one admits a local family of indistinguishable diffusions. The strictly positive determinant is substantive because a formal two-equation inverse would otherwise require a separate nondegeneracy test at every location. The result does not imply a stable numerical inverse from noisy samples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

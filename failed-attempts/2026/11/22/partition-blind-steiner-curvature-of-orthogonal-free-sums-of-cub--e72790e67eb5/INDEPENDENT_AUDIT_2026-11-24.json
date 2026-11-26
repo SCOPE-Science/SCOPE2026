@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:17:51.505655Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–86",
+        "VERIFICATION.md and verify.py inspected without execution",
+        "Compared the same Euclidean formula and ridge proof in Resultary d1d809dcc511"
+      ],
+      "rationale": "The independent block radial densities are 2^(r_i) r_i u_i^(r_i−1); their simplex integral gives the claimed V. All facet normals select one signed coordinate per block, hence have norm sqrt(m) and the origin-to-plane distance 1/sqrt(m). Pyramid decomposition proves S/V. Polar product edges vary a single factor. A nonsingleton factor has 2r_i(r_i−1) edges between distinct nonopposite axes and a singleton factor one sign-reversing edge; this gives F(r_i−1) and F/2 ridges in the two cases for block i. The corresponding normal inner products after normalization are (m−1)/m and (m−2)/m. For the ridge measure, the simplex of active radii has metric with independent axis multiplicities k_i, one each except for one doubled coordinate in the nonsingleton case, or all one after removing the vanishing singleton. Eliminating the last radius makes its Gram determinant (product k_i)(sum 1/k_i), respectively 2m−1 and m−1. The remaining box coordinates give Dirichlet exponents r_i−2 for the doubled block and r_j−1 for each other active block. Multiplying by the ridge counts yields exactly the two per-block normalized measures in the proof and the tube formula has factor one-half for the exterior sectors. This covers m=1 and agrees with C2=pi for either d=2 partition. The two bracket weights are 2g(2m) and 2g(m), with g'(u)=arcsin(1/sqrt(u))/(2sqrt(u−1))−1/(2u)>0; increasing s strictly lowers the coefficient wherever different s are feasible. The inequalities on the number of singleton blocks give the stated extremizers. The illustrative facet counts are 192 and 256.",
+      "residual_risks": [
+        "The producer's 13-case convex-hull verification is recorded, not independently replayed. The universal claims are supported by the geometric proof, not by a finite check."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sanyal–Winter establish structural/combinatorial Hanner results and recursive products/direct sums; the passages do not give the curvature formula. a2f5cc300668's positive-orthant chain polytope with all layer sizes ≥2 has the same upper-upper Gram determinant, angle and normalized ridge-area contributions. d1d809dcc511 handles the full centered signed body and all singleton counts."
+        ],
+        "reasoning": "The unsigned chain result supplies the nonsingleton ridge contribution by orthant reflection (its artificial coordinate-plane ridges are not ridges of the full body). The exact enriched result removes any need to infer all-sign or singleton coverage from that partial comparison.",
+        "searches": [
+          "Literature: Hanner polytopes Euclidean intrinsic volumes Steiner coefficients free sums products Euclidean surface area second intrinsic volume",
+          "arXiv:2308.02909 pp. 1 and 5",
+          "Resultary a2f5cc300668 and d1d809dcc511"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d1d809dcc511 and a2f5cc300668",
+        "Sanyal–Winter arXiv:2308.02909",
+        "Frozen Finding, Assumptions, Proof and Relationship to prior work"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior C2/V is d(d−1)K(m,s)/4 with K linear in s and identical bracket weights. By the half-angle identity they are 2g(2m), 2g(m); g increases on (1,infinity). With d>m, the smallest feasible s is max(0,2m−d) and the largest is m−1."
+        ],
+        "reasoning": "The strict drop and extrema are mechanically implied by comparing those known constants and counting feasible block sizes; no new geometric classification is needed. The prior main range omits one block and dimension two, whose cube and polygon formulas are standard, and d=m has only one profile.",
+        "searches": [
+          "Resultary d1d809dcc511, coefficient formulas and intrinsic-volume proof, compared to frozen lines 79–83"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "d1d809dcc511 writes both the convex hull of the coordinate cubes and the identical sum-of-block-suprema inequality for the enriched chain polytope of an ordinal sum of antichains. Each antichain lies within one block. Both use the standard coordinate metric and unscaled side-two cubes."
+        ],
+        "reasoning": "Every positive dimension profile corresponds to the antichain sizes. The coordinate sets, not just their face lattices or dimensions, are identical, so all Euclidean coefficients in the shared range must be compared directly.",
+        "searches": [
+          "Resultary: intrinsic volumes unconditional reflection chain polytope sum of block maxima singleton layers sign flip ridge angle orthogonal free sum cube crosspolytope exact second Steiner coefficient",
+          "Resultary d1d809dcc511, Finding and Assumptions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier enriched record has the exact profile-indexed formulas: F=2^m product_i r_i, F(r_i−1) ridges with angle arccos((m−1)/m), and F/2 ridges with angle arccos((m−2)/m) for a singleton. It gives both intrinsic-volume ratios, with the identical function K(m,s) in the second ratio."
+        ],
+        "reasoning": "This is not a sparse numerical hit: the same coefficient and ridge census determine every profile in the shared range, including (2,2,6) and (2,4,4).",
+        "searches": [
+          "Resultary d1d809dcc511, Finding through intrinsic-volume proof; a2f5cc300668, metrics and angles"
+        ]
+      },
+      "rationale": "Demonstrable earlier equivalent coverage, not a retrieval or proof failure. Resultary's 2026-11-17 enriched-chain-polytope record d1d809dcc511 explicitly identifies its body with the identical Euclidean coordinate set sum_i ||x^(i)||_infinity≤1 for arbitrary positive layer sizes, including singletons. It states the same volume, S/V and C2/V, and the same complete two-class ridge count, measures and angles. Relabel n=d, r=m, a_i=r_i and use S=2V_(d−1), C2=pi V_(d−2). Its nontrivial parameter range m≥2,d≥3 includes every possible variation relevant to the claimed fixed-d,m extremizers. Monotonicity and equality classes here are direct algebraic consequences of the two prior bracket weights and the elementary feasible singleton counts. The additional m=1 cube and d=2 polygon cases are classical boundary calculations, not a distinct original contribution.",
+      "residual_risks": [
+        "An earlier source than d1d809dcc511 may exist; neither historical priority beyond the inspected record nor stronger claims about general Hanner bodies are needed for the demonstrated overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive exact earlier coverage",
+          "evidence": "Identical coordinate set, volume, first and second normalized Steiner coefficients and complete per-block ridge counts, areas and angles for any layer sizes, m≥2 and d≥3. Finding notes the dimension-two convention.",
+          "identifier_or_url": "2026/11/17/SCOPE-curvature-universality-and-the-complete-ridge-spectrum-of-layere--d1d809dcc511",
+          "material_read": "Finding, Assumptions and metric/intrinsic-volume proof, offsets 0–6343 and 6270–8812",
+          "method": "Local mirror RESULT.md",
+          "title": "Curvature universality and the complete ridge spectrum of layered enriched chain polytopes",
+          "trigger": "Enriched chain polytope alias with singleton ridge-angle spectrum"
+        },
+        {
+          "assessment": "Related, partial nonsingleton coverage",
+          "evidence": "The upper-upper changing-block Gram determinant 2m−1 gives the same normalized ridge-area contribution in the restricted orthant; its other ridge classes involve coordinate-plane facets.",
+          "identifier_or_url": "2026/11/17/SCOPE-layer-size-universality-of-the-first-two-steiner-coefficients-of--a2f5cc300668",
+          "material_read": "Finding and Metric measures/Exterior angles, offsets 3449–5273 for the latter",
+          "method": "Local mirror RESULT.md",
+          "title": "Layer-size universality of the first two Steiner coefficients of layered chain polytopes",
+          "trigger": "Positive-orthant chain restriction"
+        },
+        {
+          "assessment": "Structural/combinatorial background",
+          "evidence": "Face-minimizing Hanner objects and recursive product/direct-sum structure, not an exact Euclidean tube-coefficient formula in the inspected passages.",
+          "identifier_or_url": "https://arxiv.org/pdf/2308.02909",
+          "material_read": "pp. 1 and 5, offsets 0, 3420 and 14600",
+          "method": "Primary PDF passages",
+          "title": "Kalai's 3^d conjecture for unconditional and locally anti-blocking polytopes",
+          "trigger": "General Hanner structure"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Earlier d1d809dcc511 exact Euclidean formulas and geometry",
+        "Frozen extremal block-partition calculation and two-profile example"
+      ],
+      "rationale": "The exact normalized curvature is a worthwhile invariant in itself, but the frozen finding does not newly supply it. With the exact same-family metric formula and full ridge census already available, the extra content is an immediate comparison of two scalar terms, a profile-count boundary, and classical low-dimensional or one-block cases. This does not constitute a separate useful mathematical advance over the known result.",
+      "residual_risks": [
+        "The value judgment concerns only the contribution of this frozen finding, not the mathematical utility of the earlier exact invariant."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The domain, the ordered-pair tie rule, and the proper suffix-prefix merge are fixed explicitly. An exact backward recursion on 1,309 literal-string states enumerates every legal tie path and independently checks the necessary absence of containment. A forward exact-rational transfer on 1,349 path states, justified by the published greedy endpoint lemma, agrees on the whole five-length law and independently produces the seven-cell overlap-phase signature distribution. The two scripts and replayed outputs are complete; there is no random sampling, inference from partial enumeration, or unproved all-length generalization. The eight-factor lower bound plus `0001011100` establishes optimal length ten.
+PASS
 
-## Originality: PASS against inspected evidence
+A legal transition removes two current strings and inserts their literal merge. Averaging over every maximal-overlap ordered pair, before identifying equal successor states, is the exact conditional law. The substring-free invariant also follows directly: a third string newly contained in a merge but contained in neither parent must cross the entire glued interval and extend both ways; this yields a suffix-prefix overlap with the left parent greater than the chosen maximum. Containment of the merge in a third string would imply containment of a parent. Any outgoing overlap of the merge longer than its right parent would embed that parent in the other string, and the incoming argument uses the left parent symmetrically. Shorter overlaps are endpoint overlaps and are bounded by the old maximum. Thus the maximum never exceeds the initial two and there are exactly seven merges. A separate exact forward DP on literal strings, annotating each path by its phase counts, reproduced all seven cells and the five length probabilities, normalization and mean 167269939/14968800, independently of the endpoint-index calculation. Length starts at 24 and each merge removes exactly its overlap. Eight distinct three-windows require at least ten characters; 0001011100 contains all eight. In the length-fourteen witness the first four choices have overlap two, after which only the two indicated overlap-one moves and a final overlap-zero move are needed, all legal. The exact table gives positive mass at both extremes and no length outside 10 through 14.
 
-The primary 2026 articles prove arbitrary-alphabet worst-case bounds and graph reductions, not this fixed-input random ordered-pair law. The closest public full 255-subset binary three-mer census already determines the full-set *extreme* lengths ten and fourteen, and those are explicitly excluded from the novelty claim; its published RESULT.md and `census.csv` row 255 were read. Its theorem and tables do not give the five intervening probabilities, seven merge-phase signatures, or rational mean. A previous exact random-tie calculation for a selected set of eight **four**-mers has a different input and output law; no computation for the entire binary three-mer universe was recovered in available history. No stronger result inspected implies the complete law.
+## originality
 
-## Value: PASS
+PASS
 
-The full binary three-mer universe is a canonical complete order-three de Bruijn read set for this algorithm, not an arbitrarily chosen subfamily. Exact probabilities distinguish the frequency of each approximation loss from the previously tabulated worst case and give a reproducible benchmark for randomized greedy merging. The seven phase signatures reveal that a final length of twelve can arise from two different overlap failures and that zero-overlap merging occurs in three signatures. The result is narrowly finite and does not claim a general stochastic theorem.
+The endpoints 10 and 14 are already covered for the identical input; neither is credited as new. The distinct finding is the exact distribution over all tie histories, including the seven overlap-count cells and their length probabilities. The strongest inspected prior same-input census reports only worst legal ties, and the closest same-day probabilistic result is for a different 4-mer input. The primary literature inspected provides an endpoint reduction and worst-case bounds, not the exact pushforward.
 
-## Closest sources and limitations
+## value
 
-Primary source: Chukhin et al., arXiv:2608.20018, Sections 2 and 5; related revised arXiv:2609.01365v2, Sections 2 and 5. Closest exact fixed-alphabet census: *Sharp binary three-word greedy-superstring ratio and all equality cases* (published 2026-11-08), specifically its RESULT.md and full-set census row. Limitation: the law requires uniform choice among ordered maximum-overlap pairs at *every* step; a uniform random total ordering of tied edges may give a different law. An unindexed older exact enumeration remains a historical-priority possibility; no independent audit has been carried out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete binary three-word universe is a natural fixed de Bruijn instance, not a selected collection with arbitrarily tuned tie behavior. The exact law distinguishes how often greedy is optimal from how badly it can fail and separates histories with the same output length, including length 12 with and without a zero-overlap merge. These are useful repeatable benchmarks for random tie policies that the known extrema cannot supply.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

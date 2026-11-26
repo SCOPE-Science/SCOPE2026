@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:37:11.367266Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A selected set meeting at least two parts induces a connected graph. For two parts the edge budget is (a-1)(b-1) <= 1, giving stars and K_{2,2}. For three or more parts the only allowed profile is a triangle: any repeated part creates K_{2,1,1}, and four parts create K_4. Sets in one part are independent. Heredity reduces maximality to one-vertex extensions. Triangles and squares are always maximal, a star with at least three leaves is maximal exactly when the leaf part is full, and a two-leaf star needs full parts of sizes 2 and 1. The empty set, one-part sets and two-part pairs are not maximal under r >= 3. This proves both labelled cardinality polynomials including coincident degrees and the reciprocal complement formula. Dividing the balanced coefficients by their sum gives the two stated probabilities and all missing sizes. Read RESULT.md, VERIFICATION.md and pseudoforest_verifier.py without running the uploaded program. An independently written adjacency, component and extension check in branches/d20a1e2f-cf4c-4876-9eef-80b5482632bf/independent_pseudoforest_check.py passed on 78 profiles, including K_{5,5,5}, with 15,502 feasible subsets and 3,981 maximal sets; this finite check corroborates but does not prove the theorem. No formal verification or expert attestation is asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sheng's p. 2 specializes generalized pseudoforest deletion at 1, in an algorithmic setting. The October 18 multipartite forest record explicitly gives all-forest and maximal-forest formulas, not the pseudoforest formulas."
+        ],
+        "reasoning": "Generalized deletion is relevant but the inspected bounds/definitions do not count the entire inclusion-minimal family. Forest results on the identical host class have a stricter cycle budget; in particular their maximal stars with two leaves can cease to be maximal when the cycle budget is relaxed.",
+        "searches": [
+          "arXiv:1912.06966, 1-pseudoforest",
+          "DOI:10.1137/16M1100794, Generalized Pseudoforest Deletion",
+          "Resultary: coefficientwise extremal acyclic polynomials of complete multipartite graphs"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verification package",
+        "Resultary 212d18b49a36, 661dd71f47a7, 5fb17b410e23",
+        "arXiv:1807.11518",
+        "arXiv:1912.06966",
+        "arXiv:2211.02717",
+        "DOI:10.1137/16M1100794 (access attempt)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The forest record gives the full forest count and maximal forest count from single parts and stars; it explicitly excludes triangles and 4-cycles. The disk-graph paper's target is an optimum deletion size."
+        ],
+        "reasoning": "For the same multipartite hosts the old all-forest count does supply the acyclic summand of P_G; the new difference consists of E_3 triangles and B squares. The old maximal-forest formula cannot be used as a summand unchanged: extending into a unicyclic profile removes maximality of some forests, so a separate extension analysis is required. The exact three-point spectrum and its probabilities depend on these new maximal counts.",
+        "searches": [
+          "Resultary exact mirror of 661dd71f47a7, RESULT.md offset 1800–4200",
+          "arXiv:2211.02717 p. 16"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hanaka et al. identify 1-orientable graphs with pseudoforests. Lokshtanov et al. define the deletion problem as finding a minimum-size set."
+        ],
+        "reasoning": "One must compare counting all inclusion-minimal deletions, equivalently all inclusion-maximal retained sets. Finding a minimum-size deletion set, including under the name 1-Orientable Deletion, does not give those counts at other sizes.",
+        "searches": [
+          "Resultary: complete multipartite induced pseudoforest cardinality polynomial; maximal subsets and minimal deletions",
+          "arXiv:1807.11518 and arXiv:2211.02717, Pseudoforest Deletion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary's 212d18b49a36 entry is this same finding. The distinct 5fb17b410e23 entry counts maximal induced pseudoforests of wheels. A134964 concerns unlabelled graphs, not subsets of a prescribed labelled multipartite host."
+        ],
+        "reasoning": "The identical entry supplies no independent coverage. Wheel counts cannot supply the entire multipartite family, and an isomorphism-class count does not encode part capacities, positional multiplicities or maximality inside a host.",
+        "searches": [
+          "Resultary: induced pseudoforest and minimal deletion polynomials of complete multipartite graphs",
+          "OEIS A134964 (unlabelled pseudoforests, classified by order, as cited in RESULT.md)"
+        ]
+      },
+      "rationale": "The supported distinct result is the full labelled maximal-pseudoforest enumerator (and hence the deletion enumerator and the exact tripartite size law), not the known forest polynomial or a new pseudoforest-deletion algorithm. No equivalent result was identified in the materially inspected sources.",
+      "residual_risks": [
+        "A primary literature discovery query did not return relevant results; this is not evidence of absence.",
+        "The 2018 SIAM full text was not recovered. Differently indexed exact enumerators remain possible. This is a bounded best-of-knowledge assessment, not priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Genuine overlap on the acyclic part of the all-set enumerator; not coverage of maximal pseudoforests",
+          "evidence": "Step 1 excludes triangles and four-cycles and counts stars and single parts; the maximal formula has a binom(s,2) z^2 term and stars for parts of size at least two.",
+          "identifier_or_url": "2026/10/18/SCOPE-coefficientwise-extremal-acyclic-polynomials-of-complete-multipa--661dd71f47a7",
+          "material_read": "RESULT.md, offsets 1800–4200, displayed formulas and structural proof",
+          "method": "Resultary local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Coefficientwise extremal acyclic polynomials of complete multipartite graphs",
+          "trigger": "Same graph class and both cardinality enumerators"
+        },
+        {
+          "assessment": "Definition and algorithmic context, not an exact host-family count in the inspected passage",
+          "evidence": "1-orientable graphs are exactly graphs with at most one cycle per component.",
+          "identifier_or_url": "https://arxiv.org/abs/1807.11518",
+          "material_read": "p. 2, OA offset 8505 and vicinity",
+          "method": "Primary OA text",
+          "title": "Parameterized Orientable Deletion",
+          "trigger": "Equivalent definition and deletion formulation"
+        },
+        {
+          "assessment": "More general deletion objective, not an enumeration in the passage inspected",
+          "evidence": "A pseudoforest is a 1-pseudoforest.",
+          "identifier_or_url": "https://arxiv.org/abs/1912.06966",
+          "material_read": "p. 2, OA offset 3355 and vicinity",
+          "method": "Primary OA text",
+          "title": "FPT algorithms for generalized feedback vertex set problems",
+          "trigger": "Generalized pseudoforest deletion"
+        },
+        {
+          "assessment": "Optimization rather than inclusion-minimal enumeration",
+          "evidence": "Pseudoforest Deletion asks for a minimum size set S such that G-S is a pseudoforest.",
+          "identifier_or_url": "https://arxiv.org/abs/2211.02717",
+          "material_read": "p. 16, OA offset 62854 and vicinity",
+          "method": "Primary OA text",
+          "title": "A Framework for Approximation Schemes on Disk Graphs",
+          "trigger": "Deletion formulation"
+        },
+        {
+          "assessment": "Unresolved full-text coverage, not negative evidence",
+          "evidence": "The DOI full-text attempt returned 403 and no lawful alternate copy was recovered.",
+          "identifier_or_url": "https://doi.org/10.1137/16M1100794",
+          "material_read": "Bibliographic identification only; no relevant full text obtained",
+          "method": "Lawful DOI access attempt and alternate-copy lookup",
+          "title": "Generalized Pseudoforest Deletion: Algorithms and Uniform Kernel",
+          "trigger": "Plausible additional generalized deletion coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural family admits an exact enumeration of all inclusion-minimal deletion outcomes, not just optimum size. In a connected regular vertex-transitive graph the enumerator proves an arbitrarily long gap in maximal sizes and a stark difference between a uniformly typical maximal outcome (size four) and the maximum (size m+1).",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

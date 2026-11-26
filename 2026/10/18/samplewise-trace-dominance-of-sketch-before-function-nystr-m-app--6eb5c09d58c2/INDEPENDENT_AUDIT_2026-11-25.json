@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:19:57.598783Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, equations (3)–(8) and two-dimensional witness, lines 29–95",
+        "Frozen VERIFICATION.md and verify.py inspected without execution; exact two-dimensional witness rederived"
+      ],
+      "rationale": "The pseudoinverse formula gives N_G(X)=X^(1/2)P_X X^(1/2) between 0 and X. The function vanishes at zero, so one can take its trace on the compression to the range of A^(1/2)G; compression Jensen gives the lower bound tr(P_A f(A)). For the remaining comparison, restrict to the common support of A and f(A) and choose a fixed full-column-rank basis for the projected sketch range. Along the positive diagonal interpolation D_t, the evolving basis Y satisfies Y'=H_tY. Differentiating P_tY=Y and P_t²=P_t gives the two off-diagonal blocks of P_t′ in (7). Since (P_t)_ii=∑_j |(P_t)_ij|², symmetrizing produces exactly the covariance sum (8). Each product is nonnegative by monotonicity of f and monotonicity of λ/f(λ) from scalar concavity and f(0)=0. Integrating proves the stated orientation. The empty support or projected sketch gives zero on both sides; rank deficiencies otherwise are handled by the same range argument. Both residuals are PSD, making the nuclear equivalence exact. In the two-dimensional witness the trace comparison squares to 153>125 and the determinant of the difference of the two scaled rank-one outer products is −4/(15√(17/5)), excluding Loewner dominance.",
+      "residual_risks": [
+        "The reported 38,400 checks include path-derivative evaluations and are not 38,400 independent draws. Positive spectra, random sketches, selected functions and path points do not test every hypothesis; the proof supplies the all-rank and boundary cases. No claim of a full numerical rerun or formal verification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.1 of Persson–Meyer–Musco assumes a PSD near-optimal input approximant and compares best-rank residuals, not two simultaneous Nyström approximants.",
+          "47ebac6f3ff1 allows q>1 and reverse comparison for p>1, but its functions are powers, and for q>1 the effective standard sketches depend on the input."
+        ],
+        "reasoning": "Neither broader feature subsumes the shared-G theorem for arbitrary operator-monotone f. The distinctions involve the type of baseline, the hypothesis, and the effective sketch.",
+        "searches": [
+          "arXiv:2311.14023 Theorem 1.1",
+          "Resultary 47ebac6f3ff1 generalized Ritz value and spectral moment proof"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2209.11023, 2311.14023",
+        "Local Resultary 47ebac6f3ff1, 9bb62c848ba0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed Ritz argument uses g_w(t)=log(wᵀA^t w) and compares g_w′(pt) to g_w′(t), yielding R_p(v)≤R_1(v)^p. It has no corresponding statement for a general f.",
+          "An expected bound against a best-rank tail and empirical curve dominance do not compare each realized pair of approximations."
+        ],
+        "reasoning": "There is no direct passage from inequalities for single powers to log, ridge or an arbitrary operator-monotone function: Nyström is nonlinear in its input, and the power proof uses a rescaling of moment exponents. The reweighting via monotonic λ/f(λ), together with compression Jensen, is additional reasoning for the stated class.",
+        "searches": [
+          "Resultary 47ebac6f3ff1 Proof §§1–3, offset 2569",
+          "arXiv:2311.14023 Theorem 1.1",
+          "arXiv:2209.11023 §4.3 and Theorem 3.9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "PSD residuals make the trace and nuclear-error comparisons equivalent. Section 4.3 of Persson–Kressner compares the algorithms empirically; Theorem 3.9 is an expected error bound.",
+          "At q=1, 47ebac6f3ff1 gives the same trace/nuclear result for f(x)=x^p by summing ordered eigenvalue inequalities."
+        ],
+        "reasoning": "For the fractional powers, support restriction and replacing the projected sketch by a basis also transfers that result to the semidefinite and rank-deficient setting. The equivalence does not extend its function class.",
+        "searches": [
+          "Resultary funNyström standard Nyström same-sketch spectral/trace dominance",
+          "arXiv:2209.11023 §§3, 4.3",
+          "Resultary 47ebac6f3ff1 Finding and Proof §§1–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "47ebac6f3ff1 is an exact overlap on the fractional-power subfamily. 9bb62c848ba0 concerns a one-column Gaussian trace-error crossover relative to the optimal rank-one error, not a same-sketch reference approximant."
+        ],
+        "reasoning": "This universal inequality is not a tabulated instance value. The indexed exact power-case theorem was credited; no full function-class equivalent was found in the inspected records.",
+        "searches": [
+          "Local Resultary 9bb62c848ba0 and 47ebac6f3ff1",
+          "Primary literature lookup for deterministic/samplewise funNyström comparison"
+        ]
+      },
+      "rationale": "The supported distinction is all continuous nonnegative operator-monotone functions for the shared standard Nyström sketch, including log and ridge kernels, and the ordered projector reweighting behind it. The closest indexed record gives the same comparison at q=1, and a stronger eigenvalue comparison, for fractional powers; this subfamily is not distinct from that result. Neither that statement and its power-specific argument nor the inspected primary papers imply the full function-class result as stated.",
+      "residual_risks": [
+        "Search is nonexhaustive, especially for ordered Ritz/projector monotonicity under other terminology. Direct overlap in the power case is material, irrespective of record dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same motivating question; no fixed-G universal inequality in inspected comparison.",
+          "evidence": "Gaussian bounds are in expectation; 'never worse' in §4.3 refers to the plotted experiments.",
+          "identifier_or_url": "https://arxiv.org/pdf/2209.11023",
+          "material_read": "Eq. (3) and Algorithm 1 (pp. 5–6), Theorem 3.9 (p. 13), §§4.2–4.3 and Fig. 2 (pp. 18–19, 21)",
+          "method": "OA primary PDF passages",
+          "title": "Randomized Low-Rank Approximation of Monotone Matrix Functions",
+          "trigger": "Introduces and compares the same two algorithmic orders"
+        },
+        {
+          "assessment": "Different near-optimality premise and comparator.",
+          "evidence": "Transfers a (1+ε) nuclear-error factor relative to best-rank tails; does not couple two outputs by their common sketch.",
+          "identifier_or_url": "https://arxiv.org/pdf/2311.14023",
+          "material_read": "Theorem 1.1, p. 4, offset 13182",
+          "method": "OA primary PDF passage",
+          "title": "Algorithm-Agnostic Low-Rank Approximation of Operator Monotone Matrix Functions",
+          "trigger": "General operator-monotone low-rank preservation theorem"
+        },
+        {
+          "assessment": "Direct same-map overlap and stronger spectral conclusion for powers at q=1; not all f. The date tag alone does not determine priority.",
+          "evidence": "Generalized pencil eigenvalues; log-convexity of spectral moments; trace follows by summation for 0<p<1.",
+          "identifier_or_url": "2026/10/26/SCOPE-deterministic-spectral-dominance-of-funnystr-m-for-fractional-ma--47ebac6f3ff1",
+          "material_read": "Finding, offset 0; Proof §§1–3, offset 2569",
+          "method": "Local Resultary mirror",
+          "title": "Deterministic spectral dominance of funNyström for fractional matrix powers",
+          "trigger": "Direct deterministic output and residual comparison"
+        },
+        {
+          "assessment": "Different comparison, dimension and probabilistic scope.",
+          "evidence": "For diag(κ,1), compares asymptotic expected residual of one Gaussian sketch column with the optimal rank-one residual.",
+          "identifier_or_url": "2026/10/13/SCOPE-one-column-funnystr-m-has-a-sharp-gaussian-trace-error-crossover--9bb62c848ba0",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "One-column funNyström has a sharp Gaussian trace-error crossover under power iteration",
+          "trigger": "Power functions and funNyström trace error"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md equations (1), (2), (8) and the non-order witness",
+        "Persson–Kressner §4.3",
+        "Resultary 47ebac6f3ff1"
+      ],
+      "rationale": "When the same fixed sketch is available for both orders, the theorem answers which order gives smaller nuclear error for every realized sketch, rather than which has a better tail estimate in expectation. The ordered reweighting lemma explains the comparison and extends beyond the fractional powers to practically relevant log and ridge functions. The explicit indefinite difference marks a meaningful limit of the guarantee.",
+      "residual_risks": [
+        "No conclusion about independent sketches, other residual norms, separately truncated approximants, or finite-precision performance."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

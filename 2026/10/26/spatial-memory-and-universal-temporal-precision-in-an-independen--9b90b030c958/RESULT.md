@@ -1,114 +1,65 @@
-# Spatial memory and universal temporal precision in an independently reset Brownian gas
+# Quenched time-average noise and its exact phase spread in a reset Brownian gas
 
 ## Finding
-For a stationary gas of independent Brownian particles that each reset to their own fixed spatial anchor, the long-time variance of the **time-averaged number of particles crossing a fixed boundary** splits exactly into an anchor-geometry contribution and a universal temporal-noise correction. This universality holds for *every* stationary point-process distribution of the anchors of fixed positive intensity, subject to a stated second-moment condition; the correction does not depend on pair correlations of the anchors.
 
-Put \(\alpha=\sqrt{r/D}\). If \(\mathcal A\) is the random locally finite set of positive anchor distances, of intensity \(\rho>0\), write
+Place independent Brownian particles at fixed reset anchors \(-x\) with positive distances \(x\in\mathcal A\), diffusivity \(D>0\) and individual Poisson reset rate \(r>0\). Initialize each displacement in its own stationary law. Let \(Q_t\) count the particles on the positive half-line, not their crossing events, and let \(\overline Q_T=T^{-1}\int_0^TQ_t\,dt\). Write \(\alpha=\sqrt{r/D}\) and assume \(m(\mathcal A)=\frac12\sum_{x\in\mathcal A}e^{-\alpha x}<\infty\). The exact configuration-dependent coefficient of the quenched variance is
 \[
- m(\mathcal A)=\frac12\sum_{x\in\mathcal A}e^{-\alpha x},\qquad
- \overline Q_T=\frac1T\int_0^TQ_t\,dt.
+B(\mathcal A)=\lim_{T\to\infty}T\,\operatorname{Var}(\overline Q_T\mid\mathcal A)
+=\frac1{4r}\sum_{x\in\mathcal A}\left[3e^{-\alpha x}-(\alpha x+2)e^{-2\alpha x}\right].
 \]
-Here \(Q_t\) counts the particles with positive physical position at time \(t\). Provided \(\operatorname{Var}(m(\mathcal A))<\infty\), as \(T\to\infty\),
-\[
- \boxed{\operatorname{Var}(\overline Q_T)=\operatorname{Var}(m(\mathcal A))+
- \frac{7\rho}{16r\alpha\,T}+O(T^{-2}).}
-\]
-The remainder constant may depend on the model parameters but *not* on additional anchor correlations.
+The error in replacing \(\operatorname{Var}(\overline Q_T\mid\mathcal A)\) by \(B(\mathcal A)/T\) is nonnegative in the latter minus the former direction and is at most \(2m(\mathcal A)/(r^2T^2)\).
 
-Two exact spatial ensembles illustrate the distinction. For Poisson anchors of intensity \(\rho\),
+For a shifted lattice \(\mathcal A_u=\{(j+u)/\rho:j=0,1,\ldots\}\), \(0<u<1\), set \(\beta=\alpha/\rho\) and \(q=e^{-\beta}\). Its quenched coefficient is the strictly decreasing function
 \[
- \operatorname{Var}(m)=\frac{\rho}{8\alpha}.
+B_\beta(u)=\frac1{4r}\left[\frac{3e^{-\beta u}}{1-q}
+-e^{-2\beta u}\left(\frac{\beta u+2}{1-q^2}+\frac{\beta q^2}{(1-q^2)^2}\right)\right].
 \]
-For a uniformly phase-shifted lattice \(\mathcal A=\{(n+U)/\rho:n=0,1,2,\ldots\}\), with \(U\) uniform on \([0,1)\), set \(\beta=\alpha/\rho\). Then
-\[
- \boxed{\operatorname{Var}(m)=\frac{\coth(\beta/2)}{8\beta}-\frac1{4\beta^2},\quad
- 0<\operatorname{Var}(m)<\frac1{8\beta}.}
-\]
-The lattice-to-Poisson ratio is \(\coth(\beta/2)-2/\beta\), strictly between zero and one. It tends to zero as \(\beta\downarrow0\), even though *both* spatial ensembles have the same first time-decaying term \(7/(16r\beta T)\). Remarkably, the lattice plateau tends to \(1/48\) in the dense-anchor limit while the Poisson plateau diverges like \(1/(8\beta)\).
+Its phase spread is exactly \(B_\beta(0^+)-B_\beta(1^-)=1/(4r)\), independent of density and diffusivity. If the phase is uniform, the mean coefficient is \(7/(16r\beta)\), the same as for Poisson anchors at the same intensity. Thus even when the annealed temporal correction agrees, its fixed-configuration coefficients can vary with the lattice phase by a known, nonzero amount.
 
 ## Assumptions and scope
-Let \(D,r,\rho>0\). Take a stationary locally finite simple point process on the real line of intensity \(\rho\), and retain its atoms strictly to the left of the origin; write their positive distances as \(\mathcal A\). Independently for each anchor \(-x\), define a Brownian displacement \(Y^{(x)}\) with generator \(D\partial_y^2\) and independent Poisson resetting to displacement zero at rate \(r\). At observation time zero, initialize each displacement independently from its unique stationary density \(\pi(y)=\alpha e^{-\alpha |y|}/2\), conditional on the anchors. The anchor configuration remains fixed throughout the observation. This is **individual** resetting, not simultaneous resetting of all particles.
 
-Define \(Q_t=\sum_{x\in\mathcal A}\mathbf1_{\{Y_t^{(x)}>x\}}\), counting the particles on the positive half-line. Campbell's theorem gives \(\mathbb E Q_t=\rho/(2\alpha)<\infty\), so the count is almost surely finite at each fixed time and its time integral is defined by monotone approximation. Assume additionally that \(m(\mathcal A)\) has finite second moment. Both examples satisfy this assumption. The stationary step profile is defined by fixed anchors plus stationary displacements; it is not a statement about irreversible first-passage counts.
+The anchor set is locally finite and deterministic for the quenched assertion. Displacements conditional on the anchors are independent stationary Markov processes with generator of free motion \(D\partial_y^2\) and resetting to zero in displacement coordinates. The anchors remain fixed throughout the observation; clocks are independent, not shared. Observables are time averages of occupation indicators. For an annealed comparison the anchor set is the negative half of a stationary simple process on the line, reflected to positive distances, and \(m(\mathcal A)\) must have finite second moment. Lattice endpoint phases in the spread are one-sided limits, not a convention about counting an anchor exactly on the boundary.
 
 ## Proof
-**1. Static decomposition.** For an anchored particle at distance \(x>0\), stationarity gives
+
+**Local Green–Kubo kernel.** The stationary displacement law \(\pi\) has density \(\alpha e^{-\alpha|y|}/2\), obtained by observing Brownian motion at independent age exponential of rate \(r\). Set \(f_x(y)=\mathbf1_{\{y>x\}}\) and \(p_x=\pi(f_x)=e^{-\alpha x}/2\). Let \(P_s^0\) be the free Brownian semigroup. Conditioning on whether a reset occurs between zero and \(s\) gives the stationary covariance
 \[
- p_x=\Pr(Y>x)=\tfrac12e^{-\alpha x}.
+c_x(s)=e^{-rs}\operatorname{Cov}_\pi(f_x(Y),P_s^0f_x(Y)),\qquad Y\sim\pi;
 \]
-Conditional on \(\mathcal A\), all displacement processes are independent and stationary; their conditional mean count is \(m(\mathcal A)=\sum_xp_x\). Consequently the law of total variance is the exact identity
+on the event of a reset, the conditional expectation of the final indicator is independent of \(Y\). Both functions in the remaining covariance are increasing, so \(0\le c_x(s)\le p_x e^{-rs}\).
+
+The operator \(r\int_0^\infty e^{-rs}P_s^0\,ds\) adds an independent Laplace displacement of rate \(\alpha\). Applied to \(f_x\), it gives the function \(H_x(y)=\frac12e^{-\alpha(x-y)}\) for \(y\le x\), and \(H_x(y)=1-\frac12e^{-\alpha(y-x)}\) for \(y>x\). Integration against \(\pi\) on \((x,\infty)\) gives \(\mathbb E[f_x(Y)H_x(Y)]=3e^{-\alpha x}/8\). On the three regions \((-\infty,0)\), \((0,x)\) and \((x,\infty)\), respectively, the contributions to \(\mathbb E H_x(Y)\) are \(e^{-\alpha x}/8\), \(\alpha x e^{-\alpha x}/4\) and \(3e^{-\alpha x}/8\). Thus
 \[
- \operatorname{Var}(\overline Q_T)=\operatorname{Var}(m(\mathcal A))+
- \mathbb E_{\mathcal A}\bigl[\operatorname{Var}(\overline Q_T\mid\mathcal A)\bigr].
+2\int_0^\infty c_x(s)\,ds
+=\frac{2}{r}\left[\frac{3e^{-\alpha x}}8-p_x\frac{(\alpha x+2)e^{-\alpha x}}4\right]
+=\frac{3e^{-\alpha x}-(\alpha x+2)e^{-2\alpha x}}{4r}.
 \]
 
-**2. Stationary single-anchor temporal covariance.** Put \(f_x(y)=\mathbf1_{\{y>x\}}\), and let \(P_s^{\rm free}\) be the Brownian semigroup with variance \(2Ds\). The reset semigroup has the representation
+**Conditional variance and remainder.** Conditional on \(\mathcal A\), the counts are square integrable because the second moment is at most \(m^2+m\), and their lag covariance is \(C_{\mathcal A}(s)=\sum_x c_x(s)\). Truncation to finite subsets followed by convergence in conditional \(L^2\) gives this identity for the full count. The covariance bound gives \(0\le C_{\mathcal A}(s)\le m e^{-rs}\). Conditional stationarity and integration on the observation square give
 \[
- P_s f_x(y)=e^{-rs}P_s^{\rm free}f_x(y)
- +r\int_0^s e^{-ru}P_u^{\rm free}f_x(0)\,du.
+\operatorname{Var}(\overline Q_T\mid\mathcal A)=\frac2T\int_0^\infty(1-s/T)_+ C_{\mathcal A}(s)\,ds.
 \]
-The second term is independent of \(y\). Therefore for stationary \(Y_0\sim\pi\),
-\[
- c_x(s)=\operatorname{Cov}(f_x(Y_0),f_x(Y_s))
- =e^{-rs}\operatorname{Cov}_{\pi}
- \bigl(f_x(Y_0),P_s^{\rm free}f_x(Y_0)\bigr).
-\]
-Because both functions inside this last covariance are increasing functions of the same real random variable, the covariance is nonnegative; moreover \(0\le c_x(s)\le e^{-rs}p_x\). This bound proves absolute integrability and allows all subsequent Tonelli/Fubini operations.
+The coefficient \(B=2\int_0^\infty C_{\mathcal A}(s)\,ds\) follows by substitution and summation. Since \(0\le1-(1-s/T)_+\le s/T\), the difference from \(B/T\) is bounded by \(2mT^{-2}\int_0^\infty s e^{-rs}ds=2m/(r^2T^2)\).
 
-**3. Exact Green--Kubo kernel.** The Brownian resolvent \(r\int_0^\infty e^{-rs}P_s^{\rm free}\,ds\) is convolution with a symmetric Laplace random variable \(Z\) having density \(\alpha e^{-\alpha|z|}/2\). Hence
+**Phase profile.** Substitute \(\alpha x=\beta(j+u)\) into the sum for \(B\). The geometric sums with ratios \(q,q^2\) and the first geometric moment with ratio \(q^2\) give the displayed \(B_\beta(u)\). With \(v=\alpha x\), the derivative of the summand before multiplication by \(1/(4r)\) is
 \[
- \int_0^\infty c_x(s)\,ds
- =\frac1r\left[\Pr(Y>x,Y+Z>x)-p_x\Pr(Y+Z>x)\right],
+\frac{d}{dv}\left[3e^{-v}-(v+2)e^{-2v}\right]=e^{-2v}(2v+3-3e^v)<0\quad(v>0).
 \]
-where \(Y,Z\) are independent centered Laplace variables of rate \(\alpha\). Elementary integration gives, for all \(x\ge0\),
+Each term decreases strictly with phase; convergence is uniform for \(u\in[0,1]\), so the limits exist. The endpoint configurations differ by precisely the limiting \(j=0\) summand with \(v=0\); the remaining terms cancel after shifting the index. Consequently the spread is \((3-2)/(4r)\). Uniform phase yields the mean by combining the adjacent unit intervals in the sum, or by Campbell's identity at intensity \(\rho\):
 \[
- \Pr(Y>x,Y+Z>x)=\frac38e^{-\alpha x},\qquad
- \Pr(Y+Z>x)=\frac14(\alpha x+2)e^{-\alpha x}.
-\]
-Thus
-\[
- K_x:=\int_0^\infty c_x(s)\,ds
- =\frac{3e^{-\alpha x}-(\alpha x+2)e^{-2\alpha x}}{8r}.
-\]
-This integrand is nonnegative: it is the integral of a nonnegative covariance. Its exact spatial integral is
-\[
- \int_0^\infty K_x\,dx
- =\frac1{8r\alpha}\left(3-\frac14-1\right)
- =\frac7{32r\alpha}.
+\mathbb E B_\beta(U)=\frac1{4r\beta}\int_0^\infty[3e^{-v}-(v+2)e^{-2v}]\,dv=\frac{7}{16r\beta}.
 \]
 
-**4. Universality and rate.** Conditional independence implies the conditional count covariance is \(\sum_{x\in\mathcal A}c_x(s)\). The Campbell intensity formula, independent of all higher anchor correlations, gives
-\[
- \mathbb E_{\mathcal A}\sum_{x\in\mathcal A}K_x
- =\rho\int_0^\infty K_x\,dx=\frac{7\rho}{32r\alpha}.
-\]
-For each stationary count process, the integrated time-average covariance identity gives
-\[
- \mathbb E_{\mathcal A}\operatorname{Var}(\overline Q_T\mid\mathcal A)
- =\frac2{T^2}\int_0^T(T-s)\,
- \mathbb E_{\mathcal A}\sum_{x\in\mathcal A}c_x(s)\,ds.
-\]
-The bound \(c_x(s)\le p_xe^{-rs}\) also controls the error from replacing the finite-lag integral by the infinite integral: the weighted first lag moment is bounded by \(\rho/(2\alpha r^2)\), and the tail is exponentially small. The expansion follows with \(O(T^{-2})\) remainder and the stated coefficient.
+## Annealed comparison
 
-**5. Exact spatial plateaus.** For Poisson anchors, the Poisson stochastic-integral variance is \(\rho\int_0^\infty p_x^2dx=\rho/(8\alpha)\). For shifted-lattice anchors, conditional on the uniform phase \(U\),
-\[
- m(U)=\frac{e^{-\beta U}}{2(1-e^{-\beta})},\quad
- \mathbb E_U m=\frac1{2\beta},\quad
- \mathbb E_U m^2=\frac{\coth(\beta/2)}{8\beta}.
-\]
-Subtracting the square of the mean gives the formula. The strict upper comparison follows from \(\coth(\beta/2)<1+2/\beta\) for positive \(\beta\), equivalently \(2/(e^\beta-1)<2/\beta\). The small-\(\beta\) expansion \(\coth(\beta/2)=2/\beta+\beta/6+O(\beta^3)\) gives the finite \(1/48\) limit. This completes the proof.
+For any stationary anchor ensemble in the stated scope, the law of total variance adds \(\operatorname{Var}(m(\mathcal A))\) to the average conditional variance. Campbell's first-moment identity gives \(\mathbb E B=7\rho/(16r\alpha)\), independently of correlations, and the averaged error bound is \(\rho/(\alpha r^2T^2)\). This universal annealed coefficient is included for context, not as a distinct contribution over the fixed-rate spatially integrated covariance calculation in [1]. The spatial plateau for Poisson anchors is \(\rho/(8\alpha)\) by the Poisson integral variance. For the shifted lattice, \(m(U)=e^{-\beta U}/[2(1-e^{-\beta})]\), giving the plateau \(\coth(\beta/2)/(8\beta)-1/(4\beta^2)\) by integration in the uniform phase. It tends to \(1/48\) as \(\beta\downarrow0\). The quenched coefficient and phase spread describe fluctuations conditional on geometry, not this static plateau.
 
-## Verification
-The standalone Python standard-library checker `check_hyperuniform.py` checks the exact rational Green--Kubo prefactor, independently integrates the single-anchor kernel for three parameter choices, quadratures the lattice phase variance for seven spacings, validates the strict plateau comparison, tests the Laplace-convolution probabilities by independently seeded Monte Carlo, and checks the dense-spacing limit. It prints 25 passing assertions and exact rational coefficients. Its finite numerical checks are supplemental; the infinite-particle claim is established by the preceding analytic proof.
+## Relationship to prior work and limitations
 
-## Relationship to prior work
-Di Bello, Hartmann, Majumdar, Mori, Rosso and Schehr [1] study independent Brownian or run-and-tumble particles reset to their individual anchors, with uniformly random/Poisson-limit step-profile initial positions. They calculate **single-observation-time** current distributions, annealed and quenched, and flag spatially correlated initial conditions as a research direction. Those one-time current laws are not presented here as new.
+[1] *Rate-disorder transition in stationary Brownian reset current fluctuations*, https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-rate-disorder-transition-in-stationary-brownian-reset-current-fl--211aa471cfd1/RESULT.md, Proof §§1–4. Its two-time covariance representation contains the same single-anchor integrand. It evaluates the spatially integrated kernel, then integrates in time for the integrable disorder regime. The fixed-rate spatial mean coefficient agrees algebraically. This provides no phase-resolved formula from the spatial average alone; the local Laplace evaluation above supplies that information.
 
-Banerjee, Jack and Cates [2] develop a general spatial-initial-condition variance decomposition and hyperuniform examples for **unreset diffusion**. In fact, the static/initial-geometry decomposition in the present argument follows their general principle and is not independently claimed as novel. The distinct result is its combination with a separately evaluated **stationary-resetting temporal Green--Kubo coefficient**, universal across spatially correlated anchor ensembles, and the resulting exact two-ensemble long-time *time-average* comparison. Formulae for the Poisson-only setting or single-time spatial plateaus alone are not claimed to be new.
+[2] C. Di Bello et al., *Current fluctuations in stochastically resetting particle systems*, arXiv:2302.06696. The defined half-line count agrees with their one-time current observable for a step initial condition; the present calculation concerns time-average variance at stationary displacement.
 
-## Limitations
-The \(T\to\infty\) expansion concerns variance over both the fixed random anchors and the independent particle trajectories, with displacements already stationary at time zero. The positive static plateau is retained in this annealed variance; conditional (fixed-anchor) time-average variance instead decays as \(1/T\). The theorem does not prove an analogous coefficient for interacting gases, simultaneous group resetting, non-Poisson resetting clocks, or nonlinear observables. More general renewal and covariance-decomposition theories may admit an equivalent specialization; a comprehensive independent literature-priority assessment has not been performed. The dense-anchor limit is taken after the time-average asymptotic, without claiming a uniform interchange of limits.
+[3] F. den Hollander et al., *Large deviations for occupation and waiting times of Brownian motion with resetting*, arXiv:1801.09909. The general renewal transform applies broadly to additive functionals; their explicitly treated positive occupation time has the threshold at the reset point. The phase profile uses nonzero thresholds determining the individual anchor contributions.
 
-## References
-1. C. Di Bello, A. K. Hartmann, S. N. Majumdar, F. Mori, A. Rosso, and G. Schehr, "Current fluctuations in stochastically resetting particle systems", arXiv:2302.06696 (first version February 13, 2023), https://arxiv.org/abs/2302.06696 .
-2. T. Banerjee, R. L. Jack, and M. E. Cates, "Role of initial conditions in 1D diffusive systems: compressibility, hyperuniformity and long-term memory", arXiv:2206.08739 (first version June 17, 2022), https://arxiv.org/html/2206.08739v2 .
+The formulas are restricted to independent resetting and stationary initial displacements. The uniform-phase mean does not describe every fixed phase. No interchange of a dense-anchor limit and the time-average asymptotic is asserted. The exact local and lattice results are analytic; finite checks only corroborate the algebra.

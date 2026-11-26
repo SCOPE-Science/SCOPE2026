@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:04:54.495307Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–63; VERIFICATION.md; verify_direct.py; verify_structural.py",
+        "Bounded independent replay: /workspace/branches/023b7bd3-e014-4ecf-8563-a307ebc026e2/direct_reduction_check.py"
+      ],
+      "rationale": "For an ideal (S,T), the minimal excluded elements are precisely the vertices outside S and the edges of E(S) outside T. Over a triple fixed by rho cubed each vertex is absent at most once. On each edge, t_(i+1)=a_i-t_i, where a_i indicates that both endpoints belong to S_i. Thus 2t_0=a_0+a_2-a_1, excluding odd weight of (a_0,a_1,a_2). This excludes edges within the always-present vertex set X and edges between distinct missing-time classes. For an edge of class j (both endpoints in X union Y_j, not both in X), the unique edge state is at j+2 modulo three. Consequently every always-present vertex must be supplied by newly selected edges from each class in turn, exactly the three-neighbour-colour condition. Conversely S_i=V minus Y_i and T_i=E(G[X union Y_(i+1)]) give E(S_i)=T_i disjoint union T_(i+1); the endpoints of T_(i+1) are exactly X union Y_(i+2), by the neighbour condition and absence of isolated vertices. This recovers both parts of rowmotion. No ideal is fixed (a proper ideal acquires a minimal omitted element, and the full ideal goes to the empty ideal). The cyclic action on colourings is free since V minus X is nonempty. In a biclique a nonempty admissible X must be a whole shore (otherwise G-X is connected), leaving the surjection count 3^t-3*2^t+3 on the other shore; for maximum degree at most two no nonempty X is admissible. A fresh minimal-complement versus component-colouring enumeration compared orbit sets and all three reconstructed transitions on all 43 connected labelled graphs of orders two through four; this is corroboration only. The frozen 771-graph and other reported tests were not replayed.",
+      "residual_risks": [
+        "The independent test is bounded to graphs of orders two through four; the theorem for larger graphs follows from the proof, not from the test. No formal verification is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first two inspected passages establish general actions, not a criterion for their period-three states on graph incidence posets. Rowmotion on fences concerns a path-shaped poset family, not arbitrary incidence graphs."
+        ],
+        "reasoning": "Knowing the action exists or is a product of toggles does not solve its fixed-by-third-iterate constraint; the edge parity and converse construction are substantive extra steps.",
+        "searches": [
+          "Striker–Williams, arXiv:1108.1172, ordinary order-ideal rowmotion",
+          "Striker, arXiv:1601.03710, generalized toggle groups",
+          "Elizalde et al., DOI 10.5802/alco.256"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, lines 65–74",
+        "Resultary 59671d53d950, bf8f95bb5e4d and 6803de11ff95",
+        "arXiv:1108.1172; arXiv:1601.03710; DOI 10.5802/alco.256"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At a=1 and a=2 the frozen biclique expression reduces to the same 3^(b-1)-2^b+2. A whole-shore count does not show that arbitrary missing-time classes are unions of components or that every admissible colouring yields an orbit."
+        ],
+        "reasoning": "The special-family conclusions do not imply the asserted general bijection. The proof must both extract the three-colour neighbour constraint and recover the ideals; neither direction follows by a parameter substitution into those counts.",
+        "searches": [
+          "Resultary 59671d53d950 and bf8f95bb5e4d compared against frozen lines 34–56",
+          "arXiv:1108.1172 ordinary rowmotion definition versus period-three reconstruction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier incidence K_(2,b) census gives the same value for c3, but on a fixed two-row family. Striker's generalized toggles include independent sets, a different state space and action from ordinary rowmotion on graph-incidence lower ideals."
+        ],
+        "reasoning": "An equivalent formulation must reproduce all admissible missing-time vertex classes (or their orbit data) for arbitrary connected simple graphs. Numeric equality on a fixed family and the existence of an independent-set toggle action do not identify these classes.",
+        "searches": [
+          "Resultary graph-incidence rowmotion period-three / complete-bipartite and star cycle census",
+          "arXiv:1108.1172",
+          "arXiv:1601.03710"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Finding of 59671d53d950 has c3(K_(2,b))=3^(b-1)-2^b+2 for b>=2. The distinct same-day Finding bf8f95bb5e4d has the same value for b>=1; calendar date does not determine priority. The 6803de11ff95 catalogue entry also gives the same star count as the frozen formula at a=1, but its original passage was not retrieved."
+        ],
+        "reasoning": "These are real numerical overlaps (star evidence at catalogue level only), not an exact database entry for the arbitrary-graph theorem or a census on all K_(a,b).",
+        "searches": [
+          "Resultary: 59671d53d950, bf8f95bb5e4d, 6803de11ff95"
+        ]
+      },
+      "rationale": "Credit is for the general graph-incidence classification and reduction, not the rowmotion definition or the already covered K_(2,b) and apparently also star specializations. No inspected passage states or yields the graph-wide independent-cut, three-neighbour-colour criterion. This is a best-of-knowledge judgment, not a priority certificate.",
+      "residual_risks": [
+        "An older equivalent period-three classification in incidence-poset or hypergraph terminology was not ruled out. A focused lookup was unavailable, which supplies no negative evidence.",
+        "The original star-census passage and the unnamed earlier period-two comparison could not be verified; neither is credited as evidence of newness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the K_(2,b) count, not arbitrary graphs",
+          "evidence": "c3(b)=3^(b-1)-2^b+2, b>=2",
+          "identifier_or_url": "Resultary 59671d53d950",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary local search and mirrored source",
+          "title": "Uniform order 24 and exact cycle census for rowmotion on complete bipartite incidence posets",
+          "trigger": "Exact K_(2,b) overlap"
+        },
+        {
+          "assessment": "Same special-case count; no order of priority inferred",
+          "evidence": "c3(b)=3^(b-1)-2^b+2, b>=1",
+          "identifier_or_url": "Resultary bf8f95bb5e4d",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary local search and mirrored source",
+          "title": "Order twenty-four rowmotion on complete bipartite incidence posets",
+          "trigger": "Distinct indexed record on the same UTC date"
+        },
+        {
+          "assessment": "Reported overlap on K_(1,b) only; original passage unverified",
+          "evidence": "Summary gives 1+(3^b-3*2^b+3)/3",
+          "identifier_or_url": "Resultary 6803de11ff95",
+          "material_read": "Catalogue summary only; original passage timed out",
+          "method": "Resultary local search and attempted mirror retrieval",
+          "title": "Complete rowmotion cycle profile for star incidence posets",
+          "trigger": "Star specialization"
+        },
+        {
+          "assessment": "Establishes the action being studied; no coverage inferred from the inspected general statements",
+          "evidence": "Order-ideal rowmotion",
+          "identifier_or_url": "https://arxiv.org/abs/1108.1172",
+          "material_read": "Abstract and definition at offset 0",
+          "method": "OA passage inspection",
+          "title": "Promotion and Rowmotion",
+          "trigger": "Foundational definition and possible general coverage"
+        },
+        {
+          "assessment": "The inspected generalized independent-set action is different",
+          "evidence": "Graph independent sets are themselves the toggled states",
+          "identifier_or_url": "https://arxiv.org/abs/1601.03710",
+          "material_read": "Abstract at offset 0",
+          "method": "OA passage inspection",
+          "title": "Rowmotion and generalized toggle groups",
+          "trigger": "Possible independent-set equivalence"
+        },
+        {
+          "assessment": "Family-specific scope; no general claim inferred from abstract",
+          "evidence": "Fence-poset orbit statistics",
+          "identifier_or_url": "https://doi.org/10.5802/alco.256",
+          "material_read": "Abstract at offset 0",
+          "method": "OA passage inspection",
+          "title": "Rowmotion on fences",
+          "trigger": "Related period statistics on path-like posets"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–20 and 34–56"
+      ],
+      "rationale": "The bijection classifies the actual orbits, replaces iteration over order ideals by a static test on independent cuts and coloured components, and isolates the precise structural obstruction for a non-universal three-cycle. It is useful beyond verifying isolated period counts; no efficiency guarantee for evaluating the sum is assumed.",
+      "residual_risks": [
+        "Value is confined to period three in the stated graph class; there is no analogous assertion for all orbit lengths."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

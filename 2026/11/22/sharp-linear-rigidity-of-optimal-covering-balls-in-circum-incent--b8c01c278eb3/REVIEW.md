@@ -1,20 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For a fixed nondegenerate simplex inscribed in the unit sphere and centered on its insphere, the facet-contact point is in the relative interior of each facet. Its tangential vertex projections positively span their facet plane. This proves a uniform linear spherical support-function gap away from the finitely many facet normals. Applying the boundary-point inequality established by Nour [1] to any candidate ball, we first recover the maximal radius and then get an exact factorization controlling the radial displacement of its center. The support gap controls the angular displacement, yielding the displayed constant. Homothetic contractions of each known optimizer attain a linear deficit. The proof treats the origin-centered case, the equality endpoint, all dimensions and the near-optimal range. The finite checker verifies the published tetrahedral normalization and the rate witnesses but does not replace the analytic proof.
+## correctness
 
-## Originality — PASS, with priority risk
-Nour [1, Theorem 2.3] establishes the maximal radius and displays the facet-labeled attaining balls. They are credited as prior. The same Section 2, inspected in full HTML, does not provide the near-equality center estimate or classify all optimizers. The optimizer classification is a short refinement of the prior inequality; the substantive addition is the global, dimension-independent-in-form, fixed-simplex sharp linear recovery theorem for unrestricted candidate balls. Semantic searches compared implications with published records on simplex Thales-ball coverage, two-ball covering of simplices, convex-body incenters, and generic constraint error bounds. None inspected states or clearly implies this union-of-balls result. The older Nour–Stern–Takche paper and general error-bound literature were compared at abstract/statement level only. An equivalent unindexed theorem remains possible.
+PASS
 
-## Mathematical value — PASS
-The cited finite-ball configurations are natural sharpness examples for the interior-sphere conjecture. A stability estimate describes all almost-extremizing covering-ball centers, a different geometric datum than the known extremal radius. The quantified linear exponent and explicit facet association make the result robust under imperfect radius maximization. It applies to nonregular simplices as well as the symmetric case and includes a matching family of sharpness examples, rather than a single isolated perturbative calculation.
+For an origin-containing ball write t=|z|<=T. Each p_i=rho*u_i is on the union boundary: for j!=i its squared distance to c_j is 1, and moving radially outwards increases that distance by the squared outward displacement; for j=i the distance is already strictly larger. Each proposed optimal ball satisfies |x|^2<=c_j·x, so if |x|>rho then |x-c_j|^2<=4M^2-|x|^2<1. The bound h<=1/n also follows by summing the barycentric weights of 0, each at least h/(1+h). Thus T^2<=rho^2+t^2-2rho*t*g(w), where w=z/t if t>0 and the product is zero if t=0. Since t<=T and g>=h this forces t<=M. The resulting convex upper bound f(t)=rho^2+t^2-2rho*h*t is strictly below M^2 for t<M, so equality requires t=M and g(w)=h. The latter means that the insphere touches the supporting plane in the relative interior of a facet; these directions are exactly N. The tangent facet polygon in its (n-1)-dimensional plane contains the contact point in its relative interior, so it gives a positive linear support term near each normal, dominating the quadratic normal loss. Compactness away from N proves kappa>0. For d=M^2-T^2<=2M epsilon, the factorization M^2-f(t)=(M-t)(M+t-2rho*h) gives M-t<=2 epsilon/(1-4h^2), hence t>=M/2 in the prescribed range. The angular deficit is g(w)-h<=d/(2rho*t)<=2 epsilon/rho. The triangle inequality yields the displayed bound at all stated epsilons, including zero. A homothet centered along n_j has distance exactly M-T from MN: its squared distance to any other Mn_l exceeds (M-T)^2 by MT|n_j-n_l|^2. Analytic verification is decisive. The read-only inspection of check_geometry.py shows checks on one tetrahedron and sampled nonnegativity of support, not a certified uniform linear bound; no frozen script was executed.
 
-## Limitations and literature
-The constant depends on the simplex and is not uniform under degeneration. No assertion is made about inscribed balls that do not contain the origin. Comparisons used the full text of Nour [1], published-record search summaries and the stated material scope of two older sources. This is a scientific novelty assessment, not a certification against all unpublished results.
+## originality
 
-## Sources
-[1] C. Nour, arXiv:2611.14181v1 (2026), https://arxiv.org/html/2611.14181v1.
-[2] C. Nour, R. J. Stern, J. Takche, *Validity of the Union of Uniform Closed Balls Conjecture*, J. Convex Anal. 18 (2011), https://journalofconvexanalysis.com/articles/jca18037/.
-[3] H. V. Ngai, A. Kruger, M. Théra, *Stability of Error Bounds for Semi-infinite Convex Constraint Systems* (2010), https://doi.org/10.1137/090767819.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Credit Nour with the exact radius, the displayed attaining balls and the inequality that almost immediately gives optimizer exhaustiveness. The sharpness witness also follows directly from Nour's feasible balls. The distinct supported contribution is the explicit linear bound for every admissible near-optimizer of a fixed simplex, obtained by adding a quantitative angular support gap; neither Nour nor the available comparison records establish that bound.
+
+## value
+
+PASS
+
+The known optimal radius does not tell how sensitive all near-maximal balls are to a radius error. The estimate quantitatively localizes an unrestricted candidate center to one of finitely many facet directions in the nonconvex union, with the best possible exponent and a computable fixed-shape constant. No uniform stability under degenerating simplex shapes is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

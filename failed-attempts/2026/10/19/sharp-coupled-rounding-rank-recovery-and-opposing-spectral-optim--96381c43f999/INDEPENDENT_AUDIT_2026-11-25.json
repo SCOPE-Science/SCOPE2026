@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:21:02.361085Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 3–52",
+        "VERIFICATION.md; verify_rounding.py; verification_output.txt"
+      ],
+      "rationale": "Write the row probabilities for 00, 10, 01, 11 as a=1−2p+q, b=p−q, b and d=q. Rank is below two exactly when all nonzero rows occupy at most one direction. Inclusion–exclusion yields F_n=2(a+b)^n+(a+d)^n−2a^n, with the common intersection the all-zero sample. At fixed p the derivative in q is 2n[(a+q)^(n−1)−a^(n−1)], positive at any feasible q>0, so the smallest feasible q is uniquely optimal. Independently, if a>0, replacing zeros independently by uniform nonzero row types preserves equality of the two marginals, never destroys rank, and strictly improves recovery on the all-zero event. Hence the global optimum has a=0. On that edge strict convexity of x^n equalizes the three masses at 1/3, giving p=2/3, q=1/3 and failure 3^(1−n) for all n≥2. The iid-row strong law gives Gram/n with diagonal p and off-diagonal q, hence minimum eigenvalue b≤1/2 with equality exactly when a=d=0. Substitution gives the two condition-number limits and failure probabilities, and at p=2/3, q=p² the leading failure term (5/9)^n gives ratio asymptotic to (5/3)^n/3.",
+      "residual_risks": [
+        "All conclusions use identical independent rows and real rank. The zero-atom replacement is only for the optimization over varying p, not a fixed-input rounding scheme.",
+        "The stored 210-count diagnostic includes 21 benchmark assertion groups besides the exact multinomial comparisons; source inspected, not executed. No continuous optimizer or strong-law claim rests on enumeration."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dexter et al. impose entrywise independence and study the all-1/2 example; this does not provide the coupled law. The DNA record balances projective-direction multiplicities to minimize expected sampling depth, not the exact finite-number failure in the candidate. D- and E-optimal objectives recover the locations by maximizing p²−q² and p−q, respectively, but alone do not give the finite occupancy law.",
+          "The named sparse-matrix primary text was unavailable; no inference about originality is based on that access failure."
+        ],
+        "reasoning": "These models contextualize balancing or spectral design. The concrete stronger basis for the verdict is the earlier exact three-ray law and opposed optima, not analogies with different code or matrix objectives.",
+        "searches": [
+          "arXiv:2403.12278v3, §§2.2, 4.1 and Appendix A",
+          "Resultary DNA coverage-depth record db2f9e82bdf9",
+          "DOI 10.1137/1.9781611975994.35",
+          "D-/E-optimal design criteria as described in RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5fcdeaa378c0, db2f9e82bdf9 and 0f9fb3305c2a",
+        "arXiv:2403.12278v3",
+        "DOI 10.1137/1.9781611975994.35 (attempt only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For any a>0, replacing all zero draws by independently uniform nonzero directions is feasible in the variable-p class, cannot hurt rank, and strictly increases success on a positive-probability all-zero event. Thus all global rank optima lie on the equivalent a=0 edge. For general a, the normalized antisymmetric Gram eigenvalue is b/(1−a), exactly the previous squared spectral coefficient after taking unit step h=1 and matching conditional direction masses; multiplying by 1−a gives b. At the edge the earlier spectral and rank optima are τ=0 and 1/6.",
+          "The independent benchmark is the same finite formula at q=p². At a fixed p, derivative signs give the feasible boundary; this restricted calculation does not constitute a separate nonroutine finding."
+        ],
+        "reasoning": "The zero-atom extension is a dominated common-marginal mixture of the already-solved directional problem. The two competing optimum pairs and rates are the previous solutions mapped back to p,q, rather than an independent discovery of the conflict.",
+        "searches": [
+          "5fcdeaa378c0 RESULT.md, exact midpoint passage, mirror offsets 5035–7159",
+          "Candidate RESULT.md, global optimizer and spectral comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier model merges its two strictly positive diagonal states into a single ray, of mass 2τ, while the two off-diagonal rays each have mass 1/2−τ. In the candidate with a=0, set τ=q/2. The three masses then match exactly, and p=1/2+τ, q=2τ bijectively parameterizes that edge.",
+          "More generally conditional on k>0 nonzero rows, their directions have masses (q,b,b)/(1−a), so use τ=q/[2(1−a)] and sample size k in the earlier exact formula. The k=0 event fails automatically."
+        ],
+        "reasoning": "Conditional binomial mixing gives a^n + sum over k≥1 of C(n,k)a^(n−k)(q^k+2b^k), precisely the candidate law. The different row lengths and the positive midpoint lower endpoint do not matter for this directional statistic.",
+        "searches": [
+          "Resultary: coupled stochastic rounding rank recovery versus least singular value; local mirror 5fcdeaa378c0, symmetric midpoint model and finite-sample separation",
+          "RESULT.md, candidate rank law and optimizer, lines 20–50"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier indexed 5fcdeaa378c0 Finding and exact midpoint passage give both sharp failure values 3^(1−n) and 2^(1−n), with the same direction masses at the respective optima. The later 0f9fb3305c2a record gives the independent two-column law across p, including the p=2/3 benchmark by substitution."
+        ],
+        "reasoning": "No identical full p,q statement was found in the bounded index results. Exact coverage here follows from the earlier statement under conditioning and a parameter change; the later benchmark is corroboration, not the basis for earlier coverage.",
+        "searches": [
+          "Resultary: coupled stochastic rounding binary constant two-column rank and spectral optimization",
+          "Resultary records 5fcdeaa378c0 and 0f9fb3305c2a"
+        ]
+      },
+      "rationale": "The most relevant indexed result already proves the same three-ray occupancy law and strict separation of rank and spectral optima. The difference in input families is real, but the earlier passage transfers exactly to the no-zero edge, and to the full finite failure law by binomial conditioning. The only extra optimization issue, whether a zero row can improve recovery, is resolved by a monotone replacement that preserves common marginals when p may vary. The spectral scaling, fixed-p boundary and independent benchmark then follow directly from the Gram calculation and occupancy polynomial. The published comparison is mathematical implication, not inference from dates or from matching numerical optima alone.",
+      "residual_risks": [
+        "The earlier model has different entrywise means and does not literally state the candidate's parameter law. The verdict relies on the explicit exact reduction, not an allegation of identical text or proof of timestamp-level priority.",
+        "The bounded index and literature checks are not comprehensive; sparse-matrix primary access was incomplete."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct equivalent for the zero-free edge; general rank law is a binomial mixture",
+          "evidence": [
+            "Three direction masses 2τ, 1/2−τ, 1/2−τ; exact failure sum of powers; rank optimum τ=1/6; squared least-singular coefficient h²(1/2−τ) maximized at zero."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-optimal-coupled-stochastic-rounding-separates-spectral-regulariz--5fcdeaa378c0",
+          "material_read": "RESULT.md, exact symmetric midpoint passage, offsets 5035–7159, and stated scope",
+          "method": "Resultary local mirror, exact passage read after locating midpoint",
+          "title": "Optimal coupled stochastic rounding separates spectral regularization from finite-sample rank recovery",
+          "trigger": "Same exact three-way balancing probability and competing spectral optimum"
+        },
+        {
+          "assessment": "Independent-entry model, no coupled optimum",
+          "evidence": [
+            "Independence of entries is assumed; the all-1/2 example has a lower singular-value bound and Gram analysis."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2403.12278v3",
+          "material_read": "§2.2, §4.1 and Appendix A, offsets 10828, 19858, 76791",
+          "method": "Open-access HTML passage inspection",
+          "title": "Stochastic Rounding Implicitly Regularizes Tall-and-Thin Matrices",
+          "trigger": "Same constant rank-one two-column input under independent rounding"
+        },
+        {
+          "assessment": "Occupancy analogue with an expected-depth objective",
+          "evidence": [
+            "Fixed finite-field code columns are balanced among projective directions for expected recovery depth."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-exact-rank-two-optimum-for-dna-coverage-depth--db2f9e82bdf9",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact rank-two optimum for DNA coverage depth",
+          "trigger": "Rank-two recovery as direction occupancy"
+        },
+        {
+          "assessment": "Coverage unassessed, not used to support the verdict",
+          "evidence": [
+            "No primary theorem from this source was inspected."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/1.9781611975994.35",
+          "material_read": "Identifier and frozen citation only",
+          "method": "Lawful full-text retrieval attempted; no accessible copy read",
+          "title": "The Rank of Sparse Random Matrices",
+          "trigger": "Cited broader rank-threshold theory"
+        },
+        {
+          "assessment": "Independent subclass only; not used as earlier coverage",
+          "evidence": [
+            "Full p-dependent independent rank law includes q=p² at p=2/3."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-lambert-w-skew-in-rank-restoration-by-stochastic-rounding--0f9fb3305c2a",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "A Lambert W skew in rank restoration by stochastic rounding",
+          "trigger": "Exact independent-entry benchmark for constant binary columns"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding, proof and Limitations",
+        "Resultary 5fcdeaa378c0, midpoint optimization and limitations",
+        "arXiv:2403.12278v3, §4.1"
+      ],
+      "rationale": "The rank-versus-conditioning distinction is a worthwhile design question, but the earlier model already gives this exact occupancy conflict, failure optima and sharp singular-value tradeoff after direction matching. The remaining zero atom, same-p benchmark, and fixed-p monotonicity are direct conditioning, substitution and a derivative of that law. They do not establish a separate nonroutine invariant or a new design consequence for the stated iid two-column class.",
+      "residual_risks": [
+        "The binary-input formulas can be useful as a worked example. This verdict is on the incremental scientific content of the frozen claim, not on the broader motivation for coupled rounding or for finite-rank analysis."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

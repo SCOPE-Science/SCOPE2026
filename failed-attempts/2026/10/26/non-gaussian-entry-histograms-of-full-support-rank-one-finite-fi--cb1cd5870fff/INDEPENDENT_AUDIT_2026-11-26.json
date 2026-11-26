@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:53:38.833887Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Assumptions, Proof §§1–5",
+        "Frozen VERIFICATION.md, checker.py and checker_output.txt, inspected only"
+      ],
+      "rationale": "Every full-support matrix has exactly d outer-product representations by nonzero factors; the two factors can therefore be chosen independently with uniform coordinates. A shared row or column factor can be conditioned on without changing the joint uniform law of the two distinct cells. This proves the covariance, including shared-index cases. The count vectors are independent multinomials, with N_a the convolution of the two count vectors; this gives the finite probability mass and cancels both first-order terms exactly. The independent centered multinomial CLTs and continuous mapping give the bilinear Gaussian limit even when the two dimensions diverge at unrelated speeds. For a real contrast, conditioning on one Gaussian yields the stated determinant on the centered subspace. In the complexified character basis the contrast matrix sends each nontrivial character to its inverse times the Fourier coefficient; the two members of each conjugate pair thus give two real singular values. This gives all scales, the positive fourth cumulant, the half-product normal at q=3, the Laplace law of rate 3 at q=4, and the zero law at q=2. The all-rank-one support probability follows by comparing the two orbit counts. The written proof rather than the finite checker is decisive.",
+      "residual_risks": [
+        "Only fixed field size and both dimensions diverging are established; the theorem is not about the unconditional ensemble or about convergence rates."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published unconditional limit is Gaussian for a count on a fixed nonempty proper set of entry values; the growing-rank extension still uses unconditional sampling. Sanna's earlier exact decomposition, unlike that limit, applies to the factor product before conditioning."
+        ],
+        "reasoning": "The unconditional asymptotic theorems do not transfer through an exponentially rare event. The exact decomposition is the applicable broader result; at rank one the nonzero condition simply removes the trivial character after centering.",
+        "searches": [
+          "Sanna arXiv:2307.14172v1, Theorem 1.1 and Lemma 5.4",
+          "Chan–Xiong arXiv:2409.10412v1, abstract and §1"
+        ]
+      },
+      "checked_sources": [
+        "Sanna arXiv:2307.14172v1, Theorem 1.1 and Lemma 5.4 proof",
+        "Chan–Xiong arXiv:2409.10412v1, abstract and §1",
+        "Resultary source ID 2026/10/11/SCOPE-complete-first-coordinate-fourier-spectrum-on-finite-field-rank--3ad73e3126a7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first expansion in the proof of Lemma 5.4 writes the singleton count as a sum of products of row and column character sums. With r=1 and singleton a nonzero, the empty-subset part vanishes, and each coefficient is conjugate(χ(a))/d. Under full support the trivial character is constant one and contributes exactly mn/d. For independent uniform factors all nontrivial character sums converge jointly by the multivariate CLT; distinct real character blocks are orthogonal, with each complex block paired with its conjugate. A real-character block contributes exponent -1/2 to the Gaussian-product characteristic function, a complex pair contributes -1 for the same squared coefficient, giving the claimed product with precise multiplicity."
+        ],
+        "reasoning": "This is a direct specialization of a prior exact formula followed by standard probability, not an attempted transfer of Sanna's unconditional CLT. The q=3 and q=4 conclusions reduce to one real block and one complex pair, respectively.",
+        "searches": [
+          "https://arxiv.org/html/2307.14172v1, Lemma 5.4 proof at text offset 38650"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Full support is equivalent to both factors having all coordinates nonzero; each matrix has d representations. A contrast of the centered histogram is the sum of products of the two samples' nontrivial character sums."
+        ],
+        "reasoning": "The degenerate two-sample statistic for the kernel 1[xy=a]-1/d, the centered histogram convolution, and the character expansion are equivalent; checking the last formulation reveals much stronger overlap than comparing entry-count CLT titles.",
+        "searches": [
+          "Resultary semantic search: full-support rank-one finite-field histogram and conditional entry-value counts",
+          "Sanna arXiv:2307.14172v1, Lemma 5.4 proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest indexed hit 2026/10/11/SCOPE-complete-first-coordinate-fourier-spectrum-on-finite-field-rank--3ad73e3126a7 concerns a Fourier-restriction Gram spectrum, not sampled histograms. The weight statistic discussed in Chan–Xiong §1 is the total count of nonzero entries, constant on the conditioned stratum."
+        ],
+        "reasoning": "No matching indexed histogram table was found; neither the Gram spectrum nor a weight table separates nonzero labels. This negative result is limited and does not defeat the affirmative prior implication.",
+        "searches": [
+          "Resultary semantic search: rank-one finite-field entry histograms and full support",
+          "Migler–Morrison–Ogle, How Much Does a Matrix of Rank k Weigh?, Weight-Rank.pdf; Chan–Xiong §1 for the weight statistic"
+        ]
+      },
+      "rationale": "The unconditional scalar Gaussian limit is not the same theorem and cannot be conditioned to obtain this law. But the decisive prior comparison is with the exact character identity in the proof of Sanna's Lemma 5.4, before taking any limit. Its rank-one restriction to nonzero factors is already the complete character-by-character representation of the centered histogram. The stated joint limit then follows directly from the ordinary finite-dimensional CLT for those character sums and their elementary Gaussian-product characteristic functions. Thus the central mathematical result is mechanically implied by the prior identity, even though no earlier verbatim statement of the conditional characteristic function was located. The finite moments and multinomial mass formula are direct count consequences of the same uniform-factor model, rather than an independent originality-bearing remainder.",
+      "residual_risks": [
+        "No exhaustive historical-priority assertion or claim of a prior verbatim formula.",
+        "The Migler–Morrison–Ogle primary copy could not be read; the decision rests on the inspected Sanna identity, not on the unavailable paper."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior implication through exact identity, not through unconditional CLT",
+          "evidence": "The displayed singleton expansion in the proof factors its term for every character into one sum over rows and one sum over columns.",
+          "identifier_or_url": "https://arxiv.org/html/2307.14172v1",
+          "material_read": "Theorem 1.1 near offset 2500; Lemma 5.4 and proof, offset 38650",
+          "method": "Lawful open-access primary HTML",
+          "title": "On the distribution of the entries of a fixed-rank random matrix over a finite field",
+          "trigger": "Same matrix statistic and exact character-factor expansion"
+        },
+        {
+          "assessment": "Different ensemble; no coverage from the inspected limit claim",
+          "evidence": "The growing-rank extension still samples uniformly from rank-r matrices without a full-support condition.",
+          "identifier_or_url": "https://arxiv.org/html/2409.10412v1",
+          "material_read": "Abstract and §1 Introduction",
+          "method": "Lawful open-access primary HTML",
+          "title": "The central limit theorem for entries of random matrices with specific rank over finite fields",
+          "trigger": "Possible broader coverage of entry-count limits"
+        },
+        {
+          "assessment": "Weight as documented does not determine this histogram; uninspected additional claims remain possible",
+          "evidence": "The weight counts nonzero entries regardless of their labels.",
+          "identifier_or_url": "https://aimath.org/~morrison/Research/Weight-Rank.pdf",
+          "material_read": "Chan–Xiong §1's secondary description of the prior weight statistic; primary not retrieved",
+          "method": "Lawful author-copy request via direct and alternate routes returned 404; compare accessible secondary account only",
+          "title": "How Much Does a Matrix of Rank k Weigh?",
+          "trigger": "Possible prior exact rank-one table"
+        },
+        {
+          "assessment": "Not equivalent to the histogram claim",
+          "evidence": "The object is a Fourier restriction Gram spectrum and conditioning of a frequency band, not a histogram of random matrix entries.",
+          "identifier_or_url": "2026/10/11/SCOPE-complete-first-coordinate-fourier-spectrum-on-finite-field-rank--3ad73e3126a7",
+          "material_read": "Finding in RESULT.md, offset 0",
+          "method": "Local catalogue and source mirror",
+          "title": "Complete first-coordinate Fourier spectrum on finite-field rank-one matrices",
+          "trigger": "Nearest indexed rank-one Fourier match"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof §§1–5",
+        "Sanna Lemma 5.4 proof and the explicit rank-one implication above"
+      ],
+      "rationale": "The conditioned example is a useful illustration that pairwise independence does not force a histogram CLT, and the Laplace case is explicit. But the narrow proposed exact invariant is obtained mechanically from the known factor-character identity: conditioning replaces the masks by constants and leaves orthogonal finite-alphabet CLTs and standard product-Gaussian integration. The ancillary exact formulas are immediate multinomial counting. No further structural assertion beyond this direct specialization was established.",
+      "residual_risks": [
+        "This assessment is about the submitted theorem's mathematical contribution, not its usefulness as an explanatory example."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

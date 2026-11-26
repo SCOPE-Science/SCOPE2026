@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:55:13.864162Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every absent root edge uv has d(u)+d(v) distinct active neighbours, giving the synchronous update and the four-seed lower bound. A moving four-seed set must be covered by two nonadjacent root vertices. The degree pairs (4,0), (3,1) and (2,2) exhaust this case. The full star, the full star with one leaf-edge, and K4 plus isolates are closed upper envelopes for the losing types. In the (2,2) case zero, one and two common neighbours give two P3s, P5 and C4, respectively. The explicit trajectories of the two winners give 4,5,7,2n,C(n,2) and 4,5,9,2n+3,C(n,2), with exactly the claimed early coincidences. Reversal of a labeled path, and block exchange plus independent center choices for two P3s, give the two counts. For P5, removing a terminal or interior edge gives respectively one or three alternatives inside its five labels, and for each extra label gives respectively two P5 or two paired-P3 alternatives per removed edge. For two P3s the remainder is P3+P2, permitting four path joins, one alternative using the old detached vertex, and two joins per fresh vertex per removed edge. This proves both degrees and double-counting gives the exchange edge count. Prefix reversals connect paths on a support, replacing a terminal label connects the supports, and joining P3 to P2 connects every paired type to a path. Independently, `python3 /workspace/reviews/check_4.py 5 6` exhausts seeds through size four on the explicit host, identifying root components and checking exchange connectivity. It reproduced 60 paths at n=5 (time 3, degree 8), and 360 paths plus 90 pairs at n=6 (times 4 and 3, degrees 16 and 20). The two frozen programs were inspected, not executed; the bounded replay supplements the all-n argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Journal publisher search material describes minimum m(G,r); frozen RESULT.md lines 45–49 credits the triangular-graph minimum. Full journal text not obtained via either publisher or ResearchGate",
+          "2019 preprint pp. 1–2 is restricted to Hamming host graphs, not triangular graphs",
+          "The 2024 preprint concerns Hamming graphs and an inequivalent edge rule"
+        ],
+        "reasoning": "A formula for the minimum cardinality does not alone identify all extremizers, times, or exchanges. Without the 2021 proof its possible extra structural detail is unresolved; the older Hamming-only text is not a substitute for the journal version.",
+        "searches": [
+          "Bidgoli, Mohammadian and Tayfeh-Rezaie, DOI 10.1016/j.ejc.2020.103256 (publisher and identified ResearchGate copy)",
+          "arXiv:1905.01942, earlier preprint of these authors",
+          "arXiv:2403.05927, bootstrap percolation on Hamming graphs"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and both uploaded verifier sources",
+        "Configured Resultary self-hit and related indexed records",
+        "DOI 10.1016/j.ejc.2020.103256 limited publisher evidence only",
+        "arXiv:1905.01942 and arXiv:2403.05927",
+        "Local-mirror primary zero-forcing and fort findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The frozen claim adds classification/time/exchange to the credited cardinality",
+          "The zero-forcing exchange theorem uses complementary spanning trees on n-1 labels, with minimum size C(n,2)-n+2 rather than four",
+          "The fort theorem uses nonspanning cycles and spanning star forests, without a time or replacement dynamic for contagious seeds"
+        ],
+        "reasoning": "The replacement relation is shared at a formal level only; its vertices are different seed families (already at n=5 zero forcing has minimum size seven), so that connectedness theorem does not imply this one or the two exact degree classes. The 2021 theorem's optimizer content beyond the credited cardinality is not established from accessible evidence.",
+        "searches": [
+          "DOI 10.1016/j.ejc.2020.103256, minimum percolating set paper",
+          "Local-mirror Findings and assumptions of the same-host zero-forcing and fort records"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "RESULT.md lines 18–28: equivalently add a missing root edge when the sum of the two current degrees is at least four",
+          "arXiv:2403.05927 p. 1 defines its edge-bootstrap threshold at one endpoint",
+          "Resultary isolated-forest zero-forcing and minimal-forts findings, local mirror offsets 0–3309 and 0–2000"
+        ],
+        "reasoning": "The degree sum on K_n is exactly the present vertex rule on J(n,2), but differs from an edge threshold on one endpoint: (2,2) is the basic discrepancy. Ordinary zero forcing acts on white-edge complements with exactly one white neighbour, and a fort instead forbids exactly one exterior neighbour. Their forest classifications do not transfer.",
+        "searches": [
+          "Configured Resultary search for the four-neighbour seed classification, minimum and exchange graph on triangular graphs",
+          "Triangular graph J(n,2)=L(K_n); 4-neighbour bootstrap percolation; P5 and P3+P3 starters; line-graph and edge-bootstrap literature"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed match is the assigned record SCOPE-two-path-forests-classify-minimum-four-neighbour-contagion-on-tr--1acbb782cd0b",
+          "The other inspected same-host records count zero-forcing sets or forts, not four-bootstrap starters"
+        ],
+        "reasoning": "The object here is a parametric all-order classification, not one fixed finite-graph invariant. No independent exact starter/time catalogue surfaced in the bounded lookup; the same-record match is not prior evidence and the independent finite replay is not a priority search.",
+        "searches": [
+          "Resultary indexed exact starter/count/time and exchange claims on L(K_n), plus the same-host structural records"
+        ]
+      },
+      "rationale": "The numerical minimum four is expressly credited rather than original. The supported increment is the complete starter classification, labeled counts, parallel-time profile and the exchange graph of these starters. Same-host comparisons with different dynamics do not supply these results. The strongest same-rule journal source remains a specific full-text access risk; no inference of noncoverage is made from the missing text.",
+      "residual_risks": [
+        "The 2021 same-object journal theorem and proof were not available in full; implicit or explicit classification/enumeration may already be present there",
+        "Bounded catalog and literature search cannot certify priority"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong prior for cardinality as credited; additional content unresolved",
+          "evidence": [
+            "RESULT.md lines 45–49 credits the 2021 journal minimum; do not extrapolate from the general publisher snippet"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.ejc.2020.103256",
+          "material_read": "Publisher index/search text defining m(G,r); journal theorem and proof unavailable; publisher and ResearchGate attempts returned 403",
+          "method": "Identifier resolution, publisher/identified OA alternate attempts",
+          "title": "Percolating sets in bootstrap percolation on the Hamming graphs and triangular graphs",
+          "trigger": "Direct same-host and same-rule paper"
+        },
+        {
+          "assessment": "Hamming graphs only, not evidence about the missing expanded paper's theorem",
+          "evidence": [
+            "Formula for m(K_n Cartesian power d,r)"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1905.01942",
+          "material_read": "PDF title and scope/minimum statements pp. 1–2, offsets 0 and 5250",
+          "method": "Primary OA PDF",
+          "title": "Percolating sets in bootstrap percolation on the Hamming graphs",
+          "trigger": "Earlier version by the authors of the closest journal source"
+        },
+        {
+          "assessment": "Different host and one-endpoint rule",
+          "evidence": [
+            "Determines m_e on Hamming graphs by using active incidence at one endpoint"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2403.05927",
+          "material_read": "PDF p. 1 title, abstract and edge rule, offsets 0 and 700",
+          "method": "Primary OA PDF",
+          "title": "Bootstrap percolation on the Hamming graphs",
+          "trigger": "Potential root-edge reformulation"
+        },
+        {
+          "assessment": "Distinct forcing dynamics and extremizers",
+          "evidence": [
+            "Minimum zero forcing sets are complements of trees on n-1 labels plus an isolate"
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-isolated-forest-zero-forcing-and-exchange-connectivity-of-triang--43c12b8642d1",
+          "material_read": "RESULT.md Finding, assumptions, initial degree-sum proof; offsets 0–3309",
+          "method": "Configured Resultary and local-mirror primary record",
+          "title": "Isolated-forest zero forcing and exchange connectivity of triangular graphs",
+          "trigger": "Same host, forest classification and exchange connectivity"
+        },
+        {
+          "assessment": "Different property and optimization criterion",
+          "evidence": [
+            "Inclusion-minimal forts correspond to a nonspanning cycle or a spanning star forest"
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-minimal-forts-of-triangular-graphs-a-cycle-star-forest-classific--8cde40182533",
+          "material_read": "RESULT.md Finding and opening scope; offsets 0–2000",
+          "method": "Configured Resultary and local-mirror primary record",
+          "title": "Minimal forts of triangular graphs: a cycle–star-forest classification",
+          "trigger": "Same host and root forests with an exterior-neighbour condition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A minimum size alone neither characterizes viable four-seed configurations nor distinguishes their parallel dynamics or whether all optimal choices can be traversed by replacements. The two forest types and their exact times and different exchange degrees resolve those questions for every host order by a uniform structural argument.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

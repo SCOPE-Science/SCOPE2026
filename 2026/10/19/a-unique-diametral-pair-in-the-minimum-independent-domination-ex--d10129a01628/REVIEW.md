@@ -1,12 +1,21 @@
-# Scientific assessment of the McGee minimum independent-domination exchange classification
+# Independent mathematical audit
 
-## Correctness — PASS
-The complete 24-vertex adjacency is fixed by an explicit LCF rule. The finite proof has two exhaustive and algorithmically different enumerations: the Python independent-set recursion lists each of the 34,305 independent faces once, while the C++17 verifier examines all 16,777,216 vertex masks. Both obtain 146 minimum independent dominating sets of size eight, and exactly 352 and eight inclusion-maximal independent sets at sizes nine and ten. The 216 exchange edges and all 146 BFS distance rows are independently recomputed. A separate certificate checker validates the entire list of minimum masks, all edges, BFS eccentricities, the unique diametral pair, and the 32 graph automorphisms. Exhaustiveness rests on complete finite enumeration, not extrapolation. The only graph-specific nonstandard assertions are replayable from included source and certificate data.
+## correctness
 
-## Originality — PASS, with bibliographic risk
-General cubic independent-domination bounds (Duckworth–Wormald 2002; Dorbec–Henning–Montassier–Southey 2015), independent-set reconfiguration theory (Bonsma–Kamiński–Wrochna 2014), and the McGee graph's published independence-complex calculation do not state the identified 146-optimum reconfiguration graph, its unique diameter-twelve pair, or its seven orbit structure. The latter computation's full mathematical statement gives the independent-face vector but not maximality or optimum-exchange distances. A full-text search of the author-posted cubic-graph paper found no mention of the McGee cage. The elementary equivalence of sliding and jumping for these maximal independent sets is not claimed to be novel. An unindexed table, code supplement, or inaccessible older calculation could overlap; no claim of proof of worldwide priority is made.
+PASS
 
-## Value — PASS
-The McGee graph is not an arbitrary small graph: it is the unique minimum-order cubic graph of girth seven. Independent domination asks for the smallest maximal independent set, a natural extremal problem in sparse regular graphs, and the single-exchange graph measures whether optima can be locally transformed without breaking independence or domination. A connected but non-vertex-transitive 146-state solution graph with a uniquely separated diametral pair, sharply determined radius and diameter, and seven symmetry classes is a complete and nontrivial benchmark description. These metrics do not follow from the known cubic domination bounds, independence-complex homotopy type, or its face vector. Finite scope and publication-priority uncertainty are stated explicitly; there is no claim about other cages.
+I reconstructed the LCF edges (36 edges, all degrees three) and computed girth by finding the shortest alternate path for each edge (girth seven). Inclusion-maximal independence is equivalent to independence plus domination: an undominated vertex is exactly a vertex that can be added. An independent exact calculation (/tmp/opencode/scope-review-mcgee.py) enumerated maximal cliques of the complement with pivoted Bron–Kerbosch (all maximal cliques, no duplicates), then used intersection size seven to form all exchanges at the minimum and Floyd–Warshall for the distance matrix. It yielded maximal-set counts 146, 352 and 8 at sizes 8, 9 and 10 only; 216 edges, no triangles, degrees 2:64, 3:48, 4:16, 5:16, 8:2; radius 11, diameter 12, eccentricities 11:144 and 12:2. The only distance-12 pair had sorted zero-based indices (77,104) and masks (4793490,9586980), the two stated residue classes. Any admissible jump removes the old neighbor of the added vertex, since the old set dominates it and the new set is independent; thus all jumps are slides. Exhaustive adjacency/nonadjacency-preserving partial bijections generated the full 32-element automorphism group, with exactly seven orbits of the stated sizes and the pair the sole two-element orbit. All labelled minima, edges, eccentricities, permutations and orbit representatives matched mcgee_certificate.json; deletion–contraction independently gave the claimed face vector. The frozen Python checker validates listed permutations, not their completeness by itself; the primary enumeration and my independent bijection search establish completeness. Frozen scripts were inspected, not executed. No C++ rerun or external attestation is asserted.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Credit the already-defined i-graph, known cage and known independent-face vector. The retained contribution is the exact labelled minimum-independent-domination exchange classification of this cage, in particular the unique diameter pair and its exceptional symmetry orbit. The closest inspected same-object and same-graph statements do not establish this classification.
+
+## value
+
+PASS
+
+The smallest cubic girth-seven graph is a canonical sparse benchmark, and the natural i-graph asks whether exact independent domination optima can move locally while keeping feasibility and optimality. Its sole farthest pair, exactly coincident with an exceptional original-graph orbit, and 11/12 eccentricity separation are structural information beyond a routine face count and useful for checking exact reconfiguration computations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

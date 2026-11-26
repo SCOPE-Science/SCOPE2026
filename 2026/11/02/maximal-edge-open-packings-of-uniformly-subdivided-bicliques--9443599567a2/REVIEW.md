@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof establishes the exact third-edge incompatibility relation between the two incidence-edge types of \(T_b\). Since all edges of either type are pairwise compatible, inclusion-maximality is equivalent in both directions to \(A=N(B)\) and \(B=N(A)\). Partitioning the fixed points into pure, transverse-pair, singleton-neighborhood, and complementary-row-block configurations is exhaustive, mutually exclusive, and gives the claimed four coefficients. The two exceptional small parameters are checked directly. The complete direct graph verifier independently confirms 1,118,464 candidate edge subsets at \(2\le b\le5\), with closure checks for \(2\le b\le9\). The infinite claim rests on the proof rather than this finite evidence.
+PASS
 
-## Originality — PASS, provisional
+Same-type incidences never conflict; opposite types conflict exactly when they share just one of row or column. Hence a maximal set must take on either side every position compatible with all selected positions on the other. The resulting mutual closures are the two pure sets, b(b−1) identical transverse pairs, 4b oriented singleton/full-neighborhood pairs, and the complementary single-row blocks. In the last case each block has at least two positions; otherwise double closure adds an opposite-row position or fills the full pure side. If both rows are used and one has at least two positions, the other side is forced to a singleton or empty, so there are no additional cases. For b=1 the conflicts form a matching and for b=2 two disjoint K_{2,2}, giving the stated four counts in each small case. The binomial sum for the blocks, overlapping exponents and total follow; for b≥3 all mixed cases have size at most b+1, while each pure set has size 2b. The subdivisions have degeneracy at most two by deleting the subdivision vertices first. An independent run enumerated directly from third-edge witnesses for each b=1,…,5, matching the full distributions, including the collisions at b=3 and b=4.
 
-Closest full texts compared: Chelladurai–Kalimuthu–Soundararajan (2022), doi:10.1051/ro/2022171; Brešar–Samadi (2024), arXiv:2403.00750; Brešar–Dravec–Hedžet–Samadi (2024), arXiv:2406.04020; Pandey–Santra (2025), arXiv:2508.01935. The first three develop definitions, bounds, complexities, induced matching comparisons, and graph products; the fourth characterizes extremal numerical parameters. None of the inspected portions gives the all-size inclusion-maximal enumerator on subdivided bicliques. Prior general bounds already explain the maximum packing size \(2b\), so only the complete polynomial, classification, and cardinality gaps are treated as the distinct contribution. Searches for edge-open-packing polynomials, maximal packings of subdivisions, theta graphs, and alternate complement/matching formulations did not yield a dominating theorem. Residual risk: an unindexed equivalent result or alternate-name formulation may exist, and no exhaustive literature certification is claimed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Edge-open packing is a studied packing invariant; inclusion-maximal packings determine the range between its lower and upper versions and cannot be captured by a scalar maximum alone. Uniform length-four theta graphs form a natural, connected, sparse graph family. The exact polynomial identifies every maximal packing size and multiplicity, the unique two maximum configurations, and an explicit interval of \(b-2\) consecutive forbidden cardinalities. For \(b\ge6\), four cardinalities are the entire support. Such unbounded gaps make a substantive structural distinction from simple extremal-bound calculations.
+The prior general S(G) decomposition of all packings and maximum-cut formula materially cover the feasible packings and imply the maximum size and its two attaining sets here for b≥3. The supported distinct part is the explicit classification and cardinality distribution of all inclusion-maximal sets, including the gap, not that prior decomposition or its extremal consequences. This requires analyzing extensions that can change the matching or center sets; the inspected prior result does not give a maximality filter or the mixed-type contributions.
 
-## Scientific limits
+## value
 
-The theorem is restricted to the stated theta family. The direct checker covers finitely many parameters. Priority is provisional pending independent literature comparison; no external mathematical validation has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The polynomial enumerates the possible sizes of saturated packings, not just which packings can attain the maximum. The four-type description explains how exponentially many smaller maximal choices coexist with only two largest ones. Unbounded missing sizes on connected bipartite graphs of degeneracy two provide a natural structural contrast with the familiar scalar extremum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

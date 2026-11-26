@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:21:56.403830Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At fixed n and weight three, (a,b,c) are precisely the ordered counts of zeros before each one. Directly counting the patterns with one selected one gives 001=Q, 010=(z-1)S-2Q, and 100=3 binom(z,2)-(z-1)S+Q. Counting those with two selected ones gives 011=T, 101=2(c-a)=2(S-T), and 110=3z-2S+T. The single-symbol counts and pure patterns are fixed, and S is 01; indeed the exact length-three deck also determines S via S=011+101/2 in this layer. Fixing S,T leaves b=T-2a, c=S-T+a; equality of Q requires equality of the sum of squares, a quadratic with nonzero leading coefficient 6. Its other root shifts a by (u-v)/3 for gaps u=b-a and v=c-b, swapping the gaps. Unequal gaps, integrality and the endpoints give the unique orientation v=u+3t, with t>=1, a>=t, a+2u+3t<=n-3; zero gaps are allowed and equal gaps give no distinct partner. Writing a=t+j and allowing the remaining endpoint slack h>=0 gives n=7+2u+4(t-1)+j+h, yielding the stated count and generating function. Its pole at 1 gives n^3/48+O(n^2), and it is the fraction of words in doubletons, 2C(n)/binom(n,3), that tends to 1/4. The author-recorded finite dynamic program was inspected but not executed; it is not needed for the all-length proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lejeune–Rigo–Rosenfeld's class generation passage treats k=2. Nilforoushan–Parvaresh give parameter reductions and upper bounds, including for binary k=3 at fixed length, weight and t. Chrisnata et al. prove D_{3,3}(n)=Theta(n^3), then separately conjecture the exact series."
+        ],
+        "reasoning": "None of those examined proved statements supplies the all-length root and partner constraints or the exact count through a stronger theorem. A global bound or even a fixed-weight growth order does not fix fiber sizes or leading constants.",
+        "searches": [
+          "arXiv:2001.11732 binomial classes and cardinalities",
+          "arXiv:2609.23106 §1.2 improved general distinct deck bounds",
+          "Chrisnata et al. §5.3 fixed-weight result"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3934/amc.2021032, Chrisnata et al. §5.3",
+        "OEIS A258585",
+        "arXiv:2001.11732",
+        "arXiv:2609.23106",
+        "Resultary 39c59472a4df, 61b009fefb1e, f95f52cd118b, ddfb28b06c4a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Conjecture 1 states z^3/(1-z)^4-z^7/((1-z)^2(1-z^2)(1-z^4)), exactly the frozen distinct-profile series since the binomial total is z^3/(1-z)^4. The published text explicitly calls it a conjecture and reports checks of the first 20 coefficients. The later indexed proofs do verify the same all-length claim."
+        ],
+        "reasoning": "A conjecture of the answer is not a proof of it. Even if the exact class-count series is assumed, aggregate counts alone do not determine that every nonsingleton has size two or identify the partner involution. The supported result proves the conjectured series with this stronger structural information.",
+        "searches": [
+          "Chrisnata et al. Conjecture 1 and its derivation pp. 15–17",
+          "Resultary 39c59472a4df and ddfb28b06c4a Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chrisnata et al. derive the gap direction (1,-3,3,-1), whose first three cumulative sums give (1,-2,1) in zeros-before-ones coordinates. Their D_{3,3} counts exactly length-three decks; at fixed weight three and length they recover S=011+101/2, Q=001 and T=011 and so determine all shorter counts too."
+        ],
+        "reasoning": "The actual algebraic reduction and invariant are shared. No originality is credited to the choice of encoding or to using 'profiles' rather than 'decks'; the verified additional step is solving the nonlinear equality and integer endpoint constraints completely.",
+        "searches": [
+          "All binary weight-three 3-deck collisions via zero-gap nullspace",
+          "Chrisnata et al. §5.3; arXiv:2001.11732 definition of binomial equivalence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A258585 records 0110001/1000110 at n=7 and global counts, not the sparse-layer theorem. Chrisnata et al. say the first 20 coefficients of the conjectured fixed-weight series agree with exact counts. In the local index the retrieved Findings 39c59472a4df, 61b009fefb1e, f95f52cd118b, and ddfb28b06c4a give equivalent exact formulas and classifications, but are catalogued later than the frozen record."
+        ],
+        "reasoning": "The isolated pair and finite coefficients are antecedents, while the later all-length records are exact overlaps rather than earlier table coverage. Catalog dates do not by themselves establish historical priority.",
+        "searches": [
+          "OEIS A258585 internal entry",
+          "Resultary weight-three binary three-deck enumeration conjecture",
+          "Resultary all weight-three 3-deck collisions gap swap"
+        ]
+      },
+      "rationale": "The distinct contribution is the proof of the all-length formula and the exact singleton/doubleton classification, not proposing the formula, identifying the first collision, or finding the nullspace direction. The frozen literature discussion misses a direct antecedent: Chrisnata et al. explicitly analyze weight-three gaps and conjecture the exact profile-count generating function in §5.3, Conjecture 1. That attribution should be corrected in any public exposition. Their published conjecture and initial coefficients do not establish the classification or the all-length formula. Several later indexed records prove the same result; their catalog dates do not show priority over the frozen record.",
+      "residual_risks": [
+        "This establishes that the exact formula was conjectured earlier, not when the first proof appeared. The later indexed overlaps may be related; the comparisons do not resolve their provenance or rule out other prior proofs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier fixed-weight work and exact conjecture, not an earlier proof of the all-length claim in the stated results.",
+          "evidence": [
+            "Theorem 23 credits Manvel et al. with distinct decks for w<k and for short equal-weight/equal-deck-length words.",
+            "§5.3 identifies the gap direction and gives the first collision.",
+            "Conjecture 1 gives exactly the class-count series and reports finite coefficient checks."
+          ],
+          "identifier_or_url": "DOI:10.3934/amc.2021032; https://yaakobi.net.technion.ac.il/files/2022/08/60_k_Decks_Disc_Math21.pdf",
+          "material_read": "§5.3, pp. 15–17; decisive passages at text offsets 53402 and 60500–62771",
+          "method": "Lawful author-hosted full PDF, inspected fixed-weight derivation and Conjecture 1",
+          "title": "On the number of distinct k-decks: Enumeration and bounds",
+          "trigger": "Identical fixed-weight parameter and plausible prior theorem"
+        },
+        {
+          "assessment": "Known first weight-three collision, unrestricted totals only.",
+          "evidence": [
+            "The n=7 list includes 0110001 and 1000110, plus a distinct weight-four pair."
+          ],
+          "identifier_or_url": "https://oeis.org/A258585/internal",
+          "material_read": "Definition and example entries at text offsets 892 and 1578",
+          "method": "Public entry comparison",
+          "title": "OEIS A258585, Number of classes of 3-binomial equivalence",
+          "trigger": "Exact counts and possible first collision antecedent"
+        },
+        {
+          "assessment": "Same equivalence concept; the class-generation result discussed in the passage is for k=2.",
+          "evidence": [
+            "Counts of scattered words of length at most k define the classes."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2001.11732",
+          "material_read": "Opening definitions and description of results, p. 1, offset 93",
+          "method": "OA PDF passage",
+          "title": "On the binomial equivalence classes of finite words",
+          "trigger": "Same equivalence relation and fiber structures"
+        },
+        {
+          "assessment": "Broader parameter reduction and bounds, not a fixed-weight all-length fiber theorem in these passages.",
+          "evidence": [
+            "Binary k=3 reduction after fixing n,w,t leaves two further coordinates."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.23106",
+          "material_read": "Abstract and §1.2, offsets 0 and 6883",
+          "method": "OA PDF passage",
+          "title": "Improved upper bound on the number of distinct k-decks for any k and alphabet size by counting the independent parameters",
+          "trigger": "General deck-parameter reduction potentially covering the sparse layer"
+        },
+        {
+          "assessment": "Equivalent all-length later-catalogued statements, not demonstrated antecedents to the frozen record.",
+          "evidence": [
+            "Each gives the weight-three class-count formula or equivalent doubleton series and the singleton/pair classification."
+          ],
+          "identifier_or_url": "Resultary 39c59472a4df; 61b009fefb1e; f95f52cd118b; ddfb28b06c4a",
+          "material_read": "Mirrored RESULT.md Findings and relevant proof passages near offsets 0 and 740; 0 and 4219; 0 and 963; and 0, respectively",
+          "method": "Local index retrieval and mirror passage comparisons",
+          "title": "Indexed proofs and exact classifications of weight-three binary three-decks",
+          "trigger": "Exact local-index matches to the formula and full fibers"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem settles a specific published fixed-weight deck-enumeration conjecture and shows exactly which sparse inputs fail unique reconstruction, not just how many decks exist. Weight three is the first potentially ambiguous layer, and the quarter-density result quantifies its ambiguity in a natural low-depth observation model. These are substantive consequences of the classification, not claims about arbitrary weights.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

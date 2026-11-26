@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:55:54.749228Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a six-cycle with divisisors d_i=5^{e_i}, put D=prod d_i. The product of the matrices [[0,d_i],[1,1]] has determinant D and has D as an eigenvalue, so its trace is D+1. Expanding the trace as cyclic binary walks gives 1 plus the weighted nonempty independent-set sum: each isolated zero contributes the divisor for the transition into it. This independently recovers the frozen determinant equation. Modulo five, the proper nonempty undivided set must induce one edge and one isolated vertex (independent-set counts by size: {1}, {2,3}, {4,5,7}, {7,8,9}, {12}). No divisions would give 1=17; all six divisions give a normalized sum at most 17/125. The twelve surviving supports each attain equality at the minimum three positive exponents, and increasing any one makes the normalized sum strictly decrease. Replay `python3 /workspace/reproductions/2.py` for the twelve transfer-matrix support checks and exact primitive fixed lines, yielding rotation representatives (1,1,2,3,1,4) and (2,9,11,4,3,7). Each entry of a periodic orbit is prime to five, so only multipliers coprime to five work. After removing the common factor of two to its highest power, the nonzero parity pair has period three; in a three-cycle the largest entry must be the undivided sum of the other two, forcing (5^u-1)(5^v-1)=4 with u,v>=1, impossible. This establishes all positive six-periodic points and excludes shorter positive periods, not longer periods or convergence. The frozen checker was inspected, not run. Its raw signed permutation count (20) is distinct from the count of surviving monomials (18).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Resultary statement quantifies over every positive pair fixed by six steps with no bound on the terms or divisions, and identifies both primitive families and the shortest period",
+          "Avila–Khovanova give both examples and the restriction that odd-base periods are multiples of three, but ask whether more cycles exist"
+        ],
+        "reasoning": "The Resultary fixed-point statement covers all least-period-six cycles as well as the exclusion of shorter positive periods. The 2014 paper alone would not settle exhaustiveness.",
+        "searches": [
+          "Resultary 1a78710c2103 RESULT.md Finding",
+          "Avila–Khovanova, Free Fibonacci Sequences, §9 and Lemma 28"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 1a78710c2103",
+        "Avila–Khovanova JIS 17 (2014), 14.8.5; arXiv:1403.4614",
+        "OEIS A214684"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier Finding explicitly gives the same scale restriction, shortest cycle length and exhaustive classification",
+          "Avila–Khovanova p. 14 explicitly asks ‘Are there other cycles?’"
+        ],
+        "reasoning": "No new implication is required to obtain the frozen Finding from the earlier Resultary theorem. Its extra determinant presentation is a different encoding of the same key identity.",
+        "searches": [
+          "Earlier Resultary Finding and proof, offsets 0, 2780–6352",
+          "Avila–Khovanova JIS §9, pp. 14–15"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 1a78710c2103, RESULT.md from offset 0: (1,1,2,3,1,4) and (7,2,9,11,4,3), with multiplier prime to five; second tuple is a rotation",
+          "Same record offsets 0 and 2780: trace 1+Q has exactly the same 17 nonconstant terms as the frozen determinant relation"
+        ],
+        "reasoning": "Positive fixed points of the six-step ordered-pair map are the same cyclic solutions once rotations are identified. Neither changing the starting pair nor replacing the trace by the determinant changes the result.",
+        "searches": [
+          "Resultary semantic search for primitive six-cycles and positive six-step fixed points of five-free Fibonacci dynamics",
+          "Primary-literature search for five-free Fibonacci cycle classifications and equivalent determinant tests"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior support table at offsets 2780–6352 covers all 64 binary words by rotation and leaves the same two nontrivial admissible support orbits after exclusion of the all-divided word",
+          "A214684 lists the (1,1) seed trajectory, not the set of primitive cycles"
+        ],
+        "reasoning": "The earlier table is part of an unbounded proof, not a bounded search for seeds. The OEIS entry corroborates only one example.",
+        "searches": [
+          "Resultary 1a78710c2103 support table",
+          "OEIS A214684"
+        ]
+      },
+      "rationale": "The earlier 2026-10-25 UTC Resultary record gives both families, exhaustiveness for every positive fixed point of the six-step map, and minimality. The central transfer trace and the frozen cyclic determinant impose the same weighted identity. The frozen presentation does not leave a materially different classification.",
+      "residual_risks": [
+        "The literature search was bounded and does not establish earliest historical priority. This does not affect direct coverage by the distinct earlier record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage",
+          "evidence": "Every positive six-step fixed pair belongs to exactly the same two rotation/scaling families; prior proof gives the weighted trace relation and surviving supports.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-the-two-primitive-six-cycles-of-five-free-fibonacci-dynamics--1a78710c2103",
+          "material_read": "RESULT.md Finding and proof passages at offsets 0 and 2780–6352",
+          "method": "Bounded local mirror full-text inspection (snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+          "title": "The two primitive six-cycles of five-free Fibonacci dynamics",
+          "trigger": "Same recurrence, period and primitive families"
+        },
+        {
+          "assessment": "Partial coverage, not exhaustive",
+          "evidence": "Both cycles are displayed, followed by a question about other cycles; Lemma 28 proves the multiple-of-three restriction for odd bases.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL17/Avila/avila4.pdf",
+          "material_read": "§9 pp. 14–15, including Lemma 28; cross-checked arXiv:1403.4614 HTML §9",
+          "method": "Primary full-text passages",
+          "title": "Free Fibonacci Sequences",
+          "trigger": "Foundational paper, both primitive examples"
+        },
+        {
+          "assessment": "Known example only",
+          "evidence": "The listed period-six orbit is the first primitive tuple; no arbitrary-seed quantification.",
+          "identifier_or_url": "https://oeis.org/A214684",
+          "material_read": "Recurrence, data, period comment and author/date entry",
+          "method": "Public entry inspection",
+          "title": "Five-free Fibonacci recurrence for initial pair (1,1)",
+          "trigger": "Exact initial-seed sequence table"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Exhaustiveness at the shortest period is a natural question and would be useful if unknown, but the earlier record already proves it with effectively the same weighted identity. No new cycle, bound, or broader theorem remains; the six-by-six encoding does not itself constitute a substantive new finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

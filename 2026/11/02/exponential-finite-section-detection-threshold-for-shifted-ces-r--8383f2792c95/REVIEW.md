@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The full self-commutator is reconstructed directly as a trace-norm convergent positive sum of prefix rank-one matrices plus one signed rank-one term. The exact finite-section inversion uses a triangular, invertible cumulative-sum coordinate change and includes the positive infinite tail; thus the rank-one inertia test applies at every positive integer cutoff. The trigamma tail identity, strict monotonicity of the scalar threshold, and the uniform digamma/trigamma expansions give the stated exponential prefactor. The checker reproduced 444 exact finite-rational assertions. No inference from finite sampling is used to prove the asymptotic.
+PASS
 
-## Originality
+For i≤j, multiplication gives K_ij=Σ_{k≥j}a_k²−(i+1)a_i a_j. Telescoping Σ_{k≥j}g_k=a_j and 1−(i+1)a_i=αa_i give K=Σ d_k v_kv_k*+αaa*, with finite positive trace Σ(k+1)d_k and a∈ℓ². In the invertible partial-sum coordinates of the leading N-dimensional space the positive part has diagonal weights d_0,…,d_{N−2},D_{N−1}; the corresponding coefficient vector is (g_0,…,g_{N−2},a_{N−1}). This gives the exact dual norm squared and, after positive congruence, the required inertia including the simple null direction at equality. The N=1 interior sum is empty and the positive trigamma tail is still exact. Strict increase follows by splitting the merged tail: the first ratio g_{N−1}/d_{N−1}=N+α is strictly less than the d-weighted average of g_k/d_k=k+α+1 for k≥N. The harmonic part diverges; this supplies a negative direction for every −1<α<0 and rank one bounds the full negative index by one. For α≥0 the two terms are positive semidefinite. Uniformly for small ε, the scalar is log N+2−ψ(2−ε)+O(1/N); bounded sections cannot cross 1/ε, and the crossing integers squeeze log N_*−1/ε to −1−γ. The witness partial sums equal k+α+1 up to L−1 and vanish thereafter, giving B_L(1+α B_L), and the same squeeze without the tail term gives 1−γ and the ratio e². Its actual support dimension is L+1, with no change to the limiting ratio. The supplied checker was inspected, not executed: it checks selected exact-rational identities and interval signs with the infinite tail enclosed; the all-N and limiting claims rest on the proof.
 
-PASS, best-knowledge. Ma's 2026 paper establishes the qualitative boundary and a finite-support nonhyponormality witness, with a negative logarithm-squared leading term. Its Sections 1, 2, and 7 do not supply the exact least negative leading-principal-section dimension or the sharp prefactor. The closest published mathematical records supply either a different weighted sharp coefficient or a trace identity, not the full finite-section threshold. The exact coordinate-optimization and the positive infinite tail distinguish this statement from the source's chosen witness. An older unindexed equivalent finite-section calculation remains possible; bibliographic priority is not independently certified. Earlier Rhaly materials were available only at abstract level and are a residual comparison risk.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The source establishes a boundary between hyponormality and nonhyponormality but does not quantify how large a canonical coordinate finite section must be to reveal its failure. The least dimension is a natural finite-section stability/detection invariant, not an arbitrary slice. Its essential-singularity scaling shows why finite-dimensional tests can remain positive to exponentially large sizes as the shift tends to the boundary. The exact \(e^2\) ratio measures the improvement obtained from finite-dimensional optimization over the source’s particular witness and is a natural, nontrivial sharp comparison. The result is limited to the natural order-one family and does not claim a general theorem for all shifted Cesàro orders.
+The assessed distinct contribution is the exact optimal leading-section inertia criterion, the first-section prefactor e^(−1−γ), and its quantitative comparison with the onset for Ma's witness. The qualitative hyponormality boundary, the witness construction and trace class are not new, and the full real-shift index also appears explicitly in a distinct indexed record. None of those observations is treated as an independent novelty here.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Leading sections are a canonical diagnostic for nonhyponormality. The result resolves exactly when this diagnostic first succeeds, including equality and a sharp exponential prefactor that is invisible to both eventual negativity and finite sampling. The e² gap quantifies the cost of restricting attention to the known test vector and isolates the role of the infinite tail.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

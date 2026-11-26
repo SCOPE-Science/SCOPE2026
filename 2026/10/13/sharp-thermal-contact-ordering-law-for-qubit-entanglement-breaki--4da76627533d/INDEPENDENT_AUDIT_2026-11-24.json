@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:36:03.838043Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–59; VERIFICATION.md lines 19–27; artifacts/verify.py lines 13–116 (read as evidence; not run)",
+        "Independent exact diagnostic: python /workspace/branches/independent_replay.py 1 verifies the population-matrix commutator, Choi block determinant, g=2/3 checks and roots 0.598278796872131, 0.710831453551690."
+      ],
+      "rationale": "Composing the affine population maps gives slope R and offset s_pi; the offset weights telescope to Gamma, whence 0<=s_pi<=Gamma/2. Coherences acquire the factor sqrt(R). The normalized partial transpose has nonnegative scalar blocks and one block (1/2)*[[s,sqrt(R)],[sqrt(R),Gamma-s]]. Its trace is Gamma/2 and its determinant is (s(Gamma-s)-R)/4. The negative part of its smaller eigenvalue is the stated negativity; the qubit Choi PPT criterion gives exactly the stated entanglement-breaking test. A swap from (b,a) to (a,b) shifts the final offset by D*gamma_a*gamma_b*(nu_b-nu_a), with D the strictly positive suffix slope. Sorting yields both extrema because s(Gamma-s) increases and the negativity decreases weakly on the allowed half interval. If Gamma^2<4R the test fails everywhere; otherwise the lower root is the inclusive threshold, including the double-root case, and checking the sorted extremal offsets gives all three regimes. For two contacts the offsets are g/2 and g(1-g)/2; the determinant yields the two stated cubics (cancelling 1-g in the second). The derivative signs and opposite endpoint signs give unique roots, and the larger cold-first offset gives the strictly earlier transition. The second root is below 3/4; the hot single channel cannot break there since g^2/4<1-g, and the cold one cannot break for g<1. At g=2/3 the hot-first block has the eigenvalue (4-3 sqrt(2))/18; the cold-first block is positive. The two strict signs in the interior persist by continuity within the allowed parameter domain.",
+      "residual_risks": [
+        "The decimal root checks do not establish uniqueness; the derivative argument does. Negativity can tie between orders on an EB plateau. The effective population s/Gamma presupposes at least one contact; if an empty list is allowed, the displayed Choi formulas give the identity channel directly."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For affine maps with all slopes below 1, Kawase et al. explicitly solve maximum full composition by ascending b_i/(1-a_i). With a_i=1-gamma_i and b_i=gamma_i nu_i, this is precisely ascending stationary population. Applying the maximum rule to -f_i(-q), which negates the fixed points, also gives the minimum.",
+          "Lami–Giovannetti treat iterations of a given channel and intermediate filtering, not a fixed multiset of distinct thermal contacts."
+        ],
+        "reasoning": "The sorted scalar extrema are a direct instance of the broader optimization theorem. All orders have the same effective damping and lie on the same monotone side of the PPT region, so their EB envelope follows from those extrema and the known test. Neither source determines where the two physical regimes differ for the specified cold/hot thermal pair.",
+        "searches": [
+          "Kawase–Makino–Seimi, arXiv:1601.05480 §3, Lemma 9 and Eq. (6)",
+          "Lami–Giovannetti arXiv:1411.2517v4 abstract and introduction"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 06d86d7242a6 and 025cad4b497d",
+        "arXiv:1601.05480 Lemma 9; arXiv:2609.00168v1 App. E; arXiv:1903.07747v2 §IV; arXiv:1411.2517v4 introduction",
+        "RESULT.md lines 64–74"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Combining the prior rules mechanically gives which ordering is most favorable and how to compute the Choi test, and the single-channel eigenvalue calculation gives the negativity for each effective state.",
+          "The thermal window goes beyond order ranking: the two opposite determinant signs coexist for a nonempty exact interval while both individual maps are outside the EB region. The analysis brackets the second threshold below 3/4 and proves persistence under strict inequalities. The unitary-assisted example does not give the same admissible witness."
+        ],
+        "reasoning": "The old formulae give a way to test a chosen pair, not a control-free threshold theorem or a guarantee that an order-dependent interval actually lies within the non-EB constituent regime. Credit attaches to this narrowly stated classification and robust witness, not to repackaging the known composition optimization.",
+        "searches": [
+          "Compare the known contracting-affine sorting and GADC PPT results with RESULT.md lines 19–29 and 53–59",
+          "Resultary 06d86d7242a6, RESULT.md Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Appendix E swap formula uses a ground-state population p=1-nu; this is the same local order difference. The studied coherent control–target concurrence is not normalized definite-order reference–target Choi negativity.",
+          "The effective channel is a single GADC with parameters gamma=Gamma and N=s/Gamma. Substitution in the known single-channel EB boundary gives s(Gamma-s)>=R."
+        ],
+        "reasoning": "The population parametrizations are equivalent and the known single-channel PPT calculation applies to each effective map. A coherent-switch output, a filtered composition, and an effective definite-order Choi state are not interchangeable.",
+        "searches": [
+          "Resultary: ordered amplitude-damping cascade, permutation entanglement breaking, thermal qubit damping",
+          "Aslanbaş–Alkan–Karpat arXiv:2609.00168v1 App. E; Khatri–Sharma–Wilde arXiv:1903.07747v2 §IV"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest indexed threshold record gives an opposite-order example for two zero-temperature damping stages with an intermediate unitary. The protection record uses two copies of the same thermal channel and an interposed unitary or heralded filter. No matching exact no-control window surfaced in the inspected results."
+        ],
+        "reasoning": "The indexed exact thresholds concern different maps or allowed operations. Setting the unitary to identity in the two-zero-temperature model leaves s=0 in both orders and cannot yield the thermal effect. The decimal roots in the audited record are evaluations of exact boundaries, not prior theorem or table entries.",
+        "searches": [
+          "Resultary: order-dependent EB threshold and Choi negativity for thermal GAD",
+          "Resultary cascade 06d86d7242a6; protection 025cad4b497d"
+        ]
+      },
+      "rationale": "The supported distinct result is the sharp control-free opposite-status window for physical cold and infinite-temperature contacts, neither individually entanglement breaking, with stability away from the endpoints. Do not count the affine sorting rule, local commutator, single-channel Choi test, or the resulting sorted phase test as independent innovations; the latter follows by combining known affine ordering and the single-channel Choi region. The strongest checked order-sensitive quantum example requires an interposed unitary and does not imply the thermal window. No verified earlier classification of that window or control-free witness under these hypotheses was found. This distinguishes new content from known coverage, not historical priority.",
+      "residual_risks": [
+        "There may be an equivalent earlier thermal contact window expressed in relaxation times, rates, or bath populations rather than damping strengths; the bounded searches and inspections are not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the scalar ordering theorem directly and predates the comparison. It has no physical Choi regime or exact thermal reversal window.",
+          "evidence": [
+            "Lemma 9 compares b_i(1-a_j) <= b_j(1-a_i); the text states sorting by b_i/(1-a_i) is optimal also when all slopes are less than 1."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1601.05480",
+          "material_read": "Theorem 1 context and Lemma 9 with Eq. (6) and following contracting remark (PDF page 6, text offsets 26310–27781)",
+          "method": "Locate and read bounded passages of the open primary PDF",
+          "title": "Optimal Composition Ordering Problems for Piecewise Linear Functions",
+          "trigger": "General theorem for total composition of increasing affine maps"
+        },
+        {
+          "assessment": "Positive coverage of the swap identity, not of the definite-order Choi switching interval.",
+          "evidence": [
+            "The two composition difference and subsequent concurrence bound concern a coherent switch with a control–target split."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.00168v1",
+          "material_read": "Appendix E, pp.17–18, offsets 127452 and 132911, Eqs. (E1)–(E4), (E16)–(E17)",
+          "method": "Read decisive primary PDF passages",
+          "title": "Entangling capability of coherently controlled quantum processes",
+          "trigger": "Identical two-GAD affine swap and order comparison"
+        },
+        {
+          "assessment": "Covers the EB test of every effective ordered channel; does not state the two-contact window.",
+          "evidence": [
+            "The permitted bath population interval lies between (1±sqrt(gamma^2+4gamma-4)/gamma)/2 with gamma>=2(sqrt(2)-1). Substitution gives the audited offset test including its double-root boundary."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1903.07747v2",
+          "material_read": "Section IV, pp.10–11, offsets 73028 and 79509, Eqs. (103)–(107)",
+          "method": "Read decisive primary PDF passages",
+          "title": "Information-theoretic aspects of the generalized amplitude-damping channel",
+          "trigger": "Exact GADC Choi PPT criterion"
+        },
+        {
+          "assessment": "Relevant repeated-channel problem; not a classification of permutations of distinct thermal contacts on inspected evidence.",
+          "evidence": [
+            "The index counts repeated iterations of a given channel, with variants for intermediate filters."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1411.2517v4",
+          "material_read": "Abstract offset 0 and introduction offset 4854, pp.1–2",
+          "method": "Read selected open primary PDF passages",
+          "title": "Entanglement-Breaking Indices",
+          "trigger": "Entanglement breaking after channel composition and filtering"
+        },
+        {
+          "assessment": "Material two-order overlap with zero-temperature stages and an intervening unitary, not the no-control thermal window. No priority inferred from path dates.",
+          "evidence": [
+            "The threshold varies the unitary in a two-stage cascade and includes an opposite-order example. With the unitary omitted the two zero-temperature stages commute and never break for finite strengths below one."
+          ],
+          "identifier_or_url": "Resultary 06d86d7242a6",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Inspect local mirror record",
+          "title": "An exact ordered-cascade entanglement-breaking threshold for amplitude damping",
+          "trigger": "Closest exact indexed example of order-selective entanglement breaking"
+        },
+        {
+          "assessment": "Different optimization domain, not a substitute for the control-free window.",
+          "evidence": [
+            "Uses two copies of the same thermal channel and compares intervening unitary or heralded operations."
+          ],
+          "identifier_or_url": "Resultary 025cad4b497d",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Inspect local mirror record",
+          "title": "Heralded versus unitary protection under thermal qubit damping",
+          "trigger": "Thermal GAD in an order-sensitive composition literature search"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 19–29 and 53–59; Resultary 06d86d7242a6 for the control-assisted contrast"
+      ],
+      "rationale": "The sharp reversal is a motivated boundary, not merely a new name for affine sorting. For physically distinguished zero and infinite bath temperatures at equal strength, it quantifies exactly when temporal order alone determines survival of reference entanglement, without either contact already being entanglement breaking. The open strict-inequality regime distinguishes a stable effect from an isolated test point. The general phase test provides a usable prediction for a prescribed multiset even though its ingredients are established.",
+      "residual_risks": [
+        "The result is for phase-aligned thermal GAD without controls, not all qubit channels or inverted baths."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

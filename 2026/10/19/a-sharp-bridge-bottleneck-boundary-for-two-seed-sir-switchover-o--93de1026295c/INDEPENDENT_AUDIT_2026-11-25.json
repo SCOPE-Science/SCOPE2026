@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:51:22.883818Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the deterministic one-step rule, preassign an independent open/closed variable for each edge when it is first tested between an infected and susceptible endpoint; no second opposite-direction test can reach a susceptible endpoint after that first attempt. The final set is the union of open components meeting the two seeds. The component hit probability in RESULT.md uses unordered sampling without replacement correctly. Independently, let P sum p^{distance} over unordered vertex pairs and J sum p^{Steiner subtree edge count} over unordered triples. Inclusion–exclusion for connection of each vertex to at least one uniform seed gives U=2+[4(N-2)P-6J]/[N(N-1)] including the cases in which the vertex is itself selected. Counting pairs on the double star gives coefficients (2n+1,n(n+1),n^2) for p,p^2,p^3; counting triples gives (n(n+1),n(n-1)+2n^2+2 binom(n,3),n^2(n-1)) for p^2,p^3,p^4. Symbolic factorization after subtracting U from 2+2np reproduces the precise boxed difference. Q_1=2p; Q_2=6p^2+5p-10 is increasing with sole interior root (sqrt(265)-5)/12; for n>=3, Q_n is increasing and Q_n(1)=2-(n-1)^2<0. The prefactor reverses the sign in (0,1) and enforces endpoint equality. The n^2 coefficient of Q_n is 3p^2-4, yielding the stated fixed-p normalized limit. These counts and the factorization are an analytic replay path independent of the supplied finite enumeration, which was read, not executed. Only expected sizes on the stated homogeneous toy graph are compared.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The deterministic comparison of Theorem 2.3 is not a uniform-random-pair comparison. Theorem 2.4 requires k<r for a central region of size r; here k=r=2, and the interhub bridge is not a minimum-degree leaf-star cut.",
+          "The strong results studied require macroscopic scaling or other graph hypotheses absent from this family."
+        ],
+        "reasoning": "The general results do not supply the full-p, fixed-two-seed sign diagram or the explicit normalized limit.",
+        "searches": [
+          "arXiv:2304.11971 Theorems 2.3–2.4 and 2.14",
+          "arXiv:2106.16070 theoretical results"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2106.16070 pp. 7–8",
+        "arXiv:2304.11971 pp. 5–6 and 8",
+        "Resultary 9f4eedfdcfd8, 3f9c3d65c448, 51f5bbdc1318 Findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The closest endpoint sign theorems are conditional statements with a different seed law or nonapplicable hypotheses. The path result cannot rank the hub pair against uniform on branching double stars.",
+          "Component-union machinery enables a new finite-family calculation, but the three regimes and limit need the specific pair/triple counts or component moment calculation."
+        ],
+        "reasoning": "The inspected implications cover the model reduction, not the exact theorem assessed here.",
+        "searches": [
+          "arXiv:2304.11971 pp. 5–6 and 8",
+          "arXiv:2106.16070 pp. 7–8",
+          "Resultary 3f9c3d65c448 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2021 paper establishes the epidemic/open-component formulation; the distinction is in the exact double-star comparison, not a change of language.",
+          "Resultary 9f4eedfdcfd8 analyzes single-source stochastic order; 3f9c3d65c448 optimizes two fixed seeds on paths, not hub-versus-uniform on double stars."
+        ],
+        "reasoning": "Neither a one-source component law nor a path optimizer supplies the expectation comparison across the two stated ensembles for n>=2.",
+        "searches": [
+          "Resultary: symmetric double-star or bistar, two-seed bond percolation component union, hub pair versus uniform pair",
+          "arXiv:2106.16070, open-component union"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected tree records concern one-source stochastic comparison, optimal paired seeds on paths, or one-source expectation reversals, not the boxed polynomial with n leaves at each hub."
+        ],
+        "reasoning": "There is no corresponding exact table or theorem in these inspected records. Uninformative literature retrieval is not negative evidence.",
+        "searches": [
+          "Resultary: bistar two-seed crossing and two adjacent hub percolation",
+          "Resultary 9f4eedfdcfd8, 3f9c3d65c448, 51f5bbdc1318"
+        ]
+      },
+      "rationale": "The open-component representation and general switchover question are prior. Prior endpoint sufficient theorems and the closest tree catalogue statements do not cover the complete double-star fixed-two-seed trichotomy, its unique exact crossing, or its nonzero size-normalized gap.",
+      "residual_risks": [
+        "Equivalent finite-tree reliability or two-source expectation formulas could be indexed under different terms.",
+        "Web discovery was uninformative or deferred; the checked mathematical statements do not constitute an exhaustive priority search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related endpoint results, not covering this classification",
+          "evidence": "Theorem 2.4's k<r and high-p cut condition are not satisfied; Theorem 2.14 is in a different scaling regime.",
+          "identifier_or_url": "https://arxiv.org/abs/2304.11971",
+          "material_read": "PDF pp. 5–6 and 8, Theorems 2.3, 2.4, 2.14",
+          "method": "Read hypotheses and compare deterministic vs random seed laws, graph cuts and large-graph scaling",
+          "title": "Switchover phenomenon for general graphs",
+          "trigger": "Potential general theorem implying the double-star signs"
+        },
+        {
+          "assessment": "Prior formulation and motivation, not the frozen trichotomy",
+          "evidence": "The block-model strong result scales its seed budget linearly; the component-union mechanism gives the framework only.",
+          "identifier_or_url": "https://arxiv.org/abs/2106.16070",
+          "material_read": "Theoretical results, PDF pp. 7–8, OA offsets near 36600 and 43300",
+          "method": "Compare model reduction and size scaling to this deterministic tree family",
+          "title": "Switchover phenomenon induced by epidemic seeding on geometric networks",
+          "trigger": "Original central-versus-uniform comparison and percolation equivalence"
+        },
+        {
+          "assessment": "Different assertion",
+          "evidence": "Compares single-source component-size distributions, not expectations for two pairs of seed laws.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-seven-vertices-are-sharp-for-failure-of-epidemic-source-stochast--9f4eedfdcfd8",
+          "material_read": "Finding, local mirror offset 0",
+          "method": "Compare seed count and observable",
+          "title": "Seven vertices are sharp for failure of epidemic-source stochastic order",
+          "trigger": "Earlier exact tree-percolation threshold"
+        },
+        {
+          "assessment": "Partial framework overlap only",
+          "evidence": "Optimal separation of a fixed pair on paths is not the double-star center-pair versus uniform-pair comparison.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-monotone-separation-of-optimal-paired-seeds-on-homogeneous-paths--3f9c3d65c448",
+          "material_read": "Finding, local mirror offset 0",
+          "method": "Compare geometry and comparison problem",
+          "title": "Monotone separation of optimal paired seeds on homogeneous paths",
+          "trigger": "Same two-seed expected open-union observable"
+        },
+        {
+          "assessment": "Different crossing problem",
+          "evidence": "Single-source rankings on seven-vertex trees do not give the six-vertex unique crossing within the symmetric double-star family.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-seven-vertices-are-sharp-for-transmissibility-dependent-epidemic--51f5bbdc1318",
+          "material_read": "Finding, local mirror offset 0",
+          "method": "Compare source count, graph, and expectation ordering",
+          "title": "Seven vertices are sharp for transmissibility-dependent epidemic-source ranking",
+          "trigger": "Exact small-tree crossing of expected sizes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A symmetric two-star tree with one bridge is a natural exact bottleneck benchmark for open-component sampling. The result determines all branching sizes and all probabilities, distinguishes both strict orderings and a unique crossover case, and shows that the large-size comparison is not a vanishing boundary effect. It is a mathematical benchmark for percolation expectations, not a real-world model or a ranking of outbreak distributions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is derived from the exact two-state transfer matrix for nearest-neighbor exclusion on a cycle. The occupancy-projector formula reconstructs all first-, second- and third-order moments, yielding a rational expression whose numerator is explicitly factored. The sign of the factored expression is determined by a single polynomial; endpoint derivatives establish signs at small and large fugacity, while direct evaluation at the special activity establishes the parity law. Uniform convergence with derivatives on a fixed neighborhood of the midpoint gives local existence, uniqueness for sufficiently large systems, and a quantified asymptotic. The independent enumerator and exact-rational checker passed 64 comparisons; computations are supporting checks, not an infinite-size proof.
+PASS
 
-## Originality — PASS on examined evidence
+For the two transfer eigenvalues alpha and -t alpha, the occupied diagonal projector weights are t/(1+t) and 1/(1+t). Inserting one, two, or three projectors in the trace gives the products of occupied matrix elements at the corresponding cyclic gaps, divided by the same ring partition function. Expanding the centered moment with these probabilities reproduces its exact numerator factorization. In the open interval (0,1) its sign is the opposite of H_m. H_m starts at -1 and ends at 0 with slope 4-6m for even m and 2-2m for odd m; this gives a positive-to-negative crossing in fugacity. At one half, with a=2^-m, even m gives H_m/a at least 1/4-1/8-1/32-3/512>0; for odd m, the negative constant and negative quadratic-in-a contribution to H_m dominate its positive cubic term. Uniform C^1 convergence to 2t-1 on [2/5,3/5] gives eventual uniqueness and simplicity on that interval. The midpoint residual first bounds the root displacement by O(2^-m); there |((-t)^m)'|=O(m 2^-m), so the mean-value formula gives t_m=1/2-(-1)^m 2^-m/8+O(m 4^-m). The fugacity map has derivative 12 there, yielding the stated amplitude, sign and error.
 
-Scott and Sokal, arXiv:cond-mat/0309352, Section 3.2, contain the classical exact cycle partition function used as an input. It does not state the sign reversal of the specified three-point connected cumulant, the exact parity test at activity two, or the exponential alternating displacement. The full accessible Tokar–Dreyssé preprint concerns canonical cluster-length statistics rather than the stated finite grand-canonical three-point response. The 1986 Tanaka–Morita–Hiroike correlation paper was relevant by title and abstract, but only its accessible abstract and metadata could be checked; this is a residual risk rather than evidence of negative coverage. Earlier results on cycle two-point monomer correlations and precision operators do not imply the third connected moment because their input does not determine a three-point joint probability. Unindexed equivalent finite-ring cumulant calculations remain possible; absence from search is not a novelty proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This theorem identifies an infinite, natural family of finite periodic hard-core gases where a connected three-body response necessarily reverses sign. More than a worked transfer-matrix example, it establishes an exact odd-even diagnostic at a shared positive fugacity and resolves the parity-alternating exponential finite-size drift of a distinguished zero. That quantitative law separates a global ring effect from the usual infinite-chain decay of correlations. The observable and evenly distributed sites are natural probes of nonlocal collective response. The result claims neither an infinite-volume singularity nor global uniqueness of finite-size roots.
+The independent-set/matching correspondence and cycle transfer framework are known. The distinct supported claim is the connected three-site sign crossing and the exact parity-dependent displacement for the specified nearly equispaced marked cycle. The closest distinct inspected corpus work concerns open paths, whose conditional structure at the middle site does not carry over to a cycle. None of the inspected available statements supplies or implies this finite-ring sign and root asymptotic.
 
-## Closest literature and limitations
+## value
 
-Primary comparison: Scott–Sokal, arXiv:cond-mat/0309352 (cycle partition identities), Tokar–Dreyssé, arXiv:cond-mat/0210582 (different canonical cluster problem), Tanaka–Morita–Hiroike, DOI 10.1143/PTPS.87.214 (two-point direct/total correlations; full article not inspected). Remaining risks include unindexed exact computations, global zero counts outside the fixed neighborhood, and extension to nonuniform activities.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The triple has the closest possible evenly spaced gaps for these ring sizes, a natural finite-size comparison. Its low-to-high fugacity reversal, alternating correction at fixed fugacity, and explicit opposite-side root law quantify a genuine cyclic effect of a third connected statistic beyond the partition or pair functions. Knowing the coefficient and error resolves which side of two the boundary lies on, rather than just exhibiting a decaying correlation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

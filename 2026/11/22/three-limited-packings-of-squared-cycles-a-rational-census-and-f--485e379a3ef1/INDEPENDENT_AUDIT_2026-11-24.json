@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:00:11.573464Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–76, VERIFICATION.md, verify_determinant.py, verify_recurrence.py, verify_direct.cpp, and their .txt outputs",
+        "Independent cycle-expansion and mask-enumeration code, branches/correctness_checks.py (packing)"
+      ],
+      "rationale": "For each n≥5 the closed neighborhoods are distinct-site cyclic five-windows. Summing their occupancies proves 5k≤3n; each admissible word contributes its summed deficit 3n−5k to the indexed closed-walk trace with no rotation quotient. Independently computed det(I−tM) by the disjoint directed cycle expansion: 44 simple cycles in the four-bit transition graph; each compatible collection contributes (−1)^(number of cycles) t^(total length) u^(total deficit). The surviving coefficients are exactly 1, −tu³, −t²u, −t⁴u², −2t⁵, +t⁷u, +t¹⁰. The formal trace identity gives N=−t∂_tD. With z=t⁵, expand −log D through u⁴ after pulling out (1−z)². For r=0 the t-derivative gives the positive multiples-of-five coefficient 10; for r=1,2,3,4 the respective A_n/n are (q+1)+(4/3)binom(q+1,2), 1, binom(q+2,2)+(7/4)binom(q+2,3), and (3/2)(q+1). These simplify to the printed formulas and show the floor bound is attained. Direct independent bit-window census matches all recorded cardinalities for n=5,…,18. The stored programs and outputs were read, not executed; the degree-bounded grid certificate is also valid in principle but the independent determinant calculation does not rely on it.",
+      "residual_risks": [
+        "Applies only to indexed subsets in the simple square of C_n with n≥5 and the specified closed-neighborhood bound."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2023 work develops limited-packing partitions; 2024 work distinguishes closed packings from total packings, emphasizing capacity two and trees/products; Gagarin–Zverovich gives general bounds and algorithms. 4988b765ec45 concerns a separation predicate for P₃-convexity in cycle powers."
+        ],
+        "reasoning": "These methods, bounds and different cycle-power predicates do not specialize to all cardinality coefficients for the capacity-three closed windows in the inspected passages.",
+        "searches": [
+          "arXiv:2308.16837; arXiv:2405.03237; arXiv:1407.1637; Resultary 4988b765ec45"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 78–87 and source audit narrative",
+        "Resultary 8054f73b99ed, 27b6ac302094, 4988b765ec45",
+        "arXiv:2308.16837; arXiv:2405.03237; arXiv:1407.1637"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The regular-set result determines the n≡0 optimum branch exactly because summing windows forces every occupancy to be three at k=3n/5. Its predicate gives no positive-deficit states. The same-day open-domination article uses a 16-state trace with a different allowed-transition test; same-day dating does not establish priority."
+        ],
+        "reasoning": "Derivability of the zero-deficit term is not derivability of the all-size result. General transfer formalism requires the actual weighted transitions, determinant and extraction; an evaluated trace for another constraint is not this evaluated trace.",
+        "searches": [
+          "8054f73b99ed Finding; 27b6ac302094 Finding; arXiv:2308.16837 cycle passage pp. 10–11; arXiv:2405.03237 definitions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Complements satisfy closed-window occupancy at least two, hence are two-tuple dominating sets ordered by complementary size. 8054f73b99ed gives precisely the zero-deficit configurations via (2,3)-regular sets. 27b6ac302094 instead counts open-neighborhood occupancies in [1,2]."
+        ],
+        "reasoning": "Under closed occupancy exactly three, selected vertices have two selected open neighbors, and unselected ones have three. This is exact prior overlap at deficit zero; open [1,2]-domination and closed at-most-three are not equivalent.",
+        "searches": [
+          "Resultary: three-limited packings squared cycles C_n² and cyclic five-window condition; double-domination formulation in frozen search evidence",
+          "Resultary 8054f73b99ed and 27b6ac302094"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned record itself is indexed. Distinct earlier record 8054f73b99ed supplies the primitive words 00111 and 01011 with ten labelled configurations at 5|n; the same-day 27b6ac302094 has a different admissibility table."
+        ],
+        "reasoning": "The ten labelled configurations exhaust the deficit-zero term. The prior table neither counts positive deficits nor supplies the rational function; no separate exact match was seen for those.",
+        "searches": [
+          "Resultary exact squared-cycle three-limited census, five-window condition, and regular-set classification"
+        ]
+      },
+      "rationale": "Credit the exact previously indexed A_{5q}=10 branch, not just analogous orbit work. The supported distinct content is the complete all-cardinality rational function and optimum census for the other residues, not the general transfer method, the zero-deficit count or the incidence upper bound. No inspected source implied the full series or the remaining residue laws.",
+      "residual_risks": [
+        "Cyclic constrained coding, two-tuple domination and exact table literature could contain unindexed equivalent enumerators; the inspected evidence does not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the ten labelled optima for n divisible by five",
+          "evidence": "(2,3)-regular words 00111 and 01011, with five shifts each.",
+          "identifier_or_url": "Resultary 8054f73b99ed",
+          "material_read": "Finding, local-mirror offset 0",
+          "method": "Local mirror reading and closed/open occupancy conversion",
+          "title": "Complete regular-set orbit classification for squares of cycles",
+          "trigger": "Exact zero-deficit overlap on the same graph"
+        },
+        {
+          "assessment": "Different local predicate; no priority inference from same date",
+          "evidence": "Open-neighborhood count between one and two; uses a 16-state transfer.",
+          "identifier_or_url": "Resultary 27b6ac302094",
+          "material_read": "Finding, local-mirror offset 0",
+          "method": "Local mirror passage",
+          "title": "The total [1,2]-domination polynomial of squared cycles",
+          "trigger": "Exact polynomial and trace on the same graph, same catalogue day"
+        },
+        {
+          "assessment": "Different subset condition",
+          "evidence": "Separation predicate, not a cyclic five-window capacity.",
+          "identifier_or_url": "Resultary 4988b765ec45",
+          "material_read": "Finding, local-mirror offset 0",
+          "method": "Local mirror passage",
+          "title": "Complete P₃-convexity polynomial of cycle powers",
+          "trigger": "Exact enumerator on broader graph power family"
+        },
+        {
+          "assessment": "Shared definition and partitions, not the census",
+          "evidence": "Cycle passage is a total limited packing result at capacity two.",
+          "identifier_or_url": "https://arxiv.org/pdf/2308.16837",
+          "material_read": "pp. 1–2 abstract and definition (offsets 0,5198); cycle discussion pp. 10–11",
+          "method": "Targeted OA PDF reading",
+          "title": "Limited packings: related vertex partitions and duality issues",
+          "trigger": "Same limited-packing terminology and graph duality"
+        },
+        {
+          "assessment": "Does not cover the inspected closed squared-cycle count",
+          "evidence": "Distinguishes total and closed packing; emphasis on total k=2, trees and some products.",
+          "identifier_or_url": "https://arxiv.org/pdf/2405.03237",
+          "material_read": "pp. 1–3 abstract, definitions and outline (offsets 576,5009,8645), targeted cycle passages",
+          "method": "Targeted OA PDF reading",
+          "title": "On k-(total) limited packing in graphs",
+          "trigger": "Graph product and cycle packing comparator"
+        },
+        {
+          "assessment": "General bounds and algorithms in inspected material",
+          "evidence": "No matching exact squared-cycle census in the inspected passage; literal query misses do not establish absence.",
+          "identifier_or_url": "https://arxiv.org/pdf/1407.1637",
+          "material_read": "p. 1 abstract and introduction, offset 0",
+          "method": "Targeted OA PDF reading",
+          "title": "Gagarin–Zverovich limited packing paper",
+          "trigger": "Primary literature hit for graph limited packing"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof",
+        "Resultary 8054f73b99ed and 27b6ac302094"
+      ],
+      "rationale": "The complete labelled census for a natural capacity constraint on a four-regular circulant also counts two-tuple dominating sets under size reversal. The evaluated degree-ten denominator gives a reusable exact benchmark beyond generic transfer existence, and the remaining residue branches show substantially different polynomial growth even close to the same density. Value does not rest on the known multiple-of-five case.",
+      "residual_risks": [
+        "No extension to arbitrary powers, capacities, or inclusion-maximal packings is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

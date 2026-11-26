@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:00:05.461242Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–42",
+        "Frozen VERIFICATION.md, both checker scripts and both stored JSON results, inspected without executing the scripts",
+        "/workspace/branches/fefce843-c088-4901-b7d4-ebad2819196f/independent_check_record5.py and independent_check_record5.json"
+      ],
+      "rationale": "Cube-edge incidence determines the full 12-vertex, 24-edge graph. Resolving means the distance-to-edge columns restrict to distinct signatures; the fresh exhaustive check found no resolving set through size four and 168 at size five, each omitting exactly one cube vertex and 21 omissions of each vertex. A slide replaces ab by ac, so only the coverage on the parity class of b and c can change. Switching the omitted parity would change both classes' coverage counts from (3,4) to (4,3), which is impossible. Enumeration of all legal moves and all finite state distances gives 948 jumps in one component of radius and diameter 5; 360 slides in two 84-state components, each of radius and diameter 6, exactly the parity classes. A bit flip interchanges them. Every triangle of the line graph is a star of the triangle-free cube, so the line-graph automorphism group induces the cube group on those eight stars; the action is faithful and every cube automorphism induces one in return. The 48 coordinate permutations and independent bit flips exhaust the group since the image of a cube corner and of its three neighbours determines the automorphism. Its basis orbits are 24,48,48,48. Ordinary vertex resolution gives dimension 3, 96 optima, connected slides, radius 7 and diameter 8. Replay: python3 /workspace/branches/fefce843-c088-4901-b7d4-ebad2819196f/independent_check_record5.py. This is a complete enumeration of this finite graph, not extrapolation.",
+      "residual_risks": [
+        "Only the stated unweighted graph and minimum-cardinality states are covered; slide distances between components are not finite."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first two provide metric definitions and general dimension results. Avis–Hoang uses the same type of local move but for independent sets rather than minimum resolving sets."
+        ],
+        "reasoning": "The inspected statements describe established general settings, not all optimal landmark sets or their move metrics for the target graph.",
+        "searches": [
+          "Kelenc–Tratnik–Yero arXiv:1602.00291",
+          "Yi arXiv:2103.07375",
+          "Avis–Hoang arXiv:2203.16861"
+        ]
+      },
+      "checked_sources": [
+        "Source inspections above",
+        "House of Graphs #1024, landing page only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Heawood's slides are 21 cycles of length 8. Truncated tetrahedral ordinary metric bases form a connected slide graph of diameter 7 on 156 bases, for a different 12-vertex degree-three graph. Independent-set moves have a different feasibility predicate."
+        ],
+        "reasoning": "None yields the full five-set classification for L(Q_3) or its protected parity classes; that invariant depends on the verified unique unincident cube corner in every edge basis.",
+        "searches": [
+          "Resultary Heawood edge-metric basis slide geometry",
+          "Resultary truncated tetrahedral metric-basis exchange and slide geometry",
+          "Avis–Hoang token sliding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The graph aliases identify the same 12-vertex graph. Heawood has 14 vertices and 21 edges and has 21 octagonal slide components rather than two 84-state components."
+        ],
+        "reasoning": "Numerical coincidences in edge dimension, optimizer count and jump diameter neither identify the base graphs nor imply matching slides.",
+        "searches": [
+          "Resultary cuboctahedral edge-metric bases and basis mobility",
+          "MathWorld Cuboctahedral Graph / cube line graph L(Q_3)",
+          "Resultary edge-metric bases of the Heawood graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "MathWorld identifies the graph and its basic invariants. House of Graphs returned a JavaScript landing page, so its underlying invariants were not inspected. The materially matching Resultary cuboctahedral Finding was the assigned record, not an independent antecedent."
+        ],
+        "reasoning": "The visible graph catalogue data do not give the optimizer or state-graph classification; the inaccessible catalogue cannot support a negative priority inference.",
+        "searches": [
+          "MathWorld Cuboctahedral Graph",
+          "House of Graphs record 1024 linked from MathWorld",
+          "Resultary cuboctahedral optimizer and reconfiguration classification"
+        ]
+      },
+      "rationale": "The definition of edge-metric dimension, the graph and its cube-line-graph representation, and the move rules are antecedent. The verified distinct result is the cuboctahedral minimum edge-basis reconfiguration classification with its missing-parity obstruction and connected ordinary vertex-metric comparison. The closest indexed Heawood result has the same minimum size, number of edge bases, and jump diameter, but has a different base graph and a materially different slide classification. The checked general papers do not establish the target exact classification.",
+      "residual_risks": [
+        "The wider literature query was not available in the bounded search; House of Graphs #1024 was not accessible beyond a landing page. An unindexed exact table or an earlier equivalent theorem remains possible. Neither limitation is treated as evidence of novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material numerical and methodological overlap, different graph and slide structure",
+          "evidence": "The Heawood slide graph is 21C_8, not two 84-state components.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-edge-metric-bases-of-the-heawood-graph-and-octagonal-slide-recon--d4a919fbecfd/RESULT.md",
+          "material_read": "RESULT.md Finding from offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Edge-metric bases of the Heawood graph and octagonal slide reconfiguration",
+          "trigger": "Same minimum edge dimension, optimum count and jump diameter"
+        },
+        {
+          "assessment": "Different graph and resolving predicate; no implication",
+          "evidence": "Ordinary metric dimension 3, 156 minima, connected slides of diameter 7 on the cubic truncated tetrahedral graph.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-metric-basis-exchange-and-slide-geometry-of-the-truncated--2073aedeea3c/RESULT.md",
+          "material_read": "RESULT.md Finding from offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact metric-basis exchange and slide geometry of the truncated tetrahedral graph",
+          "trigger": "Same-day reconfiguration classification of a 12-vertex polyhedral graph"
+        },
+        {
+          "assessment": "Definitions and general background",
+          "evidence": "The definition uses minimum distance to endpoints; the inspected passage does not compute the cuboctahedral optimizer state graph.",
+          "identifier_or_url": "https://arxiv.org/pdf/1602.00291",
+          "material_read": "p. 1, extraction offset 1714, edge generators and scope",
+          "method": "OA PDF passage",
+          "title": "Uniquely identifying the edges of a graph: the edge metric dimension",
+          "trigger": "Original definition and possible graph-family results"
+        },
+        {
+          "assessment": "General context, no matching classification in inspected sections",
+          "evidence": "The passage treats edge and fractional edge dimension, not the two parity components of optimum-set slides.",
+          "identifier_or_url": "https://arxiv.org/pdf/2103.07375",
+          "material_read": "pp. 1–2, extraction offset 1920",
+          "method": "OA PDF passage",
+          "title": "On the edge dimension and fractional edge dimension of graphs",
+          "trigger": "General edge-dimension results"
+        },
+        {
+          "assessment": "Different feasible sets",
+          "evidence": "States are independent sets; this does not compute changes between minimum edge-resolving sets.",
+          "identifier_or_url": "https://arxiv.org/pdf/2203.16861",
+          "material_read": "pp. 1–2, extraction offset 4728",
+          "method": "OA PDF passage",
+          "title": "On Reconfiguration Graphs of Independent Sets under Token Sliding",
+          "trigger": "Closest general token-sliding framework"
+        },
+        {
+          "assessment": "Same graph, not matching optimum classification",
+          "evidence": "Identifies the 12-vertex, 24-edge graph and its line-graph representation; links to House of Graphs 1024.",
+          "identifier_or_url": "https://mathworld.wolfram.com/CuboctahedralGraph.html",
+          "material_read": "Entry from HTML offset 0",
+          "method": "OA website passage",
+          "title": "Cuboctahedral Graph",
+          "trigger": "Exact canonical-graph aliases and catalogue data"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and parity argument",
+        "Independent state-graph reproduction",
+        "Resultary Heawood comparison"
+      ],
+      "rationale": "This is an exact benchmark on a canonical graph for how optimum edge-location sensor sets may be moved. An invariant tied to the omitted cube vertex explains the disconnectedness rather than merely reporting it; the exhaustive counts show that the invariant is also sufficient for slide connectivity. On exactly the same base network, optimum vertex-location sensors have connected slides, establishing a natural, task-dependent contrast.",
+      "residual_risks": [
+        "Finite single-graph theorem, not a general law for line graphs or larger cubes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

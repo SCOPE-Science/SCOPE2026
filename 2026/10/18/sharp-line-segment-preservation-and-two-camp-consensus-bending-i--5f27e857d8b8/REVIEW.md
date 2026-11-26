@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof reconstructs the source's two-atomic characteristic equations and establishes uniform exponential decay of positive topic gaps. The logarithmic ratio identity forces a fixed strict sign of the normalized-gap difference; the exact weighted-mean integral then establishes a necessary-and-sufficient segment-preservation criterion. The weak-locality coefficient follows by smooth parameter variation and evaluation of a positive integral. The embedded standard-library program rechecks source-level identities in 81 rational cases, the strict bending example, the degeneracies, and onset scaling. Numerical diagnostics are not substituted for analytic proof. No assertion is made for more than two topics, more camps, or finite-population stochastic behavior.
+PASS
 
-## Originality — PASS, with historical-priority risk
+The primary model and the displayed velocities use the importance of the camp whose opinion is changing. Thus Hⱼ=1−[βdⱼ+(1−β)((1−p)α+pη)·d]/2. Positive gaps decrease with rate at least ρ=1−max(a,b)/2>0. The two camp positions move strictly inward toward a common limit, placing both normalized limits strictly between 0 and 1. The logarithmic ratio of normalized gaps has derivative β(d₁−d₂)/2; when β>0 and a≠b, uniqueness keeps d₁−d₂ strictly of its initial sign, as is then q₁−q₂ for t>0. Subtracting the two integrated normalized mean drifts gives p(1−p)(1−β)(α₁−η₁)/2 times ∫(d₁−d₂)(q₁−q₂)dt. Positivity off the stated degeneracies proves both necessity and the signed criterion. At β=0 the normalized gap is q=e^(−t)/(1−c+ce^(−t)); the first variation of q₁−q₂ is (a−b)q(t)∫₀ᵗq(s)ds/2, giving the asserted coefficient. For the remainder, the gap field is −d plus a quadratic term, so its linearization is −I+O(e^(−ρt)), uniformly for β near zero. Its variational propagator is bounded by C e^(−(t−s)), and both first and second parameter derivatives are O(e^(−ρt)) by the variation-of-constants formula with quadratic-decay forcing. This justifies an integrable second β derivative. Substitution w=1−c+ce^(−t) evaluates J as claimed, with positivity immediate from its integral. An independent finite integration gave θ₁=0.3951023218 and θ₂=0.4176439920 at t=24, with both residual gaps under 2.3×10⁻¹⁰; halving the step .01 to .005 did not change those digits. For those masses, weights and gaps, c=1/2 and the exact coefficient evaluates to 0.0602615378. The phrase ‘source-camp importance’ in the assumptions is misleading terminology: the convention is receiver/updater, fixed unambiguously by the actual characteristic equations. There is no equation or signed theorem change needed under that convention; sender importance would be a different model.
 
-Bartel–Burger–Wolfram (arXiv:2601.04074, full current public version inspected) gives qualitative dynamics, coordinatewise enclosure, and loss of mean conservation. Its stated results do not provide this complete two-camp straight-segment criterion or its sharp transverse asymptotic. Li–Luo–Chu (arXiv:2502.00284) analyzes a different symmetric updating mechanism. The exact claim is neither their named theorem nor an immediate reduction to the symmetric model. Relevant semantic mathematical-record queries and accessible historical claims were compared against the claimed *implication*, rather than matching a title alone. A more general result about nonreciprocal multidimensional consensus could still subsume this case; independent literature-priority verification has not been conducted.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The original theory confines a two-topic consensus to a rectangle, whereas modeling two opposing groups often motivates the stronger geometric expectation that compromise lies somewhere on the straight segment joining initial positions. This theorem supplies a complete necessary-and-sufficient boundary for that expectation in the first nontrivial two-topic, two-camp setting and an explicit sign/onset law where it fails. It is a structural distinction between symmetric topic mixing and nonreciprocal, importance-dependent mixing, not simply another convergence theorem or an isolated numerical example.
+The published model already allows componentwise confinement, nonreciprocity and mean drift. The supported distinct result is the necessary-and-sufficient original-segment criterion for two camps, including the sign of the transverse displacement and its positive quantified first-order response to locality. The strongest inspected related statements do not settle these assertions.
 
-## Scope and limitations
+## value
 
-Two atomic camps, strictly positive gaps below \(2\), and the affine nonincreasing response \(\phi(s)=1-s/2\) only; no stochastic finite-agent claim or independent originality certification. Relevant sources: Bartel–Burger–Wolfram, arXiv:2601.04074; Li–Luo–Chu, arXiv:2502.00284. The precise model is needed for the reported coefficients.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This resolves a specific geometric question for a published heterogeneous model: confinement in a coordinate rectangle need not mean confinement in the convex hull, even for only two camps. It gives an exact boundary and a signed quantitative onset rather than a single off-segment witness. The sign independence with respect to gap order is useful structural information about the smallest nontrivial subsystem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

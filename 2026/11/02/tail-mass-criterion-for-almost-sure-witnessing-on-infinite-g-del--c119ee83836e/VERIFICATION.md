@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification of the tail-mass threshold
+# Independent mathematical audit
 
-The theorem follows from the displayed three-step proof, rather than from numerical sampling. The checks reconstructible from the proof are:
+## correctness
 
-1. At a zero-outgoing leaf, both modalities have the constant values \(1\) and \(0\), respectively; all Gödel propositional connectives select existing inputs or \(1\). This proves the selector lemma by structural induction, including arbitrary nested modal formulas.
-2. For each formula with \(m\) variables, the selector lemma gives \(\Pr(0<e(u_n,\psi)<r_n)\le m\mu((0,r_n))\). First Borel–Cantelli applies without independence. A simultaneous claim is justified by countability of the language.
-3. Since \(\mu((0,\varepsilon))>0\), convergence of \(\sum_n\mu((0,r_n))\) implies \(r_n\to0\); positive-valued necessity terms are eventually all \(1\), unless some zero-valued term already witnesses the minimum. Possibility terms tend to \(0\), hence have an attained supremum. Values at equality \(e(u_n,\psi)=r_n\) produce Gödel implication value \(1\) and pose no exception.
-4. Under divergence, for each \(k\ge2\), \(\sum_n\mu((0,\min(r_n,1/k)))=\infty\). Independence of the chosen atomic truth values across leaves allows second Borel–Cantelli. The root infimum for \(\Box p\) is \(0\) but all contributing terms are strictly positive.
-5. In the uniform example, \(\mu((0,t))=t\), giving the classical convergent/divergent \(p\)-series boundary as stated. No finite experiment is used to extrapolate to infinitely many indices.
+PASS
 
-Checks are mathematical arguments independently reproducible from the definitions. This is not an independent external audit, and no unperformed computational or proof-assistant run is claimed.
+Reconstructed RESULT.md lines 43–85. At a leaf all boxes are 1 and diamonds 0; minimum, maximum, and Gödel implication select 0, 1, or one of the finitely many local input values used by the formula. In the summable case apply first Borel–Cantelli to each atom and take the countable intersection first: every formula then has only finitely many strictly positive subthreshold leaf values. Equality with the edge weight contributes 1 to a box, not an exception, and any zero leaf value witnesses the box at once. Summability and positivity of h on positive arguments imply weights tend to zero, so every sequence of diamond candidates tends to zero and its supremum is attained (the zero case uses the root). Conversely for every k the sum of the probabilities of 0<U_n<min(r_n,1/k) diverges, either due to infinitely many r_n≥1/k or by agreement with the original divergent series in the tail. Second Borel–Cantelli on independent leaves and countable intersection give infimum zero for one fixed atom, while all candidates are strictly positive. Countable infima, suprema and witness unions over Borel leaf values give measurable events; root values are irrelevant even at equality. Atoms in μ cause no trouble. The uniform law and the union-bound refinement follow directly. VERIFICATION.md describes analytic checks only; no finite run or formal proof is asserted.
+
+## originality
+
+PASS
+
+The supported distinct claim is the distribution-sensitive almost-sure simultaneous witnessing threshold on this fixed directed star, not the semantics or general witnessing conditions. No covering result was verified in the closest indexed statements or primary sources read.
+
+## value
+
+PASS
+
+The iff separates two natural questions (every valuation versus almost every valuation) even on the same infinite fuzzy frame. The criterion is directly testable on the law and row weights, handles discrete laws and all formulas at once, and identifies a single atom certifying failure. The star restriction is essential for the selector mechanism, not an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

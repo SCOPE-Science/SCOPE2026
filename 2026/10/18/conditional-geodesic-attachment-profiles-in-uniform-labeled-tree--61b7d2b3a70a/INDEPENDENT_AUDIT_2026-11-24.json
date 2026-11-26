@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:03:22.304133Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Condition first on the entire ordered labeled path, contract it to one component together with n−k−1 singleton components, and cancel the monomial for its fixed edges when counting excess degrees. The contracted Prüfer code contributes n−k−2 independent trials weighted by component sizes. The compulsory incidence of the path component and the additional incidences choose independent uniform endpoints on the path. This gives exactly the two PGF factors, independently of which labels form the path, so conditioning only on its length gives the same law. Covariances at distinct sites add the negative contributions from a single compulsory ball and the independent trials, and a spanning path needs no trials or attachments. For the functional limit, use uniforms independent of R to represent the site's allocation and evaluate their centered empirical process at a_n(t)=floor(tℓ_n)/ℓ_n. The difference between tR and a_n(t)R, divided by sqrt(μ_n), tends uniformly to zero since R/μ_n→1 and μ_n≤ℓ_n+1. Donsker's continuous bridge limit gives asymptotic uniform equicontinuity, so replacing a_n(t) by t changes the empirical part by o_P(1). For bounded continuous empirical-process test functions, conditional expectations given R converge to their bridge expectations because R→∞ in probability; joint tightness then gives asymptotic independence from the centered total. The binomial variance divided by μ_n tends to 1−θ; the binomial CLT applies for θ<1 and Chebyshev gives the zero total fluctuation at θ=1. Adding the two independent terms yields the stated covariance and both endpoint regimes in J1. An independent edge-set enumeration through n=5 matched the full conditional finite laws including spanning paths: python3 review_evidence/frozen_math_spot_checks.py. The frozen Prüfer verifier was inspected, not executed; neither finite check tests the functional convergence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Devroye–Janson bound the expected number of vertex pairs at distance k and the expected profile about a random root; this counts pairs or vertices, not side incidences on a fixed marked path conditioned on its length.",
+          "Oleś's joint law treats a fixed-separation endpoint pair, giving the limiting uniform-tree covariance −1/(k+1)^2, not all interior coordinates.",
+          "The nearby Le Gall spine source was identified, but full text was not retrieved; no coverage verdict follows from that access limit."
+        ],
+        "reasoning": "The statistics and asymptotic conditionings differ. A broader conditioned-tree representation remains plausible but would need to give an empirical process on the conditioned discrete geodesic, with the correct count fluctuation for k growing proportionally to n.",
+        "searches": [
+          "Devroye–Janson arXiv:0812.3326 Theorem 1.1 and Corollary 1.2",
+          "Białas–Oleś arXiv:0909.2764 equations (39)–(45); Oleś thesis Chapter 3 §§3.2–3.3",
+          "Le Gall, Conditioned Brownian Trees, spine decomposition"
+        ]
+      },
+      "checked_sources": [
+        "Pitman Technical Report 457 / Coalescent Random Forests",
+        "Oleś thesis Chapter 3",
+        "arXiv:0909.2764",
+        "arXiv:0812.3326",
+        "Resultary d9ddfb06a9ae and 4740ad229d71",
+        "Le Gall, Conditioned Brownian Trees (description only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior exact forest law directly gives the finite profile, but says nothing about its path-indexed fluctuation limit. The latter balances a growing random empirical bridge against the scalar binomial fluctuation, which vanishes at θ=1.",
+          "The later-dated leaf-law record studies off-path leaves and endpoint leaves, not the process of all direct incident edges."
+        ],
+        "reasoning": "The full-path limit is not a statement about a finite table or two coordinates. It applies standard limit tools to a different observable, with joint independence, the lattice-to-continuum step, and the change in variance scale; no inspected prior stronger process statement supplies this specialization.",
+        "searches": [
+          "Pitman Proposition 9 and underlying component extension formula versus frozen equations (1)–(6)",
+          "Resultary d9ddfb06a9ae and conditional joint leaf law 4740ad229d71"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Contracting the marked path gives the path component's quotient-tree degree. Proposition 9 gives that degree minus one as Bin(n−k−2,(k+1)/n); independent uniform choices of path endpoints give every site count.",
+          "Resultary d9ddfb06a9ae gives the exact endpoint law Bin(n−k−2,1/n)+Bernoulli(1/(k+1)), the first or last coordinate of the frozen PGF."
+        ],
+        "reasoning": "These are genuine finite-law implications, not just terminology matches. Neither comparison states a cumulative process with a growing number of conditioned path sites.",
+        "searches": [
+          "Resultary: Cayley tree endpoint-degree distance regression, whole-path conditional attachment profile, spine allocation",
+          "Pitman, Coalescent Random Forests, §5, equations (23)–(27)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The general exact forest law determines the entire finite conditional law on specialization, stronger than a table for finitely many n and k.",
+          "The neighboring catalog result specifies the exact endpoint distribution."
+        ],
+        "reasoning": "Credit the exact formulas for finite coverage; a single sequence prefix is inapplicable to the joint law with dimension k+1 and to the functional Gaussian limit with a continuum parameter.",
+        "searches": [
+          "Pitman, Coalescent Random Forests, §5 Proposition 9, equation (27)",
+          "Resultary d9ddfb06a9ae equation (2)"
+        ]
+      },
+      "rationale": "Credit the explicit whole-path conditional Gaussian process across all diverging distance regimes, not the finite profile as a standalone new enumeration. Pitman's forest extension law and independent uniform endpoint choices already yield the entire finite binomial–multinomial law. A prior Resultary result gives its exact single-endpoint specialization, and Oleś gives prior joint two-endpoint asymptotics, a stronger overlap than a one-endpoint marginal. The inspected prior statements do not give the moving-length whole-path bridge/total transition.",
+      "residual_risks": [
+        "An uninspected spine or random-allocation theorem may formulate the functional limit in equivalent language.",
+        "The finite law and fixed-distance endpoint consequences are covered and are not themselves the originality basis. Relative priority beyond the bounded comparisons is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior mathematical coverage of the finite law via uniform endpoints; no conditional path process in the inspected result",
+          "evidence": [
+            "Conditional quotient degrees minus one are multinomial with parameters c−2 and component probabilities |A_i|/n."
+          ],
+          "identifier_or_url": "https://www.stat.berkeley.edu/~pitman/457.pdf",
+          "material_read": "§5, equations (23)–(27), Proposition 9, printed pp. 181–182, offset 46500",
+          "method": "Lawful original PDF and direct specialization",
+          "title": "Coalescent Random Forests",
+          "trigger": "Exact general forest-conditioning law covering the marked path as one component"
+        },
+        {
+          "assessment": "Covers asymptotic joint endpoint law at fixed separation, not the growing whole path",
+          "evidence": [
+            "The joint degree distribution treats the two endpoints; the uniform-tree covariance specializes to −1/(k+1)^2."
+          ],
+          "identifier_or_url": "https://fais.uj.edu.pl/documents/757952/20482206/Andrzej_K_Oles_2012.pdf/3b082688-ee9e-4acb-bc95-5e5bafec1ea7",
+          "material_read": "Chapter 3 §§3.2–3.3, equations (3.34)–(3.37), around offset 198600",
+          "method": "Lawful full-thesis PDF at the relevant passages",
+          "title": "Correlations in Random Graphs",
+          "trigger": "Potential prior path-incidence correlations"
+        },
+        {
+          "assessment": "Uniform-tree specialization and finite-size caveat, not a conditional path process",
+          "evidence": [
+            "The calculation specializes two-point statistics, rather than cumulative attachments."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0909.2764",
+          "material_read": "p. 5, equations (39)–(45), offsets 31000 and 34500",
+          "method": "Lawful open-access original PDF",
+          "title": "Long-range disassortative correlations in generic random trees",
+          "trigger": "Published nearby degree-correlation result"
+        },
+        {
+          "assessment": "Counts vertex pairs at a distance and expected counts from a random root, not this conditional marked-path profile",
+          "evidence": [
+            "Theorem 1.1 bounds E P_k by C_1 n k; Corollary 1.2 bounds the expected count at distance k from a random root by O(k)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0812.3326",
+          "material_read": "Introduction, Theorem 1.1 and Corollary 1.2 on p. 2 (near offsets 4894 and 5387)",
+          "method": "Lawful original PDF with exact theorem passage",
+          "title": "Distances between pairs of vertices and vertical profile in conditioned Galton–Watson trees",
+          "trigger": "Overlapping distance-profile vocabulary and Cayley tree specialization"
+        },
+        {
+          "assessment": "Exact single-endpoint coverage; no whole-path limit",
+          "evidence": [
+            "The displayed conditional excess degree is a binomial plus a Bernoulli with the same parameters as the one-coordinate frozen law."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-negative-regression-between-endpoint-degree-and-distance-i--d9ddfb06a9ae",
+          "material_read": "Mirrored RESULT.md at offset 0, equation (2); prior-work/limitations around offset 6937",
+          "method": "Local published-record mirror and marginalization comparison",
+          "title": "Exact negative regression between endpoint degree and distance in uniform labeled trees",
+          "trigger": "Same conditioning and finite attachment coordinate"
+        },
+        {
+          "assessment": "Different statistic, not priority evidence",
+          "evidence": [
+            "It counts off-path and endpoint leaves, not edges from all path sites."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-conditional-joint-leaf-law-along-a-marked-path-in-a-uniform-cayl--4740ad229d71",
+          "material_read": "Mirrored RESULT.md Finding at offset 0",
+          "method": "Local published-record mirror and observable comparison",
+          "title": "Conditional joint leaf law along a marked path in a uniform Cayley tree",
+          "trigger": "Same marked-pair conditioning in a later-dated record"
+        },
+        {
+          "assessment": "No statement-level coverage determination from the unavailable text",
+          "evidence": [
+            "The description refers to conditioned Brownian trees and spine decomposition, not explicitly the fixed-pair Cayley-tree observable."
+          ],
+          "identifier_or_url": "https://www.imo.universite-paris-saclay.fr/~jean-francois.le-gall/Condi.pdf",
+          "material_read": "Search description only; full text not read",
+          "method": "Identified university copy with lawful retrieval attempts",
+          "title": "Conditioned Brownian Trees",
+          "trigger": "Nearby continuum spine framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural whole-geodesic statistic, unlike a single endpoint or a fixed coordinate check. Its process law distinguishes fluctuations in the number of attachments from randomness in their placement: a free endpoint of the cumulative curve in the sublinear regime becomes pinned for nearly spanning paths. Resolving the intermediate macroscopic ratios as well gives a quantitative reference for conditioned tree models. It concerns direct edge incidence only and makes no claim about sizes or shapes of attached components.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

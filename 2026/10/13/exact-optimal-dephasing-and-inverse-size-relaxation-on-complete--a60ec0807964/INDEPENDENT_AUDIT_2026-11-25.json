@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:02:34.829935Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n≥3 the off-diagonal matrix space has independent row and column sum constraints except for their shared total: a linear dependence would require u_i+v_j=0 for all i≠j, forcing constant u_i and opposite constant v_j. The common kernel W therefore has dimension n²−3n+1. The scalar I and J−I, W, and the three zero-sum vector families D_x,P_x,Q_x form the claimed direct sum (their diagonal and row/column sums separate them). The commutator and dissipator give L(D_x)=igQ_x, L(P_x)=2γD_x−γP_x+ingQ_x and L(Q_x)=ingP_x−γQ_x. Thus the cubic has multiplicity n−1 and the −γ sector dimension (n−1)(n−2), leaving a simple zero with I/n stationary. Setting z=−γw gives F(w)=α². On (0,h), F increases from zero to infinity since F′ has the sign of (1−w)(h−3hw+2w²) and h−3hw+2w²≥h−9h²/8>0. For the residual quadratic, its value and derivative at −w are positive (the derivative is 2−3w), placing both real roots to the left; a nonreal pair has real part −1+w/2<−w. The −γ modes are faster too. The slow eigenvalue is simple per block and has full multiplicity n−1. Eliminating γ yields Δ=n|g|√[w(h−w)]/(1−w), whose logarithmic derivative changes sign at w=h/(2−h); substitution gives both quoted optima. Weak and strong limits follow from w→h and F(w)∼w/h, respectively. At fixed g,γ, 1−w/h≤1/α² proves the large-n equivalent. For P_j−I/n=D_x the contrast reads a+2b in the block; the Laplace system gives the stated numerator. At the simple slow pole this numerator and the derivative of the cubic denominator are both positive, proving nonzero positive residue and the localized TV asymptotic. Independently assembled zI−L from matrix units modulo 101 with i mapped to 10, then used Gaussian elimination for n=3,…,6 and (g,γ)=(−2,3),(1,8),(5,2). All 270 determinant evaluations at z=0,…,n² agreed; at the 255 invertible cases, every diagonal resolvent component for P_1−I/n also agreed. These are bounded modular checks, not real-spectrum certification. Frozen VERIFICATION.md and verify.py were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The universal-vertex reduction covers networks beyond complete graphs and yields a cubic for the normalized excess return. The complete-graph Laplacian degeneracy is treated in Appendix A of arXiv:2204.01836.",
+          "The trapped model optimizes capture efficiency and mean transfer time with κ loss at the trap and Γ recombination."
+        ],
+        "reasoning": "A return transform does not determine the multiplicity or spectrum of sectors invisible to that return, so it cannot establish global gap dominance without further analysis. Neither Laplacian degeneracy nor optimizing trapped transfer supplies the spectral optimum of the full trace-preserving generator.",
+        "searches": [
+          "Resultary universal-vertex finding …4e0e911e9d37, mirrored text offsets 0–5102",
+          "arXiv:2204.01836 Appendix A and §3.1",
+          "arXiv:2309.00164v1 model and transfer objectives"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2204.01836",
+        "arXiv:2309.00164v1",
+        "arXiv:2507.17880",
+        "Resultary 2026/10/18/…4e0e911e9d37"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With k=n−1 and |g|=1 the indexed denominator is s[(s+γ)²+n²]+2nγ and its numerator is (s+γ)²+n(n−2). It gives a large-degree slow-pole asymptotic and optimizes a signed integrated return at √(k²−1)."
+        ],
+        "reasoning": "The observable transform and the corresponding cubic are covered by this specialization independently of catalogue chronology. The integrated-return rate is √[n(n−2)], not √n(n−1)/√(n−2), and asymptotics of an observable pole do not locate or optimize the all-rate full spectral gap.",
+        "searches": [
+          "Resultary …4e0e911e9d37, exact transform, short- and long-rate information and integrated-return optimizer",
+          "arXiv:2204.01836, §3.1 and Appendix A"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "On K_n the Laplacian nI−J differs from −(J−I) by a scalar, so the Hamiltonian differs only by sign, scale and an irrelevant scalar. The site-projector dissipator in Eq. (4) damps coherences at rate γ.",
+          "The universal-vertex normalized return transform with k=n−1 and unit hopping is exactly the frozen scalar transform."
+        ],
+        "reasoning": "This is the same site-dephasing generator where used, not a distinct model after renormalizing. Bressanini et al.'s analytic complete-graph distance example instead uses energy-basis decoherence; the trapped network changes the generator and observable. The indexed transform is equivalent for the localized scalar subclaim.",
+        "searches": [
+          "Resultary: complete-graph Haken–Strobl dephasing, Liouvillian gap and localized return; strongest hit …4e0e911e9d37",
+          "Bressanini–Benedetti–Paris arXiv:2204.01836, Eq. (4), §3.1 and Appendix A",
+          "Alterman–Berman–Strauch arXiv:2309.00164v1, Eqs. (2)–(8)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Adithya et al. tabulate fitted coherence-relaxation parameters for complete graphs, including N=10 with Haken–Strobl λ=0.03, β=0.90, τ=35.07. The inspected indexed exact formula is for the scalar normalized return, not a full spectral table."
+        ],
+        "reasoning": "A finite fitted ℓ₁-coherence timescale is not the exact Liouvillian spectral gap (or the exact asymptotic population exponent), nor does it supply the all-size optimizer.",
+        "searches": [
+          "arXiv:2507.17880 Table I and Haken–Strobl Eq. (3)",
+          "Resultary exact complete-network and hub-return lookup"
+        ]
+      },
+      "rationale": "Pass for the full characteristic polynomial with multiplicities, proof of the all-rate dominant gap and exact spectral-gap optimization. The same dissipator and network are known. An indexed universal-vertex result also contains the complete-graph scalar transform, including its cubic, by direct specialization; it is material overlap, not the basis for distinctness here.",
+      "residual_risks": [
+        "The scalar dynamics are demonstrably shared with the indexed universal-vertex result; its record date alone says nothing about scientific priority. Broader symmetry-reduced Liouvillian literature may contain further coverage; the checked passages do not establish an equivalent full-spectrum and spectral-gap-optimizer theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap for localized scalar transform, not full spectrum or spectral-gap optimization",
+          "evidence": [
+            "Taking the universal vertex degree k=n−1 in the complete graph gives both the frozen numerator and cubic denominator. Its optimum is for signed integrated return, not spectral decay."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-exact-integrated-hub-return-resonance-under-position-dephasing--4e0e911e9d37",
+          "material_read": "Finding and reduced dynamics, text offsets 0–5102",
+          "method": "Resultary search and local mirrored primary statement",
+          "title": "Exact integrated hub-return resonance under position dephasing",
+          "trigger": "Same position dephasing and exact return cubic in a larger graph class"
+        },
+        {
+          "assessment": "Same model in position-dephasing discussion, but different reported quantities and analytic complete-graph calculation",
+          "evidence": [
+            "Eq. (4) is the site-projector dissipator; the closed complete-graph calculation in §3.1 is in the intrinsic energy-decoherence discussion. Appendix A gives symmetry and Laplacian degeneracy, not the site-dephased Liouvillian spectrum."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2204.01836",
+          "material_read": "Eq. (4) pp. 3–4; complete-graph §3.1 pp. 7–8; Appendix A pp. 14–15",
+          "method": "Primary open PDF, decisive passages at offsets about 9700–12442, 20284–25257 and 48000–54959",
+          "title": "Decoherence and classicalization of continuous-time quantum walks on graphs",
+          "trigger": "Same Haken–Strobl dissipator and a complete-graph calculation"
+        },
+        {
+          "assessment": "Different (trapped and lossy) generator and transfer objectives",
+          "evidence": [
+            "The model has trap rate κ and recombination Γ; the optimized quantities are transfer time and capture efficiency."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2309.00164v1",
+          "material_read": "Abstract p. 1 and model Eqs. (2)–(8), p. 2",
+          "method": "Primary arXiv PDF of the same paper after the publisher route returned 403",
+          "title": "Optimal Conditions for Environment-Assisted Quantum Transport on the Fully Connected Network",
+          "trigger": "Exact optimization involving dephasing on the same topology"
+        },
+        {
+          "assessment": "Coherence observable and fitted timescale rather than full spectrum or exact gap",
+          "evidence": [
+            "Reports ℓ₁-coherence fit parameters for the ten-site complete graph."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2507.17880",
+          "material_read": "Eq. (3) p. 5 and fitted complete-graph discussion/Table I pp. 11–12",
+          "method": "Primary open PDF, inspected passages near offsets 11115 and 32126",
+          "title": "Stability of Continuous Time Quantum Walks in Complex Networks",
+          "trigger": "Same dissipator and reported complete-graph relaxation timescale"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The gap measures intrinsic long-time relaxation in this standard position-dephased generator. Its exact optimum and the contrasting fixed-noise and optimally retuned size laws quantify a choice unavailable from a qualitative noise-assisted-mixing claim. The full spectral argument shows that the localized return does not miss a slower sector. It neither asserts finite-time optimality nor relies on optimizing a different return or transfer metric.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

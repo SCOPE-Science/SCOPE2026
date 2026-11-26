@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:18:12.447937Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 31–88",
+        "Frozen VERIFICATION.md lines 19–25 and verification/verify.py lines 4–67; inspected, not executed"
+      ],
+      "rationale": "The equilibrium and characteristic polynomial give a transverse crossing with real-part derivative 1/(2b) and a stable third direction for each fixed b>0. With q=(1,i,0) and p=q/2, the critical quadratic interaction B(q,q̄) is zero; h20 has third component −10i/(b+2i). The projected interaction gives G21=5i/(b+2i), so the stated normalization gives a positive l1=5/(b²+4). The real cubic coefficient of the complex amplitude equation is Re(G21)/2. Thus the squared leading complex radius is −α(b²+4)/(10b); x has leading oscillation 2r. The linear imaginary eigenvalue has zero α derivative; Im(G21)/2 times the squared radius gives the frequency shift −α/4 in physical (not rescaled) time. The radial Floquet exponent is −α/b+o(|α|); the other tends to −b. To justify the period remainder, the shooting equations with initial (x,y,z)=(ρ,0,α/b+ζ) may be written analytically after dividing x and y by signed ρ, since their subsystem is homogeneous in (x,y). At ρ=0, α=ζ=0, T=2π, the derivative of the x/ρ return residual in α is π/b, its T derivative is zero, the y/ρ residual has T derivative −1, and the z residual has ζ derivative exp(−2πb)−1 and zero α and T derivatives. Analytic implicit reduction gives a signed branch. In a signed parameter ε with α=−ε², the two signs are opposite extrema of the same locally unique orbit, so the period is even and analytic in ε; 1/Ω therefore has the claimed O_b(α²) remainder. The conclusion is local with no uniform claim at b=0 or at unbounded b.",
+      "residual_risks": [
+        "The shooting examples are illustrative rather than analytic certificates. The code prints the positive turning point, not the exact half-range of x."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier numerical damping variation in Fig. 14 uses μ(z)=0.1−bz+0.1z², not the affine family. General Hopf theory supplies a formula in terms of vector-field derivatives, not their evaluation or the damping cancellation here."
+        ],
+        "reasoning": "The nonlinear damping choice is not the target all-b hypothesis. Evaluating both cubic projections and comparing with the physical-time linear frequency is specific to this model.",
+        "searches": [
+          "Official DOI 10.3934/mmc.2023032, §4 and Fig. 14",
+          "Kuznetsov, Elements of Applied Bifurcation Theory, 3rd ed., first-Lyapunov-coefficient method cited by the frozen proof"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 94–106",
+        "Zhang et al., DOI 10.3934/mmc.2023032, §4",
+        "Resultary ranked exact/formula searches and escape-record summary"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At b=1 the old theorem gives a subcritical branch for α<0, crossing speed 1/2, and W1=2. The bound theorem additionally needs the imaginary cubic coefficient for its period and the physical x-coordinate scale for its half-amplitude."
+        ],
+        "reasoning": "The special-case real focus data cannot imply the new all-b formulas, and cannot alone imply the period slope even at b=1.",
+        "searches": [
+          "Zhang et al. §4, Theorem 4.2 and Eqs. (4.5), (4.12)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zhang et al. Eq. (4.5) and Theorem 4.2 at μ(z)=a−z describe the target member b=1 after identifying a=α; Eq. (4.12) gives W1=2."
+        ],
+        "reasoning": "W1 is expressed in the authors’ transformed-coordinate focus convention and is not numerically equated to l1(1)=1. A physical-time period slope is not another notation for the real focus quantity.",
+        "searches": [
+          "Resultary: exact quadratic vector field, 5/(b^2+4), physical half-amplitude, period slope and exact title",
+          "\"Hidden chaotic mechanisms for a family of chameleon systems\" \"Theorem 4.2\" Hopf b=1 exact system period coefficient"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Returned catalogue results had no direct match for the formulas; record 2026/11/22/SCOPE-open-finite-time-escape-and-a-transverse-pole-trichotomy-in-a-qu--3ce0a2496b04 is a plausible same-object hit on axial blow-up and transverse poles."
+        ],
+        "reasoning": "The escape summary neither gives small-cycle data nor settles identity of the exact fields. Its text was unavailable in the inspected local evidence; no whole-record noncoverage inference is made.",
+        "searches": [
+          "Resultary: exact title and exact vector field with 5/(b^2+4), physical half-amplitude, period slope"
+        ]
+      },
+      "rationale": "The original chameleon-system paper covers this exact field at b=1, including the direction and instability of the cycle and quantitative focus data. Credit those precedents, not just a qualitative result. The specified all-b coefficient, physical amplitude and damping-independent derivative are distinct results in the examined evidence; they are not obtained by rescaling the b=1 bifurcation statement or instantiating its raw focus number.",
+      "residual_risks": [
+        "Ranked searches are not exhaustive; an unindexed normal-form calculation may exist.",
+        "The possible same-field escape record was not readable locally; its full text has not been ruled out as a source of overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the b=1 subcritical Hopf and exact focus data, not the general-damping and physical-period formulas in the inspected passages",
+          "evidence": "Eq. (4.5) has ż=−z−5xy+xz; Theorem 4.2 and Eq. (4.12) give crossing speed 1/2, W1=2 and the unstable cycle at a<0.",
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/mmc/2023/4/PDF/mmc-03-04-032.pdf",
+          "material_read": "§4 pp. 410–411 (extraction offsets 44900 and 52700; Theorem 4.2 near 53145); Fig. 14 parameter choice",
+          "method": "OA original PDF, passage inspection",
+          "title": "Hidden chaotic mechanisms for a family of chameleon systems",
+          "trigger": "Exact same quadratic system at b=1"
+        },
+        {
+          "assessment": "Exact system identity unresolved; summary concerns a different observable and regime",
+          "evidence": "The summary specifies finite-time axial escape and a transverse pole exponent, not a fixed-b Hopf period derivative.",
+          "identifier_or_url": "2026/11/22/SCOPE-open-finite-time-escape-and-a-transverse-pole-trichotomy-in-a-qu--3ce0a2496b04",
+          "material_read": "Catalogue summary only; matching record text unavailable locally",
+          "method": "Resultary search and local lookup",
+          "title": "Open finite-time escape and a transverse pole trichotomy in a quadratic chameleon flow",
+          "trigger": "Possible same vector field"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 11–25 and 40–88",
+        "Zhang et al. Theorem 4.2"
+      ],
+      "rationale": "This adds a usable local benchmark for a previously studied flow. The derivative is measured in the original time variable and is invariant across all fixed positive dampings even while the physical amplitude and real Hopf coefficient change. This parameter cancellation and the precise small saddle-cycle expansion provide more information than the familiar qualitative Hopf classification.",
+      "residual_risks": [
+        "Local benchmark only; it neither classifies global dynamics nor gives uniform estimates at singular damping limits."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

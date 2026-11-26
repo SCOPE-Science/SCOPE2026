@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:29:10.349835Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–76",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "/workspace/review_replay.py, record 5 (executed)"
+      ],
+      "rationale": "The profile counts orientations with multiplicity on vertex coordinates, including isolates as sinks. Reversing the only edge at a leaf preserves acyclicity and pairs opposite signs at the singleton-leaf frequency. On a cycle, the sink transition is (incoming-forward, outgoing-backward) = (1,0), so the product trace of the stated two-state matrices counts all orientations with their signed weight. Subtract two for the constant edge words, which have no sinks. Factoring the rank-one unselected blocks J^g=2^(g-1)uu^T gives 2^(z-r) times the product of u^T M^ell u; these terms equal q_ell by the same second-order recurrence and initial pair (2,2). All selected uses tr(M^n)=q_n and none selected uses 2^n. I also checked the gap by a separate arithmetic proof. In the character expansion a nonempty prescribed sink subset U must be independent, which forces 2|U| distinct edges inward and leaves 2^(n-2|U|) orientations, all acyclic. Thus the signed sum is 2^n I(C_n[S];-1/2)-2. Each power of 2 in the expanded polynomial is 2^(n-|U|), divisible by four because |U|<=floor(n/2) and n>=3. Therefore every coefficient is 2 mod 4, and selecting an adjacent pair makes the independence polynomial evaluate to zero, attaining -2. The trivial frequency attains the mass 2^n-2, the absolute maximum by the triangle inequality. Independent component orientations give tensor products, with unit absolute multipliers for isolates and the empty product equal to one. This proves invertibility exactly without leaves and the exact magnitudes and condition numbers on that regime. `python3 /workspace/review_replay.py 5` reconstructed cycle histograms using rotating bit masks, checking all Walsh multipliers for the congruence and sharp extremes at n=3..14; the unrestricted conclusion follows from the proof, not the replay.",
+      "residual_risks": [
+        "The exact minimum is an absolute multiplier, not an assertion of positive definiteness. The extremal formulas are for the invertible cycle-and-isolate regime, not graphs with paths."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hwang et al. define the identical all-graph multivariate sink-count polynomial and general expansions whose sign substitutions determine the multipliers. Lee treats a signed-graph generalization and gives a subgraph expansion. Radchenko–Rodriguez Villegas give the multivariate cycle independence-polynomial transfer trace, including the selected-vertex restriction by setting other variables to zero."
+        ],
+        "reasoning": "The enumerative and transfer steps overlap substantially with prior work. The compared definitions and general formulas do not give all-frequency nonvanishing or the exact least absolute value on cycles; the signed sink-count reduction, subtraction of the two directed cycles, and arithmetic comparison supply those conclusions.",
+        "searches": [
+          "Hwang–Jung–Lee–Oh–Yu arXiv:1910.10920v2, definition and Section 3.1",
+          "Lee DOI 10.37236/14450, Theorem 8",
+          "Radchenko–Rodriguez Villegas arXiv:1908.11231v2, Proposition 4.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1910.10920v2, 1908.11231v2 and math/9907078v1",
+        "DOI 10.37236/14450",
+        "Resultary 8cfe564cb969 (identical record), b31c32eefccf, acf4a6fabe72 and 14f193ec1237"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sign substitution in the earlier sink polynomial recovers each individual coefficient; the earlier cycle independence transfer evaluates the input polynomial of the alternative expression. The explicitly compared path result overlaps in path singularity, not the cycle gap. None of these inspected statements gives the uniform congruence and adjacent-pair attaining frequency for cycle sink multiplicities."
+        ],
+        "reasoning": "Do not count the underlying generating functions, transfer machinery, or path singularity as distinct contributions. The signed sink-count formula with correction is linked to a uniform extremal theorem by the divisibility from the independent sink-set size bound and a sharp witness; neither general enumeration nor a neighboring spectral classification says that the resulting coefficients avoid zero or attain magnitude two. Same calendar date does not establish priority.",
+        "searches": [
+          "arXiv:1910.10920v2 Section 3.1 and arXiv:1908.11231v2 Section 4",
+          "Resultary b31c32eefccf, Finding and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The identical Resultary record 8cfe564cb969 is not independent evidence. The distinct acf4a6fabe72 has the cycle independent-set indicator, not the sink multiplicity measure. The analogy 14f193ec1237 has an indicator on the edge cube of K_(2,n), not vertex sink coordinates."
+        ],
+        "reasoning": "The cycle independence connection is via masked negative-half activities followed by subtracting two, not a Walsh transform at plus/minus one of the independent-set indicator. Equality of a numerical gap with an edge-cube or independent-set example is not equivalence.",
+        "searches": [
+          "Resultary: acyclic orientation vertex sink-profile Walsh recovery and cycle independence polynomials",
+          "Literature: signed cyclic sink enumeration and modulo-four cycle transforms"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The path record gives all-length profile ranks and a zero-frequency criterion but excludes cyclic graphs. The independent-set record has singular cycles at multiples of three and a least nonzero magnitude 1 or 2. The K_(2,n) record has a least nonzero magnitude 2 for a different counting object. Proposition 4.1 supplies exact polynomial evaluations for any specified cycle length and mask."
+        ],
+        "reasoning": "These are exact classifications or evaluation formulas for adjacent problems, not a known exact cycle sink-profile congruence or gap table. The polynomial evaluates the hard-core term, not acyclic sink-weight signs with their directed-cycle subtraction by itself.",
+        "searches": [
+          "Resultary b31c32eefccf (path rank law)",
+          "Resultary acf4a6fabe72 and 14f193ec1237 (exact related gap laws)",
+          "arXiv:1908.11231v2 Proposition 4.1 (exact cycle polynomial)"
+        ]
+      },
+      "rationale": "The sink-profile polynomial and multivariate cycle independence transfer are established, and a distinct same-day path result overlaps with the path obstruction. The surviving distinct claim is the exact all-frequency nonvanishing and sharp least absolute multiplier on acyclic cycle sink profiles, and its complete componentwise recovery classification at maximum degree two.",
+      "residual_risks": [
+        "The literature comparison is bounded and cannot rule out an unindexed signed evaluation. The preprint establishes the transfer overlap; the publisher PDF was not accessible to verify reference numbering. The frozen transfer citation is bibliographically imprecise but not required for the proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact enumerative overlap; no verified spectral extremum in the inspected passages",
+          "evidence": "A_G(V)=sum over acyclic orientations of the product of variables at their sinks. Subgraph, broken-circuit, bond-lattice and component expansions provide broader enumerative tools.",
+          "identifier_or_url": "https://arxiv.org/abs/1910.10920v2",
+          "material_read": "Definition p. 1 (offset about 2700), deletion–contraction p. 2 (about 4200), Section 3.1 p. 7 (about 20932)",
+          "method": "OA PDF text",
+          "title": "Acyclic orientation polynomials and the sink theorem for chromatic symmetric functions",
+          "trigger": "Identical general multivariate sink enumeration"
+        },
+        {
+          "assessment": "Covers the hard-core transfer term but not acyclic sink signs or their sharp modulus. The frozen locator and bibliography should be corrected to the verifiable preprint citation; this does not affect the self-contained proof.",
+          "evidence": "The preprint is by Danylo Radchenko and Fernando Rodriguez Villegas. Proposition 4.1 gives the cycle trace. Proposition 5.1 concerns a different generating-series identity in this version; published-version numbering was not verified.",
+          "identifier_or_url": "https://arxiv.org/abs/1908.11231v2",
+          "material_read": "Title page; Section 4 Proposition 4.1, PDF pp. 8–9, offset about 23982; alternate locator Section 5 Proposition 5.1, p. 10, offset about 31500",
+          "method": "Lawful OA arXiv PDF after publisher text returned 403",
+          "title": "Independence Polynomials and Hypergeometric Series",
+          "trigger": "Exact multi-activity transfer trace for the cycle independence term"
+        },
+        {
+          "assessment": "Path overlap; cycle behavior outside scope",
+          "evidence": "All-order Walsh-rank recurrence and exact vanishing criterion for paths; cyclic graphs excluded.",
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-four-state-fourier-rank-law-for-acyclic-orientation-sink-profile--b31c32eefccf",
+          "material_read": "Mirrored RESULT.md, Finding and scope at offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local published-record mirror",
+          "title": "Four-state Fourier rank law for acyclic-orientation sink profiles on paths",
+          "trigger": "Closest distinct sink-profile spectrum in the catalogue"
+        },
+        {
+          "assessment": "Different Fourier measure and gap law",
+          "evidence": "Indicator of cycle independent sets; singular precisely when 3 divides n. This is not the orientation sink multiplicity evaluated with the subtraction of two.",
+          "identifier_or_url": "Resultary 2026/11/16/SCOPE-cycle-independent-sets-a-modulo-three-fourier-invertibility-law--acf4a6fabe72",
+          "material_read": "Mirrored RESULT.md, Finding at offset 0",
+          "method": "Local published-record mirror",
+          "title": "Cycle independent sets: a modulo-three Fourier invertibility law with sharp spectral gaps",
+          "trigger": "Potential equivalence through cycle hard-core polynomial"
+        },
+        {
+          "assessment": "The common gap number does not equate graph or kernel",
+          "evidence": "Orientation indicator on the edge cube of a complete bipartite graph, not counts of vertex sinks.",
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-reversal-rigid-walsh-spectrum-of-acyclic-orientations-of-k-2-n--14f193ec1237",
+          "material_read": "Mirrored RESULT.md, Finding at offset 0",
+          "method": "Local published-record mirror",
+          "title": "Reversal-rigid Walsh spectrum of acyclic orientations of K_(2,n)",
+          "trigger": "Exact gap two for a related acyclic-orientation operator"
+        },
+        {
+          "assessment": "Broader enumerator but no matching extrema or uniform congruence in the inspected theorem",
+          "evidence": "Defines a signed-graph sink-generating polynomial and gives a general subgraph expansion.",
+          "identifier_or_url": "https://doi.org/10.37236/14450",
+          "material_read": "PDF p. 2, offset 2496; Theorem 8, pp. 9–10 offset about 30000",
+          "method": "OA article PDF text",
+          "title": "A Signed Graph Analogue of Acyclic Orientation Polynomials and the Sink Theorem",
+          "trigger": "Potentially stronger sink-profile theorem located in targeted search"
+        },
+        {
+          "assessment": "Unique-sink enumeration, not an arbitrary signed sink-set transform",
+          "evidence": "Number of orientations with a unique sink at a specified vertex is the magnitude of the linear chromatic-polynomial coefficient.",
+          "identifier_or_url": "https://arxiv.org/abs/math/9907078v1",
+          "material_read": "PDF p. 1, offset about 1750",
+          "method": "OA PDF text",
+          "title": "Sinks in Acyclic Orientations of Graphs",
+          "trigger": "Classical related enumeration of sinks"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, leaf obstruction, signed hard-core reduction and component factorization"
+      ],
+      "rationale": "The class combines paths, cycles and isolates and is structurally complete at maximum degree two. The exact distinction between a lost leaf frequency and uniform positive singular-value separation for all cycle frequencies determines when recovery is possible and how much errors can grow, independent of cycle size in the unnormalized lower bound. The arithmetic separation and its extremizer go beyond listing unsigned sink statistics or recomputing tabulated counts, although the result is elementary once the correct signed reduction is in hand.",
+      "residual_risks": [
+        "No all-degree graph classification, inertia theorem, or sharp bound for probability-normalized convolution is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

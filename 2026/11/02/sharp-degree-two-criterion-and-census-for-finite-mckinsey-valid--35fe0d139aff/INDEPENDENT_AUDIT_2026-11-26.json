@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:09:33.530642Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At a world w, a falsifying valuation must split each of its successors' successor sets between truth and falsity. If R(w) is empty this is vacuous and the axiom fails; if some R(v) for v in R(w) is empty the antecedent instead fails. A globally valid frame therefore has no empty rows. A singleton second-step set cannot split; if every one has size two, there are at most two distinct undirected edges and they admit a bipartition. This proves the exact criterion, loops included. With k singleton rows, their targets must belong to the same k-element set, giving k^k choices; every other row chooses a distinct unordered pair meeting that set, giving A(n,k)=k(2n-k-1)/2 choices. This counts each relation once. At n=5 the five summands are 1280, 13720, 21870, 12800 and 3125, summing to 52795. For all sufficiently large n, the function k+(n-k)log k is strictly concave with its unique maximum at k*=n/W_0(n), where log k*=W_0(n). The upper bound uses binom(n,k)<=(en/k)^k and A<=nk, plus log n for summation. The lower bound uses floor(k*) and binom(n,k)>=(n/k)^k, A>=k(n-k); the floor costs O(log n) and replacing n by n-k inside the pair-count factor costs O(n/W_0(n)). This gives the first displayed log law. Expanding W_0 and subtracting n log(1+n+binom(n,2)) gives the other two. At the degree-three example's root the three second-step pairs form a triangle; all other worlds see singleton rows, so the example has the required global validity. Proof checked against RESULT.md lines 39–83. The supplied n<=4 checker and verification notes were inspected, not executed; they cannot check the asymptotic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Unrestricted finite coNP-completeness via set splitting does not enumerate the degree-capped valid frames. The closest indexed incidence-frame result covers odd-cycle obstructions in a restricted three-layer construction. The weakly transitive correspondence goes beyond this degree cap but has an independent frame restriction."
+        ],
+        "reasoning": "None of these is an all-labelled-relations enumeration under the frozen outdegree constraint, or supplies its saddle-point scale.",
+        "searches": [
+          "arXiv:2603.12171v1 Theorem 26 and Lemma 23",
+          "Resultary 2026/10/18/SCOPE-the-three-rank-complexity-spectrum-of-mckinsey-validity-on-incid--bc734df10cc6",
+          "DOI 10.1007/s11225-024-10145-x"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2603.12171v1",
+        "DOI 10.1007/s11225-024-10145-x",
+        "Resultary incidence-frame rank spectrum bc734df10cc6",
+        "OEIS A185289"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the earlier paper take F_2: the root sees three vertices, each with a two-element row, and these rows form the edges of a triangle on three self-loop vertices. Lemma 23 makes this a seven-world valid frame of maximum outdegree three, with no singleton successor at the root.",
+          "The local two-edge split argument can specialize the prior method, but the partition by singleton rows, the exact row-product count, and the Lambert-W extremization need new arguments."
+        ],
+        "reasoning": "Separate prior coverage of degree-three sharpness as a phenomenon and the elementary criterion from the distinct quantitative package; no minimal-cardinality claim is made for the six-world example.",
+        "searches": [
+          "arXiv:2603.12171v1 §5.2, Lemma 23, and §5.4, Theorem 26",
+          "Resultary incidence-frame rank spectrum, Finding and rank-two analysis"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "McKinsey falsity is local set splitting. In a globally valid frame seriality is necessary, so a local condition of seeing a successor with at most one successor reduces to exactly one, when that condition is applicable."
+        ],
+        "reasoning": "The Lemmon-style condition agrees on the weakly transitive overlap. The frozen census has no weak-transitivity hypothesis, and counting admissible labelled relations is not the same as a local validity algorithm or an unlabelled count.",
+        "searches": [
+          "Resultary semantic lookup for maximum-outdegree-two McKinsey-valid labelled frames and their census",
+          "arXiv:2603.12171v1 §§5.2, 5.4",
+          "DOI 10.1007/s11225-024-10145-x, Theorem 3.16 and Corollary 3.20"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A185289, OFFSET 0,3, agrees at n=1,2,3,4 but has a(5)=52805. The independent n=5 calculation for this census is 52795. The OEIS definition counts a bipartite choice of function followed by ordering its nonempty coimage blocks."
+        ],
+        "reasoning": "The fifth-term disagreement excludes equality of the sequences and the counted structures also differ. No matching exact count was identified among the inspected indexed results.",
+        "searches": [
+          "OEIS A185289",
+          "Resultary semantic lookup for the exact sum and McKinsey census"
+        ]
+      },
+      "rationale": "Credit the labelled census and its sharp logarithmic asymptotics on the full degree-two class. The splitting reduction and the odd-cycle mechanism for sharpness are already present in prior statements, and the degree-two criterion is a short consequence of the local reduction. Neither the lattice of frame classes nor the similar integer sequence below covers the quantitative result. The six-world example is valid, but a maximum-outdegree-three obstruction as such is not new.",
+      "residual_risks": [
+        "Lemmon's original book was not retrieved; the at-most-one condition was inspected in Chen–Ma's attribution.",
+        "Bounded searches do not establish absolute priority for the census or the log asymptotic."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior structural ingredients and degree-three obstruction, not census",
+          "evidence": "Lemma 23 asserts validity iff n is even; for n=2 the three successor rows at the root are triangle edges. Theorem 26 concerns decision complexity.",
+          "identifier_or_url": "https://arxiv.org/html/2603.12171v1",
+          "material_read": "§5.2 definition of F_n and Lemma 23 (offsets 90000 and 92400); §5.4 Theorem 26 (offset 105700)",
+          "method": "OA article passage inspection and specializing F_n at n=2",
+          "title": "When do modal definability and preservation theorems transfer to the finite?",
+          "trigger": "Unrestricted set splitting and odd-cycle counterexample"
+        },
+        {
+          "assessment": "Equivalent condition on a different restricted class",
+          "evidence": "Correspondence with the Lemmon m_infty condition assumes weak transitivity; the paper attributes the older condition but not the arbitrary degree-two census to Lemmon.",
+          "identifier_or_url": "https://doi.org/10.1007/s11225-024-10145-x",
+          "material_read": "UvA published-version PDF, introduction (offset 4050); Theorem 3.16/Corollary 3.20 pp. 14–15 (offsets 32650, 35600)",
+          "method": "Lawful repository PDF passage inspection",
+          "title": "The McKinsey Axiom on Weakly Transitive Frames",
+          "trigger": "Potential stronger singleton-successor condition"
+        },
+        {
+          "assessment": "Partial structural overlap only",
+          "evidence": "Rank two is characterized by an odd cycle in the incidence construction; the root need not have outdegree at most two, and there is no full labelled-frame census.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-the-three-rank-complexity-spectrum-of-mckinsey-validity-on-incid--bc734df10cc6/RESULT.md",
+          "material_read": "Finding and rank-two discussion, offsets 0 and 8000; mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror passage inspection",
+          "title": "The three-rank complexity spectrum of McKinsey validity on incidence frames",
+          "trigger": "Closest indexed formulation using graph two-coloring"
+        },
+        {
+          "assessment": "Not the frozen sequence",
+          "evidence": "1, 1, 6, 75, 1612, 52805 with first index 0; comments describe functions with ordered coimage blocks.",
+          "identifier_or_url": "https://oeis.org/A185289",
+          "material_read": "Definition, data, offset and comments, page offset 420",
+          "method": "Public page inspection with explicit n=5 comparison",
+          "title": "OEIS A185289",
+          "trigger": "Identical first four positive-index terms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The maximum-outdegree-two class is the last degree bound at which the singleton-access criterion is exact. Moving from a validity test to an exact census and the asymptotic rarity among all capped relations quantifies a natural modal constraint; the result is not just a small table or a rephrasing of the earlier splitting reduction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

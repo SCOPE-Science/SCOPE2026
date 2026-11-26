@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:52:34.775997Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Writing c=delta*alpha², differentiation gives 1+c*g(u)*g(v). The score is centered, its range is symmetric, and it takes both values ±M. The copula boundary values are the required ones; nonnegativity is sufficient by integrating over rectangles and necessary by continuity (even a negative boundary value forces nearby negative interior values). The derivative is exp(alpha*u*(1-u)) times [alpha*(1-2u)²-2]. Hence M=1 for alpha<=2, and M=sqrt(2/alpha)*exp(alpha/4-1/2) for alpha>2, with the two interior maximizers of |g| as stated. At alpha=0 the model is independence for all finite delta. The centered transition operator is c times the rank-one form g⊗g, so its nth power has coefficient c^n*J^(n-1), and its norm |cJ|^n is the HGR supremum, attained by the normalized score. The essential uniform lag error is |c|^n*J^(n-1)*M² (continuous attainment extends to essential sup). At any nonzero alpha both objectives strictly maximize at the two admissible delta endpoints; the endpoint objectives are B(alpha)^n and B(alpha)^(n-1), with B=J/M². For alpha<=2, x=|1-2u| gives B as the integral of x² exp(alpha*(1-x²)/2), strictly increasing in alpha and agreeing with the other formula at 2. For alpha>2, s=sqrt(alpha/2) yields B=e*int_0^s t² exp(-t²)dt/s. Its derivative has the sign of D=s³ exp(-s²)-int_0^s t² exp(-t²)dt; D'(s)=2s² exp(-s²)(1-s²)<0. D(1)>e^(-1)-1/3>0 and its limit is -sqrt(pi)/4. Thus the shape optimum is unique, B(s*)=s*² exp(1-s*²)<1, and all claimed equality cases follow. At lag one density optimality holds at every nonzero-alpha boundary, whereas HGR still selects alpha*. Independently ran `python audit_checks/independent_replays.py 3`: 50-digit quadrature of the untransformed score objective and numerical derivative/root, direct checks at extremal points and a two-step convolution reproduce alpha*=4.5675630499780930652…, m=0.6325798050619892679…, and |delta*|=0.0303211885502754231…. Bounded numerical checks corroborate, not prove, the monotonicity and all-lag theorem. The submitted checker was inspected but not executed; its recorded replay is separate from the source's expert, independent-audit and formal statuses.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Longla (2024) gives the general lag expansion and maximal correlation rho_n=sup_k|lambda_k|^n. Here there is only one possibly nonzero centered eigenvalue, lambda=delta*alpha²*J.",
+          "Longla (2026) Proposition 2.3 concerns maximal correlation in its finite-rank form (10); Section 3.1 studies C²=Pi and generally nonreversible chains."
+        ],
+        "reasoning": "The first source covers the lag and maximal correlation identity outright, not just by analogy. Null dependence after two lags in the later construction is not the positive-radius reversible dynamics at admissibility for the present family. A broader orthogonal-copula formula alone does not give a maximum over the particular score shapes.",
+        "searches": [
+          "Longla arXiv:2308.11074v2 / DOI 10.1007/s00362-024-01559-9 Section 3 Theorem 3.2",
+          "Longla DOI 10.1007/s11749-026-01003-0 Section 2.1.2 and Section 3.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2304.02231, DOI 10.1016/j.spl.2023.109988",
+        "arXiv:2308.11074v2, DOI 10.1007/s00362-024-01559-9",
+        "DOI 10.1007/s11749-026-01003-0",
+        "Resultary 201ee12aa592 (self match)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Combining the first two works identifies the rank-one eigenvalue and reduces global optimization to the score ratio B(alpha); the same maximizer for both envelopes when n>=2 follows once that ratio is maximized.",
+          "No prior statement was found giving the strict derivative sign change for the integral D(s), its unique root, or the sharp family maximum in the relevant sources."
+        ],
+        "reasoning": "Credit the model, spectral reduction and reproduction of lag powers. The exact choice of alpha and associated equality conditions require shape-specific analysis rather than reading off the general theorem or replacing the criterion in a correlation table.",
+        "searches": [
+          "arXiv:2304.02231 Eqs. (2.1)–(2.2) and Spearman table; arXiv:2308.11074v2 Eq. (11) and Theorem 3.2",
+          "DOI 10.1007/s11749-026-01003-0 Proposition 2.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zachariah–Arshad–Pathak give the exact same separable family and differentiated density in Eqs. (2.1)–(2.2).",
+          "Longla Eq. (11) writes the general rank-one C=uv+lambda*Phi(u)*Phi(v); taking Phi=(1-exp(alpha*u*(1-u)))/(|alpha| sqrt(J)) recovers the present nonzero-alpha family.",
+          "The equivalent remaining claim is max_alpha ||g_alpha||_2² / ||g_alpha||_infinity² at admissibility saturation."
+        ],
+        "reasoning": "The pointwise optimizer over coupling is already determined by density positivity, but obtaining the unique shape and its value still requires solving this normalized-score problem. Neither the same copula parameterization nor its rank-one reparameterization gives the optimizer in the inspected sources.",
+        "searches": [
+          "Resultary: exponential-quadratic copula HGR and universal density envelope; 0.632579805 and alpha=4.567563",
+          "arXiv:2304.02231 Sections 2–3",
+          "arXiv:2308.11074v2 Eq. (11)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The original table reports Spearman rho, e.g. 0.5855 at alpha=3.5, 0.5866 at 3.8, and 0.5845 at 4.1 at the positive admissibility endpoint.",
+          "The Resultary exact match ending in 201ee12aa592 is the same assigned result."
+        ],
+        "reasoning": "Spearman's rho is not HGR maximal correlation; the table evaluates a different dependence measure and its 3.8 entry does not preempt the present shape. A record's self-indexing cannot establish separate coverage or date order.",
+        "searches": [
+          "arXiv:2304.02231 Section 3 Table 1",
+          "Resultary: exact sharp all-lag mixing envelope 0.632579805061989 and shape optimizer 4.567563049978093"
+        ]
+      },
+      "rationale": "The exact family and admissible ranges are prior, and the lag and HGR formulas are direct specializations of established rank-one spectral theory. The supported distinct result is the exact shape-constrained global optimization and equality classification, with one root-defined base simultaneously sharp for the two all-lag envelopes. No matching family optimization was established in the checked statements; this is a qualified judgment, not universal priority.",
+      "residual_risks": [
+        "General rank-one theory is established prior coverage; the originality judgment applies only to the familywise sharp evaluation and equality cases.",
+        "A later publication, the originating author's 2025 dissertation (not independently re-inspected), or an equivalent optimization framed as a special score norm ratio could overlap. The search is not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior model and density, not the retrieved maximal-correlation optimization",
+          "evidence": "The table entries near alpha=3.8 are for Spearman rho and are different from the HGR objective.",
+          "identifier_or_url": "https://arxiv.org/abs/2304.02231 ; https://doi.org/10.1016/j.spl.2023.109988",
+          "material_read": "Public arXiv full text, Section 2 Eqs. (2.1)–(2.2), Section 3 and Table 1",
+          "method": "OA full-text passages via alternate public arXiv access",
+          "title": "A new class of copulas having dependence range larger than FGM-type copulas",
+          "trigger": "Originating paper for the identical two-parameter family"
+        },
+        {
+          "assessment": "Covers the general rank-one structure and lag/HGR identities, not the retrieved score optimization",
+          "evidence": "Rank-one C=uv+lambda*Phi(u)*Phi(v); lag expansion with powered eigenvalues and rho_n=sup_k|lambda_k|^n.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.11074 ; https://doi.org/10.1007/s00362-024-01559-9",
+          "material_read": "Public arXiv v2 full text, Section 2 Eq. (11), Section 3 Theorem 3.2",
+          "method": "OA full-text passages via alternate public arXiv access",
+          "title": "New copula families and mixing properties",
+          "trigger": "General spectral theorem potentially implying the claimed identities"
+        },
+        {
+          "assessment": "Different class and dependence regime",
+          "evidence": "Finite-rank maximal correlation for its own form and C²=Pi in the compared chains.",
+          "identifier_or_url": "https://doi.org/10.1007/s11749-026-01003-0",
+          "material_read": "Springer public full text, Section 2.1.2 form (10) and Proposition 2.3, Section 3.1",
+          "method": "OA publisher text",
+          "title": "Copulas, m-dependence, and Markov chains",
+          "trigger": "Newer maximal-correlation result for finite-rank dynamics"
+        },
+        {
+          "assessment": "Identical assigned record, not distinct coverage",
+          "evidence": "Both lag-power envelopes and the same common optimum.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-universal-spectral-and-uniform-mixing-envelopes-for-an-exp--201ee12aa592",
+          "material_read": "Indexed statement matched to frozen RESULT.md",
+          "method": "Resultary",
+          "title": "Sharp universal spectral and uniform-mixing envelopes for an exponential-quadratic copula",
+          "trigger": "Exact catalog hit on simultaneous envelopes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The originating family was introduced to enlarge achievable dependence; maximal nonlinear correlation and persistence under stationary Markov iteration answer a natural question not answered by its rank correlations. The exact family maximum is attained, yields a sharp uniform density convergence base at all lags even at the admissibility boundary, and identifies the unique most persistent shape and the two signs of the coupling. The nontrivial value is this global classification, not recomputation of the generic rank-one spectrum or a bound for all copulas.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

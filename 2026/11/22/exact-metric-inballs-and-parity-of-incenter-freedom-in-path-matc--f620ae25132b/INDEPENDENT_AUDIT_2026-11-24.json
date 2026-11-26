@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:33:29.447402Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–77",
+        "verify.py and VERIFICATION.md, inspected but not executed"
+      ],
+      "rationale": "Independently reconstruct the proof in the vertex coordinates y=Bx. Path matchings cover precisely the even-component subsets: each selected edge contributes its two endpoints, and every even component has its unique consecutive-pair matching. In edge coordinates, the consecutive-sum inequalities characterize the stable-set hull: choose one uniform threshold in [0,1], assign odd positions the initial intervals of length x_i and even positions the terminal intervals of length x_i; consecutive intervals overlap at most on a null boundary, so the resulting stable-set indicator has expectation x. The image of B is the orthogonal complement of the alternating-sign vector of squared length n. The functional x_i is represented in vertex coordinates by the alternating sum on the first i positions; projecting its representing vector onto the image gives squared norm i−i²/n. The functional x_i+x_(i+1) is y_(i+1), giving projected squared norm 1−1/n. The full containment system therefore has exactly the stated clearances. Feasibility at radius r is equivalent to all r(w_i+w_(i+1)+u)≤1, because the coordinatewise minima x_i=r w_i simultaneously attain the least adjacent sums. The difference between consecutive adjacent-sum weights is w_(i+2)−w_i; symmetry and strict increase toward the middle give one central maximizing pair in odd order and two overlapping maximizing pairs in even order. At optimal r their endpoints are forced; all other upper constraints have slack at the minima, and raising every free coordinate a sufficiently small amount puts the center in the relative interior of the claimed codimension-two or codimension-three subspace. This includes n=3 and 4 with no free coordinates. In the ordinary matching-edge metric all pairs are maximizing, which fixes every coordinate and gives 1/(2+√2). The central weights sum asymptotically to √n, yielding the stated scale.",
+      "residual_risks": [
+        "The analytic check is for unweighted paths in the specified intrinsic Euclidean metric. The supportive finite LP and rational computations were not independently rerun and are not needed for the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mori gives a broader algebraic comparison and addresses compressedness and Gorensteinness, not those Euclidean invariants in the passages inspected.",
+          "The 1983 foundational full text could not be read via the lawful routes tried."
+        ],
+        "reasoning": "The inspected broader result describes structure, not an inball theorem that specializes to this metric. The failed access supplies no negative evidence.",
+        "searches": [
+          "Targeted literature lookup for path perfectly matchable subgraph polytope inradius and center freedom",
+          "Mori arXiv:2210.17147, introduction and Proposition 2.6",
+          "Balas–Pulleyblank DOI 10.1002/net.3230130405"
+        ]
+      },
+      "checked_sources": [
+        "Mori arXiv:2210.17147",
+        "Balas–Pulleyblank DOI 10.1002/net.3230130405 (full text inaccessible)",
+        "Resultary …f620ae25132b, …91f5f40b269c, …c3b8e999d5d4, …4fbd84888e21, …990eb4c5d9a6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Neither toric equivalence nor standard-coordinate facet areas give the dual normal lengths for the pulled-back metric.",
+          "The calculation of projected normals and of the different numbers of forced central coordinates is needed for the asserted formulas.",
+          "The cited interval-indicator and root polytopes have different vertex sets, not equivalent presentations of the even-component hull."
+        ],
+        "reasoning": "Credit the known incidence description and stable-set facets as inputs. Their existence does not give the largest ball or the incenter locus without the metric and equality analysis.",
+        "searches": [
+          "Mori Proposition 2.6; Resultary …91f5f40b269c Finding on ordinary-coordinate indexed facet areas; adjacent inball records …c3b8e999d5d4 and …4fbd84888e21"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mori defines the same vertex-subset polytope, including the empty subset, and relates its toric ring to the line-graph stable-set polytope for pseudotrees without even cycles.",
+          "The ordinary stable-set coordinates are related by B, whose Gram matrix has off-diagonal ones, so the map is not an isometry."
+        ],
+        "reasoning": "Tested the incidence and stable-set formulations. An equivalent search object must preserve the induced metric, not merely affinely identify the two polytopes.",
+        "searches": [
+          "Resultary: intrinsic Euclidean inballs and center dimensions of the perfectly matchable path subgraph polytope and its matching-edge stable-set parametrization",
+          "Mori arXiv:2210.17147, p. 2 and Proposition 2.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact radius and dimensions n−3 and n−4 returned for …f620ae25132b belong to the assigned record itself.",
+          "The other exact inball records concern interval indicators, symmetric edge roots, or cycle-edge midpoints in a simplex."
+        ],
+        "reasoning": "These are comparisons to indexed exact formulas, not duplicate formulas for the same metric object. No independent matching exact entry was found.",
+        "searches": [
+          "Resultary: parity-dependent path polytope inradius, center locus and dimension; local findings …f620ae25132b, …c3b8e999d5d4, …4fbd84888e21, …990eb4c5d9a6"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the exact inball and full optimal-center classification in the vertex-incidence metric. Existing work on this polytope's incidence/toric description, ordinary path stable-set coordinates and different path polytopes does not supply the parity-split intrinsic metric result.",
+      "residual_risks": [
+        "The inaccessible 1983 full text could contain an earlier geometric treatment.",
+        "Unindexed equivalent treatments in induced-metric optimization terminology are not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The inspected material establishes the algebraic background, not the exact Euclidean metric theorem.",
+          "evidence": [
+            "The definition includes the empty set; Proposition 2.6 identifies a toric-ring relationship in the no-even-cycle pseudotree case."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2210.17147",
+          "material_read": "PDF abstract and introduction, definition on p. 2 (offset 6976), and Proposition 2.6 on p. 7 (offset 20313)",
+          "method": "OA primary passages and literal full-text search for inradius",
+          "title": "Toric Rings of Perfectly Matchable Subgraph Polytopes",
+          "trigger": "Same canonical polytope and line-graph reduction"
+        },
+        {
+          "assessment": "Unresolved prior-coverage risk, not negative evidence.",
+          "evidence": [
+            "The frozen record cites this foundational 1983 paper for the bipartite perfectly matchable subgraph polytope."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/net.3230130405",
+          "material_read": "Bibliographic identification only; no full-text passage obtained",
+          "method": "Bounded lawful retrieval; HTTP 403 on the attempts made",
+          "title": "The perfectly matchable subgraph polytope of a bipartite graph",
+          "trigger": "Foundational same-object paper"
+        },
+        {
+          "assessment": "Different invariant in standard coordinates.",
+          "evidence": [
+            "Indexed facet areas and boundary-layer limits of the ordinary-coordinate path stable-set polytope."
+          ],
+          "identifier_or_url": "Resultary 2026/11/17/…91f5f40b269c",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary search and local mirror passage",
+          "title": "Euclidean facet-area boundary layers of Fibonacci stable-set polytopes",
+          "trigger": "Same parameter polytope with Euclidean geometric data"
+        },
+        {
+          "assessment": "Different objects; no equivalence preserving the claimed realization was established.",
+          "evidence": [
+            "The block-path hull uses all intervals; the symmetric-edge hull uses signed edge roots; the cycle result uses cycle-edge midpoints of a regular simplex."
+          ],
+          "identifier_or_url": "Resultary …c3b8e999d5d4; …4fbd84888e21; …990eb4c5d9a6",
+          "material_read": "RESULT.md Finding passages, local offsets 0, 226, 207 respectively",
+          "method": "Resultary search and local mirror passages",
+          "title": "Block-path, path symmetric-edge, and cycle-midpoint exact inball results",
+          "trigger": "Exact formulas and center-locus classifications under nearby aliases"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and Proof §§2–5"
+      ],
+      "rationale": "This is an exact family-wide comparison of two natural realizations of the same polytope. It explains why one inradius is constant with a unique center while the canonical vertex-incidence inradius shrinks and its optimizer freedom has a parity split. The full optimizer locus and the proof of which constraints impose its affine dimension are useful information not captured by a face-lattice equivalence.",
+      "residual_risks": [
+        "No general-tree extension or classification of the incenter locus's own face lattice is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

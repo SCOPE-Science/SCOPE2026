@@ -1,13 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** On the natural two-state periodic phenotype space, the Fourier kernel and its Laplace transform reduce exactly to two elementary terms. Substitution in the source Eq. (29) produces the recorded rational formula; direct symbolic equality, first- and second-derivative identities, and the parameter bound identity were independently checked by `check_threshold.py`. The analytic inequality \(B-A/4=(2\mu+1)/4>0\) makes the derivative strictly increasing with opposite signs at the endpoints. Implicit differentiation proves strict movement of the unique optimum with both model parameters. Thus the proof covers every positive \(\mu,\nu,\alpha\), not just finite samples.
+## correctness
 
-**Originality — PASS, literature-bounded.** Kroumi's 2026 finite-torus paper, Eq. (29), Result 3, Appendix D and Corollary D.5, gives the general threshold and guarantees at least one minimum but does not establish binary strict convexity, optimum uniqueness or the monotone optimizer response. Kroumi and Lessard (2015) study unbounded phenotypes and a different high-mutation limit; they are not stronger coverage of the finite binary case. A 2009 phenotypic-similarity article and a 2026-07 graded-recognition article were identifiable only through abstracts or publicly indexed excerpts, leaving a literature-priority risk. No absolute priority is claimed.
+PASS
 
-**Value — PASS.** A natural two-phenotype system is the smallest nontrivial periodic recognition space. Knowing only that some intermediate mutation optimum exists does not determine how many optima occur or how to choose the mutation rate. The theorem supplies the complete optimum, algebraic bracketing and two strict sensitivity laws across the entire positive parameter family, providing a reference benchmark for larger finite recognition spaces.
+Kroumi v1 Eqs. (22), (24), (28), and (29) give the claimed two-mode reduction in precisely the large-population normalization of the frozen result: L=2,n=1 leaves correlation exponents 0 and -2, and their recognition weights are 1-xi and xi. Thus the Laplace substitution has poles c_j and c_j+4nu after canceling 2nu. Independently, for v=4nu, p=1+2mu, r=3+2mu, the denominator of Eq. (29) divided by 2nu is xi*v*2mu*(1+mu)/(1+v)*(1/(p+v)+1/(r+v)), strictly positive in the claimed domain; symbolic partial fractions recover the frozen threshold. For F=xi times the nu derivative, the derivative F_nu is strictly greater than (2B-A/2)/nu^3>0. F changes sign from negative infinity to 4(1-xi)>0, proving global strict convexity and a unique nondegenerate minimum. At its root, 0<A/(mu+2nu+1)^2<A/(4nu^2) yields both strict bounds. F_mu<-1/(2nu^2), while F_xi=-4 and xi strictly increases with finite alpha. Implicit differentiation therefore gives both claimed signs. The private replay `python /workspace/branches/review_recomputation.py` verifies the denominator factorization, partial fractions and calibration quartic exactly and computes nu*=0.462745752709218835593102 with threshold 23.7659359834690658531126 at mu=1/2, xi=1/4. The frozen checker was read as text, not run. The conclusion concerns the limiting weak-selection abundance threshold, not finite-N fixation, stronger selection, alpha=0, or larger phenotype spaces.
 
-**Scientific limitations.** Results concern the source's weak-selection, population-scaled large-population limit; they do not assert finite-population welfare benefits, nonlinear evolutionary intervention outcomes or larger-torus uniqueness. Exact rational/symbolic computation supplements the self-contained proof; independently conducted mathematical audit is still absent.
+## originality
 
-**Closest scientific literature.** Kroumi (2026), arXiv:2608.21872v1, DOI:10.1103/7pzd-gtdv; Kroumi and Lessard (2015), DOI:10.1016/j.tpb.2015.03.007; Antal et al. (2009), DOI:10.1073/pnas.0902528106; Kroumi (2026), arXiv:2607.27570.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Kroumi already derives the general threshold and proves interior minimum existence; those are not new. The supported distinct claim is the binary all-positive-parameter strict convexity, unique root and bracketing, and both comparative statics of the argmin. Neither the primary passages inspected nor the closest distinct indexed findings establish these consequences with matching assumptions.
+
+## value
+
+PASS
+
+Exactly two recognition states is the minimal nontrivial finite torus and the first case in which the general proof of endpoint divergence leaves open the number and location of minima. The global classification identifies a nondegenerate optimizer with usable bounds and shows how two distinct parameters move it. These signs are not the known pointwise threshold signs, and matter for reasoning about this abstract model without drawing any finite-population or intervention inference.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

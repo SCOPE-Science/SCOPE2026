@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is the analytic weak-force expansion for a two-state sinusoidally flashed diffusion and its sharp coefficient sign classification. The elliptic torus generator is spectrally gapped, justifying analytic invariant-density and Poisson-corrector expansions at zero force. Both first-order fields have the same coefficient \(C_s=q/a+(s-q)/(a+r)\); the second-order continuous martingale contribution and independent-redraw jump contribution combine to \(-a\mathbb EC_S^2/2+r\operatorname{Var}(C_S)/2\). Fourier-collocation tests solve both full stationary and corrector problems independently for 45 cases. The discriminant and derivative determine the whole quadratic-sign diagram. Computation is supporting evidence; the proof is analytic. Critical cases are deliberately stated only at the level of the quadratic coefficient.
+PASS
 
-## Originality — PASS, qualified
+Reassessed the delivered quadratic-only claim. With a=Dk², refresh splits the linearized first Fourier harmonic into the constant internal mode of decay a and a centered mode of decay a+r. The periodic forward equation in density relative to the reversible Bernoulli weights and the Poisson corrector therefore share the amplitude C_s=q/a+(s−q)/(a+r) with the stated sine/cosine signs. Quadratic variation includes redraw jumps; expanding gives A2=[−a Eπ(C²)+r Varπ(C)]/2. Independently, averaging Frydel's zero-current dual identity over one period with dual amplitude −ε gives the same formula: the first-order physical current is proportional to s−aC_s=r(C_s−EC), and periodic normalization removes the second-order density means. Reflection gives zero drift; half-period translation and analyticity give an even expansion with pointwise O(ε⁴) remainder. Multiplication by (1+z)² gives the quadratic P_q; its discriminant and the derivative of the bracket give the stated rate interval, boundary and unique coefficient maximum. Inspected the supplied CHECK.py and verification text without running the uploaded script. The repaired finding claims the actual small-amplitude sign only at fixed parameters where A2 is nonzero, and claims only the coefficient's maximum at z=3.
 
-The closest primary work is Frydel (arXiv:2611.13526), with its general homogenization and an equal-duty on/off triangular model. Sec. XI's equal-weight calculation does not establish the unequal-duty sinusoidal coefficient or its sharp \(1/9\) threshold. Spagnolo and Dubkov (arXiv:cond-mat/0510170) give a signed \(\pm U\) switching model, with different average potential and switching protocol. The indexed comparison most closely related in theme is the weak-potential run-and-tumble suppression result, which has intrinsic propulsion and no independent on/off force-state flashing. A general formalism can be specialized to obtain this result; the claim is not that its ingredients or methods are new. Unindexed or implicit previous expansions remain a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-A natural adjustable experimental variable is the fraction of time a periodic trap is active. The exact \(1/9\) boundary decides when weak on/off flashing can outperform *free* thermal diffusion, contrary to extrapolation of the equal-duty example. The theorem supplies a complete second-order enhancement/suppression classification, the exact optimal rate, and the bounded reentrant window. This is a physically meaningful transport-design boundary rather than a numerical slice or a reformulation of a fixed-potential theorem.
+Qualified to the repaired exact quadratic sign and rate classification for the unequal-duty on/off sine model. The Poisson framework, exact zero-current cell representation, static suppression, and centered one-mode response are established or closely overlapping ingredients. The strongest checked sources do not supply an explicit applicable weak coefficient for this mean-plus-fluctuation law or its sharp sign boundary. The needed nonzero-mean and centered mode decomposition is made explicit here; no novelty is assigned to the general method or the centered kernel.
 
-## Limitations and next checks
+## value
 
-Nonzero-force signs at coefficient-zero curves and nonperturbative amplitudes remain unresolved. Broader two-state perturbation expansions, potentially implicit in older transport literature, may independently contain this specialization. Independent scientific validation has not yet occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural transport comparison is to free Brownian diffusivity, not to the diffusivity of a permanently applied trap. The exact duty and rate restrictions give a qualitative effect missed by a balanced on/off example: reducing duty can change the leading response sign and yields a bounded interval of beneficial redraw rates despite zero net drift. The repaired strict-leading-order sign diagram and exact coefficient optimizer are useful without implying any finite-amplitude threshold or optimal rate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

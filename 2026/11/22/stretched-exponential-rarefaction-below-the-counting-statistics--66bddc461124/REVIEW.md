@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof starts from the *exact* killed Brownian kernel and the stationary equilibrium-renewal mixture, valid when the population exceeds two. Integrating the kernel over the shrinking interval gives the exact conditional binomial parameter, including its absorbing-image correction. A uniform Gaussian-tail estimate controls that correction for all young ages, and the complementary-error-function expansion gives the sharp exponent for the exceptional older ages. A polynomially shrinking bracket about the unique age solving the count constraint separates binomial fluctuation cost from excursion-survival cost, proving the two-sided logarithmic equivalent. Conditioning on the rare event and comparing exponential speeds proves age localization. This holds for each fixed parameter pair in the specified open domain. Numerical quadratures and binomial CDF calculations in `verify.py` independently check normalization, conditional probability and the direction of asymptotic convergence; they are not treated as an infinite proof.
+PASS
 
-## Originality — PASS (qualified)
+For a one-sided +L barrier, reflection gives single survival erf(sqrt(c/t)), c=L²/(4D); independence and renewal occupation give age density S_1(t)^N/μ_N, killed product law given age, and binomial count given age. The survival integral is finite iff N>2 by t^(−N/2) at infinity. In u=t log(N)/c, Mills' estimate gives −log S_N=(1+o(1))sqrt(u/(π log N)) N^(1−1/u) locally uniformly, and μ_N∼c/log N by the step at u=1 plus the uniform age-tail bound at RESULT.md lines 59–65. For U fixed, the reflected image integral is O(N^(−1/U)/sqrt(log N)) uniformly on u≤U since 2sqrt(log(N)/u)−ell/sqrt(u)≥sqrt(log(N)/u) eventually; the survival normalization has the same error. Taking δ=N^(−β), 0<β<1/(2uκ), choose U>uκ with 1/U>β. This makes the error o(δ), so young ages up to uκ−δ have success-count lower tail bounded by exp(−const Nδ²), whereas the window [uκ+δ,uκ+2δ] has the desired count with probability 1−o(1), including integer rounding. The two bounding survival exponents agree to relative o(1) because δ log N→0, and the logarithms of the mixing density normalization and window width are negligible. A fixed younger age gap incurs a cost exp(−const N); a fixed older gap raises the stretched-exponential power, so dividing by the sharp rare-event estimate proves conditional localization. The assumptions exclude a crossover near the hard edge, not a uniform rare-event law.
 
-The primary full article, Biroli–Majumdar–Schehr, *First Passage Resetting Gas*, https://arxiv.org/abs/2512.00440, Eqs. (10)–(15) and (36)–(38), already supplies the exact stationary mixture and the lower edge \(\operatorname{erf}(\ell)\). The present claim is not for those known facts, but for the sharp **finite-population, subedge, macroscopic core-count** logarithmic rate and its conditioned clock. The article explicitly stops at the statement that those rarefied configurations are very unlikely. The more general CIID paper https://arxiv.org/abs/2307.15351 treats the method of mixing, not the size-dependent event-driven tail. Research records on mirror-threshold single-digit counts and fixed-population far-left excursions do not imply a rarefaction law for \(\kappa N\) core particles. Searches found no equivalent or stronger theorem, but absence from the inspected index is not proof of priority. Unindexed equivalent work, potential uninspected supplements, and the exact-integral implicit reducibility are residual risks.
+## originality
 
-## Value — PASS
+PASS
 
-The positive lower support endpoint from the original paper leaves an identifiable mathematical gap: how rapidly does its apparently forbidden region become accessible at finite population size? The result shows a continuum of nontrivial fractional exponents, rather than a naive speed-\(N\) binomial large deviation, and identifies the physical rare-event mechanism through the reset age. This describes measurable finite-size rarefaction in a natural many-particle model and distinguishes atypical long excursions from ordinary fluctuations. No arbitrary numerical slice, parameter tuning or routine normalization check is offered as the contribution.
+Credit the finite-population subedge logarithmic equivalent and its selected age under one-sided collective resets, not the exact stationary mixture or limiting hard edge. The closest related indexed statements concern different observables and do not supply equivalent coverage. The primary paper's passage-level comparison remains access-limited.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The zero below the limiting support hides a continuum of stretched-exponential powers and the mechanism producing a rare low count. Resolving the coefficient as well as the unusually old selected age distinguishes the result from typical-age binomial fluctuations and from a hard-edge statement alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

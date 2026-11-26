@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 checker.py` in the extracted package directory. It has no nonstandard Python dependencies and prints a series of `PASS` checks after successful completion. Its algorithm constructs exact reduced fractions for every nonempty proper prefix and suffix, checks for any frequency collision, and deduplicates all circular rotations as complete strings. It compares those results to the mean-gap-crossing formula without using that formula in its border test. All directed necklaces with zero counts from 0 through 28 are covered, as are 500 reproducible larger cases and all closed-form distribution values through 149 zeros. The five-one strict-chord counterexample from Charlier and collaborators is checked separately to prevent an unintended broader claim.
+## correctness
 
-## Proof-based reproducibility
+PASS
 
-The proof is contained in `RESULT.md`. In particular, the exact converse witness cases are: when the first zero gap is no shorter than the last, equal one-one factors of the same length; when the first gap is shorter but violates the first mean condition, one-one versus two-one factors at lengths in a 1:2 ratio; and when it violates the final mean condition, the reversed 2:1 ratio. The proof covers all nonnegative gap lengths, with the final gap positive for the one-start linear lemma. The cyclic case splits all possible admissible boundaries by first/last symbols. Burnside's formula is given with periodic cases treated separately.
+Independently checked the linear iff and the cyclic-to-distinct reduction. For a start at a one and a positive final gap c, the two intermediate gap-end heights of the frequency chord are m−3a and 3c−m. Strict positivity puts all proper prefix densities above, and all proper suffix densities below, the overall density. Conversely, if a≥c, the length c+1 factors each contain one one. If a<c and 2a≥b+c, lengths a+1 and 2a+2 capture respectively one and two ones: the latter lies between b+c+2 and n−1. In the last case 2c≤a+b with a<c, lengths 2c+2 and c+1 capture respectively two and one ones. Thus equality with the chord is excluded too. Other starts must have differing end letters; reversal exchanges the two gap inequalities, giving exactly one start per strict crossing, which still works at a zero gap since a required positive end gap is the larger gap. A nontrivial repetition would repeat the block three times, forcing all gaps equal and no qualified rotation. Burnside gives (binom(m+2,2)+2δ_m)/3; in m=3q the q positive progression steps each give two cyclic orderings. The all-ones necklace is covered by the equal-gap case. The frozen checker was inspected, not run; proof gives the all-length result.
 
-## Limits
+## originality
 
-The computational sampling is finite and does not certify claims for untested lengths. The theorem makes no claims about more than three ones or larger alphabets. Self-review has passed; an independent audit has not been performed.
+PASS
+
+The supported distinction is necessity of the strict-chord test for these three-one starts and the resulting weak-Abelian conjugate classification and distribution. The published sufficient direction and the same-day literal-border distribution are credited, not treated as novel.
+
+## value
+
+PASS
+
+The result isolates an infinite, minimal sparse family on which a known nonreversible general criterion is reversible; this needs the collision witnesses, not just a renaming of a count. The exact cyclic distribution shows a linear-size progression exception to generic two-conjugate behavior and separates weak from literal borders even on the same objects.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

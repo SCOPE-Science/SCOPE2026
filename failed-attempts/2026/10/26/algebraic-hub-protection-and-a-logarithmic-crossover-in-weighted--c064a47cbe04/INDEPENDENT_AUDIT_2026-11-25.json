@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:35:09.764165Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–45 (law, rates, proof, quantifiers)",
+        "VERIFICATION.md and verify_windmill.py (inspected the recorded exact occupied-mask recursion and its finite scope; not used as proof)"
+      ],
+      "rationale": "For adsorption from the empty graph, first run the internal dimer processes with all spokes suppressed. Conditional on these paths, survival of the hub is the event that no spoke to a then-vacant blade vertex rings; the first such ring would also be accepted in the actual process. For a blade with 2j vacancies the internal holding time is exponential of rate alpha*j*(2j-1); the holding times along the even-size descent are independent by the Poisson restart property and the fact that the total rate depends only on j. The conditional no-spoke factor during that hold is exp(-2j*beta*T_j). Its expectation produces (2j-1)/(2j-1+2b), and independent blade paths give the rth power. An odd blade leaves a vacant vertex forever in the suppressed process, precluding survival for positive beta even when other sizes differ. The gamma ratio has the stated constant and exponent. Writing -log P as r times the sum of log(1+b/(j-1/2)) gives rb(log k+O(1))+O(rb^2) uniformly for small b. If rb log k stays bounded, b tends to zero and the errors vanish. For the divergent case, monotonicity in b bounds P above by the probability at b=L/(r log k) for each fixed L>0 eventually; letting L tend to infinity gives zero. This checks both limits without needing a uniform fixed-b gamma expansion.",
+      "residual_risks": [
+        "The law uses the usual empty initial preparation for RSA, not arbitrary preoccupied blade vertices. The proof starts each blade in its full size."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "De Smedt–Godrèche–Luck's abstract treats one-dimensional spin systems mapped to adsorbed monomers, dimers and hollow trimers.",
+          "Haji-Akbari et al.'s abstract describes generating random dimer coverings of lattices and computing percolation thresholds.",
+          "Full-text access to Pippenger and Evans was not obtained."
+        ],
+        "reasoning": "The available lattice and spin-system statements do not evaluate the hub observable on the weighted clique family. General first-step RSA equations specify the process but do not alone give the collapsed product or the asymptotic. An uninspected general theorem is a residual risk, not affirmative evidence either way.",
+        "searches": [
+          "Pippenger DOI 10.1137/0402034 and Evans DOI 10.1103/RevModPhys.65.1281",
+          "OA inspection of arXiv:cond-mat/0202465 and arXiv:1507.04411"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–42",
+        "Resultary 8fcef0aa0356 exact Finding and scope; 3769c00bffcb indexed statement",
+        "arXiv:cond-mat/0202465",
+        "arXiv:1507.04411"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact two-impurity product has no weak-rate hypothesis and therefore applies with lambda_i=b/2 at every member of a varying-rate sequence.",
+          "No accepted spoke in the global windmill iff no blade has a potential accepted spoke in its internal-only trajectory. These events depend on disjoint Poisson families, so the mapped one-blade probability is simply raised to r.",
+          "With H=sum over j≤k of (j-1/2)^(-1), log bounds give rbH/(1+2b) ≤ -log P ≤ rbH, and H=log k+O(1)."
+        ],
+        "reasoning": "The displayed elementary bounds squeeze the full varying-r limit when rb log k is bounded, since b tends to zero; if rb log k diverges the lower bound diverges, separating b≤1 and b>1. The fixed-rate power law is the ordinary gamma ratio. The formal same-day weak-rate limit alone would not imply this, but the exact arbitrary-rate finite formula under the event reduction does. No temporal priority or direction of derivation between the two records is asserted.",
+        "searches": [
+          "Resultary 2026/10/26 SCOPE-logarithmic-weak-impurity-adsorption-and-the-parity-selected-poi--8fcef0aa0356",
+          "Resultary 2026/10/25 wheel hub-survival result 3769c00bffcb"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The next feasible edge is selected proportionally to its attempt rate, equivalently a rate-weighted random greedy maximal matching.",
+          "For the even-size, two-impurity graph in 8fcef0aa0356 with n=2k+2, total vacancies W+|R|=2 at jamming iff both impurities remain vacant: W≤1 and if W=1 no impurity can be vacant because the pair would be adjacent.",
+          "Resultary 3769c00bffcb instead describes weighted wheel hub survival with a hypergeometric ratio (indexed statement)."
+        ],
+        "reasoning": "To test that neither impurity is adsorbed, run the ordinary clique's internal path with spokes suppressed. At each ordinary site the two independent spoke processes superpose into a single Poisson process of rate lambda_1+lambda_2. Before any accepted spoke this is exactly single-hub avoidance for one blade; identifying the impurity vertices need not preserve paths after a spoke is accepted. A wheel alone does not furnish this reduction.",
+        "searches": [
+          "Literature lookup for weighted dimer RSA, exponential random greedy maximal matching and windmill hub survival",
+          "Resultary comparison for weighted hub survival"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact finite law in 8fcef0aa0356, Finding offsets 93–2823, is Pr(W+|R|=2)=product over j=1,...,(n-2)/2 of (2j-1)/(2j-1+2(lambda_1+lambda_2)) for even n≥4 and arbitrary positive lambda_i.",
+          "At equal rates the windmill law telescopes to (2k+1)^(-r), and at k=1 it reduces to (1+2b)^(-r)."
+        ],
+        "reasoning": "Setting n=2k+2 and lambda_1=lambda_2=b/2 gives exactly the entire weighted blade factor, not merely the equal-rate or friendship-graph specialization. The other statement does not tabulate the windmill itself.",
+        "searches": [
+          "Resultary lookup of weighted hub, friendship/windmill and logarithmic-impurity results",
+          "Literature lookup using weighted windmill/friendship and greedy matching terminology"
+        ]
+      },
+      "rationale": "The exact finite two-impurity law in the distinct same-date record 8fcef0aa0356 already evaluates the one-blade avoidance probability at every size and positive rate by identifying the two impurity clocks at each native vertex with one clock of summed rate. Windmill survival then factorizes over the disjoint blade clock families on the event of no hub adsorption. Thus the full weighted product follows by a direct reduction, and both joint limits follow from elementary uniform bounds on its logarithm. This is affirmative coverage by implication, not a priority inference from the date or an assertion that the other record literally studies windmills.",
+      "residual_risks": [
+        "Pippenger and Evans were not accessible in full. The assessment rests on the positive finite-law implication from the distinct exact same-date statement, not on inaccessible sources or a claim about which same-date record came first."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Scope beyond the title unverified",
+          "evidence": "No theorem or table was accessible for comparison.",
+          "identifier_or_url": "https://doi.org/10.1137/0402034",
+          "material_read": "Bibliographic identification only; direct and alternate lawful access unsuccessful",
+          "method": "OA source lookup",
+          "title": "Random Sequential Adsorption on Graphs",
+          "trigger": "Potential general theorem covering distinguished-site probabilities"
+        },
+        {
+          "assessment": "Background reference; full-text coverage unresolved",
+          "evidence": "No accessible passage stating the weighted windmill law.",
+          "identifier_or_url": "https://doi.org/10.1103/RevModPhys.65.1281",
+          "material_read": "Bibliographic identification only",
+          "method": "OA source lookup",
+          "title": "Random and cooperative sequential adsorption",
+          "trigger": "Broad potentially relevant review"
+        },
+        {
+          "assessment": "Related model; not the claimed graph observable in the passage read",
+          "evidence": "Maps one-dimensional spin models to sequential adsorption and calculates blocked-state statistics.",
+          "identifier_or_url": "arXiv:cond-mat/0202465",
+          "material_read": "Abstract, p. 1",
+          "method": "OA paper passage",
+          "title": "Jamming, freezing and metastability in one-dimensional spin systems",
+          "trigger": "Exact dimer jamming precedent"
+        },
+        {
+          "assessment": "Different graph geometry and observable",
+          "evidence": "Computes lattice percolation thresholds from random dimer coverings.",
+          "identifier_or_url": "arXiv:1507.04411",
+          "material_read": "Abstract, p. 1",
+          "method": "OA paper passage",
+          "title": "Dimer Covering and Percolation Frustration",
+          "trigger": "Random dimer cover precedent"
+        },
+        {
+          "assessment": "Shared observable, different graph and law on the accessed evidence",
+          "evidence": "Cycle rim, parity obstruction, hypergeometric-ratio probability.",
+          "identifier_or_url": "Resultary 3769c00bffcb",
+          "material_read": "Indexed statement; full record not retrieved",
+          "method": "Local Resultary search and attempted matched-source retrieval",
+          "title": "A universal leading amplitude for hub survival in weighted wheel dimer adsorption",
+          "trigger": "Closest indexed distinguished-hub survival law"
+        },
+        {
+          "assessment": "Exact one-blade factor by merging independent impurity clocks on the no-adsorption event; multi-blade formula then factorizes",
+          "evidence": "For two impurities and even n≥4, Pr(W+|R|=2) is the product with denominators 2j-1+2(lambda_1+lambda_2) for all positive lambda_i; the weak-impurity limit is separate.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-logarithmic-weak-impurity-adsorption-and-the-parity-selected-poi--8fcef0aa0356/RESULT.md",
+          "material_read": "Finding and Assumptions and scope, offsets 93–2823, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary search and matched mirror passage inspection",
+          "title": "Logarithmic weak-impurity adsorption and the parity-selected Poisson-binomial jamming law",
+          "trigger": "Exact finite avoidance law for a native clique with rate-weighted impurities"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 4–18 and 23–42",
+        "Resultary 8fcef0aa0356 exact two-impurity formula and scope"
+      ],
+      "rationale": "Hub survival is a natural statistic, but the stated exact law is the already evaluated clique avoidance factor multiplied across independent tests. The crossover is a direct uniform logarithmic estimate of the known factor, not a different asymptotic regime requiring a new analysis of coupled dynamics. No distinct valuable exact fact remains in the frozen claim beyond this reduction and estimate.",
+      "residual_risks": [
+        "The result concerns terminal hub survival in this specific family, not the finite-time law or overall coverage."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

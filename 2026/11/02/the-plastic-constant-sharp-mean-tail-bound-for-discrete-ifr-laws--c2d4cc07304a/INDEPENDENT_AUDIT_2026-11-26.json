@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:20:10.769510Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The proof covers all integrable integer-valued laws with log-concave survival and p_(m+1) >= p_m > 0, not merely finite-support laws. After shifting m to zero, t=S_1 and x=t/p_0 >= 1. Monotonicity of the positive survival ratios, with the zero-tail case included, gives E(X_+) <= t^2/p_1 <= tx and S_(-k) <= min(1,t(1+1/x)^(k+1)). Thus the mean condition gives F_t(x)=sum_{j>=1}(1-t(1+1/x)^j)_+ <= tx. At c=a-1=a^(-4), with a^3=a+1, the first-term bound on [1,a], two-term convexity bound on [a,3], four-term convexity bound on [3,6], and decreasing Riemann-sum bound on [6,infinity) prove F_c(x) >= cx, strictly away from a. Both the endpoint values and their strict signs were checked with rational arithmetic (331/250<a<4/3; the logarithm certificate uses 402/581>175/256). Monotonicity in t excludes t<c. Equality forces t=c, x=a, p_1=p_0 and zero mean; saturation term by term forces S_(-1)=1 and a constant ratio 1-1/a to the right of S_1. The specified survival law has decreasing ratios, adjacent masses a^(-5), and positive and negative mean contributions a^(-3), proving attainment and uniqueness up to translation. This is an analytic infinite-support proof; the supplied finite examples are not used as evidence of the universal inequality. Replay from RESULT.md §§1–3 with exact rational endpoint checks and the displayed survival sequence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2 gives gamma/(1+2gamma) for 0<gamma<=1/2; Theorem 3 is hypergeometric only. The older Shah estimate as reported in §1.2 bounds Pr(X>=k) for k at or below the mean of a nonnegative IFR variable, not the next integer. The reported Alqasem et al. bound Pr(X>E X-1)>=1/e assumes log-concave mass and at integer mean bounds S_m."
+        ],
+        "reasoning": "None of those broader or nearby results covers the ratio-one optimum with arbitrary integrable IFR support. The continuous IFR 1/e estimate is not a lattice next-integer estimate.",
+        "searches": [
+          "arXiv:2610.24726v1 §§1.2–1.4 and §2: general adjacent-mass theorem, other mean-tail estimates, and the x>1 proof"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and supporting verification evidence",
+        "arXiv:2610.24726v1 (primary full-text passages)",
+        "Resultary 63465052f50d (mirrored finding)",
+        "Resultary a7db5ef46966 (indexed finding)",
+        "Shah, Alqasem et al., and the continuous IFR bound as reported in arXiv:2610.24726v1 §1.2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ratio-one dominance permits gamma=1/2 in Theorem 2, giving only 1/4. Section 2 uses the same survival ratios and x, but its x>1 estimate bounds the tail with the common S_(m+1)/S_m ratio on the right; at the new optimizing x=a its displayed lower bound is 2(1-a/(1+a))c<c. Extrapolating the theorem's gamma formula to 1 would give 1/3, contradicted by the exact equality law."
+        ],
+        "reasoning": "The stronger right-tail control using p_(m+1) and the sharp clipped left-tail envelope are needed to obtain this constant and prove uniqueness. The inspected prior theorem neither directly nor through the displayed estimate yields them.",
+        "searches": [
+          "arXiv:2610.24726v1 Theorem 2 and §2, especially the estimate for x=S_(m+1)/p_m>1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For integer-valued laws the motivating paper uses the same log-concave survival convention. At integer mean, S_(m+1) is the strict exceedance probability, not S_m. Log-concavity of the mass implies IFR, but is not assumed here."
+        ],
+        "reasoning": "The survival and nondecreasing-hazard formulations are equivalent with the same indexing where survival is positive. A lower-tail result, a bound for S_m, or a bound only for log-concave masses is not this theorem.",
+        "searches": [
+          "Ai, Karagiannis, Kuželka and Pelekis, arXiv:2610.24726v1, §1.1 and Theorem 2",
+          "Resultary: sharp discrete IFR / integer mean / adjacent probability and log-concave tail bounds"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest catalogue hit 63465052f50d concerns the infimum of Pr(X<=E X) for finite-support integer-mean log-concave mass laws. The related a7db5ef46966 record concerns the smallest support of a counterexample to a lower-tail half-mass bound."
+        ],
+        "reasoning": "These exact catalogue entries concern different events and hypotheses; neither tabulates or proves the focal upper-tail optimum. A table of the numerical plastic constant alone could not establish its identification as the optimum.",
+        "searches": [
+          "Resultary: sharp integer-mean tail bounds for discrete IFR and log-concave laws",
+          "Resultary 63465052f50d and a7db5ef46966, frozen public record comparisons"
+        ]
+      },
+      "rationale": "The closest prior theorem and its proof concern the same discrete-IFR problem, but the supported distinct claim is the sharp ratio-one constant and its unique equality law. The geometric survival comparison itself is prior technique. No matching or stronger covering statement was found in the inspected sources.",
+      "residual_risks": [
+        "Shah's primary paper was not independently inspected; its relevance was assessed from the reported hypotheses and conclusion in §1.2.",
+        "Catalogue and targeted literature comparisons are bounded, not proof of priority or absence of equivalent unindexed work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closest antecedent; covers a weaker bound and the geometric-survival technique, not the claimed sharp constant or equality law",
+          "evidence": "Theorem 2 restricts gamma to (0,1/2]; Theorem 3 is hypergeometric. Section 2 derives S_(m+1)>=(d+1)(1-r)r^(d+1) for d=floor(x) and r=S_(m+1)/S_m.",
+          "identifier_or_url": "https://arxiv.org/html/2610.24726v1",
+          "material_read": "§1.1 (text offset about 5200), §1.2 and Theorem 2 (about 7400 and 9900), §§1.3–1.4 and start of §2 (14040–16189), §2 x>1 estimates (18000–22059)",
+          "method": "Lawful OA HTML passage retrieval and direct statement and derivation comparison",
+          "title": "On the probability that a discrete IFR random variable exceeds its mean",
+          "trigger": "Same IFR class, threshold, adjacent-mass mechanism and a plausible broader theorem"
+        },
+        {
+          "assessment": "Related, not equivalent or stronger",
+          "evidence": "Finite-support log-concave mass, lower-tail event Pr(X<=E X), and infimum e^(-1), not a strict upper-tail lower bound under adjacent dominance.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-sharp-integer-mean-lower-tail-for-discrete-log-concave-laws--63465052f50d",
+          "material_read": "Mirrored RESULT.md finding",
+          "method": "Local Resultary search and same-file mirror",
+          "title": "Sharp integer-mean lower-tail for discrete log-concave laws",
+          "trigger": "Strongest related exact mean-tail catalogue statement"
+        },
+        {
+          "assessment": "Different direction, class and extremal question; no whole-document assessment",
+          "evidence": "The indexed finding asks for minimum support size for a lower-tail half-mass failure, not for a ratio-one survival bound.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-eight-atoms-are-minimal-for-a-discrete-log-concave-half-mass-fai--a7db5ef46966",
+          "material_read": "Indexed catalogue claim",
+          "method": "Local Resultary search",
+          "title": "Eight atoms are minimal for a discrete log-concave half-mass failure",
+          "trigger": "Possible overlapping exact lattice mean-tail boundary"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Equal-or-increasing adjacent mass is a natural discrete threshold regime outside the sharp theorem's proved parameter range. The result resolves a strict mean-exceedance bound in that regime where formal extrapolation would be false, and the unique one-left-atom/geometric-right-tail extremizer identifies the mechanism. It makes no unsupported claim about other mass ratios.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:40:39.643955Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:5–55, VERIFICATION.md, verify.py",
+        "/workspace/branches/interval_gap_check.py: independent gap-mask union check gives maxima 2,4,8,13,19,26 for m=1,…,6 and a unique ordered endpoint pattern at m=3,…,6; explicit probe extensions through m=50; a fixed ordered path with containment yields only 7 at m=3"
+      ],
+      "rationale": "For generic marked endpoints each nonempty interval-query trace is recoverable from its minimum included right endpoint and maximum included left endpoint. There are at most B=1+binom(m+1,2) query traces, minus one per strict containment pair. A probe just past the earliest right endpoint or just before the latest left endpoint reproduces that mark's open trace; if these marks coincide, their m−1 containments more than compensate for the missing second probe. Thus equality for m≥3 excludes containment, requires all B contiguous blocks, and makes every interior marked trace noncontiguous. Each interior singleton block forces its two neighbors to be disjoint; a noncontiguous marked trace then requires both consecutive overlaps. Conversely a proper ordered path representation has a private segment in each marked interval, so probes give all contiguous blocks and the interior marks give every extra pattern. Thus every ordered path as an ordered graph extends, with an appropriate representation. The statement does not guarantee extension of arbitrary fixed coordinates: an ordered path may be represented with containment. The endpoint marks both give the middle singleton at m=3, so realizing eight traces requires nine vertices; their singleton traces differ for m≥4, and omitting the already realized block probes attains the one-vertex-per-trace lower bound. The m=1,2 witnesses and the 8-to-13 shattering boundary check directly.",
+      "residual_risks": [
+        "The converse is about extension of the ordered graph (or a proper ordered path representation), not every fixed realization of it. Finite checks are corroboration; the endpoint argument gives the all-size result. Uploaded executable evidence was inspected, not executed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The nearby Resultary summary concerns nonalgebraic one-point query types over a fixed proper interval graph, with a cycle-rank correction. A second nearby exact result is restricted to unit hosts (record 3), with maximum 12 instead of 13 at m=4."
+        ],
+        "reasoning": "A count restricted to external intervals or to unit hosts does not itself control the distinct extra profiles contributed by marked vertices in general interval graphs or the duplication among them. Broader type or neighborhood complexity papers were not available for a definitive full-text comparison.",
+        "searches": [
+          "Resultary: SCOPE-a-cycle-rank-defect-law-for-quantifier-free-interval-one-point-t--d7e206ae00f4",
+          "arXiv:2611.08143 and arXiv:2607.10941"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records 99413cf9082e, 9d6b84f296e4, 03837b8f9fa5 and d7e206ae00f4; focused primary search; access-limited arXiv:2611.08143, arXiv:2607.10941 and arXiv:2501.08895"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Record 4's coincident-extremes estimate gives 3m−1, which does not even rule out equality in this case at m=3. Its witness includes all ordinary query probes rather than minimizing the host. Record 5 bounds the loss from each containment and uses the duplicate endpoint trace to sharpen the eight-vertex counting lower bound to nine."
+        ],
+        "reasoning": "The previously covered maximum gives a lower bound on vertex count but does not imply nine at m=3 or the optimizer classification. The missing direction requires the containment deficit and equality analysis, not just algebraic specialization.",
+        "searches": [
+          "Record 4 RESULT.md:18–38 and 46–47 against record 5 RESULT.md:26–53",
+          "Primary search: ordered path rigidity and minimum order; interval graph VC dimension"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Record 4 RESULT.md:4–13 states the same numerical invariant for every m≥1 and an automatic m=0 value; RESULT.md:32–38 constructs one attaining ordered path but does not show every attaining marked set has that structure."
+        ],
+        "reasoning": "Open traces and one-variable atomic adjacency types are equivalent, and the piecewise maxima agree. A sufficient path witness is not a necessary structural condition.",
+        "searches": [
+          "Resultary: exact open-neighborhood traces, adjacency types and path rigidity in finite interval graphs",
+          "Primary search: ordered path rigidity and minimum order for open-neighborhood interval graph traces"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The hit ending 9d6b84f296e4 is the assigned record itself. The distinct hit 99413cf9082e explicitly disclaims an extremizer classification in RESULT.md:46–47 and states no minimum host order."
+        ],
+        "reasoning": "Credit exact indexed coverage of the numerical maximum, but the distinct hit does not give the classification and minimum orders. Same-day dating establishes neither precedence nor exclusion.",
+        "searches": [
+          "Resultary exact expression and ordered-path rigidity search; hits 99413cf9082e and 9d6b84f296e4"
+        ]
+      },
+      "rationale": "The exact numerical maximum and resulting VC dimension are covered by the distinct same-day indexed record 4. The supported distinctive claim of this stronger theorem is the necessity of the ordered-path structure at equality together with exact minimum host order, including the exceptional nine-vertex minimum for three marks. No equivalent classification or order theorem was demonstrated in the bounded checks. This does not assign priority to either same-day record.",
+      "residual_risks": [
+        "Full text of relevant adjacent works was not available in the bounded retrieval attempts. Earlier equality classifications or minimum-order results under locating-code or incidence terminology remain possible. No historical priority asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Numerical overlap; no equality classification or minimum-order result",
+          "evidence": [
+            "Path construction is existential; Limitations explicitly excludes a classification of all extremizers."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-open-neighborhood-trace-growth-in-finite-interval-graphs--99413cf9082e",
+          "material_read": "Local RESULT.md:4–38 and 46–47",
+          "method": "Resultary index and local original",
+          "title": "Sharp open-neighborhood trace growth in finite interval graphs",
+          "trigger": "Distinct indexed exact numerical maximum"
+        },
+        {
+          "assessment": "Distinct in the available statement; finer implication risk remains",
+          "evidence": [
+            "Restricts the marked graph to be proper and counts nonalgebraic queries, not all marked open traces."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-cycle-rank-defect-law-for-quantifier-free-interval-one-point-t--d7e206ae00f4",
+          "material_read": "Catalogue scope and formula only; local original not retrieved",
+          "method": "Resultary index, attempted local retrieval",
+          "title": "A cycle-rank defect law for quantifier-free interval one-point types",
+          "trigger": "Could imply a defect or rigidity bound in a related query system"
+        },
+        {
+          "assessment": "Closed-neighborhood setting as described; no whole-document conclusion",
+          "evidence": [
+            "The cited definition uses N[v], not N(v)."
+          ],
+          "identifier_or_url": "https://perso.liris.cnrs.fr/aline.parreau/Research/Slides/seminaireCombgraph13.pdf",
+          "material_read": "Search descriptions and frozen slide citations; relevant slide full text not retrieved",
+          "method": "Primary search and attempted OA retrieval",
+          "title": "Identifying Codes and VC-Dimension",
+          "trigger": "Sharp interval-graph shattering result might contain structural information"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:14–16, 26–55; record 4 comparison"
+      ],
+      "rationale": "The equality classification determines which marked induced graphs can generate the maximum. The exact order threshold explains where an optimal realization can assign one vertex per trace, and why the smallest shattered support forces an extra vertex. Neither structural piece is obtained by evaluating the trace polynomial alone.",
+      "residual_risks": [
+        "No uniqueness of the entire host, nor novelty or separate value attributed here to recomputing the shared numerical maximum."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

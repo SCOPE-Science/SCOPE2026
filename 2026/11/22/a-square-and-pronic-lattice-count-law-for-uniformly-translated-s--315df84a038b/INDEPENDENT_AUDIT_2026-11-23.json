@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:25:00.121739Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For vertical phase U in (0,1), the sole integer layer is at height 1; its section is a square of side L=nU. The deterministic horizontal apex-dependent shifts preserve the independent uniform phases modulo one conditional on U. The two interval counts are independently floor(L)+Bernoulli(frac(L)). Write L=j+r; j is uniform on 0,...,n-1 and r independently uniform on [0,1). The probabilities of zero, one and two additional interval points, integrated over r, are each 1/3. Products are j^2, j(j+1), (j+1)^2; the first two coincide at j=0 and consecutive bins share the interior squares, with no further collisions. This includes n=1 and applies to every real apex displacement. Conditional mean is L^2; conditional second moment is [j^2+(2j+1)r]^2. Integrating and summing gives E N=n^2/3 and E N^2=n^4/5+n^2/9+1/45, hence the claimed variance. Each interval count is at distance at most 1 from nU; the product bound |N/n^2-U^2|<=2/n+1/n^2 establishes almost-sure convergence under common phases and the asserted CDF; the variance formula gives the coefficient of variation. Boundary events have translation measure zero, including over countably many n. The inspected rational checker compares finite section counts and finite moment sums only and was not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Schlie formulates the randomized count and asymptotic distribution problem, not this fixed-height discrete PMF in the inspected passages.",
+          "Tokmachev's explicit independent-uniform formula applies to primitive integer triangles. The relevant square slices here have generally noninteger side length and are not triangles; splitting them into triangles would not make their counts independent.",
+          "The indexed simplex-frustum theorem specializes to simplex horizontal sections, not arbitrary bases."
+        ],
+        "reasoning": "General random-translate expectation and the thin-layer conditioning principle are applicable inputs but do not cover the complete atom law. Neither full laws for triangles nor homogeneous dilation limit results subsume the fixed-height square-base problem.",
+        "searches": [
+          "arXiv:2611.16769v1, Introduction and §3",
+          "arXiv:2407.09878v1, Introduction and §4 Theorem 3",
+          "Resultary local mirror SCOPE-eulerian-lattice-count-laws-and-a-gaussian-occupancy-threshold-f--bbdcc875f005, Finding and Proof Steps 1–2"
+        ]
+      },
+      "checked_sources": [
+        "Schlie, arXiv:2611.16769v1",
+        "Tokmachev, arXiv:2407.09878v1",
+        "Resultary local index, mirrored simplex-frustum, Reeve-prism and planar-diamond records",
+        "Frozen RESULT.md, VERIFICATION.md and verify_pyramid.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The frustum proof supplies a reusable section reduction but its dimension/shape law is a binomial-coefficient formula for simplex sections.",
+          "A new square-section calculation uses independent horizontal phases conditional on side length but their common random fractional length, integrates the joint outcome, and combines collisions at adjacent lengths."
+        ],
+        "reasoning": "No parameter of the simplex result produces these Cartesian-product sections. The exact distribution is a short calculation from standard inputs, not a substitution in an existing distribution theorem for this or a stronger family. The limiting CDF alone is an immediate consequence of the section-size coupling, not a separate novelty claim.",
+        "searches": [
+          "arXiv:2407.09878v1, Theorem 3",
+          "Resultary local mirror SCOPE-eulerian-lattice-count-laws-and-a-gaussian-occupancy-threshold-f--bbdcc875f005, Proof Steps 1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For a Haar translate the lattice count also equals a covering multiplicity of the reflected body at a uniform fundamental-cell point. The earlier Reeve-prism record uses a multiplicity formulation, but for a different geometry and with a different limiting law.",
+          "The indexed simplex-frustum result likewise selects the sole integer slice, but obtains binomial-coefficient values rather than the products of two interval counts."
+        ],
+        "reasoning": "Changing count to overlap-count language does not change the problem for the same body, but neither the Reeve prism nor the simplex frustum yields this square/pronic law after that change. The frozen record's own index hit is not prior evidence.",
+        "searches": [
+          "Resultary local index: translated height-one pyramid / exact lattice-point count; matched SCOPE-eulerian-lattice-count-laws-and-a-gaussian-occupancy-threshold-f--bbdcc875f005",
+          "arXiv:2611.16769v1, random-translation lattice-point-count formulation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Reeve-prism full finding describes N_m(u) and a different limit; the planar diamond full finding is a four-atom law for another fixed family."
+        ],
+        "reasoning": "These are exact adjacent spectra, but neither lists or implies the all-integer-n square/pronic masses. The claim is distributional and parametric, not a question of looking up which numbers are square or pronic.",
+        "searches": [
+          "Resultary local index: exact lattice count and overlap spectra; SCOPE-cubic-overlap-spectrum-of-minimal-reeve-prism-lattice-coverings--144458c7c9ab and SCOPE-four-atom-lattice-count-laws-for-uniformly-translated-planar-dia--65d288844643"
+        ]
+      },
+      "rationale": "The surviving claim is the complete square/pronic probability law, invariant under real horizontal displacement of the apex, with its exact moments and nonconcentration consequence for this natural thin family. The single-section trick and interval rounding are not original. The closest indexed comparison uses the same height-one reduction for simplex sections, but its distribution and geometry do not cover square sections. The inspected literature and catalogue establish no equivalent or stronger statement covering this law.",
+      "residual_risks": [
+        "No exhaustive priority claim: a general thin-body mixture law or an unindexed treatment of the exact square-base example may exist.",
+        "The conclusion is not for rotations, noninteger sides, or isotropic dilation; the same-layer comparison does not settle chronological priority for shared methods."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General problem and limit context, no comparable fixed-height PMF in the inspected passages",
+          "evidence": [
+            "The introductory question studies a limiting law as the dilation parameter tends to infinity."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.16769",
+          "material_read": "Abstract p. 1 (offset 590), Introduction p. 3 (8906), §3 p. 5 (15502)",
+          "method": "Public arXiv PDF partial reads",
+          "title": "On the randomized lattice-point count problem",
+          "trigger": "Survey on exactly the ambient randomized count question"
+        },
+        {
+          "assessment": "Planar variance and complete primitive integer-triangle distribution, not the square-pyramid law",
+          "evidence": [
+            "Theorem 3 represents a primitive integer-triangle count as a sum of four independent discrete uniform variables."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2407.09878",
+          "material_read": "Abstract and Introduction p. 1 (offset 318); §4 Theorem 3 p. 6 (offset 13409)",
+          "method": "Public arXiv PDF, original statement read",
+          "title": "Lattice points inside a random shifted integer polygon",
+          "trigger": "Explicit exact count laws under translation"
+        },
+        {
+          "assessment": "Same single-layer method, non-equivalent simplex-section law; same-day indexing does not determine relative priority",
+          "evidence": [
+            "The law N_{r,c} distributed as B_r(K-J) concerns simplex frusta and yields binomial-coefficient support."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-eulerian-lattice-count-laws-and-a-gaussian-occupancy-threshold-f--bbdcc875f005/RESULT.md",
+          "material_read": "Finding and Proof Steps 1–2 (starting offset 0)",
+          "method": "Local Resultary search and local mirror passages",
+          "title": "Eulerian lattice-count laws and a Gaussian occupancy threshold for simplex frusta",
+          "trigger": "Closest indexed height-one count-law comparison"
+        },
+        {
+          "assessment": "Exact law of another lattice body",
+          "evidence": [
+            "N_m(u) counts integer Reeve-prism translates covering a fundamental-cell point; the normalized limit is different from U^2."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-cubic-overlap-spectrum-of-minimal-reeve-prism-lattice-coverings--144458c7c9ab/RESULT.md",
+          "material_read": "Finding, offsets 480 and 1907",
+          "method": "Local Resultary mirror passages",
+          "title": "Cubic overlap spectrum of minimal Reeve-prism lattice coverings",
+          "trigger": "Related three-dimensional exact overlap law and different normalized limit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A square pyramid with one lattice unit of height is a canonical convex polytope for isolating anisotropic count fluctuations as volumes diverge. The complete positive mass spectrum, including apex invariance and how interior and endpoint weights differ, gives an exact benchmark that generic mean-as-volume or fluctuation estimates miss. The nonzero limiting coefficient of variation quantifies why fixed-height growth is different from isotropic dilation; it is not itself a new general concentration principle.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

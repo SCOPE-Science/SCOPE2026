@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:12:19.337676Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 7–43 and 49–115; independent Poisson-segment factorization and short-time Gaussian calculation",
+        "Frozen VERIFICATION.md and checks/angular_reset_checks.py lines 15–101 (read, not executed)"
+      ],
+      "rationale": "The stationary angle is a Brownian convolution of ν with an independent exponential reset age, giving π_n=rν_n/(r+4n²D_rot). Conditional on the angular path the projected displacement is centered Gaussian with variance 2(d₀t+δA_φ). Right continuity and boundedness imply the short-time normalized even moment has highest coefficient (δ/2)^kπ_k before the nonzero Gaussian prefactor, proving necessity for every k. Independently of the frozen ODE, expand a j-fold time product of cosines and condition on the Poisson clock. Within each segment the initial angular law is π for the segment containing 0 and ν for later segments. Independence of its Brownian increments gives a factor π_b or ν_b at the segment's signed harmonic sum b. If j≤m all products with any nonzero b vanish; surviving products have zero total directional harmonic. This proves sufficiency at every time and agrees with the closed ODE's phase symmetry. Directional homogeneous polynomials determine the symmetric moment tensors; odd ones vanish. The Toeplitz identity has rank m+1, and the square factor at equality is unitary, forcing equal weights and a complete coset of (m+1)-th roots of unity in doubled-angle coordinates. For ν₁=0 the lagged cosine covariance is its stationary squared mean cosine factor E[cos²(2(θ−φ))] times exp(−ωs). The double integral gives Var(A_φ)=H(t)[1+Re(π₂e^(−4iφ))], and Gaussian variance mixing gives 12δ² times this variance as the fourth cumulant. For the regular three axes the t³ term's only nonconstant harmonic comes from δ³cos³, hence coefficient 120δ³/4 times the real third harmonic; opposite signs at the two stated directions double this. The short-time limit is uniform in direction by boundedness and the uniform Lipschitz bound on the cosine difference for a given change of θ.",
+      "residual_risks": [
+        "The reported 103 checks are finite ODE and algebraic diagnostics, not interval certification or proof. Necessity refers to isotropy for every positive time, with stationary initialization; not to an arbitrary single selected time or to full-law isotropy from finitely many orders."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Peherstorfer's n-node highest-exactness rule gives the static result for the uniform circle: the node polynomial becomes z^n+η and exactness fixes its weights.",
+          "The retrieved all-order resetting hierarchy ae34d732db08 applies to a different reset mechanism and stationary position law."
+        ],
+        "reasoning": "The classical broader quadrature theory covers the static support minimum and rigidity, not transfer to finite-time physical moments or the explicit cumulant and leakage diagnostics. General additive-functional methods require a model-specific harmonic transfer, including the converse via short time.",
+        "searches": [
+          "arXiv:1001.2451, Introduction and equations (3)–(5) on positive Laurent quadrature",
+          "Resultary: exact angular moment hierarchy and stationary position tomography",
+          "Literature search on anisotropic Brownian orientation resetting with harmonic cancellation"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2406.17550v2 §V",
+        "arXiv:1001.2451 pp. 2–3",
+        "Resultary search and records 403d011b461a, ae34d732db08, 6bf7c0fed446"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Second-moment renewal formulas involve one harmonic only; the dynamic criterion must account for products across multiple Brownian segments and then recover each harmonic from small time.",
+          "Static Fourier exactness has no temporal or translational dynamics. The other fourth-cumulant result permits anisotropic covariance and its assumed single-axis law lies outside ν₁=0."
+        ],
+        "reasoning": "The dynamic if-and-only-if and associated diagnostics are not corollaries of those inspected statements. The static extremizer is a corollary and is explicitly not credited as a separate new claim.",
+        "searches": [
+          "arXiv:2406.17550v2 §V versus arXiv:1001.2451 equations (3)–(5)",
+          "Resultary 403d011b461a and ae34d732db08, Findings and assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same passive model in §V fixes the reset direction and computes directional mean-square displacement/effective diffusion.",
+          "Resultary 403d011b461a has finite-time fourth-cumulant isotropy at its r=2q for one fixed reset direction while the second moment stays anisotropic. The frozen diagnostic assumes ν₁=0, which a single axis cannot satisfy.",
+          "Resultary ae34d732db08 analyzes all even stationary position moments for joint position/orientation resets to a fixed state, not finite observation times with position never reset."
+        ],
+        "reasoning": "Fourth-cumulant isotropy alone is not isotropy of moment tensors through fourth order; jointly restarting position changes the stochastic integral and is a different hierarchy. None is equivalent to vanishing the first m doubled-angle harmonics under arbitrary independent absolute redraws.",
+        "searches": [
+          "Resultary: orientation-only resetting, fourth cumulant isotropy, and angular moment hierarchy",
+          "arXiv:2406.17550v2 §V, equations (47)–(52)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "403d011b461a gives a different exact cancellation rate; ae34d732db08 gives a different stationary position hierarchy. The regular support is already supplied by circle quadrature. The retrieved two-torus quadrature record 6bf7c0fed446 is about covering radius, not the dynamic alphabet."
+        ],
+        "reasoning": "Neither the known exact node design nor the exact rate of the different single-axis observable is a database match to the all-time alphabet characterization. No matching dynamic formula was located in the bounded inspected results.",
+        "searches": [
+          "Resultary: fourth cumulant isotropy under orientation-only resetting; angular moment hierarchy; Fourier quadrature rigidity",
+          "arXiv:1001.2451 equations (3)–(5)"
+        ]
+      },
+      "rationale": "The passive fixed-angle mechanism and static quadrature extremizer are prior. The supported distinct result is the dynamic equivalence between exact positive-time displacement moment isotropy through a prescribed order and absence of the corresponding reset harmonics, making the static extremizer an exact protocol design with explicit dynamic diagnostics.",
+      "residual_risks": [
+        "An earlier result on harmonic selection for reset Markov additive functionals might subsume more than the passages located. Bounded searches are not evidence of absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closest earlier passive model; fixed resetting axis and second moments in inspected passages",
+          "evidence": [
+            "Orientation-only reset to a fixed angle; directional mean-square displacement and effective diffusion."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2406.17550v2",
+          "material_read": "Abstract and §V equations (47)–(52), rendered text offsets approximately 42900–47313",
+          "method": "Open-access primary HTML passage comparison",
+          "title": "Anisotropic Brownian particles under resetting",
+          "trigger": "Same passive orientation-resetting mechanism"
+        },
+        {
+          "assessment": "Covers the static rule, not displacement moment dynamics",
+          "evidence": [
+            "Exactness equals matching Fourier moments; maximum degree n−1; equation (4) characterizes nodes by the paraorthogonal polynomial."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1001.2451",
+          "material_read": "PDF pp. 2–3, equations (3)–(9), extracted offsets 5310–8103",
+          "method": "Read original OA PDF text; specialize to uniform circle",
+          "title": "Positive trigonometric Quadrature Formulas and quadrature on the unit circle",
+          "trigger": "Potential direct coverage of least support and equality"
+        },
+        {
+          "assessment": "Different mechanism for isotropic fourth cumulant with anisotropic variance, in a later-dated record",
+          "evidence": [
+            "One fixed direction; rate r=2q; variance remains anisotropic."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-sharp-fourth-cumulant-isotropy-under-orientation-only-resetting--403d011b461a",
+          "material_read": "RESULT.md Finding and assumptions, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Sharp fourth cumulant isotropy under orientation-only resetting",
+          "trigger": "Strongest catalogue overlap in physical observable"
+        },
+        {
+          "assessment": "Different reset mechanism and observation regime",
+          "evidence": [
+            "Joint position-angle restart to a fixed state; even stationary position moments and parameter reconstruction."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-angular-moment-hierarchy-and-stationary-position-tomograph--ae34d732db08",
+          "material_read": "RESULT.md Finding and assumptions, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact angular moment hierarchy and stationary position tomography",
+          "trigger": "Potential broader even-moment hierarchy"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof; arXiv:2406.17550v2 §V for the physical baseline"
+      ],
+      "rationale": "The exact hierarchy tells which control protocols hide anisotropy at prescribed levels of measurement for every observation time, not just asymptotically or at covariance level. The sharp resource count and the positive fourth cumulant plus sixth directional leakage distinguish isotropy at a selected order from Gaussianity and from higher-order isotropy.",
+      "residual_risks": [
+        "This is a passive externally reset model; the conclusion is not a claim about experimental protocols with correlated, relative, or position resets."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

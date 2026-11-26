@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Exact differentiation establishes the pointwise exponent identity (3). The derivative sign is controlled by one function with one zero on its permitted interval, yielding a global classification for every real \(p>1\). The amplitude-optimized envelope has an attained maximum over positive amplitudes, and its sharp \(p=2\) crossing of two is algebraically equivalent to the offset ratio condition. The physical storage law is obtained by integrating each discharge over future time and has finite positive storage precisely under the stated \(p>1\) assumption. The standalone exact checker verifies multiple rational parameter tuples, derivative signs and both displayed special cases. These finite checks are not a substitute for the proof.
+PASS
 
-## Originality
+Differentiating the two terms gives the cross difference AB u^p v^p (u-v)^2 for u=(t+a)^(-1), v=(t+b)^(-1), proving the normalized ratio (3). For r=v/u, the derivative of the excess inside the bracket equals H(r) times AB r^(p-1)(1-r)/(A+B r^(p+1))^3, positive apart from the sign factor. H(0)=Ap>0; the first term decreases strictly and the function r^(p+1)(p+2-pr) has positive derivative (p+2)r^p(p+1-pr) on (0,1). At and beyond p/(p+2), H is negative. This proves a unique root at smaller r. Since r'(t)=(b-a)/(t+b)^2>0, the root criterion is exact, including the endpoint tangent at r0=r*, the formula for positive peak time, and the strict offset cutoff obtained by allowing the amplitude ratio to vary. The proof holds for every real p>1; integration gives finite remaining store mass and its stated storage law. The original pointwise square-law threshold is also correct, but is now credited as a known-envelope consequence. The independent replay `python /workspace/branches/independent_replay.py 5` evaluates 1200 rational cases plus both examples and the pointwise cutoff at equality; this supplements, not proves, the real-power theorem.
 
-**PASS relative to inspected literature, with residual priority risk.** Wittenberg (1999) provides the isolated nonlinear storage law; Harman, Sivapalan and Kumar (2009) provide linear-reservoir aggregation theory; McMillan et al. (2011) explicitly motivate multiple nonlinear stores but do not give the same two-store parameter classification in the inspected text. Gao et al. (2017) discuss two *linear* reservoirs. Jachens et al. (2020) already illustrate superposition of nonlinear power-law events and large changing recession slopes, so the qualitative phenomenon is not new; their analysis does not state the sharp two-component offset ratio or complete one-peak theorem. Roques et al. (2022) analyze compartmentalized hillslope hydrology with linear benchmark mixtures. The reviewed materials do not imply either the exact single-peak condition or sharp superquadratic threshold for two equal-power nonlinear stores. Important limitations: Wittenberg (1999) and Gao et al. (2017) could only be read at abstract/metadata level; mathematical priority has not been independently certified. Bibliographic comparisons are detailed in `AUDIT.json`.
+## originality
 
-## Value
+PASS
 
-**PASS.** The result answers a diagnostic problem arising in catchment-model structure selection: precisely when a mixture of two individually identical-exponent nonlinear drainage laws yields a transiently elevated apparent exponent, including a high-curvature behavior often used to judge how many active flow pathways are needed. The threshold \(b/a>3\) is a sharp, interpretable bound for two square-law discharges. This fact does not presume observational calibration and is not a routine reparametrization of the single-store law.
+The frozen square-law threshold as an independent sharp finding is covered by the classical Kantorovich inequality and its attained two-point equality; the ordinary strict increase over the single-store exponent is a moment inequality, and qualitative superposition effects are prior. The repaired finding isolates the all-real-p>1 temporal monotonicity classification with its exact peak and amplitude–offset boundary and relegates the pointwise threshold to a credited consequence. The closest same-formula indexed result is the p=1 time-reversed boundary case, not a general theorem for finite-storage powers.
 
-## Scope and risks
+## value
 
-The result applies to rainless, independent, equal-power nonlinear stores and instantaneous differential slopes. Field recession estimates depend on noise, recharge history, finite windows and heterogeneous exponents. General identifiability and empirical fit are not established. Relevant sources and access limits are stated in `RESULT.md`.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The temporal peak condition distinguishes an initially declining diagnostic from a later transient peak for fixed physically modeled stores. It says when and at what time the peak can occur from the measured/model offsets and relative amplitudes; the pointwise envelope cannot answer that fixed-trajectory question. This is an exact and interpretable limitation on recession diagnostics, not a calibration claim and not a claim of value for a renamed classical bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

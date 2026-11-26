@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:00:02.300204Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 17–26 and 31–62, including the original false line equation",
+        "Frozen VERIFICATION.md and check_fano.py (inspected, not run; checks cell ideals, not presentation of all five embedded equations)",
+        "/workspace/repairs/1/RESULT.md (complete corrected finding and proof)",
+        "/workspace/branches/independent_checks.py, fano()"
+      ],
+      "rationale": "PASS for the complete corrected RESULT.md in repairs/1, not for the frozen embedded line list. The frozen third line X2=X0, X3=X0+X1 is false: on (s,t,s,s+t) the binary quartic restricts to s^2 t^2+s t^3, which is nonzero (yet vanishes at all three binary points). Its replacement X2=X0+X1, X3=X0 is forced by the frozen (0,1) RREF basis: (v2,v3)=(1,0) implies (v0,v1)=(1,1); the other two pairs and two zero-entry cells give the other four listed lines. I also used six different charts, the open nonvanishing coordinate minors, and independently computed their quotient dimensions over F2 by standard monomials: 3,3,2,2,3,2, respectively in lexicographic pair order. The substituted corrected lines give exactly that many distinct rational points on each chart. The evaluation map onto their product of residue fields is surjective by the Chinese remainder theorem and a dimension isomorphism, proving the scheme statement independently. A projective singularity test on all four coordinate patches also yielded the unit ideal everywhere. In the repaired proof the full scheme's tangent spaces vanish by adjunction on the smooth quartic, O(-2) for each geometric line, so the geometric census from the disjoint cells does suffice once reducedness is handled separately. All extension counts and the zeta formula follow. Replay: python -B /workspace/branches/independent_checks.py 1.",
+      "residual_risks": [
+        "The repair is local to the wrong listed line and its explicit derivation and credit; the frozen all-extension scheme count survives. No claim about the full geometric Picard lattice or higher-degree curves was checked."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bourgeois-Conti–Moon–Perez–Warren give the exact q=2,b=1 equation and its geometric smoothness, not its embedded line census.",
+          "Rams–Schütt §1 Theorem 1.1 bounds smooth characteristic-two quartics by 64 lines; Veniani §1 Theorems 1.1–1.2 concern the 68-line bound and its A3-singular extremal family; neither specializes to five geometric lines here."
+        ],
+        "reasoning": "A general classification covering this smooth quartic up to coordinates with its exact line census would suffice. A general construction, smoothness theorem or non-sharp upper bound does not give the desired exhaustion.",
+        "searches": [
+          "Resultary: Fano scheme geometric lines explicit smooth quartic over F2 in P3 binary space-filling hypersurface q=2 b=1 five lines",
+          "Resultary: space-filling hypersurface F_A q=2 b=1 line census five rational lines",
+          "arXiv:2611.15768v1 §9 Lemma 9.2; arXiv:1512.01358 §1; arXiv:1606.02135 §1"
+        ]
+      },
+      "checked_sources": [
+        "Repaired RESULT.md Finding and Relationship to prior work",
+        "arXiv:2611.15768v1, 1512.01358 and 1606.02135",
+        "Resultary 7fca5e0ad7be, d08a7f779e4e and 38cd711ab5df"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Both rational records limit scope explicitly; d08a7f779e4e line 148 excludes geometric and extension-field counts.",
+          "For any smooth quartic and any geometric line, adjunction plus the normal bundle formula already give rigidity. This is not an independent novelty claim but only supplies the scheme consequence once exhaustion has been proved."
+        ],
+        "reasoning": "Neither incidence on known lines nor base-field Frobenius fixed points rules out a new orbit. A separate bound or elimination must exclude all other lines. The repaired record does that. Chronology within the same publication day was not established and is not used as evidence either way.",
+        "searches": [
+          "SCOPE-20261122-7fca5e0ad7be RESULT.md lines 60–64",
+          "SCOPE-20261122-d08a7f779e4e RESULT.md lines 29–41 and 148",
+          "arXiv:2611.15768v1 §9 Lemma 9.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE-20261122-7fca5e0ad7be, RESULT.md lines 5, 13, 60 and 64: same equation, five binary rational lines with incidence graph A3 disjoint union A2; explicitly not a geometric Fano-scheme enumeration.",
+          "SCOPE-20261122-d08a7f779e4e, RESULT.md lines 5–15 and 29–41, gives L3=5 for H=B(X0,X1,X2+X3,X2), an invertible binary coordinate change of the target equation B."
+        ],
+        "reasoning": "Constant extension-field counts, all five lines geometrically exhaustive, or an exact split reduced scheme would cover the repaired claim. The two rational statements overlap after returning to the original coordinates, but they specify only Frobenius-fixed lines and are not equivalent to ruling out all nontrivial orbits.",
+        "searches": [
+          "Resultary: explicit equation X1 phi01 + X2 phi12 + X3 phi23 + (X0 + X3) phi30 over F2 geometric lines",
+          "Resultary: Bourgeois Conti Moon Perez Warren Section 9 Lemma 9.2 five F2 rational lines line incidence quartic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-equation count in 7fca5e0ad7be and the equivalent count in d08a7f779e4e enumerate binary rational points only.",
+          "SCOPE-20261025-38cd711ab5df, RESULT.md lines 5–25 and 38–50, provides an exact geometric line scheme of degree 68 but for a different A3-singular surface, not this smooth one."
+        ],
+        "reasoning": "The exact degree of a full geometric census for this object cannot be read from the rational-only tables or transferred from a singular quartic. No exact matching geometric entry was verified in these bounded comparisons.",
+        "searches": [
+          "Resultary: complete geometric line census split reduced Fano scheme degree five quartic F2",
+          "Resultary: Bourgeois-Conti Moon Perez Warren binary quartic five rational lines Fano scheme geometric lines"
+        ]
+      },
+      "rationale": "The surviving distinct finding is exhaustion of all geometric lines on this exact smooth quartic, not the list or incidence of the five base-field lines, the construction of the quartic, or rigidity of lines on smooth quartics in general. I compared both same-equation and coordinate-equivalent rational censuses, the defining primary construction, and stronger numerical line bounds and results on other quartics. The corrected geometric assertion is not covered by their stated conclusions.",
+      "residual_risks": [
+        "The comparison does not prove historical priority; a differently presented earlier exact computation may remain unindexed. Both close binary rational-count records share the publication day of the reviewed record, with no verified ordering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same quartic and known smoothness; no exact census in these statements",
+          "evidence": [
+            "The term is (bX0+X3)phi30 and b=1 is permitted at q=2; Lemma 9.2 concludes V(F) smooth."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.15768v1#S9.Thmtheorem2",
+          "material_read": "§9 equation before Lemma 9.2 and Lemma 9.2, HTML character offsets 416040 and 420464",
+          "method": "Targeted primary HTML retrieval after an OA literal lookup timeout",
+          "title": "Space-Filling Hypersurfaces",
+          "trigger": "Original construction of the exact quartic"
+        },
+        {
+          "assessment": "Overlaps all five rational lines and their incidence, not geometric exhaustiveness",
+          "evidence": [
+            "Same equation, incidence A3 disjoint union A2; the enumeration exhausts only rational lines."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-the-five-rational-lines-and-their-picard-lattice-on-a-binary-spa--7fca5e0ad7be",
+          "material_read": "RESULT.md lines 5, 13, 60 and 64",
+          "method": "Resultary search and local mirrored source inspection",
+          "title": "The five rational lines and their Picard lattice on a binary space-filling quartic",
+          "trigger": "Exact same-equation line and incidence result"
+        },
+        {
+          "assessment": "Includes the rational line count in its base case but not the geometric line scheme",
+          "evidence": [
+            "The base equation is B(X0,X1,X2+X3,X2) with L3=5; geometric and extension counts are not determined there."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-rational-line-counts-for-an-inductive-family-of-smooth-bin--d08a7f779e4e",
+          "material_read": "RESULT.md lines 5–15, 29–41 and 148",
+          "method": "Resultary search and local mirrored source inspection",
+          "title": "Exact rational-line counts for an inductive family of smooth binary space-filling hypersurfaces",
+          "trigger": "Broader rational-count theorem with a coordinate-equivalent base case"
+        },
+        {
+          "assessment": "Different quartic, with an A3 singularity, hence not isomorphic in projective coordinates to the smooth target",
+          "evidence": [
+            "Degree 68 with Frobenius orbit information; A3 singularity."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-frobenius-six-cycles-and-the-reduced-68-line-scheme-of-a-charact--38cd711ab5df",
+          "material_read": "RESULT.md lines 5–25 and 38–50",
+          "method": "Resultary search and local mirrored source inspection",
+          "title": "Frobenius six-cycles and the reduced 68-line scheme of a characteristic-two quartic",
+          "trigger": "Distinct complete geometric line census in the same characteristic"
+        },
+        {
+          "assessment": "Global extremal results with different conclusions, not a census of this quartic",
+          "evidence": [
+            "64-line upper bound for smooth quartics; the 68-line extremal case in the other result is an A3-singular family."
+          ],
+          "identifier_or_url": "arXiv:1512.01358; arXiv:1606.02135",
+          "material_read": "Rams–Schütt §1, Theorem 1.1 (HTML offset 28465); Veniani §1, Theorems 1.1 and 1.2 (HTML offsets 28007 and 30841)",
+          "method": "Targeted primary HTML inspection",
+          "title": "Line bounds for quartics in characteristic two",
+          "trigger": "Possible broader classifications implying the geometric census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md Finding, proof and Limitations",
+        "arXiv:2611.15768v1 §9",
+        "Resultary 7fca5e0ad7be and d08a7f779e4e (rational-only comparisons)"
+      ],
+      "rationale": "This is the geometrically smooth binary base example of a space-filling quartic construction, so the Fano scheme of embedded lines is a natural invariant of a specified, independently motivated K3. The geometric census rules out hidden extension-field lines that binary enumeration and the known line-incidence lattice could miss. It supplies all degree-one curves and their field of definition for arithmetic and intersection-theoretic use without pretending to determine the rest of the Picard group. Correcting an equation keeps this genuine increment intact.",
+      "residual_risks": [
+        "The invariant is justified for the one explicit quartic only. No extrapolation to the higher-dimensional family or saturation of a lattice is part of the result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

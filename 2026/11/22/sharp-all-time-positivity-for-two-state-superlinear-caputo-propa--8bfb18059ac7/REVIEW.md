@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The exact two-state Caputo solution follows from \(A^2=-(u+v)A\). The scalar Fourier representation has an explicitly positive normalized density, so the oscillatory scalar mode remains strictly between minus one and one at nonzero times. Its standard large-argument asymptotics give negative values and attainment of the global minimum. The matrix's four explicit entries prove the exact rate inequality, including equality cases. Scheffé's lemma and the entire-function power series give the two endpoint orders; Liouville's determinant identity gives the finite-rate Markov obstruction. The attached finite checker is diagnostic, not a substitute for any of these steps.
+PASS
 
-## Originality
+With kappa=u+v, Pi=I+A/kappa is a projection and A vanishes on its range and equals −kappa on the complementary range. The Caputo series with zero initial slope is Pi+f(I−Pi), f=E_alpha(−(kappa^(1/alpha)t)^alpha), by scalar Caputo differentiation of the series. Its diagonal numerators are v+uf and u+vf, the off-diagonals have the sign of 1−f, both column sums equal one, and the determinant is f. For 1<alpha<2 the even scalar function is the Fourier transform of the stated density: take twice the real part of z^(alpha−1)/(1+z^alpha) at z=iω, with the standard inversion normalization. With y=|ω|^alpha and theta=πα/2, its mass is 2 sin(theta)/(πα) times the integral of 1/(1+2y cos(theta)+y²) on the positive half-line, hence 2theta/(πα)=1. The independently checked neutral-diffusion Fourier pair also verifies this step. Positivity off zero frequency makes |f(s)|<1 for s>0 by equality in the triangle inequality and integrability of the density gives f(s)→0. Negativity also follows independently of the cited tail expansion: the Laplace transform tends to zero as z decreases to zero, impossible if f is everywhere nonnegative since f(0)=1 and f is continuous; the Laplace identity follows first for z>1 from the series and then by analytic continuation on the right half-plane using |f|<=1. Negativity and decay give an attained global minimum −c_alpha in (−1,0), and the entry conditions give the exact sharp interval including equality at a minimizing time. Scheffé applied to the densities gives uniform convergence of the Fourier transforms to e^(−|s|) as alpha decreases to 1, so c_alpha→0. Near 2 the series at s=π admits a summable majorant on alpha in [3/2,2] and tends to cos(π)=−1, so c_alpha→1; at alpha=2 all times are nonnegative only for u=v. The negative determinant at some finite time rules out any locally integrable generator via Liouville, not arbitrary stochastic processes with the given initial-time marginals.
 
-**PASS against the inspected material, with residual historical priority risk.** Van Mieghem, arXiv:2611.02954v1, develops general superlinear fractional dynamics and a broad incompatibility argument; its inspected proof does not classify the weaker two-state entrywise positivity condition or derive a sharp rate-balance interval. Honain et al., DOI 10.3390/fractalfract8060319, analyze oscillatory scalar and matrix approximation, not the relevant probability inequalities. Facciaroni et al., DOI 10.1007/s13540-025-00390-9, and Di Crescenzo–Meoli, DOI 10.3934/Math.2016.3.212, restrict process constructions to derivative orders at most one. Closest related probability-positivity studies concern rational numerical integrators, which neither imply nor bound the exact Caputo matrix function. Accessible prior mathematical claims were compared for source, scalar function, and equivalent transition-matrix statements; no overlapping claim was found. This comparison does not certify worldwide uniqueness.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** A newly posed incompatibility issue makes the minimal two-state example a natural test case. It turns the qualitative question of sign failure into a necessary-and-sufficient criterion for **every** positive pair of jump rates, covers all time horizons, proves nontrivial exceptional positive matrices, resolves the two limiting fractional orders, and separates entrywise probability consistency from actual Markov realizability. The uncomputed global minimum is a precise, independently motivated spectral invariant rather than an arbitrarily chosen numerical slice.
+The matrix solution and the scalar characteristic-function law are established prior results, and the generic distinction from a Markov propagator is not itself the originality claim. The supported contribution is the exact all-time two-state positivity boundary for strictly positive rates with zero initial velocity, its order limits, and the explicit separation in the admissible regime. No inspected primary statement gives the two-state rate classification; access limits do not supply negative evidence.
 
-## Closest literature and limitations
+## value
 
-The main comparison is arXiv:2611.02954v1 (full HTML). The scalar oscillation and matrix-function methodology are present in Honain et al. (full HTML); process constructions with lower fractional orders appear in Facciaroni et al. (full HTML) and Di Crescenzo–Meoli (indexed HTML material). The result does not establish a general nonlinear or higher-dimensional stochastic fractional process, an elementary formula for the minimum, or a theorem of historical priority over every unlocated paper. It does not require or claim an independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This gives a sharp boundary for the minimal finite-state example in a genuine fractional-dynamics question: some high-order solutions stay inside the probability simplex for every time even though none of them can be integrable-rate two-state Markov propagators. The cutoff guarantees or rules out nonnegativity for every positive rate pair, includes exact boundary times of vanishing entries, and compares the neighborhoods of the classical orders 1 and 2 without assuming monotonicity in alpha.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

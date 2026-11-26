@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-The attached `verify.py` runs with Python 3 and SymPy (`python verify.py`). It constructs exact rational Hamiltonians for every \(2\le a,b\le6\) and each \(\tau\in\{0,\frac12,-2,3\}\), totaling 100 parameter profiles.
+## correctness
 
-It does **not** reuse the proof's spectral quotient. Instead, it calculates the dimension of the image of vertex-diagonal matrices under orthogonal projection to the symmetric commutant. It forms the span of symmetric commutators \(HK-KH\) for all elementary skew matrices \(K\), then uses exact matrix ranks to find
-\[
-\operatorname{rank}\widehat M=\operatorname{rank}[C\;D]-\operatorname{rank}C,
-\]
-where \(D\) denotes the matrix of diagonal basis columns. This equals the full average-mixing rank because the kernel of the projected diagonal subspace is the spectral-compression kernel for all eigenspaces. For each case the result is compared to the proposed exact formula.
+PASS
 
-Executed successfully on the supplied standalone script: `VERIFY_OK exact_commutant_cases= 100` (the script also prints elapsed time). All cases passed, including both signs and the zero boundary. These are **finite** exact-arithmetic corroborations; the unrestricted parameter statement is proved separately in RESULT.md. No independent audit or formal certification was performed.
+Grouping by distinct eigenvalues gives the sum of squared Frobenius norms of E_λ diag(x) E_λ as the quadratic form of the mixing matrix; no degenerate eigenspace may be split. For τ≠0 put p=a−1. The cell-constant subspace on the marked singleton, p unmarked vertices, and b vertices has determinant −τpb, so the zero spectral projector is exactly 0⊕P_p⊕P_b. In a size-s cell the zero-projector compression implies x_i+x_j=0 for each pair, forcing zero when s≥3, allowing exactly a contrast when s=2, and giving no constraint when s=1. Vanishing of all compressions also implies tr(diag(x)H_τ)=τx_w=0 and tr(diag(x))=0. These trace identities kill the marked coordinate and the possibly singleton unmarked coordinate (the other cells already have zero sums). Conversely a surviving size-two contrast has zero mean on each cell, so kills compression to every bright eigenspace and to the dark space. At τ=0 the dark space instead decomposes over the original two parts, each of size at least two; the same pair tests and zero-cell-mean sufficiency give exactly the two possible original part contrasts. Thus the change is +1 for a=2, −1 for a=3 and 0 otherwise, for every b≥2; b=2 keeps the same contrast. The frozen alternative intensity proof is valid: the bright quotient is irreducible tridiagonal after permutation, and the diagonal moments of powers 0,1,2 have determinant −τb. The reported 100 exact commutant tests were inspected, not reexecuted; the proof covers all real potentials, including the distinct τ=0 collision.
+
+## originality
+
+PASS
+
+The strongest inspected general mixing method and the explicitly marked balanced biclique search family are prior ingredients, not the joint all-real-mark, all-size exact kernel and rank-change theorem. The relevant indexed exact rank laws concern different graph families. The assessment is bounded to the new kernel/transition statement, not the general compression method or the ordinary biclique spectrum.
+
+## value
+
+PASS
+
+A single tunable site potential in a standard graph family can raise, lower or leave unchanged the rank of the long-time transition statistic, and the law identifies the exact vectors rendered invisible. In particular, increasing the number of distinct bright spectral components can lower rank by creating a two-vertex dark-cell contrast. The all-real nonzero result rules out additional exceptional marks. It is more informative than either a spectral list or one numerical rank change.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

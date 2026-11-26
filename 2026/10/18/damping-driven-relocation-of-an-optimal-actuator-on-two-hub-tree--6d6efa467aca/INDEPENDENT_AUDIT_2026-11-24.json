@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:41:47.486367Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Finding and Proof, lines 5–69",
+        "VERIFICATION.md, lines 3–23; verify.py, static inspection"
+      ],
+      "rationale": "Independently reconstructed the trace identity and all optimizer comparisons. For a cut pendant edge, the diagonal difference after restoring the edge is (p-q)/(1+p+q), where p=1/alpha and q is the adjacent inverse diagonal in the connected remaining tree. The Laplacian spectral decomposition gives q<p since that coordinate is not constant. Each internal vertex therefore loses to its own leaf. To check the cancellation set x=alpha, s=x+1, h=x^2+(m+2)x+1, c=x^2+4x+2. Eliminating leaves and then the two hub coordinates gives G_ee-G_oo=(h^2+s^2-ch)/(s h (ch-2s^2)). The numerator is x[(m-2)h-m] and ch-2s^2=x[x^3+(m+6)x^2+(4m+9)x+2m+4]. This gives the exact identity with a positive denominator. For m=2 the numerator after cancellation is -2; for m>=3 it is strictly increasing on x>=0 with exactly one positive root and all leaves tie there. The root equation x(m+2+x)=2/(m-2) gives m^2 x -> 2 and gives (sqrt(33)-5)/2 at m=3. Symmetric stable dynamics give trace equal to half the inverse diagonal by integrating e^{-2t(L+alpha I)}.",
+      "residual_risks": [
+        "The recorded 406 checks were not rerun; the proof comparison is analytic. The criterion makes no claim about controllability rank or minimum-energy steering."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Summers–Lygeros prove modularity for linear functions of the controllability Gramian; Kirkland–Neumann–Shader Corollary 3.4 ranks group-inverse diagonals in weighted trees; Chung–Zeng Introduction and Theorem 1.1 address forest formulas for the ordinary Laplacian pseudoinverse."
+        ],
+        "reasoning": "The broader objective theorem does not give this ranking. The group inverse is the constant term after subtracting the common zero-mode pole, not the resolvent for alpha>0. The forest formulation inspected likewise does not evaluate the positive-shift comparison.",
+        "searches": [
+          "arXiv:1306.2491v1",
+          "DOI:10.1137/S0895479896298713",
+          "arXiv:2109.01324v2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Local Resultary and two identified related findings",
+        "arXiv:1306.2491v1",
+        "DOI:10.1137/S0895479896298713",
+        "arXiv:2109.01324v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The threshold depends on the zero of (m-2)[alpha^2+(m+2)alpha]-2, after strict pendant domination and a comparison of two leaf orbits."
+        ],
+        "reasoning": "Modularity yields the general site-by-site comparison but no sign polynomial, and a group-inverse ranking can at most give an initial small-alpha comparison, not the crossing or tie. The family-specific factorization supplies the missing implication.",
+        "searches": [
+          "arXiv:1306.2491v1, trace and modularity",
+          "DOI:10.1137/S0895479896298713, Corollary 3.4",
+          "RESULT.md lines 38–69"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The trace criterion equals a shifted Green diagonal. The closest indexed reentrant double-star claim instead has adjacent hubs and two finite-gain leaders; the later two-leader bridge-resistance claim also uses adjacent hubs."
+        ],
+        "reasoning": "The frozen graph has a separate junction supporting its own competing leaf. Neither changing bridge resistance nor changing leader sets is a reparametrization of a uniform shift by alpha in this graph.",
+        "searches": [
+          "Resultary semantic lookup: damping-dependent actuator ranking and weighted double-star leader switching",
+          "Primary-literature query: graph Laplacian diagonal resolvent regularized Green function damping ranking changes leaf centrality double star tree optimal single actuator Gramian trace phase transition threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed distinct IDs are 2026/10/18/SCOPE-reentrant-two-leader-placement-on-weighted-double-star-consensus-networks--2f9df522cdce and 2026/10/25/SCOPE-exact-two-leader-coherence-transition-on-weighted-double-stars--21774459d1f0."
+        ],
+        "reasoning": "These are parameterized comparisons for different models, not a table/formula of this threshold. No disconnected finite table could itself certify the unrestricted m and alpha classification.",
+        "searches": [
+          "Resultary lookups for positive-damping actuator relocation and double-star transitions",
+          "Primary-literature query above for the family threshold"
+        ]
+      },
+      "rationale": "The inspected overlap establishes the optimization framework, group-inverse ranking, or phase changes in different two-leader problems. It does not establish the explicit positive-damping crossing and exact optimizer sets for this two-hub tree and unit single actuator.",
+      "residual_risks": [
+        "Bounded search; an unindexed equivalent shifted-resolvent result is possible.",
+        "The first indexed two-leader comparison is supported only through the theorem opening and index summary."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Framework, not the crossing",
+          "evidence": "Linear Gramian objectives are modular in the installed actuator set.",
+          "identifier_or_url": "arXiv:1306.2491v1",
+          "material_read": "OA PDF pp. 1 and 3, offsets 6480 and 17145",
+          "method": "Primary-text passage comparison",
+          "title": "Optimal Sensor and Actuator Placement in Complex Dynamical Networks",
+          "trigger": "Same Gramian trace objective"
+        },
+        {
+          "assessment": "Zero-shift finite-part analogue",
+          "evidence": "Maximal group-inverse diagonal entries occur at leaves of maximal inverse status; the matrix is L#, not (L+alpha I)^(-1).",
+          "identifier_or_url": "DOI:10.1137/S0895479896298713",
+          "material_read": "OA PDF pp. 2 and 11, especially Corollary 3.4 (journal p. 837)",
+          "method": "Primary-text theorem comparison",
+          "title": "Distances in Weighted Trees and Group Inverse of Laplacian Matrices",
+          "trigger": "Tree diagonal extremizers"
+        },
+        {
+          "assessment": "General unshifted forest formulas",
+          "evidence": "Introduction specifies Laplacian pseudoinverses; Theorem 1.1 is for the combinatorial Green function of a strongly connected weighted digraph.",
+          "identifier_or_url": "arXiv:2109.01324v2",
+          "material_read": "Abstract and Introduction, pp. 1–2; Theorem 1.1 at p. 3, offset 8156",
+          "method": "OA passage lookup and reading",
+          "title": "Forest formulas of discrete Green’s functions",
+          "trigger": "Green-diagonal alias"
+        },
+        {
+          "assessment": "The stated setup is distinct; no whole-record exclusion claimed",
+          "evidence": "Weighted adjacent-hub double star and two finite-gain leaders; switches between hub–hub and hub–leaf pairs.",
+          "identifier_or_url": "2026/10/18/SCOPE-reentrant-two-leader-placement-on-weighted-double-star-consensus-networks--2f9df522cdce",
+          "material_read": "Indexed summary and theorem opening via local mirror; further mirror read unavailable",
+          "method": "Local Resultary and mirror passage",
+          "title": "Reentrant two-leader placement on weighted double-star consensus networks",
+          "trigger": "Nearest indexed switching claim"
+        },
+        {
+          "assessment": "Distinct stated optimization",
+          "evidence": "Two noise-free leaders with a bridge-resistance parameter on an adjacent-hub tree.",
+          "identifier_or_url": "2026/10/25/SCOPE-exact-two-leader-coherence-transition-on-weighted-double-stars--21774459d1f0",
+          "material_read": "Indexed summary and local mirrored theorem opening",
+          "method": "Local Resultary and mirror passage",
+          "title": "Exact two-leader coherence transition on weighted double stars",
+          "trigger": "Indexed tree threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–28 and 38–69",
+        "General Gramian modularity and group-inverse comparisons above"
+      ],
+      "rationale": "This is a complete exact example of reversal of the optimal trace-Gramian site under uniform damping alone, with the graph, metric and input magnitude held fixed. The threshold, equality class, and m^-2 scale quantify when a low-damping site ranking ceases to be reliable; they are not supplied by modularity or degree. The margin formula allows comparison without computing the full inverse.",
+      "residual_risks": [
+        "Specific tree family and trace criterion; this is not an actuator-energy or general-tree theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

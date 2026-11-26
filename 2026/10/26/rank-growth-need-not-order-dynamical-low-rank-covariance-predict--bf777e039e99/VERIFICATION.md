@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run `python verify_rank_order.py` with Python 3 and NumPy, SciPy and SymPy installed. Observed output: `PASS: 11 symbolic identities; 54 numerical assertions`.
+## correctness
 
-The symbolic script reconstructs the first and second Taylor coefficients of the rank-one and rank-two projected Lyapunov vector fields from the independent initial projectors, and checks the negative-direction coefficient exactly. The numerical portion integrates both fixed-rank flows independently and checks positive semidefiniteness, comparison with the full covariance and indefiniteness of their rank difference at six small positive times. It also verifies the predicted quadratic leading coefficient with a stated numerical tolerance.
+PASS
 
-The script tests only examples and algebraic identities; the theorem for all admissible positive-semidefinite noise matrices satisfying the nonzero coupling hypothesis follows from the analytic factorization and Taylor proof in RESULT.md, not from finite sample coverage. All computations use exact arithmetic symbolically and floating-point ODE integration only for supplementary tests. Independent audit has not been performed.
+The factor equation has S'=U^TQU positive semidefinite, so the positive minimum eigenvalue of S cannot decrease; the Stiefel factor stays compact and S grows at most linearly. For B_r=I-P_r, the exact covariance defect is the initial positive semidefinite defect plus the integral of B_r Q B_r. Independently, in the range graph chart L=Y_BA(Y_AA)^(-1), L'(0)=Q_BA(Y_AA(0))^(-1). Differentiating Y'=Q-B_rQB_r gives D''_11=0, D''_13=-q12*q23/a, and D''_33=2*q23^2/b for D=Y2-Y1. The first derivative and initial form vanish on span(e1,e3). Substituting the stated z gives the coefficient -b*q12^2/(4*a^2) while the e2 form tends to b; smoothness gives both signs throughout a punctured time interval. The rank-one example yields -1/18. In dimension two the rank-two projector is the identity, so the established comparison with the full covariance rules out a counterexample there. A separate graph-chart integration gives z^TDz/t^2=-0.055661185 and -0.055567722 at t=0.01 and 0.001, respectively.
+
+## originality
+
+PASS
+
+The closest indexed records show loss of positivity of numerical outputs. This theorem instead compares two exact continuous trajectories that individually remain positive semidefinite and satisfy the full-covariance bound. The primary DLR sources establish the common equation and algorithms, not this cross-rank obstruction. Pass is bounded by the comparisons below, not a priority guarantee.
+
+## value
+
+PASS
+
+A minimal-dimensional exact counterexample separates comparison with the unprojected covariance from ordering successive modeling ranks. The open coupling condition and rank-one forcing isolate a concrete projector-rotation mechanism and rule out explaining the phenomenon as a time-stepping artifact. It informs when rank hierarchies can be used as ordered covariance approximations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

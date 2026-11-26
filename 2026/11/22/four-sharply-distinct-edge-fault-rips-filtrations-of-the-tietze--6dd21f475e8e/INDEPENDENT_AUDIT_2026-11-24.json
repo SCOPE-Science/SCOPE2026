@@ -1,0 +1,187 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:53:04.207156Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–39",
+        "Frozen VERIFICATION.md",
+        "FAULT_CERTIFICATE.json",
+        "FAULT_CHECKS.txt (recorded run)",
+        "FAULT_VERIFY.py, lines 12–135 (inspected; source replay entry point)",
+        "Independent Floyd–Warshall reconstruction and set-based full-coface/relator replay of FAULT_CERTIFICATE.json"
+      ],
+      "rationale": "Reconstructed Tietze as a six-cycle with its three opposite pairs attached to the three neighbors of the distinguished triangle. The twelve dihedral symmetries of the six-cycle extend to graph automorphisms; they act transitively on the edge classes of sizes 3,3,6,6 distinguished by triangle distance. Independently recomputed distances by Floyd–Warshall and enumerated set-valued clique faces. The edge-deleted graphs are connected, with 17 edges and either no triangles or one collapsible triangular face at scale one, hence circle ranks 6,5,5,5 in table order. At scale two a separate replay checked every free pair by its full proper-coface set; the collapse counts were 129,134,74,58 and the cores had face counts (9,22,16), (6,12,8), (9,25,21), (9,25,21). Tree contraction gives a generator per nontree edge. Each checked triangular relator contains exactly one remaining generator with exponent ±1 after earlier eliminations, so the fundamental groups vanish, not just their abelianizations. The second homology is free of ranks 2,1,4,4 by the two-dimensional chain groups and Euler characteristic. Hurewicz and homological Whitehead give the integral sphere wedges. Checked all nonsimplex stages at scales three and four by independent collapse replay to a vertex, and the diameters 3,5,4,4. For the intact baseline, separately collapsed to a (12,28,21) core and found tree/relator eliminations giving integral rank four at scale two. Because the metric is integer-valued, the connected stages and their degree changes give the asserted persistence intervals. The two remote edge orbits differ combinatorially (including their scale-two face vectors), not in the displayed homotopy types or persistence multiplicities.",
+      "residual_risks": [
+        "The intact comparison is a comparison of ranks, not a result on the image or primitivity of the inclusion on integral homology.",
+        "Neither later-scale contractibility nor the exact fault ranks are claimed for multi-edge faults or the metric graph with edge interiors."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Adamaszek's Proposition 2.2 has a girth-at-least-3r+1 hypothesis, i.e. at least seven for r=2. The edge-deleted graphs here have triangles or short cycles.",
+          "The metric-gluing abstract studies metric wedges and gluings along common isometric subspaces; the Chachólski et al. abstract concerns vertex-cover decompositions and obstructions."
+        ],
+        "reasoning": "The high-girth collapse does not apply to this scale-two table. The abstract-level gluing and decomposition comparisons identify relevant methods, but supply no checked reduction of the four fault metrics to a theorem determining their types.",
+        "searches": [
+          "arXiv:1104.0433, Proposition 2.2",
+          "arXiv:1712.06224, Abstract",
+          "doi:10.1007/s41468-021-00066-2, Abstract"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ca7c7055c381, 417fbc0c618b, 180ea0e70ec4, ccc7a0ba3b36, 96a542818355",
+        "arXiv:1104.0433 and 1712.06224",
+        "doi:10.1007/s41468-021-00066-2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Petersen record classifies radius two after up to three deletions from Petersen (60 single-sphere and five four-sphere cases at three deletions). The graph here instead expands a Petersen vertex and deletes one edge in the expanded twelve-vertex graph.",
+          "The intact result and the truncated-tetrahedron fault result give baseline and analogous data respectively, not Tietze's four orbits."
+        ],
+        "reasoning": "Contracting the distinguished triangle is not a preservation of the faulted vertex metrics and their Rips complexes. Neither the Petersen threshold nor intact ranks determine the Tietze table, and the claim is not a theorem about maps from the fault to the intact complex.",
+        "searches": [
+          "Resultary: SCOPE-sharp-three-edge-fault-threshold-for-the-radius-two-petersen-rip--96a542818355",
+          "Resultary ca7c7055c381 and 180ea0e70ec4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equivalent graph-theoretic object is Cl((T−e)^r), with shortest paths computed after deletion, not Cl(T^r) with an edge removed.",
+          "The truncated-tetrahedron record finds two edge types with scale-two sphere ranks 3,2; the hypercube record has a single fault orbit and a loss of n−2 scale-two three-spheres. Both recompute distances."
+        ],
+        "reasoning": "These are genuine metric-fault analogues, but neither changes notation to produce the Tietze deletion metrics or the four computed outcomes. Reordering deletion and graph powering changes the problem.",
+        "searches": [
+          "Graph powers and clique complexes after deleting a Tietze edge",
+          "Adamaszek arXiv:1104.0433, definition of G^r and Proposition 2.2",
+          "Resultary 180ea0e70ec4 and ccc7a0ba3b36"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The intact Tietze Finding gives twelve points, six circles, four two-spheres, and a point in successive stages. The other twelve-vertex table covers five intact asymmetric cubic Hamiltonian graphs, not the present edge-deleted graphs.",
+          "The exact assigned Tietze fault record is a self-match; no separate matched table of these four Tietze deletion metrics was identified in the bounded search."
+        ],
+        "reasoning": "Published intact data must be credited, but do not give the altered shortest paths or their integral fault table. Sharing a vertex count and some wedge multiplicities is not graph or metric equivalence.",
+        "searches": [
+          "Resultary: Tietze edge-fault Vietoris–Rips filtrations",
+          "Resultary ca7c7055c381",
+          "Resultary 417fbc0c618b"
+        ]
+      },
+      "rationale": "The distinct finding is the recomputed vertex-metric single-edge-deletion classification for the Tietze graph, including all four orbit representatives and integral homotopy types. The intact baseline, graph-power identification, and elementary collapse method are not claims to priority. The inspected sources do not supply this classification; this is a bounded best-of-knowledge assessment.",
+      "residual_risks": [
+        "Unindexed exact fault tables or a more specific decomposition theorem could supply equivalent coverage.",
+        "A same-day catalogue date is not evidence of relative priority.",
+        "Two decomposition references were compared at abstract level, not excluded in full."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Intact graph only; exact baseline credited.",
+          "evidence": [
+            "Successive homotopy types: twelve points, six circles, four two-spheres, contractible"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-complete-integral-graph-metric-rips-filtration-of-the-tietze-gra--ca7c7055c381",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Complete integral graph-metric Rips filtration of the Tietze graph",
+          "trigger": "Same graph, exact baseline"
+        },
+        {
+          "assessment": "Five intact graphs in a different class.",
+          "evidence": [
+            "Scale-two ranks two for one graph and one for the other four"
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-complete-graph-metric-vietoris-rips-filtrations-of-the-five-asym--417fbc0c618b",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Complete graph-metric Vietoris–Rips filtrations of the five asymmetric cubic Hamiltonian graphs on twelve vertices",
+          "trigger": "Existing twelve-vertex cubic table"
+        },
+        {
+          "assessment": "Different graph, two edge types; also analyzes inclusion maps.",
+          "evidence": [
+            "Recomputed metrics, scale-two sphere ranks three and two"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-two-single-edge-rips-fault-filtrations-of-the-truncated-tetrahed--180ea0e70ec4",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Two single-edge Rips fault filtrations of the truncated tetrahedron",
+          "trigger": "Nearest single-edge Rips-fault analogue"
+        },
+        {
+          "assessment": "Different family and homology dimension.",
+          "evidence": [
+            "Scale-two loss of n−2 three-sphere summands for n≥3"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-one-edge-fault-removes-exactly-n-2-hypercube-rips-three-sphere--ccc7a0ba3b36",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "A one-edge fault removes exactly n−2 hypercube Rips three-spheres",
+          "trigger": "Graph-family one-fault theorem"
+        },
+        {
+          "assessment": "Different vertex metric and deletion count.",
+          "evidence": [
+            "Contractible through two deletions; connected three-edge deletions can give ranks one and four"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-three-edge-fault-threshold-for-the-radius-two-petersen-rip--96a542818355",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Sharp three-edge-fault threshold for the radius-two Petersen Rips complex",
+          "trigger": "Faulted Petersen parent graph"
+        },
+        {
+          "assessment": "Equivalent graph-power formulation; collapse hypothesis fails here.",
+          "evidence": [
+            "Girth ≥3r+1 controls collapses between consecutive powers up to r"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1104.0433",
+          "material_read": "Definition, p. 1; Proposition 2.2, p. 3 (OA text offsets 9800–12926)",
+          "method": "Bounded OA paper passages",
+          "title": "Clique complexes and graph powers",
+          "trigger": "General graph-power theorem with potentially dominating scope"
+        },
+        {
+          "assessment": "Framework comparison only; no document-wide conclusion.",
+          "evidence": [
+            "Metric wedges and gluings along common isometric subspaces"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1712.06224",
+          "material_read": "Abstract, p. 1",
+          "method": "Bounded OA paper passage",
+          "title": "On Homotopy Types of Vietoris–Rips Complexes of Metric Gluings",
+          "trigger": "Cited general metric-gluing approach"
+        },
+        {
+          "assessment": "Framework comparison only; no document-wide conclusion.",
+          "evidence": [
+            "Vertex-cover decompositions and obstruction complexes"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s41468-021-00066-2",
+          "material_read": "Abstract, p. 215",
+          "method": "Bounded OA passage",
+          "title": "Homotopical decompositions of simplicial and Vietoris Rips complexes",
+          "trigger": "Cited higher-level Rips decomposition approach"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–36 and 44–45",
+        "Intact Tietze Finding ca7c7055c381",
+        "FAULT_CERTIFICATE.json with independent replay"
+      ],
+      "rationale": "Recomputing the shortest paths after deletion tests whether scale-two topology is robust to a graph fault, rather than just relabeling an intact invariant. The four orbits of a standard graph give an exhaustive natural comparison: the topology is sensitive to the two triangle-side faults in different amounts, while the other twelve preserve the scale-two rank. The distinction from scale-one behavior and the integral, nonabelian certificates make the finite table a useful exact benchmark. The last two orbits do not provide different homotopy or persistence profiles.",
+      "residual_risks": [
+        "The benchmark is for one named graph; no universal fault robustness law or claimed canonical transfer of classes follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

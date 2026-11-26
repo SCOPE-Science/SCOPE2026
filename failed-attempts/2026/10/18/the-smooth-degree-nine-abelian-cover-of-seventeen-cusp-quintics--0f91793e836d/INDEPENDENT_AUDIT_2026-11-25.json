@@ -1,0 +1,171 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:06:31.466356Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The input is two weight-12 supports with intersection seven on a quintic with exactly 17 A2 points; the result is conditional, not a claim about all such quintics. Tan's weight restriction as stated by Borisov–Rito gives allowable nonzero weights 12 and 15. Two independent words give dimension at least two; Griesmer would require at least 12+4+2=18 positions for dimension three. The four projective column types then have multiplicities 5,5,r,7−r and each one is the zero type of exactly one projective word, so r must be 2 or 5. This gives the asserted supports and spectrum. The resolved quintic is simply connected: a smoothing and the resolution both fill the same truncated smooth locus with simply connected Milnor fibers or A2 plumbings, so van Kampen and Lefschetz for the smooth quintic give the claim. Mayer–Vietoris makes H1(U,Z) a quotient of the sum of link H1 groups, hence of exponent three; the preceding boundary map is the intersection map to the A2 discriminant groups. On each A2 factor the generator is represented by (2E'+E'')/3, and the local linking pairing identifies its annihilator condition with the mod-three intersection relation against 2E'+E''. Mod-three Poincaré duality gives precisely the stated cusp-code kernel. The dual therefore has dimension two, and the two support sets cover all cusps, so every inertia image has order three. The corresponding normal extension has three smooth universal local covers at each cusp. Cartier adjunction and quasi-étaleness give ample canonical class and K²=45; e(U)=55−3·17=4, hence e(Y)=9·4+3·17=87 and χ=11. Nontrivial characters factor through the four cyclic quotients and the trivial eigenspace is zero on the quintic. The use of q=0 for the weight-12 and weight-15 resolved triple quotients is supported by the inspected reports of Tan's classification, and Rito independently uses the cited theorem in the weight-15 case of his quintic. For a check on the normalization, a resolved triple quotient of weight w has K²=15 and e=3·4+w+9(17−w), hence χ=7 and 5 for weights 12 and 15; the respective reported genera 6 and 4 give q=0. The character argument then gives q(Y)=0 and pg(Y)=10. The full primary text of Tan's Chapter 4 was not retrieved; the irregularity assessment relies on those sources for the precise theorem scope, not on the code replay or on an asserted direct primary-text check.",
+      "replay": "From /workspace run python3 branches/independent_reproduction.py 4. The independent column-type calculation gives r=2 or 5, 42 compatible signs, and 1+6z^12+2z^15 with the stated intersections. This checks combinatorics only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Borisov–Rito construction reports 17 cusps and two supports with intersection seven, and Theorem 3 gives the six-dimensional component. It does not give the full invariant package in those passages.",
+          "Barth–Rams give contact cubics and a residual plane for weight 12 on a quintic even with additional rational double points. Cusps and Codes tabulates the allowable weights, not this particular whole code.",
+          "9f45f44ee9f7 additionally computes the fixed-point counts and the canonical representation of the same ninefold cover."
+        ],
+        "reasoning": "The family and contact cubics are inputs. The stronger catalogue result covers the geometry and invariants in the finding, rather than just coinciding on K².",
+        "searches": [
+          "arXiv:2608.12305 §§2,5",
+          "arXiv:math/0112046 Theorem 1.2",
+          "arXiv:math/0403018 p. 2",
+          "Resultary 9f45f44ee9f7 §5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 9f45f44ee9f7 and 8102a764f4ed",
+        "arXiv:2608.12305, math/0112046, math/0403018, 1310.4071"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first record's codewords and inertia analysis gives the same 2+5+5+5 split, zero sets of the projective words, smooth degree-nine cover, and all the stated invariants.",
+          "In the second record the mod-three character group has dimension two. As the A2 link groups surject onto integral H1 of the smooth locus via Mayer–Vietoris on the simply connected resolution, H1 is killed by three. Thus its integral group is (Z/3)^2 and the ninefold cover is maximal among finite abelian covers."
+        ],
+        "reasoning": "Integral H1 is not silently inferred merely from mod-three cohomology. The extra topological step in this precise geometry is a standard immediate exponent bound, leaving no distinct proven integral or cover-theoretic increment.",
+        "searches": [
+          "9f45f44ee9f7 RESULT.md proof §§1–5, including offset 4800",
+          "8102a764f4ed RESULT.md, mod-three H1 and intermediate quotients, including offset 7399"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Borisov–Rito use the same geometric code via the classes 2E'+E'' on the resolution; a projective codeword gives a cyclic triple cover branched at its support.",
+          "9f45f44ee9f7 builds the same simultaneous cover by taking the fiber product of the independent cubic Kummer torsors on U; its local inertia at cusp i is the column of the two generators.",
+          "8102a764f4ed states H^1(U,F3)∼=F3²; the integral H1 formulation is equivalent here only after the exponent-three argument."
+        ],
+        "reasoning": "The Kummer fiber product and the maximal elementary abelian cover describe the same cover once the two codewords generate all mod-three characters. The elementary abelian and integral notions coincide here for a reason, not for arbitrary smooth loci.",
+        "searches": [
+          "arXiv:2608.12305 §2",
+          "Resultary 9f45f44ee9f7",
+          "Resultary 8102a764f4ed"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "9f45f44ee9f7 gives the [17,2,12] spectrum, smooth degree-nine G-cover and (K²,e,χ,q,pg)=(45,87,11,0,10) under the same two-support assumption.",
+          "8102a764f4ed gives the same weight enumerator and invariants, and explicitly the four intermediate branch sizes 12,12,12,15 and their regularity.",
+          "The source weight table gives allowable weights 12,15,18 on quintics, not the exact multiplicities in the length-17 code."
+        ],
+        "reasoning": "The direct matches here are substantive theorem statements in the mathematical catalogue, not a numerical coincidence or a deduction from allowed weights alone.",
+        "searches": [
+          "Resultary 9f45f44ee9f7 RESULT.md",
+          "Resultary 8102a764f4ed RESULT.md",
+          "arXiv:math/0403018 p. 2 weight table"
+        ]
+      },
+      "rationale": "9f45f44ee9f7 uses the same precise hypotheses and states the full code spectrum, the connected smooth degree-nine simultaneous cover and the same invariant package, with a stronger canonical character result. 8102a764f4ed also gives all four intermediate cyclic covers and the full mod-three smooth-locus H1 computation (in the dual cohomology formulation). The integral formulation in the frozen record goes beyond what is explicitly printed in those findings, but only by the immediate quotient-of-link-groups exponent-three bound on a simply connected resolution; hence the stated integral abelianization and maximality are mechanically covered as well. No priority or provenance conclusion follows solely from catalogue dates.",
+      "residual_risks": [
+        "Tan's Theorem 4.3.1 primary text remains unread; exact irregularity statement and applicability are supported indirectly as documented, not independently transcribed from Tan.",
+        "No historical priority or provenance conclusion about the catalogue records is inferred from path chronology.",
+        "No claim concerning the full nonabelian fundamental group or unconditional classification of all 17-cusp quintics is assessed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct overlap on code, geometry, invariants; stronger canonical profile; no explicit integral abelianization found",
+          "evidence": [
+            "Same [17,2,12] spectrum, local inertia, smooth cover and invariant tuple, with more representation data."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-canonical-character-profile-of-ninefold-covers-of-the-seventeen--9f45f44ee9f7/RESULT.md",
+          "material_read": "Finding and proof §§1–5; code and Kummer construction around offsets 2019–4000; invariants and canonical profile after offset 4800",
+          "method": "Configured local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Canonical character profile of ninefold covers of the seventeen-cusp quintic",
+          "trigger": "Same two cusp supports, ninefold cover and numerical invariants"
+        },
+        {
+          "assessment": "Direct overlap plus additional data; exact mod-three rather than integral statement",
+          "evidence": [
+            "Dimension two in H^1(U,F3); four intermediate branch weights 12,12,12,15 with genera 6,6,6,4 and irregularity zero."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-smooth-ninefold-cover-of-the-seventeen-cusp-quintic-family--8102a764f4ed/RESULT.md",
+          "material_read": "Finding, mod-three cohomology statement, and intermediate quotient discussion around offset 7399",
+          "method": "Configured local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A smooth ninefold cover of the seventeen-cusp quintic family",
+          "trigger": "Same family, code and all subcovers"
+        },
+        {
+          "assessment": "Verifies conditional family context and independently reports admissible weights",
+          "evidence": [
+            "General 17-cusp members with two sets of twelve meeting in seven; Theorem 3 gives the six-dimensional component. The §2 allowable nonzero weights are 12,15,18."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2608.12305",
+          "material_read": "Introduction p. 2 offset 6686; §2 p. 3 offsets 10020–12147; §5 pp. 7–8 offsets 22381, 24505",
+          "method": "OA PDF targeted passages",
+          "title": "Quintic surfaces with 18 cusps",
+          "trigger": "Existence, support intersection, and code hypotheses"
+        },
+        {
+          "assessment": "Establishes contact-cubic input, not this full rank-two geometry",
+          "evidence": [
+            "A degree-five surface with the minimal 12 three-divisible cusps has two contact cubics and a residual plane in the sextic equation."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0112046",
+          "material_read": "Theorem summary pp. 1–2 around offset 3500; §1 and Theorem 1.2 around offset 16280",
+          "method": "OA PDF targeted passages",
+          "title": "Equations of low-degree projective surfaces with three-divisible sets of cusps",
+          "trigger": "Weight-12 contact cubic implication, including extra A2 points"
+        },
+        {
+          "assessment": "Possible weights, not the exact family theorem",
+          "evidence": [
+            "The admissible weights for degree five are 12,15,18."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0403018",
+          "material_read": "Weight table p. 2, offset around 5056",
+          "method": "OA PDF targeted passage",
+          "title": "Cusps and Codes",
+          "trigger": "Prior classification/table of cusp-code possibilities"
+        },
+        {
+          "assessment": "Explicit primary example and Tan citation; not the general rank-two result",
+          "evidence": [
+            "Rito applies Tan Thm. 4.3.1 to a three-divisible 15-set and obtains K²=15, pg=4, q=0 for the triple cover in that example."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1310.4071",
+          "material_read": "Introduction pp. 1–2, offsets 4310–5917; bibliography pp. 12–13 around offset 28700",
+          "method": "OA PDF targeted passages",
+          "title": "Cuspidal quintics and surfaces with pg=0, K²=3 and 5-torsion",
+          "trigger": "Independent use of Tan's classification for a 15-cusp triple cover"
+        },
+        {
+          "assessment": "Primary text inaccessible; exact general irregularity scope retained as a source-access limitation",
+          "evidence": [
+            "Borisov–Rito and Barth–Rams corroborate the weights; the two catalogue theorems report q=0 for both weights; Rito's earlier primary application corroborates weight 15 in his example."
+          ],
+          "identifier_or_url": "https://studylib.net/doc/8225720/cusps-on-some-algebraic-surfaces-and-plane-curves",
+          "material_read": "No primary Chapter 4 passage; reported in Borisov–Rito §2, Rito pp. 1–2 and both exact catalogue results",
+          "method": "Cited lawful Studylib copy returned 403; identified author-hosted tan-cusp.pdf returned 404",
+          "title": "Cusps on some algebraic surfaces and plane curves",
+          "trigger": "Exact scope of Tan's Theorem 4.3.1 for weights and irregularity on both triple-quotient types"
+        },
+        {
+          "assessment": "No primary theorem comparison from this paper",
+          "evidence": [
+            "Rito cites §1.3 as a parallel reference; the abstract or issue metadata does not establish the requisite general statement."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/BF01444606",
+          "material_read": "Springer issue contents identifying the article and pages 13–29, not article full text",
+          "method": "OA PDF attempts via identified Springer link and GDZ archive result unsuccessful",
+          "title": "Surfaces whose canonical maps are of odd degrees",
+          "trigger": "Tan's earlier §1.3 reference for the weight-15 cyclic cover used by Rito"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A smooth canonical cover of this family and its invariants would be geometrically useful as a distinct result. The same cover and a stronger invariant package are already covered, and the only explicit extra formulation—the integral rather than mod-three abelianization—follows directly from the standard link-group exponent argument in this setting. There is no supported distinct increment in the frozen result.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

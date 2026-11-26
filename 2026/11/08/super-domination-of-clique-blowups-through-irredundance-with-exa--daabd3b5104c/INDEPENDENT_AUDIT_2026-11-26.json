@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:22:51.555677Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–62; frozen VERIFICATION.md lines 19–31 and verification_check.py (inspected, not executed)",
+        "Independent replay: /workspace/branches/5d78e7a8-b005-4ce0-afd1-0ffe065f81fb/record5_independent_check.py and record5_independent_check.log in the same directory. 86 graph/fiber profiles, 21,164 expanded subsets, 1,042 inclusion-minimal sets, 262,136 cyclic words for 3≤n≤17, and 42,816 expanded-cycle subsets; correspondence, maximal supports, transfer and extremal counts agreed."
+      ],
+      "rationale": "Two omissions in a clique fiber have the same selected neighbors, so neither could have a private witness. With at most one omission per fiber and m≥2, every fiber contains a selected vertex. Its selected vertices see exactly the omissions indexed by the intersection of the base closed neighborhood with U. The private-witness test is therefore precisely irredundance, in both directions. Each support lifts m^|U| ways; strict extensions of an omitted set are possible exactly when its base support extends (keeping existing omissions). This proves the polynomial and distinguishes maximal supports for inclusion-minimal D from largest supports for minimum-cardinality D. On cycles, 111 kills a center's witness, and 1101 or its reflection kills a doubleton endpoint's outward witness as well as its self and inward options. Conversely a singleton witnesses itself and a doubleton endpoint has an outward zero whose other neighbor is zero. This is the intended reading at line 54, not that both neighbors of the outward zero are absent. The cyclic factor test wraps correctly at n=3. In the trace, the indexed appended bits specify a unique closed walk, including for periodic words. For k ones and q doubletons there are k−q gaps; with both types present and c cyclic blocks of consecutive doubletons, q+c distinct gaps need an extra zero beyond one per gap. At even maximum density no mixed case is possible, leaving only alternation and, if 4 divides n, four rotations of 1100. At odd maximum density a mixed case has c=1 and all gaps forced; in the pure cases exactly one gap takes the spare zero. For each allowable doubleton count 0 through floor(k/2), a unique marked boundary can occur at any of the n positions. This gives n floor((n+3)/4) and the stated lift factor. The m≥2 boundary is real: for m=1 over K1 the singleton support is irredundant but omitting its sole vertex gives no selected witness.",
+      "residual_risks": [
+        "Finite replay is bounded; the general graph witness translation and the cyclic gap argument establish the full claim. The formula counts minimum-cardinality sets, not all inclusion-minimal sets; it assumes clique fibers, m≥2, and labeled cycles."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dettlaff et al. give bounds for general lexicographic products. Ghanbari et al. count minimum sets in classes including ordinary cycles. Kaidash's chapter is reported to define the all-set polynomial; its full text could not be examined."
+        ],
+        "reasoning": "Broader graph classes or the definition of a broader invariant are not a spanning theorem for this weighted transform. The earlier product bounds and inspected counts do not determine all super dominating sets. An exact clique-product formula in Kaidash would be material; its presence or absence is not established.",
+        "searches": [
+          "arXiv:1703.06034 Theorem 12; arXiv:2209.01795 product and enumeration; DOI 10.1007/978-3-031-73365-9_6 all-set invariant and lawful alternate search"
+        ]
+      },
+      "checked_sources": [
+        "Resultary daabd3b5104c (same record), 16bec2bc3654",
+        "arXiv:1703.06034 and 2209.01795; OEIS A286954, A291044, A290493; DOI 10.1007/978-3-031-73365-9_6 attempted"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known fiberwise restrictions on optimum super domination and known cyclic irredundance patterns/counts meet on different sides of the proposed correspondence. The frozen result supplies the two-way private-witness translation and weights every lift."
+        ],
+        "reasoning": "When translating between open neighborhoods of selected blowup vertices and closed neighborhoods of base vertices, every relevant fiber must retain an available witness. The m≥2 and singleton-omission observation provides that step for all configurations, not just a parameter inequality; after that, the cyclic transfer and weighting are direct and should not be credited as separate discoveries of the cycle data.",
+        "searches": [
+          "arXiv:1703.06034 Lemmas 7–8 and Theorem 12; OEIS cycle irredundance data; DOI 10.1007/978-3-031-73365-9_6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed exact match is the frozen record itself, not independent prior evidence. Dettlaff et al. Lemmas 7–8 restrict fibers of minimum sets; the same-day Resultary 16bec2bc3654 enumerates inclusion-minimal sets of ordinary cycles."
+        ],
+        "reasoning": "The relevant equivalence would have to capture every complement and preserve the witness relation after quotienting true-twin fibers to closed base neighborhoods. A restriction on optima or a count on the unexpanded base is not this equivalence.",
+        "searches": [
+          "Resultary: super domination of clique blowups, all-set polynomial, closed-neighborhood irredundance; arXiv:1703.06034 product witnesses and true twins"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A286954 records upper irredundance floor(n/2) and includes 111,1101,1011 among its cyclic prohibitions for maximal sets. A291044 tabulates maximal irredundant sets by size; A290493 counts all unweighted irredundant sets and gives a recurrence."
+        ],
+        "reasoning": "Largest supports are maximal, so top-degree base-cycle counts are represented in the maximal-set tables where tabulated. All these are unweighted base data, not the all-configuration bijection or weighted blowup transform. The cycle-only count is a corollary once the translation is proved.",
+        "searches": [
+          "OEIS A286954, A291044, A290493; Resultary 16bec2bc3654"
+        ]
+      },
+      "rationale": "Credit the configuration-level correspondence between all super dominating complements of a genuine clique blowup and all irredundant supports in an arbitrary base graph, including the weighted polynomial transform and the maximal-support refinement. Do not credit the existence of a super-domination polynomial, the unweighted base-cycle data or product cardinality bounds as new. The most relevant inspected product statements concern optimal cardinality or restrictions on minimum sets; the available catalogue and primary evidence does not establish the full correspondence. The directly relevant Kaidash chapter remains an explicit access risk, not a negative finding about its contents.",
+      "residual_risks": [
+        "Kaidash's full chapter remains unavailable; neither its examples nor any general clique-product theorem were inspected. The 1979 Bollobás–Cockayne irredundance paper was not retrieved for cycle-specific comparison. A failed lookup, irrelevant web results, and keyword misses do not exclude equivalent prior work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Product minimum cardinality bounds and restrictions; no all-configuration equivalence in inspected passages",
+          "evidence": [
+            "The inspected fiber restrictions treat minimum-set cases, and Theorem 12 bounds the minimum parameter."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1703.06034",
+          "material_read": "Abstract p. 1, Lemmas 7–8 p. 6 (offset 14892), Theorem 12 p. 8 (offset 21837)",
+          "method": "Bounded OA PDF passages; literal true-twin query had no match",
+          "title": "On the super domination number of lexicographic product graphs",
+          "trigger": "Primary product paper with fiberwise witness arguments"
+        },
+        {
+          "assessment": "Minimum-set counts on ordinary cycles in inspected material, not a count on true-twin clique blowups",
+          "evidence": [
+            "Same kind of extremal invariant on a different graph; no whole-text exclusion inferred from the abstract."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2209.01795",
+          "material_read": "Abstract p. 1, around offset 3000, match 3453",
+          "method": "Bounded OA PDF passage inspection",
+          "title": "Super Domination: Graph Classes, Products and Enumeration",
+          "trigger": "Earlier super-domination counting and products, including cycle mod-four behavior"
+        },
+        {
+          "assessment": "Plausible material overlap unresolved, not evidence of noncoverage",
+          "evidence": [
+            "The secondary description identifies a prior all-set polynomial and examples, but does not establish a weighted clique-blowup formula."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/978-3-031-73365-9_6",
+          "material_read": "Bibliography and description in Resultary 16bec2bc3654; no chapter text read",
+          "method": "Lawful OA Springer PDF/HTML attempts failed with redirect errors; focused title/DOI alternate-copy search found no accessible copy",
+          "title": "Super Domination Polynomial of a Graph",
+          "trigger": "Same all-set polynomial invariant; possible clique-product formulas"
+        },
+        {
+          "assessment": "Same-day but different object and minimality condition",
+          "evidence": [
+            "Counts inclusion-minimal sets on ordinary labeled cycles, with a five-gap description; flags prior all-set polynomial work."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-inclusion-minimal-super-domination-on-cycles-a-five-gap-census-a--16bec2bc3654",
+          "material_read": "Finding at 0 and prior-work discussion at offset 8200",
+          "method": "Resultary and local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Inclusion-minimal super domination on cycles: a five-gap census and sharp seven-period upper spectrum",
+          "trigger": "Closest distinct indexed cycle enumerator"
+        },
+        {
+          "assessment": "Prior base-cycle data, not clique-blowup counts",
+          "evidence": [
+            "Maximum size floor(n/2); maximal-set size table and recurrence for all irredundant sets. The maximal-set description includes the three basic irredundance prohibitions alongside additional maximality conditions."
+          ],
+          "identifier_or_url": "https://oeis.org/A286954; https://oeis.org/A291044; https://oeis.org/A290493",
+          "material_read": "A286954 literal match offset 1055 (open attempt timed out); A291044 and A290493 passages at offset 400",
+          "method": "OA public-page entries, bounded passages",
+          "title": "Cycle irredundance sequences A286954, A291044 and A290493",
+          "trigger": "Exact prior cyclic support data, including extremal sizes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–36 and 46–62",
+        "Dettlaff et al. arXiv:1703.06034 Lemmas 7–8 and Theorem 12; OEIS A291044 and A290493"
+      ],
+      "rationale": "A scalar product bound cannot tell which selections are feasible or how many have a given size. The exact correspondence makes the entire super-domination enumerator of a natural graph product accessible from a different standard base-graph invariant, and it determines the inclusion-minimal configurations without a separate blowup search. The worked cycle case shows how an established base family becomes a weighted exact invariant on a larger graph. This is useful even though the witness argument is short and the underlying base-cycle data are known.",
+      "residual_risks": [
+        "Value rests on the all-configuration translation, not on rediscovering base-cycle sequences or on generic transfer-matrix machinery. No efficient algorithm is claimed for enumerating irredundance on arbitrary base graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

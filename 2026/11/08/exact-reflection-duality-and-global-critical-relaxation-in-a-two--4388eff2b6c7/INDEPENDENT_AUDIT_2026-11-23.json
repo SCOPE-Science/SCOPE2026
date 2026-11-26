@@ -1,0 +1,88 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T15:25:38.932879Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fontanari's drives on the edge satisfy U_A+U_B=1+gamma, U_A-U_B=(1-gamma)d. Below gamma=1 each drive t lies in [0,1] and t^(1/p)>=t, so all are eligible; above gamma=1 both drives are at least one. The surplus difference is strictly decreasing in u; because there is overlap, its root never assigns a voter to an ineligible choice. Its centered equation is exactly Phi_p(d_next)=(1-gamma)d. Phi_p is odd, has positive derivative, and its second derivative is strictly positive on (0,1) for every real p>2. Oddness gives the alternating-sign identity by induction. Convexity makes the secant Phi_p(r)/r strictly increasing from c_p to 1. For s=|1-gamma|>0 the amplitude map is strictly increasing: below/above each nonzero crossing it moves toward that crossing without overshoot, and at s<=c_p it decreases any nonzero amplitude to zero. Increasing amplitudes as a map exclude any other periodic behavior; signs then distinguish fixed points from the one two-cycle. At gamma=0,2 the nonzero limiting amplitude is 1, and its one-sided multiplier is 2/p. At gamma=1 the first iterate is identically zero (the origin needs no update). The critical inverse expansion has coefficient -beta=-(p-1)(p-2)/6; positivity of the iterates permits reciprocal squaring, giving an increment 2*beta+O(r_n^2), hence the stated limit by Cesaro summation at both thresholds. All-real proof is independent of finite tests. Replay: python replay/4_cutoff.py, exact generalized-series composition and reciprocal-square check for seven rational exponents plus 108 one-step reflected equation pairs from exact rational orbits at p=3,4,5,7, and exact p=3,4 amplitude checks. The uploaded verifier was read, not executed. No claim about abstention-positive start, p=2, or gamma>2 is needed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fontanari gives the exact symmetric local multiplier and thresholds, the pitchfork basin picture, and qualitative symmetric cycle and saturation behavior. The v2 subcritical wedge is at 2<gamma<gamma_flip for 1/2<lambda<1, outside the frozen p>2, gamma<=2 scope."
+        ],
+        "reasoning": "Generic neutral fixed-point theory gives the asymptotic exponent once the order and sign of the nonlinearity are known; it does not identify this coefficient from the source's linear multiplier. The pointwise exclusion of other edge limits at both neutral boundaries and the sharp relaxation law are not supplied by a qualitative phase plot.",
+        "searches": [
+          "Fontanari v1 and v2 §§2–4; public lookup: Fontanari Negative partisanship exact mobilized cutoff reflection parameter duality critical relaxation global convergence",
+          "Resultary cutoff/critical query above"
+        ]
+      },
+      "checked_sources": [
+        "Fontanari arXiv:2610.25210v1 §§2–4; v2 model and §3.2",
+        "Resultary cutoff/critical search, incl. 9e3a2ce60668"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The given stationary equation yields Phi_p(r)/r=1-gamma by centering, and its stated symmetric two-cycle form similarly yields gamma-1 on the right. Same local thresholds follow by f(lambda)=1/c_p.",
+          "The new calculation uses strict secant monotonicity, then the actual cubic coefficient and telescoping; it cannot be read from the local eigenvalue."
+        ],
+        "reasoning": "Credit the implicit amplitude equations and qualitative phase structure to the earlier model; neither is an originality basis alone. The surviving result adds rigorous all-start and endpoint dynamics and the sharp neutral coefficient, not just changing notation or reporting a known threshold.",
+        "searches": [
+          "Fontanari v1 §3.2 Eq. (16),(17) and Fig. 2; v2 §3.2; Resultary exact critical-map lookup"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fontanari's centered cutoff, with p=1/lambda, is the identical odd inverse map; the v1 source describes reflected candidate basins at fixed gamma and a symmetric flip orbit but does not state the all-time parameter-reflection result.",
+          "The highly ranked GeCo2 step map (Resultary 9e3a2ce60668) concerns a different time-discretization and critical law n|x_n| to a constant."
+        ],
+        "reasoning": "Exchanging candidates at a single gamma is ordinary odd symmetry, not a statement comparing two parameters, although oddness plus their opposite scalar drives proves the latter readily. The GeCo2 result has a different map and scaling.",
+        "searches": [
+          "Resultary: Fontanari negative partisanship two choice threshold exact all-time parameter reflection gamma 2-gamma fully mobilized cutoff critical decay n^{-1/2} convex phase classification",
+          "Fontanari arXiv:2610.25210v1 Eq. (7),(14),(16),(17), §3.2; v2 §3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Relevant primary figures give phase divisions and illustrative trajectories, not a critical all-starts limit. The indexed nearby GeCo2 map is not this cutoff map."
+        ],
+        "reasoning": "No finite table can supply this exact real-parameter asymptotic. The checked sources neither tabulate the coefficient for this map nor state the joint orbitwise and neutral-limit claim.",
+        "searches": [
+          "Resultary cutoff/critical query above; Fontanari v1 Figs. 1–2 and v2 phase-diagram material"
+        ]
+      },
+      "rationale": "The model, threshold locations, several attractor/basin descriptions, and implicitly the stationary/cycle amplitude equation are already in Fontanari. The accepted contribution is the global pointwise analytic derivation including the critical endpoints and their explicit common asymptotic coefficient, tied together by the exact reflected-orbit identity. No claim is made that generic monotone-map or parabolic-fixed-point arguments are new. Best of knowledge only; public search was unavailable, not evidence of absence.",
+      "residual_risks": [
+        "Public-web search unavailable; this cannot exclude other exact proofs or abstract generalizations.",
+        "Odd-map symmetry and parabolic iteration are standard; the claim is for the particular invariant-edge dynamics and coefficient, not those techniques."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior source for the model, exact thresholds, implicit amplitude relation and qualitative attractors; not a source for the common sharp critical-time coefficient or all-time cross-parameter identity",
+          "evidence": "Eqs. (7),(14) give the implicit cutoff; the v1 local multiplier in (17) is f(lambda)(1-gamma); §3.2 gives the stable fixed points or symmetric period two and basin descriptions but no cubic critical law.",
+          "identifier_or_url": "https://arxiv.org/html/2610.25210v1",
+          "material_read": "Full HTML v1, especially §§2–4, cutoff Eq. (7), map Eq. (14), stationary Eq. (16), multiplier Eq. (17), and phase/basin descriptions around Figs. 1–2. Also checked accessible v2 §§2 and 3.2 and the changed wedge scope (https://arxiv.org/html/2610.25210v2).",
+          "method": "Compare rendered equation definitions and the stated orbit/phase conclusions, transforming shares to d=2x-1",
+          "title": "Negative partisanship drives anti-frontrunner volatility in election dynamics",
+          "trigger": "Same exact threshold equation and qualitative phase conclusions"
+        },
+        {
+          "assessment": "A different mathematical model; no whole-paper priority exclusion",
+          "evidence": "Positivity-preserving symmetric exchange discretization; critical rate n^{-1}, not this inverse power-difference map's n^{-1/2}.",
+          "identifier_or_url": "Resultary 9e3a2ce60668",
+          "material_read": "Published mathematical index statement only",
+          "method": "Direct comparison of the map and asymptotic orders stated in the summary",
+          "title": "A critical inverse-time law and an attracting two-cycle at every supercritical GeCo2 step",
+          "trigger": "An exact global flip analysis with critical-time scaling"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Neutral multipliers alone cannot quantify relaxation. The sharp coefficient for every nonzero edge start, exact pairing of opposite-sign regimes and rigorous elimination of additional periodic behavior provide usable information for the originating map's phase diagram. The motivation and new content are confined to the fully mobilized invariant edge; empirical claims and conclusions on the full simplex are not implied.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

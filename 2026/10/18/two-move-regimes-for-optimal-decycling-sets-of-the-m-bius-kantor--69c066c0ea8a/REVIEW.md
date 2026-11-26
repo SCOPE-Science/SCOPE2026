@@ -1,15 +1,21 @@
-# Review of the optimal-decycling-set exchange classification
+# Independent mathematical audit
 
-## Correctness
-PASS. The graph is explicitly defined by modular edges. A cubic incidence count proves the minimum deletion size is at least five; an explicit size-five deletion leaves a tree. The proof classifies the two possible deletion-induced-edge types and then checks all \(\binom{16}{5}=4368\) candidate sets, every possible single exchange, and every source's breadth-first search. Two independent source programs enumerate complementary eleven-element retained forests using different acyclicity tests and arrive at identical vertex/edge fingerprints and all distance distributions. Complete source programs, outputs, masks, and edge lists are included. The claim applies only to the finite labelled graph.
+## correctness
 
-## Originality
-PASS, with stated residual literature risk. Wei–Li (2013) and Gao et al. (2015) address the generalized-Petersen decycling number. Their established scalar optimum is expressly credited. The complete inspected Hertz (2021) article introduces a restricted same-side swap neighborhood for a heuristic but does not report optimal-state reconfiguration or distances for this graph; the move set differs. The complete inspected Agrawal et al. arXiv manuscript addresses algorithms for multicolored simultaneous feedback vertex sets, not exact token jumping/sliding graphs. Nearby mathematical-record results concern Möbius–Kantor matching or independence complexes. A targeted historical-claim comparison found closest different graphs/invariants but no same-claim overlap. Gao et al. (2015) could not be inspected in full; unseen supplementary data and unindexed equivalences are remaining risks, and negative search is not proof of world-wide novelty.
+PASS
 
-## Value
-PASS. Optimum cycle-breaking solutions in a highly symmetric cubic bipartite graph form a natural discrete configuration space. The complete classification reveals a robust connectedness property that survives the local-move restriction but a sharp metric change from every state being central to a strict radius–diameter gap with exactly sixteen peripheral states. The theorem resolves exact move counts, degrees, centrality, and distances rather than merely recomputing the known decycling number. No extension beyond this graph is asserted.
+For a size-k deletion S the retained graph has 24−3k+e(S) edges. For k≤4 the retained vertex set is nonempty and the forest bound gives 2k−e(S)≥9, impossible. The displayed five-set leaves a tree; at size five every forest has 2−e(S) components, so only e(S)=0,1 occur. A fresh implementation used leaf stripping to enumerate every five-set, then tested all unordered pairs by intersection size four and, for slides, adjacency of the two differing vertices. It obtained 672 sets (192 with no internal edge, 480 with one), and matched the certificate's literal ordered state and edge lists. All-pairs unweighted shortest paths gave finite distances everywhere: jump has 5664 edges, degrees 13:96, 15:336, 17:48, 19:96, 25:96, and eccentricity 5 at every root; slide has 1848 edges, degrees 4:288, 5:144, 6:96, 7:48, 9:48, 10:48, and eccentricities 7:96, 8:560, 9:16. Both pair-distance histograms, both SHA-256 fingerprints, and the length and minimality of the certified two diameter paths were checked independently. Replay: python3 /workspace/branches/independent_mk.py (NumPy/SciPy); output independent_mk.out in the same directory. The fingerprint encoding is in fact a compact object with keys states and edges holding the two arrays. The proof's crude forest bound is used only for nonempty retained sets; neither this restriction nor the serialization gloss changes a Finding claim. No larger graph, temporary size changes, or weighted moves are tested.
 
-## Scope and limits
-The proof is finite exhaustive enumeration from first principles with independently programmed checks. Published full text concerning the precise metric statement may remain unindexed or inaccessible. Independent verification by an outside reviewer has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The scalar decycling number five is not an originality claim. No inspected statement or indexed table establishes the full optimum census together with these two exact exchange graphs and their metrics. The nearest forest-exchange method fixes side cardinalities and cannot imply the result for either of these move rules. This judgment is specific to the evaluated classification and is not priority certification.
+
+## value
+
+PASS
+
+The natural choice between unconstrained relocation and adjacency-only relocation leaves reachability intact on a standard symmetric cubic graph, but changes eccentricity from uniform 5 to three strata with radius 7 and diameter 9. Knowing the precise optimum state space and distinct distance costs is useful for benchmarking fixed-cardinality cycle-breaking dynamics; it is not a recomputation of the known optimum size.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

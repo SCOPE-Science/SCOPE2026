@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:51:33.256094Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, model, proof and endpoint formulas",
+        "Frozen VERIFICATION.md and urn_window_verify.py (inspection, not execution)",
+        "Independent martingale/bracket and exact recurrence reconstruction above"
+      ],
+      "rationale": "At draw j the mass is 4j. The signed reinforcement factor is -2 or 4, with mean 4a and squared mean v=E[R²], where a=1/2−τ/log N and v=12−8τ/log N. Subtracting a U_{j-1}/j from each increment gives bounded martingale differences with conditional variance v−a² U_{j-1}²/j². The exact moment recurrence is m_j=(1+2a/j)m_{j-1}+v with m_0=0. Its product solution yields m_k≲_τ k(1+log k) for k≤N, since the propagation kernel from j to k is (k/j)^{2a}(1+O_τ(1/j)) and (k/j)^{2a-1} is bounded by exp(2|τ|). Dividing U_k by the product A_k=∏_{j≤k}(1+a/j) gives a martingale; A_j=j^a/Γ(1+a)(1+O_τ(1/j)) uniformly. On k=⌊N^t⌋ with martingale scaled by 1/√log N, the expected total random bracket correction is O_τ(1/log N) by the moment bound and a bounded away from 0. The deterministic bracket converges uniformly by harmonic Riemann sums to 12Γ(3/2)²∫_0^t exp(2τs)ds. The bounded jumps vanish uniformly and the initial one-draw value vanishes in L². The martingale FCLT applies. Away from t=0 the prefactor A_k/√k converges uniformly to exp(-τt)/Γ(3/2); on [0,ε] it is bounded and Doob's inequality gives E sup |X_N|²≲_τ ε+o(1). Consequently replacing the prefactor by its continuous limit is valid in probability in the supremum norm over the entire interval, proving J₁ convergence and the covariance. Applying the same harmonic sum to the exact recurrence gives m_N/(N log N)→12∫_0^1 exp(-2τ(1-s))ds. The factor 1/64 in the proportion variance is from Z_N−1/2=U_N/[8(N+1)]. With τ=0, dividing the recurrence by k+1 and telescoping gives 12(k+1)(H_{k+1}−1).",
+      "residual_risks": [
+        "The finite-state and numerical verifier checks only recursions and diagnostics, not J₁ convergence. The theorem is for fixed real τ and independent row laws are not needed; it is not a uniform statement in unbounded τ."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed broader theorem allows general increments, the same row detuning, and a logarithmic-time functional limit.",
+          "Shi–Yin–Miao require fixed parameters and a strict √n-regime inequality, reducing here to p>1/3. Higueras et al. give a terminal √(ns)-CLT under stability hypotheses, not a row-uniform critical limit. Aguech uses triangular replacement matrices; Roy et al. vary remembered history length."
+        ],
+        "reasoning": "Neither fixed-regime results nor a differently defined triangular scheme legitimate substitution of a shrinking spectral gap. The exact general fixed-increment indexed result, unlike these papers, does cover it.",
+        "searches": [
+          "Resultary: logarithmic OU window for a fixed-increment mixed urn",
+          "Shi–Yin–Miao arXiv:2605.26669v1, §3, Theorem 3.3",
+          "Higueras et al., CLTs for Generalized Pólya Urn Models, Theorem 3.1; Aguech, Random Triangular Urn Schemes; Roy–Takei–Tanemura arXiv:2403.02881"
+        ]
+      },
+      "checked_sources": [
+        "Resultary fixed-increment window and fixed-critical records, identified above",
+        "Shi–Yin–Miao, Higueras et al., Aguech and Roy–Takei–Tanemura passages above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general theorem gives the same path limit and terminal proportion Gaussian variance 3F(τ)/16 by specialization. It gives the exact conditional-update second-moment recurrence E[D_{j+1}²]=(1+2λ_N/(j+κ))E[D_j²]+v_N, with initial-mass ratio κ=1 here; its proof estimates gamma products in the same window, and its verification note tests the predicted second moments."
+        ],
+        "reasoning": "Distributional convergence alone does not imply convergence of second moments. Instead the supplied recurrence specializes exactly to the frozen recurrence. At terminal N its solution divided by N log N is the harmonic Riemann sum with integrand v_N exp(-2τ(1-u)), up to o(1); the critical identity is obtained by telescoping. Thus the extra expressions are immediate from already supplied exact dynamics and estimates, not a distinct limit theorem requiring new control.",
+        "searches": [
+          "Resultary general fixed-increment critical window, Finding, assumptions and proof, local-mirror offsets 0–6760 (second-moment recursion near 3765)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The fixed-increment OU record states a J₁ path limit for p_N=p_*+θ/log N. Substituting (a,b,s)=(1,3,4) and θ=2τ/3 gives p_*=1/3, δ=2bθ/s=τ, critical innovation variance 12, and the same normalizations and covariance with the two-and-two start.",
+          "The critical-only record gives the τ=0 Brownian path limit when p=1/3 and q=12."
+        ],
+        "reasoning": "The first comparison identifies model, row dependence, path parameter, topology and limits, not just the words OU or critical. The second overlap is only the zero-detuning case, already acknowledged in the frozen record.",
+        "searches": [
+          "Resultary: Pólya–Friedman mixed urn p_N→1/3, fixed-within-row log clock OU crossover",
+          "Resultary: critical mixed urn Brownian motion on logarithmic clock"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The comparison found the general fixed-increment window (path dated November 8), a separate fixed-critical Brownian theorem (path dated November 2), and a distinct vanishing-p_N regime. No literal numeric table is needed; the exact theorem entries and their parameter restrictions are decisive."
+        ],
+        "reasoning": "The general window entry is verified existing scope overlap, while the fixed-critical and vanishing-p entries do not cover both signs of τ in the moving window. Path dates do not establish a derivation history.",
+        "searches": [
+          "Resultary: exact model, full p_N critical window, fixed critical log clock, and general triangular-array urn FCLT"
+        ]
+      },
+      "rationale": "The window is covered at the statement level by a distinct indexed theorem for general fixed-increment mixed urns, under an exact specialization. That record also supplies the exact second-moment recurrence in the window, leaving the terminal moment profile and critical harmonic identity as direct evaluations rather than a supported independent remainder. Its catalogue path is later than the assigned path; this is demonstrable existing coverage, not a determination that the more general record historically preceded or was independent of this one. The fixed-mixture papers by themselves would not justify this failure.",
+      "residual_risks": [
+        "The stronger matched catalogue entry has a later path date. Its historical relation, independence and priority relative to the frozen entry are not determined by this assessment.",
+        "Generalized-urn work by Janson and Bai–Hu–Zhang was not available in full in the bounded lookup; exact earlier primary-literature priority remains unestablished."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers path limit; extra exact/asymptotic moments follow directly from supplied recursion. Historical priority unresolved.",
+          "evidence": "Moving p_N, same J₁ clock, OU drift and volatility and the same proportion variance after setting a=1, b=3, s=4 and θ=2τ/3.",
+          "identifier_or_url": "2026/11/8/SCOPE-the-logarithmic-ornstein-uhlenbeck-window-for-a-fixed-increment--b3770a893f1f",
+          "material_read": "Local-mirror RESULT.md offsets 0–6760: Finding, assumptions, proof incl. second-moment recursion, and verification note",
+          "method": "Primary catalogue text comparison by parameter specialization and recurrence evaluation",
+          "title": "The logarithmic Ornstein–Uhlenbeck window for a fixed-increment mixed urn",
+          "trigger": "Exact broader row-array and log-clock OU match"
+        },
+        {
+          "assessment": "Covers τ=0 path limit only",
+          "evidence": "Fixed p=1/3 and q=12 give the Brownian special case.",
+          "identifier_or_url": "2026/11/2/SCOPE-brownian-motion-on-the-logarithmic-clock-of-a-critical-mixed-urn--54feb5ffa3ee",
+          "material_read": "Local-mirror Finding, offsets 0–5426",
+          "method": "Match critical model and path normalization",
+          "title": "Brownian motion on the logarithmic clock of a critical mixed urn",
+          "trigger": "Same model at the critical point"
+        },
+        {
+          "assessment": "Fixed noncritical terminal CLT; not coverage of row-array window",
+          "evidence": "3bp+cp>ap+c becomes p>1/3; the theorem is not uniform as 3p−1→0.",
+          "identifier_or_url": "https://arxiv.org/html/2605.26669v1",
+          "material_read": "§3, Theorem 3.3, offset 18400 onward",
+          "method": "Substitute parameters in hypotheses and compare normalizations",
+          "title": "Central Limit Theorem for a Pólya-Friedman Mixed Urn Model",
+          "trigger": "Same mixed urn in primary literature"
+        },
+        {
+          "assessment": "Inspected theorem does not imply the claimed moving-row path limit",
+          "evidence": "A terminal √(ns) regime and summability conditions do not give the needed cutoff when the row spectral gap shrinks at rate 1/log N.",
+          "identifier_or_url": "Higueras et al., J. Appl. Prob. 43 (2006), 938–951",
+          "material_read": "Cambridge OA PDF offset 0; introduction near 7000; Theorem 3.1 p. 7 near 27000",
+          "method": "Compare stability and normalization",
+          "title": "Central Limit Theorems for Generalized Pólya Urn Models",
+          "trigger": "Generalized urn model with possible varying replacement expectations"
+        },
+        {
+          "assessment": "Different use of triangular",
+          "evidence": "The replacement matrix is triangular; the theorem is not a row detuning of the symmetric mixed urn.",
+          "identifier_or_url": "Aguech, J. Appl. Prob. 46 (2009), 827–843",
+          "material_read": "Cambridge OA PDF first page, offset 0",
+          "method": "Compare definition of triangular scheme",
+          "title": "Limit Theorems for Random Triangular Urn Schemes",
+          "trigger": "Possible triangular urn overlap"
+        },
+        {
+          "assessment": "Different array and limit",
+          "evidence": "Rows change remembered history length; the checked critical terminal result fixes the memory parameter α=1/2.",
+          "identifier_or_url": "https://arxiv.org/abs/2403.02881",
+          "material_read": "OA PDF pp. 2–4, offsets 4918 and 8400",
+          "method": "Compare array driver and critical theorem",
+          "title": "The elephant random walk in the triangular array setting",
+          "trigger": "Triangular array with log-critical reinforced variance"
+        },
+        {
+          "assessment": "Unresolved primary-literature scope, not negative evidence",
+          "evidence": "No inspected full theorem from these works is used to decide coverage.",
+          "identifier_or_url": "doi:10.1016/j.spa.2003.12.002; doi:10.1214/aoap/1037125857",
+          "material_read": "Janson DOI landing page/abstract only; Bai–Hu–Zhang full text not obtained",
+          "method": "Bounded lookup including author-copy attempt for Janson",
+          "title": "Functional limit theorems for multitype branching processes and generalized Pólya urns; Gaussian approximation theorems for urn models and their applications",
+          "trigger": "Plausible general functional or uniform approximation framework"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Assumptions",
+        "Shi–Yin–Miao fixed-mixture, strict-regime CLT"
+      ],
+      "rationale": "For the mixed-urn problem itself, a whole-path logarithmic-scale crossover is a mathematically motivated result. Drift detuning on the inverse-logarithmic scale survives as a finite OU drift, changes the endpoint variance continuously across the spectral threshold, and requires row-uniform control beyond fixed-parameter CLTs. The positive scientific value of that target is separate from the finding's failure to distinguish itself from an existing broader theorem.",
+      "residual_risks": [
+        "No stronger claim for arbitrary replacement laws or a quantitative approximation rate is credited here."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

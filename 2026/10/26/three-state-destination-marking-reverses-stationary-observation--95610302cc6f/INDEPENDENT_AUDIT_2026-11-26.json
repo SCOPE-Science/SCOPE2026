@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:07:05.991326Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 30–107",
+        "verify.py lines 10–126 (inspected)",
+        "verification_output.txt lines 1–3 (recorded finite tests)",
+        "VERIFICATION.md lines 19–23"
+      ],
+      "rationale": "For the zero-at-target entrance hitting column H_j, first-step analysis gives (I−P)H_j=m off the target. Multiplying by the embedded invariant row nu forces the exceptional component to be m_j−(nu·m)/nu_j. Weighting columns by pi_j=nu_j*m_j/(nu·m) therefore gives a harmonic vector, constant by irreducibility. Conditioning on the initial stationary interval biases the joint duration–mark law by w/m_i; averaging the residual length and the destination gives r_i=u_i/(2m_i) and q_ik=b_ik/m_i. After the next jump the process starts on a fresh entry. In the target-weighted difference the sum over j other than i is K−pi_i*H_ki, so the row-sum-zero difference q_i−P_i yields the stated negative sign on the marked term. For the star witness the conditional Gamma second moments are 8/5 and 72/5, giving mixture second moment 8. The common H rows are (0,6,5),(1,0,6),(2,8,0), with pi=(4,1,2)/7. Swapping the Gamma marks changes q_12 from 1/4 to 3/4, so the state-1 defect is respectively −1/7 and +1/7 while the other defects vanish. Two states without self jumps offer no alternative exit mark; with marginal SCV one the residual term also vanishes. This proves exactly the stated minimality.",
+      "residual_risks": [
+        "The result uses elapsed physical time and zero hitting time if already at the target, not a positive first return. Two-state defects from nonunit marginal SCV are not ruled out."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2022 theorem gives conditional first-passage and excess-life ingredients, including next-mark dependence in the conditioning formulas.",
+          "The 2025 abstract describes hitting-time distributions and means given information at time t and state-dependent measures; the technical text was not retrievable.",
+          "The tomography Finding observes the entire transient occupation family from a fresh entry or a continuum of reset-rate occupancies to recover one unknown joint exit row."
+        ],
+        "reasoning": "Given a full marked kernel, one could specialize age-conditioned first passage and average it over the equilibrium age law; the correction formula uses that machinery and is not credited as a new general first-passage principle. Neither the inspected age theorem nor recovery using richer occupation data supplies the existence, sign reversal and minimality of the pair at fixed unmarked observables.",
+        "searches": [
+          "semi-Markov stationary observation Kemeny constant age-conditioned first passage destination marked holding times Hunter Voits Khorshidian Fathizadeh",
+          "DOI:10.21203/rs.3.rs-2184300/v1, Sections 2–3",
+          "DOI:10.1080/03610926.2025.2483291",
+          "2026/11/22/SCOPE-single-start-tomography-and-projective-response-rigidity-in-semi--77c044007472"
+        ]
+      },
+      "checked_sources": [
+        "Primary and published-record passages above",
+        "RESULT.md lines 113–123"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proposition 16 gives an entrance sum, and the age-conditioned theorem assumes the information required to calculate marked residual behavior.",
+          "The frozen RESULT.md lines 115–119 records related second-entrance-moment comparisons using both unit SCV and zero first marked-duration discrepancy; this is not independently identified as an exact indexed coverage source."
+        ],
+        "reasoning": "The signed witness holds the complete unmarked laws and the entire entrance mean matrix fixed while altering b_12 and b_13 in opposite directions; it deliberately violates zero marked discrepancy. A criterion for entrance second moments to agree with those of a continuous-time Markov chain neither matches the target observable nor imposes these two opposite equilibrium first-moment shifts. The nonidentifiability is the credited content.",
+        "searches": [
+          "arXiv:2610.13505 Proposition 16",
+          "DOI:10.21203/rs.3.rs-2184300/v1 Theorem 1",
+          "Resultary: semi-Markov fresh entrance second hitting time moments pseudo-rate Markov chain marked duration SCV equivalence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hunter Section 3 treats fresh-entrance random-target sums and distinguishes versions with a positive return on the diagonal.",
+          "Voits Proposition 16 explicitly sums off the diagonal for the entrance-initialized process.",
+          "Theorem 1 of the 2022 preprint treats conditional first-hit means using age and excess-life information."
+        ],
+        "reasoning": "Subtracting a diagonal return convention is not the operation of sampling a length-biased marked interval. In equilibrium the impending mark has law b_ik/m_i, not P_ik. Even with the residual term zero the hidden mark discrepancy can remain; the fresh-entrance statements do not capture it.",
+        "searches": [
+          "Resultary: stationary observation Kemeny hitting times semi-Markov destination-dependent holding times",
+          "arXiv:1802.08330",
+          "arXiv:2610.13505 Proposition 16",
+          "DOI:10.21203/rs.3.rs-2184300/v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The binary-chain Finding gives squared memory defects between two-step histories with positive first-hit times, including returns. The tomography Finding addresses recovery from full occupation responses, not the three-state pair with matched unmarked inputs."
+        ],
+        "reasoning": "The exact objects to match here are a pair of marked kernels and a signed nonidentifiability statement, not values in a numerical table. A binary discrete-time history comparison has no duration size-bias and a different stopping convention; its nonnegative squared gaps do not match the two signed defects here.",
+        "searches": [
+          "Resultary: three-state destination marking reverses stationary-observation Kemeny defects",
+          "2026/11/2/SCOPE-kemeny-rigidity-and-exact-memory-defects-in-positive-binary-seco--5b2855be75d8",
+          "2026/11/22/SCOPE-single-start-tomography-and-projective-response-rigidity-in-semi--77c044007472"
+        ]
+      },
+      "rationale": "The entrance constancy and general residual-life first-step machinery are established. The distinct supported result is nonidentifiability at a stationary observation from identical entire unmarked holding laws, transition matrix, stationary occupancy and entrance mean hitting matrix, with an explicit minimal, unit-SCV pair and opposite signed defects. No inspected statement establishes this matched-observables obstruction.",
+      "residual_risks": [
+        "The lawfully accessible 2025 abstract is insufficient to rule out an equivalent equilibrium average in the follow-up. Originality is credited narrowly to the matched-observables obstruction and minimal signed pair, not to residual-life machinery or entrance constancy."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Fresh-entrance hitting and return conventions, not a stationary-observation correction",
+          "evidence": [
+            "Corollary 2.1 discusses the physical-time stationary target sum including diagonal mean returns. With this convention the diagonal contribution is m_i."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1802.08330",
+          "material_read": "Section 3, pp. 4 and 8, extracted offsets 10000 and 23500",
+          "method": "Open-access full paper passage inspection",
+          "title": "Kemeny's Function for Markov Chains and Markov Renewal Processes",
+          "trigger": "Established semi-Markov random-target theorem"
+        },
+        {
+          "assessment": "Establishes the credited entrance theorem",
+          "evidence": [
+            "The constant weights off-diagonal first-hitting terms by stationary target probabilities from the state-initialized dynamics."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.13505",
+          "material_read": "Proposition 16, p. 21, extracted offset 74797 and its starting-state convention",
+          "method": "Open-access passage inspection",
+          "title": "Graph-theoretic framework for semi-Markov networks",
+          "trigger": "Direct zero-diagonal entrance-time comparator"
+        },
+        {
+          "assessment": "Prior general first-passage ingredients, not the matched-observables example or minimal sign reversal",
+          "evidence": [
+            "First-hit conditional means use the past, current age and excess life; the next-state mark appears in the conditioning formulas."
+          ],
+          "identifier_or_url": "https://doi.org/10.21203/rs.3.rs-2184300/v1",
+          "material_read": "Section 3 Theorem 1, pp. 6–7, extracted offset 11377; related preceding mark formulas",
+          "method": "Open-access preprint passage inspection",
+          "title": "Conditional Hitting Time and Mean Residual life in Semi-Markov Models",
+          "trigger": "Possibly equivalent residual and destination conditioning"
+        },
+        {
+          "assessment": "Material unresolved overlap risk; abstract does not decide it",
+          "evidence": [
+            "Describes conditional first-hit mean and law via excess life, state-dependent measures and steady-state behavior."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/03610926.2025.2483291",
+          "material_read": "RePEc abstract, offset 400; no technical full-text passage retrieved",
+          "method": "Lawful publisher and repository lookup; publisher denied access and no alternate full text was found",
+          "title": "Conditional hitting time and state-dependent measures in semi-Markov models",
+          "trigger": "Plausible stationary-age specialization"
+        },
+        {
+          "assessment": "Different clock, conditioning and target convention",
+          "evidence": [
+            "Theta is defined with a minimum over j>=1 given the last two symbols; defects are proportional to squares of differences of discrete transition probabilities."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-kemeny-rigidity-and-exact-memory-defects-in-positive-binary-seco--5b2855be75d8",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Published record via local mirror",
+          "title": "Kemeny rigidity and exact memory defects in positive binary second-order chains",
+          "trigger": "Exact random-target defects under memory"
+        },
+        {
+          "assessment": "Uses strictly different data and addresses full kernel recovery rather than the equilibrium hitting functional",
+          "evidence": [
+            "The inverse relates the one unknown row to a full Laplace occupation vector, or a continuum of reset-rate occupation vectors."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-single-start-tomography-and-projective-response-rigidity-in-semi--77c044007472",
+          "material_read": "RESULT.md Finding and beginning of assumptions, offset 0",
+          "method": "Published record via local mirror",
+          "title": "Single-start tomography and projective response rigidity in semi-Markov networks",
+          "trigger": "Recovery of the same joint duration–destination information"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 15–28 and 76–107",
+        "The entrance versus equilibrium convention shown by the primary comparisons above"
+      ],
+      "rationale": "The pair tests whether quantities available without linking each holding interval to its destination determine a natural network hitting summary. It gives failure even when full unmarked holding laws, not merely their moments, agree, and removes the usual mean-residual-life explanation by matching unit SCV. The sign reversal and two-state boundary identify precisely why that reduction fails.",
+      "residual_risks": [
+        "No classification of all possible defects is proved, and the obstruction does not apply when the full marked kernel is available."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

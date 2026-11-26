@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:20:42.642180Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The per-spin energy change is 2Jσ_i(x−sum of neighboring spins), so the only nonnegative positive-field sign breakpoints are 1 and 3, with no ties at zero. Below 1, stability requires the aligned edges to be a matching. Each of 12 pentagons has an odd number of aligned edges, and a matching fits at most two per pentagon, so there is precisely one per face and exchange energy −18J. Conversely equality in the face lower bound forces that matching in the cubic planar embedding. The aligned edges correspond to perfect matchings on the dual and face-parity consistency determines spins up to global reversal. For a down-spin set A of size k, the energy in units of J is 30−20x+2(x−3)k+4e(A). For k≤8 and 0<x<3 this is minimized only by independent eight-sets; for k>8 the exchange bound −18 and magnetization <4 exclude a tie. At x=1 strict flips require independence and at least two down neighbors for each up vertex, forcing 3k≥2(20−k). An independent eight-set reaches the zero-field exchange bound and thus every up vertex has at most one up neighbor; all five such sets are strict. Weak flips at x=1 instead permit each down vertex at most one down neighbor and require each up vertex at least one. For 1<x<3 the strict and weak conditions both say independent and dominating, exactly maximal independent. At 3, the weak and ground sets are the independent sets and none is strict; above 3 only all-up survives. Independent exact reproduction: python3 /workspace/evidence/dodecahedron.py uses two ten-bit rings, rotated neighbor masks, and all 1,048,576 labelled assignments. At doubled fields 0,1,2,4,6,8 the strict/weak/ground counts are 250/250/250, 250/250/5, 5/6710/5, 295/295/5, 0/5828/5828, 1/1/1; it checks identity of the plateau ground sets and the relevant magnetization distributions. The analytic energy and flip inequalities, not field sampling, extend these counts to the indicated real intervals. In particular 6710 is the inclusive weak count at x=1, and 6705 are weak but non-strict (admit a neutral flip); the frozen informal use of marginally stable refers to the inclusive weak count. Absorbing means under the stated positive-rate allowance for zero-energy flips, not collective or multispin dynamics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Spirin, Krapivsky and Redner study ferromagnetic lattices. Konstantinidis studies classical anisotropic Heisenberg equilibrium and magnetization discontinuities. The closest inspected field-resonance record concerns the icosahedron and gives counts 407 and 191 at fields 1 and 3 there; a distinct trap-barrier record concerns the cuboctahedron."
+        ],
+        "reasoning": "Same update idea or similar polyhedral geometry does not imply the field counts on GP(10,2). None of these inspected statements quantifies over arbitrary polyhedral graphs in a way that specializes to the census.",
+        "searches": [
+          "arXiv:cond-mat/0105037 zero-temperature Glauber dynamics",
+          "arXiv:2311.17205 Ising-limit dodecahedron magnetization",
+          "Resultary related field-resonant stability and excited trap classifications"
+        ]
+      },
+      "checked_sources": [
+        "Strečka–Karľová–Madaras, arXiv:1502.04449v1 Table 5",
+        "Spirin–Krapivsky–Redner, arXiv:cond-mat/0105037 model passage",
+        "Konstantinidis, arXiv:2311.17205 specified passages",
+        "Local Resultary exact self-match and icosahedral/cuboctahedral comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Table 5 establishes the unchanged plateau and, with the local flip criterion, is enough for some ground-related cases, including the weak count at x=3. The degree-one dominating constraints at x=1 admit nonground configurations and require a different count. The same-day icosahedron source has distinct neighbors, coordination and counted states."
+        ],
+        "reasoning": "A field-dependent global minimum classification cannot recover the distribution of minimum single-spin increments over all off-ground states. The precise extra computation is the weighted-cut local census with neutral moves separated from strictly absorbing states.",
+        "searches": [
+          "Strečka–Karľová–Madaras Table 5, per-magnetization minima versus per-configuration local inequalities",
+          "Resultary field-resonant Ising classifications on the icosahedron and cuboctahedron"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Table 5 covers minima for each nonnegative magnetization, not one-spin local maxima of weighted cuts; its independent-set enumeration counts all independent sets, not maximal independent sets. The x=1 weak configurations also allow internal edges in the down set, subject to maximum induced degree one and domination."
+        ],
+        "reasoning": "The local inequalities are exactly constrained vertex-subset statements. Neither unconstrained independent-set coefficients nor equilibrium degeneracies determine those restrictions from their tabulated values.",
+        "searches": [
+          "Dodecahedron kinetic and local spin minima, maximal independent sets and x=1 weak metastable count",
+          "arXiv:1502.04449v1 Table 5; Resultary dodecahedron Glauber one-spin traps"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The primary table already implies 250 zero-field ground states including reversal, the five-state positive plateau, and independent-set coefficients 1,20,160,660,1510,1912,1240,320,5 summing to 5828. The exact indexed 6710 match ends in 29e12a32ba9e, the assigned record itself."
+        ],
+        "reasoning": "The equilibrium and independent-set benchmarks are preexisting. The table does not report the weak x=1 count or the 295 maximal independent sets, and the self-match is not independent coverage.",
+        "searches": [
+          "arXiv:1502.04449v1 Table 5",
+          "Resultary exact dodecahedral kinetic counts and field-resonant stability"
+        ]
+      },
+      "rationale": "The supported distinction is the labelled all-field strict/weak one-spin stability census, especially the degree-one dominating-set condition and 6710 weak states at x=1. The equilibrium benchmark and independent-set totals are credited, and the generic local flip formula or equivalence with independent domination is not a standalone originality claim.",
+      "residual_risks": [
+        "A differently indexed kinetic or constrained dominating-set census on the dodecahedron could overlap. The assessed priority evidence is limited to retrieved statements; an independence-complex primary source was not independently retrieved, and the equilibrium table already establishes the credited independent-set counts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers credited equilibrium benchmarks, not the one-spin kinetic census.",
+          "evidence": [
+            "S_T=0 has 240 minima; S_T=4 has five type-8A states with energy −18J−4h; size-resolved independent-set degeneracies give 5828."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1502.04449v1",
+          "material_read": "Primary HTML Table 5 and accompanying equilibrium interpretation (table near text offset 22416).",
+          "method": "Read energy and degeneracy rows and reconstruct known counts by reversal and subset size.",
+          "title": "Giant magnetocaloric effect, magnetization plateaux and jumps of the regular Ising polyhedra",
+          "trigger": "Exact same antiferromagnet and field setting."
+        },
+        {
+          "assessment": "Related dynamics, ferromagnetic lattice scope rather than the finite antiferromagnetic cage.",
+          "evidence": [
+            "Ferromagnetic lattice freezing with zero-temperature single-spin flips."
+          ],
+          "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/cond-mat/0105037",
+          "material_read": "OA introduction and model passage, near text offset 500.",
+          "method": "Compare coupling sign, geometry and update rule in the primary text.",
+          "title": "Freezing in Ising Ferromagnets",
+          "trigger": "Zero-temperature single-spin Glauber traps."
+        },
+        {
+          "assessment": "Inspected results concern equilibrium or quantum discontinuities, not counts of configurations stable against local Ising flips.",
+          "evidence": [
+            "Anisotropic classical Heisenberg magnetization; the inspected later spin-flip reference is a quantum discontinuity near saturation."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2311.17205",
+          "material_read": "Abstract/Ising-limit description near offset 326, and the flip passage near 25723.",
+          "method": "Bounded OA passage inspection by model and claimed observable.",
+          "title": "Origin of the classical magnetization discontinuities of the dodecahedron",
+          "trigger": "Dodecahedral field response including Ising limit."
+        },
+        {
+          "assessment": "A different graph, not equivalent or covering; same date is not a priority ordering.",
+          "evidence": [
+            "Icosahedral weak counts 407 and 191 at x=1 and 3."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-excited-zero-temperature-traps-and-field-resonant-stability-spik--451b02d75076/RESULT.md",
+          "material_read": "Mirrored Finding, text offset 0.",
+          "method": "Read the actual graph and census in the catalogue mirror.",
+          "title": "Excited zero-temperature traps and field-resonant stability spikes",
+          "trigger": "Strong adjacent Resultary statement about critical-field weak stability and excited strict traps."
+        },
+        {
+          "assessment": "Different graph and barrier question, not prior coverage of the dodecahedral spike.",
+          "evidence": [
+            "Cuboctahedral counts 36 and 8 excited strict traps alongside nine ground states."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-two-peaked-activation-barriers-for-single-spin-traps-of-the-isin--81beb63bb8e7/RESULT.md",
+          "material_read": "Relevant mirrored result statement.",
+          "method": "Compare the stated graph, trap counts and observable.",
+          "title": "Two-peaked activation barriers for single-spin traps",
+          "trigger": "Nearby matched strict-trap and equilibrium comparison."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exactly specified canonical frustrated Ising cage separates thermodynamic equilibrium from the zero-temperature single-spin landscape: the same five ground states persist while strict excited traps change from 245 to 290, and the intervening field has 6705 additional neutral-move weak states. The structural descriptions make the exact finite census interpretable and useful as a dynamics benchmark rather than a recomputation of equilibrium counts. It does not predict basins, escape barriers, or absorption times.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

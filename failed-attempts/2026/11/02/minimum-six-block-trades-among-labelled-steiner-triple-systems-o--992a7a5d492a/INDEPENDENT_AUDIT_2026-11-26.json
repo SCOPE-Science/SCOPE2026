@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:08:14.568053Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An exact-cover search for the pairs terminates and branches uniquely for each actual design. An independent reproduction normalized the four blocks through 0 to a single perfect matching of the other eight points, found eight completions, and relabelled these over all 105 matchings to give 840 distinct systems. Indexing six-block subsets detected every pair with at least six blocks in common, and every distinct such pair had exactly six in common. Its neighborhood at each vertex was exactly the 36 distinct transposition images. Breadth-first search gave all seven intersection/multiplicity/distance rows and reaches all 840 designs; conjugation invariance of the generating transpositions and transitivity transfer the rooted table to all pairs. An independently written all-root enumeration agreed. The standard affine plane is a system because each distinct pair has a unique third point on its line. Its 432 affine automorphisms are all stabilizers by orbit–stabilizer, so the group and coset model follow, and a transposition step changes the six blocks containing exactly one of the swapped points. The minimum coset word length is 9 minus the largest number of cycles in a representative, since a transposition changes the cycle count by one and every length-k cycle decomposes into k−1 swaps. The largest intersection of distinct systems is six, so the described trade volume is also the smallest nonzero one in this order. The independent fixed-matching reproduction is python3 /workspace/branches/reproduce.py 3; source scripts were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Switching cycles §4 defines the fixed-label realization graph R(v,n), gives R(9,6) connected, and counts 840 vertices; the order-nine transposition argument is analogous to the order-seven argument. Griggs–Rosa's accessible abstract concerns maximal uniformly intersecting collections."
+        ],
+        "reasoning": "The prior graph construction is substantive structure coverage, not just a result on improper systems; the decisive full metric coverage comes from the Resultary record. The inaccessible chapter could contain finer data, but that is not needed for the decision.",
+        "searches": [
+          "Grannell–Griggs–Murphy, Switching cycles in Steiner triple systems, §4 Theorem 4",
+          "Griggs–Rosa DOI:10.1007/978-1-4613-0245-2_10"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 82ef28f50cd7",
+        "Grannell–Griggs–Murphy (1999), §4",
+        "Chee–Ling–Shen arXiv:0807.2500, §2",
+        "Forbes–Grannell–Griggs author preprint, pp. 1–2",
+        "Griggs–Rosa 2003, abstract only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier Resultary theorem covers every ordered pair on the same fixed labels. It identifies the transposition and affine relabelling model, with the same diameter, order, and regularity. Forbes et al. minimize volume of one trade to an isomorphic target, mainly at order 15."
+        ],
+        "reasoning": "Transposition edges and the affine stabilizer are precisely the Schreier action; every path and table entry transfer without extra hypotheses. The class-level one-trade volume concept is not this path metric.",
+        "searches": [
+          "Resultary 82ef28f50cd7, Findings and affine coset proof",
+          "Forbes–Grannell–Griggs, Distance and Fractional Isomorphism in Steiner Triple Systems, pp. 1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two matchings through a,b on the six points outside their common block are disjoint and form one alternating 6-cycle. The older record's switch swaps a,b in exactly the six blocks containing just one of them."
+        ],
+        "reasoning": "This is the same transposition action; the older metric assigns distance one iff there are six common blocks, proving edge-set equality with the frozen graph, including the converse.",
+        "searches": [
+          "Local Resultary: STS(9) six-block trade, six-cycle switch distance, point transposition and S9/AGL(2,3)",
+          "Resultary 82ef28f50cd7, Finding and Assumptions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The predecessor lists (k,d,count)=(12,0,1),(6,1,36),(4,2,27),(3,2,152),(2,2,216),(1,3,216),(0,3,192). Chee–Ling–Shen quote the Lindner–Rosa feasibility spectrum {0,1,2,3,4,6,12}."
+        ],
+        "reasoning": "Every row agrees including per-root multiplicities; the older feasibility theorem alone is not a metric or multiplicity table.",
+        "searches": [
+          "Resultary 82ef28f50cd7, full intersection/distance table",
+          "Chee–Ling–Shen arXiv:0807.2500, §2 Theorem 1"
+        ]
+      },
+      "rationale": "The full labelled shortest-path law, its exact table, and the affine/transposition structure are covered in an earlier-dated distinct Resultary record. Classical six-cycle switching also already gives the graph interpretation and connectivity. The decision does not depend on obtaining the 2003 chapter or establishing historical authorship.",
+      "residual_risks": [
+        "Griggs–Rosa full text was not obtained; finer coverage by that chapter was neither established nor excluded.",
+        "The indexed overlap establishes statement-level coverage, not authorship or historical priority beyond the evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the whole labelled graph and metric; not the assigned record itself",
+          "evidence": [
+            "The distance-one condition is precisely six common blocks; the seven-row table is identical."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-six-cycle-switch-distances-between-labeled-steiner-triple--82ef28f50cd7/RESULT.md",
+          "material_read": "Finding, table, precise switch definition, and affine model proof",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4, offset 0 and proof passages",
+          "title": "Exact six-cycle-switch distances between labeled Steiner triple systems of order nine",
+          "trigger": "Exact distance, intersection, and graph-structure match"
+        },
+        {
+          "assessment": "Covers the switch graph realization, connectivity, and order; inspected theorem does not give the full shortest-path law",
+          "evidence": [
+            "Theorem 4 gives connectivity of R(9,6) and the 9!/432 realizations."
+          ],
+          "identifier_or_url": "https://grannell.net/Papers/SWITCH2.pdf",
+          "material_read": "§4, Theorem 4 and proof, pp. 6–7",
+          "method": "Author preprint, OA PDF offsets 7700–11123",
+          "title": "Switching cycles in Steiner triple systems",
+          "trigger": "Classical formulation of the same graph"
+        },
+        {
+          "assessment": "Covers feasible intersections only in the inspected theorem",
+          "evidence": [
+            "Quoted theorem of Lindner–Rosa at order nine."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0807.2500",
+          "material_read": "§2 Theorem 1, p. 3",
+          "method": "OA PDF, offset 7244",
+          "title": "The Fine Intersection Problem for Steiner Triple Systems",
+          "trigger": "Classical intersection spectrum"
+        },
+        {
+          "assessment": "Unresolved scope of tables; not evidence against originality by itself",
+          "evidence": [
+            "Abstract concerns maximal uniformly intersecting collections."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/978-1-4613-0245-2_10",
+          "material_read": "Abstract only",
+          "method": "Publisher PDF/chapter redirect and alternate lawful access attempts did not produce primary full text",
+          "title": "Sets of Steiner Triple Systems of Order 9 Revisited",
+          "trigger": "Possible finer orbital/intersection coverage"
+        },
+        {
+          "assessment": "Different target and optimization variable",
+          "evidence": [
+            "Distance allows an isomorphic copy of the target and measures volume of one trade, not number of moves at fixed labels."
+          ],
+          "identifier_or_url": "https://grannell.net/Papers/FRACISO.pdf",
+          "material_read": "Author preprint pp. 1–2",
+          "method": "OA primary PDF",
+          "title": "Distance and Fractional Isomorphism in Steiner Triple Systems",
+          "trigger": "Candidate equivalent notion of design distance"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Determining shortest legal paths for a canonical labelled design is a motivated finite classification, but this record recovers the already available entire graph and rooted metric. It adds no radius, distance-layer refinement, or new regime. The independent computation validates the result but does not create a useful new remainder.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

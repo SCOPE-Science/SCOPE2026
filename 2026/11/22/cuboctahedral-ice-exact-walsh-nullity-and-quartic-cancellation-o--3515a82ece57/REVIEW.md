@@ -1,15 +1,21 @@
-# Review of the cuboctahedral-ice Walsh theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-A full twenty-four-edge branching enumerator counts 600 balanced orientations and computes all 16,777,216 exact integer Walsh coefficients. An independently programmed thirteen-coordinate affine-parity solver counts 600 states without relying on the branching implementation and computes the 8,192 quotient coefficients. Its 4,639 zeros expand by factor 2,048 to the same full nullity, with minimum nonzero magnitude 4. Separate exact direct signed sums check all two- and four-edge supports, obtaining zero and 864 vanishing instances; cube-symmetry images partition the 864 into 21 orbits. Both Fourier computations agree on the exact endpoint projection norm; translation averaging proves it is minimal even without invariance. The report explains why all configurations and characters are covered, and the standalone code plus outputs document the finite certificates.
+## correctness
 
-## Originality — PASS under bounded comparison
-The classical cited ice literature concerns partition functions, lattice sampling/mixing, boundary conditions and graph description; it does not supply binary signed edge-incidence recovery data for this exact finite graph. The closest publicly indexed finite calculations address the octahedral graph's low-degree frame (six vertices rather than twelve) and the 3-by-3 periodic ice torus (nine vertices and eighteen edges), and are not statements of this graph's twenty-four-coordinate rank or endpoint projection norm. Direct aliases, exact numerical claims, equivalent formulations and broader coverage were searched in the available mathematical database and public literature; no covering claim was identified. The remaining risk is an unindexed equivalent calculation and relevant full articles not all inspected.
+PASS
 
-## Value — PASS
-The cuboctahedral graph is a canonical 4-regular Archimedean graph, not a selected toy subcase. The 864 quartic blind characters form 21 full-symmetry orbits, separating the forced reversal-odd nullspace from genuine even-frequency failures; the precise 7,276,544-dimensional recoverable space and sharp 29471/2048 optimal endpoint projection constant quantify how much signed orientation data survives Fourier deconvolution. This is a complete natural finite benchmark, not a minor refinement of a known table or merely a computed unsigned orientation count.
+Fresh exact enumeration by GF(2) row reduction and outdegree filtering recovered 600 balanced states among 8192 parity-admissible vectors. The rank-11 incidence constraints imply 2048 full characters per restricted character up to a fixed sign. The reduced integer Walsh transform gave 3553 nonzero, 4639 zero and minimum nonzero magnitude 4; the full counts are 7276544 and 9500672. Reversal forces 8388608 odd zeros, hence 1112064 even zeros. Direct sums on 276 pairs and 10626 quartets gave zero and 864 zeros respectively. Adjacency-preserving enumeration found 48 automorphisms and the quartic zeros partitioned into fifteen size-48 and six size-24 orbits. The empty frequency gives 600, hence the condition number is 150 and the pseudoinverse norm is 1/4. Averaging any range projection over translations gives the unique range projection diagonal in Walsh coordinates, without increasing either endpoint norm. The inverse-transform kernel is supported on the linear parity subspace and its absolute sum was 117884/8192 = 29471/2048.
 
-## Scientific limits and comparison risks
-The result concerns one finite graph; it does not cover all ice lattices. Coded exact enumeration is part of the proof, not a claim of symbolic closed form. Relevant foundational source bodies were read to the extent specified in the audit, but no global literature search proves uniqueness or priority. External mathematical review is still needed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct claim is the exact cuboctahedral Fourier range, first even blind supports and endpoint projection constant, not the classical orientation model, its coefficient-extraction count, or Walsh diagonalization. No equivalent evaluated invariant or result implying it was found in the inspected statements.
+
+## value
+
+PASS
+
+The cuboctahedron is a natural finite four-regular ice graph. The finding distinguishes reversal-forbidden frequencies from extra even blind modes, classifies the lowest such modes, and gives exact rank and conditioning data. The projection constant controls the best endpoint norm even for projections not designed by Fourier symmetry. These motivated invariants are useful for comparison with other graph-ice recovery models and are not given merely by a state count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review: exact mod-two homology of the seven-vertex three-domination complex
+# Independent mathematical audit
 
-## Correctness — PASS
-The precise object is the downward-closed simplicial complex of edge subsets on seven labeled vertices with no dominating pair. Every graph mask among \(2^{21}\) is tested against all \(21\) possible vertex pairs, so the face census is exhaustive. The verifier contains an explicit matching algorithm and constructs the entire Hasse graph; all \(287276\) nonempty faces and \(2113692\) covering relations are checked. The complete topological sort certifies acyclicity rather than inferring it from unmatched-cell counts. Exact mod-two Morse differentials have ranks \(0,56,262,6\), deriving the claimed ranks. Reversing the matching coordinate order yields different critical counts and ranks \(0,55,82,2\), independently recovering the same Betti vector. The Euler check is consistent. The proof and reproducible code establish only homology with \(\mathbb F_2\) coefficients; neither integral torsion nor an actual sphere-wedge homotopy equivalence is established.
+## correctness
 
-## Originality — PASS, with residual risk
-González and Hoekstra-Mendoza's defining work (arXiv:1901.07130v2, complete primary text examined) classifies \(D_{n,n-2}\) and \(D_{5,2}\), while discussing \(D_{6,3}\) using Euler characteristic. The seven-vertex \(D_{7,3}\) has a different domination threshold and is not an instance of either theorem. Two publicly available subsequent findings for \(D_{6,3}\) give its homotopy type and mod-two homology but do not imply the present seven-vertex ranks. Searches for aliases such as graph-property simplicial complexes and domination-number-at-least-three graph complexes uncovered no covering exact \(D_{7,3}\) table or stronger homological classification. The realistic residual risk is an equivalent, unindexed computation; these searches are not proof of absolute novelty.
+PASS
 
-## Value — PASS
-This complex occupies the next natural unclassified region of the domination-number filtration studied in the primary paper. An exact homological invariant for \(D_{7,3}\) is a motivated finite classification, not an arbitrary graph sample or a numerical bound. Its four simultaneous homological degrees extend the observed two-degree pattern of the six-vertex \(D_{6,3}\) case, provide a precise reproducible target for prospective homotopy classifications, and expose rich behavior beyond the uniform single-degree theorem at \(D_{n,n-2}\). The result has useful intrinsic topological information without requiring a broader theorem.
+The seven-vertex graph has domination number at least three exactly when every pair has an outside vertex adjacent to neither member: an existing dominating singleton would extend to a pair. I independently enumerated all 2^21 edge masks by this common-nonneighbor test, formed every augmented simplicial boundary column by single-edge deletion, and reduced the original matrices by exact binary Gaussian elimination, without matching, Morse projection, or execution of the frozen verifier. The face counts for cardinalities 0–12 are 1,21,210,1330,5985,19782,47187,76590,76860,43330,13566,2310,105; all later counts vanish. The boundary ranks for cardinalities 1–12 are 1,20,190,1140,4845,14937,32250,44234,32003,11326,2205,105. The codomain for cardinality one includes the empty simplex, so rank-nullity with both adjacent boundaries gives exactly reduced mod-two Betti numbers 106,623,1,35 in dimensions 6–9 and zero elsewhere. This corroborates the frozen verifier’s homology output by an independent method, not merely by Euler characteristic. No inference about integral homology or homotopy type is made.
 
-## Closest literature and limitations
-Primary source: González–Hoekstra-Mendoza, arXiv:1901.07130, Theorem 1.1, Proposition 1.3, Problem 1.4, and Sections 2 and 8. Related published computational records: the two \(D_{6,3}\) findings cited in the main article. Residual risks: other unindexed exact computations; reliance on an exhaustive implementation, with two ordering checks using the same foundational face criterion. No integral, equivariant, or homotopy classification is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The inspected primary theorem and closest catalogue computations concern other thresholds or numbers of vertices. No equivalent exact seven-vertex no-dominating-pair computation was located. The pass is for the complete mod-two Betti vector at (7,3), not the introduction of the filtration or the use of existing homology methods.
+
+## value
+
+PASS
+
+This is a natural term of a studied domination filtration, close to but outside its classified diagonal. Knowing that four adjacent reduced degrees survive, with a rank-one degree-eight term and the full exact ranks, is information unavailable from neighboring wedge classifications or Euler characteristic. It is a reproducible benchmark for future filtration and coefficient comparisons, without claiming a full census, persistence, or a homotopy classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:45:03.350123Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–106, AUDIT.json, METADATA.json, REVIEW.md, SLOGAN.txt, VERIFICATION.md and verify.py (read, not executed)",
+        "Independent exact check: /workspace/branches/12b02a5d-2389-4297-a444-25a9a0411490/independent_exact_check.py"
+      ],
+      "rationale": "For t>0 the Hessian of the trace exponential in any nonzero symmetric direction is the sum of squared spectral-basis entries times strictly positive integrated exponential factors. The edge-to-Laplacian map is injective, so compactness gives a unique minimizer and uniqueness gives continuity on (0,∞). At fixed B, tr L=2B and the Taylor remainder is uniformly O(t³) on the simplex. The quadratic coefficient has matrix T=tridiag(1,4,1), and solving Ty=1 with y₀=yₙ=0 gives the stated alternating geometric formula. The two boundary terms in its numerator have magnitude at most 2ρ<1−ρⁿ, proving positivity and feasibility of the normalized stationary point; subtracting the first two recurrence equations gives 3(y₁−y₂)=y₃>0, also for n=4. Uniform convergence and uniqueness yield the short limit. For the long limit the centered linear test vector bounds λ₂ even at disconnected allocations. For the proposed wᵢ=c i(n−i), the path polynomial operator has leading action c k(k+1) on degree k: the backward-minus-forward coefficient is linear with leading term 2i, and the sum has leading term −2i². Evaluation on the n vertices triangularizes it through degree n−1, so the gap is exactly 2c. Equality for any other allocation in the fixed-vector Rayleigh bound forces the same weights by summing the node equations. The minimum heat trace bounds its optimizer's gap below by λ*−log(n−1)/t; compactness gives the long limit. Its first two weights have strict reversed order when n>3, hence there is a finite crossing by continuity. For the curvature ratio, Qshort=B²/(sum y) with sum y=n/6+O(1); summing the long design's squared eigenvalues gives Qlong=12B²(3n²−2)/(5n(n²−1)). Their ratio tends to 6/5, not a ratio of heat traces. Independent Fraction computations for n=4 through 10 corroborate the exact linear systems and spectra, and for n=4 give Qshort=7/4 and Qlong=46/25 for a unit budget. The all-size and all-horizon claims rely on the proof, not the frozen numerical execution count.",
+      "residual_risks": [
+        "No claimed finite-time closed form, monotonicity, uniqueness of a crossing, or interiority at every t. Bounded exact runs are not all-time verification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Unequal masses and edge prices are handled by the variance-law gap theorem. Equal masses and prices give exactly the parabolic profile after the Laplacian/budget normalization. The cap-inactive theorem gives the same profile on even paths.",
+          "Boyd gives the convex spectral-function and budgeted gap frameworks; Kempton et al. study algebraic connectivity or eigenratio with local constraints."
+        ],
+        "reasoning": "These general results cover the classical setup and, in the gap design papers, the long endpoint. They do not solve the distinct short endpoint or imply the opposite edge ordering or the second-moment penalty.",
+        "searches": [
+          "Resultary: price metric variance law fastest mixing birth death path sharp central edge capacity fastest diffusion even paths",
+          "Boyd, Convex Optimization of Graph Laplacian Eigenvalues, §§1 and 3",
+          "arXiv:1505.07279v1, first-page objective and constraints"
+        ]
+      },
+      "checked_sources": [
+        "Two Resultary exact source records on fastest continuous-time path diffusion",
+        "Boyd convex Laplacian eigenvalue optimization paper",
+        "Boyd–Diaconis–Sun–Xiao; Ghosh–Boyd–Saberi; Kempton–Herrmann–di Bernardo, inspected primary passages",
+        "Targeted primary and Resultary searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior gap-optimal designs imply exactly the old parabolic allocation, not the finite-time comparison. Generic spectral convexity applies to the heat trace but does not produce its path-dependent endpoint geometry.",
+          "The stochastic-path work minimizes the second-largest eigenvalue modulus over symmetric stochastic tridiagonal matrices; effective resistance minimizes an inverse spectral moment."
+        ],
+        "reasoning": "None of those implications supplies the alternating short boundary correction. It is that correction and its strict local ordering, compared with the parabolic endpoint, that force the reversal and give the precise coefficient penalty.",
+        "searches": [
+          "Resultary variance-law and central-edge-capacity main theorems",
+          "Boyd, Convex Optimization of Graph Laplacian Eigenvalues, §§1 and 3",
+          "Boyd–Diaconis–Sun–Xiao, Fastest mixing Markov chain on a path, opening problem and answer",
+          "Ghosh–Boyd–Saberi, Minimizing Effective Resistance of a Graph, abstract and introduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The heat trace is squared Frobenius diffusion norm at half-time. Its first variable Taylor coefficient is half the sum of squared Laplacian eigenvalues, with the trace fixed. Boyd's framework covers both convex objectives but not the path optimizer. The indexed heat-shape, loading and leader-placement comparisons concern different feasible sets or objectives."
+        ],
+        "reasoning": "The same word 'mixing' can mean gap maximization or SLEM minimization; neither objective is equivalent to finite-time heat trace. Reformulating as a second moment only identifies the short objective, not the path recurrence's normalized optimizer or its comparison to the long design.",
+        "searches": [
+          "Primary search: optimization minimize heat trace tr exp weighted graph Laplacian path fixed trace conductance budget spectral function tr L squared optimal edge weights Boyd Ghosh diffusion time",
+          "Resultary: optimal finite-time heat trace weighted path diffusion small horizon tridiagonal allocation priority penalty spectral gap"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned exact hit is not earlier evidence. Related indexed results concern premium star edges or different path objectives. The relevant established formulas retrieved give the long design only; no prior exact short design or 6/5 comparison was identified."
+        ],
+        "reasoning": "The relevant exact database comparison is the all-order path formula and constant, not a finite numerical table of diffusion examples. Search coverage is not exhaustive.",
+        "searches": [
+          "Resultary: optimal finite-time heat trace weighted path diffusion small horizon tridiagonal allocation priority penalty spectral gap",
+          "Primary search including tr L squared and fixed conductance budget"
+        ]
+      },
+      "rationale": "The long allocation is prior, and generic convex optimization of Laplacian spectral objectives is prior. The inspected literature and records do not give the combined finite-time heat-trace endpoint comparison, in particular the exact short profile, all-size ordering reversal, and quantified 6/5 initial-coefficient regret. Priority is limited to inspected evidence.",
+      "residual_risks": [
+        "An unindexed explicit tridiagonal second-moment path design or earlier finite-time heat-kernel comparison could cover some of the new content. The known long endpoint is expressly excluded from novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Generic setup and spectral convexity are prior, not path profiles or their regret",
+          "evidence": [
+            "§1 describes convex spectral functions of affine Laplacians; §3 treats conductance-budget algebraic connectivity and continuous-time decay."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/cvx_opt_graph_lapl_eigs.pdf",
+          "material_read": "Primary PDF, especially §1 pp. 2–3 and §3 pp. 5–6",
+          "method": "OA PDF source comparison",
+          "title": "Convex Optimization of Graph Laplacian Eigenvalues",
+          "trigger": "Closest generic budgeted spectral-function framework, including second moment"
+        },
+        {
+          "assessment": "Covers the long-gap design after specializing and normalizing; no heat-trace horizon comparison in this theorem",
+          "evidence": [
+            "Optimizer is Fᵢ/(D√cᵢ) for arbitrary positive masses and prices; in the uniform case Fᵢ is proportional to i(n−i)."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-the-price-metric-variance-law-for-fastest-mixing-on-weighted-bir--03df0802fe13",
+          "material_read": "Local RESULT.md Finding, scope and covariance/equality setup",
+          "method": "OA Resultary local mirror",
+          "title": "The price-metric variance law for fastest mixing on weighted birth-death paths",
+          "trigger": "Same path and a more general gap allocation theorem"
+        },
+        {
+          "assessment": "The uncapped optimizer is old; this theorem addresses the gap with a cap",
+          "evidence": [
+            "When the cap does not lower the optimum, the weights are λ*i(2m−i)/2."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-central-edge-capacity-transition-for-fastest-diffusion-on--81038e484a4f",
+          "material_read": "Local RESULT.md theorem, scope and centered-vector construction",
+          "method": "OA Resultary local mirror",
+          "title": "Sharp central-edge capacity transition for fastest diffusion on even paths",
+          "trigger": "Same long profile on even-size paths"
+        },
+        {
+          "assessment": "Different stochastic feasible set and objective",
+          "evidence": [
+            "Symmetric stochastic tridiagonal transition probabilities minimize SLEM, with optimum cos(π/n)."
+          ],
+          "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/fmmc_path.pdf",
+          "material_read": "Opening PDF pages within first 6100 extracted characters, setup and objective",
+          "method": "Primary OA PDF",
+          "title": "Fastest mixing Markov chain on a path",
+          "trigger": "Classical path mixing optimizer under a potentially confusable normalization"
+        },
+        {
+          "assessment": "Different spectral objective",
+          "evidence": [
+            "Optimizes sum of pairwise effective resistances, not exponential spectral sum or second moment."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+          "material_read": "Abstract and opening setup of total effective resistance (first 6100 characters)",
+          "method": "Primary OA PDF",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "Classical optimum over conductances"
+        },
+        {
+          "assessment": "Gap/eigenratio and local constraints rather than budgeted heat trace",
+          "evidence": [
+            "The two stated choices are maximizing λ₂ and minimizing the eigenratio."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1505.07279v1",
+          "material_read": "Abstract and opening model/objective passages within first 6100 PDF characters",
+          "method": "Primary OA PDF",
+          "title": "Self-organization of weighted networks for optimal synchronizability",
+          "trigger": "Adjustable weighted Laplacian design"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md mathematical theorem and both independently assessed endpoint arguments",
+        "Prior variance-law and uncapped gap-design formulas"
+      ],
+      "rationale": "On the same graph family and with the same budget, a natural observation objective genuinely switches which boundary edge receives more conductance. This holds for every n≥4, rather than an arbitrary small example, and the explicit short profile gives a mechanism. The asymptotically nonzero 20% excess quantifies the cost of using the familiar gap-optimal design for the first variable short-time coefficient.",
+      "residual_risks": [
+        "The percentage is asymptotic in path order and applies only to the second-moment coefficient, not a finite-time performance guarantee."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

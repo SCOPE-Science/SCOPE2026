@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:15:07.528114Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Assessment of the corrected RESULT.md at /workspace/repairs/4/RESULT.md. The frozen long-branch proof inferred u^j=y^j merely from a leading y coefficient of one; e.g. (y+y²)^2≠y² in k[y]/(y⁴) in odd characteristic. This was a gap in the proof, not a counterexample to the classification. The replacement uses P(x)=f(y), P(y)=cx+g(y), g=y+h with h∈(y²). The relation fg=0 forces f=ts because g is y times a unit. P²(y)=P(y) then gives h(g)=-ct s; substitution by g is a unitriangular automorphism fixing s, so h=-ct s. The proposed maps respect the relations and fix their images, of the stated ranks. For the other tangent cases: zero tangent and idempotence force the radical image into all powers of the radical; full tangent gives an automorphism; in the short case the tangent of the image identifies with the image tangent line because B∩m²=P(m²). Nilpotence then gives generation by P(x), whose square vanishes iff its polynomial part has order at least ceil(N/2), even in characteristic two. Substitution shows that HH′ equality requires t=u and then c=d, and LL′ equality requires h=g and then a=b. In the mixed case equality on x requires h=-ts and equality on y requires a=-c; the two composites are the unital augmentation. Thus H has one distinct partner, graph and clique counts follow, and the ordered total is T+2(2(T−2)+1+q²) for T=2+q²+q^{floor(N/2)+1}. An independent finite check at q=2,N=4 enumerated all ordered generator-image candidates in the maximal ideal, testing defining relations and idempotence; it gave 14 maps, ranks 1:1, 2:8, 4:4, 5:1, and four edges and four isolates on the 12 nontrivial vertices. It does not replace the all-field argument. Frozen verifier and log were inspected but not executed; the verifier checks the ordered total by the edge-count identity rather than independently testing all pairs including the universally commuting endpoints.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "e79ee988b8ee determines generator-image constraints, reduced endomorphism variety and endomorphism counts over finite fields; its Limitations explicitly exclude the composition monoid laws.",
+          "The two primary automorphism papers address units, with characteristic-zero scope in their abstracts."
+        ],
+        "reasoning": "Knowing all images and the total number of endomorphisms does not characterize the composition-idempotent locus or how it pairs; those are additional equations, not specialization of the stated counting theorem.",
+        "searches": [
+          "Local mirror e79ee988b8ee, Finding and Limitations",
+          "OA arXiv:2408.02197v3 and arXiv:2609.13741v1, abstracts"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verification_output.txt; corrected RESULT.md",
+        "Resultary e79ee988b8ee, 625ba30274cb, 4bca0d9d5058 and 0ecfe14093fe",
+        "arXiv:2408.02197v3 and arXiv:2609.13741v1 abstracts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The former leaves composition laws untreated; the latter assumes x²=y²=0 and xy=λyx in a different algebra, whereas y²≠0 in the target for every N≥3."
+        ],
+        "reasoning": "The graph requires comparison of compositions, including the explicit mixed equations h=-ts and a=-c. The truncated coordinate-cross structure and the prior ambient variety do not state or immediately give those equations or their unique partners.",
+        "searches": [
+          "Local mirror e79ee988b8ee, offsets 0 and 6867",
+          "Local mirror 0ecfe14093fe, Finding at offset 0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "e79ee988b8ee covers the identical local algebra via (m,n)=(2,N) using generator-image constraints.",
+          "625ba30274cb covers the identical family via (n,d)=(2,N), but invertible endomorphisms only."
+        ],
+        "reasoning": "An invertible idempotent can only be the identity. Neither classification is an equivalent formulation of the two noninvertible families plus their mixed partner relation.",
+        "searches": [
+          "Resultary: Endomorphism varieties of truncated two-branch Artinian nodes retractions idempotents commuting graph exact classification",
+          "Resultary: Automorphisms of truncated coordinate-cross algebras over arbitrary fields equal branch automorphism group finite-field order retractions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "4bca0d9d5058 catalogue summary reports 3N−2 automorphism orbits of embedded ideals of the same algebra, not a table of labeled retractions or commuting pairs; mirror full text was unavailable.",
+          "0ecfe14093fe gives complete bipartite components and isolates for a quantum complete intersection, not this matching."
+        ],
+        "reasoning": "Ideal orbits count a different object, even where an image or kernel ideal can be attached to a map; an orbit count does not determine labeled commuting pairs. No matching distinct census was verified; the general web returns added no evidence.",
+        "searches": [
+          "Resultary: Endomorphism varieties of truncated two-branch Artinian nodes retractions idempotents commuting graph exact classification",
+          "Websearch: \"Endomorphism varieties of truncated two-branch Artinian nodes\" idempotent retractions commuting graph"
+        ]
+      },
+      "rationale": "For the repaired, unchanged claim, the closest prior gives all endomorphisms of exactly this family but explicitly leaves composition laws untreated; the other plausible results classify automorphisms, ideal orbits, or retractions of a different algebra. The classification with its exact commuting criterion survives the proof repair and the bounded prior comparison.",
+      "residual_risks": [
+        "Full text of same-day ideal-orbit record was not accessible in the local mirror; the scope distinction is based on its summary.",
+        "The primary automorphism comparisons are abstract-level. A broader unindexed treatment of retracts of local fiber products could affect priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the ambient parametrization, not the composition locus",
+          "evidence": [
+            "Gives reduced variety and total finite-field count, expressly does not determine composition laws."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-endomorphism-varieties-of-truncated-two-branch-artinian-nodes--e79ee988b8ee",
+          "material_read": "Finding and generator-image constraints at offset 0, Limitations at 6867",
+          "method": "Local mirror, bounded RESULT.md reading",
+          "title": "Endomorphism varieties of truncated two-branch Artinian nodes",
+          "trigger": "All endomorphisms of the same algebra via m=2"
+        },
+        {
+          "assessment": "Automorphisms only",
+          "evidence": [
+            "No classification of noninvertible retractions in the inspected statements."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-automorphisms-of-truncated-coordinate-cross-algebras-over-arbitr--625ba30274cb",
+          "material_read": "Finding at offset 0, Limitations at 6938",
+          "method": "Local mirror, bounded RESULT.md reading",
+          "title": "Automorphisms of truncated coordinate-cross algebras over arbitrary fields",
+          "trigger": "Same rings for n=2,d=N"
+        },
+        {
+          "assessment": "Known summary concerns another invariant; no whole-text exclusion or priority inference from date",
+          "evidence": [
+            "Orbit counts and sizes of embedded ideals under automorphisms."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-an-exact-3N-2-ideal-orbit-law-for-truncated-two-branch-artinian--4bca0d9d5058",
+          "material_read": "Catalogue summary only; RESULT.md path absent from retrieved mirror snapshot",
+          "method": "Resultary and attempted local mirror inspection",
+          "title": "An exact 3N−2 ideal-orbit law for truncated two-branch Artinian nodes",
+          "trigger": "Same algebra and same-day distinct hit"
+        },
+        {
+          "assessment": "Different relations and theorem",
+          "evidence": [
+            "Complete bipartite components for the quantum relation, not the two-branch matching."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-sharp-retraction-compatibility-transition-in-four-dimensional--0ecfe14093fe",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror, bounded RESULT.md reading",
+          "title": "A sharp retraction-compatibility transition in four-dimensional quantum complete intersections",
+          "trigger": "Same graph construction"
+        },
+        {
+          "assessment": "Context, not material priority evidence for the noninvertible problem",
+          "evidence": [
+            "Describes automorphism groups in characteristic zero."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2408.02197",
+          "material_read": "v3 abstract, offset 0",
+          "method": "OA PDF excerpt",
+          "title": "The Automorphism groups of zero-dimensional monomial algebras",
+          "trigger": "Cited monomial-algebra context"
+        },
+        {
+          "assessment": "Context, not a theorem on retractions",
+          "evidence": [
+            "Describes automorphism groups over algebraically closed characteristic-zero fields."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.13741",
+          "material_read": "v1 abstract, offset 0",
+          "method": "OA PDF excerpt",
+          "title": "Automorphism paper of Díaz, Lucchini Arteche and Manzano-Flores",
+          "trigger": "Coordinate-cross automorphism literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired result classifies all split algebra projections of a natural truncated local fiber product, and goes beyond listing admissible images: it determines exactly which projections are compatible by composition. The unique mixed partner and onset of isolated short projections at N=4 distinguish genuine structure not visible in total endomorphism counts or in the automorphism group.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

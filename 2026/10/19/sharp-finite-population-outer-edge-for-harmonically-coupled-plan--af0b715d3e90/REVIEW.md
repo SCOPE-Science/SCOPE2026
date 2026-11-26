@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Starting with the exact centroid-subtracted equations and the established stationary planar beta-disk law for an exponentially filtered run-and-tumble orientation, the proof constructs the finite-population distribution without Gaussian closure. Near the extreme endpoint, the triangle inequality controls all radial deficits and the vector-norm identity controls every relative angle. The angular Hessian is positive definite with determinant \(P/W\). Radial and angular rescaling gives an integrable Dirichlet–Gaussian endpoint integral for all \(\alpha>0\), proving the exact exponent and coefficient. Independent two-disk convolution quadrature, characteristic-function checks, and finite-sample probes support the algebra; they are not substituted for the proof.
+PASS
 
-## Originality — PASS, with residual risks
+Subtracting the centroid gives the stable rate μ=Nκ and a signed linear combination of independent identical harmonic filters. The exact planar single-filter law used is the cited disk law r²/R²∼Beta(1,α). Negating filters 2 through N by isotropy gives positive weights w=( (N−1)/N, 1/N, …, 1/N ). With W=Σw and P=∏w, the radius bound RW is attained as an essential supremum by taking all radii near R and angles near a common direction. The squared triangle deficit is a sum of nonnegative pairwise 1−cos terms; the endpoint event forces every radial deficit to be O(ε) and every principal angular difference from the first to be O(√ε). After removing the common rotation, the weighted-variance angular form has determinant P/W. The scaled event tends to Σx+|z|²/2<1; α>0 makes the bounding density ∏xᵢ^(α−1) integrable on the bounded region. Integrating yields exponent β=Nα+(N−1)/2 and coefficient (2^α Γ(1+α))^N W^(β+1/2)/[(2π)^((N−1)/2) Γ(β+1) P^(α+1/2)], which simplifies to the stated constant. As a separate normalization check, at N=2, α=1 the two-unit-disk overlap area is asymptotic to (4/3)(2−d)^(3/2) at center separation d=2; integrating the radial density 2d times the overlap divided by π from 2(1−ε) to 2 gives 128√2/(15π) times ε^(5/2), in agreement. Source verification notes and code were inspected, not executed; the general Sobol checks at finitely many deficits do not supply a limit proof. The result is fixed finite N, not an assertion of stationary absolute centroid or of a simultaneous large-N edge limit.
 
-The closest primary paper is Dutta and Basu (arXiv:2607.16905), which develops the very same active-ring dynamics and obtains distributions using a large-population effective OU/Gaussian closure for the other particles' collective driving force. That closure does not imply the claimed exact hard cutoff and finite-population edge power. Guéneau–Majumdar–Schehr (arXiv:2602.08436) give the known single-trapped-particle beta-disk law, but no centroid-relative edge for the interacting finite population. Hashorva (arXiv:1404.3304) treats aggregated Dirichlet risks, not the norm of independent isotropic beta-disk vector sums. Claim-specific research-record queries found no covering statement; searches are not a proof of global novelty. Possible implicit coverage by general convex-boundary convolution asymptotics or earlier uniform-disk distance results remains a live risk.
+## originality
 
-## Value — PASS
+PASS
 
-The observed annular distribution of a finite number of active particles is a physically motivated quantity. Existing large-population Gaussian approximations assign positive mass beyond a strict dynamical support bound. The theorem identifies the exact maximal displacement and a sharp, fully normalized extreme-rare-event law, including a nontrivial universal angular-alignment penalty. This is a quantitative diagnostic for finite-population closure errors and for near-boundary simulation data, not an arbitrary moment or a routine restatement of the known single-particle beta law.
+The distinct result is the sharp fixed-finite-population endpoint law, including its coefficient. The interacting model and the exact one-filter beta disk are prior. The inspected same-model analysis uses a large-population Gaussian approximation for its tails, and the strongest broader endpoint theorem inspected does not give this independent-vector angular-alignment law.
 
-## Scope and scientific limitations
+## value
 
-Only planar, identical particles with independent uniform-direction Poisson tumbles and harmonic coupling are covered. The asymptotic is at fixed \(N\ge2\) and fixed positive persistence ratio. Independent validation has not been performed; broad implicit mathematical coverage cannot be ruled out categorically.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact endpoint corrects an unbounded Gaussian outer-tail prediction in a model with bounded active forcing. Beyond the triangle-inequality support bound, the result separates radial persistence cost from the geometric cost of aligning N independent planar vectors and quantifies both in an all-parameter leading coefficient. This gives a finite-population benchmark rather than a statement about crossover or an empirical fit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

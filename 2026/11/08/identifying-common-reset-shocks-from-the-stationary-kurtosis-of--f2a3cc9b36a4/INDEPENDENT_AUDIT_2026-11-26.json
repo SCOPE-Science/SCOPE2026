@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:58:27.695921Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Construct the process from the last resets on a two-sided clock realization. Coupling erases the initial diffusivity at its first reset, then the initial position at the next position reset. Conditional on the clocks and Ω, X is centered Gaussian of variance 2V, with V=∫₀^∞ Ω_{−s}² 1{no position reset in (−s,0]} ds. The absence event at each s is independent of Ω_{−s}; Minkowski and ∫₀^∞e^(−Rs/p)ds<∞ bound every L^p norm of V by the stationary Laplace moments of Ω. For the two ordered times in V², absence of a position reset since the earlier time leaves exclusive internal reset rate q=Q−c. Given the earlier Ω=u, its later mean square is e^(−qd)u²+2Λ²∫₀^d e^(−qv)dv at gap d, valid also for q=0. Integrating the earlier-later product with survival weight gives E[V²]=(2/R)[E[Ω⁴]+(2Λ²/R)E[Ω²]]/(R+q). Thus E[X⁴]=12E[V²], with E[Ω²]=2Λ²/Q, E[Ω⁴]=24Λ⁴/Q² and E[X²]=4Λ²/(RQ). This independently reconstructs the moment-generator calculation in RESULT.md (in particular the common clock removes X²Ω² only once). Future Brownian increments are centered given the reset histories, and survival of the respective marginal clocks gives conditional mean factors e^(−Rt), e^(−Qt). The equal-time cross moment vanishes by W symmetry, proving both lagged cross entries vanish. Strict monotonicity on 0≤c≤min(R,Q) and algebraic inversion give exactly the stated feasibility test, including c=Q or c=R and the equal-rate contrast. Full synchronization in the record's contrast is only when R=Q=c. The supplied checker.py and VERIFICATION.md were read; their reported 680 bounded assertions are not a fresh run. The replayable check is the analytic integral and generator reconstruction against RESULT.md lines 54–96.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Olsen's reset-to-distribution setting resets spatial history at each event; Eqs. (14)–(15) use a new position draw, not state-selective overlapping resets of Brownian volatility.",
+          "An OA primary passage for Zhan–Wang was not obtained; the focused external search was not decisive."
+        ],
+        "reasoning": "The sources accessible at statement level do not give a dominating state-selective reset moment result specialized here. General generator algebra is a method and is not itself a prior sharp interpolation.",
+        "searches": [
+          "Focused primary-literature lookup for position and diffusivity reset clocks with common shocks and stationary kurtosis",
+          "arXiv:2310.04840; doi:10.1103/PhysRevE.109.044115; arXiv:1812.08489"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2205.00549",
+        "arXiv:1812.08489",
+        "arXiv:2310.04840",
+        "doi:10.1103/PhysRevE.109.044115 (access attempt; no independent primary comparison)",
+        "2026/10/25/SCOPE-exact-shared-bath-energy-memory-under-poisson-resetting--20953d731b6d",
+        "2026/11/8/SCOPE-critical-synchronization-of-squared-displacement-correlations-un--78bed4679cd8",
+        "2026/10/25/SCOPE-two-clock-diffusivity-resetting-has-a-sharp-spatial-memory-thres--0189122e6072"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known synchronized and uncoupled endpoint values do not identify the mixed-moment loss R+Q−c for intermediate clocks. The uncoupled recurrence uses R+Q instead; the synchronized renewal is confined to R=Q=c.",
+          "The new inverse and attainable interval rely on strict variation throughout the fixed-(R,Q) interval, including unequal rates, while linear stationary covariances are invariant."
+        ],
+        "reasoning": "The endpoint results materially overlap but do not imply the fixed-marginal interior statement or the distribution-free-of-c second-order comparison within this three-clock family.",
+        "searches": [
+          "arXiv:2205.00549, synchronized-reset model and concluding open selective protocols",
+          "2026/10/25/SCOPE-exact-shared-bath-energy-memory-under-poisson-resetting--20953d731b6d",
+          "2026/11/8/SCOPE-critical-synchronization-of-squared-displacement-correlations-un--78bed4679cd8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same tracer is a conditional Gaussian scale mixture with variance twice its integrated squared-Brownian volatility since the last position reset; the common reset modifies survival of the mixed observable, not the marginal reset intensities.",
+          "Santra–Basu–Sabhapandit use one clock forcing R=Q=c; Kuśmierz–Gudowska-Nowak reset a subdiffusive renewal process or only its position, a different memory variable."
+        ],
+        "reasoning": "Neither an endpoint renewal formula nor a renewal/nonrenewal protocol in a different process is equivalent to varying a common clock while holding both marginal intensities fixed.",
+        "searches": [
+          "Resultary: Brownian-squared diffusivity tracer with shared and exclusive Poisson reset clocks, stationary kurtosis",
+          "arXiv:2205.00549; arXiv:1812.08489"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/25/SCOPE-exact-shared-bath-energy-memory-under-poisson-resetting--20953d731b6d gives K=42 at R=Q=c.",
+          "2026/11/8/SCOPE-critical-synchronization-of-squared-displacement-correlations-un--78bed4679cd8 gives moment recurrences implying the c=0 kurtosis; 2026/10/25/SCOPE-two-clock-diffusivity-resetting-has-a-sharp-spatial-memory-thres--0189122e6072 also uses exclusive position and medium clocks.",
+          "The exact indexed match ending f2a3cc9b36a4 is this frozen record itself."
+        ],
+        "reasoning": "These are material partial overlaps at fixed endpoints or for distinct observables, not a table or theorem of the interior values and inverse. The same-day record is compared on its content; date alone does not settle priority.",
+        "searches": [
+          "Resultary: shared-bath energy memory, two-clock diffusivity resetting, critical synchronization of squared-displacement correlations",
+          "Resultary: identifying common reset shocks stationary kurtosis"
+        ]
+      },
+      "rationale": "The synchronized and independent endpoints are documented separately and must not be counted as novel. The distinct result is the stationary three-clock interpolation at fixed marginal rates, with its sharp inverse, despite invariance of the full linear two-time covariance matrix. The compared sources do not cover that variable-overlap statement.",
+      "residual_risks": [
+        "Zhan–Wang full text could not be read; the comparison does not exclude unindexed three-clock or polynomial-process results.",
+        "Same-day endpoint records do not resolve chronological priority; endpoint coverage is credited independently of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the synchronized endpoint and leaves selective resetting as a further direction.",
+          "evidence": [
+            "D(t)=ω²(t), with position and diffusivity restarted together at a single rate α."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2205.00549",
+          "material_read": "Primary PDF pp. 2–3 model and p. 18 conclusion, extracted offsets 3600–6784 and around 56530",
+          "method": "OA primary passage inspection",
+          "title": "Effect of stochastic resetting on Brownian motion with stochastic diffusion coefficient",
+          "trigger": "Identical diffusion model with common resets"
+        },
+        {
+          "assessment": "Comparative protocol precedent, but not the Brownian squared-volatility moment law.",
+          "evidence": [
+            "The selectively retained state is the renewal history of a subdiffusive CTRW, and the compared moments are its lowest propagator moments."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1812.08489",
+          "material_read": "Primary PDF p. 1, abstract and protocol description",
+          "method": "OA primary passage inspection",
+          "title": "On subdiffusive continuous time random walks with stochastic resetting",
+          "trigger": "Selective versus complete resets"
+        },
+        {
+          "assessment": "Different reset kernel and examples, not an established stronger formula for this clock coupling.",
+          "evidence": [
+            "Reset redraws position from a distribution; identified Brownian and run-and-tumble examples do not give separate volatility clock loss."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2310.04840",
+          "material_read": "Primary PDF p. 1 abstract and p. 3 Eqs. (14)–(15)",
+          "method": "OA primary passage inspection",
+          "title": "Steady-state moments under resetting to a distribution",
+          "trigger": "Possible broader stationary moment recursion"
+        },
+        {
+          "assessment": "Unresolved literature risk, not negative coverage evidence.",
+          "evidence": [
+            "The submitted summary characterizes an ergodicity criterion; it was not independently confirmed from full text."
+          ],
+          "identifier_or_url": "doi:10.1103/PhysRevE.109.044115",
+          "material_read": "No primary passage independently available; DOI and journal lookup were forbidden by the service response and no OA alternate was identified",
+          "method": "Bounded lawful DOI/journal and repository retrieval",
+          "title": "Ergodic criterion of a random diffusivity model",
+          "trigger": "Possible broader dependence on diffusivity time correlations"
+        },
+        {
+          "assessment": "Exact synchronized endpoint, not interpolation.",
+          "evidence": [
+            "4Λ²/r² and 672Λ⁴/r⁴ imply K=42."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-exact-shared-bath-energy-memory-under-poisson-resetting--20953d731b6d",
+          "material_read": "Mirrored RESULT model and E[X_i²], E[X_i⁴] formulas",
+          "method": "Resultary index and primary record comparison",
+          "title": "Exact shared-bath energy memory under Poisson resetting",
+          "trigger": "Same clock and fourth moment at synchronization"
+        },
+        {
+          "assessment": "Implies the c=0 endpoint; no joint position–volatility resets in its recurrence.",
+          "evidence": [
+            "The positional and volatility clocks are distinct, with no common events across those types."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-critical-synchronization-of-squared-displacement-correlations-un--78bed4679cd8",
+          "material_read": "Mirrored RESULT offsets 0–4706, assumptions and moment recurrences",
+          "method": "Resultary index and primary record comparison",
+          "title": "Critical synchronization of squared-displacement correlations under resetting",
+          "trigger": "Same independent-reset endpoint"
+        },
+        {
+          "assessment": "Single-coordinate c=0 setting, different correlation target.",
+          "evidence": [
+            "Position and internal medium resets are independent; cross-coordinate squared lag moments are compared."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-two-clock-diffusivity-resetting-has-a-sharp-spatial-memory-thres--0189122e6072",
+          "material_read": "Mirrored model and squared-position lag comparison",
+          "method": "Resultary index and primary record comparison",
+          "title": "Two-clock diffusivity resetting has a sharp spatial memory threshold",
+          "trigger": "Same two types of exclusive resets"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact overlap-dependent law answers a motivated identifiability question left open by joint-reset dynamics. Holding fixed both marginal rates and all linear covariance lags, ordinary kurtosis both separates the couplings and gives a sharp model-specific realizability test. This is more informative than recovering a fourth moment at one endpoint; it is not a finite-sample error bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

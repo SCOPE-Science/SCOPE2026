@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:10:53.754729Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the stated Zak convention, translations supply Fourier phases in omega, while splitting modulations into the two residue classes modulo 2 gives the two channels omega and omega+1/2 by Parseval (irrelevant unimodular phases and common normalization). A common zero of the continuous weight therefore rules out a uniform lower bound. At (a/2,1/2), terms k and -k-1 cancel; at (a/2,0) the transform is S(a)(U(a)-c). At (0,1/4) and (0,3/4) the odd samples cancel in pairs and the even samples give D(a)(V(a)-c), proving both exact energy identities. The Gaussian series are locally analytically convergent, with positive S and Jacobi product D. Poisson summation gives D(a)=(2a)^(-1)S(1/(2a)); differentiating its logarithm gives the duality with constant 1/(2*pi). For an independent monotonicity proof, write S_*(u)=sum_j (-1)^j exp(-u*j^2) and Phi(u)=u*S_*'(u)/S_*(u). Jacobi's product expresses Phi as a positive sum of terms m*u/(exp(m*u)-1) with weights 1 or 2; every term decreases strictly, with local uniform convergence of derivatives. Since V(a)=-Phi(4*pi*a^2)/pi, both curves increase strictly by duality. The a-to-infinity half-grid sum has U(a)=a^2/4+O(a^2*exp(-2*pi*a^2)); as a tends to zero its Poisson dual gives U(a) tending to 1/(2*pi) from above. These limits yield both open ranges and exactly one aspect for the indicated fiber, not a classification of all resonant lattices. The more precise endpoint terms in RESULT.md follow from the next half-grid pair or the leading exponential in the theta product. The derivative sign test also confirms the positive window is not a positive Gaussian-scale mixture. See RESULT.md lines 42–114; VERIFICATION.md and CHECK.py were inspected, not run, and finite sums do not establish global uniqueness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "8357d6e9b461 covers all gamma>0 and s>0 for (t^2+s)exp(-gamma*t^2), with a unique specified aspect and extra shape and inverse-aspect asymptotics.",
+          "With theta_4(y)=sum_j (-1)^j exp(-pi*j^2*y), F=y*theta_4'/theta_4 satisfies V(a)=-F(4*a^2)/pi and U(a)=1/(2*pi)+F(a^(-2))/pi. Faulhuber gives strict decrease of F; the published 2018 theorem gives decrease and convexity of y*F(y), implying decrease of F because F is positive.",
+          "The inspected Lemvig sufficient criterion needs q-p>degree, which fails here, and the inspected parity-based degree-two example in Ulanovskii–Zlotnikov uses product 1/3, not this even quadratic at product 1/2."
+        ],
+        "reasoning": "The broader positive-window result contains the fixed-scale negative-c branch, and the scalar monotonicity covers both by the identities. The related sufficient-frame/parity results are context, not the reasons for failure.",
+        "searches": [
+          "8357d6e9b461 original theorem and proof",
+          "Faulhuber 2016 Theorem 5.15",
+          "Ernvall-Hytönen–Vesalainen DOI 10.1016/j.crma.2018.04.006",
+          "arXiv:2606.31450v1 Corollary 3.7",
+          "arXiv:2611.05337v1 Theorem 2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and CHECK.py",
+        "Indexed 8357d6e9b461 original RESULT.md",
+        "Faulhuber thesis Theorem 5.15",
+        "Ernvall-Hytönen–Vesalainen DOI 10.1016/j.crma.2018.04.006",
+        "Ulanovskii–Zlotnikov arXiv:2606.31450v1",
+        "Lemvig arXiv:2611.05337v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Step 2 gives the off-null even row explicitly as (-1)^m*(s*b^2*S_*(u)-S_*'(u))/b^2; all odd rows vanish. At gamma=pi this is, apart from sign, exactly the scalar D(a)(V(a)-c) with c=-s. The product and this row identity hold algebraically at other real c as well. Both quarter-frequency terms coincide, so its two-channel energy is twice the squared residual.",
+          "At the reciprocal aspect Fourier transformation transfers that row to the half-grid Zak term times 1/b; the companion term is zero by parity. Both energy identities are direct evaluation of the already available linear residual, not new estimates on the full Zak minimum."
+        ],
+        "reasoning": "Existence, uniqueness, exact curves and scalar monotonicity are covered as stated or by exact duality. Writing the same scalar evaluations as two quadratic fiber energies does not establish any new frame-bound law or other independent substantive finding. This is demonstrated coverage, not lack of external access or a priority inference from dates.",
+        "searches": [
+          "8357d6e9b461 Steps 1 and 2 (local mirror, offsets 0–6500)",
+          "theta-four derivative monotonicity theorem and product proofs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior Phi(u)=u*S_*'(u)/S_*(u), with u=gamma/b^2. At gamma=pi, u=4*pi*a^2 and the equation Phi(u)=pi*s for positive parameter s is exactly V(a)=-s.",
+          "The even and odd pre-Gramian rows reduce to alternating sums on 2a*Z and a+2a*Z. The identity Z_a g(x,omega)=Z_(2a)g(x,2*omega)+exp(-2*pi*i*omega)Z_(2a)g(x+a,2*omega) makes their simultaneous vanishing equivalent to the two Zak terms at (0,1/4).",
+          "Fourier differentiation gives hat(g_c)=-g_(1/(2*pi)-c) and swaps (a,b). Poisson summation gives Z_b hat(g_c)(b/2,0)=b^(-1) sum_j (-1)^j g_c(j/b), the same alternating row, and at omega=1/2 parity cancels. This identifies the other named fiber, not just some obstruction at the same aspect."
+        ],
+        "reasoning": "Pre-Gramian versus Zak and Fourier-reciprocal aspect are equivalent descriptions of the existing obstruction; the comparison matches the exact fibers, parameter sign, uniqueness scope and lattices.",
+        "searches": [
+          "Resultary half-density positive quadratic-Gaussian nonframe aspect, 8357d6e9b461",
+          "Faulhuber thesis Theorem 5.15 and Ernvall-Hytönen–Vesalainen Theorem 1 for the theta-four logarithmic derivative"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/16/SCOPE-a-universal-half-density-nonframe-aspect-for-positive-quadratic--8357d6e9b461 states the exact matching theta law with a broader scale and the same uniqueness qualification. Exact statement and proof read in the local mirror."
+        ],
+        "reasoning": "This is exact catalogue coverage of the general matching law, not merely a shared numerical aspect or a theorem inferred from similar metadata. The record under review is distinct from this indexed result.",
+        "searches": [
+          "Resultary semantic lookup for the half-density nonframe aspect and the positive even quadratic-Gaussian family"
+        ]
+      },
+      "rationale": "The motivating positive-window branch and its unique aspect are exactly covered by prior indexed record 8357d6e9b461, in a broader Gaussian-scale family, with the same theta equation and the same null character. The other branch is its standard Fourier transform at the reciprocal aspect. The shared scalar strict monotonicity was already stated independently in theta literature. The remaining off-resonance numbers are direct squares of a scalar residual already computed in the prior pre-Gramian proof; the repackaging is not a distinct surviving claim of mathematical acceptance value.",
+      "residual_risks": [
+        "The review does not settle the first occurrence of the Gabor obstruction in all literature, and does not rule out other fibers or other nonframe aspects. Neither question changes the demonstrated prior coverage of the two named branches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact equivalent of the negative-c branch in a broader family and implies the other branch by Fourier transform",
+          "evidence": [
+            "Phi(u)=gamma*s gives b=sqrt(gamma/u) and a=1/(2b); odd rows vanish and the even rows equal the alternating scalar expression. Uniqueness concerns this specific obstruction only."
+          ],
+          "identifier_or_url": "2026/11/16/SCOPE-a-universal-half-density-nonframe-aspect-for-positive-quadratic--8357d6e9b461",
+          "material_read": "RESULT.md theorem, scope and Steps 1–2, offsets 0–6500, mirror commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary semantic lookup and exact original statement/proof via local mirror",
+          "title": "A universal half-density nonframe aspect for positive quadratic-Gaussian Gabor windows",
+          "trigger": "Strong earlier indexed match of window, lattice product and uniqueness"
+        },
+        {
+          "assessment": "Exact monotonicity underlying both curves was already stated",
+          "evidence": [
+            "Strict decrease of y*theta_4'(y)/theta_4(y)."
+          ],
+          "identifier_or_url": "Markus Faulhuber doctoral thesis (2016), Theorem 5.15",
+          "material_read": "Definition and Theorem 5.15, printed pp. 57–58, PDF offsets 174600–179560 with initial title material",
+          "method": "OA PDF targeted inspection",
+          "title": "Extremal Bounds of Gaussian Gabor Frames and Properties of Jacobi's Theta Functions",
+          "trigger": "Exact theta-four quotient monotonicity precedent"
+        },
+        {
+          "assessment": "Implies the needed scalar monotonicity using positivity",
+          "evidence": [
+            "y^2*theta_4'(y)/theta_4(y) is strictly decreasing and strictly convex."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.crma.2018.04.006",
+          "material_read": "Theorem 1 near PDF offset 3400, product/related theorem near offset 21700, opening metadata",
+          "method": "OA PDF targeted inspection",
+          "title": "On a conjecture of Faulhuber and Steinerberger on the logarithmic derivative of theta functions",
+          "trigger": "Published stronger logarithmic derivative inequality"
+        },
+        {
+          "assessment": "Not the decisive overlap: odd-window obstruction and a degree-two construction at product 1/3",
+          "evidence": [
+            "Corollary's construction uses product 1/(N+1) at degree at most N."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2606.31450v1",
+          "material_read": "Section 1 Eq. (1.1) near offset 4700; section 3 Corollary 3.7 near offset 20500",
+          "method": "OA HTML bounded passages",
+          "title": "Periodic Non-uniqueness Sets for Shift-invariant Spaces and Parity-Based Obstructions to the Frame Property for Gabor Systems",
+          "trigger": "Plausible published parity obstruction for polynomial-Gaussian nonframes"
+        },
+        {
+          "assessment": "Inspected sufficient criterion does not apply to this degree and density",
+          "evidence": [
+            "Sufficient condition q-p>n; here q-p=1 and n=2."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.05337v1",
+          "material_read": "Section 1 Theorem 2, offsets 5250–10703",
+          "method": "OA HTML bounded passages",
+          "title": "On the Gabor frame set of polynomial–Gaussian windows",
+          "trigger": "Broader rational-density frame criterion"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A unique nonframe aspect for each positive quadratic-Gaussian window is a meaningful obstruction, but it is not new here; its Fourier counterpart requires no new mechanism. The part not literally spelled out in the prior result is a pair of pointwise Zak energy squares of the known scalar row, not an analysis of the minimum, another distinct family of obstructions, or new control near the frame boundary. This is useful exposition of one obstruction, but no independently valuable surviving finding has been established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

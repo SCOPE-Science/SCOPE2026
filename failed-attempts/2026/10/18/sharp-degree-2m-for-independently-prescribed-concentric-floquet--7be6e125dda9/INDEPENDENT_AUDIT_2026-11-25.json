@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:17:01.218447Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 12–105",
+        "Frozen VERIFICATION.md and verify.py (read, not executed)",
+        "Independent Cartesian ODE replay for three radii"
+      ],
+      "rationale": "The radial derivative on each prescribed circle is zero and the angular speed is a+b cos θ with a>|b| and a²−b²=ω². One turn is therefore exactly one least physical period. Linearization of dr/dθ has numerator 2Kr_iF′(s_i)cos θ and no angular-denominator derivative term because F(s_i)=0. The quotient's cosine integral is −T_i w_i, giving the exact log multiplier. Choosing K above the finite maximum puts all w_i in (−1,1); the two degree-(m−1) interpolants impose their values independently. The x-component on y=0 proves degree 2m, including m=1. For the lower bound, division in y by y²+x²−s_i and evaluation on the two open semicircles gives zero remainder. The relatively prime factors together divide xP+yQ. At degree below 2m the quotient is constant, and the origin forces it to vanish. In that case radius is a first integral and regularity of a designated orbit gives an annulus of regular periodic circles, excluding hyperbolicity. Independent Cartesian ODE integration and divergence accumulation reproduced periods 2, 3.7, 1.5 and multipliers 0.66, 0.85, 1.55 on three radii, including two adjacent attracting circles. Replay: python3 branches/independent_checks.py 5 (NumPy/SciPy).",
+      "residual_risks": [
+        "The bounded numerical evidence tests one nonuniform period/stability profile only; the algebraic and variational argument proves arbitrary data. Other periodic orbits and incomplete global flows are allowed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Margalef-Bentabol and Peralta-Salas prescribe periods and qualitative stabilities with broader whole-limit-set scope but different degree bounds, not arbitrary numerical multiplier magnitudes at degree 2m.",
+          "Jana and Sarkar give a concentric-circle degree obstruction and characterize the algebraic form of invariant-circle fields, but do not prescribe temporal or numerical transverse data.",
+          "Christopher equal-degree geometric realization is reported in the frozen source; no full primary theorem passage could be verified. The Fei landing page did not supply readable text."
+        ],
+        "reasoning": "A classification of forms or prescription of attracting versus repelling signs does not determine the positive numerical eigenvalue and physical-time period simultaneously at optimal degree.",
+        "searches": [
+          "arXiv:1507.00698v2, Theorems 2.1, 4.2, 5.2",
+          "arXiv:2610.33226v1, Proposition 2.4 and Theorem 2.5",
+          "Christopher DOI 10.1023/A:1013171019668; Fei preprints.org/manuscript/202609.1834"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verification materials",
+        "Resultary b1cedcafd040, 72aee0c65402, a2c4232d008f",
+        "arXiv:1507.00698v2, arXiv:2610.33226v1",
+        "Christopher DOI and Fei retrieval attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cyclic integral, independently prescribed Lagrange coefficients and radial divisibility bound from the compared record hold with a single circle: F(s)=s−r_1² and F′=1. The radial polynomial at degree ≤1 is then a constant multiple of F(s), zero by the origin evaluation."
+        ],
+        "reasoning": "The m=1 clause is not a corollary of the bare quantified m≥2 statement, but is a mechanical instance of the actual construction and proof, so it does not make a substantive surviving claim.",
+        "searches": [
+          "b1cedcafd040, construction and proof §§1–3, offsets 0–5663"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "b1cedcafd040, Assumptions and formula (1), uses the same physical-time minimal period, same positive nonunit transverse return derivative, same polynomial degree and same containment scope.",
+          "Its z_i equals the frozen w_i since ω_i/(4π)=1/(2T_i). Reflection in the x-axis reverses the tangent field but retains the radial term KF(s)."
+        ],
+        "reasoning": "A spatial reflection is a time-preserving conjugacy, preserving numerical periods and multipliers. Opposite directions of traversal do not distinguish the results.",
+        "searches": [
+          "Resultary: sharp degree simultaneous period and Floquet realization on concentric circles; b1cedcafd040"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "b1cedcafd040, Finding, explicitly matches the frozen prescription for m≥2, including independent sides of one and allowed extra periodic trajectories.",
+          "72aee0c65402 assumes rotation equivariance and exactly two cycles with globally positive angular speed; a2c4232d008f has linked data and an alternating-stability or neutral wall."
+        ],
+        "reasoning": "The catalogue already contains the same multi-circle theorem. The two more restrictive records are not the reason for rejection.",
+        "searches": [
+          "Resultary b1cedcafd040 (simultaneous Floquet and period realization)",
+          "Resultary 72aee0c65402 (two circular limit cycles under equivariance)",
+          "Resultary a2c4232d008f (concentric orthogonality wall)"
+        ]
+      },
+      "rationale": "A distinct indexed result states the same optimal-degree simultaneous numerical period and multiplier prescription for m≥2, with the same extra-orbit scope. Its explicit construction is exactly the frozen one conjugated by (x,y)↦(x,−y); its parameters agree after ω_i=2π/T_i. The proof also applies verbatim to m=1 (constant interpolants and a single divisor), with no separate new ingredient. This is equivalent coverage as reviewed; the date shown for the comparison is later and is not evidence that it preceded the frozen result or of historical priority. Unavailable older full texts do not determine the decision.",
+      "residual_risks": [
+        "Historical priority and overlap with inaccessible older full text remain unresolved. Current equivalent coverage is explicit and does not depend on an inference about those sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent construction and sharp theorem; m=1 is immediate from the same proof",
+          "evidence": [
+            "Formula (1) has opposite tangent sign but identical data and radial term.",
+            "The lower-bound proof requires no use of m>1."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-sharp-degree-simultaneous-period-and-floquet-realization-on-pres--b1cedcafd040/RESULT.md",
+          "material_read": "Finding, assumptions, formula (1), proof of periods, multipliers and degree (offsets 0–5663)",
+          "method": "Bounded text comparison and conjugacy calculation",
+          "title": "Sharp-degree simultaneous period and Floquet realization on prescribed concentric circles",
+          "trigger": "Near-exact statement match, with lower endpoint of m different"
+        },
+        {
+          "assessment": "Not equivalent to sharp numerical Floquet prescription",
+          "evidence": [
+            "Theorem 4.2 takes qualitative stability ν_k∈{−1,1} and degree bound <2(3n+r)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1507.00698",
+          "material_read": "Abstract and Theorems 2.1, 4.2, 5.2 (pp. 1,3,10,12 in v2)",
+          "method": "Open primary text theorem comparison",
+          "title": "Realization Problems for Limit Cycles of Planar Polynomial Vector Fields",
+          "trigger": "Broad prescription with periods and stabilities"
+        },
+        {
+          "assessment": "Overlaps on the degree obstruction and algebraic form, not on arbitrary numerical data",
+          "evidence": [
+            "Bounds the concentric circular limit cycles by floor(d/2) and characterizes fields preserving the circles."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.33226",
+          "material_read": "Proposition 2.4 and Theorem 2.5, p. 3, offsets 9076–10122",
+          "method": "Open primary text theorem comparison",
+          "title": "Some Remarks on Polynomial Vector Fields in R2",
+          "trigger": "Same concentric-circle geometry and same degree scale"
+        },
+        {
+          "assessment": "Exact older theorem assumptions and proof not verified",
+          "evidence": [
+            "Frozen RESULT.md line 115 ascribes equal-degree geometric realization, not arbitrary period and multiplier control."
+          ],
+          "identifier_or_url": "https://doi.org/10.1023/A:1013171019668",
+          "material_read": "Frozen citation/description; DOI page and paper text not retrieved",
+          "method": "Lawful open-text retrieval attempted; no accessible alternate copy identified",
+          "title": "Polynomial Vector Fields with Prescribed Algebraic Limit Cycles",
+          "trigger": "Earliest cited equal-degree construction might constrain or enable both numerical controls"
+        },
+        {
+          "assessment": "Scope attributed in frozen citation not confirmed",
+          "evidence": [
+            "No primary theorem could be read from the returned page."
+          ],
+          "identifier_or_url": "https://www.preprints.org/manuscript/202609.1834",
+          "material_read": "Landing stub only, no scientific passage",
+          "method": "Lawful open-text retrieval attempt",
+          "title": "Algebraic Synthesis of Polynomial Vector Fields with Prescribed Invariant Spheres",
+          "trigger": "Possible antecedent via radial-factorized fields"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and construction",
+        "Resultary b1cedcafd040, Finding and proof §§1–3"
+      ],
+      "rationale": "Independent control of prescribed physical times and quantitative hyperbolicity at minimal degree addresses a genuine realization problem. But the compared theorem supplies that exact control by the conjugate field and the same lower bound. The lone m=1 extension is substitution into the already available proof and has no separately motivated mathematical gap to repair.",
+      "residual_risks": [
+        "This decision concerns the lack of a distinct final contribution under comparison, not the utility of the general Floquet realization result."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

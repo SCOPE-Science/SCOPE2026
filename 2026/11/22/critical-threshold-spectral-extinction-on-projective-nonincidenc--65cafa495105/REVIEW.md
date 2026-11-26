@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The general theorem follows from two-sided edge-count saturation of excited sets on any recurrent orbit, a vector recurrence, and a root-of-unity spectral obstruction on the point–line nonincidence matrix. All needed quantifiers (even projective-plane orders, arbitrary starting states, exact half-degree threshold) are explicit. Finite-plane incidence inner products are determined by incidence axioms. The normalized exceptional adjacency eigenvalues have rational squares strictly between zero and one, impossible for algebraic integers. Only temporal frequencies at \(\pm1\) remain, contradicting the refractory two-step exclusion in any nonzero recurrent orbit. Separate exhaustive integer-state and bitmask-state codes agree for all \(3^{14}\) states and the seven-step sharp witness. The files and replay commands are included.
+## correctness
 
-## Originality — PASS, with historical-priority limitations
-The sharp finite-graph density condition requires \(\rho<\theta\), but \(\rho=\theta\) here; the logarithmic degree contraction requires \(\theta>\Delta/2\), whereas equality holds. Prior half-degree period-three rigidity does not cover all periods, and previously computed Heawood excitation refers to the incidence rather than nonincidence graph. Full available source texts and relevant primary literature were compared at the level of hypotheses and implications, not just titles. The earliest 1993 primary paper was available in abstract only, and unindexed equivalent prior computations remain possible.
+PASS
 
-## Value — PASS
-Projective nonincidence graphs are canonical symmetric networks and include arbitrary finite projective planes rather than a one-off labelled graph. Their zero-oscillation theorem at critical density distinguishes them from same-degree complete bipartite counterexamples, resolving an actual boundary case beyond existing sufficient inequalities. The independent complete Fano extinction histogram provides a sharp dynamical relaxation benchmark.
+For a periodic trajectory on a 2θ-regular graph, disjointness of E_{t-1} and E_{t+1} bounds contacts to the latter by θ per vertex in E_t; each new excitation needs at least θ preceding contacts. Thus the excited-set size is nonincreasing and periodic, forcing equality. Each excited vertex saturates its degree on the previous and next excited sets; their vertices each have exactly θ contacts back to E_t, with zero contacts from all other vertices. This proves the pointwise time identity on the full vertex set. For B the nonincidence matrix, two distinct points exclude the union of their two incidence pencils of size 2q+1, leaving q(q-1) shared neighbors. The Gram matrix gives eigenvalues q^4 and q, then the bipartite adjacency eigenvalues ±q² and ±sqrt(q), without a coordinate or Desarguesian hypothesis. The squared nonprincipal spectral ratio is 4/q³, a rational noninteger for even q≥2, whereas the square of a temporal root-of-unity sum is an algebraic integer. The surviving Fourier modes are ±1, giving two-step repetition excluded by the refractory rule unless all excited sets are empty. Periodicity then excludes refractory vertices too; finiteness gives eventual rest without asserting a uniform all-order time. Independently enumerated all 4782969 labelled Fano states using an OR subset transform for threshold-two neighbor pairs, ternary ranking of disjoint excited and refractory sets, and exact backward first-hitting layers from zero. This reproduced (1,16383,803001,2393358,1107890,364518,90258,7560), with no uncaptured states, and all eight words for the sharp witness 82105. Replay: python3 /workspace/branches/replay_3_5/scope_frozen_12345_fano.py, stdout in the matching .log. Inspected the archived sources and outputs without executing them. The finite computation certifies only the specified order-two census.
 
-## Limitations and closest literature
-Universal extinction is established for every even-order projective plane, but a sharp stopping time beyond order two is not supplied. No claims about other thresholds or multi-state models are made. The accessible primary threshold references and publicly indexed critical-threshold results are listed in `RESULT.md`; a complete source-comparison record is in `AUDIT.json`.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified for the all-even-order plane specialization beyond integral spectra and the exact Fano nonincidence census. The temporal contact identity and Fourier obstruction are shared with distinct same-date records; the integral spectral criterion in 3ebebc11989a implies the square-order subfamily. No distinct checked result gives both the extension to nonsquare even orders and the census. Relative priority within the date and historical priority generally are not established.
+
+## value
+
+PASS
+
+Projective nonincidence gives a natural regular test family at the exact threshold where strict contraction cannot decide extinction. Its irrational nonprincipal spectrum provides a concrete use of algebraic integrality in excluding every temporal period, in contrast to a same-degree oscillating network. The independently computed Fano distribution is a sharp benchmark for relaxation at criticality rather than an extrapolation to larger planes or a substitute for the theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

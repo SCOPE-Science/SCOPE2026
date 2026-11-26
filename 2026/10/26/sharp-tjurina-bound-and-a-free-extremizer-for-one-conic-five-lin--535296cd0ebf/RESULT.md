@@ -1,64 +1,49 @@
-# Sharp Tjurina bound and a free extremizer for one-conic five-line ADE arrangements
+# A unique extremal conic–five-line septic with two line-only triple points and no tacnodes
 
 ## Finding
-Consider all reduced plane curves over \(\mathbb C\) consisting of one smooth conic and five distinct lines, and having only simple ADE singularities. Their largest global Tjurina number is exactly
+
+Let \(C\subset\mathbb P^2_{\mathbb C}\) be a reduced union of one smooth conic and five distinct lines with only ADE singularities. Suppose that two ordinary triple points are intersections of three lines off the conic, and that there are no \(A_3\) points. In this class \(\tau(C)\le 27\), with equality in exactly one projective equivalence class of unmarked arrangements. A representative is
+
 \[
-\max_C\tau(C)=27.
+f=xyz(x+y)(x+z)(y^2+yz+z^2+xy+xz)=0.
 \]
-Equality occurs for the explicitly defined degree-seven arrangement
-\[
-C=V(f)\subset\mathbb P^2_{\mathbb C},\qquad
-f=xyz(x+y)(x+z)\bigl(y^2+yz+z^2+xy+xz\bigr).
-\]
-Its singularity basket is \(2D_6+3D_4+3A_1\); moreover the logarithmic derivation module is free, with projective exponents \((3,3)\).
+
+It has basket \(2D_6+3D_4+3A_1\) and is free with projective exponents \((3,3)\).
 
 ## Assumptions and scope
-The global Tjurina number is \(\tau(C)=\sum_{p\in\operatorname{Sing}C}\dim_{\mathbb C}\mathcal O_{\mathbb P^2,p}/(f,f_u,f_v)\), with local affine coordinates at \(p\). Each component is geometrically reduced, every line is distinct, the conic is smooth, and all singularities are of ADE type. The claim does not range over two-conic arrangements, reducible conics, non-ADE singularities, or arbitrary septic curves. All statements are in characteristic zero.
+
+All components are complex; the conic is smooth, and each line occurs once. The global Tjurina number is the sum of local Tjurina numbers. The two prescribed triple points are the maximum possible number involving only lines: distinct triples of line labels share at most one label, so three such triples would use at least six distinct labels. Absence of \(A_3\) means that each tangent line meets the conic at a point shared by another line. Neither an unrestricted classification at \(\tau=27\) nor novelty of the upper bound in the unrestricted class is asserted.
 
 ## Proof
-**Universal combinatorial estimate.** A singularity of a union of a smooth conic and distinct lines can involve at most three smooth local branches if it is ADE. By degree considerations and the ADE classification, the possibilities are a transverse node \(A_1\), a line tangent to the conic with contact two \(A_3\), three pairwise transverse smooth branches \(D_4\), and a tangent conic-line pair plus a transverse line \(D_6\). Write \(t\) for the number of lines tangent to the conic; \(e\) for the number of distinct line-pair intersection points that lie on the conic; and \(r\) for the number of off-conic ordinary triple intersections of lines. By Bézout, the baseline sum of pairwise local intersection multiplicities is \(\binom52+5\cdot2=20\). Relative to that baseline, the Tjurina excess of each \(A_3\) is one, each \(D_4\) is one, and each \(D_6\) is two (one tangency and one on-conic line crossing); therefore
-\[
-\tau(C)=20+t+e+r.
-\]
-Distinct triples of five line labels must share at most one label, so at most two ordinary line-only triple intersections exist: \(r\le2\). The five lines meet the conic in \(10-t\) distinct incidence slots counted before identifying different lines. Each on-conic pair consumes two such slots, hence \(e\le\lfloor(10-t)/2\rfloor\). If \(t=4\), only one line is secant; since distinct tangents never meet the conic at the same point, each on-conic line crossing must use the secant, so \(e\le2\). If \(t=5\), then \(e=0\). Checking \(t\in\{0,1,2,3,4,5\}\) yields \(t+e\le6\). Therefore \(\tau(C)\le20+6+2=28\). Merta and Zieliński (2026), Proposition 3.2, prove nonexistence of a *maximizing* one-conic five-line arrangement of degree seven with exactly the allowed ADE types, i.e. \(\tau=28\) is excluded. Consequently \(\tau(C)\le27\).
 
-**Construction and exact singularity basket.** Put \(q=y^2+yz+z^2+xy+xz\). Its constant Hessian matrix is
-\[
-\begin{pmatrix}0&1&1\\1&2&1\\1&1&2\end{pmatrix},\qquad\det=-2,
-\]
-so \(V(q)\) is smooth. The lines are \(x=0\), \(y=0\), \(z=0\), \(x+y=0\), and \(x+z=0\). The points \([1:0:-1]\) and \([1:-1:0]\) are each a triple meeting of two lines and the conic; its conic tangent equals one of the two lines, with contact order exactly two, producing \(D_6\) at both points. The points \([0:0:1]\), \([0:1:0]\), and \([1:0:0]\) give \(D_4\) (the first two from three lines, the third from two lines and the conic with three distinct tangents). The point \([1:-1:-1]\), together with \([0:\omega:1]\) and \([0:\omega^2:1]\), where \(\omega^2+\omega+1=0\), gives three transverse nodes. For the two points with \(x=0\), the conic is transverse to that line because \(q(0,y,1)=y^2+y+1\) has two simple roots. No other intersections remain: the displayed two \(D_6\), three \(D_4\), and three \(A_1\) points use the entire Bézout pairwise multiplicity budget \(2\cdot4+3\cdot3+3\cdot1=20\). Thus the list is exhaustive, and
-\[
-\tau(C)=2\cdot6+3\cdot4+3=27.
-\]
+The ADE condition allows at most three smooth local branches. Pairwise intersection multiplicities are one except for conic–line contact of order two. The possible local types are therefore \(A_1,A_3,D_4,D_6\), where \(D_6\) is the transverse crossing of a third branch with a tangent pair. Write \(t\) for the number of tangent lines, \(e\) for the number of distinct two-line intersections on the conic, and \(r\) for the number of three-line intersections off the conic. Bézout gives a pairwise multiplicity total of \(\binom52+5\cdot2=20\). Compared with this total, a tangency contributes one unit of Tjurina excess, and a three-branch point contributes one more. Thus \(\tau=20+t+e+r\).
 
-**Freeness.** There are two explicit degree-three Jacobian syzygies. With \(f_x,f_y,f_z\) denoting the partials, let
+The two line-only triples share exactly one line, which joins their centers. Make it the line at infinity. The remaining four lines fall into two distinct parallel pairs, so an invertible affine change of coordinates makes them \(u=0,u=1,v=0,v=1\). The four finite pair crossings are the grid corners. Hence \(e\le4\). The line at infinity cannot be tangent: its only crossings with the grid lines are the two triple centers, which are off the conic, and a tangency elsewhere would be \(A_3\). Any tangent grid line contains a corner on the conic, and it cannot contain two such corners by Bézout. A corner cannot be the tangency point of two different lines of a smooth conic. Thus \(t\le e\); for \(e\le2\) this gives \(t+e\le4\). For \(e=4\) every grid line is secant so \(t+e=4\). For \(e=3\), two grid lines are secant, so \(t+e\le5\). This proves the bound, and equality requires exactly three corners and the two grid lines with a single corner to be tangent.
+
+Reversing either grid coordinate moves the missing corner to \((1,1)\). A conic through the other three has equation
+\[
+A u(u-1)+B uv+D v(v-1)=0,
+\qquad AD\ne0,
+\]
+since the two line-only triple centers are off the conic. On \(u=1\) the restriction is \(v(Dv+B-D)\), and on \(v=1\) it is \(u(Au+B-A)\). Tangency at the respective single corners forces \(B=D\) and \(B=A\). Up to scalar there is only one equation. Homogenizing with \(u=-y/x,\ v=-z/x\) gives the displayed representative and line factors.
+
+For existence, the Hessian determinant of \(q=y^2+yz+z^2+xy+xz\) is \(-2\). Its two tangent grid contacts are \([1:0:-1]\) and \([1:-1:0]\), each with a third transverse branch, giving \(D_6\). The other occupied finite corner \([1:0:0]\) has three distinct tangents and is \(D_4\), as are the triple centers \([0:0:1]\), \([0:1:0]\). The missing corner \([1:-1:-1]\) is a node. On \(x=0\), \(q\) meets at the two simple roots of \(y^2+yz+z^2=0\), away from the centers, producing two further nodes. The multiplicities \(2\cdot4+3\cdot3+3\) exhaust the Bézout total, so no other singularities occur.
+
+For freeness, the following degree-three columns are Jacobian syzygies (their contractions with \(\nabla f\) vanish):
 \[
 \begin{aligned}
-a_1&=x(y-z)(3x+8y+8z),\\
-b_1&=-y(11xy+10xz+6y^2+7yz+8z^2),\\
-c_1&=z(10xy+11xz+8y^2+7yz+6z^2),\\[2pt]
-a_2&=-x(3x^2+7xy+4xz+4y^2+9yz-4z^2),\\
-b_2&=y(4x^2+7xy+10xz+3y^2+5yz+4z^2),\\
-c_2&=z(4x^2-4xz-4y^2-2yz-3z^2).
+U={}&\bigl(x(y-z)(3x+8y+8z),\,-y(11xy+10xz+6y^2+7yz+8z^2),\,z(10xy+11xz+8y^2+7yz+6z^2)\bigr)^{\mathsf T},\\
+V={}&\bigl(-x(3x^2+7xy+4xz+4y^2+9yz-4z^2),\,y(4x^2+7xy+10xz+3y^2+5yz+4z^2),\,z(4x^2-4xz-4y^2-2yz-3z^2)\bigr)^{\mathsf T}.
 \end{aligned}
 \]
-An exact expansion over \(\mathbb Z[x,y,z]\) gives \(a_i f_x+b_i f_y+c_i f_z=0\) for both \(i=1,2\), and
-\[
-\det\begin{pmatrix}x&a_1&a_2\\y&b_1&b_2\\z&c_1&c_2\end{pmatrix}=-147f.
-\]
-The Euler derivation sends \(f\) to \(7f\). Thus the displayed determinant and logarithmic derivations satisfy Saito's freeness criterion, with syzygy exponents \((3,3)\). Their exact integer coefficients and identities are independently rechecked by the attached dependency-free `verify.py`.
+Expansion gives \(\det[(x,y,z)^{\mathsf T},U,V]=-147f\). Euler's column sends \(f\) to \(7f\), so Saito's determinant criterion gives freeness and the two asserted projective exponents.
 
 ## Verification
-Run `python3 verify.py`. The program implements multivariate integer polynomial arithmetic directly, expands and checks both syzygy identities, checks the exact Saito determinant, and verifies the key point and incidence arithmetic; its successful result is `VERIFY_OK`. The numerical check verifies the explicit construction, not the cited 2026 universal nonexistence theorem. The latter is a separate published mathematical premise, checked against Proposition 3.2 of the source PDF.
 
-## Relationship to prior work
-Merta–Zieliński, *On the non-existence of certain maximizing curves of degree 7* (2026), Proposition 3.2, exclude \(\tau=28\) for one-conic five-line ADE arrangements; they neither give nor imply sharp attainability of \(27\), and their enumeration targets \(\tau=28\). Gałecka (2022) studies *nearly free* line-conic arrangements with only nodes, tacnodes and ordinary triple points, and exhibits a one-conic five-line degree-seven arrangement in that restricted class; the \(D_6\) singularities and free exponents here are outside its hypotheses. Dimca–Pokora (2021/2026) classify free line-conic arrangements under the same restricted list \(A_1,A_3,D_4\), excluding \(D_6\). The new contribution is the sharp maximum \(27\) in the specified broader ADE class and its explicit free witness. Absence from indexed searches is not a formal priority proof.
+The unchanged companion `verify.py` checks the representative's integer Jacobian identities, determinant and selected incidences. Its incidence computations do not establish projective uniqueness; that conclusion is the grid argument above.
 
-## Limitations
-The result does not classify all extremizers or their projective equivalence classes. The upper-bound sharpness depends on the published nonexistence result for \(\tau=28\), while the lower bound and freeness have standalone exact certificates. A potentially unindexed earlier explicit example cannot be ruled out by literature searches. Independent human audit has not been performed.
+## Relationship to prior work and limitations
 
-## References
-1. Ł. Merta and M. Zieliński, *On the non-existence of certain maximizing curves of degree 7*, arXiv:2610.16658v1 (first public 2026-10-12), Proposition 3.2 and Section 3, https://arxiv.org/abs/2610.16658.
-2. A. Gałecka, *On the nearly freeness of conic-line arrangements with nodes, tacnodes, and ordinary triple points*, arXiv:2204.13969v2 (2022), https://arxiv.org/abs/2204.13969.
-3. A. Dimca and P. Pokora, *On conic-line arrangements with nodes, tacnodes, and ordinary triple points*, arXiv:2111.12349v3 (originally 2021), https://arxiv.org/abs/2111.12349.
-4. K. Saito, *Theory of logarithmic differential forms and logarithmic vector fields*, J. Fac. Sci. Univ. Tokyo Sect. IA Math. 27 (1980), 265–291.
+Merta–Zieliński, [*On the non-existence of certain maximizing curves of degree 7*](https://arxiv.org/abs/2610.16658v1), Proposition 3.2, exclude \(\tau=28\) in the one-conic/five-line ADE class. Czarnota, [*On maximizing curves of degree 7*](https://arxiv.org/abs/2401.14721v2), Examples 4.5–4.8, gives free one-conic/five-line arrangements attaining \(27\) with projective exponents \((3,3)\). Together with the elementary incidence bound \(\tau\le28\), these give the unrestricted optimum and its free attainment with these exponents. The four printed baskets are different from the one above. Only Example 4.6 among them has no \(A_3\); it has three \(D_6\) points and cannot belong to the two-line-only-triple class without \(A_3\) (here \(t\le2\) whenever \(\tau=27\)). The classification here concerns the two-line-only-triple stratum without isolated tangency. It is not a census of all extremizers, and comparisons with known explicit examples cannot establish global priority.
+
+The freeness criterion is from K. Saito, *Theory of logarithmic differential forms and logarithmic vector fields*, J. Fac. Sci. Univ. Tokyo Sect. IA Math. 27 (1980), 265–291.

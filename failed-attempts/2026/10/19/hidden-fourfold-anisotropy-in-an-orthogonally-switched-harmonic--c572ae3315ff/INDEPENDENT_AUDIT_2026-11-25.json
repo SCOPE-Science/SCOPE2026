@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:12:49.097978Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–31 and 33–82",
+        "Frozen VERIFICATION.md and check.py lines 9–61 (inspected, not executed)",
+        "Exact conditional-variance balance calculation in this review"
+      ],
+      "rationale": "Uniform positive damping gives a unique stationary solution by the backward stochastic convolution and contraction with a shared switching chain. Given the chain history its coordinates are independent centered Gaussians with variances A and B, satisfying A'=2D-2(k+aS)A and B'=2D-2(k-aS)B. Sign and exchange symmetry give the claimed second-order isotropy. Put L=A+B, J=A-B, and m=E A=E B. The first moment balances give E(SJ)=-2am/(k+sigma) and m=D(k+sigma)/T. From (AB)'=2DL-4kAB one gets E AB=Dm/k, hence the stated negative covariance E AB-m^2. The stationary J^2 and L^2 balances give E(SLJ)=-k E(J^2)/a and E L^2=4Dm/k+E J^2. Substituting these into the SLJ balance, including its -2 sigma switching term, gives E J^2=4D^2 a^2(2k+sigma)/(kUT). Conditional Gaussian fourth moments give H_4=3 E J^2, with the specified R^4 weight, not an unweighted angular average. Both expressions are nonzero. The derivative of the covariance is positive since 2k(k+sigma)-T>0, and the log derivative of H_4 is negative because U<k(2k+sigma) and T>0. The fast-switching coefficients, and the two one-sided slow-switching limits, follow directly from the rational functions. At zero switching the switching state no longer has a unique stationary law.",
+      "residual_risks": [
+        "The conclusions require a symmetric interchange of two orthogonal stiffnesses, not continuously rotating axes, and concern the stationary law. There is no unweighted angular-harmonic or finite-time detection claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Huang et al. allow multiple OU coordinates under one finite-state chain with independent Brownian motions and provide an explicit stationary recursion indexed by the full mixed-moment multiindex. With two states, zero offsets, damping vectors (k+a,k-a) and (k-a,k+a), and squared noise coefficients 2D, this gives the frozen moments.",
+          "94471ec2b67c permits all positive transition rates, diffusivities and stiffness pairs and factorizes the signed mixed fourth cumulant. It does not state the angular harmonic."
+        ],
+        "reasoning": "This is not merely use of a generic moment method: the earlier recursion already specifies the exact mixed moments by displayed inverses with these admissible inputs. The indexed asymmetry theorem supplies independent direct coverage of the mixed covariance, but not the marginal fourth moments on its own.",
+        "searches": [
+          "Huang et al., arXiv:1412.7952v1 §§6.1 and 6.4",
+          "Resultary 94471ec2b67c, Finding and exact conditional moment equations"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 94471ec2b67c and 4f3243fa2ced",
+        "arXiv:1412.7952v1, 2312.02570v1 including supplement, 2603.03162v1 and 2104.00609v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Projecting Huang et al.'s state vectors onto the constant and signed directions gives b=E(SX^2)=-am/(k+sigma), m=D(k+sigma)/T, V=E(X^2Y^2)=Dm/k, and U M=3D[(2k+sigma)m-2ab] for M=E(X^4). The (2,2) projection is scalar since the two stiffnesses sum to 2k.",
+          "Consequently M-3V=6Da^2 m[1/k+1/(k+sigma)]/U, which gives the exact H_4 sign and factor in one subtraction. V-m^2 gives the exact covariance. The rate derivatives have their signs directly from the positive denominator factors and U<k(2k+sigma); leading powers give both limits."
+        ],
+        "reasoning": "The physical interpretation as hidden angular structure is useful, but the precise sign, angular magnitude, monotonicity, and leading attenuation are mechanical consequences of the specialized explicit recurrence. No narrower mathematical finding survives this comparison.",
+        "searches": [
+          "arXiv:1412.7952v1 §6.4, HTML offsets 99500–104390",
+          "Resultary 94471ec2b67c exact signed formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "94471ec2b67c uses two scalar OU coordinates with independent noises sharing a two-state chain and arbitrary positive stiffnesses in the two states. Opposite response with equal baseline and equal diffusivity is the frozen coordinate law.",
+          "4f3243fa2ced uses identical k+hS_t stiffnesses for every coordinate and has positive C(0), as in the scalar common-variance paper. Neither that record nor the scalar paper is a complementary-axes reformulation."
+        ],
+        "reasoning": "Calling the coordinates particles does not change the joint law; the same shared clock and opposite directional stiffness pairs give identical equations. By contrast, equal conditional variances in the scalar model give a nonnegative variance, not counter-switching covariance.",
+        "searches": [
+          "Resultary: opposite-response or counter-switching harmonic confinements, square-coordinate covariance, fourth angular harmonic",
+          "arXiv:2312.02570v1 main text Eqs. (2), (12)–(14) and supplement §III.B"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Substituting doubled stiffnesses 2(k+a),2(k-a),2(k-a),2(k+a) and p=q=sigma, D_1=D_2=D in the indexed symbolic formula gives -D^2 a^2(k+sigma)/(k T^2).",
+          "The primary recursion is an exact symbolic moment lookup, not a database of individual numerical parameter cases."
+        ],
+        "reasoning": "The exact comparison is to an all-parameter formula rather than to fixed tables. The frozen rational sample is a finite substitution and cannot establish a separate contribution.",
+        "searches": [
+          "Resultary 94471ec2b67c, exact fourth cumulant in RESULT.md offset 0–5724",
+          "arXiv:1412.7952v1 §6.4 explicit stationary inverse-matrix recursion"
+        ]
+      },
+      "rationale": "The opposite-stiffness effect is not contained in the cited scalar common-variance model. Nevertheless, the earlier published multivariate Markov-modulated OU theorem supplies an explicit inverse-matrix formula for the exact mixed moments of this same model class. In this specialization only its (2,0), (0,2), (2,2), (4,0), and (0,4) recurrences are needed; the projection and factorization below give the entire frozen package by two-state matrix inversion, subtraction, and differentiation, without an extra probabilistic or asymptotic result. The distinct later indexed counter-switching theorem additionally gives the exact negative covariance by direct substitution. That later index date is not used to establish earlier priority.",
+      "residual_risks": [
+        "The bounded search does not settle attribution of this angular interpretation or earliest explicit mention. The mechanical implication is based on inspected earlier primary equations, not on failure to locate other sources or on inferring priority from a later catalogue entry."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically supplies the entire frozen moment package; particular angular interpretation not expressly stated",
+          "evidence": [
+            "For each mixed multiindex, the recurrence inverts Q^T minus the sum of the damping diagonal matrices weighted by that multiindex, with stationary-vector initial condition."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1412.7952v1",
+          "material_read": "§6.1 conditional Gaussian coordinates and §6.4 inverse-matrix recursion, including offsets 99500–104390",
+          "method": "Targeted OA full-text passages",
+          "title": "Markov-modulated Ornstein–Uhlenbeck processes",
+          "trigger": "Prior exact mixed-moment theorem for a shared finite-state modulator"
+        },
+        {
+          "assessment": "Exact broad coverage of the negative mixed fourth covariance; no standalone H_4 formula; later index date does not establish priority",
+          "evidence": [
+            "Sign factor (a-b)(c-d) for doubled stiffnesses; arbitrary positive switching rates, stiffnesses and diffusivities."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-signed-energy-correlations-from-counter-switching-harmonic--94471ec2b67c",
+          "material_read": "RESULT.md Finding, Assumptions and signed factorization proof, offsets 0–5724",
+          "method": "Targeted local mirror reading, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact signed energy correlations from counter-switching harmonic confinement",
+          "trigger": "Strongest indexed counter-switching result"
+        },
+        {
+          "assessment": "Decisive contrast, not complementary-axis coverage",
+          "evidence": [
+            "A common scalar variance gives nonnegative squares covariance; the supplement derives positive covariance for distinct stiffnesses even with unequal switching rates."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2312.02570v1",
+          "material_read": "Main Eqs. (2)–(4), (12)–(14); supplement §III.B Eqs. (S67)–(S73), PDF p. 14",
+          "method": "Targeted OA paper and supplement passages",
+          "title": "Dynamically emergent correlations between particles in a switching harmonic trap",
+          "trigger": "Closest cited scalar shared-trap work and its supplement"
+        },
+        {
+          "assessment": "Same-sign common stiffness and lag-dependent statistic, not the complementary-axis setting",
+          "evidence": [
+            "Identical k+hS_t drift coefficients across coordinates and positive C(0)."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-a-sharp-temporal-mode-exchange-in-fourth-order-correlations-of-a--4f3243fa2ced",
+          "material_read": "Finding and prior-work discussion",
+          "method": "Targeted local mirror reading",
+          "title": "A sharp temporal mode exchange in fourth-order correlations of a switching trap",
+          "trigger": "Nearby indexed shared-switch fourth-order result"
+        },
+        {
+          "assessment": "Scalar variance mixture rather than complementary-axis anisotropy",
+          "evidence": [
+            "A single stiffness process sets the common variance of the particles."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.03162v1",
+          "material_read": "Harmonically trapped gas with switching stiffnesses, Eq. (8), offsets about 22500–28000",
+          "method": "Targeted OA passage",
+          "title": "Dynamically Emergent Correlations",
+          "trigger": "Review of common-environment harmonic trapping"
+        },
+        {
+          "assessment": "Univariate on/off trap; no direct cross-axis fourth-order result",
+          "evidence": [
+            "One-coordinate variance dynamics."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2104.00609v1",
+          "material_read": "§2 Eq. (2), §3 and Appendix A Eqs. (39)–(40)",
+          "method": "Targeted OA passages",
+          "title": "Brownian motion under intermittent harmonic potentials",
+          "trigger": "Potential switch-trap moment overlap"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Limitations",
+        "Biroli et al. Eq. (14) and supplement Eq. (S73)"
+      ],
+      "rationale": "The measurable distinction between equal covariance in every direction and a positive radius-weighted angular harmonic is physically motivated. The negative energy covariance gives an opposite sign to the all-axes common scalar switch, and rate attenuation describes how the effect can become hidden. This is informative as a diagnostic even though the exact formulas are covered as a scientific contribution.",
+      "residual_risks": [
+        "No detector power, required sample size, rotation-model extension or dynamical inference is proved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

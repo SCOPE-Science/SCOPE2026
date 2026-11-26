@@ -1,21 +1,21 @@
-# Review of the six-vertex Fourier-zero obstruction
+# Independent mathematical audit
 
-## Correctness: PASS
-For every real axial frequency and every transverse frequency satisfying \(v^2+w^2\le2\), exact differentiation of the Fourier transform of a diamond cross-section gives \(\Phi''(r)\ge4(1-r^2)\), which is strictly positive for \(0\le r<1\). Two integrations by parts with the correct endpoint conditions express the axial Fourier transform as a strictly positive integral of \(g''(t)(1-\cos(aut))\); zero axial frequency is covered by \(g>0\). A separate exact integral along \((0,s,s)\) proves that some real Fourier zero exists. Closedness and bounded minimizer selection then justify the strict lower bound on the nearest-zero radius. The volume and ball transform use the stated Fourier normalization. The rational ninth-order sine/cosine certificate verifies \(\kappa(B_{101})<\sqrt2\) and the inequality for integral vertices without relying on a numerical root approximation. Independent audit remains unperformed.
+## correctness
 
-## Originality: PASS, with documented priority risk
-The motivating 2026 paper gives counterexamples with rotationally symmetric disk sections, not the six-vertex polyhedral cross-polytope considered here; the 2009 body-of-revolution example also has circular sections. Three published quantitative subsequent comparisons were read at their actual full RESULT texts and likewise treat circular sections, a Bessel kernel, or the asymptotic coefficient for that family. Their conclusions neither imply the present diamond-section curvature calculation nor guarantee a six-vertex integer-coordinate counterexample. Research-index queries for octahedra, cross-polytopes, Fourier zeros and minimal vertex complexity did not identify a dominating statement. This comparison is stronger than title or number matching, but hidden or unindexed priority remains a residual risk; lack of search hits is not treated as a proof of uniqueness.
+PASS
 
-## Mathematical value: PASS
-The 2026 disproof established failure of equal-volume-ball extremality for arbitrary centrally symmetric convex bodies, but did not quantify the minimum vertex complexity of a polyhedral obstruction. Every full-dimensional centrally symmetric three-dimensional polytope has at least three antipodal vertex pairs. This construction attains that natural combinatorial minimum, provides explicit integer coordinates and a checkable analytic Fourier positivity cylinder, and illustrates that the obstruction persists on the smallest symmetric polytope. The sufficient parameter 101 and strip width are not claimed individually optimal; the value is the exact minimal-complexity witness rather than another parameter adjustment of a known circular example.
+Quadrant symmetry gives the real diamond-section transform. Differentiating its nested integrals yields Φ''(s)≥4[1−(v²+w²)s²/2], strictly positive for s<1 on the closed frequency cylinder. With g(t)=Φ(1−t), the conditions g(1)=g'(1)=0 turn the axial cosine integral at u≠0 into (au)^−2 times the integral of g''(t)[1−cos(aut)], strictly positive even at v²+w²=2; at u=0 use g>0 on [0,1). At (0,s,s), the coordinates y+z,y−z give a square with Jacobian 1/2 and a marginal proportional to 1−p², giving 4a(sin s−s cos s)/s³. Its sign change gives a nonempty closed zero set and the least norm is attained, so it strictly exceeds √2. The equal-volume ball has radius (a/π)^(1/3), giving the stated comparison. Independently checked the ninth Taylor sum bound by exact scaled integer arithmetic and the rational sufficient threshold (<101); replay /workspace/branches/independent_checks.js. The Taylor terms decrease from the second onward and the first ball root lies in (π,3π/2), so the finite arithmetic checks are sufficient for the integer example but are not the uniform positivity proof. The six displayed vertices are exposed; antipodal spanning pairs prove the minimum in the stated class. The frozen checker was inspected, not executed.
 
-## Closest sources and limitations
-- Gómez-Serrano, Levitin, Platt, Polterovich (2026), arXiv:2609.10517v1, Sections 1–2: circular-base bipyramids, qualitative general failure and disk sections.
-- Benguria, Levitin, Parnovski (2009), arXiv:0801.1617v3, Remark 4.11: body of revolution with circular transverse geometry.
-- *A Pólya–Bessel zero-free strip for Fourier bipyramids* (2026), identifier `72c1da0f9bb0`: circular-base explicit transverse Bessel strip.
-- *A rationally certified width-two Fourier zero-free strip for three-dimensional bipyramids* (2026), identifier `7d5ef01cc46e`: stronger bound, still for circular sections.
-- *Exact leading slope of Fourier-zero distance for elongated bipyramids* (2026), identifier `328d6e388fdc`: asymptotics of the same circular-section family.
+## originality
 
-The nearest Fourier zero of the octahedron is not evaluated exactly, and no optimal threshold over all six-vertex polytopes is claimed. Priority remains subject to undiscovered earlier treatment of anisotropic octahedra.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The claim that the ball fails to maximize the first real Fourier-zero distance is already known. What survives is the uniform diamond-section cylinder bound and the explicit minimum-vertex polyhedral counterexample. Inspected primary and catalogue disproofs for d≥3 use disks and do not yield a six-vertex octahedron or a sign statement for its diamond sections.
+
+## value
+
+PASS
+
+Six is a genuine sharp complexity bound within centrally symmetric 3-polytopes, and the example attains it with integral vertices. The continuum cylinder estimate and exact finite endpoint check make that sharp complexity statement usable without numerical zero searches; they are not merely an improvement of the already known circular threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

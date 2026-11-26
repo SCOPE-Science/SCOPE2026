@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:26:12.289039Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–65; frozen VERIFICATION.md, lines 19–23; check.py, lines 13–105 (read only)",
+        "Replacement /workspace/repairs/2/RESULT.md, Proof; replay: cd /workspace/repairs/2 && python3 check.py",
+        "Independent folded and unfolded histograms: python3 /tmp/opencode/independent_frozen_checks.py (cantorcylinders section)"
+      ],
+      "rationale": "The replacement claim is the exact almost-sure digit law for three independent fair ternary {0,1} streams added in Z₃. With incoming carry c=0,1 and raw multiplicities 1,3,3,1, the carry transition rows are (7,1)/8 and (4,4)/8; the conditional digit rows are (2,3,3)/8 and (3,2,3)/8. The stationary carry probabilities are (4/5,1/5). The Markov occupation-time theorem and the bounded martingale-difference law apply from carry zero, giving frequencies (11,14,15)/40, not just these expectations. The measurable event defined by this limit is Haar-null by the iid uniform Haar digit law. Conditioning on two inputs proves non-atomicity, and all prescribed finite prefixes can occur with positive probability and no carries, proving full support. I checked the revised proof and ran the replacement rational checker, which also compared digit marginals through eight positions to ordinary integer prefix histograms. There was no mathematical error in the removed energy statements: with a difference carry, the reduced transition matrix in row order 0 and |c|=1 is [[20,2],[15,6]]. A free terminal carry gives E₀=1,E₁=22 with characteristic polynomial x²−26x+90. Depth-k mass normalization uses 8^k ordered triples, so the collision mass is E_k/64^k and gives the stated dimension and χ² rate. A separate finite reproduction gave folded energies 1,22,482,10552 through k=3 and continued through k=7. This part was removed for coverage, not because of a correctness failure.",
+      "residual_risks": [
+        "Finite marginal checks do not prove a pathwise frequency theorem. The revised claim covers exactly three fair input streams, not arbitrary convolution orders and not an output independence law."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abram–Lagarias construct unweighted p-adic sumset automata, leaving output probabilities unspecified",
+          "Fong–Hare–Johnstone pp. 62–64 compute a local-dimension spectrum after projecting to the real torus",
+          "a30ba852d85c reports Lau–Ngai's q=2 polynomial 45z²−832z+2048 for the real triple; direct primary table retrieval was unsuccessful",
+          "Nazarov–Peres–Shmerkin assumes incommensurable scales for two measures"
+        ],
+        "reasoning": "The support automaton and known whole interval of integer sums already explain the qualitative support. Moment and local-dimension spectra are different from typical output frequencies. For the dimension overlap specifically, folded and unfolded energies lie between U_k and 2U_k. Real correlation at scale 3^(−k) also has the same exponent: independent tails are bounded after rescaling, only finitely many nearby prefix differences contribute, and prefix equality contributes a fixed positive fraction of its probability. Thus the exponent overlaps even without finding an explicit 3-adic table. This comparison does not identify the repaired digit statistic.",
+        "searches": [
+          "Abram–Lagarias arXiv:1210.2478, Theorem 1.3 and §4.2",
+          "Fong–Hare–Johnstone §4 and Theorem 3; Lau–Ngai real triple equal-scale L^q spectrum; Nazarov–Peres–Shmerkin arXiv:0905.3850"
+        ]
+      },
+      "checked_sources": [
+        "Resultary findings a30ba852d85c and 8f32a9c46510, and 743aa111efcf (identical frozen finding)",
+        "Fong–Hare–Johnstone §4; Abram–Lagarias Theorem 1.3 and §4.2; Lau–Ngai reported table with direct primary access unresolved; Nazarov–Peres–Shmerkin abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In a30ba852d85c write (u_k,v_k) for terminal carry zero and terminal carry +1, respectively; symmetry gives v_k also for −1. The displayed next-step equation is u_(k+1)=20u_k+30v_k",
+          "The modular count is exactly u_k+2v_k because the whole signed digit difference is 3^k times the final carry whenever the low k digits agree"
+        ],
+        "reasoning": "Putting U_k=u_k gives E_k=(U_(k+1)−5U_k)/15, proving that the entire modular sequence and hence its dimension and rate are mechanically implied. In contrast, the paired difference transfer only tests digit equality of two sums, not which output digit occurred, and the other inspected works do not specify an equivalent stationary digit statistic. The retained claim uses the carry occupation law of a single sum plus its output digit table to obtain a pathwise distinguishing event.",
+        "searches": [
+          "a30ba852d85c, Finding and §2 exact transfer matrix",
+          "8f32a9c46510, Finding; Abram–Lagarias Theorem 1.3; Fong–Hare–Johnstone §4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact same-input integer energy found in a30ba852d85c is the sixth Fourier moment and uses the same difference-carry states −1,0,1",
+          "Fong–Hare–Johnstone §4 defines the real triple sum with raw digits 0,1,2,3 scaled by 2, projects modulo one, and in Lemma 6 folds finite masses over equivalent points"
+        ],
+        "reasoning": "Reversing finite digit order in distribution identifies these prefix histograms, and scaling by 2 permutes residues modulo 3^k. These equivalent collision formulations strongly undermine the original energy novelty. The repaired statistic is instead an almost-sure frequency vector along the 3-adic output expansion; the inspected local-dimension statements do not yield it. A real normalized triple sum would have a corresponding stationary fractional digit statistic, so an earlier exact real digit-mass calculation could be relevant.",
+        "searches": [
+          "Resultary: threefold ternary Cantor convolution, exact sixth Fourier moments, stationary carry probabilities and limiting digit frequencies 11/40, 14/40, 15/40",
+          "Fong–Hare–Johnstone, §4, real torus convolution and finite prefix masses"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Distinct record a30ba852d85c gives initial values 1,20 and exactly the same recurrence, spectral root, and difference-carry matrix for ordinary integer equality",
+          "Distinct same-day result 8f32a9c46510 identifies digit-2 frequency 1/4 and a different recurrence for X+2Y",
+          "The narrowed search's hit with exactly (11,14,15)/40 was the frozen record itself"
+        ],
+        "reasoning": "U₁=20 rather than E₁=22 reflects a terminal condition on one known transfer, not substantial novelty. The different input law X+2Y has different transition and output weights; its explicit statistic is not a table of the retained frequencies. No independent direct frequency table for the triple law was established.",
+        "searches": [
+          "Resultary: exact six-variable collision recurrence 26,90 for ternary triple sums",
+          "Resultary: 3-adic sum of three uniform ternary 0/1 Cantor digit streams stationary carry probabilities and almost-sure limiting digit frequencies 11/40, 14/40, 15/40 versus normalized Haar measure",
+          "Lau–Ngai exact title and real q=2 spectrum lookup"
+        ]
+      },
+      "rationale": "PASS is for the narrowed exact almost-sure frequency claim. The frozen claim's originality FAILS in material part: distinct indexed record a30ba852d85c supplies the exact carry transfer for the very same finite ordered input triples. The frozen modular energy is a direct terminal-sum evaluation of that matrix; the same root gives the same exponent. This is demonstrated coverage, not a priority order inferred from same-day dates. I removed the energy, dimension and χ²-rate claims, rather than retaining them with a priority disclaimer. The same inspected result's matrix compares two sums and does not encode a single sum's output digit frequencies. The strongest new comparison for the repaired claim, the real torus convolution of Fong–Hare–Johnstone, treats folded prefix masses and local dimensions of the real quotient, not this typical digit vector or equivalent numerical digit statistics in the available passages. Exact narrower Resultary search found the frozen self-match and a material but different X+2Y result, not coverage of the retained vector. This judgment is bounded to the comparisons below.",
+      "residual_risks": [
+        "The inaccessible direct Lau–Ngai table leaves an access limitation, not a scientific blocker. A known explicit digit law for the real normalized triple sum or an unindexed p-adic calculation could cover the repaired result. The demonstrated collision overlap does not establish publication priority between the same-day records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisively covers the frozen collision claim by a terminal sum; not the revised digit claim",
+          "evidence": "For integer equality terminal carry is 0; the symmetric nonzero terminal counts are already included in its matrix. Exact integer recurrence and all-depth terminal sum give the modular recurrence and exponent.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-sixth-fourier-moments-of-finite-middle-thirds-cantor-spect--a30ba852d85c",
+          "material_read": "Finding and assumptions, mirror offsets 200–2154; exact carry transfer §2, offsets 2110–4359; prior-work paragraph, offsets 5750–7100",
+          "method": "Resultary mirror and direct statement-level reduction",
+          "title": "Exact sixth Fourier moments of finite middle-thirds Cantor spectra",
+          "trigger": "Same input coefficients, recurrence and spectral root at the same finite depths"
+        },
+        {
+          "assessment": "Important real equivalent finite-prefix comparison; different local-dimension claim",
+          "evidence": "Triple middle-thirds sum modulo one, using raw digits weighted 1,3,3,1 and a digit scale two; folds finite masses to calculate local dimensions.",
+          "identifier_or_url": "https://intlpress.com/api/bgcloud-front/resource/pdf/volume/1806252759957606402-1806252759957606402-3120dba1d7ba4f2d24c3ed500d07c498.pdf",
+          "material_read": "pp. 62–64, §4 Theorem 3 and Lemma 6 including digit conventions and folded-mass expression",
+          "method": "Primary OA PDF",
+          "title": "Multifractal Analysis for Convolutions of Overlapping Cantor Measures",
+          "trigger": "Exact real triple convolution and quotient, with related folded masses"
+        },
+        {
+          "assessment": "Real dimension is plausibly known in primary literature; not used as the sole coverage evidence",
+          "evidence": "The indexed record reports 45z²−832z+2048; substitution z=64/λ gives a multiple of λ²−26λ+90. No assertion of direct table verification.",
+          "identifier_or_url": "https://scispace.com/pdf/second-order-self-similar-identities-and-multifractal-71znxgov33.pdf",
+          "material_read": "Secondary description in a30ba852d85c, offsets 5750–7100; primary table not retrieved",
+          "method": "Bounded full-text lookup; cited lawful copy unavailable",
+          "title": "Second-order self-similar identities and multifractal decompositions",
+          "trigger": "Reported q=2 table for real triple equal-scale Cantor convolution"
+        },
+        {
+          "assessment": "Support and carry framework, not the weighted output frequency law",
+          "evidence": "The construction adds individual states and carry to determine support languages under Minkowski sums.",
+          "identifier_or_url": "https://arxiv.org/abs/1210.2478",
+          "material_read": "PDF p. 3, Theorem 1.3 (offset 11150), and p. 20, §4.2 (offset 67135)",
+          "method": "Primary OA PDF",
+          "title": "p-adic path set fractals and arithmetic",
+          "trigger": "p-adic carry automata and support addition"
+        },
+        {
+          "assessment": "Different random sum and different digit law",
+          "evidence": "Mixed sum X+2Y, iid indicators of digit 2 with probability 1/4, and collision coefficients 6,2.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-full-support-singular-ternary-cantor-convolution-with-an-exact--8f32a9c46510",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Resultary mirror, also returned by narrowed search",
+          "title": "A full-support singular ternary Cantor convolution with an exact collision law",
+          "trigger": "Close same-day p-adic result with singularity and exact digit bias"
+        },
+        {
+          "assessment": "Different regime and observable",
+          "evidence": "Irrational contraction-ratio hypothesis for two real measures, unlike three equal-scale 3-adic inputs.",
+          "identifier_or_url": "https://arxiv.org/abs/0905.3850",
+          "material_read": "Abstract, PDF p. 1, offset 0",
+          "method": "Primary OA PDF",
+          "title": "Convolutions of Cantor Measures Without Resonance",
+          "trigger": "Convolution dimensions for Cantor measures"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Replacement /workspace/repairs/2/RESULT.md, Finding and Motivation and scope",
+        "Resultary 8f32a9c46510 for a contrasting digit law; Abram–Lagarias Theorem 1.3 for the support framework"
+      ],
+      "rationale": "The triple is the first convolution of these streams for which carry feeds back into the next digit; at two summands the raw sum never exceeds two. The revised claim gives the exact typical bias in this natural first case, rather than recomputing a known exponent or simply showing non-uniformity. The vector describes an explicit Haar-null set of full convolution mass even though every finite cylinder has positive mass. It is a quantitative description of how digit smoothing fails after carries first arise, and a benchmark for distinguishing this law from the already compared two-input convolution. The retained value is attached to the exact almost-sure statistic, not to the support or atomlessness observations separately.",
+      "residual_risks": [
+        "The revision does not claim a spectrum or a classification for other inputs. Earlier explicit equivalent stationary digit masses, if found, would change the appraisal of this narrow invariant."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

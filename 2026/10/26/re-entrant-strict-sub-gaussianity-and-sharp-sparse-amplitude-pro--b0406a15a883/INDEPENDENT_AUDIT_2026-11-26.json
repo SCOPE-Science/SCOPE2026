@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:16:49.430563Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–74 and 79–80",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "/workspace/branches/210d1aab-170e-4a45-9617-f0fac3ecbc9a/record5_bounded_check.py",
+        "/workspace/repairs/5/RESULT.md and VERIFICATION.md",
+        "Arbel–Marchal–Nguyen arXiv:1901.09188v1, Proposition 3.2; Atouani–Marchal–Arbel arXiv:2510.06132v1, §3.1"
+      ],
+      "rationale": "The frozen finding is mathematically correct. Symmetry gives the even log-MGF and zero odd derivatives; the t→0 coefficient makes the optimal proxy at least the variance. At p_a the variance is greater than one and the fourth moment is 3/2−1/(2a^4), so the fourth cumulant is below −3/2. The +a atom gives F(p_a,a)>g(a)=a²/2−1/4−log(4a^4), with g increasing on [4,∞) and g(4)>0 using log 2<3/4. This proves the strict proxy gap at every real a≥4 and an open excluded interval by continuity at the same tilt. Near each of p=0 and p=1, the fourth t-derivative of the variance-subtracted log-MGF is strictly negative near t=0 (values −2 and −2a^4 at the endpoints), and its lower derivatives through order three vanish at t=0. Taylor control, compact strictness away from zero, and the uniform tail bound M≤exp(a|t|)<exp(t²/2) for |t|>2a give both strict neighborhoods for each fixed a. The repaired contextual rate proof is valid: M_S≤M_X≤cosh(t)M_S for the three-mass law S of the rare atom and zero elsewhere, giving a proxy difference in [0,1]. At t=2L/a with L=log(1/p_a), the positive atom gives a lower bound asymptotic to a²/(2L). On t≤L/(2a) two integrations of M_S''≤1/√2 bound the proxy by a constant; above that range maximizing 2a/t−2L/t² in 1/t and bounding the log-sum error gives an upper bound a²/(2L)+O(a²/L²). This reproduces the original rate as a comparison, not a separate contribution. The repaired prior-work statement correctly uses nonpositive rather than strictly negative fourth cumulant for the general necessary condition.",
+      "residual_risks": [
+        "The independent bounded script gives exact moments and finite log-MGF witnesses and comparisons at selected amplitudes; for a=4 it finds κ4≈−1.68031 and F(p_a,a)≈0.83729. It does not numerically certify the continuous-domain optimum, endpoint neighborhoods, or the asymptotic. No formal verification or expert attestation is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general moment result gives necessary nonpositive fourth cumulant and sufficient inequalities involving all even moments for symmetric laws. The later exact three-mass analysis gives the sparse symmetric proxy characterization and its strictness threshold."
+        ],
+        "reasoning": "The general moment condition can also give stability near Rademacher endpoints at each fixed a: sufficiently high Gaussian moment factors dominate a^(2j) uniformly in p, and the remaining finitely many inequalities hold strictly at each endpoint and nearby. It does not supply a nonzero-tilt failure despite negative fourth cumulant between those neighborhoods. The exact three-mass theorem concerns a central atom at zero, not a second nonzero radius.",
+        "searches": [
+          "arXiv:1901.09188v1, §3, Propositions 3.2–3.3",
+          "arXiv:2510.06132v1, §3.1, Theorem 3.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1901.09188v1 and arXiv:2510.06132v1",
+        "Resultary aaa15008cc51, 33a2f59ff992, e55370fed242",
+        "Frozen and repaired RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At the sparse p_a the three-mass law is exactly the known model at per-atom weight p_a/2. Its leading estimate a²/(2log(1/p_a)) transfers to the four-atom law by a proxy sandwich of width one. The inspected exact characterization does not state the four-atom asymptotic verbatim.",
+          "The earlier three-mass failure example uses positive fourth cumulant, and the sparse three-mass model also has positive fourth cumulant at total nonzero mass below 1/3."
+        ],
+        "reasoning": "The repaired proof credits the sparse proxy consequence instead of presenting the transfer as independently novel. Matching leading proxies does not imply matching exact proxy/variance equality or cumulant sign: filling the zero atom with ±1 brings the fourth cumulant below −3/2 while retaining failure at p_a. The re-entrant conclusion uses both endpoint intervals in the full four-atom family and the explicit failure witness across all a≥4.",
+        "searches": [
+          "Atouani–Marchal–Arbel arXiv:2510.06132v1 §3.1 pp. 5–6",
+          "Arbel–Marchal–Nguyen arXiv:1901.09188v1 §3.2.1 and Proposition 3.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two-radius Khinchin record has the same standardized distribution at p=1/2 after choosing relative spread d=(a−1)/(a+1), but minimizes a two-summand L¹ functional. The focused external lookup surfaced the existing strict sub-Gaussianity literature; no inspected statement on that search gave the target re-entrant family result."
+        ],
+        "reasoning": "The equal-weight Khinchin problem does not determine a log-MGF supremum as p varies. Dropping the ±1 atoms in favor of a zero atom does preserve leading sparse proxy growth but changes strictness and the fourth-cumulant sign at sparse weights.",
+        "searches": [
+          "Resultary strict sub-Gaussian scale mixtures and sparse Rademacher; matched two-radius record aaa15008cc51",
+          "Single external lookup for strict sub-Gaussian two-Rademacher scale mixtures, disconnected weight locus and sparse upper-radius proxy"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The available exact two-radius database entry evaluates Khinchin quantities at equal mixing, not this invariant. The exact proxy table of regimes in the three-mass setting changes strictness at total nonzero mass 1/3. The indexed two-point phase thresholds and optimizer coexistence concern compound-Poisson right sub-gamma scales."
+        ],
+        "reasoning": "An exact threshold in the three-atom invariant does not classify four-atom proxy equality. A fixed-support sub-gamma transition is likewise distinct from the disconnected Gaussian-proxy equality locus for a bounded symmetric law.",
+        "searches": [
+          "Resultary two-radius exact result aaa15008cc51; proxy transitions 33a2f59ff992 and e55370fed242",
+          "arXiv:2510.06132v1, §3.1 exact threshold and implicit proxy"
+        ]
+      },
+      "rationale": "The original's separate novelty framing of the sharp proxy rate is not supported: the rate reduces up to an additive one to the existing exactly characterized symmetric sparse three-mass proxy problem, with elementary leading bounds on that established model. The prior-work prose also misstated the necessary fourth-cumulant sign as strict. The repaired claim retains the materially distinct disconnected regime for the same two-radius mixture at every a≥4, with an explicit exclusion despite fourth cumulant below −3/2. The rate is retained only as quantitative context and credited via the three-mass comparison. No claim of novelty is made for the isolated facts that a Rademacher law is strict or that the fourth cumulant alone is a local test.",
+      "residual_risks": [
+        "The targeted external lookup and catalogue searches are bounded; unindexed exact mixing-locus results or other negative-fourth-cumulant examples may exist. The pass is for this explicitly supported two-radius re-entrant finding, not a historical priority claim about all negative-cumulant examples or its sparse proxy asymptotic."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Moment criteria and positive-cumulant symmetric failure; no re-entrant two-radius result in inspected statements",
+          "evidence": "The Taylor obstruction is kurtosis at most three despite loose strictly negative wording in the prose. The symmetric example at central mass has positive fourth cumulant in its failure regime. All-even-moment comparison supplies a sufficient condition.",
+          "identifier_or_url": "https://arxiv.org/abs/1901.09188",
+          "material_read": "v1 §3, Proposition 3.2, Proposition 3.3 and §3.2.1, pp. 7–9, offsets 18181 and 21925",
+          "method": "Primary OA PDF passages",
+          "title": "On strict sub-Gaussianity, optimal proxy variance and symmetry for bounded random variables",
+          "trigger": "General strict proxy criteria and closest negative-cumulant diagnostic context"
+        },
+        {
+          "assessment": "Covers the model used to transfer the leading sparse rate; not the repaired four-atom mixing theorem",
+          "evidence": "For mass r at each of −a and a and 1−2r at zero, strictness holds for r≥1/6; the optimal proxy in the non-strict regime has an exact implicit characterization. At r=1/6 the fourth cumulant is zero.",
+          "identifier_or_url": "https://arxiv.org/abs/2510.06132",
+          "material_read": "v1 §3.1, Theorem 3.1, pp. 5–6, offsets 19138 and 28100",
+          "method": "Primary OA PDF passages",
+          "title": "Optimal sub-Gaussian variance proxy for 3-mass distributions",
+          "trigger": "Exact solution for sparse signed Bernoulli, which can dominate the leading proxy"
+        },
+        {
+          "assessment": "Same family at p=1/2, different invariant",
+          "evidence": "Equal-weight standardized two-radius law; two-summand L¹ Khinchin optimization, not a Gaussian proxy or changing mixing weight.",
+          "identifier_or_url": "Resultary aaa15008cc51",
+          "material_read": "Local mirror RESULT.md Finding",
+          "method": "Resultary search and local mirror passage",
+          "title": "Exact two-coordinate Khinchin phase transition for a two-radius law",
+          "trigger": "Strongest inspected same-family catalogue entry"
+        },
+        {
+          "assessment": "Conceptual comparison, not covering",
+          "evidence": "Right sub-gamma scale transition for fixed jumps 1 and 5.",
+          "identifier_or_url": "Resultary 33a2f59ff992",
+          "material_read": "Local mirror RESULT.md Finding",
+          "method": "Resultary search and local mirror passage",
+          "title": "A sharp local-to-interior transition for two-point compound Poisson laws",
+          "trigger": "Related exact threshold in cumulant-generating-function optimization"
+        },
+        {
+          "assessment": "Different law and proxy notion",
+          "evidence": "Coexistence of origin and positive tilt for the right sub-gamma scale, not re-entrant strict Gaussian proxy equality.",
+          "identifier_or_url": "Resultary e55370fed242",
+          "material_read": "Local mirror RESULT.md Finding",
+          "method": "Resultary search and local mirror passage",
+          "title": "Coexistence of local and remote optimal sub-gamma scales for two-point compound Poisson laws",
+          "trigger": "Related exact separated-optimizer transition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md Finding, proof, and comparison section",
+        "arXiv:1901.09188v1 and arXiv:2510.06132v1"
+      ],
+      "rationale": "The repaired record gives a natural counterexample to treating strict sub-Gaussianity as a monotone or connected property of the mixing weight. For every sufficiently separated pair of radii in the stated range, it puts two open strict regimes and a quantitatively negative-cumulant failure in the very same symmetric family. The explicit excluded weight and finite-tilt witness separate local cumulant diagnostics from global proxy control; value is not assigned to restating the known sparse three-mass proxy problem.",
+      "residual_risks": [
+        "The endpoints, exact number of components and behavior for a<4 are not determined. The proxy rate pertains only to the specified sparse sequence and is included as context."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -14,7 +14,7 @@ def eigenvalues(n, phi):
 
 def transition(n, phi, j, t):
     vals = eigenvalues(n, phi)
-    return sum(cmath.exp(-1j*t*lam)*cmath.exp(2j*pi*j*k/n)
+    return sum(cmath.exp(-1j*t*lam)*cmath.exp(-2j*pi*j*k/n)
                for k, lam in enumerate(vals))/n
 
 
@@ -79,8 +79,8 @@ def check_fourier_matrix():
             for k in range(n):
                 lam=eigenvalues(n,phi)[k]
                 for j in range(n):
-                    f=lambda v: cmath.exp(2j*pi*k*(v%n)/n)
-                    h_f=cmath.exp(1j*phi)*f(j+1)+cmath.exp(-1j*phi)*f(j-1)
+                    f=lambda v: cmath.exp(-2j*pi*k*(v%n)/n)
+                    h_f=cmath.exp(1j*phi)*f(j-1)+cmath.exp(-1j*phi)*f(j+1)
                     assert abs(h_f-lam*f(j)) < 3e-13
                     checks+=1
     return checks

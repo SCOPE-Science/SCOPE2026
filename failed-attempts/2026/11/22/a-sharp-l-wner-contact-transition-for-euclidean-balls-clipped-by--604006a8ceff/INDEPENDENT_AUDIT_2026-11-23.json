@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:26:26.281369Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Scope and Proof, lines 5–50",
+        "Frozen VERIFICATION.md and CHECK.py (inspection only; supplied checker not executed)"
+      ],
+      "rationale": "With c=sqrt(1−s²), compactness and full dimension ensure a unique Löwner ellipsoid; invariance under axial reflection and transverse orthogonal maps forces an origin-centered form xz²+u||y||²≤1. The maxima on the cylindrical and spherical portions reduce to the rim and poles, giving exactly x≤1 and c²x+s²u≤1. Maximizing log x+(d−1)log u sets u=(1−c²x)/s² and gives x=1/(dc²) for c²>1/d and x=1 otherwise, including c=0 where the objective increases directly in x. Below threshold u>x, so equality in x(z²+||y||²)+(u−x)||y||²≤x+(u−x)s²=1 requires both constraints active, exactly the two rim spheres. For the round branch, equality is all spherical points with ||y||≤s, including the larger contact set at the threshold itself. The resulting semiaxis product is the stated normalized volume. Its left logarithmic derivative vanishes at the threshold and its left second logarithmic derivative is −2d²; since F_d=1 there and the right branch is constant, the claimed C¹/not C² and second-derivative jump follow. The double-cap convex-hull identification follows by putting each allowed y between the two cap points at z=±sqrt(1−||y||²).",
+      "residual_risks": [
+        "The unrestricted result is for full-dimensional bodies at s>0 in the stated round coaxial geometry; the s=0 limit and elliptic or oblique cylinders are not covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The ball and round cylinder have matrices Q_1=I and Q_2=diag(0,s⁻¹I), so they fall in the affine/quadratic input class of Mittal–Hanasusanto. Its tractable Theorem 4 gives sufficient containment constraints, not an exact closed solution of this instance. Todd is reported to treat linear cuts; for d≥3 they are not the round transverse constraint."
+        ],
+        "reasoning": "A generic optimization reformulation alone would not establish the transition. The decisive antecedent is the explicit exact symmetric-cylinder formula, not the approximate SDP or an assumed extension of Todd.",
+        "searches": [
+          "Exact minimum-volume outer ellipsoids for intersections of concentric quadratic constraints, including semidefinite cylinders",
+          "Mittal–Hanasusanto arXiv:1807.07507 §3.1 Theorem 4 and Conclusion",
+          "Todd 1982, DOI 10.1287/moor.7.2.253"
+        ]
+      },
+      "checked_sources": [
+        "Güler–Gürtuna §8 Theorem 8.1(i)–(ii)",
+        "Mittal–Hanasusanto §3.1 Theorem 4",
+        "Resultary cap/capsule, ball-box, block-cylinder and frustum matches",
+        "Todd access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For s<s_* let c=sqrt(1−s²) and apply Theorem 8.1(ii) with (α,β)=(−c,c). Its exact cylinder optimizer uses x=1/(dc²)<u=(d−1)/(ds²). It already encloses K_{d,s} because x(z²+||y||²)+(u−x)||y||²≤x+(u−x)s²=1. Conversely any ellipsoid enclosing K encloses C_s; hence that cylinder optimizer is also optimal for K. At s=s_* the same reference (i) gives the unit ball for C_{s_*}. For every s≥s_*, C_{s_*}⊂K_{d,s_*}⊂K_{d,s}⊂B_d, so the unit ball is optimal throughout that regime. Equality in the single displayed containment bound yields both-active rim contacts below; intersection with the unit sphere gives the cap contacts in the other regime."
+        ],
+        "reasoning": "This derives the complete two-branch optimizer from the prior exact solution without solving a new optimization problem. Volume and its jump are the product and derivatives of those same explicit semiaxes; they do not supply an independent surviving claim.",
+        "searches": [
+          "Güler–Gürtuna, arXiv:0709.0707 §8, Q_{αβ} definition followed by Theorem 8.1 at OA offset 106800"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "K_{d,s} is the convex hull of two opposite spherical caps, not a Euclidean capsule, the hull of two translated full balls, or just the convex hull of the two planar rim disks. The last of these is the finite cylinder C_s=[−c,c]×sB_(d−1) used in Theorem 8.1, and satisfies C_s⊂K_{d,s}."
+        ],
+        "reasoning": "The rim hull is not a literal equivalent body, but the exact Löwner solution it provides transfers to the cap hull by the sharp inclusions given in claim_vs_prior_implication. Ordinary capsule formulas do not provide that transfer.",
+        "searches": [
+          "Resultary: cylinder-clipped Euclidean balls, hull of two opposite spherical caps and capsule Löwner ellipsoids",
+          "Güler–Gürtuna arXiv:0709.0707 §8, symmetric opposite slices"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The compared catalogue entries are distinct bodies: translated balls, Euclidean capsules, slab intersections, orthogonal block cylinders, and a same-day homothetic frustum. The exact published symmetric-cylinder formula itself contains the relevant axis coefficients (dc²)⁻¹ and (d−1)/(ds²), and the critical round aspect ratio c²=1/d."
+        ],
+        "reasoning": "No separate catalogue item for the exact double-cap input was located in the checked comparisons. A different indexed body with similar contacts is not enough, but the exact cylinder calculation together with nested feasibility is enough.",
+        "searches": [
+          "Local Resultary routes for cap hulls, finite cylinders, ball intersections and homothetic frusta; IDs 0c5771f0e755, bb42246081cb, cec0aced836e, a652b91bd394, ea082a0c87ac",
+          "Güler–Gürtuna Theorem 8.1(i)–(ii), Eqs. (8.1)–(8.2)"
+        ]
+      },
+      "rationale": "The theorem is mechanically implied by the exact finite-cylinder solution of Güler–Gürtuna, §8, Theorem 8.1(i)–(ii), via two elementary containment arguments. The finite cylinder is a different body, but its known optimizer supplies a matching lower bound in the nonround regime and, at the critical aspect ratio, for the entire round regime. The contact and volume regularity statements follow directly from the resulting same quadratic form. No historical priority is inferred from catalogue dates.",
+      "residual_risks": [
+        "No exhaustive history of the double-cap body was attempted. Todd's inaccessible full text does not affect the exact implication from the inspected Theorem 8.1."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact antecedent that mechanically implies both target branches through containment",
+          "evidence": "α=−β gives a cylinder. The centered form has a=1/(dβ²), b=(d−1)/(d(1−β²)); a=b=1 at αβ=−1/d.",
+          "identifier_or_url": "https://arxiv.org/pdf/0709.0707",
+          "material_read": "§8 definition of Q_{αβ}; Theorem 8.1(i)–(ii), PDF p. 32 and OA offset 106800",
+          "method": "OA primary PDF passage",
+          "title": "The Extremal Volume Ellipsoids of Convex Bodies, Their Symmetry Properties, and Their Determination in Some Special Cases",
+          "trigger": "Exact finite-cylinder Löwner solution between opposite ball slices"
+        },
+        {
+          "assessment": "General exact conic reformulation and tractable outer approximations, not a closed-form classification of this instance",
+          "evidence": "Theorem 4 supplies sufficient conditions of containment for affine and quadratic norm constraints, and the discussion describes the tractable method as approximation.",
+          "identifier_or_url": "https://arxiv.org/abs/1807.07507",
+          "material_read": "Abstract, §3.1 Theorem 4 PDF p. 15 (OA offsets 49780–54243), Conclusion p. 24 (offset 81850)",
+          "method": "OA primary PDF passages",
+          "title": "Finding Minimum Volume Circumscribing Ellipsoids Using Generalized Copositive Programming",
+          "trigger": "Broad quadratic-constraint MVEE coverage"
+        },
+        {
+          "assessment": "Inaccessible primary text; not used as negative evidence or for the originality failure",
+          "evidence": "Reported use of halfspaces; no primary statement inferred beyond the secondary report.",
+          "identifier_or_url": "https://doi.org/10.1287/moor.7.2.253",
+          "material_read": "No primary full-text passage accessible; linear-cut scope as reported in the frozen comparison and the catalogue's one-sided cap comparison",
+          "method": "Lawful OA attempts at DOI/publisher/author-upload routes returned HTTP 403",
+          "title": "On Minimum Volume Ellipsoids Containing Part of a Given Ellipsoid",
+          "trigger": "Cited historical theorem about ellipsoid cuts"
+        },
+        {
+          "assessment": "Related exact rim geometry, not the full clipped sphere",
+          "evidence": "Hull of scaled copies of a base; no spherical exterior caps or round-branch transition.",
+          "identifier_or_url": "Resultary ea082a0c87ac",
+          "material_read": "Mirrored RESULT.md, Finding, offset 0",
+          "method": "Local mirror bounded passage",
+          "title": "Universal Löwner ellipsoid of a homothetic convex frustum with ball-type contacts",
+          "trigger": "Distinct same-day rim-contact comparison"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Güler–Gürtuna §8 Theorem 8.1(i)–(ii)"
+      ],
+      "rationale": "The contact transition is geometrically natural and the formula is useful as a reference. But the exact prior cylinder solution yields the two branches by the elementary containment sandwich, and their equality sets and curvature are routine consequences of the same known form. This frozen claim does not establish a separate unknown invariant or covering result that survives that implication.",
+      "residual_risks": [
+        "The deduction could make a useful exposition; that does not constitute a scientifically new surviving claim for repair."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

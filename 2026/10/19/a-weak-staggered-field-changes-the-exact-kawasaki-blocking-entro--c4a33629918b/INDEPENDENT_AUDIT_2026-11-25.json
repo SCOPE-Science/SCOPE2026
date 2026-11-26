@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:42:34.992717Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With gauge spins r_i=(-1)^i s_i, the model is antiferromagnetic in a uniform field. A physical antiparallel exchange flips two equal gauge spins b, changing energy by −2Jb(a+d)+4hb, where a,d are the exterior gauge spins. For 0<h<J the sign is constant and nonzero for each local pattern. Two alternating weighted transitions count physical up-spins once each; closed walks based at the fixed even site are in bijection with labeled ring configurations for 2m≥4. An independent gauge construction and exact trace Newton identities recover det(I−tT)=1−(1+z²)t−(z+z²+z³)t²−z⁵t⁵. The negative logarithmic derivative gives the trace series, and subtracting the formal m=1 term gives the physical series. At z=1 the positive root is simple because 2/r+3/r²+1/r⁵ strictly decreases through 1; comparison of root moduli and equality of the phases of powers 3 and 4 make it strictly dominant. At h=0, a spin singleton admits a nonincreasing exchange, and with no singletons every antiparallel exchange increases energy. In the no-singleton two-spin transfer matrix the even/odd sectors under spin inversion have polynomials x²−x−1 and x²−x+1. Thus the golden mean is the baseline and the jump is strict because the positive two-step root exceeds 3. Independent bounded replay: /workspace/branches/independent_replay.py, kawasaki(), exact determinant and full Hamiltonian counts for N=4,6,8,10 at two weak fields and zero including neutral moves; no extrapolation from finite lengths.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary 2016 paper studies first- and second-neighbor couplings; Table 2 gives several proliferation rates and barriers among homogeneous coupling regimes, not an alternating one-site field.",
+          "The 2002 paper has blocking-time, persistence and other kinetic statistics for uniform zero field; the audited claim is not a hitting-law claim."
+        ],
+        "reasoning": "Richer kinetic outputs on those different Hamiltonians do not deliver the required counts for this one.",
+        "searches": [
+          "Resultary: Kawasaki metastability kinetic counts stronger counts alternating field chain",
+          " Gómez Albarracín–Rosales–Grynberg arXiv:1601.04375v2, §III Table 2 and Appendix A"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:cond-mat/0210477v1",
+        "arXiv:1601.04375v2",
+        "Resultary 34d442d501a3",
+        "Resultary 0f8914252c1b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2002 §2 no-singleton characterization and §3.1 S*=ln Φ directly cover the zero-field absorbing entropy.",
+          "The second-neighbor trace representation and uniform-coupling transfer counts do not encode the new parity-dependent local admissibility."
+        ],
+        "reasoning": "An arbitrary forbidden-word transfer method can be reapplied, but the old concrete counts do not imply this determinant or its strictly larger rate. Only the lower endpoint of the discontinuity is inherited.",
+        "searches": [
+          "Resultary: zero-field Kawasaki neutral exchanges no isolated spins golden mean metastable entropy",
+          "De Smedt–Godrèche–Luck arXiv:cond-mat/0210477v1 §§2, 3.1; Resultary 34d442d501a3 Proof §§1–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "De Smedt–Godrèche–Luck arXiv:cond-mat/0210477v1, introduction and §2 give uniform zero-field nearest-neighbor Hamiltonian and Kawasaki exchange with W_0>0 or W_0=0, without a site-dependent choice among neutral exchanges.",
+          "2026-10-18 Resultary 0f8914252c1b Finding gives an ANNNI single-spin-flip constraint and a different quintic at κ=1."
+        ],
+        "reasoning": "Neither a spin-flip change of dynamics nor the choice of one common rate for both classes of zero-energy exchanges is a gauge/lattice-gas reformulation of the audited weak-field move rule. The audited gauge transformation preserves its constraint via equal-pair flips in a uniform field, not via a homogeneous Kawasaki exchange rule.",
+        "searches": [
+          "Resultary: two-parity staggered-field Kawasaki blocked configurations weak field weighted enumeration",
+          "Literature: ‘Kawasaki’ Ising chain ‘staggered field’ zero temperature metastable states alternating field"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest exact-census record 2026-10-18 Resultary 34d442d501a3 gives trace and characteristic-polynomial counts for a periodic uniform next-nearest-neighbor Kawasaki Hamiltonian, without the alternating field or the audited composition-weighted denominator."
+        ],
+        "reasoning": "Its uniform interaction induces a different local energy test; neither its characteristic polynomials nor its unweighted growth rates supply the audited weighted coefficients. No exact equivalent table was verified in these bounded checks.",
+        "searches": [
+          "Resultary: Kawasaki weak staggered field exact blocking census denominator magnetization polynomial",
+          "Resultary: 1-(1+z^2)t-(z+z^2+z^3)t^2-z^5t^5 Kawasaki"
+        ]
+      },
+      "rationale": "Accept the weak alternating on-site-field census and its comparison to a known zero-field baseline, not the zero-field golden-mean result or the transfer-matrix method as new. The inspected nearest results use a different field/coupling, neutral-move constraint, or move rule.",
+      "residual_risks": [
+        "A two-sublattice lattice-gas formulation may be indexed differently; deferred literature lookups are not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS zero-field baseline, not weak alternating-field count",
+          "evidence": "Positive W_0 permits diffusion; no isolated spins in blocked states; maximum a-priori entropy ln Φ.",
+          "identifier_or_url": "https://arxiv.org/html/cond-mat/0210477v1",
+          "material_read": "Introduction; §2 near offset 6800; §3.1 offsets 12600–18915",
+          "method": "Bounded arXiv HTML passages",
+          "title": "Metastable states of the Ising chain with Kawasaki dynamics",
+          "trigger": "Exact zero-field comparator and closest identical exchange rule"
+        },
+        {
+          "assessment": "Different couplings and scope",
+          "evidence": "First/second-neighbor regimes and growth factors including 1.6180, 1.5701 and 1.4655; not a site-alternating on-site field.",
+          "identifier_or_url": "https://arxiv.org/html/1601.04375v2",
+          "material_read": "Abstract/model and §III Table 2 near offset 30900",
+          "method": "Bounded arXiv HTML passages",
+          "title": "Metastable and scaling regimes of a one-dimensional Kawasaki dynamics",
+          "trigger": "Kawasaki metastability regimes and exact state proliferation"
+        },
+        {
+          "assessment": "Related count, different Hamiltonian",
+          "evidence": "Uniform second-neighbor parameter, all magnetizations; finite trace representation and exact characteristic polynomials for that setting.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-an-isolated-weak-exchange-blocking-entropy-spike-in-ferromagneti--34d442d501a3",
+          "material_read": "RESULT.md Finding and Proof §§1–3",
+          "method": "Bounded local-mirror passages, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "An isolated weak-exchange blocking entropy spike in ferromagnetic chains",
+          "trigger": "Nearest indexed exchange-blocking enumeration"
+        },
+        {
+          "assessment": "Different move and determinant",
+          "evidence": "Single-spin flips in a next-nearest-neighbor chain, with a different quintic at κ=1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-marginal-entropy-spike-for-weakly-blocked-annni-spin-chains--0f8914252c1b",
+          "material_read": "RESULT.md Finding",
+          "method": "Bounded local-mirror passage",
+          "title": "A marginal entropy spike for weakly blocked ANNNI spin chains",
+          "trigger": "Potential quintic/golden-mean overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The alternating bias selects which former neutral moves survive while leaving the signs of nonneutral ferromagnetic moves unchanged. The count shows that arbitrarily weak bias changes the exponential number of absorbing states, and its complete magnetization weighting matters because exchanges conserve magnetization. This is a benchmark for sector-resolved arrest, not a claim about the probabilities of the different absorbing states.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

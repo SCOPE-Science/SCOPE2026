@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:02:05.858846Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The n−1 independent uniform cuts give Dirichlet(1,…,1) spacings, represented by normalized independent unit exponentials. The common factor cancels from size ordering and the strict triangle inequality; with exponential order gaps Y_j, failure at ranks i,i+1,i+2 is E_(i)≤Y_(i+2). The exponential joint density on its ordered cone factors in the gaps with rates n−j+1, so Y_(i+2) is independent of E_(i) and the Laplace product from m+2 through n equals the stated factorial ratio. The next/current failure ratio is (m+1)(n+m)/[2m(2m+1)]; for integer n and m≥2 it is less than one exactly when n≤3m−2, and otherwise strictly greater. Thus the minimum occurs at m=floor((n+1)/3), also including n=3,4, with no ties; n=3 yields the classical success probability 1/4. For the asymptotic, write x=m/n: the Stirling exponential has rate f(x)=2x log(2x)−x log x−(1+x)log(1+x) and prefactor 2 sqrt(2/(1+x)) to relative O(1/n) near 1/3. Since f'(x)=log(4x/(1+x)), f(1/3)=log(3/4) and m−n/3 is bounded, optimizing integer rounding affects the ratio only at order 1/n. This gives sqrt(6)(3/4)^n(1+O(1/n)) and i*/n→2/3. Replay: RESULT.md proof lines 30–59 and the explicit Stirling calculation above. The inspected verify.py and VERIFICATION.md concern finite checks; neither is the universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Verreault treats every k-subset forming a polygon, with equivalent inequality between the largest piece and the sum of the first k−1 ordered pieces. Mukerjee's introduction distinguishes all-subset, no-subset, and uniformly chosen subset probabilities. Holst's accessible abstract treats distributions of ordered lengths and break counts; the full text was not available on attempted routes."
+        ],
+        "reasoning": "The all-subset event for k=3 contains a condition across more widely separated extreme ranks and implies success at each fixed triple, giving a lower bound, not its marginal exact value. Random-subset probabilities mix over rank combinations, and even a generic ordered-spacing representation is not the derived optimization over consecutive ranks.",
+        "searches": [
+          "Holst DOI 10.2307/3212956, publisher and JSTOR access",
+          "Verreault arXiv:2107.09604 Theorem 1 and Lemma 2",
+          "Mukerjee arXiv:2207.07879 introduction"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 83539b518778, 8428212a7daa, 11600fe32854 and 6f2f08f38b12",
+        "Primary passages from Verreault, Ionascu–Prajitura, Crowdmath, Mukerjee, Sudbury et al.; Holst abstract and attempted full text"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Global no-triangle results may use consecutive sorted constraints simultaneously; such an intersection probability does not specify a marginal inequality. The inspected Pareto theorem's scaling law is not the finite factorial law for exponentials."
+        ],
+        "reasoning": "The rank-specific reduction independently uses memoryless ordered gaps and then compares exact adjacent probabilities to locate the unique minimum. The cited aggregate events and different distributions do not mechanically imply that classification or its sharp prefactor.",
+        "searches": [
+          "Verreault arXiv:2107.09604 Lemma 2 vs. fixed-rank event",
+          "Sudbury et al. arXiv:2504.19911v1 Theorem 1 vs. exact uniform-spacing failure law",
+          "Pareto record 8428212a7daa, Finding and Assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The three-piece classical result is the n=3 boundary. Sudbury et al. Theorem 1 uses adjacent sorted observations but treats raw iid uniform lengths and the simultaneous no-triangle event. The distinct Resultary Pareto theorem 8428212a7daa does use indexed consecutive size ranks, but assumes iid Pareto variables and studies a point-process window."
+        ],
+        "reasoning": "Scale invariance identifies uniform spacings with normalized exponentials for this inequality, not with iid uniform or Pareto lengths. Positional neighbors of circular gaps also differ from neighbors in the order statistics.",
+        "searches": [
+          "Resultary: probability of triangle formation by consecutive size-ranked stick spacings",
+          "Ionascu–Prajitura arXiv:1009.0890; Sudbury et al. arXiv:2504.19911v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed geometry overlaps separate Pareto, physical cyclic spacing, and all-triples events. Crowdmath indexes the number of feasible polygons through P(k,n,m), not the exact probability row indexed by consecutive size rank."
+        ],
+        "reasoning": "The object is an entire family of rational probabilities and its optimizer, not just a known n=3 value or a match of the limiting rank fraction; the exact-result catalogue did not supply an independent matching row or theorem among the inspected hits.",
+        "searches": [
+          "Resultary 83539b518778 (assigned identity); related 8428212a7daa, 11600fe32854 and 6f2f08f38b12",
+          "Crowdmath arXiv:1805.06512 §4"
+        ]
+      },
+      "rationale": "The supported distinct claim is the complete fixed-consecutive-size-rank probability profile for uniform cut spacings, with a strict finite optimizer and its sharp exponentially small failure. The normalized exponential machinery and classical three-piece result are background. The nearest inspected exact broken-stick results change the event quantifier or the sampling law; the nearest indexed rank-specific result uses Pareto inputs. The finding is not a historical priority certification.",
+      "residual_risks": [
+        "Holst full text remained inaccessible; a stronger ordered-spacing specialization or another rank-specific triangle probability may exist. The available passages and bounded catalogue comparison do not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact different event, yielding a bound but not a profile",
+          "evidence": "Every choice of k pieces forms a polygon exactly when the largest length is at most the sum of the k−1 smallest (ties have measure zero here).",
+          "identifier_or_url": "https://arxiv.org/abs/2107.09604",
+          "material_read": "Abstract p. 1 offset 0; Theorem 1 p. 2 around offset 4173; Lemma 2 p. 4 around offset 11982",
+          "method": "Lawful primary arXiv PDF passages",
+          "title": "On the probability of forming polygons from a broken stick",
+          "trigger": "Exact probabilities and explicit size-ordered extremes in the matching spacing model"
+        },
+        {
+          "assessment": "Unresolved scope risk, not proof of noncoverage",
+          "evidence": "The abstract poses the j-th longest-piece law and discusses exponential representations and regime of many pieces.",
+          "identifier_or_url": "https://doi.org/10.2307/3212956",
+          "material_read": "Public abstract and publication metadata only; full text not read",
+          "method": "DOI and JSTOR lookup, and identified Cambridge publisher PDF attempted via OA direct/VPN, no readable full text obtained",
+          "title": "On the lengths of the pieces of a stick broken at random",
+          "trigger": "Same spacing model and size-order statistics; possible broad coverage"
+        },
+        {
+          "assessment": "Classical boundary case only in this comparison",
+          "evidence": "Frames triangle constructions with three cut lengths, not an indexed profile over n sorted fragments.",
+          "identifier_or_url": "https://arxiv.org/abs/1009.0890",
+          "material_read": "Introduction, p. 1 around offset 1259",
+          "method": "Lawful primary arXiv PDF passage",
+          "title": "Things to do with a broken stick",
+          "trigger": "Classical three-piece case"
+        },
+        {
+          "assessment": "Aggregate rather than fixed-rank observable",
+          "evidence": "P(k,n,m) records at least m feasible k-gons from n pieces.",
+          "identifier_or_url": "https://arxiv.org/abs/1805.06512",
+          "material_read": "§4 p. 11, around offset 37194",
+          "method": "Lawful primary arXiv PDF passage",
+          "title": "The Broken Stick Project",
+          "trigger": "Same cutting scheme and feasible triangle observables"
+        },
+        {
+          "assessment": "Shared sampling and different event quantifier",
+          "evidence": "Discusses no, all, and uniformly sampled k-subsets forming polygons.",
+          "identifier_or_url": "https://arxiv.org/abs/2207.07879",
+          "material_read": "Abstract and introduction p. 1, offset 0",
+          "method": "Lawful primary arXiv PDF passage",
+          "title": "A Statistical Approach to Broken Stick Problems",
+          "trigger": "General exact broken-stick polygon events"
+        },
+        {
+          "assessment": "Different observation distribution and global event",
+          "evidence": "Its product of inverse Fibonacci numbers is the probability no triple of iid uniform lengths makes a triangle.",
+          "identifier_or_url": "https://arxiv.org/abs/2504.19911v1",
+          "material_read": "Theorem 1 p. 2, around offset 4575, and adjacent-constraint reduction",
+          "method": "Lawful primary arXiv PDF passages",
+          "title": "Pick-up Sticks and the Fibonacci Factorial",
+          "trigger": "Exact triangle probability with adjacent sorted values in its proof"
+        },
+        {
+          "assessment": "Material observable overlap; different law and theorem",
+          "evidence": "Uses indicators for successive triples in the size order of iid Pareto lengths and obtains a rank-indexed rare-event limit.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-poisson-critical-window-for-triangle-formation-in-pareto-stick--8428212a7daa/RESULT.md",
+          "material_read": "RESULT.md Finding and Assumptions, starting at offset 0",
+          "method": "Local mirror",
+          "title": "A Poisson critical window for triangle formation in Pareto stick samples",
+          "trigger": "Closest distinct indexed rank-specific observable"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the natural triangle test on successive size ranks, the risk profile shows that neither end of the size order is optimal for n≥5. It gives a unique finite optimal location and the sharp failure constant across sample sizes, distinguishing this selection rule from global existence or random sampling of triples. This is a motivated structural probability law rather than the computation of a few classical cases.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

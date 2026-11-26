@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:27:02.537526Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–49; VERIFICATION.md; VERIFY_PYTHON.py, VERIFY_CPP.cpp, VERIFY_CHESSBOARD.py and recorded outputs",
+        "Jonsson, arXiv:1203.5644, Theorems 1.1, 2, 3 and 3.1, especially PDF pp. 3–4 and 9",
+        "Independent replay: python /tmp/opencode/frozen_3_check.py"
+      ],
+      "rationale": "An undominated cell is exactly the intersection of an empty row and an empty column. With m≤n the optimal size is m; optimizers are row transversals, together with column transversals exactly when m=n. The all-positive trace forces a support into one such transversal family, and each negative request in that family can be met by using a different cell in its queried row (or column), since m,n≥2. This proves both trace criteria. Counting the two families and their partial-permutation overlap gives the polynomials and VC dimension; extending within a family proves purity. The displayed row/column basis exchange fails for n≥3 because deleting (2,1) from column 1 still leaves (1,1) and another cell in column 1. The rectangular join is a wedge of (n−1)^m spheres of dimension m−1 by the suspension-smash description of joins. In the square case the intersection of the row and column joins is the chessboard complex; their homology vanishes below n−1, giving exactly the claimed reduced Mayer–Vietoris range. Jonsson's Theorem 3.1 supplies integral H2(M5,5)=Z/3 and Theorems 1.1 and 3 verify the degree bounds. The reduced Euler characteristic is 2104 and the top kernel is free. Jonsson's Theorem 2 applies at d=n−4 since (2n−4)/3≤n−4 precisely for n≥8, so the shift supplies the asserted lower-dimensional torsion and rules out pure shellability. A fresh direct closed-neighborhood/trace test exhausts 2×2, 2×3 and 3×3, and the size-five vector and Euler arithmetic were independently checked.",
+      "residual_risks": [
+        "No general torsion computation is inferred from sampled boards or modular ranks. The all-order proof depends on the stated integral chessboard theorems. The shift is not asserted in top degree."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mertens covers ordinary domination counts and minima on general rook rectangles. Jonsson covers torsion and degree bounds for chessboard matching complexes, including the full needed square range."
+        ],
+        "reasoning": "Both prior results genuinely cover premises, not the topology of the specific optimizer shattering complex or the trace-to-chessboard reduction.",
+        "searches": [
+          "Mertens, arXiv:2401.00716, PDF p. 3, Eqs. (2)–(3)",
+          "Jonsson, arXiv:1203.5644, Theorems 1.1, 2 and 3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2401.00716, arXiv:1203.5644",
+        "Resultary cba8fc708d0d, ffaa2f7a2b1d, 89367a150c4b, d90a9acc5534, 438d5a325361"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The optimum family and ordinary domination counts supply the all-positive necessary condition; for the converse a separate witness is needed for every trace. The prior chessboard torsion concerns the matching intersection, not a union or an optimizer shattering complex."
+        ],
+        "reasoning": "Counting optimum dominating sets does not count all traces. Use of standard Mayer–Vietoris is not novel on its own; the substantive link is identifying exactly this shattering complex as two transversal joins meeting in the chessboard complex, after which the known torsion transfers.",
+        "searches": [
+          "Mertens, Eqs. (2)–(3)",
+          "Jonsson, Theorems 2 and 3.1",
+          "Resultary cba8fc708d0d and 89367a150c4b, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary cba8fc708d0d and ffaa2f7a2b1d use closed and open neighborhoods, respectively, as the concepts; 89367a150c4b uses subsets whose complements dominate."
+        ],
+        "reasoning": "The center of a neighborhood is not an unknown minimum dominating set. Complement dominance is not the all-traces test either; even its restriction to minimum dominating complements does not give the target's supports by taking complements. These are not equivalent formulations.",
+        "searches": [
+          "Resultary: minimum dominating sets rook graph shattered supports square chessboard complex three torsion",
+          "Resultary: minimum ordinary domination rectangular rook graph VC shattering complex homology"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary d90a9acc5534 includes the known Z/3 in undeleted M5,5 as a special case; 438d5a325361 takes it as input and minimizes its carriers. The exact shattering finding in the query is the target itself.",
+          "Mertens gives 2n^n−n! minimum sets for the square; it matches the top-face count only, not a table of all shattered supports or their homology."
+        ],
+        "reasoning": "The chessboard group and top count are exact overlaps and receive prior credit. None of these inspected statements gives the square shattering complex or its full coefficients and integral homology.",
+        "searches": [
+          "Resultary: Jonsson chessboard matching complex integral 3-torsion H_2 M_5,5 all-order square M_n,n",
+          "Resultary: minimum dominating sets rook graph shattered supports square chessboard complex three torsion"
+        ]
+      },
+      "rationale": "The dominating-set minimum and the chessboard torsion are known inputs. The distinct result is the trace classification for membership in minimum ordinary dominating sets, and the integral topology this gives for that specific shattering complex. The closest inspected rook shattering and dominance complexes have different defining predicates.",
+      "residual_risks": [
+        "This is a bounded indexed comparison plus the directly identified primary sources, not a comprehensive priority determination. An unindexed equivalent result on optimizer shattering or complexes of partition-matroid unions could overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers domination and optimizer counts, not membership shattering.",
+          "evidence": [
+            "Minimum size min(m,n); square minimum count 2n^n−n!."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2401.00716",
+          "material_read": "PDF p. 3, Eqs. (2)–(3)",
+          "method": "OA literal lookup and surrounding full-text passage",
+          "title": "Domination Polynomial of the Rook Graph",
+          "trigger": "Same graph and same minimum ordinary dominating sets"
+        },
+        {
+          "assessment": "Covers imported integral torsion and degree bounds, not rook-graph membership traces.",
+          "evidence": [
+            "Thm. 2 square range (2n−4)/3≤d≤n−4; Thm. 3.1 exact integral H2(M5,5)=Z/3."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1203.5644",
+          "material_read": "Theorems 1.1, 2, 3 and 3.1; PDF pp. 3–4 and 9",
+          "method": "OA PDF passage lookup and inspection",
+          "title": "On the 3-Torsion Part of the Homology of the Chessboard Complex",
+          "trigger": "Exact integral groups used as inputs"
+        },
+        {
+          "assessment": "Different concept classes or complement predicate.",
+          "evidence": [
+            "Closed-neighborhood supports involve unused rows/columns and shape restrictions; the open-neighborhood polynomial has degree at most three; dominance faces have dominating complements."
+          ],
+          "identifier_or_url": "Resultary ffaa2f7a2b1d, cba8fc708d0d, 89367a150c4b",
+          "material_read": "Findings and concept/complex definitions",
+          "method": "Local Resultary mirror statement comparison",
+          "title": "Rook-graph open/closed-neighborhood shattering and rook-graph dominance complexes",
+          "trigger": "Same board and closely named complexes"
+        },
+        {
+          "assessment": "Material overlap on a credited input; not on the shifted shattering-complex group.",
+          "evidence": [
+            "The first includes undeleted H2=Z/3 and the second uses this group as a premise for a cycle support question."
+          ],
+          "identifier_or_url": "Resultary d90a9acc5534 and 438d5a325361",
+          "material_read": "Findings on the empty-deletion/initial homology group",
+          "method": "Local Resultary mirror statement comparison",
+          "title": "Four-square deletion threshold and shortest torsion carriers in the five-by-five chessboard complex",
+          "trigger": "Same exact underlying M5,5 group"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Theorem and Proof Steps 2–5; Mertens and Jonsson statements cited above"
+      ],
+      "rationale": "The rectangular-to-square change in the optimizer families changes the topology of an intrinsically defined learning complex. It produces a natural, exactly described family of pure nonshellable shattering complexes with integral torsion and a simple rectangular control case. This is more than recomputing the known square optimizer count or rediscovering chessboard torsion on the original chessboard object.",
+      "residual_risks": [
+        "The shift does not resolve the full homotopy type or give an equivariant or general graph-family classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** For the precisely defined 30-edge binary convolution, the exact 60-matchings enumeration and even pair-extension counts yield the universal modulo-eight argument. Both \(\operatorname{GP}(10,3)\) and \(H(5,2)\) representations independently verify the counts. A gauge quotient of dimension eleven and integer signed-matching sums reproduce all four multiplier magnitude levels and show all signings nonvanishing. Exact reciprocal Walsh inversion gives the 68/15 operator norm. Neither a sample of signings nor a floating-point approximation is substituted for an exhaustive quotient certificate.
+## correctness
 
-**Originality: PASS under bounded comparison.** The classical graph descriptions and prior count of 60 matchings are explicitly credited. Wanless's full text concerns dense signed matrices and does not give the fixed sparse Desargues matching Fourier spectrum. Published Desargues anti-forcing and hexagon-flip findings concern the same objects but not the all-signings nonvanishing congruence, reciprocal Walsh inversion or sharp endpoint inverse norm. Close published-finding corpus records involving other graphs and matching convolutions do not imply this exact graph-specific result. Residual risk: an unindexed equivalent signed-permanent census or general result strong enough to imply the case might exist.
+PASS
 
-**Value: PASS.** The distance-transitive Desargues graph is a canonical incidence object whose 60-matchings kernel exhibits a non-obvious zero-free signed permanent at every choice of 30 edge signs. Its complete Fourier spectrum and exact best possible inverse amplification form a motivated, self-contained, reproducible harmonic-analysis invariant and a sharp stability benchmark. No extension to other graph orders is asserted.
+Independent exact replay used the two-copy disjoint-2-subset graph, row-by-row subset dynamic enumeration, a breadth-first tree gauge, and direct character sums in both directions. It recovered 60 matchings, 20 per edge, pair-extension frequencies 0:60, 4:75, 6:120, 8:60, 10:120, and all the claimed reduced multiplicities. The product expansion gives 60-40|S| plus four times an even sum modulo 8 for any signing, which proves uniform nonvanishing without sampling. The connected graph has a 19-dimensional cut space; switching by a single vertex changes the sign, and cut-equivariance of the reciprocal forces support on the affine all-odd boundary fiber. Chord restriction is bijective on this fiber because a cycle supported on a tree is zero. The direct reciprocal sum scaled by 60 recovered 1343 nonzero values and absolute numerator 557056 over 60·2048. The l1 norm is attained on a delta; the l-infinity norm is attained by taking the signs of the kernel at one output. Orthogonal Fourier diagonalization gives 1/4 and condition number 15.
 
-Limits: the pair-incidence certificate is exhaustive finite computation, and historical novelty remains qualified by bounded access/search. Independent audit is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the classical graph descriptions, previously counted unsigned matchings, switching, and Fourier diagonalization. The supported distinction is the universal signed nonvanishing and evaluated complete graph-specific reduced spectrum and reciprocal kernel norms. The closest inspected alternatives change the support object, not just notation.
+
+## value
+
+PASS
+
+The Desargues graph is a natural highly symmetric cubic bipartite support, not a tailored sparse matrix. Invertibility for every signing is not assured by the unsigned count, and the complete spectrum and exact inverse norm quantify sensitivity of recovery to perturbations in different norms. The arithmetic support and exact sparsity are useful beyond a yes/no nonvanishing test, without claiming a general graph-family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

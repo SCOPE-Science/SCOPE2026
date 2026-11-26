@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,30 +19,23 @@
 }
 ---
 
-# Reproducible exact verification
+# Reproducibility of the height-24 equality classification
 
-The statement concerns **all** positive eight-coordinate integer directions of height at most \(24\). The exact finite optimum, not any global optimum, is certified.
-
-```sh
-c++ -O2 -std=c++17 verify_view8.cpp -o verify_view8
-./verify_view8 24
-python3 verify_view8_independent.py
-```
-
-The first program outputs:
+With Python 3 and NumPy, run `python3 verify_equality.py 1 24`. The program
+uses integer arithmetic on 90 closed intervals from a common refinement.
+It discards a tuple only on finding a clipped interval minimum strictly
+below 8/17, then computes the exact minimum for each survivor. It asserts
+each height's combinatorial count and the expected exact survivors:
 
 ```text
-EXACT_ENUM B=24 nondecreasing_tuples=7888725 max=8/17 optimizing_tuples=2
-1 2 3 4 5 7 9 11  gcd=1
-2 4 6 8 10 14 18 22  gcd=2
+height=11 tuples=  19448 survivors=[((1, 2, 3, 4, 5, 7, 9, 11), '8/17')]
+height=22 tuples=1184040 survivors=[((2, 4, 6, 8, 10, 14, 18, 22), '8/17')]
+cells=90 total=7888725
 ```
 
-The second program outputs:
-
-```text
-EXACT_INDEPENDENT_OK hero=8/17 small_sorted_vectors=3003 deterministic_large_vectors=300
-```
-
-The exact C++ algorithm enumerates each nondecreasing tuple once, and for each of them traverses all breakpoint cells within \([0,1/2]\) using rational cross-product order. It updates the quadratic projection numerator with integer arithmetic. The independent Python script uses `fractions.Fraction`, explicitly clips every quadratic minimizer to its own cell, and compares against the projection formula. All core source files are standalone and included; no auxiliary data or external service is required.
-
-The explicit vector has \(Q=306\), with smallest cell numerator \(576\) and minimizing parameters \(8/51\) and \(25/51\), yielding \(576/(4\cdot306)=8/17\). Simultaneous breakpoint events and repeated coordinates are included. The finite census does **not** examine vectors of height greater than \(24\); it is not a proof that the unrestricted dimension-eight constant equals \(8/17\).
+The full output has an empty survivor list at each of the other 22 heights.
+One can also run inclusive chunks `1 14`, `15 19`, `20 22`, `23 24`; together
+they cover the same vectors. The proof and the replay cover only the equality
+classification in the specified box. They do not independently prove any
+assertion at unbounded height. The unrestricted optimum value is prior
+work of Tan and Zhang, arXiv:2611.10782v1, Theorem 1.1.

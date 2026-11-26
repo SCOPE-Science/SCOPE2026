@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Each nucleus/commutant condition was reduced directly from the basis multiplication to explicit permutation-invariance equations in \(K[t]/(t^n-1)\). Their solution spaces yield the four parity/characteristic cases without assumptions on invertibility of \(2\) or of \(n\). The full nucleus and multiplication were obtained by an explicit intersection, including the characteristic-two exception. Independent modular elimination of the original associator equations agrees for \(2\le n\le14\) in three field characteristics, and verifies the candidate bases.
+PASS
 
-## Originality
+Rechecked the even-only repair from basis multiplication, including n=2. The left identity amounts to reversal and translation by two, fixing exactly the parity-constant sequences. In the middle identity the coefficient of t^(2j) in P(t²) is s_j=a_j+a_(j+m), and translation by two acts transitively there. In the right identity the same constancy is necessary, but P(t²)=P(t⁴) is additionally required; multiplication by two permutes the even exponents if m is odd, while when m is even reduction modulo n preserves divisibility by four and the coefficient at exponent two forces s_j=0. The pair-sum map is onto in all characteristics, so these conditions give the dimensions. The commutation test implies period gcd(n,3) together with zero coefficients on odd indices; all period classes meet those indices. Intersecting with the parity-constant sequences yields pair sums c₀+c₁ for odd m and 2c₀ or 2c₁ for even m, giving exactly the stated characteristic switch. Reflections preserve each parity orbit, so each parity sum right-multiplies by e_j to itself and the stated product follows. In n=2 the full nucleus equals A although C=0, consistent with the left-zero basis multiplication. The proof uses no division by 2 or by the order. The supplied modular verifier was inspected, not executed, and the finite range is not used to justify arbitrary fields.
 
-PASS relative to inspected material, not a claim of universal priority. The 2022 Kaur–Singh full article handles even-order right-module decomposition over \(\mathbb R\) and \(\mathbb C\), not the three associator nuclei. The 2018 Elhamdadi–Fernando–Tsvelikhovskiy work treats right ideals and foundational quandle-ring algebra. Importantly, Sangaré–Ta (2026), Proposition 4.7, already establishes the odd-order **left** nucleus; this is explicitly excluded from the independent novelty assertion. None of the inspected materials states the entire six-dimensional profile, the even-order full-nucleus phase change, or the commutant formula. Targeted database and literature comparisons did not uncover equivalent coverage. Publication-priority uncertainty remains.
+## originality
 
-## Value
+PASS
 
-PASS. The center, associator nuclei, and commutant are intrinsic nonassociative-algebra invariants. Their complete, uniform determination reveals a sharp and structurally interpretable mod-four/characteristic-two nucleus jump and a separate divisibility-by-three commutant jump. In particular, all three individual associator nuclei can be nonzero although their intersection is zero. The two-dimensional exceptional nucleus has an explicit multiplication law, rather than merely a dimension count. These facts are not consequences of a numerical experiment or a cosmetic renaming.
+Pass is solely for the repaired even-order classification. The repaired finding removes the entire odd-order row, including the partially prior-covered commutant, rather than passing the frozen novelty claim with a disclaimer. The checked general results cover Latin or connected cases, or work in a split Fourier regime; the even dihedral algebra has a noninvertible doubling on indices and is not Latin or connected. Prior direct work on the same even family distinguishes mod-four regimes for right modules, not the joint associator kernels, their intersection in all characteristics, and the zero commutant.
 
-## Prior art and limitations
+## value
 
-The even-order module-splitting result of Kaur–Singh is relevant motivation, the odd left nucleus in Sangaré–Ta is known prior coverage, and older quandle-ring theory supplies the setting. No claim is made for arbitrary Alexander quandles or for unrelated automorphism classification. Exact all-field validity is proved in the result, while direct computation only checks a finite set of prime fields.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Even-order dihedral algebras are the canonical non-Latin branch of the family. Their three failure-of-associativity kernels can be sizable while their common intersection vanishes, and in the same orders a change of coefficient characteristic restores a two-dimensional zero-product nucleus. The coefficient classification, explicit multiplication and separation of nucleus from commutant make the exact even-order result useful without any mathematical contribution from the prior odd row.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

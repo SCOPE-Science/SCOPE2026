@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:52:10.434536Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–127 and 133–143",
+        "Frozen VERIFICATION.md and checker.py (inspected, not executed)",
+        "Independent replay: python3 /tmp/opencode/frozen_review_replay_1to5.py 4"
+      ],
+      "rationale": "In a uniformly ordered list of labelled endpoint pairs, a particular set of k left labels and the complementary right labels admits 2(2k)!(2n-2-2k)! endpoint permutations with the tagged interval isolated. The two block orders are independent uniform orders conditional on the partition; without the partition the law is a mixture. Normalizing the weights by (2n-2)! gives the ratio (2k+1)/(2m-2k-1), m=n-1. The two next-to-extreme weights each equal 1/(2m-1), and the remaining nonextreme mass is O(m^-2) by a geometric bound through m/4 and monotonicity to m/2. This gives the split probability and the TV upper bound by retaining the exact G_m law on the one-sided event. Given the split, the mean edge deficit is (2/3)[m+K(m-K)]; under isolation the mean of K(m-K) equals m(m-1)C_n/p_n, by the two-side multinomial count conditional on the exterior gaps. This proves the covariance sign and normalization, including -4/9 for n=2. The same ratio estimate with the weight k(m-k) gives E[K(m-K)|I_1=1]→1/2: k=1,m-1 give the limit, k=2,m-2 give O(m^-1), and k≥3 up to the middle have total unweighted mass O(m^-3). Since n²p_n→1, this also yields n⁴C_n→1/2 and Cov(Z_n,E_n)→-2/3; Markov gives Z_n→0 in probability. Independently enumerated all (2n)!/2^n labelled endpoint-pair orders for n=2,…,5 and checked the split weights, conditional edge-count convolutions for fixed label sets, and covariance (-4/9,-2/3,-16/21,-748/945).",
+      "residual_risks": [
+        "Enumeration checks finite edge statistics, not full labelled graph distributions or the limit; those follow from the ordered-pair and ratio arguments.",
+        "Only tagged isolation is treated, and the TV estimate is not an equality."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The companion states independence of the uniform matching restrictions given a clean cut, for common atomless endpoint law, and gives two-cut probabilities from that independence. Reapplying the same split to the right block at its first pair leaves independent blocks of sizes k,1,m-k. Iliopoulos's statement of the prior minimum-degree limit already implies vanishing probability of any isolate."
+        ],
+        "reasoning": "The companion conditional law holds for any cut position and can be iterated in a block of any size; the frozen uniform-endpoint singleton is its direct two-cut specialization.",
+        "searches": [
+          "Resultary 18b87f527caa, RESULT.md, proof steps 1, 2 and 4",
+          "Scheinerman, DOI:10.1007/BF02189092",
+          "Iliopoulos, arXiv:1507.06275v1, Theorem 4.5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 18b87f527caa, local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+        "arXiv:1507.06275v1",
+        "DOI:10.1007/BF02189092 (partial access)",
+        "Frozen RESULT.md and cited-prior discussion"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The companion gives E[E_s]=s(s-1)/3 and adds the two block expectations conditional on a cut. For the adjacent cuts and the tag, the middle block has no edges, hence the edge deficit is (2/3)[m+k(m-k)]. Multiplying this term by the explicit tagged weight and summing gives the frozen covariance identically. The companion's factorial-ratio weights at size m also equal W_{m,k}/(2m)!; its endpoint and weighted-tail estimates give the split rarity and the leading mixed contribution. The TV bound is the elementary one-sided mixture bound."
+        ],
+        "reasoning": "This is a direct specialization of an existing general conditional law and its exact weights, not an inference about one covariance from the other covariance alone. The singleton formulation is useful but the stated quantitative claims follow without a new distributional or asymptotic mechanism.",
+        "searches": [
+          "18b87f527caa, proof steps 2 and 4: conditional edge expectation and factorial-ratio tail estimates"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest distinct companion, 18b87f527caa, uses a uniform matching of the 2n ordered endpoints and clean cuts A_j after 2j endpoints. A singleton component of position k+1 is precisely A_k and A_{k+1}, with end cuts vacuous; the tag selects that pair with probability 1/n by exchangeability."
+        ],
+        "reasoning": "This converts the geometrically defined tagged-isolation event into the published matching-cut events without changing the model or conditioning. The predesignated label does not bias the uniform block matchings.",
+        "searches": [
+          "Resultary: tagged-isolation law, conditional left/right split and rarity, persistent edge–isolate covariance",
+          "Iliopoulos, arXiv:1507.06275v1, §§3.1–3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The companion does not tabulate the isolate covariance, but it explicitly gives exact p(n,j)=binom(n,j)/binom(2n,2j) and the product for two clean cuts. With p(n,0)=1, the tagged split probability before normalization is p(n,k)p(n-k,1)/n, defining p(1,1)=1. This simplifies to the frozen factorial weight 2W_{m,k}/(2n)! for every k, including the end cuts."
+        ],
+        "reasoning": "The general exact weights already cover the split data after selecting adjacent cuts and the tag; a literal duplicate numerical table is not needed.",
+        "searches": [
+          "Resultary: exact tagged split law and rare two-sided split in random interval graphs; compared the assigned record and 18b87f527caa",
+          "18b87f527caa, RESULT.md, proof steps 1 and 4"
+        ]
+      },
+      "rationale": "There is a distinct indexed companion on component–edge covariance with the same model. Its displayed single-cut independent-uniform matching law and joint cut probabilities already mechanically yield the tagged-isolation block law and covariance by two adjacent cuts. This is a statement-level mathematical implication, not a numerical match of the limiting constants, an assertion that component count equals isolate count, or a claim about which same-day record appeared first. I find no separate substantive result beyond this specialization and its weight estimates in the frozen finding.",
+      "residual_risks": [
+        "The two indexed records share a date; relative chronology is not inferred.",
+        "The complete 1988 article was not inspected; the decision rests on the independently inspected companion and explicit implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General conditional cut law and weights cover the adjacent-cut specialization; the companion's component covariance is not itself an isolate covariance.",
+          "evidence": [
+            "Conditional matching restrictions are independent uniform matchings; joint cut probabilities are products; ratio and weighted-tail bounds use the same weights."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-persistent-component-edge-covariance-in-random-interval-graphs--18b87f527caa/RESULT.md",
+          "material_read": "Finding and proof steps 1–4, especially file offsets 1800–5556",
+          "method": "Resultary search and local-mirror source inspection",
+          "title": "A persistent component–edge covariance in random interval graphs",
+          "trigger": "Same model, cut decomposition, and covariance constant for a distinct graph statistic"
+        },
+        {
+          "assessment": "Covers the ambient ordered endpoint model and edge mean, and reports a prior minimum-degree limit implying no isolates with high probability; not evidence of the exact tagged formula.",
+          "evidence": [
+            "Uniformly ordered paired endpoints; edge probability 2/3; minimum degree on the sqrt(n) scale."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1507.06275v1",
+          "material_read": "Iliopoulos thesis §§3.1–3.3 and §4.4, Theorem 4.5",
+          "method": "Lawful open full-text passage inspection",
+          "title": "Random Interval Graphs",
+          "trigger": "Model and classical rare-isolation results"
+        },
+        {
+          "assessment": "Additional priority risk; not the basis of rejection.",
+          "evidence": [
+            "Article description concerns the uniform-endpoint model and edge and degree statistics."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/BF02189092",
+          "material_read": "Bibliographic and abstract-level material only; full text not obtained",
+          "method": "Lawful public landing page, attempted OA full-text retrieval and open thesis citation",
+          "title": "Random interval graphs",
+          "trigger": "Original model article and plausible source of exact degree-zero formulas"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 20–57 and 145–151",
+        "Resultary 18b87f527caa, distinction between isolation and component observables"
+      ],
+      "rationale": "The conditional labelled graph law is a natural structural description of deletion after a connectivity defect. The isolate count going to zero while its covariance with the growing edge count does not highlights a genuine distinction between total variation and unscaled moment control. That interpretation is useful independently of the originality failure for the mathematical specialization.",
+      "residual_risks": [
+        "No claim of a sharp TV constant or a nonzero Pearson correlation is justified."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

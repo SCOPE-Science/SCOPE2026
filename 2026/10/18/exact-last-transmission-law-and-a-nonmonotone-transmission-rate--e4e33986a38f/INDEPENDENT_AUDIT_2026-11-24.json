@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:42:33.742790Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–106",
+        "Frozen VERIFICATION.md and verify.py",
+        "Independent rate-clock derivation and direct cubic bisection"
+      ],
+      "rationale": "The first new transmission has rate 2λ and no stifling competitor. Immediately afterwards the two endpoints of the informed interval are active spreaders; the original seed is itself the second tip. Each has a permanently informed inward neighbor and an ignorant outward neighbor, with respective stifling and transmission rates 1 and λ. Directed clocks driving the tips are independent even when they share the first informed edge, because stifling changes only the contacting spreader and informed status never reverts. After a birth the moving tip has fresh clocks; an old interior spreader cannot affect future births. This reduces each side to rate-λ Poisson births killed at independent Exp(1), independently of the initial time and the other side. The probability of no birth later than u is 1−e^(−u)+e^(−u)/(1+λ)=1−a e^(−u); finiteness follows from killing in finite time. The squared CDF for the maximum gives the atom, density, transform, and tail integral stated in the finding. Differentiation gives the cited cubic over a positive denominator, and its single positive sign change and endpoint signs give one strict minimizer. The mean minus 3/2 is (1−λ−λ²)/(2λ(1+λ)²), so the upper-rate limit is approached from below. Direct bisection independently gives 1.4811943040920155 and mean 1.3533164361622998. The uploaded sitewise Monte Carlo checker was inspected, not run; the argument is analytic.",
+      "residual_risks": [
+        "No claim is made for extinction time, forgetting, wrap-around, or monotone stochastic ordering of T_new."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The small-world study uses final stifler counts in a discrete selection process. The complete-network dissemination time is time until every node knows the rumor. The finite-tree catalogue theorem is a full-dissemination probability and the double-star theorem is a time law for push-pull without stifling."
+        ],
+        "reasoning": "Neither a general full-dissemination probability nor a completion-time law under a different process specializes to this last-transmission law.",
+        "searches": [
+          "arXiv:1703.10770 §§1–2",
+          "DOI 10.1287/ijoc.2018.0845, HAL primary copy",
+          "Resultary ef1d8b65985a and 49731cf804ae"
+        ]
+      },
+      "checked_sources": [
+        "Resultary focused catalogue and exact Findings ef1d8b65985a, 49731cf804ae",
+        "arXiv:2610.02533v1",
+        "arXiv:2507.02141v2",
+        "arXiv:1703.10770",
+        "DOI 10.1287/ijoc.2018.0845",
+        "Citation and lookup for Marić et al. reference [5]"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The closest proof decomposes the final range into geometric directional ranges gated by which neighbors the origin informs. It gives E N(τ∞)=2(λ+1) but no holding-time law. The cycle skeleton counts transitions and omits holding times."
+        ],
+        "reasoning": "Range or skeleton statistics alone cannot determine the physical law. Within the given rate model one still has to analyze the front clocks, the zero atoms and their independence, and take the maximum. The nonmonotone mean is a consequence of that timing analysis, not of the prior increasing expected range.",
+        "searches": [
+          "Marić–Minić–Rodriguez arXiv:2610.02533v1, Theorem 1 and proof at PDF p. 7, offset 26992",
+          "Díaz Bacca–Rodriguez–Rúa-Alvarez arXiv:2507.02141v2 Theorem 2.3 and §3.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Marić et al. use exactly MT0 birth rate λ n₁ and stifling rate n₁+n₂, with permanent stiflers. Their τ∞ is the time with no remaining spreader, not the last birth.",
+          "Díaz Bacca et al.'s M_n=2Z(τ_n)−1 counts steps of the embedded chain and explicitly disregards time spent in each state."
+        ],
+        "reasoning": "Absorption, step count and the last ignorant-to-spreader jump are different observables, even where the geometric range laws agree.",
+        "searches": [
+          "Last new information / last successful transmission / rumor duration, Maki–Thompson, nearest-neighbor line with rate λ",
+          "arXiv:2610.02533v1 §2.1 and Theorem 1",
+          "arXiv:2507.02141v2 §2 and Theorem 2.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The focused catalogue results did not surface an exact match; the closest two indexed Findings were read in their original text and have different target observables or dynamics."
+        ],
+        "reasoning": "A maximum of exponential-type variables or the same local stifling rule in an indexed record is not enough: neither inspected record states the maximum of two defective Exp(1) offsets after the rate-2λ seed event, or the cubic optimum. Bounded retrieval is not exhaustive.",
+        "searches": [
+          "Resultary: Maki–Thompson stifling rumor last transmission exact distribution and rate optimum; physical-time last vertex",
+          "Local-mirror RESULT.md Finding for ef1d8b65985a and 49731cf804ae"
+        ]
+      },
+      "rationale": "The supported distinct claim is the stopping-time law in physical time and the resulting nonmonotone mean for the unit-stifling infinite-line process, not the frontier geometry, final range or almost-sure extinction. The closest inspected prior uses identical transition rates but proves the spatial count at absorption by geometric ranges. It does not specify the time of the last birth or the temporal combination of the two fronts. The other closest catalogue and literature matches differ in observable or rates and geometry. No exact or stronger covering statement was established in the checks below.",
+      "residual_risks": [
+        "The separately cited Díaz Bacca–Rodriguez preprint was not available for a direct comparison.",
+        "An unindexed continuous-time treatment of the same front clocks could overlap this modestly scoped exact law."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same process and spatial antecedent, different stopping-time result",
+          "evidence": "τ∞ is absorption; R and L are geometric ranges and E N(τ∞)=2(λ+1).",
+          "identifier_or_url": "https://arxiv.org/abs/2610.02533v1",
+          "material_read": "§2.1 and Table 1, pp. 4–5; Theorem 1 and proof, p. 7 (offset 26992)",
+          "method": "OA primary PDF",
+          "title": "Critical behavior of stochastic rumors on the one-dimensional integer lattice",
+          "trigger": "Exact same MT0 dynamics on the line"
+        },
+        {
+          "assessment": "Transition count, not elapsed time",
+          "evidence": "M_n=2Z(τ_n)−1 for the nearest-neighbor ring; proof disregards time spent in states.",
+          "identifier_or_url": "https://arxiv.org/abs/2507.02141v2",
+          "material_read": "§2 p. 2 rates, Theorem 2.3 p. 6 and §3.2 pp. 9–10",
+          "method": "OA primary PDF",
+          "title": "How far can a rumor travel without shortcuts?",
+          "trigger": "Ring lattice rumor duration and size"
+        },
+        {
+          "assessment": "No match for the physical-time observable",
+          "evidence": "Product formula for all vertices ever hearing the rumor on finite trees and sharp path maximization; scope explicitly excludes dissemination time.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-seed-independent-full-dissemination-and-sharp-path-optimality-in--ef1d8b65985a/RESULT.md",
+          "material_read": "Finding and scope, offset 0, local mirror",
+          "method": "Local Resultary mirror",
+          "title": "Seed-independent full dissemination and sharp path optimality in finite-tree stifling rumor networks",
+          "trigger": "Closest indexed same-family model"
+        },
+        {
+          "assessment": "Different contact process and time endpoint",
+          "evidence": "Every vertex makes rate-one push-pull calls; law is a completion time on double stars with no stifling.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-logarithmic-source-and-last-vertex-crossover-for-asynchronous--49731cf804ae/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A logarithmic source-and-last-vertex crossover for asynchronous rumor spreading on double stars",
+          "trigger": "Indexed exact last-vertex time law"
+        },
+        {
+          "assessment": "Final reach, different network and time convention",
+          "evidence": "Discrete spreader-neighbor selections; localization and propagation assessed by final number of stiflers.",
+          "identifier_or_url": "https://arxiv.org/abs/1703.10770",
+          "material_read": "§§1–2, PDF offsets 7738 and 11442",
+          "method": "OA primary PDF",
+          "title": "Phase Transition for the Maki–Thompson Rumour Model on a Small-World Network",
+          "trigger": "Earlier spatial Maki–Thompson work"
+        },
+        {
+          "assessment": "Different model and stopping event",
+          "evidence": "Asynchronous pairwise exchanges; real time until all nodes know the rumor.",
+          "identifier_or_url": "https://doi.org/10.1287/ijoc.2018.0845",
+          "material_read": "HAL primary copy, abstract and introduction, offset 2563",
+          "method": "Lawful OA primary copy",
+          "title": "Probabilistic Analysis of Rumor-Spreading Time",
+          "trigger": "Earlier physical-time rumor law"
+        },
+        {
+          "assessment": "Unresolved beyond the cited scope; not negative evidence",
+          "evidence": "The citing text describes related ring-to-line range analyses and different stifling/neighbor rules; additional timing content cannot be excluded.",
+          "identifier_or_url": "2026 preprint, reference [5] of arXiv:2610.02533v1",
+          "material_read": "Citation and discussion after Theorem 1 only; separate full text not located",
+          "method": "OA citation inspection and focused title lookup",
+          "title": "On the expected total number of informed vertices for stochastic rumors on one-dimensional ring lattices",
+          "trigger": "Unresolved closely related range work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof",
+        "Marić et al., Theorem 1"
+      ],
+      "rationale": "On the natural infinite nearest-neighbor benchmark, the elapsed time of the last new spread is not measured by ultimate reach or extinction. The exact law gives deadline probabilities and an explicit, genuinely nonmonotone mean despite increasing expected reach. It isolates the competition between the faster initial birth and the longer final activity of the surviving fronts, with a sharp and reproducible rate boundary. The result is not just a moment at one chosen rate or a renaming of the final-count law.",
+      "residual_risks": [
+        "This says nothing about optimizing full absorption time or dissemination on another graph."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

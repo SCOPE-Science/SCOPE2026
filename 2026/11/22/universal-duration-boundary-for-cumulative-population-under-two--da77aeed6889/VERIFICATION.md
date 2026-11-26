@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification of the two-stage logistic comparison
+# Independent mathematical audit
 
-Run `python3 verify.py` with a standard Python 3 installation. The exact rational witness with \(r=1\) and growth exponent \(E=3\), capacities \(2\) and \(1\), and inverse initial abundance \(y=7\) yields the common cumulative biomass \(\log(16/7)\). The program independently computes stage integrals, direct numerical quadratures, all-time inverse-state differences, final-state dominance, the negative/positive temporal contribution ratio and the exact polynomial limiting-integral identity. The replay completed **144,156 deterministic assertions** without a failure.
+## correctness
 
-The analytical argument in RESULT.md covers all \(r,\tau,N_0,K_H,K_L\) satisfying its strict hypotheses; the finite checks are not a proof of any universal statement. Reported numeric tolerances are explicit in the script. External independent validation has not been performed. Historical priority against general temporal ordering/rearrangement theorems is unresolved.
+PASS
+
+For z=rt, the reciprocal obeys Y′=−Y+1/K. Subtracting the two affine evolutions gives (b−a) times 1−e^(−z) in the first stage and (b−a) times [(2−e^(−h))e^(−(z−h))−1] in the second, with a=1/K_H<b=1/K_L. The latter starts positive and ends at −(b−a)(1−e^(−h))², giving the stated unique positive-time crossing and the terminal ranking. For the time integral, the weight is W_y=e^(2z)/[(y+H_HL)(y+H_LH)] with y=1/N_0 and both H increasing. If y₂>y₁, W_y₂/W_y₁ strictly increases with time across both stages (and is continuous at the switch). Hence the ratio of the negative late contribution to the positive early contribution strictly increases with y. At y↓0 the early contribution diverges logarithmically since the signed factor is asymptotic to z and both H_i are linear to leading order; the late contribution stays finite. At y→∞, y²W_y→e^(2z) uniformly. Integrating the two pieces gives −(E−1)²(E²−2E−1)/2 with E=e^h. This proves the claimed regime split and strictness even at the critical duration, where the ratio reaches one only in the y→∞ limit. The population tie, when it exists, is unique; reciprocating y gives the stated orientation. Exact rational stage products for the example are both 16/7 before taking logarithms.
+
+## originality
+
+PASS
+
+The supported distinction is a sharp duration boundary for finite population-time, including strict one-tie classification and its contrast with the terminal order. Existing logistic solutions supply the reciprocal dynamics; the inspected related results do not give the sign classification for these two fixed schedules.
+
+## value
+
+PASS
+
+Even in the simplest exact setting, terminal stock gives misleading guidance if the objective is cumulative abundance. With exposure durations and capacity levels controlled, the theorem isolates when that disagreement is universal and when initial density matters, gives the unique possible tie, and distinguishes this threshold from the within-trajectory crossing. This is a structural comparison, not a field prescription or an arbitrary numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

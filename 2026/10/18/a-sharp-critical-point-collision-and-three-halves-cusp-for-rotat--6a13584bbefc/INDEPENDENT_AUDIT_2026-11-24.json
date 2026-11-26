@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:58:46.449556Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For q=r² the derivative numerator is N=q(w⁴+1)−4rc(w³+w)+(3+4qc²−q²)w²; the denominator V² is zero-free on the closed disk. Dividing N by w² gives the quadratic in u=w+w⁻¹ with discriminant 4q(1−q)(4c²−3−q). The boundary Poisson formula excludes u∈[−2,2] for either root; every other u has exactly one inverse in the disk, with nonzero local coordinate derivative. The conjugation relation and continuity of the real roots from the double root give precisely the stated nonreal-conjugate and real-sign regimes. At c=c₀, u₀=2c₀/r>2 and N=q(w²−u₀w+1)², with inner root t=(√(3+r²)−√(3(1−r²)))/(2r). Each base zero of C is simple because c∈(−1,1), so no critical value is zero; a shared value of two simple cubic critical points would require a fiber of degree at least four. Since C′(0)=q, the lift gives just the origin multiplicity n−1 and n copies of every nonzero ramification point with unchanged multiplicity (total 3n−1). For δ=c−c₀, N_{ww}=2q(u₀²−4)=6(1−q) and N_c=−8c₀(1−q)t² at the double root. Consequently F_w(c,t+x)=a(x²−bδ)+O_r(|x|³+|δx|+δ²), with a=3(1−q)/D₀² and b=8c₀t²/3. The reciprocal quadratic gives branch endpoints x=±√(bδ)+O_r(|δ|) on both sides. Integrating F_w between them gives −(4/3)a(bδ)^(3/2)+O_r(|δ|²) with a consistent square root; its absolute leading coefficient is exactly the stated K(r). Sign symmetry gives the other collision. This is local at fixed r, excludes the prescribed-zero collisions at c=±1, and applies also at n=1 where the origin is not critical. checker.py was inspected, not executed; the proof replaces finite splitting probes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The survey §8 cites boundary nonvanishing and proves the disk degree-minus-one count with reciprocal pairing. These facts cover the general count, not its bifurcation into real or conjugate roots.",
+          "Fletcher–Hill treat arbitrary cubics, with emphasis on normal forms and a hyperbolic-midpoint theorem. The frozen comparison to Favorov–Golinskii concerns function-space constraints for infinite Blaschke products, not this finite collision."
+        ],
+        "reasoning": "Domain breadth and generic ramification theory do not give the exact locus, the positive coefficient as a function of r, or whether this specific family crosses the multiple-critical-point locus transversally.",
+        "searches": [
+          "Garcia–Mashreghi–Ross arXiv:1512.05444v2, Lemma 7.5 and §8",
+          "Fletcher–Hill arXiv:2511.13484, §1.2",
+          "Favorov–Golinskii arXiv:1009.1755 as compared in the frozen supporting audit"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, AUDIT.json, REVIEW.md, VERIFICATION.md and checker.py",
+        "arXiv:1512.05444v2 and arXiv:2511.13484",
+        "Resultary 2026-11-02 and 2026-11-17 records cited above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The survey's polynomial degree bound and reciprocal pairing do not specify the coefficients of the reduced quadratic for these prescribed zeros. Its critical-point count allows either side of the threshold and the double point.",
+          "A generic cubic unfolding can explain a 3/2 exponent given a nonzero unfolding derivative. Here the actual mixed derivative and third derivative, in these source and target coordinates and at the exact collision, are needed to obtain K(r); the lift then preserves the critical values and repeats the multiplicities."
+        ],
+        "reasoning": "No inspected theorem supplies the claimed threshold and coefficient by direct specialization without the nontrivial parameter calculation. The claimed geometric phase diagram should not be conflated with a new generic singularity law.",
+        "searches": [
+          "arXiv:2511.13484, Proposition 1.1 and Theorem 1.2, vs. frozen RESULT.md §§1–4",
+          "arXiv:1512.05444v2, §8",
+          "Resultary Blaschke collision and bifurcation hits cited above"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The threshold can be written equivalently as the vanishing of the reciprocal quadratic discriminant, 4c²=3+r², in the prescribed pair re^{±iθ}.",
+          "Fletcher–Hill give cubic normal forms and a hyperbolic-midpoint property, not the equivalent discriminant locus or the splitting of critical images in these original zero coordinates in the inspected passage."
+        ],
+        "reasoning": "A normal form classifies up to changes of disk coordinates. To compare with the tested claim one must identify the specific zero-coordinate locus and compute the separation in the given target coordinate; no equivalent explicit result was seen in the compared statements.",
+        "searches": [
+          "Resultary: cubic finite Blaschke prescribed conjugate zeros, critical point coalescence and critical-value cusp",
+          "arXiv:2511.13484, §1.2, Proposition 1.1 and Theorem 1.2",
+          "Frozen RESULT.md lines 36–85, reciprocal quadratic and discriminant"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The November 2 finding is a real Blaschke-quotient circle-map diagram governing boundary orientation and angular turns, not interior critical points and images of the holomorphic cubic.",
+          "The November 17 finding concerns equal-image pairs of the two-coordinate map (z²,b_a(z)³), not the derivative zeros and critical values of C. Both records are later than the frozen record."
+        ],
+        "reasoning": "These similar indexed claims do not give an equivalent interior collision threshold or constant. The bounded primary search returned no useful match, which is not independent evidence of uniqueness.",
+        "searches": [
+          "Resultary: cyclically lifted cubic Blaschke products, critical locus and critical-value splitting",
+          "2026/11/2/SCOPE-a-two-branch-phase-diagram-for-real-blaschke-quotient-circle-map--ee6d991ca131",
+          "2026/11/17/SCOPE-an-interior-to-boundary-collision-bifurcation-obstructing-two-bl--59d1bc4705af"
+        ]
+      },
+      "rationale": "Standard finite-Blaschke ramification theory, generic cubic splitting, and the elementary cyclic lift are not independently new. The distinct verified output is the exact bifurcation in the prescribed-zero coordinates and its sharp positive K(r), including the complete critical-point and critical-value consequences for the lifted family. The strongest inspected cubic normal-form passage does not give this parameter boundary or splitting constant; indexed collisions concern other maps or other predicates. The targeted comparison is not an exhaustive priority determination.",
+      "residual_risks": [
+        "The same cubic discriminant or its prescribed-zero locus could occur in unlocated work under a different parameterization. The generic exponent and ramification count are established background.",
+        "Bounded literature searches and targeted passage comparisons do not exclude every previous formulation, particularly classical specialized cubic computations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Foundation for reciprocal pairing, boundary noncriticality and degree-minus-one count; not the family-specific discriminant and cusp",
+          "evidence": [
+            "Theorem 8.2 gives degree-minus-one critical multiplicity in the open disk."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1512.05444",
+          "material_read": "v2, pp. 15–16, §8, offset 38000, cites Lemma 7.5 and includes Lemma 8.1 and Theorem 8.2",
+          "method": "Targeted OA original PDF passage",
+          "title": "Finite Blaschke products: a survey",
+          "trigger": "General derivative and critical-point classification could cover the number and structure"
+        },
+        {
+          "assessment": "Gives normal forms and midpoint geometry, not the original-parameter threshold or gap in these statements",
+          "evidence": [
+            "Proposition 1.1 describes normal forms under disk-automorphism conjugacy; Theorem 1.2 gives a hyperbolic-midpoint property."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2511.13484",
+          "material_read": "§1.2, Proposition 1.1 and Theorem 1.2, p. 3, offset 7326",
+          "method": "Targeted OA original PDF passage",
+          "title": "On cubic Blaschke products",
+          "trigger": "Primary classification of the same degree, including its critical geometry"
+        },
+        {
+          "assessment": "Different map, domain and invariant",
+          "evidence": [
+            "Boundary orientation and angular turns of a quotient, rather than critical points in the disk."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-two-branch-phase-diagram-for-real-blaschke-quotient-circle-map--ee6d991ca131",
+          "material_read": "RESULT.md Finding, offset 449",
+          "method": "Local mirror bounded passage read",
+          "title": "A two-branch phase diagram for real Blaschke-quotient circle maps",
+          "trigger": "Indexed real-Blaschke phase boundary with turning points"
+        },
+        {
+          "assessment": "Collision of equal-image pairs in a two-coordinate map, not critical values of one cubic",
+          "evidence": [
+            "The tested pair of functions is (z²,b_a(z)³)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-an-interior-to-boundary-collision-bifurcation-obstructing-two-bl--59d1bc4705af",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror bounded passage read",
+          "title": "An interior-to-boundary collision bifurcation obstructing two Blaschke similarity tests",
+          "trigger": "Indexed interior Blaschke collision"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Specifying an origin and a pair of rotated regular zero polygons is a natural geometric normalization, and the exact boundary resolves when the lifted interior ramification changes from two simple orbits to a single doubly ramified one. The nonzero explicit splitting constant controls actual image separation as the prescribed zero angle changes; it is information not furnished by a generic exponent or degree count. The result is local at fixed radius and does not purport to characterize general cubic dynamics.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

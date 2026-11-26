@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:00:25.592434Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–65; VERIFICATION.md; check_reentrant.py (inspected, not executed)",
+        "Independent replay: python -B /workspace/review-evidence/recompute.py 4",
+        "Park et al., J. Theor. Biol. 575, 111629, Eqs. (5)–(7)"
+      ],
+      "rationale": "The integrand is Lipschitz in sigma with an integrable bound proportional to |Z|; the moving clipping point is a Gaussian null event. Pairing Z and -Z separates D' into a positive integral on (0,A-epsilon) minus a negative contribution from (A-epsilon,infinity). As a function of inverse variance lambda=1/(2 sigma^2), the derivative of log(N/P) is the mean u^2 under P minus the mean under N and is strictly negative. For small sigma one may lower-bound P on any fixed compact subinterval strictly inside its support; this dominates the exponentially smaller negative tail. For large sigma, P is bounded while N diverges monotonically, since its unweighted integrand is asymptotic to 1/(tu). Thus the unique zero is strict. Dominated convergence gives the half-floor limit, and strict decrease after the maximum gives the zero-noise comparison including equality. The mean-field velocity has sign rho-d, whose sole zero is 2-sqrt(2); both endpoint signs and the intermediate opposite sign are certified. Independent rational Machin, alternating-series and Jensen bounds gave D(1)>0.59426664>0.59, and independent quadrature gave roots 0.1477881754700885 and 6.480171581268562. The two-root proof does not depend on numerical quadrature.",
+      "residual_risks": [
+        "The velocity is a formal pure-defector mean-field closure, not a stochastic lattice survival threshold. The mean of the clipped quality changes with sigma."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The multiplicative-noise paper supplies a reentrant ordered phase between two noise thresholds in a different spatial model. The habitat paper assumes small noise when analyzing annealed mortality."
+        ],
+        "reasoning": "Reentrant behavior in a broader conceptual class is not a theorem that covers this clipped expectation. The ordered-support Gaussian tilt gives the at-most-one derivative crossing; the local and logarithmic tail limits are essential for existence and the particular crossing regime.",
+        "searches": [
+          "Primary literature search for Gaussian transform single crossings and exact clipped-Gaussian unimodality; Kim et al. §§II–III; Van den Broeck et al., DOI 10.1103/PhysRevE.55.4084, PDF pp. 1 and 6"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 75eb52891d51, fbbc798f48aa, f381f0f41430; access attempt for 4494f8a4e558",
+        "Kim–Son–Park (2026); Park et al. (2023); Van den Broeck et al. (1997)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Park et al.'s occupancy equilibrium and full velocity 2(1-d/rho) imply the sign threshold used here. Kim et al. analyze f(A)+sigma^2 f''(A)/2 under a small-noise premise."
+        ],
+        "reasoning": "The old closure translates mortality to velocity but does not show that the exact clipped expectation crosses the cutoff twice. The quadratic approximation has no such global falling branch, and cannot imply the half-floor limit or the two exact crossings.",
+        "searches": [
+          "Park et al., J. Theor. Biol. 575, 111629, Eqs. (5)–(7); Kim et al., arXiv:2606.18660v1 §§II–III"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kim et al. have d=1/(1+A exp(wp)), Gaussian quality fluctuations and a lower floor of 0.01, so the setting with fixed p corresponds to t=exp(wp), and p=0 gives t=1. Their mean-field calculation replaces the expectation by a second-order approximation.",
+          "The distinct star-habitat result fbbc798f48aa varies exploration rate and uses a deterministic capacity, not a clipped Gaussian expectation."
+        ],
+        "reasoning": "A reparameterization recovers the input model, but not a prior exact solution of its expectation or its global scale dependence. The star model shares a shape, not an equivalent function or threshold.",
+        "searches": [
+          "Kim, Son and Park, arXiv:2606.18660v1 §§II–III; clipped Gaussian, floored reciprocal mortality and annealed noise comparison",
+          "Resultary: clipped Gaussian mortality, habitat noise and reentrant viability, records 75eb52891d51 and fbbc798f48aa"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "75eb52891d51 is the original record itself. f381f0f41430 is a Gaussian limit for a random-graph sink Laplacian, not Gaussian quality noise. The inspected phase diagrams use sigma=0,0.1,0.3,0.5; the formal exact second crossing here is about 6.48."
+        ],
+        "reasoning": "Neither a catalogue title nor a phase diagram for a few small noise intensities supplies the exact above-threshold witness and large-noise return for this parameter triple.",
+        "searches": [
+          "Local Resultary records 75eb52891d51, fbbc798f48aa and f381f0f41430; arXiv:2606.18660v1 phase diagrams and noise settings"
+        ]
+      },
+      "rationale": "The supported distinction is the exact global peak and crossing classification of the floored reciprocal-Gaussian expectation, and its rigorous two-crossing application to a specified existing mean-field closure. The mortality rule, lower floor, closure, and the generic reentrance phenomenon are not new. The nearest inspected annealed-noise calculation is a local Taylor approximation; it does not give the exact tail or sign pattern at all intensities.",
+      "residual_risks": [
+        "Priority of the precise clipped-normal transform theorem beyond inspected statements is not established.",
+        "The Gompertz-mixture result 4494f8a4e558 was not available for full-text comparison; its indexed rise–fall–rise profile does not establish overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model antecedent but not the exact all-noise claim in these passages",
+          "evidence": "Reciprocal mortality, floor 0.01, and second-order annealed expansion under a small-fluctuation hypothesis.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.18660",
+          "material_read": "PDF §§II–III, pp. 3–6, OA offsets 9000–29935; phase-diagram noise settings p. 7",
+          "method": "Bounded OA PDF passages",
+          "title": "Effects of spatial environmental noise on evolution of cooperation",
+          "trigger": "Same annealed habitat rule and clipping premise"
+        },
+        {
+          "assessment": "Supplies closure and full-front velocity, not fluctuating-quality classification",
+          "evidence": "Occupancy equilibrium and V=2(1-d/rho); the factor of two does not change the sign.",
+          "identifier_or_url": "https://christian-hilbe.github.io/files/2023_park.pdf",
+          "material_read": "PDF p. 3, Eqs. (5)–(7), OA offsets 18371–29887",
+          "method": "Bounded OA PDF passages",
+          "title": "Vacancies in growing habitats promote the evolution of cooperation",
+          "trigger": "Source of the pure-defector growth proxy"
+        },
+        {
+          "assessment": "Prior reentrance in a different model",
+          "evidence": "Spatial multiplicative white noise and an ordered interval between two noise thresholds.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.55.4084",
+          "material_read": "PDF pp. 1 and 6, OA offsets 0 and 46840",
+          "method": "Bounded OA PDF passages",
+          "title": "Nonequilibrium phase transitions induced by multiplicative noise",
+          "trigger": "Early noise-induced reentrance precedent"
+        },
+        {
+          "assessment": "Similar profile, different variable and object",
+          "evidence": "Star-habitat capacity as exploration rate varies under a mortality/degree condition.",
+          "identifier_or_url": "Resultary fbbc798f48aa",
+          "material_read": "Finding",
+          "method": "Local Resultary mirror",
+          "title": "A sharp explorer mortality threshold for reentrant persistence",
+          "trigger": "Closest distinct catalogue result on reentrant mortality/persistence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions, Proof and Limitations; Kim et al. §§II–III; Park et al. Eqs. (5)–(7)"
+      ],
+      "rationale": "A small-noise expansion cannot answer what happens at large fluctuations or how many times the formal viability sign changes. The exact mortality theorem identifies when a return below the baseline exists, and the certified example shows an actual pair of distinct mean-field thresholds instead of relying on an extrapolated phase diagram. The value is in the provable model-level boundary, not an asserted biological or spatial survival consequence.",
+      "residual_risks": [
+        "No transfer from this annealed closure to an interacting lattice or a fixed post-clipping mean model was established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

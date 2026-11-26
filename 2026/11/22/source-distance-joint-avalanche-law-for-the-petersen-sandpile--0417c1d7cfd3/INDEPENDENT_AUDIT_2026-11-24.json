@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:20:41.088266Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The sink stabilizer in S_5 has exactly the two stated nonsink orbits, so fixed representatives suffice; the polynomials are not averaged over source choices. The reduced Laplacian has determinant 2000 (equivalently, the nonzero full Laplacian eigenvalues are 2 with multiplicity five and 5 with multiplicity four, and the tree count is 2^5 5^4/10). An independent exact replay computed the determinant by Bareiss and found all 2000 recurrent states by the orbit of the nine addition maps from the all-two recurrent state, a different enumeration from the uploaded scripts' tests of all stable states. The replay checks the burning inequality at the seed, legal stabilization, and conservation; addition preserves recurrence, and the orbit count equals the entire recurrent count. Adding at {2,3} and {0,2} then recovered every one of the 14 near and 30 far cells, including zero avalanches and the six (24,6) events (no masses 20–23); the reproduced CSV matches byte for byte, SHA-256 2c719d3d02fac224e9245c81f79600d913ff6cbb2ce71907aa55c8ace582bf21. The common branch replay path is /workspace/branches/f3fc71e7-5020-49c0-bfec-83e723b506b7/replay_petersen.py (run without arguments for the full check); the output there is REPRODUCED_JOINT_COUNTS.csv. The two supplied programs and frozen table were read, not executed. Marginal sums agree, including the palindrome of the positive near masses and mean mass 3 or 4 and mean loss 1. Analytically, all-two is recurrent by connectedness and monotonicity makes its odometer an upper bound for every stable configuration. From all-two the first wave reaches all nonsinks; the source is then stable if near. If the source is far, each further wave reaches all six far vertices along their induced 6-cycle. In wave two each of the three near vertices starts at height one, receives two grains and topples once, ending at zero. In wave three each receives only two and does not topple; the far source now stabilizes. Thus the sharp odometers are all ones for near and 2 on near, 3 on far for a far addition, giving the claimed 9 and 24. Stationary conservation gives mean loss one independently, and the two-shell reduced Poisson equations verify the mean masses. The correctness conclusion is for this finite graph, these sources and total individual topplings, not the number of distinct toppled sites.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Austin et al. v2 abstract lines 15–19 explicitly lists tree, cycle, wheel and complete-graph characterizations. Petersen is none of these.",
+          "Recurrent-state and inverse-Laplacian formulas provide the cardinality and the first moment, and known full-avalanche results can cover an isolated event, not the two joint marginals and all 44 coefficients."
+        ],
+        "reasoning": "A framework allowing a complete finite calculation is not a prior explicit calculation or a general closed formula that yields these joint coefficients by a mere specialization. No more general applicable exact distribution was verified.",
+        "searches": [
+          "Dhar doi:10.1103/PhysRevLett.64.1613, recurrence and response",
+          "Austin et al. arXiv:1605.02713 v2 graph families",
+          "Cori–Dartois–Rossin 2006 principal-avalanche polynomial"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, JOINT_COUNTS.csv, VERIFICATION.md, AUDIT.json, verify_kneser.py and verify_prism.py",
+        "Austin et al. arXiv:1605.02713v2 abstract; Dhar 1990, Cori–Dartois–Rossin 2006 and Sage reference as scoped above",
+        "Resultary self-hit 0417c1d7cfd3 and distinct entries 7c8fce3d8bb0, 36e2b4c11721"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Neither the characterized families in the retrieved Austin et al. abstract nor the other catalog hosts imply the Petersen distribution. The full-spectrum contribution is A_1(z,w), A_2(z,w), not merely |R|, a mean, or the 240 near full avalanches.",
+          "The verified support gap and six far maximizers come from actual Petersen distributions, not the Green-function equations."
+        ],
+        "reasoning": "The model and general tools were known. The new host-specific evaluation resolves means-equivalent but jointly different possibilities; existing formulas for a first moment or one full event cannot supply the exceptional tail and the rest of the law.",
+        "searches": [
+          "Austin et al. multivariate avalanche polynomial and graph-family characterizations",
+          "Sage sandpiles reference PetersenGraph and avalanche_polynomial",
+          "Compare icosahedral Resultary record 7c8fce3d8bb0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Austin et al., arXiv PDF abstract lines 6–19 credits the Cori–Dartois–Rossin univariate polynomial and introduces the multivariate enumeration for principal avalanches.",
+          "For a fixed-source odometer polynomial the specialization giving this joint table is x_i=zw at each sink neighbor and x_i=z elsewhere; an odometer u then contributes z^{∑u_i} w^{∑_{i~s}u_i}."
+        ],
+        "reasoning": "A precomputed source-resolved multivariate Petersen polynomial would imply this table by substitution, regardless of terminology; a source-aggregated polynomial need not give the two source classes, and support size is not total topplings.",
+        "searches": [
+          "Petersen graph Abelian sandpile fixed-source principal avalanche polynomial and grain loss",
+          "KG(5,2), GP(5,2), chip-firing and Sage PetersenGraph() aliases",
+          "Austin et al., arXiv:1605.02713v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit is the frozen record itself, not independent priority. Distinct summary 7c8fce3d8bb0 is a mass-and-footprint census for the icosahedral graph (three source distances); same-day 36e2b4c11721 is for K_{2,n}.",
+          "The frozen comparison identifies a Sage Petersen constructor example and generic avalanche polynomial functionality, not a displayed pair of source-resolved joint tables; the relevant live Sage passages could not be retrieved."
+        ],
+        "reasoning": "Graph identity, source conditioning, repeated topplings and boundary loss all matter for an exact table match. A callable routine, a different host or a count of footprint events does not match the table.",
+        "searches": [
+          "Resultary 2026/11/22/SCOPE-source-distance-joint-avalanche-law-for-the-petersen-sandpile--0417c1d7cfd3",
+          "Resultary 7c8fce3d8bb0 and 36e2b4c11721",
+          "PetersenGraph() Sage sandpile avalanche_polynomial; Petersen/KG(5,2)/GP(5,2) joint maxima 9,24 and sink loss"
+        ]
+      },
+      "rationale": "The contribution is the complete joint source-orbit census of individual topplings and sink loss on Petersen (including the verified exceptional tail), not the general sandpile machinery, recurrent count, Green-function means or the previously understood full-avalanche event. The retrieved papers and catalog comparisons supply frameworks and other hosts, but did not establish an explicit two-orbit Petersen law or a host-specific theorem determining these coefficients without a new census.",
+      "residual_risks": [
+        "An unlocated paper, table, thesis or published software output could give the same coefficients under an alias or fixed-source odometer specialization. Full text of relevant leads and live Sage examples were not all obtainable; this is not negative evidence.",
+        "No broader statistical scaling or universal palindromicity is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant general definition and stated other families; not a whole-document exclusion",
+          "evidence": [
+            "Abstract introduces multivariate principal-avalanche enumeration and names trees, cycles, wheels and complete graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1605.02713",
+          "material_read": "v2 PDF abstract, p. 1, extracted lines 6–19; frozen RESULT.md and AUDIT.json descriptions of the characterized graph families",
+          "method": "Lawful PDF preview and exact odometer-specialization check",
+          "title": "The Avalanche Polynomial of a Graph",
+          "trigger": "A source-resolved multivariate Petersen table would suffice by specialization"
+        },
+        {
+          "assessment": "Software/data coverage unresolved beyond cited account; no exclusion based on retrieval failure",
+          "evidence": [
+            "Frozen evidence identifies the PetersenGraph() example and avalanche_polynomial capability, without an explicit two-class table."
+          ],
+          "identifier_or_url": "https://doc.sagemath.org/html/en/reference/dynamics/sage/sandpiles/sandpile.html",
+          "material_read": "Frozen RESULT.md reference and frozen AUDIT.json account of the constructor and method; decisive live examples were unavailable",
+          "method": "Alias searches and attempted lawful passage retrieval",
+          "title": "SageMath Sandpiles reference",
+          "trigger": "A displayed Petersen example could already provide matching numeric output"
+        },
+        {
+          "assessment": "Related statistic on another host; does not imply Petersen coefficients",
+          "evidence": [
+            "Summary identifies the icosahedral host and source distances 1–3, with mass and footprint statistics."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-source-distance-resolved-avalanche-mass-and-footprint-on-the-ico--7c8fce3d8bb0",
+          "material_read": "Resultary catalog summary; exact local-mirror passage unavailable",
+          "method": "Local catalog search and comparison of named graph, source shells and statistics",
+          "title": "Source-distance-resolved avalanche mass and footprint on the icosahedral graph",
+          "trigger": "Closest distinct source-distance-indexed sandpile census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Petersen is a canonical symmetric cubic graph with exactly two physically meaningful source positions relative to a sink. Joint mass/loss is needed to distinguish interior redistribution from dissipation, and total topplings distinguish repeated waves from a footprint. The same graph exhibits an exact 9-versus-24 change in worst-case activity with the two source classes, plus an exceptional far tail and side-by-side joint distributions; neither a determinant nor a response function resolves those. The census is a precise benchmark for source-conditioned algorithms and avalanche identities, not an arbitrary slice or a claimed universal law.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

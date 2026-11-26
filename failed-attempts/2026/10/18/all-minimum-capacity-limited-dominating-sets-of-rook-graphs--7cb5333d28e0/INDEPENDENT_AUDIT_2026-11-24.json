@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:09:59.985005Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For selected (i,j), outside degree is n+m-r_i-c_j, and domination is exactly full coverage in at least one orientation. Put p=max(1,n-k), u=max(1,m-k). The row-cover and column-cover bounds are mp and nu respectively, both attained by complete slabs in the corresponding orientations. At the smaller bound only its winning orientation(s) can occur; equality forces r_i=p in the row-cover orientation, and then every occupied column satisfies c_j>=m+n-k-p, which is also sufficient. If p=n-k>=1, each occupied column is full; if p=1, these are exactly maps from rows to columns with the stated lower fibre threshold. The column orientation is symmetric. This reproduces all regimes, including the strict rectangular large-k inequality m<n, the intermediate tie (one per column and full-column slabs cannot intersect), square k=q-1 (a single full row or column) and k>=2q-2 (permutations are the overlap). The factorial-weighted product counts all labelled assignments without quotienting. Phi is defined on positive integer arguments and can be zero for general t>b; this does not affect any claim about the minimum sets. The frozen exhaustive script, verification notes and output were read, not executed; the proof handles unbounded sizes and capacities.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Oct. 12 Finding gives min{m max(1,n-k), n max(1,m-k)} across all dimensions and capacities and the entire low-capacity census. Tepeh's square slice q=k+2 gives the number 2q. Mertens gives the uncapped minimum-set counts n^m and 2q^q-q!."
+        ],
+        "reasoning": "The Oct. 12 proof is the decisive general coverage; the other primary sources are endpoints and slices only.",
+        "searches": [
+          "Resultary exact limited domination rectangular rook graphs 2026/10/12/3f6b93fa9eef",
+          "Tepeh arXiv:2606.22428v2 §4 Proposition 6",
+          "Mertens JIS 27 Article 24.3.7"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 3f6b93fa9eef and b0e1531dac94",
+        "arXiv:2606.22422",
+        "arXiv:2606.22428v2 §4",
+        "Mertens JIS 27 Article 24.3.7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equation (1) is rho_i+kappa_j>=m+n-k for every selected cell. The published proof says every dominating set covers all rows or columns and gives the two lower bounds by summing per-row or per-column lower bounds. The smaller bound is the exact minimum."
+        ],
+        "reasoning": "For any optimal row cover the earlier row bound must equal the known optimum, and every row therefore has occupancy p=max(1,n-k); (1) then gives exactly the single common threshold m+n-k-p on nonempty columns. The transposed statement handles optimal column covers. With p>1 the threshold forces slabs; with p=1 this is a direct labelled map restriction. At the tie retain both orientations, excluding permutations exactly when (1) excludes them. Multiplying ordinary labelled-fibre exponential generating functions and taking the coefficient gives precisely Phi. These are direct equality and counting operations on the prior equations, not a new structural step.",
+        "searches": [
+          "Resultary 2026/10/12/3f6b93fa9eef, proof equations (1)–(3), mirror offset 2300–5411"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Outside capacity k is the requirement of at least m+n-2-k selected neighbors at every selected vertex, in addition to external domination. The cited limited-domination paper notes the regular-graph equivalence."
+        ],
+        "reasoning": "The selected-degree and outside-degree formulations refer to the same sets on regular rook graphs. Ordinary domination is the vacuous-capacity endpoint, not the full classification.",
+        "searches": [
+          "k-limited domination rook graph and Cartesian product of cliques",
+          "(1,t)-domination on regular rook graphs; arXiv:2606.22422 conclusion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prism entry includes the exact labelled min-set counts for m=2 from a polynomial for all subsets; same-day order is unknown. The earlier low-capacity slab counts and the polynomial's ordinary-domination endpoint exactly agree where they apply."
+        ],
+        "reasoning": "These are actual exact-count overlaps, not evidence that a looked-up table lists every T>=2 case for m>=3. The decisive issue is the earlier equations, not absence or presence of a table.",
+        "searches": [
+          "Resultary full limited domination distributions of clique prisms, 2026/10/18/b0e1531dac94",
+          "Resultary 2026/10/12/3f6b93fa9eef, Finding/Proof",
+          "Mertens rook domination polynomial, p.3"
+        ]
+      },
+      "rationale": "The previously proved all-parameter occupancy inequalities and minimum formula mechanically imply the full optimizer classification, including the allegedly new transition and restricted fibres. This is a stronger objection than noting overlap in the minimum, low-capacity cases, or two-row special case. Explicit all-regime wording need not have appeared before for the claim to be covered in this sense.",
+      "residual_risks": [
+        "Searches under equivalent (1,t)-domination terminology were bounded.",
+        "The within-day order of the two-row records is unknown; it does not affect the earlier all-regime implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "All-regime mechanical implication",
+          "evidence": "Occupancy-sum capacity criterion plus separately sharp row and column covering lower bounds fix the row or column counts in every equality case.",
+          "identifier_or_url": "Resultary 2026/10/12/3f6b93fa9eef",
+          "material_read": "Finding, and Proof equations (1)–(3) and rigidity paragraphs, mirror offsets 2300–5411",
+          "method": "Local mirror passage, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact limited domination and low-capacity rigidity for rectangular rook graphs",
+          "trigger": "Known broader scalar formula and potential equality coverage"
+        },
+        {
+          "assessment": "Scalar square slice",
+          "evidence": "Two full rows attain 2(k+2) on the (k+2)-square; the averaging lower bound proves the scalar value.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.22428v2",
+          "material_read": "§4, Proposition 6, pp.8–9, offset 27500 onward",
+          "method": "OA PDF passage",
+          "title": "On k-limited domination: complexity and Cartesian products",
+          "trigger": "Cited same graph product"
+        },
+        {
+          "assessment": "Terminology and antecedent, not the optimizer census",
+          "evidence": "For regular graphs the selected minimum-degree condition is the complementary capacity condition.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.22422",
+          "material_read": "Conclusion, p.15, offset 45600",
+          "method": "OA PDF passage",
+          "title": "On k-limited domination in graphs",
+          "trigger": "Definitions and equivalent (1,t)-domination"
+        },
+        {
+          "assessment": "Exact vacuous-capacity endpoint",
+          "evidence": "Minimizers cover the shorter side with one per row or column; for squares subtract permutation matrices from the two oriented counts.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL27/Mertens/mertens6.html",
+          "material_read": "Paper p.3, offset 5100, minimum size and count",
+          "method": "OA PDF passage",
+          "title": "Domination Polynomial of the Rook Graph",
+          "trigger": "Uncapacitated analogue"
+        },
+        {
+          "assessment": "Exact two-row overlap; no dated priority conclusion",
+          "evidence": "Labelled-set polynomial for K_n square K_2 determines the two-row counts at each capacity.",
+          "identifier_or_url": "Resultary 2026/10/18/b0e1531dac94",
+          "material_read": "Finding and Proof, offsets 0–7238 and Relationship section",
+          "method": "Local mirror passage",
+          "title": "Full limited-domination distributions of clique prisms",
+          "trigger": "Same-day exact two-row counts"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The labelled optimizer count is a natural quantity, but here the additional regimes only unpack known sharp occupancy bounds by equality and use standard labelled-fibre extraction. Transition, tie, and high-capacity shapes all follow from those same published equations without a new invariant, nonroutine counting argument, or additional structure. The complete presentation may be convenient, but no independent scientific remainder to repair was established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

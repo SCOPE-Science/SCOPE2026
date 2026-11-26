@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** An acyclic orientation of \(K_{2,n}\) is a word over four local states forbidden to mix its two opposite two-step directions. Inclusion-exclusion counts all orientations by sinks, including the two-hub-sink exceptional word. The proof excludes positive roots from positive coefficients, excludes \([-2,0)\) by an exact elementary inequality, and uses Descartes' rule with endpoint signs (and a uniform positive witness at \(x=3\)) to prove the precise root counts and simplicity. The small-order boundaries are computed separately. Exhaustive orientation enumeration through \(n=8\) independently agrees with the polynomial; symbolic inequalities prove the unrestricted assertion.
+## correctness
 
-**Originality — PASS, with historical-priority limitation.** A 2026 graph-polynomial paper obtains real-rootedness for *chordal claw-free* acyclic sink polynomials, not for the claw-containing \(K_{2,n}\) family. A 2019 paper develops general multivariate acyclic sink polynomials and their evaluation methods, while a 2020 paper counts total and unique-sink acyclic orientations of complete bipartite graphs; those statements alone neither assert nor imply the real-zero parity classification without a further root argument. Related known root-count results for square bouquets concern different graphs. Targeted searches identified no equivalent family-wide root theorem, but unindexed earlier calculations or unpublished notes may exist.
+PASS
 
-**Value — PASS.** Real-zero location and multiplicity are structural coefficient-shape properties, not routine consequences of the minimum or total orientation count. This complete infinite-family classification gives a natural non-chordal, claw-containing test case with a sharp transition from two to three real zeros according to parity and a single exceptional order. The sign mechanism is explicit and may inform comparisons with other biclique-shore parameters and graph-polynomial root questions.
+The two directed path types through a large-shore vertex cannot coexist: any simple directed cycle must alternate through the two small-shore vertices and thus use both types. Inclusion–exclusion on the allowed words gives 2(z+2)^n−(z+1)^n before adding the small-shore sinks: among the 2^(n+1)−1 words with no large-shore sink, the all-outward large-shore word has two small-shore sinks, the others one. The formula has positive nonconstant coefficients and simple zero at 0. For z=−u, 0<u≤2, the geometric sum bound 1−(1−u)^n≤nu and (2−u)^n≤2^n give S_n(−u)≤u[n+u−(2^(n+1)−2)]<0. After z=−x−2, the even n≥4 polynomial has just one positive leading coefficient, all lower coefficients negative; the odd n≥5 polynomial has negative leading, positive middle and negative linear and constant coefficients. Descartes bounds the respective positive-root totals counting multiplicities by one and two. The signs at x=0 and infinity and, for odd n, the strict witness F_n=Q_n(3)>0 force exactly those counts and simplicity. Independently checked F_5=190 and F_{n+1}−4F_n=2·3^n+24·2^n−108>0 for n≥5. At n=2 the polynomial is 2z(z+6), and at n=3 the factor z²+10z+35 is strictly positive on the real line. The closing phrase ‘smallest parameter’ should be read as smallest odd parameter; the exact census is unambiguous. Replay: python3 /workspace/reproduce_reviews.py 1 independently compared the full coefficient histogram for n=2..8, using directed reachability to reject cycles, and confirmed the sampled odd witnesses. The all-n argument is symbolic.
 
-Closest literature: Alexandersson–Maia Leite, arXiv:2610.41502; Hwang et al., arXiv:1910.10920; Ayyer–Hathcock–Tetali, arXiv:2010.11236. Limits: only the two-vertex shore is treated; historical completeness is not independently certified; numerical enumeration is supplementary rather than an infinite proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bounded comparison supports the specific all-order real-zero census, not a claim to originate sink enumeration. The closest inspected parity-census records concern different graph families, and the general sink-sequence identity or single-sink formulas supply enumerative inputs, not this root classification.
+
+## value
+
+PASS
+
+This is the complete nontrivial shore-size-two biclique family, with a growing-degree sink polynomial outside the chordal claw-free theorem. The exact count and placement of all simple real roots, including the n=3 exception and separating negative witness, are useful boundary information not provided by standard orientation totals or real-rootedness criteria. The result does not need a claim about arbitrary bicliques.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

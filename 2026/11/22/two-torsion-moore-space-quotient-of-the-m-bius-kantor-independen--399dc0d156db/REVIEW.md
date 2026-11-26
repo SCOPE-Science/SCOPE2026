@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** An exhaustive adjacency-preserving permutation search returns precisely 96 graph automorphisms. Canonicalizing all nonempty independent-set flags under them constructs the regular quotient with 24,875 cells. Every one of the 12,114 collapses is conditioned on an actual unique maximal coface, leaving a closed 647-cell complex. Exact Smith normal forms give reduced integral homology \(\mathbb Z/2\mathbb Z\) only in degree three; the signed boundaries compose to zero. A 70-generator, 214-relator fundamental-group presentation reduces to the trivial group by valid unit-relator cancellations. Hurewicz and Whitehead establish the degree-two Moore-space attachment and homotopy equivalence. Source code, the full collapse certificate and residual cellular boundaries accompany the result.
+## correctness
 
-**Originality — PASS relative to accessible evidence.** Searches for the integral quotient, a three-dimensional order-two Moore space, equivalent orbit-space formulations, and the covering complex were compared with three directly pertinent full texts. Bıyıkoğlu–Civan's 2015 Example 3.9 determines the **unquotiented** homotopy type. The two directly relevant 2026 full-symmetry papers compute rational homology representations and the quotient's rational acyclicity; both stop short of integral quotient homology and homotopy. A rationally acyclic orbit space can carry torsion and have nontrivial fundamental group, so these prior statements do not imply the new result. Residual risk: unindexed equivalents or the unavailable complete Knill text.
+PASS
 
-**Value — PASS.** The Möbius–Kantor graph is a canonical symmetric cubic graph, and its full geometric quotient is a natural unclassified integral topological object despite prior complete rational information. The answer exhibits a genuine, previously unaccounted-for order-two homology obstruction and identifies the complete homotopy type rather than merely restating a rational invariant. Its finite scope is exact and motivated; no extrapolation is claimed.
+Independent adjacency-constrained enumeration finds all 96 permutations and the stated 1,090 independent sets and 24,875 flag orbits. Face-size sequences distinguish the faces of a flag simplex, so it injects into the geometric quotient and its oriented facets are the signed deletions. The independent reconstruction replayed all 12,114 frozen collapse pairs and checked that the 647 surviving labels and signed boundaries match the frozen residual data exactly. On that residual it got ranks (13,70,144,96), solely a factor 2 in boundary degree four, and a trivial fundamental group by signed triangular relator elimination after a spanning tree. A different collapse order reached a different residual but the same integral homology and pi1. Since H2 vanishes, simple connectivity implies 2-connectivity by Hurewicz. The generator of pi3=H3=Z/2 is annihilated by degree two, so its representing sphere map extends over the fourth cell of M(Z/2,3). The extension is an integral homology equivalence between simply connected CW complexes and hence a homotopy equivalence.
 
-The verified primary subject is finite-complex homotopy and orbit topology (MSC 55P15), not a purely graph-theoretic enumeration. The earliest directly supporting publicly posted source is the 2015-03-20 manuscript cited in the result. The cited sources are compared by mathematical implication, not title resemblance.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known unquotiented homotopy and rational quotient acyclicity are credited; neither supplies the new integral torsion class or determines simple connectivity and the Moore-space equivalence. One close cited record could not be read; the best accessible exact comparison was the October 25 computation for the same graph and full action.
+
+## value
+
+PASS
+
+For a standard highly symmetric graph, the same full quotient was known to be rationally acyclic. The complete integral homotopy description now distinguishes it from a point, locates its unique torsion precisely and establishes 2-connectivity; these are meaningful facts about this symmetry action that rational representations cannot deliver.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:19:44.375397Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The secant coefficients a and b in the difference system are continuous and bounded by A and B; at a zero of the observed difference u, the hidden difference v is nonzero by uniqueness, and a>0 by strict inhibition. With U=√B exp(γt)u, V=√A exp(γt)v the angular speed is [b√(A/B)U²+a√(B/A)V²]/(U²+V²), between 0 and √(AB). Transverse departure from the vertical axis and monotone angle imply that the next observed equality requires a full half-turn; the sign before it is as stated. Bounded derivatives, rather than bounded response values alone, supply global Lipschitzness. For the symmetric logistic example, the equilibrium variational difference is −exp(−t/10) sin(t/4); its first positive zero is simple. Smooth dependence plus a uniform sign change around 4π and the universal lower bound give convergence of the first nonlinear return times. The saturation example has positive slopes matching at the joins; the exact decaying oscillator stays inside the affine core for every t≥0 and all allowed amplitudes, so its sampled x is identically 5 at kπ. The proof concerns equalities of two distinct trajectories, not periods of individual orbits. Inspected frozen VERIFICATION.md and CHECK.py without running the uploaded numerical script.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "a28f39575ba9: consecutive equality times are separated by π/√[AB−(γ₁−γ₂)²/4] under the strict underdamped condition; γ₁=γ₂ is allowed. The theorem even allows nondecreasing r₂.",
+          "Belgacem uses (y,ẏ), not fixed-time samples. Broad sampled-observability papers were not verified in full."
+        ],
+        "reasoning": "Setting γ₁=γ₂ is sufficient for exact bound coverage, with no new hypothesis or comparison needed. Transverse departure supplies the stated sign over the non-return interval. The same-model derivative result and unavailable general sampling results are not the basis of the failure.",
+        "searches": [
+          "2026/11/22/SCOPE-sharp-coordinate-crossing-dichotomy-for-unequal-decay-negative-f--a28f39575ba9, Finding",
+          "arXiv:2611.17232v1, §§2.1 and 3",
+          "10.1016/j.sysconle.2003.08.008",
+          "10.1002/asjc.1284"
+        ]
+      },
+      "checked_sources": [
+        "a28f39575ba9",
+        "25c370425326",
+        "arXiv:2611.17232v1",
+        "10.1016/j.sysconle.2003.08.008",
+        "10.1002/asjc.1284"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The attainment proof explicitly gives the full decaying sine formula relative to its equilibrium, for all sufficiently small initial vertical displacements. Thus every permitted amplitude has equal first-coordinate samples at every integer multiple of the sharp time.",
+          "Choose A=B=1, γ₁=γ₂=κ₁=κ₂=1/10, m₁=m₂=10 and core half-width h=1/100 in a28f39575ba9. Rescale both states by 10. This gives the frozen κ₁=κ₂=1, equilibrium (5,5), core half-width 1/10, and precisely its exponential tails and sampled alias family."
+        ],
+        "reasoning": "This is exact coverage of both highlighted contributions, not just first return or the analogy of a linear oscillator. Logistic sharpness is not supplied by the affine construction, but it follows separately from the familiar simple variational zero at a simultaneous slope-maximizing equilibrium and does not distinguish the frozen headline theorem or endpoint witness.",
+        "searches": [
+          "a28f39575ba9 local RESULT.md at offsets 0, 4200 and 6760",
+          "25c370425326 local RESULT.md at offsets 0 and 5758"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Two-snapshot injectivity for h<T_* is the no-return conclusion for an initially vanishing output difference.",
+          "The unequal-decay entry studies this very pairwise crossing and underdamped interval. The separate sampling-fold entry gives local collisions for pairs of observations, not a single common infinite sample record."
+        ],
+        "reasoning": "The pairwise observed-coordinate invariant, not single-trajectory oscillation period or instantaneous derivative reconstruction, is the object to compare. The unequal-decay entry is equivalent in the common-decay subfamily; a two-snapshot fold alone is not equivalent to permanent aliasing.",
+        "searches": [
+          "2026/11/22/SCOPE-sharp-coordinate-crossing-dichotomy-for-unequal-decay-negative-f--a28f39575ba9, Finding and Attainment",
+          "2026/11/22/SCOPE-an-infinite-ladder-of-quadratic-sampling-folds-in-stable-two-gen--25c370425326, Finding and Limitations",
+          "Sturm comparison zero spacing bound successive zeros scalar component two-dimensional monotone negative feedback ODE slope bounds sampled observability two gene feedback"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed mirror of the assigned title is the identical frozen record and is excluded as a separate match.",
+          "The distinct entry a28f39575ba9 gives the exact crossing bound and an explicit bounded affine-core example. Its relationship section says the equal-decay bound was already available, but does not identify the item; its date is not order evidence."
+        ],
+        "reasoning": "The exact match is a theorem and formula, not a numerical table. The published catalogue contains both records; neither the date nor the unattributed remark establishes chronology between them.",
+        "searches": [
+          "2026/11/22/SCOPE-sharp-coordinate-crossing-dichotomy-for-unequal-decay-negative-f--a28f39575ba9, RESULT.md and METADATA.json",
+          "2026/11/22/SCOPE-an-infinite-ladder-of-quadratic-sampling-folds-in-stable-two-gen--25c370425326, RESULT.md"
+        ]
+      },
+      "rationale": "Distinct indexed coverage of the core theorem and exact endpoint witness is demonstrable. The crossing theorem in a28f39575ba9 allows equal decay and yields the same bound, and its bounded affine-core attainment family reproduces the exact all-sample alias, even the specified response pair after a state rescaling. The logistic sharpness calculation is a distinct illustration, not coverage of an additional universal threshold. This is a statement-coverage judgment; it does not determine which of the two same-day entries appeared first or imply misconduct.",
+      "residual_risks": [
+        "Reliable priority order between the distinct same-day entries was not established.",
+        "Older general sampled-observability papers could not be fully compared; the failure rests on explicit indexed mathematical coverage, not access limits."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the universal bound and the exact bounded permanent alias by specialization; chronology unresolved",
+          "evidence": "Same gap at δ=0; affine-core G_m with exponential tails and full decaying sine at frequency √(AB−δ²).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-coordinate-crossing-dichotomy-for-unequal-decay-negative-f--a28f39575ba9/RESULT.md",
+          "material_read": "Finding and scope at offset 0; Attainment and relationship at offsets 4200–6950; limitations and references at 6760–8537; metadata date field",
+          "method": "Resultary and targeted local-mirror passage inspection; exact specialization and rescaling",
+          "title": "Sharp coordinate-crossing dichotomy for unequal-decay negative-feedback planar flows",
+          "trigger": "Same two-trajectory exact crossing theorem with broader decay assumptions"
+        },
+        {
+          "assessment": "Local two-snapshot folds, not an exact all-sample common record",
+          "evidence": "At kπ/a the first derivative vanishes and the nonzero second derivative gives a fold matching two observations.",
+          "identifier_or_url": "2026/11/22/SCOPE-an-infinite-ladder-of-quadratic-sampling-folds-in-stable-two-gen--25c370425326",
+          "material_read": "Finding and limitations, text offsets 0 and 5758",
+          "method": "Resultary and local mirror",
+          "title": "An infinite ladder of quadratic sampling folds in stable two-gene feedback",
+          "trigger": "Resonant aliasing in the same model class"
+        },
+        {
+          "assessment": "Source of the model and continuous derivative observability, not the fixed-time bound",
+          "evidence": "Uses opposite monotone responses with slope bounds and conditions the instantaneous (y,ẏ) map.",
+          "identifier_or_url": "https://arxiv.org/html/2611.17232v1",
+          "material_read": "Introduction, §2.1 and §3 (offsets 4442, 9434 and 21442)",
+          "method": "Direct OA HTML passage comparison",
+          "title": "Luenberger observers for two-gene regulatory networks with sigmoidal regulation",
+          "trigger": "Exact model and observability question"
+        },
+        {
+          "assessment": "Full theorem-level scope not resolved",
+          "evidence": "No whole-paper exclusion inferred from abstract-level access.",
+          "identifier_or_url": "https://doi.org/10.1016/j.sysconle.2003.08.008",
+          "material_read": "Landing page and abstract only",
+          "method": "Lawful retrieval attempt; no full text",
+          "title": "On the preservation of observability under sampling",
+          "trigger": "Potential broader sampled-observability theorem"
+        },
+        {
+          "assessment": "Unresolved but not needed for the demonstrated indexed coverage",
+          "evidence": "No whole-paper exclusion inferred from denied access.",
+          "identifier_or_url": "https://doi.org/10.1002/asjc.1284",
+          "material_read": "No independent full-text passage",
+          "method": "Lawful DOI retrieval returned HTTP 403",
+          "title": "Observability Under Sampling for Nonlinear Systems",
+          "trigger": "Potential general sampling-preservation result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The sharp sampling boundary and permanent aliasing are worthwhile scientific questions, but the frozen contribution adds no distinct invariant once the broader crossing result and its affine-core family are taken into account. The logistic example illustrates the covered constant by a simple near-equilibrium limiting return, weaker than exact attainment as a general sharpness claim. It does not supply a separate characterization of logistic sampling that would justify accepting this package as a new finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

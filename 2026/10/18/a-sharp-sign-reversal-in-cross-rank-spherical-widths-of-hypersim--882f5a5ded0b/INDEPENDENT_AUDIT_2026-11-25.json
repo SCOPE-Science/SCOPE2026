@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:16:17.028408Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the proof for fixed positive rank fractions (not fixed ranks) and one common spherical direction. Optimizing the indicator dot products gives differences of top and bottom k sums; centering Gaussian coordinates cancels from their difference. The empirical-CDF bound at tolerance n^(-1/3) puts each empirical quantile within O(n^(-1/3)) of its fixed threshold, and the convex positive-part objective has slope O(n^(2/3)) there, so the replacement costs O(n^(1/3)). A polynomial fourth-moment bound for n times one plus the Gaussian maximum controls the exceptional event in L2. Floors cost O(1), including at half rank. Expanding the residual chi radius gives influence variable X_alpha−EX_alpha−phi(t_alpha)(Z^2−1); integration by parts gives E[X_alpha(Z)(Z^2−1)]=2phi(t_alpha), and the mixed positive-part integral yields the stated formula. The exact covariance identity from independence of the common radius and all widths, with Var(chi_(n−1))→1/2 and E[T]/E[R] the mean width, establishes actual covariance convergence separately from weak convergence. In the half-rank comparison, G(0)=1−3/pi>0, Mills' ratio gives a negative tail tending to zero, and B=G'/2 decreases, increases, then decreases according to the quadratic sign of B'/phi. Because B(0)=0 and B is positive eventually, it crosses once on its increasing interval; G therefore has exactly one positive zero. Independent scalar bisection gives t*=0.813387056891897 and alpha*=0.207998088885385 and the stated sample signs. The frozen verification note and numerical checker were read, not executed; no simulation is needed for the limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Classical quantile/L-statistic theory and the regular-polytope cube result are relevant antecedents. The official book listing locates the two chapters but did not provide their full text; the inspected cube theorem is scalar."
+        ],
+        "reasoning": "A general multivariate studentized L-statistic theorem could cover the normal approximation after specialization; a weak-limit result does not by itself give actual covariance convergence, and no inspected broader result establishes the analytic rank threshold.",
+        "searches": [
+          "van der Vaart, Asymptotic Statistics, publisher listing for Chs. 21–22 (pp. 304–325)",
+          "arXiv:1511.08479v3, pp. 1, 8–9"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_hypersimplex.py",
+        "Primary sources arXiv:2010.10227 and arXiv:1511.08479v3",
+        "Official chapter listing for van der Vaart, Asymptotic Statistics",
+        "Three distinct Resultary findings identified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The univariate hypersimplex variance is precisely V(t_alpha)=K(alpha,alpha); the regular-polytope theorem matches the balanced diagonal endpoint. Neither inspected theorem gives the shared two-rank Gaussian influence covariance or a zero away from the endpoints."
+        ],
+        "reasoning": "The spherical radius subtraction changes the off-diagonal sign even though the unnormalized influence covariance is nonnegative. The proofs of this cancellation, actual cross-covariance convergence, and uniqueness of its zero are not consequences of the inspected scalar statements.",
+        "searches": [
+          "arXiv:1511.08479v3, Theorem 3.6",
+          "Resultary 2026/10/25/SCOPE-nonmonotone-gaussian-angular-width-fluctuations-of-hypersimplice--fe20d5fa3db3, Finding and Relationship to prior work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target polytopes are uniform-matroid base polytopes; the same selected-rank width is a radial normalization of a difference of Gaussian upper and lower trimmed sums.",
+          "The cube CLT gives the same balanced endpoint variance 1−3/pi; the distinct 10/25 Finding gives exactly the target kernel on its diagonal, for all dense ranks."
+        ],
+        "reasoning": "The univariate statements do not fix the coupling of two different ranks. In particular the diagonal law alone supplies no cross-covariance sign.",
+        "searches": [
+          "arXiv:2010.10227, pp. 2 and 15",
+          "arXiv:1511.08479v3, Theorem 3.6",
+          "Resultary 2026/10/25/SCOPE-nonmonotone-gaussian-angular-width-fluctuations-of-hypersimplice--fe20d5fa3db3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first distinct indexed Finding gives K(alpha,alpha), with later catalogue date not treated as priority evidence. The next treats rotation of an octahedron relative to a cube in dimension three; the third gives a sharp negative minimum for tree graphical zonotopes."
+        ],
+        "reasoning": "The result is on a continuum of proportions rather than a finite table. These exact indexed comparisons do not describe a shared hypersimplex direction with the claimed two-rank kernel and its half-rank threshold. Same-day entries are distinguished by their assumptions, not their date; the bound record is a self hit.",
+        "searches": [
+          "Resultary 2026/10/25/SCOPE-nonmonotone-gaussian-angular-width-fluctuations-of-hypersimplice--fe20d5fa3db3",
+          "Resultary 2026/10/18/SCOPE-orientation-controlled-covariance-sign-reversal-for-polar-platon--9a4508ced953",
+          "Resultary 2026/10/18/SCOPE-sharp-negative-cross-width-covariance-for-pairs-of-tree-graphica--c96152aa3139"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the explicit same-direction off-diagonal kernel, actual covariance convergence and analytic unique sign transition. The Gaussian order-statistic methods, cube endpoint, and diagonal dense-rank formula have real overlap; they do not supply the full claim in the inspected sources.",
+      "residual_risks": [
+        "The relevant van der Vaart chapters were not available in the lawful material read; a general joint studentized L-statistic result could subsume part of the kernel derivation.",
+        "The bounded primary search identified no exact off-diagonal match, which is not proof of absence; the originality pass does not claim priority for the diagonal or for Gaussian width normalization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same geometric object, different theorem",
+          "evidence": "Identifies the hypersimplex as the uniform-matroid base polytope, and studies reconstruction.",
+          "identifier_or_url": "https://arxiv.org/abs/2010.10227",
+          "material_read": "Introduction p. 2 and representation on p. 15 (OA offsets 6184 and 44360)",
+          "method": "OA primary text",
+          "title": "Reconstructibility of matroid polytopes",
+          "trigger": "Same uniform-matroid polytopes"
+        },
+        {
+          "assessment": "Endpoint overlap and prior method, not stated cross-rank law",
+          "evidence": "Cube width centered at sqrt(2n/pi) converges to the normal with variance (pi−3)/pi.",
+          "identifier_or_url": "https://arxiv.org/abs/1511.08479v3",
+          "material_read": "Width definition p. 1 and Theorem 3.6 pp. 8–9 (OA offsets 4026 and 29786)",
+          "method": "OA primary text",
+          "title": "Mean width of regular polytopes and expected maxima of correlated Gaussian variables",
+          "trigger": "Spherical Gaussian width normalization and matching balanced endpoint"
+        },
+        {
+          "assessment": "Exact diagonal specialization; distinct record, no off-diagonal match",
+          "evidence": "Univariate limit-law variance V(t_alpha) equals K(alpha,alpha); the prior-work section flags possible general L-statistic coverage.",
+          "identifier_or_url": "2026/10/25/SCOPE-nonmonotone-gaussian-angular-width-fluctuations-of-hypersimplice--fe20d5fa3db3",
+          "material_read": "RESULT.md, Finding and Relationship to prior work (offsets 0 and 6491)",
+          "method": "Published Resultary mirror",
+          "title": "Nonmonotone Gaussian angular-width fluctuations of hypersimplices",
+          "trigger": "Closest same-object dense-rank angular CLT"
+        },
+        {
+          "assessment": "Decisive theorem not available in the material read",
+          "evidence": "Chapters on Quantiles and Order Statistics and on L-Statistics are listed; their statements cannot be inferred from the listing.",
+          "identifier_or_url": "A. W. van der Vaart, Cambridge University Press, Chs. 21–22",
+          "material_read": "Official chapter listing, pp. 304–325 listed (OA offset 32782); no chapter text inspected",
+          "method": "Lawful official publisher page",
+          "title": "Asymptotic Statistics",
+          "trigger": "Potential equivalent result for jointly studentized L-statistics"
+        },
+        {
+          "assessment": "Distinct mechanisms and objects",
+          "evidence": "Relative rotation for cube and octahedron versus finite-dimensional tree-zonotope covariance; neither uses coupled hypersimplex ranks.",
+          "identifier_or_url": "2026/10/18/SCOPE-orientation-controlled-covariance-sign-reversal-for-polar-platon--9a4508ced953; 2026/10/18/SCOPE-sharp-negative-cross-width-covariance-for-pairs-of-tree-graphica--c96152aa3139",
+          "material_read": "Both RESULT.md Findings, offset 0",
+          "method": "Published Resultary mirror",
+          "title": "Orientation-controlled covariance sign reversal for polar Platonic bodies; Sharp negative cross-width covariance for pairs of tree graphical zonotopes",
+          "trigger": "Same-day shared-direction sign and sharp covariance findings"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The same direction is the natural coupling across uniform-matroid ranks. The explicit kernel identifies how angular normalization creates strictly negative dependence where the Gaussian trimmed-sum contribution is nonnegative, and provides a sharp, nontrivial dividing rank rather than isolated sign examples. It is usable for comparisons across dense ranks and separate from a scalar variance calculation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

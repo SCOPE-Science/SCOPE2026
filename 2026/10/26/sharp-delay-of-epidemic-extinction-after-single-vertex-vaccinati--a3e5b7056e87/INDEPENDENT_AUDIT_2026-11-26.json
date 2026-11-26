@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:14:17.632773Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each fixed live-edge state, induction in the synchronous one-round model identifies first infection with the first finite directed distance from the seed. The post-deletion reachable set is a subset. If the original maximum finite distance is 0 or 1, all remaining reachable nonseed vertices retain their direct arc from the seed and the maximum cannot increase. Otherwise the original maximum is at least 2, and the new one is at most n−2 by simplicity of shortest paths; these cases give max(0,n−4), including n=2,3,4. The supplied attaining family has maximum distance 2 before deletion and n−2 after, with exactly one vertex removed from reachability, and an empty graph attains zero in the small cases. For the specified five-vertex independent-edge model, an independent topological pass on all 64 states gives expected-duration coefficient vectors (0,2,2,1,−3,−1,1) and (0,1,1,1,0,0,0), in increasing powers of p, before and after deletion; exact rational substitution brackets p_c as stated. Replay: `python /workspace/branches/review-computations/check_finite.py`. This confirms the finite polynomial rather than extrapolating a simulation. The quintic has Q(0)=1,Q(1)=−1 and Q″=2p(10p²−6p−9)<0 for 0<p<1, with Q′ strictly decreasing from 1 to −7, so exactly one crossing occurs. The clock is last new infection; adding one generation to both times leaves their difference unchanged. Read the frozen verification notes and code without executing them.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hoang–Lendl–Wulf treat vertex interdiction on interval graphs. Bazgan et al. study edge interdiction of a prescribed s–t shortest path in undirected weighted graphs. The closest catalogue record has a sharp threshold of seven vertices for increase of peak incidence after vaccination."
+        ],
+        "reasoning": "A prescribed destination under edge or vertex interdiction differs from maximizing a finite distance from one source over all still-reachable destinations in a directed graph. A bound on layer width under deletion does not control the final nonempty layer.",
+        "searches": [
+          "arXiv:2107.14550 §1.2 shortest-path vertex interdiction on interval graphs",
+          "Bazgan–Nichterlein–Niedermeier, most-vital-edge shortest paths, abstract and decision problem",
+          "Resultary 60ad730d9a5f"
+        ]
+      },
+      "checked_sources": [
+        "Floyd–Kay–Shapiro DOI 10.1007/s11538-007-9275-0",
+        "Holme DOI 10.1371/journal.pone.0084429",
+        "Pulliam et al. DOI 10.1371/journal.pone.0000165",
+        "arXiv:1005.3470, pp. 2–3, Thm. 1",
+        "arXiv:2107.14550",
+        "https://fpt.akt.tu-berlin.de/publications/vital_edges_shortest_path.pdf, p. 1",
+        "Resultary 60ad730d9a5f; previews c8cf3c4fa06e and d4b7f36925e1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The live-edge vaccination result only compares ultimate infection probabilities. Gutfraind's monotonicity concerns expected final extent. Pulliam et al. establish duration enhancement in a different turnover/reintroduction model. Holme analyzes dependence on transmission probability rather than vaccination."
+        ],
+        "reasoning": "Reachability monotonicity does not imply monotonicity of the maximum retained distance: removing a vertex may eliminate shortest routes to an endpoint that stays reachable. The n−2 path length cap must be combined with the exclusion of delays when the original maximum is at most 1 and a sharp witness. The expectation formula also requires exact joint edge-state counting; it is not a consequence of the monotonicity statements.",
+        "searches": [
+          "Floyd–Kay–Shapiro, Thm. 3.1 and Lemma 3.5",
+          "Pulliam et al. DOI 10.1371/journal.pone.0000165, abstract",
+          "arXiv:1005.3470, Thm. 1",
+          "Holme DOI 10.1371/journal.pone.0084429, pp. 2–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Floyd–Kay–Shapiro identify the first-infection generation with directed live distance. Holme's full-transmission formula writes extinction time as source eccentricity plus disease duration."
+        ],
+        "reasoning": "The abstract invariant is maximum finite source distance, including the seed; equivalence to the generation statistic is not new. Those identities do not give its worst sharp change under deletion. Peak simultaneous incidence is the maximum width of a layer, not the largest occupied layer index.",
+        "searches": [
+          "Resultary: one-vertex vaccination duration and last-generation change",
+          "Floyd–Kay–Shapiro DOI 10.1007/s11538-007-9275-0, Lemma 3.5",
+          "Holme DOI 10.1371/journal.pone.0084429, pp. 2–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Catalogue previews concern duration curvatures on rooted trees and the effect of adding an edge in continuous time; neither describes the five-vertex single-deletion expectation polynomial. Full mirrored files for those two preview matches were unavailable. The closest inspected full catalogue passage gives a different threshold for peak incidence."
+        ],
+        "reasoning": "Tables or numerical plots of duration versus transmissibility alone would not give the expectation difference between the two coupled fixed graphs. No covering formula or table was verified; the catalogue previews are not full-text exclusions.",
+        "searches": [
+          "Resultary: five-person homogeneous Bernoulli last-infection threshold and vaccination duration",
+          "Resultary c8cf3c4fa06e and d4b7f36925e1, indexed previews",
+          "Holme DOI 10.1371/journal.pone.0084429, extinction-time metric"
+        ]
+      },
+      "rationale": "The live-edge representation, monotonicity of ever-infection and the general possibility of longer epidemic duration in another model are credited precedents. The statement-level checks identify no theorem covering the exact fixed-source maximum finite distance change under one nonseed deletion, its sharp all-size bound, or the specified homogeneous five-vertex mean-duration threshold. Priority for equivalent elementary graph observations remains uncertain.",
+      "residual_risks": [
+        "An equivalent elementary extremal-graph observation or unindexed five-vertex exact calculation remains possible. Same-day indexing does not establish priority. The two weaker preview matches were not fully retrieved and are not ruled out on that basis."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Live-path identity and monotone final infection probabilities, not the sharp duration result",
+          "evidence": [
+            "Lemma 3.5 identifies the live shortest path length with infection generation and reachability with ever-infection."
+          ],
+          "identifier_or_url": "https://personal.math.vt.edu/floyd/research/papers/epidemics.pdf",
+          "material_read": "Author PDF pp. 6 and 8, Theorem 3.1 and Lemma 3.5",
+          "method": "Lawful OA author manuscript; targeted primary passages",
+          "title": "Some Elementary Properties of SIR Networks or, Can I Get Sick because You Got Vaccinated?",
+          "trigger": "Potential identical vaccination theorem and live-edge reduction"
+        },
+        {
+          "assessment": "Metric precedent, not a vertex deletion comparison",
+          "evidence": [
+            "At full transmission the extinction time is e(G_n,i)+d."
+          ],
+          "identifier_or_url": "https://doi.org/10.1371/journal.pone.0084429",
+          "material_read": "pp. 2–3, full-transmission limit and source eccentricity/size-weighted metrics",
+          "method": "OA article, targeted passage comparison",
+          "title": "Extinction Times of Epidemic Outbreaks in Networks",
+          "trigger": "Nearest published statement about the same duration metric"
+        },
+        {
+          "assessment": "Different statistic and dimension threshold",
+          "evidence": [
+            "At most six vertices cannot increase simultaneous infectious peak, and the catalogue witness uses seven; the frozen result addresses the last nonempty layer."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/10/26/SCOPE-the-seven-person-threshold-for-vaccination-induced-epidemic-peak--60ad730d9a5f/RESULT.md",
+          "material_read": "Mirrored Finding at offset 0 and Relationship to prior work around offset 6900",
+          "method": "Configured local catalogue and mirrored original passages",
+          "title": "The seven-person threshold for vaccination-induced epidemic peak amplification",
+          "trigger": "Same-day catalogue result with the same live-edge intervention setting"
+        },
+        {
+          "assessment": "Broad phenomenon precedent in different population dynamics",
+          "evidence": [
+            "An outbreak in a partially immune population can be longer or larger than one in a naive population in that model."
+          ],
+          "identifier_or_url": "https://doi.org/10.1371/journal.pone.0000165",
+          "material_read": "p. 1, abstract setting and claim",
+          "method": "OA primary-source passage",
+          "title": "Epidemic Enhancement in Partially Immune Populations",
+          "trigger": "Earlier assertion that immunity may lengthen epidemics"
+        },
+        {
+          "assessment": "Adjacent graph-deletion objective and domain; no direct implication",
+          "evidence": [
+            "The shortest-path interdiction problem considered is for interval graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2107.14550",
+          "material_read": "Abstract p. 1 and §1.2, p. 3",
+          "method": "OA primary PDF, problem definitions",
+          "title": "Assistance and Interdiction Problems on Interval Graphs",
+          "trigger": "Possible covering theorem from graph interdiction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact sharp bound and small-size obstruction distinguish a legitimate duration statistic from cumulative case count under the same idealized intervention. The minimal-size fixed example and exact threshold test whether the pathwise distinction survives taking expectations, rather than merely exhibiting one exceptional state. The result is finite graph theory and a caution about model metrics, not an applied inference about real vaccination choices.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

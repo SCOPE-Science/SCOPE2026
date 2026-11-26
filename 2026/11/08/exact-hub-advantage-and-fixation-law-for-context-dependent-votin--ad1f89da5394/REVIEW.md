@@ -1,19 +1,21 @@
-# Review of the exact star fixation law
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For asynchronous uniform-neighbor adoption with two strictly positive acceptance probabilities, generator harmonicity yields two exact relations for the hub-zero and hub-one state families. Their difference has a constant geometric ratio \(q_m=(mr+1)/(r(m+r))\); the absorbing boundary conditions uniquely normalize it. The explicit placement advantage is strictly positive for every \(m>1\) and zero for the two-vertex star. The large-star limit follows by uniform exponential convergence and Riemann sums. The finite chain has no nonconsensus closed class. A separate exact-rational full-chain solver independently checks every state up to six leaves for four rate pairs, totaling 1092 assertions. The analytic argument, not the enumeration, proves the arbitrary-size statement.
+PASS
 
-## Originality — PASS, subject to residual publication-priority risk
+Positive acceptance gives a copying path to consensus from every transient state, making the finite-chain Dirichlet solution unique. Conditional on a hub holding 0, the total rates for hub flip and leaf decrement are α01 k/m and α10 k; conditional on hub holding 1, hub flip and leaf increment have rates α10(m−k)/m and α01(m−k). Dividing by the nonzero k or m−k factors on the corresponding transient intervals gives F_k−F_{k−1}=(r/m)(G_k−F_k) and G_{k+1}−G_k=(1/(rm))(G_k−F_k). Subtraction at consecutive indices multiplies D_k=G_k−F_k by (1+1/(rm))/(1+r/m)=q_m, and the boundaries F_0=0, G_m=1 give D_0=1/Z_m. At equal total seeds the difference is D_{k−1}(1−r q_m/m), whose second factor is (m²−1)/(m(m+r)); this also verifies the m=1 tie. The single-seed ratio is m/(r q_m). At fixed r, m log q_m tends to r^{-1}−r, giving uniform exponential convergence for the powers with 0≤j≤m and hence the moving-endpoint Riemann sums. The neutral case has q_m=1 and Z_m=2. The m=4, r=2 illustration gives q_m=3/4 and Z_m=687/512 as stated. The full-chain checker verify.py was inspected, not executed. Its exact finite cases are corroboration only. The frozen Python 3.8 compatibility note is too broad: int.bit_count at line 60 requires Python ≥3.10, without affecting the theorem.
 
-Becchetti–Bonifaci–Cruciani–Pasquale (2023), https://arxiv.org/html/2305.07377v2 , proves an all-configuration fixation formula for regular graphs (Theorem 3 and Appendix F), and explicitly identifies biased evolution on general topologies as challenging (Section 5). This does not entail the new two-family formula on nonregular stars. Czaplicka et al. (2022), https://arxiv.org/html/2203.05376v1 , studies biased copying on complete/random networks, not exact finite-star fixation. Durocher et al. (2022), https://arxiv.org/html/2201.08207v2 , uses a different neighbor-selection transition kernel. Petsinis et al. (2022), https://arxiv.org/abs/2211.14676 , uses positional weighted-neighbor bias, not the present uniform-neighbor acceptance kernel. Zhang et al. (2012), https://doi.org/10.1155/2012/940465 , proves exact star formulas for fitness-weighted birth-death reproduction. de Souza–Neves (2020), https://arxiv.org/abs/2003.05462 , studies birth/death Moran selection on stars, not uniform-neighbor pulling with independent opinion-dependent acceptance. Public mathematical-record comparisons and mathematical title/alias searches identified no equivalent theorem. An unindexed or differently parameterized exact star result may exist; universal priority is not claimed.
+## originality
 
-## Value — PASS
+PASS
 
-Exact fixation probabilities are a core invariant of network opinion dynamics. The motivating 2023 model's biased results focus on regular graphs while the effect of degree heterogeneity is topology-dependent. A star is the canonical maximally degree-heterogeneous tree: the complete answer, explicit strict hub-versus-leaf leverage for every seed budget, and the asymptotic positive hub influence versus vanishing single-leaf influence supply motivated structural information beyond a numerical small-graph example. The result does not extrapolate to all heterogeneous graphs.
+Credit the context-dependent adoption model, its regular-graph law, the neutral case and the equivalence to death–birth with selection on death. The supported distinct claim is the all-initial-state biased law on nonregular stars for this kernel, with exact hub-placement gain and fixed-bias scaling. The closest inspected model-equivalent general paper's scalar count reduction does not apply; the exact star formulas inspected for different replacement rules are not mechanically applicable. Possible broader weighted directed BD coverage in Monk–Green–Paulin could not be confirmed from primary text and remains a specific limit, not evidence of noncoverage.
 
-## Limits
+## value
 
-Parameters must be fixed and positive; the dynamics uses asynchronous uniform-neighbor pulling, not fitness-weighted selection. The large-star limit fixes the ratio of acceptance probabilities. Exact timing and nonlinear extensions remain unproved; independent external review is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+On this nonregular graph an adopter count loses the distinction between the hub and leaves. The all-state law restores that dependence in a solvable form and gives an exact placement decision at every fixed seed budget. The distinct nonvanishing hub probability and inverse-size leaf probability at fixed directional bias quantify a degree effect that a regular-graph count formula or neutral degree weighting alone does not provide.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

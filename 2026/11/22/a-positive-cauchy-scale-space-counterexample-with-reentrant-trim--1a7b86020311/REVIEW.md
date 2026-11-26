@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finding concerns one explicit positive measure and four exact heights, not an unproved complete bifurcation curve. Direct differentiation yields a quartic in squared position with a positive denominator. At the four heights the primitive quartics and the exact rational sign brackets are verified by `check_exact.py`; the upper bounds on positive roots follow from Descartes' rule. Equal numbers of distinct roots and sign-variation bounds also rule out multiplicities. The center is nondegenerate, and the signs of the derivative determine exactly three, two, three, and one local maxima. The equal-weight sample representation is arithmetic, and robustness under sufficiently small distinct perturbations follows from simple-root stability and uniform tail signs. Risks: the robustness radius is not quantified; this does not affect the fixed-weight exact counterexample.
+PASS
 
-## Originality — PASS, best knowledge
+With y=x² and A=(y+1+q)²−4y, the density after dropping the positive scale factor is w/(y+q)+2(y+1+q)/A. Its negative y-derivative has numerator wA²+2(y+q)²[(y+1+q)²−4(q+1)] over (y+q)²A², recovering the displayed quartic; the x-derivative contributes 2x. Independent rational reconstruction verifies the primitive quartics and the sign values at (0,1/10,1), (0,1), and (0,1/20,1/5); Descartes bounds 2,1,2 are attained by distinct roots, and the all-positive fourth quartic has none. The center is simple since its quartic constant is nonzero. Parity and derivative signs give exactly 3,2,3,1 strict maxima across the entire line. Rational masses yield a 249-observation equal-weight KDE after positive normalization. Small perturbations preserve the counts at all four heights: in disjoint neighborhoods of the simple zeros, the second derivative stays nonzero and the derivative retains opposite signs at the ends; on the remaining compact set its modulus is bounded below, and outside the hull of all perturbed observations every individual kernel derivative has the same outward sign. No radius or intervening bifurcation diagram is certified. Read the supporting evidence; the uploaded script was inspected but not executed. Replay the independent rational check with python3 /workspace/branches/a2e15b43-97d4-4238-a498-12de4cbe5b6a/reproduce_exact.py.
 
-The closest relevant primary text is Chaudhuri and Marron (2000), which exhibits Cauchy-kernel noncausality with signed regression weights and expressly reports no example with all positive observations, proposing that density-estimation causality may hold. The present example has only positive masses, so it is not a special case of the earlier signed construction. Hall, Minnotte and Zhang (2005) principally address compactly supported kernel density estimators, which does not directly cover the Cauchy kernel. Chaubey (2018) studies the wrapped Cauchy/Poisson circle estimator; Vila et al. (2022) study another model of trimodality. A previously indexed equal-weight three-atom Poisson result has a single three-to-one threshold, not a positive reentrant two-to-three mode transition for unequal weight. Actual semantic literature and published-result searches found no exact or stronger covering statement. Risks: inaccessible or unindexed historical positive-weight counterexamples remain possible, so novelty is provisional.
+## originality
 
-## Value — PASS
+PASS
 
-A mode's appearance under stronger positive-kernel smoothing contradicts a natural scale-space causality property, and the sign of the input masses is essential: it directly addresses a historical positive-data conjectural possibility. The four certified heights, rational masses and transfer to a finite equal-weight sample provide an unusually transparent analytical witness, useful for separating Gaussian diffusion intuition from Cauchy/Poisson harmonic extension. Its value is the explicit exact certificate with two reversals of mode-count direction at four fixed heights, not the known qualitative fact that a non-Gaussian smoothing kernel may create modes. An earlier review asserts that Cauchy KDEs can do so; historical priority for an equivalent quantitative witness remains uncertain.
+Best-of-knowledge pass for the exact positive rational, reentrant four-height witness only. Cauchy mode creation in positive-data KDEs is already stated in the literature; it is not a new general phenomenon.
 
-## Scope and priorities
+## value
 
-The result is not a complete all-weight or all-height classification, and it does not assert the earliest possible number of distinct sites. There is no independent audit. References and sources are listed in `RESULT.md`; the exact checker constitutes the core computational evidence.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a motivated exact counterexample rather than an arbitrary density census. It certifies disappearance, reappearance, and final disappearance in a single three-location positive family, and the signs are enough to distinguish genuine modes from degenerate numerical peaks. The equal-weight and distinct-site realizations transfer the witness to ordinary data KDEs. No value is assigned to rediscovering the qualitative possibility, or to unasserted minimality or a full phase diagram.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

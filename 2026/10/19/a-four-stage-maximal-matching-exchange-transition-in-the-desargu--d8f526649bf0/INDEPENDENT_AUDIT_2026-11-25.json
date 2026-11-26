@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:05:40.147687Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A matching is maximal iff its uncovered set is independent. Independently enumerated all independent uncovered sets of size 20−2k in GP(10,3), then all perfect matchings of their induced complements, for every 0≤k≤10. Pairing the least remaining vertex with each available neighbour finds each such perfect matching once, and distinct uncovered sets cannot duplicate a state. The check used pairwise XOR of edge masks with popcount two for adjacency and bitset breadth-first frontiers from every state for component sizes and diameters. Run: python3 /workspace/independent_checks/desargues_exchange.py. It returned only layers 6–10, with state counts (5,120,1620,1120,60), edge counts (0,120,3360,2160,0), component sizes 5×1, 30×4, 1×1620, 1×1120, 60×1 and corresponding diameters (0,2,14,12,0). Size-seven states all have degree two, establishing the 30 cycles. The state sum is 2925. At size ten a one-edge replacement would have to join the very same two endpoints, impossible with a different edge in this simple graph. Both recorded outputs agree, but the independent enumeration, not the recorded outputs, is the fresh finite check.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mühlenthaler uses degree bounds and single additions/deletions with a size lower bound",
+          "Birand et al. p. 7, §IV and Fig. 3 use a linear program on the same graph to obtain σ(D)=3/5"
+        ],
+        "reasoning": "The LP and broader move models are pertinent, but do not compute same-size maximal-only components or distances.",
+        "searches": [
+          "arXiv:1812.05419 and arXiv:1508.01372",
+          "Birand et al., Analyzing the Performance of Greedy Maximal Scheduling via Local Pooling and Graph Theory"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, both verifier scripts and both .out files",
+        "Resultary 91609797437d, 67ff1e627721, f46dd29846e2",
+        "arXiv:1812.05419 and arXiv:1508.01372",
+        "Birand et al. author-hosted OA proceedings copy"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The perfect matching flip record has the same 60 states but uses length-6 and length-8 alternating cycle flips (combined diameter 4)",
+          "The local-pooling ratio is not an exchange distance or a classification by cardinality"
+        ],
+        "reasoning": "Cycle flips change multiple selected edges. The top layer count and known cardinality facts transfer, but the middle-layer adjacencies and distances require the maximal-only computation.",
+        "searches": [
+          "Resultary matching-complex records 91609797437d and 67ff1e627721; perfect-matching flip record f46dd29846e2",
+          "Birand et al. §IV and Fig. 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Two same-size maximal matchings are adjacent iff they are facets sharing a codimension-one face in the matching complex",
+          "The standard token-jump rule requires only a matching after a jump"
+        ],
+        "reasoning": "The frozen graph is the induced subgraph on maximal matchings, not the full fixed-size matching graph. Paths through nonmaximal states do not establish its connectivity.",
+        "searches": [
+          "Resultary: Desargues GP(10,3) maximal matchings, facet exchange, and one-edge matching reconfiguration",
+          "Bousquet et al., arXiv:1812.05419, definition of token jumping"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Records 91609797437d and 67ff1e627721 give ordinary matching-complex face counts (e.g. 1720 size-nine matchings), rather than the maximal-only state count (1120 at size nine)",
+          "Both give the same 60 top-layer states"
+        ],
+        "reasoning": "Face totals and homotopy/homology data do not specify the adjacency between maximal facets. No checked table gives the exact five exchange layers.",
+        "searches": [
+          "Resultary: Desargues matching complex, maximal matching size distribution, exchange layer counts and diameters"
+        ]
+      },
+      "rationale": "The substantive claim is the maximal-only exchange structure across sizes, particularly the 30 four-cycles and the exact connectivity and diameters of both middle layers. Prior same-graph matching counts and local-pooling evidence, and general matching reconfiguration results, do not supply those facts. The known minimum size, known perfect-matching count and elementary perfect-layer isolation are not credited as original individually.",
+      "residual_risks": [
+        "Comparison covers relevant retrieved passages, not every historical enumeration or possible database of maximal facet adjacency."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Shared ordinary counts, not the maximal-only exchange graph",
+          "evidence": "The face vector totals 113192 including the empty face, and only agrees at the perfect end by definition.",
+          "identifier_or_url": "Resultary 91609797437d and 67ff1e627721",
+          "material_read": "Both mirrored RESULT.md openings, including the ordinary face counts and mixed-wedge record's finite face set",
+          "method": "Local mirror passage comparison",
+          "title": "Mod-2 homology of the Desargues matching complex and The Desargues matching complex is a mixed-dimensional wedge of spheres",
+          "trigger": "Same graph and matching complex"
+        },
+        {
+          "assessment": "Different move rule and only the perfect layer",
+          "evidence": "Uses alternating cycles of length six or eight, not one-edge replacements.",
+          "identifier_or_url": "Resultary f46dd29846e2",
+          "material_read": "Mirrored RESULT.md opening, move definitions and component/diameter claim",
+          "method": "Local mirror passage comparison",
+          "title": "Hexagon isolation and octagon bridges in Desargues perfect matchings",
+          "trigger": "Same graph and exchange terminology"
+        },
+        {
+          "assessment": "Broader admissible intermediate states",
+          "evidence": "Token-jump feasibility tests only independence of occupied edges.",
+          "identifier_or_url": "https://arxiv.org/abs/1812.05419",
+          "material_read": "p. 1, offset 900, definition and abstract",
+          "method": "OA primary PDF passage",
+          "title": "Shortest Reconfiguration of Matchings",
+          "trigger": "Standard matching token jumps"
+        },
+        {
+          "assessment": "Distinct degree-constraint reconfiguration",
+          "evidence": "Intermediate edge counts may vary above a lower bound; global maximality is not imposed.",
+          "identifier_or_url": "https://arxiv.org/abs/1508.01372",
+          "material_read": "p. 1, offset 700, move definition",
+          "method": "OA primary PDF passage",
+          "title": "Degree-constrained Subgraph Reconfiguration is in P",
+          "trigger": "Potential broad coverage via degree constraints"
+        },
+        {
+          "assessment": "Same-graph local-pooling calculation; not the exchange claim",
+          "evidence": "The Desargues passage obtains σ(D)=3/5 by solving LP (2) and uses D⊆K_{10,10}.",
+          "identifier_or_url": "https://web.math.princeton.edu/~mchudnov/lpconf.pdf",
+          "material_read": "PDF p. 7, Fig. 3 and §IV Desargues passage around offsets 46748 and 48730",
+          "method": "OA author-hosted proceedings PDF",
+          "title": "Analyzing the Performance of Greedy Maximal Scheduling via Local Pooling and Graph Theory",
+          "trigger": "Same Desargues graph and maximal matchings"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "On a canonical cubic bipartite graph already used to study maximal matchings, the size-preserving move gives distinct behaviours: rigid saturated minima, small cyclic components, two connected intermediate layers with exact path-length bounds, and rigid perfect states. This supplies an exact benchmark for reconfiguration with maximality imposed, where ordinary matching-complex data or unconstrained reconfiguration are not enough. It is a useful finite invariant, not a generalized Petersen family theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

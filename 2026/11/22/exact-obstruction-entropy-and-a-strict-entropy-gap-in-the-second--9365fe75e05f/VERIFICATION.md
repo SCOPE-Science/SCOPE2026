@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-Three standalone standard-library checks are supplied. Run `python3 verify.py`, `python3 verify_forbidden.py`, and `python3 crosscheck.py` in this directory, without additional dependencies.
+# Independent mathematical audit
 
-`verify.py` reconstructs the one-step and two-step image automata, exact characteristic polynomials, all stated image-word counts, and rational root isolations, including the dominant image-growth root in \( (1.732101,1.732102) \). `verify_forbidden.py` generates and trims the minimal-forbidden-word automaton (29 reachable, 16 productive states), checks every productive transition against its certificate, proves the transfer determinant and all-length rational series by the exact adjugate degree bound, confirms the primitive component, and isolates its dominant real root in \( (1.647072,1.647073) \) by Sturm variations. Thus strict root separation certifies the entropy gap without floating-point inference. `crosscheck.py` enumerates all finite input blocks through output length fourteen and independently verifies distinct outputs, minimal forbidden counts, and the previously known shortest discrepancy.
+## correctness
 
-Expected final markers: `VERIFY_OK`, `FORBIDDEN_VERIFY_OK`, `CROSSCHECK_OK`. These completed successfully. Infinite claims depend on the finite-state proofs and exact algebra, not on extrapolating finite enumeration.
+PASS
 
-Scientific limitations: the new result concerns only time-two spatial images, minimally forbidden contiguous words, and their entropy gap. The maximal-entropy-measure consequence follows from Wu and Zhang (2026), arXiv:2611.03758v1, rather than from an independent new measure-classification proof. No independent mathematical audit has been performed.
+The bilateral XOR differences d_i=x_i⊕x_(i+1) are unrestricted, and the first-step output is d_(i−1)∨d_i. This output has no isolated one; conversely any word on the bilateral shift avoiding 010 is recovered by taking differences d_i=y_i∧y_(i+1). For the second image, the independent reconstruction used an eight-vertex de Bruijn graph on three difference bits instead of the supplied 16-vertex graph on original bits. Label the edge for four bits a,b,c,d by whether a∨b,b∨c,c∨d are not all equal. All difference blocks integrate and extend to bilateral inputs. Determinizing from all vertices and refining right languages gave 17 live subsets and 13 accepting minimized states. For the forbidden computation, accept precisely a dead final prefix-state transition with a live suffix-state transition; all proper contiguous factors are contained in the prefix or suffix missing one letter. Both individual letters occur. The count is of distinct words because the machines are deterministic and each productive path specifies its letters. The independent pair graph had 29 reachable and 16 productive states. Exact transfer arithmetic reproduced the characteristic polynomials, coefficients through degree 17 of det(I−zA)M(z), and the displayed list through length 25. The degree bound 2+15 proves the all-length identity. There is one 14-state primitive component with self-loops on productive paths; the other two states are transient, giving m_2(n)∼Cλ^n with C>0 and hence a strictly sofic image. The image automaton's Perron growth governs all admitted words since all accepting states are accessible. Independent exact shifted-power coefficient signs isolate both largest real roots in the stated disjoint rational intervals. Wu–Zhang Theorem A applies since the minimal forbidden words generate the shift, so h_G≤h_M<h_top; this gives the stated finite ergodic, Bernoulli-up-to-period and characteristic maximal-entropy-measure conclusions without asserting how many such ergodic measures there are.
+
+## originality
+
+PASS
+
+Credit the exact second-image minimal-forbidden series, its Perron growth, and the evaluated strict gap. The one-step benchmark, first missing word at length twelve, finite-state methods and general measure theorem are prior work. Known presentations of the second-image language make related invariants computable; available evidence does not show an earlier evaluated all-length minimal-forbidden series or this comparison of the two entropy rates. Direct full-text access to the closest older Rule 126 paper was unavailable after lawful attempts, so priority there remains an explicit bounded risk rather than evidence of noncoverage.
+
+## value
+
+PASS
+
+Rule 126 is a natural benchmark with an unusually simple first image and a known sharp finite discrepancy. The all-length second-image obstruction series demonstrates a change to strictly sofic behavior with exponentially many minimal forbidden words after just one further update. Its rate is provably separated from the language entropy; this is an evaluated nontrivial test case for the entropy-gap theorem, beyond an arbitrary finite enumeration or the previously known shortest witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

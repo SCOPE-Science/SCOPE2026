@@ -72,7 +72,7 @@ def run():
     assert defects(excluded)==(2,3,3,1,-3)
     assert not belongs(excluded,(3,2,1))
     assert not belongs(excluded,(2,3,1))
-    # The four nonnegative 2x2 defects specified in the source do not suffice.
+    # The four defects involving the bottom-left entry do not suffice.
     for ps,d in (((3,2,1),(1,0,3,0,-2)),((3,2,1),(1,3,0,0,-2)),
                  ((2,3,1),(0,3,3,0,-6))):
         d1,d2,d3,d4,d5=d

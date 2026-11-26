@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:33:35.209373Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Uniqueness of the degree-four rule follows by testing each of the five cardinal polynomials; exactness follows by expanding any degree-at-most-four polynomial in those cardinals. The five L_j were independently constructed from their product formulas, and clearing ∏_{i=1}^5(k+i) verifies the five reported moment identities as polynomial identities in k, not just at a sample. The resulting signs are positive for j=1,3,4 at every integer k≥0, positive/zero/negative for j=0 at k=0,1,≥2 respectively, and positive through k=2 then negative for j=2. The absolutely convergent exponential series therefore gives strict positivity for j=1,3,4. W_0 is strictly decreasing on (0,∞) and goes to −∞ by bounding its negative tail by the k=2 term alone. W_2/λ² is strictly decreasing there: its k=0,1 terms decrease, its k=2 term is constant, and all k≥3 negative terms decrease. It tends to −∞ by bounding the negative tail by the k=3 term alone. Both unscaled weights start positive, so each has one unique positive zero. The independent standard-library rational replay reconstructs M_0=1957/90, M_2=1142/15 and checks e⁴<55 with a geometric tail. It certifies |W_j(z)−P_{j,N}(z)|≤55 M_j z^(N+1)/(N+1)! and compares rationals, certifying W_0(63/20)>0>W_2(63/20) with N=30 and the signs (+,−) at both stated rational brackets with N=42. The positive comparison margins at the four endpoints are about 4.42e−7, 4.87e−7, 1.26e−7 and 1.34e−7 respectively; decisions used fractions, not these decimal renderings. Reflection L_j(1−x)=L_{4−j}(x) gives W_j(−λ)=e^(−λ)W_{4−j}(λ), including the stated index reversal and the inclusive and strict positivity intervals. At zero the reconstructed weights are classical Boole weights, and symmetry gives the extra degree-five exactness. The frozen verify.py was inspected, not executed. Independent replay: python3 /workspace/branches/aacad24e-17f3-4a24-85ca-91af4e6d5124/check_record2_exact.py; check_record2_exact.out in the same directory records the exact assertions' successful run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "DLMF provides the general weighted prescribed-node interpolatory construction and closed-rule examples, but no sign transition for the particular parameterized exponential density.",
+          "The Chebyshev–Newton–Cotes article's bibliographic title names first-kind Chebyshev weighting; its full text was not lawfully retrievable in the bounded lookup."
+        ],
+        "reasoning": "Specializing the general rule yields the defining integrals and exactness, already classical. Extracting an all-index moment sign pattern and exactly two weight roots is a further analysis, not a sign conclusion of the prescribed-node theorem. The unread older article remains unassessed beyond metadata.",
+        "searches": [
+          "DLMF §3.5(iv), Eq. 3.5.15",
+          "10.1016/j.amc.2004.09.048"
+        ]
+      },
+      "checked_sources": [
+        "Resultary assigned self-hit, two five-node trigonometric positivity Findings and closed-rule monotone-range Finding",
+        "Sermutlu §2 pp. 49–50",
+        "Trefethen §2",
+        "DLMF §3.5(iv)",
+        "Dehghan et al. 2005 access attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Trefethen discusses sign alternation as the order of equispaced Newton–Cotes rules grows. The monotone-range catalogue Finding classifies an unweighted cumulative-weight failure at the 13-point rule, n=12.",
+          "General cardinal interpolation fixes W_j, but does not bound the number or ordering of sign changes as λ varies."
+        ],
+        "reasoning": "Increasing order at fixed density and varying density at fixed order are different questions. A single sign table or limit cannot prove the absence of other roots. What is not supplied by these sources is the global per-node sign analysis and the order of its two thresholds.",
+        "searches": [
+          "Trefethen arXiv:2101.09501 §2",
+          "2026/10/4/SCOPE-the-first-monotone-range-failure-of-closed-newton-cotes-occurs-a--c37fd2660f48",
+          "DLMF §3.5(iv)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two inspected catalogue Findings concern five perturbed circular nodes, trigonometric exactness and sharp all-grid positivity thresholds.",
+          "The frozen rule keeps the five arithmetic nodes fixed and takes polynomial exactness under a changing exponential density."
+        ],
+        "reasoning": "A reflection or positive normalization within the frozen rule preserves or reverses the stated signs, but does not map the polynomial interval moment problem to the trigonometric moving-node problem. Neither checked circle statement contains the exponential-tilt sign diagram. Same-date catalogue entries do not decide priority.",
+        "searches": [
+          "Resultary: fixed five-node Boole, exponential tilt and two sign transitions",
+          "2026/11/22/SCOPE-sharp-five-node-positivity-radius-for-perturbed-trigonometric-qu--d1e17fb2a7f8",
+          "2026/11/22/SCOPE-sharp-five-node-tolerance-for-positive-trigonometric-quadrature--02df184d2d31"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The only exact catalogue hit supplies this assigned record itself; it is not independent confirmation.",
+          "Sermutlu's inspected closed equispaced rule material gives unweighted coefficients and polynomial exactness, only the λ=0 situation here."
+        ],
+        "reasoning": "The available classical coefficient table covers one parameter value, not root counts or intervals under exponential weighting. The reported root brackets are certificates for continuous-parameter transitions, not recompilations of classical tabulated weights.",
+        "searches": [
+          "Resultary: exponential-weighted Boole sign changes",
+          "2026/11/22/SCOPE-two-sharp-sign-loss-transitions-for-exponential-weighted-boole-q--e419b9fd10fc",
+          "Sermutlu 2019 §2, pp. 49–50"
+        ]
+      },
+      "rationale": "Pass the full sign classification as a function of exponential tilt at the fixed interval stencil, not the classical Boole stencil, the general formula for interpolatory weights, or the unweighted coefficients. The inspected closest matches vary nodes or order under different exactness spaces and densities. The general construction determines each weight but gives neither the all-tilt sign control for three weights nor the number and order of positive roots. This is a bounded, best-of-knowledge decision, with the inaccessible paper explicitly unresolved.",
+      "residual_risks": [
+        "Full text of Dehghan et al. DOI 10.1016/j.amc.2004.09.048 was unavailable; no whole-paper not-covering claim is made.",
+        "An older treatment of exponentially fitted or exponentially weighted Newton–Cotes coefficients could encode an equivalent sign diagram; the bounded search, including a primary-literature query with no useful hit, does not settle priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "unweighted polynomial rules, covers λ=0 only in the read passages",
+          "evidence": [
+            "Closed equally spaced coefficients and polynomial exactness."
+          ],
+          "identifier_or_url": "https://nonlinear-analysis.com/index.php/pub/article/download/23/22/22",
+          "material_read": "§2 pp. 49–50, text offsets 2030 and 3915",
+          "method": "lawful PDF passage inspection",
+          "title": "A close look at Newton–Cotes integration rules",
+          "trigger": "classical stencil and table comparison"
+        },
+        {
+          "assessment": "changes order in the unweighted class",
+          "evidence": [
+            "Equispaced Newton–Cotes behavior and alternating signs with growing order."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2101.09501",
+          "material_read": "§2 p. 2, PDF offset 5213",
+          "method": "OA PDF passage inspection",
+          "title": "Exactness of quadrature formulas",
+          "trigger": "prior sign analysis of Newton–Cotes rules"
+        },
+        {
+          "assessment": "covers underlying construction, not the classification of roots and signs",
+          "evidence": [
+            "Weighted interpolation-based quadrature with prescribed nodes and closed-rule examples."
+          ],
+          "identifier_or_url": "https://dlmf.nist.gov/3.5.iv",
+          "material_read": "§3.5(iv), Eq. 3.5.15 passage, HTML offset 9919",
+          "method": "lawful public-page passage inspection",
+          "title": "Interpolatory Quadrature Rules",
+          "trigger": "potential general weighted theorem"
+        },
+        {
+          "assessment": "inaccessible full text; matching exponential analysis cannot be ruled out from title alone",
+          "evidence": [
+            "The registered title explicitly names first-kind Chebyshev weighting."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.amc.2004.09.048",
+          "material_read": "bibliographic title and citation context only",
+          "method": "publisher PDF 403; bounded lawful OA lookup did not find an alternate copy",
+          "title": "The first kind Chebyshev–Newton–Cotes quadrature rules (closed type) and its numerical improvement",
+          "trigger": "closest cited older weighted Newton–Cotes work"
+        },
+        {
+          "assessment": "different exactness space and parameter family",
+          "evidence": [
+            "Five perturbed circular nodes and trigonometric exactness."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-five-node-positivity-radius-for-perturbed-trigonometric-qu--d1e17fb2a7f8",
+          "material_read": "local-mirror RESULT.md Finding",
+          "method": "Resultary then local mirror",
+          "title": "Sharp five-node positivity radius for perturbed trigonometric quadrature",
+          "trigger": "matching node count and sharp positivity boundary"
+        },
+        {
+          "assessment": "node perturbation tolerance, not an exponential-density classification",
+          "evidence": [
+            "Sharp tolerance for arbitrary perturbations of five circular nodes."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-five-node-tolerance-for-positive-trigonometric-quadrature--02df184d2d31",
+          "material_read": "local-mirror RESULT.md Finding",
+          "method": "Resultary then local mirror",
+          "title": "Sharp five-node tolerance for positive trigonometric quadrature",
+          "trigger": "second close catalogue positivity threshold"
+        },
+        {
+          "assessment": "different sign-related invariant and variable",
+          "evidence": [
+            "First cumulative-range failure at the 13-point closed rule, not a fixed-stencil density tilt."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-the-first-monotone-range-failure-of-closed-newton-cotes-occurs-a--c37fd2660f48",
+          "material_read": "local-mirror RESULT.md Finding",
+          "method": "Resultary then local mirror",
+          "title": "The first monotone-range failure of closed Newton–Cotes",
+          "trigger": "closest classical Newton–Cotes indexed classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Nonnegative quadrature weights are exactly what preserves positivity of arbitrary nonnegative nodal data, and their loss permits a negative output for some such data despite the strictly positive integrating density. On the standard five-node Boole stencil, the largest allowable exponential tilt and the identity and order of the failing nodes are therefore meaningful, independently useful facts. The complete classification and certified sharp bounds are more useful than example weights at a few tilt values. This is not evidence of a general error advantage or of node-set optimality.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

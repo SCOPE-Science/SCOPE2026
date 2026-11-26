@@ -1,19 +1,21 @@
-# Scientific review: Exact entropy-production fluctuation law under synchronous Gaussian resetting
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-For every finite dimension and all positive rates and variances, the Gaussian conditional moments and the compensated regenerative variance identity reproduce the claimed explicit rates. The duration-dependent variance term is retained; omitting it would erase the effect of common resetting. The analytic proof verifies the equilibrium boundary and limit order. The packaged numerical checker passed 530 supplementary assertions; they do not establish the infinite result.
+PASS
 
-## Originality (PASS; subject to independent priority assessment)
+The frozen proof misidentifies the mark in the jump entropy at the end of a cycle: the density ratio uses the newly drawn mark, not the mark starting that cycle. Using the actual jump terms without redistribution would not give independent rewards. The complete repaired RESULT.md groups the true path log ratio by resets and gives the exact telescoping identity that reassigns the Gaussian marks, leaving first-pre-reset, last-post-reset and stationary endpoint terms uniformly bounded in L^2. The stopped centered-cycle sum through the first reset after the horizon has predictable inclusion and a martingale second-moment identity; omitting the straddling cycle and treating the stationary start adds only bounded L^2 terms. With m_1=rE W_i the rate is therefore rE[(sum_i W_i-d m_1 tau)^2]=dA+d^2C, where A is the averaged conditional variance and C the duration-compensated conditional-mean variance. I independently evaluated their closed forms using E(exp(-2j*kappa*tau))=q/(q+2j) and E(kappa*tau*exp(-2*kappa*tau))=q/(q+2)^2. This recovers all displayed rates. The scalar stationary endpoints also have bounded L^2, so the distinct-coordinate covariance is C. The strict signs, monotonicity, and fixed-parameter t-then-d limit follow from the rational factors. Independent clocks give additive variance, and at s=1 the path is reversible and the ratio is undefined. The theorem is unchanged by the proof repair.
 
-Mori–Olsen–Krishnamurthy (arXiv:2211.15372) already establish stochastic-reset entropy production and Gaussian resetting fluctuations in the unconfined case. Bressloff (arXiv:2401.03501) already establishes persistent global-reset population correlations. These are explicitly acknowledged; the assessed mathematical difference is the evaluated harmonic path-entropy variance, exact off-diagonal path-entropy covariance and dimensional coefficient, not the general renewal framework or generic shared-noise correlation. Published scientific-record searches did not identify an exact identity implying the assessed result. The generalized-Itô resetting paper's full text was not obtained, leaving a priority risk.
+## originality
 
-## Scientific value (PASS)
+PASS
 
-Thermodynamic variability under restoring interventions is an independently motivated physical observable. The exact quadratic variance and positive relative-variance limit distinguish global from independent reset clocks at fixed single-particle laws and provide a sharp diagnostic beyond stationary correlations.
+The prior work supplies the trajectory entropy convention, general renewal and jump-diffusion methods, unconfined Gaussian fluctuations, and shared-clock correlations for other observables. The evaluated confined entropy variance and cross-coordinate entropy covariance are distinct in the inspected sources. The proof repair changes neither the comparison domain nor the claimed coefficients.
 
-## Closest literature, checks and limitations
+## value
 
-Primary sources: Mori et al. (arXiv:2211.15372, 2022), Bressloff (arXiv:2401.03501, 2024), Meylahn et al. (DOI:10.1103/PhysRevE.92.062148, 2015), and Pal et al. (DOI:10.1103/PhysRevResearch.3.013273, 2021). The theorem assumes instantaneous full Gaussian position resetting, harmonic relaxation, and one shared Poisson clock, with the time limit before the dimensional limit. The equilibrium case has zero entropy and undefined Fano quotient. Independent scholarly assessment has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A shared clock and independent clocks have the same one-coordinate laws and mean dissipation but differ in the scaling of full-path irreversibility fluctuations. The exact positive common-clock covariance yields a nonzero relative-variance limit with dimension and isolates a time-randomness contribution that would be missed by using a fixed number of cycles. It is a quantitative diagnostic, not just a statement that dependence exists.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

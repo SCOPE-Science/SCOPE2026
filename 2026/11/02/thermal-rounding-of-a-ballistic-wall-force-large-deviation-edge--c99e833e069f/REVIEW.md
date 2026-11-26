@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The signed Skorokhod regulators differ from the unconfined integrated stochastic drive by at most the box width, which transfers every long-time current LDP to the signed wall impulse. The independent Brownian and two-state telegraph cumulants yield the exact wall generating function; the nonthermal endpoint requires the no-flip argument in addition to the Gärtner–Ellis interior. The rate curvature is positive for positive thermal diffusion. Near the ballistic endpoint the dual optimizer has scale \(D^{-1/3}\), and a controlled large-tilt expansion proves the \(D^{1/3}\) rate deficit and \(D^{2/3}\) current window uniformly on compact rescaled current ranges. The standalone checker passed 1,607 bounded consistency checks. Finite checks are not substituted for the proof.
+PASS
 
-## Originality — PASS, qualified
+On a fixed interval the reflection term gives S_T=A_T-(X_T-X_0), with error at most L pathwise. This proves speed-T exponential equivalence and equality of the SCGFs without any assumption about individual-wall independence. The tilted sign matrix has top eigenvalue -lambda+sqrt(lambda^2+v^2 q^2) with positive stationary overlap; independent Brownian motion adds Dq^2. For D>0 the derivative is onto and its derivative is strictly positive; for D=0 the Legendre formula holds, and the no-flip events supply the endpoint lower bounds separately. For the positive edge, let Q=(lambda^2/(vD))^(1/3), eta=lambda/(vQ), q=Qz. The exact scaled Legendre objective after subtracting lambda is sz-z^2-1/(sqrt(z^2+eta^2)+z). For each bounded s-interval choose fixed positive z_- and z_+ whose limiting scaled derivative F(z)=2z-1/(2z^2) lies strictly outside that s-interval. The exact scaled optimizer equation converges at both brackets, then uniformly between them, and is strictly monotone. This justifies uniform optimizer localization and convergence, not just a fixed-z expansion. Evaluating at s=0 gives z=4^(-1/3) and -3/2^(4/3). Symmetry, mobility scaling and the fixed-N rate by independent products follow. Independent golden-section maximization of the exact scaled objective at v=lambda=1, s=-3,0,3 and D=10^-3,10^-6,10^-9 corroborated convergence; for s=0 the scaled errors were 0.00498425, 0.0000499984, and 0.000000500000.
 
-The latest active-gas source gives mean pressure, not this thermal large-deviation edge. Bressloff's full two-wall occupation transform is earlier work and can entail the athermal subcase; the known covariance and athermal sum rule are not counted as new. Broader reflected-current and jump-diffusion large-deviation methods are also acknowledged. Comparing these statements and their implications did not find the explicit noisy telegraph signed-wall rate or the one-third/two-thirds fractional-power boundary layer. Broad-priority risk remains, particularly an unlocated exact edge treatment of the same mathematical model.
+## originality
 
-## Value — PASS
+PASS
 
-Weak translational noise changes the feasible support of rare signed wall-force currents, making the precise fractional-power boundary layer a motivated observable in active-matter force statistics. This goes beyond a second cumulant or mean pressure and yields quantitative estimates at previously forbidden currents.
+Credit the free telegraph SCGF, the Brownian addition, the zero-temperature wall-contact setting, and general reflected-process LDP methods as preexisting ingredients. The distinct claim supported by this comparison is the exact singular thermal crossover for the signed wall difference, including its compact-uniform profile and edge constant. Neither a contact-time transform at D=0 nor a free-current or mean-pressure formula states that limit. No verified equivalent or dominating result for the crossover was found.
 
-## Limitations and closest literature
+## value
 
-The result concerns signed *difference* of two hard-wall regulators, not individual forces. It assumes autonomous symmetric telegraph flips, independent thermal noise, a fixed finite interval, and sequential infinite-observation-time then weak-noise limits. The closest primary literature is Li–Eichhorn–Dabelow (2026), Bressloff (2023), Mallmin–du Buisson–Touchette (2021), and Popovic–Zoroddu (2022). The latter two offer general LDP machinery and remain a potential source of stronger implications. No independent external mathematical or priority audit has been undertaken.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A reflecting RTP's net wall impulse is a natural force observable, and width-independence alone does not quantify how its ballistic support disappears. The two distinct scaling exponents, full profile and edge amplitude quantify precisely the nonuniform breakdown of the zero-noise approximation where Gaussian central fluctuations are not predictive. The result gives more than the standard SCGF or a simulation fit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

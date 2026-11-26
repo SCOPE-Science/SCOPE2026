@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:45:06.783089Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 20–94; analytic Catalan and BFS replay in rationale",
+        "Frozen VERIFICATION.md lines 19–27 and verify.py lines 9–79 (inspected, not executed; finite checks only)"
+      ],
+      "rationale": "Sampling is independent uniform on individual ideals, so the collision probability is the sum of squared class masses, not the reciprocal of the number of types. Put each distinct connected m-vertex type on a contiguous block in an umbrella ordering. Every edge interval forces precisely its subinterval chips; no cross-block chip is included, and unused bottom positions are absent. Permuting r blocks makes r! different ideals because the types are distinct. The block relabeling preserves the disjoint containment structures and the game, consistent with the cited graph criterion. Independently, one can establish the needed supply even without the exact connected-type formula: connected ordered umbrella graphs are specified by nondecreasing right endpoints R_i≥i+1 (i<m), R_m=m. Subtracting 1 from the first m−1 endpoints gives the Catalan sequences i≤R_i−1≤m−1, hence C_{m−1} patterns. For a fixed graph and a specified first vertex, BFS layers are contiguous cliques (their right endpoints are obtained by iterating R). Within each layer, preceding-layer neighbor sets are nested decreasing and following-layer sets nested increasing in any umbrella order. Sort by decreasing preceding degree and then increasing following degree; ties have identical neighbor sets by nesting and are interchangeable. Thus each first vertex produces at most one adjacency pattern, yielding c_m≥C_{m−1}/m, which already gives c_m≥n/m with the frozen m since (log n)^4 dominates m². Likewise, any ideal is coded by nondecreasing rightmost included endpoints R_i, with R_i=i−1 for an empty row; shifting by one and appending n+1 gives the Catalan sequences of length n+1. For m=ceil(log₄ n+4 log₄ log n), r=floor(n/m), Stirling gives log(r!)=n log 4−O(n log log n/log n), including an O(log n) flooring cost. Using C_{n+1}≤4^{n+1} and squaring the mass of this single class proves the asserted all-large-integer lower bound; p_n≤1 gives the root limit. It does not prove p_n tends to zero or give a sharp decay scale.",
+      "residual_risks": [
+        "The cited exact connected-type enumeration was not independently read from the paper; the weaker independently derived supply suffices. Published terminology and question wording are subject to the full-text access limits below."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The official Saitoh et al. article description counts unlabeled connected proper interval graphs; the frozen record cites the exact c_m formula as Theorem 1.",
+          "The construction instead uses distinct types jointly as components of a single fixed multiset and counts all their valid block placements."
+        ],
+        "reasoning": "The enumerator supplies exponential type diversity, not the mass of a collision class under this random game-position model; no retrieved stronger collision theorem was evidenced.",
+        "searches": [
+          "Saitoh–Yamanaka–Kiyomi–Uehara, DOI:10.1587/transinf.E93.D.1816 Theorem 1",
+          "Resultary: proper interval graph component patterns, connected types and game-isomorphism collision"
+        ]
+      },
+      "checked_sources": [
+        "Resultary target 037f0c51e7ce",
+        "Binyamin–Kniffen arXiv:2611.16153 and Saitoh et al. DOI:10.1587/transinf.E93.D.1816 with documented access limits",
+        "OEIS A005217",
+        "Frozen RESULT.md lines 96–114"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known graph equivalence/supply are used in RESULT.md lines 22–29 and 35–61; the new estimate weights a single isomorphism class by at least r! (lines 63–94)."
+        ],
+        "reasoning": "Counting isomorphism classes, identifying the model with graphs, or even specifying connected class counts does not directly bound a large fiber at the nearly Catalan exponential scale. The permutation estimate and logarithmic block size produce that conclusion.",
+        "searches": [
+          "arXiv:2611.16153 §§4–5",
+          "DOI:10.1587/transinf.E93.D.1816; OEIS A005217"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary hit 037f0c51e7ce is the assigned finding itself.",
+          "The frozen source identifies the graph-isomorphism correspondence, all stable positions as Catalan counted, and a question in §5.3 about this limit; exact external wording not recovered."
+        ],
+        "reasoning": "Translate game isomorphism to unlabeled unit interval graphs but preserve the uniform-on-positions sampling. Uniform-on-types and uniform-on-positions collision have different class weights.",
+        "searches": [
+          "Resultary: Pyranim game isomorphism collision of uniform stable positions; Dyck path/proper interval graph class multiplicities",
+          "Binyamin–Kniffen arXiv:2611.16153, Cor. 5.1 and §5.3 Q4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed exact limit/bound is the target 037f0c51e7ce.",
+          "A005217 lists the number of unlabeled unit interval graphs on n nodes."
+        ],
+        "reasoning": "A type-count sequence does not record the second moment of class membership for all n-tier ideals; no distinct exact-limit record was identified.",
+        "searches": [
+          "Resultary: subexponential Pyranim collision root limit and exp(−O(n log log n/log n))",
+          "OEIS A005217"
+        ]
+      },
+      "rationale": "Credit the established game/graph correspondence and the connected-type enumeration. The distinct large class construction controls the weighted collision probability for uniform positions; neither the enumerated number of graph types nor the connected-type supply alone gives that lower bound. No demonstrated equivalent coverage beyond the identical target record was found in the bounded comparison.",
+      "residual_risks": [
+        "No full-text check of additional weighting or multiplicity results in Binyamin–Kniffen; the bounded comparison is not a whole-document exclusion or historical priority claim.",
+        "A previously unindexed analysis of a large Pyranim isomorphism fiber could imply the result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Graph equivalence and Catalan count credited; literal question wording and possible other multiplicity statements not independently verified",
+          "evidence": [
+            "Frozen citation distinguishes the exponential-scale limit question from finding the precise decay rate."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.16153",
+          "material_read": "Identified paper from search and Cor. 5.1 and §5.3 Q4 descriptions in frozen RESULT.md lines 18, 22, 100–110; exact source passages not recovered",
+          "method": "Lawful OA retrieval attempts on arXiv and identified author-hosted alternate https://borowiecki.dev/pdf/2611.16153 did not produce usable full text",
+          "title": "Enumerating Pyranim Isomorphisms",
+          "trigger": "Exact game objects and claimed open question"
+        },
+        {
+          "assessment": "Credits connected graph type enumeration, not an inspected theorem on stable-position class frequencies",
+          "evidence": [
+            "The listing counts unlabeled connected proper interval graphs. Frozen citation gives (C_{m−1}+binom(m−1,floor((m−1)/2)))/2."
+          ],
+          "identifier_or_url": "https://doi.org/10.1587/transinf.E93.D.1816",
+          "material_read": "Official J-STAGE article description; frozen description of Theorem 1 at RESULT.md lines 24–29 and 112",
+          "method": "Article listing and targeted OA PDF requests; theorem text timed out",
+          "title": "Random Generation and Enumeration of Proper Interval Graphs",
+          "trigger": "Input counting theorem for the same connected graph types"
+        },
+        {
+          "assessment": "Different statistic",
+          "evidence": [
+            "Counts each unlabeled graph type once, not the multiplicity of stable positions representing it."
+          ],
+          "identifier_or_url": "https://oeis.org/A005217",
+          "material_read": "Indexed sequence description",
+          "method": "Literature/database listing",
+          "title": "Number of unlabeled unit interval graphs with n nodes",
+          "trigger": "Exact table under the equivalent graph terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 11–18, 63–94 and 100–106"
+      ],
+      "rationale": "Determining the exponential rate for this natural collision experiment identifies a pronounced effect of the nonuniform class masses. A constructive single-class lower bound resolves the root-limit question as formulated in the frozen source, with an effective subexponential form rather than an extrapolation from counts at small n.",
+      "residual_risks": [
+        "No assertion about whether the collision probability vanishes or its leading decay scale; the literal prior question text was not recovered."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

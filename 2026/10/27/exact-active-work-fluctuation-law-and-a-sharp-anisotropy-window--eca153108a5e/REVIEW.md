@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is independently reconstructible from the stationary two-state generator. Pointwise \(V^2=s^2+hV\), the three exact moment identities, and the Poisson corrector \(\phi=[-\kappa(YV-c)+hV]/[D(\kappa+\Gamma)]\) determine the martingale bracket without a truncation. The full Brownian-plus-switching quadratic-variation calculation gives the displayed variance, and standard stationary ergodic and martingale central limit arguments apply because confinement produces moments of all orders. Differentiating the normalized variance and proving strict monotonicity of \(G(t)\) gives the exact open anisotropy window, including both boundary ratios. Exact-event Monte Carlo and root/sign calculations corroborate, but do not replace, the proof.
+PASS
 
-## Originality — PASS, qualified
+Independently reconstructed using D W_T=[UY]_0^T−∫Y dV, where Y and V are the centered states. With c=E[YV]=s²/(κ+Γ), the Poisson solution for Γ(YV−c) is ψ=(Γ(YV−c)+hV)/(κ+Γ). Combining its martingale with −∫Y dM^V gives the Brownian coefficient √(2/D) ΓV/(κ+Γ) and jump (h−κY)ΔV/[D(κ+Γ)]. Since q_v(ΔV)²=Γ(2s²+hv), insertion of E[Y²]=(D+c)/κ and E[Y²V]=2hc/(2κ+Γ) gives exactly the stated variance. Stationarity gives an O(1) L² endpoint and hence a vanishing scaled endpoint covariance; ergodicity gives bracket convergence, and bounded switching rates plus E[(1+|Y|)^4]<∞ bound the expected normalized jump Lindeberg term by O(1/T) at fixed cutoff. Differentiation reduces the peak criterion to comparing 2h²/s² with G(t), which decreases from 1 to 0 on [0,1]. Solving 2(r−1)²<r gives 1/2<r<2, with strict decrease for positive stiffness at both endpoints and the symmetric peak at Γ. The free limit is one-sided, not an unconfined stationary law.
 
-The closest directly matching source is Paoluzzi, Puglisi, Angelani (arXiv:2404.16955), Section IV, Eq. (72): it gives the mean rate, **not** the integrated-work variance, its Gaussian limit, or the sharp \(1/2\)-to-\(2\) nonmonotone-confinement criterion. Garcia-Millan–Pruessner give the symmetric system's mean entropy flow and position correlations. Padmanabha et al. analyze finite-track discrete-space entropy statistics; Semeraro et al. analyze Gaussian OU propulsion; Shankar–Marchetti analyze unconfined ABP/AOUP work. General additive-functional/martingale theorems are ingredients, not a direct statement of the evaluated constant or rate-ratio phase boundary. Searches of named models, analogous formulations, and indexed mathematical records did not identify a dominating theorem. A broad preexisting Markov-modulated OU work-fluctuation calculation remains a residual priority risk; search absence is not uniqueness evidence.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This supplies an experimentally interpretable distinction between mean active dissipation and its long-time reliability in an established asymmetric active-matter model. The global classification locates a real nonmonotonic confinement response in the normalized noise, gives a sharp switching-rate-only phase boundary, and predicts a maximizer independent of speeds and thermal diffusivity. It is not merely the stationary second-moment identity: the path-integrated fluctuation computation needs its full martingale covariance, including correlated switching and diffusion noise.
+The stationary mean is already published, and the martingale CLT is standard. The supported distinct content is the evaluated long-run active-work variance and its exact rate-ratio peak criterion for the asymmetric harmonic telegraph process.
 
-## Limitations
+## value
 
-Stationary one-dimensional harmonic confinement, strictly positive thermal diffusion and parameters, independent Poisson tumbling, and two velocity states are essential. The claimed path functional is active work, not every convention for total entropy production. Simulation is finite-time corroboration. The transition is not presented as an independently audited priority claim.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp, speed- and temperature-independent distinction separates monotone confinement response from a strict finite-stiffness maximum. The variance is a natural statistic of the same active work whose mean was known; the competing stiffness terms and exact boundary rates are useful beyond merely invoking a CLT.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

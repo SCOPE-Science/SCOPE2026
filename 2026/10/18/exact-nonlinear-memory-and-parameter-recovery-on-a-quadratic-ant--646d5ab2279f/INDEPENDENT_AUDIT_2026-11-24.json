@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:34:50.274120Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Completing the square gives a positive radicand, and 4d(1+dx²+rx)−(2dx+r)²=4d−r² gives a global Lipschitz constant q=sqrt(d/(1+d))<1. Pullback gives the bounded shift-equivariant process and Bernoulli ergodicity. For uniqueness even without a finite moment assumption, any stationary solution satisfies |X_t|<=K+q^m|X_{t−m}|, K=1/[sqrt(1+d)(1−q)]; stationarity and the probability tail as m→∞ imply |X_t|<=K almost surely, and common-sign contraction then identifies it with the pullback. Fresh fair signs center every conditional odd power and give E[X_t²]=1 on averaging the defining equation. Writing a=d/(1+d), b=r/(1+d), the centered square obeys Z_t=aZ_{t−1}+bX_{t−1}. The cross term is zero in the variance and in its covariance with older squares, giving Var(Z)=b²/(1−a²) and the geometric square covariance. Its mixed covariance has initial term b then factors a at each lag; the reverse mixed covariance is zero by conditional centering. B_2/B_1=a for r≠0, yielding both claimed inverses. Reflection preserves the one-time marginal after changing r to −r, while r=0 gives the exact iid fair-sign solution and loss of identification. A multinomial expansion leaves d^k M_{2k} as the sole top-order term, verifying the triangular recurrence. The supporting verifier was inspected, not run; the finite diagnostics it records are not needed for the analytical check.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Coding all sign histories is stronger pathwise coverage. The continuation paper treats orbit persistence and hyperbolicity away from the limiting correspondence."
+        ],
+        "reasoning": "Neither stronger pathwise direction gives the stated measure-dependent mixed moments without choosing the iid fair law, exploiting conditional centering, and analyzing the centered square dynamics.",
+        "searches": [
+          "arXiv:2305.06302v1 §4.3",
+          "arXiv:2107.09776 §§3–4",
+          "arXiv:2402.10536 §1 and conclusion"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2305.06302v1",
+        "arXiv:2107.09776",
+        "arXiv:2402.10536",
+        "Resultary 4c1cf441f778"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior recurrence supplies the algebra for the transformation. Generic AR(1) covariance calculations apply only after proving that bX_{t−1} is an orthogonal innovation in the transformed process.",
+          "No inspected comparator analyzes the reversal asymmetry, the r-to-minus-r marginal ambiguity and r=0 degeneration, and their resolution by the two mixed lags for this measure."
+        ],
+        "reasoning": "Coefficient inversion and Yule–Walker algebra by themselves are standard; the distinct content is the model-specific nonlinear observable revealing the parameters that ordinary coordinate autocovariances or one-time marginals miss.",
+        "searches": [
+          "arXiv:2305.06302v1 eqs. (9), (12), (31)",
+          "Resultary 4c1cf441f778 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source c=−d, a=1+d substitution recovers exactly the state equation and domain.",
+          "The Resultary directed-covariance comparator 4c1cf441f778 instead has a deterministic paired tent map and correlated Markov signs."
+        ],
+        "reasoning": "The deterministic correspondence is identical, but the tent result is neither a parameter specialization nor a law-preserving recoding for the claimed mixed square-coordinate moments.",
+        "searches": [
+          "Resultary: quadratic anti-integrability fair-branch lag moments and parameter recovery",
+          "arXiv:2305.06302v1 §§2, 4.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest thematic indexed comparator 4c1cf441f778 displays exact forward/reverse sign–coordinate correlations in its Finding, not these square-coordinate moments or the inverse."
+        ],
+        "reasoning": "No demonstrated indexed equivalent emerged; this is a bounded catalogue comparison, not a proof of novelty.",
+        "searches": [
+          "Resultary: anti-integrable quadratic correspondence exact nonlinear memory",
+          "Resultary: fair symbolic squared-lag mixed moments signed identification"
+        ]
+      },
+      "rationale": "Pass is for the fair-Bernoulli stationary dependence, moment hierarchy, and signed identification, not for the quadratic correspondence, wedge, or symbolic coding themselves. Source-level comparison supports this distinction; absolute historical priority is not established.",
+      "residual_risks": [
+        "Equivalent special-case formulas may exist in random-recurrence or symbolic-measure literature outside the inspected passages. General autoregression and moment-recursion methods are not novel. No results are established for finite-parameter physical measures or finite-sample estimation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the deterministic correspondence and stronger symbolic coding, not the fair-law moment formulas in the inspected material",
+          "evidence": "c<−r²/4 specializes exactly to |r|<2sqrt(d); the correspondence is the epsilon=0 limit rather than the continued map.",
+          "identifier_or_url": "https://arxiv.org/html/2305.06302v1",
+          "material_read": "§1 eqs. (6)–(7), offsets 4882–8853; §2 eqs. (9), (12), offsets 10295–17214; §4.3 eq. (31), offsets 34273–40221",
+          "method": "OA HTML excerpts",
+          "title": "Connecting Anti-integrability to Attractors for Three-Dimensional, Quadratic Diffeomorphisms",
+          "trigger": "Same source correspondence and wedge"
+        },
+        {
+          "assessment": "Earlier deterministic coverage including the r=0 specialization",
+          "evidence": "Unique sequence realizations on a contraction domain; no iid-law covariance shown in the inspected passages.",
+          "identifier_or_url": "arXiv:2107.09776",
+          "material_read": "§3 eqs. (11)–(15), offsets 17000–21999; §4 Lemma 1, offsets 21000–27968",
+          "method": "OA text excerpts",
+          "title": "Anti-integrability for Three-Dimensional Quadratic Maps",
+          "trigger": "Earlier existence and coding for quadratic correspondences"
+        },
+        {
+          "assessment": "Orbit continuation, not stationary moments",
+          "evidence": "The conclusion assumes existence of the relevant AI states and studies conjugacy and hyperbolicity.",
+          "identifier_or_url": "arXiv:2402.10536",
+          "material_read": "§1 eqs. (1)–(3), offsets 1296–4481; conclusion, offsets 104767–106896",
+          "method": "OA text excerpts",
+          "title": "On a Question of J. D. Meiss Concerning Anti-integrability for Three-Dimensional Quadratic Diffeomorphisms",
+          "trigger": "Potential strengthening to finite-parameter dynamics"
+        },
+        {
+          "assessment": "Different model and different covariance observables",
+          "evidence": "Sign autocorrelation is 3^(−n) and coordinate autocorrelation is (1/4)3^(−n); both differ from iid signs and zero positive-lag coordinate covariance.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-exact-markov-sign-dynamics-with-a-hidden-directed-covariance-mod--4c1cf441f778/RESULT.md",
+          "material_read": "Finding and scope, offset 0–2650",
+          "method": "Local indexed mirror",
+          "title": "Exact Markov sign dynamics with a hidden directed covariance mode in a paired tent map",
+          "trigger": "Exact directed covariance hidden from sign observations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Bernoulli measure is a natural specified law on the known branch coding. Under that law the usual linear autocovariances vanish at every nonzero lag and the marginal cannot distinguish opposite r. Explicit mixed lag values resolve this exact ambiguity and give both parameters, while identifying the singular r=0 regime where no time-series statistic identifies d. This yields a usable population identification criterion and exact benchmarks for nonlinear dependence, rather than a restatement of symbolic existence or an arbitrary moment evaluation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

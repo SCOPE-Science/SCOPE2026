@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The graph is specified by all thirty edges. The defining face condition is equivalent to maximum induced degree at most one. Two independent face-enumeration algorithms agree on all \(62{,}048\) nonempty faces. The explicit sequential-toggle matching has \(31{,}003\) disjoint codimension-one pairs and the complete \(400{,}760\)-cover directed Hasse graph is verified acyclic by topological sorting all faces. Its critical-cell counts are one in dimension zero and forty-one in dimension seven; standard discrete Morse theory gives a wedge of forty-one seven-spheres, with constant attaching maps. An independent mod-two calculation yields the predicted ranks. Exact programs and outputs are packaged; there is no extrapolation from a partial numerical experiment.
+## correctness
 
-## Originality
-**PASS, subject to the stated search limits.** Deshpande–Singh (arXiv:2001.05448) provide the definition, the acyclic-matching lemma, and classifications for several other graph families, not this graph. Sawant (arXiv:2605.25150) treats trees and identifies the path-free construction; \(D=\operatorname{GP}(10,3)\) is not a tree. Targeted semantic searches for Desargues, bipartite Kneser \(H(5,2)\), dissociation, three-path-free, and two-independence found ordinary independence, matching, three-cut, Rips, and Petersen two-independence statements, not an implication of the proposed forty-one-sphere claim. Previously accessible closely related historical statements concern other graph complexes or different graphs. The remaining risk is unindexed or unpublished equivalent work.
+PASS
 
-## Value
-**PASS.** This is the exact integral homotopy type of a natural higher-independence complex of the canonical Desargues incidence graph, not a contrived graph obtained by forcing a desired complex. The original complex reaches dimension eleven but its entire homotopy is concentrated in dimension seven, with a nontrivial multiplicity of forty-one. This supplies a precise test case outside previously classified tree, cycle, complete-multipartite and chordal settings, with reusable complete finite proof data. No broader graph-family theorem is claimed.
+A subset is a face exactly when it avoids the 60 triples consisting of a vertex and two of its neighbors. Independently generating faces by the largest label in each forbidden triple reproduced all 62,048 nonempty faces and f-vector (20,190,1080,3985,9784,15910,16600,10390,3460,564,60,5). Pairing on the specified parity-first vertex order gave 31,003 pairs and the critical multiplicities (dimension 0: 1, dimension 7: 41); sink deletion certified the orientation of all 400,760 nonempty-face covers by deleting every face. The acyclic matching theorem gives a CW model with one 0-cell and 41 7-cells only. Their attaching maps into the 6-skeleton are constant, proving the wedge homotopy type and the integral homology, not just mod-two Betti numbers.
 
-## Closest literature and limitations
-The principal primary sources are Deshpande–Singh, arXiv:2001.05448, and Sawant, arXiv:2605.25150. Existing ordinary-independence classifications of the same graph are not equivalent. Completeness of bibliographic coverage and any automorphism-module refinement remain unresolved.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No prior equivalent classification was established. The closest exact catalogue record and two extensions have later indexed provenance. The earlier matching machinery and graph-family theorems do not determine this graph's homotopy type; the closest earlier Desargues entry computes a different complex.
+
+## value
+
+PASS
+
+The Desargues graph is a canonical cubic incidence graph, and Ind_2 is the first higher-independence analogue of its previously studied ordinary independence complex. The exact integral homotopy type is stronger than the face numbers, Euler characteristic, or field homology, and the concentration in dimension seven despite dimension eleven is an informative bounded benchmark. It requires the concrete matching data and is useful for subsequent family and symmetry comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

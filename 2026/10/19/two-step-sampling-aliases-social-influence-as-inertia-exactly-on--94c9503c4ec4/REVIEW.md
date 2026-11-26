@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The one-step update factors conditionally by definition. On a matching, its second iterate is the product of independent two-step single-spin chains, with response coefficient \(\tanh^2(\beta/2)\). Conversely, whenever two sites share a parent, the conditional covariance of their second-step spins is positive. The proof explicitly establishes this positivity via the product-Bernoulli association inequality and a strictly positive common-parent covariance term, including the finite-coupling and positivity boundaries. A standalone exact-rational checker independently evaluates the entire two-step kernel on matching witnesses and all starting states of two nonmatching networks. The finite checks are not used as the general proof.
+## correctness
 
-**Originality — PASS, with historical-priority risk.** The 2026 empirical kinetic Ising paper specifies social-only and inertia-augmented models but does not derive temporal subsampling equivalence. The full 2019 parallel-update paper already shows zero-memory stationary *sublattice* independence for a square lattice; this fact is credited, not claimed as new. Its static ensemble calculation does not imply the claimed exact *two-step conditional kernel* characterization on arbitrary finite positive weighted graphs without an additional graph-sensitive argument. The 2014 cross-PCA study supplies related model context. Exact-claim, alias, stationarity, common-parent, and parameter searches in research records and primary literature did not identify a prior equivalent. Broader graphical-model results may contain an immediate corollary; historical priority has not been independently certified.
+PASS
 
-**Mathematical value — PASS.** The theorem provides a natural complete classification for a concrete identifiability question: which network geometries cause social dependence to be indistinguishable from self-memory after skipping alternate observations? It isolates a sharp structural boundary and constructs a diagnostic applicable at every initial state. This is a structural result, not a minor parameter substitution or a finite numerical census; it makes the role of sampling cadence and branching network geometry mathematically explicit. The result applies only to independently and synchronously updated agents and does not identify general correlated-noise models.
+Fix any initial configuration. Independence and finite fields give a full-support product law for the intermediate spins. Conditional covariance of distinct outputs reduces to covariance of their intermediate-state mean functions. When they share a neighbor, both mean functions are strictly increasing in its spin, and nondecreasing in every other spin. Conditioning on the shared spin, the first covariance term is nonnegative by induction on the remaining independent coordinates; the second is strictly positive since both conditional means strictly increase and the shared spin is nondegenerate. If there is no such pair, every vertex has degree one under the graph hypotheses. Its partner map is bijective, so the output coordinates use distinct independent intermediate spins and separate second-step noise. Each binary channel has mean tanh(beta/2) times its input; the composition has mean tanh(beta/2)^2 times the initial spin, giving the asserted parameter. Equality of the two-step kernels extends to the even-time path laws, with the same starting law. The path witness reduces to the shared-spin variance, including the stated rational values.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The supported distinction is the exact all-initial-state two-step product-kernel boundary and inertia alias for the given model. Closest inspected results concern one-step model specification, stationary sublattice factorization, or stationary one-site time series, not the stated conditional transition-kernel equivalence.
+
+## value
+
+PASS
+
+Exact even-time aliasing limits mechanistic inference even with the complete transition kernel. The graph classification and strict covariance witness identify when the alias breaks, beyond merely giving an example of indistinguishability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

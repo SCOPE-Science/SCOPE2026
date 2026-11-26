@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:35:50.484730Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 13–62; replay by ordering-simplex slicing, affine crossing chambers and bin counts.",
+        "Independent n=2,3 check by partitioning at the winning rank and sign, directly integrating the one- and two-coordinate ordered regions, and bounding the algebraic endpoint expressions.",
+        "Frozen VERIFICATION.md, exact_ks_argmax.py and verification_checks.py, inspected without execution; their recorded tests are not independent all-n evidence."
+      ],
+      "rationale": "The probability integral transform and the density n! on the ordering simplex give the correct normalization for a fully specified continuous simple null. Pairwise ties between the signed affine deviations have measure zero. The winning sign fixes a half-interval on which its deviation is positive; at a fixed winning coordinate u, the other rank constraints are exactly the two-sided affine bands in the record. The split volumes multiply, with no conditional-density factor beyond n!. Squaring the threshold inequality on that sign domain yields the stated quadratic interval. A chamber cut at every line crossing keeps bin eligibility fixed. Ordered bin counts partition the admissible region up to null sets and contribute products of width powers divided by factorials, so integrating polynomial pieces at rational or quadratic endpoints proves finite piecewise algebraicity. Each point-level event fixes the winning coordinate to finitely many roots, so the CDF is continuous; t=0 and the n=1 support edge are consistent. An independent direct slice calculation using d_i=1/(2n)+|U_(i)−(2i−1)/(2n)| recovered both radical values. The exact differences H_3(t)−19/20 lie between −3854/10^9 and −3853/10^9 at t=2.2981, and between 2265/10^9 and 2266/10^9 at t=2.2982, giving the strict enclosure.",
+      "residual_risks": [
+        "The exact algorithm can be costly; no runtime bound or numerical large-n implementation guarantee is inferred. The result does not cover estimated null distributions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.3 uses the standardized Brownian-bridge maximum for a limiting law; Steck is a generic rectangle-probability antecedent based on available bibliographic evidence, not an inspected exact formula for this statistic."
+        ],
+        "reasoning": "A limiting law does not give exact finite-n calibration. Even a deterministic rank-band probability does not directly implement the winner-location decomposition and integrate its varying thresholds. Full-text access limits are recorded rather than used as negative evidence.",
+        "searches": [
+          "Ferger Theorems 2.1 and 2.3; Steck JSTOR 2958458; Ferger 2018 DOI 10.1016/j.spl.2017.10.008"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2207.07947v1; Resultary d1a9e8cd5a65; Steck and Ferger 2018 access attempts above."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inspected finite-sample theorem applies to the one-sided winner, the two-sided theorem to n tending to infinity, and the indexed fixed-n expansion to t tending to infinity."
+        ],
+        "reasoning": "None provides the joint winner-conditioned information required across all finite thresholds; in particular the tail coefficient constrains neither the exact CDF at t=2 nor the finite-n quantile bracket.",
+        "searches": [
+          "Compare Ferger Theorems 2.1 and 2.3 and Resultary d1a9e8cd5a65 against frozen RESULT.md equation (1) and the finite threshold consequences."
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ferger's p. 5 definition uses the location of the raw two-sided winner and notes its exact law is not known. Theorem 2.1 instead concerns W_n^*."
+        ],
+        "reasoning": "The raw two-sided winner is selected before dividing by the local standard deviation. Maximizing individually standardized one-sided deviations or calibrating a single one-sided winner does not give the same event.",
+        "searches": [
+          "Ferger arXiv:2207.07947v1, V_n^*, W_n^*, maximizing location",
+          "Resultary: two-sided argmax-normalized empirical-process finite-sample law and Pareto tail"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary d1a9e8cd5a65, RESULT.md offsets 0–6738, gives a sharp inverse-square tail and explicitly excludes an exact complete finite-sample CDF. The exact CDF row 28cfdce6a0ee is the assigned record itself."
+        ],
+        "reasoning": "No distinct exact table or CDF was established in the compared material. The same-day tail record is distinct regardless of unresolved ordering.",
+        "searches": [
+          "Local Resultary mirror: two-sided argmax-standardized KS finite-sample CDF, fixed-n tail and critical values"
+        ]
+      },
+      "rationale": "The strongest matching primary and indexed statements address the identical statistic only asymptotically or in its far tail, or give an exact one-sided finite-sample law. They do not establish the exact full finite-sample two-sided calibration. This is a bounded assessment, not a historical priority certification.",
+      "residual_risks": [
+        "The full texts of the two older supporting works were not obtained in this review; a distinct equivalent derivation may remain unindexed. The same-date catalogue entries do not determine relative priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact only for one-sided statistic; two-sided asymptotic law",
+          "evidence": "Defines V_n^* and identifies its unknown exact law; Theorem 2.1 is for W_n^* and Theorem 2.3 concerns sqrt(n)V_n^*.",
+          "identifier_or_url": "https://arxiv.org/pdf/2207.07947",
+          "material_read": "p. 5 near offset 13654; pp. 8–9 near 23523; p. 10 near 29327",
+          "method": "OA primary PDF",
+          "title": "Exact and asymptotic goodness-of-fit tests based on the maximum and its location of the empirical process",
+          "trigger": "Identical statistic and potentially exact finite-sample law"
+        },
+        {
+          "assessment": "Generic predecessor; full implication not independently assessed",
+          "evidence": "Bibliographic material concerns rectangle probabilities of uniform order statistics.",
+          "identifier_or_url": "JSTOR 2958458",
+          "material_read": "Landing page/abstract via identified lawful copies; no full text obtained",
+          "method": "JSTOR and Project Euclid attempts",
+          "title": "Rectangle probabilities for uniform order statistics and the probability that the empirical distribution function lies between two distribution functions",
+          "trigger": "Predecessor for deterministic order-statistic bands"
+        },
+        {
+          "assessment": "Established role as a limiting-law input",
+          "evidence": "Ferger uses the Brownian-bridge result in the asymptotic argument.",
+          "identifier_or_url": "10.1016/j.spl.2017.10.008",
+          "material_read": "Ferger 2022 p. 10 attribution; DOI attempt did not yield the full 2018 text",
+          "method": "OA primary citation inspection and DOI lookup",
+          "title": "On the supremum of a Brownian bridge standardized by its maximizing point with applications to statistics",
+          "trigger": "Same normalization in limiting process"
+        },
+        {
+          "assessment": "Tail only, not exact complete CDF",
+          "evidence": "Survival expansion 2(n−1)!/(n^n t²)+O_n(t^−4); limitations explicitly exclude an exact complete finite-sample CDF.",
+          "identifier_or_url": "Resultary 2026/11/22 d1a9e8cd5a65",
+          "material_read": "RESULT.md offsets 0–4713 and 4713–6738",
+          "method": "Local Resultary mirror",
+          "title": "A sharp Pareto-two tail for the two-sided argmax-normalized empirical process",
+          "trigger": "Identical statistic at fixed n"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Ferger arXiv:2207.07947v1 pp. 5, 8–10; frozen RESULT.md equation (1), proof steps 2–4 and the n=3 quantile consequence."
+      ],
+      "rationale": "The statistic and its finite-sample calibration problem were independently posed in primary literature. The formula certifies critical-value bounds under the simple null without relying on simulation or the limiting distribution. The all-n construction, exact small-sample examples and rigorous finite threshold bracket address the specific missing law, not merely its tail or a numerical recomputation.",
+      "residual_risks": [
+        "Combinatorial and algebraic expression growth can limit practical use at large n; no power or composite-null conclusions are asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

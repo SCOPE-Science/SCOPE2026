@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:46:16.983252Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Any sufficiently large positive common multiple of cycle lengths gives the same idempotent for a map; a positive power shares it. Thus no edge crosses its classes, and every class is connected via the idempotent. For a fixed idempotent e a map with eventual power e commutes with e, permutes its roots by σ, sends each fiber i into fiber σ(i), and has no nonroot cycle. Conversely those conditions send every point to a root, which must be the root of its original fiber at any sufficiently large multiple of the root permutation order. For a fixed σ, sum each row of the forest matrix over choices of its outgoing arrow x→y: use the row unit vector at x minus that at y for a nonroot target, and just the row unit vector at x for a root. An assignment with a nonroot cycle gives a row dependence, including a zero row for a loop; an acyclic assignment gives determinant one by ordering vertices by distance to roots. Factoring the resulting L=D−PQ reduces to I−QD⁻¹P, with the sole possible entry in row i at σ(i) equal to b_{σ(i)}/m_{σ²(i)}. Thus per cycle the reduced factor is 1−∏ b_i/m_i, including singleton cycles. Empty nonroot set gives one per permutation; the rank-one factor gives n^{n−2} at n≥2 and one at n=1. At n=5 the two rank-two contributions are 16+1 and 3+8, with 20 and 60 root/fiber assignments. The only unequal profiles at equal rank for n<5 are (3,1) and (2,2) at rank two for n=4; both give size 4. Independent replay /workspace/branches/review_replay_2.py checked through n=5 using first-repeat orbit phases, not the supplied common-exponent code; it confirms the first split and multiplicities, not the all-n theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary Zeng article was not lawfully retrieved in full; frozen lines 48–49 attribute component indexing, membership and the top-rank cases to it. The directed forest determinant counts each fixed-root-permutation assignment but does not itself identify the legal nonroot arrow classes or evaluate the permutation sum."
+        ],
+        "reasoning": "A generic forest theorem gives det L only after the component membership and nonroot cycle condition are established. The fiber-block reduction and product over root cycles are the exact extra enumeration. The ordinary undirected complete multipartite spanning-tree count concerns neither directed fiber arrows nor root exits.",
+        "searches": [
+          "Zeng et al., DOI:10.2298/FIL2508725Z, target Theorem 3.13",
+          "Resultary: directed forest determinants for cyclic complete multipartite digraphs",
+          "Directed rooted-forest matrix-tree identity"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Eze–Imam–Balarabe DOI:10.28919/jsta/9965",
+        "Zeng et al. DOI:10.2298/FIL2508725Z (retrieval attempted; frozen citation assessed)",
+        "Resultary 0fee9c9391f4",
+        "Directed forest determinant identity, independently verified here by row expansion"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inspected tripartite catalog record gives the homotopy type of a multipath complex at shores (1,2,n), not an enumeration with exits at arbitrary sizes. The n=3 classification and known permutation component cases use hypotheses where no n=5 rank-two split is possible."
+        ],
+        "reasoning": "The original exact component size is not a known-case substitution. Matrix-tree supplies a method, not the exact profile sum or the first distinction. General iteration-root algorithms and other equivalent older forest enumerations remain possible historical sources.",
+        "searches": [
+          "Eze–Imam–Balarabe p. 3 introduction and Theorem 4.4",
+          "Resultary cyclic tripartite digraph comparison 0fee9c9391f4",
+          "Frozen proof, directed-forest determinant and rank-two application"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The order equals the number of labeled f satisfying f^M=e for M=lcm(1,…,n), which is both sufficiently large for every orbit and a common multiple of its period. For prescribed root permutation it is a count of directed forests on cyclically linked nonroot fiber classes with one root exit available per vertex."
+        ],
+        "reasoning": "These are equivalent descriptions of the desired number, but a solution-set description alone does not give its fiber-profile evaluation. Using all labeled self-maps matters; counting up to conjugacy or discarding the permutation group gives different objects.",
+        "searches": [
+          "Resultary: arbitrary fiber profile component orders in the power graph of the full transformation semigroup",
+          "Structural properties of the power graph of the full transformation semigroup, DOI:10.28919/jsta/9965, Theorem 4.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The accessible primary calculation lists ten components of T₃: three size 3, six size 2, and one size 6. Indexed results returned did not provide the n=5 sizes by profile."
+        ],
+        "reasoning": "The exact prior table is a genuine special case and must be credited. It cannot distinguish the two n=5 rank-two fiber profiles, or give the general expression.",
+        "searches": [
+          "Resultary: n=5 fixed-rank divergence in transformation power graphs",
+          "Eze–Imam–Balarabe Theorem 4.4, pp. 20–21"
+        ]
+      },
+      "rationale": "The qualitative indexing and some low- or high-rank cases are prior background. The supported distinct contribution is the explicit closed sum over root permutations with a cycle factor for every fiber profile, and the first rank-only obstruction. No exact equivalent or mechanically dominating formula was established in the inspected material.",
+      "residual_risks": [
+        "Zeng et al. full text was not independently retrieved; relevant additional results there are possible.",
+        "Older counts for high powers or iterative roots of labeled transformations, or an equivalent cycle-block forest product, may not have surfaced in the targeted searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit n=3 specialization, not the all-profile count in the inspected result",
+          "evidence": "Theorem 4.4 states that P(T₃) has exactly ten connected components and lists all of them; the introduction describes this as extending the T₃ analysis in the cited Korkmaz paper.",
+          "identifier_or_url": "https://doi.org/10.28919/jsta/9965",
+          "material_read": "PDF introduction p. 3, Theorem 4.4 pp. 20–21, and cited Korkmaz [12] on p. 23",
+          "method": "OA PDF passage comparison to the frozen graph and sizes",
+          "title": "Structural properties of the power graph of the full transformation semigroup",
+          "trigger": "Direct same-object power-graph classification"
+        },
+        {
+          "assessment": "Qualitative coverage is attributed, not independently assessed for the whole paper; no inference of noncoverage from access failure",
+          "evidence": "The frozen citation attributes unique idempotents, qualitative membership and the ranks n and n−1 cases. No assertion is made here about unread passages.",
+          "identifier_or_url": "https://doi.org/10.2298/FIL2508725Z",
+          "material_read": "No independently retrieved full-text passage; only the attribution to Theorem 3.13 and related results in frozen RESULT.md lines 48–49",
+          "method": "OA DOI lookup and repository recovery; also tried the identified DOI Serbia open PDF path for Filomat ISSN 0354-5180; the retrieval attempts did not yield full text",
+          "title": "Power graphs of full transformation semigroups",
+          "trigger": "Direct cited antecedent on the identical graph, plausibly closest prior"
+        },
+        {
+          "assessment": "Not a count of rooted directed forests or power-graph components",
+          "evidence": "It studies a multipath complex on cyclic tripartite digraphs with shores (1,2,n).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-three-sphere-wedges-for-cyclically-oriented-complete-tripartite--0fee9c9391f4/RESULT.md",
+          "material_read": "Finding and scope",
+          "method": "Local Resultary mirror and comparison of invariant and graph family",
+          "title": "Three-sphere wedges for cyclically oriented complete tripartite digraphs",
+          "trigger": "Closest surfaced catalogued cyclic multipartite graph result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The size of each component is a natural missing invariant beyond knowing its idempotent. The formula replaces enumeration of n^n maps by a computation on the root-permutation and fiber data. The first 17-versus-11 split shows exactly where rank stops determining component order, and the formula explains the split without any assumption about internal graph isomorphism.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

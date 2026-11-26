@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:53:58.805546Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md; verify.py inspected",
+        "/workspace/review_checks.py 5 (independent exhaustive modal triples and multifibre sums)"
+      ],
+      "rationale": "Within each determinant fibre, the retained counts are the largest row total, column total and cell, and the global counts are sums. The intersection of a modal row and column gives the additive bound; row, column and table capacities give the remaining lower bounds on the retained joint count. Projection gives its upper bound. For an admissible integer target M, the marked row/column/cell real table has nonnegative blocks because M≥A+B−n and M≤min(A,B). The two off-diagonal blocks fit the cell cap by A≤cM and B≤bM. For the last block use n−A−B≤(bc−b−c)n/(bc)≤(bc−b−c)M, valid when b,c≥2; unmarked row and column totals fit by A≥n/b and B≥n/c. Integer lower/upper bounds in the directed circulation polytope then give an integral realization with those three marked maxima. A singleton alphabet collapses the problem to distributing n units with a specified maximum in the other coordinate; n=1 is included. An unconstrained identifier makes repeated patterns distinct. The bc bound is redundant given the admissible marginal bounds and is harmless. The upper-bound entailment is sharp because the endpoint is monotone in the admissible marginal errors and the specified maxima can be attained. Independent enumeration with dynamic programming over arbitrary fibre decompositions agreed with both the formula and the single-fibre spectra for five small alphabet/range pairs.",
+      "residual_risks": [
+        "The enumeration is bounded. The proof of realization permits an auxiliary identifier; it is not a theorem for teams restricted to exactly the three attributes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The approximate-FD paper gives the deletion semantics and an example of an implication not derived by the prior system. Alatar–Sali examine strongly possible approximate constraints in incomplete data. The distinct Resultary threshold concerns lax split disjunction."
+        ],
+        "reasoning": "No inspected result covers the fixed marginal errors, bounded individual alphabets and all integer values for the dependency into the ordered pair. A split into subteams is not the same as repairing the single joint dependency by deletion.",
+        "searches": [
+          "arXiv:2608.16570 §§2–3; arXiv:2402.05161 introduction; Resultary related common-determinant claims"
+        ]
+      },
+      "checked_sources": [
+        "Resultary and local-mirror findings",
+        "arXiv:2608.16570 §§2–3",
+        "arXiv:1104.0323 §2",
+        "arXiv:2402.05161 opening passage",
+        "Focused equivalent-form web lookup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Separate repair sets give only r≤p+q. The 20-row example attains a sharp r≤16 even when p+q=20. Integral circulation rounds a feasible fractional assignment but does not alone show which prescribed maxima admit such an assignment."
+        ],
+        "reasoning": "The closed-form endpoint and simultaneous marked-maxima feasibility argument are additional to the prior semantics, full-margin enumeration and integrality theorem.",
+        "searches": [
+          "Compare arXiv:2608.16570 Definition 2.1, Example 3.1 and Proposition 3.2, and arXiv:1104.0323 Algorithm 2.2; integral-circulation reduction in the frozen proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equivalent table question asks for a simultaneous modal row total A, column total B, and cell M, with only total n and alphabet dimensions fixed. Miller–Harrison instead take full margin vectors as input."
+        ],
+        "reasoning": "An evaluated capped transportation criterion projected onto just the three maxima, or an equivalent rational guessing-probability region plus exact integrality, could cover the claim. The inspected prescribed-margin algorithm does not give either result. General web results on joint and marginal distributions were not evidence of coverage or absence.",
+        "searches": [
+          "Web: joint marginal min entropy exact feasible region maximum joint probability maximum row column cell contingency table bounded support modal probabilities Fréchet bounds",
+          "Resultary: joint deletion error spectrum and maximum row/column/cell formulation",
+          "arXiv:1104.0323 abstract, introduction and Algorithm 2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit SCOPE-the-complete-integer-joint-error-spectrum-of-two-bounded-alphabe--ae79ed7c96eb is this item. Distinct hits ending 22696c7699d2 and 5b6689bad5fa respectively give a sharp lax-split threshold and six minimal exact-split falsifying patterns."
+        ],
+        "reasoning": "Neither distinct hit states or evaluates the fixed-marginal joint modal spectrum. The identical item gives no independent evidence of priority.",
+        "searches": [
+          "Resultary exact spectrum and common-determinant dependent outputs; local-mirror findings for closest hits"
+        ]
+      },
+      "rationale": "The evaluated no-gap integer spectrum is distinct in the inspected evidence from approximate-dependence inference results, from prescribed-full-margin counting, and from catalogue results about split disjunction. The interval and its feasible marked-maxima construction add content beyond classical flow integrality and ordinary joint-probability inequalities.",
+      "residual_risks": [
+        "An older equivalent result under guessing probability, min-entropy or capacitated contingency-table terminology remains possible; the bounded search does not establish exhaustive historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant semantics and entailment, not this spectrum",
+          "evidence": "Deletion semantics and a 16-row implication with semantic bound 5/16 versus derivable 6/16.",
+          "identifier_or_url": "https://arxiv.org/html/2608.16570",
+          "material_read": "Introduction; §2 Definition 2.1 near HTML offset 4797; §3 Example 3.1 and Proposition 3.2 near 9781",
+          "method": "OA full-text passages",
+          "title": "Approximate Functional Dependencies—Implication Problem Revisited",
+          "trigger": "Closest approximate-FD semantics and interacting repair errors"
+        },
+        {
+          "assessment": "Full-margin counting and sampling rather than modal maxima characterization",
+          "evidence": "Algorithms take the specified vectors of row and column sums.",
+          "identifier_or_url": "https://arxiv.org/abs/1104.0323",
+          "material_read": "Abstract and introduction, p. 1; §2 Algorithm 2.2, p. 3",
+          "method": "OA full-text passages",
+          "title": "Exact Enumeration and Sampling of Matrices with Specified Margins",
+          "trigger": "Equivalent integer contingency-table interpretation"
+        },
+        {
+          "assessment": "Different approximation problem",
+          "evidence": "Deletion approximation in the setting of incomplete data and strongly possible constraints.",
+          "identifier_or_url": "https://arxiv.org/abs/2402.05161",
+          "material_read": "Opening and g3 deletion approximation, p. 1 near text offset 2188",
+          "method": "OA full-text passage",
+          "title": "Approximate Keys and Functional Dependencies in Incomplete Databases With Limited Domains",
+          "trigger": "Bounded domains and deletion distance"
+        },
+        {
+          "assessment": "Identical item plus two distinct split claims",
+          "evidence": "A rectangular-fibre equality case for a lax disjunction and six exact-split obstructions do not give joint deletion errors.",
+          "identifier_or_url": "SCOPE record suffixes ae79ed7c96eb, 22696c7699d2, 5b6689bad5fa",
+          "material_read": "Findings of the matching records",
+          "method": "Resultary and local mirror",
+          "title": "Exact joint spectrum and two related common-determinant split findings",
+          "trigger": "Exact and distinct indexed results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen theorem and example",
+        "Independent construction and aggregate modal checks",
+        "Fröhlich et al. approximate-dependence semantics"
+      ],
+      "rationale": "Combining individually approximate dependencies into a joint one is a natural inference problem. The alphabet-sensitive improvement can be strict, and the no-gap statement supplies exact extremal and intermediate test teams rather than only an inequality. Arbitrary determinant fibres are covered in necessity and a single fibre suffices for sharpness. This makes the result usable as an exact calibration of deletion-error entailment with an explicit scope.",
+      "residual_risks": [
+        "No exact sharpness claim is made for models that disallow a free identifier or impose further attribute constraints."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

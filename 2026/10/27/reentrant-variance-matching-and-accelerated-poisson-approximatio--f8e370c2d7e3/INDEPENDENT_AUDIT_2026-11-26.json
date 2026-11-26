@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:40:37.081933Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–58",
+        "Frozen VERIFICATION.md and verify_bandpass.py (inspection only)",
+        "Independent exact replay: /workspace/branches/bbacff36-0571-46e3-a985-a1788e9c8522/independent_palm_check.py"
+      ],
+      "rationale": "Mecke cancels the intensity and independent retention factors. The one-point mark has expectation α. For a Palm pair at distance u/n≤τ/n the overlap and exclusive means are τ−u,u,u, with each extra Palm neighbor counted precisely for u≤τ/2. With τ/n<1/2, the circular pair integral has factor 2/n and equals 2I/n for the factorial second cumulant. Independent rational polynomial integration of Q_b and Taylor-reciprocal interval arithmetic reproduce the coefficients and the three strict signs. For the uniform factorial-moment estimate, let M be the number of edges in the Palm configuration and approximate the integrand by α^k plus the sum over present edges of (m−α²)α^(k−2). This is exact when M≤1. When M≥2 the absolute integrand error is bounded by 1+M≤3 binom(M,2), not by a constant bound on the sum of all one-edge terms. Two distinct edges have joint incidence measure (2τ/n)^2 even if they share a vertex, by conditioning on the common vertex. Thus the integrated error is O_τ(k^4/n²) and the signed coefficient is exactly binom(k,2)(2I/n)α^(k−2). Factorial moments bounded by one justify the entire PGF series; the factorial-weighted errors are O_τ(n^-2) uniformly on |z|≤R for fixed R>1. Cauchy's coefficient bound is summable there. The signed coefficient has nonzero mass at k=0 when I≠0 and is absolutely summable; at I=0 it disappears. Continuity and the strict signs certify at least one distinct tuning in each of the two intervals, with exact variance matching for every admissible n at each such tuning.",
+      "residual_risks": [
+        "The exact replay verifies the coefficients and sign witnesses, not the infinite-order expansion; the latter follows from the analytic argument. No all-root claim, no uniform-in-τ rate, and no spatial process total-variation claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first gives a general pair-correlation theorem and connected-graph factorial-cumulant bound. The second gives the general critical-scale limit for q_n(k)=a(k)/n; the analogous homogeneous intensity specializes to α for this rule."
+        ],
+        "reasoning": "These antecedents cover the method/limit. Their inspected statements do not classify sign changes of the band-pass correction at fixed τ or give two critical windows. The first paper's fixed-intensity small-radius sharpness assumptions do not match this family (in particular eligibility at degree zero vanishes).",
+        "searches": [
+          "arXiv:2511.10083",
+          "arXiv:2609.25733"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2511.10083",
+        "arXiv:2609.25733",
+        "Resultary d3d4418b43b6 and 82c1cef7db34"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General overlap formulas yield an integral once the rule is supplied, while the isolated thinning proof yields one spacing-transform tuning; independent rational integration and sign certification are needed for the actual band-pass profile."
+        ],
+        "reasoning": "A generic first-order estimate may transfer to this mark family, but does not force I to change sign twice. The distinction is the combination of the exact nonmonotone profile, two certified tunings, and a count-law remainder that survives their cancellation. This is not the already-known general Poisson limit or first-order cancellation phenomenon claimed as new.",
+        "searches": [
+          "arXiv:2511.10083, pair correlation and connected-graph bound",
+          "arXiv:2609.25733 Theorem 1",
+          "Resultary d3d4418b43b6 Finding and correction section"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier spacing record cancels a first-order Laplace-transform correction at the positive solution of e^(t/2)=1+t; the other record cancels low factorial cumulants for independent thinning of sums of fixed finite-support counts."
+        ],
+        "reasoning": "A Palm spacing transform for isolated points on the line is not the signed retained count law on the circle with band-pass eligibility. Independent thinning of count sums also has different dependence. No equivalence by periodization, rescaling or change of observable was established.",
+        "searches": [
+          "Resultary 2026/10/18/SCOPE-exact-renewal-spacings-and-a-poisson-correction-cancellation-for--d3d4418b43b6",
+          "Resultary 2026/11/2/SCOPE-exact-factorial-cumulant-entropy-hierarchy-for-finite-support-th--82c1cef7db34"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed exact tuning and inspected pair formula concern respectively isolation and an arbitrary pair kernel; neither displays the band's exponential polynomial or its rational sign witnesses. External hits were publication listings for the two inspected Hlyniana papers, not independent proof of absence."
+        ],
+        "reasoning": "No general numerical table can establish the asserted signed count law or its zeros; the exact prior data compared here are the explicit kernels, tuning equations and theorem statements.",
+        "searches": [
+          "Resultary d3d4418b43b6 and 82c1cef7db34",
+          "Hlyniana arXiv:2511.10083 pp. 8–9, 25–27",
+          "External query: neighbour-count thinning, reentrant variance matching, band-pass Poisson Palm neighbor count"
+        ]
+      },
+      "rationale": "Credit the general Palm correlation formula, connected-graph estimates, general critical-scale Poisson limit and earlier examples of tuned correction cancellation for different spatial observables. The supported distinct result is the exact two separate sign-reversal windows for this original-neighbor band-pass rule and their effect on the entire signed retained count law. The most similar indexed spacing theorem concerns isolated originals and a Palm interarrival transform on the real line, neither an alternate formulation nor a stronger statement of the count-TV claim. The general pair formula leaves the band-pass sign reversals undecided and the generic Poisson limit leaves the distributional rate at those tunings undecided.",
+      "residual_risks": [
+        "The adjudication credits a bounded rule- and observable-specific claim, not first discovery of a tuning or correction cancellation in neighbor thinning. One targeted published-literature query is not an exhaustive priority search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers pair formula and methods, not the band-pass sign and rate assertion in the inspected results",
+          "evidence": [
+            "Overlap/exclusive Poisson decomposition and connected-graph bounds are given. The fixed-intensity sharpness result assumes p(0),p(1)>0 and p(1)≠p(0)."
+          ],
+          "identifier_or_url": "arXiv:2511.10083",
+          "material_read": "PDF p. 1; pp. 8–9, 16, 19–20 and 25–27 (offsets 0/3000, 30750, 61900, 72250, 98000, 108500)",
+          "method": "OA primary PDF passage comparison",
+          "title": "Neighbour-count dependent thinning of Poisson processes: correlation structure and Poisson approximation",
+          "trigger": "General pair correlation and cumulant antecedents"
+        },
+        {
+          "assessment": "Broader leading Poisson limit, not the reentrant correction law",
+          "evidence": [
+            "The limit intensity is λ(x)E[a(Poi(τλ(x)))] under critical scaling and retention a(k)/n."
+          ],
+          "identifier_or_url": "arXiv:2609.25733",
+          "material_read": "PDF setup and Theorem 1, pp. 1–3, offsets 0, 2600 and 9300",
+          "method": "OA primary PDF passage comparison",
+          "title": "A law of thin processes with neighbour-count thinning",
+          "trigger": "General critical neighbor-thinning limit"
+        },
+        {
+          "assessment": "Material phenomenon-level overlap; different mark, geometry and observable",
+          "evidence": [
+            "Isolation on the line and pointwise O(n^-2) error of a Palm spacing Laplace transform at one positive tuning, not a two-window band-pass count-TV result."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-exact-renewal-spacings-and-a-poisson-correction-cancellation-for--d3d4418b43b6",
+          "material_read": "Mirrored RESULT.md, offsets 0–3597 and 7720–10115",
+          "method": "Resultary indexed search and local mirrored primary record",
+          "title": "Exact renewal spacings and a Poisson correction cancellation",
+          "trigger": "Earlier indexed tuned second-order Poisson behavior"
+        },
+        {
+          "assessment": "Method overlap; different model",
+          "evidence": [
+            "Independent thinning of sums of fixed finite-support counts does not describe the spatial eligibility graph."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-factorial-cumulant-entropy-hierarchy-for-finite-support-th--82c1cef7db34",
+          "material_read": "Mirrored RESULT.md, offsets 0–3552 and 8500–10600",
+          "method": "Resultary indexed search and local mirrored primary record",
+          "title": "Exact factorial cumulant entropy hierarchy for finite-support thinning",
+          "trigger": "Indexed factorial-cumulant cancellation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof",
+        "Resultary d3d4418b43b6 contrasting the isolation/spacing case"
+      ],
+      "rationale": "A natural local degree band removes both isolates and highly crowded points; the count is a basic observable at critical rare retention. Two rigorously distinct tuning windows reveal that the leading approximation error can disappear and reappear as the interaction range grows. The signed expansion connects exact finite-n variance matching to the stronger statement of accelerated full count-law convergence. Merely detecting near agreement numerically or recovering the known Poisson limit would not give that calibration.",
+      "residual_risks": [
+        "At critical values only an upper O(n^-2) bound is established; a nonzero next correction or a spatial process result is not asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

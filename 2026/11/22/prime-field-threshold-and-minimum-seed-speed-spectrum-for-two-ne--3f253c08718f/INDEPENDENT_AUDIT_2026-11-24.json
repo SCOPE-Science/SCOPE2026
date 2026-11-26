@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:44:01.932012Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Two active points give their unique join and two active lines their unique meet; by bipartiteness these are all the operations, hence the terminal set equals join–meet closure. Three or fewer seeds give at most a triangle with its sides, or, in the mixed case, a single joining line, the given line and points on the join, and duals. Four points with three collinear have only those points and their joins in their closure; the nondegenerate quadrangle normalizes over the prime field. For two points A,B and two lines L,M, let N=AB and C=L∩M. If C∉N, the closed configuration lies in the pencil through C plus its transversal N, with at most four points on N, namely A,B and its intersections with L,M, and at most five vertices on either shore. If C∈N, the points stay on N and lines in the pencil at C. Three collinear points plus a line give at most one extra point and the join; a triangle plus a line through a vertex adds at most its intersection with the opposite side, which yields three collinear points and the off-line vertex and their joins. These closures are proper even at q=2. For a triangle and a line avoiding its vertices, normalize to the coordinate triangle and x+y+z=0 by rescaling coordinates. The triangle sides and line meetings produce the frame consisting of e_1,e_2,(1:0:−1),(0:1:−1). Frame-only joins and meets stay over the prime field and generate it: construct affine axes, a unit mark and the slope −1; transport scalars across axes, add by slope −1, and multiply by constructing a similar triangle with parallels. The finite subring obtained is a field; affine points and infinity slopes over that field then give all lines by joins. In the five-seed construction the mark (1:α:0) yields α by intersecting its line through the origin with x=1 and projecting to an axis, so α generating F_q gives the whole plane. Point–line duality gives the reverse-shore cases. Ordered frames have v(v−1) choices for the first two points, q² for the noncollinear third and (q−1)² for the fourth off the sides; dividing by 24 gives Q_q. The noncollinear triples with one avoiding line give four times Q_q, since there are (q−1)² such lines by duality. Independent replay `python3 /workspace/review_calculations/bootstrap_affine.py` constructs the plane from affine slope lines, vertical lines and the line at infinity; it checks degrees and same-shore pair intersections, and updates both shores simultaneously by combining two split-shore neighbor-count tables. It exhausts 111,930 four-seeds (zero successes) and 850,668 five-seeds for q=4, exactly reproducing every composition-by-round cell, the round totals 22,176, 211,680, 100,800, and 334,656 successes overall. It also checks the 70 and 2,340 four-seed totals and zero three-seed successes at q=2 and 3. Finite counts do not extend to q>4.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "f7ad48a4f739 determines K-rational singleton classes from point-only marks containing a frame and the five-mark threshold for proper extensions. 87513bd35bd8 gives the full Heawood P_3-convexity lattice for q=2. The inspected general counting paper supplies general algorithms and certain graph-family counts, the odd-graph paper supplies hull numbers for its different families, and Morris studies minimal percolating sets on grids."
+        ],
+        "reasoning": "These cover subfield generation, the q=2 closure case and generic methods, but do not specify the unrestricted four-seed classification in incidence graphs or evaluate the finite q=4 speed invariant.",
+        "searches": [
+          "Resultary f7ad48a4f739 and 87513bd35bd8",
+          "P_3 hull number and exact hull/count algorithms; arXiv:2603.04706v1 and arXiv:2606.03687v4",
+          "Morris (2009), DOI 10.37236/91"
+        ]
+      },
+      "checked_sources": [
+        "Resultary f7ad48a4f739, 87513bd35bd8, 95e628871f08 and 4b9a526ec138 (last summary only)",
+        "Gerbner et al., arXiv:1608.00531 §1",
+        "Morris (2009), DOI 10.37236/91 §1",
+        "Dourado et al., arXiv:2603.04706v1 p. 1",
+        "Mohammadian et al., arXiv:2606.03687v4 pp. 1–3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The frame/subfield lemma gives the all-point five-seed construction and excludes four points generating any proper extension. The q=2 lattice determines the hull criterion and thus coverage of that one order. Neither gives a mixed lower bound at larger orders, a mixed-shore count for variable prime q, or the number of synchronous rounds to saturation at q=4."
+        ],
+        "reasoning": "The positive-size critical field dichotomy uses known pure point inputs, but allowing line-seeds requires additional mixed join–meet cases. The timing counts are not functions just of the endpoint closure criterion or the number of singleton classes.",
+        "searches": [
+          "f7ad48a4f739 Finding, proof and limitations, offsets 0–9263",
+          "87513bd35bd8 Finding and proof, offsets 0–9469",
+          "arXiv:1608.00531 §1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The P_3-hull number is the 2-neighbor minimum seed size, but the checked odd-graph and bipartite odd-graph theorems concern different graph families. Point infection in line percolation has no active line-vertices and activates a whole line of points at once. Point individualization by color refinement supplies related singleton generation but does not allow mixed seeds in f7ad48a4f739."
+        ],
+        "reasoning": "The appropriate equivalent closure formalism here is P_3 convexity on the bipartite incidence graph, not geodesic convexity, point-only refinement, or point infection of a line.",
+        "searches": [
+          "Resultary and literature: two-neighbor bootstrap, join–meet generation, and P_3-convex hull number of projective-plane incidence graphs",
+          "Gerbner et al., arXiv:1608.00531 §1; Mohammadian et al., arXiv:2606.03687v4 pp. 1–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-title hit 3f253c08718f is the assigned record itself. The Heawood lattice is q=2. Distinct 95e628871f08 computes three-seed timing on the 21-vertex line graph of the Heawood graph, not the bipartite incidence graph. The indexed 4b9a526ec138 summary concerns geodesic convexity; full text was not available for a stronger comparison."
+        ],
+        "reasoning": "A round spectrum for the line graph is not a table for the graph on points and lines with incidence edges. No independent exact PG(2,4) table was located in the checked records.",
+        "searches": [
+          "Resultary: q=4 PG(2,4) incidence graph bootstrap percolating five-sets by point count and synchronous round; 3f253c08718f, 87513bd35bd8, 95e628871f08, 4b9a526ec138"
+        ]
+      },
+      "rationale": "The supported distinct contributions are the mixed-shore classification and exact prime-field enumeration, and the complete q=4 minimum-seed completion-round spectrum. The frame-generation lemma, point-only extension threshold ingredients and Heawood closure structure are prior and are not accepted as new. No checked result on the same process covers the mixed classification over all prime fields or the synchronous q=4 census.",
+      "residual_risks": [
+        "An unindexed incidence-graph P_3-hull classification or census could overlap. The geodesic-convexity record was not available in full. The prior point-only and q=2 results limit the accepted new scope as stated above."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the frame/subfield mechanism and point-only extension threshold, not mixed seeds or time census",
+          "evidence": [
+            "With a marked quadrangle the K-rational points and lines are the singleton classes; five point marks are necessary and sufficient for proper extensions. Line and mixed marks are left open."
+          ],
+          "identifier_or_url": "Resultary f7ad48a4f739",
+          "material_read": "Finding, Proof and limitations, mirror offsets 0–9263",
+          "method": "Local Resultary search and mirrored RESULT.md reading",
+          "title": "A subfield criterion and five-point individualization threshold for projective-plane colour refinement",
+          "trigger": "Exact same incidence geometry and subfield closure"
+        },
+        {
+          "assessment": "Direct q=2 closure coverage only",
+          "evidence": [
+            "366 convex sets and 49 maximal proper convex sets, in the Fano-plane case."
+          ],
+          "identifier_or_url": "Resultary 87513bd35bd8",
+          "material_read": "Finding and proof, offsets 0–9469",
+          "method": "Local Resultary search and mirrored RESULT.md reading",
+          "title": "The P_3-convexity lattice of the Heawood graph",
+          "trigger": "Equivalent closure for the q=2 incidence graph"
+        },
+        {
+          "assessment": "Different update rule and no mixed seed set",
+          "evidence": [
+            "Points are infected along whole lines supported by enough infected points; the paper assumes r≥3."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1608.00531",
+          "material_read": "v1 §1 pp. 2–3",
+          "method": "Targeted OA primary reading",
+          "title": "Line Percolation in Finite Projective Planes",
+          "trigger": "Same family of geometry and percolation terminology"
+        },
+        {
+          "assessment": "Identifies the same hull formalism but gives formulas for distinct families",
+          "evidence": [
+            "The graph families in the stated formulas are odd graphs and bipartite odd graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.03687",
+          "material_read": "v4 pp. 1–3",
+          "method": "Targeted OA primary reading",
+          "title": "2-Neighbor Bootstrap Percolation on Odd Graphs",
+          "trigger": "Equivalent hull formalism and potential broad graph-family coverage"
+        },
+        {
+          "assessment": "Different graph, seed size and census",
+          "evidence": [
+            "The 392/1330 result is for three seeds on the line graph of the Heawood graph, with 21 vertices."
+          ],
+          "identifier_or_url": "Resultary 95e628871f08",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Local Resultary search and mirrored RESULT.md reading",
+          "title": "Three-seed cascade geometry on the Heawood line graph",
+          "trigger": "Close same-day exact synchronous count"
+        },
+        {
+          "assessment": "Summary treats different convexity; no whole-text coverage judgment",
+          "evidence": [
+            "The summary describes geodesic convexity, not closure under two active neighbors."
+          ],
+          "identifier_or_url": "Resultary 4b9a526ec138",
+          "material_read": "Indexed summary only; source path unavailable",
+          "method": "Local Resultary search and attempted mirrored file access",
+          "title": "Star rigidity and exact geodesic convexity invariants of finite projective-plane incidence graphs",
+          "trigger": "Same geometric objects, convexity alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The all-order minimum size is sensitive to prime subplanes, but the point-only threshold leaves open whether mixing shores beats the obstruction. The classification and exact enumeration resolve this structurally and show which seed compositions realize the optimum. The first proper extension q=4 is intrinsic to the threshold change, not an arbitrary numerical slice: the complete synchronous profile distinguishes compositions with the same eventual success and determines the fastest and slowest minimum seeds in the smallest extension geometry. This is an exact baseline for comparison at larger extensions, not an extrapolation to them.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

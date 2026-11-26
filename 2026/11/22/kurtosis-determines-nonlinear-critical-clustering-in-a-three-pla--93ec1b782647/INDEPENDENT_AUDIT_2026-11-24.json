@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:56:28.572129Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Assumptions and proof §§1–4; VERIFICATION.md; CHECK.py (inspected)",
+        "Independent exact replay: python /workspace/audit_evidence/gaussian_cubic.py",
+        "Independent rational bounds for unilateral-payoff estimates: python /workspace/audit_evidence/nash_bounds.py"
+      ],
+      "rationale": "Differentiating the normalized Gaussian share gives the recorded flow. The mean mode has eigenvalue −4/(9v) at criticality, and the projected eigenvalue vanishes. I expanded all three shares on an arbitrary direction (p,q,−p−q), projected off the mean, and verified the cubic exactly as (13v²−12μ₄)/(27v⁴) times the squared Euclidean norm times the direction. Reflection permits a smooth odd equivariant center graph with no quadratic term. Its O(||z||³) mean contributes nothing to the transverse cubic since the linearization is block diagonal and there is no quadratic field. For a negative coefficient the radial derivative is strictly negative near zero and r⁻² has derivative tending to −2α; the stable mean mode gives full local asymptotic stability. For a positive coefficient the reflection-transposition fixed line (a,−a,0) yields outward trajectories, proving instability. Among finite symmetric laws, the law with total outer mass p on ±√(v/p) and remaining mass at zero has kurtosis 1/p, realizing both sides and equality. Equality itself is not classified. The symmetric Nash remark can also be verified at this critical reach: at a unilateral deviation a write t=a²/v, y=b²/v, r=e^(−t); the paired share is F(t,y)=(2r cosh(2√(ty))+r²)/(4+4r cosh(2√(ty))+r²). For 0<t≤3/2 it is concave in y: with w=2√(ty), the derivative test is (w cosh w−sinh w)(cosh w+k)≤2w sinh²w with k=e^t+e^(−t)/4<5. At k=5 the difference has nonnegative Taylor coefficients. Jensen gives F(t,1)<1/3, by cosh(2√t)<2e^t−e^(−t) (the first three nonconstant difference terms already form a strictly positive polynomial, and the rest are nonnegative). For t≥3/2, F(t,y)<(1+y)/6: for y≤3/2 use monotonic decrease for t≥y and the tangent at y=1 of F(3/2,y), whose value is below .29 and slope lies between .14 and .15; for 3/2≤y≤2 the two opposite-resource shares are below 4/5 and 1/30 respectively; for y≥2 the paired share is below 1/2. Taking the expectation with E[y]=1 proves the strict best response at zero. Every other symmetric profile has a nonzero payoff gradient toward the mean on each coordinate, an available direction even at a finite endpoint.",
+      "residual_risks": [
+        "The decay amplitude is for local nonstationary center-manifold trajectories in the stated coordinate and time scales. No critical equality, global basin, or stochastic-learning conclusion is checked."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Corollary 9 gives the general-N threshold σ*=σ_B√((N−2)/(N−1)); Theorem 4 identifies the common and transverse Jacobian blocks. Pigolotti et al. use a Lotka–Volterra competition law."
+        ],
+        "reasoning": "The threshold specializes to v/2 here but cannot supply the cubic sign at a double zero eigenvalue. A Gaussian kernel in a different competitive vector field does not imply this coefficient.",
+        "searches": [
+          "Lovett–Fu arXiv:2611.17148v1, Appendix A, Theorems 3–5, Corollary 9",
+          "Pigolotti et al., arXiv:0802.3274v3, Eq. (1)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact record",
+        "Lovett–Fu main text, Appendix A and cited public repository README",
+        "Alternate PDF copy",
+        "Pigolotti et al. Eq. (1)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Figure 3 describes a pitchfork for one bimodal landscape. Appendix A gives the eigenvalue-based threshold. The public README describes the model, not a general critical cubic. Neither retrieved PDF contains SI §3.2."
+        ],
+        "reasoning": "If the example’s pitchfork fixes its local cubic sign, that is at most one resource family. Establishing the general dependence on μ₄ and an opposite sign with matched variance requires a separate nonlinear calculation, not parameter substitution into the prior linear criterion. The amplitude is a standard consequence of this new coefficient.",
+        "searches": [
+          "Lovett–Fu Figure 3 and its SI §3.2 pointer; Appendix A (A4)",
+          "arXiv source endpoint and identified lawful mirror of the paper; MarksLovett/InflGame README"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact Resultary match ending 93ec1b782647 is the assigned result. Lovett–Fu Eqs. (1)–(2), (6) use the same proportional-share Gaussian flow under own-payoff gradients. The further search surfaced copies or a synopsis of the same paper."
+        ],
+        "reasoning": "This is the same model after translating reach and variance conventions. The distinction is in what is established at the common linear threshold.",
+        "searches": [
+          "Resultary: three-player proportional Gaussian location game, critical reach, fourth moment and center-manifold stability",
+          "Lovett Fu \"Learning Dynamics of the Influencer’s Game\" Gaussian pitchfork supplementary information critical kurtosis"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed threshold and decay reproduce the assigned record itself. The prior figure concerns one specific bimodal family, not a table of arbitrary-law critical coefficients. No matching coefficient passage was located in the main text."
+        ],
+        "reasoning": "An example diagram does not tabulate the moment-dependent map. Literal search misses do not rule out another statement or notation in the main text or supplement.",
+        "searches": [
+          "Exact Resultary finding 93ec1b782647",
+          "Lovett–Fu Figure 3 and Eq. (15); main-text searches for fourth moment, kurtosis and 13/12"
+        ]
+      },
+      "rationale": "The model and linear threshold are Lovett–Fu’s. The inspected main paper gives a qualitative three-player pitchfork for a specific bimodal landscape, but not the arbitrary finite-law threshold in kurtosis, both signs at the same variance, or critical decay amplitude. In fact Theorem 4 and Corollary 9 of the inspected version literally state a nonlinear ‘if and only if’ stability claim in terms of strict linear stability; the independently checked stable critical example shows that necessity cannot extend to this nonhyperbolic regime under the stated dynamics. The contribution here is the explicit nonlinear computation and sign reversal at equality, not the model or the rate of an abstract cubic equation. Priority remains bounded by the inaccessible supplement.",
+      "residual_risks": [
+        "Lovett–Fu SI §3.2 could contain overlapping higher-order calculations, especially for its bimodal example; the public source endpoint did not resolve the supplement.",
+        "The prior example’s resource support/discretization was not verified, so a qualitative comparison is not an exact finite-law calculation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical bound finding",
+          "evidence": "13/12 threshold, both stability signs, critical t^{-1/2} law.",
+          "identifier_or_url": "2026/11/22/SCOPE-kurtosis-determines-nonlinear-critical-clustering-in-a-three-pla--93ec1b782647",
+          "material_read": "Indexed summary and assigned Finding",
+          "method": "Resultary and frozen full text",
+          "title": "Kurtosis determines nonlinear critical clustering in a three-player Gaussian resource game",
+          "trigger": "Exact indexed match"
+        },
+        {
+          "assessment": "Same model and linear threshold; particular bimodal example, not verified universal nonlinear classification",
+          "evidence": "Fig. 3 describes a continuous dispersed branch. (A4) states a strict threshold; the double zero at equality is outside a linear stability inference. SI §3.2 is cited but was not retrieved.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.17148v1",
+          "material_read": "Eqs. (1)–(2), (6), Figure 3 discussion p. 8 (offsets 67847–70545), Eq. (15) p. 17, SI pointer p. 18, Appendix A pp. 19–20 (offsets 117150 and 120380)",
+          "method": "Open primary PDF passages",
+          "title": "Learning Dynamics of the Influencer’s Game in Resource Landscapes",
+          "trigger": "Originating model and prior pitchfork"
+        },
+        {
+          "assessment": "Same main text, not the missing supplement",
+          "evidence": "The notices enumerate separate supplementary sections and say full proofs are provided there.",
+          "identifier_or_url": "https://borowiecki.dev/pdf/2611.17148",
+          "material_read": "Supplementary Information notices, pp. 18–19, offsets around 115007 and 116993",
+          "method": "Lawful mirror PDF passage",
+          "title": "Learning Dynamics of the Influencer’s Game in Resource Landscapes (alternate copy)",
+          "trigger": "Attempt to locate the paper’s supplemental analysis"
+        },
+        {
+          "assessment": "Model description only in inspected material",
+          "evidence": "No critical coefficient or decay claim there.",
+          "identifier_or_url": "https://github.com/MarksLovett/InflGame",
+          "material_read": "README",
+          "method": "Public repository passage",
+          "title": "InflGame",
+          "trigger": "Code repository cited by originating paper"
+        },
+        {
+          "assessment": "Different model",
+          "evidence": "Lotka–Volterra species dynamics rather than players’ gradients of proportional shares.",
+          "identifier_or_url": "https://arxiv.org/abs/0802.3274v3",
+          "material_read": "Eq. (1), PDF p. 3",
+          "method": "Open primary PDF passage",
+          "title": "How Gaussian competition leads to lumpy or uniform species distributions",
+          "trigger": "Cited Gaussian competition analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof Steps 2–4",
+        "Lovett–Fu Appendix A and Figure 3 discussion"
+      ],
+      "rationale": "The two matched-variance witnesses show that a linear threshold plus variance is insufficient to classify the same model at criticality. The calculation gives one interpretable statistic that settles both stability outcomes away from the sharply specified boundary and fixes the relaxation amplitude in the original time units.",
+      "residual_risks": [
+        "Only local three-player dynamics; the zero-cubic case requires a higher-order analysis."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

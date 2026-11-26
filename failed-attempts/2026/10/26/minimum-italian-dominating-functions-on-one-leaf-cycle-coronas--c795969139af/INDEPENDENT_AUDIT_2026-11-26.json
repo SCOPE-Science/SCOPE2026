@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:59:45.821252Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The private leaf forces each pair to weigh at least one, with (0,1) the only weight-one pair. Weight-at-least-two sites dominate the base graph because an uncharged site's leaf contributes only one and a positive original neighbor must be charged. A minimum dominating set attains the lower bound with (1,1) on that set. At equality the charged set has size gamma(H) and every charged pair weighs two. If B consists of positive original vertices, every vertex outside N[B] must be an inactive charged site. Conversely B union U(B) already dominates, so gamma(H) squeezes the number of inactive charged sites to exactly |U(B)|. Then (2,0) and (1,1) are free choices on B, while all remaining labels are fixed. This argument includes an isolated base vertex and works without connectivity. On cycles, n-u≤3b and b+u=ceil(n/3) leave only b=k except for residue one, when b=k-1 is possible. For u=0, the three residue counts of labeled centers are 3, n(k+1)/2 and n respectively (ordered gap deficits 0, 2 and 1, with n/k accounting for the marked start). For u=1 the uncovered site fixes the tiling of the other 3m sites by disjoint triples, giving n further choices with weight 2^m. The boundary cases n=3,4,5 follow from the same argument. Independent direct checks covered all 75 labeled simple base graphs on 1–4 vertices and sunlets of lengths 3–6, with (minimum weight, count) = (4,6), (6,32), (7,20), (8,12); separate tight-set counts through n=18 agreed. These corroborate the proof; the frozen checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hernández-Ortiz et al. give the arbitrary-base q+gamma(H) formula for a single attached leaf.",
+          "Shao–Zhao studies weight counts on paths, trees and bare cycles rather than the claimed corona coefficient.",
+          "The later November 22 transform covers all weights for arbitrary one-leaf coronas, hence the same minimum coefficient."
+        ],
+        "reasoning": "The numerical minimum theorem alone does not count labelings; it is not the decisive match for the census. The later stronger formula demonstrates scope overlap but does not establish priority.",
+        "searches": [
+          "arXiv:2006.02124 §3 Corollary 3.1",
+          "arXiv:2610.00108v1 p.1 and §6",
+          "Resultary 3af28638c815 external-boundary transform"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 9dede768c463",
+        "Resultary 54ece45394cc",
+        "Resultary 3af28638c815",
+        "arXiv:2006.02124",
+        "arXiv:2610.00108v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the earlier bijection S is a minimum dominating set and A⊆S dominates V minus S; a labeling has exactly 2^|A| choices.",
+          "Neither the pair-weight argument nor this condition uses the cycle structure: replacing the two-neighbor test by 'some original neighbor is active' is literally the same local inequality."
+        ],
+        "reasoning": "On any base graph the resulting pairs (S,A) satisfy A union U_H(A)⊆S. The left-hand set already dominates and S is minimum, so it must equal S. This collapses the earlier argument to the frozen tight-set sum in one step. The cycle-only enumeration was already given and does not yield a new contribution after this rewriting.",
+        "searches": [
+          "Resultary 9dede768c463, Steps 1 and 2, bounded local-mirror passage at offset 1600",
+          "arXiv:2006.02124, Corollary 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The October 13 record calls positive original sites active and assigns 2 choices per active site of a minimum core dominating set S; the frozen B is its active subset A.",
+          "The later external-boundary transform identifies b_H(B)=q-|B|-|U_H(B)|, so optimal boundary size q-gamma(H) is precisely the frozen tight-set criterion."
+        ],
+        "reasoning": "The Italian and Roman {2} zero-label tests agree. The earlier sunlet result counts the same label assignments including the leaf labels. The later transform is stronger coverage but not used as evidence of earlier publication.",
+        "searches": [
+          "Local Resultary exact and semantic queries on minimum Italian / Roman {2} domination on the one-leaf cycle corona",
+          "Resultary 9dede768c463, RESULT.md Steps 1–3, offset 1600",
+          "Resultary 3af28638c815, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier 9dede768c463 gives 3·2^m, n(m+3)·2^m, n·2^(m+1) in residues 0,1,2 with n≥3 and the same labeled sunlet graph; its metadata gives publication date 2026-10-13.",
+          "The November 8 full-polynomial record gives the same exact count as its minimum coefficient."
+        ],
+        "reasoning": "This is a direct all-order exact match, not a match of a few small values or a record of bare cycle parameters. The November instance is later and is not needed for the rejection.",
+        "searches": [
+          "Local Resultary search for labeled Italian sunlet minimum multiplicities",
+          "Resultary 9dede768c463 Finding and METADATA.json",
+          "Resultary 54ece45394cc Finding"
+        ]
+      },
+      "rationale": "The distinct October 13 Resultary record 9dede768c463, whose publication date is explicit in its metadata, already gives the exact labeled sunlet formulas and the complete active/inactive optimizer bijection. The arbitrary-base form is an immediate graph-independent rewriting of its optimum-pair argument, not a nontrivial extension of its cycle-specific gap analysis. The earlier primary rooted-product paper also covers the minimum weight. This is actual overlap and implication, not a title match or a failed literature retrieval.",
+      "residual_risks": [
+        "The checked catalogue dates and exact statements establish coverage for this comparison, not first discovery or the relationship between the underlying derivations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior full sunlet coverage; optimizer argument directly generalizes",
+          "evidence": [
+            "Same all-order formulas; active-subset bijection and independent two-way choices."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-exact-minimum-italian-domination-multiplicities-of-sunlet-graphs--9dede768c463/RESULT.md",
+          "material_read": "Finding; proof Steps 1–3, offset 1600; associated METADATA.json publication date",
+          "method": "Local mirror, bounded passages",
+          "title": "Exact minimum Italian-domination multiplicities of sunlet graphs",
+          "trigger": "Same graph, invariant and exact sequence"
+        },
+        {
+          "assessment": "Known general scalar equality, not a count in the cited corollary",
+          "evidence": [
+            "gamma_I(G ⊙ K1)=n(G)+gamma(G)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2006.02124",
+          "material_read": "§3, p.10, Corollary 3.1, offset 30250",
+          "method": "OA primary PDF",
+          "title": "Italian domination in rooted product graphs",
+          "trigger": "Same corona operation and objective"
+        },
+        {
+          "assessment": "Inspected cycle enumeration is on bare cycles",
+          "evidence": [
+            "Weight counts on paths, trees and C_n."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.00108",
+          "material_read": "p.1 and §6 p.17",
+          "method": "OA primary PDF",
+          "title": "Counting Weight-k Italian Dominating Sets on Trees and Cycles",
+          "trigger": "Same labeling rule and cycle counts"
+        },
+        {
+          "assessment": "Later explicit overlap, not earlier priority evidence",
+          "evidence": [
+            "Full weight polynomial and the matching minimum census."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-full-italian-domination-polynomial-and-minimum-labeling-census-o--54ece45394cc/RESULT.md",
+          "material_read": "Finding",
+          "method": "Local mirror",
+          "title": "Full Italian domination polynomial and minimum labeling census of sunlets",
+          "trigger": "Stronger count for the same sunlet family"
+        },
+        {
+          "assessment": "Later broader coverage",
+          "evidence": [
+            "Optimal boundary condition is equivalent to the tight-set sum."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-universal-external-boundary-transform-for-italian-domination-p--3af28638c815/RESULT.md",
+          "material_read": "Finding",
+          "method": "Local mirror",
+          "title": "A universal external-boundary transform for Italian domination polynomials",
+          "trigger": "Same arbitrary base operation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A new full optimizer census on sunlets would be meaningful, but it is already available. The only apparent remainder is eliminating the charged-set variable in the known local active-site bijection via the minimality of S. That useful algebraic restatement is mechanically implied and supplies no independently new exact invariant or classification; no surviving substantive claim warrants a repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

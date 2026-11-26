@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:15:08.783897Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–39; VERIFICATION.md; check_4x5_perfect_matching.py inspected, not run",
+        "Independent replay: python3 /workspace/review_checks/check_5.py, which uses a different edge order and matching, with critical cells only in degrees 0 and 3",
+        "Independent reconstruction of the frozen certificate and signed boundary: /workspace/branches/68185b7f-fd56-4062-9152-abdf765216c9/record5_independent_check.py"
+      ],
+      "rationale": "Enumerating perfect matchings by assignment of black vertices to distinct adjacent white vertices and taking all nonempty edge submasks gives exactly 95 facets and 50,462 faces. An independent acyclic matching with 25,228 pairs leaves one critical vertex and five critical three-cells; its complete reversed Hasse graph topologically sorts all 50,462 faces across 289,078 incidences. Forman's CW reduction therefore gives five 3-cells attached to a point. This also avoids reliance on any numerical rank or on the frozen matching's tie order. The latter certificate was separately reconstructed, including critical counts (1,1,6) in dimensions (0,2,3) and the exact signed Morse row (1,0,−1,−1,0,0). Its unit attachment makes the two-sphere plus that three-cell a contractible CW subcomplex, which can be collapsed up to homotopy. Each perfect matching has ten edges, hence the complex is pure of dimension nine; nonzero reduced homology below dimension nine excludes pure shellability.",
+      "residual_risks": [
+        "Open boundaries and face extendibility to a perfect matching are essential. Only this grid is verified; the two finite certificates use the standard discrete-Morse CW theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2024 work treats two-row grids and polygonal line tilings and conjectures a sphere wedge for rectangular grids generally. The 2026 work proves a formula for P3 × P_(2n), not an all-width formula."
+        ],
+        "reasoning": "Neither theorem includes P4 × P5 in either orientation. The conjecture, even as a statement, does not specify the five top spheres or their dimension.",
+        "searches": [
+          "arXiv:2407.05809v2 Theorem 1.1 and Conjecture 6.1; arXiv:2611.18058v1 Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2407.05809v2 and arXiv:2611.18058v1",
+        "Resultary 557d374d590c, d33d17c761d3, b95382aacf1f, a318fef9daa0 and c400769702b4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ordinary complex includes nonextendible matchings. Its homotopy type does not determine that of the specified subcomplex. The conjecture asks only for a wedge, while the prior proven formulas use different rectangular graphs."
+        ],
+        "reasoning": "Known general Morse theory applies only after certifying a matching and the relevant cell attachments; it does not predict this exact integral type for the open four-by-five grid.",
+        "searches": [
+          "Compare grid families, discrete-Morse reduction and the same underlying grid's ordinary matching complex"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "P5 × P4 is the same object by coordinate swap. b95382aacf1f uses the identical open underlying graph but the ordinary matching complex. a318fef9daa0 uses the same number of vertices and extendibility predicate, but graph C4 × P5."
+        ],
+        "reasoning": "Neither removing the extendibility test nor replacing P4 by C4 is an equivalent formulation. In particular, extending within the cylinder permits extra facets and may allow new faces even after restricting to open-grid edges.",
+        "searches": [
+          "Resultary: four-by-five open grid, matching and perfect-matching complexes, five 3-spheres; compare transposed and periodic grids"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "557d374d590c is the frozen record itself. Distinct close matches: P4 × P4 perfect-matching complex gives S² ∨ S² ∨ S³; P4 × P5 ordinary matching complex gives 41 S⁶; C4 × P5 perfect-matching complex gives 88 S⁴. The three-row border comparison c400769702b4 covers P3 × P8 and C3 × P8 only."
+        ],
+        "reasoning": "The neighbor entries are materially distinct after checking their definitions, not merely their publication dates or homotopy invariants.",
+        "searches": [
+          "Resultary exact object and wedge parameters; inspect 557d374d590c, d33d17c761d3, b95382aacf1f, a318fef9daa0, c400769702b4"
+        ]
+      },
+      "rationale": "The substantive claim is the integral homotopy type for the open P4 × P5 perfect-matching extendibility complex. The strongest inspected grid theorems concern widths two and three, and the close indexed computations change either the dimension, the periodicity or the complex. None of those changes preserves the claimed face poset or supplies the asserted integral type.",
+      "residual_risks": [
+        "No earlier equivalent result was found in bounded sources. This comparison cannot rule out an unindexed grid calculation or an unlocated more general implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Common definition, but proven theorem of smaller width",
+          "evidence": [
+            "Two-row grids and polygonal line tilings are treated; the general rectangular statement is a conjecture."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2407.05809v2",
+          "material_read": "Theorem 1.1, PDF p. 2 offset 7160; Conjecture 6.1, p. 17 offset 57670",
+          "method": "OA PDF passages",
+          "title": "Perfect Matching Complexes of Polygonal Line Tilings",
+          "trigger": "General rectangular-grid setting and preceding theorems"
+        },
+        {
+          "assessment": "Different proven width",
+          "evidence": [
+            "The Fibonacci wedge theorem fixes one path size at three and the other even."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.18058",
+          "material_read": "Theorem 1.1, PDF p. 2 offset 7400",
+          "method": "OA PDF passage",
+          "title": "Perfect Matching Complexes of 3×2n Grid Graph",
+          "trigger": "Newer exact grid family"
+        },
+        {
+          "assessment": "P4 × P4, not P4 × P5",
+          "evidence": [
+            "Two 2-spheres and one 3-sphere at the square grid."
+          ],
+          "identifier_or_url": "2026/11/1/SCOPE-the-four-by-four-grid-perfect-matching-complex-is-a-mixed-dimens--d33d17c761d3",
+          "material_read": "RESULT.md offsets 0 and 4300",
+          "method": "Resultary and local mirror",
+          "title": "The four-by-four grid perfect-matching complex is a mixed-dimensional sphere wedge",
+          "trigger": "Same open-grid width and same complex"
+        },
+        {
+          "assessment": "Different face predicate",
+          "evidence": [
+            "All matchings are allowed; result is a wedge of forty-one 6-spheres."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-forty-one-six-spheres-in-the-matching-complex-of-the-4-times5-ca--b95382aacf1f",
+          "material_read": "RESULT.md offset 0, finding and scope",
+          "method": "Resultary and local mirror",
+          "title": "Forty-one six-spheres in the matching complex of the 4×5 Cartesian grid",
+          "trigger": "Exact open underlying graph"
+        },
+        {
+          "assessment": "Periodic C4 factor, not P4",
+          "evidence": [
+            "Extends matchings on C4 × P5, whose topology is reported as a wedge of eighty-eight 4-spheres."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-five-layer-square-cylinder-perfect-matching-complex-88-four-sphe--a318fef9daa0",
+          "material_read": "RESULT.md offset 0, finding and scope",
+          "method": "Resultary and local mirror",
+          "title": "Five-layer square-cylinder perfect-matching complex: 88 four-spheres",
+          "trigger": "Same-day close geometric parameters"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–15 and 41–49; Chandrakar–Singh Conjecture 6.1; nearby grid statements in originality review"
+      ],
+      "rationale": "Tests the open rectangular sphere-wedge conjecture at a natural larger width with an odd second side, gives the exact integral sphere multiplicity and degree, and distinguishes the perfect-matching subcomplex from both the ordinary matching complex on the same graph and the mixed-dimensional 4×4 case. The non-shellable pure example and exact homotopy type are useful checks on potential four-row formulas.",
+      "residual_risks": [
+        "This is a single finite case, not a uniform four-row theorem or construction."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

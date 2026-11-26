@@ -1,15 +1,21 @@
-# Scientific review: power–complementary cycle powers
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The proof first eliminates complete-graph boundary cases and forces \(n=2(p+1)k+1\) by regular degree comparison. At that order, a cyclic-gap classification partitions powered-cycle triangles into uniquely anchored short-interval triangles and three-short-gap triangles; the complement triangles are counted by three long gaps. A direct algebraic identity gives the positive defect \(nk(k-1)/2\) for \(k\geq2\). Multiplication by \(p+1\) modulo \(2p+3\) is an explicit positive-case isomorphism. Exact counts and the multiplier were checked by the included independent edge-enumerating script. Neither a finite check nor a literature claim is needed to bridge the universal quantifiers.
+PASS
 
-## Originality: PASS, subject to residual risk
+The distance in C_n^k between distinct vertices is the ceiling of their cyclic distance divided by k: each jump covers at most k and partitioning a shortest cyclic arc attains this bound. Thus the power is C_n^(pk). If it is complete, the complement of C_n^k cannot be complete because it omits every original cycle edge; this is the relevant boundary justification, rather than the complement merely having at least one edge. Otherwise degree equality gives n=2(p+1)k+1. For r=pk, a powered-cycle triangle has cyclic gaps each at most r or at least n-r. The unique-large-gap class is counted n binom(r,2), by the first vertex following the gap and the two positive offsets. If there is no large gap, the deficits from r sum to (p-2)k-1; the class is empty at p=2 and otherwise positivity imposes no additional bound on the weak compositions. Each unordered triangle has three possible cyclic starting vertices, giving the second term (n/3) binom((p-2)k+1,2). Complement triangles have all gaps >=k+1, which also precludes a gap >=n-k. Their count is (n/3) binom((2p-1)k,2). Subtraction gives exactly nk(k-1)/2. This excludes all k>=2. At k=1, n=2p+3 and gcd(p+1,2p+3)=1, so the multiplier p+1 sends the omitted distance-one edges of the complement to the omitted distance-(p+1) edges of the powered cycle. This handles the full integer ranges. The supplied notes, script and recorded output were inspected, not executed. Separate adjacency-mask and common-neighbor counts gave (7,7) at (n,k,p)=(7,1,2) and (272,255) at (17,2,3); these are finite corroboration, not the classification proof.
 
-The 2014 and 2021 square-complementary literature already establishes \(C_7\), the 2015/2016 cube-complementary literature establishes \(C_9\), and their broader circulant examples need not be consecutive-jump cycle powers. These earlier statements and a 2026 chordal/distance-hereditary exclusion do not imply the quantified all-exponent/all-cycle-power classification: in particular, degree matching alone leaves an infinite positive-degree candidate family with \(k\geq2\). The new triangle defect eliminates that family. Targeted searches of available published graph-equation literature and mathematical research records found no equivalent theorem. However, full text of certain early graph-equation works and the 2026 preprint could not be read, so an unindexed or inaccessible equivalent formulation remains possible.
+## originality
 
-## Value: PASS
+PASS
 
-The graph equation \(G^p\cong\overline G\) is a classical structural problem. Resolving it on the natural two-parameter family of consecutive-jump circulants for every exponent gives a complete infinite classification, not merely one additional example. The exact triangle defect supplies a reusable, directly interpretable invariant obstruction and explains why equality of degree is insufficient. The theorem is restricted to cycle powers, not to all circulant or all graphs.
+The supported distinct result is the joint all-p classification for consecutive-distance cycle powers together with the exact uniform triangle obstruction at equal degree. The square C7 and cube C9 positives are established and explicitly excluded from the originality claim. Checked exclusions for other graph classes and constructions with nonconsecutive jumps do not cover this family. This is a bounded, best-of-knowledge assessment; the early general graph-equation paper remains an access risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A natural infinite cyclic graph family admits a complete isomorphism classification despite an unbounded degree-matched candidate set. The exact defect isolates a simple invariant obstruction and shows precisely why degree and all positive ordinary-cycle examples do not extend to thicker cycle powers. The mathematical value is the all-exponent obstruction and sharp classification, not novelty of the known example cycles.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

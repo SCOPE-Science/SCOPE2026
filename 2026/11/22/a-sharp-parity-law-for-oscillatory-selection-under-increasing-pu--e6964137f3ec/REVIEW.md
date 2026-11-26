@@ -1,25 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem defines mixed-population payoff differences and sign-change counting precisely. Conditioning whether two opposite-type focal individuals are included in each other's interaction group gives the exact hypergeometric comparison identity, with inclusion probability \((n-1)/(N-1)\). This makes the payoff difference a polynomial of degree at most \(n-1\) in the population cooperator count. Strictly increasing positive returns at the fixed terminal critical value force negative and positive endpoint signs. The parity-improved upper bound follows from the count of intervening zeros; the rational family provides sharpness, strict increase and aggregate zero. The Fermi product identity gives equal single-mutant fixation probabilities for every selection intensity. An independent exact-fraction checker passed 19 construction sizes and additional polynomial-degree cases.
+PASS
 
-Risk: The finite numerical checks alone would not cover arbitrarily large \(n\); the explicit inequalities and polynomial argument in the proof supply the general conclusion. The assertion does not cover fixed noncritical terminal returns or non-Fermi updates for the fixation corollary.
+Couple opposite focal types by including each other's focal player together, with probability (n-1)/(N-1), and otherwise sampling the same n-1 common candidates. In the inclusion case the public benefits cancel, leaving the unit cost; otherwise the benefit difference is the hypergeometric average of a_{J+1}-a_J. This yields Eq. (1) and degree at most n-1. The two endpoint cases J=0 and J=n-1, with positive strictly increasing returns reaching r(n)=n(N-1)/(N-n), give Δ_1<0<Δ_{N-1}. Sign changes between consecutive nonzero entries force roots in disjoint open intervals and their total is odd. At N=n+1 the conditional sample is deterministic and the given rational schedule gives Δ_i=d_i. Its partial sums S_k for k<n stay between -ε and -ε/2, so all multipliers are positive. The strict increase follows from d_k>S_{k-1}/(k-1) for k≥2: positive d_k are immediate and each negative middle entry is controlled by 2^k>2(k-1). The n=2 empty middle range works; for odd n the final positive entry repeats the preceding sign, giving n-2, and for even n it completes alternation. In the symmetric Fermi chain the fixation ratio is exp(βΣΔ_i), so the zero sum implies exact equality for all β and half occupation in the stated rare-symmetric-mutation limit. In fact summing (1) via Σ_i binom(i-1,j)binom(N-i-1,n-1-j)=binom(N-1,n) gives ΣΔ_i=(N-n)r(n)/n-(N-1), so neutrality is true for all admissible schedules. Independently tabulated the direct focal payoffs for the construction at n=2–20 with exact fractions, including terminal-sum and degree spot checks; inspected the supplied checker without executing it. All integer validity is analytic; sharpness is not asserted for every fixed larger N.
 
-## Originality — PASS (literature-bounded)
+## originality
 
-Wang et al. (2026) state a terminal-return criterion for aggregate selection under weak selection; this does not determine the number of mixed-state sign reversals. Hauert and McAvoy (2024) study linear multiplication-factor dependence, whose limited curvature does not imply the sharp all-group-size monotone-schedule construction. Wu, Traulsen and Gokhale (2013) already supply the general polynomial degree observation, so the degree-only bound is background rather than claimed novelty. A relevant prior finding about convex payoff differences requires geometric synergy factors, while a separate finite-mutation finding concerns changes in stationary abundance rather than this zero-mutation parity-sharp local-selection census. The exact parity bound combined with rational strict-economies-of-scale attainment and terminal-neutral fixation was not identified in searched published claims or inspected primary sections.
+PASS
 
-Risk: General mathematical observations about Bernstein/hypergeometric polynomials can yield parts of this proof, and unindexed prior literature might contain an equivalent monotone-return construction. No historical uniqueness claim or independent validation is made.
+The supported distinct claim is the exact parity-sharp maximum and its simultaneous attainment by strictly increasing positive rational multipliers at the prescribed terminal value, already at N=n+1. Neither the degree observation nor the terminal sum is new. The all-intensity Fermi consequence follows immediately from the already known exact sum and standard birth–death ratio, not from a property peculiar to these witnesses. The inspected comparable sources do not give the constrained sharp sign-pattern construction.
 
-## Value — PASS
+## value
 
-The number of local evolutionary selection reversals is an intrinsic measure of complexity of a population game's fitness landscape. The source's surprising terminal-return criterion does not constrain this complexity; even strictly increasing multiplication factors and increasing total public benefit attain a parity-sharp sequence of successive local reversals. The theorem supplies a natural complete maximum and constructive witnesses for every group size, showing a precise limitation of reasoning from long-run homogeneous-state abundance alone. This is a structural finite-population classification rather than an arbitrary isolated parameter computation.
+PASS
 
-Risk: The attaining multipliers are specifically constructed, and no empirical prevalence or independent practical application is claimed.
+The result identifies the exact largest local sign complexity compatible with a natural global neutrality criterion and strictly increasing returns. The witnesses show that strict economies of scale permit the maximum number of reversals rather than merely one threshold, even though the absorbing-state comparison is unchanged. This is a complete all-group-size extremum with a feasible witness, not a claim of empirically common schedules or of oscillatory individual trajectories.
 
-## Closest literature and limits
-
-Scientific comparisons are documented in `AUDIT.json`; the three inspected primary full-text sources appear in `RESULT.md`. The deterministic proof, exact rational code and scope limitations are complete, but research literature searches are not comprehensive certification.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

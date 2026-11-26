@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:55:05.791261Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Connectedness and B>0 give a positive definite grounded Laplacian throughout the simplex. For a nonzero diagonal variation D the Hessian quadratic form is 2||A^(-1/2) D A^(-1)||_F²>0, so the minimizer is unique and invariant under both class permutation groups. The two contrast eigenspaces and the quotient on partwise constants give the stated trace. With b=(B−pa)/q, differentiation gives q² f'_B(0)=F_{p,q}(t) and f'_B(B/p)=2/B+1/p−(p−1)/(p+q+B/p)²>0. Strict convexity proves the criterion including equality. The turning point of h_β=(β+2/t)(1+t)² is its unique positive critical point, βt₀²+t₀=1; its minimum and divergence at both ends prove the support classification. For p=2 and q≤5, α≤10<Γ(1)≤Γ(β), while q=6 gives F(1/2)=53/48 and the stated cubic, whose positive roots agree with the displayed decimals. For q/p^(3/4)→c, the difference α−β is 2c³p^(1/4)+o(p^(1/4)), whereas Γ−β is 4cp^(1/4)+o(p^(1/4)); this proves the crossover away from c=√2. For fixed p, α→∞ and β→p force the two roots to zero and infinity; the leading balances give the stated transition budget scales. The two size limits are different; neither resolves the critical joint scaling layer.",
+      "reproduction": "python /workspace/reproductions/independent_checks.py 2: independent unnormalized quotient inversion, exact endpoint derivatives, exact example polynomial and witness, and symbolic leading expansion. The frozen verify.py was inspected but not executed; its finite assertion count is reported only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lin–Fardad–Jovanović supply convex relaxation and an SDP framework for general graphs.",
+          "Fitch–Leonard p. 4 and §V-B treat finite common-k noisy leaders, as well as the noise-free limit; finite-k placement optimizes locations, not freely variable gains. Resultary 5b299daa2230 fixes four common-gain leaders on K_{2,m}, giving a different leader-count phase diagram."
+        ],
+        "reasoning": "A general numerical or variational solution for the objective does not establish the analytical all-(p,q,B) boundary predicate. Equal finite gains with fixed leader cardinality do not allow the reallocations in this simplex.",
+        "searches": [
+          "arXiv:1302.0450, §IV-A",
+          "arXiv:1407.1569, model and §V-B",
+          "Resultary: finite gain allocation on complete bipartite and split graphs"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1302.0450",
+        "arXiv:1407.1569",
+        "Resultary 3040bc2335f8",
+        "Resultary fe1c9ab36e72",
+        "Resultary 5b299daa2230"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "3040bc2335f8 shares the q=6 onset for two hubs and B_-∼8/q and B_+∼q², but has no edge joining those hubs and no growing clique. The added edge changes the clique contrast eigenvalue and hence the endpoint derivative.",
+          "The noise-free balanced split result varies an integer leader budget and removes pinned rows/columns, not the continuous total sum."
+        ],
+        "reasoning": "Neither exact result entails the general clique support criterion or the joint asymptotics q∼c p^(3/4). CR1 contains the optimization, but does not give these explicit solutions and structural consequences.",
+        "searches": [
+          "Mirrored 3040bc2335f8 support and scale statement",
+          "Mirrored fe1c9ab36e72 noise-free split optimization",
+          "arXiv:1302.0450, §IV-A (CR1)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lin–Fardad–Jovanović (CR1), p. 8, uses trace((L+D_κ D_x)^−1), Σx=N_l and 0≤x_i≤1. Setting N_l=1, D_κ=B I and g=B x gives exactly the present objective and feasible set at any fixed B."
+        ],
+        "reasoning": "The Boolean LS1 is not the target problem, but its relaxation really does represent this continuous optimization after scaling. Formulation is therefore prior; the split-graph support and asymptotic solution are the claims assessed for distinctness.",
+        "searches": [
+          "arXiv:1302.0450, (LS1), §IV-A (CR1)",
+          "Resultary: continuous inverse-trace grounding and reentrant split-graph support"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "3040bc2335f8 on K_{2,q} gives q(q−1)s≥(s+2)³ for s=B/q. At q=6 and t=B/12 this yields 2t³+6t²−9t+2≤0, not 25t³+82t²−151t+32≤0.",
+          "fe1c9ab36e72 gives a square-root scale for an integer count of perfectly pinned leaders on a balanced split graph."
+        ],
+        "reasoning": "The earlier-style exact phase tables differ by topology or decision variables. The same-day bipartite finding is a substantive match in mechanism and leading scales, not an identical closed threshold. The date does not establish priority.",
+        "searches": [
+          "Resultary: exact support phases and grounding thresholds on two-hub bipartite or split networks",
+          "Mirrored 3040bc2335f8 and fe1c9ab36e72 Findings"
+        ]
+      },
+      "rationale": "The inverse-trace optimization itself is already present as a special case of an existing convex relaxation. The strongest distinct indexed exact result shares reentrance, the q=6 onset for two hubs and both leading budget scales, but it concerns K₂,ᵩ without the hub edge and has different exact thresholds. The supported distinct contribution is the general split-graph closed support inequality, budget-window classification and growing-clique three-quarter-power law, not the general optimization or the existence of hub reentrance in any network.",
+      "residual_risks": [
+        "A broader unindexed exact allocation theorem could cover weighted split networks and their support thresholds. The bounded comparison does not certify priority or same-day ordering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact optimization equivalence to CR1 at fixed B by rescaling; no located split support law",
+          "evidence": [
+            "(LS1) has prescribed cardinality and Boolean x. (CR1) retains the inverse trace and replaces Boolean x with 0≤x≤1."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1302.0450",
+          "material_read": "Abstract, pp. 5–6 (LS1), §IV-A p. 8 (CR1), offsets 14500 and 22434",
+          "method": "Targeted OA PDF reading",
+          "title": "Algorithms for Leader Selection in Stochastically Forced Consensus Networks",
+          "trigger": "Same inverse grounded-Laplacian trace and potentially equivalent continuous relaxation"
+        },
+        {
+          "assessment": "Both noisy finite-gain and noise-free modes; distinct fixed-common-gain location problem",
+          "evidence": [
+            "Model assumes common weight k for selected leaders and distinguishes k→∞; §V-B treats two finite-k placements."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1407.1569",
+          "material_read": "p. 4 and §V-B pp. 12–13, offsets 13400 and 50600",
+          "method": "Targeted OA PDF reading",
+          "title": "Joint Centrality Distinguishes Optimal Leaders in Noisy Networks",
+          "trigger": "Finite positive gain and optimal leader allocations"
+        },
+        {
+          "assessment": "Substantial same-day overlap, not identical or dominating",
+          "evidence": [
+            "K_{2,q}, q=6 onset, q(q−1)(B/q)≥(B/q+2)³, scales 8/q and q²."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-reentrant-optimal-hub-grounding-on-two-hub-bipartite-networks--3040bc2335f8",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Reentrant optimal hub grounding on two-hub bipartite networks",
+          "trigger": "Closest exact reentrant support and fixed-hub budget law"
+        },
+        {
+          "assessment": "Integer counts of pinned leaders, not continuous gain support",
+          "evidence": [
+            "Considers K_n∨independent n and integer leader budget on order √n."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-a-square-root-migration-law-for-optimal-noise-free-leaders-on-ba--fe1c9ab36e72",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "A square-root migration law for optimal noise-free leaders on balanced split networks",
+          "trigger": "Exact phase law on same split topology in a balanced family"
+        },
+        {
+          "assessment": "Different fixed cardinality and gain decision variables",
+          "evidence": [
+            "Four leaders share a common finite gain; count sequence 2→0→1 for m=9,10."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-complete-four-leader-phase-diagram-on-unequal-complete-bipartite--5b299daa2230",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Complete four-leader phase diagram on unequal complete bipartite networks",
+          "trigger": "Finite-gain reentrant leader phase diagram on related graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a natural continuous-actuation variance objective, it matters whether to devote nothing to an entire well-connected orbit as available actuation increases. The exact budget window and nontrivial moving-size threshold answer this without repeated optimization runs. The asymptotic constants for two hubs overlap prior bipartite behavior; the varying-p classification and 3/4 crossover provide structural value beyond adding one edge or reporting numerical optima.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

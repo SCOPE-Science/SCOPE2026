@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The standard genus-three Cartier–Manin coefficient formula applied in characteristic three yields the explicit matrix \(H=\left(\begin{smallmatrix}a+b&0&1\\0&ab+2&0\\1&0&a+b\end{smallmatrix}\right)\). Its Frobenius-invariant diagonalizing basis gives exact stable rank: zeros occur precisely on the three stated divisors. Simultaneous vanishing would force \(a=b\) (or contradict \(1\ne-1\)), excluded by smoothness. The rank and geometric component counts therefore follow for all extensions, without extrapolation from finite experiments. The bundled finite-field checker independently constructs the polynomial, coefficient matrix, twisted products and exhaustive counts for \(q=3,9,27\).
+PASS
 
-## Originality — PASS (subject to independent review)
+Compute geometric invariants over an algebraic closure, so the possibly imperfect ground field poses no Cartier-semilinearity issue. Writing u=a+b and v=ab−1, the Hasse–Witt coefficient matrix in characteristic three is the direct sum of v and the block with diagonal u and off-diagonal 1. The block has eigenvectors (1,1) and (1,−1) over F_3. Each nonzero diagonal multiplier remains nonzero under every Frobenius twist, proving the stable-rank and Cartier-kernel claims. On ab=1, u=±1 forces a=b by the vanishing discriminant. The stratum with one zero eigenvalue has height two left after removing the two slopes 0 and two slopes 1; symmetry and divisibility of slope multiplicity by its denominator force slope 1/2 twice. Each quartic is separable precisely for a≠±1 (and similarly for b), and a shared root would give a=b. On each of the two lines and on the hyperbola the first coordinate is a free coordinate excluding 0 and ±1, with the other coordinate determined uniquely. Thus the counts are 3(q−3) and (q−2)(q−3)−3(q−3), including the empty open at q=3. The three simple determinant factors give a reduced divisor on the smooth open.
 
-The closest inspected primary work by Borówka–Shatsila (2023) provides the complex geometric model and elliptic quotients, while Gutierrez–Sevilla–Shaska (2012) and Shaska (2013) provide earlier genus-three involution normal forms and split-Jacobian geometry. The new statement classifies the characteristic-three nonordinary locus into three disjoint punctured lines with exact rational point counts and minimum \(3\)-rank two. Those explicit conclusions were not present in the inspected material. Semantic searches of published mathematical records for the same equation, Cartier eigenvalues, rank stratification, aliases, and finite-field counts returned no implication-equivalent result. Such a negative search is not a uniqueness proof; unindexed tables, older characteristic-three calculations and broader theory remain residual overlap risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The characteristic-three behavior of this classically studied, completely decomposable genus-three Jacobian family is controlled by three elliptic factors, yet a priori those factors could degenerate simultaneously. The theorem identifies the exact disjoint geometry of the nonordinary strata, rules out ranks zero and one, and supplies uniform exact counts over all \(\mathbb F_{3^m}\). These structural arithmetic invariants are natural to the family and are more informative than a rank computation at individual parameters.
+Pass for the complete characteristic-three locus and ordered arithmetic count, not for the equation, elliptic quotients, or the nonordinary geometric rank labels in isolation. The earlier indexed zero-middle-coefficient family covers the nonordinary labels on all three pieces, after coordinate changes, but does not characterize the ordinary complement or partition this ordered parameter open. The later broader even-coefficient rank theorem does imply the frozen classification by pullback and elementary counting, but does not establish earlier coverage. The inspected primary complex normal forms and quotients are close ingredients, not a stated characteristic-three stratification.
 
-## Scope and limits
+## value
 
-The proof is for the smooth ordered normal-form parameter space, not for distinct isomorphism classes or a compactified moduli stack. No assertion is made that complex Prym-map degrees specialize unchanged to characteristic three. An independent literature audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The marked space is fixed by a standard two-involution normal form, not an ad hoc slice chosen after computation. The combined result gives a uniform and readily usable description of every degeneration of ordinarity on its smooth open: reduced pairwise disjoint loci, the absence of lower p-ranks, and rational point totals over every finite extension. It distinguishes the geometry and the arithmetic of ordered factors; these counts must not be promoted to a moduli census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

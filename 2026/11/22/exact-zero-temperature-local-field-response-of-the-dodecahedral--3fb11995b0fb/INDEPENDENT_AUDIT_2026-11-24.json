@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:47:35.785023Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Assumptions and Proof",
+        "Frozen VERIFICATION.md, verify_dual.py and verify_exhaustive.py (inspected, not executed)",
+        "Independent replay: python3 /workspace/branches/check_1.py"
+      ],
+      "rationale": "Odd pentagons require at least one frustrated edge each; each edge is counted twice, so at least six edges are frustrated. At equality the frustrated edges are a perfect matching in the face dual. The associated bond signs multiply to +1 on every face and hence on every cycle, so they integrate to one spin assignment up to reversal. Independently I built G(10,2), verified its isomorphism to the frozen edge list, and traversed the entire 2^19-state slice with one spin fixed using Gray-code cut updates. Reversal bijects the two slices. The maximum cut is 24 with 125 winners in that slice, giving energy −18J and 250 ground assignments. BFS and exact spin-product sums for all ordered pairs gave distance numerators (250,−150,50,−30,50,−62) over 250; reversal makes the means zero. For N=250C I computed det(xI−N) by fraction-free elimination at 21 distinct integers, including the four rational roots. Equality at those points certifies the degree-20 factorization (x−8)(x−48)^5(x−72)^4(x−408)^4(x²−944x+22784)^3. Dividing the roots by 250 gives the stated spectrum. The simple smallest root is 8, the row sum of N, and the largest is 472+200√5, proving the ratio and that the uniform line is the unique minimizing direction. Finite-temperature differentiation at zero probe field gives beta times the spin covariance; the finite spectral gap makes the Gibbs measure converge to uniform on the ground set. Thus the result is for the ordered Curie limit, not a derivative of a selected ground-state spin pattern.",
+      "residual_risks": [
+        "No extension to a finite probe field at zero temperature, unequal couplings, quantum dynamics, or other fullerene graphs is inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-graph two-range study proves the small J2/J1 phase has S1=−18 and S2=12, and gives the scalar Curie coefficient 16/25. The C60 result concerns a distinct 60-vertex graph and gives rank 30, not the 20-dimensional positive definite matrix here."
+        ],
+        "reasoning": "The two-range model implies the short-range entries and uniform cumulant but not the separate longer-distance classes. The C60 computation is a method analogue and not a theorem covering the 20-site graph.",
+        "searches": [
+          "Resultary f9ed079254b2 two-range dodecahedral antiferromagnet",
+          "Resultary 68509e3863d8 local-response spectrum of the C60 Ising antiferromagnet",
+          "doi:10.1140/epjqt/s40507-026-00536-5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1502.04449",
+        "doi:10.1016/j.jmmm.2025.173061 (abstract only)",
+        "doi:10.1140/epjqt/s40507-026-00536-5",
+        "Resultary f9ed079254b2, 68509e3863d8 and 29e12a32ba9e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The −18J ground energy and edge transitivity give −18/30=−3/5 at distance one. In that ground manifold each face has one frustrated edge and face magnetization ±1, so the earlier two-range face identity S1+S2/2=−12 gives S2=12 and distance-two correlation 12/60=1/5. The older magnetization distribution gives E[M²]=16/25, so the uniform eigenvalue 4/125 is already determined without its minimality."
+        ],
+        "reasoning": "The known uniform eigenvalue imposes just one weighted row-sum constraint, with weights 6,3,1 on the remaining distance classes. It does not resolve them, prove that this mode is the smallest, or determine the largest mode. The passage about nearest-neighbor correlations in the inaccessible paper is not needed to credit the short-range overlap.",
+        "searches": [
+          "Resultary f9ed079254b2, pentagonal-face lower bound and ground energy",
+          "arXiv:1502.04449, Table 5",
+          "doi:10.1016/j.jmmm.2025.173061"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Strečka et al. and the quantum fullerene paper treat the same 250-state classical ground manifold, but the former studies a uniform field and the latter uses perturbative transverse-field dynamics that selects a quantum superposition.",
+          "The direct full signature hit was the reviewed finding itself; the distinct same-day dodecahedral trapping record gives counts and magnetization sectors, not a local covariance."
+        ],
+        "reasoning": "The local response is the ground-ensemble two-point function or limiting normalized local-field Hessian. A uniform-field derivative is only its contraction with two uniform vectors, and a transverse-field eigenstate is a different ensemble. Neither is an equivalent formulation of the complete response.",
+        "searches": [
+          "Resultary dodecahedron AF zero-field classical ground-state covariance and local response lookup",
+          "arXiv:1502.04449, Table 5",
+          "doi:10.1140/epjqt/s40507-026-00536-5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 5 lists M=0:240 and M=4:5 in the −18J zero-field energy level for nonnegative magnetization; spin reversal supplies M=−4:5. The two indexed dodecahedron results report these same sector counts."
+        ],
+        "reasoning": "This tabulates the magnetization distribution, not which vertices align jointly at each separation. It implies the uniform scalar 16/25, not the complete pair covariance.",
+        "searches": [
+          "arXiv:1502.04449, Table 5 and residual entropy passage",
+          "Resultary 29e12a32ba9e Finding",
+          "Resultary f9ed079254b2 Finding and exact census"
+        ]
+      },
+      "rationale": "Credit existing ground-state counts and magnetization sectors, the uniform-mode coefficient, and the implied distance-one and distance-two entries. The reviewed result adds the full distance-resolved local-field response, notably distances three through five, and its exact spectrum and anisotropy; none of the decisive inspected sources gives these on this graph in this ensemble.",
+      "residual_risks": [
+        "The primary full text of Konstantinidis could not be examined; possible further correlation or spectral overlap is unresolved. The bounded search cannot rule out unindexed equivalent work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact shared census and implied uniform variance",
+          "evidence": "The M=0 and M=4 sectors at −18J have multiplicities 240 and 5; at h=0 symmetry supplies M=−4:5.",
+          "identifier_or_url": "https://arxiv.org/abs/1502.04449",
+          "material_read": "Table 5, p. 7 (text offset 31845); residual entropy, p. 12 (offset 96838)",
+          "method": "OA PDF targeted passages",
+          "title": "Giant magnetocaloric effect, magnetization plateaux and jumps of the regular Ising polyhedra",
+          "trigger": "Same graph, classical susceptibility and exact census"
+        },
+        {
+          "assessment": "Unresolved extent of overlap; not evidence of noncoverage",
+          "evidence": "The frozen comparison identifies this as relevant to nearest-neighbor response; the exact value at distance one is separately implied by the known energy. Further overlaps in this source could not be checked.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jmmm.2025.173061",
+          "material_read": "Landing page/abstract only; full text not available",
+          "method": "Lawful OA lookup; identified ScienceDirect route returned 403 on direct and VPN access",
+          "title": "Origin of the classical magnetization discontinuities of the dodecahedron",
+          "trigger": "Potential correlation overlap in same geometry"
+        },
+        {
+          "assessment": "Shared classical degeneracy, different target",
+          "evidence": "States the 250 classical ground states and analyzes degeneracy lifting by transverse-field dimer tunneling.",
+          "identifier_or_url": "https://doi.org/10.1140/epjqt/s40507-026-00536-5",
+          "material_read": "pp. 2–4, text offsets 8751–15659",
+          "method": "OA PDF targeted passages",
+          "title": "Quantum dynamics in frustrated Ising fullerenes",
+          "trigger": "Uses the same ground-state manifold"
+        },
+        {
+          "assessment": "Shared uniform and short-distance data; no farther-distance or nonuniform spectrum claim in the inspected sections",
+          "evidence": "Small-r ground energy −18+12r, pentagonal-face identity, 250 states and uniform Tχ=16/25.",
+          "identifier_or_url": "2026/11/2/SCOPE-face-balanced-critical-degeneracy-in-a-two-range-dodecahedral-is--f9ed079254b2",
+          "material_read": "RESULT.md, Finding, face identity and census (offsets 0 and 3980)",
+          "method": "Resultary local mirror",
+          "title": "Face-balanced critical degeneracy in a two-range dodecahedral Ising antiferromagnet",
+          "trigger": "Same graph, short-range interaction energies and exact zero-temperature response"
+        },
+        {
+          "assessment": "Different graph",
+          "evidence": "Gives two C60 edge correlations, rank 30 and zero leading uniform response on 60 sites.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-zero-temperature-local-response-spectrum-of-the-c60-ising--68509e3863d8",
+          "material_read": "RESULT.md, Finding at offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact zero-temperature local-response spectrum of the C60 Ising antiferromagnet",
+          "trigger": "Direct local-response-spectrum analogue"
+        },
+        {
+          "assessment": "Ground-state counts overlap; field-dependent trapping is not response covariance",
+          "evidence": "250 ground states and counts (5,240,5) by magnetization. No priority inferred from the date.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-one-spin-trapping-and-a-6-710-state-marginal-field-on-the--29e12a32ba9e",
+          "material_read": "RESULT.md, Finding at offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact one-spin trapping and a 6,710-state marginal field on the dodecahedron",
+          "trigger": "Distinct same-day same-graph exact census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and physical response",
+        "arXiv:1502.04449",
+        "Independent covariance and characteristic-polynomial check"
+      ],
+      "rationale": "Uniform magnetization measurements only address the uniform direction. The complete covariance quantifies the static response to every local field, establishes the absence of silent modes, and shows that the least responsive mode is uniform despite much larger responses to some nonuniform fields. The exact gap between these responses is a useful benchmark on a natural, strongly frustrated finite graph; the familiar 250-state count and uniform scalar alone are not the contribution.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. At fixed weight, all binary scattered length-two coefficients are determined by the single \(01\)-count. An exact update law under a one-position rotation yields a coprime two-step closed walk. Modular residues establish the lower bound and its equality characterization. A cyclic balanced-window lemma and removal of a zero-displacement walk segment inductively prove the upper bound. The block-clustered construction yields equality by an explicit overlap count. Independent direct enumerations confirm all 8,166 nonconstant words through length 12. No finite test is used as an infinite proof.
+## correctness
 
-## Originality
-PASS, with historical priority qualified. The 2013 Rigo–Salimov paper introduces the equivalence and focuses on global and infinite-word class counts. Lejeune–Rigo–Rosenfeld (2020) study complete equivalence classes and their languages rather than the number of classes within a single cyclic orbit. Richomme (2025) develops lattice-path and partition descriptions without the current exact fixed-weight rotation-orbit extrema in the inspected full text. Cassaigne et al. (2014) study cyclic complexity of contiguous factors of infinite words, not scattered-subsequence fingerprints. Targeted database and primary-literature queries yielded no dominating statement. There remains a risk from obscure work on cyclic Parikh-matrix classes or integer-step closed walks.
+PASS
 
-## Value
-PASS. For an observation that records only the multiplicities of scattered patterns of size at most two, cyclic shifts of one binary necklace form a naturally constrained reconstruction family. The theorem gives exact best- and worst-case distinguishability for every admissible length and Hamming weight, identifies every least-distinguishable word by primitive-root repetition, and provides an explicit maximally distinguishable construction. It is a structural all-length result, not a small tabular extension. The maximal equality cases are not fully classified.
+At fixed content only the scattered 01 count varies independently. Rotation changes it by n−k for a leading one and −k for a leading zero. After division by d these are a and −b, congruent modulo L=a+b; since b is invertible modulo L, the first L heights are distinct. Equality at L forces equal heights at all pairs of starts separated by L, so consecutive differences give period L, and the converse is immediate from the number of literal rotations. The counts of ones in consecutive length-L circular windows average b and change by at most one, forcing an exactly balanced window. It is a closed segment of the height walk. For d>1, removing it retains both endpoint levels and can lose at most L−1 interior levels. The shortened word has content ((d−1)a,(d−1)b) and the same normalized steps; induction starting at d=1 proves the upper bound. The two monotone runs of the clustered walk share exactly d−1 interior return heights, because b divides ta exactly when b divides t. This attains the upper endpoint, including a=1 or b=1. Coprime content gives n distinct signatures for every word. Inspected frozen verify.py and VERIFICATION.md without executing the script; its reported exhaustive length-2-to-12 diagnostic does not establish the proof or classify every upper-bound maximizer.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The distinct contribution is the exact binary upper endpoint n−d+1 over all content pairs. The lower endpoint and complete power equality criterion are already implied verbatim by the alphabet-independent proof in the earlier multiletter record, despite its nominal restriction to at least three letters. The same-day exact-moments record also gives the collision count for d=2, which together with a balanced-window argument yields the upper bound in that stratum. These do not supply the general binary deletion bound and sharp endpoint for arbitrary d.
+
+## value
+
+PASS
+
+There is a natural binary-versus-multiletter distinction: fixed content forces collisions in every binary orbit when d>1 even though higher alphabets can realize full support. The exact binary deficit d−1 and the deletion mechanism explain this obstruction uniformly and give a useful benchmark for future profile or reconstruction results. The already known lower endpoint alone would not justify acceptance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

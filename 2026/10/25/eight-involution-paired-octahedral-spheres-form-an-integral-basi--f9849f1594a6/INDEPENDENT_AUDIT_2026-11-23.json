@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T15:27:37.703201Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and supporting certificate sources, inspected as text",
+        "Independent bounded standard-library replay: python3 /workspace/replays/4.py"
+      ],
+      "rationale": "Reconstructed the specified triangle expansion of the Petersen graph and enumerated all nonempty matchings. The face vector is (18,117,335,408,165,8). The 517 toggle pairs give an acyclic orientation of all 3,744 cover incidences on 1,051 faces. The Morse model has one 0-cell and sixteen 3-cells; each 3-cell attaches to the point, proving the ordinary wedge equivalence and free rank-16 third homology. For the flag support bound, minimize the vertex set of an induced subcomplex with nonzero reduced H_d. Deleting any vertex then kills H_d; link–deletion Mayer–Vietoris forces nonzero reduced H_(d−1) in its link. Induction from the disconnected d=0 case gives at least 2d neighbors, and the flag cone criterion forces a nonneighbor. At equality every vertex has exactly one nonneighbor, so the complement is a perfect matching. Applying this with d=3 reduces the census to all eight-edge selections whose intersection graph is four disjoint edges. The exact replay found 63, checked the signed boundary of each 16-term cycle, and checked that integral elimination vanishes on all 165 four-simplex boundaries. The specified sixteen cycle columns have determinant −1, making the induced map H_3 → ℤ^16 surjective and hence an isomorphism; all 63 coordinate vectors have gcd 1. The twelve graph automorphisms form S_3×C_2 with the stated central involution. Their support orbits have sizes (6,12,12,3,12,12,6); the involution fixes three supports and exchanges thirty pairs, including each of the eight basis pairs. Orienting the partners by the involution makes the integral action a sum of eight transpositions. In each block the sum and difference generate an index-two sublattice, giving quotient (ℤ/2)^8. Signed Lefschetz traces independently give 16 on the identity, −2 on the two elements of order three, and zero on the other nine, implying the stated rational decomposition and one-dimensional invariant space.",
+      "residual_risks": [
+        "The computation is exact for the specified ordinary matching complex only. It is not formal verification, an equivariant homotopy decomposition, or a classification of general flower graphs or of larger supports."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2 concerns matching complexes of outerplanar graphs. The Tietze graph contracts to the Petersen graph on contracting its replacement triangle. Outerplanarity is minor-closed, and the Petersen graph is cubic whereas every outerplanar graph has a vertex of degree at most two."
+        ],
+        "reasoning": "The broader wedge theorem does not specialize to this graph. The general flag support bound, even with its equality characterization, gives a pattern to count, not a census, primitivity test, or unimodular basis.",
+        "searches": [
+          "Bayer–Jelić Milutinović–Vega, arXiv:2411.04601v2, Theorem 2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary same-object record 6f93a3f35ff0",
+        "Bayer–Jelić Milutinović–Vega arXiv:2411.04601v2 Theorem 2",
+        "Frozen RESULT.md, definitions, integral certificates and prior-work comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Take an integral S_3-lattice M affording the character 1 ⊕ sgn ⊕ 3V (use the coordinate-sum-zero lattice in ℤ^3 for V). On M ⊕ M let the central involution act by +I on one summand and −I on the other. This has the same full rational character as the Tietze homology but trivial eigensublattice quotient; the paired basis here has quotient (ℤ/2)^8."
+        ],
+        "reasoning": "Neither the rational character nor ordinary homotopy type implies the integral result or the minimal-support geometry. Establishing those requires checking the actual carriers and an integer determinant, rather than reading off the existing numerical character.",
+        "searches": [
+          "Resultary record 6f93a3f35ff0, complete RESULT.md; arXiv:2411.04601v2, Theorem 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matching complex of T is Ind(L(T)), not Ind(T). A graph-edge labeling comparison identifies the later Tietze matching-complex record with the identical ordered T, not merely another graph with the same Betti number."
+        ],
+        "reasoning": "The later wedge and rational character are exactly equivalent to the corresponding parts of the submission. They do not classify minimum induced carriers or show that those carriers assemble into a basis over ℤ. The Tietze independence-complex hit on T itself has the wrong ground set and does not give these edge-supported cycles.",
+        "searches": [
+          "Resultary, Tietze ordinary matching complex / J_3 / independence complex of the line graph; exact Tietze wedge and character record 6f93a3f35ff0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-object Resultary record is dated 2026-11-08, after the frozen record. Its full result gives the ordinary sixteen-sphere wedge and full rational character, but neither the 63-support census nor the paired integral basis and eigensublattice quotient. Other returned hits include different graphs such as the Dürer graph and truncated octahedron."
+        ],
+        "reasoning": "This is positive evidence of exact overlap for two invariants, not evidence of earlier coverage of the record or of tabulation of the surviving integral invariants. Ranked retrieval is not exhaustive.",
+        "searches": [
+          "Resultary, exact Tietze matching complex and symmetry; strongest returned comparison 6f93a3f35ff0"
+        ]
+      },
+      "rationale": "The strongest located overlap is the later Resultary record for the identical ordered graph: it gives the same wedge and rational character. The distinctive contribution of the frozen finding is the complete minimum induced support census and the construction of an integral basis chosen from those supports and exchanged in pairs by the central involution. The same-object comparison and the applicable scope of the inspected broader literature do not cover that contribution. This is a best-of-knowledge assessment, not a priority certification.",
+      "residual_risks": [
+        "An unindexed table of small matching complexes or an unpublished integral symmetry computation could contain an equivalent result. No historical priority is established, and no distinctiveness is credited to the wedge or rational character relative to the exact later record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Later exact match for the ordinary wedge and rational character; not a minimum-support census or integral involution basis theorem",
+          "evidence": [
+            "Same ordered graph and sixteen 3-spheres",
+            "Rational traces 16, −2 and 0 on the corresponding elements"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sixteen-three-spheres-and-the-full-dihedral-character-of-the-tie--6f93a3f35ff0/RESULT.md",
+          "material_read": "Full RESULT.md, including graph conventions, homotopy calculation and character",
+          "method": "Compared the ordered graph and the statements and implications of the full text",
+          "title": "Sixteen three-spheres and the full dihedral character of the Tietze matching complex",
+          "trigger": "Exact same graph, homotopy type and symmetry computation"
+        },
+        {
+          "assessment": "The theorem is not applicable to Tietze; the wedge statement alone in any case would not specify its integral carrier action",
+          "evidence": [
+            "Theorem 2 assumes an outerplanar graph",
+            "Contracting the Tietze replacement triangle gives the nonouterplanar Petersen graph"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2411.04601v2",
+          "material_read": "Theorem 2 and its outerplanarity hypothesis",
+          "method": "Read the theorem in the primary preprint and compared hypotheses with the Petersen-minor obstruction",
+          "title": "Matching Complexes of Outerplanar Graphs",
+          "trigger": "A potentially covering general sphere-wedge theorem for graph matching complexes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, support classification and paired determinant",
+        "Independent signed integral replay",
+        "Later same-object Resultary wedge and rational-character calculation"
+      ],
+      "rationale": "The Tietze graph is a natural triangle expansion of the Petersen graph. Classifying every induced support in the least possible size gives explicit primitive geometric representatives, rather than just an abstract free group. The basis shows that the shortest carriers already generate integrally and can be organized into actual involution pairs. The eigensublattice quotient is usable information about integral symmetry that cannot be recovered from the ranks and rational character alone.",
+      "residual_risks": [
+        "Value is for this natural finite case; it does not assert a scalable basis algorithm or a corresponding invariant for larger flower graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

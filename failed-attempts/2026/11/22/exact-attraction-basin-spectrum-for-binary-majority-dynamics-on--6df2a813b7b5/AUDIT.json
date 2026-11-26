@@ -1,0 +1,165 @@
+{
+  "correctness": {
+    "rationale": "For the explicitly listed cubic Desargues graph, a complete independent 2^20-state C++ majority iteration yields 124 fixed points, 7626 primitive two-cycles and the nine claimed basin-size counts; a separate Python enumeration of 2^10 Petersen states and a verified layer-permutation reconstruct the same values through exact phase-preimage products. The equality T(x,y)=(f(y),f(x)) implies exhaustive basin convolution, and base f^6=f^4 gives all five entry-time layers by cumulative squares. All basin weighted counts sum to 1048576, the entry counts sum to the same number, and depth four occurs. No finite simulation is extrapolated to unbounded graph sizes.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Adam et al. Lemma 6.10: for a bipartite threshold system with F fixed states, the total number of attractors is F(F-1)/2+F, hence its two-cycle count is already known from its fixed count.",
+        "Benjamini et al. explicitly cite the finite graph period-two theorem of Goles and Olivos; Kaaser et al. give general voting-time bounds.",
+        "The earlier dodecahedral and Heawood exact attraction censuses apply to nonisomorphic graphs."
+      ],
+      "reasoning": "Generic eventual-period-two statements, bipartite recurrent-orbit counting, and voting-time upper bounds do not determine individual Desargues attractor-basin sizes or their preperiodic population. The new exact finite calculation requires base phase-specific preimage enumeration. The statements for different graphs do not dominate this graph-specific numeric spectrum.",
+      "searches": [
+        "https://arxiv.org/abs/1211.0654 Lemma 6.10",
+        "https://arxiv.org/abs/1405.2486 finite graph eventual period two",
+        "https://arxiv.org/abs/1508.03519 graph voting time upper bound",
+        "2026/11/1/SCOPE-dodecahedral-majority-dynamics-an-exact-recurrent-basin-and-symm--095dfb0decea",
+        "2026/11/2/SCOPE-a-two-step-majority-projection-and-exact-attraction-basins-on-th--8cd2964a9d93"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1211.0654",
+      "https://arxiv.org/abs/1405.2486",
+      "https://arxiv.org/abs/1508.03519",
+      "https://mathworld.wolfram.com/DesarguesGraph.html",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/1/SCOPE-dodecahedral-majority-dynamics-an-exact-recurrent-basin-and-symm--095dfb0decea",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-a-two-step-majority-projection-and-exact-attraction-basins-on-th--8cd2964a9d93",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-entrance-time-census-and-parity-law-for-majority-dynamics--260f52d7946d"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2012 lemma implies 7626 two-cycle orbits conditional on 124 fixed states; this number is acknowledged as covered, not independently novel.",
+        "The exact new b(r) preimage multiset and nine basin populations are computed from all 1024 Petersen phases and checked on all 1048576 Desargues initial states.",
+        "No checked original source stated the specific basin-size 102152 anti-consensus class, its equality with two 51076 unanimous basins, or the first-entry counts."
+      ],
+      "reasoning": "Prior general orbit theorems imply the orbit counts (and eventual period bound) but not the numerical partition of all 1048576 starting states among those orbits. The claimed core is the full numerical basin distribution and sharp entry-time profile, not the known factorization mechanism.",
+      "searches": [
+        "https://arxiv.org/abs/1211.0654 Definitions 4.14, Lemma 6.10, Sections 3.3 and 6.1",
+        "https://arxiv.org/abs/1405.2486 Theorem 1.1",
+        "https://arxiv.org/abs/1508.03519 Introduction",
+        "2026/11/1/SCOPE-dodecahedral-majority-dynamics-an-exact-recurrent-basin-and-symm--095dfb0decea",
+        "2026/11/2/SCOPE-a-two-step-majority-projection-and-exact-attraction-basins-on-th--8cd2964a9d93",
+        "2026/11/8/SCOPE-exact-entrance-time-census-and-parity-law-for-majority-dynamics--260f52d7946d"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The Desargues graph is isomorphic to the bipartite Petersen double cover by an explicitly checked vertex permutation; the same double-cover operation is Adam et al., Definition 4.14.",
+        "Graph-level exact reconstruction gives basin multiplicities for 124 fixed and 7626 temporal two-cycle attractors and first-periodic times 0 through 4."
+      ],
+      "reasoning": "The cover relation, the lifting formula and general orbit counts are known equivalent formulations, not separate new findings. Neither Definition 4.14 nor the checked statements specify the phase-basin multiplicity multiset (72 copies of 1, 50 of 10, two of 226) that determines the claimed precise Desargues basin spectrum.",
+      "searches": [
+        "Desargues graph 20 vertices synchronous strict majority fixed 124 two-cycle 7626 basin size 102152",
+        "Desargues Levi graph majority dynamics exact basin-size multiset first periodic entrance four steps",
+        "Petersen graph bipartite double cover majority eventual consensus basin 51076",
+        "https://arxiv.org/abs/1211.0654 Definition 4.14"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest retrieved exact tables concern 20-vertex dodecahedral majority, 14-vertex Heawood majority, and triangular-book entry-time distributions, not Desargues majority.",
+        "MathWorld establishes the 20-vertex Desargues identity and cubic symmetry but does not present a binary-majority attractor-basin table."
+      ],
+      "reasoning": "No exact matching Desargues basin table was found in checked sources. A database search is not an exhaustive priority proof, and numerical coincidences with other graph families would not alone imply the distribution.",
+      "searches": [
+        "Desargues graph majority dynamics twenty vertices exact fixed two cycle counts basin",
+        "Desargues graph 20 vertices synchronous strict majority fixed 124 two-cycle 7626 basin size 102152",
+        "Desargues Levi graph majority dynamics exact basin-size multiset first periodic entrance four steps",
+        "Petersen Desargues graph synchronous majority double cover fixed points",
+        "https://mathworld.wolfram.com/DesarguesGraph.html"
+      ]
+    },
+    "rationale": "The claim is the exact nine-type individual attractor-basin distribution and five-layer settling-time census for majority on the Desargues graph. The 2012 original paper already proves the general bipartite-expansion construction (Definition 4.14) and its orbit-count formula (Lemma 6.10); those general facts, and the 124/7626 recurrent counts as implications of them once fixed points are enumerated, are explicitly excluded from novelty. The 2014 and 2015 sources establish general period and voting-time results. The closest indexed exact censuses are for distinct graphs. None of the inspected statements asserts or implies the numerical Desargues basin-size distribution without its specific ten-vertex phase-preimage multiplicities. Remaining risk: unindexed independent finite tabulations and not fully inspected unrelated sources.",
+    "residual_risks": [
+      "Unindexed or non-English Desargues majority basin censuses might contain an equivalent result.",
+      "Only specified sections of long primary texts and indexed summaries of closely related published records were materially inspected; no whole-document noncoverage is asserted for summaries.",
+      "The exact finite enumeration is same-source reproducible, but independent human/external mathematical verification is not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS bipartite-expansion and a general bipartite orbit-count identity; does not in inspected sections provide the Desargues-specific basin-size table or entry-time histogram",
+        "evidence": [
+          "Definition 4.14 states bipartite expansion; Lemma 6.10 counts bipartite fixed and nondegenerate orbits in terms of fixed-point count",
+          "First arXiv posted date 2012-11-04"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1211.0654",
+        "material_read": "Full-text HTML: introduction and result overview; Section 4 around Definition 4.14 and Proposition 4.9; Section 6 around Lemma 6.10 and proof; searches for basin and attraction terminology",
+        "method": "Read original accessible arXiv primary text and checked named statements and nearby proof",
+        "title": "On Threshold Models over Finite Networks",
+        "trigger": "Bipartite threshold-model orbit theory may dominate the proposed cover-dynamics statement"
+      },
+      {
+        "assessment": "COVERS eventual period at most two, not the finite Desargues-specific attraction distribution",
+        "evidence": [
+          "Theorem 1.1 cites Goles–Olivos finite graph eventual period-two property",
+          "First arXiv posted 2014-05-11"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1405.2486",
+        "material_read": "Full-text HTML introduction, majority definition, finite period-two statement and scope of infinite/random graph results",
+        "method": "Read primary arXiv exposition and Theorem 1.1",
+        "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+        "trigger": "Classical binary majority period-two theorem and possible stronger finite-network claims"
+      },
+      {
+        "assessment": "Provides general upper-bound methodology, not the target exact entry-time distribution or all basin sizes in inspected material",
+        "evidence": [
+          "Original abstract discusses bounds and complexity of worst-case voting time",
+          "First arXiv posted 2015-08-14"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1508.03519",
+        "material_read": "Original arXiv HTML abstract and introduction, including description of module-based upper bounds",
+        "method": "Read primary exposition and compare its graph-family scope to the target exact census",
+        "title": "On the Voting Time of the Deterministic Majority Process",
+        "trigger": "Bounds and exact voting times could potentially entail the four-update cutoff"
+      },
+      {
+        "assessment": "Confirms standard 20-vertex cubic graph identification, but has no majority dynamics census",
+        "evidence": [
+          "MathWorld describes the 20-vertex, 30-edge symmetric cubic graph GP(10,3) and Levi-graph construction"
+        ],
+        "identifier_or_url": "https://mathworld.wolfram.com/DesarguesGraph.html",
+        "material_read": "Graph definition and equivalences; cited graph geometry",
+        "method": "Read MathWorld graph entry and cross-check with explicit graph isomorphism certificate",
+        "title": "Desargues Graph",
+        "trigger": "Verify canonical graph identity and prevent ambiguity with other graphs named Desargues"
+      },
+      {
+        "assessment": "Different graph despite same vertex count; cannot establish this Desargues numerical distribution",
+        "evidence": [
+          "Dodecahedral graph 20 vertices, 118 fixed and 9679 two-cycle orbits, unlike Desargues 124 and 7626"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/1/SCOPE-dodecahedral-majority-dynamics-an-exact-recurrent-basin-and-symm--095dfb0decea",
+        "material_read": "Available indexed title and scientific summary, not repository full text",
+        "method": "Compared stated graph object, invariant, and numeric output in indexed synopsis",
+        "title": "Dodecahedral majority dynamics: an exact recurrent, basin and symmetry census",
+        "trigger": "Closest published exact 20-vertex graph majority census"
+      },
+      {
+        "assessment": "Heawood graph has 14 vertices and a different basin structure; synopsis does not cover Desargues",
+        "evidence": [
+          "Heawood graph 14 vertices, 58 fixed states and 1653 two-cycle orbits"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-a-two-step-majority-projection-and-exact-attraction-basins-on-th--8cd2964a9d93",
+        "material_read": "Available indexed title and scientific summary, not repository full text",
+        "method": "Compared graph and dynamics type and numeric scope in indexed synopsis",
+        "title": "A two-step majority projection and exact attraction basins on the Heawood graph",
+        "trigger": "Similar earlier bipartite majority exact attraction problem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "previously_published_pending_reaudit": false,
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6df2a813-b7b5-4506-bb3c-7a8b3364840b",
+  "value": {
+    "rationale": "The Desargues graph is a standard distance-transitive 20-vertex cubic graph with a Petersen double-cover structure. Knowing 124 fixed states and the previously implied number of two-cycles does not determine the dramatically uneven individual basin populations. The exact full spectrum ranges from singleton basins to a 102152-state anti-consensus oscillation basin, equal to both unanimous basins together, and provides a sharp complete first-entry census. This is a natural complete finite invariant, not a handpicked subcase or trivial restatement of the general bipartite counting lemma.",
+    "status": "PASS"
+  }
+}

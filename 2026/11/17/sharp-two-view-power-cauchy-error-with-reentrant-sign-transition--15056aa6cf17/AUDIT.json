@@ -1,131 +1,109 @@
 {
   "correctness": {
-    "rationale": "For p>=2, any two positive projective nodes have potential max>=1/2 by evaluation at the heavier node and min<=2^(-p/2) by the midpoint of their longer projective-circle gap. The equal orthogonal rule has exact range [2^(-p/2),1/2] for all real p>=2 by convexity. Strict inequalities from nonorthogonality or unbalanced weights establish all equality cases, including p=2,4,6. The sign of 2c_p-1/2-2^(-p/2) follows from degree-three arcsine Lobatto exactness and cubic Hermite interpolation with sign of the fourth derivative; direct interval Rolle reasoning handles nonintegral powers at the endpoint. The norm identity is also reconstructed using thin rectangles. Reproduction checker verify.py executed and passed 7264 deterministic numerical comparisons. No computation is used as an infinite proof.",
+    "checked_sources": [
+      "Revised RESULT.md §§ Finding, Proof and Polarity; arXiv:2609.05869v1 Thm. 3.2; order-four character pairs, balanced-coefficient proof."
+    ],
+    "rationale": "The two geometric inequalities, their strict cases and the equal perpendicular construction prove the minimax formula for every real p>2. The thin-rectangle argument attains the geometric upper bound as a limit. The polarity comparison is transferred from the prior phase moment through its axis value and circular mean.",
+    "residual_risks": [
+      "Numerical samples are not the proof, and the geometric supremum need not be attained."
+    ],
     "status": "PASS"
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
+  "independent_audit_status": "passed",
+  "independent_validation": true,
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "An (2026), arXiv:2609.05869v1, Theorem 3.2: general convex-body discrepancy identity; Theorem 5.2: unique exact quadratic d-node orthogonal rule; §§4-8: power-kernel exactness and asymptotic design bounds, not sharp p>2 two-node minimax.",
-        "Sharp positive N-direction Cauchy quadrature and angular rigidity (2026): any node count but p=1 only.",
-        "Sharp positive two-direction quadrature for subquadratic cosine brightness (2026), full RESULT.md: claim and proof explicitly restrict 0<p<2; p>2 excluded."
+        "General exactness and classical Gauss–Chebyshev formulas address exact moments or fixed grids, not the least uniform error over positive two-view rules above p=2."
       ],
-      "reasoning": "An's Theorem 3.2 is broad reduction, not a p>2 optimal design solution; its Theorem 4.3 says non-even powers are not exactly representable by finite rules, which does not quantify the minimal two-node nonzero defect. The all-node Cauchy theorem specializes to p=1. No stronger theorem covering all p>2 minimax was found.",
+      "reasoning": "An exactness obstruction neither evaluates the positive minimax error nor gives optimizer uniqueness.",
       "searches": [
-        "sharp minimax optimal N-direction Cauchy perimeter formula weighted projection widths equispaced directions error 1 - pi/(2N) cot(pi/(2N))",
-        "sharp positive two-direction angular quadrature superquadratic cosine p>4 optimal nonorthogonal phase transition",
-        "sharp p-brightness positive two direction approximation p>=2 exact discrepancy"
+        "arXiv:2609.05869v1 Thms. 4.3, 5.2; arXiv:2610.11814v1 §3 Thm. 3.1"
       ]
     },
     "checked_sources": [
-      "https://arxiv.org/abs/2609.05869",
-      "https://github.com/published-finding corpus/2026/blob/main/2026/10/25/SCOPE-sharp-positive-two-direction-quadrature-for-subquadratic-cosine--35c0341352f2/RESULT.md",
-      "https://github.com/published-finding corpus/2026/blob/main/2026/10/11/SCOPE-sharp-lambda-p-constants-for-order-four-character-pairs--edfa311d2932/RESULT.md",
-      "https://arxiv.org/abs/2610.11814",
-      "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-sharp-positive-n-direction-cauchy-quadrature-and-angular-rigidit--33b1062b46ae"
+      "Relevant passages in the sources listed above."
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "An (2026), arXiv:2609.05869v1, Theorem 3.2: general convex-body discrepancy identity; Theorem 5.2: unique exact quadratic d-node orthogonal rule; §§4-8: power-kernel exactness and asymptotic design bounds, not sharp p>2 two-node minimax.",
-        "Sharp positive two-direction quadrature for subquadratic cosine brightness (2026), full RESULT.md: claim and proof explicitly restrict 0<p<2; p>2 excluded.",
-        "Sharp Λ(p) constants for order-four character pairs (2026), full RESULT.md: also has phase changes at p=4 and p=6 but maximizes finite-group Lp/L2 character norms, not planar power-Cauchy discrepancy or geometric two-node minimax.",
-        "An (2026), arXiv:2610.11814v1: circle designs and Minkowski reconstruction; full accessible textual sections concern regular-grid discrepancy and Hausdorff approximation, not power-Cauchy p>2 minimax."
+        "The order-four phase moment yields the axis-versus-uniform-mean comparison and hence the credited polarity. The previous two-view proof uses perpendicular-to-node witnesses when c_p>1/2."
       ],
-      "reasoning": "The new two-node sharp defect is not implied by uniqueness at p=2 or mere impossibility of exactness at non-even p. The p<2 theorem excludes strict p>2; the order-four character result optimizes a finite character norm and does not furnish all convex-body L-infinity potential bounds or weight/axis rigidity. The Lobatto sign proof resembles a fourth-derivative principle but requires a separate arcsine averaging identity and geometric two-node lower bounds.",
+      "reasoning": "The moment comparison holds for the fixed balanced rule, not competitors, so it cannot give the global minimax or uniqueness. The subquadratic lower bound ceases to control the loss when c_p<1/2.",
       "searches": [
-        "sharp positive two-direction angular quadrature superquadratic cosine p>4 optimal nonorthogonal phase transition",
-        "two-point projective p-design sharp worst power-cosine error arcsine Lobatto sign reversal at quartic sextic"
+        "Order-four character pairs RESULT.md, balanced-coefficient phase analysis at offsets 1990–3748; subquadratic brightness RESULT.md, proof at offsets 2710–6085"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "An (2026), arXiv:2609.05869v1, Theorem 3.2: general convex-body discrepancy identity; Theorem 5.2: unique exact quadratic d-node orthogonal rule; §§4-8: power-kernel exactness and asymptotic design bounds, not sharp p>2 two-node minimax.",
-        "Sharp positive two-direction quadrature for subquadratic cosine brightness (2026), full RESULT.md: claim and proof explicitly restrict 0<p<2; p>2 excluded."
+        "The brightness discrepancy is half the angular norm, but the matched exact two-view minimax is for 0<p<2."
       ],
-      "reasoning": "Equivalence via the sharp defect identity changes the geometric problem to the L-infinity error of a two-atom cosine-power potential; both forms were searched. The p<2 two-atom theorem establishes the same orthogonal geometry in a disjoint exponent region, not the p>2 error formula or two sign reversals. No matching p>2 equivalent was identified.",
+      "reasoning": "The norm identity transfers the objective, not a solution of the optimization. The subquadratic test bound is ineffective in the strict superquadratic regime.",
       "searches": [
-        "planar power-Cauchy two-view minimax for all exponents p>2 orthogonal weights reentrant p=4 p=6",
-        "two-point projective p-design sharp worst power-cosine error arcsine Lobatto sign reversal at quartic sextic",
-        "sharp p-brightness positive two direction approximation p>=2 exact discrepancy",
-        "two orthogonal directions minimize maximum deviation cosine power p 4 6"
+        "Resultary positive two-direction cosine brightness; arXiv:2609.05869v1 Thm. 3.2"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "The closely matching published p<2 result has no superquadratic table or claim.",
-        "Sharp Λ(p) constants for order-four character pairs (2026), full RESULT.md: also has phase changes at p=4 and p=6 but maximizes finite-group Lp/L2 character norms, not planar power-Cauchy discrepancy or geometric two-node minimax."
+        "The matching superquadratic entry is the original version of this result, not a separate table. Finite group and subquadratic formulae concern different quantities."
       ],
-      "reasoning": "The indexed published-record search returned the subquadratic theorem as the closest brightness record; no exact p>2 formula/table or duplicate identifier was located. Distinct order-four-character p=4,6 transition uses a finite probability distribution on fourth roots of unity and a different extremal functional.",
+      "reasoning": "Only a formula or equivalent all-exponent classification for the calibrated superquadratic two-node problem would tabulate the result.",
       "searches": [
-        "planar power-Cauchy two-view minimax for all exponents p>2 orthogonal weights reentrant p=4 p=6",
-        "two-point projective p-design sharp worst power-cosine error arcsine Lobatto sign reversal at quartic sextic",
-        "sharp p-brightness positive two direction approximation p>=2 exact discrepancy"
+        "Resultary two-view power-cosine discrepancy, subquadratic and order-four comparisons"
       ]
     },
-    "rationale": "The strict p>2 two-view minimax formula, its unique positive optimal rule and its twice-reentrant signed-error spectrum are distinct from the fully inspected p<2 theorem, An's general norm and exactness theorems (which cover p=2 but not p>2 minimax), the all-nodes Cauchy case p=1 and an analogous but non-implicating order-four character-norm phase classification. No equal or dominating statement was found through targeted queries; unindexed historical coverage remains a residual risk.",
+    "rationale": "Only the superquadratic two-view minimax and equality classification are claimed. The quadratic endpoint, norm identity and polarity comparison are explicitly credited.",
     "residual_risks": [
-      "Historical priority cannot be certified by finite semantic/web searches; classical quadrature or cosine-frame inequalities may encode an equivalent superquadratic formula under different language.",
-      "Closest p=1 all-node published finding was only compared from its published searchable statement, not full text; no cross-exponent implication is evident.",
-      "No independent human review or independently commissioned certification has been performed.",
-      "Related 2026 circle-quadrature follow-up was inspected through a web-rendered main-section rendering only, not a verified full source; its uninspected text is a bounded priority risk."
+      "The comparison is not a determination of historical priority; equivalent unindexed results could exist."
     ],
     "source_inspections": [
       {
-        "assessment": "Establishes defect norm reduction and quadratic exactness; does not state a sharp p>2 positive two-view minimax defect or polarity transitions",
-        "evidence": "Pages 5-6 Theorems 3.2/3.4; pp9-10 Theorem 4.3; pp10-11 Theorem 5.2; pp12-14 general design error estimate and discussion.",
-        "identifier_or_url": "https://arxiv.org/abs/2609.05869",
-        "material_read": "Complete 16-page first-public version including statements, proofs, examples, discussion and references",
-        "method": "Full-text page-by-page extraction, comparison of Theorems 3.2, 4.3, 5.2, 6.1 and final discussion",
-        "title": "Exact Finite Integral Geometry: Directional Kernels and Spherical Designs",
-        "trigger": "Direct 2026 motivating paper for power-Cauchy kernels, all-exponents exactness and sharp universal geometry"
-      },
-      {
-        "assessment": "Explicitly covers 0<p<2 (not p>2); credits p=1 and general norm reduction. No implication for the p>2 signed-error reentrance",
-        "evidence": "Finding/assumptions state 0<p<2; Limitations explicitly say p>2 is outside theorem.",
-        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/25/SCOPE-sharp-positive-two-direction-quadrature-for-subquadratic-cosine--35c0341352f2/RESULT.md",
-        "material_read": "Complete RESULT.md theorem, hypotheses, proof, limitations and references",
-        "method": "Direct full public source read and line-by-line comparison of p-range and error",
-        "title": "Sharp positive two-direction quadrature for subquadratic cosine brightness",
-        "trigger": "Nearest exact two-node brightness discrepancy and shared optimizer"
-      },
-      {
-        "assessment": "Finite-fourth-root character Lp/L2 supremum; different objective, nodes and measure, not the planar two-direction minimax brightness defect",
-        "evidence": "Statement optimizes coefficient phases for two characters, and p=4,6 switches maximizing character phase.",
-        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/11/SCOPE-sharp-lambda-p-constants-for-order-four-character-pairs--edfa311d2932/RESULT.md",
-        "material_read": "Complete RESULT.md theorem, proof and scope",
-        "method": "Direct comparison of the mathematical object, optimization variables and quantities",
+        "assessment": "Polarity is a direct consequence, not part of the new claim",
+        "evidence": "Axis moment is extremal relative to all phases; averaging the phase gives the arcsine moment.",
+        "identifier_or_url": "2026/10/11/SCOPE-sharp-lambda-p-constants-for-order-four-character-pairs--edfa311d2932",
+        "material_read": "Balanced-coefficient proof, offsets 1990–3748",
+        "method": "Public result text",
         "title": "Sharp Λ(p) constants for order-four character pairs",
-        "trigger": "Same p=4,6 phase thresholds could indicate equivalent normalized moment principle"
+        "trigger": "Matching phase-transition pattern"
       },
       {
-        "assessment": "Accessible sections address circle-grid quadrature, support functions and Minkowski reconstruction; no p>2 two-node power-Cauchy theorem appeared in material read, but remaining full-text overlap remains a risk",
-        "evidence": "Sections 3-6, especially circle grid, mixed area and support-function comparison.",
-        "identifier_or_url": "https://arxiv.org/abs/2610.11814",
-        "material_read": "Accessible web-rendered main-section text, equations and concluding remark; not a verified complete manuscript",
-        "method": "Read all textual headings and mathematical statements in accessible source; compared its error functional and objects",
-        "title": "Gauss--Chebyshev Quadrature, S1-Designs, and the Planar Minkowski Inverse Problem",
-        "trigger": "Same author, direct follow-up about circle quadrature and normal measures"
+        "assessment": "Does not cover the superquadratic range",
+        "evidence": "Its universal obstruction is min F≤1/2, in the range where c_p>1/2.",
+        "identifier_or_url": "2026/10/25/SCOPE-sharp-positive-two-direction-quadrature-for-subquadratic-cosine--35c0341352f2",
+        "material_read": "Finding and Proof §§2–3",
+        "method": "Public result text",
+        "title": "Sharp positive two-direction quadrature for subquadratic cosine brightness",
+        "trigger": "Identical optimization problem at complementary exponents"
       },
       {
-        "assessment": "Treats p=1 classical Cauchy brightness, outside p>=2; no full-text noncoverage inference necessary",
-        "evidence": "Published theorem summary explicitly specifies classical Cauchy-perimeter estimator.",
-        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-sharp-positive-n-direction-cauchy-quadrature-and-angular-rigidit--33b1062b46ae",
-        "material_read": "Published searchable theorem summary, not full text",
-        "method": "Published statement/summary and exponent comparison",
-        "title": "Sharp positive N-direction Cauchy quadrature and angular rigidity",
-        "trigger": "Possible stronger all-node result on related Cauchy brightness"
+        "assessment": "Norm reduction and quadratic endpoint already covered",
+        "evidence": "Exactness and the minimal exact quadratic design are not minimax statements at p>2.",
+        "identifier_or_url": "arXiv:2609.05869v1",
+        "material_read": "Thms. 3.2, 4.3 and 5.2",
+        "method": "Open primary PDF passages",
+        "title": "Exact Finite Integral Geometry: Directional Kernels and Spherical Designs",
+        "trigger": "Same exactness and brightness framework"
+      },
+      {
+        "assessment": "Different exact polynomial statement on fixed grids",
+        "evidence": "The projected grid is Gauss–Chebyshev exact through degree 2M−1.",
+        "identifier_or_url": "arXiv:2610.11814v1",
+        "material_read": "§3 Thm. 3.1",
+        "method": "Open primary PDF passage",
+        "title": "Gauss–Chebyshev Quadrature, S¹-Designs, and the Planar Minkowski Inverse Problem",
+        "trigger": "Potential broader quadrature theorem"
       }
     ],
     "status": "PASS"
   },
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
-  "schema_version": 1,
-  "scope_run_id": "15056aa6-cf17-45fa-a32f-26ec39fd1ad5",
+  "previously_published_pending_reaudit": false,
   "value": {
-    "rationale": "Power-Cauchy brightness is a natural geometric observable of convex bodies, and a two-view rule is the minimal positive exact configuration at p=2. The complete continuous sharp superquadratic minimax classification fills the missing side of the already published subquadratic theory, not an arbitrary single exponent. The reentrant switch at p=4 and p=6 produces a structural, nonmonotone signed-error spectrum while retaining a globally rigid optimal node arrangement; both general minimax value and exact transitions are useful for design choice and comparison against projective and harmonic cubature.",
+    "checked_sources": [
+      "Revised RESULT.md and the subquadratic comparison."
+    ],
+    "rationale": "The result resolves the complementary strict superquadratic regime for the standard two-view model and gives exact values and rigidity across a continuum of exponents. It does not need to claim the previously implied polarity as a new result.",
+    "residual_risks": [
+      "Only normalized positive rules on at most two unoriented planar directions are addressed."
+    ],
     "status": "PASS"
   }
 }

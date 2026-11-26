@@ -1,0 +1,168 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:08:04.143471Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md definitions and proof §§1–4",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)"
+      ],
+      "rationale": "The Fibonacci state determines M^n, so any common period must be a matrix period. M^4≡−I mod 3, and M^8=I+3A with A nonzero mod 3. For d≥1, binomial terms of degree m≥2 have valuation at least v_3(d)+m−v_3(m)≥v_3(d)+2, proving the exact lift of the matrix order. On the four singular branches the relevant entry or trace of M^j A is respectively 1,2,1,2 mod 3, so dividing the difference by 3 leaves exactly v_3(t−u). Each normalized map therefore permutes the residues at every precision. For k≥2 a square divisible by 3 is a multiple of 9, and after removing this factor its square residue is taken modulo 3^(k−2), including zero. The four branches thus each contribute B_k; the j=1 branch contributes T_k to the joint count, and the singular additions there are j=2,4. The two marginal counts are 3T_k+2B_k, giving the four cells. At k=1 zero is included and B_1=1. For the infinite claim, the h-th nonzero singular square cylinder is one class modulo 3^(2h+2). For a prefix of length X choose the first tail index H with 3^(2H+1)>X. All h≥H and the zero belong to one class modulo 3^(2H+1), so at most one index is counted there; the expected nonzero tail count is bounded. The earlier classes cost at most one unit of discrepancy each. This makes the cutoff argument precise when a first omitted cylinder has modulus >X but its containing ball might not. Summing the geometric measures gives 1/8 on each singular branch, hence the stated densities and covariance −9/1024.",
+      "residual_risks": [
+        "The recorded finite checks were not rerun. The cutoff estimate applies to infinite three-adic square status, not to finite-status counts on arbitrary prefixes uniformly in precision."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bundschuh–Bundschuh's digit lemma applies to arbitrary output digits on the singular branches, not only to squares.",
+          "Saunders–Stephens generalize marginal residue frequencies; Southwick treats residue completeness; Bragman–Rowland count output residues attained, not joint input-index events."
+        ],
+        "reasoning": "The aligned branch theorem, not greater breadth of only marginal or image statistics, provides the dominating prior statement.",
+        "searches": [
+          "Web: \"Fibonacci\" \"Lucas\" \"modulo 3^k\" aligned joint square density simultaneous squares index distribution Bundschuh",
+          "arXiv:2511.00722v1, Theorem 1",
+          "arXiv:1402.0598, Theorem 3.1 and Lemma 3.4",
+          "arXiv:2202.00704v2, pp. 1–3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md comparison with prior work",
+        "Bundschuh–Bundschuh 2011; Saunders–Stephens; Southwick; Bragman–Rowland",
+        "Matching self-record and distinct Resultary analogues listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lifts n+8·3^(k−1)j realize b+3^kλ with λ=0,1,2 and preserve the branch. Combine with F-zero classes 0,4 and Lucas-zero classes 2,6 from the base list.",
+          "On these branches the square has one class at each even precision 3^(2h+2) in the normalized coordinate, with a nested deep tail."
+        ],
+        "reasoning": "Count multiples of 9 that are squares and insert that count in the four fixed branch types. The limiting measure is a geometric sum and each shallow class contributes bounded prefix discrepancy; the nested tail has bounded total contribution. These are direct implications, not merely similar marginal statistics.",
+        "searches": [
+          "Bundschuh–Bundschuh, pp. 207–208, Lemmas 3.5–3.6, PDF text offsets 22500–28395",
+          "Frozen RESULT.md proof §§3–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior shift-and-unit-scale Lucas/Fibonacci relation alone does not freely preserve square status.",
+          "Lemma 3.5 is a digit-lifting formulation of the normalized singular-branch isometries relevant here."
+        ],
+        "reasoning": "Along each singular branch the old one-step bijections lift all digits, giving compatible bijections modulo every power; different first differing parameter digits give different first differing value digits. Neither mixing the marginal histograms nor a shift of a bare frequency formula is needed.",
+        "searches": [
+          "Resultary: aligned joint three-adic square spectrum Fibonacci Lucas modulo 3^k",
+          "Bundschuh–Bundschuh (2011), Eq. (1.5), Lemma 2.5, Remark 2.6, Lemma 3.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching top hit is the frozen record itself; other exact spectra concern adjacent tetrahedral numbers at p≥5, exponential local squares, or symbolic Fibonacci/Lucas words.",
+          "Bundschuh–Bundschuh Lemmas 3.5–3.6 encode the necessary aligned fibers even without a displayed four-cell square table."
+        ],
+        "reasoning": "No distinct literally matching square table was confirmed; the exact finite-level information needed to evaluate it is already present in primary literature.",
+        "searches": [
+          "Resultary: aligned joint three-adic square spectrum Fibonacci Lucas modulo 3^k",
+          "Resultary: simultaneous 3-adic squares of aligned Fibonacci and Lucas terms joint indicator density"
+        ]
+      },
+      "rationale": "The exact table is not stated in the strongest earlier paper, but it is mechanically implied by the branch-lifting assertion of Bundschuh–Bundschuh (2011), Lemma 3.5, and the indexed residue classes in the proof of Lemma 3.6. Lemma 3.5 retains the index alignment omitted by the marginal frequency statements. Every ternary lift stays in its same mod-8 branch and runs through all three next output digits. The singular Fibonacci branches are allowed by its n≠2 mod 4 condition, and the singular Lucas branches by n≠0 mod 4. Induction separately on each branch gives a bijection onto the multiples of 3. Because no branch has two singular coordinates, neither the finite joint count nor its limiting pattern requires any further simultaneous lift. The square counts, covariance, and logarithmic prefix estimate follow by standard unit-square counting and nested residue-cylinder counting.",
+      "residual_risks": [
+        "No claim that the exact joint table was previously printed or that all possible prior works were found. The fail is based on demonstrable implication from a read earlier lemma."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier branchwise digit lift mechanically implies the finite law and its asymptotic consequences; not a literal earlier joint-square theorem",
+          "evidence": [
+            "Lemma 3.5: all three next digits for each admissible index; admissibility holds on all four singular branches",
+            "Lemma 3.6 proof gives mod-3 fibers by index mod 8"
+          ],
+          "identifier_or_url": "https://fq.math.ca/Papers1/49-3/Bundschuh2.pdf",
+          "material_read": "Theorems 1.1–1.2 p. 202; Eq. (1.5) p. 203; Lemma 2.5 and Remark 2.6 p. 205; Lemmas 3.3, 3.5–3.6 and Proposition 3.4 pp. 206–208; sharpened fibers §5 p. 209",
+          "method": "Open primary PDF, bounded passage reads",
+          "title": "Distribution of Fibonacci and Lucas Numbers Modulo 3^k",
+          "trigger": "Exact same sequences, prime powers and exceptional fibers"
+        },
+        {
+          "assessment": "Generalizes marginal frequencies, not a displayed joint-square law",
+          "evidence": [
+            "P=1 recovers the classical pair"
+          ],
+          "identifier_or_url": "arXiv:2511.00722v1",
+          "material_read": "Abstract p. 1 and Theorem 1 p. 2",
+          "method": "Open preprint bounded text",
+          "title": "Residues of Terms of Lucas Sequences Modulo 3^k",
+          "trigger": "Potential stronger coverage for generalized Lucas recurrences"
+        },
+        {
+          "assessment": "Weaker for the aligned question",
+          "evidence": [
+            "Residue completeness modulo powers of three"
+          ],
+          "identifier_or_url": "arXiv:1402.0598",
+          "material_read": "Theorem 3.1 p. 8, Lemma 3.4 p. 9",
+          "method": "Open preprint bounded text",
+          "title": "The Lucas Numbers and Other Gibonacci Sequences Mod m",
+          "trigger": "Same modulus family and named sequences"
+        },
+        {
+          "assessment": "Different statistic",
+          "evidence": [
+            "Proportion of output residues attained"
+          ],
+          "identifier_or_url": "arXiv:2202.00704v2",
+          "material_read": "Abstract and density definition/theorem, pp. 1–3",
+          "method": "Open preprint bounded text",
+          "title": "Limiting Density of the Fibonacci Sequence Modulo Powers of a Prime",
+          "trigger": "Potentially matching density terminology"
+        },
+        {
+          "assessment": "Different sequences and p excludes three",
+          "evidence": [
+            "Adjacent tetrahedral numbers at p≥5"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-simultaneous-local-square-counts-for-adjacent-tetrahedral--59d96025818c",
+          "material_read": "Finding",
+          "method": "Resultary local mirror",
+          "title": "Exact simultaneous local-square counts for adjacent tetrahedral numbers",
+          "trigger": "Indexed exact joint local-square counts with logarithmic error"
+        },
+        {
+          "assessment": "Different objects",
+          "evidence": [
+            "Exponential sequence a^(dm)−1, including Mersenne numbers at seven"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-paley-shell-correlations-for-exponential-local-squares-and-the-s--19b30417457f",
+          "material_read": "Finding",
+          "method": "Resultary local mirror",
+          "title": "Paley shell correlations for exponential local squares",
+          "trigger": "Indexed local-square correlation"
+        },
+        {
+          "assessment": "Symbolic words, not the two integer recurrences",
+          "evidence": [
+            "Joint letter frequencies from rotation coding"
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-a-common-rotation-and-exact-joint-frequencies-for-the-fibonacci--463012fe865c",
+          "material_read": "Finding",
+          "method": "Resultary local mirror",
+          "title": "A common rotation and exact joint frequencies for the Fibonacci and Lucas words",
+          "trigger": "Aligned frequencies and logarithmic error under similar names"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof §§2–4",
+        "Bundschuh–Bundschuh (2011), Lemmas 3.5–3.6"
+      ],
+      "rationale": "The aligned local-square spectrum is a natural statistic and the self-contained matrix proof and covariance make it easy to use. But for these two sequences at three, the singular branches never compete at the same index, and the evaluated law and standard cylinder discrepancy use only the already covered one-branch bijections. There is no independently useful unknown exact invariant beyond that mechanical specialization in the frozen finding.",
+      "residual_risks": [
+        "No judgment about the value of analogous joint laws with genuinely coupled singularities at other primes."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

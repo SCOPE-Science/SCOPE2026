@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The common-core selection lemma identifies the same \(k-1\) shared window occurrences in each middle-\(k\) rank set, so one sliding step changes a binary tag count by at most one. Every input difference decomposes into spatial single jumps; each directional response has at most \(2r+1\) changing edges. Integration across finite sorting chambers proves the universal nonlinear two-input bound. A single explicit even–odd permutation gives a middle-rank tag count changing by exactly one on all \(2r+1\) edges. Exact rank counting and reflection prove the witness for every integer radius and trimming level, and comparison with the \(n-1\) edge bound proves the minimal length. The checker independently reproduces the finite arithmetic identities and tests sample pairs.
+## correctness
 
-## Originality — PASS, provisional
-Pitas–Venetsanopoulos (1992, Section III-C) describes the trimmed-mean L-filter and robustness; Cai–Yang–Song (2018, Sections 3.1.1 and 3.2.2) discusses image filtering and noise/edge behavior. Neither inspected section establishes the sharp two-input path-variation factor or the minimal path length. Existing published records for three-point and all-radius running medians give the extreme-trim special case. A published cyclic five-point central trimmed-mean result gives its different-boundary special case; neither has an implication yielding this complete all-radius path formula. Bednar–Watt (1984) is a relevant, unavailable full-text risk: its indexed abstract covers algorithms and median-root behavior, not this seminorm, but full priority cannot be guaranteed.
+PASS
 
-## Value — PASS
-The sharp coefficient interpolates from \(1\) for sliding averages to \(2r+1\) for medians and characterizes every intermediate trimming level. The central-common-core cancellation produces a stronger bound than summing the separate rank-filter sensitivities. The precise minimal-length threshold is relevant when selecting robust smoothers on short finite records. The result resolves a natural complete stability classification, rather than an arbitrary fixed-window example.
+For w=2r+1, k=w−2q, compare adjacent windows as labeled multisets, counting clamped copies separately. The shared observations with shared ranks q+1 through w−q−1 necessarily survive either insertion. Thus a step direction changes the retained binary-tag count by at most one across an edge. For a cut just before j, only edge indices j−r−1 through j+r−1 can contribute, intersected with the path. Step decomposition and segment integration over ordering chambers, with continuity at ties, give min(w,n−1)/k. For n=w+1, use the even values followed by odd values and perturb the right half positively by ε<1. At left center i the rank of 2j−1 is r+2j−i. The admissible j are the intersection of [1,i] with the integer interval [ceil((i+2−t)/2),floor((i+t)/2)], t=r−q+1. This gives the reported counts and unit successive changes. Reflected counts are k minus the original counts and the two central counts differ by one since the middle k consecutive integers have odd count (k±1)/2. Appending the last value and its step tag preserves the original outputs and denominator. This proves attainment and strict inequality on shorter paths including the mean and median endpoints.
 
-## Limits and closest literature
-This is not one-input variation decrease, not a cyclic bound, and not a claim about arbitrary robust L-filters or adaptive trimming. Historical priority is provisional pending access to early papers. See RESULT.md for the complete analytic proof, references and reproduction instructions.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the exact symmetric-trim family and sharp clamped-path onset, not for the classical filter, the already separately covered median endpoint, or the elementary linear mean case. The strongest available comparisons address a single rank or a cyclic special case, not joint selection of the middle k ranks and the shared sharp clamped extremizer. This is a bounded statement-level assessment, not a priority finding.
+
+## value
+
+PASS
+
+Gives the exact perturbation amplification uniformly across the standard robustness continuum from moving mean to median. The overlap lemma explains why averaging adjacent ranks is much better than adding rank-filter norms, while the parity construction and first attainable length identify when the worst amplification is physically possible on a finite path.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

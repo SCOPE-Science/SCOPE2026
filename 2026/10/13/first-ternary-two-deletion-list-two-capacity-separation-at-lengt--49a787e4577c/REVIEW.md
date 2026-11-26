@@ -1,9 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** A complete finite proof consists of explicit codebooks, eight exact rational dual inequalities, and a complete 729-vertex clique search with safe greedy-coloring pruning. The verifier replayed all codebooks and constraints and returned `VERIFY_OK`; the C++ clique search tested 1,680,903 recursive nodes. The theorem asserts only a lower bound, not the exact list-two capacity at six.
+## correctness
 
-**Originality — PASS, with risks.** Published search and comparison of arXiv:2609.26650, arXiv:1502.02727v3 and arXiv:2306.02868 did not identify this first ternary threshold or the 24-word construction. Le–Nguyen's Appendix B computes only generalized Helberg residue-code sizes, not unrestricted maxima. Lin's 2026 result concerns binary asymptotics. The Lin and Liu full texts were not accessible in this comparison, and unindexed finite tables remain a genuine risk. No negative whole-document claim is made for inaccessible sources.
+PASS
 
-**Value — PASS.** The first strict capacity gap proves a structural obstruction to obtaining optimal ternary list-two deletion codes merely by pooling two unique-deletion codes; it identifies the shortest blocklength where this happens, not an arbitrary parameter slice. The finite numerical gap is meaningful because it changes the capacity-composition property.
+The incidence model uses distinct deletion outputs and distinct codewords, including the single empty output at n=2. Multiplying each output's list constraint by its nonnegative rational weight and each word's upper bound x_w<=1 by its own nonnegative weight gives an upper bound on total code size when each word is covered at weight >=1. Independent exact checks of every entry give the pairs of dual objectives (1,2), (3,9/2), (3,6), (33/5,63/5); taking floors and checking the matching codebooks gives the stated exact shorter-length capacities. The length-six compatibility graph on 729 words uses disjoint shadows as adjacency, so unique-decoding codes are its cliques. An independent Python reproduction greedily colors candidate prefixes into independent classes, searches include/exclude extensions with safe color pruning, and returns maximum 11 after 1,428,176 nodes (tested first at n=5, maximum 6). The checked size-11 and size-24 codebooks have shadow loads at most one and two, respectively. Since 24>22 and all shorter lengths satisfy the required non-strict inequality, the first strict gap is proved; the exact length-six list-two capacity is not determined. Replay paths: /workspace/branches/c4cc4d3f-8b96-48b2-8b6f-cb75dc0d6f76/{independent_check.py,finite_replay.txt,clique_check.py,clique_n5_replay.txt,clique_n6_replay.txt}. The frozen Python/C++ files were inspected as evidence, not executed.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The previously reported sequence of unrestricted unique-decoding optima through five is credited and not a distinct contribution. The surviving claim is the first strict list-two capacity separation for ternary two-deletion shadows, including the exact length-six unique-decoding optimum and a size-24 list-two witness. The strongest checked overlaps do not establish that separation or its minimality.
+
+## value
+
+PASS
+
+The factor two is the natural benchmark since any union of two unique codes is list-two and has size at most twice the unique capacity. Proving strict separation for the first length, with exact earlier capacities and an explicit witness exceeding that benchmark, answers a meaningful finite coding question. This is not just a recollection of short unique-decoding tables and does not require determining the exact length-six list-two optimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

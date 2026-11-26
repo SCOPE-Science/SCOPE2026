@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,8 @@
 }
 ---
 
-# Finite evidence and its logical boundaries
+# Finite evidence for the joint census and Eulerian frequency table
 
-The C++ enumerator generates the complete labeled target-pair space \(inom{n+1}{2}^n\) at each \(n=2,3,4,5\), retains one representative per vertex-isomorphism orbit, and decides strong connectivity, period, lumpability and every coloring. The program uses exact integer arithmetic. Stored canonical graphs and summary tables are included for crosschecking; they are not themselves independent proof of full coverage without executing the enumerator.
+`scripts/enumerate.cpp` generates the full labeled code space, tests primitivity and keeps one representative per vertex-isomorphism orbit. It tests every proper partition and every coloring. Compile with `g++ -std=c++17 -O2 scripts/enumerate.cpp -o enumerate` and run `./enumerate 5`; compare representatives and summary to `data/graph_5.csv` and `data/stats_5.txt`. The summary specifies the joint total simplicity and total synchronization counts, with 470 simple, 890 totally synchronizing, and 448 having both properties among the 1,220 primitive classes. For the Eulerian frequency table, retain representative rows with simplicity flag 1, fewer than 32 synchronizing colorings, and target multiplicity two at every vertex. The frequencies at 24, 28 and 30 are 4, 8 and 6.
 
-The independent `scripts/check.py` rechecks **every** stored representative, permutation-orbit size, primitive property and normalized positive left eigenvector, then uses a pair-merger fixed-point test for synchronization rather than the enumerator's full-subset BFS. For all orders it checks proper block partitions separately. This replay printed `INDEPENDENT_CHECK_PASS` and identified four non-Eulerian five-state simple non-total classes, with stationary spectra and counts 2+2. The primary five-state marginal counts also match the previously published 1,220 and 890.
-
-Reproduction: compile `scripts/enumerate.cpp` with `g++ -std=c++17 -O2`, run it with arguments 2, 3, 4, 5 to regenerate `data/graph_N.csv`, compare `data/stats_N.txt`, then run `python3 scripts/check.py --data-dir data`. These are finite exhaustive procedures, not assertions about larger graphs. No external independent scientific audit has been performed.
+`python3 scripts/check.py --data-dir data` tests all stored rows, including primitivity, canonicity, lumpability, in-degree and coloring counts. It uses backward reachability of mergeable pairs rather than full-set forward reachability. A stored-row check alone is not proof of exhaustiveness; regeneration from the full labeled candidate universe establishes coverage. The enumeration is an exact finite argument, not formal verification or a theorem at larger orders.

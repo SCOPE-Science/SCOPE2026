@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:07:27.011708Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:5–57",
+        "VERIFICATION.md:19–25",
+        "rolefree_dd_checker.py:30–94,106–138"
+      ],
+      "rationale": "Every concept selects whole unary colors, and all singleton decisions depend only on counts capped at two. At a nonsingleton local point all descriptions are false there; at a singleton point a depth-one description tests absence, and the depth-two test removes a singleton other color before forming the union. Thus each of the T pointed colors has one nonsingleton class, and respectively 2^(T-1) and 3^(T-1) singleton classes. In the global language color-singleton tests either all fail (no singleton anywhere and no deeper description can help), or provide an anchor whose union with each other color detects its absence at depth one. The fixed pointed color then has 1 + 3^(T-1) + (3^(T-1)-2^(T-1)) profiles. The tests isolate every type by a Boolean conjunction, so the concept algebra has 2^N elements at each depth. The largest anchored representative needs precisely one singleton and two points of each other color; in the one-color case the nonsingleton type needs two points. The stated bound is sharp uniformly, not a claim of depth-zero sharpness. Independent exact finite check: place all capped models for k=0,1 in a disjoint union, enumerate Boolean unions of the current truth-partition blocks, generate singleton selections or broadcasts separately inside each model, and refine. Counts reproduced: local (1,2,2) and (2,6,8), global (1,2) and (2,10). This check does not prove the all-k induction. The frozen checker was inspected, not run.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bisimulation gives pointed equivalence and an omega-saturated converse, but does not specify the exact bounded-description-depth partition.",
+          "Theorem 17 bounds a model of a satisfiable ALC-description concept exponentially in concept size, not the smallest uniform representative of a theory in terms of number of unary colors."
+        ],
+        "reasoning": "Even if the unbounded partitions can be recovered by specializing a bisimulation, the local singleton depth-one to depth-two refinement and exact minimal sizes require additional work; the stronger-language expressivity and concept-size bound do not subsume the joint claim.",
+        "searches": [
+          "arXiv:2512.06604v1, Theorems 6, 7 and 17",
+          "arXiv:2106.15513v1, Theorems 4.1–4.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2512.06604v1",
+        "arXiv:2106.15513v1",
+        "Resultary e2acfc789698, 6daaa59d26ca, f721419c88bd (indexed summaries)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The local depth-one partition sees only support at a singleton point, whereas the local depth-two test distinguishes singleton from multiplicity there.",
+          "Global depth one, without roles or names, loses all other color counts when there is no singleton anchor. The sharp representative lower bound uses profiles with exactly one singleton, not generic concept satisfiability."
+        ],
+        "reasoning": "The opposite effects of anchor loss and local depth on observable classes yield the new finite classification. Neither general theorem, nor the singleton tests in the richer language, mechanically yields this filtration with its sharp uniform witnesses.",
+        "searches": [
+          "arXiv:2512.06604v1 Theorems 6–7 and 17 vs. RESULT.md:41–57",
+          "arXiv:2106.15513v1 Example 1 vs. RESULT.md:43–57"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The first source compares role-bearing ALC extensions with the same description semantics, not the depth filtration of unary pointed types.",
+          "The second distinguishes |A|=1 and |A|≥2 using the universal role and local descriptions with nominals; the universal role can broadcast information unavailable at nonsingleton local points here."
+        ],
+        "reasoning": "Identical singleton semantics are credited; adding a broadcast or roles changes the equivalence relation, so these comparisons are not alternative formulations of the depth-indexed counts.",
+        "searches": [
+          "Primary literature lookup on role-free unary definite descriptions, bisimulation and description depth",
+          "arXiv:2512.06604v1, Theorems 6–7",
+          "arXiv:2106.15513v1, Example 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "e2acfc789698 indexes 207 rank-two FO theories and a sharp 13-element bound with a unary predicate and an equivalence relation.",
+          "6daaa59d26ca indexes a guarded-fragment sentence classification for unary-colored equivalence relations and bound 2^k 3^(2^k).",
+          "f721419c88bd indexes pointed spectra in modal non-contingency stars."
+        ],
+        "reasoning": "The comparisons are with different signatures, operators, or unpointed theories; overlapping profile methods are not matching numeric or symbolic entries. Same-day records were compared without assigning priority from their dates. The linked full texts could not be opened through the mirror.",
+        "searches": [
+          "Resultary indexed semantic matches for unary finite theory profiles, exact depth spectra and sharp model bounds"
+        ]
+      },
+      "rationale": "The supported distinction is the exact finite pointed depth filtration for the two separate role-free languages, including the sharp collapse and parameter-only representative bound. The description operators, expressivity separation and general bisimulation machinery are prior. The Boolean algebra cardinality follows from the new depth-specific partition, not independently. No equivalent coverage was established in the sources compared.",
+      "residual_risks": [
+        "Full mirror texts of the three related records were not available; no inference of priority from same-day dates.",
+        "An earlier monadic logic specialization of the exact profile filtration cannot be excluded by the focused comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Foundational coverage, not exact depth and representative theorem",
+          "evidence": [
+            "Theorem 7: local extension is strictly less expressive than global, and global equals the joint extension in the role-bearing logic.",
+            "Theorem 17: a satisfiable concept has a model of size at most exponential in |C|."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2512.06604v1",
+          "material_read": "Theorems 6–7, offsets 19000–24754; Theorem 17, offsets 54900–56665",
+          "method": "OA primary HTML passages",
+          "title": "Description Logics with Two Types of Definite Descriptions: Complexity, Expressiveness, and Automated Deduction",
+          "trigger": "Same description operators and a potentially dominating bisimulation theorem"
+        },
+        {
+          "assessment": "Related counting mechanism in richer language",
+          "evidence": [
+            "Example 1 uses universal-role formulas for |A|=1 and |A|≥2; exact cardinality two is not expressible in that language."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2106.15513v1",
+          "material_read": "Syntax offsets 12250–15444; Theorem 4.1, Example 1, Theorem 4.2, offsets 43700–48695",
+          "method": "OA primary HTML passages",
+          "title": "On Free Description Logics with Definite Descriptions",
+          "trigger": "Earlier local singleton/counting logic"
+        },
+        {
+          "assessment": "The indexed scopes differ; no claim about unread proofs or appendices",
+          "evidence": [
+            "First two include an equivalence relation and count FO or guarded theories; the third is modal over stars."
+          ],
+          "identifier_or_url": "Resultary e2acfc789698; 6daaa59d26ca; f721419c88bd",
+          "material_read": "Indexed statements; exact-path mirror retrieval unavailable",
+          "method": "Resultary index and local mirror attempts",
+          "title": "A sharp thirteen-element rank-two model bound for unary-coloured equivalence relations; Exact guarded-fragment theories and a sharp finite-model bound for unary-coloured equivalence relations; Exact pointed-theory spectrum and optimal tests for non-contingency stars",
+          "trigger": "Closest indexed quantitative finite classifications"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:39–57",
+        "arXiv:2512.06604v1 Theorems 6–7,17"
+      ],
+      "rationale": "The role-free baseline separates local from global observability without relational navigation. Exact spectra and shortest collapse depths answer which counts a description can test, while the sharp model bound gives a finite universe of representative types for equivalence checks. These are structural results, not merely the powers-of-two count for an already enumerated algebra.",
+      "residual_risks": [
+        "The bound does not guarantee short normal-form concepts or extend to roles."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

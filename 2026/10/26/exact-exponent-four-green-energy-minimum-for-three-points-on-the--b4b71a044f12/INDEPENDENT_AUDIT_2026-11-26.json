@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:12:57.908402Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With probability area on the unit sphere, each factor exp(4U) is e²(1−ξ·v)²/4. Write u,v,w for the three off-diagonal Gram entries. In the expansion of the resulting integral T, the even degrees 0, 2, 4, 6 contribute respectively 1, 1+(4/3)Σu, [3+2Σu²+4Σu+8Σuv]/15, and [1+2Σu²+8uvw]/105 (Σuv runs over the three unordered pairs of entries). These follow from the normalized even moments, with denominators 3, 15 and 105. This gives precisely equation (1). Independently, review_evidence/reproduce.py 3 integrates Cartesian monomials on 20 rational unit triples and checks the full rank-five coefficient reconstruction. Substitution of a=u+1/2 and its cyclic analogues gives the deficit 98t+26t²−10Q+8abc. The two independent inequalities are |abc|≤(max|a,b,c|)Q/3≤Q/2 and Q=Σ(S·v_j)²−t²≤6t−t², since t=||S||²/2. They yield 105T−33≥14t+40t², including repeated points. Zero minimum deficit forces S=0; then all three mutual inner products equal −1/2, and conversely that Gram matrix attains 33/105. Its rank-two realizations are congruent by a proper rotation, because the action on the normal line can be chosen to fix the determinant. Multiplication by e⁶/64 gives the exact minimum and the claimed stability coefficients. The finite reproduction tests the polynomial, not the universal bound, which is analytic. No sharpness of individual stability coefficients is claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior even-exponent reformulation has broader scope than the present theorem but gives no corresponding optimal configurations at exponent four.",
+          "Aldaz–Render's bounds treat a fixed homogeneous factor times varying-degree factors; the ordinary Bombieri product bound on the three squared unit linear factors yields 2!³/6!=1/90, not 11/320."
+        ],
+        "reasoning": "Neither broader statement dominates the sharp finite binary-sextic minimum or controls the specified centroid deficit.",
+        "searches": [
+          "Hedenmalm–Xie, arXiv:2610.15004v1 §6.4 and Problems 6.19, 6.23",
+          "Aldaz–Render, arXiv:2402.19153 §1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md; check_energy.py read only",
+        "Resultary ranked semantic searches under the value, exponent, energy and author aliases",
+        "arXiv:2610.15004v1, cited full-text passages",
+        "arXiv:2402.19153, introduction"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known three-point exponent-two optimum is e³/16 at great-circle equilateral triples; Problem 6.23 asks for minimizers and constants at other exponents."
+        ],
+        "reasoning": "The minimum of the integral at exponent two does not determine the minimum of the integral of the squared integrand. Jensen's bound from the exponent-two optimum is e⁶/256, smaller than the claimed e⁶·11/2240, so even that immediate implication is not sharp.",
+        "searches": [
+          "arXiv:2610.15004v1 Theorem 6.16, Problem 6.23 and §6.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The even-exponent identity identifies B4 as (e⁶/7)||P_W²||²_BW, where P_W is the product of the three normalized binary linear forms. The claimed exponent-four sharp value is therefore equivalent to 11/320 for the squared sextic norm."
+        ],
+        "reasoning": "The representation already exists, but an identity of objectives is not a solution of the norm minimization. No retrieved equivalent optimization or inequality supplied the sharp value and stability.",
+        "searches": [
+          "Resultary: three-point exponent-four Green energy, Θ_{3,4}, B4, 11e^6/2240, and Hedenmalm–Xie aliases",
+          "arXiv:2610.15004v1 §6.4, Theorem 6.20 and (6.46)–(6.47)",
+          "arXiv:2402.19153 §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching exact-value entry surfaced in the retrieved catalogue records. The motivating primary text poses the non-two exponent constants as unknown and refers to numerical minimization for candidates."
+        ],
+        "reasoning": "Identifying numerically plausible triangles does not give this exact constant, still less the analytic bound over all triples. The ranked catalogue search is limited evidence, not an exhaustive absence claim.",
+        "searches": [
+          "Resultary ranked lookups by 11e^6/2240, Θ_{3,4}/B4 and exponent-four sphere language",
+          "arXiv:2610.15004v1 §6.5, Problem 6.23"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the exponent-four optimum, its equality classification, and the explicit global centroid deficit. The prior three-point exponent-two theorem and even-exponent norm reduction are credited, as is the equilateral candidate. They leave the optimization at exponent four unresolved.",
+      "residual_risks": [
+        "The external general-literature search was unavailable; decisive primary OA passages were available. Unindexed or differently framed sharp powered-Bombieri inequalities remain a historical priority risk.",
+        "The Aldaz–Render comparison is restricted to the stated scope and passages inspected, not a claimed whole-document exclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior formulation and exponent-two solution; not a solution of the exponent-four instance.",
+          "evidence": [
+            "Problem 6.23 asks to determine the constant and classify minimizers for β≠2; its equilateral candidate is numerical beyond β=2. The even-exponent reduction supplies precisely the objective compared, not the missing inequality."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.15004v1",
+          "material_read": "Dated v1 title page; primary HTML §6.4 Theorem 6.20, equations (6.46)–(6.47), Problem 6.19 (offsets 108950–115453); §6.5 Problem 6.23 (offsets 117650–121224), including the discussion of the exponent-two result.",
+          "method": "Bounded OA full-text readings and numerical normalization comparison.",
+          "title": "Exponential Green Energies, Quantization, and Minimizers on Compact Surfaces",
+          "trigger": "Identical normalized Green energy, triple optimization, and potential broader powered-norm theorem."
+        },
+        {
+          "assessment": "The inspected results concern varying-degree asymptotic bounds for products with a fixed factor, not optimization of three unit linear forms squared.",
+          "evidence": [
+            "Section 1 describes a fixed homogeneous P multiplied by arbitrary degree-m polynomials and bounds as m grows."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2402.19153",
+          "material_read": "Primary abstract and introduction, OA HTML offsets 800–3124.",
+          "method": "Compared the stated hypothesis, degree regime and apolar-norm objective with the exact binary sextic problem.",
+          "title": "Asymptotic bounds for Bombieri’s inequality on products of homogeneous polynomials",
+          "trigger": "Potential dominating binary-form product inequality."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the first even exponent after two in the explicit three-point problem posed by the motivating paper. It converts a numerical candidate into a sharp global theorem and bounds the energy penalty by a geometric imbalance. The particular exponent and cardinality have a prior mathematical motivation, and the deficit offers usable information beyond the minimizing value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

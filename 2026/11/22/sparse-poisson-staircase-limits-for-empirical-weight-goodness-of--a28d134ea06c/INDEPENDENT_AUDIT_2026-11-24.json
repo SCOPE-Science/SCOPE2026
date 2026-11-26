@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:19:18.681370Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under either stated regime nλ→∞, so the Poisson sample mean is relatively consistent by Var(λhat/λ)=1/(nλ), and its all-zero event has probability exp(−nλ)→0. For each fixed k with n p_λ(k)→∞, binomial concentration and p_λhat(k)/p_λ(k)→1 give W_n(k)→1. In the critical regime this handles k<r; at r the binomial count converges to one Z~Poisson(c/r!), while n p_λhat(r)→c/r!, giving the asserted rare-cell ratio. The union bound n P_λ(X≥r+1)=O(nλ^(r+1))→0 makes every later ratio zero simultaneously with high probability. Thus the fixed-weight tail is exactly the sum or weighted supremum in the formulas on that event; no unjustified exchange of an infinite sum and limit is needed. Finite collections share the one rare coordinate by continuous mapping. For either adaptive mass weight the critical cell has O_P(1/n) weight times a tight discrepancy, the empirical tail is identically zero on the same event, and the fitted tail has total weight tending to zero (which also bounds its supremum). At a plateau k=r is concentrated too, including the r=1 plateau. The fixed positive tail bounds the limiting distances away from zero. The e^(−k) example at r=2,c=2 leaves e^(−3)/(1−e^(−1))+e^(−2)|Z−1| for Poisson(1) Z, with minimum about .07876198246 attained when Z=1 (mass e^(−1)). Inspected VERIFICATION.md and verify.py without executing uploaded code: finite histogram and rare-cell checks corroborate but do not establish these limits. The result is for the exact distances defined in RESULT.md, in particular g inside the weighted supremum.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 8275326fd4d5 describes a fitted-Poisson-weight L_1 sparse transition with a Gaussian occupancy/cusp profile; its exact scaling and full text were unavailable.",
+          "Resultary 9f41c170e8e8 describes rare-cell counts in contingency tables. The bounded external occupancy lead did not yield a passage on fitted histogram-ratio distances. Classical rare-cell Poisson convergence is an explicit input to the frozen proof."
+        ],
+        "reasoning": "A general Poisson occupancy theorem supplies the count limit, but the result also needs relative fit consistency and control of all unseen cells in fixed and moving norms. No accessible broader claim supplies that package. A more detailed fitted-weight overlap with the cusp record remains possible.",
+        "searches": [
+          "Resultary: rare Poisson counts and fitted-Poisson-weight sparse transition",
+          "arXiv:2402.12866v1 and NWU dissertation, sparse/triangular null comparisons",
+          "Literature: rare occupancy Poisson counts; The distribution of rare alleles"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md; verify.py",
+        "arXiv:2402.12866v1 first-page abstract and published article identifier",
+        "Kirui NWU thesis citation and attempted repository retrieval",
+        "Resultary 8275326fd4d5 and 9f41c170e8e8 summaries",
+        "Companion 5730903ab8bc actual RESULT.md",
+        "External occupancy lookup surfaced The distribution of rare alleles but no decisive passage"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The companion Stein–Chen paper uses the same r=2 doubleton mechanism, but signs and standardizes a fitted exponential Stein residual, not the full histogram-ratio distances.",
+          "The fitted-weight L_1 neighbor addresses one adaptive scheme in its indexed statement; it does not state the critical family of fixed summable weights, their exact tails and joint law, or the two adaptive contrasts. The journal paper's accessible abstract does not make a sparse-null assertion."
+        ],
+        "reasoning": "Even detailed overlap for one fitted-weight statistic would not by itself cover the fixed-weight unseen-tail separation. A same-date database result is assessed by its mathematical content, not treated as earlier or later merely from its date.",
+        "searches": [
+          "Resultary 8275326fd4d5 and 9f41c170e8e8",
+          "Companion frozen 5730903ab8bc RESULT.md:4–21,53–61",
+          "Kirui et al. arXiv:2402.12866v1 abstract versus shrinking-mean statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kirui et al. arXiv:2402.12866, p.1 abstract, describes estimating an empirical weight function for a fitted weighted-Poisson model and comparing it via weighted L_1, L_2 and L_∞ distances.",
+          "In the assigned definition the fitted-to-empirical comparison uses W=empirical mass/fitted Poisson mass on all nonnegative cells, and the supremum weights |W−1| before maximization. Empty cells therefore contribute g(k), not zero for fixed g."
+        ],
+        "reasoning": "The result is assessed for the explicit ratio, support and norms (or an equivalent squaring/root convention), not for a histogram distance truncated at the observed maximum. The abstract establishes the testing framework overlap, but does not resolve the original paper's exact norm conventions.",
+        "searches": [
+          "Resultary: sparse Poisson empirical-weight distance, fitted histogram ratio and cusp/staircase",
+          "arXiv:2402.12866v1, empirical weight function and weighted distances",
+          "Kirui NWU thesis and published SASJ landing page 6380"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact staircase hit a28d134ea06c is the assigned record itself. The closest distinct summaries concern a fitted-weight transition and a Stein–Chen statistic, respectively; the published abstract reports finite simulations.",
+          "The e^(−k) numerical instance is a geometric tail plus a Poisson count, not a scientific novelty claim for a numerical constant or simulated table entry."
+        ],
+        "reasoning": "A table of finite-sample scores or a shared count distribution is not an exact match for the joint law and deterministic unseen-tail plateaus.",
+        "searches": [
+          "Resultary: exact sparse-Poisson staircase limits and fixed/adaptive comparison",
+          "Resultary: fitted-Poisson cusp ladder and rare doubleton results",
+          "arXiv:2402.12866v1 abstract, reported Monte Carlo comparison"
+        ]
+      },
+      "rationale": "The empirical-weight testing construction is credited as prior. The supported distinct claim is the joint shrinking-mean asymptotic law for the explicitly defined infinite-support distances: an exact unseen-tail contribution plus a shared Poisson coordinate at each critical cell, deterministic plateaus between them, and separation of fixed from adaptive weights. Neither the rare-event limit in isolation nor a new version of the test statistic is credited.",
+      "residual_risks": [
+        "Primary formulas and relevant conclusions in the Kirui paper and thesis were not independently retrieved. The original denominator/weighted-supremum convention is not certified; the theorem is verified as explicitly defined. Journal issue metadata varied across accessible records; the comparison relies on the unambiguous arXiv version.",
+        "The exact fitted-weight scale and scope of the cusp-ladder result were unavailable; further overlap in that one component remains possible. No same-day date or unsuccessful search is used to infer priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Existing methodology credited; abstract alone cannot settle exact conventions or full-document coverage",
+          "evidence": "The abstract explicitly reports empirical-vs-theoretical weights, L_1/L_2/L_∞ distances and Monte Carlo comparisons. No assertion about the exact full-paper sparse-null scope is inferred from silence in the abstract.",
+          "identifier_or_url": "https://arxiv.org/pdf/2402.12866",
+          "material_read": "First-page abstract, text lines 21–30; decisive formula and conclusions passages unavailable. Published journal landing page identified at journals.ac.za/sasj/article/view/6380.",
+          "method": "Identified arXiv PDF and attempted targeted OA passages and published alternate",
+          "title": "On new tests for the Poisson distribution based on empirical weight functions",
+          "trigger": "Same test family and distance norms"
+        },
+        {
+          "assessment": "Possible exact prior coverage unverified",
+          "evidence": "The frozen comparison credits the thesis construction and finite-sample comparisons. No original passage was available to rule out further results.",
+          "identifier_or_url": "https://repository.nwu.ac.za/bitstreams/6bc2adcb-3dbb-4312-b440-4d92cc48d5f6/download",
+          "material_read": "Frozen bibliography and prior-work summary; full thesis not extracted",
+          "method": "Identified lawful repository retrieval",
+          "title": "On a new class of tests for the Poisson distribution based on empirical weight functions",
+          "trigger": "Earlier thesis using the same construction"
+        },
+        {
+          "assessment": "Material overlap in fitted-Poisson-weight L_1; no equivalent combined staircase is shown by the accessible statement",
+          "evidence": "The summary describes a fitted-weight L_1 Gaussian occupancy/cusp profile. It neither specifies the fixed-weight tails nor resolves overlap in exact fitted-weight scaling.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-square-root-sample-size-transition-and-an-infinite-cusp-ladder--8275326fd4d5",
+          "material_read": "Indexed claim summary; precise mirror passages unavailable",
+          "method": "Resultary and identified mirror retrieval",
+          "title": "A square-root sample-size transition and an infinite cusp ladder",
+          "trigger": "Closest distinct same-statistic sparse result"
+        },
+        {
+          "assessment": "Shared count mechanism with a different discrepancy and normalization",
+          "evidence": "A centered signed common Poisson coordinate drives T3 at nλ²→τ; the companion does not analyze fitted histogram-ratio distances or unseen-cell weights.",
+          "identifier_or_url": "2026/11/22/SCOPE-sparse-poisson-rank-one-calibration-for-exponential-stein-chen-g--5730903ab8bc",
+          "material_read": "Actual companion RESULT.md:4–21,53–61",
+          "method": "Direct comparison of frozen statements and proofs",
+          "title": "Sparse-Poisson rank-one calibration for exponential Stein–Chen goodness-of-fit discrepancies",
+          "trigger": "Shared sparse doubleton limit"
+        },
+        {
+          "assessment": "Occupancy background, not an established stronger statement of this distance law",
+          "evidence": "The summary concerns contingency-table rare-cell Poisson counts. The fixed/adaptive norms and fitted Poisson denominators are not part of its stated object.",
+          "identifier_or_url": "2026/11/8/SCOPE-connected-support-gives-independent-rare-cell-poisson-counts-and--9f41c170e8e8",
+          "material_read": "Indexed claim summary",
+          "method": "Resultary and comparison to the histogram-ratio map",
+          "title": "Connected support gives independent rare-cell Poisson counts",
+          "trigger": "Possible general rare-cell implication"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The analysis distinguishes two kinds of behavior for existing goodness-of-fit distances even under a true null: a positive floor and a discrete law from weighting unseen cells versus vanishing distances when mass weights adapt. It explains why changing an apparently secondary weight changes the sparse null limit, and identifies exactly when the floor drops to the next plateau across sample-size scales. This is not a claim of bootstrap size distortion or a result for growing r.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

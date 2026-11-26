@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:01:09.557758Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the repaired vector statement in repairs/5/RESULT.md, take windows of lengths u≤v with u+v<N; there are v−u+1 containing shifts and two shifts at each overlap u−r for 1≤r<u. Common signs cancel, giving the stated finite covariance after subtracting the product of means at each overlapping shift. The geometric tail gives C with d=|h_i−h_j|, and the last term (u+v−1)mu^(u+v) vanishes. For each linear combination, the absolute covariance sum is uniformly bounded by the same overlap count and a convergent geometric series. Keeping blocks of size floor(N^(1/3)) separated by gaps of length O(log N) (including at wraparound) retains independent block sums with maximum size o(sqrt N). The o(N) omitted terms have o(N) variance; the retained variance converges to the asserted quadratic form after normalization. Lindeberg–Feller and Cramér–Wold apply, with zero limiting variance handled by Chebyshev. The exact mean gives the phase-dependent vector shift, and the positive marginal variances ensure Gaussian orthants have null boundary. The original scalar assertions are mathematically sound but were already covered. Frozen VERIFICATION.md and verify_kac.py were inspected, not rerun; finite checks do not establish this CLT.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hiura's covariance uses a fixed horizon T and the surrounding annealed CLT discussion is conditional on existence and analyticity of an associated rate function.",
+          "The revival argument gives a joint limit of one window length with global parity, not one of several window lengths. No substantive text of the Cardoen thesis was obtained."
+        ],
+        "reasoning": "Neither a finite-horizon fluctuation calculation nor a fixed-length-family scalar CLT is uniform in diverging observation times for fixed-offset vector combinations. General CLT machinery still needs the growing-range, mixed-window variance argument.",
+        "searches": [
+          "Hiura arXiv:2109.06434 §3.3, Eq. (3.16)",
+          "Primary literature lookup for growing-time Kac-ring fluctuations",
+          "Cardoen DOI 10.13140/RG.2.1.2887.4323 (bounded OA attempts)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–58, VERIFICATION.md and verify_kac.py (static inspection)",
+        "Complete repaired RESULT.md",
+        "Resultary revival record proof §§3,5",
+        "Hiura arXiv:2109.06434 §3.3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Scalar normal limits plus convergence of covariances do not entail a joint Gaussian limit. To apply Cramér–Wold, combinations of products from several lengths must be handled at once.",
+          "The overlap bound and block construction handle those combinations uniformly; the resulting kernel retains both the d term and the geometric contribution."
+        ],
+        "reasoning": "The vector limit is not a stated or mechanical implication of the inspected earlier results. Its vector phase shift is a consequence of that vector theorem and the known exact mean, not an independent claim of novelty.",
+        "searches": [
+          "Hiura §3.3 (3.16) and prior revival proof §§3,5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The revival record's early-time circular product average A_{N,k} is exactly M_N(k), not the parity-flipped revival magnetization M_N(N−k). Its centered one-time CLT holds without a convergence assumption on sqrt(N)mu^k.",
+          "Substitution of k=t_N+h into that result yields each marginal but no joint law for different h."
+        ],
+        "reasoning": "The single-time scope overlaps exactly irrespective of whether expressed in spins or sliding products. For multiple distinct offsets the simultaneous fluctuations, not the marginals, are the retained claim.",
+        "searches": [
+          "Resultary search for Kac ring logarithmic-time central limits, crossover, and circular products",
+          "Resultary 2026/10/18 revival RESULT.md proof §§3,5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Its proof §3 gives the centered limit for integer k_N→∞, k_N=O(log N), fixed independent Bernoulli scatterers and all-positive initial spins; its variance is (1+mu²)/(1−mu²). Section 5 compares the mean with the sqrt(N) noise scale.",
+          "No distinct-offset vector comparison was identified in that result."
+        ],
+        "reasoning": "The indexed proof is decisive for nonnovelty of the scalar part, not the repaired multivariate result. There is no numerical table that could certify the triangular-array Gaussian law.",
+        "searches": [
+          "Resultary 2026/10/18/SCOPE-a-logarithmic-gaussian-mixture-revival-window-in-the-kac-ring--3f13b8f70833"
+        ]
+      },
+      "rationale": "Original originality FAIL for the unqualified scalar growing-time CLT and one-time sign/noise crossover: the earlier revival record proves this same early-time scalar CLT with the same parameters, range of times, and variance, and its critical-window calculation yields the same sign limit. This is exact coverage in its proof even though its main theorem is at revival. The repaired claim expressly credits and does not claim those one-time conclusions. It retains only the joint distinct-offset limit and the resulting joint phase law, which neither the identified scalar result nor the fixed-horizon covariance implies. This is a best-of-knowledge assessment of the narrowed claim.",
+      "residual_risks": [
+        "The 2004 Cardoen thesis could not be inspected in full and may include relevant stronger results.",
+        "The joint formulation is an extension of related fluctuation results and blocking arguments; no exhaustive historical-priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the early-time marginal CLT and its crossover; no jointly propagated different window lengths; revival magnetization has a separate parity factor.",
+          "evidence": "sqrt(N)(A_{N,k_N}−mu^k_N) converges to a centered normal of variance (1+mu²)/(1−mu²), without requiring the uncentered mean to converge.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-logarithmic-gaussian-mixture-revival-window-in-the-kac-ring--3f13b8f70833",
+          "material_read": "RESULT.md Finding and Proof §3 ‘Triangular-array central limit theorem’ (offset 3981) and §5 ‘Crossover’ (offset 6447)",
+          "method": "Resultary search and bounded local-mirror reading",
+          "title": "A logarithmic Gaussian-mixture revival window in the Kac ring",
+          "trigger": "Same Bernoulli model and logarithmic crossover"
+        },
+        {
+          "assessment": "Fixed observation horizon, not the repaired growing-time joint theorem.",
+          "evidence": "Annealed disorder is static within one experiment; the annealed matrix is computed at fixed horizon and the adjacent CLT formulation assumes rate-function existence and regularity.",
+          "identifier_or_url": "https://arxiv.org/abs/2109.06434",
+          "material_read": "PDF p. 5 (approximately offset 12379) and p. 9 §3.3 (approximately offset 28775), Eq. (3.16)",
+          "method": "Bounded OA full-text inspection",
+          "title": "Macroscopic dynamical fluctuations in Kac ring model",
+          "trigger": "Same model's annealed dynamical covariance"
+        },
+        {
+          "assessment": "Scope unresolved, not treated as ruled out.",
+          "evidence": "No statement-level conclusion about the thesis was drawn from inaccessible full text.",
+          "identifier_or_url": "10.13140/RG.2.1.2887.4323",
+          "material_read": "No substantive thesis passage obtained",
+          "method": "Bounded OA retrieval and lawful-copy check",
+          "title": "The Gibbs hypothesis for macroscopic fluctuations: study of the Kac ring model",
+          "trigger": "Earlier thesis on fluctuations in the same model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired claim identifies correlations between different nearby times at the relaxation scale in one static environment. Those correlations determine simultaneous sign probabilities and give information unavailable from the known scalar CLT or the signal-to-noise timescale alone. The uniform growing-window proof is needed to justify using the explicit kernel as a joint Gaussian law.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

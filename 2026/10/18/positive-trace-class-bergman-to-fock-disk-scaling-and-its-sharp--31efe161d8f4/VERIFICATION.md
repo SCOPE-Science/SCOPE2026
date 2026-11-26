@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-## Reproducibility
+# Independent mathematical audit
 
-Run `python VERIFY.py` with Python 3, NumPy and SciPy available. The script computes the beta and gamma distribution-function eigenvalues, compares the nonnegative differences, verifies the closed trace identity, checks first-order asymptotics and tests mode crossings. A completed run returned `PASS: 52 cases; positivity, exact traces, trace-class first-order, spectral thresholds`.
+## correctness
 
-## Analytic checks and limitations
+PASS
 
-The exact trace formula comes from the reproducing kernel's diagonal, with the radial primitive \(\int v^{d-1}(1-v)^{-d-1}\,dv=[v/(1-v)]^d/d\). The stochastic ordering uses a decreasing normalized density ratio, valid for every \(s>t>0\). The gamma-density Taylor expansion is for fixed \(d,k,t\); trace-class convergence separately requires positivity, pointwise convergence, and matching total traces. The maximizing-degree ratio is exact. Numerical checks do not establish infinitely many degrees, dimensions, or continuous parameter ranges.
+The normalized radial integrals diagonalize in the specified common monomial basis with total-degree multiplicity binom(k+d-1,d-1). With m=k+d, the density ratio of scaled Beta(m,s+1) to Gamma(m,1) strictly decreases on (0,s) and is zero beyond s; normalization forces one crossing and hence strictly positive CDF difference for 0<t<s. Kernel integration gives the exact trace, using the primitive (v/(1-v))^d/d; positivity turns it into the trace norm. At each fixed degree the first variation is m(m+1)/2 times the difference of the Gamma(m,1) and Gamma(m+2,1) CDFs, giving the stated eigenvalue. Multiplicity cancels the factorial to 1/[k!(d-1)!]; summing recovers the first variation of the exact trace. Pointwise positive diagonal convergence plus convergence of these total masses gives trace-norm convergence without an unjustified uniform Taylor estimate. The adjacent-eigenvalue comparison reduces to t(t+2) versus (k+d)(k+d+1), proving the claimed staircase for the limiting error operator, including ties. Independently checked 12 numerical quadratures including nonintegral weights and 20 adjacent ties.
 
-Scientific priority was compared with the original March 2026 Bergman–Fock manuscript and related radial Toeplitz and Fock sampling work; the absence of a matching searched statement is not a proof of historical originality. The result has not undergone independent validation.
+## originality
+
+PASS
+
+The radial spectra, weak convergence and sharp limit of individual disk-localizer operator norms are established inputs. The exact positive defect, its first-order trace-class limit in all dimensions, and the limiting defect's maximizing-degree transitions are distinct from the strongest available comparisons. The judgment is confined to those claims and the inspected sources.
+
+## value
+
+PASS
+
+This gives exact error control and a complete first variation for a naturally scaled approximation of localization operators, rather than a rephrased eigenvalue limit. Trace norm controls all modes; the staircase describes which degree governs the sharp approximation error, with d=t=1 witnessing that the error need not be largest on constants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

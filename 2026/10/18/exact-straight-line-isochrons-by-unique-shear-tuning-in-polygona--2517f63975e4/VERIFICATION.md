@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,7 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
-The included `verify.py` evaluates the exact affine section equation for cyclic random-radius polygons with \(N\in\{3,4,5,6,7,10,15\}\), randomly chosen positive \(\omega_i,\lambda_i\), and both positive and negative radial displacements. It checks unperturbed crossing times, tuned perturbed times, full-revolution timing and contraction, nonzero detuned time shift, and the common regular-polygon closed form. Execute `python3 verify.py` with the Python standard library.
 
-Analytical obligations and proof limitations: the theorem uses the explicitly integrated local vector field and positive transversality at each unperturbed vertex; small neighborhoods exist by continuity. This establishes universal edge crossing and local straight-line isochrons; finite computational runs do not prove the general case, rule out remote invariant sets, or independently certify bibliographic novelty. No independent mathematical audit has been performed.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+Take s along the edge and V=n·x−C normal to it. An incoming radial displacement δ has (s,V)=(Aδ,Cδ), while an outgoing radial displacement δ′ has (1+(A+1)δ′,Cδ′). Solving V′=−κV and s′=ω−μV gives δ′=δ exp(−κt). At the on-cycle time the tangential matching condition is proportional to δ with shear coefficient C(1−E)/κ>0, so cancellation is exact and unique. On the reference edge the angular velocity is ωC/|x|²>0; both modes cross an adjoining ray in the same direction. Compactness over an edge, restricting the offset, and the simple section root with time derivative ω at δ=0 ensure the selected first crossing stays local. Even at a detuned finite shear the derivative of δ exp(−κt(δ)) at zero is E, so the period and transverse multiplier really are preserved. At tuning, the flight map transports each small incoming radial segment by an affine map with nonzero normal component at every intermediate time. These fixed-time lines are local coordinates, glue to the radial segments at crossings and synchronize under repeated revolutions (amplitude factor ∏E); distinct phases on the simple orbit cannot converge with zero relative time shift. Equal radii give A=−1/2 and the displayed coth formula. An independent exact-rational replay checks tuned and detuned ray identities on six unequal sectors with both signs of offset.
+
+## originality
+
+PASS
+
+The inspected earlier model and phase theory do not supply the edgewise finite-offset calibration and ensuing straight isochron foliation. A later Resultary item is demonstrably equivalent on the exact flight-time calibration, not independent priority evidence against this record; the earlier-priority judgment is bounded by the inspected sources.
+
+## value
+
+PASS
+
+This supplies an exact tuning rule and a usable local phase map for a motivated hybrid oscillator family without changing its geometric cycle, clock on the cycle, or linear stability. It identifies the precise parameter choice that removes finite-offset timing errors at every switch; this is appreciably stronger than calculating the linear response or verifying a regular polygon example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

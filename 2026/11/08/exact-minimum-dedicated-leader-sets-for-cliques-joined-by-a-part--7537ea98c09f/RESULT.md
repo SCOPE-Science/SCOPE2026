@@ -39,8 +39,9 @@ All minimum sets are as follows.
 * When \(k=m\), omit one matched pair entirely and choose exactly one of its
   endpoints in each of the other \(m-1\) pairs.
 
-In particular, adding the final matching edge changes the shape of the optimal
-leader sets but not their minimum size or their total number:
+In particular, adding the final matching edge **preserves the entire family of
+optimal vertex sets** on the common labeled vertex set. Consequently it also
+preserves their size and number:
 \(\kappa(m,m-1)=\kappa(m,m)=m-1\) and
 \(N(m,m-1)=N(m,m)=m2^{m-1}\).
 
@@ -170,8 +171,16 @@ zero. Both simple eigenvectors are detected, proving sufficiency.
 There are \(m\) choices of the omitted pair and \(2^{m-1}\)
 independent endpoint choices on the other pairs.
 
-Finally substituting \(k=m-1\) in the partial-matching formulas yields
-the same minimum and count as \(k=m\). This proves every assertion. \(\square\)
+Finally, when \(k=m-1\), the unmatched singleton classes are \(\{u_m\}\)
+and \(\{v_m\}\); completing the matching merges them into \(M_m\).
+If both singletons were omitted, every old matched pair supplied one vertex,
+so \(M_m\) is the unique omitted pair after completion. Otherwise a partial
+optimum omits one old matched pair and one of the singletons, so exactly one
+vertex of \(M_m\) is selected and the same old pair is omitted. Conversely,
+omitting \(M_m\) in a full-matching optimum translates to omitting both
+singletons; omitting any other pair translates to omitting that pair and the
+unselected singleton. Thus the equivalence is set by set, not just numerical.
+This proves every assertion. \(\square\)
 
 ## Verification
 

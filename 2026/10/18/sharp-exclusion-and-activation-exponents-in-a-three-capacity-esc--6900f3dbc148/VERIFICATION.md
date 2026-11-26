@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and limitations
 
-Run `python verify_escort.py` with standard Python 3.9 or newer. The embedded program requires no external packages, internet, or persistent data.
+# Independent mathematical audit
 
-The actual replay completed with these checks: (a) exact arithmetic for 199 rational budgets at order \(q=1/2\), including all three optimizer branches, affine constraints, and one-sided derivative signs; (b) 2,189 numerical root/active-set checks from 11 diversity orders and 199 interior budgets; (c) rational checks that \(b=1/4\) gives the potential abundance \((9/10,1/10,0)\) and Hill number \(8/5\); and (d) activation-coefficient comparisons in the regimes \(q=1/4\), \(q=1/2\), and \(q=3/4\).
+## correctness
 
-These calculations corroborate the formulas at selected inputs. The infinite family and exact asymptotic exponent are established by the analytic escort-bijection, strict-convexity, KKT, and matched-asymptotics arguments in RESULT.md. The output is not an external proof certificate. The findings apply to theoretical maximum-diversity compositions under an exact three-score constraint; no empirical data were tested.
+PASS
+
+On the closed simplex the escort map is bijective, with inverse p_i=y_i^(1/q)/Z, and D_q=Z^(q/(q-1)). The affine escort slice is compact; minimizing the strictly convex power sum for q<1 or maximizing the strictly concave one for q>1 gives uniqueness. For q>=1 a move toward a strictly positive feasible vector improves any boundary candidate at an interior budget, by the singular power or Shannon derivative at zero. For q<1, parameterize y=(1-b+t,b-2t,t) with max(0,b-1)<=t<=b/2. At the upper endpoint the derivative divided by 1/q is (1-b/2)^s+(b/2)^s>0, ruling out absence of the middle species. For b<=1 the sign at t=0 is that of (1-b)^s-2b^s, giving the exact threshold, including equality by strict convexity. Reflection covers b>=1; at b=1 the lower endpoint derivative is negative, and b=0,2 force singletons. Near the transition the unique minimizer has t->0. Subtracting the derivative at t=0 before Taylor expansion gives K delta(1+o(1))=t^s+(L+o(1))t, making each of the three balances rigorous. Inverting the escort gives the stated A_q and exponent; at q=1/2 the coefficient is 9/20, also obtained from the exact interior t=delta/2 and Z_0=5/9.
+
+## originality
+
+PASS
+
+The distinct contribution is the quantitative onset in the finite three-capacity escort slice, in particular the exponent crossover and its leading coefficient in all three regimes. The escort reduction, generic global optimization ingredients and truncated stationary form are prior; the explicit support threshold is a short specialization of that form and is not the basis of the originality pass. The frozen citation points to Eguchi Section 5.2 for the stationary form; the relevant passage is Section 6.2, Eq. (21). This locator correction does not change the mathematical claim.
+
+## value
+
+PASS
+
+Three equally spaced capacities give the first nontrivial escort slice with an adjustable support. A generic truncated stationary form says an abundance may vanish but does not quantify its sensitivity to the budget. The exact onset and its crossover distinguish two different scaling mechanisms and give a sharp benchmark for users of this model. This is mathematical benchmark sensitivity, not a biological extinction prediction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

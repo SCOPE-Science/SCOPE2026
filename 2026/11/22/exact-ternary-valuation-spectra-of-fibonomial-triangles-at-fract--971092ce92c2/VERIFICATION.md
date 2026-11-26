@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-Execute `python3 check.py` in the directory containing this document. The executable uses Python 3's standard library only. The test checks 472878 individual Fibonacci-factorial-derived coefficients at the largest height (\(L=5\), 972 rows), all lower levels, the exact three-state digit transition generated from nine ternary digit pairs, the two-by-two carry matrix, the polynomial recurrence through \(L=6\), zero counts, maximal counts and triangle totals. The observed output ends in `PASS: elementary Fibonacci valuations, all triangular fibers (L=0..5), digit transitions, rational recurrence (L=0..6).`
+## correctness
 
-The mathematical proof in `RESULT.md`, not these finite experiments, establishes the generating function for arbitrary \(L\). A finite check cannot rule out a counterexample beyond its range, and the checker does not claim to test any alternative prime or all possible congruence residues. Independent audit has not been performed.
+PASS
+
+The Fibonacci addition identity gives integrality: the interior entry (m,k) equals F_(m-k+1) times the entry (m-1,k-1) plus F_(k-1) times the entry (m-1,k), from boundary 1. The Fibonacci matrix has off-diagonal zero modulo 3 exactly at multiples of four; Q^4=-(I+3C), and cubing successively increases the valuation of the correction by one and preserves its normalized off-diagonal modulo 3. Raising to a power prime to 3 proves v3(F_(4j))=1+v3(j). Partitioning the factorial quotient by residues of m,k modulo four gives ten residue pairs with ordinary binomial valuation and six with an extra 1+v3(R), the latter only when R=Q-K>0. In adding K and R the base-three transfer has rows (6,3u),(3,6u) and must end without overflow. Before the first nonzero digit of R, carry remains zero and each zero has total weight 3u; first exit weights are (3,3u). Thus the resolvents give (1-6uz)/Delta for the ordinary term and z(3,3u)(I-zT)^(-1)(1,0)^T/(1-3uz)=3z/Delta for the trailing-zero term. Their weighted sum gives the claimed all-level GF. Specializing to u=0 gives 10·6^L; at L>=2 only 6uH_(L-1) contributes to degree L, so its coefficient is 18·6^(L-1) from level one. Independent recursion computing actual integral entries gives the same complete histograms at L=0 through 3.
+
+## originality
+
+PASS
+
+The evaluated whole-triangle distribution at all levels is the supported distinct claim. The same-size mod-three fractal already determines the nonzero pattern, and the 2018 Theorem 11(iii) already gives the entrywise reduction used by the proof, exactly at p=3 after specialization. Neither examined result enumerates the complete block of valuations. The block summation with both the carries and the trailing zeros and their explicit rational combination is the contribution assessed here.
+
+## value
+
+PASS
+
+The scales are those of the classical mod-three Fibonomial fractal, not arbitrary cutoffs. The whole positive-valuation spectrum makes exact prime-power frequency queries and the sharp top stratum available from a short recurrence rather than coefficient-by-coefficient computation. The previously known entrywise valuation and valuation-zero pattern are not counted as the contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

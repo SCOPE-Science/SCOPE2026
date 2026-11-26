@@ -1,91 +1,70 @@
-# Complete multipartite heat flow: a sharp endpoint envelope and an ordered hub-to-bulk transition
+# Complete multipartite heat flow: the sharp endpoint coefficient and all active part sizes
 
 ## Finding
 
-Let \(G=K_{m_1,\ldots,m_r}\) be any finite simple, unweighted, complete multipartite graph, with \(r\ge2\), positive integer part sizes \(m_i\), and \(n=\sum_i m_i\). Let \(L=D-A\) denote its **unnormalized** combinatorial Laplacian on counting-measure functions on the vertices, and \(H_t=e^{-tL}\). The following hold for every real \(t>0\), on both real and complex functions:
-
+Let \(G=K_{m_1,\ldots,m_r}\) be a finite simple unweighted complete multipartite graph, with \(r\ge2\), positive integer part sizes \(m_i\), and \(n=\sum_i m_i\). Write \(S\) for the set of distinct part sizes. Let \(L=D-A\) be the combinatorial Laplacian, and \(H_t=e^{-tL}\). For real or complex functions with counting-measure norms and every \(t>0\),
 \[
-\boxed{\ \|\partial_t H_t\|_{\ell^1\to\ell^1}
-=\|\partial_t H_t\|_{\ell^\infty\to\ell^\infty}
-=2\max_{1\le i\le r}\frac{n-m_i}{m_i}
-\bigl((m_i-1)e^{-(n-m_i)t}+e^{-nt}\bigr).\ }
+f_G(t):=\|\partial_t H_t\|_{\ell^\infty\to\ell^\infty}
+=\|\partial_t H_t\|_{\ell^1\to\ell^1}
+=\max_{m\in S} f_m(t),\qquad
+f_m(t)=\frac{2(n-m)}m\big((m-1)e^{-(n-m)t}+e^{-nt}\big).
 \]
-
-The exact scale-invariant analyticity coefficient obeys
+Moreover,
 \[
-\boxed{\ \sup_{t>0}t\|\partial_t H_t\|_{\ell^\infty\to\ell^\infty}
-\le\frac{2(n-1)}{en},\ }
+\sup_{t>0}t f_G(t)\le \frac{2(n-1)}{en}.
 \]
-with **equality if and only if some part has size one**, equivalently if the graph has a universal vertex. In every equality case the maximizing time is uniquely \(t=1/n\). In the absence of a singleton part, the inequality is strict.
+Equality holds exactly when some part is a singleton, equivalently when the graph has a universal vertex, and then the unique maximizing time is \(1/n\).
 
-For any two distinct available part sizes \(1\le a<b<n\), their respective row-norm expressions cross at exactly one positive time \(t_{a,b}\); the row belonging to size \(a\) dominates first and the size \(b\) row dominates thereafter. Consequently, as time grows, a maximizing part size never decreases. The global envelope experiences at most one fewer transition than the number of distinct part sizes; intermediate sizes may be skipped.
+For any two distinct sizes \(a<b\) in \(S\), their row norms cross at a unique positive time \(t_{a,b}\); \(f_a>f_b\) before that time and \(f_b>f_a\) after it. In the global maximum the sizes occur in strictly increasing order **without any omissions**: if \(S=\{m_1'<\cdots<m_k'\}\), the transitions are precisely at the \(k-1\) strictly increasing adjacent-size crossing times \(t_{m_i',m_{i+1}'}\). Between these times the maximizing size is unique; at a transition just the two neighboring sizes maximize. If \(k=1\) the unique size maximizes throughout.
 
-The full endpoint derivative-norm profile depends only on \(n\) and the **set of distinct part sizes**, not their multiplicities. Thus two nonisomorphic graphs, \(K_{2,4,4,4,6}\) and \(K_{2,2,4,6,6}\), have identical endpoint norm profiles for every time, even though their Laplacian spectra differ.
+The entire endpoint norm profile determines, and is determined by, the pair \((n,S)\). It need not determine the multiplicity of each size, or the Laplacian spectrum: \(K_{2,4,4,4,6}\) and \(K_{2,2,4,6,6}\) have the same profile and different spectra.
 
 ## Assumptions and scope
 
-All graphs have at least two nonempty parts and therefore \(n\ge2\). The Laplacian uses one unit-conductance edge between every pair of vertices in different parts and no edges within a part. The norms are the unweighted, counting-measure \(\ell^1\) and \(\ell^\infty\) norms; no normalization by vertex degree occurs. The statements are not asserted for weighted, directed, normalized-Laplacian, or infinite graphs. A maximizing part size means a part size whose vertices achieve the maximum absolute row sum of \(-L H_t\).
+This uses the unnormalized Laplacian on the vertices, with unit edge weights and counting measure. It does not assert corresponding results for normalized Laplacians, weighted or directed graphs, or infinite graphs. A maximizing size is a size whose part vertices attain the largest absolute row sum of \(-L H_t\).
 
 ## Proof
 
-**Spectral decomposition.** For a part \(V_i\) of size \(m_i\), let \(J_i\) be the all-ones matrix on that block, extended by zero outside, and \(I_i\) the coordinate identity on the block. Write \(J\) for the global all-ones matrix and \(d_i=n-m_i\). The orthogonal projectors
-\[
-E_i=I_i-\frac{J_i}{m_i},\qquad
-E_*=\sum_{i=1}^r\frac{J_i}{m_i}-\frac Jn,
-\]
-are pairwise orthogonal. On the range of \(E_i\), the Laplacian has eigenvalue \(d_i\); on the range of \(E_*\), eigenvalue \(n\); and on constants, eigenvalue zero. Thus
+**Decomposition and absolute row sums.** Put \(d_i=n-m_i\). Let \(I_i\) and \(J_i\) denote the identity and all-ones matrices on part \(i\), extended by zero elsewhere; let \(J\) denote the global all-ones matrix. The orthogonal projectors \(E_i=I_i-J_i/m_i\) project onto the within-part zero-sum functions; \(E_*=\sum_i J_i/m_i-J/n\) projects onto the partwise constant zero-sum functions. The Laplacian has eigenvalues \(d_i\) on the first spaces, \(n\) on the second, and zero on constants: indeed \(L=nI-J-\sum_i m_i E_i\). Hence
 \[
 L H_t=\sum_i d_i e^{-d_i t}E_i+n e^{-nt}E_*.
 \]
+For a vertex in a part of size \(m\), write \(d=n-m\), \(A=e^{-dt}\), \(B=e^{-nt}\). The diagonal entry is \(d((m-1)A+B)/m>0\), the other entries within the part equal \(d(B-A)/m\le0\), and those outside equal \(-B<0\). The row sum is zero, so its absolute row sum is twice the diagonal, namely \(f_m(t)\). The \(\ell^\infty\) induced norm is the maximum absolute row sum, and symmetry gives the same maximum absolute column sum for \(\ell^1\).
 
-**Exact absolute row sums.** Fix a vertex in part \(V_i\), and abbreviate \(m=m_i\), \(d=n-m\), \(a=e^{-dt}\), and \(b=e^{-nt}\). The corresponding row of \(L H_t\) has diagonal entry \(d((m-1)a+b)/m>0\); its \(m-1\) other entries within \(V_i\) are \(d(b-a)/m\le0\); and each of the \(d\) entries outside \(V_i\) equals \(-b<0\). Its absolute row sum is
+**Sharp time-scaled bound.** For every positive \(\lambda\), the function \(te^{-\lambda t}\) has its unique maximum \(1/(e\lambda)\) at \(t=1/\lambda\). Applying this to the two terms gives
 \[
-\frac d m\bigl((m-1)a+b\bigr)
-+\frac{d(m-1)}m(a-b)+db
-=\frac{2d}{m}\bigl((m-1)a+b\bigr).
+t f_m(t)\le \frac{2d}{em}\left(\frac{m-1}{d}+\frac1n\right)=\frac{2(n-1)}{en}.
 \]
-Every vertex has this form; hence the displayed operator-norm formula follows. The matrix is symmetric, giving equality of the \(\ell^1\) and \(\ell^\infty\) norms.
+For \(m=1\) the only nonzero summand gives equality precisely at \(1/n\). For \(m>1\) the two positive terms peak at different times, so the bound is pointwise strict. The continuous finite maximum of the time-weighted rows tends to zero both as \(t\downarrow0\) and as \(t\to\infty\), so attains its positive maximum at a finite positive time. This proves strictness when no part is a singleton and uniqueness of the maximizing time otherwise.
 
-**Sharp universal coefficient and its equality cases.** For every \(\lambda>0\),
+**Individual crossings.** Divide the rows by \(2e^{-nt}\) and set \(h_m(t)=(n-m)(1+(m-1)e^{mt})/m\). The logarithmic derivative in time is zero for \(m=1\), and for \(m\ge2\) it is
 \[
-\sup_{t>0} t e^{-\lambda t}=\frac1{e\lambda},
+\partial_t\log h_m(t)=\frac{m(m-1)e^{mt}}{1+(m-1)e^{mt}}\in[m-1,m).
 \]
-attained uniquely when \(t=1/\lambda\). For a row from a size-\(m\) part,
+For integer \(a<b\) this makes \(h_b/h_a\) strictly increasing. The ratio is less than one at zero because \(h_m(0)=n-m\), and tends to infinity at late times. This proves the unique crossing and its direction.
+
+**Visibility of every size.** For this step extend \(m\) to real \(1\le m<n\), at a fixed \(t>0\). Write
 \[
-\begin{aligned}
-t\frac{2d}{m}\bigl((m-1)e^{-dt}+e^{-nt}\bigr)
-&\le \frac{2d}{em}\left(\frac{m-1}{d}+\frac1n\right)\\
-&=\frac{2(n-1)}{en}.
-\end{aligned}
+h_m(t)=(n-m)e^{mt}(1-g_t(m)),\qquad
+g_t(m)=\frac{1-e^{-mt}}{m}=\int_0^t e^{-mu}\,du.
 \]
-If \(m=1\), the first summand vanishes and the remaining rate is exactly \(n\); equality occurs precisely at \(t=1/n\). If \(m>1\), the two positive summands have distinct maximizing times \(1/d\ne1/n\); the inequality is strict at every \(t\). Since there are finitely many rows, each time-weighted row norm is continuous and tends to zero at both ends, so their maximum is strictly below the bound when all parts are larger than one. This also proves the unique maximizing time in the equality cases.
-
-**Ordered pairwise crossings.** Suppress the common positive factor \(2e^{-nt}\) and put
+Here \(0<g_t(m)<1\) and \(g_t''(m)=\int_0^t u^2 e^{-mu}\,du>0\). Thus \(\log(1-g_t)\) has strictly negative second derivative and \(\log h_m=\log(n-m)+mt+\log(1-g_t)\) is strictly concave in \(m\). If \(a<b<c\), then at the crossing \(t_{a,c}\) the middle row is strictly larger than the equal outer rows. The crossing directions give
 \[
-h_m(t)=\frac{n-m}{m}\left(1+(m-1)e^{mt}\right).
+t_{a,b}<t_{a,c}<t_{b,c}.
 \]
-For \(m\ge2\), its logarithmic derivative is
-\[
-\frac{d}{dt}\log h_m(t)
-=\frac{m(m-1)e^{mt}}{1+(m-1)e^{mt}}\in[m-1,m),
-\]
-while the logarithmic derivative vanishes for \(m=1\). For every pair \(1\le a<b<n\) the logarithmic derivative of \(h_b/h_a\) is strictly positive. Also \(h_b(0)=n-b<n-a=h_a(0)\), while \(h_b(t)/h_a(t)\to\infty\) as \(t\to\infty\). There is therefore exactly one crossing. If a smaller size were to become a maximizer strictly after a larger one, the pairwise ratio monotonicity would be contradicted; hence the maximizing size is nondecreasing. Distinct sizes can each be entered at most once, giving the transition bound.
+In particular successive adjacent-size crossings are strictly ordered. Between adjacent crossings for a given size (using zero and infinity at the ends), that size beats each other size: the crossing with any smaller size is no later than the preceding adjacent crossing, and the crossing with any larger size is no earlier than the following one, by the triple inequality. At an adjacent crossing the inequalities with all other sizes are strict by the same argument. This proves the asserted envelope description.
 
-**Multiplicity blindness.** The norm formula maximizes over available values of \(m\), without using their multiplicities, once \(n\) is fixed. Both displayed graphs have \(n=20\) and distinct size set \(\{2,4,6\}\); thus their norm profiles agree identically. Their nonzero Laplacian eigenvalues include \(n-m\) with multiplicity \((m-1)\) per part of size \(m\), and \(n\) with multiplicity \(r-1\). The multiplicity of eigenvalue \(18\) is respectively one and two, proving their Laplacian spectra differ.
+**What the profile determines.** Dependence on \((n,S)\) is immediate from the formula. To recover \(n\), use the last active row. If the graph is complete (all singleton parts), the profile is a single exponential of rate \(n\). Otherwise the late-time profile is a sum of two distinct exponentials with positive coefficients, and its larger rate is \(n\). These cases and rates can be distinguished from the exact tail: the slowest rate is \(-\lim_{t\to\infty}t^{-1}\log f_G(t)\), and multiplying by the compensating exponential and taking the limit gives its coefficient. After subtracting this term the tail is either zero or has the other rate, recoverable by the same limit. With \(n\) fixed, each size \(m\) is active on an open interval. If two graphs have equal profiles, shrink such an interval to avoid the other graph's finitely many transitions; their analytic row functions then agree on this subinterval, hence everywhere. Their values at zero are \(2(n-m)\), so the sizes coincide. Applying this to each graph recovers exactly \(S\).
 
-## Verification
+Both example graphs have \(n=20\) and \(S=\{2,4,6\}\). Their eigenvalue \(18\) has multiplicity one and two, respectively, because each part of size two contributes one dimension to its eigenspace. The Laplacian spectra therefore differ.
 
-The accompanying `check.py` constructs the unnormalized Laplacian matrices independently and evaluates \(L e^{-tL}\) using dense matrix exponentials. It checks the row formulas and endpoint norms for families of two- and three-part graphs with up to fourteen vertices, verifies the universal bound and pairwise crossing orientation, and confirms the exact profile coincidence and spectral discrepancy of the stated twenty-vertex examples. The program prints a passed-assertion count and requires NumPy and SciPy. It is supplementary numerical evidence; no finite computation is used to prove the statements for arbitrary part sizes or times.
+## Verification and limitations
 
-## Relationship to prior work
+The analytical proofs of the row formula, time-scaled bound, visibility, and recovery above establish the statements for all admissible graphs. The supplementary `check.py` from the original package constructs the Laplacian directly and checks its exponential against the row formula on finite examples. It also tests crossing direction and the equal-profile, unequal-spectrum example. It uses NumPy and SciPy and is not a proof of universal statements; in particular visibility follows from strict concavity, not from numerical root comparisons.
 
-Keller and Lenz (2009) establish the general finite- and infinite-graph heat semigroup framework, including the heat equation on \(\ell^\infty\). Oliveira, de Lima and Nikiforov (2014) analyze graph blow-up Laplacian spectra and eigenvectors. These underlying results provide context but, in their inspected discussions, do not give the complete multipartite **endpoint time-derivative row-norm envelope**, its optimal time-uniform coefficient and equality rigidity, or the multiplicity-blind spectral counterexample. In particular, eigenvalues alone do not determine the \(\ell^\infty\) row-sum norm. Related estimates for diagonal semigroups in \(\ell^2\) do not imply exact endpoint norms.
-
-## Limitations
-
-No claim is made of historical priority beyond the searched sources, nor of a universal bound for arbitrary graphs. The result is exact for this natural graph family only. The ordering theorem guarantees a monotone upper-envelope sequence but does **not** claim that every intermediate part size is visible as a global maximizer. The supplementary checker tests finitely many instances; independent mathematical and bibliographic validation remains outstanding.
+General graph heat semigroup theory and the Laplacian spectra of blow-up graphs provide the setting and the spectral ingredient. The exact endpoint norm also requires the entrywise sign calculation, and the transition and recovery claims rely on the comparison of the size-indexed rows. There is no assertion of historical priority.
 
 ## References
 
-1. M. Keller and D. Lenz, *Dirichlet forms and stochastic completeness of graphs and subgraphs*, arXiv:0904.2985, first submitted 20 April 2009, especially the section on the heat equation on \(\ell^\infty\). https://arxiv.org/abs/0904.2985
-2. C. Oliveira, L. de Lima and V. Nikiforov, *Spectra of the blow-up graphs*, arXiv:1412.0319, first submitted 1 December 2014, Theorem 3 and its proof. https://arxiv.org/abs/1412.0319
+1. M. Keller and D. Lenz, *Dirichlet forms and stochastic completeness of graphs and subgraphs*, arXiv:0904.2985. https://arxiv.org/abs/0904.2985
+2. C. Oliveira, L. de Lima and V. Nikiforov, *Spectra of the blow-up graphs*, arXiv:1412.0319, Theorem 3. https://arxiv.org/abs/1412.0319

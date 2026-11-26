@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:12:59.942982Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The second difference of d(n−d) and its square gives L_nb=g, including the cyclic wrap at zero; the two displayed power sums make b mean zero, and L_ng=δ_0−1/n. Connectedness ensures uniqueness on the mean-zero domain. At d=floor(n/2) the kernel numerator is −7n⁴/8−5n²−11 for even n and −7n⁴/8−5n²/4+17/8 for odd n, both negative; monotonicity on the half cycle gives the exact cutoff including possible zeros. All absolute row and column sums agree. A row-sign vector and a unit impulse attain the respective norms on the full counting-measure spaces, not on the mean-zero restriction. Zero row sum and symmetry yield four times the half-weighted positive-side sum; expanding t(t+2) gives the stated Faulhaber form. In its Euler–Maclaurin expansion, f(ξ)=0 and f′(0)=0 remove the order-n³ term and the lower derivative term. The upper shift δ=k−nξ contributes f′(ξ)(δ²/2+δ/2+1/12); k=nξ−{r_n}+O(n⁻¹) with bounded δ makes the remainder uniform O(n). Irrationality of ξ and the continuous periodic extension of B₂ give all and only the claimed limits, since every tail of the irrational rotation is dense. Read the frozen checker without executing it. Independent `python /workspace/branches/review-computations/check_finite.py` used (L²+11ᵀ/n)⁻¹−11ᵀ/n to reproduce the exact kernels, cutoffs and attained row norms at n=3…13; universal and asymptotic claims are proved analytically, not by the sample.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The finite abelian Cayley graph theorem supplies character eigenvalues and the pairwise inverse-square sum. The periodic smoothing finding c19471e10093 analyzes positivity of (I+tL_n²)⁻¹, a resolvent with the constant mode present."
+        ],
+        "reasoning": "The cycle is among the Cayley graphs covered spectrally, but the theorem gives no sign cutoff or norm asymptotic. A positivity threshold in t (and its parity correction) for the resolvent is not an absolute row norm of the zero-mode-removed inverse.",
+        "searches": [
+          "Wei–Li–Yang, arXiv:2110.02656, Thms. 3.1 and 5.5",
+          "Lipman–Rustamov–Funkhouser 2010 §3.2",
+          "Resultary: periodic biharmonic positivity thresholds"
+        ]
+      },
+      "checked_sources": [
+        "Resultary bda401cecdc2",
+        "Resultary c19471e10093",
+        "Lipman–Rustamov–Funkhouser author manuscript (2010)",
+        "arXiv:2110.02656",
+        "DOI 10.1002/qua.21068 (access limited)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-day bda401cecdc2 proves (√3/54)n²+u_n(1−u_n)/√3+O(n⁻¹) for L_n^† and gives an order-one correction interval. The frozen B_n claim has an n⁴ leading term and n² correction with cutoff slope set by ξ(1−ξ)=1/√30."
+        ],
+        "reasoning": "The analogue is real: sign-cutoff summation and irrational phases already occur for the first inverse. But one must evaluate the squared inverse, locate its different sign crossover and compute its Euler–Maclaurin edge term. Squaring the norm gives at most an upper bound and does not yield the exact kernel signs or correction. The bounded catalogue and literature comparison supports the specific squared-inverse theorem, not a new general lattice-phase method.",
+        "searches": [
+          "Resultary bda401cecdc2, RESULT.md Finding and early proof",
+          "Resultary c19471e10093, RESULT.md Finding",
+          "arXiv:2110.02656 Theorem 5.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Biharmonic distances give squared pairwise differences of inverse-square spectral embeddings. For mean-zero projector Π, double centering their squared distance matrix gives B=−Π(d_B²)Π/2. The distinct first-inverse norm/phase result bda401cecdc2 uses G_n=L_n^†."
+        ],
+        "reasoning": "Pairwise distance and the zero-on-constants kernel are transformable, so the spectral representation is covered. Neither pairwise maxima nor the first inverse's endpoint norm equal the full-space absolute row sum for B=G_n².",
+        "searches": [
+          "Resultary: cycle biharmonic inverse, endpoint absolute-row norm, irrational lattice phase",
+          "arXiv:2110.02656 §3.1 Theorem 3.1, §5.3 Theorem 5.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "bda401cecdc2 gives exact cycle norm information for the first inverse. Wei–Li–Yang give character sums for pairwise biharmonic distances, not a table of sharp endpoint norms or their second-order coefficients."
+        ],
+        "reasoning": "An exact spectral sum for entries is not a tabulation of the absolute-row norm. No exact covering norm or phase table was verified; equivalent finite trigonometric evaluations of the kernel remain possible.",
+        "searches": [
+          "Resultary: squared cycle Green kernel, explicit cutoff sums and lattice-phase corrections",
+          "Zhang–Yang DOI 10.1002/qua.21068 (circulant resistance)",
+          "arXiv:2110.02656, finite abelian Cayley formulas"
+        ]
+      },
+      "rationale": "The supported distinct result is the sharp full-space endpoint norm of the squared inverse and its exact nonconstant second-order phase law. Biharmonic Green spectra and first-inverse cycle norm/phase methods have substantive antecedents, and no standalone priority for the quartic kernel is asserted. The closest distinct catalogue finding concerns L_n^†, not (L_n²)^†, and does not decide the latter norm or phase. Neither positive bibliographic evidence nor catalogue labels alone establish historical priority.",
+      "residual_risks": [
+        "The targeted web search did not return usable primary evidence, and the Zhang–Yang full text was unavailable. Earlier equivalent finite trigonometric sums or specialized norm evaluations are possible. The same-day catalogue date supplies no order or priority evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closely related method but materially different operator and coefficients",
+          "evidence": [
+            "The kernel is the classical quadratic of L_n^†, and the exact accumulation interval is [0,1/(4√3)] on the order-one scale."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/10/26/SCOPE-a-sharp-cycle-poisson-norm-and-its-irrational-lattice-phase-limi--bda401cecdc2/RESULT.md",
+          "material_read": "Mirrored RESULT.md offsets 0–3937",
+          "method": "Configured local search and mirrored passage comparison",
+          "title": "A sharp cycle Poisson norm and its irrational lattice-phase limit",
+          "trigger": "Same-day catalogue analogue with an exact norm, sign crossover and phase limit"
+        },
+        {
+          "assessment": "Different resolvent observable",
+          "evidence": [
+            "Its entrywise positivity threshold is for (I+tL_n²)⁻¹ and has a parity correction, not the irrational phase of a norm."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/10/18/SCOPE-parity-split-positivity-thresholds-for-periodic-biharmonic-smoot--c19471e10093/RESULT.md",
+          "material_read": "Mirrored RESULT.md offsets 0–3828",
+          "method": "Configured local search and mirrored passage comparison",
+          "title": "Parity-split positivity thresholds for periodic biharmonic smoothing",
+          "trigger": "Cycle biharmonic operator with order-n² correction"
+        },
+        {
+          "assessment": "Covers inverse-square Green formalism",
+          "evidence": [
+            "The spectral kernel g_B has weights 1/λ_k²; the discrete mesh biharmonic Green function is a pseudoinverse."
+          ],
+          "identifier_or_url": "https://www.cs.princeton.edu/~funk/biharmonic.pdf",
+          "material_read": "Author manuscript pp. 3–4, §3.2, extracted offsets approximately 15800–24359",
+          "method": "Lawful OA author PDF, targeted passages",
+          "title": "Biharmonic Distance",
+          "trigger": "Primary biharmonic Green-function theory"
+        },
+        {
+          "assessment": "Inverse-square spectral sums encompass cycles, not the claimed norm calculation",
+          "evidence": [
+            "Theorem 5.5 gives a finite abelian Cayley character sum for pairwise distances."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2110.02656",
+          "material_read": "§3.1 p. 6, Theorem 3.1; §5.3 p. 18, Lemma 5.4 and Theorem 5.5",
+          "method": "Open-access primary PDF; targeted passages",
+          "title": "Biharmonic distance of graphs",
+          "trigger": "General method potentially specializing to the same cycle"
+        },
+        {
+          "assessment": "Unavailable for passage-level exclusion",
+          "evidence": [
+            "Named subject is resistance distance and the Kirchhoff index; no claim about a missing passage is made."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/qua.21068",
+          "material_read": "Bibliographic identification only; full text not retrieved and no lawful repository copy identified",
+          "method": "Targeted access attempt",
+          "title": "Resistance distance and Kirchhoff index in circulant graphs",
+          "trigger": "Possible earlier circulant Green formulas"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact constant and attaining forcing patterns quantify worst-case amplification for the canonical cyclic biharmonic Poisson solve on the stated full spaces. The nondegenerate order-n² correction interval shows that even the second coefficient in a continuum-based power expansion cannot be a constant. That is a precise discretization effect on a natural operator norm, not just a new evaluation of a biharmonic distance or trace.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

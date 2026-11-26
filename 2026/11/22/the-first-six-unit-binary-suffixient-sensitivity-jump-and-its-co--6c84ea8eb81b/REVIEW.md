@@ -1,27 +1,21 @@
-# Review of the finite binary suffixient-sensitivity theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Definitions agree with the supermaximal-right-extension characterization of minimum suffixient-set cardinality in Fujimaru et al. [1], Definitions 1–5. Lemma 2 justifies the optimized one-letter left-extension test. All \(32{,}766\) binary words and \(425{,}986\) directed one-bit substitutions through length fourteen are checked; two independent finite SRE implementations agree everywhere. The complete equality list contains sixteen positive directed edges, all with measure five to eleven. Direct position-set exhaustive checks independently confirm the key four witness pairs. The claim is finite; no asymptotic extrapolation is inferred.
+PASS
 
-## Originality — PASS against inspected sources
+On the uniquely terminated word every required extension is a suffix of a suffix-maximal one, and two distinct suffix-maximal ones cannot both end at one position; this proves the minimum-set formula. The one-letter domination test is justified because deleting symbols from the left of a right-maximal factor preserves its two distinct followers; the preceding symbol cannot be the terminator. Independently, adjacent LCPs of sorted suffixes recover every branching prefix, including the empty one, and the extension ending-position sets are laminar: if two intersect then one extension is a suffix of the other. Counting distinct inclusion-minimal ending-position sets therefore computes the minimum directly. Enumerating all 32,766 source words and 425,986 directed bit flips by this procedure reproduces (0,1,1,1,2,2,3,4,4,4,4,5,5,6); the 16 length-14 extrema all have values 5 to 11, with exactly the listed one-based positions and source words. No inference is made beyond length 14.
 
-[1] proves asymptotic \(\Omega(\sqrt n)\) edit sensitivity for the same measure, but does not give the exact first six-unit binary threshold or full finite sensitivity profile and equality set. [2] treats suffixient-set decision algorithms and [3] online maintenance. Searches for exact binary finite sensitivity, equivalence through right-maximal extension characterizations, and stored adjacent finite-table results found no dominating claim. Distinguishing from an indexed string-attractor or insertion-covering table is necessary: those are different statistics. Residual risk: an obscure or unpublished equivalent finite enumeration cannot be ruled out by text search.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The sensitive quantity controls the necessary number of suffixient samples in compressed-search structures. A one-bit flip at the shortest possible word length can raise that minimum from five to eleven, more than doubling it. Exact first-threshold data, the full small-length profile and complete extremizer classification give a motivated reproducible boundary for index stability and complement the asymptotic lower-bound theory; this is not a trivial substitution or mere benchmark of unrelated data.
+The same measure, its right-extension characterization and the substitution-sensitivity question are already known. The supported distinct claim is the exact binary profile through 14 and its complete maximizing-pair classification, not the measure or general sensitivity.
 
-## Limits
+## value
 
-The proof is a finite exhaustive computer-assisted result, with source code, outputs and independent direct-witness testing, not an infinite symbolic theorem. Claims beyond length fourteen or a uniqueness assertion against all possible historical literature are expressly excluded. Independent verification by a different author is not asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This resolves the first length at which the edit effect exceeds five for a published compression measure, but the value does not rest on choosing the number six alone: the complete initial profile and all equality cases show exactly how extreme changes emerge in the smallest alphabet. At the first gain of six every source has measure five and the only extremizers are four highly structured words with four flip positions each. This supplies exact short-input benchmarks and concrete constraints on prospective sharp sensitivity bounds; it is not a new asymptotic estimate.
 
-## References
-
-[1] H. Fujimaru et al., *Smallest Suffixient Sets: Effectiveness, Resilience, and Calculation*, arXiv:2506.05638, Sections 3–4. https://arxiv.org/html/2506.05638v7
-
-[2] D. Cenzato et al., *Testing Suffixient Sets*, arXiv:2506.08225, Sections 2–3. https://arxiv.org/html/2506.08225v2
-
-[3] D. Köppl and G. Kucherov, *Smallest Suffixient Set Maintenance in Near-Real-Time*, MFCS 2026, DOI 10.4230/LIPIcs.MFCS.2026.86.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

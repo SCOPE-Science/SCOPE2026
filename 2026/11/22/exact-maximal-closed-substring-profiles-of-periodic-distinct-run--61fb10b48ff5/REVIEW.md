@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The distinct directed boundary phases force mixed-border returns to have a single-period separation. Unary-border returns occupy precisely the proper end fragments of successive same-letter runs, with a separate whole-prefix correction; this gives an exhaustive disjoint interval classification and the derived piecewise-affine output formula. The standalone literal closedness/maximality checker matched exact predicted occurrence sets over 3,564 instances and 1,374,270 tested substring positions. The infinite claim rests on the symbolic argument, not on finite experiments.
+PASS
 
-## Originality
+The explicit domain is n >= p, with pairwise distinct run letters, positive lengths and q >= 3; the introductory wording does not extend it to n < p. A witnessing border is necessarily the longest border: a longer border would supply an intervening occurrence of any shorter border. Each mixed factor determines its start phase by the first directed transition it contains. Therefore a mixed witnessing border must return after exactly p symbols, and any available one-character extension still has a mixed complete-return border. A nonconstant unary return must connect successive copies of its run type and have equal endpoint fragments of length h: any longer fragment or intervening run gives a third occurrence. For h < r_i a one-letter extension destroys the unary witness; a mixed witness would have length |X|+1-p = 2h-r_i+1 <= h and hence cannot reach a boundary at the extended prefix. At h = r_i any available extension has a mixed border one period apart. Whole runs are maximal. In the whole prefix p <= n < p+r_0, any mixed border would have length at most n-p < r_0, impossible; every unary border has a third occurrence in the first run. At equality the full first-run return witnesses closure, and above it the length n-p mixed border does. Counting runs, partial returns, and the whole prefix gives the stated formula, including the increments at the wrap to the next cycle and the density limit. An independent longest-border/first-return checker passed exact endpoints and cardinalities on 1,172 periodic prefixes; the proof, not this sample, establishes the quantifiers.
 
-PASS against the primary works and available indexed findings compared. The closest periodic-run record classifies distinct closed *factor contents*, not positional maximal closed *occurrences*. The closest four-run record treats an alphabet-wide four-run census, not arbitrary many repeated cycles and all partial-period prefixes. General maximal-closed-substring algorithms cover these inputs computationally, but their theorems do not state the explicit all-prefix interval/output law. Risk: the result may be derivable by specialization of published occurrence enumeration; a run-length enumeration preprint was only partially accessible, and unindexed equivalent work remains possible.
+## originality
 
-## Value
+PASS
 
-PASS. For a highly compressible text family, the number and exact positions of maximal closed substring outputs are quantitatively pinned down for every prefix, with an explicit three-valued local increment law and limiting output density one. This addresses output size and boundary effects relevant to compressed and dynamic string-indexing queries, rather than mere computation of a new isolated small example.
+Supported distinct contribution: the explicit interval families and phase-sensitive count for all prefixes of length at least one period in the stated q >= 3 family. General consecutive-border-pair/RLE methods, the initial-period distinct-run count, and binary complete-power analogues are not new. The available comparisons do not supply the periodic all-prefix profile without additional classification and counting.
 
-## Limitations and nearby literature
+## value
 
-Scope is restricted to at least three distinct cyclic run letters and prefixes of at least one period; it does not extend directly to arbitrary repeated-letter run patterns. Compare arXiv:2611.11552, 2610.38114, 2607.02838 and the published closed-factor and four-run occurrence classifications. Full-text examination of the first two and the two nearby mathematical records was performed; for arXiv:2607.02838 accessible abstract/sections did not permit a definitive whole-text exclusion.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Periodic run encodings are a natural benchmark for maximal-closed-substring output size. The phase-specific intervals and exact changes in total count locate where output turns over inside a period, not just its asymptotic density or its size at complete powers. This gives a usable exact benchmark for positional enumeration at moving cutoffs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

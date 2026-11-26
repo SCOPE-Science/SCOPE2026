@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:11:27.407740Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–64, VERIFICATION.md, and verify.py (inspected, not executed)",
+        "Private check5.py and check5.txt (direct enumeration independent of the paired-state transfer, m=1 through 6)"
+      ],
+      "rationale": "The inverse of (a_i,b_i)=(x_i,bar x_{2m+1-i}) reconstructs the original linear word. Each track is proper, and the middle constraint is a_m different from bar b_m; that terminal indicator is not the mismatch indicator. Complementation preserves GC. Unequal paired states cause exactly two discrepancies, so the powers of v count half-distance. For even m alternating classes along both tracks keeps total GC m, permits every subset of mismatches before the center, and requires the center matched. For odd m, matching everywhere would give even GC. Changing the second track's last class while forcing the penultimate letter to be the other second-track letter from that same class keeps the track proper, gives the missing one GC occurrence and makes one forced mismatch. Free choices among the first m−2 positions give the other intermediate ranks, with m=1 checked directly. Alternating opposed mixed-class pairs gives full half-distance m for either parity. Independent enumeration over nonzero xor increments of a four-color alphabet, using global color-translation symmetries to count all initial colors, exactly reproduces all six spectra. For the limit, the normalized paired transition is P tensor P with P=(J−I)/3; centered G is in the sum of single-track eigenspaces (eigenvalue −1/3), while centered H has zero conditional mean on either track and lies in the tensor of mean-zero eigenspaces (eigenvalue 1/9). They are orthogonal with variances 1/2,3/16 before summing correlations, hence joint long-run diagonal 1/4,15/64. The three recorded same-length closed walks are valid and their additive-total differences are (1,0),(0,1), excluding any nontrivial unit spectral phase by the phase equality on closed walks. The conditioning is justified by Fourier inversion in GC: the primitive tilted matrix has an analytic simple dominant eigenvalue near zero, exponential decay away from the unique GC saddle, and a nonzero boundary prefactor since a positive fraction of stationary states pass the center test. Scale the GC integral and half-distance test frequency by m^(-1/2); the mixed quadratic term is zero, so dividing by the GC coefficient leaves the normal with variance 15/64 per paired site. The terminal factor cancels in the leading ratio. For r=0 the middle letters are complementary and therefore distinct, so the numerator is the proper halfword count at weight m/2. In a single track the GC type chain switches with probability 2/3 and has variance rate 1/8; its span is one (compare equal-length two-step returns with and without switching). The local limit contribution at even length k is 2/sqrt(pi k), and the total proper count is 4·3^(k−1). Substituting k=m and 2m in the ratio gives sqrt(2)·3^(−m) along even m and exactly zero along odd m.",
+      "residual_risks": [
+        "Finite arithmetic only checks six spectra; the bijection, construction and spectral argument carry the all-length claims. No inference to real folding, shifted alignments, circular words or pairwise codebook distances."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Immink–Cai give GC-weight enumeration and a Gaussian approximation with a maximum-runlength constraint. At run limit one this gives the baseline family size, but the law is for GC weight, not aligned autodistance. Nguyen et al. concern code construction under weight, run and edit-error constraints."
+        ],
+        "reasoning": "A broader run cap with a one-variable weight law can specialize to the marginal family and its balance probability; it cannot determine fluctuations in an untracked paired observable under conditioning on that weight.",
+        "searches": [
+          "Immink–Cai arXiv:1812.06798v1 §V-B Theorems 5 and 6",
+          "Nguyen et al. arXiv:2001.02839v1, abstract and coding scope",
+          "Taki Eldin–Matsui DOI 10.1587/transfun.2019EAP1053; Li–Chen–Wu DOI 10.1093/bib/bbac484"
+        ]
+      },
+      "checked_sources": [
+        "Resultary searches for exact spectrum, GC balance/proper-word marginals, fixed necklaces, codebook aliases and cited papers",
+        "8e3014056cd2; arXiv:1812.06798v1; arXiv:1902.04419; arXiv:2001.02839v1; DOI 10.3389/fgene.2023.1158337"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At cap one, the earlier fixed count is F_1(2m,m)=L_1(m,m/2)/2 along even m, and the present N_m(0) is L_1(m,m/2). Earlier proper-word weight asymptotics address the total family and halfword ingredient."
+        ],
+        "reasoning": "These sources together substantially cover the zero-distance rate by taking the ratio at lengths m and 2m. The full bivariate paired transfer, realizability of every allowed positive distance and the conditional fluctuation variance do not follow from the zero slice plus the total count.",
+        "searches": [
+          "Resultary 8e3014056cd2 Finding equations (1)–(5), reflection proof and local-limit discussion",
+          "Immink–Cai §V-B Theorems 5–6, equations (36)–(37)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The code studies concern families of words satisfying distance constraints and code construction. The frozen invariant counts the whole linear proper-word family, with equality rather than a distance threshold and with one aligned word compared to itself after reversal and complement."
+        ],
+        "reasoning": "A family with pairwise constraints, or a lower bound on its possible cardinality, does not specify the histogram of all single words. A fixed-necklace count collapses rotations; its equality case can be compared algebraically but not extended to positive aligned discrepancies without extra data.",
+        "searches": [
+          "Resultary: balanced homopolymer-free reverse-complement self-distance spectrum fixed GC content; fixed necklaces reverse complement homopolymer GC exact enumeration all positive distances single word spectrum",
+          "Benerjee–Deb–Gupta arXiv:1902.04419 and Rasool et al. DOI 10.3389/fgene.2023.1158337"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact complete-spectrum hit 93ad91af9b53 is the assigned row. The distinct earlier 8e3014056cd2 gives a run-one fixed-necklace count equal to half the central proper halfword count for even m."
+        ],
+        "reasoning": "The zero coefficient is fully comparable (twice that fixed-necklace count), including the parity obstruction; it is not evidence of an exact earlier table of the positive coefficients.",
+        "searches": [
+          "Resultary: complete strand-autodistance spectrum balanced homopolymer-free DNA; reverse-complement-fixed necklaces constrained homopolymer runs GC content; exact positive-distance lookup"
+        ]
+      },
+      "rationale": "The supported distinct claim is the joint finite-length enumeration including positive aligned half-distances, its exact support, and the balance-conditioned Gaussian law. The balanced proper-word marginal and zero-distance slice, and hence the component estimates underlying the zero-distance frequency, substantially overlap verified earlier formulas and should be treated as predecessor consequences, not independent novelty.",
+      "residual_risks": [
+        "Full text unavailable for the identified Li–Chen–Wu and Taki Eldin–Matsui comparisons. Broader enumerator literature can use other terminology and is not exhaustively ruled out.",
+        "Do not advertise the known zero-distance ingredient as a distinct discovery."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "determines the present zero slice by a factor of two, not the positive aligned histogram",
+          "evidence": [
+            "F_1(2m,m)=L_1(m,m/2)/2 for even m; weight enumerator of the relevant proper halfwords."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-reverse-complement-fixed-necklaces-with-constrained-homopolymer--8e3014056cd2",
+          "material_read": "RESULT.md offsets 0–3965 (Finding and equations), 3965–7160 (reflection/run proof), 7160–10310 (local limit and scope)",
+          "method": "local mirror",
+          "title": "Reverse-complement-fixed necklaces with constrained homopolymer runs and GC content",
+          "trigger": "same zero-distance slice under rotation and cap one"
+        },
+        {
+          "assessment": "covers GC-weight marginal with capped runs, not autocorrelation in aligned pairs",
+          "evidence": [
+            "Exact weight counts and Gaussian approximation to weight for 4-ary maximum-runlength words."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1812.06798v1",
+          "material_read": "§V-B, Theorems 5–6 and equations (36)–(37), near offset 36500",
+          "method": "OA primary text",
+          "title": "Properties and constructions of constrained codes for DNA-based data storage",
+          "trigger": "exact balanced run-limited word counts and Gaussian predecessor"
+        },
+        {
+          "assessment": "codebooks, not full single-word spectrum",
+          "evidence": [
+            "Pairwise distance constraints among distinct codewords; construction focus."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1902.04419",
+          "material_read": "abstract offset 0; code definition and scope around offset 8400",
+          "method": "OA primary text",
+          "title": "On Conflict Free DNA Codes",
+          "trigger": "same combined word restrictions and reverse complement"
+        },
+        {
+          "assessment": "codebook construction and bounds, not all-word enumeration by aligned self-distance",
+          "evidence": [
+            "Optimizes candidate coding sets under multiple constraints."
+          ],
+          "identifier_or_url": "https://doi.org/10.3389/fgene.2023.1158337",
+          "material_read": "PDF pp. 1–3, offsets 0,13900,18350",
+          "method": "OA PDF passages",
+          "title": "Evolutionary approach to construct robust codes for DNA-based data storage",
+          "trigger": "combined coding constraints"
+        },
+        {
+          "assessment": "unresolved, not treated as noncovering",
+          "evidence": [
+            "Retrieval denied; title identifies a potentially related coding problem but cannot establish scope."
+          ],
+          "identifier_or_url": "https://doi.org/10.1093/bib/bbac484",
+          "material_read": "no primary full-text passage obtained",
+          "method": "direct and configured alternate lawful retrieval; no repository copy found",
+          "title": "Multiple errors correction for position-limited DNA sequences with GC balance and no homopolymer",
+          "trigger": "same GC and nearest-neighbor restrictions"
+        },
+        {
+          "assessment": "unresolved full-text comparison",
+          "evidence": [
+            "The title supplies a material pointer, not evidence of either coverage or noncoverage."
+          ],
+          "identifier_or_url": "https://doi.org/10.1587/transfun.2019EAP1053",
+          "material_read": "bibliographic trace only",
+          "method": "DOI landing and identified J-STAGE route; no login used",
+          "title": "Run-Length Constraint of Cyclic Reverse-Complement and Constant GC-Content DNA Codes",
+          "trigger": "close cyclic reverse-complement and constant-weight constraint"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen all-length statement and spectral argument; independent finite spectra; checked marginal and zero-slice predecessors"
+      ],
+      "rationale": "The centered, aligned distance is a natural statistic of balanced proper words rather than a selected handful of lengths. The complete counts answer both which aligned distances are possible and how often each occurs in the mathematical model. The support distinguishes a parity-forbidden endpoint from all achievable ones, and the conditional variance tells a researcher the fluctuation scale among balanced words, neither of which follows from simply counting the total family or its fixed points. This is useful as a symbolic enumeration benchmark without any claims about physical sequence behavior.",
+      "residual_risks": [
+        "Not an optimization result for codes or a biophysical prediction; value rests on the positive-distance joint law and support."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

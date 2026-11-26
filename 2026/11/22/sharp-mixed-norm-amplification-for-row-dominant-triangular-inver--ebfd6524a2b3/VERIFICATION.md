@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible checks and boundaries
+# Independent mathematical audit
 
-Run `python3 checker.py` with NumPy installed. The self-contained script enumerates one-parent-per-row exact rational cases up to dimension six at three rational dominance ratios. It also samples signed matrices with arbitrary subcritical row budgets and probes the explicit comb family with exact expected leaf-response norms. Expected successful output:
+## correctness
 
-```
-PASS: 15117 exact-rational parent-forest row assertions; 369 finite numerical matrix/comb cases
-```
+PASS
 
-The infinite-dimensional-size assertions follow from the general row-recursion and matching construction in RESULT.md. These finite tests do not assert exhaustive coverage of all real or complex matrix entries, and no external or independent validation has been performed. The supplied reproducibility script uses IEEE floating-point computation for its supplementary numerical tests, distinct from the exact-arithmetic theorem.
+In B=(I-G)^(-1), row i is the sum of its new coordinate vector and a combination of earlier rows, whose supports lie strictly before coordinate i. The Euclidean squared norm is therefore 1 plus the square of the row defect. The triangle inequality and the absolute budget give a defect bound of tau^2 times the largest earlier squared row norm. Inductively that is at most sum_{h=1}^{i-1} tau^(2h), attained simultaneously by the bidiagonal chain, also for n=1 with empty defect. This bounds the full class, not just parent forests. The bound ||B||_2<=1+||B-I||_F gives the limsup on division by sqrt(n). The first k+1 columns of each of n-k-1 leaf rows in the comb are identical, with squared norm sum_{h=1}^{k+1} tau^(2h); the normalized input proportional to those coefficients certifies the matching liminf as k tends to infinity with k/n tending to zero. Orthogonality and the absolute budget work over both fields. Unbounded inverse gain gives unbounded condition numbers as ||T||_2>=1 by its diagonal. Independent replay `python /workspace/branches/independent_replay.py 3` checks 585 exact Gaussian-grid matrices and three exact projected lower bounds; the spectral result is asymptotic and no exact finite spectral maximizer is claimed.
+
+## originality
+
+PASS
+
+Classical row and comparison-matrix inverse bounds do not give these sharp mixed-norm laws. The closest distinct indexed result has an exact Euclidean forest extremum for residual powers, not inverse summation. No inspected result gives or implies the squared Frobenius defect extremum together with the sharp coefficient of inverse growth.
+
+## value
+
+PASS
+
+The result quantifies exactly how a dimension-free row budget controls one norm while allowing an inverse gain of sharp order sqrt(n) in another. Exact chain attainment and the different comb construction expose two distinct optimization mechanisms for a motivated triangular-solve design constraint. The result does not claim this worst-case gain for actual ILU factors or convergence of a complete solver.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

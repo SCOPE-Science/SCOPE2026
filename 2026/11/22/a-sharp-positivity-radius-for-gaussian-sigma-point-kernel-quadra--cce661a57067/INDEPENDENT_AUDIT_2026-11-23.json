@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:52:34.407902Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof 1–5; VERIFICATION.md; verify.py inspected without execution.",
+        "Independent derivative test on the numerator of the center sign; it also verifies equality only at the stated finite radius."
+      ],
+      "rationale": "Gaussian convolution gives q₀=u^(d/2) and q_out/q₀=s^u. The unique full Gram solution is constant on each signed-permutation orbit; the outer row has affinities 1, s⁴, and 2(d−1) copies of s² within the outer orbit. Eliminating the center gives the strictly positive outer weight with denominator (1−s²)² and the stated center formula. As an independent sign check, define T(s)=2d s^(1+u)−1−2(d−1)s²−s⁴, so the center sign is the sign of −T. The derivative T′/(2s^u)=d(1+u)−2(d−1)s^(1−u)−2s^(3−u) decreases strictly from d(1+u)>0 to d(u−1)<0. Thus T rises from −1 to a positive maximum, then strictly falls to T(1)=0; the crossing in (0,1) is unique and the direction in radius reverses since s decreases with radius. With u fixed, the equation F_u(s*)=1/d forces s*→0, and F_u(s*)/(2s*^(1+u))→1, giving a*²/(2ℓ²)=log(2d)/(1+u)+o(1). At fixed a,τ,d with ℓ→∞, s^u−s∼a²τ²/(2ℓ⁴) and (1−s²)²∼a⁴/ℓ⁴, giving the two flat-kernel limits.",
+      "residual_risks": [
+        "Unregularized, unnormalized quadrature at distinct nodes only; the fixed-u scaling need not be uniform near u=1. Flat-kernel Gram conditioning limits numerical use of a direct solve."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2018 fully symmetric quadrature theory yields orbit weights and describes a dimension-independent, error-optimized generator whose center weight turns negative as dimension grows. The 2019 positivity results involve locally optimal nodes, chiefly in one dimension; §3.9 discusses limitations and different high-dimensional examples. The Gauss–Hermite paper addresses another design."
+        ],
+        "reasoning": "A general method of computing weights and a sign observation along one design sequence do not prove an exact unique sign crossing for the whole one-radius design. Hypotheses for locally optimal or Gauss–Hermite nodes do not force the stated radius behavior.",
+        "searches": [
+          "DOI 10.1137/17M1121779 §4.3, p. A710",
+          "DOI 10.1007/s11222-019-09901-0, introduction and §3.9",
+          "arXiv:1803.09532v1 p. 2"
+        ]
+      },
+      "checked_sources": [
+        "Karvonen–Särkkä DOI 10.1137/17M1121779 §4.3",
+        "arXiv:1504.05994v1",
+        "DOI 10.1007/s11222-019-09901-0",
+        "arXiv:1803.09532v1",
+        "Resultary 4abd02fc5f66 and identity match cce661a57067"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Specializing the known orbit system yields the weights, and the fixed-radius large-d sign follows from their linear-in-d center bracket. The exact multi-axis cutoff also needs control of all positive radii; the dimension law comes from the root's small-s limit.",
+          "The d=1 zero-nugget classification is already available and is not needed as a novelty claim."
+        ],
+        "reasoning": "The published observation does not settle radius monotonicity or quantify how far the nodes must move with d. The distinct multi-axis root classification and asymptotic do not follow by setting a parameter in the inspected one-dimensional sign theorem.",
+        "searches": [
+          "Karvonen–Särkkä §4.3 and indexed 4abd02fc5f66 Finding and reduced Gram block"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Standardizing x by τ makes Karvonen–Särkkä's standard-Gaussian setting equivalent in geometry and measure; the fully symmetric linear solve and high-dimensional negative center there are known.",
+          "The indexed three-node exact law uses a single outer antipodal pair and permits arbitrary nonnegative Gaussian scale mixtures and a nugget."
+        ],
+        "reasoning": "For d>1 the cross-axis term 2(d−1)s² changes the center numerator relative to the exact d=1 law. For example, matching that numerator to the three-node mixture expression at the same s would require the signed weights d and −(d−1) on exponents 1+u and 2, not a probability mixture. The polynomial moment-matching rule is equivalent only as a flat limit, not at finite bandwidth.",
+        "searches": [
+          "Resultary Gaussian kernel three-node and axis sigma-point positivity, record 4abd02fc5f66",
+          "DOI 10.1137/17M1121779 §§3,4.3; arXiv:1504.05994v1 §II-B Eq. (17)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact d≥2 indexed hit was the assigned result itself and is excluded as independent evidence; the distinct exact indexed law covers only the d=1 case. The published numerical observation at an error-optimized radius is not a table of all-radius boundaries."
+        ],
+        "reasoning": "No distinct exact lookup inspected covers the higher-dimensional cutoff dF_u(s)=1 together with uniqueness or the log(2d) scaling. This is a bounded comparison, not a proof of priority.",
+        "searches": [
+          "Resultary exact sigma-point positivity radius cce661a57067 and exact neighboring three-node law 4abd02fc5f66"
+        ]
+      },
+      "rationale": "Credit the prior symmetric reduction, exact geometry, and large-d negative-center observation. The supported distinct claim is the all-radius, all-scale positivity iff with unique finite crossing and dimension-dependent sharp radius law. Prior general frameworks give the linear solve but do not give that classification or its dimension law. The exact indexed reentrant law is broader in mixtures and nuggets but is restricted to the one-dimensional three-node geometry.",
+      "residual_risks": [
+        "Equivalent elementary calculations might be recorded in unindexed sigma-point or radial basis function literature. The weights, geometry, and qualitative sign observation are not independently novel."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known geometry and qualitative sign; narrower quantitative boundary not stated in the relevant passage",
+          "evidence": "At a fixed kernel length scale, center weight becomes negative in sufficiently high dimension for the error-optimized radial design.",
+          "identifier_or_url": "https://tskarvone.github.io/pdf/KarvonenSarkka2018-fss.pdf",
+          "material_read": "Journal §4.3, p. A710, offset around 64000",
+          "method": "Primary author PDF passage inspection",
+          "title": "Fully Symmetric Kernel Quadrature",
+          "trigger": "Exact Gaussian center-plus-axes geometry and known negative origin weight"
+        },
+        {
+          "assessment": "Geometry and polynomial constraint baseline",
+          "evidence": "Gives origin-plus-axes sigma points and moment-matching weights, not the unnormalized Gaussian-kernel radius threshold.",
+          "identifier_or_url": "https://arxiv.org/html/1504.05994v1",
+          "material_read": "§II-B Eq. (17), offset around 17545",
+          "method": "Primary HTML passage inspection",
+          "title": "On the relation between Gaussian process quadratures and sigma-point methods",
+          "trigger": "Canonical axis sigma-point rule"
+        },
+        {
+          "assessment": "Relevant context and different node hypotheses",
+          "evidence": "The locally optimal design results and higher-dimensional numerical examples are not a necessary-and-sufficient radius theorem for the star design.",
+          "identifier_or_url": "https://doi.org/10.1007/s11222-019-09901-0",
+          "material_read": "Introduction and §3.9, extracted offsets around 7505, 69600 and 77000",
+          "method": "Primary OA PDF passage inspection",
+          "title": "On the positivity and magnitudes of Bayesian quadrature weights",
+          "trigger": "Plausible stronger positivity theorem"
+        },
+        {
+          "assessment": "Different node geometry; awareness and numerical evidence, not an exclusion theorem",
+          "evidence": "Discusses indications for positive weights at scaled Gauss–Hermite nodes.",
+          "identifier_or_url": "https://arxiv.org/abs/1803.09532v1",
+          "material_read": "v1 p. 2, offset around 7200",
+          "method": "Primary PDF passage inspection",
+          "title": "Gaussian kernel quadrature at scaled Gauss–Hermite nodes",
+          "trigger": "Positivity for Gaussian targets and kernels at specified nodes"
+        },
+        {
+          "assessment": "Exact overlap only for one antipodal pair in one dimension; catalogue date does not establish priority",
+          "evidence": "The center sign is set by η−H(q) with H(q)=2∫q^(1+β)dν−1−q⁴, and the Gram block lacks any cross-axis affinities.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-universal-reentrant-positivity-law-for-three-node-gaussian-ker--4abd02fc5f66",
+          "material_read": "Original RESULT.md Finding and Proof 1, offsets 0–5045",
+          "method": "Local Resultary mirror",
+          "title": "A universal reentrant positivity law for three-node Gaussian-kernel quadrature",
+          "trigger": "Exact sign classification including Gaussian targets and zero nugget"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Karvonen–Särkkä §4.3 prior numerical sign phenomenon",
+        "Frozen all-radius criterion and fixed-scale dimension law"
+      ],
+      "rationale": "The radius of a standard sigma-point design is a practical control parameter. A qualitative high-dimensional negative-weight phenomenon does not tell a designer whether an arbitrary radius is safe or how much to increase it. The exact one-sided sign threshold and sharp normalized squared-radius law answer those questions for this natural design. The finding does not claim that this radius minimizes quadrature error.",
+      "residual_risks": [
+        "Positivity and accuracy are different objectives. The model does not address modified weights, nugget regularization, or anisotropic target/design pairs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

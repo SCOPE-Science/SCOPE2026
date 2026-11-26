@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-## Mathematical checks
+## correctness
 
-The argument starts from the explicit ruler representation \(Z_n[j]=1+\nu_2(j)\) and proves that every factor with largest letter \(k\) appears in each of the identical intervening \(Z_k\) blocks, crossing their unique \(k\) positions. Therefore every such factor coverage contains the entire \(k\)-letter position set. The exact minimal-coverages characterization and all-attractor enumeration follow without computational extrapolation.
+PASS
 
-The minimum-span argument uses the unique occurrence of the largest letter, the two closest occurrences of the next-largest letter, and the occurrence counts in the intervening \(Z_{n-2}\). Edge cases \(n=1,2\) are stated separately or checked in the proof.
+Reconstructed the proof in RESULT.md lines 29–53. Position j has letter 1+ν₂(j), and deleting the separator positions divisible by 2^k leaves exactly 2^(n−k) copies of Z_k. A factor with largest letter k cannot cross any separator and covers the unique k in its block. Its occurrence transfers at the same offset to every other block. Thus its union of occurrence intervals contains the entire class P_{n,k}; the singleton-letter factor realizes that class exactly. Nonempty disjoint classes then give the exact minimal coverage antichain and the criterion for arbitrary position sets. Independent nonempty choices per class give the stated generating polynomial; one representative per class gives the stated minimum size and count. For n≥2 the required n and n−1 positions force span at least 2^(n−2); equality fixes one of the two intervening intervals, whose interior is Z_{n−2} (empty for n=2). Counting one position per remaining class there gives the stated extremal count. The n=1 result is immediate. Inspected the frozen checker and recorded n=1,…,6 checks; no supplied script was executed, and these finite results are not needed for the all-order argument. Scope is the literal words with distinct symbols, not morphic images.
 
-## Reproducibility
+## originality
 
-Run `python3 check.py` with the Python 3 standard library. It enumerates all distinct factors and their true position coverages, reduces the coverage inclusion order to its minima, checks that these agree with the one-letter coverages, and checks every size-minimal attractor for orders \(1\) through \(6\). It separately counts minimum-span solutions. The frozen output of this actual execution is `check_output.txt`.
+PASS
 
-## Limits
+Within the evidence inspected, the all-cardinality Zimin characterization and exact minimal antichain are distinct from known general checking algorithms, from exact classifications for other word families and from the closest indexed repeated-permutation classification. The enumeration and span count are supported consequences of that Zimin structure, not claims of a novel general counting technique.
 
-The finite checker covers \(2^n-1\) positions for \(1\le n\le6\); the all-order result rests on the explicit proof, not on extrapolating these experiments. Literature overlap was checked against recent primary texts and published record descriptions, with residual risk of unindexed equivalent statements. No independent audit or external certification is claimed.
+## value
+
+PASS
+
+The Zimin family is natural and the result replaces all factor checks on a word of length 2^n−1 with an irredundant n-edge certificate for arbitrary position sets, not just a witness for optimum cardinality. It also resolves exactly how many optimum transversals fit inside a shortest interval. The transport property, rather than routine multiplication once the edges are known, is the substantive structural contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

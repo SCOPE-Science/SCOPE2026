@@ -1,0 +1,92 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:32:47.974285Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fixing x_ABC solves the rank equations with direction (+,-,-,+,+,-); remaining equations follow from the margins and nonnegativity gives the two interval ends. The three pairwise counts give the exact strict-win intervals. A winner has 2F+M>n, hence F>L, so at most two candidates qualify across the whole fiber. If two winners occur d steps apart, their shared contest reverses strictly, forcing d>=1 (odd n) or d>=2 (even n). Remove d oppositely oriented cyclic triples from the two profiles, leaving the same n-3d ballots. Each winner has a deficit d against its disadvantaged rival in its cyclic block, so n-3d>d. At the two first layers d is respectively 1 or 2 and there are 2d common ballots. Cyclically label the winners A in the positive cycle and B in the negative cycle. Residual margins must exceed d against C for both, so by parity all residual ballots rank C last. The AB contest must reverse, forcing equal residual counts of ABC and BAC. This gives exactly the stated three matrices at each threshold; their endpoints and even midpoint yield the stated outcomes. Multinomial weights and the strictly decreasing successive ratio give all conditional probabilities and strict log-concavity. Independent finite JS enumeration (replay: /workspace/review-check-2.js) checked 8007 profiles and 6291 matrices, reproducing the first layers and weights (60,60) and (18900,100800,18900). The computation is finite; the cyclic-triple proof provides the all-n bounds. In the frozen text nu in the interval denotes the just-defined u; this is a notational typo, not a different endpoint.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1 is a counting hardness statement even for three votes, not a theorem classifying three alternatives. Theorem 7 is only a necessary feasibility condition, with §5 discussing its limits."
+        ],
+        "reasoning": "General decomposition, hardness and feasibility frameworks do not imply the n=5 and n=10 switch thresholds or their equality cases. The unidentified 2025 treatment was not used as negative evidence.",
+        "searches": [
+          "Boehmer et al., arXiv:2303.02538, Theorem 1 and §5",
+          "Primary literature search for the 2025 election-map treatment"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2303.02538",
+        "Resultary majority-tournament fiber record 2630f9051ce9",
+        "Resultary meaning search including Kemeny–Slater divergence and other neighboring voting records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With i=3 and S the two opponents, Theorem 7 implies F-L>=1 for odd n and >=2 for even n, covering the basic necessary condition behind the at-most-two statement."
+        ],
+        "reasoning": "Credit that necessary implication. It does not control two opposite strict margins on the same cyclic direction or classify their sharp first coexistence. Those results and the exact conditional distribution are the substantive distinction.",
+        "searches": [
+          "Boehmer et al., Theorem 7 and its Appendix D.2 proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 7 in §5 addresses whether one designated candidate can win and states a necessary condition, not all winner outcomes across a fixed position matrix.",
+          "The nearest inspected Resultary fiber Finding conditions on a five-candidate majority tournament, not a three-candidate positional margin."
+        ],
+        "reasoning": "Rank incidences and tournament signs are different maps of the ballot vector; reindexing candidates or ordered profiles does not turn one classification into the other.",
+        "searches": [
+          "Resultary meaning searches for rank/position-matrix realization fibers, Condorcet ambiguity and parity thresholds",
+          "Boehmer et al., arXiv:2303.02538, §5 and Appendix D.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Experiment 1 tests necessary feasibility on sampled data. The closest Resultary table enumerates equivalence classes of majority tournaments for exactly three voters and five alternatives."
+        ],
+        "reasoning": "Neither inspected table conditions on the required three-row position matrix and enumerates the strict-winner switch layers or their ordered-profile weights.",
+        "searches": [
+          "Resultary exact fiber and small-electorate queries",
+          "Boehmer et al., Experiment 1 and the 8x80 election data discussion"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the exact classification of strict-winner switches and conditional outcomes within a three-candidate position-matrix fiber, especially the sharp parity thresholds and complete first layers. It is not a priority claim for elementary rank-equation elimination, a necessary feasibility inequality, or multinomial counting. The closest inspected prior statements do not give this classification or imply it by direct specialization.",
+      "residual_risks": [
+        "The unnamed 2025 election-map work noted in RESULT.md could not be identified and its text was not read. An equivalent treatment in three-candidate positional-information literature remains possible; the assessment is limited to the inspected evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial prior implication, not the classification",
+          "evidence": [
+            "Theorem 7 is explicitly necessary. Its i=3 two-opponent specialization implies the rank-difference bound, but does not characterize feasible winners."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2303.02538",
+          "material_read": "Abstract, Theorem 1 (p. 4), §5 Theorem 7 and Experiment 1 (pp. 7–8, decisive offset 51019), Appendix D.2 (p. 23)",
+          "method": "Public PDF, located and read theorem and proof passages",
+          "title": "Properties of Position Matrices and Their Elections",
+          "trigger": "Same position-matrix realizations and strict Condorcet feasibility"
+        },
+        {
+          "assessment": "Different conditioning statistic and electorate/candidate regime",
+          "evidence": [
+            "The output is the unweighted five-alternative majority tournament induced by three voters; the rows count profiles by tournament class."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-five-candidate-majority-tournament-fibers-for-three-voters--2630f9051ce9/RESULT.md",
+          "material_read": "Finding, full table and assumptions, offset 0–2780",
+          "method": "Published record read through the local mirror",
+          "title": "Exact five-candidate majority-tournament fibers for three voters",
+          "trigger": "Closest finite voting-fiber search result with impartial-culture probabilities"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Position counts are a natural lossy summary of ballots. The result gives a complete constant-size decision for what can survive this loss with three alternatives, and identifies and classifies the smallest strict-winner reversals, including the doubling imposed by even-electorate ties. These are useful exact structural and probabilistic boundaries, not merely a small profile census.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

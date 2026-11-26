@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:40:54.686533Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:16–81",
+        "VERIFICATION.md:19–25",
+        "check_exact.py:6–79",
+        "arXiv:2610.24217v1, §§2.2–2.3"
+      ],
+      "rationale": "Under the specified fixed priority for equal quotas, cross-floor inversions are impossible and within each block every zero-envy rounded-up set is a suffix. Its length has tails P(L≥j)=r_(s−j+1), so the integer total forces exactly the reflected coupling, proving both directions and uniqueness, including ties and zero masses. At most min(m,t)+1 count pairs are available; the affine marginal image has dimension at most N−2 in the (N−1)-dimensional quota plane. For the (2,2), k=2 case, summing marginals and subtracting normalization gives p23−p14=b+c−1. Both objectives are bounded below by this difference in absolute value. The displayed lotteries attain equality: a+c≤1≤b+d ensures the potentially problematic weights are nonnegative. Equality for either objective forces p13=0 and min(p14,p23)=0; the difference and marginals then determine all six weights. This handles either sign, the equality boundary, and tied residues under the declared priority. The bundled Fraction checker checks optimal values over LP bases, not uniqueness of optimal support; that comes from the proof. It was inspected, not executed.",
+      "residual_risks": [
+        "Read 'at least as large' in the definition with the immediately specified fixed tie-break; mutual envy between tied parties is a different convention. For example, at (1/2,1/2,1/4,3/4) mutual tie envy instead forces probability of envy at least 1/2, because a split of one block is exactly a split of the other. The stated fixed-priority optimum is 1/4."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prop. 4.2 gives general envy-free feasibility via network flow. Thm. 4.3 and §4.3 include optimization of both expected envy and probability of any envy by LP methods.",
+          "Correa et al. characterize monotonicity and correlations in randomized apportionment, not the two-block envy cost."
+        ],
+        "reasoning": "The prior general methods can solve fixed-margin instances. They do not assert the common unique optimum or its explicit positive-envy cost as a function of the margins.",
+        "searches": [
+          "arXiv:2610.24217v1 Prop. 4.2, Thm. 4.3",
+          "arXiv:2405.03687"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local mirror 36a7204b5741b75430355c38bf9bf0ef7468c2a4: 572fc2f2d8d9, 2b1ea0112be4",
+        "arXiv:2610.24217v1",
+        "arXiv:2405.03687"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A fixed-total two-block flow can be reduced to complementary counts, and marginals subtract to give the suffix count law. This explains the close dependence of the feasibility part on prior structure.",
+          "The general optimization result gives solvability, not a relation between the minimizer sets of the two objective functions; equality in the sharp p23−p14 certificate supplies that extra information."
+        ],
+        "reasoning": "Credit the network and LP consequences as prior; the joint symbolic equality/uniqueness analysis and continuous-locus consequences are not supplied by an inspected stronger optimality theorem.",
+        "searches": [
+          "arXiv:2610.24217v1 Prop. 4.2 and Thm. 4.3",
+          "Resultary IDs 572fc2f2d8d9 and 2b1ea0112be4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The paper breaks exact quota ties by index and uses feasible paths of round-up counts and block subsets.",
+          "Resultary 572fc2f2d8d9 treats uniqueness/nonuniqueness with three strata; 2b1ea0112be4 treats feasibility for three pairs with three round-ups."
+        ],
+        "reasoning": "Changing names from strata to blocks does not distinguish results, but the available count couplings actually differ: with two strata the second count is forced by the first, unlike the three-stratum findings. Neither inspected Resultary statement concerns the four-party cost optimizer.",
+        "searches": [
+          "Resultary: two-block envy-free ex-ante proportional apportionment and suffix/count lotteries",
+          "arXiv:2610.24217v1 §§2.2–2.3, 4.2–4.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior example has (0.4,0.8,0.2,0.6), hence is on b+c=1 and confirms one compatible point only.",
+          "The inspected Resultary records concern different stratum numbers; neither supplies a matching chamber classification or table."
+        ],
+        "reasoning": "A known example or exact solution at a single feasible point does not determine the reflection locus or the costs on its complement; the conclusion is bounded by the sources checked.",
+        "searches": [
+          "Resultary two-strata/four-party apportionment search; inspected IDs 572fc2f2d8d9 and 2b1ea0112be4",
+          "arXiv:2610.24217v1 §4.2 worked example"
+        ]
+      },
+      "rationale": "The model, feasibility framework, and optimization of both types of costs are prior. Pass is for the explicit structural and sharp quantitative finding: a reflected count law with uniqueness and nullity, and the shared exact optimizer, uniqueness, and value throughout the balanced chamber. The reflection is a short structural specialization of the general network, not a new general decision method. The checked prior statements do not give the tight marginal lower bound and its equality conditions for both costs, or the resulting chamber-wide formula.",
+      "residual_risks": [
+        "Bounded literature/index coverage does not establish priority; same-day dates of related records do not settle ordering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial coverage: model and general algorithms, not the closed-form optimum",
+          "evidence": "Fixed tie priority; network flow; compatible two-pair example; both cost objectives.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.24217",
+          "material_read": "v1 PDF pp. 6–7, 12–15: §§2.2–2.3, Prop. 4.2/example, §4.3 and Thm. 4.3",
+          "method": "OA full-text passage inspection",
+          "title": "Envy-Free Randomized Apportionment",
+          "trigger": "Same model, examples, constraints and envy costs"
+        },
+        {
+          "assessment": "Different objective in checked material",
+          "evidence": "Monotonicity and dependence rather than within-floor envy optimization.",
+          "identifier_or_url": "https://arxiv.org/abs/2405.03687",
+          "material_read": "p. 1, framing and main objectives",
+          "method": "OA full-text passage inspection",
+          "title": "Monotone Randomized Apportionment",
+          "trigger": "Related ex-ante quota-rounding framework"
+        },
+        {
+          "assessment": "Distinct three-stratum result; same-day priority not inferred",
+          "evidence": "At most five parties versus a six-party three-stratum counterexample.",
+          "identifier_or_url": "Resultary:572fc2f2d8d9",
+          "material_read": "RESULT.md finding and stratum hypotheses",
+          "method": "Resultary query and local mirror",
+          "title": "A sharp six-party boundary for uniqueness of envy-free proportional apportionment",
+          "trigger": "Nearby uniqueness result with the same rounding model"
+        },
+        {
+          "assessment": "Different number of pairs and round-ups; same-day priority not inferred",
+          "evidence": "Three pairs, three extra seats, four feasibility inequalities and support bound.",
+          "identifier_or_url": "Resultary:2b1ea0112be4",
+          "material_read": "RESULT.md finding and scope",
+          "method": "Resultary query and local mirror",
+          "title": "Three paired apportionment strata: exact envy-free feasibility",
+          "trigger": "Nearby closed-form feasibility result for paired strata"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:26–81",
+        "arXiv:2610.24217v1 §§4.2–4.3"
+      ],
+      "rationale": "The first balanced two-floor case already shows that proportionality and zero envy are generically incompatible. The exact positive cost is useful beyond a feasibility test: it quantifies the unavoidable violation and shows that optimizing its incidence does not trade off with optimizing its expected count in this chamber. This is a natural small case, not a claimed general optimization advance.",
+      "residual_risks": [
+        "The positive-envy formula and common optimizer are not shown for larger blocks or for a different tie or cost convention."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:14:05.342991Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent replay /workspace/replay/4.py computed the union of all 35 bad lines from gradient incidences at the 15 rational points for all 1048575 nonzero masks, without using the supplied list of restriction codes. A nonzero binary cubic cannot have a nonrational repeated root: Frobenius would give a second repeated root. Euler identifies rational zeros from gradient, and membership of a line through such a zero in the gradient hyperplane tests multiplicity at least two; a contained line is included. This independently matches the entire census histogram and exact extremal mask list. All 20160 ordered bases were used to independently substitute into the displayed mask 67194; the orbit equals the 840 masks and the stabilizer order is 24. Its four partials force successively X3=X2=X1=X0=0 at any common zero over the algebraic closure, so the orbit members, unlike arbitrary rationally nonsingular candidates, are geometrically smooth.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published reflexive bound requires q>=1.7808d and the general smooth-surface bound q>=d², both inapplicable here.",
+          "Banwait–Fité–Loughran give Frobenius trace point counts and a general W(E6) table, not a complete table of projective classes over F2 in that passage.",
+          "Karaoğlu is a same-field projective classification candidate; full-text access was unavailable in this audit."
+        ],
+        "reasoning": "A complete projective representative catalogue is stronger for the fixed binary problem, whereas the available general transverse-line existence bounds do not imply it.",
+        "searches": [
+          "arXiv:1903.08845v3 Theorem 0.1",
+          "arXiv:1606.00300 §1 and Table 7.1",
+          "DOI:10.3906/mat-2102-10 complete F2 classification"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e5d3a9ef1f69 including orbits.csv and 58d14dbd7350",
+        "DOI:10.3906/mat-2102-10 landing page and unsuccessful OA attempts",
+        "arXiv:1903.08845v3",
+        "arXiv:1606.00300",
+        "arXiv:2007.12018",
+        "arXiv:2101.08217"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Rational contained-line counts alone do not give T. The exact catalogue crosswalk adds rational point counts on fixed representatives and recovers the threshold and the exact representative and orbit size.",
+          "The older Frobenius-splitting and contained-line results compare distinct invariants, not a bound on T by themselves."
+        ],
+        "reasoning": "No million-form census or new projective classification is needed given the extant full catalogue. Simple incidence arithmetic, representative evaluation and the explicit smoothness check give the frozen conclusion. The coverage judgment does not claim that the later tritangent publication preceded the frozen record.",
+        "searches": [
+          "Resultary e5d3a9ef1f69 complete orbit attachment; rational tangent double count",
+          "arXiv:2101.08217 introduction and Theorem 1.3; arXiv:2007.12018 §5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Squarefree binary cubic line restriction is precisely the definition of transverse, with zero restriction excluded.",
+          "For any nonzero restriction the unique repeated geometric root, if any, is rational. At a smooth rational point the tangent plane contributes exactly three rational lines through it."
+        ],
+        "reasoning": "Double-counting tangent incidences gives the equivalent one-line table statistic 35−3N+2L; this uses both N and L, not L alone.",
+        "searches": [
+          "Asgarli–Duan–Lai arXiv:1903.08845v3 definition of transverse",
+          "Resultary smooth cubic surfaces F2 complete list 36 projective orbits rational point counts number rational contained lines 35 minus three points plus twice lines transverse line count"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The actual orbits.csv gives 141 coefficient-mask representatives and orbit sizes, including both 67194,840 and 67195,840. Evaluating only representatives gives 67194 as the sole rationally nonsingular row with T<=8.",
+          "The same-day plane-section finding concerns zero smooth plane sections, not this line statistic."
+        ],
+        "reasoning": "The full table, rather than a coincidence of headline orbit sizes, supports the exact lower bound and orbit. The tritangent witness and transverse witness are inequivalent because N differs.",
+        "searches": [
+          "Resultary 2026/11/22 e5d3a9ef1f69 orbits.csv and RESULT.md",
+          "Resultary 2026/10/26 58d14dbd7350 Finding"
+        ]
+      },
+      "rationale": "The sharp count and orbit are covered as a direct catalogue consequence, not by the large-field Bertini bound. On a smooth binary cubic, each rational point lies on three rational tangent directions. A noncontained nontransverse line occurs in exactly one such incidence (the unique multiple root is rational), and a contained line occurs three times. Thus T=35−3N+2L for the tabulated rational point and contained-line counts N,L. Complete binary classifications provide the orbit-level setting. Independently of access to the older table, I checked the distinct Resultary publication e5d3a9ef1f69's attached full 141-row catalogue orbits.csv of all nonzero forms, with sizes summing to 1048575. The incidence formula and a rational nonsingularity filter on its representatives leave exactly its explicit 67194,840 row at T<=8, with (N,L)=(9,0); direct derivative smoothness proves it survives. This establishes mechanical coverage by the full catalogue, not priority based on publication dates. Its separately highlighted 67195,840 tritangent orbit is different ((N,L)=(1,0), T=32).",
+      "residual_risks": [
+        "Exact historical priority between the frozen count and other computations is not asserted. The older catalogue full text could not be verified independently, but this does not affect the demonstrated complete-table coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full projective catalogue mechanically entails the claimed line statistic; highlighted tritangent orbit is different",
+          "evidence": "All 141 masks and weights are provided; unique threshold row is exactly 67194,840, not 67195,840.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-the-fifteen-rational-line-tritangent-profiles-of-smooth-cubic-su--e5d3a9ef1f69",
+          "material_read": "RESULT.md Finding and scope offsets 0–2485, Verification and prior work offsets 5000–7189, and entire compact orbits.csv",
+          "method": "Local mirror primary text, exact mask and incidence crosswalk",
+          "title": "The fifteen rational-line/tritangent profiles of smooth cubic surfaces over F2",
+          "trigger": "Same field and object, full orbit catalogue and superficially matching 840-equation orbit"
+        },
+        {
+          "assessment": "Specific catalogue comparison is a residual historical risk, not a negative or decisive unavailable-paper finding",
+          "evidence": "Identified journal PDF returned 403 on direct and VPN, as did the alternate ResearchGate listing; independent positive coverage comes from the accessible complete orbit attachment.",
+          "identifier_or_url": "https://doi.org/10.3906/mat-2102-10",
+          "material_read": "Journal landing page and metadata only in this audit; frozen source reports inspecting Sections 3,5 and Table 1",
+          "method": "OA journal/DOI attempts, identified journal PDF and lawful alternate listing tried; full text unavailable",
+          "title": "Non-Singular Cubic Surfaces over F_2^k",
+          "trigger": "Older full binary projective classification and rational point/contained-line data"
+        },
+        {
+          "assessment": "Does not imply the small-field extremal result",
+          "evidence": "q>=1.7808d (reflexive) or q>=d² (general) does not hold for q=2,d=3.",
+          "identifier_or_url": "https://arxiv.org/html/1903.08845v3",
+          "material_read": "Definition, Theorem 0.1 and general bound discussion at HTML opening and §1",
+          "method": "OA primary HTML passages",
+          "title": "Transverse lines to surfaces over finite fields",
+          "trigger": "Exact definition and possible stronger field-size theorem"
+        },
+        {
+          "assessment": "Contained lines and Frobenius splitting, not T alone",
+          "evidence": "Theorem 5.1 of the former treats triangle configurations on the surface. The latter gives possible counts of rational contained lines; pointed large-field statements do not constrain the joint statistic here.",
+          "identifier_or_url": "arXiv:2007.12018; arXiv:2101.08217",
+          "material_read": "§5 of the former; introduction and Theorem 1.3 context of the latter",
+          "method": "OA primary HTML passages",
+          "title": "Cubic Surfaces of Characteristic Two; Rational Lines on Smooth Cubic Surfaces",
+          "trigger": "Potential general characteristic-two and rational-line coverage"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Small-field transversality is a legitimate invariant, but the claimed sharp number and orbit mechanically reduce to 35−3N+2L and an exact, already available projective orbit table with the very same representative. The larger brute-force replay certifies correctness but is not a new substantive classification beyond that table calculation.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

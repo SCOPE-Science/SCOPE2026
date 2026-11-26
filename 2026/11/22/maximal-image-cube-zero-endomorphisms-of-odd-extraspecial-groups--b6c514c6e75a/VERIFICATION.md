@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The dependency-free `artifacts/verify_cube.py` checks two odd-prime instances by independently traversing all quotient matrices and central functionals: \((n,p)=(1,3)\) gives \(48\) and \((1,5)\) gives \(480\). Its characteristic-two linear Lie-algebra sanity check at \((n,q)=(2,2)\) gives \(3240\); that latter computation is explicitly **not** a group example. The arithmetic formula separately reconstructs \(552960\) at \((n,p)=(2,3)\). The checker tests the isotropic image condition, cube-zero composition, and complete map rank and does not derive its observed counts by substituting the closed formula.
+## correctness
 
-The infinite statement follows from the proof's bijections: Lagrangian image \(W\); square-zero restriction \(B=A|_W\); surjective extensions from a complementary quotient; central-functionals vanishing on \(\operatorname{im}B\) but not on \(\ker A\). Each step is exact over every odd prime field and every \(n\ge1\). A finite test cannot establish that general result by extrapolation.
+PASS
 
-The 2019 foundational paper supplies the endomorphism normal form and counts all maps. The full text of the 2026 square-zero weight-one Rota–Baxter census establishes an equivalent square-zero normal form; its covered statements are expressly excluded from novelty. No independent mathematical audit has been performed.
+A homomorphism induces a scalar c on the derived center and a linear A on V. The commutator identity imposes omega(Av,Aw)=c omega(v,w), and subtracting the group-law cocycle shows that the remaining central function ell is additive, hence linear over the prime field. If c≠0, A is invertible and so is the homomorphism. For c=0 the image of A is isotropic and the graph map has rank at most n+1; equality requires a Lagrangian W and ell nonzero on ker A. Surjectivity to W identifies A³=0 and ell A²=0 with B²=0 and ell vanishing on im B, where B=A|W. For rank s, choose im B⊂ker B and an isomorphism W/ker B→im B; this yields the two Gaussian binomials and |GL_s|. The extension count is the number of surjections from an n-dimensional complement to W/im B times p^(ns); ell choices are p^(2n-s)-p^n since im B⊂ker A. A square-zero linear map on the full 2n+1-dimensional group coordinate space has rank at most n. The positive s=0 term attains rank n+1 for cube zero and excludes index two. Direct independent enumeration for n=2,p=3 gives 138240 and 414720 by s=0,1, totalling 552960, and the n=1 formula specializes to 48 and 480 at p=3,5.
+
+## originality
+
+PASS
+
+Credit the constrained maximal-image composition-index-three enumeration, not the ambient endomorphism form, maximal image bound in isolation, known Lagrangian counts, or square-zero marginal. Neither the directly inspected ambient count nor the available related statements supplies the joint image-size and cube-zero refinement.
+
+## value
+
+PASS
+
+The top proper image size is intrinsic to the monoid. Counting its first composition-nilpotent layer, with the sum resolved by the rank of the restriction to the image, separates otherwise conflated high-rank endomorphisms across every rank and odd prime. The exact joint invariant gives more than an isolated finite case or the elementary index obstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

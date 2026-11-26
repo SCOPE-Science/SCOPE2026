@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:18:38.605343Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Orthogonal changes of coordinates reduce C to its diagonal singular values without breaking block locality. The inverse covariance gives the reported alpha_i and beta_i terms. Testing the stationary divergence with cutoffs in the discarded block validly gives each standard-Gaussian marginal divergence identity: the cutoff-gradient terms vanish by Gaussian L2. The mixed x_j,y_k derivative is beta_k times the x_j derivative of u_k plus beta_j times the y_k derivative of w_j, with the pure-block distributions dropping out. If both beta_i are positive this separable identity forces all first derivatives constant. Marginal divergence then makes the affine terms homogeneous and skew-symmetric, and the x_1x_2 and y_1y_2 coefficients exclude both rotations when the singular values differ; at equal positive values the cross term requires the two speeds to agree. At rank one, the first component of each field depends only on its first coordinate. A further one-coordinate marginal divergence identity gives f'=xf, whose sole Gaussian-L2 solution is zero. Applying the original marginal identity to the remaining component gives the same exponential dependence on the second coordinate, hence zero by Fubini and L2. At zero correlation, smooth radial cutoffs times Jx give infinitely many independent divergence-free alternatives. The drift -Z with noise covariance 2Σ_C realizes the invariant Gaussian; adding the coordinated skew rotation preserves stationarity and linear stability. At C=0 the bounded smooth rotational perturbations give nonexplosive dissipative diffusions with that invariant law and uniqueness by ellipticity. Identifiability in the zero-kernel regimes correctly holds only within the given class and with diffusion fixed. VERIFICATION.md and verification/check.py were inspected, not executed; exact polynomial nullity tests do not exclude non-polynomial fields.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Schwank–Drton cover nonlinearity and more general densities but require no directed two-cycles. Dettling et al. give global linear results for simple graphs and illustrate correlated-noise recovery in a three-node linear model.",
+          "Garcez Vicente–Salehkaleybar's sufficient generic linear criterion requires each reciprocal pair to have its own neighbouring witness outside the reciprocal pairs. There is no such vertex in this graph."
+        ],
+        "reasoning": "The no-two-cycle restriction is structural even in the Gaussian specialization, not removable by canonical rotations within a block. A generic rank condition (whether satisfied or not) is not pointwise coverage including the equal-singular-value and rank-one strata, nor does it bound nonlinear alternatives.",
+        "searches": [
+          "Schwank and Drton arXiv:2611.11288v1, Theorems 1.1 and 3.4",
+          "Dettling et al. arXiv:2209.03835, Theorem 32 and Appendix A Examples 41–42",
+          "Garcez Vicente and Salehkaleybar arXiv:2610.31310, Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verification/check.py",
+        "arXiv:2611.11288v1, 2209.03835, 2610.31310",
+        "Resultary 0ac3d73ad09e and 6291c62e0ff7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Schwank–Drton expressly discuss Gaussian nonlinear alternatives in their no-two-cycle theorem, so Gaussianity alone does not make their theorem apply to this graph. Dettling et al.'s method fixes the diffusion and treats sparse linear matrices, not weighted-divergence PDEs on nonlinear fields.",
+          "The reset OU rotational family is already a concrete nonidentifiability mechanism for repeated parameters but gives no exhaustion of the null-current space here."
+        ],
+        "reasoning": "The subject's essential extra step is a mixed-derivative constraint on all block-local fields with enough strength to reduce the full-rank problem to known linear machinery; a separate Gaussian-L2 argument is necessary at rank one where that reduction loses equations. A linear kernel or one explicit invisible rotation does not imply completeness.",
+        "searches": [
+          "Schwank–Drton arXiv:2611.11288v1, Theorem 3.4 and discussion following it",
+          "Dettling et al. arXiv:2209.03835 Theorem 32 and Examples 41–42",
+          "Resultary 0ac3d73ad09e Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For linear differences H and fixed diffusivity the homogeneous covariance condition is HΣ_C+Σ_C Hᵀ=0. For H=diag(A,B) it reduces to block skew symmetry and AC+CBᵀ=0, which gives the linear canonical-correlation test.",
+          "Schwank–Drton's nonlinear identifiability uses the weighted-divergence formulation but excludes both directed two-cycles here."
+        ],
+        "reasoning": "The linear algebra is exactly equivalent only if the drift differences are linear. Proving reduction to linear fields for positive cross-rank or excluding nonlinear fields at rank one is essential, not a change of notation for that rank test.",
+        "searches": [
+          "Stationary Gaussian block-local drift differences as weighted-divergence kernels; arXiv:2611.11288v1 §3",
+          "Linear continuous Lyapunov equivalence; arXiv:2209.03835 Lemma 27, Theorem 32 and Appendix A"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact frozen-record hit is not independent. The distinct same-day 0ac3d73ad09e gives a rotation family invisible in a two-dimensional reset OU model at any reset rate; the 6291c62e0ff7 hit uses branching-population temporal covariance.",
+          "Example 42 gives linear identifiability for a two-node reciprocal pair and a third isolated node when either of two specified volatility covariances is nonzero."
+        ],
+        "reasoning": "The reset and population models share a rotational obstruction but have different dynamics, observations and graph parameters. The worked three-node linear example does not tabulate the four-dimensional pointwise nonlinear kernels. No exact independent table or equivalent source result was established.",
+        "searches": [
+          "Resultary graph-local identifiability, stationary Gaussian rotations and reciprocal pairs: 11c1c3c80cf0, 0ac3d73ad09e, 6291c62e0ff7",
+          "Dettling et al. arXiv:2209.03835 Appendix A correlated-noise worked examples"
+        ]
+      },
+      "rationale": "Pass for the pointwise nonlinear canonical-correlation classification with two reciprocal feedback pairs. The general linear Lyapunov rank test already reduces every linear subcase to a finite calculation, and known examples explain how correlated noise can recover linear identifiability. Neither settles the absence of all nonlinear null currents, in particular at rank one, or the fact that the full resonant kernel is only a coordinated rotation. Rotational blindness itself is not new.",
+      "residual_risks": [
+        "Earlier nonlinear rigidity of Gaussian weighted divergences with separated blocks could subsume some or all regimes; the inspected graph-local and Lyapunov results do not establish such coverage. The common rotation mechanism in the distinct same-day result is not evidence of priority order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same weighted-divergence framework but excludes the required reciprocal pairs",
+          "evidence": "Both theorem hypotheses exclude directed two-cycles, including in the Gaussian specialization discussed after Theorem 3.4.",
+          "identifier_or_url": "https://arxiv.org/html/2611.11288v1",
+          "material_read": "Theorem 1.1 around HTML offset 5100, Theorem 3.4 around offset 17700 and discussion around offset 20320",
+          "method": "Read bounded original OA HTML passages",
+          "title": "Fingerprints of feedback cycles in stationary diffusions",
+          "trigger": "Most relevant nonlinear graph-local identifiability result"
+        },
+        {
+          "assessment": "Covers standard linear machinery and a three-node comparator, not full nonlinear two-pair kernels",
+          "evidence": "Theorem 32 gives simple-graph linear identifiability (necessary with diagonal volatility); Example 42 restores it for one reciprocal pair plus an isolated node when a cross-volatility entry to that node is nonzero.",
+          "identifier_or_url": "https://arxiv.org/abs/2209.03835",
+          "material_read": "Theorem 32 near PDF p.16, offset 53410, and Appendix A Examples 41–42 pp.23–24, offsets 72200–75778",
+          "method": "Locate and read bounded OA PDF passages",
+          "title": "Identifiability in Continuous Lyapunov Models",
+          "trigger": "Potential broader Gaussian result and exact correlated-noise case"
+        },
+        {
+          "assessment": "Sufficient generic linear result; not applicable to the two isolated reciprocal pairs",
+          "evidence": "The theorem requires a neighbouring vertex outside every reciprocal pair for each pair and concerns linear stationary covariance.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.31310",
+          "material_read": "PDF p.4 Theorem 1 near offset 23500 and target-coefficient analysis p.6",
+          "method": "Read original OA PDF passages",
+          "title": "Identifiability from Stationary Covariance in Linear SDEs with Reciprocal Interactions and Latent Variables",
+          "trigger": "Recent possible coverage of reciprocal cycles"
+        },
+        {
+          "assessment": "Related mechanism in a different model; no exact coverage or priority inference from date",
+          "evidence": "Two-dimensional reset OU with diagonal bath noise; a rotational family is invisible at every Poisson reset rate.",
+          "identifier_or_url": "Resultary 0ac3d73ad09e",
+          "material_read": "Local-mirror RESULT.md Finding",
+          "method": "Read original catalogue record's statement",
+          "title": "Two-rate covariance tomography and exact rotational blindness in reset diffusions",
+          "trigger": "Material same-day rotational blindness result"
+        },
+        {
+          "assessment": "Different temporal covariance observable and population model",
+          "evidence": "Rotational identification by a full branching-population covariance curve is governed by simplicity of the damping spectrum.",
+          "identifier_or_url": "Resultary 6291c62e0ff7",
+          "material_read": "Local-mirror RESULT.md Finding",
+          "method": "Read original catalogue record's statement",
+          "title": "Sharp identifiability and a rotation-blindness boundary for clonal populations",
+          "trigger": "Repeated spectral values as a possible equivalent rotational obstruction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The model isolates a concrete obstacle in graph-local inverse problems: reciprocal drift pairs can hide stationary currents, yet known cross-correlated noise and anisotropic canonical correlations can remove every such current, including nonlinear ones. The exact rank-one and resonance boundaries distinguish mere generic linear identifiability from a pointwise nonlinear result. The proof also gives actual stable stationary diffusions on the nonidentifiable strata rather than just formal Fokker–Planck solutions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

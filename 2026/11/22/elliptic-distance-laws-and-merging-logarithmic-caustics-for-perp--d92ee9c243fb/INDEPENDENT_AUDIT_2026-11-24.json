@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:43:03.285962Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding and Proof, VERIFICATION.md, checker.py and CHECKER_OUTPUT.txt inspected",
+        "Independent /workspace/distance_replay.py",
+        "DLMF §19.12 eqs. 19.12.1 and 19.12.3 (modulus notation)"
+      ],
+      "rationale": "Expanding the squared distance gives Z=d cos t+sin t cos s. The phase shift in t conditional on s leaves a uniform angle; its conditional density is arcsine with amplitude sqrt(d²+cos²s). This proves absolute continuity (the zero amplitude at d=0 occurs on a null set), symmetry and normalization. The integrated denominator is sqrt(A−sin²s), A=1+d²−z². For A>1 factor out sqrt(A); for 0<A<1 the supported angular interval truncates at arcsin sqrt(A), and sin s=sqrt(A) sin u gives K(A). Endpoints give K(0)=π/2. With h=|d²−z²|, the elliptic parameter gap is h or h/(1+h), so both branches give π⁻² log(16/h)+O(h log(1/h)). This yields all sharp constants and a uniform O(d² log(1/d)) remainder on the specified compact λ sets. The monotone square-root distance transform has Jacobian r, gives endpoints M_d±1, and at d=0 gives the small-distance probability r²/(2π). Direct averaging gives E[Z]=0 and E[Z²]=d²/2+1/4, confirming the two moments and identifiability. Independent CDF quadrature plus central differencing matched eight density probes to 1.7e−22 at working precision; collision errors over five λ probes decreased from 6.8e−5 at d=.01 to 1.4e−8 at d=.0001. These samples supplement rather than establish the analytical claims.",
+      "residual_risks": [
+        "No uniform finite-part expansion at λ=±1 is asserted; singular points and support endpoints have zero probability."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Finch averages supporting-plane separation over direction, not distances between two independent sampled boundary points. The extended-oloid work treats the ruled hull of another perpendicular placement. The Steinmetz record obtains a product (1−Y²)|sin(2Φ)| for isotropic width, with no shift parameter."
+        ],
+        "reasoning": "Orthogonal circles or disks and the presence of elliptic integrals do not make these the same law. DLMF supplies the analytic expansion once the parameter of this law is computed, not a general proposition already evaluating the geometric crossover.",
+        "searches": [
+          "Finch arXiv:1211.4514, width definition and configurations",
+          "Bäsel–Dirnböck arXiv:1503.07399, oloid definition and objectives",
+          "Resultary Steinmetz width law f1c36680292a; DLMF §19.12"
+        ]
+      },
+      "checked_sources": [
+        "Sources above; Resultary near-circular Lamé 70f541f7740f and coincident chord midpoints 7377e1041fdc, actual Findings at opening offsets; primary-literature query on positive-shift arcsine-product densities."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "DLMF gives the singular logarithm and constant for K. The other crossover results concern near-diameter tails for one planar oval, an ε log(1/ε) correction for intersection probabilities of two coplanar chords, or logarithmic rare-event marks for their midpoints. Those are different variables and scalings."
+        ],
+        "reasoning": "The zero-offset resolvent is a useful route once one establishes the geometry-specific reduction G_d(w)=G_0(sqrt(w²−d²)) for real w>M_d and takes boundary values. The inspected unshifted formula does not itself state that reduction or the corresponding two-branch density for displaced wires. Novelty is credited to the exact evaluation and collision profile for the geometric family, not to the standard K expansion or abstract claim that two logarithms add.",
+        "searches": [
+          "DLMF 19.12.1 and 19.12.3; Guttmann eqs. (4),(6)",
+          "Resultary Lamé crossover 70f541f7740f, nested-circle random chord cusp 21cbc7a7c0ae, and random chord midpoint collision 7377e1041fdc"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Phase invariance gives the exact squared-variable alias Z_d²≍(d²+X)Y, not a product of two unshifted beta variables for d>0. At d=0 the signed law is that of cos t cos s, exactly the square-lattice structure function in eq. (6). Its resolvent and all its moments are therefore already given by eqs. (4),(6)."
+        ],
+        "reasoning": "The signed distribution at d=0 is fixed by the Green function on its compact support. This is special-case overlap, not positive-offset family coverage. No usable exact positive-shift primary match emerged from the targeted search.",
+        "searches": [
+          "Resultary: distance distribution between random points on perpendicular orthogonal unit circles displaced centers, elliptic integrals, product arcsine and logarithmic caustics",
+          "Primary literature: distribution or singularity of the positive-shift product (d²+X)Y for independent Beta(1/2,1/2) variables",
+          "Guttmann arXiv:1004.1435, equations (4) and (6)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact positive-offset hit in the archive was the frozen record itself. The independently checked nearby analytic record f1c36680292a concerns a width, and Guttmann’s closed transform covers only the unshifted comparator in this geometric identification. No checked formula table contains this displaced-center family."
+        ],
+        "reasoning": "A finite database is not the natural form of coverage for this continuum-parameter theorem, but an equivalent closed product density or resolvent table would count; the inspected equivalent expression only covers d=0 directly.",
+        "searches": [
+          "Resultary exact and alias search for cross-wire distance laws, logarithmic singularities, shifted arcsine products; primary shifted-product comparison"
+        ]
+      },
+      "rationale": "The supported distinct content is the law for displaced centers in the specified perpendicular geometry and its explicit caustic splitting and critical two-term profile. The d=0 product law is already encoded equivalently in the classical square-lattice Green function; the elliptic singular expansion is likewise classical. The strongest inspected positive-offset or crossover comparators do not evaluate this shifted law and profile, and no verified equivalent coverage of the family was located.",
+      "residual_risks": [
+        "Equivalent positive-shift Beta or random-projection formulas may be unindexed. Searches are bounded; the result is not a historical-priority certificate. Same-day records do not establish chronology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent to the unshifted law; not direct positive-offset coverage",
+          "evidence": "The structure function cos k1 cos k2 has square-lattice Green function (2/π)K in modulus notation.",
+          "identifier_or_url": "https://arxiv.org/pdf/1004.1435",
+          "material_read": "Equations (4) and (6), PDF pp. 2–3; text offsets 6620 and 7930",
+          "method": "OA primary PDF",
+          "title": "Lattice Green functions in all dimensions",
+          "trigger": "Exact resolvent of the unshifted product alias"
+        },
+        {
+          "assessment": "Classical analytic input",
+          "evidence": "With complementary-modulus squared equal to the parameter gap h, the leading term is log(4/√h).",
+          "identifier_or_url": "https://dlmf.nist.gov/19.12",
+          "material_read": "Eq. 19.12.1 and d(0)=2 ln 2 following 19.12.3; text offsets 1400–3140",
+          "method": "OA webpage",
+          "title": "DLMF, Asymptotic Approximations",
+          "trigger": "Sharp logarithmic elliptic expansion used in the proof"
+        },
+        {
+          "assessment": "Different random experiment",
+          "evidence": "Width is separation of direction-indexed parallel supporting planes; the paper uses direction uniform on S².",
+          "identifier_or_url": "https://arxiv.org/pdf/1211.4514",
+          "material_read": "Opening configurations and p. 2 width definition, text near offset 3040",
+          "method": "OA primary PDF",
+          "title": "Convex Hull of Two Orthogonal Disks",
+          "trigger": "Same perpendicular-circle/disk geometry in closely related examples"
+        },
+        {
+          "assessment": "Different placement and geometric invariant",
+          "evidence": "Each center lies on the other circle; the studied quantities are the ruled hull and its inscribed quadrics and contact curves.",
+          "identifier_or_url": "https://arxiv.org/pdf/1503.07399",
+          "material_read": "Abstract and introduction opening, PDF p. 1, offset 260",
+          "method": "OA primary PDF",
+          "title": "The Extended Oloid and Its Inscribed Quadrics",
+          "trigger": "Perpendicular equal-circle hull as possible equivalent setup"
+        },
+        {
+          "assessment": "Related analysis, different scalar law and no displacement-driven split",
+          "evidence": "The isotropic width of a Steinmetz bicylinder reduces to (1−Y²)|sin(2Φ)|, not the shifted Beta product.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-elliptic-random-width-law-and-logarithmic-polar-localization--f1c36680292a",
+          "material_read": "Finding and proof §§1–4, offsets 0–6978",
+          "method": "Local Resultary mirror",
+          "title": "The elliptic random-width law and logarithmic polar localization",
+          "trigger": "Same-day exact elliptic/logarithmic result for orthogonal geometry"
+        },
+        {
+          "assessment": "Different sampling and observable",
+          "evidence": "Four endpoints on concentric coplanar circles define two chords; the invariant is crossing probability as the radii agree.",
+          "identifier_or_url": "2026/11/1/SCOPE-a-logarithmic-collision-cusp-and-complete-monotonicity-for-neste--21cbc7a7c0ae",
+          "material_read": "Finding and scope, offsets 0–2544",
+          "method": "Local Resultary mirror",
+          "title": "A logarithmic collision cusp and complete monotonicity for nested-circle random chords",
+          "trigger": "Logarithmic circle collision profile"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen positive-offset density and collision asymptotic; square-lattice and width comparisons above"
+      ],
+      "rationale": "Separating the centers by this symmetry-preserving displacement poses a natural distribution question even after the coincident-center law is known. The global piecewise law specifies how one logarithmic density peak is replaced by two, with exact constants and a uniform finite crossover profile on their separation scale. This identifies the geometry from the distance law and provides an explicit benchmark for changes of radius or placement. The claim does not depend for its value on elementary identifiability by itself or on a supposedly new elliptic-integral expansion.",
+      "residual_risks": [
+        "The exact solvability and profile have only been established in this one perpendicular, equal-radius displacement family."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

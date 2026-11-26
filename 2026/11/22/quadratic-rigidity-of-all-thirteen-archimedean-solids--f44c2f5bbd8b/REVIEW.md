@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The quadratic quotient has dimension nine. The group-invariant kernel lemma follows from complete reducibility and irreducibility of the pairwise distinct constituent representations. Explicit character tables for the proper icosahedral and octahedral rotation groups prove their decompositions, and explicit evaluation conditions prove that every nonzero icosahedral orbit and every nonexceptional octahedral orbit has zero quadratic-restriction kernel. The exceptional octahedral cases are exactly six-point octahedral and eight-point cubic orbits; each of the six proper-octahedral Archimedean orbits has at least twelve vertices. An independent four-sign Fourier calculation handles the twelve truncated-tetrahedral vertices. The exact symbolic verifier checks the finite components and representative orbit evaluations, not every possible orbit; the infinite claims rest on the mathematical proof. No claim is made about higher-degree polynomials.
+## correctness
 
-## Originality — PASS, subject to historical priority
-Berestovskiĭ and Nikonorov explicitly pose the thirteen-solid classification as Conjecture 1 in their first-public April 24, 2023 preprint *Perfect and almost perfect homogeneous polytopes*. The present statement proves that exact assertion. The earlier orbit-classification paper does not establish that every relevant quadratic interpolation kernel is one-dimensional. Published individual-set results on quadratic harmonic sampling of the cuboctahedron, truncated tetrahedron and icosahedron prove the rank-nine fact on those particular sets; they do not cover the remaining ten solids or the stronger all-icosahedral-orbits and octahedral-orbit criterion. Searches for the conjecture and aliases did not identify an existing proof. This is not a proof of global historical uniqueness: unindexed papers or more general invariant-theoretic implications remain a residual risk.
+PASS
 
-## Mathematical value — PASS
-The classification resolves an explicit published conjecture across all thirteen Archimedean solids, including the two chiral snubs, using uniform finite-group representation theory. The stronger orbit criterion identifies the exact geometric causes of failure (cube and octahedron) and supplies a reusable second-degree spherical-interpolation test for polyhedral rotation orbits. The result is a structural theorem, not a numerical census or a restatement of a general character identity.
+Re-audited the complete replacement RESULT.md. On the circumradius sphere, quotienting by the sphere equation leaves harmonic degrees 0,1,2 of dimensions 1,3,5. Orbit evaluation is equivariant; a kernel submodule in the multiplicity-free real representation must be a sum of killed irreducibles. In the proper octahedral group the class-weighted character cross-products of the linear, diagonal trace-free and mixed quadratic blocks vanish, their squared norms after dividing by 24 are one, and all have mean zero. At a nonzero v the constant and linear blocks survive. The entire diagonal block vanishes iff all squared coordinates coincide, giving the eight-point cube, and the entire mixed block vanishes iff all pairwise products are zero, giving the six-point axis orbit. Other proper octahedral orbits have rank nine, including all six listed Archimedean cases (each has at least twelve vertices). The known icosahedral design input applies to the proper rotation group: the Hopf map sends the binary group to the proper action and the balanced harmonic indices through five give exact quadrature. Averaging the square of a quadratic then gives injectivity. Independently the checked icosahedral character norms and cross-product give the same rank by the orbit argument. The truncated tetrahedron arises by trisection of the starting tetrahedral edges: the four independent even-sign characters separate the constant/diagonal equations from linear/mixed pairs. Comparing coordinates of magnitude three versus one gives all diagonal coefficients equal and the linear/mixed determinants equal to 8 up to sign, so those coefficients vanish. This covers the remaining solid. The intact exact checker corroborates representative cases and the character data; it was inspected but not run and does not establish the universal classification.
 
-## Literature and limitations
-Closest primary source: Berestovskiĭ and Nikonorov, arXiv:2304.12211v1, especially Conjecture 1. Related published single-configuration harmonic-rank studies are separately credited in RESULT.md. The proof relies on the standard thirteen-solid symmetry classification; the supplied verifier needs SymPy. Quadratic perfection is not asserted for arbitrary uniform solids or higher-degree algebraic surfaces. An independent scholarly priority assessment and independent mathematical audit have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+This PASS is for the replacement only. The frozen result's claimed all-icosahedral-orbit strengthening is already covered by a stronger published design result and does not pass as new. The replacement explicitly credits that result as input and credits the prior cuboctahedron and truncated tetrahedron cases. What survives is the necessary and sufficient proper octahedral orbit criterion and its use, with these inputs, to complete the thirteen-solid proof. No inspected result gave that criterion or the all-thirteen proof.
+
+## value
+
+PASS
+
+The repaired biconditional gives a complete exact criterion on the continuum of seed directions, including a geometric explanation of each exceptional orbit, not a finite rerun of known rank calculations. It is strictly broader than certifying a few spherical 4-designs and supplies the octahedral portion needed to resolve the named thirteen-solid conjecture alongside credited prior inputs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

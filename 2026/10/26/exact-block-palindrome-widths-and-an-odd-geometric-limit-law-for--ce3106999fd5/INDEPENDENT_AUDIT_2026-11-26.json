@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:20:55.384755Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A literal border of a Dyck word has nonnegative height as a prefix and nonpositive height as a suffix; it is therefore balanced and itself Dyck. A shortest nonempty proper border is unbordered, since a shorter border of it would border the parent word; overlapping copies would also create a shorter border. Peeling the two copies leaves a Dyck center at the same zero height, and any construction bvb with b an unbordered nonempty Dyck word and v Dyck has shortest border b. This proves C=1+U+C·U(z²) in semilength. If any candidate maximal decomposition used a longer outer block b, its prefix and suffix s equal to the shortest border would be nonoverlapping, so b=sys. The s and the second s (and y if nonempty) can all be used as successive paired blocks in place of the single pair b, strictly increasing width. A bordered word can also improve over leaving the entire word as one center. Induction gives the unique maximum-width decomposition, with empty width zero and optional nonempty unbordered center. Each pair contributes z^(2j)t², giving the stated bivariate GF. Set G=U(z²), analytic for |z|<1/2 by the Catalan bound; α=G(1/4) is in (0,1). U=(1−G)C−1 gives leading square-root coefficient −2(1−α); for odd width 2k+1 multiplication by G^k changes it by α^k, whereas even width 2k uses only the analytic G^k. The pointwise limits exhaust total mass. Differentiating at t=1 gives [U(1+G)+2G]/(1−G)²; its Catalan multiplier at 1/4 is (1+α)/(1−α). Nonnegative coefficients and G(1/4)<1 give a disc strictly larger than radius 1/4 with denominator nonvanishing, so the transfer for the mean is justified, not inferred from weak convergence. Independent replay `python3 /workspace/reproduce_reviews.py 5` maximized over every matching split (not greedy peeling) for 23714 Dyck words including the empty word at n=0..10, matched the width histograms, and checked coefficient sums through n=100. Exact rational truncation with error ≤(4/3)4^(-101) corroborated the supplied decimals. The frozen verifier was read, not executed; finite checks do not prove the transfer or uniqueness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The fixed-alphabet recurrence is over all symbols at each fixed word length, and its limiting mean is for an unrestricted ensemble. The November 8 Resultary finding proves the same greedy principle but computes widths for specified period-doubling prefixes. A distinct October 26 record concerns ordinary versus Abelian borders for marker-constrained words."
+        ],
+        "reasoning": "The generic structural argument applies but the enumerative theorems do not count the Dyck sublanguage under semilength weighting. The same-day indexed finding was compared on content, not excluded on chronology; its observable and ensemble differ.",
+        "searches": [
+          "arXiv:2302.13147 Theorems 2 and 4, Conjecture 5",
+          "SCOPE-20261108-b1effee6a451, Finding and proof §1",
+          "SCOPE-20261026-c794105bc5c8, Finding"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2302.13147",
+        "arXiv:1708.06461",
+        "SCOPE-20261108-b1effee6a451",
+        "SCOPE-20261026-c794105bc5c8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The width recurrence over ordinary words comes from peeling unrestricted unbordered blocks. For Dyck words the decisive extra property is closure of literal borders and the peeled center in the Dyck class, so Catalan coefficients replace unrestricted powers. The limit then uses the square-root Catalan singularity and analytic G(z)=U(z²), including analytic even-width terms. The adjacent Dyck-code chapter was not available in the attempted full-text routes."
+        ],
+        "reasoning": "Neither the unrestricted exact recurrence nor its limiting mean determines the Dyck-conditioned coefficients or the odd-geometric parameter. A selected code, if that is all the adjacent chapter treats, would not count all literal unbordered Dyck words; no whole-chapter conclusion is drawn from failed retrieval.",
+        "searches": [
+          "arXiv:2302.13147 Theorems 2 and 4",
+          "arXiv:1708.06461, minimal Abelian borders",
+          "DOI:10.1007/978-3-030-81508-0_4, OA chapter/copy lookup"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gabrić–Shallit already give shortest-border peeling for the same largest-width invariant on words. Literal borders of a Dyck word cut at returns to zero, so the Dyck problem can equally be posed on a word of primitive excursions weighted by total semilength. The Abelian-border paper instead uses equality of Parikh vectors, not equality of the excursion words or literal blocks."
+        ],
+        "reasoning": "The weighted primitive-excursion reformulation is equivalent to the frozen object, but neither unweighted fixed-alphabet enumeration nor the Abelian-border path interpretation supplies the required weighted profile. The peeling method itself is not distinct.",
+        "searches": [
+          "Resultary: ordinary unbordered Dyck words, shortest Dyck border, largest block-palindrome width, exact U recurrence, Dyck width limit",
+          "arXiv:2302.13147 §1 and Theorem 2",
+          "arXiv:1708.06461, pp. 56–57"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected Resultary hits do not give these Dyck width counts. Tables 1–2 in Gabrić–Shallit are for unrestricted width counts and means, and the cited A274199 is for expansion coefficients of that unrestricted mean, not U_n. The direct OEIS requests timed out and the targeted external query was unavailable."
+        ],
+        "reasoning": "The known tables enumerate other invariants. No match or non-match in OEIS itself was established; the failed access is not evidence of no entry.",
+        "searches": [
+          "Resultary: 1,1,4,11,36,112,378,1265,4360,15120,53236 and unbordered Dyck words",
+          "OEIS exact coefficient lookup",
+          "websearch: \"unbordered Dyck words\" \"1,1,4,11,36,112,378,1265,4360,15120,53236\" OEIS",
+          "arXiv:2302.13147 Tables 1–2, OEIS A274199 citation"
+        ]
+      },
+      "rationale": "The generic unbordered shortest-border method and width recurrences are prior. The supported distinct claim is their use on literal Dyck borders to obtain exact Catalan-restricted width counts and a limiting odd-geometric law and mean. None of the inspected prior theorem statements determines that Dyck-restricted law. Exact sequence and one nearby chapter could not be fully resolved; this is a bounded comparison rather than a priority guarantee.",
+      "residual_risks": [
+        "The exact U_n table could already be catalogued, but OEIS and the focused external search did not return usable comparison material.",
+        "DOI:10.1007/978-3-030-81508-0_4 remains uninspected in full text. A weighted free-monoid result or a Dyck-specific literal-border recurrence under alternate terminology could supply earlier overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial method overlap; target Catalan-weighted law not supplied",
+          "evidence": [
+            "Shortest-border peeling and width recurrence LBP_k(n,t) for all words over a k-letter alphabet; the mean and A274199 expansion discussed there are for unrestricted words."
+          ],
+          "identifier_or_url": "arXiv:2302.13147",
+          "material_read": "PDF §1 p. 2 (offset about 6900), Theorem 2 and Table 1 p. 3, Theorem 4 p. 5 (offset about 13100), Conjecture 5 and Table 2 pp. 5–6",
+          "method": "Read OA definitions, recurrences and limit statements and compare sampling/size conventions",
+          "title": "Smallest and Largest Block Palindrome Factorizations",
+          "trigger": "Identical width statistic, possible universal counts/limits"
+        },
+        {
+          "assessment": "Adjacent use of Dyck paths, but Abelian rather than literal borders",
+          "evidence": [
+            "The path-intersection criterion is for equality of Parikh vectors and minimal Abelian borders of binary strings."
+          ],
+          "identifier_or_url": "arXiv:1708.06461; DOI:10.4204/EPTCS.252.9",
+          "material_read": "PDF abstract and printed pp. 56–57",
+          "method": "Read OA passage and compare border-equivalence tests",
+          "title": "Dyck Words, Lattice Paths, and Abelian Borders",
+          "trigger": "Possible Dyck border enumeration under alternate terminology"
+        },
+        {
+          "assessment": "Unresolved extent of overlap; not used as negative evidence",
+          "evidence": [
+            "Redirect/retrieval failures, no lawful full-text copy surfaced."
+          ],
+          "identifier_or_url": "DOI:10.1007/978-3-030-81508-0_4",
+          "material_read": "No chapter full text retrieved",
+          "method": "Tried DOI, publisher and PDF routes and lawful alternate-copy lookup",
+          "title": "A Strong Non-overlapping Dyck Code",
+          "trigger": "Plausible adjacent literature on nonoverlapping Dyck words"
+        },
+        {
+          "assessment": "Same structural method, different particular words",
+          "evidence": [
+            "Widths of specified prefixes of a period-doubling word, not a histogram on Dyck words."
+          ],
+          "identifier_or_url": "SCOPE-20261108-b1effee6a451",
+          "material_read": "RESULT.md Finding and proof §1, offset 0",
+          "method": "Read mirrored result and compare counted object",
+          "title": "Dyadic block-palindrome widths of the period-doubling word",
+          "trigger": "Closest indexed width-method record"
+        },
+        {
+          "assessment": "Different word family and invariant",
+          "evidence": [
+            "Fixed-weight marker-constrained binary-word results, not a Dyck-width law."
+          ],
+          "identifier_or_url": "SCOPE-20261026-c794105bc5c8",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Read mirrored result and compare statistic and restrictions",
+          "title": "The four-marker threshold separating ordinary and Abelian borders",
+          "trigger": "Same-day indexed ordinary-border classification with generating function"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The complete histogram of the largest-width invariant in the natural Catalan ensemble is useful in its own right. More than a small census or conditioning notation is supplied: literal borders close inside the class, and exact finite distributions lead to a limiting odd-supported law with an explicit parameter and mean. The vanishing even-width mass and persistent geometric tail distinguish the asymptotic structure without claiming a result for other Dyck ensembles.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

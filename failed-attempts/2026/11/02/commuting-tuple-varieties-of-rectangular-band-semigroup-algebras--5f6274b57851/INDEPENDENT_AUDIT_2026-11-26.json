@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:04:35.565686Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Bilinear expansion gives xy=r(x)c(y)^T. The margin map onto the common-total hyperplane W is surjective by filling the first row and column, and has kernel dimension d. Pair equations for a tuple with nonzero margins on both sides force at least one mixed row, then proportionality of all margin rows to it. Otherwise all first or all second margins are zero. Thus the reduced locus is exactly the rank-at-most-one cone in W^m and the two pure loci, times affine dm-space. For m≥2, either pure side is contained in the cone exactly when its margin space is one-dimensional; a mixed point prevents the reverse containment. The rank-one parametrization gives dimension a+b+m−2 before adding dm. All equations and noncontainment tests are valid also in characteristic two. Counting the two pure loci, subtracting their common zero, then counting q^m−1 tuples on each of the N/(q−1) mixed lines gives the exact bracketed formula. At m=0 it gives 1 and at m=1 it gives q^(ab). The recorded finite checks were inspected, not rerun; the proof does not depend on them.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The biclique census covers all horizontal spans with zero outer-product bracket over every field. The prescribed-commutator record uses the same rectangular-band W with arbitrary prescribed targets and credits the existing zero fiber. Nagy–Zubor p. 1 concerns congruence permutability rather than tuple geometry."
+        ],
+        "reasoning": "The broader span classification is directly applicable; only the common-total cut and free kernel are specific to this record, and those are already explicit in the pair census. Nonzero-target fibers and congruence results are not themselves a competing tuple theorem.",
+        "searches": [
+          "Resultary: SCOPE-complete-abelian-subalgebra-census-for-biclique-graph-lie-algebr--05a73a94483e",
+          "Resultary: SCOPE-prescribed-commutator-fibers-of-finite-rectangular-band-algebras--e74f328cc322",
+          "arXiv:1511.08671v1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md; checker.py and verification_output.txt (read only)",
+        "Indexed and primary statements in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first proof specifies that a mixed margin has centralizer exactly its scalar line in W and that a nonzero pure margin has centralizer exactly its own pure side. The second states the span classification directly in the unconstrained ambient space over any field."
+        ],
+        "reasoning": "In a commuting tuple either a mixed coordinate exists, forcing the whole tuple onto its line, or all nonzero coordinates lie on the same pure side, since a nonzero pure next to the opposite nonzero pure cannot commute. Equivalently apply the biclique result to the span of the rows and intersect with W. Closing mixed-line tuples gives the rank-one cone on W; the pure loci have horizontal dimensions a−1 and b−1 and are contained in the cone iff that dimension is 1. This gives all components, dimensions, and thresholds. Counting lines with a mixed generator in W gives N/(q−1), and each contributes q^m−1 tuples; the two pure counts and free affine factor require only their known dimensions. No higher-arity analysis beyond these direct steps is needed.",
+        "searches": [
+          "Indexed rectangular-band census Proof offsets 2425–4825",
+          "Indexed biclique census Proof §§1–2, offsets 2425–5414"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The rectangular-band census, Proof offsets 2425–4825, identifies the same commutator r d^T−s c^T on the same W and explicitly solves its zero condition in all four cases.",
+          "The biclique census Proof §§1–2 classifies zero-bracket spans for the unrestricted outer-product bracket over arbitrary fields."
+        ],
+        "reasoning": "The frozen claim is about simultaneous zero values of the very same pair constraint, not a different commutator notion. The biclique horizontal bracket takes values in k^a⊗k^b, identified with coefficient matrices; restricting its horizontal space to pairs of equal totals gives W.",
+        "searches": [
+          "Resultary: commutator rank census of finite rectangular-band semigroup algebras",
+          "Resultary: complete abelian subalgebra census for biclique graph Lie algebras"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact ordered pair census states N_0=q^(2d)K and the four matching centralizer cases. With N=q^(a+b−1)−q^(a−1)−q^(b−1)+1, substituting m=2 in the tuple formula uses (q²−1)/(q−1)=q+1 and reduces to the indexed K. Both give 88 at (a,b,q)=(2,2,2)."
+        ],
+        "reasoning": "The record already disclaims the pair/centralizer novelty. The finding-level formulas agree exactly, and the proof-level test, not the finite tabulation or the matching parameters, is what further determines the remaining arities. Same-day catalog placement is not evidence of chronological precedence.",
+        "searches": [
+          "Resultary: 2026/11/2/SCOPE-commutator-rank-census-of-finite-rectangular-band-semigroup-alge--6f0f9b3726a9",
+          "Indexed pair Finding and assigned Proof §§4–5"
+        ]
+      },
+      "rationale": "The exact rectangular-band pair census is a distinct indexed record. Its proof already gives the same common-total quotient and an exhaustive zero-bracket criterion in that quotient, including the entire centralizer of a mixed margin pair. Those exact subspaces determine all higher arities and the reduced geometry without an additional structural result. An indexed biclique theorem independently gives the same classification of bracket-vanishing spans before restricting to the common-total hyperplane. This is demonstrable coverage by direct implication, not a claim about chronology.",
+      "residual_risks": [
+        "Keyword-search limits affect historical priority, not the exhibited direct mathematical implication.",
+        "Review is for the reduced geometry and finite-field counts; no implications for scheme multiplicities are asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact pair and centralizer coverage, and direct implication to higher arity",
+          "evidence": "Common-total hyperplane; all four cases for the zero commutator, including a unique scalar multiplier on the mixed line.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-commutator-rank-census-of-finite-rectangular-band-semigroup-alge--6f0f9b3726a9/RESULT.md",
+          "material_read": "Finding, offset 0; Proof zero-fiber analysis, offsets 2425–4825",
+          "method": "Resultary lookup and local-mirror primary text",
+          "title": "Commutator-rank census of finite rectangular-band semigroup algebras",
+          "trigger": "Same rectangular-band census explicitly mentioned in the frozen claim"
+        },
+        {
+          "assessment": "Supplies characteristic-free span classification before the margin cut",
+          "evidence": "All bracket-zero horizontal subspaces are inside one pure coordinate space or are mixed lines, by exact tensor equality.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-complete-abelian-subalgebra-census-for-biclique-graph-lie-algebr--05a73a94483e/RESULT.md",
+          "material_read": "Assumptions and Proof §§1–4, offsets 2425–5414",
+          "method": "Local-mirror indexed primary text",
+          "title": "Complete abelian subalgebra census for biclique graph Lie algebras",
+          "trigger": "Possibly dominating bracket-vanishing classification"
+        },
+        {
+          "assessment": "Same pair law, distinct nonzero-target contribution",
+          "evidence": "Zero fiber is the same q^(2d)K; the new fiber claim explicitly concerns nonzero targets.",
+          "identifier_or_url": "2026/11/22/SCOPE-prescribed-commutator-fibers-of-finite-rectangular-band-algebras--e74f328cc322",
+          "material_read": "Mirrored Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Prescribed commutator fibers of finite rectangular-band algebras",
+          "trigger": "Potential exact match for zero tuple constraints"
+        },
+        {
+          "assessment": "Different invariant at inspected passage",
+          "evidence": "Congruences and permutability, not ordered commuting tuples.",
+          "identifier_or_url": "arXiv:1511.08671v1",
+          "material_read": "p. 1 scope and abstract",
+          "method": "OA primary PDF",
+          "title": "A Note on Semigroup Algebras of Permutable Semigroups",
+          "trigger": "Same rectangular-band semigroup algebras in primary literature"
+        },
+        {
+          "assessment": "Different parameter scope and invariant",
+          "evidence": "Classification of Rota–Baxter operators on two- and three-element semigroup algebras.",
+          "identifier_or_url": "arXiv:1402.3702v1",
+          "material_read": "p. 1 and contents",
+          "method": "OA primary PDF",
+          "title": "Classification of Rota-Baxter operators on semigroup algebras of order two and three",
+          "trigger": "Related semigroup-algebra methods cited by frozen result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The component dimensions and counts are convenient to have together, but as proposed incremental mathematics they are routine consequences of the already explicit pure-side/mixed-line classification. The result does not add a geometric obstruction, a new threshold mechanism, or a finer invariant of the overlap or scheme.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

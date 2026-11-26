@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:08:27.358002Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every indexed cyclic output, the consecutive pair overlaps of a predecessor give a closed labeled walk, and conversely closure enforces precisely the wraparound identifications even at n=1,2. The deterministic Boolean-product state makes one accept/reject decision per output word, irrespective of the number of closed walks. The degree-40 full-state identity propagates under further powers of the transition operator, so Q times the count series has degree at most 39. The proposed series has the same bound (the polynomial correction has degree 5), so checking degrees 0–39 determines it exactly. The formal constant 1 matches acceptance at the identity. An independent ordered-pair set implementation verified the 735 reachable states, every component of the identity, all 40 initial coefficients, and literal images at n=1–16; for n=2 the image is exactly {00,11}.",
+      "replay": "python3 /workspace/branches/b07ed7b9-8f9a-4f11-8df4-2b3a23e78828/independent_rule73_check.py",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jen's nearest-neighbor recurrence treats multiplicities of spatial preimages on the infinite lattice; Rule 73 is in type (D) with telescoping recurrence forms.",
+          "The matched record instead makes an existence decision via the same Boolean-relation automaton for distinct periodic outputs."
+        ],
+        "reasoning": "A closed-walk trace counting multiplicities is not itself a count of distinct accepted words; general rationality for regular languages does not specify the six factors. Exact coverage here comes from the actual matched all-length statement.",
+        "searches": [
+          "Erica Jen, Complex Systems 3 (1989), pp. 421–422 and §3 pp. 427–428",
+          "Resultary: 4412da3b7a44 proof §§1–3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 4412da3b7a44",
+        "Jen (1989)",
+        "Elementary CA Zoo, Gardens of Eden"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matched result uses 735 consecutive scalar recurrence checks from n=40 through n=774 and Cayley–Hamilton; the frozen record instead checks one 735-component vector at n=40.",
+          "Both recognize exactly the same indexed outputs and recover the same rational expression."
+        ],
+        "reasoning": "The matched statement implies the frozen all-length enumeration directly by algebra regardless of the different finite certificate. Jen's multiplicity statements do not provide that same implication.",
+        "searches": [
+          "4412da3b7a44 RESULT.md, opening and certificate",
+          "Jen pp. 421–422, §3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "4412da3b7a44 gives -z H'/2H - 2z² - 5z⁵ for n≥1, H=f3 f6²/(f1² f2 f4² f5), with the identical six factors.",
+          "Complementing all input and output bits conjugates Rule 73 to Rule 109 on every indexed ring, preserving image cardinality."
+        ],
+        "reasoning": "Logarithmic differentiation gives coefficients (-1,-1/2,1/2,-1,-1/2,1) for the six L terms in exactly the frozen order. Adding the formal a0=1 gives the full frozen series. The duplicate uses Rule 73 itself; no alias is needed for the match.",
+        "searches": [
+          "Resultary: Rule 73 indexed cyclic one-step image counts; 4412da3b7a44 RESULT.md",
+          "Rule 109 by global bit-complement conjugacy"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed finding gives the entire rational generating function and the same a1,…,a12, not just a finite table.",
+          "The CA Zoo describes cyclic orphan counts for 88 inequivalent rules at lengths 8,12,16, complementary to image counts; the rendered data row was not verified."
+        ],
+        "reasoning": "Finite complements alone cannot establish the all-length identity, but the separate indexed formula establishes exact equivalent coverage.",
+        "searches": [
+          "Resultary 4412da3b7a44",
+          "Elementary CA Zoo, Gardens of Eden, §§2–3"
+        ]
+      },
+      "rationale": "The asserted count and rational expression have exact equivalent coverage in the distinct published Resultary finding 4412da3b7a44. The observable, quantifiers including n=1,2, and six polynomials agree. The only series convention difference is the formal constant 1. The degree-40 vector certificate is a different and shorter proof check than that finding's 735 scalar recurrence checks, but is not a new count or formula. This is a finding about equivalent indexed coverage, not a determination that the other, later-dated entry had earlier publication or independent priority.",
+      "residual_risks": [
+        "The dates and mirrored statements do not establish publication provenance or historical priority. Exact equivalent coverage is independent of that uncertainty.",
+        "The CA Zoo data row was not visible and no row-level match is asserted; old unindexed all-length work may also exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact equivalent count and generating function; different proof check",
+          "evidence": "The formula with H=f3 f6²/(f1² f2 f4² f5) uses identical factors, counts indexed outputs including lengths 1 and 2, and excludes predecessor multiplicities and rotations. Its scalar checks use Cayley–Hamilton.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-cyclic-one-step-image-series-of-elementary-cellular-automa--4412da3b7a44/RESULT.md",
+          "material_read": "Finding, assumptions, automaton and certificate, offsets 180–4936",
+          "method": "Published catalogue search and local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact cyclic one-step image series of elementary cellular automata (Rule 73 finding)",
+          "trigger": "Exact same observable and strongest indexed match"
+        },
+        {
+          "assessment": "Relevant prior machinery, different counted object",
+          "evidence": "Enumerates preimage multiplicities on one-dimensional spatial sequences and lists Rule 73 in the telescoping recurrence class.",
+          "identifier_or_url": "https://content.wolfram.com/sites/13/2018/02/03-5-2.pdf",
+          "material_read": "Abstract and introduction pp. 421–422; §3 type (D) list pp. 427–428",
+          "method": "OA PDF bounded comparison",
+          "title": "Enumeration of Preimages in Cellular Automata",
+          "trigger": "Historical exact preimage recurrence including Rule 73"
+        },
+        {
+          "assessment": "Finite-orphan complement, not an all-length identity",
+          "evidence": "Describes forward enumeration and counting of unmarked configurations for cyclic lengths 8, 12, and 16.",
+          "identifier_or_url": "https://cellular.solves.ca/gardens-of-eden",
+          "material_read": "Census description and method, §§2–3; data row not displayed",
+          "method": "Public OA page inspection",
+          "title": "Gardens of Eden",
+          "trigger": "Exact finite cyclic reachability table"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact image series is a motivated all-length compression invariant of a classical cellular automaton, not another small-ring table or count of walks. The full-state identity offers a mathematically useful compact way to certify all lengths. This assessment of mathematical utility does not restore originality to the already covered enumeration.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Review of sharp discrimination memory
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The source Kraus family and the new Pauli comparator are CPTP. Their Bloch-transfer difference is rank one and square-zero on the doubly degenerate eigenspace. The exact \(n\)-step identity, all-ancilla trace-norm upper bound and matching pure-state lower bound are reconstructed in `RESULT.md`; neither a numerical matrix power nor a finite search establishes the diamond-norm result by itself. The adjacent-time ratio and exponential limit prove the optimizing time and \(2/e\) scaling. Exact-rational checks are reproducible with `verify.py`.
+PASS
 
-## Originality
+The Kraus weights give rotated dephasing and the nonnegative Pauli probabilities give D=diag(λ,λ²,λ) in Bloch coordinates. Direct substitution gives M−D=buvᵀ with b=(1−λ²)/(1+λ²), u=(1,0,λ), v=(−λ,0,1). Because vᵀu=0 and both vectors lie in the λ-plane of D, this creates exactly a size-two Jordan block and M^n−D^n=nλ^(n−1)buvᵀ. For arbitrary joint input Y, the difference factors through Tr_qubit[((v·σ)⊗I)Y], whose trace norm is at most √(1+λ²) times ||Y||₁ by duality. The remaining tensor factor u·σ has trace norm 2√(1+λ²), and the Bloch-to-Pauli factor is 1/2. A pure eigenstate of v·σ saturates the bound, and measuring the sign of u·σ gives the Helstrom probability 1/2+d_n/4. Consecutive ratios λ(n+1)/n give the ceiling optimizer and its integer tie; n(1−λ)→s gives 2s e^(−s), with optimized limit 2/e. This holds for a single uninterleaved power comparison with a passive ancilla, not adaptive uses. VERIFICATION.md and verify.py were inspected, not executed; the checker has five rational parameters and fifteen powers, not an ancillary proof. The line 53–54 comment misstates the 4/5 tie as 5,6; line 55 correctly tests 4,5, consistent with the finding.
 
-**PASS, best knowledge.** Brandão's arXiv:2610.13622v1 provides the Jordan channel and full qubit preparation/measurement formula. The new statement instead compares it to a *physical diagonalizable Pauli channel with the identical spectrum* and computes the all-ancilla diamond norm, an attaining ancilla-free protocol and the optimized weak-noise repetition limit. Wong--Zeng--Li's experimental quantum-channel EP construction (arXiv:2507.16049), vom Ende's generic diagonalizability theorem (arXiv:2403.19643), and the broader diamond-norm literature do not state the particular comparison in the relevant inspected passages. The proof relies on known rank-one duality and Jordan identities; an equivalent unindexed benchmark remains a residual priority risk. See `AUDIT.json` for explicit equivalent-formulation, broader-coverage, database and prior-implication comparisons.
+## originality
 
-## Value
+PASS
 
-**PASS.** Identical eigenvalue multisets do not determine operational multi-step behavior. Here a spectrally matched, CPTP reference permits an exact quantitative comparison in a simple physically implementable qubit model, including a globally optimal preparation, measurement and repetition count. The \(2/e\) critical limit is a substantive long-time effect not described merely by reporting a nontrivial Jordan block. The result is limited to uninterrupted channel powers; it is not an adaptive multi-query theorem or a claim that the reference minimizes distance among all isospectral channels.
+Brandão already gives the exact exceptional channel, Jordan block and general product-preparation/projective-measurement signal; the polynomial–exponential transient itself is not a new contribution. The inspected material does not set up the comparison with a physical isospectral Pauli channel or determine its ancilla-uniform discrimination distance and optimized weak-noise crossover. No covering paired-channel statement was established in the inspected sources.
 
-## Literature and limitations
+## value
 
-Primary texts: Brandão (2026), arXiv:2610.13622v1, Sections III--VI; Wong, Zeng and Li (2026), *npj Quantum Information* 12:63, Results/Methods; vom Ende (2024), arXiv:2403.19643v1, Sections 1--5. The operational meaning of diamond norm is standard (Kliesch and Roth, *PRX Quantum* 2:010201). Searches do not certify global novelty. No independent validation has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Matching physical channels by spectrum isolates the operational effect of the Jordan block instead of conflating it with different spectral decay rates. The exact metric gives the attainable single-test success probability, shows an ancillary resource is unnecessary, and quantifies the long-time separation that remains as both one-step channels approach the identity. This is a motivated operational invariant for a specified comparison, not a claim about adaptive queries or optimality among all isospectral comparators.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

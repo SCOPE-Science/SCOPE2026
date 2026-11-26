@@ -1,19 +1,21 @@
-# Scientific assessment: finite-population Global Pair approximation factors
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof treats every metric space and repeated reports, separately handles \(Z=0\) and zero optimal cost, and never requires an optimal comparator facility pair to be attained. For three clients the exact weighted numerator reduces to \(u(2v+w)\) for ordered side lengths \(u\le v\le w\), and the optimum equals \(u\). For four clients, any comparison facilities lead to nonempty \((1,3)\) or \((2,2)\) clusters. The \((1,3)\) bound uses the explicitly proved triangle-weight lemma; the \((2,2)\) bound uses direct pair-cost accounting. The limiting line configurations independently establish sharpness. The attached exact-integer checker passed all indicated finite experiments, including a fifth possible facility point. Risk: the finite enumeration does not certify universal correctness; that burden is borne by the written proof.
+PASS
 
-## Originality — PASS, with residual literature risk
+Re-audited /workspace/repairs/2/RESULT.md. The frozen three-agent proof had the wrong attaining comparator (both endpoints of the shortest edge can incur v, not u; e.g. 0,1,4). The repair pairs one endpoint with the third report. The triangle-inequality lower bound then gives OPT_2=u, and the ratio formula follows from N=u(2v+w) and v<=w. For four agents, the repair uses a fixed nonempty assignment with total assigned distance K no greater than the ORIGINAL comparison cost, even after relocating an unused center. In the 1+3 split, the cross contribution is at most PD−sum D_i e_i and the inside contribution at most P²+sum d_ij min(D_i,D_j). Sorting the D_i makes the cancellation inequality follow from (v−w)(D_q−D_p)+u(D_r−D_p)>=(u+v−w)(D_q−D_p)>=0. Hence N<=PZ<=2KZ. In the 2+2 split cross-pair costs are at most u+v and either within-pair sample costs at most H, the cross-distance sum; thus N<=2(u+v)H<=2KZ. Taking the infimum covers nonattainment and OPT_2=0; Z=0 is handled separately. Independent enumeration of pair costs on (0,T,T+1,T+2) gives cross costs (3,2,3) and inside costs (T+1,T+1,T+2) in increasing pair order, so N=12T+13 and Z=3T+7, with OPT_2=2 by the clustered median and the shared-center lower bound. The sharp distinct-report line families give the two suprema.
 
-The exact claims were compared with the primary definitions, approximation theorems, proof arguments, and relevant specializations in Ma–Peng (arXiv:2608.09061), Chan–Lin–Wang (arXiv:2608.22484), and Jia (arXiv:2608.19633). These sources provide global factor-four bounds for the same two-facility sampling rule, including a demonstration of asymptotic tightness as populations grow; none of their identified statements supplies the separate sharp \(n=3\) and \(n=4\) factors. The available bibliographic searches for small-population two-facility distance-proportional sampling did not identify a matching assertion; their closest retrieved records concerned different metric invariants or assignment rules. Risk: nonindexed, inaccessible, or differently named exact small-population results could exist. Neither negative searches nor partitioning demonstrate absolute novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The parameter is the standard worst-case efficiency factor of a prominently studied strategyproof-location sampling rule, not an arbitrary special-case statistic. The exact small-population theorem shows that the known factor-four general bound is not predictive even for four agents; the four-agent bound applies in arbitrary metric geometry and requires a new weighted triangle inequality. Sharp real-line instances show the constants cannot be improved. Risk: the result does not extend to five agents or imply broader strategic incentives; these are explicit scope restrictions, not hidden claims.
+The repaired result credits the established rule and the indexed line-case overlap. The distinct surviving result is the exact unrestricted metric-space comparison at three and four agents, including sharpness at four distinct line reports. The strongest inspected indexed hits constrain the domain to line first surplus or exactly three occupied line sites.
 
-## Relationship and limitations
+## value
 
-The contribution is a precise finite-population efficiency refinement rather than a new algorithm, strategyproofness claim, or general population result. Source links and reproducibility instructions appear in `RESULT.md`. Independent review remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Three and four agents are the first nontrivial population and the first allowing both nonempty 1+3 and 2+2 comparison partitions. Resolving the first two tight guarantees for a known rule against potentially off-report optimum locations materially improves the general factor four on these populations; the cancellation bound for the triple cluster explains why the stronger guarantee is metric rather than line-specific.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

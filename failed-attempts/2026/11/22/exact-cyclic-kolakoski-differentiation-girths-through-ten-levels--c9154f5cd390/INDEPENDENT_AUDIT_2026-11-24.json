@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:08:39.444221Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen exact-height census is false. With the frozen definition, [1112] is a primitive height-zero class because one of its cyclic runs has length three. [12122] has lengths (1,1,1,2), so has exact height one but is absent from the two-class census. In fact the primitive terminal words [1^j2] for every j>=3 have undefined derivative; the valid inverse lemma gives a primitive k-fold inverse of each, distinct because the k-th derivatives differ and of unbounded periods by strict period descent. Therefore all exact-height sets are infinite and neither L6 nor L7 is the full exact-height spectrum. The supplied sources implement only the recurrence rooted at the constants. Their restricted numbers and the unrestricted girth/minimizer numbers were independently reproduced, but they establish different claims. In particular, one replay exhausts all one-step-valid bases through period 20 and prunes by the proved >=4/3 growth in period per inverse; /workspace/branches/b52f4bc0-9387-44df-8a87-e41770379869/independent_replay.py and full_run.txt. A separate replay starts at every eligible terminal class (including nonconstant invalid-run classes) using descending integer caps, then applies the exact inverse lemma; /workspace/branches/replay-2/verify_full_girths.py and level_statistics.csv. Both agree on the actual minimum lengths and minimizer counts through ten; small direct forward enumeration cross-checks the lower levels. Those accurate numbers do not repair the false complete census.",
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier Resultary proof already gives an exact inverse construction for every primitive length word, odd-period doubling, alternation and both initial colors, as well as a uniform 4/3 period expansion for positive-height derivative words.",
+          "The primary transitivity and finite smooth-word complexity works study different invariants and are not the basis for failure."
+        ],
+        "reasoning": "The earlier inverse lemma already applies to constant and nonconstant terminal words. Restricting it to the two constants and iterating through an arbitrary finite cutoff requires no new structural theorem; it cannot enumerate all exact-height classes.",
+        "searches": [
+          "Resultary --c8a9c9077ec3, Proof 1–3",
+          "arXiv:2611.06878, infinitely smooth shift",
+          "arXiv:2603.10733, derivative and bispecial lengths"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2026/11/17 --c8a9c9077ec3",
+        "arXiv:2611.06878",
+        "arXiv:2603.10733",
+        "arXiv:2610.07828"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior statement supplies both full minimum arrays directly and derives them using an exhaustive cutoff, with terminal chains not assumed to end in constants.",
+          "Any minimizing orbit in X_k has exact height k by strict period descent: otherwise a derivative lands in X_k at a strictly shorter period. Thus the difference in wording of the minimizing sector does not separate the results.",
+          "The finite constant-terminal subfamily is exactly the orbit of the two roots under iteration of the prior all-fibers construction, with rotation deduplication. Infinite unrestricted sets follow by applying that construction to the infinitely many primitive terminal roots 1^j2."
+        ],
+        "reasoning": "Earlier results exactly cover the meaningful minima and multiplicities and supply the mechanism for the small restricted enumeration. The original claim of a finite full inventory is not covered because it is false, not because it represents a surviving new result.",
+        "searches": [
+          "Resultary 2026/11/17 --c8a9c9077ec3, RESULT.md offsets 0–5145 and 5145–8452"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier Resultary --c8a9c9077ec3 defines X_(k+1) using run-length differentiation of X_1 into X_k and minimizes least bilateral period over X_k, modulo shifts only.",
+          "Finite smooth words with terminal trimming and bispecial-word lengths are not bilateral periodic points; periodic rays in a shuffle-square prefix tree also use a different condition."
+        ],
+        "reasoning": "Calling the least period a girth or systole is just a relabeling here. Both records count oriented primitive rotation classes, keeping complements or reversals distinct unless related by rotation.",
+        "searches": [
+          "Resultary: Kolakoski finite differentiability girth, shortest period and extremal orbits",
+          "arXiv:2603.10733, finite smooth words",
+          "arXiv:2610.07828, shuffle squares in differentiable words"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2026-11-17 Finding states (2,3,8,12,18,27,80,120,180,269) and (1,2,1,2,4,8,4,8,16,16), identical to the two nontrivial girth/extremal columns of the assigned record.",
+          "Its scope explicitly makes no assertion beyond the shortest-period sector. No identical restricted constant-terminal spectra table was confirmed in the checked material."
+        ],
+        "reasoning": "The matching arrays are the same mathematical invariant, not a coincidental sequence match. Earlier publication is not claimed for exact unrestricted spectra, which the frozen finite lists cannot represent. The trivial height-zero minimum adds no distinct fact.",
+        "searches": [
+          "Resultary exact shortest periods and extremal orbit counts in the first ten Kolakoski finite-depth shifts, --c8a9c9077ec3",
+          "Focused primary-literature lookup for Kolakoski cyclic differentiation and finite period spectra"
+        ]
+      },
+      "rationale": "The valid substantive girths and all extremal orbit counts through depth ten exactly match the earlier 2026-11-17 Resultary record under the same definitions. The other advertised novelty, a finite full exact-height census and full height-six/seven spectra, is false; the recovered numbers enumerate a restricted descendant sector by direct iteration of the same published inverse lemma.",
+      "residual_risks": [
+        "A separate catalogue of constant-terminal spectra may exist; no exact match of that restricted table was established. The girth coverage and the unrestricted census counterexample do not depend on unresolved sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive exact prior coverage of both arrays under the same X_k, not a complete spectrum theorem.",
+          "evidence": [
+            "Same ten minima and counts; exhaustive one-step-valid seed calculation; explicitly excludes counts outside the shortest-period sector."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-exact-shortest-periods-and-extremal-orbit-counts-in-the-first-te--c8a9c9077ec3",
+          "material_read": "RESULT.md Finding, definitions, inverse and cutoff proofs, verification and limitations, offsets 0–5145 and 5145–8452",
+          "method": "Configured Resultary search and local-mirror exact passages, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact shortest periods and extremal orbit counts in the first ten Kolakoski finite-depth shifts",
+          "trigger": "Exact match for the cyclic girth and minimizer invariants"
+        },
+        {
+          "assessment": "Addresses the infinite-depth shift rather than the finite-depth exact periodic data in the inspected passages.",
+          "evidence": [
+            "States transitivity for the infinitely smooth shift."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.06878",
+          "material_read": "Offsets 0 and 4029, scope and transitivity passages",
+          "method": "Lawful arXiv HTML",
+          "title": "The full Kolakoski shift is topologically transitive",
+          "trigger": "Potential hierarchy coverage in primary paper"
+        },
+        {
+          "assessment": "Finite factor complexity and bispecial-word lengths, not least cyclic shift periods in the inspected passages.",
+          "evidence": [
+            "Linear finite-word derivative and endpoint conventions differ from the cyclic differentiation here."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.10733",
+          "material_read": "Offsets 0 and around 33300, scope and bispecial-length material",
+          "method": "Lawful arXiv HTML",
+          "title": "The complexity of smooth words over binary alphabets",
+          "trigger": "Related finite smoothness and minimal lengths"
+        },
+        {
+          "assessment": "Prefix-tree periodic rays and shuffle-square tests do not assert the periodic cyclic orbit census.",
+          "evidence": [
+            "Classifies a different avoidance property in finite differentiability classes."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.07828",
+          "material_read": "Offsets 0 and 3990, finite differentiability and scope",
+          "method": "Lawful arXiv HTML",
+          "title": "Shuffle Squares in Differentiable Words",
+          "trigger": "Finite differentiability and a superficially periodic classification"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Finite-stage periodic girth and sharp minimizer counts are useful dynamical invariants, but their asserted exact values are already known. The genuinely broader full-height classification offered by the frozen record is false. Reinterpreting the numerical spectra as the descendants of just two seeds gives an accurate restricted census, but that slice and the height-ten cutoff have no separate mathematical motivation in the record beyond the precovered girth question; the small restricted table is an immediate application of the existing inverse lemma. The one-line correction that every exact-height inventory is infinite also follows from the existing all-fibers lemma and does not leave the claimed new spectral classification. No genuinely distinct valuable repair is established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

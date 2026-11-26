@@ -1,19 +1,21 @@
-# Scientific review: sharp fixed-area triangular-corner width response
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement concerns exactly one vertex of a unit equilateral triangle, with cut-arm lengths \(s=\varepsilon\sqrt r\) and \(t=\varepsilon/\sqrt r\) for a **fixed** positive ratio \(r\). The proof derives the width change from the four oriented edges, integrates the pair correlation of projected edge lengths, and converts the perimeter-normalized first variation into the displayed coefficient \(C(r)\). The sine-rule conversion between direction and fixed removed area is explicit. The resulting one-variable objective is positive in the open sector, vanishes at both limiting parallel directions, and is uniquely maximized: the derivative numerator \(F\) has exactly one root in \((0,\pi/6)\), proved for the entire real interval using a seventh-term Taylor sign certificate and a uniform tenth-derivative bound. The reflection comparison excludes the other half of the sector. The included verifier checked all symbolic identities, derivative inequalities, endpoint signs, and direct polygon-width quadratures. Finite quadratures are only cross-checks, not the continuous proof.
+PASS
 
-## Originality — PASS with residual priority risk
+The cut removes area √3 st/4 exactly. For each fixed positive ratio, oriented projected edge contributions give W_new−W=−sX_c−tX_b+X_e, with e=sc+tb. Integrating the positive-sine overlap gives the stated V and uncut first two moments. Differentiating their normalized quotient cancels the pure perimeter term, leaving −κ₀ℓQ/(3δ₀A) in δ; the sine rule converts it to the claimed coefficient per √(st). On [0,π/3], Q is even about π/6, zero at both ends and positive between by monotonicity of x cot x. The strict reflection comparison excludes the right half, and the negative derivative at π/6 excludes the midpoint (the reflection alone does not exclude it). The quotient F/θ² has positive left limit and negative right endpoint; its derivative has numerator H=θF′−2F. Independent symbolic series and rational interval bounds (`python3 /workspace/review_checks.py 3`) confirm the trigonometric identity and uniform H/θ³ upper bound below −0.16 via the tenth-order remainder. Thus the maximizing root is unique in the fundamental sector, and arm reflection gives exactly two reciprocal ratios. The same replay gives θ≈0.452676127273466, r≈2.28062656213330 and C≈0.033215170664714. At equal arms θ=π/3 and C=0; the word ‘positive’ does not apply to that explicitly stated exception.
 
-Akiyama–Kamae, *Width deviation of convex polygons*, arXiv:2201.06736v1 (January 18, 2022), Section 6, establishes the **sign** of the response to parallel and nonparallel truncations, with the underlying edge-correlation formulas. It does not compare the responses of differently oriented cuts at **the same removed area**, and it gives no unique maximizing arm ratio or all-angle uniqueness proof. An accessible geometric-width saddle result for squares concerns a different baseline and infinitesimal deformation space; a known finite-dimensional width-fluctuation optimum for spatial truncations concerns a different random-width functional. Targeted mathematical-index and literature searches found no stronger statement implying the present exact fixed-area optimum. This is evidence of a concrete gap, not a proof of global priority. There remains risk of an unindexed shape-derivative calculation or subsequent treatment of equal-area cuts.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The paper's surprising qualitative observation—an oblique cut improves width uniformity while an equal-arm parallel cut does not—leaves a natural experimental-design question: for a fixed small amount of discarded triangle area, which cut improves the isotropy of projection widths most efficiently? The theorem answers it sharply and uniquely: unequal tip-arm lengths in the ratio \(2.2806265621\ldots\), together with their reflections, yield the maximal order-\(\sqrt{\Delta A}\) gain. The explicit analytic root, nontrivial global sector comparison, and all-angle positivity proof make this a motivated structural optimization, not a renamed sign calculation or arbitrary point evaluation. The result does not claim the global minimizing quadrilateral or finite-size optimality.
+The edge-correlation mechanism and qualitative distinction between parallel and nonparallel cuts are prior work of Akiyama and Kamae on exactly this statistic and triangle. The distinct claim is the optimum of the area-normalized first variation and its uniqueness up to reflection. The inspected sign theorem and nearby width-extremal records do not settle that optimization.
 
-## Closest literature and scientific limits
+## value
 
-Reference: Akiyama and Kamae, arXiv:2201.06736v1, especially Theorem 1, Lemmas 3 and 6, and Theorem 8 (full accessible text at https://arxiv.org/html/2201.06736v1). The 2024 journal article with DOI:10.1007/s00454-023-00545-6 is the later form of the same work, not a second independent discovery. The theorem here is restricted to one-corner, fixed-ratio asymptotics and does not assert uniformity in a ratio that depends on the cut size. Literature coverage cannot exclude inaccessible or unindexed equivalent prior optimizations.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Once an oblique cut improves projection-width uniformity, the fixed removed-area budget naturally asks which asymmetry delivers the most improvement. The exact coefficient and unique optimum answer that comparison, not just the known sign; the asymmetric ratio gives a precise small-area benchmark and the proof distinguishes local sensitivity from finite-cut optimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

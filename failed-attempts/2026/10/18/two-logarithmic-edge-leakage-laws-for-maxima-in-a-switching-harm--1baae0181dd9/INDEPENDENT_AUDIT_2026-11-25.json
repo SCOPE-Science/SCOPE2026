@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:02:49.480988Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–135, VERIFICATION.md lines 19–25, verify.py lines 11–141 (inspected, not executed)",
+        "arXiv:2312.02570v1 Eqs. (12)–(13)",
+        "Independent quadrature and endpoint analysis"
+      ],
+      "rationale": "The exact mixture has variance a+(b−a)u. Normalization follows by integrating the two terms in h: multiplying the shifted beta integrals by c gives 1/R₁ and 1/R₂ respectively, so the total is r_H(1/r₁+1/r₂)/2=1. The mixture endpoints have coefficients H₋ and H₊. With L=log N and w=Lu or L(1−u), the standardized threshold in Gumbel units tends to y−k₋w or y+k₊w. Mills' inequality gives a hazard at least z at positive normal argument z; integrating it bounds the lower conditional CDF by exp(−C exp(cw)) and the upper exceedance by C exp(−cw) on fixed near-endpoint intervals. Splitting the complementary interval off before rescaling handles any singularity of the mixing density at the opposite endpoint. These bounds justify dominated convergence with all R_j>0, including insertion of bounded continuous test functions. At the literal upper edge the exceedance is uniformly asymptotic to N times the Gaussian survival probability, and sqrt(L) times that tail tends to exp(−k₊w)/sqrt(4π); integration yields (UE). At the literal lower edge Mills' ratio gives N times the tail asymptotic to exp(k₋w)/sqrt(4πL), uniformly on w=O(log L). Cutoffs (1±ε)log L/(2k₋) sandwich the effective mass, with the upper remainder negligible by monotonicity. Integrating the density to these cutoffs and taking ε down to zero gives (LE), without using a fixed-y limit for moving y. The numerical example has H₋=2/3, H₊=4/3, k₋=1, k₊=1/2, as needed. For these parameters an independent quadrature at L=80,120,400,1200 corroborated both profiles, both literal edges, and a conditional test function on each side. At L=1200 the fixed-y=0 normalized probabilities were 0.147745 and 2.120507 versus 0.146256 and 2.124266; the literal lower ratio to the asymptotic was 1.203 (down from 1.412), and the literal upper probabilities were 1.8000e−5 versus 1.8096e−5. The quadrature used a Poisson approximation at the largest L, with negligible binomial error in the contributing region; it is not an exact finite-N certificate. Replay: python3 /workspace/branches/b1eea16d-5842-484c-9829-0b8d0a13629e/independent_edge_check.py.",
+      "residual_risks": [
+        "Numerical reproduction covers only the stated sample tuple and does not prove uniformity across physical parameters or varying y. Positive fixed contrast and rates are essential to the reviewed proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact indexed overlap also states convergence locally uniform in the centering argument. The scaled-Gaussian-sequence Theorem 2.1 inspected concerns individual sequence scaling and a Weibull-tailed scale, not a bounded scale shared by all particles. The inspected Gaussian-mixture literature concerns either the general conditional-i.i.d. framework with other models or joint tail dependence."
+        ],
+        "reasoning": "The uniform statement for the identical process directly covers the frozen fixed-y assertion. General mixture form or Gaussian tail-dependence context does not by itself give the two boundary layer limits.",
+        "searches": [
+          "Resultary: random-scale normal maxima mixture endpoint density regularly varying random variance extreme value theorem",
+          "Web: random scale mixture maxima iid Gaussian variances random environment endpoint regularly varying density Gumbel limit theorem maxima Gaussian scale mixture",
+          "arXiv:2307.15351v2 and arXiv:1610.04536v2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary bbe0ae7a3ed5 and 4cd7cf34fdd1 (latter summary only)",
+        "arXiv:2312.02570v1, 2307.15351v2, 1610.04536v2",
+        "Hashorva–Peng–Weng (2014), Theorem 2.1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The switching-trap paper obtains the exact mixture and uses a delta approximation for leading order statistics. bbe0ae7a3ed5 explicitly resolves the second-order rare-event window in that same mixture. The 4cd7cf34fdd1 summary refers to simultaneous resetting, not switching traps."
+        ],
+        "reasoning": "The leading compact-support convergence alone cannot determine the vanishing tail probabilities or localized conditional laws. The distinct indexed theorem does determine them all, by the exact rescalings above, without any extra endpoint analysis. Later date does not settle which account was first or their dependence.",
+        "searches": [
+          "arXiv:2312.02570v1 Eqs. (12)–(16) and (S74)–(S84)",
+          "Resultary bbe0ae7a3ed5 proof and 4cd7cf34fdd1 indexed summary"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "bbe0ae7a3ed5 RESULT.md Finding and assumptions, offsets 0–6726. Set (v₋,v₊,α,β)=(a,b,R₁,R₂), Δ=b−a; a_N=B_N, b_N=A_N. The affine-in-u beta density there is identical to (5) by normalization. Its A₋ and A₊ equal H₋k₋^(−R₁) and H₊k₊^(−R₂)."
+        ],
+        "reasoning": "Replacing its s by k₋w or k₊w gives precisely (1)–(2), with G(y−s) and 1−G(y+s). The same substitution and density Jacobian give the conditional laws (3)–(4).",
+        "searches": [
+          "Resultary: switching harmonic trap Gaussian variance mixture maxima logarithmic edge leakage fixed-y crossover laws",
+          "Resultary: stationary switching trap particle maximum random variance mixture endpoint localization conditional environment"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matched record gives lower coefficient A₋/(α 2^α) and upper coefficient A₊Γ(β)/sqrt(4π), and the same powers of log N and log log N."
+        ],
+        "reasoning": "The above substitution gives exactly H₋/[R₁(2k₋)^R₁] and H₊Γ(R₂)/[sqrt(4π) k₊^R₂]. The decisive exact entry is a theorem, not a numerical table; the illustrative parameter calculation adds no distinct invariant.",
+        "searches": [
+          "Resultary: literal unshifted Gaussian maximum support endpoint leakage log log N lower edge upper exceedance",
+          "bbe0ae7a3ed5 RESULT.md Finding, exact coefficient comparison"
+        ]
+      },
+      "rationale": "The distinct indexed record bbe0ae7a3ed5 covers the entire mathematical claim in the same stationary model: both profiles, both conditional weak limits, both literal edge constants and exponents. Its fixed-argument result is even locally uniform in the centering argument. This is an exact coverage finding, not an attribution of priority to the later-dated indexed record. The primary 2023 switching-trap paper supplies the mixture and leading law but is not, on its own, the reason for the failure.",
+      "residual_risks": [
+        "Priority and relationship between the two exact records are undetermined; the flag concerns equivalent coverage.",
+        "Other common-scale extreme-value theorems may exist; bounded searches and inaccessible passages do not exclude them."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact mathematical coverage including both conditional limits and literal edges; relative priority unresolved.",
+          "evidence": "Same SDE and stationary law; rescaled endpoint coordinates LΔU/v₋ and LΔ(1−U)/v₊, with the identical four leakage formulas and constants after substitution.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-two-sided-gumbel-boundary-layers-and-asymmetric-finite-size-leak--bbe0ae7a3ed5",
+          "material_read": "Local RESULT.md Finding, assumptions and proof; decisive displays at offsets 0–6726",
+          "method": "Configured search and local mirror",
+          "title": "Two-sided Gumbel boundary layers and asymmetric finite-size leakage in a switching harmonic gas",
+          "trigger": "Strongest exact match on both profiles and both unshifted laws"
+        },
+        {
+          "assessment": "Exact input and leading law, not the rare-edge laws in the examined results.",
+          "evidence": "Product-normal mixture and leading delta approximation for order statistics, including fixed rank.",
+          "identifier_or_url": "https://arxiv.org/abs/2312.02570v1",
+          "material_read": "Main-text pp. 3–4 offsets 22200–27182, Eqs. (12)–(16); supplement pp. 10–11 offsets 92700–102534, Eqs. (S74)–(S84)",
+          "method": "Primary open PDF, bounded passages",
+          "title": "Dynamically emergent correlations between particles in a switching harmonic trap",
+          "trigger": "Exact same physical process and published order-statistics calculation"
+        },
+        {
+          "assessment": "Relevant framework only in inspected text.",
+          "evidence": "General conditional-i.i.d. construction and examples in a resetting model.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.15351v2",
+          "material_read": "Abstract, p. 1 offsets 0–3853",
+          "method": "Primary open PDF, bounded passage",
+          "title": "Exact extreme, order and sum statistics in a class of strongly correlated systems",
+          "trigger": "Extreme values in a conditionally independent mixture"
+        },
+        {
+          "assessment": "Inspected theorem does not cover a single common compactly supported variance.",
+          "evidence": "Scaling Y_n=S_nX_n with Gaussian sequence hypotheses and Weibull-tailed scaling in Theorem 2.1.",
+          "identifier_or_url": "Hashorva–Peng–Weng, Probability and Mathematical Statistics 34(1) (2014), 45–59",
+          "material_read": "pp. 45–48, offsets 0–4467 and 4700–9656, including Theorem 2.1",
+          "method": "Primary open PDF, bounded passages; later scaling passage timed out",
+          "title": "Limit Properties of Exceedances Point Processes of Scaled Stationary Gaussian Sequences",
+          "trigger": "Potential general theorem for scaled Gaussian maxima"
+        },
+        {
+          "assessment": "Different asymptotic question in examined material.",
+          "evidence": "Spatial extremal dependence and joint tail decay, not one shared bounded variance in a growing population.",
+          "identifier_or_url": "https://arxiv.org/abs/1610.04536v2",
+          "material_read": "Abstract p. 1 offsets 0–3988",
+          "method": "Primary open PDF, bounded passage",
+          "title": "Bridging asymptotic independence and dependence in spatial extremes using Gaussian scale mixtures",
+          "trigger": "Gaussian scale mixture tail regimes"
+        },
+        {
+          "assessment": "Analogy to a distinct process in available summary; not used as evidence of exact coverage or absence of coverage.",
+          "evidence": "Reset age and Poisson resetting rather than the shared harmonic switching environment.",
+          "identifier_or_url": "Resultary 4cd7cf34fdd1",
+          "material_read": "Indexed summary only; full local-mirror retrieval timed out",
+          "method": "Configured Resultary search and attempted local mirror",
+          "title": "Gaussian edge leakage and a Gumbel boundary layer in a simultaneously resetting gas",
+          "trigger": "Analogous leakage powers and hidden-environment localization"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof steps 3–6",
+        "Resultary bbe0ae7a3ed5 Finding and scope"
+      ],
+      "rationale": "The logarithmic asymmetry and environment selection are meaningful physics and mathematics in their own right. This frozen record does not establish a distinct useful contribution beyond the exact matching theorem: its different choice of dimensionless boundary coordinate is a substitution, and the illustrative rates are a direct evaluation. No additional threshold behaviour or independently useful invariant remains after the comparison.",
+      "residual_risks": [
+        "The value judgment concerns the frozen claim relative to verified coverage, not the scientific usefulness of the shared leakage laws or attribution of their priority."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

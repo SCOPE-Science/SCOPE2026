@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The claim is a completely finite statement about \(2^{18}=262144\) binary configurations once the global sign has been fixed. Its analytic reduction is Fourier orthogonality, and its exhaustive conclusion is established by the two included source files `verify_hex19.cpp` (integer-only C++17 Gray-code enumeration) and `verify_hex19.py` (direct NumPy pair-product enumeration and a complete 48-transformation symmetry test).
+## correctness
 
-Run from the directory containing the included files:
+PASS
 
-```sh
-g++ -std=c++17 -O2 -Wall -Wextra -pedantic verify_hex19.cpp -o verify_hex19
-./verify_hex19
-python3 verify_hex19.py
-```
+Torus orthogonality gives M=sum_d C(d)^2 for the full radius-two axial hexagon. C(0)=19 and the two directions of every nonzero lag contribute equally, so the integrated defect is M-361. A global sign flip changes neither M nor defect, giving exactly 2^18 distinct center-positive assignments. Independently ran python3 /workspace/review_evidence/recompute4.py. Instead of lag updates it summed squared integer coefficients of P^2 by unordered site sums, with terms doubled for two distinct sites. This computes the same fourth moment by Parseval and runs across all 262144 masks. It found moments 467,475,483 first, with counts 72,28,144, respectively; the maximum was 3259. Independent orbit traversal by the four generators (rotation, reflection and the two coordinate sign characters) preserved the minimizing set and yielded least masks 3441,8151,10446, each with 24 elements and exactly the stated negative coordinates. Hence there are 144 minimizers before sign normalization, and the sharp gap is eight. As a cross-check, each squared lag term has fixed residue modulo four from overlap parity and hence M has fixed residue modulo eight; there are nine odd positive-lag overlaps, yielding residue three. For the claimed discrete Fourier transfer, all difference coordinates lie in [-4,4], so grid periods at least nine keep all lags distinct modulo the grid. This proves only the stated full support and real-sign fourth moment.
 
-The C++ program exits with status zero and reports `INCREMENTAL_EXHAUSTIVE_PASS` only when all expected exact counts match. The Python program independently computes all autocorrelations without using the incremental C++ recurrence, and emits `DIRECT_EXHAUSTIVE_PASS` only when both the finite optimum and the orbit classification agree. The observed outputs are included in `CHECKS.txt`. No sampling, pseudorandomness, approximate optimization or floating-point comparisons are used in the core moment computation. No third-party source or external file is required, other than NumPy for the Python implementation and a C++17 compiler for the C++ implementation.
+## originality
 
-The exact domain, three representative signings, full search-space coverage, and sharp next-value gap are stated in `RESULT.md`. The verification does not establish the analogous optimization for complex-phase arrays or larger shells, and does not constitute independent mathematical review or historical priority certification.
+PASS
+
+Best of current knowledge: the inspected same-support geometry is not new, but the exact single-array aperiodic energy minimum, attainable next value and complete equality orbits on the unpunctured binary support are not supplied by the related results inspected. The exact matching indexed entry is the frozen result itself.
+
+## value
+
+PASS
+
+The full second-shell hexagon is a standard, previously studied array geometry, and the integrated squared sidelobes are a natural exact single-aperture objective, different from complementarity or peak sidelobes. The optimum, gap and all symmetry classes give a usable exact benchmark for this geometry. They do not follow from the trivial moment lower bound or a first-shell classification and have value even without a larger-shell theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

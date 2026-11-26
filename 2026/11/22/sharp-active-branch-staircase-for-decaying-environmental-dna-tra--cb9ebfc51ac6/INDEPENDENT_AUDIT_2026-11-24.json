@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:22:45.973260Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The passive-tracer benchmark assumes a constant source flux per active branch, not fixed inlet concentration or a fixed total source load independent of support. The transit-time scaling gives a=λℓA_c/Q, and g_a(0)=0 is the continuous extension. Compactness gives an optimizer. For a fixed pair total t>0, put b=a/t and r=(1-x)/x>1 for the normalized smaller share x. The log ratio of the positive derivative terms g_b'(x) and g_b'(1-x) is 2 log r-b(r-r^(-1)). Its sign is that of u/sinh(u)-b with u=log r. The ratio u/sinh(u) decreases strictly from 1 to 0 because u cosh(u)-sinh(u) has derivative u sinh(u)>0 and starts at 0. Thus as x increases toward 1/2, the pair objective either decreases throughout or first decreases and then increases; a noncentral interior stationary point is a strict minimum. Only the endpoints and equal split can maximize, with the pair tie at b=log 2. Unequal positive components in a simplex optimum would admit a strict pairwise improvement. Evaluating every equal k-support yields k exp(-ak), and the adjacent ratios ((k+1)/k)exp(-a) decrease strictly with k. Hence all the stated consecutive phases and only adjacent ties follow, with all optimizer permutations included. Replay: RESULT.md lines 27–49. The numerical checks in verify.py were inspected, not run. No empirical validation is inferred.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The objective is S-shaped on the positive half-line since g''(x)=a exp(-a/x)(a-2x)/x^4. Vicentini's abstract formulates the simplex problem for S-shaped utilities; Udell–Boyd handle sigmoidal objectives on convex sets with branch-and-bound.",
+          "The Case Western memorandum PDF returned 403 for both configured lawful routes; the older theorem's exact implications are unresolved."
+        ],
+        "reasoning": "The inspected general results include the instance as a model class but do not yield the exact pair optimizer, all equal-active optima, or the phase sequence. General approximate solvability is not exact structural coverage.",
+        "searches": [
+          "Vicentini, On the Resource Allocation Problem with S-Shaped Utility Functions",
+          "Udell–Boyd, Maximizing a Sum of Sigmoids, pp. 1–2 and 8–9"
+        ]
+      },
+      "checked_sources": [
+        "Vicentini Case Western memorandum 370 (abstract only)",
+        "Udell–Boyd Stanford OA PDF",
+        "Resultary cb9ebfc51ac6, 904d722bd814, eddb13bade10",
+        "Bounded Rayleigh-power-allocation literature lookup (summary only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the Steele-response sum of x exp(-x), the high-budget optima are unequal positive allocations, not the equal-on-support solutions here. The Haldane–Andrews result is a two-variable unequal-branch transition.",
+          "Frozen references already credit eDITH travel-time attenuation and distinguish sampling-site optimization from optimizing discharge shares."
+        ],
+        "reasoning": "No exact cutoffs or all-support equality classification follow by substituting either inspected indexed model. The transport objective supplies the instance, and the generic sigmoidal framework supplies the context, not the needed strict two-variable replacement lemma.",
+        "searches": [
+          "Udell–Boyd pp. 1–2 and 8–9 versus RESULT.md pair improvement",
+          "Resultary 904d722bd814 and eddb13bade10 original Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The change x_i=p_i/a removes the parameter from the utility exp(-1/x_i) and moves it to the common budget 1/a, so varying attenuation is equivalent to varying resource budget.",
+          "The short-form wireless lookup returned capacity outage and HARQ objectives; these summaries do not establish an equivalent expected-success sum theorem. The directly inspected fixed-budget Resultary analogues have other utilities and unequal optima."
+        ],
+        "reasoning": "A dual budget formulation is genuinely equivalent, but generic separability or use of exponential attenuation/outage by itself is not an optimizer classification for this objective. No whole-document exclusion is inferred from wireless summaries.",
+        "searches": [
+          "Identical S-shaped resource allocation, inverse-exponential exp(-a/x) under a simplex budget",
+          "Vicentini 1970 institutional record; Udell–Boyd PDF simplex, identical functions, exponential",
+          "Rayleigh parallel channels maximize expected number successful packets optimal power allocation fixed total power equal power active channels exponential outage"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact match is the assigned record itself. Two distinct same-day mirrors give respectively a Steele-response module-count transition and a two-box Haldane–Andrews symmetry break."
+        ],
+        "reasoning": "The claim is a continuous parameter phase diagram, not a finite table. The closest inspected catalogue transition statements do not contain these endpoint functions or all support counts.",
+        "searches": [
+          "Resultary: active-branch staircase for exponential travel-time decay and fixed budget separable transition",
+          "Resultary cb9ebfc51ac6, 904d722bd814, eddb13bade10"
+        ]
+      },
+      "rationale": "The inspected evidence covers the general optimization class and transport law, but supports the exact inverse-exponential equal-positive-support classification and its full logarithmic staircase as distinct. No historical-priority claim is made for sigmoidal resource allocation, eDNA attenuation, or the same-day analogues.",
+      "residual_risks": [
+        "Vicentini's inaccessible full memorandum may contain an applicable stronger exact theorem.",
+        "Older homogeneous resource allocation and outage-success applications remain incompletely covered. The same-day analogues do not establish chronology or priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same general simplex optimization class; exact theorem or specialization not resolvable from abstract.",
+          "evidence": [
+            "The objective is sum F_i(x_i) at fixed sum and nonnegative x_i, with S-shaped F_i. The identified viewcontent PDF returned 403."
+          ],
+          "identifier_or_url": "https://commons.case.edu/wsom-ops-reports/370/",
+          "material_read": "Institutional abstract at offset 0; linked memorandum PDF access response",
+          "method": "OA institutional webpage, with linked PDF attempted through both configured routes",
+          "title": "On the Resource Allocation Problem with S-Shaped Utility Functions",
+          "trigger": "Most plausible older exact general simplex theorem"
+        },
+        {
+          "assessment": "Contains class and approximation methods; inspected passages do not supply the inverse-exponential equal-on-support classification.",
+          "evidence": [
+            "Separable sigmoidal sums over bounded closed convex sets, with NP-hardness in general and a branch-and-bound approach."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/max_sum_sigmoids.pdf",
+          "material_read": "pp. 1–2, offset 0; pp. 8–9, offset 15600; literal searches for simplex, identical functions and exponential",
+          "method": "OA primary PDF passages",
+          "title": "Maximizing a Sum of Sigmoids",
+          "trigger": "Potential more general sigmoidal optimizer theorem"
+        },
+        {
+          "assessment": "Same general resource allocation setting, but a different utility and output phases.",
+          "evidence": [
+            "x exp(-x) has balance versus exactly n one-high optima for n>=3, with a separate n=2 transition at budget 4."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22, 904d722bd814",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local mirror original statement",
+          "title": "A sharp module-count transition in fixed-budget Steele photoinhibition",
+          "trigger": "Closest all-size indexed separable allocation analogue"
+        },
+        {
+          "assessment": "Haldane–Andrews response, not the inverse-exponential utility.",
+          "evidence": [
+            "Two unequal optima after a cubic-defined transition, not a support staircase."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22, eddb13bade10",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local mirror original statement",
+          "title": "Sharp symmetry breaking for two fixed-budget compartments",
+          "trigger": "Related exact two-branch phase comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The closed-form all-size staircase is a motivated structural benchmark for identical flow routes transporting a passive, first-order-decaying tracer. It answers when opening another route helps, whether a support count is skipped, and what happens at coexistence, none of which is given by a generic numerical solver or by the transport law alone. The equal-source-flux and fixed-geometry assumptions bound its interpretation; it does not prescribe management of natural rivers.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof classifies the complete rank-\(n-1\) idempotent layer, then uses two independent invariants under rank-preserving multiplication: initial upper kernel and terminal lower equivalence. They force every elementary equivalence projection and at least one transformation idempotent for each unordered pair. The upper bound follows from the singular-transformation strong-tournament theorem and the full-domain factorization. The small exception \(n=2\) is directly classified. Diagram enumeration for \(n=3,4,5\) checks the layer and the proposed generating family; it is not used as an infinite proof.
+## correctness
 
-## Originality — PASS within checked literature
-East–Gray, *Ehresmann theory and partition monoids*, Section 4.5, explicitly requests ideal idempotent ranks. Carroll–East–Fresacher, *Presentations for semigroups of full-domain partitions*, Theorem 3.16 and Proposition 6.6, prove idempotent generation and give the factorization, but no sharp \(2\binom{n}{2}\) count was found in their full HTML text. Howie's transformation theorem and East–Gray's 2017 ambient full-partition rank theorem concern different semigroups. Targeted semantic and literature searches produced no decisive coverage. The 1978 original full text was not accessible; stronger unindexed results remain a novelty risk.
+PASS
 
-## Value — PASS
-This gives the exact idempotent rank for a canonical infinite family of singular diagram monoids and sharpens the existing explicit \(3\binom{n}{2}\) idempotent generating family. The minimum is forced by a structural rank-preservation obstruction, and the matching upper bound reveals the role of strongly connected tournaments. The result concerns only the largest proper ideal and does not classify all its minimum generating families.
+At rank n-1 the upper partition has one doubleton. The extra lower point either forms a singleton lower-only block, giving a transformation (idempotence fixes its image), or belongs to a transversal doubleton. In the latter case idempotence requires the two doubletons to match to avoid rank loss, and then the transversal permutation must be the identity. These yield exactly the three listed idempotents per pair. In a rank-preserving singular product each factor has rank n-1. Upper kernel is inherited from the first factor and lower equivalence from the last: joining two transversal blocks would reduce rank, and lower-only blocks of the last factor are untouched. Consequently every e_ij is forced. If neither transformation on a pair is present, a word with that first kernel must start with e_ij, which can only multiply rank-preservingly on the right by another generator with that kernel, namely itself. Such words cannot give either transformation on the pair. For the upper bound, Howie's strongly connected tournament theorem supplies all singular transformations. Given any singular full-domain diagram, map each upper block to one chosen lower representative of its transversal block; multiplying this singular transformation by the projection for the diagram's lower partition recovers the diagram, including lower-only blocks. This projection is a join-product of the e_ij or the identity, which does not have to be generated. For n=2 the sole upper block is transversal and the three nonempty choices of lower part give a right-zero semigroup as asserted.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The examined full-domain results give idempotent generation and factorization but not the exact optimum. Those inputs together with classical transformation-semigroup generation supply the proposed upper bound; the separate full-domain rank-preservation obstruction forcing two distinct generators per pair is needed for the matching lower bound. No covering exact minimum was found in the compared indexed or primary material.
+
+## value
+
+PASS
+
+This determines the exact idempotent rank of the maximal proper ideal, a concrete part of the historical ideal-rank question. It explains why the available idempotent generating family can be reduced but also why no further reduction is possible, and gives explicit optimal sets for every n>=3. The pairwise obstruction is structural rather than a small-case census or a change of notation for the transformation result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:52:27.790994Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–78; checker.py; VERIFICATION.md",
+        "/workspace/branches/b9e80c0a-8ea1-434d-95f3-f0c8785789f4/deletion_replay.py",
+        "/workspace/branches/b9e80c0a-8ea1-434d-95f3-f0c8785789f4/bounded_replay.json"
+      ],
+      "rationale": "Two indexed positions produce the same deletion output exactly when the interval between them is constant. A run-delete class fails the receiver filter exactly for an interior singleton with like-letter neighbors, at least one doubled. On each run-pair transfer the appended letter has one repeat choice and q−2 other choices; the transfer scores the finalized interior run while the two endpoint scores remain fixed, and a single run is counted separately. For k double runs, b valid singletons, and e double endpoints, the invalid-singleton count is at most 2k−e and b>=2−e for at least two runs. Hence n<=4d−(3b+e)<=4d−2. A single run also obeys the bound. Alternating run colors make all designated interior singleton deletions invalid in the four constructions: use double endpoints and two singleton runs per gap at n=4h−2, shrink the final gap to one singleton at n=4h−3, or truncate to a singleton endpoint at the other two lengths. Equality at maximal span uses every double-neighbor incidence once with no valid singles, forcing exactly two singletons between successive doubles and one color choice per gap. The upper bound is the number of runs, with equality at n only for all-singleton runs. The independent bounded replay explicitly deduplicated and filtered outputs and matched local degrees and transfer histograms for 35,880 legal words: q=2 through n=14, q=3 through n=9, q=4 through n=7. It confirmed both extrema, maximum counts and all maximal-span census/equality cases in those ranges.",
+      "residual_risks": [
+        "Finite replay supports but does not establish the all-length identities. The proof applies only to indexed linear words, symmetric run limit two and one deletion with the receive filter."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frozen lines 82–84 distinguish constrained-code bounds and code constructions from packet-by-packet filtered sphere degrees. The 2036e6f8e3be catalogue statement handles bridging and maximal unconstrained multi-deletion descendant counts."
+        ],
+        "reasoning": "Even a sharper formula counting arbitrary deletion descendants does not generally supply the number whose output passes a receiver filter. Results on correcting deletion errors are not classifications of filtered sphere degrees or their extremizers.",
+        "searches": [
+          "Liron–Langberg arXiv:1202.1644; Kulkarni–Kiyavash arXiv:1211.3128 § V; Liu–Xing–Zhang arXiv:2307.00221; Resultary 2036e6f8e3be",
+          "Primary-literature search for filtered run-length-constrained one-deletion counts (only an unrelated generic channel listing returned)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§ Relationship to prior work, References",
+        "Resultary bf9864c108ef (self), 2036e6f8e3be",
+        "Cited arXiv sources relative to frozen descriptions (primary access limitations above)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The conventional one-deletion count is the number of source runs; the distinct related catalogue result uses bridging of equal letters to test collisions, not whether a surviving output creates a forbidden run."
+        ],
+        "reasoning": "The conventional formula gives a starting equivalence relation and bounds, but cannot tell which classes fail legality or how these omissions saturate the double-to-singleton incidence budget. A distinct range and equality geometry follow in the filtered case.",
+        "searches": [
+          "Frozen RESULT.md lines 80–95; Resultary 2036e6f8e3be; arXiv:1211.3128 § V and arXiv:1202.1644"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinct indexed run-pattern collision result concerns ordinary distinct descendants. The frozen related-work review distinguishes Kulkarni–Kiyavash's (d,k)-RLL zero-run restriction from the symmetric cap-two filter."
+        ],
+        "reasoning": "Counting legal survivors is the intersection of an ordinary deletion sphere with the same constrained language. Those descriptions differ: for example, aab a (the word aaba, with a and b distinct) has three distinct deletion outputs before filtering, but deleting b produces the excluded aaa, leaving two. A source language restriction is not the corresponding received-language restriction.",
+        "searches": [
+          "Resultary queries for filtered one-deletion spectrum and sharp-span run pattern; bf9864c108ef and 2036e6f8e3be",
+          "arXiv:1211.3128 § V; arXiv:1202.1644"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The direct indexed match was the assigned record itself. The strongest distinct result describes an unfiltered collision threshold and a different maximum; the six illustrative binary polynomials are in the frozen target, lines 67–76."
+        ],
+        "reasoning": "A count of all run-constrained words by length or of unrestricted descendants would forget the survivor degree. Even a matching finite coefficient table would not by itself give the bivariate enumerator or rigid census.",
+        "searches": [
+          "Resultary searches for the four-state bivariate enumerator, ceil((n+2)/4) minimum and n=4h−2 census; bf9864c108ef and 2036e6f8e3be"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the receive-filtered distribution, sharp minimum, and rigid maximal-span census. The unrestricted class-per-run law and the general transfer-matrix method are not being credited as new, and the comparison does not establish historical priority.",
+      "residual_risks": [
+        "A prior statement for a different equivalent filtered channel or in uninspected primary or indexed full text is possible; unavailable text is not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Available statement concerns unrestricted deletion descendants; no filtered spectrum established",
+          "evidence": [
+            "Bridging equal-letter runs classifies collisions and supports a maximum count of t-deletion descendants under an alphabet-size condition."
+          ],
+          "identifier_or_url": "Resultary 2036e6f8e3be",
+          "material_read": "Catalogue statement; decisive full-text mirror passage unavailable",
+          "method": "Resultary and exact-ID local mirror lookup",
+          "title": "Exact run-pattern collision thresholds and short-deletion extremal counts",
+          "trigger": "Closest earlier indexed run/deletion extremal comparison"
+        },
+        {
+          "assessment": "Standard class-per-run law credited; no exact coverage shown by available statements and scope",
+          "evidence": [
+            "Frozen lines 82–84 distinguish the (d,k) source, ordinary deletion-image language, and single-error correcting constructions from the symmetric receive-filtered problem."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1211.3128; https://arxiv.org/abs/1202.1644; https://arxiv.org/abs/2307.00221",
+          "material_read": "Frozen comparison and reference locators, especially Kulkarni–Kiyavash § V; the lawful primary OA requests did not return passages",
+          "method": "Exact references and targeted OA attempts",
+          "title": "Non-asymptotic Upper Bounds for Deletion Correcting Codes; A Characterization of the Number of Subsequences Obtained via the Deletion Channel; Codes with Biochemical Constraints and Single Error Correction for DNA-Based Data Storage",
+          "trigger": "Strongest cited standard and constrained deletion results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Assumptions and scope, Proof"
+      ],
+      "rationale": "The same admissibility test on transmitted and retained words gives a natural repair/filter combinatorics problem, distinct from unrestricted deletion and from code-size optimization. The degree distribution supplies the full invariant; the q-independent sharp lower bound and its rigidity quantify the worst loss of admissible outputs and identify exactly when overlapping local losses can be maximized. This is more than the ordinary endpoint count or a finite histogram.",
+      "residual_risks": [
+        "The result does not by itself bound optimal deletion-correcting code sizes or model a physical deletion mechanism."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

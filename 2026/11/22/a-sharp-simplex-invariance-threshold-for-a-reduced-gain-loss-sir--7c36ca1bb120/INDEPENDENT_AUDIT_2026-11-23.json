@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:16:17.117393Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the exact diagonal rate update, put A=τρ. Both updated coordinates are nonnegative for all positive τ,ρ and all simplex inputs. The gain in the residual is (s−s_+)−(i_+−i)=τi[1+As(1−ρi)/(1+Ai)]/(1+τ). At fixed i the residual itself is affine in s with coefficient −1/(1+Ai)−Ai/(1+τ)<0. Thus the worst input has s=1−i and r=0, and its residual is τi[1+A−Aρi(1−i)]/[(1+τ)(1+Ai)]. The i=0 value is zero; the quadratic factor is minimized at i=1/2, so the condition τρ(ρ−4)≤4 is necessary and sufficient and includes equality. Solving the strict quadratic gives the two stated infected-fraction roots; solving the affine residual inequality gives s_*(i), with a nonempty unsafe interval at fixed i exactly between those roots. Substituting τ=γh and ρ=βN/γ gives the stated h threshold. At (ρ,τ)=(5,1), the half-half input gives −1/56; at (5,4/5) it gives zero. Iteration of a simplex self-map then proves the all-step consequence, not a trajectory-specific claim when the criterion fails. RESULT.md, VERIFICATION.md and verify.py were inspected without running the uploaded code. RESULT.md overdescribes the checker as comparing polynomial coefficients: the frozen script does exact rational substitution on grids and witnesses instead. This is a reproducibility-description error, not a missing proof; the algebra above verifies the identity for arbitrary inputs. The claim does not extend to fitted rates or floating-point equality.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source theorem establishes positivity for modeled coordinates and assumes set preservation for its invariant-set statement.",
+          "Cui et al. use S_(n+1) in the infected gain and advance R directly; they have a different population balance.",
+          "The distinct indexed theorem concerns a disease-free infection multiplier in a different map."
+        ],
+        "reasoning": "An orthant claim, a conditional invariant-set theorem, and conservation in a differently coupled update do not imply a sharp invariant-simplex restriction for the diagonal rule. A local decay bound cannot decide an all-state feasibility condition.",
+        "searches": [
+          "arXiv:2607.10858v1 §§3–5",
+          "10.1186/1687-1847-2014-172 §3",
+          "Resultary b8a749ca1d0f"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary index, exact self hit 7c36ca1bb120 and distinct b8a749ca1d0f",
+        "Zinihi et al. arXiv:2607.10858v1",
+        "Cui et al. 10.1186/1687-1847-2014-172"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source rule uses componentwise gains/losses; resubstitution of physical rates defines the present map. The warning alone leaves open which states, rates and denominator values fail."
+        ],
+        "reasoning": "One must optimize the residual over the triangle, preserve signs in the denominator reduction, and solve the strict inequality in the complementary regime. This quantitative resolution is not an instantiation of the inspected positivity theorem.",
+        "searches": [
+          "arXiv:2607.10858v1 §3 and §5 Remark 2",
+          "10.1186/1687-1847-2014-172 eqs. (3.1)–(3.3)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zinihi et al., §5 Remark 2: the residual R=N₀−S−I can be negative because S+I≤N₀ is not enforced."
+        ],
+        "reasoning": "Residual positivity, invariance of the triangle S+I≤N₀, and preservation of the reconstructed simplex are mathematically equivalent here. The primary remark recognizes the constraint but does not characterize all states and allowed denominator values.",
+        "searches": [
+          "Local Resultary semantic lookup for reduced gain–loss SIR, reconstructed recovered positivity and simplex-invariance thresholds",
+          "Targeted primary search for the diagonal SIR threshold and rate–step simplex invariance",
+          "arXiv:2607.10858v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed hit 7c36ca1bb120 is this frozen record, not independent coverage. The distinct hit b8a749ca1d0f was inspected at the level of the theorem."
+        ],
+        "reasoning": "No parameter table is required: the deliverable is a continuous necessary-and-sufficient inequality and exact unsafe-set description. Neither the distinct indexed theorem nor the cited numerical example with ρ=4 is that statement.",
+        "searches": [
+          "Local Resultary lookup for sharp NSFD SIR positivity bounds and infeasible states"
+        ]
+      },
+      "rationale": "The primary source already provides the diagonal map and recognizes the residual positivity gap, but does not quantify it. Neither inspected coupled NSFD results nor the nearest distinct Resultary finding supply the necessary-and-sufficient condition for this particular physical-rate specialization. This is a best-of-knowledge assessment, not a priority certificate.",
+      "residual_risks": [
+        "A differently named, unindexed triangle-preservation calculation for the same explicit rational splitting may exist. No general claim is made about other NSFD schemes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides the map and caveat but not the sharp physical-rate criterion",
+          "evidence": "§3 gives the separate rational updates; §4 distinguishes coupled production–destruction methods; §5 reconstructs recovered population, and Remark 2 explicitly does not guarantee S+I≤N₀.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.10858",
+          "material_read": "v1 PDF §§3–5, pp. 3–6; Remark 2 around offset 16554",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Structure-Preserving Neural ODEs via Nonstandard Finite Difference Discretization",
+          "trigger": "Direct origin of the update and known positivity caveat"
+        },
+        {
+          "assessment": "Different map, not an encompassing theorem for independently evaluated gains",
+          "evidence": "New infection uses updated susceptible population, recovered population is updated directly, and there is a demographic balance for N.",
+          "identifier_or_url": "https://doi.org/10.1186/1687-1847-2014-172",
+          "material_read": "PDF §3, p. 4, eqs. (3.1)–(3.3), offsets 11600–15882",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "An NSFD scheme for SIR epidemic models of childhood diseases with constant vaccination strategy",
+          "trigger": "Earlier conservation and positivity result for an NSFD SIR map"
+        },
+        {
+          "assessment": "Different numerical object and conclusion",
+          "evidence": "Subcritical disease-free infection multiplier and decay-rate floor, not a feasible set for residual recovered population.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-a-sharp-infection-decay-floor-in-an-unconditionally-stable-nsfd--b8a749ca1d0f",
+          "material_read": "RESULT.md Finding at offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror passage inspection after Resultary search",
+          "title": "A sharp infection decay floor in an unconditionally stable NSFD scheme",
+          "trigger": "Closest distinct indexed sharp NSFD SIR theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The originating work explicitly flags negative reconstructed R; a numerical analyst deciding whether to use this splitting needs a guarantee for the whole simplex, not just independent positivity of S and I. The result gives the exact unrestricted range, a sharp denominator or step bound outside it, and a certified geometry of failure. It also separates numerical infeasibility from the usual continuous-time epidemic threshold and from behavior of learned rates.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

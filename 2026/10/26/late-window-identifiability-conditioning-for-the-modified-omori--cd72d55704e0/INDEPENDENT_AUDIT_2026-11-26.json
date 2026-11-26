@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:02:05.159690Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently expand the bin integral about its midpoint v=u+j+1/2. Removing the common KΔ^(1−p), the integral is v^(−p)[1+p(p+1)/(24v²)+O(v^(−4))], since the odd centered moments vanish and the second moment is 1/12. Thus log B_j, up to a common term, is −p log v+p(p+1)/(24v²)+O(v^(−4)). Subtracting adjacent bins gives respectively the third-order coefficients −p(p+14)/12 and −p(p+50)/12 and the two second-order coefficients p and 2p. To justify differentiating the remainder in RESULT.md lines 41–62, use w=1/u: after dropping the common prefactor, the integrals of (1+wx)^(−p) on fixed subintervals of [0,3] and their logarithms are real analytic near w=0 with uniform derivative bounds for p in the stated compact set. Differentiating the Taylor series in p or applying ∂_u=−w²∂_w preserves the required uniform orders. In the ordered columns (p,u), the products in the determinant are −p/u³+5p/u⁴ and −p/u³+4p/u⁴ to that order. Their difference is p/u⁴+O(u^(−5)), and the c column adds the factor 1/Δ. There is no singularity at p=1, and strict positivity is uniform for sufficiently large u on each compact subset of positive p. The inverse function theorem gives the claimed local identification for exact mean ratios, not a stochastic error bound. The frozen symbolic checker was read, not run; it checks coefficients, not the uniform differentiability argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The related finding gives global identifiability of the model with a positive unknown background from four disjoint expected-count windows, and three windows with known background in its scope."
+        ],
+        "reasoning": "A global count-map theorem could supersede a bare local-identification statement in comparable parameters. It does not quantify the late-time differential of the ratios, and using ratios to eliminate scale differs from retaining the mean counts with background present.",
+        "searches": [
+          "Resultary: Omori identifiability from disjoint expected count windows",
+          "Four count windows identify background-adjusted Omori decay sharply, Finding and proof"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_asymptotic.py",
+        "Ogata (1983) and Utsu–Ogata–Matsu’ura (1995) primary PDF passages",
+        "Resultary four-count-window RESULT.md",
+        "Access checks for DOIs 10.1029/2011JB009054 and 10.1029/2007JB005492"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known late-time slope motivates p estimation, and the catalogue claim is structural injectivity. The Bayesian paper is a plausible p–c trade-off match, but the full text was not accessible."
+        ],
+        "reasoning": "Even knowing that p and c are hard to separate, or that noiseless counts distinguish parameters, does not give the cancellation of the u^(−3) determinant terms and the first nonzero coefficient at u^(−4). No exclusion is inferred from the inaccessible Bayesian paper.",
+        "searches": [
+          "Ogata (1983), Utsu–Ogata–Matsu’ura (1995), four-window Resultary identification theorem",
+          "Holschneider et al., Bayesian analysis of the modified Omori law, DOI:10.1029/2011JB009054"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ogata notes that estimates from log-log slopes and graphical c fitting depend on the time unit used in binning; his likelihood and Fisher information use event times. The review discusses tail slopes and early incompleteness."
+        ],
+        "reasoning": "The Omori and Omori–Utsu labels refer to the same relevant model. A change of variables from ratios to log-ratios is invertible here, but these inspected passages do not give either ratio map's differential asymptotics for the three-bin design.",
+        "searches": [
+          "Primary lookup: modified Omori Utsu law adjacent log ratios three equal bins expected counts late time Jacobian parameter identifiability offset c bin counts",
+          "Ogata (1983), PDF pp. 1 and 3; Utsu–Ogata–Matsu’ura (1995), estimation discussion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact related catalogue result records a minimum number of windows for identification. Ogata gives an information matrix for the event-time likelihood, not the two adjacent expected count ratios."
+        ],
+        "reasoning": "This is an analytic coefficient, not a table of fitted p and c values. The closest exact formulas identified are for a different map or matrix; neither supplies the binned determinant coefficient.",
+        "searches": [
+          "Resultary: Omori expected counts, window design and identification",
+          "Ogata (1983), estimation and information expressions"
+        ]
+      },
+      "rationale": "Bounded pass for the explicit adjacent log-ratio expansions and leading Jacobian coefficient for three consecutive equal-width mean-count bins. Neither the general idea that p and c trade off nor the fact of local injectivity is credited in isolation. Related estimation work and a stronger structural identification result concern different outputs; none of the inspected statements gives the quantitative late-window expansion.",
+      "residual_risks": [
+        "The two named inaccessible sources leave uncertainty about earlier equivalent parameter-sensitivity expansions. The observed structural and fitting overlaps are not claims of precedence or noncoverage of all other literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant estimation comparison, not the expected-count log-ratio Jacobian",
+          "evidence": "Large-time slope and bin-width sensitivity on p. 1; event-time Fisher information on p. 3.",
+          "identifier_or_url": "https://www.jstage.jst.go.jp/article/jpe1952/31/2/31_2_115/_pdf",
+          "material_read": "PDF p. 1 (offset 0) and p. 3 (offset 6000)",
+          "method": "Lawful OA J-STAGE original PDF",
+          "title": "Estimation of the Parameters in the Modified Omori Formula for Aftershock Frequencies by the Maximum Likelihood Procedure",
+          "trigger": "Original parameter estimation and bin-width dependence"
+        },
+        {
+          "assessment": "Estimation background, not the exact expansion",
+          "evidence": "Incomplete early observations affect c; tail slope and individual-time likelihood methods discussed.",
+          "identifier_or_url": "https://www.jstage.jst.go.jp/article/jpe1952/43/1/43_1_1/_pdf",
+          "material_read": "Abstract PDF p. 1 (offset 1236); estimation discussion PDF p. 10 (offset 37000)",
+          "method": "Lawful OA J-STAGE original PDF",
+          "title": "The Centenary of the Omori Formula for a Decay Law of Aftershock Activity",
+          "trigger": "Late slope analysis and offset confounding"
+        },
+        {
+          "assessment": "Structural global identification, not late-window conditioning",
+          "evidence": "Four disjoint windows for unknown positive background and three if known, with lower-count limitations.",
+          "identifier_or_url": "2026/11/2/SCOPE-four-count-windows-identify-background-adjusted-omori-decay-shar--7b8a1e44bea2",
+          "material_read": "RESULT.md Finding at OA offset 0; proof discussion at offset 4400",
+          "method": "Resultary search and local mirror text",
+          "title": "Four count windows identify background-adjusted Omori decay sharply",
+          "trigger": "Closest exact identifiability result using mean counts"
+        },
+        {
+          "assessment": "Unresolved full-text coverage, not evidence of noncoverage",
+          "evidence": "The excerpt describes a reparametrization and estimation trade-off. Publisher and ResearchGate requests were denied; repository discovery yielded no readable copy.",
+          "identifier_or_url": "https://doi.org/10.1029/2011JB009054",
+          "material_read": "Search result abstract excerpt only; no full text",
+          "method": "Primary search, publisher PDF and lawful alternate-copy attempts",
+          "title": "Bayesian analysis of the modified Omori law",
+          "trigger": "Plausible stronger treatment of p–c parameter trade-off and catalog time window"
+        },
+        {
+          "assessment": "Unresolved full-text coverage",
+          "evidence": "Publisher route denied access and repository attempts timed out; no scientific inference from the access failure.",
+          "identifier_or_url": "https://doi.org/10.1029/2007JB005492",
+          "material_read": "Frozen citation; no primary full text",
+          "method": "Publisher and identified repository-copy attempts",
+          "title": "Dependence of the Omori-Utsu law parameters on main shock magnitude: Observations and modeling",
+          "trigger": "Frozen reference on the dependence of Omori parameters"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Three equal adjacent windows are a natural minimal mean-count design after eliminating amplitude with ratios. The leading ratios both depend on the same combination p/u, so the coefficient after cancellation quantifies when the second direction of local information survives; a mere nonzero-determinant claim would miss how rapidly it is lost. For known fixed width this is an explicit local area scaling, useful for comparing noiseless late-window designs. It is not a condition number, likelihood statement, or guarantee of practical precision from observed counts.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

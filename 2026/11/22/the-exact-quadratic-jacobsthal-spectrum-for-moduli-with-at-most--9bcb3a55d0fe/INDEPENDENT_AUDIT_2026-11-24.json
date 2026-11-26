@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:53:21.260044Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–74, VERIFICATION.md, and verify_quadratic_jacobsthal.py (inspected, not executed)",
+        "Corrected /workspace/repairs/3/RESULT.md",
+        "Independent replay: python3 /workspace/branches/audit_3_counts.py"
+      ],
+      "rationale": "The repaired proof explicitly handles the missing q=3 branch in the frozen C_2 argument (RESULT.md line 66): at radical 6 the two survivors are x=2,5, both with x≡−1 mod 3, and one prime can itself cover both indices. The published count was correct but the forced-split justification was not. For either prime equal to 3 its common fiber is forced, and all residues of the other prime work; otherwise the two split assignments are distinct. Radical lifting is exact. Pairwise square differences 3,5,8 force the length-three cases, including the q=5 cases addressed explicitly in the repair. The unique third-index survivor extends to five exactly when 3 divides a two-prime radical; 36−9=27 and the congruence modulo 3 prevent extension to six. This proves all counts, uniqueness when claimed, and the nested-set difference formula. Fresh direct gcd enumeration passed on 550 moduli, including C_2(6) classes [2,5] and C_3(10) class [1]. The corrected full RESULT.md at /workspace/repairs/3/RESULT.md preserves the theorem and scope.",
+      "residual_risks": [
+        "The replay is bounded; all larger primes and lengths are covered by the fiber argument, not by tests. No claim is made about a different initial index or three-prime radicals."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1 bounds j_f(P(y)) below for primorials; Remark 1 applies the monomial parameter to asymptotic growth.",
+          "The frozen theorem gives exact C_k along all one- and two-prime radicals and lifts, not a lower bound for primorials."
+        ],
+        "reasoning": "Even the primorial lower bound specialized to f(x)=x² cannot determine the survivor counts or exact longest run at each fixed prime pair.",
+        "searches": [
+          "arXiv:2302.00459, Theorem 1 and Remark 1, p. 3",
+          "Resultary: one- or two-prime radicals, square-shift runs"
+        ]
+      },
+      "checked_sources": [
+        "Resultary low-support quadratic Jacobsthal searches",
+        "arXiv:2302.00459 pp. 1, 3, 9",
+        "Local mirror Findings 987cbad182a0 and f1ff76c679ca"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The recurrences and cyclic-block gcd criteria in the two indexed findings differ from the predicate gcd(x+i²,N)>1 at every initial i.",
+          "The monomial theorem averages local maxima over primes, whereas the exact count uses both the pairwise differences 3,5,8 and CRT assignments for specified primes."
+        ],
+        "reasoning": "The cited statements do not furnish the exact pair-specific transitions or multiplicities by a specialization. The correction to the length-two proof does not change this comparison.",
+        "searches": [
+          "arXiv:2302.00459, Theorems 1 and 3",
+          "f1ff76c679ca/RESULT.md and 987cbad182a0/RESULT.md, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The paper's abstract uses gcd(x+f(i),N)>1 with the same initial indexing; Theorem 3 gives M(x^d)=τ(d).",
+          "The frozen count is equivalently the number of ways that two chosen square-residue fibers cover the initial index interval."
+        ],
+        "reasoning": "The average maximum fiber size of a monomial does not specify which indices share a fiber, or how fibers at two fixed primes jointly cover an interval.",
+        "searches": [
+          "Resultary: quadratic polynomial Jacobsthal, exact x+i² initial-run residue counts",
+          "Kalmynin–Konyagin arXiv:2302.00459, abstract and Theorem 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact search returned the assigned record itself, not independent coverage.",
+          "987cbad182a0 tabulates preimages in a generalized Jacobsthal recurrence; f1ff76c679ca gives cyclic consecutive blocks of residues with square gcd."
+        ],
+        "reasoning": "Both exact indexed neighbors count other quantities, not fixed-x coverage of the list of squares. Neither supplies its all-moduli count table.",
+        "searches": [
+          "Resultary: exact quadratic Jacobsthal spectrum and semiprime square-shift run counts",
+          "Resultary indexed IDs 987cbad182a0 and f1ff76c679ca, local-mirror Findings"
+        ]
+      },
+      "rationale": "Best of current knowledge for the unchanged exact low-support classification. Kalmynin–Konyagin define the invariant but their primorial lower bound and monomial average local-fiber calculation do not imply the exact initial-cover counts for individual moduli. The strongest nearby indexed exact spectra count different objects. No equivalent distinct classification was found in the checked sources.",
+      "residual_risks": [
+        "This is not a historical priority guarantee. An unindexed low-support computation could overlap; comparison of the indexed neighbors is at the theorem-statement level."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credits the definition; compared statements do not determine the fixed two-prime counts.",
+          "evidence": [
+            "Theorem 1: primorial lower bound",
+            "Theorem 3: M(x^d)=τ(d)"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2302.00459",
+          "material_read": "Abstract p. 1; Theorem 1 and Remark 1 p. 3, offset 6050; Theorem 3 p. 9, offset 29995",
+          "method": "OA PDF literal locate and relevant passages",
+          "title": "A polynomial analogue of Jacobsthal function",
+          "trigger": "Same invariant and monomial specialization"
+        },
+        {
+          "assessment": "Different recurrence-preimage invariant.",
+          "evidence": [
+            "N_q(y) counts n in a single period with J_n≡y mod q."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-prime-power-fiber-spectrum-for-generalized-jacobsthal-sequ--987cbad182a0",
+          "material_read": "RESULT.md Finding, local mirror offset 0–1566",
+          "method": "Compare displayed hypotheses and counted objects",
+          "title": "Exact prime-power fiber spectrum for generalized Jacobsthal sequences at primitive-root parameters",
+          "trigger": "Same-day Jacobsthal exact prime-power fiber spectrum"
+        },
+        {
+          "assessment": "Different run and gcd predicates.",
+          "evidence": [
+            "Counts consecutive shifts x,x+1,… with each gcd a perfect square."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-cyclic-run-length-spectrum-of-square-gcd-totatives--f1ff76c679ca",
+          "material_read": "RESULT.md Finding, local mirror offset 0–1659",
+          "method": "Compare predicates and index sets",
+          "title": "Exact cyclic run-length spectrum of square-gcd totatives",
+          "trigger": "Exact neighboring run-count theorem using gcd and squares"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected /workspace/repairs/3/RESULT.md, Finding and Proof",
+        "Kalmynin–Konyagin arXiv:2302.00459, definition and primorial objective"
+      ],
+      "rationale": "Two prime factors give the first interacting local-fiber case of the established polynomial Jacobsthal invariant. The result completely classifies that natural infinite family, including the exceptional prime-dependent transition from three to five and exact survivor frequencies and prime-power lifts. These are usable benchmarks for comparing more general local covering results, not a cutoff selected after computation.",
+      "residual_risks": [
+        "Value is limited to the initial-square model and at most two distinct prime factors; no general asymptotic improvement is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

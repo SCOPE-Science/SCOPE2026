@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:30:56.092827Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Proof, Verification; VERIFICATION.md; verify.py (inspected, not run)",
+        "Independent replay: python3 /workspace/review_evidence/greedy_occupancy.py"
+      ],
+      "rationale": "The only positive-change order has the marked clique vertex first globally and the centre first among its star. Its probability is 1/[(k+m+1)(k+1)]. The leaves replace the centre, contributing k−1 extra accepts; if the centre instead blocks the clique vertex, a different clique vertex replaces it for m≥2. Moving this mass from 2 to k+1 gives the law. For m=1 the mean difference of the larger star versus the smaller star plus an isolate is −2/[(k+1)(k+2)]. Independent exhaustive set-based permutation counting of 1, 2, 8, 64 and 1024 graphs tested 0, 1, 12, 192 and 5120 nonedges; positive counts were 0, 0, 0, 0, 240, all gains 8/120. The full relabelling orbits of the displayed representatives are disjoint, of sizes 60, 120, 60, and exhaust the positives; their respective old/new numerators over 120 are (320,328), (296,304), (304,312). The empty graph trivially contributes no augmentation.",
+      "residual_risks": [
+        "The exhaustive check is only through order five; the all-parameter formula uses the separate analytic coupling."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Path minimality ranges over trees, not arbitrary augmentations. The cycle record treats fixed distances on cycles, and the five-site onset record ranges over connected sources only."
+        ],
+        "reasoning": "Neither is a dominating theorem about all single-edge additions. Same-day catalogue dates do not establish priority.",
+        "searches": [
+          "arXiv:1907.07216, Theorem 1.4",
+          "Resultary search on RSA single-edge effects; 40a6c4586bde and 09aa39c3a62a"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1907.07216",
+        "Resultary 09aa39c3a62a, a41a54dae9d7, 40a6c4586bde, 36fe61ce32de, 13703984bf2d",
+        "DOI 10.1137/0402034 (attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two-star bridge does not give the clique-replacement mechanism. The catalogue laws concern distributions on fixed graph classes, and the disjoint star–clique base contains an induced 2K2."
+        ],
+        "reasoning": "Even an individual output law in a special graph (e.g. a chain graph) does not yield the coupled signed family identity or the full marked-orbit census.",
+        "searches": [
+          "arXiv:1907.07216 discussion before §8.1",
+          "Resultary exact chain-graph and threshold-graph greedy laws, 36fe61ce32de and 13703984bf2d"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Connecting the centres of two n-leaf stars gives the reverse of the published deletion counterexample, already showing a positive addition on 2n+2≥6 vertices."
+        ],
+        "reasoning": "Reversing the deletion comparison covers the general phenomenon, not the minimum, marked classification or star–clique law.",
+        "searches": [
+          "Primary-literature search under random sequential adsorption/greedy independent set and single-edge insertion/deletion",
+          "arXiv:1907.07216, discussion before §8.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The later-dated five-site Finding gives 180 connected pairs in the two orbits P5→Q→K(2,3), with gain 1/15 each. The later-dated path/chord Finding independently gives the first arrow at n=5."
+        ],
+        "reasoning": "These are exact overlaps with two rows, not the exhaustive unrestricted table: neither includes the 60 disconnected-source augmentations from P3 disjoint union K2.",
+        "searches": [
+          "Resultary marked five-site onset and path chord comparisons: 09aa39c3a62a, a41a54dae9d7"
+        ]
+      },
+      "rationale": "Credit only the exact star–clique comparison and the complete lowest-order marked census. Edge-addition improvement itself was already known via a bridge between two stars. The bounded literature and catalogue comparison did not establish earlier equivalent coverage of the credited claims.",
+      "residual_risks": [
+        "Pippenger full text not obtained; a bounded comparison does not rule out earlier differently named exclusion-bond results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers general nonmonotonicity, not the credited refinements",
+          "evidence": [
+            "Two-star example for at least 2 leaves per star; separate tree extremum."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1907.07216",
+          "material_read": "PDF p. 19 discussion before §8.1; p. 7 Theorem 1.4",
+          "method": "OA PDF passage comparison",
+          "title": "Greedy maximal independent sets via local limits",
+          "trigger": "Direct edge-response precedent and tree comparison"
+        },
+        {
+          "assessment": "Exact connected-subdomain overlap, later-dated",
+          "evidence": [
+            "120+60 labelled connected augmentations, both gains 1/15; hypothesis of connected source."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-five-site-onset-and-a-common-kinetic-crossover-for-hard-co--09aa39c3a62a",
+          "material_read": "Finding, local offset 0",
+          "method": "Resultary local mirror statement comparison",
+          "title": "Sharp five-site onset and a common kinetic crossover for hard-core monomer adsorption",
+          "trigger": "Closest exact onset and census match"
+        },
+        {
+          "assessment": "One orbit instance, not global census",
+          "evidence": [
+            "At n=5 the endpoint chord gives P5→Q with gain 1/15."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-an-exact-four-cycle-chord-sensitivity-law-for-random-greedy-inde--a41a54dae9d7",
+          "material_read": "Finding, local offset 0",
+          "method": "Resultary local mirror",
+          "title": "An exact four-cycle chord sensitivity law",
+          "trigger": "Exact path augmentation comparison"
+        },
+        {
+          "assessment": "Different graph family and comparison",
+          "evidence": [
+            "Positive distance-three insertion for cycles n≥6 except n=7."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-opposite-short-chord-effects-on-random-greedy-jamming-of-cycles--40a6c4586bde",
+          "material_read": "Finding, local offset 0",
+          "method": "Resultary local mirror",
+          "title": "Opposite short-chord effects on random-greedy jamming of cycles",
+          "trigger": "Same-date positive edge effects"
+        },
+        {
+          "assessment": "Unresolved full-text access risk, not negative evidence",
+          "evidence": [
+            "HTTP 403 on attempted retrieval."
+          ],
+          "identifier_or_url": "10.1137/0402034",
+          "material_read": "No primary full text on attempted OA route",
+          "method": "Lawful OA retrieval attempt",
+          "title": "Random Sequential Adsorption on Graphs",
+          "trigger": "Foundational RSA paper cited in frozen record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof; independent order-five census; arXiv:1907.07216 tree and bridge comparisons"
+      ],
+      "rationale": "The exact first failure of monotone response under one added exclusion edge has an intrinsic finite cutoff. The complete marked list distinguishes connected and disconnected mechanisms, and the signed coupled family gives a structural explanation (substitution within the clique) rather than just a small numerical gain.",
+      "residual_risks": [
+        "No general classification beyond five vertices, and no unequal-priority statement."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

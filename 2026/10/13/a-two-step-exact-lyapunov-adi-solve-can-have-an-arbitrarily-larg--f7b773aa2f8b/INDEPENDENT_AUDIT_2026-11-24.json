@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:25:48.929534Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For exact real-shift ADI with E=I and P0=0, use Z=sqrt(2 sigma)(A-sigma I)^(-1)b and b_new=b+sqrt(2 sigma)Z; expansion of the Lyapunov residual after the positive update ZZ^T gives b_new b_new^T. At sigma=1, A=-I+MN with N=e1 e2^T and N^2=0 yields C=(A+I)(A-I)^(-1)=-(M/2)N. Thus b0=e2, b1=-(M/2)e1, b2=0, and the spectral and Frobenius residual norm ratios are both M^2/4 (9 at M=6). Direct solves for the two columns give Z1=sqrt(2)(-M/4,-1/2)^T and Z2=sqrt(2)(M/4,0)^T, so P1=Z1Z1^T and P2=P1+(M^2/8)e1e1^T. Substitution gives zero residual at P2; Hurwitz stability gives uniqueness. This verifies the Loewner inequalities and exact termination independently of the supplied verifier. The scalar multiplier (a-sigma)/(a+sigma) has modulus <1 for a,sigma>0, ruling out growth in dimension one. R2 has rank zero, not one; the norm equality still holds for rank at most one. The frozen verification notes and verify.py were inspected, not run; in particular verify.py lines 30–42 check supplied P and P1 by substitution and define P2 from P-P1, rather than independently constructing the ADI columns. The ratio is a multiplicative change, not an additive increase, and exact termination does not assert finite-precision behavior.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Halikias gives strong-stability conditions for the continuous/discrete evolution and its Cayley transform; the continuous-time dissipativity condition fails for this family when M>2.",
+          "Wolf–Panzer allow repeated shifts and cover the residual identity generally."
+        ],
+        "reasoning": "Strong stability can exclude overshoot under extra hypotheses, but failure of those hypotheses does not specify gains or termination. The recurrence covers the method, not the fixed-spectrum extremal obstruction or scalar boundary. Full text of the cited rational Krylov/ADI paper was not available in the bounded check.",
+        "searches": [
+          "Halikias DOI:10.1002/mma.2976 §2",
+          "Wolf–Panzer arXiv:1309.3985 §§2.1, 3.4",
+          "Druskin–Knizhnerman–Simoncini DOI:10.1137/100813257"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1309.3985",
+        "arXiv:1410.8741",
+        "DOI:10.1002/mma.2976",
+        "Resultary records identified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known Gramian formula alone says nothing about P1 or its residual.",
+          "Cayley overshoot alone does not force a one-step spike followed by immediate zero. Here C^2=0 and C e2 is nonzero with tunable norm; the eigenvalue-matched shift and second ADI column establish the missing assertions."
+        ],
+        "reasoning": "Available primary works furnish ingredients; the targeted demonstration that no finite spectrum-only first-step residual bound is possible even with exact two-step convergence is not a stated prior bound or classification.",
+        "searches": [
+          "arXiv:1410.8741 §3 fixed-spectrum example versus arXiv:1309.3985 Theorem 3.4",
+          "DOI:10.1002/mma.2976 strong stability"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wolf–Panzer §2.1 and Theorem 3.4 supply the Cayley-residual recurrence and factorization.",
+          "Baker–Embree–Sabino §3 use precisely A=[[-1,M],[0,-1]] and B=e2 at their parameter s=0, and give the same exact Gramian."
+        ],
+        "reasoning": "Prior solution singular values and continuous-time transient amplification are different invariants from the individual ADI residual after a matched shift. The same matrix and natural aliases for its transient were checked; neither cited treatment gives the two-step residual statement.",
+        "searches": [
+          "Lyapunov ADI residual growth, fixed eigenvalues, Jordan block, Cayley overshoot and exact termination",
+          "arXiv:1309.3985",
+          "arXiv:1410.8741",
+          "DOI:10.1002/mma.2976"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/13/SCOPE-a-sharp-two-dimensional-residual-safety-radius-and-a-three-dimen--bbfe2911afcf gives unbounded growth then zero in three dimensions for Newton–Schulz residual squaring.",
+          "2026/10/13/SCOPE-follow-the-ridge-can-hide-arbitrarily-large-transients-behind-a--9a4e22d47ec9 concerns a minimax update.",
+          "2026/9/9/SCOPE008 concerns continuous-time semigroup peaks of stable Jordan matrices."
+        ],
+        "reasoning": "These are real phenomenon-level overlaps, but the iterations and residuals differ; none tabulates or classifies this Lyapunov-ADI obstruction.",
+        "searches": [
+          "Resultary: Lyapunov ADI residual spikes and nilpotent exact termination",
+          "Resultary: fixed-spectrum nonnormal transients"
+        ]
+      },
+      "rationale": "The matrix/right-hand-side family and exact solution are prior, as are the ADI recurrence, residual factorization and nonnormal Cayley overshoot. The supported distinct claim is the sharp, dimension-minimal counterexample for ADI residual norms: arbitrary prescribed first ratio at one fixed spectrum with immediately following exact termination and Loewner improvement. No checked statement gives that consequence as a residual-monotonicity or fixed-spectrum result. The proof is short but needs the choice of a shift matching the Jordan eigenvalue, exploiting the resulting nilpotent map on a specified right-hand side rather than merely restating a norm or convergence bound.",
+      "residual_risks": [
+        "The Druskin–Knizhnerman–Simoncini paper DOI:10.1137/100813257 was not available for full-text comparison in bounded lawful access.",
+        "A prior stepwise-ADI example under other terminology could escape ranked searches; the identical Lyapunov family itself is established prior work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior general machinery; no corresponding norm-spike characterization in inspected passages",
+          "evidence": "Shift iteration and R=B_perp B_perp^T.",
+          "identifier_or_url": "https://arxiv.org/pdf/1309.3985",
+          "material_read": "§2.1 and §3.4, Theorem 3.4, PDF pp. 2–3, 8",
+          "method": "Lawful OA PDF, bounded passages",
+          "title": "The ADI iteration for Lyapunov equations implicitly performs H2 pseudo-optimal model order reduction",
+          "trigger": "General ADI recurrence and possible implied residual theorem"
+        },
+        {
+          "assessment": "Exact matrix, RHS and solution prior; analyzes solution singular values and semigroup transients, not individual ADI residuals",
+          "evidence": "A=[[-1,alpha],[0,-1]], B=(s,1)^T and explicit solution; s=0 gives the exact frozen Gramian.",
+          "identifier_or_url": "https://arxiv.org/pdf/1410.8741",
+          "material_read": "§2 p. 4, §3 pp. 6–7, §4 p. 8",
+          "method": "Lawful OA PDF, bounded passages",
+          "title": "Fast Singular Value Decay for Lyapunov Solutions with Nonnormal Coefficients",
+          "trigger": "Same nonnormal Lyapunov model"
+        },
+        {
+          "assessment": "Overshoot context but no matched-shift ADI calculation",
+          "evidence": "Continuous-time strong stability criterion A+A^T <= 0 for nonincreasing Euclidean trajectory norm.",
+          "identifier_or_url": "https://doi.org/10.1002/mma.2976",
+          "material_read": "§2 p. 3, strong-stability criterion",
+          "method": "Lawful institutional-repository PDF",
+          "title": "Strong stability and the Cayley transform",
+          "trigger": "Cayley overshoot as potential equivalence"
+        },
+        {
+          "assessment": "Different method and residual",
+          "evidence": "Newton–Schulz residual squaring and a 3x3 nilpotent counterexample.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-a-sharp-two-dimensional-residual-safety-radius-and-a-three-dimen--bbfe2911afcf",
+          "material_read": "Finding",
+          "method": "Local Resultary mirror",
+          "title": "A sharp two-dimensional residual safety radius and a three-dimensional residual spike",
+          "trigger": "Closest catalogued spike followed by exact zero"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A motivated minimal counterexample to spectrum-only control of the commonly monitored ADI residual, even for shifts that solve exactly after the next step. The exact magnitude and two positive updates separate transient norm growth from deterioration of the Gramian approximation. Its value is that concrete obstruction, not the known matrix family, routine inverse, or new general ADI theory.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:57:24.280026Z",
+  "axes": {
+    "correctness": {
+      "rationale": "JR fails exactly if some outside candidate has q_n or more supporters among the uncovered voters. Given the columns of a fixed quota-exact committee, the uncovered set has at most n−q_n voters, and an outside candidate's uncovered count is binomial with that many or fewer trials. For p_n≤1/k+1/(4k²), the gap from its mean to q_n is at least n/(2k²), so Hoeffding gives exp(−n/(2k⁴)) per pair, with probability zero if there are no uncovered voters. Union-bounding gives the claimed simultaneous relation, also when m_n=k. The quota-column count is exactly binomial by independence. For x=q_n/n, Stirling gives (2πnx(1−x))^(−1/2) exp(−n D(x||p_n))(1+o(1)), with nD(x||p_n)→λ²/(2v_k) and x(1−x)→v_k; rounding contributes only O(1/n) to x. This proves the stated local constant. The quota count converges to Poisson at finite supply ratio, including zero; the simultaneous relation transfers both counts and the existence event. Bounding the count discrepancy by C(m_n,k) on the bad event and using the binomial factorial moment proves the claimed mean convergence. At diverging supply the binomial mean diverges and its variance is at most its mean. At fixed p≠1/k, positive relative entropy defeats polynomial supply. The supplied script checks only finite instances and numerical diagnostics; it was inspected, not run, and the proof does not rely on it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Elkind et al. use per-voter probability p(1−p)^s of approving an outsider but no member of a group of size s. Proposition 1 bounds the maximum of this probability by 1/(2s) for s>0, and concludes every size-k committee is JR with high probability for the stated fixed-parameter regime.",
+          "The Resultary theorem states the square-root supply regimes and matching count/existence limits with an additional o(n^(−1/2)) term allowed in approval propensity, and gives an exponential finite coupling bound."
+        ],
+        "reasoning": "Elkind et al.'s fixed-parameter theorem alone does not state a DR count. But the proof's uniform bound for s=k gives a binomial mean at most n/(2k) for each W,d in the moving window too. The event of q_n or more uncovered supporters has probability at most exp(−n/(2k²)) by Hoeffding. The same union factor C(m_n,k)(m_n−k) therefore gives a stronger unconditional bound for all committees, with no exact-quota conditioning required. Polynomial growth is absorbed by the fixed exponential gap.",
+        "searches": [
+          "arXiv:2108.12949, Theorem 1(a) and Proposition 1, PDF pp. 4–6",
+          "Resultary db3611093bd6, RESULT.md finding"
+        ]
+      },
+      "checked_sources": [
+        "Resultary db3611093bd6 finding",
+        "arXiv:2108.12949 Theorem 1(a), Proposition 1",
+        "arXiv:2609.29332 Definitions 22 and 27",
+        "arXiv:2510.18718 p. 1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed match already supplies transformed-Poisson convergence and the existence threshold. The earlier JR proof directly supplies stronger uniform exponential protection under polynomial supply by the per-voter deviation estimate."
+        ],
+        "reasoning": "The remaining mean statement uses E C(E_n,k)=C(m_n,k)a_n^k exactly, and the expectation discrepancy is bounded by a polynomial times an exponential. It is not an independent limiting phenomenon. The fixed-p exclusion follows immediately from exponential binomial quota rarity and polynomial m_n. Conditioning on selected columns is a valid alternate proof of the advertised unconditional bound, not a surviving stronger conclusion in the frozen Finding.",
+        "searches": [
+          "Resultary db3611093bd6 matching finding",
+          "arXiv:2108.12949 Theorem 1(a) and Proposition 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chingoma et al. Definition 22 is JR plus exactly the Hare quota of supporters for each elected candidate, with the same rounding to ⌈n/k⌉. Its Local DR is a different local-swap notion. Han et al. study average satisfaction, without the exact-support quota.",
+          "Resultary db3611093bd6 uses the same exact-quota DR definition and a transformed-Poisson count. Its p_n=1/k+β/√n+o(n^(−1/2)) specializes to the frozen model at β=λ with zero remainder."
+        ],
+        "reasoning": "The matching record is not a match of keywords across divergent representation axioms: both use the same labeled exact-support subsets in independent approvals. The AJR and Local DR variants are genuinely different.",
+        "searches": [
+          "arXiv:2609.29332v1, Definitions 22 and 27",
+          "arXiv:2510.18718, AJR definition and random-election regimes",
+          "Resultary: Poisson critical window for distinctive representation in random approval elections exact quota supporters binomial coupling db3611093bd6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary db3611093bd6, RESULT.md offsets 0–3392, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4: same exact-quota DR event, supplied Poisson mean, count as the binomial coefficient of a Poisson variable, existence and supply regimes, and a finite coupling bound."
+        ],
+        "reasoning": "The exact theorem lookup, not a numerical table, gives the material match. Other Resultary voting hits involve different proportionality axioms or cooperative-game quantities. The distinct indexed record date does not by itself establish priority or derivation.",
+        "searches": [
+          "Local Resultary search for exact-quota DR, Poisson critical window and db3611093bd6"
+        ]
+      },
+      "rationale": "The distinct indexed record db3611093bd6 explicitly states the same quota-to-DR equivalence with exponential error and the same critical transformed-Poisson committee count and existence laws, in a moving-approval window that includes this one. This is demonstrable scientific overlap, not a finding about which record was first or its provenance. The explicit error in the frozen unconditional guarantee is weaker than the direct quantitative consequence of the earlier Elkind et al. JR proof, and the expectation and off-critical consequences do not leave a distinct substantial remainder.",
+      "residual_risks": [
+        "No historical priority or authorship finding is made about the two Resultary records. The dated paths distinguish records; they do not establish their derivation or first proof.",
+        "The literature comparison is bounded. The overlap finding uses the inspected theorem and the independently derived JR bound, not the fact that some retrieval attempts timed out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct statement overlap in core theorem; no inference of priority from indexed dates",
+          "evidence": "Same transformed-Poisson count, existence and supply regimes; allows p_n=1/k+β/√n+o(n^(−1/2)); gives a finite exponential coupling estimate.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-poisson-critical-window-for-distinctive-representation-in-random--db3611093bd6",
+          "material_read": "RESULT.md offsets 0–3392, local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4, and indexed summary",
+          "method": "Local Resultary search and bounded mirror passage; later repeat retrieval attempts timed out",
+          "title": "Poisson critical window for distinctive representation in random approval elections",
+          "trigger": "Central law and exact same representation axiom"
+        },
+        {
+          "assessment": "Published theorem is fixed parameter; its proof's probability gap directly yields stronger moving-parameter JR protection than advertised here",
+          "evidence": "Independent per-voter Bernoulli probability p(1−p)^s, explicit upper bound 1/(2s) used in Proposition 1, and union bound over subsets.",
+          "identifier_or_url": "https://arxiv.org/pdf/2108.12949",
+          "material_read": "Theorem 1 and Proposition 1, PDF pp. 4–6, text offsets 12850 and 17180",
+          "method": "Focused open-access PDF passages",
+          "title": "Justifying Groups in Multiwinner Approval Voting",
+          "trigger": "Earlier all-committee JR theorem and quantitative proof"
+        },
+        {
+          "assessment": "Same axiom in Definition 22; Local DR is not the quota condition",
+          "evidence": "JR and exactly ⌈n/k⌉ supporters in Definition 22; a JR-preserving local-swap condition in Definition 27.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.29332",
+          "material_read": "Definitions 22 and 27, windows near text offsets 36580 and 33700",
+          "method": "Focused open-access PDF passages",
+          "title": "Diverse Representation in Approval-Based Committee Voting",
+          "trigger": "Source of the exact-support DR definition and closely named variants"
+        },
+        {
+          "assessment": "Different axiom and fixed candidate-count regime",
+          "evidence": "Uses average satisfaction within cohesive groups, not exact individual candidate support quotas.",
+          "identifier_or_url": "https://arxiv.org/pdf/2510.18718",
+          "material_read": "PDF p. 1, text offsets 1200–3372",
+          "method": "Focused open-access PDF passage",
+          "title": "Likelihood of the Existence of Average Justified Representation",
+          "trigger": "Potential conflicting random approval representation threshold"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The critical DR supply curve and transformed committee count are meaningful scientific objects, but those substantive outputs are already matched by the distinct indexed finding. The remaining unconditional error constant is weaker than a direct consequence of the existing JR argument; the mean follows by an elementary factorial moment and polynomially bounded error. The record does not leave a separate, useful quantitative advance to repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

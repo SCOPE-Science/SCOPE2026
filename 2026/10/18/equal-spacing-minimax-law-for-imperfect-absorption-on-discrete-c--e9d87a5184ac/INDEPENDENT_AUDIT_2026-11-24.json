@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:25:36.748032Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The quadratic form is strictly positive since the cycle is connected and has a killed vertex. The minimum principle gives entrywise nonnegativity of the inverse, and symmetry identifies both induced endpoint norms with max u for the solution u of the killed Poisson equation with right side 1 (also the mean lifetime). Summing the equation fixes the mean trap value at q/kappa. On each arc of length ell the solution is the linear endpoint interpolation plus j(ell-j)/2. The symmetric two central positions, including both endpoints at ell=1, have average equal to the mean of their endpoint trap values plus floor(ell^2/4)/2. Averaging over all arcs counts each trap twice. Discrete convexity follows from the nondecreasing forward differences ceil(ell/2) of floor(ell^2/4); at mean gap q it gives the sharp geometric lower bound. Rotational symmetry of equal gaps makes all trap values identical, attaining the bound. The one-trap arc closes at the same vertex, and all traps gives 1/kappa. Nothing requires uniqueness of the optimal configuration.",
+      "reproduction": "python3 /workspace/review-evidence/frozen_math_crosschecks.py 1. Independent three-term transfer recurrence with exact rational 2-by-2 periodic matching, exhaustive placements for n in {3,4,6,8,9,10,12}, divisor trap counts, and strengths 1/7, 11/3, 23: 6852 cases, no lower-bound violation, equal-gap equality throughout (291 equality cases total). These finite checks are not an infinite proof or a classification of minimizers. The frozen script was inspected but not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The two-trap record optimizes the start-at-a-trap mean over separation and unequal allocations; the continuous point-interaction record optimizes the lowest eigenvalue with common coupling.",
+          "Aspelmeier et al. reduce a disordered problem to a one-trap ring approximation for survival. Only the title/access status of Evans–Nord was independently established."
+        ],
+        "reasoning": "A maximum over all starts is not the value at a trap, and varying allocations is a different optimization constraint. A spectral-radius formula or ground-state comparison is not an induced endpoint norm comparison. None of the accessible related results dominates the finite-strength all-starts theorem.",
+        "searches": [
+          "Resultary 1d0b240643bd imperfect two-trap placement and allocation; e80ea5c2ae33 all-coupling point interactions",
+          "arXiv:cond-mat/0107434; DOI 10.1103/PhysRevA.32.2926"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, REVIEW.md, AUDIT.json overlap locator, and verify.py",
+        "Indexed entries 252203f12810, 92f6fe5e6a15, 1d0b240643bd, e80ea5c2ae33 and summary 20df106d32f1",
+        "cond-mat/0107434 abstract; Robledo–Woodhouse indexed abstract/snippet; Evans–Nord bibliographic record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In e80ea5c2ae33 the optimized quantity is k^2, with equidistant k determined by a tangent equation in continuous space; the frozen objective is max of the response to constant unit forcing on the discrete cycle.",
+          "At equal gaps one can calculate the frozen value directly, but the derivation of the global lower bound uses trap mass balance and midpoint averaging for arbitrary gaps."
+        ],
+        "reasoning": "The two objective functionals are not interchangeable: for a positive matrix the largest eigenvalue need not equal the largest row sum, even with symmetry. Knowing a perfect-trap optimum plus a finite-strength equal-spacing value does not give the sharp lower bound at finite strength without the arbitrary-placement conservation argument.",
+        "searches": [
+          "Resultary e80ea5c2ae33 Finding and 1d0b240643bd Finding",
+          "Robledo–Woodhouse indexed abstract and Aspelmeier et al. arXiv abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed cycle placement result 252203f12810 concerns discounted hitting domination with source failures, not lifetimes of imperfect traps.",
+          "The 1978 abstract describes one or multiple equally spaced traps on a ring under discrete or exponential step timing; it does not document optimization over arbitrary placements at positive killing strength."
+        ],
+        "reasoning": "The exact equivalent objective is max of the mean lifetime from each start, by nonnegative Green row sums. Discounted first hitting of a trap only records the first visit, not subsequent visits before imperfect absorption. Calculating a lifetime at a fixed spacing does not give the universal lower bound across competing placements.",
+        "searches": [
+          "Resultary: cycle placement equally spaced traps minimax maximum mean lifetime imperfect absorption discrete cycle resolvent",
+          "Resultary: all trap placements cycle absorbing sites optimal mean absorption finite cycle multiple traps",
+          "DOI 10.1007/BF01012507, Springer-indexed abstract"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day conductance record treats a mean-zero Laplacian pseudoinverse with a changed edge. The grounded-cycle hit is index-summary only and reports heat/inverse spectral objectives. The 1978 source has only abstract/snippet evidence available."
+        ],
+        "reasoning": "Neither index hit concerns the exact killed row-sum invariant. A finite perfect-trap table, even if found, would at most check the limit as kappa tends to infinity, not the continuous positive-strength minimax law. No exact matching dataset or formula was verified.",
+        "searches": [
+          "Resultary: cycle placement traps endpoint resolvent norm positive killing strength equally spaced prior result",
+          "Resultary 92f6fe5e6a15, 20df106d32f1; Springer search for Robledo–Woodhouse §4"
+        ]
+      },
+      "rationale": "The distinct supported claim is the sharp global worst-start minimax with an explicit geometric and finite-killing decomposition for every positive common strength and divisor trap count. Equal spacing, the calculation for one predetermined placement, and perfect-trap or spectral objectives are not credited as new by themselves. The closest accessible indexed and primary evidence concerns different objectives or only a restricted configuration. Access limitations are real and preclude a priority guarantee, but no inspected statement establishes the global positive-strength endpoint theorem or implies it.",
+      "residual_risks": [
+        "Robledo–Woodhouse full text was inaccessible and may contain a stronger ring comparison than the abstract shows.",
+        "Evans–Nord full text and the indexed grounded-cycle result were not read; possible perfect-trap or related spacing overlap remains open. Search was bounded, so no exhaustive priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial evidence; leaves unresolved full scope, especially perfect-trap limit and any comparison theorem.",
+          "evidence": "One or equally spaced multiple traps in a one-dimensional ring; discrete or exponential stepping times. These passages do not assert a global finite-killing worst-start theorem.",
+          "identifier_or_url": "https://doi.org/10.1007/BF01012507",
+          "material_read": "Indexed publisher abstract and §4 search snippet; full article unavailable",
+          "method": "Literature search then lawful publisher/OA attempts",
+          "title": "Multiple trapping of random walkers on periodic lattices",
+          "trigger": "Closest historical ring and equal-spacing match"
+        },
+        {
+          "assessment": "Open comparison at the abstract/full-proof level, not established noncoverage.",
+          "evidence": "The title puts the paper in the relevant multiple-trap literature but does not specify the norm or trapping strength.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevA.32.2926",
+          "material_read": "Bibliographic title only; article passages not retrieved",
+          "method": "Lawful DOI and publisher PDF attempts; no accessible alternate located",
+          "title": "Random walks on finite lattices with multiple traps: Application to particle-cluster aggregation",
+          "trigger": "Finite lattice multiple-trap formula risk"
+        },
+        {
+          "assessment": "Examined abstract describes different reduction and observable; not a whole-document noncoverage claim.",
+          "evidence": "Perturbative survival approximation using a ring with one trap and randomly distributed trap input; exact for perfect traps in the stated approximation setting.",
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0107434",
+          "material_read": "Primary abstract, PDF p.1 offset 0",
+          "method": "Lawful OA PDF; subsequent passage attempts did not return",
+          "title": "Random walks with imperfect trapping in the decoupled-ring approximation",
+          "trigger": "Imperfect absorption and ring"
+        },
+        {
+          "assessment": "Different operator and different functional.",
+          "evidence": "Ground-state eigenvalue of a continuous periodic Schrödinger operator with delta jumps, uniquely maximized by equal spacing.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-all-coupling-equidistant-maximizer-for-repulsive-point-interacti--e80ea5c2ae33/RESULT.md",
+          "material_read": "Finding and assumptions, offsets 0–2146",
+          "method": "Local mirror, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "All-coupling equidistant maximizer for repulsive point interactions on a loop",
+          "trigger": "Exact equal-spacing result at arbitrary common positive strengths"
+        },
+        {
+          "assessment": "Shared model family, different starting objective and allocation degrees of freedom.",
+          "evidence": "Optimizes lifetime starting at one trap for exactly two traps and fixed total budget, permitting unequal killing rates.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-antipodal-placement-and-a-three-quarter-allocation-limit-for-two--1d0b240643bd",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local mirror",
+          "title": "Antipodal placement and a three-quarter allocation limit for two imperfect traps on a cycle",
+          "trigger": "Closest indexed imperfect-trap lifetime optimization"
+        },
+        {
+          "assessment": "Nonmatching hitting objective and decision variable.",
+          "evidence": "Feasible cyclic-gap criteria for failure-robust source count and discounted first-hit probabilities.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-sharp-fault-tolerant-discounted-hitting-domination-on-cycles--252203f12810",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local mirror",
+          "title": "Sharp fault-tolerant discounted hitting domination on cycles",
+          "trigger": "Earlier cycle placement optimization"
+        },
+        {
+          "assessment": "Distinct invariant; not discarded on date.",
+          "evidence": "One conductance perturbation and a mean-zero pseudoinverse, not nonzero site killing and the ordinary killed inverse.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-quarter-cycle-amplification-law-for-a-single-weak-conductance--92f6fe5e6a15",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local mirror",
+          "title": "A quarter-cycle amplification law for a single weak conductance edge",
+          "trigger": "Same-day cycle endpoint norm result"
+        },
+        {
+          "assessment": "Summary-level perfect-grounding/spectral overlap only; exact hypotheses unverified.",
+          "evidence": "Summary concerns heat traces, inverse spectral moments and covariance under perfect grounding.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-all-time-schur-convexity-of-grounded-cycle-heat-traces-and-exact-optimal-leader-spacing--20df106d32f1",
+          "material_read": "Resultary summary only; mirror passage unavailable",
+          "method": "Index search and local-mirror attempt",
+          "title": "All-time Schur-convexity of grounded cycle heat traces and exact optimal leader spacing",
+          "trigger": "Potential stronger cycle placement theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Worst-case mean lifetime is a natural performance criterion for spatially deployed imperfect traps. The theorem computes it exactly for the best configuration across all common finite strengths and separates absorption cost from discrete diffusion cost, with the same optimal deployment throughout. Neither a mean-start statistic nor a spectral decay-rate estimate answers this placement question.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

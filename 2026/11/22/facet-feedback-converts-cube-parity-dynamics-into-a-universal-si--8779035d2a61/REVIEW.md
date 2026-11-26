@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The state domain and face-dependent update are explicit. The commuting coordinate involutions give a square-zero correction to the two-dimensional order-three matrix. The exact identities for the second, third and sixth iterates establish invertibility and the period bound; a block-kernel calculation establishes the necessary rank in all dimensions. The fixed-space count gives exact primitive temporal orbit counts, and the full rank of the quadratic polynomial yields the claimed companion-block canonical form. Both independently organized computational programs were replayed successfully from the current package; finite tests support but do not replace the proof.
+PASS
 
-## Originality — PASS, qualified
+For m=d-1 the coordinate flips commute and square to I. The normalized neighbor part N=A_m+(m mod 2)I squares to zero; its two-by-two block equations show that the kernel is the graph of an involution, so its rank is 2^(m-1) for m>=1. Writing F=C⊗I+I⊗N and p=t²+t+1 gives p(F)=I⊗N, F³+I=C²⊗N, F⁶=I and F²+I=C⊗I invertible. Thus exactly q^(2^(d-1)) states are fixed by F³, only zero is fixed by F², and all states outside Fix(F³) have least period six. Dividing the populations by their respective least periods counts labelled temporal orbits. For the compressed cyclicity step in RESULT.md line 65, p(F)≠0 alone is not enough if p splits, but the displayed tensor form gives the full argument: for a Jordan pair Ne₂=e₁ take u=(1,0) and w=u⊗e₂. The vectors w,Fw,p(F)w,Fp(F)w are independent, since the first two project to u,Cu in the e₂ quotient and the last two give u,Cu in the e₁ subspace. Thus each four-dimensional summand is cyclic over every stated field. For d=1 only C remains, of order three and with no nonzero fixed state. The unmodified parity law follows by squaring the sum of flips. Inspected verify_algebra.py, verify_direct.py and their recorded outputs, not executed: the former checks binary matrices through d=8, the latter exhausts the listed finite (d,q) cases. The general proof does not depend on these checks.
 
-The 2008 XOR-network preprint describes general matrix methods and random directed networks, not cubical face feedback. The fully read one-site and two-site cube theorems establish parity-dependent behavior under one or two diagonal defects; a facet in dimension at least three has at least four modified vertices. The fully read one-edge-deletion cube theorem treats a rank-two off-diagonal change. Neither has a hypothesis that includes simultaneous feedback on all vertices of one facet, nor a conclusion that implies the uniform invertibility/canonical form proved here. Targeted literature and database searches found no explicit all-dimensional facet-loop period-six theorem. The searches cannot rule out unindexed equivalents; a 1984 general-methods monograph-scale paper was not fully accessible in this search route.
+## originality
 
-## Value — PASS
+PASS
 
-The codimension-one face is a canonical and geometrically natural feedback region, not an arbitrary parameter slice. The unmodified cube has two incompatible parity phases (complete two-step extinction versus involutive reversibility); the same facial change replaces both by one universal six-step permutation, with no transient states. The exact companion-block decomposition and orbit populations provide an interpretable all-size classification that is not contained in the one-site and edge-deletion perturbation formulas.
+Prior characteristic-two cube perturbations include periods three and six and even the same four-dimensional polynomial. The supported distinction is coefficient-one diagonal self-input on an entire coordinate facet, with the whole state space reversible and composed solely of identical cyclic blocks in both parities, giving the stated counts. No inspected stronger statement covers that combination.
 
-## Limits
+## value
 
-This is a self-review, not independent validation or a claim of exhaustive historical priority. The proof applies to finite characteristic-two fields, one full coordinate facet, and synchronous linear neighbor sums. Partially accessible literature leaves a historical-priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A coordinate facet is a natural feedback geometry. The same modification converts the square-zero even-dimensional and involutive odd-dimensional regimes into a common reversible dynamics. The whole-space cyclic decomposition and exact configuration populations add predictive information beyond discovering that some six-cycles exist.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

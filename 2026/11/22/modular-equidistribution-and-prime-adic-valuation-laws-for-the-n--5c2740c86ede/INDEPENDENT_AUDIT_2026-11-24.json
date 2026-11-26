@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:42:48.348973Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§ Finding, Proof 1–5; VERIFICATION.md; check.py",
+        "Independent quadratic-integer recurrence, modular orbit and finite parity checks"
+      ],
+      "rationale": "The two parity-dependent digit matrix rows follow from the normalized Z[√2] recurrence; determinant one preserves primitivity. At even parity, digit 0 and digit 2 provide lower-by-2 and upper-by-1 transvections. At 2^k an upper, then lower, then upper word produces (t+s(2t+1),2t+1) from (0,1), giving every admissible pair since the second coordinate is a unit. At each odd prime power the transvections give the primitive orbit by elimination. Choose exponents by CRT to isolate any one local factor; negative powers are realizable by positive powers on the finite state space. Digit 1 carries the full even layer bijectively onto the odd layer. The three digit permutations give uniform stationarity, the orbit gives irreducibility, and the digit-0 loop at the seed gives aperiodicity. Aligned ternary suffix blocks give the power saving on ordinary prefixes (take an exponential contraction factor greater than 1/3 when summing the geometric errors). CRT and counting second coordinates yield the stated marginals, and differences of divisibility tails give the valuation laws and independence at finitely many primes. The mod-2 return probabilities follow from diagonal projections of weights 1/4,1/4,1/2 at eigenvalues 3,−1,1 of the digit-count matrix. Fresh independent checks matched 2187 digit states and all orbits at 2≤m≤12; exact parity counts through L=5 were 1,1,3,7,21,61.",
+      "residual_risks": [
+        "The finite checks are not a proof of the unlimited modulus claim. The proof provides only a fixed-modulus power saving, and excludes only the density-zero term c_0 from valuation statistics."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Reznick proves a fixed-modulus power saving for primitive pairs of the classical Stern enumeration, with its coordinate marginal as a corollary.",
+          "The equal-digit finite-chain argument does apply once transitivity and aperiodicity have been established for the Northshield matrices; the nonunit lower entry at powers of 2 changes the primitive orbit there."
+        ],
+        "reasoning": "Prior methodology and an adjacent theorem do not supply the parity-dependent orbit needed for this particular sequence.",
+        "searches": [
+          "arXiv:math/0610601 §4 fixed-modulus equidistribution",
+          "Northshield §2 on its analogue and normalization"
+        ]
+      },
+      "checked_sources": [
+        "Reznick arXiv:math/0610601",
+        "Northshield JIS 15.11.6",
+        "Spiegelhofer arXiv:1709.05651",
+        "Local Resultary Stern congruence records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The main new proof step is the CRT product orbit with the even-layer restriction b odd at 2^k and its digit-1 image.",
+          "The finite L parity count uses the ternary four-state digit-count matrix with eigenvalues 3,−1,1,1, not just a limiting law or a binary transfer."
+        ],
+        "reasoning": "Standard finite-chain convergence and summation of marginals are routine. The specific support and exact ternary parity law are not implied by the inspected classical results.",
+        "searches": [
+          "arXiv:math/0610601 Theorem 4.7 versus RESULT.md Proof 2–5",
+          "Local Resultary classical Stern exact triple congruence RESULT.md, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Northshield's recurrence is the same before extracting c_n; Spiegelhofer proves base-three digit reversal b_n=b_{n^R}.",
+          "The binary Stern pair's primitive-pair law has the same odd-prime-power marginal but even-coordinate density 1/3 modulo 2, versus 1/4 for c_n."
+        ],
+        "reasoning": "The binary Stern law is not an equivalent formulation of the parity-conditioned ternary law. Neither rational enumeration nor reversal asserts transitivity of these residue states.",
+        "searches": [
+          "Northshield, JIS 18 (2015), article 15.11.6, §2",
+          "arXiv:1709.05651, Theorem 1.1",
+          "arXiv:math/0610601, Theorem 4.7 and Corollary 4.8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/18/SCOPE-exact-three-term-congruence-law-for-stern-s-diatomic-sequence--2ccf8df2e88c gives exact classical Stern triple densities evaluated using primitive-pair uniformity and terminal binary runs.",
+          "2026/10/18/SCOPE-exact-four-term-residue-densities-and-support-counts-for-the-ste--ee10caa284d0 similarly treats four consecutive classical Stern coefficients. The present record's self-hit is not evidence of precedence."
+        ],
+        "reasoning": "The longer windows are on a different binary sequence; neither covers the exact Northshield state law or parity population.",
+        "searches": [
+          "Local Resultary: normalized Northshield sequence ternary Stern pair modulo arbitrary moduli, valuations and parity"
+        ]
+      },
+      "rationale": "Credit the normalization's defining recurrence to Northshield, the reversal symmetry to Spiegelhofer, and the primitive-pair Markov-chain method and odd-prime-power marginal analogue to the literature on classical Stern. The supported new contribution is the normalized Northshield all-modulus state support and its law, notably the distinct 2-adic factor and exact complete-block parity count. The valuation formulas are consequences of the new joint law, not separate priority claims.",
+      "residual_risks": [
+        "Bounded passages do not settle absolute priority for the normalized sequence. The relevant Deshouillers–Schinzel DOI route did not yield paper full text; Reznick supplies an accessible classical pair antecedent, not a substitute for that inspection."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact analogue for binary Stern, not a theorem on c_n",
+          "evidence": "Fixed-d pair counts are N/N_d+O(N^{τ_d}) on all primitive pairs, without the parity-conditioned support of the target.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0610601",
+          "material_read": "§1 equation (1.10), p. 3; §4 Theorem 4.7 and Corollary 4.8, p. 11, OA offsets 6218 and 30650",
+          "method": "OA PDF statement comparison",
+          "title": "Regularity Properties of the Stern Enumeration of the Rationals",
+          "trigger": "Closest applicable primitive-pair equidistribution and prefix error"
+        },
+        {
+          "assessment": "Same underlying recurrence; inspected passage not the modular state theorem",
+          "evidence": "The defining algebraic-integer recurrence agrees; the cited setup concerns rational enumeration, generating functions and closed forms.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL18/Northshield/north4.pdf",
+          "material_read": "Abstract and §2, p. 2, OA offset about 4800",
+          "method": "OA PDF recurrence comparison",
+          "title": "An Analogue of Stern's Sequence for Z[√2]",
+          "trigger": "Original sequence and hypotheses"
+        },
+        {
+          "assessment": "Digit symmetry rather than residue frequencies",
+          "evidence": "Its theorem equates terms at indices related by reversal of ternary digits.",
+          "identifier_or_url": "https://arxiv.org/pdf/1709.05651",
+          "material_read": "Theorem 1.1, p. 2, OA offset about 4600",
+          "method": "OA PDF statement comparison",
+          "title": "A Digit Reversal Property for an Analogue of Stern's Sequence",
+          "trigger": "Same ternary sequence and digit description"
+        },
+        {
+          "assessment": "Distinct binary sequence",
+          "evidence": "The triple law conditions on terminal binary runs of the classical sequence rather than using the Northshield parity-dependent matrices.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-three-term-congruence-law-for-stern-s-diatomic-sequence--2ccf8df2e88c",
+          "material_read": "RESULT.md, main triple law and primitive-pair reduction, local snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary mirror and statement comparison",
+          "title": "Exact three-term congruence law for Stern's diatomic sequence",
+          "trigger": "Closest indexed all-modulus density"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md §§ Finding, Proof 2–5",
+        "Reznick Theorem 4.7 and Corollary 4.8"
+      ],
+      "rationale": "This is a complete, fixed-modulus distribution on a natural ternary rational-enumeration sequence. It identifies a systematic 2-adic bias that differs from the familiar binary model and recovers exact parity counts before taking limits. The orbit support and the bias, rather than the standard convergence argument, give the scientific value.",
+      "residual_risks": [
+        "No uniform spectral gap as the modulus grows, or infinite-prime joint law, is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

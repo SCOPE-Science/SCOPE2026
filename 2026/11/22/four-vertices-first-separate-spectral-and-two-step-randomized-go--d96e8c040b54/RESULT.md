@@ -19,7 +19,7 @@ equivalently, it is the unique root in \((39/100,2/5)\) of
 \[
 116b^6-1760b^5+8175b^4-18554b^3+18203b^2-6396b+648=0.
 \]
-The sharp two-round factor is \(\rho_2^*=F(b_*)=0.77455285319149403\ldots\). By contrast, minimizing the sharp **single-round** expected squared-disagreement factor gives the unique law \((3/10,2/5,3/10)\). It incurs a strictly larger exact two-round factor
+The sharp two-round factor is \(\rho_2^*=F(b_*)=0.77455285319149393\ldots\). By contrast, minimizing the sharp **single-round** expected squared-disagreement factor gives the unique law \((3/10,2/5,3/10)\). It incurs a strictly larger exact two-round factor
 \[
 F(2/5)=\frac12+\frac{\sqrt{754}}{100}=0.7745906043549196\ldots.
 \]
@@ -60,7 +60,7 @@ For \(0\le b<1\), \(A_{11}(b)-S(b)=3(1-b)(b+2)/16>0\), so the largest eigenvalue
 \[
 q''(b)=\frac{3\alpha^2+10\alpha\beta+7\beta^2}{8}>0.
 \]
-The simple-eigenvalue derivative formula gives \(q'(b_0)=F'(b_0)=0\). For any \(b\ne b_0\), \(F(b)\ge q(b)>q(b_0)=F(b_0)\). Thus **every interior stationary point is the unique global minimizer**, so there is exactly one. Exact rational sign checks give \(F'(39/100)<0<F'(2/5)\), isolating it as stated. Differentiation and clearing the strictly positive radical yield the displayed sextic. At \(2/5\), \(F'(2/5)=-3/16+441\sqrt{754}/60320>0\), proving the strict mismatch and exact benchmark value.
+The simple-eigenvalue derivative formula gives \(q'(b_0)=F'(b_0)=0\). For any \(b\ne b_0\), \(F(b)\ge q(b)>q(b_0)=F(b_0)\). Thus **every interior stationary point is the unique global minimizer**, so there is exactly one. Write \(Q(b)=29b^4-150b^3+281b^2-132b+36\) for the radicand and \(P(b)\) for the displayed sextic. On \([39/100,2/5]\), \(7-10b>0\) and \(Q'(b)=116b^3-450b^2+562b-132>0\), the latter by bounding the quadratic term at \(2/5\) and the linear term at \(39/100\) and dropping the positive cubic term. Therefore the sign of \(F'(b)\) there is the sign of \(Q'(b)^2-4(7-10b)^2Q(b)=16P(b)\), with no extraneous roots from squaring. The latter expression takes values \(-1178977249431/15625000000\) and \(1589184/15625\) at the respective endpoints, giving the isolating interval and unique root as claimed. At \(2/5\), \(F'(2/5)=-3/16+441\sqrt{754}/60320>0\), proving the strict mismatch; direct substitution gives the exact benchmark value.
 
 **Third, the one-round and minimality assertions hold.** On the reflection-symmetric four-path, the odd-sector top eigenvalue of \(M_1(p)=\sum_i p_iW_i\) is
 \[
@@ -78,7 +78,7 @@ Boyd, Ghosh, Prabhakar and Shah (2004, 2006) establish the random pairwise avera
 
 ## Limitations
 
-The numerical improvement over applying the unique one-round-optimal law for two draws is approximately \(3.7751\times10^{-5}\) in the squared-disagreement factor, so the immediate performance gain in this small network is modest. The mathematical point is the first exact failure of the common one-round surrogate at a finite horizon, not a claimed large-scale speedup. This does not optimize a random stopping time, a high-probability mixing bound, a nonidentically distributed two-round policy, or the long-run mean-square exponent. Independent mathematical review and a definitive priority determination have not occurred.
+The numerical improvement over applying the unique one-round-optimal law for two draws is approximately \(3.7751\times10^{-5}\) in the squared-disagreement factor, so the immediate performance gain in this small network is modest. The mathematical point is the first exact failure of the common one-round surrogate on paths at horizon two, not a claimed large-scale speedup. This does not optimize a random stopping time, a high-probability mixing bound, a nonidentically distributed two-round policy, or the long-run mean-square exponent. The literature comparison is not an exhaustive priority determination.
 
 ## References
 

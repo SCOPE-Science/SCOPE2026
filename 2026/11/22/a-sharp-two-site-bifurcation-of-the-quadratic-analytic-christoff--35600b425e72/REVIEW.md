@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof independently derives all moments of the weighted elliptical measure by beta integrals and an explicit orthonormal analytic basis. It reconstructs the exact quartic diagonal and exhibits nonnegative polynomial identities giving global lower bounds and complete equality sets. The ellipse-interiority inequality, threshold sign analysis, and the quartic critical boundary are exact. The companion checker exercised 3,867 exact-rational diagnostic assertions, including a rational parameter on the boundary. The finite checker is only a diagnostic; the displayed symbolic identities establish the all-parameter theorem.
+## correctness
 
-**Originality — PASS (best-knowledge).** The public 2019 preprint and open-access 2020 article by Akemann–Nagao–Parra–Vernizzi were inspected in the discussion of elliptical Gegenbauer orthogonality, polynomial norms, and kernel formulas. They establish the underlying orthogonal family but do not state the exact global degree-two diagonal-minimum bifurcation. The Christoffel-kernel perturbation article of Beckermann–Putinar–Saff–Stylianopoulos concerns general kernels and perturbations, not the proposed ellipse aspect threshold. Related investigations of zeros of truncated elliptical Bergman kernels concern off-diagonal zeros, not minimizers of the positive diagonal. Historical priority is provisional because an explicit elementary low-degree consequence might have appeared independently; searching titles and abstracts is not a novelty proof.
+PASS
 
-**Value — PASS.** Finite analytic Christoffel functions provide the evaluation-norm scale for polynomial approximation and weighted least squares. Despite central symmetry of the ellipse and positive radially decreasing transformed weights, the first nontrivial finite degree admits an unexpectedly off-center pair of *global* least-evaluation-norm sites. The result gives a natural complete classification, an explicit sharp geometric threshold depending on the weight, and the exact optimum and equality sites, rather than an arbitrary low-degree numerical example. It is specifically a degree-two theorem; no higher-degree or unrestricted Christoffel assertion is implied.
+Normalize by z=au+ibv on the unit disk. The squared disk radius has the Beta(1,α+1) law; angular averaging gives second moments 1/(2s), single-coordinate fourth moments 3/[4s(s+1)] and the mixed fourth moment 1/[4s(s+1)]. Central symmetry and subtraction of c²/(2s) in degree two give the orthogonal basis and squared norms c²R/(2s) and c⁴D/[4s²(s+1)]. In the resulting quartic diagonal, the angular penalty B−A is positive and the coefficient A of x² has the sign of P. If P≥0 only the origin achieves the lower bound, and when P=0 the real-axis expansion starts with a positive quartic. If P<0, completing the square gives C(x²+y²−x_*²)²+(B−A)y² above the minimum, with x_*²=−A/(2C). This vanishes only at the two real sites; −P<2(s+1)R puts both strictly inside the ellipse. Subtracting A²/(4C) gives the stated minimum. P(1)=−3, P has exactly one positive root, and R increases with b/a; the stated critical examples follow by substitution. The reciprocal has the same maximizing sites. This proof applies to the complex analytic space through degree two, not the real bivariate or infinite Bergman kernel. Inspected VERIFICATION.md and CHECK.py without executing the supplied checker; its rational checks do not prove the all-parameter statement.
 
-**Closest literature and limitations.** Akemann et al. arXiv:1905.02397 (2019), https://doi.org/10.1007/s00365-020-09515-0, supplies planar Gegenbauer orthogonality; Beckermann et al. arXiv:1812.06560 (2018) gives a general Christoffel framework. The current novelty comparison cannot rule out synonymous statements in older exact low-order moment work or descriptions absent from searchable abstracts. External independent validation was not conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The weighted Gegenbauer basis is known and yields the kernel by summation. The supported distinct claim is the sharp global diagonal-minimum and equality-site phase classification as aspect ratio varies, not a new orthogonal polynomial or a new general kernel formula. The closest distinct catalogue records either change the optimization objective or study a different slice of a kernel. The exact catalogue hit is 35600b425e72 itself. Priority is best-of-knowledge only.
+
+## value
+
+PASS
+
+The result describes the location of best reciprocal Christoffel values on a standard domain and identifies the first polynomial degree at which symmetry can break. It determines both sharp interior equality sites and a quartic-flat critical case uniformly in the admissible weight, a genuine shape effect not read off from positivity or symmetry of the kernel.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

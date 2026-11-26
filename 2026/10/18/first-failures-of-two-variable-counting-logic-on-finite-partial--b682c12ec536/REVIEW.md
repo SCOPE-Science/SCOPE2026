@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Every \(n\)-element poset arises from an \((n-1)\)-element poset by adjoining one maximal vertex whose strict predecessor set is a lower ideal. Exhaustive generation with exact isomorphism elimination therefore checks every isomorphism class up to order eight. The globally coordinated three-atomic-type refinement correctly represents \(C^2\) equivalence for a single binary partial-order predicate. The supplied checker confirms the independently tabulated poset counts, the sequence of \(C^2\)-class counts, exactly two eight-vertex ambiguity classes and both explicit pairs. Its size cutoff is expressly finite.
+## correctness
 
-## Originality — PASS with residual risk
-The closest framework, Kiefer–Schweitzer–Selman's general counting-logic characterizations (2015), provides the coarsest-equitable-partition criterion but does not state a first poset ambiguity threshold or enumerate its two exceptional poset pairs. Brinkmann–McKay (2002) and OEIS A000112 tabulate unlabeled poset counts, not their logical quotient. Searches for finite-poset \(C^2\) equivalence, sharp smallest counterexamples, degree-incidence witnesses, and exact eight-point classification did not return the same statement or a tabulation implying it directly. A general characterization plus 16,999 enumerated objects permits the computation but does not supply the counted answer by itself. Earlier unpublished or unindexed logical tabulations remain a genuine priority risk; failure to locate one is not a proof of historical uniqueness.
+PASS
 
-## Value — PASS
-The minimum failure of \(C^2\) identification is a natural logical invariant for the class of partial orders. The complete first layer is informative: it contains exactly two inequivalent mechanisms, a degree-regular two-level incidence-cycle ambiguity and a composite-incidence ambiguity in height three. This sharp small-model boundary can serve as a concrete benchmark for logical invariants and finite-poset classification, rather than an arbitrary selected slice or a mere object-count recomputation.
+Removing a minimal element gives a smaller poset; its strict successors form an upper ideal, and adjoining a minimal point below every member of an upper ideal produces a poset. I used this dual enumeration instead of the supplied maximal-element program, deduplicating by the least full relation encoding over permutations within invariant in/out-degree blocks. Counts through eight were 1,2,5,16,63,318,2045,16999; 48346 candidate extensions entered the last deduplication. Joint exact refinement gave 1,2,5,16,63,318,2045,16997 classes and the only nontrivial class sizes were 2,2. For the poset signature, strict lower, strict upper, equality and incomparability exhaust pair types. Incomparability counts are recovered by subtracting the two strict counts and the diagonal from the colour histogram. If histograms differ at any round, the difference persists; when equal, these recovered counts therefore yield the same comparison as full pair-type refinement. Stable colours characterize the C² theories, and size is expressible by counting, so all possible finite competitors are included. I verified that the two frozen witness pairs are strict posets and that their canonical classes match exactly both collisions. Height-two connectivity and the height-three middle multiplicity matrices also distinguish the members without a computer.
 
-## Scope and limitations
-The comparison class is finite posets only, not arbitrary relational structures. The claim holds in the pure order signature, with no auxiliary colours or constants; the census ends at eight points. Numerical correctness comes from exhaustive standard-library code plus independent object totals, but the priority assessment cannot rule out unknown sources.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The result is distinct from earlier examined work on general C² identification and from the poset object census. There is exact overlap with the later-dated November 8 Resultary record, which also proves an all-larger-orders existence statement; this is not an unmatched finding in the current index. On the available evidence the later match does not preempt the frozen October 18 result, and no earlier result inspected already gives the restricted cutoff and complete collision layer. This is not a priority certificate or a determination that the two records were independently obtained.
+
+## value
+
+PASS
+
+It fixes the first loss of expressive separation for a canonical logic on a standard relational class, and identifies all minimal counterexamples rather than a selected pair. In particular the two witness mechanisms distinguish regular incidence from different middle-incidence multiplicities despite full in/out counting. The exact census and explicit witnesses are usable benchmarks for algorithms and structural classification at the minimal size.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

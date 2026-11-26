@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:16:52.361268Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–130, VERIFICATION.md, verify.py (inspected, not executed)",
+        "Independent moment-equation replay: python /workspace/evidence/replay.py 4",
+        "Separate Lagrange-based check: /workspace/branches/d078553f-2160-4447-8f55-843ec801beef/independent_floquet_check.py"
+      ],
+      "rationale": "I solved the degree-one to degree-four interpolation moment equations directly in first differences, and formed the product of the three resulting companions. Its cubic z³+az²+bz+c gives a=2U/D,b=V/D,c=−W/D, with D>0. The replay verifies positivity of the three other cubic Schur expressions by positive coefficients and 1−a+b−c=−8(R+3)P/D. Descartes' rule and the signs at 59 and 60 certify the unique positive zero; a negative-axis intermediate-value argument gives a root below −1 for every larger R. At the boundary write q=(z+1)(z²+Bz+C), with B=a−1 and C=c. The quadratic has |C|<1, 1+B+C=q(1)/2>0, and 1−B+C=(1−b+ac−c²)/(1−C)>0, so −1 is simple. The full-value monodromy also has the separate constant multiplier 1; since 1 is absent from the difference spectrum throughout the power-bounded interval, no Jordan coupling at 1 can cause growth. Independent row power limits and direct characteristic coefficients recover the limiting singular polynomial; the nonzero factor has |b_lim|<1, 1+a_lim+b_lim>0 and 1−a_lim+b_lim=8(2−s)/(7(s+2)). At s=2 its roots are −1 and −1/14. Continuity of the cubic roots gives the asserted large-R finite-grid conclusions for fixed s≠2, not a finite-R classification at s=2.",
+      "residual_risks": [
+        "These are fixed-pattern homogeneous Floquet results. They are not an arbitrary-grid stability bound, a convergence theorem on nonzero ODEs, or a result about finite R at the singular frontier s=2."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Söderlind–Fekete–Faragó require meshes from smooth deformations, with adjacent ratios 1+O(N⁻¹). Calvo–Grande–Grigorieff was identified as a broader variable order/stepsize BDF zero-stability work, but the primary full text was not obtained."
+        ],
+        "reasoning": "A fixed nonuniform repeating pattern fails the smooth-grid ratio hypothesis for large N even after common scaling. Sufficient general mesh-ratio bounds alone would not imply a necessary-and-sufficient Floquet threshold or its limiting spectrum; the exact specialist comparison with Calvo et al. remains open.",
+        "searches": [
+          "arXiv:1804.04553, p. 1",
+          "Calvo–Grande–Grigorieff, DOI 10.1007/BF01386395"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md prior-work section",
+        "Resultary 4a7134a4fc58 and 90fe05898983",
+        "arXiv:1804.04553",
+        "DOI 10.1090/S0025-5718-1986-0856699-X, 10.1007/BF01386395 and 10.1137/0720056 (bibliographic scope and retrieval attempts only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known constructions and the paired-step result describe transfer-matrix stability for other setups; available smooth-grid results are restricted to ratios asymptotically one. A targeted search returned no further lead; that is not evidence of absence."
+        ],
+        "reasoning": "Neither an interpolation-weight formula nor stability on another mesh determines z=−1 crossing in this monodromy. That determination requires recomputing the cubic and its Schur signs and, independently, resolving the singular high-contrast limit. No verified earlier implication covers those facts.",
+        "searches": [
+          "Resultary 4a7134a4fc58, mirrored RESULT.md, offset 0",
+          "arXiv:1804.04553, p. 1",
+          "Skeel 1986 and Calvo–Grande–Grigorieff 1990, DOI retrieval"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The nearest BDF4 indexed theorem concerns the repeating four-step word (h,rh,rh,h). The Skeel–Jackson citation concerns Nordsieck methods; primary full text was not obtained. The classical Skeel variable-step construction was identified but the AMS PDF and author-upload access did not yield readable primary text in this audit."
+        ],
+        "reasoning": "For a genuinely nonconstant triple, a cyclic shift or common rescaling cannot turn a period-three mesh into the paired-step period-four family. Changing BDF adaptation can change the recurrence, so a Nordsieck stability result cannot be assumed equivalent. The general variable-coefficient construction supplies the weights, not on the available evidence their specialized Floquet classification.",
+        "searches": [
+          "Targeted primary-literature lookup for BDF4 three-periodic Floquet thresholds",
+          "Skeel 1986 DOI 10.1090/S0025-5718-1986-0856699-X",
+          "Skeel–Jackson 1983 DOI 10.1137/0720056",
+          "Resultary 4a7134a4fc58"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "4a7134a4fc58 states uniform damping below 1/√21 for paired-step BDF4. 90fe05898983 describes BDF3 on arbitrary positive three-periodic triples."
+        ],
+        "reasoning": "The first indexed comparison uses a different period and yields no finite crossing; the second changes the number of interpolation nodes and the difference-state dimension. Neither provides the polynomial P, the (1,R,3) threshold, or the BDF4 singular frontier. Same-day entries were compared on content, not chronological assumptions.",
+        "searches": [
+          "Local Resultary lookup for genuine variable-step BDF4 on a three-periodic pattern, sharp Floquet multipliers and singular frontier",
+          "Resultary 4a7134a4fc58 and 90fe05898983"
+        ]
+      },
+      "rationale": "The supported distinct claims are the explicit finite high-contrast threshold for genuine BDF4 on (1,R,3) and the full fixed-s singular frontier. Nearby indexed Floquet results change the mesh word or the order; the smooth-grid theory does not cover this high-contrast recurring mesh. Specialist full-text gaps remain but are not evidence of coverage.",
+      "residual_risks": [
+        "No primary full text was obtained for the three named specialist works, particularly Calvo–Grande–Grigorieff. The result is not a certification of historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same scheme and method, different grid and result",
+          "evidence": "Four-periodic steps (h,rh,rh,h) and strict uniform bound 1/√21.",
+          "identifier_or_url": "Resultary 4a7134a4fc58",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary lookup and mirror",
+          "title": "Sharp uniform Floquet damping for paired-step BDF4",
+          "trigger": "Strongest indexed BDF4 Floquet comparison"
+        },
+        {
+          "assessment": "Different BDF order",
+          "evidence": "Statement explicitly concerns BDF3, not the four-step recurrence.",
+          "identifier_or_url": "Resultary 90fe05898983",
+          "material_read": "Local indexed statement",
+          "method": "Local Resultary lookup",
+          "title": "Exact Floquet stability of BDF3 on every positive three-periodic grid",
+          "trigger": "Same mesh class"
+        },
+        {
+          "assessment": "Different mesh regime",
+          "evidence": "Adjacent ratios tend to one as 1+O(N⁻¹).",
+          "identifier_or_url": "arXiv:1804.04553; DOI 10.1007/s10543-018-0716-y",
+          "material_read": "PDF p. 1, offset 0, smooth deformation and adjacent-ratio assumptions",
+          "method": "OA PDF text",
+          "title": "On the zero-stability of multistep methods on smooth nonuniform grids",
+          "trigger": "Plausible general coverage of nonuniform grids"
+        },
+        {
+          "assessment": "Full comparison unavailable",
+          "evidence": "The title and cited scope identify method construction, not a verified assertion about this threshold.",
+          "identifier_or_url": "doi:10.1090/S0025-5718-1986-0856699-X",
+          "material_read": "Bibliographic scope; full text not read independently",
+          "method": "DOI lookup, AMS OA PDF direct and alternate accessible-link attempt; blocked",
+          "title": "Construction of Variable-Stepsize Multistep Formulas",
+          "trigger": "Construction of genuine variable-coefficient BDF"
+        },
+        {
+          "assessment": "Full comparison unavailable",
+          "evidence": "A variable-order, variable-step BDF zero-stability source may contain stronger relevant facts; the available evidence does not establish them.",
+          "identifier_or_url": "doi:10.1007/BF01386395",
+          "material_read": "Bibliographic scope; no primary full text",
+          "method": "DOI/publisher and identified author-upload retrieval attempts",
+          "title": "On the zero stability of the variable order variable stepsize BDF-formulas",
+          "trigger": "Closest inaccessible specialist source"
+        },
+        {
+          "assessment": "Scheme distinction; full comparison unavailable",
+          "evidence": "Cited as treating Nordsieck adaptation, which is not identified with the genuine variable coefficient step in the claim.",
+          "identifier_or_url": "doi:10.1137/0720056",
+          "material_read": "Bibliographic scope; no primary full text",
+          "method": "DOI/publisher retrieval attempt",
+          "title": "Skeel–Jackson Nordsieck stability paper (1983)",
+          "trigger": "Potentially confusable BDF stability recurrence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof of both boundaries",
+        "Resultary 4a7134a4fc58 (comparison to a uniformly damped family)"
+      ],
+      "rationale": "A high-contrast periodic grid can expose an exact instability missed by looking only at generic sufficient smoothness/ratio guarantees. The explicit finite boundary distinguishes parasitic damping, neutral power-boundedness and exponential growth for the entire one-parameter slice. The larger singular family motivates the choice of 3 as the first integer above the limiting frontier 2, and gives an actual stability prediction for sufficiently large contrasts on either side of that frontier.",
+      "residual_risks": [
+        "No claims about general-grid convergence or practical time-stepping control follow without further analysis."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

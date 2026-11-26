@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:26:31.390450Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–88",
+        "Frozen VERIFICATION.md and checker.py (read, not executed)",
+        "Independent direct enumeration, 6197 words across three parameter cases"
+      ],
+      "rationale": "Comparing two deletion starts i<j after removing the common prefix and suffix shows the outputs coincide precisely when all lag-b comparisons from i+1 through j are equalities. Each fiber is an interval, so the count is one plus the lag-b mismatches. Distinct edges are pairwise independent, including edges with a shared endpoint, proving the two-length covariance and means. At L=a+b the lag graph is the disjoint union of cycles of addition by a modulo L, one per residue mod g=gcd(a,b). The earliest whole cycle has last vertex L−g+1. At that length the other residues are intact paths (at most one vertex was removed per cycle), and for n>L every extra vertex attaches to its own residue component, so the cycle rank is max(0,n−L+g). In the forest regime all edge indicators jointly factor by root-first exposure. Outside it, the probability of all endpoint equalities is q^(κ−n); division by q^(a−n)q^(b−n) proves the exact certificate and excludes independence. In the three-length expansion every forest term vanishes; each triangle contributes −(q−1)/q³ for mismatches. The extreme positions have gap c, so the two possible middle positions exist exactly at c=a+b and give 2(n−c) triangles. Direct enumeration independently corroborated every pair joint table and triple centered moment for (q,n)=(2,10),(2,11),(5,5), outside the supplied grid. Replay: python3 branches/independent_checks.py 1 (standard library).",
+      "residual_risks": [
+        "The strict threshold is about two full cardinalities; zero third moment for a nonresonant triple does not entail independence. The phrase ‘first nonzero’ should be read only for resonant triples; the displayed formula does not assert a nonzero third moment for every triple. Bounded enumeration is not an all-length proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bhattacharya–Diaconis–Mukherjee, PDF p. 8, give the exact product expectation q^(−|V(H)|+ν(H)) for any selected edge multiset (with H its underlying simple graph), and the independent-edge value q^(−|E(H)|). Forests give equality. This is a finite algebraic identity in a paper whose main limit theorems are asymptotic.",
+          "Schoeny et al. give the binary one-length count and shifted-binomial law in their b-divides-n setting; Song and Cai supply coding context rather than the joint law.",
+          "Fine–Wilf is a plausible period-overlap antecedent; the primary DOI returned no accessible proof passage. The cited joint-count comparison and the primary graph-coloring identity do not rely on that retrieval."
+        ],
+        "reasoning": "The product identity is exactly the required broader finite result for joint indicators, not a marginal binomial law or only an asymptotic approximation. The known one-length law alone cannot distinguish pair dependence.",
+        "searches": [
+          "Bhattacharya Diaconis Mukherjee graph coloring monochromatic edges third central moment triangles weighted general theorem exact joint moments equality indicators",
+          "arXiv:1310.2336v3, Lemma 2.1, eqs. (2.2)–(2.3) and following display",
+          "arXiv:1602.06820v2 §IV eq. (2), Appendix A Lemma 8",
+          "Fine-Wilf theorem overlap periods gcd periodic words burst deletion equality constraints"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verification material",
+        "Resultary d6154f9c908e, a632b2b7b083, 99486a928fd1, 4ce40b9cbccc",
+        "arXiv:1310.2336v3, 1602.06820v2, 2210.14006v1",
+        "Fine–Wilf DOI retrieval attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The tandem record's §3 identifies each residue-class cycle and its final vertex, so it counts complete cycles for n≤L. For n>L the lag-a edge to an earlier vertex keeps each added vertex in the same residue class; from n=L the graph has exactly g components. Together with |E|=2n−L this gives cycle rank max(0,n−L+g) for all n.",
+          "The primary product identity for all edges gives q^(−|E|+β); multiplying the individual lag-path all-equality probabilities and taking the ratio gives q^β exactly.",
+          "With three edges of distinct lengths the only nonforest is a triangle. On a triangle the q^(−|V|+ν) rule gives q^−2 for all equalities; after centering (pair products factor) the mismatch product has expectation −(q^−2−q^−3). Substituting the line positions gives 2(n−c) triangles for c=a+b and zero otherwise."
+        ],
+        "reasoning": "These are direct substitutions and elementary boundary bookkeeping, not a new joint-law calculation beyond the exact pair coverage and published general moment identity.",
+        "searches": [
+          "d6154f9c908e, offsets 0–4127 and 4127–7592",
+          "arXiv:1310.2336v3, PDF p. 8, offsets 32500–36616"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In d6154f9c908e, comparing two duplication starts gives exactly the intervening lag-equality criterion. Thus its D_h(x)=1+∑_i 1{x_i≠x_(i+h)}, identical to the frozen statistic for each word and h.",
+          "In a632b2b7b083 the same statistic counts single deletions from interior unordered-composition reads; neighboring reads are equal exactly when the outgoing and incoming letters agree."
+        ],
+        "reasoning": "The channels and resulting words differ, but the family of counts agrees on the same word, stronger than equality of marginals. Any joint count statement proved for one of these equivalent statistics transfers without a probability argument.",
+        "searches": [
+          "burst deletion ball sizes cross-length independence covariance exact burst lengths",
+          "d6154f9c908e, Proof §1",
+          "a632b2b7b083, window-transition equation (1)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "d6154f9c908e, Finding and Proof §§1–5, gives the full n≤a+b bivariate generating polynomial for a pointwise identical count plus the all-n zero covariance and exact sharp independence criterion.",
+          "a632b2b7b083, Finding and eq. (1), gives the same count and forest law with a separate channel interpretation but no explicit arithmetic threshold.",
+          "99486a928fd1 gives a similar cycle-rank exponent for symbolic return events, not this third central moment. 4ce40b9cbccc concerns ordinary subsequence-deletion balls, which differ from burst balls when more than one letter is deleted."
+        ],
+        "reasoning": "The tandem record is an exact bivariate match by pointwise equality, not by title similarity. The return-event and unrestricted deletion hits are adjacent topics rather than exact matches. Dates are not used to determine priority.",
+        "searches": [
+          "burst deletion ball sizes cross-length independence covariance exact burst lengths",
+          "Fine-Wilf theorem overlap periods gcd periodic words burst deletion equality constraints"
+        ]
+      },
+      "rationale": "The strongest indexed tandem-duplication result is not merely a parameter match: its exact distinct-descendant count equals the frozen burst-deletion count pointwise on every source word. This proves equivalent coverage of the two-length covariance and independence theorem, with the same lag-graph cycle decomposition. The simultaneous-minimum ratio is the all-equalities specialization of the verified arbitrary-graph product-moment identity, with cycle rank from that decomposition (and unchanged residue connectivity after n=a+b). The three-length formula likewise specializes the published graph-coloring edge-product identity to three edges: only triangles contribute, and the two orders of the inner lag on a line give the factor 2(n−c). No independent substantive part of the stated result remains. The indexed comparison is dated later and demonstrates present equivalent coverage, not earlier priority; the primary graph-coloring identity predates the record.",
+      "residual_risks": [
+        "The searches do not resolve historical priority between the equivalently formulated counts. The frozen-title web query was uninformative; the decision rests instead on direct mathematical comparison and the inspected finite graph moment identity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent pair law for identical word statistics, stronger on the stated bivariate-polynomial domain; no conclusion about historical priority",
+          "evidence": [
+            "§1 gives D_h(x) as one plus the lag-h mismatch count, and §3 uses the same modular cycle decomposition.",
+            "Finding gives uncorrelatedness for all n and independence exactly at the frozen gcd cutoff."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-joint-law-and-independence-threshold-for-two-tandem-duplication--d6154f9c908e/RESULT.md",
+          "material_read": "Finding, assumptions and Proof §§1–5, offsets 0–7592",
+          "method": "Indexed source and bounded exact statement/proof comparison",
+          "title": "Joint law and independence threshold for two tandem-duplication descendant counts",
+          "trigger": "Same arithmetic threshold, with potentially identical descendant-count observable"
+        },
+        {
+          "assessment": "Exact broader finite product identity, giving the proposed three-length moment and the all-equalities calculation by specialization",
+          "evidence": [
+            "Each selected-edge all-equality product has expectation q^(−|V(H)|+ν(H)); the forest comparison product has expectation q^(−|E(H)|)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1310.2336v3",
+          "material_read": "PDF p. 8, Lemma 2.1 proof, eqs. (2.2)–(2.3) and next display; offsets 32500–36616",
+          "method": "Open primary PDF and bounded proof comparison",
+          "title": "Universal limit theorems in graph coloring problems with connections to extremal combinatorics",
+          "trigger": "Finite selected-edge moments could imply the exact additive triple formula despite the paper's asymptotic title"
+        },
+        {
+          "assessment": "Identical statistic, exact overlapping marginal and covariance results, without the explicit gcd boundary",
+          "evidence": [
+            "Deleting from an interior window-composition sequence yields a count equal to one plus the lagged word mismatches."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-binomial-read-deletion-sphere-law-and-multiscale-forest-independ--a632b2b7b083/RESULT.md",
+          "material_read": "Finding, model, eq. (1) and Forest lemma, offsets 0–3291",
+          "method": "Indexed source and bounded proof comparison",
+          "title": "Binomial read-deletion sphere law and multiscale forest independence",
+          "trigger": "Lag counts under a different deletion representation"
+        },
+        {
+          "assessment": "Prior marginal counting; not the decisive joint-law coverage",
+          "evidence": [
+            "The binary b-row run count and the one-length distribution 2^b binom(n−b,i−1) appear explicitly."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1602.06820v2",
+          "material_read": "§II; §IV eq. (2); Appendix A Lemma 8 (PDF pp. 2,4,15)",
+          "method": "Open primary text and bounded statement comparison",
+          "title": "Codes Correcting a Burst of Deletions or Insertions",
+          "trigger": "Primary source cited for the single-burst cardinality"
+        },
+        {
+          "assessment": "Not used as decisive proof of coverage",
+          "evidence": [
+            "No source theorem was verified in this retrieval."
+          ],
+          "identifier_or_url": "https://doi.org/10.1090/S0002-9939-1965-0174934-9",
+          "material_read": "No primary passage retrieved",
+          "method": "Lawful retrieval attempt at cited DOI",
+          "title": "Uniqueness theorems for periodic functions",
+          "trigger": "Classical period-overlap cutoff matches the gcd scale"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "Resultary d6154f9c908e",
+        "arXiv:1310.2336v3, Lemma 2.1 proof"
+      ],
+      "rationale": "Quantifying when two burst cardinalities cannot be modeled as independent is a natural question. But its main law transfers unchanged from the pointwise identical tandem count, and the ratio and additive mixed moment use direct cycle-rank and triangle substitutions into the known product formula. Converting the output interpretation or naming the additive case does not leave a separate exact fact requiring new mathematical work.",
+      "residual_risks": [
+        "This does not deny the application value of the known identities for joint burst-channel modeling."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

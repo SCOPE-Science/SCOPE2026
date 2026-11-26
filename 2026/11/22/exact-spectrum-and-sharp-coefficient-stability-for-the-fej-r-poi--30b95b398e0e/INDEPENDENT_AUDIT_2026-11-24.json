@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:19:17.577121Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–79",
+        "VERIFICATION.md and verify.py, code inspected without execution; recorded finite checks through n=70 and complex SOS diagnostics through n=34",
+        "Independent sign-Gram identity and small-degree eigenpair check; MacDonald SOS passage"
+      ],
+      "rationale": "The normalized Fejér multiplier incl. |j−k|=n gives the exact form b*H_nb. The two endpoint columns cancel, so H_ne=0. Reflection commutes with H_n. On the symmetric subspace orthogonal to e the endpoints vanish, and the negative discrete Dirichlet Laplacian applied to H_n is 4/n times the identity there by the second difference of |j−k|. Its reflected symmetric modes are the odd-indexed Dirichlet modes, exactly the asserted symmetric cosines and reciprocal eigenvalues. On the antisymmetric subspace the sum is zero and (H_nv)_0−(H_nv)_1=4v₀/n, with the mirrored right endpoint relation. Thus the negative Neumann difference operator with replicated endpoint ghosts applied to H_n is 4/n times the identity there, including the n=1 boundary-only case. Its odd-indexed Neumann modes are precisely the listed antisymmetric centered sines. Each block has simple positive eigenvalues, and cross-block equality would require n to divide the odd symmetric numerator, which lies strictly between 0 and n. Comparing the largest available half-frequencies gives the even symmetric or odd antisymmetric minimum eigenvalue exactly. Orthogonal projection onto e gives the stated distance and equality only on the kernel plus the simple soft eigenspace, with nonzero soft direction attainable at any fixed angle. Zero Fejér deficit itself requires only the kernel.",
+      "residual_risks": [
+        "The coefficient-space distance is for a chosen Fejér–Riesz factor, not an intrinsic function-space distance. Finite numerical checks do not replace the boundary and completeness arguments."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The two-index result gives an optimal factor for scalar domination even for unequal orders and includes matched-order classical equality. MacDonald identifies the same quadratic form as a sum of squares. Ruzieh–Powers was identified for the unmodified distance matrix; full text not retrieved by the inspected routes."
+        ],
+        "reasoning": "An optimal scalar domination theorem determines nonnegativity and classical equality, not the eigenvalue on the least costly departure from equality. The distance and centered bridge comparisons have to account for the rank-one change.",
+        "searches": [
+          "Resultary sharp two-index Fejér domination cd56fc64468b",
+          "MacDonald arXiv:2611.05363 Theorem 3 and proof",
+          "Ruzieh–Powers path-distance paper DOI and publisher routes"
+        ]
+      },
+      "checked_sources": [
+        "MacDonald arXiv:2611.05363; Resultary cd56fc64468b and the frozen 30b95b398e0e; affine-distance/bridge literature lookup; Ruzieh–Powers DOI attempted"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The SOS implies slack positivity and the kernel, not by itself sharp singular values of S. The two boundary conditions are Dirichlet in the symmetric complement of e and Neumann in the antisymmetric subspace. This distinction yields different quantization lengths n and n+1 and then the parity switch."
+        ],
+        "reasoning": "Once the sector-specific inverse identities are proved the local spectra are elementary; their coexistence in this Fejér matrix and the resulting sharp equality are the mathematical content, not a change of variables in a prior sharp stability result.",
+        "searches": [
+          "MacDonald §3 SOS and Theorem 3; Resultary cd56fc64468b Finding; affine-distance and mixed endpoint reductions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For S_mj=1−2·1_{j≤m}, H_n=SᵀS/n and (SSᵀ)_mr=n+1−2|m−r|. The centered sign-Gram is (4/n)[min(i,j)−ij/n], and its mean outer product must be restored to get H_n. The exact Fejér slacks coincide with the uncentered Gram."
+        ],
+        "reasoning": "An unmodified path-distance spectrum cannot just be shifted because the all-ones rank-one term does not commute with the distance matrix for general n. Similarly, the centered bridge has different boundary behavior from the antisymmetric sector after restoring the mean. The row Gram shares the positive spectrum but is not a circulant with directly available Fourier eigenvectors.",
+        "searches": [
+          "MacDonald arXiv:2611.05363 §3; logics of sign-Gram, affine-distance Toeplitz, discrete Brownian bridge and path-distance spectra",
+          "Web search for exact affine-distance Toeplitz/bridge mixed sine-cosine spectrum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest inspected distinct index hit is cd56fc64468b, which does not state the full spectrum or soft mode in its Finding; the exact assigned finding is itself 30b95b398e0e. No exact spectral formula for the rank-one-modified matrix was located in the available comparison material."
+        ],
+        "reasoning": "Isolated small-degree spectra and ordinary distance-matrix tables do not settle the uniform n-dependent spectrum, distinctness and equality classes. No separate numerical sequence lookup applies to the whole coefficient-space classification.",
+        "searches": [
+          "Resultary Fejér coefficient slack, sharp two-index domination and spectral stability",
+          "Literature search for the exact affine-distance matrix spectrum under Toeplitz/bridge names"
+        ]
+      },
+      "rationale": "MacDonald has the same slack sum of squares and classical zero-deficit equality, and the distinct two-index Resultary record generalizes the scalar domination. The supported distinct claim is the full spectral resolution and its sharp parity-dependent coefficient-distance refinement. Standard Green/path Laplacian spectra supply tools once the two different boundary operators are identified, but the inspected prior statements do not give those two reductions for the same slack or its sharp positive gap.",
+      "residual_risks": [
+        "Earlier discrete-Green or rank-one-modified path-distance formulations of the same eigenproblem remain possible. No inference of priority from the date of the two-index record; no claim of exhaustiveness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact same SOS and classical equality; not the positive slack spectrum in inspected proof and statement",
+          "evidence": [
+            "The displayed partial-sum squares become b*H_nb after the normalization by n."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.05363",
+          "material_read": "Theorem 3, PDF p. 3, offset near 9200; §3 proof pp. 6–7, offsets near 18200 and 22200",
+          "method": "OA PDF passages",
+          "title": "A convolution inequality and the Krzyż conjecture",
+          "trigger": "Direct prior result on same Fejér deficit"
+        },
+        {
+          "assessment": "Same-day overlap in baseline domination; different objective, no positive slack gap in Finding",
+          "evidence": [
+            "Matched-order m=n theorem gives T≤2F_n*T and its baseline equality factors."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-two-index-fej-r-domination-for-nonnegative-trigonometric-p--cd56fc64468b/RESULT.md",
+          "material_read": "Frozen mirror Finding, offset 0",
+          "method": "Published local mirror",
+          "title": "Sharp two-index Fejér domination for nonnegative trigonometric polynomials",
+          "trigger": "Closest distinct indexed exact Fejér result"
+        },
+        {
+          "assessment": "Unresolved related-source overlap; no negative conclusion from access failure",
+          "evidence": [
+            "The unmodified distance matrix identified in RESULT.md differs from J−2D/n; the rank-one term is not generally a common scalar shift on its eigenbasis."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/03081089008818032",
+          "material_read": "Bibliographic reference; no full-text passage retrieved",
+          "method": "Lawful OA DOI and publisher page/PDF attempts returned unavailable or 403",
+          "title": "The distance spectrum of the path",
+          "trigger": "Plausible equivalent spectrum via distance matrix"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 9–40 and 72–79; MacDonald Theorem 3 comparison"
+      ],
+      "rationale": "Sharpening a positive sum of squares to a sharp distance from its null space answers a natural near-equality question. The exact all-degree gap and equality directions identify the modes in which perturbing an extremizer is least expensive and reveal an endpoint-driven parity transition invisible in the scalar inequality.",
+      "residual_risks": [
+        "No extension to factor-independent distances or the Krzyż conjecture is implied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

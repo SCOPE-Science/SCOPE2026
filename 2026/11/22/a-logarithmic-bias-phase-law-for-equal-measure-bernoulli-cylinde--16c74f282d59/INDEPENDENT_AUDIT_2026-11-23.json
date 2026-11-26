@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:19:51.883898Z",
+  "axes": {
+    "correctness": {
+      "independent_replay": [
+        "reviews/evidence/1.py"
+      ],
+      "rationale": "The repaired text disambiguates the generating function: C_w/D_w has coefficients indexed by iid block length, not by the number of shifts in the definition of survival. For example, one shift survives with probability 1-p²q^(2k), whereas the length-one avoidance probability is 1. The two series differ by removing the first N-1 terms and shifting the exponent, which preserves their first positive pole. The standard denominator identity and original theorem therefore survive unchanged. I checked the proper border lists and weighted suffix factors. In the V denominator, t=qz gives G=t-q-p t^(2k+1)(1-t); G is strictly increasing on [0,1], its zero is in (q,1), and the zero decreases in p. At an equality of first poles the function (p/q) times the sum of t^(-j) must equal one, and it is strictly increasing. Both denominators start positive at 1 and are negative at 1/q: for U, the remaining factor q²-pq+kp² is positive. At the small-p end C_U<C_V throughout this root interval, and at the large-p end the reverse holds. Evaluating the respective denominators at the other first zero gives opposite strict escape-rate orderings; the finite prefix spectral radius is continuous in p, so the unique candidate is attained. Substituting q=p times the geometric sum into G gives 2t^k-1=t^(3k)(1-t), strictly increasing after bringing all terms to the left. The strict bounds use q<t<1 and k≥3. With c=log 2, t=exp(-y/k), the corrected proof bounds 0<y<c and the right-hand side by c/k. The local implicit solution has y=c-c/(8k)+O(k^(-2)), hence 1-t=c/k-(c/8+c²/2)/k²+O(k^(-3)). The exact formula p=(1-t)/(1-t^(2k+1)(1-t)) adds c²/(4k²), yielding the claimed coefficient. Own direct finite-string enumeration at p=2/9 and k=3,4 agrees exactly with the length-indexed coefficients through N+2; high-precision bisection at k=3,4,8 reproduces the printed thresholds. These are finite cross-checks; the argument above covers the full parameter set. The supplied script was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 2.4 computes each biased escape rate via its weighted autocorrelation denominator. The maximum-escape theorem compares specially extremal holes; both reviewed holes are nonprime and neither is a single-symbol repetition. The one-pattern shift paper works with shifts/entropy and unweighted overlap structure; the letter-frequency paper measures densities under avoidance or stopping, rather than comparing biased escape exponents."
+        ],
+        "reasoning": "The general escape formula is a premise; ordering two nonprime words over all p and proving the logarithmically small threshold still require a sign and root comparison. The unweighted and letter-frequency theorems do not give that ordering.",
+        "searches": [
+          "Bonanno–Cristadoro–Lenci arXiv:2112.14248v2, Proposition 2.4, §3.1 and Appendix A",
+          "Chandgotia–Marcus–Richey–Wu arXiv:2409.09024, abstract and introduction",
+          "Bóna–Maga–Richey arXiv:2606.06655, abstract and introduction"
+        ]
+      },
+      "checked_sources": [
+        "Bonanno–Cristadoro–Lenci arXiv:2112.14248v2",
+        "Chandgotia–Marcus–Richey–Wu arXiv:2409.09024",
+        "Bóna–Maga–Richey arXiv:2606.06655"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Appendix A indexes its avoidance series by finite block length; Proposition 2.4 passes to the first pole. The remark compares one actual pair. The reviewed law derives monotonicity at the moving V pole, proves an attained first-root crossing by opposite signs and continuity, and then derives the second large-k coefficient."
+        ],
+        "reasoning": "The generic denominator gives a way to evaluate any proposed pair, not a uniqueness criterion for its joint bias dependence or the two-term threshold. There is an additional nontrivial family argument, rather than a new evaluation of the k=2 example.",
+        "searches": [
+          "Maximal escape rate for shifts, Proposition 2.4, Theorems 3.4–3.5, Remark 3.7, Lemma A.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With a=0 and b=1, aabbaa and baaaab in Remark 3.7 are the k=2 pair, and the paper's p is q in the reviewed notation. It reports a crossing near √2/2 in that convention. Independently, the reviewed algebraic expression at k=2 gives probability of symbol 1 about 0.29521944."
+        ],
+        "reasoning": "A relabeling of the bias gives an exact object match at k=2, which is explicitly excluded from the novelty claim. Comparing killed-automaton Perron roots or least positive denominator zeros gives equivalent rates, but no inspected statement gives this comparison for the whole family.",
+        "searches": [
+          "Resultary: Bernoulli cylinder escape rate equal measure autocorrelation 001100 100001 growing zero runs bias threshold",
+          "Web: Bernoulli shifts escape rate weighted autocorrelation '001100' '100001' bias crossing equal measure holes Bonanno 0^k11 10^{2k}1 threshold",
+          "arXiv:2112.14248v2, Remark 3.7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The corpus search returned the target itself and distinct run/escape results including annealed switching of complementary holes. The inspected primary paper gives the isolated approximate bias in Remark 3.7."
+        ],
+        "reasoning": "A self-match and a changing-hole calculation are not an earlier exact table of this fixed pair family's transition. No matching all-k threshold table was found within this evidence.",
+        "searches": [
+          "Resultary: Bernoulli cylinder escape rate equal measure autocorrelation 001100 100001 growing zero runs bias threshold",
+          "Bonanno–Cristadoro–Lenci arXiv:2112.14248v2, §3.1"
+        ]
+      },
+      "rationale": "The isolated k=2 reversal and general autocorrelation formula are prior art. The repaired statement keeps the same substantive claim: the growing k≥3 family, uniqueness over the full bias interval and the sharp threshold asymptotic. These are not established by the compared prior statements.",
+      "residual_risks": [
+        "Older pattern-avoidance or open-system literature may contain an unlocated equivalent all-k calculation.",
+        "Novelty is not claimed for the seed example, the standard weighted polynomial method, or the indexing correction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the denominator and seed reversal, not the asserted family in the inspected material",
+          "evidence": [
+            "Eq. (2.1) gives the polynomial; Remark 3.7 compares aabbaa and baaaab; Appendix A distinguishes block-length avoidance from survival time."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2112.14248",
+          "material_read": "Definitions in §2, Proposition 2.4, relevant §3.1 comparisons including Theorems 3.4–3.5 and Remark 3.7, and Appendix A generating-function passages",
+          "method": "Open PDF text extraction",
+          "title": "Maximal escape rate for shifts",
+          "trigger": "General weighted root formula and exact six-symbol antecedent"
+        },
+        {
+          "assessment": "The inspected results concern unweighted autocorrelation and symbolic-dynamical structure; no weighted moving-bias classification follows from those statements",
+          "evidence": [
+            "The abstract identifies unweighted autocorrelation with finite word counts; the introduction relates escape to entropy in the full-shift context."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2409.09024",
+          "material_read": "Abstract and introductory overlap, escape and conjugacy passages",
+          "method": "Open PDF text extraction",
+          "title": "Shifts of Finite Type Obtained by Forbidding a Single Pattern",
+          "trigger": "Same single-forbidden-word framework, potential entropy/pressure reduction"
+        },
+        {
+          "assessment": "Comparison addresses a different observable, not a direct equivalent of the reviewed exponent",
+          "evidence": [
+            "Definition 2.5 uses Bernoulli(1/2) until a word is seen. The introductory description of Theorem 3.8 compares stationary letter density to a stopped-frequency statistic."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2606.06655",
+          "material_read": "Abstract, introductory discussion and Definition 2.5",
+          "method": "Open PDF text extraction",
+          "title": "Letter frequency in shifts of finite type with one forbidden word",
+          "trigger": "Near statistic based on border polynomials and forbidden-word ordering"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For natural equal-mass holes, bias can reverse the escape ordering even with composition fixed. The theorem gives a unique sharp scale, exact threshold, and second-order correction for arbitrarily long words. This goes beyond a numerical table or an example at a fixed length.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,176 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:32:19.958287Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–48",
+        "Frozen VERIFICATION.md and verify_real_gabor.py (read, not executed)",
+        "Independent replay: /workspace/branches/independent_replay_235.py (gabor)"
+      ],
+      "rationale": "The trace on a Weyl basis element factors as χ(u) conjugate(η(a)) A_g(a,χ). These are distinct characters of the orbit index group, so the nonzero columns are independent, and the zero columns give the exact kernel for the trace pairing. That pairing is nondegenerate, so the measurement-map rank equals the projector-span dimension. For a outside D an overlap is impossible; for nonzero involution a the two ordered contributions of a pair cancel exactly when χ(a)=−1, which occurs for N/2 characters. For the integer window, at a=0 the doubled powers have distinct exponents; at fixed a≠0 only reversal can repeat an unordered-pair exponent, and that happens only at an involution. After combining the reversals, each surviving coefficient has modulus 1 or 2, with at most N distinct exponents. The sum of terms below the top exponent E is bounded by 2N B^{E−1}<B^E, so every nonforced coefficient is simultaneously nonzero. Finite polynomial zero loci then give the claimed positive-orthant genericity. For prescribed S, informational completeness is equivalent to D=G and odd N; the stated existence over all real windows uses full support for the odd direction. I independently row-reduced the full projector orbit after a roots-of-unity specialization modulo 1009 on eight cases: ranks 49,21,52,12 for the specified proper supports and 60,52,36,81 for the full supports on Z_8, Z_4×Z_2, (Z_2)^3, and (Z_3)^2. Nonzero minors modulo the prime give exact complex-rank lower bounds and the analytic result supplies the upper bounds.",
+      "residual_risks": [
+        "The modular checks are finite and do not establish the group-uniform claim by themselves.",
+        "Rank here is exact linear matrix recovery, not nonlinear phase retrieval or numerical conditioning."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Goldberger–Kang–Okoudjou state generic full rank for complex cyclic windows and existence with exact cyclic support size >d/2; they also classify some small supports. The specific real construction printed in Proposition 2 cannot establish real full rank for even d at the shift d/2.",
+          "65df80cb23d5 proves the exact difference-set rank for every positive rational window on a proper odd prime-cyclic support. Boxcar and two-hole records evaluate specified cyclic windows rather than optimize all amplitudes."
+        ],
+        "reasoning": "The prime arithmetic result is stronger on its rational subclass but does not cover composite/even/noncyclic groups or the involution correction. Genericity in complex amplitude space cannot be restricted to the real locus without checking which coefficients vanish identically there.",
+        "searches": [
+          "arXiv:2106.01509, Propositions 1–3",
+          "Resultary:65df80cb23d5",
+          "Resultary:98526b581328",
+          "Resultary:6aad25598ee0"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, lines 50–69",
+        "arXiv:math/0703228, 1503.05800 and 2106.01509",
+        "Resultary:65df80cb23d5, 98526b581328, 6aad25598ee0, 2d5140cd22ae, 1f76e4a64221, 1651ef6ab8d7, 1a034131f60d and efc92b2c6ccc"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general rank identity leaves it to be determined which ambiguity polynomials vanish on the real support coordinate space. Ordered pairs give distinct amplitude monomials except for reversing a pair at a nonzero involution; the coefficient then becomes 1+χ(a)^{-1} times a unit.",
+          "Prior arithmetic or sign-alphabet formulas already imply parts of the rank formula on their respective prime-cyclic or binary-Sidon domains, not the arbitrary-group result. The genericity step from nonzero polynomials is standard."
+        ],
+        "reasoning": "The distinct content is the complete forced-zero classification together with sharp attainment, not a new rank identity or a new general theorem about algebraic genericity.",
+        "searches": [
+          "arXiv:2106.01509, Theorem 1 and Propositions 1–2",
+          "Resultary:65df80cb23d5, Finding",
+          "Resultary:1a034131f60d, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The orthogonal Weyl basis and spreading expansion are classical. In cyclic dimension, the Gabor Gramian rank equals the number of nonzero Gabor correlations.",
+          "Bojarovska–Flinth obtain a sufficient condition for recovery of rank-one signals, not this exact linear matrix rank for all real supports."
+        ],
+        "reasoning": "Matrix span rank, measurement-map rank, Gramian rank and ambiguity support size are equivalent in this setting. This comparison credits the diagonalization but the equivalence alone does not identify the real-support coefficient losses.",
+        "searches": [
+          "Gabor POVM finite abelian real window ambiguity involutions generic rank prescribed support tomography two torsion",
+          "arXiv:math/0703228, Lemma 3.8 and Theorem 3.9",
+          "arXiv:2106.01509, Theorem 1",
+          "arXiv:1503.05800, Theorem 2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct same-day 2d5140cd22ae has a hyperbola-indicator window with all modulations nonzero over its difference set and rank q²|H−H|. The quartic and split-quadratic records give fixed-indicator ranks and further data.",
+          "The same-day binary-Sidon record's real sign alphabet specializes to the two-torsion correction for those supports; the later prime-power result concerns an arithmetic family of cyclic rational windows."
+        ],
+        "reasoning": "These are exact overlaps in restricted families, not an equivalent arbitrary-real-support result or evidence of order between same-day records.",
+        "searches": [
+          "Resultary:2d5140cd22ae",
+          "Resultary:1f76e4a64221",
+          "Resultary:1651ef6ab8d7",
+          "Resultary:1a034131f60d",
+          "Resultary:efc92b2c6ccc"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the all-group, all-prescribed-support maximum over real amplitudes, including the exact support-dependent involution loss and one simultaneous integer witness. The Weyl rank equivalence, prime-rational proper supports, and fixed-window cyclic boxcar ranks are prior coverage. The distinct same-day records give exact ranks or kernels on specific supports/windows, including an actual binary-Sidon real special case, but not the all-support optimization. No equivalent general statement was substantiated in the bounded comparison; no priority is inferred merely from a date.",
+      "residual_risks": [
+        "The targeted broad web query was uninformative; that is not evidence against other equivalent theorems. This is a bounded primary-source and catalog comparison.",
+        "The order or provenance of the distinct same-day special-case records is not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classical cyclic rank criterion and relevant complex support/genericity and small-support results. Not an all-support real formula.",
+          "evidence": [
+            "Gram rank counts nonzero Gabor correlations. Proposition 2 asks |S|>d/2, in the complex setting; its displayed real weights would leave A_g(d/2,χ)=0 for odd χ in even dimension."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2106.01509",
+          "material_read": "Theorem 1, p. 4; Propositions 1–3 and nearby proofs, pp. 6–8",
+          "method": "Lawful OA PDF text, offsets 12167, 24340 and 26007",
+          "title": "Towards a classification of incomplete Gabor POVMs in C^d",
+          "trigger": "Potential exact Gram rank and prescribed-support theorem"
+        },
+        {
+          "assessment": "General Weyl basis and spreading expansion are prior; the read passages do not give prescribed-real-support optimization.",
+          "evidence": [
+            "The time-frequency shifts form an orthogonal Hilbert–Schmidt basis, giving spreading representations."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0703228",
+          "material_read": "Lemma 3.8 and Theorem 3.9, pp. 9–10",
+          "method": "Lawful OA PDF, offset 30149",
+          "title": "Gabor analysis over finite Abelian groups",
+          "trigger": "Possible group-uniform Weyl and rank coverage"
+        },
+        {
+          "assessment": "Related sufficient condition for phase retrieval, not an exact real linear capacity theorem.",
+          "evidence": [
+            "Nonzero correlations suffice for recovery up to global phase."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1503.05800",
+          "material_read": "Theorem 2.2, p. 4",
+          "method": "Lawful OA PDF, offset 15036",
+          "title": "Phase Retrieval from Gabor Measurements",
+          "trigger": "Similar ambiguity condition with a potentially different measurement conclusion"
+        },
+        {
+          "assessment": "Strong prior odd prime proper-support special case",
+          "evidence": [
+            "Every positive rational window on a proper support has rank p|S−S|, with zeros exactly outside the difference set."
+          ],
+          "identifier_or_url": "Resultary:65df80cb23d5",
+          "material_read": "RESULT.md, Finding",
+          "method": "Local mirror, offset 0",
+          "title": "Arithmetic rigidity of prime-cyclic Gabor tomography for positive rational windows",
+          "trigger": "Earlier exact rank and identical support-mask zero pattern"
+        },
+        {
+          "assessment": "Fixed interval-indicator ranks, not optimized real support ranks",
+          "evidence": [
+            "Handles arithmetic vanishing for boxcars including an even-order obstruction."
+          ],
+          "identifier_or_url": "Resultary:98526b581328",
+          "material_read": "RESULT.md, Finding and proof §1",
+          "method": "Local mirror, starting at offset 0",
+          "title": "Exact operator-span rank and arithmetic thresholds for cyclic boxcar Gabor measurements",
+          "trigger": "Earlier exact cyclic formula including even lengths"
+        },
+        {
+          "assessment": "Exact instance for one support and window; distinct phase-fiber result",
+          "evidence": [
+            "The indicator on H⊂F_q² has rank q²|H−H| and all modulations survive at displacements in H−H."
+          ],
+          "identifier_or_url": "Resultary:2d5140cd22ae",
+          "material_read": "RESULT.md, Finding",
+          "method": "Local mirror, offset 0",
+          "title": "Exact Gabor observability and phase fibers for the finite-field hyperbola",
+          "trigger": "Distinct same-day exact match of an odd-group zero pattern and projector rank"
+        },
+        {
+          "assessment": "The real sign case overlaps on the specified supports; does not give all-support ranks over all abelian groups.",
+          "evidence": [
+            "Rank formula is for equal-modulus phase windows on binary Sidon supports in elementary two-groups."
+          ],
+          "identifier_or_url": "Resultary:1a034131f60d",
+          "material_read": "RESULT.md, Finding",
+          "method": "Local mirror, offset 0",
+          "title": "Phase-alphabet tomography ranks for binary Sidon supports",
+          "trigger": "Distinct same-day array of exact ranks on two-groups"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and limitations",
+        "arXiv:2106.01509, incomplete Gabor POVM rank context"
+      ],
+      "rationale": "For a natural structured measurement ensemble, the theorem gives both the exact best operator rank under arbitrary missing-site constraints and the directions that no real taper can observe. The different capacities at order eight distinguish group structure rather than only size; the odd-order criterion and sparse difference-cover case directly inform support design. The constructive witness validates the uniform boundary, even though its magnitudes make it unsuitable as a practical taper.",
+      "residual_risks": [
+        "No quantitative stability, condition number or physical sensing performance is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:22:09.568300Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–74; VERIFICATION.md line 20 and verify.py lines 21–97 inspected, not executed",
+        "Ponge, published DOI 10.4171/JNCG/509, p. 748, Theorem 6.1 and Eq. (6.1)"
+      ],
+      "rationale": "In the Hardy monomial basis a symbol monomial a_m z^m contributes m a_m/(k+m) on shift m. Subtracting the two composition denominators gives the factor m n (m−n)/[(k+m)(k+n)(k+m+n)] and hence the exact leading polynomial W=z³(g''h'−g'h''). The finite-band remainder after replacing each diagonal by w_L(k+1)^−3 has tail norm O(M^−4) after the first M columns, hence s_j(E)=O(j^−4). The leading operator is multiplication by W times the positive-frequency multiplier (k+1)^−3; its extension by zero to the negative Fourier modes of the circle is a classical order −3 pseudodifferential operator with principal symbol W on the positive unit covector and zero on the negative one. The published singular-value Weyl law thus gives precisely the normalized angular mean of |W|^(1/3), cubed. Taking perturbing indices of order j^β for 3/4<β<1 in the forward and reverse singular-value inequalities leaves the limit unchanged. If W=0 the rational ratio of the derivatives, whenever the denominator is nonzero as a polynomial, is constant (and a zero derivative separately gives the zero commutator); otherwise the limit is positive and gives infinite rank, the claimed Schatten threshold and the harmonic logarithmic mean. Compactness and strict triangularity rule out every nonzero eigenvalue. The frozen block proof gives the same coefficient: in passing from weak Toeplitz distributions to hard counts one takes continuity thresholds (for constant |W|, the one exceptional radial level is negligible, or use the exact monomial shift case).",
+      "residual_risks": [
+        "No nonpolynomial-symbol asymptotic is audited. The frozen supporting count of 4,815 checks includes floating-point leading-coefficient estimates; the optional SVD probe asserts positivity rather than agreement with the coefficient. Neither is needed for the analytic law."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Equation (6.1) is the singular-value Weyl law for general classical negative-order pseudodifferential operators on closed manifolds, with p=dimension/order magnitude, and the pth absolute principal-symbol moment integrated over the cosphere. It does not require ellipticity or self-adjointness for this formula."
+        ],
+        "reasoning": "Use the circle with dimension one, order −3 and p=1/3, on the trivial scalar bundle. Only the positive branch contributes, so the symbol integral has exactly the frozen normalized angular mean, with neither a doubling nor a missing normalization. The stronger theorem therefore covers precisely the weighted counting principle used in the finite-band proof as applied here.",
+        "searches": [
+          "Ponge, DOI 10.4171/JNCG/509, published §6.1 Theorem 6.1 and Remark 6.2"
+        ]
+      },
+      "checked_sources": [
+        "Published Ponge DOI 10.4171/JNCG/509",
+        "Volterra comparators DOI 10.1007/s00025-021-01482-7, DOI 10.1007/s00605-020-01396-6 and arXiv:2306.07680v2",
+        "Resultary 8ee7cea59b06 and 82ac9268fb30"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Two monomial actions give w_L=Σ_(m+n=L) m n (m−n)a_m b_n. The leading one-sided circle multiplier times W and the lower-order remainder follow from expanding three linear denominators."
+        ],
+        "reasoning": "This is the ordinary principal-symbol computation for a scalar commutator, confirmed directly by the matrix. No new singular-value theorem is needed; the remainder is negligible by standard singular-value inequalities. The vanishing condition is rational Wronskian proportionality, and the claimed endpoint and logarithmic consequences follow directly from the covered limit.",
+        "searches": [
+          "Ponge DOI 10.4171/JNCG/509 Theorem 6.1, Eq. (6.1), versus frozen RESULT.md lines 25–67"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The singular-value problem is equivalent, modulo s_j=O(j^−4), to the classical circle operator M_W times the Fourier multiplier with (k+1)^−3 for k≥0 and zero for k<0. Volterra papers inspected concern individual operators or compactness of an inner derivation."
+        ],
+        "reasoning": "The positive-frequency extension is not a change in nonzero singular values: W is analytic so the range stays in the Hardy space, while all negative input modes are sent to zero. On the two components of the punctured one-dimensional cotangent fiber the multiplier has the classical symbols ξ^−3 and zero, respectively.",
+        "searches": [
+          "Hardy Volterra pair commutator, Wronskian and cubic singular law (Resultary)",
+          "Chalmoukis–Stylogiannis DOI 10.1007/s00025-021-01482-7",
+          "arXiv:2306.07680v2",
+          "Ponge DOI 10.4171/JNCG/509 §6.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first statement concerns T_g* T_g−T_g T_g* and a signed cubic Weyl law; the second treats cross-parameter generalized Cesàro commutators."
+        ],
+        "reasoning": "Neither named catalogue record is the explicit two-symbol Volterra law, and no distinct exact catalogue duplicate was located. This is a symbolic all-degree operator result rather than a finite numerical-table claim; lack of a separate exact entry does not undo theorem-level coverage.",
+        "searches": [
+          "Resultary 2026/11/22 8ee7cea59b06",
+          "Resultary 2026/11/22 82ac9268fb30"
+        ]
+      },
+      "rationale": "The main singular-value limit and its nonzero coefficient are already covered by a stronger published Weyl theorem once the order and principal symbol are computed. This is demonstrable coverage, not a failure to establish a date or to retrieve the Toeplitz chapter. The exact Volterra phrasing need not have appeared verbatim.",
+      "residual_risks": [
+        "An exact specialized Volterra precedent may also exist; historical priority of the wording was not determined. The separately demonstrated general covering implication does not depend on that question or the inaccessible Toeplitz chapter."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct dominating theorem",
+          "evidence": "The singular-value branch for classical order −m on a closed n-manifold is the cosphere symbol-moment law with p=n/m. Remark 6.2 attributes the extension to closed manifolds to Birman–Solomyak.",
+          "identifier_or_url": "https://doi.org/10.4171/JNCG/509",
+          "material_read": "Published §6.1, p. 748 (publisher OA PDF offset 85140), Theorem 6.1, Eq. (6.1) and Remark 6.2",
+          "method": "OA publisher primary PDF, theorem located and read by offset",
+          "title": "Connes’ integration and Weyl’s laws",
+          "trigger": "Potential general covering theorem for cubic singular decay"
+        },
+        {
+          "assessment": "Does not give the claimed pair law in inspected passage",
+          "evidence": "Boundedness/quasinilpotence of individual generalized operators under multiplier hypotheses.",
+          "identifier_or_url": "https://doi.org/10.1007/s00025-021-01482-7",
+          "material_read": "Theorem 1.2 p. 3, OA offset 11600",
+          "method": "OA primary PDF",
+          "title": "Quasi-nilpotency of Generalized Volterra Operators on Sequence Spaces",
+          "trigger": "Frozen reference for Volterra spectral theory"
+        },
+        {
+          "assessment": "Different operator class for the Schatten result",
+          "evidence": "Disk operator definition, followed by individual-operator Schatten conditions on a Dirichlet-series space.",
+          "identifier_or_url": "https://doi.org/10.1007/s00605-020-01396-6",
+          "material_read": "Eq. (1.3) p. 2 and Theorem 4 p. 15, offsets 8600 and 82000",
+          "method": "OA primary PDF",
+          "title": "Volterra operators and Hankel forms on Bergman spaces of Dirichlet series",
+          "trigger": "Schatten behavior of a Volterra operator"
+        },
+        {
+          "assessment": "Different operator and spectral question",
+          "evidence": "Compactness of the derivation acting on operators, not a singular-value coefficient for an individual polynomial pair.",
+          "identifier_or_url": "https://arxiv.org/html/2306.07680v2",
+          "material_read": "§1 Theorems 1.1–1.2, offset 8000",
+          "method": "OA primary HTML",
+          "title": "Volterra commutator/inner-derivation comparator",
+          "trigger": "Potential equivalence via Volterra commutator literature"
+        },
+        {
+          "assessment": "Distinct operators; no order or priority inferred from shared date",
+          "evidence": "The Hardy Volterra record uses a self-commutator involving adjoints; the other record treats a Cesàro family. Neither identifies the polynomial pair Wronskian.",
+          "identifier_or_url": "Resultary 2026/11/22 8ee7cea59b06; 82ac9268fb30",
+          "material_read": "Mirrored catalogue finding statements",
+          "method": "Local Resultary search and mirror reading",
+          "title": "Signed Weyl laws and a collective three-frequency instability; Cubic singular-value Weyl law for cross-parameter generalized Cesàro commutators",
+          "trigger": "Strongest separate catalogue overlaps in exponent and operator family"
+        },
+        {
+          "assessment": "Inaccessible; not used to decide coverage",
+          "evidence": "The primary law used for coverage is instead the verified published Ponge Theorem 6.1.",
+          "identifier_or_url": "https://doi.org/10.1137/1.9780898717853.ch9",
+          "material_read": "No primary passage retrieved",
+          "method": "Direct and alternate lawful OA routes attempted",
+          "title": "Spectral Properties of Banded Toeplitz Matrices, Chapter 9",
+          "trigger": "Frozen citation for finite Toeplitz singular-value distributions"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 25–80, compared directly with Ponge Theorem 6.1, Eq. (6.1)"
+      ],
+      "rationale": "The Wronskian formula is a useful illustrative specialization, but as a narrow exact-invariant finding it is mechanically supplied by the published singular-value Weyl law plus the routine leading-symbol calculation, and the frozen elementary proof does not extend the law to a new operator regime. The Schatten and logarithmic assertions are immediate consequences, not a surviving independent contribution. This verdict does not dispute correctness or pedagogical utility.",
+      "residual_risks": [
+        "No claim is made that every possible nonpolynomial extension or different endpoint question is covered."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

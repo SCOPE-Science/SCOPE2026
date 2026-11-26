@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:54:53.974417Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The scalar acceptance map is nondecreasing exactly when its determinant is nonnegative. The optimum prefix values iterate the envelope and are monotone. A unique global winner must have optimal prefixes: replacing an inferior prefix improves the final value for a positive-slope suffix and ties it for a zero-slope suffix. A tie in the active letter also survives a common suffix. An affine difference cannot have signs +,-,+ along a monotone sequence, so a letter cannot recur after a different run. Conversely I checked the ordered crossing formula and the uniform baseline-orbit error <2^(-n-2) versus distance to every threshold >=2^(-n-1), including the vacuous threshold case r=1. All slopes are positive, unused maps are strictly dominated, and strict monotonicity makes the prescribed maximizer unique. Threshold denominators divide 2^(n+1), which gives the stated common denominator r*2^(2n+5) for the matrix entries. Ordered run labels and compositions give the count, OGF and leading coefficient q. The inspected checks are finite corroboration, not the proof. The theorem concerns nonempty words, a fixed length, and nonnegative determinants; it does not classify witnesses with negative determinants.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gill's unrestricted binary theorem includes non-run-distinct patterns, and the extension corollary retains binary target words. Kjos-Hanssen's unrestricted three-state theorem and open multi-letter two-state question do not settle this restricted class.",
+          "The stronger indexed result covers the same finite alphabets and also ensures all matrix entries are strictly positive together with the strictly positive determinants."
+        ],
+        "reasoning": "Neither named primary general result subsumes this classification; the indexed same-model theorem does.",
+        "searches": [
+          "Gill Theorem 4.1 and Corollary 4.18",
+          "Kjos-Hanssen arXiv:2607.26275 Theorem 1.2 and Remark 5.3",
+          "9d9f39c84df0 Finding and sufficiency proof"
+        ]
+      },
+      "checked_sources": [
+        "Gill arXiv:2402.13376, author-hosted PDF",
+        "arXiv:2607.26275",
+        "Resultary 8eb608279288",
+        "Resultary 9d9f39c84df0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 11/8 construction has consecutive baseline gaps at least 3/(32n), orbit error at most 1/(5000n^2), and slope separation epsilon=1/(10000n^4). The active used letter beats each other used letter by at least epsilon/(32n), by telescoping across the ordered thresholds; unused letters have a larger gap.",
+          "Round slopes and intercepts down to a shared dyadic grid of mesh at most delta=1/(10^7 n^7). Positivity and stochasticity survive by the source's endpoint bounds. The envelope orbit changes by at most 2n*delta since the maps are 1-Lipschitz; the active comparisons change by at most (2n+4)*delta, using that a slope difference is bounded by 1. This is smaller than epsilon/(32n), so the same winning word is obtained with O(log n) bits per entry."
+        ],
+        "reasoning": "There is a quantitative implication, not just shared rationality. The dyadic denominator from this rounding eventually divides 2^(2n+5), hence the assigned denominator for all sufficiently large n. No standalone scientific novelty is established by different constants, the exact denominator of a particular constructed witness, or possible finite small-n distinctions.",
+        "searches": [
+          "9d9f39c84df0 RESULT.md offset 3500–6172: actual construction, thresholds and orbit margins",
+          "8eb608279288 RESULT.md offset 3650–7498: construction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The probability of one of two states evolves by an affine map of slope det(P). Both mirror statements use nondecreasing affine maps, equivalent to the frozen nonnegative determinant hypothesis.",
+          "‘Block-distinct’ and ‘run-distinct’ require that maximal constant blocks have pairwise distinct symbols; these are identical predicates under the full same-length competitor quantifier.",
+          "Gill uses the same affine IFS composition viewpoint, but with general orientation in the binary classification."
+        ],
+        "reasoning": "Changing terminology or state labels changes neither the witness model nor which words can be isolated.",
+        "searches": [
+          "Resultary: monotone/order-preserving two-state PFA, optimal words with distinct symbol blocks",
+          "Gill §§4.1–4.2",
+          "8eb608279288 and 9d9f39c84df0 Findings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 11/8 mirror entry gives the identical sum over r of q!/(q-r)! times binomial(n-1,r-1), covering the entire word-count sequence, not just samples."
+        ],
+        "reasoning": "Its finite binomial sum gives the stated OGF by summing the composition series termwise and the stated asymptotic by retaining the top r=q term.",
+        "searches": [
+          "Resultary: exact ordered-run composition count of monotone/PFA unique length-n maximizers",
+          "9d9f39c84df0 exact count and Counting paragraph"
+        ]
+      },
+      "rationale": "Two distinct indexed findings give the same restricted characterization, and the stronger one also gives strictly positive rational witnesses and the identical exact count, implying the OGF and growth. Its explicit envelope margins even yield witnesses with O(log n) bits per entry after dyadic rounding. The particular displayed common denominator in the frozen record is correct, but is a weaker, nonsharp precision guarantee for a different witness, not a substantive uncovered classification or precision result. This is a content-coverage finding, not evidence of precedence or derivation from the later-labelled entries.",
+      "residual_risks": [
+        "The distinct indexed findings have later date labels; precedence, independence and the historical relationship are not determined.",
+        "This bounded comparison does not establish the earliest monotone affine-composition proof or classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Binary unrestricted classification and binary extension, not the arbitrary-alphabet monotone class",
+          "evidence": "Two-block words occur among the binary cases, alongside recurring-letter patterns; the extension corollary only embeds existing binary witnesses.",
+          "identifier_or_url": "https://nowheredense.github.io/PFAcomplexity.pdf",
+          "material_read": "Theorem 4.1, §§4.1–4.2, §4.4 Corollary 4.18; PDF offsets 7900–9697, 41400–43544, 45100–47878, 147200–151671",
+          "method": "bounded author-hosted original PDF passages",
+          "title": "Probabilistic automatic complexity of finite strings",
+          "trigger": "Possible overlap with Gill's two-state classification and affine formulation"
+        },
+        {
+          "assessment": "Three-state unrestricted upper bound, not the restricted two-state classification",
+          "evidence": "Remark 5.3 explicitly leaves the general two-state problem on larger alphabets open.",
+          "identifier_or_url": "https://arxiv.org/pdf/2607.26275",
+          "material_read": "Theorem 1.2, §5 Remark 5.3; PDF offsets 0–2909 and 14800–17058",
+          "method": "bounded original PDF passages",
+          "title": "Every string has probabilistic automatic complexity at most three",
+          "trigger": "Possible stronger arbitrary-alphabet theorem"
+        },
+        {
+          "assessment": "Same characterization; this specific construction uses zero determinants for unused letters",
+          "evidence": "Affine lines switch at midpoints of consecutive constructed orbit states; unused maps are identically zero.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-block-distinct-words-are-exactly-the-monotone-two-state-probabil--8eb608279288",
+          "material_read": "Finding, necessity and rational-crossing construction, offsets 0–4165 and 3650–7498",
+          "method": "bounded local published mirror passages, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Block-distinct words are exactly the monotone two-state probabilistic maximizers",
+          "trigger": "Direct indexed characterization overlap"
+        },
+        {
+          "assessment": "Same classification and count; strictly positive rational witnesses with margins implying stronger asymptotic precision",
+          "evidence": "Same bound on number of runs and label/composition formula; positive stochastic endpoints; baseline r=1-1/(4n), gaps at least 3/(32n), envelope deviation at most 1/(5000n^2).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-maximizers-of-order-preserving-two-state-probabilistic-aut--9d9f39c84df0",
+          "material_read": "Finding, proof and counting, offsets 0–4100 and 3500–6172; limitations and literature comparison through offset 9103",
+          "method": "bounded local published mirror passages, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact maximizers of order-preserving two-state probabilistic automata",
+          "trigger": "Direct exact theorem, count and precision comparison"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The orientation-preserving restriction defines a worthwhile structural subcase, but the complete classification and count are already covered in the examined catalogue. The given denominator is not shown sharp or to resolve a separate precision problem and is weaker as an asymptotic bit-size bound than a direct consequence of the stronger result. No distinct valuable remainder is established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,197 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:43:50.384194Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–105",
+        "Frozen VERIFICATION.md, lines 18–24",
+        "Frozen verify.py (inspected, not executed) and verification_output.txt, lines 1–11",
+        "Independent bounded exact replay: /workspace/branches/direct_gold_q4.py"
+      ],
+      "rationale": "Under conjugation by a Weyl operator, the Weyl inputs transform by distinct characters of the translation/modulation indices. Orthogonality over the N² projectors therefore makes the analysis columns orthogonal; their squared norms for inputs W/√N are N|⟨g,Wg⟩|², with N=q². Each normalized-window ambiguity coefficient is a graph-fiber sum divided by q, which cancels √N. The Gold derivative has kernel of size two for nonzero first-coordinate shift by gcd(k,m)=1; half of the characters of a nonempty two-point fiber agree on its difference. A purely vertical nonzero translation has no intersection. At zero translation the quadratic polar radical is given by v^(2^k)r^(2^(2k))+vr=0, by moving Frobenius through the trace. Cyclic-group divisibility gives sizes two for all nonzero v in odd dimension and four on cubes, one otherwise, in even dimension. The squared Walsh sum is q times the sum of the induced character on the radical; exactly q/|R_v| linear terms cancel the restricted quadratic form. This reconstructs the table, rank, indexed Weyl null directions and positive-spectrum condition number. Zero modulation gives the APN converse, and affine conjugation permutes shifts and dual characters up to phase, preserving the full spectrum (not generally the horizontal labels). An independent direct matrix check using 256 actual q=4 measurement projectors gave orthogonal Weyl columns and squared bands {0:198, 4:56, 16:2}. The supplied finite checks are not an all-degree proof; the orthogonality and radical argument is.",
+      "residual_risks": [
+        "Counting normalization and Hilbert–Schmidt domain norm are essential. This is not nonlinear phase retrieval or a theorem for noncoprime Gold exponents."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier quadratic Walsh theory gives the amplitude √(q|R|) and zeros controlled by the radical and the restriction of the phase to it. All odd-dimensional quadratic APN functions are almost bent (Remark II.5). Chase–Lisoněk gives a Gold Walsh-zero criterion for odd dimension.",
+          "Theorem II.4 covers even-dimensional quadratic APN components through their amplitude partition; it is about Walsh coefficients, not the nonzero-translation Gabor strata."
+        ],
+        "reasoning": "This covers the mechanism of the zero-translation band and, in odd m, its amplitude outright. The Gold specialization in even m inserts the radical dimension from a single cyclic-group equation; remaining strata use the two-point-fiber character rule.",
+        "searches": [
+          "Anbar–Meidl–Topuzoglu arXiv:1603.04685 §1",
+          "Chase–Lisoněk arXiv:2110.15582 Prop. 3.1",
+          "Bénéteau et al. arXiv:2510.12008v3 Thm. II.4 and Rem. II.5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, lines 43–114",
+        "arXiv:2106.01509, 1503.05800, math/0703228, 2110.15582, 2109.00292v3, 1603.04685, 2510.12008v3",
+        "Resultary 168ceffd1c08, 1a034131f60d, 150031da8dce"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The spectrum can be reconstructed from the Weyl identity by feeding in the APN two-point supports and the quadratic Walsh components. Radical cancellation and the character of the fiber difference identify the kernel; rank and conditioning are summaries of the same list.",
+          "The later general-gcd result covers the exact earlier claim's main table and kernel upon normalization, but it does not state the arbitrary-function APN converse or the affine/CCZ corollary."
+        ],
+        "reasoning": "No earlier inspected source was found stating the complete Gold operator assembly as an invariant; the mathematical gap between the assembled statement and the earlier ingredients is small, which is decisive on value. The converse and covariance do not enlarge it.",
+        "searches": [
+          "arXiv:2106.01509 Thm. 2 and arXiv:math/0703228 §3",
+          "arXiv:2510.12008v3 Thm. II.4",
+          "Resultary 168ceffd1c08 and 1a034131f60d"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier cyclic Gabor results diagonalize using ambiguity magnitudes; the finite-abelian framework uses the corresponding group and its dual. Gram eigenvalues are squared analysis singular values.",
+          "For a binary graph, the two ordered derivative solutions in a nonempty APN fiber describe one unordered pair. APN is exactly the binary Sidon condition, not a constant-multiplicity difference-set condition."
+        ],
+        "reasoning": "The character-orthogonality argument carries from cyclic to elementary abelian groups without changes to the factor √|G|. The APN labels and binary Sidon language describe the same intersection property; affine invariance follows from ordinary Weyl covariance.",
+        "searches": [
+          "Goldberger–Kang–Okoudjou arXiv:2106.01509 Thm. 2",
+          "Bojarovska–Flinth arXiv:1503.05800 Thm. 2.3",
+          "Feichtinger–Kozek–Luef arXiv:math/0703228 §3",
+          "Chase–Lisoněk arXiv:2110.15582 §2; Redman–Rose–Walker arXiv:2109.00292v3 Def. 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Later Resultary 168ceffd1c08 gives the full Gold graph table and Weyl kernel for general gcd. Taking its K=2, the unnormalized-window levels divided by q and unchanged multiplicities agree here.",
+          "Earlier 1a034131f60d concerns odd-cardinality binary Sidon phase windows, unlike the even-size Gold graph. Earlier 150031da8dce addresses Gold-graph Fourier-extension moments, not operator analysis.",
+          "Full text of the particularly relevant Gold Walsh-transform candidate, PII S1071579717301429, was not obtained lawfully."
+        ],
+        "reasoning": "The later comparison is exact for the main Gabor invariant, after correcting the window normalization. The earlier matched records are different by a decisive assumption or invariant. No priority claim rests on a missing full text.",
+        "searches": [
+          "Resultary: complete Gold graph Gabor lifting spectrum, binary Sidon ambiguity spectrum, Gold graph Fourier norm",
+          "Gold Walsh transform literature; publisher PII S1071579717301429"
+        ]
+      },
+      "rationale": "The distinct contribution supported by the comparison is only the explicit assembly of the Gold graph's full complex-linear operator signature and indexed Weyl kernel in this normalization. The first-translation stratum, Gold component arithmetic, APN characterization, and affine covariance do not supply independent originality. One later indexed record gives genuinely equivalent spectrum and kernel after specialization and normalization; inspected earlier records and sources cover the component mechanisms, not an earlier explicit full Gold operator signature. This narrow bibliographic distinction does not establish scientific value.",
+      "residual_risks": [
+        "Older Gold Walsh-evaluation full text at PII S1071579717301429 was not obtained; do not credit any standalone Gold Walsh novelty.",
+        "A direct later stronger match exists. Its catalogue date is not proof of the order of discovery."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General identity in cyclic setting",
+          "evidence": "Gram eigenvalues d|⟨g,M^bT^a g⟩|², with cyclic indices.",
+          "identifier_or_url": "https://arxiv.org/pdf/2106.01509",
+          "material_read": "Theorem 2, PDF pp. 4–5",
+          "method": "Lawful OA PDF, targeted passage",
+          "title": "Towards a classification of incomplete Gabor POVMs in C^d",
+          "trigger": "Same full operator Gram spectrum mechanism"
+        },
+        {
+          "assessment": "Cyclic frame bounds, not a Gold graph table",
+          "evidence": "Bounds expressed by the extreme squared ambiguity values on the cyclic time-frequency group.",
+          "identifier_or_url": "https://arxiv.org/pdf/1503.05800",
+          "material_read": "Theorem 2.3, p. 4",
+          "method": "Lawful OA PDF, targeted passage",
+          "title": "Phase Retrieval from Gabor Measurements",
+          "trigger": "Ambiguity criteria for Gabor measurements"
+        },
+        {
+          "assessment": "General finite-abelian mechanism",
+          "evidence": "Time-frequency shifts use the group and its dual; covariance and character orthogonality hold in this setting.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0703228",
+          "material_read": "Abstract and §3 setup",
+          "method": "Lawful OA PDF, targeted passages",
+          "title": "Gabor analysis over finite Abelian groups",
+          "trigger": "Underlying finite-abelian Weyl framework"
+        },
+        {
+          "assessment": "Direct overlap on APN and odd-dimensional Gold arithmetic",
+          "evidence": "Derivative at most two-to-one and a Gold Walsh-zero criterion, not a full analysis spectrum.",
+          "identifier_or_url": "https://arxiv.org/pdf/2110.15582",
+          "material_read": "§2 definition and §3 Proposition 3.1",
+          "method": "Lawful OA PDF, targeted passages",
+          "title": "Construction of APN permutations via Walsh zero spaces",
+          "trigger": "Gold Walsh and APN overlap"
+        },
+        {
+          "assessment": "Same geometric condition in graph language",
+          "evidence": "Distinct unordered pairs have distinct sums.",
+          "identifier_or_url": "https://arxiv.org/pdf/2109.00292v3",
+          "material_read": "Definition 1.1, p. 1",
+          "method": "Lawful OA PDF, targeted passage",
+          "title": "Maximal Sidon sets and fast ISS computation in finite vector spaces",
+          "trigger": "Sidon formulation of the graph intersection property"
+        },
+        {
+          "assessment": "Standard amplitude framework",
+          "evidence": "Nonzero quadratic-component Walsh magnitude is determined by the radical dimension.",
+          "identifier_or_url": "https://arxiv.org/pdf/1603.04685",
+          "material_read": "Abstract and §1, p. 2",
+          "method": "Lawful OA PDF, targeted passage",
+          "title": "Anbar–Meidl–Topuzoglu on quadratic and plateaued APN components",
+          "trigger": "General quadratic Walsh evaluation"
+        },
+        {
+          "assessment": "Earlier general Walsh theorem, not Gabor analysis",
+          "evidence": "Thm. II.4 identifies amplitudes by partition dimensions in even n; Rem. II.5 identifies the odd-n almost-bent case.",
+          "identifier_or_url": "https://arxiv.org/pdf/2510.12008v3",
+          "material_read": "Theorem II.4 and Remark II.5, pp. 3–4",
+          "method": "Lawful OA PDF, targeted text offsets 16450 and 21440",
+          "title": "On the Walsh spectra of quadratic APN functions",
+          "trigger": "Stronger quadratic APN Walsh claims"
+        },
+        {
+          "assessment": "Unresolved bibliographic risk for component Walsh tables",
+          "evidence": "No accessible decisive passage; no noncoverage inferred.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S1071579717301429",
+          "material_read": "Title match only",
+          "method": "Lawful OA access attempts unsuccessful",
+          "title": "Explicit evaluation of Walsh transforms of a class of Gold …",
+          "trigger": "Potential explicit earlier Gold component table"
+        },
+        {
+          "assessment": "Later indexed stronger exact match for the spectrum and kernel",
+          "evidence": "Unnormalized window and arbitrary gcd; K=2, singular values divided by q, give the frozen coprime spectrum.",
+          "identifier_or_url": "168ceffd1c08",
+          "material_read": "Finding, normalization, full table and kernel characterization",
+          "method": "Local Resultary mirror, bounded sections",
+          "title": "The complete Gold graph Gabor lifting spectrum and its subfield structure",
+          "trigger": "Direct full-spectrum match"
+        },
+        {
+          "assessment": "Odd-cardinality case only",
+          "evidence": "Equal-modulus phase windows over odd-sized supports; the present |C| is even.",
+          "identifier_or_url": "1a034131f60d",
+          "material_read": "Finding and support-size hypotheses",
+          "method": "Local Resultary mirror, bounded sections",
+          "title": "Phase-alphabet tomography ranks for binary Sidon supports",
+          "trigger": "Earlier closely related rank/kernel theorem"
+        },
+        {
+          "assessment": "Different Fourier-extension invariant",
+          "evidence": "Fourth-moment norm and extremizers rather than the operator-analysis spectrum.",
+          "identifier_or_url": "150031da8dce",
+          "material_read": "Finding and invariant studied",
+          "method": "Local Resultary mirror, bounded sections",
+          "title": "Exact fourth moments and line-affine phase extremizers for Gold graphs",
+          "trigger": "Same Gold function graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 43–105",
+        "Goldberger–Kang–Okoudjou Thm. 2",
+        "Bénéteau et al. Thm. II.4 and Rem. II.5",
+        "Chase–Lisoněk §2 and §3"
+      ],
+      "rationale": "The window and operator spectrum are natural, but this exact invariant is mechanically reconstructed from established inputs: Weyl orthogonality converts each entry into a fiber-character magnitude; APN turns every nonempty off-origin horizontal fiber into two points with a half-character count; the zero-translation part is precisely the quadratic Walsh distribution. In even dimension the only extra count is the cube test obtained by taking the gcd of the exponent in the radical equation with q−1. Kernel, rank, condition number, APN converse and affine transfer are immediate readouts or covariance. No substantive gap beyond assembling these standard blocks into one table is established. This is not a claim that the table is false or that it was explicitly printed in an earlier source.",
+      "residual_risks": [
+        "A genuinely different prediction not reducible to these strata, or a substantive use of the evaluated table, was not established by the frozen claim."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

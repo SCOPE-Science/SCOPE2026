@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the ladder-cycle shattering theorem
+# Independent mathematical audit
 
-Execute `python3 verify_ladder_cycles.py ladder_n5_tree.json` with the Python 3 standard library. Success gives `LADDER_CYCLE_TRACE_CHECK_PASS`. The checker independently enumerates simple cycles from ladder adjacency for each \(2\le n\le9\), and compares the resulting edge sets against the claimed rectangular parametrization. For those sizes it checks every edge support through cardinality three, amounting to 6,910 comparisons against the exact pair criteria. The observed shattering coefficients \([1,c_1,c_2,0]\) are \([1,0,0,0]\), \([1,7,0,0]\), and then \([1,10,38,0]\), \([1,13,70,0]\), \([1,16,111,0]\), \([1,19,161,0]\), \([1,22,220,0]\), \([1,25,288,0]\) for \(n=4,\ldots,9\).
+## correctness
 
-An exact memoized complete decision-tree recurrence checks the online ranks for \(2\le n\le12\): \(0,1,2,3,3,4,4,4,5,5,5\), respectively. The file `ladder_n5_tree.json` explicitly specifies all query nodes and eight distinct cycle witnesses for depth three; the checker validates them using separately enumerated graph cycles, including each answer at each tree branch. Both bounds are checked numerically for these lengths. The general theorems are proved from structural arguments in `RESULT.md`, not inferred from finite enumeration.
+PASS
 
-Limitations: the procedure does not independently validate the infinite case, the primary published literature's full historical coverage, or non-dyadic exact online ranks beyond checked finite lengths. No independent external audit has been performed.
+The frozen proof asserted that the top and bottom portions of a cycle each form a single path; its appeal to revisiting a row does not justify this central step. The complete corrected /workspace/repairs/3/RESULT.md proves the unchanged theorem: take the extreme columns of a simple cycle; every intermediate two-rail cut must be crossed by connectedness and crossed evenly by the cycle degree sum. Both rails therefore occur across every intermediate gap. Degree two excludes interior rungs and forces the two extreme ones. From this representation, any two distinct rung queries admit all traces for n>=4. For tracks in different gaps, two columns in one of the three complementary blocks realize the zero trace (by pigeonhole), and the single-gap and full rectangles realize the other traces. A mixed pair admits both singletons exactly when the selected rung's side of the gap has a second column; removing that rung's column leaves two columns on some side for the zero trace. This excludes the same-gap twins and the four extreme mixed pairs and gives the stated coefficient. With three rungs the all-positive trace fails; two rungs force one rectangle, one rung makes two distinct rail answers nested or exclusive conditional on that rung, and three distinct rail gaps cannot give a 101 trace. The cases n=2 and 3 follow from cycle count and singleton variation. Distinct concepts per adaptive leaf give the information bound; two independent threshold searches on disjoint blocks of m=floor(n/2) endpoints prove the lower bound, which equals the upper bound at dyadic n. The checked depth-three tree at n=5 embeds at all larger n. Reviewer-authored `python3 /workspace/independent_reproduction.py ladder` enumerated graph cycles for n=2..9, checked 6,910 supports through triples, reproduced all ranks through n=12 by finite adaptive recursion, and checked the actual certificate's eight leaves. This corroborates, not replaces, the all-order proof in the repaired file.
+
+## originality
+
+PASS
+
+For the unchanged repaired statement, checked earlier wheel and complete-bipartite results establish analogous edge-cycle rank phenomena, and finite-interval methods already explain the rail-only online lower bounds. The full physical-edge ladder support classification, including endpoints and duplicate gap predicates, was not found as a covered result. The online conclusions are credited as applications of classical threshold and counting arguments; the combined ladder classification is the distinct claim.
+
+## value
+
+PASS
+
+The corrected proof establishes a complete shattering census on distinct physical edges of a standard connected subcubic planar graph, and gives exact infinite dyadic adaptive ranks as well as the first strict-gap boundary. The count detects duplicate and extreme coordinate effects hidden by VC dimension alone. The bounded-degree planar example complements, rather than restates, wheel-based separations and is not a claim about all non-dyadic ranks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

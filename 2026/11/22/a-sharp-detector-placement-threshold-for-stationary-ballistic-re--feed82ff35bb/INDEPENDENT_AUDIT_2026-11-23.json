@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:02:57.521744Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In equilibrium a flight sampled at a clock time is weighted by its duration L/v. Conditional on its speed the phase is uniform, so X(0) is uniform and independent of the biased speed law ψ(dv)=(φ(dv)/v)/∫φ(du)/u. The two-time binary law is determined by H=P(1,1) and the common one-time marginal (L−a)/L. Given X(0)>a, no reset can occur for t<a/v_+. Integrating X(0)>a+vt yields H(t)=L⁻¹∫(L−a−vt)_+ ψ(dv). Put ℓ=L−a, z=ℓ/t and z₀=ℓv_+/a. Then K(z)=LzH(ℓ/z)/ℓ is the lower stop-loss potential, whose distributional second derivative equals ψ on z>z₀. The unobserved [v_−,z₀] part contributes exactly zM−m there, determined by its mass M and first moment m. Thus the observed restriction and these two moments are necessary and sufficient for pair-law equivalence. At z₀=v_− the only hidden mass is an endpoint atom fixed by normalization; at z₀<v_− none is hidden. When z₀>v_−, choose three nonzero smooth bumps with disjoint compact supports below min(z₀,v_+) and above v_−. There is a nonzero signed combination with both moments zero, and disjointness ensures it is not the zero function. Add and subtract a small multiple from a strictly positive continuous density to obtain different full-support laws with equal data, including when the entire support is hidden. Unbiasing by v and normalizing is bijective. This proves a≥Lv_+/(v_−+v_+) iff identification holds. As an independent replay, take L=1, admissible speeds [1,4], shared ψ-atoms of mass 1/10 at 1 and 4, and distribute the other 4/5 at 7/6 versus 2/5 each at 13/12 and 5/4. At a=3/4 the differing atoms are all below z₀=4/3 and have matched mass and mean, so all short-lag data agree. At a=4/5 and t=6/35 the second law gives H greater by exactly 1/175. The equilibrium construction applies even to deterministic or lattice flight times; the theorem is not a fresh-start convergence claim. The supplied exact-rational script was inspected but not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Akimoto arXiv:2306.00359v1 §VII, Eqs. (124)–(125) reduces the no-return case to zero renewals, and (136)–(139) computes the equilibrium correlation transform using products of the two sojourn-law transforms. Das et al. §IV.B derive P_ss(x)=1/x₀ for finite mean flight time."
+        ],
+        "reasoning": "The zero-transition/residual-time calculation remains applicable here before a return, and the uniform position marginal is already known. The all-lag factorization in Akimoto does not transfer: the two consecutive above/below sojourns within one flight share V and are proportional, so their joint transform at s is E exp(−sL/V), not the product of marginal transforms. Neither passage settles the bounded-speed truncated inverse, critical atom, or nonidentifiability construction.",
+        "searches": [
+          "Akimoto Statistics of the number of renewals occupation times and correlation in ordinary equilibrium and aging alternating renewal processes arXiv 10.1103/PhysRevE.108.054113",
+          "arXiv:2611.16733v1 §IV.B"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, scope and proof; VERIFICATION.md; check_binary_persistence.py",
+        "arXiv:2611.16733v1; arXiv:2306.00359v1; Zamparo DOI 10.1007/s10955-022-02893-8 at the inspected passages",
+        "Resultary --2fe27acb9c54, --87b32b051bde and --3fafd0c137ae"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At finite lag before return, the detector sees the stationary remaining time in the first on-sojourn; the full-duration cutoff for seeing all of it is ℓ/v_−≤a/v_+. The common ballistic speed links the above and below durations; aliasing from free choice of two independent duration laws does not yield a counterexample in this constrained single-law class."
+        ],
+        "reasoning": "Renewal survival and stop-loss differentiation are not new. The specific reconstruction from partial survival—including exactly what remains unseen, sharp ambiguity even for positive densities, and equality from a boundary atom's mass—requires the cutoff and shared-speed analysis. Full-lag identifiability/separation and long-time integral fluctuations do not establish this short-lag theorem.",
+        "searches": [
+          "arXiv:2306.00359v1 §VII Eqs. (124)–(125), (136)–(139)",
+          "Resultary --2fe27acb9c54 and --3fafd0c137ae"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The present H/p is the equilibrium survival function of the remaining above-detector duration over this window; its change of variable gives a stop-loss potential of the stationary speed law. Akimoto treats correlation of a two-state duration process. Zamparo's variable is a discrete marker at renewal epochs, with the inverse determined by c_t=E[X_1 X_{t+1}] under its hypotheses."
+        ],
+        "reasoning": "This is a genuine residual-duration equivalence over the specified window, and that forward observation mechanism is standard. But full-curve inversion for a renewal-epoch sequence is not truncated occupation inference. The missing portion here is affine in z, leaving exactly two hidden moments, not unobserved epochs as in the discrete renewal formulation.",
+        "searches": [
+          "stationary alternating renewal process binary occupation indicator two-time probability inverse occupation-time distribution stop-loss potential transform identifiability",
+          "arXiv:2306.00359 §VII",
+          "Zamparo DOI 10.1007/s10955-022-02893-8 §3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue search's direct hit was the assigned record itself, not distinct prior evidence. Closest distinct occupation result --87b32b051bde gives pathwise endpoint cancellation and asymptotic moment limits. The same-model --3fafd0c137ae gives the integrated-observable variance coefficient and existence of negative covariance for nonconstant Lipschitz observables. --2fe27acb9c54 gives all-lag pairs aliasing for two independent-sojourn laws."
+        ],
+        "reasoning": "None of these inspected exact statements gives the finite-lag truncated stop-loss data equivalence or the location boundary. In particular an endpoint representation and asymptotic variance coefficient do not specify finite-time endpoint correlations. Same-day entries were compared on content, not presumed order.",
+        "searches": [
+          "Resultary 2026/9/21 SCOPE-stationary-alternating-renewal-markov-pair-law-aliasing--2fe27acb9c54",
+          "Resultary 2026/11/22 SCOPE-complete-temporal-occupation-cancellation-in-a-ballistic-thresho--87b32b051bde",
+          "Resultary 2026/11/22 SCOPE-universal-boundary-fluctuations-and-negative-memory-in-ballistic--3fafd0c137ae"
+        ]
+      },
+      "rationale": "The ballistic equilibrium marginal, renewal length bias, residual-survival identity and stop-loss inversion are known components. The supportable increment is the finite-window equivalence class for this binary spatial observation and the sharp detector cutoff, including critical atoms and smooth full-support ambiguity below it. The closest full-text and catalogue comparisons do not give or cover that inverse criterion; priority remains best-of-knowledge only.",
+      "residual_risks": [
+        "An uninspected general inverse result for censored occupation survival with dependent cycles could cover an equivalent formulation. The standard forward residual-life component is not claimed as new.",
+        "The subcritical construction only proves equality over the specified guaranteed reset-free window; no wider identifiability or sampling-noise claim follows."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same forward process and known stationary marginal; inspected analysis does not give the detector inverse.",
+          "evidence": "§IV.B obtains a uniform stationary density P_ss(x)=1/x₀ on [0,x₀] when the mean first-passage time is finite.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.16733",
+          "material_read": "First page and printed pp. 4–5, §IV.B, OA extraction offset 30204",
+          "method": "Lawful OA full-text extraction",
+          "title": "Freezing transition and shock-like transients in ballistic random walks under threshold resetting",
+          "trigger": "Exact forward ballistic threshold-reset model"
+        },
+        {
+          "assessment": "Relevant no-return calculation and general correlation machinery under sojourn transform factorization; not the coupled per-flight inverse or its short-window cutoff.",
+          "evidence": "Eq. (125) includes P(N_t=0); Eq. (139) uses denominator 1−ρ̂_+ρ̂_−. Equation numbering here is for the arXiv v1 source.",
+          "identifier_or_url": "https://arxiv.org/pdf/2306.00359; DOI 10.1103/PhysRevE.108.054113",
+          "material_read": "arXiv v1 §VII, pp. 15–16, extraction starting at 199000, Eqs. (124)–(125) and (136)–(139)",
+          "method": "Publisher PDF inaccessible; lawfully read OA preprint of same paper by bounded offset",
+          "title": "Statistics of the number of renewals, occupation times, and correlation in ordinary, equilibrium, and aging alternating renewal processes",
+          "trigger": "Plausible general two-state occupation correlation result"
+        },
+        {
+          "assessment": "The inverse law is for discrete renewal-epoch markers with admissible c_t, not a binary spatial threshold during a flight.",
+          "evidence": "Theorem 3.2 recovers a unique finite-mean integer waiting-time law under its Kaluza and limit conditions.",
+          "identifier_or_url": "https://doi.org/10.1007/s10955-022-02893-8",
+          "material_read": "§3.2 pp. 7–8, extraction offset 22500; Theorem 3.2",
+          "method": "Lawful OA full-text extraction",
+          "title": "Renewal Model for Dependent Binary Sequences",
+          "trigger": "Explicit binary two-time inverse waiting-time theorem"
+        },
+        {
+          "assessment": "Independent alternating sojourns and all lags, not coupled durations and a specified finite window.",
+          "evidence": "The pair law determines a sum of two renewal transforms; provides non-Markov and Markov examples with identical pair laws.",
+          "identifier_or_url": "2026/9/21/SCOPE-stationary-alternating-renewal-markov-pair-law-aliasing--2fe27acb9c54",
+          "material_read": "Decisive stationary pair-law transform and aliasing statement",
+          "method": "Local Resultary mirror",
+          "title": "Stationary alternating renewal Markov pair-law aliasing",
+          "trigger": "Exact related pair-law inverse failure"
+        },
+        {
+          "assessment": "Analyzes centered time integrals and limiting moments, not finite-window identifiability.",
+          "evidence": "Y_f(t)=Φ_f(t)−Φ_f(0) pathwise; its limiting law is the difference of independent endpoint potentials.",
+          "identifier_or_url": "2026/11/22/SCOPE-complete-temporal-occupation-cancellation-in-a-ballistic-thresho--87b32b051bde",
+          "material_read": "Finding, scope and Proof §§1–3, offset 0 onward",
+          "method": "Local Resultary mirror, bounded original passage",
+          "title": "Complete temporal occupation cancellation in a ballistic threshold-reset walker",
+          "trigger": "Same-day same-model occupation statistic"
+        },
+        {
+          "assessment": "Gives limiting fluctuation coefficients and existence of a negative lag for Lipschitz observables, not an exact binary two-time inverse.",
+          "evidence": "Uses Var of the integrated centered observable as the integral of (h−t)C_g(t) and a pathwise endpoint identity to prove the sign-existence result; it does not compute H_a(t) at prescribed short lags in the inspected passage.",
+          "identifier_or_url": "2026/11/22/SCOPE-universal-boundary-fluctuations-and-negative-memory-in-ballistic--3fafd0c137ae",
+          "material_read": "Finding, scope and Proof §§1–4 opening, offset 0 onward",
+          "method": "Local Resultary mirror, bounded original passage",
+          "title": "Universal boundary fluctuations and negative memory in ballistic threshold resetting",
+          "trigger": "Plausible same-model temporal covariance coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Every speed law has the same stationary spatial marginal, so even a perfect spatial histogram cannot identify the kinetics. One binary detector at short lags can instead identify the entire law exactly above a quantitative placement boundary; below it the theorem tells precisely what is and is not learned. This gives a useful sensor design criterion, not merely a transform evaluation, with no promise of stable noisy inversion.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

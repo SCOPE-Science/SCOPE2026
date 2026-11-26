@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The root-cone characterization proves the exact local recurrence from first principles. At internal vertices, missing each middle target world is counted by an independent product, and inclusion–exclusion cancels the two middle-root terms. The bound is proved for every finite rooted tree by a supermultiplicative integer-partition envelope, with strictness beyond subtree size three; this also fixes the equality cases. Exhaustive independent map enumeration checks every rooted-tree shape through seven vertices. The proof does not infer an infinite theorem from these tests.
+## correctness
 
-## Originality — PASS, with residual risk
-Published modal references define bounded morphisms but do not state the extremal census. A prior finite-rooted-tree result counting **onto** morphisms to fans supplies related root-state recurrences; the collapsed all-map formula is consequently not asserted to originate a general counting method. Its all-order maximum, minimum, and unique optimal rooted-tree shape are additional optimizations not in that result. Zhang et al. optimize the unrelated connected-subtree count, not the bounded-morphism count; the two counts differ already on stars. Searches for the exact target, equivalent names, product recurrence, and broader extremal coverage did not identify a matching theorem, though unindexed coverage remains possible.
+PASS
 
-## Mathematical value — PASS
-Bounded morphisms preserve modal behavior, and the four-world Boolean diamond is the smallest branching Boolean poset. The theorem determines how finite rooted-tree shape controls their total number, including both sharp endpoints and unique maximizing/minimizing structures at every order. The cancellation to a one-state recursion and the parity-dependent extremizer identify structural information not provided merely by knowing that a surjective morphism exists.
+The final statement counts actual functions in reflexive ancestor order, with labelled target middle worlds. An upward image cone test gives one map at a leaf; a middle root permits the same middle or top at every child independently, while the bottom root requires both middle images below. Inclusion–exclusion and the unique top-root map give 2 plus the child product. For the all-order maximum, the envelope with weights 1,3,5 for sizes 1,2,3 is supermultiplicative by concatenation. Replacing pairs 1+1, 1+2, 1+3 and 3+3 proves its best partitions uniquely use twos and at most one three except for size one. Induction gives N≤F(n) and strictly so at n≥4 by the two explicit positive parity differences. At n=1,2 there is one shape; the size-three envelope is attained only by the end-rooted chain. At any root attaining 2+F(n−1), all child counts and the child partition must be jointly optimal, so no child has order ≥4 and the partition forces the stated unique shape. The witness realizes every term of the formula, including both small exceptional orders.
 
-## Limits and closest work
-Only reflexive ancestor-order rooted trees, maps with fixed target-world labels, and all (not necessarily onto) maps are covered. The corresponding surjective-tree enumeration is previous work; the present sharp extremum is distinct. Standard rooted-subtree extremal theorems concern another statistic. Searches cannot establish absolute priority, and an independent audit remains pending.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+For the repaired maximum-only contribution, the strongest indexed overlap supplies exactly the recurrence used as input but not the fixed-order optimization or its equality cases. The checked literature on linear-process morphisms and connected graph subtrees is materially different. No priority judgment between same-day records is needed to credit the census and restrict the claim.
+
+## value
+
+PASS
+
+The supported problem measures how strongly branching shape affects the count of frame morphisms at a fixed source size. Existence of onto maps is not enough to estimate this count. The exact maximum explains the short-chain mechanism and its parity correction, gives the growth base, and identifies the only saturating source, supplying a precise benchmark for more general fan and source-shape questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:23:34.415606Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof, lines 74–239",
+        "Frozen VERIFICATION.md, lines 18–61; verify.py, lines 24–72"
+      ],
+      "rationale": "Independently reconstructed the bijection. For two nonzero digits (a,c), ac divides ab+c only if a divides c. Writing c=ak gives the equivalent condition ak | b+k, which forces k | b and then a | (b/k+1). Conversely these conditions imply divisibility. With d=b/k, c<b is equivalent to a<d, and for d>=2 the proper divisors of d+1 are all at most (d+1)/2<d. Recovery of k=c/a and d=b/k makes the correspondence injective. The bound is equality exactly when every nontrivial d|b has d+1 prime. An odd divisor d>=3 rules that out, as does 8|b; among b>=3 only b=4 remains and works. At b=2 the formula gives the sole pair (1,1); at a prime base the only summand is d=b. The all-base proof supplies correctness; the supplied finite checker was inspected, not executed.",
+      "residual_risks": [
+        "Only the two-digit stratum is proved; the bundled corroboration is bounded to 2<=b<=500."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "§7 counts and enumerates exact-N-digit Zuckerman numbers algorithmically for b>=3."
+        ],
+        "reasoning": "The algorithm recovers the individual counts on any fixed instance in scope but does not give the exact symbolic classification and divisor sum as the base varies. The b=2 extension by itself is not a novelty basis.",
+        "searches": [
+          "He–Sanna, arXiv:2403.14812v2, p. 2 and §7 (p. 12)"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary search (title, divisor parametrization, two-digit counts)",
+        "arXiv:2403.14812v2; Journal of Number Theory 272 (2025), 34–59",
+        "OEIS A007602 and A397770"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cancellation first extracts a from c, then the residual quotient c/a from b; the earlier algorithms and tables were not found to encode this two-digit bijection."
+        ],
+        "reasoning": "The formula is an elementary theorem about the previously defined predicate, not an independent definition or a prior formula with N set to 2. The prime-base and equality assertions are consequences of this one classification, not separately demonstrated new contributions.",
+        "searches": [
+          "He–Sanna, p. 2 and §7; compare exact-length predicate and counting method to the proof at frozen RESULT.md lines 74–183"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact-two-digit predicate is ac | ab+c; the frozen result gives the derived parametrization k=c/a | b and a | b/k+1 with a<b/k.",
+          "No materially matching indexed finding was identified."
+        ],
+        "reasoning": "Compared the same predicate and digit conventions rather than relying on title or literal misses. The primary source provides the starting condition, not the divisor-coordinate equivalence or an explicit list in terms of divisors for arbitrary base.",
+        "searches": [
+          "Resultary: two-digit Zuckerman numbers, divisor parametrization and counts",
+          "He–Sanna arXiv:2403.14812v2: exact-digit sets and searches for two-digit, two digits, tau, proper divisor"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 2 gives the N=2 values for bases 3 through 12.",
+          "A397770 gives the decimal value 5 and lists 11, 12, 15, 24, 36; A007602 records the decimal sequence."
+        ],
+        "reasoning": "Credit the finite exact overlaps, including base 10. None supplies the arbitrary-base formula or the global lower-bound equality criterion.",
+        "searches": [
+          "He–Sanna Table 2",
+          "OEIS A007602",
+          "OEIS A397770",
+          "Resultary exact two-digit count comparison"
+        ]
+      },
+      "rationale": "The closest inspected primary work gives the digit-product condition, exact-length enumeration algorithms, and small-base counts, but not the explicit divisor-lattice classification. The classification follows by a short reduction from the definition itself, not by specializing an identified theorem that already classifies the layer or gives the divisor formula. Pass is restricted to the explicit all-base bijection/formula and its consequences, not the predicate, general enumeration or tabulated values.",
+      "residual_risks": [
+        "An elementary equivalent may exist in unindexed recreational sources. Search misses do not establish global novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the definition, algorithms and tabulated finite two-digit values, not the closed divisor classification in inspected material",
+          "evidence": [
+            "Exact-N-digit sets and N=2 table; §7 exact-length counting/enumeration"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2403.14812",
+          "material_read": "arXiv v2 PDF p. 2, exact-length definitions and Table 2 (text offsets 5734 and 9000); §7 p. 12 (offset 50495)",
+          "method": "Targeted lawful OA PDF passage inspection and comparison of predicates, outputs and scope",
+          "title": "Counting numbers that are divisible by the product of their digits",
+          "trigger": "Same digit-product definition, exact-N-digit problem and likely broader enumeration"
+        },
+        {
+          "assessment": "Coverage at b=10 only",
+          "evidence": [
+            "Five decimal members: 11, 12, 15, 24, 36"
+          ],
+          "identifier_or_url": "OEIS A007602; OEIS A397770",
+          "material_read": "Decimal sequence and two-digit entry",
+          "method": "Database entry comparison",
+          "title": "Numbers that are divisible by the product of their digits; Number of n-digit Zuckerman numbers",
+          "trigger": "Possible exact database coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "He–Sanna, exact-length problem and Table 2"
+      ],
+      "rationale": "The full first nontrivial digit-length stratum of an existing enumeration problem is natural, with no arbitrary cutoff. The explicit correspondence both generates every valid digit pair from divisors of the base and explains variation of the counts with shifted divisors, including exactly when the universal lower bound is tight. The usefulness is in the complete structural classification, not in the difficulty of the cancellation or recomputation of known table entries.",
+      "residual_risks": [
+        "Modest and confined to two digits; no asymptotic, higher-digit or general counting improvement is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

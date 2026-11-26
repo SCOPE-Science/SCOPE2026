@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "Direct differentiation yields the full step-response packet (2/m^2)h_k. A sign-duality optimization over [0,1]^{2m-2} equals twice the number of opposite-sign pairs among m signs, bounded by 2 floor(m^2/4). Step decomposition and segment integration prove the global two-input inequality. A balanced-right-block binary baseline, made interior and perturbed symmetrically, gives ratios converging to the bound for every m and n>=2m. Standalone checker passes exact finite chambers m=2..8, exact sign duality m=2..18, all-width witness patterns m=2..80, and randomized comparisons. Finite tests are corroborative, not an all-width proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wu–Chang 2015 §§3.2–6: local variance for estimation, tests of statistical accuracy; no bound for variations of differences",
+        "Wahlberg–Rojas–Annergren 2011: variance segmentation via total-variation regularized maximum likelihood, a distinct optimization map, DOI 10.1109/ACSSC.2011.6190356"
+      ],
+      "reasoning": "None of the inspected available materials supplies a broader all-width result for the same deterministic nonlinear map, with the same input-range and two-input variation metric. The 2011 implementation manuscript was not read and is kept as an explicit risk.",
+      "searches": [
+        "exact two input bounded variation Lipschitz constant sliding moving sample variance bounded input amplitude window width odd even parity",
+        "web: \"sliding variance\" \"total variation\" stability",
+        "web: \"variance filter\" \"Lipschitz\" \"variation\" 2015",
+        "web: \"running variance\" \"total variation\" \"Lipschitz\" sliding windows variance nonlinear filter"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1186/s13640-015-0093-2",
+      "https://doi.org/10.54294/z4rl5e",
+      "https://pubmed.ncbi.nlm.nih.gov/16479800/",
+      "https://doi.org/10.1109/ACSSC.2011.6190356",
+      "2026/11/17/SCOPE-sharp-bounded-variation-sensitivity-of-the-two-choice-centered-b--3bd074c379a4",
+      "2026/11/17/SCOPE-sharp-total-variation-perturbation-constant-for-sliding-median-f--9412f0250c25",
+      "2026/11/17/SCOPE-cyclic-variation-contraction-of-every-one-deletion-moving-mean--eeb4015782ac",
+      "2026/11/17/SCOPE-path-variation-instability-thresholds-for-second-difference-tren--14a24ab95f1f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Robert Tamburo, Variance Image Filter, Insight Journal (submission 2011-01-05), DOI 10.54294/z4rl5e: accessible landing abstract documents a local variance feature and software, not a read theorem",
+        "Wu and Chang, EURASIP Journal on Image and Video Processing 2015:38, DOI 10.1186/s13640-015-0093-2: Eq. (9) local variance estimator and empirical accuracy analysis",
+        "Bo Wahlberg, Cristian Rojas, Mariette Annergren, On l1 Mean and Variance Filtering (2011), DOI 10.1109/ACSSC.2011.6190356: TV-regularized segmentation of latent variance, not an output-variation contraction theorem"
+      ],
+      "reasoning": "All are related to variance but the objects/outputs and evaluated assertions differ; statistical estimation or penalized latent variance is not a logical strengthening of the sharp two-input variation theorem. An inaccessible manuscript remains unresolved, not asserted non-covering.",
+      "searches": [
+        "moving window population variance sharp two-input discrete bounded variation seminorm Lipschitz interval bounded data parity even odd",
+        "variance image filter Robert Tamburo 2011 2015 stability theorem variation",
+        "web: \"Variance Image Filter\" \"January 5, 2011\" Tamburo source code",
+        "web: \"On l1 Mean and Variance Filtering\" 2011"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wu–Chang 2015 Eq. (9) is a local second central moment, the same scalar feature but without a variation-operator comparison",
+        "The accessible own historical finding e2ffeca0-87e4-4cab-8d56-eba50099a21e concerns moving three-point standard deviation, not variance or all m"
+      ],
+      "reasoning": "Variance is the square of standard deviation; a sharp global variation estimate for the square root on one window width cannot be differentiated or squared to yield the exact amplitude-restricted operator norm for every width. The proof uses a distinct multiwidth sign-pair extremality formula.",
+      "searches": [
+        "moving window population variance sharp two-input discrete bounded variation seminorm Lipschitz interval bounded data parity even odd",
+        "rolling local second central moment variance filter contraction total variation of differences signal",
+        "web: \"moving variance\" \"bounded variation\" Lipschitz sharp filter",
+        "web: \"sliding window variance\" \"total variation\" stability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed published-finding corpus hits address nonlinear box envelopes, moving medians and deleted-rank means; none states a population-variance parity formula",
+        "Accessible latest own ledger contains no moving population-variance claim; closest item e2ffeca0-87e4-4cab-8d56-eba50099a21e treats width-three standard deviation"
+      ],
+      "reasoning": "Searched index entries and recoverable local claim records by operator name, aliases, parameter m, second central moment, and parity. Absence from searchable databases does not prove exhaustive novelty.",
+      "searches": [
+        "published-finding corpus: moving window population variance sharp two-input discrete bounded variation seminorm Lipschitz interval bounded data parity even odd",
+        "published-finding corpus: rolling local second central moment variance filter contraction total variation of differences signal",
+        "published-finding corpus: variance image filter Robert Tamburo 2011 2015 stability theorem variation",
+        "published-finding corpus: exact two input bounded variation Lipschitz constant sliding moving sample variance bounded input amplitude window width odd even parity",
+        "web: \"local variance filter\" \"nonexpansive\" \"bounded variation\""
+      ]
+    },
+    "rationale": "Targeted published-finding corpus queries, accessible historical claims, full-text local-variance article sections, and direct equivalence checks did not identify a theorem implying the amplitude-normalized exact all-window sign-pair bound. Known moving standard-deviation sharp constants do not imply this width-general population-variance parity law, since squaring depends on the base signal and changes the derivative. Full access to an early variance-filter manuscript was unavailable, so historical priority remains a specified risk.",
+    "residual_risks": [
+      "Inaccessible 2011 variance-filter full manuscript (institutional connection unavailable); its detailed theoretical content was not checked",
+      "Unindexed older formulations or a stronger general nonlinear BV lemma may imply the result",
+      "Only indexed abstracts were available for some relevant signal-processing texts; no claim of historical completeness"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Uses population local variance for noise estimation, but studies empirical noise estimation and segmentation rather than sharp two-input adjacent variation bounds",
+        "evidence": [
+          "https://link.springer.com/article/10.1186/s13640-015-0093-2",
+          "§3.2 formula (9) and §§4–6"
+        ],
+        "identifier_or_url": "https://doi.org/10.1186/s13640-015-0093-2",
+        "material_read": "Full accessible HTML, abstract, sections 1–6 with emphasis on §3.2 equation (9), results and discussion",
+        "method": "Read article HTML",
+        "title": "Superpixel-based image noise variance estimation with local statistical assessment",
+        "trigger": "Full-text primary article using local second central moments in an image-processing pipeline"
+      },
+      {
+        "assessment": "Unresolved full-text comparison. Accessible abstract describes the filter and software, not a mathematical stability theorem, but no whole-document NOT_COVERING inference is made.",
+        "evidence": [
+          "https://insight-journal.org/browse/publication/779/",
+          "Landing abstract lists implementation, mask, source code, tests"
+        ],
+        "identifier_or_url": "https://doi.org/10.54294/z4rl5e",
+        "material_read": "Landing-page title, abstract, submission date, linked-document descriptions only; full manuscript inaccessible",
+        "method": "Web search and direct OA URL attempted; arXiv title search; institutional access attempt returned VPN disconnected",
+        "title": "Variance Image Filter",
+        "trigger": "Direct original neighborhood-variance filter implementation with potential for equivalent bounds"
+      },
+      {
+        "assessment": "Window-scale average-local-variance application, not directly comparable to exact two-input BV Lipschitz; full text not inspected",
+        "evidence": [
+          "PMID 16479800",
+          "DOI 10.1109/TIP.2005.860623"
+        ],
+        "identifier_or_url": "https://pubmed.ncbi.nlm.nih.gov/16479800/",
+        "material_read": "PubMed abstract and bibliographic metadata only",
+        "method": "Web abstract retrieval",
+        "title": "The fundamentals of average local variance—Part I: Detecting regular patterns",
+        "trigger": "Early local variance statistic and window-scale research"
+      },
+      {
+        "assessment": "Addresses total-variation regularized segmentation of a variance parameter, not local second-central-moment output sensitivity",
+        "evidence": [
+          "https://www.academia.edu/120005001/On_l_inf_1_inf_mean_and_variance_filtering"
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/ACSSC.2011.6190356",
+        "material_read": "Accessible abstract and substantial indexed introductory text; no complete manuscript review",
+        "method": "Web search result and abstract comparison",
+        "title": "On l1 Mean and Variance Filtering",
+        "trigger": "Same words variance and total variation, possible conceptual stronger coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "previously_published_pending_reaudit": false,
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c85e115b-79b9-4731-8011-94b3e3bd6853",
+  "value": {
+    "rationale": "A range-normalized population variance signal is a widely used local texture/noise feature, and worst-case stability under *perturbations of a signal* is not supplied by statistical accuracy analyses. The theorem supplies a dimension-independent exact budget for every window width, proves global nonexpansivity on [0,1] signals, and gives the precise parity correction: factor 1 for even m and 1-1/m^2 for odd m. The sign-pair duality identifies extremizing mechanisms and the complete-jump regime n>=2m rather than a small isolated numerical example.",
+    "status": "PASS"
+  }
+}

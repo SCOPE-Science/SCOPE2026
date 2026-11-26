@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The integer state domain is the complete grid \(S\) with \(6401\) states. The formula's branch boundaries, nearest-even tie convention, and coefficients are fixed explicitly. Two independent exact successor-evaluation methods agree on every input, and two global graph algorithms independently yield all recurrent periods, basin sizes, maximum transients, and the \(5122\) changed successors. The attached checker is the complete finite computational certificate. No result on infinite real trajectories is inferred.
+PASS
 
-## Originality (PASS within accessible evidence)
+Rebuilt both graphs on all signed states −3200,…,3200 directly from the rational map formulas, with exact nearest-even rounding. Moving the even integer shift ±512 outside the outer rounding preserves ties, including the negative-state ties. The inner formulas agree and the outputs, including those at −640, 0 and 640, stay in the domain. Floyd cycle detection followed by backward breadth-first traversal from each cycle found exactly the stated period/basin pairs: A (34,238), (40,6163); B (8,68), (20,2830), (24,253), (24,442), (28,1404), (28,1404). The basin sizes exhaust the state count for each map and the maximum depths are 107 and 80. In integer coordinates the unrounded outer values differ by |i|/320≥2, so even after rounding every outer state changes successor and no inner state does; this gives exactly 5122 changes independently of the census. This does not test or identify an FPGA arithmetic pipeline.
 
-The primary 2023 electronics study reports approximate and fixed-point trajectories and notes 16-bit discrepancies, but it does not give the precise two-map exhaustive census. The 2021 original article treats exact-real chaos, and accessible exact-real related results address Lyapunov floors, real period-three cycles, or attracting resonance windows. These do not imply the finite-scale, explicitly rounded successor graphs. Exact finite-precision studies of other interval maps do not provide the same-map answer. The 2021 article was only available in publisher preview; full-text priority remains uncertain.
+## originality
 
-## Value (PASS)
+PASS
 
-The chosen parameter is the article's exact chaotic hardware-study example, and the seven-fractional-bit state representation directly addresses low-width recurrence. Exact whole-grid period/basin inventories give a useful diagnostic for numerical fidelity; the difference is not just an illustrative short trajectory. No general hardware or cryptographic conclusions are suggested.
+The inspected prior work supplies the real map and the seven-fractional-bit motivation, not the census for the two exact arithmetic semantics. The conclusion is limited to the checked sources, including a full-text access limitation for the originating article.
 
-## Limitations and priority risk
+## value
 
-The coefficient-quantized version is an idealized model with the same branch boundaries, not a verified FPGA execution. The 2021 primary full text and some later closely related full texts were inaccessible. Independent validation has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Seven fractional bits is a source-motivated resolution, and the controlled comparison changes only the coefficient encoding. The whole-grid census provides a concrete check on claims about robustness of long-run behavior that trajectory examples cannot supply: the cycles, basin weights and longest transient change, not just individual iterates. It is an exact comparison of two numerical models, not empirical hardware validation or a claim at other resolutions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

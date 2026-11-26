@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:59:31.801043Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–112",
+        "VERIFICATION.md, lines 18–32; verify.py, lines 1–75"
+      ],
+      "rationale": "Admitted blocks can be extended on both sides to marked words; concatenating returns of lengths 2 and 5 gives every sufficiently long bridge. For each z>0 the decreasing renewal sum gives a unique positive root p. On an ergodic component with positive marker frequency, Kac and Abramov reduce the variational bound to the relative entropy against the law q_m=z exp(−p(m²+1)). The return alphabet has finite one-symbol entropy under a finite mean length, and equality in the entropy-rate bound requires independent returns. The q-renewal measure attains the bound, whereas the zero-marker component is the all-zero point mass and has strictly smaller pressure. After Poisson summation, set w=√p and let E(w)=2√π∑_{j≥1}exp(−π²j²/w²), extended by zero at w=0. Gaussian bounds dominate every fixed derivative at zero, so E is smooth and flat. The equation F(w,z)=2w−z exp(−w²)(√π−w+E(w))=0 has derivative 2 in w at (0,0); the analytic surrogate deletes E and has the same full Taylor jet. Expanding the surrogate gives the displayed coefficients. For w₀=√P_an, the mean-value theorem for F on [w₀,w] gives w−w₀=z exp(−w₀²)E(w₀)/(2+o(1)), because both endpoints tend to zero and F_w is continuous there. Using E(w₀)∼2√π exp(−π²/w₀²), w∼w₀∼√π z/2, gives exactly the leading pressure gap with coefficient 4P_an. Its strict positivity rules out analyticity. Finally the equilibrium marker frequency is the inverse mean length, with mean asymptotic 1/(2p) from the differentiated theta expansion; h=p−ρ log z then yields the entropy law. Independently computed direct Gaussian roots, using 320 decimal digits and truncating at the ceiling of √(760/P_an), with a geometric sum-tail bound below 10^(−320), gave correction ratios 0.9028980, 0.9390685 and 0.9567343 at z=0.35, 0.25 and 0.2. The supplied checker was inspected but not executed; its documented replay is `python3 verify.py` from the package directory with mpmath. Finite numerical agreement is not the boundary proof.",
+      "residual_risks": [
+        "Smooth extension is a statement about a real function near 0, not an equilibrium interpretation at negative activity or a complex continuation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Baker–Ghenciu give the unweighted S-gap entropy root and the mixing gcd criterion.",
+          "Dastjerdi–Jangjoo give structural criteria, including mixing, for general S-gap systems."
+        ],
+        "reasoning": "General renewal and mixing theory covers the model framework and the z=1 normalization, not analytic regularity at zero fugacity or the exponential pressure displacement for squared gaps.",
+        "searches": [
+          "Baker–Ghenciu arXiv:1411.7167, Proposition 2.1",
+          "Dastjerdi–Jangjoo arXiv:1108.3242, Theorem 3.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1411.7167, Proposition 2.1",
+        "arXiv:1108.3242, Theorem 3.1",
+        "Resultary 1db74ef026b2, 281543b1266b and 166969f68799"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The unweighted entropy equation is a single normalization, not an estimate varying z.",
+          "The same-schedule stability result states the leading polynomial scales; the fixed-density result bounds but does not identify its exponential error."
+        ],
+        "reasoning": "A renewal equation and Poisson summation enable the calculation, but to get the claimed statement one must match analytic and smooth implicit branches and propagate the exact first dual mode through the zero-activity inversion. Neither a leading power nor a big-O property yields the coefficient, strict sign and full-jet equality together.",
+        "searches": [
+          "arXiv:1411.7167, Proposition 2.1",
+          "Resultary 1db74ef026b2 and 281543b1266b, Finding passages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "1db74ef026b2 treats the same shift at fixed density, with a theta-cubic surrogate and an exponential big-O error.",
+          "281543b1266b uses z=exp(−L) and overlaps the leading pressure and marker density scales, but states free-energy stability results.",
+          "166969f68799 concerns geometrically spaced return lengths and log-periodic sparse-density behavior."
+        ],
+        "reasoning": "Pressure is a Legendre supremum of entropy at fixed density, so the first comparison is material. A big-O remainder at fixed density does not specify a nonzero leading coefficient or the smooth jet of the optimized pressure; optimizing it cannot recover information the fixed-density estimate does not fix.",
+        "searches": [
+          "Local Resultary search for square-gap pressure, theta asymptotics, and sparse-marker entropy",
+          "Resultary 1db74ef026b2, 281543b1266b and 166969f68799"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-schedule result gives an exponential error bound, not the exact pressure displacement.",
+          "The classical theta identity gives the exact Gaussian sum, not the shift in its implicit pressure root."
+        ],
+        "reasoning": "A database of coefficients or initial decimal pressures would not decide equality of the complete Taylor jet, nonanalyticity, or the exact leading flat term of this implicit function. The relevant exact formulas were compared instead.",
+        "searches": [
+          "Resultary 1db74ef026b2, same square return schedule and theta-derived approximate law",
+          "Frozen RESULT.md equation (7), classical Gaussian theta transformation"
+        ]
+      },
+      "rationale": "Credit the exact square-gap zero-activity result: a smooth yet nonanalytic pressure with a specified analytic Taylor representative and an exact positive leading flat correction. The general mixing and renewal facts and the Gaussian theta identity are established inputs. The closest same-schedule sources inspected have related but non-equivalent stated conclusions.",
+      "residual_risks": [
+        "The bounded comparisons cannot exclude older unindexed theta-series renewal asymptotics. No exact stronger fixed-density statement with a matching computable leading exponential coefficient was identified in the inspected material."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Established special inputs, not boundary coverage",
+          "evidence": [
+            "Entropy root ∑λ^(−(n_i+1))=1; gcd mixing criterion."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1411.7167",
+          "material_read": "p. 4, Proposition 2.1 and nearby mixing statement, text offset 9736",
+          "method": "OA PDF passage",
+          "title": "Dynamical properties of S-gap shifts and other shift spaces",
+          "trigger": "General S-gap renewal equation and mixing criterion"
+        },
+        {
+          "assessment": "Structural background only",
+          "evidence": [
+            "Mixing criterion based on allowed return lengths, not small-activity pressure."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1108.3242",
+          "material_read": "p. 4, Theorem 3.1, text offset 13500",
+          "method": "OA PDF passage",
+          "title": "Dynamics and topology of S-gap shifts",
+          "trigger": "General criteria for the underlying shift class"
+        },
+        {
+          "assessment": "Substantial related work, but fixed-density big-O rather than exact canonical correction",
+          "evidence": [
+            "Theta-cubic surrogate for the density-constrained entropy with an O(exp(−π²/t)) error."
+          ],
+          "identifier_or_url": "Resultary:1db74ef026b2",
+          "material_read": "RESULT.md, text offsets 0 and 4900",
+          "method": "Local Resultary mirror",
+          "title": "A theta-cubic law for sparse-marker entropy in the square-gap shift",
+          "trigger": "Same return schedule; possible Legendre-dual equivalent"
+        },
+        {
+          "assessment": "Overlapping leading laws, distinct main question",
+          "evidence": [
+            "With z=exp(−L), the displayed leading p and ρ laws coincide; the finding analyzes stability, not the flat correction."
+          ],
+          "identifier_or_url": "Resultary:281543b1266b",
+          "material_read": "RESULT.md, text offsets 0 and 2500",
+          "method": "Local Resultary mirror",
+          "title": "Three-scale optimal free-energy stability in the square-gap shift",
+          "trigger": "Same return lengths and rare-marker pressure"
+        },
+        {
+          "assessment": "Different return schedule and law",
+          "evidence": [
+            "Geometrically spaced returns and a log-periodic term, not a square-gap Gaussian/theta law."
+          ],
+          "identifier_or_url": "Resultary:166969f68799",
+          "material_read": "RESULT.md, Finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Log-periodic second-order entropy law for geometric gap shifts",
+          "trigger": "Earlier sparse-density entropy asymptotics for arithmetic return schedules"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, equations (2)–(5) and proof at lines 59–112",
+        "Same-schedule Resultary comparisons 1db74ef026b2 and 281543b1266b"
+      ],
+      "rationale": "This explicit renewal system distinguishes a smooth pressure at zero activity from an analytic one even though all Taylor coefficients agree with a concrete analytic branch. The exact positive scale and prefactor resolve the discrepancy missed by any power expansion. That distinction, rather than the standard renewal equation or leading density scale alone, gives the example scientific use in studying boundary regularity of symbolic pressure.",
+      "residual_risks": [
+        "No universality across general gap schedules is established; the flat term relies on the specified square schedule."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

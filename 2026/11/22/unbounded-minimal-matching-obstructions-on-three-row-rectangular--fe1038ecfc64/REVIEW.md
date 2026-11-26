@@ -1,19 +1,21 @@
-# Scientific review: unbounded minimal matching obstructions on three-row grids
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each integer \(n\ge2\), the sixteen explicitly specified edge sets are matchings of size \(n+1\). Fixing the central horizontal dominoes leaves only endpoint middle-row vertices available for vertical tiles. The four choices at each end split into two phases, determined by which outer row has its first/last free column of each parity. Compatible phases tile both outer rows; incompatible phases leave odd outer-row intervals and cannot be completed. Exactly eight of the sixteen configurations have incompatible phases. Each boundary-edge deletion admits a substitute vertical boundary edge of the retained opposite-end phase. After removing any middle-row spine edge, two newly available middle-row sites can instead be covered by opposite outer-row vertical edges, fixing both parity defects. These give completions of every one-edge deletion and hence minimal nonfaces. The width-three family therefore has minimal nonface size at least \(n+1\), arbitrarily large. The attached checker confirms the phase split and every single-edge deletion for twenty-one strip widths, but finite verification is not the infinite proof.
+PASS
 
-## Originality — PASS, subject to historical-priority risk
+With the spine fixed, each remaining middle-row end can only be matched vertically in its own column. A boundary horizontal edge forces the vertical to the other outer row. The left free intervals (top start, bottom start) then have parity (even, odd) for A and (odd, even) for B; the right ends have parity (odd, even) for A and (even, odd) for B. Opposite parities give even lengths, including any empty row interval; same parities give odd lengths. Hence exactly 8 of the 16 proposed matchings do not extend. Removing one boundary edge permits the compatible vertical at that end. For an A-left/B-right obstruction with d_j removed, column 2j is available in the top even-to-even interval and column 2j+1 in the bottom odd-to-odd interval. Using verticals there splits both intervals into even lengths. For B-left/A-right the rows are exchanged. In each even-to-even interval column 2j lies between the left start 2 and right end at least 2n-2, and in each odd-to-odd interval column 2j+1 lies between the start at most 3 and end 2n-1, which checks both extreme j and n=2. Every one-edge deletion extends, so every proper subset extends. The eight sets are distinct and have n+1 edges, giving eight distinct squarefree minimal generators of that degree, not a complete global enumeration. Replay is by RESULT.md lines 13–33. The attached exhaustive finite solver was inspected, not executed; the proof supplies the all-n result without relying on that solver.
 
-The motivating public paper by Chandrakar, Chau, Goyal, Karki and Subhash (arXiv:2611.18058v1, 2026-11-13) treats the *same* perfect-matching extendability complex and a related middle-row spine. It determines homotopy information and mentions three-element minimal nonfaces without stating unbounded minimal nonface cardinality or the eight boundary-phase obstructions. This shared spine is explicitly acknowledged. Chandrakar and Singh (arXiv:2407.05809, 2024-07-08) classify two-edge minimal nonfaces on width-two grids; their classification does not imply the width-three result. Related published records on finite three-row perfect-matching homotopy types and signed domino sums do not cover this infinite-degree minimal-nonface statement. Search failure alone is not an originality proof. A broader existing result on minimal nonextendable matchings or irreducible forbidden domino patterns remains a residual priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-Minimal nonfaces are the minimal forbidden partial tilings and the minimal monomial generators of the Stanley–Reisner ideal. The explicit obstruction family shows that fixed-width three-row strips require forbidden patterns of unbounded arity, whereas the established width-two classification requires only size two. This is a qualitative structural jump across an entire infinite family, not a routine finite census or arbitrary parameter slice.
+Best-of-knowledge pass for the sixteen-pattern boundary classification and the eight minimal obstructions of size n+1 for all n>=2. The same-grid preprint already uses the identical alternating spine and notes that three-edge bad matchings occur. That overlap does not furnish the boundary classifications or a family of unbounded size.
 
-## Scientific limits
+## value
 
-Only eight members of a defined sixteen-configuration template are fully classified; the global set of all minimal nonfaces, the maximum degree and Betti numbers are not determined. Completion after removing a domino is shown for each of these eight configurations. Historical priority is provisional pending independent literature review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The theorem exhibits a structural jump from width two, where minimal forbidden patterns have size two, to fixed width three with growing minimal-generator degree. The examples are boundary obstructions along a standard spine; every selected domino matters. This identifies genuinely nonlocal constraints on completion without overstating their global census or maximum size.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

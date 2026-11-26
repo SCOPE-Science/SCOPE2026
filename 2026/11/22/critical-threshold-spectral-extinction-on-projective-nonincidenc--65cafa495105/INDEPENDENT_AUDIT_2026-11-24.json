@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:19:35.765724Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a periodic trajectory on a 2θ-regular graph, disjointness of E_{t-1} and E_{t+1} bounds contacts to the latter by θ per vertex in E_t; each new excitation needs at least θ preceding contacts. Thus the excited-set size is nonincreasing and periodic, forcing equality. Each excited vertex saturates its degree on the previous and next excited sets; their vertices each have exactly θ contacts back to E_t, with zero contacts from all other vertices. This proves the pointwise time identity on the full vertex set. For B the nonincidence matrix, two distinct points exclude the union of their two incidence pencils of size 2q+1, leaving q(q-1) shared neighbors. The Gram matrix gives eigenvalues q^4 and q, then the bipartite adjacency eigenvalues ±q² and ±sqrt(q), without a coordinate or Desarguesian hypothesis. The squared nonprincipal spectral ratio is 4/q³, a rational noninteger for even q≥2, whereas the square of a temporal root-of-unity sum is an algebraic integer. The surviving Fourier modes are ±1, giving two-step repetition excluded by the refractory rule unless all excited sets are empty. Periodicity then excludes refractory vertices too; finiteness gives eventual rest without asserting a uniform all-order time. Independently enumerated all 4782969 labelled Fano states using an OR subset transform for threshold-two neighbor pairs, ternary ranking of disjoint excited and refractory sets, and exact backward first-hitting layers from zero. This reproduced (1,16383,803001,2393358,1107890,364518,90258,7560), with no uncaptured states, and all eight words for the sharp witness 82105. Replay: python3 /workspace/branches/replay_3_5/scope_frozen_12345_fano.py, stdout in the matching .log. Inspected the archived sources and outputs without executing them. The finite computation certifies only the specified order-two census.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first two require respectively ρ(G)<θ and θ>Δ/2, while here ρ(G)=q²/2=θ=Δ/2; the third only classifies given primitive period-three configurations at equality. The fourth proves universal rest for integral adjacency spectra avoiding {-r,0,r} at degree 2r. Square q meets its hypotheses, since sqrt(q) is then integral and the projective nonincidence spectrum avoids the forbidden values at r=q²/2. Nonsquare q, including q=2, violates integrality."
+        ],
+        "reasoning": "Square-order extinction is a genuine corollary of the indexed same-day result and is credited as overlap. Degree or density alone cannot extend to the equality case: the same-degree biclique can cycle through the two equal halves of each side in alternation, with the last half refractory. The new application rules out temporal ratios with noninteger rational square even though the eigenvalues need not be integral.",
+        "searches": [
+          "Resultary 352367f51e91 (induced density), 661b1e5fd561 (contraction), 7c3fe196f42d (period-three rigidity), 3ebebc11989a (integral spectral ceiling)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 352367f51e91, 661b1e5fd561, 7c3fe196f42d, 29120402709f, 3ebebc11989a, 4fe1eb5b56d1 and eb46e2ab56cd",
+        "Gravner–Lyu–Sivakoff arXiv:1610.07320 p. 2",
+        "Fisch–Gravner–Griffeath, Threshold-range scaling, p. 1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The spectral ceiling and triangular-graph proof both give the same pointwise identity and Fourier eigenvalue condition. The ceiling uses integrality in Step 2 and its extinction criterion in Step 3 depends on that step. The triangular-graph proof specializes its condition to rational cosines for the T(n) eigenvalues; the arithmetic four-wave result also requires integral graphs. None of those statements gives a finite hitting distribution on the Fano nonincidence graph."
+        ],
+        "reasoning": "The obstruction method itself is not distinct. The nonincidence Gram computation and nonintegral-square obstruction give the additional plane specialization, including nonsquare even orders not within the existing integral theorem. Exclusion of cycles alone cannot determine any of the seven positive-time bins.",
+        "searches": [
+          "3ebebc11989a RESULT.md Steps 1–3",
+          "4fe1eb5b56d1 RESULT.md Temporal spectral obstruction and Triangular graph spectrum",
+          "eb46e2ab56cd RESULT.md Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The graph is K_{v,v} minus point-line incidence edges, not the total graph complement or incidence graph. At q=2 this is the four-regular bipartite complement of the Heawood graph at threshold two. Gravner–Lyu–Sivakoff p. 2 eq. (1) excites a rested vertex upon existence of one excited neighbor. Fisch–Gravner–Griffeath define the multi-contact parallel GH rule but on lattice neighborhoods."
+        ],
+        "reasoning": "Equivalent graph naming and the same three-state terminology do not make an incidence graph, a threshold-one theorem, or lattice dynamics equivalent to the stated threshold-two census or exact-half-degree family.",
+        "searches": [
+          "Resultary: critical half-degree Greenberg–Hastings, projective-plane nonincidence, Fano/Heawood excitation census",
+          "arXiv:1610.07320 equation (1)",
+          "Fisch–Gravner–Griffeath, Threshold-range scaling, abstract and §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Heawood title's original Finding uses the three-regular incidence graph at threshold one and finds eight primitive periods and a maximal transient of ten. The indexed triangular graph result tabulates T(5) and T(6) instead. Neither is a labelled four-regular Fano nonincidence census."
+        ],
+        "reasoning": "There is no graph or rule equivalence transporting either table. No independent matching distribution was established in the checked corpus.",
+        "searches": [
+          "Resultary: Heawood and bipartite complement excitation census; listed Resultary 29120402709f and 4fe1eb5b56d1"
+        ]
+      },
+      "rationale": "Qualified for the all-even-order plane specialization beyond integral spectra and the exact Fano nonincidence census. The temporal contact identity and Fourier obstruction are shared with distinct same-date records; the integral spectral criterion in 3ebebc11989a implies the square-order subfamily. No distinct checked result gives both the extension to nonsquare even orders and the census. Relative priority within the date and historical priority generally are not established.",
+      "residual_risks": [
+        "The indexed same-day results overlap in method and, in the integral case, in applicability; no priority order follows from the date. The general web literature lookup was unavailable, and the full Durrett–Griffeath archival paper was not independently compared. Older or unindexed specializations or censuses cannot be excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strict inequality, no endpoint coverage",
+          "evidence": "ρ(G)<θ suffices; an equality biclique supports a four-cycle.",
+          "identifier_or_url": "2026/10/25/SCOPE-a-densest-subgraph-threshold-and-finite-excitation-budget-for-th--352367f51e91",
+          "material_read": "RESULT.md Finding, Assumptions and Proof, offset 0",
+          "method": "Local Resultary mirror passage read",
+          "title": "A densest-subgraph threshold and finite excitation budget for three-state graph dynamics",
+          "trigger": "Potential broader extinction threshold including the endpoint"
+        },
+        {
+          "assessment": "Does not cover equality",
+          "evidence": "Strict θ>Δ/2 hypothesis.",
+          "identifier_or_url": "2026/11/17/SCOPE-sharp-logarithmic-extinction-clocks-above-the-half-degree-excita--661b1e5fd561",
+          "material_read": "RESULT.md Finding, Assumptions and Proof, offset 0",
+          "method": "Local Resultary mirror passage read",
+          "title": "Sharp logarithmic extinction clocks above the half-degree excitation threshold",
+          "trigger": "Closest general contraction"
+        },
+        {
+          "assessment": "Different recurrence claim",
+          "evidence": "Given primitive period-three states and a squared-cycle specialization, not extinction on projective nonincidence graphs.",
+          "identifier_or_url": "2026/11/8/SCOPE-half-degree-rigidity-and-a-sharp-contact-threshold-collapse-on-s--7c3fe196f42d",
+          "material_read": "RESULT.md Finding, Assumptions and Proof, offset 0",
+          "method": "Local Resultary mirror passage read",
+          "title": "Half-degree rigidity and a sharp contact-threshold collapse on squared cycles",
+          "trigger": "Same threshold, potential all-period rigidity"
+        },
+        {
+          "assessment": "Incidence graph and threshold one, not the specified census",
+          "evidence": "Eight periods and ten-step maximal transient on the incidence graph.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-heawood-excitation-census-eight-primitive-periods-and-a-te--29120402709f",
+          "material_read": "RESULT.md Finding, Assumptions and Proof, offset 0",
+          "method": "Local Resultary mirror passage read",
+          "title": "Exact Heawood excitation census: eight primitive periods and a ten-step maximal transient",
+          "trigger": "Same Fano plane, potentially matching census"
+        },
+        {
+          "assessment": "Same temporal mechanism; theorem implies the square-order cases, not the nonsquare spectral specialization or exact Fano census",
+          "evidence": "Pointwise time identity, Fourier eigenvalue obstruction, integral even-regular spectrum and exclusion of -r, 0, r in the extinction criterion.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-twelve-step-spectral-ceiling-for-critical-excitation-on-integr--3ebebc11989a",
+          "material_read": "RESULT.md Finding offset 0 and Proof Steps 1–3 in offsets 3150–9595",
+          "method": "Local Resultary mirror passage read",
+          "title": "A twelve-step spectral ceiling for critical excitation on integral graphs",
+          "trigger": "Strongest matching same-day theorem and proof"
+        },
+        {
+          "assessment": "Shares proof mechanism, specializes to a different graph family",
+          "evidence": "Admissible modes require 2r cos(2πk/p); uses rational nonprincipal ratios for T(n) and reports small T(5), T(6) censuses.",
+          "identifier_or_url": "2026/11/22/SCOPE-universal-critical-contact-extinction-on-triangular-graphs--4fe1eb5b56d1",
+          "material_read": "RESULT.md Finding and Proof on time spectrum and T(n), offsets 0 and 3400–6925",
+          "method": "Local Resultary mirror passage read",
+          "title": "Universal critical-contact extinction on triangular graphs",
+          "trigger": "Same critical threshold and Fourier method; possible more general lemma"
+        },
+        {
+          "assessment": "Related integral case, not the plane census",
+          "evidence": "Integral regular graphs with 3 not dividing the vertex count have extinction or specified four-cycles.",
+          "identifier_or_url": "2026/11/22/SCOPE-arithmetic-extinction-and-balanced-four-waves-at-the-critical-co--eb46e2ab56cd",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror passage read",
+          "title": "Arithmetic extinction and balanced four-waves at the critical contact threshold",
+          "trigger": "Same-day related recurrence classification"
+        },
+        {
+          "assessment": "One-contact criterion; not a proof for a distinct half-degree rule",
+          "evidence": "Transition of a resting vertex uses existence of an excited neighbor, not θ distinct neighbors.",
+          "identifier_or_url": "https://arxiv.org/pdf/1610.07320",
+          "material_read": "p. 2, equation (1) and surrounding rule explanation, offsets 4375–7272",
+          "method": "OA primary PDF passage read",
+          "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+          "trigger": "Primary general-graph GH dynamics"
+        },
+        {
+          "assessment": "Shared model idea, lattice setting in the inspected material",
+          "evidence": "Parallel GH uses threshold contacts for color zero on planar lattice neighborhoods.",
+          "identifier_or_url": "https://www.math.ucdavis.edu/~gravner/papers/fgg.pdf",
+          "material_read": "p. 1, abstract and start of §1, offsets 485–2323",
+          "method": "OA primary PDF passage read",
+          "title": "Threshold-range scaling of excitable cellular automata",
+          "trigger": "Primary multi-contact rules"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Projective nonincidence gives a natural regular test family at the exact threshold where strict contraction cannot decide extinction. Its irrational nonprincipal spectrum provides a concrete use of algebraic integrality in excluding every temporal period, in contrast to a same-degree oscillating network. The independently computed Fano distribution is a sharp benchmark for relaxation at criticality rather than an extrapolation to larger planes or a substitute for the theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

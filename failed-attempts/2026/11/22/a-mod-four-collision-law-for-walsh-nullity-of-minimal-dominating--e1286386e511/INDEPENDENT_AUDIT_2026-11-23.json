@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:23:23.317674Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, REVIEW.md, AUDIT.json, METADATA.json, SLOGAN.txt, VERIFICATION.md and verification_mindom.py (inspected, not executed)",
+        "Independent direct-support and character-sum replay: python3 /workspace/branches/9e0207e8-3da0-43ef-ac80-534fe617b3df/reproduce_mindom.py; reproduction.txt reports 30,901 exact checks across all 33 ordered sizes tested"
+      ],
+      "rationale": "For shore sizes at least two, minimality leaves exactly the two entire shores and one vertex from each shore in a mixed set. The direct character sum is the product of the two shore sign sums plus the signs of the entire shores. Write x=a-2i, y=b-2j, e=(-1)^i, h=(-1)^j. If both sizes are odd, xy is odd; if both are even, the zero equation requires xy=0 and e=-h, giving exactly the stated parity-dependent overlap of the two central layers. For a=2r, b=2s+1, the opposite-sign class again gives x=0. In the equal-sign class x=±2, y=±1, e=-(-1)^r, h=(-1)^s sign(y), so y=-(-1)^(r+s) and x=-2(-1)^s. These weights exist even at the minimum admissible sizes and have exactly the stated binomial multiplicity. The triangle inequality is sharp at the trivial character (ab+2). Odd-odd admits |xy|=1 with opposite signs; an even shore admits its central weight and the other shore an equal sign, realizing absolute multiplier 2, the smallest possible positive even value. Stirling's estimate on central and adjacent binomials gives the stated fraction expansion, with the overlap or mixed correction O((ab)^(-1/2)).",
+      "residual_risks": [
+        "The replay is finite; the support and parity proof is what gives the all-size result. No assertion for shores of size one."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior all-biclique theorem includes every size a,b>=2, the Moore–Penrose inverse norm and the balanced specialization. The general graph literature concerns enumeration and unsigned cardinality, and is not the decisive coverage."
+        ],
+        "reasoning": "The all-size prior directly covers the assigned domain without needing to infer results from a graph-class enumeration algorithm.",
+        "searches": [
+          "Resultary 9850942575f9, Finding, Scope and Proof §§1–7",
+          "arXiv:1407.2053 introduction and enumeration reductions; arXiv:1303.5999 introduction and complete multipartite domination-polynomial scope"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 9850942575f9; matched frozen record e1286386e511",
+        "arXiv:1407.2053 and arXiv:1303.5999",
+        "Targeted web and Resultary searches above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Its proof identifies the same two middle layers and their intersection, and states that exactly one of the four adjacent-central weight pairs produces the additional mixed zero. It proves max |lambda|=mn+2 and the same positive gap. The current sign notation makes the mixed weight explicit; the comparable-size estimate follows from the prior exact formulas by central-binomial Stirling asymptotics."
+        ],
+        "reasoning": "The explicit sign choice is a substitution in the prior root equations. The error term follows by bounding the exceptional product by O((ab)^(-1/2)) and expanding each central binomial term. Neither establishes an independent new mathematical claim.",
+        "searches": [
+          "Resultary 9850942575f9 Proof §§4–7, compared to frozen Proof §§3–4 and Verification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior 9850942575f9 uses m,n for the present a,b and uses the same XOR group, unnormalized transform and inclusion-minimal support. Its even-even indicator is that the sum of half-sizes is odd, which is exactly that the half-sizes have opposite parity."
+        ],
+        "reasoning": "Parameter relabelling and rewriting the overlap as a mod-four collision leave the theorem unchanged. The mixed formula and both spectral endpoints coincide as well.",
+        "searches": [
+          "Resultary: Walsh transform minimal dominating sets complete bipartite Ka,b Boolean convolution nullity parity mod four condition number signed minimal domination",
+          "Web: minimal dominating sets complete bipartite signed Walsh Hadamard Fourier nullity exact Fourier parity convolution minimal domination complete multipartite polynomial"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The November 16 hit supplies exact coefficients and weighted nullity for all shore sizes, not merely a table for some small bicliques."
+        ],
+        "reasoning": "A directly inspected exact published result is stronger evidence of coverage than finite agreement or a search for individual values.",
+        "searches": [
+          "Resultary same-object query above and full RESULT.md of 9850942575f9"
+        ]
+      },
+      "rationale": "The November 16, 2026 published Resultary record 9850942575f9 already states and proves the same all-parameter theorem. It gives the identical support, every multiplier, all parity-specific nullities including the mod-four collision term, the invertibility criterion, and the same sharp maximum, positive gap and condition number. This is exact prior coverage, not just thematic similarity.",
+      "residual_risks": [
+        "The comparison is not a global priority claim for the earlier result; the earlier same-statement publication alone suffices for this rejection."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers the main theorem",
+          "evidence": [
+            "W(m,n;i,j)=(m-2i)(n-2j)+(-1)^i+(-1)^j",
+            "Even-even collision indicator is that the sum of half-sizes is odd",
+            "Mixed count, odd-odd invertibility, least positive magnitude 1 for odd-odd and 2 otherwise, and both condition numbers are stated explicitly"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-exact-fourier-nullity-of-minimal-domination-on-complete-bipartit--9850942575f9/RESULT.md",
+          "material_read": "Full RESULT.md including finding, hypotheses, signed-root proof, spectral bounds and balanced limit",
+          "method": "Published local full-text mirror",
+          "title": "Exact Fourier nullity of minimal domination on complete bipartite graphs",
+          "trigger": "Earlier result on the identical support and Fourier operator"
+        },
+        {
+          "assessment": "Context, not necessary to establish prior coverage",
+          "evidence": [
+            "The Dom-Enum problem and its transversal connections target enumeration, not the assigned convolution's sharp spectral gap"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1407.2053",
+          "material_read": "Abstract, introduction, graph and domination definitions, and initial enumeration reductions",
+          "method": "Primary OA PDF text",
+          "title": "On the Enumeration of Minimal Dominating Sets and Related Notions",
+          "trigger": "Foundational inclusion-minimal domination enumeration cited in the record"
+        },
+        {
+          "assessment": "Different invariant from the assigned signed minimal set transform",
+          "evidence": [
+            "The polynomial counts all dominating sets by cardinality, not the position-sensitive signed sums over inclusion-minimal sets"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1303.5999",
+          "material_read": "Abstract, introduction, and complete multipartite definition and scope",
+          "method": "Primary OA PDF text",
+          "title": "Complete r-partite graphs determined by their domination polynomial",
+          "trigger": "Potential broader complete multipartite enumerator"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Verification compared against 9850942575f9 Finding and Proof §§4–7"
+      ],
+      "rationale": "The invariant is naturally motivated, and the exact parity law is useful in the earlier work. As a new finding, this frozen record adds no worthwhile mathematical result: its main theorem is already published on the full domain and its additional comparable-size expansion is a routine estimate of already explicit central binomial terms. The finite replay and explicit parity signs are corroboration, not a surviving new contribution.",
+      "residual_risks": [
+        "The rejection is of this record as a new finding, not of the usefulness of the underlying Fourier invariant or the correctness of the formulas."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

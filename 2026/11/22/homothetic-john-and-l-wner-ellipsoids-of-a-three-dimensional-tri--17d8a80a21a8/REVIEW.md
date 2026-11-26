@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The published convex-hull representation of the specified curve gives two parabolic-cylinder inequalities. For the proposed inner ellipsoid the inequalities follow by completing two exact nonnegative squares, with precisely four boundary contacts. Normalization sends those contacts to regular tetrahedron vertices, satisfying both the zero-mean and isotropic second-moment John conditions with positive weights. For the outer ellipsoid, checking each generating point gives the uniform bound \(2/3+\cos^2(2t)/3\le1\); its four normalized contacts satisfy the dual moment certificate. These criteria cover arbitrary centers, rotations and positive semiaxes. The two stated ellipsoid volumes and \(\operatorname{vol}(K)=\pi\) follow by elementary integration, and the ratio-eight volume comparison forces any enclosing homothety factor to be at least two. The included checker replayed all 802 rational square diagnostics, both contact moment identities, exact volume/scale identities and 10,001 generating-curve sample checks. The infinite theorem rests on the analytical proof, not sampled checks.
+PASS
 
-## Originality — PASS (provisional historical assessment)
+For a probability mixture of unit-circle points with means x,y, the third coordinate is 2E[X^2]-1=1-2E[Y^2]. Jensen bounds it by the two claimed cylinders. On the unit disk each endpoint is achieved by the two points on the appropriate vertical or horizontal chord, with their weights chosen to realize the remaining mean. Mixing attains the entire fiber; its length 2(1-x^2-y^2) integrates to pi. For the inner ellipsoid the cylinder slacks are exactly (z+1/2)^2+(3/4)(1-Q_J)+2y^2 and (z-1/2)^2+(3/4)(1-Q_J)+2x^2, where Q_J is its displayed quadratic form. Zeros give exactly the four asserted contacts. For the outer ellipsoid the form on the curve is 2/3+cos^2(2t)/3; strict convexity excludes any other contact from the convex hull. In each ellipsoid's unit-ball coordinates the four contacts sum to zero, have pairwise dot product -1/3, and their outer products sum to (4/3)I. Weight 3/4 per contact meets the unrestricted John and Löwner criteria, hence uniqueness without centering assumptions. The semiaxes double, the volume formula gives pi sqrt(3)/4 and 2pi sqrt(3), and any E subset K subset rho E has rho^3>=vol(E_L)/vol(E_J)=8. This proves the sharp factor even for translated or rotated competitors. The frozen checker samples the curve and replays contact algebra; it was inspected but not executed. The square identity, generator inequality and contact calculations above are global.
 
-Sanyal–Sottile–Sturmfels, *Orbitopes*, arXiv:0911.5436, Sections 1 and 5 and Figure 3, explicitly describe exactly this three-dimensional trigonometric hull by two parabolic cylinders; that fact is already known and is not claimed. Their inspected body presentation does not give the specific John or Löwner ellipsoids, the pair of normalized tetrahedral contact orbits, the factor-two homothety or the sharp sandwich. Gruber–Schuster, arXiv:1207.7246, Theorem 2, gives the general John criterion; it does not compute contact points for this particular body. Related indexed findings concern distinct parabolic caps, orthogonal disk hulls, and other ellipsoidal extremum bodies, none of whose conclusions directly covers these exact semiaxes. Search incompleteness and older or nonindexed geometric literature are genuine residual historical risks; independent priority checking has not been carried out.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A concrete classical, nonsymmetric three-dimensional trigonometric orbitope turns out to have fully explicit unrestricted inner and outer extremal ellipsoids which are exactly concentric and homothetic by factor two, with four distinct tetrahedral contact configurations. This solves a natural finite-dimensional affine-enclosure optimization problem for an established object and produces its sharp ellipsoidal containment factor, without imposing symmetry on competitors. The result is structurally more informative than merely evaluating a routine bound or revisiting the known parabolic-cylinder description.
+Pass concerns the exact unrestricted ellipsoid pair, contact sets and sharp factor for this body. The body and the abstract contact criteria are prior. The closest broader minimum-ellipsoid theorem applies directly to the unprojected compact-group orbit, not to the target three-dimensional projection.
 
-## Limits
+## value
 
-The property is asserted only for this specific three-coordinate projection, not for all trigonometric orbitopes, and the matching historical-priority check is not a proof of unprecedented publication. Verification has not been independent.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is an exact affine approximation benchmark for a natural, previously studied nonsymmetric orbitope. The two distinct tetrahedral contact sets certify the sharp common-shape factor against arbitrary translated and rotated ellipsoids. The interest is in that exact geometric structure, not in rederiving the cylinder representation or integrating its volume alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

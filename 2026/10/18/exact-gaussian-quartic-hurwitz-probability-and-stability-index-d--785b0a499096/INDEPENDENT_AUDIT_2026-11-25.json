@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:09:19.667130Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Normalize the leading sign first; the all-positive sign sector and its simultaneous negative copy have total sign probability 1/16. In magnitudes the last nontrivial Hurwitz minor gives B₂>u B₄+u⁻¹ B₀ with u=B₁/B₃, and implies the preceding minor. The folded-Cauchy u is independent of the three remaining magnitudes. The Gaussian cone (G₄>0,G₀>0,G₂−uG₄−u⁻¹G₀>0) already forces G₂>0, so its probability must be multiplied by eight. The trivariate sign expansion yields the two negative arcsines with correlations −u/s, −1/(us), s²=1+u²+u⁻². Inversion of u exchanges them and preserves the Cauchy measure; u=tan θ gives the stated compact integral and its exact coefficient. Leading coefficient, zero roots, and nonzero imaginary roots occur on null sets: for the latter, assuming A₃≠0 requires t²=A₁/A₃ and the quartic Hurwitz determinant to vanish. Independently, odd index occurs iff the product of roots A₀/A₄ is negative; complex pairs have positive product, so each odd index has mass 1/4 by the P(−z) symmetry. The cited Corollary 5.2/Lemma 3.1(c) also establishes that relation. A fresh 65-digit mpmath integration on [0,1,∞] of atan(u²/√(1+u²))/(1+u²) gave h=0.00928384472429811895714992419655543453132463760732168417153218…; this is not an interval certificate. The inspected frozen checker uses Simpson on the displayed θ parametrization and was not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Corollary 5.2 transfers general index constraints to iid Gaussian differential-equation coefficients; in quartic degree Lemma 3.1(c) leaves p₀ free. Proposition 5.4 gives an upper bound below 1/32. Gasull lists numerical probabilities and asks higher-order/asymptotic questions."
+        ],
+        "reasoning": "The general exact identities or bounds do not fix the remaining scalar. A focused web lookup yielded no result; this is search scope, not evidence of nonexistence.",
+        "searches": [
+          "Cima–Gasull–Mañosa, Lemma 3.1 and Corollary 5.2",
+          "Gasull arXiv:2012.02524, Section 5 Problem 21",
+          "Focused web lookup for exact Gaussian quartic Hurwitz probability and broader Resultary comparisons"
+        ]
+      },
+      "checked_sources": [
+        "Cima–Gasull–Mañosa, published PDF, Lemma 3.1/Corollary 5.2/Proposition 5.4/Table 5.1",
+        "Gasull arXiv:2012.02524, Problem 21",
+        "Resultary quartic/Hurwitz exact-probability searches and nearby catalogue matches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published quartic determinant reduces stability to a Gaussian region but does not carry out its probability integral. The new reduction uses a ratio independent of the other magnitudes and the exact three-sign formula so that, after inversion symmetry, only one integration variable remains."
+        ],
+        "reasoning": "Recovering the integral needs that specific evaluation; normalization, reflection, and the prior exact identities with a free endpoint cannot imply it mechanically. The rest of the vector is an immediate corollary of the endpoint and is not separately original.",
+        "searches": [
+          "Cima–Gasull–Mañosa Proposition 5.4 and Table 5.1; exact solid-angle/folded-Cauchy semantic comparison in Resultary"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same iid standard Gaussian ODE companion polynomial, with stability alternatively described as p₄ or, by reflection, p₀. The earlier starting region is the same quartic Routh–Hurwitz inequalities, not their reduction by the folded-Cauchy law and cone angle.",
+          "Resultary e03d3b63d5b7 and e80dff736104 concern planar-shadow brightness and Gaussian fourth moments, not root half-plane counts."
+        ],
+        "reasoning": "Neither alias nor reflection adds originality; the exact evaluated dimension reduction is the material difference.",
+        "searches": [
+          "Resultary semantic lookups for Gaussian quartic Hurwitz/all-left-plane probability, stability index, and its exact arctangent integral",
+          "Published Cima–Gasull–Mañosa, Corollary 5.2 and proof of Proposition 5.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 5.1 has symbolic p₀ in the relation column and 0.00925 in the least-squares estimate, not a tabulated exact constant. Gasull quotes p₄≈0.0092."
+        ],
+        "reasoning": "The apparent close numerical entries are estimates of the very same probability; neither supplies an exact integral or a certificate of the displayed digits.",
+        "searches": [
+          "Cima–Gasull–Mañosa Table 5.1, n=4 row",
+          "Gasull Problem 21, p. 21; Resultary exact Gaussian quartic probability comparisons"
+        ]
+      },
+      "rationale": "The same iid quartic ensemble, determinant, bound and exact linear index relations are already known. The surviving exact fact is the reduction of the endpoint probability to the stated single elementary quadrature, not the index relations or general Gaussian orthant identity. The most relevant primary source estimates the one unknown scalar rather than supplying this evaluation.",
+      "residual_risks": [
+        "A mathematically equivalent quadrature may be hidden in older orthant or engineering stability-probability literature. Neither a ranked search nor numerical agreement is a proof of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact middle relations and bound; numerical endpoint rather than exact evaluation.",
+          "evidence": [
+            "p₁=p₃=1/4, p₂=1/2−2p₀, p₄=p₀; quartic least-squares endpoint 0.00925."
+          ],
+          "identifier_or_url": "https://www.math.u-szeged.hu/ejqtde/p8280.pdf (doi:10.14232/ejqtde.2021.1.15)",
+          "material_read": "Lemma 3.1(c), pp. 8–9, offset ~26300; Corollary 5.2, p. 14, offset ~50800; Proposition 5.4 and Table 5.1, pp. 15–19, table offset ~66900",
+          "method": "OA primary PDF passage inspection",
+          "title": "Stability index of linear random dynamical systems",
+          "trigger": "Exact same quartic iid Gaussian stability ensemble and purported prior numerical endpoint"
+        },
+        {
+          "assessment": "Discusses approximate values and open higher-order questions, not the proposed exact evaluation.",
+          "evidence": [
+            "p₄≈0.0092 and p₅≈0.0007."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2012.02524",
+          "material_read": "Section 5, Problem 21, p. 21, OA offset ~95000",
+          "method": "OA primary PDF passage inspection",
+          "title": "Some open problems in low dimensional dynamical systems",
+          "trigger": "Later review of the quartic and possible exact updates"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the precise remaining unknown in an already studied Gaussian quartic index law. Reducing the five-coefficient probability to one smooth-ended elementary quadrature replaces Monte Carlo/least-squares estimates with an exact practical benchmark and determines the entire distribution when combined with known constraints. It does not claim a higher-degree result or an elementary closed form.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

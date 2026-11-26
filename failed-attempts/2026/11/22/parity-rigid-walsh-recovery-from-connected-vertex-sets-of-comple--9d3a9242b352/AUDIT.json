@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "Connectivity is partitioned into all subsets minus empty and within-one-part non-singleton subsets, producing a character-sum identity with no overlap. For \\(N-t\\) even all nontrivial coefficients are odd and hence nonzero; for \\(N-t\\) odd an explicit all-parts-nonzero frequency of weight (\\(\\(N+t\\)-1\\))/2 gives zero. Feasible all-parts-nonzero weights (\\(N+t\\))/2 or (\\(N+t\\)+1)/2 attain the sharp smallest modulus 1 or 2. A coefficient product counts every zero frequency exactly once. A union bound and Stirling prove the balanced-parameter asymptotic. Standalone integer FWHT and a distinct coefficient enumeration agree for 269 tuples through \\(N=11\\), but finite checks are not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Trevisan 2016 gives generic Abelian Cayley diagonalization; a distinct explicit sum over a connection set remains necessary.",
+        "Tittmann et al. 2008 give a general graph connected-subset polynomial, but not any general rank/no-zero theorem for vertex-convolution kernels.",
+        "published-finding corpus closest hit 2026/11/8/SCOPE-graph-exclusion-fourier-interpolation-universal-invertibility-an--0cb9494a16e7 concerns a Fourier interpolation matrix restricted to independent supports, not counting convolution by connected induced sets."
+      ],
+      "reasoning": "The broad published frameworks provide general techniques and source counting, and our result follows from applying and sharpening them for this graph family. No inspected broader theorem contains the claimed parity criterion, exact nullity and sharp smallest nonzero eigenvalue as an implication without new family-specific analysis.",
+      "searches": [
+        "connected vertex subsets complete multipartite graph as Cayley generating set signed Fourier transform exact spectral gap",
+        "Connected induced subgraph generating function Fourier transform Boolean hypercube parity singular values",
+        "Cayley graph connected subsets multipartite spectrum parity",
+        "https://lucatrevisan.wordpress.com/2016/03/16/cs294-lecture-15-abelian-cayley-graphs/",
+        "arxiv:0812.4147"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0812.4147 full-text mathematical sections (§2, §5.2, §8, §10), first public 2008-12-22",
+      "arxiv:1311.6856 full-text relevant §§1-4, first public 2013-11-27",
+      "arxiv:1411.2262 abstract and introduction, first public 2014-11-09",
+      "Trevisan 2016-03-16 Cayley lecture §§1-3",
+      "published-finding corpus indexed records searched by 9 targeted claims/aliases",
+      "Earlier accessible mathematical claims for related Walsh and graph families (claim-level implication comparison)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Tittmann et al. 2008 Theorem 18 explicitly decomposes subsets of a join into single-shore and multi-shore classes; this combinatorial decomposition is credited.",
+        "Trevisan 2016 establishes that Walsh transforms diagonalize Abelian Cayley convolution, without evaluating this support.",
+        "Liao–Hou 2013 prove a graph-identification result from Q, not an analytic recovery theorem."
+      ],
+      "reasoning": "The known join decomposition implies the unsigned connected-subset count, not by itself the full signed multiplier at every labelled frequency. Together with generic Fourier diagonalization, it motivates a direct derivation; the parity zero-set and sharp singular gap require the explicit signed analysis, arithmetic feasibility and coefficient enumeration given in the proof. Risk of a simple unpublished equivalent remains.",
+      "searches": [
+        "Walsh Fourier spectrum of connected induced vertex subsets of complete multipartite graphs, parity invertibility and exact convolution rank",
+        "connected vertex subsets complete multipartite graph as Cayley generating set signed Fourier transform exact spectral gap",
+        "Full Fourier Walsh spectrum of all nonempty connected induced vertex subsets of complete multipartite graph; rank invertible iff sum part excess even",
+        "arxiv:0812.4147",
+        "arxiv:1311.6856",
+        "https://lucatrevisan.wordpress.com/2016/03/16/cs294-lecture-15-abelian-cayley-graphs/"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:0812.4147 Theorem 18: join connected-subset generating polynomial (univariate size weighting), not coordinatewise character multipliers.",
+        "arxiv:1311.6856 Theorem 4.5: complete bipartite graphs distinguished by scalar component polynomial.",
+        "published-finding corpus closest hit 2026/11/8/SCOPE-complete-walsh-spectrum-and-sharp-fourier-projection-norms-for-t--89f45551846c concerns edge-incidence spanning trees of \\(K_{2,n}\\), not vertex connectivity subsets."
+      ],
+      "reasoning": "The alternative language is the adjacency spectrum of a Cayley graph on the Boolean vertex cube, or the signed multivariate connected-set enumerator evaluated at sign characters. The checked scalar univariate polynomial neither displays nor determines coordinate-labelled sign evaluations in general; no found equivalent all-size rank/condition-number theorem.",
+      "searches": [
+        "Walsh Fourier spectrum of connected induced vertex subsets of complete multipartite graphs, parity invertibility and exact convolution rank",
+        "Full Fourier Walsh spectrum of all nonempty connected induced vertex subsets of complete multipartite graph; rank invertible iff sum part excess even",
+        "Fourier transform connected induced subgraphs complete multipartite exact rank spectrum",
+        "arxiv:0812.4147",
+        "arxiv:1311.6856"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Elbassioni 2014 treats enumeration algorithms, not a precomputed signed-frequency table.",
+        "published-finding corpus query sets returned Walsh spectra for different constrained families; none identified a table for these connected multipartite vertex supports.",
+        "269 ordered tuples are directly verified in verify.py rather than imported from an existing table."
+      ],
+      "reasoning": "No checked exact data table for complete multipartite connected-set Walsh zeros was found. The new claim is an infinite-parameter formula, not a reprint of any finite table; negative search results do not establish uniqueness.",
+      "searches": [
+        "zero Walsh multipliers of connected induced subgraphs complete bipartite K_mn",
+        "Signed vertex subset sums complete multipartite graph zero Fourier coefficients multinomial",
+        "Walsh character sum connected subsets complete bipartite Cayley eigenvalues",
+        "arxiv:1411.2262"
+      ]
+    },
+    "rationale": "The primary full-text comparison identifies unweighted connected-set counts and generic Cayley diagonalization, but not the frequency-block multiplier, full nullity or parity/range-stability theorem. published-finding corpus queries for signed connected-subset spectra returned different Fourier problems and separate multipartite counting polynomials; accessible earlier scientific claims include an interval family and graph-orientation spectra, not connected multipartite vertex-set convolution. Standard methods simplify proof and make independent rediscovery possible, so priority is bounded rather than certified.",
+    "residual_risks": [
+      "Unindexed or differently titled result may derive the same signed multipartite connected-set spectrum; no absolute novelty certification.",
+      "Classical join formulas make an elementary rediscovery plausible, notwithstanding the novel explicit parity/conditioning classification in inspected text.",
+      "Independent audit and external validation have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 18 gives an unweighted join count by splitting vertex subsets into three classes. It supplies no vertexwise signed character sums, complete convolution zero set or exact singular gaps. The binary multipartite Fourier specialization is not stated.",
+        "evidence": [
+          "arxiv:0812.4147 §§2.2,5.2 Theorem 18, Corollary 19, 8,10; 2008-12-22 first public version",
+          "https://arxiv.org/abs/0812.4147"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0812.4147",
+        "material_read": "Full-text HTML: §1 motivation and main results; §2.1-2.2 connected-subgraph polynomial; §4 interpretations; §5.2 Theorem 18 and Corollary 19; §8 reliability; §10 conclusions. Searched article text for Fourier, Walsh, and multipartite.",
+        "method": "Read open arXiv full-text HTML and inspect theorem statements, proof and the section structure.",
+        "title": "The Enumeration of Vertex Induced Subgraphs with respect to the Number of Components",
+        "trigger": "Foundational primary paper on connected induced vertex-set counts and join operations, including complete bipartite graphs."
+      },
+      {
+        "assessment": "Q-uniqueness concerns recovering an unlabelled graph from scalar component-count coefficients, not the labelled frequency-resolved Walsh transform, parity invertibility or sharp conditioning of its counting convolution.",
+        "evidence": [
+          "arxiv:1311.6856, Theorem 4.5, §4.1; first public 2013-11-27",
+          "https://arxiv.org/abs/1311.6856"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1311.6856",
+        "material_read": "Full-text HTML §§1-4, especially §2 definition of Q, §3 invariants, Theorem 4.5 on Q-uniqueness of K_{m,n}, and conclusions; checked for a Fourier discussion.",
+        "method": "Read arXiv full-text HTML with focused inspection of exact graph-family theorems.",
+        "title": "Note on the subgraph component polynomial",
+        "trigger": "Same complete-bipartite graph family and potentially stronger graph-polynomial conclusions."
+      },
+      {
+        "assessment": "Enumeration complexity supplies neither the signed spectrum for complete multipartite supports nor a general implication determining its Fourier zero set.",
+        "evidence": [
+          "arxiv:1411.2262 §§1-2; first public 2014-11-09",
+          "https://arxiv.org/abs/1411.2262"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1411.2262",
+        "material_read": "Open-access article abstract and §1 definitions/problem GEN(G;k), algorithmic bounds and cited statements; also searched the article for Fourier.",
+        "method": "Read arXiv full-text HTML of abstract and relevant introduction, and inspect references.",
+        "title": "A Polynomial Delay Algorithm for Generating Connected Induced Subgraphs of a Given Cardinality",
+        "trigger": "Algorithmic results about the same connected-vertex-set family."
+      },
+      {
+        "assessment": "Provides general diagonalization by characters, a methodological premise, but no computed connected-subset multipartite connection set or parity-resonant rank classification.",
+        "evidence": [
+          "Trevisan (2016-03-16) §§1-3 and hypercube example",
+          "https://lucatrevisan.wordpress.com/2016/03/16/cs294-lecture-15-abelian-cayley-graphs/"
+        ],
+        "identifier_or_url": "https://lucatrevisan.wordpress.com/2016/03/16/cs294-lecture-15-abelian-cayley-graphs/",
+        "material_read": "Lecture sections on finite characters, Walsh transform, §3 Cayley graphs and their spectrum, and examples involving the ordinary hypercube.",
+        "method": "Read publisher-hosted HTML with theorem and example inspection.",
+        "title": "CS294 Lecture 15: Abelian Cayley graphs",
+        "trigger": "Potentially dominating general spectral result for Abelian Cayley graphs."
+      }
+    ],
+    "status": "PASS"
+  },
+  "previously_published_pending_reaudit": false,
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9d3a9242-b352-4e10-85db-0c0722a01df1",
+  "value": {
+    "rationale": "The domain is the canonical node-reliability family of all nonempty connected induced vertex sets. Its counting-convolution kernel asks whether translated counts determine a signal; this is an exact graph-associated Fourier invariant, not a free numerical slice. All multipartite profiles are classified, including the counterintuitive parity-sensitive invertibility criterion, the exact rank/nullity coefficient formula, sharp positive recovery condition numbers, and a quantitative asymptotic nullspace transition. Such full reconstruction data are absent from scalar connected-set counting. Its proof is short but its complete, natural parameter scope and stability interpretation provide substantive usefulness.",
+    "status": "PASS"
+  }
+}

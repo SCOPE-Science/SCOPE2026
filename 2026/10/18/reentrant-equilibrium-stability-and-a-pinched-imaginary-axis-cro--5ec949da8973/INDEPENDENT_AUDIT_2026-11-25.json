@@ -1,0 +1,90 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:07:14.103586Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen Finding item 3 incorrectly assigned two positive-real-part eigenvalues to all points outside the open stable interval, including its two endpoints. For a=3,b=c=1, k=-6 gives (λ+2)(λ²+9) and k=-3/2 gives (λ+3)(λ²+3), each with unstable index zero. The proof and subsequent endpoint sentence already supported the correction. The complete corrected RESULT.md and SLOGAN.txt under /workspace/repairs/2 now separate strict exterior points, the marginal endpoints, and the collapsed a=2c case. Re-audit: xy=b fixes y=b/x; solving the remaining equations gives x²=b(a−ck)/a, so existence and symmetry are as stated. The independently computed cubic has Q=c+a²/(a−ck)>0 and S=2b(a−ck)>0 in the existence region. The first Routh column (1,Q,Δ/Q,S) gives index zero or two for Δ positive or negative; at Δ=0, R=S/Q and the exact cubic splits as (λ+Q)(λ²+R). The two linear factors of Δ divide the admissible k values exactly as stated: k_B lies beyond a/c when a<c, disappears when a=c, and meets k_A only at a=2c when a>c. Implicit differentiation at λ=i√R gives real-part speed −Δ'/(2(Q²+R)); the quadratic correction at the pinch is positive. Independent replay /workspace/branches/replay_2.py reconstructed the cubic from the differential equations, tested both exact endpoint factors, and solved orders one and two directly in the pinched cubic, confirming bc/[64(b+c²)]. The equality cases do not classify nonlinear Lyapunov stability or imply a nonlinear Hopf bifurcation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dong §3.4 fixes (a,b,c)=(10,100,11.2) and changes k. This has a/c<1, excluding the two-boundary regime. The general cubic theorem is a coefficient test, not a signed geometry theorem for this parametrized cubic."
+        ],
+        "reasoning": "The family-wide classification does not follow by specialization of a previously classified, stronger family in the evidence inspected.",
+        "searches": [
+          "Dong §3.4 and classic cubic Routh–Hurwitz criterion",
+          "Primary lookup for Dong arbitrary-parameter stability and pinch"
+        ]
+      },
+      "checked_sources": [
+        "Dong DOI 10.3390/fractalfract6040190, §§2,3.4",
+        "Resultary 3f1b93d7ee4c",
+        "Classical cubic Routh–Hurwitz criterion"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Starting with Eqs. (4)–(5) one can derive the cubic and apply classical Routh. The parameter thresholds require factoring and locating both factors of Δ; the real-part contact additionally requires a simple-root expansion of the complex pair at their collision."
+        ],
+        "reasoning": "The input formulas make the theorem derivable, but neither a routine fixed-parameter Routh check nor the equilibrium count already supplies the claimed all-region sign geometry and quantitative contact.",
+        "searches": [
+          "Dong §2 general equilibrium Jacobian; §3.4 Routh application; Resultary 3f1b93d7ee4c"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dong gives this exact flow, equilibrium coordinates and general Jacobian. The same-system indexed result recognizes the disappearance of equilibria at k=a/c and studies transverse dynamics along an escaping trajectory."
+        ],
+        "reasoning": "The equilibrium existence part is classical for this flow. The indexed axis splitting is a different linearization and the threshold k=a/c does not determine the two interior spectral marginal curves.",
+        "searches": [
+          "Dong DOI 10.3390/fractalfract6040190, §2 Eqs. (4)–(5); Resultary same-system Dong hiding/escaping-axis threshold 3f1b93d7ee4c"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Dong reports eigenvalues at a model example and fixed-triple dynamics. The indexed result's exact boundary is the escaping-axis threshold k=a/c, not k_A or k_B, and is separately dated later."
+        ],
+        "reasoning": "The passages give neither the full stable/index-two partition with marginal endpoints nor the pinch expansion. The latter is not a numerical special case of the original fixed-ratio scan.",
+        "searches": [
+          "Resultary same-flow arbitrary-ratio equilibrium stability, reentrant window, pinching and contact; strongest hit 3f1b93d7ee4c",
+          "Dong §2 spectral example and §3.4 scan"
+        ]
+      },
+      "rationale": "For the corrected claim, credit Dong with the general equilibrium/Jacobian formulas and fixed-parameter analysis and classical Routh–Hurwitz with the criterion. The exact sign partition and the degeneracy with its quadratic coefficient are not already stated or supplied by a stronger inspected spectral theorem. They are derived from the known Jacobian; the claim is the exact all-parameter analysis, not novelty of the flow, equilibrium count, or algebraic method.",
+      "residual_risks": [
+        "The bounded lookup did not recover an independent follow-up treating the full spectral problem. Another derivation from Dong's general formulas could exist under different terminology or outside the inspected literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General Jacobian and equilibrium formulas are covered; the proved sign and contact analysis is distinct from the inspected examples",
+          "evidence": [
+            "General equilibrium and Jacobian in §2 with a numerical stable node-focus example; §3.4 invokes Routh at fixed (10,100,11.2). No algebraic conclusion relied on OCR of that section's inequality."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/fractalfract6040190",
+          "material_read": "§2, Eqs. (4)–(5), publisher PDF p. 4/23; §3.4 pp. 9–10 (offsets near 14000–20995 and 50500–58497)",
+          "method": "Lawful publisher OA PDF passages",
+          "title": "Dynamics, Periodic Orbit Analysis, and Circuit Implementation of a New Chaotic System with Hidden Attractor",
+          "trigger": "Original same flow and Routh stability discussion"
+        },
+        {
+          "assessment": "Threshold and transient stability object are different",
+          "evidence": [
+            "The threshold k=a/c and equilibrium-count consequence are stated, without the two equilibrium spectral curves or their pinch."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22/3f1b93d7ee4c",
+          "material_read": "Finding on transverse splitting and equilibrium count",
+          "method": "Local index and mirror",
+          "title": "Transverse extinction threshold and algebraic critical decay along an escaping axis",
+          "trigger": "Closest exact same-system indexed match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The corrected local result makes the role of the control parameter explicit: changing it can create and then destroy simultaneous exponential stability of the symmetric pair, independently of forcing b. The stable window collapses at a distinguished ratio; the exact positive contact coefficient explains why varying k there cannot cross onto a stable side. Distinguishing marginal equality from index-two instability matters for interpreting bifurcation diagrams and is not a claim about global attractors.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

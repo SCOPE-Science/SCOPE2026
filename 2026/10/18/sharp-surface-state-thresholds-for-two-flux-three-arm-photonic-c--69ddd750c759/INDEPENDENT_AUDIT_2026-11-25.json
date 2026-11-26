@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T16:59:26.091363Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the specified cut, squaring on the hub sector gives diagonal u at the first site and u+v elsewhere, with upper off-diagonal q=t·conj(s). The Fourier band follows and Cauchy–Schwarz gives c^2<=uv. Although the frozen proof says each row has a private block, adjacent rows actually share blocks; full rank follows immediately by taking the first arm column of each cell to get an N-by-N lower triangular submatrix with diagonal J1>0. Thus there are exactly 2N dark zero modes in finite volume. For c>0 the gauge-reduced half-line recurrence has no square-summable solution in the band including its edges (unit-modulus roots, with a possible linear prefactor at an edge); subtraction of the boundary and interior equations for a decaying root gives r=-conj(q)/v and lambda=u-c^2/v. It exists only for c<v, including at c=0 by direct diagonalization. A positive lambda yields both chiral signs; lambda=0 gives exactly one extra hub kernel vector in addition to the arm kernel. No above-band solution satisfies the boundary condition. For finite N, subtract the infinite-volume lower edge and conjugate by alternating signs; the matrix is c times the N-site Dirichlet path Laplacian minus v e_0 e_0^T. The positive definite Laplacian has endpoint inverse entry N/(N+1), as is seen by solving for an affine profile with zero at the far exterior point. Congruence by its inverse square root leaves N-1 positive eigenvalues and one whose sign is the sign of 1-vN/[c(N+1)]. This gives the strict finite criterion, its equality case, and the count; the detached squared value stays positive by finite full rank. The equal-hopping absolute cosine has no second crossing on [2pi/3,pi], since c<=J^2 there and the finite threshold exceeds J^2. Near zero flux, v-c=J^2 phi^2+O(phi^4) gives log(v/c)~phi^2/3 and exact squared gap (v-c)^2/v; the sum of positive energies is 2 sqrt(2) J phi+O(phi^3), giving the stated cubic energy gap. The independent bounded computation (`python3 /workspace/branches/independent_checks.py 3`) diagonalized 15 full chiral matrices with exact-threshold designs (evaluated numerically), both sides, caging and nonreal phases, and symbolically verified the cubic limit for J=1. It does not prove the general spectral result. Scope is the stated termination with no extra right hub.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "BPC gives bulk dispersion and finite-open propagation but no spectral threshold in the inspected sections. Mukherjee et al. gives a pair ±sqrt(2)|J_eff| in a particular two-arm rhombic cage. The strongest general rank-one reduction gives 1-v m_N(z)=0, not a physical parameter table. Additional plausible finite tridiagonal search hits could not be assessed at a relevant theorem passage."
+        ],
+        "reasoning": "Generic rank-one theory supplies the secular mechanism, and the exact carrier and cut are crucial to substituting into it. The bulk dispersion by itself does not fix the endpoint perturbation. An edge-state witness in a rhombic cut does not classify three-arm spectra or give a finite-length weak-flux threshold.",
+        "searches": [
+          "arXiv:2102.06682 §§II–III",
+          "arXiv:1805.03564v2 left-edge energy",
+          "arXiv:1805.05209 edge states",
+          "finite discrete Robin and endpoint-defect tridiagonal eigenvalues"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2102.06682",
+        "arXiv:1201.2886",
+        "arXiv:1805.03564v2",
+        "arXiv:1805.05209 (unread relevant passage)",
+        "Resultary 73ddd6723d84 and a3167f0249f0",
+        "Frozen RESULT.md, VERIFICATION.md and checks/verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Under alpha=v/c the prior discrete Robin theorem directly gives the half-line bright level, not just its generic method. The finite cut adds the far Dirichlet boundary; at d-2c the inverse entry is N/[c(N+1)], not 1/c. For equal hoppings the physical energy gap divides the squared gap by a sum of energies tending to zero like phi."
+        ],
+        "reasoning": "The exact prior half-line result plus the physical transform does imply the bright bound-state criterion; the chiral zero-mode distinction uses the action of T*, not two independent zero partners. The finite threshold and positive-energy critical laws are not replacements of names in that prior theorem: they require the finite endpoint and the singular square-root conversion at zero flux.",
+        "searches": [
+          "arXiv:1201.2886 pp. 7–8 (3.9)",
+          "arXiv:2102.06682 Eq. (1), finite-open propagation",
+          "arXiv:1805.03564v2 edge pair"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The half-line Robin paper, PDF pp. 7–8, equation (3.9) and following summary, gives a below-band state for alpha>1 with amplitude alpha^(-m) and energy (2-alpha-alpha^(-1))/mu_bar^2. The BPC lattice has three arms between successive hubs and the same physical hopping terms."
+        ],
+        "reasoning": "Gauge the squared hub matrix to negative off-diagonal and subtract d-2c, then divide by c. With mu_bar=1 and alpha=v/c this is exactly the Robin operator: its criterion and affine energy map give c<v and lambda=u-c^2/v, with the same decay. The new physical statements must not take credit for that equivalence. The finite Robin-Dirichlet problem also has a different edge resolvent from the half-line one.",
+        "searches": [
+          "arXiv:1201.2886 §3, bound state",
+          "arXiv:2102.06682 §II, Eq. (1)",
+          "finite discrete Laplacian one Robin boundary one Dirichlet eigenvalues unique bound state threshold N/(N+1) endpoint defect Yueh tridiagonal matrix eigenvalues N sinh"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "73ddd6723d84 gives exact detector-visible ranks and capture probabilities of a two-arm magnetic chain. a3167f0249f0 gives endpoint-loss and lifetime formulas for an alternating-coupling open chain."
+        ],
+        "reasoning": "The exact result concerns spectral detachment across a continuum of physical parameters and all finite lengths, not capture or loss statistics. The exact nearby records do not give that data or its proof; no verified matching exact formula record for the physical finite cutoff surfaced.",
+        "searches": [
+          "Resultary: three-arm photonic surface threshold, flux detachment, finite chiral chain and boundary modes",
+          "Resultary 73ddd6723d84 and a3167f0249f0"
+        ]
+      },
+      "rationale": "The motivating paper already has the exact two-flux lattice, bulk bands and open-boundary propagation. More strongly, arXiv:1201.2886 §3 already gives the exact gauge-reduced half-line squared-energy boundary theorem; that component is covered, not a new Jacobi bound-state classification. The supported distinct physical result is the termination-specific finite strict spectral cutoff together with the finite/half-line weak-flux laws and treatment of the zero-energy collision in the chiral model. The finite analysis uses a standard rank-one criterion but must evaluate it at the infinite bulk edge and identify the physical parameter region. No checked result was shown to cover that combined physical finding. This is a bounded assessment, not a first-discovery claim.",
+      "residual_risks": [
+        "The cited Kremer edge-state passage and plausible general finite tridiagonal comparators (including Boundary Effects on Eigen-problems of Discrete Laplacian in Lattices) were not obtained at the decisive theorem level.",
+        "Generic Robin and rank-one theory is established; the exact physical finite and critical statements may have other unindexed antecedents. The half-line scalar result is already covered as documented, regardless of those access limitations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model, bulk bands and finite-open propagation covered; no spectral detachment law found in inspected sections",
+          "evidence": "Eq. (1) couples three arm sites in a cell to the two adjacent hubs; open evolution is discussed, not just periodic geometry.",
+          "identifier_or_url": "https://arxiv.org/abs/2102.06682",
+          "material_read": "§II PDF pp. 1–2 (text offsets 0–12016), §III pp. 3–4 (12000–24890)",
+          "method": "OA primary PDF passages",
+          "title": "Two-flux tunable Aharonov-Bohm caging in a photonic lattice",
+          "trigger": "Exact original chain and possible open-boundary spectral classification"
+        },
+        {
+          "assessment": "Covers the gauge-reduced half-line squared-energy criterion, eigenvalue and decay exactly; not the finite model or physical chiral interpretation",
+          "evidence": "alpha>1 gives a unique level (2-alpha-alpha^(-1))/mu_bar^2 below the band, state alpha^(-m); alpha=1 has no normalizable state. With alpha=v/c this becomes the frozen bright theorem.",
+          "identifier_or_url": "https://arxiv.org/pdf/1201.2886",
+          "material_read": "Free-particle §3 PDF pp. 7–8 (offsets 20500–23657), especially Eq. (3.9) and following summary",
+          "method": "OA primary PDF literal locator and bounded section",
+          "title": "Half-line polymer Hamiltonians (arXiv:1201.2886)",
+          "trigger": "Exact equivalent half-line discrete Robin boundary problem"
+        },
+        {
+          "assessment": "Prior special two-arm precedent; not the two-flux three-arm threshold",
+          "evidence": "Reports a left-edge pair ±sqrt(2)|J_eff| and a pair on the right for the studied rhombic chain.",
+          "identifier_or_url": "https://arxiv.org/abs/1805.03564",
+          "material_read": "v2 introduction p. 1 and effective-model edge passage p. 2 (offset about 18500)",
+          "method": "OA primary PDF passages",
+          "title": "Experimental observation of Aharonov-Bohm cages in photonic lattices",
+          "trigger": "Prior boundary states in photonic cages"
+        },
+        {
+          "assessment": "No judgment of unread theorem bodies",
+          "evidence": "Relevant geometry and edge-state context are attributed in the frozen record; direct passage not verified here.",
+          "identifier_or_url": "https://arxiv.org/abs/1805.05209",
+          "material_read": "Identified bibliographic source; relevant edge passage not independently retrieved",
+          "method": "Bounded OA opening attempts",
+          "title": "Non-quantized square-root topological insulators: a realization in photonic Aharonov-Bohm cages",
+          "trigger": "Other cited square-root cage edge-state precedent"
+        },
+        {
+          "assessment": "Different quantities and geometries; the endpoint lifetime record is later",
+          "evidence": "A two-arm detector rank/capture result and an alternating-chain loss-time result, respectively, not three-arm surface-state counting.",
+          "identifier_or_url": "SCOPE-20261013-73ddd6723d84; SCOPE-20261026-a3167f0249f0",
+          "material_read": "Mirrored statements of findings",
+          "method": "Resultary index and local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Flux- and position-sharp capture ranks for a finite rhombic quantum chain; exact endpoint absorption and topological lifetime scaling on finite chains",
+          "trigger": "Nearest indexed exact magnetic boundary and chiral-chain comparisons"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the exact engineered cage, finite detachment and infinite surface localization are different experimental constraints. The length-dependent cutoff and the inverse-square localization-length versus cubic energy-isolation laws distinguish two reasons a finite weak-flux sample may not show a resolved end mode. Counting one additional hub zero mode rather than a nonzero pair at the collision is important in the presence of extensive flat zero bands. These physically interpretable boundaries are useful beyond the known discrete Robin eigenvalue, with no claim about other end cuts, disorder or propagation dynamics.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-# Finite verification
+# Independent mathematical audit
 
-The host graph is the explicit 24-vertex generalized Petersen graph with the 36 edges specified in `RESULT.md`. An eight-edge matching is maximal exactly when its eight omitted vertices form an independent set. The cubic edge-domination count gives the lower bound eight without computation.
+## correctness
 
-The Python program `verify_by_unmatched.py` enumerates every eight-element vertex subset, checks the independence condition, and uses the least-remaining-vertex rule to enumerate every complementary perfect matching. It finds 2,964 independent eight-sets, of which 2,874 have no complementary perfect matching and 90 have exactly one. The C++17 program `verify_by_matching.cpp` directly enumerates the vertex matching decisions, rejecting branches with adjacent unmatched vertices, and returns the same 90 unique minimal maximal matchings. Their lists agree entry by entry.
+PASS
 
-The complete canonical configuration list, all exchange edges for budgets one to four, the three 30-vertex components and eccentricity data are in `certificate.json`. The supplementary `matchings_cpp.txt` independently records the direct C++ enumeration. The checker `check_certificate.py` revalidates the canonical graph, every optimum and transition, BFS connectivity and eccentricity, and actions of rotation and reflection. All three programs and the certificate were replayed successfully using their supplied paths, with the recorded outputs `verification_python.txt`, `verification_cpp.txt`, and `verification_check.txt`.
+An edge of the cubic host can dominate at most five edges, itself included; a maximal matching dominates all 36, so it needs at least eight. Independent increasing-edge recursion enumerated 293436 eight-edge matchings and tested maximality by exhaustion of all nonconflicting edges, including lower-numbered ones. Exactly 90 survive. Separate independent-set recursion gives 2964 possible omitted eight-sets, and the matching census has 90 distinct omissions with one completion each. All canonical states, all transitions, component lists, eccentricities and the two symmetry actions match the supplied certificate. Rotation acts as [1,2,0] and reflection as [0,2,1] on the three 30-state components, each four-regular and self-centered at five. The respective transition counts are 0,180,180,522. At four the graph is connected with degree profile 11:72,14:18 and eccentricity profile 3:18,4:72, proving the threshold and the stated radius and diameter.
 
-Reproduce from a single directory holding these files:
+## originality
 
-```sh
-python3 verify_by_unmatched.py
-g++ -std=c++17 -O2 -Wall -Wextra -pedantic verify_by_matching.cpp -o verify_by_matching
-./verify_by_matching
-python3 check_certificate.py
-```
+PASS
 
-The SHA-256 of the deterministic UTF-8 `certificate.json` is `4fdad93ab72e812b23de4ffe5e1b1bf818cd8b849b96c19d79f88112306c5a6b`. This certificate and the source programs support exhaustive results **only for the specified finite graph**. No theorem about arbitrary generalized Petersen graphs, reconfiguration through nonmaximal intermediate states, or external independent validation is supplied.
+The independent assessment credits the earlier eight-edge witness and the elementary lower bound, and accepts only the 90-state classification and exact replacement geometry, especially the sharp four-edge threshold with no slack. The strongest same-host indexed results use perfect matchings; the strongest same-state-class analogues use different hosts. Read comparison passages do not imply this exact Nauru claim.
+
+## value
+
+PASS
+
+On a standard cubic symmetric graph, the least simultaneous update budget for traversing every optimal matching answers a natural no-slack reconfiguration question. The exact obstruction is stronger than one-move freezing: two exchanges give three symmetric components, a third does not add a single edge, and four restore connectivity and bound travel. The complete state and transition data form an independently useful finite benchmark for minimum edge domination with the matching restriction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

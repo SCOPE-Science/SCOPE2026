@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:18:16.735828Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 20–62; VERIFICATION.md and checker.py inspected, not executed",
+        "/workspace/branches/acbefd4f-39f8-42ee-8535-134e676b6e8b/independent_oscillation_check.py"
+      ],
+      "rationale": "Clipping onto [c,c+R] and minimizing in c gives a piecewise-affine projector. In a strict exterior chamber, differentiation of stationarity gives dc equal to the average of the perturbations on the clipped set S. Every S of size at least two occurs: split it into nonempty lower and upper sets L,U, take inputs strictly below 0 by |U| and above 1 by |L| respectively, and put remaining coordinates at 1/2; the strict chamber has c=0 for R=1. Scaling handles other radii. On the quotient by constants, path differences are an isometry to l1 and the inverse basis is the single-jump family. Continuous affine formulas on the closures of finitely many chambers give the global upper bound by segment subdivision; a small in-chamber step in a maximizing jump direction attains it. At a straddling cut the selected value is b/(a+b); the two internal transitions have weights b/(a+b) and a/(a+b), and the four cut edges give exactly the stated B. With final bit zero, if k<m-k, surround each one by zeros for 2k switches; otherwise alternate 1,0 for each of the m-k zeros and prepend extra ones for 2(m-k)-1. Complement and reversal handle the other endpoint conditions. The two independent word maxima prove the formula and its O(n^3) count. Charging internal switches to selected or unselected sites gives min{s,2(n-s)} as an upper bound, plus one for the cut. Equal alternating halves ending and beginning with zeros at the cut give n/2 for even n>=4, and appending an endpoint gives the odd lower bound (the identity suffices for n=2,3). Independent exact enumeration over all subsets and jumps reproduced the full table through n=16 and independently checked the switch maxima through length 16. In particular the first expansive dimension is four.",
+      "residual_risks": [
+        "Finite enumeration corroborates the table, not arbitrary n. The general formula and attainment rest on the chamber and switch-count arguments; the independent computation did not replay an actual scalar projection solver."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Euclidean nonexpansivity is in l2, which does not bound the desired quotient norm by one.",
+          "c8fb3c10bd0c local RESULT.md at offset 0 optimizes partition averaging with two or three cells; 0dc40d36fcc5 local RESULT.md at offset 0 concerns the probability simplex."
+        ],
+        "reasoning": "A range-projector derivative averages one arbitrary S with every other site singleton, so its partition can have arbitrarily many cells, but in a restricted pattern. The two-/three-cell result neither covers that family in all dimensions nor supplies its sharp maximum. The simplex uses a different derivative and constraint.",
+        "searches": [
+          "Combettes–Pesquet arXiv:0912.3522 §2",
+          "Local Resultary c8fb3c10bd0c and 0dc40d36fcc5",
+          "Primary-literature discovery on range/oscillation projection and path-variation modulus"
+        ]
+      },
+      "checked_sources": [
+        "b41b2d1d717e (self-hit)",
+        "43b65933e518",
+        "c8fb3c10bd0c",
+        "0dc40d36fcc5",
+        "97d7a705aa9c",
+        "arXiv:0912.3522 (retrieval attempted)",
+        "DOI 10.1109/TIP.2010.2072512 (retrieval attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-day TV-ball theorem gives a different dimension dependence for a different feasible set. Generic Hilbert projection and the partition-averaging comparisons do not determine the switch maxima with fixed side counts and endpoint bits."
+        ],
+        "reasoning": "The common local-operator approach does not imply the exact modulus; realization of every relevant S and the coupled optimization of its positions across each path cut are specific to this problem. The same-day date was not used to infer priority or to dismiss the comparison.",
+        "searches": [
+          "43b65933e518 and c8fb3c10bd0c local RESULT.md, offset 0",
+          "arXiv:0912.3522; DOI 10.1109/TIP.2010.2072512"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "43b65933e518 local RESULT.md at offset 0 constrains the sum of adjacent increments in absolute value; the frozen constraint is max(z)-min(z). They differ already on alternating signals of length three.",
+          "Arbitrary Euclidean clipping into an optimally translated interval produces the single selected-set averaging derivative in RESULT.md lines 44–50."
+        ],
+        "reasoning": "Translation by constants or passing to path differences leaves the range constraint as a maximum of interval sums of differences, not their l1 norm. The TV-ball problem is not an equivalent formulation.",
+        "searches": [
+          "Local Resultary: oscillation/range projection and path-variation sensitivity; hits b41b2d1d717e, 43b65933e518, 97d7a705aa9c",
+          "Fadili–Peyré DOI 10.1109/TIP.2010.2072512"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "b41b2d1d717e is the assigned Finding itself. The distinct TV-ball records return the dimension-four transition but report the constant 2 for all n>=4; the assigned table has 5/2 at n=5 and values growing at least as floor(n/2)."
+        ],
+        "reasoning": "Agreement in a few dimensions is not a match of the invariant or of its table.",
+        "searches": [
+          "Local Resultary b41b2d1d717e, 43b65933e518, 97d7a705aa9c and 0dc40d36fcc5"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact two-input modulus for the range-constrained Euclidean projector in nonperiodic path variation, including its cubic evaluation and growth. The strongest indexed match with the same path variation and first expansive dimension concerns a different constraint and has bounded, rather than growing, modulus. The same record indexed under its own ID is not independent coverage. No inspected distinct statement implies the formula; this is a best-of-current-knowledge assessment, not a priority guarantee.",
+      "residual_risks": [
+        "Full text of the two cited primary references was not retrieved; no negative inference from retrieval failure.",
+        "The discovery lookup yielded no directly matching paper, which does not exclude unindexed or more general prior results. No same-day order established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial metric and dimension-transition overlap; no equivalent coverage of the reviewed theorem",
+          "evidence": [
+            "Feasible set V_n(z)<=R, coefficient 1 for n=2,3 and 2 for n>=4. Relative chronological order not established."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-sharp-bounded-variation-stability-transition-for-projection-onto--43b65933e518",
+          "material_read": "RESULT.md at offset 0, statement of feasible set and exact coefficients",
+          "method": "Local mirror",
+          "title": "Sharp bounded-variation stability transition for projection onto the total-variation ball",
+          "trigger": "Strongest distinct indexed match, same-day"
+        },
+        {
+          "assessment": "Related operator family with different selection restrictions",
+          "evidence": [
+            "Two-/three-cell partition averaging, not the optimal range-constrained Euclidean projector modulus."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-a-sharp-two-to-three-cell-separation-for-variation-of-finite-con--c8fb3c10bd0c",
+          "material_read": "RESULT.md at offset 0, theorem scope",
+          "method": "Local mirror",
+          "title": "A sharp two-to-three-cell separation for variation of finite conditional averages",
+          "trigger": "Potential coverage of active averaging derivatives"
+        },
+        {
+          "assessment": "Later, distinct constraint",
+          "evidence": [
+            "Probability-simplex projection rather than global range constraint."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-path-variation-amplification-of-euclidean-probability-simp--0dc40d36fcc5",
+          "material_read": "RESULT.md at offset 0, theorem scope",
+          "method": "Local mirror",
+          "title": "Sharp path-variation amplification of Euclidean probability-simplex projection",
+          "trigger": "Related exact modulus in the same metric"
+        },
+        {
+          "assessment": "Later, distinct TV-ball projector",
+          "evidence": [
+            "The dimension threshold overlaps, not the feasible set or general coefficient."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-dimension-four-transition-for-variation-sensitivity-of-p--97d7a705aa9c",
+          "material_read": "RESULT.md at offset 0, statement",
+          "method": "Local mirror",
+          "title": "A sharp dimension-four transition for variation sensitivity of projection onto the TV ball",
+          "trigger": "Potential table/transition match"
+        },
+        {
+          "assessment": "Comparison limited to the evidenced subject; no whole-paper exclusion",
+          "evidence": [
+            "Frozen comparison distinguishes a bound on total variation from a bound on global range."
+          ],
+          "identifier_or_url": "https://doi.org/10.1109/TIP.2010.2072512",
+          "material_read": "No primary passage retrieved; subject identified in frozen RESULT.md lines 64–75",
+          "method": "Lawful OA retrieval attempt and author-site route timed out",
+          "title": "Total Variation Projection with First Order Schemes",
+          "trigger": "Cited neighboring feasible-set projection method"
+        },
+        {
+          "assessment": "The cited Hilbert nonexpansivity implication is insufficient; not a whole-paper assessment",
+          "evidence": [
+            "Nonexpansivity in the Euclidean metric does not compute a path-variation modulus."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0912.3522",
+          "material_read": "No primary passage retrieved; §2 identified in frozen reference",
+          "method": "OA retrieval attempted, including arXiv PDF",
+          "title": "Proximal Splitting Methods in Signal Processing",
+          "trigger": "Cited general projection theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The invariant quantifies the sharp sensitivity of a simple range constraint used to clip signals, in a metric that measures changes along the path instead of squared error. The contrast with both Euclidean nonexpansivity and the uniformly bounded TV-ball coefficient is substantive: this modulus grows linearly and its maximum is attained by finite perturbations. The binary-switch compression removes exponential subsets from an exact calculation and helps explain the growth rather than merely producing a table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

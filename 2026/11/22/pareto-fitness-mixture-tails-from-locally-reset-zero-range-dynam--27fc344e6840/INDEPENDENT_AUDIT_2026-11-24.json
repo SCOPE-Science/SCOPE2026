@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:15:26.474036Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–115; VERIFICATION.md and checker.py inspected as recorded consistency evidence without executing",
+        "/workspace/repairs/4/RESULT.md and SLOGAN.txt; independent PGF, uniform moment and mixture derivation"
+      ],
+      "rationale": "The stationary one-site age is Exp(r) independent of the excursion, and the zero-initial immigration law at age t has PGF [1+B_t(1−s)]^(−Aζ/(vl)) with B_t=l(1−e^(−Δt))/Δ. This can be recovered by Poisson superposition of one-founder birth–death trees, for which 1−F_t(s)=(1−s)e^(−Δt)/(1+B_t(1−s)); integrating over founder arrival time gives the logarithm. The product of v age-averaged PGFs yields (1) with a proper PGF continuous at 1. Admissibility gives 1−βJζ≥1−βJ0>0, while 0<ν<1 bounds the density integrals by an integrable multiple of x^(−ν). The finite critical mean is the level integral of A0/(x+r). The conditional scaling lemma applies at fixed interior fitness after v→∞ and ζ↓0 (not δ→0), then x↓0: at s=e^(−ur), B_(t/r)(1−s)→ut with bound ut and A0/l→1. The limit is a proper continuous-at-zero Laplace transform, with no mass at zero by its decay as u→∞. Differentiating the log transform at zero gives first three cumulants 1,2,12, hence raw moments 1,3,19. For the full occupation, the k-th factorial cumulant satisfies r^k κ_k^(F)≤A0 l^(k−1) k!(k−1)! because B_(t/r)≤lt/r. Products in the factorial-moment Bell polynomials and the bounded factor r≤C for unused degrees give a uniform bound on E[(rN_x)^k], for every integer k. In the uniform fitness integral substitute y=nCx^ν; the transformed integrand is dominated by y^(a−1)min(1,M_k/y^k) for k>a. The conditional limit yields convergence at almost every y (countably many possible discontinuities suffice). Layer cake gives the exact mixed amplitude C^(−a) E[Y^a] and the divergent moment at p=a. The repaired finding narrows novelty to this unconditional asymptotic and its moment frontier; all original formulas used in the proof remain mathematically valid.",
+      "residual_risks": [
+        "Sequential independent-state mean-field limit only, not a simultaneous or finite-system critical theorem. The endpoint l=1 is excluded. Uniform fitness-level selection is essential to the coefficient and exponent, and is not sampling by q or size bias."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Grange gives the same local-reset evolution and mean-density threshold; the Bessel result gives exact fixed-level compound-Poisson law and the clan cutoff with asymptotically power-law r and a more general density profile."
+        ],
+        "reasoning": "The Bessel assumptions cover the frozen conditional submodel, so the edge law is credited. Its theorem does not integrate uniform fitness, control scaled full-occupation moments for the mixture, or state a survival equivalent for that mixture.",
+        "searches": [
+          "arXiv:2311.12414 §§4.1–5.2.1 (local resetting); arXiv:1910.05991 (global resetting)",
+          "Resultary ea7ce4494856, Finding/Assumptions and proof Steps 1–3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary b88c55090541 and ea7ce4494856",
+        "Primary arXiv:2311.12414 and arXiv:1910.05991; bounded same-model literature search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The one-founder mass integrates without reset weighting to l^n/(ln), so nΛ_n≤(A0/l)l^n. In the scaled Laplace exponent rn≤ε contributes O(ε); rn>M contributes O(1/M) by rE[N_x]≤sup A0. The cutoff therefore gives the conditional Laplace integral by compact Riemann sums. For the unconditional tail, the changed-variable integral requires domination by uniformly bounded higher moments of rN_x; the mean or the pointwise conditional cutoff alone cannot control it when 1/ν>1."
+        ],
+        "reasoning": "The repair treats the conditional limit as an implied lemma; it retains the higher-moment uniform estimate on the entire total and the layer-cake coefficient after mixing, not a mere relabeling of the cutoff or the known first/second-moment results.",
+        "searches": [
+          "Resultary ea7ce4494856, exact intensities and cutoff proof",
+          "Resultary b88c55090541, Finding",
+          "arXiv:2311.12414 §§4.1–5.2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Under the exact same microscopic independence and critical limit, Resultary ea7ce4494856 gives positive-jump intensities with limit nΛ_n→2√s K₁(2√s). Dividing this cutoff by s gives the Lévy density of the conditional scaling law, not just a similar special function."
+        ],
+        "reasoning": "The jump and Laplace exponents are equivalent at the conditional scale once their endpoints are controlled. This is material overlap. A limit of conditional jump intensities is not the law of a uniform mixture of full level occupations.",
+        "searches": [
+          "Resultary local-reset co-occupation, immigrant-clan Bessel cutoff and distribution",
+          "Web: Grange local resetting nonconserving zero-range process uniform fitness mixture occupation distribution heavy tail critical stationary Pareto Laplace exponential integral immigrant clan"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "b88c55090541 gives the exact within-site pair transition (4/C² log(1/ζ) on its boundary); it is not the mixed survival coefficient 3/C² at ν=1/2. The Bessel record refers to a distinct factorial-intensity hierarchy without an identified exact record in the checked passages. No independent exact table of the unconditional survival coefficients was identified."
+        ],
+        "reasoning": "Within-site ordered pair intensity and unconditional cross-site level total are different observables. A moment threshold or intensity table does not automatically determine the regularly varying survival constant.",
+        "searches": [
+          "Resultary same-model co-occupation b88c55090541, Bessel cutoff ea7ce4494856, and higher-order integrated factorial intensity hierarchy",
+          "Uniform occupation tail primary-literature query above"
+        ]
+      },
+      "rationale": "The original scope is too broad as a claim of distinct contribution: exact fixed-level laws and the conditional edge scaling overlap materially with the same-day Bessel record; its explicit estimates imply the edge law, regardless of which was written first. The repaired distinct contribution is the complete uniform-fitness total-occupation survival equivalent with sharp amplitude and all moment boundaries. No checked prior statement covers that mixture tail. The earlier moment threshold and the matching conditional Lévy kernel are credited, not passed as new.",
+      "residual_risks": [
+        "The Bessel comparison refers to a separate higher-order integrated factorial-intensity result not resolved to an exact source. Unknown mixed-tail equivalents or general theorems remain possible. The accessible same-day overlap is not a priority determination."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior local dynamics, PGF evolution and critical mean transition",
+          "evidence": "The inspected passages derive the site generating-function evolution, stationary density and mean occupation, not the uniform-fitness survival equivalent.",
+          "identifier_or_url": "https://arxiv.org/pdf/2311.12414",
+          "material_read": "pp. 11–13, §§4.1–5.1, Eqs. (31)–(44), and p. 15, §5.2.1, Eqs. (48)–(49)",
+          "method": "OA primary PDF passages",
+          "title": "Local resetting in non-conserving zero-range processes with extensive rates",
+          "trigger": "Original same-model paper, possible full-law coverage"
+        },
+        {
+          "assessment": "Different reset mechanism",
+          "evidence": "A system-wide massive extinction restores initial configuration; no independent fitness-dependent clearing of microstates as used here.",
+          "identifier_or_url": "https://arxiv.org/pdf/1910.05991",
+          "material_read": "p. 3, OA offset 8600; compared local paper p. 1 abstract",
+          "method": "OA primary PDF passages",
+          "title": "Non-conserving zero-range processes with extensive rates under resetting",
+          "trigger": "Earlier similar-title resetting model"
+        },
+        {
+          "assessment": "Covers a different, integrated within-site pair statistic",
+          "evidence": "Finite below ν=1/2, (4/C²)log(1/ζ) there, power divergence above; not the full unconditional total occupation law.",
+          "identifier_or_url": "Resultary b88c55090541",
+          "material_read": "RESULT.md Finding in local mirror",
+          "method": "Local mirror, direct observable comparison",
+          "title": "A hidden co-occupation threshold below fitness condensation",
+          "trigger": "Strongest earlier same-model crowding transition"
+        },
+        {
+          "assessment": "Covers conditional edge law by implication; no priority inferred from same date or overlap alone; does not state uniform-fitness survival equivalent",
+          "evidence": "One-founder intensities and nΛ_n→2√sK₁(2√s); the ratio of this kernel to s is exactly the conditional limiting Lévy density.",
+          "identifier_or_url": "Resultary ea7ce4494856",
+          "material_read": "RESULT.md Finding/Assumptions, proof Steps 1–3 and comparison/limitations, offsets 0–3168, 3150–6000 and 5900–9108",
+          "method": "Local mirror plus explicit Lévy exponent comparison",
+          "title": "A universal Bessel cutoff for immigrant clans under fitness-dependent local clearing",
+          "trigger": "Exact same-model compound-Poisson law and conditional edge asymptotic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired Finding and proof Steps 5–6",
+        "Grange's finite-density regime, Bessel clan cutoff and co-occupation comparison"
+      ],
+      "rationale": "Uniform fitness-level total occupancy is the natural random-vertex observable of the stated level model, not a selected moment or an arbitrary tiny case. Mean condensation theory leaves open how often a level has a large load in the finite-mean regime. The exact mixture coefficient and complete positive-moment frontier quantify it, requiring control of aggregate occupation rather than a single founder or within-site pair count. The conditional lemma is useful in the proof but is not a separate value claim.",
+      "residual_risks": [
+        "No finite-network asymptotics or claims for other sampling measures, dependent sites or global resetting."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:07:05.948095Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Rooted leaves, nonleaf vertices with no leaf child, and distinct parents with at least one leaf child do partition the tree. The root differentiation of the labeled EGF deletes the smallest label, leaving an unordered set of increasing subtrees. Thus e^F counts the default root, u−1 adjusts the singleton, and (v−1)(e^(F−uz)−1) adjusts a nonempty set with no singleton. Differentiating formally gives (2); in particular for B=(1−z)b one has B=1−e^(−z)−z+z²/2. The proposed identity gives (1−z)c=z(B′+b)/2−z³/12. Its derivative using B′=e^(−z)−1+z and a=z(2−z)/(2(1−z)) is ab+e^(−z)(a−z), and the constant is zero. Hence (4) is exact. Since (n−1)! trees are divided by n!, moments multiply the extracted coefficient by n; [z^n]a=1/2 for n≥2 and the correction in (4) contributes −n/12 for n≥3. For the leaf variance the conditional leaf increment is 1 minus Bernoulli(L_n/n), giving V_(n+1)=(1−2/n)V_n+1/4 from V_2=0. Thus V_n=n/12, and subtracting from the partition gives Cov(L_n,Q_n)=0. At n=1,2 leaves are deterministic. At n=4 a star has (L,Q)=(3,1), whereas parents (1,1,2) give (2,2), so orthogonality does not generally imply independence. The supplied script was inspected, not run. A fresh exact parent-choice enumerator at /workspace/branches/1393abd7-8492-4aaf-a0c3-e3e688cf0460/record5_fresh_enumeration.py, with record5_enumeration.log in the same directory, checked the partition and all three moments over all 46,233 trees of sizes 2–9; this is corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Holmgren–Janson Lemma 3.14 supplies finite-n covariances for arbitrary fringe tolls supported on sizes k and m, with separate cases n>k+m, k<n≤k+m, and n=k. Mahmoud–Ward have a protected marginal mean and variance bounds; Devroye–Janson give the limiting protected proportion."
+        ],
+        "reasoning": "The asymptotic and marginal results alone do not give the frozen covariance. Lemma 3.14 applies to every size-k tranche of the protected toll and the size-one leaf toll simultaneously. The only nonstandard within-fringe moment needed by this specialization, E_k[f L_k], is supplied by the exact root law.",
+        "searches": [
+          "arXiv:1406.6883 Theorem 1.13 and Lemma 3.14(ii)–(v)",
+          "DOI 10.1239/jap/1429282623 Theorem 2.1 and §3",
+          "arXiv:1310.0665v1 §7"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 4490954b5d10, 261fc92cae7c and 77d623e02a17",
+        "arXiv:1406.6883",
+        "arXiv:1310.0665v1",
+        "arXiv:2511.04085v1",
+        "DOI:10.1239/jap/1429282623"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a tree of size k, the root-law factorial transform gives E[(B_k)_j z^L]=z^j E[z^L_(k−j)] for j≤k−2, with star term z^(k−1) for j=k−1. Setting the root mark to zero gives p_k=Pr(B_k=0)=sum_{j=0}^{k−1} (−1)^j/j!. Differentiating at z=1 uses mean (k+j)/2 for j≤k−2 and k−1 for the star term. The alternating sum gives E[L_k 1{B_k=0}]=(k−1)p_k/2. In Lemma 3.14 set m=1, with g the singleton toll. Equation (1.18) then gives β(k,1)=(k²+2k+2)/(2k(k+1)(k+2))."
+        ],
+        "reasoning": "Insert those moments in parts (ii)–(iv) of Lemma 3.14 and sum over k=2,…,n. The covariance divided by −n/2 is S_n=sum_{k=2}^{n−2} (k+4)p_k/[k(k+1)(k+2)] + 2p_(n−1)/[(n−1)n] + p_n/n; the last two terms are the exact boundary cases. S_3=1/6. Subtraction gives S_(n+1)−S_n=((p_n−p_(n−1))+n(p_(n+1)−p_n))/[n(n+1)]=0, since consecutive factorial increments cancel. This is the precise all-n covariance −n/12, not only its slope. The leaf variance is already standard, and subtracting it via the partition gives orthogonality. The finite nonindependence example adds no separate mathematical gap once the exact covariance is covered.",
+        "searches": [
+          "Indexed root law 4490954b5d10 RESULT.md Finding and Proof §2",
+          "arXiv:1406.6883 Lemma 3.14 and eq. (1.18)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact indexed root law 4490954b5d10 gives the joint distribution of L_k and the root's leaf-child multiplicity B_k. The frozen Q_n counts parents globally and uses an indicator of positive multiplicity. Hartle–Krapivsky's undirected convention can differ at the root."
+        ],
+        "reasoning": "For k≥2 the protection toll at the root is exactly f=1{B_k=0}; the singleton root is not protected. Summing f over fringe subtrees gives P_n. Once Var(L_n)=n/12 is known, Cov(L_n,Q_n)=0 and Cov(L_n,P_n)=−n/12 are equivalent by the rooted partition. The covariance with B_n itself is not the frozen covariance.",
+        "searches": [
+          "Resultary: exact leaf protected covariance, distinct leaf parents, root leaf-child joint law",
+          "arXiv:2511.04085v1 §II and Appendix D"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "4490954b5d10 gives a full bivariate transform at the root, not just its covariance 1/2; 261fc92cae7c gives n/8 for unordered terminal-sibling pairs; 77d623e02a17 gives the asymptotic variance coefficient for a zero-leaf-degree count."
+        ],
+        "reasoning": "No equivalent exact global entry was confirmed in the bounded search. A parent with three leaf children contributes three pairs but one leaf parent, and even a variance of the associated zero-degree count is not its covariance with leaves. The full root joint transform is nevertheless enough data for the exact fringe theorem and is materially stronger than the displayed root covariance alone.",
+        "searches": [
+          "Resultary: exact joint law total leaves and root leaf children",
+          "Resultary: exact terminal sibling covariance",
+          "Resultary: exact zero-leaf-degree variance"
+        ]
+      },
+      "rationale": "No inspected source was found to print exactly this global leaf-parent covariance. However, it is mechanically implied by the indexed exact joint law at the root and Holmgren–Janson's exact finite-size fringe covariance formula, including its endpoint cases. Specialization to singleton fringe counts gives a sum that telescopes using the alternating factorial increments. The conclusion rests on the explicit derivation below, not on the similarity of the root and global observables, or on an asymptotic limit.",
+      "residual_risks": [
+        "The bounded search does not determine historical priority for stating the exact global zero covariance. The ruling uses an explicit implication of prior exact results and does not rely on absence of matches or on the nearby asymptotic results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the required within-fringe mixed moment, not itself the global covariance",
+          "evidence": "Proof §2, factorial-transform display, including the exceptional star case.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/10/13/SCOPE-exact-joint-leaf-law-at-the-root-of-a-uniform-recursive-tree--4490954b5d10/RESULT.md",
+          "material_read": "Finding, scope, and proof §§1–3 (offset 0 onward)",
+          "method": "Indexed primary record; applied factorial transform at zero root mark",
+          "title": "Exact joint leaf law at the root of a uniform recursive tree",
+          "trigger": "Exact joint input for the root protection toll"
+        },
+        {
+          "assessment": "Together with the root transform mechanically gives the frozen exact mixed moment",
+          "evidence": "Equations (1.18) and (3.83)–(3.86) and Lemma 3.14(ii)–(v). The generality of the finite-size lemma matters even though the limit theorems are asymptotic.",
+          "identifier_or_url": "https://arxiv.org/pdf/1406.6883",
+          "material_read": "Theorems 1.13, 1.16, 8.6; Lemma 3.14 pp. 32–33 (offset 117620), including both upper endpoints",
+          "method": "Primary PDF and direct specialization of exact formulas",
+          "title": "Limit Laws for Functions of Fringe Trees for Binary Search Trees and Random Recursive Trees",
+          "trigger": "Possible exact finite-size covariance for a full fringe statistic"
+        },
+        {
+          "assessment": "Marginal rather than the mixed moment",
+          "evidence": "Exact protected mean, linear variance bounds.",
+          "identifier_or_url": "https://doi.org/10.1239/jap/1429282623",
+          "material_read": "Theorem 2.1 and §3, pp. 292–294 onward (offsets 8200 and 13800)",
+          "method": "Primary passages",
+          "title": "Asymptotic Properties of Protected Nodes in Random Recursive Trees",
+          "trigger": "Same protected count in the same tree model"
+        },
+        {
+          "assessment": "Limiting proportion, not the finite-size cross-covariance",
+          "evidence": "Recursive-tree proportion 1/2−e^(−1) and protection-depth recursion.",
+          "identifier_or_url": "https://arxiv.org/pdf/1310.0665v1",
+          "material_read": "§7, pp. 9–10 (offset 26520)",
+          "method": "Primary PDF",
+          "title": "Protected nodes and fringe subtrees in some random trees",
+          "trigger": "Protected fringe toll"
+        },
+        {
+          "assessment": "Different root convention and marginal rather than joint law in inspected passages",
+          "evidence": "Undirected leaf degree, protected fraction, and first two leaf-count moments.",
+          "identifier_or_url": "https://arxiv.org/pdf/2511.04085v1",
+          "material_read": "§II p. 2 and Appendix D eqs. (35)–(37)",
+          "method": "Primary PDF",
+          "title": "Statistics of leaves in growing random trees",
+          "trigger": "Leaf-degree zero might encode the complement of a leaf-parent count"
+        },
+        {
+          "assessment": "Distinct multiplicity-sensitive statistic",
+          "evidence": "C_n=sum_v binom(leaf children of v,2), with covariance n/8.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-terminal-sibling-covariance-and-a-constant-regression-slop--261fc92cae7c",
+          "material_read": "RESULT.md Finding, scope and attachment step",
+          "method": "Indexed primary record",
+          "title": "Exact terminal-sibling covariance and a constant regression slope in random recursive trees",
+          "trigger": "Exact joint leaf covariance under identical tree model"
+        },
+        {
+          "assessment": "Variance of a related count, not leaf–parent covariance",
+          "evidence": "Exact indicator-pair representation is for two zero-leaf-degree indicators; theorem concerns variance scale n and a one-dimensional limit.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-zero-leaf-degree-variance-in-random-recursive-trees--77d623e02a17",
+          "material_read": "RESULT.md Finding, scope, exact pair representation and variance step",
+          "method": "Indexed primary record",
+          "title": "Exact zero-leaf-degree variance in random recursive trees",
+          "trigger": "Zero leaf-child count essentially complements the leaf-parent count"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact orthogonality of two natural dependent counts would be a useful finite-size invariant if not already implied; the short increasing-tree proof is also mathematically sound. But the precise frozen identity follows from the known root transform and the exact fringe covariance lemma by substitution and an elementary factorial telescoping. Neither the equivalent covariance, the known leaf variance, nor the four-vertex witness adds a distinct unknown result.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

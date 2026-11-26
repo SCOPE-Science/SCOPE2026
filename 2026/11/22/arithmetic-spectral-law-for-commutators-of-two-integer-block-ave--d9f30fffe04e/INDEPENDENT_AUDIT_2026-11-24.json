@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:01:42.364260Z",
+  "axes": {
+    "correctness": {
+      "rationale": "After ordering p,q (reversal only negates the commutator), tensoring with the rank-one constants projection on g coordinates gives the gcd reduction. For coprime m<n both projections are identical from cell to cell of length mn. On the n-block range in a cell, the squared defect from E_m is a sum over the distinct m-blocks straddling the boundaries jn. In each such block the two values have multiplicities r_j and m−r_j and are scaled by 1/√n, giving L/n exactly. The path has kernel the constants and simple eigenvalues by the first-row tridiagonal recurrence; independently, the weights are at most m/4 and the sum of squared nearest-neighbor differences is at most 4‖u‖², so μ_max≤m<n. For t=1−μ/n in (0,1), a unit range vector v of the compressed projection and (E_m v−tv)/√(t(1−t)) give one two-dimensional block, whose commutator eigenvalues are ±i√(t(1−t)). The other directions commute and constants ensure zero occurs. Repetition gives infinite multiplicities and essential norm equal to the finite-block norm. For n≡±1, the finite differences on degree k have leading coefficient k(k+1)/m, giving the stated spectrum; maximizing in the indicated scale regime uses monotonicity up to η=1/2. At fixed residue the same path works for every n, so the limit follows directly. The verification record, check.py and NumPy dependency were inspected; the finite diagnostics were not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Manzur–Noor–Santos supply the block-sum adjoint and normalized isometries. Loring supplies the generic principal-angle norm relation.",
+          "The uniform partition results discuss compatibility through equivalence relations, while Shabtai studies a spin-projection family."
+        ],
+        "reasoning": "General two-projection geometry determines the output once the angles are known; it does not evaluate the compressed defect for anchored unequal blocks. The compared partition compatibility and spin theorems do not give the modular edge weights.",
+        "searches": [
+          "arXiv:2111.05398v2 §3, Lemma 3 and Eq. (3.1)",
+          "arXiv:1306.1923 §3",
+          "Bailey–Cameron–Praeger–Schneider, §2, Proposition 2.19 and Definition 2.20",
+          "arXiv:2008.00221, Theorems 1.1–1.2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check.py and requirements.txt",
+        "Manzur–Noor–Santos arXiv:2111.05398; Loring arXiv:1306.1923; Shabtai arXiv:2008.00221",
+        "Bailey–Cameron–Praeger–Schneider, The geometry of diagonal groups, §2",
+        "Koekoek–Swarttouw §1.5",
+        "Resultary IDs d9f30fffe04e, 6193251eccee, 27cb19bb4a60, f19d68c5d42e and 4e7e70486d61"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The strongest counterpart explicitly leaves nonadjacent nonunit levels encoded by H, and diagonalizes the adjacent Hahn operator. Passing to projection commutators gives the general finite overlap formulation, the commuting criterion, and the adjacent spectrum.",
+          "For n>m not adjacent, H can have more than two nonzero entries per column, so the displayed prior adjacent bidiagonal matrix is not the general case."
+        ],
+        "reasoning": "The crossing-variance identity evaluates I−G*G as the tridiagonal L_{m,n}/n with weights r_j(m−r_j)/m, not merely a relabeling of H. It exposes independence from the quotient of n by m and recovers both full congruence families and the residue-dependent limit. The known finite-matrix spectral computation alone does not state or directly supply that structural identity; no priority is inferred from the shared date.",
+        "searches": [
+          "Resultary 6193251eccee, exact overlap decomposition, adjacent closure and Limitations",
+          "Resultary f19d68c5d42e, generic principal-angle spectral transfer in a Gaussian–Fock setting",
+          "Symmetric Hahn specialization of Eq. (1.5.5)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The adjoint-commutator record gives B=(H−1)/√(mn) with H the same finite cross-Gram overlap counts of anchored intervals.",
+          "Its rank and unit levels are known for all m,n and all adjacent positive nonunit singular levels are given explicitly."
+        ],
+        "reasoning": "Let G=H/√(mn). Subtracting the normalized all-ones matrix removes exactly one common constant unit singular direction; all singular values s of G strictly between 0 and 1 are retained in B. These are principal cosines, so the aligned projection-commutator levels are ±i s√(1−s²). Thus finite cross-Gram and adjacent spectral results transfer, despite the different operators. This does not identify the general ordered residue path or its n-dependence.",
+        "searches": [
+          "Resultary: integer block averages, Hardy range projections, modular overlap, conditional expectations and adjoint commutators",
+          "Resultary 6193251eccee, Assumptions and Proof §§1–3",
+          "Loring arXiv:1306.1923 §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact assigned match d9f30fffe04e is the same frozen record. Distinct 6193251eccee covers adjacent overlap spectra; distinct 27cb19bb4a60 covers staggered equal widths on ℓ²(ℤ), with a continuous essential spectrum.",
+          "The classical Hahn table gives eigenvalue k(k+α+β+1), specializing at α=β=0, N=m−1 to the spectrum of mL for the ±1 residues."
+        ],
+        "reasoning": "The quadratic finite path eigenvalues as such are known, and the adjacent connection is explicit in a distinct catalogue record. The staggered model is not the doubly anchored unequal-width problem. The supporting table contains no general modulus-dependent identification for the anchored projections.",
+        "searches": [
+          "Local Resultary catalogue for full commutator spectra of aligned or staggered interval averages",
+          "Koekoek–Swarttouw, Askey scheme §1.5 eq. (1.5.5), symmetric Hahn difference operator"
+        ]
+      },
+      "rationale": "The distinct contribution is the residue-weighted path reduction for arbitrary coprime aligned widths, its modulus-only dependence, the full ±1 congruence families beyond adjacency, and the resulting residue-wise scale-separation law. The generic principal-angle law, the finite cross-Gram spectral prescription, its adjacent-base specialization and the underlying Hahn eigenvalues are not credited as distinct results. In particular, the different operator in the strongest same-day comparison does not make the overlap disappear.",
+      "residual_risks": [
+        "An older interval conditional-expectation, canonical-correlation or finite-volume formula may already identify the general residue path.",
+        "Same-day order is undetermined. Equivalent general cross-Gram spectral prescription and identical adjacent levels were credited regardless of order; the verdict is limited to the distinct residue-path contribution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong partial equivalent coverage; the arbitrary-residue path specification is distinct",
+          "evidence": "The scope defines H by overlap and B=(H−1)/√(mn). The proof identifies H/√(mn) as the cross-Gram matrix, removes the constant direction, and diagonalizes the adjacent Hahn matrix. The limitations leave nonadjacent levels in overlap-matrix form.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-arithmetic-block-spectra-for-adjoint-commutators-of-hardy--6193251eccee/RESULT.md",
+          "material_read": "Finding, scope, proof §§1–3, and Limitations; mirrored text offsets 45 and 1020 onward",
+          "method": "Local Resultary search and original record mirror passage inspection",
+          "title": "Exact arithmetic block spectra for adjoint commutators of Hardy weighted composition operators",
+          "trigger": "Same Hardy semigroup, overlap matrix, adjacent quadratic levels, and repeated cells"
+        },
+        {
+          "assessment": "Exact pre-existing finite operator specialization",
+          "evidence": "The Hahn operator at α=β=0, N=m−1 is mL_{m,n} when n≡±1; its eigenvalues are k(k+1).",
+          "identifier_or_url": "https://tudelft.roelofkoekoek.nl/documents/as98.pdf",
+          "material_read": "§1.5, p. 33, Eq. (1.5.5), text offset about 135500",
+          "method": "Author-hosted original PDF passage inspection",
+          "title": "The Askey-scheme of hypergeometric orthogonal polynomials and its q-analogue",
+          "trigger": "Plausible standard difference-operator equivalent of the closed congruence spectrum"
+        },
+        {
+          "assessment": "Exact individual operator representation, not two-range spectral law",
+          "evidence": "The adjoint sums coefficient blocks and W_n*W_n=nI.",
+          "identifier_or_url": "https://arxiv.org/html/2111.05398v2",
+          "material_read": "§3, Lemma 3 and Eq. (3.1)",
+          "method": "Primary open-access HTML passage inspection",
+          "title": "A weighted composition semigroup related to three open problems",
+          "trigger": "Same canonical Hardy operators and same coefficient partitions"
+        },
+        {
+          "assessment": "Known general geometry",
+          "evidence": "In a principal-angle block the norm is sin(2θ)/2; no anchored-width modular compression is evaluated.",
+          "identifier_or_url": "https://arxiv.org/abs/1306.1923",
+          "material_read": "§3, p. 6 and Theorem 3.2",
+          "method": "Open-access original PDF passage inspection",
+          "title": "Principal angles and approximation for quaternionic projections",
+          "trigger": "Generic theorem implying the spectral map from principal angles"
+        },
+        {
+          "assessment": "Distinct positioning and spectral type",
+          "evidence": "Equal-width shifted grids on ℓ²(ℤ) have continuous imaginary essential spectrum, in contrast to repeated anchored finite cells.",
+          "identifier_or_url": "Resultary:27cb19bb4a60",
+          "material_read": "Mirrored RESULT.md finding and scope, offsets 8 and 1025",
+          "method": "Local Resultary search and original record mirror passage inspection",
+          "title": "Sharp commutator phase and moment decay hierarchy for staggered block averages",
+          "trigger": "Near-identical projection terms and essential spectrum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The residue path is useful for understanding relative position of these canonical block averages. In particular it separates the residue from a scalar 1/n, exposes the large-width decay constant without recomputing growing overlap arrays, and gives sharp norms throughout two residue classes, not just adjacent lengths. Value lies in this structural reduction and its consequences, not in recomputing a Hahn table or merely applying the generic projection norm formula.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

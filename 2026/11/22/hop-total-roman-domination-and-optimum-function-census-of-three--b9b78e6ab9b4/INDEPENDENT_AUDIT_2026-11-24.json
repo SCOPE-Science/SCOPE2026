@@ -1,0 +1,177 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:08:16.455959Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At n>=8, distinct intersecting triples have a common disjoint triple since their union has at most five elements; disjoint triples are adjacent, not at distance two. With m defenders and union U, every triple outside U is a mandatory 1 and all other nondefenders are allowed 0 by the hop condition. Thus the weight is at least 2m+C(n-|U|,3), in turn at least 2m+C(max(n-3m,0),3). With n=3r+s, the no-defender weight C(n,3) and m>=r+1 exceed 2r. For 1<=m<=r-2 the relaxed bound is decreasing as m increases and its endpoint is 2r-4+C(6+s,3)>2r; that range is empty for r=2. Comparing m=r-1 and r yields exactly 2r-1 for s=0 and 2r for s>0 as lower bounds. Equality at s=0 forces disjoint defenders with precisely one complementary triple carrying 1. For s>0 equality forces r defenders, no 1s, and at most two unused points. Thus the incidence excess 3r-|U| is zero or (only at s=1) one, the latter forcing exactly two triples to share one point. Ordinary disjointness gives no positive isolates: in that exceptional case r>=3, and another disjoint defender supplies neighbors. This includes n=8, where the two disjoint defenders suffice. Choosing distinguishable 1/2 blocks gives n!/[6^r(r-1)!] at s=0; disjoint 2-blocks give n!/[s!6^r r!] at s>0. The extra s=1 family divides n! by the 2! for unused points, the (2!)^2 for two unordered two-point branches, the 2! interchanging branches and 6^(r-2)(r-2)! for the other triples. An independent bounded check using computed shortest-path masks and exhaustive defender sets at the candidate weight or lower reproduces all minima for n=8,9,10, including 37800 overlapping and 2800 disjoint assignments at n=10. The structural proof handles all n, not just the replays.",
+      "replay_path": "/workspace/branches/independent_hop_total_checks.py",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zec–Grbić's arbitrary-rank theorem uses ordinary total Roman adjacency and starts at n>=k(k+1).",
+          "Brešar et al. Theorem 5 is a k-tuple total domination theorem on arbitrary-rank Kneser graphs, with minimum sets cliques in its equality range.",
+          "Ahangar et al. introduce hop-total Roman domination; the article's full text was not retrieved in the lawful OA attempts."
+        ],
+        "reasoning": "The two broad Kneser theorems do not use the mixed distance-two and distance-one predicate. An exact general union-counting theorem with the same predicate could cover the residue law, but none was identified in the inspected sources. The unavailable article is a residual risk rather than negative evidence.",
+        "searches": [
+          "arXiv:2204.05664, Theorem 2",
+          "arXiv:2312.15464, Theorem 5",
+          "DOI 10.1080/09728600.2023.2184288 (shared foundational-source comparison)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2204.05664",
+        "arXiv:2312.15464",
+        "10.1080/09728600.2023.2184288",
+        "SCOPE-20261013-66092f59608f",
+        "SCOPE-20261102-a3f3d09e0ceb",
+        "SCOPE-20261108-c53bd47d7c27",
+        "SCOPE-20261018-8710d21656c5",
+        "SCOPE-20261122-ce7c3b8ab02a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For n=12 the ordinary total Roman minimum is 8, whereas the hop-total value is 7.",
+          "The ordinary total Roman reconfiguration record uses only disjoint defender sets in its regime. The present s=1 minimum can have an intersecting pair.",
+          "Triangular graphs use pairs and count mandatory complement edges, not mandatory complement triples."
+        ],
+        "reasoning": "Substituting k=3 in the old Kneser minimization theorem yields a different value and a different definition. The support-counting analogy with pairs changes both binomial lower bounds and their equality conditions, so it does not already imply the stated census.",
+        "searches": [
+          "arXiv:2204.05664, Theorem 2",
+          "SCOPE-20261102-a3f3d09e0ceb, Finding",
+          "SCOPE-20261013-66092f59608f, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Distance-two zero-defense equals adjacency in the intersection graph on triples, but positive totality here remains disjointness-based.",
+          "SCOPE-20261013-66092f59608f counts ordinary Roman functions on the triangular graph of intersecting pairs, with forced ones outside the covered ground points."
+        ],
+        "reasoning": "Using the complement graph transfers only the zero-defense condition as stated. The ordinary Roman optimum can be a useful relaxed problem and is tight here by proof, but the checked rank-two result does not give either the rank-three optimum or the disjointness-totality check.",
+        "searches": [
+          "Resultary: KG(n,3) hop-total Roman census and complete 3-uniform hypergraph defender union",
+          "SCOPE-20261013-66092f59608f, Finding",
+          "arXiv:2204.05664, definition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue match is the assigned SCOPE-20261122-b9b78e6ab9b4 itself.",
+          "The matching-deleted biclique and Cartesian rook graph records give exact hop-total enumerations or optimizer classifications on other families.",
+          "The distinct same-day clique-bouquet record gives a full hop-total polynomial, for another graph."
+        ],
+        "reasoning": "The examined tables and enumerators do not compute this triple-family optimum census. The distinct same-day hit shares the predicate, not the result, and no priority ordering is inferred from date alone.",
+        "searches": [
+          "Resultary: three-subset Kneser optimum counts, hop-total Roman functions on intersection and disjointness graphs",
+          "SCOPE-20261108-c53bd47d7c27",
+          "SCOPE-20261018-8710d21656c5",
+          "SCOPE-20261122-ce7c3b8ab02a"
+        ]
+      },
+      "rationale": "The examined results on the same graphs concern other adjacency-based invariants; the exact hop-total results use different graphs. The rank-two intersection-graph enumerator gives a close support-counting analogue, not the rank-three residue law and full optimum census. This pass is for that precise census and theorem, not the underlying hop-total definition or the general method of using the union of defenders.",
+      "residual_risks": [
+        "The full foundational 2023 hop-total Roman article was not independently accessible.",
+        "A broader or unindexed equivalent intersection-covering census for complete uniform hypergraphs could resolve the same relaxed optimum; no such theorem was established by this bounded review."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same graph family but ordinary adjacency defense",
+          "evidence": [
+            "Theorem 2 gives gamma_tR=2(k+1) for n>=k(k+1), k>1, attained by k+1 disjoint k-sets carrying 2."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2204.05664",
+          "material_read": "Definitions p. 2 and Theorem 2 pp. 4–5, offsets 2600–4200 and 10400 onward",
+          "method": "Open-access primary PDF passages",
+          "title": "Several Roman domination graph invariants on Kneser graphs",
+          "trigger": "Direct same-family theorem and possible general-rank subsumption"
+        },
+        {
+          "assessment": "Adjacency-based k-tuple domination of sets, not the hop-total Roman label predicate",
+          "evidence": [
+            "The saturation k+r holds iff n>=r(k+r), with minimum sets cliques in that range."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2312.15464",
+          "material_read": "Definition p. 2 and Theorem 5 p. 4, near offsets 3300 and 14200",
+          "method": "Open-access primary PDF passages",
+          "title": "k-Domination invariants on Kneser graphs",
+          "trigger": "Broader Kneser domination and packing characterization"
+        },
+        {
+          "assessment": "No independent determination of full coverage from the article",
+          "evidence": [
+            "Journal listing AKCE 20 (2023), 73–78. DOI, full-text, abstract and PDF OA retrieval attempts returned HTTP 403."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/09728600.2023.2184288",
+          "material_read": "Bibliographic listing and cited scope in the frozen record; no independent primary text",
+          "method": "Literature search plus lawful DOI and publisher endpoint attempts",
+          "title": "Hop total Roman domination in graphs",
+          "trigger": "Foundational article on the exact predicate"
+        },
+        {
+          "assessment": "Genuinely analogous support argument, not the rank-three case",
+          "evidence": [
+            "Graph is L(K_n) on intersecting pairs. Its minimum is n-1 and the minimizing 2-label sets are matchings leaving one or two points, depending on parity."
+          ],
+          "identifier_or_url": "SCOPE-20261013-66092f59608f",
+          "material_read": "RESULT.md, Finding and assumptions, local offset 85 onward",
+          "method": "Local Resultary mirror",
+          "title": "Roman-domination polynomial of triangular graphs, with minimum-function census",
+          "trigger": "Equivalent set-system strategy with an explicit polynomial and optima"
+        },
+        {
+          "assessment": "Adjacent rather than distance-two defenders",
+          "evidence": [
+            "All minima for its n>=k(k+1) regime select k+1 disjoint defenders, all other vertices zero."
+          ],
+          "identifier_or_url": "SCOPE-20261102-a3f3d09e0ceb",
+          "material_read": "RESULT.md, Finding and prior work, local offsets 0 and 8400–9000",
+          "method": "Local Resultary mirror",
+          "title": "A sharp token-sliding mobility transition for optimal total Roman functions on Kneser graphs",
+          "trigger": "A complete ordinary optimum classification on the same Kneser family"
+        },
+        {
+          "assessment": "Different graph and within-shore hop relation",
+          "evidence": [
+            "Complete polynomial on matching-deleted K_{a,b}, with ab-t minima."
+          ],
+          "identifier_or_url": "SCOPE-20261108-c53bd47d7c27",
+          "material_read": "RESULT.md, Finding",
+          "method": "Local Resultary mirror",
+          "title": "Affine hop-total-Roman weight polynomials under matching deletion from complete bipartite graphs",
+          "trigger": "Same predicate and exact census"
+        },
+        {
+          "assessment": "Different family",
+          "evidence": [
+            "The optimizer classification concerns K_m square K_n."
+          ],
+          "identifier_or_url": "SCOPE-20261018-8710d21656c5",
+          "material_read": "RESULT.md, Finding",
+          "method": "Local Resultary mirror",
+          "title": "All minimum hop-total Roman dominating functions of Cartesian rook graphs",
+          "trigger": "Same predicate and minimum classification"
+        },
+        {
+          "assessment": "Different clique-bouquet graph family",
+          "evidence": [
+            "Its cross-petal defense rule and hub-based totality give the bouquet polynomial, not a Kneser formula."
+          ],
+          "identifier_or_url": "SCOPE-20261122-ce7c3b8ab02a",
+          "material_read": "RESULT.md, Finding and assumptions",
+          "method": "Frozen source and local Resultary mirror",
+          "title": "Hop-total-Roman weight polynomial and the single-defender transition on clique bouquets",
+          "trigger": "Distinct same-day complete exact-hop enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The ordinary disjointness and hop intersection conditions coexist on a canonical infinite family. The result identifies exactly when as little as one unit of overlap in the defender family is possible at equality, counts all labeled optima in all residue classes, and yields explicit benchmarks beyond a scalar minimum. The extra overlapping census is not an artifact of enumeration at small n.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

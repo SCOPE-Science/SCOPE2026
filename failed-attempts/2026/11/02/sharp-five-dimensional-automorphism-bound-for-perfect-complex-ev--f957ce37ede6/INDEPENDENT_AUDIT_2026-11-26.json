@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:39:25.914159Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–4 of Proof; verify.cpp orbit/cover/root-tuple loops; crosscheck.py integer-lattice and Burnside checks; VERIFICATION.md"
+      ],
+      "rationale": "The maximum and runner-up, including their equality classes, are correct. Invertibility makes the squares linearly independent; the zero mixed products of two image basis vectors then force disjoint coordinate supports, so the automorphisms are monomial. Any nonzero determinant summand gives a cycle cover, and on an ℓ-cycle the cover equations give C_(2^ℓ−1). Together with the graph stabilizer this bounds the automorphism order. An exact hand replay, not dependent on re-running the census, separates primes in D: 31 forces the five-cycle (distinct nonidentity labels, each with unique squared successor), giving 31·5; 5 forces the four-cycle and one loop, giving at most 15·4; 7 forces an isolated three-cycle, leaving two vertices, hence at most 21·6. For 126, D must have order 21 and the separate two-vertex support must have a nontrivial order-three diagonal, whose two inverse nonidentity labels force exactly the two opposite arrows. If only 3 divides |D|, order 3 gives m vertices at each of the inverse labels (m=1 or 2, by the cover); graph permutations normalize D, so their order is at most 2(m!)²(5−2m)! ≤12. Order 9 requires all cover diagonals of type 2+2+1, and their distinct coordinate characters force exactly that support (graph group order 8). Trivial D gives at most 120. On a cover-only support weights normalize by successively rescaling and taking a nonzero complex (2^ℓ−1)-st root. Rotations lift for the normalized supports: 31·5 and 3·7·2·3 are attained; the C5 rotation gives the stated nontrivial split action. Multiplying a nonzero ideal element by a suitable basis vector and repeatedly squaring proves the five-cycle is simple.",
+      "residual_risks": [
+        "Reviewed the logic of the packaged census; did not rerun uploaded programs or independently attest incidental census counts. The prime-case proof is a complete replay of the theorem over C without those counts."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The October 25 bound is stated over any field, with the complex equality case. The survey gives the proposed 155 but only computations through dimension four; the diagonal theorem does not bound the total group sharply on its own."
+        ],
+        "reasoning": "The earlier Resultary theorem is at least as broad for the upper bound and identical for the complex maximum/equality.",
+        "searches": [
+          "Prior Resultary RESULT.md Finding and Steps 3–6",
+          "arXiv:2610.22248 Conjectures 3 and 4",
+          "arXiv:2202.01333 Theorem 4.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 3103de8eab17, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+        "arXiv:2610.22248",
+        "arXiv:1902.02191",
+        "arXiv:2202.01333"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Only the order-seven case can attain 126 off C5: all other bounds are ≤120. It already isolates the three-cycle and bounds the complementary degree-two group by 2. Order 21 forces the remaining support to be exactly a two-cycle."
+        ],
+        "reasoning": "The missing explicit equality sentence follows directly; no distinct sharp claim remains to repair.",
+        "searches": [
+          "Prior Resultary RESULT.md Steps 3–6, offset 3800–7630"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior Resultary theorem includes C5, C31 semidirect C5 and both conjecture corollaries; its graph reduction is the same diagonal-by-permutation reduction."
+        ],
+        "reasoning": "Different graph-census methods compute the same extremal invariant.",
+        "searches": [
+          "Local Resultary: five-dimensional perfect evolution algebra maximum and runner-up; 2026/10/25/SCOPE-a-sharp-automorphism-bound-in-dimension-five-for-perfect-evoluti--3103de8eab17",
+          "arXiv:1902.02191 Theorem 3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior checker records 3,304 labeled supports with nontrivial diagonal and 24 labeled extremal five-cycles. Survey lists 155 as conjectural, not a verified five-dimensional entry."
+        ],
+        "reasoning": "There is a prior exact maximum certificate; the absence of a separately tabulated runner-up does not undo its analytical implication.",
+        "searches": [
+          "Earlier Resultary RESULT.md Verification near offset 7600; arXiv:2610.22248 p. 27"
+        ]
+      },
+      "rationale": "The prior October 25 Resultary finding proves the identical maximum, equality class, extremal group and conjecture corollaries, and its case inequalities and explicit forced supports already imply the entire purported runner-up result. In its order-seven case equality 126 needs |D|=21 (graph order at most 6), hence an order-three diagonal on the complementary two vertices. Such a diagonal on two cover vertices forces the directed two-cycle without loops. The prior three-cycle isolation then leaves exactly C2 plus C3; applying its cycle weight normalization to each component gives uniqueness, and the two independent rotations and root factors give 126. This is a direct equality specialization of the prior proof, not unresolved just because it was not packaged as a separate theorem.",
+      "residual_risks": [
+        "No exhaustive historical priority claim; the earlier exact coverage suffices independently of any other publication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the maximum expressly and the 126 classification by direct implication",
+          "evidence": [
+            "Order-seven step: |D|≤21, isolated three-cycle, graph order≤6. Other non-five-cycle bounds 60, 36, 72 and 120. Weight normalization in Step 6."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-sharp-automorphism-bound-in-dimension-five-for-perfect-evoluti--3103de8eab17/RESULT.md",
+          "material_read": "Finding, graph case proof and Verification, especially Steps 3–6 at offsets 3800–7630",
+          "method": "Indexed Resultary search and local-mirror statement/proof inspection",
+          "title": "A sharp automorphism bound in dimension five for perfect evolution algebras",
+          "trigger": "Identical dimension, perfectness and extremal value"
+        },
+        {
+          "assessment": "States the target, not the solved five-dimensional case",
+          "evidence": [
+            "Conjecture 3 lists 155; Conjecture 4 gives max(n!,n(2^n−1)); prior computations through n≤4."
+          ],
+          "identifier_or_url": "arXiv:2610.22248",
+          "material_read": "§2.3 pp. 27–28, Conjectures 3 and 4",
+          "method": "OA full-text passage inspection",
+          "title": "Evolution algebras: a survey of results and a list of open problems",
+          "trigger": "Conjecture scope and numerical target"
+        },
+        {
+          "assessment": "Provides reduction, not the joint five-vertex extremum",
+          "evidence": [
+            "Diagonal kernel/graph exact sequence; some graph permutations need not lift."
+          ],
+          "identifier_or_url": "arXiv:1902.02191",
+          "material_read": "§3 Theorem 3.2 and Example 3.3, p. 9",
+          "method": "OA full-text passage inspection",
+          "title": "Evolution algebras, automorphisms, and graphs",
+          "trigger": "Potentially covering graph theorem"
+        },
+        {
+          "assessment": "Diagonal subgroup alone",
+          "evidence": [
+            "Sharp diagonal order 2^n−1 over an algebraically closed characteristic-zero field, with cyclic support in equality."
+          ],
+          "identifier_or_url": "arXiv:2202.01333",
+          "material_read": "Theorem 4.1, p. 12",
+          "method": "OA full-text passage inspection",
+          "title": "On Automorphism Groups of Idempotent Evolution Algebras",
+          "trigger": "Cyclic equality and diagonal maximum"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Verification; prior Resultary 3103de8eab17 Steps 3–6; arXiv:2610.22248 Conjectures 3–4"
+      ],
+      "rationale": "The extremal question tied to the conjectures is significant, but the frozen finding supplies another enumeration for a previously settled maximum and elevates a direct equality case of the same prior argument. It does not identify a motivated new graph invariant or a new independently useful consequence of its census.",
+      "residual_risks": [
+        "This judgment concerns the submitted finding, not the underlying conjecture or general merit of independent corroboration."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

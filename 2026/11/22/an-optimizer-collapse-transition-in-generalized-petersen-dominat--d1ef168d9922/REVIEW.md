@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement fixes the exact graph adjacency and [1,2]-domination predicate. The 2019 source and complete enumeration prove the minimum cardinality is six for each order. Separately implemented Python and C++17 exhaustive checks establish both optimum counts, complete shattered-support coefficients and exact online ranks. Python enumerates every smaller cardinality; both programs enumerate every size-six candidate, all supports to the first vanishing coefficient, and the recurrence over every reachable online residual state. For order eight, the two 16-member maximum-support orbits, 660 maximal four-faces and 32 maximal five-faces are tested; for order nine, all nine optima match the explicit three-by-three phase family. Full depth-six and depth-two online trees are checked from nonempty leaves upward. Neither finite testing nor a time limit is used to claim an infinite-order theorem.
+PASS
 
-## Originality — PASS, with historical priority caveat
+The two labeled graphs have exactly the rim ±1, inner ±2, and spoke neighbors in the frozen definition. Only unselected vertices enter the [1,2] test. Independent set-based enumeration exhausted every cardinality through six and verified that all lower layers are empty and the sixth layers have sizes 248 and 9. Testing the trace count 2^k for each support through k=6 gave 1,16,116,464,812,32,0 and 1,18,81,0,0,0,0; downward closure excludes every larger layer. A support is maximal precisely when none of its one-vertex enlargements is shattered, giving 660 four-facets and 32 five-facets at n=8. The two stated representatives have disjoint dihedral orbits of size 16 and their union is the full five-support layer. At n=9, on each shore an unselected vertex has exactly one same-shore selected neighbor (the two steps are the nonzero residues modulo three), and its spoke can add at most one. Thus all nine independent phase pairs are feasible, and the exact exhaustion leaves no others. On a single shore a pair of queries either agrees always or cannot be simultaneously positive, whereas cross-shore phases are independently selectable. This proves the graph K_(9,9) is the shattering complex; contracting a spanning tree gives a wedge of 81−18+1=64 circles. For the adaptive census, a query must split a residual family into two nonempty strictly smaller families; maximizing one plus the smaller attainable branch depth is exactly the full-tree depth. The independent recursion gives depths 6 and 2 with 91615 and 49 memoized states. At n=9 the first positive branch fixes a shore's phase, leaving only three hypotheses, which cannot support two further complete levels; the cross-shore VC witness attains depth two. The supplied code/logs were inspected, not executed. Independent replay: run independent_gp_check.py with each of arguments 8 and 9 under /workspace/branches/155acdf6-7d25-4517-97db-8181569e78c7/ and compare gp8_check.out and gp9_check.out. The mathematical conclusion is only for these two orders.
 
-Beggas et al., arXiv:1906.11966 (first public 2019-06-27), establishes minimum cardinalities for the family but no minimum-set counts, membership trace complexes or Littlestone ranks. Its original accessible full text, including the relevant small-order base cases and the conclusions, was read. Chen et al. (2018), DOI 10.1016/j.amc.2018.01.013, has a closely relevant title and determines optimum cardinalities, but its full text was not accessible, so no assertion of whole-document noncoverage is made. Relevant published-search and mathematical-record comparisons show different domination notions or different underlying graph/concept classes, not stronger covering results. Unindexed equivalents remain possible.
+## originality
 
-## Value — PASS
+PASS
 
-The published period-six minimum cardinality formula gives equal optimizer budgets of six at adjacent residues eight and nine. Yet the optimizer count drops from 248 to 9, the VC dimension from five to two, and the adaptive dimension from six to two. The exact three-by-three phase description at order nine and the two dihedral maximum-face orbits at order eight explain the contrast in optimizer geometry. This is a motivated boundary between optimizer diversity and optimal cardinality, not a generic enumeration of an arbitrary graph or a restatement of a domination-number theorem.
+The all-order work already determines both domination numbers and gives one extremizer at each order. The supported distinct claim is the complete labeled minimum families' counts and their associated trace, facet, orbit and online data at these two orders, including the nine independent phase pairs. Neither retrieved primary results nor exact nearby catalogue statements imply that claim. This is a bounded determination, not a certification of priority; two plausible primary bodies remain uninspected.
 
-## Remaining limitations
+## value
 
-The result does not classify all generalized Petersen orders or the full integral topology of the order-eight shattering complex. The exhaustive programs are executable proof certificates for the specified finite orders, but do not replace an independently conducted external mathematical audit. Historical priority is qualified by the inaccessible 2018 full text and by the ordinary incompleteness of research indexing.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+These consecutive natural orders share the known optimization cost, making the comparison about optimizer structure rather than size alone. The classes change from a rich nonpure complex with a strict adaptive advantage to a two-factor phase family with no adaptive advantage. Exact orbit and facet data give meaningful finite benchmarks, and the phase description explains the smaller complex and rank. This does not claim an all-order phase transition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:18:38.443223Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The graph is simple and the neighborhood is open. In the frozen certificate a free face with just one immediate coface has no higher cofaces and the pair can be removed by a genuine simplicial collapse. The checked 999 pairs leave face counts (16,98,243,255,102) and dimensions at most four; the reduced signed boundaries have unit Smith ranks (15,83,153,101). Independently of that collapse, `/workspace/branches/reproduce_critical_c16.py` enumerates lexicographically ordered nonempty tuples via the common-neighbor predicate and reduces the full signed boundary matrices over Z. Replay with `python3 /workspace/branches/reproduce_critical_c16.py`: the original f-vector is (16,120,432,784,784,432,128,16), and all nonzero Smith factors are units, with ranks (15,105,320,463,320,112,16). A ±1 pivot splits off a unit by column and row operations, and every residual matrix reduces to zero. The resulting images are saturated, so ker ∂i / im ∂(i+1) has no torsion. The Betti ranks are (1,0,7,1,1,0,0,0). Over F2 on the full complex, independent elimination gives a seven-element degree-two cohomology basis and a generator of degree-four homology. Alexander–Whitney pairs the first and last triangles of each increasing 4-simplex with their common middle vertex. All 49 products evaluate to zero on that generator. This is the entire positive-degree multiplication: H^1 is zero and degrees above four vanish. A separate recomputation of the collapse and pairing likewise verified the frozen collapse counts and obtained zero with a different nonbounding four-cycle, of support 98 rather than 102. These are exhaustive finite calculations for the specified graph, not a homotopy classification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The stable mapping-torus statement has n≥4k+1 and does not claim smaller circumference. The fourth-power collapse and cup-product statement has n≥17.",
+          "The frozen prior-work section identifies Shukla's graph classes as maximum degree at most three and 4-regular circulants, and Namiq's as certain bipartite graphs; decisive passages were not retrieved in the present comparison."
+        ],
+        "reasoning": "The stable parameter reductions cannot substitute n=16 at k=4. The graph here is not of maximum degree three, not 4-regular, and not bipartite. The identified scopes therefore give no verified broader coverage.",
+        "searches": [
+          "Resultary a2339801b688, mirrored Finding and Assumptions at offset 0",
+          "Resultary d6abfd03a954, mirrored Finding, Assumptions and Proof at offset 0",
+          "Primary lookup for general open neighborhood complexes and cycle powers"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py, cycle_certificate.json and verification_output.txt",
+        "Resultary a8cfcf19139e, a2339801b688, d6abfd03a954 and 0b87191d1bdd",
+        "Fresh independent computations on the full complex and on a checked collapsed complex"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The stable fourth-power result gives nonzero H^1×H^3→H^4 under n≥17. At 16, H^1 vanishes and seven degree-two generators give a different potentially nonzero pairing H^2×H^2→H^4."
+        ],
+        "reasoning": "The additively new group does not determine its multiplication; independent evaluation on the top homology generator is needed. The stable product cannot mechanically specialize to this one, and the full stable conclusion would give different homology.",
+        "searches": [
+          "Resultary d6abfd03a954 nonzero cup product; Resultary a2339801b688 mapping torus; frozen proof §§1–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The bound graph is loopless, 8-regular and contains triangles. The stable Resultary records use the same neighborhood-complex convention but their stated n cutoffs exclude 16.",
+          "Resultary 0b87191d1bdd mentions fourth-power cycles and n=16–20, but its indexed statement describes total three-cut complexes."
+        ],
+        "reasoning": "Neither changing to a closed neighborhood nor taking a total three-cut complex is a relabeling of the specified face predicate. A matching graph parameter alone does not establish the same invariant or a reduction.",
+        "searches": [
+          "Resultary searches by open Lovász neighborhood complex of a fourth-power cycle, cyclic distance at most four on 16 vertices, and the n=4k critical boundary",
+          "Shukla arXiv:1802.04526 and Namiq arXiv:2606.03573"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact group-and-ring match in the index is assigned record a8cfcf19139e. The other stable statements and the three-cut hit do not provide a located n=16 neighborhood-complex entry."
+        ],
+        "reasoning": "Neither a self-match nor nearby circumferences establish a distinct prior computation. No independently verified table for this complex, including its pairing, was located.",
+        "searches": [
+          "Resultary exact n=16, integral ranks and torsion, cup pairing, and n=4k boundary",
+          "Focused primary lookup for a finite neighborhood-complex table including C16^(4)"
+        ]
+      },
+      "rationale": "The exact integral groups and degree-two mod-two pairing are supported as distinct at n=16. Two closely related, earlier indexed results state stable-range hypotheses that exclude this object; the exact indexed match is the assigned record itself. The standard Alexander–Whitney formula and homology algorithms are not originality claims.",
+      "residual_risks": [
+        "The two cited arXiv papers and the indexed three-cut record were not inspected at additional full-text passages after bounded retrieval attempts.",
+        "No search rules out an earlier finite table with different terminology. No assertion about fundamental group, higher operations or full homotopy type is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stable theorem excludes n=16 at k=4",
+          "evidence": "Hypothesis n≥4k+1; no smaller-period cases are claimed.",
+          "identifier_or_url": "Resultary a2339801b688",
+          "material_read": "Mirrored RESULT.md offset 0, Finding and Assumptions",
+          "method": "Indexed search and local mirror passage inspection",
+          "title": "Sphere mapping-tori in neighborhood complexes of every stable cycle power",
+          "trigger": "Same invariant and same cycle-power family"
+        },
+        {
+          "assessment": "Scope excludes the critical circumference and the stable nonzero product has different bidegree",
+          "evidence": "n≥17 and nonzero H^1×H^3→H^4.",
+          "identifier_or_url": "Resultary d6abfd03a954",
+          "material_read": "Mirrored RESULT.md offset 0, Finding, Assumptions and Proof",
+          "method": "Indexed search and local mirror passage inspection",
+          "title": "A cyclic four-dimensional collapse and a nonzero cup product for fourth-power cycle neighborhood complexes",
+          "trigger": "Same power, collapse dimension and coefficient-field cup invariant"
+        },
+        {
+          "assessment": "Indexed invariant is different; any additional full-text overlap is unresolved",
+          "evidence": "The summary describes total three-cut complexes in the range containing 16–20.",
+          "identifier_or_url": "Resultary 0b87191d1bdd",
+          "material_read": "Catalogue statement only; mirrored full-text attempts timed out",
+          "method": "Indexed search and bounded local mirror retrieval attempts",
+          "title": "Complete missing interval for total three-cut complexes of fourth-power cycles",
+          "trigger": "Indexed hit on the exact circumference and graph power"
+        },
+        {
+          "assessment": "No verified coverage of this 8-regular nonbipartite graph; full contents not cleared",
+          "evidence": "The scopes described in the frozen discussion are bipartite graphs and low-degree graphs, respectively.",
+          "identifier_or_url": "arXiv:2606.03573; arXiv:1802.04526",
+          "material_read": "Bibliographic and graph-class discussion in the frozen RESULT.md, lines 71–81; no decisive primary passage retrieved",
+          "method": "Bounded lawful OA attempts",
+          "title": "A Complete Classification of 2-Linear Neighborhood Complexes; Homotopy type of the neighborhood complexes of graphs of maximal degree at most 3 and 4-regular circulant graphs",
+          "trigger": "Candidate general neighborhood-complex classifications cited by the original"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The circumference 16 is the first omitted case of the stable fourth-power theorem, not an arbitrary small graph. It witnesses a sharp failure of the stable additive description and isolates a new possible degree-two multiplication that is not settled by the ranks. The exact integral groups and complete mod-two multiplication are useful baseline invariants for extending the stable analysis across the boundary without claiming a full homotopy decomposition.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

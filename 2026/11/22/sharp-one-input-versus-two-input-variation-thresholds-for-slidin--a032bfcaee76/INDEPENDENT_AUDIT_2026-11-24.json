@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:42:30.491921Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The unit cuts generate input increments modulo constants with l1 coefficient norm equal to input variation. On a strict order chamber each cut gives entries in {−1,0,1} supported on at most three consecutive windows. For output lengths 1,2,3,4,≥5 this bounds variation by 0,2,4,5,6 respectively. Integrating the chamber bounds gives the global estimate; a common generic perturbation of the two endpoints handles a segment lying in a tie hyperplane by continuity without changing their difference. The displayed rank-preserving perturbations attain the bounds and extending the baseline from length eight adds no straddling windows. For one input the layer-cake integral over binary exact-two windows and the discrete coarea identity reduce the estimate to the 16-state binary potential, whose 32 transition inequalities telescope against the input jumps. The length-five replacement has slopes 0,−1,1,0 between the fixed samples and gives bound 1; length four gives zero. Binary step witnesses attain the reported nonzero constants. Independent exact replay /workspace/branches/963c0367-66b4-4b22-8f89-2bf105ae50bb/independent_replay.py (replay.log in the same directory) checked the potential and transitions, all strict rank orders and cuts for n=4,…,8, and the finite and extending witnesses; enumeration is supplementary to the all-length proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary summaries give 2 min(q−1,w−q)+1 for a single rank in odd centered clamped windows when n≥w+1, and 2r+1 for clamped running medians with n≥2r+2. The cited classical full texts could not be retrieved for independent comparison."
+        ],
+        "reasoning": "These are related general rank or median statements, but their stated hypotheses exclude a gap of adjacent ranks with an even width and unpadded finite outputs.",
+        "searches": [
+          "Resultary: exact rank-dependent variation sensitivity of sliding order statistics (4ad37e5b5ca9)",
+          "Resultary: running-median variation instability (4ef2a38a9807)",
+          "arXiv:1012.5095",
+          "arXiv:1009.0959"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py (inspected, not run)",
+        "Resultary rank, median and robust-scale statement summaries",
+        "Independent exact replay and output"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Separate Lipschitz upper bounds could be added by a triangle inequality but do not give the signed joint response or its attainment. The one-input layer-cake uses an exact-two predicate rather than one monotone threshold predicate."
+        ],
+        "reasoning": "The claimed constants need the attainable joint response in overlapping windows and distinct one-input control. Neither sharpness nor the finite progression follows mechanically from the available rank bounds.",
+        "searches": [
+          "Resultary: 4ad37e5b5ca9, 4ef2a38a9807, 9412f0250c25 and 562007a36887",
+          "RESULT.md, cut witnesses and binary coarea proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact-rank record 4ad37e5b5ca9 describes a single order statistic; cyclic-median record 9412f0250c25 and three-point moving-MAD record 562007a36887 describe other maps."
+        ],
+        "reasoning": "Subtracting the second rank from the third is not selecting one rank, taking a three-point MAD, or choosing a general convention for sample IQR. Periodic and endpoint-clamped windows also differ from full windows on an open path.",
+        "searches": [
+          "Resultary: sliding four-point central spacing, difference of middle order statistics, variation sensitivity",
+          "Resultary: central gap versus rolling median and moving MAD"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest rank-filter catalogue theorem gives a sufficient length threshold for its own single-rank result, not the central-gap series. Independent rank/cut enumeration yields the finite series from the frozen map, not a claim of prior-table exclusion."
+        ],
+        "reasoning": "The small finite thresholds are part of a theorem at every n. No available exact table or catalogue claim supplied those thresholds for this map and boundary convention.",
+        "searches": [
+          "Resultary: finite-size cut response and exact variation thresholds for four-site central spacing"
+        ]
+      },
+      "rationale": "The supported distinct claim is the pair of sharp attained coefficient sequences for the open, unpadded four-site middle gap. The strongest available neighboring claims concern single-rank filters or different robust-scale maps. They do not state or imply this pair of sequences.",
+      "residual_risks": [
+        "Full text of 4ad37e5b5ca9 and the cited classical papers was unavailable. The reported operator differences refer to available statements; an uninspected closer result or prior equivalent remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different operator and boundary assumptions in available statement; no ordering inferred from same-day date",
+          "evidence": "Coefficient 2 min(q−1,w−q)+1 for an odd-width centered clamped single-rank filter with n≥w+1, with single-jump attainment.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-rank-dependent-variation-sensitivity-of-sliding-order-stat--4ad37e5b5ca9",
+          "material_read": "Resultary statement summary; mirror full text unavailable",
+          "method": "Resultary and lawful OA/mirror attempt",
+          "title": "Exact rank-dependent variation sensitivity of sliding order statistics",
+          "trigger": "Strongest plausible thematic overlap: exact rank-filter TV sensitivity and cut attainment"
+        },
+        {
+          "assessment": "Related method, not a middle gap",
+          "evidence": "Centered clamped median, coefficient 2r+1 and single-step witness for n≥2r+2.",
+          "identifier_or_url": "2026/11/17/SCOPE-sharp-two-input-variation-instability-of-all-radius-running-medi--4ef2a38a9807",
+          "material_read": "Resultary statement summary",
+          "method": "Resultary",
+          "title": "Sharp two-input variation instability of all-radius running medians",
+          "trigger": "Exact open-path stability analogue"
+        },
+        {
+          "assessment": "Different operators or boundary conventions",
+          "evidence": "Cyclic median and three-point moving MAD, respectively, not the unpadded four-point central gap.",
+          "identifier_or_url": "9412f0250c25; 562007a36887",
+          "material_read": "Resultary statement summaries",
+          "method": "Resultary",
+          "title": "Cyclic sliding median and three-point moving MAD variation sensitivity",
+          "trigger": "Alternative order-statistic and robust-scale formulations"
+        },
+        {
+          "assessment": "Cannot independently exclude more specific passages in those sources",
+          "evidence": "Frozen discussion concerns running medians and minimax computational approximations, not a quoted exact middle-gap theorem.",
+          "identifier_or_url": "arXiv:1012.5095; arXiv:1009.0959",
+          "material_read": "Frozen related-work discussion only; full-text requests timed out",
+          "method": "Frozen RESULT.md lines 77–86 and attempted OA retrieval",
+          "title": "Generalized methods and solvers for noise removal from piecewise constant signals. I. Background theory; Cost-effective implementation of order-statistics-based vector filters using minimax approximations",
+          "trigger": "Classical median and order-statistic literature cited in the frozen record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A local robust spread statistic can have small ordinary output variation while substantially amplifying the variation of differences of nearby inputs. The exact separation 2 versus 6 and the first lengths at which amplification is possible and maximal are useful for stability and finite-window analyses; they cannot be read off from monotonicity of a single rank statistic.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

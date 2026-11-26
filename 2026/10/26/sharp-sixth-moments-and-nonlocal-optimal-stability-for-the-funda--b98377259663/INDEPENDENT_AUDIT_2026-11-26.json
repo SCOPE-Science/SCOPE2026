@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:35:51.175402Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–65; VERIFICATION.md; checker.py and checks.txt (inspected, not run)",
+        "/workspace/replay/moments.py (independent exact moment and derivative calculation)"
+      ],
+      "rationale": "For ordinary traces and probability Haar, orthogonality gives the stated S. Independently, Schur–Weyl duality and the hook-length formula give the multiplicities in each tensor power of the fundamental; the three-row partitions are compared after subtracting the last row, because determinant twists disappear on SU(3). Pairing those multiplicities and expanding h=|w|²−1 gives moments 145, 40, 13, 6 and phase moment 22. The center retains only equal exponents or a difference of ±3, giving the full stated polynomial. After dividing by |a|²S², phase alignment minimizes the ratio. The derivative of the aligned ratio has two positive zeros, by the signs at 0, 1/4, 1 and 3 and Descartes' rule. Its unique global minimum is at the first zero, below 75 and below the endpoint at infinity (139). Positivity follows from the negative discriminant of 75−44u+318u². These steps also verify the pure-adjoint sixth-moment maximizer, the three relative phases at nontrivial stability equality, and the cases a=0 and b=0.",
+      "residual_risks": [
+        "No claim for the span including the antifundamental, or for other even moments."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Agarwal–Nahmgoong treat arbitrary adjoint tensor powers, not mixed phase-dependent norm optimization; the indexed sixth-moment result is for symmetric powers."
+        ],
+        "reasoning": "These provide broader results in their own parameters but do not subsume this sharp mixed stability inequality.",
+        "searches": [
+          "arXiv:2001.10826v1",
+          "Resultary 273b7d294bf1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2001.10826v1",
+        "Resultary a9d84ae67d4a",
+        "Resultary 273b7d294bf1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known tensor invariants set one endpoint; the normalized deficit depends on additional moments, in particular ∫w³h³=22, and has a minimum away from the endpoint."
+        ],
+        "reasoning": "Standard integration makes the coefficients computable, but the observed prior statements do not imply optimality, the local/global separation or the equality families.",
+        "searches": [
+          "arXiv:2001.10826v1 Table 1 and adjoint setup",
+          "Resultary a9d84ae67d4a; 273b7d294bf1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "a9d84ae67d4a optimizes fourth moments for a symmetric-power character and its conjugate.",
+          "273b7d294bf1 computes |χ_m|⁴|χ_r|² for symmetric powers."
+        ],
+        "reasoning": "Neither change of characters nor change of moment yields the mixed sixth moment in the assigned span. A determinant twist on SU(3) cannot identify the adjoint with a symmetric power of the defining module.",
+        "searches": [
+          "Resultary: SU(3) mixed character sixth moments; 2026/10/26 a9d84ae67d4a and 2026/11/1 273b7d294bf1",
+          "Primary literature: SU(3) fundamental–adjoint sixth moments and singlet multiplicity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 1, printed p. 15, row n=6, gives SU(3)=145 as the dimension of the adjoint-tensor invariants.",
+          "The indexed diagonal mixed table is for symmetric-power characters."
+        ],
+        "reasoning": "145 itself is verified prior coverage. The table does not give the mixed coefficients, sharp mixed norm or stability ratio.",
+        "searches": [
+          "arXiv:2001.10826v1 Table 1",
+          "Resultary 273b7d294bf1"
+        ]
+      },
+      "rationale": "The pure-adjoint value 145 and general character-integration machinery are known. The supported distinct content is the mixed sharp inequality with its exact phase dependence and the globally optimal stability constant, not the individual adjoint moment or a general moment-computation method. No equivalent or implying result for this stability statement was identified in the inspected material.",
+      "residual_risks": [
+        "Focused search, not an exhaustive priority determination; a general or unindexed compact-group character norm theorem could warrant another comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers 145, not the mixed sharp stability claim",
+          "evidence": [
+            "Row 6 begins 6 15 145 245 264 265 265 265; the SU(3) column gives 145 invariant tensors."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2001.10826",
+          "material_read": "Table 1 and its caption, PDF p. 16 (printed p. 15)",
+          "method": "OA PDF passage inspection",
+          "title": "Singlets in the tensor product of an arbitrary number of Adjoint representations of SU(3)",
+          "trigger": "Exact pure-adjoint endpoint"
+        },
+        {
+          "assessment": "Different characters and moment",
+          "evidence": [
+            "χ_n=tr(Symⁿ C³) with n≥2 and mixture aχ_n+b conjugate(χ_n), fourth moment."
+          ],
+          "identifier_or_url": "2026/10/26/a9d84ae67d4a",
+          "material_read": "Indexed RESULT.md finding",
+          "method": "Local mirror statement inspection",
+          "title": "Exact two-sided fourth moments and ternary phase resonance",
+          "trigger": "Same group and phase-sensitive optimizer"
+        },
+        {
+          "assessment": "Different mixed moments",
+          "evidence": [
+            "Q_m(r)=∫|χ_m|⁴|χ_r|² for symmetric-power characters."
+          ],
+          "identifier_or_url": "2026/11/1/273b7d294bf1",
+          "material_read": "Indexed RESULT.md finding",
+          "method": "Local mirror statement inspection",
+          "title": "Cubic spectral cutoff and peak law for mixed sixth character moments",
+          "trigger": "Same group and mixed sixth moments"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 15–27, 53–65",
+        "arXiv:2001.10826v1 Table 1 (known endpoint)"
+      ],
+      "rationale": "The fundamental and adjoint are a natural defining/endomorphism character pair. This is an exact example where the local stability coefficient at the sharp optimizer does not describe the best global deficit bound: order-three central resonance selects specific interior phase directions. The sharp coefficient and equality loci quantify this distinction, rather than merely tabulating one character moment.",
+      "residual_risks": [
+        "A narrow two-character example; it does not establish prevalence of the phenomenon."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

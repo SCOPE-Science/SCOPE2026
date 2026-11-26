@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:54:33.563050Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the signed Laplacian convention at issue a hostile edge contributes t(e_i+e_j)(e_i+e_j)^T. Write G=H^{-1}, v=Gu and z_0=Gs. The positive connected base gives G>0 entrywise: factor H as D−A with D equal to one plus friendly weighted degree, then sum the Neumann series for D^{-1}A, whose row sums are below one and whose positive paths reach all vertices. Thus c=u^Tz_0, d=v^Tz_0, r=u^Tv and e=v^Tv are positive for the nonzero nonnegative s. Sherman–Morrison gives z=z_0−tcv/(1+tr). Differentiating the neutral-zero squared norm divided by n gives 2c[t(ce−rd)−d]/[n(1+tr)^3]. Its affine numerator starts negative and crosses once exactly when ce−rd>0; equality of ce and rd still gives strict decrease at every finite strength. Independent exact symbolic elimination reproduced the determinant 3ab+2a+2b+1 and the weighted three-path coefficients (−Δ,−2B,Δ) divided by its square, with Δ=(a−b)(2ab−1) and B=a²b+ab²+4ab+a+b. At a=b=1 this is −s_1/4. A connected simple graph on two vertices has no eligible link, and the only eligible three-vertex shape is a path. Independently solving the concrete matrices gives z_3=(3−5t,4−2t,11+5t)/[2(9+13t)] and z_4=(24+11t,8−t,4−11t,4−4t)/(40+51t). Their squared norms reproduce both derivatives, turning strengths 23 and 944/13, minima 7/264 and 173/6952, zero-strength values 73/486 and 21/200, and limits 9/338 and 259/10404. The four-vertex example has four unit friendly links and one variable-strength hostile link, not five unit links at the minimizing strength. Scaling s extends the sign result beyond the explicit [0,1] normalization to nonzero s≥0. The bundled checker and recorded output were inspected; the submitted checker was not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The signed paper models both link signs and uses squared-norm measures, but its graph definition uses w:E→{−1,+1}; its examined equilibrium and measures do not classify a variable hostile magnitude. The edge-dynamics paper gives a positive-link Sherman–Morrison formula and studies centered polarization and polarization-plus-disagreement."
+        ],
+        "reasoning": "The setup of the signed paper and the algebra of the unsigned paper are applicable ingredients, not a broader inspected result giving the weighted phase inequality, exclusion, and witness under these assumptions.",
+        "searches": [
+          "Zhou et al., arXiv:2407.10680v2, Introduction, §II-B and §II-C Eq. (2), §IV-A",
+          "Bhalla–Lechowicz–Musco, arXiv:2111.14020, §§2.3 and 3.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2407.10680v2 and 2111.14020",
+        "Resultary records 2813b8ffcfee and 5773f2a7f97b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The standard rank-one update puts the equilibrium on an affine segment in the transformed strength; consequently a quadratic norm has at most one interior minimum. The adjacent results do not supply the sign condition for entrywise nonnegative opinions in this model or the exact smallest unit-friendly examples."
+        ],
+        "reasoning": "The no-multiple-turns component is an elementary application of standard rank-one algebra, not a separate novel method. Positivity fixes the initial sign even for opinions supported on one vertex; to decide reentrance and sharpness one must also evaluate the terminal derivative coefficient on the whole weighted three-path family, exclude all smaller unit-friendly shapes and construct a rising-after-falling witness. This combination does not follow by specializing the inspected positive-edge or disagreement results.",
+        "searches": [
+          "arXiv:2111.14020, §3.1 Sherman–Morrison formula",
+          "arXiv:2407.10680v2, Eq. (2) and signed measure definitions",
+          "Resultary 2813b8ffcfee and 5773f2a7f97b, Findings and scopes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zhou et al. use the signed Laplacian and the same equilibrium, up to notation; Bhalla–Lechowicz–Musco vary a positive edge and use mean-centered variance. The same-day indexed result varies a positive edge in an edge-disagreement objective and can have an interior maximum."
+        ],
+        "reasoning": "Rescaling squared norm by n does not alter minimization, but centering the squared norm at the network mean generally does here. Changing the sign of an adjacency is not substituting a negative magnitude into a positive rank-one difference-incidence update: it changes the incidence vector. Edge disagreement also uses a different quadratic form.",
+        "searches": [
+          "arXiv:2407.10680v2, signed FJ model §§II–IV",
+          "arXiv:2111.14020, §§2.3 and 3.1",
+          "Resultary same-day record 5773f2a7f97b, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The November 2 finding has a five-vertex sharp threshold and a positive-load witness for insertion of a friendly edge with binary innate opinions; its polarization is centered. The October 26 finding concerns a positive edge and equilibrium disagreement."
+        ],
+        "reasoning": "The only meaningful exact lookup would be for the same objective, update sign and strength, and weight convention, not a numerical match of thresholds. Neither inspected indexed record gives the four-vertex hostile boundary or the explicit weighted three-path criterion; no priority is inferred from a same-day date.",
+        "searches": [
+          "Targeted Resultary lookup for single hostile edge FJ polarization and sharp vertex size",
+          "Resultary 2026/11/2 record 2813b8ffcfee and 2026/10/26 record 5773f2a7f97b"
+        ]
+      },
+      "rationale": "Best of current knowledge: the distinctive result is the one-hostile-nonedge strength classification with the explicit weighted three-path regime and sharp boundary of four vertices for unit friendly weights. The FJ model, neutral-zero polarization convention and rank-one inverse technique are prior ingredients.",
+      "residual_risks": [
+        "The focused web query did not yield relevant additional papers; it provides no negative evidence.",
+        "An unlocated signed-Laplacian sensitivity theorem or exact hostile-edge example could overlap. The sampled primary passages do not settle absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct model precedent; inspected claims not the cited strength response",
+          "evidence": "Sign function restricted to −1 or +1; equilibrium z=(I+L)^{-1}s; signed measures from opinion norms and signed incidence.",
+          "identifier_or_url": "https://arxiv.org/html/2407.10680v2",
+          "material_read": "Introduction around HTML offset 7160; §II-B around 10861; §II-C Eq. (2) around 17400; opening signed measure definitions §IV-A around 29736",
+          "method": "Lawful open primary HTML, bounded passages",
+          "title": "Friedkin-Johnsen Model for Opinion Dynamics on Signed Graphs",
+          "trigger": "Same signed graph dynamics and polarization convention"
+        },
+        {
+          "assessment": "Related method and different update/measure",
+          "evidence": "Centered variance polarization and polarization plus disagreement; positive edge insertion/deletion using difference incidence and Sherman–Morrison.",
+          "identifier_or_url": "https://arxiv.org/html/2111.14020",
+          "material_read": "§2.3 around HTML offset 21800 and §3.1 around offset 26000",
+          "method": "Lawful open primary HTML, bounded passages",
+          "title": "Local Edge Dynamics and Opinion Polarization",
+          "trigger": "Same class of rank-one graph perturbation questions"
+        },
+        {
+          "assessment": "Different measure and sign, later comparator",
+          "evidence": "Positive edge insertion and centered polarization; five-vertex threshold, with a witness increasing at any positive added weight.",
+          "identifier_or_url": "2026/11/2/SCOPE-five-vertices-are-the-sharp-binary-opinion-edge-insertion-polari--2813b8ffcfee",
+          "material_read": "Finding and scope, local mirror offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Five vertices are the sharp binary-opinion edge-insertion polarization boundary",
+          "trigger": "Exact graph-order threshold for closely related edge insertion"
+        },
+        {
+          "assessment": "Different quadratic statistic and insertion sign",
+          "evidence": "Difference incidence for a positive edge; a concave one-edge disagreement response in transformed strength, with a possible interior maximum.",
+          "identifier_or_url": "2026/10/26/SCOPE-a-bang-bang-theorem-for-minimizing-equilibrium-disagreement-unde--5773f2a7f97b",
+          "material_read": "Finding and scope, local mirror offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A bang-bang theorem for minimizing equilibrium disagreement under an edge update",
+          "trigger": "Same-day single-edge strength comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a standard signed equilibrium measure, knowing the initial slope is insufficient to predict the large-strength response. The exact weighted path criterion, explicit witnesses and sharp friendly-unit order distinguish the effect of unequal weights from the minimal graph size in the unit base. The finding is useful as a boundary and counterexample to universal monotonicity, without attributing novelty to the standard rank-one calculation or claiming an equilibrium bifurcation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T16:57:27.882850Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Steps 1–5, check.py, VERIFICATION.md, REVIEW.md, AUDIT.json, METADATA.json and SLOGAN.txt; supplied script read, not run.",
+        "Publisher's open JATS MathML Eq. (3) from Peng et al., DOI:10.3390/sym16080990, and Section 2 domain for mu."
+      ],
+      "rationale": "Peng et al. Eq. (3) has opposite sine coupling in the two signal coordinates and z'=z+x−y; at mu=0 its scalar map is identically q=k/log(3). Thus x'+y'=2q and, at h=1/2, (w',u')=(w−u,u cos w). Before crossing, strict amplitude order and reverse phase-deficit order follow because cos is positive and strictly decreasing on (0,1). Their phase gap increases after the first step. The set of amplitudes that reach a strictly negative w is open by finite-iterate continuity and upward by order, nonempty near u=w since w_2=w−u(1+cos w), and separated from zero by the geometric bound while w≥w_0/2. Hitting zero leads to a negative w the next step, so the boundary stays positive. If its limit were ell>0, take a finite iterate with w>3ell/4 and u<(ell/4)(1−cos(ell/2)); these are strict conditions preserved at the entry time under perturbation, and geometric tail loss keeps all those trajectories above ell/2, a contradiction. Smaller amplitudes keep at least the initial amplitude gap in w after time one, giving exponential decay; all larger amplitudes cross. This proves uniqueness for every stated initial w. For the threshold orbit summing u_j−u_(j+1) gives the upper rectangle sum for f(t)=1−cos t. Its error over [0,w] is at most (w/2) sum u_j²≤u w²/2, giving u=w³/6+O(w⁵). For quintic precision, each rectangle error is sin(w_j)u_j²/2+O(u_j³). The sum of the cubic errors is ≤u_n²w_n=O(w_n⁷); also sin(w_j)u_j=w_j⁴/6+O(w_j⁶) and the rectangle sum for t⁴ differs from w_n⁵/5 by at most 2w_n³ sum u_j²=O(w_n⁷). Thus the additional term is w⁵/60, yielding +w⁵/120 after adding w−sin w. Finally w_(n+1)^−2−w_n^−2→1/3 by u_n∼w_n³/6; Cesàro summation gives n w_n²→3 and n^(3/2)u_n→sqrt(3)/2. All estimates are for the specified pre-crossing sector only.",
+      "residual_risks": [
+        "The code's near-critical trajectory uses a formal approximant and finite cutoff, not a verified orbit exactly on U. There is no need to infer existence, an asymptotic exponent, or higher expansion coefficients from that diagnostic. The proof relies on strict real inequalities, not hardware or finite precision."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Astorg–Boc Thaler's parabolic-domain theorem starts with holomorphic skew-products with derivative exactly the identity and a nondegenerate quadratic differential. The current map at (w,u)=(0,0) has derivative [[1,−1],[0,1]], not similar to the identity. The two Bao DOI checks yielded bibliographic information, not their theorem hypotheses."
+        ],
+        "reasoning": "The inspected parabolic theorem cannot be specialized by an ordinary differentiable coordinate change to the Jordan linearization here, and it treats local complex domains rather than a full real one-sided parameter interval. Unread coupling works remain a priority limitation, not evidence of noncoverage.",
+        "searches": [
+          "arXiv:2204.02644, Eq. (1.1) and Theorem 1.2",
+          "Web title/DOI searches for Bao et al., 10.1109/TII.2022.3157296 and 10.1016/j.chaos.2023.113844"
+        ]
+      },
+      "checked_sources": [
+        "Open full publisher article of Peng et al., DOI:10.3390/sym16080990",
+        "arXiv:2204.02644",
+        "Resultary equilibrium-line entry (indexed summary)",
+        "Bao et al. DOI:10.1109/TII.2022.3157296 and DOI:10.1016/j.chaos.2023.113844 (bibliography and access checks only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source paper gives the equations and an equilibrium multiplier calculation; its Eq. (4) lists x*=y*=0, which does not equal the fixed signal coordinate q of Eq. (3) at mu=0. The audit uses Eq. (3) directly, not that listed equilibrium. The inspected Resultary summary is a line count and transverse-multiplier result growing with amplification."
+        ],
+        "reasoning": "Even the correct slice multiplier cos w gives local information for a fixed phase; here the phase moves by u per iterate, so that multiplier by itself does not give the shooting threshold, sign of its limit, or the discrete quadrature correction. Positive-gain line proliferation is not transient behavior on the degenerate zero-gain slice.",
+        "searches": [
+          "Peng et al. Sections 2–3, Eqs. (3)–(7)",
+          "Resultary: Linear proliferation and spatial equidistribution of equilibrium lines in a cosine–memristor map strictly positive input gain Peng high amplification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source Eq. (3) gives the reduced iteration immediately on the selected slice. In state variables (z,u), the equivalent equations are z'=z+u and u'=u sin z. Nearby Resultary inverse-sheet and two-cycle results in the query concern target preimages or folded periodic orbits, not first forward crossing and critical decay."
+        ],
+        "reasoning": "Priority must be assessed for a neutral stable curve of that particular real recurrence and its sharp sector separation, whether described by a phase deficit, nonlinear synchronization or stable manifold. Equality of a single exponent or use of the same periodic coupling is not equivalence.",
+        "searches": [
+          "Resultary: cosine memristor Peng critical synchronization zero input gain sine memory parabolic recurrence w_next=w-u u_next=u*cos(w) separatrix",
+          "Web: Simulink Modeling and Analysis of a Three-Dimensional Discrete Memristor Map Peng 990 pdf synchronization zero mu equation 3 nonlinear memory basin threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The publisher paper's Section 3 uses equilibrium spectra, Lyapunov/bifurcation diagrams (including h=1/2 settings), and numerical attractor/basin examples, not a tabulation of the positive-branch critical function and its asymptotics. The indexed match to the audited finding is not independent prior evidence."
+        ],
+        "reasoning": "A phase portrait or finite basin table cannot identify U(w) and its fifth-order coefficient or prove both limit constants for every threshold orbit. This is an exact orbit theorem, not a finite census.",
+        "searches": [
+          "Resultary exact recurrence and critical-decay query above",
+          "Peng et al., DOI:10.3390/sym16080990, Section 3 and conclusion"
+        ]
+      },
+      "rationale": "The map, gain slice and neutral multiplier are not the new result. Under inspected evidence the exact real positive-sector separation, uniform odd-power opening through order five and critical orbit constants survive the comparisons. This is best-of-knowledge only; two potentially related memristive-coupling papers were not available as inspected full texts.",
+      "residual_risks": [
+        "Older sine-transform or memristive synchronization articles not inspected in full could contain related parabolic limits or a wider theorem. No authorized download capability was exposed for the unavailable material. Scope comparisons above rely on the actual stated results read, not search absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides the same model and linear/numerical background. The inspected sections do not supply the moving-phase nonlinear threshold or its exact expansion and rates",
+          "evidence": "Eq. (3) has plus/minus h sin(z_n)(x_n−y_n), z_{n+1}=z_n+x_n−y_n; Section 3 treats equilibrium multipliers and parameter-varying numerics, including fixed h=0.5 examples with a different initial section.",
+          "identifier_or_url": "https://doi.org/10.3390/sym16080990",
+          "material_read": "Publisher's open article XML body, notably Sections 2, 3.1–3.3 and conclusion; exact MathML for equations (1), (3)–(7); PDF opening to check bibliographic and model context",
+          "method": "Publisher static OA XML and PDF; inspected original equation rows and relevant analysis",
+          "title": "Simulink Modeling and Analysis of a Three-Dimensional Discrete Memristor Map",
+          "trigger": "Exact governing recurrence and closest same-model analysis"
+        },
+        {
+          "assessment": "Its local hypotheses do not include the real Jordan-type map",
+          "evidence": "Identity derivative and prescribed nondegenerate second differential in a holomorphic skew-product, in contrast to the nonidentity unipotent derivative here.",
+          "identifier_or_url": "https://arxiv.org/abs/2204.02644",
+          "material_read": "Open PDF abstract and introduction including Eq. (1.1) and Theorem 1.2",
+          "method": "Open arXiv full-text PDF excerpt covering the theorem and its hypotheses",
+          "title": "Dynamics of skew-products tangent to the identity",
+          "trigger": "Potential encompassing local parabolic theorem"
+        },
+        {
+          "assessment": "The inspected statement is about equilibrium-line counts and spectra at large amplification; no claim is made about unread parts",
+          "evidence": "Its displayed leading count is proportional to mu times gamma; the present orbit has mu=0 and no dependence on gamma.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-linear-proliferation-and-spatial-equidistribution-of-equilibrium--b7d0000bf41d",
+          "material_read": "Exact indexed summary; the public result page request failed",
+          "method": "Resultary exact-title lookup and attempted full read",
+          "title": "Linear proliferation and spatial equidistribution of equilibrium lines in a cosine–memristor map",
+          "trigger": "Same three-dimensional source map"
+        },
+        {
+          "assessment": "The theorem comparison could not be performed from this material; not evidence of noncoverage",
+          "evidence": "Chaos, Solitons & Fractals 174 (2023), 113844; title indicates a relevant general theme, not an identified instance of the stated recurrence and threshold.",
+          "identifier_or_url": "https://doi.org/10.1016/j.chaos.2023.113844",
+          "material_read": "Citation and publisher bibliographic record only; full publisher text did not open",
+          "method": "Title/DOI lookup and attempt to read publicly accessible publisher article",
+          "title": "Multistability and synchronization of discrete maps via memristive coupling",
+          "trigger": "Potentially related stronger synchronization result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "Peng et al., Eq. (3) and stability/parameter discussion"
+      ],
+      "rationale": "The slice is forced by an actual stability boundary: zero input gain leaves the coupled memory dynamics intact, and h=1/2 is exactly where the largest positive-phase transverse factor first reaches one. The result explains which trajectories converge before reaching that neutral phase, with a unique exceptional orbit and two explicit nonlinear scales. The quintic correction distinguishes the discrete threshold from its first integral approximation. This is more than substituting parameters in the source linearization and does not promise properties of later crossing dynamics or of nonzero gain.",
+      "residual_risks": [
+        "No relevance to chaotic attractors, security applications or finite-precision hardware is assessed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

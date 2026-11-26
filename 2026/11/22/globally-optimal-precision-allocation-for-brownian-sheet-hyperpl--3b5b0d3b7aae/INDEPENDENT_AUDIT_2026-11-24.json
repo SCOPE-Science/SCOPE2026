@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:14:51.963241Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 45–118; VERIFICATION.md; verify.py (inspected, not executed)",
+        "python3 /workspace/frozen_math_crosschecks.py 3 independently confirmed the location derivative, the envelope derivative factorization and the limiting channel information exactly"
+      ],
+      "rationale": "Tensor integration gives Var(J)=3^(-d), Cov(J,A_j)=3^(-(d-1))c(x_j), and Cov(A_j,A_k)=3^(-(d-2))c(x_j)c(x_k) for distinct axes. Projecting each slice onto J cancels all off-diagonal residual covariances; joint Gaussianity gives independent residuals and additive scalar information. At p>0 the derivative in x has sign 12(1-x)-ux(3x-2), u=p/3^(d-2); x=0 conveys no information and x=1 has negative derivative, so the single interior root is the unique maximum. At that root the optimized information derivative increases strictly with x (A<0 and Q>0 in the stated derivative factorization), and x decreases strictly with u. Continuity at zero extends strict concavity to the closed precision simplex. Strict Jensen therefore excludes zero-precision allocations, establishes the unique uniform split, and then the location root is forced on every axis. Substitution gives the asserted risk, crossover and fixed-d noiseless limit: at x=2/3 the scaled channel information is 72, hence total limiting precision 3^d(8d+1).",
+      "residual_risks": [
+        "The symbolic check corroborates identities, not the all-design inequalities; the latter were checked analytically. The optimization is for one full slice per direction and a scalar target, not for repeated, partial or oblique slices."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first two cover noisy linear integral observations but study spatial prediction or covariance evaluation; the quadrature references address credible intervals or quadrature weights."
+        ],
+        "reasoning": "The assessed passages supply general background rather than a stronger optimizer for this scalar target, budget and tensor geometry.",
+        "searches": [
+          "Longi et al. PDF, abstract and §2.1",
+          "Hendriks et al. arXiv:1812.07319, abstract and §2",
+          "Karvonen thesis §3.3.3 and Karvonen et al. arXiv:1812.08509 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 3b5b0d3b7aae, 01edc3da2ab6, 374266bc7b99, ca21be61c9e2",
+        "Longi et al. (2020); Hendriks et al. (arXiv:1812.07319); Karvonen (2019); Karvonen, Kanagawa and Särkkä (arXiv:1812.08509)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Brownian-sheet point design shares the noiseless coordinate 2/3 but has a single observation and no precision split. Generic Gaussian formulas permit calculation of risk for arbitrary slices but do not furnish the global allocation theorem."
+        ],
+        "reasoning": "Prescribed equal precision restricts the feasible designs; proving equal precision wins over every heterogeneous or zero allocation requires strict concavity after location optimization. That and the slice-specific risk are not obtained by substituting into the point theorem.",
+        "searches": [
+          "Resultary 01edc3da2ab6, Finding",
+          "Longi et al. §2.1 covariance formulas"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Line-integral sensors and this slice experiment admit the same general linear-operator Gaussian representation; posterior integral variance also has the Gaussian quadrature interpretation."
+        ],
+        "reasoning": "The generic representation does not state the specialized independent residuals or optimize achievable information over both slice locations and precisions.",
+        "searches": [
+          "Resultary: Brownian sheet volume integration, one orthogonal hyperplane integral per axis, precision budget",
+          "Longi et al., PMLR 124, §2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact match ending in 3b5b0d3b7aae is the assigned record. The distinct matches treat one Brownian-sheet point or point sampling in one-parameter Brownian bridge or Wiener models."
+        ],
+        "reasoning": "The configured catalog is the relevant exact-result check; the output is a continuous design law, not a sequence with an applicable numerical table. Equal precision in a different experiment is not exact coverage.",
+        "searches": [
+          "Resultary target title and orthogonal slices/precision search",
+          "Resultary 01edc3da2ab6, 374266bc7b99 and ca21be61c9e2"
+        ]
+      },
+      "rationale": "The supported distinction is the specific tensor-slice precision and location law, not Gaussian conditioning, integral sensors or the familiar coordinate location 2/3 by itself. The closest indexed Brownian-sheet record optimizes one noisy point value, and the closest external integral-sensor work does not solve this target/budget/geometry. Neither yields the independent-channel factorization with optimized strict concavity as an existing design theorem.",
+      "residual_risks": [
+        "Statement-level assessment is bounded to inspected sources; an unindexed or differently worded exact design remains possible. Same-day catalog dates did not establish order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related design, different information operator and budget problem",
+          "evidence": "One noisy point value W_d(x), with equal coordinates and 2/3 limit; not d complete slice observations.",
+          "identifier_or_url": "Resultary 2026/11/22, 01edc3da2ab6",
+          "material_read": "Mirrored RESULT.md opening, offset 0",
+          "method": "Read the matched finding in the local mirror",
+          "title": "A dimension-induced noise boundary layer for one-point Brownian-sheet integration",
+          "trigger": "Closest different catalog match for the same prior, scalar target and noisy sensing"
+        },
+        {
+          "assessment": "Related design motif, not coverage",
+          "evidence": "Noisy point observations in one-parameter models rather than complete coordinate slices of a sheet.",
+          "identifier_or_url": "Resultary 374266bc7b99 and ca21be61c9e2",
+          "material_read": "Both mirrored RESULT.md openings, offset 0",
+          "method": "Read the matched findings in the local mirror",
+          "title": "Universal optimal sensing meshes under a Brownian-bridge precision budget and Sharp joint precision and time design for Wiener integral quadrature",
+          "trigger": "Joint site/precision analogues"
+        },
+        {
+          "assessment": "General observation framework; no matching theorem in inspected statements",
+          "evidence": "Gaussian covariance formulas for noisy line-integral observations and spatial sensor placement.",
+          "identifier_or_url": "https://proceedings.mlr.press/v124/longi20a/longi20a.pdf",
+          "material_read": "PDF pp. 1–2, abstract and §2.1, offsets 0, 3356 and 7675",
+          "method": "Bounded OA PDF passage inspection",
+          "title": "Sensor Placement for Spatial Gaussian Processes with Integral Observations",
+          "trigger": "Closest external integral-observation sensor-design method"
+        },
+        {
+          "assessment": "Different kernel and calculation objective",
+          "evidence": "Double line-integrals of squared-exponential covariance and prediction with noisy integral data.",
+          "identifier_or_url": "https://arxiv.org/pdf/1812.07319",
+          "material_read": "Abstract and §2, offsets 0 and 3704",
+          "method": "Bounded OA PDF passage inspection",
+          "title": "Evaluating the squared-exponential covariance function in Gaussian processes with integral observations",
+          "trigger": "Noisy Gaussian-process integral observations"
+        },
+        {
+          "assessment": "Background only in inspected passage",
+          "evidence": "Bayesian cubature credible intervals on an integration example.",
+          "identifier_or_url": "https://tskarvone.github.io/pdf/PhD-thesis.pdf",
+          "material_read": "§3.3.3, printed p. 47, PDF p. 54, offset 159111",
+          "method": "Bounded OA PDF passage inspection",
+          "title": "Kernel-Based and Bayesian Methods for Numerical Integration",
+          "trigger": "General Bayesian cubature framework"
+        },
+        {
+          "assessment": "Weight properties, not slice precision optimum",
+          "evidence": "Positivity and magnitudes of quadrature weights are distinct from choosing observation precision and locations.",
+          "identifier_or_url": "https://arxiv.org/pdf/1812.08509",
+          "material_read": "PDF p. 1 abstract, offset 0",
+          "method": "Bounded OA PDF passage inspection",
+          "title": "On the Positivity and Magnitudes of Bayesian Quadrature Weights",
+          "trigger": "Quadrature design and weights"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof; one-point Brownian-sheet Resultary 01edc3da2ab6; Longi et al. §2.1"
+      ],
+      "rationale": "The exact allocation is useful when measurement precision, rather than the number of slices, is the resource. Residual independence makes this an unusually tractable nontrivial joint-design problem, and the location scaling identifies the budget needed to prevent high-dimensional measurements from drifting toward the outer faces. The conclusions about boundaries, symmetry and attainable risk add information beyond generic covariance evaluation or a numerical design.",
+      "residual_risks": [
+        "Usefulness is scoped to the specified prior and acquisition operator; no empirical or alternate-geometry gain is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

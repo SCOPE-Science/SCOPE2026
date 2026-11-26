@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:04:23.187758Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Verified the full evaluation law and its boundaries, not just the finite tests. In the gamma expansion of N_n(X)/X, the coefficient at X^(k−1) is (n−1)!/[(k−1)!(n−k+1)!] times the Vandermonde sum Σ_j binom(k−1,j)binom(n−k+1,n−k−j)=binom(n,n−k). This recovers the defining coefficient. At even x the quotient is an odd unit since its constant coefficient is one. At odd x the gamma endpoint has valuation h=s₂(m+1)−1 for n=2m+1; for n=2m first divide by 1+X, and the endpoint is (2m−1)C_(m−1)x^(m−1) of valuation h=s₂(m)−1. A term r indices below the endpoint has valuation at least h+2r−s₂(r)>h by the binary carry inequality and the factor (1+x)^(2r), excluding cancellation even in Z₂. Restore x and, in even degree, 1+x. This includes n=1 and n=2, and the x=0 and x=−1 evaluations without division by zero. The qualifying even residues are x≡0 mod 2^r; the odd residues are all or none in odd degree and x≡−1 mod 2^max(1,r−h) in even degree. Intersecting at all r gives the two asserted Z₂ zero sets. Independent bounded replay: `cd /workspace && python checks/independent_replay.py 2` passed 8,800 direct Horner evaluations and 234 full fiber checks. The frozen verification is finite corroboration. Its Python 3.8 compatibility note is too broad for int.bit_count (use 3.10+); the novelty paragraph's ‘all prime-power’ phrase means powers of two under the explicit Finding and scope. Neither affects the theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Postnikov–Sagan Theorems 1.1 and 2.1 give the Catalan valuation and a height-weighted extension.",
+          "Gao–Gu Theorem 2.1 weakens the difference-divisibility conditions on the height weights, not the observable being counted.",
+          "The Bóna–Sagan base-p result extends across primes for coefficients, not for polynomial values."
+        ],
+        "reasoning": "The height-weight theorems do not identify the number-of-peaks weighting by a freely varying scalar with their admissible height weights. Broader prime scope for coefficients does not dominate evaluation at odd x.",
+        "searches": [
+          "arXiv:math/0601339",
+          "arXiv:1908.03914",
+          "arXiv:math/0505382"
+        ]
+      },
+      "checked_sources": [
+        "Mansour–Sun arXiv:0805.1274v1",
+        "Postnikov–Sagan arXiv:math/0601339",
+        "Gao–Gu arXiv:1908.03914",
+        "Bóna–Sagan arXiv:math/0505382",
+        "Lassalle arXiv:1112.0156v2 (abstract)",
+        "Checcoli–D’Adderio arXiv:1306.5929v1 (abstract)",
+        "Resultary 377d3f280af3, c391e761b117, bde71f25e69e and 145313dde067"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The gamma expansion and the Catalan valuation furnish a candidate extremal summand. Neither prior statement compares its valuation with all the nonendpoint terms at every odd input."
+        ],
+        "reasoning": "Without the uniform strict carry bound one cannot infer no competing minima or cancellation; the exact distance-to-−1 valuation is not simply the known special-value identity. The residue and zero conclusions follow from the evaluated law, and are not independent priority claims.",
+        "searches": [
+          "Mansour–Sun Eq. (1.1) and (2.3)",
+          "Postnikov–Sagan Theorem 1.1",
+          "Gao–Gu Theorem 2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mansour–Sun (1.1) uses the polynomial with the initial factor X removed; (2.3) addresses X=−1 only.",
+          "Bóna–Sagan Theorem 1.2 concerns nondivisibility of an individual coefficient by a prime, not cancellation in a polynomial evaluation.",
+          "Resultary 145313dde067 studies the unrelated recurrence a_(n+3)=a_(n+2)+a_n under the same Narayana name."
+        ],
+        "reasoning": "Neither the shifted polynomial convention nor the shared name turns the retrieved valuations of coefficients, sequence terms or one special value into the all-input valuation after normalizing out x or x(1+x).",
+        "searches": [
+          "arXiv:0805.1274v1",
+          "arXiv:math/0505382",
+          "Resultary: Narayana binary valuations, dyadic residues and evaluated Narayana polynomials"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected Findings count the first two valuation layers of Narayana triangle entries, dyadic coefficient residues in Mersenne rows, and valuation distributions within dilated rows, respectively."
+        ],
+        "reasoning": "In those exact enumerations the variable is the coefficient index or row; the present complete histograms of roots modulo powers of two vary the input x at a fixed polynomial index. No matching evaluation table was evidenced.",
+        "searches": [
+          "Resultary 377d3f280af3",
+          "Resultary c391e761b117",
+          "Resultary bde71f25e69e"
+        ]
+      },
+      "rationale": "The supported distinction is a uniform valuation of polynomial values for odd weights, particularly the exact excess ν₂(x+1) in even degree, with the resulting fibers and two-adic zero sets. The gamma identity, Catalan valuation, even-index vanishing at −1 and coefficient divisibility have prior coverage and are not credited as new. The statement-level checks did not establish coverage of the uniform evaluation law; this is a bounded best-knowledge judgment.",
+      "residual_risks": [
+        "Unindexed arithmetic specializations of the classical gamma expansion may contain an equivalent evaluated valuation formula.",
+        "The checked nearby coefficient results and abstracts do not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Ingredients and a single special input, not the odd-input valuation classification",
+          "evidence": "The classical expansion has Catalan coefficients; the published −1 specialization vanishes for even index and is signed Catalan for odd index.",
+          "identifier_or_url": "https://arxiv.org/pdf/0805.1274v1",
+          "material_read": "p. 1 Eq. (1.1), p. 3 Eq. (2.3), offsets 3400 and 11488",
+          "method": "OA PDF passage comparison with exponent normalization",
+          "title": "Identities involving Narayana polynomials and Catalan numbers",
+          "trigger": "Same polynomial; gamma formula and special values may cover evaluation"
+        },
+        {
+          "assessment": "Catalan digit sum known; weighted extension uses a different weight model",
+          "evidence": "Height-of-upstep weights and their differences determine admissibility, unlike a weight for each peak.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0601339",
+          "material_read": "p. 2 Theorem 1.1 and p. 5 Theorem 2.1",
+          "method": "OA PDF theorem and hypothesis comparison",
+          "title": "What power of two divides a weighted Catalan number?",
+          "trigger": "Potentially stronger 2-adic weight theorem"
+        },
+        {
+          "assessment": "Broader height-weight theorem, not the present evaluation result",
+          "evidence": "Requires odd b(0), 4 | Δb and 2^j | Δ^j b for j≥2.",
+          "identifier_or_url": "https://arxiv.org/pdf/1908.03914",
+          "material_read": "p. 3 Theorem 2.1, offset 7514",
+          "method": "OA PDF statement-level comparison",
+          "title": "Arithmetic of weighted Catalan numbers",
+          "trigger": "Weaker weight hypotheses could cover more cases"
+        },
+        {
+          "assessment": "Individual Narayana numbers, not evaluated polynomials",
+          "evidence": "The theorem detects nondivisibility of one coefficient from base-p digits.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0505382",
+          "material_read": "p. 2 Theorem 1.2; p. 4 comments on exact p-adic order",
+          "method": "OA PDF theorem and comment passages",
+          "title": "On divisibility of Narayana numbers by primes",
+          "trigger": "Base-p digit criterion could be mistaken for the same valuation law"
+        },
+        {
+          "assessment": "Coefficient statistics, not evaluation fibers",
+          "evidence": "First two levels over row cutoffs, fixed Mersenne-row residue histograms, and coefficient valuations within dilated rows have different sample variables.",
+          "identifier_or_url": "Resultary 377d3f280af3, c391e761b117, bde71f25e69e",
+          "material_read": "First two: RESULT.md Findings and proof/comparison passages near offsets 6190 and 4970; third: Finding at offset 0",
+          "method": "Local catalogue search and mirrored statement inspection",
+          "title": "Binary divisibility layers, Mersenne residue spectra and dilated-row valuation polynomials for Narayana coefficients",
+          "trigger": "Exact dyadic tables of a Narayana object"
+        },
+        {
+          "assessment": "Distinct recurrence, not an overlap by implication",
+          "evidence": "The sequence satisfies a_(n+3)=a_(n+2)+a_n; it is not the Narayana triangle or polynomial family.",
+          "identifier_or_url": "Resultary 145313dde067",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirrored statement inspection",
+          "title": "A complete binary valuation law and bounded-discrepancy density for Narayana numbers",
+          "trigger": "Near-identical vocabulary and same displayed date"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Uniform control of possible cancellation in a natural Catalan refinement gives a sharp, reusable parity-dependent arithmetic invariant: all odd weights have one order in odd index, while even index singles out exact distance to one root. It answers the entire two-adic root and residue-lifting question without a finite cutoff or individual-weight search. The new content is the strict minimum over all other gamma terms, not recomputing a known Catalan valuation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

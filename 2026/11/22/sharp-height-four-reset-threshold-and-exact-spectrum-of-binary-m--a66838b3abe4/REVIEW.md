@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** Full ordered binary trees with exact maximum height four are exhaustively enumerated by the recursion \(T_h=1+T_{h-1}^{2}\), with \(T_4-T_3=651\) entries. Every literal decoder has at most \(15\) states and is searched through its entire reachable subset graph, proving exact shortest reset distances or nonsynchronization. Two independent standalone programs agree on the \(632\)/\(19\) split, the complete histogram, and two extremal decoders of threshold \(17\). Actual source code is included and has been executed successfully.
+## correctness
 
-**Originality: PASS, relative to the inspected evidence.** Chadha (arXiv:2611.05675, 3 November 2026) already proves \(17\) for the displayed consecutive-level special codes, but only gives the broader \(17\le s_2(4)\le33\) interval for all height-four prefix trees. The all-tree upper bound, the complete histogram and nonsynchronizing count are not supplied by that theorem. Ryzhikov and Szykuła (arXiv:1806.06299) treat algorithms rather than this finite classification. Searches of indexed mathematical results did not identify an equivalent full census. Unindexed duplicate computations remain possible.
+PASS
 
-**Value: PASS.** Exact determination of the finite height-four cutoff closes a motivating gap in a newly published all-height bound. The full spectrum and nonsynchronization count quantify how shallow leaves affect synchronization beyond the known two-depth family. No general formula or all-height classification is claimed.
+A missing child of any internal vertex would allow appending a new word, so maximality makes the ordered binary prefix tree full; conversely full finite trees give maximal codes. At root depth zero, counting the formal leaf as a tree gives T_0=1 and T_h=1+T_(h-1)^2, with T_4-T_3=677-26=651. Proper prefixes are exactly internal vertices, at most 15; a letter takes the internal child or completes a leaf and returns to the root. A word acts by a path through nonempty image subsets, so the first singleton at breadth-first distance is shortest and exhaustion without a singleton proves nonsynchronization. The supplied scripts were inspected but not executed. They may stop at the first singleton, which is enough in synchronizing cases. An independent implementation, inspected at lines 8–79 and 100–148, was executed and can be replayed as `python3 evidence/5/independent_enum.py --height 4` from the review workspace; `evidence/5/full_height4.log` records 25,689 reachable subsets over the 651 codes, with 19 nonsynchronizing and the exact length counts 1:2, 2:20, 3:44, 4:92, 5:96, 6:56, 7:50, 8:144, 9:118, 10:4, 11:2, 12:2, 17:2. The two length-17 codes have precisely the stated leaves and 14 states each. Direct replay verified the stated reset word and its complement; minimality comes from breadth-first distances, not replay alone. This is computational verification of a bounded census, not a larger-height or formal certification claim.
 
-**Scientific limitations.** The proof is exhaustive and computationally checkable, not an all-height analytic theorem. The only two maximal examples and their known reset length have been credited. Independent scientific audit remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The length-17 examples and their individual shortest lengths are already known. The distinct contribution is the unrestricted exact-height-four maximum, uniqueness within the full family, and complete distribution including nonsynchronization.
+
+## value
+
+PASS
+
+Exact height four is a natural small cutoff at which the known general upper bound and consecutive-depth witness do not fix the unrestricted extremum. Settling the gap from [17,33] to 17 for the literal decoders, including all shallow branches, answers a precise extremal question; the whole spectrum and unsynchronizing count provide independently useful small-case data for subsequent structural bounds and conjectures. The value is not the already-known 17-letter examples or the routine tree-count recurrence in isolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

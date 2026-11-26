@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:22:17.895684Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The stated normalized flow is a positive-weight mean of the two zealot opinions minus x. It is smooth and odd, points strictly inward at +/-1 and outside, and has at most linear growth. The time to reach the interval from an exterior point is finite by compactness of the segment from that point to the nearest endpoint and the strict nonzero drift there. Clearing the positive denominator gives drift sign on 0<x<=1 equal to the sign of Q(x)-exp(delta-1). Direct differentiation gives Q' with the sign of H=2x(1-x^2)-tanh(2x). The derivative of tanh(2x)/x is strictly negative by sinh(4x)>4x, and its values go from 2 to tanh(2)<sqrt(3). Hence H'=2(tanh^2(2x)-3x^2) goes from positive to negative exactly once. With H(0)=0 and H(1)<0, its only positive zero on (0,1) is m, on the decreasing branch. Thus Q increases from 1 to Q(m)>1, then falls to -exp(-1), with Q''(m)<0. The level comparison gives exactly the four stated censuses and sign charts. At delta=1 the slope vanishes but the positive cubic x^3/6 repels; at delta*=1+log Q(m) the nonzero double roots attract from the exterior only, with nonzero parameter derivative in the cleared factor. Global uniqueness prevents trajectories crossing equilibria; bounded monotone trajectories limit to the adjoining equilibrium, with the threshold initial states staying fixed. The two square-root scalings follow from the expansion at zero and the nondegenerate maximum. Independent replay: python3 /workspace/independent_checks.py 1 used 85-digit decimal arithmetic and maximized the parameter root derived directly from the two logistic weights; it gave m=0.457314620422500064758 and delta*=1.037743156221737164794, with direct drift checks including the cubic and fold. Sampling does not establish the global result. The accepted claim is the autonomous classification for gamma=1, not a theorem for a time-varying sweep or a transcendence assertion about delta*.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5 treats harmonic-state linear stability on paths with symmetrically positioned zealots.",
+          "Homs-Dones–Devriendt–Lambiotte describe nonlinear consensus and topology/effective-resistance criteria in the accessible abstract; the exact evolution-equation passage could not be retrieved independently. Bizyaeva–Franci–Leonard describe saturating opinion exchanges in a multi-option model."
+        ],
+        "reasoning": "A fixed-parameter harmonic derivative does not control remote steady states or prove that the positive equilibrium curve has exactly one maximum. The accessible descriptions of broader consensus models do not state a result implying such a maximum for the normalized logistic weights.",
+        "searches": [
+          "arXiv:2209.07004, Theorem 5 and §5.1",
+          "arXiv:2008.12022, abstract and attempted Eq. (1.1) passage",
+          "arXiv:2009.04332, abstract"
+        ]
+      },
+      "checked_sources": [
+        "Brooks–Chodrow–Porter arXiv:2209.07004, matched equations and steady-state passages",
+        "Homs-Dones–Devriendt–Lambiotte arXiv:2008.12022 (partial)",
+        "Bizyaeva–Franci–Leonard arXiv:2009.04332 (abstract)",
+        "Resultary exact self-match and near-neighbor summaries a7b8050e0386, 021f5775f684"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 5 supplies the local harmonic stability comparison; §5.1 makes a qualitative and numerical comparison for a larger path. Neither premise or conclusion identifies m via 2m(1-m^2)=tanh(2m)."
+        ],
+        "reasoning": "The local comparison recovers the neutral stability boundary but not its degenerate cubic sign, the sharp fold, the exact count, or the basin thresholds. The global branch shape and its monotonicity are additional mathematical content.",
+        "searches": [
+          "arXiv:2209.07004, p. 4 Eqs. (2.1)–(2.2), pp. 16–18 Theorem 5 and §5.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equations (2.1)–(2.2) reduce exactly to the frozen ODE on the two-zealot path at gamma=1.",
+          "The exact Resultary hit 8bfde3a3b93b is the frozen record itself. Distinct near-neighbor summaries a7b8050e0386 and 021f5775f684 concern random-time or mixed-neighborhood threshold dynamics, respectively."
+        ],
+        "reasoning": "The scalar steady-state or drift-sign formulation is equivalent to the weighted equilibrium condition in the original model, but specifying the model or a neutral stability change does not specify its global phase line. The two distinct indexed summaries do not present the same deterministic logistic rule.",
+        "searches": [
+          "Resultary: exact sigmoid bounded confidence two fixed zealots opinion equilibrium",
+          "Emergence of polarization in a sigmoidal bounded-confidence model three agents fixed zealots path equilibria",
+          "arXiv:2209.07004, Eqs. (2.1)–(2.2) and §5.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact threshold and five-equilibrium classification in the catalogue belong to the identical record. The nearest distinct indexed records describe confidence-lock-in and three opinion phases in different dynamics.",
+          "The primary paper discusses an additional stable state on a path family and Figure 5 depicts a larger, 12-node example, not the exact all-delta three-node table."
+        ],
+        "reasoning": "A multistability plot or an indexed threshold for a different dynamical rule is not a preexisting tabulation of the exact positive roots, critical values and basins for this model.",
+        "searches": [
+          "Resultary exact sigmoid bounded confidence two fixed zealots opinion equilibrium",
+          "arXiv:2209.07004, §5.1 and Figure 5(d)"
+        ]
+      },
+      "rationale": "The normalized sigmoid and local criterion are established prior work on the very same model. The full scalar phase line and sharp upper threshold, including semistability and all basins, are distinct from the established statements inspected. This is a bounded comparison, not a priority certification.",
+      "residual_risks": [
+        "Full-text comparison of the two distinct indexed matches and some adjacent publications was not possible; only accessed passages are assessed.",
+        "The earlier Okawa–Iwata sigmoid is mentioned in the primary footnote but was not independently inspected.",
+        "An unlocated fixed-zealot or equivalent scalar bifurcation result could affect historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model and local stability background; inspected classification does not give the complete frozen phase line",
+          "evidence": [
+            "The rule has weight 1/(1+exp(gamma((x_i-x_j)^2-delta))) and normalized weighted differences.",
+            "Theorem 5 concerns harmonic-state linear stability; Figure 5 discusses a 12-node path."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2209.07004",
+          "material_read": "p. 4 Eqs. (2.1)–(2.2), footnote on a similar rule; pp. 16–17 Theorem 5; p. 18 §5.1 and Figure 5 discussion",
+          "method": "OA PDF passages and comparison of equations and theorem scope",
+          "title": "Emergence of polarization in a sigmoidal bounded-confidence model of opinion dynamics",
+          "trigger": "Original normalized sigmoid model and possible earlier three-path multistability theorem"
+        },
+        {
+          "assessment": "Accessible text does not establish specialization to the normalized logistic scalar rule; no exclusion for the unread body is asserted",
+          "evidence": [
+            "Abstract discusses equilibria/stability and effective resistance for nonlinear consensus on graph families."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2008.12022",
+          "material_read": "Abstract p. 1; Eq. (1.1) located but relevant body passage not retrieved",
+          "method": "OA abstract and targeted equation retrieval attempt",
+          "title": "Nonlinear consensus on networks: equilibria, effective resistance and trees of motifs",
+          "trigger": "Possible general nonlinear consensus result on two-neighbor trees"
+        },
+        {
+          "assessment": "Related multi-option saturating opinion model; no covering classification in the inspected text",
+          "evidence": [
+            "Abstract places the saturation in opinion exchange, not an explicit analysis of the frozen state-dependent weights."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2009.04332",
+          "material_read": "Abstract p. 1",
+          "method": "OA abstract comparison",
+          "title": "Nonlinear opinion dynamics with tunable sensitivity",
+          "trigger": "Possible earlier saturation-driven tristability model"
+        },
+        {
+          "assessment": "The stated mechanisms differ on the accessible evidence; no whole-document exclusion",
+          "evidence": [
+            "One summary describes random-time silencing versus persistent fluctuations; the other a mixed-neighborhood path with oscillation, random polarization and freezing."
+          ],
+          "identifier_or_url": "Resultary a7b8050e0386 and 021f5775f684",
+          "material_read": "Indexed Finding summaries; decisive full text not located in the local mirror",
+          "method": "Resultary search, summary comparison and local retrieval attempt",
+          "title": "Sharp confidence lock-in transition and three exact opinion phases (two near-neighbor catalogue entries)",
+          "trigger": "Distinct three-agent threshold results with similar catalogue language"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A local test at neutrality leaves open whether a stable neutral state can coexist with other attracting opinions. The exact interval, terminating saddle-node pair and separatrices settle that question on the smallest network with two fixed sources and one flexible node, including the distinction between the two boundary values. This is useful as a complete baseline for the established model. The supported hysteresis interpretation is the autonomous coexistence mechanism, not a claim about any specified nonautonomous sweep.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

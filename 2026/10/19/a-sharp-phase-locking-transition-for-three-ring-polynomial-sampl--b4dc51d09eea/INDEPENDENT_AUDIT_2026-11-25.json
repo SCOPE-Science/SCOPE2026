@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:44:52.027492Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen Finding and SLOGAN's extension to any finite polynomial dimension is false, although the theorem in the frozen Assumptions and Proof is right. Counterexample: take n=2, r=1, t=2 on P_9; inverse squared monomial norms are 1 at degrees 0,1,4,5,8,9 and epsilon>0 elsewhere. As epsilon→0 the angular part of the normalized Gram determinant tends to the squared minor of those six columns times a positive angle-independent factor. Splitting the two antipodal rows per ring into even and odd blocks leaves two three-point Vandermondes on lambda_j^4, with an additional lambda_j row factor in the odd block of phase-independent modulus. The limiting problem has effective radius ratio 4 and doubled phases, so it strictly prefers (phi,psi)=(-pi/2,pi/2) to the advertised (-acos(-5/8),acos(-5/8)) and its conjugate. The strict inequality persists for small positive epsilon. Independently constructing the normalized 6-by-10 evaluation matrix at epsilon=0.01 gave log determinants -1.15348746 vs -1.79712701; continuity and the exact limiting comparison, not this finite run, prove the counterexample. The affected RESULT.md and SLOGAN.txt in /workspace/repairs/2/ consistently limit the assertion to P_(3n-1). Reassessment: the square row/column normalizations contribute exactly the displayed angle-independent denominator; the polygon discriminants give n^(3n) r^(3n(n-1)) and the pairwise resultants contribute r^(6n²) L^(2n). At fixed phase difference, L² is a positive multiple of a strictly convex quadratic in cos((phi+psi)/2), so every maximizer has phi+psi=0 mod 2pi. With a=1/t, U=1+a² and x=cos(psi), the remaining product squared is t⁴(U-2ax)^3(U+2ax); the strictly concave logarithm has derivative -4a(U+4ax)/(U²-4a²x²). Thus the only maximizing cosine is max(-1,-(t+t^(-1))/4). The two angles are conjugate in the interior and coincide at and beyond t+t^(-1)=4. Evaluating the product at these two regimes gives both advertised branches, agreeing at the endpoint, and the t→1 limit yields the interlaced angles. The frozen checker and its output were inspected, not executed. No unrestricted Fekete or spectral conditioning claim follows.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published polynomial sampling results provide MZ or frame/sampling conclusions, not sharp phase maximizers of this determinant.",
+          "The local fixed-radius Szegő orbit record 44f30fce73fa optimizes on one radius, not three distinct radii."
+        ],
+        "reasoning": "Frame bounds and kernel normalizations neither imply these maximizing phases nor identify the sharp geometric transition.",
+        "searches": [
+          "Resultary: polynomial sampling determinant three regular polygons geometric radii resultant",
+          "Web: three regular polygons Hardy polynomial interpolation determinant optimal angular staggering radius geometric progression",
+          "arXiv:2005.14176v1 Theorem 1.1; arXiv:2109.11825v1 Theorems 1.1–1.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2005.14176v1",
+        "arXiv:2109.11825v1",
+        "Resultary: 060d785a0f00, 083d9b816fef, 44f30fce73fa",
+        "doi:10.1137/0729070 (access-limited)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier optimized triangle has radii (r,r,s), with optimizer pi±delta_* for the two equal-radius orbits and a different radical rule. Passing to nth powers preserves the equality of the two radii, as does common scaling. The earlier statements concern a different constrained family."
+        ],
+        "reasoning": "The prior reduction is applicable as a method, but the geometry and the maximizing-angle problem after reduction differ. Its known answer cannot be specialized to t>1 with reciprocal outer radii and a third middle radius.",
+        "searches": [
+          "Web: three point reciprocal radius distance product maximize angles Vandermonde resultant critical 2+sqrt3",
+          "SCOPE 060d785a0f00, RESULT.md Finding and Proof §§1–3, offsets 0–5986"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE 060d785a0f00 Finding and Proof §§1–3 reduce three regular root orbits to the log-energy equivalent Euclidean Vandermonde product for radii (r,r,s). SCOPE 083d9b816fef instead uses a pseudohyperbolic product."
+        ],
+        "reasoning": "Taking logs or passing to nth powers leaves the constrained Euclidean problem equivalent; it does not turn two equal radii or infinite Hardy kernel distances into the three distinct prescribed radii.",
+        "searches": [
+          "Resultary: maximize |t^{-1}e^{iφ}-1||t e^{iψ}-1||t e^{iψ}-t^{-1}e^{iφ}| phase transition 2+sqrt3",
+          "Resultary: Fekete points three concentric circles regular n-gons logarithmic energy angular optimization",
+          "Web: three concentric circles Fekete points logarithmic energy prescribed radii angular phases regular polygons resultant"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest inspected indexed statements: 060d785a0f00 (two equal radii), 44f30fce73fa (one radius) and later 083d9b816fef (pseudohyperbolic Gram product). None contains the three-distinct reciprocal-radius threshold as stated."
+        ],
+        "reasoning": "The exact optimizer and threshold were compared at statement level, not inferred absent from a keyword miss.",
+        "searches": [
+          "Resultary: three-point Vandermonde product reciprocal radii t=2+sqrt3 exact maximizing angles",
+          "Web: \"2+sqrt(3)\" \"three concentric\" polygons Vandermonde angular determinant optimizer"
+        ]
+      },
+      "rationale": "Best-knowledge distinct claim for the repaired square-space geometry: the full equality classification and critical ratio for three distinct radii in geometric progression. The Vandermonde and resultant reductions are standard, and the closest prior Hardy result already uses the same problem family and reduction but for two equal radii; it does not determine this transition.",
+      "residual_risks": [
+        "The older Sugiura–Torii paper could not be inspected beyond a secondary abstract description.",
+        "Bounded queries do not exclude an equivalent older prescribed-radius log-energy or Fekete formulation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material overlap in reduction and motivation; different constraints and optimized product",
+          "evidence": "It treats the square Hardy case with radii (r,r,s), not three distinct reciprocal-scaled radii.",
+          "identifier_or_url": "2026/10/18/SCOPE-radius-dependent-staggering-for-optimal-three-orbit-hardy-interp--060d785a0f00",
+          "material_read": "RESULT.md Finding and Proof §§1–3, offsets 0–5986",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "Radius-dependent staggering for optimal three-orbit Hardy interpolation determinants",
+          "trigger": "Closest earlier three-orbit determinant with radius-dependent optimizer"
+        },
+        {
+          "assessment": "Sampling bounds, not this determinant problem",
+          "evidence": "Theorem 1.1 is about MZ families, not an exact angular optimization over three prescribed orbits.",
+          "identifier_or_url": "https://arxiv.org/html/2005.14176v1",
+          "material_read": "Abstract, introduction and Theorem 1.1 at offsets 584, 1139, 7389",
+          "method": "OA HTML passage inspection",
+          "title": "Marcinkiewicz–Zygmund Inequalities for Polynomials in Bergman and Hardy Spaces",
+          "trigger": "Same polynomial sampling setup"
+        },
+        {
+          "assessment": "Analytic sampling framework; no phase-locking implication from the compared results",
+          "evidence": "The statements concern existence and characterization of sampling/MZ families, not sharp determinant equality cases.",
+          "identifier_or_url": "https://arxiv.org/html/2109.11825v1",
+          "material_read": "Abstract and Theorems 1.1–1.2 at offsets 829, 4558, 6394",
+          "method": "OA HTML passage inspection",
+          "title": "Marcinkiewicz–Zygmund Inequalities for Polynomials in Fock Space",
+          "trigger": "Normalized evaluations in finite polynomial spaces"
+        },
+        {
+          "assessment": "Later and different kernel objective",
+          "evidence": "The product uses pseudohyperbolic distances for (r,r,s) in the full Hardy space.",
+          "identifier_or_url": "2026/11/16/SCOPE-exact-mixed-radius-szeg-orbit-determinant-design-and-its-quarter--083d9b816fef",
+          "material_read": "RESULT.md Finding and Proof §§1–4, offsets 0–5430",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "Exact mixed-radius Szegő orbit determinant design and its quarter-power angular collapse",
+          "trigger": "Three-point angular optimizer for normalized Gram determinant"
+        },
+        {
+          "assessment": "Different geometry",
+          "evidence": "The maximization is on one fixed radius.",
+          "identifier_or_url": "2026/10/11/SCOPE-sharp-determinant-stability-and-conditioning-of-concentric-szeg--44f30fce73fa",
+          "material_read": "RESULT.md Finding and Proof §§1–3, offsets 0–4489",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "Sharp determinant stability and conditioning of concentric Szegő orbits",
+          "trigger": "Analogous determinant placement result"
+        },
+        {
+          "assessment": "Access-limited, no claim of exclusion",
+          "evidence": "The secondary description concerns iterative interpolation and stability. The OA full-text attempt returned HTTP 403 and no repository copy was located.",
+          "identifier_or_url": "doi:10.1137/0729070",
+          "material_read": "Only secondary description of the abstract in 060d785a0f00; no primary full text obtained",
+          "method": "Targeted OA retrieval attempt and repository lookup",
+          "title": "Polynomial Interpolation on Quasi-Equidistributed Nodes on the Unit Disk",
+          "trigger": "Related circular interpolation construction cited by the closest indexed record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a minimal three-orbit interpolation problem with fixed sample counts and radii, the three competing distance factors force a change in the entire optimal geometry: two reflected designs become a unique aligned design. The exact threshold, equality cases and determinant are useful for square, radially weighted polynomial sampling and go beyond the one-distance two-ring rule. This does not credit the false extrapolation to larger spaces or claim improved conditioning.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

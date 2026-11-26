@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Markov process is completely specified by Poisson edge exchange and independent exponential bath reset, and a synchronous coupling yields a strict average contraction in finite time. The degree-two generator closes without any factorization assumption. The displayed first- and second-moment formulas solve every class of the generator identities for arbitrary positive parameters. The attached symbolic checker passes all 11 distinct classes and the exact-rational independent generator checker passes 2,400 monomial residual tests over five sizes, four reset rates and three temperature contrasts. The infinite-size statements follow directly from these exact finite-size formulas. A finite experiment alone is not treated as proof.
+PASS
 
-## Originality — PASS, with residual risk
+The energy generator equations follow from the uniform split and the independent exponential refresh. For existence, the fixed-block affine update has linear part of l1 norm at most one, strictly below one on a positive-probability refresh–exchange–refresh sequence. Its additive term is bounded in l1 by a finite-block compound-Poisson sum with every finite moment. The backward affine series thus converges in Lp for fixed p by independence of blocks and summable geometric Lp bounds on the linear products. The same block contraction gives uniqueness, and invariance under the full semigroup follows from uniqueness for the block chain. For an independent moment derivation, use the product-exponential mixture: the edge product Laplace transform for means a,b equals the integral of (1+s(ua+(1−u)b))^−2 over uniform u, and uniform re-splitting of that conditional gamma sum gives two independent exponentials with the common new mean. Let q=1+2r and center hidden temperatures at T in units of Δ for Δ≠0. Their hub mean is zero and leaf means are σ_i A for A=2r/q. Balanced sign reflection makes their hub-square Z, common leaf-square L and hub–leaf product H label-symmetric. Edge averaging gives 2Z=L+H and the leaf refresh gives L=(Z+r)/(1+r). For i≠j the leaf product is H/q+A²σ_iσ_j; hence the hub–leaf equation gives Z=[1+r+(N−1)r/q]H+A²/2. These solve to H=1/[q(N+q)], Z=r/q+(r+1)/[q²(N+q)] and L=A+1/[q²(N+q)]. This derivation is valid at N=2 as well. Distinct energy covariances equal hidden covariances and each energy variance is its mean squared plus twice its hidden variance. This gives every displayed moment and the fixed-r limit. At Δ=0 the independent product exponentials are invariant. The frozen scripts were inspected, not executed.
 
-The focal model descends from Kipnis–Marchioro–Presutti (1982), not from an invented redistributive mechanism. The strongest potential overlap is De Masi–Ferrari–Gabrielli (arXiv:2310.01672): their full text, §§2–4, establishes a general *hidden-temperature mixture* theorem for boundary-driven KMP on arbitrary finite graphs, explicitly including bath reset variants; the present work does not claim that general framework, the existence of correlations, or the fast-bath law as new. Their stated explicit correlation bound concerns a one-dimensional chain, and the examined material does not give the exact balanced-star bath-label-blind all-pairs finite-rate covariance nor the nonthermal hub variance excess. Gilbert's (arXiv:1703.01240) full-text chain covariance and Franco's (arXiv:1601.04042) one-dimensional rate-dependent reservoir model do not imply the displayed star coefficient without additional calculation. published-finding corpus searches were performed for exact formula, aliases, energy-exchange stars and reservoir covariance, compared with the closest records. The original 1982 full text was not available; more specific prior specialization remains a genuine risk, so independent historical priority is not certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The sign and equality of covariances between same-bath and opposing-bath leaf pairs are a non-obvious exact structural constraint under global nonlinear energy redistribution. It is meaningful that both the sign-blind covariance and the hub-leaf covariance have a common \(N^{-1}\) scale, while the hub's nonequilibrium variance stays strictly above equilibrium even in growing stars. This provides an analytically transparent distinction between disappearing spatial dependence and persistent local nonthermality; it is more informative than a finite-size table or mere symbolic identity.
+The hidden-temperature mixture, dual methods, and polynomial moment system as an available method are prior. The inspected sources do not solve the balanced finite-rate star class system for the common covariance or give this explicit residual hub variance. Related complete and bipartite graph calculations concern different boundaries or bath assignments; they are scientifically close but not dominating cases.
 
-## Limits
+## value
 
-Equal hot/cold populations, uniform redistribution and homogeneous rates are essential; no general graph correlation theorem, full stationary law, or historical-priority certification is claimed. Sources and exact checks are stated in the result and structured audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The star is a natural high-degree non-equilibrium network with both like-bath and opposite-bath pairs. The exact identity shows their covariances coincide despite unequal stationary means; those covariances disappear with degree while the hub retains a nonthermal variance. This distinguishes decorrelation from convergence of local statistics to equilibrium and supplies an explicit benchmark for finite-rate exchange, without claiming a full limiting distribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

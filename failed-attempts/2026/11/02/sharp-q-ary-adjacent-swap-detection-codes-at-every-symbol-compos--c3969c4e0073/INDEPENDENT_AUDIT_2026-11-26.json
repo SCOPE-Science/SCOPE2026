@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:50:37.599871Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An adjacent unequal swap changes just the order of its two symbols, reversing inversion parity. Swapping the first unequal fixed position-pair is an edge involution on the complement of the paired-letter residue, separately in every composition. Every residual word is even: distinct doubled blocks contribute 0 or 4 inversions and the final singleton contributes an even number. Any independent set takes at most one endpoint per involution edge, plus the unmatched vertices; the even parity class attains that bound. Counting residual words gives U_p as stated, with no odd multiplicity for even length or one for odd length, and q^ceil(n/2) across all words. The argument allows unused symbols and n=1 and concerns detection only. The supplied code and VERIFICATION.md were inspected, not executed; independent counts confirm 22 parameter cases, 6689 vertices, and 309 composition profiles. No finite check is needed for the general proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Stanley's proof constructs a matching by single adjacent swaps on the extensions of an arbitrary finite poset; the fixed points are dual domino linear extensions.",
+          "Rivertz gives a profile (2,2) with no adjacent-transposition Hamilton path, showing why path existence cannot account for the general matching."
+        ],
+        "reasoning": "The poset involution covers every profile, including those with parity imbalance greater than one that cannot have a Hamilton path.",
+        "searches": [
+          "arXiv:0806.4717v2, proof of Theorem 3.1",
+          "arXiv:2309.11781, p. 3, adjacent-transposition Gray paths"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0806.4717v2",
+        "arXiv:1606.06370",
+        "arXiv:2309.11781",
+        "Resultary c71a68d02514, 54fe743aae41, c9d82a094709"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published adjacent-pair involution specializes to a matching with the same residue. Each matched edge has one even endpoint, while every residue word is even because all but a possible singleton are doubled blocks."
+        ],
+        "reasoning": "Counting one choice per doubled block, with the prescribed multiplicities or without them, gives both frozen formulas directly. The proof does not need a prior coding paper to spell out the independence number.",
+        "searches": [
+          "arXiv:0806.4717v2, pp. 13–14, proof of Theorem 3.1",
+          "arXiv:1606.06370, Corollary 3.11"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Multiset words are linear extensions of a disjoint union of symbol chains. In Stanley's involution, the selected consecutive pair is swappable iff its two elements are incomparable, which here means different symbols.",
+          "The (-1) inversion-multinomial evaluation yields exactly the parity-class imbalance, but on its own would not give a graph matching."
+        ],
+        "reasoning": "The graph and matching reduce exactly to the poset extension construction, not to arbitrary-position or star swaps. Reversal makes the reduction literal even for odd n.",
+        "searches": [
+          "Stanley sign-balanced/major-index posets, domino linear extensions and consecutive-pair involutions; arXiv:0806.4717v2 §3",
+          "Local Resultary search for multiset adjacent swaps and parity-saturating matching"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The token-graph corollary gives the exact binary fixed-weight formula. The same-day records concern a restricted ménage transposition graph, a minimum-degree fence-extension stratum, and directed binary transposition correction at weight two, respectively."
+        ],
+        "reasoning": "No exact all-composition coding table was found in the bounded search. The same-day records differ in graph or objective; the absence of an exact table does not negate the prior poset implication.",
+        "searches": [
+          "Local Resultary search for adjacent-swap capacity, fixed compositions, and matching; Findings c71a68d02514, 54fe743aae41, c9d82a094709",
+          "arXiv:1606.06370, p. 8, Corollary 3.11"
+        ]
+      },
+      "rationale": "The central matching is a specialization of an already published adjacent-pair involution for linear extensions. In Stanley, Promotion and Evacuation, arXiv:0806.4717v2, proof of Theorem 3.1, p. 13, w′ swaps the rightmost pair (p−2i−1,p−2i) permitting that adjacent transposition to remain a linear extension, and w″=w. Represent multiset words by the linear extensions of a disjoint union of chains of lengths p_j: lift each occurrence of a symbol to the next element of its chain. A swap stays a linear extension exactly when the letters differ. Conjugating the published right-to-left involution by reversal of the multiset words gives exactly the frozen matching, including the placement of the odd-length singleton. Its unmatched words and their parity give the full sharp upper and lower bounds by the elementary matching argument. This is actual coverage by a more general prior construction, not just knowledge of the sign imbalance or the binary theorem.",
+      "residual_risks": [
+        "The exact coding formulas may also have been published verbatim elsewhere; the disposition rests on the demonstrated prior poset implication without needing such a publication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of the proof mechanism and, by specialization, the exact upper certificate",
+          "evidence": [
+            "It selects the least i≥0 for which swapping a_(p−2i−1), a_(p−2i) in w remains in L(P), notes w″=w, and identifies unmatched extensions as dual domino extensions. The proof traces the argument in dual form to the author's 2005 Theorem 5.1(a)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0806.4717v2",
+          "material_read": "§3 proof of Theorem 3.1, pp. 13–14, text near offset 24950; reference [26]",
+          "method": "Bounded OA primary PDF text inspection",
+          "title": "Promotion and Evacuation",
+          "trigger": "More general matching under the linear-extension graph formulation"
+        },
+        {
+          "assessment": "Exact binary slice, credited in the frozen record",
+          "evidence": [
+            "Identifying a binary word with its occupied path positions gives the token graph F_k(P_t)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1606.06370",
+          "material_read": "p. 8, Corollary 3.11",
+          "method": "OA primary text comparison",
+          "title": "Independence and matching numbers of some token graphs",
+          "trigger": "Identical binary fixed-composition graph"
+        },
+        {
+          "assessment": "Not a universal adjacent path theorem or the decisive matching source",
+          "evidence": [
+            "No Hamilton path for {1,1,2,2} under adjacent transpositions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2309.11781",
+          "material_read": "p. 3, adjacent-transposition obstruction and generation discussion",
+          "method": "OA primary text comparison",
+          "title": "Multiset permutation generation by transpositions",
+          "trigger": "A general adjacent Gray path would supply a matching"
+        },
+        {
+          "assessment": "Different transpositions, graph strata, or correction objective",
+          "evidence": [
+            "The binary coding result corrects a directed error at weight two, not undirected detection."
+          ],
+          "identifier_or_url": "Resultary c71a68d02514; 54fe743aae41; c9d82a094709",
+          "material_read": "Findings of the three records",
+          "method": "Local mirror inspection",
+          "title": "Adjacent-coding and parity/Gray-path catalogue comparisons",
+          "trigger": "Same-day candidates related to parity and transpositions"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The size of a one-swap detecting code is a natural exact invariant. Here, however, the optimum and its explicit parity construction are immediate once the published domino involution is applied to disjoint symbol chains. The remaining counts are a multinomial and a free choice per position-pair; no new invariant beyond this already covered consequence is established. The presentation is useful exposition, not independent mathematical value under the exact-invariant standard.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

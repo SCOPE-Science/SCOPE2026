@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:19:44.447844Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–64",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent exact-rational Kalman-rank script /workspace/branches/50b0623c-c80c-4fc8-97ca-9b727b0f02d4/independent_check.py; 14 checks including L=6,t=1/2 and unweighted L=3 resonance"
+      ],
+      "rationale": "For the real symmetric Laplacian, PBH excludes controllability exactly when a nonzero eigenspace vector vanishes at the actuator vertices. An unactuated pair of leaves on one side admits an eigenvalue-one difference there, forcing at least p−1 and q−1 selected leaves. For λ≠1 the zero selected leaves pin the hubs, and the other leaf equations and positive spine-edge recurrence pin the entire eigenvector. At λ=1 the hubs are pinned independently of any hub inputs. The interior satisfies the Dirichlet path recurrence, whose distinct modes have eigenvalues 2t(1−cos(jπ/L)); for L=1 the interior is empty. Off resonance the two zero leaf-sum equations eliminate the last leaves. At resonance the residual invisible space for the baseline leaf set is one-dimensional and its remaining leaf values are −t times the adjacent endpoint entries, both nonzero. A last leaf or a nonnodal interior vertex suppresses it; a hub or a position with L dividing ji cannot. There are L−gcd(L,j) eligible interior vertices. For rational t, 2−1/t is a rational algebraic integer in (−2,2), hence −1,0,1, giving exactly the stated divisibilities and conductances. For ordinary zero forcing the baseline leaf set works on adjacent hubs but stalls on a nonempty interior; fully blackening one bundle allows the spine and the last leaf to be forced with one extra seed.",
+      "residual_risks": [
+        "The rank replay covers bounded rational instances only. The proof covers positive real conductances under the fixed common-spine and unit-pendant assumptions; it gives no conditioning guarantee."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The unweighted multiplicity result gives eigenvalue-one multiplicity equal to the number of leaves minus one when all pendant pair distances are 2 modulo 3; the cross-bundle distance here is L+2.",
+          "The frozen discussion cites a general all-but-one-pendant upper bound in Dai and a one-major-vertex starlike selection result in Parlangeli, but lawful full texts were not retrieved in the attempts. These claimed scopes are not independently accepted as full-document noncoverage."
+        ],
+        "reasoning": "A general multiplicity extremum can pin the resonant lower bound at t=1. The checked result does not vary the bridge conductance or prescribe which vertices see the residual individual sine mode. Upper bounds and selection rules for different tree shapes are not by themselves a sharp two-major-vertex placement classification.",
+        "searches": [
+          "Gupta–Lather–Balaji arXiv:2507.15472, Theorem 1 and eigenvalue-one specialization",
+          "Dai DOI 10.1049/cth2.12385",
+          "Parlangeli manuscript 202503.1438"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1403.4868, Theorem IV.4 and example",
+        "arXiv:2507.15472, Theorem 1 and unit-eigenvalue criterion",
+        "Resultary/local mirror 846791b40a71, f2d043ae271c, 52ce2e4d87c4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For t=1 every within-bundle leaf pair has distance 2 and every cross-bundle pair has distance L+2; the prior extremal-multiplicity criterion is thus exactly 3|L. PBH and the support's zero-forcing upper bound then already force the p+q−1 budget in this unweighted resonant case.",
+          "The qualitative theorem gives a robust sufficient choice, and its own path example already separates fixed controllability from zero forcing."
+        ],
+        "reasoning": "The unweighted resonant count and the existence in general of a fixed-vs-robust gap must not be credited to the record. The full continuous list of resonances, rational restrictions, and determination of which placements detect the Dirichlet mode survive these prior implications.",
+        "searches": [
+          "arXiv:2507.15472 PDF pp. 2–3, unweighted multiplicity at 1",
+          "arXiv:1403.4868 PDF p. 4, Theorem IV.4 and fixed-Laplacian example",
+          "Frozen RESULT.md, lines 44–64"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "PBH turns the target fixed-Laplacian placement problem into injectivity of restriction on each Laplacian eigenspace, equivalently ruling out eigenvectors vanishing at all selected vertices.",
+          "The middle eigenvalue-one equation is the grounded or Dirichlet path spectral problem; the earlier qualitative-class theorem concerns simultaneous controllability across a whole matrix class, not this fixed problem."
+        ],
+        "reasoning": "A minimum zero-forcing set is a universal support-pattern choice; a fixed conductance Laplacian can require fewer inputs. The resonance analogues in the catalogue concern other operators on other graph families, not a hidden identification of the path Dirichlet spectrum with those spectra.",
+        "searches": [
+          "Primary-literature lookup for weighted tree Laplacian controllability, two major vertices and path/eigenvalue-one resonances",
+          "arXiv:1403.4868, Theorem IV.4 and path-Laplacian example",
+          "Resultary 846791b40a71, f2d043ae271c, 52ce2e4d87c4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day binary-tree record gives an exact terminal-leaf-only minimum based on the unit eigenspace. The weighted clique bridge record gives an all-placement resonance jump at pa=qb; the weighted wheel record gives a different 2-to-3 jump and nodal placements."
+        ],
+        "reasoning": "These are checked, distinct exact catalogued theorems, but no parameter restriction in them gives the two-hub tree with a tunable equal-conductance spine. A finite numerical table cannot certify the real-conductance exceptional locus or all placements; no such table was used to rule out overlap.",
+        "searches": [
+          "Resultary targeted lookups for weighted tree minimum leader selection, prescribed spine resonances and exact minimal vertex budgets",
+          "846791b40a71; f2d043ae271c; 52ce2e4d87c4"
+        ]
+      },
+      "rationale": "The supported distinct content is the exact all-positive-conductance resonance set for the two-hub family, with all optimal coordinate placements, their sine-node exclusion, and the rational sub-classification. The unweighted multiplicity jump is prior coverage, and its resonant cardinality also follows by combining the old multiplicity obstruction with the simple zero-forcing upper bound. Generic robustness-vs-fixed-Laplacian distinctions and analogous budgets on other graph families are not new here.",
+      "residual_risks": [
+        "Full texts of the cited Dai and Parlangeli papers were not available in the attempted lawful routes; a stronger fixed-matrix selection theorem remains a possible unassessed overlap. No same-day discovery priority or exhaustive novelty is inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact partial overlap, with an additional cardinality implication in combination with standard controllability bounds",
+          "evidence": "Unit eigenvalue multiplicity equals the number of pendant vertices minus one exactly under pendant pair distances 2 modulo 3; for these trees this is 3|L at t=1.",
+          "identifier_or_url": "https://arxiv.org/abs/2507.15472",
+          "material_read": "PDF pp. 2–3, Theorem 1 and eigenvalue-one specialization, offsets around 3448 and 4933–5153",
+          "method": "Legal OA original passage inspection",
+          "title": "Trees with extremal Laplacian eigenvalue multiplicity",
+          "trigger": "Potential exact general-tree coverage of the unweighted unit-eigenvalue obstruction"
+        },
+        {
+          "assessment": "General qualitative criterion and older fixed-matrix gap, not the weighted classification",
+          "evidence": "Zero forcing characterizes controllability of the full qualitative class; the page explicitly exhibits a fixed Laplacian controllable from a non-zero-forcing set.",
+          "identifier_or_url": "https://arxiv.org/abs/1403.4868",
+          "material_read": "PDF p. 4, Theorem IV.4 and fixed path-Laplacian example, offsets about 36123 and 37311",
+          "method": "Legal OA original passage inspection",
+          "title": "Zero forcing sets and controllability of dynamical systems defined on graphs",
+          "trigger": "Potential support-pattern controllability coverage"
+        },
+        {
+          "assessment": "Full-text coverage unresolved",
+          "evidence": "The frozen discussion attributes an all-but-one pendant actuator upper bound; that upper bound alone does not imply the nonresonant minimum or the placements.",
+          "identifier_or_url": "https://doi.org/10.1049/cth2.12385",
+          "material_read": "Citation and Theorem 3 description in the frozen related-work passage; no independently inspected full text",
+          "method": "Lawful publisher and alternate retrieval attempts, including configured routes and DOI lookup",
+          "title": "Minimum leader selection for controllability of undirected graphs with leader–follower framework",
+          "trigger": "Plausible general-tree upper bound and possible stronger leader-selection result"
+        },
+        {
+          "assessment": "Unresolved beyond the cited scope",
+          "evidence": "The submitted discussion describes a one-major-vertex starlike theorem, whereas the reviewed family has two major vertices.",
+          "identifier_or_url": "https://www.preprints.org/manuscript/202503.1438",
+          "material_read": "Citation and scope description in frozen RESULT.md; no full text obtained",
+          "method": "Attempted lawful OA routes",
+          "title": "Laplacian Controllability and Observability of Multi-Agent Systems: Recent Advances in Tree Graphs",
+          "trigger": "Potential overlap with exact starlike vertex selection"
+        },
+        {
+          "assessment": "Material eigenvalue-one overlap in method, different graph and actuator domain",
+          "evidence": "Unit-edge perfect binary trees, terminal-leaf-only control and a four-level formula using eigenvalue-one leaf pivots; no tunable two-hub spine.",
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-terminal-leaf-controllability-of-perfect-binary-trees-with--846791b40a71",
+          "material_read": "Mirrored Finding and proof, offsets 0, 2844, 5036",
+          "method": "Resultary and local mirror passage inspection",
+          "title": "Sharp terminal-leaf controllability of perfect binary trees",
+          "trigger": "Closest same-day exact tree-Laplacian minimum"
+        },
+        {
+          "assessment": "Different graph and eigenvalue collision",
+          "evidence": "Two joined clique blocks, with p+q−4 to p+q−3 budget jump at pa=qb due to clique-difference and quotient modes, not a path Dirichlet spectrum.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-one-monomial-controllability-zero-forcing-gap-on-weighted-cliq--f2d043ae271c",
+          "material_read": "Mirrored Finding and proof, offsets 0, 3595, 5745",
+          "method": "Resultary and local mirror passage inspection",
+          "title": "A one-monomial controllability–zero-forcing gap on weighted clique bridges",
+          "trigger": "Closest matching weighted resonance budget and placement classification"
+        },
+        {
+          "assessment": "Different graph and spectral mechanism",
+          "evidence": "Weighted wheels have Fourier double-mode resonances with a 2-to-3 jump, not the two pendant bundles and Dirichlet spine recurrence.",
+          "identifier_or_url": "2026/11/8/SCOPE-minimum-coordinate-control-of-weighted-wheel-laplacians-exact-co--52ce2e4d87c4",
+          "material_read": "Mirrored Finding and proof passage at offsets 0 and 2769",
+          "method": "Resultary and local mirror passage inspection",
+          "title": "Minimum coordinate control of weighted wheel Laplacians",
+          "trigger": "Exact placement at a weighted spectral resonance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and PBH and placement proof",
+        "Unweighted multiplicity comparison arXiv:2507.15472",
+        "Qualitative-class comparison arXiv:1403.4868"
+      ],
+      "rationale": "This fixed-Laplacian budget is a natural control design quantity. The classification predicts exactly when changing one common conductance causes the fixed-weight control savings over support-based forcing to vanish, and which interior locations can or cannot rescue the budget at those weights. Knowing the number of inputs alone cannot answer the placement question, and knowing just the unweighted multiplicity cannot guide a continuously tunable network.",
+      "residual_risks": [
+        "No result about near-resonance numerical margins, energy or unequal edge conductances is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

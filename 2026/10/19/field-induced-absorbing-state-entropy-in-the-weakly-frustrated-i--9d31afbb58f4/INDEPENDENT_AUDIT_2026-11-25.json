@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:28:40.465503Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Finding and Proof §§1–5",
+        "Frozen VERIFICATION.md and check_absorbing.py (inspected, not executed)",
+        "Independent replay: python /workspace/branches/audit-mas-ising.py 2"
+      ],
+      "rationale": "Flips obey Delta_i H=2 s_i F_i with the displayed nearest- and next-nearest-neighbor field. For h<2K, singleton spins strictly lower the energy on flipping, using K<J/2. At the first down spin of a nonsingleton domain, the left two sites are up, so F_i=h-2K for a down dimer and F_i=h otherwise. Thus all down domains must be dimers. An up boundary in that configuration has field h+2K for an up dimer and h otherwise; up interiors are stable. This gives precisely the stated mixed states below 2K, including the period-four restriction at h=0. At h>=2K neither a singleton down spin nor a nonsingleton down boundary is stable, so only the uniform possibilities remain. The all-minus threshold is strict at 2(J-K); the stipulated neutral flips are decisive at both boundaries. Independently checked 192 rational-field direct-energy comparisons for lengths 5–12, three coupling choices, and both threshold equalities, with trace tests. Marking a down-dimer start reduces the count to weak compositions of N-4k into k gaps and gives the N/k multiplier. The trace counts labeled mixed words uniquely and one all-plus loop, with the all-minus contribution added separately. The characteristic polynomial is lambda^4-lambda^3-z^2, and the primitive Perron root gives the entropy and fugacity derivative. The logarithmic generating function near z=1 also gives concentration at the stated limiting density by Chernoff bounds. The displayed decimal approximations are off by roughly 10^(-13); the defining equations are correct. Higher-precision values are lambda≈1.3802775690976141, log(lambda)≈0.3222846159710301, rho≈0.3016746809203983.",
+      "residual_risks": [
+        "The configuration measure is uniform over strictly absorbing states, not a dynamical stopping distribution. The minor decimal precision discrepancy does not affect any exact formula or phase range."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pini–Rettori study linear response to oscillatory fields at nonzero temperature",
+          "De Smedt et al. study distinct kinetically constrained blocked chains",
+          "34d442d501a3 concerns adjacent unequal-spin exchanges"
+        ],
+        "reasoning": "None of these inspected statements contains the static uniform-field, strict single-spin criterion with the frozen frustration range and regime boundaries.",
+        "searches": [
+          "Pini–Rettori arXiv:0707.1953",
+          "De Smedt–Godrèche–Luck cond-mat/0202465",
+          "Resultary exchange-blocking and field entropy aliases"
+        ]
+      },
+      "checked_sources": [
+        "Configured Resultary index and cited mirrored findings",
+        "cond-mat/9805385",
+        "arXiv:1412.6588",
+        "arXiv:0707.1953",
+        "cond-mat/0202465"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The established weak zero-field branch permits nonshort domains whose boundary fields vanish",
+          "In the frozen model a positive h stabilizes neutral plus boundaries but destabilizes neutral minus boundaries, giving exactly the asymmetric gap restriction"
+        ],
+        "reasoning": "A general local-energy or automaton method makes the question tractable, but the symmetric weak zero-field domain rule does not imply the dimer count, density or sharp equality cases without a new field-sensitive analysis.",
+        "searches": [
+          "0f8914252c1b Finding, Assumptions and local-energy criterion",
+          "Redner–Krapivsky and Grynberg model passages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "0f8914252c1b at zero field requires every Delta_i H>=0 and reports entropy log(phi) for 0<K/J<1; it explicitly distinguishes absorbing dynamics admitting neutral flips",
+          "Redner–Krapivsky and Grynberg use the competing-interaction chain at zero static field"
+        ],
+        "reasoning": "Neither weak blocking nor a zero-field dynamical sector is equivalent to strict absorption with a positive field. In the common coupling range at zero field the entropies even differ: log(phi) versus zero.",
+        "searches": [
+          "Resultary: ANNNI strict absorption, weak blocking, marginal entropy spike, latent dimer configurations, longitudinal field",
+          "Redner–Krapivsky cond-mat/9805385",
+          "Grynberg 1412.6588"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "0f8914252c1b gives one-spin weak-blocking finite-ring trace and exact entropy branches at h=0",
+          "34d442d501a3 gives related exchange-blocking entropy on another dynamics; the retrieved same-date items concern different objects"
+        ],
+        "reasoning": "The checked exact enumerations differ in sign criterion or move set; they do not give the magnetization polynomial at 0<h<2K or the four-regime table.",
+        "searches": [
+          "Resultary: exact ANNNI absorbing count, transfer-matrix entropy, field-induced spin dimer phase and near-date records"
+        ]
+      },
+      "rationale": "The same zero-field Hamiltonian has an earlier weak-blocking classification, but its diagnostic allows Delta_i H=0 and its entropy branch differs. The inspected predecessors do not yield the static-field strict phase diagram or the asymmetric dimer-and-gap count. Familiar local-energy, transfer-matrix and blocked-state enumeration tools are not attributed as new.",
+      "residual_risks": [
+        "A broader field-dependent local-pattern classification could subsume this result if unindexed or outside the inspected passages. Lack of a search hit is not proof of novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "strongest overlap, inequivalent stability criterion and field dependence",
+          "evidence": "h=0, Delta_i H>=0, trace count, log(phi) for 0<K/J<1. Text explicitly warns that configurations need not be absorbing if neutral flips occur.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-marginal-entropy-spike-for-weakly-blocked-annni-spin-chains--0f8914252c1b/RESULT.md",
+          "material_read": "mirrored Finding, Assumptions and start of Proof, offsets 0–3080",
+          "method": "configured Resultary search and local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A marginal entropy spike for weakly blocked ANNNI spin chains",
+          "trigger": "same ring Hamiltonian at zero field and exact blocked-state entropy"
+        },
+        {
+          "assessment": "different moves and stability criterion",
+          "evidence": "Uses adjacent unequal-spin exchanges rather than single-site flips.",
+          "identifier_or_url": "2026/10/18/SCOPE-an-isolated-weak-exchange-blocking-entropy-spike-in-ferromagneti--34d442d501a3",
+          "material_read": "mirrored RESULT.md, Finding",
+          "method": "configured Resultary search and mirror passage",
+          "title": "An isolated weak exchange-blocking entropy spike in ferromagnetic chains",
+          "trigger": "local kinetic blocking and exact entropy"
+        },
+        {
+          "assessment": "zero-field domain dynamics, not static-field exact count in the inspected statements",
+          "evidence": "No-field Hamiltonian and competing-interaction coarsening, including an n=2 strong-frustration discussion.",
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/9805385",
+          "material_read": "abstract and model, offsets 300 and 8100, and n=2 domain discussion pp. 1–2",
+          "method": "OA primary PDF passages",
+          "title": "Slow Coarsening in an Ising Chain with Competing Interactions",
+          "trigger": "zero-temperature dynamics for competing interactions"
+        },
+        {
+          "assessment": "different field and dynamical questions",
+          "evidence": "Weak competing interactions without a uniform field, with low nonzero-temperature relaxation.",
+          "identifier_or_url": "https://arxiv.org/pdf/1412.6588",
+          "material_read": "p. 1 abstract and model, offsets 0 and 2700",
+          "method": "OA primary PDF passages",
+          "title": "Low temperature Glauber dynamics under weak competing interactions",
+          "trigger": "same competing interactions under Glauber kinetics"
+        },
+        {
+          "assessment": "different time dependence and temperature",
+          "evidence": "Finite-temperature linear response to weak oscillating fields.",
+          "identifier_or_url": "https://arxiv.org/pdf/0707.1953",
+          "material_read": "p. 1 abstract, offset about 1500",
+          "method": "OA primary PDF passage",
+          "title": "Effect of antiferromagnetic exchange interactions on the Glauber dynamics of one-dimensional Ising models",
+          "trigger": "Ising dynamics in weak fields"
+        },
+        {
+          "assessment": "related enumeration, different model class",
+          "evidence": "Kinetically constrained one-dimensional chains without frustration.",
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0202465",
+          "material_read": "abstract and introduction pp. 1, 3, offsets about 1200 and 7950",
+          "method": "OA primary PDF passages",
+          "title": "Jamming, freezing and metastability in one-dimensional spin systems",
+          "trigger": "blocked-state statistics and one-dimensional freezing"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and Proof",
+        "Mirrored weak-blocking finding 0f8914252c1b for contrast"
+      ],
+      "rationale": "For the specified zero-temperature rule, an arbitrarily small uniform field changes a bounded set of strictly absorbing configurations into an exponentially large set. The sharp endpoints and exact weighted enumeration explain which domain boundaries cause the change and quantify its entropy and magnetization without assuming kinetic or equilibrium selection. These are structural statements about a natural model, not a small-volume census.",
+      "residual_risks": [
+        "The significance is combinatorial and kinetic in the strict-stability sense; no basins, metastable lifetimes or low-temperature thermodynamics are computed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

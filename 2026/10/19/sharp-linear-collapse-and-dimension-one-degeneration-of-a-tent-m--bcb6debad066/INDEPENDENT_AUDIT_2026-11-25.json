@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:33:03.314723Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, proof sections 1–4",
+        "VERIFICATION.md and verify.py, inspected not executed"
+      ],
+      "rationale": "The nested images of the square have compact connected intersection containing distinct fixed points (0,0) and (2/3,2/3); projection onto a line joining them gives the dimension lower bound. Each of at most 2^n sign cylinders is convex and has an affine image in the square. The derivative sends |u|≤|v| into itself while expanding |v| by at least 2(1−2δ)>1; applied to (0,1) this bounds the largest singular value below by [2(1−2δ)]^n. Dividing the determinant (2δ)^n by it gives a least singular value at most q^n, q=δ/(1−2δ). The image fits in a bounded-length rectangle of width ≤√2q^n, coverable by O(q^(−n)) balls of radius q^n. Combining cylinders and interpolating between geometric scales gives the asserted upper box bound, strictly below two because q<1/2. This is an upper bound, not a dimension formula. For the distance, the direct image lies within 2δ of the graph by Lipschitz continuity. The displayed two-cycle solves the rising and falling branch equations; both inputs are valid since they equal b/2 and 1−a/2 with a,b∈(0,1). At (a,b) the vertical discrepancy is 4δ/(5−8δ), implying graph distance ≥4δ/((5−8δ)√5). Conversely every dyadic monotonicity interval of τ^m has a fixed point of τ^m. Aside from the zero orbit, the cyclic coordinates have odd denominator ≤2^m+1, leaving a gap ≥1/(2(2^m+1)) from 1/2 and double that from 0 and 1. The inverse affine cyclic equations contract in sup norm by (1/2+δ)/(1−δ), giving coordinate displacement ≤2δ/(1−4δ) and input error <4δ. With m=floor(log₂(1/(16δ))) and δ≤1/64, δ(2^m+1)≤5/64<1/8 keeps every branch and coordinate valid. The perturbed cycles are in every forward image. Their distance to the graph points on the dyadic net is at most 2√2δ/(1−4δ); including the net mesh contributes √5·2^(−m)<32√5δ. Their sum is less than 80δ. Thus the rate has sharp order only, on the stated small-memory range, for the full core and not for an SRB measure support.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The §4 cone construction contracts direction intervals at ratio (α−√(α²+2α−2))/(α+√(α²+2α−2)). It constructs a direction IFS; the spatial thickness factor in the new cover is (1−α)/(2α−1).",
+          "The earlier map paper treats attractors below α=3/4 and a period-two line at α=3/4, not the small δ limit."
+        ],
+        "reasoning": "Direction contraction is not a thickness estimate for whole affine images. The derivative-product determinant and state-space cover are needed to obtain the explicit box bound; even that cover does not prove the reverse Hausdorff inclusion. The reported invariant-measure claims allow no inference of the missing set estimates.",
+        "searches": [
+          "arXiv:1607.01658 §4, Lemmas 2–3, pp. 7–9, and p. 2 summary",
+          "arXiv:1604.06991, introduction and Theorem 5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1607.01658, same map and cone lemmas",
+        "arXiv:1604.06991, nearby parameter regimes",
+        "Resultary entries 1afb4a350786 and f962e6d95c5c (the latter at summary level)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier large-α analysis constructs stable directions and proves singularity with absolutely continuous conditionals on expanding segments. The frozen result instead obtains a period-m net with branch margin of order 2^(−m), persists it at order-δ error for m growing as log(1/δ), and uses the surviving period-two orbit to force a matching lower order."
+        ],
+        "reasoning": "Neither singularity nor a zero-area support controls box dimension or supplies a lower bound for graph-to-core inclusion. Qualitative persistence of a fixed finite set of cycles would not give a net with mesh shrinking linearly in δ. These gaps are filled by the actual proof rather than by rephrasing the prior conclusions.",
+        "searches": [
+          "arXiv:1607.01658, Lemmas 2–3 and Theorem 3",
+          "arXiv:1604.06991, Theorem 5",
+          "RESULT.md, periodic shadowing and derivative-product cover"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same map in arXiv:1607.01658 has memory weight 1−α=δ and the relevant range 3/4<α<1. Its stable-direction estimate is a contraction of direction intervals, and Theorem 3 establishes singular SRB measures in that range.",
+          "The nearest indexed boundary-cycle result treats the variation of invariant densities for a triangular map F_t=tF_1, not a distance involving all nested images of the square."
+        ],
+        "reasoning": "The change α=1−δ makes the dynamics identical in the primary source, but a measure result cannot be restated as a metric or dimension property of the full forward core. The two uses of a periodic cycle in the catalogue concern different maps and different observables.",
+        "searches": [
+          "Resultary: memory tent map full forward core Hausdorff distance δ upper box dimension exact bound 1+log 2/log((1−2δ)/δ)",
+          "Resultary: G_alpha tent map attractor stable contraction forward images Hausdorff dimension memory literature",
+          "Góra–Boyarsky–Li, arXiv:1607.01658, abstract, §§4 and Theorem 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "One entry studies invariant densities of a triangular map; the other studies a graph-tube law for a countably piecewise-affine fractal tent map."
+        ],
+        "reasoning": "There is no finite invariant table relevant to an asymptotic theorem over a real parameter interval. The symbolic-record comparison was pertinent and the returned entries have different objects or outputs; ranked results are not exhaustive.",
+        "searches": [
+          "Resultary map/rate queries under equivalent_formulations; inspected entries 1afb4a350786 and f962e6d95c5c (second at summary level)"
+        ]
+      },
+      "rationale": "The closest same-map work gives stable-direction estimates and invariant-measure results, not the finite-scale state-space cover or the two-sided collapse of the full forward core. The targeted catalogue results describe different maps or statistical observables. Novelty is supported to the extent of the compared statements, not established by a keyword miss.",
+      "residual_risks": [
+        "The catalogue and targeted same-map literature comparison are bounded. More general singular-limit attractor or covering theorems, or a separately published quantitative bound for this model, have not been exhaustively ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the model, branches and stable-direction geometry, not the asserted all-core estimates in the inspected statements",
+          "evidence": "Theorem 3 gives SRB existence for 3/4<α<1; Lemma 3 bounds decay of direction intervals by powers of its explicitly different κ.",
+          "identifier_or_url": "https://arxiv.org/pdf/1607.01658",
+          "material_read": "Abstract and p. 2 summary; §4 Lemmas 2–3, pp. 7–9 (offsets 21400, 26100, 28500); Theorem 3, p. 22 (offset 64200)",
+          "method": "Targeted lawful OA PDF passages",
+          "title": "Singular SRB Measures for a Non 1–1 Map of the Unit Square",
+          "trigger": "Identical map and range; plausible covering or stability estimate"
+        },
+        {
+          "assessment": "Complementary parameter regimes",
+          "evidence": "Reports a fixed-point attractor for 1/2<α<3/4 and the period-two line x+y=4/3 at α=3/4.",
+          "identifier_or_url": "https://arxiv.org/pdf/1604.06991",
+          "material_read": "Abstract; p. 3 introduction (offset 8857); Theorem 5, p. 21 (offset 45865)",
+          "method": "Targeted lawful OA PDF passages",
+          "title": "Statistical and Deterministic Dynamics of Maps with Memory",
+          "trigger": "Same memory map and known period-two behavior"
+        },
+        {
+          "assessment": "Different map and statistic",
+          "evidence": "The family F_t=tF_1 is defined on a triangle and the regularity assertion concerns invariant densities.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-boundary-cycle-obstruction-to-lipschitz-statistical-stability--1afb4a350786",
+          "material_read": "Local mirror finding on the family F_t and its invariant densities",
+          "method": "Resultary and matching local mirror",
+          "title": "A boundary-cycle obstruction to Lipschitz statistical stability",
+          "trigger": "Boundary cycle used to obstruct metric regularity"
+        },
+        {
+          "assessment": "Summary indicates a different map and metric question, not a whole-document finding",
+          "evidence": "The record treats graph-tube area for a countably piecewise-affine fractal tent map.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-logarithmic-graph-tube-law-and-bernoulli-structure-of-the--f962e6d95c5c",
+          "material_read": "Returned catalogue summary",
+          "method": "Local Resultary search",
+          "title": "Exact logarithmic graph-tube law and Bernoulli structure",
+          "trigger": "Tent-map terminology and graph scale"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and proof sections 1, 3 and 4",
+        "arXiv:1607.01658, p. 2 and Theorem 3"
+      ],
+      "rationale": "The set of all points with arbitrarily long prehistories is a natural object distinct from typical orbit statistics. The one-step inclusion alone would allow much of the limiting graph to be absent from the perturbed core. A uniform reverse inclusion with matching lower order addresses that gap, and the explicit spatial covering estimate explains degeneration to dimension one independently of the known SRB behavior.",
+      "residual_risks": [
+        "The theorem does not identify an exact dimension at any positive memory or the limit of physical measures."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

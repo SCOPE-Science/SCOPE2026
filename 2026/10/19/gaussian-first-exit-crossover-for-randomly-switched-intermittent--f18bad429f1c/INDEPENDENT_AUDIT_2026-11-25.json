@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:35:13.555904Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–119",
+        "Frozen VERIFICATION.md and check_escape.py, lines 12–93"
+      ],
+      "rationale": "The exact z=(2x)^(-alpha) updates give a uniform positive fast decrement, terminal z in (0,1], and uniform errors O(z^-1) and O(z^(-1-2s)). The fast-choice conditional drift of the decreasing potential bounds E sum_{i<tau} z_i^-u by O(Z^(1-u)), O(log Z), or O(1), according as u<1, u=1, or u>1. The time of ceil(Z/c_alpha) fast choices dominates tau; summing the decrements gives tau=Z/(alpha p)-S_Z/p-M_tau/p+O_P(log Z). The occupation bound and a Bernoulli maximal inequality give tau/Z -> 1/(alpha p). Independently of the fluid Riemann-sum proof, for 0<s<1 telescope z^(1-s)/(1-s). Its fast decrement is alpha z^-s+O(z^(-1-s)); the slow decrement is O(z^-2s), since z_next/z is uniformly bounded away from zero. The total errors are o_P(Z^(1-s)) by occupation. Replacing the fast indicators by p has variance bounded by pq E sum z^-2s, which is o(Z^(2-2s)); the same estimate replaces the slow indicators by q. This gives S_Z/Z^(1-s) -> q/[alpha p(1-s)]. For s>1/2, the occupation estimate directly gives S_Z=o_P(sqrt Z), including s>=1. The Bernoulli functional CLT and convergence of tau/Z to a constant give M_tau/sqrt Z => N(0,q/alpha) without independence of the clock and increments. Substitution gives both Gaussian variances q/(alpha p^2), the critical shift -2q/(alpha p^2), and the asserted negative subcritical correction. The frozen script was inspected, not executed; its seeded ensembles are finite consistency checks, not evidence for convergence or Gaussianity.",
+      "residual_risks": [
+        "The proof is for fixed alpha, beta and p, deterministic vanishing starts and iid choices. No stationary return-time, quenched fluctuation or further subcritical centered CLT follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Annealed return-tail estimates and quenched first-order random cutoff asymptotics",
+          "Birkhoff-sum CLT for observables of random compositions"
+        ],
+        "reasoning": "The former results do not control errors on the square-root scale; the latter concerns sums of prescribed observables, not the stopping clock from a Z-dependent deterministic start. The weighted slow-map contribution is not supplied by either.",
+        "searches": [
+          "arXiv:1305.6588, Proposition 4.1",
+          "arXiv:1706.04158, Theorem 5.1 and Propositions 5.3 and 5.5",
+          "arXiv:1510.03214, §5 and Theorem 5.3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1305.6588",
+        "arXiv:1503.06157",
+        "arXiv:1706.04158",
+        "arXiv:1510.03214",
+        "Resultary 4c337fd7492d and 03332ee9004b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier results in the matching normalization give the leading clock Z/(alpha p)",
+          "A first-order equivalent allows errors larger than sqrt Z",
+          "The random-observable CLT does not evaluate the stopped slow-choice occupation"
+        ],
+        "reasoning": "The leading speed is prior coverage, not a novelty. The three limiting corrections, especially the nonzero shifted Gaussian at beta/alpha=3/2, require more information than any compared theorem supplies.",
+        "searches": [
+          "arXiv:1503.06157, Theorems 1.1–1.2",
+          "arXiv:1706.04158, Proposition 5.5",
+          "arXiv:1510.03214, Theorem 5.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sharp backward-boundary equivalent with leading transformed speed alpha p in the two-atom case",
+          "Resultary 4c337fd7492d: deterministic alternating inverse-branch pair clock and correction transition at beta=2alpha",
+          "Resultary 03332ee9004b: a fixed LSV map and moving-boundary survival under conditioned initial data"
+        ],
+        "reasoning": "Backward cutoffs can be inverted for the leading forward scale. They would need a second-order law at the relevant precision to recover this crossover. Periodic alternation has no Bernoulli clock; the moving-boundary survival result changes both the starting ensemble and the randomization. Both catalogue comparisons concern distinct records, not the assigned record itself.",
+        "searches": [
+          "Resultary: intermittent maps and first-exit/correction clock crossover",
+          "arXiv:1503.06157, Theorem 1.1",
+          "arXiv:1706.04158, Proposition 5.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary records 4c337fd7492d and 03332ee9004b were inspected as the strongest distinct clock and survival matches."
+        ],
+        "reasoning": "A finite exact table cannot establish a continuum-parameter asymptotic law. The applicable catalogue comparison on statement-level overlap found different hypotheses and conclusions, not an exact formula covering the shift or Gaussian variance.",
+        "searches": [
+          "Resultary: LSV random switching first-exit and deterministic/alternating inverse clock formulations"
+        ]
+      },
+      "rationale": "The leading inverse interval and first-order clock are established in the earlier random LSV literature. The supported distinct result is the annealed second-order clock crossover, including its coefficient and variance. Neither the strongest matching inverse asymptotics nor the checked Birkhoff-sum CLT yields that result under its stated hypotheses.",
+      "residual_risks": [
+        "The comparison is bounded; specialized first-passage literature might contain an equivalent theorem. No historical priority certificate is implied."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers annealed first-order cutoff/tail estimates, not this fluctuation law.",
+          "evidence": [
+            "Prop. 4.1, estimates for inverse positions and tower return tails"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1305.6588",
+          "material_read": "Proposition 4.1, PDF p. 8",
+          "method": "Bounded primary PDF text",
+          "title": "Decay of correlation for random intermittent maps",
+          "trigger": "Same Bernoulli random LSV family"
+        },
+        {
+          "assessment": "Covers leading inverse asymptotic.",
+          "evidence": [
+            "Thm. 1.1: almost-sure and L1 leading power-law equivalent for x_n(omega)"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1503.06157",
+          "material_read": "Theorems 1.1–1.2, PDF pp. 6–7",
+          "method": "Bounded primary PDF text",
+          "title": "Mixing rates and limit theorems for random intermittent maps",
+          "trigger": "Sharp inverse-boundary asymptotic"
+        },
+        {
+          "assessment": "Leading discrete-law constant agrees after normalization; no distributional correction in compared statements.",
+          "evidence": [
+            "Prop. 5.5: c(nu)=alpha_0 2^(alpha_0) p_1"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1706.04158",
+          "material_read": "Theorem 5.1, Proposition 5.3 and Proposition 5.5, PDF pp. 13, 16–17",
+          "method": "Bounded primary PDF text",
+          "title": "Quenched decay of correlations for slowly mixing systems",
+          "trigger": "Discrete random exponent law"
+        },
+        {
+          "assessment": "Different observable and limit problem.",
+          "evidence": [
+            "Thm. 5.3 treats quenched Birkhoff-sum CLT"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1510.03214",
+          "material_read": "§5, PDF pp. 25–30, especially Theorem 5.3",
+          "method": "Bounded primary PDF text",
+          "title": "Central limit theorems for sequential and random intermittent dynamical systems",
+          "trigger": "Potential general random LSV CLT"
+        },
+        {
+          "assessment": "Different driving sequence and correction transition.",
+          "evidence": [
+            "Periodic deterministic pair, beta=2alpha, no Gaussian sampling fluctuations"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-sharp-correction-order-transition-for-alternating-intermittent--4c337fd7492d",
+          "material_read": "Statement, switching hypotheses and transition",
+          "method": "Resultary search and matched statement comparison",
+          "title": "A sharp correction-order transition for alternating intermittent maps",
+          "trigger": "Closest inverse clock correction"
+        },
+        {
+          "assessment": "Different survival mechanism.",
+          "evidence": [
+            "Fixed map, conditioned invariant initial data and horizon-dependent barrier"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-a-complete-moving-boundary-survival-crossover-for-an-intermitten--03332ee9004b",
+          "material_read": "Statement and start/boundary assumptions",
+          "method": "Resultary search and matched statement comparison",
+          "title": "A complete moving-boundary survival crossover for an intermittent map",
+          "trigger": "Closest first-exit/survival crossover"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding",
+        "Bahsoun–Bose Theorem 1.1"
+      ],
+      "rationale": "Laminar exit time controls the duration of intermittent excursions. Once the first-order clock is known, comparing the systematic slow-step correction with fast-step sampling noise is a natural next question. The exact exponent threshold and shifted law resolve it and are not obtainable from a first-order bound.",
+      "residual_risks": [
+        "No downstream correlation or stationary-law consequence is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

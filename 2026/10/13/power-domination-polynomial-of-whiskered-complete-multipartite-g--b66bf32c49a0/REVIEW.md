@@ -1,19 +1,21 @@
-# Scientific review: power-domination polynomial of whiskered complete multipartite graphs
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For \(r\ge2\) parts each of size at least \(2\), every power dominating subset splits into exactly one of three cases: at least two core-bearing parts, precisely one such part, or none. The proof establishes the exact first-force/deadlock boundary in each case and derives a disjoint, weighted enumeration. The minimum multiplicity is separately classified by the same cases. Re-running the standalone checker from its own included path produced zero errors across 156,928 subsets on seven full parameter cases, verifying both the structural classification and every coefficient. This finite evidence corroborates, but is not substituted for, the proof.
+PASS
 
-## Originality — PASS (residual uncertainty disclosed)
+Two strong parts observe every core initially, leaving only private leaves to force. With one strong part, the only unobserved cores are its vacant pairs. Outside cores either face at least two vacant cores, or face one such core and their own unobserved leaf, unless an outside leaf was selected; the latter selection enables the necessary force when there is exactly one vacancy. Local observed cores are nonadjacent to the vacancies. For leaf-only sets, two vacancies in one part cannot be the first of those two cores forced; three or more in distinct parts prevent any first force. One vacancy has an observed core in another part; for two vacancies in different parts, an occupied pair remains in each part because the sizes are at least two, and each can force the other part's vacancy. The polynomial counts labeled pair states of weights 1,x,x,x²: subtract zero/one strong parts from the unrestricted term, then add the admitted leaf-only and one-strong configurations, including a nonempty outside leaf selection in the latter case with one vacancy. No singleton succeeds. Two-sets contribute E₂ across strong parts, 1+2+2(N−2) per size-two sole strong part, and four leaf-only choices only at N=4. Fresh direct adjacency and simultaneous-forcing enumeration checked 266,496 subsets over six profiles, including (2,6), (3,5) and (2,2,4) beyond the frozen test, with exact classifier and coefficient agreement. The finite replay is not the all-orders proof.
 
-The initiating 2018 full text gives a closed formula for corona attachments by cliques of size greater than one (Proposition 20(4)), but explicitly asks in Question 3 about the attached-single-leaf case. The 2023 fragile-power-domination paper studies complete multipartite *base* graphs and gives a general full-observation reliability transform, not a polynomial for their leaf coronas. The closest published semantic records deal with PMU placement on unwhiskered multipartite graphs or with minimum sets on threshold graphs. Exact-comparison, aliases, other-invariant, broader-coverage and table searches did not identify an implication recovering this formula. Unindexed literature and implicit derivations remain residual overlap risks, not certifications of uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem gives all initial sensor placements of every cardinality for a natural infinite subclass of the open leaf-corona computation problem, a nontrivial structure theorem for stalled propagation, explicit multiplicities of optimal placements, and via a known general transform the corresponding full-observation reliability. This is not just a minimum-number calculation.
+The supported distinct result is the explicit multipartite coefficient formula with no graph-matching/counting subroutine, including the sharp two-set multiplicity. An equally dated general leaf-corona criterion already covers membership at the general theorem level and gives an exact implicit sum; without a priority claim, credit that overlap rather than treating the local forcing model as new. The inspected polynomial literature leaves K₁ out of the general corona product formula, and the later explicit bipartite computation is an exact proper subfamily. Brimkov et al.'s Question 3 is answered only for the stated subclasses, not resolved for arbitrary bases.
 
-## Boundaries and access
+## value
 
-The result does not claim arbitrary base graphs or singleton multipartite parts. Both leading arXiv full texts were inspected, while related published result summaries were not full-manuscript inspections. The all-order proof is combinatorial; finite checks cover only enumerated small cases. No independent validation is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result turns the known leaf-corona computation question into a closed all-cardinality evaluation for a natural infinite class with arbitrarily many unequal parts. Unlike a general sum over exponentially many candidate sets with a matching test, it uses polynomial products/powers in the part sizes and exposes the sharp minimum multiplicity. This is useful even after crediting known broad membership coverage and the pre-existing reliability transformation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

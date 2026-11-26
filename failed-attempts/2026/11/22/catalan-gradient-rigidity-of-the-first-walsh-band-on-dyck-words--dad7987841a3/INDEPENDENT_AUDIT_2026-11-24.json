@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:42:00.455669Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–39; VERIFICATION.md lines 19–23; verify_dyck_firstband.py lines 8–45 (inspected only)."
+      ],
+      "rationale": "For each coordinate the sign sum is C_n−2U_i, where U_i is the up-step count. In the adjacent swap at positions 2j,2j+1, the preceding height is odd and hence at least one, so the 10↔01 pairs preserve nonnegativity. At positions 2j−1,2j, the only unpaired contribution to U_(2j−1)−U_(2j) is 10 at height zero; its prefix and suffix are arbitrary Dyck paths of sizes j−1 and n−j. The resulting positive increments telescope from U_1=C_n. The increments are symmetric in j. At even n=2m the cumulative value hits C_n/2 at m only, giving the two plateau coordinates n,n+1; the neighboring increments give gap 2C_(m−1)C_m. At odd n=2m+1 the unique central increment is C_m², giving central values with opposite signs and minimum magnitude C_m². This includes n=1.",
+      "residual_risks": [
+        "The frozen checker’s bounded output was not independently replayed. The adjacent-swap proof and the independent generating-function comparison apply at all n."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Splitting at the designated up-step gives U_i as the sum over allowed heights h of the ballot count for a prefix of length i−1 ending at h times the reversed-suffix ballot count of length 2n−i ending at h+1.",
+          "The earlier marked-step decomposition gives a much closer coverage mechanism than the general ballot sum; it tracks the same counts with x marking steps before the up-step and y marking steps after it.",
+          "The cited Chung–Feller source studies a change in flaw count, not these positional marginals."
+        ],
+        "reasoning": "The ballot formula supplies independent standard coverage of the exact input statistic. The decisive algebra comes from the closely matched earlier marked-step identity rather than from the existence of some general path count alone.",
+        "searches": [
+          "Classical ballot/reflection enumeration for constrained prefixes and suffixes",
+          "84ddf083bb47, Proof",
+          "Mütze–Standke–Wiechert arXiv:1603.02525, opening definitions and main result"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 84ddf083bb47, 6b8684277f16, 98cd630b2ea9 and 28deeb898e6f",
+        "Mütze–Standke–Wiechert arXiv:1603.02525, p. 1",
+        "Frozen RESULT.md, Proof"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the earlier combinatorial first-return decomposition UADB, the mark is U, in A, or in B, giving terms yC(y)^2, xyC(y)F and x²C(x)F. Thus before reducing coefficients, F=yC(y)^2/(1−xyC(y)−x²C(x)), where C(z)=1+z²C(z)^2.",
+          "The same multiplication as for the displayed mod-two identity, with signs restored, yields (x−y)F=xyC(x)C(y)+1−C(y): multiply the right side by 1−xyC(y)−x²C(x), use C(x)(1−x²C(x))=1 and 1−C(y)=−y²C(y)^2, and obtain (x−y)yC(y)^2.",
+          "For interior t, [x^t y^(2n−t)](x−y)F is N_(n,t−1)−N_(n,t). The right-hand side gives C_(j−1)C_(n−j) for t=2j−1, zero for positive even t, and the endpoint t=0 gives −C_n."
+        ],
+        "reasoning": "The lifted identity supplies precisely the frozen gradient; telescoping, symmetry, positivity and the affine singleton transform mechanically give the entire stated profile, zeros and gap. The adjacent-swap proof is a different presentation of these consequences, not an independently substantive extension.",
+        "searches": [
+          "84ddf083bb47, Proof, local-mirror offset 0 (marked-step recurrence and displayed first-difference identity)",
+          "Frozen RESULT.md lines 25–36"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With indices shifted by one, N_(n,t) in 84ddf083bb47 is the frozen U_(t+1); both use the same path family and unnormalized transform. W_n({i})=C_n−2U_i.",
+          "The same-day 6b8684277f16 uses peak-start rather than up-step indicators. Adjacent-value bonds in 98cd630b2ea9 and the ascent/descent lengths in 28deeb898e6f are different statistics."
+        ],
+        "reasoning": "The Walsh band is exactly equivalent to the one-coordinate marginals given C_n. The marked-up-step series addresses those marginals; the other catalogue statistics do not identify them. No date-based priority claim is made from a same-day entry.",
+        "searches": [
+          "Resultary: positional up-step marginals, Catalan gradient, first Walsh band, 321-avoiding permutation/Young-poset position probabilities",
+          "84ddf083bb47, up-step marked generating function",
+          "6b8684277f16, 98cd630b2ea9, 28deeb898e6f, Findings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "84ddf083bb47 tabulates a complete parity rule rather than the integral profile in its Finding. Other inspected records concern peaks or ascent/descent lengths. The frozen support checks n<=10, not a historical table."
+        ],
+        "reasoning": "No independent exact integral table was verified. An all-order generating function and its integral identity, not a finite table or matching title, establish the overlap.",
+        "searches": [
+          "Resultary exact positional counts/gradient; 84ddf083bb47, 6b8684277f16 and 28deeb898e6f",
+          "Frozen finite verification range"
+        ]
+      },
+      "rationale": "The exact integral gradient is not asserted verbatim in the earlier mod-four record 84ddf083bb47, but it is mechanically recovered from that same-object record’s marked-up-step decomposition before reducing modulo two. The unsigned combinatorial recurrence is identical over the integers, and the prior displayed algebraic identity lifts by restoring the recurrence’s signs. This is not a claim that congruences alone determine integral counts. The singleton Walsh rewriting and center consequences add no nonmechanical step.",
+      "residual_risks": [
+        "No direct publication priority for the exact integral wording is asserted. This verdict rests on the explicit integer implication, not on unsuccessful searching or on parity data alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not state the integral profile, but its exact counted decomposition and signed lift give it directly.",
+          "evidence": [
+            "The three cases for a marked up-step; the displayed (x+y)F identity over F_2."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-a-binary-digit-parity-law-and-the-mod-four-walsh-spectrum-of-cat--84ddf083bb47/RESULT.md",
+          "material_read": "Finding, Assumptions and first part of Proof at local-mirror offset 0",
+          "method": "Bounded direct local-mirror passage read and integral rederivation",
+          "title": "A binary-digit parity law and the mod-four Walsh spectrum of Catalan matroid bases",
+          "trigger": "Same Dyck up-step marginals and their all-position first differences"
+        },
+        {
+          "assessment": "Different observable; same-day date does not decide priority.",
+          "evidence": [
+            "Peak-start indicators use 2n−1 coordinates, not the 2n up-step coordinates."
+          ],
+          "identifier_or_url": "6b8684277f16",
+          "material_read": "Finding and Proof, offset 0",
+          "method": "Resultary and local-mirror passage",
+          "title": "Dyadic Walsh rigidity of positional peaks in Dyck paths",
+          "trigger": "Distinct same-day positional Walsh result"
+        },
+        {
+          "assessment": "Different statistic.",
+          "evidence": [
+            "Tracks lengths of initial ascent and final descent, not individual step directions."
+          ],
+          "identifier_or_url": "28deeb898e6f",
+          "material_read": "Finding and Assumptions, offset 0",
+          "method": "Resultary and local-mirror passage",
+          "title": "Total nonnegativity and exact rank of the first ascent/last descent kernel",
+          "trigger": "Possible same-path positional count coverage"
+        },
+        {
+          "assessment": "Flaw-count bijection, not the positional gradient.",
+          "evidence": [
+            "Defines flaws by down-steps under height zero and changes the flaw count."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1603.02525",
+          "material_read": "p. 1 at offsets 673 and 4527",
+          "method": "Bounded primary OA text passages",
+          "title": "A minimum-change version of the Chung–Feller theorem for Dyck paths",
+          "trigger": "Cited classical bijection comparison"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof; Resultary 84ddf083bb47, marked-step proof and the integer implication recorded above."
+      ],
+      "rationale": "The clean singleton formulas may be useful as an exposition or normalization check, but the contribution as frozen is a routine integer extraction from the existing marked-step recurrence, followed by an affine rewrite and comparisons of consecutive positive sums. It provides no new higher-order mode, independent consequence, or other substantive remainder beyond that extraction.",
+      "residual_risks": [
+        "A first-band theorem can be meaningful even without higher bands; this verdict concerns the direct known-count implication in this particular record."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review: exact retraction-image fibers
+# Independent mathematical audit
 
-## Correctness
-PASS. The homomorphism construction respects the full maximal-ideal-power relation, invertible tangent maps give automorphisms by the graded filtration, and every idempotent is conjugate to its tangent projection via an explicit substitution. The tangent-identity automorphism group and image stabilizer counts yield the Gaussian-binomial image formula; freely assigning complement generators into the prescribed image's maximal ideal yields the uniform retraction fiber. The edge cases of zero and full tangent rank were checked. Exact exhaustive tests enumerate algebra maps without using the prediction during enumeration, then group the actual image subalgebras.
+## correctness
 
-## Originality
-PASS within reviewed coverage for the **quantitative prescribed-image fiber law**, not for normal form. Theorem 6.7 of arXiv:1910.11023v1 proves qualitative coordinate linearization in formal power-series rings; its inspected statement and proof do not determine the finite-field number of embedded images or the exact fiber for each image in the full maximal-ideal-power quotient. The automorphism/inverse-limit analysis of arXiv:2401.11072 concerns a different truncation construction and does not state the quantitative result. Index searches also located a distinct coordinate-cross algebra whose added product-zero relations change the object. Residual risk: an earlier unpublished or poorly indexed finite-jet enumeration might yield the same values, and the derivation uses established structural ideas.
+PASS
 
-## Value
-PASS. The number of embedded retract subalgebras and the sizes of their retraction fibers are intrinsic, natural enumerative invariants, more informative than only counting idempotent endomorphisms or recognizing all image isomorphism types. The formulas are uniform over all prime-power fields and all dimensions and truncation lengths, and expose nonlinear higher-jet contributions absent in the square-zero reduction. Exact small-field checks demonstrate both a nontrivial image count and a constant prescribed-image fiber.
+The count uses substitutions of the full maximal-ideal-power quotient, not coordinatewise truncation. Any tuple from the maximal ideal defines a map; invertibility on the tangent space gives invertibility on all graded pieces. For an idempotent, choose coordinates u,w along the tangent image and kernel. The substitution u↦e(u), w↦w−e(w) is tangent-identity and intertwines the coordinate projection with e. Thus each image is a copy of the r-generator quotient and its literal tangent plane is well-defined. For a fixed plane U choose a coordinate retraction P onto its copy B0. On each candidate image B, P|B has invertible tangent map between equally sized truncated symmetric algebras, hence is an isomorphism. Its inverse picks unique lifts u_i+k_i with k_i in ker(P)∩m²; conversely every such tuple defines a section of P and the resulting image is a retract. This counts q^{r(H_d(n)−H_d(r))} per plane. Once B=B0 by conjugation, a retraction fixes its generators and freely assigns the n−r remaining generators to m∩B0, giving the stated fiber. The monomial count and Gaussian factor give the cardinality and total, including the augmentation and identity boundaries and d=2. Independent bounded replay: python3 /workspace/branches/independent_checks.py 4 enumerates all 1,024 substitutions for (n,d,q)=(2,3,2) with bitwise multiplication and groups literal image sets. It gives 12 eight-element images with fibers of four and one image each of sizes two and 64 with fibers of one. The frozen checker was inspected, not executed; this replay is finite corroboration.
 
-## Closest literature and limits
-Chakraborty–Dasgupta–Dutta–Gupta, arXiv:1910.11023v1, Theorem 6.7, is strongest qualitative precedent. Chang–Shu–Yao, arXiv:2401.11072v1, gives related truncated-automorphism context. The result is for coefficient-field-fixing algebra homomorphisms and images of actual idempotent endomorphisms. An older equivalent count remains possible. Computational checks do not prove infinite cases; the algebraic argument does.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the uniform formula at arbitrary truncation length, not for the d=3 formulas or for coordinate linearization. An earlier Resultary finding gives all three exact cube-zero counts, a material overlap not cited by the frozen record. Its quadratic idempotency computation does not extend by merely substituting H_d for a quadratic dimension: beyond cube-zero, nonlinear substitutions can act nontrivially on products of degree two, and the earlier linear equation in quadratic tails no longer describes idempotency. The arbitrary-order normalization and count supply that extension. The closest inspected formal/automorphism work does not give the general finite quantitative claim.
+
+## value
+
+PASS
+
+An embedded retract and the number of ways to project onto it are natural invariants of this finite algebra. The all-order formula quantifies how the higher jets change the number of placements and the prescribed-image multiplicity separately, across all characteristics. This gives exact sizes for strata of the idempotent endomorphism monoid, more information than a total or abstract image isomorphism type. Value here is in the general higher-order count, not the known cube-zero or elementary square-zero example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-The standalone `verify.py` uses Python 3 and no third-party modules. From a directory containing the file, execute `python3 verify.py`. It independently constructs graph edges from the part sizes, enumerates all graph matchings and independent images, evaluates exact rank counts of all maps, regular maps and idempotents, and separately compares them with the integer coefficient formulas. It also tests direct existence of an element `g` with `f g f = f` for every strict map `f` on four specified profiles.
+## correctness
 
-Observed checks: 15 finite profiles passed all rank counts and semigroup regularity classification. The four direct inner-inverse checks passed: \((1,2,2)\) gives 81/81 regular maps, \((2,1,1,1)\) gives 58/70, \((1,1,2,2)\) gives 167/215, and \((2,2,2)\) gives 253/253. The exact counts for \((2,2,3)\) are 1021 total, 877 regular and 133 idempotents. The verifier cross-checks integer formulas on larger profiles, without claiming to enumerate all possible infinite part profiles.
+PASS
 
-The full all-parameter conclusion is proved by combinatorial counting and an explicit construction of the inner inverse in `RESULT.md`; finite enumeration does not establish an infinite theorem. The asymptotic is a separate symbolic leading-term argument, not an extrapolation from the finite samples. No independent audit has been performed.
+A strict composite stays strict because each edge fiber of the second map meets the first image in at most one point; hence a nonempty composite fiber is an unchanged original edge. For fixed edge-type occupancies, injectively assign labeled endpoints in each part and divide by the simultaneous edge permutations of each type; multiplying by the independent-image and labeling choices gives T_k. The equation fgf=f forces distinct selected preimages of the image labels into one part. Conversely these preimages form an independent image for g, and its domain pairs can cover the image of f because the k domain edges of f already show that at least k vertices lie outside the part containing that image. This proves the regularity test. Inclusion-exclusion stops at pairwise intersections even at k=1; for idempotents each output must be its own chosen endpoint. The empty map and rank bound agree. For three parts, a bad matching must use all three edge types and needs two vertices in each part and a rank-three image. For four or more parts the two disjoint part pairs give a rank-two witness whenever a part can support that image. For fixed n≥2 the leading terms of the total and regular counts are n^(2n) r^(2n+1)/2^n and n! n^n r^(n+2): the forbidden-edge correction loses one power of r, the pair-intersection term in b_n is O(r^2)=O(r^n), and lower ranks are smaller. The stated ratio follows. A fresh bounded enumeration of all strict maps, direct composition f², and search through all g for fgf=f reproduced (253,253,61) and (1021,877,133) for K_(2,2,2) and K_(2,2,3), respectively. Frozen verification notes and verify.py describe a separate replay and were read, not executed; the two direct samples do not prove the general theorem. The verifier's checks for at most two parts are outside the theorem's stated scope.
+
+## originality
+
+PASS
+
+Credit the general strict-map description and regularity criterion to Margolis–Rhodes. The supported distinct result is the evaluated strict multipartite rank census and its global classification and sharp fixed-part-size rarity law, not a new map-by-map criterion. No inspected matching statement supplies that combined result or a stronger evaluated census specializing to it.
+
+## value
+
+PASS
+
+The rank-refined counts distinguish regular and nonregular behavior in a natural non-bipartite test family for the general semigroup regularity problem. The classification exhibits a regular K_(2,2,2) and the immediate loss at K_(2,2,3); the census explains the exact proportion and yields a sharp polynomial scarcity law over a growing family, which the structural test alone does not quantify.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

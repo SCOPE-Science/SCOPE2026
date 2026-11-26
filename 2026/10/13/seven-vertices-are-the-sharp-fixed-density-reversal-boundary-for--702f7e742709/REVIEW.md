@@ -1,16 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The definitions reduce both metrics to exact functionals of the unordered pair-distance histogram. The displayed seven-vertex graphs have distance histograms \(1^7,2^6,3^6,4^2\) and \(1^7,2^7,3^4,4^2,5\), yielding the stated exact values and opposite strict rankings. The lower bound is exhaustive: the packaged verifier enumerates every labeled simple graph through six vertices, reproduces connected counts \(1,4,38,728,26704\), groups by common order and size, and checks all exact metric pairs. It returns `VERIFY_OK`.
+## correctness
 
-Risk: the theorem is restricted to connected unweighted simple graphs and strict reversal; weak tie-splitting occurs earlier.
+PASS
 
-## Originality
-**PASS.** Watts and Strogatz define characteristic path length. Latora and Marchiori define global efficiency and explicitly state that reciprocal characteristic path length can significantly depart from global efficiency, so generic non-equivalence is not new. The checked full texts, public searches, exact-value searches, and published-result searches did not state the sharp same-order same-size boundary at seven vertices or the same-degree-sequence witness. The new content is the finite sharp boundary under density control and the exact first-order witness, not the observation that the metrics differ in general.
+For n>=2 both statistics are means over the same unordered pairs; same-sign changes of L and E are precisely strict ranking reversals because lower L and higher E are preferred. Order one does not define these normalized metrics and poses no pairwise comparison. I inspected the proof, verification and checker and independently enumerated labeled edge sets by size, computed all-pairs distances with Floyd–Warshall, and compared integer distance sums and reciprocal sums scaled by lcm(1,...,n−1) within each (n,m). The connected counts for orders 2 through 6 were 1,4,38,728,26704; no strict reversal was found. Two distinct metric pairs split ties at six and none do earlier. At n=m=7 I reproduced the stated degree multiset and distance histograms (7,6,6,2) and (7,7,4,2,1), giving L(A)=15/7<L(B)=46/21 and E(A)=25/42<E(B)=188/315, with gaps 1/21 and 1/630. Replay: python3 -I /workspace/review_math.py 4. No seven-vertex all-pair classification is needed for sharpness or claimed.
 
-Risk: a small graph of this size could appear in an unindexed exercise, implementation test, or informal note.
+## originality
 
-## Value
-**PASS.** Characteristic path length and global efficiency are both standard measures of global network integration and are often interpreted as communication-efficiency summaries. Fixing both vertex count and edge count removes size and density as explanations, while the witness's identical degree multiset removes degree-distribution effects. The result therefore gives a compact diagnostic example showing exactly when distance-distribution shape alone can flip the two standard assessments.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The supported distinct result is the first strict divergence under fixed order and edge count, with an explicit same-degree witness. The graph metrics and their general non-equivalence are already established, and there is a known complete catalogue of graph structures through seven vertices. The checked sources do not already give the exact ordering comparison or threshold.
+
+## value
+
+PASS
+
+Matching order and edge count controls the contribution of adjacent pairs and is a natural constraint when comparing network structure. Matching degrees in the smallest witness additionally isolates arrangement from degree distribution. The precise strict boundary (as opposed to tie splitting a vertex earlier) yields a useful finite test for when the two widely used measures cannot be substituted as ranking criteria.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

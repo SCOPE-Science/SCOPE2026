@@ -1,19 +1,21 @@
-# Mathematical assessment: optimal-ball centers of coordinate discotopes
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns positive radii and the exact set of centers of maximal *three-dimensional* Euclidean inscribed balls. The disk-sum support function, the concavity minimum on the simplex of squared normal coordinates, and the opposing tight vertical normals establish the radius and center plane. Dividing a nonvertical support inequality by its horizontal normal length gives a one-variable barrier whose monotonicity reduces all three-dimensional inequalities exactly to horizontal ones. In that plane, the inequalities are the support-function criterion for a rectangle's Euclidean outer parallel body when the largest weight exceeds the sum of the others, or for a rectangle's inner parallel body otherwise. The rectangle/rounded-rectangle locus follows in both directions. Euclidean area calculations and one-sided differentiation give the universal \(2\pi-8\) second-derivative jump. The standalone checker passed sampled directional-clearance tests at twelve weight triples, including coincident weights and the exact additive threshold. Finite tests corroborate but do not prove the infinite statement.
+PASS
 
-## Originality — PASS, provisional historical priority
+For unit normal u, support is a sqrt(1-u_z²)+b sqrt(1-u_x²)+c sqrt(1-u_y²). Concavity in the three squared coordinates bounds the support below by the least of the axial supports, b+c. The two z-normal constraints bound every ball radius by b+c, and force maximal centers into z=0. For a fixed unit horizontal direction v and horizontal normal length ρ, h_K is the concave function aρ+b sqrt(1-ρ²v_x²)+c sqrt(1-ρ²v_y²) of ρ in [0,1]. Its chord between 0 and 1 yields h_K(u)-(b+c) ≥ ρ[h_K(v,0)-(b+c)]. Thus the horizontal support inequalities are necessary and sufficient even for balls tested against all spatial normals. Horizontally the inequality is t·v ≤ c|v_x|+b|v_y|+a-b-c, identifying planar disk dilation when a≥b+c and disk erosion otherwise. Erosion against the four rectangle sides gives half widths a-b and a-c, including ties. Strips and quarter circles give the area in the dilated phase. At the transition the slopes are both 4(b+c) and the one-sided second derivatives are 8 and 2π. The argument covers all positive weights after sorting. The frozen CHECK.py probes only finitely many normals and thresholds; it was inspected, not executed. Replay of the unrestricted check is by the chord inequality above and the half-plane support test in RESULT.md lines 40–63.
 
-Mathis–Meroni, *Fiber Convex Bodies* (arXiv:2105.12406, Sections 5.2–5.3), defines and studies the equal-weight coordinate-disk Minkowski sum and its fiber body; Gesmundo–Meroni, *The Geometry of Discotopes* (arXiv:2111.01241, Sections 2 and 7), analyzes the same disk sum's faces and algebraic boundary. Neither inspected full manuscript supplies a classification of **all centers** of maximum-radius Euclidean balls for positive unequal disk weights. Exact Euclidean inradius and circumradius formulas and outer-contact phases for general weighted perpendicular disk sums are already known; this assessment explicitly excludes them. Neither known radius values alone nor the cited algebro-geometric and fiber-body descriptions state the present incenter locus, its additive geometry transition, or its area regularity. Search and comparison of closely related indexed mathematical results also identified only different convex bodies, different geometric operations, and radius-only invariants. Possible coverage in older inner-parallel-body or morphological-erosion literature remains the principal historical risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The locus of maximum-ball centers is a natural metric invariant that can have positive dimension even for a smooth-curved three-dimensional zonoid. Its exact shape changes between a polygonal rectangle and a rounded rectangle at an additive weight threshold independent of the previously known Pythagorean transition in farthest-point geometry. The universal loss of second differentiability of the incenter-locus area is a measurable geometric consequence and the full classification covers every positive weight triple, including ties. The result is not a radius restatement or a standalone easy normalization check; its value lies in the exact all-center classification and morphology phase boundary.
+Pass the explicit weighted maximal-center locus and its additive shape/area transition, not the inradius, the coordinate-discotope model, erosion/dilation identities, or the planar parallel-area formula in isolation. The closest inspected statements address the same unweighted body and its boundary/fiber body, the same weighted body and its volume/balancing, or a different orthogonal disk hull. The essential bridge from a three-dimensional erosion to precisely the planar rectangle constraints is not supplied by those statements.
 
-## Scope and residual risks
+## value
 
-The proof does not cover ellipses, oblique disk planes, degenerate zero weights or general discotopes. A historically equivalent erosion description may exist. No independent validation has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This gives every permissible translation of a largest ball, not just contact directions or a radius. The full dimension/tie classification and the exact transition between rectangular and rounded loci make a concrete distinction for the geometry of inner parallel bodies of Minkowski sums. The value lies in the all-directions reduction and the resulting complete classification, not in differentiating Steiner's area formula alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

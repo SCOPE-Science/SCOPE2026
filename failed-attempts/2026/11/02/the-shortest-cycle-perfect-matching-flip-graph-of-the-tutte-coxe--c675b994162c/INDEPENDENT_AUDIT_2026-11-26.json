@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:09:50.299974Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The bijection encoding is exhaustive; two matchings differ on four duads iff their difference is one alternating octagon because there are no 4-cycles. A flip composes with an odd 4-cycle. I reconstructed the graph directly from the six symbols, using least-choice matching enumeration and explicit cycles in the duad projection (each line between consecutive duads is uniquely determined; reject repeated lines). It gives no 4- or 6-cycles and 90 distinct octagons, each alternating in exactly 32 states. Replacing either alternating assignment gives a reciprocal neighbor and yields 288 matchings, degree 10 and 1440 undirected flips. Layer expansion from each state proves connectedness and gives 144 even states of profile (1,10,45,97,96,37,2) and 144 odd states of profile (1,10,42,97,101,37), hence radius 5, diameter 6, and non-vertex-transitivity. Applying all 720 symbol permutations to one representative of each parity gives precisely its 144-member class. Traversing all 4-cycles once using minimum start and an orientation test gives 4320. The reconstructed state and neighbor lists agree with the full frozen certificate; girth 8 excludes all earlier possible moves. Replay: python3 /workspace/branches/local_exact_audit.py 5.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ito et al. allow an arbitrary single alternating cycle; their reachability observation uses all symmetric difference cycles.",
+          "Earlier Resultary paper proves the sharp least move length and also an exact Hamiltonian symmetric-difference characterization of the 144 diametral pairs.",
+          "Safe retrieval through the resonance DOI did not give full text."
+        ],
+        "reasoning": "Unrestricted connectivity does not imply connectivity for eight-edge moves, and classical incidence structure alone is not a flip classification. The same-cage same-move earlier result, rather than general reachability or the inaccessible resonance paper, is decisive.",
+        "searches": [
+          "Ito et al., arXiv:1907.01700",
+          "Tutte–Coxeter/Cremona–Richmond geometry and resonance citations",
+          "Resultary 2d0e450ce331"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2d0e450ce331, RESULT.md and verify_cycles.py",
+        "Balasubramanian DOI 10.3390/sym17010133",
+        "Ito et al. arXiv:1907.01700",
+        "Baez AMS visual insight exposition",
+        "Prażmowska–Prażmowski arXiv:1404.7166",
+        "Zhang–Liu DOI record, bibliographic only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier proof finds 0,0,90 simple cycles at lengths 4,6,8, both profiles and the diameter, and proves eight is the least connected move length.",
+          "The earlier independent cycle verifier already enumerates each matching against each cycle and constructs these exact edges, including 2880 switch incidences.",
+          "In the existing adjacency, bipartition follows from the sign of a 4-cycle, and 4320 is obtained by ordinary quadrilateral counting. The earlier listed matchings carry the literal relabeling action; obtaining the orbit sets calls only for applying the 720 permutations to two representatives."
+        ],
+        "reasoning": "The core theorem is explicitly known, and the remaining checks amount to grouping the earlier finite exact data by the already specified label action or recording straightforward extra tallies. The prior primary matching count and girth facts alone would not imply the geometry.",
+        "searches": [
+          "2d0e450ce331 RESULT.md Proof steps 2–5",
+          "2d0e450ce331 verify_cycles.py matching canon, one-octagon flips, edge serialization",
+          "Baez, Tutte–Coxeter Graph"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2d0e450ce331 explicitly requires one alternating 8-cycle, facial or not, with no other moves.",
+          "Same two full distance profiles and same 144+144 split; one listing has a padded zero at distance six.",
+          "Exact same edge digest after replacing duad-to-syntheme permutations by their inverses and ranking them."
+        ],
+        "reasoning": "These are not isospectral but potentially different objects: the hypotheses and edges coincide. Complement-type, eccentricity, and parity name the same two parts here. Non-vertex-transitivity already follows from the two distinct eccentricities.",
+        "searches": [
+          "Resultary: Tutte–Coxeter octagon alternating matching flip graph, reconfiguration and resonance",
+          "2d0e450ce331 comparing the single-cycle relative permutation definition with symmetric difference"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 1 is the matching polynomial for T; p.12 expressly gives 288 perfect matchings.",
+          "2d0e450ce331 already provides the exact distance profiles and regenerable 1440-edge labeled graph."
+        ],
+        "reasoning": "The scalar perfect matching count was known independently. The exact graph data go beyond an aggregate table and mechanically yield an exact square count. I did not verify a separate standard graph-database entry for the derived graph; the published complete computation is the relevant exact tabulation.",
+        "searches": [
+          "Balasubramanian DOI 10.3390/sym17010133, Table 1",
+          "Resultary exact octagon graph table, sorted-edge digest and verifiers, 2d0e450ce331"
+        ]
+      },
+      "rationale": "Resultary 2d0e450ce331 already constructs the very same alternating-octagon matching graph, proves exact connectivity at the first possible cycle size and gives its metric and degree census, down to the sphere vectors of its two eccentricity classes. It even classifies the antipodes. I inverted the frozen state permutations, ranked them lexicographically and serialized the edges in the earlier verifier's labeling and format. The SHA-256 digest is exactly the earlier one (ba8739d1315a1daa2d3810948317a38cdf47b81a8cd37f5377e6825b7136e6a3). The earlier result thus covers the core even though its class labels use complementary cycle type, not parity. I did not find an explicit prior statement of the S6 orbit identification, 4320 flip quadrilaterals or 32 matchings per octagon. These are direct orbit/tally extractions from the already generated exact labelled matching graph and cycle flips, not a distinct shortest-cycle geometry result.",
+      "residual_risks": [
+        "No complete resonance paper or external derived-graph database entry was verified. This does not affect the direct Resultary match.",
+        "Direct prior wording for the explicit S6, quadrilateral and per-octagon counts is not claimed; their status here is mechanical extraction from the identified prior exact graph and its moves."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of core result with additional antipodal characterization",
+          "evidence": "Degree 10, 1440 edges, both full sphere vectors, radius 5 and diameter 6; length eight is sharp; exact labelled graph hash matches under inverse-permutation sorting.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-hamiltonian-union-antipodes-in-the-tutte-coxeter-octagon-flip-gr--2d0e450ce331",
+          "material_read": "RESULT.md Finding near offset 0 and proof sections 2–5 (including 3550–6424); verify_cycles.py graph construction/canon, flip loop, summary and serialization, around offsets 285, 1808, 2720, 4150",
+          "method": "Configured Resultary index and targeted local-mirror passages, then independent digest comparison",
+          "title": "Hamiltonian-union antipodes in the Tutte–Coxeter octagon flip graph",
+          "trigger": "Same graph, move length, parameters and distance profiles"
+        },
+        {
+          "assessment": "Known scalar exact count",
+          "evidence": "The Tutte–Coxeter graph exhibits 288 perfect matchings; matching polynomial does not classify flips.",
+          "identifier_or_url": "https://doi.org/10.3390/sym17010133",
+          "material_read": "Publisher PDF p.10 Table 1 (offset 38577), p.12 count (49485)",
+          "method": "Lawful publisher PDF passage inspection",
+          "title": "Matching Polynomials of Symmetric, Semisymmetric, Double Group Graphs, Polyacenes, Wheels, Fans, and Symmetric Solids in Third and Higher Dimensions",
+          "trigger": "Earlier exact census"
+        },
+        {
+          "assessment": "No fixed length bound in the move relation inspected",
+          "evidence": "One-cycle symmetric difference, with reachability by flipping all cycles of the difference regardless of their lengths.",
+          "identifier_or_url": "https://arxiv.org/abs/1907.01700",
+          "material_read": "PDF pp.1–2, offsets 1428 and 6853",
+          "method": "Targeted OA passage inspection",
+          "title": "Shortest Reconfiguration of Perfect Matchings via Alternating Cycles",
+          "trigger": "General matching reconfiguration and possible equivalent move model"
+        },
+        {
+          "assessment": "Covers underlying incidence model and absence of shorter cycles",
+          "evidence": "15 duads, 15 synthemes; a (3,8)-cage; asks for the number of octagons rather than studying matching exchanges.",
+          "identifier_or_url": "https://blogs.ams.org/visualinsight/2015/08/15/tutte-coxeter-graph/",
+          "material_read": "Duad/syntheme passages at 418–3026 and cage/girth near 10265",
+          "method": "Public page passage inspection",
+          "title": "Tutte–Coxeter Graph",
+          "trigger": "Classical identification and inherent girth obstruction"
+        },
+        {
+          "assessment": "Inspected introduction concerns incidence objects and their generalizations",
+          "evidence": "No flip result is present in the material read; no whole-document exclusion asserted.",
+          "identifier_or_url": "https://arxiv.org/abs/1404.7166",
+          "material_read": "p.1, beginning near offset 338",
+          "method": "Targeted OA passage inspection",
+          "title": "The Cremona–Richmond Configuration revisited and generalized",
+          "trigger": "Equivalent classical incidence model"
+        },
+        {
+          "assessment": "Undetermined; not used as negative evidence",
+          "evidence": "The title concerns plane bipartite graphs; the frozen definition allows nonfacial cycles.",
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2010.05.012",
+          "material_read": "Bibliographic title only; no full text obtained",
+          "method": "DOI-route lawful retrieval attempt; no identified repository copy",
+          "title": "2-resonance of plane bipartite graphs and its applications to boron–nitrogen fullerenes",
+          "trigger": "Possible resonance alias for alternating-cycle constraints"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The first legal exchange length, connectivity and exact metric classification would be valuable unknowns, but they are already resolved for this exact graph, including stronger antipodal information. The extra parity label is elementary and the new tallies/orbit confirmations run directly on the previously generated full labeled state graph, with the already explicit symmetries and move list; the frozen result does not identify a separate non-mechanical scientific gap or useful distinct structural claim in that remainder.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

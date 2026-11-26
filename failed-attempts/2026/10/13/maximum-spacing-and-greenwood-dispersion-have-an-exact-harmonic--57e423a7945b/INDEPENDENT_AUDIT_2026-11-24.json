@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:17:20.051231Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md equations (1)–(17) and scope",
+        "Frozen VERIFICATION.md lines 18–40 and verify_max_greenwood.py lines 1–133 (inspected, not executed)",
+        "Independent derivation: /workspace/reviews/evidence/spacing_crosscheck.md"
+      ],
+      "rationale": "Independently order the simplex coordinates d_1≥⋯≥d_m and set Z_j=j(d_j−d_{j+1}), with d_{m+1}=0. The linear bijection from the ordered chamber again gives a uniform simplex vector. The maximum is Σ_i Z_i/i and the square sum is Σ_{j,k} Z_j Z_k/max(j,k). Expanding the third Dirichlet moments gives numerator 2(m+1)H_m+H_m²+H_m^(2) over m(m+1)(m+2). The marginal moments then give the claimed covariance and both variances. The covariance numerator starts at zero for m=1 and increases by 2(H_m−1)/m at m≥2; strict Cauchy–Schwarz makes the maximum variance positive. Harmonic asymptotics give the stated correlation and constant. For m=2 direct one-variable integration gives mixed moment 25/48 and covariance 1/48. Label circular spacings starting at a distinguished sampled point; their two symmetric statistics are independent of that label choice.",
+      "residual_risks": [
+        "The conditional scaled vector in the threshold proof is used only when kt<1, and tail sums at t=0 are interpreted by continuity. The circular Dirichlet labeling need not hold when the first gap is forced to contain a deterministic spatial origin; the symmetric statistics remain as claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "8791657f8166 explicitly gives the unintegrated mixed tail profile with the same summands, adds E[G_n | M_n≤x], and gives the integrated moment and the two Pearson formulas.",
+          "Royen treats the Greenwood marginal. Shtembari and Caldwell treat distributions of sums of ranked gaps, including sums of largest gaps."
+        ],
+        "reasoning": "The broader mixed-tail result includes rather than merely resembling this claim. The marginal and ranked-sum passages in the published literature are not evidence of an exact prior coupling by themselves.",
+        "searches": [
+          "Resultary 8791657f8166, exact joint moments, equations (1)–(7)",
+          "Royen arXiv:1008.4059; Shtembari and Caldwell arXiv:2008.02048"
+        ]
+      },
+      "checked_sources": [
+        "Both frozen spacing RESULT.md files",
+        "Resultary local mirror 8791657f8166 and 7536578b7678",
+        "arXiv:1008.4059",
+        "arXiv:2008.02048",
+        "Pyke DOI 10.1111/j.2517-6161.1965.tb00602.x (access limited)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The covariance implies E[MG] by adding the product of the standard means H_m/m and 2/(m+1), and the matched records already write E[MG] explicitly. The proof here and the joint-moment record additionally match at the affine-simplex unintegrated profile."
+        ],
+        "reasoning": "This is not a novelty deduction from mere computability under a classical joint density. The exact result is explicitly present, and neither the rearranged formula nor finite checking supplies an independent remainder.",
+        "searches": [
+          "Frozen record 5 Proof, lines 43–119; Resultary 8791657f8166 Proof, sections 1–3; Royen arXiv:1008.4059"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Frozen record 5 at lines 43–99 uses the same shifted-simplex beta integrals and explicitly gives 2H_m/[m(m+2)]+(H_m²+H_m^(2))/[m(m+1)(m+2)] at lines 86–92. Its Finding lines 24–35 agrees after M_m=L_m.",
+          "8791657f8166 uses n for the same number of gaps, not the number of interior observations."
+        ],
+        "reasoning": "The uniform simplex law and both statistics coincide, not just their names. The two expressions for the mixed moment agree by expanding the parentheses. The circular model is another realization of the same symmetric statistics.",
+        "searches": [
+          "Frozen record 5: exact positive covariance of maximum uniform spacing and Greenwood concentration",
+          "Resultary: maximum/largest/extreme uniform spacing with Greenwood concentration/quadratic square sum, records 8791657f8166 and 7536578b7678"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "8791657f8166 equations (4)–(7) state the exact formulas and correlation asymptotic, with no range restriction beyond m≥2. The proof of 7536578b7678 explicitly writes the numerator H_m²+H_m^(2)+2(m+1)H_m. Frozen record 5 contains the same formulas."
+        ],
+        "reasoning": "These are direct all-m closed-form matches, stronger evidence than a numerical table or keyword match. Directory dates do not establish priority.",
+        "searches": [
+          "Resultary 8791657f8166 and 7536578b7678; local mirror Findings and proofs",
+          "Distinct frozen comparison, record 5"
+        ]
+      },
+      "rationale": "The distinct assigned covariance record explicitly gives the same mixed moment in its proof as well as the same covariance, correlation and asymptotic in its Finding. Additional exact indexed comparisons confirm the overlap, including a record giving the same mixed tail profile and its conditional consequence. Displaying the mixed moment in the Finding, choosing circular gaps, or using a different rational replay does not produce a distinct finding. This establishes equivalence of coverage, not which author or record obtained it first.",
+      "residual_risks": [
+        "Priority and the earliest external appearance are not established. The inaccessible Pyke full text and the unavailable institutional copy of the Bairamov–Berred–Stepanov ordered-spacing paper leave open older equivalent formulations. Neither access issue caused the FAIL."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap",
+          "evidence": "Lines 86–92 give the mixed moment and lines 24–35 the other main formulas.",
+          "identifier_or_url": "Distinct frozen assignment record 5",
+          "material_read": "RESULT.md lines 3–119",
+          "method": "Read the assigned frozen package",
+          "title": "Maximum uniform spacing and Greenwood concentration have exact positive covariance",
+          "trigger": "Same simplex law, statistics, and covariance"
+        },
+        {
+          "assessment": "Direct and broader coverage",
+          "evidence": "Equation (6) gives the same mixed moment; (1) and (3) treat the mixed-tail and conditional Greenwood profiles.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-joint-moments-of-the-largest-uniform-spacing-and-greenwood--8791657f8166/RESULT.md",
+          "material_read": "Finding, scope and proof equations (1)–(7), mirror offsets 0–1880 and 2050–5240",
+          "method": "Resultary catalogue and local mirror passage reads",
+          "title": "Exact joint moments of the largest uniform spacing and Greenwood's statistic",
+          "trigger": "Same mixed moment and a stronger mixed profile"
+        },
+        {
+          "assessment": "Same mixed moment and covariance under the same law",
+          "evidence": "Proof gives numerator H_m²+H_m^(2)+2(m+1)H_m over m(m+1)(m+2).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-positive-covariance-of-maximal-and-quadratic-uniform-spaci--7536578b7678/RESULT.md",
+          "material_read": "Finding and proof including mixed-moment derivation, mirror offsets 0–3858",
+          "method": "Resultary catalogue and local mirror passage reads",
+          "title": "Exact positive covariance of maximal and quadratic uniform spacings",
+          "trigger": "Same boundary spacings and quadratic statistic"
+        },
+        {
+          "assessment": "Marginal distribution and tables, not a mixed moment in the inspected passages",
+          "evidence": "The table is for univariate Greenwood quantiles.",
+          "identifier_or_url": "https://arxiv.org/pdf/1008.4059",
+          "material_read": "PDF abstract and section 1 (pp. 1–2)",
+          "method": "Lawful OA PDF passages",
+          "title": "The distribution of the square sum of Dirichlet random variables and a table with quantiles of Greenwood's statistic",
+          "trigger": "Exact Greenwood computations and tables"
+        },
+        {
+          "assessment": "Adjacent, not direct evidence of the mixed formula",
+          "evidence": "The inspected results concern sums of ranked spacings.",
+          "identifier_or_url": "https://arxiv.org/pdf/2008.02048",
+          "material_read": "Abstract, sections 4 and 5.3",
+          "method": "Lawful OA PDF passages",
+          "title": "On the sum of ordered spacings",
+          "trigger": "Closely related ordered-spacing distribution"
+        },
+        {
+          "assessment": "Access limit only",
+          "evidence": "No conclusion about whether Pyke writes an equivalent identity.",
+          "identifier_or_url": "https://doi.org/10.1111/j.2517-6161.1965.tb00602.x",
+          "material_read": "No full text obtained",
+          "method": "Bounded lawful OA and repository-copy attempt",
+          "title": "Spacings",
+          "trigger": "Classical review may contain equivalent older representation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and scope",
+        "Distinct frozen record 5, Finding and proof",
+        "Resultary 8791657f8166, equations (1)–(7)"
+      ],
+      "rationale": "The exact finite-sample calibration of two natural diagnostics is useful in isolation, but this record adds no distinct exact invariant, scope, or new mathematical use beyond the matching formulas and profile. The circular realization, by the recorded common law, is not a mathematically new case.",
+      "residual_risks": [
+        "The value judgment concerns this separate contribution, not the intrinsic utility of knowing the mixed moment."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

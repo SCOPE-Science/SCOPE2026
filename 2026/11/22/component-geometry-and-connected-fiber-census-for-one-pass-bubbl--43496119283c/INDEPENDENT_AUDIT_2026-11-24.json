@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:10:21.117126Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–70 and VERIFICATION.md / verify.py",
+        "Replay: python3 /workspace/branches/eed48fd1-f848-4250-91fc-496d809d42c3/brute_force_fibers.py (use --help for options); retained full-run.txt in the same directory"
+      ],
+      "rationale": "A left-to-right pass carries the running maximum and emits the smaller of the carry and the next entry. Each change of carry emits the old carry as an output record. Selecting which nonfinal output records arise this way determines the input uniquely by the block substitution in the proof; conversely each selection works because all letters in a block are smaller than its next selected record. An adjacent swap can change only the smaller entry's record status, and by uniqueness an edge must therefore toggle one selection. The two local factors are mu W nu and nu W mu; if no earlier record is selected, W is the entire prefix before mu. These factors differ by an adjacent swap exactly for empty W, i.e. the first bit or an output-record index immediately preceded by a selected record. Thus gaps freeze the initial bits of the later Cartesian factors. In each frozen factor the leading ones and the first zero are fixed and the remaining suffix can be zeroed from left to right, yielding the full component spectrum. The free first bit accounts for the absence of isolates at n >= 2 and contributes 2^(m-1) edges; each allowed later index contributes 2^(m-2). For a connected fiber the nonfinal records form an initial increasing block ending in n-1; with k total records there are binomial(n-2,k-2)(n-k)! such outputs. This proves the count and asymptotic with the n=1 singleton handled separately. A separate input-first enumeration checked exact neighbor sets, component-size multisets and edge counts for every nonempty fiber through n=8; connected totals were 1,1,2,5,16,65,326,1957. The supplied verifier was inspected, not run.",
+      "residual_risks": [
+        "The replay is exhaustive only through n=8. The all-n claim rests on the argument, not on extrapolation or formal verification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.2 enumerates preimages, and the later section treats iterated preimage trees. Albert et al. study inverse images of permutation-pattern classes, not adjacent swaps within exact fibers."
+        ],
+        "reasoning": "These broader settings organize where permutations map, not the edges preserving a fixed image. No inspected theorem supplied both the required graph and its component classification.",
+        "searches": [
+          "arXiv:2204.12936v1 Theorem 2.2 and §3",
+          "arXiv:1008.5299 abstract and introduction"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary index",
+        "arXiv:2204.12936v1",
+        "arXiv:2303.13864v1",
+        "arXiv:1008.5299"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source explicitly gives the same block substitution and record-subset parameterization. Corollary 2.4, rather than Corollary 2.3 itself, states the resulting 2^(k-1) size formula."
+        ],
+        "reasoning": "A component claim requires deriving exactly when a substitution realizes a single adjacent swap and then analyzing the resulting position-dependent move constraints. Neither graph consequence nor the global census is stated or follows from the cardinality formula alone.",
+        "searches": [
+          "arXiv:2204.12936v1 Corollary 2.3, HTML offset 20590 onward"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The iterated-preimage tree connects an output to a preimage, not two inputs that map to the same output.",
+          "The full bubble-sort graph has all permutations and adjacent swaps, with no fixed-output condition."
+        ],
+        "reasoning": "Neither changing time levels in the preimage tree nor considering global connectivity of the ambient Cayley graph is equivalent to studying connectivity in induced exact fibers.",
+        "searches": [
+          "Resultary: one-pass bubble-sort inverse fibers, adjacent transpositions and record gaps",
+          "arXiv:2204.12936v1 §3",
+          "arXiv:2303.13864v1 Theorem 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The top indexed hit is the identical assigned record. The primary paper counts fiber sizes by records and counts outputs with each fiber size by Stirling numbers, not outputs with connected induced fiber graphs."
+        ],
+        "reasoning": "The record-number statistic cannot replace the record-position condition. For example at n=4, 2134 and 2314 both have three records, but only 2314 has its nonfinal records consecutive from the first position.",
+        "searches": [
+          "Resultary record 2026/11/22/SCOPE-component-geometry-and-connected-fiber-census-for-one-pass-bubbl--43496119283c",
+          "arXiv:2204.12936v1 Corollaries 2.4–2.5"
+        ]
+      },
+      "rationale": "The established inverse algorithm and record-subset bijection are not credited as new. The additional claim identifies which adjacent transpositions preserve the pass output, classifies their connected components, and counts the outputs whose fiber graph is connected. The strongest available same-object source does not give these conclusions; its adjacency and aggregate cardinalities do not encode the position gaps. No distinct equivalent result was established in the bounded checks.",
+      "residual_risks": [
+        "The searches do not rule out all differently described induced-fiber results or unindexed notes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the parameterization and size, not the induced-fiber results",
+          "evidence": "Corollary 2.3 states the exact subset bijection and block substitution; Corollary 2.5 groups output permutations by number of preimages; §3 defines child vertices by applying the operator to a preimage.",
+          "identifier_or_url": "https://arxiv.org/html/2204.12936v1",
+          "material_read": "Theorem 2.2 (offset 17662); Corollaries 2.3–2.5 and start of §3 (offset 20590 onward)",
+          "method": "Lawful OA HTML, decisive theorem and corollary passages",
+          "title": "Preimages under the bubblesort operator",
+          "trigger": "Exact one-pass fibers and known parametrization"
+        },
+        {
+          "assessment": "Different vertex set and connectivity invariant",
+          "evidence": "The generalized connectivity is for the full bubble-sort graph on permutations, not the induced fixed-output graph.",
+          "identifier_or_url": "https://arxiv.org/html/2303.13864v1",
+          "material_read": "Theorem 1.1 (offset about 6580)",
+          "method": "Lawful OA HTML",
+          "title": "The generalized 4-connectivity of bubble-sort graphs",
+          "trigger": "Same adjacent-transposition generator"
+        },
+        {
+          "assessment": "The cited results concern pattern classes",
+          "evidence": "The classified objects are inverse images of principal pattern classes under the operator.",
+          "identifier_or_url": "https://arxiv.org/abs/1008.5299",
+          "material_read": "Abstract and introductory objective (offset about 709)",
+          "method": "Lawful OA text",
+          "title": "On the inverse image of pattern classes under bubble sort",
+          "trigger": "Possible broader inverse-image theorem"
+        },
+        {
+          "assessment": "Same assigned record, not independent coverage",
+          "evidence": "Identical record-gap product and connected-fiber count.",
+          "identifier_or_url": "2026/11/22/SCOPE-component-geometry-and-connected-fiber-census-for-one-pass-bubbl--43496119283c",
+          "material_read": "Indexed statement and assigned Finding",
+          "method": "Local Resultary search and frozen source",
+          "title": "Component geometry and connected-fiber census for one-pass bubble-sort inverse images",
+          "trigger": "Exact matching indexed result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–25 and 43–70",
+        "arXiv:2204.12936v1 Corollaries 2.3–2.5"
+      ],
+      "rationale": "The classical one-pass fibers come with a natural adjacency inherited from the bubble-sort graph. Cardinality alone hides disconnection; the record-gap test decides reachability inside a fiber and supplies all components without searching the factorial ambient graph. The exact all-size census then quantifies how rare the connected case is. The interest lies in these structural and enumerative conclusions, not in renaming the established subset parameterization.",
+      "residual_risks": [
+        "No inference to repeated passes, arbitrary swaps, or other sorting operators."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

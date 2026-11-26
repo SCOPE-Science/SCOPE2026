@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:34:10.701816Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For an unselected rim vertex its signature is its set of selected cyclic neighbors. For n≥7, a repeated nonempty signature can only be a singleton at the two neighbors of the same landmark, colliding exactly when both adjoining gaps have length at least two. Empty signatures lie at internal gap vertices: there is at most one gap of length at least three and its length is at most four. Ordinary resolution additionally excludes a four-gap. Without it there must be at least three rim landmarks for n≥7, so the hub is distinguishable even when not selected. For indexed cyclic gap lists the orbit-safe argument is that each list has n choices of starting vertex and each labelled subset of size k has k marked lifts. RESULT.md:69's n/k wording is this aggregate quotient, not a literal count per individual list. The transfer trace gives −log D and the one-exception term z²AC/D; the optional hub gives 1+z. The rim length bound n≤floor(5k/2)+2 and positivity of the coefficient at floor(2n/5) establish the minimum. Explicit coefficient extraction gives b_n/n in residue order: 1/s+s+(s+3) binom(s,2)+binom(s+1,4); 1+s+binom(s,2); 1; s+s(s+1)+binom(s+1,3); s. These simplify to the claimed polynomials, including boundary values. The denominator has a unique simple minimum-modulus root by positivity and its consecutive x and x² terms. After the n multiplier the logarithmic term is O(ρ^(−n)), whereas the exceptional term is Θ(nρ^(−n)); the limit is the ratio of pole numerators, 1+ρ. Independently testing all wheel subsets by distance-mask coverage with both hub choices for n=7,…,14 matched both full polynomials (python /workspace/reproductions/wheel.py). This is bounded corroboration; the proof covers all n≥7.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Klavžar–Kuziak §4 already identifies the minimum and essentially the nonlocal gap conditions.",
+          "Sooryanarayana–Suma–Chandrakala Theorem 7.11 characterizes ordinary resolving sets of wheel graphs for |S|≥3 and rim size ≥6."
+        ],
+        "reasoning": "These are structural feasibility and dimension results, not stronger enumeration theorems. Counting labelled cyclic lists with a single exceptional gap and extracting all basis residues is additional work.",
+        "searches": [
+          "arXiv:2211.10614, §4 Lemmas 4.2–4.3 and Theorem 4.1",
+          "DOI 10.22342/jims.27.1.881.103-114, Theorem 7.11"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local catalog: 2bd8596e7c59 and the identical submitted record",
+        "Klavžar–Kuziak arXiv:2211.10614 §4",
+        "Sooryanarayana–Suma–Chandrakala DOI 10.22342/jims.27.1.881.103-114 Theorem 7.11"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ordinary polynomial uses the ordinary gap restrictions; the frozen nonlocal enumerator admits an additional single four-gap.",
+          "The minimum and gap rules do not state the labelled count of these missed configurations, their effect on all five basis classes, or the dominant-pole ratio."
+        ],
+        "reasoning": "The ordinary term is recoverable from the earlier result. The additional exceptional-gap polynomial and its asymptotic require a separate enumeration from the known feasibility rules, not an ordinary closed-form parameter specialization.",
+        "searches": [
+          "Ordinary wheel enumerator 2bd8596e7c59, Finding and derivation",
+          "arXiv:2211.10614, Section 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact ordinary wheel enumerator in record 2bd8596e7c59 gives five residue formulas, but at rim size 10 its basis count is 35 versus nonlocal count 75, both at size 4.",
+          "Klavžar–Kuziak's Theorem 4.1 uses the same nonadjacent-pair condition and establishes the same minimum, not the multiplicity."
+        ],
+        "reasoning": "Ordinary resolution and nonlocal resolution are not equivalent even when dimensions agree. Expressing the prior nonlocal dimension via gap constraints does not enumerate the feasible subsets.",
+        "searches": [
+          "Resultary: nonlocal wheel all-size resolving polynomial; nonlocal basis counts; ordinary wheel enumerators; nonlocal-minus-ordinary correction and limiting ratio",
+          "arXiv:2211.10614, §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest exact nonlocal hit was the frozen finding itself. The distinct October record gives P_m(z)=(1+z)∑c_(m,k)z^k for ordinary resolution and five ordinary basis formulas at floor(2(m+1)/5)."
+        ],
+        "reasoning": "That record covers the entire ordinary side of the comparison and is credited. Its coefficients count no nonlocal-only sets. Neither the ordinary table nor the identical record establishes independent prior coverage of the nonlocal extension.",
+        "searches": [
+          "Resultary: complete nonlocal resolving polynomial, nonlocal basis multiplicities, ordinary/nonlocal exact separation",
+          "2026/10/25/SCOPE-exact-resolving-set-and-metric-basis-enumerators-of-wheel-graphs--2bd8596e7c59"
+        ]
+      },
+      "rationale": "The gap feasibility, minimum nonlocal dimension, and the complete ordinary wheel enumeration are prior coverage. The distinct mathematical content is the nonlocal all-size polynomial and five nonlocal basis formulas, the exact difference, and the limiting ordinary/nonlocal separation. No strengthened prior statement implying those enumerative claims was found in the comparisons below.",
+      "residual_risks": [
+        "An unindexed equivalent nonlocal count or stronger general cyclic enumerator may exist; searched evidence is not a priority proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial ordinary-side overlap; different counted sets",
+          "evidence": "Counts ordinary resolving sets and gives B_10=35; ordinary dimension is floor(2(m+1)/5). It does not count the length-four gap admitted only by nonlocal resolution.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-resolving-set-and-metric-basis-enumerators-of-wheel-graphs--2bd8596e7c59",
+          "material_read": "RESULT.md offsets 0–4334 (Finding), 4334–7413 (derivation), 7413–9973 (prior work and limitations)",
+          "method": "Targeted read of local Resultary mirror",
+          "title": "Exact resolving-set and metric-basis enumerators of wheel graphs",
+          "trigger": "Same wheels, all-cardinality polynomial and five basis enumerators"
+        },
+        {
+          "assessment": "Same definition, minimum and gap-structure prior art, no matching enumerator in the inspected statements",
+          "evidence": "The theorem gives floor(2n/5) for n≥7, and the lemmas bound and test cyclic gaps for nonlocal resolution.",
+          "identifier_or_url": "https://arxiv.org/html/2211.10614",
+          "material_read": "Section 4, Theorem 4.1 and Lemmas 4.2–4.3; offsets about 20686, 22029 and 25000–25666",
+          "method": "Targeted OA original HTML",
+          "title": "Nonlocal metric dimension of graphs",
+          "trigger": "Exact nonlocal dimension and cyclic feasibility on same wheel family"
+        },
+        {
+          "assessment": "Ordinary-wheel gap characterization, not nonlocal enumeration",
+          "evidence": "The theorem characterizes ordinary resolving sets for |S|≥3 and m≥6 by gap conditions.",
+          "identifier_or_url": "https://doi.org/10.22342/jims.27.1.881.103-114",
+          "material_read": "Theorem 7.11, printed p. 110, PDF p. 8, offset 19793",
+          "method": "Targeted OA publisher PDF passage",
+          "title": "Certain Varieties of Resolving Sets of A Graph",
+          "trigger": "Cited ordinary wheel gap characterization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Counting all feasible landmark sets and all minimum sets answers two distinct natural questions left by the dimension. Residue-dependent growth and a positive limiting fraction of sets that fail ordinary resolution quantify the difference between standard graph-distance requirements. These conclusions go beyond minimum cardinalities and concern every labelled wheel in scope.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

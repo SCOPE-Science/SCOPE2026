@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:41:37.875558Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:5–50",
+        "VERIFICATION.md:19–25; direct_checker.cpp:8–45; check_formula.py:14–35",
+        "Independent replay: python3 -B /workspace/replays/frozen_math.py 4"
+      ],
+      "rationale": "The endpoints of the single deleted edge are the only pair at distance three; same-shore pairs have a common neighbor and every other cross-shore pair is adjacent. Thus the only forbidden triples consist of one star edge from each missing-edge endpoint and their unique joining interior edge. For star index sets A,B all ab edges in B times A are unavailable and the other rs-ab are freely selectable. A facet must fill every permitted interior position. If both stars contribute, a missing star edge would then close a triple with any selected edge on the opposite star, proving sufficiency; if exactly one star contributes, it must be complete, giving the two exceptional facets; both empty cannot be maximal. For a,b>=1, a+b-ab=1-(a-1)(b-1)<=1, attained if either index count is one. The exceptional sizes rs+r and rs+s therefore determine the maximum and its one/two-fold multiplicity, and comparison to mn gives the claimed loss. When r=s=k>=3 the two attained sizes k^2+1 and k^2+k flank the claimed gap.",
+      "residual_risks": [
+        "The replay independently derives geodesics by BFS and exhausts all subsets and one-edge extensions in six small instances up to (5,5), reproducing 3839105 eligible sets and 227 facets there. It does not replace the proof for arbitrary shore sizes. The frozen C++ reproducer uses a GNU header and builtin (works under the specified g++ rather than being strictly portable ISO-only C++17)."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected primary statements treat scalar numbers for other graphs or characterizations of specified scalar extremal values. The crown-graph result explicitly does not handle general partial-matching deletions."
+        ],
+        "reasoning": "Neither a scalar result nor deletion of an entire perfect matching gives the enumeration after exactly one edge deletion. In particular, crown geodesics arise from several endpoint pairs, not the single grid of forbidden triples used here.",
+        "searches": [
+          "arXiv:2105.04292v1, abstract/introduction",
+          "arXiv:2302.01587v1, abstract/introduction",
+          "arXiv:2207.07357v1, pp. 1–2",
+          "Resultary 964bdcf6d755, offsets 0 and 3283"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2105.04292v1, 2302.01587v1 and 2207.07357v1",
+        "Resultary 964bdcf6d755, 179ef9fc8450, 514b0845051e, 512cb5d09c08, aa7a43c111f0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The crown result is floor(n^2/2) for a full matching deletion, via a different transitive-triangle avoidance formulation. The edge-open packing comparison has different forbidden configurations."
+        ],
+        "reasoning": "None of these comparators classifies the admissible sets and facets for the single-hole geodesic hypergraph. A maximum number alone cannot imply the facet polynomial, gap, or number of maximizers.",
+        "searches": [
+          "Crown result 964bdcf6d755, statement and limitation",
+          "Matching-deleted edge-open packing 179ef9fc8450, Finding",
+          "arXiv:2302.01587v1, inspected scalar theorems summary"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The standard edge-general-position condition appears at k=3 in the generalization. Crown-graph 964bdcf6d755 shares the invariant but deletes a full perfect matching. The matching-deleted 179ef9fc8450 uses edge-open packing; 514b0845051e uses transportation polytope facets."
+        ],
+        "reasoning": "The k=3 alias does not change the forbidden triple test, but edge-open packing constrains pairs, and supporting hyperplanes of a transportation polytope are not inclusion-maximal eligible edge sets. The crown graph has more than one missing cross-shore pair in the theorem's range.",
+        "searches": [
+          "Resultary af943c518354, 964bdcf6d755, 179ef9fc8450, 514b0845051e; compared Findings",
+          "Manuel–Prabha–Klavžar arXiv:2207.07357v1, edge k-general position definition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit af943c518354 is the assigned record itself. The two distinct same-day exact face/facet enumerators treat open ladders and the Heawood graph."
+        ],
+        "reasoning": "Those two graph families do not give a coefficient table for this deleted biclique family; date alone is not used to decide mathematical coverage or priority.",
+        "searches": [
+          "Local Resultary af943c518354, 512cb5d09c08, aa7a43c111f0; checked exact Findings"
+        ]
+      },
+      "rationale": "The distinct claim is the exact all-set and inclusion-maximal polynomials for exactly one deletion, not the general edge-position definition, a scalar optimum after a perfect matching deletion, or facet counts in unrelated complexes. Inspected statement-level comparisons support that distinction.",
+      "residual_risks": [
+        "A bounded web lookup returned an unrelated result; no inference is drawn from that. An equivalent independence-polynomial calculation for a broader forbidden-triple family or an unindexed graph-specific treatment remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Definition and scalar examples, not the claimed enumerators in the passage read",
+          "evidence": [
+            "Results include hypercubes, trees and grids."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2105.04292v1",
+          "material_read": "p. 1, offset 1717",
+          "method": "OA primary text",
+          "title": "Edge general position problem",
+          "trigger": "Original graph condition"
+        },
+        {
+          "assessment": "Inspected assertions are scalar or other graph classes",
+          "evidence": [
+            "Characterizations for edge-general-position number |E|-1 or 3; bounds and values for block graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2302.01587v1",
+          "material_read": "p. 1, offset 1600",
+          "method": "OA primary text",
+          "title": "Extremal Edge General Position Sets in Some Graphs",
+          "trigger": "Could give a broader extremal theorem"
+        },
+        {
+          "assessment": "Definition subsumes the constraint; inspected scope does not state the two polynomials",
+          "evidence": [
+            "Studies extremal numbers in network families; a keyword miss is not treated as a whole-document conclusion."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2207.07357v1",
+          "material_read": "pp. 1–2, offsets 1655 and 4351",
+          "method": "OA primary text",
+          "title": "Generalization of edge general position problem",
+          "trigger": "Parameterized generalization and potential alias"
+        },
+        {
+          "assessment": "Scalar result for deletion of a full perfect matching",
+          "evidence": [
+            "Explicit limitation excludes arbitrary partial-matching deletion; the transitive-triangle reformulation does not yield the frozen facet census."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-edge-general-position-number-of-crown-graphs--964bdcf6d755",
+          "material_read": "RESULT.md, offsets 0 and 3283",
+          "method": "Local mirror",
+          "title": "Edge general position number of crown graphs",
+          "trigger": "Closest same invariant and related deletion pattern"
+        },
+        {
+          "assessment": "Different invariant in the first two; different graphs in the latter two",
+          "evidence": [
+            "Edge-open packings, Lipschitz-free transportation facets, open ladders, and Heawood graph, respectively."
+          ],
+          "identifier_or_url": "Resultary 179ef9fc8450, 514b0845051e, 512cb5d09c08, aa7a43c111f0",
+          "material_read": "Each RESULT.md Finding at offset 0",
+          "method": "Local mirror",
+          "title": "Matching-deletion and other edge-general-position enumerator comparisons",
+          "trigger": "Closest exact polynomial and facet hits by graph or invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:12–18,26–50",
+        "Crown-graph and edge-open-packing comparisons"
+      ],
+      "rationale": "A single deletion creates the first geodesic constraints in a previously unconstrained graph. The full facet classification quantifies the disruption: many inclusion-maximal sets, a precise optimum drop, and a growing gap just below the maximum in the balanced case. This is a natural exact invariant and a sharp baseline for further matching deletions, not merely a scalar calculation on a small graph.",
+      "residual_risks": [
+        "The result is specific to a single missing edge and does not classify further deletions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

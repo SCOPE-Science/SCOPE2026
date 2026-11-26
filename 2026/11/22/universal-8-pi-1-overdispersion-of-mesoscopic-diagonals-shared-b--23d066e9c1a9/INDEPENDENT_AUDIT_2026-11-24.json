@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:24:57.602628Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–4; VERIFICATION.md and check.py inspected, not executed.",
+        "Independent replay: python3 /workspace/branches/6b2ae267-5843-466c-be9b-1fb52e3ddcc1/independent_enum.py."
+      ],
+      "rationale": "Let r count strictly intermediate vertices on the shorter arc, as in the Finding. The one-diagonal cut gives p=C_r C_{n-r-2}/C_{n-2}, with n choices of the short arc for the band under review. For fixed arcs of indices r,s, a disjoint pair may meet at an endpoint: the second start runs from r+1 to n−s−1 inclusive, giving n−r−s−1 placements per first arc. A nested pair with d=r−s has d+1 placements and the three cell factors are C_s,C_d,C_{n-r-2}; crossing pairs have joint probability zero. Squaring the single-triangulation probabilities and doubling the ordered nested contribution gives the exact first and factorial second moment. Uniform Stirling asymptotics show n p² is the Riemann-sum weight for dx/(π x³) and disjoint pairs converge to the product of first moments. For nested pairs, C_{r−d}/C_r→4^{-d} at fixed d, uniformly in a fixed positive rescaled band, and is bounded by a constant times 4^{-d} whenever both indices are in the band. Thus (d+1)C_d²/16^d=O(d^{-2}) gives summable domination. The beta integral gives 1+K=4/π for this sum including d=0, so after subtracting the product of means, the diagonal and nested terms give 1+2K=8/π−1. The same argument applies to the two orderings of f and g: for fixed d the index difference vanishes on the rescaled axis and the weights tend to f(x)g(x); fixed-width endpoint regions of an interval have vanishing total weight. Independent enumeration of noncrossing diagonal sets and of ordered pairs of triangulations confirmed the cut counts and exact rational moments for n=5 through 9, including all 14 admissible bands.",
+      "residual_risks": [
+        "Finite enumeration tests the taxonomy and coefficients, not the limits. The result concerns first and second moments and does not establish a point-process limit or rule one in or out without further moment/tightness work."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The tanglegram generating function marks common diagonals by total number and specializes to disjointness by cancellation. Black et al. study disjoint pairs. Noy treats the longest diagonal in a single triangulation, on a different scale."
+        ],
+        "reasoning": "Neither the generating function for a statistic aggregated over all lengths nor a result conditioned on disjointness determines the band mean and covariance. Extremal lengths of single triangulations are not broader joint coverage of two independent samples.",
+        "searches": [
+          "Ralaivaosaona–Ravelomanana–Wagner, Counting Planar Tanglegrams §2.2",
+          "Black et al., arXiv:2304.05318",
+          "M. Noy INRIA survey §1.3"
+        ]
+      },
+      "checked_sources": [
+        "Counting Planar Tanglegrams, DOI 10.4230/LIPIcs.AofA.2018.32; arXiv:2304.05318; Noy's survey; Resultary SCOPE-430feb7408bd and summary of SCOPE-71dd1d6f5725"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Catalan cutting permits exact compatibility probabilities; the unweighted generating function does not preserve r,s. The frozen proof resolves the offset d=r−s and yields the summable kernel (d+1)C_d²/16^d after mesoscopic scaling."
+        ],
+        "reasoning": "A mean or moment of an aggregate count does not invert to lengths, and mere positivity does not determine the variance. The nested offset analysis, its summable domination and evaluation explain a nontrivial constant not directly implied by those statements.",
+        "searches": [
+          "Counting Planar Tanglegrams §2.2 and Resultary compatible-family correlation SCOPE-430feb7408bd Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Counting Planar Tanglegrams uses the same marked population of common diagonals in independent triangulations but only its total count. SCOPE-430feb7408bd treats signs of conditional covariances and association of compatible diagonal indicators in a single triangulation."
+        ],
+        "reasoning": "Squaring a single-tree joint probability is valid by independence, not an identification of the two statistics. A sign theorem for single-tree indicators is not a length-summed squared joint probability or a covariance limit. The planar-tanglegram encoding is relevant, but its checked mark loses length.",
+        "searches": [
+          "Resultary: nested mesoscopic shared diagonals, length-band variance in two uniform triangulations; SCOPE-430feb7408bd",
+          "Counting Planar Tanglegrams, DOI 10.4230/LIPIcs.AofA.2018.32 §2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identified exact counts use total unweighted common diagonals or no common diagonals. The accessible same-day catalogue summary concerns diagonal-presence distribution recovery, not the band covariance; the original matching local file was unavailable."
+        ],
+        "reasoning": "There is no standalone finite gap table to compare; the nearest exact count source does not supply the length-marked covariance kernel. The same-day source is not assumed excluded on the basis of a summary alone.",
+        "searches": [
+          "Resultary length-band and triangulation pair comparisons SCOPE-430feb7408bd and same-day SCOPE-71dd1d6f5725",
+          "Counting Planar Tanglegrams §2.2 common-diagonal enumeration"
+        ]
+      },
+      "rationale": "The Catalan cut identities and generating functions for the unmarked total are established antecedents. The reviewed contribution is the mesoscopic length-resolved covariance for two independent triangulations, with the specific universal factor from near-nested compatible pairs. None of the strongest inspected statements identifies that moment or its scale.",
+      "residual_risks": [
+        "A stronger marked-length result in unexamined literature is possible. The same-day catalogue hit was not available for exact original-text comparison. No claim of historical uniqueness follows."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closest published overlap; not length-resolved.",
+          "evidence": "Bivariate generating function marks the total, with evaluation at −1 to extract pairs without any common diagonal.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.AofA.2018.32",
+          "material_read": "§2.2, PDF pp. 7–8, OA offset 21160",
+          "method": "OA primary passages",
+          "title": "Counting Planar Tanglegrams",
+          "trigger": "Same independent triangulation pair framework and exact common-diagonal marks"
+        },
+        {
+          "assessment": "Different conditional setting in accessible statement.",
+          "evidence": "Sampling and flip graphs for triangulation pairs sharing no diagonals.",
+          "identifier_or_url": "https://arxiv.org/abs/2304.05318",
+          "material_read": "Abstract, PDF p. 1",
+          "method": "OA primary paper introduction passage",
+          "title": "Sampling Planar Tanglegrams and Pairs of Disjoint Triangulations",
+          "trigger": "Potential common-diagonal sequel using the same tableaux"
+        },
+        {
+          "assessment": "One-triangulation association antecedent, not mesoscopic covariance.",
+          "evidence": "Conditional correlation signs and a compatible-family inequality for indicators in one uniform triangulation.",
+          "identifier_or_url": "Resultary 2026/10/26 SCOPE-430feb7408bd",
+          "material_read": "Local Finding at offset 0",
+          "method": "Resultary search and local original passage",
+          "title": "Conditional correlation signs and compatible-family association in uniform polygon triangulations",
+          "trigger": "Known shape of compatible correlations among diagonal indicators"
+        },
+        {
+          "assessment": "Different observable and scale.",
+          "evidence": "Longest diagonal in one triangulation, with mean asymptotic to about 0.4654n.",
+          "identifier_or_url": "https://algo.inria.fr/seminars/sem99-00/noy1.html",
+          "material_read": "§1.3, offset about 2740",
+          "method": "OA public-page passage",
+          "title": "Enumeration of Geometric Configurations on a Convex Polygon",
+          "trigger": "Earlier probabilistic statements for diagonal lengths"
+        },
+        {
+          "assessment": "Accessible description concerns recovery, not this covariance; exact comparison cannot go beyond the summary.",
+          "evidence": "Diagonal-presence observations in triangulations and distribution recovery limits.",
+          "identifier_or_url": "Resultary 2026/11/22 SCOPE-71dd1d6f5725",
+          "material_read": "Catalogue summary only; local original unavailable",
+          "method": "Resultary search and lawful local mirror attempt",
+          "title": "An unbounded diagonal Fourier tomography barrier",
+          "trigger": "Same-day related polygon-diagonal statistic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof §§3–4",
+        "Prior total-count framework in Counting Planar Tanglegrams"
+      ],
+      "rationale": "At the natural length scale where shared diagonals have order-one expected count, rare occurrence alone does not predict the variance. The result pinpoints the extra near-nested contribution, gives a band-independent variance-to-mean ratio greater than one, and gives a covariance functional that applies to separated or overlapping length windows. That is useful quantitative information for the natural common-diagonal statistic, not a finite enumeration or routine feasibility check.",
+      "residual_risks": [
+        "Contribution is to length-resolved first and second moments, not a characterization of a limiting law."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

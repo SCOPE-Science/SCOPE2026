@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The orthogonal harmonic Fourier basis gives an exact moment-ratio formula for each lost-energy eigenvalue. Strict log-convexity with decreasing moment curvature gives trace-class summability, tail domination, and the exact worst-case inverse weight. Uniform-on-compact gamma-ratio limits combined with these tails justify the full Lipschitz test-function trace law. The explicit interior/exterior threshold geometry gives the sharp counting function; Tonelli then gives the beta trace coefficient. The unweighted finite-degree formula follows from exact sums. The bundled standard-library checker passed 36,002 supplementary finite assertions when executed from the package. Numerical tests do not establish infinite-dimensional claims.
+## correctness
 
-## Originality — PASS (provisional historical priority)
-The 2013 Dong–Zhou paper already gives quasihomogeneous harmonic Bergman Toeplitz mode-action formulas and product theorems; the mode action is expressly credited, not new. The 2020 Hagger–Liu–Taskinen–Virtanen paper establishes weighted harmonic Bergman projection/operator bounds; its relevant main results address boundedness and compactness rather than growing-winding spectral distributions. Comparisons with neighboring fixed-winding commutators, harmonic power-Fock cutoff asymptotics, and analytic Bergman high-degree Hankel operators reveal different objects, scaling variables, or invariants. The new implication is an explicit high-winding normalized counting function for the positive harmonic approximation defect, a functional-calculus trace limit, a sharp beta coefficient, and the inversion amplification. Bibliographic searches did not identify prior coverage. A 2014 quasihomogeneous harmonic paper was not available for full-text inspection and remains a priority risk; an unrecognized general asymptotic theorem could also dominate the result.
+PASS
 
-## Mathematical value — PASS
-The loss of harmonicity under a unimodular angular multiplier is a natural projection-approximation question. The theorem quantifies the number of badly approximated harmonics at every fixed energy-loss threshold, not simply one selected norm, and identifies the growing cumulative penalty in closed form for every power weight. Exact inverse norms distinguish pointwise invertibility from high-winding ill-conditioning. The nontrivial two-sided harmonic frequency distribution and beta coefficient provide usable reference benchmarks for harmonic projections.
+Beta integration and angular orthogonality give the bilateral k-shift weight m_{(a+b)/2}/sqrt(m_a m_b), a=|n|, b=|n+k|. Strict convexity of h=log m gives a single zero mode for even k and none for odd k. The integral for h'' is positive, strictly decreasing and bounded by max(1,p)/(1+s)^2, so the exterior midpoint gap is O_p(k^2/(1+n)^2) and decreases as n increases. Inside, convexity of h(j)+h(k-j) puts the largest gap at an endpoint; the weights tend to one in the tails. This proves trace class, norm one and the exact inverse norm, whose constant follows from m_s~Gamma(p+1)s^{-p}. Uniform gamma-ratio asymptotics away from the finitely many scaled endpoints give the interior profile and two matching exterior profiles; trim endpoint intervals and use the O(1/R) normalized defect-tail bound for Lipschitz tests. For a fixed positive threshold the pointwise tail bound rules out all modes beyond sufficiently large R, and the limit profiles have measure-zero threshold boundaries. With u=(1-tau)^{1/p}, the interior length is 1-sqrt(1-u), and both exteriors together have length 1/sqrt(1-u)-1. Their sum yields the claimed count; integrating in tau gives p B(p+1,1/2). The p=1 square sums yield exactly both terms in the finite trace formula, also for k=1,2. Independent bounded replay: python3 /workspace/branches/review_checks.py 5; uses exact rational rising-product weights for p=1,2,3, k=101,907 and three thresholds, also checking the p=1 interior sum. The frozen checker was inspected, not executed.
 
-## Closest literature and limitations
-Dong and Zhou, *Studia Math.* 219 (2013), 163–175, doi:10.4064/sm219-2-6 (full text inspected). Hagger, Liu, Taskinen, Virtanen, arXiv:2011.04699, 2020 (full text inspected). Dong, Liu, Zhou (2014), related quasihomogeneous paper (abstract inspected only). All conclusions are for the unit disk, fixed power weight, and integer positive winding; no finite-sample or higher-dimensional extension is implied. Historical priority has not been independently established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The fixed-winding quasihomogeneous shift mechanism is known. The distinct supported contribution is the high-winding spectral counting and Lipschitz trace law for angular-character compression on the weighted harmonic disk, with its explicit coefficient and endpoint inverse amplification. The closest inspected catalog and primary sources do not cover that contribution by equivalence or a demonstrated stronger theorem; this is not a priority certificate.
+
+## value
+
+PASS
+
+The natural positive defect measures energy outside the harmonic subspace. Its full normalized spectral law distinguishes the finite sign-crossing band from the two infinite tails and quantifies how many modes incur serious loss despite bounded invertibility at any fixed winding. The closed coefficient and inverse norm turn those complementary phenomena into usable quantitative invariants; neither follows from fixed-symbol boundedness alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

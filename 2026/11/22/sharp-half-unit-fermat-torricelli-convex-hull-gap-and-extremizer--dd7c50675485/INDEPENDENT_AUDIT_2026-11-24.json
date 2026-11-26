@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:03:52.709503Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–65",
+        "Frozen VERIFICATION.md line 19 and checks/median_hull_exact.py lines 14–49, inspected not executed. Enumerating intersections of sign lines and triangle edges is exact per sampled input; 4510 is the stated diagnostic count (1500·3+5·2), not a fresh run."
+      ],
+      "rationale": "For three equally weighted real ℓ1 sites the separable objective is minimized uniquely by each coordinate's middle value, including ties. Let a be the sum of coordinatewise minima of the two absolute values. Same-sign coordinates contribute that minimum to ‖m‖1, while opposite-sign coordinates contribute zero. In either sign pattern |m_i−(x_i+y_i)/2|=||x_i|−|y_i||/2, so the distance to the midpoint is 1−a and the distance to the origin is at most a. This proves the upper bound without orthogonality. Equality requires a=‖m‖1=1/2, excludes nonzero opposite-sign overlap, and makes the origin a nearest point in the hull. The one-sided derivative of the distance along tx at 0 is 1−2 times the mass of x on the support of m, where this expression means 1−2·∑_{i:m_i≠0}|x_i|. Its nonnegativity, and the analogous fact for y, force both masses to equal the overlap mass 1/2. Equality of each sum with the sum of pointwise minima forces x=y wherever both are nonzero. The remaining supports are disjoint, yielding the three half-mass pieces. Conversely the distance to every hull point is exactly 1/2 by disjoint-support additivity. On the common and x-only supports a norm-one dual functional with the coordinate signs, and with opposite signs on the y-only support, attains 1 at x and vanishes at y, certifying x⊥_B y. Swapping the exclusive pieces proves the converse orthogonality. The explicit 3-coordinate example attains the bound, and in dimension three the three nonzero disjoint pieces must occupy one coordinate each, giving exactly the stated signed-permutation class.",
+      "residual_risks": [
+        "The rational diagnostic is not exhaustive over real pairs; the result is supported by the exact proof. No extension to complex spaces, dimensions below three for sharpness, unequal norms, or near-equality is certified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fang–Qi–Liu p. 1 reports a qualitative inner-product characterization, also citing the qualitative antecedent of Benítez–Fernández–Soriano.",
+          "Dragomir–Comănescu–Kikianty p. 1 abstract treats the taxicab case; frozen line 71 cites Theorem 6.3 for the coordinatewise median.",
+          "Martini–Swanepoel–Weiss introduction emphasizes the plane; Paul et al. abstract describes general optimization duality."
+        ],
+        "reasoning": "A characterization of inner-product norms, an exact median location formula, planar hull containment or a general optimization framework does not by its stated scope optimize this unit-normalized distance in ℓ1^d for d≥3 and identify equality.",
+        "searches": [
+          "arXiv:2611.09226v1",
+          "DOI 10.1186/1029-242X-2013-258",
+          "arXiv:0707.2592v2",
+          "arXiv:2501.10718v1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 70–80",
+        "Primary search and local Resultary query above",
+        "Accessible primary excerpts as listed"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The coordinate median formula is a known input. The proof adds the uniform endpoint-distance comparison and forces sign agreement and half-masses by equality and one-sided derivatives."
+        ],
+        "reasoning": "A characterization that yields a nonzero gap cannot furnish the upper bound or rigidity. Even if a prior standard triangle translates and scales to this witness, the all-pair upper bound and equality analysis do not follow from that witness.",
+        "searches": [
+          "Fang–Qi–Liu arXiv:2611.09226v1 and cited 2013 taxicab median result; compare frozen proof lines 31–65"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned the identical dd7c50675485 record first; the nearby non-self result concerned planar ℓ_{1/2} projection, not this convex-hull distance.",
+          "Fang–Qi–Liu arXiv:2611.09226v1 p. 1 abstract, extracted lines 28–33: the convex-hull characterization remains valid on one-sided Birkhoff–James test triples."
+        ],
+        "reasoning": "Testing whether the median meets the hull detects a failure qualitatively; it does not measure the largest failure under unit normalization. Allow for equivalent 3D examples written as a translated and rescaled triple, but one example would only give a lower bound, not all extremizers.",
+        "searches": [
+          "Resultary: real l1 Fermat-Torricelli median convex hull distance sharp 1/2 equality disjoint supports Birkhoff-James",
+          "Primary websearch: Fermat–Torricelli median convex hull Birkhoff–James l1 distance extremizer"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Only the identical record was returned as a close exact local match; the nearest primary result located was qualitative at the accessible Fang et al. passage."
+        ],
+        "reasoning": "There is no discrete rank/count table in this continuum problem. The relevant exact analogue is a sharp-constant or equality result at this normalization; no compared statement provides it.",
+        "searches": [
+          "Resultary query above for an exact ℓ1 distance and equality classification; primary query above"
+        ]
+      },
+      "rationale": "Credit the taxicab median and qualitative convex-hull characterization. The distinct claim supported here is the quantitative sharp half-unit distance together with the complete all-dimensional disjoint-support equality characterization and its implication for mutual orthogonality. The available statements do not establish those features, and an earlier equivalent witness alone would not cover them.",
+      "residual_risks": [
+        "Searches and accessible statements are not proof of priority. Later pages of the closest works were not retrieved on the scoped passage attempts; an unindexed equivalent upper bound, equality statement, or witness remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Available statement is qualitative. Earlier matching examples or quantitative details elsewhere could not be ruled out.",
+          "evidence": [
+            "The hull criterion remains valid restricted to triples satisfying one-sided Birkhoff–James orthogonality.",
+            "The cited antecedent characterizes inner-product norms using the convex-hull property for every triple."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.09226",
+          "material_read": "PDF p. 1 abstract (extracted lines 28–33) and introduction (lines 51–54); later theorem text not recovered on lawful passage attempts",
+          "method": "Primary search and OA/exact-source retrieval",
+          "title": "A Fermat–Torricelli convex-hull characterization of inner-product spaces via Birkhoff–James orthogonality",
+          "trigger": "Same convex-hull/orthogonality testing setup"
+        },
+        {
+          "assessment": "Credit the median formula, not an independently read sharp-gap theorem.",
+          "evidence": [
+            "The abstract covers a taxicab example; the record identifies Theorem 6.3 as the source of the known coordinatewise median rule."
+          ],
+          "identifier_or_url": "https://doi.org/10.1186/1029-242X-2013-258",
+          "material_read": "PDF p. 1 abstract (extracted lines 17–31); later Theorem 6.3 as described in frozen line 71, passage not recovered",
+          "method": "OA/exact-source retrieval attempt and frozen citation",
+          "title": "Torricellian points in normed linear spaces",
+          "trigger": "Taxicab median geometry"
+        },
+        {
+          "assessment": "Available material describes a different setting; full later results not inspected.",
+          "evidence": [
+            "The introduction centers on Fermat–Torricelli loci in normed planes and spaces; the reported odd-site containment concerns normed planes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0707.2592",
+          "material_read": "PDF p. 1 introduction (extracted lines 31–48) and planar containment as reported in frozen line 71",
+          "method": "Exact-source PDF excerpt and frozen comparison",
+          "title": "The Fermat–Torricelli problem in normed planes and spaces",
+          "trigger": "Fermat–Torricelli convex-hull location"
+        },
+        {
+          "assessment": "No matching sharp constant in the accessible statement.",
+          "evidence": [
+            "The abstract addresses Fermat–Torricelli/Chebyshev duality and three- and four-point problems."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2501.10718",
+          "material_read": "PDF p. 1 abstract (extracted lines 11–21)",
+          "method": "Exact-source PDF excerpt",
+          "title": "A unified approach to a family of optimization problems in Banach spaces",
+          "trigger": "Birkhoff–James and three-site optimization duality"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–21 and 49–65",
+        "Fang–Qi–Liu p. 1 qualitative criterion"
+      ],
+      "rationale": "The endpoint estimate is elementary, but the result quantifies a canonical failure of the convex-hull criterion and determines every sharp configuration across dimensions. It also shows that adding the one-sided orthogonality hypothesis does not lower the optimum, for the substantive reason that every unrestricted extremizer is already mutually orthogonal, and singles out the unique dimension-three configuration up to the listed symmetries.",
+      "residual_risks": [
+        "This is a sharp normalized model result, not a characterization or stability estimate for general normed spaces."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

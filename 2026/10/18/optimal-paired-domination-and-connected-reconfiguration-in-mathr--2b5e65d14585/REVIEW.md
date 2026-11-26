@@ -1,13 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The transversal lemma equates total domination in the two-subset Kneser graph with absence of a two-element ground-edge cover. Four-edge supports containing a triangle are ruled out by the cover obstruction or failure of an induced perfect matching; the triangle-free case is bipartite and König's theorem forces three disjoint edges. This is sufficient, and three disjoint edges together with a fourth produce all three explicitly counted edge shapes. The reconfiguration proof gives explicit one-swap bridges for matching replacements and flips, and these transformations connect every three-edge matching. Two independent implementations confirm finite instances, without being treated as proofs for arbitrary order.
+## correctness
 
-**Originality: PASS, with priority risk.** Accessible primary treatments of Kneser domination [1,2] provide ordinary and total domination results, but no statement asserting this complete minimum paired-dominating-set census, its three support shapes, induced pairing multiplicities, or connected token-jumping reconfiguration graph. The known classification of minimal total dominating sets, which includes disjoint triples, is close foundational material but does not itself supply these new optimum and mobility claims. Record and literature searches found no direct covering result; equivalent unindexed work remains a risk.
+PASS
 
-**Value: PASS.** A paired dominating set imposes a matching constraint absent from ordinary and total domination. This theorem simultaneously classifies all optimal feasible placements, supplies exact counts with three distinct overlap types, measures the multiplicity of compatible pairings, and proves that all optima can be reached from each other by one-location changes without sacrificing feasibility. Such a structural solution-space theorem is not determined by a scalar domination number.
+The four-edge starting characterization was independently reconstructed: paired domination implies total domination and hence ground vertex-cover number at least three. A triangle whose fourth edge meets it gives a two-cover; a disjoint fourth edge gives a claw in the disjointness graph, which has no perfect matching. Four edges and no triangle imply bipartiteness, and König's theorem gives a matching of size three. Conversely such a triple dominates all vertices, and the fourth edge can be paired to one of the triple; two selected vertices never suffice and four do. The original census and matching multiplicities are correct, but are not claimed as the contribution of the repair. In the repair the cliques of states containing each matching triple cover the whole exchange graph. A change of one ground matching edge gives a common four-edge state; a two-edge flip ab,cd -> ac,bd with fixed ef links the cliques by exchanging cd for bd in states sharing ab,ac,ef. One-edge replacements align the six-label supports, and flips then insert desired pairs without undoing ones already installed. This also handles n=6, where no support changes are needed. Moves within each clique join the links and connect the given endpoints without leaving the optimum set space.
 
-**Limitations.** The family begins at \(n=6\); it does not characterize the Petersen-graph boundary. The counts distinguish labeled sets but not chosen pairing edges. Priority checking cannot establish absolute absence of unindexed results, and external validation remains open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
 
-**Primary literature.** [1] Cornet–Torres, arXiv:2308.15603 (2023), sections on minimum Kneser domination. [2] Brešar–Cornet–Dravec–Henning, arXiv:2312.15464 (2023), Theorems 4–5 on domination and total domination. Full citations appear in `RESULT.md`.
+The original package's static minimum, full classification and exact census have demonstrable equivalent indexed coverage and do not pass originality as contributions. Both affected claim files now isolate the surviving all-n connectivity theorem. No examined statement gives that theorem for these feasible sets and moves. The conclusion distinguishes coverage from priority, which the catalogue dates do not settle.
+
+## value
+
+PASS
+
+The repair answers a natural mobility question not determined by knowing or counting the optima: whether a single replacement can update solutions without ever losing feasibility or optimality. It gives an explicit lift from ground-matching operations to legal moves on four-edge states and includes the tight n=6 obstruction to moving supports. The proof works uniformly, rather than checking a finite sample or restating the covered census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

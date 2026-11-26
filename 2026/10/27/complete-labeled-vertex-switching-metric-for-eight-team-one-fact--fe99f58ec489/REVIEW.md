@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The state space is the precisely defined set of unordered perfect-matching partitions of fixed-label \(K_8\); switch components are the proper connected components of the six-by-six two-regular incidence graph. An exact-cover generator enumerates each of the 6,240 states once. An independently written color-assignment generator obtains the same 6,240. Both construct all legal switches and identical 66,360-edge counts and degree and distance distributions. One checker checks reversibility, computes all six orbits by the full vertex permutation group, and runs BFS from every orbit representative, therefore proving *global* radius and diameter rather than extrapolating from samples. The second checker computes the same eccentricity and distance distributions through different state indexing. See the attached code and output; the finite proof makes no assertion beyond eight vertices.
+## correctness
 
-**Originality (O): PASS, with residual risk.** The 2014 Kaski–de Souza Medeiros–Östergård–Wanless paper defines this vertex-switch and determines the **six-vertex isomorphism-class quotient** at order eight, and must receive credit. Its quotient connectivity and quotient distances cannot imply connectivity, degree profile or diameter of the 6,240-vertex fixed-label graph. The accessible earlier factor-switch statement of these 6,240 labeled states concerns a stricter move and leaves 960 isolated configurations, so it cannot imply connectivity here. Searches of mathematical records for the labeled vertex-switch graph, plus comparisons with source text, gave no exact covering statement; this is evidence of a gap, not a proof of priority. Equivalent independently tabulated labeled data could be unindexed or inaccessible.
+PASS
 
-**Mathematical value (V): PASS.** Switching of one-factorizations is a natural transformation used to study enumerations and moves between tournament/round-robin schedules. Restoring distinct team labels turns the published six-state quotient into a nontrivial reachability question; the quotient cannot determine whether all fixed-label schedules interconvert. The finding proves full connectivity with a sharp six-switch maximum and a degree/eccentricity stratification. In particular, 960 states rigid under factor switching acquire 14 available vertex moves, a mathematically motivated mobility distinction not an arbitrary refinement.
+For anchors a,b, each other vertex is incident to two distinct factor nodes, and each non-anchor factor has one a-edge and one b-edge. Contracting factors gives the cycle components of z -> the partner of b in the factor containing az. Swapping a and b on one such cycle leaves one edge at both anchors in each affected factor and leaves all other vertices properly matched. It is an involution and preserves the cycle partition, so the excluded connected case cannot become an allowed reverse move. Full state canonicalization must retain vertex labels and erase only factor labels. My exact independent replay fixed the round order by the partner of vertex 0, used pairing recursion in each round, generated switches by permutation cycles, deduplicated targets, and obtained 6,240 states, 66,360 edges and the stated degree and cycle-signature counts. A separate alternating-cycle test identified exactly the 960 degree-14 states as perfect. Adjacent transpositions generate all of S_8, act by graph automorphisms and gave the same six orbit sizes; sparse unweighted shortest paths from each representative visited all states and reproduced all six distance vectors. Weighting representatives by orbit sizes gives eccentricity 5 for 5,790 states and 6 for 450, hence radius 5 and diameter 6 (private replay /workspace/branches/replay/switch.py and switch.txt). The matching checker was inspected; the coloring checker's VERIFY_OK does not by itself assert the printed profiles, but the matching computation and independent replay verify the full table.
 
-The conclusion is about a labeled reconfiguration graph, not the six-class quotient; the supporting finite certificate does not generalize to larger complete graphs. The closest original article's definitions, table and metric section were inspected. Publication priority remains uncertain for unindexed exhaustive-data tables.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Supported for the exact fixed-label single-component switch graph, with the historical move, class census and quotient data credited separately. The 960/14 comparison is between perfect states' lack of factor moves and their nonzero fixed-label vertex-switch degrees, not a new definition or a quotient claim.
+
+## value
+
+PASS
+
+K8 is the small complete-graph case singled out by the established switch literature with a perfect class separated under factor switches. Fixing labels answers the different scheduling/reconfiguration question of how many actual moves are needed without renaming teams. The result proves all concrete schedules communicate within six moves, exactly quantifies access out of every otherwise factor-switch-frozen state, and identifies which labeled orbits attain the worst case. The six-class quotient does not determine this behavior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

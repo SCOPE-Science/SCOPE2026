@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:21:29.507519Z",
+  "axes": {
+    "correctness": {
+      "rationale": "RESULT.md lines 36–67 give the correct analytic coefficient. The KKT multipliers on an active contiguous block are weighted prefix residual sums, positive for data strictly decreasing inside the block; separate block means yield strictly slack interblock constraints, so any contiguous averaging partition occurs locally on an open cell. A step across edge i yields either the unchanged step (different blocks) or a single fractional block average (same block), with mass fraction (Q_q-Q_i)/(Q_q-Q_p) on block [p+1,q]. Weighted variation of this response is exactly the chord ordinate at Q_i, including boundary pooling when a nonexistent edge has weight zero. Steps span the quotient by constants isometrically as a weighted l1 basis. Thus the maximum piece norm is the chord/weight maximum, and each chord is witnessed in a strict cell. Continuity and segment subdivision (or approximation by generic segments) globalize. The maximum chord ordinate is the upper convex hull of the plotted points, for which fixed-abscissa extrema have at most two endpoints; adjacent nonincreasing slopes are equivalent to equality with the majorant. At n=4, a_i=1 and w=(1,epsilon,1), the middle majorant ordinate is 1, so the coefficient diverges as epsilon tends to zero. Independent replay `python3 -I /workspace/review-work/replay.py 3` constructed hulls by a monotone stack and used max-min interval formulas, not the supplied PAVA checker, confirming 160 exact attaining pairs and 2,400 exact pair inequalities. Frozen verification code inspected, not executed; finite replay is not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen paper identifies Yang–Barber's NUNA as the unit-mass contraction baseline. Positive rational observation masses can be represented by replication under unit mass; fitting a repeated input is constant on each duplicate group because averaging any such group preserves order and improves squared loss. A concave weight interpolation on the replicated chain proves the mass-concave contraction statement, extending by continuity to positive real masses. The indexed TV-denoising mass-concavity result c426456313be gives fusion and pathwise jump criteria for a different operator."
+        ],
+        "reasoning": "The NUNA lift is a real prior implication for the qualitative threshold, not by itself the attained quantitative coefficient. The decisive exact result is instead the earlier indexed weighted theorem, whose scope is not restricted to equal masses.",
+        "searches": [
+          "arXiv:1706.01852 Theorem 1 and Section 6",
+          "arXiv:2304.00244",
+          "Resultary c4a7412f8310 and c426456313be"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions and scope, Proof, Relationship to prior work; VERIFICATION.md; verify.py",
+        "Resultary c4a7412f8310, fcea9cd47ab7, 77de1978bb36, c426456313be (catalogue statement summaries)",
+        "Yang–Barber reference as reported in the frozen primary-source comparison; direct access attempted"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Renorming V_w <= V_hat(w) <= L V_w using the concave-envelope weights makes the mass-concavity contraction statement imply the candidate upper bound L; attaining it needs a lower bound if that is the only premise. The indexed earlier sharp formula already gives the lower bound and attainment."
+        ],
+        "reasoning": "Once an exact Lipschitz bound is attained by a pair, partitioning its segment forces equality in each subsegment bound by the triangle inequality and homogeneity of the denominator. Thus arbitrarily close attaining pairs are mechanically implied by the earlier attained bound. A maximizing chord's boundary convention and unboundedness on deliberately underweighted interior edges are direct consequences of the same coefficient, not independent results.",
+        "searches": [
+          "arXiv:1706.01852v3 (Theorem 1, Section 6)",
+          "Resultary c4a7412f8310, fcea9cd47ab7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/11/17 c4a7412f8310: 'For weighted least-squares isotonic regression on any finite chain, the sharp two-input weighted edge-variation amplification is exactly the largest ratio of its least concave majorant to the original edge weight in cumulative observation-mass coordinates.' It also says the constant is attained and states the mass-normalized slope test."
+        ],
+        "reasoning": "There is no substantive change of object or invariant: mass-normalized slopes are adjacent slopes in Q, and the chord maximum is evaluation of the same upper envelope. The shorter indexed statement does not print the bookkeeping convention for missing edges, but it gives the same sharp coefficient for the same projector and seminorm.",
+        "searches": [
+          "Resultary: c4a7412f8310 sharp mass-aware concavity law weighted isotonic regression least concave majorant cumulative masses sharp amplification fictitious zero boundary points"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue returns an earlier distinct record c4a7412f8310 stating the sharp formula, a distinct same-day fcea9cd47ab7 explicitly stating max_j hat(w)(T_j)/w_j and attainment, and the assigned record 77de1978bb36 itself."
+        ],
+        "reasoning": "This is a duplicate exact classification rather than just matching finite numbers or shared terminology. The index chronology for the earlier record is explicit; the same-day search hit is a scope comparison, not evidence of which result was first that day.",
+        "searches": [
+          "Resultary c4a7412f8310, fcea9cd47ab7, 77de1978bb36"
+        ]
+      },
+      "rationale": "Strong positive indexed coverage, not a failed literature lookup: the earlier 2026/11/17 Resultary c4a7412f8310 statement gives the same finite weighted least-squares isotonic problem, same two-input weighted edge-variation ratio of the least concave majorant in cumulative mass coordinates, same slope criterion, and an attained constant. A distinct same-day record also gives the exact quotient. Endpoint chord notation, the four-site example, and the local form of attainment do not supply a distinct scientific remainder. The indexed evidence establishes statement-level coverage; the full mirror texts were not available and no conclusion about priority among same-day records is inferred.",
+      "residual_risks": [
+        "The earlier indexed summaries do not expose exactly how boundary points, realizable cells, or endpoint chords are written in the proofs; targeted original passage retrieval timed out.",
+        "The conclusion is narrow statement-level duplicate coverage, not an assertion about copied proof text or same-day publication order. The primary NUNA passage was not independently recovered."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Positive direct coverage of the weighted theorem and its sharp attained coefficient",
+          "evidence": [
+            "Exact largest ratio of least concave majorant to original edge weight in cumulative observation-mass coordinates; slope criterion; attained constant computable in linear time."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-mass-aware-concavity-law-for-variation-stability-of-weight--c4a7412f8310",
+          "material_read": "Verbatim indexed statement summary; original mirror text unavailable",
+          "method": "Resultary local lookup by scope and exact ID; targeted mirror attempt timed out",
+          "title": "Sharp mass-aware concavity law for variation stability of weighted isotonic regression",
+          "trigger": "Earlier indexed exact coefficient in the same setting"
+        },
+        {
+          "assessment": "Equivalent stated theorem, no same-day priority inferred",
+          "evidence": [
+            "The exact amplification is max_j hat(w)(T_j)/w_j; bound always attained; concavity precisely the contractivity condition."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-the-concave-envelope-law-for-sharp-weighted-variation-sensitivit--fcea9cd47ab7",
+          "material_read": "Verbatim indexed statement summary; original mirror text unavailable",
+          "method": "Resultary local lookup; targeted mirror attempt timed out",
+          "title": "The concave-envelope law for sharp weighted-variation sensitivity of isotonic projection",
+          "trigger": "Distinct same-day formula match"
+        },
+        {
+          "assessment": "Credited contraction baseline; mathematical lifting and renorming are explicit here, without assuming that the paper names the exact coefficient",
+          "evidence": [
+            "Reported unit-mass nonexpansivity iff neighbor averaging is nonexpansive."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1706.01852v3",
+          "material_read": "Frozen RESULT.md lines 79–89 describes Theorem 1 and cites Section 6; not independently fetched full text",
+          "method": "Frozen comparison, targeted OA HTML and PDF attempts timed out; primary search yielded no useful result",
+          "title": "Contraction and uniform convergence of isotonic regression",
+          "trigger": "Prior unit-mass seminorm contraction and possible implication"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The invariant itself is natural and useful, but this frozen record recomputes the earlier exact attained invariant for the same operator and gives no additional motivated classification or independent structural claim. The endpoint notation and a four-site specialization aid exposition rather than constituting a valuable separate finding under the exact-invariant standard.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

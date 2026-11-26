@@ -1,0 +1,88 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:13:54.168476Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The overlap integrals give the stated piecewise sine form; for delay at least 1 the remaining sinc zeros are simple. In the lower strip set r=(2−τ)/τ and T=πτν. At nonzero Doppler a multiple zero of F=sin(rT)−2sin T must satisfy 4(sin² T+r⁻² cos² T)=1. This excludes 1<r<2. At r=2 the factorization 2sin T(cos T−1) gives simple odd multiples, cubic nonzero even multiples, and a quadratic zero at ν=0 after division by πν. For r>2 the multiple zeros have F_TT=−2(r²−1)sin T≠0 and F_r=T cos(rT)≠0, giving regular nodal points, nondegenerate folds, and an isolated simultaneous-zero set of (F,F_T). At ν=0 the sole nodal point has A_τ=−3. The density step is valid: the rescaled maps near the irrational-flow recurrence converge in C¹ and have an invertible limiting Jacobian. Independently, choose first-quadrant phases θ(r),φ(r) with sin²θ=(r²−4)/(4(r²−1)), sinφ=2sinθ and cosφ=2cosθ/r. Then T=2πn+θ is a double-zero frequency whenever 2πnr+rθ−φ is a multiple of 2π. Its derivative in r is 2πn+θ, so on every fixed open r-interval inside (2,∞) the image contains such a multiple for large n. The frozen CHECKER.py and CHECKER_OUTPUT.txt were inspected but not executed. A separate high-precision solve recovered the three logged delays (approximately 0.51108368717, 0.60125992786, 0.50581267973) with |F|, |F_T| and |A| below 3×10⁻⁶⁰ and nonzero F_r and F_TT. Those spot checks corroborate folds, not density or completeness. Joint analyticity is only asserted for 0<τ<1; density is not a fixed-band statement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.1 concerns ambiguity partners of pulse-type signals, not roots of a fixed waveform's ambiguity transform as the delay varies."
+        ],
+        "reasoning": "Uniqueness or classification of partners does not constrain the multiplicities or the critical values of a delay projection in this setting.",
+        "searches": [
+          "Discrete radar ambiguity problems, arXiv:math/0509031, Theorem 4.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, particularly lines 23–130",
+        "Frozen VERIFICATION.md, CHECKER.py and CHECKER_OUTPUT.txt",
+        "Resultary 2b9667f7502f, mirrored RESULT.md",
+        "Bonami–Garrigós–Jaming, arXiv:math/0509031, §4.1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Neither inspected statement supplies solutions to the signed simultaneous zero equations for ratios in each open interval r>2."
+        ],
+        "reasoning": "Even knowing the elementary overlap expression, density needs an exact phase-winding or recurrence argument and nondegeneracy. It does not follow by substituting parameters into the inspected results.",
+        "searches": [
+          "Resultary two-separated-interval RESULT.md, multiplicity passage near offset 3953",
+          "arXiv:math/0509031, Theorem 4.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen delay-frequency problem is equivalent away from zero Doppler to sin(rT)−2sin T=0 and the double-zero system F=F_T=0.",
+          "The closest mirrored two-interval result treats positive separated intervals and exceptional double zeros of their Fourier transform."
+        ],
+        "reasoning": "An exact match must retain the signed overlap, the varying frequency ratio, or a reduction preserving those two conditions. The positive-interval result does not supply it.",
+        "searches": [
+          "Resultary: Haar self-ambiguity, signed pulse Doppler zeros, two-interval Fourier zero multiplicity",
+          "Bonami–Garrigós–Jaming, arXiv:math/0509031, §4.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest catalogue entry gives arithmetic zero families, exceptional equal-length double zeros, and a cyclicity criterion for two positive intervals."
+        ],
+        "reasoning": "Its recorded families are not the Haar cubic lattice or a catalogue of projected Haar folds. The frozen numerical examples are not an existing general table or the basis of the density theorem.",
+        "searches": [
+          "Resultary: SCOPE-arithmetic-fourier-zero-lattices-and-wiener-cyclicity-for-two-se--2b9667f7502f"
+        ]
+      },
+      "rationale": "The overlap formula and the classical ambiguity transform are not credited as original. The supported distinct claim is the full Doppler multiplicity threshold together with the dense nondegenerate delay folds, the exceptional cubic resonance lattice, and joint nodal regularity. The closest indexed Fourier-zero result and the inspected pulse-ambiguity theorem do not cover this combination or imply its density step.",
+      "residual_risks": [
+        "Bounded source comparison, not a guarantee of priority; an equivalent treatment of critical zeros of two-frequency trigonometric families may exist in specialist literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related, not covering",
+          "evidence": "Two positive separated intervals; arithmetic zero families and exceptional double zeros for equal lengths, without a signed self-ambiguity delay-fold classification.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-arithmetic-fourier-zero-lattices-and-wiener-cyclicity-for-two-se--2b9667f7502f",
+          "material_read": "Mirrored RESULT.md zero-family and multiplicity discussion near offset 3953",
+          "method": "Indexed Resultary lookup and bounded file reading through its mirror",
+          "title": "Arithmetic Fourier zero lattices and Wiener cyclicity for two separated intervals",
+          "trigger": "Closest indexed zero-multiplicity result for a rectangular signal"
+        },
+        {
+          "assessment": "Related, not covering",
+          "evidence": "Pulse-type ambiguity partners are the objects of the stated theorem, not the Doppler-zero or delay-caustic structure of the Haar self-transform.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0509031",
+          "material_read": "§4.1, p. 17, Theorem 4.1",
+          "method": "Targeted reading of the open primary PDF",
+          "title": "Discrete radar ambiguity problems",
+          "trigger": "Primary source for discrete and pulse-type radar ambiguity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the elementary signed two-pulse waveform the result identifies a sharp boundary between simple and multiple directional zeros and explains how dense critical delays coexist with a regular joint nodal curve. This is useful for interpreting sections and projections of a basic time-frequency example; the high-frequency restriction is substantive and prevents a misleading finite-band conclusion.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

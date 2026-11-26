@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:26:51.184649Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–73; VERIFICATION.md, lines 19–25; checker.py, lines 9–62 (inspected, not executed).",
+        "Independent bounded replay: /workspace/branches/math-replay.js, section 5. The four Walsh columns each returned squared-lag numerators (4,1) over 16."
+      ],
+      "rationale": "For each column, let A be its mass on rows 0,N-1, B on rows 1,N-2, and s=A+B. Cauchy–Schwarz bounds the lag N-2 energy by AB and AM–GM bounds lag N-1 by A²/4; the deficits expand to the three phase/amplitude terms stated in RESULT.md. The gap from AB+A²/4 to s(7A+3B)/16 is exactly 3(A-B)²/16. Since s≤1 and the row sums give ΣA=ΣB=2, summing gives 5/4. Equality forces s=0 or 1, and in the latter case A=B=1/2, all four moduli are 1/2, and the lag terms are in phase. Row normalization forces four active columns. Their inner products give precisely the stated product of antipodal factors; the interior block is free. The Walsh construction attains the bound, including at N=4, and Fourier columns give 5/N. Separately, AB≤s/4 and A²/4≤A/4 prove the single-lag values 1 and 1/2, attained by the Walsh block and by a two-row Hadamard block respectively. Independent proper symbols give the two covariance pairings plus the diagonal fourth-cumulant correction; with μ4<2 the statistical minimum follows with the claimed sign.",
+      "residual_risks": [
+        "The replay checks attainment, not the universal bound or equality classification; those follow from the analytic inequalities. No formal proof or expert attestation is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1 and Corollary 1 have prefix or fixed-lag scope, and Appendix G works along chains for a fixed lag."
+        ],
+        "reasoning": "The strongest inspected general result does not optimize an arbitrary lag subset; its simultaneous-prefix equality family does not supply the four-supported-column criterion.",
+        "searches": [
+          "Resultary search for non-prefix unitary lag energies",
+          "arXiv:2610.02843, Theorem 1, Corollary 1, Appendix B and Appendix G"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary, including the identical finding above",
+        "Xiong et al., arXiv:2610.02843, theorem and appendix locators above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact individual maxima are 1 and 1/2. The inverse DFT attains 5/N jointly; it is suboptimal for N>4."
+        ],
+        "reasoning": "Adding the two prior maxima yields only 3/2, not the sharp 5/4. The Fourier benchmark is not a joint upper bound. The joint tradeoff and phase classification require the additional four-row inequality.",
+        "searches": [
+          "arXiv:2610.02843, Theorem 1, Proposition 1 and Appendices B/G"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The strongest Resultary hit was the same frozen finding, 2026/11/22/SCOPE-the-sharp-two-tail-lag-correlation-energy-for-unitary-fourier-mo--9cd0b6bd2890.",
+          "Theorem 1 treats individual lags and positive prefixes; Appendix B uses the fixed-lag proposition and a prefix bound."
+        ],
+        "reasoning": "The statistical sum is an affine transform of the deterministic joint objective under μ4<2. Neither that change of objective nor the variable choice of a unitary mixing basis turns the lag set into a positive prefix. No distinct equivalent claim was identified.",
+        "searches": [
+          "Resultary searches for the two final aperiodic lags, simultaneous unitary optimizers, and non-prefix unitary lag energies",
+          "arXiv:2610.02843, Theorem 1 and Appendix B"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No distinct matching record appeared in the inspected top 20 results per local search. The exact 5/4 hit is the finding under review, not separate coverage.",
+          "The primary source gives exact single-lag values for these parameters, not an exact joint entry."
+        ],
+        "reasoning": "The relevant exact values are for different objectives, and an all-N joint-optimizer classification cannot be inferred from an individual-lag table.",
+        "searches": [
+          "Four local Resultary searches covering two final lags, simultaneous optimizers, OFDM single-lag/prefix scope, and non-prefix unitary lag energies",
+          "arXiv:2610.02843, Proposition 1, equations (60)–(61)"
+        ]
+      },
+      "rationale": "The joint equal-weight optimum for the two last lags in arbitrary dimension and its equality classification are distinct on the searched evidence. Single-lag optima, prefix optima and the fourth-moment formula are prior results, not part of this originality pass.",
+      "residual_risks": [
+        "Only bounded local-index searches and identified primary-source comparison were done; no broader external search was run for this record. Unindexed claims on arbitrary lag subsets may remain."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical finding, not a distinct source of prior coverage",
+          "evidence": [
+            "Both use precisely lags N-2 and N-1, 5/4, and the four-active-column equality family."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-the-sharp-two-tail-lag-correlation-energy-for-unitary-fourier-mo--9cd0b6bd2890",
+          "material_read": "Finding and assumptions compared with the frozen statement",
+          "method": "Local semantic search and statement comparison",
+          "title": "The sharp two-tail-lag correlation energy for unitary Fourier modulations",
+          "trigger": "Strongest exact local-index hit"
+        },
+        {
+          "assessment": "Prior single-lag and prefix coverage; not the joint two-tail claim in the inspected results",
+          "evidence": [
+            "Theorem 1 and Corollary 1 optimize on positive prefixes or individual lags.",
+            "Proposition 1, equations (60)–(61), yields 1 and 1/2 separately; Appendix G derives its bound for a fixed lag."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.02843",
+          "material_read": "Theorem 1 and Corollary 1, pp. 10–12; Proposition 1, pp. 18–19; Appendix B, p. 27, and Appendix G, p. 31",
+          "method": "Bounded OA PDF passage read and comparison of optimized lag families",
+          "title": "On the Optimality of OFDM for Aperiodic Ranging",
+          "trigger": "Primary source for the same unitary aperiodic objective at individual lags and prefixes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and statistical consequence; arXiv:2610.02843, Theorem 1 and Proposition 1"
+      ],
+      "rationale": "The last two aperiodic lags are a natural adjacent tail window: they probe the overlap of only four extreme rows. The exact compatibility loss of 1/4 and equality family answer whether one orthonormal basis can realize both individually optimal sidelobes and identify precisely when the inverse DFT ceases to solve the selected-window design problem. This is not a re-evaluation of the prefix result.",
+      "residual_risks": [
+        "Does not decide other lag windows, unequal weights or nonunitary designs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

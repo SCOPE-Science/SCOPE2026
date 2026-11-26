@@ -1,0 +1,163 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:04:33.322037Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–57",
+        "VERIFICATION.md lines 19–21 and verify.py, inspected only",
+        "/workspace/reproductions/frozen-check-1.txt"
+      ],
+      "rationale": "For insertions at distinct gaps to produce the same parent, the inserted bits and every intervening symbol must agree; hence the only duplicate histories are the extensions of one existing run, accounting for exactly m redundancies among 2(m+1) histories. The compliant receiver loses one extension per saturated run and always retains at least two parents. In a noncompliant receiver only an interior opposite-bit split can repair a long run, and only one; the allowed split positions range from s-h to h. This proves the list formula, including the zero and singleton cases and the alternating-word maximum. For the generating function, weight an ordinary run by its length minus its saturation indicator, with a global t^2, or place the unique long run between two ordered ordinary-run compositions. At t=1 the ordinary term has a simple pole, while the term for each long size s has leading coefficient 2 rho^s (m+1) rho^(-m)/(rho A'_h(rho))^2. Equality in the triangle inequality for the powers z and z^2 rules out other singularities on the dominant circle for h>=2. Normalizing the double-pole terms gives the asserted masses and h=2 specialization. For h=1 there are two alternating outputs and 2(m-1) singleton outputs. A separate forward-deletion enumeration, deduplicated within each source, checked the formula and spectrum for h=1..6, m=1..12 (49,140 receiver/cap cases). Replay: python3 /workspace/reproductions/frozen_checks.py 1; output in /workspace/reproductions/frozen-check-1.txt.",
+      "residual_risks": [
+        "The finite check is corroboration, not the argument for the limiting law. Uniform distinct feasible outputs are not outputs from a source/deletion sampling model."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Takemoto–Nozaki construct correcting subcodes, Kovačević–Vukobratović count constrained source sequences and their typical parameters, and the all-radius theorem expands deletion count but not to the present class of sources."
+        ],
+        "reasoning": "These sources cover related code constructions, asymptotic word counts, or a broader deletion-radius range, but not the distribution of distinct admissible parents of every unconstrained receiver.",
+        "searches": [
+          "arXiv:2012.13536, maximum-run-length-limited single insertion/deletion correcting codes",
+          "arXiv:2105.04617, runlength-limited sequence asymptotics",
+          "Resultary homopolymer-free all-radius result, 9af2d7e45a2a"
+        ]
+      },
+      "checked_sources": [
+        "Resultary mirror records 4f16a0a76781, 9af2d7e45a2a, bf9864c108ef, 4a3ef99abab1",
+        "arXiv:1802.00703",
+        "arXiv:2105.04617",
+        "arXiv:2012.13536"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The unrestricted parent count and ordinary run compositions are ingredients, but the dominant family of feasible receivers has one overlong run with two independent flanks. The forward survivor result explicitly discards such outputs."
+        ],
+        "reasoning": "A forward degree spectrum or ordinary source enumerator does not determine individual inverse degrees; double counting supplies at most totals of incidences, and a survivor-only count omits the dominant term. The long-run repair classification and pole normalization are the distinct contribution.",
+        "searches": [
+          "arXiv:1802.00703 and arXiv:2105.04617",
+          "Resultary run-two forward spectrum and golden-mean inverse spectrum, bf9864c108ef and 4f16a0a76781"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The golden-mean inverse-list theorem allows arbitrarily long zero runs and forbids 11; the homopolymer-free theorem treats q>=3 with all runs of size one. Atashpendar et al.'s embedding counts are distinct from parent-word counts."
+        ],
+        "reasoning": "Neither relabeling the binary letters, calling parents supersequences, nor dropping embedding multiplicities extends the cited results to arbitrary symmetric run caps. The two-read geometric variable is an edge span, not this list size.",
+        "searches": [
+          "Resultary comparisons: golden-mean binary language, homopolymer-free q-ary, run-two survival, two-read bounded-homopolymer ambiguity",
+          "arXiv:1802.00703, binary supersequences and deletion embeddings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical assigned record is a self-match. Distinct same-day entries gave asymmetric inverse lists, q-ary homopolymer-free lists, forward survivor counts, or a two-read ambiguity law."
+        ],
+        "reasoning": "The distinct entries were compared by their statements, not excluded by date. None of the material matches supplies the symmetric one-deletion inverse-list table or its feasible-output distribution.",
+        "searches": [
+          "Resultary one-deletion run-cap inverse-list and feasible-output law comparisons; mirror records 4f16a0a76781, 9af2d7e45a2a, bf9864c108ef, 4a3ef99abab1"
+        ]
+      },
+      "rationale": "The prior unrestricted insertion counting ingredient is standard. The checked primary papers and related indexed results do not give or mechanically imply the all-cap inverse-fiber spectrum and its geometric limit under uniform feasible-output sampling. The strongest related inverse-fiber results use genuinely different source constraints, not merely different notation.",
+      "residual_risks": [
+        "Priority among same-day entries is not inferred from the index, and the primary-literature comparison is bounded to inspected material. A stronger unlocated constrained transducer/inverse channel result could alter the comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact but different source; no dominance",
+          "evidence": [
+            "Avoiding 11 permits unrestricted zero runs; fixed positive deletion count has limiting unique fraction one."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-inverse-list-spectra-for-deletions-from-the-golden-mean-bi--4f16a0a76781",
+          "material_read": "RESULT.md finding, limits and proof excerpts at offsets 0–3168 and 5179–8768",
+          "method": "Resultary and local mirror",
+          "title": "Exact inverse-list spectra for deletions from the golden-mean binary language",
+          "trigger": "Closest indexed exact inverse-list law"
+        },
+        {
+          "assessment": "Different alphabet and run cap",
+          "evidence": [
+            "q>=3, all equal adjacent symbols forbidden."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-all-radius-inverse-list-spectra-for-homopolymer-free-q-ary--9af2d7e45a2a",
+          "material_read": "RESULT.md finding, offset 0–3365",
+          "method": "Resultary and local mirror",
+          "title": "Exact all-radius inverse-list spectra for homopolymer-free q-ary deletion channels",
+          "trigger": "General deletion-radius alias"
+        },
+        {
+          "assessment": "Forward counts with capped receivers",
+          "evidence": [
+            "Counts surviving constrained outputs of each source, not parents of each output."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-survivor-deletion-spectrum-of-run-two-words--bf9864c108ef",
+          "material_read": "RESULT.md finding, offset 0–2852",
+          "method": "Resultary and local mirror",
+          "title": "Sharp survivor-deletion spectrum of run-two words",
+          "trigger": "Exact one-deletion spectrum for an overlapping cap"
+        },
+        {
+          "assessment": "Different observable and sample space",
+          "evidence": [
+            "Truncated geometric edge-span law in a two-read confusability graph."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-two-read-deletion-ambiguity-across-all-bounded-homopolymer-sourc--4a3ef99abab1",
+          "material_read": "RESULT.md finding, offset 0–3075",
+          "method": "Resultary and local mirror",
+          "title": "Two-read deletion ambiguity across all bounded-homopolymer sources",
+          "trigger": "Same cap and a geometric law"
+        },
+        {
+          "assessment": "Background, not the constrained inverse-list theorem",
+          "evidence": [
+            "Unrestricted binary supersequences weighted by number of embeddings; a singleton embedding is not a unique parent."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1802.00703",
+          "material_read": "PDF p. 1, offset 1352, statement of problems and embedding results",
+          "method": "OA PDF passage inspection",
+          "title": "From Clustering Supersequences to Entropy Minimizing Subsequences for Single and Double Deletions",
+          "trigger": "Closest unrestricted parent/embedding literature"
+        },
+        {
+          "assessment": "Source typicality rather than inverse fibers",
+          "evidence": [
+            "Counts RLL sequences and their weight/run-count strata."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2105.04617",
+          "material_read": "PDF pp. 1–2, offsets 0 and 13116",
+          "method": "OA PDF passage inspection",
+          "title": "Asymptotic Behavior and Typicality Properties of Runlength-Limited Sequences",
+          "trigger": "Run composition and asymptotic overlap"
+        },
+        {
+          "assessment": "Correcting code selection and decoding, not unrestricted receiver ambiguity",
+          "evidence": [
+            "Construction of single-insertion/deletion-correcting RLL codes rather than an inverse degree census of the entire constrained source language."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2012.13536",
+          "material_read": "PDF p. 1, offset 0, abstract and setup",
+          "method": "OA PDF passage inspection",
+          "title": "Construction and Encoding Algorithm for Maximum Run-Length Limited Single Insertion/Deletion Correcting Code",
+          "trigger": "Same run constraint and deletion radius"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 20–41 and 53–57",
+        "Resultary run-two survivor spectrum, bf9864c108ef"
+      ],
+      "rationale": "The full feasible-output inverse-degree law for a standard run constraint answers a natural ambiguity question that cannot be read off from code size or source growth. In particular, the class visibly violating the run cap, not the compliant class, dominates the distinct feasible outputs; the exact unique-parent fraction and limiting distribution make that effect quantitative for each cap.",
+      "residual_risks": [
+        "Does not give a source-weighted decoding-error probability, a code optimum, or multiple-deletion results."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

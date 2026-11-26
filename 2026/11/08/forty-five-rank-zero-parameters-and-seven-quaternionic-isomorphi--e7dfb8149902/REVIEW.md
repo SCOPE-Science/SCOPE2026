@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For smooth coefficient parameters \(a^2\ne4\), the genus calculation follows from degree-nine squarefreeness and Riemann--Hurwitz. A direct exact coefficient extraction for \(F_a^5\) produces the stated Cartier matrix, with two nonzero rank-one blocks for all \(a\). An independent polynomial multiplication verifies the universal identity \(MM^{(11)}=G T\), and the two rank-one blocks of \(T\) are everywhere nonzero. Hence stable Frobenius rank is zero exactly on \(G=0\), and two elsewhere; \(a\)-number is two everywhere. Squarefreeness of \(G\), its avoidance of \(\pm2\), and gcd checks against enhanced-group parameters are algebraic, not based on finite sampling. The published geometric automorphism and isomorphism theorem then yields seven exact-\(Q_8\) geometric classes and one enhanced class. Both new standalone scripts were executed successfully.
+## correctness
 
-## Originality — PASS, with residual historical-priority risk
-Primary full texts were compared, not just titles. The Ohashi--Kudo 2023 work develops superspecial enumeration for genus-four extra-involution curves. The Taniguchi--Ohashi--Takagi 2025 work treats precisely the normal-form family, supplies its general Cartier coefficients and complete automorphism/isomorphism groups, and enumerates curves with *vanishing Cartier matrix* (superspeciality). Its theorems do not state the stable Frobenius-rank stratification \(G=0\), the exact 45 rank-zero parameters, or the seven nonsuperspecial rank-zero exact-\(Q_8\) classes. Its general coefficient formula is not itself a statement that a nonzero Cartier matrix has semilinear square zero. Targeted literature, mathematical-record, and accessible historical-claim comparisons found no implication covering the combined result. The general normal form and quotient groups are expressly credited and not presented as new. Residual risk: an older p-rank paper under another parameterization could have established an equivalent count; independent priority certification remains unperformed.
+PASS
 
-## Mathematical value — PASS
-The characteristic-eleven 45-point rank-zero locus is a natural arithmetic divisor in a well-studied one-dimensional quaternionic moduli family, and a semilinear rank transition not seen by superspecial enumeration. The complete classification of geometric isomorphism classes establishes seven exact-quaternion rank-zero cases in a characteristic with no superspecial quaternion curves. This is a meaningful parameter-space and moduli invariant rather than an isolated small example or a restatement of the known automorphism theorem.
+Assessment of the repaired statement. For smooth a the ten simple branch points give genus four. Directly applying Cartier to y^(-11) x^(j-1) f^5 dx selects exponent 11i-1 and takes eleventh roots, so its square has coefficient product M^(11)M before taking 121st roots. Independent symbolic expansion recovers M. In parity order the two blocks factor as (6a,-C)^t(2a,1) and (C,-6a)^t(1,2a), where C=1-5a^2-3a^4; each has rank one at every parameter, also at a=0. The two blocks of the correctly ordered square have nonvanishing outer factors times opposite scalars ±(2a^11 C-6a)=±5J. Thus the square vanishes on J=0; off it the first image of dimension two is mapped onto itself, and rank stays two. Euclidean division verifies J=a^15-2a^13-4a^11+a is squarefree of degree 15 and J(±2)=∓1. Its gcds with a^2+12 and a(a^2-36) are respectively 1 and a(a^2-36). Under the published equivalence, the exceptional parameters make one orbit; exact modular substitution and pairwise gcds prove each of the remaining twelve roots has six distinct isomorphic parameters, giving two Q8 classes. The a-number two excludes superspeciality. Ran /workspace/repairs/1/verify_frobenius.py (Python 3 and SymPy) successfully, including the counterexample and gcd(J,G)=a(a^2-36).
 
-## Scope and remaining risks
-Only geometric \(11\)-rank and \(a\)-number are proved. Complete Newton polygons and additional p-torsion strata are not asserted. Exact p-rank-zero coefficients are all over an algebraic closure, not claimed rational over the prime field. An older unpublished or differently parametrized computation could affect historical priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Assessment of the repaired statement: the new content is the exact characteristic-eleven stable-rank locus for this family and its two exact-Q8 classes plus the enhanced rank-zero class, not the normal form, one-step coefficient method, isomorphism transformations or enhanced group classification. The strong matched papers treat the normal form, group classification and superspeciality. The original indexed record itself gives a different, incorrect polynomial and count; it is neither distinct prior coverage nor evidence in favor of the repaired counts. A corrected-claim search and statement-level comparisons did not identify earlier coverage of the supported locus. This is a bounded judgment, not proof of priority.
+
+## value
+
+PASS
+
+The standard characteristic-eleven quaternionic family has constant one-step Cartier rank, so its exact rank-zero locus cannot be detected by the superspecial test or by distinguishing one-step ranks. The repaired result identifies precisely two nonsuperspecial geometric curves with p-rank zero and full Q8 in this family, as well as one enhanced class, with a reduced explicit parameter locus. This supplies exact candidates for finer p-torsion or Newton strata and a check against spurious parameter counts, without assuming such finer invariants are determined. It answers the same natural family question as the frozen claim with a substantive, verified replacement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

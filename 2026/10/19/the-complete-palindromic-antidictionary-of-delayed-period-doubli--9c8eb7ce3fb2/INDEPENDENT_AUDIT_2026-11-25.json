@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:03:11.097318Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the fixed point ones lie in the last position of a substitution block. Successive preimage zeros have gap one or two (both occur), giving the two internal zero-run lengths q-1 and 2q-1; the initial run does not add a new extension pair. Testing a core of j zeros against those lengths gives all four extensions for j=q-1, only the two mixed extensions for j=2q-2, and all but (1,1) for the other eligible seeds. The empty core misses only (1,1). For a bispecial core containing 1, its left 1-extension forces alignment at the start of a block and its right 1-extension forces length -1 modulo q; the invertible block encoding identifies a unique shorter core. The extension pairs complement exactly, so iteration exhausts all the cores. In the minimal-absence implication, the missing pair plus recurrence lets each occurring maximal proper factor be extended on the missing side with the other bit, proving bispeciality. Reversal commutes with T_q; the absent endpoints match; and the surviving seeds have j+1 in [2,2q-1] not divisible by q, making scales disjoint. The length formula, generating series and forbidden basis follow. Independent exact bounded test: python3 /workspace/reproduction/3.py (output 3.txt). Images of the three legal adjacent pairs at a scale with block size at least 160 cover the full infinite-word factor language through length 160 for each of q=3,4,5,6,7,8,9,12,17,31; direct enumeration agrees. The general result uses desubstitution, not a finite-prefix extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Klouda gives maps on bispecial triplets and finitely many initial triplets in circular non-pushy D0L systems",
+          "Cassaigne et al. study minimal-forbidden-factor complexity in connection with cyclic complexity"
+        ],
+        "reasoning": "Algorithmic generation in a general class does not give the concrete bilateral extension table, seed exclusions or palindromic antidictionary for this family without a separate computation and synchronization argument.",
+        "searches": [
+          "arXiv:1201.1186 p.1 and §3: general bispecial generation under morphisms",
+          "arXiv:1402.5843 definitions and pp.12–13"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1201.1186",
+        "arXiv:1907.05751",
+        "arXiv:1402.5843",
+        "Resultary ...6721431be060, ...51516ce649b4, ...86b62049d181"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The classical ancestor map has the same padding mechanism when q=2",
+          "The two run lengths q-1,2q-1 determine different seed deficits for q>=3; no inspected general source states these deficits"
+        ],
+        "reasoning": "The missing extension pairs require the two-run case analysis and the exact complement correspondence for all parameters. Once known, disjoint towers and the series are corollaries; they are not credited as independent novelty.",
+        "searches": [
+          "Compare Klouda §3, Košík–Starosta §5 Proposition 13, and Cassaigne et al. pp.12–13 with the q>=3 seed and complement rule"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:1907.05751 §5 Proposition 13, phi(v)=psi(v)a with psi(a)=ab, psi(b)=aa",
+          "Resultary 2026/10/26 ...6721431be060: classical q=2 finite prefixes and lower bound, not this infinite family",
+          "Resultary ...51516ce649b4 and ...86b62049d181 use v_2(j+1) modulo q, not this binary word"
+        ],
+        "reasoning": "The bound word is parity of the largest k such that q^k divides j+1. Exchanging modulus and base changes the word and alphabet; the classical desubstitution is a common q=2 special case outside the claim.",
+        "searches": [
+          "Resultary: exact palindromic antidictionary and minimal absent factors of the binary substitution 0->0^(q-1)1, 1->0^q",
+          "Inspect binary period-doubling and q-letter generalizations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "...6721431be060 gives at least 2k-1 minimal absent factors of classical finite prefixes, not a full infinite-word list",
+          "...51516ce649b4 and ...86b62049d181 give exact palindrome and frequency data, respectively, for different words"
+        ],
+        "reasoning": "None of the identified tables gives simultaneous extension deficits by seed or the lengths and cardinalities being audited. An all-word palindrome complexity does not count absent palindromes.",
+        "searches": [
+          "Focused Resultary searches on complete antidictionaries, periodic scale counts, and palindromic minimal absent words for the specified binary morphism"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the complete binary, q-uniform, q>=3 list, including extension deficits and palindromicity; neither the accepted q=2 seed/desubstitution precedent nor general bispecial algorithms are new. Exact all-length results for q-letter generalizations concern different words.",
+      "residual_risks": [
+        "Focused indexed searches and bounded primary comparisons do not rule out an earlier equivalent calculation under a different name for parity of the q-adic divisibility order, or an unindexed specialty source."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Methodological prior, not exact family classification in passages checked",
+          "evidence": "Finite starting triplets and graph-labeled maps generate bispecial factors under the stated circular non-pushy assumptions.",
+          "identifier_or_url": "arXiv:1201.1186",
+          "material_read": "p.1 abstract and p.3 §3 around text offset 9200",
+          "method": "OA PDF passage inspection",
+          "title": "Bispecial factors in circular non-pushy D0L languages",
+          "trigger": "General bispecial theorem that might subsume the method"
+        },
+        {
+          "assessment": "Prior q=2 desubstitution",
+          "evidence": "Uses psi(a)=ab, psi(b)=aa, and Phi(v)=psi(v)a; non-short bispecial factors have this form.",
+          "identifier_or_url": "arXiv:1907.05751",
+          "material_read": "§5 p.6 near offset 17000, Proposition 13",
+          "method": "OA PDF passage inspection",
+          "title": "On Substitutions Closed Under Derivation: Examples",
+          "trigger": "Binary period-doubling ancestor map"
+        },
+        {
+          "assessment": "Different invariant and scope",
+          "evidence": "Defines minimal-forbidden-factor complexity and relates it to cyclic-complexity questions; no q-uniform binary antidictionary in those passages.",
+          "identifier_or_url": "arXiv:1402.5843",
+          "material_read": "p.3 definitions and pp.12–13 discussion",
+          "method": "OA PDF passage inspection",
+          "title": "Cyclic Complexity of Words",
+          "trigger": "Minimal forbidden factor complexity and period doubling"
+        },
+        {
+          "assessment": "Later-dated and different scope",
+          "evidence": "Classical finite prefixes, two towers and boundary obstructions yielding at least 2k-1 minimal absent factors.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-explicit-logarithmic-antidictionaries-for-dyadic-period-doubling--6721431be060",
+          "material_read": "RESULT.md Finding from offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Explicit logarithmic antidictionaries for dyadic period doubling",
+          "trigger": "Closest indexed binary antidictionary"
+        },
+        {
+          "assessment": "Different words and invariant",
+          "evidence": "Counts palindromic factors, with letters defined by v_2(j+1) modulo q.",
+          "identifier_or_url": "Resultary 2026/11/22 ...51516ce649b4",
+          "material_read": "RESULT.md Finding from offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact palindromic complexity at every length for cyclic q-letter period doubling",
+          "trigger": "Exact all-length q-period-doubling palindrome claim"
+        },
+        {
+          "assessment": "Different words and invariant",
+          "evidence": "Frequency spectrum for q-letter words, not absent-factor sets for the binary q-uniform family.",
+          "identifier_or_url": "Resultary 2026/11/22 ...86b62049d181",
+          "material_read": "RESULT.md Finding from offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact all-length factor-frequency spectra of generalized period doubling",
+          "trigger": "Exact indexed all-length invariant of a generalized word"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete antidictionary is a natural intrinsic description of a factor language, enabling membership tests by forbidden-pattern avoidance. The all-scale exact seed deficit structure and the fact that every minimal obstruction is a palindrome are useful structural information, not an arbitrary bounded enumeration of absent strings.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

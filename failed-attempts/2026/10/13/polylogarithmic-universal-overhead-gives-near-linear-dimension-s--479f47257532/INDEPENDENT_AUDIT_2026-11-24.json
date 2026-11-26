@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:52:51.225451Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–71 and VERIFICATION.md lines 18–38",
+        "Yuan arXiv:2610.02137v1, §I.1 eq. (1), Remark 39, Theorem 81 eq. (186)"
+      ],
+      "rationale": "The asymptotics follow conditionally: with a uniform bound CTn exp(−c m^α), choose cK^α>s+r+1, use T≤n^s and m^α≥K^α log n, and absorb C after retaining a strict exponent margin. Then log N=log n+O(log log n) and k=Θ(n) give both claimed size laws, and O(log m) gives the time law. But §I.1 describes its estimate as the overhead form of Theorem 81, which expressly invokes Remark 39's locally trivial seed condition. Bounded degrees and positive rate do not imply it: adjoining a free encoded qubit to each block of a bounded-size CSS block family leaves bounded degrees and positive rate, but a Pauli on that free qubit has zero syndrome and is not a stabilizer. The formal theorem also states p/p_RG≤a as a condition, not simply every p<p_RG with the same normalization. The frozen proof cannot apply this theorem to every seed family and rate it claims. This is a material hypothesis gap, not a counterexample to the decoder's actual reliability on those seeds.",
+      "residual_risks": [
+        "A distinct preprocessing or theorem for non-locally-trivial seeds might establish a broader result; the frozen record does not prove it or cite such a passage."
+      ],
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Equation (1) covers size and time regimes beyond polynomial T and polylogarithmic overhead, subject to the theorem's hypotheses. The enhancement branch, eqs. (187)–(189), gives a stronger suppression exponent when the seed supplies additional decoder guarantees.",
+          "Closest indexed encoder resource result 0428212c147e concerns approaching CSS Gilbert–Varshamov distance with a bound on accumulation rounds; these are not noisy correction rounds."
+        ],
+        "reasoning": "The general finite-parameter guarantee dominates the supported baseline specialization; the enhancement is not needed. Neither restores the frozen universal quantifiers without checking the source hypotheses.",
+        "searches": [
+          "Yuan arXiv:2610.02137v1, §I.1 and Theorem 81, both branches",
+          "Resultary searches for general [[n,k]] to [[nm,k]] conversion and polynomial time reliability"
+        ]
+      },
+      "checked_sources": [
+        "Yuan arXiv:2610.02137v1",
+        "Resultary 0428212c147e, 2026/9/15/SCOPE002, 2026/9/11/SCOPE037, 860caf3d4e6a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Failure ≤n^(−r) follows whenever c m^α≥(s+r+1) log n+log C for T≤n^s. A constant-factor margin reproduces the stated polylogarithmic scale. The other two conclusions are substitutions of N=nm and k=Θ(n) into the source size and time guarantees."
+        ],
+        "reasoning": "No new bound, construction or proof mechanism is needed on the admissible source domain. What is not an implication is the unproved extension beyond that domain.",
+        "searches": [
+          "Compare frozen RESULT.md lines 32–66 with Yuan §I.1 eq. (1) and Theorem 81 eq. (186), including Remark 39"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Yuan gives the same [[nm,k]] conversion, a bound O(Tn)(p/p_RG)^Ω(m^α), and O(log m) parallel decoding.",
+          "At fixed admissible p<p_RG, this bound is CTn exp(−c m^α). The frozen statements use the same decoder and noise model, not another construction."
+        ],
+        "reasoning": "The difference in expression is an exponential rewrite and a change from overhead m and seed size n to total size N, with no change in reliability mechanism or model.",
+        "searches": [
+          "Resultary searches for the exact title/contribution, polynomial-round single-shot reliability and the rate/time laws",
+          "Yuan arXiv:2610.02137v1, §I.1 overhead form eq. (1) and Theorem 81 eq. (186)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE002 and SCOPE037 give finite CSS-code obstructions or parameters. Record 860caf3d4e6a treats finite-length Dicke-code recovery under generalized amplitude damping. Record 0428212c147e treats different encoder resources. No standalone indexed formula matching the frozen regime was verified.",
+          "The targeted Yuan corollary lookup located a self-correction statement, not a separately named version of the frozen corollary."
+        ],
+        "reasoning": "This is an asymptotic family theorem rather than a numerical table. None of the checked database comparisons matches it directly; the decisive coverage is by the source theorem's implication, not a matching finite parameter.",
+        "searches": [
+          "Resultary exact family statement, conversion parameters and rate formulas; comparison with 0428212c147e, 2026/9/15/SCOPE002, 2026/9/11/SCOPE037 and 860caf3d4e6a",
+          "Yuan arXiv:2610.02137v1, targeted corollary lookup"
+        ]
+      },
+      "rationale": "Yuan's finite-parameter theorem already implies the demonstrated family-level estimate at all admissible parameters: solving the bound for m and rewriting dimensions and runtime is a mechanical specialization. No exact matching standalone formulation was verified, but that is not necessary for coverage. The wider seed-family and noise quantifiers are not shown known; they are unsupported by the proof and leave no established distinct remainder.",
+      "residual_risks": [
+        "Bounded searching does not exclude another standalone formulation or a stronger theorem. The negative verdict rests on direct implication for the part actually established, not on search misses."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Implies the supported asymptotic specialization; formal scope is narrower than the frozen statement",
+          "evidence": "Equation (1) identifies itself as Theorem 81 in overhead form. Theorem 81 invokes Remark 39 and requires p/p_RG≤a. Remark 39 requires syndrome-free errors on a qubit or inside a seed check to be stabilizers.",
+          "identifier_or_url": "https://arxiv.org/html/2610.02137v1",
+          "material_read": "Abstract, §I.1 eq. (1) (offsets 0–7750); Remark 39 (offsets 51177–53014); Theorem 81 eqs. (186)–(189) (offset 128050 onward)",
+          "method": "Lawful OA arXiv HTML, targeted passage comparison",
+          "title": "One-Shot any Code",
+          "trigger": "Exact decoder and prior bound cited by the record"
+        },
+        {
+          "assessment": "Different construction and tradeoff",
+          "evidence": "Accumulation-encoder rounds and CSS Gilbert–Varshamov distance do not establish the rate and noisy-correction bounds of Yuan's conversion.",
+          "identifier_or_url": "Resultary record 0428212c147e",
+          "material_read": "Finding and scope",
+          "method": "Local Resultary mirror",
+          "title": "An explicit accumulation-round bound for approaching the CSS Gilbert–Varshamov distance",
+          "trigger": "Closest indexed CSS family-level rounds/resources estimate"
+        },
+        {
+          "assessment": "No universal family conversion in the statements read",
+          "evidence": "The first concerns an obstruction on a [[13,4]] CSS homological-product instance; the second certifies parameters and a distance obstruction on one finite lifted-product instance.",
+          "identifier_or_url": "Resultary 2026/9/15/SCOPE002 and 2026/9/11/SCOPE037",
+          "material_read": "Findings",
+          "method": "Local Resultary mirror",
+          "title": "Finite CSS reduction obstruction and finite lifted-product certification",
+          "trigger": "Related indexed bounded CSS constructions"
+        },
+        {
+          "assessment": "Different code, noise model and tasks; same date does not decide priority",
+          "evidence": "Finite-length Dicke-code recovery under generalized amplitude damping does not give a QLDPC overhead law or sustainable repeated single-shot guarantee.",
+          "identifier_or_url": "Resultary record 860caf3d4e6a",
+          "material_read": "Finding",
+          "method": "Local Resultary mirror",
+          "title": "Temperature-dual Dicke recovery, exact jump throughput and no-jump behavior",
+          "trigger": "Same-day indexed quantum recovery comparison"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The operating regime is a useful way to present Yuan's bound, but the frozen derivation just chooses a logarithmic exponent margin and converts between n and N. After retaining the actual source assumptions, there is no distinct improved threshold, overhead, decoder, family construction or tradeoff. Extending applicability to every bounded-degree positive-rate seed would be substantive, but the record does not establish it.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:10:46.543742Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Read the frozen RESULT.md, VERIFICATION.md, both enumerators and the recorded C++ output, and compared the JSON certificate to an independently implemented exhaustive replay. In the replay, once total domination holds, removing v can leave uncovered only vertices whose open neighborhood meets the set exactly in v. Inserting u repairs the move exactly when all those vertices are in N(u); test this for an adjacent selected v for every outside u. Double domination was tested separately by the open-neighbor bound 2 minus the indicator of selection. All 8,192 and 131,072 subsets were visited: there were zero disagreements, and both full polynomials, zero lower coefficients, minima, and all named affine orbits matched. Comparing each pair of optimum subsets by intersection size 4 independently reconstructs the jump edges; testing adjacency of the differing vertices gives the slides. The replay matches all edge lists, components, degree and distance histograms in the certificate. P13 has one 195-state component for each rule, 936 jump edges and 663 slide edges, with eccentricity 5 at every state. P17 has 68 components of size two for both rules; the named representative has the unique claimed neighbor and that exchange slides. The general forward implication follows from total domination on selected vertices and the impossibility of defending an outside vertex with only one selected neighbor. The stated C6 example also checks: vertex 2 cannot be defended by 1 (vertex 0 would be uncovered) or 3 (vertex 4 would be uncovered). Replay: run python3 /workspace/branches/independent_replay.py 4 with /workspace/source/2026/10/19/secure-total-domination-double-domination-and-optimal-mobility-i--9f91a35d6c89/verification/certificate.json as the last argument. These are exact finite assertions for the two orders, not a general Paley equivalence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General parameter bounds and the general forward set inclusion do not give the reverse inclusion.",
+          "The indexed crown and complete-multipartite polynomial formulas are for graph classes not containing these two Paley graphs."
+        ],
+        "reasoning": "The inspected broader results do not supply either full set equivalence or optimum exchange geometry; the foundational 2008 paper remains a content-access risk.",
+        "searches": [
+          "2019 secure-total domination bounds and 2020 rooted-product analysis",
+          "Resultary crown and complete-multipartite secure-total domination enumerators",
+          "10.7151/dmgt.1405"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and all four files under verification/",
+        "2019 secure-total domination number article",
+        "2020 rooted-product article",
+        "Indexed crown, complete multipartite, and two Paley exchange Findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known one-way implication does not rule out double-only sets; the frozen C6 example illustrates the strictness possible for other graphs.",
+          "Affine invariance of Paley neighborhoods gives actions on optimum sets but does not determine transitivity, the orbit sizes, or which exchanges exist."
+        ],
+        "reasoning": "The pass rests on the actual finite reverse inclusion and the separate sharp mobility comparison, not the general implication, the standard affine action, or merely evaluating a known formula.",
+        "searches": [
+          "10.3390/math8040600, Remark 1",
+          "Inspected Resultary Paley exchange and secure-total polynomial Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2019 paper uses the same secure replacement convention; the 2020 paper gives the universal forward implication only.",
+          "The closest Paley exchange records instead reconfigure inclusion-minimal connected dominating four-sets and minimum power-dominating pairs."
+        ],
+        "reasoning": "Equality of the two minima, or even of their numbers, would be weaker than equality of the two entire set families. Connected domination and power domination do not recast these families.",
+        "searches": [
+          "Resultary exact title and Paley secure-total and double-domination terms",
+          "10.3390/sym11091165, pp. 1–2",
+          "10.3390/math8040600, p. 2 Remark 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed polynomial hits concerned crown and complete-multipartite graphs, not these two exact coefficient lists.",
+          "The nearby P13 exchange graph has 260 states and 1,911 edges for a different predicate; the P17 power-domination graph has 68 two-token states and 476/272 jump/slide edges, not 68 two-state components."
+        ],
+        "reasoning": "The shared order or number 68 does not identify the same objects or certificate. No exact table for the stated predicates was identified in the available inspected evidence; the failed web lookup provides no negative evidence.",
+        "searches": [
+          "Resultary exact title, Paley predicates and initial P13 coefficients",
+          "Resultary P13 and P17 reconfiguration and affine orbit results",
+          "Web query: Paley secure total domination double domination P13 P17 (service unavailable)"
+        ]
+      },
+      "rationale": "The known general implication is secure-total to double domination. The distinct supported findings are the reverse inclusion for all subsets at these two orders and the precise contrasting mobility of their common optima. The inspected near-matches use different domination predicates or graph families, not alternate names for this configuration space.",
+      "residual_risks": [
+        "The cited 2007 foundational full text was not inspected and the 2008 full text was not obtained; undiscovered overlap is possible.",
+        "The external Paley query was unavailable, so no inference of absence is drawn. The finite computation does not determine publication priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supports the convention; inspected bounds are not the stated Paley enumeration",
+          "evidence": [
+            "The exchanged set is required to be total dominating, not secure-total dominating."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/sym11091165",
+          "material_read": "PDF pp. 1–2, definitions and broad scope",
+          "method": "Targeted primary PDF inspection",
+          "title": "On the Secure Total Domination Number of Graphs",
+          "trigger": "Same domination predicate and general bounds"
+        },
+        {
+          "assessment": "Covers the forward inclusion, not the claimed reverse",
+          "evidence": [
+            "Every secure total dominating set is a double dominating set."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/math8040600",
+          "material_read": "PDF p. 2 Remark 1",
+          "method": "Targeted primary PDF inspection",
+          "title": "Secure Total Domination in Rooted Product Graphs",
+          "trigger": "Known forward relationship with double domination"
+        },
+        {
+          "assessment": "Coverage unresolved",
+          "evidence": [
+            "Full text unavailable through attempted routes."
+          ],
+          "identifier_or_url": "https://doi.org/10.7151/dmgt.1405",
+          "material_read": "No primary full-text passage obtained",
+          "method": "Lawful open-access retrieval attempted",
+          "title": "Secure domination and secure total domination in graphs",
+          "trigger": "Foundational source could contain small-graph examples"
+        },
+        {
+          "assessment": "Different graph family",
+          "evidence": [
+            "It treats crown graphs K(n,n) minus a matching."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-secure-total-domination-polynomial-of-crown-graphs--0a4afac9ec94",
+          "material_read": "Finding, start of mirrored RESULT.md",
+          "method": "Resultary search and local mirror reading",
+          "title": "Secure total domination polynomial of crown graphs",
+          "trigger": "Full enumerator for same predicate"
+        },
+        {
+          "assessment": "Different graph family",
+          "evidence": [
+            "The formula treats connected complete multipartite graphs; the two Paley graphs are not such graphs."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-secure-total-domination-polynomial-of-complete-multipartite-grap--03760d8f9284",
+          "material_read": "Finding, start of mirrored RESULT.md",
+          "method": "Resultary search and local mirror reading",
+          "title": "Secure total domination polynomial of complete multipartite graphs",
+          "trigger": "Full enumerator for same predicate"
+        },
+        {
+          "assessment": "Different optimum/inclusion-minimal predicate and states",
+          "evidence": [
+            "260 inclusion-minimal connected dominating four-sets, five affine types, and a 1,911-edge exchange graph of diameter 4."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-five-affine-types-and-self-centered-exchange-geometry-of-minimal--1d28b2130fd3",
+          "material_read": "Finding, mirrored RESULT.md offset 589",
+          "method": "Resultary search and local mirror reading",
+          "title": "Five affine types and self-centered exchange geometry of minimal connected dominating sets",
+          "trigger": "Same P13 and affine exchange geometry"
+        },
+        {
+          "assessment": "Different predicate and exchange graph",
+          "evidence": [
+            "There are 68 nonadjacent power-dominating pairs; their jump and slide graphs have 476 and 272 edges and diameter 3."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-one-slide-detour-law-for-optimal-power-domination-on-the--dfd886d46b59",
+          "material_read": "Finding, mirrored RESULT.md offset 439",
+          "method": "Resultary search and local mirror reading",
+          "title": "A sharp one-slide detour law for optimal power domination",
+          "trigger": "Same P17 and jump/slide comparison, with the number 68"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "These are the first two prime Paley orders after the cycle P5, a natural comparison rather than arbitrary graphs of the same size. Equality of all configurations is stronger than a numerical domination-number coincidence, and the shared optimum cardinality sharply fails to predict mobility: one order has connected state space even for slides, the other stays split into single edges even with arbitrary jumps. The exact polynomials, orbits and exchange geometry are usable finite benchmarks; no infinite-order extrapolation is needed for that value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

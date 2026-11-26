@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:04:41.251890Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At I>0, summing the infectious balances gives sum s_j=1/R0. With x=R0 I, the other balances give i_j=xs_j and r_j=gamma h_j xs_j/(1+mu h_j), so conservation gives s_j=p_j g_x(h_j). Conversely these fractions have sum i_j=x/R0 when E g_x(H)=1/R0, and the susceptible equation follows from mass balance plus the other two equations. The scalar left side is continuous and strictly decreasing from 1 to 0, ensuring exactly one positive root for R0>1. The kernel has g''_x(h)=2 gamma x [mu+(mu+gamma)x]/[1+x+(mu+(mu+gamma)x)h]^3>0 for x,h>0. Convex order at fixed x and then strict decrease in x put the two roots in the asserted order; Jensen is strict for a nondegenerate spread of a point mass. For the stated two-point family, the sigma derivative at fixed x is m sqrt(p(1-p)) times g'_x(h_2)-g'_x(h_1), which is positive for every allowed sigma>0 regardless of p. At zero, using E Z=0 and E Z^2=1, F_sigma=0 and F_sigmasigma=m^2 g''_x(m); F_x=-C_0/R0^2 at x_0. The implicit-function formula for I=x/R0, with the factor 1/2 from Taylor expansion, gives the positive displayed coefficient. The denominator identity at x_0 is (1+mu m)R0, and no split p remains in the quadratic term. Independent replay: python3 /workspace/review_replay.py 5 uses the positive root of the two-class quadratic (not the supplied bisection checker), reproduces the three example values, and checks the leading coefficient at five p values by 65-digit arithmetic. This is a finite diagnostic; the derivative and equilibrium arguments establish the full claim. No uploaded scripts executed. The conclusion concerns the intrinsic reciprocals of type-specific waning rates and the stated homogeneous-mixing equilibrium, not realized lifetimes under turnover, empirical predictions, stability or transient effects.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior sudden-loss SIRS proves two-type endemic uniqueness. Gradual-waning work varies the within-person waning profile, not the distribution over permanent waning types. Booster-policy convex order concerns disease-free susceptibility and invasion. The Resultary analogues use a vaccinated fixed-flow renewal model or cross-contact-only mixing without demography."
+        ],
+        "reasoning": "The related mechanisms cannot be substituted for the finite-type permanent assignment with common susceptibility, infectivity and demographic rates. The two-type equilibrium formula is a prior input; ordering all finite positive support laws at fixed rates goes beyond it and is not a corollary of the inspected booster or gradual-waning comparison.",
+        "searches": [
+          "arXiv:2311.00592v1 Proposition 1 and Appendix A.1.1 Eq. (9)",
+          "arXiv:2211.09062 gradual versus sudden waning, pp. 2–3",
+          "arXiv:2306.13633v3, pp. 21–22 convex order",
+          "Resultary 317027b179a6 and 86ecd202a31d"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2311.00592v1",
+        "doi:10.1016/j.jtbi.2024.111815 (landing only)",
+        "arXiv:2211.09062",
+        "arXiv:2306.13633v3",
+        "Resultary 317027b179a6 and 86ecd202a31d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substituting x=R0 I and h=1/omega into Eq. (9) yields the same two-class term p_j x g_x(h_j). The prior derivative proof only establishes its sign on the stated p domain. Booster convex order is imposed on a different random quantity and gives a different outcome."
+        ],
+        "reasoning": "The two-type kernel itself is directly implied by prior work. The proof uses its strict convexity in the reciprocal rate at each positive x plus a root comparison; this upgrades monotonicity to every two-point split and arbitrary finite distributions and yields a quantified Taylor coefficient by differentiating the root. Neither the conclusion nor a stronger applicable comparison is established in the inspected source passages.",
+        "searches": [
+          "arXiv:2311.00592v1 §§2.1, A.1.1–A.1.2, Eq. (9) (PDF offsets near 50500 and 51657)",
+          "arXiv:2306.13633v3 convex-order booster passage (offset about 77500)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With m=1/omega the preprint parameterizes exactly the same two-type family. Its p is the proportion with shorter mean immunity, as here. The Proposition proves p>=1/2 and explicitly reports only numerical evidence when p<1/2."
+        ],
+        "reasoning": "Relabeling types without retaining the definition of p does not yield the missing side: p always weighs the shorter-duration atom for positive sigma. Strictness on the proved side is already contained in the derivative proof and is not credited as new.",
+        "searches": [
+          "El Khalifi–Britton arXiv:2311.00592v1 §2.1, Proposition 2 and Appendix A.1.2",
+          "Resultary: heterogeneous sudden-loss waning, coefficient of variation and convex-order endemic prevalence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The main prior proposition cites simulations for the missing p range. No Taylor coefficient of the stated type was identified in the inspected proposition or derivative proof. The exact envelope in the catalogue concerns fixed support and moments with vaccination; the ranking reversal concerns variation of a common rate."
+        ],
+        "reasoning": "No finite census arises for this continuum of laws and parameters; the analogous exact items are equilibrium formulas, parameter domains and local coefficients. The simulations and the different exact envelope do not supply the ordering or the stated coefficient.",
+        "searches": [
+          "arXiv:2311.00592v1 Proposition 2 and Appendix A.1.2 (two-type quantitative comparison)",
+          "Resultary 317027b179a6 exact two-moment envelope and 86ecd202a31d exact reversal"
+        ]
+      },
+      "rationale": "The accessible primary preprint proves the same two-type monotonicity (including positive derivative for positive variation) on p>=1/2 and only reports simulations for p<1/2. It supplies the equivalent two-type equilibrium expression, not the proof of the missing range, finite-type convex-order theorem or quantified split-independent onset. The latter are the distinct supported contributions. The exact journal text was not verified; this is not a historical priority ruling.",
+      "residual_risks": [
+        "The final journal Proposition 2 and appendices could not be compared directly; the verified domain gap is in the arXiv text.",
+        "The outbound literature lookup was unavailable and contributes no negative evidence. A broader uninspected equilibrium comparison might exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same kernel, two-type uniqueness and partial monotonicity; missing proven p range and generality in preprint",
+          "evidence": "Propositions 1–2 and statement after Proposition 2 that for 0<p<1/2 there is numerical evidence only.",
+          "identifier_or_url": "https://arxiv.org/pdf/2311.00592v1",
+          "material_read": "§2.1, pp. 2–3, OA offsets around 7200 and 10343 and 9500–11494; Appendix A.1.1 Eq. (9) and A.1.2, p. 16, offsets about 50500 and 51657",
+          "method": "Open arXiv PDF passages",
+          "title": "SIRS epidemics with individual heterogeneity of immunity waning",
+          "trigger": "Directly motivating two-class model and claimed open parameter range"
+        },
+        {
+          "assessment": "Final journal text not independently verified; no negative inference from access",
+          "evidence": "The accessible arXiv full text has the quoted restriction; no final journal proposition read.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jtbi.2024.111815",
+          "material_read": "Journal landing page only; corresponding open preprint passages inspected separately",
+          "method": "Journal link followed and lawful same-paper arXiv alternative read",
+          "title": "SIRS epidemics with individual heterogeneity of immunity waning, journal version",
+          "trigger": "Published Proposition 2 could differ from preprint"
+        },
+        {
+          "assessment": "Different mechanism, despite same endemic-prevalence observable",
+          "evidence": "Compares sudden with linear or exponential within-person waning under cumulative-immunity and R0 calibration.",
+          "identifier_or_url": "https://arxiv.org/abs/2211.09062",
+          "material_read": "pp. 2–3, around PDF-text offset 7000",
+          "method": "Open primary paper passage",
+          "title": "Extending susceptible-infectious-recovered-susceptible epidemics to allow for gradual waning of immunity",
+          "trigger": "Potential broader endemic comparison for immunity waning"
+        },
+        {
+          "assessment": "Different intervention, random variable and outcome",
+          "evidence": "Intervals between boosters order disease-free stationary susceptibility and invasion risk.",
+          "identifier_or_url": "https://arxiv.org/abs/2306.13633v3",
+          "material_read": "pp. 21–22, around PDF-text offset 77500",
+          "method": "Open primary paper passage",
+          "title": "Optimal vaccination policy to prevent endemicity: a stochastic model",
+          "trigger": "Prior use of convex order with immunity waning"
+        },
+        {
+          "assessment": "Different renewal model with vaccination and distinct moment constraints",
+          "evidence": "Two-point extremizers with administered dose flow and fixed support, mean and variance.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-sharp-two-moment-endemic-incidence-envelopes-under-a-fixed-reali--317027b179a6",
+          "material_read": "Finding and model in local mirror",
+          "method": "Bounded Resultary mirror read",
+          "title": "Sharp two-moment endemic incidence envelopes under a fixed realized vaccination flow",
+          "trigger": "Closest exact endemic estimates over immunity duration laws"
+        },
+        {
+          "assessment": "Different mixing model and parameter comparison",
+          "evidence": "Two groups with cross-contact only and no demography; common waning rate varies, not the distribution in convex order.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-unique-waning-immunity-reversal-of-endemic-infection-ranking-i--86ecd202a31d",
+          "material_read": "Finding and model in local mirror",
+          "method": "Bounded Resultary mirror read",
+          "title": "A unique waning immunity reversal of endemic infection ranking",
+          "trigger": "Exact endemic monotonicity and ranking under waning"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The analysis resolves a precise missing regime in an existing two-type prevalence comparison and makes the mechanism explicit through a strictly convex equilibrium kernel. It replaces an ad hoc comparison of two splits with a distribution-level ordering in the homogeneous-mixing setting, and quantifies the near-homogeneity change with a coefficient independent of the split. It makes no claims for other mixing mechanisms or epidemic dynamics.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

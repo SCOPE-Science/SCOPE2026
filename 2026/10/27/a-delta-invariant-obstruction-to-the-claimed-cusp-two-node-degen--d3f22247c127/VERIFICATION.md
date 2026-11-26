@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,4 +19,4 @@
 }
 ---
 
-The relevant statement was checked against the full-text primary source and the definition of the delta-constant stratum. The invariant values and their sum were reconstructed explicitly: one cusp contributes \(1\); two nodes contribute \(2\); a curve with exactly \(\kappa\) cusps and no other singularities has total delta \(\kappa\). No numerical computation or external certificate is needed. The conclusion is restricted to the claimed cusp-to-two-node replacement. Independent audit and independent validation remain unperformed.
+Compare Proposition 4.1 and the proof of Theorem 4.2 in arXiv:2603.01540v1, PDF pp. 9–10. Proposition 4.1 starts from δ = 2 and gives a single ordinary cusp as one alternative; the proof of Theorem 4.2 starts from ordinary cusps and asserts two nodes per cusp. The normalization quotients in `RESULT.md` give δ = 1 for a cusp and δ = 1 for a node. This checks the incompatibility of both stated mechanisms with δ constancy, not the global closure or codimension claims. No numerical computation is required.

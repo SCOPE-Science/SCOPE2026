@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:30:39.709102Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The marginal ratio laws and gamma moments at RESULT.md:22–46 are correct. In row-space coordinates G=[A;B], z=A†a and an orthonormal basis K of ker A give independent standard Gaussian Bz/||z|| and BK conditional on A, since z is orthogonal to K. The physical minimum projects Bz onto the orthogonal complement of range(BK), of dimension d−ℓ, while the raw rule keeps all d−r coordinates. The common scale is ||z||²/||a||², the inverse of a chi-square of dimension ℓ−r+1 by Schur complement; the numerator laws are independent of this scale. Integrating at zero gives the stated moment threshold. However, line 48 claims an improvement by a factor of expected nullspace squared error for all ℓ>r. For ℓ=r+1 both expectations are infinite, e.g. r=1, ℓ=2, d=3, so there is no such finite-factor reduction in expected error. The claim would require ℓ≥r+2; the samplewise ordering survives. When describing exact feasible corrections for individual sketches, G having full column rank is also not enough on its own: e.g. J=(1,0), G=(0,1)ᵀ makes JG zero. The full-row-rank property holds almost surely for the random sketch. The rational witness gives 7/2 versus 19/10 by minimizing z₁²+z₂² versus 1+9z₁²+z₂² subject to z₁+z₂=1. The supplied verification/check.py was inspected, not run; its reported 1,742 finite checks cannot validate moment divergence. No repair is delivered because correcting the finite-factor claim leaves the already covered comparison below.",
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Matching public record also treats ℓ=d and gives the positive tail constant; its ℓ<d statements include all the assigned dimensions after whitening.",
+          "Cartis–Otemissov give ||x*_{>}||²/||y*₂||² distributed as χ² with d−d_e+1 degrees and a mean-square formula for the reduced-coefficient norm."
+        ],
+        "reasoning": "The public record is stronger in dimension and tail detail. The earlier Cartis–Otemissov result alone covers just the Gaussian scale, not the physical comparison.",
+        "searches": [
+          "Published nullspace inflation record, Finding at offsets 370–2514",
+          "Cartis–Otemissov, Theorem 3.7 and Corollary 3.9"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md:5–48, 65–122, 124–138 and VERIFICATION.md; nested verification/check.py",
+        "Cartis–Otemissov, Optimization Online paper, §3.1–3.2",
+        "Public 2026/11/2 record 94943c586d73, Finding"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The coefficient theorem uses min-norm reduced y₂* in Eq. (3.5) and Corollary 3.6; it is not a result on ambient G y₂*.",
+          "The public comparison explicitly minimizes the physical norm in the same span and gives both displacement laws."
+        ],
+        "reasoning": "Pythagoras gives the total correction expectations from the published displacement expectations; minimization over a set containing the Gaussian correction gives the samplewise ordering. The finite witness illustrates this already covered contrast rather than supplying an independent scientific remainder.",
+        "searches": [
+          "Cartis Otemissov 2020 Theorem 3.7 Corollary 3.9 Gaussian random embedding minimum norm inverse chi-squared coefficient norm",
+          "Published nullspace inflation record, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published Finding specifies S(JS)†c versus the physical minimizer in col(S) subject to Jx=c; the two independent-within-marginal ratios have numerator degrees d−r and d−ℓ and denominator degree ℓ−r+1."
+        ],
+        "reasoning": "Rewrite the assigned constraint as J₀h=c with J₀=(JJᵀ)⁻¹/²J and c=−(JJᵀ)⁻¹/²e. Both full-row-rank coefficient constraints have identical solution sets, so their minimum coefficient norm solutions are identical. The same holds in the orthonormal basis. J₀ has orthonormal rows and ||c||=||h_*||. Thus this is equivalent coverage, not a match based on titles.",
+        "searches": [
+          "Resultary: Gaussian and orthonormalized random-subspace least squares, exact nullspace-risk laws and same-span coefficient versus physical norm",
+          "Published record 2026/11/2/SCOPE-exact-nullspace-inflation-for-gaussian-reduced-least-squares-pse--94943c586d73, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest index hit was read in the public RESULT.md itself and prints the two exact chi-square ratios, finite moment boundary and gamma and mean-square formulas."
+        ],
+        "reasoning": "These laws are not a finite tabulation of numerical values; the catalogue hit locates exact symbolic coverage, which is stronger than any matching numerical instance.",
+        "searches": [
+          "Resultary: exact same-span Gaussian and orthonormalized nullspace ratios and moments"
+        ]
+      },
+      "rationale": "A distinct public record directly covers both same-span physical-error marginals, their moment range and their squared expectations; it additionally gives a full-span case and a tail constant. Whitening the row equations reduces the entire assigned model to its orthonormal-row formulation without changing the coefficient minimizer, the physical minimizer or the comparison. The matching record is dated later than the frozen result; this is verified equivalent public coverage at review, not a determination of earlier discovery, attribution, or provenance.",
+      "residual_risks": [
+        "Date labels do not establish provenance or who first derived the laws. The decision is based on direct public statement coverage.",
+        "Other earlier equivalent inverse-Wishart or Grassmannian formulations may exist; not needed to establish the verified match."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct equivalent coverage of all principal valid conclusions; extra full-span and tail results",
+          "evidence": [
+            "Independent chi-square ratios with the same degrees, all positive moment orders with threshold ν, exact mean squares; geometric correction is the physical minimum within the same span."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-nullspace-inflation-for-gaussian-reduced-least-squares-pse--94943c586d73/RESULT.md",
+          "material_read": "Finding, opening and offsets 370–2514",
+          "method": "Read bounded passages in the public-record mirror at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4; reduce the linear constraint by whitening",
+          "title": "Exact nullspace inflation for Gaussian reduced least-squares pseudoinverses",
+          "trigger": "Strong same-object Resultary match"
+        },
+        {
+          "assessment": "Covers the Gaussian coefficient norm, not both physical displacements",
+          "evidence": [
+            "Inverse normalized squared reduced-coordinate length is χ² with d−d_e+1 degrees; mean formula needs d−d_e>1."
+          ],
+          "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2020/01/7575.pdf",
+          "material_read": "Eq. (3.5), Corollary 3.6, Theorem 3.7 and Corollary 3.9, §3.1–3.2; theorem PDF p. 10",
+          "method": "Targeted open primary PDF passages",
+          "title": "A dimensionality reduction technique for unconstrained global optimization of functions with low effective dimensionality",
+          "trigger": "Cited exact inverse-chi-square antecedent"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Physical tie-breaking within an unchanged span is a worthwhile question, and the moment blow-up is substantively relevant. But the exact invariant and the threshold—the claimed contribution—are already available in the matching public comparison. Whitening and adding the row-space norm do not supply a new invariant or consequence, and the small rational example illustrates the very same minimization without an independent gap to resolve.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

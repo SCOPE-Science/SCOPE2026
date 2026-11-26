@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:17:20.738623Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Eliminate the OFF masses with (s+3)q=(1/2)1+sp. The remaining equation is stationarity of an effective three-state chain with rates r_ij=w_j/w_i+t, where h=3s/(s+3), t=h/3, and the ON probability mass is 1/2. Its effective bond current equals the physical current including the OFF contribution. Independently, the triangle tree formula gives the cycle-product difference t(1-t)V/e_3 divided by twice the sum of the rooted tree weights, with V the stated oriented Vandermonde. On the zero-sum subspace, adding the uniform rates shifts the two negative generator eigenvalues by -h; the tree weight sum is h^2+h(e_1e_2/e_3-3)+e_1 U/e_3, from the trace and the pair principal minors, with U=sum w_i^2. Substitution gives the claimed A,B,C, sign and normalization. The exact symbolic stationary check independently agreed, including J=1/658 for (w_0,w_1,w_2,s)=(1,2,3,1). Positivity follows from the coefficient expansions, and differentiation reduces the magnitude maximizer to C-As^2=0. Since 0<e_2<U for distinct positive weights, the window is strict; near-equal weights and a dominant weight approach the respective endpoints. Any repeated weight gives zero current. Conservation makes bond currents equal; three oriented bonds contribute to the displacement rate, so the velocity is 3J. The frozen Python checker was read, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-day cycle record bounds positive-rate zeros by n-2. For three sites its topology includes this example. The later triangle record gives r(A+Br)/(d_0+d_1r+d_2r^2) with a general prescription for coefficients. The finite-graph record includes a reversing triangle even with unit rates in one phase. The 2018 paper's abstract mentions optimal rates and eight equations for a sawtooth case; decisive full text was unavailable."
+        ],
+        "reasoning": "At most one reversal does not entail zero reversals. Uniform OFF is not alone sufficient; the weight-ratio condition on ON is essential here. A generic matrix prescription permits the specialized stationary computation but does not state the vanishing high-order numerator term, Vandermonde coefficient or sharp inequalities on the optimizer. The later catalogued formula is not used to infer earlier coverage.",
+        "searches": [
+          "2026/10/18/SCOPE-a-sharp-three-site-current-reversal-and-a-universal-reversal-cou--238ec906d067",
+          "2026/10/26/SCOPE-single-reversal-rigidity-of-two-phase-passive-triangle-ratchets--66ab4c24c8c4",
+          "2026/11/2/SCOPE-a-finite-state-reversal-bound-for-two-equilibrium-flashing-ratch--d73d88f2b921",
+          "10.1103/PhysRevE.97.012153"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verification.py",
+        "arXiv:1004.2831",
+        "PMLR 202 seifner23a",
+        "DOI 10.1103/PhysRevE.97.012153 (abstract only)",
+        "Three indexed Resultary ratchet findings identified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior rate model directly supplies the stationary equations. The general triangle determinant proof supplies a quadratic denominator and a linear factor in the numerator besides r. Additional algebra exploiting uniform OFF gives the effective-chain reduction and the alternating product factor t(1-t)V. Optimization then uses the exact dependence of the constant and quadratic coefficients on arbitrary weights."
+        ],
+        "reasoning": "Neither the zero fast-switching limit in the specified earlier potential nor the general degree bound implies a fixed sign and sharp (3/2,3) range for all pairwise-distinct weights. The elementary derivative alone is not the contribution; it is the specialized coefficient structure and sharp universal bounds.",
+        "searches": [
+          "arXiv:1004.2831 pp. 2–3",
+          "Resultary October 18 cycle-reversal Finding and Assumptions; October 26 triangle Finding and determinant proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Roldán–Parrondo's ON rates exp[-beta(V_j-V_i)/2] become w_j/w_i, OFF is unit rate and switches are symmetric. Their model is a specified potential family; the inspected passages give weak-potential cubic scaling and zero fast-switching limit. Seifner et al. use the same rate family with a fixed benchmark setting."
+        ],
+        "reasoning": "The potential and weight coordinates are equivalent. Neither benchmark calculation or limiting statement supplies the arbitrary three-weight coefficient identity and optimum.",
+        "searches": [
+          "arXiv:1004.2831, pp. 2–3",
+          "PMLR 202 seifner23a, Section 5.1",
+          "Resultary: symmetric switching, three-site flashing ratchet, stationary current and optimal switching"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected indexed findings give rational currents for reversing examples, with stalls at 2/5, 2, and 9/8 for different landscapes. These are not optimizer data or a table over the arbitrary weight family. The primary benchmark states particular parameters, not a universal extremum range."
+        ],
+        "reasoning": "A special current formula at different rates or a demonstration of a stall cannot match the factored current or its optimizer here. The indexed and primary checks are bounded, not proof of database-wide absence.",
+        "searches": [
+          "Resultary: three-position/two-environment exact current and sharp optimal-rate window",
+          "arXiv:1004.2831 stationary-current discussion",
+          "PMLR 202 seifner23a, Section 5.1 simulation benchmark"
+        ]
+      },
+      "rationale": "The model, generic stationary solution methods, reversal-degree bounds, and some restricted-family transport behavior are known. The distinct supported claim is the arbitrary positive weight-ratio/unit-OFF specialization with its factored current, absence of direction reversal and sharp exact rate window, not a new generic triangle rational form.",
+      "residual_risks": [
+        "The strongest inaccessible comparison is the 2018 switched-sawtooth paper; overlap of its optimum with this generator remains unverified.",
+        "The same-day catalogue date does not establish priority. The comparison distinguishes its general bound from the present specialized no-reversal and optimization claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same rate convention in the specified potential, with restricted transport statements.",
+          "evidence": [
+            "ON rates are exp[-beta(V_j-V_i)/2], OFF jumps have rate one and switching is symmetric. Their discussion includes J proportional to V^3 at weak potential and the fast-switching limit."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1004.2831",
+          "material_read": "PDF pp. 2–3, offsets about 13000 and 19000–21500",
+          "method": "OA primary PDF passages",
+          "title": "Estimating dissipation from single stationary trajectories",
+          "trigger": "Original matching six-state model and stationary transport calculation"
+        },
+        {
+          "assessment": "Fixed restricted benchmark for inference, not a rate optimizer.",
+          "evidence": [
+            "Uses rates exp[-V(j-i)/2], OFF rate b and switches r, with V=r=b=1 in the benchmark."
+          ],
+          "identifier_or_url": "https://proceedings.mlr.press/v202/seifner23a/seifner23a.pdf",
+          "material_read": "Section 5.1, PDF p. 6, offset about 35000",
+          "method": "OA primary PDF passage",
+          "title": "Neural Markov Jump Processes",
+          "trigger": "Matching benchmark flashing ratchet"
+        },
+        {
+          "assessment": "Abstract alone cannot settle whether their equations specialize to this generator.",
+          "evidence": [
+            "Addresses asymmetric flashing potentials, derives flux equations, and discusses optimal transitions; the simple sawtooth calculation uses eight linear equations."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.97.012153",
+          "material_read": "Indexed abstract only; full text unresolved",
+          "method": "Lawful publisher and identified OA retrieval checks; HTTP 403 on publisher paths and no recovered copy",
+          "title": "Exact solution of a ratchet with switching sawtooth potential",
+          "trigger": "Strong plausible match: exact flux and optimizing transition rates"
+        },
+        {
+          "assessment": "Generic cycle bound includes the triangle but not the no-reversal specialization, exact identity or optimizer.",
+          "evidence": [
+            "Two arbitrary reversible cycle landscapes give at most n-2 positive zeros, attained with a reversal at 2/5 in a different three-site chain."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-a-sharp-three-site-current-reversal-and-a-universal-reversal-cou--238ec906d067",
+          "material_read": "Finding and Assumptions, local mirror offsets 90–1990; reversing example passages",
+          "method": "Resultary local mirror passage reads",
+          "title": "A sharp three-site current reversal and a universal reversal-count bound for switching ratchets",
+          "trigger": "Same-date neighboring reversal theorem, same triangle topology"
+        },
+        {
+          "assessment": "General rational shape and constructive determinant coefficients, not the optimized weight-ratio specialization.",
+          "evidence": [
+            "The general numerator is r(A+Br), with coefficients obtainable from a 4x4 adjugate. It permits a single reversal for arbitrary reversible phases."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-single-reversal-rigidity-of-two-phase-passive-triangle-ratchets--66ab4c24c8c4",
+          "material_read": "Finding, Assumptions and determinant proof, local mirror offsets 90–1990 and 2250–5650",
+          "method": "Resultary local mirror passage reads",
+          "title": "Single-reversal rigidity of two-phase passive triangle ratchets",
+          "trigger": "Broader exact current form in the matching topology"
+        },
+        {
+          "assessment": "General degree bound; uniform OFF alone allows reversal if ON conductances are not w_i w_j with equilibrium masses w_i^2.",
+          "evidence": [
+            "Its uniform-phase witness has other-phase weights (1,3,6), conductances (5,1,2), and reverses at 9/8."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-finite-state-reversal-bound-for-two-equilibrium-flashing-ratch--d73d88f2b921",
+          "material_read": "Finding and Assumptions, local mirror offsets 90–1990",
+          "method": "Resultary local mirror passage reads",
+          "title": "A finite-state reversal bound for two-equilibrium flashing ratchets",
+          "trigger": "Broader finite-graph rate-switching theorem with uniform-phase witness"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact factorization separates the direction from the time-scale dependence in a standard microscopic ratchet. It supplies a sharp range valid for every detailed-balance weight profile in the stipulated normalization and a computable attainable maximum for any such profile. This gives quantitative information beyond a generic upper bound on reversal count, without extrapolating to general ratchet dynamics or entropy-production optimization.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,6 +21,6 @@
 
 # Verification notes
 
-The analytical calculation uses the exact four eigenvalues \(0,2-\sqrt2,2,2+\sqrt2\) and exact spectral-projector entries. A derivative monotonicity argument proves the distance-two zero count, a strictly convex rescaled derivative proves the endpoint zero counts, and explicit inequalities at scaled times \(\log2\) and \(2\) prove the ordering. Both large-exponent limits are obtained by uniform convergence on compact positive rescaled intervals and bracketing of simple limiting roots.
+The analytical evidence is the exact four-eigenvalue projector computation, the monotone rescaled derivative for the distance-two entry, the endpoint sign classification cited in RESULT.md, exact sign bounds at scaled times log 2 and 2, and bracketing at simple limiting zeros on the two time scales. Together these prove the whole-matrix recovery statement and the limiting constants.
 
-Run `python checker.py` in a standard Python environment with NumPy and SciPy. The supplied independent matrix-exponential reconstruction passed 1574 direct numerical comparisons of entries, signs, crossing counts, and scaled roots. These are finite reproducibility checks, not exhaustive verification over all real exponents and times. Independent external mathematical review has not been performed.
+The unchanged companion `checker.py` requires Python, NumPy and SciPy. It compares the explicit entries with spectral matrix reconstructions and checks sign and root brackets at selected powers, as well as the scale limits on finite samples. These are finite diagnostics, not proofs of the all-exponent claim; insensitivity to arbitrarily small or faraway roots is not certified by the grid.

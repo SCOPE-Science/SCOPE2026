@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The face predicate is exactly the Hamming-geodesic betweenness condition. The standalone complete enumeration finds 400 forbidden triples and the face-vector \((16,120,160,120,16)\). Its explicit 191-pair matching leaves critical cells \((1,40,0,9,0)\), and a complete directed-Hasse test proves acyclicity. Forman's theorem and the vanishing of \(\pi_2\) of a wedge of circles establish the *integral homotopy equivalence*, rather than only chain homology. The finite proof applies to the exact sixteen-vertex object and does not extrapolate.
+## correctness
 
-**Originality — PASS on inspected evidence.** The full-access Korže–Vesel 2023 paper establishes maximum sizes of geodesic general-position sets in hypercubes using SAT, not the homotopy of the complex of every general-position set. The 2020 Klavžar–Rall–Yero paper studies cardinalities, paths, cycles, structural characterizations, and related graph invariants rather than this topological computation. published-finding corpus searches for the exact object, aliases, \(40\) circles, nine 3-spheres, all faces and Hamming betweenness did not return a covering claim. Closest indexed cube complexes use *different defining faces*, e.g. independence or graph-cut conditions. Risk: unindexed equivalent computations and older Hamming-space literature not exhaustively checked.
+PASS
 
-**Value — PASS.** This computes the complete integral homotopy type of a natural and highly symmetric graph-geodesic configuration space, beyond a known extremal set-size invariant. The sharp distinction between forty independent loops and nine dimension-three generators is not implied by its maximum face size or Euler characteristic. The four-cube is a motivated first finite setting of this size in the hypercube line: it exhibits nonzero higher-dimensional geodesic-complex homology, and the claim has an independently replayable exact proof.
+A binary point lies between the endpoints in graph distance exactly if it agrees with them on every coordinate where they agree; on the other coordinates either bit incurs one step in total. The independent replay uses this coordinate predicate and grows sorted faces by admissible single-vertex extension, rather than running the uploaded script. It finds 400 forbidden triples and nonempty levels of sizes (16,120,160,120,16) followed by an empty level. Using the stated pivot order on the resulting tuple faces, pair all eligible cells at each pivot: no conflict is possible within a pivot because the upper partner uniquely determines the lower one by deletion. The replay finds 191 pairs and unpaired cell counts (1,40,0,9,0) by dimension. It orients every one of the 1,280 nonempty-face codimension-one incidences according to the matching and uses depth-first cycle detection; all 432 faces are visited with no directed cycle. Forman's theorem therefore produces a CW model with one zero-cell, forty one-cells, no two-cells, nine three-cells, and no higher cells. Each three-cell attaches to the graph by a map from S². The universal cover of the graph is a tree, so every such map is nullhomotopic. Consequently the CW model is a wedge of forty circles and nine three-spheres, not just a match of Betti numbers. This is a complete finite certificate for the specified cube.
 
-**Limitations.** A fixed sixteen-vertex complex, not an all-dimensional formula; no independent audit or exhaustive universe-wide literature certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The predicate, its coordinate criterion and maximum face size were known. The inspected literature and catalogue results do not cover the full face vector and this homotopy type for the graph-geodesic complex on Q4. The closest older same-cube topological result uses a different face rule. The comparison is bounded and does not establish universal priority.
+
+## value
+
+PASS
+
+This is a canonical binary cube and the simplicial complex of every graph-geodesic general-position configuration, not an arbitrary subset of cases. The exact topology gives a free fundamental group of rank forty and nine 3-sphere summands, information absent from the known extremal size. The explicit acyclic certificate gives future computations a reproducible small-cube benchmark with higher cells and an actual homotopy identification rather than only an Euler characteristic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

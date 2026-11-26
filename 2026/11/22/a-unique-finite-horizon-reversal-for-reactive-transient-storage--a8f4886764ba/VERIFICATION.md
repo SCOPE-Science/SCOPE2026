@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The analytical proof in `RESULT.md` establishes all-parameter claims within the stated two-zone exponential-clock model. Run `python3 check.py` with Python 3 and no additional packages. A successful replay prints `PASS: 7146 diagnostic assertions`.
+## correctness
 
-Checks consist of 1,200 exact rational first-step balance assertions; numerical spectral interlacing, positivity and unique-crossing signs on 240 deterministic randomized parameter tuples; independently computed four-state uniformization for five observation horizons per tuple; 100 further nonreactive and faster-storage boundary cases, monotonicity comparisons, and six small-rate endpoint diagnostics. These are finite consistency tests, not exhaustive verification of continuum parameter values or empirical field measurements.
+PASS
 
-The proof's strict convexity step assumes \(0\le\ell<k\), including the nonreactive case, and the coupling argument separately treats \(\ell\ge k\). The logarithmic asymptotic is only as \(\ell\downarrow0\) with other positive rates fixed. No alternative non-exponential transport law is validated. Independent external audit has not been performed.
+Reconstructed the cumulative difference H against removal of storage (not against accessible inert storage). The Laplace transform, with c=v+k and decay rates λ± from the two-state generator, is α[(ℓ−k)s+ℓv]/[s(s+c)(s+λ−)(s+λ+)]. Equivalently H(t)=α[(ℓ−k)g(t)+ℓv∫_0^t g(u)du] for g the convolution of the three decaying exponentials. All three rates are positive, so this independently checks the strict signs at ℓ=0 and ℓ≥k, the eventual gain, and the Taylor coefficients near ℓ=k. For 0<ℓ<k, the characteristic polynomial is negative at c and both density weights are positive; the density ratio to the no-storage exponential is strictly convex, starts at 1 with negative derivative and eventually exceeds 1, hence has exactly one positive crossing. The cumulative difference first decreases from zero, then rises to the strictly positive eventual gain αvℓ/[c(c(β+ℓ)+αℓ)], giving exactly one later positive crossing. Increasing ℓ can be coupled by adding a storage-only reaction clock; strict gain at any t>0 follows on paths entering and staying stored through the deadline with an added event and no lower-rate reaction. This strictly orders the roots. Continuity at each finite t gives the two endpoint limits of the root. Near zero reactivity, the spectral separation persists, the crossing is O(log(1/ℓ)) by exponential tail bounds, and balancing the slow spectral tail and the eventual gain gives the full logarithm with P₀ and ν in the record, since (λ−−ν)T_*→0. Near equal reactivity, g(t)=t²/2+O(t³) uniformly, and the nonzero root gives k−ℓ=(vk/3)T_*+O((k−ℓ)T_*+T_*²). This first implies T_*=O(k−ℓ) and then the stated quadratic-error expansion. The conclusions assume a mobile initial pulse, constant rates and an independent exponential mobile exit, not a general residence-time law. Inspected check.py; did not execute the supplied diagnostics.
+
+## originality
+
+PASS
+
+On the checked evidence, the supported distinction is the exact cumulative-incidence sign classification against removing storage, including the unique monotone crossover and both endpoint laws. Separate channel/storage first-order uptake and generic phase-type formulas are not new. The exact catalogue match was this same frozen record, and the distinct same-day analogues were compared without assuming priority from their date.
+
+## value
+
+PASS
+
+The sharp sign trichotomy answers when a longer observation window actually reverses the conclusion about adding storage, rather than just delaying removal. The divergent and collapsing crossover scales explain two different experimental horizon sensitivities even in the minimal model. The mathematical benchmark remains useful without a fitted stream model, but must not be interpreted as a downstream breakthrough prediction or a field-scale extrapolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

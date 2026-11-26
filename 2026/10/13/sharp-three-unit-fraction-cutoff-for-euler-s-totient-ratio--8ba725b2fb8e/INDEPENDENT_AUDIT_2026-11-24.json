@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:19:14.436102Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–44",
+        "VERIFICATION.md lines 19–21; verify_threshold.py lines 7–57; VERIFIER_OUTPUT.txt line 1 (read as recorded evidence)",
+        "Independent exact replay: python /workspace/branches/independent_replay.py 5 returns 44 sorted triples and 37 distinct rationals, all with reduced denominator not coprime to 6."
+      ],
+      "rationale": "For sorted x<=y<=z and 6/7<q<1, x is 2 or 3. Bounding the two remaining terms by 2/y leaves only (x,y)=(2,3),(2,4),(2,5),(3,3); using the two strict inequalities gives respectively z=7..41, 5..9, 5..6 and 4..5. In the first branch cancellation of both negative valuations in 5/6+1/z requires z=6k with gcd(k,6)=1 and then 5k+1 divisible by 6. This needs k=1 mod 6, impossible for 2<=k<=6. In the second branch cancellation at 2 requires v2(z)=2 and no z in range qualifies. The last two branches give only 9/10, 13/15 and 11/12. Conversely any totient ratio >6/7 has all prime factors of n at least 11 by the product formula; its reduced denominator divides rad(n) and is prime to 6, excluding all four branches. A ratio of exactly 6/7 requires 7|n by the reduced denominator, and the factor for 7 already equals 6/7, excluding any other prime factor. The witness 1/2+1/3+1/42 works for every 7^k and disproves the weak-threshold implication for every c<=6/7. Thus the set is (6/7,1] with unattained infimum. The n>=2 restriction is necessary, and the exhaustion permits repeated denominators.",
+      "residual_risks": [
+        "The replay checks the bounded rational obstruction and witness, not all n; the Euler-product argument proves the unbounded claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The record reports nonrepresentation for prime powers with prime at least 11, not for mixed prime supports. A reported blanket 4/5 assertion cannot serve as a valid stronger coverage claim: it conflicts with the explicit n=7 representation. No primary full-text scope could be verified.",
+          "The reported pseudoperfect comparison has a different restricted three-prime support problem; only catalogue summary was available."
+        ],
+        "reasoning": "Multiplying several factors (p-1)/p introduces new residues and possible cancellations, so a prime-power nonrepresentation statement alone cannot rule out all composite supports. General Egyptian-fraction expansions of unspecified length do not impose an exact three-term obstruction.",
+        "searches": [
+          "Resultary: phi(n)/n and three-term Egyptian fraction theorems",
+          "Mandal, Theorem 1 and Future Research (locations reported in RESULT.md lines 49–50)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic searches",
+        "Mandal journal and author listings (not full text)",
+        "RESULT.md proof and literature discussion; VERIFICATION.md and VERIFIER_OUTPUT.txt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The distinctive step is the reduced-denominator obstruction throughout (6/7,1); once established, it applies to every product whose prime factors exceed 7. Euler's product and the endpoint witness then imply the equality classification."
+        ],
+        "reasoning": "The cutoff is not obtained by merely inserting numbers into the cited prime-power theorem. If an earlier source proved the same interval-wide obstruction, the claimed extension could be mechanically implied; no inspected passage establishes that premise.",
+        "searches": [
+          "RESULT.md lines 24–44 and 49–50; compare Mandal prime-power case and endpoint witness",
+          "Mandal journal and author-copy retrieval (DOIs below)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "RESULT.md lines 14–19 and 44: maximizing representable ratios is equivalent to the stated infimum because the cutoff is attained and the threshold test uses >=.",
+          "The frozen literature comparison reports an explicit threshold question and the endpoint witness in Mandal; no equivalent all-integer theorem was obtained on retrieval."
+        ],
+        "reasoning": "The sharp maximum and the sharp nonrepresentation threshold are reformulations, not separate novelty. The endpoint identity alone supplies a lower bound on that threshold.",
+        "searches": [
+          "Resultary: totient ratio phi(n)/n, Egyptian fractions, three unit fractions, 6/7 cutoff",
+          "Primary literature: On an Erdős–Straus type problem (Mandal), DOI 10.2478/aupcsm-2026-0001"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching exact all-n finding surfaced in the inspected result lists. The recorded table covers 44 bounded triples and a sieve through 300000.",
+          "The nearby indexed result concerns prime-power pseudoperfect local rigidity and a restricted family 6*7^c on its available summary, not a table of representable totient ratios."
+        ],
+        "reasoning": "An endpoint example or finite totient table cannot by itself establish unbounded maximality or the equality locus. The catalogue hit does not provide such an assertion on the evidence available.",
+        "searches": [
+          "Resultary exact-value search: 6/7, Euler totient ratio, three unit fractions; pseudoperfect comparison e2b81fad1a6a",
+          "VERIFIER_OUTPUT.txt line 1"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the exact all-integer threshold, using a denominator obstruction that applies to composite prime supports as well as prime powers. The displayed equality representation is credited to Mandal; the equality locus is then a short, necessary Euler-product argument. No inspected statement or documented implication covers all n with the same threshold. This is a best-of-knowledge judgment, not a priority certification.",
+      "residual_risks": [
+        "Mandal's theorem and Future Research wording and any interval-wide denominator argument could not be independently checked in full text. The nearby pseudoperfect record was available only in summary. An earlier equivalent cutoff or equivalent reduced-denominator lemma would affect the judgment. Unsuccessful retrieval or search is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Endpoint witness credited on available evidence; exact scope of the argument and any general obstruction remain unverified.",
+          "evidence": [
+            "The frozen account identifies Theorem 1 with prime powers p>=11 and reports the equality representation and all-n question. The Sciendo PDF route did not yield readable text."
+          ],
+          "identifier_or_url": "https://doi.org/10.2478/aupcsm-2026-0001; author preprint DOI 10.13140/RG.2.2.19272.99845/1",
+          "material_read": "Journal/DOI and author listings; no substantive original theorem or Future Research passage obtained. Read the frozen account at RESULT.md lines 49–57 as secondary evidence only.",
+          "method": "Lawful public journal, DOI, Sciendo PDF and author-copy retrieval attempts; PDF not accessible",
+          "title": "On an Erdős–Straus type problem",
+          "trigger": "Identical totient fraction and three-term problem; cited prime-power theorem, witness and threshold question"
+        },
+        {
+          "assessment": "The available description gives no theorem for the conditional maximum of phi(n)/n; more detailed overlap unverified.",
+          "evidence": [
+            "The summary describes pseudoperfect local rigidity and a restricted family 6*7^c; the frozen equality locus instead consists of powers of 7 for the totient ratio of n itself."
+          ],
+          "identifier_or_url": "Resultary e2b81fad1a6a",
+          "material_read": "Catalogue summary only; exact record text not retrieved",
+          "method": "Resultary search and attempted local mirror inspection",
+          "title": "Prime-power pseudoperfect local rigidity",
+          "trigger": "Nearby Egyptian-fraction and prime-power catalogue hit involving 7"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 3–44 and 49–53; Mandal threshold question as reported there"
+      ],
+      "rationale": "This is a natural exact cutoff in the three-term totient-ratio problem: it decides the strongest uniform exclusion, distinguishes the attained endpoint from the strict exclusion interval, and gives a residue-based obstruction independent of the size of n. The uniform passage from prime powers to arbitrary prime support is substantively useful; the equality witness by itself would not be.",
+      "residual_risks": [
+        "The result does not decide which ratios below 6/7 are representable."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

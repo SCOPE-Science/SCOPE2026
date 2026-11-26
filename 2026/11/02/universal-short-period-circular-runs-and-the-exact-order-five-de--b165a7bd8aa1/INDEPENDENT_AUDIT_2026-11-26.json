@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:52:48.569180Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The repaired RESULT.md retains the q-ary run theorem and removes the misleading first-variation framing. The global period q^n cannot be a maximal finite run period, and a smaller period p cannot persist to length n+p without duplicating an n-window. Fine–Wilf shows the square of a primitive p-word has least period p; a nonprimitive p-block would make its entire repeated interval have a smaller period. Exactly one run grows from each positioned primitive square with a preceding mismatch, because right extension is deterministic and terminates. Every length-t detector with t≤n has q^(n−t) occurrences; counting one outside mismatch proves the total, and counting both proves the exact lengths and, by subtracting a geometric sum, the long tail. The binary order-four examples have sixteen distinct windows; the two primitive alternating squares are adjacent in the first and separated in the second, yielding respectively one and two period-two runs. As a check on the frozen but now credited n=5 census, an independent Euler-edge DFS fixing 00000 for rotation explored 92,636 nodes and returned 2,048 distinct cycles, each directly scanned at every start and every possible run length 2–8 for least period and both maximality conditions. It reproduced all six multiplicities, the total frequencies (1008,736,304), and 25,920 positioned runs. Replay from /workspace/branches/1e63b5f9-acc3-4c49-9710-3ecdb9b5010b: python3 order5_dfs_scan.py --order 5; recorded census.json. This verifies a finite census, not the unbounded theorem; the uploaded checker was inspected rather than executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Runs Theorem treats arbitrary finite linear strings, giving a general bound and citing Fine–Wilf; the relevant passages do not count exact period-and-length classes in cyclic de Bruijn families.",
+          "The matched Resultary analysis addresses binary n=5."
+        ],
+        "reasoning": "A general bound and the primitive-square lemma do not force the exact counts without the run-start bijection, length cutoffs and uniform factor multiplicities. The n=5 findings do not specialize from a broader count stated in the matched record.",
+        "searches": [
+          "Resultary: binary order-five de Bruijn cycles circular runs complete period profile census primitive square",
+          "arXiv:1406.0263",
+          "DOI 10.1090/S0002-9939-1965-0174934-9"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0ff31e943bf5 pinned RESULT.md",
+        "arXiv:1406.0263",
+        "10.1090/S0002-9939-1965-0174934-9 bibliographic identity and access attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact indexed census verifies one n,q instance of the short-period law but has no arbitrary-q exact-length formula in the inspected text.",
+          "Fine–Wilf rules out secondary smaller periods of a primitive square; it says nothing about the number of maximal starts or about de Bruijn window lengths."
+        ],
+        "reasoning": "The novelty is not the periodicity lemma or the n=5 instantiation; the new implication is the local blocking criterion allowing short-factor frequencies to determine the run-length histogram and tail for all q,n,p in scope.",
+        "searches": [
+          "Resultary: primitive square least period Fine Wilf run de Bruijn cycles circular a u u",
+          "Pinned 0ff31e943bf5 Finding and analysis; arXiv:1406.0263 p. 1 and Fine–Wilf discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bannai et al. p. 1 defines linear least-period maximal runs; the same conditions apply locally when the word is read circularly.",
+          "The matching indexed census counts positioned maximal repetitions of the original cycle, not symbol runs of a transform."
+        ],
+        "reasoning": "For the matched n=5 table this is the same run invariant and rotation quotient, not a similar complexity statistic. The general repaired claim is the exact count of left-blocked primitive-square starts and two-sided blocked periodic factors.",
+        "searches": [
+          "Resultary: primitive square least period Fine Wilf run de Bruijn cycles circular a u u",
+          "arXiv:1406.0263, run definition and Fine–Wilf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The pinned source supplies the identical six profiles, period-one/two baseline and totals 12,13,14 with frequencies 1008,736,304; it also discusses symmetry and lengths."
+        ],
+        "reasoning": "The finite census is covered, not merely reproducible from the same construction algorithm; the repaired theorem credits it and does not claim it. Unrelated web returns do not establish absence of a general prior.",
+        "searches": [
+          "Resultary: binary order-five de Bruijn cycles circular runs complete period profile census primitive square",
+          "Web: \"exact circular maximal-repetition runs\" \"order-five\" de Bruijn cycle",
+          "Pinned 0ff31e943bf5 RESULT.md, Finding offset 0"
+        ]
+      },
+      "rationale": "The frozen record's featured order-five census is covered exactly by distinct indexed result 0ff31e943bf5 and is explicitly removed from the repaired Finding's novelty claim. The surviving arbitrary-q exact period-and-length law was compared to that source and to general runs theory; the finite result does not imply it and the general results supply component lemmas, not the family-specific counting bijection. The repaired theorem makes no claim of priority for Fine–Wilf, Möbius inversion, or de Bruijn short-factor uniformity.",
+      "residual_risks": [
+        "The accessible runs literature and indexed matches are not an exhaustive survey of older de Bruijn or repetitions literature. Fine–Wilf's original paper was not inspected in full.",
+        "Exact finite coverage establishes duplication of the census, not historical attribution of the general law."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent finite statement; no identified all-alphabet law in inspected text",
+          "evidence": [
+            "Same R₁=8 and R₂=2; same six cells and three totals across 2,048 cycles."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/10/18/SCOPE-exact-circular-maximal-repetition-runs-in-order-five-binary-de-b--0ff31e943bf5/RESULT.md",
+          "material_read": "Finding from offset 0 with profile frequencies and related analysis",
+          "method": "Compared local mirrored result with the actual frozen table, invariant and scope",
+          "title": "Exact circular maximal-repetition runs in order-five binary de Bruijn cycles",
+          "trigger": "Strong direct exact census match"
+        },
+        {
+          "assessment": "General definition and tools for linear strings, not the exact circular-family formulas",
+          "evidence": [
+            "Requires exponent at least two and two-sided maximality; invokes the classical periodicity lemma."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1406.0263",
+          "material_read": "p. 1 around text offset 2949; Fine–Wilf discussion around 5613",
+          "method": "Read bounded open primary passages",
+          "title": "The ‘Runs’ Theorem",
+          "trigger": "General theorem for the same least-period run definition"
+        },
+        {
+          "assessment": "No full-document exclusion; the standard gcd implication is explicitly credited",
+          "evidence": [
+            "The proof uses the classical length threshold p+r−gcd(p,r), not a purported new periodicity theorem."
+          ],
+          "identifier_or_url": "https://doi.org/10.1090/S0002-9939-1965-0174934-9",
+          "material_read": "Bibliographic identity; original full text returned HTTP 403 and no lawful repository copy was identified",
+          "method": "Tried primary DOI and repository route; used the standard lemma as cited in the runs literature",
+          "title": "Uniqueness Theorems for Periodic Functions",
+          "trigger": "Source of the periodicity lemma"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "After dropping the already known finite distribution, the structural result remains a complete universal short-period baseline for a canonical maximally diverse word family. The start criterion separates runs whose frequencies are fixed by local word balance from longer periodic features that genuinely vary; two-sided blocking also yields a full short-length histogram and exact remaining tail rather than just a total or a primitive-word count. These exact values are natural checks for circular repetition algorithms and higher-order studies. No value is attributed to recomputing the previously known order-five table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:49:39.210696Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§ Finding and Proof 1–5; VERIFICATION.md; verification.py (inspected, not executed)",
+        "Independent direct matrix checks over F2 and F3"
+      ],
+      "rationale": "Idempotence makes P the identity on its image. Averaging makes the image a subalgebra and P linear over that subalgebra. In the split coordinate algebra its image admits a support identity (join the indicators b^{q−1}); the reduced algebra it supports is a product of copies of the base field because each factor has a nonzero coordinate projection into that field. The primitive idempotents specify the disjoint blocks and force P to preserve them and vanish on the zero-output complement. Each block projection has one weight vector with sum 1, including zero individual weights and blocks of characteristic-divisible size. The labeled count follows by choosing the support and partition. Conjugacy under coordinate permutations preserves precisely the zero-output cardinality and multiset of block types; internal orbits are unordered sum-one multisets. For a nontrivial additive character each p-th root occurs q/p times, yielding (1−v^p)^(−q/p); inversion at 1 has nontrivial character sum −1, so the correction has the correct sign. A free multiset of block types and arbitrary zero-output size give the Euler product. Fresh all-matrix checks at (q,n)=(2,2),(3,3) matched ranks, orbits and the characteristic-divisible-size count; the original F2,n=4 examples also follow from direct coefficient expansion.",
+      "residual_risks": [
+        "The fresh computations cover small prime fields, not general extension fields; the exact proof covers all q. The supplied extension-field code checks totals of maps and orbits, not the rank-refined distribution in those extension-field cases."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Guo–Pei prove that for an idempotent projection the image must be a subalgebra and the kernel an image-bimodule, with the converse; commutativity merges the two stability conditions.",
+          "The multisubset theorem applies to any finite abelian group and any target, not merely an elementary abelian group and nonzero target."
+        ],
+        "reasoning": "The criterion does not explicitly list these finite-field counts, but it restricts the ordinary split-coordinate decomposition to one functional per primitive image block. The nontrivial counting input is already covered for a broader domain.",
+        "searches": [
+          "Guo–Pei arXiv:1401.7386 Proposition 2.3",
+          "Muratović-Ribić and Wang arXiv:1305.3259 Theorem 1",
+          "Das arXiv:2303.17798v1 §1, equation (1)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1305.3259, Theorem 1 and proof",
+        "arXiv:1401.7386, Proposition 2.3",
+        "arXiv:2303.17798v1, §1",
+        "Qiang Wang Carleton publications list",
+        "Local Resultary exact-record and related averaging searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In Theorem 1 put G=(F_q,+), n=q, i=s, and g=1. Then exp(G)=p and e(g)=1, since 1 is not in pG=0. Thus the outer divisor r=1 contributes binom(q+s−1,s), and r=p occurs exactly when p divides s and contributes μ(p)binom(q/p+s/p−1,s/p), with μ(p)=−1. Dividing by q gives the frozen μ_s exactly.",
+          "The same paper proves its formula by character inversion of the product over group elements, so even the character-product derivation is an instance of its method.",
+          "In the split algebra the image subalgebra decomposes into indicator blocks; compatibility then imposes only normalization on one functional per block. Labeled blocks give the exponential formula, and unordered types give one geometric series per type plus the zero-coordinate factor."
+        ],
+        "reasoning": "The correction is an exact prior corollary, not a newly determined finite-field orbit ingredient. The outer generating functions are mechanical applications of standard labeled-set and multiset enumeration to that ingredient and the elementary block description.",
+        "searches": [
+          "arXiv:1305.3259 Theorem 1 and proof p. 2 compared with RESULT.md Proof 5",
+          "arXiv:1401.7386 Proposition 2.3 compared with RESULT.md Proof 1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A sum-one block type of size s is exactly a size-s multisubset of the full additive group of F_q summing to 1. This count includes repeated entries and zeros.",
+          "The averaging identity here is precisely image-subalgebra linearity for a projection. Finite-group Reynolds averaging is a strict subfamily with unitality and uniform weights when defined; that is not the basis of the coverage decision."
+        ],
+        "reasoning": "The change from coordinates to an additive finite group is exact for weighted block types; it is not an analogy with fixed-point orbits under a different algebra automorphism group.",
+        "searches": [
+          "arXiv:1401.7386 Proposition 2.3, idempotent averaging image/kernel criterion",
+          "arXiv:1305.3259 Theorem 1, fixed-sum multisubsets and partitions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact assigned catalogue hit 2026/11/22/SCOPE-modular-multiset-corrections-in-finite-field-averaging-projectio--0bcdb7e28ee1 is a self-hit. The trace-biased catalogue result 2026/10/25/SCOPE-trace-biased-conjugacy-and-rogers-ramanujan-corank-law-for-rank--25753dbc08fc instead uses rank-one maps on M_n(F_q) and GL_n similarity of trace-one matrices; its correction is only analogous. The nonsymmetric bilinear-product census (suffix 12ed75a32a8f) concerns a different algebra and labeled ranks.",
+          "The exact block-type coefficients, even without a separate table, are in the specialization of the fixed-sum multisubset formula in the primary literature."
+        ],
+        "reasoning": "No distinct indexed record was shown to state this full orbit series verbatim; the primary formula covers its entire nontrivial exponent sequence, which suffices once the multiset reduction is made.",
+        "searches": [
+          "Local Resultary: finite field averaging projections, coordinate blocks, permutation conjugacy, characteristic multiset correction",
+          "Qiang Wang publications page, coauthored multisubset and partition papers",
+          "arXiv:1305.3259 Theorem 1 exact fixed-sum count"
+        ]
+      },
+      "rationale": "The stated distinctive characteristic-divisible correction for μ_s is precisely a specialization of Muratović-Ribić and Wang's finite-abelian-group multisubset theorem, including multiplicities of the zero element and a nonzero target. The remaining labeled and orbit rank series are standard set and multiset constructions after the direct split-coordinate specialization of Guo–Pei's projection criterion. No independent distinct scientific claim survives in the submitted census.",
+      "residual_risks": [
+        "No claim is made that the full rank-orbit series appeared verbatim elsewhere. The failure is based on an exact verified prior specialization and routine implications, not on assumptions about inaccessible papers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact stronger prior formula for all additive block types; the relevant character proof is also prior",
+          "evidence": "Theorem 1 sums over divisors of gcd(exp(G),i) with Möbius weights indexed by divisors of gcd(r,e(g)); putting exp(G)=p and e(1)=1 produces exactly the negative modular correction. Author's list gives Ars Mathematica Contemporanea 8 (2015), no. 2, 417–423.",
+          "identifier_or_url": "https://arxiv.org/pdf/1305.3259",
+          "material_read": "p. 2, connection with finite fields, Theorem 1 and character-product proof, OA offset 5050",
+          "method": "Lawful OA PDF passage; source resolved via Qiang Wang's Carleton publications list, offset 10270",
+          "title": "The multisubset problem for finite abelian groups",
+          "trigger": "Exact multisets of prescribed size and sum, including fields under addition"
+        },
+        {
+          "assessment": "Prior image/kernel characterization, not the explicit orbit series",
+          "evidence": "The criterion is image closure under multiplication and left/right stability of the kernel under the image.",
+          "identifier_or_url": "https://arxiv.org/pdf/1401.7386",
+          "material_read": "Proposition 2.3, PDF p. 5, OA offset 16968",
+          "method": "OA PDF statement and split-coordinate specialization",
+          "title": "Averaging algebras, Schröder numbers, rooted trees and operads",
+          "trigger": "General idempotent averaging projection criterion"
+        },
+        {
+          "assessment": "Establishes terminology and the shared two-sided identity, not the finite-field census",
+          "evidence": "Equation (1) uses exactly the indicated two-sided averaging relations.",
+          "identifier_or_url": "https://arxiv.org/pdf/2303.17798v1",
+          "material_read": "§1, p. 1, equation (1), OA offset 4200",
+          "method": "OA PDF definition comparison",
+          "title": "Controlling structures, deformations and homotopy theory for averaging algebras",
+          "trigger": "Related averaging and Reynolds terminology"
+        },
+        {
+          "assessment": "Related but nonidentical matrix-algebra classification",
+          "evidence": "Rank-one averaging maps on a matrix algebra reduce to trace-one matrix similarity under GL_n; here the action is S_n on a split coordinate algebra and its block types are scalar multisets.",
+          "identifier_or_url": "2026/10/25/SCOPE-trace-biased-conjugacy-and-rogers-ramanujan-corank-law-for-rank--25753dbc08fc",
+          "material_read": "RESULT.md opening finding, local snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4, offset 0",
+          "method": "Local Resultary mirror and statement comparison",
+          "title": "Trace-biased conjugacy and Rogers–Ramanujan corank law for rank-one averaging maps",
+          "trigger": "Closely similar characteristic correction in averaging conjugacy"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md §§ Finding and Proof",
+        "Guo–Pei Proposition 2.3",
+        "Muratović-Ribić–Wang Theorem 1"
+      ],
+      "rationale": "The concrete census is correct and the object is natural, but the characteristic correction, which was presented as the nontrivial new invariant, is already exactly known for these block types. The residual expressions package textbook set and multiset counts for a direct split-algebra specialization; there is no additional structurally new classification or independently needed unknown invariant in the submitted claim. No repair is warranted on this evidence.",
+      "residual_risks": [
+        "No conclusion is drawn for nonsplit or noncommutative algebras, or for non-idempotent averaging maps."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

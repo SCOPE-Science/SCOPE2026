@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:41:49.578463Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_bfloat_spm.py and certificate.json (inspected, not executed)",
+        "Corrected RESULT.md under repairs/3",
+        "Paul et al. (2023), Tables 1–2",
+        "Independent replay: python3 /workspace/independent_checks/check.py 3; output /workspace/independent_checks/3.txt"
+      ],
+      "rationale": "The original table, cycle codes and hash fingerprints are correct, but the Finding's literal 'all other nonzero states' includes 1, which maps to zero in both rules. The replacement RESULT.md states that the period-20 basin is exactly the representable open interval and corrects what the supplied verifier asserts versus prints. The real polynomial is the Paul et al. Table 2 logistic entry at C=1. Exact rounding was independently reconstructed in integer units of 2^−133: for consecutive scaled values u,v, compare the rational argument with (u+v)/2 and choose the even encoding at equality. The exact A argument is at most 3.98/4; the staged product is at most (255/64)(1/4). Both maps thus stay in the specified code interval. I generated all 16,257 successors for each rule and replayed every orbit to first repetition separately. For A the period/basin/max-depth triples are (1,2,1), (5,2026,77), (22,14229,87); for B they are (1,2,1), (20,16255,83). In both maps the zero-basin codes were 0000 and 3f80. The 2,205 edge differences, every cycle code and both digests matched the frozen certificate. The replacement preserves the correct finite census and does not rely on the asserted strength of the supplied verifier.",
+      "residual_risks": [
+        "Only the specified ideal nearest-even semantics, no host implementation or real-state basin assertion."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The low-precision study treats the ordinary constant-parameter logistic map, including bfloat16 periodicity.",
+          "The original feedback-map literature specifies the real construction, not both finite-state arithmetic trees."
+        ],
+        "reasoning": "Neither available treatment classifies the two exact staged and once-rounded maps under this varying gain.",
+        "searches": [
+          "Klöwer et al., DOI 10.1038/s41598-023-37004-4, pp. 3–4",
+          "Paul et al., IEEE ICECS 2021 pp. 2–3 and 2023 Tables 1–2"
+        ]
+      },
+      "checked_sources": [
+        "Paul et al. 2021 and 2023",
+        "Klöwer et al. 2023",
+        "Published exact-census records 305f9651a5de, 65300f233979, 46d23de07c7c and 35a3ca4a276d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known: real polynomial and deterministic finite-state periodic collapse. Not implied: periods 5/22 versus 20, their exact basin sizes and depths, and 2,205 edited arrows."
+        ],
+        "reasoning": "The varying gain is not a constant parameter selection in prior work; the prior rounding trees cannot be transferred by simply changing an external parameter. Computing each whole graph is necessary for the claimed counts.",
+        "searches": [
+          "Paul et al. Table 2; Klöwer et al. bfloat16 discussion p. 4; 305f9651a5de Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The real model equals [0.04(x+C)+3.9]x(1−x), with C=1 giving the audited coefficients.",
+          "The precise claim counts recurrent classes and exact preimage basins of two coded successor graphs; it is not a claim about the real function's dynamics."
+        ],
+        "reasoning": "Compared the same state-dependent gain under both decimal and rational forms, and distinguished gain/kernel rounding from rounding factor 1−x.",
+        "searches": [
+          "Published catalog: bfloat16 logistic finite-state basin spectra, state-dependent gain, staged rounding",
+          "Paul et al. 2023 Tables 1 and 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "305f9651a5de: bfloat16 parameter-four logistic, 275 changed edges, not the state-dependent gain.",
+          "65300f233979: bfloat16 rational logistic (11/2)x(1−x)/(1+x), 1,371 changed edges.",
+          "The 46d23de07c7c and 35a3ca4a276d tables concern binary16 and the constant-parameter logistic map."
+        ],
+        "reasoning": "An equal encoding count or an equal type of basin statistic is not equality of successor arrays. The closest exact tables do not match the operators.",
+        "searches": [
+          "Published records 305f9651a5de, 65300f233979, 46d23de07c7c, 35a3ca4a276d"
+        ]
+      },
+      "rationale": "The distinct repaired claim is the complete graph invariant of a published state-dependent logistic polynomial at its maximal external control under the two specified rounding rules, not the polynomial itself or eventual periodicity. Close same-date bfloat16 censuses use materially different functions and rounding trees; neither states nor mechanically implies this comparison. No ordering is inferred from their common date.",
+      "residual_risks": [
+        "General-index results were not decisive; unindexed precision or hardware work may overlap. Conference event date does not establish the first online posting day."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Real-model antecedent",
+          "evidence": "Feedback construction and logistic seed; bias 0.975 and a 0.01 feedback coefficient.",
+          "identifier_or_url": "https://confcats-event-sessions.s3.amazonaws.com/icecs21/papers/2160.pdf",
+          "material_read": "pp. 2–3, extracted offsets 5937, 12239, 14205",
+          "method": "Primary conference PDF passages",
+          "title": "Self-Parameterized Chaotic Map: A Hardware-efficient Scheme Providing Wide Chaotic Range",
+          "trigger": "Original feedback map and parameter choices"
+        },
+        {
+          "assessment": "Same real model, no exact two-rule census in these passages",
+          "evidence": "C in [0,1]; Table 2 gives [0.04(x+C)+3.9]x(1−x) at M=0.01 and B=0.975.",
+          "identifier_or_url": "https://doi.org/10.3390/jlpea13010018",
+          "material_read": "Table 1 p.4 and Table 2 p.7, extracted offsets 20380 and 31700",
+          "method": "Primary journal PDF passages",
+          "title": "Self-Parameterized Chaotic Map for Low-Cost Robust Chaos",
+          "trigger": "Exact polynomial and maximal external control"
+        },
+        {
+          "assessment": "Different family and comparison",
+          "evidence": "Ordinary r x(1−x); bfloat16 can change fixed points and periodic orbits, but no census for the two state-dependent rules.",
+          "identifier_or_url": "https://doi.org/10.1038/s41598-023-37004-4",
+          "material_read": "pp. 3–4, extracted offsets 19000 and 21200",
+          "method": "Primary journal PDF passages",
+          "title": "Periodic orbits in chaotic systems simulated at low precision",
+          "trigger": "Same precision and related dynamics"
+        },
+        {
+          "assessment": "Different map and placement; same date does not settle priority",
+          "evidence": "R(4x(1−x)) versus R(4xR(1−x)); 275 changed edges.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-bfloat16-logistic-basin-inversion-under-a-single-intermedi--305f9651a5de",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Exact bfloat16 logistic basin inversion under a single intermediate rounding",
+          "trigger": "Closest exact bfloat16 comparison"
+        },
+        {
+          "assessment": "Different rational map; same date does not settle priority",
+          "evidence": "Rational logistic kernel divided by 1+x, period 19 versus 2/6/21; 1,371 changed edges.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-bfloat16-basin-spectra-of-the-rational-logistic-map-under--65300f233979",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Exact bfloat16 basin spectra of the rational logistic map",
+          "trigger": "Close exact bfloat16 census"
+        },
+        {
+          "assessment": "Different binary16 encoding, transfer function and evaluation trees",
+          "evidence": "16-bit IEEE binary16, 15,361 starting states; parameter-four logistic update with staged expanded evaluation.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-three-incompatible-complete-cycle-spectra-for-half-precision-log--46d23de07c7c",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Three incompatible complete cycle spectra for half-precision logistic evaluation",
+          "trigger": "Earlier approach to exact rounding-sensitive logistic cycles"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected RESULT.md Finding",
+        "Independent exact orbit census",
+        "Paul et al. 2023 Tables 1 and 2"
+      ],
+      "rationale": "For a motivated real design at its documented control endpoint, the audit gives the exact collapse from two distinct nonzero recurrent basins to one under a specified arithmetic change. The depths, sizes, and changed-arrow count make this a reproducible benchmark for rounding sensitivity rather than just an example of eventual periodicity. The correction preserves that quantitative insight and distinguishes it from the unchanged {0,1} basin.",
+      "residual_risks": [
+        "No inference about practical compiler paths, hardware randomness, real-state basin measure, or security."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

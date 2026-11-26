@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:40:12.411420Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Complexifying the real Hermitian domain gives the entire m²-dimensional span of z^j w^k for 0≤j,k<m, where w=x−iy; the real form is exactly the Hermitian coefficient condition. For even m the pure terms z^m,w^m cancel in x^m−(−1)^(m/2)y^m, while lower total degrees automatically fit. The pure x^m term makes the proposed vanishing polynomial nonzero as a polynomial in x,y. For odd m, degree-preserving monic reduction by p_X and p_Y leaves the unique tensor-product remainder of x,y degrees <m, which vanishes identically if it vanishes on the grid. In particular the highest homogeneous form of an element of the grid ideal has no terms with both exponents <m: any offending nonreduced term loses total degree on reduction. If its degree is n+r, n=m−1, it equals (x²+y²)^r times a form of degree n−r. Extracting exactly the middle k=m−r coefficients gives the stated binomial matrix. For even r=2q each parity block is positive definite by the symbol |1+e^{it}|^{2q}. For odd r=2q+1, k is even, and the two opposite-parity blocks are transposes of one another; one has symbol (1+e^{it})|1+e^{it}|^{2q} up to reversal, with real part positive almost everywhere. Integration against the nonzero vector's trigonometric square proves strict accretivity and invertibility. This contradicts any nonzero top form. The rank-one consequence follows by Gram equality of the coefficient vectors up to scalar phase; positive Gaussian weights do not affect injectivity. Replay: RESULT.md lines 27–69. Inspected check_cartesian.py, the saved check_output.txt, and VERIFICATION.md without rerunning uploaded code. The modular full-rank observations concern selected grids; the exact general proof does not assert even nullity m/2 or rule out pure-signal uniqueness for all even m.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.1 in arXiv:2609.28341 gives existence of a uniformly separated phase-retrieval set for an infinite-dimensional STFT problem; Proposition 2.1 gives norming in its polynomial setting.",
+          "Flat-cylinder polyanalytic sampling/interpolation and finite-grid approximation for Gaussian shift-invariant functions address other sampling spaces and conclusions."
+        ],
+        "reasoning": "A broader signal space with an existential or asymptotic choice of measurements does not strengthen a guarantee for every finite grid of fixed size. Pure-signal uniqueness also does not imply that the entire Hermitian lift has no kernel.",
+        "searches": [
+          "arXiv:2609.28341, Theorem 1.1 and Proposition 2.1",
+          "Abreu–Luef–Ziyat DOI 10.1007/s00041-025-10196-1",
+          "Grohs–Liehr DOI 10.1007/s00365-023-09629-1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check_cartesian.py, check_output.txt",
+        "arXiv:2609.28341",
+        "DOI 10.1007/s00365-023-09629-1 and 10.1007/s00041-025-10196-1",
+        "Resultary 03361b3cff9c, 8ac7d311b287, f2400580db9d, a2fb2866e9f4, 2d81ee89510d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cyclic parity proof uses a specially chosen window, and the other cyclic record explicitly does not infer even phase-retrieval failure from its failed criterion. The prior Gaussian shift-invariant finite grids give approximations, not this parity-dependent rank."
+        ],
+        "reasoning": "Neither rank-one retrieval nor a special arithmetic Weyl orbit entails the arbitrary real-grid claim. Here the leading-degree reduction must be combined with a structured coefficient calculation, and even singularity is proved in the lift without claiming nonlinear phase-retrieval failure.",
+        "searches": [
+          "arXiv:2609.28341, finite norming vs all-Hermitian unisolvence",
+          "Resultary 03361b3cff9c and 8ac7d311b287, Finding passages",
+          "Grohs–Liehr §4, finite reconstruction vs exact rank"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact polynomial alias is unisolvence of z^j w^k on (x+iy,x−iy), rather than interpolation in independent x,y with separate degree bounds.",
+          "Resultary 03361b3cff9c is an odd-invertible/even-singular full lift for a fixed cyclic Weyl orbit; Resultary a2fb2866e9f4 is a later two-grid Fourier staggering theorem.",
+          "The primary norming argument in arXiv:2609.28341 concerns differences |F|²−|G|²."
+        ],
+        "reasoning": "Cyclic inversion and norming of intensity differences do not identify the rank of this real Cartesian sampling lift. Neither imposes the two independent node polynomials or quantifies over arbitrary nodes with the stated cardinality.",
+        "searches": [
+          "Resultary Cartesian-grid Hermitian Gaussian spectrogram, cyclic Gabor lift and parity-interpolation comparisons",
+          "arXiv:2609.28341, §2 Proposition 2.1",
+          "Grohs–Liehr DOI 10.1007/s00365-023-09629-1, §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "03361b3cff9c computes cyclic Gabor lift ranks, 8ac7d311b287 studies a cyclic ambiguity criterion, and later f2400580db9d computes ranks for a three-tone two-bin Gaussian model. The same-day record 2d81ee89510d is a spherical-harmonic trace spectrum."
+        ],
+        "reasoning": "The closest ranks and spectra use different evaluation operators. Particular ranks in the frozen modular output are supporting data only; the claim is the for-all-nodes parity criterion with an exact node-dependent even kernel.",
+        "searches": [
+          "Resultary exact lifts and arithmetic ranks: 03361b3cff9c, 8ac7d311b287, f2400580db9d",
+          "Same-day Resultary 2d81ee89510d"
+        ]
+      },
+      "rationale": "The strongest indexed parity analogue is the cyclic full-lift result for a specific chirp-plus-impulse window. The strongest primary finite polynomial sampling overlap is a norming result for differences of two intensities. Neither inspected statement gives arbitrary Cartesian-node unisolvence for the full Hermitian space, or its explicit even-grid annihilator.",
+      "residual_risks": [
+        "The bounded searches cannot exclude an unindexed equivalent in multivariate polynomial interpolation. One narrow catalog follow-up failed; no absence inference is drawn from that failure. The closest 2026 primary PDF was accessible in this review, unlike in the frozen comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior sparse phase retrieval and norming, not the finite full Hermitian parity statement.",
+          "evidence": "The existence theorem uses a uniformly separated set with Gaussian-polynomial windows; the finite norming claim treats differences of squared moduli rather than all Hermitian coefficients on arbitrary square grids.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.28341",
+          "material_read": "Abstract, Theorem 1.1 and §2 Proposition 2.1, PDF pp. 1 and 3–4, offsets 0–4486 and 13000–17038",
+          "method": "Lawful OA PDF, actual relevant passages",
+          "title": "Phase retrieval from a uniformly discrete point set",
+          "trigger": "Nearest primary Gaussian-polynomial STFT and finite polynomial norming overlap"
+        },
+        {
+          "assessment": "Rectangular finite-grid approximations, not an arbitrary-node exact square lift.",
+          "evidence": "The finite-grid reconstruction converges in a Gaussian shift-invariant space rather than establishing a fixed lift rank.",
+          "identifier_or_url": "https://doi.org/10.1007/s00365-023-09629-1",
+          "material_read": "Abstract p. 61 and §4 pp. 84–85",
+          "method": "Primary text page/section read",
+          "title": "Stable Gabor Phase Retrieval in Gaussian Shift-Invariant Spaces via Biorthogonality",
+          "trigger": "Gaussian finite rectangular spectrogram grids"
+        },
+        {
+          "assessment": "Different domain and sampling statement.",
+          "evidence": "The sampling/interpolation theory is on a flat cylinder, and the conclusion does not directly treat phase retrieval.",
+          "identifier_or_url": "https://doi.org/10.1007/s00041-025-10196-1",
+          "material_read": "Abstract and p. 31 phase-retrieval passage",
+          "method": "Primary text passage read",
+          "title": "Gabor Frames for Quasi-Periodic Functions and Polyanalytic Spaces on the Flat Cylinder",
+          "trigger": "Related polyanalytic interpolation formulation"
+        },
+        {
+          "assessment": "Real parity resemblance but not the same lift or quantifiers.",
+          "evidence": "The claim is for the cyclic Weyl orbit of a quadratic chirp with an impulse on Z_N: odd invertibility and even arithmetic nullity there do not give interpolation on X+iY.",
+          "identifier_or_url": "2026/10/11/03361b3cff9c",
+          "material_read": "Mirrored Finding, offsets 0–4607",
+          "method": "Configured Resultary search and local mirror",
+          "title": "Single-impulse quadratic chirps: exact cyclic Gabor tomography spectrum and arithmetic rank obstruction",
+          "trigger": "Closest Resultary full-lift parity claim"
+        },
+        {
+          "assessment": "Not a statement-level match.",
+          "evidence": "It concerns a restriction spectrum from spherical harmonics on S³ to a Clifford torus, not finite Hermitian sampling.",
+          "identifier_or_url": "2026/10/18/2d81ee89510d",
+          "material_read": "Mirrored Finding, offsets 0–4660",
+          "method": "Configured Resultary search and local mirror",
+          "title": "Exact Clifford-torus harmonic trace spectrum and sharp exponential inverse instability",
+          "trigger": "Same-day exact polynomial/harmonic restriction and inverse problem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural m² measurements match the real dimension of the lifted space, but dimension alone cannot decide their rank. The result gives an exact parity criterion independent of spacing or symmetry for any allowed Cartesian grid, with an explicit obstruction a user can construct in the even case. It separates exact full-lift sampling from both stability and ordinary phase retrieval.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

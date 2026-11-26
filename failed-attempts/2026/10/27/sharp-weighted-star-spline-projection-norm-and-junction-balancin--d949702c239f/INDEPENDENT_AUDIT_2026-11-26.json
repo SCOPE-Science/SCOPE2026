@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:27:33.551773Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Normalize each arm to [0,1] with measure mu_i ds. The hat matrix has leaf diagonal mu_i/3, center-leaf entries mu_i/6 and center M/3; eliminating the leaf block leaves M/4. Inverting gives center kernel (4-6s)/M and leaf-i kernel (-2+3s)/M + 3s 1_{j=i}/mu_i on arm j. Splitting absolute integrals at the roots gives center 5/3 and leaf 7/3-4mu_i/[3(M+mu_i)], strictly exceeding the center. The affine interpolation bound by (1-t) times the central integral plus t times the leaf integral is strictly below the maximum at every t<1, since the central integral is smaller; a real kernel sign attains the leaf functional even for complex input. Positive full support makes the continuous maximum equal the essential supremum. The normalized minimum mass ranges over (0,1/m], e.g. choose one such mass and divide the remaining mass equally; equality at 1/m forces all equal. Independent rational checks of center, leaf and maximizing nodes in five examples passed (python3 /workspace/repro/frozen_checks.py). The finite checks are not needed to extrapolate to all positive masses.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Interval and periodic spline passages concern a segment or torus, not a branching star. The quantum-graph paper was available only at abstract level."
+        ],
+        "reasoning": "The inspected classical bounds do not provide a stronger exact result on branching stars; the earlier equivalent star result is decisive independently.",
+        "searches": [
+          "arXiv:math/0408418",
+          "arXiv:1308.4824",
+          "arXiv:1608.06720",
+          "doi:10.1016/j.jat.2005.04.007"
+        ]
+      },
+      "checked_sources": [
+        "Resultary catalogue searches",
+        "October 18 shortest-arm law",
+        "November 1 weighted-star law",
+        "Kayumov arXiv:math/0408418",
+        "Passenbrunner–Shadrin arXiv:1308.4824",
+        "Passenbrunner arXiv:1608.06720",
+        "Pesenson doi:10.1016/j.jat.2005.04.007 (abstract)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior characterization of leaf locations, modulus-one attainment, equal-length minimum, and unattained upper endpoint 7/3."
+        ],
+        "reasoning": "Unitary conjugacy transfers the locations, extremizers and entire sharp range. A real sign input also follows by taking the sign of the real kernel. No distinct substantive remainder survives.",
+        "searches": [
+          "SCOPE-exact-shortest-arm-law-for-continuous-linear-spline-projection-o--01f1cffc69a6, RESULT.md Finding and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier unweighted law (7S+3h)/(3(S+h)) for total length S and shortest length h, with exactly the shortest-arm leaves norming."
+        ],
+        "reasoning": "The measure-and-space conjugacy u=w_i x gives S=M and h=mu_*. This proves exact coverage under the stated constant-density hypothesis; metric preservation is not needed.",
+        "searches": [
+          "Resultary: exact linear spline projection norm, shortest arm and weighted star junction",
+          "SCOPE-exact-shortest-arm-law-for-continuous-linear-spline-projection-o--01f1cffc69a6, RESULT.md Finding and proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier unweighted all-valence expression covers all masses by rescaling. The 1 November record explicitly uses q_*=mu_*/M and lists least-mass leaves and equal-mass minimizers."
+        ],
+        "reasoning": "This is a match to an arbitrary-data formula rather than a table or numerical sample. The later direct match establishes overlap, not prior priority.",
+        "searches": [
+          "Resultary: weighted metric-star P1 projector, minimum weighted arm mass and balancing",
+          "SCOPE-sharp-l-infty-stability-of-affine-least-squares-projection-on-we--646e916ee085, RESULT.md Finding and prior work"
+        ]
+      },
+      "rationale": "The earlier 18 October Resultary result is mathematically equivalent to the entire frozen theorem, not merely its uniform-density case. On each arm the coordinate u=w_i x gives exactly Lebesgue measure on an arm of length mu_i, preserves continuity at the junction and affineness, and is isometric on both L2 and L-infinity. Thus it conjugates the orthogonal projectors and identifies every listed sharpness and equality statement. The later weighted record is not used as a priority premise.",
+      "residual_risks": [
+        "The quantum-graph article and the frozen record's 1997 Ciesielski–Kamont reference were not assessed in full; these limits do not negate the demonstrated earlier equivalent result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent earlier coverage",
+          "evidence": [
+            "(7S+3h)/(3(S+h)); shortest-arm leaves exactly; equal lengths minimize; envelope 7/3; modulus-one attainment."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-shortest-arm-law-for-continuous-linear-spline-projection-o--01f1cffc69a6",
+          "material_read": "RESULT.md Finding and proof excerpt from offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact shortest-arm law for continuous linear spline projection on a metric star",
+          "trigger": "Same projector and sharp star norm"
+        },
+        {
+          "assessment": "Overlapping but later",
+          "evidence": [
+            "Explicit q_* law, least-mass norming leaves and equal-mass minimum."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-sharp-l-infty-stability-of-affine-least-squares-projection-on-we--646e916ee085",
+          "material_read": "RESULT.md Finding and prior-work passage, offsets 0 and 5929",
+          "method": "Resultary local mirror",
+          "title": "Sharp L-infinity stability of affine least-squares projection on weighted metric stars",
+          "trigger": "Direct weighted match"
+        },
+        {
+          "assessment": "Segment setting",
+          "evidence": [
+            "Splines on a partitioned segment."
+          ],
+          "identifier_or_url": "arXiv:math/0408418",
+          "material_read": "Problem definition, offsets 4000–7148",
+          "method": "OA PDF text",
+          "title": "Least-squares approximation by second-order L-splines",
+          "trigger": "Closest interval comparison"
+        },
+        {
+          "assessment": "Interval setting",
+          "evidence": [
+            "Projection on a fixed interval."
+          ],
+          "identifier_or_url": "arXiv:1308.4824",
+          "material_read": "Setup, offsets 4100–7075",
+          "method": "OA PDF text",
+          "title": "On almost everywhere convergence of orthogonal spline projections with arbitrary knots",
+          "trigger": "General spline stability comparison"
+        },
+        {
+          "assessment": "Periodic geometry, no branch junction",
+          "evidence": [
+            "Boundedness for periodic splines on the torus."
+          ],
+          "identifier_or_url": "arXiv:1608.06720",
+          "material_read": "Torus setup and stability results, offsets 8200–10776",
+          "method": "OA PDF text",
+          "title": "Orthogonal projectors onto spaces of periodic splines",
+          "trigger": "Non-interval geometry comparison"
+        },
+        {
+          "assessment": "Full-text implication unresolved",
+          "evidence": [
+            "Graph-spline topic identified; no full-text conclusion drawn."
+          ],
+          "identifier_or_url": "doi:10.1016/j.jat.2005.04.007",
+          "material_read": "Landing page and abstract only",
+          "method": "Lawful OA lookup",
+          "title": "Polynomial splines and eigenvalue approximations on quantum graphs",
+          "trigger": "Potential prior graph spline projection"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact projection amplification and norming sites are natural quantities, but the frozen weighted scope adds no new invariant or new equality cases: its complete content is obtained by a coordinate substitution from the earlier star result. Thus it has no distinct scientific value as a new finding under the stated hypotheses.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

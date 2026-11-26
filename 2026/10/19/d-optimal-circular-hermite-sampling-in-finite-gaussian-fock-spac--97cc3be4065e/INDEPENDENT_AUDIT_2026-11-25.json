@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:49:14.454097Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the orthonormal monomial basis the rows become a_k*zeta_j^k/sqrt(S_0) and k*a_k*zeta_j^k/sqrt(S_2) after unit-modulus scaling of the ordinary derivative rows. Factoring columns and rows out of the confluent Vandermonde gives the eighth power of each pairwise angular distance. Hadamard equality forces the first n-1 node power sums to vanish, so Newton identities give precisely the regular n-gon. The value comparator has the analogous regular 2n-gon equality case. The log-radius derivatives are governed by the degree means, each strictly increasing by its positive variance; their endpoint means bracket the desired roots. A unitary DFT in each set of rows pairs columns j and j+n, including the j=0 block. Near t=n the lost Poisson tails, also with each fixed degree-moment factor, are exponentially small. Thus the stationarity means are mu_0=t+O(exp(-cn)) and mu_2=t+2-1/(t+1)+O(exp(-cn)); this gives the stated two radii. At t_V the exact same-radius quotient times 4^n tends to 1 since S_2/S_0=n^2-1/4+o(1). At t=t_V+s the Hermite log-derivative tends uniformly for bounded s to -2-2s; integrating to s=t_H-t_V tending to -1 gives a gain of 1 in log determinant, hence factor e. The limit is for det(M* M) and under separate finite-space row normalization on one circle, not a condition-number or unrestricted planar result.",
+      "reproduction": "With freshly constructed normalized value and derivative matrices the maximum tested relative determinant error was 1.6e-15 at regular nodes for n=2,3,5 and 1.1e-15 at a nonuniform n=4 configuration; direct Gram and DFT-block eigenvalues agreed to absolute 1.4e-15 at the regular test nodes. To replay the radial sweep, form log weights k*log(t)-lgamma(k+1) for k=0,...,2n-1, compute ordinary and k^2-weighted degree means, bisect each monotone stationarity equation, then subtract the two closed-form log determinants and add n*log(4) before exponentiating. Scaled ratios for n=2,10,40,80,160 were 2.762824907510, 2.731849736248, 2.723956443602, 2.721115558493, 2.719698056962; the n=160 t_H and t_V were 158.503134734630 and 159.500000000000. The frozen script was inspected, not executed. Finite runs corroborate but do not establish the asymptotics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Derivative sampling in weighted infinite-dimensional Fock spaces is addressed through Beurling densities; finite Fock Marcinkiewicz–Zygmund families address uniform sampling bounds and the finite-to-infinite relation.",
+          "The exact finite Hardy design dated 2026/10/18 uses pure values at three concentric orbits and optimizes relative phases."
+        ],
+        "reasoning": "Neither density nor uniform norm-equivalence theorems determine a finite normalized determinant optimum. The Hardy design shares a determinant method, not an encompassing theorem or the same geometry.",
+        "searches": [
+          "arXiv:2004.12922 abstract and section 1.1",
+          "arXiv:2109.11825 definition and Theorem 1.1",
+          "Resultary comparisons for exact finite determinant designs"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, and verify.py as text",
+        "Three indexed Resultary records and two primary papers identified above",
+        "Bounded primary-literature lookup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The regular-polygon angular factor follows from standard determinant identities and is not a standalone novelty claim.",
+          "The finite S_2 weight shifts the Hermite optimum relative to the same-space value optimum. The log-determinant gain from optimizing the shifted radius contributes e; a value-only design or the other jet norm does not supply that gain."
+        ],
+        "reasoning": "The classical geometry recovers one component, but not the separately normalized radial stationarity, the spectrum for these row weights or the sharp determinant comparison.",
+        "searches": [
+          "Frozen RESULT.md classical ingredients and value-only comparison, lines 57–115 and 121–123",
+          "2026/11/22 first-jet circular determinant proof",
+          "arXiv:2004.12922 and arXiv:2109.11825"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest jet comparison mixes value into derivative by a covariant-jet shear and uses full-kernel normalizations, with exact optimizing x=M-1. For separate finite norms the optimal t_H=n-3/2+1/(2n)+O(n^-2).",
+          "Although raw jet row shears can preserve a confluent determinant before normalization, radius-dependent rescalings alter this normalized optimization."
+        ],
+        "reasoning": "The angular geometry is common, but the objectives are not equivalent by unitary row scaling. The later jet record does not give the finite-normalization radius or optimized e*4^-n ratio.",
+        "searches": [
+          "Resultary finite Gaussian Fock circular value-only D-optimality and Hermite first-jet optimization",
+          "2026/11/22/SCOPE-sharp-exponential-conditioning-barrier-for-first-jet-circular-ba--8c65d58f8940, assumptions and determinant optimum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/1/SCOPE-optimal-circular-sampling-of-gaussian-fock-polynomials-unique-fa--413970b27bf4 gives an exact condition-number radius for values, not the radial D-optimal equation.",
+          "The 2026/11/22 jet result gives x=M-1 under other weights and does not supply the optimized normalized jet/value volume ratio."
+        ],
+        "reasoning": "This is a parameter-uniform design and a limiting ratio, not a finite table lookup; the indexed exact radii are for different objectives or weights.",
+        "searches": [
+          "Resultary exact determinant radius and exponential comparison for circular first jets",
+          "Resultary circular Gaussian Fock polynomial value-only designs"
+        ]
+      },
+      "rationale": "Credit classical confluent Vandermonde and circle Fekete arguments, and do not claim the value-only optimum as new. The closest finite first-jet determinant result uses different row normalization and has a different radial optimum. The specifically supported addition is the exact common-circle design for independently normalized finite-space value and derivative functionals, including its sharp optimized comparison to distinct value sites. No equivalent covering result was identified in the checked evidence.",
+      "residual_risks": [
+        "The frozen text calls the exact finite value-only design previously obtained but does not identify the source. Its proof is present, it is not credited as a new result here, and the exact source remains unresolved.",
+        "The bounded literature lookup cannot establish historical priority; an older equivalent confluent design under the same finite normalization may be unindexed or differently worded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Shared confluent geometry; distinct normalization and conclusion; later record",
+          "evidence": "Full-kernel covariant derivative channel (zf'-xf)/sqrt(x); exact determinant radius x=M-1, no optimized e*4^-n comparison to distinct finite normalized values.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-exponential-conditioning-barrier-for-first-jet-circular-ba--8c65d58f8940",
+          "material_read": "RESULT.md assumptions and section 2, offsets 0–3319 and 3000–3701",
+          "method": "Local Resultary mirror, targeted full-text passages",
+          "title": "Sharp exponential conditioning barrier for first-jet circular bases",
+          "trigger": "Closest indexed exact first-jet design in the same polynomial dimensions"
+        },
+        {
+          "assessment": "Optimizes condition number, not determinant; later record",
+          "evidence": "For n+1 values on P_n, regular-polygon condition-number radius satisfies pi*R^2=(n!)^(1/n).",
+          "identifier_or_url": "2026/11/1/SCOPE-optimal-circular-sampling-of-gaussian-fock-polynomials-unique-fa--413970b27bf4",
+          "material_read": "RESULT.md Finding and assumptions, offsets 0–4176",
+          "method": "Local Resultary mirror, targeted full-text passages",
+          "title": "Optimal circular sampling of Gaussian Fock polynomials",
+          "trigger": "Closest indexed circular value-only Fock comparator"
+        },
+        {
+          "assessment": "Related method, different model",
+          "evidence": "Pure values in H^2(D) at three concentric m-point orbits and degree 3m-1; optimizes relative phase, not co-located jets on one circle.",
+          "identifier_or_url": "2026/10/18/SCOPE-radius-dependent-staggering-for-optimal-three-orbit-hardy-interp--060d785a0f00",
+          "material_read": "RESULT.md Finding, scope and proof, offsets 0–4198",
+          "method": "Local Resultary mirror, targeted full-text passages",
+          "title": "Radius-dependent staggering for optimal three-orbit Hardy interpolation",
+          "trigger": "Earlier exact finite angular determinant design"
+        },
+        {
+          "assessment": "Broader derivative sampling in a different regime; inspected statements do not supply the finite design",
+          "evidence": "Characterizes sampling/interpolation by weighted Beurling densities for infinite-dimensional spaces.",
+          "identifier_or_url": "https://arxiv.org/pdf/2004.12922",
+          "material_read": "PDF p. 1, abstract and section 1.1, offsets 0–1436",
+          "method": "Lawful OA PDF targeted passage",
+          "title": "Multiple sampling and interpolation in weighted Fock spaces of entire functions",
+          "trigger": "Primary literature for derivative sampling in Fock spaces"
+        },
+        {
+          "assessment": "No exact design in the inspected sampling comparison",
+          "evidence": "Connects norm-sampling families for polynomials to sampling in the infinite-dimensional Fock space.",
+          "identifier_or_url": "https://arxiv.org/pdf/2109.11825",
+          "material_read": "PDF p. 1 definitions and p. 2 Theorem 1.1, near offset 5200",
+          "method": "Lawful OA PDF targeted passage",
+          "title": "Marcinkiewicz–Zygmund inequalities for polynomials in Fock space",
+          "trigger": "Primary literature on finite Fock polynomial sampling"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The comparison holds measurement count and row norms fixed while changing co-location, so the exponential determinant loss answers a concrete finite sampling design question. The sharp e multiplier comes from optimizing a genuine one-unit radius shift and cannot be read from the angular Vandermonde alone. The full block spectrum also enables follow-up analysis without claiming that the determinant optimizer minimizes conditioning.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

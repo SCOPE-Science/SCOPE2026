@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:45:11.468010Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–65; VERIFICATION.md, line 20 and checker.py inspected, not executed",
+        "Replay: python /workspace/branches/0dbf71b3-982e-42bb-af2f-ff78f6337acd/reproduce_r2.py; direct operation/composition checks on 16384 normal-form maps, and direct exhaustion of all 256 set maps at r=1. Output: /workspace/branches/0dbf71b3-982e-42bb-af2f-ff78f6337acd/reproduce_r2.out"
+      ],
+      "rationale": "For coordinates (p,u) representing p+2u modulo four, the output parity is p and the upper bits are u+p+q under the quandle product. Any preserving map has parity output constant in u, since p+q ranges over all translations. The upper output satisfies h(p,u+t)+h(p,u)=a(p)+a(p+t). At p=0 its increments are additive in t, forcing a(p)=Lp+c, and the equation at every p then forces h(p,u)=Lu+b_p; direct substitution proves sufficiency and uniqueness. With rank k let B=2^k, C=2^(r-k). The B output parity fibers are disjoint. In each, C input parities choose from C quotient cosets of im L, so occupancy t has (C)_t S(C,t) assignments, with B^C lifts and Bt image points. Multiplying fibers, rank-L counts and 2^r translations yields E_r. Rank-L counts come from choosing a k-space and a surjection onto it. Composition gives L^2=L, Lc=0 and b_(Lp+c)=(I+L)b_p. In each of the B fibers the fixed parity label x+c has b in ker L, with 2^(r-k) choices, and each other label must share that kernel component and has B choices of image component. The number of complementary kernels to a given image is 2^(k(r-k)), since each is the graph of a linear map from a fixed complement to the image. Multiplication by the choices of c gives I_r, including the constant maps (k=0) and identity (k=r). Each image has B fibers of size B, exactly one full coset of im L over each output parity; subtract its fiber offset and reindex by x in im L. The operation adds x+y to the second coordinate, giving Q_k, not merely the cardinality 4^k. All counts are of functions. For r=2 the independent counts match every coefficient, and substitution at r=3 gives I_3=64z+114688z^4+229376z^16+z^64 and E_3(1)=2^36.",
+      "residual_risks": [
+        "The independent r=2 enumeration exhausts normal-form maps, not all 16^16 set maps; analytic necessity supplies exhaustiveness there and at arbitrary r."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "86b84ad88c25 gives the image polynomial in arbitrary prime characteristic for the square-zero unipotent family; q_k becomes B_k and m_k becomes C_k. Its rank factor B_(r,k)(2) is N_(r,k).",
+          "b3ec99783ff2 counts retractions and describes the isomorphism type of their images, and gives further per-image information.",
+          "The earlier subquandle-size record counts general subquandles, not idempotent functions; the no-two-torsion automorphism theorem does not apply here."
+        ],
+        "reasoning": "The decisive coverage includes singular maps and nontrivial idempotents, not merely invertible endomorphisms or the existence of subquandles of those sizes.",
+        "searches": [
+          "Resultary 86b84ad88c25 Finding, offsets 0–4999",
+          "Resultary b3ec99783ff2 Finding/image classification, offsets 0–5043 and 5043–9962",
+          "Resultary 288df6733df1 Finding; arXiv:1608.05178 Theorem 4.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records 86b84ad88c25, b3ec99783ff2 and 288df6733df1 (mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+        "Related Resultary automorphism records 849a303ddc25 and 2dab3525dc88 and semisimple retraction record 117335b68a3e",
+        "Focused literature query: Takasaki core quandle endomorphisms (Z/4Z)^r singular endomorphism affine normal form; primary comparisons arXiv:1012.5291 Theorem 2.1, arXiv:1608.05178 Theorem 4.2, and arXiv:2311.03708 p. 1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The b3ec99783ff2 exponent at p=2, f=r is k(r-k)+(r-k)+(r-k)2^k+k(2^r-2^k), equal to k(r-k)+(r-k)+k2^r+(r-2k)2^k; its image size is (2^k)^2 and its image quandle swaps to Q_k.",
+          "Earlier single-dihedral automorphism and residual-finiteness results do not themselves imply these enumerators."
+        ],
+        "reasoning": "Both halves follow by transport and substitution into the exact broader statements, not a new orbit or fiber count specific to the core presentation. Same-day catalogue dates say nothing about chronological priority.",
+        "searches": [
+          "Resultary b3ec99783ff2, coefficient and retraction image description",
+          "Resultary 86b84ad88c25, normal form and enumerator",
+          "arXiv:1012.5291 Theorem 2.1; arXiv:2311.03708 p. 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The operation (a,b) ▷ (c,e)=(a+b-e,b) from the unipotent record, at p=2 and d=r, swaps under (a,b)->(b,a) to the bound coordinate operation (p,u) ▷ (q,v)=(p,u+p+q).",
+          "The same swap converts its normal form (La+t(b),Lb+s) into (Lp+s,Lu+t(p))."
+        ],
+        "reasoning": "This is a quandle isomorphism, despite the different additive presentations, and it conjugates maps preserving image size and idempotence. The parameters and maps of the two exact enumerators are directly comparable.",
+        "searches": [
+          "Resultary: exponent-four core quandle endomorphism image-size polynomial idempotent retract 4^k",
+          "Resultary: Takasaki core quandle singular noninvertible endomorphism image cardinality retraction census exponent four",
+          "Resultary 86b84ad88c25 and b3ec99783ff2 full theorem passages"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The broader retraction record prints 16z+192z^4+z^16, with 24 distinct four-point images and 8 retractions per image.",
+          "The broader endomorphism polynomial uses the same falling-factorial/Stirling occupancy factors. At characteristic two these determine each E_r coefficient, not just the number of maps in total."
+        ],
+        "reasoning": "Exact invariant coverage is stronger than coincident r=2 numbers or a parameter hit: both functions of r are determined coefficient by coefficient.",
+        "searches": [
+          "Resultary exact image enumerators 86b84ad88c25 and b3ec99783ff2",
+          "b3ec99783ff2 example (p,f)=(2,2)"
+        ]
+      },
+      "rationale": "Two distinct indexed findings already give the exact all-endomorphism and idempotent counts in broader rank-one square-zero unipotent Alexander families, including the same quandle in characteristic two. Their specializations reproduce all coefficients and the retract rigidity; the retraction record also classifies prescribed embedded images and multiplicities. This is demonstrated equivalent/broader coverage, not a conclusion about which same-day record came first.",
+      "residual_risks": [
+        "The demonstrable coverage is independent of the unresolved relative chronology of the same-day records. Older historical priority was not exhaustively investigated."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact all-endomorphism coverage under p=2, d=r",
+          "evidence": [
+            "Operation swaps to the bound core; rank factors and the full occupancy polynomial agree."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-complete-endomorphism-image-spectrum-of-square-zero-unipotent-al--86b84ad88c25",
+          "material_read": "RESULT.md operation, normal form and formula, offsets 0–4999",
+          "method": "Resultary meaning search and local-mirror text",
+          "title": "Complete endomorphism image spectrum of square-zero unipotent Alexander quandles",
+          "trigger": "Strong exact spectrum with potentially isomorphic characteristic-two quandle"
+        },
+        {
+          "assessment": "Exact retraction coverage and additional classification",
+          "evidence": [
+            "Characteristic-two exponent and rigidity reduce exactly to I_r and Q_k; the r=2 example matches explicitly."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-retraction-images-and-exact-rank-census-for-rank-one-unipotent-a--b3ec99783ff2",
+          "material_read": "RESULT.md offsets 0–5043 and 5043–9962, census, embedded classification and p=2, f=2 example",
+          "method": "Resultary meaning search and local-mirror text",
+          "title": "Retraction images and exact rank census for rank-one unipotent Alexander quandles",
+          "trigger": "Exact idempotent counts and embedded images of the same family"
+        },
+        {
+          "assessment": "Overlapping objects, different invariant",
+          "evidence": [
+            "Includes the same characteristic-two object but counts all subquandles, not images satisfying a retraction constraint."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-complete-subquandle-size-distribution-for-rank-one-unipotent-ale--288df6733df1",
+          "material_read": "RESULT.md offsets 0–4347, operation and subquandle distribution",
+          "method": "Resultary and local-mirror text inspection",
+          "title": "Complete subquandle size distribution for rank-one unipotent Alexander quandles",
+          "trigger": "Possible broader coverage of retract image sizes via subquandles"
+        },
+        {
+          "assessment": "Different hypothesis and map class",
+          "evidence": [
+            "The relevant affine automorphism result assumes no two-torsion."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1608.05178",
+          "material_read": "Primary PDF p. 4, Theorem 4.2",
+          "method": "OA PDF passage",
+          "title": "Automorphism groups of quandles arising from groups",
+          "trigger": "Cited Takasaki automorphism theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding",
+        "Resultary exact polynomial and retraction classifications 86b84ad88c25 and b3ec99783ff2"
+      ],
+      "rationale": "The objects and the distinction between images of arbitrary and idempotent maps are natural. But the exact invariants and retract isomorphism types are already determined by the broader checked results under a coordinate swap and prime specialization, including the printed small-case values. No distinct non-mechanical Takasaki consequence beyond that transport is established here. The failure is about the submitted specialization, not the utility of an exact quandle census in general.",
+      "residual_risks": [
+        "No separate research claim about arbitrary exponent-four or nonconnected cores is assessed."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

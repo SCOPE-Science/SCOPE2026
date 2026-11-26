@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:37:58.991149Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For lambda>0 the proposed profile is continuous, has U'=−lambda(1−U) behind the interface, and takes every value in (0,1) there. Dividing the traveling-wave equation by 1−U gives a polynomial with coefficients lambda²−c lambda, (2 beta−2)lambda²+lambda+1, and −3 beta lambda²+k lambda. Vanishing identically is equivalent to c=lambda, 2(1−beta)lambda²=lambda+1 and k=3 beta lambda. The positive root is unique for 0<beta<1, with the stated formula, and impossible at beta=1 or above. On the zero side the equation is satisfied; the profile and the flux D(U)U'−h(U) have matching traces across the interface because D(0)=0 and h is continuous. Thus no delta mass appears and the matching is sufficient distributionally. For example beta=5/8 yields c=2 and k=15/4 by the same coefficient equations. This proves the iff only within the specified profile family; it does not establish an all-profile minimal speed or stability theorem. The frozen algebra script was inspected rather than executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-model paper proves a phase-plane monotonicity condition and discusses existence and uniqueness of the sharp type at critical speed, but its comparison does not determine the exact heteroclinic angle/profile over the full interval.",
+          "Harko–Mak give a general exact class subject to integrability relations. For A=Dg and P=c−h', the Chiellini identity A'P−AP'=const·P³ has incompatible degrees 5 and 6 for beta,k>0 and nonzero constant. The inspected Lemke examples likewise impose different coefficient conditions."
+        ],
+        "reasoning": "General sharp-wave existence contains existence on this parameter set but not a formula giving its speed and profile. The inspected general exact-solution criterion therefore does not yield the claimed closed classification as a specialization.",
+        "searches": [
+          "PMC5023851 Proposition 10 and §5",
+          "Harko–Mak arXiv:1510.08163v1 Theorems 1–2",
+          "doi:10.1051/mmnp/20105505"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verification_output.txt and verify.py (read, not executed)",
+        "Sánchez-Garduño–Pérez-Velázquez PMC5023851 §4.3 and §5",
+        "Harko–Mak arXiv:1510.08163v1",
+        "Resultary a32a93e50680 and 90014a7600e9",
+        "Sherratt doi:10.1051/mmnp/20105505 (retrieval attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-model existence theorem addresses the transition between front types, while the exact speed along this locus comes from imposing the global profile relation and solving the three coefficient constraints.",
+          "Standard phase-plane algebra and the distributional jump criterion are prior methods. No inspected prior criterion selects the given exponential and determines this locus without the extra ansatz calculation."
+        ],
+        "reasoning": "Do not credit a general exact-wave method or mere existence of a sharp branch. The formula supplies a translationally normalized exact benchmark family in an already studied model, unavailable from the examined phase-plane and numerical passages alone.",
+        "searches": [
+          "PMC5023851 §4.3 Proposition 10 and §5 discussion",
+          "arXiv:1510.08163v1 equations (17)–(21) and Lemke section"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact ansatz is the straight phase-plane graph U'=−lambda(1−U), or, in flux variables, −D(U)U'=lambda D(U)(1−U).",
+          "§4.3 in Sánchez-Garduño–Pérez-Velázquez has h'(u)=u+ku² and a sharp heteroclinic; §4.3 identifies it through the phase portrait, and refers to figures for fronts and c* versus k."
+        ],
+        "reasoning": "The same phase-plane connecting orbit is the natural equivalent object. A general connecting orbit from sharp-wave existence theory need not lie on the stated straight derivative graph, and does not identify its coefficients or its exact speed.",
+        "searches": [
+          "Web: degenerate Fisher convection exact sharp exponential profile",
+          "DOI 10.1155/2016/5620839 / PMC5023851, §4.3",
+          "arXiv:1510.08163v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2016 work illustrates the sharp speed against k in Figure 20, with Figs. 18–19 documenting the same coefficients at beta=1 for the numerical profiles, not exact values on the interior curve.",
+          "Resultary a32a93e50680 has an upstream exponential spectrum for a different pseudo-parabolic constant-diffusion model; 90014a7600e9 is about a logistic ODE time-stepping correction, not wave data."
+        ],
+        "reasoning": "Plots of numerical profiles and critical speeds are not exact tables of the beta-indexed locus. No checked catalogue gives this invariant with the same model and ansatz.",
+        "searches": [
+          "Resultary: degenerate Fisher–KPP exact sharp waves, convection and exponential profiles",
+          "PMC5023851 §4.3 Figures 18–20"
+        ]
+      },
+      "rationale": "The same-model primary paper already develops the phase-plane existence and sharp-wave theory and illustrates the dependence of sharp speed on k. In its actual §4.3 passages it uses an implicit/numerical treatment of the quadratic-advection example, not the frozen closed curve and exponential profile. The examined exact Abel precedent does not cover these coefficients via its Chiellini criterion. The distinct result is the exact jointly tuned coefficient locus, profile and speed, not existence of sharp waves in this model family.",
+      "residual_risks": [
+        "The same-model text was inspected in BioC, which can omit displayed formulas and figure content; the reported comparison is to the available exact sections and captions, not a claim about every item in the paper.",
+        "A prior equivalent wave graph or a different general exact-wave condition could subsume the curve. The Sherratt primary text was not retrieved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model and prior sharp-wave theory/numerics. The directly inspected example treats the phase portrait and reports a plot of c* against k; it does not display the joint exact parameter/profile locus.",
+          "evidence": [
+            "BioC offsets 36169–37433: §4.3 takes h'(u)=u+ku², gives angular monotonicity and refers to figures to show fronts and the speed curve.",
+            "Offsets 38053–38630: discussion distinguishes nonexistent, sharp, and monotone fronts by critical speed and describes numerical experiments.",
+            "Offsets 46170 and 46378: captions identify D(u)=u(1+beta u), g(u)=u(1−u), quadratic h', and beta=1 for the pictured profiles."
+          ],
+          "identifier_or_url": "doi:10.1155/2016/5620839; PMC5023851",
+          "material_read": "§4.3, Proposition 10, §5 discussion, Figures 18–19 captions and in-text Figure 20 locator",
+          "method": "Lawful NCBI primary full-text BioC representation; selected passage text and captions (not equation images)",
+          "title": "Reactive-Diffusive-Advective Traveling Waves in a Family of Degenerate Nonlinear Equations",
+          "trigger": "Same quadratic diffusion, quadratic advection derivative, logistic reaction and sharp wave regime"
+        },
+        {
+          "assessment": "Methodological precedent, but the displayed Chiellini condition does not cover these positive beta,k coefficients and inspected Lemke examples have different functional constraints.",
+          "evidence": [
+            "OA offsets 20000–23500 and 40000–54499; degree comparison for Chiellini's identity"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1510.08163v1",
+          "material_read": "General equation (2); Chiellini equations (17)–(21); Lemke theorem and example conditions",
+          "method": "Bounded OA primary HTML",
+          "title": "Exact travelling wave solutions of non-linear reaction-convection-diffusion equations — an Abel equation based approach",
+          "trigger": "Potential exact-front coverage via a general integrability theorem"
+        },
+        {
+          "assessment": "Unassessed overlap risk; title is not sufficient to compare coefficients or profiles.",
+          "evidence": [
+            "No primary passage available"
+          ],
+          "identifier_or_url": "doi:10.1051/mmnp/20105505",
+          "material_read": "Bibliographic information only; primary passage unavailable",
+          "method": "Lawful OA retrieval attempt",
+          "title": "On the Form of Smooth-Front Travelling Waves in a Reaction-Diffusion Equation with Degenerate Nonlinear Diffusion",
+          "trigger": "Potential related degenerate front-profile literature"
+        },
+        {
+          "assessment": "Pseudo-parabolic constant-diffusion model with upstream linearized modes, not this nonlinear sharp profile.",
+          "evidence": [
+            "Constant positive D and a third spatial derivative; no quadratic diffusion/advection curve."
+          ],
+          "identifier_or_url": "Resultary a32a93e50680",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Real upstream spectrum defeats the linear oscillation obstruction",
+          "trigger": "Closest catalogue wave/exponential-profile hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Although coefficient matching is routine once the ansatz is chosen, the curve provides an exact, nontrivial weak sharp-front benchmark in the positive two-parameter model for which prior work investigates the speed and profile numerically. It links deformation of the diffusion and nonlinear convection to an explicit profile and propagation speed and determines exactly when the canonical exponential ansatz works, rather than exhibiting a fortuitous numerical parameter. This is useful for comparison with phase-plane or numerical wave predictions; it is not a general wave-speed classification.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

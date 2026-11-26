@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:55:01.030211Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Proper completed part palettes are disjoint. A part with at least two colours in the completion can never have a forced vertex, since its neighbours use at most Q−2 colours. The first force witnesses Q−1 outside colours and completes that palette with the remaining colour, so any successful non-total seed has a surjective completion, with all parts containing blanks monochromatic. Two wholly empty monochromatic parts would leave at least two colours absent and prevent even the first step. Conversely, when exactly one such part is empty it is forceable first, and once every part is represented every remaining blank sees exactly the other Q−1 colours. The forced colour is necessary in any extension, giving uniqueness and ensuring the enumerator does not double count across completions. Partition into unlabelled nonempty colour classes and injectively label them for the falling-factorial Stirling count. For each surjective completion factor the allowed seed restrictions by part, with at most one constant-term omission among the monochromatic factors, and subtract the total term already counted by P_G(Q). Multiplying powers by the independent assignment probabilities gives the probability transform including its polynomial endpoint. In the balanced case, the number j of nonsingle-colour parts among non-total successes must satisfy j≤r−1 and j≤d≤j(t−1). Their least seed size is jt+r−j−1; since it increases with j the first admissible j is k, attained by the one omitted monochromatic part and singleton seeds in the others. Summing colour-class partitions over the bounded positive compositions of d gives the claimed leading coefficient; above the capacity cutoff only total seeds remain, also for Q>N. Independently checked the K_(2,2,2) coefficients for Q=4,5,6 and the total-only Q=7 case by counting partial assignments with exactly one proper full extension (replay python3 /tmp/opencode/nov02-independent-checks.py 4). For this graph class unique completion implies forcing: one can otherwise recolour a blank vertex in a multicolour part or with an unused palette colour, or interchange the colours of two wholly unseeded monochromatic parts. The local process was also independently simulated on the three displayed examples. The uploaded checker was inspected, not executed; finite tests corroborate rather than establish the theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Q≥r+2 record minimizes r−1+sum_(i∈H)(n_i−1) over proper sets H with |H|≤Q−r≤sum_(i∈H)(n_i−1), with the default N if none is feasible.",
+          "For equal t this minimum is r−1+(t−1)⌈(Q−r)/(t−1)⌉ when feasible, and feasibility ends at (r−1)(t−1). The prior Q=r+1 minimum gives the first step as well.",
+          "Farr gives a general colour-count necessity and a two-colour bipartite theorem, neither providing the claimed surplus census on its own."
+        ],
+        "reasoning": "The earlier minimum is already exact on heterogeneous parts. Equal capacities turn its subset optimization directly into the stated staircase, including the terminal cutoff.",
+        "searches": [
+          "2d913e8a2a13 Minimum domain at offset 6249",
+          "5336d2e3f828 one-spare minimum",
+          "Farr arXiv:2609.17108v1 Proposition 9 and Theorem 7"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2d913e8a2a13",
+        "Resultary 5336d2e3f828",
+        "arXiv:2609.17108v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In an equal-size surjective profile with j multicolour parts, the smallest exponent of prior B_t is jt+r−j−1; its coefficient is (r−j)t^(r−j−1) (choose the single omission and the least-degree term t·x from every other monochromatic part). Only j=k can contribute at the global least exponent.",
+          "Sum the prior Stirling product over the k chosen parts and over t_i−1≥1 summing to d, giving exactly binom(r,k)(r−k)t^(r−k−1)Q! times the stated coefficient of the kth power; Q=r+1 also follows by specializing the prior split-part minimum count."
+        ],
+        "reasoning": "The explicit leading-coefficient expression is a straightforward extraction from the prior all-coefficient polynomial and minimum, even if it was not printed in that notation. No nontrivial remainder survives the union of the two earlier parameter ranges.",
+        "searches": [
+          "2d913e8a2a13 Enumeration and Minimum domain",
+          "5336d2e3f828 Finding and one-spare multiplicity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For Q≥r+2 set λ=Q, t_i=s_i, x=z. Prior B_t=H_s; it omits profiles with M empty, whose H_s−z^N is zero. It uses exactly the same iterative rule, named colours, and count of total seeds.",
+          "For Q=r+1 the only surjective profiles have one split j, with S(n_j,2)=(2^{n_j}−2)/2, and nonsurjective completions use one colour on every part, exactly (r+1)! of them. The two resulting terms are precisely the prior H_G.",
+          "The general Farr implication forcing⇒unique extension can be reversed for complete multipartite graphs by the recolouring and empty-part symmetry argument described in correctness, so unique extensions are a scientifically relevant alias but not needed to establish the overlap."
+        ],
+        "reasoning": "After identifying labels, omissions and coefficients the earlier two enumerators are algebraically identical in complementary ranges; the overlap does not rest on use of the word forcing.",
+        "searches": [
+          "Resultary: complete multipartite forced-colouring polynomials above the chromatic palette, one spare and larger palettes",
+          "2d913e8a2a13 Finding; 5336d2e3f828 Finding",
+          "Farr arXiv:2609.17108v1 unique extensions vs local forced colours"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both entries give full analytic domain-size polynomials over their palette ranges rather than selected tabulated small examples.",
+          "The earlier one-spare entry even gives a minimum multiplicity for arbitrary part sizes; the beyond-one-extra entry has the entire coefficient sequence."
+        ],
+        "reasoning": "The indexed exact formulas encompass the proposed low-order examples and extremal coefficient tuples. Reprinting three K_(2,2,2) instances does not add an invariant.",
+        "searches": [
+          "Resultary all seed-domain coefficients: 2d913e8a2a13 and 5336d2e3f828"
+        ]
+      },
+      "rationale": "Two exact October 2026 Resultary records cover the full surplus range. 2d913e8a2a13 gives the identical classification and all-coefficient enumerator for Q≥r+2, and a stronger arbitrary-part-size minimum formula. 5336d2e3f828 gives the remaining Q=r+1 classification, all coefficients, minimum, and multiplicity. The balanced staircase and leading term are direct specializations or coefficient extractions from these results, not a new surviving claim.",
+      "residual_risks": [
+        "The comparison does not establish worldwide historical priority or rule out older defining-set and unique-extension literature. The exact prior multipartite results suffice regardless."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct equivalent all-coefficient coverage for Q≥r+2 and stronger unbalanced minimum formula",
+          "evidence": [
+            "There is no difference in the force rule or labelled object; B_t and H_s coincide, with the null M-empty summands omitted in the earlier formula."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-forced-colouring-polynomials-of-complete-multipartite-graphs-bey--2d913e8a2a13/RESULT.md",
+          "material_read": "Finding offsets 0–3137, Enumeration and Minimum domain offsets 6249–9205",
+          "method": "Read exact local mirror passages at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Forced-colouring polynomials of complete multipartite graphs beyond one extra colour",
+          "trigger": "Same exhaustive multipartite seed polynomial with surplus colours and a minimum formula"
+        },
+        {
+          "assessment": "Direct equivalent coverage for the remaining palette, including minimum count",
+          "evidence": [
+            "Unique fully seeded split part, at most one seedless other part, exact (r+1)! times the split Stirling factor and products of subset polynomials."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-one-spare-color-forces-a-unique-split-part-in-complete-multipart--5336d2e3f828/RESULT.md",
+          "material_read": "Finding and assumptions offsets 0–2945",
+          "method": "Read exact local mirror and compare coefficient weights",
+          "title": "One spare color forces a unique split part in complete multipartite graphs",
+          "trigger": "The complementary surplus palette Q=r+1"
+        },
+        {
+          "assessment": "Framework and basic necessary condition, not the decisive exact overlap",
+          "evidence": [
+            "Theorem 7 concerns two-colour bipartite graphs. Proposition 9 bounds the initially occurring number of colours by Q−1 or Q on non-total successes; it does not distribute them among parts."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.17108v1",
+          "material_read": "Definition/unique extension comparison in §2 near offset 5296; Theorem 7 p. 11 near offset 31269; Proposition 9 p. 12 near offset 34934",
+          "method": "Locate and inspect bounded OA primary text",
+          "title": "The forced colouring function of a graph",
+          "trigger": "Primary definition and general necessary condition; relationship to unique extension"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The full surplus census is a useful mathematical object, but this record consolidates two already covered ranges and adds only a balanced specialization and direct coefficient extraction. It does not supply a substantively new forcing phenomenon, extension, or independently informative extremal calculation beyond the existing work.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

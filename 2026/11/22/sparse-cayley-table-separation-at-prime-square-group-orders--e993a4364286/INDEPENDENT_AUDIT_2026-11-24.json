@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:11:13.026377Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For t distinct names, the group equations define the quotient of Z^t by the rows e_a+e_b−e_c; a realization is a homomorphism separating all names. Split each equation row into a unit row and an oriented incidence row, keeping any appended e_i−e_j intact. Restricted incidence rows have at most one entry of each sign; induct on the minor size by expanding a row with at most one nonzero, or use the zero row sums when all rows have both signs. Multilinearity bounds every minor by 2^k, even with repeated labels, so M and each augmentation retain their rational ranks modulo p for p>2^k. A full-rank pivot minor is a p-local unit: its rows generate the localized row lattice by solving on the pivot columns, and the quotient is free. A difference lying in the row span mod p lies in the rational span by equality of augmented ranks and hence in the localized row lattice, so it vanishes in both targets. In a realizable pattern each other difference has a unit coordinate; its collision probability under a uniform homomorphism is p^(−2) in either target. The union bound binomial(3k,2)<4^k for k≥1 gives a collision-free realization in both, with unused labels filled arbitrarily. The addition chain names distinct powers of a generator in C_(p²), but in exponent p the first and last powers agree. Doubling and a final +2 give the stated families; the chains for 11, 19 and 23 give lengths 4, 5 and 5. At p=2 every one-entry equality pattern is possible in both groups (identity, doubling a suitable nonzero element, an identity factor, or two distinct nonzero summands with a third distinct sum), and the two-step chain separates. The p=3 lower bound is already 2. Inspected VERIFICATION.md and cayley_sparse_check.cpp; no uploaded executable was run. RESULT.md:63 has a prose slip: the tested primes 5,7 for k=1,2 and 11,13 for k=3 are above 2^k, not below it; they are below the reference 17. This does not affect the theorem or the stated finite partition counts. The package marker is finite corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The accessible Chernev–Chernev abstract gives all orders 2–23 and a general upper bound; the full bound was not available for comparison.",
+          "Critical sets uniquely complete a labelled square; rough approximate-group results concern a different high-overlap/approximate setting."
+        ],
+        "reasoning": "An upper bound for the same invariant may subsume the cyclic construction; the available statement does not give the two-way sparse equivalence or the prime-square lower bound. Labelled completion and approximate recognition do not imply that equivalence.",
+        "searches": [
+          "arXiv:2611.25532v1, general upper bound and addition-chain comparison",
+          "arXiv:2610.18199, Latin-square critical sets",
+          "Gowers–Long, Partial associativity and rough approximate groups"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and cayley_sparse_check.cpp",
+        "OEIS A387855 indexed title",
+        "arXiv:2611.25532v1 abstract",
+        "Resultary 58ffe400075c and 9fbb171d9dac summaries",
+        "Frozen cited comparisons with Bean and Gowers–Long"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Neither the accessible finite-order results/general upper-bound description nor the indexed fixed-order incidence and shattering statements asserts that every realizable k-entry pattern works in both groups under p>2^k.",
+          "The new lower direction requires preservation of augmented ranks for each label difference and joint collision avoidance, not a cyclic witness alone."
+        ],
+        "reasoning": "Ignoring the potentially overlapping upper-bound ingredient still leaves the verified threshold and the exact-family conclusions from the two-sided argument.",
+        "searches": [
+          "arXiv:2611.25532v1, abstract versus prime-square lower implication",
+          "Resultary 58ffe400075c and 9fbb171d9dac, incidence comparisons"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The OEIS title and Chernev–Chernev abstract describe the same up-to-isomorphism minimum-fill invariant.",
+          "The exact two-way assertion can also be expressed as equality of existential sparse equation patterns with all distinctness constraints; the Latin-square quantifier-rank hit 58ffe400075c is about a different resource and a fixed-order witness."
+        ],
+        "reasoning": "Free simultaneous relabelling is equivalent to injecting the names, not unique completion. Quantifier rank counts nested quantifiers, not supplied equations, so the local order-four witness does not establish a threshold for all k and prime p.",
+        "searches": [
+          "Resultary: sparse Cayley identification, prime-square cyclic versus elementary abelian and Latin-square incidence",
+          "OEIS A387855",
+          "arXiv:2611.25532v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A387855 is the identical invariant, and the Chernev–Chernev abstract explicitly gives exact results for orders 2–23. The frozen record reports the same endpoint for the OEIS values; the live entry was unavailable.",
+          "Orders 4 and 9 are already covered; 25, 49 and 121 are outside that stated range."
+        ],
+        "reasoning": "No originality credit is taken for m(4) or m(9), and the supported theorem is not a recomputation of the known finite range. The absence of larger values from that stated range is not evidence that no other table exists.",
+        "searches": [
+          "OEIS A387855 indexed description",
+          "Chernev–Chernev exact-order range",
+          "Resultary: prime-square group orders and sparse entries"
+        ]
+      },
+      "rationale": "Credit the earlier identification invariant and order-at-most-23 computations. The supported distinct result is two-way equivalence of all sparse patterns above a uniform prime threshold and its consequences for prime-square orders, not the definition, the already tabulated small values, or a general cyclic-group upper bound in isolation.",
+      "residual_risks": [
+        "The general Chernev–Chernev bound could cover some or all of the addition-chain upper construction. Full-text access failed; no whole-document noncoverage claim is made.",
+        "The searchable local comparisons do not certify priority or exclude an equivalent sparse-presentation theorem under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same invariant, with small instances credited as prior",
+          "evidence": "The frozen comparison reports values through order 23; the live cutoff and entry date were not independently verified.",
+          "identifier_or_url": "https://oeis.org/A387855",
+          "material_read": "Indexed title and frozen record's comparison; live entry unavailable",
+          "method": "Identified public-source retrieval and invariant comparison",
+          "title": "Minimum number of filled Cayley table cells for unique identification of a group of order n",
+          "trigger": "Exact invariant match"
+        },
+        {
+          "assessment": "Confirmed overlap in invariant and small values; range of overlap of the upper bound unresolved",
+          "evidence": "Abstract states exact results for orders 2–23 and a general upper bound. It does not describe uniform sparse indistinguishability at order p².",
+          "identifier_or_url": "https://arxiv.org/html/2611.25532v1",
+          "material_read": "Abstract; full HTML/PDF passages unavailable",
+          "method": "Indexed abstract and identified OA copy retrieval",
+          "title": "On the Smallest Cayley Table Fill That Uniquely Determines a Group",
+          "trigger": "Same problem, exact values and general upper bound"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "A critical set requires uniqueness of the entire labelled completion, not only identification of one group type.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.18199",
+          "material_read": "Frozen comparison and citation, not full text",
+          "method": "Compared the labelled critical-set requirement with the isomorphism invariant",
+          "title": "A counting proof for the smallest critical set in a Latin square",
+          "trigger": "Related minimum fill of Latin squares"
+        },
+        {
+          "assessment": "No implication established from the available material",
+          "evidence": "Dense or approximate structures concern a different resource from an arbitrary finite list of exact cells in two specified groups.",
+          "identifier_or_url": "Gowers–Long, Geometric and Functional Analysis 30 (2020), 1583–1647",
+          "material_read": "Frozen comparison and citation, not full text",
+          "method": "Claim-level comparison",
+          "title": "Partial associativity and rough approximate groups",
+          "trigger": "Partial multiplication analogy"
+        },
+        {
+          "assessment": "Fixed-order overlap only, different resource",
+          "evidence": "A rank-five logical witness distinguishes the tables of order four; there is no cell-budget equivalence across the prime-square family in the indexed statement.",
+          "identifier_or_url": "2026/10/26/SCOPE-four-rank-four-theories-of-three-sorted-latin-square-incidence-s--58ffe400075c",
+          "material_read": "Indexed claim summary",
+          "method": "Resultary statement comparison",
+          "title": "Four rank-four theories of three-sorted Latin square incidence structures",
+          "trigger": "Distinguishes cyclic and Klein tables"
+        },
+        {
+          "assessment": "Related feasibility problem, not equivalent",
+          "evidence": "Shattering compatible entry queries in Latin squares is not separation of group types.",
+          "identifier_or_url": "2026/11/22/SCOPE-small-support-shattering-of-latin-squares-and-the-order-three-incidence-complex--9fbb171d9dac",
+          "material_read": "Indexed claim summary",
+          "method": "Resultary statement comparison",
+          "title": "Small-support shattering of Latin squares and the order-three incidence complex",
+          "trigger": "Sparse Latin-square entry constraints"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives a structural obstruction for the natural minimum-fill identification invariant, ruling out every sparse pattern rather than just short power witnesses. It also yields an explicit logarithmic bound and exact infinite-form prime families without implying that either family contains infinitely many primes. The p-local minor argument explains why the two different exponents cannot be detected by such patterns.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

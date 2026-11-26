@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:42:23.422107Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With probability-normalized area, the squared monomial norm is w_n(γ)=B(n+1,γ+1)(γ+1). Expanding the kernel and integrating t^(n+k) gives exactly the rectangular-basis entry in RESULT.md:38–43. Independently, the full squared row is (n+1)^2 w_n(α+2+δ) times the integral of t^n(-log t)(1−t)^(−α−2) from 0 to 1: use the binomial series for 1/w_k(α) and the integral of t^(n+k)(−log t). For n≥1 the integral is B(n+1,−α)+O(B(n,1−α)), by 0≤−log t−(1−t)≤(1−t)^2/(2t). This verifies the coefficient Γ(α+4+δ)Γ(−α) and the uniform summable row error O_α(n^(−2−δ)); the zero row is finite. The entire missing column tail is O_α(N^α times the sum of (n+1)^(−α−1−δ) for n<N), which is O_α(N^(−δ)) because δ≤−α/2. Row summation and integral comparison give the fixed-interval bound, window and pole, and the endpoint divergence. Polynomial matrix calculations do represent the integral operator: radial evaluation is dominated by ||f|| times (1−t²)^(−(α+2)/2), integrable for α<0, so extension from polynomials agrees locally with the integral. The endpoint boundedness is also supplied by Li–Zhou. No finite numerical test is required for the proof; the frozen matrix checks were inspected, not rerun.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed beta-prime theorem allows bounded signed λ and adds a joint energy law; the November energy theorem adds the output-degree distribution.",
+          "Li–Zhou treats the same operator and exactly characterizes endpoint boundedness and Hilbert–Schmidt membership. Tang–Zhang's single-space criterion and Pushnitski's Hermitian homogeneous-kernel trace theorem do not by themselves give this generally nonsymmetric two-weight square-section estimate."
+        ],
+        "reasoning": "The signed bounded window is stronger in one direction but not, on its face, the fixed nonnegative δ interval; the proof-level implication is assessed separately.",
+        "searches": [
+          "Resultary: Li–Zhou/Tang–Zhang differential or generalized Hilbert operators; homogeneous Hardy-kernel trace laws",
+          "OA: Li–Zhou Theorems 3.1 and 4.4",
+          "OA: Pushnitski Theorem 2.1; Tang–Zhang Theorem 3.9"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md; verify.py inspected only",
+        "Resultary mirror records ea74937420c0, 05c0d7c6bcd1, 1bba781d9ccf",
+        "arXiv:2610.05672v1, 2208.10747, 2103.12642, 2202.04116"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equation (9) is uniform for the displacement in a fixed small interval, with a summable error for nonnegative δ. The omitted-column estimate in section 3 is C_α N^α before row weights. For arbitrary δ≥0 in the prescribed compact interval, w_n(α+2+δ)≤w_n(α+2), so the sum of row weights (n+1)^2 w_n is O_α(N^(−α)); hence the omitted-column total is uniformly O_α(1). Summing (9) yields the frozen fixed-interval formula; if the small interval is taken shorter than δ₀, the remainder of [0,δ₀] is uniformly bounded on both sides by monotonicity and summability. Li–Zhou's exact full squared-norm expression also provides a direct route to the pole, without itself stating the finite-window theorem."
+        ],
+        "reasoning": "The interval extension beyond bounded δ log N is an immediate estimate from the indexed uniform row result, not a distinct uncovered remainder.",
+        "searches": [
+          "OA: 2026/10/25 beta-prime energy law, sections 2–3, offsets 4130–5605",
+          "OA: Li–Zhou Theorem 4.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The beta-prime record uses β=α+2+λ/log N and an immaterial one-index shift of both projections; its square-compression trace is the same S_N. Its exact coefficient and Φ(λ) agree, including λ=0.",
+          "The root-exponential record's residue (α+2)(α+3)B(α+2,−α) equals Γ(α+4)Γ(−α)."
+        ],
+        "reasoning": "Both the finite crossover and the pole match actual formulas after parameter and beta/gamma normalization, not merely terminology.",
+        "searches": [
+          "Resultary: uniform square finite sections and full squared-Hilbert–Schmidt pole",
+          "OA: 2026/10/25 beta-prime energy law, Finding and (9)–(10)",
+          "OA: 2026/10/18 root-exponential compression, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/18 ea74937420c0 has the same residue; 2026/10/25 05c0d7c6bcd1 has the matching square-section law; 2026/11/1 1bba781d9ccf has the critical log coefficient and pole."
+        ],
+        "reasoning": "The relevant exact database evidence is indexed statements for this operator and weight, rather than a table of finite-matrix values.",
+        "searches": [
+          "Resultary: full squared-HS pole; uniform square finite sections; Li–Zhou related records"
+        ]
+      },
+      "rationale": "The assigned quantitative claim is covered by another indexed finding, not just similar to one. The 2026/10/25 beta-prime energy record explicitly gives the additive-error square-section crossover in a signed window and the full pole. More decisively, its uniform row formula (9) and its displayed omitted-column bound directly yield the same fixed one-sided interval formula by summation, not just convergence along bounded δ log N. The 2026/10/18 root-exponential record separately states the identical full residue. These are coverage comparisons; neither dating nor the comparison proves who first obtained the result.",
+      "residual_risks": [
+        "Catalogue ordering and dates do not establish historical priority.",
+        "The literature search is not exhaustive; coverage is based on the positive indexed comparisons above."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the square-section window and directly implies fixed one-sided interval estimate",
+          "evidence": "Signed window, uniform row asymptotic (9), and missing-column estimate used in (10).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-beta-prime-energy-law-and-critical-window-crossover-for-differen--05c0d7c6bcd1/RESULT.md",
+          "material_read": "Finding; proof §§2–3, in particular offsets 4130–5605",
+          "method": "Local mirror, literal locate plus bounded original text",
+          "title": "Beta-prime energy law and critical-window crossover for the differential Hilbert operator",
+          "trigger": "Same operator, projections and critical-window coefficient"
+        },
+        {
+          "assessment": "Covers full pole, not the square-section window by its stated theorem",
+          "evidence": "Residue in beta-function normalization; added root-exponential and quasi-Schatten results.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-root-exponential-compression-and-a-critical-hilbert-schmidt-resi--ea74937420c0/RESULT.md",
+          "material_read": "Finding, offsets 0–5519; finite-section scope compared",
+          "method": "Local mirror original text",
+          "title": "Root-exponential compression and a critical Hilbert–Schmidt residue",
+          "trigger": "Exact residue overlap"
+        },
+        {
+          "assessment": "Exact coefficient and pole overlap, with different distributional assertion",
+          "evidence": "Infinite-operator output-degree energy law rather than square compression.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-universal-exponential-output-degree-energy-law-at-the-differenti--1bba781d9ccf/RESULT.md",
+          "material_read": "Finding",
+          "method": "Local mirror original text",
+          "title": "Universal exponential output-degree energy law at the differential Hilbert endpoint",
+          "trigger": "Same critical energy coefficient"
+        },
+        {
+          "assessment": "Same operator; boundedness and exact full norm are known, but those passages do not state the two-cutoff crossover",
+          "evidence": "Threshold β=α+2 and full double-series/integral formula.",
+          "identifier_or_url": "https://arxiv.org/html/2610.05672v1",
+          "material_read": "Theorems 3.1 and 4.4, offsets 30900–34192 and 67180–70765",
+          "method": "OA full-text passages",
+          "title": "The Differential Hilbert Operator Between Weighted Bergman Spaces",
+          "trigger": "Primary paper on the identical operator"
+        },
+        {
+          "assessment": "Related criterion, not this two-weight limit",
+          "evidence": "The theorem uses a measure-generated operator on one A² space.",
+          "identifier_or_url": "https://arxiv.org/pdf/2208.10747",
+          "material_read": "Definition p. 1 and Theorem 3.9 p. 12",
+          "method": "OA PDF passages",
+          "title": "Generalized Hilbert Operator Acting on Bergman Spaces",
+          "trigger": "Related Hilbert–Schmidt criterion"
+        },
+        {
+          "assessment": "Log trace analogue with different hypotheses",
+          "evidence": "Hermitian homogeneous kernels with fixed parameters rather than the varying nonsymmetric two-weight matrix.",
+          "identifier_or_url": "https://arxiv.org/pdf/2103.12642",
+          "material_read": "Hardy setup p. 1 and Theorem 2.1 pp. 3–4",
+          "method": "OA PDF passages",
+          "title": "The spectral density of Hardy kernel matrices",
+          "trigger": "Potential general logarithmic finite-trace coverage"
+        },
+        {
+          "assessment": "Different kernel and observable; correct title differs from frozen bibliography",
+          "evidence": "Eigenvalue asymptotics for 1/(max(i,j)+ν).",
+          "identifier_or_url": "https://arxiv.org/pdf/2202.04116",
+          "material_read": "p. 1, offsets 0–3529",
+          "method": "OA PDF passage",
+          "title": "Asymptotic spectral properties of the Hilbert L-matrix",
+          "trigger": "Named finite-matrix analogue"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As a mathematical statement the bounded-error interpolation is useful: it says how much squared Hilbert–Schmidt energy a finite section captures when both the cutoff and weight approach their limits, with the exact normalization. This is more informative than knowing Schatten membership. That intrinsic value does not give independent credit for a covered result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

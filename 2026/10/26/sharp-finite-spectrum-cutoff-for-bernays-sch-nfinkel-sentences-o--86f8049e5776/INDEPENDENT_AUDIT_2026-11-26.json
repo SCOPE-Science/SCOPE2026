@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:28:53.823531Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Keep a witnessing tuple fixed, distinguishing the set W of its distinct values from the number k of slots. Enlarging a class with at least ell nonwitnesses cannot create a new pointed ell-diagram: all nonwitness values from that class in an assignment, including the new one, can be injected into the old nonwitness pool. Similarly, adding a new singleton when there are at least ell free classes creates no new diagram: an assignment meeting the new class uses at most ell-1 old free classes, leaving an unused one for the new value. Both moves preserve equality and equivalence with every variable, including repeated witnesses, and can be iterated without exhausting their premise. If neither applies there are at most |W| marked classes, at most ell-1 nonwitnesses per class, and at most ell-1 free classes, proving the stated bound. Induced restrictions retaining all witnesses give every smaller nonempty order at least |W|; one-point pumping covers every larger order, so the asserted tail from k+ell holds (it is not claimed as optimal). Sharpness uses k witnesses in different classes and forbids ell distinct nonwitnesses in one marked class, ell distinct elements of one free class, and ell different free classes. All three bans are expressible with just the ell universal slots. The displayed partition attains all caps simultaneously, and remains nonempty at k=0 since ell>=2. This is a universal symbolic proof; the frozen bounded checker and recorded outputs were inspected as supplementary evidence, not used as proof or executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The BSR literature supplies qualitative finite/cofinite results and the graph version supplies a Ramsey cutoff. The one-equivalence U1 and RU1 paper addresses finite-model properties in different fragments."
+        ],
+        "reasoning": "Adding the equivalence axioms as universal clauses can transfer qualitative BSR behavior, but does not derive the sharp cutoff while keeping the original count of universal slots. Monadic bounded-core and one-equivalence small-model results do not determine the largest possible finite-spectrum endpoint.",
+        "searches": [
+          "arXiv:1002.4334 BSR finite/cofinite spectrum and monadic EBS",
+          "arXiv:1003.4865 Section 7.3 Theorem 7.7",
+          "10.4230/LIPIcs.CSL.2015.597 Section 5.4",
+          "10.1145/2603088.2603117"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and artifacts/verify_equivalence_cutoff.py",
+        "Resultary 554618aa99bc, a736c29db7bd, 6226309b0668",
+        "arXiv:1002.4334, arXiv:1003.4865 and DOI 10.4230/LIPIcs.CSL.2015.597"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The graph proof pumps via a homogeneous ell-set in one of 2^k witness-neighborhood profiles; its printed sufficient bound is 2^k*4^ell. The two-universal record covers exactly the first allowed ell. The RU1 and U1 results give finite model sizes, not cutoff sharpness."
+        ],
+        "reasoning": "For equivalence models the independent obstructions are a sufficiently populated class and a sufficient number of available free classes. Their simultaneous saturation supplies the exact endpoint; neither the graph Ramsey bound and its extremizers, nor a bounded minimum model size, yields this. The frozen mention of a published sharp all-graph endpoint was not established by the cited survey passage and is not used in the originality decision.",
+        "searches": [
+          "arXiv:1003.4865 Theorem 7.7 and proof",
+          "Resultary 554618aa99bc Finding and Sharp cutoff theorem",
+          "10.4230/LIPIcs.CSL.2015.597 Section 5.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For ell=2, the frozen formula becomes 2k+1 and the cataloged theorem has exactly the same strict threshold, tail n>=k+2 and attained maximum.",
+          "The rank-three equivalence-theory classification truncates multiplicities of singleton, doubleton and 3+ classes at 3 and has optimal representative order 9."
+        ],
+        "reasoning": "Equivalence relations are partitions (or disjoint unions of cliques with reflexivity implicit). Rank-three truncation classifies complete bounded-rank theories without fixed witnesses, rather than finding an optimal largest model of a finite spectrum for every such pointed prefix. The ell=2 overlap does not give the higher-ell term or extremizers by substitution.",
+        "searches": [
+          "Resultary 554618aa99bc: sharp linear finite-spectrum cutoff for two-universal equivalence sentences",
+          "Resultary a736c29db7bd: twenty-one rank-three theories of finite equivalence relations",
+          "Resultary: fixed BSR prefix equivalence partition cutoff for general ell"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two-universal item explicitly realizes {k,...,2k+1} for k>=1 and {1} for k=0. The rank-three item is a table/classification of truncated theories. The triple-system item gives a separate sharp Ramsey threshold on 3-uniform hypergraphs."
+        ],
+        "reasoning": "Only the first provides the same endpoint, and only for ell=2. Neither exact classification in the other entries tabulates the largest finite spectrum for equivalence models at a general k,ell.",
+        "searches": [
+          "Resultary 554618aa99bc",
+          "Resultary a736c29db7bd",
+          "Resultary 6226309b0668: sharp three-universal cutoff for triple systems"
+        ]
+      },
+      "rationale": "Best of the inspected evidence, the uniform sharp endpoint k*ell+(ell-1)^2 for arbitrary ell is a substantive extension. The entire ell=2 statement, including its sharpness and tail, is already covered as a statement by a distinct Resultary record; no independent originality is credited for that case, and same-day dating provides no evidence of priority. Nor is general finite/cofinite behavior credited as new.",
+      "residual_risks": [
+        "Pratt-Hartmann full text and the original 1930 Ramsey paper were not obtained. Graph sharpness is not verified from the survey; it is not needed for the assigned proof.",
+        "Earlier equivalent bounds may appear as partition-type arguments in unindexed literature, and priority for the overlapping ell=2 case is unresolved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact special-case coverage, not evidence of order of priority",
+          "evidence": "Maximum 2k+1, strict trigger size at least 2k+2, every n>=k+2, and attaining examples.",
+          "identifier_or_url": "2026/10/26/SCOPE-a-sharp-linear-finite-spectrum-cutoff-for-two-universal-equivale--554618aa99bc",
+          "material_read": "RESULT.md Finding and Sharp cutoff theorem",
+          "method": "Resultary search plus local mirror",
+          "title": "A sharp linear finite-spectrum cutoff for two-universal equivalence sentences",
+          "trigger": "Same semantic class, prefix with ell=2, cutoff and tail"
+        },
+        {
+          "assessment": "Different rank-three classification problem",
+          "evidence": "21 rank-at-most-three theories; optimal largest representative order 9.",
+          "identifier_or_url": "2026/10/26/SCOPE-twenty-one-rank-three-theories-of-finite-equivalence-relations--a736c29db7bd",
+          "material_read": "RESULT.md Finding and Proof",
+          "method": "Resultary search plus local mirror",
+          "title": "Twenty-one rank-three theories of finite equivalence relations",
+          "trigger": "Same partition and truncated-type setting"
+        },
+        {
+          "assessment": "Ramsey-number cutoff for simple 3-uniform hypergraphs, not equivalence structures",
+          "evidence": "Threshold k+(R_(2^k)(3)-1)2^binom(k,2).",
+          "identifier_or_url": "2026/10/4/SCOPE-sharp-three-universal-cutoff-for-bernays-sch-nfinkel-triple-syst--6226309b0668",
+          "material_read": "RESULT.md Finding and Proof",
+          "method": "Resultary search plus local mirror",
+          "title": "Sharp three-universal cutoff for Bernays–Schönfinkel triple systems",
+          "trigger": "Exact fixed-prefix spectrum cutoff in a nearby relational class"
+        },
+        {
+          "assessment": "Qualitative BSR behavior, and a monadic class characterization",
+          "evidence": "Finite/cofinite for BSR; EBS equality with FO in monadic vocabulary.",
+          "identifier_or_url": "https://arxiv.org/abs/1002.4334",
+          "material_read": "pp. 2 and 11, PDF text offsets 7600 and 65600",
+          "method": "Bounded OA PDF passages",
+          "title": "On Semantic Generalizations of the Bernays–Schönfinkel–Ramsey Class with Finite or Co-finite Spectra",
+          "trigger": "General spectrum dichotomy and preservation modulo bounded cores"
+        },
+        {
+          "assessment": "Reports a sufficient graph cutoff, not sharpness of the purported graph endpoint in this passage",
+          "evidence": "2^k witness profiles, pumping a homogeneous ell-set in some profile; tail from k+ell.",
+          "identifier_or_url": "https://arxiv.org/abs/1003.4865",
+          "material_read": "Section 7.3 Theorem 7.7 pp. 46–47 (145400 and 148180), bibliography p. 56 (176000)",
+          "method": "Bounded OA PDF passages; secondary locator for Ramsey's original",
+          "title": "Logical Complexity of Graphs: A Survey",
+          "trigger": "Graph BSR Ramsey thresholds and possible relative-equivalence corollary"
+        },
+        {
+          "assessment": "Different fragments and a finite-model property, not a sharp finite-spectrum endpoint",
+          "evidence": "Doubly exponential finite-model property for RU1 and U1 with equivalence.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.CSL.2015.597",
+          "material_read": "Abstract and Section 5.4 (offsets 0, 66700)",
+          "method": "Bounded OA PDF passages",
+          "title": "Uniform One-Dimensional Fragments with One Equivalence Relation",
+          "trigger": "Built-in equivalence and EF/model-size bounds"
+        },
+        {
+          "assessment": "Unresolved scope; not used as evidence of absence or coverage",
+          "evidence": "Access limitation only.",
+          "identifier_or_url": "https://doi.org/10.1145/2603088.2603117",
+          "material_read": "Bibliographic identification only; no theorem passage obtained",
+          "method": "Lawful OA attempts; publisher access returned 403 and no repository copy was located",
+          "title": "Logics with Counting and Equivalence",
+          "trigger": "Cited primary treatment of counting with equivalence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The quantitative endpoint for a natural fixed-prefix fragment with built-in equivalence is not supplied by general BSR dichotomy. A sharp threshold for all k and ell, with extremizers jointly saturating class-size and class-count constraints, is useful for bounding finite relative spectra. This judgment is about the uniform classification, not about recomputing the cataloged two-universal case or claiming an optimal starting point for the infinite tail.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

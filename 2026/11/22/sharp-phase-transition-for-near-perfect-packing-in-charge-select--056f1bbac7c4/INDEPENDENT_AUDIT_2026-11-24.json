@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:47:24.882071Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a first rod at u and L=n-1+epsilon, the sum floor(u)+floor(L-u) equals n-1 exactly when the fractional part of u is at most epsilon (up to zero-probability boundaries). Each successful split therefore lies in a stated window, and both daughters must attain their respective integer capacities. Conditioning and independent renewal give the exact recursion. Scaling the slack by epsilon gives a weight v^(q-1) times the daughter asymptote in an edge window or a smooth strictly positive density factor times two daughter asymptotes in an interior window; q>0 and nonnegative exponents give integrable domination. The resulting positive beta coefficients have exactly the powers in the displayed recurrence. For a fixed tree, if b vertices have two children, the number of unary vertices is n-1-2b, giving cost q(n-1)+(1-2q)b. A full binary tree with b internal nodes can be extended by a chain of n-1-2b unary nodes above its root, realizing every allowed b; this verifies all minimizing and tying cases. An actual change of topology occurs for n>=3; for n=2 the two descriptions select the same unary topology, as the stated exponent and proof imply. At n=3 the two edge integrals and the central integral have the stated coefficients; their relative O(epsilon) errors follow by using F_2(s)=2s^q/(q B(q,q)) times (1+O(s)) uniformly over the window. The separate point values at zero slack in the integral do not affect it. Independent replay: python3 /workspace/review_checks.py 4 checks finite tree profiles and rational cost minimization through n=12 and computes the two n=3 terms at q=1/2 by a sine substitution; the normalized terms at epsilon=0.0001 are 0.318293972 and 0.900276929. The frozen checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Palacios–Macêdo abstract reports four-component generating recursions for the full occupation statistics and mainly mean/variance analysis. PDF p. 10 explicitly reports exact recursions and closed solutions on the first three length shells. The specialty case q=1 coincides with classical uniform parking."
+        ],
+        "reasoning": "An exact general recursion determines the finite probabilities, but the available statements neither minimize the singular exponents over arbitrary history trees nor give the all-n selected-branch coefficient law. Classical density/spacing limits summarized in the frozen references concern another asymptotic regime, but finite-shell q=1 coverage was not resolved directly.",
+        "searches": [
+          "arXiv:2608.28289v1, abstract and PDF p. 10 'full counting statistics'",
+          "doi:10.37236/5150; classical/generalized interval-splitting Rényi parking citations"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.28289v1 (abstract and PDF p. 10 passage)",
+        "SCOPE-20261122-0280f0a2c4bf (catalogue summary)",
+        "SCOPE-20261122-056f1bbac7c4 (identical indexed target)",
+        "doi:10.37236/5150 (identified; OA retrieval attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The all-n calculation needs the partition into first-placement windows, differing endpoint/interior powers, and minimization of q(n-1)+(1-2q)b over the attainable number of binary vertices. P. 10 identifies the exact occupation recursion but its available passage does not give that optimization."
+        ],
+        "reasoning": "The all-n theorem is not mechanically read off from a few closed finite-shell expressions or a moment theorem. The recurrence is the prior starting point; it is the extraction of a sharp asymptotic with a change of optimal topology that is supported as distinct. No absence claim is made about uninspected later passages.",
+        "searches": [
+          "arXiv:2608.28289v1 finite-shell formulas, full counting statistics",
+          "Resultary: optimal rare-event exponent for the geometrically maximal number of rods"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The beta law is the self-renewing state with incoming (+,-) and exterior (-,+): each relevant charge product is negative, giving the common parameter 1-lambda on both daughters. The existing generating-statistics recurrence therefore includes the event as a specialized coefficient."
+        ],
+        "reasoning": "The claimed probability model is not new under a new name. The proposed addition is an analytic optimization of the asymptotic exponent throughout that state, across all fixed integer capacities, rather than its identification as a coefficient.",
+        "searches": [
+          "arXiv:2608.28289v1, charge-conditioned beta placement and complete occupation statistics",
+          "Resultary: beta fragmentation near-perfect continuum parking at length n+epsilon and tree transition at q=1/2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary self-match is the frozen target, not distinct priority evidence. SCOPE-20261122-0280f0a2c4bf concerns the location of a terminal-count-variance gap peak as interaction approaches its singular endpoint in the catalogue description. The primary preprint explicitly claims closed low-shell solutions; their full formulas were not independently accessible."
+        ],
+        "reasoning": "The catalogue neighbor studies a different observable and limit; low-shell exact solutions do overlap with the input needed for the n=2,3 example, but do not constitute a table or classification for arbitrary occupancy.",
+        "searches": [
+          "Resultary: charge-conditioned beta gap splitting, maximal occupancy and boundary cascade",
+          "arXiv:2608.28289v1, reported first three length shells"
+        ]
+      },
+      "rationale": "The supported distinct claim is the sharp fixed-n small-excess asymptotic for all n, including the exact q-dependent classification of leading histories and the asymptotic coefficient recursion. The kernel, general occupation-statistics recursions, and closed low-shell probabilities are credited to prior work, not treated as new. The low-shell examples may be direct expansions of those probabilities and are not required for the distinct contribution.",
+      "residual_risks": [
+        "Complete formulas in the primary paper's finite-shell sections or appendices were not independently retrieved; exact low-shell overlap or more explicit related coverage remains possible.",
+        "The exact near-integer specialization of classical q=1 parking, and earlier weighted continuum interval-splitting formulations, were not excluded by full-text comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior beta kernel, exact total-statistics recursions and closed low-shell solutions. No inspected passage states the all-n near-integer exponent and history-tree phase law.",
+          "evidence": [
+            "P. 1: four-component generating function provides exact recursions for complete occupation statistics.",
+            "P. 10: exact recursions and closed solutions on the first three length shells."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2608.28289v1",
+          "material_read": "PDF p. 1 abstract and p. 10 full-counting-statistics passage near characters 67,664–67,884. Later finite-shell formulas were not independently retrieved by offset or HTML.",
+          "method": "Check exact arXiv version via OA literal passage and bounded PDF/HTML follow-up.",
+          "title": "A Generalized Model for Disordered Random Sequential Adsorption with Charge-Dependent Deposition",
+          "trigger": "Same model and finite-shell probabilities strong enough to overlap the small-n results."
+        },
+        {
+          "assessment": "The available summary concerns variance gaps and an interaction limit, not probability of achieving capacity at fixed interaction and vanishing excess length.",
+          "evidence": [
+            "Reported peak of terminal-count-variance gap, three scaling regimes and a composition boundary."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-three-scaling-regimes-for-the-jammed-count-fluctuation-peak-in-c--0280f0a2c4bf",
+          "material_read": "Catalogue title and summary; the matched full-text mirror could not be read.",
+          "method": "Semantic local catalogue lookup followed by comparison of the reported observable and limiting parameter.",
+          "title": "Three scaling regimes for the jammed-count fluctuation peak in charge-selective adsorption",
+          "trigger": "Closest distinct indexed charge-selective parking result with scaling regimes."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Near an integer interval length, capacity attainment is a natural rare event distinct from typical parking density. Determining which deposition geometries contribute to leading order explains the nonanalytic dependence on the charge bias for n>=3. The complete finite-n exponent and coefficients quantify that effect without claims about finite-time dynamics or a uniform thermodynamic limit.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

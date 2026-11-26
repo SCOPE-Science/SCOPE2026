@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:34:45.586557Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:4–37",
+        "VERIFICATION.md:19–21",
+        "verify_pascal.py (read only)",
+        "certificate.json (all 60 images, exterior lines and histogram compared)",
+        "/workspace/branches/record-2-enumeration.py (pass full path to frozen certificate.json)"
+      ],
+      "rationale": "Conics are projectively equivalent over F5. On XZ=Y², external lines have normalized A=1 and discriminant 2 or 3, giving ten. Independent enumeration using direct chord equations and incidence tests reproduced all 60 certified images, including distinct collinear opposite-side intersections, and all ten exterior lines. Orbit expansion using translation, scaling by 2 and inversion (generators by the fractional-linear normal form) gave the stated representatives, orbit sizes 30,20,10, and per-line orbit counts 3,2,1. The incidence histogram is 6,15,10 at multiplicities 0,2,3. Distinct linear tangents make the rational multiple points ordinary; every pair meets in the same rational point after extension. The reduced union therefore has 10(Q+1)−15−2·10=10Q−25 points and its complement Q²−9Q+26. Exponentiating the counts yields both stated zeta functions.",
+      "residual_risks": [
+        "Combinatorial fiber size is not scheme-theoretic multiplicity. The zeta computations concern the reduced divisor, and the hexagons use the complete rational six-set."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "274cb2b96f10 is broader for aggregate fibers. 92fa4e828224 assumes characteristic two with q≥8. The earlier Pascal–Kirkman generic-sextuple result assumes characteristic at least seven. Chipalkatti arXiv:1407.1447v1 p.1 studies pair coincidences for a complex conic."
+        ],
+        "reasoning": "None of those available broader statements gives the separate PGL2(F5) orbit sizes or the resulting stabilizer-orbit split. Same-day indexing is not evidence of order of discovery.",
+        "searches": [
+          "Resultary general exact Pascal fiber formula 274cb2b96f10; related characteristic-two formula 92fa4e828224 and Pascal–Kirkman arithmetic record 1e6ef0f36929",
+          "Web: Edge 31-point Geometry Innamorati PG(2,5) Pascal exterior lines"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md:24–43",
+        "Resultary 274cb2b96f10, b12bbb99614c, 92fa4e828224, 1e6ef0f36929",
+        "Innamorati DOI 10.3390/math11092210 abstract",
+        "Pascal literature primary abstracts identified in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing six inputs per exterior line constrains but does not specify the orbitwise partition of six. The record's exact group orbit expansion and equivariance give 3+2+1; all ten lines occur in each orbit. The degeneration article treats collisions of marked points, and the reconstruction article concerns reconstructing a sextuple from selected Pascals."
+        ],
+        "reasoning": "Classical incidence implies the zeta formulas and the general fiber claim covers the aggregate. The nonredundant information is the exact interaction of the Pascal map with the three domain orbits.",
+        "searches": [
+          "Compared the Resultary 274cb2b96f10 statement to RESULT.md:24–34; compared Chipalkatti–Da Silva arXiv:2202.12975v1 and Abdesselam–Chipalkatti arXiv:1608.05056v1 abstracts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "b12bbb99614c is the same record. Distinct 274cb2b96f10 states exact cyclic-hexagon counts depending on line type and χ_q(−3), with only exterior lines occurring at q=5."
+        ],
+        "reasoning": "For the complete six-set and dihedral quotient, transitivity converts exterior-only occurrence into ten images of size six. A line-type total, even with the convention on oriented inputs changed by a common factor, does not enumerate the domain orbits or the stabilizer-orbit decomposition of a fiber.",
+        "searches": [
+          "Resultary: complete F5 conic Pascal 60 hexagons exterior lines 3+2+1",
+          "Resultary: q=5 Pascal-line fibers and every rational line is a Pascal line 274cb2b96f10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Innamorati's indexed abstract describes Edge's Desargues configuration of internal points and collinear triples on nonsecant lines. No inspected table tied all 60 cyclic orders or their three group-orbit strata to the exterior-line fibers other than the frozen certificate."
+        ],
+        "reasoning": "The classical arrangement data and their point-count consequences do not classify the equivariant map from cyclic orders. Full classical text access remained limited.",
+        "searches": [
+          "Innamorati, Note on Discovering Doily in PG(2,5), DOI 10.3390/math11092210, and Edge, 31-point Geometry",
+          "Resultary: sixfold F5 Pascal fibers, exact orbit counts"
+        ]
+      },
+      "rationale": "Credit is for the orbitwise refinement of the Pascal map on the complete F5 six-set, not for the classical exterior-line geometry or the aggregate sixfold fiber alone. A distinct indexed general finite-field fiber result covers the exterior-only assertion at q=5 and implies aggregate sixfold fibers by equivariance and the 60 inputs. Its available statement does not determine the decomposition of each fiber into the 30-, 20-, and 10-element domain orbits. That refinement is independently proved and not covered by the strongest accessible comparisons.",
+      "residual_risks": [
+        "Full text of the same-day general formula and Edge's classical treatment were not inspected. They may contain a further orbit-level specialization; priority is not established by the date or an inaccessible passage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material demonstrated coverage of aggregate fiber, priority unresolved; no orbit-level claim in accessed material",
+          "evidence": "The statement specifies line type and χ_q(−3) as arguments and explicitly says that at q=5 only exterior lines occur.",
+          "identifier_or_url": "2026/11/22, 274cb2b96f10",
+          "material_read": "Resultary indexed statement; decisive local-mirror passage request did not return full text",
+          "method": "Local Resultary lookup followed by exact record passage request",
+          "title": "Every rational line is a Pascal line over finite fields of characteristic at least five",
+          "trigger": "Exact broader formula including q=5"
+        },
+        {
+          "assessment": "Underlying geometry is classical; not credited as a new arrangement",
+          "evidence": "The abstract attributes the Desargues configuration of internal points and nonsecant lines to Edge.",
+          "identifier_or_url": "https://doi.org/10.3390/math11092210",
+          "material_read": "Indexed abstract passage about Edge; no full table retrieved",
+          "method": "Focused lookup and attempted open publisher text",
+          "title": "Note on Discovering Doily in PG(2,5)",
+          "trigger": "Classical exterior-line/Desargues incidence table"
+        },
+        {
+          "assessment": "Different hypotheses or question in the accessed statements",
+          "evidence": "The first considers complex configurations; the second collisions of markings and indeterminacy; the third reconstruction from four selected Pascals.",
+          "identifier_or_url": "arXiv:1407.1447v1; arXiv:2202.12975v1; arXiv:1608.05056v1",
+          "material_read": "Primary p.1 abstracts",
+          "method": "Bounded public document reads",
+          "title": "On the Coincidence of Pascal Lines; Degenerations of Pascal Lines; On the Reconstruction Problem for Pascal Lines",
+          "trigger": "Closest prior Pascal coincidence and reconstruction problems"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:24–43",
+        "Independent full enumeration",
+        "Resultary 274cb2b96f10"
+      ],
+      "rationale": "The full rational six-set is the smallest complete conic configuration admitting a Pascal hexagon. The split of a single image fiber into three distinct symmetry strata is useful exact information on this finite-field degeneration and is not recoverable from a uniform total or the incidence geometry. The reduced-divisor zeta formula is a useful derived description, not a separate novelty claim.",
+      "residual_risks": [
+        "No assertion about a scheme-theoretic degeneration or arbitrary sextuples in characteristic five."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

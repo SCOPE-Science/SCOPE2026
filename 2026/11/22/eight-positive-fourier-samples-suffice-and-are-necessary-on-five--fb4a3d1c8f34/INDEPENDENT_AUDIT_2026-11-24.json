@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:11:25.153092Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Toeplitz frame identity is exactly the normalized Laurent moment condition on degrees −4 through 4. For six or seven grid nodes the nodal polynomial times z^−4 has exponents in that range, so its constant coefficient e2 or −e3 must vanish. Padding any smaller support with zero-weight nodes is legitimate for the corresponding obstructions. Since Φ_(2p)(−1)=p, reduction ζ→−1 sends the symmetric sums to coefficients of (1+x)^a(1−x)^(s−a). Independent exact expansion gives e2 values 15,5,−1,−3,−1,5,15 (none divisible by 7) and e3 values −35,−5,5,3,−3,−5,5,35 (prime divisors only 3,5,7). For the upper bound the proposed eight indices are distinct since 0<a<b<p−a<p, and cos(πb/p)=sin(π/(2p)). Lagrange interpolation in X² independently recovers E,C,D from the moments 1,1/2,3/8, and the two odd moments fix the mass differences. Symbolic substitution verifies precisely the stated formulas and all Chebyshev cancellations. Uniform positivity follows from 1/4<c²<1/2 and 0<d<1/4: C,D>0; E−Δ_E has positive numerator by the displayed strict bounds; C+Δ_C has positive numerator (c+d)(1−4cd). The bounds on a follow directly at 11 and from p/4+1<p/3 thereafter. Conjugate pairing kills imaginary moments. For 3 the conjugate moments exhaust every nonconstant mode on six roots and force the uniform rule; for 5 and 7 the even-frequency subgroup supplies the witnesses and rank/parity supply the lower bounds. No finite numerical sampling is used for the infinite-prime assertion. The supplied checker was inspected, not executed.",
+      "replay": "python3 /workspace/branches/audit-checks/5.py (SymPy)",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Peherstorfer treats general circle measures and exactness using nodal polynomials; Theorem 3.1 does not enforce a cyclotomic grid.",
+          "Theorem 4.7 of Bultheel et al. accommodates prefixed nodes with other nodes on the circle, without the complete 2p grid restriction."
+        ],
+        "reasoning": "A class characterization or partial prescription may serve as a feasibility tool, but unrestricted remaining nodes and no grid-specific lower bound prevent deduction of the claimed support law from these statements.",
+        "searches": [
+          "Peherstorfer arXiv:1001.2451 Theorem 3.1",
+          "Bultheel–Cruz-Barroso–Díaz Mendoza arXiv:2110.10460 §4.4 Theorem 4.7"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1611.07121 pp.1–2 and Theorem 3.1",
+        "arXiv:1001.2451 Theorem 3.1",
+        "arXiv:2110.10460 Theorem 4.7",
+        "Resultary mirror Findings f7665cecb53a, 9c6b65a0dbb8, f2acbe740312, 9408db96fe06, e8ddc54a784b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prime-order rigidity says the minimum is |A−A|, giving 9 for five consecutive sites at prime p≥11, but the older group's Fourier order is p rather than 2p.",
+          "The two same-day comparisons use moments 1 and 4 only and a free-arc objective, or optimize positive-definite mass on {0,±1,±3}; neither asserts the present restricted positive tight-frame result."
+        ],
+        "reasoning": "A prime-order lower bound does not extend to the composite grid by embedding, and the added fourth moment does not follow from the three-moment rule. Different objectives and constraints in the same-day records are substantive, regardless of date.",
+        "searches": [
+          "Resultary 2026/11/8/SCOPE-difference-set-rigidity-for-positive-fourier-tight-frames-on-pri--9c6b65a0dbb8",
+          "Resultary 2026/11/22/SCOPE-sharp-support-free-arcs-for-circle-measures-with-vanishing-first--9408db96fe06",
+          "Resultary 2026/11/22/SCOPE-exact-cyclic-tur-n-mass-for-the-separated-five-site-support-0-pm--e8ddc54a784b"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Marshall–Waldron construct cyclic harmonic frames from characters and count unitary equivalence classes, not a positive-weight minimization on the fixed aperture.",
+          "Peherstorfer characterizes positive quadrature exact through Laurent degrees ±(n−m−1); the witness has n=8 and m=3."
+        ],
+        "reasoning": "The frame identity and positive degree-four quadrature with every node on the specified grid are equivalent here. Neither an equivalence-class census nor a generic nodal characterization computes the arithmetic support budget.",
+        "searches": [
+          "Resultary: positive tight Fourier sampling, five consecutive sites on 2p cycles",
+          "arXiv:1611.07121 Fourier construction p.2",
+          "arXiv:1001.2451 Theorem 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The finite reflection-rigid classification reports 33 admissible seven-subsets out of 330 on Z_11 for four sites.",
+          "The four-site twice-prime record attains six nodes for p≥7, but requires only moments 1–3."
+        ],
+        "reasoning": "The exact values use a different aperture or ambient group, so neither supplies the table for five consecutive sites on twice-prime cycles. Finite small-modulus data could not certify the uniform witness or lower bound.",
+        "searches": [
+          "Resultary: positive Fourier exact counts five consecutive twice-prime",
+          "Resultary 2026/11/8/SCOPE-reflection-rigid-seven-frequency-tight-fourier-sampling-on-the-e--f2acbe740312",
+          "Resultary 2026/11/16/SCOPE-six-character-positive-tight-sampling-on-four-consecutive-sites--f7665cecb53a"
+        ]
+      },
+      "rationale": "The new-to-current-knowledge claim is the exact support law under the full twice-prime grid restriction and the uniform positive eight-node witness, not the general Parseval/quadrature correspondence or a free-node formula. The closest framework and indexed analogues do not give the two-sided result under these constraints.",
+      "residual_risks": [
+        "An earlier unindexed classification of positive degree-four quadrature with all nodes on N-th roots, particularly N=2p, could overlap. The bounded semantic and source searches do not establish absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related frame setup, different minimization/counting question",
+          "evidence": [
+            "Theorem counts cyclic harmonic-frame equivalence classes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1611.07121",
+          "material_read": "PDF pp.1–2 construction and pp.5–6 Theorem 3.1",
+          "method": "Open primary PDF passage comparison",
+          "title": "On the number of harmonic frames",
+          "trigger": "Fourier-character frame formulation"
+        },
+        {
+          "assessment": "Broader characterization not a grid support minimum",
+          "evidence": [
+            "The exactness range is ±(n−m−1) on the unit circle, not a minimum over a finite grid."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1001.2451",
+          "material_read": "PDF p.1 abstract and pp.8–9 Theorem 3.1, text offset 21168",
+          "method": "Open primary PDF passage comparison",
+          "title": "Positive trigonometric quadrature formulas and quadrature on the unit circle",
+          "trigger": "General positive Laurent-exact quadrature"
+        },
+        {
+          "assessment": "Partly prefixed nodes, no uniform grid witness or lower bound in compared theorem",
+          "evidence": [
+            "Other quadrature nodes range on the unit circle rather than staying in the specified root grid."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2110.10460",
+          "material_read": "PDF abstract and §4.4 Theorem 4.7 p.23",
+          "method": "Open primary PDF passage comparison",
+          "title": "Zeros of quasi-paraorthogonal polynomials and positive quadrature",
+          "trigger": "Potential prescribed-node construction"
+        },
+        {
+          "assessment": "Fewer moments, different order, or different finite instance",
+          "evidence": [
+            "Six for four sites on 2p; |A−A| for prime-order groups; 33 accepted seven-subsets on the four-site Z_11 instance."
+          ],
+          "identifier_or_url": "f7665cecb53a; 9c6b65a0dbb8; f2acbe740312 (Resultary)",
+          "material_read": "Local mirror original Findings, offset 0 for each",
+          "method": "Resultary search and statement comparison in local mirrors",
+          "title": "Six-character positive tight sampling on four consecutive sites; Difference-set rigidity for positive Fourier tight frames on prime cycles; Reflection-rigid seven-frequency tight Fourier sampling",
+          "trigger": "Closest exact minima and arithmetic support census"
+        },
+        {
+          "assessment": "Distinct problems even apart from dates",
+          "evidence": [
+            "No exact modes 1–4 on the 2p-root grid and no claimed optimum support law in either."
+          ],
+          "identifier_or_url": "9408db96fe06; e8ddc54a784b (Resultary)",
+          "material_read": "Local mirror original Findings, offset 0 for each",
+          "method": "Resultary search and statement comparison in local mirrors",
+          "title": "Sharp support-free arcs for circle measures with vanishing first and fourth moments; Exact cyclic Turán mass for a separated five-site support",
+          "trigger": "Same-day semantic matches for positive Fourier moments"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact minimum is a natural resource for tight measurement on a fixed consecutive Fourier aperture. The prime-dependent exceptions and sharp large-prime budget are accompanied by a search-free strictly positive construction and an arithmetic obstruction reusable for restricted quadrature. They add more than a rank bound, a free-node existence theorem, or a list of small instances.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

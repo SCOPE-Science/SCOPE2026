@@ -75,13 +75,19 @@ h(\lambda,t)=\lambda t+O(t^2),\qquad
 \partial_\lambda h(\lambda,t)=t+O(t^2).
 \]
 
-Thus \(h\) is strictly increasing in \(\lambda\) on the entire support for all sufficiently small positive \(t\). For \(t\to\infty\), the same uniform compact-parameter calculus gives
+Thus \(h\) is strictly increasing in \(\lambda\) on the entire support for all sufficiently small positive \(t\). For the late regime, factor the exact expression as
 
 \[
 h(\lambda,t)=\frac{\lambda(1+\lambda)}2e^{-\lambda t}
-\left(1+O(e^{-at})\right),
-\qquad
+\frac{1-e^{-t}}{1-\delta(\lambda,t)},\qquad
+\delta(\lambda,t)=\tfrac12(1+\lambda-2\lambda e^{-t})e^{-\lambda t}.
+\]
+
+Uniformly on \([a,b]\), \(\delta=O(e^{-at})\) and \(\partial_\lambda\delta=O(te^{-at})\) as \(t\to\infty\). Thus the relative error in replacing \(h\) by \(\lambda(1+\lambda)e^{-\lambda t}/2\) is \(O(e^{-\min\{a,1\}t})\). The factor \(1-e^{-t}\) is independent of \(\lambda\), so the logarithmic derivative has the sharper error
+
+\[
 \partial_\lambda\log h(\lambda,t)
+=\frac1\lambda+\frac1{1+\lambda}-t+\frac{\partial_\lambda\delta}{1-\delta}
 =\frac1\lambda+\frac1{1+\lambda}-t+O(te^{-at}).
 \]
 
@@ -98,7 +104,7 @@ makes the covariance strictly positive for strictly increasing \(h\) and strictl
 
 ## Verification
 
-Run `python3 VERIFY.py` with Python 3 and its standard library only. Its independent seven-state continuous-time Markov transition calculation is evaluated by stochastic uniformization, rather than by solving the displayed three-variable equations. The script compares all three formulas against that independent calculation for forty-two positive rate/time pairs (126 comparisons), checks signs and identities (91 further checks), and reproduces the two-point example. It reports 217 passed checks. Its finite computations are supplementary and do not establish the infinite-distribution theorem; the uniform analytic argument above does.
+Run `python3 VERIFY.py` with Python 3 and its standard library only. Its seven-state continuous-time Markov transition calculation is evaluated by stochastic uniformization, rather than by solving the displayed three-variable equations. The script compares the three state probabilities against that calculation for forty-two positive rate/time pairs (126 comparisons) and reproduces the two-point example. The 217 reported assertions also include positivity and sign tests and internal consistency checks; not all are independent. The finite computations are supplementary and do not establish the theorem for arbitrary supported rate laws; the uniform analytic argument above does.
 
 For \(\mu=\tfrac12\delta_1+\tfrac12\delta_2\), the direct formulas yield
 
@@ -120,7 +126,7 @@ Related models of heterogeneous dose and context-dependent behavior involve diff
 
 ## Limitations
 
-This is an exact result for independent closed groups, fixed pairwise linear infection hazards, exponential unit-rate recoveries, a shared initial state, and compact positive transmission heterogeneity. It does not establish the corresponding sign reversal for SIS dynamics, groups sharing members, arbitrary initial infections, time-varying rates, group-unweighted conditional means, or general rate laws with zero or unbounded support. Late-time conditioning is on rare surviving susceptible–infectious pairs; finite observed samples can be insufficient to estimate the limiting conditional rates reliably. Nothing here establishes that observational Bayesian posterior estimates in a finite dataset converge at a stated speed. The crossing time need not be unique. The paper's inaccessible ancillary supplement was not fully reviewed for priority.
+This is an exact result for independent closed groups, fixed pairwise linear infection hazards, exponential unit-rate recoveries, a shared initial state, and compact positive transmission heterogeneity. It does not establish the corresponding sign reversal for SIS dynamics, groups sharing members, arbitrary initial infections, time-varying rates, group-unweighted conditional means, or general rate laws with zero or unbounded support. Late-time conditioning is on rare surviving susceptible–infectious pairs; finite observed samples can be insufficient to estimate the limiting conditional rates reliably. Nothing here establishes that observational Bayesian posterior estimates in a finite dataset converge at a stated speed. The theorem establishes existence but not uniqueness of a crossing. The paper's inaccessible ancillary supplement was not fully reviewed for priority.
 
 ## References
 

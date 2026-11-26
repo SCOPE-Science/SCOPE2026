@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:08:20.829197Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–45",
+        "VERIFICATION.md and checker.py inspected as evidence",
+        "Sentinelli, arXiv:1801.04233, Propositions 3.3–3.5"
+      ],
+      "rationale": "Use the established pairwise commutation test for the connected components of I and J. The inclusion-maximal members of this combined collection are disjoint and have no edges between them: on the same side this is by definition, and on opposite sides meeting or adjacent members would have to be nested. Thus these maximal members are exactly the components of I∪J. Conversely, on each union component one factor then contains the full parabolic idempotent, which absorbs the other by its descents; different components commute. For fixed union U, the two allowed membership families in each component give the two binomial weights, with the all-both term subtracted once. On paths, split the configurations into the empty path, a vacancy followed by any configuration, or an occupied run followed by nothing or a vacancy and any configuration. This gives F=1+xF+Q(1+xF), including A_0. At u=v=w=1, 1+Q=1/((1−x)(1−2x)), so F=1/(1−4x+2x²). The union-full count for a connected graph is its single component weight evaluated at 1, and the path proportion decays since 2+√2<4.",
+      "residual_risks": [
+        "The uploaded finite checker was not executed; correctness is based on the reconstructed argument, not the recorded test outcome."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sentinelli gives the connected-block commutation test and its extension via pairwise component checks, and discusses the noncommuting graph. The 2020 journal abstract describes graph universality/Eulerian work; its primary full text was not inspected.",
+          "Berenstein–Greenstein–Li characterize parabolic longest idempotents and use commuting families in constructions."
+        ],
+        "reasoning": "General unweighted pair compatibility is an input here. The inspected universal-graph and monoid passages do not provide a weighted component census on all finite Coxeter graphs. No beyond-path weighted coverage is inferred from the partial access to the 2020 paper.",
+        "searches": [
+          "arXiv:1801.04233, Propositions 3.3–3.5 and Theorem 3.7",
+          "arXiv:2008.03065, Remark 4.17",
+          "doi:10.1016/j.ejc.2019.103040",
+          "arXiv:2606.26776, Proposition 2.11 and Example 3.32"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, lines 31–64",
+        "Resultary records 06ff39bf0d33 and cc1e681db5b3",
+        "Sentinelli arXiv:1801.04233 and arXiv:2008.03065",
+        "Berenstein–Greenstein–Li arXiv:2606.26776",
+        "OEIS A007070 and A206306"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Catalan proof enumerates three statuses in a gap, allowing only the all-absent status together with one of the two exclusive statuses, with the intersection subtracted once. It concatenates independent gaps separated by common fixed points.",
+          "Sentinelli's criterion compares connected components of the two supports pairwise, rather than providing the enumeration over common unions."
+        ],
+        "reasoning": "Give Catalan gap statuses the translated weights uvw, vw and uw. The two status alphabets now have one-letter weights vw(1+u) and uw(1+v), with intersection uvw; the same concatenation gives the displayed rational series. Thus this path case is mechanically recoverable. For arbitrary graphs, identifying union components with the maximal compatible components and grouping pair weights by those union components yields an all-type census without enumeration of compatible pairs one by one. That is the supported increment.",
+        "searches": [
+          "Sentinelli Propositions 3.3–3.5",
+          "06ff39bf0d33, Proof §§3–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For Catalan idempotents e_F,e_G, the indexed same-day record sets H=F∩G and permits at most one of F\\G,G\\F in each gap including the terminal gap; the product is e_H.",
+          "The maximal-clique record uses type-A component commutation and union products but enumerates maximal cliques, not the all-graph joint support profile."
+        ],
+        "reasoning": "In type A_m, map I to F=[m+1]\\{i+1:i∈I}. Then gaps of H are exactly runs of I∪J, and the two exclusive-status tests agree. The three support sizes are complements of the three Catalan fixed-point counts. This is a bijection of the pair enumerands on paths, even though it is not an identification of the full monoids. It does not accommodate nonpath components.",
+        "searches": [
+          "Resultary: weighted 0-Hecke idempotent commutation and support/product profiles",
+          "06ff39bf0d33, Catalan monoid fixed-point compatibility",
+          "cc1e681db5b3, type-A maximal clique classification"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A007070 records 1,4,14,48,164,… with the same order-two recurrence. The Catalan record gives exactly these totals with n=m+1 and a product-image-rank refinement, also associated to A206306."
+        ],
+        "reasoning": "The relation |H|=m+1−|I∪J| identifies the rank marginal, not independent information about |I| and |J| or nonpath graphs. Neither the recurrence nor agreement of the short numerical prefix is evidence for novelty of the joint distribution.",
+        "searches": [
+          "OEIS A007070",
+          "OEIS A206306",
+          "06ff39bf0d33, Finding and Proof §4"
+        ]
+      },
+      "rationale": "Pass for the uniform three-support polynomial across finite Coxeter graphs. The enumerand and the underlying commutation criterion are not new. The type-A projection to Catalan monoid idempotents gives a considerably closer overlap than coincident numerical totals: the known gap-word proof reweights directly to the type-A formula. Do not give independent novelty credit to that specialization, the Catalan product-rank marginal, or the unweighted recurrence. The all-graph joint count uses an additional induced-component reorganization of the general pairwise commutation test, which is not supplied by the path gap result or the numerical tables. No covering all-type weighted statement was established in the available comparisons.",
+      "residual_risks": [
+        "Uninspected 2020 Sentinelli full text may contain a stronger weighted count; the access limitation is not evidence of absence.",
+        "The same-day index labels do not establish priority or dependence. An equivalent general graph-weight formulation outside the checked sources remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers underlying criterion, not inspected weighted enumeration",
+          "evidence": "Connected supports must be nonadjacent or nested; commutation reduces to checks on component factors.",
+          "identifier_or_url": "https://arxiv.org/abs/1801.04233",
+          "material_read": "Propositions 3.3–3.5, pp. 8–9, and faithful projection realization as cited",
+          "method": "Primary PDF passages",
+          "title": "Artin group injection in the Hecke algebra for right-angled groups",
+          "trigger": "General parabolic commutation criterion"
+        },
+        {
+          "assessment": "Equivalent path enumerand and mechanically weighted path formula; not all Coxeter types",
+          "evidence": "The complement of the fixed set after its compulsory first point is a path support. The known gap weights and their factorization reweight to the three-variable path series.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-common-fixed-point-compatibility-and-product-fiber-factorization--06ff39bf0d33/RESULT.md",
+          "material_read": "Finding and assumptions, offsets 0–2856; gap-word proof and rank refinement, offsets 4110–6100",
+          "method": "Indexed local mirror",
+          "title": "Common-fixed-point compatibility and product-fiber factorization for Catalan monoid idempotents",
+          "trigger": "Same recurrence and potential equivalent pair model"
+        },
+        {
+          "assessment": "Different quantitative output",
+          "evidence": "Counts/describes maximal cliques rather than arbitrary ordered pair support-size profiles across types.",
+          "identifier_or_url": "2026/11/2/SCOPE-catalan-classification-and-maximal-clique-size-spectrum-of-type--cc1e681db5b3",
+          "material_read": "Finding, type-A criterion and union product; maximal clique result",
+          "method": "Indexed local mirror",
+          "title": "Catalan classification and maximal clique size spectrum of type-A 0-Hecke idempotents",
+          "trigger": "Same monoid and idempotent commuting graph"
+        },
+        {
+          "assessment": "Noncommuting graph overlap",
+          "evidence": "Discusses the graph of projections and the universality comparison.",
+          "identifier_or_url": "https://arxiv.org/abs/2008.03065",
+          "material_read": "Remark 4.17, p. 13",
+          "method": "Primary PDF passage",
+          "title": "Special idempotents and projections",
+          "trigger": "Prior use of the same noncommuting graph"
+        },
+        {
+          "assessment": "Material unresolved access risk",
+          "evidence": "The exposed material describes universality and Eulerian representations; it cannot exclude other enumerations in the article.",
+          "identifier_or_url": "https://doi.org/10.1016/j.ejc.2019.103040",
+          "material_read": "Exposed abstract and discussion in arXiv:2008.03065, Remark 4.17; primary full text unavailable",
+          "method": "Publisher access attempt and related OA cross-reference",
+          "title": "Right-angled Coxeter groups, universal graphs, and Eulerian polynomials",
+          "trigger": "Plausible graph-enumeration overlap"
+        },
+        {
+          "assessment": "Structural premise or application",
+          "evidence": "Classifies longest parabolic idempotents and uses commuting families without the joint count in these statements.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.26776",
+          "material_read": "Proposition 2.11, p. 8; Example 3.32, p. 16",
+          "method": "Primary PDF passages",
+          "title": "Artin monoids, their homomorphisms and twins",
+          "trigger": "Classification and commuting families of the same idempotents"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Sentinelli's general commutation criterion",
+        "06ff39bf0d33 path gap and product-rank count"
+      ],
+      "rationale": "The supports are intrinsic parabolic ranks of the two commuting factors and their product, so the three-variable profile distinguishes questions that a total, clique spectrum or one product-rank marginal cannot answer. The uniform formula converts a pairwise compatibility problem to one weighted sum over induced subgraphs, gives joint counts by rank on branching and reducible diagrams, and makes edge-label independence explicit. That is a useful exact count beyond the known path enumeration, even though its proof is short.",
+      "residual_risks": [
+        "No algorithmic complexity bound or stronger representation-theoretic consequence is claimed. Value does not rest on the already covered path totals."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:36:36.905492Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The four cyclic server states retain service on a scored rally; summing non-scoring faults gives (8,4,2,1)/15. From deuce the difference chain absorbs almost surely (two same-side scored points in a fixed direction have positive probability, uniformly over states). I independently solved the rally-level deuce equations, obtaining (30/43,45/86,13/43,41/86) at zero difference, and evaluated targets 2 through 21 by eliminating the four cyclic rally equations at each score; all match (replay independent_checks.py 2). For the infinite identity, right multiplication checks the printed Green-row difference. Its A-next-point and deuce weights give (1−y)H and (11x−32y+10)H/43. All monotone histories inside the square of scores ≤n−1 are nonterminal; summing the first weight on the A-winning edge telescopes, and the deuce corner gets the second weight. For m=n−1, symmetry and (5−2x−2y+xy)H=1 yield f_n=(75c_m,m+11c_{m−1,m−1})/86. The diagonal constant term is ((5+z)^2−16z)^(−1/2), so c_j,j=5^(−j−1)P_j(3/5); this also covers n=2. For the asymptotic, cos(θ/2)=2/√5, sin(θ/2)=1/√5; the weighted adjacent cosines have coefficients 260/√5 and −20/√5, i.e. amplitude 20√34 and phase shift arctan(1/13). The fixed-angle error after common scaling is O(1/n). A rational θ/π would make 6/5 a rational algebraic integer, so the phases are dense and give the stated sharp positive and negative limits. This proves both signs infinitely often, not strict alternation at consecutive targets. The conclusion uses only the stated uncapped, fair independent-rally doubles model.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2 gives a rational absorbing-matrix evaluation for arbitrary target and on-serve probabilities. The DOI access route recovered the submitted arXiv version, not the updated publisher full text."
+        ],
+        "reasoning": "A target-dependent matrix evaluation determines each value but does not by specialization give the target-uniform Legendre formula; eliminating the common pole and extracting the diagonal are genuine further arguments.",
+        "searches": [
+          "arXiv:2303.02942v2, pp. 5–6, offsets 13706 and 18465, Theorem 2",
+          "Published version DOI 10.1090/conm/844/16767"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (inspected, not executed)",
+        "Resultary ranked searches for the scoring model and exact law",
+        "arXiv:2303.02942v2, pp. 1, 5–6, 8–10",
+        "DOI 10.1090/conm/844/16767 and MAA article (access limits)",
+        "NIST DLMF §14.15(iii) as classical asymptotic reference"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier form computes a new absorbing matrix at each target; the frozen result reduces a difference of score-history rows to 1/(5−2x−2y+xy). Standard Legendre asymptotics operate only after that link has been established."
+        ],
+        "reasoning": "The prior probability formula and two signs do not supply the required all-target cancellation and oscillatory asymptotics as an immediate corollary.",
+        "searches": [
+          "DeFord–Ethier v2 Theorem 2 and finite-score sign intervals compared to the frozen Green-row extraction and asymptotic",
+          "NIST DLMF §14.15(iii), cited fixed-angle tool"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "DeFord–Ethier use the same fixed-Team-A difference, and on the diagonal it equals 2Pr(first-serving team wins)−1. No materially matching indexed finding was found in the inspected ranked results."
+        ],
+        "reasoning": "Equivalent probability definitions, including the affine transform of the first-server winning probability, are prior; the exact Legendre sequence or equivalent radical generating function and its infinite oscillation are not in the compared statements.",
+        "searches": [
+          "Resultary: exact title and formula; fair side-out pickleball; ranked results filtered for DeFord/Ethier, first-serving and side-out",
+          "arXiv:2303.02942v2 Theorem 2 and score-target comparisons"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact sign intervals for f_11(x,x)<0 and f_15(x,x)>0 both contain x=1/2; these two exact cases are already covered."
+        ],
+        "reasoning": "These finite cases, even when exact, do not cover the target-uniform closed form or an infinite sign theorem. No exact indexed table covering those claims surfaced.",
+        "searches": [
+          "Resultary exact formula and score-target searches",
+          "DeFord–Ethier v2 pp. 8–10, offsets 22613 and 24724: explicit target 11 and 15 expressions and signs",
+          "MAA serving-choice article URL (full text inaccessible)"
+        ]
+      },
+      "rationale": "The underlying model, general finite matrix calculation, and opposite signs for targets 11 and 15 are established. The independent overlap review supports the distinct target-uniform Legendre reduction and sharp infinite oscillation, not those earlier results or the classical polynomial identities.",
+      "residual_risks": [
+        "Complete publisher chapter and MAA article not independently obtained; the directly overlapping open preprint was inspected.",
+        "Ranked searches and available primary literature are not exhaustive, including possible earlier exact analyses of related scoring models."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers model and evaluation framework and two exact signs; inspected results do not cover the uniform expression or infinite oscillation",
+          "evidence": [
+            "Initial second-server rule; rational fixed-Team-A f_n; f_11(x,x)<0 on (0.332744,0.543030), f_15(x,x)>0 on (0.411942,0.555784)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2303.02942v2",
+          "material_read": "Abstract; pp. 5–6 server states and Theorem 2; pp. 8–10 target 11 and 15 comparisons",
+          "method": "Original open PDF passages at offsets 0, 13706, 18465, 22613, 24724",
+          "title": "Does the first-serving team have a structural advantage in pickleball?",
+          "trigger": "Same rules, state process, and statistic"
+        },
+        {
+          "assessment": "Updated-version residual risk, not negatively cleared",
+          "evidence": [
+            "The available original open manuscript is arXiv:2303.02942, not confirmation of the chapter's full final contents."
+          ],
+          "identifier_or_url": "https://doi.org/10.1090/conm/844/16767",
+          "material_read": "Open submitted version via DOI alternate; publisher full text not obtained",
+          "method": "Publisher DOI and lawful arXiv alternate",
+          "title": "Does the first-serving team have a structural advantage in pickleball? (published chapter)",
+          "trigger": "Possible updated version of same-source results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural symmetric limit of the actual gameplay model already exhibits a puzzle at common targets. The exact identity exposes orthogonal-polynomial structure, explains why either first-serve sign keeps recurring, and gives the sharp magnitude; this is more than recomputing the two well-known targets and does not exaggerate the practical size of the effect.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

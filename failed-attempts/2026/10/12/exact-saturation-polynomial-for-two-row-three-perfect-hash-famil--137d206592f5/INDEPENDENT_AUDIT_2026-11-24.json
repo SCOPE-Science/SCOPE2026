@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:52:57.482857Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–48; VERIFICATION.md lines 19–25; saturation_formula.py, brute_maximal.cpp and spectrum.csv inspected but not executed. A separate bounded enumeration using the raw triple and extension tests checked all 2^9 and 2^16 subsets, matching q=3 and q=4. Frozen replay commands and ranges are in VERIFICATION.md."
+      ],
+      "rationale": "Two distinct edges cannot share both endpoints. A violating triple therefore has a left-sharing pair and a different right-sharing pair, so it is precisely a three-edge path. The resulting star forest is saturated if it spans, since any missing edge between nontrivial components makes a path. If it has a left isolate, a right isolate would permit an added edge, and every right vertex must be a leaf of a left-centered star of degree at least two; these conditions also suffice. The other orientation is symmetric. Spanning components contribute H(x,y); k spanning components give exactly 2q-k edges. The q!/(q-k)! factor assigns unlabeled leaf blocks to distinct labeled centers, and all nonspanning families have q edges. Two opposite stars and k-2 separate edges realize every size, with both stars regarded as separate edges in the matching case. At the maximum there are two opposite stars of degree q-1 and their centers determine the forest, giving q². This checks q=3 and the full range q>=3, with no quotient by label permutations.",
+      "residual_risks": [
+        "The bounded independent enumeration does not check q>=5; the all-q result uses the structural proof, not the computation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The rectangular finding proves the three maximal star-forest cases on K_{m,n} for all m,n>=2, with the spanning EGF and both oriented isolate-count terms."
+        ],
+        "reasoning": "Setting m=n=q gives exactly the same classes and the same falling-factorial bounds, since floor(q/2)<=q-1.",
+        "searches": [
+          "Resultary exact two-row saturation polynomial search; rectangular rook-graph record Finding and proof"
+        ]
+      },
+      "checked_sources": [
+        "Rectangular rook-graph Resultary record; Shangguan–Ge arXiv:1601.04807v1 pp. 2–4; Carraher et al. Section 3; frozen bibliography and spectrum.csv"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The rook-graph spanning EGF exponent is the edge-weighted H; on taking q vertices on each side a term with k components has weight z^(2q-k). Expansion of the exponential thus yields the exact spanning term, and the two matching isolate terms yield the remaining coefficient at q. The two-star construction, maximum coefficient and interpolation of sizes also follow immediately from the same classification. Shangguan–Ge's cited construction gives 2q-2, but their Theorem 1.5 alone gives a generic 2q bound here; the older saturation-game material is structural and extremal, not a labeled terminal polynomial."
+        ],
+        "reasoning": "The main finding and consequences are a mechanical square specialization of the distinct Resultary theorem. The older extremal literature by itself would not establish this complete overlap.",
+        "searches": [
+          "Rectangular rook-graph Resultary Finding; Shangguan–Ge arXiv:1601.04807v1, Theorems 1.5 and 1.7; Carraher et al., The Game Saturation Number of a Graph, Section 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rook cells are the same labeled pairs. For nonadjacent cells, the two cross cells are the only possible internal vertices of their geodesics. With at least one endpoint selected, failure of outer-mutual visibility requires the two cross cells selected too, exhibiting exactly a selected three-edge path. Every such path gives a failure. The hash condition forbids precisely these paths."
+        ],
+        "reasoning": "The identity on selected cells gives a size-preserving bijection of admissible families and preserves inclusion and maximality, not just the extreme sizes.",
+        "searches": [
+          "Resultary searches on two-row perfect hash maximal families, maximal P4-free bipartite graphs, and labeled maximal star forests; 2026/10/13/SCOPE-maximal-outer-mutual-visibility-sets-of-rectangular-rook-graphs--85d0a033a988"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest indexed match is a symbolic coefficient formula, stronger than a finite table. Its square coefficient specializes to every row of the frozen table, not merely an observed agreement on sample sizes."
+        ],
+        "reasoning": "An exact enumerator of the same labeled sets covers the entire requested cardinality distribution; no inference from a keyword miss or a short table is needed.",
+        "searches": [
+          "Resultary polynomial search and the full rectangular enumerator in the local mirror; frozen spectrum.csv"
+        ]
+      },
+      "rationale": "A distinct published Resultary finding gives the complete rectangular maximal-set enumerator for an equivalent object. Its square specialization covers the claimed classification and all coefficients, including the spectrum and maximum multiplicity. This is a coverage decision, not a claim about who obtained the result first: the path dates alone do not establish provenance or priority.",
+      "residual_risks": [
+        "Priority and independent derivation are unresolved. Further overlap in Walker–Colbourn, Aoudia et al., or an earlier differently titled enumeration remains possible; none is needed for the coverage decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the mathematical claim; priority not adjudicated",
+          "evidence": "Finding states all three classes, exp(uvz+u(e^(vz)-1-vz)+v(e^(uz)-1-uz)) and two associated-Stirling terms for every rectangle.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-maximal-outer-mutual-visibility-sets-of-rectangular-rook-graphs--85d0a033a988/RESULT.md",
+          "material_read": "Finding, scope and visibility/maximality translation, mirror offsets 1–4100; subsequent classification, enumeration and limitations inspected in the comparison",
+          "method": "OA reader for local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Maximal outer-mutual-visibility sets of rectangular rook graphs: complete enumerator",
+          "trigger": "Same maximal star-forest classes and potential stronger labeled enumeration"
+        },
+        {
+          "assessment": "Construction and generic upper bound, not the claimed polynomial in these passages",
+          "evidence": "Theorem 1.7 gives PHF(2;2r,r+1,3); Theorem 1.5 specializes to a 2q upper bound.",
+          "identifier_or_url": "https://arxiv.org/abs/1601.04807v1",
+          "material_read": "Definitions p. 2; Theorems 1.5 and 1.7, pp. 3–4",
+          "method": "OA preprint passage inspection",
+          "title": "Separating hash families: A Johnson-type bound and new constructions",
+          "trigger": "Same strength and extremal construction"
+        },
+        {
+          "assessment": "Structural and extremal context; not an enumerator in the inspected section",
+          "evidence": "Section 3 considers P4-saturated subgraphs of complete bipartite graphs in the saturation game.",
+          "identifier_or_url": "https://dwest.web.illinois.edu/pubs/gamesat.pdf",
+          "material_read": "Section 3, pp. 10–11, near text offset 32900",
+          "method": "OA PDF passage inspection",
+          "title": "The Game Saturation Number of a Graph",
+          "trigger": "Identical P4-saturation host"
+        },
+        {
+          "assessment": "Detailed coverage unchecked",
+          "evidence": "The cited conjecture as discussed in Shangguan–Ge concerns three rows.",
+          "identifier_or_url": "10.1515/JMC.2007.008",
+          "material_read": "No full text inspected; limited comparison through the Shangguan–Ge citation",
+          "method": "Bounded OA retrieval and repository-copy check",
+          "title": "Perfect Hash Families: Constructions and Existence",
+          "trigger": "Canonical perfect-hash reference"
+        },
+        {
+          "assessment": "Detailed coverage unchecked",
+          "evidence": "Access limitation only; not used to infer novelty or its absence.",
+          "identifier_or_url": "10.1109/CoDIT.2014.6996904",
+          "material_read": "No full text inspected",
+          "method": "Bounded OA retrieval and repository-copy check",
+          "title": "On the star forest polytope",
+          "trigger": "Maximal star forests under a different graph formulation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof; rectangular rook-graph Resultary Finding and equivalence proof"
+      ],
+      "rationale": "A complete terminal-size polynomial is a worthwhile invariant, distinct from an extremal size or a greedy-order distribution. Here no additional mathematical payoff beyond the covered rectangular theorem is established: relabeling the same admissible edge sets as hash columns and setting m=n=q delivers all claimed information.",
+      "residual_risks": [
+        "No independent new application or distribution over greedy orders is claimed."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

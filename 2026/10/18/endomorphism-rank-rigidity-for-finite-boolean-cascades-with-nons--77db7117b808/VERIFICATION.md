@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -26,4 +29,4 @@ The observed output ended in:
 
 For the nontrivial vector `(2, 3, 2)`, the verified image-rank histogram was `[(2, 2), (5, 6), (12, 24), (14, 24)]` and the idempotent count was eight.
 
-The script supplies bounded empirical corroboration and implementation-independent checks against the formulas; it cannot prove the arbitrary-height theorem. The mathematical proof is given in RESULT.md. No external certification, independent audit, or novelty guarantee is claimed.
+The script checks total idempotent counts, not the separate coefficients of the retraction polynomial. The rank-resolved proof in RESULT.md uses fixation of the dual image to classify all retractions, and the finite checker supplies supporting tests of the quantities entering that proof. Its all-endomorphism histogram is background and is not used as a certificate for the arbitrary-height retraction census.

@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:12:17.817742Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–86",
+        "Frozen VERIFICATION.md, check_full.py and check_symbolic.py (read, not executed)",
+        "Independent replay: python3 /workspace/review_checks.py (exclusion function)"
+      ],
+      "rationale": "Recounting legal moves gives stationary weights (2,1,2m−2)/(2m+1) and rates (2m,2,4) for hub occupied, same blade and distinct blades. In particular the same-class marked rates are 1 and 2 in the first and third classes, not zero. In the tilted eigenvalue calculation stationarity gives πT=π diag(r), so the variance rate is μ+2⟨r−μ,h⟩ with −Qh=r−μ. The two leaf equations give h_B−h_A=(2−μ)/2 and h_C−h_A=(4−μ)/2. Substitution yields F=1+[π_B(2−μ)^2+π_C(4−μ)^2]/μ. Independent exact simplification in /workspace/review_checks.py confirms the rational formula and its consecutive difference; the difference is positive for m≥2, F_2=29/25 and the leading coefficients give 5/3. For fixed y=e^z>0 and T<∞ the fast variation-of-constants equation bounds u_A by a fixed constant times 1 plus the running suprema of u_B,u_C. The two slow equations then give a uniform Grönwall bound and u_C has a bounded derivative. The initial-layer term has L1 norm O(1/m), the u_B forcing contributes O(1/m), and the fast convolution differs in L1 by O(1/m) from y u_C (bounded derivative and decay of its kernel). Thus the last equation converges to u_C'=(2y²+2y−4)u_C, u_C(0)=1; π_C→1. This establishes convergence of the stationary MGF at every real z, and hence the asserted fixed-time law. It includes t=0 and does not assert path convergence or interchange the graph-size and long-time limits.",
+      "residual_risks": [
+        "No assertion about path-level convergence, nonstationary starts or a number of particles other than two."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general finite-network classification gives F≥1 and identifies Poisson exceptions; for W_m at k=2 this gives F>1 only.",
+          "Primary periodic-ring analyses use the activity tilt and obtain ring cumulants or activity-biased regimes, not the friendship-graph formulas or limit."
+        ],
+        "reasoning": "The stationary variance framework provides a starting point but does not compute the projected escape-rate forcing or the singular hub excursion limit.",
+        "searches": [
+          "Resultary finite exclusion network Poisson activity classification (016805168b38)",
+          "Primary activity literature: arXiv:0804.2590 and arXiv:1203.1600"
+        ]
+      },
+      "checked_sources": [
+        "Resultary mirror: 016805168b38, c081d2602b88, 9e35afb2f386, 3986b056b986, ef4ea58edfd5",
+        "Primary: arXiv:0804.2590, arXiv:1203.1600, DOI 10.1007/s10955-023-03190-8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The classification implies the strict inequality, but not its magnitude or monotonicity. The same-graph spectral data are eigenvalues and multiplicities, not escape-rate vector spectral weights. The Hamming limit tends to one, and the cycle and bipartite results do not have the triangular windmill's fast hub mechanism."
+        ],
+        "reasoning": "Even the ordinary variance formula plus the static spectrum needs the escape-rate projection computation, and neither result supplies the rapid two-hop event law at fixed observation time. The distinctive result is not the already implied F_m>1.",
+        "searches": [
+          "016805168b38 and c081d2602b88, findings",
+          "9e35afb2f386, 3986b056b986 and ef4ea58edfd5, exact statements and parameter regimes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two-token friendship Laplacian record c081d2602b88 has exactly the same configuration graph but gives the un-tilted spectrum and spanning trees.",
+          "The Hamming, bipartite and cycle activity records use the same successful-move count but nonisomorphic model families."
+        ],
+        "reasoning": "Interpreting exclusion as the walk on the two-token graph identifies the model, not the counting law: counting depends on the tilted off-diagonal adjacency and escape intensities, not just the spectrum of their difference. Same-day related records were compared without deductions about priority from dates.",
+        "searches": [
+          "Resultary: two-particle exclusion activity friendship graph Fano factor compound Poisson hub doublets",
+          "Resultary: finite exclusion network Poisson activity friendship graph complete classification"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The friendship-graph match tabulates un-tilted Laplacian multiplicities and tree count, not F_m or a finite-time count distribution. The other exact activity matches concern Hamming, bipartite and cycle families."
+        ],
+        "reasoning": "No equivalent table/formula for the target observable on W_m was found in the inspected exact records; index coverage is bounded.",
+        "searches": [
+          "Resultary ranked results for friendship-graph exclusion activity and exact Fano noise",
+          "Inspected exact friendship-token spectrum c081d2602b88 and exact activity results 9e35afb2f386, 3986b056b986, ef4ea58edfd5"
+        ]
+      },
+      "rationale": "The graph-specific Fano factor and its sharp monotone limit, together with the fixed-time singleton/doublet law, are distinct in the inspected sources. The general non-Poisson verdict, stationary edge-count mean method and tilted activity machinery are not new. The exact two-token Laplacian result overlaps on the state graph but not on the dynamic counting invariant.",
+      "residual_risks": [
+        "Ranked local-index and bounded primary-source comparisons do not prove historical priority. An additional primary query was deferred under shared pacing; this is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial implication only",
+          "evidence": "Complete graphs and balanced stars are Poisson exceptions at interacting fillings; friendship graphs with m≥2 are neither.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-poisson-activity-on-finite-exclusion-networks-a-complete-graph-c--016805168b38",
+          "material_read": "RESULT.md opening Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Poisson activity on finite exclusion networks: a complete graph classification",
+          "trigger": "Potential general coverage of the observable"
+        },
+        {
+          "assessment": "Same configuration graph, different invariants",
+          "evidence": "Un-tilted Laplacian eigenvalues/multiplicities and spanning trees; not signed or marked activity tilts.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-integral-laplacian-spectrum-and-spanning-tree-complexity-of-two--c081d2602b88",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Integral Laplacian spectrum and spanning-tree complexity of two-token friendship graphs",
+          "trigger": "Same graph after two-token identification"
+        },
+        {
+          "assessment": "Different graph family",
+          "evidence": "At fixed alphabet, excess Fano noise tends to zero with Hamming dimension.",
+          "identifier_or_url": "9e35afb2f386",
+          "material_read": "RESULT.md Finding and scope, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact jump-activity noise for two-particle exclusion on Hamming graphs",
+          "trigger": "Same two-particle activity statistic"
+        },
+        {
+          "assessment": "Different graph family and limit",
+          "evidence": "Complete bipartite K_{r,s}; shore imbalance and macroscopic-shore scaling, not triangular blades.",
+          "identifier_or_url": "3986b056b986",
+          "material_read": "RESULT.md offsets 0 and 7987",
+          "method": "Local Resultary mirror",
+          "title": "Bipartition balance reversal in two-particle exclusion activity",
+          "trigger": "Same-day exact Fano ratio"
+        },
+        {
+          "assessment": "Different graph and scaling",
+          "evidence": "Finite-time variance and crossover on cycles at diffusive times, not a fixed-time count distribution on W_m.",
+          "identifier_or_url": "ef4ea58edfd5",
+          "material_read": "RESULT.md offsets 0 and 9051",
+          "method": "Local Resultary mirror",
+          "title": "A diffusive-time theta crossover for two-particle exclusion activity",
+          "trigger": "Same-day activity fluctuations and temporal limit"
+        },
+        {
+          "assessment": "Prior activity framework and ring results",
+          "evidence": "Integrated activity cumulants are derived for periodic one-dimensional exclusion.",
+          "identifier_or_url": "https://arxiv.org/abs/0804.2590",
+          "material_read": "Section II/A, printed pp. 2–3, extraction offsets 9000–19762",
+          "method": "Lawful primary PDF reading",
+          "title": "Universal cumulants of the current in diffusive systems on a ring",
+          "trigger": "Primary exclusion activity cumulants"
+        },
+        {
+          "assessment": "Activity-bias methodology, no graph-specific implication",
+          "evidence": "Biased dynamical regimes on a ring rather than the fast excursion marginal-count law.",
+          "identifier_or_url": "https://arxiv.org/abs/1203.1600",
+          "material_read": "pp. 1–2, extraction offsets 0 and 4380",
+          "method": "Lawful primary PDF reading",
+          "title": "Inactive dynamical phase of a symmetric exclusion process on a ring",
+          "trigger": "Primary activity-biased exclusion literature"
+        },
+        {
+          "assessment": "Different model",
+          "evidence": "Particle-specific rates on the integer lattice and stable subsystems, with different collision dynamics.",
+          "identifier_or_url": "https://doi.org/10.1007/s10955-023-03190-8",
+          "material_read": "Abstract and §6.2, pp. 29–30, extraction offsets 0 and 112900",
+          "method": "Lawful primary PDF reading",
+          "title": "Dynamics of Finite Inhomogeneous Particle Systems with Exclusion Interaction",
+          "trigger": "Plausible broader exclusion activity limit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–23 and 63–86",
+        "General finite-network activity classification 016805168b38"
+      ],
+      "rationale": "A windmill separates ordinary peripheral jumps from rapid, counted hub excursions in a natural sparse interacting-particle model. The exact finite-size noise and monotone excess, and especially the fixed-time jump-size decomposition, resolve information that the generic non-Poisson classification doesn't give. The law explains why fast visits of vanishing stationary occupancy contribute a positive excess variance and gives a quantitative comparison point for other exclusion networks.",
+      "residual_risks": [
+        "The result does not claim an extension to other networks or path-level convergence."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

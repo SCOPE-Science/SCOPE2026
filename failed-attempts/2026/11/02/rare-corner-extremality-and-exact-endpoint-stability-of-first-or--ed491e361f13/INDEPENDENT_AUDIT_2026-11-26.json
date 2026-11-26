@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:31:30.449231Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 29–53; VERIFICATION.md lines 19–23; verify_bernoulli_affine.py lines 8–111 (inspected, not executed)",
+        "/workspace/review_replay.py, bernoulli(), independently run"
+      ],
+      "rationale": "The product characters give the stated row kernel, whose absolute mass is attained by its real sign. For each coordinate, its centered row contribution has mean zero and support {-1,b}; the secant formula for a convex function at zero is monotone in b. The rare row maximizes b coordinatewise, and increasing a rare-atom probability decreases b. Independence allows this comparison after conditioning on the other summands. Negative row mass is half the difference between absolute mass and total mass one. The all-zero configuration gives the limiting negative mass n-1 as all rare probabilities vanish; the positive-probability all-one configuration makes the open-cube bound strict for n>=2. The fair minimum follows from even-sign parity and the central binomial identity. The binomial truncation uses the exact strict negativity cutoff, and the Gaussian and Poisson limits use bounded second moments at their respective normalizations. The Poisson derivative is negative in each open interval (j,j+1), and the adjacent masses agree but derivatives differ at each integer. The case n=1 is the identity. An independent weighted conditional-mean construction checked all 54 rows in four profiles and reproduced norm 203/75 and negative mass 64/75 at the cited asymmetric profile.",
+      "residual_risks": [
+        "The finite checks establish only the enumerated profiles, not the general comparison or asymptotic regimes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "40f4b54b28c0 treats arbitrary complex multipliers and arbitrary nondegenerate heterogeneous Bernoulli parameters, gives a universal rare norming row, exact absolute-mass norm, and coordinatewise bias monotonicity.",
+          "Defant et al. give the fair-cube projection constant E|sum_{S in mask} chi_S| in Theorem 3.1."
+        ],
+        "reasoning": "Taking coefficients one exactly on the constant and singleton characters gives the exact frozen operator, including all biases. Taking the identical mask in the fair theorem gives the symmetric random-walk expression, but the fair theorem alone does not cover biased inputs.",
+        "searches": [
+          "Resultary 40f4b54b28c0, universal rare-vertex norming law for biased Boolean Fourier multipliers",
+          "arXiv:2302.00233v2, Theorems 3.1 and 4.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 40f4b54b28c0, 71f416ba0fcb, 3df8d67b6ed7 and f368e4c5a102",
+        "Defant et al., arXiv:2302.00233v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the universal law the chosen mask reduces sum_S lambda_S product_{i in S} U_i to 1+sum_i U_i, with U_i=Y_i/r_i-1, hence the frozen norm formula. The empty-set coefficient is one, so each row has mass one."
+        ],
+        "reasoning": "The real phase is the sign; for 0<=f<=1, the sharp defect is the negative mass (E|K|-1)/2. The global upper bound and supremum follow directly from K>=-(n-1) and concentration on the all-zero atom. The fair and homogeneous corollaries are covered or elementary rewrites, not an independent structural refinement.",
+        "searches": [
+          "40f4b54b28c0, Finding and Proof step 1",
+          "71f416ba0fcb, Finding",
+          "arXiv:2302.00233v2, Theorem 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "71f416ba0fcb states r^(-1) E|Bin(n,r)-(n-1)r| and fair and normal/Poisson results. The no-constant first-chaos result instead has kernel sum_i(Y_i/r_i-1)."
+        ],
+        "reasoning": "The first record is the common-bias specialization of the actual affine finding; writing its expectation using a truncated binomial first moment does not alter the result. The homogeneous first-chaos record alone does not cover the affine finding because the latter adds one inside the absolute value. No order between same-date records is inferred.",
+        "searches": [
+          "Resultary 71f416ba0fcb, balanced-bias affine Fourier amplification",
+          "Resultary 3df8d67b6ed7, rare-corner law for first-chaos projections"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first two entries give exact norm formulas, not rounded values. The later f368e4c5a102 entry restates the common-bias norm while studying ties in norming corners."
+        ],
+        "reasoning": "An indexed exact formula exceeds what a numerical norm table could establish. The later norming-corner entry is not evidence of earlier priority.",
+        "searches": [
+          "Resultary rare vertex and affine projection lookup: 40f4b54b28c0, 71f416ba0fcb, f368e4c5a102"
+        ]
+      },
+      "rationale": "The purported heterogeneous-bias contribution is demonstrably covered by a distinct earlier indexed theorem. The arbitrary Fourier-multiplier rare-vertex theorem, restricted to real inputs and the spectral mask for the empty set and all singletons, is exactly the claimed rare-corner maximization, exact norm, and coordinatewise monotonicity. Its norming-phase argument gives the real sign witness, and the sharp positive-input defect follows at once from unit row mass. No substantive new remainder was established.",
+      "residual_risks": [
+        "This is a coverage decision, not an attribution of historical primacy to any indexed result. The bounded external search is not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the central heterogeneous theorem by a stronger result",
+          "evidence": "The theorem explicitly recovers every orthogonal Fourier spectral projection; select the empty set plus all singleton characters. The kernel proof also states row-norm attainment by phases.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-universal-rare-vertex-norming-law-for-biased-boolean-fourier-m--40f4b54b28c0/RESULT.md",
+          "material_read": "Finding, assumptions and Proof step 1, offset 0–3864",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A universal rare-vertex norming law for biased Boolean Fourier multipliers",
+          "trigger": "Broader rare-corner law on the same biased cube"
+        },
+        {
+          "assessment": "Exact common-bias and limit overlap",
+          "evidence": "The absolute binomial moment equals the frozen tail-expression norm, and the same fair and Poisson/Gaussian regimes are given.",
+          "identifier_or_url": "2026/10/26/SCOPE-balanced-bias-minimizes-sharp-affine-fourier-amplification-on-th--71f416ba0fcb",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Balanced bias minimizes sharp affine Fourier amplification",
+          "trigger": "Same affine projection at common bias"
+        },
+        {
+          "assessment": "Covers the fair specialization",
+          "evidence": "The arbitrary uniform Boolean mask formula yields E|1+sum of fair signs| for this projection.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.00233v2",
+          "material_read": "Section 3 Theorem 3.1, p. 9 and Section 4 Theorem 4.1, p. 13; PDF text offsets near 24800 and 44500",
+          "method": "Primary OA PDF text inspection",
+          "title": "Asymptotic insights for projection, Gordon–Lewis and Sidon constants in Boolean cube function spaces",
+          "trigger": "Exact fair-cube projection constant"
+        },
+        {
+          "assessment": "Not the affine operator; no date-based precedence assumed",
+          "evidence": "The projection is onto the homogeneous first chaos without the constant.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-rare-corner-law-for-first-chaos-projections-on-biased-boolean--3df8d67b6ed7",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "A rare-corner law for first-chaos projections on biased Boolean cubes",
+          "trigger": "Same-date, near-equivalent endpoint claim"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Relationship to prior work",
+        "Resultary 40f4b54b28c0 and 71f416ba0fcb"
+      ],
+      "rationale": "The precise weighted endpoint norm is a motivated invariant. However, the frozen record neither improves the known norming law nor resolves a further structural question: the sign witness and positive-input defect are routine row calculus, and the homogeneous profiles already have exact coverage. The remaining boundary evaluation does not establish an independent scientific advance.",
+      "residual_risks": [
+        "This assessment does not deny the usefulness of the existing universal result. No stronger classification of equality cases or alternative projection problem is part of this record."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

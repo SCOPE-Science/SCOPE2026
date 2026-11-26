@@ -1,19 +1,21 @@
-# Review of the quantitative singular-value law
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-On the exact Hilbert space with weights \(q^j\), conjugation turns the Cesàro matrix into \(D(I-rS)^{-1}\) with \(r=\sqrt q\). The proof gives a uniform finite-band counting estimate by cutting the row-weighted Toeplitz matrix into blocks, comparing each block with a circulant, and estimating grid counts using the at-most-\(2M\) crossings of the squared trigonometric symbol. Its error is \(O_r((M+1)t^{-1/2})\); choosing \(M\) logarithmically suppresses the geometric tail to \(O(t^2)\). The resulting counting remainder is inverted to the stated individual singular-value remainder. The argument controls the infinite tail and all block boundaries, including finite rank cross-cuts. The elliptic integral, Schatten cutoff, and weak-trace limit are derived, not inferred from finite experiments. The independent finite-section checker passes 80 assertions, but is not an infinite proof.
+PASS
 
-## Originality — PASS, with residual priority risk
+The frozen estimate is valid: its truncation step must use r^{M+1}/(1−r) as a common upper bound for operator and symbol errors, not assert a pointwise symbol bound by the actual operator norm. The repaired proof instead gives a sharper quantitative claim by an exact form reduction. Unitary weight transfer gives A=D(I−rS)^{-1} with closed inverse B=(I−rS)J on dom J; B*B=(AA*)^{-1}. The form on the circle with p(θ)=1+r²−2r cos θ has entries jk p̂(j−k). Modes of opposite sign cannot couple via this bandwidth, and mode zero decouples. The positive-mode block is B*B; reflection gives the other copy, so the unweighted singular index matches precisely the nth pair of positive periodic eigenvalues. The Liouville variable and multiplier z=p^{1/4} give the periodic potential V=z″/z, whose mean is ∫(z′/z)²/L=μ_r>0. Min–max locates the eigenvalue pair within bounded distance of (n/κ)²; on its complement the free resolvent is O_q(n^{-1}). Within the pair the diagonal potential is μ_r and the other entries are Fourier coefficients O_q(n^{-1}). Thus the squared inverse singular value is (n/κ)²+μ_r+O_q(n^{-1}); inverse square roots prove the correction, and inversion gives a bounded counting remainder. This uses the infinite closed forms, not a finite-section inference.
 
-Albanese, Bonet and Ricker (2015; DOI 10.1017/S1446788715000221; inspected author manuscript) establish geometric-weight compactness and spectral eigenvalues but not the individual singular-value asymptotic or its quantitative error. Zizler, Zuidwijk, Taylor and Arimoto (2002; DOI 10.1137/S089547989834915X; examined full-text method) treat finite band Toeplitz eigenvalue distributions; their theorem neither identifies the diagonally weighted infinite Cesàro singular coefficient nor supplies the logarithmically controlled singular-value remainder. Related research records for power-decaying Rhaly rows, finite Cesàro matrices, and Hardy-space point-mass averaging concern distinct operators or scaling regimes, so their claims do not imply the displayed formula. Standard general weighted-Toeplitz spectral theorems might yield an unquantified leading Weyl law; the priority risk of a stronger, unlocated quantitative theorem remains.
+## originality
 
-## Value — PASS
+PASS
 
-The 2015 work poses a natural boundary between compactness/spectrum and quantitative approximation numbers. The coefficient \(\kappa(\sqrt q)\) is a concrete, nonconstant elliptic spectral invariant, in contrast to the weight-independent eigenvalues \(1/j\). The sharp exponent-one Schatten cutoff, exact logarithmic singular-mass coefficient, and a rate for individual singular values provide useful quantitative stability information on a classical averaging operator, rather than a routine finite-table restatement.
+The frozen leading scalar singular law and elliptic coefficient have exact distinct Resultary coverage, including as a period-two neutral specialization. They and their direct leading corollaries are explicitly credited, not passed as novel. The repaired finding is the exact periodic form identification and nonzero first asymptotic correction for the infinite geometric Cesàro singular values. Standard periodic perturbation theory is used after the reduction; neither the inspected leading statements nor finite Toeplitz results as described yield this operator-specific correction.
 
-## Scientific scope and limitations
+## value
 
-The geometric parameter is fixed strictly below one. No claim is made about the noncompact \(q=1\) boundary, optimal higher-order asymptotics, or general weights. Novelty is based on inspected accessible primary sources and indexed comparisons, not a proof that no uncatalogued equivalent exists.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first nonvanishing correction for the singular rather than ordinary eigenvalues resolves the order and sign of the deviation from the already known leading law. The gain is structural, not just a smaller bound: the inverse form converts an infinite nonnormal averaging problem to half the positive spectrum of an explicit periodic differential operator and yields a constant-error count. The positive coefficient rules out a little-o of n^{-3} leading remainder at every fixed nonzero weight.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

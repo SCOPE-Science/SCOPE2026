@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:11:01.052890Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 17–61",
+        "Frozen VERIFICATION.md and verify.py, inspected, not executed"
+      ],
+      "rationale": "The padded rows do not enter SA. In full rank, the isometries A and Q imply kappa(AR^(-1))=kappa(R)=kappa(SA). With no collision the active Gram is the identity; with at most m-2 occupied buckets the dimension bound forces rank failure. Exactly m-1 occupied buckets means exactly one pair. Equal signs annihilate e_i-e_j in the zero-sum hyperplane. With opposite signs the compressed Gram on the hyperplane is I+(xx^T-yy^T)/2, with x=e_i-e_j and y the projection of e_i+e_j. These vectors are orthogonal, with squared lengths 2 and 2-4/m. Thus the two exceptional eigenvalues are 2 and 2/m and the rest are one. Counting injections of the active coordinates or paired blocks and multiplying the single-pair case by one half gives the stated masses. When s=m-1 the collision-free event is impossible; the other two events remain positive. Expansion of log p1 gives -m(m-1)/(2s)+O(m^3/s^2) in the quadratic window, and p_{sqrt(m)}/p1=C(m,2)/(2(s-m+1)). Below that scale the falling-factorial upper bounds make both finite masses vanish, and above it the union bound sends p1 to one.",
+      "residual_risks": [
+        "Exact arithmetic and independent hashes/signs are essential to the stated result. Finite test assertions do not certify the family or the limiting statements; those were checked analytically."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed weighted unicyclic rank theorem gives p1+p_{sqrt(m)} for cycle length m and all m scales equal. The indexed unit-scale unicyclic spectrum theorem gives exceptional Gram eigenvalues 2 and 2/m for the surviving cycle–cycle pair, and eliminates every other noninjective rank-surviving case for a pure cycle.",
+          "The published preconditioning guarantee assumes an embedding; the lower bounds concern the number of sketch rows needed for distortion control, not these exact probability masses."
+        ],
+        "reasoning": "It is the broader unicyclic rank and spectrum coverage, rather than generic sketch guarantees or lower bounds, that supplies the decisive specialization.",
+        "searches": [
+          "6f43abc6393e, Finding and rank law; b899df17f7eb, one-collision Gram law and rank proof",
+          "Chen–Tan arXiv:2409.15818 Theorems 3.1–3.2; Nelson–Nguyen arXiv:1308.3280; Li–Liu arXiv:2112.10987 Theorem 18"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6f43abc6393e and b899df17f7eb",
+        "Chen–Tan Theorems 3.1–3.2",
+        "Nelson–Nguyen p. 3",
+        "Li–Liu Theorem 18",
+        "Woodruff–Kocurek Lecture 3 §1",
+        "Woodruff Theorem 41"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the unit pure cycle there are no bridges. No collision yields the identity, one surviving pair yields sqrt(m), same-sign single pairs fail, and occupancy <=m-2 fails. The rank law specializes to [(s)_m+C(m,2)(s)_(m-1)/2]/s^m. Subtract the no-collision event to get exactly the sqrt(m) mass; its complement after subtracting both finite masses is the rank-failure mass.",
+          "For s/m^2 tending to c>0, injection probability tends to exp(-1/(2c)) and the ratio of the surviving-pair mass to it tends to 1/(4c). The same formula includes s=m-1."
+        ],
+        "reasoning": "No extra spectral result is needed for QR and no new asymptotic tool beyond the birthday falling-factorial limit. The exact finite law and full limiting triple are direct consequences of the inspected broader coverage.",
+        "searches": [
+          "Resultary 6f43abc6393e, RESULT.md offset 0; b899df17f7eb, RESULT.md offsets 2780–5666 and 6550–8250"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Orient an m-cycle consistently and delete one incidence column. The signed circulation is the all-ones vector and the incidence column space is its orthogonal complement. Orthonormalization gives exactly the frozen active space, with rotation of an orthonormal basis not changing singular values.",
+          "Padding zero rows has no effect. A row-sign gauge in another orientation does not change the law of independent fair signs. The frozen QR condition number equals the sketched orthonormal-column condition number when finite."
+        ],
+        "reasoning": "The graph comparison is the same random Gram experiment on a pure cycle, not just coincidentally the same numerical penalty. The target's tree interpretation of the zero-sum hyperplane does not distinguish the hyperplane from that of the cycle in edge coordinates.",
+        "searches": [
+          "Local Resultary: CountSketch on zero-sum hyperplanes, exact signed collision spectrum and unicyclic graph rank survival",
+          "Resultary b899df17f7eb, proof offset 2780"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact table and derivation in b899df17f7eb include favorable and unfavorable cycle–cycle collisions; the exact falling-factorial rank formula is in 6f43abc6393e. Neither needs to name the QR right preconditioner.",
+          "The birthday note gives the independent-coordinate rank obstruction, not the sign-dependent survivor; the inspected survey theorem concerns an l1 guarantee."
+        ],
+        "reasoning": "There was no verified older literal printed three-mass table and limit from the focused literature lookup. The indexed table plus rank and occupancy statements already determine all those masses. Neither a search miss nor different date labels resolve historical precedence.",
+        "searches": [
+          "Local Resultary: finite signed collision rank-survival probability and one-collision Gram spectral table",
+          "Woodruff–Kocurek lecture note §1 Birthday Paradox; Woodruff arXiv:1411.4357"
+        ]
+      },
+      "rationale": "The conventional birthday bound alone does not cover this claim. The closest distinct indexed unicyclic results do: on a consistently oriented unit-scale pure cycle they give exactly the target hyperplane, its full-rank probability and the complete collision-case classification with condition number sqrt(m). Their statements and proof also supply the injection counts, so the total three-mass law and elementary birthday scaling are implied. This is demonstrable equivalent coverage in the available corpus, not a determination of publication precedence or attribution from the date labels.",
+      "residual_risks": [
+        "The matching entries have later index date labels; scientific coverage is verified, but publication precedence and dependence are not inferred.",
+        "The primary-literature comparison is bounded and does not decide whether a still earlier exact formulation exists. The failure is not based on that uncertainty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_EXACT_RANK_MASS_BY_SPECIALIZATION",
+          "evidence": "All m edges on the same cycle with equal scales gives coefficient C(m,2)/2 in the falling-factorial rank formula, exactly the frozen full-rank mass.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-signed-countsketch-rank-survival-for-weighted-unicyclic-in--6f43abc6393e/RESULT.md",
+          "material_read": "Finding, offsets 0–1737; prior-work and limitations material from offset 6500",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact signed CountSketch rank survival for weighted unicyclic incidence matrices",
+          "trigger": "Exact rank probability for a codimension-one incidence column space"
+        },
+        {
+          "assessment": "COVERS_SPECTRAL_CLASSIFICATION_BY_SPECIALIZATION",
+          "evidence": "The compression to the circulation hyperplane includes no-collision identity, all single-collision cases, and rank loss with two or more collisions. Favorable cycle–cycle collisions yield singular values sqrt(2) and sqrt(2/m) on the pure cycle; proof supplies the occupancy counts.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-an-exact-near-isometry-threshold-and-conditioning-reversal-for-o--b899df17f7eb/RESULT.md",
+          "material_read": "Finding; proof offsets 2780–5666; relationship and limitations offsets 6550–8250",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "An exact near-isometry threshold and conditioning reversal for one-collision CountSketch",
+          "trigger": "Exact exceptional Gram eigenvalues and condition numbers in the identical pure-cycle hyperplane"
+        },
+        {
+          "assessment": "CONDITIONAL_EMBEDDING_GUARANTEE",
+          "evidence": "Conditioning assurance requires an l2 subspace embedding, not an exact rank/condition distribution for the frozen input.",
+          "identifier_or_url": "https://arxiv.org/abs/2409.15818",
+          "material_read": "PDF p. 5, Theorems 3.1–3.2, offset 22774",
+          "method": "OA arXiv PDF targeted passage",
+          "title": "High-precision randomized iterative methods for the random feature method",
+          "trigger": "CountSketch plus thin QR preconditioner"
+        },
+        {
+          "assessment": "GENERAL_LOWER_BOUND",
+          "evidence": "Asymptotic row-count and sparsity tradeoffs do not specify this subspace's single-pair spectrum.",
+          "identifier_or_url": "https://arxiv.org/abs/1308.3280",
+          "material_read": "PDF p. 3, Our contribution II, offset 7766",
+          "method": "OA arXiv PDF targeted passage",
+          "title": "Lower Bounds for Oblivious Subspace Embeddings",
+          "trigger": "Classical sparse embedding lower bound"
+        },
+        {
+          "assessment": "GENERAL_LOWER_BOUND",
+          "evidence": "A row-count lower bound for an input distribution, not the signed pair law on the codimension-one hyperplane.",
+          "identifier_or_url": "https://arxiv.org/abs/2112.10987",
+          "material_read": "PDF p. 13, §5 Theorem 18, offset 57236",
+          "method": "OA arXiv PDF targeted passage",
+          "title": "Lower Bounds for Sparse Oblivious Subspace Embeddings",
+          "trigger": "Sharper sparse embedding lower bounds"
+        },
+        {
+          "assessment": "COVERS_BIRTHDAY_SCALE_NOT_SPECTRUM",
+          "evidence": "The coordinate-subspace example fails as soon as any pair collides and yields the same order of rows, not the survival with opposite signs on the zero-sum hyperplane.",
+          "identifier_or_url": "Woodruff–Kocurek, Lecture 3, §1 Birthday Paradox",
+          "material_read": "PDF p. 1, offsets 43–1610",
+          "method": "OA lecture-note passage",
+          "title": "Algorithms for Big Data, Lecture 3",
+          "trigger": "Classical exact occupancy mechanism for coordinate subspace rank failure"
+        },
+        {
+          "assessment": "RELATED_DIFFERENT_GUARANTEE",
+          "evidence": "Inspected theorem is an l1 result, not the frozen exact l2 conditioning law.",
+          "identifier_or_url": "https://arxiv.org/abs/1411.4357",
+          "material_read": "PDF p. 55, Theorem 41, offset 130974",
+          "method": "OA arXiv PDF targeted passage",
+          "title": "Sketching as a Tool for Numerical Linear Algebra",
+          "trigger": "Frozen CountSketch survey citation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "Resultary 6f43abc6393e Finding and b899df17f7eb proof"
+      ],
+      "rationale": "The distinction between rank survival and good conditioning is useful for this natural benchmark. But the narrow exact invariant contributed by this record is already mechanically determined by the indexed pure-cycle case. The simple window limit and rewriting the same singular-value ratio as the isometric right-QR condition number add no separate structural content beyond that equivalent coverage.",
+      "residual_risks": [
+        "The witness remains pedagogically useful; the disposition is about independent scientific content, not utility of the example."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

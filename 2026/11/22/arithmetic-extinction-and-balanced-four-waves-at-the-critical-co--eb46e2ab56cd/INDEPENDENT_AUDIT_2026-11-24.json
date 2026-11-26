@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:49:19.959395Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen saturation paragraph overreached by looking at other excitation times and did not correctly justify the recurrence for a general resting or refractory vertex. The complete replacement in repairs/5/RESULT.md derives it pointwise: total earlier contacts equal total later contacts, each excitation has at least r earlier contacts, and disjointness caps their joint count by 2r; equality forces exactly r to each adjacent layer. If the vertex itself fires one time away, that balance counts its r contacts at the time in question; otherwise any contact would contradict saturation applied to the excited neighbor. This repairs the proof without changing the claim. Rechecking downstream: connectedness makes firing multiplicity k uniform, periodic second differences make layer size constant, and p|e_t|=k|V|. Temporal Fourier analysis with integral adjacency permits frequencies of orders 1,2,3,4,6. Graph order prime to 3 excludes p=3,6 by multiplicity and forces k=3 at p=12. Vanishing at a primitive twelfth root forces a rotated equilateral triple at each vertex, hence four-periodicity. Balancing four phases gives opposite phase parity across edges and exactly r neighbors of each sign, with the converse checked on both resting phases; two parity orientations per signed vector count states, then divide by four. For the application, the incidence filtration proves integrality, Lucas gives residue 2, the pair-difference eigenfunction is nonzero with eigenvalue +m/2, and a two-step replacement bound proves the exact odd girth against the explicit odd walk. The labelled-orbit scope and lack of a transient bound are unchanged. See the repaired proof for analytic replay. The frozen verify.py and CHECK_OUTPUT.txt were inspected, not executed; they give only finite supporting examples and an exact spectral certificate for KG(7,3), not a state census for that graph.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The spectral ceiling allows disconnected graphs and imposes no order divisibility condition; it gives periods dividing twelve. Both primary arbitrary graph analyses define excitation at a resting site by one excited neighbor."
+        ],
+        "reasoning": "The graph-wide scope of the one-neighbor results is not stronger for general r: the two transition maps differ. The wider graph scope of the spectral result gives a weaker conclusion, with its extinction test based on absence of resonant eigenvalues.",
+        "searches": [
+          "Resultary 3ebebc11989a, 7c3fe196f42d",
+          "Gravner–Lyu–Sivakoff arXiv:1610.07320 Theorem 3",
+          "Doba doi:10.25088/ComplexSystems.27.2.101 §§2–3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and CHECK_OUTPUT.txt; repaired RESULT.md",
+        "Resultary 3ebebc11989a, 7c3fe196f42d and relevant crown-graph catalogue finding 050b84d5178e",
+        "Gravner–Lyu–Sivakoff arXiv:1610.07320 and Doba doi:10.25088/ComplexSystems.27.2.101, listed passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ceiling permits p=6 and p=12; the period-three comparison removes only p=3; the odd-graph family contains +r."
+        ],
+        "reasoning": "The new restrictions need the uniform number of firings, divisibility relation for layer size and primitive twelfth-root cancellation. The prior spectral exclusion test cannot be applied by plugging in the Kneser spectrum, and the positive existence criterion and exact orbit count are not asserted by either catalogue comparator.",
+        "searches": [
+          "3ebebc11989a RESULT.md, Finding and spectral restriction proof",
+          "7c3fe196f42d RESULT.md, Finding and balanced coloring argument",
+          "arXiv:1610.07320 Theorem 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The period-three comparator reduces its primitive-three states to balanced proper three-colorings whose class sizes are |V|/3. The spectral ceiling comparator identifies admissible periods but not the signed-kernel census."
+        ],
+        "reasoning": "A signed kernel is static balanced neighbor coloring; with a bipartition it is equivalent to the four-phase labels, but knowing equitable colorings alone neither makes them all the nonzero recurrences nor supplies the normalization from labelled states to orbits. Balanced proper three-colorings already handle period three, not the longer recurrent periods.",
+        "searches": [
+          "Resultary half-degree Greenberg–Hastings, critical contact, balanced four waves, signed adjacency kernel, period twelve",
+          "Resultary 7c3fe196f42d and 3ebebc11989a"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The crown-graph four-period population entry is a family-specific threshold-one count; the spectral entry attains twelve on a disconnected example. Classical Kneser spectra are accepted prior data."
+        ],
+        "reasoning": "Neither a period table for special graph families nor the Kneser eigenvalue formula is an exact census of all recurrent orbits for the graph class at half degree. In the application the spectrum in fact fails the prior spectral extinction test.",
+        "searches": [
+          "Resultary exact signed-kernel orbit census and crown-graph four-period populations",
+          "Resultary 050b84d5178e and 3ebebc11989a"
+        ]
+      },
+      "rationale": "The repaired proof is for the unchanged classification. The spectral ceiling is covered by a distinct catalogue result with wider graph scope, and the period-three size obstruction is covered by the prior half-degree three-phase classification. Credit the distinct surviving result for the full order-three exclusion, the signed-kernel temporal-orbit census, and the resonant odd-graph application. The same-day date of the spectral comparator does not establish priority or erase its overlap.",
+      "residual_risks": [
+        "Equivalent half-degree recurrences may be unindexed or expressed in perfect/equitable-coloring terminology.",
+        "The same-day comparator date does not order the overlapping period-ceiling proofs; the distinct conclusions are what were assessed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material proof and conclusion overlap for p|12; not the arithmetic strengthening",
+          "evidence": "Allows disconnected graphs, gives p|12 including sharpness on C3 disjoint union C4, and proves extinction if −r,0,r are all absent.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-twelve-step-spectral-ceiling-for-critical-excitation-on-integr--3ebebc11989a",
+          "material_read": "Mirrored RESULT.md at offsets 0 and 3000",
+          "method": "Resultary lookup and bounded local-mirror reading",
+          "title": "Twelve-step spectral ceiling for critical excitation, record 3ebebc11989a",
+          "trigger": "Same half-degree update and integral adjacency theorem"
+        },
+        {
+          "assessment": "Covers the period-three part specifically",
+          "evidence": "Initial primitive-three states are exactly balanced proper three-colorings at half degree, so require 3 dividing the number of vertices.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-half-degree-rigidity-and-a-sharp-contact-threshold-collapse-on-s--7c3fe196f42d",
+          "material_read": "Mirrored RESULT.md at offsets 0 and 4500",
+          "method": "Resultary lookup and bounded local-mirror reading",
+          "title": "Half-degree rigidity, record 7c3fe196f42d",
+          "trigger": "Same-model phase balance and class-size comparison"
+        },
+        {
+          "assessment": "Different excitation rule and conclusion",
+          "evidence": "At least one excited neighbor suffices; the criterion in Theorem 3 is initial 1-form irrotationality and the theorem describes the nonsynchronizing excitation rate.",
+          "identifier_or_url": "https://arxiv.org/pdf/1610.07320",
+          "material_read": "pp. 2 and 4, model definition and Theorem 3, offsets 5081 and 14857",
+          "method": "Bounded OA PDF reading",
+          "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+          "trigger": "Primary arbitrary-graph recurrence analysis"
+        },
+        {
+          "assessment": "One-neighbor activation, not general critical half-degree classification",
+          "evidence": "The inspected definitions and theorems concern eventual rest/periodicity and cycle density for the one-neighbor rule.",
+          "identifier_or_url": "https://wpmedia.wolfram.com/sites/13/2018/09/27-2-1.pdf",
+          "material_read": "§§2–3 pp. 102–104 and maximum-cycle-density passage pp. 116–117, offsets 4198 and 25890",
+          "method": "Bounded OA PDF reading",
+          "title": "The Time Evolution of a Greenberg–Hastings Cellular Automaton on a Finite Graph",
+          "trigger": "Primary finite-graph periodicity and frequency analysis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The strengthened claim converts a coarse spectral period bound into a complete attractor classification on a natural arithmetic graph class and exposes the mechanism that spectrally permitted periods still need compatible firing multiplicities. The exact signed-kernel bijection is useful for computing attractors, and the odd-graph family gives an unbounded-odd-girth example of extinction in the presence of a permitted threshold eigenvalue, beyond the known spectral exclusion criterion.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:23:50.817744Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 29–99 and 109–110",
+        "Frozen VERIFICATION.md, check_hyperuniform.py and checker_output.txt",
+        "/workspace/repairs/4/RESULT.md and VERIFICATION.md"
+      ],
+      "rationale": "The frozen formulas are correct for time-averaged occupancy Q_t, not counts of crossings; the repair makes this explicit. Independently reconstructed the local kernel by solving (r-D d^2/dy^2)u=f_x for the bounded free resolvent. Multiplying u by r gives H_x(y)=exp(-alpha(x-y))/2 below x and 1-exp(-alpha(y-x))/2 above x, matching both value and derivative at x. On the three regions below 0, from 0 to x, and above x, the integrals of H_x against the stationary density are exp(-alpha x)/8, alpha x exp(-alpha x)/4, and 3 exp(-alpha x)/8. The last is also the integral against f_x times that density. Subtracting p_x E H_x gives the stated local covariance integral after division by r. Reset independence and monotonicity give 0<=c_x(s)<=p_x exp(-rs); conditional count second moment is at most m^2+m, and conditional L^2 truncation justifies summing covariances. The lag-weight deficit 1-(1-s/T)_+ is between zero and s/T, giving the repaired conditional bound 2m/(r^2 T^2), in the stated sign direction. For the lattice checked both geometric sums and the first geometric moment; the summand derivative is exp(-2v)(2v+3-3exp(v))<0 for v>0. The one-sided lattice endpoints are translates by one index, differing by precisely the v=0 contribution 1/(4r); sum convergence is uniform for u in [0,1]. Summation followed by uniform-phase integration yields 7/(16r beta). Poisson integral variance gives rho/(8 alpha), and the phase moments of m give the frozen shifted-lattice variance and the 1/48 dense limit. All decisive checks were analytic; the frozen checker and its output were inspected only.",
+      "residual_risks": [
+        "The compiled proof covers independent individual clocks and stationary displacements only. Lattice endpoint phases are limits; no claim about including a particle anchored exactly on the boundary. No formal verification or numerical inference about the infinite ensemble."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general additive-functional renewal transform in den Hollander et al. relates reset and reset-free Laplace transforms but requires the reset-free input; their explicitly evaluated positive occupation time has reset point at the observation boundary.",
+          "Di Bello and coworkers treat one-time occupation current; Banerjee et al. handle unreset diffusion; Wang–Chen's inspected preprint abstract fixes initial and reset positions at the observation origin."
+        ],
+        "reasoning": "The broad renewal identity is a method, not an evaluated off-boundary local coefficient or a geometry-dependent phase law. One-time current or one-anchor results at zero threshold cannot resolve how the positive displacement thresholds along the lattice affect the conditional variance.",
+        "searches": [
+          "Di Bello et al., arXiv:2302.06696, half-line current definition and one-time laws",
+          "den Hollander et al., arXiv:1801.09909 Theorem II.1 and Section IV",
+          "Banerjee–Jack–Cates arXiv:2206.08739, geometry and noise decomposition",
+          "Wang–Chen DOI 10.1103/hzrj-dzxb, lawful OA alternate arXiv:2508.11387"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 211aa471cfd1 and 402df5e0f059",
+        "Di Bello et al. arXiv:2302.06696",
+        "Banerjee–Jack–Cates arXiv:2206.08739",
+        "den Hollander et al. arXiv:1801.09909",
+        "Wang–Chen arXiv:2508.11387"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Independence conditional on anchors followed by Campbell immediately produces the correlation-independent annealed dynamic covariance from the known fixed-rate spatial integral.",
+          "The rate-disorder proof states the individual threshold covariance via the unevaluated terms J_r(z,t)-p_r(z)q_r(z,t); it then integrates over z. The phase profile instead needs its time integral at every fixed z, supplied by the split Laplace-resolvent evaluation and the monotonicity and endpoint arguments in the repair."
+        ],
+        "reasoning": "The frozen annealed coefficient is mechanically covered by the comparison, but knowing its spatial average does not fix the local threshold dependence. The repaired exact expression is not an averaging change, parameter relabeling, or substitution in a known explicit phase law. It resolves how unaveraged temporal precision varies and exposes a fixed phase range even when the average matches Poisson.",
+        "searches": [
+          "Resultary 211aa471cfd1, offsets 2300–4088 and 4100–7222",
+          "den Hollander et al. arXiv:1801.09909 Theorem II.1 and Section IV"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 211aa471cfd1, Proof §§1–4: same indicator covariance at every lag and a closed spatially integrated kernel, integrated in time to give 7rho sqrt(D) E[R^(-3/2)]/16 for the leading variance coefficient in its integrable disorder regime; no evaluated phase-resolved coefficient there.",
+          "Resultary 402df5e0f059: stationary half-line observable but a one-time current transform, not a time-average variance."
+        ],
+        "reasoning": "The rate-disorder finding assumes a density, so a deterministic rate is not literally an instance of its full theorem. Its proof separately evaluates the common-rate spatial integral, however, and the coefficient and time-average identity agree exactly. Neither that integral nor the one-time transform determines the spatially resolved conditional coefficient or the range of values across fixed lattice phases.",
+        "searches": [
+          "Local Resultary and SCOPE search for stationary Brownian resetting current, fixed-rate integrated covariance and hyperuniform anchors",
+          "Local Resultary: quenched fixed anchors, time-integrated single-particle covariance and off-anchor occupation kernel",
+          "Primary search: Brownian stochastic resetting occupation time above a threshold away from the reset point and occupation variance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "An exact fixed-rate spatially averaged 7/16 constant is present in Resultary 211aa471cfd1 after specialization of the proof's kernel. No exact conditional lattice phase curve or its spread appeared in the reviewed material."
+        ],
+        "reasoning": "The repaired invariant is an analytic coefficient as a function of a continuous phase, not a sequence/table entry or re-evaluation of the known annealed constant. No absence inference is drawn from search misses.",
+        "searches": [
+          "Local Resultary: reset-current variance and quenched phase-resolved or single-anchor time-integrated occupation invariants",
+          "Primary threshold-away-from-reset occupation search"
+        ]
+      },
+      "rationale": "Pass for the repaired exact configuration-dependent coefficient and its strictly decreasing shifted-lattice phase profile and exact phase spread. The frozen main annealed temporal coefficient has material existing coverage: the local Resultary rate-disorder proof explicitly computes the same fixed-rate spatially integrated lag kernel and obtains 7/32 for its time integral, before the final random-rate average. Campbell's first-moment identity transfers that spatial average to other anchor correlations without a new covariance calculation. The Poisson and uniform lattice phase plateaus are elementary static integrals. The repaired theorem instead evaluates the off-boundary individual-anchor integral and answers a quenched phase question that is not determined by the spatial average; it uses the explicit dependence on anchor distance. No historical priority inferred from catalogue dates.",
+      "residual_risks": [
+        "A full-text off-boundary comparison for Breakdown of arcsine law for resetting brownian motion could not be made. Other additive-functional papers could contain the local kernel; no exhaustive priority claim. No separate originality credit for the spatially averaged coefficient, static plateau, or general conditional-variance decomposition."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive coverage of spatially averaged ingredient; not evaluated quenched phase dependence",
+          "evidence": "Gives the fixed-rate pointwise lag representation; the closed kernel F(sqrt(2rt))/(4sqrt(r/D)) is obtained after integration over anchor distance. Later Mellin integral gives 7/32 before the variance factor 2. Full theorem is marked Poisson with a rate density.",
+          "identifier_or_url": "2026/11/2/SCOPE-rate-disorder-transition-in-stationary-brownian-reset-current-fl--211aa471cfd1",
+          "material_read": "Finding and Proof §§1–4, especially offsets 2300–4088 and 4100–7222, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary and bounded mirror text inspection",
+          "title": "Rate-disorder transition in stationary Brownian reset current fluctuations",
+          "trigger": "Same stationary reset observable, overlapping temporal coefficient"
+        },
+        {
+          "assessment": "One-time observable comparison only",
+          "evidence": "The transform and sign analysis are for one-time counts, not occupation variance averaged over a time interval.",
+          "identifier_or_url": "2026/11/2/SCOPE-eventual-alternating-signs-of-a-stationary-quenched-current-tran--402df5e0f059",
+          "material_read": "Finding at mirror offset 0",
+          "method": "Local Resultary and bounded mirror text inspection",
+          "title": "Eventual alternating signs of a stationary quenched current transform",
+          "trigger": "Stationary quenched half-line count with geometry"
+        },
+        {
+          "assessment": "Related model, different statistic",
+          "evidence": "For the step initial condition the current is the number of particles on the positive side at the observation time; the cited laws are one-time.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.06696",
+          "material_read": "PDF pp. 5 and 7, offsets approximately 19700 and 33600, definition and current-distribution setting",
+          "method": "Lawful OA PDF",
+          "title": "Current fluctuations in stochastically resetting particle systems",
+          "trigger": "Same reset rule and half-line current observable"
+        },
+        {
+          "assessment": "Related variance decomposition for unreset diffusion",
+          "evidence": "Initial spatial ensemble affects variance, but the model does not have individual Poisson resetting to fixed anchors.",
+          "identifier_or_url": "https://arxiv.org/abs/2206.08739",
+          "material_read": "pp. 1–3, offsets 0, 11900 and 22500 in OA extraction",
+          "method": "Lawful OA text inspection",
+          "title": "Role of initial conditions in 1D diffusive systems: compressibility, hyperuniformity and long-term memory",
+          "trigger": "Geometry/trajectory variance decomposition and hyperuniform examples"
+        },
+        {
+          "assessment": "General transform and on-boundary occupation example, no explicit off-boundary lattice law in inspected passages",
+          "evidence": "Equation (II.3) uses the additive functional's reset-free transform as input, while Section IV starts/resets at the origin for positive occupation.",
+          "identifier_or_url": "https://arxiv.org/abs/1801.09909",
+          "material_read": "PDF pp. 2–3, Theorem II.1, offsets 9514–10197, and Section IV pp. 10–11 around offset 38700",
+          "method": "Lawful OA PDF",
+          "title": "Large deviations for occupation and waiting times of Brownian motion with resetting",
+          "trigger": "General occupation-time transform can plausibly cover one-particle variance"
+        },
+        {
+          "assessment": "Inspected statement treats the occupied half-line with the reset and initial position both on its boundary",
+          "evidence": "Joint laws for pairs of occupation, maximum, and last-passage times of Brownian motion started and reset at the origin.",
+          "identifier_or_url": "https://arxiv.org/abs/2508.11387 ; DOI 10.1103/hzrj-dzxb",
+          "material_read": "OA preprint PDF abstract offset 0–3154",
+          "method": "Lawful arXiv version after publisher OA was not retrieved",
+          "title": "Pairwise correlations of global times in one-dimensional Brownian motion under stochastic resetting",
+          "trigger": "Positive occupation-time fluctuations of Brownian motion with fixed-point resets"
+        },
+        {
+          "assessment": "Precise off-boundary variance coverage unresolved, not used as evidence of noncoverage",
+          "evidence": "Observed excerpt only describes Brownian resetting to x_r at constant rate; it does not establish an evaluated stationary coefficient or lattice statement.",
+          "identifier_or_url": "https://ui.adsabs.harvard.edu/abs/2023PhyS...98l5226Y/abstract",
+          "material_read": "Bibliographic title and search excerpt about reset position x_r only; no underlying manuscript passage read",
+          "method": "Public bibliographic lookup; document and abstract page not retrieved on attempted lawful routes; targeted title lookup supplied no usable alternate copy",
+          "title": "Breakdown of arcsine law for resetting brownian motion",
+          "trigger": "Potential occupation coverage with a reset position away from the origin"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–32 and 58–110",
+        "Repaired RESULT.md, Proposition formulas and Phase profile proof",
+        "Resultary 211aa471cfd1, spatially integrated lag kernel"
+      ],
+      "rationale": "The fixed-anchor coefficient measures trajectory noise separately from the annealed static plateau, which was the question motivating the frozen comparison. The repaired exact formula can compare configurations at fixed density instead of giving only their mean. In the natural lattice example the phase law is strictly monotone with nonzero spread 1/(4r) independent of diffusivity and spacing, despite agreement of the spatial average with Poisson. This quantifies the geometry dependence concealed by that average, not just a new way to reproduce the old scalar.",
+      "residual_risks": [
+        "Variance information only, not a quenched central limit or current distribution. The invariant is for the stationary independent-reset model, not group resetting or interaction."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

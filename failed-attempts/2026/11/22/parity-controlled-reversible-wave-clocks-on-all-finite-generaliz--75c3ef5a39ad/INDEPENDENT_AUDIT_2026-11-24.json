@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:36:37.723988Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–73; bound VERIFICATION.md and both Python checkers inspected, not executed.",
+        "Independent binary matrix replay: /workspace/branches/6b4f6cc0-ed46-49e3-a6d0-e803da56022e/verify_independent_grid_duads.py and independent_repro_all.log. Direct fixed-kernel dimensions for k=1–24 matched in the thin (1,1), thin (2,1), and duad–syntheme (2,2) examples, with exact matrix orders 8, 24, 24."
+      ],
+      "rationale": "Length-three incidence walks give A^3=(s+t)A+H, with H all ones across the two shores. If s,t are odd, AH=0 and A^3=H has rank 2, so the zero-primary index is exactly four. In the other parities A^5=A^3 and E=A^4 is an idempotent with A^2E=E and A^3(I+E)=0. In the even-even case E projects onto the two shore-constant directions, and A^2(I+E)=A^2+E is nonzero at a noncollinear pair: a point has s(t+1) other collinear points, leaving s^2t noncollinear points. In mixed parity A^2(I+E)=AH is a nonzero one-shore block. Also E cannot vanish in mixed parity, since then A^2=AH and A^3=0, contrary to A^3=A+H being nonzero on nonincident pairs. Thus outside odd-odd the nilpotent part has index three and the one-primary part is nonempty. For a spatial J_j(a), the temporal characteristic polynomial is (z^2+az+1)^j. At each root lambda, u=lambda v and the eigencondition on v reduces to (A-aI)v=0, of dimension one on that block. This supplies the Jordan-size justification implicit in the proof's separability step: one size-2j block at 1 for a=0, or one size-j block at each primitive cubic root for a=1. Kernel dimensions of T^k-I use root multiplicity 2^nu2(k); scalar extension leaves ranks unchanged. Differences of spatial ranks recover the block counts and Möbius inversion gives the orbit counts. The largest nilpotent block gives temporal 2-power order eight in each branch, and the one-primary part adds the factor three exactly outside odd-odd. These arguments include thin quadrangles.",
+      "residual_risks": [
+        "Finite examples corroborate rather than establish the universal result. Fixed-space sizes are rank-parametric and do not assert that ranks or orbit populations are determined by s,t alone."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broader theorem allows s,t,alpha>=1 and every realized geometry, arbitrary Q=2^f, and the same bipartite point–line adjacency and two labelled layers. Its odd-alpha order branches are 8 for odd-odd, 12 for the even projective-plane exception, and 24 for the remaining cases."
+        ],
+        "reasoning": "A generalized quadrangle with the given axioms is pg(s,t,1); any projective plane with s,t>=1 has at least two connecting flags at a nonincident point–line pair, so the exceptional branch cannot apply. The broader theorem includes the thin cases and gives exactly the frozen global order.",
+        "searches": [
+          "Resultary 914535ff5fe5: partial geometries pg(s,t,alpha), Finding and Assumptions",
+          "Bose, Pacific J. Math. 13 (1963), p. 391"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 914535ff5fe5, 70f384a5950c, ad27528ba82a, fe075b4d8619, 6be21916ed4f, 79ccecc67e03",
+        "arXiv:1311.4297, 1511.01962, 1502.04368; Bose DOI 10.2140/pjm.1963.13.389",
+        "Steeb–Hardy DOI 10.1515/zna-2007-1103: full-text attempt unsuccessful; not used to infer non-coverage"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "914535ff5fe5 gives both results by alpha=1 and the preceding rank identities. Its relationship paragraph states 'Existing generalized-quadrangle wave work treats alpha=1'. Vlasov supplies generic second-order reversibility, while the Godsil et al. and strongly regular wave comparisons concern other graphs/operators; the diameter-five result concerns a Radau heat step."
+        ],
+        "reasoning": "The partial-geometry specialization and change of rank coordinates establish full implication, but the same-day designation and general acknowledgement do not establish priority. Generic reversibility, the line-intersection graph, and a heat step do not independently imply the finding.",
+        "searches": [
+          "Resultary 914535ff5fe5, Finding and Relationship to prior work",
+          "Resultary 6be21916ed4f (strongly regular waves) and 79ccecc67e03 (diameter-five heat step)",
+          "Vlasov arXiv:1311.4297 §3 Eq. (2); Godsil–Guo–Myklebust arXiv:1511.01962 §2; Arrighi–Martiel–Perdrix arXiv:1502.04368 §5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the partial-geometry Finding, a_j is reconstructed from k_j=dim ker A^j and the one-primary counts are 2U_1-U_2 and U_2-U_1 for U_i=dim ker(A+I)^i. The two records then use the same contributions min(2j,h) at spatial eigenvalue zero and 2 min(j,h) at eigenvalue one when 3 divides k."
+        ],
+        "reasoning": "Here d_j=dim ker E-k_j for j=0–3, with k_0=0 and k_4=k_5=dim ker E. Substituting gives the same zero-primary multiplicities. Also U_2=e and U_1=e-c_2, giving the same c_1 and c_2. The different choice of ranks is not a new census.",
+        "searches": [
+          "Resultary: generalized-quadrangle reversible incidence-wave clocks and partial-geometry incidence-wave clocks",
+          "Partial-geometry record 914535ff5fe5, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "914535ff5fe5 gives a piecewise exact period law and all-iterate orbit formula, not merely the same numerical entries on some examples. Affine record 70f384a5950c also displays 8/24 on another geometry; hexagon record ad27528ba82a has 48/12; projective record fe075b4d8619 gives 6/12."
+        ],
+        "reasoning": "The partial-geometry formula is the dominating exact indexed result. The other catalogue results do not match the graph family, so they are not independent evidence of quadrangle coverage.",
+        "searches": [
+          "Resultary: exact 8/24 incidence-wave period; partial geometries, affine excision, generalized hexagons, and projective-plane incidence-wave classifications"
+        ]
+      },
+      "rationale": "Distinctness of the frozen claim is not established. A separate same-date Resultary record, 914535ff5fe5, states for finite partial geometries the identical characteristic-two incidence update, a global order theorem that specializes exactly at alpha=1, and an all-iterate orbit census equivalent to the stated projector-rank formula. This is actual complete statement-level coverage, not a title match or an inaccessible-source concern. Its relationship paragraph acknowledges existing alpha=1 wave work but does not separately date or identify the frozen record there. This review establishes mathematical coverage and does not establish which result came first or claim that the frozen theorem was already known before its release.",
+      "residual_risks": [
+        "The actual publication sequence of the two same-date results is not established, and the accessible comparison does not resolve historical priority. The failure concerns verified full coverage and no established distinct scientific remainder, not an assertion of prior publication or an access failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full coverage at alpha=1; public precedence not established",
+          "evidence": "The result quantifies over all realized pg(s,t,alpha) with parameters at least 1 and Q=2^f, states the 8/12/24 odd-alpha branches and the all-iterate fixed-space and Möbius orbit census, and acknowledges existing work at alpha=1 without an identifying citation in that paragraph.",
+          "identifier_or_url": "Resultary 914535ff5fe5",
+          "material_read": "RESULT.md Finding, Assumptions, proof opening, offsets 0–3818; relationship and references, offsets 9450–end",
+          "method": "Bounded local-mirror passage reading",
+          "title": "Four exact reversible-wave clocks on incidence graphs of finite partial geometries",
+          "trigger": "Direct broader coverage of the same update and both invariants"
+        },
+        {
+          "assessment": "Generic mechanism, not this period law",
+          "evidence": "The second-order map (s,s') -> (f[s] minus s',s) specializes to this update in characteristic two, but does not give its incidence-dependent minimal polynomial.",
+          "identifier_or_url": "https://arxiv.org/abs/1311.4297",
+          "material_read": "§3, Eq. (2), PDF p. 3",
+          "method": "Open-access primary text passage reading",
+          "title": "On generalization of reversible second-order cellular automata",
+          "trigger": "Potential generic reversible-wave coverage"
+        },
+        {
+          "assessment": "Different graph and operator",
+          "evidence": "The discussion is of quantum-walk matrices on the strongly regular line-intersection graph, not the reversible binary incidence wave.",
+          "identifier_or_url": "https://arxiv.org/abs/1511.01962",
+          "material_read": "§2, p. 2",
+          "method": "Open-access primary text passage reading",
+          "title": "Quantum Walks on Generalized Quadrangles",
+          "trigger": "Identical incidence geometry and related dynamics in a primary source"
+        },
+        {
+          "assessment": "Geometry context, not wave coverage",
+          "evidence": "Its strongly regular graph is the point graph associated to the partial geometry, distinct from the point–line incidence graph.",
+          "identifier_or_url": "https://doi.org/10.2140/pjm.1963.13.389",
+          "material_read": "p. 391",
+          "method": "Open-access journal passage reading",
+          "title": "Strongly regular graphs, partial geometries and partially balanced designs",
+          "trigger": "Partial geometries and relation to strongly regular graphs"
+        },
+        {
+          "assessment": "Different level of abstraction",
+          "evidence": "The section treats reversible causal graph dynamics without classifying these incidence-wave periods.",
+          "identifier_or_url": "https://arxiv.org/abs/1502.04368",
+          "material_read": "§5",
+          "method": "Open-access primary text passage reading",
+          "title": "Reversible Causal Graph Dynamics",
+          "trigger": "Potentially broader reversible graph dynamics"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 11–43, 51–73",
+        "Resultary 914535ff5fe5, Finding"
+      ],
+      "rationale": "As a mathematical result the uniform quadrangle clock is a useful exact classification on a motivated incidence family: it separates a geometry-independent order from a geometry-sensitive orbit census, includes thin cases, and provides a checkable rank-based algorithm for all iterates. Intrinsic usefulness of that classification is separate from lack of established incremental originality relative to the encompassing record.",
+      "residual_risks": [
+        "No independent value is attributed to merely changing the kernel counts into projector ranks; no new result is credited on the basis of that reformulation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

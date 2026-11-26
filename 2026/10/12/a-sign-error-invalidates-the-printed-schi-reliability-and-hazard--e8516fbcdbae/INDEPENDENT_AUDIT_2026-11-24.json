@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:44:02.215422Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 27–152 and 154–239; frozen VERIFICATION.md and verify_schi_reliability.py (inspected, not executed)",
+        "Martínez et al. publisher PDF, Propositions 2.1, 2.4, 2.5, Corollary 2.1, Table 1, Figure 2 labels, caption and axes",
+        "Independent regularized incomplete-gamma evaluation for Table 1 and the displayed sign-change example"
+      ],
+      "rationale": "For σ,α,q,t>0, let B_q(t)=t^(−q)E[X^q 1_{X≤t}] and let G_a be the CDF of X. Conditioning on X and using P(Y≤u)=u^q for 0≤u≤1 gives S_Z=1−G_a+B_q, in agreement with the complement of the actual printed Proposition 2.4. The minus sign in the CDF is correct; the two minus signs in Corollary 2.1 (in the survival and in the hazard denominator after clearing positive factors) are not. Differentiation cancels the two density-at-t terms and gives f_Z=(q/t)B_q. Since the gamma upper tail is exponentially small and t^q B_q→C=(2σ)^qΓ(α/2+q)/Γ(α/2)>0, the correct S_Z and h_Z are asymptotic to Ct^(−q) and q/t, while the printed ones are asymptotic to their negatives. The heavy-tail conclusion of Proposition 2.5 is unchanged with the correct survival. Independent evaluation reproduces all nine SCHI Table 1 probabilities after rounding. For SCHI(1,3,1) at t=8, corrected survival and hazard are 0.36242334535 and 0.10913053882, versus −0.27039993397 and −0.14627020938 as printed. The printed survival crosses zero near 3.48777992429. Figure 2 explicitly labels that parameter choice as the black hazard and displays t=8 on a nonnegative hazard scale, inconsistent with the literal printed value; this does not identify the plotting implementation.",
+      "residual_risks": [
+        "Figure 2's trace was not independently inspected at pixel level; the caption and axes were read directly. The work does not claim which code generated the table or figure, and does not reassess estimation or the wind-speed application."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary results 2a5d6d196e6c and 09573b11c076 concern respectively a missing cubic tail sum in a different model and an exponential-integral sign in a different mean-inactivity expression. The original article's scale-mixture representation concerns this model but is not a correction of Corollary 2.1."
+        ],
+        "reasoning": "General survival-complement mathematics and other errata are not prior detection of these printed signs. Other similarly named corrections were compared by formula and distribution, not by title alone.",
+        "searches": [
+          "Resultary for reliability, printed hazard and distribution-specific sign corrections",
+          "Martínez et al. Propositions 2.1, 2.4–2.6 and Corollary 2.1"
+        ]
+      },
+      "checked_sources": [
+        "Martínez et al. DOI 10.3934/math.20251060 publisher and SciOpen copies",
+        "Resultary records 2a5d6d196e6c and 09573b11c076",
+        "Focused DOI/correction search, including the ULPGC landing page (no independent full text there)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The paper gives F=G_a−B_q but prints S=1−G_a−B_q and the matching erroneous hazard denominator. No inspected source identifies this disagreement as an erratum."
+        ],
+        "reasoning": "The underlying correct survival is a routine corollary of the known CDF and not independently original. The object assessed for priority is the verified discrepancy and its consequences for the specific printed reliability and hazard, rather than a new distribution formula in isolation.",
+        "searches": [
+          "Publisher and SciOpen PDFs of DOI 10.3934/math.20251060, actual Corollary 2.1 vs Proposition 2.4",
+          "DOI and correction search; broader Resultary corrections"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The surfaced publisher and SciOpen copies have the same Corollary 2.1 signs. The focused lookup returned the article/copies and a ULPGC repository record but did not surface a separate corrigendum."
+        ],
+        "reasoning": "An equivalent correction would identify the same positive truncated-moment term in the complement or in the hazard denominator for this exact Gamma/Beta quotient; the printed copies retain the error.",
+        "searches": [
+          "Resultary exact SCHI article title and DOI 10.3934/math.20251060",
+          "Public DOI lookup with PDF and correction terminology"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 1 shows 0.362, 0.296, 0.249 for SCHI(1,3,1) at t=8,10,12 and the other two SCHI rows also match the corrected formula to displayed precision. Figure 2's nonnegative ordinate scale and caption include the example whose printed hazard is negative at t=8."
+        ],
+        "reasoning": "The numerical table is prior and is not claimed as a new computation or an error. Its values are evidence of inconsistency with the printed formulas, not a statement diagnosing and correcting them.",
+        "searches": [
+          "Martínez et al. Table 1, PDF p. 5 / journal p. 23853 (offset 14523)",
+          "Martínez et al. Figure 2, PDF p. 7 / journal p. 23855 (offset 21300 for axes, 22299 for caption)"
+        ]
+      },
+      "rationale": "The correctly signed CDF and the quotient distribution are prior work, and the survival can be recovered directly from either. The supported distinct claim is the source-specific erratum: its two printed formulas disagree with its own Proposition 2.4 and give negative probabilities and hazards, while the actual table agrees with the repair. Neither the checked same-paper versions nor the bounded correction search disclosed an existing resolution of that discrepancy.",
+      "residual_risks": [
+        "A later, unindexed or otherwise unlocated correction remains possible. Bounded searches and the matching article versions do not prove priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms the printed inconsistency and the corrected table values; not a prior erratum",
+          "evidence": [
+            "Proposition 2.4 subtracts B_q in F; Corollary 2.1 also subtracts it in S and the hazard denominator. Table 1 is not consistent with that erroneous survival sign."
+          ],
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2025/10/PDF/math-10-10-1060.pdf",
+          "material_read": "Propositions 2.1, 2.4, 2.5; Corollary 2.1, PDF pp. 5–6, offsets 16900 and 17453; Table 1 offset 14523; Figure 2 caption/axes p. 7, offsets 21300 and 22299",
+          "method": "Bounded publisher OA PDF passages, including equation and axis text",
+          "title": "The heavy-tailed chi-square model: properties, estimation and application to wind speed data",
+          "trigger": "Exact printed propositions, corollary and illustration cited in the Finding"
+        },
+        {
+          "assessment": "Same printed signs, no silent correction in the passages checked",
+          "evidence": [
+            "Both the CDF term and the incorrectly signed survival correction agree with the publisher PDF."
+          ],
+          "identifier_or_url": "DOI 10.3934/math.20251060, SciOpen mirror",
+          "material_read": "Matching Proposition 2.4 and Corollary 2.1 passages",
+          "method": "Lawful OA alternate PDF passage comparison",
+          "title": "The heavy-tailed chi-square model: properties, estimation and application to wind speed data (SciOpen copy)",
+          "trigger": "Alternate accessible article version that could show a silent correction"
+        },
+        {
+          "assessment": "Different model and discrepancy",
+          "evidence": [
+            "An omitted cubic tail sum and a hazard exceeding one, not a Gamma/Beta quotient complement sign."
+          ],
+          "identifier_or_url": "Resultary SCOPE-2a5d6d196e6c",
+          "material_read": "Local mirror finding and error description",
+          "method": "Local Resultary statement comparison",
+          "title": "PTS-XL survival coefficient and printed hazard correction",
+          "trigger": "Nearest survival and hazard correction"
+        },
+        {
+          "assessment": "Different distribution and observable",
+          "evidence": [
+            "An exponential-integral sign in mean inactivity, not the printed SCHI reliability or hazard."
+          ],
+          "identifier_or_url": "Resultary SCOPE-09573b11c076",
+          "material_read": "Local mirror finding and corrected expression",
+          "method": "Local Resultary statement comparison",
+          "title": "Inverted ZLindley mean inactivity sign correction",
+          "trigger": "Similar distribution formula sign correction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Publisher Corollary 2.1, Proposition 2.5 and Table 1",
+        "Frozen RESULT.md lines 82–152; independent numerical comparison at t=8"
+      ],
+      "rationale": "This erratum prevents using a negative claimed reliability or hazard in the tail of a published model. It supplies the correct formulas, identifies their positive asymptotics and checks which published numerical evidence remains valid. The substantive impact is an invalid probability and hazard in the publication, not the routine algebra of taking a complement.",
+      "residual_risks": [
+        "No inference about the authors' actual numerical implementation or the validity of their fitted model follows from this localized correction."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

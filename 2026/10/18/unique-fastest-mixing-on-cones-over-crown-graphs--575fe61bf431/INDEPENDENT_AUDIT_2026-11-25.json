@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:50:05.800710Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–48; VERIFICATION.md and verify_cone_crown.py inspected, the uploaded verifier was not run",
+        "Fresh bounded exact eigenspace and lower-bound-identity check: python3 /workspace/branches/fd233acd-6208-47a1-8a5f-7199a8904adb/independent_cone_crown_spectrum.py (m=4 through 10, 105 eigenvectors)."
+      ],
+      "rationale": "On the cone over K_{m,m} minus a perfect matching, average over simultaneous index permutations and side swaps. A hub edge weight a has 2ma<=1, and the periphery has diagonal 1-a-(m-1)b. The hub contrast has eigenvalue 1-(2m+1)a. On the side contrast and the two zero-sum standard spaces, use the cross block b(11^T-I) to get v=1-a-2(m-1)b, u=1-a-(m-2)b for antisymmetric vectors, and 1-a-mb for symmetric vectors. The identity 2(m-1)u-(m-2)v=m(1-a) bounds SLEM below by t=(2m-1)/(2(3m-4)). Equality forces a=1/(2m), u=t, v=-t. The resulting b=2t/m gives positive peripheral holding, zero hub holding, and remaining nontrivial eigenvalues -1/(2m) and (m-4)t/m of modulus at most t for m>=4. For any optimizer, the averaged kernel is this invariant matrix. The PSD constraints tI-P_g and tI+P_g on 1-perp force every conjugated kernel to agree on the active +t and -t eigenspaces: a PSD quadratic form that vanishes on a vector annihilates it. Time reversal here is matrix symmetry, not an invariance assumption on the optimizer. The +t antisymmetric zero-sum space forces each row and each column of the allowed cross weights to be constant, since the corresponding coefficient vector is orthogonal to the zero-sum space. Distinct rows have a common allowed column, making every cross weight equal; both sides then have a common hub weight. The -t side contrast gives the second equality a+2(m-1)b=1+t and fixes those weights, and row sums fix all diagonals. This certifies uniqueness without assuming graph invariance of P and gives the limit 1/3 directly.",
+      "residual_risks": [
+        "The bounded check is corroboration only; the PSD rigidity and support calculation establish the universal claim. No inference about nonsymmetric kernels or other mixing criteria."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boyd et al. Theorem 2.1 guarantees existence of an averaged invariant optimum, not invariance of every optimizer.",
+          "The exact cone-transfer theorem gives rho(K1 join H)=(1-1/N)rho(H) for vertex-transitive H of order N and a uniform-hub lift of a base optimum; its lower bound operates on the averaged kernel."
+        ],
+        "reasoning": "Averaging does not preserve uniqueness in reverse. The broader later transfer theorem covers the value and an optimizer construction, but does not give a converse that every optimizer is a lift or fix an unaveraged hub vector.",
+        "searches": [
+          "Boyd, Diaconis, Parrilo and Xiao, Fastest Mixing Markov Chain on Graphs with Symmetries, Theorem 2.1, §5.4.3–5.4.4",
+          "Resultary exact-cone-transfer law, RESULT.md, Finding and Proof §2–3"
+        ]
+      },
+      "checked_sources": [
+        "Boyd–Diaconis–Xiao (2004)",
+        "Boyd–Diaconis–Parrilo–Xiao (2009)",
+        "Published Resultary records 5eef16ab8cf4 and a2a8502b28cf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For N=2m, the transfer factor times m/(3m-4) is (2m-1)/(2(3m-4)); multiplying the base edge probability by the same factor gives (2m-1)/(m(3m-4)), and the uniform hub edge is 1/(2m).",
+          "The cone proof bounds rho(P) through its average. Base rigidity identifies the base optimizer of a lifted kernel, but gives no result about arbitrary couplings between the hub and the periphery before averaging."
+        ],
+        "reasoning": "The later theorems mechanically imply the formula and a candidate minimizer; credit the meaningful remaining equality-case argument, which fixes the unaveraged transition probabilities by both spectral faces and support constraints.",
+        "searches": [
+          "Exact-cone-transfer law a2a8502b28cf, RESULT.md proof of optimality for vertex-transitive bases",
+          "Crown rigidity 5eef16ab8cf4, RESULT.md Finding and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Spectral norm of P-J is the established SDP objective. The same graph is K1 joined to the bipartite graph with all edges except a matching; its complement is an isolated vertex and two cliques joined by a perfect matching, not the single-bridge graph in the Boyd symmetry paper.",
+          "The targeted primary query returned no results; this alone is not evidence of absence. The Resultary comparison returned exact cone and crown results."
+        ],
+        "reasoning": "The SDP reformulation is known. In the complementary description, closed-form data for two cliques linked by a single bridge are not an equivalent answer; complementing exchanges support and forbidden entries and does not preserve the stochastic minimization.",
+        "searches": [
+          "Resultary: fastest mixing cone over crown graph K1 join K_m,m minus perfect matching unique optimal symmetric stochastic kernel second-largest eigenvalue modulus",
+          "Primary literature: \"fastest mixing\" (\"crown graph\" OR \"cone over crown\" OR \"complete bipartite\" \"perfect matching\") Markov chain SLEM nondiagonal unique",
+          "Boyd et al., Fastest Mixing Markov Chain on a Graph, §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact crown record gives the base SLEM m/(3m-4) and base edge probability 2/(3m-4), with base optimizer rigidity. The exact cone record supplies the transfer factor and lift. Both are dated 2026-11-08, later than the frozen record's catalogue date.",
+          "The wheel formula directly covers m=3, where Cr_3=C_6. This is outside the claimed range; Cr_m has degree m-1>=3 for m>=4."
+        ],
+        "reasoning": "The exact-formula catalogue was the relevant analogue of a lookup table for an infinite family. It gives a direct match in synthesis for values and weights; the classic wheel family supplies only the excluded endpoint, and neither is an earlier table or an unrestricted rigidity result for the assigned family.",
+        "searches": [
+          "Resultary crown rigidity record 5eef16ab8cf4 and exact cone transfer record a2a8502b28cf",
+          "Boyd et al., Graphs with Symmetries, §5.4.3, wheel formulas"
+        ]
+      },
+      "rationale": "The distinct claim is the exact crown-cone result, especially uniqueness over all supported symmetric kernels, not just invariant ones. Later exact catalogue results together recover the value and exhibit the same kernel; those parts are not independent of the broader theorem and base value when these results are available. Their catalogue dates are later, and their statements do not settle the unrestricted optimizer assertion. The literature search is bounded.",
+      "residual_risks": [
+        "The later catalogue dates do not settle any unpublished or external priority. An unindexed result establishing arbitrary-kernel uniqueness on the same family remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Formulation, not the family or rigidity",
+          "evidence": [
+            "SLEM is convex and has an SDP representation."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+          "material_read": "§2.1–2.2, p. 672, OA offset 17690",
+          "method": "Lawful open author PDF, located passage",
+          "title": "Fastest Mixing Markov Chain on a Graph",
+          "trigger": "Standard convex formulation of this exact objective"
+        },
+        {
+          "assessment": "Averaging and analogous exact families; directly covers only the excluded wheel case",
+          "evidence": [
+            "Averaging produces an invariant optimum. Wheel cores are cycles, and the other nearby example consists of two cliques joined by a single edge."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+          "material_read": "§2.2 Theorem 2.1, p. 797; §5.4.3–5.4.4, pp. 813–815",
+          "method": "Lawful open author PDF, located passages",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "Same reduction, potential matching cone or complement family"
+        },
+        {
+          "assessment": "Exact match for the core only",
+          "evidence": [
+            "For the unconed crown, gives m/(3m-4), edge weight 2/(3m-4), and uniqueness of the base chain."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-rigidity-and-quantitative-near-optimality-for-fastest-mixing-on--5eef16ab8cf4",
+          "material_read": "RESULT.md Finding and rigidity section, offsets 0 and 3900",
+          "method": "Published local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Rigidity and quantitative near optimality for fastest mixing on crown graphs",
+          "trigger": "Exact base value and optimizer"
+        },
+        {
+          "assessment": "In conjunction with the exact base result, covers value and construction, not unrestricted cone rigidity",
+          "evidence": [
+            "For a noncomplete vertex-transitive base, every optimal base kernel gives an optimal cone kernel; the displayed inequality after averaging supplies no converse about unaveraged kernels."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-cone-transfer-law-for-fastest-symmetric-markov-mixing--a2a8502b28cf",
+          "material_read": "RESULT.md Finding, assumptions and Proof §1–3",
+          "method": "Published local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact cone-transfer law for fastest symmetric Markov mixing",
+          "trigger": "Potential stronger theorem covering the entire cone family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §2–3",
+        "Boyd et al., Graphs with Symmetries, Theorem 2.1",
+        "Exact cone-transfer law a2a8502b28cf"
+      ],
+      "rationale": "Crown cones naturally combine a hub and a sparsified bipartite core. Their exact optimum makes the two active eigenvalue constraints explicit. The rigidity proof answers a question symmetry reduction leaves open: whether a nonsymmetric assignment of edge weights under graph automorphisms can match the optimal SLEM. This is a structural result for an infinite family, rather than just evaluating a solver or repeating a transfer formula.",
+      "residual_risks": [
+        "The scope is exact SLEM optimality in one uniform-stationary family, not a general stability theorem or an optimization of finite-time mixing distance."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

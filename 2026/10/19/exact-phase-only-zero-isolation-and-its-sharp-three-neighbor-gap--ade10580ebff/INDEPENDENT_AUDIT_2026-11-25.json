@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:34:16.741261Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Vandermonde determinant makes the frequency differences bijective with the two-dimensional root grid. Equilateral cancellation gives exactly two orientations, which cannot be interchanged by p-th roots since p is coprime to 3; each frequency thus yields two distinct projective classes, with no overlap between frequencies. To check the gap, fix r and write the first two terms as 2 cos(pi/3+pi r/p) times a unit phase. Nearest angular matching of the third term gives the stated parity-dependent nearest-integer rule, and the reverse triangle inequality gives the row lower bound h(r). Between the zeros 0, p/3 and p of the continuous lower bound, only maxima can intervene, so outside the exceptional rows the indicated adjacent integers suffice. In particular the p=5 outside row r=q+2=3 does require a check: h(3)=D_-(2 epsilon), and the strict comparison at RESULT.md lines 64–68 applies also to p=5 (u=pi/15). Row r=0 is excluded except for the known zero by the chord bound. For p=3q+1 row r=q+1 has an exactly opposing third term and value D_-(epsilon); for p=3q+2 row r=q has an exactly opposing term and value D_+(epsilon). Cyclically permuting the three terms and dividing by the new first term yields (r,s)→(s−r,−r), which takes that exact-angle pair to the other two stated pairs. The nearest-angle rule excludes other s on these rows. This certifies strictness and exactly three minimizing frequencies with the raw-sum normalization. Independent high-precision cosine-grid enumeration at p=5,7,11,13,17 agreed with the squared gap and all equality pairs; this is finite numerical corroboration, not the all-prime proof.",
+      "replay": "Enumerate 0<=r,s<p, excluding (0,0); evaluate 3+2cos(2pi/3+2pi r/p)+2cos(4pi/3+2pi s/p)+2cos(−2pi/3+2pi(r−s)/p) and compare the minimum and all ties with RESULT.md lines 8–25. The independent check used 70-digit Decimal trigonometric series; the frozen verifier was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li v1 Theorem 4.4 p. 22 gives the attained bound of two for arbitrary amplitudes and proves it by intersecting two circles. Li v2's general theorem instead gives p at support size three; it does not invalidate the original record's comparison to v1. The prime cyclic phase-only record supplies a qualitative at-most-one theorem on a line."
+        ],
+        "reasoning": "The studied bounds are about zero counts, not the minimal strictly positive value or its attainment set. The qualitative phase-only part is already obtainable by restricting to frequency lines and using the cyclic result for distinct projected supports; projected collisions give a two-term sum with at most one zero on the line. The all-collapsed case is excluded by affine independence.",
+        "searches": [
+          "Li arXiv:2609.16030v1 Theorem 4.4 and v2 Theorems 1.2 and 3.7",
+          "Resultary a8ba65401394 and cf7d7124f263"
+        ]
+      },
+      "checked_sources": [
+        "Li arXiv:2609.16030v1 Theorem 4.4; v2 Theorems 1.2 and 3.7",
+        "Resultary a8ba65401394, 49933ee8abec, cf7d7124f263, d193ca9cb6ce"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Li's proof removes the common phase and enumerates the possible exact cancellations for arbitrary coefficients; the cyclic result uses the same equilateral geometry for equal moduli but does not sample the full two-dimensional grid."
+        ],
+        "reasoning": "The class count is a short consequence of the grid and the two orientations together with zero uniqueness. The central distinctive result is the sharp positive modulus and exact equality cases: it requires comparing all competing rows and is not implied by either prior zero-count or peak-minimization statement.",
+        "searches": [
+          "Li v1 Theorem 4.4 proof (p. 22)",
+          "Resultary a8ba65401394, Finding and assumptions; 49933ee8abec, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Li v1 reduces the same three-point parabola to the full grid of pairs of p-th roots via the Vandermonde determinant. Record 49933ee8abec uses a one-dimensional grid and minimizes a sampled maximum, rather than the second smallest modulus at fixed cancelling phases."
+        ],
+        "reasoning": "The two-dimensional conditional gap is a quantitative optimization on an established grid representation, not a new representation or a reformulation of a minimax quantity.",
+        "searches": [
+          "arXiv:2609.16030v1 §4 Theorem 4.4 and v2 §3 Theorem 3.7",
+          "Resultary: three unimodular phasors, p-th-root grid, minimum modulus with an equilateral zero"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The later positive-amplitude two-dimensional census d193ca9cb6ce counts (p²−1)/8 positive real rays, with two opposite zeros, not complex equal-modulus rays. The other inspected records have different grid dimension, objective, or both."
+        ],
+        "reasoning": "There was no exact matched table or finding for the congruence-dependent gap or the 2p² complex projective census in the inspected evidence; a missed unindexed equivalent remains possible.",
+        "searches": [
+          "Local Resultary: phase-only Fourier zero gap and three minimizing points",
+          "Resultary 49933ee8abec, d193ca9cb6ce, a8ba65401394 and cf7d7124f263"
+        ]
+      },
+      "rationale": "The supported contribution is the exact conditional nonzero amplitude, its attainment set, and the full projective census on the parabolic grid. The three-point reduction and qualitative zero rigidity are closely tied to prior results and should not be presented as new methods.",
+      "residual_risks": [
+        "A different root-of-unity extremum formulation could occur in unindexed polygonal or sequence-design literature.",
+        "The qualitative one-zero part and the Vandermonde reduction must not carry the originality judgment by themselves."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "v1 covers the general exact-zero bound and grid reduction, not the equal-modulus conditional separation or its equality cases.",
+          "evidence": [
+            "Nonconcentric circles give at most two roots; an explicit arbitrary-amplitude example realizes two."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.16030v1",
+          "material_read": "Theorem 4.4 and proof, p. 22, text offset 58144; compared v2 Theorems 1.2 and 3.7 on pp. 3 and 16",
+          "method": "Lawful versioned preprint PDF passage check",
+          "title": "Parity-Sensitive Fourier Uncertainty and Zero-Set Rigidity on the Finite Parabola",
+          "trigger": "Same transform and exact three-point support"
+        },
+        {
+          "assessment": "Prior qualitative rigidity on the one-dimensional character grid.",
+          "evidence": [
+            "At most one zero for prime p>3; neither a conditional gap nor the parabolic projective census is stated."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-fourier-zero-rigidity-for-unimodular-three-point-signals-on-cycl--a8ba65401394",
+          "material_read": "Finding and assumptions, RESULT.md",
+          "method": "Local published-record mirror",
+          "title": "Fourier-zero rigidity for unimodular three-point signals on cyclic groups",
+          "trigger": "Equal-modulus three-point zero rigidity"
+        },
+        {
+          "assessment": "Distinct objective and sampling geometry.",
+          "evidence": [
+            "Minimizes over coefficients the maximum along a one-dimensional phase grid."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-exact-finite-grid-phase-minimum-for-the-consecutive-unimodular-t--49933ee8abec",
+          "material_read": "Finding and assumptions, RESULT.md",
+          "method": "Local published-record mirror",
+          "title": "Exact finite-grid phase minimum for the consecutive unimodular trinomial",
+          "trigger": "Sampling a unimodular trinomial over roots of unity"
+        },
+        {
+          "assessment": "Different coefficient class and count; later record.",
+          "evidence": [
+            "Positive real rays, opposite zero pair and count (p²−1)/8."
+          ],
+          "identifier_or_url": "2026/11/16/SCOPE-sharp-cyclotomic-field-obstruction-for-positive-three-atom-fouri--d193ca9cb6ce",
+          "material_read": "Finding and assumptions, RESULT.md",
+          "method": "Local published-record mirror",
+          "title": "Sharp cyclotomic-field obstruction for positive three-atom Fourier zeros",
+          "trigger": "Same ambient triangular support geometry and projective census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the natural three-site phase-only cancellation problem, the nearest surviving Fourier amplitude determines the exact separation available for distinguishing an actual sample zero from all other samples of that same sum. The p mod 3 dependence, raw amplitude scale, and three sharp frequency differences are information a qualitative uncertainty bound cannot supply. No uniform noise-robustness result for arbitrary phases is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

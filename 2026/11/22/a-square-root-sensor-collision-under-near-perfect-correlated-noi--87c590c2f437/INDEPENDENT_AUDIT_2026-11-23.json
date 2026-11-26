@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:18:32.450584Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two covariance eigenchannels give the stated sum- and difference-vector information decomposition. Distinct interior points yield independent rows since their second-to-first evaluation ratios are 2 cos(πx); coincident sites or endpoint rows cannot maximize. For a viable pair, a Rayleigh quotient perpendicular to the row difference gives λ_min≤2D/(2−ε), with D the squared origin-to-chord-line distance. D is bounded by the smaller endpoint squared norm, and the norm factorization gives maximum L=25/16 only at θ*=arccos√(3/8) and its reflection. Pairs tending to these opposite points would have chord distance squared 5/8, so any near-extremizing pair must coalesce at the same point. From the exact angular chord expression, putting u=cos²m and v=cos²(δ/2), the u-curvature at (3/8,1) is −56 and the v-derivative is 35/8. Thus the local deficit is (105/4) times squared midpoint error plus (35/32)δ². At m=θ*, A and A′ are perpendicular with squared norms L and 5/8 and A·A″=−35/8. Taking δ²=5ε+ε^(3/2) gives diagonal entries L−(75/16)ε+O(ε^(3/2)) and L+(5/16)√ε+O(ε), with off-diagonal O(ε); the gap leaves eigenvalue error O(ε^(3/2)). Matching this lower bound with the global chord bound first localizes every optimizer to O(√ε), then matrix convergence requires any limit of δ²/ε to be at least five. The first-order chord bound requires at most five and gives midpoint error o(√ε); substitution proves the claimed coefficient. For reflected pairs the two diagonal entries cross at u=(1−ρ)/[4(1+ρ)]≤1/4, where the smaller one changes from the increasing branch to the decreasing branch. This yields the exact restricted value and its limit. The frozen verify.py and verification_output.txt were inspected, not executed; symbolic and search checks there are supplementary, not global certificates. The result assumes fixed pair-level correlation independent of selected sites, applies only as ρ approaches one from below for the unrestricted asymptotics, and does not establish finite-ρ uniqueness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Attia–Constantinescu pp. 5–6, offsets 19039 and 22443: correlated inverse-design weighting with A- and D-criteria",
+          "Dette et al. arXiv:1303.2863 pp. 6 and 29–30: approximate LSE design and universal cosine-regression results for periodic covariance kernels",
+          "Holland-Letz et al. open discussion paper Theorem 2.1, offset 15530: a c-optimality equivalence condition for a specified linear combination and approximate designs",
+          "Pázman et al. pp. 1–3 distinguish exact finite-site selection and convex approximate bounds"
+        ],
+        "reasoning": "The broad methods are relevant but do not yield fixed-two-row correlated sine E-optimality when the points can vary continuously with a singular covariance parameter. c-optimality for a fixed linear functional and approximate universal LSE optimality do not provide the required worst-direction finite two-observation result. The 2016 Annals paper could not be read directly; a secondary methodological description was inspected, not taken as proof of noncoverage.",
+        "searches": [
+          "Attia–Constantinescu arXiv:2007.14476 correlated-error inverse design",
+          "Dette–Pepelyshev–Zhigljavsky arXiv:1303.2863 and 10.1214/15-AOS1361",
+          "Holland-Letz–Dette–Pepelyshev geometric correlated c-optimality",
+          "Pázman–Hainy–Müller arXiv:2103.02989 and Liu–Gao–Zhou arXiv:1910.02539"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verification_output.txt",
+        "Resultary 87c590c2f437 (same finding), 0eea79458835, c2c061b2f74b, 98c56c92dae5",
+        "arXiv:2007.14476",
+        "arXiv:1303.2863",
+        "arXiv:2103.02989v3",
+        "arXiv:1910.02539",
+        "Holland-Letz et al. SFB 823 Discussion Paper 7/2009",
+        "10.1214/15-AOS1361 (primary text unavailable; secondary comparison only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "0eea79458835 controls one spatial argmax via K, not a two-point gap",
+          "Pázman et al. §2.1 general formula gives the objective matrix but not its global optimizer in a continuum",
+          "Frozen RESULT.md lines 46–95 gives the chord upper bound, matching lower construction and exact reflected crossing"
+        ],
+        "reasoning": "Putting sine regressors into the established information formula recovers the starting matrix only; the global chord comparison and scale-forcing argument are new ingredients needed for the exact limiting coefficients and all-optimum claim. The exact reflected formula follows by elementary balancing in this model; the assessment does not count reflecting or diagonalizing Gaussian channels as independent contributions.",
+        "searches": [
+          "Resultary 0eea79458835 RESULT.md Finding; Dette et al. arXiv:1303.2863 cosine-design theorem; Pázman et al. arXiv:2103.02989 §§2.1–2.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pázman et al. §2.1, pp. 1–2, offsets 4850–8606: exact information F(T)^T C(T)^−1 F(T) for a fixed finite design space",
+          "Resultary 0eea79458835 Finding, offsets 0–1850: information diag(sin πx,sin 2πx) K diag(sin πx,sin 2πx) at one point with positive-definite temporal K"
+        ],
+        "reasoning": "The criterion in the frozen problem is the square of the smallest singular value of the whitened two-row evaluation matrix, equivalent to maximin information over unit coefficient directions. A single spatial site with variable temporal information is not a reparametrization of two simultaneous different sites with fixed pair covariance. On a fixed finite site grid, the nonzero optimizer separation cannot shrink continuously like √(1−ρ).",
+        "searches": [
+          "Local Resultary: two-sine heat mode E-optimality, exact sensor coalescence, worst-direction GLS information",
+          "Pázman–Hainy–Müller arXiv:2103.02989v3 §2.1 exact unreplicated correlated design"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "87c590c2f437 is the assigned record itself",
+          "0eea79458835 concerns the first two modes at one point with temporal data; c2c061b2f74b uses independently resolved noisy channels for three or four modes; 98c56c92dae5 studies integrated residual for a cosine kernel with independent noise and a different collision law"
+        ],
+        "reasoning": "These are nearby indexed exact results, not duplicates. The continuous optimized limiting constants and the all-maximizer location statement are not implied by the finite location search in the frozen evidence, and no distinct matched record in the inspected set supplies them.",
+        "searches": [
+          "Local Resultary: exact two-point and one-point heat observation designs; low-noise collision benchmarks"
+        ]
+      },
+      "rationale": "The assessed contribution is the global, all-optima collision asymptotic in the exact continuous two-read GLS problem, including its separation and first information correction and the reflection-design comparison. The Gaussian information formula, least-eigenvalue criterion, and general correlated-design methods are established. The strongest indexed same-mode result instead combines one spatial point with temporal information; the strongest inspected broader exact GLS setup fixes a discrete design space and does not give the continuous two-read singular asymptotic. This is a best-of-knowledge, bounded decision.",
+      "residual_risks": [
+        "The 2016 Annals full text was not obtained despite alternate lawful attempts; its complete statement was not assessed directly.",
+        "Other specialized exact designs or singular-correlation limits not inspected could affect priority.",
+        "Same-day indexing does not establish order or priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the general information matrix and a finite design space; not the continuous coalescence law",
+          "evidence": [
+            "Exact unreplicated designs are subsets of a fixed finite candidate set"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2103.02989",
+          "material_read": "v3 abstract and §§2.1–2.2, offsets 4850–8606 and around 9573–10787",
+          "method": "Bounded OA primary PDF text",
+          "title": "A convex approach to optimum design of experiments with correlated observations",
+          "trigger": "Broader exact GLS design and possible general implication"
+        },
+        {
+          "assessment": "Bayesian cases with A-/D-objectives do not give the stated two-row E-asymptotic",
+          "evidence": [
+            "Covariance-weighted sensor placement with A- or D-optimal criteria"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2007.14476",
+          "material_read": "p. 1 and pp. 5–6, offsets 0, 19039, 22443",
+          "method": "Bounded OA primary PDF text",
+          "title": "Optimal Experimental Design for Inverse Problems in the Presence of Observation Correlations",
+          "trigger": "Correlated-error sensor design for inverse problems"
+        },
+        {
+          "assessment": "Approximate LSE cosine-design problem does not dominate exact two-read GLS sine design",
+          "evidence": [
+            "Universal cosine-regression result uses periodic covariance kernels and design measures"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1303.2863",
+          "material_read": "pp. 1, 6, 29–30, offsets 0, 17134, 73156",
+          "method": "Bounded OA primary PDF text",
+          "title": "Optimal design for linear models with correlated observations",
+          "trigger": "Potential broader correlated trigonometric design theorem"
+        },
+        {
+          "assessment": "Approximate c-optimality for a particular contrast, not the E-optimal two-read problem",
+          "evidence": [
+            "Theorem 2.1 explicitly optimizes estimation of c^Tθ and assumes the approximate-design information form (2.11)"
+          ],
+          "identifier_or_url": "https://eldorado.tu-dortmund.de/server/api/core/bitstreams/7892cdbc-8589-4ece-a6a0-f6638495c248/content",
+          "material_read": "Same-work SFB 823 discussion paper 7/2009, abstract and Theorem 2.1, offsets 0–2158 and 15530–16885",
+          "method": "Bounded OA author discussion paper",
+          "title": "A geometric characterization of optimal designs for regression models with correlated observations",
+          "trigger": "Correlated small-group and exact-moment design comparison; publisher mirror inaccessible"
+        },
+        {
+          "assessment": "R-criterion and different sampling structure",
+          "evidence": [
+            "Different experimental units are assumed independent"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1910.02539",
+          "material_read": "p. 1 abstract and introduction, offset 866",
+          "method": "Bounded OA primary PDF text",
+          "title": "R-optimal designs for multi-response regression models with multi-factors",
+          "trigger": "Correlated response optimal-design literature cited by the record"
+        },
+        {
+          "assessment": "Described by Pázman et al. as continuous signed-weight least-squares/BLUE and discretization; direct overlap not fully resolved",
+          "evidence": [
+            "The secondary §2.2 passage describes a continuous weight function used as the design measure"
+          ],
+          "identifier_or_url": "https://doi.org/10.1214/15-AOS1361",
+          "material_read": "No direct full text obtained; secondary description in Pázman et al. arXiv:2103.02989v3 §2.2, p. 3",
+          "method": "Lawful DOI/Project Euclid and alternate Cardiff and IMS retrieval attempts; secondary OA passage",
+          "title": "Optimal designs in regression with correlated errors",
+          "trigger": "Plausibly stronger general correlated-design solution"
+        },
+        {
+          "assessment": "Same eigenvalue criterion, but a different temporal rather than two-site design problem",
+          "evidence": [
+            "The design variable is a single point x and K is temporal information; no two-site separation exists"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-unique-worst-direction-one-point-sensing-of-the-first-two-heat-m--0eea79458835/RESULT.md",
+          "material_read": "Finding, offsets 0–1850",
+          "method": "Local Resultary search and bounded local-mirror text",
+          "title": "Unique worst-direction one-point sensing of the first two heat modes",
+          "trigger": "Strongest distinct matching same-mode and same-criterion catalogue result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Two readings are the minimal exact design for two unrestricted coefficients, and fixed common calibration noise is a concrete model for the singular regime. The theorem establishes why a natural reflected design misses the limiting optimum by a factor of 25/16 and supplies a sharp gap, midpoint localization and first-order information benchmark across all optimal pairs, not just a numerical optimizer. It is a structural benchmark for prescribed pair-level noise, not a recommendation for distance-dependent spatial covariance or positive-time sensing.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

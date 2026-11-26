@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:30:32.590576Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:5–99",
+        "VERIFICATION.md:19–25",
+        "check_schrodinger_fibers.py:22–81 (inspected, not executed)"
+      ],
+      "rationale": "Independently, tr(X[X,Y])=tr(Y[X,Y])=0 forces X,Y upper triangular at [X,Y]=e. Their two coefficient rows (a,b),(d,f) have determinant 1/2, giving q(q²−1) ordered pairs. Both central input coordinates are free. Each block's vector equations have rank two, and translating (α,β) by (a,d)h changes ω by −s_i h, making c uniform when any s_i≠0. When all s_i=0, the lower coordinates are (α',β')=(a,d)t_i and aβ−dα=r_i+t_i/2; the block contributes −r_i t_i−t_i²/2 with q lifts per t_i. Completing the square gives sum_i(t_i+r_i)²=sum_i r_i²−2c. This proves the pointwise formula independently of the conjugating translation. The quadratic Gauss sum G²=χ(−1)q and additive orthogonality give the even correction χ((−1)^k)q^(k−1) times q−1 at zero and −1 otherwise, and the odd correction χ((−1)^k b)q^k. For fixed r, c runs through all b; each character class and the s≠0 branch have exactly the reported multiplicity. The lower level is zero only at n=1, and all three levels are distinct. Conjugation by g sends the vector blocks by g and z by det(g); one nonzero nilpotent Jordan block is GL₂-conjugate to e.",
+      "residual_risks": [
+        "Fresh finite replay: enumerate all traceless matrix pairs by literal multiplication; for bracket e enumerate all pairs of two-vectors per block, convolve their center outputs, multiply by q², and compare every target to a separately enumerated sum of squares. For (q,n)=(3,1),(3,2),(5,1),(9,1) all targets agreed; for F₉=F₃[t]/(t²+1) the levels and frequencies were 0:36, 524880:657, 1049760:36. These checks are bounded; all-field validity rests on the proof, not the replay."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lemma 3.2 supplies a general-target existence argument. The centerless n=1 semidirect product counts q³(q²−1) pairs for a nonzero matrix target."
+        ],
+        "reasoning": "Existence is not multiplicity. Summing the frozen count over c gives q² times the corresponding quotient fiber when n=1; the quotient cannot recover the individual c-fibers.",
+        "searches": [
+          "arXiv:2611.16812v1, Lemmas 3.2–3.3",
+          "Resultary: prescribed bracket fibers in the five-dimensional semidirect product"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.16812v1",
+        "Resultary f0f5cc8317b1 (self), 719f5e23598f, 1b00a980bbc9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The lemma's special equations recover the r=s=0 fiber on counting the free parameters; the quotient theorem recovers only the central sum."
+        ],
+        "reasoning": "Even combined, those implications do not determine the uniform branch, shifted quadratic law, and full target multiplicities.",
+        "searches": [
+          "Sosnov, proof of Lemma 3.3 and general-target setup of Lemma 3.2; quotient record 719f5e23598f"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sosnov Lemma 3.3 reduces the target e−kz/2 with zero vector to sum_i λ_i²=k."
+        ],
+        "reasoning": "The special system can be counted but its zero vector right-hand side does not include nonzero lower-vector targets or the shift by sum r_i²/2.",
+        "searches": [
+          "Resultary: Schrödinger Lie algebra nilpotent-slice ordered bracket/commutator fibers; sum-of-squares obstruction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact indexed self-hit f0f5cc8317b1; distinct 1b00a980bbc9 counts targets cz with zero matrix projection."
+        ],
+        "reasoning": "Self-hit gives no independent antecedent. The central target lies outside the nilpotent affine slice in question.",
+        "searches": [
+          "Resultary: nilpotent bracket fiber law; nonzero central fibers of finite Schrödinger Lie algebras"
+        ]
+      },
+      "rationale": "The qualitative obstruction and a recoverable subfamily are known; neither they nor the exact centerless or central-target censuses give the full center-refined three-level law on the nonzero nilpotent slice. Credit is restricted to that quantitative refinement, not to bracket width or the sum-of-squares reduction itself.",
+      "residual_risks": [
+        "Bounded search and source comparison; an unindexed exact law is not excluded. No chronology is inferred for the same-day quotient and center records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial implication only",
+          "evidence": "Lemma 3.3 treats e−kz/2, zero vector; its equations reduce to a sum-of-squares condition, not a full census.",
+          "identifier_or_url": "https://arxiv.org/html/2611.16812v1",
+          "material_read": "Lemmas 3.2–3.3; decisive Lemma 3.3 passage at HTML text offset 14383",
+          "method": "OA HTML bounded passage",
+          "title": "Uniqueness of addition in Schrödinger algebras",
+          "trigger": "Same algebra, same nilpotent bracket obstruction"
+        },
+        {
+          "assessment": "Exact aggregate overlap, not individual central fibers",
+          "evidence": "For nonzero matrix component, the quotient vector-target fiber is q³(q²−1).",
+          "identifier_or_url": "2026/11/22/SCOPE-three-stratum-prescribed-bracket-fibers-in-the-five-dimensional--719f5e23598f",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Three-stratum prescribed bracket fibers in the five-dimensional semidirect product",
+          "trigger": "Same-day exact fibers for the n=1 quotient"
+        },
+        {
+          "assessment": "Disjoint target projection",
+          "evidence": "Targets are cz, with zero matrix projection; off-center fibers are out of scope.",
+          "identifier_or_url": "2026/11/22/SCOPE-nonzero-central-bracket-fibers-of-finite-schr-dinger-lie-algebra--1b00a980bbc9",
+          "material_read": "RESULT.md offsets 0–3014",
+          "method": "Resultary local mirror",
+          "title": "Nonzero central bracket fibers of finite Schrödinger Lie algebras",
+          "trigger": "Same algebra and exact prescribed fiber invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:5–41",
+        "Sosnov, Lemmas 3.2–3.3",
+        "Resultary 719f5e23598f"
+      ],
+      "rationale": "The slice is singled out by the nilpotent commutator obstruction, not selected arbitrarily. The center-sensitive law distinguishes fibers flattened by the quotient and gives the precise obstruction frequency in the smallest dimension and the distribution after all targets become attainable. This is an independently usable quantitative refinement of existence.",
+      "residual_risks": [
+        "No claim for zero or semisimple matrix projection or for characteristic two."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

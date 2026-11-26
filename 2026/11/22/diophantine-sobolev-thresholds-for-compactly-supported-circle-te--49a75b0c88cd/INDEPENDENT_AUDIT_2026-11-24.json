@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:33:23.870308Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof, lines 3–44",
+        "Frozen VERIFICATION.md and verify.py, lines 9–48"
+      ],
+      "rationale": "With probability Haar measure direct integration gives a_0=c²/(2π) and a_n=|1−e^{inc}|²/(2πn²) for n≠0. For p/q, the allowed nonconstant residue classes give uniform comparison with n⁻²; a missing Fourier coefficient is a continuous functional on C(T), and subtracting the atomic measures of two disjoint q-orbits annihilates all allowed modes. In the irrational case all frequencies are present, which gives uniform density by trigonometric polynomials and strict definiteness by uniqueness for finite measures. The O(n⁻²) upper bound and finite polynomials give continuous embedding in H¹ and density there; a sparse subsequence with summable n²a_n gives an H¹ member not in the RKHS by assigning coefficients √a_n. Testing single characters and then summing shows bounded inclusion iff inf (1+n²)^s a_n>0. The exponential difference is comparable to ||nα||, and the limsup formula for μ gives both strict regimes and the stated independent endpoint condition. Dividing in·f̂(n) by 1−e^{inc} gives the unique zero-mean transfer, and Parseval supplies exactly 2π and the separate constant term. The equation only sees the nonconstant part, so the claim is not restricted to mean-zero f. A single-character norm check and an exact q=3 orbit test were also verified. The frozen verify.py was inspected, not executed; its finite diagnostics do not certify Diophantine asymptotics, and the description of two continued-fraction regimes overstates the script, which samples one badly approximable example. No expert or formal certification is asserted.",
+      "residual_risks": [
+        "The claimed embedding endpoint is conditional on the uniform lower bound, not determined by the numerical irrationality exponent alone."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gneiting, arXiv:1111.7077, §4.2 Theorem 4, p. 14: convex nonincreasing profiles are PD under its integral/normalization hypotheses and strictness follows if not piecewise linear.",
+          "Steinert et al., arXiv:2506.19245, §3.1 Lemma 2 and §3.2 Theorems 2–3: Fourier RKHS norms and spectral universality methods."
+        ],
+        "reasoning": "Gneiting's sufficient strictness condition does not apply to the piecewise-linear tent; positive definiteness is covered. General spectral norms give the method and diagonal boundedness test, but to get the distinct result one must identify the tent multiplier with the rotation difference, including exact constants, vanishing modes and small-divisor boundary.",
+        "searches": [
+          "Resultary: piecewise linear circle Pólya kernel Gneiting strict positive definiteness RKHS universality triangular kernel",
+          "Primary literature: circle Wood 1995 strictly positive definite triangular covariance irrational support circular Pólya \"piecewise linear\" tent Fourier Gneiting"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, related-work section",
+        "Resultary …49a75b0c88cd and …61e4f2d84211",
+        "Gneiting arXiv:1111.7077",
+        "Steinert et al. arXiv:2506.19245",
+        "Dimitrov–Xu arXiv:1606.05011"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Dimitrov–Xu's examined passages treat symmetric real-line triangles and sinc/sinc² transforms, not a discrete circle RKHS.",
+          "Classical division by 1−e^{inc} gives the diagonal rotation obstruction; the native-space statement matches this to the tent's inverse spectral measure with a derivative and the exact mean term."
+        ],
+        "reasoning": "Do not count positivity, the Fourier-space RKHS theorem or standard rotation estimates separately as new. No inspected stronger result directly subsumes the exact identification and two-sided arithmetic embedding classification. The cited Dimitrov–Xu passages do not support the frozen text's aside about an asymmetric real-line density and a Diophantine conditioning exponent; this attribution should not be relied on and is not needed for the theorem or this comparison.",
+        "searches": [
+          "Gneiting arXiv:1111.7077, §4.2",
+          "Steinert et al. arXiv:2506.19245, §§3.1–3.2",
+          "Dimitrov and Xu arXiv:1606.05011, Proposition 2.15 and §4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary …61e4f2d84211, Finding and assumptions: bounded-type rotations, continuous transfers for H^s data for s>1, and H¹ data with L² but not continuous transfers."
+        ],
+        "reasoning": "Compare the cocycle to f′ in this record. L² transfer for differentiated H² in the bounded-type case is a standard multiplier consequence, not the adjacent record's sharp continuous-transfer question. The latter neither identifies the native norm nor handles arbitrary irrationality types or rational cutoffs. Same-day indexing is not evidence of priority.",
+        "searches": [
+          "Resultary: rotation coboundary isometry RKHS f' = g - g(t+c) native space small divisors",
+          "Primary literature: \"tent kernel\" circle Fourier native space irrational Sobolev Diophantine rotation coboundary RKHS small divisors"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact Resultary hit …49a75b0c88cd is the assigned finding itself; distinct close hit …61e4f2d84211 was inspected in the mirror."
+        ],
+        "reasoning": "The exact duplicate is not independent coverage. The distinct entry answers a different transfer-regularity question. This is a parameterized structural classification, not a tabulated finite invariant.",
+        "searches": [
+          "Resultary: circle geodesic tent kernel RKHS rational support missing Fourier modes H1 compact support",
+          "Resultary: irrational circle tent kernel Sobolev inclusion inf n^{s-1} ||n alpha|| small divisor"
+        ]
+      },
+      "rationale": "Credit circle Pólya positivity, Fourier-diagonal RKHS theory, and small-divisor inversion as established ingredients. The supported distinct contribution is their exact identification for this particular compact-circle tent: the full arithmetic native-space inclusion frontier and the rotation-coboundary isometry alongside the rational support restriction. No inspected earlier statement supplies this package or the tent-specific isometric identification. This is a best-of-knowledge comparison, not a priority certificate.",
+      "residual_risks": [
+        "Older circle covariance or rotation-cohomology literature, including full Wood (1995) and Gneiting (1998b), may supply additional equivalent partial coverage; their full texts were not examined.",
+        "The precise asymmetric triangular-density attribution in the frozen note remains unsupported by the cited passages."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior positivity, not the exact strictness/native-space dichotomy",
+          "evidence": "Theorem 4 asserts strictness when the profile is not piecewise linear.",
+          "identifier_or_url": "https://arxiv.org/pdf/1111.7077",
+          "material_read": "§4.2, p. 14, offset 44550 onward",
+          "method": "Open PDF text located by theorem and read by offset",
+          "title": "Strictly and non-strictly positive definite functions on spheres",
+          "trigger": "Closest cited circle Pólya criterion"
+        },
+        {
+          "assessment": "Prior general methods; no tent arithmetic in the compared statements",
+          "evidence": "Lemma 2 is a Fourier RKHS description; Theorems 2–3 are universality criteria in the stated symmetric-space setting.",
+          "identifier_or_url": "https://arxiv.org/abs/2506.19245",
+          "material_read": "PDF pp. 4–6, offsets 11400–15933",
+          "method": "Open PDF passage inspection",
+          "title": "Universal kernels via harmonic analysis on Riemannian symmetric spaces",
+          "trigger": "Broader Fourier-native-space and universality results"
+        },
+        {
+          "assessment": "Real-line comparison only; attribution of asymmetric arithmetic claim unsupported by these passages",
+          "evidence": "Symmetric triangle (2−|t|)_+/4; correlation and translate-density examples with sinc-type transforms.",
+          "identifier_or_url": "https://arxiv.org/abs/1606.05011",
+          "material_read": "Proposition 2.15, PDF p. 9, offset 31800; §4, PDF p. 15, offset 53200",
+          "method": "Open PDF passage inspection",
+          "title": "Wronskians of Fourier and Laplace Transforms",
+          "trigger": "Potential prior triangular transform and arithmetic result"
+        },
+        {
+          "assessment": "Related bounded-type continuous-transfer theorem, not an equivalent claim",
+          "evidence": "H^s→continuous transfer for s>1, exceptional H¹ data with L² but noncontinuous transfer.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-sobolev-threshold-and-near-lipschitz-exceptional-coboundar--61e4f2d84211/RESULT.md",
+          "material_read": "Finding and opening assumptions, offset 0",
+          "method": "Local mirror",
+          "title": "Sharp Sobolev threshold and near-Lipschitz exceptional coboundaries for constant-type rotations",
+          "trigger": "Closest distinct local corpus match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Limitations",
+        "Gneiting §4.2 and the mirror bounded-type coboundary comparison"
+      ],
+      "rationale": "The same natural geodesic profile varies continuously with support length, while native-space containment can shift from excluded Fourier modes to dense proper containment with arbitrarily severe Sobolev loss. The complete exact arithmetic test, including the endpoint and a norm-preserving cohomological interpretation, answers when a regularity class is uniformly controlled by this kernel; plain positivity or general Parseval does not answer that question. No finite-site conditioning or universal cohomological inverse is inferred.",
+      "residual_risks": [
+        "Value is specific to this kernel family and its native norm, not a general new small-divisor theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:51:14.490917Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In a single excursion, the Laplace transforms of the right-first and left-first absorption times, evaluated at the reset rate, are sinh(b)/sinh(a+b) and sinh(a)/sinh(a+b). Renewal with the given instantaneous relocations and the remaining one-target mean (exp(distance)−1)/r gives the stated dimensionless objective. With s=sinh(a), u=e^a and S=sinh(b), the numerator of its derivative over (s+S)² simplifies to u s²+2Su s−S²/u, which gives the quartic after multiplication by 4u. This quartic increases strictly for u>1, starts negative and grows without bound. At u=t=e^(b/3), direct substitution gives t⁶P=(t²−1)²(t²+1)(t⁶−t²−1), proving both the unique crossing and its direction. Equivalently at the optimum, S=(u²−1)(u+√(u²+1))/2, which gives S/a→1+√2 at a→0 and S/u³→1 at a→∞. Hence the two asymptotics, including the negative log(2) correction, hold. The analytic ratio is below its large-distance limit for b>b_c and converges to that limit, so it attains a global minimum at some finite b>b_c; each such minimum is locally strict by analyticity and nonconstancy. There is no assertion of uniqueness of that ratio minimum. I inspected the symbolic/numerical checker without executing it; the decision uses the analytic argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Calvert–Evans characterize the unique positive optimum for every b, not just small or large b.",
+          "Their exponential-scale large-distance equivalent explicitly includes the factor 2^{-1/3}.",
+          "Pal–Prasad concern first absorption and splitting, not the sequential two-target design."
+        ],
+        "reasoning": "The full unique-optimum relation and asymptotic estimates in the same model are stronger coverage. The interval first-passage theory alone would not be enough.",
+        "searches": [
+          "Searching for clusters of targets under stochastic resetting placement Calvert Evans reentrant optimal distance ratio two targets one third plastic constant",
+          "arXiv:2111.02335 §3.4 Eqs. (35)–(40)",
+          "arXiv:1812.03009 Eqs. (14), (31)–(32)"
+        ]
+      },
+      "checked_sources": [
+        "Calvert–Evans, arXiv:2111.02335, Eqs. (30), (35)–(40)",
+        "Pal–Prasad, arXiv:1812.03009",
+        "Local indexed RESULT.md copy of the frozen finding"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Under η=t=e^{b/3}, multiply Eq. (35) by t⁶ to obtain (t²−1)²(t²+1)((t²)³−t²−1)=0; the only possible factor for t>1 is the plastic-constant cubic.",
+          "For η>1 the published quartic has positive derivative in η. Thus exactly the test value's sign determines the side of the already characterized unique optimum.",
+          "Eq. (36) gives e^{a_*}∼(e^b/2)^{1/3}; Eq. (40) gives a_*/b→√2−1>1/3."
+        ],
+        "reasoning": "One substitution and sign factorization give the exact finite boundary and global sign. Taking logarithms of Eq. (36) already gives the approach from below. The largest stated increment is therefore an explicit corollary of the published result, even if its name and exact wording were absent.",
+        "searches": [
+          "Calvert–Evans §3.4 Eq. (35), positive-root uniqueness, and Eqs. (36)–(40)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "a=α₀x_r, b=α₀|x_l| and u=η give exactly the same objective, derivative zero and stopping convention in Calvert–Evans."
+        ],
+        "reasoning": "This is optimization of the same second target's physical position with the first target fixed. It is not the related problem of selecting a reset site, nor a first-hit-only stopping problem.",
+        "searches": [
+          "Local Resultary: optimal placement of second Brownian target Poisson resetting position x star L target at L first target at zero published parametrization equation",
+          "arXiv:2111.02335 §3.2 Eq. (30) and §3.4 Eq. (35)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching indexed exact threshold was the frozen finding itself. Its Relationship to prior work explicitly credits the same quartic and notes the direct algebraic dependence.",
+          "Primary Eq. (35) supplies an exact parameter relation rather than a numerical table."
+        ],
+        "reasoning": "The index result does not show separate priority for the exact decimal or the algebraic constant. A numerical table is immaterial to the direct exact implication from Eq. (35).",
+        "searches": [
+          "Local Resultary: Brownian resetting optimal strategy parametrization crossover exponent one third asymptotic",
+          "Local Resultary: Brownian resetting two absorbing targets optimal second target one third ratio large distance asymptotics"
+        ]
+      },
+      "rationale": "Calvert–Evans give the same all-parameter optimizer equation and uniqueness in Eq. (35). Evaluating this exact relation at the natural test ratio from their Eq. (37) gives the proposed threshold by direct polynomial factorization, and its already monotone left-hand side gives both signs. Moreover Eq. (36), not just the rounded ratio equivalent in Eq. (37), gives e^{a_*}∼(e^b/2)^{1/3}; taking logs already yields the stated negative log(2)/(3b) correction. Together with their small-distance limit, this independently forces nonmonotonicity and finite attainment. The named threshold is an unstated but mechanically implied corollary, not a new optimizer structure. This is a positive prior-coverage finding, not a failure to locate a source.",
+      "residual_risks": [
+        "Whether an intermediate source also printed the named plastic-constant threshold is unresolved and does not affect the demonstrated implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior implication of the crossing/sign and the nonmonotone endpoint behavior; the exact named crossover was not stated in the passages inspected.",
+          "evidence": [
+            "Eq. (35) is the identical quartic, followed by uniqueness for η>1.",
+            "Eq. (36) already has e^{b/3}/2^{1/3}, not just the ratio in Eq. (37)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2111.02335",
+          "material_read": "§3.2, p. 4, Eq. (30), at offset 22500; §3.4, pp. 5–6, passages at offsets 29200, 29700, 32600 and 33300, Eqs. (35)–(40).",
+          "method": "Bounded primary PDF inspection; independently compared the quartic and the exponential-scale asymptotic.",
+          "title": "Searching for clusters of targets under stochastic resetting",
+          "trigger": "Same renewal model and all-parameter optimizer."
+        },
+        {
+          "assessment": "Provides the first-hit and splitting ingredients; not a proof of the sequential completion optimizer.",
+          "evidence": [
+            "Eq. (14) is the interval mean first-passage relation; Eqs. (31)–(32) concern splitting probabilities."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1812.03009",
+          "material_read": "Abstract p. 1, Eq. (14) p. 4 at offset 24000, Eqs. (31)–(32) p. 6 at offset 120800.",
+          "method": "Bounded primary PDF passage comparison.",
+          "title": "First passage under stochastic resetting in an interval",
+          "trigger": "Two-target reset first-hit formulas potentially overlapping the underlying objective."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Comparing an optimum to its asymptotic ratio is a natural design question, and the closed-form constant is a useful way to present the prior solution. The submitted standalone advance, however, amounts to evaluating one already-published exact optimizer equation at that ratio, with the qualitative nonmonotonicity and asymptotic correction already forced by the published endpoint estimates. It supplies no independent exact invariant beyond that mechanical extraction and does not determine the ratio's turning-point structure. This is a useful explanatory corollary, not a surviving research claim under the value criterion.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

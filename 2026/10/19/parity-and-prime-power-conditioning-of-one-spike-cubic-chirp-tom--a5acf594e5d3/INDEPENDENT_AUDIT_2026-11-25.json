@@ -1,0 +1,163 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:02:28.572445Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, assumptions and proof §§1–6",
+        "Frozen VERIFICATION.md, verify.py, and verification_output.txt, inspected but not executed"
+      ],
+      "rationale": "For k≠0 the cubic phase difference is −3kj²+3k²j−k³. The two impulse cross-terms give the bracket 1+ζ^(−kℓ) in the common phase; at k=0 the delta adds 3 to the identity autocorrelation row. If d divides both the quadratic coefficient and modulus with d their gcd, grouping lifts kills the Gauss sum unless d divides the linear coefficient and otherwise reduces it with factor d. The squared-modulus expansion for the reduced odd unit quadratic has only difference 0 surviving; for a primitive modulus 2^r, r≥2, the two survivors yield 2^r(1+(−1)^b) with reduced linear coefficient b, and modulus 2 gives the opposite parity branch. For p≥5 a surviving Gauss sum has modulus ≥√N; it cannot cancel the impulse terms and, for a≥2, cannot reach the much smaller candidate minimum. On the zero branch only shifts with positive valuation occur. The root nearest −1 is available in the largest possible odd phase order p^(a−1), exactly for valuation one and the displayed two phase residues, each with p frequency lifts. For p=3 unit shifts already permit a vanished Gauss term at unit frequencies, and both nearest-root frequencies are units; nonunit shifts have smaller phase order, and surviving Gauss terms are too large. Direct N=3 evaluation agrees. In the dyadic case a surviving Gauss term is too large to cancel; kℓ=N/2 mod N and a vanished Gauss term are both necessary and sufficient. At odd k the linear coefficient is odd, and at t=v₂(k)≥1 the product congruence fixes v₂(ℓ)=a−t−1, yielding the stated gcd/parity cutoff 2t≥a−1. Each allowed valuation contributes 2^(a−1) zeros; the direct N=2 window has one zero. Weyl conjugations act by distinct orthogonal characters on the Hilbert–Schmidt-normalized Weyl basis, giving singular values √N |A|/(N+3). The frequency sign in the bracket corresponds to M[−ℓ], which is immaterial to the multiset; at fixed k the modulus also agrees under ℓ↦−ℓ since g(−j)=conj(g(j)) and the correlation product is invariant under j↦k−j. Equality in the Cauchy–Schwarz upper bound can hold only for the identity, since any nonzero shift moves the unique modulus-two entry and nontrivial modulation is not constant on the full support. The two condition-number formulas and linear informational-completeness consequences follow.",
+      "residual_risks": [
+        "For primes p≥5 and a=1 only nonvanishing is claimed. The floating-point finite checks corroborate representative cases, not exact vanishing on all prime powers.",
+        "Linear rank deficiency in the dyadic cases is not a conclusion about nonlinear pure-state injectivity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li v1 gives the zero-Gauss criterion for the unperturbed cubic seed on cyclic odd prime powers; v2 uses a constant plus parity-adjusted quadratic Chu chirp for its exact universal margin. The Zhu–Wang repair lemma assumes every nonzero shift has flat nonzero ambiguity before the repair, whereas Li's imprimitive zeros disprove that hypothesis here for cyclic p≥5,a≥2. Salanevich treats multi-window injectivity."
+        ],
+        "reasoning": "A generic repair lemma cannot yield this prime-power classification when its flatness hypothesis fails, and spectra of another seed or multi-window ensemble are not bounds determining this fixed cubic-plus-unit-impulse window.",
+        "searches": [
+          "Li arXiv:2609.09614v1 Proposition 5.1 and v2 Theorem 3.1",
+          "Zhu–Wang arXiv:2608.11850v1 Lemma 10",
+          "Salanevich arXiv:2307.00834v1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1503.05800",
+        "arXiv:2307.00834v1",
+        "arXiv:2609.09614v1 and v2",
+        "arXiv:2608.11850v1",
+        "Resultary 30922f9c96fe and 66a38431d63f",
+        "DOI:10.1007/s12095-026-00877-z (index only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "30922f9c96fe implies unit-impulse nonvanishing for p≥5 at exponent one: the reported resonance strengths for p≡1 mod 4 are ≥√p/2>1, and p≡3 mod 4 is zero-free. Independently, in q=p the Zhu–Wang flat cubic vector repaired with t=1/√p<1/2 is exactly the unit-impulse window after normalization, and Lemma 10 yields strict positivity. The later 66a38431d63f margin specializes at strength one. Li's v1 criterion picks out zero-Gauss classes prior to adding the impulse."
+        ],
+        "reasoning": "The prime nonvanishing assertion and the unperturbed vanishing mechanism are earlier implications. The inspected earlier results do not determine the sharp nearest-root optimization and all its minimizer classes on cyclic prime powers, nor the even-modulus cancellation and rank count.",
+        "searches": [
+          "Resultary 30922f9c96fe and 66a38431d63f Findings",
+          "Zhu–Wang arXiv:2608.11850v1 Lemma 10 pp. 10–11",
+          "Li arXiv:2609.09614v1 Proposition 5.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Self-ambiguity nonvanishing is a standard Gabor operator-tomography criterion. Zhu–Wang compute projector-Gram floors for one-spike Alltop windows; a projector-Gram floor is the square of the least lift singular value under the corresponding norm convention. Their balanced finite-field construction has a distinct amplitude and, at extension degrees greater than one, a different displacement group."
+        ],
+        "reasoning": "Changing from ambiguity to a Gram spectrum is not a novel claim. Changing a noncyclic finite field's additive phase space to the cyclic prime-power ring is not a relabeling: nonunit shifts and their Gauss-sum vanishing differ. In prime dimension the groups do agree, and the prime-only nonvanishing overlap is credited.",
+        "searches": [
+          "Bojarovska–Flinth arXiv:1503.05800",
+          "Zhu–Wang arXiv:2608.11850v1 §§IV–VI, Lemma 10 and Theorem 11",
+          "Gabor tomography cubic chirp Alltop single impulse ambiguity prime powers Gauss sums dyadic rank nonvanishing perturbed cubic chirp Li"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "30922f9c96fe gives positive-impulse resonance on prime cyclic groups. 66a38431d63f gives the same normalized minimum 2 sin(π/(2p^(a−1)))/(N+3) at strength one for cyclic p≥5, a≥2, with an attaining example. The quadratic-spike and one-coordinate constant-window records treat other seeds."
+        ],
+        "reasoning": "The comparable indexed objects are exact arithmetic formulas, not a finite lookup table. The matching scalar margin in 66a38431d63f is genuine overlap, but its catalogue date is 2026-11-08, after the frozen record, and its inspected statement does not give the full optimizing indices or the characteristic-three and dyadic formulas.",
+        "searches": [
+          "Local Resultary search for cubic chirp cyclic prime-power Gabor tomography: 30922f9c96fe, 66a38431d63f; adjacent references 03361b3cff9c, 4ad1eba7465a"
+        ]
+      },
+      "rationale": "The Weyl spectral reduction and the prime-dimensional nonvanishing component are covered. The distinct contribution of the finding is the cyclic prime-power arithmetic classification: sharp minima and full optimizing index sets on the stated odd branches, and the exact dyadic zero set and rank. The closest exact-margin record supplies a matching p≥5 scalar minimum as a later special case at impulse strength one, not established as prior coverage and not the whole classification.",
+      "residual_risks": [
+        "The search is bounded; equivalent cyclic Gauss-sum classifications may appear under different terms in sequence or radar literature. The uninspected generalized chirp-like paper is an access limitation, not negative evidence.",
+        "Catalogue date ordering is not proof of absolute priority; the scalar-margin overlap and already covered prime nonvanishing are recorded explicitly."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the ambiguity-nonvanishing implication",
+          "evidence": "A Gabor orbit with nonzero self-ambiguity is phase retrievable by the associated lifting argument.",
+          "identifier_or_url": "https://arxiv.org/abs/1503.05800",
+          "material_read": "Theorem 2.2, HTML around offset 14500",
+          "method": "Open primary preprint passage",
+          "title": "Phase Retrieval from Gabor Measurements",
+          "trigger": "Standard lifting and IC criterion"
+        },
+        {
+          "assessment": "Different measurement design",
+          "evidence": "Injectivity is treated for multi-window Gabor frames, not the fixed single-window spectrum.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.00834v1",
+          "material_read": "Open HTML around offset 3800",
+          "method": "Open primary preprint passage",
+          "title": "Injectivity of Multi-window Gabor Phase Retrieval",
+          "trigger": "Nearby explicit Gabor injectivity construction"
+        },
+        {
+          "assessment": "Same unperturbed cubic phase and vanishing mechanism, not repaired spectrum",
+          "evidence": "For p≥5,a≥2 the imprimitive Gauss sum kills frequencies outside the gcd divisibility condition; the paper distinguishes the finite-field alternative from the cyclic group.",
+          "identifier_or_url": "https://arxiv.org/html/2609.09614v1",
+          "material_read": "§5, Proposition 5.1 and following discussion, offsets 65100–68490",
+          "method": "Open primary HTML passage",
+          "title": "Explicit Full-Spark and Quantitatively Phase-Retrievable Gabor Windows via Algebraic Perturbations",
+          "trigger": "Closest earlier cyclic cubic prime-power degeneracy mechanism"
+        },
+        {
+          "assessment": "Exact margin for a different window; points to the stronger matching prime-field source",
+          "evidence": "Theorem 3.1 uses 1+λ times a parity-adjusted quadratic Chu chirp, not a cubic phase with one unit impulse.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.09614v2",
+          "material_read": "Abstract p. 1, §3.1 Thm. 3.1 p. 6, and discussion at offset 33770",
+          "method": "Open primary PDF passages",
+          "title": "Explicit Full-Spark Gabor Windows with Quantitative Phase Retrieval",
+          "trigger": "Revision with exact cyclic margins and reference to balanced Alltop"
+        },
+        {
+          "assessment": "Genuine earlier prime nonvanishing implication; finite-field extension and balanced spike do not give the cyclic prime-power classification",
+          "evidence": "The cubic Alltop vector uses F_q and a flat off-axis ambiguity profile; adding t|0⟩ gives strictly positive bounds at 0<t<1/2. For q=p the choice t=p^(−1/2) is the frozen prime case; Theorem 11 optimizes a different balanced choice.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.11850v1",
+          "material_read": "Alltop profile and Eqs. (79)–(85), Lemma 10 and Theorem 11, pp. 10–11, offsets 80500–87487",
+          "method": "Open primary PDF passages",
+          "title": "Uniformly stable minimal Weyl–Heisenberg measurements approaching the SIC benchmark",
+          "trigger": "Earlier exact spectral floor for a single-spike cubic phase, including the shared prime case"
+        },
+        {
+          "assessment": "Prime exponent-one subclaim already covered",
+          "evidence": "The stated resonances exclude strength one for primes p≥5, by the two residue-class alternatives.",
+          "identifier_or_url": "30922f9c96fe",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Arithmetic resonance in positive impulse repairs of cubic cyclic chirps",
+          "trigger": "Direct earlier unit-impulse prime overlap"
+        },
+        {
+          "assessment": "Later exact overlap at strength one, not complete minimizer or parity classification",
+          "evidence": "Same p≥5, a≥2 normalized scalar minimum at strength one and an attaining index.",
+          "identifier_or_url": "66a38431d63f",
+          "material_read": "RESULT.md Finding and proof passages, offsets 0 and 4000",
+          "method": "Local Resultary mirror",
+          "title": "Sharp one-impulse repair of prime-power cubic Gabor chirps",
+          "trigger": "Strongest directly matching cyclic sharp margin"
+        },
+        {
+          "assessment": "Not used to rule out coverage",
+          "evidence": "Index describes fractional ambiguity of shifted Zadoff–Chu and DFT-based sequences; article retrieval did not expose the primary text.",
+          "identifier_or_url": "https://doi.org/10.1007/s12095-026-00877-z",
+          "material_read": "Indexed description only; full text not read",
+          "method": "Open article retrieval attempted, including lawful DOI recovery",
+          "title": "Low ambiguity zone property of generalized chirp-like sequences",
+          "trigger": "Primary-search hit on nearby chirp ambiguity arithmetic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and §§3–6",
+        "Li v1 Proposition 5.1 and Zhu–Wang Lemma 10, for comparison with the unperturbed and repaired designs"
+      ],
+      "rationale": "The unperturbed cubic phase is a standard chirp whose cyclic prime-power ambiguity degenerates. A one-coordinate repair is a natural minimal modification; computing the worst-case singular direction, its multiplicity and the surviving dyadic nullspace matters for operator reconstruction, beyond showing that some perturbation works. The least gap is controlled by different arithmetic in characteristic three and the other odd primes, and in dyadic dimensions the unit repair leaves an exactly measured rank obstruction. These are useful exact properties of this simple fixed design, not a claim of optimality among windows.",
+      "residual_risks": [
+        "The condition numbers are for the linear Hilbert–Schmidt lift, not noise guarantees for a nonlinear algorithm, and no result is claimed for unrelated composite dimensions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

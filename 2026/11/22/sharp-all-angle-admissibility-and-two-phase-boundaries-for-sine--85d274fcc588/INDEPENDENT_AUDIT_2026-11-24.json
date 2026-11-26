@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:24:03.436843Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py (inspected, not executed)",
+        "Independent algebra, rational trigonometric bound and numerical diagnostics: python /tmp/opencode/frozen-review-math.py, sine()"
+      ],
+      "rationale": "At exponent one the four copula boundary conditions are automatic. The mixed derivative is 1+αβ(1−2u)(1−2v)h(t), where t=βu(1−u)v(1−v). Its continuity makes pointwise nonnegativity equivalent to 2-increasingness, including at a corner by approaching from the interior. At fixed ab=t/β with a=u(1−u), b=v(1−v), maximizing (1−4a)(1−4b) is equivalent to minimizing a+b, so a=b=√(t/β) attains the bound. Reflections across 1/2 give both signs, except when the product is zero and the sign does not matter. This proves the exact admissibility envelope, including Q≥1 from t=0. An envelope contribution exceeds 1 iff |h(t)|>1 and β exceeds the stated scalar objective, which itself exceeds 16t and therefore implies t<β/16. By Cauchy–Schwarz, |h(t)|≤√(1+t²); hence the objective is strictly larger than 16(t+2+1/t). This proves blow-up at both t→0 and t→∞. At each positive finite boundary of the eligible set the denominator |h|−1 tends to zero, giving compact sublevels and attainment. Alternating Taylor bounds at 2 give |h(2)|≥2 times the sine lower truncation at degree 7 minus the cosine upper truncation at degree 8, giving a rational upper bound for the candidate B(2) less than 105.051. Therefore 64<β_c<106 rigorously; an independent diagnostic scan and local minimizations agree with the approximate 103.92133496324 without certifying its digits. The sign of α sin t changes exactly when β/16>π for nonzero α. Finally t(1−4√(t/β)) has maximum β/108 at t=β/36; |h|≤1+t gives the upper bound and sampling within π/2 of that maximum at points with |sin t|=1 loses only O(β⁻¹) from the leading term. This proves the claimed sharp amplitude equivalent 108/β².",
+      "residual_risks": [
+        "Critical decimal and numerical minimization are diagnostic, not a certified enclosure or proof of uniqueness. All-angle result is for exponent one, not the full shape family."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary three-parameter construction treats γ≥1 but restricts β and gives only sufficient amplitude. The other two primary papers have a product involving separate sine factors or have an xy prefactor multiplying 1 plus a sine."
+        ],
+        "reasoning": "A broader shape parameter range is not a dominating admissibility theorem. The other constructions do not reduce under their stated parameters to this composed sine of x(1−x)y(1−y).",
+        "searches": [
+          "10.3390/appliedmath3010010 Proposition 1, arbitrary shape",
+          "10.3390/appliedmath1010002 Proposition 1",
+          "10.3390/modelling3010010 Proposition 3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary focused queries, including exact self-match 85d274fcc588",
+        "Targeted literature lookup and the three primary papers in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior gives only nonnegative sine arguments within a restricted family and a sufficient amplitude condition. It never establishes that the density minimum lies over the equal-product extremizer or that |α|β alone is sufficient until β reaches the scalar onset."
+        ],
+        "reasoning": "The sign of the formula itself implies where the difference from independence changes sign, but the paper's validity proposition does not imply admissibility there. Neither sufficiency for a narrower subset nor the pointwise sine sign gives the exact all-angle density threshold or the large-angle coefficient.",
+        "searches": [
+          "10.3390/appliedmath3010010 Proposition 1 and quadrant-dependence discussion; remaining related trigonometric propositions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chesneau's general family reduces at γ=1 to exactly this sine of the product of two quadratic margins. Its exponent-one constraints are sufficient and narrower."
+        ],
+        "reasoning": "Identifying the family is not an originality claim. Differentiation supplies the square-domain density but not its sharp minimization over both branches or the resulting scalar transition.",
+        "searches": [
+          "Resultary family, density envelope, phase-boundary and high-frequency amplitude searches",
+          "10.3390/appliedmath3010010, §2.1 Proposition 1 and quadrant-dependence discussion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The recurring exact indexed match is ID 85d274fcc588, the frozen target itself, not an independent source. The prior matched proposition supplies a different bound."
+        ],
+        "reasoning": "No distinct indexed exact envelope or threshold tabulation was identified. This bounded index result is not evidence against unindexed material.",
+        "searches": [
+          "Resultary checks on the exact Q function, first onset near 103.9213 and 16π phase boundary, and high-frequency 108/β² amplitude"
+        ]
+      },
+      "rationale": "The sine-FGM construction and quadrant dependence under restricted old admissible parameters are established. The strongest matched prior contains only sufficient bounds at exponent one (β≤8π and |α|≤1/[β(1+β²/256)]); it does not establish the new sharp envelope in that range or beyond. The sine-sign cutoff is a direct consequence of the known formula, not an independently deep novelty claim; it becomes a boundary of the full valid family only after the sharp all-angle validity calculation. The distinct contribution is the full envelope, its first departure, and its large-angle behavior, with the two phase boundaries identified together.",
+      "residual_risks": [
+        "Bounded search and passage comparison, not an exhaustive historical priority determination. The public search did not add a decisive primary-source lead."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same construction and restricted sufficient parameter region; no covering exact frontier in these statements",
+          "evidence": "At γ=1 prior β≤8π and |α|≤1/[β(1+β²/256)]; sign discussion is in the restricted nonnegative-sine regime.",
+          "identifier_or_url": "https://doi.org/10.3390/appliedmath3010010",
+          "material_read": "§2.1 Proposition 1, PDF p. 3, and quadrant-dependence discussion, PDF p. 22 (extraction offsets 12000 and 142500)",
+          "method": "OA primary PDF passages",
+          "title": "A Collection of New Trigonometric- and Hyperbolic-FGM-Type Copulas",
+          "trigger": "Original identical family and admissibility result"
+        },
+        {
+          "assessment": "Different perturbation type",
+          "evidence": "The bivariate expression multiplies sin(πx), sin(πy) and sin(π(x+y)).",
+          "identifier_or_url": "https://doi.org/10.3390/appliedmath1010002",
+          "material_read": "§2 Proposition 1, PDF p. 6, extraction offset 12700",
+          "method": "OA primary PDF passage",
+          "title": "On New Types of Multivariate Trigonometric Copulas",
+          "trigger": "Potential n=2 specialization"
+        },
+        {
+          "assessment": "Different construction in the inspected proposition",
+          "evidence": "The expression is xy times 1+sin[θ(1−x)(1−y)], not a sine of the product with x and y inside the argument.",
+          "identifier_or_url": "https://doi.org/10.3390/modelling3010010",
+          "material_read": "§3.1 Proposition 3, journal p. 152, extraction offset 63000",
+          "method": "OA primary full-text passage",
+          "title": "Theoretical Study of Some Angle Parameter Trigonometric Copulas",
+          "trigger": "Related angle-classification paper, abstract only in frozen comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md exact envelope and both phase boundaries",
+        "Original sufficient parameter bounds, 10.3390/appliedmath3010010 Proposition 1"
+      ],
+      "rationale": "A known widely parameterized copula construction had a conservative sufficient region. The sharp necessary-and-sufficient test identifies both the onset of stricter amplitude requirements and the earlier loss of quadrant dependence while valid copulas still exist. Its 108/β² asymptotic quantifies the full high-angle shrinkage. The contribution does not rest on the elementary sine sign observation in isolation.",
+      "residual_risks": [
+        "No claims about statistical estimation, other shapes or broader association notions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

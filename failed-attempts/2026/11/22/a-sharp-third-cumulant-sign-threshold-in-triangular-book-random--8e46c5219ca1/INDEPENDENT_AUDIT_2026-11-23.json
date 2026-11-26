@@ -1,0 +1,87 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:59:00.684516Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For m≥3 and real q>1, v>0, enumerate the one-page weights q,v,v,v² according to the spoke state. After those weights, the two hub factors are q if a bridge or the spine is present and q² otherwise. Summing the spine gives the unnormalized vector law q[(1+v)B^m times the Bernoulli(p) product law + (q−1)A^m times the all-zero point mass], with A=q+2v, B=A+v², p=v²/B. For distinct page labels the joint rth product moment is θp^r, so the stated covariance and third cumulant follow. The sign is that of R−1 with R=(1−θ)/θ=(q−1)/[(1+v)(1+v²/(q+2v))^m]; v²/(q+2v) strictly increases on v>0. R decreases from q−1 to 0: at q=2 there is no positive zero, while q>2 gives exactly one. For v=a/sqrt(m), mp→a²/q and R→(q−1)exp(−a²/q); bracketing the root between two fixed scaled activities proves its limit, and binomial-to-Poisson convergence gives the claimed count law. No thermodynamic singularity is asserted. Frozen RESULT.md lines 41–64 establish the argument; verify.py and VERIFICATION.md were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "RESULT.md offsets 2911–6275 and 4261–6861 identify the exact finite column factorization; the sparse K_{2,n} law also provides the Bernoulli–Poisson structure. The graph in the prior is K_{r,n}, not a book with a spine."
+        ],
+        "reasoning": "The exact finite identity, not the asymptotic theorem alone, covers the open/closed conditioning. For the closed spine use the exact K_{2,m} identity. For the open spine the hubs are contracted into one component so the independent reference column law is now un-tilted, times one global q; the activity supplies v. No new finite-core analysis is required.",
+        "searches": [
+          "Resultary a9cbf9d149be, exact finite-size change of measure and K_{2,n} sparse bridge limit"
+        ]
+      },
+      "checked_sources": [
+        "Resultary a9cbf9d149be",
+        "Resultary c59908eec139",
+        "Triangular-book FK/Tutte literature search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Closed-spine unnormalized masses are qB^m times the product law plus q(q−1)A^m times the all-zero atom. Open-spine masses are qvB^m times the same product law. Their sum gives the exact θ in the frozen record."
+        ],
+        "reasoning": "For three distinct pages the cumulant is p³ times the third cumulant of Bernoulli(θ), giving its sign by R−1. The odds are a product of decreasing factors with endpoints q−1 and 0. This uses a sum of two deletion–contraction terms and a Bernoulli cumulant identity, not a new estimate or nonmechanical extension. The sparse limit uses the same product tilt with (1+v) tending to 1.",
+        "searches": [
+          "Resultary a9cbf9d149be, finite product tilt, plus FK spine deletion–contraction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The finite-core exact formula gives reference iid column types tilted by q raised to the hub component count. The spanning-tree record uses the same graph but its statistic is a Walsh projection, not a bond cumulant."
+        ],
+        "reasoning": "On two hubs the bare tilt is q times [1+(q−1) times the indicator of no bridge]. This is already the decomposition into a product law and a single all-zero tilt. Adding the spine changes the product coefficient, not the form or dependent component. The spanning-tree comparison independently supplies no coverage.",
+        "searches": [
+          "Resultary a9cbf9d149be (fixed-hub FK reduction)",
+          "Resultary c59908eec139 (triangular-book spine effect)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest same-graph exact indexed comparator c59908eec139 concerns spanning trees; the exact matching sign entry returned by Resultary is the assigned record itself."
+        ],
+        "reasoning": "A fixed finite table cannot by itself settle this continuous-(q,v), unbounded-m assertion. Here the determinative exact evidence is the finite-size symbolic reduction, not a numerical match or a separate sign table. A keyword search that found no direct table supplies no negative evidence.",
+        "searches": [
+          "Resultary: triangular-book/spine FK observables; matches a9cbf9d149be and c59908eec139",
+          "Public literature search for triangular-book FK/Tutte formula"
+        ]
+      },
+      "rationale": "The exact page law, hence the boundary and sparse scaling, is mechanically implied by the earlier finite-core FK factorization combined with ordinary spine deletion–contraction. The prior record does not explicitly state the book sign theorem and its main asymptotic model lacks a spine; neither difference blocks this implication. This is positive coverage evidence, not an inference from a missing paper or a common title.",
+      "residual_risks": [
+        "An older direct multivariate Tutte or book-graph formula may give still earlier coverage; historical first publication is not assigned by this review.",
+        "The exact sign theorem was not found verbatim in the earlier record; coverage here rests on the displayed implication, not literal duplication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically covering when composed with spine deletion–contraction",
+          "evidence": "The exact tilted column law supplies the vacant-spine case for finite m; the occupied spine gives the same reference product with the hub-component tilt constant.",
+          "identifier_or_url": "Resultary 2026/11/08, a9cbf9d149be",
+          "material_read": "RESULT.md offsets 220–3819 (scope), 2911–6275 and 4261–6861 (exact identity), and passage at 8966 (comparison/limits)",
+          "method": "Local published-record mirror",
+          "title": "Finite-core Fortuin–Kasteleyn reduction and mixed-Gaussian cluster fluctuations",
+          "trigger": "Earlier exact reduction for a fixed hub set, including the two-hub bridge mechanism"
+        },
+        {
+          "assessment": "Not a covering observable",
+          "evidence": "The recorded norm and spine correction are for spanning-tree Walsh spectra, not cumulants of simultaneously occupied page bridges.",
+          "identifier_or_url": "Resultary 2026/11/16, c59908eec139",
+          "material_read": "RESULT.md passages at offsets 46 and 1765",
+          "method": "Local published-record mirror",
+          "title": "Exact Walsh spectrum and a central-binomial spine-edge effect for triangular-book spanning trees",
+          "trigger": "Identical graph and a distinguished spine statistic"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The contrast between positive pair covariance and a sign-changing third cumulant is scientifically intelligible, but the advertised exact boundary is a routine readout of the existing exact two-hub product tilt: adding the spine only multiplies the product contribution by 1+v. The sign and the asymptotic scale require no additional structural estimate. It is a useful illustrative corollary, not a distinct valuable unknown exact invariant under the audit standard. No surviving repair is established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

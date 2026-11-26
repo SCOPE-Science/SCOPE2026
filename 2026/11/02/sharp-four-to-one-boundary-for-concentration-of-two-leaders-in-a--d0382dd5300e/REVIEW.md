@@ -1,21 +1,21 @@
-# Review: exact leader placement in two weighted bridge-linked cliques
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The grounded inverse of a uniformly weighted clique is explicitly computed, including its diagonal and column norm. A single Sherman--Morrison identity gives all cross-clique leader pairs. The cut-edge electrical resistance series law gives same-clique pairs and proves strict inferiority of omitting a gateway when both leaders are in the same clique. Those cases exhaust all pairs. The sharp \(p>4q-2\) possibility boundary follows from a strict comparison with a split-leader competitor, with a separate large-bridge constructive sufficiency argument. The two transition points in the example are exact rational equalities and the remaining candidates are strictly dominated there as specified in the proof. No step depends on finite enumeration.
+PASS
 
-Direct reproducibility checks: 300 exact weighted graph configurations, 9000 exact rational grounded matrix inversions, 2400 strict exclusions of non-gateway same-clique pairs, and exact checks at two rational transition points. The checker outputs PASS. Finite checking is corroborative, not proof of all quantifiers.
+Independently reconstructed the grounded clique inverse, single-bridge rank-one split costs, and same-side diagonal inverse entries by unit-current injection and the cut-edge voltage drop. This exhausts all pair orbits; grounding both gateways is strictly worse than PP and omitting the occupied-side gateway in a colocated pair strictly increases cost. The exact SS−PG numerator over t(1+td_p) is q+(qd_p−α_p)t with α_p/d_p=(p+2)/4, which excludes SS even at p=4q−2. If p>4q−2, choose α_p>α_q and a sufficiently large finite bridge conductance: SS then beats PG and its limiting margin over PP, GP and TT is strictly positive. The example's PP–PG and PG–SS tie equations reduce respectively to 80−575t=0 and 3−15t/8=0; GP and TT cannot tie the optimum there. The stationary Brownian covariance follows from the positive definite grounded Lyapunov equation.
 
-## Originality
+## originality
 
-**PASS under bounded best-knowledge comparison, with residual priority risk.** The public full-text material inspected from Lin--Fardad--Jovanović establishes general stochastic leader-selection algorithms and convex relaxations, not the five-orbit structural reduction. Fitch--Leonard establishes a general centrality formula and explicit path/cycle conclusions; Patterson--Yi--Zhang establishes resistance methods and explicit path/cycle/tree families. A documented earlier equal-strength \(K_2\)-versus-\(K_q\) special case is subsumed, so neither that case nor general trace-inverse machinery is claimed as new. They do not imply arbitrary internal conductance scales, arbitrary orders at least three, or the sharp \(4q-2\) leader-concentration criterion without additional analysis. published-finding corpus and literature searches using bridge-barbell, weighted two-clique, grounded trace, gateway/non-gateway, and four-to-one threshold formulations did not reveal an explicitly covering claim. Search absence is not a proof of priority. Unindexed specialized work or a generic formula specialized without a printed theorem remains a possibility.
+PASS
 
-## Mathematical value
+The distinct result is the independently weighted five-pattern reduction with a sharp size-only concentration boundary, strict exclusion at equality, and a genuine two-transition example. The closest exact catalogue match shares the PP and PG costs only on the unit-conductance slice and does not supply the concentration result. The general grounded-inverse objective and resistance method are prior work.
 
-**PASS.** This is a natural noisy-consensus leader-allocation problem with two dense communities and a single bottleneck. It gives a constant-size, globally exhaustive optimizer despite quadratic growth in leader pairs, a sharp **parameter-independent** barrier to placing both leaders in one community, and a constructive sharp converse. The exact three-stage migration example, from distributed non-gateway leaders to one bridge gateway and finally both leaders in the larger internally weak community, is a genuine structural phenomenon absent from the earlier single-transition two-vertex-clique case. The family has freely varying clique sizes, internal coupling scales and bridge strength; it is not a numerical table recomputation or a one-parameter substitution.
+## value
 
-## Closest literature and limits
+PASS
 
-Primary references: Lin, Fardad and Jovanović (arXiv:1302.0450, initially 2013); Fitch and Leonard (arXiv:1407.1569, initially 2014); Patterson, Yi and Zhang (arXiv:1708.06873, initially 2017). The latter is later supporting literature and does not set the archive anchor. The result assumes strictly positive uniform conductance within each clique, exactly one bridge, and exactly two perfect leaders. Full bibliographic exhaustion is unavailable, so publication priority remains a residual risk. The verification is self-review only and is not independent certification.
+The single-bridge network is a natural model of coupled communities. The formulas reduce all vertex pairs to five costs, and the strict four-to-one boundary is a parameter-independent obstruction differentiating bottleneck splitting from concentration. The ordered rational transitions show that supporting a same-clique optimum is not just a formal infinity-limit effect.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:10:01.682268Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 2–75",
+        "Frozen VERIFICATION.md, verify.py and verify_output.txt (inspected, not executed)",
+        "Replay: python /workspace/review_evidence/graph_checks.py 5"
+      ],
+      "rationale": "In a crown of n≥3 the deleted partners are distance 3, and a third vertex has distances 1 and 2 from them. Thus no third vertex can strongly resolve that pair and every strong resolving set meets it. Conversely, for two omitted vertices from different pairs, the selected partner of one is a resolving witness: the other omitted vertex lies on a length-three geodesic between partners. Pairs meeting S are resolved by their selected endpoint. Among sets with pair coverage, an omitted a_i is undominated precisely when no b_j with j≠i is selected; pair coverage then forces b_i and all a_j with j≠i into S. This leaves exactly the stated two families, distinct for n≥3. Each matched index has factor 2z+z², and deleting the 2n size-n exceptions gives the polynomial and coefficient 2^n−2n>0 at z^n. Independent BFS-distance and closed-neighborhood tests cover all 87,360 subsets for n=3 through 8, finding 9,762 qualifying sets and 438 total minimum sets.",
+      "residual_risks": [
+        "The BFS replay is exhaustive only in the stated range. The arbitrary-n claim follows from the exact metric and domination arguments; n=2 is disconnected and excluded."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The direct-product strong-metric theorem gives the matched-pair cover precursor. The strong-resolving-domination papers inspected treat joins/coronas and lexicographic products; the diameter-at-most-two scalar corollary is inapplicable at diameter three."
+        ],
+        "reasoning": "Strong metric dimension alone is a lower bound and a whole shore attains it while dominating. Neither this scalar argument nor the two domination papers alone give the exceptional pattern census; the indexed disjoint branch does.",
+        "searches": [
+          "Primary literature: strong resolving domination, dominant strong metric dimension, direct product, crown graph",
+          "Monsanto et al. 2020 and 2023 graph products and general bounds; arXiv:1307.4722 Theorem 37"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Relationship to prior work",
+        "Local Resultary 60cce5e52da9 and bc3fc492b96b",
+        "arXiv:1307.4722; DOI 10.29020/nybg.ejpam.v13i1.3625 and 10.29020/nybg.ejpam.v16i1.4652"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The product precursor supplies exactly the branch restriction; the indexed branch rules out P={i}, Q=[n] minus {i} and its reverse, and counts all remaining sets."
+        ],
+        "reasoning": "Intersecting the indexed solid family with the known pair-coverage condition yields the frozen classification and polynomial, including the minimum count. No additional class of sets survives as a distinct contribution. No catalogue ordering is inferred from same-day dates.",
+        "searches": [
+          "arXiv:1307.4722 Theorems 1 and 37 and their cover implication",
+          "Resultary 60cce5e52da9 Finding and disjoint-branch proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rodríguez-Velázquez et al., Theorems 1 and 37 with proof, identify the matching strong resolving graph.",
+          "Resultary 60cce5e52da9 distinguishes the P∩Q=∅ branch from the exceptional P=Q={i} solid codes."
+        ],
+        "reasoning": "Strong resolution is exactly P∩Q=∅. The two invariants are not equivalent on every set, but within that branch solid location plus domination is exactly domination: distinct same-shore omissions distinguish one another using their partners, and opposite-shore identifying sets are disjoint when nonempty. The indexed branch already imposes the same domination filter.",
+        "searches": [
+          "Resultary: crown strong resolving dominating sets across all cardinalities, domination with disjoint shore omissions, solid locating domination",
+          "arXiv:1307.4722: crown as P_2×K_n, strong resolving graph and vertex cover"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "60cce5e52da9, Proof, explicitly counts disjoint omission codes by z^n(z+2)^n minus 2nz^n. Its full solid polynomial adds nz^(2n−2) from the other branch.",
+          "bc3fc492b96b concerns hitting maximal geodesics, not the defining witness requirement for strong resolution."
+        ],
+        "reasoning": "Removing the added matched-pair omissions is justified by the pair-cover criterion, not just by noticing the generating functions differ by a monomial. Coefficients agree for every size in the selected branch.",
+        "searches": [
+          "Resultary: crown set-cardinality polynomials, solid or strong resolving dominating codes, geodesic transversals"
+        ]
+      },
+      "rationale": "The known strong resolving graph nK_2 makes strong resolution equivalent to disjoint sets of omitted indices on the two shores. A distinct same-day Resultary solid-locating-domination result already states and counts exactly the dominating disjoint-omission branch, with the same exceptions and size polynomial. Its extra n matched-pair omissions are precisely the branch excluded by strong resolution. The entire frozen result, not just its scalar, follows by selecting the existing branch. This is demonstrable coverage, not a claim about ordering or historical priority.",
+      "residual_risks": [
+        "The 2025 dominant strong metric dimension text remains uninspected; the public search was uninformative. The failure rests on positive catalogue and direct-product coverage, not absence or inaccessibility. Same-day labels do not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Disjoint-omission branch exactly covers the frozen family once intersected with strong resolution",
+          "evidence": [
+            "Proof explicitly subtracts the same 2n size-n failures from disjoint patterns. Only the separate P=Q={i} codes contribute nz^(2n−2)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-self-and-solid-locating-dominating-code-polynomials-of-crown-gra--60cce5e52da9/RESULT.md",
+          "material_read": "Finding and Proof, including mirrored offsets 780–4498 and equation (1)",
+          "method": "Local Resultary search and mirrored passages",
+          "title": "Self- and solid-locating-dominating code polynomials of crown graphs",
+          "trigger": "Distinct same-day crown family and full set-size count"
+        },
+        {
+          "assessment": "Known strong-resolution precursor, no domination enumeration by itself",
+          "evidence": [
+            "The strong resolving graph of P_2×K_n is n disjoint edges, so a vertex cover must meet every deleted pair."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1307.4722",
+          "material_read": "Theorem 1 (PDF p. 3, offset 9166), Theorem 37 (p. 14, offset 42900)",
+          "method": "OA primary-text passage review",
+          "title": "On the strong metric dimension of Cartesian and direct products of graphs",
+          "trigger": "Prior strong resolving graph of the isomorphic direct product"
+        },
+        {
+          "assessment": "Same definition; product hypotheses do not give the crown census",
+          "evidence": [
+            "The diameter-at-most-two corollary does not apply to crowns of diameter three."
+          ],
+          "identifier_or_url": "10.29020/nybg.ejpam.v13i1.3625",
+          "material_read": "Definitions pp. 1–2 and join scalar corollary p. 5",
+          "method": "OA primary-text passage review",
+          "title": "On Strong Resolving Domination in the Join and Corona of Graphs",
+          "trigger": "Foundational paper for exactly the hybrid invariant"
+        },
+        {
+          "assessment": "No applicable disjoint-omission census in the inspected result",
+          "evidence": [
+            "Its product is lexicographic rather than direct; scalar bounds do not provide membership by size."
+          ],
+          "identifier_or_url": "10.29020/nybg.ejpam.v16i1.4652",
+          "material_read": "PDF pp. 1 and 3, scope and bounds",
+          "method": "OA primary-text passage review",
+          "title": "Strong Resolving Domination in the Lexicographic Product of Graphs",
+          "trigger": "Continuation on the same invariant and graph products"
+        },
+        {
+          "assessment": "Unresolved additional literature risk, not the basis for failure",
+          "evidence": [
+            "Full-text routes returned HTTP 403; no scientific inference drawn from the access failure."
+          ],
+          "identifier_or_url": "10.1080/09728600.2025.2574313",
+          "material_read": "Identifier and citation only; relevant full text not obtained",
+          "method": "Lawful OA and publisher URL attempts; repository copy not located",
+          "title": "The dominant strong metric dimension of graphs",
+          "trigger": "Equivalent hybrid under an alternate name"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding",
+        "Resultary 60cce5e52da9 disjoint-omission branch",
+        "arXiv:1307.4722 Theorems 1 and 37"
+      ],
+      "rationale": "A full cardinality census for a hybrid invariant on a natural diameter-three graph could be useful. Here both the family and its census are already isolated in the indexed disjoint-omission branch, and that branch is selected by the known metric condition. There is no independently useful unknown exact fact left in the frozen claim.",
+      "residual_risks": [
+        "This does not rule out a worthwhile classification for other direct products or new hybrid constraints."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

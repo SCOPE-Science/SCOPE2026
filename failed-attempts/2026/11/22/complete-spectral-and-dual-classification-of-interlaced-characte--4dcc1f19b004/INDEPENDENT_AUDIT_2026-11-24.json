@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:01:22.305545Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Findings and Proof; VERIFICATION.md; check.py (inspected only)",
+        "Independent replay: OPENBLAS_NUM_THREADS=1 python3 /workspace/branches/independent_replay.py 4"
+      ],
+      "rationale": "For each coordinate interlace u and Fourier label a, use the unit vector p^(−1/2)ζ^((σ(u)+a)t) on that interlace and zero on all others. These are an orthonormal basis. A translated/modulated atom with ℓ≡a mod p lies in the a-subspace; its u-coordinate there is √p exp(2πiℓu/N)ζ^(−bσ(u)) for translation bm. Summing its outer products over b annihilates all terms with distinct u,v by injectivity and finite character orthogonality, also for composite p. Hence each ℓ contributes p²P_a exactly, giving the spectrum, rank, spanning test and the scalar canonical inverse and inverse square root. Tight-frame occupancy is constant and positive; the paragraph in item 2 is read under its opening spanning hypothesis. The empty mask has the stated zero spectrum but is not a frame. Isospectral classes correspond exactly to occupancy histograms; multiplication of independent binomial choices and multinomial placement gives their census. At k=pq+s, the pigeonhole bounds min c≤q and max c≥q+1 when s>0 force the ratio bound, with equality requiring both extremal occupancies to attain the bounds; s=0 requires constancy. The number of guaranteed frequency-label deletions is min c−1, yielding the maximum q−1. Independent SVD and direct linear solves tested 35 masks with composite periods and widths up to m=p, and exact rational comparisons checked 43 size/design cases.",
+      "residual_risks": [
+        "Numerical examples only corroborate the algebra; the proof covers empty and deficient masks for spectra, and spanning masks only for tightness and canonical dual as frames.",
+        "Frequency-label deletion retains the full translation subgroup; arbitrary individual atom erasure is not covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Corollary 5.1(b) imposes only the subgroup hypothesis on K and leaves L arbitrary. It gives every Fourier block, not merely existence. Lemma 3.4 evaluates the first translation block-row as the interlace cross-correlation, with all off-diagonal entries vanishing when those correlations vanish.",
+          "Corollary 4.3 supplies diagonal tight cases for a spectral-root criterion on the mask. Constant occupancies force all the nontrivial p-th root sums to vanish, satisfying that criterion; the full arbitrary-mask spectral formula comes from the stronger combined block/correlation formulas, not from the example by itself."
+        ],
+        "reasoning": "The prior general result already covers the needed objects and operations. There is no remaining nonscalar block to solve after substituting a one-line character autocorrelation.",
+        "searches": [
+          "arXiv:2605.16139v2 Theorem 1.1, Lemma 3.4, Corollaries 4.3 and 5.1(b)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.16139v2, decisive formulas and example identified above",
+        "Resultary lookup and two distinct inspected findings",
+        "Frozen RESULT.md, Relationship to prior work"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the prior first block row, T_K[u,v+qm]=δ_uv p ζ^(−qσ(u)) by the stated interlace correlation formula. Multiplication by M_L[u,u+qm]=∑_{ℓ∈L}ζ^(−ℓq), using the prior Hadamard identity, gives diagonal entries p∑_{ℓ∈L}ζ^(−q(σ(u)+ℓ)). Applying the prior block Fourier transform gives entry p²c_(a) on the Fourier coordinate of frequency σ(u)+a (up to the Fourier-sign relabeling). This yields the precise projector decomposition, not just a prediction of spectral similarity.",
+          "Restricting a given atom to interlace u shows it has precisely that frequency there. Inverse powers on those eigenvectors give the scalar dual and Parseval weights. With p independent bins of m labels, their occupancies immediately yield the histogram count by multinomial/binomial choices, spanning/tight counts by product, condition ratio by max/min and deletion tolerance by the least bin."
+        ],
+        "reasoning": "This is an explicit mechanical implication from existing stronger formulas plus routine counting and averaging bounds. The novel-looking outputs not literally printed there do not constitute a surviving distinct claim under the scientific standard.",
+        "searches": [
+          "arXiv:2605.16139v2 Lemma 3.4 proof and its application of Lemma 3.1 (HTML offsets 32320–37934); Corollary 5.1(b) eq. (5.2) (offset 47200 onward)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior Hadamard-product and translation-correlation formulas concern exactly the same frame operator and interlaced window parametrization, under the same subgroup translation condition.",
+          "The nearby Resultary one-defect erasure record instead uses one-defect windows, subgroup modulations and deletion of translation fibers. The half-cycle two-channel record instead optimizes a boxcar window and a two-frequency choice with all translations."
+        ],
+        "reasoning": "The nearby erasure or design titles are not equivalent claims. The prior Gabor block formula is a genuinely equivalent representation; the residue-occupancy diagonal is obtained directly from it.",
+        "searches": [
+          "Resultary meaning search for arbitrary frequency masks, interlaced-character windows, isospectrality and erasures",
+          "arXiv:2605.16139v2 Lemmas 3.1 and 3.4; Corollary 5.1(b)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed identical record is not an independent precedent or table; the closest distinct indexed erasure census uses a different type of mask/window.",
+          "The primary paper explicitly treats p=4, m=3, σ(u)=u, L={0,1,2,3}; its S=16I exactly matches the one-per-residue instance."
+        ],
+        "reasoning": "No separately tabulated all-mask histogram was seen. The specific previously computed tight mask is exact overlap, and absence of a separate table does not undo implication from the broader formulas.",
+        "searches": [
+          "Resultary arbitrary-mask/isospectral census lookup",
+          "arXiv:2605.16139v2 §4 example immediately after Corollary 4.3"
+        ]
+      },
+      "rationale": "The frozen result credits the prior block framework but does not account for its mechanical coverage. Asipchuk–De Carli–Rodriguez already give the entrywise factorization for arbitrary L, the translation-correlation formula for these interlaced windows, and the exact Fourier transform for the frame blocks. Substituting the stated characters and evaluating the character delta in those formulas gives exactly the claimed spectral data and eigenspaces for every mask. The dual and the remaining design and census formulas are then immediate rescaling and elementary counts on independent residue bins. This is an explicit presentation of the specialization, not an independently distinct scientific claim.",
+      "residual_risks": [
+        "The evidence is mechanical coverage, not a claim that the prior paper literally prints each combinatorial count or that a matching table was found."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanical coverage of structural claims; exactly overlapping tight instance in addition",
+          "evidence": "The entrywise Hadamard formula, interlace correlations and explicit first-block-row Fourier formula together give the p² occupancy values, sector projectors and operator powers; §4 explicitly obtains S=16I for the same character family and an initial-interval mask.",
+          "identifier_or_url": "https://arxiv.org/html/2605.16139v2",
+          "material_read": "Theorem 1.1 and Theorem 1.3; Lemma 3.4 and post-lemma application of Lemma 3.1 (offset 32320 onward); Corollary 4.3 and N=12 example (offset 41800 onward); Corollary 5.1(b), eq. (5.2) (offset 47200 onward)",
+          "method": "Bounded open full-text passages and direct substitution into the equations",
+          "title": "Block-equivalent finite Gabor frames",
+          "trigger": "Same subgroup-translation Gabor operator, interlacing construction and an exactly matching earlier example"
+        },
+        {
+          "assessment": "Different erasure problem",
+          "evidence": "One-defect window and subgroup modulation set; deletes whole translation fibers rather than arbitrary frequencies.",
+          "identifier_or_url": "Resultary/2026:2026/11/8/SCOPE-isospectral-translation-erasure-masks-for-one-defect-subgroup-ga--7c1d1af5b039",
+          "material_read": "Local RESULT.md Finding and mask/window assumptions",
+          "method": "Bounded local mirror comparison",
+          "title": "Isospectral translation-erasure masks for one-defect subgroup Gabor frames",
+          "trigger": "Close indexed result for isospectral masks and erasures"
+        },
+        {
+          "assessment": "Different spectral design family",
+          "evidence": "Half-cycle boxcar window with all translations and two modulation channels, not interlaced characters with arbitrary frequency masks.",
+          "identifier_or_url": "Resultary/2026:2026/11/22/SCOPE-optimal-two-channel-frequency-design-for-half-cycle-gabor-window--5b43ad3ef621",
+          "material_read": "Local RESULT.md Finding and setting",
+          "method": "Bounded local mirror comparison",
+          "title": "Optimal two-channel frequency design for half-cycle Gabor window",
+          "trigger": "Distinct same-day frequency-design result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, parts 1–4 of the Finding",
+        "arXiv:2605.16139v2 Lemma 3.4, Corollary 5.1(b) and §4 example"
+      ],
+      "rationale": "The occupancy summary is convenient as an expository corollary. But the existing operator formulas already give each eigenvalue by a character delta for this example family. The additional exact enumerations are binomial choices in indistinguishably populated residue classes with labelled items; the optimization is the elementary balanced-bin max/min bound, and the deletion guarantee counts the labels in the smallest bin. These do not solve a remaining substantive design problem beyond that substitution. No independently useful unknown invariant or nonroutine surviving subclaim is established in this record.",
+      "residual_risks": [
+        "The classification is mathematically correct and may be useful to readers as an explicit worked corollary; this decision concerns scientific contribution, not expository utility."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

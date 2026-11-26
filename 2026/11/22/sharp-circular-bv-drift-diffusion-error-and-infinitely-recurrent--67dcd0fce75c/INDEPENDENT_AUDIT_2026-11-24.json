@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:30:12.497943Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For real circular BV with unnormalized L1, a displacement z of shortest length h satisfies the translation bound by integrating |Df| over oriented arcs of length h. A semicircle has variation 2, translated symmetric-difference length 2h, and pointwise differences of one sign at each x across all shifts, proving the probability-convolution norm without symmetry. Positive shift density forces equality in the translation bound for almost every h; opposite Jordan supports at distance < π would put positive masses of both on an open family of subsemicircular arcs, forcing strict cancellation. Cross-support distances must all be π, hence both Jordan parts are opposite atoms. The wrapped variance-2t Gaussian gives the triangular-distance Fourier series with the stated normalization; its derivative in phase is the positive Dirichlet heat evolution of 1 on (0,π). After multiplication by π exp(t)/4 the time derivative for β=|b|>0 is cos(βt)+βsin(βt) plus an O_β(exp(-8t)) C¹ remainder. Fixed disjoint neighborhoods of the leading zeros have derivative of fixed sign bounded away from zero, and the leading value is bounded away from zero outside them. This gives exactly one late zero per neighborhood, no other late zeros, the stated time error, and the signed value error after using cos(π/2+arctan β+nπ)=(-1)^(n+1)β/sqrt(1+β²). For b=0 every term of the derivative is positive. Replay: RESULT.md lines 33–58. VERIFICATION.md and check.py were inspected, not executed: the 160 recorded grid and truncated-series comparisons are supplementary, not used as proof or as a certificate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fejér record c827300bde01 explicitly treats arbitrary even densities, including zero-phase heat",
+          "Carneiro–Finder–Sousa concerns variation of maximal convolution operators, not the norm of an identity defect"
+        ],
+        "reasoning": "A general even-kernel theorem covers zero-phase heat but not generic drift phases. Maximal-operator variation bounds do not give the phase dependence of the fixed convolution defect.",
+        "searches": [
+          "Resultary: wrapped drifted heat kernel circle geodesic displacement strictly increasing phase",
+          "arXiv:1512.02715 §1.3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–25 and 33–58; VERIFICATION.md; check.py",
+        "Resultary entries 67dcd0fce75c, c827300bde01, 8ae4197477e1 and 1d37d027bdbd",
+        "arXiv:0906.5499v3",
+        "arXiv:1512.02715"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Assigned RESULT.md §§4–5 has the strict phase and eventual critical-point claims; the Fejér and discrete cyclic passages do not include drifted time analysis",
+          "Von Mises record 1d37d027bdbd, offset 250, concerns TV(T^r f)/TV(f)"
+        ],
+        "reasoning": "The BV translation inequality and the drifted Fourier multiplier are standard inputs. The distinct assertion needs phase positivity and controlling both the first-mode zeros and the derivative of the residual along the time-dependent phase; variation contraction under iterated smoothing is a different operator norm.",
+        "searches": [
+          "Resultary: drifted circular heat BV error infinitely many alternating strict local extrema first mode critical times",
+          "Resultary kernel defect and extremizer search"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fejér record c827300bde01, RESULT.md offset 2700: expected displacement and equality for even densities",
+          "Delon–Rabin–Gousseau abstract and introduction: transportation distance of discrete probability distributions on the circle"
+        ],
+        "reasoning": "Geodesic distance is shared, but transport between histograms is not the BV-to-L1 norm of the identity minus a heat convolution. For even kernels the catalogue overlap is exact at the operator-norm level.",
+        "searches": [
+          "Resultary: probability convolution circle BV to L1 sharp defect mean geodesic displacement half circle extremizers",
+          "arXiv:0906.5499v3: circular geodesic transport"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-title hit is the assigned record 67dcd0fce75c, Finding lines 5–25; the discrete analogue 8ae4197477e1 is a distinct entry and its offset 0 states a finite cyclic displacement law"
+        ],
+        "reasoning": "This is a continuum theorem rather than a finite table item; the direct catalogue match is the assigned record itself. The discrete law is not a matching continuum drift-time theorem.",
+        "searches": [
+          "Resultary: sharp circular BV drift diffusion error infinitely recurrent peaks exact identity",
+          "Primary literature lookup on the sharp drifted heat defect"
+        ]
+      },
+      "rationale": "The symmetric-kernel identity and semicircle rigidity have substantial distinct catalogue coverage; the abstract nonsymmetric extension uses the same short translation argument. The supported distinction is the drifted continuous heat theorem, with strict phase ordering and the complete late critical-time law for every fixed nonzero drift. No inspected distinct statement gives those refinements, and they do not follow from the symmetric or discrete results alone. This is a bounded best-knowledge comparison, not a priority determination.",
+      "residual_risks": [
+        "Distinct same-day records establish overlap of statements, not publication order.",
+        "Limited literature coverage does not rule out an unindexed prior sharp drifted estimate or a prior statement in a different Fourier or probability formulation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the even-density identity and rigidity, not the drifted phase and time laws",
+          "evidence": "The general lemma at offset 2700 assumes even density and derives semicircle sharpness and rigidity for positive density.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-integrated-bv-error-of-fej-r-means-and-a-parity-change-in--c827300bde01",
+          "material_read": "RESULT.md offsets 0 and 2700",
+          "method": "Local mirror, bounded passages",
+          "title": "Sharp integrated BV error of Fejér means",
+          "trigger": "Strongest continuous even-kernel overlap"
+        },
+        {
+          "assessment": "Finite cyclic analogue, not the drifted continuous heat theorem",
+          "evidence": "Finite cyclic displacement expectation and balanced-arc equality.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-cyclic-bv-approximation-by-markov-convolutions-and-a-berns--8ae4197477e1",
+          "material_read": "RESULT.md offset 0",
+          "method": "Local mirror, bounded passage",
+          "title": "Sharp cyclic BV approximation by Markov convolutions",
+          "trigger": "General Markov-convolution defect"
+        },
+        {
+          "assessment": "Different norm",
+          "evidence": "TV(T^r f)/TV(f), not ||f-Tf||₁/TV(f).",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-sharp-circular-variation-decay-under-iterated-von-mises-sm--1d37d027bdbd",
+          "material_read": "RESULT.md offset 250",
+          "method": "Local mirror, bounded passage",
+          "title": "Exact sharp circular variation decay under iterated von Mises smoothing",
+          "trigger": "Semicircle extremizers for periodic convolution"
+        },
+        {
+          "assessment": "Related metric, different functional",
+          "evidence": "Circular transportation distances between distributions on discrete bins.",
+          "identifier_or_url": "https://arxiv.org/html/0906.5499v3",
+          "material_read": "Abstract offsets 772–1398 and introduction offset 5200",
+          "method": "Lawful OA text, bounded passages",
+          "title": "Transportation Distances on the Circle and Applications",
+          "trigger": "Circular geodesic displacement formulation"
+        },
+        {
+          "assessment": "Different operator and bound",
+          "evidence": "Variation diminution for convolution maximal operators.",
+          "identifier_or_url": "https://arxiv.org/abs/1512.02715",
+          "material_read": "Page 1 offset 403 and §1.3/page 4 offset 12650",
+          "method": "Lawful OA paper, bounded passages",
+          "title": "On the variation of maximal operators of convolution type II",
+          "trigger": "Heat/convolution and BV on tori"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact worst-case L1 defect gives a quantitative distinction between zero drift and arbitrarily small fixed nonzero drift: monotonicity versus an infinite alternating sequence, with complete late-time localization and signed height. The extremizers and phase ordering give the operational meaning of the coefficient rather than only bounds. This is a useful sharp semigroup result beyond the known even-kernel case; value does not rest on recomputing the Fourier multiplier.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

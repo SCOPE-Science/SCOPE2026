@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:19:30.481443Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently solved the two local moment equations in RESULT.md lines 26–34: the traces are A=1−4t+3t² and B=1+2t−3t². The one-cell slope contribution has maximum 3/2 at t=1/2. The first-cell profile is 8t−9t² through t=2/3 (max 16/9 at 4/9) and 4t−3t² thereafter; reflection gives the last cell. An interior cell gives the middle profile 12t(1−t)−1 (max 2 at 1/2), while the outer branches peak at 5/3. Interior knot steps are reproduced with variation 1. On a finite interval a BV function is a constant plus the integral of step kernels against its finite signed derivative measure; the step map is L²-continuous in its location and the bounded projection commutes with that integral. Applying the triangle inequality to its finite vector of slopes and trace differences gives the full upper bound, and the indicated steps attain it on any mesh. The two-input result follows by linearity. This is the real, unweighted, distributional seminorm on the open interval, not the L¹-plus-variation norm or variation of a zero extension. The supplied checker was inspected but not executed; its expected finite tests are not required by the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The quadratic record has degree two on locally finite partitions of the line and gain about 2.06984; the continuous linear record has universal supremum 3 over graded meshes.",
+          "The FE TV results give different spaces/operators or definitions and optimization results, not the sharp seminorm of the broken affine projector by cell count."
+        ],
+        "reasoning": "Changing degree, continuity, or the functional is not specialization of a stronger theorem for this map.",
+        "searches": [
+          "Resultary 5cc73730d00a and b3ad57d2e5ab",
+          "arXiv:1804.07477 §3",
+          "arXiv:1211.1069",
+          "Bartels DOI 10.1137/11083277X, Bonn report 495"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, supporting review, audit and verification files",
+        "Resultary d577ba2a2e06 (self-match), b1eb9d66a8b6, 5cc73730d00a, b3ad57d2e5ab",
+        "Wang 1107.3903; Nochetto–Salgado 1211.1069; Herrmann et al. 1804.07477; Bartels Bonn report 495"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The sharp L¹ error result is about residual magnitude regardless of jumps at cell interfaces; its off-center extremal step differs from the maximizing step in an interior cell here.",
+          "The continuous TVD interpolant is an operator with coefficient at most one, and the penalized TV minimizers are not the cellwise orthoprojector."
+        ],
+        "reasoning": "None of these statements yields the interface-trace contributions or the stated exact maxima by restriction or normalization. The common step method is not itself the new result.",
+        "searches": [
+          "Resultary b1eb9d66a8b6 Finding",
+          "arXiv:1107.3903 §4.1",
+          "arXiv:1211.1069 abstract",
+          "Bonn report 495 §1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wang defines the same discontinuous degree-one trial space and its jumps but solves a coupled TV inpainting problem.",
+          "The same affine projection and step reduction occur in b1eb9d66a8b6, which takes the L¹ norm of the residual, not the variation of the projected function."
+        ],
+        "reasoning": "Uncoupled moment fitting and a seminorm of its output distinguish this claim from the DG solution map, conforming spline projector and affine projection error.",
+        "searches": [
+          "Broken/discontinuous affine L² projection, total-variation amplification and linear spline projection (Resultary and literature)",
+          "arXiv:1107.3903 §4.1",
+          "Resultary b3ad57d2e5ab and b1eb9d66a8b6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-title entry d577ba2a2e06 is this finding itself; the distinct same-day entries 5cc73730d00a, b3ad57d2e5ab and b1eb9d66a8b6 have the scopes stated above."
+        ],
+        "reasoning": "No inspected table or indexed record gives this triple for the same projector and input/output seminorm; this is an analytic operator norm rather than a numerical table lookup.",
+        "searches": [
+          "Exact record title in Resultary",
+          "Resultary sharp variation gains of broken/continuous piecewise polynomial projectors and sharp BV affine projection error"
+        ]
+      },
+      "rationale": "The exact cell-count transition for the full jump-inclusive variation of the broken affine orthoprojector survives the inspected comparisons. Neither a generic FE stability statement nor agreement on the operator alone gives these sharp output-variation constants.",
+      "residual_risks": [
+        "Unindexed exact results for local moment projections may exist; the bounded literature search gave no useful additional result and is not priority evidence.",
+        "The consulted Bartels copy was the identified Bonn preprint, not the inaccessible journal version."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related formulation, different operator",
+          "evidence": "The D1 space and jump/average notation feed a DG Euler–Lagrange scheme for TV minimization.",
+          "identifier_or_url": "https://arxiv.org/pdf/1107.3903",
+          "material_read": "§4.1 pp. 5–6, offset 11500",
+          "method": "OA PDF passage",
+          "title": "Discontinuous Galerkin Method for Total Variation Minimization on one-dimensional Inpainting Problem",
+          "trigger": "Same discontinuous affine space and TV jumps"
+        },
+        {
+          "assessment": "Distinct interpolant",
+          "evidence": "Continuous Q1 averaging interpolation is TV diminishing.",
+          "identifier_or_url": "https://arxiv.org/pdf/1211.1069",
+          "material_read": "Abstract p. 1, offset 0",
+          "method": "OA PDF passage",
+          "title": "A Total Variation Diminishing Interpolation Operator and Applications",
+          "trigger": "FE variation stability"
+        },
+        {
+          "assessment": "Different functional/optimization question",
+          "evidence": "Gradient and edge-jump contributions define discrete TV, not the sharp norm of the orthogonal projection.",
+          "identifier_or_url": "https://arxiv.org/pdf/1804.07477",
+          "material_read": "Abstract and §3 p. 7, offset 25265",
+          "method": "OA PDF passages",
+          "title": "Discrete Total Variation with Finite Elements and Applications to Imaging",
+          "trigger": "Jump-inclusive TV for globally discontinuous elements"
+        },
+        {
+          "assessment": "The inspected formulation is distinct",
+          "evidence": "Minimizes TV plus quadratic fidelity in dimensions two or three over globally continuous affine or piecewise constant elements.",
+          "identifier_or_url": "https://webdoc.sub.gwdg.de/ebook/serien/e/sfb611/495.pdf",
+          "material_read": "Bonn preprint abstract and §1 starting p. 2, offset 441",
+          "method": "Identified lawful alternate OA PDF passage",
+          "title": "Total Variation Minimization with Finite Elements: Convergence and Iterative Solution",
+          "trigger": "Plausible FE TV stability overlap; journal DOI 10.1137/11083277X was inaccessible"
+        },
+        {
+          "assessment": "Same input/operator, different output quantity",
+          "evidence": "Sharp residual L¹/(max cell length × TV) ≈0.25150, with an off-center step on a longest cell.",
+          "identifier_or_url": "Resultary b1eb9d66a8b6",
+          "material_read": "RESULT.md Finding and Assumptions, offset 85",
+          "method": "Local mirror full statement",
+          "title": "Sharp integrated bounded-variation error of cellwise affine orthogonal projection",
+          "trigger": "Same projector and input seminorm"
+        },
+        {
+          "assessment": "Different degree and domain",
+          "evidence": "Discontinuous quadratic projector on the line, gain ≈2.06984 with a two-jump interval indicator.",
+          "identifier_or_url": "Resultary 5cc73730d00a",
+          "material_read": "RESULT.md Finding and Proof §§1–3, offset 0",
+          "method": "Local mirror passages",
+          "title": "Off-centre sharp variation instability of broken quadratic orthogonal projection",
+          "trigger": "Nearest same-family output seminorm"
+        },
+        {
+          "assessment": "Conforming rather than broken space",
+          "evidence": "Sharp universal gain 3 over highly graded meshes for continuous splines.",
+          "identifier_or_url": "Resultary b3ad57d2e5ab",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror statement",
+          "title": "A sharp universal variation bound for one-dimensional linear spline projection",
+          "trigger": "Same degree and variation seminorm"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The underlying projection is standard and the input class is natural for discontinuous signals. A sharp bound for the actual TV amplification, including interfaces, calibrates reconstruction: it distinguishes one/two-cell edge effects from the interior obstruction, is uniform in grading, and is witnessed by simple inputs. It is not just a recomputation of an L¹ error, a conforming norm, or generic boundedness.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

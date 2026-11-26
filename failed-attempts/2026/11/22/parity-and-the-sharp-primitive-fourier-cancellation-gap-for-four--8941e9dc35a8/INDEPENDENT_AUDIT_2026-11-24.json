@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:33:19.168420Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–65; frozen VERIFICATION.md and CHECK.py (inspected, not executed)",
+        "Independent replay: node /workspace/branches/4f21423c-0c96-4b55-8ca7-a6ce7f08ad60/finite-four-root-check.js; output: /workspace/branches/4f21423c-0c96-4b55-8ca7-a6ce7f08ad60/finite-four-root-check.txt"
+      ],
+      "rationale": "For odd N at most one cyclic gap exceeds N/2, so the endpoints can be cyclically labeled with opposite paired gaps a,c<N/2. Their pair sums have positive lengths 2cos(πa/N), 2cos(πc/N) and direction difference π+π(b-d)/N. The squared norm therefore equals four times the sum of the squared cosine difference and the nonnegative direction-error term. If a≠c, successive cosine drops grow strictly on the relevant interval, and equality needs paired gaps 1 and 2, with b=d. If a=c, odd parity gives b≠d and N-2a≥3. The norm is 4cos(πa/N)|sin(π(b-d)/(2N))|, bounded below by 4sin(3π/(2N))sin(π/(2N)), the same minimum. Equality needs a=c=(N-3)/2 and opposite gaps 1 and 2. Both cases give the cyclic word (1,m,2,m); its reversal is a rotation and it has no proper period, even at N=5. For even N a zero sum pairs antipodes: a prescribed nonzero sum of two unit vectors determines the unordered pair, so the pair summing to its negative is the negated pair; when the pair sum is zero both pairs are already antipodal. This includes N=4. The stated normalization, Taylor constant and equality reindexing at a unit k all follow.",
+      "residual_risks": [
+        "The separate floating-point enumeration checks all 749,398 four-subsets for 4≤N≤40 at tolerance 5×10^-10. The largest computed formula/minimum discrepancy is below 5.7×10^-16. Only the analytic argument proves the all-order classification; no formal or expert certification is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The design record optimizes the determinant, smallest eigenvalue, inverse trace and condition ratio jointly, with the exact same feasible class and equality sets; taking 4 minus the optimal smallest eigenvalue recovers Δ₄(N).",
+          "Barber and Kalogirou consider nonzero sums with repetitions allowed. The quoted odd Barber minimizer repeats a root. Konyagin–Lev's prime-order distinct-set estimate is weaker and gives no sharp equality classification. Cheng's inspected passages do not state the sharp distinct-four law."
+        ],
+        "reasoning": "The repetition-permitting results and broader prime-order estimates do not recover the distinct-site optimum. The design record does: its additional criteria do not remove or alter the exact modulus problem it explicitly solves.",
+        "searches": [
+          "Two-mode cyclic Fourier design criteria, Finding and proof",
+          "Barber arXiv:2104.15057, Proposition 3(c); Kalogirou arXiv:2607.06098, §1; Konyagin–Lev Theorem 1; Cheng arXiv:2610.27231, §§1.2–1.3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic results and directly inspected paired design finding",
+        "Primary short-root sum and exponential-sum sources listed in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The design proof explicitly uses min|z_S|=δ_N and gives δ_N=3π²/N²+O(N^-4) for odd orders. In cyclic order its displayed translate representative has gaps 1,m,2,m.",
+          "For any primitive k, setting S=kA is a bijection on distinct four-subsets; the coefficient in the frozen sign convention is the conjugate of z_S."
+        ],
+        "reasoning": "The equality masks, asymptotic, and primitive-frequency versions are exact consequences by rewriting the same optimizer family, using its existing expansion, and permuting the grid. None escapes the established overlap. The assignment's different analytic presentation does not produce a new extremal invariant.",
+        "searches": [
+          "Two-mode design proof §§1, 3–5 and exact comparison with the frozen primitive-frequency and cyclic-gap claims"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For two columns of frequencies 0 and 1, F_S^*F_S has diagonal 4,4 and off-diagonal z_S and its conjugate, where z_S is the same four-root sum. Its smallest eigenvalue is 4-|z_S|, so maximizing it is exactly minimizing |z_S| over the same sites.",
+          "The design Finding gives exactly the two-antipodal-pair even optimizers and the N translates of {0,1,(N-1)/2,(N+3)/2} in odd order, identical to {0,1,m+1,m+3}."
+        ],
+        "reasoning": "This is an invertible correspondence at the objective level on precisely the same feasible class, not a shared asymptotic, ambiguous matching terminology, or the identical assigned record returned by search. Its optimizer characterization transfers without weakening.",
+        "searches": [
+          "Resultary semantic search for four distinct root sums, primitive cancellation, and sharp four-sample two-mode Fourier designs",
+          "Direct comparison with Finding and proof of the matched two-mode design record"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The design record supplies an exact indexed formula and full optimizer list for every N≥4, not just finite checks. The separate Wiener record 2026/11/2/SCOPE-certified-four-point-cyclic-wiener-minimizers-through-modulus-12--8f6d57abce9f studies sums over nonzero frequencies through N=128."
+        ],
+        "reasoning": "The Wiener census does not give the one-frequency optimum. The design record, as opposed to a finite table of small orders, already gives the relevant exact all-orders data under the Gram-matrix formulation.",
+        "searches": [
+          "Resultary indexed exact four-site Fourier designs, cancellation gaps and cyclic Wiener minimizers"
+        ]
+      },
+      "rationale": "Full equivalent coverage is established in the distinct same-day Resultary finding 2026/11/22/SCOPE-sharp-four-sample-two-mode-cyclic-fourier-designs-and-their-pari--3754c9ae0870. Its design objective is a strictly decreasing function of the identical distinct-site four-root modulus, and it gives the same constants, equality sets and odd asymptotic for all N≥4. The primitive-frequency corollary is a bijective reindexing, not a remaining case. This is scientific coverage in the frozen record comparison, not evidence about within-day priority; neither chronological precedence nor copying is inferred.",
+      "residual_risks": [
+        "The same UTC date does not establish an order of discovery or publication within the day. The verdict is supported by the exact implication itself and is not a historical attribution or a claim of exhaustive external priority clearance."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct substantive coverage of the full mathematical claim, without evidence of relative UTC priority",
+          "evidence": "It states and proves min|z_S|=δ_N, attains it on exactly the antipodal-pair or translated families, and gives the same odd-order leading constant.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-four-sample-two-mode-cyclic-fourier-designs-and-their-pari--3754c9ae0870",
+          "material_read": "RESULT.md Finding and Assumptions at offset 0 and proof §§1, 3–5, with optimizer and asymptotic passages at offsets 4800–8236",
+          "method": "Resultary local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp four-sample two-mode cyclic Fourier designs and their parity gap",
+          "trigger": "Equivalent design objective on exactly four distinct sites at every order N≥4"
+        },
+        {
+          "assessment": "Distinctness and nonzero restrictions differ",
+          "evidence": "For sufficiently large odd n the unrestricted nonzero minimum is 4sin²(π/(2n)), attained with a repeated root in the displayed three-site configuration.",
+          "identifier_or_url": "https://arxiv.org/abs/2104.15057",
+          "material_read": "§2, Proposition 3(c) and proof, pp. 4–5, PDF text about offset 10700",
+          "method": "OA primary PDF passages",
+          "title": "Small sums of five roots of unity",
+          "trigger": "Exact preceding four-term minimum"
+        },
+        {
+          "assessment": "Inspected definitions and four-term context do not impose distinctness",
+          "evidence": "The nonvanishing k-term quantity permits repetitions, and the introduction discusses the unrestricted small-term values.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.06098",
+          "material_read": "§1, p. 1, offsets 0–5159",
+          "method": "OA primary PDF passages",
+          "title": "Small sums of roots of unity",
+          "trigger": "General extremal short-root sums and k≤4 discussion"
+        },
+        {
+          "assessment": "Relevant weaker lower bound",
+          "evidence": "For 3≤|A|≤p-1 and nonzero z the bound is |A|^{-(p-3)/4}; this does not give the exact value or equality sets at |A|=4.",
+          "identifier_or_url": "https://math.colgate.edu/~integers/a1/a1.pdf",
+          "material_read": "§2, Theorem 1 and proof, pp. 2–3, offsets 0–6451",
+          "method": "OA primary PDF passages",
+          "title": "On the distribution of exponential sums",
+          "trigger": "Distinct-site small exponential sums at prime cyclic orders"
+        },
+        {
+          "assessment": "The inspected results do not cover this exact distinct-four classification",
+          "evidence": "The cited five-term separation and conditional distinct-prime-root bounds address different parameters or give nonsharp separation.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.27231",
+          "material_read": "§§1.2–1.3, p. 3, offsets about 9200–13348",
+          "method": "OA primary PDF passages",
+          "title": "Small sums of roots of unity: polylogarithmic exceptional sets and conditional separation",
+          "trigger": "Finite-length and distinct-root separation comparisons"
+        },
+        {
+          "assessment": "Different optimization objective and finite range",
+          "evidence": "Minimizes a sum over all nonzero frequencies, not one primitive-frequency modulus.",
+          "identifier_or_url": "2026/11/2/SCOPE-certified-four-point-cyclic-wiener-minimizers-through-modulus-12--8f6d57abce9f",
+          "material_read": "RESULT.md indexed Finding and scope",
+          "method": "Resultary comparison",
+          "title": "Certified four-point cyclic Wiener minimizers through modulus 128",
+          "trigger": "Exact optimizer data for Fourier magnitudes of four-point cyclic masks"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "Two-mode Fourier design Finding and proof, including same optimum, equality sets, asymptotic and additional design metrics"
+      ],
+      "rationale": "The four-distinct-site optimum is a natural and useful invariant in isolation, but the exact quantity and optimizer family are already supplied by the demonstrably equivalent design theorem. The primitive relabeling, cyclic-gap notation and Taylor expansion give no independent mathematical increment. The alternate gap proof verifies the theorem but supplies no separate valuable exact result beyond the covered claim. There is no distinct surviving claim to repair within the frozen scope.",
+      "residual_risks": [
+        "This is an assessment of the distinct contribution under review, not a denial of the invariant's use or an assessment of unclaimed nonprimitive frequencies."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

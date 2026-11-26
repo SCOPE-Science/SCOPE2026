@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:51:36.959141Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–81",
+        "Frozen VERIFICATION.md, lines 19–25",
+        "Frozen verify_decomposed.py, lines 9–107 (inspected only)",
+        "Bruin–Doerksen, §4, PDF pp. 9–10"
+      ],
+      "rationale": "Independently checked exhaustiveness without relying on the supplied norm calculations. The fifteen matchings have either three cross pairs (six) or one cross pair (nine) between the L and R triples. For three cross pairs the permutation is j↦b±j. With the minus sign, all quadratic constant terms are ω^b and the determinant vanishes. With the plus sign, the three quadratic rows are proportional by column factors to the invertible cube-root Vandermonde; the sole possible zero comes from the common linear-coefficient factor A+A⁻¹ω^b. This occurs exactly when t=A²=−ω^b, one additional matching when s=0. For a one-cross-pair matching with cross roots X=Aω^i,Y=A⁻¹ω^l, the other two quadratic rows are (1,X,X²) and (1,Y,Y²). The determinant against (1,−X−Y,XY) is (Y−X)(X²+4XY+Y²). Smoothness gives X≠Y, so the sole zero condition is z²+4z+1=0 for z=X/Y=tω^{i−l}. The relation z³+z⁻³=−52 is equivalent to s²=−50, since the degree-six polynomial factors as the stated quadratic times quartic; for any such s one can choose t to be a quadratic root and choose the sign of A. Two different differences i−l cannot qualify simultaneously: the distinct quadratic roots would be reciprocal and differ by a cube root of unity, forcing t⁶=1 and s²∈{0,4}, impossible in p≥7. Thus exactly three extra matchings occur in that stratum. Frobenius adds opposite k shifts to L and R labels, possibly swaps the triples, and sends each base index b to εb. For the normalized exceptional fibers k=0: A^q=A^{±1}, using A²=−1 or the reciprocal quadratic and the invariance of nonzero A³+A⁻³ in the latter case. On the s=0 addition the component swap and label negation both preserve the matching. On the three s²=−50 additions, the component swap fixes every matching, and label negation transposes the two nonzero diagonal-cross indices. This yields all six cycle types, not just fixed-point counts. Since −50=(5²)(−2) and the excluded ±2 and 0 are disjoint from this locus, the character frequencies follow; zeta factors depend on the orbit lengths. The determinant criterion is for a geometrically decomposed polarized quotient and does not require either elliptic factor to be defined over the base field.",
+      "residual_risks": [
+        "The frozen script's finite-prime loop checks coefficient frequencies and an assigned count range, not independent enumeration of arithmetic kernels over the prime fields. The all-field proof uses the explicit determinant and Frobenius identities instead."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cardona–Quer, pp. 15, 17–18: explicit D₁₂ models, automorphism groups and forms up to hyperelliptic twist. D₁₂ there is the full generic automorphism group, not the enhanced reduced group of the s=0 fiber.",
+          "Bruin–Doerksen, p. 14: Galois stabilizers for rational Richelot isogenies; Moriya–Kudo, p. 1: genus-three arithmetic and algorithms."
+        ],
+        "reasoning": "A sufficiently explicit full Galois action on automorphisms determines the action on long involutions; the generic row is already readily recoverable from the three involutions x↦ω^b/x. The compared generic twist classification does not treat the two enhanced automorphism strata in that D₁₂ case. The broader arithmetic Richelot machinery supplies an algorithm and descent criteria, not the uniform exceptional selection and actions.",
+        "searches": [
+          "Resultary: genus two dihedral automorphism group twists over finite fields Richelot",
+          "Cardona–Quer, arXiv:math/0203165v1, §4 and Corollary 4.8",
+          "Bruin–Doerksen, DOI:10.4153/CJM-2011-039-3, §6",
+          "Moriya–Kudo, arXiv:2209.02926, abstract and introduction"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2003.00633v5",
+        "arXiv:math/0203165v1",
+        "DOI:10.4153/CJM-2011-039-3",
+        "arXiv:2610.04856v1",
+        "arXiv:2209.02926",
+        "2fb8330f5a6a",
+        "c90c681c901e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The generic automorphism description and the long-involution correspondence account for the base triple. The all-kernel statement has no information selecting the determinant-zero matchings at the two special coefficient loci, and the geometric totals alone give no Frobenius orbit partition.",
+          "The one-cross-pair determinant condition (X/Y)²+4(X/Y)+1=0 and the different exceptional normalizations identify the added matchings and their Galois action independently of the ambient orbit counts."
+        ],
+        "reasoning": "Known methods and the generic row are genuine overlap; the complete exceptional actions are not a substitution into the compared generic twist or all-kernel count statements. A different explicit arithmetic classification on the enhanced strata could imply those rows, but no such implication was established in the examined material.",
+        "searches": [
+          "2fb8330f5a6a, full fifteen-kernel spectrum statement",
+          "arXiv:math/0203165v1, §4 and Corollary 4.8",
+          "arXiv:2003.00633v5, Proposition 4.5 and §5",
+          "Frozen RESULT.md, lines 36–81"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Katsura–Takashima, pp. 7–8: decomposed kernels via long reduced involutions; geometric counts 3 for S₃, 4 for D₁₂ and 6 for S₄.",
+          "Bruin–Doerksen, pp. 9–10: rational maximal isotropic subgroup via a Galois-stable quadratic splitting, even if the individual factors are not rational; the determinant recognizes singular splittings."
+        ],
+        "reasoning": "The kernel problem can be recoded as Galois action on the determinant-zero matchings or via long reduced involutions. Counting the latter over the algebraic closure does not distinguish fixed points from pairs; splitting of the elliptic factors is a different descent problem.",
+        "searches": [
+          "Resultary: geometrically decomposed Richelot kernel Frobenius descent finite field genus two automorphism",
+          "Katsura–Takashima, arXiv:2003.00633v5, Proposition 4.5 and §5",
+          "Bruin–Doerksen, DOI:10.4153/CJM-2011-039-3, §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2fb8330f5a6a, mirrored RESULT.md Finding and relationship section: cycle types on all fifteen kernels for eleven branch-point factorization types, not the determinant-zero subset.",
+          "c90c681c901e, mirrored RESULT.md Finding: Jacobian isogeny classes by coefficient over F₁₉.",
+          "Beshaj–Shaska, §10 Theorem 10.1: same pencil over F₁₉, comparing branch-stabilizer orders and code data at a=6 and a=8."
+        ],
+        "reasoning": "An ambient orbit inventory cannot identify which orbits lie in the selected subset. Even the exact-family F₁₉ results classify distinct invariants. Neither a different date nor common family nomenclature is used to rule out coverage.",
+        "searches": [
+          "Resultary: Frobenius cycle structure geometrically decomposed Richelot kernels genus two finite field",
+          "Resultary: x^6+s x^3+1 Richelot kernels arithmetic Frobenius cycle table",
+          "Beshaj–Shaska, arXiv:2610.04856v1, §10 Theorem 10.1"
+        ]
+      },
+      "rationale": "Credit attaches to the complete arithmetic cycle classification of the geometrically decomposed subset in this pencil, especially the exceptional fibers, not to the known geometric counts, generic involutions, or the character and zeta formalities once cycles are known. The prior automorphism and all-kernel arithmetic results give substantial partial coverage and methods, but no checked prior statement determines the full selected-subset table.",
+      "residual_risks": [
+        "An unlocated explicit Galois classification of the two enhanced automorphism fibers could yield equivalent exceptional cycle types via long involutions. Bounded comparisons do not certify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Geometric classification is prior; not the arithmetic cycle table",
+          "evidence": "Number of decomposed outgoing isogenies is the number of long order-two elements; counts 3, 4 and 6 for the relevant reduced groups.",
+          "identifier_or_url": "https://arxiv.org/abs/2003.00633v5",
+          "material_read": "Proposition 4.5, PDF p. 7, and §5, p. 8",
+          "method": "OA paper PDF, bounded passage reading",
+          "title": "Counting Richelot isogenies between superspecial abelian surfaces",
+          "trigger": "Same decomposed outgoing kernels and automorphism group counts"
+        },
+        {
+          "assessment": "Substantial generic prior coverage; different enhanced strata",
+          "evidence": "Explicit D₁₂ automorphism models and classification of D₁₂ forms up to hyperelliptic twist.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0203165v1",
+          "material_read": "Abstract p. 1, §4 p. 15 and Corollary 4.8 pp. 17–18",
+          "method": "OA paper PDF, bounded passage reading",
+          "title": "Curves of genus 2 with group of automorphisms isomorphic to D_8 or D_12",
+          "trigger": "Explicit arithmetic automorphism groups and twists on the generic stratum"
+        },
+        {
+          "assessment": "Descent and determinant tools are prior; no verified complete selected-subset table",
+          "evidence": "Galois-stable splittings, singular-splitting criterion and rational isogeny stabilizers.",
+          "identifier_or_url": "https://doi.org/10.4153/CJM-2011-039-3",
+          "material_read": "§4 pp. 9–10 and §6 p. 14",
+          "method": "OA paper PDF, bounded passage reading",
+          "title": "The Arithmetic of Genus Two Curves with (4,4)-Split Jacobians",
+          "trigger": "Richelot arithmetic over nonclosed fields"
+        },
+        {
+          "assessment": "Same family in one field, different invariant",
+          "evidence": "Theorem compares a=6 and a=8 using branch stabilizers of orders 6 and 24 and code data.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.04856v1",
+          "material_read": "§10, Theorem 10.1",
+          "method": "OA arXiv HTML, bounded passage reading",
+          "title": "Beshaj–Shaska, finite-field genus-two code family",
+          "trigger": "Exact same equation over F₁₉"
+        },
+        {
+          "assessment": "Genus-three algorithmic overlap, no demonstrated coverage",
+          "evidence": "The inspected scope is genus-three arithmetic and algorithms.",
+          "identifier_or_url": "https://arxiv.org/abs/2209.02926",
+          "material_read": "Abstract and introduction, p. 1",
+          "method": "OA paper PDF",
+          "title": "Some explicit arithmetic on curves of genus three and their applications",
+          "trigger": "Decomposed Richelot constructions"
+        },
+        {
+          "assessment": "Close ambient overlap but distinct classification objectives",
+          "evidence": "Full fifteen-point kernel spectrum by branch type versus coefficient-indexed isogeny classes over F₁₉.",
+          "identifier_or_url": "2fb8330f5a6a; c90c681c901e",
+          "material_read": "Mirrored RESULT.md findings and the former record's relationship section",
+          "method": "Local Resultary search and mirror reading",
+          "title": "Published all-kernel spectra and genus-two isogeny-class records",
+          "trigger": "Richelot Frobenius spectra or exact same genus-two family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–27 and 67–81",
+        "Bruin–Doerksen, §4"
+      ],
+      "rationale": "This is a natural automorphism-rich pencil with two geometrically distinguished exceptional strata. The orbit classification determines exactly which outgoing decomposed Richelot kernels are available over the base or quadratic extension, an invariant needed for arithmetic isogeny calculations that geometric totals or counts of all rational kernels cannot supply. The all-prime-power statement, including the exceptional fibers and distinction from descent of factors, provides a usable classification rather than a finite enumeration or a renaming of the geometric counts.",
+      "residual_risks": [
+        "Does not classify the descended quotient's elliptic factors, all isogeny targets, or all twists beyond the given pencil."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

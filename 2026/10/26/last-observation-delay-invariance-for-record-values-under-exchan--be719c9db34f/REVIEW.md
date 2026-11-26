@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The coordinate involution is threshold-defined using exclusively indices before the adjacent candidate times, so its swap-or-fix decision is symmetric and invariant under the transposition. Exchangeability gives equality of laws even with ties and dependence. On every input it preserves the ordered full-record-height list and the multiset, and it exchanges the relevant final selected-record indicator. Repeated adjacent moves establish the exact joint-law claim. The iid atomless specialization uses uniform independent insertion ranks; its covariance and correlation calculations have no omitted future contributions. Exact finite checks were performed with the included standalone checker; they are not substitutes for the all-size proof.
+## correctness
 
-## Originality
-**PASS on inspected evidence; historical priority uncertain.** Falk, Khorrami Chokami and Padoan (2017, arXiv:1707.06254) treat two/three prescribed *full-record events* and corresponding record-value distributions, rather than the joint distribution of all full-record heights with the record count of a sparsely observed subsequence. Li (2022, arXiv:2208.06791) treats discrete recent-window records rather than arbitrary sparse retained observations. Searches and comparisons against related published record-indicator and record-kill claims found no matching statement. A general 2016 finite record-position paper was available only at abstract level; that source and implicit earlier permutation arguments remain risks.
+PASS
 
-## Value
-**PASS.** This is an all-distribution non-identifiability theorem for the last measurement time in record-based incomplete-observation designs. It retains the complete record-height sequence and full-sample multiset as auxiliary information, and therefore explains why much stronger observations than a marginal record count cannot resolve the final retained position. The two-observation formula shows sharply why the analogous invariance fails when the *first* retained position moves.
+For adjacent candidate times t,t+1 strictly after nonempty T, the event A that exactly one exceeds max_{i∈T}X_i is invariant under that transposition τ. For any measurable test, change variables by τ on A and use the identity on its complement to see that the conditional swap preserves the full exchangeable law. The smaller value on A cannot beat the full-prefix maximum; the larger contributes the same record height or none, and the running maximum afterward is unchanged. The multiset is preserved, with multiplicity. The retained last-step indicator is exactly transferred, even at ties with the threshold. This yields all delays by adjacent equalities in law, also with the multiset included. It cannot generally preserve the joint law with record times: for a uniform permutation of three ranks with T={1}, full record times (1,3) force the selected count to be 1 for final time 2 and 2 for final time 3. For iid atomless data take t=k+1 by invariance. The successive ascending insertion ranks U_i are independent uniform on {1,…,i} by the rank-permutation bijection, and the comparison J is 1{U_{k+1}>U_k}. Hence E(I_k J)=1/[k(k+1)], E(I_{k+1}J)=1/(k+1), and all other record indicators are independent of J. Subtracting the marginal terms gives 1/[2k(k+1)]; Var(J)=1/4 and summing independent record-indicator variances gives the claimed correlation, also at n=2. The proof is replayable from RESULT.md lines 24–52. The successful finite output is recorded in the frozen VERIFICATION.md; the uploaded code was inspected, not rerun.
 
-## Limits
-The result concerns strict upper-record *heights*, not record occurrence times, and fixes all selected times other than the final one. Independence of the retained count from full-record information is not claimed. The explicit covariance requires iid atomless data, though the joint-law theorem does not. Independent historical-priority verification is still required before asserting definitive novelty.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bounded pass for the main exchangeable joint-law result, including strict ties and the extra multiset coordinate. Do not credit the adjacent-position covariance in isolation: another indexed record gives its equivalent signed descent covariance. The arbitrary allowed final-time specialization here uses the joint invariance and is not obtained from the adjacent formula alone.
+
+## value
+
+PASS
+
+This is a specific conditional non-identifiability theorem for where a last retained observation was taken, even after the full height list and multiset are revealed. The exact scope matters: revealing timestamps can break it, and moving the earlier sampling point can change the law. The exchangeable result with ties supplies the value; the adjacent covariance, while useful for illustrating location sensitivity, is not the basis for the pass.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

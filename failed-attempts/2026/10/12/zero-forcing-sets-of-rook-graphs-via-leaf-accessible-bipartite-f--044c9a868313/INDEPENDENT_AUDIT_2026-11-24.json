@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:38:00.415400Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof, lines 4–55",
+        "Frozen VERIFICATION.md and verify.py, inspected without execution",
+        "Independent bounded replay in this rationale"
+      ],
+      "rationale": "A blue edge in the underlying complete bipartite graph has white-neighbor count equal to the sum of the white degrees of its endpoints; any force therefore deletes a white edge at a degree-one vertex using an opposite-side isolate. A cycle cannot lose its first edge. Two isolates on opposite sides persist and allow every successive forest leaf to be peeled. With an isolate on just one side, the required opposite-side leaf permits the first deletion, which creates the second isolate. An empty white graph is accepted. In the tree EGF, degree minus one is the occurrence count in the relevant bipartite Prüfer word. Expanding a factor 1+(t−1) for each absent label gives Q. Among forests the rejection condition is the union of three events: no isolates on either side, no right isolates or right leaves, and no left isolates or left leaves. Inclusion–exclusion gives precisely the six signs because the intersection of the latter two is contained in the first. Maximum white edge count m+n−2 requires components consisting of one isolate and one tree; a tree with the required leaf exists, e.g. a bipartite double star, including when one part has size one. Removing the surjective words on the side requiring a leaf gives the stated minimum count. Direct simulation independently matched every one of 4,688 subsets on 2×2, 2×3, 3×3 and 3×4; the minimum counts were 4, 14, 72 and 420. Replay: python3 /workspace/branches/76d87f28-1f57-43b0-92b5-1c5e07857fe5/check_small.py.",
+      "residual_risks": [
+        "Independent finite check corroborates the criterion and minimum counts only; the all-coefficient EGF is justified analytically."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The comparator states the all-set criterion and full polynomial for m,n≥1, hence includes all m,n≥2.",
+          "The frozen record credits Fallat–Soltani for mn−m−n+2; the relevant full text was not recovered.",
+          "Pelayo–Abara gives the maximum failed-set size mn−4 when a factor has order at least four; Boyer et al. introduces the counting polynomial."
+        ],
+        "reasoning": "The older scalar extremes and polynomial definition alone do not give the full classification. The exact comparator does, on the broader board-size domain.",
+        "searches": [
+          "Resultary rook-polynomial comparator, Finding",
+          "Fallat–Soltani dml.cz/dmlcz/145869, Theorem 3.4",
+          "arXiv:2202.04997 §3.1 Theorem 3.7",
+          "arXiv:1801.08910"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2026/10/12/SCOPE-zero-forcing-polynomials-of-rook-graphs-via-bipartite-forests--dd424d573692",
+        "Fallat–Soltani dml.cz/dmlcz/145869 (bibliographic only)",
+        "Boyer et al. arXiv:1801.08910",
+        "Pelayo–Abara arXiv:2202.04997"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The comparator counts all, left-leaf-free, and right-leaf-free bipartite trees by T,U,V, respectively; leaf presence is selected by Boolean differences.",
+          "Frozen Q at marker 1 counts every word and at 0 counts surjections, so its component weights specialize to the same counts."
+        ],
+        "reasoning": "No nontrivial tree lacks all leaves. The comparator's splits into only left, only right, or both kinds of leaf are exactly the categories recovered from Q(0) and Q(1). Boolean tests of these component markers and isolate markers retain the same nonempty forests as the frozen six-term formula; the all-blue case is added separately in the comparator. The alternate expression does not establish a new coefficient or claimed consequence.",
+        "searches": [
+          "Resultary comparator Finding, tree weights T,U,V and selector differences; Proof at offset 2681",
+          "Frozen RESULT.md, equations for Q, F and W"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Comparator Finding accepts the empty white graph or forests with an isolated row and a column leaf, or an isolated column and a row leaf; it uses the full row and column classes."
+        ],
+        "reasoning": "The all-blue board is accepted by both. If a nonempty forest has two opposite-side isolates, any leaf from a nontrivial component pairs with an isolate; otherwise both criteria require an isolate and an opposite-side leaf. They are equivalent on every claimed board.",
+        "searches": [
+          "Resultary: rectangular rook graph zero forcing via white bipartite forest, isolate and leaf",
+          "2026/10/12/SCOPE-zero-forcing-polynomials-of-rook-graphs-via-bipartite-forests--dd424d573692"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The mirrored Finding displays the same two Stirling-number subtraction terms for N_{m,n}, and a labeled component coefficient formula for the complete polynomial."
+        ],
+        "reasoning": "The minimum census matches as a symbolic identity for all m,n≥2, not just on the small verification boards. The coefficient formulas count the same spanning forests by white edge count.",
+        "searches": [
+          "Resultary: rook graph minimum zero forcing set count Stirling numbers and full polynomial",
+          "2026/10/12/SCOPE-zero-forcing-polynomials-of-rook-graphs-via-bipartite-forests--dd424d573692/RESULT.md"
+        ]
+      },
+      "rationale": "A distinct indexed Resultary record on rook graphs already covers the static test and complete polynomial for a superset of the claimed boards and displays the identical minimum census on the common domain. Its leaf selectors express the same zero-versus-positive leaf conditions as the frozen six-term evaluation. This is substantive equivalent coverage; no priority or submission order is inferred from the common calendar date.",
+      "residual_risks": [
+        "The relative ordering of the two same-day records is not established or needed for the equivalence assessment.",
+        "Full equality-case scope of Fallat–Soltani remains unknown; this does not affect the demonstrated match."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent substantive coverage on the frozen domain",
+          "evidence": "Theorem on m,n≥1; exact leaf/isolate test, full Boolean-filtered tree component EGF, and identical N_{m,n}.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-zero-forcing-polynomials-of-rook-graphs-via-bipartite-forests--dd424d573692/RESULT.md",
+          "material_read": "Finding at offset 0–2679; local force and cycle proof around offset 2681",
+          "method": "Bounded primary local-mirror passages, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Zero-forcing polynomials of rook graphs via bipartite forests",
+          "trigger": "Exact-looking white bipartite forest criterion, Stirling count and EGF"
+        },
+        {
+          "assessment": "Scalar minimum credited, wider coverage unverified",
+          "evidence": "The frozen attribution is to mn−m−n+2; no proof-level negative claim about this source.",
+          "identifier_or_url": "https://dml.cz/dmlcz/145869",
+          "material_read": "Bibliographic identification; Thm. 3.4 attribution in frozen RESULT.md, not the theorem full text",
+          "method": "Lawful DML handle/PDF attempted; PDF route returned HTTP 500",
+          "title": "Line graphs: their maximum nullities and zero forcing numbers",
+          "trigger": "General line-graph minimum theorem could also constrain equality cases"
+        },
+        {
+          "assessment": "Counting framework, not an exact match in inspected passages",
+          "evidence": "Defines the coefficient census and describes closed forms for families.",
+          "identifier_or_url": "arXiv:1801.08910",
+          "material_read": "PDF p. 2, offsets 5694 and 6436",
+          "method": "OA primary PDF passages",
+          "title": "The zero forcing polynomial of a graph",
+          "trigger": "Preexisting polynomial and families"
+        },
+        {
+          "assessment": "Different extremal statistic",
+          "evidence": "F is the maximum cardinality of a failed set; theorem states F(K_n□K_m)=nm−4 for n≥4,m≥2, not the list of all failed sets.",
+          "identifier_or_url": "arXiv:2202.04997",
+          "material_read": "§2 p. 3 offset 7716 and §3.1 Thm. 3.7 p. 8 offset 22636",
+          "method": "OA primary PDF passages",
+          "title": "Maximal failed zero forcing sets for products of two graphs",
+          "trigger": "Failed forcing on the same product family is dual to asking which blue sets force"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–39 and 44–55",
+        "Matched Resultary record, Finding and component formula"
+      ],
+      "rationale": "A full forest characterization and exact coefficient formula on rook graphs would otherwise support research on why specific placements, not just cardinalities, force. The same classification, all coefficients and extremal witness counts are already available. Replacing binary leaf selectors by zero/one evaluations of a leaf-marked word polynomial adds no demonstrated mathematical or computational gain at the level of the claim.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

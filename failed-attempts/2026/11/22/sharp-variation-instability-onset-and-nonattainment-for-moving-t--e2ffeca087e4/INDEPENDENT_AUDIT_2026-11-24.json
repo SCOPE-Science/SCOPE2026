@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:53:31.645381Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 3–39",
+        "checker.py, lines 9–54",
+        "VERIFICATION.md, lines 3–19"
+      ],
+      "rationale": "On first differences the map is c₀ times F(a,b)=√(a²+ab+b²), where c₀=√2/3 for population SD. For a single changed coordinate with current value v>0, each affected window derivative divided by c₀ is in (−1/2,1]; for v<0 flip both signs, and at v=0 use the ±1/2 limits where differentiable. The full output-edge column is bounded by |a|+|b−a|+|b|, strictly below 3 on this half-open square; the two-edge maximum on its closure is 5/2 and the one inner-edge maximum is 3/2, both requiring an excluded corner. The isolated columns are bounded by 1. These give precisely the dimensions in the Finding, including zero variation for n=3. For strictness on arbitrary finite segments one can telescope the change one first-difference coordinate at a time. For each nonzero coordinate change, only one or two output rows vary, and their one-variable norms are absolutely continuous with the stated strict column bound almost everywhere (a zero pair can occur at just one point of that coordinate interval). Triangle inequality then gives a strict bound for every input pair, including segments contained in sets with other, identically zero windows. The frozen contrast choices approach (1,−1/2) or its reversed pair in the required column positions, proving the supremum. The uploaded numerical checker was read, not run.",
+      "residual_risks": [
+        "The original strict-Jacobian paragraph does not explicitly handle straight segments contained in a singular set. The coordinatewise integration above establishes the claimed strictness without that assumption. Numerical tests do not address nonattainment."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Record --ed9e6f4e0ade states a family for every 1<p<∞, with separate endpoint behavior.",
+          "Record --c85e115b79b9 concerns bounded-range population variance, with window length m and path length at least 2m, not the unrestricted SD map.",
+          "The frozen citations describe local-statistics processing and fast computation of a windowed SD filter; no independent page-level comparison to those papers was available."
+        ],
+        "reasoning": "The indexed ℓ_p family dominates the p=2 gain case. A bounded-range result on variance does not do so: the square root is not a uniform Lipschitz change of outputs near zero.",
+        "searches": [
+          "Resultary: two-input path variation Lipschitz local scale dispersion consecutive windows",
+          "Lee (1980), DOI 10.1109/TPAMI.1980.4766994",
+          "Herbert et al. (2016), DOI 10.1049/el.2015.2407"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md, lines 3–36 and 41–49",
+        "Resultary catalogue statements for --ed9e6f4e0ade, --c85e115b79b9 and --bec95f897de0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed theorem uses the same output path variation on differences of outputs, and ℓ₂ on the three pairwise differences has the stated factor of three.",
+          "No nonattainment statement is in the retrieved comparison summary; the full definition/proof was not retrieved."
+        ],
+        "reasoning": "Specialization and scalar homogeneity mechanically imply the gain; a supremum value alone does not imply nonattainment. No inference about same-day priority or about whether the other proof supplies strictness is needed for the gain comparison.",
+        "searches": [
+          "Resultary: sliding triple pairwise ℓ_p dispersion and population SD",
+          "Local mirrored RESULT.md of --ed9e6f4e0ade, query nonattain"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For a triple (a,b,c), 9σ_pop²=(a−b)²+(b−c)²+(a−c)².",
+          "Record --ed9e6f4e0ade states that the sharp two-input path-variation gain of sliding triple pairwise ℓ_p dispersion is 2^(1/p) times (0,3/2,5/2,3) at lengths (3,4,5,≥6)."
+        ],
+        "reasoning": "Population SD is a constant multiple of the p=2 filter on the same triples. Changing the output by 1/3 changes the numerator, not the denominator, by that factor. The entire gain table is recovered, not just its long-signal limit.",
+        "searches": [
+          "Resultary: sliding population standard deviation total variation sensitivity",
+          "Resultary: consecutive triple pairwise l2 dispersion population standard deviation path variation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed tuple is 2^(1/p)(0,3/2,5/2,3); at p=2 its one-third multiple is (0,1/√2,5√2/6,√2).",
+          "The neighbouring catalogue result --bec95f897de0 is for sliding p-means, a different filter."
+        ],
+        "reasoning": "The tuple agrees through a filter identity, not just coincidental matching dimensions or numbers. The closest hit is distinct from the frozen item.",
+        "searches": [
+          "Resultary: Sharp path-variation sensitivity of sliding triple pairwise ell_p dispersion ed9e6f4e0ade nonattainment three pairwise differences"
+        ]
+      },
+      "rationale": "The main gain theorem is covered by the distinct indexed theorem on sliding triple pairwise ℓ_p dispersion: at p=2 the usual pairwise ℓ₂ norm of the three absolute pairwise differences is exactly three times population SD, and its indexed two-input path-variation gain specializes to the entire frozen dimension table. This is substantive coverage independent of any ordering of the two same-date records. Nonattainment is verified mathematically here but is not demonstrated by the indexed comparison and is not treated as already established there. That unresolved refinement does not validate the frozen finding's main assertion as a distinct gain theorem.",
+      "residual_risks": [
+        "Full text of --ed9e6f4e0ade was not accessible to confirm its written normalization, seam conventions or treatment of equality. The indexed operator name and full gain profile support the comparison with ordinary pairwise ℓ_p; the FAIL is about that positive overlap, not the retrieval failure.",
+        "No priority order is inferred from the common catalogue date."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantive overlap of the principal theorem under the ordinary meaning of pairwise ℓ_p norm. Nonattainment and historical order are unresolved.",
+          "evidence": [
+            "Summary: for finite 1<p<∞ the sharp two-input path-variation gain is 2^(1/p) times (0,3/2,5/2,3) at lengths (3,4,5,≥6).",
+            "Multiplying the p=2 output by 1/3 gives the frozen population SD output exactly."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-path-variation-sensitivity-of-sliding-triple-pairwise-ell--ed9e6f4e0ade",
+          "material_read": "Indexed theorem statement with the p-range, all four lengths, sharp constants, and endpoint description; defining formula and nonattainment passage not retrieved",
+          "method": "Resultary statement comparison; local mirror retrieval of the decisive nonattainment passage attempted",
+          "title": "Sharp path-variation sensitivity of sliding triple pairwise ℓ_p dispersion",
+          "trigger": "Stronger result with exactly the dimension profile for the pairwise dispersion family"
+        },
+        {
+          "assessment": "No positive evidence of these papers containing the gain or nonattainment; access failure not used for the decision",
+          "evidence": [
+            "RESULT.md lines 41–49 distinguishes implementation/local statistics from analysis of two-input path variation."
+          ],
+          "identifier_or_url": "10.1109/TPAMI.1980.4766994; 10.1049/el.2015.2407",
+          "material_read": "Citations and description in frozen RESULT.md; no independent full-text passage retrieved",
+          "method": "Bounded literature searches and lawful retrieval attempts",
+          "title": "Digital Image Enhancement and Noise Filtering by Use of Local Statistics; FPGA implementation of a high-speed, real-time, windowed standard deviation filter",
+          "trigger": "Local-statistics and rolling standard deviation background"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, lines 3–17 and 26–36"
+      ],
+      "rationale": "The mathematical question is meaningful for a common sliding dispersion operator: the gain measures how changes propagate along the signal, and the nonattainment analysis separates maximal instability in a high-contrast limit from the behavior of every finite input pair. This does not give separate credit for the covered gain theorem and does not imply that a narrowed claim about nonattainment has cleared originality.",
+      "residual_risks": [
+        "No implication for denoising performance, longer windows, or other boundary conventions is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

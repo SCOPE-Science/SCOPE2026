@@ -1,19 +1,21 @@
-# Review of the quartic Dickson value-image theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-All quantifiers are explicit: odd \(a\), any \(2\)-adic argument, all image counts for \(k\ge1\), and fibers for \(k\ge5\). A factorization of \(h_a(y)-h_a(z)\) gives two regular branches. A canonical square root defines a third-branch isometry. The three images, their overlaps, measures and representation multiplicities follow exactly. The verifier reproduces every target fiber across \(261632\) modular target cases without assuming the claimed answer as input to its brute-force enumeration. Finite computations are supporting checks, not substitutes for the proof.
+PASS
 
-## Originality — PASS (historically qualified)
+For h(Y)=Y²−3aY+a² the difference factor Y+Z−3a is a unit on equal-parity arguments. The induced bijections on finite ball quotients send the square branches for odd x and x≡2 mod 4 to the stated balls. For x=4s, choose the root U(s)≡1 mod 8 of 1+16s²/b: v↦v+4v² is an isometry and bijective on each finite quotient. The square-root difference identity gives U(s)−U(t) divisible by 8(s−t); thus s↦sU(s) is an isometry, bijective on all finite quotients and hence on Z₂. The third branch is exactly a²+16b times the square image translated by a² (i.e. a²+16b S₂). Reducing the three images mod 8 gives 2−3a, 5, 1; coincidences are absorptions into the first, full ball. Unit squares have measure 1/8, and the valuations of nonzero squares are even, giving square measure 1/6 by summing 4⁻ʲ/8. The residue count follows by truncating the same square classes and including zero; direct reduction checks k=1,2. For k≥5 each point in the first and second regular balls has four and eight preimages in its respective input branch (the latter uses unit squares mod 2^(k−2) and two lifts); in the third, the normalized isometry gives precisely four lifts per square root mod 2^(k−4). Overlaps sum the separate fibers. Own replay: `python /workspace/reproductions/check_discrete_claims.py 2` checked all odd parameters at k=1,…,9 for image counts, plus 174592 exact target multiplicities at k=5,…,9 using valuation-based square-root counts. Finite checks are corroboration only; fibers are asserted in the record for k≥5.
 
-Qu–Ding (2014), especially their accessible Theorem 3.2 and concluding section, determine permutation cases but do not classify values of the nonpermuting quartic. Fan–Liao (2015) address dynamics of first-kind Chebyshev polynomials, not these second-kind parameter-dependent fibers. Distinct first-kind dyadic image classifications concern different maps, and a permutation criterion cannot imply three numerical image measures and all multiplicities. Searches for equivalent quartic image formulas returned no controlling source. A more general unpublished or differently phrased \(p\)-adic polynomial-value theorem could still cover the case; no blanket novelty certification is asserted.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The lowest genuinely quartic, nonpermuting second-kind Dickson family is a natural next case after permutation criteria. The complete all-unit-parameter phase diagram has three different positive image densities (depending on \(a\bmod8\)) and exact target-fiber data at every stated modulus. This reveals arithmetic information concealed by a yes/no permutation classification. It is a self-contained classification, not an arbitrary numerical slice.
+The exact three-branch second-kind image, its density trichotomy, and the target-wise fibers are distinct on available evidence. Priority is qualified, not certified.
 
-## Evidence and limitations
+## value
 
-Direct primary-material comparisons used Qu–Ding, DOI `10.1137/130942589`, and Fan–Liao, arXiv:`1511.03529`. The full proof is in `RESULT.md`; the independent finite-level checker is `verify_e4.py`. The result covers degree four and unit parameters only. Historical priority remains qualified; independent review has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete, all-unit-parameter classification of the first nonpermuting quartic in this family is informative beyond permutation status. It identifies three distinct image densities and exact fiber multiplicities even on overlapping parts, resolving local arithmetic data for the whole family rather than an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

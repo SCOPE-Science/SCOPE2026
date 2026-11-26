@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:43:16.454259Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 5–44; VERIFICATION.md, lines 19–27",
+        "checker.py, lines 12–116; verification_output.txt, lines 1–6; small_spectra.json (frozen finite certificate)",
+        "Brouwer, report ZW 138/80, §1, printed pp. 4–5"
+      ],
+      "rationale": "Homogeneity makes a labelled admissible diagram over the fixed parameters exactly one tuple type. For the antipodal representation, one can anchor at a vertex x and use the half-circle from x to x′: put its outneighbors there as primaries and its inneighbors as antipodes. Their relative order is the given arc order within either part and the reversed arc order across the parts. A cycle in that order would be a mixed directed triangle; adjoining x would exhibit a directed triangle entirely in some vertex's in- or out-neighborhood. Thus that half has a unique linear order, and the antipodal half is determined. Conversely the geometric orientation has transitive neighborhoods, since each lies in an open half-circle. The parameter restriction is therefore the unique old-symbol sequence for the named transitive block. Choosing the gap of h₁ fixes the gap of its antipode; exactly one old symbol of each pair is between them. The remaining primaries must be in this open semicircle, in prescribed order; every weak composition into the n+1 consecutive gaps is realizable, and determines the unique labelled cyclic order including the new antipodes. The forward weight is a_s+Σ a_(s+j)b_j, giving the displayed complete homogeneous sum. Rotating just the new block by a half-turn preserves its internal arcs and reverses every cross arc; degree nr is attained by using the all-forward gap. Counting compositions at z=1 gives the total. Fresh integer enumeration of all 2^(nr) cross assignments for all 28 ordered pairs through size eight tested each neighborhood by its outdegree multiset 0,…,d−1 (equivalent to transitivity by removing the highest-degree vertex), and matched direct composition expansion coefficient by coefficient. The displayed vectors are correct: the first valleys include (26,24,24,26) for (3,5) and (33,28,34) for (4,4); swapping blocks gives (5,3). The exhaustive check found no earlier or other size-eight failures.",
+      "residual_risks": [
+        "Fresh enumeration is finite and independent of the all-order proof; no classification beyond total size eight is inferred. The supplied checker was not executed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brouwer and Babai–Cameron count all locally transitive tournaments up to isomorphism, a larger class but with unweighted, unlabelled data. Brouwer's binary shift-register quotient has v_(i+n)=1−v_i and identifies cyclic shifts.",
+          "Coregliano treats structural forbidden subtournaments and asymptotic questions rather than the specified two-block coefficient refinement."
+        ],
+        "reasoning": "Coverage of a larger unweighted class is not coverage of this exact labelled refinement. The structural theorem is a proof prerequisite. The primary search returned no usable candidate; that does not exclude a stronger unlocated refinement.",
+        "searches": [
+          "Brouwer, The Enumeration of Locally Transitive Tournaments, §1",
+          "Babai–Cameron, Automorphisms and Enumeration of Switching Classes of Tournaments, §3, Lemma 3.3 and Theorem 3.4",
+          "Primary-literature query for two-block cross-arc score enumerators and coefficient nonunimodality"
+        ]
+      },
+      "checked_sources": [
+        "Brouwer ZW 138/80, §1 (relevant register passage extends through printed p. 5)",
+        "Babai–Cameron DOI 10.37236/1516, §3",
+        "Coregliano arXiv:1503.04124, §1",
+        "Resultary score-collision record 2c41af2ebd11 and target self-match"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Canonical representability lets one set up the weighted enumeration but evaluating it needs a first-head gap and constrained occupancies. The unweighted counts lose the cross-score distribution; the unary formula loses interactions among multiple heads.",
+          "The strict valleys and the exact first total are not implied by palindromicity, even though the usual symmetry of the circle yields that property."
+        ],
+        "reasoning": "The proof is a refinement of the established circular bijection, not a new representation theorem. The precise weighted formula with the sharp finite obstruction is not just the older count with renamed parameters.",
+        "searches": [
+          "Brouwer §1 shift-register proof; Babai–Cameron §3; Coregliano arXiv:1503.04124 §1; Resultary 2c41af2ebd11 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The unary score result is E_T(z)=(1+z)Σ_{v∈T}z^(s_T(v)), which is exactly C_(n,1) for a transitive base, up to reversal of the score convention.",
+          "The cyclic and binary shift-register encodings represent the same underlying local orders; the frozen observable keeps two blocks individually labelled and records the cross-arc total."
+        ],
+        "reasoning": "The r=1 overlap is exact and is not credited as new. Neither relabelling nor reversing arrows converts a unary problem or an unweighted count into the r≥2 weighted extension count. Block exchange only identifies the symmetric pair of spectra already within the finding.",
+        "searches": [
+          "Resultary: dense local-order two transitive blocks, weighted type scores, first nonunimodality; record 2c41af2ebd11",
+          "Brouwer §1 and Babai–Cameron §3, cyclic/shift-register descriptions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed all-order formula and total-eight classification are the assigned record's own copy. The distinct catalogue result supplies unary scores and six-point score collisions, not the binary block-refined coefficient vectors.",
+          "The earlier exact formulas count unlabelled objects without keeping either the block labels or cross score."
+        ],
+        "reasoning": "An exact table of all allowed labelled two-block diagrams with cross scores to size eight could cover the finite boundary; the inspected tables/formulas do not contain it. The supplied small_spectra.json is evidence for the assigned claim, not independent prior coverage.",
+        "searches": [
+          "Resultary: dense local-order score-polynomial and sharp cutoff; records 2c41af2ebd11 and f2c10213786d",
+          "Brouwer and Babai–Cameron exact enumeration passages"
+        ]
+      },
+      "rationale": "The antipodal representation and unlabelled local-order enumeration are established; the r=1 specialization is already known. The supported distinct result is the exact cross-score enumerator for individually labelled transitive blocks of arbitrary sizes, together with its sharp first nonunimodality boundary. The bounded comparison found no stronger inspected result that supplies these coefficient facts.",
+      "residual_risks": [
+        "Bounded sources cannot exclude an unindexed two-colour weighted refinement or equivalent finite classification. A self-match supplies no independent priority evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Canonical geometric encoding and exact unlabelled enumeration, without the block-score refinement.",
+          "evidence": "Out- and inneighborhoods are consecutive, antipodal symbols are half a circuit apart, and the binary encoding for isomorphism classes is taken modulo cyclic shifts.",
+          "identifier_or_url": "https://ir.cwi.nl/pub/6805/6805D.pdf",
+          "material_read": "§1, printed pp. 4–5, OA offsets 8050–10995",
+          "method": "Bounded OA PDF passage",
+          "title": "The Enumeration of Locally Transitive Tournaments",
+          "trigger": "Potential full equivalence via shift registers"
+        },
+        {
+          "assessment": "Supports circular and switching structure; not a labelled two-block spectrum.",
+          "evidence": "Relates local orders to circular orders and counts local orders up to isomorphism; cites Brouwer's shift-register argument.",
+          "identifier_or_url": "https://doi.org/10.37236/1516",
+          "material_read": "§3, Lemma 3.3 and Theorem 3.4, OA offsets 14063 and 16230",
+          "method": "Bounded OA publisher PDF",
+          "title": "Automorphisms and Enumeration of Switching Classes of Tournaments",
+          "trigger": "Broader exact local-order enumeration"
+        },
+        {
+          "assessment": "Exact r=1 specialization but no weighted r≥2 classification.",
+          "evidence": "Unary spectrum is (1+z) times the vertex-score polynomial, followed by a six-vertex score collision classification.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-sharp-six-point-type-score-collisions-in-the-dense-local-order-p--2c41af2ebd11",
+          "material_read": "Finding, unary polynomial and first collision",
+          "method": "Resultary query and matching local-mirror text",
+          "title": "Sharp six-point type-score collisions in the dense local order",
+          "trigger": "Strongest distinct score-spectrum overlap"
+        },
+        {
+          "assessment": "Supports the local test; no asserted weighted result in that passage.",
+          "evidence": "Locally transitive tournaments exclude W₄ and L₄, equivalently a directed triangle inside an in- or out-neighborhood.",
+          "identifier_or_url": "https://arxiv.org/pdf/1503.04124",
+          "material_read": "§1, PDF p. 1, OA offset 208",
+          "method": "Bounded OA PDF passage",
+          "title": "Quasi-Carousel Tournaments",
+          "trigger": "Structures and admissibility of finite diagrams"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, lines 5–26 and 34–44; frozen and freshly reproduced coefficient vectors",
+        "Resultary unary comparison 2c41af2ebd11"
+      ],
+      "rationale": "The formula distinguishes type populations with the same total by a natural cross-block score and evaluates them without enumerating all possible orientations. The sharp minimal failure of unimodality exposes how interaction between two transitive blocks differs from the unary spectrum. The cutoff is the first actual failure over all ordered positive sizes, not an arbitrary slice.",
+      "residual_risks": [
+        "The result does not address arbitrary internal tournaments, large-size classification of unimodality, or unlabelled types."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

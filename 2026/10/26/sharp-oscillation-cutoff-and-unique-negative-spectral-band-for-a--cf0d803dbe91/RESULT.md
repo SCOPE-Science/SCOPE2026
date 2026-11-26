@@ -2,119 +2,66 @@
 
 ## Finding
 
-Let \(\mathbb H^3\) have sectional curvature \(-1\) and let \(d\) denote geodesic distance. Define for each \(\omega\ge0\)
+On real hyperbolic space \(\mathbb H^3\) of curvature \(-1\), put
 \[
-K_\omega(x,y)=\operatorname{sech}^2(d(x,y))\cos(\omega d(x,y)).
+K_\omega(x,y)=\operatorname{sech}^2(d(x,y))\cos(\omega d(x,y)),\qquad \omega\ge0.
 \]
-There is a **sharp, inclusive** oscillation threshold
+This kernel is positive semidefinite on every finite point configuration if and only if \(0\le\omega\le\omega_*\), where
 \[
-\omega_*=\frac{2u_*}{\pi}=0.7637391428751280204\ldots,
-\qquad u_*\tanh u_*=1,\quad u_*>0,
+\omega_* = \frac{2u_*}{\pi}=0.7637391428751280204\ldots,
+\qquad u_*>0,\quad u_*\tanh u_*=1.
 \]
-such that \(K_\omega\) is positive semidefinite for every finite point configuration in \(\mathbb H^3\) **if and only if** \(0\le\omega\le\omega_*\).
-
-There is also a complete spectral-sign classification. Above the cutoff, the spherical transform has exactly one nontrivial zero \(\lambda_\omega>0\), is negative precisely on \(0<\lambda<\lambda_\omega\), and is positive for \(\lambda>\lambda_\omega\), with
+The spherical transform is even in the real spectral parameter. Below the cutoff it is strictly positive at every real frequency. At the cutoff it vanishes only at zero. Above the cutoff there is exactly one positive zero \(\lambda_\omega\), determined by
 \[
-\lambda_\omega\coth\left(\frac{\pi\lambda_\omega}{2}\right)
-=\omega\tanh\left(\frac{\pi\omega}{2}\right).
+\lambda_\omega\coth(\pi\lambda_\omega/2)=\omega\tanh(\pi\omega/2).
 \]
-At the cutoff, the transform is zero at \(\lambda=0\) and positive for every \(\lambda>0\). Below the cutoff it is positive at all real frequencies.
+In that case the transform is negative for \(0\le|\lambda|<\lambda_\omega\), zero at \(|\lambda|=\lambda_\omega\), and positive for \(|\lambda|>\lambda_\omega\). In particular the supercritical transform is strictly negative at \(\lambda=0\), not just at sufficiently small positive frequencies.
 
 ## Assumptions and scope
 
-Positive semidefiniteness means that, for every finite set of points \(x_1,\ldots,x_N\in\mathbb H^3\) and all complex coefficients \(c_1,\ldots,c_N\),
+Positive semidefiniteness means \(\sum_{j,k}c_j\overline{c_k}K_\omega(x_j,x_k)\ge0\) for arbitrary finite configurations and complex coefficients. Use the curvature \(-1\) spherical functions \(\varphi_\lambda(r)=\sin(\lambda r)/(\lambda\sinh r)\) and the radial transform
 \[
-\sum_{j,k=1}^N c_j\overline{c_k}K_\omega(x_j,x_k)\ge0.
+\widehat k(\lambda)=\frac{4\pi}{\lambda}\int_0^\infty k(r)\sinh r\sin(\lambda r)\,dr.
 \]
-No restriction is imposed on the configuration or on \(N\). The parameter \(\omega\) is real and nonnegative. The metric normalization is constant curvature \(-1\); no additional length scale is implicit.
-
-For an invariant radial function \(k(r)\), the spherical transform is normalized here by
-\[
-\widehat k(\lambda)=\frac{4\pi}{\lambda}
-\int_0^\infty k(r)\sinh r\,\sin(\lambda r)\,dr
-\qquad (\lambda>0),
-\]
-with the value at \(\lambda=0\) taken by continuity. Its elementary spherical functions are \(\varphi_\lambda(r)=\sin(\lambda r)/(\lambda\sinh r)\). The Plancherel density is proportional to \(\lambda^2d\lambda\), with a positive proportionality constant.
+This is extended by continuity at zero; the Plancherel measure on the nonnegative spectrum is a positive constant times \(\lambda^2d\lambda\). No other dimension, curvature, or envelope is classified here.
 
 ## Proof
 
-**Integrability and the spectral criterion.** The radial profile is continuous, and
+Let \(k_\omega(r)=\operatorname{sech}^2r\cos(\omega r)\), \(c=\pi/2\), and \(g(r)=\operatorname{sech}r\). The profile is continuous and radial \(L^2\), since
 \[
-\int_{\mathbb H^3}|K_\omega(o,x)|^2\,dx
-\le4\pi\int_0^\infty \operatorname{sech}^4r\sinh^2r\,dr
-=\frac{4\pi}{3}.
+4\pi\int_0^\infty |k_\omega(r)|^2\sinh^2r\,dr
+\le 4\pi\int_0^\infty\operatorname{sech}^4r\sinh^2r\,dr=4\pi/3;
 \]
-The last identity follows from \(s=\tanh r\). Therefore the \(L^2\)-Godement theorem applies once the spherical transform has been computed and shown integrable against the Plancherel measure.
+the last integral reduces to \(\int_0^1 s^2\,ds\) by \(s=\tanh r\).
 
-**Exact transform.** Write \(c=\pi/2\) and \(g(r)=\operatorname{sech}r\). Then
+The cosine transform of \(g\) on the positive half-line is \((\pi/2)\operatorname{sech}(cs)\) at frequency \(s\in\mathbb R\). Indeed, substitute \(v=e^{2r}\) in the whole-line Fourier integral to obtain the beta integral \(\int_0^\infty v^{(1+is)/2-1}/(1+v)\,dv=\pi/\cosh(cs)\), and use evenness. Since \(-g'(r)=\sinh r\operatorname{sech}^2r\), integration by parts gives
 \[
-\sinh r\,\operatorname{sech}^2r=-g'(r),
-\qquad
-\int_0^\infty g(r)\cos(sr)\,dr=\frac{\pi}{2}\operatorname{sech}(cs)
-\quad(s\in\mathbb R).
+\int_0^\infty -g'(r)\sin(sr)\,dr=(\pi s/2)\operatorname{sech}(cs).
 \]
-For any real \(s\), integration by parts (the boundary terms vanish) gives
+The boundary terms vanish since \(\sin(0)=0\) and \(g(r)\to0\). Applying the sine–cosine product identity in the radial transform gives, for \(\lambda\ne0\),
 \[
-\int_0^\infty -g'(r)\sin(sr)\,dr
-=\frac{\pi s}{2}\operatorname{sech}(cs).
+\widehat k_\omega(\lambda)=\frac{\pi^2}{\lambda}
+\big[(\lambda+\omega)\operatorname{sech}(c(\lambda+\omega))
++(\lambda-\omega)\operatorname{sech}(c(\lambda-\omega))\big].
 \]
-Applying the product-to-sum identity yields, for every \(\lambda>0\),
+Writing \(F(s)=s\operatorname{sech}(cs)\), the bracket is \(F(\omega+\lambda)-F(\omega-\lambda)\) by oddness. Thus the transform is even and its value at zero is
 \[
-\boxed{\displaystyle
-\widehat K_\omega(\lambda)=\frac{\pi^2}{\lambda}
-\left[(\lambda+\omega)\operatorname{sech}(c(\lambda+\omega))
-+(\lambda-\omega)\operatorname{sech}(c(\lambda-\omega))\right].}
+\widehat k_\omega(0)=2\pi^2 F'(\omega)=2\pi^2\operatorname{sech}(c\omega)[1-c\omega\tanh(c\omega)].
 \]
-This expression is continuous at zero, where
-\[
-\widehat K_\omega(0)=2\pi^2\operatorname{sech}(c\omega)
-\left[1-c\omega\tanh(c\omega)\right].
-\]
-It decays exponentially in \(\lambda\) for fixed \(\omega\), so \(\int_0^\infty|\widehat K_\omega(\lambda)|\lambda^2d\lambda<\infty\).
+It decays exponentially for large \(|\lambda|\) at fixed \(\omega\), so it is integrable against the Plancherel measure.
 
-**Exact spectral sign.** Put
+For \(\lambda>0\), put \(A=\cosh(c\lambda)\cosh(c\omega)\) and \(B=\sinh(c\lambda)\sinh(c\omega)\). Combining the positive denominators \(A+B\) and \(A-B\) makes the numerator \(2(\lambda A-\omega B)\). After dividing by positive factors its sign is that of
 \[
-A=\cosh(c\lambda)\cosh(c\omega),\qquad
-B=\sinh(c\lambda)\sinh(c\omega).
+h(\lambda)-q(\omega),\qquad h(\lambda)=\lambda\coth(c\lambda),\quad q(\omega)=\omega\tanh(c\omega).
 \]
-Since \(\cosh(c(\lambda\pm\omega))=A\pm B>0\), the bracket in the transform has the sign of
-\[
-2(\lambda A-\omega B)
-=2A\left[\lambda-\omega\tanh(c\lambda)\tanh(c\omega)\right].
-\]
-For \(\lambda>0\), this is the sign of
-\[
-h(\lambda)-q(\omega),\qquad
-h(\lambda)=\lambda\coth(c\lambda),\quad
-q(\omega)=\omega\tanh(c\omega).
-\]
-The function \(h\) is strictly increasing because
-\[
-h'(\lambda)=\frac{\sinh(c\lambda)\cosh(c\lambda)-c\lambda}
-{\sinh^2(c\lambda)}>0,
-\]
-and its range on positive \(\lambda\) is \((1/c,\infty)\). Likewise \(q\) increases continuously from zero to infinity. Consequently, the unique cutoff is characterized by \(q(\omega_*)=1/c\), equivalently \(u_*\tanh u_*=1\) with \(u_*=c\omega_*\).
+The function \(h\) is strictly increasing since its derivative has positive numerator \(\sinh(c\lambda)\cosh(c\lambda)-c\lambda\) and denominator \(\sinh^2(c\lambda)\). Its range for positive \(\lambda\) is \((1/c,\infty)\). The function \(q\) increases continuously from zero to infinity. Hence the unique cutoff satisfies \(q(\omega_*)=1/c\), giving the stated equation for \(u_*\). For \(\omega\le\omega_*\) all positive frequencies have strictly positive transform. For \(\omega>\omega_*\), the positive root of \(h(\lambda)=q(\omega)\) exists, is unique, and is simple because \(h'(\lambda)>0\) and the prefactors in the sign comparison are positive and smooth there. The zero-frequency formula shows separately that the sign at zero is the sign of \(1-cq(\omega)\). This proves the stated classification, with the negative frequencies following by evenness.
 
-For \(\omega\le\omega_*\), \(h(\lambda)>q(\omega)\) at every positive frequency. At equality the displayed zero-frequency limit vanishes, but all positive frequencies remain strictly positive. For \(\omega>\omega_*\), strict monotonicity of \(h\) gives one and only one positive solution \(\lambda_\omega\) of \(h(\lambda)=q(\omega)\), and the transform has negative and positive signs on the asserted intervals. The crossing is simple because \(h'(\lambda_\omega)>0\).
-
-**Positive-definiteness equivalence.** The continuous radial function belongs to \(L^2(\mathbb H^3)\), and its spherical transform is integrable against \(\lambda^2d\lambda\). The \(L^2\)-Godement positivity criterion therefore asserts that its induced distance kernel is positive semidefinite exactly when the transform is nonnegative almost everywhere. The sign classification just proved gives the sharp if-and-only-if condition, including the boundary. For \(\omega>\omega_*\), the negative interval has positive Plancherel measure, so no finite-configuration positive-definiteness assertion can hold universally.
+The \(L^2\)-Godement criterion for continuous radial profiles applies: the distance kernel is positive semidefinite exactly when the transform is nonnegative almost everywhere for the Plancherel measure. Above the cutoff the negative interval has positive Plancherel measure; at the cutoff all positive frequencies still have positive transform. This proves the inclusive sharp threshold.
 
 ## Verification
 
-The embedded `verify_spherical_transform.py` evaluates the original spherical integral and the closed transform at 12 positive-frequency test pairs below, at, and above the critical oscillation threshold, with high-precision quadrature. The largest absolute discrepancy in these cases is less than \(5\times10^{-28}\) at 50-digit working precision. It also checks the relevant hyperbolic addition identity symbolically, computes the unique cutoff, and verifies the unmodulated radial \(L^2\)-integral. The continuum and endpoint conclusions follow from the analytic proof, not from the numerical checks.
+The transform and monotonicity arguments above establish the continuum claim. The accompanying `verify_spherical_transform.py` evaluates the original spherical integral and closed form at 12 positive-frequency pairs, checks a hyperbolic addition identity and illustrates the cutoff and the \(L^2\) calculation. Run `python verify_spherical_transform.py` with SymPy and mpmath. These finite diagnostics do not establish the spectral sign at zero or on a continuum; the displayed formulas and proof handle those points.
 
-To reproduce, run `python verify_spherical_transform.py` with Python, SymPy and mpmath installed. The kernel and transform conventions in the checker agree with those in this document.
+## Relationship to prior work and limitations
 
-## Relationship to prior work
-
-De Marchi and Schaback (2009, Section 8.4) use the squared hyperbolic-secant *translation-invariant kernel on the line*, recognizing its positive Euclidean Fourier transform. Feragen, Lauze and Hauberg (arXiv:1411.0296, public 2014-11-02) study geodesic exponential kernels on curved spaces; their main conclusions concern Gaussian and Laplacian-type kernels, rather than the modulated squared hyperbolic secant. Da Costa, Mostajeran, Ortega and Said (arXiv:2310.19270, Appendix B) treat \((\cosh r)^{-a}\) on \(\mathbb H^3\), proving positivity for integer powers; they supply the applicable \(L^2\)-Godement framework and spherical transform. Their unmodulated positivity is the \(\omega=0\) case but does not imply the sharp nonzero-oscillation cutoff or the unique negative spectral band. The new statement concerns modulation \(\cos(\omega r)\), not a change of the decay exponent \(a\).
-
-## Limitations
-
-The conclusion concerns real hyperbolic dimension three, curvature \(-1\), fixed envelope \(\operatorname{sech}^2r\), and real \(\omega\ge0\). It does not classify other powers, dimensions, geometries, or complex oscillation parameters. The literature comparison is bounded and does not exclude an equivalent result under an unindexed or differently named formulation. No finite numerical check is used as an infinite proof.
-
-## References
-
-1. S. De Marchi and R. Schaback, *Nonstandard Kernels and their Applications*, DRNA 2 (2009), pp. 16–43, Section 8.4. https://drna.padovauniversitypress.it/system/files/papers/Schaback-2009-NKA.pdf
-2. A. Feragen, F. Lauze and S. Hauberg, *Geodesic Exponential Kernels: When Curvature and Linearity Conflict*, 2014 preprint, arXiv:1411.0296. https://arxiv.org/abs/1411.0296
-3. N. Da Costa, C. Mostajeran, J.-P. Ortega and S. Said, *Invariant kernels on Riemannian symmetric spaces: a harmonic-analytic approach*, arXiv:2310.19270, Theorem 3.1, Section 4.2 and Appendix B. https://arxiv.org/abs/2310.19270
+Da Costa, Mostajeran, Ortega and Said give the \(L^2\)-Godement criterion and the unmodulated hyperbolic-secant kernels on \(\mathbb H^3\) ([arXiv:2310.19270](https://arxiv.org/abs/2310.19270), Theorem 3.1 and Appendix B). Their power-two case is the \(\omega=0\) member, with transform \(2\pi^2\operatorname{sech}(\pi\lambda/2)\). The Euclidean line kernel \(\operatorname{sech}^2(x-y)\) is discussed by De Marchi and Schaback, *Nonstandard Kernels and their Applications*, DRNA 2 (2009), §8.4. Neither antecedent classifies the sign of the shifted odd transform appearing here. A [related Resultary result](https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sharp-oscillation-threshold-for-exponentially-damped-geodesic-co--99a263d091a0/RESULT.md) studies the same geodesic modulation with the envelope \(e^{-ar}\), yielding a different threshold. The hyperbolic-secant envelope does not follow by a positive mixture of exponential envelopes: such mixtures are convex, while \((\operatorname{sech}^2 r)''<0\) near zero. This comparison identifies distinct claims within the inspected literature, not absolute priority.

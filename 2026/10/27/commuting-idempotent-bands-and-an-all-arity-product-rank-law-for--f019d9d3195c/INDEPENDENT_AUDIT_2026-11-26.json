@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:11:33.354685Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A full map with increments 0 or 1 has contiguous image. Idempotence forces that image to be fixed; monotonicity forces clipping outside it. Two intersecting clips compose to the clip on the intersection, while disjoint clips compose in opposite orders to different constants. The singleton interval in a point-star forces maximality, and every commuting family has nonempty intersection. For a particular product interval [u,v] with k=v−u+1, the left and right endpoint choices are independent because u≤v. The separate maximum/minimum constraints give Δ_m(u)Δ_m(n−v+1); each commuting tuple has exactly one product interval. Summing first over endpoints and then ranks gives t^k[A_m(t)/(1−t)^m]² for a fixed rank and zt/(1−zt) as the rank-summing factor. With z=1, A_m(1)=m! gives C_n=(m!)² n^(2m)/(2m)!+O_m(n^(2m−1)) and the probability follows from |E_n|=n(n+1)/2. Since the counts depend only on n−k, summing ranks k≥r is exactly C_(n−r+1), giving the repaired conditional tail ratio and the limit (1−x)^(2m) at 0<x<1. Normalization and empty endpoints then give the stated Beta law, also for m=1; n=1 gives one tuple for every m. The asymptotic fixes m. Independently enumerated sorted maps with adjacent increment ≤1, tested idempotence and literal composition, and matched every product rank in 20 configurations (67,028 tuples). The original script was read, not executed; it has a larger finite grid and also tests the structural lemmas.",
+      "replay": "python3 reproductions/finite_review.py 4; reproductions/finite_review.txt",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "7421eb043379 counts pairs of all order-preserving maps by common-product rank; the totals 1,7,40,213,… differ from contraction totals 1,7,26,70,…. Its rank series is not refined by the adjacent increment bound and does not isolate the contraction subfamily.",
+          "The 2022 primary passage gives the idempotent count and interval images; the broader contraction study characterizes idempotence by a convex transversal and notes that products of arbitrary CT_n idempotents need not be idempotent."
+        ],
+        "reasoning": "Containing the objects is not sufficient: the larger aggregate does not count the selected tuples in this subfamily, much less give the all-arity law.",
+        "searches": [
+          "Resultary 7421eb043379, product-rank renewal law for commuting monotone idempotents",
+          "arXiv:2205.00438 §2 Theorem 4 and Remark 5",
+          "Umar–Zubairu DOI 10.12958/adm1816 §3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 22387dfffecf",
+        "Resultary 7421eb043379",
+        "arXiv:2205.00438",
+        "DOI 10.12958/adm1816",
+        "OEIS A293311",
+        "OEIS A061926"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier centralizer result directly specializes to the pairwise criterion, but its limit law is for sizes of centralizers, not the rank of a common product. The stars follow by the endpoint min/max identity and singleton clamp.",
+          "The actual finite refinement requires simultaneously counting ordered extrema with ties and conditions on both sides of the product interval. The finite tail ratio is an exact consequence of this law; the Beta shape uses a standard limit."
+        ],
+        "reasoning": "The contiguous clamp criterion alone can be used to derive the rank counts but does not state them. The repaired evaluation is an exact discrete refinement, not just an abstract spacing calculation or repetition of the known centralizer theorem.",
+        "searches": [
+          "22387dfffecf Finding and proof §2; 7421eb043379 Finding and product-rank comparison near offset 6255",
+          "Discrete intervals versus the usual independent continuous endpoints"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Clamps are in bijection with discrete closed intervals; tuple commutation is equivalent to nonempty total intersection and rank is its size. A general centralizer condition for a fixed clamp yields the pair test by restriction; the maximal stars then follow from the one-dimensional Helly property.",
+          "For continuous uniform endpoints the intersection length conditional on overlap is a single spacing between adjacent order statistics, hence Beta(1,2m). This continuous calculation does not resolve the finite discrete ties, which are counted by the repaired law."
+        ],
+        "reasoning": "The interval and spacing aliases explain what is standard and what is left: the finite rank-refined law over uniformly chosen discrete unordered endpoint pairs with diagonals allowed.",
+        "searches": [
+          "Resultary: idempotent commuting monotone order-preserving nonexpansive contraction intervals maximal point stars Eulerian squared all arity ordered product rank conditional beta common intersection",
+          "Scheinerman random interval graph probability fixed clique 2^k binomial common intersection length spacing random interval graphs discrete integer common intersection exact probability",
+          "22387dfffecf, proof §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A293311 gives the matching m=2 row 1,7,26,70,155,301,532,… in a magic-labeling array; A061926 lists 0 followed by the same entries in a Pascal-type construction. Neither inspected entry provides the all-arity rank-refined array for these contractions.",
+          "The nearby exact product-rank record has different rank aggregates on the larger family."
+        ],
+        "reasoning": "Numerical matching of a marginal at one arity is explicitly credited, not confused with a matching rank refinement or bivariate all-arity result.",
+        "searches": [
+          "OEIS A293311",
+          "OEIS A061926",
+          "Resultary 7421eb043379 exact pair totals"
+        ]
+      },
+      "rationale": "The repaired contribution is the product-rank enumeration for ordered tuples of every arity in this exact contraction class, and its exact conditional-rank distribution; the interval normal form, commuting-clamp test, point-stars, known pair totals, and standard Beta spacing distribution are not separate novelty claims. The closest broader product-rank series counts pairs in the larger unrestricted monotone monoid, without tracking the statistic that singles out contractions.",
+      "residual_risks": [
+        "The Zubairu 2023 paper and the Laradji–Umar 2006 candidate were not obtainable in the attempted lawful routes; neither is used for a negative source claim.",
+        "An equivalent finite refinement might be known in discrete random interval graph terminology. Searches and the inaccessible dissertation do not settle absolute historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly implies the pairwise test on clamps, but its limit concerns centralizer size",
+          "evidence": [
+            "The test is necessary and sufficient for commuting with a fixed interval retraction; the general theorem does not specify common-product rank for ordered idempotent tuples."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-centralizer-profiles-and-a-quadratic-limit-law-for-idempotent-fi--22387dfffecf",
+          "material_read": "Finding near offset 0 and proof §2",
+          "method": "Bounded reading of indexed local mirror",
+          "title": "Centralizer profiles and a quadratic limit law for idempotent finite-chain contractions",
+          "trigger": "Same monoid, same idempotents and a general commuting test"
+        },
+        {
+          "assessment": "Related rank series for pairs in the larger monoid, not a direct subfamily refinement",
+          "evidence": [
+            "The ordered pair totals begin 1,7,40,213 rather than 1,7,26,70; the conditional asymptotic concerns a mean in the larger class."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-product-rank-renewal-law-for-commuting-monotone-idempotents--7421eb043379",
+          "material_read": "Finding and comparison passage near offsets 0 and 6255",
+          "method": "Bounded reading of indexed local mirror",
+          "title": "Product-rank renewal law for commuting monotone idempotents",
+          "trigger": "Exact product-rank law with same composition and chain"
+        },
+        {
+          "assessment": "Covers basic idempotent count and interval structure",
+          "evidence": [
+            "n(n+1)/2 idempotents in the order-preserving contraction subsemigroup, with convex image."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2205.00438",
+          "material_read": "PDF p. 4, §2, Theorem 4 and Remark 5, near offset 14000",
+          "method": "Bounded OA primary PDF reading",
+          "title": "On the combinatorial and rank properties of certain subsemigroups of full contractions of a finite chain",
+          "trigger": "Same full order-preserving contraction subsemigroup"
+        },
+        {
+          "assessment": "Characterizes idempotence, not the relaxed or restricted commuting-tuple rank law",
+          "evidence": [
+            "Idempotence is expressed in terms of convex kernel transversals; arbitrary products of contraction idempotents need not be idempotent."
+          ],
+          "identifier_or_url": "https://doi.org/10.12958/adm1816",
+          "material_read": "PDF p. 13, §3, Lemma 10 and adjacent remark, near offset 30379",
+          "method": "Bounded OA primary PDF reading",
+          "title": "On certain semigroups of contraction mappings of a finite chain",
+          "trigger": "Structural theorem for the broader contraction semigroup"
+        },
+        {
+          "assessment": "Exact one-arity total match, not a matching product-rank refinement",
+          "evidence": [
+            "The common row starts 1,7,26,70,155,301,532 and appears under other interpretations."
+          ],
+          "identifier_or_url": "https://oeis.org/A293311 ; https://oeis.org/A061926",
+          "material_read": "Entry descriptions and displayed numeric arrays",
+          "method": "Bounded sequence entry reading",
+          "title": "OEIS A293311 and A061926",
+          "trigger": "Pair-count sequence match"
+        },
+        {
+          "assessment": "Scope and overlap not determined from the title; repair drops the unverified description as partial",
+          "evidence": [],
+          "identifier_or_url": "https://ojs.ictp.it/jnms/index.php/jnms/article/view/934",
+          "material_read": "Bibliographic entry; no paper text retrieved",
+          "method": "Tried lawful OA download; redirected to login",
+          "title": "On the subsemigroup generated by idempotents of the semigroup of order preserving and decreasing contraction mappings of a finite chain",
+          "trigger": "Plausibly closely related contraction idempotents"
+        },
+        {
+          "assessment": "No result inferred from the unavailable text",
+          "evidence": [],
+          "identifier_or_url": "https://jscholarship.library.jhu.edu/bitstream/handle/1774.2/61488/REILAND-DISSERTATION-2019.pdf?sequence=1",
+          "material_read": "Bibliographic search hit only",
+          "method": "OA PDF attempted; direct and VPN unavailable (403)",
+          "title": "Interval Digraphs",
+          "trigger": "One returned primary lead for random-interval models"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The count records the size of the shared fixed image, not just whether two maps commute. It solves that exact finite distribution for every tuple length in a natural finite-chain monoid, separates the common-product statistic from the known centralizer law, and determines the conditional probability of retaining any desired image fraction. Utility rests on the whole finite rank distribution, not on the already known pair totals or the standard Beta family alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

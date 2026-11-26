@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** Distinct rational members of a rational-basepoint-free pencil have disjoint rational point sets. Every smooth ternary cubic has at least one rational point by Hasse, and a smooth blocking cubic requires at least six: these facts exclude two blocking members. Complete enumeration of every projective ternary cubic, every relevant projective coordinate transform, and every complementary pencil generator supplies the four exact profile frequencies. The verification program proves geometric smoothness by ideals equal to one on each projective affine chart; a rational-point sieve does not substitute for these tests. The source and executable code specify the count's exact equivalences and quantifiers.
+## correctness
 
-**Originality: PASS, with residual risk.** The closest primary paper [2] studies proportions of blocking members in pencils and obtains a general lower bound, not this sharp constrained all-smooth ternary-pencil census. The earlier construction paper [1] gives an example blocking cubic, while [3] studies nonblocking pencils; neither entails the 312-pencil distribution. Published mathematical-result searches for equivalent formulations, the exact counts, blocking-pencil bounds, and finite-field genus-one pencil profiles did not expose a covering source. An old or differently indexed tabulation could remain undiscovered.
+PASS
 
-**Value: PASS.** A sharp one-blocking-member obstruction and complete census address the same natural blocking-versus-nonblocking pencil geometry studied in [2] in the first odd prime field. The four exact residual-fiber cardinality profiles refine the sharp bound and distinguish geometric configurations; the count is not a renaming of the existing classification of individual blocking cubics. The arithmetic incidence information is useful for low-degree pencil constructions and examples.
+Re-audited the full corrected RESULT.md with geometric smoothness defined by the simultaneous vanishing of the equation and all partials. The brief blocking-size double-count excludes blocking sets of size ≤5 containing no full line; a smooth cubic has no full line by Bézout. All four rational fibers have points by Hasse and their rational point sets partition the 13 points when there is no rational base point, so two blocking fibers are impossible. An independent exact replay computed 29524 scalar classes, verified injective cubic point evaluation, recovered exactly 936 smooth blocking equations in the model's PGL orbit, and enumerated distinct pencils through it directly as sets of the three complementary scalar-normalized forms. The replay used a separate geometric-smoothness criterion: reject a rational line component, an empty rational point set or a rational singularity. A geometrically integral singular cubic has exactly one singular point by its genus defect, hence a rational one. A geometrically reducible cubic with no rational line must be three conjugate lines; any rational point common to its support then lies on all conjugates and is singular. Thus the alternative test is exact, and no finite extension cutoff is needed. The result is 312 pencils with profile frequencies 24, 132, 42, 114 as stated; the example belongs to the 132 class. Transitivity transfers this to each of the 936 blocking equations. Uniqueness gives 936·312=292032 without multiple counting. The repaired statement, proof and retained Gröbner verifier consistently use C=0 along with the partials; no verification-file edit is required.
 
-**Limitations.** The no-basepoint condition is rational, not geometric; all four rational fibers must be geometrically smooth. There is no claim of a theorem over larger finite fields, nor any claim that literature-search absence proves absolute novelty. All numerical census steps depend on replaying the included exhaustive verifier.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+For the repaired finding credit only the exact pencil incidence census and complementary-fiber profile frequencies. The numerical upper bound on blocking fibers is a routine corollary of earlier facts; the identical single-cubic classification is present in a separate same-day indexed result. Neither provides the count or profiles of pencils through a specified cubic, and the separately indexed base-point census does not mark blocking members. Their date supplies no ordering.
+
+## value
+
+PASS
+
+The census is a motivated refinement of blocking-versus-nonblocking behavior in pencils, not an arbitrary coefficient slice: it simultaneously controls all four fibers over the first odd prime field, with no rational base points. The exact incidence count and its four complementary profiles tell which rational fiber configurations are realized around the exceptional blocking class and their frequencies. They can be used in finite-field pencil constructions and in comparing counts with and without incidence restrictions. The value is in this independently useful distribution, not in recomputing one cubic orbit or the simple upper bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

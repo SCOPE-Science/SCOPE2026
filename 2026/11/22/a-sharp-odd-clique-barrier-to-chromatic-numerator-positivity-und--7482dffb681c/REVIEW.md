@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem concerns every odd \(n\ge3\), every \(r\ge0\), and all signed-tree attachments whose new edges are bridges. The proof of the exact polynomial factors by zero-free color classes and bridges. The exponential generating identity follows from signed color-magnitude assignments for each even positive palette and polynomial continuation in the palette parameter. The strict sign of \(Z_{n,0}(3)\) for every odd \(n\ge7\) follows from an exact rational eight-term lower bound, not from extrapolated data. The negative third coefficient for bare odd cliques and the positive one-bridge numerator polynomials at orders three and five are computed exactly. The derivative recurrence preserves coefficientwise positivity for any subsequent bridges. Direct color counts and exact finite-difference checks were replayed from `verify.py`; these checks are corroborative, not substitutes for the unrestricted argument.
+PASS
 
-## Originality — PASS (priority provisional)
+For an all-negative clique, each monochromatic set-partition block must receive a different magnitude and may choose either sign; this gives the Stirling expansion and (2exp(z)−1)^(q/2) EGF at even q, then formally at any q by polynomial interpolation coefficient by coefficient. Orienting the bridge-only attachments away from the core gives a q−1 factor per added vertex regardless of sign. Thus for r=0 the t³ coefficient is 2−(n+1)E_n(1), and for r≥1 the first nonzero coefficient is 2 at t³ and the t⁴ coefficient is 2^r E_n(3)−2(n+r+1). The EGF binomial expansions and all derivatives converge absolutely in a neighborhood of zero. At q=1 and odd n, every summand in the derivative expansion is positive, so E_n(1)≥1 by the integer-coefficient Stirling formula. At q=3 and odd n, only j=0 gives a positive summand. The exact terms j=3,…,8 already outweigh it at n=7 (ratio 731229629/679477248); their relative bases are all ≥1, so they do so for every odd n≥7. The two bridge base numerators at n=3 and 5 were independently reproduced in exact arithmetic. A further bridge acts by t d/dt−2 on the original series; clearing the new denominator gives h̃_i=(i−2)h_i+(N+4−i)h_{i−1}. Here h₀=h₁=h₂=0 and deg H≤N+1 by the vanishing of polynomial finite differences above order N, so both multipliers are nonnegative at every relevant index including the new last index N+2. This proves the full classification, not just the sampled orders.
 
-Higashitani, Kamata and Konoike (arXiv:2611.16458, first posted 2026-11-12) prove a balancing-vertex criterion and give a positive-numerator counterexample on an all-negative four-clique with one balanced bridge. That example and their theorem do not determine the odd-clique restoration threshold or the persistent negative fourth coefficient under arbitrary bridge-only attachments. Greaves, Syatriadi and Utomo (arXiv:2407.00883, Proposition 3.1) attribute the all-negative clique chromatic polynomial to Zaslavsky; this prior formula is explicitly excluded from the novelty claim. The new assertion is an infinite exact sign classification and its nonremovability mechanism, not a new formula for the original chromatic polynomial. Searches for the sign evaluation, bridge-stable coefficient obstruction, and odd-clique thresholds found no implication covering the theorem. An unindexed equivalent calculation or unpublished historical observation remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The recent balancing-vertex theorem distinguishes signed graphs where chromatic-numerator nonnegativity recovers ordinary chromatic realizability, and illustrates failure outside its hypotheses through a positive-numerator signed clique with a balanced block. A motivated next question is whether adding enough balanced bridges can always restore numerator nonnegativity. The theorem gives a sharp negative answer throughout an infinite, highly symmetric family, and classifies exactly the odd core orders for which restoration is possible. The permanent obstruction comes from the formal evaluation \(Z_{n,0}(3)\), whereas the positive cases persist by an explicit positivity-preserving operator. It offers a structural boundary rather than an arbitrary finite table or a generality-free polynomial evaluation.
+The triangle branch is already covered, including the exact first-bridge polynomial. The Stirling enumeration and the bridge factor are prior. The independently useful new portion of the joint classification is the positive K₅ extension and the uniform exclusion of every odd K_n with n≥7, for every bridge count. The closest primary theorem does not apply there, and related examples and indexed results do not provide this conclusion.
 
-## Closest sources and limitations
+## value
 
-The closest source is Higashitani–Kamata–Konoike, Theorem 1.1 and Examples 4.2–4.3. The earliest signed-clique polynomial is classical and is not new. The result is limited to odd clique orders and bridge-only extensions, with no claim for even orders, new cycles, or chromatic realizability beyond the stated examples. Priority remains subject to expert historical verification, and the argument has not received an independent mathematical audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For cores beyond the theorem requiring a balancing vertex, it gives a complete and sharp odd-clique cutoff in a natural family of arbitrary balanced bridge attachments. The n≥7 negative fourth coefficient is a stable obstruction to repair by any number or shape of those attachments, and K₅ gives a positive no-balancing-vertex counterpart. The contribution is not the prior triangle calculation or mere evaluation of a polynomial at one order.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

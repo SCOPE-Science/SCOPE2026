@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The theorem has two finite combinatorial bijections: forcing a set of universal diameters pairs opposite sectors with multiplicity given by products of factorials, and conditioning on one diameter being universal identifies the remaining chords with a uniform permutation. These establish the exact factorial-moment formula, the inversion-count identity and the singleton-block identity. Inversion-sequence independence proves the finite conditional variance and a Lindeberg central limit theorem. The size-bias argument, together with the second binomial moment, transfers the Gaussian limit from a specified universal diameter to the existence of any universal diameter. The standalone finite checker independently enumerates all diagrams through seven chords and all conditioned permutation diagrams through eight chords, passing 311,034 exact assertions. Those checks do not substitute for the all-size proofs.
+PASS
 
-## Originality
+A universal chord must leave n−1 endpoints on each side. For k specified diameters the pattern of sides changes once per selected diameter in each half-turn; its complement occurs only in the opposite sector. Thus gap populations s_i must be paired across opposite sectors independently in s_i! ways. Marking a starting selected diameter counts each k-set k times, giving n/k times the factorial composition sum divided by (2n−1)!!. If n−1 diameters are present, the remaining endpoints force the last one. In the two-arc permutation representation chord pairs cross iff their images are in the same order. An additional universal chord forces j to be a fixed point and all lesser indices to map to lesser values, i.e. the singleton direct-sum block criterion. Under that conditioning the expected excess count is (1/N) sum of reciprocals of binom(N−1,r); the two boundary terms contribute 2/N, the next terms O(N^−2), and the at most N interior terms are each O(N^−2) before the outside 1/N. Bonferroni and size bias prove the stated probabilities, including E[U−1|U≥1]=O(1/n) since U−1≤binom(U,2) on the event. Rotating the fixed diameter gives the size-biased law for X; tilting by U changes the existence-conditioned law by O(1/n) in total variation. The inversion-sequence independent discrete uniforms give the conditional mean/variance and Lindeberg CLT with n^(3/2) scaling and variance 1/36. For the unconditional density, pairing independent continuous endpoints chord-by-chord gives independence for crossing indicators with disjoint chord labels and variance O(n³). Empty permutations cover n=1. A fresh exact scan of active chord endpoints (/workspace/branches/replay_chords.py) reproduced all binomial moments through n=7, and both per-permutation identities and the conditional crossing histograms through n=8; submitted checker inspected, not run. Finite replay does not validate the limits by itself.
 
-**PASS, historically qualified.** Acan's 2015 study of random chord degrees already supplies the geometric fact that maximal crossing degree requires maximal shorter-arc length, so that single-chord obstruction is credited. Flajolet and Noy's 2000 analysis already proves unconditional Gaussian fluctuations of total crossings. Acan and Pittel's 2014 work conditions on sparse *total* crossing counts, unlike conditioning on a universal chord. A publicly indexed result on conditional crossing regression for one marked chord may already imply the conditional **mean**, so that mean is not treated as independently original. Neither the consulted full primary texts nor the searched literature/database records give the all-orders joint universal-count factorial moments or the permutation-conditioned full crossing law with its rare-event transfer. Related permutation singleton-component enumeration could imply pieces through an additional unreported reduction, so historical priority remains qualified, not certified.
+## originality
 
-## Value
+PASS
 
-**PASS.** The number of universal vertices is the extreme-degree endpoint of the circle-graph degree distribution, a natural but exponentially rare connectivity event. The exact count distribution resolves possible simultaneous hubs, while the conditional permutation representation determines global edge-density and fluctuation consequences of a local-looking extremal constraint. The jump from the ordinary crossing density to the rare-hub density and the conditional Gaussian variance provide structural and probabilistic information beyond a routine first-moment enumeration. The result is self-contained and useful for extreme-degree modeling and rare-event sampling of random circle graphs.
+Credit the diameter obstruction, the marked-chord conditional mean, unconditional crossing laws and classical inversion distribution as known ingredients. The exact joint universal count, its rare-event multiplicity control and the resulting crossing law under existence conditioning constitute the supported distinct claim. No examined source covers that law or provides the full universal chord statistics; historical equivalents in permutation enumeration remain possible.
 
-## Scope and residual uncertainty
+## value
 
-All exact assertions concern labeled uniform circular matchings. Asymptotic normality is weak convergence only. Not all older crossing/nesting enumeration sources or dissertations can be completely excluded as prior equivalents; these remain historical-priority risks. No independent validation is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The maximum possible degree is a natural global structural threshold. The factorial composition formula gives exact probabilities for all hub multiplicities, not just the expected number of diameters, and supports a sharp change in crossing density and a fluctuation law under a meaningful rare-event condition. This distinguishes a typical hub-bearing diagram from an ordinary diagram and from conditioning on a named present chord.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

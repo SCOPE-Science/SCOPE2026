@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:51:57.961977Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 5–63",
+        "VERIFICATION.md, lines 3–36",
+        "check_periodic_quadratic.py, lines 9–86"
+      ],
+      "rationale": "A unit-cell quadratic with secant Δ_i and left slope m_i has right slope 2Δ_i−m_i, so C¹ matching at every knot including the seam is (I+S)m=2Δ. For even n the nullspace and cokernel are both the alternating line; its pairing with Δ is −2 times its pairing with y. Slopes in the kernel generate the nonzero zero-data splines c(−1)^i t(1−t). For odd n the alternating finite series in S inverts the equation. On an atom Δ=e_p−e_q the slopes are 0, ±2. A nonflat-data cell is monotone and has variation 1; a flat-data cell goes out and back by |m_i|/4, for variation |m_i|/2≤1. Every zero-sum Δ is a nonnegative combination of these atoms with total mass ||Δ||₁/2, so linearity modulo constants proves the bound for every real datum. For the spike at 0, m_0=0 and m_i=2(−1)^i elsewhere, giving variation 1 on every cell, including the seam. Independent cell calculations for n=3 and 5 give ratios 3/2 and 5/2. The exact-arithmetic verifier was inspected, not executed; its reported finite checks are consistent with its loops but do not supply the universal proof.",
+      "residual_risks": [
+        "This is an analytic review, not Lean verification or expert attestation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "RESULT.md lines 71–79 and 85–91 place Goodman in cardinal solvability, Schoenberg on the full integer line with odd degree, and Albasiny–Hoskins in periodic uniform-mesh error bounds.",
+          "The Nochetto–Salgado method is described in the record as an averaging-based TV-diminishing interpolator, not the unrestricted exact nodal quadratic map."
+        ],
+        "reasoning": "Solvability theory may already include parity. None of the available descriptions implies a sharp bound on this space with exact nodal constraints and the cyclic ℓ₁ denominator. Older error-bound work remains an access risk.",
+        "searches": [
+          "Goodman, DOI 10.1017/S030821050001578X",
+          "Albasiny–Hoskins, DOI 10.1093/imamat/12.3.303",
+          "Schoenberg, On spline interpolation at all integer points of the real axis",
+          "Nochetto–Salgado, arXiv:1211.1069"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md, lines 71–91",
+        "PII 0021904583900709 search excerpt",
+        "Resultary catalogue statements for --75a44cdbc7aa, --8d80fc7ae2c3 and --914665cad692"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 1983 excerpt concerns existence/uniqueness and representation, with no available statement of a discrete-to-continuous TV norm.",
+          "The exact proof needs the equal-endpoint cell excursion, the zero-sum atom decomposition and the spike saturating all cells."
+        ],
+        "reasoning": "Classical representation/solvability is background. The exact amplification and equality witness are not obtained merely by applying an available solvability or error result, nor from a norm bound for the other two maps.",
+        "searches": [
+          "Periodic quadratic spline interpolation, PII 0021904583900709, moment representation and nodal solvability",
+          "Resultary: sharp variation reproduction tradeoff for quadratic cardinal B-splines; sharp bounded variation amplification of cardinal cubic spline interpolation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The directly relevant 1983 search excerpt describes periodic quadratic interpolation from nodal values and an explicit moment representation.",
+          "The finite-circle map acts on zero-sum cyclic secants; the norm is from their ℓ₁ length to the L¹ norm of the spline derivative."
+        ],
+        "reasoning": "This norm is invariant under circumference rescaling, but it is not a generic pointwise error or Lebesgue-constant bound. An explicit moment or slope formula alone does not give the sharp norm on zero-sum secants and its attained lower bound.",
+        "searches": [
+          "Periodic quadratic spline interpolation, PII 0021904583900709",
+          "Resultary: periodic quadratic spline exact interpolation, odd/even, sharp total variation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The top catalogue hit ends in --75a44cdbc7aa and is the assigned finding itself.",
+          "Catalogue records ending in --8d80fc7ae2c3 and --914665cad692 respectively describe quadratic cardinal B-spline quasi-interpolation and whole-line cardinal cubic interpolation."
+        ],
+        "reasoning": "Neither distinct indexed statement supplies this exact finite odd-circle invariant. The two different interpolation maps are not interchangeable under variation rescaling.",
+        "searches": [
+          "Resultary: odd cyclic quadratic spline sharp variation gain n/2, spike and alternating obstruction"
+        ]
+      },
+      "rationale": "Credit is for the sharp attained finite-circle TV norm, not for cyclic slope equations or a claim of new parity lore. The identical catalogue record is not independent priority evidence. The strongest distinct quadratic-periodic paper overlaps the interpolation/solvability setup, but the available evidence does not establish the n/2 norm. The inspected related catalogue statements concern different operators or domains. This is a best-of-evidence judgment, not an absolute priority claim.",
+      "residual_risks": [
+        "No full-text access to the directly relevant 1983 periodic-quadratic article or the cited older periodic error-bound and cardinal solvability papers. Their scope cannot be ruled out from excerpts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct setup overlap; exact parity and TV-norm coverage unresolved",
+          "evidence": [
+            "The excerpt mentions an existence/uniqueness result and explicit representation for moments."
+          ],
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/0021904583900709",
+          "material_read": "Search excerpt on nodal definition, solvability and explicit moments; no full-text passage retrieved",
+          "method": "Literature lookup; bounded lawful retrieval attempts at publisher and identified CORE copy",
+          "title": "Periodic quadratic spline interpolation",
+          "trigger": "Same apparent degree, periodicity and nodal interpolation"
+        },
+        {
+          "assessment": "No available statement establishing this norm; not a whole-document exclusion",
+          "evidence": [
+            "RESULT.md lines 71–79 distinguishes solvability and periodic error estimates."
+          ],
+          "identifier_or_url": "10.1017/S030821050001578X; 10.1093/imamat/12.3.303",
+          "material_read": "Frozen record's literature comparison and source identifiers; no independent full text available",
+          "method": "Bounded lawful retrieval attempts",
+          "title": "Solvability of cardinal spline interpolation problems; Explicit error bounds for periodic splines of odd order on a uniform mesh",
+          "trigger": "Broader solvability and periodic uniform-mesh stability"
+        },
+        {
+          "assessment": "Self-match plus two distinct maps",
+          "evidence": [
+            "Quasi-interpolation need not match nodal values; cubic whole-line interpolation has a different degree and no finite seam."
+          ],
+          "identifier_or_url": "Resultary record suffixes --75a44cdbc7aa, --8d80fc7ae2c3, --914665cad692",
+          "material_read": "Indexed statements and identification of the frozen self-match",
+          "method": "Resultary search",
+          "title": "Periodic quadratic, quadratic cardinal quasi-interpolation and cubic cardinal interpolation catalogue results",
+          "trigger": "Exact or broader published finding"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, lines 5–21 and 45–63"
+      ],
+      "rationale": "For the ordinary exact periodic nodal interpolator, parity-based existence is not a stability result. The exact attained gain shows linear growth despite the existence and uniqueness of every odd mesh. A single-site datum produces order-one variation even on each flat-data cell, locating a real instability rather than an artifact of a loose operator bound. The invariant is directly useful when choosing or comparing periodic interpolation schemes in BV.",
+      "residual_risks": [
+        "The result is specific to exact nodal interpolation with unit cyclic cells; it is not a claim about midpoint interpolation, nonuniform grids, or even-cycle slope selections."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

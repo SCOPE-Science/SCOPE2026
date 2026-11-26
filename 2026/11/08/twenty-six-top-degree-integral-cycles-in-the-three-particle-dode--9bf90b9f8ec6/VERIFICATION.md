@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction of the exact top-homology calculation
+# Independent mathematical audit
 
-Run `python3 verify.py`. The program uses no third-party libraries, generates the dodecahedral graph from its generalized Petersen formula and enumerates all degree-three generators in the reduced Świątkowski model.
+## correctness
 
-The actual checks comprise the graph incidence and vertex degrees, the chain-group sizes, the 9,120 signed boundary columns, exact integer elimination using 9,094 unit pivots, all 26 complete integer null-cycle witnesses, a signed local check that the differential squares to zero, and an independent characteristic-two rank. `verify.stdout` records the deterministic output and the SHA-256 digest of the integral-cycle witness list.
+PASS
 
-The verifier proves the integer rank of the chosen finite differential, not the general comparison theorem; the latter is used with its published hypotheses. An all-modulo-prime computation alone would not prove an integral rank over every characteristic, and no such substitution is made. The homotopy type and lower integral homology groups are not determined by this check.
+Comparison theorem 4.5 respects weight (particle number) and computes unordered continuous configuration homology; reduction at all nonisolated vertices leaves two local half-edge differences for each cubic vertex. Weight three bounds degree by three. Independently generated the signed differential on GP(10,2), with a different reference edge (last incident edge in edge-family order) and eliminated rows over Z using smallest column pivots, not the source's column algorithm. There were 9120 columns, 22680 nonempty rows of 22800 possible, 9094 existing unit pivots and nullity 26. Replay: enumerate triples of distinct vertices and binary local choices; place (-1)^t times the selected edge minus reference edge in rows keyed by the two remaining encoded local choices and the edge. Process rows sorted by those keys, subtract the leading coefficient times the existing normalized row with the same least column until zero or a new pivot. Rank is exact over Q; the integral kernel is free of that rank difference and no degree-four boundaries occur. The source's unit-column witnesses are corroboration, not required by the alternative proof.
+
+## originality
+
+PASS
+
+Bounded best-of-knowledge assessment of the fixed-weight exact invariant, not of the chain model.
+
+## value
+
+PASS
+
+Top integral homology of the smallest weight where degree three can occur is a natural exact invariant of a standard symmetric cubic planar skeleton. This gives a usable reference datum for computations beyond the two-particle case, with no claim about lower groups or ring structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

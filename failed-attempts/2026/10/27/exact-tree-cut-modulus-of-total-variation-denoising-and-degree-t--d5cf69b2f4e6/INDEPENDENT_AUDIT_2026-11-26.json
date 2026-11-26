@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:47:19.500883Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Replayed RESULT.md:33–70. For incidence D, the KKT identity is y−u=λDᵀq, with fixed signs on nonfused edges and |q|≤1 on fused edges F. The affine formula has derivative P_F, orthogonal averaging on fused components. For each F choose distinct block levels and q_F=0 at a base point. Under a small input increment η, the candidate output increment is P_Fη and the stationarity correction is obtained by solving λD_Fᵀδq=(I−P_F)η; the tree-block incidence map is an isomorphism onto the blockwise zero-sum space. Thus signs and strict bounds persist and every needed derivative actually occurs on an open input set. Finitely many affine polyhedral pieces and continuity give the upper bound by subdividing the input segment. On the quotient modulo constants the single-edge cut steps are an ℓ¹ basis because each has exactly one nonzero gradient coordinate. A block disjoint from the cut edge lies on only one side. If the cut edge lies in A, its only new variations are the exterior edges of A, with magnitudes |A_1|/|A| and |A_0|/|A| on the two sides. Taking nearby pairs in the realized cells attains each needed bound, including 1 in the no-fusion cell. Paths have t_i≤1; a star block containing k leaves gives (n−k)/(k+1); the full comb spine with a central cut gives the asserted lower bound, not an exact comb modulus. These checks cover every λ>0, including two-vertex trees. The finite tree enumeration and KKT examples in the supplied checker were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "b4b1357d8d1c covers every connected graph with positive edge weights and unweighted least-squares fidelity, gives the exact quotient and realizes all ratios.",
+          "Tibshirani–Taylor gives the local affine projection but not the graph-variation modulus."
+        ],
+        "reasoning": "Unit weights and a tree yield the frozen operator and scope directly from the graph-variation theorem; local Euclidean geometry alone would not give coverage.",
+        "searches": [
+          "b4b1357d8d1c Finding",
+          "Tibshirani–Taylor arXiv:1005.1971 §10.1 Lemma 3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary b4b1357d8d1c",
+        "Resultary 8a180bae4c2f",
+        "Resultary 91412ee9d28c",
+        "Resultary dd58c14de8c2",
+        "arXiv:1005.1971",
+        "arXiv:1807.10514",
+        "doi:10.1111/j.1467-9868.2005.00490.x"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the general formula choose the single-edge cut of e. Every block not containing e is constant under that step; the block containing e contributes the two explicit exterior weights, or the unchanged step gives 1 if e lies between blocks. Every connected A occurs as a block.",
+          "Graph ROF convex minimality in Theorem 3.2 concerns one datum and does not yield this sharp two-input expression."
+        ],
+        "reasoning": "The tree expression and path/star evaluations follow by substitution and the standard edge-step basis identity. Choosing the whole comb spine and its middle edge in the general formula immediately gives the degree-three witness 2⌊m²/4⌋/m.",
+        "searches": [
+          "b4b1357d8d1c Finding and assumptions",
+          "Kirisits–Scherzer–Setterqvist arXiv:1807.10514 Theorem 3.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "b4b1357d8d1c uses the same prox and quotient, maximizing J_w(P_π 1_S)/J_w(1_S) over all connected partitions π and nontrivial cuts S.",
+          "8a180bae4c2f and 91412ee9d28c have analogous expressions but use isotonic projection and slope-band regression, respectively."
+        ],
+        "reasoning": "Only the first is equivalent for the denoiser. On a tree, decompose 1_S into the signed unit steps of the edges of ∂S; the triangle inequality bounds its ratio by the largest single-step ratio, and every such step is itself a cut.",
+        "searches": [
+          "Resultary b4b1357d8d1c, 8a180bae4c2f and 91412ee9d28c"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "b4b1357d8d1c supplies an exact variational formula covering every tree, not merely tabulations of sampled trees.",
+          "dd58c14de8c2 gives the exact weighted star modulus, reducing to max(1,(n−1)/2) under unit weights and masses."
+        ],
+        "reasoning": "The exact catalogue formula decides the full tree invariant; no finite enumeration is needed for coverage. The star catalogue match alone would not decide the all-tree claim.",
+        "searches": [
+          "Resultary b4b1357d8d1c and dd58c14de8c2"
+        ]
+      },
+      "rationale": "The exact graph-variation modulus of the very same denoiser is covered by the general weighted-graph theorem b4b1357d8d1c. On a tree, its partition/cut maximum reduces exactly to this formula, with attainment and parameter independence inherited. The catalogue match is dated later than the frozen source; this is verified coverage at review, not a priority or dependency determination.",
+      "residual_risks": [
+        "The matched exact graph result establishes mathematical coverage, not historical priority. Whether other equivalently phrased earlier results exist is unresolved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage",
+          "evidence": [
+            "The theorem equates the global quotient to the connected-partition/cut maximum for every connected weighted graph and states that every cut ratio is attained."
+          ],
+          "identifier_or_url": "b4b1357d8d1c",
+          "material_read": "RESULT.md Finding, assumptions and start of proof at offset 83",
+          "method": "Resultary lookup and targeted local-mirror passage",
+          "title": "Exact graph-variation perturbation modulus of the graph fused-lasso denoiser",
+          "trigger": "Same exact two-input invariant on a larger class"
+        },
+        {
+          "assessment": "Different operator despite shared formula shape",
+          "evidence": [
+            "The theorem uses isotonic feasibility and averaging projection rather than TV penalization."
+          ],
+          "identifier_or_url": "8a180bae4c2f",
+          "material_read": "RESULT.md Finding, offset 103",
+          "method": "Local mirror",
+          "title": "Exact tree-variation sensitivity of isotonic projection and unbounded cubic-branch amplification",
+          "trigger": "Same tree-cut weights and degree-three phenomenon"
+        },
+        {
+          "assessment": "Different estimator",
+          "evidence": [
+            "It concerns slope-band constrained least squares and independence of the widths, not penalty regularization."
+          ],
+          "identifier_or_url": "91412ee9d28c",
+          "material_read": "RESULT.md Finding, offset 86",
+          "method": "Local mirror",
+          "title": "Sharp cut formula for total-variation sensitivity of tree slope-band regression",
+          "trigger": "Identical unweighted cut expression for a related estimator"
+        },
+        {
+          "assessment": "Covers the star consequence",
+          "evidence": [
+            "Equal masses and weights give the stated star modulus."
+          ],
+          "identifier_or_url": "dd58c14de8c2",
+          "material_read": "RESULT.md Finding, offset 79",
+          "method": "Local mirror",
+          "title": "Sharp weighted graph-variation sensitivity of star fused-lasso denoising",
+          "trigger": "Exact specialization on stars"
+        },
+        {
+          "assessment": "Local projection machinery",
+          "evidence": [
+            "The fit is locally an affine projection to a null-space translate; the graph-TV operator seminorm is not evaluated there."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1005.1971",
+          "material_read": "§10.1 Lemma 3 and proof, pp. 30–31, offset about 74700",
+          "method": "Original OA PDF text",
+          "title": "The Solution Path of the Generalized Lasso",
+          "trigger": "Affine Jacobian for fused lasso"
+        },
+        {
+          "assessment": "Model background only",
+          "evidence": [
+            "Unordered-feature nearest-neighbor differences specify a corresponding fused penalty."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/group/SOL/papers/fused-lasso-JRSSB.pdf",
+          "material_read": "§9, p. 14, offset 68094",
+          "method": "Author-hosted primary PDF",
+          "title": "Sparsity and smoothness via the fused lasso",
+          "trigger": "Original fused-penalty graph interpretation"
+        },
+        {
+          "assessment": "Does not compare two prox inputs",
+          "evidence": [
+            "For a fixed datum it minimizes every sum of convex vertex potentials over the datum's dual-translation set."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1807.10514",
+          "material_read": "Theorem 3.2, p. 9, offset 27961",
+          "method": "Original OA PDF text",
+          "title": "Invariant φ-minimal sets and total variation denoising on graphs",
+          "trigger": "Graph-TV sensitivity versus single-input minimality"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The two-input norm is mathematically meaningful and differs from ordinary variation reduction, but this tree restriction provides no independently distinct exact invariant beyond the general partition/cut formula. The comb amplification follows by an immediate choice of cut and block in that formula and is not a surviving additional theorem of this record.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

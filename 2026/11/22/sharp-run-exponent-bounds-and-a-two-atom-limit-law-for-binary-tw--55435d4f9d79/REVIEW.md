@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The proof characterizes every maximal run from the three zero gaps: only maximal unary blocks and, if present, one period-\(b+1\) run are possible. Its exact length and existence inequality yield the rational all-parameter sum; a two-branch integer bound proves the sharp length-constrained maximum and all extremizers. The weak limit follows from a uniform gap-simplex argument, a two-atom geometry calculation, and an exact area integral giving the continuous tail. The included direct interval enumerator checked all 2,600 two-marker words through length 25, all equality cases there, and 873 additional seeded gap examples. The proof, not the finite checks, supports universal statements.
+## correctness
 
-**Originality (O): PASS against the inspected sources, with residual priority risk.** Czarkowski (2026) and Crochemore et al. (2010) address unrestricted global exponent-sum bounds; neither identified theorem implies the fixed-weight-two maximum or its probability law. Glen–Simpson (2013) uses *sum of run lengths*, a different normalization. A closely indexed weight-three result classifies **the number** of runs, not their exponent sum, and its complete scientific statement was inspected. Published research-index searches included aliases for maximal repetitions, runs, sparse markers, exact maxima, and asymptotic distributions. Existing accessible research claims were compared for mathematical implication. No positive implication or dominating table was found; this is not proof that no unindexed equivalent exists.
+PASS
 
-**Value (V): PASS.** The sharp fixed-content extremum has an explicit rigid set of all extremizers, and the centered random exponent sum has a nondegenerate law with two atoms, a rational density, and a finite limiting variance. These determine actual quantitative behavior of the sum-of-exponents invariant in a natural sparse class and distinguish it from unrestricted worst-case bounds. Neither a generic counting exercise nor a numerical improvement in the unrestricted constant is claimed.
+For a finite linear binary word with exactly two ones, period one gives precisely the qualifying maximal constant blocks. Any run of period p>1 has a one and repeats it at distance p (a factor of length at least 2p meets each residue at least twice); thus both ones are used and p=b+1. Its maximal p-periodic interval extends their span by min(a,b) and min(c,b); at another extension beyond either cap a third one would be required. If length is at least 2p it has no smaller period by the same residue argument. For n≥8, with P=floor((n+1)/3), a non-unary run contributes at most 3−1/p for p≤P and at most n/p for p>P, while the constant-run part is n−2 minus the number of singleton zero gaps. The p>P case is strictly below the claimed maximum because n≤3P+1; equality in the other case forces p=P and both outer gaps at least P−1, yielding the full displayed list. At lengths 4–7, period 2 loses a singleton gap, period 3 contributes at most 2 for n=6 and cannot improve on 7 at n=7 (either a singleton or a truncated outer extension); adjacent ones followed by zeros attain n. For uniform labeled position pairs the normalized gaps converge by Riemann sums to simplex density 2, with zero/one gaps negligible. The non-unary condition is exactly a+c≥b when b≥1. In the limit B>1/2 gives the atom −2 of mass 1/4, and A,C≥B gives the atom 1 of mass 1/3. For 0<t<1 the tail is the integral of 2[1−(1+2t)B] over 0<B<1/(2+t), giving 3/(2+t)^2 and density 6/(2+y)^3. There is no leftover mass or atom at zero. Integrating this tail and the atom at −2 gives mean 0 and second moment 6 log(3/2)−1; uniform boundedness of the centered quantities ensures moment convergence. Replay python3 /workspace/branches/independent_checks.py 4 exhausts a separate bounded slice (969 words through length 18); frozen 2,600-case enumeration and the seeded trials are recorded supplementary checks, not proofs of the asymptotics.
 
-**Limits.** Only words of binary weight two, not greater weights or cyclic words. The atom at one appears only in the limit. No independent verification or exhaustive historical priority certification is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-knowledge pass for the fixed-weight-two exact exponent invariant, sharp maximizers and weak law. Earlier unrestricted exponent bounds, a same-day sharp weight-three exponent result, and a same-day weight-two limit for another statistic are materially relevant but do not state or demonstrably imply that complete claim. Independent full-text access limits historical priority.
+
+## value
+
+PASS
+
+Run exponents are an established repetitive-structure invariant. Weight two is the first binary sparse-content class with a nonconstant run, making the maximal length contribution and the competition between clipping and gap total natural rather than an arbitrary small case. The rigid exact maximizing family and nondegenerate limit law are distinct quantitative information unavailable from an unrestricted bound or run counts. No bound for unrestricted words or higher weights follows.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

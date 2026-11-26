@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 verify.py` (Python standard library only) from the directory containing this document and `verify.py`. The program constructs \(\mathbb F_5\) and \(\mathbb F_{25}=\mathbb F_5[t]/(t^2-2)\), checks squarefreeness by polynomial gcd independently of the symbolic discriminant, expands the cubic power of the defining quintic independently of the claimed Cartier formulas, and computes the semilinear fourth and fifth powers of the Cartier matrix (fifth power is sufficient for stabilization in dimension four). It checks all \(125\) coefficient triples over \(\mathbb F_5\), including exact Cartier ranks for every smooth triple. It also checks gcd/discriminant agreement and the full census on all \(15625\) triples over \(\mathbb F_{25}\), and verifies semilinear matrix ranks for forty representatives of each smooth type there.
+## correctness
 
-Expected output:
+PASS
 
-```
-F_5: {'singular': 25, (0, 4): 20, (2, 2): 64, (0, 2): 16} verified Cartier sample sizes {'(0, 4)': 20, '(2, 2)': 64, '(0, 2)': 16}
-F_25: {'singular': 625, (0, 4): 600, (2, 2): 13824, (0, 2): 576} verified Cartier sample sizes {'(0, 4)': 40, '(2, 2)': 40, '(0, 2)': 40}
-VERIFY_OK
-```
+The repaired statement quantifies over q=5^m, m≥1, and counts fixed-coordinate triples. Over an algebraic closure, F'=3ax²+b, and for a≠0 its zeros satisfy t²=3b/a and F(t)=c+4b(a²+b)t/a². Eliminating t gives the stated criterion, including b=0 and b=−a². At a=0 the derivative is the constant b. A squarefree quintic has five finite tame Kummer branch points and one at infinity, giving genus four. A repeated root reduces the number of distinct finite branch points, so the normalization cannot retain genus four. The calculated Cartier images use degrees 4,9,14 in F³ and degree 4 in each of F,xF,x²F. For a≠0 the two nonzero image directions are independent; on the image the square of Cartier is zero in the stable limit if b=−a² (indeed C³=0 on the whole space), and Cartier is bijective there if a(a²+b)≠0. For a=0 the operator vanishes. The arithmetic proof separates b=0,−a² before using the quadratic character: for other b a rational singular c is equivalent to a rational critical point, and the two such values of c are then distinct. Thus for each nonzero a the singular fiber count is q−χ(2a). Summing cancels the character term and yields q² including a=0. The two rank-zero counts are q(q−1) and (q−1)²; subtracting gives (q−1)³. The narrower final claim has been checked against both the fresh proof and the original scope.
 
-The finite checks are exact but do not certify the identities over *all* field extensions; the proof in `RESULT.md` establishes the universal statements from elementary algebra, Riemann–Hurwitz and Cartier semilinearity. The source-overlap comparison has a specifically noted access limitation for one relevant 2025 paper. Independent external audit has not been performed.
+## originality
+
+PASS
+
+For the repaired census only. The indexed stronger theorem accounts for the geometric partition completely, including by specializing its rank polynomial. Its arithmetic examples and full-family finite census cannot be restricted to recover the all-m counts of this slice from their published counts alone. The additional simultaneous squarefreeness and character count is an exact result for this fixed family; no inspected statement provides it. This is a best-of-knowledge comparison, not a priority claim.
+
+## value
+
+PASS
+
+The natural parity-restricted quintic slice contains the distinguished curve y³=x⁵−x and supports all three admissible invariant pairs of this family. The exact marked count measures their relative frequencies, distinguishing the two rank-zero types rather than just exhibiting examples. In particular it gives a finite-field distribution valid at every extension degree, with a character-dependent singular count that is not supplied by a geometric dimension or rank bound. These data are useful for sampling equations in a controlled slice without pretending that they count moduli points.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

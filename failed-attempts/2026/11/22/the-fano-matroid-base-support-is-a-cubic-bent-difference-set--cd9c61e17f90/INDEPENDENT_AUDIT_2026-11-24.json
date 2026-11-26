@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:31:30.518630Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–64; VERIFICATION.md and verify_fano.py",
+        "/workspace/reproductions/check.py (case 4) and 4.log"
+      ],
+      "rationale": "The odd-parity chart is affine and the seven-bit characters with index omitting 7 are exactly the 64 chart characters. Subtracting the line character sum from the Krawtchouk sum over all 35 triples gives the recorded table: at sizes 0,1,2 the line sums are 7,1,−1; at a line triple each of the seven intersections is odd, giving −7; at a nonline triple the intersection counts 0,1,2,3 occur 1,3,3,0 times, giving +1. Complements reverse all signs. Thus the trivial coefficient is 28 and nontrivial magnitudes are 4. Since b(0)=0 the coefficients sum to zero, forcing 28 positive and 35 negative nontrivial values. Fourier inversion of the squared magnitudes gives (28²−16)/64=12 for all nonzero shifts. The sign transform is 64 at zero minus twice the indicator transform, interpreted with a zero-frequency delta, so all sign-transform magnitudes are 8. Counting convolution has singular values 28 and 4 and condition number 7. Independently, the coefficient for a monomial on S of size k is the parity of binom(k,2)+binom(k,3) minus the number of pairs of S summing to 7 and the number of Fano lines in S. On the six remaining points the three pairs are the nonzero cosets modulo 7’s span. Lines avoiding 7 are exactly four transversals of even orientation parity after choosing representatives with XOR zero. At k=2 all but three pairs survive. At k=3 twelve subsets with occupancy profile (2,1,0) and four line transversals survive. The contributions of pairs and lines together have even parity for k=4,5 and odd parity for k=6, matching the parities of the binomial sum; k=0,1 vanish. This proves the exact ANF inventory, not just degree≤3. A separate bounded replay builds the support via binary linear independence, checks every direct chart Walsh sum, counts all ordered XOR pairs, and computes each ANF coefficient by direct subset parity. Replay: python3 -B /workspace/reproductions/check.py 4; output /workspace/reproductions/4.log. The supplied script was inspected, not executed. Its advertised Python 3.8 compatibility is inaccurate because int.bit_count requires 3.10 or later; this does not affect the mathematical statement or reproduction on 3.12.",
+      "residual_risks": [
+        "The monomial inventory depends on the specified chart; affine coordinate changes preserve algebraic degree but not the monomial counts. No broader matroid or bent-classification theorem is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For every Steiner triple system of order v≡5,7 mod 8, the previously indexed theorem gives W(S)≡4 mod 8 for the very same unnormalized character sums over the nonblock triples. The exact formula is W(S)=N−2Σd_i+4Σc_ij−8#{B⊆S}; at v=7 the parameters are (N,d_i,c_ij)=(28,12,4).",
+          "For |S|≤3 the last term is zero except for a nonline triple, when its count is one. For larger S, W(E∖S)=−W(S) because every base has weight three. This reproduces the signed table directly."
+        ],
+        "reasoning": "The earlier statement includes the precise object and Walsh convention, even checking the seven-point example. Passing from the full seven coordinates to frequencies omitting coordinate seven is an exact restriction, not a new spectral hypothesis.",
+        "searches": [
+          "Resultary SCOPE-20261116-1a9938b7ebb8, Finding and proof eq. (1)"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE-20261116-1a9938b7ebb8, Finding and eq. (1)",
+        "Resultary target cd9c61e17f90, distinct f6b4a7e2e817, a2101219c95b, 3dc4fabc4271",
+        "arXiv:1309.7719 §4",
+        "arXiv:math/0507118 pp. 3,22",
+        "arXiv:1211.2600 introduction/§2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Every one of the 63 nontrivial chart multipliers has absolute value at least 4 by the published congruence. Their squared sum is 64·28−28²=1008=63·16, so every absolute value must be exactly 4. Since the support excludes zero, 28+4p−4q=0 and p+q=63 give (p,q)=(28,35). Fourier inversion gives 12 for each nonzero difference and the sign conversion gives magnitude 8. The convolution values follow immediately.",
+          "The exact degree and inventory reduce to the chart’s three excluded pairs and four excluded triples via direct subset parity; the prior Walsh theorem does not assert the ANF inventory."
+        ],
+        "reasoning": "The alleged spectral distinctions beyond nonvanishing are exact mechanical consequences, including their multiplicities, not merely consistent with the broader result. The only residual computation is the chart-specific monomial count.",
+        "searches": [
+          "SCOPE-20261116-1a9938b7ebb8, uniform two-adic law; Fourier restriction and Parseval",
+          "Frozen RESULT.md lines 54–64"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "De Loera et al. list exactly the seven excluded Fano triples. Manivel identifies the 28 bitangents with the 28 Fano triangles and describes the affine theta-characteristic space with symplectic polarity. In its usual affine coordinates the odd-theta locus is the quadratic genus-three Arf-one set, unlike the actual cubic incidence chart.",
+          "Kantor treats bent and relative difference-set constructions; the inspected passages do not provide an identification of these incidence vectors."
+        ],
+        "reasoning": "A bijection of 28 objects is not an affine map; the ordinary quadratic odd-theta coordinates cannot be an affine equivalent, by degree. This rules out one plausible interpretation without ruling out older cubic realizations.",
+        "searches": [
+          "Fano triangles/antiflags, 28 bitangents and theta characteristics, cubic six-variable bent support",
+          "arXiv:1309.7719 §4",
+          "arXiv:math/0507118 pp. 3, 22",
+          "arXiv:1211.2600, introduction and §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical top item cd9c61e17f90 is the assigned record and not separate evidence. The distinct earlier item 1a9938b7ebb8 covers the stronger Walsh data; its Verification explicitly includes the seven-point projective system. The same-day f6b4a7e2e817 classifies graph sensor placements as antiflags, not this support. The eight-point Walsh and base-polytope items concern other sizes or invariants."
+        ],
+        "reasoning": "Different objects or invariants exclude the latter hits, not their dates. Conversely the stronger same-object theorem is decisive even if the exact 64-entry comparison is not printed as a database table.",
+        "searches": [
+          "Resultary semantic searches for Fano matroid basis support, Walsh bent difference sets, incidence triangles/antiflags",
+          "Local RESULT.md for 1a9938b7ebb8 and f6b4a7e2e817",
+          "Resultary items a2101219c95b and 3dc4fabc4271"
+        ]
+      },
+      "rationale": "The decisive earlier indexed source is the stronger Steiner-matroid Walsh theorem, SCOPE-20261116-1a9938b7ebb8, read in the local mirror. Its congruence on exactly the same basis support at v=7 forces the exact spectrum by Parseval saturation, not just nonvanishing. Its exact subset-count identity also yields the seven-bit signed-character table. Thus the signed spectrum, (64,28,12) difference set, bentness and exact convolution conditioning are mechanically implied. The residual chart-specific monomial counts are a small parity inventory on the already identified support; they do not rescue the main claim. The classical quadratic odd-theta-characteristic support is not the reason for rejection; it has different affine degree.",
+      "residual_risks": [
+        "Older cubic bent-support equivalents or exact printed tables remain possible. The rejection already follows from the demonstrated earlier implication, not from unavailable literature or an asserted affine equivalence to the odd-theta support."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive prior implication of all primary spectral/bent/difference-set/convolution conclusions",
+          "evidence": "All W(S)≡4 mod 8 for Steiner v≡5,7 mod 8; eq. (1) is the exact incidence expansion; v=7 is included.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-uniform-dyadic-nonvanishing-for-the-walsh-transform-of-steiner-m--1a9938b7ebb8/RESULT.md",
+          "material_read": "RESULT.md Finding, Assumptions, proof eq. (1), and Verification paragraph on the seven-point projective system",
+          "method": "Resultary search and local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Uniform dyadic nonvanishing for the Walsh transform of Steiner matroid bases",
+          "trigger": "Stronger exact same-object Walsh assertion"
+        },
+        {
+          "assessment": "Identical supports before chart, orientability result rather than spectral result",
+          "evidence": "Every triple except 123,167,356,257,347,145,246 is a basis.",
+          "identifier_or_url": "https://arxiv.org/pdf/1309.7719",
+          "material_read": "§4, pp. 10–11, offsets 36582–39479",
+          "method": "Lawful OA PDF targeted passage",
+          "title": "Weak Orientability of Matroids and Polynomial Equations",
+          "trigger": "Identical Fano basis family"
+        },
+        {
+          "assessment": "Combinatorial triangle–bitangent identification, not same affine support",
+          "evidence": "The 28 bitangents are identified with the 28 Fano triangles; the theta-characteristic space is affine over half-periods and has a symplectic description.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0507118",
+          "material_read": "p. 3 offset 9696 and p. 22 offset 63714",
+          "method": "Lawful OA PDF targeted passages",
+          "title": "Configurations of lines and models of Lie algebras",
+          "trigger": "Possible exact affine identification through 28 bitangents"
+        },
+        {
+          "assessment": "General constructions, no incidence-vector identification in the inspected material",
+          "evidence": "Partial-spread generalization and relation of bent functions to relative difference sets.",
+          "identifier_or_url": "https://arxiv.org/pdf/1211.2600",
+          "material_read": "p. 1, Introduction/§2, offset 770",
+          "method": "Lawful OA PDF targeted passage",
+          "title": "Bent functions generalizing Dillon’s partial spread functions",
+          "trigger": "Broader explicit bent/difference-set construction"
+        },
+        {
+          "assessment": "Different finite invariant and encoding",
+          "evidence": "840 optimal placements across labelled Fano planes; a power-domination result, not a six-bit Walsh table.",
+          "identifier_or_url": "SCOPE-20261122-f6b4a7e2e817",
+          "material_read": "Local RESULT.md Finding",
+          "method": "Resultary search and local mirror",
+          "title": "Fano antiflags and optimal sensor relocation in KG(7,3)",
+          "trigger": "Same-day indexed antiflag classification"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and limitations",
+        "SCOPE-20261116-1a9938b7ebb8, uniform two-adic law and exact identity",
+        "Independent ANF parity reconstruction"
+      ],
+      "rationale": "The Fano basis set is a natural host for a finite harmonic invariant. Here the earlier general theorem and one exact Parseval equality already force the main invariant and every asserted spectral and conditioning consequence. What remains is an elementary count of ANF monomials in this one chart, with no separate motivated use for those monomial counts or new bent-class result. A fresh computation or different character-sum proof does not supply an independently valuable finding in this case.",
+      "residual_risks": [
+        "No claim that natural realizations of known bent functions are intrinsically without value; this assessment concerns the mechanically implied headline results and this particular residual chart count."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

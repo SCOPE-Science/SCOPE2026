@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,34 +18,25 @@
   "schema_version": 1
 }
 ---
-For the Log-LR CDF
-\[
-G(x)=\left(\frac{\beta}{\beta-\log F_R(x)}\right)^\alpha,
-\]
-set \(T=-\log F_R(X)\). Then
-\[
-\Pr(T>t)=\left(\frac{\beta}{\beta+t}\right)^\alpha.
-\]
-Thus \(T\) is Lomax\((\alpha,\beta)\).
 
-The inverse Rayleigh map is
-\[
-x(t)=\lambda\sqrt{-2\log(1-e^{-t})},
-\]
-with
-\[
-J(t)=\frac{\lambda}{(e^t-1)\sqrt{-2\log(1-e^{-t})}}.
-\]
-The endpoint expansions are
-\[
-\log J(t)=-\frac t2+\log\!\left(\frac{\lambda}{\sqrt2}\right)+o(1)
-\quad(t\to\infty)
-\]
-and
-\[
-\log J(t)=-\log t-\frac12\log\!\bigl(2\log(1/t)\bigr)+O(1)
-\quad(t\downarrow0).
-\]
-The latter is integrable against a bounded density near zero. The former is integrable in the negative tail exactly when \(\mathbb E[T]<\infty\), i.e. \(\alpha>1\). Therefore \(H(X)\) is finite exactly for \(\alpha>1\), and equals \(-\infty\) otherwise.
+# Independent mathematical audit
 
-The bundled checker verifies the CDF transform, the \(-1/2\) log-Jacobian slope, and the explicit finite-regime expectations from the actual package path. Numerical truncations for \(\alpha\le1\) are consistency checks only and do not establish divergence.
+## correctness
+
+PASS
+
+The published CDF composed with x(t)=lambda sqrt(-2 log(1-exp(-t))) gives the Lomax survival since the transform is decreasing. The absolute Jacobian has log J(t)=-t/2+O(1) at infinity and log J(t)=-log t-(1/2)log log(1/t)+O(1) at zero. Under the Lomax density, -log f_T is absolutely integrable for all positive shapes, the positive part of log J is integrable, and its negative tail contributes asymptotically -(alpha beta^alpha/2)t^(-alpha) to the entropy integrand. Thus the change of variables is valid in the extended-real sense, including logarithmic divergence at alpha=1, with no subtraction of divergent expectations. Integrating the Lomax survival gives E[T]=beta/(alpha-1) for alpha>1, and log((beta+T)/beta) is exponential with rate alpha (the log-eta expectation is actually finite for every alpha>0). Differentiating the CDF and taking minus the log density yields exactly the simplified entropy formula; E[X^2] and E[|log X|] are finite in that regime by the same endpoint estimates. VERIFICATION.md and verify_entropy.py were inspected, not executed; the latter encodes formulas locally rather than checking a package API. The proof, not recorded or sampled output, establishes the boundary.
+
+## originality
+
+PASS
+
+The supported contribution is a model-specific correction of the entropy domain and evaluation of two expectations, not discovery of the Lomax generator or the entropy change-of-variables formula. The strongest accessible matching primary passage leaves the relevant expectations numerical and does not give a finiteness domain. No demonstrated coverage of the correction was found in the inspected evidence.
+
+## value
+
+PASS
+
+The exact cutoff corrects a published summary statistic across an entire admissible parameter regime, distinguishing genuinely finite entropy from a numerically plausible truncation of a divergent integral. The two analytic terms also reduce the legitimate finite-regime computation. This is useful without claiming novelty for standard transformation identities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

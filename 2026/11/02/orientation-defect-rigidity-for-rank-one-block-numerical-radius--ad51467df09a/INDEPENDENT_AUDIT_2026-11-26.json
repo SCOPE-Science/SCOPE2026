@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:58:20.105456Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A scalar unitary at each vertex gauges away the rank-one phase; a geometric progression of phases rotates the entire superdiagonal. Thus twice the numerical radius is the norm of the Hermitian sum. In its even/odd bipartition the cross block is B=P Q*, one endpoint vector in each column per edge. P*P and Q*Q are exactly the odd/even overlap Grams. Cycling factors in BB* identifies all nonzero eigenvalues, with multiplicities, with those of G_o G_e; zeros do not affect the radius even at singular endpoints. Positive adjacent entries make the product irreducible for r>0, and any increased overlap increases an entry, making strict Perron comparison applicable. At r=0 orthogonal incident directions split the path precisely at equal signs; the longest remaining path has L edges. At r=1 all edge vectors agree at each shared vertex, giving the ordinary scalar path. For the analytic derivative, let sigma=2 cos(theta), and let x=P*f and y=Q*g be the incidences of the normalized odd and even singular vectors. Their pairing is y*x=sigma and G_e x=sigma y, G_o y=sigma x. The derivative of the simple top eigenvalue against one Gram overlap is therefore twice the product of the opposite endpoint incidences, or 4 psi_j psi_(j+2), with psi the normalized sine path vector. Differentiating sqrt(lambda)/2 gives the stated coefficient with no extra factor of two. An exact independent characteristic polynomial check for (++-) gives lambda(lambda^2-3 lambda+2-r^2). The supplied NumPy script was inspected as bounded supporting evidence, not run or relied upon for general validity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 9ee867213cf3 gives higher-rank numerical-range data for alternating paths with general finite-dimensional blocks.",
+          "Kittaneh–Rashid–Xu abstract describes inequalities for 2-by-2 operator matrices in the semi-Hilbertian setting."
+        ],
+        "reasoning": "Broader operator classes in the alternating problem do not dominate nonalternating words. General inequalities in the inspected comparison do not furnish the required sharp all-word equalities or strict defect orders.",
+        "searches": [
+          "Resultary: weighted block paths, higher-rank numerical ranges",
+          "doi:10.1186/s13660-025-03380-w"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.15242v1",
+        "doi:10.1186/s13660-025-03380-w (abstract)",
+        "Resultary:96e146d5df0c",
+        "Resultary:9ee867213cf3",
+        "Resultary:a6c67187469c",
+        "Resultary:f0c0ea797e57",
+        "Resultary:523521e92cd4",
+        "Resultary:d52a19fbce8e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Resultary f0c0ea797e57 differentiates with respect to an lp exponent; 523521e92cd4 concerns second-order sensitivity for scalar edge weights on a cycle.",
+          "The scalar sine profile at unit overlap is known, but equal-orientation defects change one overlap in an endpoint Gram, not one scalar edge weight."
+        ],
+        "reasoning": "Adjacency Perron comparison and simple-eigenvalue differentiation are known tools. Their application here requires the word-specific parity-Gram representation and the consistent opposite-endpoint identification. The cited results do not supply those steps or their consequences.",
+        "searches": [
+          "Resultary: numerical-radius Perron derivative and Hessian",
+          "arXiv:2610.15242v1 equation (2.5)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Corollary 2.1 equation (2.5) gives the norm-times-cosine formula for alternating blocks T,T*,T,... with arbitrary T.",
+          "Resultary 96e146d5df0c uses alternating blocks and gives a resolvent-norm invariant."
+        ],
+        "reasoning": "Switching the initial sign of an alternating word just replaces T by T*. Equality of this value does not determine the nonalternating words; an alternating-block resolvent formula does not substitute for the arbitrary-word numerical radius.",
+        "searches": [
+          "arXiv:2610.15242v1 Corollary 2.1",
+          "Resultary: alternating adjoint block paths and numerical radius"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary a6c67187469c orders the position of one modified scalar shift weight; d52a19fbce8e treats rank-one projected transport on a matrix curve."
+        ],
+        "reasoning": "Neither entry tabulates or classifies these block words. There is no fixed finite table target for an all-length theorem; a short-word radical would not settle its structural law.",
+        "searches": [
+          "Resultary: rank-one orientations and numerical-radius defects",
+          "Resultary: first-order defects and rank-one"
+        ]
+      },
+      "rationale": "Credit the sharp alternating-word value and ordinary path sine spectrum as prior. The supported difference is an all-word rank-one spectral reduction, giving strict order and endpoint equality cases and a localized first variation at fixed length. No retrieved comparator gives or directly implies that combination. This is a best-of-knowledge assessment, not a priority guarantee.",
+      "residual_risks": [
+        "Specialized Gram-product or rank-one block shift literature could imply some components. The broader primary query supplied no decisive passage; this is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of alternating endpoint only",
+          "evidence": "Alternating blocks T,T*,... have radius ||T|| cos(pi/(m+1)) for every bounded T.",
+          "identifier_or_url": "https://arxiv.org/html/2610.15242v1",
+          "material_read": "Corollary 2.1 equation (2.5), OA offset 24821",
+          "method": "OA original HTML passage",
+          "title": "Integral Representations and Sharp Numerical Radius Inequalities for Hilbert Space Operators",
+          "trigger": "Exact sharp path endpoint"
+        },
+        {
+          "assessment": "Related, different invariant and word class",
+          "evidence": "Positive weights on alternating T,T* edges enter a resolvent law.",
+          "identifier_or_url": "Resultary 2026/10/26/96e146d5df0c",
+          "material_read": "Finding, RESULT.md offset 88",
+          "method": "Published local mirror",
+          "title": "Exact resolvent and essential resolvent rigidity for alternating adjoint paths",
+          "trigger": "Broader weighted operator paths"
+        },
+        {
+          "assessment": "Does not dominate arbitrary word orientations",
+          "evidence": "Higher-rank numerical ranges are for alternating paths.",
+          "identifier_or_url": "Resultary 2026/10/26/9ee867213cf3",
+          "material_read": "Finding, RESULT.md offset 72",
+          "method": "Published local mirror",
+          "title": "Sharp initial-rank tomography of alternating adjoint nilpotent paths",
+          "trigger": "Possibly dominating numerical-range result"
+        },
+        {
+          "assessment": "Abstract-level comparator, not a whole-paper exclusion",
+          "evidence": "Abstract concerns 2-by-2 operator-matrix inequalities in semi-Hilbertian spaces.",
+          "identifier_or_url": "https://doi.org/10.1186/s13660-025-03380-w",
+          "material_read": "Page 1 abstract, OA offset 286",
+          "method": "OA PDF excerpt",
+          "title": "A-numerical radius inequalities for operator matrices in semi-Hilbertian spaces",
+          "trigger": "General operator-matrix inequalities"
+        },
+        {
+          "assessment": "Different defect and object",
+          "evidence": "One enhanced scalar edge weight rather than overlap at a vertex.",
+          "identifier_or_url": "Resultary 2026/10/18/a6c67187469c",
+          "material_read": "Finding, RESULT.md offset 86",
+          "method": "Published local mirror",
+          "title": "Strict centerward growth of the numerical radius of a single defect",
+          "trigger": "Defect ordering"
+        },
+        {
+          "assessment": "Methodologically adjacent only",
+          "evidence": "lp-exponent sensitivity and cycle edge-weight Hessian, respectively.",
+          "identifier_or_url": "Resultary 2026/10/11/f0c0ea797e57 and 523521e92cd4",
+          "material_read": "Separate Findings, offsets 80 and 90",
+          "method": "Published local mirror",
+          "title": "Perron entropy flux and a four-site reversal; universal Green-kernel Hessian",
+          "trigger": "Perron perturbation formula"
+        },
+        {
+          "assessment": "Different problem; no priority inference from date",
+          "evidence": "Rank-one transport along matrix curves, not numerical radii of operator paths.",
+          "identifier_or_url": "Resultary 2026/11/2/d52a19fbce8e",
+          "material_read": "Finding, RESULT.md offset 85",
+          "method": "Published local mirror",
+          "title": "Exact attenuation and first-order holonomy defect of rank-one projected transport",
+          "trigger": "Distinct same-date rank-one defect result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The orientation question is motivated by the known alternating optimum. A dimension-free exact finite Gram law provides comparisons the scalar optimum alone cannot make; the zero-overlap run statistic and the nonuniform defect slope explain what invalidates simple defect counting. The result is useful for open paths with a fixed rank-one operator, not claimed for general rank or cyclic closures.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

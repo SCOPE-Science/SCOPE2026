@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:47:46.211275Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–76",
+        "VERIFICATION.md",
+        "verify.py",
+        "Independent bounded factor enumeration for b=2–6, n=0–60"
+      ],
+      "rationale": "The frozen display adds min(h,ceil(s/2)); it does not multiply that term by n. The first gap between ones uniquely fixes its power index k, so counting allowed starts gives exactly c_k(n). One-one factors lose floor(n/2) classes under reflection, while factors with at least three ones cannot have a factor reversal because their successive gaps strictly increase. For two ones, both orientations require each flank to be no longer than P_k, the available leading zeros; the admissible left-flank interval is reversed by ell→n−d_k−1−ell, giving floor(B_k(n)/2) nontrivial pairs. Strict Q_k>P_k is not needed and is an equality for b=2, k=0. For d_m≤n<d_{m+1}, earlier pairs make no reduction (including the b=2,n=4 palindrome), and the current gap contributes min(h,s)−floor(max(0,min(s,2h−s))/2)=min(h,ceil(s/2)). This proves the block formula and base-2 specialization including n=0–3 by the finite sum. Scaling by d_m gives the stated profile: for b>2 its two endpoint values agree and the peak is at 1+2/b, reached asymptotically by rounding lengths. At b=2 the profile is constant. An independent bounded enumeration agreed for b=2–6 and n=0–60 (305 lengths across bases). The supplied script was inspected but not executed.",
+      "residual_risks": [
+        "The finite replay does not by itself certify the formula outside the tested range; the proof covers that range.",
+        "The harmless strict-inequality slip about the two flank capacities should be read as a weak inequality."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The automatic-sequence theorem gives effective regularity, not the specialized explicit evaluation. The Resultary exact formula is for all lengths and its full cluster-set theorem includes both frozen endpoint claims."
+        ],
+        "reasoning": "General automaticity alone supplies a method, but the catalogue's explicit theorem covers the values and sharp extrema.",
+        "searches": [
+          "Allouche et al., Theorem 55 and §8.1",
+          "Resultary e7e8ab2eb348, cluster-set statement"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e7e8ab2eb348",
+        "Resultary 95feb376854e",
+        "Resultary 2271744c5ba8",
+        "Resultary fe330b1e5833",
+        "Allouche et al., arXiv:2406.09302"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matching exact theorem gives r_2(n)=2ceil(n/2)+2 for n≥4 and cluster endpoints 1/2+1/[b(b−1)] and 1/2+b/[(b−1)(b+2)], with every intermediate limit attained."
+        ],
+        "reasoning": "This recovers the frozen results directly, rather than just yielding them by an unspecified automatic computation.",
+        "searches": [
+          "Resultary e7e8ab2eb348, RESULT.md Finding",
+          "Allouche et al., §8.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matching record marks the same positions {B^j:j≥0} in a one-sided binary word and counts length-n factors modulo equality or reversal. The match is not about cyclic conjugacy or palindromic factorizations of prefixes."
+        ],
+        "reasoning": "Setting B=b identifies the object and the invariant, including the initial zero at index zero and the smallest lengths.",
+        "searches": [
+          "Resultary e7e8ab2eb348, geometric-support and power-marker word",
+          "Allouche et al., arXiv:2406.09302, Definition 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest exact entry gives the all-length reversal-class count and b=2 initial values and closed form. Other entries evaluate ordinary complexity or the palindromic language of the same object, or reflection complexity of a distinct square-support word."
+        ],
+        "reasoning": "The exact geometric-support entry counts the identical statistic, while the ordinary-complexity and palindrome counts are not themselves interchangeable with it.",
+        "searches": [
+          "Local Resultary mirror e7e8ab2eb348, 95feb376854e, 2271744c5ba8 and fe330b1e5833"
+        ]
+      },
+      "rationale": "The distinct Resultary record e7e8ab2eb348 evaluates precisely the same reflection complexity for every base and length, gives the same base-2 formulas and limiting endpoints, and strengthens the asymptotic result to the full cluster interval. This is mathematical coverage, not an inference about historical priority or provenance from catalogue dates.",
+      "residual_risks": [
+        "The focused external literature search was unavailable; this is not negative evidence about publication priority.",
+        "Catalogue dates alone establish neither precedence nor provenance. The decision rests on matching mathematical content."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the core claim and strengthens the limit statement",
+          "evidence": "Same {B^j} support, exact all-length formula, same base-2 values and normalized endpoints, plus full cluster interval.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-reflection-complexity-and-oscillation-of-geometric-support--e7e8ab2eb348",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact reflection complexity and oscillation of geometric support",
+          "trigger": "Exact formula for the matching support and invariant"
+        },
+        {
+          "assessment": "Overlap with the baseline, not the entire reflection computation",
+          "evidence": "Ordinary complexity obtained via two-binomial rigidity.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-two-binomial-rigidity-of-geometric-marker-automatic-words--95feb376854e",
+          "material_read": "RESULT.md exact ordinary factor-complexity statement",
+          "method": "Local Resultary mirror",
+          "title": "Two-binomial rigidity of geometric marker automatic words",
+          "trigger": "Same-word ordinary factor complexity"
+        },
+        {
+          "assessment": "Related; not equivalent to counting reversal classes of all factors",
+          "evidence": "Classifies the palindromic factors and their count, not all two-element reversal classes.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-the-complete-palindromic-language-and-maximal-factors-of-geometr--2271744c5ba8",
+          "material_read": "RESULT.md palindromic-factor result",
+          "method": "Local Resultary mirror",
+          "title": "The complete palindromic language and maximal factors of geometric marker words",
+          "trigger": "Same-word reversal-related invariant"
+        },
+        {
+          "assessment": "Same invariant and general framework; inspected passages do not supply this exact evaluation",
+          "evidence": "Effective regularity and a Thue–Morse application, as opposed to the explicit power-indicator formulas.",
+          "identifier_or_url": "https://arxiv.org/abs/2406.09302",
+          "material_read": "PDF pp. 2 and 25, Definition 3 and §8.1/Theorem 55, near offsets 5160 and 55000",
+          "method": "Lawful OA primary text",
+          "title": "The reflection complexity of sequences over finite alphabets",
+          "trigger": "Foundational definition and automatic-sequence evaluation theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and proof",
+        "Resultary e7e8ab2eb348"
+      ],
+      "rationale": "An exact reflection-complexity profile for this natural family would be worthwhile if distinct, particularly the contrast between convergence at base 2 and oscillation at higher bases. The exact invariant and asymptotics are already covered in the reviewed catalogue. The frozen record leaves no independently useful residual exact claim beyond that coverage.",
+      "residual_risks": [
+        "The decision concerns value as a distinct exact contribution, not whether the formulas are useful in isolation."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

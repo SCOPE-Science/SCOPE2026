@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:42:01.126086Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent exact calculations in /workspace/review_checks/check_5.py verify the Weierstrass discriminant 4096 Q²(P³−27Q²)³, the parameter discriminant −19683r³(m²r−4), and both torsion-section substitutions (including ψ₃ for the order-three section). The generic fiber is nonsingular, and a finite y=0 point has exact order two. The invariant c₄=16P(P³+216Q²) is nonzero at all finite discriminant zeros under the stated assumptions; at infinity its degree-four leading term is nonzero and the Weierstrass discriminant has degree eleven. Thus the finite vanishing orders give the stated multiplicative fibers, together with I₁ at infinity. The bundle has degree one, so the surface is rational. The trivial lattice root ranks give ranks 1 and 0 by Shioda–Tate. In the generic case the height formula excludes two-torsion and forces each nonzero 3-torsion point to map nontrivially into all three I₃ component groups, excluding a second independent 3-torsion point. The rank-one height determinant is 9/54. In the tangent case the determinant 36 gives torsion order six. These calculations are over C(t), not assertions about points on every specialized fiber.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published family includes the same affine slices P=mt+r, Q=t and identifies the tangency equation m²r=4.",
+          "Standard Shioda–Tate, height and lattice-discriminant formulas, applied to the published Kodaira fibers, already entail the stated groups and height; this implication was computed independently."
+        ],
+        "reasoning": "The abstract invariants are consequences of the established fiber classification for the same slices, not a new elliptic-surface classification.",
+        "searches": [
+          "arXiv:2608.25644 §7.1",
+          "Oguiso–Shioda DOI:10.14992/00009974 and official repository record 10006"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "arXiv:2608.25644",
+        "Resultary 96f400fa278d",
+        "Oguiso–Shioda bibliographic record; full text unavailable"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For m=1 the cubic factors as (X−u²−16u)(X²+(8u−16)X−64u³−176u²−256u). The quadratic discriminant is 256(u+1)³, a nonsquare in C(u)."
+        ],
+        "reasoning": "A direct factorization of the published cubic at the published tangent condition yields the unique rational 2-torsion point; the rest is weighted rescaling. Failure to locate the exact displayed formula in print does not make it independent of that data.",
+        "searches": [
+          "arXiv:2608.25644 eq. (1) and Table 8; symbolic linear-factor check of the normalized tangent cubic"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest indexed Goursat-curve result 96f400fa278d concerns a quotient to the same genus-one invariant curve, not a tangent torsion section.",
+          "In the source's invariant coordinates the asserted point is (R,S)=(m²t²/4+4t/m,0)."
+        ],
+        "reasoning": "The changes u=m³t, X′=m⁴X, Y′=m⁶Y give P′=m²P=u+4 and Q′=m³Q=u. Thus the purported m-family formula is transport of the normalized slice's unique rational root, not a result varying across inequivalent tangent slices.",
+        "searches": [
+          "Resultary: tetrahedral Platonic invariant elliptic surface tangent slice 2-torsion and Mordell–Weil sections",
+          "arXiv:2608.25644 §1.4 eq. (1), §7.1 Table 8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 8 includes the generic and tangent fiber rows, in particular I₂,I₆,I₃,I₁ on m²r=4; it does not give the displayed coordinates.",
+          "Root determinants from the rows are 54 and 36; the resulting rank-one height is 1/6 and the rank-zero torsion order is six."
+        ],
+        "reasoning": "Even without checking the older printed Mordell–Weil table, the accessible explicit fiber table contains enough data to recover the claimed abstract invariants by standard formulas.",
+        "searches": [
+          "Gegelia–van Straten §7.1 Table 8, pp. 52–53",
+          "Oguiso–Shioda official repository and DOI retrieval"
+        ]
+      },
+      "rationale": "The abstract torsion jump, Mordell–Weil groups and generic height follow from the published fiber rows and the standard rational-elliptic-surface formulas. The displayed coordinate is not identified as a printed formula in the inspected source, but the whole m≠0 family is one published tangent slice up to weighted scaling, and its unique 2-torsion coordinate is the sole linear factor of that known cubic. This is strong implication evidence, not a negative verdict based on inability to retrieve the classification paper.",
+      "residual_risks": [
+        "An earlier printed coordinate in an uninspected source was not ruled out. The decision rests on demonstrated coverage by computation from the published cubic and fiber table, not on that possibility."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the defining cubic and fiber classification giving the elementary implication, but does not print the coordinate in the compared passages",
+          "evidence": [
+            "Tetrahedral cubic and discriminant; generic and m²r=4 slice rows."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.25644",
+          "material_read": "§1.4 p. 8 eq. (1), §1.5 p. 9, §7.1 Table 8 pp. 52–53",
+          "method": "Targeted lawful OA full-text inspection",
+          "title": "The platonic elliptic surfaces",
+          "trigger": "Identical tetrahedral invariant family and tangent line"
+        },
+        {
+          "assessment": "No full-text judgment about printed coordinates; group and height implication verified from accessible fiber data independently",
+          "evidence": [
+            "Frozen citation identifies the classification; no unavailable passage is treated as negative evidence."
+          ],
+          "identifier_or_url": "https://rikkyo.repo.nii.ac.jp/records/10006; DOI:10.14992/00009974",
+          "material_read": "Bibliographic record only; full text unavailable through the attempted OA routes",
+          "method": "Official repository and DOI retrieval attempts",
+          "title": "The Mordell–Weil lattice of a rational elliptic surface",
+          "trigger": "Classical classification by the same reducible-fiber lattice types"
+        },
+        {
+          "assessment": "Different object of the theorem; no tangent 2-torsion section in the inspected statement",
+          "evidence": [
+            "Quotients to the invariant curve and Jacobian decompositions, not Mordell–Weil specialization on tangent lines."
+          ],
+          "identifier_or_url": "96f400fa278d",
+          "material_read": "Mirrored RESULT.md statement on the Goursat quotient and Jacobian decomposition",
+          "method": "Local Resultary search and mirror inspection",
+          "title": "Platonic Goursat curves: cyclic ramification and low-dimensional quotients",
+          "trigger": "Closest indexed match to the same invariant genus-one curve"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The tangent locus is natural, but the torsion jump and height are already determined by the known fiber classification. The only candidate additional invariant is the coordinate of the unique point recovered by a single rational factorization of the normalized published slice, then rescaled. The record does not establish a further nonmechanical invariant such as a new comparison of inequivalent slices. The concrete computer-algebra result is correct but does not supply a distinct scientifically valuable remainder under this standard.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

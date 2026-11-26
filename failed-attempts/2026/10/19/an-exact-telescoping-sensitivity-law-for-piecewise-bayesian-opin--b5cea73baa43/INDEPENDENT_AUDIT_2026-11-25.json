@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:45:08.834621Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Assumptions and Proof steps 1–5",
+        "Frozen VERIFICATION.md and verification_bayesian.py, inspected, not executed"
+      ],
+      "rationale": "On a neighborhood of a regular initial condition the whole finite itinerary is fixed. Each Bayesian update is a coordinate translation by −log γ in log-odds, so the belief-space Jacobian is the stated positive diagonal endpoint ratio. Each numerator is at most 1/4, which bounds every singular value uniformly in the horizon at that initial state. The log of the logistic derivative differs from minus the absolute log-odds by a bounded amount, giving both versions of the coordinate exponent. In the sharpness example the horizon-dependent initial log-odds are T log γ and the final belief is exactly 1/2; fixing any one initial point instead gives exponent log γ<0. The example rules out uniform asymptotic nonpositivity or a uniform vanishing upper bound over initial states, not every finite positive upper bound. All conclusions are branchwise, not estimates across switching boundaries.",
+      "residual_risks": [
+        "Finite arithmetic diagnostics are not an audit or proof of the asymptotic claim. No derivatives at switching boundaries or with perturbation-dependent activation are established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The fixed-ratio algebra in Eq. (4) holds for any positive ratio; the product argument uses only a fixed branch and one receiving coordinate per update, not the particular bias rule.",
+          "Volk's general translation framework covers the transformed step form, but does not give the reported belief-space exponents as a model-specific result."
+        ],
+        "reasoning": "Extending the calculation to arbitrary exogenous sequences and locally constant positive finite-valued ratios does not introduce a new derivative mechanism.",
+        "searches": [
+          "arXiv:2405.19128v1, Eqs. (1)–(5) and discussion of products",
+          "arXiv:1708.03780, §2.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2405.19128v1",
+        "arXiv:1708.03780",
+        "Resultary record 065af25c1ce5",
+        "Frozen RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior diagonal product telescopes without extra hypotheses once its individual factors are written as adjacent ratios. Bounding b(1−b) and taking its logarithm yield the remaining derivative bounds and exponent classification.",
+          "The prior reports positive finite-time indicators empirically. The frozen exact witness is not printed in the inspected passages, but is obtained directly by solving the repeated constant-ratio map for b(T)=1/2."
+        ],
+        "reasoning": "The prior does not need to state the simplified endpoint, exponent or sharp witness in the same words for the claimed mathematical content to be mechanically implied.",
+        "searches": [
+          "arXiv:2405.19128v1, Eqs. (4)–(5), Jacobian product discussion, finite-time Lyapunov results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dong and Marzen give fγ(b)=b/[b+γ(1−b)] and derivative γ/[b+γ(1−b)]²; the latter equals fγ(b)(1−fγ(b))/[b(1−b)] exactly.",
+          "Volk defines finitely branched translations x↦x+v(x); the frozen dynamics take this form in coordinate log-odds on each fixed-schedule step."
+        ],
+        "reasoning": "The equivalence follows by applying logit to the update, not by terminology. The general piecewise-translation paper is a structural analogue; the direct coverage argument uses the model-specific derivative and product rule.",
+        "searches": [
+          "Dong and Marzen, arXiv:2405.19128v1, Eqs. (4)–(5) and the Jacobian-product paragraph",
+          "Volk, arXiv:1708.03780, §2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The later indexed anti-confirmation record explicitly gives the same endpoint derivative for its scalar two-gain rule and zero exponent on its compact invariant interval."
+        ],
+        "reasoning": "This is exact statement overlap in a special case, not pre-October-19 priority evidence and not the full network or sharp-example statement. An external table of numeric values is inapplicable because the claimed invariant is a formula for arbitrary regular itineraries.",
+        "searches": [
+          "Local Resultary search for Bayesian opinion tangent telescoping; matching record 065af25c1ce5, Proof §4"
+        ]
+      },
+      "rationale": "Dong and Marzen already supply the same update, its one-step derivative and explicitly the rule to multiply these diagonal entries. Their factors are exactly adjacent ratios of b(1−b), so the endpoint law and its time-uniform bound are mechanically implied, not an independent theorem merely because the product was not printed in simplified form. The drift and finite-horizon witness add explicit interpretation but require only the logistic derivative and the inverse of a scalar translation.",
+      "residual_risks": [
+        "The comparison is bounded and does not certify priority. Rejection rests on demonstrated mathematical implication, not on absence of additional sources or on the date of the later indexed overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct algebraic antecedent",
+          "evidence": "Eq. (5) and the stated diagonal product give exactly the factors that telescope. Finite positive indicators are reported numerically.",
+          "identifier_or_url": "https://arxiv.org/html/2405.19128v1",
+          "material_read": "Eqs. (1)–(5), Jacobian product paragraph, and finite-time results (OA offsets 9400, 10800, 18660, 33800)",
+          "method": "Bounded OA full-text inspection",
+          "title": "Cognitive biases can move opinion dynamics from consensus to signatures of transient chaos",
+          "trigger": "Same Bayesian network update and tangent calculation"
+        },
+        {
+          "assessment": "General analogue, not model-specific coverage by itself",
+          "evidence": "Finite piecewise translations are defined as F(x)=x+v(x).",
+          "identifier_or_url": "https://arxiv.org/html/1708.03780",
+          "material_read": "Abstract and §2.1 (OA offsets 0 and 7800)",
+          "method": "Bounded OA full-text inspection",
+          "title": "Attractors of Piecewise Translation Maps",
+          "trigger": "Equivalent log-odds formulation"
+        },
+        {
+          "assessment": "Later restricted exact overlap",
+          "evidence": "Endpoint variance ratio and vanishing scalar exponent on a compact invariant interval; no sharp positive-horizon witness in the compared statement.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-irrational-rotation-and-exact-switching-balance-in-anti-confirma--065af25c1ce5",
+          "material_read": "RESULT.md scope and Proof §4 (mirror offsets 0 and 5400)",
+          "method": "Local Resultary and mirror inspection",
+          "title": "Irrational rotation and exact switching balance in anti-confirmation",
+          "trigger": "Exact matched scalar derivative law in indexed results"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Steps 1–5 and Limitations",
+        "arXiv:2405.19128v1, Eqs. (4)–(5) and finite-time results"
+      ],
+      "rationale": "Distinguishing tangent growth at a chosen horizon from asymptotic sensitivity and from cross-branch separation is useful clarification. As a mathematical finding the proposed refinement is a routine simplification of a published diagonal product, followed by a scalar inverse and a bounded logistic correction; no additional independent invariant or switching result is established.",
+      "residual_risks": [
+        "This does not assess the merits of the underlying opinion model or its numerical signatures of transient chaos."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

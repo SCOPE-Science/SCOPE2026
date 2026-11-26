@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:58:35.600301Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–56; VERIFICATION.md and verify.py inspected, uploaded verifier not executed",
+        "Tang et al., arXiv:2308.09275, Section II, Theorems 3 and 4 and boundary analysis"
+      ],
+      "rationale": "The fixed-point theorem holds for finite connected nonbipartite positive-edge support, including self-loops, with positive biases not all one. Any zero or one coordinate of a boundary fixed point propagates to its neighbors, giving only the two endpoints. For two interior fixed points, choose their order so the largest odds ratio R is greater than one. The odds scaling H_R is strictly concave, commutes with each response, and gives Wx<=W H_R(y)<=H_R(Wy). At a maximizing vertex both inequalities are equalities. Positivity propagates the maximizing ratio to neighbors, so every vertex maximizes and Jensen equality makes y constant on each neighborhood. Even walks join any pair in the connected nonbipartite case, making y constant everywhere and forcing all biases neutral, a contradiction. For connected loopless bipartite support the even walks instead make y constant separately on each part; the equations force one part's bias to be alpha and the other's reciprocal, and the displayed part-constant arc indeed consists of fixed points. For necessity in the nonbipartite case the positive vector z_i=1/x_i-1 satisfies Gamma^{-1} Wz>=z by convexity of the reciprocal function and the fixed-point odds equation. At least one row is strict by the even-walk argument; a positive left Perron vector then certifies rho_1>1. Complementing gives rho_0>1. For sufficiency, small perturbations of both endpoints along positive Perron vectors give ordered strict sub- and supersolutions; monotone iteration has an interior limit. For attraction, scale the equilibrium odds down and up to trap any interior start. Convexity/concavity of the respective H_r gives monotone inward barriers. For the common diminishing-step recursion, an alleged limiting nonzero barrier drift contradicts boundedness and sum a_k=infinity. Thus both barriers converge to the same unique equilibrium in both recursions. The stochastic conclusion concerns the original Tang et al. process (the record explicitly invokes it in Proof §5): use their compatible positive pseudo-counts and intended independent declaration sampling. Theorem 3 approaches the equilibrium set, not a specified point. Because this set is finite here, vanishing jumps exclude infinitely many switches among disjoint neighborhoods of its points. Theorem 4 repels each supercritical endpoint and selects the appropriate endpoint at or below one, including equality. In nonbipartite nonneutral scope the two at-most-one regimes cannot coincide, as shown in Tang et al.'s boundary analysis. This proves the stated stochastic selection for that process, not for every different Bernoulli law with the same one-coordinate marginals.",
+      "residual_risks": [
+        "Read 'admissibly initialized' and 'the stochastic interacting Pólya urn' as the specific model used in Proof §5. For Tang et al.'s initial counts, b_i^0,b_i^1>0 with b_i^0+b_i^1=1 and m_i^o=sum_j a_ij b_j^o; the cited theorem does not cover arbitrary incompatible neighbor counts or arbitrarily correlated declarations. The limit is of time-averaged frequencies, not necessarily of individual declarations.",
+        "The original finite checks corroborate examples; the universal deterministic verdict comes from the analytic argument, and the stochastic verdict invokes the cited results rather than re-proving them."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tang et al. show approach to a set and endpoint selection/repulsion. The random-graph paper uses these exact boundary tests and studies structural conditions for random networks to reach consensus, rather than the interior fixed-point census.",
+          "The Reynolds–Tudisco unique globally attracting equilibrium concerns a different continuous ODE with a power-law stubbornness term, not the given fractional-linear discrete map and two-boundary criterion."
+        ],
+        "reasoning": "General equilibrium approach, continuous-time attraction for another response and known endpoint classification are genuine related results, but none identifies the unique coexistence equilibrium of this map or proves the stated discrete relaxation result.",
+        "searches": [
+          "Tang et al., arXiv:2308.09275, Theorems 3 and 4",
+          "Reynolds–Tudisco arXiv:2304.07556, Theorem 1.2",
+          "Evolution of Opinions Under Social Pressure on Random Graphs, Theorem 1 and §II-C"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2308.09275, arXiv:2104.11172 and arXiv:2304.07556",
+        "Evolution of Opinions Under Social Pressure on Random Graphs, author PDF",
+        "Published Resultary records 89ae241bbdaa and 8a05ff530e9b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 3 says almost-sure approach to an equilibrium set; the discussion leaves interior isolation/uniqueness unresolved. The paper identifies an alternating reciprocal-bias bipartite path with both boundary multipliers one, but does not classify all situations with multiple interior equilibria.",
+          "The later Oct. 26 result directly concludes deterministic stochastic selection when both multipliers exceed one; this consequence is real exact overlap, not a novel stochastic approximation theorem in the frozen record."
+        ],
+        "reasoning": "Endpoint repulsion and set attraction together can locate a stochastic limit in the interior only in a set-based sense absent rigidity. Once the interior point is known to be unique, identifying the stochastic limit is a direct corollary and is not credited as an independent method. Known bipartite spectral degeneracy alone neither determines the equilibrium arc nor forces reciprocal part-constant biases in every nonuniqueness case.",
+        "searches": [
+          "Tang et al., arXiv:2308.09275, Theorem 3 and following discussion, boundary multiplier example near Theorem 4",
+          "Published Resultary records 89ae241bbdaa and 8a05ff530e9b, Findings and hypotheses"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tang et al. define exactly the same fractional-linear response via weighted neighborhood opinions, and characterize the target by F(beta,gamma)=beta. Passing to log odds turns H_R into translation by log R but does not change fixed points.",
+          "The earlier complete-graph model uses the same count-ratio form for the truth declaration probability; its complete-graph analysis does not cover arbitrary weighted, heterogeneous nonbipartite networks."
+        ],
+        "reasoning": "The urn and the odds representation themselves are not novel. The non-expansion comparison in log odds by itself would allow multiple fixed points; rigidity here comes from strict Jensen equality, propagation at a maximizing vertex and the even-walk property.",
+        "searches": [
+          "Primary literature: Tang Adler Ajorlou Jadbabaie stochastic opinion dynamics social pressure unique interior equilibrium heterogeneous bias odds ratio logit nonbipartite Polya urn uniqueness",
+          "Tang et al., arXiv:2308.09275, Section II and Theorem 3; Jadbabaie et al., arXiv:2104.11172"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2026-10-26 catalogue entry has the same nonbipartite weighted fixed-point census, Perron conditions, global synchronous convergence, and stochastic selection, also with an odds-rigidity argument. It does not state the full diminishing-step result.",
+          "The 2026-11-08 catalogue entry assumes part-constant reciprocal nonneutral biases on a connected weighted bipartite graph, and gives the exact entire equilibrium arc, as well as an explicit flow on the complete bipartite graph."
+        ],
+        "reasoning": "Exact theorem records, not numerical tables, are the pertinent catalogue for this continuum of parameters. These are substantive overlapping statements, not merely nearby titles. For the bipartite arc, zero drift is the same equation as a fixed point of F, but the arc theorem assumes the bias pattern instead of deriving it from nonuniqueness.",
+        "searches": [
+          "Resultary exact interior uniqueness/deterministic selection in social-pressure Pólya networks: 89ae241bbdaa",
+          "Resultary exact reciprocal-bias bipartite equilibrium curve: 8a05ff530e9b"
+        ]
+      },
+      "rationale": "Credit the odds-rigidity theorem for arbitrary nonbipartite weights, the deterministic attraction result including diminishing steps, and the necessity direction of the bipartite exception. The original urn and its stochastic endpoint thresholds are established, and there is material later exact catalogue coverage of the nonbipartite uniqueness, Perron classification, synchronous convergence and stochastic selection, and later coverage of the reciprocal-bias equilibrium arc. The dates do not establish provenance, and those statements do not supply the full combination of diminishing-step attraction and necessity of the reciprocal-bias pattern. Tang et al. leave interior isolation open; the inspected earlier general convergence and opinion-dynamics results do not provide that additional rigidity.",
+      "residual_risks": [
+        "The later catalogue records have exact matching subclaims. Their dates do not establish origin or exclude equivalent earlier unpublished work.",
+        "The comparison is bounded; a general log-odds nonexpansive-map rigidity theorem with these equality hypotheses could give an unrecognized equivalent implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the model, equilibrium-set approach and endpoint thresholds; not the interior uniqueness theorem",
+          "evidence": [
+            "Theorem 3 gives approach to the set, Theorem 4 gives probability zero or one for convergence to an endpoint depending on its multiplier, and Section II ties the neighbor pseudo-counts to the normalized initial declaration pseudo-counts."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2308.09275",
+          "material_read": "Section II, pp. 2–3 and compatible initialization around offset 21000; Theorem 3, p. 7, offset 54617 and following discussion; pp. 9–11 boundary proof and Theorem 4, offset 92050",
+          "method": "Lawful arXiv PDF passages",
+          "title": "Stochastic Opinion Dynamics under Social Pressure in Arbitrary Networks",
+          "trigger": "Same model and source of the stochastic implications"
+        },
+        {
+          "assessment": "Model background in a more restricted geometry",
+          "evidence": [
+            "The count-ratio truth probability is studied in a complete graph with a common honesty parameter, not the weighted heterogeneous coexistence classification."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2104.11172",
+          "material_read": "PDF p. 3, model and complete graph scope, offset about 20500",
+          "method": "Lawful OA PDF passage",
+          "title": "Inference in Opinion Dynamics under Social Pressure",
+          "trigger": "Earlier model with the same response odds"
+        },
+        {
+          "assessment": "Uses the established boundary criteria to study random networks; inspected results do not identify a unique interior equilibrium",
+          "evidence": [
+            "Equations (12)–(14) distinguish convergence to zero, to one, or zero probability of either endpoint limit; the contribution is framed around when randomly generated graph properties imply consensus."
+          ],
+          "identifier_or_url": "https://www.mit.edu/~ajorlou/uploads/opinion_dynamics_random_acc2024.pdf",
+          "material_read": "PDF p. 3, Theorem 1 (12)–(14) and §II-C, offset 14500",
+          "method": "Lawful author-hosted PDF passage",
+          "title": "Evolution of Opinions Under Social Pressure on Random Graphs",
+          "trigger": "Search hit in exactly the same process and spectral regime"
+        },
+        {
+          "assessment": "Different nonlinear response, no direct specialization",
+          "evidence": [
+            "The result concerns a continuous ODE with symmetric coupling and a stubbornness power term."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2304.07556",
+          "material_read": "Theorem 1.2 and model, PDF pp. 6–7",
+          "method": "Lawful OA PDF passages",
+          "title": "Unique Nash equilibrium and global convergence for an opinion dynamics model with stubbornness",
+          "trigger": "Potential general prior on uniqueness in weighted opinion models"
+        },
+        {
+          "assessment": "Exact coverage of central nonbipartite classification and synchronous/stochastic selection, not of all frozen extensions; later catalogue date",
+          "evidence": [
+            "The same connected weighted nonbipartite graph and fractional-linear response have exactly one interior fixed point if both Perron roots exceed one; both synchronous convergence and compatible stochastic selection are stated."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-uniqueness-and-deterministic-selection-of-nonconsensus-in-a-soci--89ae241bbdaa",
+          "material_read": "RESULT.md Finding, assumptions, proof and explicit stochastic scope",
+          "method": "Published local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Uniqueness and deterministic selection of nonconsensus in a social-pressure Pólya network",
+          "trigger": "Near-exact later catalogue theorem"
+        },
+        {
+          "assessment": "Exact overlap when the exceptional biases are assumed; not the converse necessity among all bias patterns",
+          "evidence": [
+            "The part values p and p/[gamma-(gamma-1)p] describe the same curve, since the response functions with reciprocal parameters are inverses."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-reciprocal-bias-bipartite-social-pressure-the-full-equilibrium-c--8a05ff530e9b",
+          "material_read": "RESULT.md Finding and reciprocal-bias assumptions, offset 0",
+          "method": "Published local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Reciprocal-bias bipartite social pressure: the full equilibrium curve and an exact complete-bipartite flow",
+          "trigger": "Exact catalogue arc in the exceptional bipartite case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof §§1–5",
+        "Tang et al., arXiv:2308.09275, Theorem 3 and interior-equilibria discussion",
+        "Published Resultary records 89ae241bbdaa and 8a05ff530e9b"
+      ],
+      "rationale": "The interior may exist on heterogeneous networks, but convergence to an equilibrium set alone does not determine whether initial conditions or randomness select different limiting frequencies. Uniqueness on every connected nonbipartite support makes the coexistence limit determinate for this urn and gives a convergent deterministic computation. The graph-theoretic equality mechanism also explains precisely how bipartite nonuniqueness arises, rather than simply exhibiting an isolated counterexample. These contributions answer a concrete gap posed by the prior stochastic analysis.",
+      "residual_risks": [
+        "No quantitative rate, directed-graph classification, or extension to arbitrary stochastic dependence is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

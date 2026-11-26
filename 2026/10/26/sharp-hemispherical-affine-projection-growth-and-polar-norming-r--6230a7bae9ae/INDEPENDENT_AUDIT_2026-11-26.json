@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:55:11.530693Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–84",
+        "Frozen VERIFICATION.md, lines 3–25, and VERIFY.py, lines 9–77",
+        "Independent scalar integration of the normal tail in the displayed constant"
+      ],
+      "rationale": "Checked the exact continuous affine projector and all asymptotic claims. Centering the last coordinate diagonalizes the affine moment Gram matrix: the tangential variances are 1/d, and the last variance is v_d/d with v_d=1−d m_d²>0; the beta law of Y_d² gives the stated gamma-function mean. The resulting kernel row has norm equal to its absolute integral (test the row sign), and continuity plus full support allow the supremum over all locations, including the boundary. The normalized Gaussian representation yields the joint tangential/axial limit (G₁,|G₂|) a.s. and in L¹ by the uniform second moments. The coefficients of the kernel row divided by sqrt(d) converge uniformly in latitude, so the absolute-expectation convergence is uniform. For monotonicity, for Y=|G₂|−μ, differentiate H(r)=E|G₁+rY| to get H−rH′=μ A(r) and H′/μ=∫₀ʳ E[Y² exp(−s²Y²/2)]ds. With C=v−E[Y⁴]/6, the polynomial C−2v² is increasing for 7/11<μ²<2/3 and is 5/363 at the lower endpoint. On 0<r≤1 the exponential lower bound yields H′/μ≥rC; on r≥1 it gives H′/μ≥C, while the density of Y is at most μ and hence A(r)≤2/r. Both ranges give H′>μv²rA. Under r=t/(v sqrt(1−t²)) this is exactly vF′(t)>0. Endpoint continuity gives the unique limiting maximum; the centered-half-normal positive tail gives the pole constant, numerically 1.32815206218154 by an independent scalar quadrature. Uniform convergence and the strict gap away from t=1 prove both directions of the near-norming classification. The packaged script was inspected, not executed.",
+      "residual_risks": [
+        "No implication of exact pole optimality in fixed dimension; no claim about other caps, weights, discretized least squares, or growing degree."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The full-sphere and weighted-ball hyperinterpolation statements address degree growth with fixed dimension and impose quadrature or related hypotheses. The full-sphere least-squares search hit also concerns a discrete quadrature-node fit with growing polynomial degree.",
+          "The indexed high-dimensional positive-orthant result uses a different truncation of sphere coordinates; only its summary was accessible."
+        ],
+        "reasoning": "Changing the measure to hemisphere area breaks full rotational invariance, introduces a centered half-normal axial variable, and changes the affine space relative to a ball model. The inspected degree-growth statements do not specialize to the uniform latitude profile.",
+        "searches": [
+          "Le Gia–Sloan DOI 10.1007/s003650010025, abstract and Theorem 6.2",
+          "Wade arXiv:1209.4328, abstract and Theorem 3.1",
+          "Themistoclakis–Van Barel arXiv:1808.03530, abstract",
+          "Resultary 56d78809bb74, catalogue summary"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records 63b019929e7f and 56d78809bb74 (second summary only)",
+        "DOI 10.1007/s003650010025",
+        "arXiv:1209.4328",
+        "arXiv:1808.03530, abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The d=3 equatorial normers do not contradict or imply asymptotic polar localization. The cited spherical projection-type growth rates provide no limiting rowwise separation in t."
+        ],
+        "reasoning": "A Gaussian-coordinate limit alone would give at most a candidate profile; the strict derivative comparison for the centered half-normal mixture is needed for the asserted polar classification.",
+        "searches": [
+          "Resultary 63b019929e7f, mirror Finding",
+          "Le Gia–Sloan §6; Wade §3; Themistoclakis–Van Barel abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The evaluation norm is the Lebesgue function of continuous affine least-squares projection. Conditioning on the half-normal coordinate expresses the asserted profile as an ordinary shifted folded-normal absolute mean averaged against the half-normal density.",
+          "The Resultary d=3 exact affine least-squares result uses the identical continuous operator at one dimension only."
+        ],
+        "reasoning": "The two terminologies describe the same norm, but a single spatial maximum at d=3 does not give uniform convergence over the latitude in increasing dimension.",
+        "searches": [
+          "Resultary: uniform hemisphere affine least-squares projection stability and Gaussian norming profiles",
+          "Primary search: hemisphere affine orthogonal projection Lebesgue constant normalized surface hemisphere high dimension half normal least squares linear norm",
+          "Frozen VERIFY.py lines 22–30"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed d=3 norm is 61sqrt(5)/15−7 with exact equatorial maximizers. It is not the asymptotic coefficient or a table for the full profile."
+        ],
+        "reasoning": "Numerical values or exact fixed-dimensional rows would not certify the profile convergence and strict order; no novelty is claimed for the same d=3 invariant.",
+        "searches": [
+          "Resultary 63b019929e7f, exact affine hemisphere norm",
+          "Primary Lebesgue constant search stated above"
+        ]
+      },
+      "rationale": "The supported distinct claim is the uniform high-dimensional profile for the exact continuous affine projector with normalized hemispherical surface measure, including its strict limiting latitude order, sharp constant, and characterization of all near-norming locations. The closest inspected same-domain result is a fixed-dimension exact calculation, while the closest high-dimensional indexed analogue uses the positive orthant. The primary full-sphere and weighted-ball hyperinterpolation results concern a different limit and operator. None of these inspected results yields the stated half-normal profile and its monotonicity.",
+      "residual_risks": [
+        "The positive-orthant full record was unavailable; a broader theorem there or differently indexed high-dimensional cap results could have implications beyond the passages inspected.",
+        "This bounded review does not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact fixed-dimensional overlap, not high-dimensional coverage",
+          "evidence": "Gives the exact norm on the curved hemisphere of S² and equatorial maximizers.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-affine-least-squares-stability-on-the-uniform-hemisphere--63b019929e7f",
+          "material_read": "Local-mirror RESULT.md, Finding",
+          "method": "Local Resultary search and mirror passage comparison",
+          "title": "Sharp affine least-squares stability on the uniform hemisphere",
+          "trigger": "Identical continuous operator at fixed dimension"
+        },
+        {
+          "assessment": "Different approximation operator, domain and limit",
+          "evidence": "The theorem is on the full sphere and gives degree-growth order for hyperinterpolation under quadrature conditions at fixed dimension.",
+          "identifier_or_url": "https://web.maths.unsw.edu.au/~qlegia/LG_SloanCA01.pdf",
+          "material_read": "Abstract, p. 249; §6, Theorem 6.2, p. 261",
+          "method": "Author-hosted OA PDF passage comparison",
+          "title": "The uniform norm of hyperinterpolation on the unit sphere in an arbitrary number of dimensions",
+          "trigger": "Spherical uniform projection-type norm growth"
+        },
+        {
+          "assessment": "Different domain and asymptotic",
+          "evidence": "Bounds degree growth for hyperinterpolation on a Gegenbauer-weighted ball, not the hemisphere affine row profile.",
+          "identifier_or_url": "https://arxiv.org/abs/1209.4328",
+          "material_read": "Abstract, p. 1; §3, Theorem 3.1, p. 5",
+          "method": "OA PDF passage comparison",
+          "title": "On hyperinterpolation on the unit ball",
+          "trigger": "Weighted-ball analogue of a spherical projection norm"
+        },
+        {
+          "assessment": "The inspected result has different assumptions; no whole-document exclusion inferred",
+          "evidence": "The abstract fits polynomials to quadrature nodes on the full sphere and concerns growth with polynomial degree n.",
+          "identifier_or_url": "https://arxiv.org/abs/1808.03530",
+          "material_read": "PDF p. 1 abstract passages around offsets 750–1420",
+          "method": "OA PDF literal passage lookup; second page read timed out",
+          "title": "Optimal Lebesgue constants for least squares polynomial approximation on the (hyper)sphere",
+          "trigger": "Direct primary search hit under terminology Lebesgue constant and least squares"
+        },
+        {
+          "assessment": "Summary indicates a different domain; general implications unverified",
+          "evidence": "The summary names positive orthants and a Gaussian norming law, not a hemisphere.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-diffuse-norming-law-for-affine-projection-on-positive-spherical-orthants--56d78809bb74",
+          "material_read": "Local catalogue summary only; no mirror full text available",
+          "method": "Local Resultary search and mirror retrieval attempt",
+          "title": "Diffuse norming law for affine projection on positive spherical orthants",
+          "trigger": "High-dimensional analogue with affine projection"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof steps 2–4",
+        "Resultary 63b019929e7f, Finding"
+      ],
+      "rationale": "The Lebesgue constant measures amplification by a concrete affine fit, and symmetry alone no longer makes evaluation rows equivalent on a hemisphere. The uniform profile identifies both the sharp growth constant and where arbitrarily nearly worst amplification can occur. Distinguishing asymptotic polar localization from fixed-dimensional maximizing locations is substantive, particularly given the exact equatorial result in dimension three.",
+      "residual_risks": [
+        "This is an exact continuous projection result; it supplies no finite-dimensional pole-maximizer theorem or discrete sampling guarantee."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

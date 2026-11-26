@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:11:08.287374Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditional independence and the four environment states give the exact failure law. With both single-good masses positive, one single-good term at any integer k is at least min(q10,q01)e^(−λN), according to the side of θN; rounding θN to within 1/2 gives the stated upper bound, hence the optimizer window. The real second derivative is positive, so inspecting the floor and ceiling of the clipped minimizer suffices. With k=θN+t, the scaled failure is G(t)+q11 e^(−λN)e^((B−A)t). A minimizing lattice point for G lies within one unit of t0 and is feasible at the stated threshold; testing it gives the explicit upper error and positivity of the remainder gives the lower error. G(t+1)−G(t) changes sign at tc, so each phase has its minimizing coordinate in [tc,tc+1], the endpoint values coincide, and strict convexity puts t0 in the interior. The resulting continuous periodic envelope has the stated full range, and the irrational orbit visits arbitrarily close to every phase infinitely often; rational phases have a finite orbit. On q10=0<q01 comparison with k=0 directly yields k≤log(1+q11/q01)/B for every optimizer; interchanging seasons gives the other boundary. When both masses vanish the product or constant cases apply, including ties; the introductory endpoint statement is qualified by these cases. Independent bounded floating-point enumeration corroborated 6000 finite-budget cases and 4357 eligible phase bounds and sampled the example's predicted interval; the infinite result rests on the analysis. The supplied checker was inspected but not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Snyder's inspected model concerns evolutionarily optimal dispersal with seed-bank contributions and competition. Valleriani's accessible abstract concerns evolutionarily stable germination under correlated yield. The later phenology and common-cause papers could not be inspected in full text.",
+          "The compared Resultary geometric-weight allocation has a two-term optimizer/value law but no Bernoulli failure-mixture assumptions; the two-patch model optimizes a mean time to extinction."
+        ],
+        "reasoning": "The inspected objectives do not specialize to the probability of zero establishment in a nonadaptive fixed cohort. Broader reliability coverage remains a material residual risk, not a demonstrated implication.",
+        "searches": [
+          "Snyder (2006), DOI 10.1111/j.1461-0248.2006.00962.x",
+          "Valleriani (2006), DOI 10.1016/j.tpb.2006.07.008",
+          "ten Brink–Gremer–Kokko (2020), DOI 10.1111/ele.13461",
+          "Bai–Yun–Chung (1991), DOI 10.1109/24.75334"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_seed_bank.py (not executed)",
+        "Snyder author PDF",
+        "Valleriani abstract",
+        "ten Brink et al. and Bai et al. retrieval attempts",
+        "Resultary Findings e1e34ea2e0ab, e0480495a6f4, e11da55e7695 and b5700e6d7b92"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Continuous convex optimization or balancing the two single-good exponents explains the interior fraction and rate but not the varying prefactor. The phase law uses equality of G(t+1) and G(t), the resulting switching interval, and an explicit bound on the remaining environment term."
+        ],
+        "reasoning": "Credit the routine continuous rate calculation as such. No compared published statement makes the phase range and support result a direct existing special case; the comparison to generic common-cause optimization is bounded by access.",
+        "searches": [
+          "Snyder, author-hosted paper, abstract and model",
+          "Resultary e1e34ea2e0ab and b5700e6d7b92, Findings",
+          "Bai–Yun–Chung, IEEE/DOI retrieval attempts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The objective is a common-environment failure mixture, not independent marginal failures across seasons. With q11=0 the reducible failure is exactly the sum of two decreasing-in-allocation exponentials with a shared integer budget; changing variables to k−θN expresses it as a translated-lattice minimum.",
+          "The inspected seed-bank and two-date Resultary records optimize continuous durations or expected Poisson introductions, not the integer split of a fixed seed cohort."
+        ],
+        "reasoning": "Generic exponential-resource terminology is an exact alias in the q11=0 subcase. No inspected result for that alias was shown to give the full phase envelope, its error for the q11 term, and the singular support cases.",
+        "searches": [
+          "Resultary searches for two-opportunity rescue and fixed-sum integer allocation",
+          "Primary-literature comparison of common-cause reliability and two-season rescue: DOI 10.1109/24.75334 and DOI 10.1111/j.1461-0248.2006.00962.x"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "These Findings respectively concern a weighted shift, a colonization-rate split in a Markov chain, a split of time between independent regeneration opportunities, and a two-founder Poisson quorum with a continuous budget."
+        ],
+        "reasoning": "None has the same allocation variable and objective or states the asserted phase constants. A ranked catalogue search is not exhaustive.",
+        "searches": [
+          "2026/10/11/SCOPE-exact-allocation-transition-for-a-geometric-four-periodic-weight--e1e34ea2e0ab",
+          "2026/10/12/SCOPE-sharp-directional-rescue-allocation-in-the-two-patch-extinction--e0480495a6f4",
+          "2026/11/22/SCOPE-reentrant-equal-spacing-in-a-two-opportunity-seed-bank-rescue-mo--e11da55e7695",
+          "2026/11/22/SCOPE-a-single-budget-switch-from-concentrated-to-equal-two-date-intro--b5700e6d7b92"
+        ]
+      },
+      "rationale": "The distinct contribution supported here is the explicit lattice-phase prefactor, range and error bound together with the change at the single-good support boundary for the specified two-season failure objective. Dormancy, correlated environments, convex redundancy allocation, and ordinary exponential balancing are not credited as new. Available neighboring statements do not establish this phase-resolved claim. Some related papers were not available in full text, so this is not a priority finding.",
+      "residual_risks": [
+        "Generic separable exponential integer allocation and common-cause reliability are plausible locations of broader antecedents; the Bai et al. full text was not available.",
+        "Full-text checks of ten Brink et al. and Valleriani were not completed by lawful OA retrieval. The bounded findings do not certify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related ecological mechanism but different objective in inspected passages",
+          "evidence": "Evolutionary dispersal with spatial and temporal correlation; per-capita contributions and competition.",
+          "identifier_or_url": "https://case.edu/biology/snyder/pubs/el2006.pdf",
+          "material_read": "Author PDF pp. 1–2, abstract and model near text offset 5400",
+          "method": "Bounded OA text passages",
+          "title": "Multiple risk reduction mechanisms: can dormancy substitute for dispersal?",
+          "trigger": "Dormancy with correlated conditions"
+        },
+        {
+          "assessment": "Different stated objective; full theorem coverage unchecked",
+          "evidence": "Evolutionarily stable germination under time-correlated yield.",
+          "identifier_or_url": "https://doi.org/10.1016/j.tpb.2006.07.008",
+          "material_read": "Landing page/abstract only",
+          "method": "DOI and lawful OA lookup",
+          "title": "Evolutionarily stable germination strategies with time-correlated yield",
+          "trigger": "Germination decisions with correlated seasons"
+        },
+        {
+          "assessment": "Whole-paper comparison unresolved",
+          "evidence": "No full-text non-coverage claim made.",
+          "identifier_or_url": "https://doi.org/10.1111/ele.13461",
+          "material_read": "No full-text passages retrieved",
+          "method": "Wiley URL and identified OA alternatives; 403/timeout",
+          "title": "Optimal germination timing in unpredictable environments",
+          "trigger": "Within- and among-season optimization"
+        },
+        {
+          "assessment": "Relevant possible broader antecedent; exact coverage unresolved",
+          "evidence": "The title establishes topical proximity, not the objective or phase theorem.",
+          "identifier_or_url": "https://doi.org/10.1109/24.75334",
+          "material_read": "No full-text passages retrieved",
+          "method": "DOI and IEEE Xplore retrieval attempts",
+          "title": "Redundancy optimization of k-out-of-n systems with common-cause failures",
+          "trigger": "Potential general common-cause reliability formulation"
+        },
+        {
+          "assessment": "Different mathematical objective",
+          "evidence": "Fixed-sum weighted-shift allocation with a threshold and two-term optimizer/value asymptotics.",
+          "identifier_or_url": "2026/10/11/SCOPE-exact-allocation-transition-for-a-geometric-four-periodic-weight--e1e34ea2e0ab",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact allocation transition for a geometric four-periodic weight",
+          "trigger": "Fixed-budget allocation and two-term asymptotics"
+        },
+        {
+          "assessment": "Different objective and decision space",
+          "evidence": "Continuous colonization-rate split for mean time to extinction.",
+          "identifier_or_url": "2026/10/12/SCOPE-sharp-directional-rescue-allocation-in-the-two-patch-extinction--e0480495a6f4",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Sharp directional rescue allocation in the two-patch extinction model",
+          "trigger": "Rescue optimization neighbor"
+        },
+        {
+          "assessment": "Different resource and optimization theorem",
+          "evidence": "Allocates two durations under a fixed horizon for independent regeneration opportunities.",
+          "identifier_or_url": "2026/11/22/SCOPE-reentrant-equal-spacing-in-a-two-opportunity-seed-bank-rescue-mo--e11da55e7695",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Reentrant equal spacing in a two-opportunity seed-bank rescue model",
+          "trigger": "Closest shared seed-bank rescue context"
+        },
+        {
+          "assessment": "Not a specialization to the frozen cohort model",
+          "evidence": "Continuous expected Poisson founder budget and a two-founder quorum, rather than first success in an integer cohort.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-single-budget-switch-from-concentrated-to-equal-two-date-intro--b5700e6d7b92",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "A single budget switch from concentrated to equal two-date introductions",
+          "trigger": "Two-date allocation under correlated binary conditions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exponential rate alone is an elementary balance. The explicit, generally nonconverging order-one factor resolves the reliability loss from the indivisibility of seeds, gives both limiting extrema, and distinguishes rational periodic effects from an entire irrational accumulation interval. The support boundary explains how an environment event of any fixed positive mass can maintain an interior large-cohort allocation whereas its disappearance changes the limiting fraction. This is useful for the specified finite-cohort reliability objective without implying an evolutionary prediction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

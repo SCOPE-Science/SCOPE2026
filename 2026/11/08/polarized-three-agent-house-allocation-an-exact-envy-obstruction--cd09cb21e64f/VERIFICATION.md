@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,6 @@
 }
 ---
 
-The theorem is proved by identifying a middle-first triple, showing a universal one-envy construction, characterizing forbidden rankings by endpoint deletion, and summing the exact factorial tails of the first-success stock size. No infinitary assertion relies on numerical experiments.
+The theorem is proved by identifying a middle-first triple, constructing an assignment with at most one envy pair, and characterizing the obstruction by endpoint deletion. The stock law sums the exact factorial tails for coherent uniform-prefix rankings, as supplied by i.i.d. atomless utilities.
 
-Run `python3 check.py` to exhaustively enumerate third-agent rankings and three-house assignments for each inventory size from three through eight. Independently computed envy objectives agree with the endpoint-deletion theorem, and the observed obstruction and first-success counts match their formulas. Limitations: the finite checker does not validate unbounded cases, sampling models outside independent atomless utilities, or any claimed uniqueness in the literature.
+Run `python3 check.py` with the supporting script to enumerate third-agent rankings and three-house assignments for inventory sizes from three through eight. The finite tests compare envy objectives and counts of obstructed rankings and first-success prefixes. They do not establish the infinite result, check the sampling assumptions of any utility model, or establish historical priority.

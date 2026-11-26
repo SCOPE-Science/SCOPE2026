@@ -1,25 +1,21 @@
-# Scientific review: pinned-row Kaczmarz selection
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The statement restricts to positive diagonal systems, exact constraints, unconditional independent norm-squared row draws and exact Kaczmarz projection. Each draw annihilates exactly one error coordinate and otherwise leaves the state unchanged. Bernoulli survival of each coordinate yields the exact expectation, and maximizing over initial errors yields the sharp worst-case factor. A sorted-index exchange argument proves the global consecutive-window optimum, including the strict uniqueness of the window form for distinct weights. Ordinary finite inclusion-exclusion and geometric summation give the coupon-collection distribution and mean. All four triples of the four-row example are compared by exact rational numbers. The three-row Frobenius/CPQR example is proved algebraically. The standalone verifier passed 15,133 exact rational assertions. Boundary restrictions and the distinction from conditional zero-residual resampling are explicit. Finite checks are supplementary; universal conclusions are analytical.
+PASS
 
-## Originality
+Each sampled coordinate is cleared forever and no other is changed; its survival probability after t iid draws is (1-p_i)^t. An initial unit error on a minimum-weight retained row attains the maximum for every t. If the least index retained is j, the rth selected index is at least j+r−1; replacing with the window preserves the numerator min(w) and weakly decreases the sum, strictly for a nonwindow if weights are strict. Inclusion-exclusion of missing coupons and summation of geometric tails give the CDF and expectation (including the empty-history convention 0^0=1 at t=0). Nonzero initial errors on all retained coordinates are necessary for that full coupon time to represent first solution time. Independently recomputed the four means by first-step recurrence, not inclusion-exclusion: for visited set U, E_U=(S+sum_{i not in U} w_i E_{U+i})/(sum_{i not in U} w_i), with E_R=0. In table order the outputs were 2593/360, 11057/1320, 937/105, 38677/5544. Comparing with 9/11, 11/13, 7/8 and 14/17 confirms the different unique optima. For 0<epsilon<1/2, epsilon²/(1+epsilon²)<1/5; pinning the largest weight minimizes the Frobenius residual but picks that smaller progress fraction. The stated divergent ratio is of 1−rho, not rho. Checked verify.py's finite coverage without executing it; the proof handles arbitrary weights, t and ties.
 
-**PASS, with priority uncertainty.** Sun, Qi, Han and Xie's 2026 paper provides a general projected randomized-iteration rate and proposes Frobenius residual selection, but its inspected Sections 3.1–3.2, 5.2 and Appendix 7.2–7.3 do not solve diagonal all-cardinality optimal pinning or compare worst-case expected error against expected exact completion. Lok and Rebrova's 2023 subspace-constrained Kaczmarz paper provides the unconditional update and general rate bound, not the pair of exact discrete selection criteria. Strohmer–Vershynin provides the classical expected contraction estimate, and classical coupon collection supplies a fixed-distribution expectation; these ingredients are acknowledged rather than claimed as novel. The new combined claim is the complete consecutive-block rate-selection classification, exact finite-time criterion and a sharp conflict/worst-case surrogate gap for one natural method. Relevant published search records concerned different algorithms such as adaptive coordinate sampling, multistage pivoting and ordinary Kaczmarz rate bounds. A general unlocated normalized-weight *subset*-selection result might subsume the simple exchange lemma, and historical priority is not independently established. One distinction is essential: Sun et al. reject zero-residual draws in their Algorithm 1; the stated unbounded sample count concerns unconditional iid draws as in Lok–Rebrova, not Sun's count of accepted updates.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The pinned-row subset design problem is explicitly motivated by the 2026 preconditioning framework, and the correct mathematical objective can be either worst-case mean-square contraction or time until exact solution. The theorem solves the former for every diagonal dimension and fixed pin budget, shows a concrete conflict with the latter using only moderate squared row magnitudes, and identifies an arbitrarily bad Frobenius-skeleton proxy for the first objective. This distinguishes genuinely different performance measures rather than merely recomputing a known matrix norm. It is not a practical wall-clock/noisy-data superiority claim: pinning tiny rows may be costly or noise-sensitive, and rejecting zero-residual draws changes the conclusion.
+The diagonal exact window and disagreement with exact mean completion are distinct from the checked SCRK results and classical coupon formulas. Credit the existing unbounded Frobenius/progress phenomenon, including a prior nondiagonal rejected-proposal example; the diagonal exact time-uniform rate separation is a scoped refinement, not first discovery of the generic surrogate problem.
 
-## Closest literature and limitations
+## value
 
-- Sun, Qi, Han and Xie, *On subspace-constrained preconditioning for randomized iterative methods* (2026), arXiv:2605.29304v1. Rate formula, surrogate criterion and different zero-residual rejection convention.
-- Lok and Rebrova, *A subspace constrained randomized Kaczmarz method for structure or external knowledge exploitation* (2023/2024), arXiv:2309.04889. Unconditional SCRK formulation and known general rate bound.
-- Strohmer and Vershynin, *A randomized Kaczmarz algorithm with exponential convergence* (2007), arXiv:math/0702226. Classical randomized-row convergence bound.
-- Steinerberger, *Randomized Kaczmarz converges along small singular vectors* (2020), arXiv:2006.16978. Related sharpness of slow spectral directions, not optimized fixed subsets.
-- Anceaume, Busnel and Sericola (2014), arXiv:1402.5245, and Anceaume, Busnel, Schulte-Geers and Sericola (2015), arXiv:1504.03878. General nonuniform coupon-collector distributions and uniform-probability optimality, not selection from pinned matrix rows.
+PASS
 
-The finding does not extend to general matrices, adaptive sketches, methods rejecting zero-residual samples, data noise or total computational work. The original mathematical source ingredients are credited and no independent priority certification is claimed.
+There is a practical objective choice even for uncoupled coordinates: the exact rate-optimal window is cheap to find, and a rational witness proves it need not minimize mean full solution time. The unbounded relative progress loss clarifies when not to use the Frobenius proxy. No implication for noise, setup cost, or accepted updates is needed for this value.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

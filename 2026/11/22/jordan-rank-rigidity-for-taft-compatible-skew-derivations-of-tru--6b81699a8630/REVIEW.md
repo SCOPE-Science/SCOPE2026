@@ -1,19 +1,21 @@
-# Scientific review: Jordan-rank rigidity for Taft-compatible skew derivations
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Fix the scaling \(\sigma(x)=\zeta x\). The skew Leibniz identity fixes every value \(D(x^i)\) from \(D(x)\). The relation \(D\sigma=\zeta\sigma D\) forces \(D(x)\) into the \(m\)-fold-degree invariant subalgebra, and descent through \(x^N\) forces the constant term to vanish precisely when \(m\nmid N\). These conditions are necessary and sufficient. The \(m\)-th power vanishes because each product of \(m\) consecutive quantum integers includes a factor \([am]_{\zeta}=0\). For a nonzero parameter with least degree \(ms\), distinct surviving input monomials have distinct least output degrees after taking powers, proving the exact ranks and all Jordan multiplicities. The finite-field enumeration follows from independent leading-coefficient and trailing-coefficient choices. A standalone checker exhaustively tested 6,581 permitted coefficient assignments in 55 prime-field parameter settings, with direct multiplication and modular matrix-rank checks.
+PASS
 
-## Originality
+With the specified coproduct and D sigma = zeta sigma D, applying the relation to x forces D(x)=f(x^m); conversely the skew derivative with that generator value has the required relation on every monomial. Descent is precisely [N]_zeta x^(N-1) f=0, equivalent to forbidding a constant when r>0. The skew derivation annihilates every invariant polynomial; iterating on x^i gives the product of the j consecutive quantum integers with x^(i-j) f^j, or zero for i<j. A factor vanishes in any m-step iteration. Independently, put y=x^m and split into residues c mod m. For c>=j the j-step image in residue c-j is multiplication by y^(js) times a unit and a nonzero scalar; for c<j it is zero. The target residue has length ell+1 if c-j<r, else ell. The source has at least target length minus one, which is sufficient for js>=1, while s=0 is allowed only for r=0 so source and target lengths agree there. Summing max(0,target length-js) over c=j,...,m-1 recovers the stated rank including ell=js and ell<js. Rank one power determines s for a nonzero parameter; the Jordan second differences and the coefficient counts then give exactly the claimed partition frequencies. N<m leaves only zero, and at N=m a nonzero constant gives one block of length m. The frozen checker enumerates permitted parameters over prime fields, not arbitrary linear maps. The separate bounded probe `python3 -B /workspace/review_evidence/small_field_checks.py` verified quotient descent and all power ranks on 189 assignments with m=3 over F4, N=2 through 10; general exhaustiveness is by the generator proof.
 
-**PASS relative to inspected statements, with explicit priority limits.** Montgomery--Schneider (2001), Lemma 2.1 and Theorem 2.2, already cover a special case where the polynomial algebra dimension equals the root order; this is credited, not restated as new. Centrone--Yasumura (2020), Theorem 8, provides a more general framework for Hopf-module algebra actions via skew derivations, but its relevant displayed theorems do not give all-truncation power-rank multiplicities for the specified local algebra. The present new comparison target is the full \(N\)-dependent Jordan-profile law and its exact finite-field frequencies. Published records on square-zero derivations and Taft Hopf operators have different operators or structural constraints. The main residual risk is a possible equivalent treatment of cyclotomic \(q\)-derivatives in classical quantum-calculus literature, or a stronger statement elsewhere in the 2001/2020 sources not found in the inspected relevant sections. This is not an independent priority determination.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The linear representation of the skew-primitive generator is a natural invariant of a Taft-module algebra. Over an unbounded family of local truncations, one integer (its rank) reconstructs *every* Jordan block, and the formulas exhibit how the truncation residue and the vanishing order of the generator image control successive nilpotence thresholds. Exact finite-field multiplicities give a complete distribution of the resulting module-theoretic profiles. This is a structural all-parameter classification beyond the known single-truncation boundary, not a one-off small-field count. The formulas do not classify arbitrary Taft automorphism actions or isomorphism classes.
+The distinct supported contribution is the dependence of every power rank on truncation residue and valuation, the reconstruction from the first rank, and exact frequencies of those profiles for fixed scaling across all truncations. This does not claim the skew-derivation framework or the dimension-equals-order boundary. Inspected local comparisons are different operators, and the accessible primary statements do not imply this all-N stratification.
 
-## Sources and remaining risks
+## value
 
-Primary motivation: L. Centrone and F. Yasumura, J. Algebra 560 (2020), 725–744, DOI 10.1016/j.jalgebra.2020.06.007, public June 10, 2020. Closest same-object boundary: S. Montgomery and H.-J. Schneider, Tsukuba J. Math. 25 (2001), 337–358, DOI 10.21099/tkbjm/1496164292. Related but different source objects: Z. Cline (2018), arXiv:1805.10340; S. Crawford, J. Gaddis and R. Won (2024), arXiv:2409.17890. Novelty is qualified by the possibility of unindexed or differently formulated \(q\)-differential-module results. All claimed identities and counts are valid only under the fixed-scaling hypotheses stated in RESULT.md.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first-rank rigidity and residue-controlled higher-power cutoffs give a complete usable invariant of the skew generator in the fixed-scaling local algebra family. The exact frequency lets a reader count any nilpotent module profile over fields admitting the root without enumerating all parameter polynomials. This is an all-truncation structural result and not just a check of the single known cyclic boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

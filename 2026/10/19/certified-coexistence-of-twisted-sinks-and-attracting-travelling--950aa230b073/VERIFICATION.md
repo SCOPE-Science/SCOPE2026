@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the travelling three-cycles
+# Independent mathematical audit
 
-Run `python3 verify_triangle_cycle.py`. The supplied standalone Python file uses exact `fractions.Fraction` interval arithmetic for all theorem-critical inequalities: Machin-series bounds for pi, Taylor bounds for sine/cosine, the interval Newton contraction on an explicit box, and full-box trace/determinant Schur inequalities. Every proof-critical comparison is rational and checked by assertions. It independently verifies the non-singular rational approximate inverse, and tests the strict separation of the three coordinates.
+## correctness
 
-A successful run reported: `PASS: exact rational interval Newton contraction and unique fixed point in box`; `center defect upper bound: 1e-12`; `contraction bound: 7.914e-08`; `trace enclosure: [-1.554694333705, -1.554694151305]`; `determinant enclosure: [0.705069729594, 0.705070150348]`; `PASS: all three strict quadratic Schur inequalities`. The decimal output is diagnostic formatting of exact rational inequalities, not floating-point evidence.
+PASS
 
-The analytical proof additionally checks that the edge-phase map is the quotient of the oscillator network, that the cyclic permutation commutes with the map, that the certified period divides three but is not one, that sign-reflected orbits are disjoint, and that the fixed twisted multipliers are strictly below unit modulus. The computation is finite but certifies a genuine real root and two-dimensional local stability by interval enclosure; it does not enumerate all possible attractors.
+The sum-zero edge-difference torus is the full relative-phase quotient, with two tangent directions. In the chart (a,b,−a−b), F_h(z)−Pz=(2π,0,−2π) is exactly the two residual equations and the preserved sum. At h=57/50 I independently certified the stated box with exact rational arithmetic: a separate preconditioner is the exact inverse of a rational Taylor midpoint Jacobian, Machin's formula bounds π, and Taylor remainders bound the trigonometric errors. The derivative drift has row-sum bound 7hr since component cosine displacements are at most r,r,2r. Defect <10⁻⁹ and contraction factor <10⁻⁵ give strict inclusion in the radius-10⁻⁸ box and a genuine zero by Banach's theorem. Independent uniform entry bounds for the co-rotating derivative give −1.56<tr<−1.55 and 0.70<det<0.71 across the box, so all three strict quadratic Schur inequalities hold. Permutation equivariance gives F_h³=(P⁻¹F_h)³; its derivative at the orbit point is B³, which contracts in both eigenvalue directions. Distinct representatives in (−π,π) ensure prime period three. Each point of the orbit has two positive coordinates and one negative in this representative interval, while each reflected point has one positive and two negative; oddness gives a disjoint sink orbit. The two uniform twists have tangent multipliers −71/100. The implicit-function theorem (I−B invertible) and strict stability give persistence near h=57/50; the travelling sinks have open positive-measure basins, excluding almost-global attraction by the twists there.
 
-Independent audit: not performed.
+## originality
+
+PASS
+
+Bounded pass for the specific two twisted sinks and two hyperbolic travelling prime-three orbits coexisting at h=57/50, and the resulting obstruction beyond the descent range. The same Huygens map and the twists are known, and older identical-frequency Kuramoto equations give exactly this map after the signed change K=−3h. The directly inspected older three-oscillator analysis studies the opposite sign in its equal-frequency phase portrait and does not certify the prime-three coexistence here. The inaccessible 2025 article remains a material priority risk; no noncoverage inference is drawn from its abstract or from failed retrieval.
+
+## value
+
+PASS
+
+This supplies a rigorous motivated witness in the gap between the triangle's global descent range and the twists' local stability range. An explicit hyperbolic travelling sink, in fact two, gives positive-measure alternative basins that persist, directly distinguishing local twist stability from almost-global twist attraction. The rational parameter is useful as a reproducible witness rather than a claim that this exact parameter is a bifurcation threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

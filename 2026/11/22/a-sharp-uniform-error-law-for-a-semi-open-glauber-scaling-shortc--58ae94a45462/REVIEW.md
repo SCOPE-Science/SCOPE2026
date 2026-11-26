@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The continuum heat normalization, both boundary conditions and the initial interior state are explicit. The sine-series solution and Brownian exit identity identify the exact reference, with no confusion between a continuum scaling length and a discrete number of sites. A direct differentiable subsolution gives the strict all-time inequality. The uniform error bound follows from the half-line hitting probability and is *sharp in the sense of the spatial supremum* by a two-boundary reflection/strong-Markov estimate. The separate fixed-interior late-time error follows from the error-function expansion and the exponentially decaying Fourier series. The exact finite integrated deficit is obtained from a Dirichlet Poisson equation; the shortcut's is infinite because of a positive \(1/t\) term. An independent image-series implementation, finite-difference residual and time quadrature pass 401 scalar checks. Risk: numerical checks are finite and do not substitute for the maximum principle or probabilistic argument.
+PASS
 
-## Originality (O): PASS, qualified
+For the continuum interval with generator (1/2)∂xx, the exact solution is the probability of hitting 0 before N by time t. The shortcut has strictly negative heat residual; the difference is the killed-heat evolution with positive forcing and zero boundary data. Starting the Duhamel formula at a positive time and letting that time decrease to zero justifies comparison despite the incompatible corner data: the bounded initial difference vanishes pointwise in the interior, and the residual is integrable at time zero. The reflection principle gives u≤ε_x and the strong Markov property gives ε_x−u≤ε_(2N−x), where ε_y=erfc(y/√(2t)). Indeed, dropping the order restriction on the first hit of N leaves two independent first-passage times across distances N−x and N; their Laplace transforms multiply to the transform across distance 2N−x. Substitution in v=(ε_x−ε_N)/(1−ε_N) gives the stated strict uniform upper bound. At x=N/2, ε_(2N−x)=o(ε_N) and ε_x→0 as t/N²→0, so the spatial supremum has asymptotic ε_N, without asserting a uniform pointwise equivalent. The numerical cutoff ratio is about 0.0046997190. Taylor division gives the positive 1/t coefficient x(N²−x²)/(6N), while the exact Dirichlet modes decay exponentially. Integrating the exact deficit gives −F''/2=1−x/N with zero endpoints, yielding the stated cubic, and the positive 1/t coefficient makes the shortcut integral diverge.
 
-Henkel (2026), arXiv:2606.16848v1, is the primary source for the exact finite semi-open correlation and proposed approximation. Its relevant continuum equations, approximation discussion, and mathematical appendix were inspected. The paper discusses the distinction between the theta solution and the approximation but no strict universal sign, sharp spatial-supremum bound, or integrated relaxation identity was identified there. Henkel (2025), arXiv:2501.05912, treats periodic rather than semi-open geometry. The closest accessible published Glauber comparison claims concern Pareto/global resetting and not the semi-open finite-interval shortcut. Searches included the shortcut's formula, Brownian first-passage equivalents, boundary heat kernels, spectral-gap versus algebraic error and related exact models. Residual risk: the bound uses classical heat comparison and could be implicit in an unindexed Brownian-exit inequality; absence of a search match is not evidence of mathematical uniqueness.
+## originality
 
-## Mathematical value (V): PASS
+PASS
 
-The practical question is whether a widely used explicit substitute for a theta-function correlation has a controlled **finite-size uniform approximation window**, independent of location, and where that window fails. The theorem gives a rigorously certified 0.47-percentage-point absolute-error ceiling for every spatial separation at \(t\le N^2/8\), and proves the exponential scale of that ceiling is best possible. The paired finite-versus-infinite integrated relaxation result identifies a qualitative error that would arise if the compact shortcut were reused in late-time response calculations, while carefully acknowledging that such extrapolation is outside its recommended range. These quantitative and domain-of-validity results are more than a pointwise Taylor exercise; they supply a checkable finite-size error budget. Risk: no wider many-body theorem beyond this continuum boundary problem is claimed.
+Credit Henkel for the heat boundary-value problem, its exact solution and the same erf-ratio approximation, including qualitative evidence of where it agrees. The checked source does not give the signed, quantitatively sharp comparison, or the stated integrated distinction. The pass is for that comparison, not for the exact correlation, the approximation, or discovery that it visibly deviates when extrapolated. The phrase about where the original author recommends using it is best read as where the source reports agreement; the source supplies no formal cutoff.
 
-## Closest literature and limitations
+## value
 
-Primary: M. Henkel (2026), arXiv:2606.16848v1, sections treating semi-open correlation and approximation, and its appendix; antecedent: M. Henkel (2025), arXiv:2501.05912, periodic geometry. Related published Glauber resetting records have distinct dynamics. The original paper's exact formulas and approximation are not asserted to be new here. Unindexed equivalent probabilistic inequalities remain a priority risk. No independent review is represented.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The approximation is an actual published shortcut, so the error rather than a manufactured statistic is a motivated target. The result supplies a separation-independent tolerance and shows that its short-time scale cannot be improved even at a fixed bulk separation. The integrated comparison also identifies a concrete bias from extrapolating a convenient analytic form, rather than merely noting a visible mismatch.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

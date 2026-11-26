@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,4 @@
 }
 ---
 
-The exact identity for the matrix columns and the two-branch Bellman recursion establish the result for all finite depths analytically. The standalone `checker.py` constructs conditional-expectation matrices through depth \(6\) and checks every column, then exhaustively enumerates selectors through depth \(15\) using exact rational arithmetic. It verifies the closed formula and the stated uniqueness of maximizers at these finite depths.
-
-Commands: `python checker.py`. The checker uses only the standard Python library. No code execution is used as a substitute for the proof for arbitrary depth. The bibliographic review is limited to the cited inspected materials and accessible search records and full texts of the listed relevant papers; independent audit has not been conducted.
+Run `python checker.py` with the retained standard-library checker. It constructs every column of the conditional-expectation matrices for depths 1–6 and checks the shell formula. At depths 1–15 it exhausts the selectors in exact rational arithmetic and compares each full maximizing set with the stated classification. The formula for the sharp value is retained as a check against the known Walsh/discrepancy maximum, not as a new result. Finite tests cannot prove the classification at arbitrary depth; the proof uses the strict two-action Bellman comparison with the sole reachable tie before the last step.

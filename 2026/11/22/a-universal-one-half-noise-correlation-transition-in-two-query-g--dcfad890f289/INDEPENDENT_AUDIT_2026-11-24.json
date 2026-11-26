@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:30:23.231809Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the repaired claim joint Gaussianity gives deterministic conditional variance and the stated matrix gain. Continuity of the cross-covariance follows by Cauchy–Schwarz from mean-square continuity. The two inverse norms are at most 1/[eta(1-|rho|)], giving the uniform O(eta^-2) gain error. All four vertices of the cross-covariance square are realized, and strict convexity excludes any other maximizer. Reference minus repeat has sign 2rho-1, and compactness with uniform convergence gives convergence in distance of all optimizer sequences. Only a leading-order tie is asserted at equality. The unchanged symbolic checker checks the matrix algebra, not the Gaussian assumption. To see why the original omission mattered, use independent symmetric +/-sqrt(eta) errors at rho=0 on the bridge. Subtract sqrt(eta) times the sign of the noisy midpoint reading; the estimate is exact when the latent midpoint has absolute value less than sqrt(eta), and its squared error is bounded by 4eta times the Gaussian-tail indicator. The posterior-mean gain for the bridge integral from a midpoint plus an independent endpoint reading tends to 1/16, not zero. This also refutes the original formula if gain is instead averaged over observations.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Attia–Constantinescu pp. 2–3 model general correlated observation covariance in Gaussian inverse problems.",
+          "Cai–Lam–Scarlett p. 1 states noisy quadrature error bounds, not the fixed two-query site geometry.",
+          "The frontier record gives the complete finite-noise geometry on the bridge and states that its critical correlation tends to 1/2."
+        ],
+        "reasoning": "The general OED framework supplies the inverse-covariance objective but not this uniform optimizer limit; stronger finite-noise coverage in the specific bridge model is credited and excluded from the repaired contribution.",
+        "searches": [
+          "arXiv:2007.14476",
+          "arXiv:2202.10615",
+          "Resultary f9e14ae9ff03"
+        ]
+      },
+      "checked_sources": [
+        "Resultary f9e14ae9ff03",
+        "Resultary 15716724ea95",
+        "arXiv:2007.14476",
+        "arXiv:2202.10615"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The frontier's R_*=1/12-max(G_S,G_E) determines whether all symmetric designs lose, so the frozen bridge-specific exclusion is within its scope.",
+          "Its K(s,t)=min(s,t)-st assumption does not permit arbitrary nonnegative target cross-covariance; in the repaired example X=B+U, J=integral X-X(0), a zero-cross-covariance reference may have positive latent variance."
+        ],
+        "reasoning": "No novelty is assigned to a weaker consequence of the bridge frontier. The surviving conclusion uses uniform expansion, realization of the vertices, and a strict-convexity comparison to extract kernel-independent optimizer geometry from the established matrix identity.",
+        "searches": [
+          "Resultary f9e14ae9ff03, Finding and Assumptions and scope",
+          "arXiv:2007.14476 pp. 2–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frontier record optimizes Bayes squared risk, exactly equivalent to deterministic posterior variance and to maximizing explained variance under jointly Gaussian errors.",
+          "The independent-noise record gives distinct finite-noise optimal nodes for rho=0 and midpoint coalescence in the limit."
+        ],
+        "reasoning": "The apparent difference in objective terminology is not a distinction. On the Brownian bridge the frontier record substantially covers the original specialization. Neither bridge-specific record yields the general cross-covariance geometry.",
+        "searches": [
+          "Resultary f9e14ae9ff03",
+          "Resultary 15716724ea95",
+          "arXiv:2007.14476"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed frontier record explicitly tabulates candidate gain formulas and optimizer regimes for the correlated bridge, including its half-correlation limit.",
+          "The indexed noncolliding-node record gives exact bridge geometry at zero correlation."
+        ],
+        "reasoning": "These are direct formula-level comparisons, not title matches. They compute bridge results, not the leading gain and optimizer limit for the complete class in the repair.",
+        "searches": [
+          "Resultary f9e14ae9ff03",
+          "Resultary 15716724ea95"
+        ]
+      },
+      "rationale": "Pass is for the repaired arbitrary-kernel high-noise optimizer theorem, not the Brownian-bridge phase diagram or Gaussian conditioning. The closely matching Resultary theorem gives a stronger finite-noise answer for one specific kernel with pinned endpoints and nonnegative correlations; it does not give the repaired optimizer limit for arbitrary latent kernels, for nonpinned reference sites, or for any fixed negative rho. The general published covariance-aware design formulation is a starting identity, not an optimizer classification. This is best-knowledge originality.",
+      "residual_risks": [
+        "The distinct frontier record has the same publication date; no priority order is inferred. The shared bridge implication is credited regardless.",
+        "The primary comparison is bounded; equivalent general two-sensor asymptotics in other correlated-design literature are not exhaustively excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantive model-specific coverage; does not imply the remaining general theorem",
+          "evidence": [
+            "For Gaussian errors with 0<=rho<1, the globally optimal pair is symmetric interior or midpoint plus endpoint according to max(G_S,G_E), with critical rho tending to 1/2."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-sharp-finite-noise-symmetry-breaking-frontier-in-two-query-bro--f9e14ae9ff03/RESULT.md",
+          "material_read": "Finding, Assumptions and scope, first proof steps (offset 0–4133)",
+          "method": "Read located original text in local mirror",
+          "title": "A sharp finite-noise symmetry-breaking frontier in two-query Brownian-bridge quadrature",
+          "trigger": "Exact correlated-error Brownian-bridge overlap"
+        },
+        {
+          "assessment": "Covers rho=0 special case, not correlated or general-kernel design",
+          "evidence": [
+            "Optimal nonzero separation d_eta is asymptotic to 1/(8 eta)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-unique-noncolliding-optimal-locations-for-two-noisy-brownian-bri--15716724ea95/RESULT.md",
+          "material_read": "Finding and Assumptions and scope",
+          "method": "Matched indexed result to local-mirror primary statement",
+          "title": "Unique noncolliding optimal locations for two noisy Brownian-bridge observations",
+          "trigger": "Exact independent-error bridge special case"
+        },
+        {
+          "assessment": "Established framework; inspected passages do not assert the two-query limit",
+          "evidence": [
+            "Generalized correlated error covariance including full space-time covariance; Gaussian noise in its Bayesian Gaussian framework."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2007.14476",
+          "material_read": "Page 2 offset 8416 and page 3 offset 11748, model description",
+          "method": "OA primary PDF passage retrieval",
+          "title": "Optimal Experimental Design for Inverse Problems in the Presence of Observation Correlations",
+          "trigger": "Plausible general correlated-observation coverage"
+        },
+        {
+          "assessment": "Noisy quadrature rate objective is distinct from the claimed two-query geometry",
+          "evidence": [
+            "Kernel quadrature error bounds when samples may be corrupted by Gaussian noise."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2202.10615",
+          "material_read": "Page 1 offset 0, abstract and introduction",
+          "method": "OA primary PDF passage retrieval",
+          "title": "On Average-Case Error Bounds for Kernel-Based Bayesian Quadrature",
+          "trigger": "Noisy Bayesian quadrature literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp universal optimizer transition answers a concrete design question: when to repeat a strong measurement and when to sacrifice a signal measurement for noise calibration. It identifies the full limiting placement set and leading optimal gain, not merely a comparison of two arbitrarily chosen sites. It remains relevant without pinned sites or explicit kernel formulas and does not depend on the removed bridge-specific witness.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

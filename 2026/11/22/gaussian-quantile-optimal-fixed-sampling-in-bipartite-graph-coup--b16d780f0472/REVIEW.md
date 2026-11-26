@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Object and conclusion.** The single assessed theorem concerns i.i.d. fixed class-source selection on complete bipartite graphs. It proves a binomial-strip completion law, a piecewise-normal asymptotic profile, the exact asymptotic optimizing Gaussian quantile, and the linear-waste distinction for uniform-vertex sampling.
+## correctness
 
-## Correctness — PASS
+PASS
 
-The key coupling is exact: an \(A\) source covers one \(B\) vertex until the target class is exhausted, and vice versa. Thus the completion event is a binomial count interval for all finite positive class sizes. The proof gives a conditional negative-binomial expectation identity, a triangular-array binomial CLT and uniform-integrability argument. Strict positive curvature of the normal mean profile and quota waiting-time lower bounds prove the asymptotic claim for every finite optimizer. The packaged exact-rational state-space checker passed 1,470 assertions. Finite checks are corroborative rather than a substitute for proof.
+An A-source can cover exactly one new B vertex until its quota b is met, and conversely. Thus completion by t is exactly b≤S_t≤t-a with S_t∼Bin(t,q), and no t<N qualifies. At time N one quota is filled, the other has deficit |S_N-b|, and the extra mean is the deficit divided by the future opposite-source probability. For q_N=β_N+u_N/√N with u_N→u and t=N+floor(r√N), the centered binomial (S_t-b_N)/√N has limiting mean u+rβ and variance αβ, giving the displayed CDF for r≥0 (no atom at zero). The finite mean identity converges by the same triangular-array limit and uniformly bounded second moments of (S_N-b_N)/√N. At q=β_N this yields an O(√N) excess by Cauchy–Schwarz. The lower bounds b_N/q and a_N/(1-q) diverge at the endpoints and, at any minimizer, force |q-β_N|=O(1/√N). Along each convergent scaled subsequence the mean limit applies and comparison against every fixed shift forces the same minimizer: F′(u)=Φ(u/σ)/α-Φ(-u/σ)/β, strictly increasing, with root σΦ⁻¹(α) and F there equal to φ(Φ⁻¹(α))/σ. This does not assume exact finite-size uniqueness. At uniform vertex weights the binomial L¹ law gives the claimed linear ratio for unequal limiting parts. The uploaded checker was inspected, not executed; its recorded 1,470 exact checks cover finite strip probabilities and means only.
 
-## Originality — PASS against inspected material, with residual risk
+## originality
 
-The closest primary source is Deng–Wang, arXiv:2611.11345v1 (2026-11-08). Its Corollary 4.2 concerns fixed-degree biclique survival tails, Proposition 5.1 a repeated-coupon reduction for unions of bicliques, and Proposition 5.2 a balanced-binomial lower bound for two cliques. These contain no optimized nonuniform source-class choice or the present nonzero quantile correction. Dimitrov–Plaxton (2013) study uniform source vertices and optimize the covered-neighbor decision. published-finding corpus records on biased biclique random walks address dependent path-constrained sources, not i.i.d. class choices. General two-quota sampling theory remains a possible priority risk; failure to locate a match is not a claim of absolute novelty.
+PASS
 
-## Value — PASS
+The finite probability problem is the classical later waiting time for two Bernoulli frequency quotas, not a new stopping-time formulation. The supported distinct contribution is the growing-quota local completion profile together with the sharp all-minimizer expansion for the mean under fixed independent weights. In the examined evidence, neither finite quota laws nor the known normal critical-fractile computation alone establish the full asymptotic optimizer theorem.
 
-The structural gap is a practical and mathematical one: a degree-imbalanced biclique requires quotas of source appearances opposite to vertex proportions. The theorem characterizes the best stationary sampling design to square-root precision, including an asymmetric non-Gaussian limit and a specific nonzero quantile correction, while uniform vertex sampling wastes a positive linear proportion of all rounds when class fractions differ.
+## value
 
-## Scope and limitations
+PASS
 
-The optimum excludes adaptive/periodic/dependent source selection and requires limiting proportions in \((0,1)\); it is not an all-graph cover-time statement. No explicit convergence-rate bound or independent mathematical audit is asserted. The published published-finding corpus matches were compared using accessible scientific summaries; the inaccessible full text is disclosed in the structured audit.
+Complete bipartite graphs isolate a natural source-design question with no dependence on tie-breaking at neighbors. Reweighting reduces the linear excess of uniform vertex sampling to order √N at unequal limiting proportions; within this best scale, the nonzero quantile correction strictly improves the leading excess coefficient over exact quota balancing. The asymmetric completion profile determines deadline probabilities for all local weights, independent of the mean criterion. This is informative for the fixed i.i.d. design family without claiming superiority to adaptive or periodic schedules.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Review of neighborhood shattering on the Chang parameter graphs
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The graph model, the two neighborhood conventions, and the definition of shattering are explicit. The listed switching sets represent all four strongly regular \((28,12,6,4)\) graphs by the standard classification. Two separately coded exhaustive support enumerations reconstruct all adjacency matrices, check degree and common-neighbor parameters, enumerate all \(193264\) required support/family instances, and agree on every polynomial coefficient and maximal-triple count. The size-five obstruction is rigorous because \(32\) distinct traces cannot be realized by \(28\) center concepts. Verification source and actual replay output are embedded. This finite exhaustion supplies a complete proof for the precisely delimited finite graph family; it is not a general graph theorem.
+## correctness
 
-## Originality
-**PASS within inspected evidence.** The open and closed rows for the triangular graph were already proved and are expressly excluded from the novelty claim. The exact three Chang rows and the pure/nonpure contrast were not supplied by the inspected Johnson VC-dimension theorem, the standard strongly regular graph classification, or the existing three-Chang first-order separation. The four-graph Lovász neighborhood-complex homology study has different face definitions, as its common-neighbor counts do not generally equal all-trace shattering counts. No inspected primary document or indexed mathematical record has a statement implying the three new rows. Historical priority remains subject to unindexed or differently named treatments.
+PASS
 
-## Value
-**PASS.** The three Chang graphs are canonical nonisomorphic cospectral companions of a triangular graph with identical strongly regular parameters. Their full neighborhood shattering polynomials are natural query-complexity invariants that distinguish all four and locate a sharp pure/nonpure structural boundary, whereas the scalar VC dimension remains four in every case. This is a complete classification of a naturally bounded, well-established parameter class, rather than an arbitrary finite slice. These data may serve as reference instances for assessing neighborhood complexity under Seidel switching. No broader conjectural application is asserted.
+The four representatives agree with the classification and the supplied switches. The independent replay constructs them by diagonal sign conjugation of the Seidel matrix and checks degrees and common-neighbor counts. A support's label traces partition the centers. A queried vertex extends a shattered support exactly when it splits every current trace cell into two nonempty parts. Since shattering is hereditary, this recursion is exhaustive through size four. For closed neighborhoods the replay uses open neighborhoods of the complement, which complement every trace without changing shattering. All eight coefficient rows and maximal open-triple counts match. There are only 28 center concepts, fewer than the 32 distinct traces needed at size five, so the eight polynomials are complete. Subtracting the triple-shadow of all shattered quadruples gives 0,1328,1624,1786 maximal triples, and the independent check that every pair extends excludes smaller facets. All four rows have shattered quadruples, so both dimensions are exactly four and the claimed purity split follows.
 
-## Source and scope limitations
-The exact parameter classification is classical; the only new claims concern the Chang shattering profiles and corresponding facet counts. Historical-equivalence risk is not eliminated by indexed searching. The proof is a standalone finite exhaustive certificate, and mathematical validation external to this review is pending.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact T(8) polynomial rows and other distinguishing invariants are prior coverage, and are not credited here. The supported contribution is the complete open and closed coefficient vectors of the three switched Chang graphs and the resulting distinction in open shattered-support facets. The best same-family prior enumeration is of common-neighbor faces, not all traces; the actual counts differ. The inspected classification and VC-dimension sources do not give the new rows or maximal triples.
+
+## value
+
+PASS
+
+The natural open and closed support complexes measure neighborhood trace diversity beyond the common VC dimension and common strongly regular parameters. The census gives reusable exact data for all four graphs, separates the three cospectral Chang graphs under both conventions, and identifies a structural distinction: the open triangular complex is pure while every Chang open complex has both triple and quadruple facets. This is meaningful independently of earlier distinctions by different invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -2,100 +2,75 @@
 
 ## Finding
 
-A word is **closed** if it is empty, has length one, or has a nonempty proper border (an equal prefix and suffix) with no internal occurrence. Equivalently, it is a complete first return to a proper factor. Count the empty word once. For a finite word \(w\), let \(\mathcal C(w)\) be its set of **distinct contiguous closed factors**, and put \(C(w)=|\mathcal C(w)|\).
+A word is **closed** if it is empty, has length one, or has a nonempty proper border occurring only as its prefix and suffix. A border is a word that is both a prefix and a suffix, with no restriction on whether the two occurrences overlap. Let \(C(w)\) count distinct contiguous closed factors of \(w\), including the empty word once.
 
-**Theorem.** For positive integers \(a,b,c,d\), write
+For positive integers \(a,b,c,d\), put \(w=0^a1^b0^c1^d\), \(n=a+b+c+d\), \(x=\min(a,c)\), and \(y=\min(b,d)\). Then
 \[
-w=0^a1^b0^c1^d,\qquad n=a+b+c+d,
-\qquad x=\min(a,c),\quad y=\min(b,d).
+C(w)=n+1+xy.
 \]
-Then
+The result is unchanged under exchanging the letters. For every \(n\ge4\), the largest count among binary words of length \(n\) with exactly four runs is
 \[
-\boxed{C(w)=n+1+xy.}
+n+1+\left\lfloor\frac{\lfloor n/2\rfloor^2}{4}\right\rfloor.
 \]
-The same formula holds with the letters exchanged. Thus, for every integer \(n\ge4\),
-\[
-\boxed{\max_{\operatorname{runs}(w)=4,\ |w|=n}C(w)
-=n+1+\left\lfloor\frac{\lfloor n/2\rfloor^2}{4}\right\rfloor.}
-\]
-Among length-\(n\) words beginning with \(0\), the exact number of maximizers is \(1,4,2,8\) for \(n\equiv0,1,2,3\pmod4\), respectively. The count over both starting letters is twice this.
+The numbers of maximizing length-\(n\) words beginning with \(0\) are \(1,4,2,8\) for \(n\equiv0,1,2,3\pmod4\), respectively. The counts over both starting letters are twice these.
 
-More generally, define the excess \(E(w)=C(w)-n-1\). The complete two-variable generating series of four-run words beginning with \(0\) is
+Writing \(E(w)=C(w)-n-1\), the bivariate series for words starting with \(0\) is
 \[
-\sum_{a,b,c,d\ge1}z^{a+b+c+d}u^{E(0^a1^b0^c1^d)}
+\sum_{a,b,c,d\ge1} z^{a+b+c+d}u^{E(0^a1^b0^c1^d)}
 =\left(\frac{1+z}{1-z}\right)^2\sum_{x,y\ge1}z^{2(x+y)}u^{xy}.
 \]
-In particular, summing excesses over all four-run words beginning with \(0\) gives
+In particular,
 \[
-\sum_{n\ge4} z^n\sum_{\substack{a+b+c+d=n\\a,b,c,d\ge1}}E(0^a1^b0^c1^d)
+\sum_{n\ge4}z^n\sum_{\substack{a+b+c+d=n\\a,b,c,d\ge1}} E(0^a1^b0^c1^d)
 =\frac{z^4}{(1-z)^6(1+z)^2}.
 \]
-Both generating series are formal power series and require no convergence assumptions.
 
 ## Assumptions and scope
 
-All factors are **linear, contiguous, distinct words**, not positioned occurrences or circular factors. Every run exponent is positive, so the displayed word has exactly four maximal equal-letter runs. Closedness is checked within each factor itself, not relative to occurrences in the ambient word. Single letters and the empty word are closed. Relabeling \(0\) and \(1\) preserves closed factors. No claim is made for words having a different number of runs or for alphabets of more than two symbols.
+All factors are linear and contiguous, and equal words are counted only once. A border's internal occurrences are tested within the factor, not in the ambient word. All run exponents are positive. The series are formal in \(z\) with polynomial coefficients in \(u\). The extremum is restricted to binary words with exactly four maximal equal-letter runs.
 
 ## Proof
 
-**1. Classification by run count.** Every nonempty factor of \(w\) has from one to four runs. A closed one-run factor is a power of one letter. The distinct one-run closed factors are \(0^i\) for \(1\le i\le\max(a,c)\) and \(1^j\) for \(1\le j\le\max(b,d)\), giving \(\max(a,c)+\max(b,d)\) words.
+**Classifying borders.** Any non-unary prefix of a word with at least two runs includes its first transition and therefore has the full initial run length of the word. A proper suffix starting within the initial run has a shorter initial run and includes the first transition, so it cannot equal that prefix. Consequently a proper border must have its suffix occurrence start in a later run of the same letter as the first run. This applies to arbitrary positive run lengths and allows overlapping terminal occurrences.
 
-No factor with exactly two runs is closed: its first and last letters differ, so it has no nonempty border.
+**Classifying closed factors.** Each nonempty factor of \(w\) has one to four runs. The one-run closed factors are exactly the powers \(0^i\), \(1^j\) with \(1\le i\le\max(a,c)\) and \(1\le j\le\max(b,d)\): a power of length at least two is a first return to its prefix of length one less, and single letters are closed by definition.
 
-A three-run factor must be \(0^i1^b0^j\) or \(1^i0^c1^j\); the complete middle run is forced. Such a factor is closed exactly when its two outer run lengths agree. Indeed, when the outer lengths agree, the whole first outer run is a border with exactly the two terminal occurrences. If they differ, any border is a constant-letter power of length at most the smaller outer run and appears internally within the longer outer run. The corresponding distinct factors are
-\[
-0^i1^b0^i\quad(1\le i\le x),\qquad
-1^j0^c1^j\quad(1\le j\le y),
-\]
-so their count is \(x+y\).
+A two-run word has no proper nonempty border. In fact there is no later run of its initial letter in which a border's suffix occurrence could start.
 
-A four-run factor has necessarily the form \(0^i1^b0^c1^j\), with \(1\le i\le a\) and \(1\le j\le d\). Any nonempty border must start with \(0\) and end with \(1\). Its suffix occurrence must begin in the third run; hence the border is of the form \(0^r1^s\). To coincide with the prefix and suffix we must have \(r=i\) and \(s=j\). Such a border exists exactly when \(i\le c\) and \(j\le b\), equivalently \(1\le i\le x\), \(1\le j\le y\). It has exactly two occurrences, one across each of the two \(01\) transitions; there is no third transition. Thus these and only these four-run factors are closed:
+A three-run factor has form \(0^i1^b0^j\) or \(1^i0^c1^j\). Its only possible proper nonempty borders are powers of the outer letter of length at most \(\min(i,j)\), because the suffix occurrence must start in the last run. If \(i=j\), the full outer power has only the two terminal occurrences. If \(i\ne j\), such a power occurs at least twice in the longer outer run and at least once in the shorter run, so is not a closing border. The distinct three-run closed factors are therefore
 \[
-0^i1^b0^c1^j\qquad(1\le i\le x,\ 1\le j\le y).
-\]
-They are all distinct and number \(xy\). The run-count classes are disjoint, and exponents identify words within each class. Consequently
-\[
-C(w)=1+\max(a,c)+\max(b,d)+x+y+xy
-=1+(a+c)+(b+d)+xy=n+1+xy.
+0^i1^b0^i\quad(1\le i\le x),\qquad 1^j0^c1^j\quad(1\le j\le y).
 \]
 
-**2. Fixed-length sharpness and all maximizers.** Since \(2x\le a+c\) and \(2y\le b+d\), we have \(x+y\le\lfloor n/2\rfloor\). For fixed positive integral sum, the product \(xy\) is maximal when the integers differ by at most one. Hence
-\[
-xy\le\left\lfloor\frac{\lfloor n/2\rfloor^2}{4}\right\rfloor.
-\]
-Equality requires \(x+y=\lfloor n/2\rfloor\), \(\{x,y\}=\{\lfloor\lfloor n/2\rfloor/2\rfloor,\lceil\lfloor n/2\rfloor/2\rceil\}\), and a residual \(n-2(x+y)\) of either zero or one. If zero, each outer same-letter pair has equal lengths; if one, it is assigned to exactly one of the four runs. This yields the exact maximizer counts \(1,4,2,8\) by the residue of \(n\) modulo four. Every equality case meets the bound, and exchanging letters gives the second starting-letter family.
+A four-run factor has form \(0^i1^b0^c1^j\) with \(1\le i\le a\) and \(1\le j\le d\). A proper nonempty border's suffix occurrence starts in the third run, hence has two runs. Its prefix includes all \(i\) initial zeros and its suffix all \(j\) final ones, so it must be \(0^i1^j\). It exists exactly when \(i\le c\) and \(j\le b\); in that case it occurs exactly once across each of the two \(01\) transitions. The distinct closed four-run factors are thus \(0^i1^b0^c1^j\) with \(1\le i\le x\), \(1\le j\le y\).
 
-**3. Generating series.** For fixed \(x\ge1\), the series counting ordered pairs \((a,c)\) of positive integers with \(\min(a,c)=x\) is
+These classes are disjoint. Adding the empty factor gives
 \[
-z^{2x}\left(1+2z+2z^2+\cdots\right)
-=z^{2x}\frac{1+z}{1-z}.
+C(w)=1+\max(a,c)+\max(b,d)+x+y+xy=n+1+xy.
 \]
-The same calculation holds for \((b,d)\) with minimum \(y\). Their contributions are independent, and the excess is exactly \(xy\), proving the bivariate series. Differentiating formally in \(u\) at \(u=1\) yields
+
+**Maximum and equality cases.** The positive integers \(x,y\) satisfy \(x+y\le m=\lfloor n/2\rfloor\). At fixed sum \(s\) their product is maximal for balanced pairs, with value \(\lfloor s^2/4\rfloor\), strictly increasing for integers \(s\ge2\). Thus equality in the desired bound requires \(x+y=m\) and \(|x-y|\le1\). These conditions are sufficient: start with run lengths \((x,y,x,y)\); for odd \(n\) add one to any of the four runs. These are all possibilities because the residual \(n-2(x+y)\) is zero or one. There is one ordered balanced pair for even \(m\) and two for odd \(m\), giving the stated multiplicities. For example, \(0^31^30^31^3\) has count \(22\), the unique maximum at length 12 among words starting with \(0\).
+
+**Generating series.** For a fixed minimum \(x\) of the two zero-run lengths, their length weight is \(z^{2x}(1+2z+2z^2+\cdots)\), since a positive difference can occur in either run. The same formula applies to the two runs of ones, with minimum \(y\). Taking their product and weighting by \(u^{xy}\) gives the bivariate series. Differentiating formally in \(u\) and evaluating at \(u=1\) gives
 \[
-\left(\frac{1+z}{1-z}\right)^2
-\left(\sum_{x\ge1}xz^{2x}\right)^2
-=\frac{z^4}{(1-z)^6(1+z)^2},
+\left(\frac{1+z}{1-z}\right)^2\left(\sum_{x\ge1}xz^{2x}\right)^2
+=\frac{z^4}{(1-z)^6(1+z)^2}.
 \]
-as stated.
 
 ## Verification
 
-Run `python3 verify_closed_four_runs.py` from the extracted directory. The standalone standard-library program independently constructs closed factors in two ways: (i) direct counting of border occurrences and (ii) longest-border prefix-function checking. It also constructs the five run-pattern classes in the proof and compares their actual sets. It exhausts every positive four-run composition through length \(16\), checks \(128\) additional seeded longer instances, checks the exact maximizer counts, and compares coefficients of the bivariate enumerator through length \(20\). A successful run prints `VERIFY_OK` with the number of tested words. The program is a finite cross-check, while the proof above establishes the identities for every length.
-
-For example, \(w=0^3 1^3 0^3 1^3\) (length \(12\)) has \(C(w)=12+1+3\cdot3=22\), the unique maximum among length-\(12\) four-run words beginning with \(0\).
+The supplied standard-library program `verify_closed_four_runs.py` compares the explicit factor sets with both a direct border occurrence test and a longest-border prefix-function test for all positive four-run compositions of total length at most 16. It also includes 128 seeded longer cases and checks bivariate coefficients through length 20. These are finite diagnostics; the border argument and elementary counts above prove the assertions for every allowed length.
 
 ## Relationship to prior work
 
-Badkobeh, Fici and Lipták established the general lower bound \(C(w)\ge|w|+1\), characterized binary words meeting it, and used a four-block binary construction to show quadratic closed-factor growth [1]. Their proof gives a lower-bound construction, not the exact count of all four-run words, its all-length maximum or its maximizers. The present exact factor classification quantifies the **first non-CR-poor binary run class** (all words with at most three linear runs are bitonic, hence CR-poor) and sharpens this particular four-block construction.
-
-Parshina and Puzynina established the asymptotic unrestricted maximum \(\sim n^2/6\) for closed-factor richness [2]. This does not determine the sharp restricted four-run value, whose leading coefficient is \(1/16\). Thus the asymptotically optimal four-run richness is \(3/8\) of the unrestricted leading-order optimum; no unrestricted extremality is asserted.
+Badkobeh–Fici–Lipták [1, Theorems 23 and 25] characterize binary words attaining the general lower bound of \(n+1\) factors (including the empty word) and give a quadratic lower bound using a construction with four equal blocks and a possible final residual run. That lower bound is not an exact count for arbitrary positive four-run exponents. Binary words with at most three runs are bitonic and attain \(n+1\); with four runs the excess is always positive. A separate exact count for words with exactly two occurrences of one letter [3] already covers the four-run subfamily with both runs of that letter of length one. It agrees with the present formula there after the empty factor is included. Parshina–Puzynina [2] give the unrestricted asymptotic maximum \(\sim n^2/6\), distinct from the four-run maximum with leading coefficient \(1/16\).
 
 ## Limitations
 
-Only binary finite words with exactly four positive-length runs are classified. The equalities do not determine the maximum among arbitrary words, words of at least five runs, or circular words. The originality assessment relies on the cited full-text comparisons and searches; it is not an assertion of definitive historical priority. Independent validation has not been performed.
+The result does not determine an exact maximum for arbitrary words, more than four runs, larger alphabets, or circular words. The comparisons above are qualified and do not claim definitive historical priority.
 
 ## References
 
-[1] G. Badkobeh, G. Fici, Z. Lipták, *On the Number of Closed Factors in a Word*, first posted May 28, 2013, arXiv:1305.6395, https://arxiv.org/abs/1305.6395 (see Theorem 23 and Theorem 25).
-
-[2] O. Parshina, S. Puzynina, *Finite and Infinite Closed-Rich Words*, first posted November 1, 2021, arXiv:2111.00863, https://arxiv.org/abs/2111.00863 (see the Introduction, Preliminaries and asymptotic extremal theorem).
+1. G. Badkobeh, G. Fici and Z. Lipták, *On the Number of Closed Factors in a Word*, arXiv:1305.6395, https://arxiv.org/abs/1305.6395.
+2. O. Parshina and S. Puzynina, *Finite and Infinite Closed-Rich Words*, arXiv:2111.00863, https://arxiv.org/abs/2111.00863.
+3. *Sharp closed-factor complexity with exactly two marked positions*, Resultary record `2ab04efc05f9`, https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-sharp-closed-factor-complexity-with-exactly-two-marked-positions--2ab04efc05f9/RESULT.md.

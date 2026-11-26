@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:24:58.079324Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–70, VERIFICATION.md, CHECK.py (inspected, not executed)",
+        "Independent check: python3 /workspace/review_checks.py 1. For (n,k)=(3,1), nonreal roots have y^2=3x^2−c and 8x^3−4cx+1=0; direct high-precision bisection of the negative outer branch and of U_c yields c(U_c−Z_c)=0.143704, 0.146197, 0.146439, 0.146446 at c=20,100,1000,10000, approaching (1−1/sqrt(2))/2."
+      ],
+      "rationale": "The reverse-triangle inequality forces every zero with r^(n−k)≤c/2 into the bounded inner rescaling; the complementary outer rescaling is bounded above and bounded away from zero. Every subsequential limit is therefore among the relevant polygon vertices. Their real Jacobians are −k^2 and n^2−k^2 in the rescaled equations, so analytic implicit-function uniqueness both continues all vertices and excludes any extra branches. Linearization gives −omega^(1−n)/k for the inner correction and n h−k conjugate(h)=epsilon_o zeta^(−n) to first order for the outer one. For all c>0 the lower phase equality forces both phases to be 1 and hence the positive real root by coprimality. For the upper radius its scalar equation has exactly one solution above R, and equality needs phases +1 and −1; this forces the negative real point if n is even and is impossible if n is odd. In odd degree n is invertible mod 2(n+k); the leading radial correction has a two-way maximum at phases plus or minus pi/(n+k), separated from the other values by a fixed gap. Conjugacy makes the two resulting root moduli exactly equal. Expanding U_c and subtracting on this same outer scale gives the two stated powers and the positive coefficient, with n,k fixed.",
+      "residual_risks": [
+        "The numerical checks are finite and neither give root exhaustion nor supply a uniform threshold. The analytic proof asserts the odd-degree farthest pair for sufficiently large c for each fixed exponent pair, not all c."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.1 of Brilleslyper et al. applies to the same family and includes the n+2k total. Their Section 3 leaves locations as a question. Geleta–Alemu Lemma 3.4 specializes to the two radial bounds exactly. Gao–Gao–Liu and Melman are directly relevant inclusion-region sources, but only access-limited comparisons were possible for them."
+        ],
+        "reasoning": "An all-parameter root count or containing annulus does not give the branchwise Taylor coefficients or the difference between the outer envelope and the largest root modulus. Sector bounds might conceivably overlap; neither inaccessible article is used as negative evidence.",
+        "searches": [
+          "doi:10.1090/bproc/51",
+          "arXiv:2106.15162",
+          "doi:10.1007/s40840-022-01416-8",
+          "doi:10.1016/j.jmaa.2024.129078"
+        ]
+      },
+      "checked_sources": [
+        "Brilleslyper et al., Geleta–Alemu, Barrera et al., Harrat original passages",
+        "Local Resultary mirror 69b8ced51768",
+        "Gao et al. and Melman access-limited abstracts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier radial upper bound is independent of parity and comes from r^n−c r^k≤1. The count theorem measures counts inside a critical circle but does not resolve their limiting rays. The symmetry corollary does not say which equal-modulus roots are extremal."
+        ],
+        "reasoning": "The deficit requires both the branchwise radial linearization and the finite modular maximization of Re(zeta^(−n)); it does not follow from the scalar radius inequality, the count, or the equal-modulus symmetry alone.",
+        "searches": [
+          "doi:10.1090/bproc/51 Theorem 1.1 and Section 3",
+          "arXiv:2106.15162 Lemma 3.4",
+          "doi:10.1007/s10474-024-01403-4 Corollary 1.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Barrera–Barrera–Navarrete Corollary 1.5: two distinct roots of equal modulus imply Egerváry equivalence to a harmonic trinomial with real coefficients. The mirrored gap-two record treats n=k+2, k odd, and classifies critical coefficients rather than individual root geometry."
+        ],
+        "reasoning": "The polynomial is already real in its coefficients. Symmetry can explain exact equality within a conjugate pair but cannot select the maximizing pair or its deficit. The gap-two count comparison uses a degree-dependent transition regime rather than fixed exponents at c→infinity; the date is not used to exclude coverage.",
+        "searches": [
+          "Local Resultary/SCOPE: large-parameter harmonic trinomial zero locations and gap-two zero counts",
+          "SCOPE-69b8ced51768",
+          "doi:10.1007/s10474-024-01403-4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Harrat Remark 2.2 and Brilleslyper et al. already record the large-c count. The gap-two catalog gives exact critical coefficients and count jumps but expressly does not locate individual roots."
+        ],
+        "reasoning": "These are exact results for the count and transitions, not a table of the indexed complex first corrections or maximum-radius deficit. The target itself appearing in the local search is not an independent match.",
+        "searches": [
+          "Local Resultary/SCOPE: parameter-dependent harmonic trinomial root counts and asymptotic locations",
+          "SCOPE-69b8ced51768",
+          "doi:10.5269/bspm.66200"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exhaustive labeled first-order locations and the sharp odd-degree outer-radius defect with its farthest conjugate pair. The known total and large-parameter split counts and radial bounds are credited; elementary phase equality is not an independent novelty claim. This is a best-of-knowledge conclusion, not a priority certificate.",
+      "residual_risks": [
+        "Inaccessible original text of Melman and Gao–Gao–Liu may contain stronger angular or modulus control; their absence from full-text comparison is not evidence of novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Count overlap explicitly credited; no location theorem in passages read",
+          "evidence": "Large-c n+2k and count inside critical circle; Section 3 explicitly asks about locations.",
+          "identifier_or_url": "https://doi.org/10.1090/bproc/51",
+          "material_read": "Theorem 1.1 and nearby discussion, PDF p. 3 offset 8970; Section 3, PDF p. 7 offset 27600",
+          "method": "OA original PDF passages",
+          "title": "Zeros of a one-parameter family of harmonic trinomials",
+          "trigger": "Exact same family and counts"
+        },
+        {
+          "assessment": "Exact bounding radii overlap",
+          "evidence": "Positive roots of r^n+|a|r^k−|b| and r^n−|a|r^k−|b| give the modulus bounds, with the same inclusion for the harmonic counterpart.",
+          "identifier_or_url": "https://arxiv.org/abs/2106.15162",
+          "material_read": "Section 3.2 Lemma 3.4, PDF pp. 5–6 offset 18150",
+          "method": "OA original PDF passage",
+          "title": "Location of the Zeros of Certain Complex-Valued Harmonic Polynomials",
+          "trigger": "Outer and inner radius bounds"
+        },
+        {
+          "assessment": "Symmetry equivalence rather than labeled asymptotics",
+          "evidence": "Equal modulus of distinct roots implies equivalence to a real-coefficient representative.",
+          "identifier_or_url": "https://doi.org/10.1007/s10474-024-01403-4",
+          "material_read": "Corollary 1.5, PDF p. 5 offset 11820",
+          "method": "OA original PDF passage",
+          "title": "Egerváry’s theorems for harmonic trinomials",
+          "trigger": "Equal-modulus roots and root-set equivalence"
+        },
+        {
+          "assessment": "Count overlap",
+          "evidence": "Increase between n and n+2k; not an asymptotic angular position result in the passage.",
+          "identifier_or_url": "https://doi.org/10.5269/bspm.66200",
+          "material_read": "Remark 2.2, PDF pp. 3–4 offset 9000",
+          "method": "OA original PDF passage",
+          "title": "Zeros of harmonic trinomials with complex parameter",
+          "trigger": "Broader parameter count classification"
+        },
+        {
+          "assessment": "Subfamily relationship but different conclusions",
+          "evidence": "n=k+2, odd k; critical coefficients, count jumps, and transition-window width as k grows; individually labeled root geometry outside scope.",
+          "identifier_or_url": "2026/11/22/SCOPE-chebyshev-extrema-give-every-critical-coefficient-in-the-gap-two--69b8ced51768",
+          "material_read": "Mirrored Finding and limitations at offsets 738 and 6595",
+          "method": "Local Resultary and bounded mirror passages",
+          "title": "Chebyshev extrema give every critical coefficient in the gap-two harmonic trinomial family",
+          "trigger": "Exact same polynomial in a subfamily"
+        },
+        {
+          "assessment": "Access-limited possible overlap",
+          "evidence": "Abstract concerns root inclusion regions; it cannot settle precise asymptotic coverage.",
+          "identifier_or_url": "https://doi.org/10.1007/s40840-022-01416-8",
+          "material_read": "Accessible abstract; full text not returned",
+          "method": "Literature search and lawful publisher/OA retrieval attempts",
+          "title": "Location of the Zeros of Harmonic Trinomials",
+          "trigger": "Potential same-object stronger location result"
+        },
+        {
+          "assessment": "Most material unresolved priority risk",
+          "evidence": "Abstract describes sectors and sector-dependent magnitude bounds, not enough to test equivalent first-order expansions or deficit.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jmaa.2024.129078",
+          "material_read": "Accessible abstract; full text unavailable via attempted routes",
+          "method": "Literature and lawful OA lookup",
+          "title": "Zero location for analytic and harmonic trinomials",
+          "trigger": "Potential angular and modulus estimates close to the claimed sharp bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 8–37, 43–70",
+        "Brilleslyper et al. Section 3"
+      ],
+      "rationale": "This answers the large-parameter part of a previously posed location problem, replacing a count and enclosure with exact local branch labels and the rate and coefficient by which the enclosure misses every root in odd degree. The odd/even split also specifies which actual roots extremize rather than merely restating an annular bound.",
+      "residual_risks": [
+        "This contribution is asymptotic, not a complete all-parameter geometry or a certified coefficient threshold."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

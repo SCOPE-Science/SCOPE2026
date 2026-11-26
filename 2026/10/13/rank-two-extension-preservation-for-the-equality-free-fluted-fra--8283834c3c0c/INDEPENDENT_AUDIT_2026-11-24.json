@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:34:57.310617Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, particularly definitions and proof at lines 14–51, and supporting VERIFICATION.md and verify.py (read, not executed)",
+        "/workspace/audit_evidence/replay_2.py and /workspace/audit_evidence/replay_2.txt",
+        "Ding, arXiv:2607.12970v2, §4"
+      ],
+      "rationale": "The suffix convention is essential. At level two and rank zero, all atom truth is determined by the target unary type and ordered binary type. One step back, the source unary type and the set of outgoing types determine every rank-one formula at level one, including arbitrary Boolean combinations and both quantifiers. At level zero the set of these row descriptors then determines the rank-two theory. B satisfies the existential χ_A exactly when each row of A is contained, in signed support and with matching source unary type, in a row of B. To check the crucial amalgamation independently, choose one witness f(a) in B for each old row (one choice per descriptor suffices). Form C on A plus a disjoint copy of B; retain all old–old relations, and assign each other binary pair by pulling back B along f on A and the copy identification on the new elements. Unary types agree with this map. Old rows realize their chosen complete B support through the new copy and add only allowed types on A. New rows already realize the full B support in the copy and mixed targets add no new types. This verifies D(C)=D(B) and inducedness, even on a single copy, with any higher arities freely filled off A and the copy. There is no forced conflict between ordered pairs or diagonal values. The proof works for infinite domains and for finite domains stays finite. Upward transfer to C and descriptor invariance transfer φ to B. The finitely many descriptor sets yield the stated finite disjunction, with ⊥ for no models. Existential formulae with signed atoms preserve truth in induced extensions by retaining witnesses. Empty unary/binary vocabularies produce a singleton empty atomic type, not a missing type. The replay independently checked the one-copy construction on 664 exhaustive compatible small pairs and 808 fixed-seed compatible pairs of size three, not a proof for all signatures. The rank-three obstruction was verified as an attributed result in Ding, §4, for both semantics.",
+      "residual_risks": [
+        "No extrapolation from the finite replay. Equality, constants, functions, nullary predicates, and other variable conventions are outside the theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ding's equirank homomorphism theorems apply to all and separately finite structures, with existential-positive targets. His rank-three counterexample has no existential fluted equivalent even over finite structures.",
+          "Ding's Table 1 reports the ordered-fragment Łoś–Tarski theorem citing Yin; the Yin full text was not reached."
+        ],
+        "reasoning": "The rank-three result precludes a general fluted extension theorem. The homomorphism theorem's hypothesis does not follow from preservation under induced extensions, e.g. ∃x ¬P(x); ordinary Łoś–Tarski does not ensure a fluted target of the same rank. No broader inspected theorem was found with all the needed hypotheses and conclusions.",
+        "searches": [
+          "Ding, §3.4 Theorem 10, §3.5 Theorem 15; §4 Theorem 23 and Corollary 24 (OA HTML numbering)",
+          "Yin ordered-fragment preservation, Springer DOI and OA recovery"
+        ]
+      },
+      "checked_sources": [
+        "Ding arXiv:2607.12970v2",
+        "Yin DOI 10.1007/s10992-026-09845-7 (indirect comparison)",
+        "Resultary 5135eb088724",
+        "Frozen literature comparison, RESULT.md lines 57–69"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Extension preservation allows signed atoms and only induced embeddings; the homomorphism result has arbitrary homomorphisms and assumes no complement-coherence constraints in the enlarged vocabulary.",
+          "Ding's negative example is at rank three, not an argument establishing the positive rank-two direction."
+        ],
+        "reasoning": "Replacing negated predicates by fresh positive symbols restricts the intended models to coherent expansions. Even homomorphisms between coherent expansions need not be injective; and one cannot invoke a theorem for arbitrary expansions without extending preservation off that coherent class. The signed row amalgamation addresses a different preservation implication. The sharpness assertion uses prior work and is not itself new.",
+        "searches": [
+          "Ding, arXiv:2607.12970v2, §§3.4–3.5, §4",
+          "Resultary 5135eb088724, mirrored Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ding distinguishes homomorphism from extension preservation and ordered from fluted logic.",
+          "At level two the present mixed signature admits P(x2) beside R(x1,x2); the prefix-atom condition of ordered syntax does not directly permit this combination."
+        ],
+        "reasoning": "The prefix/suffix distinction can disappear in binary-only rank-two subcases, but not by a global variable reversal in the mixed syntax: the bound variable changes level. Replacing a unary target by a binary code requires row coherence of the expanded structures, not preservation over arbitrary structures in the other syntax.",
+        "searches": [
+          "Resultary: rank-two fluted extension preservation, induced substructure and existential fluted equivalence",
+          "Ding, arXiv:2607.12970v2, Table 1 and §§3.4–4",
+          "Yin, DOI 10.1007/s10992-026-09845-7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 5135eb088724, mirrored RESULT.md, Finding: an equality-free two-binary-relation obstruction for preservation under disjoint unions and a restricted guarded normal form, even finitely."
+        ],
+        "reasoning": "Different preservation operation, normal form and direction of theorem; the same calendar date is not the reason to distinguish coverage. Leading returned records do not establish exact coverage; this is not an exhaustive database exclusion.",
+        "searches": [
+          "Resultary semantic queries for equality-free fluted preservation under induced extensions, finite semantics and quantifier rank two"
+        ]
+      },
+      "rationale": "The positive, equirank result for induced extensions in the unrestricted equality-free suffix syntax is distinct in the inspected sources. Ding supplies the negative rank-three bound, which is credited as prior, and the stronger preservation hypothesis of a different positive theorem. The possible ordered-fragment overlap does not give evidence of a result in the mixed unary/binary suffix syntax, although the exact comparison with the inaccessible original has a residual limit.",
+      "residual_risks": [
+        "Yin's original full text was not accessible in the bounded attempts; exact extent of any restricted ordered/fluted overlap remains open in this review.",
+        "Earlier or differently phrased low-depth fragment normal forms could contain equivalent coverage; no proof of global priority is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers equirank homomorphism preservation and the rank-three extension obstruction, not the rank-two positive claim by those statements.",
+          "evidence": [
+            "OA HTML Theorems 10 and 15; Theorem 23 and Corollary 24."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.12970",
+          "material_read": "v2 OA HTML, Table 1, §§3.4–3.5 and §4; bounded offsets about 7700, 45500, 57650 and 85000",
+          "method": "Exact passage reads of the primary text",
+          "title": "Preservation and definability for the fluted fragment",
+          "trigger": "Same fragment and quantifier rank preservation; exact boundary counterexample"
+        },
+        {
+          "assessment": "Possible coverage of restricted overlap only on available evidence; no whole-paper exclusion and no inferred finite or equirank statement.",
+          "evidence": [
+            "Ding, Table 1: Łoś–Tarski for the ordered fragment, reference [20]."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10992-026-09845-7",
+          "material_read": "Ding's Table 1 comparison and bibliography; original Springer article/PDF not retrievable in attempted lawful OA reads",
+          "method": "DOI/PDF retrieval and OA recovery attempt, plus secondary exact comparison",
+          "title": "The Niceness of the Ordered Fragment of First-Order Logic",
+          "trigger": "Closest alternate syntactic preservation theorem"
+        },
+        {
+          "assessment": "Different operation and fragment; not equivalent to this rank-threshold theorem.",
+          "evidence": [
+            "The obstruction concerns disjoint unions and a universal/guarded-existential-positive characterization."
+          ],
+          "identifier_or_url": "Resultary:5135eb088724",
+          "material_read": "Local mirror RESULT.md, beginning/Finding",
+          "method": "Targeted semantic search followed by bounded mirrored text reading",
+          "title": "An equality-free two-relation obstruction to disjoint-union preservation",
+          "trigger": "Nearby same-date indexed preservation statement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof and limitations",
+        "Ding, §4, rank-three obstruction"
+      ],
+      "rationale": "This supplies the positive side immediately below an established failure threshold, and it simultaneously shows the finite and arbitrary cases with the original rank bound. The row amalgamation is a structural statement explaining why induced-substructure behavior is captured by signed witnesses at depth two; an unranked first-order preservation theorem would not give it. The positive threshold and constructive witnesses are useful beyond checking isolated formulas.",
+      "residual_risks": [
+        "No succinctness bound, higher-rank theorem, or extension to other syntactic conventions is inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

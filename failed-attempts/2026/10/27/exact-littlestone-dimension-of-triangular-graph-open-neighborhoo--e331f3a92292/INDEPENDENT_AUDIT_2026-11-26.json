@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:57:01.219765Z",
+  "axes": {
+    "correctness": {
+      "rationale": "These are open neighborhoods: query and center are unordered edges and equality gives label zero. After any first query ab the positive version space consists of a-spokes and b-spokes outside ab. The next query ab makes no split; a query disjoint from ab has only four positives; and a query ai or bi produces two star-plus-one classes. In a star-plus-one class, a query in the two centers gives a constant answer; most queries through the two centers leave at most two on one side; and a query through neither has at most three positives. A child of at most three hypotheses cannot have depth two. Thus the star-plus-one bound is two, the first positive version space has dimension at most three, and depth five is impossible. At n=2,3,4 the function counts are 1,3,3 (opposite edges duplicate functions at n=4), with informative queries when n>=3. At n=5,6 there are fewer than 16 hypotheses. The supplied n=5 proof tree has nonempty children through depth three; it embeds for n>=5. For n>=7 the negative branch of ab contains that tree on five outside labels, while querying ai on the positive branch leaves at least four same-center spokes on each side; a query on two of the spokes' endpoints splits 2–2 and a spoke query distinguishes each pair. This yields depth four. Independent version-space replay gave 0,1,1,3,3,4 at n=2..7 and checked 8 and 16 paths in the two witnesses. Replay and log: /workspace/branches/1a8ff292-054c-4d26-a2bd-42356b76104b/triangular_open_replay.py and triangular_open_replay.txt in the same directory. The supplied script, JSON witnesses and recorded output were inspected, not executed as code; the all-n result uses the structural proof, not the replay.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "df7df7b63727 includes the same exact full-graph sequence plus the bound four for all induced subgraphs.",
+          "Adler–Benediktsson–Macpherson analyze the same open neighborhoods for broader Johnson graphs, but their bound four is for VC dimension; the other primary works give general Boolean-closure or stability results."
+        ],
+        "reasoning": "The broader indexed record explicitly covers the claim on full graphs, while the static theorem cannot be transferred as an upper bound for Ldim. The additional induced-subgraph bound follows from restricting centers and queries.",
+        "searches": [
+          "Resultary df7df7b63727, Finding, scope and proof",
+          "arXiv:2007.16042, §3 and Theorem 3.6",
+          "arXiv:2007.03668, abstract",
+          "arXiv:2108.05569, PDF p. 5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_triangular.py, witness_trees.json and verification_output.txt",
+        "Resultary df7df7b63727, 43076c96fc46 and 7dfb3448d6f9",
+        "arXiv:2007.16042, 2007.03668 and 2108.05569"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matched adaptive record proves the all-n upper bound by restrictions after two queries, and cites shattered witnesses at n=5 and n=7.",
+          "The earlier VC result gives a depth-four lower bound from static shattering at n=7; the exact earlier static profile is only two at n=5."
+        ],
+        "reasoning": "The realized online dimension implies the deterministic realizable mistake bound by the standard optimal algorithm and adversarial tree. The checked static results do not imply the adaptive upper bound or depth three at n=5. The decisive coverage is the directly matching online theorem; no priority inference is made from a catalogue date.",
+        "searches": [
+          "Resultary df7df7b63727, Finding and proof at offsets 0–3854",
+          "Resultary 43076c96fc46, Finding",
+          "arXiv:2007.16042, Johnson open-neighborhood VC results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "df7df7b63727 defines T_n=J(n,2) by distinct unordered pairs sharing exactly one point, with open neighborhoods and edge queries.",
+          "7dfb3448d6f9 gives a rank-two Kneser result whose positive relation is disjointness; it is not the open-neighborhood complement, since self-queries are zero in both open systems."
+        ],
+        "reasoning": "The adjacency in the matching online record is precisely L(K_n) adjacency, not a change to closed neighborhoods or a point-query domain. The Kneser relation changes labels, including the effect of equality under Boolean complementation, so its formula is not a direct equivalent.",
+        "searches": [
+          "\"Littlestone dimension\" \"Johnson graph\" neighborhoods triangular graph J(n,2)",
+          "Resultary df7df7b63727, 43076c96fc46 and 7dfb3448d6f9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matched online record gives the full values 0 at n=2, 1 at n=3,4, 3 at n=5,6, and 4 at n>=7, not just finite examples.",
+          "The static profile yields 0,1,1,2,3,4 at n=2..7, then 4; in particular it differs at n=5."
+        ],
+        "reasoning": "The full adaptive sequence in the distinct indexed record is an exact match. The static sequence provides only lower bounds for the adaptive problem and cannot replace the online table.",
+        "searches": [
+          "Resultary df7df7b63727, exact Finding and finite verification section",
+          "Resultary 43076c96fc46, static shattering profile"
+        ]
+      },
+      "rationale": "Distinct indexed record df7df7b63727 explicitly states the identical four-case open-neighborhood Littlestone formula for every n>=2 and supplies a proof. It also notes restriction to induced subgraphs. This is demonstrable equivalent coverage in the checked catalogue, not a claim that it predates the frozen work. Its visible entry date is later and the lineage and priority of the two records are not established. The earlier static literature alone would not cover the adaptive theorem.",
+      "residual_risks": [
+        "The matching indexed record's date and distinct identifier do not establish derivation, authorship or priority between the two results. This decision concerns coverage, not which work came first.",
+        "The bounded primary-literature search does not establish absence of earlier online treatments."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact equivalent coverage in a distinct catalogue entry; displayed date later, priority unresolved",
+          "evidence": "Explicit 0,1,3,4 piecewise formula on the same four parameter regimes, plus the induced-subgraph upper bound; gives star-plus-one fiber proof and depth-three and depth-four certificates.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-online-shattering-dimensions-of-triangular-graph-neighborh--df7df7b63727",
+          "material_read": "RESULT.md Finding, scope and proof, offsets 0–3854; verification and relationship within the inspected range through offset 4904; mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary mirror",
+          "title": "Exact online shattering dimensions of triangular-graph neighborhoods",
+          "trigger": "Exact adaptive invariant on the same open-neighborhood class"
+        },
+        {
+          "assessment": "Static overlap only",
+          "evidence": "Shattering polynomial gives VC dimensions 0,1,1,2,3,4 for n=2..7, 4 thereafter.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-open-neighborhood-shattering-profiles-of-triangular-graphs--43076c96fc46",
+          "material_read": "RESULT.md Finding and static profile, offsets 0–6098",
+          "method": "Local Resultary mirror",
+          "title": "Exact open-neighborhood shattering profiles of triangular graphs",
+          "trigger": "Same graph/adjacency and similar shattering terminology"
+        },
+        {
+          "assessment": "Does not give this formula",
+          "evidence": "The positive label is disjointness, not intersection of size one.",
+          "identifier_or_url": "2026/10/26/SCOPE-exact-littlestone-dimension-of-rank-two-kneser-graph-neighborhoo--7dfb3448d6f9",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact Littlestone dimension of rank-two Kneser-graph neighborhoods",
+          "trigger": "Same domain and adaptive invariant, different graph relation"
+        },
+        {
+          "assessment": "Prior static results but not the adaptive formula",
+          "evidence": "Defines the open-neighborhood set system and gives the static Johnson VC dimension bound in Theorem 3.6.",
+          "identifier_or_url": "https://arxiv.org/abs/2007.16042",
+          "material_read": "PDF p. 1 OA offset 1339; theorem and proof region, PDF pp. 8–9 at offsets 19567 and 24333",
+          "method": "OA primary PDF",
+          "title": "Vapnik-Chervonenkis Dimension and Density on Johnson and Hamming Graphs",
+          "trigger": "Same open-neighborhood relation and broader Johnson graphs"
+        },
+        {
+          "assessment": "No exact triangular graph result in inspected statement",
+          "evidence": "Treats general Boolean-aggregation closure bounds.",
+          "identifier_or_url": "https://arxiv.org/abs/2007.03668",
+          "material_read": "PDF p. 1, OA offset 2443",
+          "method": "OA primary PDF",
+          "title": "Near-tight Closure Bounds for the Littlestone and Threshold Dimensions",
+          "trigger": "Potential Boolean-aggregation route to broader dimension statement"
+        },
+        {
+          "assessment": "General relation, not an exact dimension calculation",
+          "evidence": "Discusses the stability/finite-Littlestone connection.",
+          "identifier_or_url": "https://arxiv.org/abs/2108.05569",
+          "material_read": "PDF p. 5, OA offset 18608",
+          "method": "OA primary PDF",
+          "title": "Model Theory and Agnostic Online Learning via Excellent Sets",
+          "trigger": "General finite Littlestone dimension and stability context"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The underlying question is substantive: a fixed deterministic mistake cap for a growing natural concept class, with an adaptive-versus-static separation at n=5. But the exact adaptive dimensions, including both sharp thresholds and an essentially matching fiber upper bound, are already explicitly available in the distinct catalogued result. The frozen record provides no separate invariant, improvement or new consequence beyond that coverage. The failure is not based on small size or on the earlier static result.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

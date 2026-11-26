@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:31:45.031876Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–88, 92–272",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "/workspace/branches/f14914bc-4896-4b0a-8fb1-3346c825806d/independent_semiprime_check.py and full-run.txt (independent bounded replay)"
+      ],
+      "rationale": "Prime squares fail modulo p and twice an odd prime fails by parity. For distinct odd primes, put u=(p−1)/2, v=(q−1)/2. Writing pq=2(2uv+u+v)+1 reduces the test exactly to uv dividing (u+v)(u+v+1). At u=ga, v=gb, coprimality of ab with a+b and of g with g(a+b)+1 shows the equivalent two conditions g|a+b and ab|g(a+b)+1. With h=[g(a+b)+1]/ab, expansion gives (ha−g)(hb−g)=g²+h and the factors equal (ga+1)/b and (gb+1)/a, hence are positive and strictly ordered. The inverse factor-pair search must retain g|a+b, coprimality and primality as stated. The bound h≤floor((3g+1)/2) uses a≥1 and b≥2. Reduction modulo v gives v|u(u+1), yielding q≤(p²+1)/2. A separate bounded direct test of 407,284 semiprimes up to 2,000,000 and reverse divisor enumeration for g≤499 agreed on exactly the eight listed values. This corroborates but does not prove the unbounded algebraic classification.",
+      "residual_risks": [
+        "No claim about Ω(n)≥3 or infinitude. The factor identity alone does not replace the g|a+b filter."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The two broad sequences are defined by membership and give computational listings. The matched divisor-sum classifications use σ(n)|nφ(n) or φ(n)|nσ(n), not φ(n)|n²−1."
+        ],
+        "reasoning": "A general membership program or a theorem for a different divisibility predicate does not supply the simultaneous constraints that give this fixed-gcd finite search.",
+        "searches": [
+          "Resultary broader two-factor totient and divisor-sum classifications",
+          "OEIS A097605 and A098271"
+        ]
+      },
+      "checked_sources": [
+        "Resultary candidate statements e44eeaa438c7, 0b1b8961a646, 529eee2b19a9",
+        "OEIS A097605",
+        "OEIS A098271",
+        "Focused exact-predicate public search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The sources directly cover the ambient condition and some exclusions; the closest other semiprime theorem features q=p²−p−1 for a different predicate."
+        ],
+        "reasoning": "Neither a list sweep nor a prime-pair formula for a different predicate gives both implications of the classification here. The elementary proof is not evidence that the theorem was already documented.",
+        "searches": [
+          "Exact predicate and factor-pair comparison in Resultary",
+          "OEIS entries and focused public semiprime search"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The strongest local candidates with identifiers e44eeaa438c7, 0b1b8961a646, 529eee2b19a9 have different predicates or classify a different branch. The focused public search led to the OEIS sequences but yielded no separate equivalent theorem."
+        ],
+        "reasoning": "The comparison is with the normalized equation hab=g(a+b)+1 under the gcd and primality filters, not with common first terms or the words 'two factor'.",
+        "searches": [
+          "Resultary searches for the exact totient predicate, A097605/A098271, and the factor-pair and larger-prime criteria",
+          "Public search for φ(n) dividing n²−1 with semiprime/classification terminology"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A097605 is the exact ambient sequence and records the even-member exclusion. A098271 lists the nonprime subsequence and includes e.g. 255, which is not a semiprime."
+        ],
+        "reasoning": "The existing listings cover the examples as membership data but do not state the semiprime-layer structure or a proof of its divisorial parametrization.",
+        "searches": [
+          "https://oeis.org/A097605",
+          "https://oeis.org/A098271"
+        ]
+      },
+      "rationale": "The base predicate, examples and even exclusion are known. The supported distinct result is the exact bidirectional fixed-gcd divisor parametrization with its finite h-range, not a new integer sequence or the claim that the examples were previously unknown. No checked statement provides or entails this classification via an equivalent parametrization.",
+      "residual_risks": [
+        "The proof is elementary and the sequences longstanding; an unindexed discussion or an unnoticed equivalent parametrization remains possible. The search does not prove priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers predicate and even-member exclusion, not the structural theorem",
+          "evidence": [
+            "Says all primes are members, with 2 the only even member; links a table of the initial terms."
+          ],
+          "identifier_or_url": "https://oeis.org/A097605",
+          "material_read": "Definition, comments, programs and links at entry start (offset 0)",
+          "method": "Public page, bounded read",
+          "title": "OEIS A097605 — Numbers n such that φ(n) divides n²−1",
+          "trigger": "Exact ambient sequence"
+        },
+        {
+          "assessment": "Covers the nonprime list but does not classify the semiprimes",
+          "evidence": [
+            "The initial list includes 255 and is not restricted to Ω=2."
+          ],
+          "identifier_or_url": "https://oeis.org/A098271",
+          "material_read": "Definition, initial terms, programs and links at entry start (offset 0)",
+          "method": "Public page, bounded read",
+          "title": "OEIS A098271 — Nonprime numbers n such that φ(n) divides n²−1",
+          "trigger": "Exact nonprime container of the semiprime layer"
+        },
+        {
+          "assessment": "Different divisibility condition",
+          "evidence": [
+            "σ(n)|nφ(n); its odd branch has q=p²−p−1."
+          ],
+          "identifier_or_url": "Resultary SCOPE-e44eeaa438c7",
+          "material_read": "RESULT.md at offset 0, statement",
+          "method": "Local mirror statement read",
+          "title": "Complete two-factor classification for a divisor-sum totient divisibility",
+          "trigger": "Closest apparent two-factor classification"
+        },
+        {
+          "assessment": "Does not cover the reviewed predicate",
+          "evidence": [
+            "Parity of a least Bézout coefficient for a two-prime-power T(n) branch."
+          ],
+          "identifier_or_url": "Resultary SCOPE-0b1b8961a646",
+          "material_read": "RESULT.md at offset 0, statement",
+          "method": "Local mirror statement read",
+          "title": "Euclidean quotient parity resolves the two-prime totient branch",
+          "trigger": "Two-prime totient and quotient language"
+        },
+        {
+          "assessment": "Different right-hand side",
+          "evidence": [
+            "φ(n)|nσ(n) rather than φ(n)|n²−1."
+          ],
+          "identifier_or_url": "Resultary SCOPE-529eee2b19a9",
+          "material_read": "RESULT.md at offset 0, statement",
+          "method": "Local mirror statement read",
+          "title": "Complete Ω≤2 classification for φ(n)|nσ(n)",
+          "trigger": "Matching Ω≤2 domain"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and exact factor-pair construction",
+        "OEIS A097605 and A098271"
+      ],
+      "rationale": "This classifies the entire first composite layer of a longstanding natural divisibility sequence, replacing unrestricted testing with a finite ordinary divisor search for each gcd and giving a separate fixed-smaller-prime size bound. The structural bidirectional result, not the eight example values, provides the utility.",
+      "residual_risks": [
+        "Finiteness is per gcd, not global, and gives no asymptotic count or infinitude."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

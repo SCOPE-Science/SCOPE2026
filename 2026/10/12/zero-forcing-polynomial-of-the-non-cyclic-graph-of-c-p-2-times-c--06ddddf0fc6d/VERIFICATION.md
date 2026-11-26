@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,30 +19,24 @@
 }
 ---
 
-The standalone `verify.py` artifact was read from its packaged path before replay.
+# Independent mathematical audit
 
-For \(p=2,3,5\), it constructs every element of
-\[
-C_{p^2}\times C_p,
-\]
-forms every cyclic subgroup directly, and builds the non-cyclic graph without using the claimed quotient structure. It then reconstructs the \(P,A_i,B_j\) classes from element coordinates and checks their sizes, every interclass adjacency, and the false-twin property.
+## correctness
 
-For each tested prime, every admissible white-class subset is replayed on the full vertex graph and weighted by the exact number of representative choices. The resulting complete polynomial is compared with the closed formula. For \(p=2\), all \(2^7\) vertex subsets are also exhaustively tested independently.
+PASS
 
-Finally, the closed profile criterion and coefficient identities are checked for \(p=3,5,7,11\).
+Each element of order p² generates one of p subgroups H_i, distinguished by slope modulo p; every H_i has the same order-p line. Torsion elements have order p and lie on one of p+1 lines. A generator of order p² fails to generate a cyclic subgroup with an element on any of the other lines; an order-p element fails with a point on a different line. Thus only the identity is in the cyclicizer. This gives the claimed independent twin classes P,A_i,B_j of sizes s=p−1, a=ps, s, with P joined only to the B side and all distinct A/B parts mutually joined. At most one white per class is possible. For odd p a blue mate remains in any white class. Write (e,r,t) for white P, A and B class counts. If r≥3, no A or B source can force as long as those three A classes are white, and P cannot remove an A even if it forces a lone B. If t≥2 and e+r+t≥3 every blue source has at least two white neighbors. Two white B classes alone peel via their blue mates. For t≤1,r≤2, P removes a lone B; then blue A vertices peel the at most two A whites, and a B vertex removes P if necessary. Hence the stated exact criterion. All pairs of distinct classes are admissible; their total weight is (N²−[(p+1)s²+pa²])/2. The three-class weight is s(pa)(ps)+binom(p,2)a²(ps+s), and the four-class weight is s binom(p,2)a²(ps). These simplify to the displayed coefficients and match the asserted minimum profiles. For p=2 I constructed each two-generator subgroup by modular sums, then exhausted all 128 white sets via containment of a nonempty fort; the census is 20,18,7,1 in degrees 4 through 7 with precisely the stated seven minimum omission profiles (weights 4,4,4,2,2,2,2). Replay: python3 /workspace/branches/independent_exact_checks.py, check_noncyl_p2(). The packaged tests were read; the odd-prime proof does not rely on them.
 
-Exact replay output:
+## originality
 
-```text
-p=2: N=7, class_sizes=P:1, A:2x2, B:1x2, polynomial={7: 1, 6: 7, 5: 18, 4: 20}
-p=3: N=26, class_sizes=P:2, A:6x3, B:2x3, polynomial={26: 1, 25: 26, 24: 276, 23: 1080, 22: 1296}
-p=5: N=124, class_sizes=P:4, A:20x5, B:4x5, polynomial={124: 1, 123: 124, 122: 6640, 121: 104000, 120: 320000}
-p=2 exhaustive_all_subsets={4: 20, 5: 18, 6: 7, 7: 1}
-p=3: profile_formula_OK min_omitted=4 min_sets=1296
-p=5: profile_formula_OK min_omitted=4 min_sets=320000
-p=7: profile_formula_OK min_omitted=4 min_sets=9335088
-p=11: profile_formula_OK min_omitted=4 min_sets=732050000
-VERIFY_OK
-```
+PASS
 
-The finite checks corroborate the proof but do not replace it. The arbitrary-prime result is proved by the subgroup partition, the false-twin obstruction, and the necessary-and-sufficient class-peeling criterion in `RESULT.md`.
+The graph definition and cyclicizer facts are established, and generic polynomial coefficients and twin obstructions are not new here. The supported distinct claim is the exact family enumerator with the maximum white-set classification for this mixed-exponent group, including the singleton-class boundary. The sources compared do not provide a dominating formula or the profile classification for this graph.
+
+## value
+
+PASS
+
+This mixed-exponent abelian group is a natural case where order-p elements and order-p² generators visibly differ in the graph. The exact forcing classification describes all smallest seeds in terms of that subgroup geometry, and explains why the allowable number of white vertices stays bounded as the graph grows and why it changes when three classes become singletons at p=2. It supplies both a family benchmark for forcing polynomials on group graphs and explicit seed choices; those are useful independently of graph reconstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

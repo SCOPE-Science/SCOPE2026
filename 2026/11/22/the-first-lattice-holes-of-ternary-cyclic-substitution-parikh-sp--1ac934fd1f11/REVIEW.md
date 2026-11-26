@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every ordered neighboring block-label pair occurs in the fixed point. Thus every length-\(3^m\) factor lies in one of nine explicitly specified pairs of rank-\(m\) substitution blocks, and every such pair actually appears. An integer sliding-window enumeration is therefore exhaustive, not empirical sampling; two independent constructions agree on all four exact spectra. The planar rank-three hull vertices have shoelace twice-area 237 and boundary lattice-step sum 33, giving 136 lattice points by Pick's theorem. Set subtraction produces precisely seven disjoint cyclic-coordinate orbits of holes, 21 points total. No infinite-rank assertion is made.
+## correctness
 
-**Originality — PASS relative to checked sources.** The closest contemporary work investigates binary coding and support-function extrema of related three-letter cyclic substitutions. Binary projections and extremal hull support do not reconstruct the interior integer Parikh image. The full source inspected for arXiv:2610.03837, two closest public cyclic-morphism results, targeted search results for equivalent formulations, and accessible prior claim statements did not give the complete first-hole classification. The main risk is an unindexed calculation of the same ternary factor sets or a general theorem implying them without explicit listing.
+PASS
 
-**Value — PASS.** Ternary Parikh spectra need not have the binary contiguous-interval property; lattice saturation is a precise way to test this. The earliest natural substitution-power obstruction has 21 missing vectors, seven inequivalent cyclic classes, and a fully reproducible finite certificate. This is a motivated sharp finite boundary, not an arbitrarily selected length, and it distinguishes the integral Parikh image from the convex support function already studied.
+All three letters occur by σ²(0). Substituting gives aa and a(a+1) for each a, and the junction in σ(aa) gives (a+1)a. These are all nine ordered pairs, with addition modulo 3. At rank m the fixed point is tiled by the images of its letters, each of length L=3^m, so every length-L factor lies in an occurring pair of consecutive blocks and all enumerated pair windows occur. Projection to (x₀,x₁) preserves the integer lattice in the affine plane, since x₂=L−x₀−x₁. Independent exact window counts and integer hull tests give the pairs (3,3), (10,10), (37,37), (115,136). The rank-three nine-vertex hull has twice area 237 and boundary lattice count 33, giving 136 by Pick's formula. Exact set subtraction gives exactly the cyclic rotations of (3,13,11), (3,15,9), (4,15,8), (5,7,15), (5,10,12), (6,6,15), (6,10,11), with seven disjoint size-three orbits. Thus rank three is the first nonsaturated power rank; no minimality over arbitrary lengths or higher-rank formula is asserted.
 
-**Limits.** No conclusion is claimed for all lengths or for substitution ranks above three. Evidence is finite but exhaustive for the stated problem. Independent scientific and priority review remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the first failure of saturation of the full ternary factor-Parikh set at substitution-power scales, with all 21 missing points classified. The strongest catalog match apart from the subject is on the same morphism and the same scales, but concerns a binary projection. The evidence does not support treating either binary Abelian complexity or convex support information as prior coverage of this full ternary missing set.
+
+## value
+
+PASS
+
+The natural next invariant after extremal counts and binary projections is the simultaneous attainable triple. The first gap between convex predictions and actual ternary factors shows exactly where those predictions cease to be complete at substitution scales, and the orbit list provides a reproducible benchmark for methods seeking full Parikh images. The power scales come from the intrinsic block structure, not an arbitrarily selected cutoff.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

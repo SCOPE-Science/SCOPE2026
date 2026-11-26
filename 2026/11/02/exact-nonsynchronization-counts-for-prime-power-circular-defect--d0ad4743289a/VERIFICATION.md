@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-# Exact verification and reproducibility
+# Independent mathematical audit
 
-The theorem relies on the explicitly cited defect-one primitivity theorem and the proved elementary counting steps, not on a finite-experiment extrapolation.
+## correctness
 
-From a directory containing the two supplied source files, use Python 3 and a C++17 compiler:
+PASS
 
-```sh
-python3 formula_check.py
-g++ -std=c++17 -O2 census_check.cpp -o census_check
-./census_check 4
-./census_check 8
-```
+The defect-one primitivity step can also be checked directly here. For a nonsynchronizing automaton, form the simple graph with an edge between each pair that no word merges. This graph has an edge because a minimum-rank image is a clique of size at least two; a acts transitively by graph automorphisms, so it is regular, of degree d. The letter b is an endomorphism. Its two colliders u,v are nonadjacent, and b is injective on the union of their neighborhoods. Both neighborhoods of size d map into the same neighborhood of size d, so N(u)=N(v). The only duplicated edges under b are the d pairs of edges incident to u,v and a common neighbor. Hence b maps the edge set onto the edges of the induced graph obtained by deleting the unique omitted state e, since that graph has exactly |E|-d edges. It follows for every x that N(bx) minus e equals b(N(x)), using equality of the two preimage neighborhoods at the duplicate image. Degree d then specifies whether e must be added back. Thus b, like a, preserves the equivalence of identical neighborhoods, a nontrivial proper congruence. Translation-invariant congruences are subgroup coset partitions and the nontrivial ones at p^k are exactly residues modulo p^j. The converse holds because missing even one quotient fiber would mean rank ≤n-2, so every preserved quotient operates by permutations. For selected levels J, each parent fiber contributes an independent child permutation, giving G_p(J); distinct targets at the finest level force just one defective fiber. Choose it in L ways, then choose the missing image, unordered kernel doubleton and bijection from the kernel classes inside it, giving m! binom(m,2) there and m! in every other fiber. Inclusion–exclusion gives the formula without disjointness assumptions. The unrestricted count is n! binom(n,2) by the same kernel argument; any rotational stabilizer fixes the single missing image and is trivial. Independent enumeration over collision pairs and injections plus pair reachability gave 16/144 and 14848/1128960 at n=4 and 8, including matching mod-2 and mod-4 counts at 8. An independent integer calculation checked the five displayed orders and small nested quotient permutation counts. No frozen code was executed.
 
-The Python verifier computes the stated inclusion-exclusion formula in exact integer arithmetic for prime powers at state counts \(4,8,9,16,27,32\); checks the exact expected outputs; and independently enumerates small compatible quotient permutation groups. Its success marker is `FORMULA_VERIFY_OK`.
+## originality
 
-The C++ program enumerates every map for state counts four and eight, selecting those of rank \(n-1\) by its exact image multiplicities. It checks synchronizability using reverse breadth-first reachability on unordered state pairs for the two letters, and independently checks all applicable residue congruences. At order four its counts are 144 total rank-defect-one maps, 128 synchronizing maps and 16 nonsynchronizing maps; at order eight, 1,128,960 total, 1,114,112 synchronizing, and 14,848 nonsynchronizing. Both give zero discrepancies. A mismatch aborts when the verifier is run with either of these two state counts.
+PASS
 
-These computations check small examples and relevant arithmetic, not the infinite quantifier or originality. Independent scientific audit has not been performed. The source bibliography and the scientific assessment explain the remaining priority risks.
+Credit the previously established defect-one synchronization theorem and the exact n=8 normalized census, including its two-residue intersection. The distinct contribution is the exact labeled count for every prime power, specifically the arbitrary-depth nested-chain intersection correction and its assembled all-order count, with a free cyclic quotient. The checked structural and finite results do not supply these general intersections.
+
+## value
+
+PASS
+
+Conditioning on the smallest nonzero rank defect is natural in synchronization theory. The chain of modular obstructions at prime powers produces genuinely overlapping events beyond the two levels of the initial census. The exact probability and class count quantify those overlaps for all levels and give an interpretable benchmark for random circular automata, not just another finite table entry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

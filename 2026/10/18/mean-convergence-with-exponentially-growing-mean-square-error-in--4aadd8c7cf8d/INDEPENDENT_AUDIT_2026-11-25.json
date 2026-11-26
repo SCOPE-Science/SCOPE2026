@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:34:26.782668Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 11–64",
+        "Frozen VERIFICATION.md and verify.py, inspected as text only",
+        "Independent Fraction replay: form the branch matrices from the recursion, compute the congruences for W, R, Q and leading 1×1, 2×2, 3×3 minors by exact determinants; evaluate trace and v_0ᵀWv_0 from lines 29–64"
+      ],
+      "rationale": "In the stated (x,h,e) coordinates the two updates are exactly A and B_eta, with independent equiprobable branches. A fresh rational calculation found positive leading minors for W and H=E[BᵀWB]−1.3W and reproduced both unit Lyapunov differences and positive minors for R and Q. Thus the full-feedback quadratic energy grows at least as (61/5000)1.3^t, the full-feedback mean contracts in R-energy, and the moderated mean-square Q-energy contracts by at least the factor 1−1/λ_max(Q). To get the stated iterate bound, write M_t=max_{j≤t} E x_j². The iterate update gives E h_t²≤4M_t/s² also at t=0; at η=1 only dropout contributes to E e_{t+1}². Applying (e+d)²≤(3/2)e²+3d² to d=x−h gives E e_{t+1}²≤(3/4)E e_t²+3(1+4/s²)M_t. Since e_0=0, this bounds E||v_t||² by (13+52/s²)M_t=5213M_t. Using tr(W)=4771/5000 now gives 61/(4771·5213) times 1.3^t. No claim of pointwise second-moment divergence is inferred.",
+      "residual_risks": [
+        "The proof is specific to the stated compressor, fixed step, and parameters. It is a running-maximum bound and not a characterization of the full feedback–step stability region."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frontier covers all q≤2/3 and positive steps at η=1, including h_0=x_0, e_0=0. Its stated scope excludes moderated feedback.",
+          "Gao–Islamov–Stich prove sufficient convergence for η=cδ with a suitable small step, not the stated same-step comparison. Jump-linear theory supplies the moment framework, not these certificates."
+        ],
+        "reasoning": "The frozen maximal-feedback instability is a special case of the later frontier; the combined theorem is not, because the recovery and mean-vs-moment certificates require checks outside its criterion and scope.",
+        "searches": [
+          "Resultary maximal-feedback EControl erasure frontier",
+          "arXiv:2311.05645v1 Theorem 2",
+          "arXiv:1403.2471v1 introduction"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2311.05645v1",
+        "arXiv:1403.2471v1",
+        "Resultary October 4 Bernoulli error feedback and November 2 EControl frontier"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At q=1/2 the frontier implies no primal mean-square convergence at any positive step, but does not by that statement control the first moment or specify the 1.3^t running-max inequality.",
+          "The original EControl paper reports full-feedback instability under a different initialization/compressor experiment and does not prove the present same-step recovery."
+        ],
+        "reasoning": "The combined counterexample is more than the trivial identification of an unstable parameter. Independent positive-definite inequalities give a comparison of two different moment operators and separate them from the first-moment dynamics.",
+        "searches": [
+          "arXiv:2311.05645v1 Algorithm 2, §5, Theorem 2 and Appendix C",
+          "November 2 Resultary frontier Finding and assumptions",
+          "October 4 Resultary Bernoulli error-feedback Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "October 4 Bernoulli error-feedback spectrum record has a two-state residual rule. Its mean-stable/mean-square-unstable regime overlaps the phenomenon but not the EControl stored-gradient recursion.",
+          "The November 2 maximal-feedback frontier is the same three-state recursion after swapping the h and e coordinates, at η=1 only."
+        ],
+        "reasoning": "Distinguish a genuinely identical branch system at full feedback from a similar but different residual iteration. Only the former covers the qualitative full-feedback component.",
+        "searches": [
+          "Resultary: EControl, Bernoulli erasure/dropout, mean-square stability loss, error-feedback threshold",
+          "Gao–Islamov–Stich Algorithm 2 and Appendix C"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The November 2 frontier is exact coverage of the maximal-feedback instability status at q=1/2, γ=1/10. Its Finding does not tabulate the explicit running-max constant or an η=1/2 certificate.",
+          "Appendix C experiments concern deterministic Top-1 and initialization dependence, not the assigned tuple of method and parameters."
+        ],
+        "reasoning": "Give credit for the matching instability entry even though it is implicit in an all-parameter theorem. The additional fixed-parameter conclusions are not a table lookup.",
+        "searches": [
+          "Resultary catalog on EControl half-erasure and full-feedback moment formulas",
+          "Gao–Islamov–Stich Appendix C"
+        ]
+      },
+      "rationale": "Pass for the quantitative separation of first- and second-moment behavior together with exact same-step recovery in the same EControl recursion. Do not credit qualitative maximal-feedback nonconvergence on its own: the later indexed erasure frontier covers that component, and an earlier different error-feedback model exhibited the general moment-gap phenomenon. The inspected sources do not give the combined fixed-initialization 1.3^t iterate bound, geometric mean convergence, and η=1/2 recovery at the identical compressor and step.",
+      "residual_risks": [
+        "An equivalent independently indexed same-step comparison might exist outside the bounded search. The exact overlap on full-feedback instability is not evidence that the later indexed record had historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same algorithm and standard initialization, different instability evidence and convergence regime",
+          "evidence": "The algorithm initializes h_i^0=g_i^0 and e_i^0=0. The Top-1 experiment reports divergence at η=1 with h_i^0=0 and convergence with gradient initialization, rather than showing the present standard-init half-dropout failure.",
+          "identifier_or_url": "https://arxiv.org/abs/2311.05645v1",
+          "material_read": "Algorithm 2 p. 6 (offset 24000); §5 and Theorem 2 pp. 7–8 (offsets 31100–35402); Appendix C p. 26 (116200–119559)",
+          "method": "OA primary PDF passage inspection",
+          "title": "EControl: Fast Distributed Optimization with Compression and Error Control",
+          "trigger": "Primary algorithm, convergence and instability precedent"
+        },
+        {
+          "assessment": "Strongly covers qualitative η=1 instability, does not cover η=1/2; later catalog date is not an anticipation claim",
+          "evidence": "States q≤2/3 gives no positive-step primal mean-square convergence under gradient-consistent initialization, and explicitly excludes feedback-regulated η<1 from that assertion.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-bernoulli-erasure-stability-frontier-for-maximal-feedback--0e1baaa95ae6/RESULT.md",
+          "material_read": "Finding, assumptions and first branch-matrix display, mirrored offset 0; proof passages through offset 5924",
+          "method": "Local-mirror theorem and exact recursion comparison",
+          "title": "Sharp Bernoulli-erasure stability frontier for maximal-feedback EControl",
+          "trigger": "Exact same-family implication at full feedback"
+        },
+        {
+          "assessment": "Different two-state recursion; covers an analogous moment gap only",
+          "evidence": "Threshold is 0<s<2p/(2−p). At p=1/2,s=1 the average two-state matrix has eigenvalues (1±i)/2, but the second-moment threshold fails.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-sharp-mean-square-stability-loss-for-bernoulli-error-feedback-sp--db9fbbc3513e/RESULT.md",
+          "material_read": "Finding, recursion and threshold, mirrored offsets 0–3987",
+          "method": "Local-mirror hypothesis and branch comparison",
+          "title": "Sharp mean-square stability loss for Bernoulli error feedback",
+          "trigger": "Earlier exact Bernoulli error-feedback moment-gap candidate"
+        },
+        {
+          "assessment": "General stochastic jump-linear framework, not a stated application to this EControl witness",
+          "evidence": "Models x_{k+1}=A_{σ_k}x_k and establishes a framework for mean-square stability, without these algorithm parameters.",
+          "identifier_or_url": "https://arxiv.org/abs/1403.2471v1",
+          "material_read": "Opening system formulation, p. 1",
+          "method": "OA primary PDF passage inspection",
+          "title": "Mean Square Stability for Stochastic Jump Linear Systems via Optimal Transport",
+          "trigger": "Potential general moment-stability coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof",
+        "Gao–Islamov–Stich Theorem 2 and Appendix C",
+        "Resultary November 2 maximal-feedback frontier scope"
+      ],
+      "rationale": "The example isolates the effect of the feedback coefficient while holding the standard initialization, compressor, objective and step fixed. It shows why stability of the expected model is an unreliable diagnostic of mean-square behavior even in a scalar quadratic and supplies exact reproducible certificates for the unstable and stable regimes, without claiming to contradict a sufficient small-step theorem.",
+      "residual_risks": [
+        "The explicit lower-bound prefactor and rate are certificate bounds, not claimed to be optimal."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

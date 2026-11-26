@@ -1,15 +1,21 @@
-# Self-review: minimum singleton two-rainbow assignments of wheels
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem states an exact labelled-count claim for \(W_{n+1}\) and every \(n\ge9\), with two named singleton colors. A colored hub forces the rim's selected set to dominate \(C_n\), giving the sharp lower bound \(1+\lceil n/3\rceil\). With an uncolored hub, rim zeros form an independent set and cannot match this bound in the asserted range; the sole possible equality case \(n=10\) would require a forbidden two-coloring of an odd five-cycle of inequalities. For the remaining cases, counting zero neighbors of color-\(2\) rim vertices proves the complete optimizer classification. An anchored cyclic-gap coefficient counts all-color-\(2\) supports, and the one exceptional same-hub-color rim vertex occurs in exactly \(n\) arrangements when \(n\equiv1\pmod3\). Finite-state and direct exhaustive computations independently reproduce the minimum and the stated count. They are checks of the combinatorial proof, not substitutes for it.
+## correctness
 
-## Originality — PASS, historical priority qualified
-Lange (arXiv:2610.06906v1, 2026-10-01) gives the same singleton model and scalar results for regular families, in particular cycles, but the inspected sections do not contain wheels or the stated count. The public *Complete singleton two-rainbow domination spectra of paths and cycles* gives an exact cycle polynomial and minimum count, but no wheel or cone formula; the hub-specific coloring and extra \(n\) exceptional assignments in the wheel require a new argument. *Exact optimal singleton three-rainbow domination multiplicities of cycle prisms* treats a different graph and three colors. Targeted mathematical-record, published-literature and exact earlier-claim comparisons did not identify the wheel result, including under dual-server terminology. The introductory 2026 *Dual-server domination in graphs* article was not obtained in full text, and unindexed generic cone transformations are a residual historical-priority risk. These qualifications do not alter the reconstructed proof or the present best-knowledge implication comparison.
+PASS
 
-## Value — PASS
-The objective is a natural robustness question in two-type facility placement: not just how many facilities are necessary, but how many distinct optimal labelled deployments exist. The answer separates wheels by residue class into constant, linear and quadratic numbers of minima. This is an exact infinite-family classification with a sharp structural mechanism, not a numerical improvement of an already known scalar bound. The exceptional same-hub-color peripheral site accounts for the quadratic regime and is absent from the other residue classes. These distinctions can guide sampling and reconfiguration questions for optimal deployments.
+Under the one-color-per-positive-vertex rule, a colored hub forces the positive rim support to dominate the cycle, giving k=ceil(n/3) as its attainable minimum size. A zero hub forces independent rim zeros and at least ceil(n/2) positive rim positions; for n≥9 the only non-strict comparison with 1+k is at n=10, where five alternating positive positions would have to alternate colors around an odd cycle. For a fixed hub color, if p rim positions carry the other color, then n−k≤2p. Only n≡1 mod 3 can have p<k; there p=k−1 and coverage is exact. Every gap of other-color vertices then contains exactly two zeros, with the lone same-color vertex between the two zeros in a unique gap. Its fixed rim index gives exactly n choices. In the all-opposite-color case each gap has length 0,1,2, and marking one selected vertex counts each support k times. Thus the counts for one hub color are (n/k)[u^(n−k)](1+u+u²)^k, plus n when n≡1 mod 3. Evaluating the three coefficients and doubling gives 6, n(n+11)/3, and 2n in the stated order. An independent direct census for n=9,10,11,12 returned counts 6,70,22,6 with no zero-hub minimizer; this only corroborates the proof. The supplied verify.py was inspected, not executed.
 
-## Limitations
-The theorem is restricted to \(n\ge9\), two singleton colors and the minimum-weight coefficient; it does not assert a full weight distribution or minimum counts for arbitrary cones. Published literature may contain an unindexed earlier generic transformation or an overlooked result in the inaccessible introductory dual-server article. Independent mathematical and historical audits have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The singleton/dual-server invariant is existing, and the all-opposite-color subcount reduces to ordinary cycle domination. The distinct claim is the full labelled wheel optimizer classification, including exclusion of the zero hub and the exact correction in residue 1. Closest indexed same-model results are about paths and cycles; the strongest journal comparison remains access-limited.
+
+## value
+
+PASS
+
+This is a complete minimum-configuration census on a natural graph class, beyond computing the optimum weight. It explains why a single mixed-color defect is possible in exactly one residue class and separates bounded, linear and quadratic optimizer multiplicities with labels retained.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

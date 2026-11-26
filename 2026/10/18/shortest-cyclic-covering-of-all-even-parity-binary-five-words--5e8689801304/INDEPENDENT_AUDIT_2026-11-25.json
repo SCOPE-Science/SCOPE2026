@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:40:54.254694Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–34",
+        "Frozen VERIFICATION.md and verify.cpp (read, not executed)",
+        "Independent replay: python3 /tmp/opencode/audit_cyclic.py parity"
+      ],
+      "rationale": "In the binary overlap graph the vertices are (k-1)-words, and each k-word is its prefix-to-suffix edge. Reading the appended bits of a closed walk gives precisely its cyclic windows. Every feasible walk can be started by traversing the required 0^k loop; lengths below 2^{k-1} cannot supply enough distinct windows (this rules out all lengths below k in the stated cases). Independently used the exact recurrence counting walks from the current suffix with a given set of missing mandatory edges and an exact remaining budget: branch on the two outgoing edges, delete a used required edge from the missing set, and at budget zero count one iff the suffix has returned to 0^{k-1} and the missing set is empty. Pruning only when there are more missing edges than remaining steps, this gives first feasible lengths 4,7,16,24. Reconstructing every successful rooted walk at k=5 gives exactly the eight printed strings. Direct cyclic window counts established exactly one 00000 in each and multiplicity classes (odd, repeated-even)=(5,3) and (7,1), four each. Rotation and reflected-rotation minima give eight necklaces and four bracelets. Independently of the counts, each parity class induces a permutation by rotating its words. If each even edge were used exactly once, the additional odd arcs would themselves be balanced, hence assembled from entire odd cycles. The odd five-cycle of 00001 is required to connect 00000 but does not touch the even 01111 component; the odd loop 11111 cannot connect that component to another. At least one more odd five-cycle is then needed, yielding at least 26 total windows. This supports compulsory even-edge duplication at length 24.",
+      "residual_risks": [
+        "Only the four stated orders are analyzed. The separate parity-cycle argument is a lower bound for coverings with no repeated even edge, not a general minimum-length formula."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The fixed-sum s-overlap theorem has fixed weight. The shortest cyclic cover paper permits multiple circles and gives an optimal single circle when its Superstring Graph is connected."
+        ],
+        "reasoning": "At k=5 the four required permutation cycles give a multiple-circle cover of total length 16 (the window-count lower bound). No single length-16 host can cover the four components using only the mandatory edges. The connected-Superstring-Graph criterion would make the two optimum costs equal and so does not apply; the general relaxation does not supply 24 or the optimizer census.",
+        "searches": [
+          "King–Laubmeier–Orans–Godbole arXiv:1405.5938, §3",
+          "Cazaux–Rivals shortest cyclic cover broad-theorem search and primary manuscript §4.2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, Relationship to prior work",
+        "Primary papers and prior parity-augmentation record above",
+        "Local RESULT.md findings: 2026/11/2/SCOPE-a-boolean-cube-enumeration-of-binary-weight-at-most-two-universa--a6349247ec63; 2026/11/8/SCOPE-exact-minimum-cyclic-covers-and-their-enumeration-for-every-fixe--0ce88ef7d6f6",
+        "Local RESULT.md findings: 2026/10/18/SCOPE-exact-shortest-cyclic-covers-of-binary-reverse-complement-palind--4d85b3092272; 2026/10/18/SCOPE-exact-lucas-number-shortest-cyclic-covers-of-binary-words-with-r--0456cecb5943"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The weight-three result covers even n≥6 with each weight-three window once and only weight-two extras. The weight-at-most-two result counts exact universal cycles on weights 0,1,2; fixed-weight tracks partition homogeneous targets into a family of cycles."
+        ],
+        "reasoning": "These parameter and host restrictions cannot produce a minimum for the parity union (weights 0,2,4 at k=5) by specializing, combining exact cycles, or taking a relaxation. They also do not count single-host optima or determine which required edges must be repeated. Same-day related records give no basis for priority ordering.",
+        "searches": [
+          "November 22 weight-three parity-augmentation RESULT.md Finding",
+          "November 2 weight-at-most-two RESULT.md Finding and November 8 fixed-weight tracks RESULT.md Finding",
+          "Cazaux–Rivals §4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The parity-augmentation hit is for weight 3 only; King et al. cover fixed-weight exact overlaps. Cazaux–Rivals identify the general single cyclic superstring formulation as distinct from a family of cycles."
+        ],
+        "reasoning": "The target set is a union, not a weight layer, and the host is one circle with unrestricted supplementary windows. Bitwise complement maps even to odd weights at odd k but does not turn the union into a homogeneous fixed-weight language. The same-cover version as a shortest cyclic superstring has the same feasible words, not the cost of an arbitrary collection of circles.",
+        "searches": [
+          "Web literature: (even-weight OR even parity) binary words cyclic universal cycle shortest covering length de Bruijn",
+          "Local Resultary: even Hamming weight/parity, single cyclic covers, repeat-permitting overlap tours",
+          "Cazaux–Rivals, Definition of SCCS and §4.2 definition of SCyS"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A same-day reverse-complement-palindrome record gives minima 2 and 9 at k=2 and 4 for different targets; the same-day run-limited Lucas-number record gives minima 6 and 20 at k=3 and 5 for words avoiding 000 and 111. The latter has 16 targets at k=5 but not the even-parity set."
+        ],
+        "reasoning": "These are exact tabulated results, but none is for the same target set or its equivalent under word symmetries. The searched evidence contains no table with the four stated minima and order-five classification.",
+        "searches": [
+          "Local Resultary: even-weight exact cyclic length and optimizer counts; related reverse-complement-palindrome and run-avoidance tables"
+        ]
+      },
+      "rationale": "The distinct contribution is the exact single-host cover and optimizer census for the union of the even-weight classes, including compulsory reuse of a required window at order five. The overlap-graph and generic shortest-superstring formulations are known, and the smallest orders are simple cases, not strong standalone novelty claims. The closest inspected parity-augmentation record addresses only one weight class on a different range and with differently restricted extra windows. The broad single-circle consequence in Cazaux–Rivals does not give this disconnected-required-edge case.",
+      "residual_risks": [
+        "The bounded local and web searches cannot rule out an equivalent small-order cyclic superstring computation under different indexing or in an unindexed source."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Single fixed-sum classes, not even-weight-union optima",
+          "evidence": "States s-overlap results for fixed-sum words over {0,…,q}; q=1 still fixes one Hamming weight.",
+          "identifier_or_url": "https://arxiv.org/pdf/1405.5938",
+          "material_read": "Introduction pp. 2–3 near offset 6203; §3 pp. 11–12 near offsets 26944 and 31094",
+          "method": "Open primary PDF passages",
+          "title": "Universal and Overlap Cycles for Posets, Words, and Juggling Patterns",
+          "trigger": "Fixed-weight words and overlap cycle existence"
+        },
+        {
+          "assessment": "Multiple-circle optimizer; conditional single-circle result does not apply",
+          "evidence": "A substring is read in a periodic repetition; SCCS minimizes the sum of lengths over a set of circles. The connected Superstring Graph gives equality with the single-circle optimum, which is impossible for the four separate parity cycles at k=5.",
+          "identifier_or_url": "https://hal-lirmm.ccsd.cnrs.fr/lirmm-01240278v1/preview/Greedy-linear-10-RR.pdf",
+          "material_read": "Abstract and definition, offsets 1820–3240 and 7400–10334; §4.2, offsets 55750–57540",
+          "method": "Open manuscript PDF passages",
+          "title": "A linear time algorithm for Shortest Cyclic Cover of Strings",
+          "trigger": "Broader covering framework and exact single-cycle consequence"
+        },
+        {
+          "assessment": "Different weight class, allowed extras and parameter range",
+          "evidence": "For even n≥6, covers all weight-three windows exactly once with weight-two extras; circumference binomial(n,3)+n(n-2)/4.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-parity-augmentation-of-weight-three-binary-universal-cover--553d8b8b24e9",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror original text",
+          "title": "Sharp parity augmentation of weight-three binary universal covers",
+          "trigger": "Closest parity/augmentation catalogue result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and structural consequence",
+        "Independent exact walk counts and reconstructed optimum multiplicities"
+      ],
+      "rationale": "The parity language is a natural window requirement: each state has one mandatory incoming and outgoing edge, which invites connecting the resulting permutation cycles only by adding excluded windows. The complete order-five classification shows that this approach is strictly suboptimal: forbidding reuse of any required window raises the length to at least 26, while the true optimum is 24. The eight necklaces and their two multiplicity profiles give concrete minimal test sequences and a finite obstruction example, rather than only a small length table.",
+      "residual_risks": [
+        "The useful mechanism is exhibited at order five only, without a claim of a general parity-cover theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

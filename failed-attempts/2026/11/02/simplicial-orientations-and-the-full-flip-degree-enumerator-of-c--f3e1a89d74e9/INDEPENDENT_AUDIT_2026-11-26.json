@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:14:18.103134Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–55; VERIFICATION.md; verify_blocks.py and verify_matrices.py (inspected, not executed)",
+        "West, Acyclic orientations of complete bipartite graphs, Lemma 3 and its proof; Cardinal et al., arXiv:2212.03915 §§2.2–2.3"
+      ],
+      "rationale": "In a topological ordering, consecutive runs from one shore give monochromatic blocks. Two vertices from the same shore lie in the same run exactly when all their cross-edge directions agree, and the relative order of the resulting runs is forced by the directions and alternating pattern. A nonconsecutive cross-edge has an alternative directed path through one vertex from each intermediate block, while a consecutive-block edge has no such path. Legal flips are therefore exactly the complete bipartite joins of consecutive blocks; assigning labels gives the multinomial weight. The undirected flips form a connected blow-up of a path. For m,n≥2 it is a tree exactly for sequences of length at least four with singleton interior blocks: two- and three-block sequences cannot be trees, and doubling an interior vertex creates a four-cycle. Even lengths give the symmetric falling-factorial sum; odd lengths require both ends on the larger shore and split its leftover labels into two nonempty end blocks, giving the second term. Stars have all edges flippable. For K_{2,n} a 2×n orientation matrix is acyclic exactly when at most one of the two mixed column types occurs. With j>0 mixed columns the flips number n+j, and with none they number 2n, giving the polynomial and coefficient. In the balanced case S_{n,n}<4(n!)² while the family with n−1 blocks per shore and one double block per shore gives at least (n!)²(n−1)²/2 orientations, proving the claimed decay. The graphical zonotope correspondence respects individual flips and degree.",
+      "residual_risks": [
+        "The recorded finite matrix and block checks are corroboration only; the correctness conclusion rests on the unrestricted block, cycle, and counting arguments."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "57511bb89831 covers all a,b≥2 and also asserts nonadjacency of simple vertices and counts maximum-degree vertices. West establishes occurrence of all degrees in the whole interval and supplies the degree statistic, but not the multiplicities. Grujić's face polynomial does not supply their distribution."
+        ],
+        "reasoning": "The exact matched record includes the entire nonstar parameter regime, not just balanced graphs or an expected degree. The extra star regime here is a tree, whose independent edge orientations form a hypercube. Restricting the already-covered polynomial to one shore of size two does not add an uncovered invariant.",
+        "searches": [
+          "Resultary 57511bb89831 Finding and polynomial; West Theorem 1 and Lemma 3; Grujić arXiv:1604.06931 Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 57511bb89831 mirror Finding, scope and proof",
+        "West (1995); Cameron et al. arXiv:1412.3685; Cardinal et al. arXiv:2212.03915; Grujić arXiv:1604.06931"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The full polynomial specializes by selecting a=2 and grouping its terms, so writing that specialization in mixed-column form does not provide an invariant outside the exact coverage. Its minimum coefficient for n≥2 is explicitly 4n+2n(2^{n−1}−2)=n2^n, by the matched closed formula.",
+          "West's per-orientation statistic and Cameron et al.'s labelled alternating-block enumeration already give the weighted block sum directly. Their total and individual-flip results alone are not credited with the exact closed simple-vertex count; that stronger coverage is from 57511bb89831."
+        ],
+        "reasoning": "Neither the separately printed K_{2,n} form nor a different proof of the same exact count meets the requirement of a distinct surviving claim. Degree counting does not depend on the matched record's erroneous suggestion of a two-edge alternate path between opposite shores: the frozen and West constructions give an odd-length path through successive blocks.",
+        "searches": [
+          "Resultary 57511bb89831 all-parameter polynomial and simple counts; West Lemma 3; Cameron–Glass–Rekvényi–Schumacher Theorems 3.1 and 4.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "57511bb89831 defines the zonotope skeleton adjacency by reversing one edge without a directed cycle, and retains labels. Its exponent ∑s_i s_{i+1} and coefficient a!b!/∏s_i! are exactly the frozen ones under a=m,b=n.",
+          "West calls reversible edges independent; Cardinal et al. identify them with transitive-reduction arcs and the flip graph with the zonotope skeleton."
+        ],
+        "reasoning": "Zonotope degree, number of independent edges, and legal single-edge flip degree are the same invariant here. Initial colour and length uniquely determine an alternating colour pattern, so changing the order or names of the index sets does not change the polynomial.",
+        "searches": [
+          "Resultary search for complete bipartite graphical zonotope degree spectrum, simple vertices and legal flip enumerators; 57511bb89831 RESULT.md Finding and scope",
+          "West (1995), Lemma 3; Cardinal et al., §§2.2–2.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The record prints 2∑_{j=1}^{min(a,b)−1}(a)_j(b)_j plus indicators for the larger shore, with (larger)_{smaller−1}(smaller)!(2^{larger−smaller+1}−2). This becomes the frozen p,q expression; at a=b the indicator terms vanish and 2¹−2=0 in the frozen form.",
+          "It also prints the same balanced S(n,n)=2(n!)²∑_{j=1}^{n−1}(j!)^(-2) and states simple-vertex proportion tends to zero."
+        ],
+        "reasoning": "This is an exact match to the closed count, the complete weighted polynomial and the balanced consequence, not an inference from small numerical coincidences or the record date.",
+        "searches": [
+          "Local Resultary exact comparison: 2026/11/2/SCOPE-degree-spectrum-and-isolated-simple-vertices-of-complete-biparti--57511bb89831, RESULT.md text offsets 0–3480"
+        ]
+      },
+      "rationale": "The distinctive all-parameter degree polynomial, exact simple-vertex count, and balanced limiting proportion have demonstrably equivalent coverage in the distinct indexed Resultary record 57511bb89831. The exact statements, not just titles or similar parameters, match on labelled orientations under the standard zonotope identification. The sources have the same record date, so this establishes coverage and defeats a distinct originality case, but does not establish historical priority or the direction of any dependence. West already proves the per-orientation degree rule, and the not-separately-printed K_{2,n} expression is a direct specialization of the covered polynomial. The star boundary case is routine.",
+      "residual_risks": [
+        "The comparison does not assign priority between the same-day records and does not require a claim of exhaustive literature coverage. Any separately printed earlier K_{2,n} simplification is not needed for the exact-coverage finding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Demonstrably equivalent coverage of the core finding, with additional structural conclusions; same-day date does not order the records",
+          "evidence": "The same labelled block-size sum and simple-vertex formula appear explicitly. The indicator notation is the p,q formula split by which shore is larger. The balanced count and decay are stated.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-degree-spectrum-and-isolated-simple-vertices-of-complete-biparti--57511bb89831",
+          "material_read": "RESULT.md Finding, scope and proof excerpts within offsets 0–6435, directly checked offsets 0–3480",
+          "method": "Local Resultary search and mirror passage inspection (snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+          "title": "Degree spectrum and isolated simple vertices of complete-bipartite graphical zonotopes",
+          "trigger": "Exact apparent match to both the full degree polynomial and exact simple-vertex count"
+        },
+        {
+          "assessment": "Prior alternating-size representation, per-orientation statistic, and possible degrees, not their multiplicities",
+          "evidence": "Independent means reversible without introducing a cycle; the construction produces every orientation and its independent-edge count is ∑s_i s_{i+1}.",
+          "identifier_or_url": "https://dwest.web.illinois.edu/pubs/aobip.pdf",
+          "material_read": "Lemma 3 and proof, journal pp. 395–396, text around offset 6100",
+          "method": "OA author-copy PDF passage inspection",
+          "title": "Acyclic orientations of complete bipartite graphs",
+          "trigger": "Exact per-orientation reversible-edge statistic and degree range"
+        },
+        {
+          "assessment": "Known encoding and local rule, rather than full degree multiplicities",
+          "evidence": "The first gives the alternate-interval enumeration; the latter uses exactly the consecutive-block criterion.",
+          "identifier_or_url": "https://arxiv.org/abs/1412.3685",
+          "material_read": "v3 Theorem 3.1, PDF pp. 5–6, offset about 9600; proof of Theorem 4.6, p. 15, offset about 29600",
+          "method": "OA PDF passage inspection",
+          "title": "Acyclic orientations and poly-Bernoulli numbers",
+          "trigger": "Labelled complete bipartite orientation counts and explicit criterion for a fixed edge flip"
+        },
+        {
+          "assessment": "Prior equivalence of the two graph models",
+          "evidence": "Flippable arcs are arcs of the transitive reduction; their count is degree, and the flip graph is the zonotope's one-skeleton.",
+          "identifier_or_url": "https://arxiv.org/abs/2212.03915",
+          "material_read": "§§2.2–2.3, PDF pp. 14–15, offset about 58700",
+          "method": "OA PDF passage inspection",
+          "title": "Combinatorial generation via permutation languages. V. Acyclic orientations",
+          "trigger": "Reduction from orientation flips to the graphical zonotope degree and tree covers"
+        },
+        {
+          "assessment": "Aggregated face counts are not the vertex-degree distribution",
+          "evidence": "The f-polynomial enumerates faces by dimension, not degree multiplicity by vertex.",
+          "identifier_or_url": "https://arxiv.org/abs/1604.06931",
+          "material_read": "Theorem 1.1, PDF p. 2, offset about 3370",
+          "method": "OA PDF passage inspection",
+          "title": "Faces of graphical zonotopes",
+          "trigger": "General graphical-zonotope enumerator with potentially dominating scope"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–29 and 49–51",
+        "Exact all-parameter comparator Resultary 57511bb89831; West's independent-edge statistic"
+      ],
+      "rationale": "The labelled degree histogram and count of simple zonotope vertices are meaningful invariants, but the exact all-parameter results here are already covered by an equivalent indexed finding. The residual star case is an immediate count of independent edge directions, and the one-shore-size-two polynomial is a direct specialization of the covered histogram with elementary regrouping. No independently useful unknown exact fact survives in the assigned claim under the distinct-contribution standard.",
+      "residual_risks": [
+        "This is not a judgment against the importance of these graph invariants or their correct enumeration; it concerns the marginal value of this frozen formulation relative to verified coverage."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

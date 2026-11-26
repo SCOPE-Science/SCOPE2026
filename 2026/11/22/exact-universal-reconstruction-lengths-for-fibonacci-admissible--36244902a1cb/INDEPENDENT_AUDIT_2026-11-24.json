@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:03:41.445939Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof steps 1–4",
+        "Frozen VERIFICATION.md and three Python checkers (inspected, not executed)",
+        "arXiv:1403.2439v1 §9",
+        "/workspace/audit-replay.py, ordinal 2"
+      ],
+      "rationale": "The complete observation is a length-resolved multiset, so reversal preserves it, and even an unrestricted collision with an admissible word must itself avoid 11 (inspect the length-two all-ones count). The primary unrestricted theorem supplies the lengths with n+1 prime, twice prime or 8. I independently exhausted the other three positive cases by filtering binary masks with w&(w>>1)=0 and constructing an exact packed integer count key (each count fits its field). For n=8,11,15 the populations are 55,233,1597 and the fibers 30,127,826, exactly the reversal orbits. On the negative side, a composite m=n+1 outside twice-primes and 8 either has an odd prime divisor with complementary factor at least 3, or is a power of two with a factorization into factors at least 3. Unless m is 9,12,16, one factor must be at least 5, since products of 3 and 4 give only those exceptions. With a>=5, b>=3, the nonpalindromic block s=01 followed by a-3 zeros has zero endpoints, so inserting the letters of t=1 followed by b-2 zeros in either order yields admissible words. The first inserted bits distinguish the two words; the reversal would start with the different block s reversed. Every substring meeting inserted positions has a uniquely determined first and last inserted position and boundary offsets; for given offsets and span its only varying contribution is the composition of a contiguous t-factor, invariant as a multiset under reversal. Substrings missing all inserted positions lie in a block copy. Thus the collision works for every excluded length. Replay: `python /workspace/audit-replay.py 2`.",
+      "residual_risks": [
+        "The positive prime-related lengths rely on the published unrestricted theorem; the three extra lengths are exact finite exhaustive checks. No noisy or partial-observation extension is certified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Acharya et al. prove the unrestricted prime, twice-prime and length-seven uniqueness cases and exhibit the interleaving mechanism on the unrestricted domain. The three-marker theorem guarantees uniqueness for exactly three ones even with fewer observation channels."
+        ],
+        "reasoning": "Unrestricted uniqueness implies constrained uniqueness at the known lengths, but unrestricted collisions need not be admissible. A three-marker result covers only one weight layer, not all words of the constrained language.",
+        "searches": [
+          "arXiv:1403.2439v1 §§4,9",
+          "Resultary 489f1ecb7528, three-marker rigidity"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1403.2439v1",
+        "Resultary:32ec2ad33bbd",
+        "Resultary:489f1ecb7528",
+        "Resultary:1ad4f8d99e9e",
+        "Resultary:0b1ad3b32456",
+        "Resultary:2beb2bd84c74"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The unrestricted obstruction needs two nonpalindromic interleaving factors and does not impose zero block boundaries; applying it naively can produce collisions outside the source. The census is finite."
+        ],
+        "reasoning": "Substituting the observation or merely restricting the unrestricted theorem does not give the classification. It additionally takes a factorization with a sufficiently long, admissible, zero-ended nonpalindromic block and exact tests at the remaining finite lengths.",
+        "searches": [
+          "arXiv:1403.2439v1 §4 interleaving and §9 uniqueness",
+          "Resultary 1ad4f8d99e9e 1–23 census"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same-day Resultary 32ec2ad33bbd uses the same 11-avoiding words but counts ordered factors of lengths 1 through 3, with ambiguity starting at length six. The exact-title hit 36244902a1cb is the assigned record itself."
+        ],
+        "reasoning": "The golden-mean vocabulary can identify the same language, but 3-Abelian ordered short-factor counts are not the length-resolved composition counts of all factors. That hit is a different observation, not an equivalent reconstruction classification.",
+        "searches": [
+          "Resultary: Fibonacci-admissible and golden-mean binary reconstruction",
+          "arXiv:1403.2439v1 §4, §9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 1–23 census has four-word fibers at lengths 8,11,15 (1,4,4 respectively); the length-14 census records twelve unrestricted four-word fibers. The length-23 census records 160, including eight not obtained by classical interleaving."
+        ],
+        "reasoning": "Aggregate unrestricted counts do not state which fibers survive the constraint. A complete list of finite unrestricted fibers can be filtered to obtain finite restricted cases but cannot establish the all-length classification.",
+        "searches": [
+          "Resultary unrestricted ambiguity censuses 1ad4f8d99e9e, 0b1ad3b32456, 2beb2bd84c74"
+        ]
+      },
+      "rationale": "The supported distinct claim is the all-length universality criterion for the full 11-avoiding source with complete substring compositions. The unrestricted theorem and interleaving identity are prior. The finite exceptional cases can be investigated via unrestricted census data, but admissibility of the infinite family of collision witnesses requires the boundary-safe block and factor split.",
+      "residual_risks": [
+        "The finite gains are recoverable by filtering sufficiently complete unrestricted data. An unindexed equivalent all-length constrained formulation has not been excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers unrestricted baseline, not the constraint-specific cases",
+          "evidence": "§4 proves s∘t and s∘rev(t) are equicomposable; §9 supplies unrestricted uniqueness for length seven and when length plus one is prime or twice prime.",
+          "identifier_or_url": "https://arxiv.org/abs/1403.2439v1",
+          "material_read": "§4 pp. 4–5 and §9 pp. 11–13 and continuation",
+          "method": "OA primary-text passage inspection",
+          "title": "String Reconstruction from Substring Compositions",
+          "trigger": "Foundational unrestricted classification and interleaving"
+        },
+        {
+          "assessment": "Different observation",
+          "evidence": "Uses ordered factor counts only through length three; finds ambiguity starting at length six.",
+          "identifier_or_url": "Resultary:32ec2ad33bbd",
+          "material_read": "RESULT.md Finding",
+          "method": "Local-mirror statement inspection",
+          "title": "Exact 3-Abelian reconstruction fibers of the binary golden-mean language",
+          "trigger": "Same-day result for precisely the same source language"
+        },
+        {
+          "assessment": "Different scope; exactly three ones",
+          "evidence": "Rigidity holds in that sparse layer even after dropping the one-one-factor channel.",
+          "identifier_or_url": "Resultary:489f1ecb7528",
+          "material_read": "RESULT.md Finding",
+          "method": "Local-mirror statement inspection",
+          "title": "Three-marker rigidity for substring composition reconstruction",
+          "trigger": "Possible stronger theorem with fewer channels"
+        },
+        {
+          "assessment": "Finite unrestricted data, with partial recoverability by filtering",
+          "evidence": "The census includes nonreversal unrestricted ambiguities at these lengths but does not state constrained universality.",
+          "identifier_or_url": "Resultary:1ad4f8d99e9e",
+          "material_read": "RESULT.md scope and census values for lengths 8,11,14,15",
+          "method": "Local-mirror passage inspection",
+          "title": "Exact composition-multiset ambiguity spectrum for binary words of lengths 1–23",
+          "trigger": "Possible tabulation of all exceptional lengths"
+        },
+        {
+          "assessment": "One finite unrestricted length",
+          "evidence": "Reports twelve unrestricted four-word fibers at n=14.",
+          "identifier_or_url": "Resultary:0b1ad3b32456",
+          "material_read": "RESULT.md Finding",
+          "method": "Local-mirror statement inspection",
+          "title": "Exact binary length-fourteen substring-composition ambiguity census",
+          "trigger": "First excluded constrained length"
+        },
+        {
+          "assessment": "Finite unrestricted census",
+          "evidence": "Reports 160 four-word fibers at length 23, eight outside the classical interleaving construction.",
+          "identifier_or_url": "Resultary:2beb2bd84c74",
+          "material_read": "RESULT.md Finding",
+          "method": "Local-mirror statement inspection",
+          "title": "Complete length-23 binary substring-composition ambiguity census",
+          "trigger": "Possible more general obstruction beyond interleaving"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "arXiv:1403.2439v1 §§4,9",
+        "Resultary:1ad4f8d99e9e"
+      ],
+      "rationale": "A natural source constraint changes the worst-case identification capability at exactly three lengths and nowhere from length sixteen onward. The theorem tells a researcher when complete composition data suffice and supplies concrete admissible counterexamples otherwise. Its value is in the all-length classification, not a rerun of finite census counts alone.",
+      "residual_risks": [
+        "This is a universal noiseless identifiability criterion, not an efficient recovery algorithm or a classification of all individually reconstructible words."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

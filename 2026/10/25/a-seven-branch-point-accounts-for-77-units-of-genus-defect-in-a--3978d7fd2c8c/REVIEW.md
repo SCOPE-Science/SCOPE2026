@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The source's exact parameter formulas were independently reduced to the identities in the proof. The homogeneous map has no base point and has degree one onto its degree-\(17\) image. All seven normalization preimages of the point are enumerated. The smooth/smooth and smooth/cusp contacts are derived as analytic orders, not sampled numerically. The delta value and residual arithmetic-genus bound follow by the standard sum formula. `CHECK.py` reproduces necessary symbolic and combinatorial checks. A possible limitation is that the other singularities are not individually classified.
+## correctness
 
-**Originality — PASS, subject to historical-priority risk.** Example 38 of arXiv:2610.20404v1 supplies the parametrization and genus, but not the seven-branch singularity, detailed contacts, or delta \(77\). Targeted mathematical-record searches for this object and its equivalent parameter formula revealed no equivalent or stronger exact statement. Standard normalization/Puiseux methods cover the technique, not this evaluated example. Independent wider historical review has not been performed.
+PASS
 
-**Value — PASS.** The degree-\(17\) example is used specifically to show radical-tower simplification. Its large, highly nonordinary infinity singularity is a natural unresolved geometric feature: the local calculation accounts exactly for \(77\) of its \(120\) arithmetic-genus defect, with a six-branch contact stratification and one cusp. It gives a precise structural invariant of the source's test case without asserting that all remaining singularities have been classified.
+The three affine polynomials have degrees 15, 17 and 12 and their degree-17 homogenizations have no common zero: at A=0, G=-1, and at infinity the Y coordinate is nonzero. No constant linear relation is possible by the distinct affine degrees, so degree of map times degree of image is 17 with image degree bigger than one. The map is birational and gives the normalization. The fiber of [0:1:0] consists of the six simple zeros of A and infinity. In chart Y=1 the finite branches have ord(u,v)=(1,2), and the infinite branch has (2,5); normalizing the leading term of u makes the first odd Puiseux exponent 5, so the cusp has intrinsic delta 2. Independently expanding at a=A=0, let F=1+f a+g a²+O(a³), G=-1+B a²+O(a³). Reversion of u=Fa/G in v=a²/G gives v=-u²-2f u³+(-5f²+2g+B)u⁴+O(u⁵). Here f=0 or -2 by the sign of h³, f and g are fixed within a group, and B=1+ζ⁵ distinguishes the roots within that group. This proves exact contact 3 across groups and 4 inside either group. Substitution into the cusp uniformizer gives leading order 4 for each smooth–cusp contact. Thus delta is 2+6·4+9·3+6·4=77, multiplicity is 8, and the genus formula leaves 120-77=43 elsewhere. The line about distinct degrees refers to the dehomogenized polynomials, not their homogeneous representatives.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Credit the parametrization, degree and rationality to Example 38 and the local methods to standard plane-curve theory. The supported distinct contribution is the exact local classification and delta 77 for that particular curve, and thus its residual defect. The closest inspected sources do not give these local invariants for this object.
+
+## value
+
+PASS
+
+The projective boundary point of a prior worked degree-17 radical curve is intrinsic to that model, and its six co-tangent smooth branches with two distinct contact levels and a cusp account for most of the genus defect. The exact local classification is a usable constraint and benchmark for any global singularity calculation of Example 38; the prior global genus alone cannot supply it.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

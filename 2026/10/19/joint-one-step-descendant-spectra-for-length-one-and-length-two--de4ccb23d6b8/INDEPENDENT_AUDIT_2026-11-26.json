@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:21:21.477551Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The length-ℓ difference encoding is injective: reconstruct successively from the first ℓ letters. A duplication is a block of ℓ inserted zeros in the differences. Two cuts give identical results exactly when the intervening segment commutes with the inserted zero block, which holds exactly when that segment is all zeros. Thus B_ℓ−1 is the count of mismatches on distance-ℓ edges. Appending a symbol to an equal last pair gives weights 1 or xy with multiplicities 1 and q−1; from a different pair the weights are y, x, and xy with multiplicities 1, 1, and q−2. The initial pair and final state sum prove the exact polynomial including n=2. Each distance separately gives a forest, and any pair of edges of different distances is also acyclic; independent uniform labels give independent inequalities on a forest. This proves the binomial margins and zero covariance, but the positive-probability constant-word event forces B₂=1, disproving independence for n≥3. For the conditional mean, the k changed adjacent edges are a uniform k-subset; one change over two consecutive edges forces a distance-two mismatch and two changes do so with probability (q−2)/(q−1). These yield the stated mean and, with disjoint channel output lengths, the moments of S. For q≥3 all distance-one and distance-two constraints are simultaneously sharp exactly when a new letter avoids both preceding letters. For q=2 the derivative-bit objective has edge reward 3/2 for alternation, 1 for 11, 0 for 00, and endpoint reward (e₁+e_L)/2. At odd L=n−1 the unique optimum derivative alternates with endpoints 1; at even L the only possible half-unit loss comes from perfect alternation with one zero endpoint or one 11 edge at an odd edge position with endpoints 1. This gives the maxima and multiplicities, also at L=1. Independently generated literal descendant sets for 3732 words across 19 parameter pairs (q=2 through n=8, q=3 through n=6, q=4 through n=5, q=5 through n=4, each starting at n=2) checked joint coefficients, extrema, covariance and conditional means; replay: python3 /workspace/branches/c3e2dd81-0379-4d04-95f8-485b064be96b/bounded_reproduction.py. The supplied script was inspected, not executed; the finite check is corroboration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jain et al. treat correcting codes and roots for bounded duplications, and Lemma 6 treats the fixed-length zero-insertion transform. Yehezkeally–Schwartz's list-decoding paper distinguishes its fixed-length model from bounded-length duplication. The later two-length indexed result handles general k and ℓ for the short-word joint polynomial, not all sizes."
+        ],
+        "reasoning": "Code optimality, root uniqueness and short-word joint laws do not give the per-source joint histogram at unrestricted length, nor constrain it enough to yield the sharp binary maximizing multiplicities.",
+        "searches": [
+          "arXiv:1606.00397, bounded-length duplication k≤2 and k≤3",
+          "arXiv:2001.07047, bounded versus fixed-length noise",
+          "Resultary later joint law for two duplication lengths"
+        ]
+      },
+      "checked_sources": [
+        "Yehezkeally–Schwartz arXiv:1801.06022 and arXiv:2001.07047",
+        "Jain et al. arXiv:1606.00397",
+        "Resultary 2026-11-08 two-length joint law"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The difference transform gives the individual lag-mismatch statistics directly. The general two-length results give marginal and independence information but restrict the displayed joint law to the short-word range."
+        ],
+        "reasoning": "Single-lag counts and pairwise independence do not supply the full joint enumerator. Keeping the weighted equal/different state, computing the effect of consecutive changes, and solving the binary endpoint optimization are separate steps.",
+        "searches": [
+          "arXiv:1801.06022, pp. 2–3",
+          "arXiv:1606.00397, Lemma 6",
+          "Resultary later two-length law and independence threshold"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The later result counts lag-h equalities Y_h, with Y_h=(n−h)−(B_h−1). Its k=1, ℓ=2 specialization yields the same marginals, zero covariance, and independence threshold; its stated joint polynomial applies only through n=k+ℓ=3."
+        ],
+        "reasoning": "Complementing exponents identifies the variables, so these overlaps are genuine. The longer-word enumerator, nonlinear conditional expectation over all n, and sharp combined extrema are not stated by that specialization. The catalogue dates do not establish publication priority.",
+        "searches": [
+          "arXiv:1801.06022, fixed-k difference encoding",
+          "Resultary 2026/11/8/SCOPE-joint-law-and-independence-threshold-for-two-tandem-duplication--d6154f9c908e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest distinct indexed exact formula found is the later joint polynomial restricted to n≤k+ℓ; no all-n match was identified for the table of bivariate coefficients or the binary extremizer counts."
+        ],
+        "reasoning": "An unweighted scalar sequence match would not establish equivalence of the q- and n-dependent bivariate counts. The actual indexed overlap is at small n only for the joint law.",
+        "searches": [
+          "Resultary search on the joint exact-one duplication descendant law and independence",
+          "Resultary 2026/11/8/SCOPE-joint-law-and-independence-threshold-for-two-tandem-duplication--d6154f9c908e, Finding"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the all-n mixed joint enumerator, conditional mean and sharp combined-channel extrema, not the fixed-length difference transform or marginal counts. The strongest related indexed law agrees on several statistics, and gives the joint law in the small regime, but not the frozen all-size spectrum or its sharp extremes.",
+      "residual_risks": [
+        "The targeted literature lookup returned no useful additional primary match; this is not evidence of absence.",
+        "Equivalent transfer or binary optimization under another description in unindexed work remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known method and fixed-length consequences; no mixed joint spectrum in the checked passages.",
+          "evidence": "The leading symbols and lag-k differences encode the sequence and tandem duplication inserts k zeros.",
+          "identifier_or_url": "https://arxiv.org/abs/1801.06022",
+          "material_read": "v3, pp. 2–3, OA offsets 14000 and 16891",
+          "method": "OA primary PDF passage inspection",
+          "title": "Reconstruction Codes for DNA Sequences with Uniform Tandem-Duplication Errors",
+          "trigger": "Exact match for fixed-length encoding"
+        },
+        {
+          "assessment": "Coding and root results, not the target per-source count.",
+          "evidence": "The abstract treats coding for bounded lengths; Lemma 6 gives zero-block insertion in the fixed-length encoding.",
+          "identifier_or_url": "https://arxiv.org/abs/1606.00397",
+          "material_read": "Abstract, p. 1; Lemma 6, pp. 5–6, OA offsets 26500 and 28100",
+          "method": "OA primary PDF passage inspection",
+          "title": "Duplication-Correcting Codes for Data Storage in the DNA of Living Organisms",
+          "trigger": "Same bounded duplication model up to length two"
+        },
+        {
+          "assessment": "Different fixed-length question.",
+          "evidence": "Bounded tandem duplication is described as a possible future model rather than the treatment's scope.",
+          "identifier_or_url": "https://arxiv.org/abs/2001.07047",
+          "material_read": "v3 abstract, p. 1, and related work, p. 2 (OA offset 9600)",
+          "method": "OA primary PDF passage inspection",
+          "title": "Uncertainty of Reconstruction with List-Decoding from Uniform-Tandem-Duplication Noise",
+          "trigger": "Nearby reconstruction and output-counting problem"
+        },
+        {
+          "assessment": "Material partial overlap, explicitly limited joint polynomial.",
+          "evidence": "After complementing Y₁,Y₂, the joint law matches on the stated small-size range; zero covariance and the same independence threshold hold at all sizes.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-joint-law-and-independence-threshold-for-two-tandem-duplication--d6154f9c908e/RESULT.md",
+          "material_read": "Finding, opening and decisive passages at offsets 0, 632 and 1716",
+          "method": "Resultary mirror primary-text inspection, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Joint law and independence threshold for two tandem-duplication lengths",
+          "trigger": "Strong equivalent-statistic indexed hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "When two allowed duplication lengths coexist, the disjoint output lengths make their sum a natural ambiguity measure but do not remove source-level correlation. The full two-state enumerator gives exact joint counts, exposes nonlinear conditional dependence hidden by zero covariance, and explains why the maximum changes regime for a binary alphabet, including the parity-sensitive number of extremizers. These are useful refinements beyond the separately known fixed-length transform.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

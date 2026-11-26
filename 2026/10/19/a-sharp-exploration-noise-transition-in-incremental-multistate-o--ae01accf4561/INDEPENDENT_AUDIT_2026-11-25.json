@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:52:11.228255Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Verified RESULT.md:38–84 on the simplex, including ε=ε_c and initial boundary points. Reflecting flux balance and rates bounded below by ε/2 force every equilibrium to be a positive exponential tilt. For Z=sinh((k+1/2)s)/sinh(s/2), differentiating the product with sinh(s/2) yields Z''+coth(s/2)Z'=k(k+1)Z. Thus nonzero self-consistency is exactly E_s[J²]=k(k−ε). The derivative of E_s[J²] is the covariance, under the law of d=|J|, of d² and d tanh(sd), strictly positive for s>0. The attainable open range (k(k+1)/3,k²) gives precisely ε_c=(2k−1)/3 without a hidden finite-tilt branch at equality. The entropy derivative is the negative sum of edge flux times log rate-weight ratio; equality requires every flux zero. A fixed path of at most 2k nearest-neighbor jumps in one unit interval has uniformly positive probability for the time-dependent rates along any solution, so all components are bounded below at late times. Compactness, strict dissipation, and connectedness of the omega-limit set then give convergence to one of finitely many equilibria. The tangent Hessian is a positive diagonal form minus one rank-one term; its test is Φ''(m)Var(J) versus one. At a nonzero branch the derivative of m(s)−k(1+ε)tanh(s/2) is tanh(s/2)H'_k(s)<0 for s>0, with the same stability conclusion by reflection. At uniformity below threshold the Hessian has exactly one negative eigenvalue. Positive logarithmic-mean edge mobility is invertible on the tangent space, so the linearization has the opposite inertia. The global interior stable set of the saddle is contained in a countable union of inverse flow images of its local stable manifold, hence is null. The second derivative of E_s[J²] at zero is Var_0(J²), giving the stated square-root coefficient. Independently, for k=2, ε=1/2, the moment equation gives cosh(s)=(1+√6)/2 and m≈1.54721585869527. The frozen VERIFICATION.md reports 444 finite checks from checker_published.py, which was inspected, not executed. No finite-population or zero-noise convergence conclusion is inferred.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cao–Gong give convergence on the symmetric subspace and sufficient high/low initial means for endpoint consensus.",
+          "The 2026/10/12 entropy-dissipation record gives a complete zero-exploration trichotomy and a uniform saddle; the 2026/11/8 stochastic-order record gives side selection and one unstable direction, also at zero exploration."
+        ],
+        "reasoning": "These comparisons are genuine overlaps of dynamical structure, not general results for positive adjacent noise. Neither covers a bifurcation between a unique uniform equilibrium and two positive polarized laws.",
+        "searches": [
+          "Local Resultary search for entropy dissipation, convergence and basin selection of the incremental voter ODE",
+          "arXiv:2605.28984v1, Proposition 3.3 and Theorem 3",
+          "Resultary records 06fd99a6b6dd and 97cb17dd2e8b"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker_published.py",
+        "Cao–Gong arXiv:2605.28984v1",
+        "Khalil–Galla arXiv:2007.07535",
+        "Resultary 06fd99a6b6dd and 97cb17dd2e8b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Zero-noise geometricity follows from flux balance, but that stationary census has no nonzero interior tilts. The positive-noise model compares the changed mean-rate ratio with the strictly decreasing function k(k+1)−E_s[J²]."
+        ],
+        "reasoning": "Transferring the geometric ansatz does not decide the self-consistency problem. The exact identity and strict monotonicity for the tilted second moment, and dissipation/stability with the modified log rate ratio, supply the missing steps rather than a substitution into a prior phase formula.",
+        "searches": [
+          "Cao–Gong equations (3.3)–(3.4), Theorem 3",
+          "Zero-exploration Resultary trichotomy 06fd99a6b6dd",
+          "Khalil–Galla generator on p. 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cao–Gong write levels on a shifted interval and use persuasion rates (k±m)/(2k) in centered coordinates. Their equations (3.3)–(3.4) give the geometric ratio for non-consensus laws, with only the uniform interior equilibrium.",
+          "Khalil–Galla mutation picks a different unordered category uniformly, rather than adding independent reflecting nearest-neighbor jumps."
+        ],
+        "reasoning": "Shifting indices identifies the persuasion term and stationary geometric ansatz. Adding ε to both rates is not a constant time change: it changes the state-dependent rate ratio, eliminates endpoint consensus and creates tilted interior equilibria. The categorical mutation mechanism is not a relabeling of this birth-death flow.",
+        "searches": [
+          "Targeted literature search for incremental voter model, reflecting ordered levels and symmetric exploration",
+          "arXiv:2605.28984v1, Sections 2.1 and 3",
+          "arXiv:2007.07535, model definition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest indexed phase census is the zero-exploration trichotomy 06fd99a6b6dd; its nonuniform equilibria are endpoint consensus. The motivating paper's census has no ε parameter."
+        ],
+        "reasoning": "The nearest exact catalogues do not enumerate the positive-noise branches as a function of ε, so they do not tabulate the positive threshold or its second-moment identity.",
+        "searches": [
+          "Local Resultary search for the exact ordered-level exploration threshold, polarized moment and entropy-dissipation trichotomy",
+          "Cao–Gong stationary census, equations (3.3)–(3.4)"
+        ]
+      },
+      "rationale": "The distinct result is the exact threshold, branch moment identity, and global convergence classification for strictly positive adjacent-step exploration. The geometric shape of stationary laws and the idea of a three-way convergence classification cannot be credited in isolation: the former appears in the motivating paper and the latter is already present in a closely related zero-noise record. The inspected noisy categorical model is not the same generator, and the zero-noise results do not imply the positive-noise flow theorem.",
+      "residual_risks": [
+        "A differently indexed theorem on nonlinear birth-death flows with the same positive-noise self-consistency could affect priority. Comparisons are to the inspected model and theorem passages, not an exhaustive survey of noisy voter or bifurcation results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Overlaps in generator at ε=0, geometric stationary ansatz and partial convergence",
+          "evidence": "Only uniform interior equilibrium in the noiseless stationary census; endpoint convergence for initial means in specified ranges.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.28984v1",
+          "material_read": "Section 2.1, p. 4; Section 3, p. 10, Eqs. (3.3)–(3.4); Proposition 3.3, p. 15, and Theorem 3, pp. 17–18",
+          "method": "Open-access PDF passage inspection",
+          "title": "The incremental voter model: mean-field analysis and convergence to equilibrium",
+          "trigger": "Same persuasion mechanism in the absence of noise"
+        },
+        {
+          "assessment": "Material zero-noise antecedent",
+          "evidence": "Every law tends to one of endpoint consensus, uniformity, or opposite endpoint consensus; uniformity has one unstable direction, with no exploration.",
+          "identifier_or_url": "2026/10/12/SCOPE-entropy-dissipation-trichotomy-and-an-explicit-basin-barrier-for--06fd99a6b6dd",
+          "material_read": "RESULT.md Finding and Assumptions, opening mirror passage",
+          "method": "Local Resultary search and mirrored statement inspection",
+          "title": "Entropy dissipation trichotomy and an explicit basin barrier",
+          "trigger": "Exact global trichotomy and uniform saddle in the same opinion space"
+        },
+        {
+          "assessment": "Overlaps at ε=0 only",
+          "evidence": "Strict first-order stochastic dominance over or under uniformity selects the corresponding endpoint consensus at zero noise.",
+          "identifier_or_url": "2026/11/8/SCOPE-stochastic-order-basin-selection-and-one-dimensional-instability--97cb17dd2e8b",
+          "material_read": "RESULT.md Finding and Assumptions, opening mirror passage",
+          "method": "Local Resultary search and mirrored statement inspection",
+          "title": "Stochastic-order basin selection and one-dimensional instability",
+          "trigger": "Uniform instability and basin selection under incremental persuasion"
+        },
+        {
+          "assessment": "Different mutation generator, not direct coverage",
+          "evidence": "Spontaneous mutation chooses uniformly among the other unordered categories, and the model allows zealots.",
+          "identifier_or_url": "https://arxiv.org/abs/2007.07535",
+          "material_read": "Model definition, p. 3 (PDF text around offset 18600)",
+          "method": "Open-access PDF passage inspection",
+          "title": "Zealots in multistate noisy voter models",
+          "trigger": "Noisy multistate imitation proposed as an alternative equivalent model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The monotone second moment resolves a real obstruction in using the geometric ansatz: it identifies every positive-noise equilibrium and the exact cutoff for each width without numerical branch tracing. Strict dissipation and the stability analysis turn a local onset into a global description, and the independent observable E[J²] gives an exact relation along the polarized branches. These are useful distinctions from the zero-noise endpoint consensus model.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

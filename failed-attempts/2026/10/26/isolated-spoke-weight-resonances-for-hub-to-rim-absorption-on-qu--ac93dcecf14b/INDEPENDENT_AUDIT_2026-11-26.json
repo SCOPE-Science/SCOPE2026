@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:58:03.737253Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The dark space is the sum, over distinct adjacency eigenspaces, of the trap-orthogonal directions. It reduces both terms of the generator. On its orthogonal complement the eigenvalue identity Im(z)||v||² = −gamma |v_0|² rules out any nondecaying eigenvector, so finite-dimensional Jordan blocks do not affect the limit. Only the lower hub/uniform-rim eigenvalue can coincide with a nonuniform Fourier energy, and it is strictly negative. At the collision, the hub eigenvector has rim weight a²=λ/[2(λ−1)] and hub weight b²=1−a²; the degenerate trap projection has squared norm (a²+d)/n. Removing it leaves b²d/(a²+d), exactly as claimed. The negative Fourier energies are distinct, including −2 at the even endpoint. With τ=1 the collision requires n≤8, and exact small-size comparisons leave n=3 and n=8. The uploaded checker and requirements were inspected, not executed. The independent rational Krylov check in /workspace/review-evidence/independent_checks.py reproduced ranks and masses for unit spokes n=3..9, and for n=12 at τ=1/2 (rank 7, mass 2/3) and τ=51/100 (rank 8, mass 0); the general proof, not this finite test, handles all parameters.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The single-trap efficiency is the initial projection onto the trap-generated Krylov subspace. The universal-vertex paper's adjacency result is a regular-outer-graph two-dimensional reduction, not Laplacian-style universality."
+        ],
+        "reasoning": "Although the efficiency paper uses a Laplacian Hamiltonian, the spectral projection argument uses only Hermiticity and the single local loss. The general argument transfers verbatim to adjacency; the wheel-specific projector data are supplied by the October 13 record.",
+        "searches": [
+          "Razzoli–Paris–Bordone arXiv:2011.13794v2, equations (8)–(13) and dimension reduction",
+          "Razzoli–Bordone–Paris arXiv:2202.13824v2 §4.2 Proposition 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2026/10/13 weighted wheel, 4f4cd11381f0",
+        "Razzoli et al. arXiv:2011.13794v2 and arXiv:2202.13824v2",
+        "Anishchenko–Blumen–Mülken arXiv:1111.7065v1 §II equation (1) and §VI; Laplacian-type lossless star spreading"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the shared eigenspace E, the earlier entries are E_hh=b², E_00=(a²+d)/n and |E_0h|²=a²b²/n. Noncolliding hub eigenvalues each have a rank-one projector visible at the trap."
+        ],
+        "reasoning": "The dark hub weight is E_hh−|E_0h|²/E_00. Substitution gives b²d/(a²+d), and at a visible rank-one projector it gives zero. The Fourier-only blocks have E_hh=0. Every rim frequency is visible, so bright dimension drops by exactly one at the known collision. Thus there is a direct prior-data implication for the remaining assertions, even though the earlier topic is average mixing.",
+        "searches": [
+          "Resultary 4f4cd11381f0 proof equations (3)–(4), offsets 3753–5900",
+          "arXiv:2011.13794v2 trap efficiency/Krylov discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Finding gives every resonance g_k=√(μ_k(μ_k−2)/n) for μ_k<0, with μ_k=2 cos(2πk/n) in exactly the same unit-rim weighted adjacency model."
+        ],
+        "reasoning": "Identifying g with τ, this is exactly the frozen resonance set. The earlier average-mixing rank is not the frozen bright dimension; these ranks were not equated.",
+        "searches": [
+          "Resultary prior weighted-wheel spectral collisions and rank revivals, 4f4cd11381f0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The record gives a closed table of all projector entries in the uniform and Fourier sectors and explicitly replaces the two projectors by their sum at resonance."
+        ],
+        "reasoning": "An exact table of the separate loss observable is not necessary: the spectral projector table already provides all entries needed for hub-to-rim survival. Its illustrated n=8, k=3 mixing-rank example is not the unit-spoke n=8, k=4 loss exception.",
+        "searches": [
+          "Resultary 4f4cd11381f0 Finding and Proof §1, equations (3)–(4)"
+        ]
+      },
+      "rationale": "The October 13 weighted-wheel record gives the exact collision locus and, in proof equations (3)–(4), every full adjacency spectral projector, explicitly including the projector at the collision. Applying the established single-trap projection identity to those entries yields the survival law by direct substitution, not merely by analogy between two observables. The bright dimension counts the same distinct trap-visible projectors, and τ=1 is an elementary specialization. No distinct surviving theorem in the frozen finding was identified.",
+      "residual_risks": [
+        "An earlier explicit list of hub-to-rim survival masses may exist. The failure does not depend on finding one; it is based on the explicit earlier projectors and direct projection identity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of the collision set and all necessary spectral data",
+          "evidence": "Projector entries given separately for rim and hub sectors, with their sum specified at the unique collision.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-mode-selective-rank-revivals-in-hub-weighted-wheel-quantum-walks--4f4cd11381f0/RESULT.md",
+          "material_read": "Finding offsets 530–3753 and Proof §1 equations (3)–(4), offsets beginning 3753",
+          "method": "Resultary local full-text mirror",
+          "title": "Mode-selective rank revivals in hub-weighted wheel quantum walks",
+          "trigger": "Exact weighted-wheel collision locus and possible full spectral coverage"
+        },
+        {
+          "assessment": "General trap-projection antecedent with a Laplacian model; not a wheel table",
+          "evidence": "Efficiency is the weight of the initial state in the trap-generated invariant subspace; survival is its complement.",
+          "identifier_or_url": "https://arxiv.org/html/2011.13794v2",
+          "material_read": "Equations (8)–(13), offsets 14700–18971; Krylov discussion offsets 23900–26361",
+          "method": "Author's OA arXiv full text",
+          "title": "Transport efficiency of continuous-time quantum walks on graphs",
+          "trigger": "Established local-trap survival identity"
+        },
+        {
+          "assessment": "Structural antecedent, not lossy weighted rim calculation",
+          "evidence": "Two-dimensional adjacency reduction with a universal hub over a regular graph; Laplacian universality does not extend to adjacency.",
+          "identifier_or_url": "https://arxiv.org/html/2202.13824v2",
+          "material_read": "Abstract and §4.2 Proposition 1, offsets 24100–28647; wheel discussion offsets 33700–38284",
+          "method": "Author's OA arXiv full text",
+          "title": "Universality of the fully connected vertex in Laplacian continuous-time quantum walk problems",
+          "trigger": "Adjacency reduction for wheels"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Loss survival is a meaningful observable, but the surviving candidate contribution would only re-express the already tabulated spectral projectors using the standard rank-one trap formula. The unit-weight corollary is a bounded direct substitution, and there is no independent dynamical estimate or structurally new regime in the frozen result to retain.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

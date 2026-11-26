@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The cubic edge-count identity proves the seven-seed lower bound and restricts feasible seven-seeds to at most one induced edge. Two independent finite algorithms examine all 346,104 candidates and agree on all 12,384 successes, five completion-time counts and nine component/time cells. The Python checker also verifies extremal residual-tree diameter profiles. The leaf-stripping equivalence and diameter-to-time relation are proved, not extrapolated from experiments. Boundary cases include forest with one or two components and fixed-point failure.
+PASS
 
-## Originality — PASS, with stated priority risk
+In a cubic graph, the synchronous inactive-set dynamics remove induced degree 0 or 1, so a cycle survives forever and a forest is removed. A tree of diameter d has stripping time floor(d/2)+1, including a singleton, by peeling both ends of a longest path toward the center. The two counts of residual edges give 2k=12+e(S)+c and k>=7 for any proper seed. An independently written enumeration classifies each of the 346104 seven-subsets by connected-component vertex/edge counts and obtains times from two breadth-first sweeps per residual tree, without simulating infection. It recovers 12384 percolating sets. The one-tree/two-tree rows for rounds 4 to 8 are (0,120), (1872,1416), (4968,1488), (1224,360), (864,72). The extreme order/diameter profiles and multiplicities also match exactly. Existence at k=7 completes the lower-bound argument.
 
-Semantic searches compared two-neighbor bootstrap contagion, induced-forest/decycling terminology, Nauru/GP(12,5)/cyclic-cubic graph aliases, and 12,384/120/936 numerical profiles. Accessible previously published claims about Nauru perfect matchings, edge colorings and homology are for different mathematical objects; a published Desargues-graph 2,860-minimum-decycling-set census is for a different graph. Morris (2007), Rapaport et al. (2009) and Marcilon–Sampaio (2015) address broader definitions, cubic random propagation or grid time complexity rather than exact Nauru minimum-seed timing. Wei–Li (2013) and Gao et al. (2015) are credited for generalized-Petersen decycling scalar theory; their inaccessible full texts leave possible historical table overlap, but accessible descriptions do not imply the complete time/shape classification. Non-detection does not establish categorical publication priority.
+## originality
 
-## Value — PASS
+PASS
 
-The Nauru graph is a canonical symmetric cubic bipartite graph. Minimum-seed size alone does not express dynamical performance: 12,384 equally small successful placements require five different completion durations. The absolute fastest placements have only two disconnected-forest geometries, whereas the slowest mostly have single-tree complements. This exact structural speed-versus-placement classification is a motivated finite invariant, distinct from known scalar decycling bounds or matching enumeration.
+The distinct claim credited is the full minimum-seed census by exact synchronous time and residual shape, not the scalar minimum, the decycling reduction, or the elementary peeling formula. The strongest inspected analogues do not give or mechanically imply this joint census for GP(12,5).
 
-## Closest literature and limits
+## value
 
-Morris, arXiv:math/0702370v1; Rapaport et al., DOI:10.1007/s00453-009-9309-0; Wei–Li, DOI:10.12386/A2013sxxb0022; Gao et al., DOI:10.1016/j.dam.2014.09.005; Marcilon–Sampaio, arXiv:1508.06847v1. No general family theorem or full-priority guarantee is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural minimum-size stratum on a named symmetric cubic graph exposes a genuine timing/geometry relation: every fastest optimum leaves two trees, whereas the slowest stratum contains both connected and disconnected residual forests with precise extremal diameters. The joint table is usable as an exact benchmark for algorithms that optimize seed size and time concurrently. The value is in the complete natural classification, not simply finding the known optimum or applying a generic graph routine.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:02:49.117510Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The cycle mean is a+b/v; the radial return reward density is S/v, where S(z)=P(W>z). For the diffusion reward, applying the heat equation to (x-z)_+, doubling by symmetry and stopping at the independent alarm gives H/D with H(z)=E[(W-z)_+]. Integrating H and S yields Da and b, so the density is normalized. Its tail has the displayed A and C because integrating H again gives E[(W-z)_+^2]/2. The Gamma transform factors the Brownian endpoint into a signed difference of two iid Gamma(k,sqrt(r/D)) variables. When k>1 their convolution and positive-ray survival are log-concave by log-concave marginalization. The integral in RESULT.md gives analyticity for z>0 (dominated locally even on the complex right half-plane), and factoring z^(k-1) out of that integral gives its nonconstant polynomial prefactor at infinity by dominated convergence. Thus log S has no affine interval, making each positive-lag ratio S(z+t)/S(z) strictly decreasing. At 0<k<1 the inverse-power Laplace integral gives the density, and after integration also the survival, as positive exponential mixtures with nondegenerate rates; strict log-convexity reverses all those ratio inequalities. Integrating gives strict monotonicity of H/S. The normalized v-mixture ratio at v2>v1 increases strictly as a function of H/S, hence it is strictly ordered in z in the stated directions. Positive densities and equal total mass force the unique crossing, so every positive threshold has a strict tail difference. At k=1 H=S/sqrt(r/D) and both phase laws are the same exponential. At other shapes the strictly monotone fractional-linear tail has unequal endpoints C/b and A/a; the displayed inverse is valid only on the open probability interval and assumes D,r,k known. The written proof is decisive. Independently replay `python3 /workspace/review_checks.py 1` (SciPy): nine direct physical-time reward cases at D=1.7,r=0.8, including k=0.35, test the two phase rewards, an exponential anchor, two-speed signs and inverse recovery. This bounded quadrature is not a certificate of monotonicity outside the sample. The frozen checker was inspected but not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Radice's accessible abstract identifies Gamma times and constant-velocity (ballistic) returns. Frozen RESULT.md credits Radice's Sections 3–4 and Appendix B with densities, k=1 invariance and origin/far-tail comparisons; the cited primary passages were not independently retrieved.",
+          "Resultary 5c356dfeaeaf states conditional large-excursion asymptotics in the same model, not an all-finite-radius order."
+        ],
+        "reasoning": "An asymptotic conditional statement or an unconditional mixture formula does not by itself order the likelihood ratio in z. The exact priority risk in the same-model paper remains explicit rather than treating an abstract as complete coverage.",
+        "searches": [
+          "Web: Gamma distributed Brownian resetting finite speed return stationary likelihood ratio stochastic order",
+          "arXiv:2201.01829 and arXiv:1907.12326",
+          "Resultary: Gamma-reset Brownian finite-speed extreme excursions"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2201.01829 (search abstract excerpt; full text unresolved)",
+        "arXiv:1907.12326 (frozen attribution; primary retrieval unresolved)",
+        "Resultary:950bd5a9485e (assigned entry)",
+        "Resultary:e9f574cebd88",
+        "Resultary:5c356dfeaeaf",
+        "Resultary:205973d7b09c",
+        "Resultary:26d8123e1590"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general phase-mixture law gives a fractional-linear dependence and makes inversion algebra elementary once strict response is shown; it does not show that the phase-density ratio is strictly monotone.",
+          "A limit at infinity and a comparison at the origin cannot imply likelihood-ratio monotonicity between them. The distinct proof ingredient is curvature of the Gamma endpoint survival on the full positive ray.",
+          "Standard convolution log-concavity applies only above shape one; it does not by itself supply the reversed conclusion below shape one."
+        ],
+        "reasoning": "Credit known phase weighting, exponential invariance and standard stochastic-order machinery. Existing inspected statements do not establish the additional all-shape survival/residual-life calculation in this setting; the tail inverse is credited only as an application.",
+        "searches": [
+          "arXiv:2201.01829, same Gamma clock and ballistic return, stated scopes",
+          "arXiv:1907.12326, regeneration and noninstantaneous returns",
+          "Resultary:e9f574cebd88 and Resultary:5c356dfeaeaf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary e9f574cebd88 compares varying the probability of starting ballistic relocation, not the return speed at fixed Gamma clock.",
+          "Resultary 205973d7b09c compares threshold and Poisson protocols.",
+          "For the assigned model the speed order is equivalent to monotonicity of the endpoint mean residual magnitude H/S, not simply a comparison of two tails at the origin or infinity."
+        ],
+        "reasoning": "Formal resemblances in likelihood ratios and crossings do not transfer monotonicity of H/S for this endpoint family or vary the same control parameter. No equivalent comparison was identified among those indexed statements.",
+        "searches": [
+          "Resultary: Gamma-clock radial stationary all-radius likelihood-ratio order in ballistic return speed",
+          "Resultary: stochastic-order or one-crossing comparisons in regenerative resetting with finite returns"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 950bd5a9485e matches the entire formula-and-order claim and is the assigned finding itself.",
+          "Resultary 26d8123e1590 describes Erlang-two with powered returns and stationary-law aliases, not fixed-protocol inversion for all nonunit Gamma shapes."
+        ],
+        "reasoning": "The exact indexed statement search distinguishes the assigned entry from other records. Tabulating a few integer shapes cannot rule on the continuum claim, in particular the strictly reversed subunit-shape regime.",
+        "searches": [
+          "Resultary: Gamma resetting shape-one reversal at every radius",
+          "Resultary: fixed-threshold inversion of Brownian Gamma-reset speed",
+          "Resultary: exact Gamma-reset stationary likelihood-ratio order"
+        ]
+      },
+      "rationale": "The same Gamma/constant-speed model, stationary density framework and exponential-clock invariance are not credited as new. The supported distinction is the strict likelihood-ratio (and thus every-threshold) comparative statics as speed varies across both nonexponential shape ranges. Single-threshold injectivity follows from this strictness; the inversion algebra alone is routine. Closest full-text access limitations keep this a qualified best-of-knowledge judgment.",
+      "residual_risks": [
+        "No full-text negative coverage is claimed for Radice or Bodrova–Sokolov after retrieval timeouts.",
+        "Indexed comparison records were read as summaries; earlier reformulations using reliability theory for the bilateral Gamma law or finite-return stochastic orders may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same-model coverage is confirmed at abstract level. The attributed density, invariance and limiting comparisons are not credited as new; stronger coverage cannot be excluded from inaccessible passages.",
+          "evidence": [
+            "Gamma reset-time law and constant-velocity return; scale/rate nomenclature must be reconciled before comparing formulas."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2201.01829",
+          "material_read": "Abstract excerpt from scientific literature search; frozen RESULT.md line 101 for its attribution, not primary passage evidence. Full-text retrieval, including the arXiv HTML route, timed out.",
+          "method": "Compared accessible statement and model assumptions; attempted lawful open full text.",
+          "title": "Diffusion processes with Gamma-distributed resetting and non-instantaneous returns",
+          "trigger": "Same reset clock, Brownian model and constant return velocity; strongest primary priority candidate."
+        },
+        {
+          "assessment": "Credit the general occupation formula. Its stated scope as reported does not by itself imply Gamma residual-life monotonicity.",
+          "evidence": [
+            "The reported regenerative density is a mean-duration-weighted sum of two occupation rewards; the required shape-dependent comparison is between those rewards."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1907.12326",
+          "material_read": "Frozen description at RESULT.md line 103; open primary full-text request timed out, so the cited Sections II–V were not directly compared.",
+          "method": "Tried primary retrieval; checked the mathematical implications of the framework as described, not the whole paper.",
+          "title": "Resetting processes with non-instantaneous return",
+          "trigger": "A general stationary two-phase framework might cover this as a specialization."
+        },
+        {
+          "assessment": "No equivalent assertion in the available statement.",
+          "evidence": [
+            "Conditional hidden-phase/age laws in the large-position limit, not strict likelihood-ratio order as a function of every positive position."
+          ],
+          "identifier_or_url": "Resultary:5c356dfeaeaf",
+          "material_read": "Resultary indexed statement.",
+          "method": "Compared the asymptotic regime and outputs with the finite-threshold theorem.",
+          "title": "Universal hidden-phase and Gaussian age laws for extreme Gamma-reset diffusion with finite-speed returns",
+          "trigger": "Same model and finite speed; possible overlap in radial tails."
+        },
+        {
+          "assessment": "Genuine formal order analogue but not the same speed-parametrized family with fixed Gamma excursions.",
+          "evidence": [
+            "Varies the probability of starting ballistic relocation, rather than the speed at which every return takes place."
+          ],
+          "identifier_or_url": "Resultary:e9f574cebd88",
+          "material_read": "Resultary indexed statement.",
+          "method": "Compared the control parameter and process, without inferring priority from date.",
+          "title": "Sharp likelihood-ratio ordering and exact Laplace design by mixed-phase resetting",
+          "trigger": "Distinct same-day likelihood-ratio result for ballistic relocation."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The stronger all-radius law answers whether changing a physical speed parameter makes the stationary displacement smaller or larger, not just at asymptotic or chosen thresholds. The reversal and loss of identifiability at the exponential clock mark a sharp model boundary. An exact positive-threshold observation calibrates the speed on either side given the other parameters, without claiming finite-sample inference.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

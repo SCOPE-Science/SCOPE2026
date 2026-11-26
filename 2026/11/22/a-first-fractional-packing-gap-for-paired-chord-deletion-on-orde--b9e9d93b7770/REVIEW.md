@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim defines the precise single-pair erasure channel and set-valued deletion shadows. An exhaustive induction-based recurrence on the subsets of at most 15 outputs counts both optimal disjoint-shadow families and all optimal codebooks; a separate maximal-clique method confirms the same cardinalities and multiplicities. A concrete seven-source matching code and exact half-unit primal/dual LP certificates establish the matching size 7 and fractional optimum 15/2 without floating-point error. All certificate constraints and symmetry counts were reconstructed and checked by the standalone program.
+PASS
 
-## Originality — PASS (qualified)
+Each unordered pair has two endpoints, the endpoint order is fixed, and the deletion output is the set of distinct order-standardized submatchings after removal of one whole pair. Equivalently, generate words with exactly two copies of each symbol and canonicalize symbols by first appearance; remove both copies of one symbol and canonicalize again. A code is valid exactly when its nonempty shadows are disjoint. The subset recurrence partitions by whether the least remaining output is unused or is covered by its unique selected source, counting distinct sources even when their shadows coincide. Independent exact replay (/workspace/reviews/replay-5.py, standard library) generates canonical double words by a Cartesian product, constructs shadows by deleting a symbol type, and exhausts sorted disjoint-shadow source subsets of the certified upper-bound size without using that recurrence or a maximal-clique algorithm. It confirms source counts (1,3,15,105), output counts (1,1,3,15), maxima (1,1,3,7), and multiplicities (1,3,1,278). For m≤3 summing the receiver constraints gives P_m≤number of outputs, and the rederived optimal codes attain this bound. At m=4 the packaged seven sources have pairwise disjoint shadows and the certified descriptions match the reconstructed indices. The integer half-unit primal loads are 2 at 14 outputs and 1 at one; the dual covers have values 2,3,4 at respectively 31,50,24 sources. Both totals are 15 half-units, and all weights are nonnegative, proving P_4=15/2 by weak duality and A_4≤7 by integrality. Thus the standard LP optimum first differs from the integer value at m=4, though flooring still gives 7. Reversing each word and recanonicalizing is the same order reversal as the endpoint map, preserves the code family, and fixes exactly 136 of the 278 maxima; enumeration of orbit representatives and Burnside both give 207. No claim is made about arbitrary two-position deletions, reconstructing from the full deck, larger m, or any other symmetry quotient. The source checker was inspected as evidence, not executed.
 
-Pilaud–Rué (arXiv:1307.6440) treats ordered chord-diagram crossings, not the entire matched-pair erasure channel. Gabrys et al. (ISIT 2014, DOI:10.1109/ISIT.2014.6875337) treat standardized deletion of a single permutation entry, not two matched endpoints together. General deletion coding methods therefore do not directly imply the 105-to-15 incidence certificate or classification of all 278 maxima. Sala–Gabrys–Dolecek (ISIT 2014, DOI:10.1109/ISIT.2014.6875338), on multipermutation deletions, remains a material priority risk because only its abstract, not the full article, could be inspected. No exhaustiveness claim about world literature is made.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Erasing an unknown paired chord from an ordered matching is a natural contraction channel in chord diagrams and paired-endpoint information. Exact zero-error code capacity, an explicit strictly fractional packing relaxation and a complete equality census at the first four-pair boundary supply a nontrivial, reproducible benchmark. No extension beyond four pairs is asserted.
+Qualified best-of-knowledge assessment for the exact first LP gap and optimal-code census of the whole-pair, order-standardized channel. The underlying ordered matchings, double-word representation, shadow-packing LP and generic packing machinery are not claimed new.
 
-## Limitations
+## value
 
-Results are finite and concern whole-pair deletion only, not arbitrary two-vertex deletion. There is a fractional integrality gap but not an integer-rounding failure: \(\lfloor15/2floor=7\). Earlier inaccessible or unindexed exact finite results could supersede the priority assessment. The checker verifies a finite mathematical certificate, not an independent scientific review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The channel asks a natural zero-error question under the removal of one complete matching edge, so the first discrepancy between integral and fractional shadow packing is meaningful without a theorem for all sizes. The sharp small case has an exact rational certificate and a complete, nontrivial equality and reversal census useful for checking future constructions and LP relaxations. The gap is fractional only: the floor of the relaxation still gives the right capacity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review: binary curvature-error coupling of a three-stage two-derivative integrator
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is for a fully specified oscillator, published three-stage tableau, two symmetric binary curvature-oracle errors with arbitrary within-step coupling and independent successive step pairs. The proof reconstructs the exact degree-five stability polynomial and identifies its real-and-imaginary parts on the imaginary axis. Consequently every realized two-dimensional step is a scalar rotation–dilation, permitting exact factorization of all expected squared norms. Averaging all four sign pairs produces a quadratic in the squared step, whose positive-root and discriminant analysis covers strict, equality and degenerate boundaries. The difference between arbitrary and antithetic coupling is strictly positive for every positive step, positive amplitude and nonzero deviation from perfect antithesis. The standalone exact-rational verifier computes real-vector stage operations independently and passed 1,523 assertions. Numerical tests do not replace the proof.
+PASS
 
-## Originality — PASS (qualified)
+The tableau gives the real multiplier aI+bJ with a=1−x/2+q1 x²/24 and b=√x[1−(q0+q1)x/12+q0 q1 x²/96]. Put w=s(2p−1); the required moments are E(q0 q1)=1+w, E(qi²)=1+s, E(qi² qj)=1+s+2w for i≠j, and E(q0² q1²)=(1+s)²+4w. In E(a²+b²) the x and x² terms cancel; the x³, x⁴ and x⁵ coefficients are respectively (1+2s+5w)/144, (−1−s−4w)/576 and [(1+s)²+4w]/9216. These give the exact stability polynomial and rational example. Conditional expectation over independent steps gives the full energy law. The strict positive p-slope for x,s>0 proves unique antithetic optimality. At p=0 and 0<s<1/3 the quadratic discriminant is 256s(s+1)(3s−1)<0; at s=1/3 the polynomial is 4x²/9. Above s=1/3, at p=pc the constant term vanishes and the linear and quadratic coefficients are positive; increasing p can only increase the polynomial. Below pc its constant term is negative, linear coefficient positive and leading coefficient nonnegative, proving the unique threshold and the rationalized formula, including the linear case (s,p)=(1,0), x*=4. The s=0 polynomial gives the isolated neutral x=8 separately. The read-only inspection of the packaged rational checker and output supports the arithmetic but is not needed for the general result.
 
-The directly motivating article, Gottlieb–Grant–Herrera (arXiv:2602.14369, section 5.2, equation (5.5)), supplies the method, its perturbation order and numerical stability-region figures but not the sharp *mean-square* dependence on the joint distribution of its two separate curvature errors. The most relevant published two-derivative result, *A sharp mean-square stability island for fourth-order two-derivative Runge–Kutta under symmetric curvature perturbations* (2026-10-26), treats the distinct two-stage equation (5.4) with a **single shared** curvature perturbation, whose degree-four amplifier cannot imply the present degree-five factor, strict antithetic optimality, or the sharp \(\epsilon^2>1/3\) transition. *Antithetic stage pairing can terminate two-stage stochastic Heun in one update* (2026-11-08) optimizes sampled first-derivative gradient coupling of a different quadratic finite-sum update. Bochacik et al. (arXiv:2006.12131, section 5) analyze random stage times for a degree-two amplifier. Searches for alternative names, exact polynomial thresholds and covering phase diagrams did not identify a result implying this theorem. Unindexed earlier work and unpublished derivations remain possible; this is not independent historical certification.
+## originality
 
-## Value — PASS
+PASS
 
-This is a natural complete boundary classification for how a new mixed-accuracy integrator transmits **dependence between two curvature evaluations**. The method's exact oscillator multiplier is expansive at every nonzero step except one isolated neutral step, yet sufficiently anticorrelated errors can create a real mean-square contraction window. The exact necessary-and-sufficient coupling threshold and unique optimal coupling distinguish relative error magnitude from error dependence, a design question not settled by deterministic stability-region figures or order conditions. The result is not a claim that large errors are beneficial for accurate simulation: the required amplitudes are far above normal floating-point relative errors, and induced damping is artificial. Its value lies in the rigorous structural boundary and warning that a stochastic mean-square stability property cannot be inferred from deterministic stability or perturbation order alone.
+The inspected work supplies the deterministic tableau, a general iid mean-square criterion and related stochastic examples, but does not cover the complete dependence on the within-step binary coupling for this tableau, including the uniquely optimal antithetic law and the stable small-step interval.
 
-## Limits and nearest literature
+## value
 
-The theorem does not cover general nonlinear problems, noncommuting matrices, floating-point arithmetic with state-dependent error, nonbinary or biased errors, or almost-sure convergence. The general principle of evaluating \(\mathbb E|R|^2\) for iid scalar random amplifiers is classical; the specific two-error degree-five map and sharp coupling classification are the mathematical contribution, not that elementary principle. Historical priority is subject to future independent assessment.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A fixed published integrator on the canonical energy-preserving test problem has opposite qualitative behavior depending only on the within-step error coupling, with an exact classification of all couplings and steps in the stated family. Neither independent nor shared errors can produce the contraction. This is a meaningful benchmark for how coupling affects stability; it is not evidence for physical fidelity, ordinary roundoff, or nonlinear problems.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

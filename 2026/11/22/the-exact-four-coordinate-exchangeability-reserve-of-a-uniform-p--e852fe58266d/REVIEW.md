@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The claim has exact quantifiers: \(m\ge1\), \(N\ge m\), and uniform random perfect matchings of the complete graph with fixed disjoint designated edges. The probability of retaining prescribed edges follows from double-factorial enumeration. Hypergeometric moment rigidity proves the sharp obstruction; the displayed formal generating-function identity supplies the recurrence needed for the global positivity proof, with no reliance on an unproved numerical extrapolation. The moment inversion establishes the explicit and unique extension; the two small cases are handled separately. The standalone exact checker passed 1,258 assertions, including complete enumeration through six matching edges.
+PASS
 
-## Originality
+Fixing r edges gives the claimed all-one moments by counting matchings on the remaining vertices. For an exchangeable extension the difference of the (m-1)- and m-coordinate all-one moments is the expectation of a nonnegative hypergeometric term, zero only at T<=m-2 or T=N. With p_N=q this leaves a triangular system, with p_{m-3}=2q binom(N,m-3)(m+4-N), proving the sharp necessary bound and uniqueness. At N=m+4 the proposed generating polynomial plus q z^N reproduces all binomial moments, including normalization. Coefficient comparison in the formal differential identity and subtraction of the alternating constant transform yield the stated recurrence; the even lower bound b_k=k(k-1)(k+1)/3 supplies 2(k-1)b_{k-1}>=2b_k on the following odd step starting at k=5. This proves all coefficients nonnegative, not just those tested. Marginalization supplies all shorter extensions. For m=1 the only law is all ones; for m=2 the first pair must agree, so exchangeability makes all coordinates agree in any finite or infinite extension. The independent exact replay checked the recurrence through k=100, extremal moments for 3<=m<=35, 165 admissible (m,N) pairs and direct matching moments through m=6; at m=3 the extremal masses are 14/15 and 1/15 at T=1,7.
 
-**PASS with priority risk.** General signed-mixture representations (Janson–Konstantopoulos–Yuan, 2014), broad positive-extendibility criteria (Konstantopoulos–Yuan, 2015), and perfect-matching intersecting/derangement enumeration (Godsil–Meagher, 2015) were compared at the level of their actual statements. They do not explicitly give this universal four-coordinate horizon or the unique positive extension law. A hidden specialization in older finite-exchangeability literature remains possible. General algorithms to test extendibility are not themselves the evaluated matching-specific theorem.
+## originality
 
-## Value
+PASS
 
-**PASS.** The maximum extension size is exact for an infinite family and has a universal additive constant independent of matching order. The support argument gives a sharp impossibility certificate; the positive-coefficient construction supplies a realizable extremal law. The example is motivated by distinguishing ordinary positive dependence and finite/infinite exchangeability, rather than merely tabulating matching counts.
+The supported distinct claim is the uniform sharp reserve and explicit unique law for this matching-indicator family, not the matching count, signed representation or urn extendibility criteria. The strongest indexed exact hit is the identical assigned finding and is not independent antecedent coverage. The best verified general theorem characterizes extendibility via an unevaluated norm; it does not give the specialized bound or positivity proof.
 
-## Scientific limits
+## value
 
-No assertion is made for weighted/nonuniform matchings or general indicator families. Historical-priority comparisons are bounded to listed sources and research records; independent confirmation is still needed. Exact finite computations support but do not prove the all-size theorem.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a natural sampling marginal with an exact quantitative gap between finite and infinite exchangeability. The same four-coordinate reserve at all m>=3 is sharp and unusually accompanied by a unique extension rather than a range of admissible mixtures; the endpoint law is explicit. The vanishing moment difference supplies interpretable support rigidity, and the all-order positivity is not a small-instance measurement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

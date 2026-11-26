@@ -1,154 +1,138 @@
 #!/usr/bin/env python3
-"""Direct finite checks of optimal Horn bases for graph-geodesic convexity."""
-from collections import deque
+"""Bounded checks of graph-geodesic models and small literal-weight optima."""
 from itertools import combinations, product
+from functools import lru_cache
 from math import factorial
 from random import Random
 
 
-def distances(vertices, edges):
-    nbr = [set() for _ in range(vertices)]
-    for a,b in edges:
-        nbr[a].add(b); nbr[b].add(a)
-    out = []
-    for u in range(vertices):
-        d = [-1]*vertices
-        d[u] = 0; q = deque([u])
-        while q:
-            a=q.popleft()
-            for b in nbr[a]:
-                if d[b]<0:
-                    d[b]=d[a]+1; q.append(b)
-        out.append(d)
-    return out
+def bits(mask):
+    while mask:
+        b = mask & -mask
+        yield b.bit_length()-1
+        mask ^= b
 
 
-def all_intervals(d):
-    n=len(d)
-    return {(u,v):frozenset(w for w in range(n) if d[u][w]>=0 and d[w][v]>=0 and d[u][w]+d[w][v]==d[u][v])
-            for u in range(n) for v in range(u+1,n)}
+def masks(n, edges):
+    d = [[0 if i==j else n for j in range(n)] for i in range(n)]
+    for i,j in edges:
+        d[i][j] = d[j][i] = 1
+    for k in range(n):
+        for i in range(n):
+            for j in range(n):
+                d[i][j] = min(d[i][j], d[i][k]+d[k][j])
+    return {(i,j): sum(1<<k for k in range(n) if d[i][k]+d[k][j]==d[i][j])
+            for i,j in combinations(range(n),2) if d[i][j]>1}
 
 
-def geodesic_closure(n, iv, s):
-    s=set(s)
-    while True:
-        t=set(s)
-        for u,v in combinations(sorted(s),2):
-            t.update(iv[u,v])
-        if t==s: return frozenset(s)
-        s=t
+def pair(i,j):
+    return (1<<i)|(1<<j)
 
 
-def basis_closure(s, basis):
-    s=set(s)
-    while True:
-        t=set(s)
-        for (u,v),rhs in basis:
-            if u in s and v in s: t.update(rhs)
-        if t==s: return frozenset(s)
-        s=t
+def models(n, rules):
+    return {x for x in range(1<<n) if all(x&a!=a or x&b==b for a,b in rules)}
 
 
-def options(n,d,iv):
-    """For geodetic pairs: single interior. For cycle antipodes: one per side."""
-    out=[]
-    for u,v in combinations(range(n),2):
-        inter=sorted(iv[u,v]-{u,v})
-        if not inter: continue
-        if n%2==0 and d[u][v]==n//2 and cycle_distance(n,u,v)==n//2:
-            # This branch is for cycles only; order-separated arcs are unique.
-            a=[(u+j)%n for j in range(1,n//2)]
-            b=[(u-j)%n for j in range(1,n//2)]
-            out.append(((u,v),tuple((x,y) for x in a for y in b)))
+def all_valid_rule_optimum(n, closed, known_upper_bound):
+    # Model equivalence is weighted set cover of the nonconvex subsets.
+    # Enumerate every possible valid nontrivial premise and non-overlapping
+    # consequent. An optimal rule never pays for a repeated premise literal.
+    nonmodels = [x for x in range(1<<n) if x not in closed]
+    full = (1<<len(nonmodels))-1
+    accepted = []
+    for a in nonmodels:
+        h = (1<<n)-1
+        for x in closed:
+            if x&a==a:
+                h &= x
+        heads = h ^ a
+        b = heads
+        while b:
+            excludes = sum(1<<i for i,x in enumerate(nonmodels) if x&a==a and x&b!=b)
+            assert excludes
+            accepted.append((excludes, a.bit_count()+b.bit_count()))
+            b = (b-1)&heads
+    coverers = [sum(1<<j for j,(c,w) in enumerate(accepted) if c&(1<<i))
+                for i in range(len(nonmodels))]
+
+    @lru_cache(None)
+    def at_budget(missing, available, budget):
+        if not missing:
+            return 1
+        candidates = min((coverers[i]&available for i in bits(missing)), key=int.bit_count)
+        ans = 0
+        for j in bits(candidates):
+            available ^= 1<<j
+            covers, wt = accepted[j]
+            if wt <= budget:
+                ans += at_budget(missing & ~covers, available, budget-wt)
+        return ans
+
+    for budget in range(known_upper_bound+1):
+        count = at_budget(full, (1<<len(accepted))-1, budget)
+        if count:
+            return budget,count
+    raise AssertionError('candidate upper bound failed')
+
+
+def cycle(n):
+    I = masks(n, [(i,(i+1)%n) for i in range(n)])
+    closed = models(n, [(pair(*p), h) for p,h in I.items()])
+    opts = []
+    for (i,j),h in I.items():
+        a = pair(i,j)
+        if 2*(j-i)==n:
+            opts.append([(a,pair(u,v)) for u in range(i+1,j) for v in bits((h^a)&~((1<<j)-(1<<i)))])
         else:
-            out.append(((u,v),tuple((x,) for x in inter)))
-    return out
+            opts.append([(a,1<<w) for w in bits(h^a)])
+    cost = 3*len(I)+(0 if n%2 else n//2)
+    count = factorial((n-2)//2)**n
+    if n%2:
+        assert cost==3*n*(n//2-1)
+    else:
+        assert cost==n*(3*(n//2)-4)
+    actual = 1
+    for o in opts:
+        actual *= len(o)
+    assert actual==count
+    rng = Random(n)
+    selected = product(*opts) if n<=7 else [tuple(rng.choice(o) for o in opts) for _ in range(12)]
+    tested = 0
+    for rules in selected:
+        assert sum(a.bit_count()+b.bit_count() for a,b in rules)==cost
+        assert models(n,rules)==closed
+        tested += 1
+    if n<=5:
+        assert all_valid_rule_optimum(n,closed,cost)==(cost,count)
+    print('cycle',n,'optimum',cost,'total count',count,'bases model-checked',tested)
 
 
-def cycle_distance(n,u,v):
-    return min((v-u)%n,(u-v)%n)
+def crown(s):
+    edges = [(i,s+j) for i in range(s) for j in range(s) if i!=j]
+    intervals = masks(2*s,edges)
+    closed = models(2*s, [(pair(*p),v) for p,v in intervals.items()])
+    if s==4:
+        a = pair(0,1)
+        h = min((x for x in closed if x&a==a), key=int.bit_count)
+        assert h==a|pair(6,7)
+        for b in bits(h^a):
+            t=a|(1<<b)
+            assert [p for p in intervals if t&pair(*p)==pair(*p)]==[(0,1)]
+        print('crown',s,'proper four-vertex hull blocks tightness')
+        return
+    rules = {(pair(i,s+i),1<<((i+1)%s)) for i in range(s)}
+    for i,j in combinations(range(s),2):
+        h = j if (j-i)%s==1 else i
+        rules.add((pair(i,j),1<<(s+h)))
+        rules.add((pair(i+s,j+s),1<<i))
+    assert len(rules)==len(intervals)==s*s
+    assert models(2*s,rules)==closed
+    assert len(closed)==2+2*s+s*(s-1)
+    print('crown',s,'tight cost',3*len(rules),'all subsets checked',1<<(2*s))
 
 
-def cycle_edges(n):
-    return sorted({tuple(sorted((u,(u+1)%n))) for u in range(n)})
-
-
-def check(n,iv,basis):
-    for mask in range(1<<n):
-        s=[i for i in range(n) if (mask>>i)&1]
-        x=geodesic_closure(n,iv,s)
-        y=basis_closure(s,basis)
-        if x!=y:
-            raise AssertionError((n,mask,sorted(x),sorted(y)))
-    return 1<<n
-
-
-def check_cycle_bases():
-    tested_bases=0; tested_subsets=0; profile=[]
+if __name__=='__main__':
     for n in range(3,11):
-        d=distances(n,cycle_edges(n)); iv=all_intervals(d)
-        opt=options(n,d,iv)
-        predicted = factorial((n-1)//2-1)**n if n%2 else factorial(n//2-1)**n
-        # Above is factorial number of optimum bases for cycles of either parity.
-        total=1
-        for _,opts in opt: total*=len(opts)
-        assert predicted==total,(n,predicted,total)
-        nonedges=sum(1 for x in iv if d[x[0]][x[1]]>=2)
-        predicted_cost=3*nonedges+(n//2 if n%2==0 else 0)
-        positions=range(total) if total<=128 else range(12)
-        for j in positions:
-            if total<=128:
-                selected=[]; k=j
-                for pair,opts in opt:
-                    selected.append((pair,opts[k%len(opts)])); k//=len(opts)
-            else:
-                rng=Random(1100+n*100+j)
-                selected=[(p,rng.choice(opts)) for p,opts in opt]
-            cost=sum(2+len(rhs) for _,rhs in selected)
-            assert cost==predicted_cost,(n,cost,predicted_cost)
-            tested_subsets+=check(n,iv,selected)
-            tested_bases+=1
-        profile.append((n,predicted_cost,predicted))
-    assert dict((n,c) for n,c,_ in profile)=={3:0,4:8,5:15,6:30,7:42,8:64,9:81,10:110},profile
-    return tested_bases,tested_subsets,profile
-
-
-def check_general():
-    graphs=0; geodetic=0; nong=0; subsets=0
-    for n in range(2,6):
-        pairs=list(combinations(range(n),2))
-        for mask in range(1<<len(pairs)):
-            E=[p for i,p in enumerate(pairs) if (mask>>i)&1]
-            d=distances(n,E)
-            if -1 in d[0]:continue
-            iv=all_intervals(d)
-            is_geo=all(len(iv[u,v])==d[u][v]+1 for u,v in iv)
-            graphs+=1
-            if is_geo:
-                geodetic+=1
-                opts=[((u,v),tuple((w,) for w in sorted(iv[u,v]-{u,v}))) for u,v in iv if d[u][v]>=2]
-                assert all(q for _,q in opts)
-                for selector in [0,1]:
-                    basis=[(p,choices[min(selector,len(choices)-1)]) for p,choices in opts]
-                    subsets+=check(n,iv,basis)
-            else:
-                nong+=1
-                min_d=min(d[u][v] for u,v in iv if len(iv[u,v])>d[u][v]+1)
-                ambiguous=next((u,v) for u,v in iv if d[u][v]==min_d and len(iv[u,v])>min_d+1)
-                # A single chosen consequence for this first ambiguous pair can
-                # derive only the points on one fixed geodesic, not their union.
-                u,v=ambiguous
-                w=min(iv[u,v]-{u,v})
-                basis=[((a,b),(min(iv[a,b]-{a,b}),)) for a,b in iv if d[a][b]>=2]
-                derived=basis_closure({u,v},basis)
-                assert iv[u,v] - derived,(n,ambiguous,derived,iv[u,v])
-    return graphs,geodetic,nong,subsets
-
-
-def main():
-    b,s,profile=check_cycle_bases()
-    g,geo,nong,t=check_general()
-    print('VERIFY_OK cycles_bases=%d cycle_subsets=%d all_connected_labelled_graphs=%d geodetic=%d nongeodetic=%d graph_subsets=%d' %(b,s,g,geo,nong,t))
-    print('cycle_cost_and_optimum_count='+repr(profile))
-
-if __name__=='__main__': main()
+        cycle(n)
+    for s in range(4,8):
+        crown(s)

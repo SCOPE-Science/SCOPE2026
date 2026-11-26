@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:18:31.912321Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The per-edge rate is one and each site's independent refresh rate is g. All-site refresh with no edge rings over a fixed interval gives a uniform regeneration component: the skeleton is a total-variation contraction with a unique invariant law, which is invariant for the full semigroup by commutation. With W the total energy, exchange conserves W and the refresh generator satisfies L(W²)≤−gW²+2gW∑T_i+2g∑T_i², using ∑X_i²≤W². This gives bounded second moments from a finite-energy initialization and in the invariant law by convergence and truncation. The first moments solve the stated graph-Laplacian equation. An independent centered reconstruction uses C_ij=E[X_iX_j]/(1+δ_ij)−m_im_j: at an edge incident to both coordinates of a moment, the homogeneous update is the average of the three normalized moment coordinates (the two diagonal ones and their cross moment). Subtracting first-moment products gives source +(m_i−m_j)²/3 on either diagonal and −(m_i−m_j)²/6 on the edge cross moment. A refresh at i gives the diagonal source g(T_i−m_i)², and no cross-moment source; updates involving just one coordinate of a distinct pair give a homogeneous averaging term. Thus the sources scale by Δ² and are independent of T. The orbit equations obtained this way agree with the displayed determinant and rational covariance formulas. In addition to exact full-vertex solves at (n,g)=(3,5) and (4,2), checked on independently written code (reconstruct_record4.py and direct_check.txt under /workspace/branches/9ab69628-1e33-4b09-95d3-9e6b14f234eb/), I checked the centered eight-orbit determinant and the three formula identities by exact modular elimination at every n=3,…,20 and g=1,…,18. Multiplying the system by 6 and the centered unknowns by [2(g+n)(2g+n)]² gives integer coefficient entries of degree at most 1 and source entries of degree at most 5. Cramer's numerator determinants have degree at most 12; all cross-multiplied identities therefore have degree at most 17. On this grid coefficient magnitudes are below 500 and source magnitudes below 3·10^9, so the integer identity residuals, by the determinant expansion and formula factors, have magnitude below 10^45. All residues vanished for eleven distinct primes above 100000, with no singular modular system. This suffices for integer equality on the grid and hence polynomial equality by interpolation; the finite full-vertex solves by themselves are only checks. The supplied symbolic and numeric scripts were inspected but not executed. Descartes' rule, the endpoint signs and the positive denominators prove the sign transition; strict positivity of the cross-pair numerator and the same-shore identity settle the other classes. Scaling the unique root is justified by sign brackets around (1+√3)/2 in the limiting factored quartic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "De Masi–Ferrari–Gabrielli distinguish combined boundary-edge updates and separately refreshed designated boundary sites. The frozen process splits every edge and additionally refreshes every site at arbitrary common rate g.",
+          "Giardinà–Redig–van Tol give broader propagation of mixtures and exchange/intertwining dynamics, not this graph/rate-resolved sign result. Bertini–Gabrielli–Lebowitz study macroscopic empirical energy fluctuations of a boundary-driven chain."
+        ],
+        "reasoning": "The general mixture law and closure can provide methods for computing the same moments but are not a formula or sign result covering all cold-pair orbits of this thermostat model. The chain covariance operator concerns a different observable and scaling.",
+        "searches": [
+          "arXiv:2310.01672v2 §2 and Theorem 2.3",
+          "DOI:10.1007/s10955-025-03393-1 §§2.1–2.2",
+          "arXiv:cond-mat/0501681v1 §5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verify_symbolic.py",
+        "arXiv:2310.01672v2",
+        "DOI:10.1007/s10955-025-03393-1",
+        "arXiv:cond-mat/0501681v1",
+        "Resultary 5335f0c33eec and 065f172b2ea0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "5335f0c33eec uses the same independent refresh and splitting laws on a complete graph; its hot–cold pair changes sign at a different scale, and cold–cold pairs are always positive.",
+          "On the reviewed biclique the opposite-shore cold–cold pair is nonadjacent, and the other nonadjacent cold–cold orbit has the opposite positivity behavior for large g. The complete graph has neither of these separate nonadjacent orbits."
+        ],
+        "reasoning": "Deleting the within-shore exchange edges changes the pair-moment operator, not just a parameter in the complete-graph formula. The complete-graph and reservoir-edge claims do not imply the biclique rational function, sign separation or limit. A shared publication date does not establish priority.",
+        "searches": [
+          "5335f0c33eec mirrored RESULT.md, statement",
+          "065f172b2ea0 mirrored RESULT.md, model and covariance",
+          "arXiv:2310.01672v2 Eqs. (2.1)–(2.4), (2.12)–(2.18)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The stationary law can be studied using factorial-normalized moments or hidden local temperatures; independent-exponential mixtures give hidden-temperature covariance for distinct sites.",
+          "The generalized KMP Beta(2s,2s) update is uniform at s=1/2 and intertwines with a common random average of the two hidden parameters."
+        ],
+        "reasoning": "The difference between energy and hidden-temperature language alone cannot establish novelty. At moment degree two it is the graph-dependent pair equations and the independent refresh mechanism that determine the result; neither inspected hidden-temperature formula evaluates this biclique threshold.",
+        "searches": [
+          "Literature: KMP hidden temperature, covariance and local thermalization",
+          "Resultary: sole hot bath, complete bipartite network and cold-site covariance",
+          "arXiv:2310.01672v2 Theorem 2.3",
+          "DOI:10.1007/s10955-025-03393-1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest parameter-specific Resultary match 5335f0c33eec uses K_N, not K_{n,n}; a separate match 065f172b2ea0 uses reservoir-edge updates. No separate exact symbolic census for the biclique family was found in the bounded checks. The frozen examples are its own checks."
+        ],
+        "reasoning": "A finite numeric table would not give the universal rational function or unique crossing without an additional certified degree/identity argument. A symbolic table specialized to this generator and graph family would count as equivalent coverage, but the checked matches are not such a table.",
+        "searches": [
+          "Resultary: covariance sign change, local exponential thermalization, K_{n,n}, complete graph and cold–cold pairs",
+          "Frozen RESULT.md and VERIFICATION.md examples"
+        ]
+      },
+      "rationale": "The specific cold–cold sign reversal on the far shore, the all-rate separation of the three cold-pair classes, and the threshold scaling are supported as distinct to the best of current knowledge. Uniform energy splitting, second-moment closure, and the mixture framework are established techniques. The nearest same-day result shares the refresh generator on a different graph and has a different sign-changing class; its result does not imply the biclique classification.",
+      "residual_risks": [
+        "A broader unlocated all-site thermostat covariance formula or prior explicit evaluation for complete bipartite graphs could cover the theorem. The inspected sources establish bounded comparison, not global priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant general machinery; different update architecture and graph for the covariance",
+          "evidence": "Mixture of independent exponentials and a one-dimensional covariance discussion; no inspected expression for the biclique refresh problem.",
+          "identifier_or_url": "https://arxiv.org/abs/2310.01672",
+          "material_read": "§2 Eqs. (2.1)–(2.4) offsets 10300 and 16000; Theorem 2.3 Eqs. (2.12)–(2.15) offset 24700; covariance Eqs. (2.17)–(2.18) around offset 28006",
+          "method": "Primary OA v2 HTML passages",
+          "title": "Hidden temperature in the KMP model",
+          "trigger": "General representation and potentially matching boundary update"
+        },
+        {
+          "assessment": "Includes uniform redistribution as a special case; not the sign classification",
+          "evidence": "Beta energy split and corresponding common beta-weighted average of hidden parameters.",
+          "identifier_or_url": "https://doi.org/10.1007/s10955-025-03393-1",
+          "material_read": "§§2.1–2.2 Eqs. (10)–(25), PDF pp. 6–9, offsets 18200 and 25400",
+          "method": "Primary OA PDF passages",
+          "title": "Intertwining and Propagation of Mixtures for Generalized KMP Models and Harmonic Models",
+          "trigger": "Broader continuous exchange and hidden-temperature framework"
+        },
+        {
+          "assessment": "Different setting and observable",
+          "evidence": "Boundary-driven one-dimensional chain and Gaussian empirical energy fluctuations, not finite connected covariances for the all-site refresh graph.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0501681",
+          "material_read": "§5 Eq. (5.6), OA HTML offset 92227",
+          "method": "Primary OA passage",
+          "title": "Large deviations for a stochastic model of heat flow",
+          "trigger": "Earlier KMP covariance and long-range behavior"
+        },
+        {
+          "assessment": "Same generator ingredients but a different graph and reversing pair",
+          "evidence": "K_N, hot–cold reversal at scale 1/√2 and positive cold–cold covariances.",
+          "identifier_or_url": "5335f0c33eec",
+          "material_read": "Mirrored RESULT.md statement and model",
+          "method": "Local mirror",
+          "title": "A unique covariance sign reversal under local thermalization",
+          "trigger": "Closest same-day generator and sign-transition match"
+        },
+        {
+          "assessment": "Different reservoir events and positive distinct-site covariances",
+          "evidence": "A complete internal graph with two reservoir-edge updates per site, not independent local exponential refreshes.",
+          "identifier_or_url": "065f172b2ea0",
+          "material_read": "Mirrored statement, reservoir and internal graph rules",
+          "method": "Local catalogue comparison",
+          "title": "Current-neutral internal exchange and exact long-range KMP correlations",
+          "trigger": "Nearby exact finite network covariance statement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The covariance sign change concerns two identically cold vertices with no direct bond to one another, not simply an imbalance involving the hot vertex. A single impurity in a canonical two-shore mixing network separates two nonadjacent cold-pair classes. Exact all-rate signs and a threshold on the natural scale set by the degree n distinguish this from a single numerical example or a known one-dimensional estimate. The result answers a concrete finite-network question and imposes no unsupported claims about currents, higher cumulants or other geometries.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:55:47.888668Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reassessed the actual replacement for the standard object: distinct cyclic starting positions yield distinct windows, and no window is a reversal of any window (including itself). Both closed walks give balance with 2m distinct edges, and at a symmetric vertex its union out-degree is twice the forward walk out-degree. Removing abba leaves divergence +1 at aab for a≠b, −1 at abb, zero elsewhere. Thus omitted pair divergence over P totals k(k−1). The only +2 pairs are aacc/ccaa, at most binom(k,2); each omitted pair incident to a uniform triple contributes −1, and even k forces ≥k such distinct pairs. Other pairs give at most +1. Therefore r≥binom(k,2)+2k, giving the claim after subtracting from (k⁴−k²)/2. The bounded replay /workspace/branches/independent_replay.py checks the original counterexample and local contributions for k=4,6,8; the argument, not that enumeration, proves the universal bound. Independently generated every cyclic window from the two exact published witness.txt files at local snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4: lengths and numbers of canonical reversal representatives were (106,106) and (603,603), with both alphabet checks and all nonpalindrome checks passing. The repaired verification notes give the short replay for these two exact corollaries.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The existing upper bound is (k⁴−2k²)/2 for even k and order four; the updated construction table still lists this upper bound. The negative-orientable problem uses negation as well as reversal and is not the same predicate."
+        ],
+        "reasoning": "The existing general graph method and longer constructions are not upper bounds stronger than or equal to the repaired claim. Distinct reversal conditions do not transfer without a reduction.",
+        "searches": [
+          "arXiv:2507.02526, Theorem 2.22 and local-degree analysis",
+          "arXiv:2603.18646, Table 4, order-four columns"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2507.02526",
+        "arXiv:2603.18646",
+        "Resultary 341177c7af0a",
+        "Resultary 7e0973a0f822",
+        "Resultary c2f06fe02eed (summary only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior bound allows 3k/2 more pairs than the repaired upper bound. The archived 106 and 603 claims are existential lower bounds, verified by finite witnesses. The indexed later capacity result is for one alphabet size."
+        ],
+        "reasoning": "Neither an earlier weaker upper bound nor an improved lower bound entails the new uniform upper bound. The distinctive ingredient is the joint omission cost from summing divergence over P and charging the uniform triples' negative contributions.",
+        "searches": [
+          "arXiv:2507.02526, Theorem 2.22; Resultary 341177c7af0a, 7e0973a0f822, c2f06fe02eed"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mitchell–Wild's definition requires at most one occurrence either way in a period. Lemma 2.7 already formulates the sequence and reverse by two edge-disjoint circuits with 2m distinct windows. The corrected graph proof uses that same model."
+        ],
+        "reasoning": "The graph translation itself is not new. The stronger omission bound uses the summed divergence and signs of contributions of specific reversal-pairs, not a change of nomenclature or orientation convention.",
+        "searches": [
+          "Resultary: even-alphabet order-four orientable sequences period bound and exact optima",
+          "arXiv:2507.02526, §1.1 and §2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The updated table gives 88, 552, 1872 as construction periods at k=4,6,8 with upper bounds 112,612,1984. Two older Resultary explicit witnesses yield lower bounds 106 and 603 at the first two sizes. A later indexed record reports exact capacity 106 for k=4; full text not obtained."
+        ],
+        "reasoning": "Use the stronger exact witnesses rather than treating the table as an exhaustive record; they combine with the repaired bound for equality. Even confirmed later coverage at k=4 alone would not cover the uniform upper bound. No singleton-priority claim is made.",
+        "searches": [
+          "Mitchell–Wild Table 7; 2026 update Table 4; Resultary exact periods 106 and 603 and order-four capacity"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the uniform upper bound in the repaired standard scope. The degree framework is established, but no inspected statement implies this sharper upper bound across every even k≥4. Credit the two existing lower-bound constructions and distinguish the later indexed k=4 overlap from the uniform claim.",
+      "residual_risks": [
+        "The exact relationship with the indexed later quaternary proof is not known from its summary.",
+        "A stronger general bound or a parallel omitted-pair proof might be unindexed. No general attainability claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same formulation and weaker even-k upper bound",
+          "evidence": "Distinct windows either way; counts 2m graph edges; upper bound (k⁴−2k²)/2 at order four.",
+          "identifier_or_url": "https://arxiv.org/html/2507.02526",
+          "material_read": "§1.1; §2.1 Lemma 2.7 (offset 10270); Theorem 2.22 (offset 35743); Table 7 (offset 79305)",
+          "method": "OA primary HTML passages",
+          "title": "New orientable sequences",
+          "trigger": "Same objects and upper bound, graph setup and tables"
+        },
+        {
+          "assessment": "Construction improvements do not cover the upper bound",
+          "evidence": "88, 552, 1872 for k=4,6,8 in order four, and unchanged upper bounds.",
+          "identifier_or_url": "https://arxiv.org/html/2603.18646",
+          "material_read": "Table 4 (offset 86904)",
+          "method": "OA primary HTML passage",
+          "title": "Constructing orientable and negative orientable sequences with asymptotically optimal period",
+          "trigger": "Updated lower and upper bound tables"
+        },
+        {
+          "assessment": "Verified attaining witness, not an upper bound",
+          "evidence": "106 different nonpalindromic reversal classes in a 106-symbol cyclic word.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-a-106-symbol-quaternary-orientable-cycle-of-order-four--341177c7af0a",
+          "material_read": "RESULT.md Finding, Proof, Limitations and witness.txt",
+          "method": "Local published mirror, followed by independent exact window comparisons",
+          "title": "A 106-symbol quaternary orientable cycle of order four",
+          "trigger": "Existing witness matches the claimed upper bound at k=4"
+        },
+        {
+          "assessment": "Verified attaining witness, not an upper bound",
+          "evidence": "603 different nonpalindromic reversal classes in a 603-symbol cyclic word.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-a-six-symbol-orientable-cycle-of-order-four-and-period-603--7e0973a0f822",
+          "material_read": "RESULT.md Finding, Proof, Limitations and witness.txt",
+          "method": "Local published mirror, followed by independent exact window comparisons",
+          "title": "A six-symbol orientable cycle of order four and period 603",
+          "trigger": "Existing witness matches the claimed upper bound at k=6"
+        },
+        {
+          "assessment": "Material k=4 overlap reported, not evidence of all-even-k coverage or identical proof",
+          "evidence": "Summary reports exact 106 by a finite parity-and-flow bound; timing is later than the frozen result but is not used to decide mathematical coverage.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-the-sharp-106-window-capacity-of-quaternary-orientable-four-gram--c2f06fe02eed",
+          "material_read": "Indexed summary only; exact record unavailable for full-text comparison",
+          "method": "Local Resultary search and attempted lawful read",
+          "title": "The sharp 106-window capacity of quaternary orientable four-grams",
+          "trigger": "Direct indexed overlap for k=4"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repair retains a meaningful uniform improvement for an established extremal problem. It closes two small-alphabet gaps once the pre-existing verified witnesses are credited, and exposes a structural obstruction from divergence plus parity even where the maximum is unknown. It is not just a finite table recalculation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:46:02.078618Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof Steps 1–6",
+        "Frozen VERIFICATION.md and verify.py (read-only)",
+        "Independent overlap-graph enumeration at n=6,8"
+      ],
+      "rationale": "In the length-(n−1) overlap graph the fixed-weight arcs have one predecessor and one successor at every active vertex; those successors rotate the labels. Subtracting the balanced mandatory weight-three layer from any closed walk therefore forces constant auxiliary multiplicity along each weight-two necklace. The pair support hits every position triple: rotate a proposed three-one arc to put the deleted one at its end, and the weight-two arc obtained by appending zero to the same prefix shares that vertex. Conversely, a shared vertex of weight two realizes exactly such a pair. Without a hit, that triple’s necklace would be isolated, and there is more than one required necklace since binomial(n,3)>n. Mantel’s bound gives n(n−2)/4 auxiliary arcs; equality makes the complementary graph balanced complete bipartite (at equality all degrees are n/2 and the neighbors of any vertex are independent). One-step rotation cannot preserve either class individually and hence must exchange them, forcing the parity partition. The parity support is balanced and connected: {0,2,d} links the selected separation d>2 to separation 2, and every mandatory cycle attaches to a selected one. Euler traversal gives exactly the specified windows. The conclusion is uniqueness of the multiset, not the circle. A separate enumeration of all 8 and 16 auxiliary support choices at n=6,8 recovered the unique minima 26 and 68 and checked their Euler words; at n=6 it recovered 11001010100110100011100010. These finite cases are corroboration only; the uploaded verify.py was inspected, not executed.",
+      "residual_risks": [
+        "No assertion for odd n, n=4, or other auxiliary weights; no enumeration of all optimizing circles."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2013 PDF, p. 1, treats arbitrary complete contiguous ranges c through d and notes a previous adjacent-range construction. Mantel bounds the complementary graph but does not construct a connected overlap digraph or force the parity classes without the rotation argument."
+        ],
+        "reasoning": "The full adjacent range [2,3] uses binomial(n,2) auxiliaries; the smaller feasible optimum, its lower bound, and its rigidity require separate arguments.",
+        "searches": [
+          "DOI 10.1007/978-3-642-45278-9_33",
+          "DOI 10.1137/100808782",
+          "DOI 10.37236/5517"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1007/978-3-642-45278-9_33, p. 1",
+        "DOI 10.1137/100808782 and DOI 10.37236/5517 (limited access)",
+        "Resultary 0ce88ef7d6f6 and f4651bf8d572 (indexed statements)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The full-range construction yields length binomial(n,3)+binomial(n,2); the reviewed optimum saves n²/4 windows. The track-minimum result counts circles rather than edges added to connect cycles."
+        ],
+        "reasoning": "Neither known bound implies either the sharp saving or that every optimal added multiset consists of all and only same-parity pairs, each once.",
+        "searches": [
+          "Sawada–Williams–Wong (2013), PDF p. 1",
+          "Resultary 0ce88ef7d6f6 and f4651bf8d572"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A cover here is a balanced connected augmentation of mandatory weight-three necklaces; support is a rotation-invariant pair set with triangle-free complement. The prior complete-range construction fixes every auxiliary factor instead of selecting its support."
+        ],
+        "reasoning": "Neither the complete-range Euler tour nor multiple disjoint fixed-weight circular tracks solves the selective single-tour augmentation problem.",
+        "searches": [
+          "Resultary fixed-weight cyclic covers and weight-two circular covering law",
+          "Sawada–Williams–Wong, Universal Cycles for Weight-Range Binary Strings, abstract and introduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed exact quantities concern counts of tracks for fixed-weight coverage or circumference for mandatory weight-two windows, not minimum weight-two augmentation with weight three mandatory."
+        ],
+        "reasoning": "These are nearby exact invariants, not a table of the reviewed invariant.",
+        "searches": [
+          "Resultary: exact minimum cyclic covers and their enumeration for every fixed weight (0ce88ef7d6f6)",
+          "Resultary: sharp circular covering law for binary words of weight two (f4651bf8d572)"
+        ]
+      },
+      "rationale": "The inspected work provides full-range cycles or optimizes a different notion of cover. No available statement gives the sharp selection cost and unique minimizing multiset here. This is a bounded best-of-knowledge assessment.",
+      "residual_risks": [
+        "The 2012 and 2016 primary full texts and the two indexed record bodies were not independently read; an earlier explicit sparse-gluing theorem remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full-range construction, not selective optimization",
+          "evidence": "Constructs universal cycles for all weights in c through d, using a gluing lemma; objects appear once.",
+          "identifier_or_url": "https://doi.org/10.1007/978-3-642-45278-9_33",
+          "material_read": "Primary PDF p. 1, abstract and introduction",
+          "method": "Read accessible primary PDF",
+          "title": "Universal Cycles for Weight-Range Binary Strings",
+          "trigger": "Closest construction for weights two and three"
+        },
+        {
+          "assessment": "Adjacent-range overlap established by the available description only; no full-text exclusion",
+          "evidence": "2013 introduction notes that an efficient c=d−1 cycle construction was previously known.",
+          "identifier_or_url": "https://doi.org/10.1137/100808782",
+          "material_read": "Bibliographic lead and 2013 primary paper’s introductory description of a preceding adjacent-weight construction; original PDF not read",
+          "method": "Publisher and lawful OA attempts",
+          "title": "De Bruijn Sequences for Fixed-Weight Binary Strings",
+          "trigger": "Adjacent-weight antecedent"
+        },
+        {
+          "assessment": "No full-text coverage determination",
+          "evidence": "The available metadata establishes the construction topic but not an optimal selective augmentation theorem.",
+          "identifier_or_url": "https://doi.org/10.37236/5517",
+          "material_read": "Title and landing page only",
+          "method": "Locate lawful journal article",
+          "title": "Generalizing the Classic Greedy and Necklace Constructions of de Bruijn Sequences and Universal Cycles",
+          "trigger": "Possibly broader necklace-union construction"
+        },
+        {
+          "assessment": "Distinct objective in the indexed statement",
+          "evidence": "Minimizes the number of separate covering tracks and enumerates optima.",
+          "identifier_or_url": "Resultary 0ce88ef7d6f6",
+          "material_read": "Indexed claim summary; full record not retrieved",
+          "method": "Resultary statement search and lawful local-mirror attempt",
+          "title": "Exact minimum cyclic covers and their enumeration for every fixed nonzero weight",
+          "trigger": "Exact optimization on fixed-weight covers"
+        },
+        {
+          "assessment": "Different set of mandatory windows",
+          "evidence": "Covers all weight-two windows, not each weight-three window exactly once with selected weight-two auxiliaries.",
+          "identifier_or_url": "Resultary f4651bf8d572",
+          "material_read": "Indexed claim summary; full record not retrieved",
+          "method": "Resultary statement search and lawful local-mirror attempt",
+          "title": "A sharp circular covering law for binary words of weight two",
+          "trigger": "Exact shortest single-circle cover using low weights"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Steps 2–6",
+        "Sawada–Williams–Wong 2013, full-range construction described on p. 1"
+      ],
+      "rationale": "This determines the exact cost of turning separate fixed-weight cycles into one circle while retaining exact-once coverage of the mandatory layer. The n²/4 saving over the complete adjacent range and the forced parity support are structurally useful, not a small-order census. The link to triangle-free extremality explains why all optimum covers have the same factors.",
+      "residual_risks": [
+        "The cost is specific to the permitted auxiliary weight and does not optimize unrestricted cyclic superstrings."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

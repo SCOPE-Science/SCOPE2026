@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:22:35.814154Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–93",
+        "VERIFICATION.md lines 19–23",
+        "check_ks.py lines 10–79"
+      ],
+      "rationale": "The exact iid geometric likelihood gives the stated MLE including its boundary extension, and comparing integer CDFs gives the survival-count supremum. For nq→∞, expand S/(n+S) about ES to first order: the quadratic remainder in n qhat is O_P(q), while S−A is B plus higher-bin counts. Centered counts from j≥3 sum to the centered sum of (K−2)_+, whose variance is O(nq³). Consequently the first two signed discrepancies have opposite leading terms ±(B−nq²), with O_P(√(nq³)+q) error. For j≥3, conditioning on M=N_3 gives a centered empirical tail process of M geometric excesses with expected count-scale supremum O(√M); the separate binomial fluctuation of M about nq³ is O_P(√(nq³)). The fitted powers change by only O_P(q^(5/2)/√n) at those endpoints. This controls the whole supremum, not merely the zero-frequency contrast. Applying the binomial CLT, Poisson convergence or P(B=0)→1 gives the first three limits with the stated normalizations. When nq stays bounded, B=0 with probability tending to one; there D=A²/[n(n+A)] since the first discrepancy dominates the fitted second tail. This gives the Poisson-square limit and finite-exponent nonexistence probability. Given A=m and B=0, bootstrap higher bins have probability at most n[m/(n+m)]², and outside that event strict increase of the exact statistic in the number of nonzero observations reduces the tie-inclusive p-value to P(Bin(n,m/(n+m))≥m), up to that same error. It tends to π(m), including m=0; tightness of A justifies mixing. The finite checker was inspected, not run, and does not prove these array or bootstrap limits.",
+      "residual_risks": [
+        "No claims for a fitted lower cutoff, moving cutoffs chosen from data, dependence, non-Pareto noise, randomized bootstrap ties, or moment convergence in the sparse window."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Virkar–Clauset treat information loss and a binned, semiparametric refitting bootstrap that also reestimates the cutoff. 1e0b0757f682 treats both geometric endpoints for the studentized zero-frequency statistic and gives conditional calibration given the sufficient sum."
+        ],
+        "reasoning": "The broader parameter range of the zero-frequency theorem does not include the extra empirical-CDF endpoints; conditional calibration given S is not the ideal unconditional refitting bootstrap from the fitted model.",
+        "searches": [
+          "arXiv:1208.3524v2, pp. 10, 15–16, 20–21",
+          "Resultary 1e0b0757f682, arbitrary geometric parameter sequences"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2301.05690v1",
+        "arXiv:1208.3524v2",
+        "Resultary 1e0b0757f682 and 86ccac632ea1",
+        "Frozen RESULT.md proof and references"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "1e0b0757f682 gives the first-discrepancy identity n(A/n−qhat)=S²/(n+S)−(S−A); in the Gaussian and critical windows undoing studentization recovers the signed first-endpoint asymptotics. Its sparse-event identity specializes to the frozen first discrepancy on B=0. Lin–Newberry's finite useful-bin constraint concerns the chance of fewer than three bins, not the fitted supremum or the conditional tail limit."
+        ],
+        "reasoning": "These are known ingredients, not an independent novelty claim for the single-cell limits. Passing from them to the first two leading endpoints and a uniformly negligible higher tail when nq→∞ needs additional fitted-empirical-process control; the first-bin refitting and ties require a separate conditional calculation. The prior conditional exact test is not that bootstrap.",
+        "searches": [
+          "Resultary 1e0b0757f682, exact H−K identity, low-mean and Gaussian proofs, calibration",
+          "arXiv:2301.05690v1, occupied-bin constraint and refitting"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lin–Newberry define the discrete fitted log-bin KS statistic and refit in bootstrap samples. The geometric zero-frequency theorem uses p=1−q, K=n−A and p_hat=1−qhat, so its numerator p_hat−K/n is exactly A/n−qhat, the first signed KS endpoint."
+        ],
+        "reasoning": "Neither the complementary geometric parameter nor the first endpoint is new. The same second-bin Poisson mechanism is present; distinction rests on a supremum over all endpoints and on what occurs at the additional n q scale for the unstudentized KS and its refitting bootstrap.",
+        "searches": [
+          "arXiv:2301.05690v1, pp. 5–6",
+          "Resultary 1e0b0757f682, Finding and Proof steps 1–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "1e0b0757f682 is a distinct catalogue record sharing the signed endpoint exactly. 86ccac632ea1 studies collapse of the refitted bootstrap for an unbinned Pareto moment fit with infinite mean, not rare geometric bins."
+        ],
+        "reasoning": "There is exact overlap at the first endpoint, but neither finding gives the full KS phase diagram with π(P_t). Neither same-day date settles ordering.",
+        "searches": [
+          "Resultary: geometric-boundary Poisson limits, fitted Pareto KS and refitting bootstrap"
+        ]
+      },
+      "rationale": "Credit the existing model, refitting bootstrap, and, in the strongest catalogue comparator, the very same first endpoint and its n q² transition mechanism. The full-KS reduction, classification across both sparse scales for that supremum, and tie-inclusive re-estimating bootstrap limit distinguish the frozen finding as a whole. No priority is inferred between same-day records.",
+      "residual_risks": [
+        "Separate journal version of Lin–Newberry not retrieved; later or alternate formulations could add coverage. Same-day catalogue order and historical priority are unresolved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies methodology and an occupied-bin criterion; read passages contain no corresponding triangular-array KS and bootstrap limits.",
+          "evidence": [
+            "Bootstrap samples use the fitted discrete law at the same λ and refit the exponent."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2301.05690v1",
+          "material_read": "OA preprint pp. 5–6, offsets 21000–27444; separate journal full text was not retrieved",
+          "method": "Lawful OA PDF passage inspection and lawful alternate journal retrieval attempts",
+          "title": "Tunable Robustness in Power-Law Inference",
+          "trigger": "Same discrete fitted KS and refitting bootstrap"
+        },
+        {
+          "assessment": "Related methodology with cutoff reestimation and fixed scheme during calibration.",
+          "evidence": [
+            "The bootstrap refits both exponent and lower bin boundary; coarsening comparisons use Fisher information and sample size."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1208.3524v2",
+          "material_read": "OA PDF p. 10, pp. 15–16 and 20–21, offsets 27000, 40750, 57400",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Power-law distributions in binned empirical data",
+          "trigger": "Related fitted KS calibration and binning information loss"
+        },
+        {
+          "assessment": "Material exact endpoint coverage, but not the fitted KS supremum or its ideal bootstrap law.",
+          "evidence": [
+            "Z_n has numerator p_hat−K/n; n q²→t gives (t−P_t)/√t, and the exact calibration conditions on S."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-two-geometric-boundary-poisson-laws-and-exact-conditional-calibr--1e0b0757f682",
+          "material_read": "RESULT.md Finding, scope and proof of exact algebra, low-mean endpoint, Gaussian phase and conditional calibration, offsets 0–7783",
+          "method": "Resultary and local mirror passage inspection",
+          "title": "Two geometric boundary Poisson laws and exact conditional calibration for a zero-frequency goodness-of-fit test",
+          "trigger": "Same geometric model, first KS endpoint and q→0 critical scale"
+        },
+        {
+          "assessment": "Scientifically related, but with different statistic, estimator and mechanism.",
+          "evidence": [
+            "Continuous Pareto with shape in (0,1), sample-mean moment fit, and discrepancies converging to positive constants versus bootstrap collapse."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-full-null-bootstrap-failure-for-moment-fitted-pareto-goodness--86ccac632ea1",
+          "material_read": "RESULT.md Finding and assumptions, offset 0",
+          "method": "Resultary and local mirror passage inspection",
+          "title": "A full-null bootstrap failure for moment-fitted Pareto goodness of fit",
+          "trigger": "Same-family refitted KS bootstrap failure"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md findings and limitations",
+        "Lin–Newberry refitting procedure",
+        "Resultary 1e0b0757f682"
+      ],
+      "rationale": "The two scales distinguish loss of higher-bin shape information from disappearance of a finite estimate; they identify when a broadly used fitted goodness-of-fit statistic has Gaussian, lattice or deterministic leading behavior. The tie-inclusive bootstrap limit changes the practical interpretation of p-values under severe coarsening even under the exact null, beyond the known zero-frequency normality diagnostic.",
+      "residual_risks": [
+        "Exact-null asymptotic guidance, not a claimed power analysis, finite-n size bound, or justification for choosing a coarsening ratio from the data."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

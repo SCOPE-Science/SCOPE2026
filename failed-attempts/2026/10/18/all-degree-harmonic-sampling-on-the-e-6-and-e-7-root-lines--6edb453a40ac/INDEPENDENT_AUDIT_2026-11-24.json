@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:02:10.609958Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–75, VERIFICATION.md and check_exceptional_pair.py (inspected only)",
+        "/workspace/branches/ab5434c6-a6e7-494b-89c8-d459ab2842b1/independent_e6_e7_check.py and independent_e6_e7_check.out (independent exact replay)"
+      ],
+      "rationale": "Taking the orthogonal complements of the indicated A₂ and A₁ roots in E₈ yields irreducible simply-laced subsystems of ranks 6 and 7 with 72 and 126 roots, respectively. The separate exact replay verifies the signed/unsigned matrices, their eigenspaces and multiplicities, the stated projectors, and each Gegenbauer multiplier sign for degrees 0–79. Probability normalization of the addition formula gives the factor h, and parity gives the two matrix forms. For degrees ≥80, take the absolute value in the Gegenbauer integral and put u=cos θ; on 0≤θ≤π/2 use sin θ≥2θ/π in the exponential and sin θ≤θ in the nonnegative power sin^(2λ−1)θ for the two λ used. The extended Gaussian integral yields the asserted bound in these dimensions. The maximum even off-diagonal row sums and both odd spectral deviations are then <1. This verifies infinite positivity and the permanent cutoff. The degree-four and degree-three image defects follow from the fixed projectors, and the reconstruction and norm follow from orthogonal pseudoinversion.",
+      "residual_risks": [
+        "The integral estimate was verified for the two λ in the finding; the proof does not need a bound for arbitrary λ>0."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Each Finding gives the same sharp exact-degree threshold and also characterizes surjectivity for pairs of consecutive degrees on the full orbits. The E6 result additionally gives the exact worst Gram condition number."
+        ],
+        "reasoning": "The frozen claim consists of the two individual exact-degree problems and does not establish an extra result coupling the two geometries. The full-orbit theorems together dominate those two claims.",
+        "searches": [
+          "2026/11/2/SCOPE-all-degree-spherical-harmonic-sampling-spectrum-and-sharp-stabil--886626024f6c",
+          "2026/11/2/SCOPE-all-degree-spherical-harmonic-sampling-spectra-on-the-126-roots--84dbf7d91f5e"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 886626024f6c and 84dbf7d91f5e",
+        "Cohn–Kumar arXiv:math/0607446 §8.2",
+        "Bannai–Okuda–Tagami arXiv:1308.5101 §1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Simple spectral projectors of the fixed signed/unsigned adjacency operators are recovered from the Gram pencil: at odd degree one it is I+S/2; at even degree two it is affine in A and J with nonzero A coefficient, so on the orthogonal complement of constants it separates both eigenspaces. The constant direction is known. The Gram on each projector is the listed scalar multiplied by h."
+        ],
+        "reasoning": "Parity restriction gives the same normalized kernel. Its degree-independent projectors give the same images and E* (EE*)⁺y and y* (EE*)⁺y supply the interpolant and squared norm without another rank or positivity proof. The cited design conditions alone would not suffice.",
+        "searches": [
+          "Resultary 886626024f6c and 84dbf7d91f5e: exact orbit Gram and ranks",
+          "Delsarte–Goethals–Seidel; Bannai–Okuda–Tagami harmonic-index definitions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 886626024f6c directly prints the 36-by-36 unit-diagonal line Gram levels. Resultary 84dbf7d91f5e prints twice the 63-by-63 line Gram levels and the 63 additional parity zeros."
+        ],
+        "reasoning": "In sign-paired ordering, U:y↦(y,(−1)^ℓ y)/√2 is isometric and E_full=√2 U E_lines, so the parity block of the normalized full Gram divided by two is the line Gram. Real formulas complexify unchanged; different unit representatives only sign-conjugate the Gram in odd degrees.",
+        "searches": [
+          "Resultary: E6/E7 root-line and antipodal-root exact-degree spherical harmonic sampling spectra and ranks",
+          "Cohn–Kumar, arXiv:math/0607446; Bannai–Okuda–Tagami, arXiv:1308.5101"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact rank tuples (1,6,20,30,35), (1,7,27,56,62), their respective full-rank tails and all multipliers occur in the inspected indexed findings.",
+          "The older root graph and design sources are relevant background but not used as an exact table match."
+        ],
+        "reasoning": "The matched objects are the evaluation operators for every degree, not merely the two adjacency spectra or a spherical-design moment table.",
+        "searches": [
+          "Exact degree ranks and spectra in Resultary 886626024f6c and 84dbf7d91f5e, both RESULT.md Findings at offset 0",
+          "Bussemaker–Cvetković–Seidel, Memorandum 7609; Delsarte–Goethals–Seidel, doi:10.1007/BF03187604"
+        ]
+      },
+      "rationale": "Two distinct indexed results give the exact-degree E6 and E7 ranks and the full Gram spectra on the same roots, including the permanent sharp threshold and stronger sampling consequences. Passing between whole orbits and selected lines is a parity restriction and normalization, and complexification does not change the ranks or eigenvalues. The reconstruction clause adds only the usual Gram pseudoinverse. This finding is about coverage, not which record has priority.",
+      "residual_risks": [
+        "No historical priority inference from catalogue dates.",
+        "Unresolved early graph/design sources are not the reason for failure; indexed statement-level coverage is sufficient."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS E6",
+          "evidence": "Same normalized line multipliers and ranks in all degrees, including isolated defects.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-all-degree-spherical-harmonic-sampling-spectrum-and-sharp-stabil--886626024f6c/RESULT.md",
+          "material_read": "Finding at offset 0: ranks, line Gram, full parity block, condition number and consecutive-degree claim",
+          "method": "Bounded local-mirror reads",
+          "title": "All-degree spherical-harmonic sampling spectrum of the 72 E6 roots",
+          "trigger": "Exact E6 match plus stability"
+        },
+        {
+          "assessment": "COVERS E7",
+          "evidence": "Same ranks and all normalized spectral levels with the factor of two and 63 parity-null directions, plus consecutive-degree interpolation.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-all-degree-spherical-harmonic-sampling-spectra-on-the-126-roots--84dbf7d91f5e/RESULT.md",
+          "material_read": "Finding and assumptions at offset 0",
+          "method": "Bounded local-mirror reads",
+          "title": "All-degree spherical-harmonic sampling spectra on the 126 roots of E7",
+          "trigger": "Exact E7 match on antipodal roots"
+        },
+        {
+          "assessment": "Antecedent on geometry and designs",
+          "evidence": "Identifies 36 and 63 projective roots as 2-designs but not 3-designs; not the whole harmonic rank spectrum in this section.",
+          "identifier_or_url": "https://arxiv.org/html/math/0607446",
+          "material_read": "§8.2, HTML offset 114488",
+          "method": "Bounded primary-text read",
+          "title": "Universally optimal distribution of points on spheres",
+          "trigger": "Sharp exceptional projective configurations"
+        },
+        {
+          "assessment": "Distinct invariant in passage read",
+          "evidence": "The harmonic-index condition detects vanishing sums on a degree, not all attainable data vectors.",
+          "identifier_or_url": "https://arxiv.org/pdf/1308.5101",
+          "material_read": "§1, PDF p. 1, offset 2404",
+          "method": "Bounded primary-text read",
+          "title": "Spherical designs of harmonic index t",
+          "trigger": "Possible exact-degree reformulation"
+        },
+        {
+          "assessment": "Older coverage unresolved, not relied upon",
+          "evidence": "Retrieval timed out; no accessible alternate copy was established in these checks.",
+          "identifier_or_url": "Eindhoven Memorandum 7609; doi:10.1007/BF03187604",
+          "material_read": "References identified; no decisive full-text passage obtained",
+          "method": "Bounded lawful OA retrieval and DOI lookup",
+          "title": "Graphs related to exceptional root systems; Spherical codes and designs",
+          "trigger": "Graph and association-scheme antecedents"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof §4",
+        "Resultary 886626024f6c and 84dbf7d91f5e Findings"
+      ],
+      "rationale": "The cubic obstruction and sharp all-degree interpolation threshold are mathematically useful, but they and their spectra are already available for both geometries. Compiling them in a joint table and applying the standard pseudoinverse does not establish a distinct scientific result.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

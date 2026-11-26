@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:45:24.369913Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under the invertible congruence Q=VᵀPV, a column for the unordered pair (i,j) factors into the temporal vector at μ=λ_iλ_j and the values of the monomial z_i z_j on the actual starts. Time zero handles μ=0. With H≥s, distinct μ give independent temporal Vandermonde columns, so a left inverse separates the classes and the total rank is the sum of their ranks. Each is bounded by min(r,m_μ). The stated b_i make each unordered b_i b_j distinct: off-diagonal sums of two distinct binary powers have two bits, whereas diagonal sums carry to distinct one-bit exponents. Taking z_i^(k)=b_i^k supplies ordinary Vandermonde blocks and all of them attain their bounds simultaneously. This proves a maximum, not a statement for all starts. A nonzero polynomial minor gives the asserted genericity for absolutely continuous joint choices. Full rank is equivalent to r≥max m_μ. Below that, adding and subtracting a sufficiently small symmetric kernel vector from I gives two positive-definite alternatives. For the geometric family, each fixed index sum pairs disjoint indices with at most one diagonal pair; the maximum ceil(n/2) occurs at i+j=n+1, and the 2n−1 product values are distinct. Nonzero modal coordinates are cyclic for distinct eigenvalues by the ordinary Vandermonde, so n≥3 indeed separates ordinary cyclicity from quadratic identification. The supplied finite-field checker was inspected; the proof is over the reals and does not depend on it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The available Zhou comparison addresses minimum counts of unrestricted output matrices using the maximum geometric multiplicity; the Baltussen et al. comparison uses a full-regression-rank condition. The Berkane et al. search-result description treats unknown state under a known quadratic sensor."
+        ],
+        "reasoning": "An arbitrary-row existence theorem gives necessity for the restricted rows but cannot by itself place any full-rank witness in their rank-one variety. A sufficiently general result for evaluations on a spanning algebraic family could cover the structured part; no such coverage was established in the available evidence.",
+        "searches": [
+          "Zhou arXiv:1610.00063; Baltussen et al. arXiv:2611.03401; Berkane et al. arXiv:2312.10684",
+          "Structured observability via dynamical sampling and quadratic lifting"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and CHECKER.py",
+        "Local Resultary exact self-match for record 8e833ce0d871",
+        "Zhou, Baltussen et al., and Berkane et al. comparisons with access limitations as specified"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Frozen RESULT.md lines 61–65 contrasts the unrestricted output count and an imposed regression rank condition with exact structured attainment. The actual rank proof supplies a common rank-one witness for all product classes and computes ranks even below the identification threshold."
+        ],
+        "reasoning": "The unrestricted maximum-multiplicity threshold is implied by standard linear observability, but not the existence of the same threshold under actual trajectory initializations. Requiring full-rank regression data also does not tell an experimenter when those data can be attained. The geometric example instantiates the distinction and is not credited as an independent novelty claim.",
+        "searches": [
+          "Zhou, Minimal Inputs/Outputs for a Networked System",
+          "Baltussen et al., Policy Iteration over Terminal Cost Functions, Section 2.2 and equation (6), as cited by RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary match is the frozen 8e833ce0d871 record itself. The equivalent lifted system has eigenspaces indexed by products, but its observation rows are evaluations z⊗z, not arbitrary rows on the lift."
+        ],
+        "reasoning": "General linear observability on the lift is the correct equivalent test only with the rank-one sensor restriction retained; dropping it changes the feasible set. Known-form quadratic-output state estimation exchanges what is measured and what is unknown.",
+        "searches": [
+          "Resultary: quadratic value identification, spectral product multiplicity and exact minimum trajectories",
+          "Primary lookup: dynamical sampling, symmetric-square observability and rank-one quadratic measurements"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Lookup found the identical frozen record, not a separate tabulation of the structured ranks or a separate formula."
+        ],
+        "reasoning": "An exact numerical table for selected finite matrices cannot cover arbitrary dimension, real spectra and starts. A published symbolic multiplicity formula with the same restricted rows would matter; none was confirmed.",
+        "searches": [
+          "Resultary search for spectral collisions, geometric spectra and a minimum quadratic trajectory budget"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the structured exact rank and deterministic simultaneous attainability with rank-one trajectory starts. It is not originality for the unrestricted observability multiplicity bound, standard time separation, or terminal cost fitting. The relevant full-text comparison has access limits; the closest available evidence does not establish rank-one sufficiency or this rank law.",
+      "residual_risks": [
+        "Closest primary passages were not confirmed; a general structured dynamical sampling or algebraically restricted sensor theorem may subsume the attainability, and absence is not claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The described unrestricted theorem covers the lower-bound mechanism, not demonstrated structured sufficiency",
+          "evidence": "Output row space unrestricted; the frozen result restricts each row to a quadratic evaluation from one starting vector.",
+          "identifier_or_url": "https://arxiv.org/abs/1610.00063",
+          "material_read": "Frozen RESULT.md line 63 comparison; OA requests did not yield primary passages",
+          "method": "Primary discovery and attempted OA passage retrieval; comparison against the frozen account",
+          "title": "Minimal Inputs/Outputs for a Networked System",
+          "trigger": "Closest general geometric-multiplicity/minimum-output theorem"
+        },
+        {
+          "assessment": "The described method imposes full design rank rather than giving the spectral criterion; no whole-document conclusion",
+          "evidence": "Permits extra trajectories, initializations or excitation when rank is deficient, according to the frozen comparison.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.03401",
+          "material_read": "Frozen RESULT.md line 61 comparison pointing to Section 2.2 and equation (6); exact primary passages not retrieved",
+          "method": "Primary discovery and attempted OA passage retrieval",
+          "title": "Policy Iteration over Terminal Cost Functions: From LQR to MPC",
+          "trigger": "Same closed-loop quadratic-value regression and multiple trajectories"
+        },
+        {
+          "assessment": "The identified result has different unknowns; exact primary text unconfirmed",
+          "evidence": "Estimates an unknown state with known output matrices, rather than an unrestricted unknown quadratic form under known states.",
+          "identifier_or_url": "https://arxiv.org/abs/2312.10684",
+          "material_read": "Search-result description and frozen RESULT.md line 65",
+          "method": "Primary discovery and scope comparison",
+          "title": "State Estimation for Linear Systems with Quadratic Outputs",
+          "trigger": "Quadratic output and state lifting terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp separate-trajectory requirement gives an experiment-design obstruction that more time cannot fix. Even stable distinct ordinary eigenvalues and a cyclic start may have product collisions; exhibiting exact attainability by genuine starts turns the multiplicity lower bound into a usable identifiability criterion. The result concerns noiseless unrestricted quadratic forms, not numerical conditioning or a shorter-horizon tradeoff.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

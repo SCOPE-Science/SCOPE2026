@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:12:07.908344Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 13–73",
+        "Frozen VERIFICATION.md lines 19–23 and verify.py (inspected, not executed)",
+        "/workspace/review-evidence/bounded-checks.js"
+      ],
+      "rationale": "In odds t=p/(1−p), impose nonempty columns and apply partition Möbius inversion to the three left vertices. The column sums divided by t are f=x²+x+1, g=x+2 and h=3 for the three partition types, x=1+t. Marking one or two edges yields the stated E and three C values: in the disjoint case the three two-block partitions contribute x²+2x=xg, while for the same-left pair their contribution is 1+2x². To check the decisive factorization, expand P C_dis−E² in powers of F=f^k, G=g^k, H=h^k with k=n−2. The F², H² and GH coefficients vanish, and those of FG, FH and G² are −t²xg(2x+1), 2t²(2x+1)² and −t²g². With u=h/g and v=g/f, 0<v<u<1 follows from 3f−g²=t(2x+1). At k=0 the bracket has value −2t²(x+1). For k≥1, geometric summation and B(1−u)>C(1−v) keep it below that same negative bound. C_row=C_dis−t²g^k, and the two Bernoulli lower bounds at f/g and h/g give C_col≤C_row for k≥1. For n=2 the separate column numerator is −2t⁴(x+1). Full and single-edge-deleted graphs all have positive conditional probability because every edge lies on a 4-cycle; comparing their indicator vectors excludes any nonzero zero-variance linear combination. The inverse is entrywise positive by the convergent nonnegative-matrix geometric series, whose terms of orders zero and one already give strict positivity on and off the diagonal respectively. Consequently the linear partial correlations have the stated sign. Independent bit-set connectivity enumeration at p=1/4 for n=2,3,4 confirms all nine covariance signs, e.g. unnormalized n=2 differences (−378,−1521,−378); replay with node /workspace/review-evidence/bounded-checks.js. The analytic inequalities, not these checks, cover real p and unbounded n.",
+      "residual_risks": [
+        "No negative-association or unequal-probability inference; the partial correlation is linear, not a conditional-independence statement."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cao–Fu include all K_{m,n} at unit weights. Çiçeksiz–Ravichandran use complete graphs K_N and equal activity λ≥1. Grimmett–Winkler's connected case is a conjecture, not a covering theorem."
+        ],
+        "reasoning": "Neither larger bipartition dimensions at unit weight nor complete graphs at non-unit common activity cover every common weight for this bipartite family; the missing edges of a complete graph cannot be deleted while keeping the common-positive-weight hypothesis.",
+        "searches": [
+          "arXiv:2610.36749v1 Theorem 1.2 and §4.3",
+          "arXiv:2610.00549 Theorem 1.9 and Corollary 1.10",
+          "arXiv:math/0302185 Conjecture 1.1",
+          "Semple–Welsh Theorem 4.4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–11, 75–84",
+        "Resultary 5e0f6e40d62f, 0cd0e1e4f228, 84d2aef4351f",
+        "arXiv:2610.36749v1",
+        "arXiv:1008.3660",
+        "arXiv:2610.00549",
+        "arXiv:math/0302185"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The proof of Cao–Fu Theorem 1.2 sums inequalities for unweighted extension counts conditional on a graph restriction; it does not introduce a variable for extension size. Erickson's Δ_I−Δ_B for the cographic K_{3,3} is nonnegative at every positive weighting, and the basis Rayleigh difference is strictly positive at unit weights."
+        ],
+        "reasoning": "Basis homogeneity propagates that strict lower bound to all equal positive weights on K_{3,3}, so that entire slice is covered, not only unit activity. The same elementary support and inverse argument upgrades prior strict pairwise signs on the covered slices, so precision alone does not restore their novelty. At non-unit odds for larger n, multiplying unweighted extension counts by a single common factor is not a valid substitution: extensions have different sizes.",
+        "searches": [
+          "arXiv:2610.36749v1 pp. 2–3 and §4.3 offsets 60496ff",
+          "arXiv:1008.3660 §5 offset 31120"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Complementation identifies connected spanning edge sets with independent sets in the cographic matroid and changes common odds from t to 1/t; complementing both presence indicators preserves their covariance.",
+          "Resultary 5e0f6e40d62f instead uses all spanning forests of K_{3,n}, including disconnected forests."
+        ],
+        "reasoning": "The cographic independent-set theorem is a genuine equivalent formulation when the graph and weights match. A graphic forest theorem on the same bipartite graph is not that equivalence.",
+        "searches": [
+          "Resultary: strict edge anticorrelation for connected K_{3,n}, all-terminal reliability and equal-fugacity forests",
+          "arXiv:1008.3660 §5 cographic I-Rayleigh"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest published Resultary formulas count or analyze forest configurations or a later fixed-graph one-defect random-cluster law, not the weighted connected K_{3,n} marked sums. Cao–Fu explicitly give unit-weight K_{2,n} counts 3ⁿ−2ⁿ and their marked versions."
+        ],
+        "reasoning": "These are model-specific comparisons, not coincident signs in benchmark cases; no catalog or checked source supplies the all-n all-common-odds marked identities.",
+        "searches": [
+          "Resultary record 5e0f6e40d62f, Finding",
+          "Resultary record 0cd0e1e4f228, Finding",
+          "Resultary record 84d2aef4351f, Finding",
+          "arXiv:2610.36749v1 §4.3, K_{2,n} extension counts"
+        ]
+      },
+      "rationale": "Pass is for the common-odds all-parameter family, not for the unit-odds case or for a new principle about inverses. Cao–Fu Theorem 1.2 is exact coverage at p=1/2, even for arbitrary complete bipartite dimensions, and Erickson supplies the n=3 Rayleigh comparison. The date shared with Cao–Fu does not establish priority in either direction. The direct comparison of their proof, the cographic result and the broader weighted complete-graph work did not yield coverage of K_{3,n}, n≥4, at arbitrary common non-unit odds. That weighted extension is substantive and survives discounting the known slices; positive precision is a consequence of the strict covariance sign and full support dimension here.",
+      "residual_risks": [
+        "Semple–Welsh full text was not accessible for direct comparison; no novelty inference relies on that failure.",
+        "A broader theorem for cographic independent sets or another weighted bipartite result could cover the surviving range; no such implication was established from the inspected sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct same-day unit-weight coverage, not an all-weight theorem",
+          "evidence": "Unweighted j_ej_f−jj_ef>0; proof sums conditional extension counts.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.36749v1",
+          "material_read": "Theorem 1.2 p. 2 offset 5319; weighted K_{3,3} discussion pp. 2–3 offset 8621ff; proof §4.3 p. 16 offset 60496ff",
+          "method": "OA full-text passages",
+          "title": "Negative edge correlation in complete bipartite graphs",
+          "trigger": "Same connected edge law at p=1/2 and broader bipartite family"
+        },
+        {
+          "assessment": "K_{3,3} weighted coverage via the basis lower bound",
+          "evidence": "Δ_I−Δ_B is nonnegative for positive weights; Δ_B is homogeneous, with strict unit comparison described by Cao–Fu.",
+          "identifier_or_url": "https://arxiv.org/pdf/1008.3660",
+          "material_read": "§5, pp. 11–12, offset 31120ff",
+          "method": "OA full-text passage",
+          "title": "Negative correlation for spanning forests of graphs",
+          "trigger": "Cographic independent-set dual of connectivity law"
+        },
+        {
+          "assessment": "Different law",
+          "evidence": "Uniform spanning forests, including disconnected forests.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-strict-edge-anticorrelation-for-uniform-forests-of-k-3-n--5e0f6e40d62f",
+          "material_read": "RESULT.md Finding offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Strict edge anticorrelation for uniform forests of K_{3,n}",
+          "trigger": "Identical graph family and three-orbit sign conclusion"
+        },
+        {
+          "assessment": "Complete graphs only, at λ≥1",
+          "evidence": "Weighted pairwise negativity on K_N; the arbitrary-graph conjecture is not asserted.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.00549",
+          "material_read": "Theorem 1.9 p. 5, Corollary 1.10 p. 6 offset 19794",
+          "method": "OA full-text passages",
+          "title": "Altar Çiçeksiz–Ravichandran random-cluster preprint",
+          "trigger": "Weighted connected-subgraph limit of the random-cluster model"
+        },
+        {
+          "assessment": "Question rather than general coverage",
+          "evidence": "States connected-subgraph negative association as a conjecture.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0302185",
+          "material_read": "Abstract p. 1, Conjecture 1.1 p. 3 offset 4974",
+          "method": "OA full-text passages",
+          "title": "Negative association in uniform forests and connected graphs",
+          "trigger": "General negative-dependence question for the same connectivity law"
+        },
+        {
+          "assessment": "No decisive inference from inaccessible primary copy",
+          "evidence": "Secondary descriptions cite limited graph construction classes, not a general all-weight K_{3,n} theorem.",
+          "identifier_or_url": "https://www.math.canterbury.ac.nz/~c.semple/papers/SW07.pdf",
+          "material_read": "No direct full text; scope discussed by Cao–Fu and frozen RESULT.md lines 75–76",
+          "method": "Lawful OA PDF attempts returned HTTP 403; inspected secondary discussion",
+          "title": "Negative Correlation in Graphs and Matroids",
+          "trigger": "Earlier series-parallel extension theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–11 and 64–79",
+        "Cao–Fu Theorem 1.2",
+        "Grimmett–Winkler Conjecture 1.1"
+      ],
+      "rationale": "The weighted reliability dependence question is natural for all retention probabilities, not just uniform subgraph sampling. Exact signs on a genuine infinite bipartite family give a test case for more general dependence theory, and the result predicts signs of linear relationships even after regressing on every other indicator. The latter is a useful consequence, not a second independent novelty claim.",
+      "residual_risks": [
+        "No claim that this resolves negative association or nonuniform edge weighting."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

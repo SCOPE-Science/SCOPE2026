@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:25:34.069526Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The sample is uniform on labeled invertible structure matrices, not on isomorphism classes. Products of distinct images of natural basis vectors vanish; linear independence of the basis squares therefore forces disjoint supports in the columns of an isomorphism matrix. Invertibility makes it monomial, hence a permutation over F₂. For a transposition P=I+N, choose a length-two Jordan chain and n−2 singleton vectors. The commuting block constraints force scalar α on the two Jordan diagonal slots and leave free 2n−3 off-block/free entries once α=1; invertibility of the remaining block is exactly the condition B∈GL_(n−2)(F₂). Dividing 2^(2n−3)|GL_(n−2)| by |GL_n| gives the stated exact proportion, including n=2. The unrestricted transposition action has exactly 2n−2 paired-position constraints. For a permutation of cycle deficiency r with m moved points, the ordered-pair orbit dimension is the sum of gcds of cycle lengths, bounded by both n²−2nr+mr and n(n−r), with m≤2r. Conditioning on invertibility costs at most the reciprocal of the positive infinite GL density. At most (n choose 2)^r permutations have deficiency r; summing r=2 through n/4 using loss ≥3nr/2 gives the stated error, while the tail using loss ≥nr is smaller. To make the intersection step explicit, each pair of distinct transpositions has product of deficiency two; use loss ≥4(n−2) and sum over O(n⁴) pairs rather than bounding just one intersection. Bonferroni and the nontransposition bound give the probability formula and exclude all other nontrivial group types up to the error. Burnside gives the orbit formula with the same error. Finite checks by hand recover fixed counts 2,8,192 and orbit counts 4,33,908 for n=2,3,4. The packaged enumeration was inspected, not executed; it is not the proof of the asymptotics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier nonbinary proof gives the exact even-characteristic GL centralizer q^(2n−3)(q−1)|GL_(n−2)(q)| for Jordan type (2,1^(n−2)). Equation (3) bounds the total indexed fixed probability for a permutation moving s positions, before conditioning on nonsingularity. The structural and realizability papers concern possible groups rather than random probabilities."
+        ],
+        "reasoning": "The exact centralizer is valid in characteristic two including q=2: the same Jordan blocks apply, and the sole allowed scalar is 1. For the support bound at q=2 the scale factor and Z_(n−s) both become 1 directly, so no nonbinary hypothesis is needed for that estimate.",
+        "searches": [
+          "2026/11/2 Resultary record 8764d79e8d9d, proof equations (2)–(7)",
+          "arXiv:2202.01333, arXiv:1902.02191 and DOI 10.1007/s00009-025-02924-0"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 8764d79e8d9d proof, findings and verifications; summaries 94910e4fa8cb and 0a1e95678f35",
+        "Wei–Zou, Sriwongsa–Zou, Elduque–Labra, Costoya–Mayorga–Viruel"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equation (3) gives loss ceil((2sn−s²)/2) with q=2, up to the fixed GL density factor. At support s=3 the loss is 3n−4; for 4≤s≤n/2 it is at least 3sn/4. Equation (7) and Step 5 already use the leading centralizer, products of distinct transpositions and Burnside's lemma."
+        ],
+        "reasoning": "The support-three contribution is O(n³2^(−3n)); summing n^s·2^(−3sn/4) for s≥4 gives O(n⁴2^(−3n)), and larger supports have quadratic loss. Products of two distinct transpositions have support 3 or 4; equation (3) and O(n⁴) pairs directly give the same intersection error. Canceling the standard product formula for GL orders in the exact centralizer gives the displayed rational p_n without approximation. Orbit and group-probability assertions then follow exactly as in the earlier framework. Thus the stronger evaluated bound plus actual earlier proof mechanically yield the purported additions, notwithstanding its formal q≥3 novelty restriction.",
+        "searches": [
+          "8764d79e8d9d RESULT.md, proof offsets 3800–8151 and 8110–11955"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wei–Zou's general monomial orbit action, with trivial diagonal torus over F₂, gives precisely the simultaneous permutation conjugation of GL_n(F₂). The November 2 finding uses that action for nonbinary fields."
+        ],
+        "reasoning": "Automorphism of the perfect binary algebra and permutation stabilization of an invertible binary matrix are the same event. An unrestricted random digraph has the same action on matrices but not the sampling constraint; conditioning cannot be ignored in the leading constant.",
+        "searches": [
+          "Resultary: perfect evolution algebra rigidity, transposition dominance and orbit asymptotics",
+          "arXiv:2310.12368, HTML offset 7000"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Wei–Zou give exact Burnside enumeration and small-dimensional counts. The November 2 record explicitly uses binary dimensions 1–4 as regression tests. The distinct November 8 index hits concern constrained path patterns and a fixed five-dimensional group census."
+        ],
+        "reasoning": "Neither the finite tables nor the fixed-five census prove the all-dimension error; the decisive coverage instead comes from the earlier exact even-characteristic calculation and support bound. The assigned self-match does not count as independent evidence.",
+        "searches": [
+          "Resultary: binary perfect evolution algebra automorphism censuses and path-pattern reflections",
+          "arXiv:2310.12368, HTML offsets 7000 and 10532"
+        ]
+      },
+      "rationale": "The November 2 nonbinary theorem excludes q=2 from its stated novelty domain, so its headline alone is not coverage. Its actual estimates and exact even-characteristic centralizer calculation do cover the binary result by direct specialization and an elementary support split. The scalar terms all disappear at q=2, its exact centralizer formula becomes the reviewed transposition count, and its displayed support bound already gives the asserted error by isolating support 3 before the geometric tail. Its argument then supplies the same transposition dominance, conditional C₂ pattern and Burnside correction. The different deficiency bound is a proof variation, not a distinct claimed invariant or asymptotic.",
+      "residual_risks": [
+        "No historical completeness claim; the asymmetric-digraph primary text and both same-day full records were not retrieved. The originality decision rests on the actual November 2 proof, not on these access limits."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive proof-level coverage, despite nominal exclusion of binary novelty",
+          "evidence": "Eq. (3) ordered-position rank loss, Step 4 exact even-characteristic centralizer, Step 5 transposition products and Burnside; binary finite regression explicitly included.",
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-generic-rigidity-and-orbit-asymptotics-for-perfect-evoluti--8764d79e8d9d",
+          "material_read": "Finding offset 442; proof and verification offsets 3800–8151 and 8110–11955",
+          "method": "Indexed local mirror",
+          "title": "Sharp generic rigidity and orbit asymptotics for perfect evolution algebras",
+          "trigger": "Same automorphism and Burnside asymptotics over other finite fields"
+        },
+        {
+          "assessment": "Prior structural and exact enumeration framework",
+          "evidence": "S_n⋉T_n acting on GL_n, general Burnside formula and low-dimensional counts.",
+          "identifier_or_url": "https://arxiv.org/abs/2310.12368",
+          "material_read": "Primary HTML offsets 7000 and 10532",
+          "method": "Primary full text",
+          "title": "Isomorphism Classes of Idempotent Evolution Algebras",
+          "trigger": "Same notion of isomorphism, finite-field orbit count and small-n tables"
+        },
+        {
+          "assessment": "Structural overlap, not the reviewed probability statement",
+          "evidence": "Specified symmetric and diagonal groups, a group-scheme exact sequence, and representability of highly transitive permutation actions respectively.",
+          "identifier_or_url": "arXiv:2202.01333; arXiv:1902.02191; DOI:10.1007/s00009-025-02924-0",
+          "material_read": "Abstract/introduction or page 1, offsets 0",
+          "method": "Primary passages",
+          "title": "On Automorphism Groups of Idempotent Evolution Algebras; Evolution algebras, automorphisms, and graphs; Permutation Representations and Automorphisms of Evolution Algebras",
+          "trigger": "Potential structural or transitivity implications for binary group types"
+        },
+        {
+          "assessment": "Distinct scopes in available evidence; no same-day priority inferred",
+          "evidence": "Optional-loop path supports and a fixed-five-dimensional census are not the large-n uniform invertible model.",
+          "identifier_or_url": "2026/11/8 Resultary records 94910e4fa8cb and 0a1e95678f35",
+          "material_read": "Index summaries; full mirror requests timed out",
+          "method": "Resultary lookup and mirror attempts",
+          "title": "A palindromic square-root law for perfect binary path-pattern evolution algebras; Complete automorphism type spectrum of five-dimensional perfect evolution algebras",
+          "trigger": "Same-day binary symmetry classifications"
+        },
+        {
+          "assessment": "Residual possible overlap, not used to infer failure",
+          "evidence": "Asymmetry of digraphs is a plausible comparator; conditioning on matrix invertibility was not established in material read.",
+          "identifier_or_url": "https://doi.org/10.55937/sut/1547570388",
+          "material_read": "Bibliographic/public lookup lead only, full text unavailable",
+          "method": "Web search and lawful OA attempt",
+          "title": "Erdős–Rényi theory for asymmetric digraphs",
+          "trigger": "Potential comparable simultaneous-permutation rare-symmetry law"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Quantifying rigidity among labeled perfect algebras and correcting Burnside counts is a worthwhile question. Here the exact binary centralizer ratio is cancellation in the known general centralizer formula, and the advertised exponential remainder follows from evaluating the existing support inequality at s=3 and summing the already-used geometric bound on the rest. The submitted alternative dimension bound and small tables do not resolve a new motivated gap beyond that implication. No separate valuable surviving theorem in the submitted claims warrants repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

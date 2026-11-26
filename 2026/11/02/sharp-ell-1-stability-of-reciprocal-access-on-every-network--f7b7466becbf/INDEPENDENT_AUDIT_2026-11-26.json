@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:02:14.734047Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–23 and 27–69; VERIFICATION.md and inspected verify.py (not executed).",
+        "Independent replay: python3 -B /workspace/branches/independent-replay.py 3."
+      ],
+      "rationale": "At a residual minimum ratio z, each remaining residual target is at least its residual denominator times z. Removing that vertex subtracts w_ij z from each neighboring target and w_ij from its denominator; the inequality survives and all denominators remain at least one. This proves the assigned levels are nondecreasing, so each selected equation accounts for earlier neighbors at their fixed levels and later neighbors at its own level. Ties and zero targets are allowed. For a pair of profiles, the minimum on each edge along the segment has slopes from the two endpoint changes, yielding the asserted convex combination (if the two affine lines coincide, their slopes are equal and either assignment is valid). Each shared coefficient adds the same amount to a column's diagonal and its off-diagonal sum, so the reverse triangle inequality leaves one unit of expansion in every column. This gives injectivity and the inverse bound. On any nonempty fixed graph, increasing one strictly locally maximal positive coordinate changes no incident minimum, so sharpness is attained. The empty graph, if included, has a singleton domain and the bound but no nontrivial equality pair. At fixed neighbors, g_i is continuous and strictly increasing with increments at least the own increment. Below target the gain is strictly positive since r_i>c_i, and on/above saturation the cost makes further collection strictly worse. Thus the unique best response hits its target and all Nash profiles solve the bijective access equation. An independent enumeration of order-consistent triangular systems on a rational weighted, disconnected graph gave unique exact solutions for 82 targets including ties and boundary zeros, and checked 3321 target-pair inequalities and an equality pair. The universal result follows from the analytic proof.",
+      "residual_risks": [
+        "Symmetry and nonnegative weights are essential for the stated argument; the uniqueness consequence concerns the specified capped-linear payoffs, not all concave data benefits."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The transposed Varah bound gives ||M⁻¹||₁≤1/min_j(|m_jj|−Σ_i≠j|m_ij|). HPY permits continuous nondecreasing concave benefits with vanishing tail slope and constructs an unweighted graph equilibrium."
+        ],
+        "reasoning": "Prior diagonal dominance directly gives the norm inequality once the map-specific secant identity and unit column margin have been proved; it does not assert that property for nonlinear reciprocal interactions. The broader utility theorem covers existence on unit networks, not sharp inverse stability over symmetric weights.",
+        "searches": [
+          "Varah 1975 strict diagonal dominance inverse norm, DOI 10.1016/0024-3795(75)90112-3; Varga note, OSTI 5079407",
+          "HPY continuous benefit assumptions and §6.3 graph equilibrium"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2602.11417, 2401.13053, 2412.01968",
+        "Varah (1975), DOI 10.1016/0024-3795(75)90112-3, and Varga note OSTI 5079407",
+        "Resultary ranked searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For capped benefits all positive integer K-data-levels are the saturation threshold, so HPY algorithm 2 specializes in the unit-weight case to residual target divided by 1+residual degree, with a redundant nondecreasing floor. Their §6.3 gives existence, and the capped best-response equation gives unit-weight surjectivity for positive targets. Weighted elimination is a natural extension. The exact shared-coefficient identity is needed to infer the diagonal margin and then Varah's bound."
+        ],
+        "reasoning": "The structural weighted identity, its globally attained sharp margin, and quantitative uniqueness/stability are not supplied by the prior constructive existence or the abstract linear estimate alone. Do not credit separately the pre-existing interaction, unit-weight algorithm, or the inverse matrix inequality.",
+        "searches": [
+          "arXiv:2602.11417 §6.2 algorithm 2 and §6.3; comparing Varah with frozen RESULT proof §2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "HPY §2.2 uses exactly min exchange for each pair; §6.1 sums it at graph neighbors, with unit edge weights. Appendix A.1 gives the complete-graph inverse."
+        ],
+        "reasoning": "The unweighted graph map is the same operator on that subclass. Complete-graph inversion or unweighted inversion does not characterize the weighted secant norm or its sharp all-network uniformity.",
+        "searches": [
+          "Resultary reciprocal-min access inverse, ℓ1 stability, graph-restricted capped-data equilibrium",
+          "arXiv:2602.11417 §§2.2, 6.1 and Appendix A.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Displayed results concerned other graph invariants or stability maps, with no identified exact counterpart in the bounded ranked returns."
+        ],
+        "reasoning": "No located indexed statement gives the same weighted graph map and sharp constant. A negative ranked search is not evidence of exhaustive priority.",
+        "searches": [
+          "Resultary ranked searches for reciprocal minimum exchange and sharp inverse one-norm stability"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the structural cancellation for arbitrary symmetric weighted reciprocal-min secants and the resulting sharp global inverse and equilibrium sensitivity guarantee. The reciprocal-min contract, its unweighted equilibrium construction and the matrix bound are prior. The unweighted capped existence/positive-target inversion is already a specialization of Hakim–Papadimitriou–Yannakakis and is not an originality basis; their graph algorithm is the direct predecessor of the residual elimination.",
+      "residual_risks": [
+        "Generic nonlinear inverse results or differently indexed weighted exchange models could encode the same secant structure. The primary Varah text and full text of the contextual market comparisons were not examined in full."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers the unweighted rule, complete-graph inverse and unweighted existence, not the weighted secant stability classification",
+          "evidence": [
+            "Graph access is x_i+Σ_N(i) min(x_i,x_j); Algorithm 2 uses residual levels, minimal ratio, neighbor subtraction and vertex deletion.",
+            "The continuous-benefit assumptions include capped-linear benefits; graph equilibrium existence implies positive-target unweighted surjectivity via the capped best-response equation."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2602.11417",
+          "material_read": "Continuous benefit assumptions (p. 4); §2.2, §6.1–6.3 and Algorithm 2 (offsets 56100–62500), Appendix A.1 (offset 69400)",
+          "method": "Open primary PDF passages",
+          "title": "Fair Data-Exchange Mechanisms",
+          "trigger": "Same min access rule and documented graph equilibrium algorithm"
+        },
+        {
+          "assessment": "Standard linear estimate directly supplies lower expansion after model-specific secant verification",
+          "evidence": [
+            "Strict diagonal dominance inverse-norm estimate; transpose interchanges infinity and one norm. No document-wide noncoverage finding rests on the abstract."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0024-3795(75)90112-3",
+          "material_read": "Primary search abstract and Varga secondary note, OSTI 5079407; primary full text inaccessible",
+          "method": "Bibliographic/abstract and secondary-source inspection; independently checked the reverse-triangle bound",
+          "title": "A lower bound for the smallest singular value of a matrix",
+          "trigger": "Matrix inverse inequality underlying the weighted secant estimates"
+        },
+        {
+          "assessment": "Different modeled objectives and variables in the inspected text",
+          "evidence": [
+            "Central random choice of exchange sets with interim utility balance, welfare and coalition stability."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2401.13053",
+          "material_read": "p. 2 model/results, offset 6500",
+          "method": "Open primary PDF passage",
+          "title": "Data Exchange Markets via Utility Balancing",
+          "trigger": "Alternative prior exchange-market model"
+        },
+        {
+          "assessment": "Context rather than exact coverage; not a full-text exclusion",
+          "evidence": [
+            "Uses contribution shares and core stability, not the stated continuous reciprocal-min access inverse."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2412.01968",
+          "material_read": "Abstract p. 1, offsets 650 and 1350",
+          "method": "Open abstract only",
+          "title": "On the Theoretical Foundations of Data Exchange Economies",
+          "trigger": "Potential other reciprocity and stability formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 41–69; HPY §6 for the graph motivation."
+      ],
+      "rationale": "A uniform sharp total-adjustment guarantee across reciprocal weighted networks, even where arbitrary graph games lose order-theoretic monotonicity, answers a natural comparative-statics question. The secant identity selects the ℓ1 geometry; the unit-weight star has inverse ℓ∞ amplification d/2 at degree d while retaining equality in the ℓ1 bound. Thus the result identifies an exact robustness mechanism rather than merely providing existence or a coordinate-dependent condition number.",
+      "residual_risks": [
+        "The estimate is for target changes on a fixed network, not weight changes or a uniform coordinatewise stability factor."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

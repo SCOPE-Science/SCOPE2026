@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:29:12.849387Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The divisor-totient expansion separates the nested block-averaging spaces. On the constants the scalar is p^(k-1)(p+k(p-1)); on the j-th difference space it is (k-j+1)p^(k-1)(p-1), positive also at k=1. The telescoped inverse in the H_j basis has coefficients obtained by adjacent reciprocal differences divided by the block sizes. The coefficient denominators are exactly the displayed LCM list, with m=k-j. Because differences with each exact valuation 0,...,k-1 occur, the coefficients are recovered by subtracting successive actual entries, including the diagonal; cancellations in individual entries cannot reduce the LCM. Clearing the inverse is equivalent to annihilating the cokernel. Modulo p the matrix factors as block sum, then J_p-I_p, then injective block replication. J_p^2=0 modulo p gives invertibility of the middle map and rank p. This is an all-depth proof. Separately, python3 /workspace/branches/check_circulant.py solves the first inverse column directly over Q, uses circulant shifts to read the exponent, and cross-checks Smith forms and modular ranks through selected orders up to 27. It confirmed 32, 480, 252, and 1536 for the listed composite orders, and 8748 at (p,k)=(3,3) and 245760 at (2,6). No general full Smith form is established.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Telloni–Williams p. 1 states a polynomial circulant Smith framework for a class of lambda-matrices.",
+          "Noferini–Williams p. 1 gives structural companion-ring Smith tools, including circulants.",
+          "Neither inspected passage specializes its methods to the nested prime-power kernel and yields the displayed coefficients."
+        ],
+        "reasoning": "A general Smith procedure allows computation at a fixed size, but does not furnish the explicit LCM uniform in depth without arithmetic control of the inverse coefficients or comparable local invariants.",
+        "searches": [
+          "https://repository.essex.ac.uk/9703/1/TelloniWilliams-SmithFormsCirculants.pdf",
+          "arXiv:2408.08662v1",
+          "Resultary nested congruence-block inverse and Smith form search"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1012.5445v1",
+        "Telloni–Williams Essex repository PDF",
+        "arXiv:2408.08662v1",
+        "Resultary:6bac5dc6cda2",
+        "Resultary:2dd8584629f4",
+        "Resultary:0bffd4ff77aa"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older spectral representation gives ordinary eigenvalues; e.g. p=2,k=2 has eigenvalue LCM 8, whereas the verified integral exponent is 32.",
+          "The same-day exact Smith summaries cover depth one and the odd-prime depth-two subcase as above."
+        ],
+        "reasoning": "Taking the LCM of rational eigenspace scalars loses the ramified lattice information. The denominators of the projections and the recovery of individual inverse coefficients from actual entries are needed. The checked overlapping depths do not subsume that all-depth result.",
+        "searches": [
+          "Telloni–Williams, p. 1, §1",
+          "arXiv:2408.08662v1, abstract",
+          "Resultary 6bac5dc6cda2 and 2dd8584629f4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bege p. 1 defines f(gcd(i,j)), not a difference on a residue ring.",
+          "Resultary 0bffd4ff77aa concerns Ramanujan-sum convolution circulants; its indexed torsion discussion involves a different kernel.",
+          "The equivalent target is the minimum inverse denominator, or the order of the first standard basis class because all columns are cyclic shifts."
+        ],
+        "reasoning": "Neither index-GCD matrices nor Smith forms of a different convolution factor give the integral denominator for the sum of valuation-block kernels. The difference variable and integral basis are decisive.",
+        "searches": [
+          "arXiv:1012.5445v1",
+          "arXiv:2408.08662v1",
+          "Resultary cyclic GCD-difference and Ramanujan convolution Smith form searches"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "6bac5dc6cda2 summary reports full Smith factors for odd p at modulus p^2 with gcd raised to a positive power a. Setting a=1 gives the frozen matrix at this depth; its reported p-primary factors give exponent p^2 locally, agreeing with the frozen formula.",
+          "2dd8584629f4 summary reports full Smith forms of the same kernel for squarefree moduli; a prime modulus gives exactly k=1.",
+          "The direct matches share the frozen publication date; no ordering was independently established."
+        ],
+        "reasoning": "There is real subcase coverage, not disjointness. Neither indexed range reaches arbitrary depth k, and the Ramanujan-kernel record covers a different matrix. These matches do not determine a formula for k>=3.",
+        "searches": [
+          "Resultary 6bac5dc6cda2",
+          "Resultary 2dd8584629f4",
+          "Resultary 0bffd4ff77aa"
+        ]
+      },
+      "rationale": "Credit the spectral framework and the overlapping shallow-depth Smith computations. The supported distinct claim is the explicit integral exponent uniformly in prime-power depth, with the uniform modular rank; no inspected stronger result evaluated it at all depths. This is a bounded best-of-knowledge judgment, not a priority claim for depth one or the odd-prime depth-two subcase.",
+      "residual_risks": [
+        "Full matching catalogue record passages and full potentially relevant later sections of the companion-ring work were not independently inspected. Conclusions about specific prior sources apply only to material read.",
+        "A uniform equivalent formula under another nested integer matrix presentation may not be indexed by the checked terms; the review does not certify global priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different matrix construction in passage read",
+          "evidence": [
+            "Entries f(gcd(i,j)); no cyclic difference in that definition."
+          ],
+          "identifier_or_url": "arXiv:1012.5445v1",
+          "material_read": "PDF p. 1; abstract/introduction, journal pp. 160–161",
+          "method": "Open PDF text extraction",
+          "title": "Generalized GCD matrices",
+          "trigger": "Possible equivalent GCD-matrix Smith object"
+        },
+        {
+          "assessment": "Related framework; no evaluated all-depth LCM in passages read",
+          "evidence": [
+            "Class of polynomial lambda-matrices; representer polynomial gives ordinary eigenvalues."
+          ],
+          "identifier_or_url": "https://repository.essex.ac.uk/9703/1/TelloniWilliams-SmithFormsCirculants.pdf",
+          "material_read": "p. 1, abstract and §1 opening",
+          "method": "Open PDF text extraction; fuller passage retrieval unsuccessful",
+          "title": "Smith forms of circulant polynomial matrices",
+          "trigger": "Broader circulant Smith theorem"
+        },
+        {
+          "assessment": "Includes circulants in a general framework; no numerical specialization identified",
+          "evidence": [
+            "General structural and composition tools in companion rings."
+          ],
+          "identifier_or_url": "arXiv:2408.08662v1",
+          "material_read": "p. 1 abstract",
+          "method": "Open PDF text extraction; fuller passage retrieval unsuccessful",
+          "title": "Smith forms of matrices in Companion Rings, with group theoretic and topological applications",
+          "trigger": "Potentially dominating structural Smith theorem"
+        },
+        {
+          "assessment": "Verified implication of the indexed statement in the odd-prime depth-two subcase; no priority inferred",
+          "evidence": [
+            "At a=1 the reported p-primary summands have maximum order p^2."
+          ],
+          "identifier_or_url": "Resultary:6bac5dc6cda2",
+          "material_read": "Indexed statement and p-primary factor summary; full text unavailable",
+          "method": "Local Resultary search and strongest-statement comparison",
+          "title": "Complete Smith factors of cyclic power-GCD matrices at odd prime squares",
+          "trigger": "Same difference kernel at a=1 and k=2"
+        },
+        {
+          "assessment": "Depth-one subcase, not higher prime powers",
+          "evidence": [
+            "An individual prime is squarefree; p^k for k>1 is not."
+          ],
+          "identifier_or_url": "Resultary:2dd8584629f4",
+          "material_read": "Indexed summary; full text unavailable",
+          "method": "Local Resultary search and parameter comparison",
+          "title": "Complete integral Smith invariants of cyclic GCD-difference matrices at squarefree moduli",
+          "trigger": "Same kernel over prime modulus"
+        },
+        {
+          "assessment": "Related rationale but different convolution kernel",
+          "evidence": [
+            "Reports integral information not determined by Fourier eigenvalues alone."
+          ],
+          "identifier_or_url": "Resultary:0bffd4ff77aa",
+          "material_read": "Indexed summary",
+          "method": "Local Resultary search and kernel comparison",
+          "title": "Complete Smith form of Ramanujan-sum convolution circulants",
+          "trigger": "Adjacent spectral formulation of arithmetic torsion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The largest integral invariant factor of this natural valuation-based cyclic convolution is the least multiplier for solving every integer right-hand side over the lattice. An explicit formula with only k+1 denominators allows exact torsion calculations without forming the p^k by p^k matrix. The first-prime loss of information in the ordinary spectrum is genuine, and the modular rank gives the exact number of p-divisible factors. The value is the uniform arithmetic invariant, not a new general Smith theory.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

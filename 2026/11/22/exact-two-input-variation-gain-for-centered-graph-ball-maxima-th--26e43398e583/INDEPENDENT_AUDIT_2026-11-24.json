@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:44:48.775177Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–78; VERIFICATION.md and verify_centered_cycle.py inspected, not executed",
+        "/workspace/branches/ce9503fe-595b-402e-8557-e69669bf2065/check_centered_cycle_independent.py and check-complete.txt: independent exact run of 262,424 labeled mask/cut pairs and verification of all four attaining pairs."
+      ],
+      "rationale": "For each fixed center the candidate averaging rows are all different. Outside the resulting finite set of tie hyperplanes the maximizing rows form a strict branch. A segment with positive generic endpoints has only finitely many switches; summing the variation bounds on its linear pieces, then using continuity to approximate arbitrary nonnegative endpoints, bounds the global two-input quotient by the maximum strict-branch norm. Conversely a small perturbation of a strictly feasible, positively translated baseline realizes its branch on both inputs. The linear branch preserves constants; integration of binary upper-level cuts gives exact cyclic coarea for the input and a triangle-inequality bound for the output. Its norm is therefore the maximum over all proper nonempty cuts, including disconnected ones. Independent exact enumeration gives the unrestricted envelopes 1, 5/4, 7/5, 2 and exactly three C₆ masks above 19/10. In each exceptional mask the two full rows are opposite; their competing radius-one triples partition the cycle, so the full average is the mean of the two triple averages and cannot strictly exceed both. Thus the only excessive masks are not strict branches. The four displayed baseline and cut perturbation pairs were checked to retain their unique branches and attain the claimed constants; for C₆ their variation pair is 1/50 and 19/500.",
+      "residual_risks": [
+        "The finite mask lemma is exhaustive only for the specified sizes; extension to all real nonnegative input pairs uses the branch and cut arguments, not sampling. No bound is claimed for the absolute-value maximal operator on arbitrary signed inputs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The graph variation paper gives one-input constants, including 2/3 and 3/4 on C₃ and C₄, and covers no C₆ in that small-graph calculation. The centered graph norm paper studies Lᵖ bounds."
+        ],
+        "reasoning": "The broader scope in graphs does not change the one-input quantifier or Lᵖ geometry to a two-input cyclic variation result. No applicable stronger theorem of that latter type was verified.",
+        "searches": [
+          "arXiv:2603.12462v1 §1, exact small graph constants",
+          "arXiv:1410.6204v1 §1, graph operator definition and Lᵖ results"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2603.12462v1 §1",
+        "arXiv:1410.6204v1 §1",
+        "Frozen RESULT.md lines 80–91"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Uncentered balls need only contain the evaluation site. Their maxima dominate centered ones pointwise, which does not order the variation of output differences. Even allowing every centered row independently yields 2 at C₆, so the strict-branch argument is material."
+        ],
+        "reasoning": "Neither a one-input bound nor the uncentered numerical match, as reported, implies the precise centered sharp bound. A theorem directly controlling centered active branches at that size would be stronger evidence; none was inspected.",
+        "searches": [
+          "Compare centered rows of RESULT.md lines 4–9 and 27–58 with the one-input scope of arXiv:2603.12462v1 and the uncentered description in RESULT.md line 83"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For nonnegative inputs these are the centered maximal averages on the cyclic variation space modulo constants. A one-input inequality is a restriction to g=0, not the full difference modulus."
+        ],
+        "reasoning": "A prior centered Lipschitz norm stated on the quotient by constants could be equivalent. A one-input sharp coefficient or strong Lᵖ operator norm is not that quantity.",
+        "searches": [
+          "arXiv:2603.12462v1 §1, sharp graph variation",
+          "Focused maximal operator / two-input variation / cycles / 19/10 / centered and uncentered search"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected exact centered values are one-input. The frozen discussion mentions an uncentered 19/10 without a source identifier; no usable primary text for that numerical match was retrieved."
+        ],
+        "reasoning": "Exact tables for a differently defined norm are not coverage. The unsuccessful retrieval does not rule out exact values or a simultaneous centered and uncentered theorem elsewhere.",
+        "searches": [
+          "Local Resultary discovery (unavailable)",
+          "Small-graph variation values in arXiv:2603.12462v1 §1",
+          "Frozen RESULT.md lines 80–91 and focused search for the reported C₆ value"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact, attained two-input variation modulus for the centered operator, including the strict-branch obstruction at six vertices. The inspected centered one-input variation and graph Lᵖ results compute different invariants. The reported same-value uncentered C₆ result was not independently located; its possible additional centered coverage remains a named risk.",
+      "residual_risks": [
+        "Local Resultary search was not exposed. The uncentered same-value source could not be inspected; a simultaneous result or an earlier centered equivalent remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same centered operator on nonnegative inputs; different variation quotient",
+          "evidence": "The definition bounds V(Mf) by V(f); its C₃ and C₄ constants are 2/3 and 3/4 rather than the difference moduli.",
+          "identifier_or_url": "https://arxiv.org/html/2603.12462v1",
+          "material_read": "§1, HTML offsets 0–5500 and 8500–14000",
+          "method": "OA HTML passage inspection",
+          "title": "Sharp variational inequalities for the Hardy–Littlewood maximal operator on finite undirected graphs",
+          "trigger": "Exact centered variation values on small graphs"
+        },
+        {
+          "assessment": "Same centered graph-ball definition; Lᵖ objectives",
+          "evidence": "The cited bounds concern strong or weak Lᵖ norms, not the cyclic variation of two-input differences.",
+          "identifier_or_url": "https://arxiv.org/html/1410.6204v1",
+          "material_read": "§1, HTML offsets 0–4999",
+          "method": "OA HTML passage inspection",
+          "title": "Best constants for the Hardy–Littlewood maximal operator on finite graphs",
+          "trigger": "Potential general graph bound covering the four cycles"
+        },
+        {
+          "assessment": "Different operator as reported; actual statement and extent of coverage unresolved",
+          "evidence": "The reported convention maximizes over all balls containing the evaluation vertex, rather than just its own centered balls.",
+          "identifier_or_url": "Unspecified in frozen RESULT.md line 83",
+          "material_read": "Frozen line 83 only; primary source not identified",
+          "method": "Local catalogue discovery and targeted primary-literature lookup",
+          "title": "Reported uncentered C₆ two-input variation calculation",
+          "trigger": "Same cycle and numerical coefficient 19/10"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and branch, cut and feasibility arguments; independent exact mask and witness verification"
+      ],
+      "rationale": "The sizes are a meaningful cutoff rather than an arbitrary sample: the unrestricted row envelope is sharp for the first three cycles and first fails at C₆, where opposed full-cycle choices create a new feasibility constraint. The exact modulus quantifies sensitivity to differences between two signals, a question not answered by one-input variation bounds. The cut reduction and analytic obstruction explain why exhaustive small-instance values are sharp and why the naive bound first overestimates them.",
+      "residual_risks": [
+        "No assertion for larger or weighted cycles, other ball conventions, or other seminorms."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

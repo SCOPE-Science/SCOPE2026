@@ -1,15 +1,21 @@
-# Scientific self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite physical Hilbert space is the complete set of independent subsets of the explicitly defined twelve-vertex graph: \(1+12+36+20=69\). The precise zero-detuning Hamiltonian is the weighted single-vertex-flip adjacency on that state set. Its excitation-parity block is \(37\times32\). The homogeneous Gram characteristic polynomial has precisely six zero roots, giving block rank twenty-six and seventeen total zero modes. The explicit full-column square minor is identically \(2(t^2-1)^6\), proving rank thirty-two for every real \(|t|\ne1\); conjugation by the local sign operator handles \(t=-1\). The identities are exact and both standalone programs replayed successfully from the packaged source paths, using independently generated graphs and different determinant computations.
+## correctness
 
-## Originality — PASS (best knowledge, not independent validation)
-Earlier Rydberg blockade papers establish the constrained-spin framework, and prior one-dimensional PXP results establish the chiral lower-bound mechanism; neither statement alone specifies the icosahedral seventeen-fold zero-energy degeneracy, and neither provides the exact site-drive determinant or sharp resonance. Published icosahedral independence-complex homology determines the Euler parity imbalance but does not determine the Hamiltonian's matrix rank. The compared Platonic-graph experiment studies tetrahedron, cube, and octahedron, not the icosahedral exact spectrum. Actual bibliographic and published-research searches found no equivalent full-claim coverage. There remains risk from unindexed computational spectra and uncatalogued calculations.
+PASS
 
-## Mathematical value — PASS
-This is a natural finite Rydberg-blockade network, not an arbitrary subgraph selection: the regular icosahedron has twelve sites and icosahedral symmetry. The exact difference between seventeen and five zero modes quantitatively distinguishes symmetry-dependent degeneracy from the robust chiral imbalance. The analytic single-site condition \(|t|=1\) is a precise physical control boundary, and the exact characteristic polynomial gives a reproducible benchmark for ideal coherent dynamics. The conclusion is not a thermodynamic-limit theorem or a robustness claim for finite blockade and longer-range interactions.
+Independent-set enumeration on the stated 30-edge graph gives (1,12,36,20) by excitation number and parity sizes 37/32. An allowed single flip reverses excitation parity, so the Hermitian Hamiltonian has off-diagonal block B(t) and kernel dimensions 37−rank B and 32−rank B. The separate exact replay /workspace/branches/6b9550e8-81ba-4479-87d4-d4f79216bb25/icosahedron_check.py reconstructs the graph and block, matches every Gram characteristic coefficient at t=1 by integer traces and Newton identities, and symbolically reproduces the ordered maximal minor 2(t²−1)^6. The Gram polynomial has a zero of order six and all the displayed remaining factors have nonzero constant terms, giving rank 26 and nullities 11 plus 6. The identity det(xI−H)=x⁵ det(x²I−BᵀB) yields the entire stated homogeneous polynomial. The minor forces rank 32 at every real t other than ±1, including t=0. Multiplication of each basis state containing vertex 0 by −1 conjugates t to −t, so the homogeneous rank returns at −1. The five-mode lower bound applies to arbitrary real amplitudes by parity dimensions; the full sharp classification holds only for this single-site profile and ideal projected zero-detuning dynamics. Frozen scripts were read, not executed; the uniform rank and all-real-t classification do not depend on modular sampling.
 
-## Closest sources and limitations
-Lesanovsky, arXiv:1010.2349, supplies the archived 1D constrained-spin motivation. Buijsman, arXiv:2203.09264, covers chiral zero-mode bounds on chains. Byun, Kim and Ahn, PRX Quantum 3, 030305, covers three other Platonic graphs in Rydberg settings. Published integral independence homology on the icosahedron covers its face vector and topology, rather than this weighted flip Hamiltonian. The originality assessment is conditional on the examined available literature; an unindexed numerical table might duplicate the exact spectrum. Both verification codes require Python packages stated in the result and use only exact arithmetic.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The known graph combinatorics and standard chiral parity bound cover the baseline five modes. The distinct supported result is the full homogeneous spectrum and the sharp all-real single-defect rank classification, including the twelve extra modes present only at homogeneous drive magnitude.
+
+## value
+
+PASS
+
+The icosahedron is a canonical Platonic interaction graph and a local drive defect is a meaningful perturbation of the homogeneous constrained Hamiltonian. The exact polynomial and all-real defect classification separate parity-protected multiplicity from twelve fine-tuned zero modes, rather than just reproducing the known independent-set count or a floating-point gap. These data are useful benchmarks for symmetry and sensitivity in constrained finite dynamics and do not assert physical zero modes away from perfect blockade and zero detuning.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

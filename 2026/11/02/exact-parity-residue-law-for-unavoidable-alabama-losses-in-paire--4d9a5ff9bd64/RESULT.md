@@ -2,72 +2,64 @@
 
 ## Finding
 
-Let four constituencies have fixed positive integer populations \((a,a,b,b)\), where \(a<b\) and \(\gcd(a,b)=1\). At each house size \(h\geq1\), apply Hamilton's largest-remainder apportionment, permitting every legitimate tie resolution independently at different house sizes. Call a loss **unavoidable** at the transition \(h\to h+1\) when **every** choice of Hamilton allocations at the two sizes makes at least one constituency lose a seat.
+Let the four populations be \((a,a,b,b)\), where \(0<a<b\) are coprime integers. For each positive integer house size use Hamilton's largest-remainder method, with independent choices among valid tie resolutions at successive sizes. A loss at \(h\to h+1\) is **unavoidable** if every pair of valid allocations has some constituency whose allocation decreases.
 
-Set \(P=2(a+b)\) and let \(r_h\) be the unique integer in \([0,P)\) congruent to \(ah\pmod P\). An unavoidable loss occurs exactly under the following parity-residue alternatives:
-
+Let \(P=2(a+b)\) and \(r_h=ah\bmod P\), with \(0\le r_h<P\). A loss is unavoidable exactly when
 \[
 \begin{array}{ll}
- h\text{ even}: & 2(a+b)<2r_h<a+3b,\\
- h\text{ odd}: & a+b<2r_h<2b.
+h\text{ even}:& 2(a+b)<2r_h<a+3b,\\
+h\text{ odd}:& a+b<2r_h<2b.
 \end{array}
 \]
+In every such event one of the smaller constituencies loses a seat. Equality at an endpoint does not force a loss.
 
-In every such event, one of the two smaller constituencies loses. Equality at a boundary never forces a loss independently of ties.
-
-There is also a closed formula for the number \(N(a,b)\) of unavoidable transitions in one complete house-size period \(P\). For integers \(l\leq u\), define
+For **all** integers \(l,u\), define
 \[
- E(l,u)=\max\{0,\lfloor u/2\rfloor-\lfloor(l-1)/2\rfloor\},\qquad
- O(l,u)=\max\{0,\lfloor(u+1)/2\rfloor-\lfloor l/2\rfloor\}.
+E(l,u)=\max\{0,\lfloor u/2\rfloor-\lfloor(l-1)/2\rfloor\},\qquad
+O(l,u)=\max\{0,\lfloor(u+1)/2\rfloor-\lfloor l/2\rfloor\}.
 \]
-Put
+These count the even and odd integers, respectively, in the interval \([l,u]\), with zero for an empty interval. Set
 \[
- l_e=a+b+1,\quad u_e=\lfloor(a+3b-1)/2\rfloor,\quad
- l_o=\lfloor(a+b)/2\rfloor+1,\quad u_o=b-1.
+l_e=a+b+1,\quad u_e=\lfloor(a+3b-1)/2\rfloor,\qquad
+l_o=\lfloor(a+b)/2\rfloor+1,\quad u_o=b-1.
 \]
-Then
+Then the number of unavoidable transitions in one size period of length \(P\) is
 \[
- N(a,b)=E(l_e,u_e)+
- \begin{cases}
-  O(l_o,u_o),&a\text{ odd},\\
-  E(l_o,u_o),&a\text{ even}.
- \end{cases}
+N(a,b)=E(l_e,u_e)+\begin{cases}O(l_o,u_o),&a\text{ odd},\\ E(l_o,u_o),&a\text{ even}.\end{cases}
 \]
-
-The smallest positive-integer paired-population profile admitting any unavoidable loss has total population \(10\), uniquely \((1,1,4,4)\) up to swapping the two pairs. The first possible house-size transition, over all such profiles, is \(3\to4\); this profile attains it. For each fixed positive \(a\), along integers \(b\to\infty\) coprime to \(a\), the proportion of house-size transitions in a period that have an unavoidable loss tends to \(1/4\).
+The minimum total population admitting an unavoidable loss is \(10\), attained uniquely by \((1,1,4,4)\) up to swapping the pairs. This profile attains the earliest possible transition, \(3\to4\). For fixed positive \(a\), as \(b\to\infty\) through integers coprime to \(a\), \(N(a,b)/P\to1/4\).
 
 ## Assumptions and scope
 
-Hamilton apportionment gives each constituency the integer part of its exact quota \(hp_i/P\) and awards the remaining seats to the largest fractional remainders, with arbitrary tie resolution. House sizes are positive integers, the population vector remains unchanged, and no legal constraint mandates one seat per constituency. The word unavoidable quantifies over both independent tie resolutions. Scaling both population parameters by the same positive integer does not change allocations, hence the primitive assumption only fixes the population scale. The result concerns four constituencies in two equal-sized pairs, not arbitrary four-state apportionment rules or changing populations.
+Hamilton's rule assigns the integer part of each quota \(hp_i/P\), then fills the remaining seats in decreasing order of fractional remainders, allowing arbitrary resolution of equal remainders. There is no minimum allotment per constituency. Multiplying all populations by a common positive integer does not change the allocations. The result does not assume a fixed tie-breaking rule or classify losses under any one such rule.
 
 ## Proof
 
-Write \(\alpha=a/P\), \(\beta=b/P=1/2-\alpha\); therefore \(0<\alpha<1/4\). Write \(x=\{h\alpha\}=r_h/P\), with braces denoting fractional part. The two small quotas have fractional part \(x\) and the two large quotas have fractional part \(y=\{h\beta\}=\{h/2-h\alpha\}\). Consequently \(y=1-x\) when \(h\) is even and \(0<x<1\). When \(h\) is odd, \(y=1/2-x\) for \(0\leq x<1/2\), while \(y=3/2-x\) for \(1/2<x<1\).
+Write \(\alpha=a/P\), so \(0<\alpha<1/4\) and the large quota per unit house size is \(1/2-\alpha\). At house size \(h\), write \(h\alpha=q+x\) with \(q\) integral and \(0\le x<1\). The small-quota remainder is \(x\); the large-quota remainder is \(\{h/2-h\alpha\}\). Let \(S_h\) range over the possible combined allocations to the two smaller constituencies.
 
-For even \(h\) away from cross-pair ties, the residual-seat count is two: both small constituencies are rounded up if \(x>1/2\), and both large ones if \(x<1/2\). For odd \(h\), the residual-seat count is one when \(0<x<1/2\), awarded to the small pair when \(x>1/4\), otherwise to the large pair. When \(1/2<x<1\), three residual seats remain: the small pair gets one and the large pair two if \(x<3/4\), and the small pair gets two and the large pair one if \(x>3/4\). The boundary cases have the corresponding alternative tied assignments.
+At even \(h\), \(S_h-2q\) is \(0\) for \(x<1/2\), is \(2\) for \(x>1/2\), and can be \(0,1,2\) at \(x=1/2\). Indeed for \(x>0\) there are two residual seats and the large remainder is \(1-x\). At \(x=0\) there are no residual seats. At odd \(h\), \(S_h-2q\) is \(0\) for \(0\le x<1/4\), \(1\) for \(1/4<x<3/4\), and \(2\) for \(3/4<x<1\). At \(x=1/4\) it can be \(0,1\), and at \(x=3/4\) it can be \(1,2\). To see this, the large remainder is \(1/2-x\) for \(x\le1/2\), with one residual seat, and \(3/2-x\) for \(x>1/2\), with three residual seats. This also gives the values at \(x=0,1/2\).
 
-Compare an even \(h\) with the following odd size. The only possible fall in a pair total occurs when the small pair had both residual seats, its integer quota part does not increase, and its new residual-seat count drops to one. This requires \(1/2<x<3/4-\alpha\). In all other open regions, either the large pair retains or increases its combined allocation, or an increment in the integer quota parts offsets any lost residual seat. Similarly, for odd \(h\) followed by even \(h+1\), the only possible decrease in a pair total is the small pair losing its sole residual seat without an increase in its integer quota part, which requires \(1/4<x<1/2-\alpha\). The cases \(x>1/2\) at odd sizes cannot decrease either pair total: any fall in rounded-up seats is offset by increasing integer quota parts. Directly at the interval endpoints, Hamilton ties can be resolved so neither pair total falls.
+There is a pair of allocations with no individual loss exactly when one can choose the pair totals so that \(S_{h+1}-S_h\) is \(0\) or \(1\): since the total increases by one, these are exactly the choices where neither pair total falls. To lift such choices to individual allocations, do this within each equal pair. If the integer quota per member grows, every new allocation is at least every old allocation to that member, since a residual seat contributes at most one. If it does not grow, a nondecreasing pair total permits the new set of recipients to contain the old set. Every permutation within an equal pair is allowed without affecting the numbers of residual seats of the two pairs. Conversely, a falling pair total necessarily entails an individual loss.
 
-Because the members of each pair have identical quotas, there are legal allocations at both house sizes that nest each member's seat count whenever neither pair total decreases. To see this, within each pair select recipients of residual seats at the second size to retain all previously selected recipients whenever the integer part has not grown; if it has grown, each member gains a base seat and no previous member need lose. Conversely, if a pair total falls, some member loses under every tie resolution. This establishes the equivalence between pair-total loss and the stated unavoidable loss, including boundaries. Multiplying the two strict fractional-part intervals by \(P\) gives the parity-residue inequalities in the finding.
+**Even to odd.** If \(x<1/2\), then \(x+\alpha<3/4\) and the possible increase can be chosen as \(0\) or \(1\). At \(x=1/2\), choose \(S_h=2q+1=S_{h+1}\). If \(x>1/2\), then \(S_h=2q+2\). For \(x+\alpha<3/4\) the next value is \(2q+1\), so the loss is forced. At \(x+\alpha=3/4\), one can instead choose \(2q+2\). If \(3/4<x+\alpha<1\) the next total is \(2q+2\); for \(x+\alpha\ge1\) the integer part increases and the new remainder is less than \(1/4\), giving the same total \(2q+2\). This leaves exactly \(1/2<x<3/4-\alpha\).
 
-For the count, the residue sequence \(r_h=ah\bmod P\) is periodic in \(h\) with full joint parity-and-residue period \(P\). If \(a\) is odd, coprimality implies \(\gcd(a,P)=1\); hence multiplication by \(a\) permutes the residues modulo even \(P\), preserving parity. Exactly the even residues in \([l_e,u_e]\) and the odd residues in \([l_o,u_o]\) contribute. If \(a\) is even, coprimality forces \(b\) odd; \(\gcd(a,P)=2\), and each even residue appears twice in a full \(P\)-period, once at an even house size and once at an odd house size (the two occurrences differ by the odd integer \(a+b\)). Counting the even residues in both intervals yields the second formula. The functions \(E\) and \(O\) are precisely the counts of even and odd integers in a closed integer interval.
+**Odd to even.** For \(x<1/2-\alpha\), the next total is \(2q\). This forces a loss precisely if \(x>1/4\); at \(x=1/4\) the old total can be chosen to be \(2q\). At \(x=1/2-\alpha\), the old total is \(2q+1\), which is an option at the next size as well. For \(1/2-\alpha<x<1-\alpha\), the next total is \(2q+2\) and the old one can be chosen as \(2q+1\) or \(2q+2\). For \(x\ge1-\alpha\), the old total is \(2q+2\) and the quota wrap leaves the new pair at \(2q+2\). The only forced region is thus \(1/4<x<1/2-\alpha\).
 
-For the minimality statement, no loss can occur at \(h=1\) or \(h=2\): then \(x=\alpha<1/4\) or \(x=2\alpha<1/2\), respectively. For primitive positive \(a<b\) with \(a+b<5\), the only possibilities are \((1,2)\) and \((1,3)\), and the exact count formula yields zero. At \(a+b=5\), the two possibilities are \((1,4)\) and \((2,3)\); only \((1,4)\) has positive count (namely two). At \(h=3\) for \((1,1,4,4)\), the allocations are \((1,0,1,1)\) or \((0,1,1,1)\), whereas at \(h=4\) the only allocation is \((0,0,2,2)\); the loss is unavoidable. Finally each interval in the count formula has length \((b-a)/2+O(1)\), and the parity counts give \(N(a,b)=(b-a)/2+O(1)\), with an absolute error constant. Dividing by \(P=2(a+b)\) proves the asserted limit as \(b\to\infty\) for fixed \(a\).
+Substituting \(x=r_h/P\) into these two open intervals gives the residue criterion. For counting, use the joint period \(P\) of parity and residue. If \(a\) is odd, multiplication by \(a\) permutes the residues modulo \(P\) and preserves parity. If \(a\) is even, \(\gcd(a,P)=2\) and \(a+b\) is odd. Each even residue occurs twice per period at sizes differing by \(a+b\), once at each parity. Counting in the two integer intervals gives the formula for \(N\).
+
+At \(h=1,2\) the smaller remainder is respectively \(\alpha<1/4\) and \(2\alpha<1/2\), so neither transition is forced. The only primitive pairs with \(a+b<5\) are \((1,2)\) and \((1,3)\); both counts are zero. At \(a+b=5\), the count is two for \((1,4)\) and zero for \((2,3)\). At house size three the \((1,1,4,4)\) allocations are \((1,0,1,1)\) and \((0,1,1,1)\); at size four there is only \((0,0,2,2)\). Finally the two open residue intervals each have length \((b-a)/2\); the number of integers of each specified parity per interval differs from half its length by at most a constant. Thus \(N(a,b)=(b-a)/2+O(1)\) with absolute error bound, yielding the limit. \(\square\)
 
 ## Verification
 
-A standalone Python 3 script, `verify.py`, computes all legal Hamilton allocations by exact integer quotients and remainders. It checks the equivalence of the residue condition and the all-tie-resolutions definition for every coprime pair with \(1\leq a<b\leq40\) and every house size in one full period; it independently verifies the closed count formula for every coprime pair with \(1\leq a<b\leq79\), and checks the sharp population and house thresholds. No floating-point comparisons are needed. The proof above establishes the infinite theorem; these finite tests are independent checks, not its logical basis.
+The accompanying standard-library Python diagnostic `verify.py` can be run with `python3 verify.py`. It enumerates all legal Hamilton allocations and compares the forced-loss condition with the strict residue inequalities for coprime \(1\le a<b\le40\) over one period. It also compares the closed count with period summation for coprime \(1\le a<b\le79\) and checks the minimum example. These finite diagnostics are supplementary; the proof establishes the full range.
 
-## Relationship to prior work
+## Relationship to prior work and limitations
 
-Hamilton's largest-remainder rule and its Alabama paradox are classical. Varshney (2026) proves a global impossibility between quota and population monotonicity for four states when different house sizes may be compared; that statement concerns arbitrary deterministic apportionment rules, not a complete list of forced consecutive-size losses for Hamilton on fixed paired populations. Saari (2026) gives a general geometric explanation of the Alabama paradox and recurrence, but not the paired-population parity-residue criterion or exact period count in the inspected apportionment sections. A publicly accessible related result for three populations of the form \((a,a,c)\) gives a single residue interval and count; the four-population two-pair case has a distinct parity split and is not an instance of its three-population statement. These are claim-level distinctions, not proof of exclusive priority.
-
-## Limitations
-
-The theorem studies simultaneous loss avoidance under every permissible tie resolution, not a particular fixed deterministic tie-breaking convention. It does not classify tie-dependent losses, arbitrary four-state profiles, or changes in the population vector. Prior work may contain equivalent specializations not found through indexed searches; independent scientific validation remains outstanding.
+Hamilton's house-size paradox is classical. Janson and Linusson discuss periodicity for rational populations, while their main probability theorem assumes rational linear independence, excluding the present family. Saari gives a general geometric explanation of the paradox, and Varshney considers a different incompatibility for four-state apportionment across house sizes. The related exact three-state equal-pair residue classification (Resultary record 494a0538d100) has a different population family and tie criterion. The result here classifies the rational two-pair family with an all-resolutions quantifier. It does not cover arbitrary population profiles, changes of population, or enumeration of tie-dependent losses. These distinctions do not establish historical priority.
 
 ## References
 
-- Lav R. Varshney, *Quota and population monotonicity across house sizes are incompatible for apportionment to four states*, arXiv:2608.02759, first submitted 2026-08-03, https://arxiv.org/abs/2608.02759 .
-- Donald G. Saari, *Picture book of apportionment and voting difficulties*, *Public Choice*, published 2026-10-25, https://doi.org/10.1007/s11127-026-01480-9 .
-- M. L. Balinski and H. P. Young, *The quota method of apportionment*, *American Mathematical Monthly* 82 (1975), 701–730 (classical background on apportionment and house-size anomalies).
+- S. Janson and S. Linusson, *The probability of the Alabama paradox*, Journal of Applied Probability 49 (2012), 773–794, doi:10.1239/jap/1346955333.
+- D. G. Saari, *Picture book of apportionment and voting difficulties*, Public Choice (2026), doi:10.1007/s11127-026-01480-9.
+- L. R. Varshney, *Quota and population monotonicity across house sizes are incompatible for apportionment to four states*, arXiv:2608.02759.
+- M. L. Balinski and H. P. Young, *The quota method of apportionment*, American Mathematical Monthly 82 (1975), 701–730.

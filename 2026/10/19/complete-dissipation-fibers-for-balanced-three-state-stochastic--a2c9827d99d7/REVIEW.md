@@ -1,15 +1,21 @@
-# Scientific review: complete dissipation fibers of three-state stochastic oscillators
+# Independent mathematical audit
 
-## Correctness — PASS
-The classification follows from an exhaustive current-conservation parametrization, a directly expanded characteristic polynomial, strict Jensen convexity for the logarithmic affinity, and a continuous explicit isospectral path ending at an irreversible-rate boundary. The path retains positive rates for every allowed interior parameter; the logarithm diverges at the boundary, while the oscillatory eigenpair, uniform stationary distribution and jump activity remain constant. Continuity and the intermediate value theorem fill every finite value above the minimum. The complete matrix identities and representative paths were checked independently with exact rational and numerical arithmetic using `verify.py`. Floating-point checks are ancillary rather than certificates of the infinite statement.
+## correctness
 
-## Originality — PASS, with residual risk
-The published affinity/eigenvalue localization theorem by Kolchinsky, Ohga and Ito already implies the sharp **lower** entropy-production endpoint when combined with the elementary three-edge current bound; this endpoint alone is excluded from the originality claim. Gu's general bound, the Kolchinsky affinity theorem, and Shiraishi's broader nonidentifiability work do not, in their inspected relevant statements, classify the entire stationary entropy-production image at **every** balanced three-state complex spectral pair with fixed activity. The new part is the explicit strictly bidirectional isospectral family and its exact half-line image. A related real-spectrum three-state isospectral construction fixes one real eigenvalue pair and is not an implication of the complex-spectrum theorem. Residual risk: an unpublished or insufficiently indexed general classification may already imply the full image; a routine extension of an existing isospectral construction could reduce its perceived novelty.
+PASS
 
-## Value — PASS
-The full image answers a motivated inverse question in nonequilibrium stochastic oscillators: how strongly can an observed complex relaxation spectrum and stationary activity constrain thermodynamic cost? The answer distinguishes a sharp compulsory floor from an **unbounded and continuously attainable excess**, even with all rates finite and every edge bidirectional. This separation affects the interpretation of eigenvalue-based dissipation inference and is more informative than a single example of nonidentifiability.
+Uniform stationarity enforces equal oriented forward-minus-backward differences. After orientation choice write rates a±κ,b±κ,c±κ with a,b,c>κ≥0. The trace is −2S and each principal two-by-two minor is ab+bc+ca+κ², giving the characteristic polynomial z[(z+S)²−Δ+3κ²] with Δ=½Σ(a−b)² over the three unordered pairs. Therefore S=s, activity=2s/3, and κ≥ω/√3>0; positivity forces ω<s/√3. The EPR is (2κ/3)Σ log[(a+κ)/(a−κ)]. Strict convexity on a>κ and strict growth of 2κ log[(s+3κ)/(s−3κ)] yield the floor and force the homogeneous cycle at equality. For A=s/3, a=A+2u and b=c=A−u, set κ²=ω²/3+3u². Then Δ=9u² and all constraints remain fixed. The function A−u−κ(u) is strictly decreasing, positive at u=0 and negative at u=A, and its unique positive zero is the stated u*. Before u* all six rates are positive; at u* the two reverse rates on b,c tend to zero with κ→A−u*>0, so EPR diverges. Continuity on the admissible interval and the attained minimum imply every finite target by the intermediate value theorem, with no need for monotonicity of EPR or an inadmissible boundary generator.
 
-## Closest sources and limitations
-Gu (arXiv:2606.05498v1, main theorem and examples) provides non-sharp general entropy floors; Kolchinsky–Ohga–Ito (arXiv:2605.15884v3, Theorem 1) provides a **sharp affinity** constraint and accounts for the floor; Shiraishi (arXiv:2609.34352v1) investigates broader spectral insufficiency. The asserted novel component is only the complete fixed-activity, fixed-complex-spectrum entropy fiber. The theorem does not cover arbitrary stationary laws or higher dimensions, and individual unbounded-sequence endpoints are not attained by positive-rate processes.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The sharp lower endpoint and homogeneous rigidity follow from prior affinity localization plus the elementary bound on current and are not new. The distinct result is exact attainability of every larger finite EPR at every feasible fixed nonreal pair in the three-state uniform stationary model, with fixed activity and all six rates positive. Prior localization, comparison frequency bounds and different-model counterexamples do not supply that construction. The closest later catalogue frontier overlaps materially on the same model and floor, but stating an EPR budget constraint and maximum frequency does not specify the full set of EPR values on a fixed-frequency fiber.
+
+## value
+
+PASS
+
+In the smallest oscillatory Markov model the result answers a natural inverse thermodynamic question with a sharp attainable set: even all eigenvalues, the stationary law and the activity leave the stationary EPR unbounded above. Proving every finite intermediate target for every feasible spectrum is stronger than one counterexample, a bound, or a numerical plot.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

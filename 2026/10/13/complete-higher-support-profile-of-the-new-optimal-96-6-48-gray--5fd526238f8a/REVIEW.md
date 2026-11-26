@@ -1,27 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The defining set and Gray-coordinate formula reconstruct the exact \(6\times96\) binary generator. Its two column blocks are complements of \(4\)-spaces \(S_1,S_2\) meeting in dimension \(3\). For an \(r\)-subcode with annihilator \(W\),
-\[
-|\operatorname{Supp}(U)|
-=
-96-2^{7-r}
-+2^{\dim(W\cap S_1)}
-+2^{\dim(W\cap S_2)}.
-\]
-Grassmann lower bounds and explicit simultaneous witnesses prove
-\[
-(d_1,\ldots,d_6)=(48,72,84,90,94,96).
-\]
-All \(2824\) positive-dimensional message subspaces were then enumerated exactly; direct supports and the structural formula agree in every case, and the published ordinary enumerator is reproduced.
+PASS
 
-## Originality
+Explicit reconstruction gives two blocks of 48 distinct columns. Either spans the six-dimensional message space. Their missing spaces have dimensions (4,4) and intersection dimension 3, with constraints x2=y3=0 and x2+y2=y3=0 respectively. The span of e6 and e2 is a simultaneous complement, so the two dimension lower bounds are attained by an h-space inside that span or containing it. The repaired flag and certificate agree in the declared coordinate order. Independent hyperplane/coset recursion on all 2,824 annihilators, direct multiset counts, and a separate message-space word-weight sum agreed with every support bin and with (48,72,84,90,94,96). The repaired verifier returned VERIFY_OK.
 
-PASS. The primary source contains no generalized-Hamming or subcode-support discussion. The closest full-text SSWD construction found deletes a strictly nested sequence of projective subspaces of strictly increasing dimensions; this example instead deletes two distinct \(4\)-spaces with a \(3\)-dimensional intersection, so it is not a specialization of that theorem. Exact source, parameter, hierarchy, and geometry searches found no same-object higher-support profile. A 2026 antiGriesmer article was only available at abstract level and is retained as an explicit residual risk rather than treated as decisively excluded.
+## originality
 
-## Value
+PASS
 
-PASS. Example 4.4 is a highlighted new distance-optimal near-Griesmer code. Determining its entire generalized Hamming hierarchy and all higher-dimensional support multiplicities gives a complete support-incidence profile that cannot be recovered from the ordinary weight enumerator. The overlapping deleted-subspace geometry also explains the appearance of odd higher support sizes.
+For the repaired scope: the primary paper supplies the parameters and ordinary enumerator, and the archived compression theorem supplies the geometry and multiplicities. The surviving claim is the complete higher support distribution of the original repeated-column Gray code, not the geometry or a hierarchy of the compressed code. The checked exact support-distribution theorems concern different configurations.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+In the original distance-optimal Gray example, the repeated columns change higher-support behavior in a way not captured by compressing the geometry. The census quantifies this, for instance counting 256 four-spaces at odd support 91 although all ordinary nonzero weights are divisible by eight. This is useful as an exact comparison case for multiset generator constructions, independently of the known geometry or minimum distance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

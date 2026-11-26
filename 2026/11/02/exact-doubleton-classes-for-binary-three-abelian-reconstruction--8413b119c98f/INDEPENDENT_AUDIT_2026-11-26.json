@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:25:46.012477Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, definitions and Proof Steps 1–4; VERIFICATION.md, enumerate.cpp, verify.py and PROFILES.tsv inspected; uploaded code not executed",
+        "Independent /workspace/review_checks/check5.py: capped unused-edge continuation recursion, all 316 canonical endpoint/multiplicity/pump records compared exactly with PROFILES.tsv; 18 frequency cells and coefficients checked; direct word census by literal factors of all three lengths for n=2..16",
+        "Repaired /workspace/repairs/5/RESULT.md"
+      ],
+      "rationale": "Summing the three-mer counts by prefix and suffix separately recovers all two-mer counts except the final or initial occurrence, so the two endpoints are determined by the observations; with the shorter counts recovered conversely, this gives precisely indistinguishable-edge Euler trails with fixed endpoints. Every actual trail determines the last-exit tree, and the flow equations ensure that ordered outgoing lists with that tree exhaust all edges before stopping at the root. If two outgoing types are repeated, any valid tree has a local factor at least three. In the resulting functional heavy graph, the predecessor cut for a noncycle heavy edge has only that heavy exit, no heavy entrances, at most two entering unit edge types (by the four-vertex graph), and endpoint imbalance at most one, so its count is at most three. Across a consecutive segment of a heavy cycle of length c the difference in its boundary weights is bounded by 3(4−c)+3. Uniform reduction to cycle minimum two preserves support and trees. Every local factor affected by pumping is either constant or strictly increasing at the first step; if the reduced class is a singleton, its unique tree has all local factors one and no affected heavy type can share a nontrivial ordering with another type. Thus only canonical doubletons with individually permitted independent pumps are counted. The independently reproduced table gives all stated coefficients; for n>=14 its paired loop pumps give 6(n−10)+4(n−11) and single loop pumps give 90, yielding the stated periodic corrections and linear term. The repair clarifies earlier coverage without altering this proof or coefficient law.",
+      "residual_risks": [
+        "The bounded census relies on the analytical canonical reduction; the direct finite word checks alone do not prove the infinite law."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Corollary 2 gives rationality for the number of classes of length n and fixed cardinality r. The concluding text attributes regularity of the union of two-element classes to the earlier journal paper and notes that constructibility is practical only in restricted cases."
+        ],
+        "reasoning": "The broader theorem covers rationality and constructibility by specialization, not the evaluated binary three-abelian size-two series or its eventual linear/quasiperiodic form. The repair explicitly removes any suggestion that the all-length regularity issue was open.",
+        "searches": [
+          "2018 fixed-cardinality Theorem 1 and Corollary 2 p. 61; Cassaigne et al. DLT 2016 and expanded Fundamenta Informaticae article DOI 10.3233/FI-2017-1553"
+        ]
+      },
+      "checked_sources": [
+        "Repaired and frozen RESULT.md",
+        "2018 Karhumäki–Whiteland full-text passages",
+        "DLT and journal bibliographic records and 2018 retrospective",
+        "arXiv:1605.03319",
+        "OEIS A289657 and A289658",
+        "Resultary 7044900c1ee8, 32ec2ad33bbd and two-marker fiber match"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An exact individual-class-size formula gives a test on profiles, not an all-length enumeration of those passing it. General rationality or routine coefficient extraction from a given automaton does not furnish the case-specific automaton or its coefficients. The inspected specializations did not carry a table determining the required poles and coefficients."
+        ],
+        "reasoning": "The new work is identifying a complete finite set of canonical doubletons and determining exactly which disjoint cycle expansions are allowed, then counting it. Neither the total-minus-singletons calculation nor substituting k=3 and r=2 into Corollary 2 evaluates the law.",
+        "searches": [
+          "2018 Corollary 2 and discussion of practical automaton construction; 2016 cardinalities Proposition 4.7; close Resultary profile/fiber records"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2018 language includes precisely words in cardinality-r classes, so its n-letter word count divided by two gives the frozen statistic at k=3, r=2, binary alphabet. Three-mer counts alone, without the endpoints, are not equivalent to the target observation."
+        ],
+        "reasoning": "The 2018 result really does apply to this sequence; the novelty is its explicit evaluation. Projecting away endpoints or imposing a restricted word language changes the fibers being enumerated.",
+        "searches": [
+          "Karhumäki–Whiteland, Regularity of k-Abelian Equivalence Classes of Fixed Cardinality, Theorem 1 and Corollary 2; Karhumäki et al. arXiv:1605.03319 Proposition 4.7; binary three-mer multiplicity fibers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A289657 counts all classes and has 60 at n=6, in contrast to four doubletons. A289658 counts total ternary 2-abelian classes. Same-date Resultary hit 7044900c1ee8 counts distinct three-mer vectors; 2-marker and golden-mean results restrict the ambient words."
+        ],
+        "reasoning": "Even where lengths or three-mer parameters agree, the statistic is a count of size-two classes with endpoints, not an image size or a restricted fiber law. No exact covering table was identified in those matches.",
+        "searches": [
+          "OEIS A289657 (binary 3-abelian class count) and linked A289658; Resultary exact binary doubleton/size-two three-abelian reconstruction fibers"
+        ]
+      },
+      "rationale": "The supported distinct part is the explicit doubleton coefficient law and generating function, not its rationality, the existence of an automaton, the individual class-size formula, or the total/singleton counts. The corrected literature section credits fixed-cardinality regularity and rationality explicitly. None of the strongest inspected sources supplies the bounded coefficient census, the binary size-two automaton with evaluated coefficients, or an equivalent exact coefficient formula.",
+      "residual_risks": [
+        "The original DLT and expanded journal formulas were not fully readable in the lawful retrieval attempts. No exhaustive historical-priority claim is made; the pass is for the evaluated formula, not qualitative rationality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of fixed-size regularity and rationality, but not the evaluated binary 3-abelian doubleton sequence.",
+          "evidence": [
+            "Corollary 2 gives the rational sequence for fixed cardinality r at length n.",
+            "The conclusion attributes two-element regularity to the earlier expanded journal article and states that constructing the automata is practical only in restricted cases."
+          ],
+          "identifier_or_url": "https://link.springer.com/content/pdf/10.1007/978-3-319-98355-4_4.pdf",
+          "material_read": "Theorem 1, p. 56; §4 and Corollary 2 pp. 60–61 (OA text around 34400–37638)",
+          "method": "Lawful Springer PDF, bounded primary text",
+          "title": "Regularity of k-Abelian Equivalence Classes of Fixed Cardinality",
+          "trigger": "General theorem on the very same fixed-size class observable"
+        },
+        {
+          "assessment": "Regularity of the union of doubleton classes is credited; any detailed explicit journal coefficient formulas remain an access risk, not negative evidence.",
+          "evidence": [
+            "The 2018 conclusion explicitly reports the earlier extension from singletons to all two-element classes."
+          ],
+          "identifier_or_url": "10.1007/978-3-662-53132-7_7 (DLT 2016); 10.3233/FI-2017-1553 (journal)",
+          "material_read": "Bibliographic identification; 2018 §4 retrospective on the journal treatment; DLT and journal full passages not recovered independently",
+          "method": "Lawful primary-link and identified repository attempts, plus bounded primary 2018 retrospective",
+          "title": "k-Abelian Equivalence and Rationality",
+          "trigger": "Potential prior explicit binary formulas, including size-two claims in the expanded treatment"
+        },
+        {
+          "assessment": "Provides individual class cardinalities, not the sequence counting how many classes attain size two.",
+          "evidence": [
+            "Proposition 4.7 counts words in the class of a given word."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1605.03319",
+          "material_read": "p. 7, Proposition 4.7",
+          "method": "Bounded OA primary text",
+          "title": "On cardinalities of k-abelian equivalence classes",
+          "trigger": "Exact class cardinality theorem potentially implying exact size-two enumeration"
+        },
+        {
+          "assessment": "Not rejected on dating grounds; counts distinct observed vectors, not two-word fibers with endpoint observations.",
+          "evidence": [
+            "The counted object is the set of distinct three-mer multiplicity profiles."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-enumeration-of-binary-length-three-substring-multispectra--7044900c1ee8",
+          "material_read": "Finding on counts of distinct three-mer multiplicity vectors",
+          "method": "Resultary local search and comparison of the finding",
+          "title": "Exact enumeration of binary length-three substring multispectra",
+          "trigger": "Same-date candidate on exact binary three-mer reconstruction"
+        },
+        {
+          "assessment": "Different ambient languages, neither is the unrestricted size-two census.",
+          "evidence": [
+            "Two-marker words have exactly two nonzero positions; golden-mean words avoid 11."
+          ],
+          "identifier_or_url": "Resultary 32ec2ad33bbd (golden mean), 2026/11/8 two-marker record",
+          "material_read": "Findings on respective source-language restrictions",
+          "method": "Resultary local searches and statement comparison",
+          "title": "Exact three-mer multiplicity fibers for two-marker words; Exact 3-Abelian reconstruction fibers of the binary golden-mean language",
+          "trigger": "Prior exact fiber methods and potentially overlapping small-fiber counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md, finding and canonical reduction",
+        "2018 prior regularity and rationality discussion",
+        "Independent finite profile certificate comparison"
+      ],
+      "rationale": "Size two is the first failure of unique reconstruction, a natural refinement of the known singleton and total counts. The formula determines how often that minimal ambiguity occurs, including its precise onset, linear rate and residue corrections. The finite census is useful here because the reduction proves it exhausts all lengths; it is not merely an implementation of prior rationality or a fixed-length table.",
+      "residual_risks": [
+        "No statistics for larger exact sizes or other factor lengths are implied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

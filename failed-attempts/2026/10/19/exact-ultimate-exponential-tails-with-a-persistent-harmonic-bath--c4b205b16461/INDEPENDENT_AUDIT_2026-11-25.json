@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:23:05.316899Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The semigroup is the common-mode projection plus an exponentially decaying part, so both conditional innovation variances are 2D_c t+O(1). At reset events the bath evolves by an affine recursion with coefficient β(T) in (0,1) almost surely. Its backwards innovation series has finite conditional variance almost surely since Eβ²<1 and EV_y(T)<∞. Products of coefficients vanish almost surely (infinitely many intervals exceed a fixed positive duration), giving uniqueness beyond finite-moment initial laws. The independent stationary Poisson backward age and earlier spacings construct the invariant joint law. For the conditional-variance recursion, the normalized one-step exponential drift tends to zero by domination below r/(2D_c); iteration bounds the requisite bath transform. In the tracer age integral the bath multiplier is uniformly bounded below the cutoff and at least one by symmetry, proving divergence also at equality. Chernoff gives the tail upper bound; bounded initial bath and age in [uz,uz+1] cost ru+1/(4D_c u) per unit displacement, minimized at √(r/D_c), giving the matching lower bound on each side by symmetry. The dimensionless specialization is correct. An independent generator calculation reproduced Var X=3/2 and Var Y=9/4 at unit parameters (/workspace/independent_checks.py); second moments do not certify tails. No density asymptotic or singular-parameter uniformity is established.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "6d27e15f4a50 covers both marginals and works explicitly by contractive affine bath dynamics and an independent exponential age. Its proof needs the common linear innovation-variance growth and strictly contractive coefficient, not equal-temperature noise cancellation.",
+          "Goswami uses a fixed initial Gaussian bath distribution in the renewal integral and gives limiting coupling profiles; it does not prove the exact stationary retained-bath law at general finite coupling."
+        ],
+        "reasoning": "The indexed result has a stronger conclusion on the reference family. Bounded covariance comparison transfers it to the arbitrary positive noise strengths at fixed drift, without renewing the retained bath. The closely related published models/approximations are not by themselves the reason for failure.",
+        "searches": [
+          "6d27e15f4a50 proof steps 1–5",
+          "Goswami arXiv:2412.19564v1 Eqs. (3)–(5), (13), (32)–(35)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6d27e15f4a50",
+        "Resultary 7d57b733f684",
+        "arXiv:2603.17027v1",
+        "arXiv:2412.19564v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matched-D_c reference has identical coefficients and linear variance slopes. The ratio |V_y(t)−V_y^0(t)|/(1−β(t)^2) is bounded: the denominator is 2bt+O(t²) near zero and tends to a strictly positive constant. The variance perpetuity therefore telescopes to a uniformly bounded discrepancy.",
+          "The transferred MGF bounds use factors e^{±Cθ²/2}. For tails, |X_new+G| dominates |X_ref| in distribution, so P(|X_new|>(1−ε)z)≥P(|X_ref|>z)−P(|G|>εz); Chernoff supplies the other bound."
+        ],
+        "reasoning": "The extension to independent unequal diffusion strengths is a bounded perturbation of the theorem for the reference noise strengths with matching D_c, not a new tail regime or a new exact invariant.",
+        "searches": [
+          "6d27e15f4a50 Finding, assumptions and proof steps 1–5",
+          "Frozen RESULT.md free variances and affine bath recursion, lines 43–89"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "6d27e15f4a50 has the same dimensionless recursively retained bath at resets and exactly the same exponent on the tracer. Symmetry converts its absolute tail to the pair of one-sided limits; its MGF diverges at equality.",
+          "Santra–Das arXiv:2603.17027v1 Sec. III.3 Eq. (29) concerns large γ taken in the preceding approximation, not this fixed-γ limit."
+        ],
+        "reasoning": "The MGF and tail formulations both match the indexed dimensionless result, including all boundary quantifiers. The Gaussian strong-memory approximation is not an equivalent claim.",
+        "searches": [
+          "Resultary search for selectively reset viscoelastic Brownian pair and exact finite-memory moment boundary",
+          "Poisson resetting tracer with an unreset harmonically coupled bath stationary far-tail logarithmic exponent exact moment-generating function finite coupling"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact continuously parametrized threshold is indexed as a theorem, not a finite table, in 6d27e15f4a50.",
+          "7d57b733f684 gives the finite-memory MGF divergence obstruction and a log-tail lower bound; it does not give the matching upper bound."
+        ],
+        "reasoning": "Neither numerical exact examples nor the weaker obstruction suffice, but the stronger match supplies both equalities.",
+        "searches": [
+          "Resultary finite-memory tail/MGF and rare long reset-free intervals",
+          "6d27e15f4a50 and 7d57b733f684"
+        ]
+      },
+      "rationale": "Resultary 6d27e15f4a50 directly covers the dimensionless tracer result and also proves the bath marginal result. For arbitrary positive diffusivities at the same drift, there is an exact comparison to that reference theorem: choose D_x^0=ad, D_y^0=bd with d=D_c(a+b)/(ab), which preserves D_c. Rescaling time by a and both coordinates by √d reduces the reference model to that theorem with γ=a/b and rate r/a. On common Poisson spacings both models have the same coefficients β(t), α(t). The difference of their free bath innovation variances is O(t) near zero and O(1) at infinity by the shared leading slope, so its absolute value is bounded by C(1−β(t)^2). The conditional stationary bath variance difference is then bounded by C by telescoping the product-weighted series. The conditional tracer variances likewise differ by a uniform constant. This transfers the entire open MGF interval including endpoint divergence by multiplying the conditional MGF by bounded factors for each θ. Adding an independent Gaussian of variance equal to the bound to either tracer gives absolute-tail stochastic domination of the other (conditional Gaussian variance ordering); the Gaussian noise is superexponentially small at any fixed fraction of large displacement. A triangle-inequality tail comparison, then taking that fraction to zero, transfers the exact logarithmic tail. Thus the extra diffusivity ratio does not introduce a scientific remainder not already implied by the matching theorem. Indexed coverage is established; relative provenance and priority are not inferred from directory dates.",
+      "residual_risks": [
+        "Chronological priority or dependence between the frozen and overlapping indexed results is not established.",
+        "The targeted literature search does not exhaust general Gaussian-perpetuity or Markov-renewal results. This does not affect the demonstrated coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact dimensionless match with an additional bath conclusion; the claimed tracer result at general positive noises transfers",
+          "evidence": [
+            "Open threshold |k|<√(r(γ+1)), matching symmetric tail rate, Gaussian affine bath perpetuity and a conditional age integral."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-common-sharp-exponential-tail-scale-for-a-selectively-reset-vi--6d27e15f4a50/RESULT.md",
+          "material_read": "Finding, assumptions, proof steps 1–5, mirrored offsets 0–9460",
+          "method": "Compared hypotheses and proved the covariance comparison to the arbitrary-noise model",
+          "title": "A common sharp exponential-tail scale for a selectively reset viscoelastic Brownian pair",
+          "trigger": "Exact finite-memory MGF and tails for the same selective reset"
+        },
+        {
+          "assessment": "Gaussian strong-memory profile rather than exact fixed-finite-memory boundary",
+          "evidence": [
+            "Eq. (28) is obtained after the quasistatic separation; Eq. (29) inherits that assumption."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.17027v1",
+          "material_read": "Sec. III model; Sec. III.3 Eqs. (21)–(29), text offsets 19500–26993 and 27500–34031",
+          "method": "Read the approximation and compare its order of limits",
+          "title": "Resetting in a viscoelastic bath: the bath remembers",
+          "trigger": "Same physical reset model and a Gaussian stationary approximation"
+        },
+        {
+          "assessment": "Does not establish the exact finite-coupling persistent bath marginal",
+          "evidence": [
+            "The restart kernel averages against prescribed Gaussian initial y_0 rather than the invariant bath value at a reset; the exponential profile arises in a coupling limit."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2412.19564v1",
+          "material_read": "Model and renewal Eqs. (3)–(5), coupling-limit Eqs. (13a–b), stationary integral Eq. (32) and appendix Eqs. (33)–(35)",
+          "method": "Read original HTML passages and compare the last-renewal conditioning and parameter limits",
+          "title": "Stochastic resetting in a nonequilibrium environment",
+          "trigger": "Similar harmonically coupled unreset coordinate and exponential-tail profile"
+        },
+        {
+          "assessment": "Weaker, proves a tail lower bound and divergence but not matching equality",
+          "evidence": [
+            "Obstruction excludes Gaussian ultimate tails; no exact full MGF interval from the lower bound alone."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-finite-memory-exponential-tail-obstruction-for-a-partially-reset--7d57b733f684/RESULT.md",
+          "material_read": "Original statement, mirror offsets 0–3972",
+          "method": "Compared direct one-sided implications with the claimed exact equality",
+          "title": "Finite-memory exponential-tail obstruction for a partially reset viscoelastic model",
+          "trigger": "Possible exact fixed-memory rate in the same model"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The fixed-memory exponent and exact moment boundary are useful for distinguishing a limiting Gaussian profile from ultimate tails. However, both facts are supplied by the indexed theorem, and the extra independent diffusion ratio is a bounded conditional-variance perturbation absorbed by matching D_c. The reviewed claim provides neither an additional invariant nor a new tail prefactor, regime or limit-order estimate. It lacks incremental value as a distinct finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

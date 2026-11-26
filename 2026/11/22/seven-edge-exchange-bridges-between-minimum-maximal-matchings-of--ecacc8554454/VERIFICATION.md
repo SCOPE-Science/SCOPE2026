@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,37 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-The two complete and independently constructed implementations below establish the 168-by-288 configuration census and test all 3,360 eligible hyperoval-fiber pairs, with 82,944 matching pairs per fiber pair. Assertions inspect every candidate within the fixed finite domain. They do not depend on random sampling, numerical tolerances, logs from previous computations, untrusted input data, or an asserted unexplored automorphism reduction.
+## correctness
 
-## C++17 verification (standard library)
+PASS
 
-```bash
-g++ -O3 -std=c++17 check_affine.cpp -o check_affine
-./check_affine
-```
+Maximality is equivalent to incidence-freeness of the unmatched shores. With r unmatched on each shore the first two line-incidence moments are 5r and r(r+4); for r>0 Cauchy–Schwarz against the at most 21−r occupied lines gives r≤6. At r=6 equality forces the full six external lines and a six-point hyperoval. Each outside point lies on three secants that pair the six points; the 15 resulting pairings are distinct, giving the duad–syntheme graph. It is regular bipartite, so each fiber exists, and the symmetric differences of its perfect matchings are alternating cycles. Independently rebuilt PG(2,4) from two-vector spans, enumerated all 168 hyperovals and all 288 perfect matchings in each, and verified minimum within-fiber move size four and connectivity at that size. Distinct fibers have equal point and line intersections r≤3. All previously free vertices that become matched require 2(6−r) distinct newly inserted edges (no old free point is incident to an old free line), excluding r≤2 through threshold seven. For every one of the 3,360 remaining fiber pairs, the full 288×288 overlap census had maximum eight common edges with exactly 216 pairs attaining it. The actual quotient is 40-regular with diameter two, so the full graph first connects at seven. Internal degrees 37 and 41 each appeared 24,192 times, and all cross-degrees were 30; reproduced 943,488 internal, 725,760 cross and 1,669,248 total edges. The component conclusions for thresholds ≤6 follow from these exclusions and the four-move connectivity in each fiber.
 
-The source constructs \(\operatorname{PG}(2,4)\) from affine points, slopes and the line at infinity. It independently enumerates the hyperovals and matchings, applies complete pairwise bitset-intersection tests, and checks all stated totals, component facts and sharp exclusions. Exit status zero and the `PASS` lines indicate that all assertions completed.
+## originality
 
-## Independent homogeneous-coordinate verification
+PASS
 
-```bash
-OPENBLAS_NUM_THREADS=1 python3 check_homogeneous.py
-```
+Pass for the first exchange threshold on the whole optimum-matching space and the bridge and degree census. The static size 15, point-only quotient parameters, 288 perfect matchings in one fiber, and the four-edge single-fiber flip structure are credited, not adjudicated as novel. The closest inspected prior statements concern a projection to hyperovals, a fixed fiber, or another graph, not the lifting of every adjacent pair to exactly 216 whole-matching bridges.
 
-Install the optional Python checker dependency using `python3 -m pip install -r requirements.txt` if NumPy is not already installed.
+## value
 
-This source uses normalized triples in \(\mathbb F_4^3\), normalized linear forms and vectorized NumPy bit-count comparisons. It independently checks every possible six-point set, all residual perfect matchings, every within-fiber matching pair, every 3-intersection fiber pair and all quotient distances. Requires Python 3 with NumPy; tested with NumPy 2.3.5. The C++ checker requires no third-party runtime libraries.
+PASS
 
-## Checked finite values
+The first connectivity threshold tests when genuinely distinct optimum fibers can communicate under the natural batch distance. It is not merely a new count of already-known states or an arbitrary parameter slice: it distinguishes the four-edge scale of motions inside a perfect-matching fiber from the seven-edge scale where these fibers first communicate. Uniform bridge multiplicity and cross-degree make the geometry of these first lifts precise and would matter in any subsequent study of these dynamics, without claiming a mixing result.
 
-- 168 hyperovals and six disjoint lines per hyperoval;
-- 288 residual perfect matchings per fiber; 48,384 total minimum maximal matchings;
-- 40 quotient neighbors for every hyperoval, quotient diameter two;
-- 216 seven-edge bridges and zero six-edge bridges per 3-intersection fiber pair;
-- 725,760 cross-fiber seven-exchange edges, 943,488 internal edges, 1,669,248 total;
-- 30 cross neighbors per optimum, and global degrees 67 and 71 with 24,192 configurations each;
-- complete absence of moves under three or fewer changes, 168 components through threshold six, and connectivity at threshold seven.
-
-The mathematical lower bound and interpretation of the exhaustive certificate are given in RESULT.md. Independent scholarly audit has not been performed; no originality claim is inferred solely from search results or computation.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

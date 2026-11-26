@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:38:56.961133Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:3–39",
+        "VERIFICATION.md:19–21",
+        "verify_double_stars.py (inspected)",
+        "verification_output.txt",
+        "python3 /workspace/replay/2.py (passed)"
+      ],
+      "rationale": "A blank leaf can never see two colors. Fix an ordered pair of distinct final center colors c,d (six choices). On an m-leaf side its leaves must avoid its final center color. A center that is seeded with its own final color or independently forceable from its leaves contributes π_m=p^m[p·2^m+r(2^m−2)], with r=1−3p. A blank center that can only be forced after its neighbor is colored must have a constant leaf word on the third color, contributing r p^m: the constant word equal to the neighbor's color would still leave only one distinct neighbor color. Two mutually dependent unseeded centers cannot start. Thus for each final center pair exactly the contributions π_mπ_n, r p^m π_n and r p^n π_m occur, giving the frozen coefficients on expansion. These events produce proper final colorings; if both centers are already forceable from leaves, distinct target colors preserve the other force in either order, while equal targets prevent success. Thus no final center pair is double counted. At p=0 the probability is zero, at p=1/3 it is the uniform proper-coloring probability, and m=n=1 yields 24p³(1−2p). My replay enumerated all four initial states per vertex, including blank leaves, and all legal orders for the sixteen m,n pairs from 1 through 4; no success-order dependence occurred and the exact coefficients matched, including (48,144,96) for m=n=2.",
+      "residual_risks": [
+        "The finite replay corroborates the proof and is not a substitute for the all-m,n argument. No claim for other color counts or arbitrary trees."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Farr proves leaves must be initially colored, writes FC=P(G;λ)π^{|V(G)|}+S and bounds S by dropping the correctness of the forced core colors off the locally settled set W.",
+          "Theorem 7 pertains to λ=2. Resultary 2226d8f07ffd pertains to maximum degree at most two."
+        ],
+        "reasoning": "The bound for S does not determine even the balanced exact interacting contribution, and uniform attachment is not arbitrary unequal attachment. The other broad classes do not contain the branching three-color family.",
+        "searches": [
+          "Farr arXiv:2609.17108 Prop. 6, Thm. 7 and leaf-attachment equations (22)–(33)",
+          "Resultary max-degree-two and complete-bipartite forcing classifications"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.17108",
+        "Resultary 2226d8f07ffd, 45e5ee98b751, cc843c723cf9, 93e100e6b782"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At fixed proper center colors in the balanced case, Farr's ρ=2r p^ℓ counts both constant leaf words on a blank nonlocally forceable side. Only the third-color word can actually be forced by the adjacent center; if both centers are in this nonlocal category no force starts. Hence the exact S is 12π r p^ℓ, rather than the loose 6(2πρ+ρ²) upper bound obtained by specializing (33).",
+          "The path and complete-bipartite results do not address that two-hub interaction in branching trees."
+        ],
+        "reasoning": "The prior event partition is relevant methodology, but its specialized bound does not evaluate the actual remainder. The exact calculation uses both the allowed neighbor color and the need for a seed, then extends to both independent leaf counts.",
+        "searches": [
+          "Specialize Farr Eq. (22)–(33) to λ=3, G=K₂",
+          "Compare m,n≥2 domain to Resultary 45e5ee98b751 and 2226d8f07ffd"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Farr's L_ℓ(K₂) is the balanced double star D_{ℓ,ℓ}, and author and frozen claim use the same independent per-color probability model.",
+          "Resultary 45e5ee98b751 uses the same forcing invariant but on complete bipartite graphs; cc843c723cf9 counts a packing-domatic invariant on the same trees; 93e100e6b782 counts shattered marked vertex–color queries, not forced starts."
+        ],
+        "reasoning": "D_{m,n} for m,n≥2 is a branching tree that is neither a star nor a nontrivial complete bipartite graph. A different invariant on these trees is not an equivalent count. No priority is inferred from a shared date.",
+        "searches": [
+          "Forced colouring function / successful partial precoloring on double stars, leaf-augmented K₂ and branching trees",
+          "arXiv:2609.17108 leaf attachment and Resultary 45e5ee98b751, cc843c723cf9, 93e100e6b782"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier exact path P₄ value is 24p³(1−2p), equal to D_{1,1}; the maximum-degree-two record also supplies that endpoint.",
+          "The indexed double-star packing and marked-query exact data concern different statistics; the exact complete-bipartite formula also has a different domain."
+        ],
+        "reasoning": "The endpoint belongs to previously tabulated graphs. There is no demonstrated exact table coverage of the m,n≥2 double-star forcing coefficients in the inspected sources.",
+        "searches": [
+          "Farr Prop. 6, Eq. (12) and four-vertex tables",
+          "Resultary 2226d8f07ffd and published double-star/forced-three-coloring exact search"
+        ]
+      },
+      "rationale": "The leaf necessity, the path endpoint and the leaf-attachment factorization of the locally determined term are prior. The distinct result is the exact coupled remainder and thus the complete two-parameter forced three-coloring polynomial for branching double stars, including unequal leaf counts.",
+      "residual_risks": [
+        "An unindexed equivalent formula remains possible. The broad external search was uninformative; the originality judgment rests on the inspected exact statements, not on search nonretrieval."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior path, necessary leaf condition and leading product; the remaining term is only bounded, not evaluated",
+          "evidence": [
+            "Eq. (23) drops the condition on final forced colors off W; Eq. (33) is an inequality. Eq. (12) gives 24p³(1−2p) for P₄."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.17108",
+          "material_read": "Prop. 6 and Eq. (12), PDF pp. 9–10 near offsets 26100–27842; leaf definition pp. 16–17 near 45800–47434; Eq. (22)–(25), offsets 50850–55409; Eq. (31)–(33), offsets 63546–67685; Thm. 7",
+          "method": "OA PDF passage reads and symbolic balanced-subfamily specialization",
+          "title": "The forced colouring function of a graph",
+          "trigger": "Original invariant, small tables and general leaf-attachment formulas that include balanced double stars"
+        },
+        {
+          "assessment": "Contains the path endpoint only in this family",
+          "evidence": [
+            "Path and cycle formulas give every maximum-degree-two graph, and the branching double stars do not have maximum degree two."
+          ],
+          "identifier_or_url": "2026/9/17/SCOPE-forced-three-colouring-max-degree-two--2226d8f07ffd",
+          "material_read": "Mirrored RESULT.md offset 0, equations 1–5",
+          "method": "Published Resultary lookup and local mirror read",
+          "title": "Exact forced 3-colouring polynomials at maximum degree two",
+          "trigger": "Prior exact formulas for sparse graph classes"
+        },
+        {
+          "assessment": "Same invariant but not branching double stars",
+          "evidence": [
+            "For λ≥3 non-total forcing starts have one fully colored shore using λ−1 colors; the family is K_{a,b}."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-forced-colouring-functions-of-complete-bipartite-graphs-for-lamb--45e5ee98b751",
+          "material_read": "Mirrored RESULT.md Finding offset 0",
+          "method": "Published Resultary lookup and local mirror read",
+          "title": "Forced colouring functions of complete bipartite graphs",
+          "trigger": "Closest same-invariant and same-day indexed family"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": [
+            "Determines the packing k-domatic chromatic number of D_{a,b}."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-packing-k-domatic-chromatic-spectrum-of-double-star-trees--cc843c723cf9",
+          "material_read": "Mirrored RESULT.md Finding offset 0",
+          "method": "Published Resultary lookup and local mirror read",
+          "title": "Packing k-domatic chromatic spectrum of double-star trees",
+          "trigger": "Same-day, same topology with a coloring theorem"
+        },
+        {
+          "assessment": "Different initial objects and success predicate",
+          "evidence": [
+            "Counts sets of binary vertex–color queries shattered by proper colorings of D_{a,b}, not forced initial colorings."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-complete-marked-query-shattering-polynomial-for-three-colourings--93e100e6b782",
+          "material_read": "Mirrored RESULT.md Finding offset 0",
+          "method": "Published Resultary lookup and local mirror read",
+          "title": "Complete marked-query shattering polynomial for three-colourings",
+          "trigger": "Same topology and number of colors, exact polynomial"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Farr leaf-attachment bounds and small exact graph cases",
+        "RESULT.md:19–45",
+        "Independent fixed-final-color calculation and exact replay"
+      ],
+      "rationale": "The double star is the natural first two-adjacent-hub test extending the known path and local leaf-attachment formulas to branching. The exact coefficients resolve both genuinely nonlocal effects: a neighboring hub can enable a force, and two attempted forces can conflict. The formula gives a check for any tree recursion or bound on forced-coloring success, including highly unequal branching and the no-seed case; it is not just a restatement of the ordinary chromatic polynomial or a single small graph calculation.",
+      "residual_risks": [
+        "No general tree recursion or new complexity bound is demonstrated."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

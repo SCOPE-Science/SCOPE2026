@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof uses the signed threshold formula, explicit strict chamber realizations, an exact linear isometry between anchored path variation and coordinate \(\ell_1\), and an integer dynamic-programming invariant. Integrating affine derivatives proves the global sharp coefficient, and local finite-pair witnesses prove attainment. A balanced alternating active support yields \(n-O(1/n)\) lower amplification; Hilbert nonexpansivity and the exact difference-matrix norm give the upper bound. The standalone exact-rational checker verifies dimensions 2 through 15 and finite chambers, but these finite computations do not prove statements in unbounded dimension.
+## correctness
 
-## Originality — PASS, with priority qualification
-Duchi and collaborators establish Euclidean \(\ell_1\)-ball soft-threshold projection, not the stated path-BV norm. Three closely related published projection results were compared by full claim and proof; their coordinate \(\ell_p\) or \(\ell_1\)-metric stability conclusions do not imply the signed, ordered anchored-BV maximum. Historical own-claim IDs were compared only for deduplication. The exact algorithm and near-dimension amplification were not found in queried published-finding corpus records or inspected primary literature. Unindexed historical work and unexamined portions of a PDF remain priority risks; a search failure is not uniqueness proof.
+PASS
 
-## Mathematical value — PASS
-The finding quantifies failure of structured perturbation stability for a canonical sparse projection: the sharp coefficient is already 3 in dimension 3 and grows at least \(n-4/n\). Computing the exact all-dimensional invariant through a polynomial signed-support dynamic program is a useful alternative to exponential face enumeration. The result is not merely a thresholding formula or a normalization check.
+The KKT equations give common soft thresholding. On a strict exterior chamber of support size m and signed indicator q, differentiating the active constraint gives J=diag(|q|)-qq^T/m; m=1 gives zero. Every nonzero signed support occurs strictly: assign active input q_i(rho+R/m) and inactive input zero for rho>0. The interior contributes identity. Continuity and finite affine-cell subdivision bound all two-input ratios, including segments along cell boundaries, and any attaining direction can be scaled down inside a maximizing chamber to give a finite pair. The anchored difference isometry identifies its inverse-coordinate columns with tail indicators, so only those columns of J need be maximized. For fixed (m,k,t), with k the first tail index and t the signed tail sum, each row numerator is |q_i|(m 1_{i>=k}-t q_i). The number of used nonzeros, partial signed tail sum and last symbol are sufficient for every future transition and final feasibility. A prefix induction gives the exact score; O(n^3) triples times n positions times O(n^2) states with three transitions gives O(n^6) arithmetic operations and two O(n^2) layers. Rational comparisons use cross-products. Alternating support at odd indices and the constant tail give n for balanced signs; with odd support choose total sign -1 and last sign -1, so the active values sum to m-1/m and the odd-length final value is 1-1/m. This yields the two stated deficits, hence n-4/n. The upper estimate is the product of the l2-to-l1 norm sqrt(4n-3) of anchored differencing (alternating dual signs) and the l1-to-l2 norm sqrt(n) of cumulative summation, with Euclidean projection nonexpansive in between. A separate integer DP reproduced all values through n=15; exhaustive ternary words and tail columns independently matched through n=8.
 
-## Scope and evidence limitations
-The norm is anchored to remove the constant-direction degeneracy; it is not the unanchored BV seminorm. The exact all-dimensional coefficient is algorithmic, not a closed formula. The upper leading constant may be improved, and neither weighted nor periodic variants are proved. Independent audit and comprehensive historical priority verification are outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinction is the exact anchored-BV optimization over signed cross-polytope projection chambers, including the polynomial DP and linear lower witnesses, not the threshold rule or chamber Jacobian. The strongest same-projector results use coordinate norms; the closest anchored variation hit uses a radial Euclidean-ball projector. Neither evidenced statement covers this coefficient. This assessment is qualified by the unavailable passages noted below.
+
+## value
+
+PASS
+
+For signal perturbations measured by an anchor and local differences, Hilbert nonexpansivity gives no usable sharp bound. The theorem identifies near-dimension amplification for a canonical real convex projector, supplies concrete finite witnesses, and provides exact rational dimension-by-dimension answers without sign-pattern enumeration. The ordered DP resolves a meaningful sharp stability problem, rather than computing a few examples or giving a faster algorithm for projection itself.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:00:41.896794Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof, VERIFICATION.md, verify_direct.py, verify_structural.py and recorded outputs (read only)",
+        "/workspace/repairs/5/RESULT.md and VERIFICATION.md",
+        "/workspace/audit_evidence/nor_independent.py (fresh exhaustive run)",
+        "/workspace/branches/5f21b842-d655-4e5e-bfe0-e090f30d8dc0/independent_nor_check.py and independent_nor_check.out (fresh independent run)"
+      ],
+      "rationale": "The frozen assertion of identical labelled output supports and empty/full basins fails literally. The rook singleton at (0,0) has an output whose complement is a 6-set with three points in row 0; any size-ten Shrikhande output would be complemented by a union of size six which equals a single Shrikhande neighborhood, with at most two points in every row. Also the whole of row 0 maps to empty on the rook graph but to row 2 on Shrikhande. The corrected RESULT.md and VERIFICATION.md distinguish equality of cardinality data from correspondence under separate permutations. Undirected symmetry gives S subset F^2(S), antitonicity gives F^3=F, and therefore recurrence is precisely the image and an orbit basin is the disjoint union of its incoming fibers. The exact p,q identity was verified on all 65,536 inputs and identifies fibers by p and the empty/full basins by q. An independent union-mask enumeration verifies the eight support/fiber types, 29 equal bivariate coefficients, 654 recurrent states in each graph, all short periods, and every orbit and basin total in the repaired table. It also confirms only 366 common labelled outputs and 48,916 common labelled empty/full basin members. A separate maximal-independent-set count verifies the 24 and 48 fixed points; the displayed repairs do not rely on the intersection counts.",
+      "residual_risks": [
+        "The finite calculations exhaust exactly the two specified labelled 16-vertex systems; neither counts for other graphs nor per-input equality on the original labels is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published rook classification specializes at 4x4 to 654 recurrent states, 24 fixed points and 315 two-cycles, and specifies their rook supports.",
+          "Aracena–Richard–Salinas give a general graph-theoretic fixed-point correspondence; their theorem in the inspected passage bounds maxima over signings, not the two graph-specific basin tables."
+        ],
+        "reasoning": "The general results cover important recurrence ingredients and the rook-only count, but not the two systems' exact basin partitions or their comparison.",
+        "searches": [
+          "Resultary c79fc7919f54 (all-size open NOR rook graphs)",
+          "Aracena–Richard–Salinas arXiv:1507.06141 eq. (2) and Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Brouwer, Shrikhande; Aracena–Richard–Salinas arXiv:1507.06141 eq. (2)",
+        "Resultary 89a94aa00dd9 (self), c79fc7919f54 and a7ee2eb89698",
+        "Targeted primary literature search for the graph pair under NOR/all-negative conjunction"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known double already implies one-step transport and hence equality of size and fiber histograms. General recurrence and the fixed-point characterization reduce the census, and rook-only recurrence is explicitly available.",
+          "To form basins one must sum the fibers of paired recurrent outputs under each graph's own involution. Already the size-three pairing differs: 160 two-cycles in rook, versus 144 two-cycles and 32 fixed points in Shrikhande."
+        ],
+        "reasoning": "Transporting one-step data does not determine this pairing or its exact fiber-weighted orbit sizes; differences and counts depend on the identification of the two sides within each graph.",
+        "searches": [
+          "Brouwer folded 6-cube bipartite double passage",
+          "Resultary c79fc7919f54 exact recurrence formulas",
+          "Aracena–Richard–Salinas equation (2)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Open-neighborhood NOR equals all-negative conjunction, not majority or closed-neighborhood NOR. Aracena–Richard–Salinas eq. (2) explicitly equates fixed-point counts to maximal independent-set counts in that network.",
+          "Brouwer describes the same folded 6-cube bipartite double for the Shrikhande and 4x4 lattice graphs."
+        ],
+        "reasoning": "Changing labels independently on the two sides gives equivalence of the one-update maps and preserves fiber cardinalities. It is not a conjugacy of iterates, because an output must be re-used as input on the same labels in each separate system.",
+        "searches": [
+          "Shrikhande rook graph open neighborhood NOR all-negative conjunctive Boolean networks maximal independent sets fixed points two cycles preimage fiber basin bipartite double",
+          "Brouwer, Shrikhande; Aracena–Richard–Salinas arXiv:1507.06141, full-negative conjunctive networks"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/22/SCOPE-same-one-step-nor-statistics-different-attraction-basins-on-the--89a94aa00dd9 is the same frozen package, not an independent table or priority evidence.",
+          "c79fc7919f54 gives the 4x4 rook recurrence counts; a7ee2eb89698 concerns tie-retaining majority and not NOR."
+        ],
+        "reasoning": "No distinct inspected exact NOR pair table matches the basin spectrum. A table for the same graph pair under majority is not equivalent because the local rule differs.",
+        "searches": [
+          "Resultary exact Shrikhande/rook NOR one-step fiber and attractor-basin comparison",
+          "Resultary c79fc7919f54 and a7ee2eb89698"
+        ]
+      },
+      "rationale": "The repaired contribution is the exact Shrikhande/rook attractor and basin comparison behind a matched one-step map, not the known bipartite-double equivalence, general NOR recurrence bound, equality of transported one-step statistics by itself, or the already classified rook-only recurrence. The strongest distinct exact records and earlier statements inspected do not give the compared fiber-weighted orbit partitions.",
+      "residual_risks": [
+        "The comparisons support the distinct basin census to the best of evidence inspected; a search miss cannot exclude unindexed equivalent counts or establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known shared double, sufficient for equality of transported one-step maps, not an orbit census",
+          "evidence": [
+            "The folded 6-cube is the bipartite double of both Shrikhande and the 4x4 lattice graph."
+          ],
+          "identifier_or_url": "https://aeb.win.tue.nl/drg/graphs/Shrikhande.html",
+          "material_read": "Public graph description, around offset 800",
+          "method": "Original public page passage",
+          "title": "Shrikhande",
+          "trigger": "Same graph pair and bipartite incidence equivalence"
+        },
+        {
+          "assessment": "Rook-only recurrence counts covered, not the paired graph census or weighted basin partition",
+          "evidence": [
+            "At side length four the formulas give 654 recurrent states, 24 fixed points and 315 two-cycle orbits."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-nor-dynamics-on-rook-graphs-rectangles-matchings-and-a-square-bo--c79fc7919f54",
+          "material_read": "RESULT.md offsets 0–4028 and from 6750, theorem and orbit-count formulas",
+          "method": "Resultary and local mirror at 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "NOR dynamics on rook graphs: rectangles, matchings, and a square-board gap",
+          "trigger": "Exact coverage of one comparison graph under the identical update"
+        },
+        {
+          "assessment": "Covers the fixed-point correspondence, not the specific Shrikhande/rook dynamics and basins",
+          "evidence": [
+            "fix(G−)=mis(G); the adjacent theorem studies bounds for maximum over signings."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1507.06141",
+          "material_read": "PDF printed p. 4, offsets 12900–14494, equation (2) and Theorem 1",
+          "method": "Original OA PDF passage",
+          "title": "Fixed points in conjunctive networks and maximal independent sets in graph contractions",
+          "trigger": "General result for the same all-negative rule on undirected graphs"
+        },
+        {
+          "assessment": "Same graphs, different rule",
+          "evidence": [
+            "The stated local rule is tie-retaining majority, not open-neighborhood NOR."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-spectral-twins-separate-under-majority-dynamics-exact-shrikhande--a7ee2eb89698",
+          "material_read": "RESULT.md Finding from offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Spectral twins separate under majority dynamics: exact Shrikhande–rook attraction censuses",
+          "trigger": "Closest distinct exact comparison table of the same graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected RESULT.md Finding and proof",
+        "Known bipartite-double antecedent and earlier rook-only recurrence classification",
+        "Fresh complete census and analytic witnesses cited above"
+      ],
+      "rationale": "The graph pair is motivated by a known shared bipartite double; the natural question is what full one-step data retain about recurrence when the two sides are folded back on common labels. The exact basin comparison answers that question more strongly than a selected run: it identifies which recurrent support sizes produce different pairings, quantifies both fixed and periodic attraction, and distinguishes the temporal systems despite one-step map equivalence. The material added value is not the original false labelled-equality assertion or already-known rook spectrum.",
+      "residual_risks": [
+        "This is a finite witness, not a general separation theorem for all graphs with isomorphic bipartite doubles."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

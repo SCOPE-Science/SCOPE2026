@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:59:37.006824Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Frozen RESULT.md, lines 5–38 and 42–79; inspected verification/verify_q_cycles.py without executing it.",
+        "Independent replay: python3 /workspace/branches/recheck_2.py. Exact rational checks passed; diagnostic derivative upper bounds were 0.075525, 1.381563, 0.009451, 0.795919 and 2.256305 when rounded up."
+      ],
+      "rationale": "The exact Newton substitutions give 0↔1 with multiplier zero and Q nonzero at both points. Independent differentiation gives H′=Q²(3Q″²−2Q′Q‴)/D² and S′=Q²(3Q″²−Q′Q‴)/(2Q′⁴), agreeing with the expanded identities. A centered Taylor enclosure with rational coefficients independently checked root and pole exclusion, disjointness, strict derivative ceilings, center errors below 10⁻¹² and strict cyclic inclusion on all five intervals. The derivative products are 133/1250 and 253/12500, both below one. Banach's theorem and disjointness give exact periods; holomorphic attraction gives open complex basins of positive area for each method separately. An independent Sylvester determinant gives the stated discriminant. No common basin or minimal-degree claim follows.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Basti–Cremaschi rigorously treat Newton and Halley on a different quartic; for the assigned Q they explicitly omit the additional interval certificates. The accessible Collins–Hunter material concerns a degree-at-least-five family."
+        ],
+        "reasoning": "Neither comparison supplies a stronger external theorem implying the assigned degree-four result on Q; the concrete overlap is instead the exact indexed result.",
+        "searches": [
+          "arXiv:2610.03246v1 Theorem 1.1 and §5",
+          "doi:10.1016/j.exco.2025.100191, landing page and lawful-copy lookup"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE-20261108-2b30156e0fa1",
+        "arXiv:2610.03246v1",
+        "doi:10.1016/j.exco.2025.100191"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The arXiv estimates μ_H≈0.091 and μ_S≈−0.005 are not existence or attraction proofs. The indexed result's exact inclusions, disjoint intervals, pole/root exclusions and derivative products prove prime periods and complex open attraction, already implying that none converges to a root for almost every complex starting point."
+        ],
+        "reasoning": "The indexed bounds do not imply the frozen numerical ceilings; the latter do not change any stated basin or period conclusion. That is materially different from the gap between numerical prediction and rigorous certification in the arXiv paper.",
+        "searches": [
+          "arXiv:2610.03246v1 §5, HTML offsets 24000–26796",
+          "SCOPE-20261108-2b30156e0fa1 RESULT.md, offsets 380–6413"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE-20261108-2b30156e0fa1 uses the identical rational maps; its Chebyshev–Schröder is the frozen S. It gives non-root periods 2, 2, 3 and exact rational certification. Its intervals contain the frozen centers after cyclic reindexing, and the certificates concern the same numerical candidates."
+        ],
+        "reasoning": "Neither terminology nor cyclic ordering makes these different examples. The independent certificate covers the same qualitative theorem.",
+        "searches": [
+          "Resultary: simultaneous failure of Newton, Halley, and Chebyshev–Schröder for 395z^4−576z^3−33z+33",
+          "arXiv:2610.03246v1 §5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A distinct record publishes exact Halley and Schröder multiplier enclosures 3/20 and 27/250 with rational interval tables. It is not the identical frozen package or merely a table of floating-point iterates."
+        ],
+        "reasoning": "The tighter frozen ceilings are not copied from the indexed table; what overlaps is the rigorous conclusion they serve. Catalog dates alone do not determine provenance or discovery order.",
+        "searches": [
+          "Local Resultary exact quartic/cycle/certificate lookup",
+          "SCOPE-20261108-2b30156e0fa1 RESULT.md and METADATA.json"
+        ]
+      },
+      "rationale": "A distinct indexed result rigorously certifies the same quartic, the same three maps and periods, the same Halley and Schröder cycles, and the same open-basin consequence using exact rational interval contraction. The frozen record improves two safe multiplier ceilings and gives an alternative reproducible certificate, but does not establish a distinct dynamical conclusion. This is an equivalent-coverage finding, not a claim of which record discovered or first proved the result.",
+      "residual_risks": [
+        "Chronology, priority and provenance between the two certificates were not established from catalog dates.",
+        "Collins–Hunter full text was unavailable in the inspected lawful sources; the decision rests on the directly inspected exact indexed overlap, not this access limit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_CORE",
+          "evidence": [
+            "Same formulas and prime periods, rational contraction enclosures, root/pole exclusion, nonempty complex open failure sets; different numerical ceilings."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-certified-quartic-defeating-newton-halley-and-chebyshev-schr-d--2b30156e0fa1/RESULT.md",
+          "material_read": "Finding, interval table, proof steps 1–4 and verification (offsets 0–6413); companion metadata for distinct identity",
+          "method": "Local mirror, located and paged decisive text",
+          "title": "A certified quartic defeating Newton, Halley, and Chebyshev–Schröder root finding",
+          "trigger": "Exact quartic and exact certificates in the index"
+        },
+        {
+          "assessment": "NUMERICAL_PRECURSOR",
+          "evidence": [
+            "Same Q and exact Newton cycle; Halley and Schröder candidates and numerical multipliers only in §5. Theorem 1.1 is on P(z)=24z⁴−35z³−2z+2."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.03246v1",
+          "material_read": "Theorem 1.1 and §5, including explicit omission of added interval bounds and certificates",
+          "method": "OA full-text passage inspection",
+          "title": "Simultaneous Global Convergence Failure of Newton’s and Halley’s Methods in Degree Four",
+          "trigger": "Motivating quartic and numerical candidates"
+        },
+        {
+          "assessment": "FULL_TEXT_UNAVAILABLE",
+          "evidence": [
+            "Accessible material describes degree-at-least-five coverage; no whole-paper exclusion is inferred."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.exco.2025.100191",
+          "material_read": "Landing page and abstract only; lawful lookup did not obtain full text",
+          "method": "Bounded OA DOI and repository lookup",
+          "title": "A family of polynomials that defy general convergence in three methods",
+          "trigger": "Earlier simultaneous three-method failure"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A rigorous first certification of the motivating numerical example would be useful, but the distinct indexed result supplies it. Improving safe multiplier ceilings from 0.15 and 0.108 to 0.1064 and 0.02024 is not connected to a threshold other than <1, a different dynamical statement, or a motivated quantitative application. No valuable distinct repair is established by retaining only the changed enclosures.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

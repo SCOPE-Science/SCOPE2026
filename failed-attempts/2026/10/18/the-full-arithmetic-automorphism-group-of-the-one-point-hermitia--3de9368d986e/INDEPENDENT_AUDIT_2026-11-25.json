@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:49:26.304218Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–59",
+        "VERIFICATION.md and verify.py (inspection only; its recorded finite checks are s=3,5,7)",
+        "Independent s=4 computation via exact equality of 3×3 form matrices"
+      ],
+      "rationale": "The gradient proves smoothness and subtracting the s-Frobenius conjugate gives unique K-point P=[0:0:1]. In fact projectivity of every K-automorphism follows directly: Y=0 cuts out exactly (s+1)P, so the complete hyperplane linear series is invariant under any K-automorphism, giving the plane extension over K. This verifies the step without relying on geometric descent. After fixing the P and tangent flag and normalizing the middle diagonal entry to 1, form comparison gives λ=a^(s+1)=f=f^s, then (λ−1)η lies in F_s, forcing λ=f=1. The off-diagonal entry imposes d=−a v^s and the middle coefficient is h+h^s=−v^(s+1). Multiplication gives the quoted law, and choosing v' with v'/v outside F_s for v nonzero proves the center statement. Norm and trace give s+1 and s fibres, respectively, including characteristic two. Independently computed the exact stabilizer over F16 using bit-polynomial arithmetic modulo x^4+x+1, with η=x. For every nonzero a set f=a^5 from the necessary coefficient equalities, then tested all (v,d,h) in F16³ for scalar form preservation. Exactly the 320 stated normalized matrices survived, including all possible h, and the result was compared as a set rather than only a count.",
+      "residual_risks": [
+        "Finite verification checks a separate case including characteristic two; it does not replace the uniform group proof. No claim is made for s=2 or for geometric automorphisms."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "d634e729a082 covers all s≥2 and gives a quotient result as well. Homma–Kim identifies the curve/model and supplies geometric-equivalence/congruence context; Montanucci–Zini describes the full geometric group of the Hermitian curve."
+        ],
+        "reasoning": "The earlier all-s full arithmetic theorem specializes directly. The much larger geometric PGU group alone is not a substitute for the arithmetic stabilizer.",
+        "searches": [
+          "d634e729a082 finding and projectivity proof",
+          "Homma–Kim arXiv:2610.09672v1 Theorem 7; arXiv:2402.14192v3 §2; Montanucci–Zini arXiv:1804.03398 introduction"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d634e729a082 and df9fe3714bc9",
+        "arXiv:2610.09672v1, 2402.14192v3, 1804.03398",
+        "WCC 2026 paper 17, Theorem 1.1",
+        "DOI 10.1007/978-3-032-27574-5_7 (full text unavailable)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "d634e729a082 proves abstract-to-projective extension and directly states the same family of representatives and size s³(s+1). df9fe3714bc9's group law and count agree term for term."
+        ],
+        "reasoning": "Restricting the exact earlier mathematical statement to s≥3 yields the whole current finding. Switching the justification for plane extension supplies no new invariant.",
+        "searches": [
+          "Local mirror d634e729a082 RESULT.md and df9fe3714bc9 RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "d634e729a082 states the full abstract K-group with exactly the same normalized matrices. df9fe3714bc9 states the projective stabilizer with identical matrices."
+        ],
+        "reasoning": "Abstract and projective groups coincide for the range here. An elementary way to see this is the invariant embedding by |(s+1)P|; the full earlier theorem already includes the bridge.",
+        "searches": [
+          "Resultary: one-point Hermitian-relative full arithmetic automorphism group and rational projective stabilizer"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Two older October 12 findings match the curve and group: d634e729a082 and df9fe3714bc9. Both RESULT.md passages were read from the local mirror."
+        ],
+        "reasoning": "This is an exact symbolic match, including law and group constraints, stronger than matching orders or small-parameter tables.",
+        "searches": [
+          "Resultary local catalogue exact family/group/order searches"
+        ]
+      },
+      "rationale": "An earlier distinct published record d634e729a082 proves the same full abstract arithmetic automorphism group for every s≥2, hence strictly dominates the frozen s≥3 range. Its result includes identical normalized triangular representatives, norm/trace constraints, semidirect product and order. A second earlier record df9fe3714bc9 already computes the exact same rational projective stabilizer. This is demonstrated prior coverage, not an access-based failure.",
+      "residual_risks": [
+        "The unopened WAIFI chapter could supply an additional antecedent. Its absence does not affect the established exact prior overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior coverage with larger parameter range",
+          "evidence": "Same coordinates and matrices with u^(s+1)=1, h+h^s=−v^(s+1), full abstract K-group and order s³(s+1), for s≥2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-the-full-mathbb-f-s-2-automorphism-group-of-the-one-point-hermit--d634e729a082/RESULT.md",
+          "material_read": "Finding and proof of projectivity/group description",
+          "method": "Local Resultary mirror",
+          "title": "The full F_{s²}-automorphism group of the one-point Hermitian-relative curve",
+          "trigger": "Exact target model and abstract automorphism wording"
+        },
+        {
+          "assessment": "Exact projective-stabilizer antecedent",
+          "evidence": "Same all-s normalized group, multiplication law and order; phrased for projective stabilizers.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-the-rational-projective-stabilizer-of-a-one-point-hermitian-rela--df9fe3714bc9/RESULT.md",
+          "material_read": "Finding and coefficient-comparison proof",
+          "method": "Local Resultary mirror",
+          "title": "The rational projective stabilizer of a one-point Hermitian-relative curve",
+          "trigger": "Same explicit stabilizer and likely descent scope"
+        },
+        {
+          "assessment": "Exact one-point model, not full group in these passages",
+          "evidence": "The theorem characterizes the one-point projective-equivalence type.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.09672v1",
+          "material_read": "Theorem 7 and proof; WCC version Theorem 1.1",
+          "method": "Open primary HTML/PDF passages",
+          "title": "Rational points and inflexions on Hermitian-relative curves",
+          "trigger": "Cited characterization and possible stabilizer"
+        },
+        {
+          "assessment": "Additional possible overlap unresolved",
+          "evidence": "The accessible characterization concerns projective classes; unable to independently check the relevant chapter passages.",
+          "identifier_or_url": "https://doi.org/10.1007/978-3-032-27574-5_7",
+          "material_read": "No full text retrieved; preview/abstract characterization reported in bound and overlapping records",
+          "method": "Lawful OA direct and configured alternate-route attempts",
+          "title": "Classification of Hermitian-Relative Curves up to Projective Equivalence",
+          "trigger": "Classification could compute stabilizers"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 8–21 and 30–56",
+        "Earlier d634e729a082 and df9fe3714bc9 findings"
+      ],
+      "rationale": "The arithmetic group is a natural invariant, and the abstract/projective distinction is useful, but the frozen finding contributes no new invariant, parameter case, or consequence beyond the existing stronger all-s full-group theorem. Recomputing that known group for a smaller range does not meet the scientific value criterion.",
+      "residual_risks": [
+        "This does not deny the usefulness of the group itself. No distinct correct, new, valuable remainder was established to warrant repair."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

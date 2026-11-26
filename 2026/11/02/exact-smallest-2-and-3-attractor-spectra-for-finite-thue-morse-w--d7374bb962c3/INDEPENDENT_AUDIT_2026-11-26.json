@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:35:29.844251Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof lines 32–100",
+        "Frozen VERIFICATION.md, verify.py, and verification_output.txt inspected as recorded corroboration",
+        "Independent replay: python3 /tmp/opencode/word_audit_spots.py (Thue–Morse section)"
+      ],
+      "rationale": "One position cannot cover both letters. For k=2, both positions must be interior to cover all four digrams; their incident digram sets force exactly the listed two context pairings, whose center letters differ. For k=3, covering six triples with two positions forces both centers to have three distinct incident triples. The even/odd substitution images of the six triples give the exhaustive twelve length-five contexts. The independent local check found eight pairs covering the triples: four have one letter and three digrams, two have two letters and three digrams, and exactly two have two letters and four digrams. The two-letter image boundaries give the stated four digram recurrences; their base at t_2 = 0110 and substitution induction give the even/odd count table. Each relevant triple comes from a unique pair and parity, and each relevant length-five context comes from a unique triple and parity; multiplying the two disjoint context pair contributions gives the exact unordered counts. The base cases t_3 and t_4 already contain the required contexts. An independent replay using binary digit parity and direct incident-substring sets matched the context pairs and counts through order 9; it corroborates, not replaces, the all-order argument.",
+      "residual_risks": [
+        "The proof applies only to the indicated finite prefixes and length cutoffs; it makes no k≥4 claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed binary theorem with all four digrams gives precisely the existence of a two-position 2-attractor via 001/110 or 100/011",
+          "The complexity paper treats general 2-attractor optimization, not these Thue–Morse spectra"
+        ],
+        "reasoning": "The binary theorem materially covers the k=2 local step without any Thue–Morse restriction, but not the parity-dependent multiplicities or the k=3 argument.",
+        "searches": [
+          "Resultary record f4e557c51cbc, Finding and proof §2",
+          "Fuchs–Whittington, arXiv:2304.06523, p. 1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2602.16152",
+        "arXiv:2610.10950",
+        "arXiv:2304.06523",
+        "Resultary f4e557c51cbc",
+        "Resultary 59fd87719e91"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The generic k=2 characterization reduces its count to two products, leaving a Thue–Morse occurrence census",
+          "Unrestricted families of size four do not enumerate admissible pairs; the length-five compatibility test is specific to k=3"
+        ],
+        "reasoning": "Credit the overlapping length-three classification; the combined exact counts and k=3 result do not follow from the inspected statements without new counting and a separate compatibility argument.",
+        "searches": [
+          "Compare Resultary f4e557c51cbc §2 and arXiv:2610.10950 Theorem 5.4 with frozen proof Steps 2–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2304.06523, p. 1, uses the same bounded-attractor notion",
+          "arXiv:2602.16152, p. 1, and arXiv:2610.10950, Theorem 5.4, concern unrestricted Thue–Morse attractors"
+        ],
+        "reasoning": "Attractor size two for a short-factor cutoff is not equivalent to the unrestricted four-position problem; an unrestricted attractor is admissible at a short cutoff, but need not be minimum there.",
+        "searches": [
+          "Resultary: finite Thue–Morse bounded k-attractor spectra and binary two-attractor local contexts",
+          "Primary literature search for bounded k-attractors of Thue–Morse words"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "59fd87719e91 reports 87, 40, 32 unrestricted solutions at orders 4, 5, 6",
+          "f4e557c51cbc reports a binary optimum and weight characterization, not the two short-cutoff Thue–Morse spectra"
+        ],
+        "reasoning": "The unrestricted table counts a different optimum; no exact prior count table for these bounded spectra was identified.",
+        "searches": [
+          "Resultary bounded and unrestricted Thue–Morse attractor searches; records f4e557c51cbc and 59fd87719e91 compared"
+        ]
+      },
+      "rationale": "The contribution supported here is the exact Thue–Morse counts at both cutoffs and the length-five classification for k=3, not the binary two-position k=2 context test in isolation. A distinct same-day indexed record proves that local k=2 criterion for arbitrary binary words; it does not establish the Thue–Morse counts or the k=3 classification. No earlier exact coverage of the surviving contribution was found in the examined sources.",
+      "residual_risks": [
+        "Priority within the same day for the overlapping k=2 context test is not determined by catalogue dates.",
+        "The focused search does not rule out an unindexed exact short-attractor count or a result presented under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Unrestricted count, different optimization",
+          "evidence": "Four positions for orders at least 4, exactly 32 optima for orders at least 6.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.16152",
+          "material_read": "Abstract and introduction, p. 1",
+          "method": "Open primary PDF",
+          "title": "The Smallest String Attractors of Fibonacci, Period-Doubling, and Thue–Morse Words",
+          "trigger": "Same finite words and minimum-attractor count"
+        },
+        {
+          "assessment": "Unrestricted only for the compared result",
+          "evidence": "Two unrestricted four-position families, total 32 at orders at least 6.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.10950",
+          "material_read": "§1.3, pp. 2–3; Theorem 5.4, p. 17",
+          "method": "Open primary PDF",
+          "title": "Smallest String Attractors and Minimal Coverage Certificates of Thue–Morse Words",
+          "trigger": "Same words and exact family characterization"
+        },
+        {
+          "assessment": "General complexity, no compared Thue–Morse count",
+          "evidence": "Coverage of all factors with length at most k; computational complexity of determining small attractors.",
+          "identifier_or_url": "https://arxiv.org/abs/2304.06523",
+          "material_read": "p. 1, definition and problem scope",
+          "method": "Open primary PDF",
+          "title": "The 2-Attractor Problem Is NP-Complete",
+          "trigger": "Same short-factor coverage definition"
+        },
+        {
+          "assessment": "Exact overlap of the k=2 context test, not of the complete theorem",
+          "evidence": "For words with all four digrams, two positions suffice iff 001 and 110, or 100 and 011, occur.",
+          "identifier_or_url": "Resultary 2026/11/2, f4e557c51cbc",
+          "material_read": "RESULT.md Finding and proof §2",
+          "method": "Local publication mirror",
+          "title": "Exact minimum binary two-attractors and their weight distribution",
+          "trigger": "Exact bounded binary context test"
+        },
+        {
+          "assessment": "Unrestricted, not short-factor spectra",
+          "evidence": "Counts 87, 40, 32 at orders 4, 5, 6; classification of the 32 unrestricted sets for order 6.",
+          "identifier_or_url": "Resultary 2026/10/4, 59fd87719e91",
+          "material_read": "RESULT.md Finding and Assumptions and scope",
+          "method": "Local publication mirror",
+          "title": "Exact smallest-attractor transition for Thue–Morse words",
+          "trigger": "Published exact count table for the same word family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof Steps 2–4",
+        "arXiv:2610.10950, Theorem 5.4",
+        "Resultary f4e557c51cbc"
+      ],
+      "rationale": "Exact enumeration of the optimizing position sets for two natural short-factor cutoffs reveals quadratic growth, in contrast to the eventual constant unrestricted count. Cutting off at length three retains asymptotically one quarter of the length-two optima, and the exhaustive local characterization explains which pairs survive. The solution provides counts and exact witnesses rather than only a complexity bound or small-instance table.",
+      "residual_risks": [
+        "The value rests on the exact two spectra and the k=3 structure, not on the overlapping k=2 local test or any asserted extension to other cutoffs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

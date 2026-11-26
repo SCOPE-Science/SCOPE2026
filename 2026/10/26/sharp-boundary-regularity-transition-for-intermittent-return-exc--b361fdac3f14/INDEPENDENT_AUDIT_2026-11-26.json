@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:26:33.865987Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–103; VERIFICATION.md; verify.py inspected, not executed",
+        "Independent bounded replay: python /workspace/reproductions/independent_checks.py 1"
+      ],
+      "rationale": "The strict return tail at n uses the left-branch threshold x_(n-1) and the initial-section integral up to (1+x_(n-1))/2. For w_j=x_j^(-alpha), the increments are A-B/w_(j+1)+O(w_(j+1)^(-2)), A=alpha*2^alpha, B=alpha*(1+alpha)*2^(2*alpha)/2. Linear growth first gives w_j=Aj+O(log j); replacing 1/w_(j+1) by 1/(A(j+1)) introduces a summable error. Inversion gives the stated positive Q_alpha=B/(alpha*A^2). The integrated density has relative second coefficient d*r*2^(-beta)/(r+beta); substituting the orbit gives L. For k=floor(un)-1, k=un+O(1) and k>=n-1 uniformly. The floor incurs O(n^-1) in the relative leading term, the small-o density bound is uniform over this tail of indices, and log(k)/k differs from (log n)/(nu) by uniformly O(n^-1). This yields the two profiles, with the logarithmic term dominating also at beta=alpha. Differentiating u^(-p)(1-u^(-eta)) gives the stated maximizers and constants; comparison with n^(-p) gives the moment criterion for positive s (nonpositive orders are automatically finite).",
+      "residual_risks": [
+        "Independent checks use alpha=1 and exact inversion by a quadratic formula, but floating-point arithmetic and only the predicted profile peak at n=1000,16000,160000. At the last horizon the beta=0.5,1,2 normalized deviations are 0.05613682, 0.23128713, 0.22867907, versus 4/81, 1/4, 1/4. Neither these samples nor the frozen checker prove uniform limits."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Korepanov–Wei–Wormell give an Abel expansion with the needed logarithm in the left orbit. Wang–Su Lemma 4.1 gives leading invariant-start tails for 0<alpha<1. Demers–Fernandez consider escape with polynomial exponent depending on initial density near the neutral point."
+        ],
+        "reasoning": "None of these inspected statements, specialized to the canonical section, includes the sharp beta-vs-alpha crossover for the given local initial-density class and all alpha>0.",
+        "searches": [
+          "arXiv:2610.01879v1",
+          "arXiv:2610.21175v1",
+          "arXiv:1410.4995v1"
+        ]
+      },
+      "checked_sources": [
+        "The five inspected sources above; bounded catalogue and primary-literature lookup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known Abel coefficients imply the orbit contribution. At a fixed u the second-order regularly varying tail quotient yields the usual Pareto bias profile once its auxiliary scale and coefficient are identified."
+        ],
+        "reasoning": "A first-order tail and a generic pointwise second-order quotient do not supply both explicit scales for the specified starts and do not themselves certify a sharp supremum over u>=1. Here one integrates the subleading density term, compares it to the subleading orbit term, controls the whole lattice tail and then optimizes. These steps use known ingredients but are not a restatement of the compared results.",
+        "searches": [
+          "arXiv:2610.01879v1 §2",
+          "arXiv:2610.21175v1 §4.2 Lemma 4.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Resultary crossover concerns invariant-measure survivor mass and paths under horizon-dependent cutoffs. Wang–Su condition Birkhoff sums on open-system survival. Duvall counts completed returns before a final unfinished excursion in an open system."
+        ],
+        "reasoning": "These are not the ratio of two tails of one first positive return time started in Y; replacing the event and start law is not an equivalent formulation.",
+        "searches": [
+          "Resultary 2026/10/25/SCOPE-a-complete-moving-boundary-survival-crossover-for-an-intermitten--03332ee9004b",
+          "arXiv:2610.21175v1",
+          "arXiv:2606.27488v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearby Resultary record's finding and hypotheses concern a different invariant-start survival crossover."
+        ],
+        "reasoning": "Checked for exact catalogue coverage; an exact numerical table is not applicable to a theorem of two asymptotic functions over continuously varying parameters and the unbounded u range.",
+        "searches": [
+          "Resultary 2026/10/25/SCOPE-a-complete-moving-boundary-survival-crossover-for-an-intermitten--03332ee9004b"
+        ]
+      },
+      "rationale": "The distinct result is the explicit crossover with sharp full-half-line conditional excess profiles and supremum constants for the specified local density expansion, not the logarithmic inverse orbit, the leading return tail, or the algebra of a generic Pareto profile. The inspected results do not supply the combined second-order arbitrary-start tail, its two competing coefficients, and the sharp normalized excess conclusion.",
+      "residual_risks": [
+        "No historical priority certification; the broad primary query supplied no material hits and is not evidence of absence.",
+        "General second-order regular variation is a reusable route from a suitable tail expansion to the excess law. Novelty is limited to the explicit sharp crossover in the stated LSV setting."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related but different conditioning",
+          "evidence": "Horizon-dependent cutoff, invariant measure, conditional path limits; 0<alpha<1.",
+          "identifier_or_url": "2026/10/25/SCOPE-a-complete-moving-boundary-survival-crossover-for-an-intermitten--03332ee9004b",
+          "material_read": "RESULT.md offsets 0–6466",
+          "method": "Published catalogue search and mirror passages",
+          "title": "A complete moving-boundary survival crossover for an intermittent map",
+          "trigger": "Same map and crossover/survival terminology"
+        },
+        {
+          "assessment": "Covers subleading orbit input",
+          "evidence": "In z=x^gamma the Abel coefficients include a_(-1)=1/(gamma*2^gamma) and a_log=-(gamma+1)/(2*gamma).",
+          "identifier_or_url": "https://arxiv.org/abs/2610.01879v1",
+          "material_read": "§2 printed p. 4; OA passages at offsets 11800 and 17800",
+          "method": "OA full-text passages",
+          "title": "Rigorous and effective numerics for Liverani–Saussol–Vaienti maps",
+          "trigger": "Potential direct prior inverse-orbit asymptotics"
+        },
+        {
+          "assessment": "Leading tail under normalized invariant restriction, not the reviewed second-order law",
+          "evidence": "x_k=c_alpha*k^(-1/alpha)(1+O(log k/k)); the displayed invariant return tail is equivalent to a constant times k^(-1/alpha).",
+          "identifier_or_url": "https://arxiv.org/abs/2610.21175v1",
+          "material_read": "Introduction and §4.2 Lemma 4.1, HTML offsets 0 and 15500",
+          "method": "OA full-text passages",
+          "title": "Conditional limit laws for open intermittent dynamics",
+          "trigger": "Same return section and conditional-law terminology"
+        },
+        {
+          "assessment": "Different event and limit",
+          "evidence": "Markov-hole survival and normalized push-forward to a point mass at the neutral point.",
+          "identifier_or_url": "https://arxiv.org/abs/1410.4995v1",
+          "material_read": "Abstract, PDF p. 1",
+          "method": "OA PDF passage",
+          "title": "Escape Rates and Singular Limiting Distributions for Intermittent Maps with Holes",
+          "trigger": "Dependence of polynomial survival on start density"
+        },
+        {
+          "assessment": "Different observable",
+          "evidence": "Induced renewal with unfinished excursion; limiting number of completed returns can be geometric.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.27488v1",
+          "material_read": "Introduction, PDF pp. 2–3, offset 5800",
+          "method": "OA PDF passage",
+          "title": "Survivor-conditioned renewal laws and observable bounds for open intermittent maps",
+          "trigger": "Possible induced-return conditional-law overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof steps 2–4; scope comparisons above"
+      ],
+      "rationale": "The quantitative bias of the Pareto excess approximation depends on which of the start density and neutral orbit supplies the slowest correction. The boundary beta=alpha and the positive sharp supremum constants tell when improving start regularity no longer improves the error, even without an invariant probability law. This is a meaningful natural transition and a distributional error guarantee, not a standalone moment test.",
+      "residual_risks": [
+        "Limited to the exact map, canonical section and nonzero first density coefficient in the stated expansion; no claim about remote holes or other intermittent maps."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

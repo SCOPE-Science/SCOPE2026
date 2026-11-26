@@ -1,15 +1,21 @@
-# Scientific review: sharp stationary-memory oscillation threshold
+# Independent mathematical audit
 
-## Correctness — PASS
-The unique Gibbs stationary correlations, normalized generator, exact Fourier kernel, Bessel identity, pole term, critical case and oscillatory residue are reconstructed in `RESULT.md`. In the oscillatory region, the asymptotic coefficient is \(H=(1-z^2)/((1+iq)(1+ip))\ne0\), and alternating sign extrema are a genuine consequence. The physical parameter constraints and boundaries are retained. The standalone code passed 4743 deterministic assertions, including an independent nine-spin Markov generator and high-time Bessel checks; finite checks do not replace the proof.
+## correctness
 
-## Originality — PASS (qualified)
-Weiderpass–Sharma–Sethi, arXiv:2410.23615v1 (2024-10-31), provide the exact model, Gibbs pair law, propagator and general two-point function. Godrèche, arXiv:1102.0141v2 (2011), provides the older exact stationary integral and a decay-rate crossover for nonnegative left/right influence weights. Both were inspected in primary full text; the old kernel is conceded and never presented as new. Godrèche's domain has \(|\eta|\le e\), while the new infinite-sign-change wall requires \(g>g_*>e\). The 2024 paper addresses different exceptional-point and scaling claims, not this precise stationary on-site sign trichotomy. Published-record semantic comparisons, including aliases, Bessel forms and nearest mean-field/reset kinetic Ising claims, did not identify dominance. An unindexed continuation or equivalent proof remains a publication-priority risk; the 2004 alternating-bath paper was not accessible in full.
+PASS
 
-## Mathematical value — PASS
-The theorem distinguishes the previously known propagator oscillation criterion \(g>e\) from the stricter stationary temporal-memory sign criterion \(g>\sinh(2\beta J)\). It proves a new physically meaningful temperature accessibility boundary, an explicit critical case, and exact nonzero oscillatory asymptotic amplitude. Eventual (not all-time) positivity is claimed in the intermediate regimes, so no unsupported stronger statement is made.
+The local fields have magnitudes at most max(e,g)<1. The symmetric rates satisfy Gibbs detailed balance; the antisymmetric part acts only when the neighbors disagree, so reversing that spin leaves the Gibbs weight unchanged, and its incoming-minus-outgoing sum telescopes as the difference of neighboring bond sums on a ring. Taking the local infinite-chain limit gives the stated stationary Gibbs law. The closed one-spin generator propagates z^|n| by convolution, giving the Fourier formula; its coefficients are nonnegative for g≤e and at g=e give the one-way Poisson series with exponent 1−ez. For g>e the Laurent Bessel series yields the weights q^n+p^n with qp=−z², and q crosses 1 exactly at g=2z/(1−z²)>e. When q>1 subtract the full Bessel generating function at q; the remainder has weights p^n−(−1/q)^n. To justify the geometric-series asymptotics without assuming a fixed-order estimate is uniform in n, insert the integral J_n(x)=(2π)⁻¹∫exp(i x sin θ−i nθ)dθ. The geometric weights sum to a smooth periodic amplitude and stationary phase at ±π/2 gives O(x^−1/2). Thus the exact exponential contribution, of rate g/g_*, dominates with unit prefactor. At q=1 the weighted alternating Bessel sum is (1−J_0(x)−∫_0^x J_0)/2 (differentiate using the recurrence and compare at zero); the ordinary improper integral is 1, so e^t C(t)→1. At q<1 the same smooth-amplitude stationary phase gives the conjugate saddle values including H=1/(1+iq)+1/(1+ip)−1 with numerator 1−z² nonzero. This establishes the stated phase, leading coefficient, alternating strict signs on unbounded sequences and distinct zeros by continuity. The threshold lies in the physical open range g<1 precisely at z<√2−1; no all-time positivity is inferred in the intermediate or critical sector. Supplied code was inspected, not executed.
 
-## Limitations
-Infinite chain; strictly positive single-spin Glauber flip rates; zero field; stationary preparation; no classification of finite-time sign crossings, finite chains or general nonlinear flip rules. Independent expert checking is absent; the originality conclusion is best-knowledge within inspected sources.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The model, Bessel propagator, Gibbs spatial correlation and resulting stationary two-time kernel are known, as is a relaxation-rate crossover in the positive-influence subfamily. The distinct result supported here is the exact eventual-sign transition of the lattice stationary on-site autocorrelation in the stronger directional sector, including the critical prefactor and the nonvanishing oscillatory leading term, not the existence of propagating or oscillatory one-spin modes.
+
+## value
+
+PASS
+
+The local stationary autocorrelation is an intrinsic observable and its sign cannot be read off from the propagator classification. The result distinguishes a wave regime where stationary memory is eventually positive from a regime with infinitely many sign reversals, with explicit critical and above-threshold asymptotics and a physical accessibility condition. This is a useful distinction for the homogeneous infinite chain, not a claim about transient zeros or finite-ring spectra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Review: unit–involution fibres and symmetrized Peirce reconstruction
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof fixes the finite-dimensional algebra, nilpotent Jacobson radical, field-product quotient and odd characteristic. The idempotent lifting step produces orthogonal lifts; the explicit element \(g=pp_0+(1-p)(1-p_0)\) conjugates any idempotent lift to the chosen one. Orbit–stabilizer in \(1+J\) then counts involutions with each fixed semisimple sign. Unit detection in the quotient gives the exact fibre law, with no dependence on unproved general-position assumptions. Singleton/doubleton cut identities give the inverse formula. In characteristic two the identity element blocks decomposition. Exact finite enumerations test five matrix-unit algebras, including nonzero radical square. Risk: a computational checker tests only finite examples, so it is supplemental to the proof.
+## correctness
 
-## Originality — PASS (self-review, not proof of uniqueness)
-Ansari–Hakami, DOI 10.1080/16583655.2026.2705030, deals with Hasse–Schmidt derivations and coefficient-normalization on incidence algebras, not involution-unit counts. Kirova, arXiv:2610.04709v1, proves existence decompositions in generalized matrix rings and gives triangular involution conditions but not fixed-element fibre multiplicities or reconstruction of radical Peirce data; the preprint acknowledges a 2019 Russian antecedent. Gargate–Gargate, arXiv:1907.06805v1, already enumerates involutions on finite incidence algebras, including fixed-diagonal calculations; that known mechanism is credited and the present result claims neither its rediscovery nor the mere sum of involution counts. The new statement concerns the unit-constrained fibre law for all finite-dimensional field-product-quotient algebras and recovery of the symmetrized radical Peirce graph from those fibres, together with its nonreconstruction boundary. The published premises are not represented as new. Residual risk: a broader idempotent-lifting or quiver-invariant formula in older, incompletely indexed literature might imply the result.
+PASS
 
-## Value — PASS
-The exact multiplicity profile refines the binary existence property into a computable invariant for all such algebras. The reconstruction identity shows precisely what this invariant can recover in an inverse algebra problem: each weighted radical Peirce edge, including contributions from higher radical layers, while the explicit path/fork example proves that orientation is invisible. The incidence-algebra specialization is a natural comparability-graph cut partition function and allows direct computation for arbitrary finite posets. This provides a structural theorem, not an unmotivated finite census.
+The field-product quotient forces every involution residue to be a sign vector and detects invertibility of a−v coordinate by coordinate. For a fixed sign vector let D be its diagonal involution and set p=(1+v)/2 and p₀=(1+D)/2. The element g=pp₀+(1−p)(1−p₀) is 1 modulo the nilpotent radical and intertwines p₀ and p, proving transitivity of 1+J on the lifts. Its stabilizer has precisely the same-sign Peirce coordinates free, so the orbit has q to the symmetrized cut weight elements, with dimensions over the base field even for nonsplit quotient fields. Summing only admissible sign orbits yields the fibre law, and a sign can always be chosen at each coordinate. In characteristic two the element 1 has no such decomposition because all involutions reduce to 1. Taking the negative of a sign involution as the probe makes just that sign admissible; the singleton plus singleton minus pair cut identity extracts twice the pair weight. The extremal conditions follow from positive summands; any free coordinate yields at least two summands. The two radical-square-zero oriented paths in the record have the same symmetrized weights and equal-sized residue classes, but their directed source and sink types differ even after reversal. The exact T₂ case checks the recovery formula (q·q/1=q²); the supplied finite enumerator was inspected but not executed.
 
-## Boundaries
-No claim about noncommutative simple quotient factors, independent certification, or algebra reconstruction beyond the symmetrized radical graph. Fixed-diagonal involution counts for incidence algebras and general idempotent-lifting theory are antecedents, not new assertions.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Fixed-diagonal involution counts for incidence algebras and existence of unit-plus-involution decompositions by formal matrix inheritance are antecedents. The supported distinct claim is the exact count for every target element over an arbitrary field-product semisimple quotient, together with recovery of all labelled symmetrized radical dimensions from forced-sign counts and its orientation obstruction. The strongest inspected exact counts either use a matrix simple quotient, specialize to incidence algebras or count all involutions without the target-dependent unit condition. None of these gives the whole recovery theorem on the stated domain. This is a best-of-knowledge comparison, not a claim that orbit counting or the weighted cut identity is new.
+
+## value
+
+PASS
+
+This upgrades an existence question to an exact distribution over targets and shows that an additive decomposition count is a probe for an otherwise hidden, labelled radical invariant. It specifies which off-diagonal information survives, with a nonisomorphism and non-anti-isomorphism witness for the information lost. The result is useful beyond triangular or square-zero examples and is not just a count for one algebra or a restatement of existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:28:27.579539Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the stated synchronous Poisson cohort, thinning produces independent means theta P and theta Q, with opposite rate derivatives theta x f and -theta x f. The two log-parameter scores are orthogonal; the information is diagonal with entries theta and theta J. The exact completion-time rate score is k-X, of variance k. For fixed-design binary labels, conditioning this score identifies the rate information with Var(E[X|label]) per individual. Thus its maximization minimizes squared distortion, and any positive-information partition that is not a nearest-centroid threshold a.e. is strictly improvable because the density has no atoms. For a threshold, integration by parts gives conditional centroids k-x f/P and k+x f/Q. Differentiating the between-cell variance gives f(b-a)(R-L) with L=x-a and R=b-x. Concavity of log f implies decreasing reverse hazard f/P and increasing hazard f/Q, via the integrals of f(x-u)/f(x) and f(x+u)/f(x). The integrated ratios for L and R then give strictly increasing L and nonincreasing R, including k=1 with R=1. At zero L tends to 0 and R to k; at infinity L diverges and R tends to 1 by the Erlang survival polynomial. This yields one crossing and the displayed equation. L-R is increasing, not decreasing as stated once in §4; the root trap uses the correct direction. For the center expansion, the Stirling log-density expansion is uniform on |z|<=sqrt(12 log k) with integrable remainder O(phi(z)(1+|z|^6)/k) after subtracting the first skew term, and a left-tail Chernoff bound beyond that window is at most exp(-z^2/2) at its boundary. Integrating (z^3-3z)phi(z)/3 to zero yields phi(0)/3. Consequently for bounded c the CDF shift is (c+1/3)/sqrt(2 pi k)+O(k^-1). This gives L-R=2c-(4/pi)(c+1/3)+o(1), so testing any two fixed c around its zero rigorously localizes the root. Stirling at k+c gives the information correction H(c)=(2/pi)(c+1/3)^2-c^2-1/6; evaluation at the limiting offset yields the claimed positive coefficient. Independently ran python3 /workspace/review_evidence/recompute1.py using regularized Gamma integrals and the log derivative: at k=3 it gave x=3.5880844503693362570577 and J/k=0.641578310051128967688686; at k=5000 the offset and scaled correction were 0.583982273114358 and 0.02798996435343915, consistent with limits 0.5839794646280362 and 0.0279931548760121. These checks are diagnostic; the argument covers all integer stages under local design with a nominal rate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kabal §3 says a log-concave density has a unique stationary point for mean-square quantization and Lloyd–Max gives the global optimum; the Kieffer publisher abstract surfaced in search states unique local optimality for log-concave density, with squared error already covered by Trushkin",
+          "Gamma(k,1) is log-concave for all k>=1, so this uniqueness principle covers the Erlang regime",
+          "Cabral Farias–Brossier give general Fisher-optimal binary threshold optimization and high-resolution formulas for many intervals"
+        ],
+        "reasoning": "The general log-concave theorem covers uniqueness in the equivalent quantizer problem. A many-bin resolution expansion at fixed law does not yield the offset and 1/k term with exactly two labels and varying Erlang shape.",
+        "searches": [
+          "Kieffer log-concave scalar quantizer uniqueness IEEE document 1056622 and author PDF alternate",
+          "Kabal Quantizers for Symmetric Gamma Distributions §§2–3",
+          "Cabral Farias–Brossier arXiv:1310.6945 pp. 1–3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–71, VERIFICATION.md and check_erlang.py",
+        "Resultary exact entry f2977d7fd585, local-mirror Finding and Proof",
+        "Kabal 1983 §§2–5 as specified; Cabral Farias–Brossier arXiv:1310.6945 pp. 1–3; Kieffer publisher search abstract; Lloyd and Gao et al. retrieval attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical centroid equations plus Gamma conditional means imply the exact threshold equation; log-concavity implies uniqueness",
+          "Normal symmetry gives the leading centered threshold in standardized units and 2/pi limiting retained fraction",
+          "The higher-order term uses the Gamma-specific CDF skew correction c+1/3 and the second-order density expansion at the moving root"
+        ],
+        "reasoning": "The classical theory determines what equation to solve and its unique root, but not how its solution and objective shift at the indicated orders. The nonzero absolute offset and explicit finite-shape information correction are the supported distinct items.",
+        "searches": [
+          "Kabal §§2–3 log-concavity and Lloyd–Max conditions",
+          "Cabral Farias–Brossier p. 2 and Eqs. (17)–(18)",
+          "frozen RESULT.md proof §4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Because the rate score is affine in X, maximizing J is equivalent to minimizing the two-level mean-square distortion k-J for a Gamma(k,1) source",
+          "The stationary boundary x=(a+b)/2 gives exactly the frozen equation",
+          "Kabal's Gamma table is for a symmetric double-sided law, not the one-sided Erlang shape family"
+        ],
+        "reasoning": "Both the experimental-design and Gamma quantizer formulations must be compared. Classical Lloyd–Max already provides the boundary condition. The large-shape expansion requires the skew perturbation of the one-sided Erlang law and is not a consequence of the symmetric Gamma table.",
+        "searches": [
+          "Resultary Erlang one-bit census D-optimal cutoff and sharp high-stage offset",
+          "Gamma/Erlang two-level Lloyd–Max quantizer, squared distortion and shape asymptotics",
+          "Kabal §§2–5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary exact record ending f2977d7fd585 is the assigned finding itself; no distinct exact indexed match was returned in that search",
+          "Kabal defines a double-sided symmetric distribution and gives its two-level competing decision points; these are not quantiles or optimal thresholds of Gamma(k,1) as k increases"
+        ],
+        "reasoning": "Treat the indexed self-match as identity, not external corroboration. The closest table inspected changes the source law, including symmetry; its tabulated numbers are not a duplicate high-stage cutoff or retention sequence.",
+        "searches": [
+          "Resultary precise offset 2/[3(pi-2)] and 1/k information correction",
+          "Kabal 1983 symmetric Gamma quantizer table and two-level case"
+        ]
+      },
+      "rationale": "Best of current knowledge the distinct contribution is the sharp large-shape absolute offset and the first information-retention correction for the one-threshold Erlang scale experiment. Nearest-centroid optimality, its threshold equation after evaluating Gamma centroids, and uniqueness from general log-concave quantization are covered by the older framework and are not credited as distinct. The leading 2/pi factor is the normal limiting two-level factor, not by itself the novelty.",
+      "residual_risks": [
+        "No exhaustive priority determination. A separate one-sided Gamma two-level quantizer treatment with the large-shape constants could overlap; no such passage was located.",
+        "Kieffer, Lloyd and Gao et al. full texts were not retrieved on the attempted routes; the known general characterization/uniqueness is credited, and the unread material is not evidence of absence.",
+        "Local design does not guarantee robustness to a misspecified rate or altered sampling model."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers classical characterization and log-concave uniqueness; the Gamma example is a different law",
+          "evidence": "§3 gives unique mean-square stationary point under log-concavity; §§3–5 specify a generalized Gamma double-sided density and discuss its symmetric two-level boundary.",
+          "identifier_or_url": "https://www.ece.mcgill.ca/~pkabal/papers/1983/KabalC1983.pdf",
+          "material_read": "§§2–3 and §5, PDF pp. 1–2 (text offsets 2800–7799)",
+          "method": "Author-hosted OA PDF passages",
+          "title": "Quantizers for Symmetric Gamma Distributions",
+          "trigger": "Two-level Gamma quantization and older general uniqueness"
+        },
+        {
+          "assessment": "Abstract's theorem covers uniqueness, consistent with the independently read Kabal §3 passage. No claim about uninspected contents.",
+          "evidence": "The abstract states unique local optimality for a log-concave density and notes earlier squared-error coverage by Trushkin.",
+          "identifier_or_url": "https://ieeexplore.ieee.org/document/1056622",
+          "material_read": "Publisher abstract text returned by the search index; not the full paper",
+          "method": "Publisher search abstract, plus lawful publisher and author-posted full-text retrieval attempts (HTTP 202 and 403)",
+          "title": "Uniqueness of Locally Optimal Quantizer for Log-Concave Density and Convex Error Weighting Function",
+          "trigger": "Stronger theorem covering the exact quantizer's uniqueness"
+        },
+        {
+          "assessment": "Classical characterization credited; no conclusion about uninspected material",
+          "evidence": "Nearest region and conditional reproduction level give x=(a+b)/2 independently in the two-level case.",
+          "identifier_or_url": "https://doi.org/10.1109/TIT.1982.1056489",
+          "material_read": "No full-text passage obtained through DOI and attempted academic copies; centroid condition cross-checked in Kabal §2",
+          "method": "Lawful full-text retrieval attempts and separate already inspected OA exposition",
+          "title": "Least squares quantization in PCM",
+          "trigger": "Primary source of the equivalent centroid condition"
+        },
+        {
+          "assessment": "Related one-threshold optimization and many-bin high-resolution result; inspected examples are generalized Gaussian and Student-t",
+          "evidence": "The binary case optimizes one threshold by search; the asymptotic formulas describe high resolution, not a varying Erlang shape.",
+          "identifier_or_url": "https://arxiv.org/abs/1310.6945",
+          "material_read": "Abstract and pp. 2–3, especially text offsets near 16000 and 19000 and Eqs. (17)–(18)",
+          "method": "OA paper passages",
+          "title": "Optimal Scalar Quantization for Parameter Estimation",
+          "trigger": "Direct Fisher-information objective and binary thresholds"
+        },
+        {
+          "assessment": "Unresolved detailed comparison; no noncoverage inferred from unavailability",
+          "evidence": "No primary result or appendix passage available to compare.",
+          "identifier_or_url": "https://doi.org/10.3390/a8030621",
+          "material_read": "Bibliographic target; publisher page/PDF unavailable through the attempted routes",
+          "method": "Lawful OA attempts, HTTP 403",
+          "title": "One-Bit Quantization and Distributed Detection with an Unknown Scale Parameter",
+          "trigger": "Plausible one-bit scale-design overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact one-bit information loss for incomplete measurement of progression is naturally motivated, and the sharp offset answers a practical and mathematical question not resolved by the normal limit: follow-up is shifted by a constant fraction of one mean stage past the cohort mean. The explicit positive 1/k correction quantifies the approach to the Gaussian retention factor at the optimum. These joint expansions add nontrivial information beyond the covered general optimal-partition result, without claiming field robustness.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

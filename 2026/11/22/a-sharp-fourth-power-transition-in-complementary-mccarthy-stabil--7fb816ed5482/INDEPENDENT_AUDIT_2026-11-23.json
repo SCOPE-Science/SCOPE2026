@@ -1,0 +1,90 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:44:35.358123Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a unit eigenvector u of PQP on ran P with eigenvalue t^2 in (0,1), adjoining (Qu-t^2u)/(t sqrt(1-t^2)) gives the stated generic block. The common and orthogonal parts contribute zero. Each generic block has spectrum 1±t for P+Q, deficit phi_p(t), and energy 2t^2(1-t^2); a noncommuting pair's global quotient is an energy-weighted mean of block quotients. With x=t^2 and f_p=phi_p(sqrt(x))/x, the quotient is f_p(x)/(2(1-x)), with f_p(1)=0. In the locally twice-differentiable binomial series, all even binomial coefficients from degree four onwards are positive for 3<p<4; the degree-four term is linear in x and the higher coefficients are negative for 4<p<5. The subtracted x^((p-2)/2) term supplies strict convexity below four and strict concavity above. Anchored secants therefore decrease in t below four and increase above. Direct endpoint computations give f_p(0+)=p(p-1) and -f_p'(1)=p(2^(p-1)-2)/2, yielding the stated best constants via generic blocks tending to t=0 and t=1. In particular the ratios at p=3 and p=5 are 3/(1+t) and 10+15t^2/(1+t); the quartic ratio is constant 6. Continuity gives every intermediate value, strictness holds off quartic for noncommuting pairs, and commuting pairs give equality at zero. The direction is with respect to cosine, not angle. Replay: frozen RESULT.md Steps 1–3; VERIFICATION.md and verify_projection_p_bounds.py were inspected, not executed; their finite diagnostics are not needed to prove the continuum claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhang treats general positive matrices at p≥2 but proves complementary McCarthy nonnegativity; optimality of that inequality's coefficient triple is a different optimization.",
+          "The prior quartic formula applies to general positive Schatten-four operators and specializes to projections when P(P-Q)Q=0."
+        ],
+        "reasoning": "The broader general-matrix result covers the lower bound zero, not either optimal positive comparison constant. The broader quartic result fully covers p=4, but does not vary p.",
+        "searches": [
+          "arXiv:2611.00459v1, Section 1.1, Theorem 1.2",
+          "Resultary 2026/11/17/SCOPE-a-sharp-commutator-remainder-in-the-quartic-complementary-mccart--f1af3da8a762, RESULT.md, Finding"
+        ]
+      },
+      "checked_sources": [
+        "Zhang, arXiv:2611.00459v1, Theorem 1.2 and Lemma 3.3",
+        "Resultary f1af3da8a762, RESULT.md Finding; assigned-record identity 7fb816ed5482 excluded from prior coverage"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Nonnegativity of phi_p(t) gives no lower or upper endpoint for phi_p(t)/(2t^2(1-t^2)) beyond the lower bound zero.",
+          "The quartic identity implies both bounds exactly at four; it does not control the curvature change when p varies."
+        ],
+        "reasoning": "The nonquartic optimal comparison requires a separate curvature and secant argument plus two different endpoint limits. Neither inspected source supplies that implication.",
+        "searches": [
+          "Zhang, Theorem 1.2 and Lemma 3.3",
+          "Resultary f1af3da8a762, exact quartic identity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zhang's Phi_p(a,b) at a=1, b=t is exactly the unnormalized block deficit.",
+          "The prior quartic record compares the same deficit to the squared Hilbert–Schmidt commutator and supplies the exact quartic value."
+        ],
+        "reasoning": "The scalar, block, and global formulations were compared. Knowing the sign of the scalar deficit does not give two sharp bounds on its angle-dependent normalization. The known normalized quartic identity is one exponent only.",
+        "searches": [
+          "arXiv:2611.00459v1, Section 3.1, Lemma 3.3",
+          "Resultary local-index comparison of complementary McCarthy trace deficit / projection commutator stability; matching records f1af3da8a762 and 7fb816ed5482"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The match 7fb816ed5482 is this exact assigned result, not a distinct record.",
+          "The strongest distinct indexed match f1af3da8a762 gives the coefficient 6 at p=4 only."
+        ],
+        "reasoning": "The relevant exact scalar-constant and transition statements, not just objects or titles, were checked against the strongest indexed records. No distinct all-interval constant formula was verified.",
+        "searches": [
+          "Resultary local index, four projection-pair / McCarthy stability comparisons; inspect IDs ending 7fb816ed5482 and f1af3da8a762"
+        ]
+      },
+      "rationale": "Best of current knowledge, the distinct result is the pair of optimal nonquartic coefficients and strict angular interpolation across 3≤p≤5. The complementary trace deficit, its sign, principal-angle blocks, and the exact quartic projection identity are prior material; the record credits this overlap.",
+      "residual_risks": [
+        "The comparison is bounded, not a global claim of priority. An older scalar sharp-secant or two-projection stability theorem under different terminology might subsume the nonquartic case."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers deficit nonnegativity and the scalar expression, not the sharp commutator comparison",
+          "evidence": "Theorem 1.2 establishes the complementary inequality for p≥2; Lemma 3.3 establishes sign for Phi_p(a,b), with no division by commutator energy.",
+          "identifier_or_url": "https://arxiv.org/html/2611.00459v1",
+          "material_read": "Sections 1.1 and 3.1: Theorem 1.2 (HTML reader around offset 7650), Lemma 3.3 (around offset 26447)",
+          "method": "Original open-access paper, bounded passages",
+          "title": "Clarkson–McCarthy type inequalities, part II",
+          "trigger": "Same complementary deficit, same scalar block numerator, broader range of exponents"
+        },
+        {
+          "assessment": "Full coverage of the credited quartic specialization",
+          "evidence": "D_4(A,B)=4||A^(1/2)(A-B)B^(1/2)||_2^2+6||AB-BA||_2^2. For projections the first square vanishes.",
+          "identifier_or_url": "2026/11/17/SCOPE-a-sharp-commutator-remainder-in-the-quartic-complementary-mccart--f1af3da8a762",
+          "material_read": "RESULT.md, Finding, local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Published record in the local mirror",
+          "title": "A sharp commutator remainder in the quartic complementary McCarthy inequality",
+          "trigger": "Exact identity and optimal commutator coefficient for the same deficit at four"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp positive two-sided comparison quantifies when the complementary deficit measures noncommutation, uniformly in rank. Which limiting principal angles govern either constant reverses across four; this geometry and the complete interval of block ratios are not conveyed by nonnegativity or by the known isolated quartic identity. The claim concerns finite-rank projections on the stated exponent interval, not general positive matrices outside the credited quartic case.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

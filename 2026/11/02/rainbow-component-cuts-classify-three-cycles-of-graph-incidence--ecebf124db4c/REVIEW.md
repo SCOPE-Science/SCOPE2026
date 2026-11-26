@@ -1,15 +1,21 @@
-# Review of rainbow component cuts and period-three incidence rowmotion
+# Independent mathematical audit
 
-## Correctness (PASS)
-The rowmotion update is derived directly from minimal omitted poset elements. Iterating the edge-bit recurrence through three steps forces every edge to be present in exactly zero or two induced edge sets. The graph consequence is an independent set \(X\) with monochromatic components of \(G-X\); the vertex update forces each vertex of \(X\) to meet all three colour classes. The reverse construction gives an exact three-cycle. Since there are no fixed ideals, division by three is valid. Two standalone programs check all 771 connected labelled graphs on two to five vertices and additional infinite-family test instances. Residual risk is a hidden logical error in the symbolic argument, not a claimed computer proof of an infinite domain.
+## correctness
 
-## Originality (PASS, qualified)
-General papers by Striker–Williams and Striker define rowmotion and analyze general toggle groups without deriving this special classification for arbitrary graph-incidence posets. Searches for "three-cycles", "period three", incidence-poset rowmotion, and rainbow graph component cuts found no covering general theorem. Earlier computed \(K_{2,n}\) three-cycle totals are a special case and are excluded from the purported contribution. Period-two classifications on graph incidence posets are about different orbit length and do not imply this result. Unindexed related literature remains a live priority risk; no absolute novelty or independence is claimed.
+PASS
 
-## Value (PASS)
-The theorem converts a dynamical orbit classification for **every** connected finite graph into a static graph separation and component-colouring condition, rather than merely recomputing a known small example. The formula gives a sharp structural criterion for any nonuniversal three-cycle; for max-degree-two graphs none exists, while complete bipartite graphs have exponentially many in their part sizes. This supplies a natural bridge between combinatorial dynamics, independent vertex cuts and rainbow neighbourhood colourings.
+For an ideal (S,T), the minimal excluded elements are precisely the vertices outside S and the edges of E(S) outside T. Over a triple fixed by rho cubed each vertex is absent at most once. On each edge, t_(i+1)=a_i-t_i, where a_i indicates that both endpoints belong to S_i. Thus 2t_0=a_0+a_2-a_1, excluding odd weight of (a_0,a_1,a_2). This excludes edges within the always-present vertex set X and edges between distinct missing-time classes. For an edge of class j (both endpoints in X union Y_j, not both in X), the unique edge state is at j+2 modulo three. Consequently every always-present vertex must be supplied by newly selected edges from each class in turn, exactly the three-neighbour-colour condition. Conversely S_i=V minus Y_i and T_i=E(G[X union Y_(i+1)]) give E(S_i)=T_i disjoint union T_(i+1); the endpoints of T_(i+1) are exactly X union Y_(i+2), by the neighbour condition and absence of isolated vertices. This recovers both parts of rowmotion. No ideal is fixed (a proper ideal acquires a minimal omitted element, and the full ideal goes to the empty ideal). The cyclic action on colourings is free since V minus X is nonempty. In a biclique a nonempty admissible X must be a whole shore (otherwise G-X is connected), leaving the surjection count 3^t-3*2^t+3 on the other shore; for maximum degree at most two no nonempty X is admissible. A fresh minimal-complement versus component-colouring enumeration compared orbit sets and all three reconstructed transitions on all 43 connected labelled graphs of orders two through four; this is corroboration only. The frozen 771-graph and other reported tests were not replayed.
 
-## Scope and caveats
-Connected finite simple graphs with at least one edge; primitive period-three orbits only. The general formula may be computationally expensive; no claim on other orbit lengths, disconnected graphs, or an unpublished historical priority is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit is for the general graph-incidence classification and reduction, not the rowmotion definition or the already covered K_(2,b) and apparently also star specializations. No inspected passage states or yields the graph-wide independent-cut, three-neighbour-colour criterion. This is a best-of-knowledge judgment, not a priority certificate.
+
+## value
+
+PASS
+
+The bijection classifies the actual orbits, replaces iteration over order ideals by a static test on independent cuts and coloured components, and isolates the precise structural obstruction for a non-universal three-cycle. It is useful beyond verifying isolated period counts; no efficiency guarantee for evaluating the sum is assumed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

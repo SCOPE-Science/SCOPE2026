@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The four-state generator has strictly positive stationary cofactors because background immigration and extinction are positive. The cofactor formulas yield exact rational expressions for both objectives, whose derivative signs are governed by explicit quadratics. The derivative polynomials each decrease strictly on the feasible nonnegative half-interval, and their threshold and ordering arguments cover both endpoints and equal-extinction symmetry. The mathematical argument is valid for every positive real rate and every feasible budget; the 405 exact rational checks are supporting reproducibility, not a replacement for proof.
+## correctness
 
-**Originality — PASS, with historical-priority risk.** The closest own recorded claim, identifier `76d30637-704b-4642-aee1-ee95443dffcd`, treats expected time to complete extinction in a closed two-patch chain with directed colonization; its objective and absorbing-state assumption do not imply a stationary result in a chain with positive external recolonization. Etienne and Heesterbeek (2001) discuss colonization versus extinction interventions for metapopulation persistence, but the accessible record concerns time-to-extinction objectives; its full paper was unavailable and is a residual risk. Vuilleumier and Possingham (2006) simulate 100-patch connectivity and derive a mean-field approximation, whereas the new result compares two exact stationary objectives under a common fixed-rate budget. The 2020 source–sink analysis of Wu et al. uses deterministic density dynamics. No identical statement or stronger identified implication was found in the consulted sources and published mathematical research records. This is a best-knowledge assessment, not a guarantee of priority.
+PASS
 
-**Mathematical value — PASS.** Directional allocation is ecologically meaningful when habitat mortality differs. A complete parameter-uniform phase diagram identifies two different finite budget thresholds: allocating entirely to the vulnerable patch remains optimal for simultaneous occupancy after an interior split already improves expected occupied patches. The universal strict inequality between their optimal directional biases is a structural distinction that cannot be read off from the conventional advice to favor source patches. This is not merely a single numeric optimization. It is restricted to a two-patch stationary occupancy model with external arrival, not demographic persistence in closed systems or empirical reserve policy.
+The stationary weights satisfy all four master equations by direct symbolic multiplication with the specified generator; positivity and irreducibility give the unique normalized law. Quotient differentiation gives W_E=δL²−4Lht+4δt² and W_P=δL(L+g)−4Ljt+4δt² with t=u−B/2. Reflection excludes negative t when δ>0. In the repaired proof, both numerators decrease on [0,L/2], start positive and end negative: W_E(L/2)=−2(h−δ)L² and W_P(L/2)=−2(j−δ)L²+δLg<0 since j−δ=2e+g and δ<L. Thus each has exactly one root in that interval and the feasible optimizers are obtained by clipping at B/2. Evaluating there yields the stated thresholds. Since W_P−W_E=δLg+4Lgt>0 on the root interval, the P root is strictly farther right, which also gives B_P>B_E at B=B_E. At each threshold the corresponding optimizer is still at the endpoint, and δ=0 gives unique midpoint optima. The uploaded verification script was inspected, not executed: it had the wrong quadratic sign in W_E and used the wrong radical for the sample u_E. The supplied replacement verifier corrects both and passed 405 exact stationary comparisons plus exact derivative and optimizer checks for the example. The replacement RESULT.md makes the root choice explicit and documents the corrected finite checks. The theorem and scope are unchanged.
 
-**Closest literature and limitations.** Levins (1969), Etienne and Heesterbeek (2001), Vuilleumier and Possingham (2006), and Wu et al. (2020) were compared on mathematical objects and objectives. Only the 2006 paper's relevant full text was available for a detailed directly relevant examination. The 2001 full text could not be inspected; a general resource-allocation theorem elsewhere might imply part of the result. The proof concerns the specific Markov generator, with background colonization rate strictly positive.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the comparison between expected occupied-patch count and joint occupancy: their separate exact endpoint thresholds and strict ordering. Do not credit as distinct the joint-occupancy optimization in isolation if the parameters match the closely related Resultary record. The corrected proof and verification preserve the exact objectives, thresholds and boundary cases, so the statement-level comparison still applies.
+
+## value
+
+PASS
+
+The two commonplace conservation metrics favor different allocations in a natural minimal occupancy model. The proof identifies a nonempty interval in which one objective keeps the full endpoint allocation while the other requires splitting capacity, and orders the allocations once both split. This decision-relevant contrast is stronger than a numerical example or substituting stationary probabilities; it remains valid with the corrected evidence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

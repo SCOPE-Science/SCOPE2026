@@ -1,12 +1,21 @@
-# Research assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The result is an analytic short-time theorem for exact tangent-projected covariance flows. Factor equations guarantee nonnegative fixed-rank trajectories and comparison with the exact covariance. The rank-one/rank-two projector derivatives produce a strict negative quadratic direction of order \(t^2\) and an independently positive direction. Dimension two is excluded by exact full-rank evolution. The standalone script recomputes 11 symbolic identities and 54 numerical assertions; finite tests do not establish the universal result.
+## correctness
 
-## Originality — PASS, with remaining priority uncertainty
-Closest source: Schmidt, Hennig, Nick, and Tronarp (arXiv:2306.07774) introduces the dynamical-low-rank covariance prediction and its numerical integration, not this exact continuous-time cross-rank Loewner comparison. Ceruti and Lubich (arXiv:2010.02022) analyze tangent projection/integration generally; Carrel and coauthors (BIT 2023) study different variable-rank time discretization. Other discrete matrix-function positivity examples do not imply a comparison between two individually positive continuous flows. Dedicated published-source and mathematical-record searches yielded no directly covering theorem. Possible equivalent statements in specialized filtering theory remain a scientific priority risk; absence from search is not a uniqueness certificate.
+PASS
 
-## Mathematical value — PASS
-Uncertainty interpretation of rank-reduced covariance suggests the testable question whether increasing the rank makes every directional covariance nondecreasing. The three-dimensional rank-one-noise construction disproves this despite full-flow upper bounds for each approximation and shows that the obstruction arises through moving tangent subspaces, not merely discretization. This clarifies the limits of rank-adaptivity heuristics in uncertainty quantification. No claim is made about discrete BUG integrators, optimal rank in norm, or nonzero drift.
+The factor equation has S'=U^TQU positive semidefinite, so the positive minimum eigenvalue of S cannot decrease; the Stiefel factor stays compact and S grows at most linearly. For B_r=I-P_r, the exact covariance defect is the initial positive semidefinite defect plus the integral of B_r Q B_r. Independently, in the range graph chart L=Y_BA(Y_AA)^(-1), L'(0)=Q_BA(Y_AA(0))^(-1). Differentiating Y'=Q-B_rQB_r gives D''_11=0, D''_13=-q12*q23/a, and D''_33=2*q23^2/b for D=Y2-Y1. The first derivative and initial form vanish on span(e1,e3). Substituting the stated z gives the coefficient -b*q12^2/(4*a^2) while the e2 form tends to b; smoothness gives both signs throughout a punctured time interval. The rank-one example yields -1/18. In dimension two the rank-two projector is the identity, so the established comparison with the full covariance rules out a counterexample there. A separate graph-chart integration gives z^TDz/t^2=-0.055661185 and -0.055567722 at t=0.01 and 0.001, respectively.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The closest indexed records show loss of positivity of numerical outputs. This theorem instead compares two exact continuous trajectories that individually remain positive semidefinite and satisfy the full-covariance bound. The primary DLR sources establish the common equation and algorithms, not this cross-rank obstruction. Pass is bounded by the comparisons below, not a priority guarantee.
+
+## value
+
+PASS
+
+A minimal-dimensional exact counterexample separates comparison with the unprojected covariance from ordering successive modeling ranks. The open coupling condition and rank-one forcing isolate a concrete projector-rotation mechanism and rule out explaining the phenomenon as a time-stepping artifact. It informs when rank hierarchies can be used as ordered covariance approximations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph-cycle criterion is exact: each cycle of a complete bipartite graph with a part of size two is a four-cycle requiring two separately doubled leaves. The resulting simplicial cover by \(p\) closed balls has one common boundary and free transitive permutation of ball interiors. Passing to the ordinary orbit space therefore gives precisely the mapping cone of the quotient map on the cross-polytope sphere. Its real permutation representation splits into one fixed line and the free reduced regular real representation of \(C_p\) for prime \(p\); Fourier weights \(1,2,\dots,(p-1)/2\) identify the equatorial quotient with a generalized lens space. The lens CW boundaries, plus the degree-\(p\) top attaching map, prove all stated integral groups and simple connectivity. Independently enumerated forest configurations and integral boundary-composition checks confirm the base orbit model for \(p=3,5\). The computer check is not misrepresented as a proof for all primes.
+## correctness
 
-## Originality — PASS, subject to explicit priority risk
-The closest matching previously published published-finding corpus theorem (8 November 2026, exact source in References of RESULT.md) determines the integral automorphism module and gives the same equivariant union-of-balls construction, which the finding expressly credits. That theorem does not state the cyclic subgroup orbit-space mapping cone or any of the displayed integral torsion groups; its rationally acyclic *full-group* quotient is different. Kook–Lee's 2018 Theorems 5.3 and 5.5 supply the top homology basis and a restricted symmetry representation; Moci–Pezzoli's Section 6 gives representations, not quotient-space integral torsion. Kook 2006 treats coned matroids, not this group action. Searches for K2n cyclic forest quotients, their lens-space aliases, cofibers, and all-even-degree prime torsion found no published statement with the same scope. The published equivariant ball decomposition makes the present construction a particularly accessible deduction; an unindexed statement of this corollary is a genuine residual priority risk. Its new content is the prime-cycle orbit geometry, weighted lens map, and all-degree integral torsion, not the known ball decomposition or unquotiented homology.
+PASS
 
-## Value — PASS
-A natural infinite family of matroid sphere wedges acquires torsion in an unbounded number of homological degrees under a canonical cyclic symmetry, even though the orbit spaces remain simply connected. The result gives a concrete map-level classification, not only a rational character, an Euler characteristic, or a small numerical example. This is a meaningful integral-topology distinction for ordinary orbit spaces and a reusable model for prime permutation actions on a cross-polytope boundary with orbitally attached balls.
+Every simple cycle uses both hub edges at two different leaves, so the forest complex is the union of p balls formed by allowing a double edge at one index, with the same entire cross-polytope sphere as boundary. The action permutes the interiors freely and transitively. The pushout of one ball by the boundary orbit map maps continuously and bijectively to the orbit space and is homeomorphic to it by compactness and Hausdorffness. The radial sphere model splits as the fixed line plus the reduced permutation representation: all nonidentity elements act without fixed vectors in the latter for prime p. Thus the boundary orbit map is the unreduced suspension of the weighted free lens covering, not just a map with the same degree. The cone homology sequence carries the lower suspended lens torsion across unchanged and takes the cokernel of multiplication by p on top suspended homology, with zero kernel; this gives exactly the even degrees 2 through p−1 and no other reduced groups. At p=3 the cover is the degree-three circle cover and only the top cokernel occurs. The connected lens space suspends to a simply connected space and the attached cell has dimension at least three. Collapsing one contractible ball in the original CW complex gives p−1 spheres of dimension p. The supplied flag-orbit checks and saved p=3,5 output test the boundary quotient over fields, not the attaching degree or general integral conclusion; no execution of uploaded code was needed.
 
-## Limitations and checked sources
-The proof applies only to odd primes and this particular subgroup. The mapping cone statement is more precise than the homology statement, but no Moore-wedge decomposition is claimed. Relevant full material inspected includes the complete prior published-finding corpus RESULT.md, Kook–Lee's lawfully accessible author manuscript (especially Sections 3 and 5), and Moci–Pezzoli's online text (Sections 1, 4 and 6). Kook 2006 and Jonsson 2007 were checked to the accessible source text/overview rather than falsely claimed as fully inspected manuscripts; all are named and linked in RESULT.md. Residual priority risk: possible equivalent unpublished/unindexed construction and inference from the already-published equivariant cover.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of available evidence supports the ordinary leaf-rotation attaching-map and integral-torsion result as distinct, not the unquotiented wedge, the shared ball decomposition or lens-space homology itself. The known equivariant decomposition is substantial overlap, but the evidence inspected establishes neither this specific boundary orbit map nor these integral cyclic orbit groups. Rational acyclicity for a different group and an integral representation on the unquotiented homology do not imply them.
+
+## value
+
+PASS
+
+For a common graphic-matroid complex with torsion-free homology, the natural prime rotation produces unboundedly many distinct degrees of integral torsion. The explicit suspended covering determines the actual attaching map of the ordinary orbit space, a strictly more informative fact than the homology list or the known unquotiented module. This is a uniform structural result, not a small-prime table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

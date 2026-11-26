@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness: PASS.** The first-uncovered-cube recursion gives a disjoint, exhaustive partition of the perfect matchings; an independent layer-transfer count agrees at 1845. Two equivalent but separately implemented local-flip criteria agree on all 6949 edges. Complete traversal finds components of sizes 1825, 5, 5, 5, 5; the four small connected graphs have degree sequence \((1,1,2,2,2)\), proving they are paths. Exhaustive all-source breadth-first searches establish the radius, diameter and eccentricity distribution. The packaged standalone checker reproduces these values and the reflection orbit. The claim is entirely finite.
+## correctness
 
-**Originality: PASS, subject to residual overlap risk.** The prior literature already establishes non-connectivity of three-dimensional boxes, and a 2019 preprint explicitly uses a \(2\times3\times4\) subbox in a generator construction. Neither statement is misrepresented as new. Full-text comparisons with arXiv:1404.6509, arXiv:1912.12102, arXiv:1702.00798 and arXiv:2507.22625 revealed no exact component-size and geodesic census of this fixed box. Closest published tables concern \(3\times3\times2\), \(7\times3\times2\) and \(4\times4\times4\) boxes. An unindexed computation could nevertheless give the same numbers.
+PASS
 
-**Value: PASS.** The classical \(3\times3\times2\) box illustrates disconnectedness through two completely frozen tilings. The neighboring \(2\times3\times4\) box instead has *no frozen tilings* but four genuine nontrivial disconnected path components. The exact structure, symmetry, and shortest-path geometry isolate a different fixed-volume mechanism for failed accessibility. This supplies a useful finite benchmark for proposed flip invariants and reconfiguration algorithms; the claim does not require a new infinite theorem.
+The ordinary grid has 24 cells, 12+16+18 adjacency edges and 8+9+12 elementary squares. The first-uncovered-cell branching is exhaustive and duplicate-free, since a matching chooses exactly one branch at that cell; the floor transfer count is an additional independent count in the frozen package. Single-square replacement gives all and only the required flips. The frozen four-edge symmetric-difference test is equivalent: the difference consists of even alternating cycles, and a four-cycle in this grid is an elementary square. A separately implemented enumeration using tuples of cell pairs and explicit local replacements, followed by component search, reflection tests and all-source BFS, reproduced 1,845 vertices, 6,949 edges, components of sizes (1825,5,5,5,5) and edge counts (6933,4,4,4,4), minimum degree 1, the single reflection orbit on exceptional components, and the full eccentricity and pair-distance histograms (1,664,400 unordered pairs in the giant component). The exceptional connected trees with degrees (1,1,2,2,2) are paths with radius 2 and diameter 4; the giant radius and diameter are 10 and 16. This is exhaustive finite computation, not formal verification or a general box result.
 
-**Limitations.** No independent external scientific audit, no claim beyond this finite box, and no guarantee against unindexed earlier enumerations. The group-invariant classes of the four paths are not determined.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct result is the fixed-volume component census and metric, with exceptional paths, no frozen tiling and the symmetry orbit. Neither disconnectedness, the choice of box, nor an unrefined tiling count alone is the novelty basis. The strongest checked prior passages do not supply or imply this classification.
+
+## value
+
+PASS
+
+This is a previously motivated small nonperiodic box used in domino-group constructions. Its local dynamics distinguish global disconnectedness from the presence of immobilized tilings: every state moves, yet four entire nontrivial path components are trapped. The decomposition, reflection orbit and complete distance data supply a useful exact benchmark for studying unrefined flips on this specific box, rather than a routine recount of tilings or a claim about all boxes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

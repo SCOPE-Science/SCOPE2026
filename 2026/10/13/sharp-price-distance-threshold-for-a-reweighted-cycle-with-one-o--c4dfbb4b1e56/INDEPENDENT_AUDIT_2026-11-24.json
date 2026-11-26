@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:42:59.632411Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–34 and 35–89",
+        "VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent arc square-sum evaluation and exact sample ratios"
+      ],
+      "rationale": "On the orthogonal complement of the constant vector, K=n·tr(L⁻¹) is strictly convex in L on the positive definite cone: its second derivative in direction H is 2n·||L^(-1/2)HL^(-1)||_F². Distinct simple edges make the conductance-to-Laplacian map injective, and the objective diverges as a connected feasible sequence approaches disconnection. The compact budget simplex thus has a unique connected minimizer. The unique chord-free face optimum is uniform by cycle symmetry. To check the key kernel independently, take s=d(n−d), h=s/n and solve the unit-cycle Poisson equation with the potential linear along the two arcs from 0 to h. Its mean is h/2. On an arc of length k, the sum of squares counted with half weight at the endpoints is h²(k/3+1/(6k)); summing both arcs and subtracting n(h/2)² gives D_n(d)=s(s+2)/(12n), and D_n(1)=(n²−1)/(12n). The actual uniform reference Laplacian is L₀/n, so the budget-constrained first variation is n³z[tD_n(1)−D_n(d)]. Nonnegative variation is sufficient by convexity, including zero variation at equality by strict convexity. Negative variation is realized along the feasible direction that takes z=ε and reduces each ring weight to (1−tε)/n. The ratio, strict increase in d on the allowed discrete domain, and the fixed-d and proportional-d limits follow from the polynomial. The ratio at (n,d)=(4,2) is 8/5 and at (8,3) is 85/21.",
+      "residual_risks": [
+        "The stored 460 kernel checks and 32 objective-side comparisons were not independently replayed; the general verdict rests on the proof. No explicit positive chord conductance or multi-chord classification is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ghosh et al. establish the convex allocation gradient and KKT conditions. Deng et al. give fixed-base resistance and Kirchhoff updates in terms of arc resistances and pair sums, and identify distance monotonicity at fixed uniform ring conductance. Bhoite et al. hold existing base-edge weights fixed under candidate-edge costs."
+        ],
+        "reasoning": "Fixed-base update optima need not remain optimal once a chord purchases conductance at the expense of the ring. A generic KKT condition can compare the marginal benefits per cost but does not evaluate the cycle kernel.",
+        "searches": [
+          "Ghosh–Boyd–Saberi, DOI 10.1137/050645452, §2.9 eq. (20), §4.2 eqs. (28)–(30)",
+          "Deng–Chang–Yang, arXiv:2605.24479, Lemmas 3.1–3.2 and Remark 3.6; §5 eqs. (5.7)–(5.9)",
+          "Bhoite et al., arXiv:2609.29790, p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local index and named comparison records",
+        "DOI 10.1137/050645452",
+        "arXiv:2605.24479",
+        "arXiv:2609.29790",
+        "DOI 10.1088/1751-8113/45/37/374015 (attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In budget coordinates x_c=tz the chord column is b_c/sqrt(t). The active ring derivatives have negative magnitude n³D_n(1), and the chord expenditure derivative has negative magnitude n³D_n(d)/t. KKT thus reduces the claimed threshold to D_n(d)/D_n(1). Deng's fixed-base improvement w·nQ_e/(1+wR_e) gives Q_e=b_eᵀ(L⁺)²b_e, and its resistance-sum version is exact but unevaluated in d for the needed marginal."
+        ],
+        "reasoning": "If the evaluated cycle kernel were already stated, the cutoff and equality classification would follow mechanically from cost rescaling and prior convexity/KKT. The inspected general formulas do not supply that polynomial evaluation; deriving it by solving the cycle Poisson problem and summing centered squares is the concrete remaining step. The marginal criterion itself is not credited as original.",
+        "searches": [
+          "Ghosh–Boyd–Saberi §2.9 and §4.2",
+          "Deng–Chang–Yang eq. (3.8), Remark 3.6 and eq. (5.9)",
+          "2026/10/12/SCOPE-geometric-price-thresholds-for-shortcut-links-in-optimally-weigh--e4e7dfa12883, proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The kernel is the square of biharmonic distance on the unit-weight cycle. If S_2(j)=Σ_{k=1}^{n−1}cos(2πkj/n)csc⁴(πk/n), diagonalizing the cycle Laplacian gives 8nD_n(d)=S_2(0)−S_2(d). A paper on Dowker sums surfaced, but no decisive passage could be read."
+        ],
+        "reasoning": "An earlier exact formula for this Fourier difference with the specified indices and normalization would supply the core computation. The unread paper is a specific unresolved risk, not evidence either of coverage or of absence.",
+        "searches": [
+          "Resultary: D_n(d) squared Green function cycle chord resistance price threshold",
+          "Resultary: exact no-chord threshold cycle chord distance d jointly optimize ring conductances d(n-d)[d(n-d)+2]/(n^2-1)",
+          "Biharmonic distance on C_n and finite Fourier transform of csc^4 (two different literature formulations)",
+          "DOI 10.1088/1751-8113/45/37/374015"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier path-base record has an exact equality-inclusive cutoff written as a double sum at nonuniform optimal conductances g_i proportional to sqrt(i(n−i)). The closing-edge result uses a path base and prices the edge that forms the cycle. Same-day matching and rim threshold records use complete-graph and wheel bases, respectively."
+        ],
+        "reasoning": "These real overlaps concern different active face geometries and different kernel values; they do not give the evaluated chord omission threshold for a cycle that is already closed.",
+        "searches": [
+          "Resultary: cycle optional chord reweighted unit budget exact chord price threshold Kirchhoff index distance",
+          "Resultary: cycle chord effective resistance Kirchhoff index jointly optimize original cycle conductances chord price",
+          "2026/10/12/SCOPE-geometric-price-thresholds-for-shortcut-links-in-optimally-weigh--e4e7dfa12883",
+          "2026/11/2/SCOPE-sharp-quadratic-price-threshold-for-retaining-the-closing-edge-o--4f89042df17b"
+        ]
+      },
+      "rationale": "The viable distinct claim is the exact all-size, distance-resolved cutoff for an already closed cycle whose ring edges and non-ring chord are jointly optimized under heterogeneous prices. The general convex KKT mechanism is known, and the previous path price theorem applies the same mechanism to a different base. Fixed-base chord updates yield the unevaluated cycle marginal, not the polynomial ratio without evaluating that kernel and comparing it with the active ring-edge marginal. No inspected prior statement supplies the resulting closed cycle screening formula or the equivalent evaluated all-distance kernel.",
+      "residual_risks": [
+        "A prior evaluated cycle-biharmonic or twisted trigonometric identity could turn the cutoff into a mechanical corollary of price-normalized KKT. In particular the Dowker-sum paper could not be compared at statement level. The bounded non-matches do not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General KKT machinery; not the evaluated cycle cutoff",
+          "evidence": "Negative conductance gradient is n times a squared Green-vector norm; the unit-price complementary slackness condition extends by expenditure normalization.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+          "material_read": "§2.9 eq. (20) p. 46 (OA offset 32512); §4.2 eqs. (28)–(30), pp. 51–52 (offset 51396)",
+          "method": "Bounded OA PDF passages",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "General convex conductance allocation and inactive-edge criterion"
+        },
+        {
+          "assessment": "Exact fixed-base improvement and raw kernel representation, not the jointly optimized cutoff",
+          "evidence": "Eq. (3.8) sums squared four-point resistance differences; Remark 3.6 gives uniform-cycle monotonicity, not an evaluated marginal polynomial. Eq. (5.9) expresses the improvement with Q_e and R_e.",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.24479",
+          "material_read": "§2 eq. (2.10); §3.2 Lemmas 3.1–3.2 and §3.3 Remark 3.6, pp. 6–7 (OA offsets 20300–26443 and following); §5 eqs. (5.7)–(5.9), p. 13 (offset 44700)",
+          "method": "Bounded OA PDF passages",
+          "title": "Single-Chord Augmentation of Weighted Cycles for Algebraic Connectivity and Network Coherence",
+          "trigger": "Same cycle and chord, possible explicit marginal identity"
+        },
+        {
+          "assessment": "Different budget scope",
+          "evidence": "Existing base-edge weights remain fixed; the model does not optimize the original cycle weights jointly.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.29790",
+          "material_read": "p. 1 (OA offset 9100)",
+          "method": "Bounded OA paper passage",
+          "title": "Budget-Constrained Graph Augmentation for Robust Network Design via Kirchhoff Index Minimization",
+          "trigger": "Heterogeneous augmentation price model"
+        },
+        {
+          "assessment": "Closest indexed methodological overlap; different base",
+          "evidence": "The threshold is a double sum at the nonuniform path optimum and includes equality. This does not compute the cycle marginal.",
+          "identifier_or_url": "2026/10/12/SCOPE-geometric-price-thresholds-for-shortcut-links-in-optimally-weigh--e4e7dfa12883",
+          "material_read": "RESULT.md Finding and KKT proof",
+          "method": "Local Resultary mirror",
+          "title": "Geometric price thresholds for shortcut links in optimally weighted paths",
+          "trigger": "Same shared-budget omission question on another base graph"
+        },
+        {
+          "assessment": "Relevant unverified possibility; no conclusion from inaccessibility",
+          "evidence": "The DOI retrieval timed out and the publisher PDF was unavailable; no integer-frequency identity was verified.",
+          "identifier_or_url": "https://doi.org/10.1088/1751-8113/45/37/374015",
+          "material_read": "Search pointer only; no formula text retrieved",
+          "method": "Bounded DOI and publisher PDF OA attempts",
+          "title": "Closed-form summations of Dowker’s and related trigonometric sums",
+          "trigger": "Possible older explicit finite Fourier csc⁴ evaluation equivalent to the cycle kernel"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–23 and 47–89",
+        "Deng–Chang–Yang, arXiv:2605.24479, §3.3"
+      ],
+      "rationale": "The price-distance threshold answers whether to buy a shortcut when ring resources must be surrendered, for a natural symmetric graph all of whose conductances may vary. The precise answer, including equality, eliminates a convex solve for that decision and distinguishes an O(1) threshold for fixed distance from an O(n²) threshold for macroscopic distance. This value is in the explicit all-distance boundary, not the generic stationarity criterion or merely observing that a free fixed-base edge improves resistance.",
+      "residual_risks": [
+        "This is a one-chord activation result and does not give the interior optimal conductance or a dependence law for multiple optional edges."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:44:03.758806Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the bilateral binary shift the dual of the stated forward local rule is multiplication by P, not its reciprocal. The nonzero endpoints also give a two-sided inhomogeneous recurrence, proving surjectivity and giving nd free bits for the time-n kernel. For a fixed output the possible pin values form a coset of the pin projection of that kernel, so the obstruction dimension is the codimension of that projection, equivalently dim(span(z^a,z^b,z^c) intersect (P^n)). Monomial shifts are units, including for negative sites. An eligible pair has exponent gap q times an integer; removing its 2-power leaves a simple root by differentiation. An eligible triple must have three different residues. After removing its common Frobenius power the derivative cannot vanish: it is a monomial if just one reduced exponent is odd, and vanishing for two odd reduced exponents would force coincident residues modulo the odd order q. Thus the triple multiplicity is exactly H_-. In the equal-residue case the three eligible pairs form one dimension-two subspace, with two tied smaller multiplicities and one strictly larger one, giving the two drops as stated. For an obstruction of depth h, a pair costs span at least qh; a triple costs at least m(P)h. Primitivity writes 1+alpha as alpha^v with 2<=v<q, proving existence and m(P)<q; degree proves m(P)>=d. A minimal trinomial has multiplicity one (otherwise halve both exponents) and scaling its exponents by the largest dyadic h with m(P)h<=L gives the matching last obstruction at n=h. The n>=1 convention gives the first full time 1 when L<m(P). Independently enumerated the residues by repeated doubling and reduction for the two example polynomials: their nonzero cycles have lengths 7 and 31, and lexicographic search by (v,u) first hits (3,1) and (8,3). Inspected check_singer.py and VERIFICATION.md without executing the bundled script. The three implementation paths cover 207628 finite cases by their loop bounds, not arbitrary degrees or spans.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frozen RESULT.md lines 71–73 identifies entropy, space-time traces, and qualitative cylinder-return results as the literature comparison; these are different invariants from exact indices of spatial images.",
+          "The observation-clock catalogue hit 628f97a371fe concerns a prime-field difference rule at Frobenius clocks; the two-block plateaux hit ac149331eeb0 concerns a prime-field difference rule with two blocks."
+        ],
+        "reasoning": "Even a qualitative return or density result does not distinguish indices 1, 2 and 4 at every positive time. The clock catalogues cover different rules and constraints and supply no unrestricted primitive-polynomial formula in the available statements. Access limits are recorded separately.",
+        "searches": [
+          "arXiv:2611.16746",
+          "doi:10.4230/LIPIcs.MFCS.2019.68",
+          "Resultary: finite-time cylinder covering, sparse cylinder rank and full reachability"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check_singer.py",
+        "Resultary 35e8ff480012, 628f97a371fe, ac149331eeb0, eff551c94343 (catalogue statements)",
+        "Published-literature lookup on primitive linear CA sparse cylinder images and trinomial span; no relevant primary passage returned"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The frozen proof needs exact multiplicities for three terms with distinct residues (nonvanishing of the reduced derivative) and an independent universal lower bound on span per dyadic depth; the available neighbouring statements address residue occupancy, block separation, or the order-three special case."
+        ],
+        "reasoning": "The general characterization is not a parameter substitution in the compared conclusions. In particular the degree-five example has least span 8 rather than degree 5. The new conclusion is the uniform sharp reduction to that arithmetic input, not the computation of every m(P).",
+        "searches": [
+          "Rule 150 catalogue record 35e8ff480012 versus frozen RESULT.md lines 43–65",
+          "Resultary: prime-power observation clocks 628f97a371fe; two-block Frobenius plateaux ac149331eeb0; binomial sparse traces eff551c94343"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The catalogue advertises all three-site indices, assignment independence, two clocks, residues modulo 3 and the cutoff 1+2^floor(log2(L/2)) for bilateral Rule 150."
+        ],
+        "reasoning": "This is the same kind of invariant. Rule 150 has P=1+z+z^2, so every distinct-residue triple exhausts the order-three cycle; its essential line test is automatic. It does not determine which triples of distinct residues are dependent for d>=3 or how the cutoff changes when m(P) varies. Same-day dating resolves no priority.",
+        "searches": [
+          "Resultary: three-pin finite-time cylinder image index, primitive polynomial, Singer line, dyadic multiplicity",
+          "2026/11/22/SCOPE-cyclotomic-two-clock-image-filtration-for-three-pinned-sites-in--35e8ff480012"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The one close exact cutoff was the separately indexed Rule 150 formula with m=2. The surfaced finite-field trinomial hit concerned coefficient-weight spectra over F_8, not least divisible-trinomial span or a time-index classification."
+        ],
+        "reasoning": "A table of m(P) values, even if exhaustive for small d, would give examples of an input invariant, not the theorem that it sets the sharp time for every span and primitive P. The search did not establish that such tables or equivalent literature are absent.",
+        "searches": [
+          "Resultary: least divisible trinomial span for primitive binary polynomials; Singer-line cutoff",
+          "Published-result search for three-coordinate cylinder multiplicity and least trinomial span"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the stated degree-at-least-three classification and sharp m(P) cutoff. The Rule 150 analogue is substantial overlap in mechanism and shape but is a fixed degree-two rule outside this scope. The available comparisons do not supply the independent residue-line test, the varying least-trinomial-span invariant, and the associated sharp all-L conclusion for primitive polynomials of arbitrary degree. Duality and Frobenius multiplicity alone are not claimed as original.",
+      "residual_risks": [
+        "The full Rule 150 record and cited primary papers were not available for statement-by-statement inspection; their catalogue/frozen descriptions are not exhaustive.",
+        "Unindexed coding or recurrence literature could express the same relation spaces as shortened codes or sparse polynomial multiples. No absolute priority is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong special-case analogy, not evidence of general-degree coverage",
+          "evidence": "Rule 150 is P=1+z+z^2, with the summary cutoff using 2 in the denominator.",
+          "identifier_or_url": "2026/11/22/SCOPE-cyclotomic-two-clock-image-filtration-for-three-pinned-sites-in--35e8ff480012",
+          "material_read": "Catalogue statement; decisive assumptions sought via lawful local-mirror reader, body not retrieved",
+          "method": "Statement-level comparison of stated rule and cutoff",
+          "title": "Cyclotomic two-clock image filtration for three pinned sites in Rule 150",
+          "trigger": "Nearly identical formulation and cutoff"
+        },
+        {
+          "assessment": "Related but different settings in the retrieved statements",
+          "evidence": "Difference CA and residue occupancy at Frobenius clocks, or two separated non-singleton blocks.",
+          "identifier_or_url": "2026/11/22/SCOPE-prime-power-observation-clocks-an-exact-collision-law-for-random--628f97a371fe; 2026/11/22/SCOPE-frobenius-plateaux-in-finite-time-cylinder-covering-for-additive--ac149331eeb0",
+          "material_read": "Catalogue claim summaries",
+          "method": "Compared operators, time restrictions, and pinned sets",
+          "title": "Prime-power observation clocks and Frobenius plateaux for additive cylinder covering",
+          "trigger": "Potential general sparse-image rank formulas"
+        },
+        {
+          "assessment": "Full-text overlap unresolved; no claim of document-wide exclusion",
+          "evidence": "Frozen RESULT.md lines 71–73 contrasts entropy/space-time traces and qualitative cylinder returns with the exact spatial image index.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.16746; https://doi.org/10.4230/LIPIcs.MFCS.2019.68",
+          "material_read": "Frozen descriptions and Lemma 18 locator; attempted lawful primary texts not retrieved",
+          "method": "Evidence limited to the stated comparison in the frozen record",
+          "title": "Topological Entropy of Group Cellular Automata is Effectively Computable; Additive Cellular Automata Over Finite Abelian Groups: Topological and Measure Theoretic Properties",
+          "trigger": "Possible broader duality or cylinder-image theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This completely classifies the first pin count at which a genuinely ternary dependence can occur in this natural infinite-volume recurrence family. It distinguishes immediate full reachability from one or two exact stages of obstruction, and gives both a sharp universal span bound and a realizing triple for every diameter. The cutoff uses an intrinsic invariant that demonstrably need not equal the degree, rather than recomputing a selected finite window.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

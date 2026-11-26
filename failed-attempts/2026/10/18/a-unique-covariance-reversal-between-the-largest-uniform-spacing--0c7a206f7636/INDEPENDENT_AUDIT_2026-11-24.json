@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:16:18.730476Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Finding is correct. The translated conditional simplex gives the exact covariance m(1-t)^m[B_m(b)-b H_m/m], with B_m(b)=E[(b-(M-Y_1))_+]. The labeled-coordinate joint event has volume (1-kb)_+^(m-1)/(k+1), including dimension two by direct one-coordinate integration on the nonempty interval. Inclusion–exclusion and integration give the displayed finite formula. B_m(b)/b increases strictly from 1/m to 1, since there is positive mass of M-Y_1 in every (0,b), and H_m/m lies strictly between. At t=1/2 the conditional mean is (m+1)/(2m), equal to H_m/m only at m=2 and larger thereafter, giving the claimed endpoint comparison. Under exponential normalization, the exact unnormalized gap law is e^v[1-(1-e^-v)^m]/m. Concentration of the sum gives uniform relative asymptotics e^v/m up to C log log m without needing independence of gap and sum. Integration and the two-sided bracket give s=mb_m asymptotic to log log m, then e^s-1=(1+o(1))sH_m gives the second log and additive o(1); replacing b_m by t_m costs o(1) on the scaled threshold. The adjacent wording about piecewise polynomials is imprecise: B_m is piecewise polynomial in b, whereas the covariance itself is piecewise polynomial in t and piecewise rational in b. Independent finite replay: python3 /workspace/check_frozen_mathematics.py 2, with 234 exact rational comparisons to a joint-tail inclusion–exclusion integral for m=2 through 14. This does not certify uniqueness or the asymptotic; those follow analytically.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bairamov–Berred–Stepanov count independently sampled points in an interval selected by a spacing, not the long spacings of the original partition. Darling's accessible abstract addresses more general spacing functional methods, but does not establish this sign result."
+        ],
+        "reasoning": "The classical primary comparisons examined do not by themselves entail the sign/asymptotic claim. The stronger affirmative evidence is exact overlap in Resultary.",
+        "searches": [
+          "joint distribution maximum uniform spacing count spacings exceed t covariance",
+          "Bairamov–Berred–Stepanov DOI 10.1007/s00362-008-0134-3, §5 and Theorem 9",
+          "Darling DOI 10.1214/aoms/1177729030"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ce8f3c1a316a, 1dc45f364fe5, 8f81f2914613",
+        "DOI 10.1007/s00362-008-0134-3",
+        "DOI 10.1214/aoms/1177729030 (abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "ce8f3c1a316a explicitly gives log log m + log log log m + o(1), not only a first-order equivalent. The cutoff upper bound at m>=3 follows immediately from the same finite formula evaluated at t=1/2."
+        ],
+        "reasoning": "The exact formula, all-m uniqueness and sharp second-order asymptotic are covered together; no unestablished historical ordering is needed to identify the scientific duplication.",
+        "searches": [
+          "ce8f3c1a316a Finding and finite formula, offsets 0 and 3234",
+          "1dc45f364fe5 Finding, offset 0",
+          "8f81f2914613 Finding, offset 760"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "ce8f3c1a316a compares the same maximum and deterministic-cutoff count, on the same uniform simplex, with one interior negative-to-positive crossing.",
+          "For a_j=(-1)^(j+1) binom(m-1,j)/(j(j+1)), sum a_j=H_m-1 and (1-t)^m(1-jb)_+^m=(1-(j+1)t)_+^m. These identities convert the frozen finite formula into the direct-t formula in ce8f3c1a316a and 1dc45f364fe5."
+        ],
+        "reasoning": "A different variable and stop-loss representation do not change the exact covariance or its sign classification.",
+        "searches": [
+          "largest uniform spacing covariance number of spacings longer than threshold unique zero",
+          "uniform Dirichlet maximum covariance exceedance count sign change threshold",
+          "joint distribution maximum uniform spacing count spacings exceed t covariance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "ce8f3c1a316a gives the same full sign and asymptotic result; 1dc45f364fe5 gives the exact formula and sign switch; 8f81f2914613 gives the full crossing and asymptotic plus an expected-exceedance-count asymptotic."
+        ],
+        "reasoning": "These are separately indexed statements in the same parameters, not a finite table or the bound record itself.",
+        "searches": [
+          "Resultary: largest uniform spacing covariance number of spacings longer than threshold unique zero",
+          "Resultary: m t_m log log m log log log m covariance maximum spacing"
+        ]
+      },
+      "rationale": "A distinct published Resultary record (ce8f3c1a316a) covers the full covariance sign theorem, including the m=2 boundary, the exact finite formula and the second logarithm with additive o(1). Two other distinct records corroborate partial or full exact coverage. This is a statement-level duplication decision, not an attribution of priority or an inference from folder dates. No distinct supported finding remains by correcting the polynomial wording or rewriting the derivation.",
+      "residual_risks": [
+        "Historical release order and priority are not inferred from catalog dates. Darling's full text and Pyke's review were not examined. Neither limitation weakens the affirmative exact duplicate evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact mathematical coverage",
+          "evidence": [
+            "Same m and t, exact finite formula, unique negative-to-positive reversal, t_2=1/2, both logarithms and o(1)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-one-sign-reversal-for-the-longest-uniform-spacing-and-the-number--ce8f3c1a316a",
+          "material_read": "Finding and exact formula, offsets 0 and 3234",
+          "method": "Local published-record mirror",
+          "title": "One sign reversal for the longest uniform spacing and the number of long spacings",
+          "trigger": "Exact candidate for full sign reversal and two-log threshold"
+        },
+        {
+          "assessment": "Exact finite/sign overlap; full asymptotic not stated there",
+          "evidence": [
+            "Equivalent explicit covariance, one interior threshold with the same signs."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-unique-covariance-sign-switch-between-the-longest-spacing-and--1dc45f364fe5",
+          "material_read": "Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "A unique covariance sign switch between the longest spacing and the number of long spacings",
+          "trigger": "Same model and same-day exact result"
+        },
+        {
+          "assessment": "Full mathematical overlap, does not establish priority",
+          "evidence": [
+            "Same explicit formula and threshold asymptotics; additional expected-count asymptotic."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-a-unique-covariance-reversal-between-the-largest-uniform-spacing--8f81f2914613",
+          "material_read": "Finding, offset 760",
+          "method": "Local published-record mirror",
+          "title": "A unique covariance reversal between the largest uniform spacing and the number of long spacings",
+          "trigger": "Distinct identifier with the same exact statistic and threshold regime"
+        },
+        {
+          "assessment": "Related spacing theory, different count",
+          "evidence": [
+            "Its count is from a second independent sample falling in an interval, not a threshold count of the first sample's spacings."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00362-008-0134-3",
+          "material_read": "§5 p. 237 and Theorem 9 p. 238, offsets 28200 and 31000",
+          "method": "Lawfully accessible author PDF",
+          "title": "Limit results for ordered uniform spacings",
+          "trigger": "Same spacing model; section entitled exceedances"
+        },
+        {
+          "assessment": "No full-text finding about coverage",
+          "evidence": [
+            "Abstract describes transforms for sums of spacing functionals."
+          ],
+          "identifier_or_url": "https://doi.org/10.1214/aoms/1177729030",
+          "material_read": "Abstract only",
+          "method": "Bibliographic abstract; bounded OA full-text attempts unsuccessful",
+          "title": "On a Class of Problems Related to the Random Division of an Interval",
+          "trigger": "Plausible broader spacing functional method"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As mathematics, the all-m crossing and additive o(1) threshold expansion answer a natural question about competition between a simplex maximum and a threshold count, and locate the transition far below the typical maximum. That significance is not new scientific value added by this record: the available exact coverage forces rejection on originality.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

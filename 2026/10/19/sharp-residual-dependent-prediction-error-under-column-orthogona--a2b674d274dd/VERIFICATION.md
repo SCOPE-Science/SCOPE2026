@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,8 @@
 }
 ---
 # Verification and reproducibility
-The correctness argument is a complete algebraic proof based on the thin QR decomposition, positive spectral contraction, a sharp one-variable maximization, and explicit rank-one attainment. Exact statements, hypothesis boundaries, and the distinction between prediction-energy and coefficient norms appear in `RESULT.md`.
+`RESULT.md` gives the thin-QR reduction, the sharp dimension-free scalar bound, and an explicit extremizer of rank one when the budget is positive. At zero budget the only permissible perturbation is zero. The scalar replay in `RESULT.md` checks the rank distinction and the normalized loss directly.
 
-Run `python3 checks/verify.py` with Python 3 and its standard library. In the recorded execution it produced `PASS: 48 sharp rank-one cases; 1200 randomized feasible matrices`. The script deliberately uses an orthonormal-coordinate representation to test the invariant expression, then computes its errors from normal equations by partial-pivot Gaussian elimination. Its checks are finite numerical stress tests, not a proof of the universal result.
+Run `python3 checks/verify.py` with Python 3 and its standard library. The script uses orthonormal coordinates and computes errors from the normal equations by partial-pivot Gaussian elimination. The 48 scalar cases consist of 42 positive-budget rank-one examples and six zero-budget examples, followed by 1,200 feasible randomized matrices. The corrected expected marker is `PASS: 42 sharp rank-one cases; 6 zero-budget cases; 1200 randomized feasible matrices`. The original recorded marker lumped all 48 scalar cases into its rank-one count; the numerical loss tests are unchanged. These are finite numerical stress tests, not proofs of the theorem or evidence of originality.
 
-A second numerical suite (not required for replay) independently used QR factorizations, least-squares solves, condition numbers up to \(10^6\), and 120 extremizer/1,200 feasible random perturbation instances. These experiments do not establish novelty, independent audit, or applicability to arbitrary matrix perturbations. The 2016 and several classical projection-related sources remain partial-access literature risks.
+The original result also reported a separate numerical suite using QR factorizations, least-squares solves, condition numbers up to \(10^6\), and 120 extremizer/1,200 feasible random perturbation instances. The separate suite is not required for the proof or the furnished replay.

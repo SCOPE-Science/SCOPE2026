@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and boundaries
+# Independent mathematical audit
 
-Run `python3 check_square_zero.py` (Python standard library, no third-party dependencies). It enumerates actual coordinate multipliers \(L_x\), checks \(L_x^2=0\) by matrix multiplication, computes ranks by elimination, and independently compares the resulting cycles' rank frequencies with the theorem. It also tests the support criterion on every labeled C4-free graph of the specified small sizes and verifies the C4 counterexample.
+## correctness
 
-The recorded run checks 13 complete cycle/field cases, 613 labeled C4-free graphs, and 22,147 graph/coefficient-vector pairs. These finite tests cannot prove the unbounded assertions: those are established by the coefficient formula, unique two-walk argument, cyclic kernel recurrence and gap enumeration in RESULT.md. The computations cover prime fields only. Earlier equivalent statements could exist outside the inspected literature. No independent external validation was performed.
+PASS
+
+The tested equation is composition of a k-linear map with itself, not the element equation. Applying L_x twice to e_j gives x_j times weighted two-walk sums; independent support kills the intermediate weights. An occupied edge u-v produces the entry (w,u) from the unique common neighbor v of distinct u,w if v has another neighbor w. This uniqueness uses absence of any four-cycle, including non-induced ones. Either endpoint can be used, and for an isolated edge the diagonal entry is x_u x_v. On C_4 the two distinct row neighborhoods are the opposite parity pairs; both have weight sum zero for (1,1,-1,-1), giving the stated counterexample. For a cycle, rank loss relative to support size equals the dimension of adjacency-kernel vectors supported there. The recurrence y_(i+2)=-y_i makes all nonzero odd-cycle kernel vectors full-support (possible only in characteristic two). On an even cycle the two parity chains close after n/2 steps, admitting a full-parity dependency precisely when (-1)^(n/2)=1. An independent support containing a whole parity class must equal that alternating class, so each such support loses exactly one rank. Marked cyclic gaps give n/j times binomial(n-j-1,j-1) for j>0 and the empty support contributes one; weighting by (q-1)^j and moving the two alternating terms gives the displayed correction and the C_6 examples. Isolated coefficients are counted with multiplicity as required. Field order already determines characteristic, so the final prose about holding cardinality fixed is vacuous; the substantive assertion is that the total needs only the independence polynomial evaluated at q-1, whereas the rank formula has a characteristic-dependent correction. In a separately written bounded check (python3 /workspace/check_cycle_gf4.py), direct double multiplication and image cardinalities on all 4^6 vectors give 1+18z+135z^2 over F_4, extending the recorded prime-field examples. Frozen checker and output were inspected, not rerun.
+
+## originality
+
+PASS
+
+The supported distinct package is the C_4-free equivalence for the square of one natural-basis multiplication operator and its all-field, rank-weighted cycle census. The adjacency column-rank facts and the independent-set counts are ingredients, not independent novelty claims. Closely titled index hits study different products or equations, and their uninspected full texts leave a bounded priority risk.
+
+## value
+
+PASS
+
+An exact operator-nilpotence locus in a natural class of nonassociative algebras reduces to an independently useful graph invariant. The unique-witness proof and four-cycle counterexample explain why the support reduction can fail rather than fitting a few examples. The cycle refinement identifies and quantifies rank losses that the total count cannot detect; it applies to all cycle sizes in scope and all finite fields.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

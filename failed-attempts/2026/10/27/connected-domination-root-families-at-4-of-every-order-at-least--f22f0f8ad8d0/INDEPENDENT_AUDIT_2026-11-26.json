@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:46:24.994966Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every private leaf forces either itself or its support into a dominating set, so each support is internally dominated even after adding bridge edges; all other vertices have only internal neighbors. Restricting to blocks and taking unions are inverse size-preserving maps. The joining tree on connected blocks makes a connected simple graph. Independently partitioning dominating sets of the 36-edge seed by the subset of its 17 nonleaf vertices reproduced all 23 nonzero coefficients, D(-4)=0 and D'(-4)=1100417597440000. Replay: python3 /workspace/branches/independent-checks/check_domination.py with the frozen package directory as input. The K2 and P3 factors evaluate to 8 and -20, so multiplicities add to exactly k. Every integer at least 2 is a sum of 2s and 3s; the proof does not cover order 33k+1 or claim optimality of the minimum order.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorems 3.10 and 3.11 apply to domination-covered endpoints in a general graph, not only links between connected blocks.",
+          "Corollary 2.2 explicitly identifies the simple zero -4."
+        ],
+        "reasoning": "The support-bridge lemma is a special case of the stronger existing criterion, and the only needed seed input is already supplied explicitly. The corona formula in Theorem 3.12 is not needed.",
+        "searches": [
+          "doi:10.37236/2475, Theorems 3.10–3.12",
+          "arXiv:2608.00109v1, Theorem 2.1 and Corollary 2.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.00109v1",
+        "doi:10.37236/2475",
+        "Bounded Resultary and primary-literature searches on connected -4-root families and multiplicity"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A private leaf w at support u has N[w] contained in N[u], even after deleting any added interblock edge. Both endpoints are therefore domination-covered in the edge-deleted graph.",
+          "Delete all joining edges one at a time to recover the product of k known seed factors and the K2 and P3 factors. Their orders contribute 33k+2a+3b and the latter factors do not vanish at -4."
+        ],
+        "reasoning": "The established theorem delivers exactly the claimed product for all parameters. Nonvanishing of two elementary factors and parity give exact multiplicity and the full order range immediately, so lack of identical wording is immaterial.",
+        "searches": [
+          "doi:10.37236/2475, Theorems 3.10–3.11",
+          "arXiv:2608.00109v1, Corollary 2.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Alikhani–Griswold ask for infinitely many graphs with D(G,-4)=0 without a connectivity qualifier.",
+          "Joining the existing seed blocks at leaf supports is the attachment of irrelevant edges in the sense of Kotek et al., Definition 3.8."
+        ],
+        "reasoning": "Disjoint unions already answer the literal infinite-family question. Requiring connectivity is stronger, but the published irrelevance criterion lets one add the necessary edges without changing the disjoint-union polynomial. The bounded index search found no materially overlapping distinct record.",
+        "searches": [
+          "Resultary: connected domination graphs, root -4, exact multiplicity and all orders",
+          "arXiv:2608.00109v1, Conclusion and Open Problems",
+          "doi:10.37236/2475, §3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source graph has vertices 0–32 including vertex 5 with sole neighbor 4; Table 1 gives the complete seed coefficient data.",
+          "No covering all-order family table was returned by the bounded searches."
+        ],
+        "reasoning": "The exact seed data are already published; the review's independent enumeration checks those data rather than supplying a new seed. The no-match observation does not negate the deductive coverage.",
+        "searches": [
+          "arXiv:2608.00109v1, §2 edge list and Table 1",
+          "Resultary: G33 support-bridge domination family at -4"
+        ]
+      },
+      "rationale": "No explicit statement of the combined family was located, but the full quantifier range and polynomial product are a mechanical corollary of the cited irrelevant-edge theorem and the cited 33-vertex seed. The new-looking order and exact-multiplicity parameters introduce no additional graph-theoretic step.",
+      "residual_risks": [
+        "No explicit earlier publication of the exact family was located. Search coverage is bounded; the verdict rests on established implication, not on any inferred chronology between equivalent statements."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the seed, its exact coefficients and simple root; the open question does not require connectedness.",
+          "evidence": [
+            "§2: {4,5} with vertex 5 a leaf; 36 edges",
+            "Theorem 2.1 and Corollary 2.2: factorization and simple root -4",
+            "Conclusion: asks for an infinite family with D(G,-4)=0"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2608.00109v1",
+          "material_read": "§2 edge list and Table 1, Theorem 2.1, Corollary 2.2, Conclusion and Open Problems",
+          "method": "Targeted reading of the primary HTML",
+          "title": "On the Integer Domination Root Conjecture",
+          "trigger": "Original 33-vertex seed and purported extension of its infinite-family question"
+        },
+        {
+          "assessment": "The criterion mechanically covers every joining edge under the submitted hypotheses, and hence the entire factorization.",
+          "evidence": [
+            "Theorem 3.10: closed-neighborhood inclusion characterizes domination-covered vertices",
+            "Theorem 3.11: irrelevance iff endpoints are both domination-covered after edge deletion"
+          ],
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v19i3p47/pdf",
+          "material_read": "§3.3, printed pp. 10–11, Definition 3.8 and Theorems 3.10–3.12",
+          "method": "Targeted reading of the official open PDF",
+          "title": "Recurrence Relations and Splitting Formulas for the Domination Polynomial",
+          "trigger": "Stronger established criterion for domination-irrelevant joining edges"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The connectivity and multiplicity questions are motivated, but this particular family follows by unconditional application of the known irrelevant-edge criterion to the already published seed, with K2/P3 padding and elementary parity. There is no new obstruction, seed or threshold result; for example the skipped order 33k+1 is not shown impossible. The correct immediate corollary is useful exposition but does not add a distinct scientific result at the stated standard.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

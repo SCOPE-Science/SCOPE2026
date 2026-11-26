@@ -1,19 +1,21 @@
-# Scientific review: initial-size suppression-order reversal
+# Independent mathematical audit
 
-## Correctness — PASS
-The state space, absorbing boundary, natural death rates, suppression convention, row-vector orientation, common final horizon, and initial mixtures are explicitly specified. Cayley–Hamilton gives the exact two-eigenvalue semigroup decomposition, and positivity of the split eigenvalue coefficient is established from the strictly positive discriminant. Direct multiplication gives the nonstandard commutator identity; multiplying by the survival vector proves the exact extinction-difference formula with a strictly positive prefactor. The sign classification includes the cases \(d>m\), \(d=m\), and \(d<m\), as well as equality at the sharp initial-mixture threshold. A scalar one-active-state model proves minimality. The companion checker reproduced 7,208 diagnostic assertions; the all-parameter result follows from the proof, not finite testing.
+## correctness
 
-## Originality — PASS, with provisional historical priority
-The 2023 first-public Hulsey–Alderson–Carlson paper provides the underlying additive-suppression birth–death model and primarily constant-intensity population and footprint results. The 2025 follow-up studies multistage control, resource allocations, finite-time remaining activity and footprint numerically, but the inspected sections and equations do not give this particular two-state all-duration high/low ordering identity with the initial-state sign change. Ross–Pollett (2006) treats *population-triggered* phase switching instead of exchanging predetermined time intervals. Generic two-by-two matrix exponential and commutator algebra are standard and are not claimed new. The specific complete initial-mixture threshold and minimal-capacity interpretation were not found in the material examined. This is a best-knowledge statement, not a proof of literature uniqueness. Earlier general phase-dependent birth–death literature may contain implied cases; the material available for one older potentially relevant article was abstract-level only.
+PASS
 
-## Value — PASS
-The statement gives a complete, exact and minimal counterexample to an unqualified 'stronger suppression earlier always improves short-term extinction' heuristic: with natural per-unit mortality and fixed total episode exposure, one active unit always favors strong-first and two active units always favors strong-last. A single closed-form initial-state threshold classifies every mixture *uniformly over all positive durations and intervention strengths*. This is a motivated mathematical boundary in temporal risk assessment rather than an arbitrary numerical slice. The conclusion pertains to extinction probability only; minimizing footprint, protecting life, optimal real-fire deployment, and unbounded-state models remain outside scope.
+With row probabilities on states 1 and 2, common additive suppression gives Q_s=Q_0−sI+sN, where the only nonzero entry of N is N₂₁=1. The discriminant (λ+m−d)²+4λ(d+s) is strictly positive on the entire stated domain, including ℓ=0, so the divided-difference coefficient b_s(t) of Q_s in exp(tQ_s) is positive for t>0. The exponential swap is b_h(u)b_ℓ(v) times (h−ℓ)[N,Q_0]; the latter commutator applied to the column of ones is (−λ,d−m)ᵀ. Subtracting survival from one gives the stated positive factor times αλ+(1−α)(m−d). For d>m there is one interior tie and the sign changes across it; for d=m only α=0 ties; for d<m both endpoints of the affine expression are strictly positive. The proof's last nonpositive-term remark at RESULT.md line 66 applies to the survival bracket in line 60, not the negated extinction bracket; the formulas and Finding have the correct signs. One transient state gives a scalar cumulative-hazard factor, independent of order. Independently evaluating both exponential products by 70-term matrix Taylor series at λ=m=1,d=2,h=3,ℓ=0,u=v=1 gave extinction differences +0.007741914776 and −0.007741914776, and −0.00309676591033 at α=0.3. The frozen verifier was inspected, not executed; its recorded 7,208 checks are not the universal proof.
 
-## Closest literature and outstanding risks
-- Hulsey, Alderson, Carlson (2023), https://arxiv.org/abs/2307.11726: source model, including the fixed absolute suppression term.
-- Hulsey, Alderson, Carlson (2025), https://doi.org/10.1103/PhysRevE.111.024318: closest temporal-allocation work and finite-time risk context; no exact classification found in inspected relevant full-text portions.
-- Ross and Pollett (2006), https://doi.org/10.1016/j.mbs.2006.02.004: two-phase birth–death process, but the phase is triggered by state thresholds.
-- Historical priority risk: phase-dependent population models and general positive-matrix rearrangement principles might imply this finite-state identity indirectly; expert exhaustive literature audit has not occurred.
-- Scientific scope risk: a two-active-site ceiling and equal-additive removal are idealizations; nothing here supports delayed fire response in practice.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the same-exposure, all-positive-duration extinction ranking and exact initial-mixture threshold for the common-additive, two-active-state birth–death chain. Neither the additive-hazard model nor the matrix-exponential technique is claimed as new. The examined sources do not cover the stated comparison; this does not establish historical priority.
+
+## value
+
+PASS
+
+Equal total exposure does not determine finite-deadline extinction, and even the preferred direction of front-loading can reverse with the initial population. The exact demarcation, uniform in episode lengths, and the minimal-capacity example identify when order-independent intuition first breaks. This is a structural conclusion for a deliberately small model, not advice to delay actual fire suppression or a result about burn footprint.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

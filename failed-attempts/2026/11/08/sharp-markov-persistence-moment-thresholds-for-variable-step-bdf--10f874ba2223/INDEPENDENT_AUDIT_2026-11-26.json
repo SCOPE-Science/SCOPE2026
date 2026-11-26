@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:59:31.119566Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The zero-right-hand-side BDF2 formula gives Δ_n = R_n² Δ_(n−1)/(1+2R_n), so Z is a positive sum of products of the multipliers a,b. Their product is r/[(1+2r)(r+2)]<1. Equal limiting state frequencies (including deterministic alternation) give log-product rate log(ab)/2<0 and almost-sure absolute summability. Write A=a^s, B=b^s and M=diag(A,B)P for the two-state transition matrix P. Expected s-powers of products are components of iterates of M; exponential decay when ρ(M)<1 gives a finite moment by Minkowski for s≥1 and subadditivity for 0<s<1. Conversely finite conditional moments obey m>Mm from the strictly positive additive term 1, whence a positive left Perron vector gives ρ(M)<1 even for the irreducible two-cycle at p=0. The determinant at 1 is 1−AB−p(A+B−2AB). The other eigenvalue is <1: M is diagonally similar to a symmetric matrix whose smaller eigenvalue is at most pB<1. For a≤1, all row sums are ≤1, one strictly smaller; irreducibility gives ρ<1. For a>1, the determinant decreases from 1−AB>0 to (1−A)(1−B)<0 and hence gives precisely the displayed cutoff and divergence at equality. Substitution gives 24/31 and 171/283 at r=3, bracketing 7/10. At p=0 the two phase sums are (1+a)/(1−ab) and (1+b)/(1−ab). The degenerate r=1 uses two labels for the same physical ratio; the deterministic Z=3/2 is independent of p. This is an infinite-iteration startup-amplification statement, not a finite-horizon mesh-stability result. The frozen check script was inspected, not run; it samples the algebra and is not needed for the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.4 gives E|Z|^s<∞ iff E|W|^s<1 and E|Q|^s<∞ for iid affine pairs (W,Q), assuming nonzero multiplier, nontrivial additive term, and no deterministic common fixed point.",
+          "Arbitrary-grid BDF2 stability theorems use finite intervals and startup derivatives; they do not establish the unscaled infinite-iteration moment statement."
+        ],
+        "reasoning": "The perpetuity theorem covers the target once grouped; for a>1 and 0<p<1 the cycle multiplier has both W>1 and W<1 with positive probability, and Q>0, so no common deterministic fixed point exists. The finite-horizon BDF2 results are not used for this implication.",
+        "searches": [
+          "Alsmeyer–Iksanov–Rösler, arXiv:0803.3716, Theorem 1.4 and conditions (7), (10)",
+          "Li–Liao arXiv:2201.00527 Theorem 2.1",
+          "Yue–Liao–Liu arXiv:2402.06129 Theorem 2.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0803.3716",
+        "arXiv:1804.04553 / doi:10.1007/s10543-018-0716-y",
+        "arXiv:2201.00527",
+        "arXiv:2402.06129",
+        "Resultary records 10f874ba2223, 3bf498235283 and 4cca231041b2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "High and low run lengths H,L are independent geometric variables with success probability 1−p. One cycle has W=a^H b^L and additive reward Q=1 plus its proper-prefix products, so Q≤sum_{k<H}a^k+a^H/(1−b). If a>1, E[Q^s]<∞ exactly when pA<1 (the prefix a^H is included). In that domain E[W^s]=(1−p)²AB/[(1−pA)(1−pB)]. Requiring this to be strictly below one is exactly 1−AB−p(A+B−2AB)>0; equality diverges, and outside the domain the moment cannot be finite.",
+          "For a≤1 the cycle has W<1, with Q bounded by a linear function of H and consequently all finite-order moments; p=0 is a deterministic geometric sum. Negative drift and finite logarithmic reward moments follow from the geometric runs. The r=3 witness evaluates the same criterion at s=1,2."
+        ],
+        "reasoning": "The specialization covers the stated phase diagram and its boundary by elementary geometric sums from an already established theorem; the matrix proof is valid but does not change the coverage.",
+        "searches": [
+          "arXiv:1804.04553 §4 combined with arXiv:0803.3716 Theorem 1.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Grouping the positive series at visits to the start of each high run gives an iid affine perpetuity. Conditional on starting low, there is only one extra geometrically distributed run of b<1 before this same perpetuity.",
+          "The same-day indexed positional-fluctuations result uses a two-state Markov environment in expanding maps, not BDF2 or the same perpetuity; the earlier alternating-grid positivity result treats deterministic scalar decay."
+        ],
+        "reasoning": "The regenerative perpetuity is an exact regrouping of the target random variable, not an analogy with Markov switching. The catalogue alternatives do not independently give the target formula.",
+        "searches": [
+          "Resultary: reciprocal-ratio BDF2, Markov persistence, startup-amplification moments and zero test equation",
+          "arXiv:1804.04553 §4",
+          "arXiv:0803.3716 §1, equations (1)–(4) and Theorem 1.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE-sharp-markov-persistence-moment-thresholds-for-variable-step-bdf--10f874ba2223 is the identical assigned record, not independent precedence.",
+          "SCOPE-markov-persistence-amplifies-positional-fluctuations-of-integer--3bf498235283 and SCOPE-exact-positivity-threshold-for-alternating-grid-bdf2--4cca231041b2 have different observables or ratio laws."
+        ],
+        "reasoning": "No independently matching table was established. The decision rests on a verified prior theorem, not the outcome of the catalogue search.",
+        "searches": [
+          "Resultary: exact BDF2 Markov moment and spectral persistence frontier",
+          "Resultary: deterministic alternating-grid BDF2 positivity and two-state Markov persistence"
+        ]
+      },
+      "rationale": "The all-real-moment frontier, including the critical case, is mechanically implied by the known BDF2 parasitic multiplier and the classical iid perpetuity moment theorem applied to iid pairs of consecutive high/low runs. No separate stochastic effect or nontrivial new lemma is needed for this specialization. This is demonstrated prior implication, not a claim that an earlier paper printed the identical rational formula.",
+      "residual_risks": [
+        "A direct historical BDF2 statement in the same parameterization was not established; broader literature-search lookups were deferred, and that is not negative evidence.",
+        "The failure does not depend on finding an earlier identical formula or ordering the same-day catalogue entries."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the strict all-positive-real moment criterion used to obtain the frozen cutoff",
+          "evidence": [
+            "Theorem 1.4 explicitly equates E|Z∞|^s<∞ with E|M|^s<1 and E|Q|^s<∞; it also credits earlier positive-coefficient coverage."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0803.3716",
+          "material_read": "§1, PDF pp. 2–4, offsets 2700–6700 and 7350–9850; definitions (1)–(4), hypotheses (7), (10), and Theorem 1.4",
+          "method": "Read the primary PDF text and checked hypotheses on the iid geometric run-pair coefficients",
+          "title": "On distributional properties of perpetuities",
+          "trigger": "General sharp moment criterion for the regrouped positive affine series"
+        },
+        {
+          "assessment": "Supplies the deterministic multiplier and threshold 1+√2, not the stochastic claim on its own",
+          "evidence": [
+            "§4 gives the extraneous BDF2 recurrence; smooth finite-interval meshes in the article differ from the random infinite-iteration example."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1804.04553",
+          "material_read": "Abstract and §4, PDF pp. 11–12, offset near 37000",
+          "method": "Compared the multiplier and mesh assumptions with the zero-test recurrence",
+          "title": "On the zero-stability of multistep methods on smooth nonuniform grids",
+          "trigger": "Previously derived variable-step BDF2 parasitic mode"
+        },
+        {
+          "assessment": "Different stability statement",
+          "evidence": [
+            "Theorem 2.1 is a finite-grid estimate with a startup-derivative term."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2201.00527",
+          "material_read": "Introduction and Theorem 2.1, PDF pp. 2 and 5",
+          "method": "Compared horizon and normalization of the startup term",
+          "title": "Stability of variable-step BDF2 and BDF3 methods",
+          "trigger": "Potential domination by arbitrary-mesh stability"
+        },
+        {
+          "assessment": "No equivalent frontier in the passages checked",
+          "evidence": [
+            "Theorem 2.2 is a mesh-robust finite-interval bound, not a claim about a Markov perpetuity."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2402.06129",
+          "material_read": "Abstract and Theorem 2.2, PDF pp. 1 and 8",
+          "method": "Compared deterministic error bound and random-grid tests with all-moment criterion",
+          "title": "Mesh-robust stability and convergence of variable-step deferred correction methods based on the BDF2 formula",
+          "trigger": "Random-mesh BDF2 comparison"
+        },
+        {
+          "assessment": "Distinct variance/covariance result; no chronology inference from the shared date",
+          "evidence": [
+            "Its persistence-dependent positional fluctuations for integer expanding maps do not concern reciprocal BDF2 startup amplification."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-markov-persistence-amplifies-positional-fluctuations-of-integer--3bf498235283",
+          "material_read": "RESULT.md, finding and stochastic setting",
+          "method": "Compared model and observable from the indexed record text",
+          "title": "Markov persistence amplifies positional fluctuations of integer expanding maps",
+          "trigger": "Closest distinct same-day indexed stochastic overlap"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The contrast between pathwise and moment behavior is a useful example for interpreting correlated steps. As a new mathematical finding, however, the exact frontier and numerical witness are routine geometric-sum substitutions in the established positive-perpetuity criterion for the standard scalar BDF2 mode. The frozen statement gives no distinct BDF2 mechanism or stability conclusion beyond that specialization.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

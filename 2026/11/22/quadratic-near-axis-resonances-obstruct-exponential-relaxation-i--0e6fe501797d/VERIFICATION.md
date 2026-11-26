@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,8 +21,6 @@
 
 # Reproducibility and verification scope
 
-The directly executable artifact `checker.py` is the complete standalone Python 3.9+ finite-test program. Run `python checker.py` in a directory containing that file. It requires no third-party libraries, data files or network connection. The program prints `PASS: 19578 finite exact-arithmetic and complex-root assertions.` on successful completion.
+The unchanged `checker.py` is a standalone Python 3.9+ finite consistency program. Its recorded successful run ends with `PASS: 19578 finite exact-arithmetic and complex-root assertions.` Its rational-arithmetic checks exercise lattice phase laws and sawtooth means for coprime integer durations. Its numerical Newton checks use a finite list of approximants to a duration ratio of \(\sqrt2\) to illustrate the classical denominator expansion and noncancellation at the sampled roots. They are neither exact root certificates nor proofs of an infinite sequence.
 
-The exact tests form finite-time probability laws from the renewal recurrence with coprime integer durations and rational speed probabilities. They check total probability, admissible support, the explicit limiting phase distributions, their sawtooth means, and convergence at a large sampled cycle count. Additional tests solve the implicit complex root equation near continued-fraction approximants to \(\sqrt2\) by Newton iteration and check that each root is simple, has negative real part, agrees with the stated quadratic approximation, and does not cancel in the particular mean-position Laplace numerator.
-
-The analytical claims that require proof beyond finite computation are the exponential convergence of lattice renewal masses for all eligible parameters; the nonarithmetic weak limit for all continuous tests; existence of an infinite resonant pole sequence; and the impossibility of any exponential decay for the mean. These are established in the proof via generating-function poles, the key renewal theorem, analytic implicit differentiation and analytic continuation. The checks do not constitute exhaustive enumeration or external certification.
+The main quantitative rate obstruction is analytic: at a reset epoch with fixed duration counts the mean jumps by an exact binomial probability. Stirling asymptotics along typical counts and comparison with the left limit give the limsup bound. The checker does not test or prove that bound. The weak-limit, lattice convergence, and mean-transform statements likewise use the analytic arguments in `RESULT.md`, not finite extrapolation. The denominator expansion is credited to the prior Dirichlet-polynomial result; the model-specific spectral assertion is noncancellation for the mean.

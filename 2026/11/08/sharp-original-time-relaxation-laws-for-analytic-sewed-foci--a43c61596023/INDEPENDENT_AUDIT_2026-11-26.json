@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:55:34.329457Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–44 and 46–114; independent replay of the recurrence, clock and polynomial first integral",
+        "Frozen VERIFICATION.md and checker.py (inspected, not executed)"
+      ],
+      "rationale": "The lower flight leaves the positive section first. Involutivity of the lower map gives r_(n+1)-r_n=chi(s_n), with s_n=-r_n+O(r_n^2); the even mismatch order gives the stated sign and coefficient. With q=2p-1, the reciprocal-power increment is qc+O(r_n), which gives n r_n^q -> 1/(qc). Along each half-flight, horizontal motion is monotone, its length is 2r_n+O(r_n^2), and dy/dx=O(|x|+|y|) bounds the height by O(r_n^2). The reciprocal horizontal speeds thus integrate to a full clock increment K r_n+O(r_n^2), with the absolute value on b_-. For q>1, summing the clock gives t_n r_n^(q-1) -> K/[c(q-1)]. For q=1, the increments of log r_n+(c/K)t_n are O(r_n^2); these are summable, proving a finite real log limit and hence a strictly positive finite prefactor. The polynomial example has lower return -r and upper first integral y+x^2+c x^(2p+1); its upper return equation gives the coefficient -c for every p. These arguments concern positive crossings and original time, not signed position between crossings.",
+      "residual_risks": [
+        "The supplementary finite checks are not independent proof of the limits and were not replayed by executing the supplied code."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1 gives the analytic centre-or-infinite-time-focus alternative. Theorem 2 extends qualitative infinite-time approach to specified finite-order C^k cases."
+        ],
+        "reasoning": "The broader qualitative conclusions do not assert exact rates or a positive finite prefactor. The extra local speed expansion and summable clock error are needed for that prefactor.",
+        "searches": [
+          "arXiv:2306.09743v1, Theorems 1–2 and Section 2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, especially lines 122–135",
+        "Glendinning et al., arXiv:2306.09743v1",
+        "Published Resultary search and matching record identifiers above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior leading increment gives the crossing-index power law by a reciprocal-power difference. For the physical law the proof adds t_(n+1)-t_n=K r_n+O(r_n^2); for p=1 the clock and log-return errors cancel at first order and leave an absolutely summable remainder."
+        ],
+        "reasoning": "Credit the prior recurrence and infinite-time theorem. The stronger physical-time statement requires a quantitative clock calculation and, at p=1, control beyond leading equivalence; it is not a substitution into the prior theorem.",
+        "searches": [
+          "arXiv:2306.09743v1, Section 2, return recurrence and divergent time argument"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Glendinning et al. formulate the orbit via alternating switching-line points x_(2n+1), x_(2n+2); their x_(2n+2)-x_(2n) recurrence matches the leading return displacement after taking the positive subsequence.",
+          "Their Section 2 estimates divergence of flight time, not a normalized radius versus elapsed-time limit."
+        ],
+        "reasoning": "Relabeling crossing points accounts for the overlap in return-index dynamics, but does not identify return index with physical time; one circuit lasts O(r_n).",
+        "searches": [
+          "Primary-literature query: sewed focus physical time crossing return asymptotics exponential prefactor algebraic relaxation",
+          "Resultary semantic search for analytic sewed-focus crossing/physical-time laws",
+          "arXiv:2306.09743v1, Section 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/8/SCOPE-sharp-original-time-relaxation-laws-for-analytic-sewed-foci--a43c61596023 is the same finding.",
+          "The indexed summary of 2026/11/17/SCOPE-exact-attraction-shells-and-physical-time-stability-statistics-for-an-oscillatory-sewed-focus--032e32eb1b41 concerns sinusoidal attraction shells and physical-time contraction statistics; its full local copy was unavailable."
+        ],
+        "reasoning": "This is an exact asymptotic theorem, not a tabulated value. The identical record is not independent evidence; the other summary does not establish an equivalent theorem.",
+        "searches": [
+          "Resultary semantic search for analytic sewed-focus physical-time asymptotics"
+        ]
+      },
+      "rationale": "The distinct claim is the exact quantitative physical-time law, especially the convergent quadratic prefactor, together with its higher-order counterparts. The even-order mismatch, leading return displacement and infinite arrival time are already present in the prior primary source. The new laws are quantitative consequences of that analytic setup after controlling and summing the physical clock; the qualitative theorem alone does not give them. No checked distinct source provided equivalent coverage of the claimed physical-time law.",
+      "residual_risks": [
+        "The distinct oscillatory-focus record was available only as a summary.",
+        "A negative targeted lookup does not settle priority; parabolic iteration, suspension-flow, and older sewed-focus literature may contain related quantitative formulations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior return structure and qualitative time result, not the exact original-clock limits",
+          "evidence": [
+            "Section 2 gives x_(2n+2)-x_(2n)=a x_(2n+1)^(2p)+o(x_(2n+1)^(2p)), and uses divergent sums of crossing amplitudes for infinite time."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2306.09743v1",
+          "material_read": "Theorems 1–2 and Section 2, including even-order mismatch, return recurrence and divergence argument (HTML offsets approximately 6666–21564)",
+          "method": "Targeted OA full-text passages",
+          "title": "Uncountably many cases of Filippov's sewed focus",
+          "trigger": "Same analytic sewed-focus maps and physical arrival time"
+        },
+        {
+          "assessment": "Full comparison unresolved",
+          "evidence": [
+            "Summary studies attraction shells and contraction statistics for a sinusoidal sewed focus."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-exact-attraction-shells-and-physical-time-stability-statistics-for-an-oscillatory-sewed-focus--032e32eb1b41",
+          "material_read": "Indexed summary only; exact local mirror unavailable",
+          "method": "Resultary and local mirror",
+          "title": "Exact attraction shells and physical-time stability statistics for an oscillatory sewed focus",
+          "trigger": "Closest distinct Resultary hit using physical time in a sewed focus"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 14–38 and 72–114",
+        "Glendinning et al., arXiv:2306.09743v1, Section 2"
+      ],
+      "rationale": "An infinite arrival time does not distinguish exponential from power-law relaxation. Because the periods vanish, the return-index exponent is not the physical-time exponent. The exact constant in terms of the two side speeds and the mismatch coefficient, including a genuine nonzero asymptotic amplitude in the exponential case, calibrates that distinction for a natural local class; the polynomial family shows every listed order occurs.",
+      "residual_risks": [
+        "Value is for section-based local relaxation, not a global stability theorem or a time law for the signed position throughout an orbit."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

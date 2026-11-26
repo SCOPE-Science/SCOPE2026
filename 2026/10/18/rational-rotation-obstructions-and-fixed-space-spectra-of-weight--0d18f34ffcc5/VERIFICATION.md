@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and limitations
 
-The exact formulas can be recomputed without external packages by running `python3 verify.py`. This script enumerates every possible weighted-rotation monomial matrix directly from the defining multiplication relations, obtains the dimension of its \(1\)-eigenspace by finite-field Gaussian elimination, and compares the resulting distribution with the two-arithmetic-obstruction formula. The run covered 843 configurations in the prime and extension fields \(\mathbb F_2,\mathbb F_3,\mathbb F_4,\mathbb F_5,\mathbb F_7,\mathbb F_8,\mathbb F_9,\mathbb F_{11},\mathbb F_{13},\mathbb F_{16},\mathbb F_{19},\mathbb F_{31},\mathbb F_{43}\), with dimensions at least two and multiple nonzero twist parameters in each field. The result was `VERIFY_OK 843 independent finite-field configurations`.
+# Independent mathematical audit
 
-The same program exhaustively checks the special \(n=6\), \(q=43\), \(t=37\) configuration: precisely \(63\) automorphisms exist, the identity fixes the entire six-dimensional algebra, and each of the other \(62\) automorphisms has zero-dimensional fixed space. The group-order and noncommutativity assertions also follow from explicit arithmetic in the proof: the diagonal subgroup has order \(21\), an allowed shift acts nontrivially on it by the exponent \(16\), and shifts \(2\) and \(4\) have no fixed-vector lifts.
+## correctness
 
-These experiments are finite cross-checks, not an exhaustive test over all fields, all dimensions, or all twists. The universal result is supported by the monomiality argument, recurrence, cyclic-group power-equation counts and fixed-cycle computation in `RESULT.md`. The proof and calculations have not been independently audited by another mathematician. Originality is subject to the documented residual risk from specialized literature not located or inspected.
+PASS
+
+In a nonzero ideal, multiplication of a vector by a basis vector corresponding to a nonzero coordinate gives a nonzero multiple of the successor basis element; squaring propagates around the cycle. For an automorphism, independence of the squares makes the supports of its basis images pairwise disjoint, so its matrix is monomial and the successor rule forces rotation by s. The coefficient recurrence doubles the exponent of c_0 at each step and inserts the unique numerator factor t on crossing index n−1−s (for s>0); closure gives c_0^N=t^(1−2^s). On the cycle containing 0 the weights multiply to c_0^H_s t^J_s, since the indices are the multiples of g_s, and both n and s are divisible by g_s. The L=n/g_s power of the map is diagonal, with successive entries related by squaring, and the entries have odd order dividing N. Accordingly all cycle products are 1 or none are, and the fixed dimension is g_s or zero even if the field characteristic divides L. The product-one equation implies closure by raising to 2^g_s−1. Counting roots in the field's cyclic multiplicative group yields exactly A_s and B_s, including s=0 (B_0=1) and q=2. The order formula follows by counting shifts modulo the order of the twist class under doubling; the tuple-orbit formula is Burnside. An independent enumeration over F_43, checking all first coefficients per shift and reducing explicit matrices phi−I over that field, found 21 matrices for each of 0,2,4 and nullity counts {0:62,6:1}. Conjugation by a shift-2 lift raises the diagonal parameter to 2^4=16 modulo 21, proving noncommutativity. The orbit number is 1+(43^6−1)/63=100339097. The proof is characteristic-independent for rational points, not a scheme calculation. The frozen verifier was inspected as source; its reported 843 cases are not relied on as an independently rerun test.
+
+## originality
+
+PASS
+
+Pass for the rational fixed-space multiplicity polynomial and arithmetic separation between admissible shifts and shifts with fixed vectors. Monomiality, the graph exact sequence, and monomial isomorphism are prior. The group order and the specific order-63 example overlap with later-dated catalog records; the supported distinct contribution is the general fixed-space census, not priority for those ancillary facts or for abstract fixed-point-free groups.
+
+## value
+
+PASS
+
+The classification accounts for all rational automorphisms, including the gap between existence of a rational rotation and existence of a lift preserving a nonzero vector, not detected by the group order or an algebraic-closure classification. The full fixed-space census simultaneously yields tuple-orbit counts and a freeness criterion, and the order-63 example shows that the distinction is nonvacuous for a nonabelian action on a simple algebra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

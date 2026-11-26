@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:42:48.562881Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the canonical idempotents (i,p_{λi}^{-1},λ), the product is idempotent exactly when p_{λi}p_{μi}^{-1}=p_{λj}p_{μj}^{-1}; the order of factors is unchanged in deriving this condition. Equal rows always succeed and reversing the row order inverts both ratios. Thus the ordered count is rn²+2Σ_{λ<μ,g}N_{λμ}(g)². Completing the square and dividing by (rn)² proves the exact scaled identity and the equality condition. For one pair let C count collisions of unordered columns. Its indicators have success probability 1/h and are pairwise independent even when they share a column (condition on its ratio); Q=h−n+2hC/n then has mean h−1 and variance 2(h−1)(n−1)/n. Distinct row pairs have pairwise independent entire ratio sequences, by conditioning within each column on the common row entry if necessary. They need not be jointly independent: at n=2, agreement of ratios for pairs (1,2) and (2,3) forces agreement for (1,3). The Gaussian limits are independent because the bounded iid column vectors have block-diagonal covariance; after scaling each occupancy by √(h/n), its block is the projection onto the (h−1)-dimensional zero-sum space. Taking squared norms yields the claimed d=(h−1)binom(r,2) and prefactor 2/(r²h). The exact moments give a summable O(n^-2) second moment around θ, so first Borel–Cantelli yields the any-coupling assertion without across-size independence. At n=1 it correctly gives T=1 and zero variance. The scope is fixed r and finite G, labeled independent uniform nonzero entries, not random isomorphism classes or sparse matrices. Frozen verify.py and VERIFICATION.md document finite exhaustive count/moment cases including S3; inspected, not executed here, and not used as proof of the limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen, U-statistics, Theorem 3 on pp. 5–6 gives the centered chi-square mixture for a rank-two degenerate U-statistic.",
+          "Nov. 2 Poisson–Gaussian threshold (ad78df656903) concerns idempotent generation with sparse support and growing elementary-abelian dimension. Nov. 22 all-arity fibers (1739d659242d) uses a deterministic perfect-bicharacter sandwich.",
+          "Quinn-Gregson's Prop. 4.4 describes the idempotent-generated subsemigroup in normalized Rees form, not the random product count."
+        ],
+        "reasoning": "The general U-statistic theorem covers the limiting method, not the identification of this semigroup statistic or its spectrum. The two closely related Rees models do not specialize to independent uniform entries over arbitrary finite groups with fixed r and growing n.",
+        "searches": [
+          "Resultary: iid uniform finite-group entries random sandwich matrix completely simple Rees semigroup",
+          "Resultary: chi-square limit idempotent product density Rees matrix semigroup",
+          "Web: degenerate U-statistic eigenvalues chi-square limit Hoeffding collision kernel multinomial uniform counts spectral theorem"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Quinn-Gregson 1908.10665, Radović–Mudrinski 2208.05237, Paulista 2412.06560",
+        "Chen, U-statistics Theorem 3",
+        "Resultary exact-product census, incidence-algebra rank laws, deterministic Rees fibers, sparse random Rees generation and sandwich-commutation records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The classical spectral theorem applies after recognizing the centered column-collision kernel. For row pair a its integral operator is (1/h)[E(f|z_a)−Ef], i.e. 1/h times projection onto centered functions of z_a.",
+          "Pairwise independence makes these projection spaces mutually orthogonal, each with dimension h−1; the diagonal of the summed collision kernel restores the centering shift omitted in the off-diagonal U-statistic."
+        ],
+        "reasoning": "Given the semigroup collision transformation and projection computation, the distribution follows from classical results; do not credit a new general limit theorem. Those model-specific inputs and the associated normalization/moments are not provided by the generic theorem or the inspected Rees structural and commuting results.",
+        "searches": [
+          "Quinn-Gregson arXiv:1908.10665 Prop. 4.4",
+          "Paulista arXiv:2412.06560 Lemma 3.2",
+          "Chen U-statistics Theorem 3, pp. 5–6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Oct. 25 three-rank census (0caa4d1d1d52) and Oct. 26 incidence-algebra rank laws (7b85c95b860d) address the same ordered product-idempotence predicate in other matrix algebras.",
+          "Paulista Lemma 3.2 is for commuting elements, not for an idempotent product. For two distinct rows with the same column, the canonical factors multiply to an idempotent but do not commute.",
+          "The targeted web query returned off-topic results and supplies no negative evidence."
+        ],
+        "reasoning": "A collision for two distinct rows and columns is equivalently a balanced four-cycle of a group-labeled bipartite sandwich graph: the ordered product p_{λi}p_{μi}^{-1}p_{μj}p_{λj}^{-1} must be the identity. Equality in the whole group, not commutation and not a rank restriction on ordinary idempotent matrices, is the predicate that is counted. No equivalent random graph or matrix theorem was established by these inspected statements.",
+        "searches": [
+          "Resultary: idempotent product density completely simple Rees matrix semigroup",
+          "Resultary: idempotent products semigroup ordered product (ef)^2=ef",
+          "Resultary: Pearson chi-square row pair ratios finite group Rees semigroup",
+          "Web: probability idempotent product random finite Rees matrix semigroup sandwich matrix Pearson chi square balanced 4-cycles complete bipartite finite group gain graph fixed rows"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed exact count is for fixed, perfect-bicharacter sandwiches and counts products at all arities; the same-event entries count rank data in finite-field or incidence algebras.",
+          "The frozen script enumerates five finite labeled settings; those are internal exact checks, not evidence that the general formula is catalogued elsewhere."
+        ],
+        "reasoning": "A single table cannot establish the deterministic identity for arbitrary P or the growing-n law. The relevant exact check is for an indexed formula or a whole-family result whose specializations cover the finite moments and the limit. The retrieved statements do not exhibit that coverage.",
+        "searches": [
+          "Resultary: Universal chi-square fluctuations of idempotent-product density in random Rees matrix semigroups",
+          "Resultary: random sandwich matrix idempotent product density exact Pearson sum finite moments",
+          "Resultary: T_{r,n} idempotent product density Rees matrix semigroup row-pair ratio"
+        ]
+      },
+      "rationale": "The distinctive contribution is the Rees-semigroup reduction of an intrinsic ordered-product statistic to all row-pair occupancies, including the cross-pair orthogonality that gives universal finite moments and a single scaled chi-square law for every finite group of the same order. The general probability tools (Pearson, the multivariate CLT, or the degenerate U-statistic limit) and the Rees representation are not new. The strongest inspected same-event statements concern other algebraic objects; the strongest same-Rees statements concern generation, commutation, or a particular deterministic sandwich rather than the iid universal law. The comparison is bounded, not a claim of first discovery.",
+      "residual_risks": [
+        "The Russell thesis (10.17630/sta/109) remained inaccessible; no coverage conclusion is inferred from that failure.",
+        "Unindexed treatment of the same balanced-cycle statistic under iid finite-group gains could overlap. The targeted off-topic web result is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Idempotent generation and homogeneity; not ordered-pair density or a random-sandwich law.",
+          "evidence": "Prop. 4.4 identifies the idempotent-generated subsemigroup in normalized Rees form.",
+          "identifier_or_url": "https://arxiv.org/pdf/1908.10665",
+          "material_read": "p. 2 at offset 7567; Prop. 4.4 and subsequent description p. 6 at offset 16200",
+          "method": "OA PDF bounded passage reads",
+          "title": "Homogeneous completely simple semigroups",
+          "trigger": "Closest cited general Rees/idempotent structure"
+        },
+        {
+          "assessment": "Commutation is a narrower event than product-idempotence of the two canonical idempotents.",
+          "evidence": "Commutation requires equal first and last indices as well as a group condition.",
+          "identifier_or_url": "https://arxiv.org/pdf/2412.06560",
+          "material_read": "pp. 2 and 5 at offsets 5200 and 16500; Lemma 3.2",
+          "method": "OA PDF bounded passage reads",
+          "title": "Commuting graphs of completely simple semigroups",
+          "trigger": "Same algebraic structure; potential equivalent predicate"
+        },
+        {
+          "assessment": "Congruence-commutator and structural conclusions rather than random ordered-product statistic.",
+          "evidence": "Theorem 1.2 characterizes nilpotency/solvability via H-classes.",
+          "identifier_or_url": "https://arxiv.org/pdf/2208.05237",
+          "material_read": "p. 1 and Theorem 1.2 p. 3, offsets 1800 and 6600",
+          "method": "OA PDF bounded passage reads",
+          "title": "Commutators in Completely Simple Semigroups",
+          "trigger": "Cited same-class theorem"
+        },
+        {
+          "assessment": "Genuine overlap on deterministic Rees product counting, not the iid all-groups law.",
+          "evidence": "Perfect-bicharacter sandwich over a finite abelian group; products counted by fiber, not by random sandwiches.",
+          "identifier_or_url": "2026/11/22/SCOPE-all-arity-idempotent-product-fibers-and-sharp-fourier-mixing-in--1739d659242d/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "All-arity idempotent product fibers and sharp Fourier mixing",
+          "trigger": "Same Rees product/statistic family"
+        },
+        {
+          "assessment": "Event-level analogue in a different algebra.",
+          "evidence": "Joint rank counts in full finite-field matrix algebras, not Rees sandwich entries.",
+          "identifier_or_url": "2026/10/25/SCOPE-complete-three-rank-census-of-idempotent-matrix-pairs-with-idemp--0caa4d1d1d52/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A complete three-rank census of idempotent matrix pairs with idempotent product",
+          "trigger": "Same ordered-product predicate including noncommuting factors"
+        },
+        {
+          "assessment": "Generic probability limit applies once the model-specific kernel and eigenvalue multiplicity are computed.",
+          "evidence": "The limit is a sum of independent centered χ²(1) variables with coefficients given by the integral operator eigenvalues (degree two).",
+          "identifier_or_url": "https://publish.illinois.edu/xiaohuichen/files/2018/11/stat05986_Chen_v3_nohighlight.pdf",
+          "material_read": "Theorem 3 and kernel operator, pp. 5–6, offsets 14300–16092",
+          "method": "OA literal location then bounded PDF offset read",
+          "title": "U-statistics",
+          "trigger": "Broader spectral limit may imply the probability component"
+        },
+        {
+          "assessment": "No full-text conclusion; residual coverage risk.",
+          "evidence": "Retrieval attempts timed out; the frozen record describes Chapters 2 and 6 as counting isomorphism classes and treating orthodox monoid presentations.",
+          "identifier_or_url": "https://doi.org/10.17630/sta/109",
+          "material_read": "Bibliographic identification and frozen citation only; no thesis full text obtained",
+          "method": "Lawful OA direct and alternate retrieval attempts",
+          "title": "Enumerating 0-simple semigroups",
+          "trigger": "Cited related enumeration and orthodox structure"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An invariant proportion of successful products is a quantitative alternative to the all-or-nothing condition that idempotents form a subsemigroup. The deterministic identity characterizes the configurations minimizing the proportion when balanced row-pair occupancies are possible. The finite bias and variance are both resolved, and the χ² limit shows that ordinary first-order Gaussian scaling would miss the fluctuations. Group-order universality, despite dependencies among three or more row pairs, is a structural conclusion of the product count rather than an arbitrary numerical slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

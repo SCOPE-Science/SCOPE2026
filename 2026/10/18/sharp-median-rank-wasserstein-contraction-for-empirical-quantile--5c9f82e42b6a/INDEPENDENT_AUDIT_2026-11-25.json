@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:40:52.779698Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At data locations and pair midpoints the order of absolute residuals may change; between them each component of the clipped direction has slope +1 or −1. At least k have slope +1, including those tied at the active threshold, and continuity across all breakpoints gives the global Lipschitz and mean secant bounds. In the common-index squared difference, the linear-in-step term is bounded using that mean secant and the quadratic term using component Lipschitz continuity. One-step finite-second-moment preservation follows by linear growth; lifting the coupling to arbitrary input laws and applying completeness proves the asserted uniqueness in P2 and geometric convergence (including the zero-factor one-step case). On the witness interval (0,L/2) the two possible updates are (1−η)x, (1+η)x with masses k/m, (m−k)/m; their order is the same for all positive x, even when η>1, so the cost is exactly the squared-W2 optimum, not just a synchronous upper bound. At k=m the ordinary quadratic update is a translate of a fixed atomic law and all pairs attain the deterministic factor, also for genuinely two-location data. When k≤m/2 both support locations of the witness have k or more repeats and are absorbing. The fair binary affine example preserves uniform measure and its finite-time point-start laws have TV distance exactly one from it. Outside the uniform step window the result excludes strict one-step contraction, not necessarily long-term convergence. The finite exact tests in verify_empirical_qc.py were inspected, not rerun; its sharpness tests check a synchronous cost, whose optimality is separate and follows from the ordered witness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dieuleveut, Durmus and Bach give the familiar constant-step P2 invariant-law and W2 contraction result under sample co-coercivity; it covers ordinary unit-curvature quadratic SGD, not the clipped witness with a negative component secant. Merad–Gaïffas require diffuse noise/minorization for the inspected TV guarantee; Shulgin–Richtárik control expected descent/stationarity."
+        ],
+        "reasoning": "The broad results cover standard coupling/fixed-point tools or ordinary SGD special cases, not the sharp median rank interaction with one-step transport across all finite datasets.",
+        "searches": [
+          "arXiv:2309.17316 quantile rule and TV hypotheses",
+          "arXiv:2412.19916 quantile rule and descent theorem",
+          "arXiv:1707.06386 Assumption A4(2) and Proposition 2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local ranked records",
+        "arXiv:2309.17316",
+        "arXiv:2412.19916",
+        "arXiv:1707.06386",
+        "arXiv:2305.01588 p. 1 (fixed clipping)",
+        "arXiv:1905.03871 p. 1 (private quantile estimation)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For one component of the two-location witness g_i(x)=−x, so the A4(2) inequality would have a negative left-hand side and a positive right-hand side. The empirical point kernel also need not have the diffuse noise required by the earlier TV theorem."
+        ],
+        "reasoning": "Neither assumption can be supplied uniformly across these datasets; general synchronous-coupling methods do not furnish the finite-rank slopes and equality in monotone transport. The k=m W2 conclusion is not distinct from standard SGD theory.",
+        "searches": [
+          "Comparison to the prior stochastic-gradient co-coercivity condition and quantile-clipping TV/descent theorems"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In quantile-level notation the boundary is ceil(pm)>m/2, which is not a general distributional p>1/2 statement. The closest quantile-SGD papers use a gradient-norm quantile but the inspected conclusions have different invariance or descent hypotheses."
+        ],
+        "reasoning": "Interpreting finite samples as an empirical gradient distribution aligns the clipping rule itself with older work, but not the claimed optimal dependence on rank, including ties and dual absorbing locations.",
+        "searches": [
+          "quantile clipping SGD Wasserstein contraction exact empirical quantile rank median Markov chain",
+          "Resultary exact empirical quantile and majority-rank SGD"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day 2cb0562d976d was inspected: its calibration-order statistic screens a separate stochastic row, with an exact minimax-risk result under corruption. b944eb52abb2 treats fixed-radius two-atom whole-gradient clipping. The mirror did not yield full text for 2639ecb81dd1; the catalog describes a sampled-quantile equality Kaczmarz rule."
+        ],
+        "reasoning": "The first two actual statements have distinct update rules and hypotheses, not this sharp coefficient; same-day dating was not used to dismiss possible overlap. The remaining indexed entry is unresolved at full-text level.",
+        "searches": [
+          "Resultary rank/empirical quantile SGD and sharp two-location clipping dynamics"
+        ]
+      },
+      "rationale": "The distinct core is the exact data-uniform majority-rank and step criterion for strict one-step W2 contraction with its sharp coefficient and witness; neither Wasserstein analyses of constant-step SGD, nor quantile clipping, nor the elementary Bernoulli affine example are credited as new mechanisms.",
+      "residual_risks": [
+        "The bounded evidence does not establish priority for the Bernoulli example, which is illustrative only.",
+        "Full text of related indexed 2639ecb81dd1 was not accessible in the mirror. Weakly indexed equivalent finite-data results cannot be ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Underlying clipping and different convergence theorems",
+          "evidence": "Distributional p-quantile and rolling proposal; diffuse noise for the relevant TV guarantee; broader Wasserstein SGD literature cited.",
+          "identifier_or_url": "https://arxiv.org/abs/2309.17316",
+          "material_read": "PDF pp. 2, 4–5; offsets 6900, 16274, 21101, 23035",
+          "method": "OA PDF passages",
+          "title": "Robust Stochastic Optimization via Gradient Quantile Clipping",
+          "trigger": "Same underlying quantile clipping and invariant-law question"
+        },
+        {
+          "assessment": "Quantile formulation with different guarantee",
+          "evidence": "Expected descent/stationarity rather than sharp finite-rank transport.",
+          "identifier_or_url": "https://arxiv.org/abs/2412.19916",
+          "material_read": "PDF pp. 3–4, offsets 20991 and 23551",
+          "method": "OA PDF passages",
+          "title": "On the Convergence of DP-SGD with Adaptive Clipping",
+          "trigger": "Quantile clipping analysis"
+        },
+        {
+          "assessment": "Covers the ordinary SGD special case, not the majority-rank criterion",
+          "evidence": "A4 assumes sample co-coercivity; Proposition 2 assumes A1–A4(2), and uses shared noise.",
+          "identifier_or_url": "https://arxiv.org/abs/1707.06386",
+          "material_read": "PDF Assumption A4(2) pp. 5–6 and Proposition 2 pp. 10–11, offsets 15460 and 32110",
+          "method": "OA PDF passages",
+          "title": "Bridging the Gap between Constant Step Size Stochastic Gradient Descent and Markov Chains",
+          "trigger": "P2 and synchronous W2 contraction for constant steps"
+        },
+        {
+          "assessment": "Different calibration and row screening",
+          "evidence": "Minimax one-step mean-square risk under Massart corruption, not empirical clipping of all gradients or W2 contraction.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-one-step-minimax-mean-square-risk-of-scalar-streaming-quan--2cb0562d976d",
+          "material_read": "RESULT Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Sharp one-step minimax mean-square risk of scalar streaming quantile Kaczmarz",
+          "trigger": "Same-day sharp scalar quantile factor"
+        },
+        {
+          "assessment": "Related dynamics, no exact empirical-rank bound in the inspected statement",
+          "evidence": "Fixed-radius, whole-gradient clipping and finite-lattice absorption.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-skewness-window-and-a-mixing-penalty-in-two-atom-clipped--b944eb52abb2",
+          "material_read": "RESULT.md offsets 0, 4200",
+          "method": "Local mirror",
+          "title": "A sharp skewness window and a mixing penalty in two-atom clipped dynamics",
+          "trigger": "Two-atom example with mixing limitations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact attainable stability boundary for a canonical finite-data quantile update is useful for interpreting rank rounding and selecting steps. At or below the threshold the worst-case obstruction is genuine nonuniqueness, while the loss of a strict uniform one-step rate at large steps is a separate statement. The examples make these distinctions and the difference between Wasserstein and TV mixing concrete. Scope is deliberately the equal-curvature scalar model, not a performance claim for private or approximate-quantile methods.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

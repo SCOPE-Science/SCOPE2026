@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Exact Gaussian monomial normalization and the block-scalar Toeplitz action yield the coefficient identity. Under the measure weighted by one fixed normalized monomial, distant coordinate squared-modulus fluctuations are independent, centered, unit-variance, and hence orthonormal in \(L^2\); Bessel's inequality makes every bounded-symbol coefficient difference vanish. This necessary property survives all algebra operations and uniform closure. Compactness then forces all coefficients to zero, and a two-sector norm comparison proves the sharp \(1/2\) distance. Membership of each finite-block spectral projection in the envelope follows from the independently stated finite-dimensional square-root-metric characterization. Scope: infinitely many finite blocks, positive compatible summable covariances, bounded symbols.
+PASS
 
-## Originality — PASS (qualified)
+Independent coordinate phases make monomial matrix entries off the diagonal vanish; block-unitary invariance makes the remaining entries scalar on each homogeneous block sector (equivalently, the tilted squared block radii have independent Gamma laws with shape k_j+κ_j). Fix a monomial of block degrees κ and tilt the product measure by its normalized squared modulus. In every unused block the first normalized coordinate squared modulus is exponential of mean and variance one, so the centered variables Y_j are orthonormal in the tilted L². Inserting one particle multiplies the tilting density by 1+Y_j. Bessel gives the square-summability, and hence convergence to zero, of the eigenvalue differences for each bounded symbol. This does not require uniform convergence over bounded symbols or over κ. The pointwise-in-κ insertion property defines a unital, self-adjoint, sup-norm-closed subalgebra; diagonal operator norm is the sup norm. A compact element has eigenvalues tending to zero on each orthonormal inserted sequence, thereby vanishing at every fixed sector. The same vectors and the fixed sector give the norm lower bound max(|1−c|,|c|), attained by I/2. Finite-prefix restrictions of a generator come from integrating its symbol over the independent tail, giving inclusion in the finite-coordinate envelope also for the generated algebra. The restriction of P_κ is zero or a singleton. For an independent check of singleton membership, in a finite prefix the block-j symbol exp(−||z_Ij||²/u_j) has eigenvalues 2^(−k_j−d) at block degree d; each such eigenvalue is isolated, giving the level projection by continuous functional calculus. Multiplying the finitely many level projections gives the singleton. Thus the inclusion is strict for the actual algebra in Problem 1, without asserting a solution to its separate linear-closure question. This is an analytic proof; no numerical test is required or used.
 
-Bauer–Rodriguez Rodriguez (2022), Section 5.1, conjectures that the infinite-variable sector projections do not belong to their quasi-radial Toeplitz algebra, and explicitly asks if inclusion (5.9) is equality. Their Example 5.9 only excludes a single-symbol representation for another test sequence, not membership in the generated closure. The present tail-insertion condition excludes **every** sector projection even from that closure and quantitatively separates it by \(1/2\). Dewage–Ólafsson (2022) supply the finite-dimensional theorem used here. The Guo–Yan (2022) compactness result concerns the infinite Hardy polydisc and finitely-coordinate-dependent symbols. Janas–Rudol (1995) notes lack of compact individual Toeplitz compressions, but no full-text assessment of possible closure-level results was possible (advertised PDF was unavailable). The 2025 Dewage–Mitkovski paper treats finite-dimensional G-invariant Fock/Bergman Toeplitz algebras. These comparisons do not show an earlier theorem implying the present closure-level and exact-distance claim; unindexed prior work remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result settles two explicit structural questions for an established infinite-dimensional Toeplitz algebra: whether its finite-block sector projections can belong and whether its finite-coordinate restriction envelope can equal the algebra. The stronger no-compacts theorem and attained operator-norm obstruction distinguish its topology from the finite-dimensional theory and explain why finite-coordinate characterizations do not simply pass to the infinite system.
+The primary source explicitly leaves the infinite product sector projection outside its available membership results and asks the envelope equality question. The present obstruction is for the generated norm-closed algebra and gives an attained distance, not just non-representability by one symbol. Priority for the compactness consequence considered alone remains qualified by an unavailable older article.
 
-## Scope and limitations
+## value
 
-No complete characterization of the infinite-variable algebra is claimed; only the necessary insertion regularity, compactness exclusion, exact projection distance, and strict inclusion are proved. The full 1995 Janas–Rudol article could not be inspected, and the statement has no independent review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Resolves the explicitly posed finite-coordinate-envelope equality problem in the negative and proves the conjectured nonmembership for each specified projection. It further gives exact operator-norm separation and excludes all nonzero compact elements of the relevant algebra. The insertion invariant explains the difference between finite and infinite Gaussian block models beyond a single counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

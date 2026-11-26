@@ -1,20 +1,21 @@
-# Scientific review: fixed-width interval-average bridge moment sensing
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim specifies one normalized interval-average reading of a standard Brownian bridge, a fixed window length \(0<h<1\), independent Gaussian noise \(\eta\geq0\), and the signed linear moment \(J=\int_0^1(2t-1)B_t\,dt\). The prior variance \(1/180\), cross-covariance, observation variance, optimal conditional-mean estimator, and posterior Bayes risk are obtained by direct integration of \(K(s,t)=\min(s,t)-st\). The reduction \(z=c(1-c)\) covers the **entire** feasible placement interval up to reflection. The exact derivative factorization has one concave quadratic sign polynomial \(N\). Its endpoint signs and derivative show either a single strict interior maximum or a strict boundary maximum, proving all equality cases and the threshold for every real admissible parameter. Monotone shift and high-noise limit follow from an implicit-derivative sign and a compact limiting optimization. Exact symbolic checks and independent numerical integral comparisons corroborate, but do not substitute for, the proof.
+## correctness
 
-## Originality — PASS, with residual risk
-Full-text comparisons found the classical Gaussian-conditioning formula for integral targets in Xi–Briol–Girolami (arXiv:1801.04153), polynomial Brownian path approximations and moment descriptions in Foster–Lyons–Oberhauser (arXiv:1904.06998), integral-measurement covariance computation in Hendriks–Jidling–Wills–Schön (arXiv:1812.07319), and general operator-data experimental-design methods in Travelletti–Ginsbourger–Linde (arXiv:2109.03457). None of the inspected results establishes the explicit globally optimal *location* of a single fixed-width averaged reading for the signed moment, nor its sharp width/noise boundary. The closely related publicly accessible two-node Brownian-bridge quadrature theorem optimizes a distribution of noiseless point samples for an ordinary integral; the three-overlapping-interval histopolation theorem optimizes a deterministic polynomial reconstruction norm. Both have distinct operators, objective functions, and feasible design variables. Accessible earlier claims were compared by implications, not just titles. Unlocated specializations in older optimal-design or operator-data literature remain a publication-priority risk; no independent historical certification is asserted.
+PASS
 
-## Value — PASS
-Fixed-footprint window averaging is a natural measurement constraint in imaging, finite-resolution sensing, finite-volume data and operator-based inverse problems. The claim resolves an actual sensor-placement choice rather than recomputing a known table: narrow windows optimally sit inside, long windows touch an endpoint, and intermediate-width windows cross from endpoint to interior at an exact positive noise level. The high-noise direction of movement is counterintuitive but proved. The improvement in explained variance can be substantial: at \(h=1/4\), \(\eta=1/5\), the optimum increases the explained variance by about \(27.69\%\) compared with a boundary-touching window. The result does not claim general-kernel or multi-measurement optimality, and the mathematical value does not depend on those extensions.
+Reconstructed the posterior variance and global argument in RESULT.md lines 47–102. The Dirichlet inverse of −d²/dt² applied to 2t−1 gives g=t(1−t)(2t−1)/6 and Var(J)=1/180. Cubic averaging yields the stated cross covariance, and direct averaging of min(s,t)−st gives a+h/3−c²=c(1−c)−h/6 for a=c−h/2. The noisy variance is positive even at the boundary since its minimum without noise is h(4−3h)/12. With z=c(1−c), every interior derivative sign is the sign of the stated quadratic N, and N(1/4)<0. If S>0 strict concavity and endpoint signs give a unique simple crossing; if S≤0 then h≥h₀ and N'(L_h)<0, so N is strictly negative beyond L_h even at equality. The reflected centers exhaust the optimizers; the midpoint has zero reduction. The interior log derivative is strictly increasing in eta and has negative z derivative at its simple maximizing root, establishing inward motion. Implicit differentiation at threshold gives N_eta(L_h)=8(1−h)(1−2h) and dz/dc=1−h, reproducing the positive onset coefficient. Uniform convergence of eta times the objective to its numerator gives the constrained large-noise limit with maximizer z=(2+h²)/12 when h<1/2. Independent bisection of the log derivative on [7/64,1/4] for h=1/4, eta=1/5 gave c=0.196817468335539 and a relative variance-reduction gain of 27.6931016062%. Inspected verify.py, VERIFICATION.md and the printed verification output without running the supplied script.
 
-## Closest sources and boundaries
-- X. Xi, F.-X. Briol, M. Girolami (2018): general Bayesian quadrature formulas, multiple integrals and convergence, not this one-window global placement classification. https://arxiv.org/abs/1801.04153
-- J. Foster, T. Lyons, H. Oberhauser (2019): bridge polynomial moments and optimal path approximation by polynomial coefficients, rather than placement of an averaged sensor. https://arxiv.org/abs/1904.06998
-- J. N. Hendriks, C. Jidling, A. Wills, T. B. Schön (2018): line-integral covariance evaluation for the squared-exponential kernel, not an exact Brownian-bridge phase diagram. https://arxiv.org/abs/1812.07319
-- C. Travelletti, D. Ginsbourger, N. Linde (2021/2022): computationally scalable linear-operator GP inference and sequential designs, not this exact scalar constrained placement rule. https://arxiv.org/abs/2109.03457
+## originality
 
-Scientific limitations: exact normalized Brownian bridge and first signed moment; one fixed-length averaged reading with known additive Gaussian noise; squared loss. The symbolic identities were run and the independent integral checks passed. Broader physical models and independent scholarly priority checks remain unverified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The supported distinct claim is the exact global width/noise boundary-contact transition, its equality cases, and the subsequent center movement for one contiguous normalized average estimating this one signed bridge moment. Gaussian conditioning, Brownian polynomial moment calculus, and optimal point or multi-observation designs are not claimed as novel.
+
+## value
+
+PASS
+
+A fixed nonzero footprint is a motivated measurement constraint. The optimization gives a complete boundary-versus-interior design rule across all widths and noise levels, including exact onset and a limiting location, rather than just a numerical improvement at one setting. The two optimizers and their degeneracies are fully resolved for the scalar design, without making a multi-sensor or arbitrary-prior claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

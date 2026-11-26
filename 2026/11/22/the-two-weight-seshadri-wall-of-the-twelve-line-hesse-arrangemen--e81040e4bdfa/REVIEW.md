@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The one claim concerns the weighted Seshadri constant at precisely the nine original Hesse quadruple points and twelve original nodes over \(\mathbb C\), for every \(\alpha,\beta>0\), together with strict off-wall minimizer families and an isotropic boundary class. The explicit coordinate certificate proves the incidence counts that feed both summed Bézout inequalities, while the written inequalities are valid for every irreducible curve of arbitrary degree and any positive real weights. The twelve original and nine dual lines attain the two denominator branches; off-wall inequality is strict for every other curve. The volume calculation is a direct intersection calculation on the blow-up. The actual standalone exact checker passed. No finite sampling is treated as proof of a universal statement.
+## correctness
 
-## Originality — PASS, qualified by residual priority risk
-The initiating arXiv:2611.03797v1 proves only the equal-weight scalar value \(1/5\) for the Hesse arrangement; its §4.1 lists the coordinates and uses a quartic net. It does not give the two-weight chamber function, the nine-line switch, or the isotropic class. Janasz–Pokora, arXiv:2004.04043v1, use the dual Hesse lines for a different configuration of twelve conics whose nine additional marked points are not the Hesse quadruple points. Pokora, arXiv:1711.09364, gives unweighted special-arrangement principles. Relevant mathematical-record searches found Hesse Tjurina, Hesse rational elliptic Zariski-chamber, and unrelated weighted results but no covering exact formula. Separate calculations of Hesse one-line extensions and the quartic net concern different invariants. Failure of search is not novelty proof; unindexed specialized nef-cone calculations remain possible risks.
+PASS
 
-## Mathematical value — PASS
-The originating paper singles out the Hesse twelve-line arrangement as the exceptional case requiring additional geometric input for the unweighted problem. Separating its two natural singular-point orbits gives a motivated local-positivity deformation rather than an arbitrary subset of points. The exact two-chamber function identifies the precise switch between original and external lines and uniquely detects a primitive isotropic nef class orthogonal to twenty-one negative curves. Those effects are not determined by the equal-weight theorem, the point counts, or the general Bézout criterion alone.
+Independently checked incidences in the given coordinates. For x+y+z=0 the three axis points are of type Q, and the two grid nodes correspond to the two orderings of ω and ω² after the leading 1. Diagonal multiplication by cube roots gives the other eight non-coordinate Hesse lines; each coordinate line has three Q and two N directly. The claimed original singular support accounts for 9·6+12=66 distinct intersecting line pairs, the total. Each new line, e.g. x=ω^i y, has one coordinate vertex and three grid nodes; a Q with one zero coordinate cannot qualify because either one side alone vanishes or the nonzero ratio is a negative cube root. Every node belongs to three new lines. For any irreducible curve other than the 21 lines, normalized multiplicities a=A/d,b=B/d satisfy 2a+b≤6 and b≤3 by summed Bézout, including all singular curves in any degree. The support-function bound for αa+βb is 3α if β≤α/2 and 3α/2+3β otherwise. These bounds lie strictly below the larger line denominator off β=3α/2. The lines have normalized multiplicity vectors (3,2) and (0,4), giving equality as claimed, with no exhaustiveness claim on the wall. The exceptional intersections of the Seshadri class are positive. Its square vanishes precisely when max(3α+2β,4β)^2=9α²+12β², by the factorizations 4β(3α−2β) and 4β²−9α² in the respective chambers. At that ratio it is F/12; intersecting with the two line types gives zero, their strict transforms have squares 1−5 and 1−4, and gcd(12,2,3)=1. The proof uses these exact calculations, not sampled weights.
 
-## Boundaries and sources
-No classification is claimed for additional minimizers at the wall, the full nef cone, the semiampleness of the isotropic divisor, or positive-characteristic realizations. Original mathematical sources actually inspected include arXiv:2611.03797v1, §4.1 pp. 6–7; arXiv:2004.04043v1, Example 3.5 pp. 9–10; and arXiv:1711.09364, §3. The exact incidence certificate accompanies the proof. Independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The line coordinates and the equal-weight value are prior. Dumnicki et al. even supply a quartic net whose displayed reducible generators visibly contain the nine new lines. Credit those equations and the known dual arrangement: do not sell the lines themselves as new. The distinct result is identifying and combining the two sharp line-family constraints for the fixed 21-point support, deriving the full two-orbit envelope with strict off-wall classification and the isotropic wall. The earlier unweighted bound from smooth quartics alone does not give it.
+
+## value
+
+PASS
+
+The deformation uses the two natural incidence strata of the exceptional twelve-line case in the unweighted theorem. It identifies when external rather than arrangement lines obstruct local positivity, shows they are the only obstructions off the wall, and locates a concrete nef isotropic class annihilating 21 negative curves. This is a useful weighted nef-cone slice, beyond computing the unweighted number by a second method.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:05:01.450069Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each perfect matching has q! labelings, so removing labels gives the uniform matching. Equal Parikh vectors in a fixed window require one copy of each used symbol in each half, i.e. a matching of the halves with no edge out of the window. There are k! internal pairings times (2q−2k−1)!! external pairings, and 2q−2k+1 possible starts. This gives the exact expectation, including the full-length boundary via (−1)!!=1 and q=1 with only one term. The length-k expectations have increasing successive ratios (k+1)/(2q−2k+1). Up to the middle these are at most 3/4 for q≥4, making the contribution from k≥3 there at most 4E_(q,3)=O(q^−2). Beyond the middle log-convexity bounds each term by the larger of the exponentially small midpoint and the final q!/(2q−1)!!=O(√q·2^−q). Thus all nonadjacent lengths contribute 2/(2q−1)+O(q^−2). The r-fold binomial moments of X_q count r disjoint path edges, of which there are binom(2q−r,r) choices, times their inclusion probability. Dividing that binomial by the product of odd denominators leaves 1/r! times a product of factors 1−(r−j−1)/(2q−2j−1). For r≤q/2 the product error is at most r(r−1)/(2(q+1)); for larger r the factorial bound suffices. Binomial inversion and summing over the output index give a 2^r weight, still summable with the factorial bound, yielding the claimed adjacency TV rate. Coupling to Y_q costs at most E(Y_q−X_q), and avoidance is the event Y_q=0; exact finite adjacency-only avoidance separately follows by inclusion–exclusion. Inspected RESULT.md lines 34–110, VERIFICATION.md and verify.py. The finite normalized-word enumerator and its 146599 count are reported as frozen supplementary checks; the script was not run independently.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The survey's inspected expectation is for distinct Abelian-square factors in binary words; its avoidability section treats alphabet size and infinite words. Cruz et al. treat repeat/return insertions, and Grytczuk et al. allow interleaving in shuffle squares. Resultary a30546ec04ae studies shuffle witnesses; 9387a2a4a9ec counts distinct factors in binary words with two ones; 4f49d87fdccb studies iid adjacent and lag-two equalities."
+        ],
+        "reasoning": "Neither changing contiguity nor changing the number of occurrences per letter is an exact reduction. In particular, a growing fixed-double alphabet and a fixed binary alphabet have different probabilities of longer windows, so the latter results do not bound this tail.",
+        "searches": [
+          "arXiv:2207.09937 §§4.3 and 5.1; arXiv:1811.11739; arXiv:2308.13882",
+          "Resultary: double-occurrence shuffle squares, random-binary Abelian factors, and adjacent repeats"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:1902.09021 and its reproduced adjacency table",
+        "arXiv:2207.09937",
+        "arXiv:1811.11739",
+        "arXiv:2308.13882",
+        "Resultary f3c18b7beed6, a30546ec04ae, 9387a2a4a9ec and 4f49d87fdccb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The finite exact adjacency law includes X_q=0 and determines its moments. Even a generic O(q^−1) short-chord Poisson bound would concern X_q only. The exact length-k means, the leading 2/(2q−1) term and uniform O(q^−2) remainder for k≥3 require a separate count of cross-half perfect matchings over every window length."
+        ],
+        "reasoning": "The novelty-bearing comparison is the all-window tail and first correction and their use in the TV transfer. Neither the finite adjacency law nor an existing Poisson result for short chords mechanically supplies that tail.",
+        "searches": [
+          "arXiv:1902.09021 Theorem 2 versus frozen RESULT.md lines 36–66 and 68–100"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cameron–Killpatrick define short chords on a line as edges {i,i+1} and Theorem 2 gives their exact law, identically that of X_q. Resultary f3c18b7beed6 gives a sharp cyclic short-chord TV estimate. The difference between cyclic and linear adjacency is just the endpoint wrap edge, with probability 1/(2q−1)."
+        ],
+        "reasoning": "Both formulations are relevant to adjacency; neither identifies the event of a whole 2k-window pairing across its halves for k≥2. The later cyclic catalogue finding is related, not equivalent to the full observable and not evidence of earlier priority.",
+        "searches": [
+          "Resultary: contiguous Abelian-square occurrence counts in uniform double-occurrence words; short chords and fixed multiplicity",
+          "Cameron–Killpatrick, Statistics on Linear Chord Diagrams, arXiv:1902.09021"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The chord-diagram paper's table reports the number of diagrams with s path-short chords; for q=4 its row begins 36,41,21,6,1. Frozen full avoidance at q=4 is 15. The OEIS page itself and exact-number lookup were not available; further exact-table coverage is unresolved."
+        ],
+        "reasoning": "The reproduced adjacency table is demonstrably a different count. Unavailability of another lookup is not negative evidence, and a coincidence of a finite sequence would not by itself settle the all-q expectation and convergence law.",
+        "searches": [
+          "Exact-count lookup for 38519, 2630, 195, 15 in linear double-occurrence-word Abelian-square avoidance (lookup unavailable)",
+          "A079267 as reproduced and attributed in arXiv:1902.09021 pp. 2–3"
+        ]
+      },
+      "rationale": "The exact path-adjacency distribution and its mean one have direct earlier coverage. The supported distinct claim is the all-occurrence expectation with its longer-square correction and the quantitative extension of the Poisson law to all contiguous half-lengths in the fixed-double-occurrence ensemble, not the separate adjacency law or a claim of novelty for an inclusion–exclusion method.",
+      "residual_risks": [
+        "The exact all-avoidance table query was unavailable; no inference of absence is drawn. Earlier formulas in matching, consecutive-pattern, or fixed-content word terminology remain a possibility outside the bounded inspected set."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact earlier coverage for adjacency, not all Abelian-square occurrences",
+          "evidence": "Short chords are {i,i+1}; mean one and an exact finite distribution via a generating function. Credits Kreweras–Poupard (1978) for the mean-one result.",
+          "identifier_or_url": "arXiv:1902.09021",
+          "material_read": "OA PDF pp. 1–5, short-chord definition, table pp. 2–3, mean on p. 4 and Theorem 2 p. 5; p. 6 historical attribution",
+          "method": "Bounded original passages and comparison of counts",
+          "title": "Statistics on Linear Chord Diagrams",
+          "trigger": "Earlier exact law for the matching analogue of adjacent repeats"
+        },
+        {
+          "assessment": "Different ensemble and statistic",
+          "evidence": "Binary distinct-factor expectation and infinite-word avoidability results.",
+          "identifier_or_url": "arXiv:2207.09937",
+          "material_read": "OA PDF pp. 11–12, §§4.3 and 5.1, offsets around 40150 and 44735",
+          "method": "Passage-level comparison",
+          "title": "Abelian Combinatorics on Words: a Survey",
+          "trigger": "Abelian-square random counts and avoidance"
+        },
+        {
+          "assessment": "Related objects, different statistic",
+          "evidence": "Insertions and equivalences for repeat and return patterns, with gaps allowed.",
+          "identifier_or_url": "arXiv:1811.11739",
+          "material_read": "OA PDF pp. 1–2 around offset 1400",
+          "method": "Definition and scope comparison",
+          "title": "Insertions Yielding Equivalent Double Occurrence Words",
+          "trigger": "Identical class of words"
+        },
+        {
+          "assessment": "Different contiguity requirement",
+          "evidence": "A shuffle square interleaves two copies rather than requiring adjacent equal-Parikh halves.",
+          "identifier_or_url": "arXiv:2308.13882",
+          "material_read": "OA PDF p. 1 around offset 900",
+          "method": "Definition comparison",
+          "title": "Variations on Shuffle Squares",
+          "trigger": "Equivalent-pattern possibility"
+        },
+        {
+          "assessment": "Adjacency-only mathematical overlap",
+          "evidence": "A sharp rate for adjacent endpoints in a cyclic matching, with one additional wrap pair; no longer-square statistic in the finding.",
+          "identifier_or_url": "Resultary f3c18b7beed6",
+          "material_read": "Local RESULT.md Finding, offset 0",
+          "method": "Catalogue retrieval and geometry comparison",
+          "title": "Sharp total-variation constant for simple chords in a uniform chord diagram",
+          "trigger": "Poisson short-chord exact-rate comparison"
+        },
+        {
+          "assessment": "Different statistic",
+          "evidence": "Shuffle-square witnesses, not contiguous Abelian squares.",
+          "identifier_or_url": "Resultary a30546ec04ae",
+          "material_read": "Local RESULT.md Finding, offset 0",
+          "method": "Catalogue retrieval and statistic comparison",
+          "title": "Witness multiplicities and rare-event moments for double-occurrence words",
+          "trigger": "Same ensemble and rare counts"
+        },
+        {
+          "assessment": "Different model and count",
+          "evidence": "Binary words with exactly two ones, distinct literal factors and an n²-scale law.",
+          "identifier_or_url": "Resultary 9387a2a4a9ec",
+          "material_read": "Local RESULT.md Finding, offset 0",
+          "method": "Catalogue retrieval and ensemble comparison",
+          "title": "A nondegenerate Abelian-square factor count law for binary words",
+          "trigger": "Similar Abelian-square limit"
+        },
+        {
+          "assessment": "Different ensemble and variable",
+          "evidence": "Adjacent and lag-two equalities in iid words rather than Abelian-square windows under fixed double multiplicity.",
+          "identifier_or_url": "Resultary 4f49d87fdccb",
+          "material_read": "Local RESULT.md Finding, offset 0",
+          "method": "Catalogue retrieval and ensemble comparison",
+          "title": "Hidden quadratic dependence between adjacent repeats and two-step repeats",
+          "trigger": "Similar short-range repeats"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a natural fixed-content word model, exact counting and a uniform estimate across all lengths show that longer squares are collectively rare despite the many possible windows. The leading correction isolates length four and determines why a Poisson result for the adjacent-repeat statistic answers a genuinely different full avoidance problem. Value does not rest on rederiving the finite adjacency table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

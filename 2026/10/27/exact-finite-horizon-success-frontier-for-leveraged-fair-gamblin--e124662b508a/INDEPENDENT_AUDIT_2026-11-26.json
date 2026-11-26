@@ -1,0 +1,92 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:42:50.381055Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the finite-horizon Bellman induction for arbitrary conditional next-wealth laws. At k=1 the affine bound from the mean touches only at the legal endpoints. For k>=2 and a=(L-1)z, the logarithmic derivative of V_(k-1)(u)/(u+a) has the sign of z(M/u)^(1/(k-1))-u for L>1, with opposite signs at small u and u=M, and a unique zero at u*=z(M/z)^(1/k). The line c(y+a) also dominates the terminal value for y<=0, so the mean gives Lzc for every conditional law, not merely binary bets. Equality forces support at -a and u*, and the mean fixes the two masses. Induction along the visited surviving history gives the exact value and uniqueness; the two-point construction stops within budget. For L=1 stopped nonnegative fair wealth gives x/M, attained immediately. Strict convexity of log(1+(exp(t)-1)/L) gives strict budget monotonicity; its quadratic coefficient is (L-1)/(2L^2), giving the displayed deficit. The unlimited supremum follows by bounding success by time N and taking the increasing union for each policy, together with finite-budget achievability. The frozen grid tests were inspected, not run or used as the universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kuszmaul allows upward outcomes beyond the target and bounds unlimited success by m^(-1/L). The frozen comparison describes finite-time bold play in a primitive casino with prescribed win chances and no terminal debt; the Yao full-text retrieval did not complete."
+        ],
+        "reasoning": "The unlimited estimate is strictly weaker at finite N for L>1. An optimal policy in a fixed-odds no-borrowing feasible set would not optimize the larger family of fair laws with negative terminal outcomes. The unavailable full Yao article leaves a limited comparison.",
+        "searches": [
+          "arXiv:2610.19239v1, Proposition 2.2",
+          "10.1239/jap/1175267173; 10.1239/jap/1214950356 (related bold-play references)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, requirements.txt and check_finite_leverage.py (inspection)",
+        "Kuszmaul arXiv:2610.19239v1 Sections 1–2",
+        "Resultary results and focused primary search; Yao DOI retrieval attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The lemma supplies the lower bound (and its algebraic expansion), and the proposition supplies only the larger constant upper bound."
+        ],
+        "reasoning": "The two prior bounds do not squeeze the value to the strategy value at finite N, nor select an equality law. The budget-sized tangent/envelope calculation is the missing implication.",
+        "searches": [
+          "arXiv:2610.19239v1, Lemma 2.1 and Proposition 2.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With success multiplier 1+epsilon and m=M/x, the lemma gives (L/(L+epsilon))^(log_(1+epsilon) m). Setting epsilon=m^(1/N)-1 gives exactly the candidate strategy's success by N."
+        ],
+        "reasoning": "Equal proportional increments and a fixed-multiplier lottery are the same construction here. Strategy success is not an upper bound over competing adaptive actions.",
+        "searches": [
+          "Resultary: leveraged fair lotteries and finite-horizon gambling with borrowing",
+          "Focused primary literature search: finite-horizon leveraged fair gambling",
+          "arXiv:2610.19239v1, Lemma 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest indexed summaries were 2026/10/18/SCOPE-a-universal-logarithmic-horizon-penalty-under-disk-valued-reacha--05227e9ada16 (three-state Markov reachability) and 2026/10/26/SCOPE-sharp-asymmetric-gambler-s-ruin-ageing-transition-at-a-one-step--7989c24b14ac (nearest-neighbor exit-time ageing)."
+        ],
+        "reasoning": "The summaries concern other state/action models and different quantities; this is a continuum value theorem rather than a table of exact counts. The bounded index search is not an exhaustiveness claim.",
+        "searches": [
+          "Resultary: leveraged fair gambling finite-budget frontier and optimal strategy"
+        ]
+      },
+      "rationale": "Credit Kuszmaul for the model, the strategy attaining the displayed expression, and the unlimited-horizon bound. The supported distinct result is the matching finite-horizon upper bound over arbitrary adaptive laws, its equality characterization, and the resulting sharp expansion of optimal success. Neither the inspected assertions nor the nearest indexed results establish this finite-budget optimum.",
+      "residual_risks": [
+        "Bounded priority search, including incomplete access to Yao (2007); a mathematically equivalent finite-budget envelope in other literature could remain undiscovered."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of achievability and unlimited bound; not the finite-horizon extremum in the passages inspected",
+          "evidence": [
+            "Lemma 2.1's exact fixed-multiplier success expression",
+            "Proposition 2.2's unlimited upper bound"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.19239v1",
+          "material_read": "Section 1 and Section 2 Lemma 2.1 / Proposition 2.2 (OA offsets 0 and 11785–17831)",
+          "method": "Open-access primary text and mathematical comparison",
+          "title": "With Leverage, the Gambler is Not the One Who Gets Ruined",
+          "trigger": "Same fair leverage model and exact fixed-multiplier candidate"
+        },
+        {
+          "assessment": "Not decisive; no whole-paper noncoverage claim",
+          "evidence": [
+            "Frozen RESULT.md lines 84–92 identifies the alternative primitive-casino assumptions and acknowledges restricted original access."
+          ],
+          "identifier_or_url": "https://doi.org/10.1239/jap/1175267173",
+          "material_read": "Citation and frozen comparison; independently attempted but did not retrieve the full primary text",
+          "method": "Bounded OA retrieval attempt",
+          "title": "On Optimality of Bold Play for Discounted Dubins–Savage Gambling Problems with Limited Playing Times",
+          "trigger": "Finite-horizon optimal policy theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp finite budget changes the attainable success despite unchanged fair leverage constraints. Proving the global upper bound and equality law settles whether adaptive laws can improve on the known fixed-multiplier strategy and quantifies exactly how the optimum approaches the unlimited value; it is not just evaluation of that strategy.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

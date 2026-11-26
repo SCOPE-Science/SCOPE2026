@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:23:11.732631Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–57 and cited hypotheses at 69–73",
+        "VERIFICATION.md and artifacts/verify.py inspected, not executed"
+      ],
+      "rationale": "The modulo-9 input holds for the whole exponent family. Here is an independent check despite lack of access to the exact cited corollary. Terms vanish if either binomial has a ternary carry. Otherwise each j digit w is 0 except possibly at n-digits equal to 1, and binom(n,j) is 1 modulo 3 by Lucas; thus both exponents may be replaced by 2 modulo 9. Remove factors of 3 recursively from (n+j)!/(j!²(n−j)!), which has valuation zero. For the 3-free product modulo 9 the full nine-block factors (−1) cancel by carry-freeness, leaving two-digit windows. With n-window 3x+y and j-window 3v+w, the local squared factor is 4^(w+1_{y=1}v+vw) modulo 9: this follows from the 3-free prefix products for residues 0 to 8, namely (1,1,2,2,8,4,4,1,8). Summing over the m freely chosen digits, 4^e≡1+3e mod 9; each adjacent pair of 1-digits contributes 3(2^(m−1)+2^(m−2)), hence zero mod 9, and the remaining sum is 2^m+3m·2^(m−1)≡5^m (the m=0 case is 1). With this digit input, enumerating carries yields the stated matrices using ω+conj(ω)=1 and a carry-one tail expectation 1/2. Each aligned block with length exceeding h differs from its infinite-digit mean sum only on at most h overflowing low digit strings, by at most 4h; at most two blocks per ternary level proves the ordinary cutoff rate. After the highest nonzero digit the column is (1/2,1/2); all three matrices preserve its bounding square, and a first loss of a coordinate can never restore both coordinates to 1/2. This proves the two exact rigidity families. All products are strictly positive in the output, and iterating the all-ones matrix gives the claimed unattained zero infimum. The independent residue-class recurrence C(3k)=C(k), C(3k+1)=C(3k+2)=(C(k)+C(k+1))/3 agrees with 19,682 exact shift classifications and 21 non-power cutoff checks (/workspace/branches/independent_replay.py, apery); sampling is supplementary.",
+      "residual_risks": [
+        "Fixed positive h; the discrepancy constant is h-dependent. Neither a uniform bound in h nor higher-point correlations are shown."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected Rowland–Yassawi abstract describes prime-power automatic congruences and Apéry congruences; it does not address the numeric upper-tier optimization. The indexed binary Pascal record uses a different base and count function."
+        ],
+        "reasoning": "An automaton or abstract carry recurrence does not, by itself, select the two highest values and classify equality. Strongly q-multiplicative spectral theory is an alternative framing; a general proof of existence would not resolve those extremal statements.",
+        "searches": [
+          "arXiv:1310.8635 §3.6 Theorem 3.32",
+          "Web search on modulo-nine Apéry digit products and shift correlations",
+          "Resultary 2026/11/8/SCOPE-sharp-shift-correlations-for-the-odd-entry-counts-in-binary-pasc--7be946ab1fa0"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 39–57, 62–73",
+        "arXiv:1401.1444 and arXiv:1310.8635, primary first pages",
+        "Resultary e4d90213f805, 3afe7626d587, cee25a4f5376 and 7be946ab1fa0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The old arithmetic identity merely fixes a single-index weight. Here ω+conj(ω)=1 is what makes the specific two-state matrices nonnegative and sends either highest nonzero digit to (1/2,1/2)."
+        ],
+        "reasoning": "The invariant-square loss criterion, complete 1/3 family, and ordinary cutoff estimate are not furnished by the available residue or neighbouring carry statements. Giving a general way to build a carry representation would not be a proof of the phase-specific extremal rigidity.",
+        "searches": [
+          "arXiv:1401.1444 Corollary 25 (exact locator from the frozen citation)",
+          "arXiv:1310.8635 Theorem 3.32",
+          "Resultary 3afe7626d587 and cee25a4f5376"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The character is the strongly ternary digit product with weights (1, exp(πi/3), 1); the frozen article explicitly credits Corollary 25 for the residue formula. The Catalan record is for signs modulo three, not this weight."
+        ],
+        "reasoning": "Rephrasing in digit-product language removes the Apéry terminology but leaves the phase-specific natural averages and upper tiers as substantive claims. A real sign cannot give this digit product by the stated character change.",
+        "searches": [
+          "Generalised Apéry numbers modulo 9 (arXiv:1401.1444)",
+          "Automatic congruences for diagonals of rational functions (arXiv:1310.8635)",
+          "Resultary 2026/11/22/SCOPE-sharp-signed-shift-correlations-of-catalan-numbers-modulo-three--cee25a4f5376"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed match is this same record. The distinct Pascal record concerns odd-prime nondivisibility counts, with extremizers at p^k and 2p^k in its summary."
+        ],
+        "reasoning": "Similar ternary shift locations on a different digit function are not equivalent; the products, normalization and equality sets must match. No temporal conclusion is drawn from the shared date.",
+        "searches": [
+          "Resultary e4d90213f805 (exact frozen title match)",
+          "Resultary 2026/11/22/SCOPE-the-first-two-extremal-correlations-of-pascal-row-nondivisibilit--3afe7626d587"
+        ]
+      },
+      "rationale": "Credit the mod-nine digit congruence and automatic description as prior input, not new arithmetic. The supported contribution is natural-average ternary sixth-root pair correlations, especially the sharp first and second levels and their exact digit-pattern equality sets; no inspected overlapping statement determines these.",
+      "residual_risks": [
+        "The exact cited corollary and automata theorem passages and full related Resultary records were inaccessible; the congruence is nevertheless treated as prior, not as a novelty dependency.",
+        "Equivalent sixth-root autocorrelation extremizers under general digital spectral terminology remain a priority risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Congruence is credited prior; exact hypotheses also checked by independent derivation",
+          "evidence": "First page defines the same generalized binomial sequence. The frozen citation specifies residue 5 raised to the number of ternary 1-digits; the congruence does not itself give shift correlations.",
+          "identifier_or_url": "https://arxiv.org/abs/1401.1444",
+          "material_read": "Primary PDF p. 1 lines 1–20; Corollary 25 not retrievable; frozen RESULT.md lines 39–43, 62–69",
+          "method": "Primary first-page extraction and lawful OA passage attempts",
+          "title": "Generalised Apéry numbers modulo 9",
+          "trigger": "Exact input congruence and same exponent family"
+        },
+        {
+          "assessment": "Available material on prior congruence methods, not a whole-paper exclusion",
+          "evidence": "The abstract describes automata for congruences modulo prime powers and applications to Apéry sequences.",
+          "identifier_or_url": "https://arxiv.org/abs/1310.8635",
+          "material_read": "Primary PDF p. 1 lines 20–30; cited Theorem 3.32 not retrieved",
+          "method": "Primary abstract and OA passage attempt",
+          "title": "Automatic congruences for diagonals of rational functions",
+          "trigger": "Closest classical Apéry congruence automata"
+        },
+        {
+          "assessment": "Structural analogue; different evaluated sequence and extrema",
+          "evidence": "Odd-prime Pascal nondivisibility counts, not a sixth-root-valued character of mod-nine Apéry terms.",
+          "identifier_or_url": "Resultary 3afe7626d587",
+          "material_read": "Indexed summary; local full text unavailable",
+          "method": "Local semantic index",
+          "title": "The first two extremal correlations of Pascal-row nondivisibility",
+          "trigger": "Closest distinct indexed extremal carry law"
+        },
+        {
+          "assessment": "Different sign sequence",
+          "evidence": "Catalan signs modulo three do not give the phase factors or the extremal level classification here.",
+          "identifier_or_url": "Resultary cee25a4f5376",
+          "material_read": "Indexed summary only",
+          "method": "Local semantic index",
+          "title": "Sharp signed shift correlations of Catalan numbers modulo three",
+          "trigger": "Closest ternary arithmetic-correlation analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 9–33 and 45–57"
+      ],
+      "rationale": "Sharp all-shift classification is a natural dependence invariant distinguishing these congruence sequences from their one-point residue counts. The positive arithmetic correlations, the gap between the top two levels, both complete equality classes, and the vanishing all-ones family encode concrete dependence not implied by residue frequencies or mere automaticity.",
+      "residual_risks": [
+        "The result concerns one character and positive shifts in one parameter family; no consequence for all digit products is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

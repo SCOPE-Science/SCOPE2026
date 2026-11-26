@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:52:38.567681Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the specified coordinates the six squares have area 2 each and the eight hexagons area 3 sqrt(3) each. Cauchy's formula and the two cases x>=y+z versus x<=y+z in ordered nonnegative coordinates give the stated brightness and the support-vector orbits A=(14,2,2) and D=(8,8,8), with all signs and permutations. The maximal orbit follows by the Euclidean support bound. For x<=y+z, if s=x+y+z, every coordinate is at most s/2, so 1<=s^2/2 with equality only at (s/2,s/2,0) up to permutation. For x>=y+z set q=y+z: x^2+q^2>=1, and on the normalized arc the concave function 14 cos(theta)+2 sin(theta) is minimized at theta=pi/4, giving the same 12 minimizing directions. The mean is one quarter of total area. For t>=14 only the 24 norm-sqrt(204) vectors can contribute caps. Mixed dominant-coordinate pairs have dot at most 60; for matching dominant coordinate and sign the only two separations are one or two minority-sign flips, giving products 196 and 188 with counts 24 and 12, and no triangle of 196-edges. The contact bound is the norm of the pair midpoint, so for t>=10 sqrt(2) caps are disjoint in area, and down to 14 only the 24 first-contact lenses contribute. The lens angles follow from the spherical triangle of the two centers and a boundary intersection; Gauss–Bonnet subtracts the two small-circle geodesic-curvature integrals from twice the interior angle. Thus the claimed CDF correction has the positive inclusion–exclusion sign. At tangency the scaled lens is 2|a|+(t_c/2)b^2<1, giving area (4/3)sqrt(2/t_c) per lens at scale eps^(3/2). At each isolated minimum the leading increment is 8|b|+6(sqrt(2)|a|-|b|)_+, a coercive cone with unit area 7 sqrt(2)/192; for 0<=b<=1/8 its positive-a extent is (1-2b)/(6 sqrt(2)). Rescaling and using the tangent Jacobian tending to 1 proves both asymptotic constants. Replay: python3 /workspace/reproduction/frozen_checks.py 3, yielding the complete pair-product histogram, exact nearest-pair triangle absence and independent lens-area quadrature by latitude, with normalized cusp 0.9999998589 at eps=10^-7. Independent projected-vertex hull comparisons also support the directional formula. The frozen checker was read, not executed; its second-largest-product test at the comma is an assertion message rather than a second condition, but the independent enumeration verifies the needed fact. Finite computations do not replace the continuum arguments.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abas Theorem 3.1 expresses a density for any such cellwise linear function as a sum of level-circle apertures divided by 4 pi times the cell slope norm. Proposition 3.2 expresses each aperture as the length of an intersection of explicit circular intervals.",
+          "Resultary b4ab86a8f54b gives a complete brightness law and the same qualitative endpoint/contact powers for a rhombic dodecahedron; its projection body is a scaled truncated octahedron."
+        ],
+        "reasoning": "The general co-area/interval theorem is a stronger implicit density representation but does not identify which constraint cuts off which aperture at the specified brightness thresholds for this body, or evaluate the needed spherical areas and limit coefficients. The rhombic-dodecahedral result is effectively related to width of the truncated octahedron, not brightness of that octahedron.",
+        "searches": [
+          "arXiv:2609.26202, Theorem 3.1; Proposition 3.2; brightness density",
+          "Resultary: exact random shadow area law projection body truncated octahedron brightness"
+        ]
+      },
+      "checked_sources": [
+        "Abas arXiv:2609.26202, Theorem 3.1, Proposition 3.2, Theorem 8.3 and §8.7",
+        "Resultary published index and exact records ef8f8ba8bf3f, b4ab86a8f54b, f029f94dd5b4",
+        "Frozen result and supporting materials"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "After scaling, Abas's absolute-normal formula supplies the input of the frozen geometric calculation. The generic aperture method supplies what must be calculated, not the resulting branch thresholds or asymptotic constants.",
+          "The indexed same-body extrema substantively cover the support calculation; the other complete cap-contact law has a different input body and coefficients."
+        ],
+        "reasoning": "The distinct claim is not existence of a law or density. Obtaining the stated laws requires identifying the 24-candidate cap arrangement, finding the first and second pair-contact levels and excluding triple overlaps on the asserted interval, integrating the lenses and computing a separate lower tangent cone. Neither the general prescription nor the exact directional formula states a stronger already-evaluated case that gives these results by changing normalization or parameters.",
+        "searches": [
+          "Abas 2609.26202 truncated octahedron projected area brightness distribution exact",
+          "arXiv:2609.26202, §8.7 Eq. (53); Theorem 3.1; Proposition 3.2",
+          "Resultary ef8f8ba8bf3f and b4ab86a8f54b, RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Abas Eq. (53) is the identical directional brightness, after multiplying area by 2 to convert from unit edge to edge sqrt(2). Proposition 8.7 gives two moments; p. 71 says no complete brightness density is claimed there.",
+          "Resultary ef8f8ba8bf3f gives exactly the same brightness and optimizing directions. Abas Theorem 8.3 gives the complete width law for the solid, not its brightness law."
+        ],
+        "reasoning": "Brightness is the support function of the projection body, so it can also be viewed as half the width of that centrally symmetric body, not half the width of the original truncated octahedron. The directional formula is prior and mathematically determines the pushforward, but it is not an evaluated tail law. The width law of the original solid cannot be rescaled to the required projected-area law.",
+        "searches": [
+          "Resultary: regular truncated octahedron Haar projected area brightness exact distribution",
+          "Resultary: exact random shadow area law projection body truncated octahedron brightness",
+          "arXiv:2609.26202, brightness density; §8.7 Eq. (53)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact same-body indexed result ef8f8ba8bf3f gives support extrema and projection-body volume 8128, not the CDF branches or endpoint coefficients. The same-day f029f94dd5b4 catalogues central-section polygon types, another statistic.",
+          "The inspected Abas brightness subsection supplies exact moments, not tail formula tables."
+        ],
+        "reasoning": "This continuous spherical-area distribution has no relevant integer sequence index. Exact published formulas and tabulated shape invariants were the appropriate check: extrema, volume and moments alone cannot specify terminal CDF formulas or the small-threshold coefficient.",
+        "searches": [
+          "Resultary: truncated octahedron brightness upper tail cap overlap threshold 10 sqrt2",
+          "Resultary: truncated octahedron projected area lower endpoint asymptotic quadratic tail",
+          "Abas, §8.7 and Proposition 8.7"
+        ]
+      },
+      "rationale": "Abas already gives the same pointwise brightness up to edge-scale conversion and its first moments. Its spherical co-area and aperture rules also apply to brightness; this is substantive prior coverage of the implicit distribution and general evaluation framework. A published Resultary entry additionally gives the same extrema and equality directions. Credit is limited to the claim's explicitly evaluated two terminal branches, sharp extent of the linear branch, first-overlap cusp and lower endpoint coefficient. The inspected prior coverage does not evaluate this geometry for the same projected-area law.",
+      "residual_risks": [
+        "The highly relevant Abas paper was retrieved and its decisive sections read, correcting frozen abstract-only access. Bounded passage reading cannot exclude every appendix or unindexed equivalent.",
+        "No novelty is credited for the pointwise brightness or mean, the same-body extrema studied separately, or the general polyhedral density method."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior pointwise formula, moments and applicable general density evaluation procedure; width specialization rather than the evaluated brightness tail specialization",
+          "evidence": "Eq. (53) is the unit-edge formula. Section 8.7 expressly limits its brightness comparison to results including the first two moments; the earlier co-area result requires computing actual angular apertures.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.26202",
+          "material_read": "Theorem 3.1 p. 11, text at offset 33877; Proposition 3.2 p. 12, offset 38350; Theorem 8.3 pp. 63–64; §8.7 Eq. (53) and Proposition 8.7 pp. 70–71, offset 219360 onward",
+          "method": "Lawful OA PDF targeted locate and bounded passage reads",
+          "title": "Random Width and Brightness: Polyhedral Density Theory, Reconstruction, and Gaussian Identifiability",
+          "trigger": "Strongest plausible prior source for the same solid, observable and exact density method"
+        },
+        {
+          "assessment": "Same brightness formula and extrema; not equivalent to the evaluated tail claim",
+          "evidence": "Gives the same optimizer orbits and adds projection-body volume. It does not derive the CDF branches or the two edge asymptotics.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-shadow-area-extrema-and-projection-body-volume-of-the-regu--ef8f8ba8bf3f",
+          "material_read": "Mirror RESULT.md offsets 0–6026, including limitations near offset 5900",
+          "method": "Resultary search and local mirror passage read",
+          "title": "Sharp shadow area extrema and projection-body volume of the regular truncated octahedron",
+          "trigger": "Direct same-body same-observable exact overlap"
+        },
+        {
+          "assessment": "Exact distinct body law, method and exponent overlap only",
+          "evidence": "The projected-area input is a rhombic dodecahedron; it has a scaled truncated octahedron as projection body, not as input body, and different thresholds and constants.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-random-shadow-law-and-first-spherical-cap-contact-for-the--b4ab86a8f54b",
+          "material_read": "Mirror RESULT.md offsets 0–4258 and 4200–10444",
+          "method": "Resultary search and local mirror passage read",
+          "title": "Exact random shadow law and first spherical cap contact for the rhombic dodecahedron",
+          "trigger": "Closest indexed cap-contact law and projection-body relation"
+        },
+        {
+          "assessment": "Distinct statistic; not excluded merely by date",
+          "evidence": "Classifies the side count of plane sections versus random direction; not orthogonal projected area.",
+          "identifier_or_url": "2026/10/18/SCOPE-complete-haar-polygon-type-law-for-central-sections-of-the-regul--f029f94dd5b4",
+          "material_read": "Mirror RESULT.md offset 0–2516",
+          "method": "Resultary search and local mirror passage read",
+          "title": "Complete Haar polygon-type law for central sections of the regular truncated octahedron",
+          "trigger": "Same shape, same archive date and Haar geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The space-filling Archimedean solid is canonical and planar projected area is a natural stereological observable. The two evaluated high-brightness regimes and the exact local exponents and coefficients furnish useful benchmarks for random shadows. The maximal linear branch ends for a geometric reason (first cap contact), whereas the lower power is controlled by a genuinely different cone of directions. The value is in the quantitative distributional evaluation, not in recomputing the classical mean or repeating a general co-area formula. No elementary middle-CDF result is asserted.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:38:17.844483Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Finding and Proof §§1–4",
+        "VERIFICATION.md, check.py, and requirements.txt (read, not executed)"
+      ],
+      "rationale": "For doubled area, conditioning on the true knots gives the oriented determinant of the two positions: the residual bridges have mean-zero mixed and antisymmetric area terms. The bridge drift cancels in the antisymmetric stochastic integral, so its variance is 2∫t(1−t)dt=1/3. Independent spatial coordinates let Gaussian regression act by the determinant of K(K+ηI)^−1, equal to D/(D+ηT+η²), on the observed determinant. The latter has variance 2det(K+ηI). This proves the estimator and risk by orthogonal projection; at singular zero-noise designs the true knot determinant is identically zero. All zero-gap designs capture zero variance and an interior design captures a positive amount. At fixed outer-gap sum u, the objective is proportional to v²/(Av+B) for v=ac and A=1−u+2η>0, B≥0, strictly increasing for v>0. Thus both outer gaps equal x. For positive noise the change y=x/(1−2x) gives y^4/Qη with all seven coefficients of Qη positive, and 4Qη−yQη' has exactly one sign change, hence exactly one positive root counted with multiplicity. The maximum is simple and differentiable in η. The stationary polynomial is negative at x=1/3 for η>0; at fixed x just below 1/3 it is positive for sufficiently small and sufficiently large positive η, proving both endpoint limits by uniqueness. A stationary x(η) requires a double root in η. In the only feasible interval ((3−√3)/4,1/3), the discriminant changes sign once, at the strictly increasing cubic's unique zero. Its positive double root supplies the lone turning noise. Thus the strictly outward then inward movement, including trisection at η=0, follows. Independent high-precision evaluation gave x_c=0.323899435630521192745… and η_c=0.135922253173019090393…, with relative captured-information gain 0.003657153… over trisection at that variance.",
+      "residual_risks": [
+        "The certified statements are exact equations and analytic signs; the displayed decimals are approximations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fourier and polynomial bridge-area approximation, iterated-integral algorithms, and area conditional on increments are treated by the named primary passages",
+          "The scalar result optimizes p+q=P for two scalar channels; the reviewed record fixes four scalar error variances at η"
+        ],
+        "reasoning": "Neither choosing basis coefficients, simulating conditional area given increments, nor allocating precision across two scalar channels encompasses all four observations at two vector knots.",
+        "searches": [
+          "Foster–Habermann arXiv:2102.10095",
+          "Kastner–Rößler DOI 10.1007/s11075-022-01401-z",
+          "Jelinčič et al. arXiv:2308.02452 §3",
+          "Local mirror of same-day asynchronous scalar result"
+        ]
+      },
+      "checked_sources": [
+        "Resultary scalar-design theorem identified above",
+        "arXiv:2102.10095",
+        "DOI 10.1007/s11075-022-01401-z",
+        "arXiv:2308.02452"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The scalar optimum's outer gap moves monotonically from 1/3 toward 1−1/√2 as precision grows, whereas the two-vector optimum has 1/3 at both noise limits and one strict minimum",
+          "The increment-conditioned bridge-area decomposition does not optimize observation sites or produce the two-vector covariance determinant"
+        ],
+        "reasoning": "Changing the precision parameter cannot turn the two-channel admissible observation operator into the four-channel one. The exact covariance and optimization arguments are additional, not substitutions into the prior results.",
+        "searches": [
+          "Local mirror: optimal asynchronous scalar observations, RESULT.md offset 0",
+          "Jelinčič et al. §3 Def. 3.1 and Props. 3.2–3.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact same-day scalar record has the same doubled-area functional and squared Bayes risk but one noisy scalar sample per coordinate, with a shared precision budget",
+          "The focused web query returned general Brownian-bridge background rather than an exact design theorem"
+        ],
+        "reasoning": "Half-area rescales risk by 1/4 but leaves designs equivalent; scalar asynchronous versus two vector times is not a scalar rescaling or a normalization difference. The difference in available data remains under coordinate exchange.",
+        "searches": [
+          "Local Resultary on Brownian bridge Lévy-area noisy sampling and exact Bayes design",
+          "Literature search: (Lévy area OR stochastic area) Brownian bridge optimal observation times noisy samples conditional expectation Bayes risk two knots"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected same-day record describes a monotone scalar-design spacing law, not the present cubic turning point; the general references are approximation comparisons, not an exact optimum table for this observation model"
+        ],
+        "reasoning": "A matching table would have to specify the measurement channels and Gaussian noise normalization, not just list trisection or a limiting optimum. No independent such table surfaced.",
+        "searches": [
+          "Resultary exact optimum/turning-law search and targeted Lévy-area observation-time literature query"
+        ]
+      },
+      "rationale": "The supported distinct result is the positive-noise two-vector-knot optimum and its nonmonotone law; neither the classical noiseless conditional-area identity nor generic Gaussian regression is claimed as new. The closest same-day Resultary theorem overlaps substantially in target and Bayes criterion, but concerns a different measurement operator and does not cover this design.",
+      "residual_risks": [
+        "Bounded searches and targeted primary passages are not a historical priority certification. An unindexed exact design theorem could exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material topical overlap but not equivalent coverage; same date does not establish priority",
+          "evidence": "Exactly one noisy scalar reading of each axis; p+q=P; two coordinate-swapped optimizers and a monotone spacing law.",
+          "identifier_or_url": "2026/11/22/SCOPE-optimal-asynchronous-scalar-observations-of-brownian-bridge-l-vy--3bfae7f063eb",
+          "material_read": "RESULT.md, offset 0, exact theorem and observation assumptions",
+          "method": "Local Resultary mirror",
+          "title": "Optimal asynchronous scalar observations of Brownian-bridge Lévy area",
+          "trigger": "Strongest same-target, same-criterion match"
+        },
+        {
+          "assessment": "Different approach and criterion in the inspected passage",
+          "evidence": "Compares Fourier and polynomial Brownian-bridge expansions and area approximation errors.",
+          "identifier_or_url": "https://arxiv.org/pdf/2102.10095",
+          "material_read": "PDF pp. 1–2, offset 2289",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Brownian bridge expansions for Lévy area approximations and particular values of the Riemann zeta function",
+          "trigger": "Primary bridge-area approximation comparison"
+        },
+        {
+          "assessment": "Related algorithms, not the stated placement result",
+          "evidence": "Compares costs and errors of iterated-integral approximation algorithms.",
+          "identifier_or_url": "https://doi.org/10.1007/s11075-022-01401-z",
+          "material_read": "PDF pp. 28–30, offset 4877",
+          "method": "Lawful OA primary passage inspection",
+          "title": "An analysis of approximation algorithms for iterated stochastic integrals and a Julia and Matlab simulation toolbox",
+          "trigger": "Established area simulation and cost comparisons"
+        },
+        {
+          "assessment": "Different conditioning data and task",
+          "evidence": "Decomposes bridge Lévy area and studies generation conditional on a Brownian increment.",
+          "identifier_or_url": "https://arxiv.org/pdf/2308.02452",
+          "material_read": "§3 PDF p. 6, definition and propositions, offsets 24146–29824",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Generative Modelling of Lévy Area for High Order SDE Simulation",
+          "trigger": "Closest primary conditional-area formulation inspected"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and Proof §§1–4",
+        "Same-day Resultary scalar-design comparison"
+      ],
+      "rationale": "Lévy area is a standard nonlinear bridge functional. Even with only two full position measurements, noise changes the exact design in opposite directions at low and high noise. The scientific point is this strict reversal and unique algebraic turning variance, not the modest numerical gain: the exact Bayes risk exposes the trade-off between the area determinant and the observation covariance and provides a test case for noise-dependent area designs.",
+      "residual_risks": [
+        "No claim for adaptive or arbitrary linear measurements, more knots, correlated noise, or general SDE convergence."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

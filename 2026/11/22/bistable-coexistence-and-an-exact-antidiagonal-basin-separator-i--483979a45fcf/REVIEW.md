@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The exact oddness reduction makes the antidiagonal invariant and reduces antipodal two-cycles to the two roots of \((s-1)e^{-s}=(1-2b)/a\). Strict monotonicity of the radius dynamics for every \(r\ge1\), together with strict contraction in modulus for \(0<r\le1\), proves the complete antidiagonal basin partition. Exact Jacobian eigenvalues separately establish a saddle inner cycle, an outer sink and an origin sink. Taylor's theorem and logarithmic inversion give the threshold and escaping-radius asymptotics. The standard-library numerical checker passed the declared finite checks; it is supplementary and not substituted for proof.
+## correctness
 
-## Originality
-**PASS within examined evidence, with residual priority risk.** The full 2023 source [1] describes numerical critical curves and synchronization, but not the analytic low-gain global antidiagonal basin theorem. A directly related published 2026 result [2] completely handles compact absorption versus escape; it explicitly leaves finite attractors and their basins unclassified. The Lambert-W root equation and fold are equivalent by a coupling shift to an existing antiphase fixed-point calculation; they are credited as a reused algebraic component, **not** treated as novelty independently. The distinctive contribution is the strict whole-antidiagonal basin partition and the full-plane coexistence of a fixed-point sink with a two-cycle sink separated by a saddle two-cycle. The older output-coupled and sine-coupled constructions have different maps. No search can conclusively rule out unknown prior work.
+PASS
 
-## Value
-**PASS.** The global antidiagonal separation is a natural invariant-manifold basin problem suggested by the 2023 model's synchronized and nonsynchronized attractors. The exact coexistence interval and diverging attracting cycle quantify a nontrivial phase of the model inside its already-known globally absorbing parameter region. The result complements rather than duplicates numerical parameter portraits and the boundedness theorem.
+On the invariant antidiagonal T(x)=f_a(x)-2bx is odd. The primitive antipodal-cycle equation is h(s)=(s−1)e^(−s)=(1−2b)/a, s=r²; the stated strict band is exactly 0<(1−2b)/a<e^(−2), with two branches separated by s=2. For 0<r≤1 the modulus contracts. On r≥1 the radius map is increasing because G′=2b−a e^(−s)(2s²−5s+1)>1−a(e^(−2)+8e^(−3))>0. Its displacement sign, monotonicity and continuity give all three claimed limit cases, in particular no overshoot and convergence from arbitrarily large finite radii. At the antipodal points the same Jacobian occurs twice by evenness of f′; eigenvalues of the return map are the squares of the symmetric and antisymmetric one-step factors. The displayed bounds give a contracting symmetric factor, with antisymmetric factor below −1 at the inner branch and in (−1,0) at the outer branch. Both origin factors a and a−2b have modulus below one. This is the endomorphism sink criterion, allowing a zero multiplier. The sinks have ambient open basins; the exact partition concerns only the antidiagonal. For the endpoints, h″(2)=−e^(−2) yields the stated fold coefficient. For the outer large root g(s)=s−log(s−1)=L, the trial s=L+log L gives residual O(log L/L) while g′ is bounded away from zero there, justifying the stated error. The contents of verify.py were inspected; finite cases are diagnostics, not the proof.
 
-## Scientific limitations
-Only the indicated one-dimensional invariant submanifold has a global basin classification; arbitrary full-plane initial states are not assigned to basins. Other planar cycles have not been excluded. All assumptions, nonhyperbolic endpoints, source comparison limits and lack of independent audit are explicit in the result and verification note.
+## originality
 
-## Closest sources
-- [1] Y. Soula et al., *Dynamics and Global Bifurcations in Two Symmetrically Coupled Non-Invertible Maps*, Mathematics 11 (2023), 1517, https://doi.org/10.3390/math11061517 (full HTML article inspected)
-- [2] *A sharp global boundedness interval and logarithmic critical escape in a coupled Gaussian map*, https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-a-sharp-global-boundedness-interval-and-logarithmic-critical-esc--f463338d3c52 (full RESULT.md examined)
-- [3] M. Ding and W. Yang, Physical Review E 54 (1996), 2489, https://doi.org/10.1103/PhysRevE.54.2489 (abstract only)
-- [4] Y. Soula et al., Applied and Computational Mathematics 11 (2022), 18–30, https://doi.org/10.11648/j.acm.20221101.12 (abstract only)
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The supported distinct claim is the exact antidiagonal basin partition on the full real line in the strict low-gain band, with its full-plane period-two Floquet split and coexistence with the origin sink. The frozen record already excludes the shifted fixed-point root count and fold as independent novelties. The positive-detuning escape-clock record cites this very frozen result for the outer-cycle scale, rather than providing independent earlier coverage of the basin partition. The distinct same-day fixed-point theorem proves material root/fold overlap, not the positive-coupling dynamics.
+
+## value
+
+PASS
+
+The exact sink/saddle split and full antidiagonal basin separator answer a dynamical question left open by compact absorption and numerical stability charts: which attractor is approached from every amplitude along the invariant line, with two genuinely attracting objects in the plane. A stable two-cycle arbitrarily remote as b approaches the endpoint is a structural complement to parameter-by-parameter absorption. The value does not rest on reparameterizing a Lambert-W equation or on interpreting the line separator as the whole planar basin boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

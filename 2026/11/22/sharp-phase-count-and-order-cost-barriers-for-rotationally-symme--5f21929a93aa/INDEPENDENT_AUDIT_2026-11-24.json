@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:37:30.105541Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed p, roots-of-unity averaging deletes every Taylor term except positive degrees congruent to p modulo n (the zero degree was subtracted). If n>=p, the analytic Taylor remainder after filtering is O(|sigma X|^(p+1)) within a smaller holomorphic disk. Gaussian tails and global boundedness control its complement in L2 even with the factor sigma^(-p). Thus the limit is u^(p)(0) H_p(X) X^p/p!. For n<p the shared radial cutoff leaves exactly the two aliased monomials in RESULT.md:55–69. After rescaling by sigma^(p-m), the sample converges in L2 to H_p(X) X^m/m!, whose mean is zero by Gaussian integration by parts. Evaluating the Hermite product against X^(2m) gives the stated strictly positive C_(p,m) and the special value (2p+1)p!. For m=p, the mean is one and the second moment yields the binomial sum. In the Legendre integral at 3, put S=3+2 sqrt(2); near theta=0 the integrand base is S-sqrt(2) theta^2+O(theta^4). The half-Gaussian factor and central binomial coefficient give exactly (1+sqrt(2))/(pi 2^(5/4)) and growth base 2S. Probe averaging gives V_p/K in the fixed-order zero-radius limit, not in an arbitrary joint limit. Variance on the general complex class can be read as E|Y-EY|^2; the radial witnesses are real without any extra condition outside the disk. Independent replay: python3 /workspace/review_checks.py 1, 77 exact direct polynomial moment comparisons; the finite tests do not establish the limiting claims. The frozen checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Theorem 5 passage is stated under Assumption 4 and in the variance-stability regime; the primary fixed-order statement is credited as antecedent. The discrete scale-space paper returned by the literature lookup addresses discrete smoothing/derivative approximations, not this random Hermite probe."
+        ],
+        "reasoning": "No checked broader coverage was found for the adverse-regime rates and probe-order statement. A fixed-order stability result does not address sharp order growth, although its limiting random variable already supplies the moment to be evaluated.",
+        "searches": [
+          "arXiv:2611.19909v1, Assumption 4 and Theorem 5",
+          "RSSE versus discrete Gaussian smoothing derivatives; doi:10.1007/s10851-024-01196-9"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.19909v1",
+        "Resultary record SCOPE-20261122-5f21929a93aa",
+        "doi:10.1007/s10851-024-01196-9 (literature result description)",
+        "OEIS A001850 (identified sequence; page not retrieved)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The admitted prior fixed-order variance expression specializes to Var[H_p(X) X^p/p!] for a normalized jet. Equations (13)–(14) were directly located; the requested full continuation at (17) and (27) could not be independently retrieved on follow-up."
+        ],
+        "reasoning": "The fixed-order expression is not a new theorem; the sharp rate follows by recognizing and analyzing its moment sum. The sufficient inequality alone does not imply necessity or a specified rate of variance divergence for bounded localized inputs.",
+        "searches": [
+          "arXiv:2611.19909v1, §3.2 (13)–(17), §4 Theorem 5 (26)–(27)",
+          "RSSE witness variance Legendre/central Delannoy growth"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equation (14) already performs root-of-unity Taylor alias filtering. A negative alias index is possible below p phases, but an alias of a formal polynomial is not itself a counterexample in the globally bounded class."
+        ],
+        "reasoning": "The radial cutoff makes the alias a valid normalized witness and gives an exact finite-radius sample law from which the second-moment blowup follows; the filter is a proof ingredient, not the claimed sharp classification.",
+        "searches": [
+          "arXiv:2611.19909v1, §3.2 eqs. (13)–(14)",
+          "RSSE discrete/rotational Gaussian derivative variance with a phase threshold and growing derivative order"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest catalogue hit, SCOPE-20261122-5f21929a93aa, is the frozen record itself, not distinct evidence of priority. Algebraically the normalized moment sum is 2^(-p) times the central Delannoy number sum_j binom(p,j)^2 2^j, by k to p-k. The exact integer sequence component and its Legendre form are classical."
+        ],
+        "reasoning": "Neither the classical sequence nor merely rescaling it is a new calculation in isolation; the relevant comparison is the link to normalized admissible RSSE witnesses and the phase/sample resource laws.",
+        "searches": [
+          "Resultary: rotationally symmetric Stein estimator Gaussian derivative bad phase count and exponential high-order variance",
+          "OEIS A001850, central Delannoy numbers (identified exact alias; retrieval timed out)"
+        ]
+      },
+      "rationale": "Credit the published sufficient phase count, root filter and fixed-order Gaussian moment structure to Fang et al. The distinct contribution supported by this comparison is necessity on the same bounded locally holomorphic class with exact bad-phase rates, plus identification of the sharp sequential sampling cost for these admissible RSSE witnesses. Neither the special functions nor their asymptotics are new in isolation.",
+      "residual_risks": [
+        "The unread portions of arXiv:2611.19909v1 could contain more explicit algebraic overlap with the finite-p expression; no full-document exclusion is asserted.",
+        "A published exact alias-instability result or general Gaussian polynomial moment treatment under different terminology could make one of the specialized conclusions prior."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly supports filter and adequate-phase theorem context; prior fixed-order structure is not counted as original. No inspected passage establishes the adverse-phase and growing-order claims.",
+          "evidence": [
+            "§3.2 eq. (14): root-of-unity selection rule",
+            "§4 Theorem 5 under Assumption 4, fixed-order theorem context"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.19909v1",
+          "material_read": "HTML near (13)–(14) and start of Theorem 5 (text around offsets 18,690 and 29,554); requested continuation near (17) and (27) was unavailable. Attribution of the full fixed-order expression is supported also by the frozen package, not represented as a full-text independent reading.",
+          "method": "Locate exact equations and theorem in lawful arXiv HTML; bounded follow-up at the continuation.",
+          "title": "Variance Stable Gaussian Smoothing Estimator for Arbitrary High-order Derivatives",
+          "trigger": "Same estimator and admissibility class; plausible coverage of both resource boundaries."
+        },
+        {
+          "assessment": "Identical record, not a distinct priority source.",
+          "evidence": [
+            "Identical exact-rate bad-phase witness and normalized high-order variance."
+          ],
+          "identifier_or_url": "SCOPE-20261122-5f21929a93aa",
+          "material_read": "Catalogue claim and assigned RESULT.md:3–52, 104–114.",
+          "method": "Match the catalogue identity and exact claim to the frozen record.",
+          "title": "Sharp phase-count and order-cost barriers for rotationally symmetric Gaussian derivative estimation",
+          "trigger": "Closest Resultary hit with identical mathematical formulation."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Variance stability as smoothing vanishes is distinct from affordability as derivative order rises. A normalized admissible family pinpoints the necessary phase budget and demonstrates why additional phases cannot reduce independent-probe cost on that family. This is a specific estimator diagnostic, not an estimator-independent lower bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

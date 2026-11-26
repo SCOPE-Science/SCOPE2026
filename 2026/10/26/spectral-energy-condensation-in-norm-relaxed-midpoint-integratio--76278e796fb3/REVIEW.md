@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact relaxation equation has a unique nonzero positive root, each modal squared-norm multiplier and the pairwise comparison are algebraic identities, and uniform contraction of lower/top ratios proves the all-step selection law. Summably decaying factor perturbations give exact geometric asymptotics. An explicit-Euler consistency comparison on the compact conserved simplex supplies a uniform \(O(h^2)\) slow-time error, while the relaxed time is \(nh(1+O(h^2))\). Exact-rational and numerical checks are reproducible in `verify.py`; finite testing is not used as an infinite proof.
+## correctness
 
-**Originality — PASS (best-knowledge, with residual risk).** Ketcheson (arXiv:1905.09847v1) established the single-norm relaxation framework. Ranocha–Ketcheson (arXiv:2001.04826v2, Section 3.4) explicitly reported that shared relaxation couples two otherwise independent oscillators, for a different fourth-order method. Bleecke–Ranocha (arXiv:2311.14050v1) investigated the relaxed time convention, step-size control and a single-frequency oscillator; Biswas–Ketcheson (arXiv:2302.05235v1) introduced multiple-invariant relaxation. The claimed new result is neither the framework nor generic coupling, but the *exact irreversible fastest-mode selection for all base steps, sharp decay rates and the \(h^{-3}\) slow-time law for global-norm-relaxed explicit midpoint*. Searches and statement/implication comparisons found no covering theorem. Literature outside the inspected works may contain an equivalent result.
+PASS
 
-**Value — PASS.** Many decoupled-frequency systems possess independent exact actions or modal squared norms, so preserving only their sum leaves an important qualitative question. The theorem demonstrates that a seemingly conservative integrator can have a globally attracting, incorrect numerical modal-energy distribution, quantifies the irreversible transfer and identifies a long-time scale not visible in finite-time order analysis. The result is a substantive boundary for one-invariant relaxation, not an arbitrary numerical parameter sample.
+The relaxation quadratic factors into the zero root and one positive root because the active modes have nonzero increments. Each step is multiplication on mode j by the complex scalar 1-gamma t_j/2+i gamma sqrt(t_j), so the squared multiplier is strictly positive and the initial active set persists. Substitution gives (1), and subtracting the two multipliers factors as (t_*-t_j)(t_*+t_j-Q)/[4(1+Q/4)^2]. For t_j<t_* it has a positive lower bound on the compact admissible Q-interval, giving a uniform lower/top ratio contraction at each fixed h>0. Equal top frequencies retain their initial ratios. Conservation yields (2) and exponential convergence of Q to t_*, so the multiplicative deviations from the positive limiting factor rho_j are summable; their positive convergent product gives (3). The recurrence divided by h^4 is the smooth simplex field in (4) times 1+O(h^2), uniformly on the simplex, and the summed local defect and discrete Gronwall give (5) on bounded slow times. The physical clock uses the actual gamma increments. For distinct initially active frequencies, the top share is strictly increasing in the limit field while the recurrence changes by at most O(n h^4) before that scale; if the active frequencies are all equal, there is no transfer. Separating the two-mode equation gives (6). Independent bounded replay (python -B /workspace/checks/bounded.py) checked the quoted share to 50-digit working precision, and direct complex midpoint increments with two tied top modes and a faster inactive mode at two base steps. These checks are not proofs of the asymptotics.
 
-**Scope and risks.** The claim is for finitely many positive frequencies and the original single-parameter exact-arithmetic relaxed explicit midpoint; no stochastic, variable-step, higher-order or nonlinear extension is asserted. The source paper's earlier acknowledgment of generic coupling and the possibility of equivalent earlier stability analysis limit originality confidence; neither is misrepresented as a new result or ruled out categorically.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the all-positive-step explicit-midpoint selection of the largest initially active frequency, with geometric rates and its sharp, bounded-rescaled-horizon limit. Neither the algebraic framework nor the qualitative observation of numerical coupling under one shared relaxation scalar is novel.
+
+## value
+
+PASS
+
+The premise that exact conservation of total energy protects each uncoupled oscillator is refuted in a natural textbook method/model pairing. The incorrect attracting distribution, sharp per-mode decay, and physical horizon for order-one transfer quantify a structural limitation of using one constraint in a problem with many true invariants; this is not merely an observed drift in a sample simulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

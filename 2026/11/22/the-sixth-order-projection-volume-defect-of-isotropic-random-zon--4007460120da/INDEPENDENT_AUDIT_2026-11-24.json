@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:47:42.436284Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a unit vector u the planar zonotope area is the sum of |u·(v_i×v_j)| over distinct index pairs. Thus the projection body has centered segments [−v_i×v_j,v_i×v_j]; converting each to [0,2v_i×v_j] translates the sum and gives the factor 8 in its three-volume. For nonnegative scalar multipliers on the generators, both normalized terms are homogeneous degree-six polynomials. Saroglou's five-segment equality annuls the restriction of their difference to every support of size at most five. Independently, every repeated-label term can be matched using (a×b)×(a×c)=det(a,b,c)a: the repeated-index patterns are a triangle for (2,2,2), two paths with the given internal labels for (2,2,1,1), and the six choices of a two-edge path and disjoint edge for (2,1,1,1). The surviving squarefree coefficient is the full six-generator deficit, nonnegative by Saroglou; lower-dimensional degeneracies have both three-volumes zero. For each six-set there are 20 ordered complementary triple terms and 15 perfect matchings. The first terms have expectation (π/8)², since the mean cross length is π/4 and the conditional mean absolute scalar projection of a uniform direction is 1/2. For each matching the three crossed vectors are independent and isotropic, with independent uniform directions and mean lengths π/4, giving (π/4)³(π/8). Subtraction of these bounded six-unit-vector contributions gives 5π²(32−3π²)/512, positive. Multihomogeneity and independence factor out the six first radial moments; the finite sum has finite expectation and no difference of divergent expectations is taken. For the example with infinite second moments, any nondegenerate triple supplies the product of the three squared radii in a lower bound for both volume terms (use the triangle of cross-product generators for the projection body). Empty six-sets give zero, including n<3. This is an exact reconstruction of the proof without executing the frozen program; its integer examples and Monte Carlo are only corroboration. No correlated or anisotropic extension is implied.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Breiding et al. Prop. 4.15 and Thm. 5.4 give projection-body representations and an abstract block determinant formula. Averkov et al. Thm. 7.1 constrains complementary mixed-volume products of six zonoids."
+        ],
+        "reasoning": "The first is general toolkit; it does not evaluate the difference or isolate the terms with independent pairs. The second treats complementary mixed-volume products, not determinants of three cross products in the isotropic projection-body deficit.",
+        "searches": [
+          "arXiv:2109.14996 projection body and independent-block expected determinants",
+          "10.1007/s13366-026-00863-9 Section 7 six-zonoid mixed-volume inequalities"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1112/S0025579311001860 (access limited)",
+        "arXiv:1409.4347v1",
+        "arXiv:2109.14996",
+        "DOI 10.1007/s13366-026-00863-9",
+        "Resultary 31c1b1c50e42, 37a615ec3089, 7b69f24d31ab, 0e670b9e8cf5 and self-hit 4007460120da"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known five-generator equality plus polynomial homogeneity gives degree-six squarefree support directly; Saroglou's sharp inequality gives pointwise nonnegativity. The observed stochastic expression also needs matching-specific cross-product isotropy, lengths and independence and the complementary triple contribution."
+        ],
+        "reasoning": "Credit the mechanically implied deterministic part. A variance formula or a general absolute determinant identity applied to a single independent block would not supply this weighted difference, normalization or cancellation under infinite second moments. The explicit coefficient and finite-sample expectation are the accepted scope.",
+        "searches": [
+          "Saroglou 2011 DOI 10.1112/S0025579311001860 and 2014 Theorem A",
+          "Breiding et al. Prop. 4.15 and §5.2 independent-block determinant theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Saroglou arXiv:1409.4347v1 p.3 Theorem A gives the sharp ratio and equality; catalog record 31c1b1c50e42 §Finding gives mean and variance of ordinary zonotope volume for the unit ensemble."
+        ],
+        "reasoning": "The difference involves V(Pi Z) as well as V(Z)^2. The deterministic equality cases or mean and variance of V(Z) alone cannot supply the evaluated deficit. The joint first-moment and heavy-tail assertion is about the pointwise difference, not the quotient.",
+        "searches": [
+          "random isotropic zonotope expected projection-body volume six-generator squarefree deficit first moments",
+          "expected V(Z)^2 minus V(Pi Z)/8 3D independent sphere directions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "4007460120da is the assigned record, not independent evidence. Catalog 31c1b1c50e42 and 7b69f24d31ab compute ordinary volume or intrinsic-volume moments; 37a615ec3089 computes a deterministic polytope projection-body quotient range; 0e670b9e8cf5 gives an anisotropic volume crossover."
+        ],
+        "reasoning": "These statement-level comparisons do not give a stochastic projection deficit of segment sums. No priority inference is drawn from same-day dates or from an unsuccessful web query.",
+        "searches": [
+          "exact sixth-order projection volume defect of isotropic random zonotopes",
+          "isotropic zonotope exact volume expectation and projection body six-normal quotient"
+        ]
+      },
+      "rationale": "The distinct supported contribution is the evaluated finite-sample isotropic projection-volume deficit with arbitrary independent finite-mean radii. The inequality and five-segment equality are prior; the deterministic squarefree support identity is a direct coefficient consequence of that equality and the elementary zonotope formulas, and should not be read as a standalone priority claim. None of the compared statements gives the evaluated stochastic coefficient and the resulting finite expectation even in the absence of second moments. General expected-determinant machinery becomes applicable after identifying the squarefree terms and which of their random input blocks are independent.",
+      "residual_risks": [
+        "The 2011 full proof was inaccessible; it could already organize the deterministic difference by six-label contributions. This deterministic deduction is not relied on for originality.",
+        "An unindexed or unidentified treatment may already evaluate the isotropic projection deficit; the comparison is bounded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes the core analytic inputs, with a fuller equality class than needed",
+          "evidence": [
+            "P(K)=V(Pi K)/V(K)^(d−1); in d=3, P(K)≤8, with equality for sums of five segments or cylinder plus segment."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1409.4347v1",
+          "material_read": "Definition of P(K) p.2 (4869), and Theorem A p.3 (around 9532)",
+          "method": "Read open primary restatement by Saroglou",
+          "title": "On the shape of a convex body with respect to its second projection body",
+          "trigger": "Exact sharp inequality and equality class used for cancellation"
+        },
+        {
+          "assessment": "The required premise is verified in the later primary restatement; detailed 2011 proof or extra formulas not ruled out",
+          "evidence": [
+            "The author explicitly attributes Theorem A to the 2011 work; the publisher full-text route was unavailable and no lawful repository copy was identified."
+          ],
+          "identifier_or_url": "https://doi.org/10.1112/S0025579311001860",
+          "material_read": "Bibliographic citation and the theorem attributed to it in the accessible 2014 restatement; not the 2011 article body",
+          "method": "Lawful publisher DOI access attempt and open restatement comparison",
+          "title": "Volumes of projection bodies of some classes of convex bodies",
+          "trigger": "Original article proving the sharp theorem and potentially containing stronger decompositions"
+        },
+        {
+          "assessment": "General representation and expectations, not the particular evaluated difference",
+          "evidence": [
+            "Prop. 4.15 uses the same projected-area support function for unit directions; Thm. 5.4 gives a general expected absolute determinant for independent blocks."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2109.14996",
+          "material_read": "Prop. 4.15 p.27, offset 102300; Thm. 5.4 in §5.2 pp.30–31, offsets 113000–119446",
+          "method": "Read OA primary propositions and compared random input structure",
+          "title": "The zonoid algebra, generalized mixed volumes, and random determinants",
+          "trigger": "General formulas potentially covering the isotropic calculation"
+        },
+        {
+          "assessment": "Related six-zonoid cone, not a projection-body expectation",
+          "evidence": [
+            "The 130 inequalities are on complementary mixed-volume products V_I V_(I^c)."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s13366-026-00863-9",
+          "material_read": "§7, Thm. 7.1, pp.21–22, offsets 59400–64748",
+          "method": "Read open primary statement and checked its coordinates",
+          "title": "Mixed volumes of zonoids and the absolute value of the Grassmannian",
+          "trigger": "Same dimension and six-label determinant-product setting"
+        },
+        {
+          "assessment": "Only ordinary zonotope volume moments and fluctuations, not the projection deficit",
+          "evidence": [
+            "The stated exact mean and variance concern V(Z_n) for unit generators, not V(Pi Z_n)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-second-order-volume-fluctuations-of-isotropic-three-dimensional--31c1b1c50e42",
+          "material_read": "RESULT.md Finding from offset 0",
+          "method": "Read catalog mirror's original statement",
+          "title": "Second-order volume fluctuations of isotropic three-dimensional random zonotopes",
+          "trigger": "Closest distinct exact moments in the same sphere-uniform ensemble"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact expected gap in a sharp geometric inequality identifies the first generator count at which a positive average gap can occur and its dependence on heterogeneous lengths. The first-moment threshold is substantive: the natural two expected volumes can both diverge while their pointwise gap has a simple finite law for its expectation. The statistic is not a re-evaluation of the known deterministic extremal value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

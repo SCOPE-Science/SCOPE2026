@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The normalization of the sixth-power extension quotient is checked directly by additive-character orthogonality. The triple-fiber count, binary-quadratic character sums, affine-symmetry reduction, real/imaginary Taylor coefficients, and normalized denominator correction are reconstructed in the proof. The critical exact identities are reproduced by the packaged checker for field orders \(5,7,11,13,25\). Finite checks are supplementary and do not prove the all-prime-power assertion; the analytic counting argument does.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The focal paper [1] supplies the sharp sixth-moment inequality for \(p>3\) but not the full two-band Hessian. A publicly indexed characteristic-three result reports the same algebraic bands for \(q=3^n\), a disjoint characteristic domain; its assertion does not imply the present \(p\ge5\) theorem. An anisotropic paraboloid Hessian has a different domain and exponent. Full-text examination and targeted indexed-result comparisons did not identify the claimed characteristic-\(p>3\) exact Hessian. Relevant indexed full packages were inaccessible and unindexed earlier work might still cover it; these risks remain.
+PASS
 
-## Value — PASS
-The sharp local stability constant \(3(q-2)/q\), its precise phase eigenvectors, the strictly larger amplitude eigenvalue, and their multiplicities provide the natural local spectral stability data for a globally sharp finite-field Fourier-extension inequality. The result holds across all finite fields in the complete characteristic-greater-than-three range, not an arbitrarily selected finite example.
+Character orthogonality gives J=S/[q(sum |f|²)³], so at 1 the denominator is q⁴. Translation by s/3 reduces the fiber to a binary form of discriminant square class −3, giving N=q−κ+qκ·1_{t=s²/3} and S(1)=q²(q²+q−1). For any real mean-zero h, fixing one coordinate gives L=3Σ_a h(a)χ(D_a); the character Gram matrix has diagonal q(q−1) and vanishing off-diagonal because D_a−D_b runs through the entire field as s varies for a≠b. Thus ΣL²=9q(q−1)Σh². Fixing an ordered pair gives the N-summed curve weights q² on the diagonal and q(q+1) off it, since the residual conic equation has 1 and 1+κ roots, respectively. Hence ΣNQ=−3qΣh². In the real and imaginary directions the numerator's quadratic terms are ΣL²±2ΣNQ; the energy normalization additionally subtracts 3S(1)Σh²/q. Dividing by q⁴ and converting to normalized L² yields the two stated deficit half-Hessian bands. The first variation vanishes at the extremum; conjugation eliminates mixed terms and scaling eliminates the complex constants. A fixed-field uniform Taylor remainder on the slice with mean one gives the sharp local limit, attained asymptotically in imaginary mean-zero directions. Theorem 1.3 and its two cases in §6 verify the imported global bound. At RESULT.md:18 'quadratic-character' denotes the additive chirps defined at line 81, not a multiplicative quadratic character. RESULT.md:23–81 is the all-field replay; the supplied script tests exact counts in five fields but does not implement the separately reported Fourier diagnostics, and it was inspected rather than executed here.
 
-## Limitations and evidence
-The statement does not assert a uniform quantitative neighborhood, global deficit identity, or newly discovered maximizer classification. The attached script checks selected fields, including a quadratic extension, while the proof applies to every finite extension. Literature scope and search limitations are in the structured originality record.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The global constant and extremizing symmetries are prior. The supported distinction is the exact normalized second variation and optimal transverse coefficient for all characteristic greater than three. The closest exact formula has a disjoint characteristic hypothesis and a different counting argument; none of the compared sources gives broader coverage or a specialization yielding these bands.
+
+## value
+
+PASS
+
+Sharp global control does not quantify near-equality. For the full characteristic-greater-than-three family, this gives the optimal local quadratic coefficient, identifies precisely the weakest directions, and resolves the small but exact 12/q² separation of phase and amplitude curvatures. It is useful fixed-field information independent of any global or uniform-neighborhood stability assertion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

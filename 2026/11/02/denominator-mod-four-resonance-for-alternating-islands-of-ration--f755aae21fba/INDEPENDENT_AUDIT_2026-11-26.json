@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:45:24.906187Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–50",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)"
+      ],
+      "rationale": "A prescribed two-symbol affine return has a unique fixed point since lambda^2 is not one; repeating a single branch cannot yield primitive period two. The two mixed itineraries give u=lambda/(1+lambda)=1/2+ih and -u, and their strict signs verify admissibility. At u+delta the entire positive-starting alternating itinerary is equivalent to h+Im((-lambda)^k delta)>0 at every k, by induction using the affine branches. These constraints repeat after q steps. Their intersection is open, convex and consists of points whose full orbits avoid the real axis; since the intersection is open, no point in it is in the closure of its preimages. On a regular component the sign of each iterate is locally constant, so no component containing this cell can extend beyond this complete itinerary class. The normals are the cyclic orbit of one normal under -lambda (up to inversion); its order is q/gcd(q,p+q/2). This gcd is 1 when 4 divides q and 2 when q=2 mod 4, because gcd(p,q/2)=1 and p is odd. All distinct normals are equally spaced, each at distance h, giving the stated regular polygons and areas. The two-step return is rotation by lambda^2 about the center; noncenters have least return period q/2, and a return under F must be even because F exchanges the cells. Thus the least period is q off the centers, and q=10 indeed gives pentagons.",
+      "residual_risks": [
+        "No claim is made about other itinerary components or the periods of boundary points."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem A gives centers of component period ell and other points of period k*ell for the return rotation of order k, covering that structure here once ell=2 and k=q/2 are computed. Theorem B bounds the even-denominator side count by q; its regularity rule uses gcd(ell,q)=1. Goetz–Quas likewise requires coprime component/orbit period and denominator for its regular-polygon conclusion."
+        ],
+        "reasoning": "The structural period theorem applies, but neither coprimality hypothesis holds for the even-denominator alternating components. An at-most-q bound cannot distinguish q from q/2.",
+        "searches": [
+          "Cima et al., Theorems A and B, pp. 3–4",
+          "Goetz–Quas, Lemma 11, pp. 13–14"
+        ]
+      },
+      "checked_sources": [
+        "Cima et al., Theorems A and B",
+        "Goetz–Quas, Lemma 11",
+        "Resultary 2c2c7a7af3f0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier period framework implies the least-period profile once the alternating cells and return are identified. The earlier side bounds and coprime-period theorems do not evaluate the distinct supporting normals at noncoprime period two. Area is elementary once h and the exact side count are known."
+        ],
+        "reasoning": "The real increment relative to the inspected earlier literature is the alternating-cell geometry and exact mod-four normal collapse; polygon area and period are consequences rather than separately new mechanisms. The later indexed theorem does imply the entire even-denominator claim.",
+        "searches": [
+          "Cima et al., Theorems A/B and low-angle comparisons in the frozen record",
+          "Goetz–Quas, Lemma 11",
+          "Resultary 2c2c7a7af3f0, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Reflection by z->-z interchanges the cells away from the discontinuity. Folding by the alternating sign makes their local test a half-plane orbit under -lambda, so the side count is exactly ord(-lambda).",
+          "The broader indexed theorem uses the same alternating center, inradius and side-count split; its off-center period 2q/gcd(q,2) is q on the assigned even family."
+        ],
+        "reasoning": "The order formulation and the mod-four formulation agree exactly. The broader indexed statement is a direct match on the assigned domain, rather than a similar geometric example.",
+        "searches": [
+          "Cima–Gasull–Mañosa–Mañosas, arXiv:2306.17543, symmetric half-plane piecewise linear rotations",
+          "Goetz–Quas, Global properties of a family of piecewise isometries, Lemma 11",
+          "Resultary 2c2c7a7af3f0, exact alternating-island area law"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct indexed Finding states the same N(q), h and two-component area, as well as the same least periods when restricted to even q. It also covers odd denominators and irrational angles. Its path is listed Nov. 8 versus Nov. 2 for the assigned record."
+        ],
+        "reasoning": "This is exact coverage by a broader indexed result, with a later listed path; actual chronology or the records' relationship is not certified by those dates.",
+        "searches": [
+          "Resultary meaning search: alternating islands of symmetric half-plane rotations, denominator mod four; exact hit 2c2c7a7af3f0"
+        ]
+      },
+      "rationale": "Credit the general regular-set polygon and period framework, and the known square and triangle examples. The distinct supported increment is the exact even-denominator law for the period-two components outside the coprime-period regularity theorem, including the normal coincidence for q=2 mod 4 and the resulting metric profile. A distinct, broader catalogue record explicitly covers the same law and is listed later; this is genuine statement-level overlap, not evidence that the assigned finding was already known before its listed record.",
+      "residual_risks": [
+        "The relationship and actual priority of the two indexed results are not independently established. Other formulations under folded piecewise rotations or billiards terminology were not exhaustively excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General period structure and side bound are prior; coprime regularity does not cover period two here",
+          "evidence": "Theorem A uses a rotation of order k on component return; Theorem B(a) has at most q sides for even q, while (b) requires component period coprime to q.",
+          "identifier_or_url": "https://ddd.uab.cat/pub/artpub/2024/307719/CimGasManMan2023a-Postprint.pdf",
+          "material_read": "Theorems A and B, pp. 3–4, offsets 4800 and 6350",
+          "method": "Lawful author-archived PDF passages",
+          "title": "On some rational piecewise linear rotations",
+          "trigger": "Same map, regular components and side counts"
+        },
+        {
+          "assessment": "Regularity under a nonapplicable hypothesis",
+          "evidence": "The orbit period must be coprime to the denominator; period two with an even denominator fails the hypothesis.",
+          "identifier_or_url": "https://web.uvic.ca/~aquas/papers/paper28.pdf",
+          "material_read": "Lemma 11, pp. 13–14, offset 54975",
+          "method": "Lawful author full-text PDF passage",
+          "title": "Global properties of a family of piecewise isometries",
+          "trigger": "Earlier polygon theorem for equivalent piecewise isometries"
+        },
+        {
+          "assessment": "Same even-denominator law as a special case; later listed record",
+          "evidence": "The same even side split, inradius and pair-area law are explicit, with period q for off-center points in the even-denominator case.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-the-exact-alternating-island-area-law-for-symmetric-half-plane-r--2c2c7a7af3f0/RESULT.md",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "Local mirror",
+          "title": "The exact alternating-island area law for symmetric half-plane rotations",
+          "trigger": "Exact indexed overlap in a wider angle range"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–24 and 39–50",
+        "Cima et al., Theorem B"
+      ],
+      "rationale": "The unique primitive two-cycle is a natural distinguished part of the established map. The calculation resolves its maximal cells precisely in a noncoprime regime missed by the general regularity theorem, with infinite families attaining the general side bound or having only half as many sides. This makes the pentagons at q=10 an exact geometric example of the resonance, not a numerical pattern or a special-angle restatement.",
+      "residual_risks": [
+        "This does not strengthen the general side bound for nonalternating components."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

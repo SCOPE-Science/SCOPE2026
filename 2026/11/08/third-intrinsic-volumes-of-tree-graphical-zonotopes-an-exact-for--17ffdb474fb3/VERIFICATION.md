@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Reproduction of finite checks
+# Independent mathematical audit
 
-The standalone `CHECKER.py` builds all incidence vectors and integer Gram determinants for every unordered three-edge subset of every unlabeled tree on \(6\le n\le11\). It checks the individual determinants \(4,6,8\), recomputes both sides of the stated intrinsic-volume identity, counts matchings and four-vertex paths directly, and compares all trees with the prescribed unique extremizers. It separately verifies the two same-degree six-vertex spiders.
+## correctness
 
-Run `python -m pip install -r requirements.txt` and then `python CHECKER.py`. One completed run using Python 3 and NetworkX 3.6.1 printed:
+PASS
 
-```
-THIRD_INTRINSIC_TREE_ZONOTOPE_CHECKS_PASSED 428 40821 416
-SPIDER_EXACT_DIFFERENCE 0.07055236082016547
-```
+Under the stated Steiner normalization the generator-wedge sum gives V_3. By Cauchy–Binet, each forest component contributes its vertex count to the Gram determinant, since every maximal incidence minor obtained by deleting a row has determinant ±1. The only triple determinants are 4,6,8. Counting disjoint edge-pairs inside triples gives (m−2)M_2=P_4+2b+3M_3, where b counts triples with two components. Any nonstar has a three-edge path; taking its end edges and an edge outside that path gives a disconnected triple and hence strict star minimality. Leaf deletion bounds the three-matching count by the path value, and the strict path advantage in D=(m−2)M_2−P_4 is (m−2)(Σ_v binom(deg(v)−1,2)−1)+P_4(T)>0 for nonpaths (separate star case). The positive coefficients, path run counts, gap, ratio and two spider counts all check. `python3 /workspace/reviews/evidence/reproduce.py 4` independently enumerated 1,296 and 16,807 labeled trees of orders 6 and 7 by Prüfer codes, checked the determinant counts and detected exactly the labeled stars and paths at equality. This finite replay supplements the proof; the supplied checker was read, not run.
 
-The first line reports the 428 nonisomorphic tree cases, 40,821 triple determinant checks and 416 non-extremal cases with strict bounds. The exact symbolic spider difference and the general \(n\ge6\) theorem are established by the accompanying mathematical proof; numerical output only corroborates them. No independent mathematical audit has been performed.
+## originality
+
+PASS
+
+Supported for the matching/path reduction together with the sharp strict third-intrinsic-volume tree comparison and the resulting degree-sequence separation, not for the classical zonotope wedge formula or incidence-minor method. The strongest indexed neighbors treat different invariants or dense graphs, and the general zonotope theorem does not yield the strict tree comparisons without the additional structural argument.
+
+## value
+
+PASS
+
+The third intrinsic volume is a natural Euclidean invariant. Three familiar graph counts replace an exponential-search-style pattern description by a short exact formula, yield sharp extremizers with a strict equality criterion, and show degree data alone do not determine it. The structural maximum, rather than the finite spider computation alone, gives the main value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

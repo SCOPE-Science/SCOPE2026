@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:40:16.177788Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The allowed residues modulo each window prime p are the proper nonempty cyclic arc {k+1,...,p−1,0}. CRT identifies the admissible endpoints with their Cartesian product. A period preserves that product and therefore each projection; a nonzero translation cannot preserve a proper nonempty subset of a prime cycle. For r consecutive endpoints the tested intervals have union of length k+r−1, leaving max(p−k−r+1,0) residues modulo p. Summing the indicator of r ones bracketed by zeros gives its second difference, also for runs crossing the period boundary. The smallest p produces the exact cutoff g_k. For r<g_k, choose distinct window primes and use one to put a multiple immediately before, and the other immediately after, the central tested interval; both periods exceed its length plus one, and each remaining prime has an admissible central residue. CRT realizes both boundaries simultaneously. A single prime gives one cyclic arc. The known R_2=11 applies at x=2k for k≥6 (2k is not prime); k=2,3,4,5 have window primes {3},{5},{5,7},{7} respectively. Thus only 3 and 5 miss a length. The exception list uses R_2=11 in addition to the basic Bertrand nonemptiness input; clarify this if interpreting the final limitation as saying Bertrand alone is invoked. Independent replay: `python3 /workspace/review_calculations/small_cases.py windows` marks forbidden endpoints from multiples and measures the gaps between consecutive zeros over 18 complete periods. It checks all candidate prime-index period reductions and reproduces the k=7 histogram (2,2,2,3) and all exact frequencies against the formula. The replay is finite, not the proof for all k.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier Resultary ff65dda93828 gives CRT correlations of translates of regular residues and uses a second difference for consecutive clusters; f1ff76c679ca uses the same technique for square-gcd totatives. Their local congruence conditions are different from a cyclic forbidden interval of k residues at every prime k<p<2k."
+        ],
+        "reasoning": "The generic technique is prior. No theorem covering the relevant prime-window local intervals and all exact run lengths was identified by the bounded broader search.",
+        "searches": [
+          "Web: general exact sifted-set higher-order correlations and maximal runs",
+          "Resultary: exact cyclic run distributions from CRT correlations; ff65dda93828 and f1ff76c679ca"
+        ]
+      },
+      "checked_sources": [
+        "Tang 2025 density note",
+        "arXiv:2606.19863",
+        "Resultary 09de38d271fb (same record), ff65dda93828 and f1ff76c679ca (distinct)",
+        "OEIS A104272"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One-point density does not specify the stabilizer or clusters of a periodic word. Increasing r increases test width while keeping the original sieve primes fixed, so it is not a substitution k→k+r−1 in Tang's formula. Exact support needs the two boundary congruences and the prime multiplicity result."
+        ],
+        "reasoning": "These prior results give ingredients and close analogues, but neither changing the test length and prime window together nor importing a regular-residue histogram computes the target invariant.",
+        "searches": [
+          "Tang 2025 §1; van Doorn–Tang Theorem 1.1; ff65dda93828 Finding and maximal-run proof; f1ff76c679ca Step 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tang's residues are the same indicator, but §1 counts individual admissible endpoints. Van Doorn–Tang's n_k is the least admissible n>2k, and Theorem 1.1 restricts an initial interval, not consecutive admissible endpoints throughout the cycle. The exact Resultary hit 09de38d271fb is this frozen finding."
+        ],
+        "reasoning": "The new invariant is a run of successive endpoints passing the test, not the length of one tested factor block or the first n passing it. No alternate same-object statement was located in these passages.",
+        "searches": [
+          "Resultary: least period and all cyclic maximal admissible-endpoint clusters for Erdős #451",
+          "arXiv:2606.19863, abstract and §1",
+          "Tang 2025 density note, §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue match is the assigned record itself. The distinct run spectra count different residue systems. A104272 supplies R_2=11 and Tang supplies A_{k,1}, not R_{k,r} or the least period."
+        ],
+        "reasoning": "No independent exact table was found covering the new histogram; the separately checked small cases are evidence for correctness, not priority.",
+        "searches": [
+          "Resultary exact claim and nearby exact run-spectrum tables",
+          "OEIS A104272; Tang 2025 §1"
+        ]
+      },
+      "rationale": "Credit the one-point density and CRT box to Tang and the generic correlation-to-runs technique to prior work. The supported distinct claim is the least period and complete prime-window maximal-run distribution, particularly its exact support and two exceptions for this indicator. Neither the same-object density and first-hit results nor the inspected distinct residue-run theorems cover it as a stated or mechanically evaluated case.",
+      "residual_risks": [
+        "An older general correlation theorem specialized to fixed prime-window test length or an unindexed same-object derivation might trim the distinction. No priority certification; the generic CRT and second differences are not new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial prior coverage, one-point only in the checked section",
+          "evidence": [
+            "D_k=A_k/M_k with A_k=∏(p−k), from the same local residue test and CRT."
+          ],
+          "identifier_or_url": "https://github.com/QuanyuTang/Notes-on-Erdos-Problem-451/blob/main/Notes_on_Erdos_Problem_451_Density_and_Heuristics.pdf",
+          "material_read": "Abstract p. 1 and §1 p. 2 (OA offsets 700 and 3300)",
+          "method": "Read targeted passages of the author's linked OA PDF",
+          "title": "Notes on Erdős Problem #451: Density Estimates and Heuristic Evidence",
+          "trigger": "Same indicator and exact density"
+        },
+        {
+          "assessment": "First-hit result; does not supply the claimed periodic invariant",
+          "evidence": [
+            "Theorem 1.1 excludes eligible endpoints in an initial range above 2k."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.19863",
+          "material_read": "Abstract and §1, Theorem 1.1 on p. 1; reference [11] on p. 6",
+          "method": "Targeted arXiv PDF reading",
+          "title": "Consecutive Integers Free of Certain Prime Factors",
+          "trigger": "Same admissibility problem"
+        },
+        {
+          "assessment": "Methodological precedent on a different arithmetic set",
+          "evidence": [
+            "Its CRT products are for translates of regular residues modulo the modulus; its run frequencies are obtained by second differences."
+          ],
+          "identifier_or_url": "Resultary ff65dda93828",
+          "material_read": "Finding and run-histogram proof (OA offsets 0 and 4300)",
+          "method": "Local catalogue search and targeted mirrored RESULT.md reading",
+          "title": "Exact higher-order correlations and maximal runs of regular residues",
+          "trigger": "Exact correlation and maximum-run formalism over residue periods"
+        },
+        {
+          "assessment": "The same counting device but different residue restrictions",
+          "evidence": [
+            "Step 5 applies the second difference to square-gcd restrictions."
+          ],
+          "identifier_or_url": "Resultary f1ff76c679ca",
+          "material_read": "Run-count proof, Step 5 (OA offset 3900)",
+          "method": "Local catalogue search and targeted mirrored RESULT.md reading",
+          "title": "Exact cyclic run length spectrum of square-gcd totatives",
+          "trigger": "Complete periodic run histogram for another sieve set"
+        },
+        {
+          "assessment": "Covers the prime multiplicity input, not the cyclic statistics",
+          "evidence": [
+            "π(x)−π(x/2)≥n for x≥R_n; R_2=11."
+          ],
+          "identifier_or_url": "https://oeis.org/A104272",
+          "material_read": "Definition and initial terms (offsets 220–1172)",
+          "method": "Targeted OA web reading",
+          "title": "Ramanujan primes",
+          "trigger": "Check the sharp exceptional-window argument's premise"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Erdős admissibility condition motivates a natural exact question about local clustering. The gap parameter controls the sharp cutoff, and two primes can independently impose both boundaries, giving a uniform full-support theorem apart from two exact exceptions. These distinguish where and at what lengths eligibility can persist in a cyclic window, information unavailable from the individual endpoint density. No claim about the first hit or distribution in a short interval follows.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

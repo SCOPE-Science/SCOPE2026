@@ -1,19 +1,21 @@
-# Scientific review of the balanced cyclic-quintic genus-four classification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The tame branch multiplicities \((1,2,3,4)\) give genus four. Four explicitly exhibited regular differentials span the genus-four differential space. The exact Cartier extraction for prime \(11\) is diagonal and has entries, before the inverse Frobenius root, \(4A\), \(-5B\), \(-5t^4B\), and \(4t^2A\), where \(A=t^2-5t-4\) and \(B=t^2+4t-3\). A standalone bivariate polynomial checker reproduces all coefficients, not merely the four leading coefficients. The quadratic discriminants are nonsquare and the polynomials are distinct irreducibles, giving four reduced roots and the complete claimed rank strata. The proof applies to every algebraically closed parameter, not only finite-field samples.
+PASS
 
-## Originality — PASS (with explicit residual risk)
+Tame total ramification at the four distinct branch points gives genus four. The four indicated forms have finite local valuations 4−je+5 floor(je/5) and valuation 1 at infinity; their distinct cyclic characters prove they form a basis. Independently extracting the coefficients from x^(2j)(x−1)^(4j+floor(2j/5))(x−t)^(6j+floor(3j/5)) by the binomial theorem verifies all four universal Cartier identities. No further selected powers occur, by degree. The inverse-Frobenius semilinear diagonal has stable rank equal to its instantaneous rank, since each nonzero entry stays nonzero under all twists; the a-number is its nullity. The discriminants 8 and 6 are nonsquares mod 11, so the two different monic irreducible quadratics give four distinct admissible geometric roots in F_121 outside F_11. Since t is nonzero, exactly two diagonal coordinates vanish at each of these roots, and none elsewhere.
 
-The closest primary result is Cavalieri–Pries (arXiv:2308.14891), whose general four-branch cyclic-cover mass formula is broader as to family but coarser in what it concludes; it does not give the exact exceptional parameter polynomials or stable Cartier ranks for this balanced cover in characteristic eleven. Li–Mantovan–Pries–Tang (arXiv:1805.06914) treats special cyclic-cover families and Newton-polygon possibilities, not this distinct branch signature. A prior characteristic-nineteen calculation for the inequivalent ramification multiset \((1,1,1,2)\) does not imply the characteristic-eleven result for \((1,2,3,4)\). Targeted literature and mathematical-record searches found no known equivalent classification. Such searches cannot exclude every unpublished or unindexed source; that is the residual originality risk.
+## originality
 
-## Value — PASS
+PASS
 
-The balance of all four nontrivial branch exponents gives a natural, geometrically distinct genus-four Hurwitz family. Its first prime in the congruence class \(p\equiv1\pmod5\) beyond five yields a diagonal Cartier operator and a complete exact arithmetic stratification. The two paired Cartier factors impose a sharp lower rank of two, and the two irreducible quadratics locate all four exceptional geometric points and their minimal field of definition. This is a complete structural classification of a natural one-parameter genus-four family, not an arbitrary finite tabulation or a small numerical improvement.
+The general mass and Cartier methods and special-family lists are prior work. The supported distinct contribution is the explicit two-quadratic support with exact ranks and field of definition for this all-distinct branch type. The closest catalogue calculation matches prime, genus, and nonordinary rank pair, but has a different, inequivalent inertia type and a different marked locus.
 
-## Limitations
+## value
 
-The claim is about this marked family, its \(11\)-rank and \(a\)-number, not a census of abstract geometric isomorphism classes. The literature comparison does not prove global uniqueness of the result, and independent external validation remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The cover uses all nontrivial inertia residues and is a natural one-dimensional Hurwitz family in the first characteristic congruent to 1 modulo 5. The exact marked locus, simultaneous rank drop by two rather than one, and minimum residue field resolve parameterwise arithmetic not encoded by a weighted mass or by a table for another family. The result supplies equations for all geometric parameters, not an isolated numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

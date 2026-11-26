@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is proved for all fixed real crossover parameters and positive fixed deficit thresholds. Exact radial and diameter formulas cover both \(p<2\) and \(p>2\). A uniform first variation of the radial function follows from bounded \(t^p\log^k t\) near \(p=2\), including coordinate-axis endpoints. Uniform control of the arclength Jacobian, compactness-based antipodal localization, an explicit cosine-rule deficit expansion, and dominated convergence establish the probability and marked limit without assuming smoothness of the second angular derivative. Local binary-entropy expansions at the four diagonals and four axes establish the respective square-root and logarithmically corrected profile tails. Independently calculated finite-deficit quadrature tests passed 20 diagnostics; they are not substitutes for the analytic argument.
+## correctness
 
-## Originality — PASS, with residual historical risks
-Mayer–Molchanov (arXiv:math/0605289, first public 2006-05-11) gives the isotropic Euclidean-ball extreme-distance framework; Matsuura (2014) studies Lamé curvature, not this distribution. The 2012 polygon chord work treats regular polygons and nonmatching sampling. A published universal near-circle **invariant random-line** result is not a theorem about independent arclength boundary endpoints; the related ellipse-boundary theorem deforms semiaxes, not a Lamé exponent with a singular entropy angular second derivative. The fixed-exponent invariant-line \(\ell_p\) theorem has different measure and limiting regime. A related published width-entropy theorem uses random directions and provides no two-point boundary-endpoint law. Index searches cannot certify priority; further historical literature may contain a formulation not yet identified.
+PASS
 
-## Mathematical value — PASS
-The precise two-sided Lamé-to-circle transition has a natural geometric interpretation: at \(p=2\) a continuous family of diameter orientations becomes four isolated axial or diagonal pairs as the exponent changes sign. The result identifies the complete finite crossover probability and conditional orientation/mismatch geometry. The asymmetry of its two outer regimes is structural rather than an arbitrary numerical refinement: a quadratic diagonal entropy maximum yields a square-root law, while logarithmic flattening near coordinate axes introduces the \(\sqrt{\log L}\) penalty. This gives a motivated boundary case of random boundary-chord asymptotics not implied by either fixed-norm or smooth angular-gap formulas.
+The norm comparison locates maximal radius at the axes for p<2 and the diagonals for p>2; central symmetry makes the diameter twice that radius. Taylor expansion of |cos α|^p+|sin α|^p at p=2 is uniform including axes because t^p(log t)^j is bounded for j≤2. It gives r=1+(p−2)H/4+O((p−2)^2). Differentiating the exact formula for r uses uniformly bounded t^(p−1)log t, so r′=O(|p−2|) and the angular arclength density tends uniformly to 1/(2π). Comparing each endpoint to its unit-circle counterpart introduces O(ε) chord error, so the deficit event forces |β|=O(√ε). In that window the cosine rule and uniform continuity of H give deficit/ε=z²/4+Gλ(α)+o(1). Changing β to √ε z, using the null-measure limiting boundary, and dividing by the positive limiting event mass gives both the probability and the uniform sublevel-set mark. Its z section has length 4√(x−Gλ)_+, confirming the prefactor and the exact circular normalization. For large positive λ, the diagonal entropy loss is 2u²+O(u⁴); each of four contacts contributes πx/(2√λ) to the angular integral. For λ=−L the axis entropy is u²log(1/u²)+O(u²); at u=√(2x/(L log L))v the penalty tends uniformly on bounded v to xv², and monotonicity away from the axis bounds support in that scale. Four contacts and the semicircle integral give 2√2 x/(π√(L log L)). These are iterated limits only. Read RESULT.md, VERIFICATION.md and verify_entropy_chords.py as text; finite quadrature was not rerun and is not needed for the exact limit.
 
-## Limits and remaining work
-No uniformity is established for exponent perturbations larger than the fixed critical scale, and historical priority has not been externally certified. Independent mathematical review is not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The circle case, the fixed-exponent endpoint geometry, and one-sided entropy localization have direct prior or adjacent overlaps. The distinct claim is the two-sided moving-exponent Euclidean-arclength endpoint law, its normalized joint marks, and the comparison of far-profile amplitudes. The closest same-day records do not give this combined result; their date does not establish priority. This is a bounded originality judgment.
+
+## value
+
+PASS
+
+The result resolves a gap between the circle law and the nonuniform fixed-shape tails in a natural deformation. It determines not just leading probabilities but where each endpoint pair concentrates and its mismatch distribution. The transition from smooth diagonal contacts to an axial entropy loss explains an additional logarithmic factor on just one side, with sharp amplitudes under arclength sampling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

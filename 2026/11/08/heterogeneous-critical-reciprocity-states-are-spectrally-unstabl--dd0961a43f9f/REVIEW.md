@@ -1,19 +1,21 @@
-# Assessment of the critical-reciprocity spectral instability theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. At \(p_i-q_i=c/b\), the paper’s own first-argument gradient factor vanishes and the point is stationary. Differentiation of the full synchronous map including self-play yields a rank-two departure-from-identity Jacobian. Its reduced nonzero eigenvalues have product \(-4\alpha C^2\sigma_w^2\), strictly negative when the forgiveness coordinates differ. This proves an expanding discrete multiplier. The complete proof and exact rational reconstruction appear in `RESULT.md` and `CHECK.py`. All-\(N\) correctness is analytic, not an inference from finite tests. Limitations: strictly interior, identical benefit and cost, specified gradient convention.
+PASS
 
-## Originality
+Differentiate the ordered payoff with respect to its first argument before identifying the slots in a self-game. This gives both frozen gradient formulas with the common factor br_j−c. It vanishes at the interior critical profile, and a whole neighborhood of the fixed point has inactive projection by continuity. In the subsequent population Jacobian, including when i=j, only the derivative of this factor survives. Subtracting the two strategy increments gives M_ij=a_i(2αq_i+2q_j−s), with s=1−α² and a_i=bη_i/(Ns²). For M factored into the columns a_i(2αq_i−s), 2a_i and rows 1, q_j, the reversed 2×2 product has trace CS and determinant 4α[(Σa_iq_i)²−(Σa_i)(Σa_iq_i²)]=−4αC²σ_w². The variance is strictly positive exactly for nonconstant q_i because all rates are positive. Two distinct nonzero shifts of opposite signs follow; the determinant identity for the full product transfers these shifts with multiplicities to the 2N-dimensional Jacobian, all remaining multipliers being one. The positive shift gives μ_+>1 and hence local linear instability even for very small positive rates. Symbolic replay: python /workspace/audit_evidence/reconstruct.py (payoff_jacobian); independently differentiates the payoff, with self-play identified after the first derivative, and checks the frozen exact two-player example. Only the analytic rank calculation proves the all-N claim.
 
-PASS, with residual risk. Wolfe and Plotkin’s 2026 paper supplies the model and stationary gradient factor but the inspected main results and supplementary homogeneous theorem do not give the heterogeneous critical-manifold spectral formula. Semantic searches of research records and the accessible scientific ledger found no identical or stronger result. General game-learning stability theorems could still cover it under an unrecognized equivalence; related papers assessed only at abstract level are not certified noncovering.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. A natural continuum of zero-gradient states might appear stable because all learners face the critical reciprocity ratio. The theorem proves every heterogeneous interior member is unstable regardless of the learning-rate configuration, and identifies weighted forgiveness variance as the exact obstruction. This supplies a concrete diagnostic for stability in payoff-gradient learning, without claiming a global convergence theory.
+The ordered updating rule, its critical gradient factor and the continuum of zero-gradient points are prior ingredients. The distinct supported claim is the exact rank-two spectrum at every heterogeneous interior critical-reciprocity profile for every strictly positive rate vector. The closest same-rule primary passages do not state this calculation, and the nearest spectral comparisons use different update laws or interaction populations.
 
-## Closest literature and limits
+## value
 
-Wolfe–Plotkin (2026), arXiv:2610.15054v1, Section II and supplementary S6, is the closest source. Fujimoto–Kaneko (2019), arXiv:1905.06602, and McAvoy–Mori–Plotkin (2021), arXiv:2111.07776, were compared only at the abstract level. The analysis does not determine center-manifold motion, global basins or boundary stability. The second nonunit multiplier may have magnitude greater than one at very large steps. No independent scientific audit has been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A structurally natural continuum of zero-gradient equilibria need not be robust. The exact variance identity proves that changing positive learning rates cannot stabilize any of its forgiveness-heterogeneous interior profiles and provides both transverse multipliers, rather than only a sampled example or a sufficient bound on step size.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

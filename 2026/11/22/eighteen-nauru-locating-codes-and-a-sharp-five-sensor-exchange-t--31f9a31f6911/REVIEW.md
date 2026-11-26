@@ -1,11 +1,21 @@
-# Review of the eighteen-code Nauru classification
+# Independent mathematical audit
 
-**Correctness — PASS.** The graph and open-neighborhood trace predicate are explicit. A general degree-counting argument proves that seven landmarks cannot suffice. Independent exhaustive search over all subsets of sizes zero through eight proves the exact eighteen-code list, with a second four-outer/four-inner search reconstructing every code and all local signatures. Pairwise intersections yield a complete 153-pair certificate and two-edge exchange graph calculations. The diameter-two claim was checked from every vertex. The exact input programs and the reproducible outputs are supplied.
+## correctness
 
-**Originality — PASS, subject to publication-priority limitations.** The universal cubic minimum lower bound is known and is not claimed as original. The full 2023 study of binary locating-domination on regular graphs specifically treats generalized Petersen graphs with steps two and four; it does not cover the step-five Nauru graph. The 2018 open-locating paper proves a different, stronger all-vertices predicate and has no implication to the enumeration of ordinary locating-dominating minima. The relevant 2021 general locating-domination papers, 2022 power-domination reconfiguration paper and 2024 generalized token-jumping study contain no equivalent eighteen-code classification or five-token threshold in the inspected material. Nearby indexed results for the Pappus, Heawood, Desargues, and dodecahedral graphs use different underlying graphs. Residual risk remains from unindexed exact tables, unpublished work and incomplete coverage of all literature.
+PASS
 
-**Mathematical value — PASS.** On a canonical symmetric cubic graph, the classification exhausts a natural optimal sensor-placement problem rather than merely giving a cardinality. Its cyclic normal forms, independent-set/eight-cycle local geometry, and sharp frozen–fragmented–connected batch-mobility transition are exact structural information useful for further code-reconfiguration comparisons.
+For a locating-dominating k-set in this cubic graph, at most k omitted vertices can have singleton traces. Thus there are at least 2(24-k)-k selected-to-omitted incidences and at most 3k; k is at least eight. Equality forces independence and eight traces of each of sizes one and two. The independent reconstruction in /workspace/branches/04d64270-7057-441c-acf6-b444e60cb810/independent_nauru_check.py tested all 1,271,626 subsets of size at most eight and recovered exactly the eighteen displayed sets. It checked shore balance, the two double-cover incidence 8-cycles, and the permutation taking A_0 to B_{0,1}; rotations and reflections are transitive within each family. Direct comparison recovered intersection multiplicities 27, 36, 72, 18 at 0, 2, 3, 4. For distinct codes the exchange cost is exactly eight minus the intersection size. The resulting graphs are edgeless through budget three, three six-cycles at four, and 10-regular with 90 edges and every eccentricity two at five. The search is exhaustive for this one graph, not evidence for a generalized Petersen family. Supplied scripts were inspected, not executed.
 
-The claim is limited to ordinary locating domination on \(GP(12,5)\), including the chosen simultaneous replacement rule; it does not determine generalized Petersen graph families or the stronger open-locating predicate. Code verification is exhaustive but does not constitute independent mathematical validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The general lower bound is known. No independent earlier statement or stronger result furnishing the exact eighteen ordinary optima, their structure or their batch-exchange graphs was established in the inspected evidence. Credit the finite classification and sharp transition, not the lower bound or general move rule.
+
+## value
+
+PASS
+
+This natural cubic graph provides a concrete exact benchmark for minimum locating-domination mobility: all optima are frozen under single moves, budget four retains three cyclic components, and adding one replacement gives diameter two. The complete census, automorphism orbit and overlap data explain rather than merely report the threshold, and are useful for testing structural or algorithmic predictions about constrained reconfiguration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

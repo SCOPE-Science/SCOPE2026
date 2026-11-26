@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:15:12.146194Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–45; VERIFICATION.md, verify.py and verification_output.txt",
+        "arXiv:2604.19504v1 Theorem 3"
+      ],
+      "rationale": "Translate any distance-two pair of rotations so that one word is z. Equal Parikh vectors make its two mismatches a swap. If two shifts had different swap pairs, take a symbol e involved only in the first. For its indicator f, D=R_s f−f has a unique +1, while R_t f=f for the other nonzero shift. Commutation gives R_t D=D, impossible because a nonzero cyclic translation fixes no coordinate. This holds even when z is periodic. In 012,021,120 the successive pairs swap {1,2} and {0,1}; common insertions add identical columns and therefore preserve these two mismatch pairs, making a common orbit impossible at any insertion length. The same invariant gives every length at least three by common padding. Length zero, one and two are trivial within each Parikh class; the frozen two-word boundary is exactly the published theorem for arbitrary finite alphabets. No binary three-word conclusion is needed.",
+      "residual_risks": [
+        "Frozen enumeration was read but not executed; it corroborates the rigidity statement only up to its length cutoffs. The argument for arbitrarily long insertions is analytic."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The two-word sufficiency theorem is alphabet-general but not family-size-general. Gabrić proves a stronger description for two inequivalent shifts at distance two: periodic equal-length blocks except for one block with a one-symbol defect.",
+          "Shallit gives possible conjugate distances; Makhynko concerns binary rotational-distance counts. Neither addresses the triple insertion problem."
+        ],
+        "reasoning": "The stronger single-word structural theorem covers the auxiliary lemma, but the insertion obstruction is not a special case of pair sufficiency or a classification/count of rotations.",
+        "searches": [
+          "arXiv:2604.19504 Theorem 3",
+          "arXiv:2110.01120 Lemma 14",
+          "arXiv:0710.1234 §1; arXiv:2606.08991"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2507.04916v1, 2604.19504v1/v2, 2110.01120, 0710.1234, 2606.08991",
+        "Resultary 02e33461ac29, 935fb10591f4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For two shifts, replace each by its unsigned cyclic shift size in [1,⌊n/2⌋]. Equal sizes are identical or inverse shifts and give the same unordered swap by rotation. For different sizes, Lemma 14 applies: both are multiples of g, so each moves the single defect block to a different block position without changing its internal index. Their swaps use the same two letters at the defect. Thus the frozen rigidity lemma is fully implied.",
+          "The multiword result uses the additional observation that the original exchange pairs persist under every common insertion, and supplies a smallest aligned triple forcing two different pairs. That result is not supplied by the orbit-structure theorem or the equalizability papers."
+        ],
+        "reasoning": "Credit the full structural overlap, not merely a topic match. The supported distinct result is the solution and minimal witness in the common-insertion setting, which requires choosing incompatible mismatch columns and using their preservation, not just specializing n,i,j in Gabrić's theorem.",
+        "searches": [
+          "Gabrić arXiv:2110.01120 Lemma 14, p. 7",
+          "Thongjarast–Pasiphol–Ruangwises arXiv:2604.19504 §7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Thongjarast–Pasiphol–Ruangwises uses the same-position common-insertion definition and leaves equal-Parikh sufficiency for k≥3 open in §7. Shinagawa–Nuida §6 asks the multiple-word question and singles out a binary three-word question; its 0-cyclic restriction is not unrestricted ternary equalization.",
+          "Gabrić studies two shifts of one already given word, not the simultaneous expansion of several words."
+        ],
+        "reasoning": "The equalizability comparison matches the operation, alphabet and quantifier over the family size, distinguishing zero-only insertion, two-word sufficiency and arbitrary-block insertion for three words.",
+        "searches": [
+          "cyclic equalizability simultaneous insertion words Parikh vector three words exchange pairs rotations Hamming distance two",
+          "multiple-word equalizability Parikh vectors binary three words",
+          "arXiv:2507.04916v1 §6; arXiv:2604.19504v1/v2 §§2–4, 7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "02e33461ac29 gives exact zero-only insertion costs for pairs of weight-two binary words. 935fb10591f4 counts single words by the number of rotational shifts at distance two, using Gabrić's structure, and is indexed later. Neither lists or decides common-insertion obstructions for ternary triples."
+        ],
+        "reasoning": "The relevant exact-data check is for counterexample triples or an equalizability classification. A table of words inside a single orbit has no quantifier over the common padded lengths and is not a table of the same invariant.",
+        "searches": [
+          "Published Resultary: simultaneously cyclically equalizable ternary words common insertion",
+          "Published Resultary: three equal-Parikh words that cannot be made cyclic rotations by common insertions",
+          "Resultary 02e33461ac29, 935fb10591f4"
+        ]
+      },
+      "rationale": "Pass applies to the distinct equalizability finding: a minimum-size ternary obstruction to common-insertion equalization and its extension to all lengths. The rotation-rigidity lemma in isolation is not a new structural consequence: it follows from Gabrić's earlier Lemma 14. The work uses the exchange-pair invariant across unchanged mismatch columns to connect that structure to the separate open multiple-word insertion problem.",
+      "residual_risks": [
+        "Capped Resultary searches and a focused primary query do not establish priority. An uninspected paper may already have used this orbit structure to produce a multiple-word counterexample. No novelty is attributed to exchange-pair rigidity alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Antecedent question, not covering",
+          "evidence": "Asks for k-word conditions and whether three binary equal-weight words can fail; the noted restricted result is 0-cyclic.",
+          "identifier_or_url": "https://arxiv.org/abs/2507.04916v1",
+          "material_read": "Section 6, p. 9, OA offset 35500",
+          "method": "Matched number of words, alphabet and insertion restriction",
+          "title": "Cyclic Equalizability of Words and Its Application to Card-Based Cryptography",
+          "trigger": "Defines the word problem and poses its multiple-word version"
+        },
+        {
+          "assessment": "Covers sharp pair boundary, not the triple obstruction",
+          "evidence": "Theorem 3 is an iff for two words over any finite alphabet. Section 7 leaves the effect of equal Parikh vectors for k≥3 unclear.",
+          "identifier_or_url": "https://arxiv.org/abs/2604.19504",
+          "material_read": "v1 and v2 common-insertion definitions and Theorem 3; v1 §7, p. 14, offset 40400",
+          "method": "Compared the definitions and quantifier over family size",
+          "title": "Cyclic Equalizability Characterized by Parikh Vectors",
+          "trigger": "Exact prior Parikh-vector criterion"
+        },
+        {
+          "assessment": "Stronger structural theorem implying the auxiliary lemma; not a common-insertion counterexample",
+          "evidence": "For n≥2i>2j and g=gcd(n,i,j), membership in both H(n,i) and H(n,j) is equivalent to the u-block repetition with one block v at Hamming distance one from u.",
+          "identifier_or_url": "https://arxiv.org/abs/2110.01120",
+          "material_read": "Definition of H(n,i), §3 p. 3; Lemma 14, p. 7, independently checked at PDF text offset 18490–20802",
+          "method": "Normalized shifts up to inverse and derived the shared exchange letters from the single defective block",
+          "title": "Words that almost commute",
+          "trigger": "Same two-mismatch rotation structure"
+        },
+        {
+          "assessment": "Restricted pair result",
+          "evidence": "Exact costs for two binary words of weight two with zero-only insertion.",
+          "identifier_or_url": "Resultary 2026/10/25, 02e33461ac29",
+          "material_read": "RESULT.md Finding, local mirror",
+          "method": "Matched family size, alphabet and allowed inserted symbols",
+          "title": "Sharp zero-only cyclic equalization cost for binary words of Hamming weight two",
+          "trigger": "Exact same-position insertion result"
+        },
+        {
+          "assessment": "Structural overlap, not the insertion result",
+          "evidence": "Counts words by the number of distance-two shifts; it uses the prior two-shift structure.",
+          "identifier_or_url": "Resultary 2026/11/8, 935fb10591f4",
+          "material_read": "RESULT.md Finding and use of the Gabrić lemma, local mirror",
+          "method": "Distinguished counting shifts of one word from extending a triple",
+          "title": "Exact q-ary census of cyclic rotations at Hamming distance two",
+          "trigger": "Exact rotational-distance enumeration in a q-ary alphabet"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and proof",
+        "arXiv:2604.19504 Theorem 3 and §7"
+      ],
+      "rationale": "This gives a sharp negative answer to a stated extension of the pair theorem: equal symbol counts cease to be sufficient already at family size three and ternary length three, no matter how large the permitted identical insertions are. The two aligned swaps give a usable structural obstruction beyond the single example. Novelty of the supporting orbit lemma is not needed for that contribution.",
+      "residual_risks": [
+        "The invariant need not decide arbitrary families; the binary three-word question and a full multiword characterization remain outside the result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

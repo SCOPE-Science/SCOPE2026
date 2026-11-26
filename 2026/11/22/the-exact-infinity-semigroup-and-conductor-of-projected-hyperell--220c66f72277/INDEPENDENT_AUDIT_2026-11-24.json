@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:32:54.941743Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–23 and 27–69",
+        "VERIFICATION.md and verify_semigroup.py inspected, not executed",
+        "Hilario–Salomão–Vidal Martins, Theorem 3.3 and proof Step 8",
+        "Independent replay: python3 /workspace/branches/233fef18-26a5-4a4c-8230-5bb734961f61/record5_independent_repro.py"
+      ],
+      "rationale": "The verified normalization has one rational branch above Q_infinity. On the T!=0 chart the three local coordinates have values m,m+2,m+6, where m=2g-5 is odd. In homogeneous degree n the possible numerator degrees are exactly 0 and 2 through 3n: all nonconstant numerators are multiples of the monic quadratic phi, and the intervals [2j,3j] provide a triangular basis in each allowed degree. This gives E_n and union H=<m,m+2,m+6>. Modulo m, representing residue 2j by the two non-m generators reduces to minimizing the cost of coins 1,3; at total j+lm the least cost is controlled by floor((j+lm)/3) plus the remainder, which cannot decrease as l increases for these m. The Apéry representative is thus the stated A_j, and taking its maximum and summing its entries give the stated conductor and gap count. In particular c<=(ceil(m/3)+2)m-1. Two different homogeneous degrees with matching leading values must have the same parity and differ by at least two, so a collision forces n>=ceil(m/3) and value >=(ceil(m/3)+2)m>c. Consequently no polynomial can obtain a new below-conductor value by cancellation; division by a local unit preserves valuation. Above the cutoff all values are already in H. The residual degree is one, so the filtration by valuation identifies delta with the gap count. Independent shortest paths in the residue graph, reachability and collision enumeration matched all 197 genera 4<=g<=200; the separate monic-quadratic span check over F_101 covered degrees 1 through 25. The general proof, not those finite tests, establishes uniformity.",
+      "residual_risks": [
+        "Conditional on admissible input over an odd-characteristic finite field; finite tests do not assert existence of admissible data in any specified field or audit all singularities of other models."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary theorem proves the same projection and normalization, contains the displayed generators, and bounds delta between 2g-6 and the number of gaps of the displayed semigroup. Part (f) formulates the deficit in terms of delta.",
+          "The analogous Chebyshev space-curve result gives <n-4,n-2,n> for g=(n-1)/2."
+        ],
+        "reasoning": "The primary construction is fully credited but does not settle equality. At the same genus the Chebyshev semigroup has multiplicity 2g-3 instead of 2g-5, so does not settle this geometry.",
+        "searches": [
+          "Hilario–Salomão–Vidal Martins, Theorem 3.3(a,b,e,f), proof Steps 1 and 8",
+          "Resultary: Castelnuovo extremal Chebyshev space curves and infinity semigroup"
+        ]
+      },
+      "checked_sources": [
+        "Both versioned original construction passages in source_inspections",
+        "Resultary exact-ID and Chebyshev comparison",
+        "Frozen proof of no hidden values"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Step 8 only excludes values 1 through 2g-6; its argument uses the minimum positive coordinate valuation. The frozen proof instead excludes all remaining missing values below the numerical conductor by controlling homogeneous linear combinations and inter-degree cancellation."
+        ],
+        "reasoning": "Generator inclusion and even knowledge of the affine relations do not mechanically exclude new leading values from cancellation. The separation below the explicit conductor supplies that missing argument; the exact point-count deficit then follows from the known formula.",
+        "searches": [
+          "arXiv:2609.22557v1 and v2, Step 8",
+          "Frozen RESULT.md, homogeneous piece computation and cross-degree collision bound"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source uses the same chart and three generator valuations, but concludes inclusion. In the residually rational one-branch setting, attaining its upper gap-count bound is equivalent to equality of these numerical semigroups."
+        ],
+        "reasoning": "The refinement also survives when expressed as exact delta or upper-bound attainment, since equality of gap counts for nested numerical semigroups forces equality of sets.",
+        "searches": [
+          "Resultary: hyperelliptic projected space curve infinity, local semigroup, conductor, delta",
+          "arXiv:2609.22557v1 and v2, Theorem 3.3(e) and proof Step 8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical semigroup-equality catalogue hit is the frozen result. The closest distinct catalogue summary evaluates a different semigroup."
+        ],
+        "reasoning": "A table for an abstract three-generated numerical semigroup (or routine Apéry arithmetic) would only supply numerical conductor/gaps conditional on identifying it with the geometric semigroup. It would not establish that local identification.",
+        "searches": [
+          "Resultary: exact infinity semigroup and conductor for this projection",
+          "2026/11/22/SCOPE-the-exact-infinity-semigroup-and-conductor-of-projected-hyperell--220c66f72277",
+          "2026/11/22/SCOPE-castelnuovo-extremal-chebyshev-space-curves-with-infinity-semigr--96e892bd842c"
+        ]
+      },
+      "rationale": "This is an exact refinement of the same model, not a different parametrization presented as a new construction. Both inspected versions of the original construction say that the branch semigroup contains the three-generator semigroup and give two bounds on delta. They do not assert that the upper bound is attained. The added content is uniform equality of the geometric semigroup and hence the exact conductor and delta. The nearby Chebyshev model has a different multiplicity at fixed genus, and the exact catalogue hit is the assigned record itself.",
+      "residual_risks": [
+        "The distinct Chebyshev comparison is to the available indexed statement, not a whole-text exclusion of other results. Unindexed treatments of local value semigroups of this model remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Precisely prior inclusion, bounds and deficit formula; not equality for g>=4",
+          "evidence": "Both versions state 'contains' for 2g-5, 2g-3 and 2g+1. Step 8 explicitly omits 1 through 2g-6, invokes Lemma 2.8 and obtains the two-sided delta bound, then computes the deficit as delta when the normalization is maximal.",
+          "identifier_or_url": "https://arxiv.org/html/2609.22557v1 and https://arxiv.org/html/2609.22557v2",
+          "material_read": "Theorem 3.3(a,b,e,f), proof Step 1 (relations) and Step 8 (branch, value bounds and point count)",
+          "method": "Bounded versioned official HTML passages after OA reader timeout",
+          "title": "Maximal singular curves over finite fields from elliptic and hyperelliptic curves",
+          "trigger": "Identical model and candidate semigroup generators in the original construction"
+        },
+        {
+          "assessment": "Identical result, not independent prior coverage",
+          "evidence": "Same admissible projection, same equality and formulas.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-exact-infinity-semigroup-and-conductor-of-projected-hyperell--220c66f72277",
+          "material_read": "Catalogue summary and bound Finding and proof",
+          "method": "Resultary and frozen local source",
+          "title": "The exact infinity semigroup and conductor of projected hyperelliptic space curves",
+          "trigger": "Exact catalogue match"
+        },
+        {
+          "assessment": "Different semigroup and curve family; no priority inferred from same-day placement",
+          "evidence": "The summary gives <n-4,n-2,n> at genus (n-1)/2; the smallest positive value differs for the same genus.",
+          "identifier_or_url": "2026/11/22/SCOPE-castelnuovo-extremal-chebyshev-space-curves-with-infinity-semigr--96e892bd842c",
+          "material_read": "Local catalogue summary",
+          "method": "Resultary",
+          "title": "Castelnuovo-extremal Chebyshev space curves with infinity semigroup",
+          "trigger": "Analogous genus-dependent infinity semigroup of a space curve"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, proof and limitations",
+        "Hilario–Salomão–Vidal Martins, Theorem 3.3(e,f) and Step 8"
+      ],
+      "rationale": "The specific projection already arises in a finite-field point-count problem, and the infinity branch was the location with only two-sided delta bounds. The valuation equality resolves that gap for every admissible genus and computes the arithmetic-genus contribution and the exact Aubry–Perret deficit when the normalization is maximal. The below-conductor separation of homogeneous degrees is the geometric step that makes the explicit numerical calculation applicable.",
+      "residual_risks": [
+        "Exact branch invariants do not classify analytic isomorphism types or other projective models."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

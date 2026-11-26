@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:14:48.987736Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py, verification_output.txt and verification_extended.txt; inspected, frozen checker not executed",
+        "Independent arithmetic, recoloring method and full bounded distributions: /workspace/reproductions/1/petersen-check.txt",
+        "Matsushita arXiv:2412.19144 Theorem 1.4, Theorem 5.8 and Proposition 5.10; Fujii–Kimura–Nozaki arXiv:2412.19039 Theorems 1.1–1.2"
+      ],
+      "rationale": "Checked the tree-lift argument and arithmetic. A cyclic walk determines a deck conjugacy class; a recoloring replaces a backtracking two-step segment because the target is square-free, so it preserves that class and lifts locally. For a nonidentity deck element with translation length L, the endpoint distance in the tree is L plus twice the initial vertex's distance to its axis. Necessity of n≥L and matching parity follows, and the extra steps can be inserted as reversals. If n=L the walk is geodesic, with no recoloring, and such marked closed nonbacktracking walks are exactly the trace terms. If n>L, choose a walk vertex at maximal positive axis distance among one period. Its two neighbors coincide at its parent; replacing it by its grandparent or an adjacent axis vertex strictly decreases the sum of axis distances per period, also at the seam by equivariance. On the axis, swaps within the period connect all sign words of the same net displacement at a fixed origin; a reversal across the seam, available in either direction because both signs occur, moves the origin by two. This proves exactly two lift components, separated by the tree bipartition. All lifts with the same monodromy projecting to the same map differ by its centralizer. The primitive root translates by its primitive length d, swapping the components exactly when d is odd; the component stabilizers are infinite cyclic in either case. Matsushita's equivariant covering/contractibility applies to the nontrivial slack sectors since these source cycles are square-free (the exceptional C₄ has only null image here). This gives K(ℤ,1) components. The even null sector is exactly one connected double-cover type by the square-free-target theorem, and its Betti rank is 30−20+1=11. An odd source cannot have null monodromy. At n=3 there are no maps. Marked primitive period-d repeats contribute d, not the full repeated length, to the trace, giving Möbius inversion. Counting positive multipliers with md≤n−2 and matching parity yields both floors. Independently checked the determinant factors by A²=2I−A+J for the Petersen adjacency matrix, giving eigenvalues 3,1,−2 with multiplicities 1,5,4 for Ihara–Bass. Independent trace and floor computations match through n=13, and independent recoloring distributions match through n=12: in particular the reduced-length-10 circle count at n=12 is 2p₁₀+p₅=240+24=264, and Q₁₀,Q₁₂,Q₁₃ are 100,364,304. These bounded graphs check counts, not the uniform lifted Hom contractibility or geometric types.",
+      "residual_risks": [
+        "The independent length-13 check was arithmetic only; the length-13 recoloring transcript is supplied frozen evidence, not an independent replay.",
+        "The equivalence is ordinary integral homotopy type, not cellwise or equivariant; the geometric-type argument uses the prior square-free-target theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The square-free theorems already give lifted contractibility and component-type characterization, including the count of one double-cover component for bipartite source and nonbipartite Petersen target. The reachability theorem uses topological validity, even walk length and tight-walk obstructions; its centralizer/parity cases can replace the corresponding reachability analysis in the frozen proof."
+        ],
+        "reasoning": "These stronger theorems cover type and pointwise reachability claims, not numerical enumeration across all marked maps and all reduced periods. To derive the assessed claim one must assemble the rigid and slack sectors including realizability at prescribed n, classify phase-orbit multiplicities for every power, and enumerate primitive reduced sectors uniformly. A pairwise theorem or a type algorithm alone supplies no such counting function.",
+        "searches": [
+          "Matsushita arXiv:2412.19144 Theorem 1.4 and §§5.8–5.11",
+          "Fujii–Kimura–Nozaki arXiv:2412.19039, Theorems 1.1–1.2",
+          "Wrochna arXiv:1408.2812, Theorem 6.1, Lemma 7.4 and §8"
+        ]
+      },
+      "checked_sources": [
+        "Matsushita arXiv:2412.19144",
+        "Fujii–Kimura–Nozaki arXiv:2412.19039",
+        "Wrochna arXiv:1408.2812",
+        "Resultary finite Petersen records ce6537190eb4, 44fdee014c80 and 4ff0f575159d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older parity criterion already sees the length of the primitive root even when a given closed word is a proper power. The frozen formula aggregates this with n−2 slack and Möbius extraction from trace data. For n=12, even primitive d=10 and an even power of odd primitive d=5 both give reduced length ten, but contribute 240 and 24 circles respectively."
+        ],
+        "reasoning": "Known transfer data and the pair criterion make the formula derivable, but the aggregation is not a parameter substitution in either: in particular neither the trace of B at the reduced length, nor the parity of that reduced length, suffices to count its movable phase components. The record's substantive enumerative specialization is the uniform arithmetic merger, not the primitive-root criterion on its own.",
+        "searches": [
+          "Wrochna arXiv:1408.2812 §§7–8, primitive root and parity cases",
+          "Matsushita arXiv:2412.19144 Theorems 1.4 and 5.8",
+          "Petersen finite case Results for lengths 8 and 11"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sectors are oriented conjugacy classes in the free deck group, equivalently cyclically reduced edge words up to rotation, not reversal. Wrochna uses a fundamental-groupoid conjugator and an even-length criterion for reconfiguration. His §8 explicitly distinguishes odd and even primitive-root lengths in the family of possible conjugators."
+        ],
+        "reasoning": "Unoriented cycle counting, ordinary closed-walk trace, and Hom reachability are not equivalent to the claimed aggregate count. Conjugacy/parity analysis correctly describes the aliases of the sector data; the new scope is counting all such phase orbits under a common length/slack bound.",
+        "searches": [
+          "Resultary: primitive period Petersen graph cycle Hom complexes enumeration trace nonbacktracking necklaces parity",
+          "Literature: Petersen graph Hom complexes all cycle lengths cyclically reduced walk primitive necklace parity component counts Matsushita Fujii Wrochna",
+          "Wrochna arXiv:1408.2812, §§4, 6–8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact local C₅,C₇,C₉, C₈ and C₁₁ records inspected give matching bounded samples, some with finer equivariant or cell data; none of those Finding passages concerns unbounded n. The exact frozen record itself appeared in the index. An Ihara trace enumerates closed nonbacktracking walks, not the movable sector counts on its own."
+        ],
+        "reasoning": "Even a full primitive-necklace table supplies only p_d. It does not assign the one-versus-two circle weights to repeated words at all allowed source lengths. The inspected samples are consistent with the law but are not independent earlier all-length coverage.",
+        "searches": [
+          "Resultary: Petersen C8 eight cycle Kneser square-free Hom complex Petersen nonbacktracking counting all n Ihara zeta period",
+          "Literature: Petersen graph Ihara zeta explicit determinant Kotani Sunada Petersen cycle Hom reconfiguration conjugacy cyclic rotation primitive centralizer parity Wrochna"
+        ]
+      },
+      "rationale": "The homotopy-type theorem, parity of realizable conjugating walks, primitive centralizer description, and transfer-matrix/necklace arithmetic are prior tools. The claim that survives comparison is the explicit aggregate all-length enumeration of the Petersen Hom components by admissible reduced necklaces, with the phase multiplicities inserted in the trace-derived floor sums. Credit the earlier finite Petersen numbers and the prior parity test itself; neither is being rediscovered as a separate finding.",
+      "residual_risks": [
+        "Known reachability and counting ingredients make the formula a specialized enumerative advance. An earlier explicit or equivalent generating function indexed only under square-free reconfiguration or Ihara arithmetic could narrow priority further; this was not exhaustively ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Already proves contractibility of a connected equivariant lift and the type/null statements, not the explicit period-summed count in the inspected results.",
+          "evidence": "The covering is built from equivariant maps of universal 2-covers. Theorem 5.8 distinguishes the induced-image types, and Proposition 5.10 counts precisely one connected double-cover type for the relevant bipartite-source, nonbipartite-target case.",
+          "identifier_or_url": "https://arxiv.org/html/2412.19144",
+          "material_read": "§1.2 Theorem 1.4, offsets 5470 onward; §5 Theorem 5.8, Corollary 5.9 and Proposition 5.10, near offsets 86232–90490",
+          "method": "Public OA full text",
+          "title": "Hom complexes of graphs whose codomains are square-free",
+          "trigger": "Decisive topological input and possible general coverage"
+        },
+        {
+          "assessment": "Component-type input already covers the family but those statements supply no primitive-length enumeration.",
+          "evidence": "Proves the point, circle or component of H×K₂ alternatives and exactly one H×K₂ copy when the source is bipartite and H not.",
+          "identifier_or_url": "https://arxiv.org/html/2412.19039",
+          "material_read": "Introduction and Theorems 1.1–1.2, offsets 0–5499",
+          "method": "Public OA full text",
+          "title": "Homotopy types of Hom complexes of graph homomorphisms whose codomains are square-free",
+          "trigger": "Independent broader Hom classification"
+        },
+        {
+          "assessment": "Strong prior coverage of parity mechanism and pairwise reachability, not a published Petersen all-n count in these passages.",
+          "evidence": "For fixed maps the topologically valid walks can form a coset of the powers of a primitive root R. Section 8 keeps all powers, none, or one parity class of exponents according to the parity of R and the reference path.",
+          "identifier_or_url": "https://arxiv.org/pdf/1408.2812",
+          "material_read": "§4.2, §5 tight walks, §6.1, §7 Facts 7.2–7.3 and Lemma 7.4, and §8 parity cases near offsets 57513–58300",
+          "method": "Public OA PDF text by bounded offsets",
+          "title": "Homomorphism reconfiguration via homotopy",
+          "trigger": "Potentially stronger source for the primitive parity and reachability computation"
+        },
+        {
+          "assessment": "Directly overlaps n=5,7,9 only; some symmetry data go beyond the assessed claim.",
+          "evidence": "States 120 points at n=5, 24 circles at n=7, and 24 circles plus 360 points at n=9.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-odd-cycle-graph-hom-complexes-into-the-petersen-graph-twenty-fou--ce6537190eb4/RESULT.md",
+          "material_read": "Finding and finite scope, offsets 0–3707",
+          "method": "Published local mirror",
+          "title": "Odd-cycle graph-Hom complexes into the Petersen graph: twenty-four circles and rigid nine-cycles",
+          "trigger": "Exact finite results for the same target and odd cycles"
+        },
+        {
+          "assessment": "Exact finite comparator, no all-n assertion here.",
+          "evidence": "States 40 circles, 240 isolated maps, and the Petersen bipartite double cover at n=8.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-the-eight-cycle-petersen-graph-hom-complex-has-forty-circles-and--44fdee014c80/RESULT.md",
+          "material_read": "Finding, assumptions and first census passage, offsets 0–2773",
+          "method": "Published local mirror",
+          "title": "The eight-cycle Petersen graph-Hom complex has forty circles and 240 rigid maps",
+          "trigger": "Exact even-length comparator"
+        },
+        {
+          "assessment": "Exact finite comparator, no all-n assertion here.",
+          "evidence": "States 64 circles and 2,640 points; its circles partition into 40 and 24 components of distinct sizes.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-the-eleven-cycle-petersen-graph-hom-complex-has-64-circles-and-2--4ff0f575159d/RESULT.md",
+          "material_read": "Finding and relevant census/Euler data, offsets 0–3577",
+          "method": "Published local mirror",
+          "title": "The eleven-cycle Petersen graph-Hom complex has 64 circles and 2,640 rigid maps",
+          "trigger": "Closest finite odd-length numerical and cell calculation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen theorem and uniform proof; independent trace and component checks; prior type/reachability and bounded Petersen classifications above"
+      ],
+      "rationale": "The exact all-length enumeration gives component multiplicities and integral homotopy types without enumerating exponentially many Hom vertices. For this natural cubic square-free target it unifies disconnected finite calculations and identifies a genuine threshold phenomenon: odd primitive periods can yield single movable phase orbits even when the reduced walk length is even. The advantage is aggregate arithmetic and its explanation, not a check of an additional isolated small length.",
+      "residual_risks": [
+        "No equivariant decomposition or exact cell counts for arbitrary n, and no originality claim for the previously known component types or Ihara–Bass identity."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Review: Cyclotomic fixed-space spectra of null-filiform Leibniz automorphisms
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof derives the automorphism group rather than assuming a characteristic-zero formula extends. A coefficient-by-coefficient conjugation eliminates exactly the nonresonant terms; its norm and unit-group stabilizer calculations give uniqueness and equal fiber sizes. Decomposing the truncated polynomial representation by residue classes yields the kernel dimensions and geometric frequency law. The standalone finite-field program exhaustively verifies thirteen cases and the conjugacy normal form in four cases. Computations support, but do not establish, the uniform theorem.
+## correctness
 
-**Originality — PASS with residual literature risk.** Casas–Ladra–Omirov–Karimjanov (2012, arXiv:1202.5275) introduce the object as a solvable nilradical; Khudoyberdiyev–Omirov (2013, arXiv:1304.0126) study its deformations. Calderón–Camacho–Kaygorodov–Omirov (2017, arXiv:1708.01753) provide the automorphism formulas and cyclic toral eigenspaces. Normurodovna (2026, DOI:10.55640/eijmrms-06-06-16) gives the automorphism matrices and local-map classification. None of these inspected sources supplies the full finite-field fixed-space distribution for nonsemisimple automorphisms or the unipotent normal-form conjugacy counts. The nearest mathematical-record fixedpoint results concern nonisomorphic Lie algebras. Unlocated stronger coverage remains possible.
+PASS
 
-**Value — PASS.** Fixed-space multiplicities are a natural symmetry invariant; the result supplies them for every dimension and finite field, isolates the sharp multiplicative-order threshold for fixed-point-free automorphisms, and determines orbit counts of ordered tuples of all lengths. The resonant normal form explains the frequencies structurally rather than tabulating cases.
+The bracket recursion makes the first column determine the automorphism; any column with first entry a≠0 gives a triangular map with diagonal a,a²,…,aⁿ and preserves all zero brackets. On k[t]/(tⁿ) this map is aU(t)σ_a. In the conjugacy equation U(t)W(at)=H(t^ℓ)W(t), the degree-j coefficient of the new gauge term is aʲ−1, so a choice can be made at every degree, with only multiples of ℓ retained in H. The cyclic norm is conjugacy invariant and equals H^ℓ; raising to ℓ is bijective on the abelian principal-unit p-group, giving uniqueness. The centralizing gauges are the units supported at multiples of ℓ, so all normal forms have the stated equal-size fibers. Only the exponent residue ℓ−1 can support fixed vectors. With m=⌊n/ℓ⌋ this block is multiplication by H−1 on k[z]/(z^m), giving dimension min(m,ord(H−1)) or zero for m=0. Uniform coefficients of H give the displayed multiplicities; ℓ=1 and m=1 obey the same count, and the ℓ>n case gives the fixed-point-free criterion by cyclicity of k×. Burnside accounts for ordered tuples and the one-tuple count follows also by making the leading coordinate an i-th power orbit and removing all higher coefficients by principal units. Fresh exhaustive elimination for (q,n)=(2,4),(3,4),(5,5),(7,4) agreed with all histograms, including a fixed-point-free sector, and an explicit nonconstant ℓ=2 conjugacy over F₅ preserved the computed fixed rank.
 
-**Limitations.** The conjugacy classification is relative to the unipotent subgroup at fixed leading scalar; no assertion is made about complete conjugacy classes in the full automorphism group, other Leibniz families, or independent verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The all-automorphism fixed-space polynomial in the natural n-dimensional representation is the supported distinct claim. The triangular parametrization and group structure are established. The strongest same-family catalogue comparator contains the same norm-based normal form and equal fibers, and another gives the one-tuple orbit count; neither is credited here as an independent originality gain. The same-family element-order and abstract conjugacy counts do not count the individual fixed-block ranks, which require resolving the full first nonzero resonant coefficient rather than just thresholds for its p-power order.
+
+## value
+
+PASS
+
+The fixed-space polynomial is a natural invariant of the actual automorphism action, rather than an abstract group order. It distinguishes nonsemisimple operators within a scalar order, gives exact probabilities of each fixed dimension, and by Burnside supplies all tuple-orbit counts rather than merely the one-vector marginal. Those uses justify the precise census even after crediting the known normalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

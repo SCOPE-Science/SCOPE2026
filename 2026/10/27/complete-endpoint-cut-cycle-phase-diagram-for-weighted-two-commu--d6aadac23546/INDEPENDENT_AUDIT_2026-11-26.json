@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:30:23.019455Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:5–64 and 68–141 (spectral decomposition, edge-orbit sums, signs, reciprocal comparisons and optimizer algebra)",
+        "two_community_checker.py:9–88 (inspected exact grounded-Laplacian checker); VERIFICATION.md:19–29 (reported 54 graphs, 3285 columns; not independently rerun)"
+      ],
+      "rationale": "For Q=D^T L^+ D with D carrying square roots of conductances, the eigenvalues of L on class-centered vectors and on the class difference are n(1+x²) and 2nx², respectively. Using their reciprocals gives the internal-source sums and the cross-source types according to zero, one or two matching endpoints. Only the zero-match cross current changes sign, at x=1. The P column sum equals the Q sum plus 1 minus twice the Q diagonal, since the latter is in [0,1]. Symmetry gives the same real induced 1 and infinity norms. I checked the factored orbit comparisons: the weak-cross cycle factor (n²−4n+2)x+n²−6n+2 is negative for n=3,4, is 7x−3 for n=5, and positive for n>=6; the strong-cross differences are strictly positive even at the smallest allowed n. Comparing z>1 to 1/z strictly improves the internal branch in both norms and improves the weak cross cycle branch except for exact equality at n=3. On x>=1 each cross maximum is the top Rayleigh quotient of the corresponding symmetric 2-by-2 matrix with off-diagonal coefficient half the numerator's linear coefficient; its positive maximizing ratio exceeds 1 and solves x−1/x=4(n−1)/n for Q or 4(n−2)/n for P. Thus x=1 is not a global maximizer; only the n=3 cycle branch has the additional reciprocal optimizer. The quotient values give the stated finite-n maxima and are strictly below their n→∞ limits, proving both sharp suprema.",
+      "residual_risks": [
+        "The conclusion is for equal communities, positive conductances, canonical Euclidean-orthogonal projections and unweighted coordinate endpoint norms. The finite checks are corroboration only, not the proof of the optimizers or suprema."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General weighted localization gives an upper bound, not exact column sums.",
+          "The invariant/minimal cycle-projection work treats other graph families and a minimization over projections.",
+          "The indexed multipartite formula is unweighted and includes an orbit reversal."
+        ],
+        "reasoning": "The broader bound cannot determine exact maximizing orbits and sharp norms in this family. Unweighted multipartite formulas do not produce variable positive weights on the two edge types of a complete graph.",
+        "searches": [
+          "arXiv:2605.24130v1 Theorem 1.3",
+          "arXiv:2305.12582v1, §§2.1, 2.4–2.7",
+          "Resultary 745e7b0c399e (complete multipartite)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5704b55011f7 and 745e7b0c399e, Findings",
+        "arXiv:1708.01632v1 §1.2; arXiv:2605.24130v1 §1.1; arXiv:2305.12582v1 §2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The split graph has an independent class lacking its internal edges for every parameter. Scaling weights or interchanging labels cannot give two positive internal clique conductances.",
+          "The localization theorems give graph-general bounds rather than entry formulas or conductance-dependent optimizers."
+        ],
+        "reasoning": "The analogy supplies a method and a known phase phenomenon in a different family, not a specialization giving n=5 and x=3/7, the n=3 optimizer pair or the sharp limits. Claim is not credited with introducing reentrance in general.",
+        "searches": [
+          "Resultary 5704b55011f7, weighted split graph Finding",
+          "arXiv:1708.01632v1, Thm. 1.5; arXiv:2605.24130v1, Thm. 1.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The symmetric transfer operator in both papers is the frozen Q up to incidence conventions and orientation.",
+          "The general theorems control the spectral norm of the entrywise-absolute operator."
+        ],
+        "reasoning": "Operator equivalence is exact but the invariant in the frozen claim is a maximum absolute column sum and its optimizing orbit, not the spectral norm of the absolute matrix. The cycle complement is also part of the claim.",
+        "searches": [
+          "Weighted symmetrized transfer-current/transfer-impedance projection and electrical-flow localization",
+          "arXiv:1708.01632v1, §1.2",
+          "arXiv:2605.24130v1, §1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "5704b55011f7 gives exact endpoint branches and a cross–clique–cross cycle phase for a split graph with clique size m=3.",
+          "745e7b0c399e gives exact unweighted multipartite endpoints and reversal."
+        ],
+        "reasoning": "Neither indexed exact formula is on the frozen family with all within- and cross-community edges present at positive conductance. No verified exact same-family catalogue match was obtained.",
+        "searches": [
+          "Resultary: weighted endpoint Hodge norms, edge-orbit reversal and reentrant cut–cycle phases",
+          "Resultary 5704b55011f7 and 745e7b0c399e, Findings"
+        ]
+      },
+      "rationale": "The weighted transfer-current operator is standard, and reentrance already occurs in another indexed weighted family. The supported distinct claim is the exact two-equal-clique positive-cross-conductance classification, with its n=5 crossover, n=3 reciprocal cycle optimum, and sharp finite-size and uniform optimizations. The strongest inspected localization theorems and indexed exact formulas do not provide these by specialization.",
+      "residual_risks": [
+        "The strongest indexed analogy shares the method and the reentrant phenomenon; no verified reduction supplies the exact new graph family. Less-indexed equivalent network computations may exist. Bounded searches do not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material analogy, not equivalent coverage",
+          "evidence": "Split graph, clique and independent set, clique conductance x² and cross conductance 1; m=3 reentrance with two roots straddling 1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-reentrant-cut-cycle-phases-and-a-sharp-alignment-law-for-conduct--5704b55011f7/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirrored result reader",
+          "title": "Reentrant cut–cycle phases and a sharp alignment law for conductance-weighted split graphs",
+          "trigger": "Closest indexed result: exact weighted branches and cycle reentrance"
+        },
+        {
+          "assessment": "Different graph/weight hypotheses",
+          "evidence": "Unweighted complete multipartite graphs with edge-orbit reversal, not a two-community positive within- and cross-weight phase diagram.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-endpoint-hodge-norms-and-an-edge-orbit-reversal-for-comple--745e7b0c399e/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirrored result reader",
+          "title": "Exact endpoint Hodge norms and an edge-orbit reversal for complete multipartite graphs",
+          "trigger": "Exact indexed endpoint formulas and orbit change"
+        },
+        {
+          "assessment": "Equivalent cut operator, different conclusion",
+          "evidence": "Spectral norm of entrywise absolute transfer impedance is O(log² of the number of vertices).",
+          "identifier_or_url": "https://arxiv.org/abs/1708.01632",
+          "material_read": "§1.2 and Theorem 1.5, p. 4, OA offset 11217",
+          "method": "Bounded OA full-text inspection",
+          "title": "Localization of Electrical Flows",
+          "trigger": "Same symmetrized weighted operator"
+        },
+        {
+          "assessment": "Weighted upper bound, not an exact endpoint norm or phase result",
+          "evidence": "Spectral norm of the absolute transfer-current operator bounded by twice the log of the number of vertices.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.24130",
+          "material_read": "§1.1 and Theorem 1.3, p. 2, OA offset 5000",
+          "method": "Bounded OA full-text inspection",
+          "title": "A Tight Bound on Localization of Electrical Flows",
+          "trigger": "Stronger general localization theorem"
+        },
+        {
+          "assessment": "Adjacent mathematical problem and different families",
+          "evidence": "Minimal invariant cycle projections for tori and Hamming graphs; the inspected sections do not give the canonical weighted balanced-clique formulas.",
+          "identifier_or_url": "https://arxiv.org/abs/2305.12582",
+          "material_read": "Abstract and contents p. 1; §2.1 p. 10; §§2.4–2.7 pp. 12–23",
+          "method": "Bounded OA full-text inspection",
+          "title": "Cycle spaces: invariant projections and applications to transportation cost",
+          "trigger": "Projection-invariance and exact graph-family norms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:5–56 and 99–141",
+        "Resultary 5704b55011f7; arXiv:2605.24130v1, Theorem 1.3 (scientific context)"
+      ],
+      "rationale": "The two-community complete network is a natural weighted test family, and a closed norm bound alone would conceal the change in maximizing type. In particular one size has an extra cycle phase while the smallest size has two distinct maximizing conductances. Exact comparisons and uniform sharp bounds therefore give structural information about coordinate amplification in the canonical projections, not just a list of example calculations.",
+      "residual_risks": [
+        "No general claim about arbitrary conductance models, projection constants or intermediate norms follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

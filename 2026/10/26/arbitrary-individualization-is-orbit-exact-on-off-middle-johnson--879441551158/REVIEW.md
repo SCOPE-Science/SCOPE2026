@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain \(n>2k\ge2\) is explicit. Johnson distance waves recover each marked-set overlap within \(k\) rounds. Odd neighbour-displacement polynomials cancel contributions from exchanges internal to a vertex, leaving a multilinear polynomial in ground-set membership indicators. For odd index sets the leading coefficient is \(-n\); for even index sets it is \(-(n-2k)\), which is nonzero on the claimed domain. Induction and Möbius inversion recover every membership-atom count, proving stable colours equal pointwise-stabilizer orbits. The class-count and class-size formulas follow by choosing subsets in independent atoms. Two reproducible finite checkers passed all recorded tests; they do not substitute for the proof.
+PASS
 
-## Originality — PASS with residual search risk
+The initial singleton colours propagate distance-sphere membership to all vertices by round k, so the colour at k+1 gives the joint vector of each neighbour's landmark-overlap displacements as a multiset. Swaps (a,b) with a,b both in X can be added to an odd moment without changing it: their terms cancel in reversed pairs and the diagonal terms vanish. For odd |U| the all-s_i monomial in the resulting polynomial has coefficient (-1)^|U| n=-n. For even |U| the squared displacement at j has linear coefficient 1-2t_j on Boolean inputs and the other |U|-1 factors contribute a minus sign, producing -(n-2k) after summing over b. All other terms involve strict subsets of U, so induction at the same colour round determines every intersection count. Boolean inversion recovers the atom profile. The product of symmetric groups on the atoms acts transitively on each profile and fixes all marks. Conversely even the full coloured-graph automorphism subgroup cannot mix colours, so no classification of Johnson automorphisms is needed. Each atom contributes an independent binomial choice or an independent truncated geometric series for counting profiles. No marks gives one orbit, and the argument includes k=1 and the all-marked case; set complementation transports k>n/2 with the asserted bound.
 
-The closest primary theorem is Arvind et al. (2015), Theorem 0.A.7, which proves Tinhofer membership only for \(J(n,2)\). The present statement covers arbitrary ranks and arbitrary numbers of individualized vertices off the middle layer and includes a uniform depth bound. Arvind et al. (2016) study individualization complexity rather than this family theorem. The hierarchy in Bhattacharjee et al. (2026) gives general characterizations but no all-rank Johnson result in the inspected text. Della-Giustina (2023) classifies fixing numbers, not colour refinement. Exact higher-rank coverage was not identified in the examined literature. No exhaustive novelty or publication-priority certification is claimed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The new claim is a natural infinite-family classification for an important symmetric graph model, resolving the orbit-exactness of arbitrary individualized vertex configurations away from the middle layer. It extends a known rank-two theorem to all ranks via a structural reconstruction method rather than simply changing a parameter. Explicit stabilization and exact orbit-profile counts are additional quantitative consequences. The middle-layer exception identifies a real limitation of the proof, not an asserted counterexample.
+The new supported part is arbitrary individualization in higher off-middle rank with all membership atoms recovered within the stated refinement bound. Arbitrary marking in rank two is covered by prior Tinhofer work, and the two-mark higher-rank result directly overlaps catalogue statements. Neither subsumes unrestricted higher-rank marking.
 
-## Scientific limitations
+## value
 
-No theorem is asserted for the middle layer \(n=2k\), no sharpness of the \(k+1\) bound is claimed, and specialized literature may have been missed. The result has not received independent scientific validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Johnson graphs are a natural highly symmetric test family for individualized refinement. The theorem handles all landmark interactions at once (not just distance vectors or pairs), gives exact orbit sizes and counts, and bounds the number of rounds independently of the number of marks. The use of odd moments to recover higher-order intersections, with an explicit obstruction to the method on the middle layer, is a useful structural mechanism rather than a finite census or a rank-two restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

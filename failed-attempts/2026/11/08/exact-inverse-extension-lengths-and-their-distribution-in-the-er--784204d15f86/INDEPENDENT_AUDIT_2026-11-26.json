@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:33:02.257141Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py (inspected, not executed)",
+        "Independent replay: python3 /workspace/replay/extension.py; /workspace/replay/extension.out"
+      ],
+      "rationale": "An inverse b copies bit 0 into bit n-1 and grows the set exactly when the least run start is 0. Before reaching 0 an inverse b is neutral or deletes n-1 while 0 is absent, so cannot create an earlier run start (and deletion to the empty set cannot lead to growth). An inverse a reduces a positive least run start by one. The first growing step therefore requires at least r prior rotations, and equality uses exactly those rotations and one merge, giving the unique forward word b a^r. For r=0, the fixed endpoint bits leave 2^(n-2) choices. For 1<=r<=n-2 the prefix through r-1 must be 1^j 0^(r-j), j<r, with bit r present; nonzero j forces bit n-1 present. The total is (r+1)2^(n-r-2). At r=n-1 the last bit is already forced, leaving exactly the displayed n-1 prefixes. An independent layered inverse-transition count confirms minimal lengths, multiplicity one, witnesses, histograms and stuck sets for all 8,164 nonempty proper subsets across n=3,...,12.",
+      "residual_risks": [
+        "The finite replay corroborates the all-n argument; it does not prove it by extrapolation. The result is about first strict preimage growth, not total extension."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "32f9b58cd457 already gives size-refined counts and a mean on top of the frozen histogram and unique shortest word.",
+          "34e6272e5e99 covers n>=2 and also gives the mean and limiting distribution.",
+          "Miccinesi proves a certificate for extending within n-1 and obtains existence of a stuck subset for the Černý family; the cited result does not give its exact family-wide stuck-set classification."
+        ],
+        "reasoning": "The broader catalogue results actually cover the full pointwise law and histogram, unlike the general literature on short-witness certificates.",
+        "searches": [
+          "Resultary 32f9b58cd457 and 34e6272e5e99",
+          "Miccinesi arXiv:2609.21603 Theorem 1, Corollary 2 and §8.1; Szykuła arXiv:2608.24245 §2.8.3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 32f9b58cd457 and 34e6272e5e99",
+        "arXiv:2609.21603, 1704.08233 and 2608.24245"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Each earlier theorem states E=r+1 and the unique word b a^r, not merely existence of a word. The shift identifies r without changing its numerical value, so it transfers the precise histogram and stuck family.",
+          "The cited four-state preimage example and general n-1 obstruction alone would not imply the frozen all-n formula."
+        ],
+        "reasoning": "The entire claim follows from either catalogue theorem by conjugation, without a new mathematical step. No distinct residual claim is established in the frozen statement.",
+        "searches": [
+          "Compare both earlier Resultary theorems' boundary definitions, shortest words and n-length cases against the frozen Finding; compare arXiv:1704.08233 p. 2 and arXiv:2609.21603 §8.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier findings use a:i->i+1, b:0->1 and count the least i with i absent and i+1 present. If T=S+1 mod n, then i absent from T and i+1 present in T iff i-1 absent from S and i present in S. The shift fixes a under conjugation and sends n-1->0 to 0->1.",
+          "Berlinkov–Ferens–Szykuła gives the complementary preimage shrinkage equivalence; it is not a forward rank-deficiency law."
+        ],
+        "reasoning": "The shift preserves word order and every extension length, including the unique minimizer. Complementation would equivalently express first shrinkage of a preimage, not general forward avoidance.",
+        "searches": [
+          "Resultary shortest preimage-extension Černý subset histogram; opened RESULT.md for 32f9b58cd457 and 34e6272e5e99",
+          "arXiv:1704.08233, extension and avoidance dualities"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both matches give the complete multiplicities t*2^(n-t-1) for t<n and n-1 for t=n with exactly the corresponding exceptional subsets under relabeling."
+        ],
+        "reasoning": "These are formula-bearing exact catalogue results for the full parameter range, not finite coincident data or the identical frozen entry.",
+        "searches": [
+          "Published Resultary lookup, exact matches 32f9b58cd457 and 34e6272e5e99; decisive RESULT.md findings read via the mirror"
+        ]
+      },
+      "rationale": "Two distinct pre-existing catalogue results explicitly contain the unique shortest word, pointwise length law, full histogram and exceptional subsets. A shift of state labels by +1 mod n conjugates the frozen transition maps to theirs, identifies their ordered boundary index with the frozen r, and preserves every word and preimage count. This is verified coverage, not a priority inference from similar titles or unsuccessful literature search.",
+      "residual_risks": [
+        "This establishes coverage in the inspected earlier catalogue, not who first obtained the result anywhere. Unproductive literature lookup does not affect the direct equivalence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers and refines the frozen claim",
+          "evidence": "Uses b:0->1, states b a^r uniquely shortest and gives r+1, full histogram, n-1 exceptions and size refinement.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-shortest-extension-profile-of-the-ern-automata--32f9b58cd457",
+          "material_read": "RESULT.md theorem, shortest witness, histogram and stuck sets",
+          "method": "Resultary local mirror",
+          "title": "Exact shortest-extension profile of the Černý automata",
+          "trigger": "Exact profile match with shifted collapse"
+        },
+        {
+          "assessment": "Covers the frozen result by cyclic relabeling, in a larger domain n>=2",
+          "evidence": "Includes the same boundary index, unique b a^r, histogram and stuck-set law.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-shortest-preimage-extension-law-and-subset-histogram-for-t--34e6272e5e99",
+          "material_read": "RESULT.md law and histogram, including the maximum length and its exceptional subsets",
+          "method": "Resultary local mirror",
+          "title": "Exact shortest preimage-extension law and subset histogram for the Černý automata",
+          "trigger": "Exact preimage law and exceptional histogram match"
+        },
+        {
+          "assessment": "General certificate/obstruction, not the exact pointwise law in the inspected passages",
+          "evidence": "B(S)>=0 suffices for extension within n-1; §8.1 derives existence of a stuck subset using the reset threshold.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.21603",
+          "material_read": "Theorem 1, Corollary 2, §8.1; three-state example; pp. 5–6 and 17",
+          "method": "Original OA PDF",
+          "title": "Certificates for short extending words in a finite automaton",
+          "trigger": "Identical short-extension obstruction in the classical family"
+        },
+        {
+          "assessment": "Provides formulation and an example, not the exact family-wide histogram",
+          "evidence": "Gives strict preimage growth iff strict shrinkage of the complementary preimage; total extension is complementary avoidance.",
+          "identifier_or_url": "https://arxiv.org/pdf/1704.08233",
+          "material_read": "p. 2, extension definitions, example and complementary preimage equivalence",
+          "method": "Original OA PDF",
+          "title": "Preimage problems for deterministic finite automata",
+          "trigger": "Same definition of extension and Černý example"
+        },
+        {
+          "assessment": "The inspected bound for Eulerian automata is not an exact Černý extension spectrum",
+          "evidence": "The section concerns extension and reset bounds in the Eulerian setting.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.24245",
+          "material_read": "§2.8.3, OA text around offset 32700",
+          "method": "Original OA PDF",
+          "title": "Synchronizing Automata: Open Problems",
+          "trigger": "Frozen citation for related synchronization and extension problems"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Miccinesi arXiv:2609.21603 §8.1",
+        "Resultary 32f9b58cd457 and 34e6272e5e99; frozen Finding and proof"
+      ],
+      "rationale": "The statistic itself is well motivated by the known short-extension obstruction. But the exact law, shortest word, exceptional sets and the entire histogram are already available, including stronger refinements. Relabeling states and independently checking examples does not supply an additional scientifically useful unknown classification or lemma.",
+      "residual_risks": [
+        "The failure is for this duplicate finding, not a judgment against studying extension lengths or the correctness of the proof."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

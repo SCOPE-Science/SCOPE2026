@@ -1,19 +1,21 @@
-# Scientific assessment: sharp thermal entangling-collision horizon
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Two independently defined ideal pairwise collision unitaries preserve diagonal target populations. Matrix multiplication gives the exact target recurrence and a two-qubit X-state. Its partial transpose contains a single potentially negative two-by-two block whose determinant reduces to the explicit quadratic \(F(z)\). Its unique positive root proves the exact collision count, and elementary global logarithmic bounds yield the coupling-independent sharp cap. The approach-to-identity limit proves optimality *over nonzero couplings*, not at zero coupling itself. A standalone 4-by-4 implementation with exact-rational sign tests passed 1302 assertions. The proof, rather than finite testing, establishes the universal parameters and integer endpoints.
+PASS
 
-## Originality — PASS, with identified risk
+From the two mixed basis states of each gate the reduced target population is q_k=h q_(k-1)+(1-h)x, with x=p for exchange and x=1-p for anti-exchange; tracing removes the sole off-diagonal pair. Thus q_(k-1)=x(1-z), z=h^(k-1). In the ordered computational basis the inert diagonal entries multiply to xr q(1-q) for both gates (r=1-x), while the sole coherence has squared modulus x^2 z^2 h(1-h). Partial transposition places it in the inert block, making negativity equivalent to F(z)=h(1-h)z^2-r(1-z)(r+xz)>0. The leading coefficient is positive and the constant negative; the unique positive root, in (0,1), rationalizes to the stated z(r,h) since (x-r)^2+4rx=1. Strict inequality makes exactly ceil(log(z(r,h))/log(h)) indices eligible, even at an integer boundary: for example h=1/2 and r=(sqrt(2)-1)/2 give exact zero at collision two. For delta=1-h, z(r,h)>=1/(1+delta/r)>h^(1/r) by the square-root bound and strict logarithmic inequality. The log ratio is positive, smaller than 1/r and tends to 1/r from below as h tends to 1, so every sufficiently weak nonzero angle gives the claimed ceiling, integral 1/r included. At fixed h the plus root is a positive constant times p asymptotically, giving the stated logarithm in 1/p; p=0 leaves the minus gate inert and the plus coherence nonzero at each finite collision. The supplied checker was inspected, not executed: its test combines exact rational signs with floating-point matrices and logarithms; the strict-threshold and uniform-angle arguments are analytic.
 
-The 2026 source studies both two-qubit gates, their target thermalization, and numerical transient system–ancilla negativity. Those ingredients are excluded from the novelty claim. The assessed extension is the exact entanglement cut-off in collision index, its sharp temperature-only maximum over every nontrivial gate angle, and the contrast between two exchange structures. The different ancilla–ancilla-memory and network-entanglement collision models do not imply a sharp bound for the present pre-reset *target–fresh-ancilla* entanglement observable. A separate section of the motivating source's supplemental material was inaccessible for independent full-document assessment, and more general entanglement-breaking-index or collision-channel results could subsume the calculation. No exhaustive uniqueness certification is asserted.
+## originality
 
-## Value — PASS
+PASS
 
-The number of collisions during which a bath qubit becomes entangled with a battery target is an observable resource window, not an arbitrary parameter slice. The exact answer distinguishes ordinary and anti-thermalizing gates even though both reduce the target's population error by the same factor each cycle. A universal two-event ordinary cap, an exponentially temperature-dependent sharp anti-thermal count cap, and the disparate fixed-angle and optimized low-temperature laws provide a substantive physical boundary and a guide to collision-selection experiments. The count is not misrepresented as entanglement magnitude or a device-independent resource.
+The assessed addition is the exact ground-target, two-gate pre-reset horizon and its sharp temperature-only maxima over all fixed nontrivial angles. The primary literature already supplies the gates, reduced populations and qualitative transient negativity. The strongest indexed horizon and optimization records treat a maximally mixed target, a condition that changes the exact determinant and even whether the first collision entangles. No claim of originality for the model, fixed points, partial transpose, or logarithmic lifetime as a general phenomenon is credited.
 
-## Closest work and limits
+## value
 
-See Pal et al., arXiv:2609.04905v1 (main ideal-gate relations and transient negativity), Lalita–Banerjee arXiv:2506.23818v1 (non-Markovian two-system-qubit collisions), and Doğan et al. arXiv:2604.01773v1 (network-node entanglement). The theorem assumes fresh thermal ancillas, exact gates, no intercollision free rotations, and a ground-initialized target. No independent external audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The count is a natural, measurable boundary for use of a fresh ancilla before reset. The distinction between a universal two-collision ceiling and a sharp bath-dependent inverse-excitation ceiling is qualitative, as is the logarithmic fixed-angle versus inverse-excitation optimized low-temperature growth. This is a complete sharp comparison rather than a parameter example. The count measures neither magnitude nor retained entanglement after reset; attaining a cap near the identity can give very small entanglement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

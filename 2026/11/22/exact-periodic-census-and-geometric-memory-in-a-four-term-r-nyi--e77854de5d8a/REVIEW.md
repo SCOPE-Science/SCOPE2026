@@ -1,21 +1,21 @@
-# Scientific review: exact arithmetic dynamics of a multi-remainder map
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The central identities \(\pi H=G\), \(H=H\pi\), and \(H^n=HG^{n-1}\pi\) hold pointwise, even on discontinuities, because the specified phase space and fractional-part convention are half-open. They produce inverse correspondences between invariant probabilities and between fixed points of iterates. The count \(1111^n-1\) is an infinite theorem, not a finite-enumeration extrapolation. The unique absolutely continuous invariant law is the pushforward of Lebesgue measure, with the stated explicit step density; entropy and exactness transfer from the integer multiplication map. The covariance follows from a proved Fourier-gcd identity and coprimality of \(1111\) with \(10\). Independent rational integration checks the exact mean and variance; the embedded checker also tests periodic lifts. The mathematical proof, not the checker alone, supports infinite quantifiers.
+PASS
 
-## Originality — PASS within inspected evidence
+Write s=H restricted to [0,1), π for fractional part, and G(t)={1111t}. Integer gains give H=sπ and G=πs pointwise, including all discontinuities (thus the globally typed relation is πH=Gπ). The identity H^n=sG^(n−1)π gives the unique lift of each G^n-fixed point, hence the stated census and zeta. Invariance makes s_* and π_* inverse on invariant probabilities; the two factor maps preserve ergodicity and give entropy equality by monotonicity in both directions, not by asserting pointwise conjugacy. Lebesgue on the circle is the exact uniform 1111-symbol shift, and s pushes it to an absolutely continuous law by affine change of variables; any absolutely continuous invariant law projects to an absolutely continuous invariant circle law, which is unique by exactness. Birkhoff applied to s composed with a countable convergence-determining set of bounded continuous tests gives physicality. The branch formula gives nonuniform density (near zero only the first affine interval contributes); the total variation is 1111+999+99+9, so coupling a uniform t with the grid point immediately to its left establishes the W₁ bound. For the covariance I also obtained P( {at}−1/2 )=({at}−1/2)/1111 for the Lebesgue transfer operator P of G when gcd(a,1111)=1: the residues a j modulo 1111 permute the branches. This gives the all-lag scaling directly. The sawtooth pair integral from matching Fourier harmonics gives Var=(4+2(3/10+2/100+1/1000))/12=2321/6000; geometric summation gives the normalized spectrum in the stated convention. The frozen checker was inspected, not executed; analytic identities establish the universal claims.
 
-The published 2023 three-remainder Rényi formula (Equation 29, Section 3.4) is the direct source. Its treatment of that construction is primarily numerical, centered on phase diagrams and Lyapunov exponents, not a measure bijection, exact all-period census, or stationary power spectrum. The 2022 single-remainder precursor proves sufficient instability conditions and explores the Rényi case numerically, without claiming this combined exact law. Actual semantic database comparisons include the remainder-added *linear* map result and integer-expanding map autocorrelation results; their objects and observables differ. General facts about circle multiplication and sawtooth covariance are recognized as existing tools and the substantial residual risk is an unindexed formulation of this arithmetic reduction. Search absence alone is not used as a proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-This exact special case uses **all three decimal remainder terms actually specified in the source**, not arbitrary artificial coefficients. It turns an apparently highly discontinuous four-term interval system into an analyzable factor of integer circle expansion, giving all invariant probability measures, a closed periodic census, a nonuniform physical density, and a complete geometric covariance and spectral law. Such rigorous statistical characterizations inform how an application-motivated deterministic map behaves beyond its Lyapunov exponent or scatterplot. The claim concerns mathematical dynamics only and does not infer cryptographic security or behavior for noninteger gains.
+The map itself and the basic circle-map and sawtooth tools are prior art. Credit is for the explicit arithmetic identification and the joint periodic, stationary-law and all-lag consequences for the published map. No inspected different result evaluates this package or makes the claimed specialization directly available as its stated corollary.
 
-## Closest literature and limits
+## value
 
-- Moysis et al., *Symmetry* **15** (2023), 726, DOI 10.3390/sym15030726: same four-term formula, but only the relevant construction and numerical performance are established there.
-- Moysis et al., *Mathematics* **10** (2022), 2801, DOI 10.3390/math10152801: related one-remainder instability criterion, but not the four-term physical and periodic exact solution.
-- General expanding-circle and fractional-part Fourier identities underlie the proof. This report does not claim those identities are novel. Unindexed or differently phrased arithmetic-dynamics work is the principal publication-priority uncertainty.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The gains and map come from a published example, not an arbitrary numerical slice. The factorization determines all invariant laws and all fixed-point counts rather than just the instability of a typical orbit. The exact variance, density and all-lag spectrum give a benchmark for a concrete nonuniform observable: a simple geometric law for memory despite the nonuniform one-time distribution. They can be used to distinguish exact dynamics from numerical artifacts without treating them as evidence about security.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

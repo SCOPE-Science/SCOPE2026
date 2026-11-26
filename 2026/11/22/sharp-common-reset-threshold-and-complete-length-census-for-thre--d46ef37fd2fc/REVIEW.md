@@ -1,11 +1,21 @@
-# Review of the seven-letter simultaneous reset census
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The proof reduces the infinite input-word issue to finite subsets: an individually synchronizing three-state binary machine must reach a singleton along a simple path of at most six edges in a seven-vertex subset graph. The complete \(27^2\) table enumeration yields \(549\) synchronizing machines; each signature exactly records membership of all words at lengths \(1\) through \(7\). The resulting \(28\) equality classes are sufficient for a lossless weighted census of all \(549^3\) ordered triples. The direct subset-product BFS independently confirms each weighted histogram coefficient and the sharp witness. Computations were performed from the supplied exact source programs, not inferred from prior output records.
+## correctness
 
-**Originality (O): PASS against inspected sources.** Fernau–Rystsov's product-language identity and reset inequalities cover the existence and generic bounds, not the exact three-by-three-by-three seven-letter maximum or the full distribution. Szykuła's 2026 survey addresses single-automaton problems. An earlier finite pair enumeration gives only six for two components; a pairwise guarantee cannot replace simultaneous triple intersection. Semantic searches included reset language equivalences, direct products, and tuple synchronization. No dominating explicit triple census was located. Residual risks include an unindexed equivalent enumeration and incomplete inspection of some older product-automata bibliography.
+PASS
 
-**Value (V): PASS.** The entire natural finite domain is classified, not an arbitrary sample: the sharp parameter rises from the pair setting, the exceptional \(165{,}888\) ordered labeled triples are counted, and all seven shortest-length layers are measured. This provides a usable small-state benchmark for coordinated input/reset protocols and reveals that pairwise short resets need not combine into a six-letter triple reset.
+A subset that becomes a singleton stays a singleton, so collapsing all singleton states to one absorbing reset state preserves shortest reset lengths in each factor and in the triple. Independently of the frozen signature quotient, I partitioned all 729 tables into 129 orbits under simultaneous state relabeling of both letters, found 94 synchronizing orbits of total mass 549 by subset reachability, and ran full product BFS over every multiset of three such orbit representatives. Weighting by the product of orbit sizes and 3! divided by the factorials of the orbit-index repetitions restores all ordered labeled triples. The exact length counts for 1–7 were 1062153, 48991068, 66420432, 35524872, 10653120, 2651616, and 165888, totaling 165469149. A separate word scan confirmed the 28 signatures and the six length-seven reset words for the specified witness, including 0010110; BFS excludes shorter words. The supplied seven-level signature quotient is also valid: each individually resettable subset graph has a singleton path of length at most six, right extensions preserve reset, and every signature triple had a nonempty intersection by seven. In arXiv v1 the cited product results are Lemma 5 and Proposition 7, not Lemma 3.1 and Proposition 3.4; this bibliographic slip does not enter the finite proof.
 
-**Scope/limits.** Exactly three components, each with three states and two common letters; complete deterministic transitions; independently labeled states; repeated components allowed. The argument is finite and computationally reproducible, but no claim is made about larger domains or independent expert validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact triple threshold and weighted labeled census are not supplied or implied by the strongest located pair or product results. The 549 single machines and the pair length census are not separately novel; the general product identity is established background.
+
+## value
+
+PASS
+
+The natural first extension from two to three shared-letter components has a distinct obstruction: even universal six-letter pair compatibility does not give six-letter triple compatibility. The exact seven-layer classification, including 165888 worst-case labeled triples, gives a usable complete benchmark for simultaneous synchronization rather than an arbitrarily sampled enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:09:06.802560Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For 3×3 matrices, rational canonical form gives scalar, cyclic, or scalar plus rank one. The scalar shift in the last case is unique by the rank inequality. For C(N) with rank N=1, the nonzero-trace form splits as M2(k)⊕k. The trace-zero form N=E12 gives the displayed five-parameter algebra, and its commutator matrix on the three noncentral coordinates has determinant zero and a nonzero square minor off the center. This gives common centralizer dimensions 3, 5, 9 in all characteristics. Trace duality for the linearized commutator gives tangent dimension 9+d; the underlying dimension 12 at geometric points makes d=3 smooth for the equation scheme. The reduced nonsmooth support is parametrized by scalar translations and nonzero decomposable 2×3×3 tensors, with scalar pairs as limits. The rank-one minor on the open set where suitable off-diagonal entries are nonzero recovers the scalar shifts rationally; this confirms birationality, dimension 8, and irreducibility, not a scheme structure assertion. The projective rank-one directions count L, giving U and the noncyclic single-matrix count S; summing partner counts gives T. Every smooth fiber has q^24 lifts. At (N,0) the trace obstruction for A1 at fixed B1∈C(N) has rank dim[B1,C(N)], 0 or 2, and any admissible first-order pair has q^14 completions. Scalar-base lifts are Tq^18 per pair. These give the stated formula. An independent bit-matrix enumeration over F2 gives strata (6864,588,4), T=7456, and for both E11 and E12 exactly 4 choices of B1 with 512 admissible A1 and 28 choices with 128 admissible A1. It gives J2(2)=177234509824. The frozen VERIFICATION.md and verify_jet3.py were inspected, not executed; their other-field tests are bounded recorded corroboration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Avni–Klopsch–Onn–Voll give group orders and Lie shadow dimensions in Table 2.1 and every transition multiplicity a_στ(q) in Table 2.2. Theorem 2.8 holds for gl3 over quotients of the DVR, including k[[t]], without the characteristic-zero restrictions of the representation-zeta applications.",
+          "Avni–Onn–Prasad–Vaserstein also give centralizer equations and classify similarity at all lengths; their unweighted class total alone is not the relevant prior implication. Prasad–Singla–Spallone classify length-two similarity fibers, not the target raw count."
+        ],
+        "reasoning": "If A is the transition matrix (a_στ) with ε=1 and v_l counts classes by shadow at length l, the stated tables give v_1 as the G row and v_l=v_1 A^(l−1). The required statistic is |GL3(R_l)| v_l w. All quantities are table entries or group orders; specializing l=3 is a finite substitution, with no new classification or lift computation required.",
+        "searches": [
+          "Avni–Klopsch–Onn–Voll arXiv:1410.4533 Theorem 2.8 and Tables 2.1–2.2",
+          "Avni–Onn–Prasad–Vaserstein arXiv:0708.1608 §§4.1, 5",
+          "Prasad–Singla–Spallone arXiv:1212.6157 Theorem 10.3 and Example 10.5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1410.4533, 0708.1608, 1409.2698, 0801.3074, 0902.3467 and 1212.6157",
+        "Huang, Commuting Matrices via Commuting Endomorphisms, §4.2 Eq. (4.19), a constrained finite-field count",
+        "Resultary records f22a7b432c58, 59205c21f48b, 683b481bb505 and 3a0ef7e1ec79",
+        "Frozen RESULT.md, VERIFICATION.md and verify_jet3.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At the normalized nonscalar base (N,0), write B=tB′, so [A,B]=0 mod t³ iff [A mod t²,B′]=0 mod t². There are q^9 choices of A2. Therefore the fixed-base count is q^9 times the sum of |C(A′)| over length-two lifts A′ of N.",
+          "For σ=L (semisimple rank one) or J (nilpotent rank one), Table 2.2 yields Σ_τ a_στ w_τ=(q³+q²−1)w_σ. This follows by substituting the listed group orders: L branches into L,T1,T2,M and J into J,M,N,K0,K∞. Restricting each whole similarity orbit to A′ reducing to the fixed N divides its orbit-weighted sum by the size |O_N|=|GL3(k)|/|σ(k)|. Since dim σ=5 and |GL3(R_2)|=q^9|GL3(k)|, the total is exactly q^23(q³+q²−1), including q=2.",
+          "Popov §4.2 already exhibits a rank-two commutator calculation for the subregular sl3 centralizer in characteristic zero. Sharma gives the matrix common-centralizer branches over all finite fields. Their nonscalar d=5 description extends to geometric points by taking finite extensions and is exactly scalar shifts plus a common rank-one direction."
+        ],
+        "reasoning": "The prior tables cover both the main total and the key exceptional numerical fiber rather than just supplying vague ingredients. The rank-two obstruction is a direct trace-dual expression of the known centralizer branches. Smooth and scalar fibers are standard formal lifting and field centralizer counting. The tangent-locus description follows from the known base cases and the trace pairing. The Segre birational presentation is a useful parametrization of that same stratum, not a separate substantive exact finding here.",
+        "searches": [
+          "arXiv:1410.4533 Table 2.2 rows 9–17, shadow types L and J",
+          "arXiv:1409.2698 Lemmas 4.1–4.4",
+          "arXiv:0801.3074 Theorems 1.3, 1.5, 1.6 and §4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For R_l=k[t]/t^l, the second-jet count is exactly the count of ordered commuting matrices at l=3. Equivalently, it is Σ_A |C(A)| for the algebra centralizer C(A).",
+          "Define S as the reduction of C(A) mod t. The group shadow is S× (Avni et al. Definition 2.2 and the paragraph before Lemma 2.3). The preimages of all elements of S have the same size, and invertibility is detected mod t. Thus |C(A)|/|C(A)×|=q^dim(S)/|S×|."
+        ],
+        "reasoning": "Orbit–stabilizer turns the raw pair count into |GL3(R_l)| times a weighted sum over single-matrix similarity classes. The weight is w_σ=q^dim(σ)/|σ(k)| and depends exactly on the known shadows. This step does not equate the point count with an orbit count, and does not require the unit span lemma for q=2.",
+        "searches": [
+          "Resultary: 3×3 commuting matrix pairs, second-order jets, finite local rings and rank-one obstruction",
+          "arXiv:0902.3467",
+          "arXiv:1410.4533 Definition 2.2 and Tables 2.1–2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact same M3 count among inspected catalogue hits; identified analogues count M2 over finite chain rings, specialized sl2 tuples, M2 over square-zero local rings, or compositional endomorphisms, not unrestricted M3 jets.",
+          "The shadow tables are exact quantitative prior data for this claim. At q=2, in G,L,J,T1,T2,T3,M,N,K0,K∞ order they give v_3=(8,56,56,56,224,168,392,224,56,56); weighting it gives exactly 177234509824. Remark 2.10 even states the exact single-matrix irregular count S.",
+          "Sharma's size-three table gives an orbit statistic, but its proofs give common-centralizer algebras, e.g. the d=5 nilpotent case iff the partner belongs to the span of I and N."
+        ],
+        "reasoning": "The exact polynomial need not be printed to be covered; all-q table weighting yields the count. Sharma's algebra descriptions also cover the field base strata, whereas its unweighted class count is not a substitute for the raw jet count.",
+        "searches": [
+          "Resultary: ordered commuting M3 over Fq[t]/t³, rank-one strata and truncated matrix jets",
+          "arXiv:1410.4533 Tables 2.1–2.2",
+          "Sharma arXiv:1409.2698 §4 and Table 2"
+        ]
+      },
+      "rationale": "The earlier Avni–Klopsch–Onn–Voll shadow and branching tables mechanically determine the ordered all-matrix count at every length, not just invertible commuting pairs or simultaneous-similarity orbits. Their actual tables also mechanically determine the putatively new d=5 per-base count. The same arithmetic written via second-jet obstruction is a different proof, not a distinct exact invariant; the base stratification is covered by earlier centralizer classification. The failure is demonstrated implication, not an unavailable source or a claim of verbatim duplication.",
+      "residual_risks": [
+        "An earlier source may print the identical specialized polynomial; the documented stronger-table implication already establishes coverage, without inferring authorship or priority from an index.",
+        "The positive-characteristic nonsmooth-support statement is not identified with a characteristic-zero theorem about the singular scheme, and no scheme-theoretic equations for the nonsmooth locus have been assessed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger table theorem mechanically covers total and exceptional fibers",
+          "evidence": "Group shadow equals the units of the Lie shadow. Table 2.1 supplies dim and σ(k); Table 2.2 supplies all a_στ. Rows 9–17 give the two exceptional weighted branch sums in the comparison.",
+          "identifier_or_url": "https://arxiv.org/pdf/1410.4533",
+          "material_read": "Abstract, §2.1 Definition 2.2 and text before Lemma 2.3, Theorem 2.8 and Tables 2.1–2.2, Remark 2.10",
+          "method": "OA PDF offsets 0, 67490 and 82180; bounded sections pp. 17–22",
+          "title": "Similarity classes of integral p-adic matrices and representation zeta functions of groups of type A2",
+          "trigger": "Same 3×3 finite local quotient and full quantitative centralizer-shadow data"
+        },
+        {
+          "assessment": "Closely related similarity and centralizer classification; quantitative implication above uses the more explicit shadow table",
+          "evidence": "The centralizers in the hard case split according to the three valuations. The four-type recursion in §5 counts single-matrix classes, not ordered commuting pairs as written.",
+          "identifier_or_url": "https://arxiv.org/pdf/0708.1608",
+          "material_read": "Abstract, §4.1 centralizer Equations (7)–(8), §5 class count recursion",
+          "method": "OA PDF offsets 0, 22240 and 34000",
+          "title": "Similarity classes of 3 × 3 matrices over a local principal ideal ring",
+          "trigger": "Same size and local rings at arbitrary lengths"
+        },
+        {
+          "assessment": "Covers field base-stratum data; printed orbit count is not the raw jet count",
+          "evidence": "In the nilpotent subregular case equal diagonal parameters and vanishing off-center terms give B=aI+bN with full five-dimensional joint centralizer; other branches have regular centralizers. The semisimple case reduces to the M2 block.",
+          "identifier_or_url": "https://arxiv.org/pdf/1409.2698",
+          "material_read": "§4 Lemmas 4.1–4.4 including nilpotent subregular and semisimple cases, Theorem 4.6 and Table 2",
+          "method": "OA PDF pp. 9–16, including offsets 23500 and 33310",
+          "title": "Simultaneous Similarity Classes of Commuting Matrices over a Finite Field",
+          "trigger": "Exact size-three base centralizer branches"
+        },
+        {
+          "assessment": "Prior characteristic-zero irregular-locus and obstruction-rank overlap; not a replacement for a positive-characteristic scheme claim",
+          "evidence": "Codimension four for type A and explicit rank-zero on the center/rank-two otherwise for the subregular sl3 centralizer.",
+          "identifier_or_url": "https://arxiv.org/pdf/0801.3074",
+          "material_read": "Theorems 1.3, 1.5 and 1.6; §4.2, equations (47)–(49)",
+          "method": "OA PDF offsets 4800 and 35000",
+          "title": "Irregular and singular loci of commuting varieties",
+          "trigger": "Same irregular-locus geometry and subregular centralizer rank"
+        },
+        {
+          "assessment": "All-order jet irreducibility is different from finite-field counts",
+          "evidence": "Proves irreducibility for every finite jet order in size three, not the all-q point formula as stated.",
+          "identifier_or_url": "https://arxiv.org/pdf/0902.3467",
+          "material_read": "The result on size-three jets, p. 2",
+          "method": "OA PDF offset 8293",
+          "title": "Jet schemes of the commuting matrix pairs scheme",
+          "trigger": "The exact same matrix-pair jet scheme"
+        },
+        {
+          "assessment": "Adjacent length-two orbit problem",
+          "evidence": "Identifies fiber classifications including a simultaneous conjugacy problem, not the labelled length-three commuting total.",
+          "identifier_or_url": "https://arxiv.org/abs/1212.6157",
+          "material_read": "Theorem 10.3, Corollary 10.4 and Example 10.5",
+          "method": "OA PDF pp. 43–44, offset 112900",
+          "title": "Similarity of matrices over local rings of length two",
+          "trigger": "Nearby local-ring similarity fibers"
+        },
+        {
+          "assessment": "Different size",
+          "evidence": "Treats M2 and a Fourier transform over finite chain rings, not M3 length-three jet fibers.",
+          "identifier_or_url": "2026/11/8/SCOPE-fourier-support-descent-for-commuting-2-times2-matrices-over-fin--f22a7b432c58",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Fourier support descent for commuting 2×2 matrices over finite chain rings",
+          "trigger": "Closest indexed unrestricted chain-ring matrix-pair object"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "This is a natural arithmetic invariant and the direct proof explains the exceptional lifts well, but both the claimed numerical invariant and the exceptional fiber are elementary weights of known stronger exact tables. The remaining geometric description is a direct repackaging of the known base centralizer types via nondegenerate trace duality and rank-one tensor parametrization. No independently useful new geometric or arithmetic remainder is established: in particular, there is no singular scheme calculation, new higher-order law, or distinct obstruction result beyond the existing centralizer ranks. No repair is warranted for the stated finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

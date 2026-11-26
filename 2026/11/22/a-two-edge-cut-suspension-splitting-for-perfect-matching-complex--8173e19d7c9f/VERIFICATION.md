@@ -5,19 +5,24 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
     "status": "not_performed"
   },
-  "schema_version": 1
+  "schema_version": 1,
+  "record_status": "passed"
 }
 ---
-
 # Verification and scope
 
-`checker.py` uses exact combinatorial perfect-matching enumeration and exact mod-two matrix elimination. Run `python checker.py` with Python 3 and no third-party dependencies. It checks both-cross/zero-cross parity in the twelve-vertex example, all 234 maximal simplices, the complete face vector, the intersection of the two subcomplexes, and every mod-two reduced boundary rank. Its output supplies finite evidence for the explicit example; the unrestricted integral homotopy formula is established by the written parity, intersection, star-contraction and homotopy-pushout argument.
-
-The decomposition is nonequivariant and relies on all four specified perfect-matching complexes being nonvoid. The checker is not a computer proof of the general theorem. Independent audit: not performed.
+The parity and star argument in `RESULT.md` proves the splitting including the empty attaching complex. As a separate arithmetic check for the double \(K_6\) example, weight a face of cardinality \(k\) by \(x^k\), including weight 1 for the empty face. The face polynomial is
+\[
+(1+15x+45x^2+15x^3)^2+(2x+x^2)(1+6x+3x^2)^2.
+\]
+The second term counts the faces with at least one crossing edge and a punctured-side face. The positive-degree coefficients are \((32,340,1476,2589,1404,234)\), giving Euler characteristic \(-251\), in agreement with the wedge. This is an enumeration check, not a proof of the integral homotopy type in place of the collapses and splitting.

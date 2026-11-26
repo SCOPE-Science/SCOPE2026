@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction and verification
 
-`verify.py` uses only the Python 3 standard library. Run `python verify.py` from the folder containing this file and the script; seeded Gaussian simulation will evaluate direct matrix formulas and compare them against independent one-dimensional Simpson quadrature. The executed output was:
+# Independent mathematical audit
 
-```
-case a=1, b=1, tau=0.5: theory [0.11750309741539608, 0.3379300580710263, 0.5445668445135776]; observed [0.11677, 0.33684, 0.54639]
-case a=4, b=1, tau=0.5: theory [0.03024350182003487, 0.25978949520339095, 0.7099670029765741]; observed [0.03089, 0.25908, 0.71003]
-case a=100, b=1, tau=0.5: theory [0.001212123269814386, 0.24717657747280655, 0.7516112992573791]; observed [0.00119, 0.24999, 0.74882]
-case a=7, b=2, tau=1.4: theory [0.06562761183105556, 0.3502563461096229, 0.5841160420593214]; observed [0.06652, 0.34907, 0.58441]
-high-conditioning false-stop limit J(0.5)=0.247126056147587; at kappa=100000: 0.247129436449459
-PASS numerical suite: 500029 trial/analytic checks (400000 sequential direct trials; 100000 residual-CDF trials)
-```
+## correctness
 
-In each direct matrix trial, the residual is explicitly projected after the first sample and the second sample is separately drawn. The direct squared residual is also compared with \(a^2b^2/d(U)\). A separate distribution experiment compares four empirical CDF levels to the analytic transformed-arcsine CDF. Exact isotropic formulas and near-anisotropic-limit quadrature are additionally checked. Monte Carlo comparisons permit sampling error up to \(0.008\) or \(0.009\), so these finite checks are not proofs of exact universal identities. The mathematical proof in `RESULT.md` establishes the statements without extrapolating from the tests.
+PASS
 
-No external audit or other-person verification was performed. The first-pass empty-state convention and possible earlier published equivalents remain explicit limitations.
+Orthogonal invariance reduces to diag(a,b). The squared first length is T d(U) with independent chi-square(2) radius T and arcsine first-coordinate square U. Given the first column, the projected second length is an absolute normal with scale R=ab/sqrt(d(U)); this scale depends only on U, so the conditional second-stop probability multiplies the conditional first-gate survival exp(-tau^2/(2d(U))). This supplies p0, p1, and the complementary rank-two probability. Inverting the decreasing angular map and differentiating gives the unconditional CDF and density, with R=b in the isotropic case; it is not the law among first-gate survivors. Eckart–Young makes both early stops false for tau<b; rank-one pruning cannot drop the only coefficient row because its norm is at least b. The large-kappa integral follows by dominated convergence with c=tau/b fixed; the integrand is positive off a null set and has positive integral. The replay python3 /workspace/review_replay.py qb conditions instead on the polar angle of Ag1 and integrates its elliptical angular density at 45 digits; for (4,1,.5) it gives p0=.030243501820034832886, p1=.25978949520339110013 and independently confirms the residual CDF at selected thresholds and J(.5)=.24712605614758927433. The coarse frozen quadrature at kappa=100000 is only a tolerance check: resolving the angular boundary layer gives a summed value .2471272683909951 rather than .247129436449459. This does not affect the theorem or its quoted finite-spectrum or limit illustrations. The exact-arithmetic decision law is not a claim that the original software handles its empty-output pruning branch, or a guarantee for larger blocks, reused probes, or relative tolerance estimates.
+
+## originality
+
+PASS
+
+The distinct joint contribution on the accessed evidence is the adaptive one-column two-gate under-rank probability and its explicit nonzero high-conditioning limit, not the QR algorithm, the single fixed-residual Gaussian small-ball law, or angular Gaussian transformations considered separately. The closest earlier exact QB risk concerns rank over-retention after a two-column block, not premature stopping. General anisotropic Gaussian QR distributions are a meaningful alternate formulation and residual literature risk; no retrieved claim calculates this thresholded joint law with its fixed-c limit.
+
+## value
+
+PASS
+
+This is the smallest nonsingular setting in which an accepted Gaussian sketch can adapt the basis before a second acceptance test. The shared first probe induces dependence that a fixed-residual estimator guarantee misses. Quantifying an exact under-rank error and showing that it persists as conditioning worsens for fixed tau/b gives a concrete diagnostic and calibration benchmark for the one-column method, without extrapolation to its larger-block implementations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

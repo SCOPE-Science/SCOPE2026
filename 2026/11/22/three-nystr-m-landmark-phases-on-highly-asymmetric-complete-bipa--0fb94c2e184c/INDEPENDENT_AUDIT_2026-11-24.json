@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:41:51.023293Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Assumptions, Proof, Verification; verify.py and VERIFICATION.md inspected, not executed",
+        "Independent symbolic replay: python /workspace/branches/biclique-trace-reproduction.py"
+      ],
+      "rationale": "Independently use the Schur residual identity: the residual on unselected vertices is the inverse of the corresponding principal precision submatrix. For r remaining A-vertices and s remaining B-vertices set a=t+q, b=t+p. The two within-part contrasts contribute (r−1)/a+(s−1)/b and the constant-on-parts block has trace of inverse (a+b)/(ab−rs). Substituting (r,s)=(p−2,q),(p−1,q−1),(p,q−2) reproduces both positive denominators and all quartic coefficients. Their leading signs in q give exactly one positive crossing each by Descartes and the endpoint signs. Normalization by q³ gives the two simple limiting roots; the coefficients are polynomial in 1/q near zero, giving the asserted O_p(1/q) rates. The signs force AA, AB, BB in order with only the adjacent ties. The stated midpoint lies strictly between the limiting roots and the two negative tests suffice at finite sizes. Independent calculation also reproduces the p=3,q=30 numerical example. The frozen self-review has an incidental 'two ... orbits' typo; there are three as in the actual Finding and proof.",
+      "residual_risks": [
+        "Fixed p asymptotics; finite tests sufficient but not necessary, smallest cutoff not identified. No weighted/noisy or larger-budget claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General PSD-kernel/trace identities and greedy approximation bounds include many kernels. The GP placement papers use mutual information; the nuclear-score paper also treats Laplacians and killed walks."
+        ],
+        "reasoning": "General definitions, identities and approximation guarantees do not assert this exact optimizer or exclude additional crossings; specialized algebra is needed.",
+        "searches": [
+          "Guestrin–Krause–Singh ICML 2005 p.1; Krause–Singh–Guestrin JMLR 2008 p.1",
+          "Belabbas–Wolfe Proposition 4.2",
+          "Fornace–Lindsey §§1.3,5, Theorem 6"
+        ]
+      },
+      "checked_sources": [
+        "ICML 2005 GP placement; JMLR 2008 GP placement; arXiv:0906.4582; arXiv:2407.01698",
+        "Resultary bb7f4ce228bb, 0e0758755828 and identical target 0fb94c2e184c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general trace identity yields a way to compute losses; the small-shore p=2 expression is degenerate at t=0 in the limiting first crossing."
+        ],
+        "reasoning": "To obtain this theorem one must compare all three loss expressions at p≥3, prove unique roots globally and order them. Approximation or algebra limited to the degenerate p=2 case does not do so.",
+        "searches": [
+          "Belabbas–Wolfe Proposition 4.2 and Fornace–Lindsey Theorem 6; Resultary bb7f4ce228bb Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Principal-precision inverse trace is precisely the Schur residual trace for this noiseless kernel, not a mutual-information objective.",
+          "Resultary bb7f4ce228bb uses that same objective, but only p=2; 0e0758755828 uses the distinct grounded heat trace."
+        ],
+        "reasoning": "The p=2 family is a genuine objective match, but its first transition vanishes in the limit. The heat objective has different thresholds and does not optimize the same scalar function at fixed t.",
+        "searches": [
+          "Resultary: screened complete bipartite inverse Laplacian trace Nyström two landmarks",
+          "Primary search: complete bipartite Nyström landmark selection trace error Laplacian inverse two landmarks phase transition",
+          "Belabbas–Wolfe Proposition 4.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "0fb94c2e184c is the identical record. The same-objective K_{2,n} entry gives 2/(n−2) and a second root tending to √2; the heat-trace entry gives log(phi), log 2 in another objective."
+        ],
+        "reasoning": "Neither distinct catalog table supplies these exact all-fixed-p thresholds or the individual-size quartic criterion. Do not infer priority from a shared date.",
+        "searches": [
+          "Resultary 0fb94c2e184c, bb7f4ce228bb, 0e0758755828"
+        ]
+      },
+      "rationale": "The prior Nyström objective is identical; the supported distinct theorem is exact phase order, ties, and the two limiting thresholds for every fixed p≥3 and sufficiently large q. The same-objective p=2 boundary result and heat-trace analog do not cover it.",
+      "residual_risks": [
+        "Bounded search, not a historical priority certification. The inaccessible title hit is not used as negative evidence. Same-day catalog ordering is unknown."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mutual information, not the specified trace error.",
+          "evidence": [
+            "Submodular approximation to a mutual-information objective."
+          ],
+          "identifier_or_url": "https://www.cs.cmu.edu/~guestrin/Publications/ICML2005-GP/icml2005-gp.pdf",
+          "material_read": "p. 1 criterion and guarantee",
+          "method": "OA PDF",
+          "title": "Near-Optimal Sensor Placements in Gaussian Processes",
+          "trigger": "GP sensor placement"
+        },
+        {
+          "assessment": "Distinguishes trace-type alternatives; no biclique optimum there.",
+          "evidence": [
+            "Focus is mutual information and its approximation algorithms."
+          ],
+          "identifier_or_url": "https://jmlr.csail.mit.edu/papers/volume9/krause08a/krause08a.pdf",
+          "material_read": "p. 1 objective passage",
+          "method": "OA PDF",
+          "title": "Near-Optimal Sensor Placements in Gaussian Processes: Theory, Efficient Algorithms and Empirical Studies",
+          "trigger": "Possible broad exact placement coverage"
+        },
+        {
+          "assessment": "Framework and exact Schur residual formula, not the orbit classification.",
+          "evidence": [
+            "Trace-norm error equals trace of complementary Schur residual for PSD kernels."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0906.4582",
+          "material_read": "Proposition 4.2, p. 9",
+          "method": "OA PDF offset 29651",
+          "title": "On Landmark Selection and Sampling in High-Dimensional Data Analysis",
+          "trigger": "Identical PSD Nyström trace objective"
+        },
+        {
+          "assessment": "Greedy maximization with approximation guarantees, no covering exact biclique phase theorem in inspected passages.",
+          "evidence": [
+            "Inverse-Laplacian rank reduction and a nonsingular killed-walk kernel discussed."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2407.01698",
+          "material_read": "§1.3 p. 7; §5 p. 25 and Theorem 6 p. 26",
+          "method": "OA PDF offsets 25285, 94873, 99391",
+          "title": "Column and Row Subset Selection Using Nuclear Scores",
+          "trigger": "PSD column selection and Laplacian-related kernels"
+        },
+        {
+          "assessment": "Boundary p=2 only, not the p≥3 theorem.",
+          "evidence": [
+            "Three phases at n≥6, first threshold 2/(n−2) tends to zero."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-three-motif-nystr-m-landmark-transitions-on-k-2-n--bb7f4ce228bb/RESULT.md",
+          "material_read": "Finding and parameters",
+          "method": "Local mirror offset 0",
+          "title": "Three-motif Nyström landmark transitions on K_{2,n}",
+          "trigger": "Closest same-objective phase diagram"
+        },
+        {
+          "assessment": "Different grounded heat-trace objective.",
+          "evidence": [
+            "The limiting thresholds log(phi) and log 2 describe time horizons, not the present resolvent loss."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-three-finite-horizon-optimal-leader-types-on-complete-bipartite--0e0758755828/RESULT.md",
+          "material_read": "Finding and objective",
+          "method": "Local mirror offset 0",
+          "title": "Three finite-horizon optimal leader types on complete bipartite networks",
+          "trigger": "Same graph family and orbit types"
+        },
+        {
+          "assessment": "Unresolved; cannot infer coverage or noncoverage.",
+          "evidence": [
+            "Snippet does not establish graph, exact objective, or optimizer statement."
+          ],
+          "identifier_or_url": "ResearchGate title hit in primary-literature search; no DOI identified",
+          "material_read": "Search snippet only",
+          "method": "OA direct and alternate route attempts returned HTTP 403",
+          "title": "Optimal Landmark Selection for Nystrom Approximation",
+          "trigger": "Potential exact same objective"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and §3 proof",
+        "Resultary bb7f4ce228bb for p=2 boundary comparison"
+      ],
+      "rationale": "The two-landmark posterior-variance problem has three canonical competing configurations. The exact optimizer changes twice, and the mixed phase persists over a nonzero interval even at extreme asymmetry, unlike a lower boundary tending to zero. This fixes both asymptotic scales and provides a finite certificate for checking phase order, rather than just numerical examples or use of a standard trace identity.",
+      "residual_risks": [
+        "No minimal-cutoff or general sensor-selection performance claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

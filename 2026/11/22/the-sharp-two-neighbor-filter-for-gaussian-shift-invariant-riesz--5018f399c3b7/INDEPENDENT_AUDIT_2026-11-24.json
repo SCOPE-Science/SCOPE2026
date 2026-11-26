@@ -1,0 +1,186 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:37:48.146497Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–93; VERIFICATION.md, lines 19–23; verify.py, lines 14–90 and check_output.txt (inspected, not executed).",
+        "Independent bounded replay /workspace/branches/math-replay.js, section 4. For s=1 the direct series and numerical extremum give t≈0.216845335437475, filtered ratio 1.198140924365427 and unfiltered ratio 2.414213562373095. Endpoint differences at tested widths vanish to rounding accuracy."
+      ],
+      "rationale": "Completing the square in the Gaussian correlation gives (2s)^(-1/2) exp(−πs(j−k)²/2); Fourier series on the coefficient circle then give the theta multiplier, multiplied by |1−t exp(−2πiξ)|² after filtering. The sharp bounds are its continuous extrema, and bounded invertibility of the filter for t≠±1 gives the same closed span. The Jacobi product has positive increasing affine factors in u=cos(2πξ); the sum of their logarithms has negative second derivative. The logarithm of the positive affine filter factor is concave, so minima are at endpoints and the maximum is unique. At endpoint equality the maximum is interior and both endpoints are strictly below every interior value. Endpoint equality yields the stated t_s; the interior derivative equation follows with convergence for fixed 0<q<1. For t between 0 and t_s normalization by the left endpoint yields a strict pointwise decrease away from that endpoint because t/(1+t)² is increasing. After t_s normalization by the right endpoint gives a strict increase away from it because t/(1−t)² is increasing. Comparing at a maximizer away from the minimizing endpoint gives strictness for the max/min ratio. Negative t in (−1,0) increases the unfiltered endpoint ratio; F_t=t²F_(1/t) covers |t|>1. For small q, (H−J)/(sqrt(H)+sqrt(J))² expands to q+q³+O(q⁵). The q and q³ terms in the multiplier cancel, giving uniformly 1+q²−4q²u²+O(q⁴); the value at zero and the upper envelope pin down the maximum, yielding 1+4q²+O(q⁴) after division by the endpoint minimum. This is the squared bound ratio, not its square root.",
+      "residual_risks": [
+        "Numerical agreement is illustrative; the analytic strict concavity, monotonicity, and reciprocal identity cover all allowed s and t. No formal verification or expert attestation is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Grohs–Liehr give the general sharp bound criterion and Gaussian periodization, including a dual generator. Faulhuber's Gaussian Gabor result varies lattice geometry. The finite cyclic taper record uses an exponential window and fixed modulation subgroup."
+        ],
+        "reasoning": "A spectrum formula permits evaluating every candidate but does not select the global minimum over a tap parameter. Optimization of a Gabor lattice or a finite cyclic window does not contain a fixed real two-neighbor filter for Gaussian integer shifts as a parameter instance.",
+        "searches": [
+          "Resultary: global minimax finite filter coefficients shift-invariant Gaussian translates spectral Gram multiplier optimal conditioning",
+          "Resultary: finite impulse response prefilter to minimize Riesz bounds condition number translates",
+          "Grohs–Liehr, Theorem 2.1 and Corollary 2.4",
+          "Faulhuber, Theorem 1.1 and Section 5"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary search families and closest result texts above",
+        "Kiselev–Minin–Novikov–Sitnik; Grohs–Liehr; Romero–Ulanovskii–Zlotnikov; Faulhuber, passages above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior periodization plus convolution identifies the objective as a max/min of a theta factor times a first-order trigonometric factor. The finite cyclic taper and two-tap operator-band comparisons have different spectral domain and weight."
+        ],
+        "reasoning": "Solving the equality of endpoint values is elementary once global balancing is justified; the prior multiplier formula alone does not justify it or rule out negative taps. The strict log-concavity and change of minimizing endpoint yield the global argument, and the quadratic excess uses the cancellation after substituting the optimal tap.",
+        "searches": [
+          "Grohs–Liehr, §2 Theorem 2.1 and Corollary 2.4",
+          "Kiselev–Minin–Novikov–Sitnik, Gaussian and nodal-generator passages",
+          "Resultary: optimal generator for principal shift-invariant space condition number Riesz bounds filter"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact hit is the assigned record. The closest Gaussian spectral hit uses a Gaussian–first-Hermite mixture (x+c)exp(−πx²), with a different spectral family. The two-site cyclic Gabor results optimize different operators on finite groups."
+        ],
+        "reasoning": "Rescaling the generator or taking the square root of B/A leaves the set of minimizing taps unchanged; t and 1/t also give the same ratio. None of these identifications is a reduction from the Hermite mixture or the cyclic operator bands to the shift-filtered continuous Gaussian multiplier.",
+        "searches": [
+          "Resultary: Gaussian shift-invariant space optimal two-neighbor filter Riesz condition number theta constants sqrt theta3 theta4",
+          "Resultary: Gaussian integer translates adjacent translate two-tap generator optimize Riesz bounds condition number",
+          "Literature: \"Gaussian shift-invariant\" two-tap filter optimal Riesz condition number translate generator theta constants"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The square-root theta-constant formula is indexed in the same assigned record, not a distinct result. The Riesz constants paper gives exact constants for the original Gaussian translates and treats the different nodal-function generator."
+        ],
+        "reasoning": "Unfiltered constants supply the endpoint values at t=0, not the optimized parameters or optimum over the adjacent finite-filter family. The exact infinite-coefficient nodal generator is outside that family.",
+        "searches": [
+          "Resultary: theta function Gaussian translate Riesz constants optimized generator filter exact extremal frequencies",
+          "Kiselev–Minin–Novikov–Sitnik, printed pp. 240–242"
+        ]
+      },
+      "rationale": "The distinct claim is the exact fixed-width global minimax for a real filter with two adjacent taps, with reciprocal minimizers, extremal-frequency information, and sharp weak-overlap excess. The periodized Riesz criterion, Gaussian theta multiplier and unfiltered bounds are prior work.",
+      "residual_risks": [
+        "The cited Zhuravlev et al. (2011), Jacobi theta-functions and systems of integer shifted Gaussian functions, is credited in the 2014 paper for unfiltered constants; its full text was not retrieved for this review.",
+        "Complete interpolating sequences for the Gaussian shift-invariant space was available only by abstract; attempted lawful full-text access returned 403 or no available copy. These gaps and limited search scope preclude priority certification. The separate external search miss is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior unfiltered and nodal-function bounds, not the adjacent-two-tap minimax",
+          "evidence": [
+            "Supplies unfiltered theta constants and coefficients for the distinct nodal-function generator."
+          ],
+          "identifier_or_url": "https://doi.org/10.1134/S0001434614070244",
+          "material_read": "Official MathNet text, printed pp. 240–242, OA offsets 5065 and 8824",
+          "method": "Primary full-text passages and comparison of the two generator families",
+          "title": "On the Riesz Constants for Systems of Integer Translates",
+          "trigger": "Exact Gaussian translate Riesz constants and alternative generator"
+        },
+        {
+          "assessment": "Prior multiplier and dual-generator formula; no real two-tap optimum in inspected statements",
+          "evidence": [
+            "Theorem gives the periodized Fourier Riesz criterion; Corollary gives theta periodization and the corresponding dual generation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2109.02494v4",
+          "material_read": "Theorem 2.1, pp. 7–8, OA offset 22948; Corollary 2.4, p. 9, offset 27486",
+          "method": "Primary OA PDF passages, comparing hypotheses and conclusions",
+          "title": "Stable Gabor Phase Retrieval in Gaussian Shift-Invariant Spaces via Biorthogonality",
+          "trigger": "General criterion and same Gaussian spectral multiplier"
+        },
+        {
+          "assessment": "Inspected scope is sampling/reconstruction, not fixed-width finite generator optimization",
+          "evidence": [
+            "Abstract discusses bivariate Gaussian sampling patterns and Gabor-frame examples."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2306.13619v2",
+          "material_read": "p. 1 abstract, OA offset 0",
+          "method": "OA abstract scope comparison",
+          "title": "Sampling in the shift-invariant space generated by the bivariate Gaussian function",
+          "trigger": "Gaussian shift-invariant sampling motivation"
+        },
+        {
+          "assessment": "Gabor lattice optimization for fixed window, not variation of generator taps",
+          "evidence": [
+            "Minimizes a Gaussian Gabor upper bound via lattice geometry; Section 5 treats square-lattice bounds."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1608.01168",
+          "material_read": "Theorem 1.1, p. 2, OA offset 5090; §5, p. 11, offset 36015",
+          "method": "Primary OA PDF passages and optimization variable comparison",
+          "title": "Minimal Frame Operator Norms Via Minimal Theta Functions",
+          "trigger": "Gaussian conditioning and theta-based exact optimization"
+        },
+        {
+          "assessment": "Spectral transition analysis for a different generator, not a tap minimax",
+          "evidence": [
+            "Generator is (x+c)exp(−πx²) and the parameter controls a Hermite mixture."
+          ],
+          "identifier_or_url": "2026/11/16/SCOPE-sharp-three-transition-riesz-spectra-for-integer-translates-of-g--5506ec533384",
+          "material_read": "Finding, local mirror offset 0",
+          "method": "Local-mirror scientific statement and family comparison",
+          "title": "Sharp three-transition Riesz spectra for integer translates of Gaussian–Hermite mixtures",
+          "trigger": "Closest distinct Gaussian translate spectral record"
+        },
+        {
+          "assessment": "Different spectral geometry and window",
+          "evidence": [
+            "Optimizes a circular-exponential window for a finite cyclic Gabor basis with an index-two modulation subgroup."
+          ],
+          "identifier_or_url": "2026/11/16/SCOPE-exact-optimal-taper-and-quadratic-conditioning-for-a-cyclic-expo--475cf4d15c4d",
+          "material_read": "Finding, local mirror offset 0",
+          "method": "Local-mirror comparison of hypotheses and objective",
+          "title": "Exact optimal taper and quadratic conditioning for a cyclic exponential window",
+          "trigger": "Closest generic nearby two-translation optimization"
+        },
+        {
+          "assessment": "Complex two-site cyclic measurement operator, not Gaussian translate Riesz bounds",
+          "evidence": [
+            "Optimizes the band measurement operator on a fixed observable band."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-conditioning-of-two-tap-cyclic-gabor-operator-bands--156a3d15490e",
+          "material_read": "Finding, local mirror offset 0",
+          "method": "Local-mirror objective comparison",
+          "title": "Sharp conditioning of two-tap cyclic Gabor operator bands",
+          "trigger": "Distinct exact optimization with a two-site window"
+        },
+        {
+          "assessment": "Scale channels, no consecutive integer-shift tap optimization",
+          "evidence": [
+            "Studies unshifted scale-indexed Laplacian heat-kernel channels."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-riesz-conditioning-of-geometric-mexican-hat-scale-channels--be81137ac78e",
+          "material_read": "Finding, local mirror offset 0",
+          "method": "Local-mirror scientific statement comparison",
+          "title": "Sharp Riesz conditioning of geometric Mexican-hat scale channels",
+          "trigger": "Distinct same-day Riesz conditioning hit"
+        },
+        {
+          "assessment": "The assigned finding itself",
+          "evidence": [
+            "Same real adjacent-tap reciprocal pair and theta formulas."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-the-sharp-two-neighbor-filter-for-gaussian-shift-invariant-riesz--5018f399c3b7",
+          "material_read": "Indexed finding and frozen statement",
+          "method": "Semantic search and identity comparison",
+          "title": "The sharp two-neighbor filter for Gaussian shift-invariant Riesz conditioning",
+          "trigger": "Exact local-index hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–32, 44–54 and 71–98; Kiselev–Minin–Novikov–Sitnik, comparison with unfiltered and nodal generators"
+      ],
+      "rationale": "An invertible filter with only one neighboring translate is a minimal local modification of the representation of the same space. The exact optimal coefficient and worst-frequency equation specify the best such preconditioner at every width. The drop in excess from order q to order q² is a genuine rate improvement for this restricted family, not just a numerical gain at one width; the proof shows it need not trade away the shift-invariant subspace.",
+      "residual_risks": [
+        "Does not establish optimality among complex or longer filters, or in a Gabor-frame design. The rate statement is for s→∞."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

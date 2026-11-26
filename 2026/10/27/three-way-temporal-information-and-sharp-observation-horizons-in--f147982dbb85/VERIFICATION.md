@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Finite checks and analytical boundaries
+# Independent mathematical audit
 
-Run `python3 verify.py` using standard Python 3. The checker computes every binary Dickson polynomial exactly, verifies the gcd identity for all 119 separation pairs with \(1\le s<t\le16\) and \(s\le14\), confirms the three primitive coefficients and their maximum degree, and independently builds actual Rule 90 Laurent observation forms for all time lengths \(1\le n\le11\). Binary Gaussian elimination establishes all 1,309 predicted ranks. The checks use integers, no floating-point arithmetic.
+## correctness
 
-These checks do **not** prove the result for all integer spacings or arbitrary time lengths. The mathematical proof uses free-module algebra, polynomial gcd, a primitive syzygy and bounded-degree classification to cover all values, plus compactness for the full trace language. Independent verification has not been performed.
+PASS
+
+With offsets s=b−a and t=c−a, put u=z+z⁻¹. The Laurent ring is free over F₂[u] on (1,z), by the quadratic identity for z and inversion symmetry. The determinant of columns zⁱ,zʲ is P_|j−i|/u, so every two-site system is independent. In the Laurent ring the gcd of z⁻ˢ(z²ˢ+1) and z⁻ᵗ(z²ᵗ+1) is, up to units, z⁻ᵍ(z²ᵍ+1); divisibility by a member of F₂[u] descends by the free basis. Dividing the minors by their gcd gives the primitive vector (P_(t−s),P_t,P_s)/P_g. Bézout forces every polynomial syzygy to be its polynomial multiple. The maximum component degree is h=t−g, so the dependencies for length n are precisely the multiples of degrees 0 through n−1−h, with none if n≤h. Fair iid input is uniform on each linear observation image, giving the pairwise independence and entropy statements. All parity-admissible prefixes lie in their observation images; nested compact preimages realize the entire trace. Since every block of length at most h is allowed, but not every length h+1 block is, memory h is sharp.
+
+## originality
+
+PASS
+
+The historically supported distinct claim is the all-spacing infinite-lattice rank and exact primitive trace rule. A distinct later Resultary record directly covers the frozen statement as the binary case of a finite-field theorem; the equivalence is established, but the dated catalogue evidence does not show that stronger record was available before the frozen October 27 record. Earlier sources inspected do not establish priority for the exact claim.
+
+## value
+
+PASS
+
+This identifies how placement of three temporal sensors controls the exact first joint dependence even though every pair of whole streams is independent. The gcd delay and complete minimal-memory check give a usable description of all observation words and all finite-block entropies, not merely a small example of synergy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

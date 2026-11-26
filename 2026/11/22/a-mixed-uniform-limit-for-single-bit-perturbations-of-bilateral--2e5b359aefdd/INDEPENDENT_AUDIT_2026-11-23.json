@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:23:05.480201Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, AUDIT.json, METADATA.json, REVIEW.md, SLOGAN.txt, VERIFICATION.md, verification_output.txt and verify_flashback_sensitivity.py (inspected, not executed)",
+        "Independent replay: python3 /workspace/branches/789a6f43-f7c9-42bc-b624-f3e7652455bc/actual_run_shift_check.py; results and findings recorded alongside. All 32,766 words and 360,456 interior flips through n=14 passed. The run-count-preserving class has maximum 2 rewrites; all 237,084 bulk comparisons matched the two-away run-length test."
+      ],
+      "rationale": "The mapping from the word to its first bit and successive XOR boundaries is a bijection, so the boundaries are independent fair bits. An interior flip toggles the two adjacent boundaries. If they differ, the run symbols and number of runs are unchanged and at most two adjacent run lengths vary; the fixed pairing can rewrite at most two tokens. If the boundaries agree, replace a consecutive block of one run by three, or three runs by one, leaving a common prefix of a runs and suffix of b runs. Write K for the original edited run index and R for the original run count; (a,b)=(K-1,R-K) for a split and (K-2,R-K-1) for a merge. The last depth nonterminal in both lists is D=floor((a+b)/2), which never exceeds max(a,b). Up to min(a,b) both sides agree. Beyond min(a,b)+3 and through D, the longer side is unchanged and both lists on the shorter side have passed the replaced block. There the two compared original run indices differ by two, in one contiguous interval of depths. At most three local depths and one common terminal handoff are excluded. Since binary symbols alternate, and the stored split separates the paired runs, a bulk mismatch is exactly an unequal pair of lengths. The bulk interval length is R/2-min(K,R+1-K)+O(1) with truncation. On an infinite fair-bit coupling, run lengths are i.i.d. geometric with mass 2^(-l) at l>=1, so a two-index length comparison mismatches with probability 2/3. Its indicators have an SLLN (split indices into three independent residue-class subsequences), and the maximum prefix-sum deviation up to n+2 is o(n) by the same SLLN. Taking differences proves the needed uniform interval estimate at data-dependent endpoints and in either direction. The finite truncation of the last run affects only O(1) comparisons. The uniform prefix boundary law likewise gives R/n->1/2 and K/n-P/(2n)->0. Conditional on every interior P, equal boundaries occur with probability 1/2; this exact independence from P plus the unconditional uniform error bounds gives the joint limit J|U-1/2|/3 for an independent fair Bernoulli J and uniform U on [0,1]. Hence the mixture is a half atom at zero and half uniform on [0,1/6]. H_n/n is uniformly bounded, giving the stated mean limit 1/24.",
+      "residual_risks": [
+        "Neither the finite enumeration nor frozen simulations prove the limit law; the uniform interval law and deterministic shift do. The terminal token is counted at most once and unmatched depths are excluded; the result makes no optimal-alignment claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 6.2 applies to general deterministic strings; Proposition 6.8 exactly handles equal run-symbol skeletons. The following character-edit paragraph proves at most one change in token count, while allowing deep realignment of token contents. Theorem 5.2 and Appendix A.2 study the token count and kernel of one random input."
+        ],
+        "reasoning": "Even perfect control of the single-word token count does not control how many retained depths change. The local proposition covers only the asymptotically negligible branch of the two-word statistic. No general stochastic edit-disagreement theorem covering the other branch was found.",
+        "searches": [
+          "arXiv:2604.26190v1 PDF §§5.2, 6.1, 6.4 and relevant conclusion/appendix scopes",
+          "Web: Konstantinovsky Yaari Flashback bilateral tokenization random substitution sensitivity asymptotic statistical stability run peeling content token expected rewrite count"
+        ]
+      },
+      "checked_sources": [
+        "Konstantinovsky–Yaari arXiv:2604.26190v1",
+        "Resultary 8a763420a95e and e8004d1f1b13 and targeted exact/alias searches",
+        "Targeted web searches above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Flashback text notes that individual token contents may shift at several depths; it does not count the shifted comparisons or their mismatches. The periodic factor theorem concerns the max lengths of common substrings, and the burst-deletion theorem compares symbols a deletion length apart to count all distinct deletion outcomes."
+        ],
+        "reasoning": "For the assigned law one must analyze the two-run index shift at a random position, show uniform convergence of two-apart run-length comparisons on the selected intervals, and derive the random location push-forward and independent half-atom. No inspected theorem supplies those implications for this statistic.",
+        "searches": [
+          "Flashback Theorem 6.2 and Proposition 6.8 with concluding realignment discussion",
+          "Resultary 8a763420a95e Finding, Scope and alignment proof; Resultary e8004d1f1b13 Finding and comparison identity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The defining token coordinates are the concatenated peeled outer runs and their split; except for the terminal convention, token equality is ordered equality of both run strings. The closest old corpus hit on mismatched cyclic run profiles compares contiguous factors of different periodic words, not common-depth tokens of a binary original and its one-bit edit."
+        ],
+        "reasoning": "Outside-in RLE comparisons with one local replacement and fixed depth are equivalent here, but insertion/deletion distance between token sequences and substring-language intersection are different statistics.",
+        "searches": [
+          "Resultary: Flashback bilateral run peeling Konstantinovsky Yaari run-pair token single bit substitution uniform binary depth aligned edit sensitivity renewal mixture 1/24",
+          "Resultary: outside-in maximal run matching token mismatches under a random substitution; geometric renewal comparison and two-index realignment edit instability",
+          "Web: Flashback Konstantinovsky Yaari reversible bilateral run peeling single bit substitution run-pair token rewrite random binary renewal"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed mixture hit is this frozen record. The primary source states an exact binomial-derived law for the number of tokens, not the number of common-depth rewrites. The related burst-deletion record has exact moments and a Gaussian fluctuation law for counts of distinct deletion outcomes, with different source restrictions and edit mechanism."
+        ],
+        "reasoning": "Neither the token-count law nor an exact deletion-output table yields a jointly depth-aligned two-word disagreement count. An unindexed equivalent remains possible.",
+        "searches": [
+          "Resultary exact-query and run-shift query above",
+          "Flashback §5.2 distribution and §6.4 locality",
+          "Resultary e8004d1f1b13 Finding and Proof §§1–2"
+        ]
+      },
+      "rationale": "The Flashback source provides the deterministic token representation, token-count stability and skeleton-preserving edit locality, and separately gives random one-word token counts. It does not state the coupled same-depth distance distribution. The linear-scale random edit effect and its exact mixture and mean require a distinct shift and renewal calculation. No earlier equivalent was located in the bounded comparison.",
+      "residual_risks": [
+        "Bounded source and alias comparison does not certify historical priority. Other tokenization names or unindexed stochastic stability analyses could conceal an equivalent."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Deterministic structure and single-word token count, not a stochastic common-depth rewrite law in the relevant material",
+          "evidence": [
+            "Theorem 6.2 fixes the sentinel, paired runs, terminal kernel and token count; Proposition 6.8 requires the same ordered run symbols",
+            "The character-edit paragraph bounds the change in token count by 1 and only qualitatively notes realignment"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2604.26190v1",
+          "material_read": "Front matter; expected token count §5.2; run-pairing Theorem 6.2; §6.4 including Proposition 6.8 and subsequent character-edit paragraph; related work and concluding discussion",
+          "method": "Primary OA original PDF text with targeted same-paper full-text sections",
+          "title": "Flashback: A Reversible Bilateral Run-Peeling Decomposition of Strings",
+          "trigger": "Introduces the actual transform and studies both random words and edit locality"
+        },
+        {
+          "assessment": "Different observable, source and alignment",
+          "evidence": [
+            "Two purely periodic words with fixed distinct-letter cycle and arbitrary run profiles; maximal common contiguous factors rather than depth-labelled rewrites"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-the-mismatch-gap-basis-for-common-factors-of-cyclic-run-words--8a763420a95e/RESULT.md",
+          "material_read": "Finding, assumptions, and deterministic alignment, construction and exhaustion arguments",
+          "method": "Published local full-text mirror",
+          "title": "The mismatch-gap basis for common factors of cyclic run words",
+          "trigger": "Close run-length mismatch and alignment vocabulary"
+        },
+        {
+          "assessment": "Methodological analogy but not coverage",
+          "evidence": [
+            "Uniform homopolymer-free alphabet of size at least 3, a burst of deletions and a count over all burst starting indices, not a fair binary single random substitution and its bilateral tokens"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-burst-deletion-fluctuations-in-homopolymer-free-words--e8004d1f1b13/RESULT.md",
+          "material_read": "Finding, source and edit scope, and the deterministic shifted-symbol comparison and dependence argument",
+          "method": "Published local full-text mirror",
+          "title": "Exact burst-deletion fluctuations in homopolymer-free words",
+          "trigger": "Exact fluctuation law for a random string edit statistic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Flashback §6.4, frozen theorem, reconstructed boundary/renewal proof"
+      ],
+      "rationale": "This gives a quantitative stability benchmark for a specific reversible representation where total token count can look stable despite content realignment. It cleanly separates local and macroscopic regimes and gives both the full leading-order law and an explicit mean. Those facts are not captured by routine edit-distance or run-count estimates; downstream compression performance is not claimed.",
+      "residual_risks": [
+        "Fair binary words, one uniform interior flip and fixed-depth alignment only; no worst-case bound beyond the trivial size bound, general source law or optimal token alignment is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

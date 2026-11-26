@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The four-dimensional invariant quotient is derived from normalized degrees, and the dark sector is characterized exactly. The Schur complement yields an effective rank-one perturbation with upper eigenvalue gap \(a^{-2}+b^{-2}+O(k^{-3})\); eigenprojection control is uniform in time and proves both the \(ab\)-scale law and the global supremum. A separate direct dark-mode decomposition gives the sharp \(1/a\) suppression for localized starting states. Independent full-graph computations corroborate, but do not replace, these proofs.
+## correctness
 
-**Originality — PASS (best-knowledge).** The 2026 equal-size normalized-adjacency barbell study provides spectral and vertex-localization antecedents. The 2024 barbell quantum-search work uses an oracle and different Hamiltonians. General normalized-Laplacian state-transfer and graph-reduction papers do not state the unequal-size all-time collective-fidelity ceiling. Closest possible implication: the balanced-ratio case may follow from the known equal-clique spectrum, so this special case alone is not claimed as new. The new statement is the size-ratio phase diagram, all-time optimization, and localized-versus-collective transfer law.
+PASS
 
-**Value — PASS.** A single-edge bottleneck naturally raises the question of whether macroscopic cliques exchange an excitation coherently. The result resolves that question with an exact imbalance obstruction, a sharp transfer time scale, and a preparation-dependent change from order-one to order-inverse-size efficiency. These quantify a physical design constraint rather than a mere eigenvalue reformulation.
+Degrees a−1,a and b−1,b give the four-cell invariant quotient and leave the nonbridge zero-sum spaces supported on their own sides. In the interior/bridge ordering, two eigenvalues tend to one and two to zero. For λ near one, subtracting the Schur complement at λ=1 bounds the difference by O(k^−1)|λ−1|, where k=min(a,b). At λ=1 the diagonal 1/a terms cancel to first order against −1/(a−1), and similarly on the right. Thus the estimate |λ−1|≤O(k^−2)+O(k^−1)|λ−1| supplies the bootstrap implicit in line 77. The next-order 2×2 term has diagonal (−a^−2,−b^−2) and off-diagonal (ab)^−1, and its O(k^−3) error is smaller than the spectral split on comparable sizes. Its orthogonal interior directions are (a,b) and (b,−a); the exact Perron eigenvalue is one. Upper modes have O(k^−1/2) bridge components and lower-mode leakage from an interior input is O(k^−1/2) in norm, uniformly in time by unitarity. The two surviving cross coefficients are opposite and of magnitude ab/(a²+b²)+o(1), and their phase difference on t=τab is asymptotic to τ(ρ+ρ^−1) locally uniformly. The same two-term representation bounds the all-time supremum from above without expanding a phase for unbounded t, and t=π/(λ_+−λ_−) gives the matching lower bound; the explicit time in the Finding is asymptotically equivalent. Right-bridge probability is negligible uniformly, and at t=o(ab) the relative phase vanishes. A nonbridge vertex has exactly 1/(a−1) of its squared norm in the interior-uniform component, with the rest trapped on the left, proving the localized optimum. Finite numerical diagnostics were inspected, not executed or used as proof of the limits.
 
-**Closest literature and risks.** See arXiv:2603.05643v1 (equal-size spectrum and vertex IPR), arXiv:2408.08244v2 (oracle-assisted search), arXiv:2209.04668 (vertex transfer), and arXiv:1412.7209 (general invariant reductions). A broader, uninspected spectral perturbation or transfer theorem could implicitly imply the present specialization; checked searches cannot certify universal priority. The asymptotics require comparable growing clique sizes and no environmental noise. Finite diagnostics do not establish limits by themselves.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct contribution is the comparable unequal-size asymptotic with both all-time observables and the quantitative nonbridge preparation contrast. Equal-size exact spectral information and dark modes already appear in Dhamapurkar–Subrahmanyam. The normalized-Laplacian formulation is an alias for these probabilities with real preparations, but the inspected vertex-transfer theorems do not cover the collective asymptotic. The strongest indexed neighbors address different dynamics, geometry or optimization.
+
+## value
+
+PASS
+
+The calculation identifies which finite size imbalances survive as a macroscopic transfer deficit. The uniform all-time bound rules out recovery of high fidelity at much later times, which the scaled-time limit alone would not exclude. The localized dark-mode identity quantifies why collective and vertex-localized preparations behave differently under the same Hamiltonian.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:20:47.955108Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For scalar weights, the source Euler coefficients specialize to Q=sum a_j^2−2 sum a_j a_(j+1)+sum a_j a_(j+2). Polarization gives 2I−2(S+S^−1)+S^2+S^−2, keeping both contributions when powers coincide. Multiplying by the invertible S^2 identifies the cokernel with Z[t]/(t^n−1,(t−1)^2(t^2+1)), presented by C^n−I in the monic degree-four companion basis. The replay (python3 replays/1_euler.py; output replays/1_euler.txt) checks C^4−I=2vw^T, CB=B, B^2=0, and computes constants and slopes for the specified minors of C^r−I+mB. They are affine exactly, since B has rank one, not a finite extrapolation. For r=0 the presentation has rank one and its sole invariant is 2m. For r=1,2,3 the rank is three by the polynomial gcd over Q. The primitive right and left nullvectors v,w have only sign entries, so all maximal minors have the magnitude of the checked principal minor; the selected unit 2-minor forces both smaller Smith divisors to be units. This gives torsion orders n, 2n, n/2 and free ranks 1,1,3 in the proposed regimes. For real inertia the Fourier eigenvalue is −8 sin²(theta/2) cos(theta). Negative eigenvalues correspond to 0<k<n/4 or 3n/4<k<n; positives correspond to n/4<k<3n/4. The counts are 2(ceil(n/4)−1) and ceil(3n/4)−floor(n/4)−1, respectively, giving every row of the frozen table. In particular n=3 and n=4 are semidefinite even when shifts coincide, and n>=5 is indefinite. This concerns the stated polar normalization and neither the half-Hessian nor geometric torsion classes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed unit-weight theorem covers all (n;1,a) with gcd(n,a)=1. The indexed faithful abelian theorem supplies the signed Fourier identity for arbitrary generating weights a,b. Noferini–Williams provide broader Smith tools, rather than the specific numerical Euler cokernel theorem."
+        ],
+        "reasoning": "The unit-weight theorem directly contains (1,1); the faithful-abelian eigenvalue proof applies without primeness, and specializing both arguments to the same angle exposes the full sign pattern.",
+        "searches": [
+          "Resultary: integral Euler cokernels isolated cyclic quotient planes unit weights (1,a)",
+          "Resultary: exact Euler-form radical faithful finite abelian planar actions Fourier eigenvalue",
+          "arXiv:2408.08662v1, Theorems 3.8 and 3.15"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.12736v1",
+        "arXiv:2408.08662v1",
+        "DOI:10.1016/j.laa.2013.11.006",
+        "The three distinct Resultary findings above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Putting g=gcd(n,2), m=n/g in the three unit-weight cases gives g=1 for odd n, g=2 and m odd for n=2 mod 4, and g=2 and m even for n=0 mod 4. The extra (Z/2)^(g−2) factor is trivial when g=2. The abelian proof factors its eigenvalue as −4 sin(alpha/2) sin(beta/2) cos((alpha+beta)/2). The positive Hessian scaling follows from its displayed quadratic formula. At alpha=beta=2pi k/n each nonconstant mode has sign −sign(cos(2pi k/n))."
+        ],
+        "reasoning": "The remaining computation is counting integers in the two quarter arcs and the intervening half circle, giving exactly the four residue rows, their endpoints and the semidefinite cases. No new sign theorem or additional arithmetic obstruction is needed.",
+        "searches": [
+          "Resultary e1f93d2c8bc3 Finding and Assumptions",
+          "Resultary bc15f6a810ec Proof, Steps 1–2",
+          "Bachhuber–Gholampour Theorem 4.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary quotient paper identifies its antidiagonal action as the scalar weights (1,1). An integral Hessian of a quadratic polynomial is the same matrix as the cross-term polarization in the frozen record, not its half. The signed two-step circulant 2I−2(S+S^−1)+S^2+S^−2 is not the unsigned adjacency of the square of a cycle."
+        ],
+        "reasoning": "Match the scalar action and integral normalization before comparing Smith forms or signs; the same normalization appears in the stronger indexed weighted theorem.",
+        "searches": [
+          "Resultary: scalar cyclic quotient plane (n;1,1) Euler polar Hessian Smith cokernel inertia",
+          "arXiv:2610.12736v1, Theorem 4.6 and Section 7.2",
+          "Williams DOI:10.1016/j.laa.2013.11.006, Corollary 7.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/18/SCOPE-integral-euler-cokernels-of-isolated-cyclic-quotient-planes--e1f93d2c8bc3 gives all the frozen Smith groups after setting a=1. 2026/10/18/SCOPE-exact-euler-form-radical-for-every-faithful-finite-abelian-plana--bc15f6a810ec gives the radical and signed eigenvalue formula. 2026/10/18/SCOPE-prime-order-cyclic-quotient-euler-forms-a-complete-positivity-cl--ee23395f410e explicitly covers odd-prime scalar inertia."
+        ],
+        "reasoning": "The exact Smith overlap holds for all orders. The prime statement alone does not cover composite orders, and the abelian radical statement does not tabulate composite scalar inertia, but its proof supplies the exact sign rule in that case.",
+        "searches": [
+          "Resultary: scalar cyclic quotient Euler lattice cokernel n 2n n/2 and inertia radical",
+          "Resultary local mirror: e1f93d2c8bc3, bc15f6a810ec, ee23395f410e"
+        ]
+      },
+      "rationale": "The exact integral cokernel is a direct specialization of another indexed theorem. The accessible general abelian radical result also gives the signed Fourier factorization on the entire character lattice: its proof specializes to a sign test on one cosine, whose strict-quarter count is precisely the frozen all-order inertia table. Thus composite orders are not an uncovered substantive remainder merely because their inertia counts are not tabulated verbatim. An additional indexed result explicitly covers the odd-prime inertia. These are distinct same-date records; the overlap establishes coverage, not within-day priority or provenance.",
+      "residual_risks": [
+        "The records' common displayed date does not distinguish order or priority. The accessible adjacent-matrix paper was inspected at relevant passages only; further overlaps are possible and would not remove the demonstrated stronger coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Quadratic input and action classification",
+          "evidence": [
+            "The coefficient formula specializes to the reviewed scalar polarization; section 7.2 identifies the (1,1) action."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.12736v1",
+          "material_read": "Theorem 4.6 around offset 103148; section 7.2 around 137346",
+          "method": "Primary OA bounded HTML passages",
+          "title": "G-Equivariant Hilbert Schemes and Quadratic Forms",
+          "trigger": "exact Euler form and scalar-action convention"
+        },
+        {
+          "assessment": "Methodological precedent",
+          "evidence": [
+            "The inspected statements are general determinantal-divisor and nonunit-factor theorems, not the explicit scalar Euler classification."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2408.08662v1",
+          "material_read": "Abstract and introduction, offset 0; Theorems 3.8 and 3.15 around 31078 and 50523",
+          "method": "Primary OA bounded HTML passages",
+          "title": "Smith forms of matrices in Companion Rings, with group theoretic and topological applications",
+          "trigger": "general companion-ring Smith methodology"
+        },
+        {
+          "assessment": "Inspected adjacency statements use a different matrix",
+          "evidence": [
+            "The ordinary square-cycle adjacency does not include the frozen diagonal and signed step-one coefficient."
+          ],
+          "identifier_or_url": "https://repository.essex.ac.uk/8578/1/SNRcirculantgraphs.pdf",
+          "material_read": "Abstract, p. 1; square-cycle adjacency, p. 4 around offset 9201; Corollary 7.2, p. 18 around 48787",
+          "method": "Primary OA repository PDF passages",
+          "title": "Smith forms for adjacency matrices of circulant graphs",
+          "trigger": "plausible two-step circulant Smith overlap"
+        },
+        {
+          "assessment": "Exact Smith and radical coverage by specialization",
+          "evidence": [
+            "Applies to all n>=3 and gcd(a,n)=1 with the same Hessian and all three indicated g,m regimes."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-integral-euler-cokernels-of-isolated-cyclic-quotient-planes--e1f93d2c8bc3",
+          "material_read": "RESULT.md Finding and assumptions, offsets 0–2200, proof opening also inspected",
+          "method": "Bounded local-mirror passages",
+          "title": "Integral Euler cokernels of isolated cyclic quotient planes",
+          "trigger": "stronger theorem for unit weights"
+        },
+        {
+          "assessment": "Direct radical coverage; signed eigenvalue factorization makes remaining scalar inertia immediate",
+          "evidence": [
+            "The Fourier identity holds on all faithful planar character groups, including cyclic composite n with both weights the same generator."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-exact-euler-form-radical-for-every-faithful-finite-abelian-plana--bc15f6a810ec",
+          "material_read": "RESULT.md Finding and proof Steps 1–4, especially offsets 1915–4035",
+          "method": "Bounded local-mirror passages",
+          "title": "Exact Euler-form radical for every faithful finite abelian planar action",
+          "trigger": "general radical and possible spectral implication"
+        },
+        {
+          "assessment": "Exact odd-prime overlap only",
+          "evidence": [
+            "The sign-count formula applies to ratio one for each odd prime; composite-order coverage uses the separate abelian identity."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-prime-order-cyclic-quotient-euler-forms-a-complete-positivity-cl--ee23395f410e",
+          "material_read": "RESULT.md Finding, proof and limits, offsets 0 and around 4391",
+          "method": "Bounded local-mirror passages",
+          "title": "Prime-order cyclic quotient Euler forms: a complete positivity classification",
+          "trigger": "complete inertia on a large subfamily"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The polar lattice is a natural invariant and the proof is correct. Against the checked coverage, however, the full Smith invariant is already a parameter substitution, and the only apparently untabulated component (composite-order scalar inertia) is a direct substitution and elementary interval count from the known signed spectrum. The frozen result does not derive any separate new invariant or application from this combination.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

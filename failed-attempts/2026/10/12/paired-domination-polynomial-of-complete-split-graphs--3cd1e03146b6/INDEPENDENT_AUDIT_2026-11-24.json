@@ -1,0 +1,88 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:28:56.812530Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The mathematical Finding is correct. With no clique vertex, domination forces selecting the whole nonempty independent part, whose induced graph has no perfect matching. With a clique vertex, domination is automatic. A perfect matching must send each of the b independent vertices to a different one of the a clique vertices; this is sufficient when a+b is even, since the remaining clique vertices pair off. This proves the coefficients by independent binomial choices, including r=1 and n=1. Every edge alone dominates and every nonempty paired-dominating set contains a matching edge, proving both size-two conclusions. The frozen proof is all-orders; the inspected verify.py and recorded finite output are not needed as proof and the frozen script was not run. The false family assertion at RESULT.md line 62 affects the prior-work comparison, not the theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior formula subtracts from all 2q-subsets those with an occupancy greater than q in any part. Here only I can have such an occupancy, so the specialization is binom(r+n,2q) minus the sum of binom(n,j)binom(r,2q-j) for q<j<=min(n,2q)."
+        ],
+        "reasoning": "Complementing the sum gives the frozen ordinary coefficient for every q; the explicit two-variable marking weights the very same eligible sets by a and b. It does not require a theorem beyond the prior occupancy rule.",
+        "searches": [
+          "2026/10/4/SCOPE-paired-domination-polynomial-of-complete-multipartite-graphs--ea2bc935cbba/RESULT.md, Finding and Proof"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, especially lines 3–22, 27–50 and 59–65",
+        "Frozen VERIFICATION.md and verify.py (inspected only)",
+        "Resultary 2026/10/4/SCOPE-paired-domination-polynomial-of-complete-multipartite-graphs--ea2bc935cbba/RESULT.md",
+        "ICMAGT 2016 paired-domination-polynomial item: limited access as described"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior result gives gamma_pr=2 and d_pr(G,2)=|E(G)|. Any edge in a complete multipartite graph dominates: its endpoints belong to different parts. Any paired-dominating set contains a matching edge."
+        ],
+        "reasoning": "The size-two count specializes to binom(r,2)+rn. The upper paired-domination number is not separately printed in the comparison, but the edge argument makes the entire minimal-set conclusion immediate. The bivariate form is a useful restatement, not a distinct theorem.",
+        "searches": [
+          "2026/10/4/SCOPE-paired-domination-polynomial-of-complete-multipartite-graphs--ea2bc935cbba/RESULT.md, occupancy criterion and size-two assertions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior Finding tests part occupancy at size 2q; S_{r,n}=K_{n,1,...,1} with r singleton parts and one part I of size n."
+        ],
+        "reasoning": "For q>=1 all singleton occupancies are at most q. The remaining constraint b<=q is exactly b<=a, and positive even size then forces a>=1. The graph with a clique edge and a nonedge in another part is fully consistent with being complete multipartite.",
+        "searches": [
+          "Resultary: paired domination polynomial, complete split and complete multipartite graphs",
+          "2026/10/4/SCOPE-paired-domination-polynomial-of-complete-multipartite-graphs--ea2bc935cbba/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed result supplies a closed all-coefficient formula rather than a numerical table.",
+          "The inaccessible 2016 proceedings item is identified below; its general abstract description does not settle which families it contains."
+        ],
+        "reasoning": "No instance lookup is needed for the all-orders claim; the prior indexed theorem generates every exact coefficient and is stronger evidence than a table of matching examples.",
+        "searches": [
+          "Resultary complete-split and complete-multipartite paired-domination comparison",
+          "2026/10/4/SCOPE-paired-domination-polynomial-of-complete-multipartite-graphs--ea2bc935cbba"
+        ]
+      },
+      "rationale": "The distinct Oct. 4 Resultary record establishes a broader occupancy-level theorem for all complete multipartite graphs. This includes the entire frozen family, contrary to RESULT.md line 62. The ordinary polynomial specializes verbatim by parameter choice, and marking the eligible occupancies gives the bivariate expression without new matching or enumeration information. The minimum and upper-minimum conclusions are stated or directly implied as detailed below.",
+      "residual_risks": [
+        "The 2016 proceedings full text could establish still earlier coverage. That access question does not affect the demonstrated Resultary overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the assigned theorem by specialization and immediate implication",
+          "evidence": "A set of size 2q is paired-dominating iff every part contributes at most q; gives all coefficients, gamma_pr=2 and d_pr(G,2)=|E(G)|.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-paired-domination-polynomial-of-complete-multipartite-graphs--ea2bc935cbba",
+          "material_read": "RESULT.md, offset 0–4322, in particular Finding and Proof",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Paired-domination polynomial of complete multipartite graphs",
+          "trigger": "Indexed broader family with the same paired-domination polynomial"
+        },
+        {
+          "assessment": "Coverage not determined; not used to infer absence of overlap",
+          "evidence": "The accessible description does not specify all standard families treated.",
+          "identifier_or_url": "Puttaswamy, Alwardi and Nayaka, ICMAGT 2016 proceedings record",
+          "material_read": "Bibliographic/abstract description recorded in the frozen package; no full-text family list obtained",
+          "method": "Lawful OA PDF attempts via direct and alternate configured routes returned HTTP 403",
+          "title": "Introduction to Paired Domination Polynomial of a Graph",
+          "trigger": "Foundational polynomial item reportedly computing standard graph families"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The bivariate specialization is convenient exposition but adds no independent structural result or nontrivial refinement beyond the already available occupancy characterization for the broader family. There is no supported distinct valuable remainder to repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

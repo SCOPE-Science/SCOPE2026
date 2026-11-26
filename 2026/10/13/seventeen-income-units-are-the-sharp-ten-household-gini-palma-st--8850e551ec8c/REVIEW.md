@@ -1,16 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** At fixed total \(S\), Gini ordering is exactly the ordering of the integer pairwise-difference sum \(D(x)\), while Palma ordering is exactly \(x_{10}/(x_1+x_2+x_3+x_4)\). Every positive ten-part partition through total \(17\) is enumerated. There is no strict reversal through total \(16\), and exactly the two stated pairs reverse at total \(17\). The packaged verifier returns `VERIFY_OK`.
+## correctness
 
-Risk: the cutoff is tied to the positive-integer grid and exact ten-household decile representation.
+PASS
 
-## Originality
-**PASS.** Prior work establishes the Palma ratio, its tail emphasis, and direct comparison with Gini. Generic rank differences are not claimed as new. Searches across fixed-total, smallest-reversal, exact-vector, and decile-share formulations did not locate the sharp \(17\)-unit boundary or its complete first layer.
+With ten equally weighted households and no partial quantiles, Palma is the largest income divided by the sum of the four smallest; at common S, the Gini denominator is 10S and its numerator is the sorted linear form sum_i(2i−11)x_i for i=1,...,10. I inspected the frozen proof, verification notes and checker without executing that checker. An independent census built sorted profiles by incrementing one entry and sorting, starting from ten ones. Completeness follows by decrementing an entry above one and sorting in the reverse direction. The layer sizes for S=10,...,17 were 1,1,2,3,5,7,11,15. Exact pair comparisons gave no strict reversal until S=17, and exactly the two displayed pairs there, with numerator pairs (53,51) and (45,43) and Palma pairs (1,5/4) and (3/4,1). The first tie split at S=14 was also confirmed (Gini numerators 32 versus 30 at equal Palma 3/4). Replay: python3 -I /workspace/review_math.py 5. No threshold is asserted for other household counts, income grids, or unequal totals.
 
-Risk: an unindexed exercise or software fixture could contain an individual witness.
+## originality
 
-## Value
-**PASS.** Palma was designed to emphasize tail shares that whole-distribution measures can mute. Fixing household count and total removes scale and population-size effects, while ten households makes the decile definition exact. The theorem gives the first discrete resolution at which the two policy-relevant measures can make genuinely opposite strict judgments and classifies the entire first layer.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The supported distinct fact is the sharp same-total integer boundary and complete first layer, not generic Gini–Palma disagreement or the definition of Palma. The strongest inspected direct comparison treats near-empirical equivalence and decile sensitivities, not exact order equivalence or a discrete first inversion. Nearby exact results concern different indices and/or a different household count. No inspected result covers this boundary.
+
+## value
+
+PASS
+
+Ten equally weighted units are the smallest population that realizes both Palma percentile cuts without interpolation. Fixing resources and positivity, the minimum integer resolution and complete first strict layer give clean test cases for separating tail rank from dispersion rank. Both witnesses keep the bottom-four sum at four, so the disagreement is already attributable to how the maximum and the broader spread are ranked, not a change in lower-tail normalization. The result is an exact finite benchmark, not a monetary cutoff or an empirical claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

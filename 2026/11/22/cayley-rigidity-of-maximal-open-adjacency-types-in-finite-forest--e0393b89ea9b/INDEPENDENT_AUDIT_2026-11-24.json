@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:09:30.744648Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–52",
+        "Frozen VERIFICATION.md and CHECK.py (inspected, not executed)"
+      ],
+      "rationale": "For c=i+t marked components, an outside vertex w meeting at least two marks cannot repeat a component. Contracting the marked components and keeping the incidences to these outside vertices gives a forest on c+|W| vertices, hence sum_w(deg_A(w)-1)<=c-1. Internal nonsingleton open traces can come from at most m-i-2t marked vertices by the two leaves in every nontrivial component. With one empty trace and at most m singletons this gives 2m-t. At 2m, t=0 and all small traces plus m-1 distinct outside nonsingletons are forced. Equality in the edge budget forces all of those outside witnesses to have degree two in the incidence graph and makes it connected; suppression recovers the labelled tree. For the converse, subdivide its edges and give each mark a private leaf. These distinct singleton and pair witnesses must all be unmarked, so at order 3m-1 their forced edges already span a tree: there is no freedom left in the marked host. Cayley applies including the one-family m=1 convention; at m=0 every vertex of a nonempty host supplies the empty trace. The displayed sharpness example has t=0. Even the stronger interpretation for every feasible t is true: use t marked disjoint edges and m-2t isolated marks, connect the m-t components by a tree of new degree-two unmarked connectors, add a private leaf at each mark and append one vertex beyond a private leaf for the empty trace. This gives exactly 1+m+(m-t-1) traces and stays a tree. An independently written bitmask DFS that branches on each edge and adds it only when its endpoints are disconnected enumerated 2932 and 36961 labelled forests at orders 6 and 7, respectively. With the first m labels marked for each m, it observed 2761 and 36079 instances of 2m traces, all consistent with the bound, trace classification and host-order lower bound.",
+      "residual_risks": [
+        "The finite replay is corroboration, not the proof. The author's script does not explicitly test uniqueness at the minimum order or positive-t sharpness. The theorem fixes the names of the marks and does not classify larger forest hosts or traces of other formulas."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The small-class theorem establishes O(m) and includes proper minor-closed classes. The distance-profile paper gives general treewidth/outerplanarity bounds in the inspected theorems."
+        ],
+        "reasoning": "Neither generic bound as stated fixes the sharp coefficient, the induced-marked component correction, nor the structure of an equality family.",
+        "searches": [
+          "arXiv:2611.15299v1, small hereditary classes with linear neighbourhood complexity",
+          "arXiv:2501.08895v4, Theorems 6–7"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.15299v1, arXiv:2607.16889v1, arXiv:2501.08895v4",
+        "Resultary a2e982503dd9 and 911f048f6a8a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The closed forest proof uses related component contraction but counts every marked vertex in a nontrivial component as having a closed nonsingleton trace; leaf witnesses instead have open singleton traces here."
+        ],
+        "reasoning": "Neither the forest closed theorem nor the cograph open theorem implies the marked-component penalty and the exact classification for forest open traces. The new deduction uses open leaves and simultaneous saturation of the incidence budget.",
+        "searches": [
+          "arXiv:2607.16889, Theorem 2 and Section 3",
+          "Resultary 911f048f6a8a, exact cograph open bound"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen record itself appeared and is not independent evidence. The distinct forest census a2e982503dd9 uses closed radius-one traces and its maximizers are triples, internal pairs and block-tree pairs, not the open families of 2m traces.",
+          "Beaudou et al. define their r-neighbourhood by distance at most r, so its r=1 set includes the centre."
+        ],
+        "reasoning": "For a marked centre, closing the neighborhood can change its trace, creating or merging types. Equality of numerical invariants or classifications cannot be inferred by relabelling the closed case.",
+        "searches": [
+          "Resultary open one-point adjacency types and exact open forest neighbourhood trace families",
+          "arXiv:2501.08895v4, radius-one neighbourhood and distance-profile formulations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Distinct exact catalogue hits: a2e982503dd9 gives the 7q closed census; 911f048f6a8a gives a 2m open bound for cographs and a minimum order 3m for maximum external-trace hosts."
+        ],
+        "reasoning": "The cograph bound shares the coefficient but uses a class not containing arbitrary forests (e.g. the four-vertex induced path is forbidden). External-only traces are also a different invariant. Neither hit provides the forest equality census.",
+        "searches": [
+          "Resultary sharp 2m open forest adjacency types, Cayley-labelled extremizers and minimum hosts"
+        ]
+      },
+      "rationale": "No equivalent or dominating theorem was identified in the bounded comparison. The distinct contribution is the refined exact open bound with its labelled equality families and marked minimum-host rigidity; neither contraction of components nor Cayley's formula is new.",
+      "residual_risks": [
+        "The focused external discovery query did not return results in the bounded search, so the primary comparisons do not rule out earlier exact forest bounds or incidence-hypergraph formulations under other terminology.",
+        "Same-day catalogue dates do not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Asymptotic overlap only",
+          "evidence": [
+            "Small classes have O(m) neighbourhood complexity; proper minor-closed classes are included."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.15299",
+          "material_read": "Abstract p. 1 and p. 2 at OA offset 4300",
+          "method": "OA primary PDF passages",
+          "title": "Small classes have linear neighbourhood complexity",
+          "trigger": "Strong broad open-neighbourhood theorem"
+        },
+        {
+          "assessment": "Exact bound for closed traces, not the open equality theorem",
+          "evidence": [
+            "Definition uses N[v] intersected with S; sharp forest bound floor(7|S|/3)."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2607.16889v1",
+          "material_read": "Definition and Theorem 2, Section 3, offsets 12800–25547",
+          "method": "OA primary HTML passages",
+          "title": "Neighbourhood complexity and identification problems for graphs of bounded treewidth and pathwidth",
+          "trigger": "Closest exact primary forest theorem"
+        },
+        {
+          "assessment": "Inspected definitions and generic theorems do not yield the exact open census",
+          "evidence": [
+            "Distance-at-most-r balls and general treewidth/outerplanar profile bounds."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2501.08895",
+          "material_read": "v4 p. 2 offset 6300, p. 5 offset 16900",
+          "method": "OA primary PDF passages",
+          "title": "Profile and neighbourhood complexity of graphs with excluded minors and tree-structured graphs",
+          "trigger": "Possible broader radius-one specialization"
+        },
+        {
+          "assessment": "Different traces and maximizers",
+          "evidence": [
+            "Closed traces at 3q marks give 7q, classified by triple blocks."
+          ],
+          "identifier_or_url": "Resultary a2e982503dd9",
+          "material_read": "Finding from mirror and frozen RESULT.md",
+          "method": "Published mirror and assigned source comparison",
+          "title": "Cayley-tree census of equality-case unary neighbourhood types in finite forests",
+          "trigger": "Same class and exact extremal census"
+        },
+        {
+          "assessment": "Different graph class and external-host result",
+          "evidence": [
+            "Sharp cograph bound with minimum external-trace host order 3m."
+          ],
+          "identifier_or_url": "Resultary 911f048f6a8a",
+          "material_read": "RESULT.md, offsets 0 and 3250",
+          "method": "Published mirror passages",
+          "title": "A sharp two-per-parameter bound for one-point adjacency types of finite cographs",
+          "trigger": "Identical 2m headline bound and open traces"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "arXiv:2611.15299v1, scope of the small-class theorem"
+      ],
+      "rationale": "For a basic forest shatter invariant, the strengthened bound detects the cost of internal marked adjacency. The theorem converts every maximizer into an arbitrary labelled tree, and additionally determines the exact minimum realization and its rigidity. These facts are more informative than the asymptotic linear bound or the leading constant alone.",
+      "residual_risks": [
+        "No classification of second-best families, unrestricted larger hosts, or more general logical types is proved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

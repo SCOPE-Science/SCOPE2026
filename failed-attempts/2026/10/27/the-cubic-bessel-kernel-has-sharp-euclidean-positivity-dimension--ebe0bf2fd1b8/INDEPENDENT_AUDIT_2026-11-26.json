@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:18:08.749280Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The assertion and certificates are correct. The circular characteristic function is J0(a|x|), and the threefold convolution gives planar positive definiteness. For a=1, a hypothetical 3D radial law has one-coordinate characteristic function J0(r)^3, the transform of the law of the sum of three independent cosines of uniform angles. This coordinate is supported in [−3,3]. Conditional on radius t in 3D the coordinate is uniform on [−t,t]; thus the radius cannot exceed 3 with positive probability. The same bounded-support argument holds in 4D, since a conditional coordinate has positive density on (−t,t). All required Taylor moments therefore exist, and the sinc series in 3D or the series of 2J1(r)/r in 4D gives the stated hypothetical moments. Independently replayed with python3 /workspace/audit_bessel.py: the twofold binomial sum from Vandermonde gives A_k; scaling the 3D Hankel by the diagonal 4^i makes it integral for fraction-free elimination. Dividing the resulting determinant by 4^42 gives −59778222499952939497463042623250744763/302231454903657293676544; the 4D determinant is −27756. Both negative polynomial-square evaluations also match, including −10794 in 4D. This contradicts a necessary positivity condition for an actual measure. Dilation handles every a>0 and restriction handles higher dimensions. In arXiv:1502.07179v1 Remark 4.4 the conjectural lower inclusion at n=2,k=3 is indeed in Phi4, not a theorem. This review does not claim that the later literature stated the counterexample in the same terminology.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Schoenberg preprint proves the square case and conjectures Omega_n^k in Phi_(kn−k+1) outside Phi_(kn−k+2); it does not prove the cubic case.",
+          "Borwein–Straub–Wan–Zudilin give the logarithmic divergence of the three-step radial density at radius 1. Dividing by 2πr gives a planar area density still diverging there. In a hypothetical 4D radial extension the projection to a 2-plane, conditional on the radius, would be uniform on a disk, and a disk mixture has nonincreasing area density away from the origin.",
+          "The exact earlier 4D obstruction is thus a direct implication even without the strictly stronger 3D obstruction from the simple-cubic law."
+        ],
+        "reasoning": "The claimed conjecture contradiction is correct, but the published planar density already refutes its predicted Phi4 inclusion by projection, while the DOS comparison at the precise nearest-neighbour parameter gives the sharper result.",
+        "searches": [
+          "arXiv:1502.07179v1 Theorem/Proposition 4.3 and Remark 4.4",
+          "arXiv:1103.2995v2 §3 eq. (16)",
+          "arXiv:2111.13497v1 small next-nearest-neighbour regime, specializing to tau=0"
+        ]
+      },
+      "checked_sources": [
+        "Resultary published index",
+        "arXiv:1502.07179v1",
+        "Borwein–Nuyens–Straub–Wan author-hosted preprint",
+        "arXiv:1103.2995v2",
+        "arXiv:1004.1435",
+        "arXiv:2111.13497v1",
+        "TU Graz simple-cubic DOS table"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The DOS maximum statement is sufficient even if the central region in Fig. 3 looks flat: one can rule out an exactly flat interval without evaluating a plotted difference.",
+          "The published moment recurrence specializes to (n+1)^2 A_(n+1)=(10n^2+10n+3)A_n−9n^2 A_(n−1). For b_n=binom(2n,n)A_n, the established simple-cubic coefficients, H(z)=E[1/(z−X)]=z^(−1) sum_n b_n/(4z²)^n. Multiplying the recurrence by the binomial factor and substituting in this series gives (z²−1)(z²−9)H'''+(6z³−30z)H''+(7z²−12)H'+zH=0. The real coefficients and ordinary points in (−1,1) give the same equation for the density by upper boundary values and Stieltjes inversion. A positive constant cannot solve it on (0,1)."
+        ],
+        "reasoning": "The density is continuous at x=1 (the nearest-neighbour nondegenerate van Hove cusp is continuous), and it attains a global maximum there. If it were nonincreasing on the positive axis it would be constant between 0 and 1, contrary to the exact equation. Thus the earlier analytical facts, via rescaling and the radial marginal criterion, imply nonmembership in Phi3; membership in Phi2 is the known planar convolution. Dilation and dimension restriction give exactly the frozen sharp cutoff. No claim is made that those papers printed the specific Hankel determinant.",
+        "searches": [
+          "arXiv:2111.13497v1 abstract and Table 1, E_X=−2−4 tau",
+          "arXiv:1103.2995v2 Theorem 3 and eq. (18), specialized to three steps",
+          "arXiv:1004.1435 §1.2 and eq. (15), simple-cubic Green function and walk coefficients"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Writing X=cos U1+cos U2+cos U3 for independent uniform angles, its characteristic function is exactly J0^3. In nearest-neighbour cubic lattice units E=−2X. Guttmann's triple cosine integral is the Stieltjes transform of X after inversion of its spectral parameter and a factor 1/z.",
+          "A 3D extension would force the marginal law to be a mixture of uniforms on [−t,t], so its density must be nonincreasing for x>0. Igoshev–Irkhin place the DOS maximum at the X energy (E=−2 in the nearest-neighbour case), off centre; the even density gives the same maximum at E=2."
+        ],
+        "reasoning": "This lattice DOS is the probability law of the same coordinate, not merely a different use of Bessel functions. Continuity and the nonflat central interval make an off-centre maximum incompatible with a uniform mixture, proving nonextension already in 3D.",
+        "searches": [
+          "J0 cube as convolution of three cosine laws and nearest-neighbour simple-cubic tight-binding density of states",
+          "arXiv:1004.1435 §1.2 and eq. (15)",
+          "arXiv:2111.13497v1 abstract, Eq. (1), Table 1 and Fig. 3(a)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The returned Resultary hits distinguish Euclidean sinc products, geodesic spherical positivity and quartic Bessel mode formulas from the frozen cubic J0 problem; no exact Hankel match was returned.",
+          "The TU Graz tabulation explicitly uses a finite Brillouin-zone mesh and is not an exact sign certificate. The comparison instead uses the analytical DOS result; Table 1 fixes E_X=−2 when tau=0, and Fig. 3(a) includes that parameter."
+        ],
+        "reasoning": "The lack of a matching Hankel table does not make the threshold new. The direct implication uses the published analytical DOS location and exact moment recurrence, not visual strictness or numerical histograms.",
+        "searches": [
+          "Resultary: J0(r)^3 Phi2 Phi3 radial positive definiteness Schoenberg Hankel and exact determinant numerator",
+          "TU Graz: Density of states of a simple cubic crystal in the tight-binding approximation",
+          "arXiv:2111.13497v1 Table 1 and Fig. 3(a)"
+        ]
+      },
+      "rationale": "Earlier exact results imply the sharp cutoff in an equivalent formulation. The one-coordinate law with transform J0^3 is the nearest-neighbour simple-cubic density of states after rescaling. Igoshev–Irkhin report its maximum at the off-centre X energy for the small-next-neighbour regime that includes zero. The known moment recurrence implies that this density is not constant on the intervening central interval. It therefore cannot be the nonincreasing uniform-mixture density forced by a 3D radial extension. Earlier planar density results also imply the weaker Phi4 obstruction separately. The independently reproduced Hankel calculations supply a different certificate, not a new sharp cutoff.",
+      "residual_risks": [
+        "A distinct later publisher text of the Schoenberg preprint was not established; the frozen historical comparison is specifically to v1. Whether an earlier paper also prints these exact Hankel numerators or states the cutoff in Schoenberg terminology was not determined. The coverage finding is the mathematical implication of published analytical results, not a claim about wording or priority of the exact certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact conjecture, not coverage of the cubic result",
+          "evidence": "Remark 4.4 says 'Our conjecture' and gives the dimension kn−k+1 inclusion; it is 4 here. The available unversioned arXiv PDF had the same wording.",
+          "identifier_or_url": "https://arxiv.org/abs/1502.07179v1",
+          "material_read": "PDF p. 15, Remark 4.4 and preceding square case, near offset 58423",
+          "method": "Open primary PDF literal location and bounded offset read",
+          "title": "Radial positive definite functions and Schoenberg matrices with negative eigenvalues",
+          "trigger": "Exact conjecture under comparison"
+        },
+        {
+          "assessment": "Known moments and planar law",
+          "evidence": "Identifies the Bessel power and proves the squared-multinomial formula for even radial moments.",
+          "identifier_or_url": "https://arminstraub.com/downloads/pub/walks.pdf",
+          "material_read": "Proposition 1 and its constant-term proof, p. 6 near offsets 16550–18060",
+          "method": "Author-hosted OA PDF literal location and bounded offset read",
+          "title": "Some Arithmetic Properties of Short Random Walk Integrals",
+          "trigger": "Known moment and Bessel formulas in the frozen proof"
+        },
+        {
+          "assessment": "Implies the Phi4 obstruction and supplies recurrence for the equivalent sharp DOS argument",
+          "evidence": "Equation (16) gives p3(r)=(3/(2π²)) log(4/|r−1|)+O(1); Theorem 3 gives the exact moment recurrence and (18) the three-step binomial sum.",
+          "identifier_or_url": "https://arxiv.org/abs/1103.2995v2",
+          "material_read": "§2.1 Theorem 3 and §3 eqs. (16)–(18), PDF pp. 6–7",
+          "method": "Open primary PDF offset reads near 18125 and 21000",
+          "title": "Densities of Short Uniform Random Walks",
+          "trigger": "Analytical three-step density and moment recurrence"
+        },
+        {
+          "assessment": "Exact equivalent spectral object and coefficients",
+          "evidence": "The standard simple-cubic structure function is the sum of three cosines divided by 3; eq. (15) gives binom(2n,n) times the squared-trinomial sum as its unscaled lattice coefficients.",
+          "identifier_or_url": "https://arxiv.org/abs/1004.1435",
+          "material_read": "§1.2 p. 5 near offset 14870 and simple-cubic coefficient formula (15), p. 6",
+          "method": "Open primary PDF literal location and bounded passage read",
+          "title": "Lattice Green functions in all dimensions",
+          "trigger": "Equivalent simple-cubic Stieltjes transform"
+        },
+        {
+          "assessment": "Exact existing DOS result implies the sharp nonextension after the marginal comparison",
+          "evidence": "The small-tau simple-cubic maximum corresponds to the X energy; the nearest-neighbour case is tau=0 and Table 1 gives w_X=−2 there. At zero the DOS is even, and the X and M cusps are continuous.",
+          "identifier_or_url": "https://arxiv.org/abs/2111.13497v1",
+          "material_read": "Abstract; Eq. (1) and Table 1 p. 2; Fig. 3(a) caption and continuous square-root cusp discussion p. 3; central-band Eq. (13) p. 4",
+          "method": "Open primary PDF bounded offset reads near 0, 12700, 15600 and 20900",
+          "title": "Giant van Hove Density of States Singularities and Anomalies of Electron and Magnetic Properties in Cubic Lattices",
+          "trigger": "Off-centre DOS maximum in the exact equivalent nearest-neighbour law"
+        },
+        {
+          "assessment": "Approximate table, not used to decide exact nonmonotonicity",
+          "evidence": "Tabulates a distribution from four million evenly distributed Brillouin-zone points; not a substitute for the analytical source.",
+          "identifier_or_url": "https://lampz.tugraz.at/~hadley/ss1/bands/tbtable/simple_cubic_dos.html",
+          "material_read": "Opening description of the DOS tabulation and sampling method",
+          "method": "Bounded public webpage read",
+          "title": "Density of states of a simple cubic crystal in the tight-binding approximation",
+          "trigger": "Potential exact numerical database comparison"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Sharp extension bounds for radial kernels and testing a published conjecture are motivated. But here the sharp bound is already implied by prior exact results for the equivalent law, and the weaker refutation of Phi4 follows even more directly from the known planar singularity. The frozen result's alternative valid computation does not establish a separately motivated exact invariant such as a minimal certificate order or a bound on finite witnessing configurations. No independently valuable surviving claim was established for repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

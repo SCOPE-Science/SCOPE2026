@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:50:19.714648Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–41 and verify.py as text",
+        "`python3 /workspace/branches/algebra_replay.py apery --limit 99`; output `/workspace/branches/apery_replay.txt`"
+      ],
+      "rationale": "Each atom except m is an Apéry minimum (otherwise subtracting m decomposes it); there are exactly three nonzero composite minima. Every positive partial sum of an Apéry factorization also lies in the Apéry set, or subtracting m there would allow it at the whole sum. The increasing length-2 through length-k partial sums give k≤4. If a four-term factorization contains two unequal atoms b,c, take a third summand a: a+b, a+c, a+b+c and the full sum are four distinct composite minima, impossible. So the composites must then be 2a,3a,4a. A triple for 4a would have every pair sum in {2a,3a}; a pair at 2a forces a nonatom complement 2a, while a pair at 3a forces complement a and the other two pair sums then both 2a (else a summand is the nonatom 2a). This would give three copies of a, also impossible. A double for 3a would give such a triple for 4a. Thus 2 is the only possible nonunit ratio with any length four; without it, 3/2 is the only one. For realization, m,m+1 ensure cofiniteness and multiplicity m. Omitting m in minima, in (a) a high generator plus any positive summand exceeds the largest proposed minimum; pure copies of m+1 cover residues 1–4 uniquely and are dearer in larger residues. In (b), a high generator with copies of m+1 that reaches residue 1–4 must wrap, using at least two copies and costing above those minima. Two highs with residue sum m+j reach 3m+j, tying the triple at j=3 and beating four copies at j=4; (5,m−2) and (5,m−1) realize these for m≥7. Other high pairs cannot improve a minimum, and three highs cost at least 3m+15. In (c), two ordinary highs or any three highs exceed 4m+4; two special generators cost 4m−2 at residue m−2, more than its minimum. An ordinary high plus the special costs 4m+j−1, tying only at j=5. An ordinary high plus one m+1 has a larger cost than the minimum at residue j+1, and plus at least two exceeds 4m+4. The special plus one m+1 reaches residue zero, plus two reaches residue one above its minimum, and plus at least three exceeds 4m+4. These comparisons verify minimality, atomicity of the displayed generators, and the claimed lengths for all m≥7. Independent increasing-amount enumeration confirms all three spectra, atom counts, and the precise exceptional length sets for 279 instances.",
+      "residual_risks": [
+        "The finite computation corroborates the constructions; the divisor argument and cost comparisons establish the quantified result. Only Apéry minima, not all amounts, are covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorems in Autry et al. realize arbitrary two-element spectra without a fixed multiplicity/dimension relation, using a three-generator family; for m≥7 our embedding dimension is ≥4. The targeted external query returned no relevant paper, not evidence of absence."
+        ],
+        "reasoning": "Realizing a ratio somewhere is not realizing it at each prescribed multiplicity and dimension or excluding all other ratios there. Whole-semigroup elasticity and three-generator length-distribution results, as cited in Autry et al., concern different invariants or dimension ranges; those cited papers were not independently read.",
+        "searches": [
+          "Autry et al., Theorem 2.2 and Corollary 2.3",
+          "Primary literature query: numerical semigroup Apéry elasticity sets near-maximal embedding dimension multiplicity m-3 Apéry half-factorial length spectra"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ranked lookups and compared SCOPE Findings",
+        "Autry et al. arXiv:1908.06448v1 exact prior theorem and construction",
+        "Targeted primary literature search",
+        "Frozen RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 2.1 treats e=2 or e≥m−1. The subsequent paragraph gives only {1} and {1,3/2} for e=m−2 and leaves the other near-maximal cases open. The general two-element realization imposes no fixed m−e."
+        ],
+        "reasoning": "The earlier dimension condition is not a broader hypothesis containing e=m−3. Three composite minima allow a four-term ladder and the new option 2, requiring the additional exclusion argument. Neither known result mechanically gives the classification or the every-m realization.",
+        "searches": [
+          "Autry et al., Theorem 2.1, subsequent near-maximal discussion, Theorem 2.2 and Corollary 2.3; compare frozen Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Autry et al. use Apéry elasticity, the same longest-to-shortest ratio invariant; their next-to-maximal discussion is about e=m−2. The nearby four-odd-coin record counts coefficient vectors exceeding a threshold, not maximum/minimum lengths at residue minima."
+        ],
+        "reasoning": "The coin-change rewriting is not a new invariant in its own right. After identifying it with Apéry elasticity, the exact fixed-defect-three classification remains distinct; counting all representations does not determine their extremal lengths.",
+        "searches": [
+          "Resultary for Apéry elasticity spectra, fixed near-maximal embedding dimension, and coin-change representation lengths",
+          "Autry et al., Elasticity in Apéry Sets, arXiv:1908.06448v1 p. 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE-9b12c009d7d2 counts isolated gaps for consecutive-square coin semigroups; SCOPE-fa8a216d058e establishes representation thresholds for four consecutive odd denominations."
+        ],
+        "reasoning": "Neither catalogue result gives the admissible ratio sets at fixed m−e=3, let alone all-m realizations. The same-day isolated-gap statement was compared by content, without a priority inference from date.",
+        "searches": [
+          "Resultary ranked searches for Apéry elasticity classification and coin-change length ratios; inspected SCOPE-9b12c009d7d2 and SCOPE-fa8a216d058e"
+        ]
+      },
+      "rationale": "The closest primary paper explicitly treats the adjacent near-maximal case e=m−2 and leaves the next cases open. Its unconstrained realization result does not force fixed e=m−3 or realization at each m. The closest indexed coin/Apéry results concern different quantities. This supports the distinct fixed-defect classification and uniform realization, not priority for individual spectra.",
+      "residual_risks": [
+        "A later or unindexed fixed-defect-three theorem is not ruled out by the bounded literature search.",
+        "Descriptions of related whole-semigroup and three-generator literature come from Autry et al.'s citations, not direct full-text checks; no whole-document noncoverage claim is made for those works."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closest prior result; adjacent dimension covered and arbitrary ratios realized elsewhere; fixed-defect-three theorem not covered by the inspected statements",
+          "evidence": [
+            "The text explicitly lists {1} and {1,3/2} at e=m−2 and leaves other near-maximal cases open.",
+            "The arbitrary two-element realization is not parameterized by the required multiplicity/dimension pairs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1908.06448; arXiv:1908.06448v1",
+          "material_read": "Printed p. 3, Theorem 2.1 and immediately following discussion, Theorem 2.2 and Corollary 2.3, extracted offsets 4300–9240; related bibliography pp. 6–7",
+          "method": "Lawful arXiv PDF passages",
+          "title": "Elasticity in Apéry Sets",
+          "trigger": "Same invariant and near-maximal embedding dimensions"
+        },
+        {
+          "assessment": "Different statistic and family",
+          "evidence": [
+            "Counts isolated gaps for three consecutive squares, not extremal lengths at residue minima."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-cubic-isolated-gap-law-for-three-consecutive-square-coin-denom--9b12c009d7d2/RESULT.md",
+          "material_read": "Finding and Assumptions and scope",
+          "method": "Local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A cubic isolated-gap law for three consecutive square coin denominations",
+          "trigger": "Same-day Apéry/coin-change indexed match"
+        },
+        {
+          "assessment": "Different statistic and family",
+          "evidence": [
+            "Studies thresholds for at least three coefficient-vector representations, not the spectra of their maximal/minimal lengths at residue minima."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-three-representation-thresholds-for-four-consecutive-odd-coin-de--fa8a216d058e/RESULT.md",
+          "material_read": "Finding and Assumptions and scope",
+          "method": "Local mirror, same snapshot",
+          "title": "Three-representation thresholds for four consecutive odd coin denominations",
+          "trigger": "Indexed coin representation and Apéry terminology match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the next natural case at the explicit near-maximal boundary in the motivating elasticity paper, not an arbitrary fixed parameter slice. It also identifies a structural obstruction: a four-term ladder rules out a coexisting 3/2 ratio, and the three spectra remain attainable at every eligible multiplicity. The precise exclusion and realization are useful for the research question of what elasticity data are possible at constrained embedding dimension.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Real Hahn–Banach reduces the absolute constant to a four-coordinate retraction problem; exact sign-vector evaluation and a convex lower-bound identity determine a symmetry-equivariant minimizer. Crucially, averaging *any* optimizer over the eight coordinate symmetries gives that unique equivariant minimizer. For each norming pair of the average, all individual conjugates must saturate the same norm inequality; the unsymmetrized optimizer therefore satisfies the eight displayed independent linear equations. Their determinant is exactly \(64\beta^4\), nonzero even at both square endpoints, so every optimizer is the same retraction. The finite exact checker reproduces rational instances; the determinant identity and proof cover all real parameters.
+## correctness
 
-**Originality — PASS, with bibliographic qualification.** Chalmers–Franchetti–Giaquinta (1996) state the general symmetric-plane identity \(p(X)=8/\lambda(X)\); thus the numerical norm formula and its parameter extremum are explicitly **not** claimed novel. Chalmers–Shekhtman (1985) compute minimal norms for regular polygons. The newly assessed mathematical statement is uniqueness of the *unrestricted* best projection from the four-coordinate ambient space for all members of a continuous nonregular family, established by a full-rank matrix of norm-saturation constraints. The closest indexed exact strong-uniqueness theorem concerns a different five-coordinate plane, while a related four-coordinate deformation record only claims uniqueness within a symmetry-equivariant subclass. Inaccessibility of the 1976 Franchetti–Votruba full text creates residual bibliographic risk regarding older uniqueness conclusions.
+PASS
 
-**Mathematical value — PASS.** A projection-constant value does not decide whether a best linear extension is unique. The full optimizer-face classification is natural and complete for a canonical family, and its eight-constraint proof demonstrates sharp *rigidity without symmetry assumptions*, valid uniformly across nonregular octagons and degenerate endpoint squares. It gives structural information absent from the known perimeter formula and a reproducible finite-rank certificate, rather than recomputing an established constant.
+The max of |x+y| and |x−y| is |x|+|y| over the reals, so Jβ is an isometry. Extending its four coordinate functionals by Hahn–Banach gives a contraction into the canonical cube space for any isometric superspace, so the best canonical retraction realizes the absolute constant. The two sign flips and the swap act by signed permutations of the four input coordinates. Their intertwining relations force the equivariant rows (a,0,b,b) and (0,a,b,−b), with a+2βb=1. The norm is the maximum of the l1 norms of the four support rows after composition, namely |a|+2|b| and 2β(|a|+|b|). The displayed convex combination of these branches is β/q times |a|+2β|b|, so the optimum is at least β/q, and the proposed coefficients attain it. In the interior the convex weights are strictly positive and equality forces both branches equal and a,b nonnegative; their solution is unique. At β=1/2 the first branch is at least 1+|b|; at β=1 the second is at least 1+|a|, giving the unique endpoint coefficient pairs. Averaging all conjugates of any optimal retraction therefore gives the same symmetric optimum. For each displayed norming pair, every conjugate evaluation is bounded by the optimum and their average attains the bound, so the original map also saturates the pair. At each of four input sign vectors the two target supports are independent, with determinant magnitude β, and the four sign vectors span R⁴ with determinant magnitude 8. Hence the total eight-equation determinant has magnitude 64β⁴; this pins down the unrestricted map also at both endpoints. Differentiation gives the stated maximum and endpoint behavior.
 
-**Limitations.** Only real two-dimensional spaces and the canonical \(\ell_\infty^4\) embedding are addressed; other superspaces can admit distinct minimizing projections. The 1976 source was not inspected in full. No independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is uniqueness among all real optimal retractions for this whole continuously deformed octagonal family in its specified canonical superspace. The numerical profile, regular value and its extremal parameter are not credited as new. The closest inspected uniqueness results either concern a different plane and ambient dimension or require uniqueness as a hypothesis. Older plausible sources were not fully accessible and remain explicitly unresolved.
+
+## value
+
+PASS
+
+Determining the full optimizer set for a continuous, natural family of planar retraction problems is structurally stronger than a classical norm calculation or a symmetric candidate. It rules out every symmetry-breaking optimum and shows the optimizer remains unique at both square endpoints despite degeneracy of the norm description. The full rank certificate explains that rigidity in the canonical embedding.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

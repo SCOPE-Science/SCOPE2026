@@ -1,0 +1,90 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T16:37:03.682610Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The theorem is mathematically correct. The exact-degree-two Laplace eigenvalue is 2d, so the global Dirichlet form is 2d times the scalar L² form. In coordinates u=x_d², the beta density has a=1/2, b=(d−1)/2. Conditioning y on u gives E[y₁²|u]=(1−u)/(d−1), E[(y₁²−y₂²)²|u]=4(1−u)²/[(d−1)(d+1)]. Applying 4(|Ax|²−|xᵀAx|²) to z²−1/d, zy₁ and y₁²−y₂² gives exactly 4q_Z, q_M/(d−1) and 8q_T/[(d−1)(d+1)]. The beta first and second moments yield all three m_j. Symmetry makes the diagonal blocks scalar and the cross blocks vanish, including the distinct O(2) types in d=3; at the crossing the two top blocks sum to the full maximal eigenspace. Alternatively the Green-identity differential transform recorded below directly recomputes all three gaps. Their signs prove strict minimality of T and the unique switch at s=1/2. Positivity on both open regions follows from the nonzero nonnegative energy polynomials, so interior eigenvalues lie in (0,1); t=0 and t=1 give identity and zero. At s→1, q_M/m_M→(d+2)/2 and q_T/m_T∼(d+2)(1−u)/(d−1); integrating the two beta tails gives the ratio (d+1)/(2(1−s)) for fixed d. Replay: RESULT.md, proof steps (1)–(4), substituting the above moments. verify.py was inspected, not executed: the 5×5 sweep evaluates 75 branch integrals, not the stated 125 (lines 49–63); this is a reporting error in supplemental checks, not a flaw in the theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jahn–Bokor treat bandlimited tangential vector fields on S² for one cap, with mixed vector harmonics and an equivalent scalar problem; the fixed-degree gradient image is a restriction of that space.",
+          "The old pure-degree-two scalar record is all-dimensional and has the identical three blocks."
+        ],
+        "reasoning": "The generic S² vector theory provides a framework but not the evaluated d-dimensional gap comparison. The actual encompassing information is the complete all-dimensional scalar concentration curve: Green's formula reads the boundary gradient correction from the derivative of that curve, with no unknown sector data.",
+        "searches": [
+          "Web: quadratic degree two spherical harmonics gradient Dirichlet energy Slepian polar cap antipodal tangential vector eigenvalues optimal concentration zonal meridional",
+          "arXiv:1302.5261v2, §§1–3"
+        ]
+      },
+      "checked_sources": [
+        "2026/10/26/SCOPE-a-sharp-quadrupole-slepian-transition-for-antipodal-spherical-ca--984cac538af7",
+        "arXiv:1302.5261v2",
+        "Resultary degree-three Dirichlet cap and degree-two Dirichlet lune indexed summaries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "If an earlier scalar gap is W_d P with P=p₀+p₁s, then (W_d P)'/ρ=(1−ds)P/2+s(1−s)P'. The Dirichlet gap divided by W_d is p₀/2+3p₁/(2d)−2p₁s/d."
+        ],
+        "reasoning": "For the earlier Z–M gap choose (p₀,p₁)=C(−1,d) with C=(d+2)/(d−1). The transformed gap is C(1−2s)W_d. For M–E use (p₀,p₁)=C′(2d,−2d), C′=(d+2)/[(d−1)(d+1)], giving C′(d−3+4s)W_d. Adding yields exactly the frozen Z–T gap. No independent root or inequality remains; both sharp multiplicities and the universal threshold follow immediately by signs. The normalized observation condition number then follows from the recovered branches. Complexification changes none of these conclusions.",
+        "searches": [
+          "Earlier scalar record, statements and proof of both factored gap identities; RESULT.md of assigned record, three gap formulas"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier 2026/10/26 scalar record gives full beta-tail branches A_j, B_j and sector multiplicities for the identical cap variable s=x_d², not just the maximum.",
+          "For f,g in degree two, Δ_S(f conjugate(g))=2∇_S f·conjugate(∇_S g)−4d f conjugate(g)."
+        ],
+        "reasoning": "Let L_j(s) be an earlier scalar concentration eigenvalue, let ρ be the beta density and A_j the sector's latitude-wise squared amplitude divided by its global L² norm squared. Then L'_j=−ρA_j. The latitude generator acting on functions of u is 4u(1−u)∂²+2(1−du)∂; conditional averaging commutes with this spherical Laplacian. Its tail integral is the boundary flux −4W_d(s)A'_j(s), where W_d=s(1−s)ρ. Thus the Dirichlet eigenvalue is L_j−W_d A'_j/d = L_j+(W_d/d)(L'_j/ρ)'. This formula recovers the full spectrum, and polarization recovers the corresponding operator on the same sectors.",
+        "searches": [
+          "Resultary: tangential gradient energy concentration exact degree two spherical harmonics antipodal polar caps quadrupole Slepian eigenvalue switch",
+          "Resultary: quadrupole antipodal spherical caps tangential-gradient Dirichlet degree two full spectrum half cutoff superseding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The scalar record tabulates exact all-d sector integrals with integrands proportional to (du−1)², u(1−u), and (1−u)². Its exact Z–M and M–E gaps are W_d times (d+2)(ds−1)/(d−1) and 2d(d+2)(1−s)/[(d−1)(d+1)].",
+          "The indexed cubic Dirichlet cap record has degree three; the indexed Dirichlet-lune record has a different region."
+        ],
+        "reasoning": "The cubic and lune summaries are not coverage. The earlier quadratic scalar table is sufficient to produce all the gradient numbers without any new spherical integral. Its thin-cap entries transform to the leading mixed and transverse coefficients by differentiating their latitude polynomials and expanding at u=1.",
+        "searches": [
+          "Resultary: quadrupole antipodal spherical caps tangential-gradient Dirichlet degree two full spectrum half cutoff superseding",
+          "Full primary RESULT.md of 2026/10/26/SCOPE-a-sharp-quadrupole-slepian-transition-for-antipodal-spherical-ca--984cac538af7"
+        ]
+      },
+      "rationale": "The frozen spectrum and switch are a direct differential corollary of the earlier fully evaluated scalar quadrupole spectrum on the same cap family in every d>=3. The scalar and gradient quotients are indeed different, but the earlier record supplies the *entire aperture-dependent* scalar spectrum and its factored gaps; Green's identity transforms them explicitly into all the frozen gaps. This is decisive mathematical coverage, not similarity of titles, equality of the maximizing cutoff, or a claim that generic vector Slepian theory alone covers it.",
+      "residual_risks": [
+        "The exact gradient formulas may also be printed in earlier vector or Sobolev concentration literature. That historical question does not alter the explicit earlier scalar-to-gradient implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the frozen gradient spectrum and classification by the explicit Green-identity transformation, despite a different scalar optimal threshold",
+          "evidence": "Finding and Proof, formulas for λ_Z, λ_M, λ_E and for both scalar gaps.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-a-sharp-quadrupole-slepian-transition-for-antipodal-spherical-ca--984cac538af7",
+          "material_read": "Full public RESULT.md, especially all three beta-tail formulas, the two exact gaps and their derivation",
+          "method": "Retrieved original text through public GitHub contents API",
+          "title": "A sharp quadrupole Slepian transition for antipodal spherical caps",
+          "trigger": "Identical harmonic sectors, cap family, exact dimension-uniform scalar spectra"
+        },
+        {
+          "assessment": "Framework overlap; not the decisive coverage comparison",
+          "evidence": "§2.2 constructs mixed functions on S²; the problem is the bandlimited tangential vector cap problem.",
+          "identifier_or_url": "https://arxiv.org/pdf/1302.5261",
+          "material_read": "Abstract, introduction and §2 basis formulas, notably (17) and normalization (19)",
+          "method": "Primary arXiv PDF text",
+          "title": "Revisiting the concentration problem of vector fields within a spherical cap: a commuting differential operator solution",
+          "trigger": "Potential direct prior coverage via tangent gradients as tangential vector harmonics"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As a mathematical description of derivative-only observation, the exact eigenvalues and thin-cap conditioning constant are meaningful. Neither the maximizing sector nor its transition may be inferred by simply reusing the scalar optimizer, which goes the opposite way as caps shrink. The coverage issue is that the known full scalar curves mechanically give this distinct observation law via Green's identity. No discrete or noisy recovery claim is established.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

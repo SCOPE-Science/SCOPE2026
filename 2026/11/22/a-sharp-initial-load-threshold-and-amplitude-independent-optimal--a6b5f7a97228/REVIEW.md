@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Exact segment exit-state and time-integral formulas give a differentiable objective for every admissible start. The derivative factors into a strictly positive multiplier containing the enhanced removal rate and a term depending only on baseline removal, initial load, emission and available slack. A monotone-derivative argument proves one global optimizer, including the zero-baseline limit, equality threshold, and both endpoints. Direct integration yields strictly positive regret for every other start. The included deterministic checker returned 71,003 assertions; exhaustive infinite-domain correctness rests on the displayed proof, not finite tests.
+## correctness
 
-**Originality — PASS relative to inspected material, with residual priority risk.** The 2009 one-zone ventilation-control paper addresses two-mode CO2 schedules with threshold and energy objectives solved using evolutionary multiobjective search. NIST's 2003 full study compares simulated HVAC controls and air-quality scenarios. The complete accessible 2021 indoor airborne-risk and HVAC article uses dynamic mass balances and exposure integrals, but its reported optimization is not the fixed-duration single-pulse all-parameter analytic classification here. The same scalar ODE and ordinary exponential integration are longstanding; neither model nor basic solution technique is claimed as new. The distinguishing result is an amplitude-independent unique calendar, a sharp initial-load boundary, and an exact global regret function for every augmented removal rate. More general unlocated optimal-control results may cover this special case, so historical priority is not independently certified.
+PASS
 
-**Value — PASS.** The single fixed-duration window is a natural restricted operation when a filter or ventilation unit has a prescribed duty cycle. The theorem gives a parameter-free-with-respect-to-device-strength timing policy and an exact error penalty, quantifying when front-loading is helpful versus when delaying a cleaning window reduces an occupant's full-shift exposure. That decision cannot be inferred simply from 'more cleaning is better' or from terminal-concentration optimization; it requires the full concentration integral. Its self-contained scope is a useful analytic benchmark for more realistic multiobjective schedules, not a field-validated policy.
+Independently checked the moving-switch derivative. Write A_r(t)=∫_0^t exp(-rv)dv, U=T-h, z=C_0 exp(-bτ)+qA_b(τ) and w=exp(-ah)z+qA_a(h) for the start and end concentrations. Translation of both switches gives J'=(a-b){z[A_a(h)+exp(-ah)A_b(U-τ)]-wA_b(U-τ)}=(a-b)A_a(h)[z-qA_b(U-τ)]. The leading factor is exactly the strictly positive G in the result, even when b=0. For b>0 and E=q/b, C_0≥E makes J' strictly positive, and C_0<E makes it strictly increasing and positive at U. Its sign at zero is the sign of C_0-E(1-exp(-bU)), with equality giving the unique boundary minimum. The interior zero gives the stated logarithm. For b=0 the derivative is affine with slope 2Gq>0, giving the clipped formula. At an interior optimum with b>0 the derivative is 2Gk sinh[b(τ-τ_*)]; integrating it, and integrating the appropriate derivative on the boundary and for b=0, verifies all four regret cases. An independent segment calculation gave 2.578509392222384 and 2.196190111820411 for the canonical immediate and optimal exposures. VERIFICATION.md and check.py were inspected; the optional replay path is python3 check.py from the frozen package directory. The finite checks are not the proof.
 
-**Sources and remaining risks.** Kusiak–Li (2009; doi:10.1016/j.energy.2009.07.039), NISTIR 7042 (2003), and Risbeck et al. (2021; doi:10.1016/j.enbuild.2021.111497) were inspected in relevant full-text sections. No independent comprehensive historical survey or expert priority review has been conducted. The physical model omits changing emissions, occupancy, uncertainty and filter costs.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The constant-source impulse counterpart is exactly, not merely qualitatively, related to the fixed window. The joint comparison narrows the incremental content to the nontrivial reduction of a finite translated rate interval to that impulse timing objective, its consequences for the entire admissible window (including exact regret and the zero baseline), and the positive rate factor. No inspected work was found to establish that finite-window reduction or an equally strong solution. This is not a priority claim for the positive-baseline impulse timing law alone.
+
+## value
+
+PASS
+
+Under a genuine operating constraint (one contiguous fixed-runtime episode), the exact cancellation of the enhanced rate from all timing comparisons is a useful model benchmark. The result quantifies how much, not just which way, mistiming hurts; the finite interval has exactly the time-ordering and regret of the calibrated instantaneous proxy despite its continuing emissions and two switches. This does not assert optimality for split schedules, physical safety, or HVAC performance outside the well-mixed constant-source model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

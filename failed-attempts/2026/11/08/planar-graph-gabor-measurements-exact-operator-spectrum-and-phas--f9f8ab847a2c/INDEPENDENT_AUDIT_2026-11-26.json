@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T14:24:58.715371Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Assumptions and Proof §§1–3",
+        "Frozen VERIFICATION.md and verify_planar_gabor.py (inspected, not executed)",
+        "Independent Fourier lag-block derivation in this review"
+      ],
+      "rationale": "With N=q², Fourier transforming the output in modulation is unitary and splits the lift by lag h=z−w. On the h band the map is sqrt(N) times translation correlation with k_h(z)=g(z)g(z−h). For a lag with nonzero first coordinate, planarity makes k_h a delta so all N singular values of that band are q. Nonzero vertical lag gives a zero band. At zero lag, the Fourier transform over translations is diagonal up to signs with coefficients q times the character sums of the graph. These sums have magnitudes q at the trivial character, zero at (r,0) for r≠0, and sqrt(q) at (r,s) for s≠0 by expanding the square and using the permutation of differences. This verifies the full spectrum and rank under the actual counting normalization, and the kernel is arbitrary within-fibre off-diagonal matrices plus a diagonal constant on each fibre with constants summing to zero. For ss*−tt* in the kernel, two nonzero cross-fibres force the same fibre support and reciprocal scalars up to phase; a third produces unimodular scalars all equal. In the two-fibre case a nontrivial reciprocal rescaling must act on flat profiles, and preservation of total energy gives the unique unequal-amplitude swap. In the one-fibre case the same support preserves each individual modulus, and a different fibre is possible only with full flat profiles of equal energy. Total energy is measured, so zero is unique. These checks use arbitrary complex signals and any planar f, not just a quadratic prime-field example.",
+      "residual_risks": [
+        "Packaged examples cover only q=3,5,7 for x²; the proof, rather than those scripts, supplies prime-power and every-planar-function coverage. Full measurements and the stated window normalization are essential."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Gabor lift in Fourier coordinates is multiplication by window ambiguity on matrix bands. The graph of a planar function is an (n,n,n,1) relative difference set relative to the vertical subgroup, with converse. This fixes all translated intersection counts and the three character magnitude strata of the unshifted indicator.",
+          "Split-quadratic projector spectra concern graphs on F^r×F^r×F, r≥2, and Gold-graph spectra concern characteristic two; the inspected records do not claim the frozen nonlinear classification."
+        ],
+        "reasoning": "The older primary results together yield the spectrum and kernel by direct substitution, even though neither states the exact planar spectrum table. They do not by themselves state the nonlinear classification; the transform comparison to the cubic-chirp record supplies the much closer equivalent coverage of that part.",
+        "searches": [
+          "Bojarovska–Flinth arXiv:1503.05800v1, §2 and Theorems 2.1, 2.2 and 2.4",
+          "Pott–Schmidt–Zhou arXiv:1401.3294v1, §4 Definition 4.3 and Proposition 4.4",
+          "Resultary split-quadratic record 1651ef6ab8d7 and Gold-graph record 168ceffd1c08"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, §§1–3",
+        "Local Resultary records f9f8ab847a2c, d99f607f7dbf, 1651ef6ab8d7, 168ceffd1c08 and 2d5140cd22ae",
+        "arXiv:1503.05800v1 §2",
+        "arXiv:1401.3294v1 §4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Both settings observe every cross-block Gram entry, traceless internal diagonal data in the appropriate coordinates, and total trace. The frozen mechanism for two blocks solves the same reciprocal-scaling energy equation as the cubic proof. The planar difference-set and Gabor formulas extend the same observable block pattern to any odd prime-power q."
+        ],
+        "reasoning": "The groups and windows are not literally identical and the cubic theorem alone cannot certify the planar-window assumptions outside its parameter range. Nevertheless its sufficient-data statement already contains the substantive phase-fibre argument after Fourier change of coordinates, while the wider applicability here follows from standard planar-function structure. Literal difference between constant autocorrelation spectrum and constant coordinate modulus is not a surviving nonlinear distinction.",
+        "searches": [
+          "Resultary d99f607f7dbf, ambiguity support and necessary/sufficient correlations, offsets 0 and 3560",
+          "arXiv:1503.05800v1, eqs. (2.4)–(2.5)",
+          "arXiv:1401.3294v1, Proposition 4.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The cubic-chirp text states that the cross-class products, classwise nonzero-lag periodic autocorrelations and total energy are necessary and sufficient data for equality. In planar-graph coordinates the necessary and sufficient data are cross-fibre products, each squared-modulus profile modulo constants, and total energy.",
+          "A unitary length-p discrete Fourier transform in every block conjugates each cross-block by fixed invertible matrices. Wiener–Khinchin identifies all nonzero-lag autocorrelations precisely with the centred Fourier squared-modulus profile, and preserves total energy."
+        ],
+        "reasoning": "Thus for p≥5 the data equivalence is exact after a change of coordinates. The three-block rigidity and the swap on flat profiles are the same theorem in those coordinates. The one-block classification also follows directly from the source's sufficient data: same-block Fourier moduli are fixed by total energy, and switching blocks requires all measured nonzero-lag autocorrelations to vanish. The cubic theorem did not state that last case, but its sufficient-data lemma implies it. This comparison does not assert within-day precedence.",
+        "searches": [
+          "Local Resultary search for planar graph Gabor projector spectra and all-complex phase fibres",
+          "Resultary cubic-chirp record d99f607f7dbf, Finding, Assumptions and Proof §2 (local mirror offset 3560)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact ranked match f9f8ab847a2c is a self-match. The independent cubic-chirp record explicitly evaluates normalized ambiguity magnitudes 1, 1/sqrt(p), 1/p and 0, with supports determining the same multiplicities. Multiplying by sqrt(N)=p gives p, sqrt(p), 1 and 0 in the normalized-window lift; dividing the frozen singular values by p gives exactly that list.",
+          "The hyperbola record classifies phase fibres by components of a support graph, rather than by this measurement normal form; the two other spectrum entries are on different graph families."
+        ],
+        "reasoning": "Exact singular spectra coincide for prime p≥5 once normalizations are aligned. The frozen record's prime-power and arbitrary-planar-family range is wider, not a number-for-number database match at all parameters.",
+        "searches": [
+          "Local Resultary: exact record f9f8ab847a2c, cubic record d99f607f7dbf, hyperbola record 2d5140cd22ae, Gold record 168ceffd1c08, split-quadratic record 1651ef6ab8d7"
+        ]
+      },
+      "rationale": "A distinct nonlinear phase-fibre classification as the central contribution is not established. The same-day cubic-chirp record provides necessary and sufficient data which, under a unitary Fourier transform within each block, are exactly the planar-window data when q=p≥5 is prime. This is an equivalence of the measurement fibres, not just a similar two-case description: the other record's proof data imply the one-fibre clause as well, and the spectra agree after window normalization. Its same-day date does not determine priority, and its theorem does not literally cover all odd prime powers or all planar windows. What is left beyond the demonstrably equivalent prime-case normal form is an application to the larger planar family: the requisite band magnitudes are direct outputs of the classical relative-difference-set identities and standard Gabor multiplier, and the nonlinear step then repeats the same block algebra with q instead of p. No materially distinct nonlinear result is established in the frozen finding beyond that extension; this is not a claim of chronological priority or that an earlier paper prints the entire theorem verbatim.",
+      "residual_risks": [
+        "The two Nov. 8 records cannot be temporally ordered on the evidence used. The cubic-chirp theorem does not literally cover q=3 or nonprime q. The decision rests on the demonstrated data equivalence plus the character of the extension, not a claim of proven earlier publication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantive equivalent coverage for prime p≥5; within-day priority unresolved",
+          "evidence": "All cross-class products, nonzero-lag autocorrelations within each class, and total energy characterize equality. Fourier transformation in each class gives exactly the planar normal form.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-prime-square-cubic-chirp-spectrogram-fibers-above-one-resi--d99f607f7dbf/RESULT.md",
+          "material_read": "Finding and Assumptions, ambiguity support §1 and necessary/sufficient correlation description and rank-one proof §§2–4 (offsets 0 and 3560)",
+          "method": "Resultary local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact prime-square cubic-chirp spectrogram fibers above one residue class",
+          "trigger": "Two-class amplitude exchange and three-class rigidity"
+        },
+        {
+          "assessment": "Supplies the multiplier and low-rank kernel criteria; not the full planar nonlinear conclusion by itself",
+          "evidence": "Hilbert–Schmidt bands in Fourier coordinates are weighted by ambiguity; the global nonzero-ambiguity hypothesis is not satisfied here.",
+          "identifier_or_url": "https://arxiv.org/pdf/1503.05800v1",
+          "material_read": "§2, eqs. (2.4)–(2.5) and Theorems 2.1, 2.2, 2.4, pp. 4 and 6",
+          "method": "OA primary PDF text",
+          "title": "Phase Retrieval from Gabor Measurements",
+          "trigger": "General Gabor lift and recovery theorems"
+        },
+        {
+          "assessment": "Covers the structural input for every planar f",
+          "evidence": "Planarity is the permutation-difference property and gives exactly the forbidden-vertical-subgroup relative difference set.",
+          "identifier_or_url": "https://arxiv.org/pdf/1401.3294v1",
+          "material_read": "§4, p. 7, Definition 4.3 and Proposition 4.4 (offset 23100)",
+          "method": "OA primary PDF text",
+          "title": "Semifields, relative difference sets, and bent functions",
+          "trigger": "Classical exact structure of planar graphs"
+        },
+        {
+          "assessment": "Different graph family, not a dominating theorem here",
+          "evidence": "Split bilinear form in dimensions 2r+1 with r≥2; no pure-signal phase claim.",
+          "identifier_or_url": "2026/10/18/SCOPE-complete-gabor-projector-spectra-of-split-quadratic-graphs-over--1651ef6ab8d7",
+          "material_read": "Finding and Assumptions, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Complete Gabor-projector spectra of split quadratic graphs over every finite field",
+          "trigger": "Potential stronger graph spectrum theorem"
+        },
+        {
+          "assessment": "Spectrum/kernel analogue, not equivalent phase result",
+          "evidence": "Characteristic-two Gold graphs and no nonlinear classification.",
+          "identifier_or_url": "2026/11/8/SCOPE-the-complete-gold-graph-gabor-lifting-spectrum-and-its-subfield--168ceffd1c08",
+          "material_read": "Finding and Assumptions, offset 0",
+          "method": "Resultary local mirror",
+          "title": "The complete Gold-graph Gabor lifting spectrum and its subfield transition",
+          "trigger": "Same-day binary graph-indicator lift"
+        },
+        {
+          "assessment": "Different windows and measured-data constraints",
+          "evidence": "Phase orbits are controlled by support-graph components for a hyperbola window.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-gabor-observability-and-phase-fibers-for-the-finite-field--2d5140cd22ae",
+          "material_read": "Finding and proof, offsets 0 and 4800",
+          "method": "Resultary local mirror",
+          "title": "Exact Gabor observability and phase fibers for the finite-field hyperbola",
+          "trigger": "Lift rank and all-signal phase classification for a finite-field window"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§2–3",
+        "arXiv:1401.3294v1, Proposition 4.4",
+        "arXiv:1503.05800v1, Theorem 2.1"
+      ],
+      "rationale": "Independently of priority, identifying exactly what a natural family of relative-difference-set windows can and cannot recover is scientifically useful. The result separates failure of arbitrary-matrix tomography from support-free phase uniqueness on a large class of rank-one signals, and characterizes the exceptional ambiguities rather than just producing a rank defect. The evaluation in terms of omitted matrix directions identifies which signal structure matters.",
+      "residual_risks": [
+        "No inverse stability or subsampling guarantee is established. Usefulness of the application to a natural window family does not establish manuscript originality."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

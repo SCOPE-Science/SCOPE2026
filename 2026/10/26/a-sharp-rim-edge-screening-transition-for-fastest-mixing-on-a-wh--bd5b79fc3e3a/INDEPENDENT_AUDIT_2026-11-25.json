@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:56:18.334609Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–63, VERIFICATION.md, verify.py and SLOGAN.txt"
+      ],
+      "rationale": "Rayleigh minimization over fixed mean-zero unit vectors is concave in conductances, so dihedral averaging preserves feasibility and cannot lower the gap. The zero-sum rim subspace has Fourier minimum a+δ_m b. On the mean-zero complement of this subspace, take the normalized common-hub-and-leaf versus rim contrast and the normalized hub-minus-leaf vector. Their 2×2 matrix has diagonals (m+2)a/2 and ma/2+2c and off-diagonal √(m(m+2))a/2, giving the claimed characteristic polynomial. Subtract the identity: for a unit gap the first diagonal is strictly positive (if zero the off-diagonal is nonzero), and the determinant condition is c((m+2)a−2)≥(m+1)a−1. Together with b≥max(0,(1−a)/δ_m), this gives the exact scalar minimization. The rational term has derivative −m/((m+2)a−2)² and strictly positive second derivative. To the right of 1 the cost increases; to its left the derivative is m k_m−m/((m+2)a−2)². For m≥6, δ_m≤1 and it is negative including in the left limit at 1. For 3≤m≤5, δ_m is 3, 2, or (5−√5)/2, respectively, so k_m>1/m²; the unique left stationary point is the stated a_m<1, with positive b_m and c_m. Using s=(m+2)a_m−2=1/√k_m in the cost yields the displayed D_m. Scale by homogeneity to budget B. At m≥6 every optimum averages to the unique symmetric optimum with mean rim weight zero, so each original nonnegative rim weight is zero. The frozen slogan's stronger equal-star-spending phrasing is also true: after unit-gap normalization the star weights sum to m+1, and testing differences of two leaf coordinates forces each pair of star weights to sum to at least 2. If any weight is below 1 the other m exceed 1 by at least the same deficit, contradicting the budget. The least-cost spectral proof covers all m and real B, not only the numerical tests. The determinant and cost simplification replay with `python /workspace/independent_reproduction.py`; frozen verify.py was inspected, not executed.",
+      "residual_risks": [
+        "No characterization of every asymmetric optimum in the low-order branch; assumes a hub-attached leaf, no minimum positive edge weight, and the unnormalized Laplacian."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sun et al. cover the entire optimization problem class. Boyd et al. analyze an unaugmented wheel under a discrete-time SLEM objective. Berman–Förster study the infinite-weight limit of a pendant edge for tree bases, not redistribution of all weights under a budget."
+        ],
+        "reasoning": "A general SDP, a different wheel objective, and an asymptotic single-edge limit do not give the unit-gap cost or the all-optimum support under a fixed conductance budget.",
+        "searches": [
+          "Sun et al. continuous-time optimization and dual; Boyd et al. arXiv:0709.0955 §5.3.3; Berman–Förster ELA 13 (2005)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 24216ca23b99, 9d97645b0619, 638ad6225b9e, 500cb3da11e0",
+        "Sun et al. SIAM Review 48 (2006)",
+        "arXiv:0709.0955",
+        "Berman–Förster ELA 13 (2005)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Removing the leaf removes the second nonconstant quotient mode and its c-dependent feasibility inequality. At m=6, the observed distinction is between an entire wheel optimizer face allowing positive rim weight and mandatory deletion with a hub leaf."
+        ],
+        "reasoning": "No rescaling of the old price threshold identifies the added quotient-block constraint or yields the target's D_m and optimizer support. These require the new graph spectral calculation, although the optimization machinery is established.",
+        "searches": [
+          "Resultary 24216ca23b99 Finding; Sun et al. §4.1; Resultary 9d97645b0619 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Generator −L with a total conductance budget is exactly the source rate-constrained continuous-time problem. The dual maximizes centered variance with edgewise squared-distance upper bounds, including one hub–leaf constraint in this case."
+        ],
+        "reasoning": "The dual really is equivalent, not a different objective; its general statement does not compute the transition. For example, one must construct additional graph-specific geometry to deduce strict slack: hub at zero, rim points at height 1/m on a regular polygon of radius √(1−1/m²), and leaf at height −1 give centered unit-radius nonhub points and squared rim distance (1−1/m²)δ_m<1 at m≥6. This illustrates the special structure behind deletion, and the general dual alone gives neither this embedding nor the lower-size optimum.",
+        "searches": [
+          "Sun–Boyd–Xiao–Diaconis SIAM Review 48 (2006) §4.1; Resultary searches on wheel with a hub pendant, spectral gap, price screening and variance embeddings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest pre-target Resultary 24216ca23b99 gives price threshold 1/[4 sin²(π/n)] for the unaugmented wheel. At equal prices, rims are beneficial for n=4,5, at n=6 both rim-positive and rim-zero optima exist, and n≥7 deletes the rim.",
+          "Nearby records 9d97645b0619 (later helm, one leaf per rim vertex), 638ad6225b9e (sunlet, one leaf per cycle vertex), and same-day 500cb3da11e0 (pendant complete bipartite graph, summary only) differ by graph. The helm has both options at m=6 and mandatory deletion only at m≥7."
+        ],
+        "reasoning": "The earlier wheel table overlaps in broad pattern and objective but differs exactly at the critical size and lacks the hub-leaf cost. The same-day comparison is not discarded by date; it lacks a wheel rim. No exact target table was identified in the bounded search.",
+        "searches": [
+          "Resultary: budget-optimal unnormalized spectral gap, wheel with one hub leaf, cone over cycle plus isolate, rim screening transition"
+        ]
+      },
+      "rationale": "The broad continuous-time formulation and its variance dual, symmetry reduction, and the very close unaugmented-wheel price transition are prior coverage. The distinct result is the explicit gap and weight formula with a hub-attached leaf and the strictly stronger cutoff at the hexagonal rim, including all-optimum rim deletion for that graph. The wheel result makes the comparison substantive: at equal prices and six rim vertices it instead allows positive rim conductance at optimum.",
+      "residual_risks": [
+        "Bounded catalogue and primary comparisons cannot exclude specialized graph-design or embedding results under different graph names. Full material for the same-day pendant bipartite hit was unavailable."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material overlap but no hub-leaf theorem; equality at n=6 allows both kinds of optimum.",
+          "evidence": "T_n=1/[4 sin²(π/n)] and unrestricted optimizer description.",
+          "identifier_or_url": "Resultary 2026/10/12, 24216ca23b99",
+          "material_read": "Local mirror RESULT.md Finding at offsets 276 and 937",
+          "method": "Direct comparison of graph, price threshold and equal-price optimizer statements",
+          "title": "Quadratic spoke-price frontier for fastest mixing on wheels",
+          "trigger": "Same continuous-time budget problem, explicit unaugmented wheel support transition"
+        },
+        {
+          "assessment": "Leaf attachment/orbits and cutoffs differ; the former record is also later.",
+          "evidence": "Leaves at all rim/cycle vertices; helm permits positive rim at six, sunlet optimum keeps all edges positive.",
+          "identifier_or_url": "Resultary 9d97645b0619; 638ad6225b9e",
+          "material_read": "Helm Finding at offset 0; sunlet Finding and asymmetry-rigidity passages at offsets 0 and 3996",
+          "method": "Local mirror statement comparison",
+          "title": "Exact price screening for algebraic connectivity on helm networks; Unique price-optimal fastest mixing on sunlet networks",
+          "trigger": "Closely related exact leaf-augmented spectral designs"
+        },
+        {
+          "assessment": "The inspected statement is on a complete bipartite base and has no wheel rim; no whole-document exclusion.",
+          "evidence": "Fixed-budget gap plateau for a pendant complete bipartite network.",
+          "identifier_or_url": "Resultary 500cb3da11e0",
+          "material_read": "Catalogue summary; local full file unavailable",
+          "method": "Bounded comparison of indexed statements",
+          "title": "Sharp conductance-budget plateau for a pendant complete bipartite network",
+          "trigger": "Same-day continuous-time graph design with pendant edge and asymmetric allocation"
+        },
+        {
+          "assessment": "Covers general formulation and equivalent embedding problem; the inspected passages do not specialize it to the target.",
+          "evidence": "Maximize λ₂ with a linear rate budget; dual is centered variance with squared edge-distance constraints.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+          "material_read": "p. 681 abstract and §4.1 pp. 689–690 (OA offsets 535, 25608, 29051)",
+          "method": "Primary PDF passage inspection",
+          "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+          "trigger": "Exact general continuous-time formulation and dual"
+        },
+        {
+          "assessment": "Discrete-time unaugmented wheel, not the frozen graph and objective.",
+          "evidence": "Discrete-time SLEM objective and a wheel with no hub leaf.",
+          "identifier_or_url": "https://arxiv.org/abs/0709.0955",
+          "material_read": "PDF p. 1 and §5.3.3 pp. 28–29 (OA offsets 2849, 98176)",
+          "method": "Primary PDF objective and example comparison",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "Known wheel-specific symmetry and Fourier calculation"
+        },
+        {
+          "assessment": "Studies the weight limit for tree bases, rather than optimized allocation for this graph.",
+          "evidence": "Adds one edge of weight ω and studies ω→∞.",
+          "identifier_or_url": "https://emis.de/ft/15363",
+          "material_read": "PDF p. 1, OA offset 354",
+          "method": "Primary opening theorem/problem comparison",
+          "title": "Algebraic Connectivity of Trees with a Pendant Edge of Infinite Weight",
+          "trigger": "Potential coverage by pendant-edge gap theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and symmetry/rigidity proof",
+        "Resultary 24216ca23b99 Finding"
+      ],
+      "rationale": "A single bottleneck leaf changes the structure of optimal continuous-time mixing on a canonical symmetric graph, making all rim conductances dispensable already at six while leaving them essential to the smaller-size improvement. The exact gap and all-optimizer support provide an actionable graph-specific design rule beyond feasibility of an SDP, including a meaningful contrast with the hexagonal unaugmented wheel.",
+      "residual_risks": [
+        "Does not prescribe discrete-time fastest-mixing chains, rim-attached leaves, or designs with required positive rim conductance."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

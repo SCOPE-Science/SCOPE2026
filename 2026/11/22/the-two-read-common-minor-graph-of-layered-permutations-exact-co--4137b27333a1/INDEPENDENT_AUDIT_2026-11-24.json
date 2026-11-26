@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:13:34.734053Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, theorem, composition encoding, two-read criterion, GF and components",
+        "Frozen VERIFICATION.md, check_direct.py and check_binary.py",
+        "Independent replay: /workspace/reviews/evidence/layered_replay.py",
+        "Cai et al., Prop. 9"
+      ],
+      "rationale": "Deleting one entry from a decreasing layer decrements its length or drops a singleton, without merging other layers. Terminal-one encoding sends a decrement to deletion of a zero, and a singleton removal to deletion of a 1 from the initial run or from a run of length at least two; deleting any equivalent 1 in that run yields the same output. Independently reconstructed the ordinary binary lemma: if L,R are first/last differences, any common output using deletions at i≤j in the two words can be represented by deletions at L,R, since the positions from i to L in the first and from R to j in the second lie in constant runs by the intervening shift equality. The opposite alignment gives the only other possible output; if L=R there is just one. For L<R two distinct outputs occur precisely when both shift equalities hold through the differing interval, forcing opposite alternating phases over a binary alphabet. The resulting endpoint-zero deletions are always allowed. The other output uses the first and last endpoint ones; the first is deletable only at the beginning or just after a common 1, and the last only just before a common 1 (with equivalent deletion elsewhere in its run allowed). The final 1 lies in the common suffix. Reading the two parities, including the shared following 1, gives exactly the two moves with t≥1 and unique boundaries. Counting marked blocks yields ((1−z)/(1−2z))² z³/(1−z). Heavy parts and gap weights and two-presence are preserved; swaps let two 1s flank a 2, then 121→22 reduces their count to the parity normal form, proving sufficiency and the Fibonacci size product. The gap series for components and isolated vertices are respectively (1+z²)/(1−z) and 1/(1−z)+z², separated by heavy parts of series z³/(1−z), giving both stated rational functions and the n=0 convention. Independent reverse-deck indexing and union-find in /workspace/reviews/evidence/layered_replay.py exhaust n=1 through 11: all edges match their proposed moves uniquely, no pair shares more than two outputs, and all component signatures, sizes and counts agree, including (1280,396,288) at n=11. This is corroboration, not the all-n proof. Frozen scripts were inspected rather than executed.",
+      "residual_risks": [
+        "No claim concerning full permutation classes, maximum independent sets, or k-deletion decks.",
+        "Independent enumeration is finite; the alignment and canonical-form arguments establish the infinite claims."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Vatter proves reconstruction from the full set of k-deletions for n≥3k+1, sharp at 3k. Raykova analyzes layered full-set reconstruction thresholds (including L′_k>k+log₂ k). A full deck can distinguish vertices that still share two individual minor types.",
+          "Cai et al. give the general Type-A alternating criterion; Resultary 737fed325e91 counts unrestricted word edges, and bd47d6c96416 describes a complete fiber of a particular composition k-deletion set. None directly counts the admissible edges or same-rank components of the frozen graph."
+        ],
+        "reasoning": "The unrestricted theorem is essential prior local machinery, but deletion filtering and component connectivity require separate arguments. Deck reconstruction and deck fibers solve different inference questions.",
+        "searches": [
+          "arXiv:2001.01376 Prop. 9; arXiv:math/0610477 Thm. 1; Raykova §6",
+          "Resultary unrestricted q-ary two-read (737fed325e91) and critical composition deck fibers (bd47d6c96416)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2001.01376, math/0610477, 1107.5070, 1305.5569",
+        "Raykova, EJComb 13 (2006), R66",
+        "OEIS A049610 and A001792",
+        "Resultary 4137b27333a1, 920b1e1645a1, b85913bb6305, bd47d6c96416 and 737fed325e91"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An induced subgraph merely restricting vertices to words ending in 1 would still count the pair 0011 and 0101. They have ordinary common outputs 011 and 001; 001 requires deleting an inadmissible isolated 1 from 0101, so the compositions (3,1) and (2,2) have only one common permitted minor. Thus vertex restriction alone cannot specialize the unrestricted edge theorem to this graph.",
+          "The component proof uses swapping the 1 past a 2 and consolidating 121↔22, and excludes the all-singleton gap. Adjacent-position swap components and the two-read graph for words avoiding 11 are not computations for this move system."
+        ],
+        "reasoning": "The filter matters even for concrete low-order pairs, and the all-length component/canonical-form, gap independence and enumerations are not automatic consequences of the unrestricted formulas or of OEIS.",
+        "searches": [
+          "arXiv:2001.01376 Prop. 9, distance one and Type-A cases",
+          "Resultary 737fed325e91, 920b1e1645a1 and b85913bb6305, mirror findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "McNamara–Sagan identify layered-permutation order with generalized subword order on compositions; the graph compares same-rank pairs by shared lower covers, not the topology or Möbius function of a single interval.",
+          "Resultary 920b1e1645a1 is the same vertex language with adjacent-position swaps and Fibonacci-cube components. Its (1,1)–(2) edge at n=2 is absent here since both vertices have only one minor; conversely (1,2)–(2,1) at n=3 joins 132 and 213, which are not related by one adjacent swap."
+        ],
+        "reasoning": "The same vertex set and a Fibonacci structure do not give an equivalent edge relation or component invariant.",
+        "searches": [
+          "Resultary: composition one-deletion common lower covers, layered permutations, alternating interval, Fibonacci components",
+          "arXiv:1107.5070 pp. 1–2 and arXiv:1305.5569 introduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A049610 lists floor(n·2^(n−3)) and OGF z²(1−z)/(1−2z)², which becomes the frozen edge series after a one-index shift; A001792 lists the same nonzero numbers shifted, e.g. as total parts of compositions. Numeric priority does not attach to these edge coefficients.",
+          "Resultary 4137b27333a1 is the same frozen record. Resultary b85913bb6305 is a weight-resolved two-read ambiguity graph on binary words avoiding 11 with two components; it does not apply to this terminal-one admissibility-filtered source."
+        ],
+        "reasoning": "There is exact table coverage of the edge numbers, not of their meaning for this graph or of the full component/isolated classification in the compared sources.",
+        "searches": [
+          "OEIS A049610 and A001792 internal entries",
+          "Resultary: exact edge, component and isolation enumerations of two-read ambiguity graphs"
+        ]
+      },
+      "rationale": "The ordinary alternating-interval criterion, composition deletion channel, and edge-number sequence are prior and must remain credited. The claim that survives comparison is the restricted graph's admissibility-filtered moves, which yield new exact ambiguity-component signatures, Fibonacci product sizes, and enumerators for this adjacency. Same-day results on similar graphs or on the same source under different adjacency do not supply this classification.",
+      "residual_risks": [
+        "An additional targeted catalogue query was unavailable; no negative conclusion is inferred from that.",
+        "Earlier unindexed work on equivalent lower-cover or reconfiguration formulations could affect priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of ordinary binary alignment; no composition filter or restricted components.",
+          "evidence": [
+            "One output at Hamming distance one; at least two differences and Type A give exactly two outputs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2001.01376",
+          "material_read": "Prop. 9, PDF p. 7, offset 34812",
+          "method": "Lawful OA PDF passage",
+          "title": "Coding for Sequence Reconstruction for Single Edits",
+          "trigger": "Exact unrestricted two-deletion-output criterion"
+        },
+        {
+          "assessment": "Whole-set reconstruction rather than pairwise intersection graph.",
+          "evidence": [
+            "For n≥3k+1 the full set reconstructs, while 3k can fail."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0610477",
+          "material_read": "Thm. 1 and introduction, PDF p. 1, offset 600",
+          "method": "Lawful OA PDF passage",
+          "title": "Reconstructing compositions",
+          "trigger": "Same composition deletion channel and potentially stronger reconstruction result"
+        },
+        {
+          "assessment": "Earlier layered setting, not coverage of the frozen edge relation/components.",
+          "evidence": [
+            "The lower bound L′_k>k+log₂ k concerns the set-minor reconstruction threshold."
+          ],
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v13i1r66/pdf",
+          "material_read": "§6, PDF pp. 11–12, offset 31996",
+          "method": "Lawful OA journal PDF, relevant passage",
+          "title": "Permutation Reconstruction from Minors",
+          "trigger": "Earlier layered-minor reconstruction"
+        },
+        {
+          "assessment": "Identifies the poset, studies Möbius functions and interval topology, not the same-rank ambiguity graph.",
+          "evidence": [
+            "Layered pattern order is composition order for generalized subwords."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1107.5070",
+          "material_read": "PDF pp. 1–2, offsets 1065 and 4881",
+          "method": "Lawful OA PDF passage",
+          "title": "The Möbius function of generalized subword order",
+          "trigger": "Potential equivalent composition rank-poset classification"
+        },
+        {
+          "assessment": "Different edge rule, visibly different even on short compositions; no priority inferred from date.",
+          "evidence": [
+            "Adjacent-position swaps and Fibonacci cubes, rather than sharing two distinct one-deletion minors."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22, 920b1e1645a1",
+          "material_read": "Mirrored RESULT.md finding and adjacency at offset 0",
+          "method": "Configured Resultary search and local mirror",
+          "title": "Median component decomposition of the one-pass pop-stack permutations",
+          "trigger": "Same objects with a component classification"
+        },
+        {
+          "assessment": "Exact prior numerical coverage up to shifts; different combinatorial interpretations.",
+          "evidence": [
+            "A049610 shifted by one gives e_n, and A001792 records its nonzero values with shifted index."
+          ],
+          "identifier_or_url": "https://oeis.org/A049610/internal ; https://oeis.org/A001792/internal",
+          "material_read": "Internal entries beginning at offset 0, terms/formula and generating function",
+          "method": "Public entries, bounded passage retrieval",
+          "title": "OEIS A049610 and A001792",
+          "trigger": "Exact edge sequence comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, component and enumeration statements",
+        "Vatter and Cai et al. problem frameworks"
+      ],
+      "rationale": "The layered source comes from an established reconstruction problem. A local ambiguity rule propagates into a global classification over an exponentially large source, with exact decomposition and independently useful enumeration of component sizes and singleton behavior. This is more than another interpretation of a known edge sequence. It tells a coding researcher which families of vertices must be considered together, without assuming that a component's code capacity is determined by its size.",
+      "residual_risks": [
+        "The result does not solve the independent-set/codebook problems within the nontrivial components."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

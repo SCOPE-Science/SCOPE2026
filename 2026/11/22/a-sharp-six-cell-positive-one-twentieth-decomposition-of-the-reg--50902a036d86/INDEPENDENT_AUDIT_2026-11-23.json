@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:33:24.534282Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The affine coordinate change is invertible, preserves normalized areas, and puts all 45 chord and side segments in Q(√5)². Exact intersection and split-edge deduplication is essential at multiple crossings; the cyclic half-edge traversal counts bounded faces rather than cycles from unsplit diagonals. The separately written and run reproduction /workspace/branches/82cc46dd-df40-4e84-a28e-93484fc1d518/independent_decagon_check.py gives (V,E,F)=(171,390,221), with one outer face, and agrees with all twelve exact normalized areas and multiplicities. Independently, using area (a+b√5)/200, the target pair is (10,0) and the integer functional 4a+9b has per-class values (6,2,5,1,4,2,1,8,4,0,4,8). Fewer than five cannot sum to 40; five would require only classes 7 and 11 and their radical coefficient would be 80j−40, never zero. Unpruned exact pair enumeration at size six (12,376 multisets) gave just (4,8,11,11,11,11) and (7,8,10,11,11,11); the source's 6,186 retained prefixes through size five also recompute correctly. These patterns have sufficient distinct cells and give 20²·C(20,4)=1,938,000 and 10·20·30·C(20,3)=6,840,000 subsets, a total of 8,778,000. The subset count concerns minimal witnesses and does not assert connectedness or exclude larger witnesses. Source copies were read, not executed. Malformed TeX control characters in the displayed binomial-count line do not affect the unambiguous count or its independently reproduced derivation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The A401643 general signed denominator statement supplies the decagonal target. Its comments leave positive realization open in general. The full Huber note was not obtained through the DOI and record routes.",
+          "The other rational-area result operates on a four-region partition, not the full arrangement."
+        ],
+        "reasoning": "A broader signed result covers the target denominator but does not assert an unsigned representation or say how many elementary cells are needed. No accessible stronger positive-support theorem was identified in the checked passages.",
+        "searches": [
+          "OEIS A401643 and linked Huber DOI 10.5281/zenodo.23841077",
+          "arXiv:2610.22970 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and decagon_exact.py",
+        "OEIS A401643 and A007678",
+        "Huber DOI 10.5281/zenodo.23841077 (full text not obtained)",
+        "Inoue and Watanabe arXiv:2610.22970",
+        "Resultary 50902a036d86 (self) and related query results"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Signed lattice membership does not certify an actual subset of cells; the region count does not determine their areas. Even if an exact area table is prior, extraction of both sharp patterns requires enforcing the no-subtraction support restriction.",
+          "The cited nonagon positive witness and the two-diagonal theorem contain no decagonal full-arrangement support bound in the inspected passages."
+        ],
+        "reasoning": "The two rational-coordinate constraints and actual capacity of the selected classes establish the desired extrema; those data and the support optimization do not follow merely from the known denominator or face census.",
+        "searches": [
+          "OEIS A401643 signed definition and positive-union question",
+          "OEIS A007678 comments on bounded regions",
+          "arXiv:2610.22970 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A401643 uses signed sums of distinct cells and explicitly distinguishes the unsigned-union question; its worked 18-cell example is for n=9.",
+          "Inoue and Watanabe partition using two intersecting congruent diagonals, not all 35 diagonals. The exact Resultary hit 50902a036d86 is the frozen record itself."
+        ],
+        "reasoning": "Unsigned unions correspond to 0/1 coefficients on the elementary cells; the signed lattice admits cancellation and its denominator statement is not equivalent. Refining a two-diagonal partition also changes the selectable units and their number.",
+        "searches": [
+          "Resultary: rational area union of regular decagon elementary cells, 1/20, signed versus positive coefficients",
+          "OEIS A401643 definition and comments",
+          "arXiv:2610.22970 p. 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A007678 with offset 1 gives 220 at n=10, with older references, so the cell total is prior. A401643 with offset 3 gives 20 at n=10 in a signed problem.",
+          "The inspected Resultary results include the exact frozen record itself, 50902a036d86, but no distinct matching table or six-cell classification in the returned items."
+        ],
+        "reasoning": "Neither existing sequence tabulates normalized decagon cell areas with multiplicity, much less the counts of unsigned minimum-support subsets. The common census and denominator must not be presented as new.",
+        "searches": [
+          "OEIS A007678, terms and OFFSET",
+          "OEIS A401643, terms, OFFSET and comments",
+          "Resultary: twelve exact decagonal cell-area classes, 220 faces, minimal six cells, 8,778,000 subsets"
+        ]
+      },
+      "rationale": "Neither the 220-cell census total nor the signed denominator 20 is new. The distinct supported finding is the positive decagon construction at 1/20, the minimum support and full minimal pattern/count classification. The independently verified twelve-area refinement was not located in the passages inspected; its individual priority is less certain than the scope distinction between signed and unsigned claims.",
+      "residual_risks": [
+        "Huber's full note may contain a decagonal witness or an exact area table; the accessible sequence cannot resolve that possibility. Other unindexed area tables or subset results may also affect priority. The earlier 220-cell total and signed denominator are verified prior coverage, not residual risks."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known target 1/20 and motivation, not an inspected prior decagon optimum",
+          "evidence": "At n=10 the signed denominator is 20. The comments ask whether the reciprocal is realizable with coefficients 0 and 1 and give an n=9 example using 18 cells.",
+          "identifier_or_url": "https://oeis.org/A401643",
+          "material_read": "Sequence, offset, definition and comments including the nonagon example",
+          "method": "Lawful OA webpage offset 0",
+          "title": "OEIS A401643: Signed-area lattice of a regular polygon",
+          "trigger": "Exact denominator and positive-union question on the same arrangements"
+        },
+        {
+          "assessment": "Exactly covers the bounded-cell total, not the area spectrum or subset problem",
+          "evidence": "The tenth term is 220; sequence references include Meeus (1972) and the 1995 Encyclopedia of Integer Sequences.",
+          "identifier_or_url": "https://oeis.org/A007678",
+          "material_read": "Initial terms and OFFSET 1,4; comments distinguishing polygonal regions from circular segments; references",
+          "method": "Lawful OA webpage literal locator and text around offsets 32 and 250",
+          "title": "OEIS A007678: Number of regions in regular n-gon with all diagonals drawn",
+          "trigger": "Exact candidate table for 220 bounded cells"
+        },
+        {
+          "assessment": "Unresolved access; not evidence of noncoverage",
+          "evidence": "The accessible OEIS entry describes the signed lattice and a nonagon unsigned example. It cannot settle what further decagon examples or tables are in the note.",
+          "identifier_or_url": "https://doi.org/10.5281/zenodo.23841077",
+          "material_read": "Identifier and context in A401643; full text not obtained",
+          "method": "Lawful OA DOI and Zenodo record/alternate retrieval; returned non-paper content or access error",
+          "title": "The Area Lattice of a Regular Polygon: Rational Fractions and Signed Cell Decompositions",
+          "trigger": "Primary note linked by the exact signed-denominator entry, plausible table or unsigned overlap"
+        },
+        {
+          "assessment": "Different partition, no equivalence to the simultaneous arrangement",
+          "evidence": "Two intersecting congruent diagonals and unions of the resulting four regions.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.22970",
+          "material_read": "Abstract, PDF p. 1",
+          "method": "OA PDF passage at offset 500",
+          "title": "Rational Area Profiles of Regular Polygons Cut by Two Congruent Diagonals",
+          "trigger": "Potential broader covering result on rational unions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A published exact signed-area question singles out 1/20 rather than an arbitrary target. A positive witness settles that case without cancellation, and the sharp support threshold, both possible signatures and exact subset count describe the attainable minimum, not merely one example or a recomputation of the known number of regions. The finite result does not settle the general positive-union question or connected realizability.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:29:11.656300Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The integer rows l,lA are independent: dependence would give a rational eigenvalue of t²−qt+1, hence ±1, impossible. The induced surjective torus map preserves normalized Haar, including for nonprimitive l. The pair (u0,u1) is therefore product uniform, and q u1 modulo 1 stays uniform conditional on its q-bin. The recurrence u2=q u1−u0 mod 1 makes u2 uniform even conditional on u0 and the middle bin, proving all triple probabilities and stationarity. As a separate fourth-law check, on 000 let U=q u0 and W=q u2, independent Unif[0,1). The congruence fixes u1=(U+W)/q², since u0+u2<1. Thus u3 is the fractional part of Z=(1−q^−2)W−q^−2 U. Z has density 1/(1−q^−2) on [0,1−2/q²]; its negative portion wraps into the final bin. Since (q−1)/q≤1−2/q², each of the first q−1 output bins has mass q/(q²−1), and the last has the remaining mass 1/(q+1). Multiplying by q^−3 gives the exact cylinder vector and q=3 values, and strict entropy loss at length four follows from nonuniformity. Read the polygon verifier and its wrap bounds; it is finite corroboration, not needed for the all-q proof, and was not executed. No arbitrary nonconsecutive word law is concluded.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The trace-divisibility record's full companion three-symbol formula, for arbitrary t and bin count q, gives uniformity when q divides t (and in the binary case). It covers t=q.",
+          "Theorem 3.1 and Corollary 3.1.1 of Gutkin et al. evaluate winding cylinders by polygon area and a Chebyshev denominator, with a simplified formula for interior winding words. Percival–Vivaldi full text could not lawfully be obtained; only abstract/landing material and secondary discussion were available."
+        ],
+        "reasoning": "A higher-parameter three-symbol law covers the triple assertion completely once the companion factor is made explicit, but cannot supply the fourth marginal. The broader winding calculation requires different events and does not specialize to the asserted bins.",
+        "searches": [
+          "2026/10/18 Resultary --1c8338de5160, Finding and proof",
+          "arXiv:1912.02940v2, winding numbers; §3.4.2, Theorem 3.1",
+          "doi:10.1016/0167-2789(87)90037-6"
+        ]
+      },
+      "checked_sources": [
+        "Resultary --1c8338de5160 and --3e975e5976c5",
+        "Gutkin et al., arXiv:1912.02940v2 §§3.1–3.4",
+        "Percival–Vivaldi DOI abstract-level only",
+        "Targeted external literature query for equal-strip and winding cylinder coding"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Set t=q in the earlier vector w_{t,q}: the two half-weight endpoints merge and each residue has weight 1/q. The factor to the companion map transfers this implication to every allowed A,l.",
+          "The all-interior winding law at block length four has denominator U_4(q/2)=q⁴−3q²+1, not the denominators of the strip vector. The earlier three-word law has no joint law for u1,u2 and the inherited within-bin coordinates conditional on a fourth bin."
+        ],
+        "reasoning": "The verified overlap is substantive on triples regardless of date or matrix presentation; it is explicitly credited. The extra step computes the within-cylinder fourth-symbol bias, which neither the triple result nor the winding-code theorem gives in the stated observable.",
+        "searches": [
+          "2026/10/18 --1c8338de5160, three-symbol cylinder and divisibility formula",
+          "arXiv:1912.02940v2 §3.4.2 eqs. (27)–(31)",
+          "cat map equal-width strip four consecutive symbols 000d exact cylinder law fourth symbol bias q trace"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The coordinate pair (lAz,lz) intertwines A with the trace-q companion T_q, since lA²=q lA−l, and gives the first coordinate at times shifted by one under Haar.",
+          "Gutkin et al. §3.1–3.2 define winding symbols from the integer defect of the recurrence, with q+1 symbols; the tested strip symbol is floor(q u_n), with q symbols."
+        ],
+        "reasoning": "Arbitrary row and matrix are not a separate source of novelty for a given trace: the companion-coordinate process is equivalent in distribution at all lengths. The winding-code word is not equivalent to a strip word by relabeling.",
+        "searches": [
+          "toral cat map equal-width scalar strips, trace q, uniform consecutive symbol triples and fourth-symbol 000d bias; compare coordinate quantization or winding-number symbolic codes",
+          "\"Linear encoding of the spatiotemporal cat\" \"equal\" strips cylinders winding code toral map symbolic partition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected binary cat-map record `--3e975e5976c5` has uniform length-four words for two half-circle bins at trace three, not three equal bins.",
+          "Table 1 in Gutkin et al., p. 11, is for two-symbol winding blocks at trace three; the paper reports longer winding-block computations without tabulating them.",
+          "The trace-divisibility indexed record is an exact three-word match, not a fourth-word match."
+        ],
+        "reasoning": "These exact formulas/tables are checked for observable, alphabet and block length. Neither a binary table nor a longer table in another encoding computes the target prefix-conditioned law.",
+        "searches": [
+          "cat map equal-width strip four consecutive symbols 000d exact cylinder law fourth symbol bias q trace",
+          "2026/10/25 Resultary --3e975e5976c5",
+          "arXiv:1912.02940v2 §3.4.1 and Table 1"
+        ]
+      },
+      "rationale": "Credit the three-word uniformity to the already evaluated trace-divisibility result (direct for the companion and in law for every allowed sensor). The supported distinct claim is the exact fourth-cylinder vector and resulting sharp depth-four departure for the trace-matched strips, not novelty of the three-word marginal or the polygon approach. None of the strongest inspected comparators evaluates or directly implies that fourth-word vector for these strips.",
+      "residual_risks": [
+        "Percival–Vivaldi (1987) full text remains unavailable for a direct statement comparison.",
+        "Unindexed explicit coordinate-strip tables or more general quantization results could change priority; bounded searches do not establish historical novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers all target triples by companion factor and t=q; does not cover fourth-word bias in its stated result",
+          "evidence": [
+            "Cylinder law q^−2 w_{t,q}((k−tj+i) mod q); uniformity iff q=2 or q divides t."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-trace-divisibility-threshold-for-three-symbol-independence-in-hy--1c8338de5160/RESULT.md",
+          "material_read": "Finding, assumptions and proof §§1–3, offsets 0–4900",
+          "method": "Published catalogue lookup and exact local-mirror passage",
+          "title": "Trace-divisibility threshold for three-symbol independence in hyperbolic toral maps",
+          "trigger": "Exact earlier three-symbol cylinder formula for equal-width strips"
+        },
+        {
+          "assessment": "Different bin count and boundary",
+          "evidence": [
+            "Binary half-circle trace-three observations give four uniform symbols before a fifth-order interaction."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-four-block-bernoulli-mimicry-and-a-sharp-fifth-block-interaction--3e975e5976c5/RESULT.md",
+          "material_read": "Finding, opening local mirror passage",
+          "method": "Published catalogue lookup and exact local-mirror excerpt",
+          "title": "Four-block Bernoulli mimicry and a sharp fifth-block interaction",
+          "trigger": "Same dynamics and exact short-block Bernoulli boundary"
+        },
+        {
+          "assessment": "Different partition; exact method and winding law are prior, not the strip law",
+          "evidence": [
+            "Winding alphabet {−1,0,…,q−1} and cylinder volume |P_b|/U_n(q/2)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1912.02940",
+          "material_read": "v2 §§3.1–3.2, 3.4.1–3.4.2, pp. 8–14, Table 1 and Theorem 3.1/Corollary",
+          "method": "Open paper targeted by winding numbers and excerpted by section",
+          "title": "Linear encoding of the spatiotemporal cat",
+          "trigger": "Closest full-text winding-cylinder theorem with exact tabulation"
+        },
+        {
+          "assessment": "No exact comparison of unseen original passages; residual priority risk",
+          "evidence": [
+            "Later Gutkin et al. describe the corresponding integer winding recurrence."
+          ],
+          "identifier_or_url": "doi:10.1016/0167-2789(87)90037-6",
+          "material_read": "Bibliographic and abstract/landing evidence, plus later reconstruction; not full text",
+          "method": "Lawful OA direct/VPN and DOI recovery attempts",
+          "title": "A linear code for the sawtooth and cat maps",
+          "trigger": "Foundational historical source of the winding construction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Trace matching is a motivated resolution in the recurring map, not an arbitrary selection of bins. Given the known short-block independence, a natural unresolved diagnostic is exactly when it fails. The explicit fourth cylinder shows the first failure uniformly across all traces and sensors, and quantifies its size rather than inferring it from entropy or asymptotics. This exact threshold and bias are useful for interpreting apparent finite-window independence of natural torus observations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

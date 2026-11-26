@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:16:02.729436Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Multiplication by 3I+2sT_n recovers 4R_n(s)-I from the claimed transfer. The stated Green function solves the second-order resolvent recurrence, with zero values at 0 and n+1 and the unit jump at the source; both resolvents are strictly positive. For t=2s/3 the ratio for i<=j is (2/3)h_i h_{n+1-j}/(h_1 h_{n+1}). The function log(h_x) is strictly decreasing and concave: y*coth(xy) increases in y and y/sinh(xy) decreases. Replacing i by j reduces the product, and the concave sum at complementary indices j,n+1-j is minimized at j=1 or n. The endpoint ratio must be >=3/4, yielding the stated 9/8 inequality, including the singleton n=1 case. For fixed i,j the finite Green functions converge to the decaying half-line resolvent satisfying the same recurrence and left boundary; the endpoint dominance therefore passes to every half-line entry. Writing a=1-q_s and b=1-q_t gives endpoint values a^2 and b^2; zero transfer there forces b=2a/sqrt(3), and t=2s/3 then gives the unique admissible a=1/(6sqrt(3)-8). The sign starts positive and becomes negative since a^2/b^2 tends to 2/3, giving s<=180-102sqrt(3). For the two-point witness direct 2-by-2 inversion gives R_11(s)=24/119, R_12(s)=10/119, R_11(t)=13/48 and R_12(t)=5/48, reproducing (-11,45)/1904 in the first row. The endpoint numerator is a positive multiple of -4s^3+5s^2+8s+3, equal to -33/4 at the witness. The frozen script and log were read; the witness was recomputed without running that script. No claim about later BDF2 iterates is inferred.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hundsdorfer's Theorem 3.1 gives a sufficient all-iterate positivity test for matrices in M_alpha, with w_1-epsilon*w_0>=0 and tau*alpha<=gamma(theta).",
+          "Indexed record d1edebcb808b addresses an exact heat-step starter and higher iterates/star graphs. Record 1f6f56bd0eac uses a BE-filtered Crank–Nicolson kernel; c08f9b38b493 uses Richardson-extrapolated BE on pure-birth chains."
+        ],
+        "reasoning": "Neither a general sufficient bound nor a sharp result on another rational kernel controls where this specific resolvent ratio is minimized, or supplies both directions of the finite-path iff test.",
+        "searches": [
+          "Hundsdorfer CWI MAS-R9831, §§3.1 and 3.3, Theorem 3.1",
+          "Resultary graph heat BDF2 exact start; filtered Crank–Nicolson lattice positivity; extrapolated BE positivity"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md; artifacts/verify_bdf2_startup.py and artifacts/verification.txt",
+        "Hundsdorfer CWI MAS-R9831 and journal version, DOI 10.1137/S0036142999364741",
+        "Resultary cf66315c5a14, d1edebcb808b, 1f6f56bd0eac and c08f9b38b493"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known recurrence and Green function leave a nontrivial two-parameter comparison in i and j. The original resolves it using both monotonicity and concavity in the index before passing to the half-line.",
+          "None of the inspected close findings yields that endpoint extremum under the same operator, starter and iterate assumptions."
+        ],
+        "reasoning": "The isolated algebra and Green-function evaluation are standard; they do not without the comparison lemma imply the sharp first-value criterion or the quantified half-line statement.",
+        "searches": [
+          "Hundsdorfer CWI MAS-R9831, §3.3 Theorem 3.1",
+          "Resultary cf66315c5a14, d1edebcb808b and 1f6f56bd0eac, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The recurrence in §3.1 together with the implicit-Euler option algebraically implies 4R_n(s)-3R_n(2s/3).",
+          "The indexed scalar BE-started BDF2 result cf66315c5a14 concerns scalar decay and the first negative index above the all-iterate positivity boundary, not the minimum of an entrywise matrix ratio."
+        ],
+        "reasoning": "The equivalent formulations are the sign of the startup kernel, a comparison of positive Green functions, and the one-boundary hyperbolic inequality. The rearranged transfer alone does not order its entrywise ratios. Even scalar onset differs: the first-value multiplier for z=h*lambda changes sign at z=3, not at the all-iterate threshold 1/2.",
+        "searches": [
+          "Resultary: endpoint diagonal reduction for first BE-started BDF2 heat step, Dirichlet resolvent ratio and sign of the startup kernel",
+          "Hundsdorfer CWI MAS-R9831, §3.1, equations (3.5)–(3.6)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact constant appeared in the ranked indexed comparisons; the Dirichlet passage returned in the CWI report is for first-order upwind inflow, not the centered heat path."
+        ],
+        "reasoning": "There is no finite benchmark table intrinsic to an all-n criterion; the exact-comparison target is the sharp constant in this normalization and starter. Literal misses do not establish novelty.",
+        "searches": [
+          "Resultary exact constant 180-102sqrt(3) with BDF2/half-line",
+          "Hundsdorfer CWI report passage and literal probes for Dirichlet, half-line and 180"
+        ]
+      },
+      "rationale": "Credit the established BDF2 recurrence and BE startup and their elementary resolvent rearrangement. The supported distinct claim is sharp endpoint dominance for the first BE-started BDF2 value on the centered Dirichlet path, and the resulting exact half-line frontier. The strongest inspected general result is sufficient and addresses a different iterate quantifier; the nearest lattice and indexed BDF2 findings use different kernels, starters, or observables.",
+      "residual_risks": [
+        "Bounded inspection does not rule out a path-specific Green-function comparison in older or differently indexed positivity literature. No novelty is assigned to the recurrence, partial fractions, or general concept of startup restrictions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior recurrence and sufficient positivity theory, not the claimed sharp first-value endpoint test",
+          "evidence": [
+            "Equations (3.5)–(3.6) and the startup discussion allow Euler; Theorem 3.1 bounds all-iterate positivity under linear-system and startup assumptions."
+          ],
+          "identifier_or_url": "https://ir.cwi.nl/pub/4596/04596D.pdf",
+          "material_read": "CWI §§3.1 and 3.3, PDF pp. 9 and 11, offsets 27726 and 32918; journal version https://ir.cwi.nl/pub/2085/2085D.pdf §3.1",
+          "method": "Original lawful OA report and journal passages",
+          "title": "Partially Implicit BDF2 Blends for Convection Dominated Flows",
+          "trigger": "Most directly relevant prior BE-started BDF2 positivity theory"
+        },
+        {
+          "assessment": "Scalar recurrence and later onset, not a heat kernel endpoint theorem",
+          "evidence": [
+            "Scalar positive decay with one BE start; exact first-negative index above h*lambda=1/2."
+          ],
+          "identifier_or_url": "Resultary cf66315c5a14",
+          "material_read": "Finding",
+          "method": "Indexed record, local-mirror original passage",
+          "title": "Exact delayed sign loss just beyond BDF2's positivity boundary",
+          "trigger": "Closest inspected same-method same-starter positivity comparison"
+        },
+        {
+          "assessment": "Different startup and iterate quantity; later dated record compared for coverage, not priority",
+          "evidence": [
+            "Exact heat-step starter and higher-iterate failures, including star graphs."
+          ],
+          "identifier_or_url": "Resultary d1edebcb808b",
+          "material_read": "Finding",
+          "method": "Indexed record, local-mirror original passage",
+          "title": "Exact zero counts and repeated positivity failures for exact-start BDF2",
+          "trigger": "BDF2 on graph heat"
+        },
+        {
+          "assessment": "Different transfer operator",
+          "evidence": [
+            "BE-filtered Crank–Nicolson on infinite/periodic lattices and a two-point Dirichlet counterexample."
+          ],
+          "identifier_or_url": "Resultary 1f6f56bd0eac",
+          "material_read": "Finding",
+          "method": "Indexed record, local-mirror original passage",
+          "title": "Backward-Euler-filtered Crank–Nicolson lattice positivity",
+          "trigger": "Lattice heat positivity and two-point Dirichlet witness"
+        },
+        {
+          "assessment": "Different scheme and generator; no date-based inference",
+          "evidence": [
+            "Richardson combination on absorbing pure-birth chains."
+          ],
+          "identifier_or_url": "Resultary c08f9b38b493",
+          "material_read": "Finding",
+          "method": "Indexed record, local-mirror original passage",
+          "title": "Re-entrant positivity of Richardson-extrapolated backward Euler",
+          "trigger": "Same-day indexed positivity of a combination of backward-Euler maps"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a standard spatial heat model and multistep starter, this replaces a matrix-wide entrywise sign test by a sharp scalar boundary test valid for every grid length. It resolves a boundary-limited positivity effect not captured by stability or by the positive starter alone, gives a usable half-line step cutoff, and supplies a small exact sign-loss witness. The value is the sharp first-value theorem, not a claim of all-iterate monotonicity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

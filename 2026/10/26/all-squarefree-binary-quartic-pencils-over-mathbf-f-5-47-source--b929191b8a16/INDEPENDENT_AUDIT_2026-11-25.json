@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:32:55.050537Z",
+  "axes": {
+    "correctness": {
+      "rationale": "This is the census of two-dimensional subspaces of F_5^5 for which all six F_5-projective members are geometrically squarefree, under substitutions of the source coordinates only. The independent program /workspace/branches/6613dc7e-52f9-41ca-95c9-3747ccc72425/independent_census.py generates the unique RREF basis of every plane, uses gcd(f,f') in the affine chart with a separate infinity multiplicity test, and trial-divides by monic irreducibles for the profiles. Thus an affine repeated nonrational root is not missed and a singleton infinity root is included in its factor partition. It partitions the accepted set by images under all 120 normalized invertible source matrices. The full exact run confirms 600 of 781 projective quartics and 3820 of 20306 pencils, orbit-size multiplicities 10:2, 20:1, 40:3, 60:21, 120:20, base-degree frequencies 0:3710, 2:70, 3:40, the full 14-profile frequency table, and split-member histogram 0:3280, 1:540. All 47 computed representatives, orbit sizes, stabilizer orders and base degrees match data/census_catalogue.json lines 15–1003; all profile frequencies match lines 1004–1418. The independent run took 2.215 s (representative 2000-pencil slice 0.281 s); full table and reproduction notes are in independent_census_results.md alongside the program. No uploaded script was executed. Analytically, derivative evaluation on the pencil at a putative rational base point has a rational kernel member, contradicting squarefreeness. Thus two split members would need disjoint four-sets among six source points, so cannot occur. A positive-degree base is a single closed point of degree 2 or 3. The 40 irreducible cubic factors give one pencil apiece. In degree two, the quadratic discriminant conic has ten exterior lines; an irreducible quadratic point lies on no tangent and lies on three secants and three exterior lines, leaving seven allowed lines per each of ten irreducibles. Basepoint-free pencils give a degree-four morphism, separable as inseparable degree would be a power of 5 dividing 4; its six rational target fibers are exactly the reduced members. No comparison is asserted with elliptic-curve isomorphism counts.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wall §1 explicitly views basepoint-free pencils as maps P^1(C) to P^1(C) and §2 enumerates strata by ramification symbols, including common-factor cases; the symbols partition multiplicities at geometric branch values, not Frobenius degrees in reduced rational fibers.",
+          "Asgarli–Ghioca Theorem 1.3 is an existence result for all-smooth pencils in sufficiently large fields and ambient dimension n>=2. Günay–Lavrauw treat source orbits of cubic pencils over general finite fields in characteristic >3."
+        ],
+        "reasoning": "A complex ramification classification forgets arithmetic forms and the distinction between rational and irrational branch values. An existence theorem in higher dimension does not yield these exact counts, and broader field quantification for cubics does not dominate the quartic parameter.",
+        "searches": [
+          "Wall, doi-free Numdam PDF RSMUP_1998__99__197_0, §§1–2 around pp. 197–202",
+          "arXiv:2203.07169, Theorem 1.3",
+          "arXiv:2104.04756, abstract and introduction"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md, two source enumerators and data/census_catalogue.json and data/reference_output.txt for ordinal 4",
+        "Wall (1998) bounded primary passages",
+        "Asgarli–Ghioca arXiv:2203.07169",
+        "Günay–Lavrauw arXiv:2104.04756",
+        "Kaipa–Patanker–Pradhan arXiv:2312.07118v3",
+        "Published Resultary quintic comparison ...78ab45fe789b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Wall explains the connection to geometric masks of branching and common factors; the F_5 condition instead disallows rational points on the pencil discriminant and separately tracks six simultaneously reduced members.",
+          "The finite-field quartic-member classification does not record which quartics span a common pencil or their joint stabilizers. The analogous quintic census is not a uniform family across fields and degrees."
+        ],
+        "reasoning": "These ingredients can motivate algorithms and cross-check subcases, but a separate arithmetic enumeration or theorem is needed on Gr(2,5)(F_5); selecting individually squarefree forms from existing member tables alone does not imply the classification.",
+        "searches": [
+          "Wall, §§1–2, branch-symbol definition and enumeration",
+          "arXiv:2312.07118v3, Problem 1 and description of the associated binary quartic",
+          "arXiv:2203.07169, Theorem 1.3",
+          "SCOPE ...78ab45fe789b, Finding at offset 0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The relevant projective formulation is lines in PG(4,5) avoiding the binary quartic discriminant at all six rational points. The basepoint-free subfamily corresponds to degree-four maps up to source and target projectivities with reduced fibers at rational targets; common-factor cases are excluded from that map formulation.",
+          "ArXiv:2312.07118v3 solves the PG(3,q) line problem for twisted-cubic symmetry by associating a single binary quartic to polar dual lines and classifying individual quartic forms. It does not thereby classify lines in the five-dimensional vector space of quartics."
+        ],
+        "reasoning": "A target-basis change just presents the same pencil; classifying a member or a pencil of cubics is not equivalent to classifying subspaces of quartic forms with a universal condition on their rational members. Quotienting by all of GL_5 would not preserve the intended orbit invariant.",
+        "searches": [
+          "Published Resultary lookup for squarefree binary quartic pencils over F_5, source PGL_2 orbits and Frobenius profiles",
+          "Primary lookup: finite fields PG(4,q) lines rational normal quartic curve stabilizer line orbits PGL2 quartic pencils classification rational functions degree four linear fractional equivalence",
+          "Wall (1998), §§1–2; Kaipa–Patanker–Pradhan, arXiv:2312.07118v3, introduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day SCOPE quintic record has 1098 of 11011 pencils, 54 orbits, four members each and 15 profiles for binary quintics over F_3. Its exact table pertains to a different degree and field.",
+          "Wall's enumerated table strata are geometric branching types. The arXiv:2312.07118v3 table in the introduction is for generic lines in PG(3,q), not external lines to the quartic discriminant in PG(4,5). The bound data/census_catalogue.json is evidence to reproduce, not an independently identified earlier table."
+        ],
+        "reasoning": "No inspected existing table yields the 47 source-coordinate orbits, associated stabilizer/base distribution and full 14 profiles. The comparison is by the actual table object, not archival date.",
+        "searches": [
+          "Published Resultary arithmetic census lookup, including 2026/10/26/SCOPE-arithmetic-census-of-squarefree-quintic-pencils-over-mathbf-f-3--78ab45fe789b",
+          "Wall §§1–2, especially geometric Tables 2–3 discussion",
+          "arXiv:2312.07118v3, Problem 1 and Theorem in introduction"
+        ]
+      },
+      "rationale": "The distinct supported object is the complete F_5 source-orbit census for the all-six-squarefree pencil constraint, together with base and simultaneous rational-fiber splitting data. The nearest quartic-pencil stratification is geometric over C, the finite-field line-orbit classifications concern cubic pencils or individual binary quartics, and the nearest matching arithmetic pencil result uses quintics over F_3. None of those inspected statements gives the F_5 count or joint profile data, either literally or under the relevant equivalences.",
+      "residual_risks": [
+        "The inspections are targeted, not an exhaustive literature or database census. An earlier unindexed arithmetic computation remains possible. No global priority claim or claim about uninspected portions of the cited papers is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct geometric precedent, but the inspected characterization over C is of strata by ramification, not rational F_5 orbits or root-degree partitions",
+          "evidence": [
+            "§1 identifies the common-factor-free pencil with a map between complex projective lines.",
+            "§2 describes the quartic cases with and without common factor and stratifies via the branch symbol built from multiplicities at discriminant roots."
+          ],
+          "identifier_or_url": "https://www.numdam.org/article/RSMUP_1998__99__197_0.pdf",
+          "material_read": "Opening pp. 197–198 and §1 (PDF text offset 1600–6185), branch symbols and the beginning of §2 including Tables 2–3 discussion (9230–13128)",
+          "method": "Bounded original OA Numdam PDF passages; earlier whole-text request timeout not treated as evidence",
+          "title": "Pencils of binary quartics",
+          "trigger": "Exact pencil degree and historical geometric classification"
+        },
+        {
+          "assessment": "General existence in a different regime",
+          "evidence": [
+            "The theorem assumes n>=2 and sufficiently large q and gives existence, not a binary-quartic census."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2203.07169",
+          "material_read": "Theorem 1.3, printed p. 2, OA offset 4257",
+          "method": "Original OA PDF passage",
+          "title": "Smoothness in pencils of hypersurfaces over finite fields",
+          "trigger": "All rational members smooth over finite fields"
+        },
+        {
+          "assessment": "Related source action in a different degree",
+          "evidence": [
+            "Studies equivalence classes of cubic pencils and associated twisted-cubic line types, not degree-four pencil lines."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.ffa.2021.101960",
+          "material_read": "arXiv:2104.04756, abstract and introduction, p. 1, offset 0",
+          "method": "Original OA arXiv PDF passage",
+          "title": "On pencils of cubics on the projective line over finite fields of characteristic greater than three",
+          "trigger": "Finite-field source equivalence of binary pencils"
+        },
+        {
+          "assessment": "Classifies lines of the twisted cubic ambient space and individual associated quartics, not quartic pencils",
+          "evidence": [
+            "The exterior-square hyperplane identifies with the space of binary quartic forms, but the matched object in that space is an individual form. Their tables are for G-orbits of lines in PG(3,q)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2312.07118v3",
+          "material_read": "Abstract and introduction, pp. 1–2, offsets 0–8479, Problem 1 and main theorem statement",
+          "method": "Primary literature lookup followed by bounded original OA PDF passages",
+          "title": "On the PGL_2(q)-orbits of lines of PG(3,q) and binary quartic forms",
+          "trigger": "Both line orbits and binary quartics in the title, possible finite-field dominating result"
+        },
+        {
+          "assessment": "Strong methodological analogue, different claim and parameters; no date-based priority inference",
+          "evidence": [
+            "Quintic pencils over F_3, 1098 accepted, 54 orbits and 15 profiles on four rational members."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-arithmetic-census-of-squarefree-quintic-pencils-over-mathbf-f-3--78ab45fe789b",
+          "material_read": "RESULT.md Finding at offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary and local mirror",
+          "title": "Arithmetic census of squarefree quintic pencils over F_3",
+          "trigger": "Nearest published catalogue statement with the same universal squarefreeness and profile question"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Degree four over F_5 is the first prime-field characteristic strictly greater than the degree, so it is a small tame test case for reduced fibers at every rational target and for universal smoothness of a pencil of genus-one branch divisors. The full source-orbit catalogue with stabilizers and joint Frobenius profiles supplies a usable classification of that natural arithmetic locus, distinguishes base-divisor cases from degree-four covers, and makes the possible rational-fiber patterns explicit. The full scope, rather than a raw count of convenient sample forms or an arbitrary field slice, justifies the finite computation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

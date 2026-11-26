@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite-flat quartic eliminant is derived directly from the displayed map, and its Jacobian and discriminant equations are checked by exact symbolic identities. The polynomial coordinate change exhibits the second branch component as an irreducible cusp cylinder, while the explicit intersection factorization yields the two curves and their generic local intersection multiplicities. The fibre cases are exhaustive because off the plane \(u=0\), all local lengths equal the multiplicities of quartic roots; the special plane is handled directly using the original equations. The supplied checker succeeds on the embedded source, but this does not replace the arguments for all complex parameter values.
+## correctness
 
-## Originality — PASS, qualified
-Shi–Xu–Zuo (arXiv:2610.04408v1, Sections 1–4) introduce the map for Bernstein–Sato theory and do not state its reduced branch-collision stratification. The closest established specific calculation gives degree four, two irreducible normalized branch components, and symmetric monodromy, but does not compute the cusp singularity type of the second component, the two distinct contact multiplicities, or all fibre-length partitions. Searches under the polynomial, ramification, quartic discriminant, cusp-cylinder and collision terminology found no covering theorem. Nonetheless, an implicit computation in related singularity theory is a genuine bibliographic risk; the absence of database hits cannot prove uniqueness.
+PASS
 
-## Value — PASS
-Determining the full adjacency and collision stratification for the motivating branched cover is a structural refinement, not a parameter-free normalization restatement. It distinguishes a triple-root contact curve of multiplicity three from a transverse double-double collision curve and identifies two different singular-branch loci and the unique maximally nonreduced fibre. These are natural invariants for studying the map's branch geometry and ramification, beyond the existing normalization and monodromy information. The result deliberately does not imply a Bernstein–Sato theorem, classify analogous maps, or determine the nonreduced singular scheme at the origin.
+The fiber relations can be made monic with leading terms x²,z² in graded lexicographic order with z>x: they are x²−uz+v and z²+uxz+2u²z−vx−uv−w. Their relatively prime leading monomials give a free degree-four quotient with basis 1,x,z,xz. For u!=0, simple substitution into the quartic identifies geometric multiplicities with root multiplicities. Writing A=u² and C=2(v+u³), the derivative is x(4x²+3Ax+2C); the discriminant of the quadratic in parentheses is S. A nonzero triple root requires S=0 and p(−3A/8)=0, the latter equivalent to T=0 on S=0. The source's phrase 'cubic derivative factor' is imprecise: it is the quadratic after factoring x, and S=0 alone does not make a triple root. Two nonzero double roots would force their sum zero by the missing linear term, incompatible with A!=0; on B=0 the remaining polynomial is x² times a quadratic and gives the two stated intersection cases. The independent exact resultant and restriction check confirmed Q and the factors with orders 3 and 1. The triangular target changes give the two irreducible surfaces and singular lines. On u=0, the equations x²=−v and z²=w−x³ give two doubled points at v=0,w!=0, a double and two simple points on w²=−v³ with v!=0, and the single length-four algebra C[x,z]/(x²,z²) at the origin. These arguments cover the branch divisor on and off u=0 and exhaust the partitions.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The exact map, degree four, reduced branch equations, Whitney umbrella, and generic simple branch fiber are prior. The distinct claim is the explicit polynomial cusp-cylinder model and singular line, together with the two-curve incidence with unequal contact orders and complete exceptional fiber-length classification for this map. The closest earlier record normalizes the second surface but does not classify these singularities and strata.
+
+## value
+
+PASS
+
+For a motivated published test map, the exact two branch models, two contact orders and exhaustive scheme-length partitions distinguish genuine local degeneracies left open by knowing the branch support and monodromy. These data locate all exceptional fibers and can be used directly in further local branch calculations. The value lies in that complete incidence and collision classification, not in routine verification of the degree or re-expansion of its discriminant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

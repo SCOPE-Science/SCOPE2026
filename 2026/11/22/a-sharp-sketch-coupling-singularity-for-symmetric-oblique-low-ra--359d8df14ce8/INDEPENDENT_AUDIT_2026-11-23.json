@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:48:10.461080Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Direct multiplication gives the symmetric 2×2 block with diagonal (−ab,0) and off-diagonal (a+b)/2; all other entries vanish. The orthogonal tangent projector gives zero on the stated Z. Conditional on the first Gaussian columns (g,g′), the ratios have variances ∥g∥⁻², ∥g′∥⁻² and correlation ρ cos(angle). For fixed |ρ|<1, the standardized Gaussian absolute-product moment is bounded above and away from zero on the compact conditional correlation range. Radial integration in each first column, using a positive density on a ball times an annulus for necessity and Gaussian tails for sufficiency, gives p<ℓ including divergence at the boundary. For |ρ|=1 both signs give b=a and the norm squared is a⁴+2a². The density cℓ(1+x²)^−((ℓ+1)/2) gives the threshold p<ℓ/2 and the tail constant 2cℓ/ℓ after inverting the norm. Inverse chi-square integration and normal second/fourth moments reproduce both endpoint mean squares and their strict difference on ℓ≥5. Independently substituting x=(1+2u)^−1 in the Laplace integral gives Iℓ=[2(ℓ−2)]^−1 ∫₀¹ x^(ℓ/2−2)/(s+ρ²x) dx, s=1−ρ². For ℓ=3 set x=y² to get arctan(|ρ|/√s)/(|ρ|√s); for ℓ=4 direct integration gives −log(s)/(4ρ²). Wick's factor lies between 1 and 3 and the remaining norm-squared term stays uniformly bounded when ℓ>2, giving the two asserted sharp orders, not projected-risk leading constants. For ℓ≥5 Cauchy–Schwarz and the shared fourth marginal moment give a uniform bound. The frozen `verify.py` was inspected, not executed; lines 39–93 give replay paths for the matrix, endpoint and integral diagnostics. Neither the check nor the theorem addresses repeated integration, higher ranks, or other couplings.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Carrel–Grigori's exact projector covers the geometry at arbitrary rank, but its perpendicular-residual characterization is not a law of the random norm. Joarder's chi-square product moment supplies Iℓ in its m=ℓ>2, a=b=−1 regime. The generalized Nyström L^q result assumes independent sketches and bounds a different approximation error."
+        ],
+        "reasoning": "The known scalar radial law should be credited even when its elementary ℓ=3,4 evaluations are not written in the broader theorem. It does not describe the projected risk at fixed or near-perfect coupling without a joint numerator/denominator analysis and the symmetrized norm relation.",
+        "searches": [
+          "Carrel–Grigori arXiv:2607.03402v1 Lemma 4.2 and Proposition 4.4",
+          "Lam–Ceruti–Kressner arXiv:2409.06384v1 §2.3 Theorem 2",
+          "Web: Kibble bivariate gamma correlated chi square negative moments product inverse chi-squared hypergeometric; Joarder Theorem 3.1 and Corollary 3.2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Carrel–Grigori arXiv:2607.03402v1",
+        "Lam–Ceruti–Kressner arXiv:2409.06384v1",
+        "Joarder DOI 10.1007/s00362-007-0105-0",
+        "Resultary --23a3fc6123ad and --d93c1b8eb1d0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Specializing the geometry gives LZ+ZRᵀ−LZRᵀ, and setting a=b=−1 in Joarder's moment formula yields the denominator integral. Neither antecedent's moment statement involves the first-column angle or the independent second-column Gaussian pair that drives the conditional numerator dependence."
+        ],
+        "reasoning": "The geometric identity and radial special case are mechanical specializations and receive no separate novelty credit. The surviving benchmark result requires reducing the symmetric Frobenius norm, controlling joint absolute-product moments via conditional correlation, and extracting the singular perfect-sharing product and its comparison with imperfect coupling. This is not a parameter substitution into an earlier risk law for the same force.",
+        "searches": [
+          "Carrel–Grigori Lemma 4.2 and Proposition 4.4; Joarder Eqs. (3.1), (3.5); local Resultary Findings and first proof passages --23a3fc6123ad and --d93c1b8eb1d0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A single ratio is Student t with ℓ degrees of freedom divided by √ℓ. Sign reversal of the whole right sketch leaves its ratio unchanged. The closest distinct Resultary items are the one-sided beta-prime residual --23a3fc6123ad and the tensor reuse/independent-factor tail comparison --d93c1b8eb1d0, neither with this joint law or norm."
+        ],
+        "reasoning": "A formulation in Student/chi ratios does not by itself identify an equivalent published result. The two denominators are correlated and the conditional numerator correlation depends on their angle; the norm includes both the mixed product and the symmetrized sum. One-sided reconstruction and factor-reusing tensor regression change the observable and the sampling model.",
+        "searches": [
+          "Resultary: coupled/shared Gaussian oblique tangent sketch moment singularity; tensor sketch reuse; one-sided rank-one Gaussian residual law",
+          "Web: Carrel Grigori sketch low rank dynamics oblique tangent random same dependent Gaussian two-sided inverse moments correlated sketches perpendicular rank one heavy tails",
+          "Web: moments of the product and ratio of two correlated chi-square variables Joarder"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The local comparison records have a different one-sided residual or tensor design; neither is an exact table of tangent-projected moment cutoffs. The closest actual exact formula is the bivariate chi-square product-moment series, which concerns squared column lengths."
+        ],
+        "reasoning": "A numerical table of sample norms cannot certify moment existence or an infinite tail. Known exact tables/formulas for the scalar radial law apply only to that component, not to the mixed Gaussian ratio and its projected norm.",
+        "searches": [
+          "Resultary exact Gaussian sketch failure law, shared vs independent sketch thresholds and tensor product logarithmic tails",
+          "Web and Joarder Corollary 3.2 for paired inverse-chi-square moments"
+        ]
+      },
+      "rationale": "The supported distinct result is the moment phase and quantitative contamination comparison for this prescribed symmetrized two-sided oblique tangent map. The oblique projection formula and the possibility that perpendicular forcing produces oblique motion are prior. Normal/chi laws, the bivariate chi-square product moment (including the inverse-norm integral as a special case), and independent-product heavy-tail mechanisms are also prior ingredients. The checked antecedents do not give the jointly coupled projected force or its endpoints and moment comparison.",
+      "residual_risks": [
+        "The Kibble product-moment paper DOI 10.1007/s00034-005-1112-9 did not yield usable full text via the attempted OA routes; the materially relevant bivariate chi-square coverage was verified in Joarder instead.",
+        "The bounded searches do not settle worldwide priority; a differently named correlated projection or multivariate-normal ratio treatment could be closer than the material retrieved. Neither denominator identities nor the underlying oblique projection are asserted as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the projector and geometric perpendicular-residual criterion, not the coupled Gaussian risk law in the checked material",
+          "evidence": [
+            "Lemma 4.2 states P_left Z+Z P_rightᵀ−P_left Z P_rightᵀ. Prop. 4.4 gives a condition for agreement with ordinary DLRA through the sketched perpendicular residual."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2607.03402v1",
+          "material_read": "§4.1 Lemma 4.2, PDF p. 9 / HTML offset 44045; Proposition 4.4, PDF p. 10, offset ~41450",
+          "method": "OA PDF passages and HTML formula",
+          "title": "Sketch low-rank dynamics: orthogonal vs. oblique projections",
+          "trigger": "Exact same two-sided oblique tangent projection; possible already-known perpendicular contamination"
+        },
+        {
+          "assessment": "Direct prior general formula for the negative product moment of the two squared lengths when ℓ>2; not a law of the coupled tangent force",
+          "evidence": [
+            "The bivariate chi-square model uses Gaussian cross-correlation ρ and Eq. (3.5) is a series for E[(U1 U2)^a], including a=−1 in the integral's finite regime. It contains neither the second-column cross products nor an oblique projector."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00362-007-0105-0",
+          "material_read": "Theorem 2.1 law, §3 Theorem 3.1 and Corollary 3.2, PDF offsets ~14300 and 17030",
+          "method": "Lawful OA publisher PDF and public text passage",
+          "title": "Moments of the product and ratio of two correlated chi-square variables",
+          "trigger": "Exact distribution of the two squared Gaussian column lengths and possible existing blow-up formula"
+        },
+        {
+          "assessment": "Different independently Gaussian generalized Nyström approximation",
+          "evidence": [
+            "Theorem 2 gives an L^q error bound with q=min(p,ℓ) in its own oversampling parameters, not the stated sharp coupled tangent threshold."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2409.06384",
+          "material_read": "§2.3 and Theorem 2, PDF p. 5 at offset ~17800",
+          "method": "OA PDF passage",
+          "title": "Randomized low-rank Runge–Kutta methods",
+          "trigger": "Gaussian low-rank sketch moment bounds and row requirements"
+        },
+        {
+          "assessment": "Related one-sided beta-prime law, not the coupled tangent projector",
+          "evidence": [
+            "One-sided reconstruction residual ratio and cutoff q<(ℓ−r+1)/2 in that observable's conventions."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-residual-spectrum-convex-ordering-and-the-exact-gaussian-sketch--23a3fc6123ad",
+          "material_read": "RESULT.md Finding/proof passage around offset 390",
+          "method": "Local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Residual-spectrum convex ordering and the exact Gaussian sketch failure law",
+          "trigger": "Exact Gaussian inverse-ratio moments in rank one"
+        },
+        {
+          "assessment": "Analogous tail mechanism in tensor least squares; different projections and dependence",
+          "evidence": [
+            "Compares factor-reusing and independently resampled tensor rows, not the entrywise coupling of two oblique tangent sketches."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-sharp-inverse-moment-thresholds-and-logarithmic-tails-for-two-ga--d93c1b8eb1d0",
+          "material_read": "RESULT.md Finding/proof passage around offset 750",
+          "method": "Local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp inverse-moment thresholds and logarithmic tails for two Gaussian tensor sketches",
+          "trigger": "Publication on Gaussian sketch reuse, independent product ratios and heavy tails"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The rank-one positive normal-input test asks a concrete design question: can one reuse a sketch to keep the oblique tangent output symmetric without changing the probabilistic size of an otherwise zero tangent force? Finite mean-square risk needs three rows under any imperfect coupling but five at perfect sharing, and the sharp blow-up orders quantify the lack of uniformity in the former guarantee. This is an actionable distinction for the defined projection benchmark and goes beyond noting nonzero leakage. It does not establish stability or optimal sketch reuse for a time integrator.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

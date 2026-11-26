@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Execute `python verification.py` with installed NumPy and SciPy. The program solves independent stationary three-variable Lyapunov equations for a covariance-matched Gaussian Ornstein–Uhlenbeck force. The match of the two-time covariances is exact for linear filtering, notwithstanding the very different non-Gaussian higher-order statistics of the physical telegraph force. It also numerically integrates the independent positive Fourier spectral density and compares it with the analytical three-exponential/trigonometric formula.
+## correctness
 
-At review, the checks passed 200 randomized 3-by-3 matrix/Lyapunov covariance comparisons (maximum relative error approximately \(6.22\times10^{-15}\)), 35 independent Fourier integrals, 500 randomized underdamped slow-switch positivity parameter checks, analytic sign-change sample tests, all first-zero brackets for five near-critical switching rates, and critical/overdamped sample checks. For the explicit example with \(m=1\), \(\gamma=2\), \(\mu=2\), \(a_0=1.3\), and \(\rho=0.505\), the first positive zero was \(23.6974613845\) to the stated numerical precision.
+PASS
 
-The source `RESULT.md` proves the universal quantifiers analytically; numerical data cannot certify positivity at all infinitely many lags nor the existence of infinitely many sign alternations. Source-literature comparisons support but cannot establish priority against every historical publication. No independent audit or validation is represented here.
+The stable causal filter is integrable; its nonnegative, strictly positive on positive times impulse response in the overdamped and critically damped cases proves strict positivity by the double convolution. In the underdamped case put f=a0/m and D=(beta+k)^2+omega^2. Stationary balance gives E[V sigma]=k E[X sigma], D E[X sigma]=f, E[XV]=0 and 2 beta E[V^2]=f E[V sigma]. The V-X balance then gives the stated C(0), and conditioning on the future orientation gives the forced covariance ODE with C'(0)=0. Solving and dividing by A yields the displayed cosine and sine coefficients. At k=beta the ratio R/A is strictly below 1 for every omega>0. For q=k/beta<1 and x=(omega/beta)^2, the squared amplitude minus 1 has numerator F_q(x) over 4x(1+x) after cancellation; F_q decreases on x>0 and is negative at (1-q^2)/3. This covers the nonnegative sine coefficient. For the other case, b,h_*<0 and 0<-b<1, 0<-h_*<a; comparison on the first quadrant follows from the nonpositive derivative of exp(-a theta)(cos theta+a sin theta), on the second from a<exp(a theta) for theta>=pi/2, and the other two quadrants give strict bounds immediately. Periodicity proves the comparison for all lags. For k>beta, late cosine peaks and troughs give opposite signs. The first zero and the onset of negative values are bounded below by log(A/R)/(k-beta) near the threshold and above by that time plus one period. A trough exactly at the bound has negative derivative, so the upper bound also covers negativity. Smoothness of R/A at k=beta gives the claimed coefficient and O(1) remainder for either definition. Do not identify first zero and first sign-changing zero exactly: a negative-cosine lobe can touch zero at its strict interior minimum (at phase pi+arctan((k-beta)/omega) modulo 2pi), and then the earlier zero is tangential. This does not affect either asymptotic. The signed area follows by integrating the double convolution over the full line, using int h=Omega^(-2) and int exp(-k|t|)=2/k, then halving by evenness. The original checker was inspected, not run. Independent bounded replay /workspace/replay/1_delay.py recovered the example 23.69746138449596 and illustrates the possible tangency; finite examples are not the threshold proof.
+
+## originality
+
+PASS
+
+Credit the oscillator/filter and its covariance formula as known at the level of matching second-order inputs. The distinct claim relative to checked earlier literature is the uniform sign boundary including its slow side and the singular delay law. There is verified equivalent catalogue coverage in a later-dated release, not independent evidence of earlier publication.
+
+## value
+
+PASS
+
+It settles which underdamped active traps exhibit genuinely negative stationary memory, something not settled by damping alone. The precise positive boundary and the divergent lag at onset show why sign changes can be physically hard to observe just beyond the threshold, despite a positive signed area.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

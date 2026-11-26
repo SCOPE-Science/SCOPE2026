@@ -1,0 +1,189 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:49:30.365651Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Assumptions and Proof",
+        "Frozen VERIFICATION.md, verify_state_dp.py, verify_orbit_dp.py and orbit_table.csv (code inspected, not executed)",
+        "Independent replay: python3 /workspace/branches/check_2.py /workspace/source/2026/11/22/exact-zero-temperature-trapping-law-for-the-petersen-ising-ferro--08f9fbc10858/orbit_table.csv"
+      ],
+      "rationale": "A flip with two or three discordant incident edges reduces the cut by one or three. While the spin configuration is unchanged, the waiting time for a genuine flip is an exponential race among the enabled vertices, uniform over them because their rates are identical. The cut descent and finite waiting times prove almost-sure absorption and the proposed recurrence. Every mixed absorber has monochromatic minimum degree at least two in both colors. Girth five forces two complementary induced five-cycles; exact enumeration verifies twelve such assignments, one S5 orbit. Independently I built KG(5,2) and performed forward probability transport, not the supplied backward recursion: starting with one unit of mass at each state of size k, visit the states in descending cut and distribute mass equally to enabled successors. This verifies all eleven unnormalized Bernoulli coefficients (nonzero at k=3,4,5,6,7 with values 88/9,8242/189,12788/189,8242/189,88/9), equal mass at the twelve mixed sinks at each k, and Q(1/2)=4121/24192. Both proposed polynomials in p have degree at most ten and agree at eleven distinct exact rational points. I also verified the frozen CSV entries for all 18 symmetry classes and their exact absorption values from the representative states. The endpoints are consensual and the formula is strictly increasing in p(1−p), giving the unique maximizer at one half. This does not model a parallel update or random fields.",
+      "residual_risks": [
+        "Unequal clock rates preserve descent but not the uniform choice of enabled vertex. The law is not asserted in that regime."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected primary passages address random networks, an infinite regular tree, or generalized Petersen networks with random fields. The indexed icosahedral and Heawood results analyze exact asynchronous freezing but on different graphs.",
+          "The Potts result treats a larger state space on the same graph, with exact laws for uniform three-color initialization and placements with populations (7,2,1), not an arbitrary initial-density law."
+        ],
+        "reasoning": "Neither a uniform average over three labels nor the conditional three-label geometry specializes as an evaluated result to a binary Bernoulli average. A broader theorem giving evaluated absorption from every initial bias would cover this claim; the verified broader stated laws do not.",
+        "searches": [
+          "arXiv:1112.5927",
+          "arXiv:1904.11625",
+          "arXiv:2603.17447",
+          "Resultary 2353d774da00, 5034f6ad5fe4 and ad7079bf4060"
+        ]
+      },
+      "checked_sources": [
+        "Resultary Petersen synchronous majority, binary trapping self-entry, three-state Potts, and finite asynchronous analogues",
+        "arXiv:1112.5927, 1904.11625, 2603.17447, cond-mat/0008019 and cond-mat/0105037"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The larger verifier defines absorb(s) on every three-color state and its (5,5) component on binary inputs is exactly the binary trapping probability. Calling that function on the 1,024 binary states and summing by plus count would recover the coefficients. Neither the printed mixed-label totals nor the quoted prior-work paragraph supplies those coefficients or derives the polynomial.",
+          "The three-color record calls an exact two-spin Petersen freezing law previously established, without giving a separate reference or an independent equivalent binary result."
+        ],
+        "reasoning": "There is substantial postprocessing/reproduction overlap with the three-color per-state evaluator, not an implication from its reported aggregate theorems. The closed-form binary law and its seed dependence must be extracted by the actual statewise calculation and simplification. Do not count the generic recurrence as novel; nor infer any priority order from the dates or treat the acknowledgment as an independent prior binary calculation.",
+        "searches": [
+          "Resultary ad7079bf4060, scope, proof, package outputs and prior-work paragraph",
+          "Resultary b8bcbb0b4dff, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact full-signature hit was the reviewed record itself. The indexed synchronous binary studies give the same fourteen fixed states; one also counts 55 primitive two-cycles, excluded by cut descent here.",
+          "The same-graph Potts study uses strict rate-one recolorings and acknowledges a two-spin Petersen freezing law in prior work."
+        ],
+        "reasoning": "Synchronous fixed points coincide with the asynchronous sinks, but synchronous basins and two-cycles are not equivalent to the clock-driven absorption law. With only two colors present, the three-color transition graph restricts exactly to the binary one: a missing color has zero agreeing neighbors, so introduction cannot strictly improve energy, and at most one rate-one move per vertex remains. This is dynamics equivalence on the closed subspace, not equality of the laws evaluated in the two findings.",
+        "searches": [
+          "Resultary exact asynchronous Petersen zero-temperature trapping law lookup",
+          "Resultary 81296e8da636 and b8bcbb0b4dff",
+          "Resultary ad7079bf4060 three-color Potts trapping and geometric rare-seed nucleation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The generalized Petersen equilibrium table starts with 14,14,32 for n=5,6,7; the synchronous basin and ternary plurality entries include the Petersen binary counts, not clock-driven conditional seed probabilities.",
+          "The Potts table has 579 stable colorings and exact aggregate terminal fractions for three-label samples, plus the geometric (7,2,1) probabilities. Its verifier evaluates an exact per-state vector, using it to print those aggregates rather than a table of binary weights or statewise entries."
+        ],
+        "reasoning": "Credit the count 14. It is also a direct consequence of the Potts population counts: 2 consensuses for fixed two labels and 36/3=12 mixed assignments by symmetry over the three label pairs. No tabulated binary trapping coefficients were identified. The Potts code is a computational oracle, not a published table of the binary law.",
+        "searches": [
+          "Resultary 81296e8da636, b8bcbb0b4dff and 9090c4dd259d",
+          "Resultary ad7079bf4060, EXACT_RESULTS.json and verify_kneser.py"
+        ]
+      },
+      "rationale": "Credit the exact fixed-state count and the overlap with the same-graph three-state Potts certificate. The latter's statewise computational method can reproduce binary coefficients on restriction, but its stated exact probabilities and published results table are for other initial laws; its own prior-work section already acknowledges an exact two-spin Petersen freezing law. The explicit Bernoulli trapping polynomial and its quantitative seed and bias dependence are the supported contribution, not the fourteen fixed points or the generic cut-descent recursion. No independent earlier exact statement or exact table of this law was verified.",
+      "residual_risks": [
+        "The targeted primary literature comparison was bounded; an unindexed exact binary computation remains possible. The relationship with the exact Potts statewise oracle is credited; the shared indexing date does not settle public priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Two-color restricted dynamics and computational coverage, no independent stated binary law",
+          "evidence": "Rate one per allowed ordered move, ties rejected; aggregate over 59,049 states and (7,2,1) placement census. Code evaluates per-state type probabilities. Prior-work paragraph mentions a previously established exact two-spin Petersen freezing law.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-three-color-potts-trapping-and-geometric-rare-seed-nucleation-on--ad7079bf4060",
+          "material_read": "RESULT.md Finding/scope (offset 0), proof (3941), prior-work and limitations (8010); EXACT_RESULTS.json; verify_kneser.py absorb and main output (offsets 0 and 2728)",
+          "method": "Resultary exact-ID lookup and bounded local-mirror reads of proof and code, no execution",
+          "title": "Three-color Potts trapping and geometric rare-seed nucleation on the Petersen graph",
+          "trigger": "Same graph and strict asynchronous dynamics; potential two-color specialization and exact database"
+        },
+        {
+          "assessment": "Covered equilibrium count, not absorption",
+          "evidence": "Synchronous fixed-state count 14 at n=5.",
+          "identifier_or_url": "2026/11/17/SCOPE-ninth-degree-spin-sectors-and-an-entropy-gap-in-majority-dynamic--81296e8da636",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Ninth-degree spin sectors and an entropy gap in majority dynamics on generalized Petersen graphs",
+          "trigger": "Broader family with Petersen as GP(5,2)"
+        },
+        {
+          "assessment": "Fixed points overlap, different transition law",
+          "evidence": "Synchronous majority gives 14 fixed configurations and 55 primitive two-cycles, with synchronous basin data.",
+          "identifier_or_url": "2026/11/17/SCOPE-a-four-step-petersen-majority-projection-and-the-desargues-doubl--b8bcbb0b4dff",
+          "material_read": "RESULT.md Finding, offsets 160–1893",
+          "method": "Resultary local mirror",
+          "title": "A four-step Petersen majority projection and the Desargues double-cover basin spectrum",
+          "trigger": "Same graph, exact majority basin data"
+        },
+        {
+          "assessment": "Shared binary sink count in synchronous study",
+          "evidence": "14 binary fixed configurations and 55 binary two-cycle orbits, followed by synchronous three-opinion plurality.",
+          "identifier_or_url": "2026/11/22/SCOPE-ternary-plurality-separates-two-binary-indistinguishable-general--9090c4dd259d",
+          "material_read": "RESULT.md Finding and table, offsets 0–1810",
+          "method": "Resultary local mirror",
+          "title": "Ternary plurality separates two binary-indistinguishable generalized Petersen graphs",
+          "trigger": "Same-day Petersen count and apparent dynamic overlap"
+        },
+        {
+          "assessment": "Different graph",
+          "evidence": "Uses the degree-five icosahedral graph.",
+          "identifier_or_url": "2026/11/22/SCOPE-asynchronous-nucleation-of-frozen-icosahedral-ising-caps-an-exac--2353d774da00",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Asynchronous nucleation of frozen icosahedral Ising caps",
+          "trigger": "Close exact asynchronous Ising analogue"
+        },
+        {
+          "assessment": "Different graph",
+          "evidence": "Uses the fourteen-vertex Heawood graph.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-freezing-and-rare-three-seed-nucleation-on-the-fano-incide--5034f6ad5fe4",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact freezing and rare three-seed nucleation on the Fano incidence graph",
+          "trigger": "Close exact asynchronous trapping analogue on a cubic graph"
+        },
+        {
+          "assessment": "Related random-network context",
+          "evidence": "Studies distributions of active-link density for random networks, not the stated labeled graph law in the inspected passages.",
+          "identifier_or_url": "https://arxiv.org/abs/1112.5927",
+          "material_read": "Opening study statements, p. 1, offsets 0 and 1870",
+          "method": "OA PDF bounded passages",
+          "title": "Absorbing states of zero-temperature Glauber dynamics in random networks",
+          "trigger": "Possible broader absorption distribution results"
+        },
+        {
+          "assessment": "Infinite tree not Petersen",
+          "evidence": "Addresses the infinite regular tree, not finite labeled absorbing state probabilities.",
+          "identifier_or_url": "https://arxiv.org/abs/1904.11625",
+          "material_read": "p. 1, offset 408",
+          "method": "OA PDF bounded passage",
+          "title": "Zero-temperature Glauber dynamics on the 3-regular tree and the median process",
+          "trigger": "Same cubic local majority rule"
+        },
+        {
+          "assessment": "Different dynamics in inspected statement",
+          "evidence": "Treats field-driven random-field Ising response.",
+          "identifier_or_url": "https://arxiv.org/abs/2603.17447",
+          "material_read": "Opening statement, p. 1, offset 0",
+          "method": "OA PDF bounded passage",
+          "title": "Exploring the role of connectivity in disordered system",
+          "trigger": "Ising dynamics on generalized Petersen graphs"
+        },
+        {
+          "assessment": "Related finite lattices",
+          "evidence": "Analyzes ordered and stripe states on lattices.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0008019",
+          "material_read": "Opening statement, p. 1, offset 0",
+          "method": "OA PDF bounded passage",
+          "title": "Fate of Zero-Temperature Ising Ferromagnets",
+          "trigger": "Finite asynchronous freezing precedent"
+        },
+        {
+          "assessment": "Related finite lattices",
+          "evidence": "Concerns finite homogeneous ferromagnets and stripe/frozen behavior.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0105037",
+          "material_read": "Opening statement, p. 1, offset 0",
+          "method": "OA PDF bounded passage",
+          "title": "Freezing in Ising Ferromagnets",
+          "trigger": "Finite zero-temperature trapping precedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and conditional probabilities",
+        "Independent Bernoulli-coefficient replay",
+        "Resultary b8bcbb0b4dff and ad7079bf4060"
+      ],
+      "rationale": "The Bernoulli trapping law measures kinetic accessibility rather than the mere number of locally stable patterns. It gives an exact bias-dependent benchmark, including suppression to third order at small seed probability and the exact extremum at an unbiased quench, for a canonical non-bipartite cubic graph. The finite coefficient profile is useful independently of a larger-family solution and is not supplied by the standard fixed-point census or the reported three-color aggregates.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

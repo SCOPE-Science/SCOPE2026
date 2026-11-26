@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each feasible bridge count, the three remaining chord classes have deterministic sizes and exchangeable endpoints. Their pairwise crossing probabilities are exactly \(1/3\), \(1/2\), or zero depending on types, yielding a first-moment formula with cancellation of the quadratic degree term. The precise domain, parity support, and boundary degeneracies have been checked. An independently implemented complete matching enumeration for \(n=3\) through \(7\) passed 291 exact rational assertions, without substituting finite enumeration for proof.
+PASS
 
-## Originality — PASS (qualified)
+After conditioning on e, all residual perfect matchings are uniform. For given t, choosing t vertices from each arc and bijecting them, then matching each even-sized residual arc, gives every feasible class and excludes all other degrees. Conditional arc-label symmetry applies to the four pair types in RESULT.md lines 27–42: two internal chords on one arc have one alternating pattern out of three pairings; an internal and bridge chord alternate iff the bridge endpoint is the middle of three exchangeable positions; two bridges have one alternating bijection out of two; internal chords on opposite arcs cannot alternate. With p=(a−t)/2 and q=(b−t)/2, this yields E[Y|D=t]=(p(p−1)+q(q−1))/6+t(p+q)/3+t(t−1)/4. The quadratic terms cancel and the linear coefficient is (a+b−1)/12=(2n−3)/12. Adding t correctly shifts the slope for K. This includes deterministic D. Counting one bridge or an ordered pair of disjoint bridges gives the factorial moments in lines 44–52 and their stated variance; the covariance then follows by conditional expectation. VERIFICATION.md and verify.py were inspected, not executed. The recorded exhaustive enumeration concerns n=3,…,7 only; the pair argument is all-size.
 
-The full 2015 Acan paper, especially Section 2 on conditional chord degree, the Flajolet–Noy report on global chord crossing moments, and the Paguyo paper on global crossing limit theorems were compared at the level of their actual statements. They do not give the pointwise conditional mean of remaining crossing pairs given a marked chord's degree, whose slope is independent of the chord's location. A separate conditional covariance or variance formula would not determine a conditional regression at every feasible degree. The closest potential source of implicit coverage is the more general Touchard–Riordan joint and multivariate enumeration literature: neither a universal historical novelty guarantee nor an independence claim is made.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The marked chord degree is the local degree of a distinguished vertex in the random chord intersection graph, and the number of crossings among the others is the remaining graph's edge count. A universal affine conditional mean across all arc imbalances is a natural and non-obvious local-global dependence law: the individual degree distributions vary strongly with marked chord length, but their conditional prediction slope does not. This gives exact finite-size conditional information not recoverable from separate global and local moments, even though it requires no new asymptotic theorem.
+Relative to the checked evidence, the distinct result is the exact pointwise residual-crossing mean conditional on the specified chord and on every feasible degree, including its arc-independent slope. Neither separately known degree and global crossing moments nor the closest simple-chord enumerations give this general conditional first moment. This is not an absolute priority claim.
 
-## Closest sources and limitations
+## value
 
-Acan, arXiv:1501.01489v1, Section 2; Flajolet–Noy, *Analytic Combinatorics of Chord Diagrams*, Sections 1–3; Paguyo, arXiv:2104.01134, Introduction and distributional estimates. The statement determines only the conditional mean, not the conditional distribution or higher moments; historical implicit coverage remains a priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This relates a natural local statistic of the random intersection graph (degree at a marked chord) to its residual global edge count. Changing the marked span changes the degree distribution and intercept but not the conditional slope. The exact all-feasible-degree statement is stronger than covariance, and the cancellation of the quadratic term across chord classes resolves a concrete finite and all-size prediction problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

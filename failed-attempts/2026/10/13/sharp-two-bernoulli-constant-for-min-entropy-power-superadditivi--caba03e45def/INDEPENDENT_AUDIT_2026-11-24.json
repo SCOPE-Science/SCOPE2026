@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:43:58.916050Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let f,g be the two mass functions. For any integer z, the convolution at z is an average of f(z-y) against g(y), so it is at most M(B_1), and symmetrically at most M(B_2). Since m→m^(-2)-1 is decreasing, the sum deficit is at least the maximum of the two individual deficits and hence their average. Equality in the average bound requires both deficits equal and the summed maximum atom equal to each individual maximum atom. If one variable is deterministic, equal deficits force the other to be deterministic. Otherwise each Bernoulli gives positive weight to 0 and 1, so equality in the convolution average forces f(z)=f(z-1)=M(B_1) at a maximizing z and symmetrically for g. Thus z=1 and both Bernoulli variables are fair. The fair sum has masses (1/4,1/2,1/4), each of the three deficits is 3, and the ratio is 1/2. The frozen modal-orientation formulas give the same contraction, and their r,s in [0,1] bounds include all degenerate and tied modes. The independent exact replay `python3 /workspace/branches/frozen_math_checks.py` checked 441 parameter pairs on mesh 1/20 and found the four fully deterministic ordered pairs and one fair pair as the only equalities on that grid. The averaging argument proves the full result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Young's endpoint bound gives Δ∞(X+Y)>=max(Δ∞(X),Δ∞(Y)) for all independent integer-valued pairs.",
+          "The cited entropy-power papers give weaker numerical constants in the harder setting of an arbitrary number of inputs; Thm. 3.7 tends to 1/6, and Thm. 4.15 has π²/36 for maximum atoms at least 1/2."
+        ],
+        "reasoning": "Dimension-free constants for many inputs are not the best bounds for a pair. The general two-input convolution endpoint inequality is stronger and directly covers the pair under review.",
+        "searches": [
+          "arXiv:1112.3716 Eq. (1.1)",
+          "arXiv:2103.00896 Theorems 3.7, 4.9 and 4.15",
+          "arXiv:2007.11030 Eq. (1.9), Theorem 1.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1112.3716",
+        "arXiv:2103.00896",
+        "arXiv:2007.11030",
+        "Resultary d502d1c7538f",
+        "Resultary b452e766b81c",
+        "Resultary 50d8a780 (summary only)",
+        "DOI:10.1002/rsa.20977 (description only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In Eq. (1.1), use a point mass for the dual test to compare each convolution atom with each input maximum via the endpoint exponents. The direct weighted-average proof also gives the equality criterion: every contributing f(z-y) must already be a maximum.",
+          "The frozen r,s proof's simultaneous bounds on the normalized modal mass are exactly those two convolution contractions. The earlier fair-pair calculation supplies sharpness."
+        ],
+        "reasoning": "Specialization to two adjacent possible outcomes forces fairness immediately if both inputs are nondeterministic and equality of both maximum atoms is required. At the other boundary equality forces both inputs deterministic. No missing heterogeneous lower-bound argument beyond the standard theorem is needed.",
+        "searches": [
+          "arXiv:1112.3716 Eq. (1.1) endpoints (∞,1,1) and (1,∞,1)",
+          "arXiv:2103.00896 p. 14 offset 55100, fair-pair obstruction",
+          "Resultary exact two-Bernoulli Rényi/Tsallis monotonicity lead"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen maximum-atom form is M(B_1+B_2)^(-2) >= [M(B_1)^(-2)+M(B_2)^(-2)]/2.",
+          "Equation (1.1) states discrete Young for endpoint exponents; with the two mass functions this gives M(X+Y) <= min(M(X),M(Y))."
+        ],
+        "reasoning": "The maximum-atom statement follows by taking inverse squares and averaging. No orientation distinction or Bernoulli property is needed until equality is specialized.",
+        "searches": [
+          "Resultary: exact two-Bernoulli Δ∞ factor 1/2, equality and maximum-atom forms",
+          "Charalambides–Christ arXiv:1112.3716 §1 Eq. (1.1)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The primary p. 14 comparison explicitly gives the same exact constant as a universal upper obstruction via two fair Bernoulli variables.",
+          "No targeted Resultary hit gave the exact lower statement verbatim. The nearby exact constants concern a weighted endpoint entropy comparison and a TV radius, respectively, not this deficit ratio."
+        ],
+        "reasoning": "For this continuum problem, the relevant exact indexed fact is the attaining fair-pair ratio, already known; the lower inequality is resolved by implication, not a finite table.",
+        "searches": [
+          "Resultary sharp 1/2 two-Bernoulli constant, equality, and earlier exact two-Bernoulli records",
+          "arXiv:2103.00896 p. 14 sharp-obstruction paragraph"
+        ]
+      },
+      "rationale": "The sharp lower inequality is a direct and strictly weaker corollary of classical Young convolution contraction for any pair of independent integer-valued inputs, not a new two-Bernoulli resolution. Madiman–Melbourne–Roberto already give the fair-pair upper obstruction. The equality classification is exactly equality in the same weighted-average bound with two positive summands, checked directly in the correctness assessment. No separate original remainder is established. This is affirmative mathematical implication, not a failure of retrieval or a claim that the exact Bernoulli wording is reproduced verbatim in a source.",
+      "residual_risks": [
+        "The precise phrasing and equality classification may be indexed under other concentration terminology. That is immaterial to the affirmative direct implication.",
+        "The unavailable Littlewood–Offord text and monotonicity mirror were not used as evidence of prior coverage or noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covering by direct implication; stronger general statement even without Bernoulli hypotheses",
+          "evidence": [
+            "Discrete Young admits pj in [1,∞] with the sum of reciprocals 2. Apply (∞,1,1) and (1,∞,1) to probability masses and a point mass."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1112.3716",
+          "material_read": "§1, p. 1 offset 0–3182, Eq. (1.1) and endpoint range",
+          "method": "Primary OA PDF read and proof of the specialized endpoint by averaging",
+          "title": "Near-extremizers of Young’s inequality for discrete groups",
+          "trigger": "Decisive stronger discrete convolution inequality"
+        },
+        {
+          "assessment": "Covers the sharpness obstruction; its general many-input bounds are weaker than the two-input Young bound",
+          "evidence": [
+            "Theorem 3.7 has α'/6; Theorem 4.15 has π²/36; the p. 14 discussion explicitly uses two fair variables to force c<=1/2."
+          ],
+          "identifier_or_url": "arXiv:2103.00896; DOI:10.3150/22-BEJ1511",
+          "material_read": "Theorem 3.7 p. 9 offset 36744, Theorem 4.9 p. 12 offset 45608, Theorem 4.15 and discussion p. 14 offsets 52566 and 55100",
+          "method": "Primary OA PDF passages",
+          "title": "Bernoulli sums and Rényi entropy inequalities",
+          "trigger": "Same deficit, broader lower bounds and exact fair-pair obstruction"
+        },
+        {
+          "assessment": "Framework and weaker broader bounds, not the decisive coverage",
+          "evidence": [
+            "Defines Δα and gives symmetric log-concave lower coefficient 1/cα with cα=2(3α-1)/(α-1)."
+          ],
+          "identifier_or_url": "arXiv:2007.11030; DOI:10.1017/S096354832100016X",
+          "material_read": "p. 3 Eq. (1.9), Theorem 1.2, offsets 6686–9939",
+          "method": "Primary OA PDF passage",
+          "title": "Concentration functions and entropy bounds for discrete log-concave distributions",
+          "trigger": "Broader finite-order discrete deficit setting"
+        },
+        {
+          "assessment": "Different entropy comparison, not the two-input deficit ratio",
+          "evidence": [
+            "Compares H_0 with twice H_∞ for a weighted sum of fair Bernoulli variables."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-sharp-endpoint-r-nyi-comparison-for-one-exceptional-weight-berno--d502d1c7538f",
+          "material_read": "RESULT.md Finding and scope, offset 0, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary search and local-mirror read",
+          "title": "Sharp endpoint Rényi comparison for one exceptional weight Bernoulli",
+          "trigger": "Closest Resultary concentration/entropy endpoint theorem"
+        },
+        {
+          "assessment": "Different TV approximation objective",
+          "evidence": [
+            "Worst optimal distance from a two-trial Poisson-binomial law to a binomial law is 1/4."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-sharp-quarter-radius-binomial-approximation-of-two-heterogeneous--b452e766b81c",
+          "material_read": "RESULT.md Finding, offset 0, local mirror",
+          "method": "Resultary search and local-mirror read",
+          "title": "Sharp quarter-radius binomial approximation of two heterogeneous Bernoulli trials",
+          "trigger": "Same two heterogeneous inputs and exact constant setting"
+        },
+        {
+          "assessment": "Summary describes coordinatewise monotonicity through q=2; no full-text noncoverage claim",
+          "evidence": [
+            "Reported quantity is coordinatewise Rényi/Tsallis monotonicity, not deficit superadditivity."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-exact-r-nyi-tsallis-monotonicity-threshold-for-two-bernoulli-sum--50d8a780",
+          "material_read": "Catalogue summary only; corresponding mirror lookup unavailable",
+          "method": "Resultary lookup and local-mirror attempt",
+          "title": "Exact Rényi–Tsallis monotonicity threshold for two Bernoulli sums",
+          "trigger": "Related exact two-input Rényi result"
+        },
+        {
+          "assessment": "Unresolved related lead; not relied on for coverage or exclusion",
+          "evidence": [
+            "Search description concerns concentration of sums and Bernoulli applications."
+          ],
+          "identifier_or_url": "DOI:10.1002/rsa.20977",
+          "material_read": "Search description only; full text not retrieved",
+          "method": "Primary-literature search and lawful OA attempt",
+          "title": "On the Littlewood–Offord problem for arbitrary distributions",
+          "trigger": "Plausible concentration-function reformulation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The many-summand sharp-constant gap is meaningful, but for a pair the presented coefficient is the immediate comparison of a maximum with an arithmetic mean after ordinary convolution contraction. The Bernoulli equality check needs only the support of the elementary weighted average, and the sharpness obstruction is prior. This is a routine example, not a new benchmark obstruction or progress on the many-input lower constant. No scientifically valuable distinct remainder warrants repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

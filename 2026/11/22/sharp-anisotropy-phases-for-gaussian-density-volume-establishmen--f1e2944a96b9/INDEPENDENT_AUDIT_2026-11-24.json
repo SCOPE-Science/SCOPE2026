@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:33:31.520762Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The positive-volume superlevel condition is equivalent to the single threshold F(D) in RESULT.md, since a centered Gaussian changes to a ball under x=Sigma^(1/2)y with Jacobian D. Below the peak-density threshold the set is empty, and at the threshold it is a singleton, so neither can meet V>0. For the spectrum, min(lambda)>=tau/(dK) from the trace and ratio bound. Consequently the pairwise-linear ratio constraints and trace define a compact positive polytope. Strict concavity of sum log(lambda_i) excludes every nonvertex as a minimizer. If the ratio constraint is unsaturated, a nonzero small trace-preserving change is possible; if it is saturated and there is an intermediate eigenvalue, rescale all endpoint entries by the same small factor and compensate in one intermediate entry, preserving all tight constraints in both directions. If only the two endpoints occur, all the high/low equalities fix their ratios and the trace fixes the scale, proving that these spectra are the vertices. AM–GM gives the upper endpoint uniquely, and the segment from a minimizing spectrum to the isotropic one is feasible (the ratio constraints are linear on that eigenvalue segment) and covers the complete intermediate determinant interval by continuity. The sign of d(log F)/dD is negative below D_0, zero at D_0 and positive above it; clamping proves all three regimes and both boundary cases. In particular K=1 forces isotropy. The real k-objective is strictly convex with the stated stationary point, so floor/ceiling with clipping and ties suffices. The continuous optimizer set is exactly the admissible determinant fiber, including arbitrary orientations in the low-volume regime; rounding the optimum is valid for the integer count but need not preserve uniqueness of the optimizing covariance. The frozen checker was inspected, not executed; numerical sampling and scalar optimization are not the all-dimensional proof. Replay: RESULT.md, Proof §§1–4, with the explicit trace-preserving perturbation above.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Furuichi's displayed reverse Young inequality bounds (1-nu)+nu K by S(K)K^nu for any continuous nu in [0,1]. Continuous maximization gives nu*=1/log K-1/(K-1), which need not be a multiple of 1/d; for d=2, K=9 it is not 1/2. The dimension-free constant is consequently slack as an exact fixed-dimension bound in this example.",
+          "The original Specht 1960 article was identified by DOI 10.1007/BF01180475 but the article and PDF retrieval redirected repeatedly. The named Fujii–Izumino–Seo determinant paper appears in Furuichi's bibliography; a focused lookup did not produce usable full text.",
+          "The contextual dynamic or empirical references address spread, persistence or critical areas according to their available descriptions; direct full text was not usable on the attempted routes. No whole-paper exclusion is made for them."
+        ],
+        "reasoning": "The verified classical continuous envelope is not sharp in the required discrete fraction, and the statement does not classify every fixed-cardinality optimizer. The full content of uninspected plausible mathematical literature is retained as a risk, not treated as evidence of noncoverage.",
+        "searches": [
+          "Web: Specht ratio sharp fixed dimension unweighted arithmetic geometric mean ratio n variables bounded interval minimum product eigenvalue trace condition number best possible n discrete multiplicity",
+          "Web: Zur Theorie der elementaren Mittel Specht 1960 EuDML full text 91 98",
+          "Web: Determinant for positive operators and Specht’s theorem Fujii Izumino Seo PDF determinant fixed dimension theorem",
+          "arXiv:1004.0581v3, p. 1 Eq. (2)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary f43e22e45d82, 2dff41c8b944 and 7578aa2461df",
+        "Furuichi arXiv:1004.0581v3",
+        "Specht doi:10.1007/BF01180475 (bibliographic)",
+        "Vercken, Goodsman–Lewis and Soboleva et al. (material limits above)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With m, h and ell the respective means of lambda, lambda^-1 and log lambda, the indexed normalized objective is mh-1-log h-ell. Fixing m by trace does not remove h, so neither the bound nor its equality cases specializes to determinant-only minimization. Even fixing the trace of the inverse and renaming it Sigma leaves the trace-product term varying.",
+          "If the exact determinant endpoint and minimizers were already available, the clamp and the interior linear branch would indeed be direct ellipsoid geometry and one derivative. Neither the KL formula nor the verified continuous Specht bound provides that exact finite endpoint and equality set. The proof's two-level vertex argument resolves this additional problem."
+        ],
+        "reasoning": "The proved increment is the exact three-phase optimization using an attained dimension-specific determinant range, not a claim that each of its ingredients or the clamp as a scalar principle is new.",
+        "searches": [
+          "f43e22e45d82, Finding and KL derivation, mirror offsets 0 and about 3700",
+          "2dff41c8b944, definition and envelope at mirror offsets 0 and about 3300",
+          "Furuichi arXiv:1004.0581v3, reverse Young inequality Eq. (2)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Minimizing determinant at a fixed trace and bounded ratio is equivalent after scaling to maximizing arithmetic mean/geometric mean over d equally weighted points in [1,K]; the volume law then evaluates a given scalar functional on the feasible determinant interval.",
+          "A KL divergence with isotropic first argument and fixed matching PRECISION traces would be exactly one half of log(det P_0/det P), and hence equivalent. But f43e22e45d82 and 2dff41c8b944 explicitly set omega=tr(B^-1)/d, matching COVARIANCE traces, not precision traces. Their objective has the extra variable mean-reciprocal terms."
+        ],
+        "reasoning": "The equivalence was tested using the formulas, not the words Gaussian, KL, trace or covariance. A condition cap and endpoint spectra alone do not identify the optimized objective.",
+        "searches": [
+          "Resultary: sharp dimension-dependent finite-n reverse arithmetic-geometric mean under bounded ratio max/min Specht exact integer number of endpoints fixed trace minimum determinant",
+          "Resultary f43e22e45d82 and 2dff41c8b944, mirrored Findings",
+          "Furuichi arXiv:1004.0581v3, Introduction Eq. (2)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The KL records do give exact finite multiplicity lists, not merely bounds. Their objectives differ: dimension 4 and cap 10 give two high eigenvalues in the f43e22e45d82 KL example, whereas minimizing 10^(k/2)/(4+9k)^2 for k=1,2,3 gives one high eigenvalue here.",
+          "The focused finite reverse-AM–GM search's first twelve entries included no matching determinant table; this is not evidence of absence. The same-day indexed covariance phase diagram 7578aa2461df concerns covariance sign after stretching spherical-Dirichlet vectors, not a superlevel-volume or determinant optimum."
+        ],
+        "reasoning": "An indexed table for a superficially similar endpoint-spectrum problem cannot be plugged in; the different chosen multiplicity gives an explicit check against such a lookup.",
+        "searches": [
+          "Resultary: sharp dimension-dependent finite-n reverse arithmetic-geometric mean under bounded ratio max/min Specht exact integer number of endpoints fixed trace minimum determinant",
+          "Resultary f43e22e45d82, finite maximum and worked dimensional examples; 2dff41c8b944, finite KL envelope"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the exact fixed-dimension, condition-capped Gaussian level-volume phase diagram and full optimizer set, including the finite multiplicity rather than a dimension-free determinant bound. The closest indexed two-endpoint spectral results optimize a different KL expression even after trace normalization. The inspected reverse Young/Specht result optimizes over a continuous mixture and does not give the fixed-cardinality sharp determinant interval. No priority claim is made for Gaussian ellipsoid volume, the scalar derivative or reverse-AM–GM ingredients; the classical original Specht article remained inaccessible and is a specific priority risk.",
+      "residual_risks": [
+        "The original Specht full text and the Fujii–Izumino–Seo determinant paper were not read; an older exact finite-cardinality sharp reverse-AM–GM statement might subsume the remaining spectral ingredient.",
+        "No comprehensive priority claim is warranted for Gaussian design or bounded-spectrum matrix optimization. Inaccessible ecological full text is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same binary endpoint structure, different trace match, objective and optimizer",
+          "evidence": [
+            "omega_B=tr(B^-1)/d, and KL compares the isotropic covariance omega_B I to B^-1. In dimension 4, cap 10, the KL multiplicity is two, rather than one for the determinant optimum."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-dimension-dependent-kl-cost-of-trace-matched-isotropic-inv--f43e22e45d82/RESULT.md",
+          "material_read": "Mirrored Finding at offset 0 and objective/finite maximum passages around offset 3700; also the dimension-4 example",
+          "method": "Bounded local-mirror inspection and mathematical equivalence test",
+          "title": "Sharp dimension-dependent KL cost of trace-matched isotropic inverse covariance",
+          "trigger": "Closest exact endpoint and integer multiplicity theorem under a Gaussian spectral cap"
+        },
+        {
+          "assessment": "KL objective, not determinant-only nor Gaussian level-volume optimization",
+          "evidence": [
+            "omega=tr(B^-1)/d and the probability ordering is isotropic versus anisotropic; the finite maximum is of the KL envelope Phi_K."
+          ],
+          "identifier_or_url": "Resultary 2026/10/18/SCOPE-sharp-condition-number-kl-envelope-for-trace-matched-gaussian-in--2dff41c8b944",
+          "material_read": "Mirrored passages at offsets 0 and about 3300",
+          "method": "Bounded local-mirror comparison",
+          "title": "Sharp condition-number KL envelope for trace-matched Gaussian inverse covariance",
+          "trigger": "Same covariance-trace match and condition cap with exact envelope"
+        },
+        {
+          "assessment": "Continuous-weight reverse inequality, not the exact cardinality-constrained endpoint",
+          "evidence": [
+            "Eq. (2) gives S(a/b)a^(1-nu)b^nu >= (1-nu)a+nu b for positive a,b and 0<=nu<=1."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1004.0581",
+          "material_read": "Introduction p. 1 Eq. (2) and p. 7 bibliography",
+          "method": "Bounded OA PDF reading and continuous-vs-discrete maximization comparison",
+          "title": "Refined Young inequalities with Specht’s ratio",
+          "trigger": "Candidate classical reverse arithmetic–geometric mean implication"
+        },
+        {
+          "assessment": "Not evaluated at full-text level; material exact-priority risk remains",
+          "evidence": [
+            "Specht, Math. Z. 74 (1960), 91–98; the independently read later formulation is the continuous weighted inequality above."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/BF01180475",
+          "material_read": "Bibliographic identification in Furuichi and journal citation only",
+          "method": "Lawful OA attempts on identified publisher article and PDF; neither yielded readable primary text",
+          "title": "Zur Theorie der elementaren Mittel",
+          "trigger": "Original Specht paper, plausible sharper finite-dimensional discussion"
+        },
+        {
+          "assessment": "The recorded comparison concerns isotropic dispersal plus nonlinear reproduction; not relied on as independent exclusion",
+          "evidence": [
+            "RESULT.md line 46 distinguishes this dynamic threshold from the static anisotropic level-volume screen."
+          ],
+          "identifier_or_url": "https://doi.org/10.1111/2041-210X.12573",
+          "material_read": "Bibliographic citation and frozen comparison only; verified Wiley full text not available",
+          "method": "Identified lawful full-text attempt returned HTTP 403",
+          "title": "The minimum founding population in dispersing organisms subject to strong Allee effects",
+          "trigger": "Earlier same motivating founder-threshold question"
+        },
+        {
+          "assessment": "Limited to context, no independent whole-paper exclusion",
+          "evidence": [
+            "Frozen comparison describes patch-size evidence and nonradial reaction–diffusion nuclei, neither of which is asserted to be modeled by the static mathematical screen."
+          ],
+          "identifier_or_url": "PMC3064761 (doi:10.1111/j.1461-0248.2010.01569.x); doi:10.1016/S0304-3800(02)00357-5",
+          "material_read": "Bibliographic records and frozen scope descriptions; no usable decisive full-text passage retrieved",
+          "method": "Identified PMC/Europe PMC, DOI and lawful alternate transcript attempts",
+          "title": "Critical patch size generated by Allee effect in gypsy moth; Qualitative theory of the spread of a new gene into a resident population",
+          "trigger": "Plausible ecological and shape-sensitive antecedents"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a centered Gaussian with a fixed second moment and bounded condition number, the precise mass-versus-volume tradeoff and covariance equality set are meaningful static benchmarks. The exact finite-dimensional endpoint matters: a looser dimension-free bound shifts the first transition and can misidentify its optimal spectrum. The classification tells when the determinant constraint is binding and when isotropy is uniquely optimal; its scientific value is that benchmark, not a prediction of persistence or a recommendation about biological releases.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

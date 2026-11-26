@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The object is the finite-dimensional, trace-decreasing Lindblad evolution of a site-1 excitation on a three-site chain. The hopping is one, the site energies are \(0,\delta,2\delta\), the sink rate is \(k>0\), and off-diagonal dephasing acts with rate \(g\ge0\). A fully explicit rational expression for the mean trapping time is obtained from the nine-entry generator. The exact derivative numerator has positive coefficients in degrees \(3\) through \(8\); the critical cubic and two polynomial identities resolve all other signs. This allows Descartes' rule, a sign argument at zero and infinity, and the intermediate value theorem to deliver global uniqueness. An independent complex Kronecker generator and a separate symbolic inversion validate the algebra. The large-gradient correction follows by coefficient expansion and the implicit-function theorem.
+PASS
 
-## Originality — PASS (qualified)
+The indicated off-diagonal decay convention and one-end loss give the survival-time resolvent for P_1. Hilbert–Schmidt dissipation implies every imaginary-axis eigenoperator must have row and column 3 zero; the nearest-neighbor commutator in the eigenoperator equation then forces row and column 2, and then 1, zero. Thus the integral exists even at g=0. Independent exact elimination of the populations and a four-real-coherence solve reproduced the integrated density matrix with zero residual in the full equation and the trace N/D, including 87/14 at k=g=delta=1. The denominator is strictly positive. Exact expansion reproduced the first three derivative coefficients, both sign identities and coefficient positivity for degrees 3–8. Q_k grows strictly from a negative value to infinity. When Q_k<=0 all positive-degree derivative-numerator coefficients are positive, so equality at the threshold yields a zero endpoint slope but a strictly increasing curve thereafter. When Q_k>0 the signs change exactly once in coefficient order; by Descartes' rule and continuity there is one simple positive root and the slope changes from negative to positive. For x=|delta| the scaled leading polynomial at g=tx has its simple root at t=1, so the unique optimum approaches this branch. Exact next-order expansion then yields g_*=x-k/3+O(1/x), at fixed k. The independent threshold at k=1 is 0.189848784891488681 in detuning magnitude.
 
-Coates–Lovett–Gauger's 2021 detuned-chain paper provides the physical context, numerical noise optimization, and localization heuristics but primarily analyzes continuously injected steady-state transport rather than this prepared-particle absorption time. Their 2022 twin-peaks paper concerns more complex networks; the present result excludes that phenomenon for one specific three-site path. Kassal–Aspuru-Guzik's 2012 three-site efficiency calculation has different site energies, preparation, and loss observables. The current cubic onset and global uniqueness proof are not logical corollaries of their explicitly established results. The Gaab–Bardeen 2004 trapping paper could not be inspected beyond its abstract, which leaves a genuine priority risk. Full novelty and priority require independent assessment; failure to locate a database match does not prove novelty.
+## originality
 
-## Scientific value — PASS
+PASS
 
-The donor–bridge–acceptor trimer is a natural minimal system in which static detuning, coherent tunneling, irreversible collection, and environmental decoherence interact. The theorem exactly separates monotonic noise suppression from genuine dephasing assistance and proves the impossibility of two noise-optimal transport windows in this minimal unbranched geometry, with an explicit threshold and large-gradient law. It provides a rigorous structural baseline for interpreting multipeak phenomena on larger networks. It does not cover general graphs, correlated baths, or continuously pumped current optimization.
+The supported distinct result is the sharp all-k cubic threshold and sign-complete uniqueness classification for site-1 mean absorption in an exactly linear-gradient trimer with uniform site dephasing, including the -k/3 term. The compared papers supply related models/objectives and the compared catalogue statements supply exact neighboring trimer thresholds or optima, but none of the inspected statements implies this one. The closely relevant Haken–Strobl paper by Gaab and Bardeen remains a named access and equivalence risk, not a documented absence of coverage.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The result gives a global, all-parameter exclusion of multiple noise optima in a natural transport benchmark while identifying precisely when dephasing helps. It distinguishes endpoint preparation and mean survival from pumped throughput, and quantifies how trapping changes the large-gradient optimal noise scale. The exact threshold and uniqueness are useful beyond isolated parameter samples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

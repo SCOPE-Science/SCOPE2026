@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:20:11.757813Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each new ending-in-c subsequence is the unique concatenation of an old subsequence and c; old words ending in c are already included in this set. The shifted ending counts obey the two shear recurrences and the count including empty is x+y-1, giving acceptance x+y=1. The legal blocks 0 and 10 generate the same finite group as the two shears (inverse is a positive power). Over a prime-power residue ring a primitive column has a unit coordinate; eliminate the other by a shear, using a signed swap if necessary. A remaining unit diagonal diag(d,d^-1) is the product E12(d)E21(-d^-1)E12(d)E12(-1)E21(1)E12(-1). CRT combines the local elementary coefficients, and every elementary shear is a power of the corresponding unit shear. Thus the group is all SL2 over the residue ring; Bezout completion gives transitivity on primitive columns and rows. The last-zero and last-one layers are both reachable, by legal blocks and an appended 1 respectively. For distinct vectors in either fixed layer, after sending the first to (1,0), test with row (1,0) if the other's first coordinate differs from 1, otherwise (1,1); pull back and realize the row via a legal suffix, prepending 0 and absorbing its matrix when starting in the last-one layer. Cross-layer states are separated by starting the suffix with 10 and then taking the desired group element; the last-one layer goes to the sink immediately. The sink is reachable by 11 and is the only state with no accepting continuation. Prime-wise counting gives J2(m) per layer. This handles all m>=2, including m=2 and nonfields. Independent bounded replay `python3 /tmp/opencode/modular-review.py` used backward state-pair distinguishability for m=2..10 and verified 2,295 cases by direct subsequence-word sets including empty. Frozen checker.py was inspected, not run; the algebra, not the finite check, establishes the all-moduli result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Exact prior-art comparison: the unrestricted record gives J2(m) for residue zero, and J2(m)/phi(m) for residue -1.",
+          "The other results are 2m^3/gcd(m,2)+1 for mod-m embedding counts of 010 under 11 avoidance, and r m^2+2 for mod-m embedding counts of 01 under 0^r1 avoidance."
+        ],
+        "reasoning": "Unrestricted accepts words with 11 and cannot assert layer reachability or separation in the intersection. The two other exact results depend on specific embedding-counter actions, not the coprime-pair action for counts of distinct words.",
+        "searches": [
+          "2026/11/22/SCOPE-exact-residue-sensitive-state-complexity-for-modular-counts-of-d--ad16e56d39a1",
+          "2026/11/22/SCOPE-exact-minimal-automata-for-modular-scattered-010-counts-under-th--721b1c01a04c",
+          "2026/11/22/SCOPE-exact-minimal-deterministic-complexity-for-modular-scattered-pai--58224cc14c12"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2210.00342v1",
+        "Resultary ad16e56d39a1, 721b1c01a04c, 58224cc14c12, 9c2ceec9f9d1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Coprime-pair counting, exact unrestricted quotient, and a same-constraint quotient with a different state action are all established comparisons."
+        ],
+        "reasoning": "A product with the three-state 11-avoidance monitor gives an upper bound and a shared rejecting sink, but exactness requires proving that legal blocks still generate the full group and that cross-layer states never merge. The positivity of the legal semigroup and the separating suffix are not supplied by the unrestricted count.",
+        "searches": [
+          "arXiv:2210.00342v1",
+          "Resultary ad16e56d39a1 and 721b1c01a04c"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Żak, PDF pp. 3–4, gives an integer coprime-pair bijection and Proposition 1 (phi(N+1) binary words with N subsequences).",
+          "The Stern record gives joint distribution of consecutive primitive Stern residue pairs and digit weight."
+        ],
+        "reasoning": "These are closely related coordinates but neither statement identifies legal continuation transformations or the right languages of two last-bit layers under 11 avoidance. The distinct-word statistic is not the embedding count of any fixed pattern.",
+        "searches": [
+          "Żak, arXiv:2210.00342v1, binary subsequences and coprime pairs",
+          "2026/11/8/SCOPE-binary-digit-weight-independence-for-stern-diatomic-residues--9c2ceec9f9d1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest distinct indexed statements have the scopes detailed above; the focused external search returned unrelated general totient results."
+        ],
+        "reasoning": "The available formula J2(m) is for the different unrestricted language. No independent exact table or formula for the reviewed language was identified in this bounded comparison; an unproductive query is not evidence of novelty.",
+        "searches": [
+          "Local Resultary search for constrained modular distinct-subsequence DFA",
+          "\"distinct binary subsequences\" \"Jordan totient\" modular automaton states",
+          "ad16e56d39a1; 721b1c01a04c; 58224cc14c12"
+        ]
+      },
+      "rationale": "The contribution is the exact legal-input quotient with the adjacent-one prohibition, not the coprime-pair encoding or unrestricted count. The closest Resultary records genuinely overlap on either the unrestricted statistic or the same constraint for a different statistic; none inspected establishes the claim. No relative priority is inferred from their common date.",
+      "residual_risks": [
+        "Only bounded comparison of Stern and run-constrained literature; an unindexed equivalent result is possible.",
+        "Same-day ordering is not determined and not used to distinguish the mathematics."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Integer predecessor rather than the claimed regular language",
+          "evidence": "Bijection with coprime positive pairs; phi(N+1) words with N subsequences.",
+          "identifier_or_url": "https://arxiv.org/pdf/2210.00342",
+          "material_read": "PDF pp. 3–4 near text offset 7000; bijection and Proposition 1",
+          "method": "Open primary PDF excerpt",
+          "title": "Finding binary words with a given number of subsequences",
+          "trigger": "Same statistic and likely Stern/coprime-pair equivalence"
+        },
+        {
+          "assessment": "Distinct same-day record, exact unrestricted baseline, not the run restriction",
+          "evidence": "J2(m) at zero and J2(m)/phi(m) at -1; no 11-avoidance constraint.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-residue-sensitive-state-complexity-for-modular-counts-of-d--ad16e56d39a1",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact residue-sensitive state complexity for modular counts of distinct subsequences",
+          "trigger": "Same statistic and modulus with exact DFA formula"
+        },
+        {
+          "assessment": "Different counting observable",
+          "evidence": "Counts embeddings of 010, with 2m^3/gcd(m,2)+1 states.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-minimal-automata-for-modular-scattered-010-counts-under-th--721b1c01a04c",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact minimal automata for modular scattered 010 counts under the adjacent-one restriction",
+          "trigger": "Same prohibition and exact modular minimal automata"
+        },
+        {
+          "assessment": "Different observable and different forbidden factor",
+          "evidence": "Embeddings of 01 and avoidance of 0^r1; r m^2+2 states.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-minimal-deterministic-complexity-for-modular-scattered-pai--58224cc14c12",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact minimal deterministic complexity for modular scattered-pair counts",
+          "trigger": "Parallel forbidden-factor exact quotient"
+        },
+        {
+          "assessment": "Distribution, not constrained DFA minimization",
+          "evidence": "Joint digit-weight and primitive Stern-pair residue distribution.",
+          "identifier_or_url": "2026/11/8/SCOPE-binary-digit-weight-independence-for-stern-diatomic-residues--9c2ceec9f9d1",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Binary digit-weight independence for Stern diatomic residues",
+          "trigger": "Possible equivalent shear-orbit statements in Stern coordinates"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "11 avoidance is the elementary nontrivial binary run restriction, and the question asks exactly how it changes the modular state complexity for a natural word statistic. The result demonstrates both that no arithmetic states are lost and that the entire live layer is duplicated without any collapse, across composite as well as prime moduli. The legal-block lemma and same-/cross-layer separators explain why; the formula is a reusable exact baseline rather than a product bound or a handful of modular examples.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

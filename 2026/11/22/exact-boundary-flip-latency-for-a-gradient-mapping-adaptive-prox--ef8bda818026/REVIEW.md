@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The projection of a radial point is a scalar clipping, so a saturated reversal is equivalent to \(\lambda\eta/S_k\ge2\). Each full reversal travels exactly \(2R\), multiplying the accumulator by \(Q=\sqrt{1+4R^2/\eta^2}\). This gives the precise integer count including the equality case. Thereafter \(\lambda\eta/S_k<2\) remains true as the accumulator increases, so the ball projection never acts again. A telescoping difference-of-squares inequality bounds the accumulator, yielding a uniform contraction factor strictly below one. The reciprocal-log expansion proves the \(\eta^2\log\eta\) asymptotic. Finite recurrence checks and exact-rational threshold certificates passed; they do not replace the proof. The scope includes all finite positive dimensions, strictly positive parameters and boundary initializations.
+PASS
 
-## Originality — PASS, qualified
+The frozen recursion agrees with deterministic Algorithm 1 specialized to a ball indicator and a centered scalar-Hessian quadratic. Projection reduces to scalar clipping on the initial diameter. Starting on the sphere, a full flip occurs exactly at lambda*eta/S_k >= 2, including equality; every such update multiplies S_k by Q. Counting the qualifying nonnegative exponents gives M, including M=0 when r<1 and a final flip at any exact power r=Q^j. S becomes strictly above the saturation threshold after those flips, so no tail step increases the radius or needs projection. In the interior recursion, S_{k+1}^2-S_k^2=lambda^2*||x_k||^2; the squared radius drop is at least 2*eta*(2-theta_entry)/lambda times S_{k+1}-S_k. Telescoping bounds S above and keeps the tail contraction uniform and strictly below 1 (including finite termination). Taylor expansion gives 1/log Q=eta^2/(2R^2)+1+O(eta^-2); the integer rounding changes the count by at most 1. Independent replay: python3 /workspace/independent_checks.py 2, fifteen rational saturation tests immediately below, at, and above five exact threshold powers; these corroborate, not prove, the general result. The frozen checker and verification record were inspected, not executed.
 
-The motivating algorithm and convergence theory are due to Wang and Yurtsever (arXiv:2605.05944, Algorithm 1, Sections 3–4 and Appendix E). Ene, Nguyen and Vladu (arXiv:2007.08840, Appendix A) present a related movement-normalized constrained AdaGrad+ update. The published result *Automatic boundedness for deterministic gradient-mapping accumulation* removes a boundedness hypothesis for the same algorithm, but its theorem and proof do not count initial antipodal boundary steps or derive their sharp large-gain coefficient. Searches of related mathematical records found different stepsize and projection phenomena, but no same-statement or stronger covering claim. The near-equivalence of the scalar accumulation recurrences is acknowledged: the proposed contribution is the exact objective-plateau complexity, not the recurrence or general convergence.
+## originality
 
-## Value — PASS
+PASS
 
-An explicitly solvable strongly convex constrained problem reveals an arbitrarily long initial interval of zero objective progress as the free gain increases, despite eventual geometric convergence and a one-step fixed-stepsize solution. The exact floor law and leading constant distinguish finite-iteration startup latency from asymptotic convergence; they are useful for gain selection and for interpreting parameter-uniform complexity statements. This is not a claim that standard gain choices or other constrained objectives exhibit the same delay.
+Best of current knowledge: the method and general convergence/boundedness properties are prior. The supported distinction is the exact plateau count, its sharp diverging gain dependence, and the corresponding pathwise exit and geometric tail on the specified instance. No inspected stronger theorem gives the count as a corollary.
 
-## Limitations and closest literature
+## value
 
-The result is restricted to an isotropic quadratic, a Euclidean-ball constraint and a boundary start, with deterministic full gradients, exact arithmetic and projection. The sharp large-gain plateau is a constructed family, not a universal lower bound. Related scalar AdaGrad+ representations may conceal equivalent observations, and further historical comparison could change priority. There is no independent mathematical audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+On a canonical compact strongly convex test problem, the exact number of zero-improvement updates is a concrete startup obstruction: any fixed nontrivial objective target must wait, yet a fixed projected step solves the same instance in one update. The sharp gain coefficient and proof of later geometric convergence distinguish startup delay from instability. This is useful for interpreting parameter-dependent convergence bounds, not a general complexity lower bound for adaptive methods.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

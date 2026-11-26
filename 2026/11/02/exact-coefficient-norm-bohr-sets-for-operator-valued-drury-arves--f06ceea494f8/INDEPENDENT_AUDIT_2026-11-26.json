@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:50:06.331986Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The kernel expansion gives squared monomial norms alpha!/|alpha|!. Testing the multiplier on each unit constant vector bounds each coefficient norm by the reciprocal monomial norm. For a normalized monomial, the product with another basis monomial has squared norm equal to the factorial norm ratio in RESULT.md:52–59. The numerator is one term of the multivariate Vandermonde sum, so the weight is at most one; the vacuum attains one. Distinct shifted basis vectors are orthogonal. The diagonal sum of these norm-one multipliers is contractive on a separable coefficient space and saturates all coefficient norms. In countably many variables the degree-n diagonal block is bounded by ||z||_2^n, so there is no analytic convergence problem for the operator series; the norm majorant itself may diverge, in which case finite diagonals give arbitrarily large values. For finite d, Cauchy–Schwarz on each degree bounds the sum by a polynomial factor times ||z||_2^n. The axial profile, degree-four nonradial witness, first-degree large-support obstruction, and diag(1,w_j) unanchored witness follow. The disk 2-by-2 witness is inside the claimed earlier radius and has norm sum 10/9. Independent corroboration: `python3 -B /workspace/review_checks.py 3` checked 1,450 exact factorial ratios and exact inequalities for the two witnesses; finite checks do not replace the proof. This is not a sharp result for every fixed finite coefficient dimension.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Allu–Halder state 1/sqrt(2) for the zero-constant disk norm-sum problem. The admissible multiplier diag(w,w^2) gives 10/9 at 2/3, so that bound as stated does not hold.",
+          "The complete-Pick Drury–Arveson comparison of Brevig–Seip–Zlotnikov is unanchored and scalar; Bhowmik–Das's theorem uses operator order."
+        ],
+        "reasoning": "No valid dominating inequality in the inspected sources yields the asserted coefficientwise operator profile. In one variable even a finite matrix witness rules out transplanting the scalar threshold.",
+        "searches": [
+          "arXiv:2111.11713 Lemma 2.2",
+          "arXiv:2609.26395v1, pp. 1–3",
+          "arXiv:2003.05810 Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary faf5bb2ac122",
+        "arXiv:2609.26395v1",
+        "arXiv:2111.11713",
+        "arXiv:2003.05810"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The balanced two-variable point of norm 2/5 belongs to the earlier zero-anchored scalar set and is excluded from the operator set.",
+          "Independent diagonal channels attain different coefficient norms on different vectors; the joint same-vector estimate used for scalar coefficients cannot bound their sum."
+        ],
+        "reasoning": "These comparisons rule out treating the target as a parameter substitution into a scalar theorem or a consequence of a bound in operator order. The one-variable scalar radius is credited.",
+        "searches": [
+          "Resultary faf5bb2ac122 RESULT.md",
+          "arXiv:2609.26395v1",
+          "arXiv:2111.11713 Lemma 2.2",
+          "arXiv:2003.05810 Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bhowmik–Das, pp. 2–3, distinguish sums of positive operator absolute values from scalar sums of separate operator norms.",
+          "The Resultary scalar record takes absolute values of scalar Taylor coefficients with f(0)=0."
+        ],
+        "reasoning": "Even with just two orthogonal coefficient projections the positive operator sum has norm equal to the maximum of their two weights, not their sum. Neither operator order nor scalar majorants are equivalent to the target.",
+        "searches": [
+          "arXiv:2003.05810",
+          "arXiv:2111.11713",
+          "Resultary faf5bb2ac122"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary faf5bb2ac122, RESULT.md Finding: the zero-centered scalar set is the Euclidean ball of radius 1/sqrt(2), with scalar boundary extremizers and a scalar radial crossing law."
+        ],
+        "reasoning": "The indexed result is genuinely close, but it concerns the scalar extremal problem; it neither tabulates nor determines the nonradial operator-norm profile. Ranked non-retrieval of a second exact result is not proof of absence.",
+        "searches": [
+          "Resultary: zero-centered Drury–Arveson Bohr ball and operator coefficient norms; strongest hit faf5bb2ac122"
+        ]
+      },
+      "rationale": "The closest known same-space and same-normalization pointwise result is scalar; it does not apply to sums of separate operator norms. The operator-order literature uses a different majorant, and the stronger-looking Allu–Halder disk radius is contradicted within its stated operator-valued class. On the checked evidence the unrestricted coefficient-dimension, zero-anchored, factorial-weighted pointwise formula is distinct. No priority is claimed for the scalar threshold, the normalized-monomial calculation as a technique, or a fixed matrix-size optimum.",
+      "residual_risks": [
+        "A different-nomenclature coefficient supremum in operator-space or symmetric-Fock literature could give equivalent coverage; priority is not certified by the bounded searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the anchored scalar problem only",
+          "evidence": "Scalar coefficient moduli, Euclidean set of radius 1/sqrt(2); neither matrix coefficients nor diagonal saturation of all norms are in the finding.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-the-sharp-zero-centered-bohr-ball-for-drury-arveson-multipliers--faf5bb2ac122",
+          "material_read": "Mirrored RESULT.md, Finding at offset 0",
+          "method": "Compared the multiplier class, majorant and set",
+          "title": "The sharp zero-centered Bohr ball for Drury–Arveson multipliers",
+          "trigger": "Same space, anchoring and exact pointwise set"
+        },
+        {
+          "assessment": "Distinct normalization and range",
+          "evidence": "Scalar Drury–Arveson ball of radius 1/3; the constant term is included and no vanishing condition is imposed.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.26395",
+          "material_read": "v1 PDF abstract p. 1 and definition pp. 2–3 (offset 3477)",
+          "method": "Inspected primary PDF definitions and statement",
+          "title": "Bohr sets for multiplier algebras of complete Pick spaces",
+          "trigger": "Broader kernel framework and exact Drury–Arveson classification"
+        },
+        {
+          "assessment": "Earlier assertion is false for the stated arbitrary operator-valued norm sum",
+          "evidence": "diag(w,w^2) is contractive, vanishes at zero and has majorant 10/9 at r=2/3 < 1/sqrt(2).",
+          "identifier_or_url": "https://arxiv.org/abs/2111.11713",
+          "material_read": "Primary PDF pp. 1–3 definitions and p. 6 Lemma 2.2 (offset 20199)",
+          "method": "Checked the hypotheses and substituted an explicit diagonal disk multiplier",
+          "title": "Operator valued analogues of multidimensional Bohr's inequality",
+          "trigger": "Apparently stronger radius under the same disk norm-sum convention"
+        },
+        {
+          "assessment": "Different majorant",
+          "evidence": "The theorem bounds sum_n |A_n| r^n in operator order, which does not bound sum_n ||A_n|| r^n.",
+          "identifier_or_url": "https://arxiv.org/abs/2003.05810",
+          "material_read": "Primary PDF pp. 2–3 (offset 3500), distinction of inequalities and Theorem 1",
+          "method": "Compared operator-order and norm-sum statements",
+          "title": "Bohr phenomenon for operator valued functions with fixed initial coefficient",
+          "trigger": "Potentially equivalent operator Bohr bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact amplification of a natural scalar Bohr problem is not just a radius change: it gives a nonradial pointwise set, loss of every positive Euclidean inradius in infinitely many variables, and a finite counterexample to a plausible norm-sum generalization. The single multiplier attaining all bounds identifies precisely why the scalar estimate does not transfer.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

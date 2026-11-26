@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The affine recursion admits a unique stationary distribution by contraction. All Gaussian moments through degree five agree with those of the three-atom rule, so all joint stationary polynomial moments of total degree at most five agree by finite truncation and dominated/moment convergence. The first mismatch is an exact sixth-cumulant calculation. The biased ternary coding at ratio one third proves full support, no atoms, and singularity via incompatible strong-law digit frequencies; this yields the unit total-variation distance. A cylinder entropy argument provides the exact Hausdorff dimension. Three disjoint equal-radius maps yield the sharp support-connectivity frontier. The standalone rational arithmetic checker confirms the finite algebra independently of the narrative; it does not serve as a substitute for the measure proofs.
+## correctness
 
-## Originality — PASS, qualified
-Full material inspected: López-Yela–Míguez (arXiv:2106.06271), especially their introduction, polynomial-moment recurrence and density-recovery analysis; Li–Lu–Mattingly–Wang (arXiv:1812.11932), especially Algorithms 1 and 2 with precisely the \(1/6,2/3,1/6\) weights and an additional Gaussian noise component. Neither examined full text states the purely discrete exact-OU invariant-law singularity, matching all stationary fifth-degree joint moments, sharp one-third support transition, and exact sixth-moment defect. General weak-approximation literature such as Zähle (2008) concerns distributional convergence of refining schemes rather than the particular fixed-step measure. Published mathematical records and accessible prior claims were searched by exact mathematical objects and implications, including adjacent stationary OU covariance results; no dominating statement identified. Standard biased ternary digit theory and Gaussian quadrature are not claimed as novel. Residual risk: a specialized digital OU/iterated-function-system treatment may already contain the entire synthesis, and independent priority verification is outstanding.
+PASS
 
-## Value — PASS
-This is a structurally motivated counterexample to diagnosing a stationary sampler using only low-order joint moments or all autocovariances. The example uses the *smallest possible finite Gaussian quadrature alphabet*, attains the boundary between Cantor support and full interval support, and quantifies both a maximal qualitative distributional discrepancy and the exact first detectable polynomial statistic. The target Gaussian invariant measure is ubiquitous in SDE numerics, so the precise distinction is mathematically relevant; the result does not claim practical superiority or numerical weak convergence failure as steps shrink.
+The recursion uses the exact OU drift coefficient and innovation variance, not the exact Gaussian transition. The three-atom rule has odd moments zero and even moments 1,3,9 at degrees 2,4,6. A one- or two-atom rule cannot be exact through degree four because the square of its vanishing polynomial would integrate to zero instead of a positive Gaussian value. For three atoms, the monic vanishing cubic is Gaussian-orthogonal to degrees 0–2 and hence is t^3-3t; the remaining linear moment equations fix the weights. Contraction gives the unique stationary innovation series. Finite series match all joint monomials of total degree <=5 by independence, and geometric L^5 convergence passes those identities to the stationary process at any finite set of grid times. The sixth cumulant is -6 v^3(1-r^2)^3/(1-r^6); exact rational evaluation at r=1/3 yields -384v^3/91 and centered moment 981v^3/91. The balanced ternary series at that r has support [-sqrt(6v),sqrt(6v)] because every ternary cylinder has positive mass, has no atoms since any point has at most two codings and prefix probabilities are <=(2/3)^n, and is singular by the disjoint almost-sure digit frequency vectors for its law and Lebesgue measure. Thus TV as defined is one. Typical cylinder masses have exponent H/log(3); counting typical cylinders gives the upper dimension, and a restriction of positive measure with cylinder mass bounded above by 3^(-ns) uniformly for large n gives the lower bound for every s<H/log(3), since short intervals meet at most two cylinders at comparable scale. The dimension of the measure is 0.789690082143 to the stated precision. For the support frontier r>=1/3 exactly makes the three first-level intervals touch or overlap; below it they are separated. The supplied verify.py was inspected but not executed; the analytic series and entropy arguments establish the infinite claims independent of those finite checks.
 
-## Limitations
-Only the scalar OU exact-drift/noise-surrogate chain is treated. Moment equality is through total degree five, not beyond. Singularity at the critical contraction is proved, not at every interval-support ratio. The support dimension and singularity use classical ternary measures. Independent scientific validation and historical-priority verification remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Gaussian quadrature and biased-ternary measure facts are classical. The supported distinct claim is the scalar stationary numerical OU counterexample combining interval support, maximal TV error, and exact joint moments through degree five, with the first mismatch quantified. Neither the inspected numerical schemes nor the closest indexed invariant-law, covariance or ternary examples establish that combination.
+
+## value
+
+PASS
+
+A scalar OU grid is a natural setting to test whether fitting finite moments controls a stationary law. The minimal Gaussian moment rule reaches the tight boundary at which every interval subcylinder is occupied, yet yields TV error one while matching joint grid moments through degree five. This isolates a concrete failure of invariant-law fidelity that is stronger than merely non-Gaussian noise or an obvious gap in support. It does not claim a small-step theorem or novelty for Gaussian quadrature or biased ternary measures.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:14:05.177356Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An MMD pair can only be strongly resolved by one of its endpoints: a geodesic from a third resolving vertex would extend past an endpoint and produce a neighbor farther from the other endpoint. Conversely any shortest path can be extended as a contiguous subpath to a maximal geodesic, whose endpoints are MMD; a cover then resolves the original pair. Thus sdim=50-alpha(R). I independently reconstructed distances by simultaneous shortest-path relaxation from the two layer representatives, recovered the frozen distance rows and checked all 1225 pairs for mutual maximality. R has only the outer steps ±5,±7,±9,±11,±12 and inner steps ±9,±11 (125 and 50 edges). In the outer component rotate a nonempty independent set to contain 0: its 14 other available indices are partitioned into the five exhibited cliques, giving at most six. In the inner component the cycles t+9j for j=0,...,4 and t=0,5,10,15,20 close by an allowed step and partition the vertices (9 is invertible modulo 5); each supplies at most two independent vertices. The displayed witnesses realize both bounds. An independent take-or-skip bitset recurrence also gave independence numbers 6 and 10, and the complement directly resolved all 1225 pairs. Own replay: python3 /workspace/evidence/5/check_dimension.py. Frozen BFS and Floyd programs and outputs were inspected, not executed. The 2015 prediction comparison is correct; the published upper bound is not contradicted. The 2017 formulation is a bibliographic detail with the access limitation below.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Corollary 1 gives sdim(GP(4k+1,2))<=5k+5 for k>=3, not equality. The November record claims all 125 minimum strong resolving sets for GP(25,2), in addition to its dimension."
+        ],
+        "reasoning": "The general upper bound specializes only to <=35; other parity formulas do not apply. The all-bases classification demonstrably contains the October numerical statement but the inspected record was published later, not established as an earlier dominating theorem.",
+        "searches": [
+          "Resultary: Kratica Kovacevic Vujcic Cangalovic GP(4k+1,2) 5k+5 open problem",
+          "arXiv:1507.00881v1, Corollary 1 and Open Problem 1",
+          "Resultary: 2026/11/22/d77d7a0f3f14, finding and proof"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1507.00881v1",
+        "DOI:10.2298/AADM161110032K (bibliographic only in this review)",
+        "Resultary 2026/11/22/d77d7a0f3f14",
+        "Frozen result, metadata, verification scripts and outputs"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Open Problem 1 proposes equality for k>=5, hence 35 at k=6, but supplies no proof. The frozen matching outer/inner independence certificates give 34, consistent with the proved bound. Both records' declared publication dates were inspected."
+        ],
+        "reasoning": "The proposed equality is falsified; the upper bound cannot imply the value. The later all-bases record exhibits actual theorem overlap, not merely the same parameter, but does not establish that the October finding followed from a previously available exact evaluation.",
+        "searches": [
+          "arXiv:1507.00881v1, offsets 27000 and 30212",
+          "2026/11/22/d77d7a0f3f14, RESULT.md and METADATA.json"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The preprint uses the same GP(n,k) edges. The graph-cover reduction is established background. The November Resultary record uses the same graph and invariant, also with the MMD/independence reduction."
+        ],
+        "reasoning": "Strong resolution, MMD vertex cover and the independence number of the same strong-resolving graph are equivalent here. Ordinary metric, partition and Gaussian-positivity invariants are not alternate names for this result.",
+        "searches": [
+          "Resultary: GP(25,2) strong metric dimension",
+          "Resultary: strong metric dimension GP(n,2) exact n=25 later results",
+          "arXiv:1507.00881v1, graph definition and Corollary 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 4 is explicitly limited to n<=19, not n=25. The exact catalogue hit with value 34 is 2026/11/22/d77d7a0f3f14."
+        ],
+        "reasoning": "The table cannot give the target invariant; the exact later hit must not be described as absent. No other exact database entry was identified in the limited comparison.",
+        "searches": [
+          "Resultary: \"34\" \"strong metric dimension\" generalized Petersen",
+          "arXiv:1507.00881v1, Table 4"
+        ]
+      },
+      "rationale": "The supported distinct contribution of the October record is the exact 34-versus-35 counterexample with matching structural optimality certificates. The closest primary theorem proves only an upper bound. A distinct November 22 Resultary result exactly covers the numerical value and the counterexample and goes further by classifying the bases; it is expressly credited. Its declared publication date is after the frozen source's October 18 publication date. It is not demonstrated prior coverage of the October finding, and the catalogue chronology does not establish independent discovery or wider priority. No earlier covering exact result was verified.",
+      "residual_risks": [
+        "The exact 2017 journal passages were not recovered independently, so journal-specific phrasing is unconfirmed.",
+        "The later overlap is substantive and its publication date is known, but the relationship between the records and any unindexed earlier evaluation were not established. No universal priority claim follows."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proved upper bound and conjectured equality only at n=25",
+          "evidence": [
+            "Same edge convention; upper bound 5k+5; exact table through n=19; Open Problem 1 proposes equality for k>=5. The wording about experimental results in this version introduces the separate 4k+3 problem."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1507.00881v1",
+          "material_read": "Definition near offset 5000; Corollary 1 and Table 4 near 27000; Open Problem 1 near 30212",
+          "method": "Open primary HTML, bounded passages",
+          "title": "The strong metric dimension of some generalized Petersen graphs (2015 preprint)",
+          "trigger": "Same family and invariant, exact table and proposed formula"
+        },
+        {
+          "assessment": "Exact journal phrasing unconfirmed in this review",
+          "evidence": [
+            "Frozen record reports that the journal retains the bound and calls equality experimental. The independently read preprint directly establishes the relevant prediction and bound, but not the journal-specific wording."
+          ],
+          "identifier_or_url": "https://doi.org/10.2298/AADM161110032K",
+          "material_read": "Bibliographic identity; not the journal full text",
+          "method": "Lawful publisher PDF and article retrieval attempts; DOI-linked submitted manuscript identified as the 2015 version, not used as a proxy for journal wording",
+          "title": "The strong metric dimension of some generalized Petersen graphs (2017 journal version)",
+          "trigger": "Published revision could alter the theorem, table or phrasing"
+        },
+        {
+          "assessment": "Exact overlap on dimension and counterexample, stronger all-bases claim, catalogued later",
+          "evidence": [
+            "States sdim=34 and describes 125 bases indexed by a modulo 25 and b modulo 5; publication_date 2026-11-22."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-sharp-counterexample-and-all-strong-metric-bases-of-gp-25-2--d77d7a0f3f14",
+          "material_read": "RESULT.md offsets 0–8036, including finding and optimality/classification; METADATA.json publication date",
+          "method": "Published local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A sharp counterexample and all strong metric bases of GP(25,2)",
+          "trigger": "Exact same object, number and counterexample, potential dominating result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This one 50-vertex case directly refutes a named equality for every k>=5 at k=6 rather than extending a table for its own sake. The compact clique and odd-cycle certificates explain why the value is exactly 34 and provide a witness any proposed replacement formula must fit. No full odd-order classification is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

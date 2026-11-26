@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:02:59.098523Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Assumptions and Proof",
+        "Frozen VERIFICATION.md; verify.py inspected, not executed (bounded exhaustive examples, not needed for the general proof)",
+        "Frozen AUDIT.json (self-review, not independent evidence)"
+      ],
+      "rationale": "The only endpoint pair at distance three is the missing edge's endpoint pair: same-side vertices share a neighbor in the nonempty residual opposite part, and all other opposite-side pairs are adjacent. Thus only triples consisting of two opposite spokes and their connecting middle edge can violate the condition. Fixing i included left and j included right spokes prohibits precisely their ij connecting middle edges and leaves all other middle choices free, yielding the binomial all-set enumerator. A maximal set must include every permitted middle edge. With both spoke sets nonempty, each missing spoke completes a forbidden triple using an included opposite spoke and a permitted middle edge, so it is blocked. With one side empty, all spokes of the other side must be chosen, which then blocks every spoke on the empty side; two empty sides are not maximal. The two one-sided cardinalities are st+t and st+s; mixed sizes equal st+1−(i−1)(j−1), ranging from the attained minimum s+t to the attained maximum st+1. These conclusions also hold for s=1 or t=1; at s=t=1 the graph is a three-edge path and the maximal polynomial is 3z². At s=t=m≥3 the mixed maximum is m²+1 and the only larger size is m²+m, omitting exactly the stated intervening m−2 integers. All counts distinguish actual labeled subsets.",
+      "residual_risks": [
+        "No assertion for more than one deleted edge or for symmetry classes of subsets."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The diameter-two result implies all edge subsets are admissible in the original biclique but not after its diameter becomes three. The scalar m(G)−1 characterization covers the maximum when a part has size two, not the enumerators.",
+          "The generalized edge k-general-position paper studies a maximum invariant and other graph families in the inspected material. The Cao–Ji–Wang full text was not accessed."
+        ],
+        "reasoning": "A scalar maximum gives only the top degree, not coefficients, inclusion-maximal sets below that degree, or missing intermediate sizes. No broader theorem read here directly determines these additional data.",
+        "searches": [
+          "Manuel–Prabha–Klavžar arXiv:2105.04292 and 2207.07357",
+          "Tian–Klavžar–Tan arXiv:2302.01587, Lemma 2.1 and Theorem 2.2",
+          "Cao–Ji–Wang DOI 10.1007/s40840-025-01873-x, lawful access attempts"
+        ]
+      },
+      "checked_sources": [
+        "Resultary af943c518354 and 964bdcf6d755",
+        "arXiv:2105.04292, 2302.01587, 2207.07357",
+        "Cao–Ji–Wang DOI access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The later match reproduces the balanced missing sizes themselves, not just the same largest size. The earlier scalar statement and perfect-matching result do not imply the all-subset or all-facet polynomials."
+        ],
+        "reasoning": "At most the extremal scalar cases get credited to the earlier literature based on the available evidence. The presence of mixed and one-sided facets, and the resulting gap between them, depend on a classification rather than a maximum-only theorem.",
+        "searches": [
+          "Resultary af943c518354 Finding, All-set polynomial, Facet classification, Extrema and spectrum; earlier crown Finding; Tian–Klavžar–Tan §2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2026-11-22 Finding and proof sections report literally matching expressions after relabeling for the residual sizes m−1,n−1, with original part sizes m,n≥3.",
+          "Complementing in the pq−1 edge-vertices of the forbidden-triple hypergraph maps maximal independent sets to inclusion-minimal vertex covers; the dual polynomial is z^(pq−1) M_(p,q)(1/z). No distinct exact earlier catalog match for this dual enumeration surfaced in the bounded check."
+        ],
+        "reasoning": "The translation really preserves the data, unlike replacing inclusion-maximal by maximum. The exact later match is substantive, but its publication metadata is later and its scope excludes parts of size two. No historical inference of dependence is drawn.",
+        "searches": [
+          "Configured Resultary semantic search: K_(p,q) minus one edge, edge-general-position facet polynomial, maximal spectrum and gaps",
+          "Geodesic-triple hypergraph, maximal independent sets and inclusion-minimal vertex covers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The later indexed record gives identical all-set and facet polynomials, the same count and balanced gap on its stated range. The earlier crown-graph record gives a maximum under deletion of a perfect matching instead."
+        ],
+        "reasoning": "The available theorem index has a real exact-formula hit, which is more relevant to this infinite family than small-case coefficient tables. Its later date limits what it shows about the frozen claim's originality, while the earlier perfect-matching scalar result has neither the same range nor the same invariant.",
+        "searches": [
+          "Configured Resultary exact/semantic enumerator comparison: af943c518354 and crown graph 964bdcf6d755"
+        ]
+      },
+      "rationale": "The earlier inspected sources cover the scalar maximum for certain graph classes and the undeleted diameter-two case, not the complete two polynomials or the unbounded gap. There is a distinct exact catalog overlap on p,q≥3, including the central gap statement, in a record dated 2026-11-22, later than the frozen 2026-10-26 record; it is not ignored, but does not establish antecedent coverage. The pass concerns the complete enumerators and the facet-size effect at the frozen record, not the edge-general-position definition, the scalar maximum by itself, or the thin-class extension by itself.",
+      "residual_risks": [
+        "The 2025 paper may cover the scalar number in this family or have more structural material; no claim of full-document noncoverage is made. The later exact catalog equivalent is expressly credited, and unindexed antecedents remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap for p,q≥3; distinct later record, not earlier priority evidence",
+          "evidence": "Identical expressions, facet count and balanced gap; source commit date 2026-11-22 UTC.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-full-edge-general-position-and-facet-polynomials-after-one-bipar--af943c518354",
+          "material_read": "RESULT.md Finding, All-set polynomial, Facet classification, Extrema and spectrum, plus SOURCE.json UTC date",
+          "method": "Configured search and local mirror",
+          "title": "Full edge-general-position and facet polynomials after one bipartite edge deletion",
+          "trigger": "Direct same-graph polynomial and spectrum match"
+        },
+        {
+          "assessment": "Different deletion pattern and scalar, not a facet enumeration",
+          "evidence": "Maximum for K_(n,n) minus a full perfect matching.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-edge-general-position-number-of-crown-graphs--964bdcf6d755",
+          "material_read": "RESULT.md Finding",
+          "method": "Configured Resultary search and source comparison",
+          "title": "Edge general position number of crown graphs",
+          "trigger": "Earlier reference on edge-deleted bicliques"
+        },
+        {
+          "assessment": "Definition and max-only results; different families",
+          "evidence": "Maximum size of an edge-general-position subset, and results for hypercubes, grids and trees.",
+          "identifier_or_url": "https://arxiv.org/pdf/2105.04292",
+          "material_read": "v1 pp. 1–2, PDF extraction offset 0",
+          "method": "OA PDF passage inspection",
+          "title": "Edge general position problem",
+          "trigger": "Foundational definition and exact scalar results"
+        },
+        {
+          "assessment": "Covers undeleted scalar baseline and scalar maximum at p=2 or q=2",
+          "evidence": "Characterizes gpe(G)=m(G) by diameter at most two, and characterizes the m(G)−1 maximum case.",
+          "identifier_or_url": "https://arxiv.org/pdf/2302.01587",
+          "material_read": "v2 pp. 1–3, offsets 0 and 5933, Lemma 2.1 and Theorem 2.2",
+          "method": "OA PDF passage inspection",
+          "title": "Extremal edge general position sets in some graphs",
+          "trigger": "Extremal results affecting original or defective bicliques"
+        },
+        {
+          "assessment": "Maximum-cardinality problem, not the complete facet enumeration in passages read",
+          "evidence": "Introduction of generalized edge k-position and results for other graph families.",
+          "identifier_or_url": "https://arxiv.org/pdf/2207.07357",
+          "material_read": "v1 pp. 1–2, offset 0",
+          "method": "OA PDF passage inspection",
+          "title": "Generalization of edge general position problem",
+          "trigger": "Broader edge k-general-position setting"
+        },
+        {
+          "assessment": "Full-text coverage unknown",
+          "evidence": "Description includes bipartite families; both publisher routes timed out and no accessible repository copy was located.",
+          "identifier_or_url": "https://doi.org/10.1007/s40840-025-01873-x",
+          "material_read": "Metadata and abstract documented in frozen source; independent access responses, no full text",
+          "method": "Lawful publisher direct/VPN and repository-copy checks",
+          "title": "The edge general position number of some graphs",
+          "trigger": "Plausible same family in 2025 scalar study"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, both enumerators and the balanced-family proof",
+        "Tian–Klavžar–Tan Lemma 2.1 for the undeleted baseline"
+      ],
+      "rationale": "Deletion of one edge is the natural smallest perturbation of a diameter-two biclique. Before deletion its edge-general-position complex is a simplex; afterward the full size and facet polynomials describe which choices remain and how many. In particular a single deletion creates arbitrarily long gaps in sizes of inclusion-maximal sets, a structural effect invisible to the scalar maximum and not inferred from a small finite census.",
+      "residual_risks": [
+        "Does not show whether comparable gaps survive other classes of deletions or occur for unlabeled orbit counts."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

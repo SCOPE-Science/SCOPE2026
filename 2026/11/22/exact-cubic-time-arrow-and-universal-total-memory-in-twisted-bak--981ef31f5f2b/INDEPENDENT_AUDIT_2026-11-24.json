@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:45:19.514856Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each inverse branch has Jacobian modulus 1/2 and is defined off null boundaries. Averaging the inverse pullbacks gives the transfer adjoint under the invariant normalized Lebesgue law. In the centered coordinate and centered square basis the inverse pullbacks only permute coordinates or apply affine maps to one coordinate; squaring therefore produces no mixed coordinate terms. Substitution gives the only quadratic-to-affine row (-1/4, 1/2, 0, ...), in the first square. The first-coordinate uniform law and independence of the centered coordinates give V_M(n)=0 from affine transfer and U_M(n) equal to the first-square to first-coordinate entry of the nth transfer power divided by 3. In the affine and square blocks the sole nondiagonal determinant term is the closing cycle. Cofactors yield the diagonal entries t_M/D_A and t_M/D_Q and affine (2,1) entry -z^(M-1)/(2^M D_A); the off-block resolvent gives the claimed numerator. M=2 uses the same rows with the interior row range empty. Removing the wrap terms gives -z/[12(1-z/4)(1-z/8)]; the corrections in the two denominators cannot affect this series until lag M+1, while the extra numerator first contributes -1/(3*2^(M+1)) at lag M. The cycle identities exclude every eigenvalue of modulus at least 1: the two left-side products have lower bounds 3/2^(M+1) and 7/2^(M+2), respectively, larger than the cycle products. Thus absolute convergence permits z=1, where D_A=t_M and D_Q=3t_M/4 and the sum is -2/9. At n=1 the unequal cubic moments already disprove time reversibility. Replay: python -B branches/independent_reproductions.py 1 from /workspace, an exact raw inverse-branch integration (not a centered transfer-matrix reproduction) checking both directions for M=2,...,8 and n=0,...,9. These finite results corroborate, not replace, the general proof. No claims about perturbations, later-lag signs, or entropy production follow.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem D supplies mixing/Bernoulli coding for the same map. The first-coordinate affine autocovariance result gives an exact rational generating function and zero positive-lag sum. The quadratic-memory result supplies degree-two transfer in dimension two and a squared-radius autocovariance."
+        ],
+        "reasoning": "Mixing/coding does not evaluate this matrix element; the affine calculation already covers V via parity but not the square-to-affine forcing in U. The dimension-two transfer covers its specialization, not its extension to arbitrary M.",
+        "searches": [
+          "arXiv:2202.04304, Theorem D",
+          "Resultary 765a4f4ba4c8 and e3529d4c0e98"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2202.04304 Theorem D and coding",
+        "Resultary 765a4f4ba4c8, e3529d4c0e98, 2158555bdbfa, and 981ef31f5f2b self-match; unresolved 6378ac265437 lookup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known first-coordinate covariance resolvent has the affine denominator but not the quadratic block nor the mixed resolvent element. The two-dimensional quadratic result gives Pq=(5/8)q-u/4+v/4 for the squared-radius observable in its coordinates. The cited Nov. 8 comparison could not be resolved to a readable original Finding."
+        ],
+        "reasoning": "The new all-M path can leave the square block for the affine block and first wrap at M; it is not determined by a stated second-order invariant. Do not infer coverage or noncoverage from the unresolved title.",
+        "searches": [
+          "Exact local-mirror Finding of 765a4f4ba4c8 and Finding/transfer of e3529d4c0e98",
+          "Nov. 8 cited same-map 6378ac265437 lookup by ID and title"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "U is the transfer matrix element between centered x_1 squared and x_1. V reverses the observables. The cited interval-map result gives cubic generating functions and reversal criteria for three distinct times with positive gaps."
+        ],
+        "reasoning": "The two-time statistic repeats one time; even a zero-gap extension of that interval theorem would require different state-map hypotheses. It is not equivalent to the spatially twisting map.",
+        "searches": [
+          "Resultary same-map cubic/time-reversal and quadratic-memory comparisons",
+          "Resultary 2158555bdbfa, general third-order correlations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit 981ef31f5f2b is this finding, not an independent precedent. Retrieved distinct entries supply autocovariances or a result for another map class."
+        ],
+        "reasoning": "No comparable entry was found giving the all-dimensional forward formula or sum. This bounded catalog evidence is not priority by non-detection.",
+        "searches": [
+          "Resultary: twisted baker ordered cubic two-time moment, first wrap and total memory"
+        ]
+      },
+      "rationale": "Pass the all-dimensional forward mixed cubic transfer, sharp dimension-sensitive onset, and its integrated -2/9. The affine transfer is established, and it directly gives the vanishing reverse moment by parity and independence; do not credit that part alone as distinct. There is also real overlap with previous degree-two transfer for M=2. The inspected strongest earlier statements do not supply the all-M mixed cross-degree calculation and its evaluated response.",
+      "residual_risks": [
+        "The cited Nov. 8 same-map finding was not retrievable for statement comparison.",
+        "An equivalent all-dimensional mixed transfer could exist elsewhere. Neither the affine-derived reverse zero nor the dimension-two transfer is claimed as independent novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "established dynamics, not an evaluated mixed moment in this passage",
+          "evidence": [
+            "Theorem D asserts mixing and gives coding; it is not a third-moment formula."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2202.04304",
+          "material_read": "Theorem D and Bernoulli-coding discussion, p. 5 offset about 12170",
+          "method": "lawful OA PDF, matched passage",
+          "title": "The twisted baker map",
+          "trigger": "primary result defining the same map and law"
+        },
+        {
+          "assessment": "affine second-order coverage, including transfer sufficient for reverse zero",
+          "evidence": [
+            "Rational first-coordinate autocovariance, zero positive-lag covariance sum and variance 1/3; no forward square-linear coefficient in that statement."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2, 765a4f4ba4c8",
+          "material_read": "RESULT.md Finding, local-mirror offset about 149",
+          "method": "semantic lookup and exact local mirror",
+          "title": "Oscillatory coordinate memory and dimension-free variance in the twisted baker map",
+          "trigger": "same map, measure, coordinate and parameter family"
+        },
+        {
+          "assessment": "degree-two overlap in M=2, not all-M mixed transfer",
+          "evidence": [
+            "The specified squared-radius autocovariance is 8(5/8)^k/45, and its proof includes quadratic-to-affine terms in M=2."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2, e3529d4c0e98",
+          "material_read": "Finding offset 32 and transfer passage offset 2431",
+          "method": "exact local mirror",
+          "title": "A sharp quadratic-memory resonance in the twisted baker map",
+          "trigger": "same-map degree-two approach"
+        },
+        {
+          "assessment": "different hypotheses and time statistics",
+          "evidence": [
+            "Full-branch affine interval maps and positive-gap, three-time correlations; no dimension-M spatial twist or two-time correction."
+          ],
+          "identifier_or_url": "Resultary 2026/10/18, 2158555bdbfa",
+          "material_read": "Finding, local-mirror offset 32",
+          "method": "exact local mirror",
+          "title": "Exact third-order correlations distinguish full-branch interval maps with identical linear and quadratic autocorrelations",
+          "trigger": "rational cubic correlations and reversal criteria"
+        },
+        {
+          "assessment": "unresolved, not used to establish noncoverage",
+          "evidence": [
+            "Cited at RESULT.md line 118; no verified mathematical passage from this source."
+          ],
+          "identifier_or_url": "Cited 2026/11/8, 6378ac265437",
+          "material_read": "frozen bibliography only; original Finding not retrieved",
+          "method": "cited ID/local-mirror and targeted Resultary resolution attempted",
+          "title": "Exact delayed anticorrelation and dimension-free diffusivity for twisted baker maps",
+          "trigger": "potentially strong same-map lag comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A two-time moment detects irreversible dependence that ordinary stationary covariance cannot. The sharp onset of spatial feedback and the exactly dimension-independent integrated response give complementary information for a standard studied family of maps. These quantitative statements require the quadratic-to-affine mechanism, not merely the single easy witness of nonreversibility.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

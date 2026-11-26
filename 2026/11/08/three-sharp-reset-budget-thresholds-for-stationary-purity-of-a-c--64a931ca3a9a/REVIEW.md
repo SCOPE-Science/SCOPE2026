@@ -1,21 +1,21 @@
-# Review: sharp fixed-mean clocked-qubit purity classification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the exactly specified equilibrium-renewal interpretation, \(\Pr(A=a)=\Pr(L>a)/\mu\) and the finite geometric sum give \(z=(1-\mathbb E[i^L])/[\mu(1-i)]\), so purity is \(1/2+|1-\mathbb E i^L|^2/(4\mu^2)\). The two explicit pointwise support inequalities provide dual lower certificates with equality only on \(\{1,3\}\) and \(\{1,3,4\}\), and the fourth-root-of-unity triangle bounds give the upper certificates. Strict equality cases and the remaining residue-class optimizers follow from the same inequalities. The convexity of the fixed-mean probability-law set and continuity of purity prove interval completion. The companion standard-library checker uses exact rational arithmetic for 69,251 diagnostic assertions; these finite tests support but do not prove the universally quantified theorem.
+PASS
 
-## Originality — PASS, qualified
+The equilibrium age is P(L>a)/μ at each a≥0. Summation and expectation can be exchanged because the absolute sum is μ. The cycle geometric series gives z=(1−E iᴸ)/(μ(1−i)); the diagonal entries are each 1/2, so the purity correction is |1−E iᴸ|²/(4μ²). Write w=1−E iᴸ. For u=2−μ in [1/2,1], the per-length linear support inequality gives Re w−u Im w≥1+u², tight at lengths 1 and 3, with length 4 also tight at u=1/2 but excluded by the required Re w=1. At μ between 3/2 and 4 the other linear support inequality gives 2 Re w−Im w≥4−μ, tight at 1,3,4; projecting to that line and applying the moment constraint gives precisely the stated weights. Zero norm forces residue 0 mod 4; at mean 4 this forces a point mass. For μ≤2, δ=E(i−iᴸ) has nonpositive real inner product with 1−i and norm at most √2(μ−1); the pointwise norm inequality is strict for every length over 2, so the unique optimizer has support in {1,2}. Above mean 2 the farthest point in the residue polygon is w=2, forcing residue 2 mod 4. Every real mean in a stated unbounded-support regime is attainable by mixing adjacent eligible lengths, and mixing extremizers yields all intermediate purity values at fixed mean. This reasoning does not assume synchronized convergence. An independent exact check computed the closest and farthest squared norms of the feasible residue polygon at 217 rational means, including all three thresholds. Replay: python3 /workspace/reproductions/frozen_checks.py 3. Finite polygon samples corroborate but do not certify the universal formulas or optimizer uniqueness.
 
-Wald, Yao, Platini, Hooley and Carollo, *Stochastic resetting in discrete-time quantum dynamics* (arXiv:2410.11497, first posted 2024-10-15), develop the discrete-time framework, geometric resetting, resonances and non-Poissonian convergence. Their full accessible article, including its non-Poissonian section and appendices, does not supply a prescribed-average-interval stationary-purity range, its three thresholds or an optimizer classification for the quarter-turn gate. Sevilla and Valdés-Hernández, *Dynamics of closed quantum systems under stochastic resetting* (arXiv:2209.05643, first posted 2022-09-12), derive general continuous-time renewal density and purity formulas. Because intervals are not restricted to positive integer ticks there, a continuous-time envelope does not imply the exact discrete-lattice sharp lower floor and equality cases. The same distinction applies to related continuous-time fixed-mean purity classifications. No queried relevant research record or targeted published-literature search produced a statement implying the whole claimed theorem. Searches are not a proof of priority: specialized unindexed lattice-moment optimization or renewal analyses remain a material risk.
+## originality
 
-## Value — PASS
+PASS
 
-A quarter-turn Clifford gate is a canonical physically motivated discrete phase clock. At an unchanged expected reset budget, the complete interval answers which steady ensemble purities are attainable, which schedules are extremal, and when dephasing is exactly possible. The optimizer structures change sharply at three distinct mean intervals, which exposes integer-tick physics not captured by allowing arbitrary real reset durations. This is a structural classification, not merely a benchmark value. The narrow ideal-gate scope and equilibrium-renewal initialization are essential limitations, and no hardware robustness is proved.
+The strongest distinct match treats the same fixed-mean extremal problem in continuous time. The half-turn and full-turn thresholds correspond to 2 and 4 ticks respectively, but its continuum envelope and equality cases do not give the discrete envelope or the additional optimizer transition at 3/2. The equilibrium age and renewal coherence reductions themselves are known. The pass is for the complete tick-constrained classification, not the general resetting model or the half-turn/full-turn mechanism.
 
-## Closest literature and remaining limitations
+## value
 
-- Wald et al., arXiv:2410.11497, full accessible article sections 2–4 and appendices: necessary discrete-time resetting context but not this fixed-budget classification.
-- Sevilla and Valdés-Hernández, arXiv:2209.05643, full accessible preprint: general continuous-time formulas; reset support and therefore extremal feasible sets differ.
-- The general moment-problem convexity machinery may imply a version of the result not identified in the targeted search. Independent scientific audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The quarter-turn phase is a canonical small finite-order gate, and fixed reset budget is the natural constraint. The exact cost of dephasing, the additional integrality-induced support transition below it, and the classification of every attaining law distinguish this from simply evaluating a steady state for a chosen clock. Equilibrium observation allows periodic optimizers without a false convergence interpretation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

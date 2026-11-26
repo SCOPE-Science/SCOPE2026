@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:13:42.381215Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–87, including independent kernel-to-cokernel verification of the rank-two lifting conditions",
+        "Frozen VERIFICATION.md lines 19–22 and verify.py, read and not executed",
+        "Independent direct_ut3_dual_commutator.py, lines 12–96: construct full 12×12 matrices by multiplying T against each coefficient matrix unit in both orders, enumerate the five dual entries after putting the last diagonal entry at zero, and multiply the histogram by q²; replay with python3 direct_ut3_dual_commutator.py. Observed ranks 0–6 for q=2: (4,4,72,112,704,1408,1792); for q=3: (9,18,648,2646,25110,122472,380538). The resulting probabilities are 77/2048 and 169/59049."
+      ],
+      "rationale": "The commutator has zero diagonal and the three upper coordinates give the stated 3×5 map over R after removing a free scalar diagonal. The residue rank-two cases follow by testing when the third row is in the span of the first two: if both are nonzero this requires a≠0, b=−a and aw+uv=0, while a zero first or second row gives the other two cases. Their closures are the two coordinate 3-flats and V(a+b,aw+uv); the last is an irreducible dimension-three hypersurface in the four-space a+b=0 (primitive linear in w with coprime coefficients). Unit elimination leaves εK and gives field rank 2r+rank(K), with K the map induced by the first-order part from the residue kernel to the cokernel. At the rank-one residue w≠0 the kernel condition is t=−s, and K is the stated two-row matrix; rank one counts 2(q²−1) possibilities with exactly one nonzero row plus (q−1)² with both supported in the third column. At rank two with a=u=0 and b≠0, y12 and s are independently free in the residue kernel and K=0 requires a1=u1=0. When a=b=u=0 and v≠0 the relation y12=−ws/v leaves only one linear condition. Reversing indices and transposing gives the other zero-row stratum. In the nonzero-a stratum the residual row after pivoting on a,b is (a+b,−(aw+uv)/a,(−bw+uv)/b); its differentials impose exactly two independent conditions since the last two numerators differ by (a+b)w and a≠0. All these statements hold in characteristic two. Thus the two rank-two types give 3q²(q−1) and 2q(q−1) residue points, with q³ and q⁴ rank-four lifts per point respectively. Adding all lifts and restoring the scalar factor q² yields the seven coefficients in the Finding, positive for q≥2 and summing to q^12. Weighting by q^(12−r) gives the stated commuting probability.",
+      "residual_risks": [
+        "The direct multiplication check exhausts only the two prime fields, not all extension fields or lengths; the all-q conclusion and geometric components follow from the proof. The component statement is set-theoretic and does not assert any scheme multiplicity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Avni–Onn–Prasad–Vaserstein classify full 3×3 similarity over local principal ideal rings",
+          "d19c392a0c2b applies to the same whole algebra for every finite chain-ring length, including length two, but its universal spectrum is indexed by target coordinates or their additive characters"
+        ],
+        "reasoning": "A full-matrix centralizer cannot just be used in place of its intersection with the proper triangular algebra. The indexed chain-ring formula dominates coefficient-ring scope, and covers zero-target pair counts, but its statement does not dominate the elementwise rank statistic.",
+        "searches": [
+          "arXiv:0708.1608 abstract and introduction",
+          "Resultary d19c392a0c2b Finding, formula (1), and prior-work section"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0708.1608, 2006.01493, 1901.07869v1, 2412.20593v2",
+        "Resultary d19c392a0c2b, b56a1e679f3d, ab8c2df75df2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At length two the zero-target shell weights are q²−q, q−1, 1. With a=min(i,j,k), b=min(2,min(i+j,i+k,j+k,2k)−a), the 27-term sum of q^(2a+2b) times the three shell weights is q³(3−3q−6q²+3q³+3q⁴+q⁵). With the factor q^(−14) after pair normalization this exactly yields the frozen probability.",
+          "More generally the fixed-target count is the aggregate Σ_T q^(12−r(T))·1{target∈im(ad_T)}; the Fourier formula just transforms this aggregate. No inversion recovering the histogram or the rank-two residue strata is given in the inspected statement."
+        ],
+        "reasoning": "The commuting-probability corollary is covered outright, but it is not the main classification; the singular-locus lift counts distinguish different conditional ranks at the same residue rank. Field-level pair counts do not resolve these lifts. No indirect implication of the histogram by the entire fixed-target law is asserted or ruled out categorically.",
+        "searches": [
+          "Resultary d19c392a0c2b equations (1)–(2), specialized to length two and zero target",
+          "Resultary b56a1e679f3d and ab8c2df75df2 field-level statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rank r equals 12 minus the field dimension of the additive centralizer inside UT3(R); the histogram is equivalently the distribution of those centralizer dimensions or sizes",
+          "arXiv:1901.07869v1 counts group z-classes by conjugacy of centralizer subgroups; arXiv:2006.01493 studies finite-field invertible triangular groups"
+        ],
+        "reasoning": "Neither group z-class counts nor finite-field group commuting probabilities are the sizes of additive centralizers of all dual-number triangular matrices, counted element by element. A fixed commutator target is also not a fixed first argument in the commutator map.",
+        "searches": [
+          "Primary literature query: ‘upper triangular’ 3x3 matrices dual numbers centralizer dimension rank distribution commutator UT3 chain ring",
+          "Resultary comparisons for dual-number UT3, elementwise adjoint rank and additive centralizer sizes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "d19c392a0c2b gives all same-ring fixed-target ordered pair counts, including 630784 at target zero for q=2 and length two",
+          "b56a1e679f3d and ab8c2df75df2 give fixed-target count strata or formulas for UT3 over the residue field, not over its dual numbers"
+        ],
+        "reasoning": "The exact zero-target count matches one weighted moment of the rank histogram. None of these inspected indexed formulas gives the seven elementwise rank counts. The later date on the chain-ring record does not negate equivalent coverage of the probability; no ordering is inferred beyond the dates themselves.",
+        "searches": [
+          "Resultary title, UT3 dual-number rank distribution and polynomial comparisons; inspect d19c392a0c2b, b56a1e679f3d, ab8c2df75df2 Findings"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the elementwise rank census and the explanation of its lift strata in the whole dual-number algebra. The same-ring chain-ring fixed-target formula in Resultary d19c392a0c2b directly covers the commuting-probability consequence for every q (not just the numeric examples), but counts ordered pairs at fixed target and does not give the rank histogram or the stratified lifts on specialization. Do not credit the probability as a distinct result in this comparison. No inspected primary source or indexed record showed the elementwise census by another formulation; the assessment is not a priority guarantee.",
+      "residual_risks": [
+        "A theorem on elementwise triangular-centralizer types over local rings, or an indirect recovery from multivariate target data, may have escaped the targeted comparison. No priority claim is made for the probability already covered by the broader indexed formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of the commuting count consequence, not the elementwise classification",
+          "evidence": [
+            "Eqs. (1)–(2) give fixed-target pair counts and their Fourier transform.",
+            "For length two and target zero the valuation-shell sum recovers the entire claimed probability polynomial."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22/d19c392a0c2b",
+          "material_read": "RESULT.md Finding at offsets 0–2271 and prior-work comparison around offset 5998",
+          "method": "Local Resultary mirror inspection; independent length-two zero-target specialization",
+          "title": "Universal Fourier and fixed-target commutator spectra of triangular matrix algebras over finite chain rings",
+          "trigger": "Same ring and additive commutator; broader chain-ring scope"
+        },
+        {
+          "assessment": "Field-level fixed-target coverage only",
+          "evidence": [
+            "Gives four additive target-fiber strata and the commuting probability over the field."
+          ],
+          "identifier_or_url": "Resultary 2026/10/13/b56a1e679f3d",
+          "material_read": "RESULT.md Finding and assumptions at offset 0",
+          "method": "Local Resultary search and mirror inspection",
+          "title": "Four commutator-fiber strata in T3(F_q)",
+          "trigger": "Exact residue-field comparator cited by scope"
+        },
+        {
+          "assessment": "Different coefficient ring and statistic",
+          "evidence": [
+            "Counts ordered pairs for each specified field-valued target, rather than ranks of the map for each fixed first argument."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2/ab8c2df75df2",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local Resultary search and mirror inspection",
+          "title": "Exact fibers of the Lie commutator on three-by-three triangular matrices",
+          "trigger": "Could tabulate the same commutator census"
+        },
+        {
+          "assessment": "Full matrix similarity, not an internal triangular census",
+          "evidence": [
+            "The object is M3 and the acting group is GL3."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0708.1608",
+          "material_read": "PDF p. 1, abstract and Section 1",
+          "method": "OA primary-text passage inspection",
+          "title": "Similarity classes of three-by-three matrices over a local principal ideal ring",
+          "trigger": "Centralizers over same kind of local ring"
+        },
+        {
+          "assessment": "Groups over finite fields, not the dual-number algebra",
+          "evidence": [
+            "Studies conjugacy and commuting probabilities in invertible triangular and unitriangular groups over odd-characteristic finite fields."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2006.01493",
+          "material_read": "PDF p. 1, abstract and introduction",
+          "method": "OA primary-text passage inspection",
+          "title": "Branching rules and commuting probabilities for Triangular and Unitriangular matrices",
+          "trigger": "Triangular commuting statistics"
+        },
+        {
+          "assessment": "Group z-classes are different statistics",
+          "evidence": [
+            "Elements are grouped by conjugacy of their group centralizers, not field-linear adjoint ranks in the whole dual-number algebra."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1901.07869v1",
+          "material_read": "PDF p. 1, abstract and introduction around offsets 535 and 1224",
+          "method": "OA primary-text passage inspection",
+          "title": "Conjugacy Classes of Centralizers in the Group of Upper Triangular Matrices",
+          "trigger": "Centralizer distribution terminology in targeted primary search"
+        },
+        {
+          "assessment": "Different algebra and invariant at the statement level",
+          "evidence": [
+            "The stated results concern compatible algebra structures over a field; no direct centralizer-rank comparison is supplied by the abstract."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2412.20593v2",
+          "material_read": "PDF p. 1, abstract",
+          "method": "OA primary-text scope inspection",
+          "title": "σ-Matching and Interchangeable Structures on the Strictly Upper Triangular Matrix Algebra",
+          "trigger": "Triangular algebra result returned by targeted primary search"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md reduction stratification and lifting rule, lines 40–87",
+        "Resultary d19c392a0c2b fixed-target comparison"
+      ],
+      "rationale": "The whole adjoint-rank distribution is a natural exact refinement of the commuting probability: it records how often a typical first argument has each possible number of commuting partners. The simplest nonfield length already has two lift patterns at the same residue rank, explained by the component intersections rather than by interpolation of prime-field counts. The classification and geometric cause of the exceptional lift counts are useful in their own right, independently of the previously covered probability consequence.",
+      "residual_risks": [
+        "No length-three-or-higher rank classification or application to nonsplit rings is inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

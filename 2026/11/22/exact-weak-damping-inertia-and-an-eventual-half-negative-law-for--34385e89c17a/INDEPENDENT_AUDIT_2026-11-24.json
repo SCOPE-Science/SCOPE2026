@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:29:27.019792Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For f(θ)=exp(−tθ^α) on [0,π], α>1 ensures f′(0)=0 and an integrable f″=O(θ^(α−2)) at zero. Two integrations by parts give πm²b_m=(−1)^m f′(π)−∫f″cos(mθ)dθ. The remainder tends to zero, and f′(π)<0 gives strict eventual parity signs and an absolutely convergent Fourier series. The exact circulant identity Λ_{N,k}/N=Σ_{j∈ℤ}b_{|k+jN|} preserves parity for even N. All modes with k and N−k at least the tail threshold have the baseline sign; each of the finitely many remaining positive low frequencies pairs with its distinct mirror for sufficiently large N. Its nonzero b_k dominates an O(N⁻²) alias tail; if b_k=0, every alias other than b_k has the strict baseline sign. The zero mode is positive by its row sum. This yields exactly N/2−1+2J negatives and no zero eigenvalues eventually. On the stated weak-damping interval, h=−f″ is positive on (0,π), even at the upper t endpoint, and πm²b_m=∫h[cos(mθ)−(−1)^m]dθ gives strict parity signs for every m≥1. Aliasing then proves the stated count at every even N, including N=2. This is an analytic proof; the frozen finite floating-point checker is only corroboration. There is no uniform cutoff or odd-grid assertion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The fractional-power record takes 1<p<2 and 4|N and gives a moving graph-distance scale N^p T_N(p)/log N → 2^p(p−1).",
+          "The Gaussian last-failure record gives nτ_n→π in graph-distance units, with a single negative witness below the asymptotic threshold."
+        ],
+        "reasoning": "After converting distance units, the moving positivity thresholds do not specify inertia at a fixed angular t, and the results do not cover all even-grid sizes and real α>1 in the weak-damping interval.",
+        "searches": [
+          "Resultary: fractional powered-exponential kernels and geodesic Gaussian positivity recovery; ac3b9f10edae, 6597725d7d73, 02cd4e63f039"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local mirror: ac3b9f10edae, cd85b57ec580, 6597725d7d73, 02cd4e63f039",
+        "arXiv:2302.10623, §4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier last-failure proof uses Fourier periodization for a negative witness and a sufficient positivity range. The same-day Gaussian continuum result shares low-frequency sign information with the correction J."
+        ],
+        "reasoning": "Neither calculation controls all modes at fixed damping, handles vanishing low coefficients via strict same-parity tails, or gives the paired sign-flip count. No stronger covering statement was established.",
+        "searches": [
+          "arXiv:2302.10623 §4; Resultary 6597725d7d73, Finding and Proof; Resultary cd85b57ec580, Finding and Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Da Costa–Mostajeran–Ortega reduce intrinsic Gaussian samples to a cyclic DFT and seek one negative eigenvalue.",
+          "Same-day continuum Gaussian record cd85b57ec580 treats b_m at α=2 and gives all-positive odd continuum coefficients and a large-t even-frequency frontier."
+        ],
+        "reasoning": "The identical continuum coefficients at α=2 do not themselves state a sampled-grid inertia law; a negative spectral witness is weaker than a count and nonsingularity.",
+        "searches": [
+          "Resultary: powered geodesic kernels, even-cycle Fourier signs, fixed-damping inertia",
+          "arXiv:2302.10623, §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The discrete transition record specifies a witness frequency and Nyquist window; the continuum frontier specifies a subset of signs for exponent two."
+        ],
+        "reasoning": "The target is an analytic inertia classification, not a table. Neither located sign classification gives an equivalent table of counts at the claimed parameters, particularly when low continuum coefficients vanish.",
+        "searches": [
+          "Resultary finite-cycle Gaussian transition record 02cd4e63f039 and continuum sign-frontier record cd85b57ec580"
+        ]
+      },
+      "rationale": "The checked continuum and finite-cycle results give overlapping Gaussian signs, individual negative witnesses, or moving positivity thresholds. None gives the full even-grid weak-damping inertia or the fixed-parameter finite index correction for all real α>1. The comparison establishes a distinct statement, not historical priority.",
+      "residual_risks": [
+        "Full text of Wood, When is a truncated covariance function on the line a covariance function on the circle? (10.1016/0167-7152(94)00162-2), was not recovered. It is a plausible source for overlapping endpoint Fourier analysis. Earlier exact inertia implications may remain unindexed; a non-probative web result is not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different damping regime and target",
+          "evidence": [
+            "Integer-edge graph distance, 1<p<2, 4|N, positivity recovery and negative Nyquist witness."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-logarithmic-positivity-recovery-law-for-fractional-power--ac3b9f10edae",
+          "material_read": "RESULT.md Finding, Assumptions (offset 0), and prior-work comparison (offset 7200)",
+          "method": "Local mirror",
+          "title": "A sharp logarithmic positivity-recovery law for fractional powered-exponential kernels on finite cycles",
+          "trigger": "Same kernel family on a cycle"
+        },
+        {
+          "assessment": "Genuine overlap in continuum signs, but no sampled inertia law; no priority inferred from the same-day date",
+          "evidence": [
+            "Strict odd continuum signs and a large-damping frontier for the first negative even coefficient."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-logarithmic-first-negative-frequency-frontier-for-the-circular--cd85b57ec580",
+          "material_read": "RESULT.md Finding and Proof (offset 0) and prior-work comparison (offset 4650)",
+          "method": "Local mirror",
+          "title": "A logarithmic first-negative-frequency frontier for the circular geodesic Gaussian",
+          "trigger": "Uses exactly the same continuum coefficients at α=2"
+        },
+        {
+          "assessment": "Moving threshold, not fixed-parameter inertia",
+          "evidence": [
+            "nτ_n→π in graph-distance units; an all-larger-parameter positivity assertion and negative witness below the asymptotic threshold."
+          ],
+          "identifier_or_url": "2026/11/1/SCOPE-a-sharp-pi-n-last-failure-scale-for-geodesic-gaussian-matrices-o--6597725d7d73",
+          "material_read": "RESULT.md Finding and Proof (offset 0), prior-work comparison (offset 5400)",
+          "method": "Local mirror",
+          "title": "A sharp π/n last-failure scale for geodesic Gaussian matrices on finite cycles",
+          "trigger": "Closest earlier finite-cycle Fourier-periodization comparison"
+        },
+        {
+          "assessment": "Different limit and no full count",
+          "evidence": [
+            "Graph-damping transition at c/N, a specified negative witness below it, and a Nyquist window."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-the-sharp-pi-n-gaussian-covariance-transition-on-discrete-circle--02cd4e63f039",
+          "material_read": "RESULT.md Finding and Proof (offset 0)",
+          "method": "Local mirror",
+          "title": "The sharp π/N Gaussian covariance transition on discrete circles",
+          "trigger": "Finite-grid sign theorem for the Gaussian"
+        },
+        {
+          "assessment": "One negative eigenvalue suffices for its conclusion; it does not classify inertia",
+          "evidence": [
+            "The sampled circulant DFT and a negative eigenvalue establish failure of positive definiteness."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2302.10623",
+          "material_read": "§4, p. 5, cyclic sample argument",
+          "method": "OA full-text PDF passage",
+          "title": "The Gaussian kernel on the circle and spaces that admit isometric embeddings of the circle",
+          "trigger": "Primary published comparison on the same intrinsic circle kernel at α=2"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Non-positive definiteness alone does not distinguish a single unstable direction from a negative subspace of dimension asymptotically N/2. The result provides the full signature at a concrete all-size weak-damping boundary and an exact, parameter-dependent finite correction to the asymptotic count, with a resolution of exceptional continuum zeros. This gives a benchmark for discretizations of the intrinsic kernel beyond earlier existence or recovery-threshold results.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

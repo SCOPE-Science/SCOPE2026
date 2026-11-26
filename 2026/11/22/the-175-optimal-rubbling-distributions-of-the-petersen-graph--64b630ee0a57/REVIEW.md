@@ -1,12 +1,21 @@
-# Scientific review: optimal four-pebble distributions on the Petersen graph
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite result is fully specified over labelled distributions on \(\operatorname{KG}(5,2)\). A one-move recurrence is proved complete by first-move decomposition and termination by a strictly decreasing pebble count. Independent recursive Python and queue-based C++17 programs exhaust all \(715\) configurations of weight four and \(286\) configurations of smaller weights. Their results agree on all five occupancy classes and all six possible four-singleton support geometries; an independent \(S_5\)-orbit check finds \(17\) classes with \(8\) successful ones. All code and the orbit table are supplied. This is a finite exhaustive proof, not an extrapolation from experiments.
+## correctness
 
-## Originality — PASS, with historical risk
-Belford and Sieben (arXiv:0707.4256, Proposition 9.2) previously proved that the optimal rubbling and pebbling *numbers* of the Petersen graph both equal four; that claim is not new. The paper's relevant full-text discussion gives the stacked placement but not the complete spectrum or conditional geometric characterization. The earlier thesis discusses different Petersen thresholds, and Katona–Papp (arXiv:1411.0923) treat different graph families. Targeted searches of published mathematical-result records for labelled four-pebble rubbling configurations and matching parameter aliases did not find an implication covering \(175\) versus \(10\). An unindexed computation remains a residual risk; a negative search is not a uniqueness certificate.
+PASS
 
-## Value — PASS
-Equality of the optimum totals hides a substantial feasible-configuration difference: strict rubbling admits \(165\) additional arrangements, including \(90\) with all pebbles separate, while ordinary pebbling admits only ten four-pebble stacks. The four-singleton support forest and double-plus-single triangle characterizations give concrete structural tests, rather than a bare re-tabulation of the known optimum. Such complete configuration classifications are natural inputs for resource-placement and robustness questions about nonlinear graph transport. Scope is deliberately limited to this canonical graph.
+The first-move recurrence is exact for target-by-target reachability: the starting support accounts for the empty sequence, all neighbor pairs with repetition give precisely the legal moves once multiplicities are checked, and each successor has one fewer pebble. To independently test the computation, I propagated target demands backwards, starting at a single pebble on each given target. A weight-w demand is obtained from a successful weight-(w-1) demand either by padding a pebble anywhere or by replacing one demanded occurrence of the destination by its two input pebbles. This is sound by executing the first move and then the successful suffix, and complete by taking the actual successor of a successful first move. In pebbling mode only equal input vertices are allowed. Exhausting all multisets of weight zero through four found no successful state of weight below four and respectively 10,0,45,30,90 rubbling successes by occupancy type at four. Only the ten stacks work by ordinary pebbling. The 30 double-plus-single successes are exactly the Kneser labels ab,ac,bc with the doubled edge ab; all 210 four-singleton supports agree with the six induced-forest counts and classifications. Ground-label permutations produce 17 orbits, eight successful, and all 17 rows of the frozen CSV match the independent sizes, reachability counts and shape labels. The search is exhaustive at the stated finite weights, not a generalization to other graphs.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The equal minimum of four is antecedent, not a new result, and the known stacked construction already supplies ten successes. The supported distinct result is the complete labelled optimizer census and geometry, with exact ordinary-pebbling exclusivity and natural orbits. None of the compared statement-level evidence gives this classification.
+
+## value
+
+PASS
+
+The Petersen graph is a canonical benchmark and both games already share the same minimum. Counting which placements work, not just the minimum resource budget, isolates exactly the change caused by strict moves: 165 previously infeasible distributions become feasible, 90 with every pebble separate. The support-geometry rule makes the exact census useful for comparing placement flexibility and testing move models; it is not merely a restatement of the optimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

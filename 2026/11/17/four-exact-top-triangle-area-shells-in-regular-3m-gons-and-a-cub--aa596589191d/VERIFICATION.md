@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification instructions and limits
+# Independent mathematical audit
 
-With a Python 3 standard-library interpreter, run `python3 check_triangle_shells.py`. Its passing summary is `REGULAR_TRIANGLE_FOUR_SHELL_CHECKS_PASSED orders=26 triples=707434 range=9..84`.
+## correctness
 
-The checker enumerates all \(\binom N3\) unordered vertex triples for every \(N\in\{9,12,\dots,84\}\), computes each area from an independent Cartesian shoelace determinant, and compares the four greatest distinct numerical area groups with the analytically predicted cyclic gap shapes, multiplicities, and area separations. It uses round-to-ten-decimal grouping and tolerance \(1.1\cdot10^{-10}\) for numerical comparisons, not a symbolic decision algorithm for arbitrary order. The infinite result follows from strict Schur concavity and the exact trigonometric identities in the proof, not from the bounded enumeration.
+PASS
 
-The historical source comparison includes the inspected 2020 and 2021 primary articles and the complete public OEIS record A400213. The linked primary Zenodo manuscript was inaccessible, so historical priority is provisional. Independent audit has not been performed.
+With circumradius one and positive cyclic gaps summing to N, the chord formula gives area 2 times the product of their half-angle sines. Its logarithm is strictly Schur-concave. In a sorted triple with sum 3m, minimum at least m forces balance; minimum m-1 leaves exactly two possibilities; minimum at most m-2 forces maximum at least m+1 and hence majorization of (m-2,m+1,m+1). Strictness rules out every other shape even as a tie once the incomparable pair is ordered. As a separate gap calculation, the oriented shoelace formula gives half the sum of the three gap central-angle sines. Put x=2π/N, φ=2π/3 and g(t)=sin(φ+t). The three gaps are respectively sin φ(1-cos x), sin φ sin²x+cos φ sin x(1-cos x), and -2 cos φ sin x(1-cos x). These reduce to the three stated formulas and are positive throughout m≥3. Their expansions give the asserted quadratic/quadratic/cubic separation. Counting N starts per distinct gap ordering and dividing by three yields N/3, 2N, N, N, valid also at N=9. The accompanying Cartesian floating-point checker is supplementary, was inspected rather than executed, and is not needed for all-m ordering. Summing binom(3m,3) for 3≤m≤28 confirms the stated size of its test range.
+
+## originality
+
+PASS
+
+Rank 1 and its count and the sine-product parametrization are not new. The supported distinct claim is the complete ordering of the next three vertex-triangle levels with equality cases and the exact positive cubic splitting. Checked sources do not supply it or imply it without the dominance and incomparable-pair arguments; priority remains provisional, specifically against the unread linked Huber text.
+
+## value
+
+PASS
+
+For a regular polygon the leading discrete departures from the equilateral maximizer are natural measures of optimization stability. The fourth level is motivated by the two opposite nearly balanced gap shapes with the same quadratic deficit. The exact result distinguishes them at cubic scale, proves no other gap shape intrudes, and gives multiplicities rather than just four values. This is a useful exact boundary across an infinite natural family, beyond the routine maximum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

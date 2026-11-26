@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The phase integral reduces to an explicit one-sided clipped-quadratic expression. Its derivative has the sign of a single unimodal function \(K(t)-m/(1-m)\), since the auxiliary numerator obeys \(P'(t)=-4t\alpha(t)<0\). The full-support arcsine integral strictly decreases for large amplitudes. The ratio of the nonzero local maximum to the baseline equals \(R(t)\), whose derivative factors into a strictly signed multiple of \(-P(t)\). This proves both distinct thresholds, all optimizer counts, and their equality cases. The standalone checker reproduces the displayed constants and representative regimes; finite tests are not treated as proof of the all-parameter theorem.
+PASS
 
-## Originality
+Verified for the stated dimensionless cosine cycle and the continuous hard-truncated quadratic. Reflection reduces to m≤1/2, and direct integration for A≤m gives m(1−m)−A²/2. When only the lower cutoff is crossed, the integral over [0,α(m/A)] has no first-derivative boundary term since g(0)=0; integration gives F'=[(1−m)s−Aα]/π, with sign K(m/A)−m/(1−m). For A>1−m the arcsine integral differentiates to a strictly negative integral. At the two junctions F' is continuous: the clipped g is Lipschitz and differentiation under phase averaging uses a bounded integrand except on a zero-measure set of phases hitting the cutoffs. In particular F'(m)=−m and at A=1−m the formula from the lower-only region gives (1−m)(s−α)/π<0 for m<1/2. For m=1/2 the quadratic and full-support regions alone give strict descent. Direct differentiation gives K'=P/(sα²), P'=−4tα, and K vanishes at both ends, with a unique nondegenerate maximum at t_*. The two roots below the fold are both admissible: for k=m/(1−m)<K(t_*), k<t_* and K(k)<k, forcing the smaller root above k. Since t=m/A decreases with A, the larger root is the minimum and smaller root the maximum. At the fold, K''(t_*)<0 and the prefactor of K−k in F' is positive, so F' has a double zero and F'''<0 there: the horizontal inflection is not a local extremum. At a stationary point the height ratio reduces to R(t), with derivative the stated strictly positive factor times −P. On (0,t_*) it decreases from infinity to below one (use P(1/2)>0 and R(1/2)<1), so exactly one positive-branch value ties A=0. The monotone pieces and strict tail descent complete the global classification and the discontinuous one-sided amplitude limit. Bisection independent of the frozen checker gives c_fold≈0.17846502362118932, c_switch≈0.13773027340449354, A_jump≈0.43089218157395015. A direct uniform-phase midpoint sum for m=0.1 at A≈0.4971478159410423 gives F≈0.11280709248223, consistent with the reported value. Read all frozen support including check.py without executing it; the analytic sign and comparison argument, not the finite check, supplies the universal result. This is stationary optimization, not physiological hysteresis or field validation.
 
-PASS, provisional. Martin and Huey (2008) optimize mean preferred temperature, not a fixed-mean amplitude. Paaijmans et al. (2013) numerically compute mean fitness and thermal safety margins with a different daily waveform, not this closed-form global amplitude bifurcation. Bozinovic et al. (2011) provide experimental evidence of mean–variance interaction, while Kingsolver et al. (2015) distinguish nonlinear and time-dependent growth. An accessible earlier result on the same clipped parabola assumes means outside its viability interval, where there is only one positive optimum; the interior-mean global jump and metastability interval are additional and not implied. The broad risk of an equivalent result in arcsine-convolution or parametric optimization literature remains.
+## originality
 
-## Value
+PASS
 
-PASS. The two universal dimensionless constants identify a genuine structural boundary in thermal-rate summation: small fluctuations initially depress average response at any interior mean, yet larger fluctuations become globally advantageous sufficiently near a viability cutoff. A discontinuous optimum and a separate metastability window give information not supplied by the usual pointwise Jensen sign, including when local optimization will return the wrong globally preferred amplitude. This is a motivated benchmark for interpreting variance effects and an exact target for testing more realistic thermal performance models; no empirical universality is claimed.
+Rate averaging and mean/variance effects are established. The inspected older mathematical model varies the mean for asymmetric thermal curves, and the closest indexed exact models either vary the waveform or start with a mean outside the viability interval. The fixed-interior-mean amplitude switch and separate fold are not supplied by those statements. This is a bounded best-of-knowledge finding; it does not certify priority against general convolution work.
 
-## Scope and residual risk
+## value
 
-Only a prescribed sinusoid, constant instantaneous response, symmetric hard-truncated quadratic, no physiological memory and unconstrained nonnegative amplitude are covered. Broader mathematical literature may subsume the special response; the 2011 study was accessible at abstract level only. The 2015 experimental study expressly observes time-dependent mechanisms outside this model.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Clipping a rate at viability limits is a motivated benchmark. The exact result quantifies when initially harmful fluctuations become globally beneficial at larger scales, and when a newly available positive local optimum is still inferior. Distinguishing the global tie from the interior fold matters for interpreting local optimizers and is not an untruncated Jensen calculation or an arbitrary numerical example. No empirical universality or dynamical hysteresis is inferred.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

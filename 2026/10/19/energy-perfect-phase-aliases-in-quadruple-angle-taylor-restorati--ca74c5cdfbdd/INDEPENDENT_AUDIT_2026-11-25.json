@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:02:45.635693Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The quantified claim in RESULT.md lines 24–55 is exact energy preservation at every constructed point, with seed errors tending to zero and norm error tending to 2; the introductory shorthand does not mean either seed error is identically zero or the limit is attained at finite s. Expanding 1−C_{j+1}²−4^{j+1}xS_{j+1}² gives 4C_j²D_j, and the cosine update is Chebyshev T_{2^j}. Write f(u)=cos(sqrt(u)) near zero; f'(0)=−1/2, so u=θ_m(x)²=f^{-1}(P_m(x)) exists on the real small positive branch. If a=(-1)^m/(2m+2)!, the seed expansion gives u=x−2ax^(m+1)+O_m(x^(m+2)); taking square roots gives sqrt(x)−θ_m(x)=ax^(m+1/2)+O_m(x^(m+3/2)). The bounded nearest-odd rounding error gives x_s~β_m 2^(−2s/(2m+1)); the odd q_s makes C_{s−1}=0 and hence the restored matrix is exactly −I regardless of the sinc seed. Meanwhile 2^s(sqrt(x_s)−α_s)→(-1)^m π, so the true rotation tends to I modulo 2π. The omitted sinc term and cosine term give the two orders, and 2 is the maximal possible operator distance of rotations. For m=1 direct expansion gives D_0=x²(3−x)/36. All positive zeros of D_s are this seed root x=3 plus the zeros of T_{2^j}(1−x/2) for 0≤j<s. Distinct odd-numerator dyadic angles in (0,π) cannot equal 2π/3, so there are exactly 2^s distinct roots. At Chebyshev zeros the output is ±I; at x=3 the seed is a rotation through 2π/3 doubled s times. In both cases a correct phase would equate a strictly positive algebraic angle 2^s sqrt(x) to a rational multiple of π, impossible. As small exact checks, s=1 gives {2,3}, and s=2 gives {2−sqrt(2),2,2+sqrt(2),3}. Frozen verify.py, requirements.txt and VERIFICATION.md were inspected, not executed; the recorded 250-digit checks and 11669 count do not prove the limit or transcendence step. Replay: frozen RESULT.md lines 61–111.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li–Wang–Zhang provide the φ-series and exact restoring equations plus a forward-error-controlled chooser. Al-Mohy uses Taylor cosine/sinc seeds and Chebyshev restoration with degree and scaling selection. Shi–Wu–Liu is cited as an earlier simultaneous quadruple-angle implementation but only abstract/landing material was available."
+        ],
+        "reasoning": "The restored scalar recurrence is indeed a specialization of prior methods. The claim is about a deliberately tuned sequence at fixed m with freely chosen s, not a pathology asserted of a prior adaptive algorithm or a new recurrence. The inspected broader algorithmic passages do not establish the alias construction or census.",
+        "searches": [
+          "arXiv:2406.06008v1 Eqs. (1), (16)–(20), Algorithm 3",
+          "arXiv:1708.08360v1 §§2–3",
+          "DOI 10.1016/j.apnum.2019.12.014, lawful full-text attempt"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py, requirements.txt and record evidence",
+        "Resultary 3016d962c708 and 847a2e8962db",
+        "arXiv:2406.06008v1, arXiv:1708.08360v1 and DOI 10.1016/j.apnum.2019.12.014 (limited)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The established framework does give doubling and its Chebyshev representation. The frozen proof separately tunes odd resonances to the leading Taylor phase bias of order x^(m+1/2), making that bias accumulate to π despite both small seed errors; it also analyzes the initial energy defect and transcendental obstruction to phase agreement."
+        ],
+        "reasoning": "The useful result is not merely substituting the oscillator into a published recurrence: choosing the joint scale and classifying the exact energy false positives require further analysis. The inspected references do not provide a stronger result whose parameter specialization supplies this analysis.",
+        "searches": [
+          "Li–Wang–Zhang near Eqs. (16)–(20) and Algorithm 3; Al-Mohy §§2–3; Resultary 3016d962c708 and 847a2e8962db"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Li–Wang–Zhang's updates for k=0,1 are the same updates. The projected RK4 record treats symplecticity and modal-energy reversal in two oscillators, and the covariance phase-locking record treats a stochastic covariance at exact expected-energy trace."
+        ],
+        "reasoning": "In the audited problem, writing the recurrence as complex phase doubling when the state is a rotation, or using Chebyshev T_{2^j} for its cosine, is equivalent notation, not a different result. The RK projection and covariance problem change the approximant or the invariant, so they are not equivalent instances.",
+        "searches": [
+          "Local Resultary semantic lookup: exact-energy propagation and phase aliases in cosine/sinc restoration; positive degree-one defect census",
+          "Resultary 3016d962c708 and 847a2e8962db, Findings",
+          "arXiv:2406.06008v1, φ series and quadruple-angle recurrence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The related indexed Findings concern other maps. The familiar Chebyshev root list gives the dyadic angles for the individual C_j factors but not the defect polynomial for this seed, its additional root at x=3, or failure of exact phase at every root."
+        ],
+        "reasoning": "The count 2^s alone is not a meaningful numeric match: the relevant exact lookup would match the full positive-root parameterization of the specified defect. Individual Chebyshev zeros are prior and not credited as a novel table.",
+        "searches": [
+          "Resultary exact claim lookup: energy-zero loci for cosine/sinc with degree-one seed; exact-energy alias sequence",
+          "Li–Wang–Zhang Eqs. (16)–(20) and Al-Mohy §2 as exact-formula comparators"
+        ]
+      },
+      "rationale": "The Taylor/Chebyshev restoration method, the basic doubling identities, and the distinction between energy preservation and phase accuracy are not new. The distinct supported statements are the resonant all-degree sequence with vanishing seed errors and asymptotically maximal rotation error and the full degree-one energy-zero census with nonexact phase. No inspected source contains or subsumes that pair; the earlier integrator full-text access gap is explicit.",
+      "residual_risks": [
+        "No lawful full text of Shi–Wu–Liu was found in the bounded lookup; related earlier integrator analysis remains a plausible source of partial overlap.",
+        "No priority claim follows from bounded catalogue searches or the covered methods. The construction uses exact arithmetic and does not record behavior under controlled parameter selection."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Recurrence covered, sequence and census not established by inspected passages",
+          "evidence": "Their k=0,1 updates coincide; error hypotheses and scale/degree choices are explicit.",
+          "identifier_or_url": "https://arxiv.org/html/2406.06008v1",
+          "material_read": "Eq. (1), Eqs. (16)–(20), Algorithm 3 (offsets 550, 12600–17600, 30150)",
+          "method": "Lawful OA primary HTML",
+          "title": "Efficient algorithm for the oscillatory matrix functions (Li, Wang and Zhang)",
+          "trigger": "Exact Taylor and quadruple-angle framework"
+        },
+        {
+          "assessment": "Methodological prior, not the stated diagnostic results",
+          "evidence": "Uses truncated trigonometric seeds and Chebyshev recovery; discusses forward-error-based selection.",
+          "identifier_or_url": "https://arxiv.org/html/1708.08360v1",
+          "material_read": "§2 offsets 11398–13970; §3 around offset 21000",
+          "method": "Lawful OA primary text",
+          "title": "A New Algorithm for Computing the Actions of Trigonometric and Hyperbolic Matrix Functions (Al-Mohy)",
+          "trigger": "Earlier Taylor/Chebyshev recovery"
+        },
+        {
+          "assessment": "Unresolved source-comparison risk",
+          "evidence": "The frozen prior-work note identifies the implementation antecedent; precise prior claims about energy and phase cannot be excluded from abstract material.",
+          "identifier_or_url": "https://doi.org/10.1016/j.apnum.2019.12.014",
+          "material_read": "Landing and abstract-level material only; no decisive full-text passage",
+          "method": "DOI and bounded lawful repository lookup",
+          "title": "Efficient implementation of the ARKN and ERKN integrators for multi-frequency oscillatory systems with multiple time scales (Shi, Wu and Liu)",
+          "trigger": "Earlier simultaneous quadruple-angle implementation cited by the record"
+        },
+        {
+          "assessment": "Different numerical map and diagnostic",
+          "evidence": "Projects RK4 for two oscillators and studies modal energy transfer and one symplectic step.",
+          "identifier_or_url": "2026/10/18/SCOPE-a-unique-symplectic-timestep-and-sharp-modal-energy-reversal-in--3016d962c708",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A unique symplectic timestep and sharp modal-energy reversal in projected RK4",
+          "trigger": "Exact energy and oscillatory numerical error"
+        },
+        {
+          "assessment": "Analogous phenomenon, different stochastic setting",
+          "evidence": "Concerns covariance and expected-energy trace rather than a deterministic restored rotation.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-covariance-phase-locking-and-stroboscopic-weak-order-recov--847a2e8962db",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact covariance phase locking and stroboscopic weak-order recovery",
+          "trigger": "Phase locking with an exact energy-related invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Energy preservation is a natural diagnostic for oscillator propagation. The theorem rigorously identifies a worst-case failure of that diagnostic despite vanishing local seed error and quantifies exactly how to tune the restoration scale. The degree-one census fully classifies the positive false positives of an exact diagnostic rather than selecting a few numerical counterexamples. The usefulness is as a stress test and a limitation of the diagnostic, not a claim of usual floating-point failure or a critique of the cited adaptive controller.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

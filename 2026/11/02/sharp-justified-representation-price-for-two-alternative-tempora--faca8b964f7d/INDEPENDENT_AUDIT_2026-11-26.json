@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:55:33.720320Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–57; independently reconstructed proof and equality cases",
+        "Frozen VERIFICATION.md and verify_binary_jr.py, inspected without executing",
+        "Teh arXiv:2605.11157, Definition 2.1"
+      ],
+      "rationale": "Under complete ballots and horizon L>=n, singleton JR requires every voter to be satisfied at least once, which in turn certifies JR for every group. Start from any per-round welfare maximizer, including arbitrary ties. If u voters are unsatisfied and c have satisfaction one, there are at most c critical rounds protecting the latter, so a noncritical round exists. Flipping it satisfies all u and takes no voter's last satisfaction. If a is the smallest winning approval count in a noncritical round, d=u+c and n/2<=a<=n-d. The loss is at most 2a-n and total welfare at least (L-c)a+cn/2. Their quotient increases with a. Comparing its value at n-d to (n-2)/(L(n-1)) gives a nonnegative cross-product Ln(d-1)-c(n-2)(n/2-d), strictly positive for d>1. Thus for n>=3 equality requires u=1, c=0 and a=n-1, hence every round has n-1 winner approvals. If any round's loser had more than the one unsatisfied voter's approval, flipping that round would incur strictly less than n-2 loss. This forces the fixed exclusive minority and the complementary exclusive majority in every round; direct optimization gives the converse for either choice of majority label each round. For n=2 every noncritical flip has zero loss.",
+      "residual_risks": [
+        "The packaged finite tests are not the proof for general n,L and do not separately check the every-optimum repair assertion. The analytic argument does check it. No generalization to abstention, smaller horizons or stronger axioms is validated."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Teh's upper bound is L/(L-n+2 sqrt(n)-1) for unrestricted candidate sets and its proof uses a set of n selected rounds.",
+          "Record 5ba780619e23 optimizes under stronger FJR+ on static, exclusive two-party profiles with varying electorate size."
+        ],
+        "reasoning": "The first theorem applies to the binary subclass only as a broader bound; it does not give its exact maximum or one-round proof. A stronger axiom on a narrower static domain is not a dominating result for the present JR claim.",
+        "searches": [
+          "Teh arXiv:2605.11157 Theorem 3.3 and Appendix B.3",
+          "Resultary exact welfare price for two-party temporal voting, hit 5ba780619e23"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md prior-work and limitations sections",
+        "Teh arXiv:2605.11157 and Elkind–Neoh–Teh arXiv:2408.13637",
+        "Resultary/local-mirror records 5ba780619e23 and d38de6c49c13"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Teh assigns a shared candidate to ceil(sqrt(n)) voters and private candidates to the others; this does not give an all-n binary witness.",
+          "The static FJR+ attaining party split L-j,j at j=1 and n=L is a shared example, but does not supply a universal repair or a converse on the complete binary domain."
+        ],
+        "reasoning": "The exact upper bound here needs a binary-specific property: a single switch in a noncritical round satisfies every unrepresented voter while preserving everyone else. The strict inequality when more voters are vulnerable then forces the polarized equality structure. Neither implication follows by applying the inspected broader bound or importing the static extremizer.",
+        "searches": [
+          "Teh Theorem 3.3, Proposition 3.4, Appendices B.3–B.4",
+          "Elkind–Neoh–Teh Theorem 5.6",
+          "Resultary 5ba780619e23 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Complete ballots over L>=n reduce JR to the one-hit condition. At L=n it coincides with complete-domain individual PROP.",
+          "Theorem 5.6 gives the unrestricted-agenda PROP price n/(2 sqrt(n)-1) and a lower construction using n-k+1 projects for n=k^2."
+        ],
+        "reasoning": "Equivalence of axioms at L=n does not identify maxima across different candidate domains. The unrestricted-agenda construction is not generally binary and does not classify time-varying binary profiles.",
+        "searches": [
+          "Teh arXiv:2605.11157 Definition 2.1 and Remark 3.5",
+          "Elkind–Neoh–Teh arXiv:2408.13637 Theorem 5.6, complete-domain individual PROP"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact horizon table/formula in 5ba780619e23 is for static FJR+, not fixed-n time-varying JR. The later record d38de6c49c13 treats stochastic static multi-party PJR/EJR/EJR+.",
+          "Teh's construction is binary when n=3, where its exhibited ratio matches; it uses more than two alternatives for n>=4."
+        ],
+        "reasoning": "Matching some price values or profiles is overlap, not an exact table of this maximum and its extremizers. No matching full entry surfaced in the bounded search.",
+        "searches": [
+          "Resultary temporal binary/two-party welfare price and related horizon laws; compared 5ba780619e23 and d38de6c49c13",
+          "Teh Proposition 3.4 and its construction in Appendix B.4"
+        ]
+      },
+      "rationale": "The supported distinction is the sharp fixed-n, fixed-horizon welfare price on all complete time-varying binary profiles, with the one-round repair and equality iff fixed polarized minority. General complete-domain JR bounds and related static constructions are antecedents, not proof of this classification. Novelty is not credited to the JR definition or the already shared polarized examples.",
+      "residual_risks": [
+        "The primary literature search was bounded and did not rule out unindexed exact binary analyses. The date shared by 5ba780619e23 and the reviewed record does not establish relative priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies JR definition, general bound and a shared n=3 example, not the binary theorem",
+          "evidence": [
+            "The upper bound is L/(L-n+2 sqrt(n)-1). The lower construction uses n-ceil(sqrt(n))+1 candidates. The repair proof uses a set of n rounds."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2605.11157",
+          "material_read": "Definition 2.1, p. 3, offset 19500; Theorem 3.3 and Proposition 3.4, p. 5; Appendix B.3, p. 11, offset 75300 and B.4, p. 12, offset 84500",
+          "method": "Primary OA PDF, located and read by passage",
+          "title": "The Price of Proportional Representation in Temporal Voting",
+          "trigger": "Closest broad theorem about complete temporal JR"
+        },
+        {
+          "assessment": "Unrestricted-agenda antecedent",
+          "evidence": [
+            "The complete-domain PROP bound is n/(2 sqrt(n)-1), with lower construction on n=k^2 agents and n-k+1 projects."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2408.13637",
+          "material_read": "PROP definition p. 7 offset 57400; Theorem 5.6 and proof p. 8 offset 71100",
+          "method": "Primary OA PDF, located and read by passage",
+          "title": "Temporal Elections: Welfare, Strategyproofness, and Proportionality",
+          "trigger": "PROP/JR equivalence at horizon n"
+        },
+        {
+          "assessment": "Static exclusive profiles and stronger axiom; overlapping witness only",
+          "evidence": [
+            "Extremal split L-j,j includes the j=1, n=L example; its theorem does not treat arbitrary time-varying ballots."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-horizon-wise-welfare-price-of-two-party-fjr-in-temporal-vo--5ba780619e23",
+          "material_read": "Local mirror RESULT.md Finding and the attaining split",
+          "method": "Resultary discovery and local mirror",
+          "title": "Exact horizon-wise welfare price of two-party FJR+ in temporal voting",
+          "trigger": "Closest exact finite binary welfare price"
+        },
+        {
+          "assessment": "Later and different stochastic domain/axioms",
+          "evidence": [
+            "Static multi-party PJR/EJR/EJR+ laws are not the binary JR worst-case ratio."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-gaussian-logarithmic-and-birthday-window-laws-for-the-temporal-p--d38de6c49c13",
+          "material_read": "Local mirror RESULT.md Finding",
+          "method": "Resultary discovery and local mirror",
+          "title": "Gaussian, logarithmic and birthday-window laws for the temporal price",
+          "trigger": "Potentially related horizon law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md theorem and proof",
+        "Teh unrestricted complete-domain comparison",
+        "Resultary 5ba780619e23 static two-party comparison"
+      ],
+      "rationale": "Restricting an agenda to two alternatives changes the welfare cost of guaranteeing every voter a satisfactory round. The sharp loss comparison quantifies that change; the repair produces a feasible nearby outcome directly from any unconstrained optimizer, while the converse identifies exactly when the worst cost cannot be avoided. This is more informative than a static example or a better constant without a mechanism.",
+      "residual_risks": [
+        "A one-round repair need not maximize welfare subject to JR in every profile. No guarantee is made for other representation axioms, incomplete approvals or online voting."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

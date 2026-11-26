@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:18:53.085610Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 14–114",
+        "Frozen VERIFICATION.md and check.py, inspected without execution"
+      ],
+      "rationale": "Reconstructed the finite-generator calculation in RESULT.md lines 55–114. With ε=1/r, eliminating fast states gives M(ε)=S_CC+S_CF(D−εS_FF)⁻¹(R_FC+εS_FC), analytic at zero. At ε=0 every state in the reduced chain has a positive-rate path to A, the only closed class. The stationary equations plus normalization, including fast-state mass, therefore have an analytic solution near zero. The fast mass at first order is δ_B. In the derivative of the row at A, injection from B gives α into S₂; at L≥3 the slow one-particle hop from B still resets to A, while at L=2 extraction adds β into the empty state. The leading reduced chain cannot increase extra-particle count, so no sector with at least two extra particles has a first-order source. In the one-extra-particle sector the two possible fast resets after a site-1 hop give S_j→S₂ at rate 1/2 for j≥3. Back substitution gives βc_L=α, c_{L−1}=(β+1/2)c_L and c_{j−1}=(3/2)c_j for 3≤j<L, with the site-2 balance supplied by conservation. As a separate L=2 check, direct stationarity gives π_A=(r+α+β)π_B, π_00=(β/α)π_B and π_S₂=(α/β)π_B. The current follows from last-site occupation, and Cov(η₁,η₂)=−Pr(η₁=0,η₂=1)+Pr(η₁=0)Pr(η₂=1), with joint probability ε+O(ε²) and the product O(ε²). The conditional limits follow from the corresponding vacancy coefficients. The specified checker was inspected, not executed: its exact rational solves and reduced recurrence checks are finite, and its asymptotic comparisons use tolerance 5,000,000/r. The package's report of a run is not independent execution evidence.",
+      "residual_risks": [
+        "The expansion is pointwise in L and the two positive boundary rates. Growth of c₂ rules out a remainder uniform over all lengths for this first-order formula."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary direct paper discusses R=rL and a large-R mean-field inverse profile length, with examples at large L keeping r fixed; its model and covariance observations are relevant.",
+          "The resource-constrained variant was not lawfully retrieved for passage inspection."
+        ],
+        "reasoning": "Neither a large-L mean-field profile nor numerical covariance supplies uniform errors or implies these fixed-L configuration probabilities. The growing first-order c₂ specifically cautions against exchanging the limits.",
+        "searches": [
+          "Pelizzola–Pretti scaling discussion in §2 and §3.4, Eq. (36)",
+          "Related resource-constrained TASEP, DOI 10.1103/PhysRevE.109.024109"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2402.13698",
+        "arXiv:2305.16955",
+        "Resultary 8c13e05907a3, 0821d74585d9, dc9245657979"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The tree-theorem result recovers βc_L when L≥3 but does not determine c₂ through c_{L−1}.",
+          "Expanding the exact finite-size covariance formulas directly gives the frozen coefficient in their respective cases. Generic finite-chain perturbation gives an analytic method, not the model-specific half-rate return or residence weights."
+        ],
+        "reasoning": "Do not credit known special cases or relabel the exact indexed current theorem as distinct. Neither the current nor the two covariance cases imply the geometric occupation law and all-length conditional correlation.",
+        "searches": [
+          "Resultary 8c13e05907a3, matched finding and tree-theorem argument",
+          "Resultary 0821d74585d9 and dc9245657979, exact covariance passages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pelizzola–Pretti uses the identical particlewise exclusion/reset generator with an empty injection site required.",
+          "Global resets to the empty configuration in the interacting-reset review change the entire state; they are not equivalent to number-conserving local resets."
+        ],
+        "reasoning": "Same boundary rates and jump rules identify the precise direct antecedent. An open TASEP with global resets does not provide a theorem for this generator.",
+        "searches": [
+          "Pelizzola–Pretti, arXiv:2402.13698, §2",
+          "Nagar–Gupta, arXiv:2305.16955, reset definitions and §2.2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record 8c13e05907a3 gives the identical leading current for all L, including the two-site exception, by a tree theorem.",
+          "Record 0821d74585d9 gives the exact two-site covariance at arbitrary positive rates. Record dc9245657979 gives the three-site nearest-neighbor covariance at one boundary-rate pair, which also has coefficient −1."
+        ],
+        "reasoning": "These distinct indexed entries have substantive exact overlap even though their recorded dates are later. The overlap is on the current and on specific covariances, not the full first-order profile at arbitrary fixed L.",
+        "searches": [
+          "Resultary: fixed-L strong-reset local open exclusion current, two-site anomaly, and site-1/site-2 covariance"
+        ]
+      },
+      "rationale": "The process is known. The supported distinct contribution is the full fixed-length first-order stationary law, in particular the bulk and terminal ratios and the joint boundary effect. There is exact indexed overlap for current and small-size covariances; those are not credited as uniquely established by this record. No inspected matching statement covers the full law.",
+      "residual_risks": [
+        "An unlocated direct analysis of fixed-L stationary weights remains possible; Bhatia–Gupta primary text was not inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same process; inspected strong-reset discussion uses a different limiting regime and approximation",
+          "evidence": "The regime R=rL and a mean-field profile length differ from fixed-L r→∞ exact probabilities.",
+          "identifier_or_url": "https://arxiv.org/pdf/2402.13698",
+          "material_read": "PDF pp. 1, 3–6, 19–21, model §2 and §3.4 Eq. (36), offsets near 1450, 9550, 15700 and 51600–56494",
+          "method": "OA primary PDF passage inspection",
+          "title": "Totally asymmetric simple exclusion process with local resetting and open boundary conditions",
+          "trigger": "Identical stochastic generator"
+        },
+        {
+          "assessment": "The inspected open global-reset case is not the same object",
+          "evidence": "Simultaneous empty-lattice resets are distinct from independent particle returns to an empty site 1.",
+          "identifier_or_url": "https://arxiv.org/pdf/2305.16955",
+          "material_read": "PDF p. 3 and §2.2.2, pp. 28–29, offsets 10300 and 92700–95874",
+          "method": "OA PDF passage inspection",
+          "title": "Stochastic resetting in interacting particle systems: A review",
+          "trigger": "Potential equivalence of reset conventions"
+        },
+        {
+          "assessment": "Exact current overlap, not full stationary-law coverage",
+          "evidence": "J∼α/r for L≥3 and J∼(α+β)/r for L=2.",
+          "identifier_or_url": "2026/11/22/SCOPE-universal-strong-reset-current-and-the-two-site-anomaly-in-an-op--8c13e05907a3",
+          "material_read": "Mirrored RESULT.md, offsets 0–5971",
+          "method": "Local Resultary and mirrored source inspection",
+          "title": "Universal strong-reset current and the two-site anomaly",
+          "trigger": "Exact current match"
+        },
+        {
+          "assessment": "Dominates the covariance asymptotic for L=2",
+          "evidence": "The numerator is 1−α−β−r and the denominator is a square with leading term r².",
+          "identifier_or_url": "2026/10/25/SCOPE-the-smallest-locally-resetting-exclusion-chain-with-two-covarian--0821d74585d9",
+          "material_read": "Mirrored RESULT.md, offset around 1000",
+          "method": "Local Resultary and mirrored source inspection",
+          "title": "The smallest locally resetting exclusion chain with two covariance signs",
+          "trigger": "Exact L=2 covariance"
+        },
+        {
+          "assessment": "Implies the leading adjacent covariance at one parameter pair",
+          "evidence": "The adjacent covariance formula at α=1/2, β=1/6 expands to −1/r+O(r⁻²).",
+          "identifier_or_url": "2026/11/2/SCOPE-reentrant-distal-occupation-correlations-in-a-three-site-exclusi--dc9245657979",
+          "material_read": "Mirrored RESULT.md, offset around 3500",
+          "method": "Local Resultary and mirrored source inspection",
+          "title": "Reentrant distal occupation correlations in a three-site exclusion chain",
+          "trigger": "Exact three-site formula"
+        },
+        {
+          "assessment": "Not negative evidence; coverage unassessed",
+          "evidence": "Primary requests were denied; the cited resource constraint suggests a different model but is not a full-text comparison.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.109.024109",
+          "material_read": "Citation only; no body located lawfully in this review",
+          "method": "DOI and publisher retrieval attempted; no alternate repository copy recovered",
+          "title": "Totally asymmetric simple exclusion process with local resetting in a resource-constrained environment",
+          "trigger": "Related boundary resetting in an open geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and reduced-chain calculation",
+        "Pelizzola–Pretti strong-reset discussion",
+        "Indexed current comparison 8c13e05907a3"
+      ],
+      "rationale": "The full law quantifies a concrete breakdown of boundary independence: conditioned on a vacancy at site 1, site 2 is occupied with probability tending to one for L≥3 even as its marginal tends to zero. The geometric accumulation gives a length-dependence obstruction invisible in the overlapping leading current result. These conclusions make the fixed-length theorem useful as a benchmark for approximations to the known model.",
+      "residual_risks": [
+        "No hydrodynamic, simultaneous length/reset or all-order conclusion is supported."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

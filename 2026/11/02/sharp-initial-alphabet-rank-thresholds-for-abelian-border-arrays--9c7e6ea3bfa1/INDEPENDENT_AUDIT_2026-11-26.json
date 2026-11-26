@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:28:06.106774Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "repairs/4/RESULT.md, REVIEW.md and SLOGAN.txt; frozen CENSUS.csv, VERIFICATION.md, verify.cpp and verify_independent.py (inspected, not executed)",
+        "reproductions/4.py: python3 reproductions/4.py 1 9; repeat for 10 10 and 11 11. Outputs are reproductions/4-1-9.txt, 4-10.txt, 4-11.txt."
+      ],
+      "rationale": "For the repaired result, relabeling by equal-letter classes preserves all prefix/suffix Parikh comparisons and the number of distinct letters. An exhaustive independent Python calculation enumerated unordered partitions by choosing the block of the least remaining position, not by using the frozen word DFS. For prefix length i a candidate of length l is equivalent, by cancellation, to length i-l; for d=min(l,i-l), only the disjoint length-d windows need comparing, and the larger-length candidate is i-d. Mask population counts check each block's counts in the disjoint windows; the resulting largest length enters the full array key. Minimizing over all partitions reproduces the eleven frozen CSV and repaired manuscript rows, including 678570 length-eleven partitions, 6516 arrays, rank-four counts 3, 23, 134, 608 at lengths 8–11, and exactly four rank-five arrays at eleven. None exceeds rank five through eleven. All seven higher-rank first-appearance witnesses in the repair were compared against the complete independently found arrays, and their stated realizations checked by direct substring counting. Extending an eleven-letter-position witness uses five symbols and preserves its initial eleven array entries; restriction therefore forces at least five in any realization at each longer length. The original numerical statements remain correct; the repair concerns prior credit and which findings are claimed as additions.",
+      "residual_risks": [
+        "The finite maximum-rank census stops at eleven; only existence of particular rank-five profiles extends to longer words. The independent calculation does not depend on running the frozen C++ build."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The binary paper gives 2^(n-1) distinct binary arrays and larger-alphabet partition upper bounds, not equality in those bounds. The Dyck-path paper counts binary words by minimal Abelian-border length rather than distinct full longest-border arrays."
+        ],
+        "reasoning": "An upper bound by input partitions does not count collisions or show which equivalence classes fail lower-alphabet realization. No inspected general theorem supplies the missing evaluated higher-rank sequence.",
+        "searches": [
+          "arXiv:2111.00259v1 §3.1 Proposition 3.1 and §4 (larger alphabets)",
+          "Targeted primary lookup: complete quaternary or arbitrary alphabet Abelian border-array enumeration and rank",
+          "arXiv:1708.06461 §5.1 Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE 8e797a662627, 05628a83255c, 0e302c97be0b",
+        "arXiv:2111.00259v1 §§3–4; arXiv:1708.06461 §5.1",
+        "OEIS exact-list results and A000225, A078485",
+        "Repaired RESULT.md Finding and Relationship to prior work"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At n=4 the prior T3=9 and T2=8, while for n<4 they agree; at length 11 T3=5904 and T2=1024, giving 4880 rank-three arrays. All earlier and intermediate low-rank counts follow in exactly the same way.",
+          "Neither the lower-alphabet totals nor the quaternary bigram spectra determine how many arrays beyond T3 first become possible with four versus five letters."
+        ],
+        "reasoning": "Subtracting T2 from T3 is mechanical prior coverage and is now explicitly credited. The repaired claim resolves the next two actual alphabet obstructions rather than presenting the reproduction of the first obstruction as further novelty.",
+        "searches": [
+          "Resultary 8e797a662627 and 05628a83255c, Finding and Assumptions",
+          "arXiv:2111.00259v1 Proposition 3.1",
+          "Resultary 0e302c97be0b, Finding and Assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two prior ternary records use exactly the same array map but count only profiles with some at-most-three-letter realization. The same-day quaternary hit 0e302c97be0b counts overlapping unordered length-two factor multiplicities over four labeled symbols, not these arrays."
+        ],
+        "reasoning": "Fixed-alphabet cumulative counts are equivalent input for rank counts by differencing, so the prior ternary table is genuine partial coverage, not just analogous terminology. A quaternary bigram profile does not represent the same prefix indexed Parikh comparison.",
+        "searches": [
+          "Resultary: full longest proper Abelian border arrays, least alphabet size or minimum equality-partition block count",
+          "Resultary: four-letter and unrestricted-alphabet Parikh prefix-border cumulative censuses",
+          "SCOPE 8e797a662627, 05628a83255c, 0e302c97be0b"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected Resultary tables give T3=1,2,4,9,20,49,119,308,795,2170,5904 on the repaired range. The exact OEIS searches for proposed T4, positive rank-four counts and universe totals returned no match. A000225 is the familiar 2^m-1 sequence and gives rank two under a shift; A078485 is a numerically matching tail about a different permutation statistic."
+        ],
+        "reasoning": "Knowing both prior cumulative totals T3 and T4 would settle rank four, and in this range a total unrestricted count together with T4 and the maximum-rank bound would settle the rank-five counts. The earlier located table stops at T3; failure to retrieve higher sequences is not proof they do not exist.",
+        "searches": [
+          "OEIS exact lists: 1,2,4,9,20,49,119,311,818,2304,6512; 3,23,134,608; 1,2,4,9,20,49,119,311,818,2304,6516",
+          "OEIS A000225, A078485",
+          "Resultary: exact cumulative T4 and all-alphabet totals; SCOPE 8e797a662627 and 05628a83255c"
+        ]
+      },
+      "rationale": "PASS for the repaired claim only. Originality of the frozen claim as presented is not accepted: prior exact ternary censuses, together with the binary theorem, mechanically give ranks one through three, including the first rank-three occurrence and its count. The corrected files explicitly reclassify those columns and that threshold as previously covered. A separate targeted comparison for the remaining higher ranks found no inspected exact quaternary or unrestricted census that implies the rank-four/five counts, thresholds, witnesses, or rank-five existence at all larger lengths. Prefix persistence is elementary once a rank-five witness exists and is not a standalone originality claim.",
+      "residual_risks": [
+        "An unindexed or differently reported higher-alphabet census remains possible. Search misses are not used to establish priority. The lower-rank overlap is established by positive evidence, not uncertainty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier exact cumulative ternary counts through 16, implying the complete rank-three column here",
+          "evidence": [
+            "Initial T3 values include 9 at n=4, 308 at n=8 and 5904 at n=11."
+          ],
+          "identifier_or_url": "SCOPE 8e797a662627",
+          "material_read": "RESULT.md Finding and Assumptions",
+          "method": "Resultary lookup and local mirror",
+          "title": "Ternary Abelian border array census and sharp leading fiber classification",
+          "trigger": "Identical observation map and overlapping exact census"
+        },
+        {
+          "assessment": "Same cumulative coverage on the relevant range, plus reconstruction-fiber results",
+          "evidence": [
+            "The initial fixed-three-letter counts match the other prior ternary census."
+          ],
+          "identifier_or_url": "SCOPE 05628a83255c",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary lookup and local mirror",
+          "title": "Exact ternary Abelian border array census and reconstruction ambiguity",
+          "trigger": "Another earlier census for precisely the ternary observation map"
+        },
+        {
+          "assessment": "Exact cumulative binary count; only bounds in the larger-alphabet discussion",
+          "evidence": [
+            "T2=2^(n-1); lower ranks follow from T1=1 and prior T3, not from an unrestricted exact classification in the paper."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2111.00259",
+          "material_read": "§3.1 Proposition 3.1 p. 3, OA near 6930; §4 p. 6, offsets 14400–15000",
+          "method": "OA primary PDF passages",
+          "title": "Counting and Verifying Abelian Border Arrays of Binary Words",
+          "trigger": "Identical border arrays on binary words, general-alphabet discussion"
+        },
+        {
+          "assessment": "Different combinatorial observable",
+          "evidence": [
+            "Counts binary words with specified minimal Abelian-border length rather than distinct longest proper border arrays of prefixes."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1708.06461",
+          "material_read": "Abstract p. 1 near OA offset 576; §5.1 Theorem 1 p. 6 near 20700",
+          "method": "OA primary PDF passages",
+          "title": "Dyck Words, Lattice Paths, and Abelian Borders",
+          "trigger": "Exact Abelian-border enumeration in close terminology"
+        },
+        {
+          "assessment": "Different statistic; its same-day date does not decide the comparison",
+          "evidence": [
+            "Overlapping unordered two-letter factor frequencies over four labeled symbols, not the successive prefix array or its minimum alphabet size."
+          ],
+          "identifier_or_url": "SCOPE 0e302c97be0b",
+          "material_read": "RESULT.md Finding and Assumptions, local mirror offsets 0–3640",
+          "method": "Resultary lookup and local mirror",
+          "title": "Exact quaternary unordered bigram spectra and the first Euler-path obstructions",
+          "trigger": "Potential quaternary exact census identified under alternate terminology"
+        },
+        {
+          "assessment": "No exact hit for the queried higher-rank sequences, not proof of absence",
+          "evidence": [
+            "The known rank-two sequence is covered as 2^(n-1)-1 and is not part of the repaired novelty claim."
+          ],
+          "identifier_or_url": "https://oeis.org/search?q=1%2C2%2C4%2C9%2C20%2C49%2C119%2C311%2C818%2C2304%2C6512",
+          "material_read": "Exact-query result near offset 461, and exact rank-four query 3,23,134,608 near offset 438",
+          "method": "Exact sequence lookups",
+          "title": "The On-Line Encyclopedia of Integer Sequences",
+          "trigger": "Exact sequences could implicitly settle this finite classification by cumulative differencing"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "repairs/4/RESULT.md Finding, witness table and Persistence; frozen CENSUS.csv",
+        "arXiv:2111.00259v1 §4; SCOPE 8e797a662627 Finding"
+      ],
+      "rationale": "The repaired contribution gives the first precise failures of ternary and quaternary reconstruction of the entire prefix array. It classifies every obstruction at each shortest length, not just one selected example, and provides the near-threshold higher-rank counts from a complete search. An exact threshold and concrete minimal obstructions are useful even without a formula at arbitrary lengths. The rank-five extension ensures the obstruction is not confined to the shortest level.",
+      "residual_risks": [
+        "The lower-rank recomputation has consistency-check value but is not an independent novelty or value basis. The result gives no large-n upper bound or general reconstruction algorithm."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

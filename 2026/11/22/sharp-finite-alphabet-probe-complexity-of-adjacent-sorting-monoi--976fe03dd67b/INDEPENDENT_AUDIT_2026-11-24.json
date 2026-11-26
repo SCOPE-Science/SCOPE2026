@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:34:43.103164Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–35; VERIFICATION.md, lines 19–23; verify.py, lines 8–59; verification_output.txt, lines 1–10",
+        "Mazorchuk–Steinberg arXiv:1105.5313v2, §2.1, type-A 0-Hecke presentation and element count"
+      ],
+      "rationale": "Idempotence and distant commutation are immediate; either three-comparator side of the braid sorts its triple. Hence the type-A 0-Hecke presentation gives at most n! transformations. On an auxiliary n-label chain, every permutation is reachable from the descending input: starting at the target, exchange adjacent ascents until descending, and reverse that sequence of exchanges. Each reversed exchange sorts an adjacent inversion. The n! possible evaluations therefore exhaust and distinguish the normal forms on the auxiliary chain. The increasing binary threshold maps commute with every comparator. The n−1 threshold images of any auxiliary permutation recover every coordinate's label, so the descending binary cuts already distinguish all the normal forms, establishing n! elements also for m>=2. For the packed probe indexed by G={k_1<...<k_r}, the inclusive threshold >=r−s+1 yields precisely the descending binary cut after k_s. Thus ceil((n−1)/(m−1)) packed probes suffice. For each j, take the reachable auxiliary evaluation that is sorted except for a swap at j,j+1. The resulting transformation G_j is distinct from full sort F, and c_j composed with G_j equals F by equality on the auxiliary input and the normal-form bijection. When G_j differs from F on a word, its final sorting comparator must change that pair, so the sorted output has a strict rise at j. There are at most m−1 rises per probe, which proves the matching lower bound even for arbitrary nonmonotone probes. The single-probe and binary cases and the n=1 or m=1 singleton-action boundaries follow.",
+      "residual_risks": [
+        "The frozen checker was inspected, not executed; replay with python3 verify.py in the source directory. Its loop and output omit (n,m)=(2,3) despite the stated rectangular grid: that case follows immediately from the identity and sole comparator, distinguished on any strictly descending pair. The finite diagnostics are not needed for the theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mazorchuk–Steinberg minimize faithful representation/action degree, not evaluation probes chosen from the specified action.",
+          "Militaru's theorem gives the idempotent braid solution for min/max on comparable pairs.",
+          "Chung–Ravikumar's abstract excerpt addresses recognising sorters among networks, with a further indexed excerpt discussing restrictions such as height-k networks; its full statements were unavailable."
+        ],
+        "reasoning": "Neither the algebraic framework nor a minimum over other faithful actions evaluates the fingerprint size within this finite-chain action. Bounds for sorter recognition in a larger class, even if known, do not by themselves give optimal lower and upper bounds for pairwise separation restricted to adjacent ascending comparators.",
+        "searches": [
+          "Mazorchuk–Steinberg arXiv:1105.5313v2, §7",
+          "Militaru arXiv:2611.15540v1, Theorem 2.1",
+          "Chung–Ravikumar, DOI 10.1016/0012-365X(90)90173-F"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Proof and prior-work section",
+        "Local Resultary index and exact self-match",
+        "Mazorchuk–Steinberg arXiv:1105.5313v2 and Militaru arXiv:2611.15540v1",
+        "Publisher excerpts and limited access checks for Piestrak and Chung–Ravikumar"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The classical normal forms and effective action give prior algebraic ingredients; the required extra comparisons are limited cut capacity per arbitrary probe and a matching packed-cut construction.",
+          "Piestrak's publisher abstract excerpt mentions minimal test sets for Batcher's networks and detection of all stuck-at faults. The available Chung–Ravikumar abstract excerpt starts from the task of testing whether a given network sorts all inputs, not separating all functions on a fixed chain."
+        ],
+        "reasoning": "Related network tests could already contain restricted cut or coatom arguments, especially at m=2, but these excerpts do not show that. No inspected statement or verified implication establishes the finite-alphabet all-pairs ceiling. The two older sources are not certified as non-covering in their uninspected full text.",
+        "searches": [
+          "Double Catalan monoids, §2.1 and Corollary 17",
+          "The minimal test set for sorting networks Piestrak 1990 full text test set comparator networks",
+          "Piestrak 89382 FTCS 1990 minimal test set sorting networks author manuscript single stuck-at fault open pdf",
+          "Chung–Ravikumar DOI 10.1016/0012-365X(90)90173-F"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Corollary 17 gives an effective action on a union of left ideals, related to the binary cuts of a descending permutation.",
+          "The indexed abstract excerpt of Chung–Ravikumar describes a test set for deciding whether a candidate network sorts all inputs."
+        ],
+        "reasoning": "Separation is injectivity of the evaluation fingerprint on all transformations, or equivalently the smallest tuple of inputs with trivial common action kernel in the sense of distinguishing all pairs. Recognizing F asks only to distinguish pairs involving F; even though its optimum coincides here by the coatom bound and the explicit construction, that does not make these testing tasks equivalent in other settings. Both descriptions were considered.",
+        "searches": [
+          "Local Resultary for exact finite-alphabet adjacent-sorting probe complexity and packed cuts",
+          "Mazorchuk–Steinberg arXiv:1105.5313v2, §2.1 and Corollary 17",
+          "Chung–Ravikumar test sets sorting networks 1990 all binary inputs exponential minimal adjacent comparator theorem size sorting recognizer"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/22/SCOPE-sharp-finite-alphabet-probe-complexity-of-adjacent-sorting-monoi--976fe03dd67b, RESULT.md Finding and Proof, gives the same ceiling formula, cut packing and coatom argument; it is the exact assigned record, not a distinct match."
+        ],
+        "reasoning": "The target is a two-parameter family of minima, not the cardinality sequence n! or a single computed case. No distinct indexed statement of this family surfaced in the bounded search.",
+        "searches": [
+          "Local Resultary exact formula and top-coatom probe lookup"
+        ]
+      },
+      "rationale": "The exact optimum for pairwise separation in this fixed finite-alphabet action survives comparison with the classical 0-Hecke action, sorting-network recognition, and circuit-fault test sets. The claim does not include new monoid relations, order n!, or binary faithfulness. The access limitations for older sorting test-set papers are material historical risks, not evidence of absence.",
+      "residual_risks": [
+        "Full text remained unavailable for Piestrak and Chung–Ravikumar. Their restrictions, witness networks, or cut arguments may overlap with the adjacent binary special case; no absence is inferred from lack of access.",
+        "A prior finite-alphabet result phrased as testing comparators or identifying word maps rather than separating probes may have been missed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior algebraic machinery and effective action, not the claimed minimum probe subset",
+          "evidence": [
+            "Reduced-word elements z_w are in bijection with S_n; there is an effective action on a union of left ideals.",
+            "The degree of a faithful action is a different quantity than probes inside a fixed action."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1105.5313v2",
+          "material_read": "§2.1 p. 3 (~7000), Corollary 17 p. 20 (~51257), §7 pp. 21–22 (~57849)",
+          "method": "Primary OA PDF, targeted passages",
+          "title": "Double Catalan monoids",
+          "trigger": "Classical presentation, effective action, and minimal faithful quantities"
+        },
+        {
+          "assessment": "Supplies the broad braid-equation setting, not a result on optimal evaluations",
+          "evidence": [
+            "The min/max map is an idempotent braid solution in the stated poset setting."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.15540v1",
+          "material_read": "Theorem 2.1, HTML offset ~19161",
+          "method": "Primary OA HTML, targeted passage",
+          "title": "Solutions of the set-theoretic quantum Yang–Baxter equation arising from posets",
+          "trigger": "Comparable-pair sort map and braid relation"
+        },
+        {
+          "assessment": "Available evidence concerns Batcher network implementations and stuck-at faults, not verified coverage of pairwise functional identification",
+          "evidence": [
+            "Indexed abstract excerpt mentions a minimal test set procedure for Batcher's sorting networks and an upper bound for detecting all stuck-at faults."
+          ],
+          "identifier_or_url": "https://ieeexplore.ieee.org/document/89382",
+          "material_read": "Bibliography (FTCS 1990, pp. 457–464, DBLP conf/ftcs/Piestrak90) and indexed publisher abstract excerpts only",
+          "method": "Bounded lawful OA attempts at the publisher and DBLP, plus search for a lawful alternate of the same paper; full text not recovered",
+          "title": "The minimal test set for sorting networks and the use of sorting networks in self-testing checkers for unordered codes",
+          "trigger": "Close older title; potential sorting test-set overlap"
+        },
+        {
+          "assessment": "Evidence of a neighbouring test-set problem; no verified statement for the fixed adjacent monoid",
+          "evidence": [
+            "The publisher excerpt asks for the smallest test set deciding whether a network sorts every input. The alternate-copy excerpt states different exact bounds for recognition of merging networks with binary versus permutation inputs."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0012-365X(90)90173-F",
+          "material_read": "MaRDI Q910215 bibliography and indexed publisher/alternate-copy excerpts; no full text",
+          "method": "Lawful OA attempts at the publisher and DOI, and identified CORE alternate https://core.ac.uk/download/pdf/82405962.pdf (not readable)",
+          "title": "Bounds on the size of test sets for sorting and related networks",
+          "trigger": "Closely related optimization of probes for sorter recognition"
+        },
+        {
+          "assessment": "Assigned record itself, not separate priority evidence",
+          "evidence": [
+            "Exact agreement of scope, ceiling formula, packed cuts, and top-coatom lower bound."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-finite-alphabet-probe-complexity-of-adjacent-sorting-monoi--976fe03dd67b",
+          "material_read": "RESULT.md Finding and Proof; related work around offsets 6054–6843",
+          "method": "Local indexed mirror at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp finite-alphabet probe complexity of adjacent sorting monoids",
+          "trigger": "Exact ranked index hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and both probe bounds",
+        "Mazorchuk–Steinberg, §7, for the distinct faithful-action optimization"
+      ],
+      "rationale": "The result answers an exact identification question for a natural fixed action, explaining quantitatively how alphabet size substitutes for input samples. Faithfulness alone does not optimize sample size; the coatom argument imposes the same capacity bound on every input, not just the constructive descending probes. The sharp transition from n−1 binary probes to one for m>=n is useful for comparing these observable actions.",
+      "residual_risks": [
+        "This result is for exact nonadaptive outputs of the specified transformation monoid; it does not optimize faulty hardware detection or give a general minimum for other actions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The ray equation is derived by direct substitution into the toroidal inequality, and the two positive roots prove the total-length normalization. The marginal beta law of one spherical coordinate yields the exact CDF. Strict monotone likelihood-ratio ordering proves the inverse theorem for all dimensions at least four, and explicit uniform-coordinate computation handles dimension three. Scheffé's lemma supplies the stated total-variation Gaussian limit. The packaged numerical diagnostics independently exercise ray geometry and distribution identities; numerical samples are not substituted for the universal proof.
+## correctness
 
-**Originality — PASS, with stated historical risk.** The closest source in classical geometry establishes pointwise ray or planar-section equations, not the present family of Haar-probe laws plus inverse-rigidity dichotomy. The fully inspected modern published planar-section theorem addresses area and section topology rather than random line intercepts; the fully inspected shadow theorem treats orthographic projection. Independent uniform-torus-surface chord moment studies have different sampling and observables. No exact or stronger result entailing this **combined** statement was found in the explicit primary and mathematical-record searches. Priority is provisional because older stereological sources, including the inaccessible full text of the 1991 ray–torus account, may contain overlapping consequences.
+PASS
 
-**Mathematical value — PASS.** A nonconvex tube has two disconnected intercept components, so its centered-probe law is distinct from standard convex-body chord formulas. The exceptional dimension-three lack of conditional identifiability, its strict recovery in every higher dimension, and the dimension-dependent Gaussian hit transition make a natural complete measurement and inverse-geometry classification, rather than an isolated numerical instance. The result supplies a precise baseline for center-directed geometric probes.
+On a positive ray with absolute vertical direction cosine mu, the torus inequality is a quadratic in the radial coordinate. Its discriminant divided by four is r²−R²mu²; at a hit the root product R²−r²>0 and their sum is positive, so the resulting interval is strictly on the positive ray. Reflection contributes a second interval of equal length. Thus L=4 sqrt((r²−R²mu²)_+) and a positive hit means mu<s except for null tangencies. The Haar coordinate-square beta law gives the hit probability and the conditional CDF by the threshold mu≥s sqrt(1−y²) on the hit event. In d=3 the absolute cosine is uniform: the scaled cosine on hits is uniform independent of s and the quarter-circle integral gives pi r. In d≥4 the conditioned density of U=mu/s is proportional to (1−s²u²)^((d−3)/2). For a larger aspect ratio its normalized density divided by the smaller-ratio density is strictly decreasing in u. Taking the covariance under the smaller-ratio law of this likelihood ratio with 1−u² proves the strictly larger second moment (both are strictly decreasing on positive density). At s→0 the conditioned density tends to the uniform one, and at s→1 to the absolute Haar-coordinate density, whose square has mean 1/d; these limits also follow by dominated integration in u. Positive density near mu=0 gives essential endpoint 4r, so the moment uniquely recovers s for known d≥4; in d=3 the hit mass supplies what the positive law lacks. The scaled absolute cosine density converges pointwise by the gamma ratio and the exponential limit, and has unit mass, so Scheffé gives TV. Conditioning on the fixed interval [0,kappa] preserves TV since its limiting mass is positive, and the fixed transformation of the conditioned cosine to Y contracts TV. I treat the 1070 recorded numerical groups as illustrative only, not as proof of monotonicity or TV convergence.
 
-The finding does not concern random translated lines, arbitrary tori, or independent external validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the combined centered-probe law, dimension-dependent conditional identifiability, strict inverse moment, and conditional total-variation crossover. The ray roots, standard sphere-coordinate distribution, and Gaussian approximation are not in themselves novel. The strongest inspected catalog neighbors sample different objects; the older ray–torus chapter remains a historical risk but does not negate the supported distinct probability and inverse results.
+
+## value
+
+PASS
+
+The exact distribution separates shape information from scale for a natural directional measurement of a ring torus. With misses discarded, shape is invisible in dimension three but a single normalized moment suffices above dimension three; with misses observed the missing ratio in dimension three returns. The high-dimensional scaling then gives a nontrivial simultaneous hit rate and limiting distribution of hit lengths. The inverse threshold and transition are useful independently of the elementary ray-root calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

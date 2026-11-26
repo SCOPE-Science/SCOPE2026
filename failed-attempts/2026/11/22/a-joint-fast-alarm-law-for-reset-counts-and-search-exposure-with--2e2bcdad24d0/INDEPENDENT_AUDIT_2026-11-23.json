@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:28:15.025940Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The absorbing Brownian image resolvent has the stated normalization, and multiplying it by r gives the discounted position density at an actual alarm. At that position the return outcome weights are u_s and v_s, with respective right slopes 1/B_s(L) and −A_s(L)/B_s(L); the left home slope is the positive gamma quotient obtained by normalizing the decaying OU solution on the negative half-line. Independent cycles give the exact geometric renewal ratio; replacing only the search killing parameter marks search duration without changing the alarm-density prefactor r. Integrating the positive/negative first moments of the exponential resolvent kernel gives the factor √D/2 at rate r^−1/2. Contributions of the image term, direct search success and the tails outside a fixed neighborhood of the origin are exponentially small in √r; the Taylor remainder there is O(r^−1). The extra count mark contributes q to the scaled denominator. The limit is continuous at the origin, so the bivariate transforms imply weak convergence. At q=0 the formula is the OU first-passage transform by smooth matching at zero; at s=0 it is exponential because A_0=1, B_0=H and m_0=0. The alarm compensator has active intensity r, not intensity r throughout the physical trajectory. On bounded stopping horizons E N=E(rS); monotone convergence and the integrable geometric cycle count give finite full-horizon expectations, and the martingale isometry then gives E(N_r−rS_r)²=E N_r=O(√r). Slutsky makes the two scaled variables jointly identical in the limit. For covariance, if F=A_s(L)+m_sB_s(L) and C=2B_s(L)/√D, the transform is 1/(F+qC); right derivatives at zero (or monotone limits of positive Laplace moment integrals) give Cov=C(0)F'(0)−C'(0). Differentiating the IVPs gives the stated integrating-factor integrals, and the gamma quotient has m'_0=√(π/(2κD)); the resulting expression is strictly positive and finite. No convergence of the finite-rate covariance is inferred. In the drift-free boundary the image integral cancels the direct-hit term to give the stated p_r, and the hyperbolic fundamental solutions give the stated continuous transform with infinite time mean. The supplied numerical checker was inspected but not executed; its truncated negative integration is a finite diagnostic, not needed for these analytic conclusions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "225188b13814 permits search stiffness 0 and any positive clock W/r with finite second moment, including exponential W. Its dimensionless target 1 and D=1 specialize to arbitrary D,L by x'=x/L and t'=Dt/L²; r'=rL²/D and κ'=κL²/D. It supplies √r(1−Q_(r,s)) and a stronger r^−3/2 unmarked transform asymptotic. Earlier primary articles give cycle geometry and mean saturation but do not give the marked time law."
+        ],
+        "reasoning": "The q=0 theorem alone would not imply the marked law; the same comparator also establishes the leading discounted restart deficit, which is exactly the additional input needed. The independent attempt-count mark on each completed cycle is just a geometric-series parameter.",
+        "searches": [
+          "Resultary 225188b13814 full text, Assumptions and Proof steps 1 and 4–5",
+          "Resultary 1c82f789b3f9 Proof steps 1–4",
+          "Frydel arXiv:2511.14646 §III",
+          "Dubey–Pal arXiv:2610.18814 §II"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 225188b13814, exact restart and sharp Laplace limit",
+        "Resultary 1c82f789b3f9, exact success asymptotic",
+        "Pitman–Yor technical report 607 §3.2, journal doi:10.3150/bj/1068129008",
+        "arXiv:2511.14646",
+        "arXiv:2610.18814",
+        "Resultary 05188208a06b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With z=exp(−q/√r), 1−zQ=(1−Q)+(1−z)Q, so √r(1−zQ)→a_s+q. The numerator z(1−Q)Φ has scaled limit a_sΦ_OU(s). At most one terminal cycle is counted differently from actual alarms. The same older success law gives E N_r asymptotic to 1/p_r, so the Poisson compensator forces N_r/√r−√r S_r to zero in L²."
+        ],
+        "reasoning": "This is an explicit implication for the full three-observable limit, beyond comparing model names, q=0 marginals or geometric count marginals. Matching the two OU slopes gives the frozen formula algebraically. The covariance expression follows from the smooth OU IVP differentiation of that formula; the success/exposure and drift-free consistency statements do not provide a separate substantive uncovered result.",
+        "searches": [
+          "225188b13814 discounted first-cycle renewal and cusp limit",
+          "1c82f789b3f9 exact cycle identity and per-cycle success asymptotic",
+          "Pitman–Yor Corollary 7",
+          "Dubey–Pal §II equations (2)–(6); Frydel §III equations (24), (42)–(46)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pitman–Yor technical report 607 §3.2, Corollary 7, Eq. (62) gives the joint Laplace transform of local time and both side occupation times until first hit. Setting both occupation rates to s gives full hitting time. For the unreset OU from home, the limiting Z has the law jointly with T of ℓ^0_T/√D, where ℓ is semimartingale local time (equivalently 2√D times occupation-density local time). The instantaneous-reset counterpart 05188208a06b uses a different physical process."
+        ],
+        "reasoning": "The local-time killing boundary condition for exp(−qℓ^0/√D) is f'(0+)−f'(0−)=2q f(0)/√D by Itô–Tanaka. The two OU solutions then give precisely the frozen denominator. This identifies the limit-law formulation, but Pitman–Yor by itself does not prove convergence from the alternating search/return process. That convergence follows from the separate same-process kernel comparison.",
+        "searches": [
+          "Resultary: stochastic resetting visible return harmonic fast alarm count and search time joint first passage local time Ornstein Uhlenbeck",
+          "Web: Brownian resetting stochastic return harmonic large reset rate joint number of resets first passage time local time exponential Ornstein Uhlenbeck Frydel joint Laplace excursion hitting time inverse local time",
+          "Web: Pitman Yor hitting occupation inverse local times one-dimensional diffusions first hitting time local time joint Laplace transform excursions Ornstein Uhlenbeck"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "There is no need for a numerical table match: the full-text formula of 225188b13814, √r(1−Q_(r,s))→C_s E√W/√π, evaluates at exponential W to C_s/2 at unit diffusivity. The older 1c82f789b3f9 formula √r p_r→E√W/(S_2√π) gives 1/(2S_2) there."
+        ],
+        "reasoning": "Scaling the two exact catalogue coefficients back to D,L gives the restart coefficient and success constant used in the frozen proof. The instantaneous-reset conjugacy formula is not an exact match to the finite-return process, but the full-text kernel formulas are.",
+        "searches": [
+          "Resultary rapid-return count/time search above: 225188b13814, 1c82f789b3f9, and 05188208a06b",
+          "Pitman–Yor report 607 §3.2 equations (58)–(62)"
+        ]
+      },
+      "rationale": "A full-text same-model comparator gives both ingredients that determine the claimed marked limit, not merely a marginal mean. Steps 1, 4 and 5 of A universal Laplace-profile correction for rapid stochastic returns (225188b13814) give the exact restart kernel Q_(r,s), its sharp cusp coefficient, and the limiting unmarked transform Φ_r(s), in a family including the exact frozen model. Let K_r count attempted cycles, including the terminal cycle, and set z=exp(−q/√r). The comparator's exact renewal formula B_(r,s)/(1−Q_(r,s)) gives E[z^K_r exp(−sT_r)]=z(1−Q_(r,s))Φ_r(s)/(1−zQ_(r,s)) by a geometric sum. The actual alarm count differs from K_r by at most one, so replacing K_r costs at most 1−z. For Exp(1) clocks the comparator gives a_s=lim√r(1−Q_(r,s))=√D C_s/2 in the original units, where C_s is the negative-minus-positive derivative of the return-home weight. Thus the marked limit is a_s times the unreset OU transform divided by a_s+q. Inserting C_s=m_s+A_s(L)/B_s(L) and the OU transform 1/[A_s(L)+m_s B_s(L)] gives the frozen boxed formula exactly. Continuity at (0,0) suffices for the weak limit even if the comparator is stated for fixed s>0. The older sharp clock-moment record explicitly gives the identical per-cycle success constant; with geometric cycles and the standard alarm compensator this also gives the diagonal exposure limit and its mean. Pitman–Yor independently covers the limiting diffusion first-passage/local-time transform class, and the frozen covariance is a differentiation of the resulting transform. The records of the marked law and the transform-profile comparator carry the same publication day, and the available evidence does not establish which came first within that day. This is a mathematical coverage finding against an existing published same-model record, not an attribution of chronological priority or copying.",
+      "residual_risks": [
+        "The catalogue date does not settle within-day precedence between the transform-profile and marked-law records. The failure rests on demonstrable mathematical implication, not an assertion about historical order.",
+        "The local-time identification concerns law at first passage; it is not evidence of process-level or finite-rate moment convergence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives exact renewal and sharp restart deficit; directly implies the marked limit after cycle counting",
+          "evidence": [
+            "Step 1 has Φ_r=B_(r,s)/(1−Q_(r,s)). Step 4 gives √r(1−Q_(r,s))→C_s E√W/√π. Step 5 proves Φ_r(s)→φ_s(0), with a sharper unmarked correction and Exp(1) clock moments."
+          ],
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/22/SCOPE-a-universal-laplace-profile-correction-for-rapid-stochastic-retu--225188b13814/RESULT.md",
+          "material_read": "Full finding, assumptions, proof steps 1–5, references and limitations; checked publication-day metadata",
+          "method": "Local mirror full text, continued through decisive cusp formula and finished proof",
+          "title": "A universal Laplace-profile correction for rapid stochastic returns",
+          "trigger": "Same alternating diffusion and sharp high-rate law of total time; possible discounted kernel coverage"
+        },
+        {
+          "assessment": "Identical cycle success asymptotic already explicit; mean result alone not a marked time law",
+          "evidence": [
+            "Step 4 gives √r p_r→E√W/(S_2√π), with S_2 the return scale at the target; the direct hit is lower order."
+          ],
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-sharp-r-3-2-clock-moment-law-for-stochastic-return-ornstein-uhle--1c82f789b3f9/RESULT.md",
+          "material_read": "Assumptions and proof steps 1–4, especially the short-time return success and arbitrary-clock limit",
+          "method": "Local mirror full text, targeted passages",
+          "title": "Sharp r^−3/2 clock-moment law for stochastic-return Ornstein–Uhlenbeck search",
+          "trigger": "Same model and short-cycle success constant"
+        },
+        {
+          "assessment": "Supplies classical joint law for the limiting diffusion, not convergence of the prelimit alternating process",
+          "evidence": [
+            "Eq. (62) gives local time jointly with both side occupation times to H_z. Equal Laplace parameters on the two side occupations mark H_z itself."
+          ],
+          "identifier_or_url": "https://live-statistics.pantheon.berkeley.edu/sites/default/files/tech-reports/607.pdf",
+          "material_read": "Technical report abstract, setup and §3.2 Corollary 7 proof and equations (58)–(63)",
+          "method": "Lawful author institution PDF and paginated text of the decisive theorem",
+          "title": "Hitting, occupation, and inverse local times of one-dimensional diffusions: martingale and excursion approaches",
+          "trigger": "Equivalent OU stopped local-time formulation of the limit law"
+        },
+        {
+          "assessment": "Geometric generation and limiting mean covered, not stated marked time transform",
+          "evidence": [
+            "Equations (24), (42)–(43) give generation probabilities; (44)–(46) give generation-indexed time means. These are not discounted restart deficits at arbitrary fixed s."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2511.14646",
+          "material_read": "Full paper PDF; compared §III geometric generation and mean-time formulas and fast-alarms conclusion",
+          "method": "Lawful OA primary PDF, paginated inspection",
+          "title": "Search by Return: Stochastic Resetting in Fluctuating Harmonic Potentials",
+          "trigger": "Target-visible harmonic cycles and geometric counts"
+        },
+        {
+          "assessment": "Known stochastic-return renewal structure and mean, no marked total-time limit in inspected results",
+          "evidence": [
+            "The expressions provide the one-cycle total-time renewal and MFPT; the displayed Laplace transform used there concerns an underlying no-reset first passage."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.18814",
+          "material_read": "Full paper PDF; compared §II equations (2)–(6), including total-time recursion and first-passage means",
+          "method": "Lawful OA primary PDF, paginated inspection",
+          "title": "Towards synergy between theory and experiments: First-passage processes under resetting with stochastic return protocols",
+          "trigger": "Exact switching-potential model and fast alarm behavior"
+        },
+        {
+          "assessment": "Not equivalent to finite stochastic returns",
+          "evidence": [
+            "The reset restarts at the same position instantly, and its local time is accumulated by the prelimit process. There is no target-visible OU return duration in the physical clock."
+          ],
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-joint-local-time-and-reset-count-conjugacy-before-absorption-in--05188208a06b/RESULT.md",
+          "material_read": "Finding, sampling and reset assumptions, and marked renewal proof",
+          "method": "Local mirror full text, targeted comparison",
+          "title": "Joint local-time and reset-count conjugacy before absorption in one-dimensional diffusion",
+          "trigger": "Nearby exact count and exposure transform"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Physical duration versus the vanishing active-search duration is a meaningful distinction, and the formulas are correct. But as a standalone additional finding, the exact joint scaling law is obtained from the published same-model discounted restart asymptotic by the geometric count mark and a standard Poisson compensator. The covariance and its sign reduce to routine differentiation and positivity of the standard one-dimensional OU boundary integrals, while the success scale was explicitly available earlier. There is no finite-rate dependence correction, process-level limit, or other substantive uncovered remainder in the frozen claim. A useful corollary for applications is not a new independent classification in this case; no repair is tendered.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

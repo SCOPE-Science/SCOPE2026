@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The entire labeled orbit is a stopping-time exploration of exactly \(T\) independent mapping outputs. Conditional on an admissible history, all other outputs remain independent uniform. The forced-image multiplicities are at most two, with at most one bin doubled; a two-stage comparison with free occupancy and then with independent completion proves the conditional and averaged total-variation inequalities. The exact birthday product controls \(\mathbb ET\); uniform small-occupancy binomial/Poisson ratios and multinomial factorial moments yield the two limit laws. These calculations and quantifiers were reconstructed independently of the finite program, and the critical thresholds are explicitly subsequential to respect discreteness. The standalone exact-rational checker verifies 50,068 complete maps and 210 conditional distributions, 802 assertions. It cannot verify an infinite limit.
+## correctness
 
-**Originality — PASS, with qualified priority risk.** The closest inspected primary work is Hansen–Jaworski on marginal or joint **local mapping exploration**; it does not give the conditional total variation of globally extreme indegree counts against full labeled history. Perkins analyzes total variation for planted global occupancy configurations, not this rare-event projection after a birthday-length stopping exploration. The birthday-process theorem of Arratia–Garibaldi–Kilian gives stopping-time asymptotics, not the cross-scale mixing statement. Direct keyword, implication and variant searches of mathematical literature and published mathematical result records yielded no identical or stronger applicable claim. The inaccessible full text of Flajolet–Odlyzko's broad earlier survey creates a genuine residual priority uncertainty. These are evidence-limited comparisons, not a guarantee of historical novelty.
+PASS
 
-**Value — PASS.** The conditional law of globally exceptional vertices can be influenced by an explored path even though its marginal expectation is tiny. The explicit product-TV estimate resolves that natural local-versus-global dependence question at the critical rare-event threshold, and implies simultaneous convergence of orbit-tail length, orbit-cycle length and globally extreme indegrees. This is not a simple restatement of either the birthday limit or the occupancy Poisson marginal: separate marginals say nothing about conditioning on the full labeled orbit.
+Conditioning on a feasible exact labeled history of T=m fixes precisely m iid map coordinates and puts no constraint on the remaining n-m coordinates. Its prescribed targets have at most one double hit. A coupling through the free allocation charges at most m b_(n,k-1)+b_(n,k-2) for imposing the prescribed targets and m b_(n,k-1) for completing the same free outputs with fresh uniform targets (each fresh target is independent of prior occupancies). Averaging conditional TV is exactly the TV against the product with the same H marginal. Summing the birthday survival product bounded by exp(-t²/(2n)) gives the stated mean bound. In the rare-threshold regime p_k=Pr(Pois(1)≥k)~e^-1/k! gives k~log(n)/loglog(n) and the shifted binomial tails have orders k/n and k²/n. The multinomial-to-product-Poisson ratio is bounded by e^q (zero off feasible count vectors) and tends to one near all q fixed occupancies at k. Conditional on the Poisson tails, the excesses vanish in probability, giving the factorial moments λ^q; the Poisson law is moment-determinate. Expanding the birthday survival product at t=O(√n) gives the Rayleigh limit; J|T is discrete uniform, and (UR,(1-U)R) has the stated density by the Jacobian R. TV contracts under projection to the two lengths and supplies the joint independence, including the zero-count event.
 
-**Limitations and risks.** Only independent-uniform functions and extreme-indegree counts are covered; the entire occupancy vector cannot mix independently of a revealed orbit. The threshold parameter requires a convergent lattice-compatible sequence, and checks at small sizes cannot establish limiting probability. General older random mapping results may imply the statement implicitly.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No inspected result covers the quantitative product estimate for the entire stopped labeled history against the global growing-threshold count. Credit the classical orbit and occupancy marginals separately; the supported distinct contribution is their quantitative decoupling at the full-history level.
+
+## value
+
+PASS
+
+The result answers whether conditioning on an entire birthday-scale orbit affects the globally rare indegree count, not just whether two normalized summaries have separate marginal limits. The explicit uniform-in-h conditional bound depends on T(h) and gives a useful decoupling rate after averaging; the Poisson/Rayleigh joint limit is a meaningful consequence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

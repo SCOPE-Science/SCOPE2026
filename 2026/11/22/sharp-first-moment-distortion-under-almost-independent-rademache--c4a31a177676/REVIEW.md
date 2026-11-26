@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-Walsh inversion proves that every fair \((n-1)\)-wise independent sign law is the stated one-parameter parity perturbation; no other coefficients survive. Complementation proves the odd case. The sign-flip sum identity, averaged across parity classes, gives both even-case norm inequalities with the exact factor. The explicit all-equal coefficients make the triangle inequalities equalities on one parity class, and one coordinate sign change reverses the bias. The two-coordinate exceptional case is separately checked. The included exact-integer diagnostic passes 1,547 finite test cases and is not substituted for the infinite proof.
+## correctness
 
-## Originality — PASS, with risks
-Actual targeted semantic searches included `Sharp relative L1 moment error under n-1 wise independent Rademacher signs vs independent, exactly 1/(n-1), all coefficients, parity laws`; `One-bit parity-tilted Rademacher signs yield exact L1 distortion 1±|theta|/(n-1) for even n and zero for odd n`; `Khintchine first moment parity high-order dependence degree n Walsh coefficient maximal relative absolute moment uniform signs`; and searches for equivalent parity-conditioned Khintchine sampling norms. The closest indexed published results concern sharp **higher** \(L^n/L^2\) moments and Walsh kernel inertia; neither accessible statement contains this uniform first absolute-moment norm comparison. Dai–Kosov's full open-access HTML proves general random-sampling bounds but does not provide this finite exact parity law. Pass–Spektor's primary text addresses distinct higher-moment questions. The related GitHub full texts could not be fetched, so an unindexed implication remains possible and is an explicit residual risk.
+PASS
 
-## Mathematical value — PASS
-The theorem classifies the entire natural family of maximally proper independent fair-sign laws, then solves the sharp first-moment stability problem for every dimension and every such law, rather than a selected example. Its odd/even dichotomy is qualitatively different: exact isometry versus a sharp positive \(1/(n-1)\) distortion, with the only singular exception at two coordinates. This is a complete, potentially useful norming fact for deterministic high-strength sign designs; no unstated downstream theorem is claimed.
+Walsh inversion leaves only the empty and full character because each proper marginal is uniform. Pointwise nonnegativity gives |theta|<=1 and the inversion also proves the converse. The first-moment difference is theta times the full-character coefficient of the absolute sign sum. Global sign reversal makes that coefficient zero in odd dimension. In even dimension a sign sum multiplied by n-2 equals the sum of its n single-flip neighbors. The triangle inequality (also for complex coefficients) and the bijective flips between the parity classes give (n-2)E+<=nE- and (n-2)E-<=nE+, where E± are normalized class means. Their sum is positive for a nonzero coefficient vector because otherwise the sign sum vanishes identically, which forces every coefficient to vanish. Rearrangement gives |E+-E-|/(E++E-)<=1/(n-1). For the all-ones vector in even dimension, the parity class not containing balanced signs has |S|>=2 throughout, so all single-flip sums have the same weak sign and the triangle inequality is exact on that class. One coefficient sign change exchanges the means and realizes the other ratio endpoint. The n=2 two-value formula attains 0 at the degenerate lower endpoint and gives the same sharp comparison; for n>=4 the lower bound is positive. The all-dimension argument was checked directly against RESULT.md, Proof; the sign enumeration was inspected, not executed, and is supplementary.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Available sources cover the classification of these laws, sharp inequalities at other exponents, and the top Fourier coefficient at the flat witness. They do not establish the sharp uniform relative L1 comparison over all vectors. The pass is for that comparison, not those ingredients.
+
+## value
+
+PASS
+
+The theorem quantifies the worst loss from using a prescribed half of the sign cube rather than all sign patterns for all first moments of linear forms. It gives exact preservation in odd dimension and an attained, dimension-dependent error in even dimension, including the two-dimensional degeneracy. The parity-class averaging explains the sharp uniform control rather than merely evaluating a flat witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

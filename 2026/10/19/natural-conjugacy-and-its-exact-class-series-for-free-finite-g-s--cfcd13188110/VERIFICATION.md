@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Execute `python3 verification/check.py` from the directory containing this file. The program uses only Python 3 standard-library modules and terminates on a failed assertion.
+## correctness
 
-It constructs \(S_3\) explicitly as six permutations, independently builds the multiplication table of all \(144\) equivariant endomorphisms on two free orbits, and determines natural conjugacy by searching witnesses for **all four defining equations**. It separately enumerates equivariant conjugacies of image restrictions and compares them across all \(10{,}296\) distinct unordered element pairs. The complete agreement yields \(12\) natural-conjugacy classes, with sizes \(1,4,4,6,6,9,12,12,12,18,24,36\).
+PASS
 
-A different exhaustive calculation examines all transformations on \(m\) points for \(1\le m\le5\) when the group is trivial, canonicalizes the maps induced on their images, and compares class counts with the formal Euler-product coefficients. Expected counts are \(1,3,7,15,30\). The series routine additionally tests the first six counts for the trivial group and for a group with three conjugacy classes: respectively \(1,3,7,15,30,61\) and \(3,12,37,103,268,675\).
+With the frozen composition convention, ag=gb and hag=b imply hgb=b; bh=ha and gbh=a imply gha=a. The restrictions of g and h to the respective images are mutually inverse and intertwine the restrictions. Conversely, an equivariant image isomorphism extends to g and its inverse to h: on each free exterior orbit choose a representative and a preimage of the required target under a or b. Freeness makes extension equivariant and well-defined, and intertwining plus the inverse restrictions give the last two witness equations. For the image isomorphism from a to b the multiplier equation is u_i t_(f(i))=t_i v_(σ(i)). Eliminating twists around each directed cycle equates ordered products up to conjugation by the first twist, and a matching conjugacy allows all twists on the cycle to be solved. Tree twists are then uniquely solved given their successor's twist, with no commutation of group factors. An image digraph with r vertices and s internal sources requires r+s≤m, since distinct sources need distinct exterior preimages; one new orbit per source suffices and extra exterior orbits may all map to any image vertex. Weighting each internal source by one extra z gives a leaf of weight z², a nonleaf tree root of weight z, and a cycle vertex of weight z even without attached trees. The multiset transform gives T=z(E−1)+z² and A=zE; the recursion uniquely gives an integral tree series. Burnside on rotations yields the connected cycle series c∑(φ(k)/k)log(1/(1−A(z^k))). The component multiset transform then uses ∑_(d|n)φ(d)=n to give the stated product; discard the empty graph and accumulate degrees through m to obtain the factor 1/(1−z). As an independent coefficient check, A=z+z³+z⁴+2z⁵+3z⁶+O(z⁷), so F_1 has coefficients 1,1,2,4,8,15,31 through degree six; cubing F_1 and cumulatively summing its positive-degree coefficients gives 3,12,37,103,268,675, as claimed. For m=2 there are c one-loop, c two-cycle, and binomial(c+1,2) two-loop types, giving 12 for S_3. Inspected VERIFICATION.md and verification/check.py; no frozen script was executed. The file exists despite not being included in the initial bound support list. Its documented direct witness check is finite, not the justification for extension or enumeration for all m.
 
-These are exhaustive only in the stated finite test ranges. They are not a substitute for the proof of the image-extension lemma, the nonabelian cycle-product gauge classification, the \(r+s\) realization condition, or the formal cycle-index identity. No independent mathematical audit or external certification has been performed.
+## originality
+
+PASS
+
+The supported increment is the nonabelian free-orbit classification and its all-m class series. The abelian trim framework and the trivial-group image-digraph classification are prior work, and the counting transforms are standard. The inspected paper asks for the nonabelian extension and does not already give the stated free nonabelian classification and source-weighted series.
+
+## value
+
+PASS
+
+This classifies a natural semigroup relation on a free action of an arbitrary finite group, extending a stated question to the free case. It explains why only cycle holonomies survive and why class counts depend only on c(G), not the group's order or structure beyond it. The minimum ambient orbit cost of an image diagram makes the all-m enumerator usable and is not a count of unrestricted endomorphisms or of unit-conjugacy classes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

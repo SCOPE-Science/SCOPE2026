@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Every new point is determined by a chosen old edge-neighbour set and a freely chosen set of incident triangles supported by old edges; the arbitrary old triangle set cannot constrain these choices. The established Fraïssé one-point extension property and finite-relational homogeneity identify finite extension diagrams with complete nonalgebraic one-types. Exhaustive permutation-orbit enumeration of every labelled simple graph through six vertices proves the three exact collision fibres and unique connected pair. Representative edge histograms and an independent graph-atlas computation support the numerical certificates. Limit: the finite classification stops at six; the link formula does not.
+PASS
 
-## Originality — PASS, subject to historical priority
+With x fresh its old neighbors are an arbitrary set S. Each old edge internal to S independently allows a new triangle through x, with no higher face constraint. The realizable finite one-point diagrams therefore number Σ_S 2^{e(G[S])}; homogeneity makes a diagram determine the complete type. Each diagram has arbitrarily many realizations by freely taking several copies over A and using the extension property, so precisely these fresh-point types are nonalgebraic. The canonical triangle-filled bases implement comparison of graph isomorphism types within each order, not of arbitrary two-complexes or of different orders. In an independent replay generation by adding a vertex with every possible old neighborhood is exhaustive by deleting a vertex; minimization over degree-compatible labellings removes precisely isomorphisms. This reproduces the class and connected-class counts, verifies no repeats within orders 1–5, and gives exactly the pairs 61/110, 123/685, 927/1751 at values 256, 376, 832. Only the last pair is connected-connected; both of its displayed histograms and all six degree multisets agree.
 
-The random-polyhedron paper establishes the underlying homogeneous structures, not the one-type scalar or first collision cutoff. The graph scalar is a two-spin partition-function evaluation, so the partition-function interpretation itself is not claimed as novel. The inspected subgraph-component-polynomial research records a different statistic (number of components), and does not provide the three specific six-vertex fibres for induced-edge evaluation at two. Actual searches of related graph-polynomial aliases and published result records revealed no stronger covering statement. Residual risk: a specialized finite partition-function table may implicitly contain the same six-point census.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-An exact finite-base logical orbit count is a natural invariant of a canonical subcomplex, and the minimal failure to reconstruct its underlying graph is a meaningful boundary. The work supplies not just an isolated example but a complete first-collision census, three specific fibres, unique connected-connected collision, and exact differential witnesses in the full edge-distribution polynomials. The sharp threshold is not implied merely by identifying the statistic with a known partition function.
+The one-point extension count is a direct application of the known setting and yields a known kind of partition-function specialization. Credit is for the exact first collision and full six-vertex fibre classification, including the connected pair, not for introducing a graph polynomial or the Fraïssé construction.
 
-## Closest literature and limits
+## value
 
-Mijares–Padilla, arXiv:1209.6421, §§6–7, supplies the Fraïssé structures. Liao–Hou, arXiv:1311.6856, §§2,5, studies a different graph polynomial and graph-distinguishing collisions. A broader hidden treatment of the same fixed partition-function specialization is the principal priority risk. No independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The statistic is motivated independently by extension spaces of a natural homogeneous complex. After removing the automatic old-triangle ambiguity, the first collision is an intrinsic boundary rather than a chosen sample size. The census also distinguishes a substantive obstruction: the scalar loses graph information even on connected bases, and it does so already at the first possible order, despite different induced-edge histograms. These exact smallest examples and the absence of other fibres at that order are useful benchmarks for graph reconstruction by type counts and partition-function evaluations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

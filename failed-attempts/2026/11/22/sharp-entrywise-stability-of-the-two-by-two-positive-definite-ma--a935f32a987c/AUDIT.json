@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "For all 0<a<b, the proof derives the Fréchet derivative by Sylvester inversion, obtains a positive semigroup for the two-by-two Stieltjes orientation, and proves exactly that the input maximum-entry norm is attained by all-ones rank-one symmetric H and the larger diagonal row-square integral. The latter is monotone in the two spectral endpoints, and its scalar-angle derivative factors with a unique interior maximizer tanθ=√2−1. Convex-segment integration proves a global two-input bound; explicitly described admissible interior perturbations tend to equality at the endpoints. Symbolic derivative factorization was independently checked, and the included checker replayed 16,515 supplementary assertions. Numerics are not the proof; strict a,b and dimension two delimit all claims.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Higham–Relton (2014), Theorem 5.5, maximizes Frobenius-norm to Frobenius-norm coefficients for Hermitian functions; norms differ, and the extremal entrywise coefficient is strictly larger than the scalar/Frobenius value.",
+        "Schweitzer, arXiv:2203.03930, relevant full-text representations for higher-order derivatives and level-two conditioning, not a sharp entrywise Lipschitz law.",
+        "Kandolf et al., arXiv:2008.12926, relevant full-text approach approximates low-rank Fréchet derivatives rather than optimizing this two-ended condition coefficient."
+      ],
+      "reasoning": "General Fréchet calculus is broader in functions and dimensions, but its quoted operator-norm results do not imply the claimed entrywise maximum-norm constant. Numerical approximation or derivative representation also does not supply the exact worst-case orientation and two-input bound. We distinguish domain coverage from implication of the exact numerical conclusion.",
+      "searches": [
+        "symmetric positive definite square root Fréchet derivative ℓ infinity entries optimal perturbation rank one",
+        "two by two Sylvester Lyapunov inverse maximum entry norm symmetric matrices positive definite eigenvalue bounds"
+      ]
+    },
+    "checked_sources": [
+      "Carlsson (2018), arXiv:1810.01464; source derivative, relevant complete text",
+      "Higham–Relton (2014), DOI:10.1137/130945259; exact Frobenius theorem and hypotheses",
+      "Kandolf et al. (2020), arXiv:2008.12926; Krylov derivative methods",
+      "Schweitzer (2022), arXiv:2203.03930; integral derivatives and level-two conditioning",
+      "Exact nonnormal amplification and two-step loss of positive definiteness in frozen-Sylvester square-root refinement (2026); full published RESULT.md",
+      "Sharp independent-entry Lipschitz constants for two-by-two semidefinite projection (2026); distinct PSD clipping map"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Carlsson arXiv:1810.01464 establishes perturbation calculus but not the exact spectral-window maximization.",
+        "Higham–Relton 2014 Theorem 5.5 gives the Frobenius value 1/(2√a), while the present large-contrast entrywise value is (3+2√2)/(8√a), demonstrating nonimplication without norm conversion and sharp extremal proof.",
+        "The inspected 2026 result on frozen-Sylvester refinement concerns a nonlinear iterative root solver and Frobenius transient error, not the direct square-root map or entrywise Lipschitz stability.",
+        "Related results on two-by-two PSD projection concern a different functional calculus f(λ)=max(λ,0), with different derivatives."
+      ],
+      "reasoning": "The new exact coefficient is not claimed to discover the square-root derivative. It combines a positive-kernel induced-entrywise norm identity, spectral-endpoint monotonicity, a unique π/8 maximizing angle, and a limiting boundary witness to obtain a GLOBAL two-input coefficient. Neither the inspected Frobenius result nor the solver-instability construction implies this constant by taking a special case. Residual risk: another author’s unpublished or differently indexed sharp componentwise conditioning formula.",
+      "searches": [
+        "2x2 matrix square root Frechet derivative absolute componentwise condition number max entry norm eigengap",
+        "two by two Sylvester Lyapunov inverse maximum entry norm symmetric matrices positive definite eigenvalue bounds"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Carlsson, arXiv:1810.01464, relevant full-text perturbation and divided-difference sections: standard Fréchet derivative, not the optimized absolute-entry coefficient.",
+        "Higham–Relton, DOI:10.1137/130945259, full-text Theorem 5.5: Frobenius-norm conditioning for Hermitian functions, not the absolute-entry norm."
+      ],
+      "reasoning": "The Lyapunov derivative can be represented by a divided difference or an integral exponential kernel. Those equivalent starting expressions alone give neither the induced coordinatewise maximum norm nor the spectral-window optimized coefficient. We compared their hypotheses, norms, and conclusions, not wording. No explicit equivalent optimized constant found in inspected relevant sections; unindexed implicit corollaries are a residual risk.",
+      "searches": [
+        "two by two positive definite square root sharp entrywise max norm Lipschitz coefficient spectral interval extremal rotation pi/8 sqrt2",
+        "2x2 matrix square root Frechet derivative absolute componentwise condition number max entry norm eigengap"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected primary sources and their relevant result listings do not present a table of the exact entrywise absolute coefficient.",
+        "Related publicly indexed two-by-two semidefinite projection coefficients are for positive-part clipping, a different matrix function."
+      ],
+      "reasoning": "The 2x2 PSD cone projection tabulations concern A↦A_+ rather than A↦A^{1/2}; their coefficients cannot be transferred by relabeling the spectral parameters. No exact matching database result found, but a negative search is not a proof of originality.",
+      "searches": [
+        "principal square root map max-entry Lipschitz modulus 2 by 2 symmetric positive definite matrices sharp",
+        "sharp entrywise max norm Lipschitz constant matrix square root positive definite spectral interval"
+      ]
+    },
+    "rationale": "The full relevant classical derivative and Frobenius-conditioning sources were compared at the level of object, norm, parameters, and logical implication. Closest results supply general Fréchet machinery or different norms and maps, not this sharp two-ended absolute-entry result with universal π/8 extremizer. A highly relevant indexed iterative-Sylvester source was inspected in full and found to treat a distinct map. No stronger covering statement observed, with explicit remaining historical-priority uncertainty.",
+    "residual_risks": [
+      "An unindexed exact 2×2 componentwise matrix-square-root condition number could imply the formula, especially under Lyapunov inverse terminology.",
+      "The cited sources and searchable research corpus cannot certify universal novelty; independent systematic historical-priority review remains unperformed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers classical perturbation framework but not exact two-ended 2×2 absolute-entry Lipschitz constant.",
+        "evidence": "Daleckii–Krein divided-difference derivative describes local linear map; present result optimizes its induced entrywise norm and proves global sharpness.",
+        "identifier_or_url": "https://arxiv.org/abs/1810.01464",
+        "material_read": "Full arXiv HTML article relevant Sections 1–3 and additional section material, including standard Daleckii–Krein derivative review.",
+        "method": "Read full-text HTML and compared function, spectrum, norm, and claimed bounds.",
+        "title": "Perturbation theory for the matrix square root and matrix modulus",
+        "trigger": "Same principal square-root map and general perturbation derivative."
+      },
+      {
+        "assessment": "Optimizes Frobenius operator norm; cannot provide an exact maximum-entry perturbation coefficient.",
+        "evidence": "Hermitian Frobenius norm operator coefficient max_i |f′(λ_i)| =1/(2√a) for square root, strictly below large-contrast entrywise coefficient.",
+        "identifier_or_url": "https://doi.org/10.1137/130945259",
+        "material_read": "Accessible primary PDF, relevant Theorem 5.5 and hypotheses/statement, checked in PDF pages.",
+        "method": "Read original full-text mathematical theorem and inspect relevant PDF page images.",
+        "title": "Higher Order Fréchet Derivatives of Matrix Functions and the Level-2 Condition Number",
+        "trigger": "Hermitian matrix-function absolute conditioning and square-root derivative."
+      },
+      {
+        "assessment": "Approximation algorithms rather than a sharp two-input entrywise spectral-window stability theorem.",
+        "evidence": "Computes or approximates matrix-function derivatives, does not optimize their maximum-entry induced norm across rotated two-point spectral intervals.",
+        "identifier_or_url": "https://arxiv.org/abs/2008.12926",
+        "material_read": "Available full open-access text, introductory and method sections on low-rank derivative computation.",
+        "method": "Inspect source statements and algorithms against exact two-by-two norm optimization.",
+        "title": "Computing low-rank approximations of the Fréchet derivative of a matrix function using Krylov subspace methods",
+        "trigger": "Methods for evaluating square-root Fréchet derivatives."
+      },
+      {
+        "assessment": "Studies higher order and level-two operator conditioning, not exact first-order global 2×2 absolute-entry constant.",
+        "evidence": "General integral representations are compatible with, but do not directly yield, the optimized numerical formula.",
+        "identifier_or_url": "https://arxiv.org/abs/2203.03930",
+        "material_read": "Full open-access HTML relevant Sections 1–3 and conditioning discussion.",
+        "method": "Compare derivative order, norm, matrix class, and explicit conclusions.",
+        "title": "Integral representations for higher-order Fréchet derivatives of matrix functions: Quadrature algorithms and new results on the level-2 condition number",
+        "trigger": "Integral derivative forms and matrix-function condition numbers."
+      },
+      {
+        "assessment": "Not covering: iterative frozen-Jacobian solver with Frobenius root error versus direct principal-root map and max-entry input/output norm.",
+        "evidence": "The cited result studies X↦X+L_Z^{-1}(A−X²) and iteration Jacobian; our map is A↦A^{1/2} and its sharp two-input Lipschitz modulus.",
+        "identifier_or_url": "Published research record (2026-11-08), Exact nonnormal amplification and two-step loss of positive definiteness in frozen-Sylvester square-root refinement",
+        "material_read": "Complete public RESULT.md including definitions, proof, relationship to prior work, and limitations.",
+        "method": "Inspect primary result and compare direct principal-root map against fixed-Jacobian solver iteration.",
+        "title": "Exact nonnormal amplification and two-step loss of positive definiteness in frozen-Sylvester square-root refinement",
+        "trigger": "Same size two matrix square root and Sylvester operator, possible implicit overlap."
+      }
+    ],
+    "status": "PASS"
+  },
+  "previously_published_pending_reaudit": false,
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a935f32a-987c-466a-be5a-233d74b32b71",
+  "value": {
+    "rationale": "The question gives a complete sharp robustness coefficient for a natural canonical matrix functional calculus under coordinatewise absolute errors; its nontrivial universal π/8 orientation and high-contrast factor (3+2√2)/4 distinguish it from scalar and Frobenius estimates. The exact small-matrix benchmark is useful for entrywise perturbation analysis even absent a dimension-general result, with no unsupported downstream theorem claimed.",
+    "status": "PASS"
+  }
+}

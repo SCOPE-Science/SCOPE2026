@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:01:30.880826Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–87; VERIFICATION.md; check_ttr3.py exact field-sign, Bernstein, modulus and residue calculations inspected without execution; independent pole bisection and residue-bound calculation; Ferrari §3 Eq. (9), Theorem 3.1 and Table 2."
+      ],
+      "rationale": "Ferrari's symbol and optimized J=3 coefficients reproduce δ_3. Its derivative is (2−sqrt(2))(z−2−sqrt(2)/2) times the strictly positive quadratic z²−(1+sqrt(2))z+1+sqrt(2). This gives a unique real minimum and fixes the positive-real-pole regime. For P_q(Rx)/(1−x), expand the normalized cubic factors (1−tx)(1−2ux+νx²) to get F/c_0²=(1−ν)(1−2tu+t²ν), with ν=R²/|z_+|² and the second factor positive. The coefficients of the expanded symbol give F=−vR²G(R); the five positive Bernstein coefficients of G' and endpoint signs in the supplied interval isolate the only crossing. At the coalescence of the real roots the identity still holds with t=1, and G(R_c)>0 ensures that the positive double root is not dominant. Below q_* the simple positive pole gives a strictly positive leading coefficient. Above q_* there is no positive pole on the convergence circle; applying Pringsheim to either sign of an allegedly one-sided tail proves infinitely many coefficients of each strict sign. At q_* the competing complex poles must be controlled: direct residue comparison reduces A>2|B| to (R+Re z_+)|T−z_+|²>2R(T−R)². The quoted Vieta/rational boxes give a lower bound 15.627192309 against an upper bound 9.41696994, so equality in the modulus comparison still yields eventual strict positivity. Formal coefficient recurrence independently supports the stated lag-four sign defect at q=1. These are eventual sign statements, not all-lag or full-solver stability statements.",
+      "residual_risks": [
+        "High-precision bisection gives q_*≈0.6108597918577594647; the frozen decimal differs by about 1.1e−15. The exact definition and rigorous bracket, and hence the theorem, are unaffected."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pringsheim's theorem gives the generic one-sided tail obstruction when the dominant positive-real pole is absent.",
+          "The cubic Padé record uses real-pole residue dominance; the BDF2 record gets recurring opposite signs with a different symbol and a positive interval mixture of exponential kernels."
+        ],
+        "reasoning": "These sources supply broad methods and neighboring outcomes. They do not determine how the TTR_3 quartic poles exchange dominance or what happens at their tied modulus.",
+        "searches": [
+          "Flajolet–Sedgewick, Analytic Combinatorics, Theorem IV.6",
+          "Resultary 7756127900e3 and b0c988b35cf7"
+        ]
+      },
+      "checked_sources": [
+        "Ferrari arXiv:2607.11422v1; Flajolet–Sedgewick Thm. IV.6; Resultary 5744d0bd2daf, 0667c094ef1b, 7756127900e3 and b0c988b35cf7."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact transition needs a modulus identity tied to G, single-root isolation on the decreasing real branch, and strict residue comparison at G=0.",
+          "The general theorem gives both-sign recurrence after the dominant-pole order is known, but does not settle that order or the boundary."
+        ],
+        "reasoning": "Applying known coefficient-sign principles still requires these separate symbol-specific calculations; neither A-stability nor the corresponding J=2 threshold mechanically gives the result.",
+        "searches": [
+          "Ferrari §3; Resultary 5744d0bd2daf, 0667c094ef1b, 7756127900e3, b0c988b35cf7; Flajolet–Sedgewick IV.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equivalent problem is eventual signs of Taylor coefficients of a reciprocal quartic, not signs in the polynomial symbol.",
+          "Indexed record 5744d0bd2daf proves alternating signs and a modulus maximum for the symbols themselves, including J=3; 0667c094ef1b proves an exponential-kernel sign theorem for J=2."
+        ],
+        "reasoning": "Alternation of a symbol does not determine its reciprocal's coefficients or poles. The J=2 reciprocal has another denominator and an all-lag property rather than this eventual threshold.",
+        "searches": [
+          "Resultary: optimized truncated trapezoidal convolution weights, exponential-kernel positivity, rational-series pole/residue dominance",
+          "Ferrari arXiv:2607.11422v1 §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 2 supplies c_3^2=2sqrt(2)−2 and c_3^3=2−sqrt(2), not the q threshold.",
+          "Exact indexed thresholds and all-order symbol results cover the objects listed above, not the q_* of this reciprocal."
+        ],
+        "reasoning": "Known exact rule parameters are required input, not a table entry for the claimed invariant. The same-day distinct symbol result was tested for mathematical coverage, not ruled out by dating.",
+        "searches": [
+          "Ferrari §3 Eq. (13), Remark 3.2 and Table 2",
+          "Resultary 5744d0bd2daf and 0667c094ef1b"
+        ]
+      },
+      "rationale": "The symbol, pole methods and related sign theorems are prior. The checked sources do not supply this quartic reciprocal's unique positive-to-complex dominant-pole transition, its strict equality residue decision, or the full eventual sign classification for J=3.",
+      "residual_risks": [
+        "Best-of-knowledge review, not proof of priority; a broader overlooked parameterized quartic classification could supply the threshold.",
+        "The Banjai DOI 10.1515/cmam-2021-0186 lookup did not yield original passages; the manuscript's contextual operator-coercivity comparison is not independently certified here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies model parameters, no weight-sign transition in these passages",
+          "evidence": "The symbol formula and J=3 table give exactly the frozen δ_3.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.11422v1",
+          "material_read": "§3, PDF pp. 4–5 Eq. (9), Theorem 3.1, Eq. (13), Remark 3.2 and Table 2 (OA offsets 13820, 17400–21849)",
+          "method": "Bounded OA original PDF inspection",
+          "title": "Convolution quadrature based on a truncated trapezoidal rule",
+          "trigger": "Original rule and coefficient optimization"
+        },
+        {
+          "assessment": "Different coefficient object",
+          "evidence": "Signs of δ_J coefficients and maximum of |δ_J| at −r; not the Taylor coefficients of 1/(δ_J+q).",
+          "identifier_or_url": "2026/11/22/SCOPE-all-order-alternating-coefficient-theorem-for-optimized-truncate--5744d0bd2daf",
+          "material_read": "Mirrored RESULT.md opening statement at offset 0",
+          "method": "Local Resultary catalogue and mirror",
+          "title": "All-order alternating coefficient theorem for optimized truncated trapezoidal symbols",
+          "trigger": "Same symbol family and signs, including same-day coverage"
+        },
+        {
+          "assessment": "Different order and quantifiers",
+          "evidence": "J=2 all-lag nonnegativity threshold ≈0.933212708152 with lag 6 zero at equality.",
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-all-lag-positivity-threshold-for-exponential-kernel-trunca--0667c094ef1b",
+          "material_read": "Mirrored RESULT.md opening statement at offset 0",
+          "method": "Local Resultary catalogue and mirror",
+          "title": "Sharp all-lag positivity threshold for exponential-kernel truncated-trapezoidal weights",
+          "trigger": "Closest reciprocal sign threshold in the same family"
+        },
+        {
+          "assessment": "Generic step, not the threshold",
+          "evidence": "Nonnegative coefficients with finite radius imply a singularity on the positive real axis.",
+          "identifier_or_url": "https://ac.cs.princeton.edu/home/AC.pdf",
+          "material_read": "Theorem IV.6, printed p. 241, PDF p. 254",
+          "method": "Bounded OA PDF text inspection",
+          "title": "Analytic Combinatorics",
+          "trigger": "General positivity and dominant singularity theorem"
+        },
+        {
+          "assessment": "Methodological precedent",
+          "evidence": "Proves positivity for reciprocals of a cubic Padé family, not a pole transition for the present quartic.",
+          "identifier_or_url": "2026/11/8/SCOPE-complete-coefficient-positivity-for-cubic-exponential-pad-denomi--7756127900e3",
+          "material_read": "Mirrored RESULT.md opening statement at offset 0",
+          "method": "Local Resultary catalogue and mirror",
+          "title": "Complete coefficient positivity for cubic exponential Padé denominators",
+          "trigger": "Related real-pole residue dominance"
+        },
+        {
+          "assessment": "Different rule and kernel family",
+          "evidence": "BDF2 with a positive interval mixture of exponentials; all weights positive for ha≤1/2, opposite signs recur above.",
+          "identifier_or_url": "2026/10/26/SCOPE-a-sharp-slow-mode-threshold-for-positive-bdf2-convolution-weight--b0c988b35cf7",
+          "material_read": "Mirrored RESULT.md opening statement at offset 0",
+          "method": "Local Resultary catalogue and mirror",
+          "title": "A sharp slow-mode threshold for positive BDF2 convolution weights",
+          "trigger": "Related recurring sign change in convolution quadrature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and equality proof; Ferrari's optimized rule; nearest TTR_2 sign classification."
+      ],
+      "rationale": "For an actual optimized convolution quadrature rule, the classification separates strict positivity of the long-lag tail from indefinitely recurring negative weights across all positive relaxation parameters. The behavior at the tied poles does not follow from radius alone, and the explicit negative short-lag witness distinguishes the question from A-stability or all-lag positivity.",
+      "residual_risks": [
+        "Not a general kernel/rule classification, a uniform lag cutoff, or a claim about stability of a fully coupled solver."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

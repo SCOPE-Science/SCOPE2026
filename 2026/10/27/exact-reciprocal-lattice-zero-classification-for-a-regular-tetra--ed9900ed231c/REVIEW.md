@@ -1,20 +1,21 @@
-## Correctness
+# Independent mathematical audit
 
-**PASS.** The claim is restricted to reciprocal-edge-lattice frequencies and to the Euclidean surface measure of a regular tetrahedron. All four facet parametrizations have the same positive Jacobian \(2A_f\). The three-node face integral is evaluated exactly in its three multiplicity cases. Summing the four face terms gives zero for the \(1+1+1+1\) and \(2+2\) patterns, and for the \(2+1+1\) pattern precisely when \(s+t=2r\). The \(3+1\) case has real part \(1/2\) after removing the common factor, and the \(4\) case has value \(2\); neither can vanish. The included finite enumeration is a rational consistency check, not the proof.
+## correctness
 
-## Originality
+PASS
 
-**PASS, with residual priority risk.** Targeted literature searches covered the exact surface-measure object, reciprocal-lattice zeros, tetrahedral shell form factors, and equivalent facewise Fourier formulations. The closest retrieved records concern finite-field simplex support, volume-transform zeros of Euclidean simplices, and zero-free regions for bipyramids; their objects and invariants do not imply this scalar surface-measure classification. Gallatin's full paper derives a normal-weighted boundary representation of the volume transform, and Diaz–Le–Robins give general indicator-transform/face-poset formulas. Neither inspected statement is this unweighted boundary-transform zero census. Senesi–Lee's abstract is relevant to polyhedral scattering, but its full text was not inspected; it remains an explicit risk, not evidence of noncoverage. Search absence is not proof of novelty.
+On the reference triangle with area 1/2, translate the integer nodes by the same integer without phase change. For a repeated pair r,r and singleton s, integrating over the singleton barycentric coordinate v gives the integral of (1−v)exp(−2πi(s−r)v) over [0,1], namely 1/(2πi(s−r)); the minus-imaginary sign is consistent with the convention. For three distinct nodes the two edge exponentials after the inner integration have nonzero integer frequencies and both integrals vanish. Three equal nodes give 1/2. Each physical facet carries the same Jacobian 2A_f, so summing over the omitted node leaves zero for all-distinct nodes and cancels opposite pair contributions for 2+2. For 2+1+1 the sum can vanish only when the two nonzero reciprocal gaps 1/(s−r), 1/(t−r) add to zero, equivalently s+t=2r. Type 3+1 has positive real part from its constant face, and type 4 has Fourier value 4A_f, the total area. This exhausts all integer phases. Independently the stated cube count 396 splits as 336 all-distinct, 24 two-pair, 24 symmetric with repeated zero, and 12 symmetric with zero a singleton (then the other singleton is 2r). This and the rational finite check corroborate the claim; the analytical calculation proves it on all of L*. The supplied check.py was read, not executed.
 
-## Mathematical value
+## originality
 
-**PASS.** The zero set of the Fourier transform of a uniform thin tetrahedral shell is a natural diffraction/sampling invariant distinct from the solid's volume form factor. The theorem gives a complete, exact classification of all reciprocal-edge-lattice extinctions and identifies a nontrivial arithmetic-progression exception in the \(2+1+1\) multiplicity type. It is not a finite numerical census or a mere normalization check.
+PASS
 
-## Closest literature and limits
+Standard simplex exponential integrals and divided differences already provide the facet-evaluation machinery. The supported distinct claim is the explicit necessary-and-sufficient rule for cancellation of the equal-area tetrahedron's scalar surface sum at reciprocal edge lattice frequencies, including the single repeated-pair midpoint condition. The closest verified lattice-zero classifications use simplex volume in other dimensions. Potential overlap with inaccessible polyhedral form-factor literature remains qualified.
 
-- G. M. Gallatin (2012), DOI 10.1063/1.3676310: full paper inspected in relevant sections; the boundary integral carries a normal weight and is used to recover volume transforms.
-- R. Diaz, Q.-N. Le, and S. Robins (2016 preprint), arXiv:1602.08593v1: relevant sections of the full PDF inspected; the object is the Fourier transform of a polytope indicator and its use in solid-angle sums.
-- A. Senesi and B. Lee (2015), DOI 10.1107/S1600576715002964: publisher abstract and metadata inspected; full text was not available for direct statement comparison.
-- Residual risks include unindexed work on surface-shell diffraction, reciprocal-lattice extinction rules, or a general polyhedral surface-form-factor formula.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A uniform regular tetrahedral shell is a natural scattering object, and its exact extinctions at reciprocal edge frequencies are a concrete invariant distinct from the volume form factor. The rule resolves cases where individual facet contributions are nonzero but all cancel; in particular it distinguishes symmetric from nonsymmetric gaps in the same 2+1+1 multiplicity type. The result gives an all-frequency-lattice test without evaluating form factors afresh; it is not a check at a few frequencies or the renormalization of a known volume zero set.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

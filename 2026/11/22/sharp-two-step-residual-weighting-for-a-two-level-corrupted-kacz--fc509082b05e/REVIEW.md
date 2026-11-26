@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS, self-review).** Every projection resets the scalar iterate to one of the two observed measurement levels. The exact transition matrix yields the two-step worst-start probability without any limiting approximation. The differentiated rational objective has an explicit cubic numerator. Strict concavity for minority corruption and a positive parameter derivative for majority corruption establish all uniqueness and endpoint assertions. The root-scaling sandwich and stationary/eigenvalue expansion establish the rare-corruption exponent. An independently packaged rational/polynomial checker verifies 4,406 finite parameter cases and a symbolic identity. Computations corroborate but do not establish the infinitely quantified statements.
+## correctness
 
-**Originality (PASS, qualified self-review).** The motivating full text gives a general nonincreasing residual-weighted Kaczmarz rule, one-step error bounds, threshold-weight convergence and adaptive exponential-weight discussion, not this exact two-step minimax choice. Previously known reversible two-state/multi-state identities are not claimed as new. Published nearest two-state quantile-Kaczmarz results use quantile selection rather than a continuously tunable residual ratio; fixed-probability and increasing-residual weighted-row results optimize different problems. The exact cubic, sharp one-half contamination boundary and cube-root/two-thirds-exponent mechanism were not identified as previously implied by the inspected materials. A full historical-priority guarantee is impossible; inaccessible or unindexed equivalent analyses are residual risks.
+PASS
 
-**Value (PASS, self-review).** The source method's practical premise is to suppress large-residual rows without choosing the weight too aggressively, because overly conservative sampling stalls escape from a corrupted iterate. The smallest exact model already exposes a nontrivial finite-horizon bias/persistence tradeoff (one update always favors no downweighting; two is the first horizon permitting an interior optimum), a sharp change at a half-corrupted sample, and an explicit improvement from order-\(p\) to order-\(p^{4/3}\) two-step error under rare contamination. The dimension-one result isolates a structural weight-design issue without claiming general high-dimensional optimality.
+From the row weights the two transition probabilities are α=zt/(1+zt) and β=t/(z+t), respectively clean-to-corrupt and corrupt-to-clean. The difference of the two terminal bad-state probabilities is (1−α−β)², so the corrupt start is worst (tied at t=1); its risk is 1−β(2−α−β). This yields the stated rational function. Separately differentiating the success probability yields zN_z(t)/[(z+t)³(1+zt)²]. For 0<z<1 the strict concavity of N_z, its positive values at 0 and z and its negative value at 1 give a unique crossing and a strict gain over t=1. For z≥1, N_1(t)=2(1−t)(1+t)² and ∂N_z/∂z is positive on [0,1], so t=1 is uniquely optimal, including z=1. At the small-z scale, N_z(az^(1/3))/z tends to 2−a³, bracketing the unique root. The stationary bad probability is asymptotic to pt and the eigenvalue to p/t on that scale; substituting in π_B+(1−π_B)λ² yields the announced p^(4/3) rate and constant. An independent two-state calculation at p=1/10, t=1/2 gave 175/2299; numerical bisection gave t*≈0.52257733 and risk ≈0.07599966. The excluded t=0 has both states absorbing and risk one.
 
-**Source/assumption limitations.** The inspected relevant primary manuscript is arXiv:2611.03889v1 (2026-11-02), with particular attention to its algorithm, one-step bound and weight families. Other relevant publications and mathematical-record summaries were compared by actual algorithms and claimed implications. The model assumes equal-amplitude fixed corruptions, known corruption fraction for optimizing the scalar weight, and worst-start restriction to observed levels. An earlier exact special-case classification might exist outside the accessed records.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the prior residual-weighted framework, two-state reduction and stationarity/relaxation ingredients. The distinct supported claim is the solution of the fixed-ratio, two-update worst-start optimization, including the half-contamination transition and the cubic-root and four-thirds-power laws. Neither an earlier first-hit result nor the closest catalogue statement on long-run bias and relaxation provides those conclusions. The exact catalogue self-hit is not independent coverage, and no order between distinct same-day records is inferred.
+
+## value
+
+PASS
+
+The two-level instance isolates the finite-horizon cost of protecting a bad start: uniform sampling is always best after one update, but after two the optimizer is nonuniform exactly below half contamination. In the rare-corruption regime the optimized risk is of smaller order than uniform sampling, at a precise weight scale. This is a motivated benchmark for fixed residual weighting rather than just a rational two-state transition calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

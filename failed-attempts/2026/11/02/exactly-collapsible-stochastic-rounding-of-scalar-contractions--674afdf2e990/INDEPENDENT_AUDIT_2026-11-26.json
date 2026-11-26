@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:59:12.037909Z",
+  "axes": {
+    "correctness": {
+      "rationale": "If m=ba+r with 0≤r<b, rounding either m/b or (m+1)/b produces only a or a+1, even at an integral endpoint. Unbiasedness fixes the weight on a+1, so induction proves the law for arbitrary successive reciprocal-integer denominators and order independence of the terminal law. For any nonreciprocal real q, m=⌊1/q⌋ satisfies 0<mq<1<(m+1)q<2. The interval (m/q,(m+1)/q) has length >1 and contains a positive integer k, giving positive intermediate mass at both m and m+1 and positive terminal mass at 0, 1 and 2. This disproves collapse for all k already at two steps, not necessarily at each k. With j=⌊μ⌋, E[(Z-j)(Z-j-1)]≥0 gives the stated variance bound and equality condition; the three-atom witness makes it strict. For q=2/5 and k=6, exact composition gives masses (3,20,2)/25, mean 24/25 and variance 124/625 versus the single-step 24/625. Zero is absorbing, so the tail is min(1,k/b^n); summing it from n=0 gives the claimed expectation, including k=1 and exact powers of b. These are exact fixed-grid results; neither floating-point arithmetic nor arbitrary slopes or initial states are implied. The frozen rational script was inspected but not run; the main checks are analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "374d6aac7770 gives the full tail min(1,n/b^t) and further gives the nonconstant periodic correction to Eτ.",
+          "The survey defines the local unbiased stochastic rounding rule on a representable set; it is not a theorem about reciprocal contractions on an unbounded fixed lattice."
+        ],
+        "reasoning": "The additional phase analysis is stronger than the frozen expectation statement. By contrast, a more general rounding model is not itself a more general collapse theorem.",
+        "searches": [
+          "Resultary 374d6aac7770, Exact absorption and lattice phase",
+          "Croci et al., Stochastic Rounding: Implementation, Error Analysis, and Applications, §2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 374d6aac7770, exact mirrored text",
+        "Croci–Giles arXiv:2010.16225",
+        "Croci et al. Royal Society Open Science 9, 211631, §2",
+        "Dahlqvist–Salvia–Constantinides arXiv:1912.00867"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A terminal law depending only on b_1···b_t immediately implies the order-independence claim.",
+          "Writing j=⌊log_b k⌋, the indexed expectation j+1+(k/b^j)/(b-1) equals the frozen formula with L=j if k=b^j, and L=j+1 otherwise.",
+          "The indexed three-atom construction, combined with the pointwise nonnegative product (Z-⌊μ⌋)(Z-⌊μ⌋-1), immediately gives strict nonreciprocal variance inflation."
+        ],
+        "reasoning": "The extinction formula is the same invariant with a different index convention. The additional universal variance comparison is the elementary lattice variance inequality; applying it to the already covered witness and substituting a rational example do not leave a new substantive gap.",
+        "searches": [
+          "374d6aac7770 mixed-denominator, variance, necessity and absorption passages, offsets 0 and 3982"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "374d6aac7770 uses floor and ceiling with weights 1-{z} and {z}; for integral z this is precisely the same deterministic kernel.",
+          "Its universal initial n and horizon t are the frozen k and n; the difference t≥0 versus n≥1 adds only the trivial initial case.",
+          "Its condition t=2 for every n is the same universal-in-starting-state rigidity condition."
+        ],
+        "reasoning": "The same Markov transition and initial state class determine the same terminal distributions. This is not just a comparison of unbiasedness or of mean scaling.",
+        "searches": [
+          "Resultary 374d6aac7770, Finding and Assumptions",
+          "arXiv:2010.16225",
+          "arXiv:1912.00867"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct catalogue record's Finding at offset 0 displays the all-state collapse equivalence, mixed denominators, variance and absorption formulas on the same model.",
+          "The matching result was read in the original mirrored RESULT.md, not inferred from its title or ranking."
+        ],
+        "reasoning": "The indexed match is coextensive with the central exact results; the relative catalogue path dates cannot resolve provenance or priority and do not undo this coverage.",
+        "searches": [
+          "Resultary semantic search on reciprocal-integer stochastic-rounding rigidity, exact composition and absorption",
+          "Resultary 374d6aac7770 exact RESULT.md"
+        ]
+      },
+      "rationale": "A distinct Resultary record, 374d6aac7770, states the same full two-step iff, nearest-neighbor law for mixed reciprocal denominators, variance formula and extinction law on the same state space. Its displayed survival and mean formulas are equivalent, and it additionally analyzes the logarithmic phase. This is demonstrated statement-level coverage, not a claim about who had chronological priority. The frozen variance-minimum corollary and its numerical witness do not provide an uncovered substantive theorem. No repair is proposed.",
+      "residual_risks": [
+        "This review establishes overlapping statements, not priority or a historical relationship between the frozen and indexed records.",
+        "Broader linear-interpolation-kernel and nested-quantization literature was not exhaustively searched; that limitation does not affect the direct catalogue match."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same kernel, exact laws and witness mechanism, with additional logarithmic-phase information.",
+          "evidence": [
+            "Law R(q^t n) for all n,t holds iff q=1/b, and t=2 suffices.",
+            "Mixed denominators divide by their product; the absorption tail is min(1,n/b^t)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-reciprocal-integer-rigidity-and-exact-absorption-laws-for-stocha--374d6aac7770/RESULT.md",
+          "material_read": "Finding, Assumptions, sufficiency and necessity at offsets 0–4044; Absorption at offset 3982 onward.",
+          "method": "Read the exact mirrored text and matched the equations and quantifiers.",
+          "title": "Reciprocal-integer rigidity and exact absorption laws for stochastic rounding of contractions",
+          "trigger": "Exact catalogue match on the reciprocal-integer iff and extinction law."
+        },
+        {
+          "assessment": "Same motivation and local unbiasedness principle, not the integer-lattice iff in the material inspected.",
+          "evidence": [
+            "The introduction describes random rounding among floating-point values in low-precision computation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2010.16225",
+          "material_read": "Introduction, PDF p. 2, extraction around offset 6482.",
+          "method": "Read the OA preprint passage on unbiased rounding and heat-equation computations.",
+          "title": "Effects of round-to-nearest and stochastic rounding in the numerical solution of the heat equation in low precision",
+          "trigger": "Numerical time-stepping with stochastic rounding."
+        },
+        {
+          "assessment": "Defines the same distance-proportional local rule on a representable set; does not give the collapse theorem in that passage.",
+          "evidence": [
+            "Probabilities depend on relative distances to the two adjacent representable values."
+          ],
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8905452/",
+          "material_read": "§2, PDF p. 3, extraction around offset 7157.",
+          "method": "Read the institutional Manchester repository copy after difficulty retrieving readable text from the publisher and PMC routes.",
+          "title": "Stochastic rounding: implementation, error analysis and applications",
+          "trigger": "Authoritative definition of nearest-neighbor stochastic rounding."
+        },
+        {
+          "assessment": "Related probabilistic composition framework, not the stated fixed-integer-grid equality in the passages read.",
+          "evidence": [
+            "The object is floating-point rounding-error distribution propagation through program instructions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1912.00867",
+          "material_read": "Abstract and introduction, PDF p. 1, offsets 0 and 2563.",
+          "method": "Read the OA preprint's stated scope and introductory model.",
+          "title": "A Probabilistic Approach to Floating-Point Arithmetic",
+          "trigger": "Compositional propagation of rounding distributions."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact collapse and absorption laws would be useful in an idealized fixed-grid model, but those precise facts are already available in the matched result. The distinct remainder is a routine variance-minimum inequality for any integer marginal, its immediate application to a covered witness, and a numerical illustration. It does not establish a separate worthwhile mathematical gap.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

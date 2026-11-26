@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:48:12.726311Z",
+  "axes": {
+    "correctness": {
+      "rationale": "After the deterministic size-three start, each degree-one vertex has weight a and each leaf contributes one unit to total leaf-neighbor weight; the hold probability is ak/(k+an). For t=2/a, division of the two lowest mass recurrences gives R_{n+1}=3(n+t)R_n/(2n+3t)+(n-2+t)/2. Independent sparse-integer polynomial arithmetic exhaustively checked the derivative numerators for n=4..12 (degrees 2,4,...,18; minima positive from 18 to 457019805007872). Exact fractions give R_13(t=4)-R_13(t=2)=-15421/26112 and R'_14(0)=-696574397/164003840; replay: /workspace/branches/fa4fadcd-c51a-40bc-b2b9-7890a411c7f0/bounded_reproduction.py. In the endpoint derivative recurrence q_{n+1}=3q_n/2+1/2-3r_n/(4n), the r_7=131/16 base and r recursion give r_n>=n from n=7, propagating negativity for n>=14. For each fixed n the odds are rational with linear large-t term (n-3)t/2, hence derivative tending to (n-3)/2. This both rules out monotonicity in either direction at n=13 and gives the opposite endpoint derivative signs at n>=14 after reversing the parameter. The common-uniform coupling preserves order because upward probability decreases in a at equal counts and unit increments cannot cross one-step. Positive-probability size-four separation can persist by common holds. The adjacent probabilities at 2 and 3 directly violate the likelihood-ratio inequality at the two witness offsets. The supplied checker was inspected, not executed; no full small-size likelihood-ratio order is concluded.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Derbazi gives kernel conditions for stochastic orders. 19bd34709e33 gives stochastic and likelihood-ratio comparisons for uniform ordered trees conditioned on root degree."
+        ],
+        "reasoning": "Root-degree conditioning is not varying the attachment offset. General parametric criteria do not evaluate derivative signs of the rare-odds ratio in this time-inhomogeneous chain; the specific sign proof remains necessary.",
+        "searches": [
+          "Derbazi arXiv:2605.18751, Theorem 3.5, parametric likelihood-ratio and stochastic order criteria",
+          "Resultary root-degree-conditioned Catalan leaf-count ordering"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: f15c3ff5e404",
+        "arXiv:2511.04085v1",
+        "arXiv:2605.18751",
+        "Resultary: 19bd34709e33"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The displayed earlier exact chain transition implies ordinary stochastic comparison by the shared-uniform coupling.",
+          "No derivative polynomial certificates or size-13 counterexample are supplied by the examined broad criteria or prior exact transition statement."
+        ],
+        "reasoning": "The recurrence makes it possible to compute an individual odds value, but does not by itself supply nine global sign inequalities, the first counterexample, and the analytic propagation at all larger sizes. The PASS does not treat the stochastic-order corollary or the recurrence as the principal novelty.",
+        "searches": [
+          "f15c3ff5e404 RESULT.md, Eq. (1) and Finding",
+          "Derbazi Theorem 3.5, HTML offset 21297"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "f15c3ff5e404 gives the exact transition in the same count chain, but its finding is the asymptotic leaf fraction, Gaussian fluctuations and dispersion maximizer.",
+          "The primary model paper gives a full count law for uniform recursive trees in section III, but analyzes the offset-dependent leaf-driven model separately in section IV."
+        ],
+        "reasoning": "The exact transition is shared starting data. A Gaussian limit or a uniform-model law is not equivalent to a two-parameter comparison of low-tail odds, which depends on the complete finite offset-dependent recurrence.",
+        "searches": [
+          "Resultary: offset-dependent leaf-driven attachment low-tail odds, likelihood-ratio order, birth/hold leaf count",
+          "Hartle–Krapivsky arXiv:2511.04085v1 sections III and IV"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact transition in f15c3ff5e404 is an all-size recurrence input, not a table of odds or their parametric signs; its limitations at offset 6471 do not claim a finite-size cutoff.",
+          "The uniform-tree count law is the baseline, not a table as a function of finite offset."
+        ],
+        "reasoning": "The uniform law describes the large-offset limit, while sign changes between finite offsets require the finite rational functions and a positivity certificate for every t>0 at the smaller sizes.",
+        "searches": [
+          "Resultary: size-13 rare two-versus-three-leaf odds or finite failure of likelihood-ratio order for leaf-driven growth",
+          "Hartle–Krapivsky arXiv:2511.04085v1 roadmap and the distinction between sections III and IV"
+        ]
+      },
+      "rationale": "Credit prior introduction of the tree model and the exact count-chain transition, from which the ordinary stochastic ordering is a short elementary corollary. The supported distinct finding is the exact all-offset finite-size cutoff for two-versus-three-leaf odds and the persistence of nonmonotonicity at every larger size. The strongest comparisons inspected concern asymptotic fluctuations, other leaf-count models, or general order criteria; they do not supply the cutoff or the derivative signs.",
+      "residual_risks": [
+        "Historical priority for this cutoff remains unconfirmed; unindexed finite-growth or birth-chain results may be relevant.",
+        "The primary search wave was limited; unavailable results were not counted as negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact transition already covered; ordinary ordering follows elementarily, but no stated sharp rare-odds cutoff",
+          "evidence": "Birth probability 1-aL_n/(an+L_n); the principal theorem concerns limiting fluctuations and dispersion.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-gaussian-leaf-count-fluctuations-and-a-sharp-dispersion-maximum--f15c3ff5e404",
+          "material_read": "RESULT.md offset 0, Finding and exact transition Eq. (1); limitations near offset 6471",
+          "method": "Local Resultary mirror",
+          "title": "Gaussian leaf-count fluctuations and a sharp dispersion maximum",
+          "trigger": "Same model and scalar state variable"
+        },
+        {
+          "assessment": "Model, normalization and asymptotic leaf statistics covered; exact full law discussed for a different model",
+          "evidence": "Attachment rate ell+a, normalization N_1+aN, and limiting leaf fraction; section III's full count law is for recursive trees.",
+          "identifier_or_url": "https://arxiv.org/html/2511.04085v1",
+          "material_read": "Introduction at offset 558; section roadmap at 14330; leaf-driven sections IV.1 and IV.2 at 36131 and 42588",
+          "method": "Primary HTML, bounded passages",
+          "title": "Statistics of leaves in growing random trees",
+          "trigger": "Primary source introducing and treating the same attachment rule"
+        },
+        {
+          "assessment": "Framework only in the statement inspected",
+          "evidence": "Criteria in terms of stochastic-order kernels, not finite-size sign computations for the attachment law.",
+          "identifier_or_url": "https://arxiv.org/html/2605.18751",
+          "material_read": "Abstract and Theorem 3.5 near offset 21297",
+          "method": "Primary HTML, bounded passages",
+          "title": "Kernel Characterisations of Stochastic Orders Within Parametric Density Families",
+          "trigger": "General parametric likelihood-ratio criterion may imply the ordering or its failure"
+        },
+        {
+          "assessment": "Different model and comparison parameter",
+          "evidence": "Conditioning on root degree in uniformly drawn ordered trees, not altering a growth-rule offset.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-root-degree-ordering-of-leaf-counts-in-uniform-catalan-trees--19bd34709e33",
+          "material_read": "RESULT.md finding near offset 500",
+          "method": "Local Resultary mirror",
+          "title": "Root-degree ordering of leaf counts in uniform Catalan trees",
+          "trigger": "Exact stochastic and likelihood-ratio comparison for tree leaf counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A growth parameter orders every increasing leaf-count risk but fails to order even the adjacent odds of the two minimal nonzero populations at a precise onset size. This is an all-parameter/all-size separation of two practically and mathematically different orders, not a lone reversed sample or an arbitrary isolated finite enumeration.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

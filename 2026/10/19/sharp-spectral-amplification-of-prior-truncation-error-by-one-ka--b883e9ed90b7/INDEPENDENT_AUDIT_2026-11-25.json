@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:41:36.115198Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each test vector the conditioning quadratic form is the minimum over the observation coefficient of a nonnegative prior quadratic form plus a noise quadratic form. This proves Loewner monotonicity even for singular P_r and the bound 0≤K(P)−K(P_r)≤P. For the scalar row t e₁ᵀ+t² e_{r+1}ᵀ with R=1, the retained-coordinate posterior entries for the truncated and full priors tend to 0 and λ₁ respectively. The first diagonal difference thus proves sharpness by itself, even with eigenvalue multiplicities. The formula K(M)=M^{1/2}(I+M^{1/2}HᵀR^{-1}HM^{1/2})^{-1}M^{1/2} shows that alignment decouples the blocks even for singular M; the retained blocks cancel and the omitted block is bounded by P−P_r. The exact 2D rank-one update in RESULT.md lines 70–83 gives the stated amplification condition, including no amplification when b=0 or κ=1. At x=y=κ=100 it gives the stated rational witness. These checks concern a supremum over unbounded sensor coefficients, not finite attainment, and exact covariance conditioning only. The supplied verifier was inspected, not executed; no finite tests are needed for the universal conclusion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Schmidt et al. explain column-space preservation under a correction and exact recovery at full rank. Spantini et al. give optimal prior-to-posterior updates and warn that prior-only reduction can ignore observation information."
+        ],
+        "reasoning": "These broader studies do not compare both posterior covariances for the fixed spectral truncation and an unrestricted observation family with the same sensor applied to each. Exactness at full rank is not a perturbation-rate result at intermediate rank.",
+        "searches": [
+          "Schmidt et al., arXiv:2306.07774v3, p. 1 offset 1848",
+          "Spantini et al., arXiv:1407.3463v2, pp. 1–3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–91",
+        "Frozen VERIFICATION.md and verify_covariance.py, inspected without executing",
+        "Configured Resultary records above and their Findings",
+        "Schmidt et al. and Spantini et al., passages above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The standard order/shorting argument yields only an upper bound. Known rank-reduced correction and prior-to-posterior formulas do not provide an observation sequence attaining that bound or a criterion for amplification at finite sensor coefficients."
+        ],
+        "reasoning": "Equality as a worst-case limit requires a coupled measurement whose omitted-coordinate signal dominates at full rank while still measuring the retained coordinate strongly after truncation. This is not implied by the prior qualitative warning or by Loewner monotonicity.",
+        "searches": [
+          "Schmidt et al., Rank-Reduced Kalman Filter, quoted correction structure at PDF p. 1",
+          "Spantini et al., Optimal Low-rank Approximations, prior-only versus update discussion at PDF p. 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The rank-r prior replacement is distinct from the Spantini low-rank negative update to the full prior. The Resultary scalar Kalman isotropy result concerns posterior condition number under unit-norm sensor design."
+        ],
+        "reasoning": "Neither change of loss nor change of the matrix being truncated preserves the optimization over full-versus-truncated conditioned covariances. Normalizing a scalar row while allowing noise rescaling would preserve the information matrix, but not turn posterior condition-number minimization into a discrepancy supremum.",
+        "searches": [
+          "Resultary queries for one-sensor spectral Kalman truncation and exact covariance amplification",
+          "Spantini et al., arXiv:1407.3463v2, PDF pp. 1–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest fixed scalar-measurement record: 2026/10/13/SCOPE-exact-posterior-isotropy-frontier-for-one-scalar-kalman-measurem--98d70b015a2c, Finding. Closest sharp covariance-truncation record: 2026/11/8/SCOPE-sharp-rank-agnostic-covariance-loss-from-leading-singular-mode-l--be1d7356ed58, Finding."
+        ],
+        "reasoning": "The former has a different exact threshold for isotropy; the latter bounds a different, Landweber propagated-noise loss. Neither supplies a numerical table or formula for the claimed ratio or the exact two-dimensional amplification domain. Ranked results are not exhaustive.",
+        "searches": [
+          "Configured Resultary search for sharp Kalman conditioning and spectral-prior truncation factors"
+        ]
+      },
+      "rationale": "The inspected prior work supplies covariance update formulas, low-rank filtering and a qualitative warning about ignoring likelihood information in prior truncation, but not the sharp norm amplification for the specified order of operations, nor the accompanying alignment and two-dimensional threshold results.",
+      "residual_risks": [
+        "Full-text coverage by the inaccessible ensemble and Hilbert-space approximation references was not determined.",
+        "Equivalent extremal statements in less searchable covariance perturbation or shorting literature may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different objective and quantifiers",
+          "evidence": "The covariance update ‘only transforms the column space’; the method recovers the exact Kalman filter as rank approaches full dimension.",
+          "identifier_or_url": "https://arxiv.org/abs/2306.07774v3",
+          "material_read": "PDF p. 1, offset 1848",
+          "method": "Lawful OA PDF, bounded text inspection",
+          "title": "The Rank-Reduced Kalman Filter",
+          "trigger": "Exact low-rank Kalman covariance correction"
+        },
+        {
+          "assessment": "Important qualitative antecedent, but a different approximation class",
+          "evidence": "Optimizes the low-rank update of the full prior; distinguishes this from prior-only reduction that ignores the likelihood.",
+          "identifier_or_url": "https://arxiv.org/abs/1407.3463v2",
+          "material_read": "PDF pp. 1–3, offsets 777, 7452 and 13478",
+          "method": "Lawful OA PDF, bounded text inspection",
+          "title": "Optimal Low-rank Approximations of Bayesian Linear Inverse Problems",
+          "trigger": "Prior covariance truncation and optimal low-rank posterior approximations"
+        },
+        {
+          "assessment": "Different loss and threshold",
+          "evidence": "Optimizes condition number/isotropy of one posterior under a unit-norm measurement; no prior-truncation discrepancy.",
+          "identifier_or_url": "2026/10/13/SCOPE-exact-posterior-isotropy-frontier-for-one-scalar-kalman-measurem--98d70b015a2c",
+          "material_read": "RESULT.md, Finding at offset 0",
+          "method": "Configured Resultary search and local mirror",
+          "title": "Exact posterior isotropy frontier for one scalar Kalman measurement",
+          "trigger": "Same scalar Kalman geometry with exact threshold"
+        },
+        {
+          "assessment": "Different matrices and loss mechanism",
+          "evidence": "Studies the modes of the normal operator versus the covariance for finite-step Landweber propagated noise, not one conditioning update.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-rank-agnostic-covariance-loss-from-leading-singular-mode-l--be1d7356ed58",
+          "material_read": "RESULT.md, Finding at offset 0",
+          "method": "Configured Resultary search and local mirror",
+          "title": "Sharp rank-agnostic covariance loss from leading singular modes",
+          "trigger": "Sharp normalized covariance truncation loss"
+        },
+        {
+          "assessment": "Unresolved source-access risk",
+          "evidence": "No negative full-text inference is drawn.",
+          "identifier_or_url": "https://doi.org/10.1093/imaiai/iaad043",
+          "material_read": "No full text read",
+          "method": "Lawful direct and alternate retrieval returned 403",
+          "title": "Non-asymptotic Analysis of Ensemble Kalman Updates: Effective Dimension and Localization",
+          "trigger": "Ensemble conditioning-error bounds"
+        },
+        {
+          "assessment": "Unresolved citation/access risk",
+          "evidence": "No negative full-text inference is drawn.",
+          "identifier_or_url": "https://arxiv.org/abs/2503.24020",
+          "material_read": "No full text read",
+          "method": "Cited arXiv ID failed via PDF, abstract and HTML retrieval",
+          "title": "Optimal low-rank approximations for linear Gaussian inverse problems on Hilbert spaces, Part I",
+          "trigger": "Cited broader posterior approximation theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact constant resolves how badly low-rank error can be amplified despite the posterior map being order preserving and covariance reducing. One scalar observation already causes the worst-case loss, whereas block alignment prevents it. The two-mode coefficient threshold gives a usable diagnostic beyond the qualitative warning that truncation ignores the likelihood.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

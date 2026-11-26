@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:27:24.161117Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, including proof and assumptions; VERIFICATION.md; verify.py inspected",
+        "Independent replay: python3 /workspace/reproductions/1.py; output /workspace/reproductions/1.txt"
+      ],
+      "rationale": "I independently built and solved the instantaneous and delayed chains in symbolic arithmetic by listing all ordered distinct reproducer/victim pairs, weighting the reproducer by the historical ratio and the current type. A hold changes the delayed state to (current,current), as required. Eventual absorption follows because a path of bounded length to an endpoint has probability bounded uniformly away from zero over the finite transient state space. Starting at (1,1), elimination gives both frozen probabilities and the factorization -x(x-y)(xy-2y-2) over the stated positive denominator. On the witness game the two sign factors have numerators w(5+13w) and 31w^2-4w-3, with positive denominators. The first is positive for w>0 and the second has its only positive root at (2+sqrt(97))/31 in (0,1); this proves the strict reversal and neutral cases without reversing the relative fitness ordering. For N=2, all pre-absorption history counts are one under the deterministic all-one initialization, for any finite delay. The two exact example differences are 1/70 and -15/2132. Finally the average-payoff identities imply x/y<4 for positive games, and the construction with alpha between x/(4y) and 1 attains every point of that region.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2024 method can compute fixed-parameter fixation from a general history-state chain; the passages compared do not supply a symbolic sign theorem.",
+          "The N=3 feedback and overshoot catalogue results use a continuous-time switching environment and compare with frozen environments or a switching-rate threshold. They do not specialize to the frozen discrete-history update rule."
+        ],
+        "reasoning": "A general method for returning fixation probabilities covers the model and makes a new calculation possible, but does not itself give the symbolic sign classification. A small-population theorem for a different transition protocol is not broader coverage here.",
+        "searches": [
+          "2024 arXiv original and journal accepted version for general history-state absorption and strength dependence; Resultary 9ab61ce6476e and c8d79723b6ba for minimal-population and fixation overshoot results"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2403.09864v1; accepted journal version of DOI 10.1098/rspa.2024.0195; Resultary 9bf2884d2455, 9ab61ce6476e and c8d79723b6ba"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the 2024 sources fixation itself can increase then decrease with w in a selected game, and comparison across game classes gives qualitatively different delay effects.",
+          "Neither fact establishes that Phi_1-Phi_0 changes sign with w for one fixed positive game; monotonicity of an individual fixation curve is not monotonicity or sign change of a difference.",
+          "The general Markov formulation reduces this problem to finite algebra but does not give the extra equality locus xy-2y-2=0 or its crossing by the stated payoff path without solving and factoring the specific chains."
+        ],
+        "reasoning": "Credit earlier qualitative effects and the general chain, but distinguish the exact symbolic classification and fixed-game sign crossing under the given conventions.",
+        "searches": [
+          "Mohamadichamgavi–Broom arXiv:2403.09864v1 pp. 3, 5, 9, 11–12 and accepted version arXiv/journal comparison; compare Resultary 9ab61ce6476e"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2024 source uses the same N-1 replacement denominator, fitness at t-tau, and fixed history (1,...,1); the underlying model is not distinct.",
+          "Resultary 9bf2884d2455 deals with order of two fitness epochs and expected mutant count after two updates, with self-replacement, not a comparison of eventual fixation at lags zero and one."
+        ],
+        "reasoning": "Changing terminology from historical fitness to delayed fitness does not change the model; changing the observable from fixation to a two-step mean or changing the update rule does change the theorem.",
+        "searches": [
+          "Resultary: one-step lagged Moran mutant fixation, two equality loci and selection reversal; frozen comparison under x=f1/g1 and y=f2/g2",
+          "Mohamadichamgavi–Broom arXiv:2403.09864v1 Eq. (3) and delayed state definition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact matching record among the inspected ranked hits; the strongest mirrors concern fitness epochs or environment switching, as documented below.",
+          "The arXiv strength figure samples lags 0, 1, 2 at N=4,5 for a selected Stag-Hunt game, not an exact N=3 table for the witness payoffs."
+        ],
+        "reasoning": "Neither the cited numerical cases nor the matched catalogue tables supply the exact first-delay boundaries or the witness threshold. This is a bounded exact-match check, not evidence of universal database absence.",
+        "searches": [
+          "Ranked Resultary searches for the two exact equality loci, the three-person threshold and the fixed-game strength threshold; 2024 arXiv and accepted-article parameter examples"
+        ]
+      },
+      "rationale": "The lagged Moran model, no-self-replacement rule, deterministic all-one history, history-valued Markov-chain method, and qualitative dependence on the game and selection strength are prior work. The inspected matches do not resolve the complete first-delay sign boundary in three individuals or the exact sign reversal of the delay effect along the specified fixed positive-game strength path. The smallest-population statement is supported as part of this exact classification, not as a separate novelty claim for the observation that N=2 has only one transient count.",
+      "residual_risks": [
+        "Publisher-final article text was not retrieved; the accepted full-text copy and original preprint were examined. Priority relative to unindexed exact specializations is not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model, method and qualitative effects directly covered; exact theorem not identified",
+          "evidence": "Uses N-1 replacement, lag history (1,...,1) and examines w for lags 0,1,2 at N=4,5.",
+          "identifier_or_url": "https://arxiv.org/pdf/2403.09864v1",
+          "material_read": "Eq. (3) p. 3; lag and history states p. 5; initialization p. 9; strength and game passages pp. 11–12 (offsets 12039, 20730, 38169, 54209, 56363, 64319)",
+          "method": "OA primary PDF passages",
+          "title": "The Impact of Time Delay on Mutant Fixation in Evolutionary Games",
+          "trigger": "Same model, lag and observable"
+        },
+        {
+          "assessment": "Same model; no exact N=3 threshold in compared passages; not a checked publisher-final copy",
+          "evidence": "Qualitative strength and delay comparisons do not state the fixed game's exact sign change.",
+          "identifier_or_url": "https://openaccess.city.ac.uk/id/eprint/34222/1/JavadMark_time_delay_on_fixation.pdf",
+          "material_read": "Accepted version transition rule, lagged states and initial history, and selection intensity/Snowdrift comparisons at offsets 11519, 20267, 35612, 40901, 66732",
+          "method": "Lawful institutional repository PDF after publisher full text unavailable",
+          "title": "The impact of time delays on mutant fixation in pairwise social dilemma games",
+          "trigger": "Journal version of same research (DOI 10.1098/rspa.2024.0195)"
+        },
+        {
+          "assessment": "Related but distinct observable and rule",
+          "evidence": "N=4 onset for epoch order and expected two-update count; self-replacement allowed.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-four-individual-threshold-for-reversing-two-moran-selection-ep--9bf2884d2455",
+          "material_read": "Mirrored Finding and assumptions beginning at offset 0",
+          "method": "Local Resultary search and mirrored original",
+          "title": "A four-individual threshold for reversing two Moran selection epochs",
+          "trigger": "Moran order/reversal threshold"
+        },
+        {
+          "assessment": "Closest conceptual overlap; different dynamics and comparator",
+          "evidence": "Count-dependent continuous-time environmental switching, comparing with either frozen environment.",
+          "identifier_or_url": "2026/10/26/SCOPE-a-sharp-minimal-population-threshold-for-feedback-enabled-fixati--9ab61ce6476e",
+          "material_read": "Mirrored Finding and assumptions beginning at offset 0",
+          "method": "Local Resultary search and mirrored original",
+          "title": "A sharp minimal-population threshold for feedback-enabled fixation",
+          "trigger": "Three-person minimum and fixation advantage"
+        },
+        {
+          "assessment": "Distinct continuous-time switching model",
+          "evidence": "An environmental switching-rate threshold, with no claim of this Moran protocol.",
+          "identifier_or_url": "2026/11/8/SCOPE-a-sharp-event-rate-threshold-for-environmental-fixation-overshoo--c8d79723b6ba",
+          "material_read": "Mirrored Finding and assumptions beginning at offset 0",
+          "method": "Local Resultary search and mirrored original",
+          "title": "A sharp event-rate threshold for environmental fixation overshoot",
+          "trigger": "Three-person fixation and exact threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen phase diagram and positive-game realization; 2024 model and qualitative results cited above"
+      ],
+      "rationale": "For the established delayed Moran model, the earliest size at which composition history can matter already has two distinct exact neutrality loci, and the second is reachable within strictly positive games. The fixed-game path separates reversal of the delay effect from reversal of relative fitness ordering. This provides an interpretable phase boundary for when a delay helps, not just isolated numerical fixation values.",
+      "residual_risks": [
+        "The sign law is for the specified first-delay, three-individual, deterministic-history convention; it is not asserted for other protocols."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

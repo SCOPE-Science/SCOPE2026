@@ -1,19 +1,21 @@
-# Scientific review: exact genus census for \(\mathcal C(\{3,F\})\)
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every \(F\ge4\), the proof forces a unique three-tail normal form from the pseudo-Frobenius condition, proves the three exact closure inequalities and enumerates all allowed triples. The genus formula is a direct gap count. The coefficient and total formulas arise from explicit integer intervals and a disjoint inclusion–exclusion calculation. The independent brute-force model enumerates every numerical semigroup through \(F=18\), while a second calculation verifies the polynomial and total formulas through \(F=750\). These computations corroborate the infinite argument but are not its logical basis.
+PASS
 
-## Originality — PASS, with qualification
+The condition 3 in PF forces positive membership to be closed under translation by 3, leaving a unique threshold in each class. If 2 belongs, closure and 2+3=5 force Frobenius 3; 1 is also excluded. Testing the three minimal sums between nonzero residue classes gives exactly b<=2a, a<=2b+1, c<=a+b+1, with all sums involving the positive zero-residue tail automatic. The last gaps have three distinct residues, and their omissions total a+b+c-1. Fixing the largest gap gives the stated three domains; the fixed a+b slice gives exactly the two endpoints in the coefficient law. For F=3k the two violations are disjoint; with h=floor(N/2), d=floor(N/3), each violation count is d(d+3)/2+(h-d)(N-h-d), for N=k-1 and N=k-2 respectively. Subtraction from k^2-(k-1)(k-2)/2 and evaluation by k mod 6 proves the ceiling count, including k=2. The other two counts are direct interval products. This proves the stated period bound and the two leading constants. An independently written bitmask check (`python3 /tmp/opencode/frozen_checks.py genus` in the review environment) enumerated all subsets below F=4..18, compared the full genus histograms to the displayed formulas and agreed. The check corroborates, not substitutes for, the unbounded proof. Frozen verify.py and its recorded evidence were inspected, not executed.
 
-Hernández-Yanes and Rosales, arXiv:2611.09425v1 (2026), already define \(\mathcal C(\mathcal P)\), its tree and finite algorithms; Moreno-Frías and Rosales (2024) define the unrestricted fixed-F covariety; Delgado, García-Sánchez and Robles-Pérez (2015/2016) give algorithms for **exact** pseudo-Frobenius sets. The assessed new content is the explicit uniform \(\mathcal C(\{3,F\})\) classification and full genus distribution, including evaluated quadratic quasipolynomial, not any general enumerability or existence result. Targeted literature and research-record comparisons found no equivalent formula. Priority is provisional because an older result on additive tails under another name may exist and the older PDF was not visually inspected page by page.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Genus stratification and cardinalities are naturally requested invariants in this covariety. The full family has three competing congruence constraints, giving a nontrivial two-dimensional lattice census rather than a handpicked finite example. The explicit coefficient law and distinct \(F\)-residue asymptotic constants answer the size question uniformly, across all multiplicities.
+Prior work already contains the exact family as a specialization and computes every fixed-genus stratum algorithmically. The distinct contribution supported here is the uniform explicit classification and evaluated count by genus across all F>=4. No inspected theorem or matching census establishes the same evaluated formulas.
 
-## Scope and limitations
+## value
 
-The theorem is restricted to \(F\ge4\), where the exceptional multiplicity-two semigroup at \(F=3\) is excluded. It concerns containment \(3\in\operatorname{PF}(S)\), not equality of a whole pseudo-Frobenius set. It makes no claim about arbitrary prescribed sets, minimal quasiperiod, or universal historical priority. The arithmetic proof is self-contained; finite enumerations are independent corroboration only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Genus strata are a natural invariant of this prescribed-gap family and an explicit target of prior algorithms. The census replaces a separate enumeration at each F and genus with direct coefficient access, across all multiplicities, and exhibits genuinely different leading densities in different Frobenius residue classes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:10:19.758699Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On positive Hardy monomials T e_{pk}=ρ^{(p+q)k}e_{qk}; coprimality excludes other nonzero actions. The source and target indices are separately injective, so the singular values are summable and the symmetrization is compact self-adjoint. An oriented path requires progressively higher powers of p in its initial index; backwards indices decrease. The resulting finite path blocks admit a diagonal phase rotation conjugating T to e^{iθ}T. This makes the numerical range a disk (including its extremal point by the positive compact eigenvalue of the Hermitian part) and gives w=λ₁/2. To check the edge, use ℓ=log(1/(−log ρ)). Dropping weights ≤ℓ⁻⁴ costs at most 2ℓ⁻⁴ in norm. A retained length-L run has final source parameter at least q^{L−1} by the successive integrality constraint, and all retained parameters are <4 log ℓ/[(p+q)(−log ρ)]. Hence runs have at most ℓ/log q+O(log ℓ) edges and their top eigenvalues are bounded by those of the corresponding unit paths. Conversely, length floor((ℓ−5 log ℓ)/log q) paths with J distinct cofactors coprime to pq have weights 1−O_{p,q,J}(ℓ⁻⁵); the cofactors separate the components. Their unit-path sine vectors give the lower bound by min–max. The gap of a unit path of m edges is 2−2 cos(π/(m+2)); with these two lengths it has the same scaled constant on both sides. Infinitely many separated one-edge paths give infinitely many positive eigenvalues even away from the limit. Finally ℓ=log(1/(1−ρ))+o(1). The frozen checker was inspected, not executed; finite sections in the checker are not the assertion about the compact operator.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Leng–Zhao Thm. 3.24 is a Schatten membership characterization with an inner symbol for its product ordering.",
+          "ba7c08a56403 gives Schatten invariants for T*T−TT*, not T+T*; e66a895c9359 analyzes the undamped product's shift/Jordan structure and essential spectrum."
+        ],
+        "reasoning": "Ideal membership, self-commutator eigenvalues, and the undamped decomposition do not give the common-damping top eigenvalue gaps.",
+        "searches": [
+          "arXiv:2610.15472v1 Thm. 3.24",
+          "Resultary ba7c08a56403",
+          "Resultary e66a895c9359"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ed43628bf3a8, ba7c08a56403, e66a895c9359",
+        "arXiv:2610.15472v1",
+        "doi:10.1515/conop-2020-0108 (attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At a hard cutoff N the rank floor(N/q^j) counts paths of length ≥j with multiplicities of starts; for fixed J one can already place J disjoint coprime-cofactor test paths at length log N/log q−O_J(1).",
+          "For the damped family, compression at N_+=(−log ρ)⁻¹ℓ^s gives an exponentially small-in-ℓ^s norm tail, while at N_-=(−log ρ)⁻¹ℓ⁻^s its nonzero weights differ from one by O(ℓ⁻^s). For s>2 these estimates and min–max can transfer the earlier finite law."
+        ],
+        "reasoning": "This close derivation explains the shared coefficient; simply setting N=(1−ρ)⁻¹ in the hard-cutoff formula would not control the spectral errors on the ℓ⁻² scale. The distinct ingredient is the two-scale radial comparison, not a new path theorem.",
+        "searches": [
+          "Local Resultary ed43628bf3a8 proof offsets 3753–7387 and Limitations near offset 9400",
+          "Frozen RESULT.md §§2–3 of proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "ed43628bf3a8 uses the adjoint arrow orientation and (for its Hermitian part) halves the adjacency eigenvalues. For p,q coprime the hard-cutoff w-gap has precisely π²(log q)²/2 as coefficient.",
+          "Clifford–Dabkowski–Wiggins reportedly treat the same damped family and its numerical-range disk; primary access attempts did not confirm the detailed asymptotic scope."
+        ],
+        "reasoning": "Taking the adjoint or doubling to adjacency makes the hard-cutoff conventions agree, but cannot turn an undamped finite section into the compact radially weighted operator. The radius and top-rank laws here are equivalent consequences, not separate originality credits.",
+        "searches": [
+          "Resultary: monomial composition-adjoint fixed-rank logarithmic spectral edge and numerical radius",
+          "Local Resultary ed43628bf3a8 Finding and §§1–4 of proof",
+          "doi:10.1515/conop-2020-0108"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact finite ranks are floor(N/q^j) here, determining block multiplicities; each hard-cutoff Hermitian block has cosine eigenvalues.",
+          "The stated log-square coefficient is already tabulated as the leading hard-cutoff numerical-radius coefficient, not a measured radial eigenvalue table."
+        ],
+        "reasoning": "The table is exact for hard truncation and is mathematically relevant input, but does not quantify the infinitely many soft weights.",
+        "searches": [
+          "Local Resultary ed43628bf3a8, exact ranks, block counts and Hermitian spectrum; offset 3753 onward"
+        ]
+      },
+      "rationale": "Qualified to the sharp genuine radial limit of the compact symmetrization, including each fixed positive rank. The arithmetic decomposition, sine eigenvalues, hard-cutoff gap constant, and qualitative numerical-range information are prior material. The close hard-cutoff overlap also supplies the hard-cutoff analogue at each fixed rank via its exact block counts; fixed-rank enumeration by itself is not the novelty. Quantitative transfer requires controlling the whole discarded weighted tail and attaining near-unit weights at a slightly shorter scale; the earlier finite-section result does not itself assert such comparison for the radial family.",
+      "residual_risks": [
+        "The most relevant paper on the damped numerical ranges could not be checked in primary full text.",
+        "An earlier uniform theorem for softly truncated weighted shifts might already effect this transfer. This review does not credit the known hard cutoff constant or the path model as novel."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strongest overlap; hard rather than radial cutoff",
+          "evidence": "Gives exact power ranks, Jordan decomposition, cosine spectrum and numerical-radius gap for finite undamped sections.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-arithmetic-universality-and-pure-point-spectral-laws-for-monomia--ed43628bf3a8/RESULT.md",
+          "material_read": "Finding, Proof §§1–4 (offset 3753 onward), Relationship and Limitations at offsets 8500 and 9400",
+          "method": "Local mirror",
+          "title": "Arithmetic universality and pure-point spectral laws for monomial cross-composition sections",
+          "trigger": "Exact same hard-cutoff coefficient and arithmetic paths"
+        },
+        {
+          "assessment": "Relevant qualitative predecessor; detailed coverage unresolved",
+          "evidence": "HTTP 202/403 on full-text routes. Basis action and qualitative numerical-range results attributed by ed43628bf3a8, not independently established from that paper here.",
+          "identifier_or_url": "doi:10.1515/conop-2020-0108",
+          "material_read": "No decisive primary full text; §2.3 and Thm. 6 identified by the earlier cutoff record",
+          "method": "DOI and current/older publisher HTML and PDF routes attempted",
+          "title": "The Numerical Range of Cψ*Cφ and CφCψ*",
+          "trigger": "Same damped monomial operator family"
+        },
+        {
+          "assessment": "Membership rather than spectral rates",
+          "evidence": "Thm. 3.24 concerns ideal membership for an inner symbol in CφCψ*.",
+          "identifier_or_url": "arXiv:2610.15472v1",
+          "material_read": "Abstract p. 1 and Thm. 3.24 p. 26",
+          "method": "OA full-text passages",
+          "title": "Schatten class membership of products of composition operators and their adjoints",
+          "trigger": "Broader product theory"
+        },
+        {
+          "assessment": "Different spectral operator",
+          "evidence": "Studies self-commutator T*T−TT*.",
+          "identifier_or_url": "ba7c08a56403",
+          "material_read": "Finding and Relationship at offsets 0 and 7900",
+          "method": "Local mirror",
+          "title": "Two-ideal spectral rigidity for damped monomial composition–adjoint products",
+          "trigger": "Same radial operator family"
+        },
+        {
+          "assessment": "Undamped related theory",
+          "evidence": "Shift/Jordan structure and essential spectra, not radial symmetrized eigenvalue gaps.",
+          "identifier_or_url": "e66a895c9359",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror",
+          "title": "Arithmetic spectral trichotomy for monomial composition–adjoint products",
+          "trigger": "Possible broader arithmetic spectral theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The actual compact radial family, rather than degree sections, is the Hardy operator of interest. Controlling its spectral tail in norm at the gap scale yields a sharp quantitative approach to the boundary and shows that every fixed number of top modes shares that scale. This is useful even given the close and comparatively simple hard-to-soft transfer, without claiming a new coefficient for the undamped problem or a full edge distribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

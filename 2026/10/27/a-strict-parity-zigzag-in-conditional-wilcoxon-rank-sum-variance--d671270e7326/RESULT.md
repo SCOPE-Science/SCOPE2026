@@ -17,7 +17,7 @@ For every pair of attainable even run counts separated by two, \(V_{2k}>V_{2k+2}
 \[
 V_{2k}>V_{2k+1}<V_{2k+2}.
 \]
-In particular, \(\operatorname{Cov}(R,U)=0\) without independence, and conditioning on a run count produces a strict parity-dependent variance zigzag. For example, with \(a=b=3\), the conditional variances for \(r=2,3,4,5,6\) are respectively \(81/4,9/4,25/4,1/4,9/4\).
+In particular, \(\operatorname{Cov}(R,U)=0\) for all positive \(a,b\), but \(R\) and \(U\) are dependent exactly when \(a+b>2\). For \(a=b=1\), \(R=2\) is constant and hence independent of \(U\). For \(a=b=3\), the parity-dependent variances for \(r=2,3,4,5,6\) are respectively \(81/4,9/4,25/4,1/4,9/4\).
 
 ## Assumptions and scope
 
@@ -29,7 +29,7 @@ Reversal of a word preserves \(R\) and maps \(U\) to \(ab-U\). Therefore \(\math
 
 **Run-composition lemma.** Condition on the first symbol, and suppose there are \(u\) runs of ones and \(v\) runs of zeros. Their run lengths are independent uniform positive compositions \(A=(A_1,\ldots,A_u)\) of \(a\) and \(B=(B_1,\ldots,B_v)\) of \(b\): each ordered pair of length vectors defines a unique word. For any uniform positive composition of \(c\) into \(d\) parts, the coordinate mean is \(c/d\) and covariance matrix is
 \[
-\frac{c(c-d)}{d(d+1)}P_d,\qquad P_d=I_d-\frac{\mathbf 1_d\mathbf 1_d^\mathsf T}{d}.
+ \frac{c(c-d)}{d(d+1)}P_d,\qquad P_d=I_d-\frac{\mathbf 1_d\mathbf 1_d^\mathsf T}{d}.
 \]
 One proof writes the composition as \(1\) plus a uniform weak composition of \(c-d\), whose symmetric Dirichlet–multinomial counting law has covariance \(c(c-d)P_d/(d(d+1))\). Alternatively, it follows by evaluating the elementary first and second factorial moments under stars-and-bars counting. This formula also holds when \(d=1\) or \(c=d\), since then the composition is deterministic.
 
@@ -79,7 +79,7 @@ Finally,
 V_{2k}-V_{2k+2}
 =\frac{ab\bigl(abk+4ab+2a+2b-k\bigr)}{6k(k+1)(k+2)}>0.
 \]
-The last numerator is positive since the admissibility of \(2k+2\) implies \(a,b\ge k+1\). These differences prove all assertions, including strictness and boundary cases.
+The last numerator is positive since the admissibility of \(2k+2\) implies \(a,b\ge k+1\). These differences prove strictness, including one-sided comparisons at the endpoints. If \(a+b>2\), both \(R=2\) and \(R=3\) are attainable and \(V_2>V_3\), which proves dependence. If \(a+b=2\), then \(a=b=1\) and the run count is constant, which proves independence in that case.
 
 ## Verification
 
@@ -87,11 +87,11 @@ The standalone `verify.py` exhaustively generates every binary word for each \(1
 
 ## Relationship to prior work
 
-Conger and Viswanath study multiset-permutation inversion and descent marginals and their normal approximation, not conditional rank-sum variance at a fixed number of constant-symbol runs. Bhattacharya describes Wald–Wolfowitz and rank-based two-sample statistics in a broad asymptotic framework, not this finite conditional variance profile. Krattenthaler enumerates lattice paths by turns, whereas the present statistic is the enclosed area/inversion count jointly conditioned on turns. Classical Gaussian-binomial descriptions encode inversion marginal distributions but do not by themselves specify the conditional parity inequalities. Works on run-based statistical process control use runs of signaling events or chart run lengths, distinct from fixing the number of pooled binary-label blocks. The full older literature on joint area–turn enumeration could contain equivalent formulas; no claim of exhaustive historical priority is made.
+Conger and Viswanath study multiset-permutation inversion and descent marginals and their normal approximation, not conditional rank-sum variance at a fixed number of constant-symbol runs. Bhattacharya describes Wald–Wolfowitz and rank-based two-sample statistics in a broad asymptotic framework, not this finite conditional variance profile. Krattenthaler enumerates lattice paths by turns and gives results jointly in run count and the Kolmogorov–Smirnov statistic, which measures maximum path deviation rather than enclosed area/inversion count. Classical Gaussian-binomial descriptions encode inversion marginal distributions but do not by themselves specify the conditional parity inequalities. Works on run-based statistical process control use runs of signaling events or chart run lengths, distinct from fixing the number of pooled binary-label blocks. The indexed result [*A parity-sawtooth law for conditional Wilcoxon variance under fixed-composition runs*](https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-parity-sawtooth-law-for-conditional-wilcoxon-variance-under-fi--0712c2da4770) states the same moment formulas and adjacent parity comparisons and also gives the decreasing odd subsequence. The full older literature on joint area–turn enumeration could contain equivalent formulas; no claim of exhaustive historical priority is made.
 
 ## Limitations
 
-The finding concerns the uniform, fixed-content two-sample rank null, not arbitrary dependent labels, tied pooled observations, nonuniform random words, or the full joint distribution of \((R,U)\). Exact zero covariance is not independence. Classical joint area–turn generating functions may lead indirectly to these expressions; a genuinely stronger previously published result would supersede the novelty claim. Some relevant older publisher full texts were not accessible for complete comparison. Independent mathematical assessment has not been performed.
+The finding concerns the uniform, fixed-content two-sample rank null, not arbitrary dependent labels, tied pooled observations, nonuniform random words, or the full joint distribution of \((R,U)\). Classical joint area–turn generating functions may lead indirectly to these expressions; a genuinely stronger earlier published result would supersede any novelty claim. Some relevant older publisher full texts were not accessible for complete comparison.
 
 ## References
 

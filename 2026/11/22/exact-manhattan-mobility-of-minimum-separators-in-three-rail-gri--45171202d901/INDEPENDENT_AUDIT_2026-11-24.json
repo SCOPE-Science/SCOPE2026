@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:41:05.070341Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Three disjoint rail routes force one selected vertex per row in a minimum cut and an internal column attains size three. A gap of at least two columns between adjacent-row selections admits a two-rail detour; differences of at most one give a left/right partition with no surviving crossing edge. Legal slides are one-coordinate unit steps. The coordinatewise meet is feasible; for comparable states, increasing a least current coordinate among those still below target cannot be blocked by a smaller coordinate, since such a tight blocker would itself have to increase for the target to be feasible. Thus paths via the meet attain L1. Each central layer has 12 edges and its next interface 4. In target layer q the worst distance is 2+|i-q|+|j-q|+|k-q|, convex in q, so only the two endpoint layers are needed. The radius lower bound comes from the sum of the endpoint distances and is attained by the stated parity-dependent central states; the two extreme triples attain diameter 3n−5, including n=3. The proof is for all n≥3. Independent bounded check: python /workspace/branches/grid_independent.py, exhaustive two- and three-vertex deletions, original-grid slides and all-pairs Floyd–Warshall for n=3,…,10. Frozen scripts and recorded output were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gomes et al., Lemma 7 and Theorem 8: forward shortest sequences for reachable pairs and a polynomial algorithm.",
+          "The sharp depth transition record has the same middle-row-endpoint model but w≥4 and additional outer-rail endpoint constraints. The cases in its table are disconnected slide graphs.",
+          "The 2020 precursor examines general reconfiguration and selected classes; no target-family geometry is in its inspected opening passages."
+        ],
+        "reasoning": "The exact formula for slide displacement on a connected component is inherited. The ≥4-row theorem cannot simply be specialized to three rows; its proof of the separator constraints readily extends to three rows by dropping the extra-row conditions, but neither its slide tables nor the general algorithm establish the resulting all-state geometry.",
+        "searches": [
+          "arXiv:2307.07782v1",
+          "arXiv:2004.10873v1",
+          "Resultary 19b9a4d5a4c6"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2307.07782v1",
+        "arXiv:2004.10873v1",
+        "Resultary 45171202d901 (same record), 8d1e7a3055c3, 19b9a4d5a4c6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Once reachability is known, the three canonical rails and forward-only theorem give L1 immediately. The explicit coordinate constraints are also common to the related cut models where the middle coordinate is internal and there are no extra rows."
+        ],
+        "reasoning": "The surviving contribution is proving reachability for every feasible pair and deriving the explicit all-state geometry and sharp extremal values, not restating the general shortest-slide result. Jump reachability does not certify slide reachability.",
+        "searches": [
+          "arXiv:2307.07782v1, PDF pp. 6, 8",
+          "Resultary 8d1e7a3055c3 and 19b9a4d5a4c6, Findings and assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary match 45171202d901 is the same record. Distinct record 8d1e7a3055c3 has auxiliary terminals adjacent to entire end columns and uses jumps, not slides.",
+          "The canonical path description equates slides to adjacent moves on one rail, not jumps."
+        ],
+        "reasoning": "A minimum s–t vertex cut is a minimum terminal separator. The jump graph has edges joining outer coordinates differing by two within a layer, and the model also allows middle-coordinate end columns. Restricting the common coordinate set and keeping only unit slides gives a different metric problem.",
+        "searches": [
+          "Resultary: three-rail minimum terminal vertex cuts, optimum relocation, Manhattan token slides",
+          "arXiv:2307.07782v1, Lemma 3 and Observation 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching table is the frozen record itself. The analogous quantitative records report extreme jump distances with different terminals and slide/jump components for width at least four."
+        ],
+        "reasoning": "No independently indexed table of the claimed slide eccentricities or extremal distances was identified in those comparisons. This is a bounded search, not priority proof.",
+        "searches": [
+          "Resultary: three-rail grids, token slides and jumps, cut counts and diameters",
+          "Resultary 45171202d901, 8d1e7a3055c3, 19b9a4d5a4c6"
+        ]
+      },
+      "rationale": "Qualified to the full quantitative slide geometry of this specific three-rail family. The coordinate constraints overlap strongly with two same-day records, and the Manhattan metric conditional on reachability specializes the general canonical-path theorem. Neither point is a new method. The combination of unrestricted all-pairs reachability and explicit slide order, size, eccentricities, radius and diameter was not covered by the inspected results.",
+      "residual_risks": [
+        "The same-day records have material common structure; no priority order is inferred.",
+        "The literature comparison does not exclude unindexed equivalent work or uninspected passages of the 2020 precursor."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers path membership and metric conditional on reachability, not the target quantitative geometry",
+          "evidence": [
+            "One token on each canonical path; a shortest transformation can be taken forward-only."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2307.07782",
+          "material_read": "v1 PDF pp. 6 and 8, Lemma 3, Observation 4, Lemma 7 and Theorem 8",
+          "method": "OA full-text passages, offsets near 16700 and 21900",
+          "title": "Minimum Separator Reconfiguration",
+          "trigger": "Identical minimum-separator slide operation and general metric theorem"
+        },
+        {
+          "assessment": "No target statement in the inspected material; not a whole-paper exclusion",
+          "evidence": [
+            "Discusses {3P1, diamond}-free and 2-connected series-parallel classes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2004.10873",
+          "material_read": "v1 PDF opening pp. 1, 3, abstract and introductory comparison",
+          "method": "OA PDF text, including offset near 8620",
+          "title": "Some Results on Vertex Separator Reconfiguration",
+          "trigger": "Precursor with general graph classes"
+        },
+        {
+          "assessment": "Substantial coordinate overlap; different terminal model and move rule",
+          "evidence": [
+            "Auxiliary terminals on all three rows, middle coordinate can reach a column endpoint, unrestricted jumps and their route counts."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-token-jump-relocation-distance-and-route-multiplicities-fo--8d1e7a3055c3/RESULT.md",
+          "material_read": "Finding and assumptions at start of RESULT.md",
+          "method": "Resultary search and local mirror text",
+          "title": "Sharp token-jump relocation distance and route multiplicities for three-row cuts",
+          "trigger": "Same-day near-match on three rails and feasible triples"
+        },
+        {
+          "assessment": "Extends the structural treatment to extra rows but no three-row slide metric or quantitative invariants",
+          "evidence": [
+            "Scope expressly w≥4; adjacent-rail constraints plus endpoint constraints whenever an extra row exists beyond a rail."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-sharp-depth-transition-for-optimum-vertex-cut-relocation-on-re--19b9a4d5a4c6/RESULT.md",
+          "material_read": "Finding, assumptions and proof steps 1–4, offset 0",
+          "method": "Resultary search and local mirror text",
+          "title": "A sharp depth transition for optimum vertex-cut relocation on rectangular grids",
+          "trigger": "Same-day exact slide graphs with same terminals but variable width"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The thin rectangular network is a natural smallest setting with three disjoint rail routes. Its exact state count and slide geometry distinguish feasibility, travel cost and central configurations under optimum preservation, giving a uniform sharp benchmark rather than a list of verified examples or a general algorithm evaluated at one size.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

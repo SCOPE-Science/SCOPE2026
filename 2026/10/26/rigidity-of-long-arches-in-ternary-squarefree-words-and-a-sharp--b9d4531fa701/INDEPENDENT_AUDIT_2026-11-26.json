@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:06:39.667456Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–28; VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent replay: /workspace/branches/a8a1bcf2-463d-42b2-975a-7d08fc69c440/independent_check.py; smoke.log and full.log"
+      ],
+      "rationale": "With the full ternary alphabet fixed, a binary squarefree factor has length at most 3, so the remainder has length at most 3 and a complete arch has length 3 or 4. A long arch must be abac. Of the six long starts for a second arch, starting with c gives cc, starting with a gives an identical block or acac, and starting with b followed by c gives cbcb. The only surviving second arch is babc. Repeating the rule gives the unique triple and forces a square for a fourth. Grouping arches in fours gives n <= 4m - floor(m/4) + 3, with m the universality index by the arch criterion; the right side is ceil(15m/4) + 3, so 15m/4 > n-4. In particular m <= 4 forces n <= 18. A separate exact enumeration confirmed the triple is squarefree, the specified length-18 witness factors as 0102 | 012 | 1012 | 0102 | 101 and lacks 22222, and each of the 1,830 length-19 squarefree words contains all 243 length-five subsequences. The supplied verifier selects a length-18 example from its census; the independent check tested the particular witness printed in the finding.",
+      "residual_risks": [
+        "The finite computation verifies the witnesses and threshold, not the all-length result; the boundary argument proves the latter. The 4/15 lower bound is not asserted to be asymptotically sharp."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Adamson's theorem 2.4 applies to unrestricted words but equates universality only with the number of arches; Grytczuk et al. give the length limit of three over two letters."
+        ],
+        "reasoning": "These general results give the arch criterion and the elementary four-position bound. Neither controls transitions across two complete arches, which is what improves the bound and deals with arbitrary finite, possibly nonextendible words.",
+        "searches": [
+          "arXiv:2304.04583v1, section 2",
+          "Grytczuk–Kordulewski–Pawlik, JIS 24 (2021), Article 21.8.7, p. 2"
+        ]
+      },
+      "checked_sources": [
+        "Adamson arXiv:2304.04583v1",
+        "Schnoebelen–Veron arXiv:2304.11932v1",
+        "Grytczuk et al., JIS 24 Article 21.8.7",
+        "Three related mirrored Resultary findings identified in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The arch theorem needs a lower bound for the number of complete arches; the one-sequence prefix theorem quantifies only over that word's prefixes."
+        ],
+        "reasoning": "The one-sequence density does not bound the worst case over all finite squarefree words. To apply the general arch theorem at 19 one needs the additional boundary exclusion or an equivalent exhaustive finite result, not just the known existence of a full alphabet in every four positions.",
+        "searches": [
+          "arXiv:2304.04583v1, theorem 2.4",
+          "SCOPE-exact-all-prefix-scattered-subsequence-universality-of-the-ternary--2fe71fa213d3, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Schnoebelen–Veron count arches as the universality index in the language of subword universality. The nearby trigram-avoidance catalogue result imposes a single forbidden trigram, not absence of all squares."
+        ],
+        "reasoning": "Greedy complete-alphabet blocks, arches, and subword-universality factorizations describe the same structure. Under that translation neither the general arch work nor the related avoidance statement provides the forced abac-to-babc transition under squarefreeness.",
+        "searches": [
+          "Resultary: long-arch rigidity and succession of four length-four arches",
+          "arXiv:2304.11932v1, Rich words and arch factorizations / Subword universality"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact threshold or matching four-arch exclusion surfaced. The Thue-difference record tabulates a specific sequence's prefixes and gives density 5/16. The same-day Rudin–Shapiro record is binary and concerns factors of one sequence."
+        ],
+        "reasoning": "Neither an enumeration of the squarefree words by length alone nor an exact index for selected sequences supplies the universal length-19 cutoff or the length-18 obstruction. The same-day comparison is on the statements, not inferred ordering.",
+        "searches": [
+          "Resultary: length-19 forcing threshold, length-18 witness, and 4/15 ternary squarefree universality bound",
+          "SCOPE-exact-all-prefix-scattered-subsequence-universality-of-the-ternary--2fe71fa213d3",
+          "SCOPE-uniform-5-16-subsequence-universality-density-in-the-rudin-shapi--893531ec9160"
+        ]
+      },
+      "rationale": "The known arch criterion and binary length limit are background. The reviewed distinct contribution is the forced transition and exclusion of four successive long arches for every ternary squarefree word, with its density bound and sharp five-universality threshold. The strongest inspected squarefree catalogue comparison is an exact calculation for prefixes of one particular infinite word; it does not imply the universal statement.",
+      "residual_risks": [
+        "The web literature query yielded no result; the bounded primary-source and catalogue comparisons do not exclude unindexed equivalents or previous computations in other terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Background coverage, not the new restriction",
+          "evidence": [
+            "Universality iff the arch factorization has at least k arches."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2304.04583v1",
+          "material_read": "Section 2, definitions 2.2–2.3 and theorem 2.4; HTML offsets 9729–13227",
+          "method": "Bounded primary-text inspection",
+          "title": "Ranking and Unranking k-subsequence universal words",
+          "trigger": "Known arch characterization and possibility of a stronger universality theorem"
+        },
+        {
+          "assessment": "Equivalent arch criterion, not the squarefree transition in the passage inspected",
+          "evidence": [
+            "The number of arches equals the universality index."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2304.11932v1",
+          "material_read": "Rich words and arch factorizations / Subword universality, offset 10117",
+          "method": "Bounded primary-text inspection",
+          "title": "On arch factorization and subword universality for words and compressed words",
+          "trigger": "Alternative terminology for the same factorization"
+        },
+        {
+          "assessment": "Known elementary ingredient",
+          "evidence": [
+            "There is no binary squarefree word of length four."
+          ],
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL24/Grytczuk/grytczuk7.pdf",
+          "material_read": "Page 2, offset 2126",
+          "method": "Bounded PDF text inspection",
+          "title": "Squarefree Extensions of Words",
+          "trigger": "Known bound on binary squarefree factors"
+        },
+        {
+          "assessment": "Different quantifier over words",
+          "evidence": [
+            "Exact prefix indices for the ternary Thue difference word, with limit 5/16."
+          ],
+          "identifier_or_url": "SCOPE-exact-all-prefix-scattered-subsequence-universality-of-the-ternary--2fe71fa213d3",
+          "material_read": "Mirrored RESULT.md, offset 0",
+          "method": "Local mirror inspection",
+          "title": "Exact all-prefix scattered-subsequence universality of the ternary Thue difference word",
+          "trigger": "Closest indexed squarefree ternary universality theorem"
+        },
+        {
+          "assessment": "Different alphabet and object",
+          "evidence": [
+            "Density for binary Rudin–Shapiro factors with logarithmic error."
+          ],
+          "identifier_or_url": "SCOPE-uniform-5-16-subsequence-universality-density-in-the-rudin-shapi--893531ec9160",
+          "material_read": "Mirrored RESULT.md, offset 44",
+          "method": "Local mirror inspection",
+          "title": "Uniform 5/16 subsequence-universality density in the Rudin–Shapiro word",
+          "trigger": "Same-day density result"
+        },
+        {
+          "assessment": "Different avoidance constraint",
+          "evidence": [
+            "Counts shortest universal words avoiding a specified contiguous trigram."
+          ],
+          "identifier_or_url": "SCOPE-exact-four-type-trigram-avoidance-for-shortest-ternary-subsequen--d5955f9d8782",
+          "material_read": "Mirrored RESULT.md, offset 205",
+          "method": "Local mirror inspection",
+          "title": "Exact four-type trigram avoidance for shortest ternary subsequence-universal words",
+          "trigger": "Ternary subsequence universality with factor avoidance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen proof and the separate finite reproduction",
+        "Known elementary bound and arch criterion documented above"
+      ],
+      "rationale": "The forced transition connects contiguous square avoidance with scattered-subsequence richness in the smallest alphabet supporting arbitrarily long squarefree words. It gives uniform quantitative control beyond the elementary four-position argument and resolves a natural first sharp forcing cutoff, without relying on a particular morphic construction.",
+      "residual_risks": [
+        "No optimal asymptotic density, general alphabet analogue, or classification of all length-18 extremizers is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

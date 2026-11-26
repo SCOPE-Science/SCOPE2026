@@ -35,7 +35,7 @@ We prove that this \(T\) is shattered within its respective branch. Fix any desi
 \[
 \max(0,t-\beta)\le h\le\min(\alpha,t).
 \]
-Since \(\alpha,\beta\ge1\), this interval contains two consecutive integers, so one can choose the parity of \(h\) required to make the total \(X'\)-count even. At \(t=m\), all exterior points are chosen: their \(X'\)-count is \(\alpha=2u-i\equiv i\pmod2\), so the total count \(i+\alpha=2u\) is even. At \(t=1\), the interior interval argument already applies when \(m\ge2\), as in this interior case.
+Since \(\alpha,\beta\ge1\) and \(1\le t<m=\alpha+\beta\), both \(\alpha\) and \(t\) are strictly greater than \(\max(0,t-\beta)\). Thus the interval contains two consecutive integers, so one can choose \(h\) such that \(|P\cap X'|+h\) is even. At \(t=m\) the trace \(P\) is empty, and the unique completion selects the entire exterior. Its total \(X'\)-count is then exactly \(\alpha=2u-i\), which is even because \(i\) is even in the zero branch.
 
 In the one branch, the number of added exterior points is \(t=m-1-|P|\), hence \(0\le t\le m-1\). For \(1\le t\le m-1\), the same consecutive-integers interval permits an odd total \(X'\)-count. When \(t=0\), one has \(P=T\) and the \(X'\)-count is \(i\), odd by construction. Thus every requested trace in either branch is realized. Each child of the root shatters an \((m-1)\)-coordinate support (not necessarily the same support), and thereby supports a complete membership tree of depth \(m-1\). The root produces a depth-\(m\) tree. Consequently \(\operatorname{Ldim}\ge m\) and \(\operatorname{VCdim}\ge m-1\).
 
@@ -53,7 +53,7 @@ Hu, Weinberger and Shayevitz study VC dimension of binary codes, including const
 
 ## Limitations
 
-The theorem assumes both blocks have odd cardinality, the selected-set cardinality is exactly half the ground size, and the parity constraint is even on one distinguished block. It does not classify arbitrary cardinality slices, even block sizes, all shattering faces, or topological invariants. The exact result is mathematically proved but has no independent mathematical audit. An unindexed equivalent prior result could affect novelty.
+The theorem assumes both blocks have odd cardinality, the selected-set cardinality is exactly half the ground size, and the parity constraint is even on one distinguished block. It does not classify arbitrary cardinality slices, even block sizes, all shattering faces, or topological invariants. The exact claim rests on the proof, not on the finite checks. An unindexed equivalent prior result could affect novelty.
 
 ## References
 

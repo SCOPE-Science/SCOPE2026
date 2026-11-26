@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:42:47.430862Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Strict leftness gives det(v_i,v_{i+1})>0, so the signed principal increment is the unique arccos branch in (0,pi). A segment between the two rays stays within their positive cone, so this is also its continuous lifted change of argument. The origin is interior, and simplicity and counterclockwise orientation give winding one; the increments really sum to 2pi. The radii and cumulative angles give the full Gram entry by the cosine of their difference. An adjacent pair is a basis and equality of its Gram matrix defines an orthogonal map; inner products with that basis then identify all remaining vertices. A color-preserving cyclic shift retains the orientation, while a color-preserving reversal can be composed with a reflection to restore counterclockwise orientation before applying the same completion. Conversely a polygon symmetry preserves the boundary's cyclic adjacency (vertices are genuine corners) and the local scalars. The alternating-radius hexagon has positive consecutive determinants and alternating turn signs, and its consecutive angular sectors show simplicity. The proof covers all stated n, including n=3, and is not uniqueness among unconstrained rank-two completions. The supplied NumPy checker was inspected, not executed; its reported 792 configurations and 22,932 candidate permutations are diagnostics and do not establish the exact theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.7 and Corollary 4.10 cover reconstruction of convex polytopes from combinatorics, edge lengths and distances to the origin; this includes convex polygons with the marked origin inside.",
+          "Question 6.6 explicitly asks whether the norm/inner-product coloring captures orthogonal symmetries and discusses the need for geometric restrictions."
+        ],
+        "reasoning": "The convex theorem dominates convex-polygon congruence, but excludes nonconvex strict-kernel polygons. The metric coloring question defines exactly the relevant local data but does not prove the asserted nonconvex completion.",
+        "searches": [
+          "Winter, arXiv:2302.14194, Theorem 4.7 and Corollary 4.10",
+          "Winter, arXiv:2108.13483, metric coloring and Question 6.6"
+        ]
+      },
+      "checked_sources": [
+        "Winter arXiv:2108.13483 and arXiv:2302.14194",
+        "Gortler–Healy–Thurston arXiv:0710.0926",
+        "Resultary d05310ca3cb8 and strict-kernel completion searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Winter's convex reconstruction and the generic-framework theorem have different domain restrictions. Neither supplies the all-input nonconvex positive-branch law."
+        ],
+        "reasoning": "The conclusion for the stated nonconvex class requires the specific determinant and winding argument, which then also forces every colored dihedral map to preserve the full Gram matrix. The close convex and generic results are not sufficient substitutes.",
+        "searches": [
+          "Winter arXiv:2302.14194 Theorem 4.7/Corollary 4.10; arXiv:2108.13483 definition of metric coloring and Question 6.6",
+          "Gortler–Healy–Thurston arXiv:0710.0926 abstract and opening statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target is the exact matching Resultary record, not independent prior evidence.",
+          "The equivalent distance data are the spokes from a marked origin and the rim lengths of a wheel: the latter squares are s_i+s_{i+1}-2t_i. Generic global rigidity in arXiv:0710.0926 is explicitly about generic frameworks."
+        ],
+        "reasoning": "Rank-two completion and wheel distances alone do not impose the positive angular branch or winding one, and generic rigidity does not certify all nongeneric inputs required here.",
+        "searches": [
+          "Resultary: rank-two cycle Gram completion from vertex norms and adjacent inner products; strict-kernel star-shaped polygon reconstruction",
+          "Gortler–Healy–Thurston, arXiv:0710.0926, generic global rigidity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct nearest radial reconstruction record d05310ca3cb8 uses vertex rays and side-support distances for strictly convex odd-sided polygons with an interior-foot condition."
+        ],
+        "reasoning": "The compared exact reconstruction uses different inputs, parity and convexity hypotheses. It is neither a table of the same completions nor a formula recovering the cumulative angles from these local scalars. The bounded search does not rule out an older exact formula.",
+        "searches": [
+          "Resultary: centered/radial polygon reconstruction and metric-colored boundary cycle",
+          "Resultary d05310ca3cb8, Finding"
+        ]
+      },
+      "rationale": "The metric coloring and the convex congruence and symmetry subcases are covered by Winter's work and receive no novelty credit. The supported distinct part is the explicit branch-fixed completion and corresponding symmetry theorem for all strict-kernel cycles, including nonconvex and nongeneric ones, with competitors restricted to the same class.",
+      "residual_risks": [
+        "The short angle argument may occur in older centered star-shaped polygon or wheel reconstruction sources or as folklore; the search did not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines exact coloring and asks symmetry question, not the strict-kernel polygon theorem",
+          "evidence": "Vertex squares and adjacent inner products are the colors; Question 6.6 identifies geometric restrictions as relevant and notes counterexamples outside them.",
+          "identifier_or_url": "https://arxiv.org/abs/2108.13483",
+          "material_read": "Metric coloring p. 5 (text offset 15334); Question 6.6 p. 15 (offset 44890)",
+          "method": "Lawful full-text passage inspection",
+          "title": "Capturing Polytopal Symmetries by Coloring the Edge-Graph",
+          "trigger": "Identical vertex/edge metric coloring and symmetry question"
+        },
+        {
+          "assessment": "Demonstrable coverage of convex subcase, not nonconvex extension",
+          "evidence": "The result reconstructs a convex polytope containing the origin from face lattice, edge lengths and vertex-origin distances.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.14194",
+          "material_read": "Theorem 4.7 p. 17 (offset 52456); Corollary 4.10 p. 18 (offset 54745)",
+          "method": "Lawful full-text passage inspection",
+          "title": "Rigidity, Tensegrity, and Reconstruction of Polytopes Under Metric Constraints",
+          "trigger": "Plausible stronger centered reconstruction theorem"
+        },
+        {
+          "assessment": "Generic theorem does not assert all-realization rigidity in this restricted nonconvex class",
+          "evidence": "Stress characterization is explicitly for generic frameworks.",
+          "identifier_or_url": "https://arxiv.org/abs/0710.0926",
+          "material_read": "P. 1, offset 0, abstract and opening statement",
+          "method": "Lawful full-text passage inspection",
+          "title": "Characterizing Generic Global Rigidity",
+          "trigger": "Reduction to wheel edge lengths"
+        },
+        {
+          "assessment": "Different data and scope",
+          "evidence": "Ordered rays and side supports with interior feet are used for strictly convex odd-sided inputs.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-odd-polygon-radial-support-rigidity-under-interior-normal-feet--d05310ca3cb8",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary lookup and local mirror passage inspection",
+          "title": "Odd polygon radial support rigidity under interior normal feet",
+          "trigger": "Closest distinct indexed radial polygon reconstruction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A specific ambiguity in reconstructing a centered cycle from local metric data is resolved uniformly under a natural strict visibility hypothesis. The formula recovers all missing entries and certifies the entire origin-fixing symmetry group in a genuinely larger-than-convex class, without genericity. The nonconvex extension is the value; convex reconstruction alone would not qualify.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

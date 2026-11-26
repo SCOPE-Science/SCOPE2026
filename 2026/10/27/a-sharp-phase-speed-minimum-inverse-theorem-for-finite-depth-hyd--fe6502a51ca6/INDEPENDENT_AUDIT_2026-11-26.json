@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:27:22.977182Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With p=T/(ρgh²), q=D/(ρgh⁴) and x=kh, the squared speed is f=(1/x+px+qx³)tanh x. Dividing its derivative by (x tanh x)' gives p+qG−A, with G=x²(3S+1)/(S+1) and A=(S−1)/(x²(S+1)). G increases from zero to infinity because S is strictly increasing. For A the derivative test reduces to S²−1>xS'. Setting t=2x gives (cosh(2t)−1)/(2t²)+sinh(t)/t−cosh(t)−1, whose constant and quadratic coefficients vanish and whose higher coefficients are (2^(2n+1)−4n(n+1))/(2n+2)!>0 for n≥2 (the exponential term grows by four, the quadratic term by less). Thus A decreases strictly from 1/3 to zero. The derivative has a unique negative-to-positive sign change exactly for 0<p<1/3; at equality p=1/3 it is positive for x>0, with only a long-wave infimum. The measured value and stationarity form a system in px²,qx⁴ with determinant 2S/(S+1)>0. Solving gives the displayed T,D; each open interval endpoint corresponds to vanishing of one modulus and the width is positive since S>1. Conversely a pair strictly inside gives positive moduli and satisfies stationarity, hence gives the unique global minimum. The Taylor coefficients A=1/3−2x²/45+O(x⁴) and G=2x²+O(x⁴) give the stated critical law; differentiating the strictly increasing stationarity factor gives both minimizer monotonicities. checker.py and VERIFICATION.md describe diagnostic sampled tests, not the proof of uniqueness or a new audit run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The two-frequency inverse theorem fits depth and bending only, without tension. The capillary shear result contains the zero-shear threshold B<1/3, but has no bending parameter.",
+          "The Beaufort Sea wave model includes compression and ice mass and fits properties by comparing curves; its use of a minimum as a wind-forcing threshold does not provide the target inverse."
+        ],
+        "reasoning": "Neither a different inverse dataset nor a model with fewer or different moduli specializes to this statement.",
+        "searches": [
+          "Resultary 6ec55cbd6743 and 9e41ebf2487a",
+          "Milewski–Vanden-Broeck–Wang pp. 3–4, and MDPI JMSE 9, 471 pp. 2–3 and 9"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "arXiv:1309.6990",
+        "DOI 10.1017/jfm.2011.163",
+        "DOI 10.1016/j.jfluidstructs.2014.04.015 (identification only)",
+        "JMSE 9, 471",
+        "Resultary 6ec55cbd6743",
+        "Resultary 9e41ebf2487a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The dispersion law implies the stationarity equations by differentiation; their elementary inversion alone does not establish that every compatible stationary pair is the unique global minimum.",
+          "The capillary cutoff at q=0 does not by itself give the all-q>0 global derivative analysis. Pure-flexural minima are a separate axis p=0.",
+          "Guyenne–Părău was identified but no readable primary theorem passage was obtained from the repository and DOI routes."
+        ],
+        "reasoning": "The distinct claim is the two-positive-moduli global realizability equivalence, not the familiar limiting critical number in isolation. The unread finite-depth lead remains open evidence.",
+        "searches": [
+          "arXiv:1309.6990 Eq. (2.2)",
+          "DOI 10.1017/jfm.2011.163 Eq. (1.2) and capillary discussion",
+          "Resultary 9e41ebf2487a, zero-shear specialization",
+          "DOI 10.1016/j.jfluidstructs.2014.04.015, identified finite-depth lead"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At a phase-speed stationary point, group and phase speeds agree. The target is single-point inversion from the dispersion value and that derivative constraint, not two freely chosen frequencies.",
+          "The inspected antecedents give combined tension/bending forward dispersion or one-mechanism minimum-speed regimes, not this stationary speed data inversion."
+        ],
+        "reasoning": "Rephrasing stationarity as group-speed matching does not identify a prior full inverse result in the checked passages.",
+        "searches": [
+          "Local Resultary: finite-depth hydroelastic minimum and dispersion-parameter inverse problems",
+          "arXiv:1309.6990 §2.1 and DOI 10.1017/jfm.2011.163 pp. 3–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact indexed admissibility interval is for depth and bending from two frequencies.",
+          "The observed-wave comparisons are based on curves and varied ice properties; the checked material does not give this exact minimum-coordinate realizability interval."
+        ],
+        "reasoning": "A table of forward or recovered values from other data cannot establish the continuous all-x inverse wedge.",
+        "searches": [
+          "Local Resultary inverse/admissibility entries 6ec55cbd6743 and 9e41ebf2487a",
+          "MDPI JMSE 9, 471 observational dispersion comparison, p. 9"
+        ]
+      },
+      "rationale": "The exact two-modulus inversion from a single minimum, with an open data interval and a converse global-minimum test, was not found implied by the closest inspected results. The combined-moduli dispersion, the capillary 1/3 threshold in the zero-bending case, and finite-depth pure-flexural minima are antecedents, not claimed novelties. This is a bounded comparison with a material full-text access limitation.",
+      "residual_risks": [
+        "Guyenne–Părău full text was not accessible through the attempted OA routes.",
+        "A historical inverse result under phase/group-speed equivalence or specialized hydroelastic terminology outside the checked material is not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Forward model in the inspected passage, not the inverse theorem",
+          "evidence": "Negligible sheet inertia and the two elastic terms; displayed dispersion takes the deep-water limit.",
+          "identifier_or_url": "https://arxiv.org/abs/1309.6990",
+          "material_read": "§2.1 p. 3, offset 9800, boundary conditions and Eq. (2.2)",
+          "method": "OA primary PDF text",
+          "title": "Nonlinear waves on the surface of a fluid covered by an elastic sheet",
+          "trigger": "Combined tension/flexure forward model"
+        },
+        {
+          "assessment": "Pure-flexural or capillary limits, not simultaneous recovery",
+          "evidence": "Finite-depth pure flexural–gravity minimum and gravity–capillary change at B=1/3.",
+          "identifier_or_url": "https://doi.org/10.1017/jfm.2011.163",
+          "material_read": "pp. 3–4, offsets 8200 and 11600, Eq. (1.2) and capillary comparison",
+          "method": "OA primary PDF text",
+          "title": "Hydroelastic solitary waves in deep water",
+          "trigger": "Phase-speed minima and capillary critical depth"
+        },
+        {
+          "assessment": "Unresolved access; no inference about uninspected text",
+          "evidence": "Repository returned 403 and DOI route did not yield a readable paper.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jfluidstructs.2014.04.015",
+          "material_read": "Bibliographic identification only; no primary passage obtained",
+          "method": "UEA repository and DOI OA attempts",
+          "title": "Finite-depth effects on solitary waves in a floating ice sheet",
+          "trigger": "Plausible finite-depth minimum-speed precedent"
+        },
+        {
+          "assessment": "Different physical model and dispersion-curve comparison",
+          "evidence": "Bending, compression and mass loading; compares varied thickness/modulus with dispersion observations.",
+          "identifier_or_url": "https://www.mdpi.com/2077-1312/9/5/471",
+          "material_read": "pp. 2–3 and 9, offsets 9800, 12200 and 84900",
+          "method": "OA primary PDF text",
+          "title": "Observing Wind-Forced Flexural-Gravity Waves in the Beaufort Sea and Their Relationship to Sea Ice Mechanics",
+          "trigger": "Observed minimum and elasticity inference"
+        },
+        {
+          "assessment": "Different unknowns and data",
+          "evidence": "Recovers depth and bending without tension, using two independent frequency observations.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-two-frequency-recovery-of-depth-and-flexural-rigidity-from-hydro--6ec55cbd6743",
+          "material_read": "RESULT.md offsets 0 and 7000",
+          "method": "Local Resultary mirror",
+          "title": "Two-frequency recovery of depth and flexural rigidity from hydroelastic dispersion",
+          "trigger": "Strongest catalogue inverse-theorem match"
+        },
+        {
+          "assessment": "Covers allied capillary onset, not the two-modulus inverse",
+          "evidence": "B<B_c(γ) yields a unique positive minimum, with B_c(0)=1/3 in the no-bending case.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-global-shear-ordering-and-three-singular-laws-for-the-capillary--9e41ebf2487a",
+          "material_read": "RESULT.md offsets 0 and 7900",
+          "method": "Local Resultary mirror",
+          "title": "Global shear ordering and three singular laws for the capillary phase-speed minimum",
+          "trigger": "Strongest catalogue onset-criterion match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The minimum is a physically meaningful feature beyond a generic sample of the curve. The interval is an exact data consistency test, and the no-hidden-extrema result makes the small linear inverse system globally meaningful. The conclusion is useful under the specified massless-sheet model and known g, ρ and h; it does not give stability under noisy minimum measurements or infer omitted effects.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

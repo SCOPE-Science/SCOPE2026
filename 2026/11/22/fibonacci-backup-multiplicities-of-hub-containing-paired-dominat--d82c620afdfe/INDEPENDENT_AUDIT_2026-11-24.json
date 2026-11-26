@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:00:17.434377Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The hub supplies domination but must use exactly one matching edge. For a proper rim selection, its endpoint lies in the sole odd path, and it must be at an odd position so the residual pieces have even orders. The even pieces each have one matching, giving a+1 choices on a run of length 2a+1. Full rim yields n choices if n is odd, zero otherwise; a hub singleton has no matching. The labelled starting point of the distinguished odd run is unique, so no rotation quotient occurs; the odd run with a positive following gap gives A and each subsequent even run with positive gap gives E. The geometric series yields the whole bivariate census, with y raised to the per-set count. At z=y=1 the proper factor simplifies to x²/(1−x−x²); for y-degree one its factor is x²(1−x²)/(1−x−x²). Counting witnesses by the spoke followed by arbitrary matchings of the remaining path gives nF_n; this is not a third count of vertex sets. Ratios and multiplicity support follow, including n=3,4. Independently enumerated global matchings projected to their endpoint sets and compared every joint coefficient through rim size 17: python3 /workspace/evidence/3-matchings.py. Reviewed VERIFICATION.md, the two supplied checkers and their recorded output without executing them; the recorded Python totals include hub-free sets, whereas the independent check groups only hub-containing sets. The proof is all-order, not an extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The thesis gives the wheel paired-domination number 2 and its minimum-set exchange graph, and the 2026 wheel-related paper again gives the number 2.",
+          "The generalized windmill polynomial has disjoint clique blades, not a cycle rim, and counts only sizes."
+        ],
+        "reasoning": "Minimum classifications fix only the leading coefficient; the related all-size graph family cannot be specialized to a general wheel to recover matching multiplicities.",
+        "searches": [
+          "Eakawinrujee 2023 dissertation §3.1, §4.2",
+          "10.22108/toc.2025.145488.2286 Theorem 2.1",
+          "Resultary f2d90fcc066b"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and support files",
+        "Eakawinrujee 2023 thesis §§3.1 and 4.2",
+        "DOI 10.22108/toc.2025.145488.2286",
+        "Resultary a8c84103b33c, a3008add14a5, 3bd93f83b97d, b99c8388636a, f2d90fcc066b",
+        "WASET 52964 (access attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Subdivided-clique minimum sets have a 2^c multiplicity law; prism enumerators count matching witnesses; expanded clique minima have an exchange structure. None classifies proper odd rim runs of all lengths and wheel full-rim exceptions."
+        ],
+        "reasoning": "The witness total, minimum coefficient and earlier analogous multiplicity statistics do not determine the per-selected-set distribution for wheels.",
+        "searches": [
+          "Resultary 3bd93f83b97d, a3008add14a5, b99c8388636a",
+          "Eakawinrujee 2023 dissertation §4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A hub-free wheel set must dominate and admit a matching on the rim; the frozen census instead conditions on including h. The inspected cycle census additionally uses paired-disjunctive domination and has no multiplicity marker.",
+          "Endpoint sets with matching witnesses on a circular ladder can have more witnesses than sets; this is not the wheel's histogram of numbers of witnesses."
+        ],
+        "reasoning": "Neither the cycle predicate nor an ordinary matching-witness enumerator is equivalent to the selected endpoint-set distribution.",
+        "searches": [
+          "Resultary: wheel hub paired domination joint backup multiplicity Fibonacci unique perfect matching",
+          "Resultary a8c84103b33c and a3008add14a5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed hit is the assigned record itself. The wheel minimum-set tables and exchange classification cover only size two. No full multiplicity table was identified in inspected material.",
+          "The 2016 paired-domination polynomial abstract could not be retrieved; its title does not identify the graph families treated."
+        ],
+        "reasoning": "Do not count a self-hit as external evidence or infer noncoverage from an inaccessible abstract.",
+        "searches": [
+          "Resultary: wheel paired-domination polynomial, hub-conditioned size and matching-multiplicity strata",
+          "WASET abstract 52964",
+          "Eakawinrujee thesis wheel sections"
+        ]
+      },
+      "rationale": "The supported distinct result is the complete joint distribution by size and per-set perfect-matching multiplicity in labelled hub-containing wheel sets. Existing paired-domination minimums and matching counts by witnesses are partial information only. The elementary nF_n witness bijection is not a separate priority claim about the wheel matching polynomial.",
+      "residual_risks": [
+        "Inaccessible 2016 abstract and unindexed enumerations leave historical coverage risk.",
+        "The earlier ordinary cycle enumeration mentioned in the frozen prose was not identified; the paired-disjunctive cycle reference is not that enumeration. This issue concerns an explicitly excluded hub-free slice."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Minimum-size slice only",
+          "evidence": "Wheel paired domination number 2; nonexceptional minimum sets consist of the hub and a single rim vertex, with complete exchange graph.",
+          "identifier_or_url": "https://ethesisarchive.library.tu.ac.th/thesis/2023/TU_2023_6109320413_17206_27705.pdf",
+          "material_read": "§3.1 Theorem 3.1.1, p. 11; §4.2, p. 61",
+          "method": "OA thesis PDF",
+          "title": "Total and Paired Domination Numbers and γ-Total and γ-Paired Dominating Graphs of Some Graphs",
+          "trigger": "wheel-specific classification"
+        },
+        {
+          "assessment": "Minimum number rather than joint census",
+          "evidence": "γ_pr(W_q)=2.",
+          "identifier_or_url": "https://doi.org/10.22108/toc.2025.145488.2286",
+          "material_read": "Theorem 2.1, printed p. 254",
+          "method": "OA primary text",
+          "title": "Total and paired domination numbers of some wheel-related graphs",
+          "trigger": "same graph and domination predicate"
+        },
+        {
+          "assessment": "Unresolved coverage",
+          "evidence": "No read text establishing which graph families are treated.",
+          "identifier_or_url": "https://publications.waset.org/abstracts/52964/introduction-to-paired-domination-polynomial-of-a-graph",
+          "material_read": "Title/citation only; OA attempts returned 403",
+          "method": "Direct and alternate OA retrieval attempts",
+          "title": "Introduction to Paired Domination Polynomial of a Graph",
+          "trigger": "plausible prior polynomial"
+        },
+        {
+          "assessment": "Different graph family and statistic",
+          "evidence": "Size polynomial on K_1 joined to disjoint clique blades, no matching multiplicity variable.",
+          "identifier_or_url": "2026/10/12/SCOPE-paired-domination-polynomial-of-generalized-windmill-graphs--f2d90fcc066b",
+          "material_read": "mirrored Finding, offset 0–1512",
+          "method": "Resultary and local mirror",
+          "title": "Paired-domination polynomial of generalized windmill graphs",
+          "trigger": "hub and all sizes"
+        },
+        {
+          "assessment": "No inspected implication for wheel hub-containing sets",
+          "evidence": "Different predicate on cycles, separate matching witnesses on prisms, multiplicities only for minima on subdivided cliques, and size-four minima of expanded cliques.",
+          "identifier_or_url": "Resultary a8c84103b33c; a3008add14a5; 3bd93f83b97d; b99c8388636a",
+          "material_read": "mirrored Findings and cycle limitations",
+          "method": "Resultary and local mirror",
+          "title": "Cycle, prism, subdivided-clique and expanded-clique census analogues",
+          "trigger": "related enumeration and multiplicity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a fixed selected set, alternative perfect pairings are a physically interpretable redundancy count distinct from either selected-set size or total witness count. The exact joint distribution separates uniquely paired deployments from those with alternatives over a natural infinite family, with explicit exception, support and limiting proportions. It does not establish resilience to an arbitrary specified edge or vertex failure.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

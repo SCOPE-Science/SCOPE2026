@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T15:12:15.035278Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For an expanded common-subsequence alignment, normalize the match count in each same-letter block pair by the length of that letter's run. The resulting matrix has row and column sums at most one and no crossing positive pairs. The bipartite matching polytope on its support is integral: any fractional vertex would admit opposite alternating perturbations along a cycle of fractional edges, or along a path between fractional-degree-one vertices, which have slack. Integral matchings on this support are increasing. Thus the expanded optimum is bounded by the maximum weighted skeleton matching, and at equality all matchings in a convex decomposition are optimal. Greedily embedding the skeleton in the increasing and decreasing period powers uses one new copy per weak descent and weak ascent respectively. For skeleton length m and e adjacent ties this yields m+e<=2k-1, and each letter appears at most k times. These give the stated weighted bound including A=B, and an alternating two-letter skeleton with lengths A and B realizes it as a palindrome. When A>B, equality forces m=2k-1, e=0, all k top-letter blocks and one B-letter in each gap in every integral optimum. Averaging forces all top blocks to be fully selected and each expanded gap to have B letters chosen only from B-blocks. The actual palindromic gaps are reverse partners in the same distinct-run order, and hence must each be monochromatic, including a central gap. Conversely each mirror-paired choice embeds. The k-1 gaps have floor(k/2) reversal orbits, including none at k=1. Deletions follow by subtraction. The bounded DP and optimizer-enumeration code was inspected but not executed; the proof, not the finite profiles, supports the universal statement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 12 gives an algorithm for weighted LCS with a run-length-encoded input, not a closed classification. The periodic-subsequence paper optimizes a different property.",
+          "The same-day weighted-permutation record f8851dd87d7f optimizes words with at most one run per letter; 8001bcc3343f counts reverse-complement subsequences for a fixed-point-free involution."
+        ],
+        "reasoning": "These general tools or neighboring objective functions neither state nor imply the weighted palindrome optimum without structural special-family analysis.",
+        "searches": [
+          "arXiv:1810.01238 §4 and Theorem 12",
+          "arXiv:2202.07189, abstract and introduction",
+          "Resultary f8851dd87d7f and 8001bcc3343f, Findings"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 85b73838625b",
+        "Resultary 0908d82f9069",
+        "Resultary f8851dd87d7f",
+        "Resultary 8001bcc3343f",
+        "DOI 10.4230/LIPIcs.ESA.2024.30",
+        "arXiv:1810.01238",
+        "arXiv:2202.07189"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older zero-tail formula yields the A=B=1 case; no unique maximum is possible there. A generic weighted LCS algorithm calculates a chosen instance but does not collapse an arbitrary weight profile to its top two entries."
+        ],
+        "reasoning": "Even after weight expansion, the bounded skeleton length must be combined with the per-letter cap and equality information; counting all optimal expanded palindromes also needs the distinct-run reversal argument. Those are not just parameter substitutions into the inspected results.",
+        "searches": [
+          "SCOPE 85b73838625b, partial cyclic permutation spectrum, zero-tail specialization",
+          "Bringmann–Chaudhury §4; Brodal–Fagerberg–Rysgaard p. 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Deletion distance equals host length minus LPS. Reversed LCS agrees in length but its optimizing words can differ; the cited paper gives a nonpalindromic LCS for abccab."
+        ],
+        "reasoning": "The length equivalences do not provide either the top-two dependence or the classification of actual palindromes. The evaluated proof uses a palindrome explicitly for attainment and its reversal rigidity for optimizer classification.",
+        "searches": [
+          "Resultary semantic comparison: longest palindromic subsequence of periodic distinct-run powers, reversed weighted LCS and minimum palindrome deletions",
+          "Brodal–Fagerberg–Rysgaard, ESA 2024 Article 30, p. 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "85b73838625b counts ordinary scattered palindromes in permutation powers with a partial period, including the unit-run exact maximum 2k-1. The binary alternating-prefix record 0908d82f9069 covers the corresponding binary specialization. The identical frozen finding is not independent coverage."
+        ],
+        "reasoning": "The full length spectra cover the unit-run cases, not arbitrary letter weights or the unique-top count. No exact weighted-family table was identified in these comparisons.",
+        "searches": [
+          "Resultary local published-record search for exact repeated/cyclic permutation palindrome spectra and weighted optimum",
+          "Resultary 85b73838625b and 0908d82f9069, Findings"
+        ]
+      },
+      "rationale": "The arbitrary-run law and complete unique-top optimizer classification are distinct from the inspected unit-weight spectra, generic LCS algorithms and other periodic objectives. The unit-run result and length/deletion equivalence are not separate contributions.",
+      "residual_risks": [
+        "The bounded comparison cannot exclude a differently indexed special-family theorem for weighted cyclic words."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the expressly excluded unit-weight specialization",
+          "evidence": [
+            "Maximum 2k-1 and q(q-1)^(k-1) unit-run maximizers for q>=3."
+          ],
+          "identifier_or_url": "Resultary 85b73838625b",
+          "material_read": "Finding, zero-tail specialization, offsets 0–3461",
+          "method": "Local full-text mirror passage",
+          "title": "Exact scattered palindrome spectrum of partial cyclic permutation powers",
+          "trigger": "Identical host family at unit weights"
+        },
+        {
+          "assessment": "Specialization only",
+          "evidence": [
+            "Full length distribution for alternating binary prefixes."
+          ],
+          "identifier_or_url": "Resultary 0908d82f9069",
+          "material_read": "Finding, offsets 0–3275",
+          "method": "Local full-text mirror passage",
+          "title": "Exact palindrome length enumerator and Gaussian law for alternating words",
+          "trigger": "Binary unit-weight specialization"
+        },
+        {
+          "assessment": "General equivalence and backtracking caveat, not the weighted period theorem",
+          "evidence": [
+            "Example abccab has a nonpalindromic LCS accb against its reverse. The source is Article 30, DOI 10.4230/LIPIcs.ESA.2024.30; the frozen .35 citation is a bibliographic error, not a proof dependency."
+          ],
+          "identifier_or_url": "https://www.cs.au.dk/~gerth/papers/esa24.pdf",
+          "material_read": "p. 2, offsets 3200–7500, and article identifier",
+          "method": "Primary OA PDF",
+          "title": "On Finding Longest Palindromic Subsequences Using Longest Common Subsequences",
+          "trigger": "Reversed LCS equivalent length"
+        },
+        {
+          "assessment": "General algorithmic tool, no structural top-two classification in inspected theorem",
+          "evidence": [
+            "Theorem 12 is about complexity with run-length encoding."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1810.01238",
+          "material_read": "§4, definition around offset 39300 and Theorem 12 around 43593",
+          "method": "Primary OA text",
+          "title": "Sketching, Streaming, and Fine-Grained Complexity of (Weighted) LCS",
+          "trigger": "Weighted LCS and run compression"
+        },
+        {
+          "assessment": "Different objective",
+          "evidence": [
+            "The optimized subsequence is periodic or subperiodic, rather than palindromic."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2202.07189",
+          "material_read": "Abstract and introduction, offsets 0–3282",
+          "method": "Primary OA text",
+          "title": "Longest (Sub-)Periodic Subsequence",
+          "trigger": "Potential periodic-subsequence alias"
+        },
+        {
+          "assessment": "Different constraint",
+          "evidence": [
+            "At most one maximal run per letter; length sum(a_i)+(k-1)max(a_i)."
+          ],
+          "identifier_or_url": "Resultary f8851dd87d7f",
+          "material_read": "Finding, offsets 0–3213",
+          "method": "Local full-text mirror passage",
+          "title": "Complete longest-run subsequence classification for weighted permutation powers",
+          "trigger": "Same weighted host family"
+        },
+        {
+          "assessment": "Different reversal constraint",
+          "evidence": [
+            "Complement map is a fixed-point-free involution."
+          ],
+          "identifier_or_url": "Resultary 8001bcc3343f",
+          "material_read": "Finding, offsets 0–2030",
+          "method": "Local full-text mirror passage",
+          "title": "Exact reverse-complement subsequence spectrum of permutation powers",
+          "trigger": "Possible same-day palindrome alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a natural unbounded class of periodic strings, the invariant collapses to two order statistics despite arbitrary weights, alphabet size and cyclic order. The exact deleted length and the complete optimizer structure with a unique maximum are useful beyond generic instance-by-instance dynamic programming. No tied-maximum optimizer count or general run-repeat theorem is inferred.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

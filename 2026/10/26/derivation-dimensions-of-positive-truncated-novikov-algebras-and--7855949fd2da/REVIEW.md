@@ -1,15 +1,21 @@
-# Review of the positive truncated Novikov derivation theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The product is well-defined on the positive truncation and satisfies the Novikov identities. Decomposing ordinary linear endomorphisms by grading reduces the odd-characteristic problem to two explicit families, with no negative-degree maps. In characteristic two, an exact associative split \(A\oplus B\) forces every derivation to be a ring derivation on \(A\), an \(A\)-module map into \(B\), and a compatible module connection. The polynomial-ideal stability constraints give the mod-four exception without interpolation from numerical data. The independent construction of the full Leibniz-rule coefficient matrix in `verify.py` confirms the formulas in 65 modular cases and 7 characteristic-zero cases, plus two larger binary cases.
+## correctness
 
-## Originality — PASS, subject to stated publication-priority limits
-The closest inspected primary material concerns the low-dimensional classification of Novikov algebras (Burde–de Graaf, arXiv:`1106.5954v1`), ideals and Novikov structures on Lie algebras (Burde–Dekimpe–Vercammen, arXiv:`0705.1316v1`), and derivations of the underlying associative polynomial quotient used to construct Novikov products (Strachan, DOI `10.1080/14029251.2019.1591716`). An accessible 2026 study, arXiv:`2608.25372v1`, computes second cohomology of a distinct full truncated-polynomial Novikov algebra and is not the present ordinary-derivation classification. Mathematical-finding record searches under both the Novikov and right-unital associative-splitting descriptions returned no statement equivalent to the all-dimension mod-four formula. Bai–Meng's 2003 treatment of low-dimensional automorphisms was available only at the abstract level; a full-text comparison was not completed. Thus publication priority is not independently established, especially for individual small-dimensional instances or implicit consequences of broader structural results.
+PASS
 
-## Value — PASS
-The natural sequence of positive polynomial truncations is a standard Novikov construction. The theorem supplies the complete ordinary-derivation dimension for every truncation length and every characteristic, and explains an infinite family of exceptional characteristic-two degree-lowering derivations exactly at multiples of four. The mod-four phenomenon is structurally caused by the ring-derivation \(\delta(u)=1\) on even-length truncated polynomial blocks, not by an arbitrary small example. The result matters as a uniform description of infinitesimal algebraic symmetries, without claiming an automorphism-group or deformation-theory classification.
+The positive polynomial ideal and its tail above n are stable for the stated product and it inherits both Novikov identities. Homogeneous components of an arbitrary derivation are derivations. The right identity and left diagonal action of e₁ yield (s+1)c₁=0 and scⱼ=−jc₁ for active indices at shift s. Off the zero residue the only direction has s≡−1 and cⱼ proportional to j; at the zero residue, for characteristic ≠2, multiplication by e₂ gives cᵢ₊₁=cᵢ+c₂. At a negative shift divisible by odd p the first active coefficient is killed by the equation at e₋ₛ∘e₂, then all are killed by recurrence. Direct substitution gives discrepancies proportional to s or s+1 for the nonnegative-shift generators; truncation introduces no new condition because a nonnegative shift cannot lower an out-of-range output. Counting gives one direction in characteristic 0 and 1+floor(n/p)+floor((n−2)/p) for odd p. In characteristic 2 the right annihilator B is preserved, and the split product forces an ordinary derivation δ of A, an A-linear map A→B, and a δ-connection on B. The kernel (u^b) must be δ-stable. The two maps contribute 2b free parameters, and the allowed δ(u) has a constant term exactly when both lengths equal an even integer, accounting for the unique shift −2. The two characteristic-two formulas agree; the finite-field count is the cardinality of this vector space.
 
-## Limits
-The theorem concerns only the stated family and the Lie algebra of ordinary derivations. Counts over finite fields are the immediate vector-space consequence of the exact dimension, not an independent counting theorem. The computational checks sample finitely many dimensions; they do not replace the infinite proof. Non-indexed literature and the inaccessible low-dimensional automorphism article remain residual originality risks. Independent mathematical validation was not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The material distinction is the all-length, all-characteristic ordinary derivation dimension, especially odd-prime growth and the sharp characteristic-two boundary. The inspected Novikov, associative and Lie treatments do not yield it on this family. The closest general derivation paper could not be read, so priority is not certified.
+
+## value
+
+PASS
+
+Ordinary derivations measure infinitesimal symmetries of a canonical nonassociative truncation. A uniform exact classification across characteristics, with a degree-lowering direction precisely at n divisible by four and distinct modular mechanisms, is substantive structure rather than a finite table or a consequence of the characteristic-zero construction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

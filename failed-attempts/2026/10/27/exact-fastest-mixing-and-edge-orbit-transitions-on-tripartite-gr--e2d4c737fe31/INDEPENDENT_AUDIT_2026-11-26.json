@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:25:37.609238Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Convex averaging over within-part permutations and A/B exchange preserves stochasticity and the support and attains the unrestricted optimum value in the invariant class. With r=q/p, u=px, v=qy, the feasibility conditions are u,v>=0, u+v<=1, v<=r/2; the four nonconstant Laplacian modes are 2u+v, u+v, 2v/r, and (1+2/r)v. At modulus t the first two reduce to max(0,1-t-v)<=u<=min(1-v,(1+t-v)/2). The constraint v>=1-3t meets v<=r/2 for r<=1/2 and v<=r(1+t)/(r+2) for 1/2<=r<=1, forcing the first two singleton choices. For 1<=r<=4 the last two modes force t>=r/(r+4), equality fixing v=2r/(r+4). Substitution gives the two u intervals split at r=2. For r>=4, v<=1 and the 2v/r mode force t>=1-2/r, with equality at v=1,u=0. The displayed weights meet the remaining bounds, agree at shared endpoints, and every optimum averages to one of them. Nonnegative AB weights give the forced-positive-total and forced-zero unrestricted statements from the invariant average; the intermediate endpoint witnesses are valid. The uniqueness used in the proof is of invariant weights. Inspected the supplied verification notes and verify.py; their recorded run is not an independent rerun. The independently authored /workspace/branches/dc7aa6fc-b11b-475d-91cd-ccd4e8e3ab0c/endpoint_lp.py checks the invariant LP at p=12 with 13 q values including the four boundaries and neighboring integers; worst SLEM difference was 1.11e-16 and returned weights met the listed ranges. The finite LP panel does not prove the theorem or classify nonsymmetric optima.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boyd et al. provide the arbitrary complete multipartite spectral reduction with the bipartite case solved explicitly; Jafarizadeh's three-part cycle has equal part sizes. Neither cited passage solves the imbalanced uniform optimizer intervals.",
+          "The indexed mass-dependent classification admits arbitrary positive a<1/2 independently of class sizes and furnishes the full relevant interval and support theorem."
+        ],
+        "reasoning": "The general SDP formulation is unsolved for the target family in the inspected passage; the later flow theorem actually solves a strictly broader family.",
+        "searches": [
+          "Boyd–Diaconis–Parrilo–Xiao 2009, Section 5.4.2",
+          "Boyd–Diaconis–Xiao 2004, Section 7.1",
+          "Jafarizadeh arXiv:1008.2588v1 Sections III-A and III-C",
+          "Resultary c991250fdec2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and recorded verification_output.txt",
+        "Resultary c991250fdec2",
+        "Boyd–Diaconis–Xiao 2004",
+        "Boyd–Diaconis–Parrilo–Xiao 2009",
+        "arXiv:1008.2588v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Its support theorem excludes every AB edge for a<=1/6, makes the orbit optional for 1/6<a<=1/4, and forces positive total AB flow for a>1/4. These conditions become q>=4p, 2p<=q<4p, and q<2p. The nonzero endpoint flows and all invariant holdings follow from the same conversion."
+        ],
+        "reasoning": "Both global unrestricted support assertions and the optimizer intervals are covered, even if one describes the result in edge probabilities rather than stationary flows. No additional classification of symmetry-breaking optimizers was claimed.",
+        "searches": [
+          "c991250fdec2, full invariant optimizer interval and Support consequences for all optimal matrices, offsets 5650–8408"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Set m=p, r=q, a=p/(2p+q), g=q/(2p+q) in the prescribed-class-mass reversible result. Uniform detailed balance is symmetry, and its norm reduces to the norm of P minus 11^T/(2p+q). Its aggregate flows X and Y convert by x=(2p+q)X/p^2 and y=(2p+q)Y/(pq)."
+        ],
+        "reasoning": "The uniform specialization gives the same feasible problem and optimizer notion, not just matching thresholds for different models.",
+        "searches": [
+          "Resultary: fastest reversible mixing on three communities with unequal stationary masses; K_(p,p,q) AB edge orbit transitions",
+          "c991250fdec2 Finding, scope and conversion from stationary flows"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed four-phase SLEM formula plus its invariant optimizer interval splits at a=1/6,1/4,1/3,2/5, becoming q/p=4,2,1,1/2. For example its interval [0,a(6a-1)/(1+2a)] scales to [0,(4p-q)/(p(4p+q))] for 2p<=q<=4p."
+        ],
+        "reasoning": "The exact symbolic lookup resolves every integer p,q in the frozen table, not only the LP test instances.",
+        "searches": [
+          "Local Resultary c991250fdec2, mirror offsets 0–3887 and 5650–8408"
+        ]
+      },
+      "rationale": "The cited literature supplies the general framework and balanced/bipartite examples. The distinct indexed result c991250fdec2 solves the more general prescribed-class-mass reversible problem, including every invariant optimizer interval and the same unrestricted AB support conclusions. At uniform per-vertex mass its feasible matrices are exactly the frozen symmetric ones; its formulas and thresholds specialize to the frozen table without any additional result. Its visible November 2 date is later than the frozen October 27 date. This finding is about duplicate mathematical coverage, not priority, chronology of discovery, or dependence.",
+      "residual_risks": [
+        "The positive coverage conclusion does not settle priority between the matching records.",
+        "The bounded literature search is not an exhaustive history of complete multipartite optimizers; failure to find a primary match adds no negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Uniform-stationary specialization covers the entire frozen claim; later visible date does not establish earlier priority",
+          "evidence": [
+            "Finding states the four branches and actual unrestricted edge support. The proof gives max{0,a(1-mu)-Y}<=X<=min{a-Y,(a(1+mu)-Y)/2} and explicitly evaluates both intermediate intervals."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-four-phase-fastest-reversible-mixing-on-three-communities-with-u--c991250fdec2/RESULT.md",
+          "material_read": "Finding, assumptions, proof of modes and invariant intervals, and unrestricted support consequences, offsets 0–5762 and 5650–8408",
+          "method": "Local mirror at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Four-phase fastest reversible mixing on three communities with unequal stationary masses",
+          "trigger": "Exact class structure with generalized stationary law and matching edge-usage phases"
+        },
+        {
+          "assessment": "One-weight bipartite solution, not a tripartite interval classification",
+          "evidence": [
+            "The section solves K_(m,n) by a common edge probability and gives its SLEM."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+          "material_read": "Section 7.1, pp. 685–686, OA offsets about 59718–61200",
+          "method": "Primary PDF, bounded passage",
+          "title": "Fastest Mixing Markov Chain on a Graph",
+          "trigger": "Original optimization objective and complete-graph family solutions"
+        },
+        {
+          "assessment": "Covers spectral formulation, not the solved imbalanced formulas in the inspected section",
+          "evidence": [
+            "The paper uses p_ij=p_ji and says the blocks can be substituted into SDP (5.6); it explicitly solves the two-part example."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+          "material_read": "Section 5.4.2, pp. 812–813, OA offsets about 75100–81537",
+          "method": "Primary PDF, located text and displayed blocks",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "General complete multipartite block decomposition"
+        },
+        {
+          "assessment": "Equal-sized classes include the balanced case only",
+          "evidence": [
+            "Symmetric k-PPDR models have equal class sizes and cycle closure adds first-to-last edges."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1008.2588v1",
+          "material_read": "Sections III-A and III-C, PDF pp. 6–7, offsets about 13600 and 17900",
+          "method": "Primary PDF, readable model passages; some extracted displays are garbled",
+          "title": "Fastest Mixing Markov Chain on Symmetric K-Partite Network",
+          "trigger": "Analytical multipartite optimization and cycle models"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Phase transitions and unrestricted support properties are worthwhile in themselves, but each claimed property here is directly available by converting the existing prescribed-mass solution to uniform stationarity. This specialization supplies no independently useful unknown invariant or structural conclusion.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

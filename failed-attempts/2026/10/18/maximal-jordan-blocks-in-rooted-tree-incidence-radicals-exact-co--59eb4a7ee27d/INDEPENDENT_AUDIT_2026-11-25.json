@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:53:16.467531Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Checked RESULT.md lines 5–48, for h≥1 and the natural matrix representation. An h-step strict chain must advance exactly one depth per step and start at the root, hence is the unique saturated path to its endpoint. Therefore N^(h+1)=0, the only possibly nonzero row of N^h is the root row, and each entry there is its path product without cancellation. Taking all cover coefficients nonzero realizes the upper bound h+1, and rank(N^h) is exactly the multiplicity of that size block. Uniform coordinates give independent edge-success probability t=(q−1)/q. Independence between child branches yields the failure product and the terminal conditions at absolute depth h and at shallower leaves, with one operation contribution per edge in an arithmetic-operation (not bit-complexity) bound. The count of strict ancestor pairs is the sum of depths. For a full b-ary tree the cover count removes the freely chosen noncover entries, and for each new child branch there are q^{E_j+1} assignments of which (q−1)C_j succeed. Taking the complement of failure on all b branches gives the frozen integer recurrence, including C_0=1. The full-tree map is increasing and strictly concave for b≥2. In the supercritical case the positive fixed point has derivative in (0,1), so monotone iteration from one converges geometrically; b=1 gives t^h. At (b,q)=(2,2) the reciprocal increment tends to 1/4, so averaging gives s_h~4/h. The binary fixed point is (2t−1)/t² for q≥3. A separately written bounded matrix-power calculation (python3 /workspace/review_checks.py 5) checked exact counts including 624/1024 for the full binary height-two tree over F2, 64/512 on the unbalanced six-vertex tree over F2 and 144/256 on a smaller unbalanced tree over F4. The finite checks are not a proof of the general law or asymptotic. The frozen checker was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The full-b-ary Resultary theorem adds all Jordan partitions and a nilpotency-deficit law only on the cover subspace; its separate top-power assertion explicitly covers the whole radical.",
+          "Fuchs–Kirillov count full strictly triangular Jordan types (path/total-order case); Van Peski's ensemble is likewise full triangular and Gargate–Gargate count involutions on incidence algebras."
+        ],
+        "reasoning": "Do not extend the cover-only Jordan census to the entire radical or confuse the unrelated full triangular marginal totals with a prescribed tree pattern. It is the comparator's pointwise whole-radical top-power law that can be restricted to arbitrary subtrees.",
+        "searches": [
+          "fcd29ef31ec1, Finding and assumptions; scope of complete Jordan census and full radical assertion",
+          "arXiv:2204.00066, abstract",
+          "arXiv:2407.19578, abstract",
+          "arXiv:1907.06805, abstract"
+        ]
+      },
+      "checked_sources": [
+        "Resultary fcd29ef31ec1",
+        "Resultary 3245390fc987",
+        "Resultary 89b75cde9cfe",
+        "arXiv:2204.00066",
+        "arXiv:2407.19578",
+        "arXiv:1907.06805"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Given a tree T of height h, choose b≥2 at least its maximum child count and embed T in a full height-h b-ary tree using distinct child slots. Its ancestry order is inherited. Zero extension in the natural representation is block diagonal with blocks N and 0 up to vertex permutation, so powers retain their rank and root-path entries. Paths to added vertices have a zero edge. The regular-tree pointwise law and uniqueness therefore apply to all radical inputs of the embedded T. Independent surviving child events then give s(v)=1−∏(1−t s(w)); summing child counts across all vertices gives a linear arithmetic-operation bound.",
+          "3245390fc987 concerns a square-zero incidence radical on a cycle-wedge Hasse graph; 89b75cde9cfe treats ordinal sums of antichains, not the rooted-tree event."
+        ],
+        "reasoning": "The arbitrary-tree result is not literally stated by the regular-tree census, but is obtained mechanically by zero padding and the standard independent-branch rule. The two different poset cases do not imply this, and are not the basis for the verdict.",
+        "searches": [
+          "fcd29ef31ec1, Proof §5 whole-radical chain argument",
+          "Resultary 3245390fc987 and 89b75cde9cfe, Finding scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "fcd29ef31ec1 §3 identifies the nonzero top power with root-to-leaf survival of independent Bernoulli edges, and §5 proves that this top power is unchanged by all noncover coefficients in the full radical.",
+          "The pointwise chain calculation leaves only the root row and identifies each depth-h entry with its unique root path's product."
+        ],
+        "reasoning": "Index h+1 and a nonzero hth power are equivalent, and rank at that power counts the same largest blocks. The pointwise support and noncancellation statements give the same event, not just the same probability.",
+        "searches": [
+          "Resultary: rooted tree ancestry radical Jordan blocks, highest nonzero power and Hasse-edge path survival",
+          "fcd29ef31ec1, Proof §§3 and 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same recurrence p_0=1, p_{a+1}=1−(1−(1−1/q)p_a)^b gives exactly q^R p_h, R=∑_{d=1}^h d b^d. The comparator states the same binary positive fixed point and the critical 4/h law for (2,2).",
+          "The exact cover-assignment count is C_h=q^{E_h}p_h. Substituting into its probability recurrence using E_{h+1}=b(E_h+1) gives the frozen integer formula identically.",
+          "For b=1 the path case simply requires h independent nonzero cover labels, so its probability is t^h."
+        ],
+        "reasoning": "The main exact regular-tree enumerator and asymptotic are identical, and arithmetic rescaling does not add a distinct count.",
+        "searches": [
+          "fcd29ef31ec1, Finding: nilpotency-index transition and whole-radical count",
+          "fcd29ef31ec1, Proof §3: exact critical asymptotic"
+        ]
+      },
+      "rationale": "The distinct indexed result fcd29ef31ec1 gives the identical top-power law, whole-radical count and threshold for full b-ary trees, and its proof gives the pointwise identity on every element there. Although it does not state the arbitrary-tree recursion, that pointwise result applies to an arbitrary height-h tree embedded by retaining a rooted subtree in a full b-ary tree of the same height (b at least the maximum branching and at least two), by putting every extra incidence coordinate equal to zero. This is a direct restriction on each input, not an inference of a conditional probability from an unrestricted total. The remaining arbitrary-tree calculation is ordinary independent bond survival by child subtrees, and the integer recurrence is the same probability after clearing the cover-assignment denominator. There is no distinct nonmechanical remainder established. The comparator has a later catalogue path; this is a verdict on demonstrable coverage, not priority or provenance.",
+      "residual_risks": [
+        "Older prescribed-support or incidence-algebra literature was not exhaustively searched, and the compared catalogue dates do not determine priority or record lineage. Coverage rests on the explicit pointwise implication, not a claim about historical originality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact regular-tree top-power overlap and decisive pointwise law restricted by zero extension",
+          "evidence": [
+            "It states the whole-radical count q^R p_h; §§3 and 5 give the independent path criterion and unique cover chain for each deepest endpoint; §3 treats the critical constant explicitly."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-jordan-type-census-and-a-critical-nilpotency-window-for-rooted-t--fcd29ef31ec1/RESULT.md",
+          "material_read": "Finding and scope, offsets 0–3729; Proof §3, offsets 5900–7950; Proof §5, offsets 8896–9564",
+          "method": "Original result through local mirror",
+          "title": "Jordan-type census and a critical nilpotency window for rooted-tree incidence radicals",
+          "trigger": "Same full rooted tree, same top-power event, whole-radical count and transition"
+        },
+        {
+          "assessment": "Different poset and power structure",
+          "evidence": [
+            "The radical is square-zero and Jordan type depends on a bipartite matrix rank for a two-cycle-wedge Hasse graph."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-two-cycle-wedge-rank-polynomials-and-jordan-strata-of-finite-inc--3245390fc987/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Original result through local mirror",
+          "title": "Two-cycle wedge rank polynomials and Jordan strata of finite incidence radicals",
+          "trigger": "Same-day result on exact Jordan strata of finite incidence radicals"
+        },
+        {
+          "assessment": "Different poset support",
+          "evidence": [
+            "The posets are ordinal sums of antichains; highest power is governed by a layered matrix product rather than the arbitrary rooted-tree path law."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-maximal-nilpotency-index-census-in-layered-incidence-algeb--89b75cde9cfe/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Original result through local mirror",
+          "title": "Exact maximal nilpotency index census in layered incidence algebras",
+          "trigger": "Same top-power statistic on another poset family"
+        },
+        {
+          "assessment": "Covers the path case, not the tree-pattern conditional count by taking ambient totals",
+          "evidence": [
+            "P_lambda(q) counts strictly triangular matrices with a given Jordan type."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2204.00066",
+          "material_read": "Primary PDF abstract p. 1, offset 0",
+          "method": "OA primary passage inspection",
+          "title": "Jordan Types of Triangular Matrices over a Finite Field",
+          "trigger": "Exact general Jordan-type count in a full triangular ambient ensemble"
+        },
+        {
+          "assessment": "Full triangular ensemble, different rank and asymptotic scope",
+          "evidence": [
+            "The abstract studies the rank and Jordan partition statistics of uniform strictly upper triangular matrices."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2407.19578",
+          "material_read": "Primary PDF abstract p. 1, near offset 224",
+          "method": "OA primary passage inspection",
+          "title": "The Rank of a Random Triangular Matrix over F_q",
+          "trigger": "Natural triangular Jordan/rank ensemble over finite fields"
+        },
+        {
+          "assessment": "Different equation and statistic",
+          "evidence": [
+            "It counts elements of order two, under the specified field-characteristic restriction, not radical elements with maximal Jordan blocks."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1907.06805",
+          "material_read": "Primary PDF abstract p. 1, near offset 367",
+          "method": "OA primary passage inspection",
+          "title": "Involutions on Incidence Algebras of Finite Posets",
+          "trigger": "Finite incidence algebra counts on special posets"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The algebraic identification of largest-block occurrence in the whole natural incidence radical with a tree survival event is useful in its own right. It gives exact answers without materializing matrices, also when shallow leaves and deepest leaves differ, and yields a sharp field-dependent distinction for full binary trees. No separate value or originality is assigned to the standard branching law or an algebraic rewriting of it, and the cited comparator covers the substantive result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

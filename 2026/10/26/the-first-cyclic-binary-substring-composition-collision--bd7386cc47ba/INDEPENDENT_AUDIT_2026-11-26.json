@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:21:46.940185Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The measurement counts all starts including wraparound and repeated windows. Rotation/reversal preserve it; complementation is not factored out. Complementary windows pair weight a at length k with R−a at length n−k, where R is total weight. My exhaustive replay marked rotations and reversals from each first unvisited binary string and grouped the resulting bracelets by separately sorted full-length window-weight lists, computed by prefix sums on the doubled word. Through n=11 there was no collision. At n=12 there were 224 bracelets and 223 observations, with sole nonsingleton class {001011001101, 001011010011}. Separately grouping by the complete ordered-lag two-point vector reproduced all 23 pairs in the CSV and the (length, count) breakdown (0,1),(3,17),(4,3),(5,2). Expansion of each squared window sum gives F_k=kR+2Σ_{d=1}^{k−1}(k−d)C_d, so second differences recover each C_d; there is no converse. A window of length 12q+s in either r-fold power adds 6q to the corresponding remainder weight and each base start occurs r times. A dihedral equivalence of the powers would restrict on twelve consecutive letters to one between the bases. This proves repetition for all r, not other lengths. Replay: python3 /workspace/review-replay.py 3 with the original homometric_pairs_n12.csv path as its argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The expanded all-width census in 8e493cc5d8d2 continues through length 15. Record 5e91d703d058 treats all ring lengths but only widths 1–4; same-day record 9b2754288e6b treats width 3. The discrete-phase-retrieval k-deck citation concerns configurations of selected positions, not the stated finite consecutive-window census; the full primary article was not available for inspection."
+        ],
+        "reasoning": "Greater range of ring lengths does not broaden the observation when widths are discarded. The later full-width census explicitly covers the frozen finite range. A richer indexed positional deck could determine the histograms, but reconstruction from richer data alone would not imply injectivity of this coarser measurement.",
+        "searches": [
+          "Resultary 8e493cc5d8d2, 5e91d703d058, 9b2754288e6b",
+          "arXiv:1403.2439",
+          "Mandereau et al., DOI 10.1080/17459737.2011.608820"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1403.2439",
+        "arXiv:1304.6608",
+        "Resultary 8e493cc5d8d2, 9b2754288e6b, 5e91d703d058"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Second differences of cyclic window second moments determine autocorrelation. Two-point equality at n=12 leaves 22 of 23 candidate pairs separated by the full deck. Length-3 equality supplies only one component of that deck."
+        ],
+        "reasoning": "Neither the known candidate table nor a short-width profile proves the full-deck threshold and uniqueness. Conversely once the later exact matching base pair is given, equal histograms under repetition follow mechanically by the period decomposition; repetition is not a separate major originality claim.",
+        "searches": [
+          "arXiv:1304.6608 interval/Patterson definition and table",
+          "arXiv:1403.2439 §5",
+          "Resultary 8e493cc5d8d2 and 9b2754288e6b"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The cyclic composition is determined by window length and number of ones, with n observations counted at each length. The prefix-count polynomial of Acharya et al. treats nonwrapping linear substrings. Z-relation treats the cyclic two-point interval vector. Resultary 8e493cc5d8d2 defines the same all-width wrapping deck, without quotient by complementation."
+        ],
+        "reasoning": "The all-width deck in the later record is genuinely equivalent. The nonwrapping prefix polynomial uses a different observation and even distinguishes origins generally. Two-point homometry is strictly weaker, as follows from moment recovery and the 23-to-one count.",
+        "searches": [
+          "Resultary: circular composition deck, cyclic binary window-weight histograms, reconstruction ambiguity",
+          "arXiv:1403.2439 §5",
+          "arXiv:1304.6608 definition of Z-relation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "8e493cc5d8d2 reports 224/223 and the same two length-12 bracelets. The same-day width-3 record 9b2754288e6b gives a generating function for that single-width profile. Jedrzejewski–Johnson tabulate 1,3,15 homometric pairs at weights 4,5,6; complementing adds 3 and 1 at weights 7 and 8 respectively."
+        ],
+        "reasoning": "The older homometry table mechanically gives 23 when bit complements are not identified, but not which pairs survive the full observation. The later 224/223 table is exact direct coverage, not just a related statistic.",
+        "searches": [
+          "Resultary: first intrinsic circular composition-deck ambiguity; exact cyclic binary profile",
+          "arXiv:1304.6608 enumeration for N=12"
+        ]
+      },
+      "rationale": "The known homometry census accounts for the 23-pair baseline, not the reconstruction threshold or the unique collision for full cyclic window weights. Linear equicomposability and cyclic profiles at fixed short widths are different measurements. The expanded Resultary record 8e493cc5d8d2 uses the same full measurement and contains the same finite threshold, census and pair, plus new lengths. It is indexed under 2026-11-02, after the frozen 2026-10-26 entry. This establishes substantial catalogue overlap, but not a covering predecessor or the provenance of either derivation. The pass credits the finite full-histogram classification against established earlier work, not the baseline or an absolute priority claim.",
+      "residual_risks": [
+        "Some music-theoretic higher-order interval work was inaccessible; an equivalent earlier census in different terminology is not excluded.",
+        "Catalogue order and exact matching results do not establish provenance or exclude a shared precursor."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Linear composition reconstruction, not the cyclic census",
+          "evidence": [
+            "Prefix-count polynomial and composition of nonwrapping contiguous substrings."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1403.2439",
+          "material_read": "Related work at OA offset 10000 and §5 at offset 19800",
+          "method": "Primary OA text passages",
+          "title": "String Reconstruction from Substring Compositions",
+          "trigger": "Equicomposability and polynomial-factorization alias"
+        },
+        {
+          "assessment": "Covers the weaker baseline",
+          "evidence": [
+            "Uses interval/Patterson equality; table gives 19 pairs across weights through 6 at N=12."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1304.6608",
+          "material_read": "Definition and enumeration, OA offsets 3200 and 12800",
+          "method": "Primary OA text passages",
+          "title": "The Structure of Z-Related Sets",
+          "trigger": "Closest earlier exact homometry table"
+        },
+        {
+          "assessment": "Access limitation, not evidence of absence",
+          "evidence": [
+            "Publisher access denied; a repository retrieval attempt timed out."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/17459737.2011.608820",
+          "material_read": "Citation and known scope; no full primary passage retrieved",
+          "method": "Publisher and repository OA attempts",
+          "title": "Discrete phase retrieval in musical structures",
+          "trigger": "Higher-order cyclic k-deck and musical terminology"
+        },
+        {
+          "assessment": "Later catalogue entry with the same threshold and census and additional lengths",
+          "evidence": [
+            "The same length-12 pair and 224/223 count; no length-13 collision, one length-14 pair and four length-15 pairs."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-the-first-intrinsic-circular-composition-deck-ambiguity-has-leng--8e493cc5d8d2",
+          "material_read": "RESULT.md offsets 0–5151, Finding, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary search and mirror inspection",
+          "title": "The first intrinsic circular composition-deck ambiguity has length twelve",
+          "trigger": "Direct match for whole cyclic deck and witness"
+        },
+        {
+          "assessment": "Single width only",
+          "evidence": [
+            "Generating function for width-3 profiles, not the all-width census."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-cyclic-binary-three-gram-profile-enumeration--9b2754288e6b",
+          "material_read": "RESULT.md offsets 0–4732",
+          "method": "Local Resultary search and mirror inspection",
+          "title": "Exact cyclic binary three-gram profile enumeration",
+          "trigger": "Same-day record for cyclic composition profiles"
+        },
+        {
+          "assessment": "Different, fixed-width observation",
+          "evidence": [
+            "Counts profiles formed from widths 1–4 only."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-codebook-count-for-cyclic-binary-composition-reads-of-leng--5e91d703d058",
+          "material_read": "RESULT.md offsets 0–4614",
+          "method": "Local Resultary search and mirror inspection",
+          "title": "Exact codebook count for cyclic binary composition reads of lengths one through four",
+          "trigger": "Composition-read alias and general-length counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first loss of reconstruction for the complete cyclic measurement is a natural cutoff, with meaningful distinction from the older two-point measurement. Identifying the sole failure at that cutoff makes the refinement quantitative and exposes exactly which ambiguity remains; the all-multiples construction shows it persists. The known 23-pair baseline alone would not justify value, and no all-length classification is asserted.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

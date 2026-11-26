@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:50:22.531292Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Grand-center the fixed vectors and write the prefix sum as the sum of q full block totals plus the fixed r-position total of the next block J. E[S]=mean(C); conditioning on J=j gives expected full-block contribution −qB_j/(K−1), proving the mixed term, with the squared bias retained. In scalar coordinates split the input into its common within-block position profile and its zero-sum block contrasts. Their orthogonal risk forms have top quotients D/K and λmax(M)/K, respectively, where M acts on the all-ones and centered r-position indicator directions by [[A,H],[H,D]]. The contrast form is PSD and its top eigenvalue is at least D; a pair of opposite block contrasts realizes it. The RR squared-norm coefficient for the unnormalized prefix is m(n−m)/(n(n−1)). For the strict gap there is a separate trace proof: T−(A+D)=D/(K−1)>0 when 0<r<b, and a PSD two-dimensional form has largest eigenvalue at most its trace. This covers q=0 and q=K−1, including K=2. At r=0 only block-constant contrast directions attain the nonzero bound; the within/between decomposition gives the claimed strict improvement rule. Scalar arguments extend coordinatewise, with positive RR risk exactly for nonconstant data. Independent finite replay: python3 -B /workspace/branches/reproduce_frozen_checks.py 2 checked the entire exact centered permutation-mask second moment at 72 prefixes (2≤K,b≤4), including the bias term. The frozen recorded finite checks were inspected, not re-executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nguyen et al. §3.1 Propositions 3.3–3.4 use uniform sampling of individual gradients and complete block means, respectively.",
+          "Arnold Ch. 11.1 describes a census of selected clusters or an additional sample within selected clusters.",
+          "Catalogue hit 3aa05569afb8 concerns allocation rounding and a two-cluster variance reversal by its returned summary only."
+        ],
+        "reasoning": "Whole clusters and randomized second-stage within-cluster sampling are not a permutation of fixed ordered blocks stopped during a single block. General design covariance is a tool, not a sharp calculation covering the fixed-order biased average and its extremizers.",
+        "searches": [
+          "block reshuffling uniformly permuted blocks partial epoch prefix variance gradient sampling without replacement",
+          "design-based covariance formula Horvitz Thompson pairwise inclusion probabilities cluster sampling partial cluster sample covariance fixed-size design"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2604.00260v1",
+        "arXiv:2006.05988v1",
+        "Arnold, Sample Surveys Ch. 11.1",
+        "Resultary ranked comparisons, including 3aa05569afb8 (summary only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Combining Nguyen et al.'s two MSEs at matched sample counts and Eq. (7) gives the entire complete-block ratio and selection criterion.",
+          "Neither MSE includes the cross moment of completed-block totals with the fixed partial block, or the latter's systematic bias."
+        ],
+        "reasoning": "The complete-block envelope is covered at its attaining prefixes. It does not on its own give an upper bound for a mismatched partial-sampling law. The rank-two contrast and separate deterministic profile analysis provides a distinct arbitrary-prefix result, not a renamed baseline comparison.",
+        "searches": [
+          "arXiv:2604.00260v1 §3.1, Lemma 3.1 and Propositions 3.3–3.4",
+          "arXiv:2006.05988v1 §6, Lemma 1, Eq. (17)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Arnold, Sample Surveys Ch. 11.1, uses first/second inclusion probabilities for clustered sampling.",
+          "For the frozen design, position j has inclusion probability (q+1_{j≤r})/K; design risk of the unweighted average is the quadratic form of the uncentered inclusion moment after projecting off the constant vector."
+        ],
+        "reasoning": "The equivalent finite-population formulation is an extremal design-MSE ratio to simple random sampling, not an unbiased inverse-inclusion-weighted variance. Standard inclusion moments encode the biased form but give neither its reduced spectrum nor the strict envelope for this design. No equivalent explicit sharp law appeared in the checked material.",
+        "searches": [
+          "incomplete block prefix sampling without replacement fixed internal order sharp comparison constant mean squared error",
+          "sampling design covariance matrix inclusion probabilities sharp spectral bound cluster sampling partial clusters"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No direct distinct statement-level match in the returned top ten for either Resultary probe; the closest allocation-related item from the block-reshuffling probe was 3aa05569afb8."
+        ],
+        "reasoning": "The exact object is a symbolic spectral law for arbitrary integer K,b,m, so a fixed-size design effect or a numerical reversal would not give this risk profile. Ranked catalogue comparison is not exhaustive.",
+        "searches": [
+          "sharp all-prefix risk profile uniformly permuted fixed-order blocks partial-prefix MSE eigenvalue",
+          "incomplete block prefix sampling without replacement fixed internal order sharp comparison constant mean squared error"
+        ]
+      },
+      "rationale": "Pass is for the explicit, attained incomplete-prefix comparison and its strict gap, in the frozen matched-individual-budget fixed-order design. Complete-cluster design effects, the RR comparator, and the complete-block variance formula are established ingredients, not distinct contributions. Search and claim comparison are bounded. The v1 Mishchenko finite-population lemma is in Section 6 (Eq. (17)), rather than the frozen reference's Section 7: the locator does not affect the result.",
+      "residual_risks": [
+        "Older partially sampled cluster design-effect calculations may encode the same spectrum in another parametrization.",
+        "Original 1952 Horvitz–Thompson full text was not retrieved; no absence claim is drawn from the access failure.",
+        "The comparison concerns a fixed vector array, not an optimization trajectory."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers complete-block ratio in combination with variance decomposition, but not fixed-order partial-block risk.",
+          "evidence": [
+            "Eq. (7) is the within/between identity; Eqs. (10)–(11) average individual or complete block units."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2604.00260v1",
+          "material_read": "Section 3.1 Lemma 3.1 and Propositions 3.3–3.4, HTML offsets 19200–29999",
+          "method": "Primary HTML passages and parameter comparison",
+          "title": "Learning to Shuffle: Block Reshuffling and Reversal Schemes for Stochastic Optimization",
+          "trigger": "Same block-reshuffling law"
+        },
+        {
+          "assessment": "Covers the RR comparator only.",
+          "evidence": [
+            "Lemma 1 is for a uniform sample without replacement from fixed vectors."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2006.05988v1",
+          "material_read": "v1 Section 6, Lemma 1 and Eq. (17), HTML offsets about 52500–55639",
+          "method": "Primary preprint rendered text",
+          "title": "Random Reshuffling: Simple Analysis with Vast Improvements",
+          "trigger": "RR finite-population comparator"
+        },
+        {
+          "assessment": "General cluster-sampling formulas, not this exact fixed partial-cluster extremal spectrum.",
+          "evidence": [
+            "First- and second-order inclusion probabilities support mean and variance calculations in the sampling design."
+          ],
+          "identifier_or_url": "https://homepages.ecs.vuw.ac.nz/~rarnold/STAT392/SampleSurveysBook/_book/cluster-sampling.html",
+          "material_read": "Chapter 11.1, inclusion-probability passage near HTML offset 2906",
+          "method": "Open textbook contextual comparison",
+          "title": "Sample Surveys, Chapter 11: Cluster Sampling",
+          "trigger": "Equivalent survey sampling language"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Matched individual-gradient evaluation budgets make incomplete blocks unavoidable in a prefix comparison. The result gives an exactly attained uniform benchmark at each such budget, accounts for the otherwise missed order bias, and isolates where the coarser complete-block inflation factor cannot be sharp. This is a useful finite-population design invariant without implying any optimization-iterate or runtime improvement.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

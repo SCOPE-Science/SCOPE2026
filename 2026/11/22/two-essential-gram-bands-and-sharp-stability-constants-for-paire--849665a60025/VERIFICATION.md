@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,8 +21,6 @@
 
 # Reproducibility and verification
 
-The core evidence is the exact Poisson moment identity, the explicitly displayed parity block Toeplitz symbol, its algebraic inverse, monotone eigenvalue branches, and the standard continuous Hermitian matrix-Toeplitz essential-spectrum theorem. All infinite-dimensional bounds are derived by compression inequalities and weakly-null near-boundary test functions; numerical experiments cannot establish those theorems.
+The core evidence is the exact Poisson moment identity, the opposite-parameter inverse disk automorphism, the explicit parity block Toeplitz symbol and its inverse, and the monotone eigenvalue branches. The essential-spectrum argument uses the symbol product identity modulo compacts and weakly null near-boundary test functions, and both sharp norm bounds use exact compression inequalities.
 
-Run `python spectral_checks.py` with NumPy. The program checks representative real and complex parameters, formulas for the symbol's eigenvalues and its inverse, finite-section extremal convergence, and the absence of finite-section bulk eigenvalues in the predicted gap except for possible boundary outliers. A finite-section outlier does not falsify the essential-spectrum classification.
-
-The theorem does not establish the entire Gram spectrum or the location/multiplicity of isolated gap eigenvalues. Its source date is that of the motivating publicly available arXiv version rather than the date of a journal revision.
+Run `python spectral_checks.py` with NumPy. The program checks the symbol-inverse product and Hermitian symmetry for representative real and complex parameters, samples the symbol eigenvalues against the interval bounds, tests the gap-width identity, and compares extremal eigenvalues of two finite-section sizes to the predicted edges. These comparisons do not test all finite-section eigenvalues for gap membership or prove infinite-dimensional convergence. The theorem does not provide the entire Gram spectrum or the location or multiplicity of isolated gap eigenvalues.

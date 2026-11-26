@@ -1,22 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stated \(n\ge2\) theorem includes all normalized symmetric integer proposal laws, zero moves and proposals always rejected at every site. The endpoint Rayleigh vector proves the sharp baseline, explicit matrix entries prove attainment, a graph-Laplacian norm and spectral second-moment lemma prove positive shape stability, and scaling away unproductive proposal mass proves the full bound. The exact all-parameter equality case is unique. The finite arithmetic checker has 15,483 successful tests, which only support the all-n proof rather than substitute for it.
+PASS
 
-## Originality — PASS (qualified)
+The symmetric transition has diagonal entry 1−S at the left endpoint. The normalized centered endpoint vector x=(e_1−1/n·1)/sqrt(1−1/n) has Rayleigh quotient 1−nS/(n−1), giving the obstruction on 1^⊥ even if the chain is reducible. Equal feasible masses with S=1/2 give 1/2 on every diagonal and 1/[2(n−1)] off diagonal, hence d_n=(n−2)/[2(n−1)] on 1^⊥. For S=1/2 and δ the deviation from equal masses, Δ=P−P_* is a sum of distance-class Laplacians with coefficients −δ_s; each has degree at most two, so ||Δ||≤B=4sqrt(n−1)||δ||₂. At x its spectral measure has mean zero and second moment ||Δx||²=n||δ||₂²/(n−1) from the endpoint column. If a is the top centered eigenvalue of Δ, integrate (λ+B)(a−λ)≥0 to get this second moment ≤aB. This proves the stated linear deviation bound, with δ=0 handled separately. For S>0, reweight the feasible mass by 1/(2S): P=(1−2S)I+2S Q, so the largest centered eigenvalue gives the stated wasted-mass penalty and scaling cancels in the deviation term. S=0 gives P=I exactly. Either penalty is strict away from the proposed law. Powers, move probability and TV follow from the two orthogonal spectral projections, including the n=2 one-step case.
 
-The strongest matching primary studies are the continuous-state Metropolis box analyses [1, 2]. The continuous optimum \(1/2\) is prior work; the proposed contribution is the exact finite discrete correction and uniqueness with the two-component stability inequality. Unrestricted symmetric Markov mixing [3] is broader in feasible kernels but cannot supply the same constrained optimum because it allows an inadmissible zero-spectral-radius kernel. The nearest-neighbor path theorem [4] disallows the long jumps that attain the present optimum. Searches for equivalent statements, broader implications and exact tables identified no matched result in the inspected sources; independent priority validation is absent. A straightforward independent derivation from the continuum insight remains a material risk in novelty assessment.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem determines a natural state-independent rejected-jump Monte Carlo design at every finite lattice size, including a quantitative penalty for throwing proposal mass into zero/overlong displacements and for uneven jump lengths. Unlike an isolated finite graph calculation, this all-size classification gives exact spectra, mixing profiles, and an acceptance-rate interpretation. The shape coefficient is conservative, and no claim is made for other sampler classes.
+The all-size optimum and stability concern a structured family with one shared displacement weight per distance and rejection at the boundary. The continuous box already supplies the endpoint-obstruction mechanism and uniform-jump analogy. The finite correction, uniqueness over the full proposal-law class and quantitative two-part penalty are not stated or implied by the inspected neighboring results.
 
-## Closest literature and limits
+## value
 
-1. Chepelianskii et al. (2023), arXiv:2303.08535: continuum optimum at \(1/2\).
-2. Chepelianskii et al. (2022), arXiv:2207.10488: continuous proposal and box localization framework.
-3. Boyd, Diaconis and Xiao (2004): unconstrained graph-kernel spectral optimization.
-4. Boyd, Diaconis, Sun and Xiao: nearest-neighbor finite path mixing.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The class isolates a practical Markov-chain constraint: one symmetric proposal law must work from every state despite boundary rejection. The exact finite optimum differs from both the unrestricted and continuous optima, and the stability bound separates losses from outright wasted mass and from choosing the wrong shape. These conclusions are useful beyond recomputing the proposed kernel's eigenvalues.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

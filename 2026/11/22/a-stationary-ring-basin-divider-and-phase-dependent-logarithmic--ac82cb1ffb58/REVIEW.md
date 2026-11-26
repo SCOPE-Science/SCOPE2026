@@ -1,23 +1,21 @@
-# Scientific review of the stationary-ring theorem
+# Independent mathematical audit
 
-## Correctness — PASS (self-review)
+## correctness
 
-The origin of all equations is fixed explicitly to the published mass-action polynomial system at \(\mu=32\). The critical identities are the exact radial and angular equations in RESULT.md (4), independently recomputed by the accompanying checker. The sign intervals prove the global (but disk-restricted) dynamics with full quantifiers and no finite-simulation inference. Fourier expansion of the exact physical-time angular quadrature yields the two closed periods. The normal variational equation gives the Floquet multipliers without conflating tangential rates. Cancellation of mobility in \(d\theta/ds\), a smooth angular primitive, and uniform reciprocal-speed bounds prove the phase-sensitive logarithmic exit law and its bounded remainder. The checker succeeded with `TWO_CYCLE_BASIN_CHECK_OK`. Remaining limitation: the theorem does not address outside-disk initial conditions, \(\varepsilon=0\), or stochastic trajectories.
+PASS
 
-## Originality — PASS within the inspected published sources
+Independently reduced the exact translated μ=32 field to RESULT.md (4). The sign of -h(32s-25) forces radial monotonicity off the invariant levels; each positive trajectory in s<4 stays inside a compact disk of radius at most max(√s(0),1)<2 with xy bounded below. This proves forward completeness and attraction to the appropriate radial endpoint, except for the stationary center and ring. At s=a=9/16 or 1 the angular speed magnitude is 14εw, so one turn gives the minimal period. In (6), q²=(2-√(4-a))/(2+√(4-a)); the quarter-turn Fourier correlation is (1-q⁴)/(1+q⁴)=4√(4-a)/(8-a). Thus the periods are as stated. The scalar normal variational rate is -196aw; integrating w dt over one turn gives π/(7ε), hence log ρ=-28πa/ε. For the exit law set A=-128wsh so that s-dot=A(s,θ)(s-s*). A is strictly positive with a uniform lower bound on the full compact collar for every fixed η<7/32. The exact quotient dθ/ds=-ε/(2sh) is bounded there, so the angular displacement is Oη,ε(|s-s*|+|δ|), uniformly in phase. With A*=1225w*(φ)/16, the difference of reciprocal speed factors 1/A and 1/A* is consequently Oη,ε(|s-s*|+|δ|). Integrating after dividing by |s-s*| gives the claimed logarithmic delay with uniform bounded remainder on both sides, not just a linearization heuristic. The area fractions follow by radial area. The supplied script and verification notes were inspected, not executed; the script samples only the outward side of the exit law. No outside-disk or ε=0 claim is supported.
 
-The originating manuscript [1] has the exact same field and identifies its two concentric cycles at \(\mu=32\); the cycles and their attracting property are prior, not the contribution. Reading its original equations (5.13)–(5.19), Theorem 3 and Lemma 13 established that it does not provide an entire equilibrium-ring census, the exact full-disk basin divider, the evaluated original-time period/multiplier pair, or the uniform angularly dependent first-exit coefficient. An exact-match semantic comparison with nearby mathematical records found a same-system four-oval analysis for \(\mu>337/9\), a high-coupling four-oval limit, and a different completed nested-oval field; none implies the equilibrium-ring clock at \(\mu=32\). Gasull and Giacomini [2] develop general algebraic-curve methods but do not evaluate this ninth-degree original-time flow. The overlap search is not proof of universal novelty; an unindexed equivalent treatment remains a real publication-priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The phase transition between two attracting chemical cycles is governed by a *continuum* of stationary states, and the physical-time delay depends on the initial angular composition even at fixed radial displacement. The explicit coefficient, exact basins, and contrasting cycle periods and spectra characterize a natural symmetry value chosen in the original source, not an arbitrary numerical slice. This provides reproducible quantitative observables not supplied by a mere existence theorem; no downstream theorem or global positive-quadrant phase portrait is claimed.
+The exact vector field, invariant attracting circles and cofactor are prior. The exclusion of other periodic orbits and the numerical Floquet exponents follow directly from prior cofactor or multiplier formulas, and are not credited as separate novelty. The supported distinct addition is the full disk basin description with its stationary-ring escape law in physical time and the evaluated physical-time periods for the concentric cycles. No examined result supplies that combination or an equivalent ring-passage theorem for this system.
 
-## Sources and limits
+## value
 
-[1] Craciun–Erban (2024), https://arxiv.org/abs/2406.05057, equations (5.13)–(5.19) and Lemma 13(iv).
+PASS
 
-[2] Gasull–Giacomini (2023), https://doi.org/10.1007/s12346-023-00746-7, algebraic invariant-curve techniques.
+The originating paper highlights μ=32 as the symmetric two-cycle case, making it a natural regime rather than an arbitrary specialization. The exact basin split and especially the uniform escape coefficient give a physically measurable distinction: states with identical radial displacement can have different leading residence times. Dividing out xy would preserve the phase portrait but lose this distinction and alter the periods; the explicit clocks are useful when comparing physical-time trajectories in a bistable model. The area fraction or the existence of stable cycles alone would not support the value decision.
 
-Closest indexed counterparts are described explicitly in AUDIT.json; their subject matter is compared by implication, not their titles alone. Findings of independent reviewers are not asserted.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

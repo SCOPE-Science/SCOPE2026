@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:29:09.146569Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For k>=2 each induced type is either independent or K_{i,j}; matching ordered domain and range sets of the same type multiplies the square of the type count by the correct automorphism order, with a factor two for equal nonempty side sizes. Rank two fixes the product m=ab up to m↔binom(n,2)-m. Independently reduced the induced type polynomials modulo a²-na+m after b=n-a; checks/4.py (Python 3 and SymPy) verifies the rank-three identity and the rank-four reflection difference 2(n-2)t(8t²-n(n-1))/3 exactly, and independently enumerates the 4+4 vs 2+6 example. For two feasible reflected products, each is at most n²/4, giving |t|<=n/4; then 8t²<=n²/2<n(n-1) for every n>=4. Thus there is no nontrivial reflected collision through rank four. The pair with sides (h²,h²) vs (h²-h,h²+h) realizes distinct complementary products for every h>=2, proving sharpness, not just a finite search result. The scope is uncoloured bicliques with both sides at least two.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "c05f86c5223d Finding: full rank polynomial for unequal bicliques a>b>=1, covering all unequal-side cases in this record.",
+          "cd9dfc7a9f4c RESULT.md offsets 0–3438: t equal cliques and their complement have the displayed full rank polynomial; t=2 covers the balanced bicliques.",
+          "aab2f4eae4e5 RESULT.md offsets 0–2816 and near 6900: distance-preserving square-zero partial isometries, not the whole partial-automorphism monoid."
+        ],
+        "reasoning": "The first two sources together cover the forward rank enumeration; neither provides a numerical reconstruction cutoff. A restricted square-zero rank count cannot be substituted for the unrestricted invariant.",
+        "searches": [
+          "Local Resultary: c05f86c5223d, cd9dfc7a9f4c, aab2f4eae4e5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary c05f86c5223d",
+        "Resultary cd9dfc7a9f4c",
+        "Resultary aab2f4eae4e5",
+        "arXiv:1809.04422"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matched Resultary statements provide forward formulas; the asymmetric record's extension cutoff concerns extensions of partial automorphisms, not equality of numerical rank signatures.",
+          "The frozen inversion eliminates m versus binom(n,2)-m by a nontrivial odd-part factorization and then bounds that factor over actual feasible bipartitions; an explicit infinite parametric collision proves its minimal rank threshold."
+        ],
+        "reasoning": "Prior formulas can serve as input for an alternative proof, but do not mechanically specialize to the injectivity and sharpness result. The available actual-map theorem also does not imply the counting theorem.",
+        "searches": [
+          "c05f86c5223d Finding",
+          "cd9dfc7a9f4c Finding",
+          "arXiv:1809.04422 Section 4 and Corollary 5.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The monoids of a graph and its complement agree as subsets of the same symmetric inverse monoid; the same count problem can be stated for K_a disjoint union K_b.",
+          "Propositions 4.2–4.3 use the actual rank-at-most-two maps and condition (U), which is satisfied by graph partial-automorphism monoids."
+        ],
+        "reasoning": "The actual low-rank maps are strictly more information than their cardinalities. The certified (4,4) vs (2,6) collision makes that distinction explicit; passing to complements does not fix the loss of information.",
+        "searches": [
+          "Local Resultary: biclique partial-automorphism rank spectra and sharp reconstruction from cardinalities",
+          "arXiv:1809.04422, Section 4, Lemma 4.1 and Proposition 4.3; Corollary 5.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two public full-spectrum formulas can be evaluated to obtain the worked instance's counts and any individual rank count. The retrieved statements do not classify equal low-rank signatures or tabulate a reconstruction cutoff."
+        ],
+        "reasoning": "The individual worked counts earn no separate originality credit. The exact invariant of interest is separation by rank four for all n and sharp failure below rank four, not the tabulation of forward counts. An unrelated web result is not evidence of absence.",
+        "searches": [
+          "Local Resultary: sharp biclique reconstruction, full rank spectra, multipartite square-zero rank distribution",
+          "Primary web lookup for low-rank cardinality reconstruction of complete bipartite partial-automorphism monoids"
+        ]
+      },
+      "rationale": "The supported distinct claim is sharp inverse reconstruction from numerical ranks 1, 2 and 4, including redundancy of rank 3 and the infinite lower-rank collision family. The full-spectrum census merits no separate originality credit here: the matching asymmetric record gives it for unequal sides, while an earlier homogeneous-graph record covers equal sides by complement. Same-day dating does not resolve precedence. The inverse threshold is not the extraction of an already given coefficient: it needs the reflection obstruction, uniform separation over feasible products, and an infinite collision construction, none of which is supplied by the matching formula statements. The existing reconstruction theorem for actual partial maps is a different input invariant. The frozen related-work paragraph should acknowledge the asymmetric census; that bibliographic omission does not change the distinct theorem.",
+      "residual_risks": [
+        "There may be an unindexed inverse result or one stated under disjoint unions of two unequal cliques.",
+        "Exact priority for the overlapping same-day forward census is undetermined and is not needed for the distinct threshold judgment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Overlapping full-spectrum claim, not the numerical low-rank inverse threshold; date does not order publications",
+          "evidence": [
+            "F_{a,b}=R_aR_b+C_{a,b}²+2C_{a,b}, a>b>=1; the other stated cutoff is for extensions."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-rank-spectra-and-sharp-extension-cutoff-in-asymmetric-biclique-p--c05f86c5223d",
+          "material_read": "RESULT.md Finding, actual parameter range and full-rank polynomial statement",
+          "method": "Bounded local Resultary mirror passage inspection after semantic search",
+          "title": "Rank spectra and sharp extension cutoff in asymmetric biclique partial-automorphism monoids",
+          "trigger": "Same monoid and unbalanced bicliques; potential full coverage"
+        },
+        {
+          "assessment": "Full coverage of balanced spectra only; no stated sharp reconstruction threshold",
+          "evidence": [
+            "R_{tK_n}=R_{complement(tK_n)}; take t=2."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-rank-spectra-and-gaussian-deficiency-laws-for-finite-homogeneous--cd9dfc7a9f4c",
+          "material_read": "RESULT.md offsets 0–3438; assumptions/proof from offset 1820",
+          "method": "Local Resultary mirror",
+          "title": "Rank spectra and Gaussian deficiency laws for finite homogeneous graph partial automorphisms",
+          "trigger": "Complement identifies equal-clique census with balanced bicliques"
+        },
+        {
+          "assessment": "Actual-map reconstruction is not the rank-cardinality problem",
+          "evidence": [
+            "Precise low-rank comparison for full inverse submonoids assumes (U); graph monoids satisfy (U). Equal graph monoids identify graph up to complement."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1809.04422",
+          "material_read": "Section 4 pp. 10–11, Lemma 4.1 and Propositions 4.2–4.3; Corollary 5.2 p. 13",
+          "method": "Targeted open arXiv PDF passage reading",
+          "title": "Inverse monoids of partial graph automorphisms",
+          "trigger": "Same invariant family and a rank-two theorem"
+        },
+        {
+          "assessment": "Different restricted statistic",
+          "evidence": [
+            "Counts square-zero distance-preserving partial isometries."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-the-complete-square-zero-rank-distribution-of-multipartite-parti--aab2f4eae4e5",
+          "material_read": "RESULT.md offsets 0–2816 and near 6900",
+          "method": "Local Resultary mirror",
+          "title": "The complete square-zero rank distribution of multipartite partial-isometry monoids",
+          "trigger": "Related graph family and rank cardinalities"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The inverse problem asks how much of a natural numerical monoid invariant must be retained to recover the biclique. The parity of the first informative rank is structural: rank three can never resolve the rank-two ambiguity, whereas rank four always does. An infinite family realizes the obstruction; the result gives a usable uniform cutoff independent of graph size, not just another forward census.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:13:54.085892Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Moura et al., Proposition 2.3, gives the needed recurrence and initials. It implies increasing positive terms and a_{j+3}−a_{j+2}=a_j for j≥1, hence the sum through n−3 equals a_n−4, including the endpoint n=4. Distinct legal index subsets are independent sets in two disjoint paths on the odd and even indices. Their Fibonacci counts, with empty-path count F_2=1, multiply to D_j. All legal subsets through n−3 qualify, and positivity forbids indices n or later in a representation below a_n. This squeezes the numerator, counting collisions with full multiplicity and the empty sum once. The cubic has no nonpositive root and strictly increases from −1 to a positive value between 1 and 2; its positive root satisfies ρ⁻¹+ρ⁻³=1. Dividing the recurrence by ρ^{j+1} traps a_j/ρ^j between the positive minimum and maximum of its first three values by convexity. Binet's formula yields D_j=Θ(φ^j), proving the claimed Θ estimate and root limit. Testing the cubic at φ proves ρ<φ; the pointwise maximum is at least the mean. Independently, review_evidence/reproduce.py 4 builds a weighted sum histogram from the greedy mex rule with a two-bit legality state through n=18 and checks the prefix sum, D_j and numerator bounds. The exact growth base is about 1.104029578062806; the frozen approximate decimal differs by under 1.5×10⁻¹³ and should not be read as correctly rounded to all printed digits. The exact expression is correct.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Moura et al. treat S=[k] except {k−c} under 2c<k; S={2} corresponds to k=2,c=1 and fails that strict hypothesis.",
+          "The Fibonacci-quilt mean grows exponentially with base about 1.05459 under different exclusions, including positive differences 1,3,4 and an exceptional pair."
+        ],
+        "reasoning": "The boundary parameter is uncovered by the first theorem, and the second treats a different legality graph and weight sequence. The earlier squeeze is a method precedent, not a dominating result.",
+        "searches": [
+          "arXiv:2210.10577v2 §4, Lemma 4.1 and subsequent rate discussion",
+          "arXiv:1606.09312v2, Definition 1.5 and Theorem 1.11"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (read, not executed)",
+        "arXiv:2210.10577v2 and arXiv:1606.09312v2 decisive passages",
+        "Targeted local Resultary searches and the two compared mirror records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proposition 2.3 supplies a_n (and hence the denominator exponent); Question 5 asks how the mean grows. The new comparison uses the parity-path product and the cutoff bound following from the telescoped recurrence."
+        ],
+        "reasoning": "The published recurrence is a premise, not a rate statement about these constrained sums. Its combination with the legality graph through the explicit cutoff inequality yields the distinct claim.",
+        "searches": [
+          "arXiv:2210.10577v2 Proposition 2.3 and §4 Question 5",
+          "arXiv:1606.09312v2 Theorem 1.11"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The mean is a weighted independent-set count below a sum threshold, not the unrestricted independent-set count of the two parity paths. Question 5 asks about precisely this arithmetic mean.",
+          "Resultary 2026/11/16, record ending 04d47201df94, has an exact Fibonacci-product representation profile but the operation is XOR on binary words without adjacent ones, not weighted integer summation on the two parity paths."
+        ],
+        "reasoning": "Neither a bare path count nor a pointwise XOR count is equivalent to the thresholded sum count. The prefix identity and positivity justify the threshold comparison separately.",
+        "searches": [
+          "Resultary: distance-two S-legal mean growth, φ/ρ, Fibonacci product of odd/even index paths, finite cutoff counts",
+          "arXiv:2210.10577v2 §4, Question 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A164316 indexes a_n, not the legal representation histogram or its mean. No matching table appeared in the returned Resultary claims; the inspected distinct binary gapped-pair ambiguity record ending a38468baefb6 counts deck fibers, not this histogram."
+        ],
+        "reasoning": "Knowing the indexed recurrence or tabulating terms does not itself tabulate the multiplicities among the permitted subsets; semantically similar ambiguity reports do not provide the same function.",
+        "searches": [
+          "Resultary ranked searches for the exact Fibonacci-product bounds and base",
+          "OEIS A164316 as identified for the sequence in arXiv:2210.10577v2"
+        ]
+      },
+      "rationale": "The recurrence and the method of comparing counts and thresholds are prior. No inspected source supplied the cutoff-sensitive Fibonacci-product bounds or the resulting S={2} mean multiplicity exponent. This is a best-of-knowledge determination of the stated singleton result, not of absolute priority or a general S theorem.",
+      "residual_risks": [
+        "Ranked lookups are not exhaustive. A differently formulated or unindexed derivation could precede this one; the comparisons establish the stated limitations of the inspected sources only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Anticipates the recurrence and sets the mean problem, but its applicable family omits this boundary case.",
+          "evidence": [
+            "a_{n+1}=a_n+a_{n−2}; lemma assumption 2c<k, violated at k=2,c=1."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2210.10577v2",
+          "material_read": "Primary HTML Proposition 2.3 (offset 19410); §4 Question 5, Lemma 4.1 and ensuing discussion (offsets 57980–60765).",
+          "method": "Checked statements and substituted the actual singleton's boundary parameters.",
+          "title": "Recurrence Relations for S-Legal Index Difference Sequences",
+          "trigger": "Defines the same sequence and may already solve the mean problem."
+        },
+        {
+          "assessment": "Same kind of statistic for a different model.",
+          "evidence": [
+            "Fibonacci Quilt legality excludes differences 0,1,3,4 and an exceptional pair; base about 1.05459."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1606.09312v2",
+          "material_read": "Primary HTML Definition 1.5 (offset 10288) and Theorem 1.11 (offset 18128).",
+          "method": "Compared legal subsets, sequence and claimed growth quantity.",
+          "title": "Legal Decompositions Arising from Non-positive Linear Recurrences",
+          "trigger": "Earlier exponential mean decomposition theorem."
+        },
+        {
+          "assessment": "Not equivalent.",
+          "evidence": [
+            "Counts ordered XOR pairs of no-adjacent-one words, rather than legal integer subset sums below a_n."
+          ],
+          "identifier_or_url": "2026/11/16/SCOPE-exact-xor-representation-profile-and-fourth-walsh-moment-of-fibo--04d47201df94",
+          "material_read": "Local mirror RESULT.md, Finding at offset 0.",
+          "method": "Compared the domains, representation operation and statistic.",
+          "title": "Exact XOR representation profile and fourth Walsh moment of Fibonacci words",
+          "trigger": "Exact product of Fibonacci counts in a binary representation setting."
+        },
+        {
+          "assessment": "Different observable and object.",
+          "evidence": [
+            "Fibers of binary gapped-pair observations, not weighted legal subsets counted by an integer threshold."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-four-run-ambiguity-in-binary-gapped-pair-decks-is-governed-by-a--a38468baefb6",
+          "material_read": "Local mirror RESULT.md, Finding at offset 0.",
+          "method": "Compared claim without inferring chronology from date.",
+          "title": "Four-run ambiguity in binary gapped-pair decks",
+          "trigger": "Distinct same-day catalogue result on representation ambiguity."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This resolves the exponential-rate part of a published mean-multiplicity question at a structurally natural boundary case. The finite shift comparison explains why legality entropy dominates numerical term growth, a fact the sequence recurrence alone does not quantify. The contribution is limited to the stated mean rate and useful finite bounds; it does not give a limiting prefactor or a typical-point multiplicity law.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

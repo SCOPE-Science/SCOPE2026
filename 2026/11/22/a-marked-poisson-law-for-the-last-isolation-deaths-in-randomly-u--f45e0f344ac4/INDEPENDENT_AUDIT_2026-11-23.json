@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:30:44.972563Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Steps 1–7",
+        "Frozen CHECKER.py and VERIFICATION.md, inspected, not executed",
+        "Replay: python3 /workspace/branches/df582707-28d0-4bd3-a8e7-525ede76da04/isolation_transition_check.py (output and derivation in adjacent isolation_transition_output.txt and ordinal5_findings.md)"
+      ],
+      "rationale": "A forward vertex is isolated precisely from its own reveal through just before its earliest neighbor reveal, which in reverse coordinates is the interval T_v≤k<R_v. The killing reveal is at forward rank n+1−T_v: T_v counts the hidden vertices immediately before that reveal, and T_v−1 immediately after. The formula in the theorem uses the former convention throughout, as in the previous scalar last-isolated time. Under independent reverse priorities, the maximum of the 2d neighbor priorities has CDF t^{2d}; the achieving signed offset is uniform and independent of the maximum by continuity and exchangeability. The center priority is also independent, and the spatial grid converges to uniform arc measure. This gives the exact one-center box probability and the stated fourfold intensity. In fixed-order joint factorial moments disjoint closed neighborhoods give product terms; deleting their O(n^{q−1}) exceptional placements from the independent approximation loses o(1). Among dependent configurations count components of the open-neighborhood overlap graph. With c components and h nonsingletons they use at least 2dc+h distinct small-priority sites: the equal-size neighborhoods are distinct for all sufficiently large n. The number of placements is O(n^c); their contribution is O(n^{−h/(2d)}). If only closed neighborhoods intersect, the open-neighbor priority events still factor and the O(n^{q−1}) placements contribute O(1/n). Moments plus locally bounded counts give the PPP on compact windows. Invalid centers require one extra low priority and are absent with probability 1−o(1) there. The conditional binomial empirical-count bound on the shrinking priority interval gives o_P(a_n) rank error, while the global empirical bound gives o_P(1) error for birth fractions; the killer order and location do not change. To justify the transfer on a rank window up to M, choose a strictly larger priority cutoff M′: with high probability N_n(M′ε_n)/a_n>M, so no outside priority atom can move in. Local tightness of the counts controls continuous test functions. For the ordered-atom assertion, vague convergence alone away from zero is insufficient, but the needed uniform bound follows directly: if K=floor(δ a_n), the expected number of genuine times ≤δ is at most n(K)_{2d}/(n)_{2d}≤δ^{2d} for 0<δ≤1. At large M the limiting process has arbitrarily many atoms in probability, and it has no time ties. Truncating at both ends now justifies the marked first-m conclusion; cumulative time x^{2d} yields unit-rate Poisson arrival times and the stated gamma densities. Bounded exact replay on all permutations for (4,1)–(8,1), (6,2) and (7,2) checked intervals, the actual killer, the active and cumulative counts, and finite rank conventions. In the archived checker the directed-offset assertion by itself only tests that the chosen neighbor lies in the reverse prefix, not that it has the maximal rank; the replay explicitly tests the transition and exact killer.",
+      "residual_risks": [
+        "Finite ties in death rank are possible; any fixed tie order gives the stated limit because limiting time ties have probability zero. No growing-radius or full-history result follows. Finite replay does not prove the infinite theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "AGG Theorem 2 gives process-level Poisson approximation for general indexed locally dependent Bernoulli indicators. For fixed mark/time boxes the center-box indicator application is plausible and gives an alternative to all factorial moments once local pair overlaps and mean parameters are computed. Janson couples continuous priorities and fixed-order exposure, but Theorem 3.5 is a bulk limit for centered visible-edge counts."
+        ],
+        "reasoning": "Generic AGG does not itself identify these signed-offset and original-birth marks, their product intensity, or the passage from priority extremes to true permutation ranks with invalid centers removed. A centered edge-count Gaussian limit gives no such extreme process.",
+        "searches": [
+          "Arratia–Goldstein–Gordon (1989), author-hosted PDF, Theorems 1–2",
+          "Janson arXiv:2312.13823 §§1–3, especially Theorem 3.5"
+        ]
+      },
+      "checked_sources": [
+        "Kleiner arXiv:2609.29488v1",
+        "Janson arXiv:2312.13823",
+        "Arratia–Goldstein–Gordon Theorem 2",
+        "Makri–Philippou–Psillakis publisher PDF, opening portions",
+        "Resultary relevant ranked hits"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kleiner proves X_{n,k}^{(d)}⇒Pois(x^{2d}) separately at k=floor(x a_n), with the same overlap-cluster exponent and closed-neighborhood proxy error, then proves exp(−x^{2d}) survival of the minimum. Neither separate single-parameter marginal laws nor the minimum specifies the cross-window coupling or the conditional marks."
+        ],
+        "reasoning": "The earlier overlap and rare-event mechanism substantially overlaps the proof, but the conclusions do not determine independent increments, multi-event ordering and marks. Application of the generic process theorem still needs the one-center marked law and the common-window rank perturbation. The audited contribution is limited to that additional statement.",
+        "searches": [
+          "Kleiner arXiv:2609.29488v1 Lemmas 6.1, 6.3, Theorem 6.4, Proposition 6.5",
+          "AGG Theorem 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The minimum of these times is exactly the reverse rank at which any neighborhood is complete and its center remains unrevealed in reverse. For d=1 an isolated visible vertex is a singleton success run in the forward occupancy string, or a reverse 101. Kleiner studies first occurrence in the reverse prefixes, while the urn paper gives static marginal and joint run statistics (and a different linear waiting-time statistic)."
+        ],
+        "reasoning": "Static circular runs can describe the configuration at one occupancy count but do not give this marked chronological process; a terminal first occurrence is only one projection of it.",
+        "searches": [
+          "marked point process late isolated vertices cycle power uniform permutation reveal last isolation Kleiner Janson circular run Poisson completed neighborhoods Weibull location",
+          "Kleiner arXiv:2609.29488v1, §6.1–6.4 and forward/reverse representation",
+          "Makri–Philippou–Psillakis, doi:10.1017/S0001867800002202, abstract and §§1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit was the assigned record. A nearby hit on earliest intact blocks concerns Stirling permutations, not vertex uncovering of C_n^d. Kleiner's exact enumeration gives a scalar terminal law for C_n, with no indexed table of order-statistic location, birth, or killing marks found."
+        ],
+        "reasoning": "An intensity power and gamma law after time change are not evidence of equality of the underlying marked processes; the discrete event definitions and mark spaces differ.",
+        "searches": [
+          "Resultary: cycle powers random order uncovering last isolated death marked Poisson permutation Weibull"
+        ]
+      },
+      "rationale": "Provisional for the joint marked process and the resulting ordered history, not for the scalar Weibull law, the one-time Poisson count, the cycle-power overlap exponent, or the general Poisson approximation technique. The closest same-model text and stronger generic method both account for significant ingredients. The additional statement requires the marked intensities and control of the true rank process across windows, rather than a restatement of a known one-time statistic.",
+      "residual_risks": [
+        "A broader earlier marked rare-pattern theorem for random-order exposure could cover the process; negative retrieval is not a priority certificate. The Kleiner proof already supplies the same cycle-overlap geometry and scalar conclusion, so those are not new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the scalar minimum, a one-window completed-neighborhood count, and much of the rarity method; does not furnish the joint marked time process in the compared statements.",
+          "evidence": [
+            "Lemma 6.1 expands single-time factorial moments in overlap components using at least 2dc+h sites.",
+            "Lemma 6.3 bounds a scalar proxy error by n(k)_{2d+1}/(n)_{2d+1}; Theorem 6.4 is the Weibull hierarchy."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.29488v1",
+          "material_read": "Abstract, §2 reversal, §6 including Lemmas 6.1, 6.3, Theorem 6.4 and Proposition 6.5",
+          "method": "Primary arXiv HTML, section and theorem-level reading",
+          "title": "The Last Isolated Vertex in Random-Order Uncovering of Cycles and Their Powers: Exact Enumeration and Weibull Limits",
+          "trigger": "Identical graph sequence, exposure process and last-death time"
+        },
+        {
+          "assessment": "Related method and model; normalizes visible-edge counts for Gaussian fluctuation limits, not isolated-vertex extremes.",
+          "evidence": [
+            "§2 orders independent uniforms to obtain the random permutation; Theorem 3.5 gives Gaussian processes for regular graph sequences."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2312.13823",
+          "material_read": "Introduction, §2 model, §3 statements including Theorem 3.5",
+          "method": "Primary arXiv PDF text",
+          "title": "Uncovering a graph",
+          "trigger": "Same uniform random vertex-reveal dynamics and priorities/ranks coupling"
+        },
+        {
+          "assessment": "Covers general proof machinery, not identification of the model-specific rank and four mark coordinates.",
+          "evidence": [
+            "Theorem 2 compares the indexed Bernoulli process with independent Poisson coordinates of the same intensities, in terms of b1, b2, b3."
+          ],
+          "identifier_or_url": "https://dornsife.usc.edu/larry-goldstein/wp-content/uploads/sites/221/2023/06/AGG-1.pdf",
+          "material_read": "Opening setup, neighborhoods and Theorems 1–2",
+          "method": "Author-hosted primary PDF text",
+          "title": "Two moments suffice for Poisson approximations: the Chen–Stein method",
+          "trigger": "Stronger generic approximation for a process of locally dependent events"
+        },
+        {
+          "assessment": "Closely related static pattern statistics and a different waiting time; no coverage of the compared multitime rank-and-mark statement established.",
+          "evidence": [
+            "The static distributions can condition on the total number of successes. The waiting time described in the abstract is for an accumulated run-length statistic in linear sequences."
+          ],
+          "identifier_or_url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/C3B5A694CDFF993F8C769CD78754DF61/S0001867800002202a.pdf/success-run-statistics-defined-on-an-urn-model.pdf",
+          "material_read": "Abstract, introductory descriptions of §§3–4, and §2 urn and circular ordering setup",
+          "method": "Lawful publisher PDF text",
+          "title": "Success run statistics defined on an urn model",
+          "trigger": "Circular binary success-run aliases for isolation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Steps 2–7",
+        "Kleiner Theorem 6.4 as the scalar baseline"
+      ],
+      "rationale": "The positions and killing directions of the last transitions, together with when the dying vertices first arrived, are natural observables of an evolving local graph. A single disappearance time cannot answer whether successive late deaths cluster, or whether late deaths typically belong to vertices revealed late. The independent product marks and gamma-transformed time laws answer those questions at the fixed finite extreme scale.",
+      "residual_risks": [
+        "No fixed-n uniformity of marks, quantitative process coupling, or large-radius application is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

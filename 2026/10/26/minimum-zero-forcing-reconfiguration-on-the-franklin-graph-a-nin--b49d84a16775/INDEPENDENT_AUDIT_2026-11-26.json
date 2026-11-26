@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:08:12.872077Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the specified labels, the bipartite edges A_rB_s for s=r,r−1,r+2 are exactly the two cycle edges at each even vertex and the added even-to-i+5 chord. If a legal force's target stays white as the blue set grows, its source still has only that white neighbor. This justifies parallel closure and monotonicity, so testing all four-sets excludes every smaller size. An independent exhaustive check, not a rerun of the frozen scripts, found zero forcing sets among 495 four-sets and 324 among 792 five-sets. It enumerated all 48 adjacency-preserving permutations and recovered the nine stated orbits with sizes 12,24,24,24,48,48,48,48,48 and the stated representative degrees and eccentricities. The one-replacement graphs and all-source shortest paths gave connected J/T with (edges,radius,diameter)=(2910,5,5)/(534,9,13), slide degree counts 3:276,4:24,6:24, and eccentricity counts 9:24,10:144,11:60,12:48,13:48. Comparing every jump edge against the slide distance matrix gave maximum 9, attained by the stated {0,2,5,6,11} to {0,5,6,9,11} pair; shortest paths rule out any smaller distance for that witness. The excess over the single jump is eight moves. Replay: /workspace/branches/f916f99d-38ec-42cb-a181-5e8c7bd1d5f8/independent_check.py and independent_output.json. The check is exhaustive for this ordinary-forcing graph only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The foundational zero-forcing paper supplies definitions and minimum-rank context. Geneson et al. introduce the minimum ordinary zero-forcing-set jump graph and give general structural results. Bong et al. supply slide/exchange definitions and comparisons with principal emphasis on PSD and skew forcing."
+        ],
+        "reasoning": "The inspected general treatments do not give a covering theorem computing the ordinary Franklin set orbits and both move geometries. Results about PSD or skew minima do not give the census for ordinary minima by specialization unless equality of the feasible families is established.",
+        "searches": [
+          "Barioli et al. arXiv:1003.2028",
+          "Geneson–Haas–Hogben arXiv:2009.00220",
+          "Bong et al. arXiv:2501.03642"
+        ]
+      },
+      "checked_sources": [
+        "MathWorld Franklin Graph",
+        "arXiv:1003.2028",
+        "arXiv:2009.00220",
+        "arXiv:2501.03642",
+        "Three compared Resultary records above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A slide is a jump with an additional host adjacency condition. The different examples demonstrate that jump connectivity alone does not force slide connectivity; in particular the Möbius–Kantor ordinary-forcing slide graph is edgeless while its jump graph is connected."
+        ],
+        "reasoning": "Definitions and the general spanning-subgraph inclusion do not imply connectivity or exact Franklin slide radius, diameter, and per-jump detour, even assuming the ordinary jump graph is connected. Those facts require determining the actual admissible replacements.",
+        "searches": [
+          "arXiv:2009.00220 ordinary jump-graph constructions",
+          "arXiv:2501.03642 exchange/sliding definitions and general comparisons",
+          "Local mirror Findings on Franklin paired domination, Grötzsch forcing and Möbius–Kantor forcing"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "MathWorld identifies Franklin with the six-crossed prism, Knödel graph and a honeycomb toroidal graph. The two adjacency descriptions in the original are identical on the stated labels.",
+          "The catalogue hit on Franklin paired domination uses the same host graph but studies 184 minimum six-vertex paired-dominating sets, not the 324 minimum five-vertex forcing sets."
+        ],
+        "reasoning": "Host-graph aliases must be compared as identical objects, but paired domination and ordinary zero forcing define different families and hence different reconfiguration graphs.",
+        "searches": [
+          "Franklin graph, six-crossed prism, Knödel graph, [5,−5]^6 and ordinary zero-forcing reconfiguration",
+          "MathWorld Franklin Graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE-johnson-isometric-non-matroid-relocation-of-minimum-paired-domin--db619faaacbc is the same host graph with a different set family and 984 jump edges.",
+          "Same-day SCOPE-complete-zero-forcing-census-and-optimal-set-exchange-geometry-o--71bef2be4880 is the 11-vertex Grötzsch graph with 175 minima, 19 orbits and 1180 jump edges. Same-day SCOPE-a-sharp-token-jumping-versus-token-sliding-dichotomy-for-minimum--9228c57633d9 is the Möbius–Kantor graph with 1704 minima and no slide edges."
+        ],
+        "reasoning": "The compared indexed records cover the same host with a different invariant or the same reconfiguration problem on different hosts. No exact ordinary Franklin table was found among the inspected hits; this is a bounded comparison.",
+        "searches": [
+          "Resultary semantic lookups on Franklin/Knödel/six-crossed prism forcing and on ordinary minimum-set jump and slide reconfiguration"
+        ]
+      },
+      "rationale": "The supported distinct claim is the complete Franklin ordinary minimum-set census and exact jump/slide geometry, particularly the sharp local sliding detour. Established definitions and graph aliases were credited. The inspected closest catalogue and literature treatments do not supply this combination of graph, feasibility condition, and distance statistic.",
+      "residual_risks": [
+        "A single external search surfaced unrelated graph powers material; unindexed exact enumerations or a result phrased using another graph presentation cannot be ruled out. Literal source locators are not whole-document absence proofs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms aliases; not an exchange census",
+          "evidence": "Identifies the six-crossed prism, Knödel graph and honeycomb toroidal graph isomorphisms.",
+          "identifier_or_url": "https://mathworld.wolfram.com/FranklinGraph.html",
+          "material_read": "Opening description at offset 0",
+          "method": "Bounded public-page reading",
+          "title": "Franklin Graph",
+          "trigger": "Canonical graph name and equivalent descriptions"
+        },
+        {
+          "assessment": "Foundational definition and minimum-rank context",
+          "evidence": "Zero-forcing number is the minimum cardinality of a forcing set.",
+          "identifier_or_url": "https://arxiv.org/abs/1003.2028",
+          "material_read": "p. 1 near offset 400",
+          "method": "Bounded primary reading",
+          "title": "Zero forcing parameters and minimum rank problems",
+          "trigger": "Definitions and possible pre-existing zero-forcing counts"
+        },
+        {
+          "assessment": "Direct methodological precedent, no inspected covering Franklin claim",
+          "evidence": "Introduces minimum-set jump reconfiguration and studies general structural results rather than the stated local slide distances.",
+          "identifier_or_url": "https://arxiv.org/abs/2009.00220",
+          "material_read": "pp. 1–2 near offsets 0 and 5700; literal Franklin graph locator checked without a hit",
+          "method": "Bounded primary reading and literal locator",
+          "title": "Reconfiguration graphs of zero forcing sets",
+          "trigger": "Same minimum ordinary jump-graph construction"
+        },
+        {
+          "assessment": "Similar move rules, main results for different forcing notions",
+          "evidence": "Distinguishes token exchange and sliding and develops PSD and skew forcing reconfiguration.",
+          "identifier_or_url": "https://arxiv.org/abs/2501.03642",
+          "material_read": "pp. 1 and 5 near offsets 4750 and 18750",
+          "method": "Bounded primary reading",
+          "title": "Reconfiguration of Minimum PSD Forcing Sets and Minimum Skew Forcing Sets",
+          "trigger": "Potentially covering exchange versus slide results"
+        },
+        {
+          "assessment": "Different admissible sets",
+          "evidence": "184 paired-dominating six-sets and 984 jump edges.",
+          "identifier_or_url": "SCOPE-johnson-isometric-non-matroid-relocation-of-minimum-paired-domin--db619faaacbc",
+          "material_read": "Finding at local mirror offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror statement comparison",
+          "title": "Franklin minimum paired-dominating-set relocation",
+          "trigger": "Same host graph and exchange terminology"
+        },
+        {
+          "assessment": "Different host graph",
+          "evidence": "175 minima in 19 classes on the 11-vertex Grötzsch graph.",
+          "identifier_or_url": "SCOPE-complete-zero-forcing-census-and-optimal-set-exchange-geometry-o--71bef2be4880",
+          "material_read": "Finding at local mirror offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror statement comparison",
+          "title": "Complete zero-forcing census and optimal-set exchange geometry on the Grötzsch graph",
+          "trigger": "Same-day parallel zero-forcing census"
+        },
+        {
+          "assessment": "Different host graph and exchange conclusion",
+          "evidence": "1704 minima; jump reconfiguration connected but there are no slide edges.",
+          "identifier_or_url": "SCOPE-a-sharp-token-jumping-versus-token-sliding-dichotomy-for-minimum--9228c57633d9",
+          "material_read": "Finding at local mirror offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror statement comparison",
+          "title": "Token jumping versus token sliding for minimum zero-forcing sets on the Möbius–Kantor graph",
+          "trigger": "Same-day same move-rule comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Franklin graph is a canonical small cubic vertex-transitive host, rather than an arbitrary sampled case. Its complete minimum-set geometry is a useful exact benchmark: both move graphs stay connected, yet a single jump can require nine optimal slides and the slide eccentricities vary despite host symmetry. The census and shortest-path witness distinguish unrestricted and local movement in a way neither the scalar Z nor generic graph connectivity can.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

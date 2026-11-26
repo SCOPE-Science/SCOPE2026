@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:54:02.529831Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–104",
+        "Frozen VERIFICATION.md and verification/verify.py with verification/checks.txt, inspected without executing the uploaded code",
+        "Independent exact rational Laplacian cofactor reproduction"
+      ],
+      "rationale": "Grounding creates two independent arms. The unit injection at position j sends unit current through exactly the first j edges of that arm, giving the common-prefix resistance Green entry at position i. In the unit case the squared Frobenius norm counts 2L−2s+1 pairs with minimum s; summation gives F(L) and F(k)−F(k−1)=g(k). One exceptional resistance x adds x−1 on the downstream p-by-p block. Its ordinary entry sum there is p²(d−1)+C(p), since for min(i,j) on a unit p-by-p block the sum equals the sum of ℓ² for ℓ=1,…,p. Expansion proves the claimed formula. For h≤p=n−h and k<h, g(n−k)−g(k)≥g(p+1)−g(p)>2p², so the maximum possible adverse correction at x>0 cannot cancel the strict descent. At k=h the exact cross-edge difference factors as −(p−h)x[(p+h)x+(2(h²+hp+p²)−3(h+p)+1)/3]. The constant in the bracket is positive by expanding in h−1 and p−1; this excludes the shorter side or gives the exact middle tie when p=h. On the larger side the differences are 2h²(x−t_k), strictly increasing in k. Nonpositive incoming and nonnegative outgoing differences characterize all minima, with at most one adjacent tie at a positive threshold; reflection treats the opposite orientation. The proof includes endpoint leaders and x=1. The supplied stochastic normalization follows mode by mode: for eigenvalue λ, stationary cross-covariance is zero, velocity variance is 1/(2βλ), and position variance is 1/(2αβλ²). Independent exact replay for n=3…12, every h, six positive rational samples and each positive threshold in both orientations gave 4,220 objective equalities and 470 argmin checks (140 ties). For x=N/D, it built the integral tridiagonal N·L_FF with edge weights N except D at the defect, then used leading/trailing principal determinant recurrences and the product of intervening off-diagonals to compute inverse entries by cofactors. All argmins came from this exact inversion, not from the proposed formula. At n=12,h=4 the extra tie x=89/16 gave {5,6}.",
+      "residual_risks": [
+        "The independent finite replay corroborates the algebra and tie handling but does not certify the infinite parameter range by itself. The x=0 limit is not in the claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Patterson–McGlohon–Dyagilev treat arbitrary weighted paths but use half the inverse trace. Mackin–Patterson give half the inverse-square trace up to gains but for Q_S=L+D_κD_S, with finite diagonal pinning. The exact perfect-leader multi-leader result assumes unweighted paths and k≥2."
+        ],
+        "reasoning": "The weighted first-order theorems apply to the wrong functional. A hard-pin limit of a soft-pin formula can justify which objective to use; it does not supply the exact optimizer changes or prove strict shorter-side exclusion. The unweighted exact theorem agrees on the baseline arm calculation only.",
+        "searches": [
+          "arXiv:1412.6595 §§II–III and arXiv:1604.07094 Eq. (13)",
+          "arXiv:1905.09156 §II and Theorem 5",
+          "Resultary 4c199cd0a34e, Finding and Assumptions"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 3e379b1d3263 and 4c199cd0a34e",
+        "arXiv:1407.1569, 1412.6595, 1604.07094, and 1905.09156",
+        "Sun et al. DOI and weighted recursive networks retrieval attempted but not read"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact unit-arm Green kernel gives the setup for a rank-one perturbation, but the inspected optimization results do not compare the perturbed arm on opposite sides of the cut or give the changes of sign of its successive cost differences."
+        ],
+        "reasoning": "An interval-wise threshold condition follows here only after excluding the entire shorter side by a strict cross-defect sign for all x>0 and identifying a monotonically changing adjacent cost difference on the longer side. Neither an exact Green baseline nor general computability of leader costs is a statement of those sign laws.",
+        "searches": [
+          "3e379b1d3263 RESULT.md proof §§1–2; 4c199cd0a34e RESULT.md proof §1",
+          "arXiv:1905.09156 Theorem 5 and arXiv:1604.07094 Eq. (13)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 3e379b1d3263 has the exact same inverse-square trace in unweighted two-pin quenched-frequency tracking; 4c199cd0a34e uses the same grounded kernel and exact arm cost for unweighted k≥2 perfect leaders.",
+          "Fitch–Leonard gives information centrality for one perfectly grounded leader in a first-order model, not the squared-inverse cost for this path."
+        ],
+        "reasoning": "Static follower offsets with covariance I mapped by L_FF^(-1) have total variance tr(L_FF^(-2)), so the two-pin comparison is a genuine functional equivalence, despite different dynamics. It lacks both the single leader and the exceptional resistance, and cannot directly recover the diagram. First-order centrality and conductance-versus-resistance reparametrization do not change which matrix power is being optimized.",
+        "searches": [
+          "Resultary: one defect edge resistance path tr(L_FF^-2) single leader threshold classification",
+          "Resultary: single grounded leader weighted path one exceptional resistance second-order coherence inverse-square exact formula full argmin",
+          "Web search: weighted path single ideal grounded leader second-order coherence inverse squared grounded Laplacian edge resistance exact leader placement one defect threshold Sun Laplacian spectrum 10.1063/1.4897568"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day records provide exact unweighted tail costs B(m)=P(m)=m(m+1)(m²+m+1)/6, and placement formulas for two or more pins; neither passage gives a positive-resistance transition table or law for the single leader."
+        ],
+        "reasoning": "The unit-arm cost is exactly covered and is not a separate contribution here. Dates alone give no ordering. The resistance-dependent correction and sharp thresholds are the relevant exact data rather than the already covered unweighted baseline.",
+        "searches": [
+          "Resultary exact taxonomy for one exceptional resistance and a single squared-inverse grounded leader; comparators 3e379b1d3263 and 4c199cd0a34e"
+        ]
+      },
+      "rationale": "Credit the existing weighted-path first-order selection theory, the inverse-square criterion under soft pinning, and the exact same unit-arm sum in two same-day unweighted path records. The distinct supported result is the exact weighted perturbation law and the full positive-resistance argmin diagram for one ideal grounded leader, notably strict shorter-side exclusion and all tie locations. The verified statements do not give that diagram. The comparison is bounded and does not establish historical priority.",
+      "residual_risks": [
+        "The inaccessible second-order tree and weighted-recursive-network papers remain named scope risks. A specialist earlier equivalent may exist; absence of a usable match in a focused search does not establish absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical unit tail cost; two pins and no exceptional edge",
+          "evidence": "Unweighted two-pin static offset variance with tail cost B(m)=F(m).",
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-two-pin-placement-for-quenched-frequency-phase-tracking-on--3e379b1d3263",
+          "material_read": "RESULT.md Finding and Proof §§1–2",
+          "method": "Local Resultary mirror",
+          "title": "Sharp two-pin placement for quenched-frequency phase tracking on paths",
+          "trigger": "Same inverse-square Dirichlet objective on a path"
+        },
+        {
+          "assessment": "Unit tail and cumulative Green kernel covered; no weighted single-leader law",
+          "evidence": "Perfect k≥2 leaders on unweighted paths; tail cost P(m)=F(m) and min(i,j) kernel.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-optimal-multi-leader-placement-for-second-order-coherence--4c199cd0a34e",
+          "material_read": "RESULT.md Finding, Assumptions, and Proof §1",
+          "method": "Local Resultary mirror",
+          "title": "Exact optimal multi-leader placement for second-order coherence",
+          "trigger": "Exactly the same second-order grounded criterion and path setting"
+        },
+        {
+          "assessment": "Different first-order model; pseudoinverse centrality expressions do not recover the claimed squared Dirichlet inverse",
+          "evidence": "Single leader maximizes information centrality, with first-order covariance and perfect leader as infinite-gain limit.",
+          "identifier_or_url": "arXiv:1407.1569",
+          "material_read": "PDF p. 3 and pp. 4–5 Eqs. (2)–(4)",
+          "method": "Lawful open PDF inspection",
+          "title": "Joint Centrality Distinguishes Optimal Leaders in Noisy Networks",
+          "trigger": "Ideal noise-free single-leader comparison"
+        },
+        {
+          "assessment": "First-order inverse trace, not the target",
+          "evidence": "R(S)=tr(L_FF^(-1))/2.",
+          "identifier_or_url": "arXiv:1412.6595",
+          "material_read": "PDF pp. 2–3, Eqs. (2)–(4) and follower block decomposition",
+          "method": "Lawful open PDF inspection",
+          "title": "Efficient, Optimal k-Leader Selection for Coherent, One-Dimensional Formations",
+          "trigger": "Exact weighted path/ring leader-placement theorem"
+        },
+        {
+          "assessment": "Different optimization criteria",
+          "evidence": "Coherence uses the inverse trace and the follower block decomposition.",
+          "identifier_or_url": "arXiv:1604.07094",
+          "material_read": "PDF p. 4 Eq. (13) and path block calculation",
+          "method": "Lawful open PDF inspection",
+          "title": "Optimal k-Leader Selection for Coherence and Convergence Rate in One-Dimensional Networks",
+          "trigger": "Exact weighted path placement and convergence"
+        },
+        {
+          "assessment": "Functional precedent with finite-gain soft information, not the threshold diagram",
+          "evidence": "Q_S=L+D_κD_S with finite positive leader gains and H_2(S)=tr(Q_S^(-2))/(2a_1a_2).",
+          "identifier_or_url": "arXiv:1905.09156",
+          "material_read": "PDF §II p. 2 and Theorem 5 p. 4",
+          "method": "Lawful open PDF inspection",
+          "title": "Submodularity in Systems with Higher Order Consensus with Absolute Information",
+          "trigger": "Exact inverse-square noise objective"
+        },
+        {
+          "assessment": "Unchecked beyond citation; no conclusion of noncoverage based on access",
+          "evidence": "The characterization in the frozen references was not independently verified.",
+          "identifier_or_url": "DOI:10.1063/1.4897568",
+          "material_read": "No decisive full-text passage recovered",
+          "method": "Lawful direct and VPN retrieval and OA copy lookup",
+          "title": "Coherence in a family of tree networks with an application of Laplacian spectrum",
+          "trigger": "Possible second-order tree coherence comparison"
+        },
+        {
+          "assessment": "Exact model and placement claims unverified",
+          "evidence": "Search description mentions recursive network spectra; it does not determine whether any path result covers the frozen claim.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0960077926002018",
+          "material_read": "Search listing only; no full text recovered",
+          "method": "Lawful OA retrieval attempt",
+          "title": "The leader–follower coherence and spectral properties of weighted recursive networks",
+          "trigger": "Search hit on weighted leader–follower coherence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof §§2–5",
+        "Named first-order and soft-pinning comparisons and exact unit-arm Resultary records"
+      ],
+      "rationale": "The squared-inverse trace is the total follower variance up to a positive scale in an ideal second-order consensus model. For the natural one-resistance perturbation, this gives a sharp comparison over all path sizes and positions instead of a numerical leader search: the shorter side never minimizes, and the theorem resolves every transition, equal-side case and tie as resistance varies. The value is the classification and monotonicity, not the elementary Green matrix alone.",
+      "residual_risks": [
+        "The classification is confined to one defect and one ideal pin and does not imply analogous migration for several defects or finite-gain leaders."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

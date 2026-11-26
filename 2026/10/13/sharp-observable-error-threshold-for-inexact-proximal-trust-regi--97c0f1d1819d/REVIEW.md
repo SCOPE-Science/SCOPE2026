@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The proof compares the strongly convex proximal objective at the current point, approximate minimizer, and exact minimizer, then uses the Type-1 distance estimate and a triangle inequality to obtain \(Q\le-(1-\kappa)\|s\|^2/r\). Exact scalar witnesses attain equality at every \(0\le\kappa<1\); the endpoint has arbitrarily small negative slope; strictly above one an admissible step has positive slope. The finite-termination proof works for every \(0<\kappa<1\) as long as the exact proximal step is nonzero. The published Theorem 12 directly supplies the Cauchy fraction once the new coefficient is inserted, and its Theorem 10 first clause plus a new estimate \(\bar\Psi_k\le(1+\kappa)\Psi_k\) supplies limit-inferior stationarity without its condition (25). Strict scope: no full-sequence convergence, no claim for zero exact step without separate stopping, no algorithmic guarantee when the outer assumptions fail.
+PASS
 
-## Originality (O): PASS
+Let s=u−x and let p minimize H. Comparing the Type-1 upper bound on H(u)−H(p) with strong convexity at x gives 2rQ≤ε²−‖p−x‖²−‖s‖². Strong convexity at u gives ‖u−p‖≤ε, so the computed-step test implies ‖p−x‖≥(1−κ)‖s‖ for κ<1. Substitution gives exactly −(1−κ)‖s‖²/r. The zero-step case is harmless. For φ=0, r=1, x=0, u=1 and p=1−κ the gap is κ²/2 and the bound is attained. At κ=1, taking p positive arbitrarily close to zero defeats any uniform positive coefficient even on nonstationary instances. Negative p=1−κ for κ>1 gives ascent. For the algorithmic claim, ε≤κ‖p−x‖/(1+κ) suffices for termination of geometric refinement at a nonstationary step. With c=1−κ and Ψ=‖s‖/r, choose a feasible segment fraction α=min{1,Δ/‖s‖,c/[r(1+‖B‖)]}; convexity of φ and the directional curvature bound give a decrease at least (c/2)Ψ min{rΨ,Δ,cΨ/(1+‖B‖)}, proving the claimed FCD constant. Theorem 10's first assertion applies under the stated outer hypotheses. On its vanishing-Ψ subsequence, the exact model residual is at most (1+κ)Ψ; proximal-length comparison and the vanishing reference-oracle error transfer this to the reference approximate residual. Nonexpansivity and the gradient-error assumption then give the exact true-gradient residual tending to zero; proximal-length comparison covers every fixed positive length on that subsequence.
 
-The closest primary source [1] gives a one-half inner tolerance bound and uses an unobservable exact-step accuracy condition for its stationarity clause; it does not state the sharp coefficient, optimal boundary, or observable-only full stationarity extension. The related weighted predecessor [2] uses \(\delta\)-Fréchet errors instead of this Type-1 optimality-gap rule. The general performance-estimation survey [3] does not state the specific trust-region Cauchy-to-stationarity theorem. The earlier proximal subproblem paper [4] does not provide the inexact Type-1 accuracy boundary. Published research searches and prior records produced no stronger covering statement. Novelty is bounded by the inspected literature; inaccessible or unindexed equivalents remain possible.
+## originality
 
-## Value (V): PASS
+PASS
 
-The source method's inner accuracy restriction is a real implementation parameter. The admissible interval is doubled, and the actual sharp descent coefficient replaces a non-sharp bound. The same exact test now suffices to certify the original limiting stationarity guarantee without comparing to an unavailable exact proximal displacement; the scalar endpoint shows why \(\kappa=1\) cannot be included in a uniform decrease theorem. The result is an algorithm-specific convergence-theory extension, not merely a renamed general inequality.
+Supported for the sharp computed-step coefficient, its sharp boundary, and the stated conditional transfer for the modified trust-region tolerance. The Type-1 gap definition, observable computed-step test itself, and outer convergence framework are prior. In particular BKM already uses the computed step in Algorithm 2, but restricts κ<1/2, proves a weaker descent constant, and states its separate true stationarity implication with an exact-step-relative test. Other relative-error work has genuine criterion-level overlap without the sharp universal affine decrease or the specific transfer.
 
-## Closest sources and limits
+## value
 
-Primary comparison: Baraldi, Kouri, and Maia, *Convergence Analysis of an Inexact Proximal Trust-Region Method*, arXiv:2609.26747v1, Definition 4, Lemma 9, Algorithm 2, Proposition 11, Theorems 10 and 12. Broader comparisons: Maia, Baraldi, and Kouri, arXiv:2601.09024v1; Barré, Taylor, and Bach, arXiv:2006.06041v3; Baraldi and Kouri's 2023 proximal subproblem manuscript. Conditions on all outer oracle errors, trust radii and curvature remain intact. Priority beyond inspected available sources is not independently established.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact constant is operationally meaningful: a practitioner can stop using an observable step, with a certified descent coefficient and convergence transfer even when the allowable relative error exceeds the printed half threshold. Endpoint and ascent examples identify a real boundary for universal certification rather than an arbitrary parameter change. The proof retains the required outer stability guarantees and separates model stationarity from the true residual.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

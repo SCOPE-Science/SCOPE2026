@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Reproduction of the finite nilpotency-index census
+# Independent mathematical audit
 
-Execute `python3 nilindex_six_binary.py` using any Python 3.9+ interpreter (standard library only). The checker enumerates all \(32768\) binary strictly upper triangular six-by-six matrices and computes the first vanishing power twice by separate exact \(\mathbb F_2\) span/product implementations.
+## correctness
 
-Expected exact output:
+PASS
 
-```
-COUNTS [(2, 1), (3, 1329), (4, 574), (5, 9760), (6, 352), (7, 1584), (8, 96), (9, 11648), (10, 64), (11, 192), (13, 512), (17, 5632), (33, 1024)]
-FIRST_MASK_WITNESSES [(2, 0), (3, 1), (4, 579), (5, 33), (6, 5217), (7, 4675), (8, 22565), (9, 545), (10, 26145), (11, 21601), (13, 21059), (17, 4641), (33, 21025)]
-INDEX_VECTOR_SHA256 31661b0672ffe4caf7417840c56b7d5b9b69a20f91d7b51ff2674843fae737f6
-TWO_INDEPENDENT_RECURRENCES_VERIFIED 32768
-VERIFY_OK
-```
+The 15 free entries exhaust 32768 labelled presentations. The definition uses all bracketings, and bilinearity makes the span of bracketed words on natural-basis leaves equal to the full subspace power at each degree. A nonzero word in a triangular basis has no leaf at depth ≥6: at each step toward the root the product, if nonzero, has least nonzero coordinate strictly above the least coordinate of each child. A binary tree of height ≤5 has at most 32 leaves, yielding E^33=0. A directed cycle in the support digraph would instead allow arbitrarily long nonzero words by starting with a basis square and multiplying successively by the next basis vertex on the cycle; the new product is a nonzero scalar multiple of that next square. Thus nilpotency excludes cycles, and topological ordering gives the triangular presentation needed for the all-algebra spectrum. Independent replay `python3 /workspace/branches/independent-checks/record5.py` used the actual unspanned values of bracketed basis words at each degree, not either frozen span algorithm. For every mask it tests the first empty nonzero-value set and verifies the maximal-index criterion. The full ordered histogram is [(2,1),(3,1329),(4,574),(5,9760),(6,352),(7,1584),(8,96),(9,11648),(10,64),(11,192),(13,512),(17,5632),(33,1024)]. It also matches every first-mask witness and the ordered-byte SHA-256 31661b0672ffe4caf7417840c56b7d5b9b69a20f91d7b51ff2674843fae737f6. The supplied script was inspected, not executed. Scalar extension commutes with every power by bilinearity, preserving the witnessed indices, not excluding others. The counts are not isomorphism-class counts and the index spectrum is for nilpotent algebras.
 
-Every index is computed from the defining nonassociative power recurrence, not from matrix powers. The search bound of \(33\) comes from the established maximal nilpotency-index theorem, while the exact histogram is a finite exhaustive calculation. The digest records the ordered one-byte-per-mask index vector, with mask numbers \(0\) through \(32767\). The verifier also checks the known maximal-index row by an independent condition on five immediate superdiagonal entries.
+## originality
 
-Limitations: exhaustive verification is for binary triangular presentations in dimension six only. It is not a proof for arbitrary infinite fields and does not count isomorphism classes. Literature-priority risks are addressed in the scientific review.
+PASS
+
+The complete binary labelled distribution and its exact exclusions are distinct from the already established maximal index and from the proposed dimension-six set for infinite fields. The closest exact Resultary power-filtration theorem has a substantive support restriction. The pass excludes claims of novelty for the triangular criterion, the maximum, or the immediate maximal bin count.
+
+## value
+
+PASS
+
+Dimension six is a motivated spectrum cutoff in the cited survey, and the binary field is a natural setting where products of spans can cancel. An exact exclusion theorem for all binary nilpotent evolution algebras in that dimension, with labelled multiplicities quantifying rare strata such as index 10 (64 cases), is a reusable benchmark for a structural classification. Its value does not depend on extrapolating to infinite fields, and is not the already implied maximal bin.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

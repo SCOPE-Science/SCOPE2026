@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The six mixed-difference constraints have rank four with two shared-difference relations. Those constraints exhaustively classify the twenty-two feasible active faces. Exact-rational Gram-projector calculations, reproduced in `check.py`, show that five faces and no others have maximum \(\ell^\infty\)-row norm \(7/4\). A concrete strictly complementary projection region and a matching sign perturbation prove attainability. Projection-region linearity gives the global result. The proof excludes weighted fitting and larger ground sets.
+## correctness
 
-## Originality — PASS with residual priority risk
-Full-text comparisons were made with Iyer–Bilmes (arXiv:1506.07329) and Bach (arXiv:1511.00394); their polyhedral and convex-extension theorems are not statements about the coordinatewise modulus of Euclidean submodular regression. Németh–Németh (arXiv:1503.08458) concerns isotonic cones defined by pairwise-order constraints. Related exact projection constants for planar cones, weighted cross-polytopes, and chains do not imply this eight-dimensional cone result. No equivalent record emerged from the mathematical searches conducted. Hidden historical overlap under different terminology remains possible; absence in a search is not a novelty certificate.
+PASS
 
-## Value — PASS
-Three elements form the first case with genuinely interacting submodularity constraints. The exact sharp stability factor, twenty-two feasible active patterns, five maximizers, and two-variable baseline give a complete and reusable sensitivity benchmark for constrained denoising. This is a natural finite classification; no claim is made for arbitrary cardinalities.
+The six mixed differences suffice for submodularity, without monotonicity or normalization. Their rank-four image is cut out by equality of the three paired slack differences. With nonzero common difference only its lower side in each pair can be zero; with zero common difference zeros occur by whole pairs. Every such pattern is feasible, so there are 1+14+7=22. A fresh exact computation enumerated slack vectors in {0,1,2}^6 (enough for each feasible pattern by normalizing the nonzero difference to ±1) and built the projectors by rational Gram–Schmidt. It reproduced each class norm and the five maximal masks 15, 21, 42, 51, 60 with norm 7/4. For each face, its relative interior plus the normal cone's relative interior contains an open Euclidean projection region, on which the projection is the projector onto the face span. The closed face-plus-normal regions cover space and meet a segment in finitely many intervals; summing their bounds proves the global constant. At the sharp witness the residual is in the relative interior, not the ambient interior, of the normal cone (the wording in Step 4 is read with Step 2). The empty-set row is (5,2,2,−1,2,−1,−1,0)/8, so sufficiently small sign perturbations give equality. For one element the fit is unchanged; for two, the active half-space derivative I−aaᵀ/4 has norm 3/2 and is attained on an open region.
 
-## Verification and limitations
-The executable rational-arithmetic checker was run successfully. Its finite enumeration certifies the full finite problem because the proof independently exhausts every possible face. The independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The strongest indexed match is the same-day sharp coordinatewise modulus for weighted two-row supermodular regression. Its equal-weight m=4 case also gives 7/4 in eight coordinates, but it has three independent adjacent constraints and a five-dimensional lineality space, versus six constraints of rank four and four-dimensional lineality here. In particular these are not coordinate relabelings, sign changes or linearly equivalent cones. Its formula does not give the six-constraint face structure or directly imply the modulus for the three-element Boolean lattice. The prior convex-analytic face mechanism and baseline nonexpansiveness are standard; the supported distinct fact is the Boolean-lattice norm and face classification, not the method of polyhedral projection. No priority is inferred from the shared publication date or number.
+
+## value
+
+PASS
+
+Coordinatewise error propagation is a natural worst-case stability question even though the fit minimizes squared error. Three elements is the first instance with interacting inequalities; the exact amplification factor, full region norm table and realizable sharp direction provide a useful benchmark rather than a sample or an arbitrary coefficient slice. The two-element baseline alone would be routine; the coupled three-element result is what carries the value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

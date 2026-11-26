@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The theorem is proved in both directions. For a dependent source circuit the all-positive mapping forces a forbidden sign pattern. Independent sources and targets permit arbitrary positive constraints, while the conditional probability that any prescribed negative assignment is accidentally realized is at most \((d-p)/(q^d-q^p)<1\). The face formula, purity, and nonmatroidality follow. Complete finite checks for binary dimension three and ternary dimension two confirm predicted face counts; exact elimination yields binary boundary rank 834 and reduced Betti rank 3870. The finite checks are not substituted for the general proof.
+## correctness
 
-**Originality — PASS within inspected scope.** Hu–Weinberger–Shayevitz study asymptotic code VC/distance tradeoffs; Fitzpatrick–Iosevich–McDonald–Wyman study finite-field sphere incidence; Arora–Ram count partial linear map similarity classes; Kobayashi–Kurita–Wasa develop matroid-intersection enumeration algorithms. No inspected statement implies the all-sign-pattern GL graph-incidence criterion, face enumerator or binary top homology computation. Searches for linear group action shattering, point-image matrices, matroid equivalences and exact 49/882/4704 counts found related but non-covering results. Residual risks are incomplete historical indexing and potentially equivalent terminology.
+PASS
 
-**Mathematical value — PASS.** The object is the natural full general-linear-group permutation class acting on nonzero vectors. Its exact Boolean trace geometry is the intersection of two representable vector matroids, but not a matroid; the complete all-dimension polynomial and pure facets capture more information than a VC-dimension bound. The nontrivial mod-two rank-three topology provides a separately motivated invariant of the smallest projective linear action beyond rank two.
+In RESULT.md 18–31, an all-positive realization preserves every source circuit; keeping all but one assignment in that circuit positive forces the remaining one, precluding shattering. Invertibility then gives target independence. Conversely, given p prescribed positives, invertible extensions act transitively on vectors outside the target span, so each forbidden equality has probability 1/(q^d-q^p). For p<k≤d and d≥2 the union bound is strictly less than one; p=k only requires extension of an isomorphism of subspaces. Ordering both independent tuples and dividing by k! counts supports; simultaneous basis extension proves purity, and the displayed nontransitive parallel pairs rule out a matroid. A fresh bounded Python calculation obtained (9,18) and connectivity in binary rank two, and (49,882,4704), connectivity, and GF(2) boundary ranks 48 and 834 in binary rank three. The resulting Betti numbers agree exactly.
 
-**Limitations.** There is no general formula for homology, no statement about online learning dimension, no integral homology claim, and no independent mathematical verification. Exact finite enumeration proves only the explicitly enumerated finite examples. Historical priority may be revised by unindexed or inaccessible equivalent literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct contribution is the complete signed point-image criterion for full GL on nonzero vectors, its enumerative and structural consequences, and the specified small homology. The inspected prior statements cover related settings or tools, not the signed-trace criterion on this ground set. This is a bounded best-of-knowledge determination, not historical priority.
+
+## value
+
+PASS
+
+The support criterion resolves every trace support on a canonical finite group action, not only maximum dimension. It identifies a pure nonmatroid complex admitting an explicit face inventory and supplies homology in its first two binary ranks, useful as concrete benchmarks for the topology of intersections of independence complexes. The contribution is structural, not a stand-alone small-number recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

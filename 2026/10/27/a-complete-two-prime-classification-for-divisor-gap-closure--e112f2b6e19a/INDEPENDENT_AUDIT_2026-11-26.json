@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:56:06.041514Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With exactly two prime factors, an odd n fails at its first gap (least prime minus 1). For n=2^a p^b, the pure powers of two neighboring p are consecutive to it wherever they exist: the next p-multiple is at least 2p, above the least power of two exceeding p. Each such gap is odd and smaller than p and hence must equal 1. If p lies above the last pure power this forces p=2^a+1, with separated p-layers and all gaps equal to divisors. If there is an upper neighbor as well, both gaps can be 1 only for 2,3,4. Primality of 2^a+1 forces a to be a power of two by the odd-power factorization. For p=3,a≤4 the induction at 3^b preserves the earlier prefix and reduces the whole new suffix to 3^(b−2) times the divisors at least 9 in 2^a·9: j≤b−3 cannot reach 3^b since 2^a≤16<27. The predecessor is 2·3^(b−1) for a≤2 and 8·3^(b−2) for a≥3, making the bridge valid; the four base/suffix rows check by subtraction. For b=1 each binary shell has entries 2^h and 3·2^(h−1) before the final 3·2^a. For b=2,a≥3 the three contributions in complete shells come from 1,9,3 times powers of two, and the four stated remaining tail values account for all top-end exponent choices. Their connecting gaps are divisors, with a=1,2 already covered. When a≥5,b≥3, j∈{0,1,2,3} gives no 2^i3^j in (27,32), and j>3 is too large; gap 5 fails independently of exponents. Independent replay: python3 /workspace/review-evidence/check_frozen_math.py 4 used a divisor sieve, not a parametrized exponent list, to check all 21,062 two-prime-support integers up to 60,000 (including odd cases); 57 qualified, all as predicted. The unbounded proof is independent of both this and the frozen finite script.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The chapter studies reciprocal sums over adjacent-divisor gaps and distributional questions. A060765 defines the predicate for arbitrary integers and gives examples, comments and code."
+        ],
+        "reasoning": "A distributional bound does not force all gaps of a given integer to divide it; the more general sequence definition is a test, not a structural classification.",
+        "searches": [
+          "Balog–Erdős–Tenenbaum 1990, On Arithmetic Functions Involving Consecutive Divisors, pp. 77–80",
+          "OEIS A060765 general sequence entry"
+        ]
+      },
+      "checked_sources": [
+        "OEIS A060765",
+        "OEIS A060763",
+        "Balog–Erdős–Tenenbaum 1990, pp. 77–80",
+        "Resultary 0258f72ce52e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known unit-exponent examples cover only parts of the ternary branch. The reciprocal-gap quantity does not encode universal divisibility. The indexed gap theorem has X^(2^a p^b)−1 as its underlying object."
+        ],
+        "reasoning": "The sharp joint exclusion a≥5,b≥3 and the exhaustive restriction on the odd prime do not follow from those statements or represent a table recomputation.",
+        "searches": [
+          "OEIS A060765 comments on unit exponents and Brauer chains; A060763 zero-test",
+          "Balog–Erdős–Tenenbaum 1990, pp. 77–80",
+          "Resultary 0258f72ce52e"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A060765 explicitly says equivalently A060763(n)=0. A060763 counts distinct offending consecutive-divisor gaps.",
+          "A060765 already identifies 3·2^k and 2·3^k subfamilies."
+        ],
+        "reasoning": "Counting distinct offending gaps is exactly equivalent at zero, but neither inspected entry classifies all positive exponents with exactly two prime supports.",
+        "searches": [
+          "OEIS A060765, comments and examples",
+          "OEIS A060763, definition and example",
+          "Resultary: all consecutive divisor differences divide n, two primes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A060765 gives qualifying entries and links a finite table; its n=12 example verifies the definition. A060763's n=70 example lists the offending gaps.",
+          "0258f72ce52e concerns missing degrees of monic polynomial divisors, with p>2^a+1."
+        ],
+        "reasoning": "The sequence and table verify individual cases, not the if-and-only-if for unbounded a,b; the indexed polynomial gap theorem is about a different divisor set.",
+        "searches": [
+          "OEIS A060765 and linked n=1…750 table; A060763",
+          "Resultary: two-prime divisor-gap closure; local mirror 0258f72ce52e"
+        ]
+      },
+      "rationale": "The divisor-gap predicate, equivalent zero-test and known unit-exponent subfamilies are already documented and should not be claimed. The distinct contribution supported by the checked sources is the unbounded exactly-two-prime classification, including the separate sharp ternary boundaries and necessity of the precise Fermat-prime relation in the other branch.",
+      "residual_risks": [
+        "Bounded coverage check; an unindexed reformulation or classification may exist. An unhelpful broad lookup was not treated as evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same property, familiar subfamilies, not the complete two-prime theorem",
+          "evidence": [
+            "Explicit equivalence to A060763(n)=0, examples and 3·2^k and 2·3^k comments."
+          ],
+          "identifier_or_url": "https://oeis.org/A060765",
+          "material_read": "Definition, comments, examples and table link at offset 254",
+          "method": "Public OEIS entry",
+          "title": "Numbers n such that every difference between consecutive divisors is also a divisor",
+          "trigger": "Exact database for the predicate"
+        },
+        {
+          "assessment": "Exact zero-test, not an unbounded classification",
+          "evidence": [
+            "Counts distinct offending gap values."
+          ],
+          "identifier_or_url": "https://oeis.org/A060763",
+          "material_read": "Definition and n=70 example at offset 209",
+          "method": "Public OEIS entry",
+          "title": "Number of distinct differences between consecutive divisors of n which are not also divisors of n",
+          "trigger": "Equivalent complement statistic"
+        },
+        {
+          "assessment": "Related gap statistics, with no implication of this membership theorem from the inspected material",
+          "evidence": [
+            "Defines a reciprocal sum over adjacent-divisor gaps and discusses bounds and distributions."
+          ],
+          "identifier_or_url": "https://tenenb.perso.math.cnrs.fr/PPP/Arith%2Bconsec-div.pdf",
+          "material_read": "pp. 77–80, opening PDF text",
+          "method": "Lawful primary PDF",
+          "title": "On Arithmetic Functions Involving Consecutive Divisors",
+          "trigger": "Primary adjacent-divisor-gap literature"
+        },
+        {
+          "assessment": "Polynomial divisor-degree gaps, not adjacent numerical divisors",
+          "evidence": [
+            "Concerns X^(2^a p^b)−1 with p>2^a+1."
+          ],
+          "identifier_or_url": "2026/11/1/SCOPE-exact-divisor-degree-fibers-gap-lengths-and-a-cantor-limit-beyon--0258f72ce52e",
+          "material_read": "RESULT.md Finding and assumptions from offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact divisor-degree fibers, gap lengths and a Cantor limit",
+          "trigger": "Closest distinct indexed shared-parameter gap result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete classification on the natural exactly-two-prime slice of a documented arithmetic property yields a uniform obstruction and a sharp exponent boundary, and ties the nonternary branch to Fermat primes. This supersedes finite membership checks on a substantial slice without asserting any result about the infinitude of Fermat primes or support size three and larger.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:01:34.074584Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:5–91",
+        "Frozen VERIFICATION.md:19–25",
+        "Frozen verify.py:11–159"
+      ],
+      "rationale": "Fourier inversion averages exp(z Σ h_j cos θ_j) into ∏ I₀(h_j z). Writing I₀=exp(u) gives u''+u'/z+(u')²=1; comparing z^(2m−2) yields the stated recurrence with coefficient 4m² on c_m. The negative sign and common sign of the products inductively give nonzero alternating c_m. Thus a prefix of observed returns and the corresponding even power sums determine each other by triangular formal logarithm and exponential. Newton identities give all but the constant of Q(t)=∏(t+h_j²). In the beta-integral normalization, increasing that constant between two admissible candidates decreases Q'/Q at every t>0 because the positive derivative is unchanged. This strictly increases the sum of square roots, forbidding a second choice with sum 1; no simple-root hypothesis is used here. For d−2 moments the tangent constraint matrix also includes the normalization row. A dependence would yield a nonzero polynomial with at most d−1 terms vanishing at d distinct positive weights, forbidden by Descartes. The implicit function theorem gives a one-dimensional local fiber in the open simplex, with nonpermutation points, and the d=2 no-data case is immediate. First-return renewal is triangular, including in transient dimensions. Independently the d=3 witness checks via r₂=Σh_j²/2 and r₄=3(Σh_j²)²/4−3Σh_j⁴/8, giving 31/144 for both r₂ and 961/9216 versus 865/9216 for r₄. The support script was inspected, not executed.",
+      "residual_risks": [
+        "This proves uniqueness for exact data only, not conditioning or statistical recovery from noisy returns."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prop. 24 allows any choice of d distinct positive integer exponents and nonnegative vectors; Prop. 3 computes generalized Vandermonde–Schur minors for general exponents.",
+          "The symmetric full-return collision of §6.10 uses a different, six-step support; Zhou uses all returns in one dimension."
+        ],
+        "reasoning": "The broader moment result applies on the exact parameter domain, whereas the broader finite-range nonuniqueness example is outside it. Using the rank formula on a positive distinct-coordinate minor gives the real local dimension; this is stronger justification than just invoking the generic complex fiber statement.",
+        "searches": [
+          "arXiv:2106.13981, Propositions 3 and 24, Eqs. (4), (8)",
+          "arXiv:2610.08348v1, §6.10, Eqs. (47)–(48)",
+          "arXiv:1512.04142, Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2106.13981, Propositions 3 and 24",
+        "arXiv:2609.36728",
+        "arXiv:2610.08348v1, §6.10",
+        "arXiv:1512.04142",
+        "Resultary 8b53a26c4ebd and d16437974fb4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fixed coordinate support and sign symmetry produce independent Fourier factors and their nonvanishing log coefficients. The lower prefix is the d−1-row power-sum Jacobian with the same exponents after dropping the largest; a Schur polynomial with nonnegative coefficients is positive on positive inputs.",
+          "The power-sum paper does not state the one-constant beta-integral proof or a walk-specific theorem."
+        ],
+        "reasoning": "Once the standard exponential generating product is logged, no new identifiability or dimension theorem is needed: Prop. 24 and the existing minors settle the core quantitative issue. The walk transform and normalization offer a concrete reduction, not a counterexample to coverage.",
+        "searches": [
+          "arXiv:2106.13981, Prop. 24 (PDF p. 12), Prop. 3 (PDF p. 3)",
+          "arXiv:2609.36728, Theorem 1; arXiv:2610.08348v1, §6.10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Frozen RESULT.md:22–43 proves the precise equivalence between a return prefix and the even power sums by taking the logarithm of a product of I₀ factors.",
+          "Prop. 24, arXiv:2106.13981, gives uniqueness up to permutation for d positive integer powers on nonnegative d-tuples.",
+          "The same-family walk paper proves forward ordering, not inversion."
+        ],
+        "reasoning": "Equality of return prefixes is equivalent to equality of power sums of h itself at 2,4,…; the sum-1 constraint supplies exponent 1. This is a direct match, not merely an analogy about inverse moments.",
+        "searches": [
+          "Melánová Sturmfels Winter Recovery from Power Sums Theorem nonnegative uniqueness arbitrary exponents injective power sums arxiv",
+          "Resultary semantic comparison for finite-return reconstruction on the fixed symmetric coordinate support",
+          "arXiv:2609.36728, Theorem 1 and Remarks 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue matches are an anisotropic escape asymptotic and correlated-walk memory identification; neither states this finite-return reconstruction.",
+          "The positive power-sum theorem is universal and gives exact coverage without requiring a dimension table."
+        ],
+        "reasoning": "A finite enumeration of rational weights cannot determine the all-d or repeated-weight claim. The exact coverage instead comes from a symbolic theorem applying to every admissible dimension and exponent set.",
+        "searches": [
+          "Resultary 8b53a26c4ebd and d16437974fb4 Findings",
+          "Primary-literature power-sum lookup for arXiv:2106.13981"
+        ]
+      },
+      "rationale": "The central sharp identifiability finding is covered via the known nonnegative power-sum recovery theorem and rank calculation in Melánová, Sturmfels and Winter, arXiv:2106.13981. The return prefix is a triangular reparameterization of the even power sums; normalization contributes the moment of exponent 1. Proposition 24 covers the resulting d distinct positive integer exponents {1,2,4,…,2(d−1)} and does not require distinct coordinates in its stated conclusion. With the last exponent omitted, their generalized Vandermonde–Schur Jacobian calculation implies full row rank at positive pairwise distinct coordinates, giving precisely the claimed local fiber by the implicit function theorem. The probability-language statement, renewal transfer, and direct integral proof of uniqueness are useful, but not a distinct sharp identifiability theorem once that moment equivalence is made explicit. The decision is by stronger coverage, not absence of a novelty citation or a conflict with finite-range examples.",
+      "residual_risks": [
+        "No claim that the walk-language formulation or the exact integral recovery procedure was previously published; the negative finding is about direct implication of the sharp identifiability result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct stronger moment-theorem coverage; local rank follows from the actual minor factorization, not solely from generic complex dimension",
+          "evidence": [
+            "Prop. 24: any set of n positive integer powers suffices on the nonnegative orthant, up to permutation.",
+            "The minor factors in the proof of Prop. 3 give full rank for distinct positive inputs. The displayed Prop. 24 line-segment reasoning appears to overstate what nonsingularity says about individual components of Jv; the needed specialization, including repeated weights, was checked independently using the frozen integral argument, not that inference."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2106.13981",
+          "material_read": "Prop. 3 and Eq. (4), PDF p. 3, offsets 8788–10862; Prop. 24, PDF p. 12, offset 40930; statement and adjacent proof",
+          "method": "Focused title lookup and bounded OA PDF passages",
+          "title": "Recovery from Power Sums",
+          "trigger": "Potential general injection for the nonconsecutive exponents"
+        },
+        {
+          "assessment": "Forward stochastic dominance under majorization, not finite-prefix injection",
+          "evidence": [
+            "Same parameter model; permutation invariance but a different direction of inference."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.36728",
+          "material_read": "PDF pp. 1–2, Theorem 1 and Remarks 1–2, offsets 0–6973",
+          "method": "Located OA PDF passages",
+          "title": "Stochastic dominance of first return times for nearest-neighbor random walks on Z^d",
+          "trigger": "Same sign-symmetric coordinate support and return law"
+        },
+        {
+          "assessment": "Different symmetric support, not a contradiction or direct coverage on the prescribed support",
+          "evidence": [
+            "Distinct probabilities on a six-step support with square convex hull give identical complete return sequences."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.08348v1",
+          "material_read": "§6.10, Eqs. (47)–(48), offsets 75500–77701",
+          "method": "Located OA full-text passage",
+          "title": "Can one hear the shape of a lattice random walk?",
+          "trigger": "Return-identification claims and collisions for symmetric lattice walks"
+        },
+        {
+          "assessment": "One-dimensional and full sequence, not this fixed finite cutoff",
+          "evidence": [
+            "Uniqueness for symmetric primitive walks on Z from all return probabilities."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1512.04142",
+          "material_read": "PDF p. 1, Theorem 1.1, offsets 0–5411",
+          "method": "Located OA PDF passage",
+          "title": "Return Probabilities of Random Walks",
+          "trigger": "Earlier inverse return uniqueness"
+        },
+        {
+          "assessment": "Neighboring questions only",
+          "evidence": [
+            "3D nonreturn asymptotics in the first case; identification of one memory parameter from an asymptotic correction in the second."
+          ],
+          "identifier_or_url": "Resultary 8b53a26c4ebd and d16437974fb4",
+          "material_read": "Both Findings and scope of 8b53a26c4ebd",
+          "method": "Resultary search and local-mirror passages",
+          "title": "Anisotropic cubical escape boundary and return signature of hidden nematic memory",
+          "trigger": "Closest catalogue hits for anisotropy or inverse-return parameters"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:45–85",
+        "arXiv:2106.13981, Prop. 24",
+        "arXiv:2610.08348v1, §6.10"
+      ],
+      "rationale": "There is intrinsic value in the constructive last-coefficient reduction: the return data determine the leading polynomial coefficients and the simplex constraint gives a strictly monotone scalar test on admissible constant terms, including repeated weights. It gives a specific route for reconstruction rather than only an abstract injectivity assertion. The distinction between that constructive mechanism and the already implied sharp cutoff is material to this value assessment.",
+      "residual_risks": [
+        "No stability bound, noise model, or complexity guarantee for finding the admissible root set; exact recovery only."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

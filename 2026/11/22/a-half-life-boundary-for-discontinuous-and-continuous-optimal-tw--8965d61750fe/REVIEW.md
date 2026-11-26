@@ -1,19 +1,21 @@
-# Scientific review: two-bolus threshold-duration optimization
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result derives the exact exposure factor \(W(a)=\min\{\max\{a,1\},q^{-1}\}\max\{1,d-(1-q)a\}\) from two positive-time regions of a piecewise exponential concentration. The full feasible dose interval is partitioned by the threshold and clipping boundaries. Comparing the strictly concave quadratic branch against the single-bolus endpoints and the declining capped branch establishes the global argmax, uniqueness, and all tie cases for each positive clearance rate, dose total and separation. An exact-rational standalone checker provided 183183 corroborating assertions. It cannot by itself establish an infinite-domain theorem.
+PASS
 
-## Originality — PASS, provisional historical priority
+The two above-threshold lengths add on disjoint time intervals; their exponentiated sum is W(a)=min(max(a,1),1/q)max(1,d−ra), r=1−q, with the post-dose tail included and equality instants of zero measure. For d≤1 all allocations give W=1. For d>1 the two unsplit endpoints give W=d. If a≤1 then W≤d with equality only at a=0; if the second level d−ra≤1, W≤d with equality only possibly at a=d. Where both peaks exceed threshold before the first factor caps, W=a(d−ra), strictly concave. Past the cap 1/q the improving portion of W declines strictly. For q<1/2, the interior vertex is feasible at d=4r, has a=2 there and is the unique third tie; its value d²/(4r) exceeds d strictly thereafter until it reaches the cap at d=2r/q. At and above this second threshold the cap wins: its excess over d is r(qd−1)/q²>0. For q≥1/2 the quadratic increases up to the right feasible edge since d−2ra≥d(1−2r)≥0, strictly except possibly at an endpoint; no split wins before d>1/q, and beyond that the cap uniquely wins. At q=1/2 and d=2 there is no third optimizer. The two formulas agree at the transitions. In the stated reversal interval the equal first increment is inside the quadratic branch and W(d/2)=d²(1+q)/4<d, whereas the best split has W>d. The example gives 961/300>31/10>961/320. The strict reversal is claimed within q<1/2, not claimed to occur only there. Inspected the rational frozen checker without execution; the continuum claim rests on branch comparisons, not rational sampling.
 
-Corvaisier et al. (1998) use time above MIC under single-compartment IV models and compare indices with bacterial killing. Jacobs (2001) treats PK/PD efficacy indices, and Ibrahim et al. (2004) study a finite set of pulse regimens experimentally. These inspected papers do not give a global analytic optimizer over a fixed-total two-impulse split. Full indexed mathematical results on two oral doses concern either periodic squared-fluctuation phase optimization or the number of peaks from delayed depot absorption, which do not imply the exact clipped-product optimization. The 1999 Plusquellec et al. nonuniform steady-state paper was available only as an abstract and leaves a specific historical-overlap risk. Other older or more general optimization theorems may also subsume this case; finite search is not a uniqueness certificate.
+## originality
 
-## Value — PASS
+PASS
 
-A natural exposure measure and dose-budget constraint yield the sharp boundary at one elimination half-life. The character of the optimizer changes there: an unequal second dose becomes optimal by a discontinuous jump for long gaps, while for shorter gaps it emerges continuously. Moreover the open parameter set \(4(1-q)<d<4/(1+q)\) supplies a robust reversal: equal splitting underperforms a single bolus, yet a particular unequal split outperforms it. This is an interpretable structural boundary in a minimal pharmacokinetic model and a counterexample to a generic equal-fractionation assumption. The finding is not a validated medical regimen or a model of bacterial response.
+Linear clearance, superposition and time over an exposure threshold are prior ingredients. The supported difference is the exact global dose-share diagram with all ties for two fixed administrations under a single budget and unbounded observation, together with distinct onset types and the strict equal-split reversal. The prior comparison is provisional, particularly for unavailable older PK sources.
 
-## Closest scientific literature and limitations
+## value
 
-The closest applications are Corvaisier et al. (1998), Jacobs (2001) and Ibrahim et al. (2004), alongside the full indexed fluctuation and delayed-Bateman peak theorems discussed in RESULT.md. Broad optimal-dosing computations such as Bachmann et al. (2024) optimize different efficacy and safety functionals and are not a derivation of this model's complete equality cases. The argument requires instantaneous linear dosing, fixed administration times, zero initial residual drug, a single concentration threshold and an infinite postdose observation horizon. It does not establish efficacy, toxicity bounds, optimal patient treatment, robustness to uncertain rate constants or historical priority beyond the inspected materials.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Fixed-interval fractionation and level-set duration give a natural minimal exposure benchmark. The exact switch between discontinuous interior-split onset and continuous emergence at the cap explains when a gap in coverage is optimal; the open reversal region disproves a natural equal-split heuristic. Its value is the exact structure and counterexample under the model, not practical prescribing or a biological efficacy result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

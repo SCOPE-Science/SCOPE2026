@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:54:40.411026Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§1–5",
+        "Frozen VERIFICATION.md and verify.py (read, not run)",
+        "Replay: python3 /workspace/audit-evidence/frozen_checks.py 3"
+      ],
+      "rationale": "Between distinct fibers a geodesic projects to the unique base-tree path, and any representatives in the intermediate fibers work. Thus on the Steiner hull of occupied fibers, each internal fiber must have a hole, as witnessed by occupied leaves on opposite sides. Conversely those holes suffice. Maximality forces full leaves and exactly one hole per internal fiber, including the case of a width-one empty internal fiber. A neighbor outside the hull at an internal vertex allows a harmless one-vertex extension. If instead every internal vertex has all its tree neighbors in the hull, each external vertex attaches at a leaf, so adding it makes a full leaf fiber block visibility to another leaf. Filling any internal hole also blocks visibility. The full leaf fibers recover the hull and each omission is recoverable, proving the bijection and labeled multiplicities. Empty and single-fiber sets are not maximal in a nontrivial tree; a single base vertex yields its whole clique. On P_n an interval of j+2 fibers has n−j−1 positions, m^j omissions and order 2m+j(m−1). Summation gives the stated totals, and equal-length intervals at consecutive integer starts with length 3/2, then rescaled, represent exactly those graphs. Independently compared distance-preserving deletion tests against the full predicted cardinality counts on six expansions, including branching and width-one internal fibers.",
+      "residual_risks": [
+        "The finite replay is illustrative; the hull proof establishes all widths and trees.",
+        "Gaps between successive supported powers are realized when n≥3; n=2 has only a single supported size."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tree paper Lemma 1 characterizes visible sets as leaves of their Steiner subtree; Theorem 6 characterizes/counts maximum sets for branching trees.",
+          "Brešar–Yero study the minimum cardinality of maximal sets; Bujtás–Klavžar–Tian define the all-sets polynomial and give a maximal-set-based inclusion–exclusion formula."
+        ],
+        "reasoning": "The tree results cover width one and give some of that specialization's information. Neither the lower invariant nor the all-sets polynomial classifies or counts all maximal sets of each size across unequal fiber widths.",
+        "searches": [
+          "arXiv:2601.08270v2 §3",
+          "arXiv:2307.02951 lower (total) mutual visibility",
+          "arXiv:2412.03066 §3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary search and C5 mirror entry",
+        "arXiv:2306.15818",
+        "arXiv:2210.07835",
+        "arXiv:2601.08270v2",
+        "arXiv:2307.02951",
+        "arXiv:2412.03066"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The width-one hull/leaf description is already available for feasibility, with the top layer counted in the tree paper. The visibility-polynomial relation takes the maximal sets as input. The lexicographic-product theorem determines a different scalar."
+        ],
+        "reasoning": "The variable-width theorem also needs the boundary condition at internal hull vertices and the exact choices within each fiber. Those determine labeled counts, and the progression of sizes in the path case, not supplied by the checked implications.",
+        "searches": [
+          "arXiv:2601.08270v2 Lemma 1 and Theorem 6",
+          "arXiv:2412.03066 Proposition 3.5",
+          "arXiv:2306.15818 Theorem 4.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Uniform-width paths can be written P_n∘K_m or P_n⊠K_m. arXiv:2306.15818 Theorem 4.4 and arXiv:2210.07835 Theorem 4.1 concern scalar product invariants via total visibility.",
+          "The Resultary C5 clique-blow-up record identifies ordinary visibility and maximal sets in a different uniform twin expansion."
+        ],
+        "reasoning": "A graph-product or twin-expansion alias does not identify total with ordinary visibility or maximum with the set of all inclusion-maximal sizes. A base cycle is outside the tree hypothesis, where the unique projected geodesic is decisive.",
+        "searches": [
+          "Resultary semantic search for exact maximal visibility in clique/true-twin expansions",
+          "Primary-literature search for tree clique expansions and lexicographic-product mutual visibility"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected precise polynomial match by invariant type is for C5[K_m], with four cyclic structural types; the checked ranked results gave no exact variable-width tree formula."
+        ],
+        "reasoning": "This exact maximal-set polynomial is a close analogue, not the same objects or parameters. Neither its different base nor its different catalogue date is used as evidence about authorship or priority.",
+        "searches": [
+          "Resultary 2026/11/8/SCOPE-exact-visibility-and-facet-polynomials-of-five-cycle-clique-blow--31f5e6c0ef6e",
+          "Resultary search for tree clique/true-twin maximal-set enumerators"
+        ]
+      },
+      "rationale": "The weighted hull classification and exact labeled maximal-set enumerator are distinct from the inspected total-visibility product results, ordinary-tree leaf and maximum-set results, lower visibility numbers and all-visible-set polynomials. Credit both the Steiner criterion and the known width-one maximum layer as prior; the pass is for the variable-width maximal configuration theorem and its refined clique-path consequence.",
+      "residual_risks": [
+        "Bounded search cannot rule out equivalent formulations in graph substitution or facet-polynomial work.",
+        "The frozen prior-work account should be read with the additional width-one maximum-layer overlap noted here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Nearby scalar total-visibility result",
+          "evidence": "Gives μ_t(G∘H)=n(G)(n(H)−1)+μ_t(G) under the stated connectivity and domination conditions.",
+          "identifier_or_url": "https://arxiv.org/abs/2306.15818",
+          "material_read": "§4, Theorem 4.4, p. 10, offset 21300",
+          "method": "OA PDF passage inspection",
+          "title": "Total mutual-visibility in graphs with emphasis on lexicographic and Cartesian products",
+          "trigger": "Alternative product formulation of the uniform clique paths"
+        },
+        {
+          "assessment": "Product-number bounds, not the maximal-set census",
+          "evidence": "Uses total visibility in bounds for the ordinary product number.",
+          "identifier_or_url": "https://arxiv.org/abs/2210.07835",
+          "material_read": "Theorem 4.1, p. 7, offset 19728 and nearby product results",
+          "method": "OA PDF passage inspection",
+          "title": "Mutual-visibility in strong products of graphs via total mutual-visibility",
+          "trigger": "Alternative strong-product formulation"
+        },
+        {
+          "assessment": "Prior tree feasibility and maximum-set layer",
+          "evidence": "Visible sets are leaves of their Steiner hull; maximum-cardinality branching-tree sets choose one vertex per leaf leg, giving a product count.",
+          "identifier_or_url": "https://arxiv.org/abs/2601.08270v2",
+          "material_read": "§3 Lemma 1, pp. 2–3, offsets 9200–11392; Theorem 6 and proof, pp. 4–5, offsets 14140 and 17180",
+          "method": "OA PDF passage inspection",
+          "title": "Mutual-Visibility of Tree and Its Line Graphs",
+          "trigger": "Direct width-one overlap"
+        },
+        {
+          "assessment": "Studies only the bottom invariant in the inspected statement",
+          "evidence": "Defines lower visibility by minimizing sizes of inclusion-maximal sets.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.02951",
+          "material_read": "Abstract p. 1, offset 0",
+          "method": "OA PDF passage inspection",
+          "title": "Lower (total) mutual-visibility number in graphs",
+          "trigger": "Inclusion-maximality and possible prior size information"
+        },
+        {
+          "assessment": "General related formalism, not the tree-expansion formula",
+          "evidence": "The polynomial counts all visible sets; Proposition 3.5 uses maximal sets in inclusion–exclusion.",
+          "identifier_or_url": "https://arxiv.org/abs/2412.03066",
+          "material_read": "§3 Definition 3.1, p. 6, offset 16500; Proposition 3.5, p. 8, offset 22350",
+          "method": "OA PDF passage inspection",
+          "title": "Visibility polynomials, dual visibility spectrum, and characterization of total mutual-visibility sets",
+          "trigger": "Close polynomial formalism involving maximal sets"
+        },
+        {
+          "assessment": "Close cyclic analogue, not tree coverage",
+          "evidence": "Four cyclic maximal-set types in the uniform expansion C5[K_m] give a distinct polynomial.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-visibility-and-facet-polynomials-of-five-cycle-clique-blow--31f5e6c0ef6e",
+          "material_read": "RESULT.md, offset 300, main finding",
+          "method": "Local catalogue mirror passage inspection",
+          "title": "Exact visibility and facet polynomials of five-cycle clique blow-ups",
+          "trigger": "Exact scoped polynomial for a true-twin expansion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, equations (1)–(4) and Proof §§3–5",
+        "arXiv:2307.02951 lower-invariant comparison"
+      ],
+      "rationale": "The hull bijection isolates exactly how maximality interacts with full fibers and exterior branches, rather than only reproducing a visibility extremum. It gives full-size multiplicities even with unequal widths, and the path specialization gives unbounded gaps between consecutive attainable sizes in a connected and familiar graph class (unit interval graphs, n≥3).",
+      "residual_risks": [
+        "This is not a general algorithm for counting such subtrees in arbitrary graphs, nor a claim for nonclique fibers."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

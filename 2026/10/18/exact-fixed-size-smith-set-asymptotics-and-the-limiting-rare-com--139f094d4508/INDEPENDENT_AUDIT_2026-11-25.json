@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:09:12.165095Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent continuous uniform scores generate the specified independent voter permutations. Strong components of a tournament have uniformly oriented cross-edges and their condensation is a totally ordered tournament. Hence a fixed s-subset is the Smith set exactly if its own tournament is strongly connected and it beats every outsider. Conditional on its scores x, each outsider is forbidden by the union of the majority cylinder boxes with volume b(x), independently of other outsiders. The exact probability is therefore binom(n,s) times the integral of H(x)(1−b(x))^(n−s). At x=n^(−1/ℓ)y group the cylinders by their ℓ-coordinate voter subsets. The union within a group has volume n^−1 V_J(y) exactly; an intersection across distinct groups constrains at least ℓ+1 coordinates and contributes O(n^(−1−1/ℓ)) uniformly on bounded y. This yields the limiting kernel H(y) exp(−Φ(y)). For the global bound, b is at least the average of its s binom(m,ℓ) cylinder volumes, so the scaled kernels extended by zero are bounded by a product of e^(−a σ_ℓ(y_i)) with a>0 for n≥2s. To check integrability, order a row, let t be its ℓth-largest coordinate, and write the larger coordinates as t u_i with u_i≥1. The smaller coordinates contribute a factor proportional to t^(m−ℓ), and σ_ℓ is at least t^ℓ∏u_i. Integrating t then bounds the row integral by a finite constant times ∏∫₁^∞u^(−m/ℓ)du since m>ℓ. Dominated convergence gives L¹ convergence of scaled kernels. The binomial asymptotic and the score Jacobian give factor 1/s! and exponent ms/ℓ−s=s(ℓ−1)/ℓ. Positivity follows from three cyclic orders of three nonempty blocks (the directed inter-block cycle makes the whole tournament strongly connected), with the extra voters in opposite pairs; this gives an open positive-volume set of scores. Exchangeability for the increasing-label lists contributes the same binomial factor in the unnormalized conditional density, so normalizing cancels it and yields the stated TV convergence. The proof requires fixed ℓ,s, and the conditional law uses the specified score representation. The frozen finite-profile and rational overlap checks were inspected but not run; they do not prove either limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Berchenko–Liu use the same fixed odd voter count and uniform independent rankings; their fixed-s≥3 theorem gives a Θ(n^−s(ℓ−1)/ℓ) result with explicit bounds, not an equivalent. Their growing-size results do not give the fixed-size limit.",
+          "Sauermann’s sharp theorem has one candidate, with coefficient the integral of e^(−σ_ℓ); its kernel and mass convergence also give TV for s=1 by Scheffé’s lemma."
+        ],
+        "reasoning": "The one-candidate result is an exact boundary case, not a theorem on internally strongly connected cores of arbitrary fixed size. Bounds on the multi-candidate event do not identify an integral constant or a limiting density.",
+        "searches": [
+          "arXiv:2610.03814v1, §1.3 Theorems 1.3–1.4 and §2.2 equation (2.9)",
+          "arXiv:2203.13713v1, Theorem 1 and §2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verification.py (inspection only)",
+        "arXiv:2610.03814v1",
+        "arXiv:2203.13713v1",
+        "arXiv:2503.10990v2",
+        "Resultary 32089727d658"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The former supplies the correct scaling with explicit upper and lower bounds; the latter supplies the exact scaled kernel for one candidate.",
+          "For multiple candidates it matters that same-voter-subset cylinder overlaps survive at order n^−1, whereas intersections across distinct voter subsets disappear at that order. H restricts the limiting law to the strongly connected ranking cones."
+        ],
+        "reasoning": "The one-candidate kernel cannot be multiplied across candidates: all face the same outside alternatives, and within-subset cylinder volumes are unions, not sums. The exact overlap term and L¹ control for this joint kernel go beyond the inspected order and singleton results; once that kernel convergence is proved, TV is a normalization consequence, not a separate priority claim.",
+        "searches": [
+          "arXiv:2610.03814v1, proof in §2.2; arXiv:2203.13713v1, proof in §2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Liu et al.’s Condorcet winning set is the first set of their ordered decomposition; in a strict majority tournament it is the top strongly connected component, hence the Smith set.",
+          "Their conclusion conjectures the fixed-size power-law behavior under impartial culture, not the leading coefficient or conditional geometry."
+        ],
+        "reasoning": "The alternate name identifies the same event for odd voters but not an equivalent sharp statement. A Condorcet winner alone instead means s=1 and does not impose the strong-connectivity constraints or union-volume interactions of the claimed multi-candidate core.",
+        "searches": [
+          "Resultary: fixed-size Smith set, top strongly connected component, exact leading integral and conditional score law under impartial culture",
+          "arXiv:2503.10990v2, Theorem 3.5, Assumption 2.9 and conclusion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest catalogue match read is an exact finite-size Condorcet-winner result and a contamination crossover for three voters with a mixture of cyclic-rotation and uniform rankings.",
+          "Liu et al.’s Figure 2 concerns the one-candidate decay and Table 3 is a finite payoff-matrix example. No exact indexed coefficient or TV law for fixed s≥3 was identified in the searches."
+        ],
+        "reasoning": "Neither an exact formula for s=1 under a different ranking model nor a finite table or plot identifies the full asymptotic here. A no-match or unrelated search response is not evidence that no other calculation exists.",
+        "searches": [
+          "Resultary: exact sharp asymptotic for Smith-set size and limiting score matrix",
+          "Resultary 32089727d658; arXiv:2503.10990v2, Figure 2 and Table 3"
+        ]
+      },
+      "rationale": "The supported increment is the exact fixed-s≥3 union-volume coefficient and the TV law for all rescaled scores of the rare core. The exponent and the basic score/conditional-independence representation are prior, and the exact one-candidate equivalent (with a TV deduction) is already covered. None of the inspected stronger-looking statements gives this multi-candidate law.",
+      "residual_risks": [
+        "An equivalent statement on top components under another name could have escaped the bounded searches. No exhaustive priority certification is inferred.",
+        "The exact limiting integral is not an elementary closed form; no uniformity in growing size or voter count or convergence rate was audited or claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes the exact order for the same size event and relevant proof framework, not the sharp limit or conditional TV law.",
+          "evidence": [
+            "Theorem 1.4 is a Θ statement; equation (2.9) gives an explicit lower bound used with the upper bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.03814v1",
+          "material_read": "§1.3 Theorems 1.3–1.4 (offset about 9000); §2.2 equation (2.9) and surrounding proof (offsets about 29150–35646)",
+          "method": "OA bounded full-text passages",
+          "title": "On the Cardinality of the Smith Set Under Impartial Culture with Many Alternatives",
+          "trigger": "Direct overlap in model, object, fixed parameters and exponent"
+        },
+        {
+          "assessment": "Exact singleton antecedent whose kernel also implies singleton TV; different claimed core size.",
+          "evidence": [
+            "The coefficient is ∫e^(−σ_ℓ) on the score orthant, the present V_J formula with one row and H=1."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2203.13713v1",
+          "material_read": "Theorem 1 (offset about 6680); §2 exact score kernel and asymptotic argument (offsets about 23000, 28986)",
+          "method": "OA bounded full-text passages",
+          "title": "On the probability of a Condorcet winner among a large number of alternatives",
+          "trigger": "Exact integral for the corresponding singleton event"
+        },
+        {
+          "assessment": "Identifies the alternative object and conjectural fixed-size scale without an exact multi-candidate coefficient or score law.",
+          "evidence": [
+            "The first set of the decomposition is called the Condorcet winning set; the conclusion proposes the fixed-size decay rate."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2503.10990v2",
+          "material_read": "Assumption 2.9, Theorem 3.5 (offset about 59200), conclusion (offset about 87000), Figure 2 and Table 3",
+          "method": "OA bounded full-text passages",
+          "title": "Statistical Impossibility and Possibility of Aligning LLMs with Human Preferences: From Condorcet Paradox to Nash Equilibrium",
+          "trigger": "The same random top component under an alternative name"
+        },
+        {
+          "assessment": "Distinct model and singleton event.",
+          "evidence": [
+            "The result uses three voters and a mixture of cyclic-rotation and uniform rankings, and computes Condorcet-winner probability and a contamination crossover."
+          ],
+          "identifier_or_url": "Resultary 32089727d658",
+          "material_read": "RESULT.md Finding and scope, local mirror from offset 0",
+          "method": "Local mirror original statement",
+          "title": "A fourth-root contamination boundary for the extremal Condorcet winner",
+          "trigger": "Closest nearby voting-asymptotics catalogue result found"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a rare event in a standard voting model, the order theorem left the coefficient and the law of the conditioning event’s score geometry unresolved. The shared-outside-alternative union volumes distinguish the law from a product of one-candidate laws, and TV convergence controls bounded measurable features of this fixed-size core, not just its occurrence rate. This is a concrete probabilistic improvement within the fixed-parameter regime.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

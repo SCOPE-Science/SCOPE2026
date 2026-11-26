@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:21:51.477153Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The squared geometric coordinates sum to one, and summing the positive adjacent-coordinate products against the weights gives the claimed F. Independently, with b=(1,sq,q²,tq³), each monomial b_i z^i contributes b_i z^i[(2i+1)−(2i+3)z+q⁴z⁴((7−2i)+(2i−5)z)] to the cleared derivative; this gives all nine G coefficients and its endpoint signs. For G coefficients g_j in ascending order, the transformed coefficients are c_k=sum_{j≤k} binom(8−j,k−j)g_j. Independent symbolic expansion (python /workspace/review_checks.py, check 3) matches the entire printed list and all three differences. The differences are strictly negative using u²,u³≤u and x,v>0; therefore once c_3 through c_6 are nonpositive no positive coefficient can follow. The first three are positive and the last two negative. Descartes counts multiplicities and the Möbius substitution preserves them at positive y, so the sign change together with the opposite endpoint signs gives exactly one simple root. Termwise differentiation of the locally uniformly convergent positive series proves positivity up through 1/3 (at equality, all terms except n=0 give positive derivatives). This places the unique critical point strictly after 1/3; its change from positive to negative derivative yields the global maximum, and simplicity gives real-analytic parameter dependence locally, with branches agreeing by uniqueness. No assertion about boundary q=1 or about norming vectors for the true numerical radius is inferred.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier Resultary allocation result minimizes the actual numerical radius with s+t fixed; the Airy law gives the actual radius asymptotically at fixed s,t as q tends to one."
+        ],
+        "reasoning": "Even an exact unrestricted supremum of the Rayleigh quotient does not give a stationarity count on a prescribed one-dimensional family. Neither the allocation transition nor the limiting true radius contains that count.",
+        "searches": [
+          "arXiv:2608.17486 §3 exact entire-function numerical-radius characterization",
+          "Resultary e1e34ea2e0ab and cffc9a187d0d, Findings"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.17486",
+        "doi:10.1016/j.jmaa.2024.129021 (abstract and secondary comparison)",
+        "doi:10.13001/1081-3810.1293",
+        "e1e34ea2e0ab",
+        "cffc9a187d0d",
+        "758843895f92"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 2.5 requires q<s,t<1/q. The source's lower exclusion does not count roots past 1/3. The earlier alternating weights correspond to s=t, and classical pure geometry to s=t=1."
+        ],
+        "reasoning": "Reparametrizing the diagonal or applying uniqueness on the source's strict parameter box does not allow two independent arbitrary positive modulations. The frozen coefficient argument removes rather than renames this restriction.",
+        "searches": [
+          "arXiv:2608.17486 Theorems 2.5 and 2.12, s=t discussion",
+          "Chien–Nakazato Theorem 2.1; Chakraborty–Ojha alternating geometric weights"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The coefficients in the primary PDF Eq. (2.2) agree term-by-term with the frozen G. Open Question 1 asks uniqueness on (1/3,1) for 0<q<1, s,t>0."
+        ],
+        "reasoning": "The derivative of exactly the lower-bound variational profile is a positive factor times that polynomial. The preceding lower exclusion in the source explains the equivalence of the relevant root-count interval to (0,1); simplicity is additionally proved for the frozen claim.",
+        "searches": [
+          "arXiv:2608.17486 Eq. (2.2) and Open Question 1",
+          "Resultary: four-periodic geometric test-vector weighted-shift unique maximizer and degree-eight stationarity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nov. 1 record 758843895f92 §Proof Step 1 gives the same all-positive-parameter Descartes certificate. Its reference 3 explicitly identifies the frozen claim by matching run identifier and credits it for full-parameter uniqueness."
+        ],
+        "reasoning": "This is exact mathematical overlap, not a numerical sample. The explicit citation, rather than a date assumption, distinguishes a dependent later use of this claim from earlier independent coverage.",
+        "searches": [
+          "Resultary: geometric trial-vector optimizer and sharp modulation-response transition for four-periodic weights"
+        ]
+      },
+      "rationale": "The checked source poses this exact stationarity-root question outside its restricted regimes. The checked older same-shift results optimize a different invariant. The later modulation-response result reproduces the uniqueness proof and explicitly credits this exact frozen claim rather than being an earlier independent source of it. The supported distinct claim is unrestricted simple uniqueness and its maximizing-parameter consequence for the geometric profile, not the profile formula, lower exclusion bound, or actual numerical radius.",
+      "residual_risks": [
+        "The 2025 article's primary full text was not available; the accessible scope and parent description establish specialization but cannot exclude an uninspected general lemma.",
+        "Unindexed work or a later revision of the initiating paper could contain an independent proof; checked statements do not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT OPEN QUESTION, WITH RESTRICTED PRIOR UNIQUENESS",
+          "evidence": [
+            "Eq. (2.2) matches G; p. 10 asks the same root uniqueness on (1/3,1)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2608.17486",
+          "material_read": "Eq. (2.2), pp. 5–6; §2 diagonal case, p. 7; Theorem 2.12 and Open Question 1, p. 10; §3 opening",
+          "method": "Primary OA PDF",
+          "title": "On the numerical radius of a class of weighted shift operators",
+          "trigger": "Identical shift and open question"
+        },
+        {
+          "assessment": "KNOWN DIAGONAL SPECIALIZATION; FULL TEXT UNRESOLVED",
+          "evidence": [
+            "Parent §2 cites unique root of its associated polynomial for t=s."
+          ],
+          "identifier_or_url": "doi:10.1016/j.jmaa.2024.129021",
+          "material_read": "Abstract and description in the parent paper following (2.4); full text unavailable",
+          "method": "Lawful access attempt and primary-parent comparison",
+          "title": "On the numerical radius of weighted shift operators with generalized geometric weights",
+          "trigger": "Earlier closely related shifts"
+        },
+        {
+          "assessment": "PURE GEOMETRIC SPECIALIZATION",
+          "evidence": [
+            "Uses weights q^(n−1), without independent modulations."
+          ],
+          "identifier_or_url": "doi:10.13001/1081-3810.1293",
+          "material_read": "Theorem 2.1 and surrounding geometric test-vector calculation, PDF pp. 2–3",
+          "method": "OA PDF",
+          "title": "The numerical radius of a weighted shift operator with geometric weights",
+          "trigger": "Classical geometric lower bound"
+        },
+        {
+          "assessment": "DISTINCT CONSTRAINED PROBLEM",
+          "evidence": [
+            "Allocation under s+t=c for the true numerical radius."
+          ],
+          "identifier_or_url": "e1e34ea2e0ab",
+          "material_read": "Finding",
+          "method": "Local published mirror",
+          "title": "Exact allocation transition for a geometric four-periodic weighted shift",
+          "trigger": "Identical operator family"
+        },
+        {
+          "assessment": "DISTINCT ASYMPTOTIC INVARIANT",
+          "evidence": [
+            "Airy correction to the actual radius, not the trial-vector polynomial."
+          ],
+          "identifier_or_url": "cffc9a187d0d",
+          "material_read": "Finding",
+          "method": "Local published mirror",
+          "title": "A sharp Airy-edge law for four-periodic geometric weighted shifts",
+          "trigger": "Identical operator family"
+        },
+        {
+          "assessment": "EXACT DEPENDENT OVERLAP WITH ATTRIBUTION TO FROZEN CLAIM",
+          "evidence": [
+            "Reprints the transformed coefficients; reference 3 credits this exact prior uniqueness claim. Its distinct theorem varies the modulations to study the response of the root."
+          ],
+          "identifier_or_url": "758843895f92",
+          "material_read": "Finding, Proof Step 1, Relationship to prior work and reference 3",
+          "method": "Local published mirror, including text offsets 2410–2799 and 7290–end for decisive passages",
+          "title": "A sharp modulation-response transition for four-periodic geometric weighted shifts",
+          "trigger": "Same stationary optimizer and uniqueness proof"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "It answers a specific published unrestricted open question for a natural weighted-shift test-vector family. The branch is uniquely selectable and simple throughout the admissible open region, making optimizations and sensitivity analysis unambiguous, without claiming global numerical conditioning or an exact operator-radius formula.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

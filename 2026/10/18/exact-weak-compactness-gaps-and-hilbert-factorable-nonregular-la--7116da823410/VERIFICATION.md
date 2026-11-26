@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,4 +21,4 @@
 
 # Verification and limits
 
-The Boolean-matrix gap is verified algebraically by the midpoint rank-one operator, a continuous threshold map, weak sequential continuity of nonlinear composition on uniformly bounded subsets of C(K), Eberlein--Smulian, and Krein convex compactness. For the injective-graph example, the column support formulas, disjointness, and explicit norm-controlled maps U and V give a complete Hilbert factorization. Distinct supports certify noncompactness; the infinite half-graph certifies failure of weak compactness in the comparison language. No finite computation is used as proof. The flat approximation-number profile is cited from arXiv:2608.15185v1. The exact novelty priority, including potential earlier WAP/idempotent formulations, has not been independently determined.
+The Hilbert factorization is verified by enumerating all possible prefix types, checking disjointness of the supports in each family, and checking the bounds on the two factor maps. Noncompactness is witnessed by a sequence of pairwise separated columns in the full space. The order-language comparison uses an infinite half-graph and its weak-limit obstruction, together with the rank-one midpoint upper bound. The approximation-number profile is cited from arXiv:2608.15185v1, Section 8. No finite computation is used as proof.

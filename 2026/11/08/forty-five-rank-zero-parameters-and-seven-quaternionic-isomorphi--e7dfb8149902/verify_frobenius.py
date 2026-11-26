@@ -1,123 +1,40 @@
-#!/usr/bin/env python3
-"""Independent exact polynomial-ring verification in characteristic 11.
-Computes the Frobenius-twisted Hasse-Witt product and exceptional locus.
-Pure Python 3, standard library only.
-"""
-P=11
+from itertools import combinations
+from sympy import Matrix, Poly, expand, invert, symbols
 
-def trim(a):
-    a=[v%P for v in a]
-    while a and a[-1]==0:a.pop()
-    return tuple(a)
-
-def add(a,b):
-    c=[0]*max(len(a),len(b))
-    for i,x in enumerate(a):c[i]+=x
-    for i,x in enumerate(b):c[i]+=x
-    return trim(c)
-
-def neg(a):return trim([-v for v in a])
-def sub(a,b):return add(a,neg(b))
-def mul(a,b):
-    if not a or not b:return ()
-    c=[0]*(len(a)+len(b)-1)
-    for i,x in enumerate(a):
-        for j,y in enumerate(b):c[i+j]+=x*y
-    return trim(c)
-
-def scale(a,k):return trim([k*v for v in a])
-def power(a,n):
-    z=(1,)
-    while n:
-        if n&1:z=mul(z,a)
-        a=mul(a,a); n//=2
-    return z
-
-def divmodp(A,B):
-    A=list(A)
-    if not B:raise ZeroDivisionError
-    Q=[0]*max(0,len(A)-len(B)+1)
-    inv=pow(B[-1],P-2,P)
-    while len(A)>=len(B):
-        k=len(A)-len(B); c=A[-1]*inv%P;Q[k]=c
-        for i,v in enumerate(B):A[k+i]=(A[k+i]-c*v)%P
-        while A and A[-1]==0:A.pop()
-    return trim(Q),trim(A)
-
-def rem(A,B):return divmodp(A,B)[1]
-def gcd(A,B):
-    while B:A,B=B,rem(A,B)
-    return scale(A,pow(A[-1],P-2,P)) if A else ()
-def val(A,x):
-    out=0
-    for z in reversed(A):out=(out*x+z)%P
-    return out
-
-def matmul(A,B):
-    return [[sum_polys(mul(A[i][k],B[k][j]) for k in range(4)) for j in range(4)] for i in range(4)]
-def sum_polys(t):
-    z=()
-    for u in t:z=add(z,u)
-    return z
-
-def derivative(A):return trim([i*v for i,v in enumerate(A)][1:])
-
-def extended_inverse(A,M):
-    r0,r1=M,rem(A,M)
-    t0,t1=(),(1,)
-    while r1:
-        q,r2=divmodp(r0,r1)
-        r0,r1=r1,r2
-        t0,t1=t1,sub(t0,mul(q,t1))
-    assert len(r0)==1
-    return rem(scale(t0,pow(r0[0],P-2,P)),M)
-
-def modular_composition(poly,z,M):
-    out=()
-    for c in reversed(poly):out=rem(add(mul(out,z),(c,)),M)
-    return out
-
-x=(0,1);zero=();one=(1,)
-A=power(x,2)
-B=scale(x,-5)
-C=add((1,),add(scale(power(x,2),-5),scale(power(x,4),-3)))
-D=add(scale(x,2),add(power(x,3),scale(power(x,5),5)))
-M=[[zero,A,zero,B],[C,zero,D,zero],[zero,neg(D),zero,neg(C)],[neg(B),zero,neg(A),zero]]
-assert sub(mul(A,C),mul(B,D))==(), 'Rank-one block relation'
-F=[[trim(sum_polys([tuple([0]*(11*k)+[c]) for k,c in enumerate(e) if c])) for e in row] for row in M]
-N=matmul(M,F)
-G=trim([0,-4]+[0]*9+[1]+[0]*11+[-2]+[0]*21+[1])
-assert len(G)==46, len(G)
-T=[[zero]*4 for _ in range(4)]
-T[0][0]=scale(x,-3)
-T[0][2]=scale(power(x,12),5)
-T[1][1]=add(power(x,11), add(scale(power(x,13),-5),scale(power(x,15),-3)))
-T[1][3]=add((-5,),add(scale(power(x,2),3),scale(power(x,4),4)))
-T[2][0]=T[1][3]
-T[2][2]=T[1][1]
-T[3][1]=T[0][2]
-T[3][3]=T[0][0]
-for i in range(4):
-    for j in range(4):
-        assert N[i][j]==mul(G,T[i][j]),('Frobenius identity',i,j)
-# Both diagonal 2x2 blocks of T have zero determinant.
-assert sub(mul(T[0][0],T[2][2]),mul(T[0][2],T[2][0]))==()
-assert sub(mul(T[1][1],T[3][3]),mul(T[1][3],T[3][1]))==()
-# For every a: each block has rank >=1, since at a=0 each has a
-# nonzero -5 entry, and for a!=0 a -3a entry. Therefore rank(T)=2.
-assert gcd(G,derivative(G))==(1,)
-assert (val(G,2),val(G,-2))==(10,1)
-extra=add(power(x,2),(12,))  # enhanced SL2(F3) points
-assert gcd(G,extra)==(1,)
-enhanced=mul(x,sub(power(x,2),(36,)))
-assert gcd(G,enhanced)==scale(enhanced,pow(enhanced[-1],P-2,P))
-# Published isomorphisms identify a with -a and two Mobius expressions.
-# Verify explicitly that each of the six images preserves the zero set of G.
-for sign in (+1,-1):
-    for numerator,denominator in [ (x,one), (add(scale(x,2),(-12,)),add(x,(2,))), (add(scale(x,2),(12,)),sub(x,(2,))) ]:
-        z=rem(mul(scale(numerator,sign),extended_inverse(denominator,G)),G)
-        assert modular_composition(G,z,G)==(), ('orbit invariance',sign,numerator)
-print('FROBENIUS_PRODUCT_OK degree',len(G)-1)
-print('SQUAREFREE_ROOTS_OK count=45 excluded=+/-2')
-print('RANK_STRATA_OK rank_zero=45 generic_rank=2 a_number=2')
-print('AUT_ORBITS_OK exact_Q8_rank_zero=42 coefficient_parameters / 6 = 7 classes, extended=1 class')
+a, x = symbols('a x')
+p = 11
+pol = lambda z: Poly(z, a, modulus=p)
+check = lambda X, Y: all(pol(e).is_zero for e in X-Y)
+f = x**9+a*x**7-a*x**3-x
+cf = Poly(expand(f**5), x)
+M = Matrix(4,4,lambda i,j: pol(cf.nth(p*(i+1)-(j+1))).as_expr())
+C = 1-5*a**2-3*a**4
+J = pol(a**15-2*a**13-4*a**11+a)
+u,v = Matrix([6*a,-C]), Matrix([C,-6*a])
+r,s = Matrix([[2*a,1]]), Matrix([[1,2*a]])
+P,Q = u*r,v*s
+I = [0,2,1,3]
+Z = Matrix.zeros(2)
+assert check(M.extract(I,I), Z.row_join(P).col_join(Q.row_join(Z)))
+tw = lambda A: A.subs(a,a**p)
+raw = tw(M)*M
+want = (tw(u)*s).row_join(Z).col_join(Z.row_join(-tw(v)*r))*5*J.as_expr()
+assert check(raw.extract(I,I),want)
+assert J.degree()==15 and J.gcd(J.diff()).is_one
+assert (J.eval(2),J.eval(-2))==(-1,1)
+E=pol(a*(a*a-36))
+assert J.gcd(pol(a*a+12)).is_one and J.gcd(E)==E
+transforms = [(pol(sign*nn),pol(dd)) for sign in (1,-1)
+              for nn,dd in ((a,1),(2*a-12,a+2),(2*a+12,a-2))]
+for n,d in transforms:
+    z=n*invert(d,J)%J
+    assert (J.compose(z)%J).is_zero
+for (n,d),(m,e) in combinations(transforms,2):
+    assert (n*e-m*d).gcd(J.exquo(E)).is_one
+assert {int(n.eval(0))*pow(int(d.eval(0)),-1,p)%p for n,d in transforms}=={0,5,6}
+# Compare to the polynomial from the reversed product in the earlier calculation.
+G=pol(a**45-2*a**23+a**11-4*a)
+q=pol(a**4+3*a**2-3)
+assert (G%q).is_zero and J%q==pol(2*a) and q.gcd(pol(a*a-4)).is_one
+assert J.gcd(G)==E
+print('VERIFIED: rank-zero locus of degree 15, 12 exact Q8 parameters in two classes, and three enhanced parameters in one class')

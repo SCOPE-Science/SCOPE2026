@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:07:44.599174Z",
+  "axes": {
+    "correctness": {
+      "limitations": "The coefficient and minimal degree refer to the specified coordinate, common central probability, and same-observable lag-one covariance, not all mixed correlations or all pairs with identical periodic orbits. Equal pressure concerns single-state continuous potentials. Bounded orbit and integral checks are not proofs of universal-in-x or universal-in-n assertions.",
+      "rationale": "The outer bands agree and are forward invariant; the central bands exchange, with both squares f on K and rfr on R. The odd orbit points differ by a shifted f-sequence, leaving precisely one signed pair of atoms in the empirical-measure difference. Kantorovich–Rubinstein duality then gives the atom displacement divided by n. The 3^m full affine branches of the iterate have equal lengths, so extremal displacement is maximized at a mesh vertex and the first non-endpoint vertex realizes 1/4−3^(−m)/4; m=0 gives zero. Integrating uniform orbit-sum discrepancy against an invariant law, then applying the pushforward and taking the Cesàro limit, identifies both invariant simplices. Entropy of the common square gives equality of individual measure entropies and hence of all the variational pressure and maximizing sets. The three equal-magnitude branches preserve normalized Lebesgue on K, and reflection exchanges the halves. In centered coordinates around 1/2 write the even/odd parts of q as A+Cz² and Bz+Dz³, where C=a2+3a3/2 and D=a3. In the lag-one difference the terms other than CD cancel by reflection about the midpoint of K and the equidistribution of y and f(y). For d=1/8, standardized coordinates h=(y−3/8)/d and H=(f(y)−3/8)/d, the remaining term is −2d^5 CD E[h³H−hH³]. Exact integration gives E[h³H−hH³]=32/405, producing the stated coefficient and cubic witness. The maps are nonconjugate: an endpoint-reversing conjugacy is excluded by A(1)=0 and B(0)=3/4; an increasing one must map the second turning point to the second, forcing the fixed point 1/2 to map to the nonfixed point 1/4. The period-orbit sets also agree: central periodic orbits other than the shared midpoint have even periods and the shifted odd sequences have the same underlying atoms.",
+      "replay_paths": [
+        "/workspace/reproductions/4.js (exact centered-coordinate integration)",
+        "Frozen verify.py and VERIFICATION.md (inspected, not executed)"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary pair is treated in a general reflection construction, which already supplies the orbit formulas.",
+          "Entropy scaling and the variational principle give the thermodynamic equality from the orbit-sum bound and equal squares.",
+          "The earlier catalogue example computes a different correlation invariant for different branches; its results do not give the two-point integral for this specific f."
+        ],
+        "reasoning": "Separate the covered or immediate structural and thermodynamic consequences from the sharp finite-time full-branch maximum and exact polynomial covariance cancellation. No inspected result with broader hypotheses supplied the covariance separation or its coefficient here.",
+        "searches": [
+          "Primary literature query on interval maps with the same periodic orbits and common square, invariant measures, pressure and correlations",
+          "arXiv:2610.07435v1 §5 and Theorem B"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.07435v1, §5 and Theorem B",
+        "Resultary 2158555bdbfa"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior iterate formulas telescope and directly give at most one displaced atom; the bound implies equality of invariant laws and pressure with the common square.",
+          "The sharp constant additionally uses the branch mesh to optimize displacement; minimal degree uses different mixed centered moments E[h³H] and E[hH³]. These are not determined by the common square or periodic-orbit information alone."
+        ],
+        "reasoning": "The earlier construction substantially covers the mechanism; the actual additional calculation gives an explicit and nonzero separator despite exact thermodynamic equality. The overlapping prior three-time result does not imply it.",
+        "searches": [
+          "arXiv:2610.07435v1 §5 Example 5.1 p. 21 and Example 5.2 pp. 21–22",
+          "Resultary 2158555bdbfa, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Example 5.1 supplies the even/odd reflection-pair formulas; Example 5.2 extends the pair while keeping the outer forward dynamics common.",
+          "Resultary 2158555bdbfa distinguishes four-branch maps by cubic three-time correlation, not the autocovariance of a degree-three observable at lag one."
+        ],
+        "reasoning": "Comparisons were made after translating empirical Wasserstein distance to the displaced-atom size and separating polynomial degree from the number of time factors. The structural construction is covered, but the lag-one covariance polynomial is not an alternative wording of that three-time result.",
+        "searches": [
+          "Resultary: common-square nonconjugate interval map occupation measure Wasserstein pressure cubic autocorrelation",
+          "arXiv:2610.07435v1 §5 Examples 5.1–5.2 and Figure 6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected earlier catalogue result agrees for linear and centered-square autocorrelation sequences but distinguishes two different four-branch maps by a three-time statistic.",
+          "The primary example does not tabulate the present lag-one polynomial coefficient."
+        ],
+        "reasoning": "No inspected indexed computation gives the same statistic, pair and invariant law. The unsuccessful targeted literature search and catalogue ranking do not establish priority.",
+        "searches": [
+          "Resultary: same periodic orbit sets common square with exact W1 and cubic correlation separator",
+          "Resultary 2026/10/18 2158555bdbfa, RESULT.md"
+        ]
+      },
+      "rationale": "Credit the maps, common square, periodic-orbit construction, common even iterates and shifted odd iterates to Fuhrmann–Gröger–Passeggi. The signed empirical difference, invariant-simplex equality and pressure equality are direct consequences once the orbit formulas are used; do not count them as independent novelty. The supported additional content is the sharp full-branch finite-time extremum and, particularly, the exact minimal-degree separator for the lag-one covariance on the same thermodynamic pair.",
+      "residual_risks": [
+        "The finite-time refinement is a short deduction from the known orbit coupling and full-branch mesh and could have appeared independently.",
+        "No exhaustive priority claim: a prior calculation of the exact same two-time polynomial functional may be unindexed. The earlier catalogue comparison is substantive but not equivalent."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Construction and orbit formulas covered; numerical statements concern the record's specified full-branch specialization",
+          "evidence": [
+            "Example 5.1 gives the shifted odd iterates; Example 5.2 treats the common outer bands and equal periodic orbits."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.07435v1",
+          "material_read": "§5 Examples 5.1 and 5.2, pp. 21–22, near offsets 79536 and 82117; construction and connection to Figure 6",
+          "method": "Lawful OA PDF passage read",
+          "title": "Period spectrum and rigidity of interval maps",
+          "trigger": "Exact underlying reflection pair and iterate formulas"
+        },
+        {
+          "assessment": "Related but different maps and a different multi-time statistic",
+          "evidence": [
+            "Agreement of linear and centered-square correlation sequences at all lags; difference in cubic three-time correlations."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-exact-third-order-correlations-distinguish-full-branch-interval--2158555bdbfa",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary local mirror bounded read",
+          "title": "Exact third-order correlations distinguish full-branch interval maps",
+          "trigger": "Earlier conceptually close exact low-degree agreement and cubic detection"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This prior pair provides a natural test of whether coincidence of periodic and thermodynamic data constrains time correlations. The exact covariance difference identifies the least polynomial degree on a natural invariant probability that distinguishes the maps, not merely a chosen pointwise discrepancy. The sharp W1 constant independently quantifies the maximal finite-time effect of the shifted orbit sampling.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

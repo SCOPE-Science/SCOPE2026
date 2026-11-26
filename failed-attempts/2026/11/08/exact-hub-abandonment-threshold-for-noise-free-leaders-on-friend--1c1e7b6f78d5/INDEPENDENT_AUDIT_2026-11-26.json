@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:22:07.599048Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With a grounded hub the two-follower petal has inverse trace 4/3 and the one-follower petal 1/2; exchanging one full and one untouched petal for two singly selected petals decreases the trace by 1/3. With a free hub, eliminating the outer blocks gives hub Schur complement (3/2)t_1+2t_2, where t_j counts petals with j selected outer vertices. The inverse trace adds (1+2t_0+t_1/4) divided by that complement to the outer trace. At fixed k with a free hub its derivative in t_1 is -1/6-(m+1/2+k/4)/(k+t_1/2)^2<0. Thus each conditioning has a unique minimizing count profile. Subtracting their costs gives 2(2m+1-3k)/(3k) for k≤m and (2-k)/(2m+k)<0 for k≥m+1. This verifies the tie (m≡1 mod 3), strict regimes, counts, agreement of formulas at k=m, and the F_5 nonnesting example at budgets 3 and 4. The top endpoint k=2m leaves the hub alone and gives 1/(2m), as required. The exact-arithmetic checker verify_friendship.py was inspected, not executed; its finite scope is distinct from this proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2026/10/26/SCOPE-all-budget-optimal-noise-free-leader-placements-on-clique-windmi--8135ef43309b, Finding at offset 0 and Proof/discussion continuing at offset 6954.",
+          "Sun–Li–Liu DOI and AIP page returned HTTP 403; repository-copy recovery did not supply the paper. The windmill record's literature discussion reports an abstract-level relationship only."
+        ],
+        "reasoning": "The clique-windmill theorem allows all blade sizes, computes both conditioned costs, and describes all attaining allocations and counts. This is stronger than the friendship-only result; Sun–Li–Liu is a possible independent antecedent, not evidence for the verdict.",
+        "searches": [
+          "Resultary: friendship graph grounded Laplacian inverse trace leader selection hub abandonment threshold exact all budgets windmill",
+          "Noisy consensus dynamics in windmill-type graphs 10.1063/5.0020696 full text Sun Li Liu"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_friendship.py",
+        "2026/10/26/SCOPE-all-budget-optimal-noise-free-leader-placements-on-clique-windmi--8135ef43309b",
+        "arXiv:1407.1569",
+        "DOI 10.1063/5.0020696 (attempted; no primary text)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed Finding gives the minimum of hub-present and hub-absent costs with all balanced allocations and their multiplicities. The comparison uses s=2, blade count m, and budget k."
+        ],
+        "reasoning": "At s=2 balanced occupancies give one leader in each used petal until each petal is touched, then double selections. The free-minus-grounded hub comparison reduces to 2(2m+1-3k)/(3k) through k=m and (2-k)/(2m+k) thereafter. The binomial counts specialize by choosing singly selected blades and choosing one of two vertices in each. Setting m=5 and k=3,4 gives strict nonnesting immediately.",
+        "searches": [
+          "2026/10/26/SCOPE-all-budget-optimal-noise-free-leader-placements-on-clique-windmi--8135ef43309b/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Clique-windmill RESULT.md, Finding, offset 0, treats the same grounded inverse-trace leader criterion; its blade size s=2 gives K_1 joined to m disjoint edges.",
+          "Fitch–Leonard, p. 1 abstract and p. 14 at offset 59234, express the noise-free optimization via joint centrality and give path nonnesting."
+        ],
+        "reasoning": "Friendship graphs are exactly the two-vertex-blade clique windmills. Normalizing coherence by a positive fixed factor would not change the minimizers; the indexed exact comparison concerns the inverse-trace costs. Joint centrality supplies an older equivalent optimization criterion, but the path example alone would not give the friendship classification.",
+        "searches": [
+          "Resultary: friendship graph K_1 join m disjoint edges noise-free leaders inverse grounded Laplacian trace all budgets exact hub threshold 3k=2m+1",
+          "arXiv:1407.1569: windmill; friendship"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first query's top hit 1c1e7b6f78d5 is the frozen record itself. The broader query found distinct exact theorem 8135ef43309b; its local-mirror RESULT.md Finding was inspected."
+        ],
+        "reasoning": "A tabulation of small budgets could not cover the classification over every m; the relevant exact indexed item is the distinct symbolic windmill theorem, not the self-match or the frozen checker outputs.",
+        "searches": [
+          "Resultary: friendship graph K_1 join m disjoint edges noise-free leaders inverse grounded Laplacian trace all budgets exact hub threshold 3k=2m+1",
+          "Resultary: friendship graph grounded Laplacian inverse trace leader selection hub abandonment threshold exact all budgets windmill"
+        ]
+      },
+      "rationale": "The earlier indexed all-budget clique-windmill theorem covers the same objective, both hub cases, balanced optimal placements and counts on a larger graph family. Two vertices per blade specialize its statement to the frozen claim; the threshold and nonnesting witness require only simplifying those formulas, not a new optimization theorem. This conclusion does not rely on the inaccessible Sun–Li–Liu paper.",
+      "residual_risks": [
+        "Sun–Li–Liu full-text coverage remains unresolved. The record dates and statement-level comparison are not an exhaustive historical-priority audit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the friendship claim by specialization",
+          "evidence": "Every budget on K_1 joined to disjoint equal cliques, via the two hub-conditioned optimal costs and all balanced placements and counts.",
+          "identifier_or_url": "2026/10/26/SCOPE-all-budget-optimal-noise-free-leader-placements-on-clique-windmi--8135ef43309b",
+          "material_read": "RESULT.md Finding at offset 0; Proof and Relationship to prior work at offset 6954",
+          "method": "Bounded exact-ID local-mirror reads, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "All-budget optimal noise-free leader placements on clique windmills",
+          "trigger": "Strongest distinct exact match from the broader windmill query"
+        },
+        {
+          "assessment": "Criterion and nonnesting precedent; inspected explicit solutions do not imply the friendship criterion",
+          "evidence": "Noise-free joint centrality; explicit cycles/paths; an optimal pair can omit the optimal singleton on a path.",
+          "identifier_or_url": "https://arxiv.org/abs/1407.1569",
+          "material_read": "Abstract p. 1; p. 3 offset 9951; p. 14 offset 59234",
+          "method": "OA primary text, relevant passages and literal graph-name queries",
+          "title": "Joint Centrality Distinguishes Optimal Leaders in Noisy Networks",
+          "trigger": "Cited equivalent noise-free leader criterion and earlier nonnesting"
+        },
+        {
+          "assessment": "Unresolved; not used to infer coverage or noncoverage",
+          "evidence": "Both primary access attempts returned HTTP 403; the secondary report does not establish scope or optimization results.",
+          "identifier_or_url": "https://doi.org/10.1063/5.0020696",
+          "material_read": "No primary passage retrieved; only the indexed windmill record's bibliographic discussion",
+          "method": "Primary literature search, DOI and AIP page retrieval, repository-copy recovery",
+          "title": "Noisy consensus dynamics in windmill-type graphs",
+          "trigger": "Same windmill family and possible leader–follower coherence formula"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "All-budget optimal placement and hub abandonment are meaningful questions, but for these graphs the known clique-windmill classifier already yields all patterns and counts and the same comparison by s=2 substitution. The compact boundary and F_5 witness are immediate arithmetic consequences and leave no independently valuable new result in this frozen claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

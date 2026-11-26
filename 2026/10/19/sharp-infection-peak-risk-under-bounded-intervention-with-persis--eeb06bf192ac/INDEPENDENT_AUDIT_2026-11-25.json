@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:27:03.659899Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed bounded progressive controls the stopped infected solution is exponential and positive, and the integrating-factor formula for the susceptible equation gives strict positivity and S<=max(s,b/δ). This bounds the infected drift coefficient on every finite interval and rules out explosion. Dividing by the common-driver geometric Brownian path cancels both the diffusion and its Itô correction: log(I/Z) is the time integral of nonnegative residual transmission and unused treatment capacity. The identity holds simultaneously in time and does not require independence of controls and the Brownian motion. The admissible constants α=1 and η=H make the integral zero, so the stochastic order for both terminal and peak events is attained. For h>0, Brownian reflection at zero drift and endpoint exponential tilting give the stated two Gaussian contributions for the peak. The terminal law alone gives only the first. As T→∞ the tail term vanishes and the other tends to exp(-2kh/σ²); with k>0 the envelope tends to zero, so sup>=L is equivalent to finite hitting for the envelope. For arbitrary controls the common-driver hitting inclusion is enough. For L<=i hitting occurs at the initial time. For a comparison law supported in I<=L, test I>L; the conditioned envelope law on I<=L attains the resulting bound among arbitrary supported laws, not necessarily among reflecting solutions. With random nonnegative initial data the i_* bound is weighted by the initial event probability, by independence of future Brownian increments. The finite numerical check (python /workspace/branches/independent_replay.py 5) integrated the tilted reflected endpoint density, not the frozen first-passage-density integration, and reproduced .0406539545173381, .189799045911191 and .233258247884202 for the example. The frozen verifier was inspected but not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general epidemic-control setup allows compartment-proportional noise among several specifications.",
+          "The bare first-passage formula for a single drifted Brownian motion is standard; no standalone primary reference was retrieved in the bounded attempt."
+        ],
+        "reasoning": "A model specification broad enough to permit the coefficient is not a theorem giving the optimal probabilities. Classical reflection determines the laws of the envelope once it has been proved pathwise minimal and attainable; it does not select the epidemic policy or establish attainability.",
+        "searches": [
+          "Parkinson–Roy arXiv:2601.20181 §2 and §5",
+          "Classical drifted Brownian first-passage reference, bounded OA retrieval attempt"
+        ]
+      },
+      "checked_sources": [
+        "Parkinson–Roy arXiv:2601.20181 §§2,5",
+        "Resultary 41bbc0978013",
+        "Resultary 0ee6736d03c7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The numerical study cannot realize the attaining policy α=1; extending its noise formally to full suppression would also turn the diffusion off.",
+          "The published related records neither identify the infected lower process nor show that a single control minimizes monotone path events."
+        ],
+        "reasoning": "The positive irreducible risk and TV floor depend on coupling with the same surviving noise at the maximal feasible removal and zero incidence. The source's specified numerical model and the two catalogue results do not imply this joint conclusion.",
+        "searches": [
+          "arXiv:2601.20181 §2 pp. 3–4, §5 p. 14",
+          "Resultary 41bbc0978013 and 0ee6736d03c7, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The fixed infected-only coefficient σI survives at α=1; the numerical coefficient in the motivating paper is proportional to (1-α)SI and the policy ceiling there is 0.85.",
+          "The covariance record distinguishes independent compartment drivers from common transmission noise; the drift-defect record concerns Fokker–Planck reformulations."
+        ],
+        "reasoning": "An equivalent would need the attainable comparison for every admissible intervention, not merely a lognormal solution under a fixed policy, different noise covariance, or the forward equation for a different system.",
+        "searches": [
+          "Resultary: controlled epidemic geometric Brownian lower envelope and first-passage risk",
+          "arXiv:2601.20181 §2 and §5",
+          "Resultary 41bbc0978013 and 0ee6736d03c7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest catalogue records are about covariance and PDE drift, not optimized peak or terminal risk.",
+          "The numerical control model has transmission-product noise and a smaller control ceiling."
+        ],
+        "reasoning": "A finite lookup is not applicable to the claimed all-horizons, all-controls theorem. Even an exact Brownian formula is only a lookup for the envelope process, not a table or symbolic solution of the optimization and support question in the controlled model.",
+        "searches": [
+          "Resultary peak/threshold and bounded-support searches",
+          "arXiv:2601.20181 §5"
+        ]
+      },
+      "rationale": "Pass for identifying and attaining the joint terminal/peak lower envelope in the specified controlled diffusion and its bounded-support obstruction. The Brownian tail, reflection law and conditioning identity are classical and are not independently original. The motivating paper discusses related noise specifications but its numerical model is not the specialization analyzed here; available related records do not establish the control-uniform sharp risk claim.",
+      "residual_risks": [
+        "No standalone first-passage reference was retrieved in bounded OA attempts; the Brownian formula is expressly credited as classical.",
+        "Equivalent diffusion-control applications could exist outside the inspected passages or returned records. No historical priority is established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General noise setting overlaps; numerical model differs materially",
+          "evidence": [
+            "The model allows several noise specifications with independent Brownian coordinates.",
+            "The numerical noise is proportional to (1-α)SI with α_max=0.85."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2601.20181",
+          "material_read": "§2 pp. 3–4 at extracted offset 10900, §5 p. 14 at offset 55200",
+          "method": "Bounded OA text inspection",
+          "title": "A Fokker–Planck framework for control of epidemics",
+          "trigger": "Motivating bounded-domain control paper with closely related compartments and controls"
+        },
+        {
+          "assessment": "Covariance comparison, not peak-risk optimization",
+          "evidence": [
+            "Independent compartment drivers are not a single shared transmission-rate driver."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-independent-transmission-noises-are-not-transmission-rate-noise--41bbc0978013",
+          "material_read": "RESULT.md, Finding",
+          "method": "Local published-record mirror",
+          "title": "Independent transmission noises are not transmission-rate noise",
+          "trigger": "Closest related record on the same source model"
+        },
+        {
+          "assessment": "Concerns the printed PDE reformulations, not the controlled pathwise lower law",
+          "evidence": [
+            "Detects a drift discrepancy in the Fokker–Planck reformulation."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-a-variance-gradient-drift-defect-in-the-published-fokker-planck--0ee6736d03c7",
+          "material_read": "RESULT.md, Finding",
+          "method": "Local published-record mirror",
+          "title": "A variance-gradient drift defect in the published Fokker–Planck formulation",
+          "trigger": "Bounded-domain/forward-equation overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The useful result is not the textbook Brownian formula alone. It isolates a modeling boundary for capacity objectives: even the strongest admissible policy cannot eliminate peak risk when the infected noise persists, and the same pathwise extremum turns unbounded support into a quantitative error floor for every comparison law confined below a fixed cap. Endpoint exceedance misses much of that peak risk in the given example. This is not a hard limit for finite-population epidemics, models with noise that vanishes under suppression or a particular zero-flux numerical solver.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

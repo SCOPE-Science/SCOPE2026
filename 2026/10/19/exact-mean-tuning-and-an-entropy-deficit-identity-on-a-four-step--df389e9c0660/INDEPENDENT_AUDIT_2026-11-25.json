@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:06:16.448921Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The orbit conditions b=a(1+s) and 1=a+sb uniquely force a=1/D and b=(1+s)/D, with four distinct positions and two expanding slopes. The three ordered cells have lengths (1,s,s²)/D and images respectively cell 1, cell 2, and the whole interval. The transition matrix is primitive, with generating Markov cylinders of shrinking diameter and characteristic polynomial z³−z²−z−1, giving topological entropy log λ. Starting with a uniform conditional distribution in each cell, every allowed affine transition leaves a uniform conditional distribution on its target. The resulting Markov chain has deterministic advances from cells 0 and 1 and probabilities q=(1,s,s²)/D from cell 2. Its unique stationary masses (1,s+1,D)/N give exactly the stated positive step density. The primitive chain mixes; the coding generates modulo endpoint preimages, which form a null set, and the positive density is equivalent to Lebesgue, giving a full physical basin and excluding any distinct acip. Integrating the cell midpoints against the stationary masses gives 1/2+(s+1)/(DN). Writing DN=s⁴+3s³+6s²+5s+3 gives the stated strictly negative derivative; limits at 1 and infinity give the open mean range. The entropy rate is (D/N)H(q), which expands to the displayed formula. The Gibbs reference p_j=λ^(j−3) is normalized; its cross entropy against q is (N/D)log λ, so multiplying the relative entropy by D/N gives exactly the deficit. The zero condition q=p is equivalent to s=λ, when D/s²=s. Finally (s+2)/N=1/s+O(s⁻³) and log(D/s²)=1/s+O(s⁻²), yielding the claimed decay. The supplied script was inspected, not executed; its derivative comparison uses a finite difference, while the derivative and entropy conclusions here follow analytically.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.1 gives a general postcritical sum for the skew-tent acip density. Theorems A and B treat entropy flexibility, including existence of mixing skew tents at fixed topological entropy with prescribed physical entropy in an allowed range.",
+          "Bruin–Keszthelyi study dense critical orbits and matching for skew tents and related beta transformations."
+        ],
+        "reasoning": "The density algorithm can recover the step density after the postcritical orbit is specified and evaluated; it is standard input rather than a separate novelty claim. Entropy-flexibility existence, and matching on different parameter families, do not determine the physical mean, its range, or the paired explicit mean and entropy along this particular four-stage locus.",
+        "searches": [
+          "arXiv:2004.01813, Theorem 3.1 p. 4, Theorems A–B and Proposition 7.1 pp. 11–12",
+          "arXiv:2106.04711, abstract and §2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "arXiv:2004.01813 indicated density and entropy statements",
+        "arXiv:2106.04711 abstract and §2",
+        "Resultary 006ba8e20665 and 898171b8464a Findings",
+        "Originating 2023 journal and conference retrieval attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A general density formula and entropy-flexibility theorem give machinery and existence, respectively. Neither states the exact mean/entropy relationship as s ranges over this postcritical locus.",
+          "The abstract-level access to the originating family papers cannot test whether the curve, mean calibration, or exact parameters already appear there. The journal PDF was not read, and neither conference retrieval route yielded a primary passage."
+        ],
+        "reasoning": "The entropy gap has a routine renewal derivation once a three-return law is known; the new content assessed here is identifying the exact calibration on the dynamically specified curve and computing the joint law. This is not a claim that KL gaps or flexible entropy on skew tents are new. The accessible prior theorems do not give that calibrated mean as a corollary without a specific choice of orbit and explicit calculation.",
+        "searches": [
+          "DOI:10.1109/MOCAST57943.2023.10176612",
+          "DOI:10.3390/sym15122138",
+          "https://www.mdpi.com/2073-8994/15/12/2138/htm",
+          "arXiv:2004.01813, Theorems 3.1 and A"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same entropy calculation can be framed as returns of lengths 3,2,1 to the full-branch cell. The generic relation D_KL(q||p)/E_q L=log λ−H(q)/E_q L follows directly from p∝λ^(-L), with the normalizer equal to one here.",
+          "The closest tunable indexed family uses a two-state itinerary 0→t→1→0 and golden-mean entropy; the other gold-ratio example is one fixed map."
+        ],
+        "reasoning": "The renewal restatement strips away any novelty claim for the general KL identity, but it does not identify this map, realize the specific q(s), or calculate its mean. The two-state family cannot be transformed into the four-position curve while preserving the postcritical coding and topological entropy.",
+        "searches": [
+          "arXiv:2004.01813, Theorems 3.1, A and B",
+          "arXiv:2106.04711, abstract and §2",
+          "Resultary 006ba8e20665 and 898171b8464a"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "006ba8e20665 gives a fixed golden-mean map's stationary mean and six-step relaxation/covariances. 898171b8464a gives an explicit mean and entropy in a later golden-mean two-state family.",
+          "The targeted full-text query gave no result; it provides no evidence about coverage. The corresponding journal landing page was not sufficient to assess the four-step formulas."
+        ],
+        "reasoning": "Exact values are confirmed for neighboring Markov systems, not for the same parameter curve. A finite plot or different fixed point of the mean function would not yield an all-real bijection onto (1/2,11/18) plus the entropy law. No statement about any unread tables is made.",
+        "searches": [
+          "Resultary 2026/10/18/SCOPE-exact-six-step-density-relaxation-and-alternating-correlations-o--006ba8e20665",
+          "Resultary 2026/11/2/SCOPE-exact-covariance-resonance-and-fluctuation-optimal-tuning-in-a-m--898171b8464a",
+          "Chaotic Maps with Tunable Mean Value 2138 Moysis Lawnik open full text PDF skew tent future research equations invariant mean"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the exact mean calibration and the joint explicit entropy law on the specified period-four endpoint curve. General skew-tent densities, fixed-topological-entropy flexibility, and the abstract renewal relative-entropy identity are not claimed as new. Earlier originating publications are an unresolved risk where their full primary text was unavailable to this audit.",
+      "residual_risks": [
+        "The full text of the originating conference and journal works was not independently inspected, and could contain an equivalent parameter curve or calibration.",
+        "A plausible paper on statistical properties of the generalized skew-tent Lyapunov exponent could not be read through identified routes; its relevance beyond the title is unknown.",
+        "Generic Markov and renewal identities account for the relative-entropy form; no priority is asserted for that mechanism or the phenomenon of entropy flexibility."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General methods and flexibility phenomenon prior; no matching physical-mean calibration in the inspected statements",
+          "evidence": [
+            "Density is given by a postcritical-orbit series; Theorem A realizes varying metric entropy for fixed topological entropy in a specified range."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2004.01813",
+          "material_read": "Introduction p. 2; Theorem 3.1 p. 4; Theorems A and B and Proposition 7.1 pp. 11–12",
+          "method": "Bounded primary PDF passages",
+          "title": "Flexibility of Entropies for Piecewise Expanding Unimodal Maps",
+          "trigger": "Postcritical density and fixed-topological-entropy flexibility for skew tents"
+        },
+        {
+          "assessment": "Scope asserted by frozen citation, but exact formula overlap cannot be excluded from accessible primary text",
+          "evidence": [
+            "No full-text passages from the originating article were available for this scientific comparison; the alternate HTML yielded landing-page or forbidden responses."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/sym15122138",
+          "material_read": "Landing page or abstract only; §§2, 3.1 and 5 not independently read",
+          "method": "DOI, publisher page/PDF, alternate publisher HTML and repository recovery; primary PDF exceeded retrieval size limit",
+          "title": "Chaotic Maps with Tunable Mean Value—Application to a UAV Surveillance Mission",
+          "trigger": "Originating family and closest venue for theoretical mean tuning"
+        },
+        {
+          "assessment": "Unresolved overlap, not evidence of noncoverage",
+          "evidence": [
+            "Title and retrieval status, not scientific statements, were available."
+          ],
+          "identifier_or_url": "https://doi.org/10.1109/MOCAST57943.2023.10176612",
+          "material_read": "No primary full-text passage",
+          "method": "DOI, publisher and repository recovery; publisher routes returned HTTP 202 with no paper text",
+          "title": "Construction of Piecewise Chaotic Maps With Tunable Statistical Mean",
+          "trigger": "2023 conference antecedent with potential same-curve mean calculation"
+        },
+        {
+          "assessment": "Different objectives; no matching mean or KL formula in the passages",
+          "evidence": [
+            "The stated problems are density of critical orbits and matching in related families."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2106.04711",
+          "material_read": "Abstract p. 1 and family definition §2 p. 2",
+          "method": "Primary PDF passages",
+          "title": "On co-σ-porosity of the parameters with dense critical orbits for skew tent maps and matching on generalized β-transformations",
+          "trigger": "Nearby skew-tent parameter geometry and matching"
+        },
+        {
+          "assessment": "Related but different itineraries, fixed or two-state versus the three-cell curve",
+          "evidence": [
+            "006ba8e20665 gives relaxation for a fixed golden-mean map; 898171b8464a gives a tunable two-state family and an explicit mean."
+          ],
+          "identifier_or_url": "Resultary 006ba8e20665 and 898171b8464a",
+          "material_read": "Findings in both indexed source records",
+          "method": "Configured semantic search and local-mirror primary passages",
+          "title": "Exact density relaxation and covariance resonance on golden-mean tent systems",
+          "trigger": "Exact nearby Markov densities, means, and entropy"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The shortest itinerary here with four distinct postcritical positions supplies a natural exact Markov family inside the mean-tuning model. It calibrates a measurable statistic over a full interval of target means while holding topological complexity fixed, and locates the sole equality of physical and topological entropy as well as the zero-physical-entropy limit. The value is the concrete calibration and comparison within this same expanding family, not routine stationarity algebra in isolation or a claim about arbitrary parameter slices.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

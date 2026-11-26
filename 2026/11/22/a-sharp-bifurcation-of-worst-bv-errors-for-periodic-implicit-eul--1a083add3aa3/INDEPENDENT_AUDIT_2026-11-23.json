@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:51:52.500232Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the unit circle the derivative measure of real BV data has zero total mass; each Jordan part has mass V/2. With K_t=−tG_t′, the multiplier of K_t applied to Df is exactly that of I−R_t. Normalize a coupling of the Jordan parts to a probability and take the mean of the corresponding translate chords of K_t in L². The norm is at most their maximum M; equality forces zero Hilbert-space variance since all chord norms are at most M. Equal nonzero maximizing chords yield equal ordered differences of point masses: nonzero Fourier modes agree by injectivity of K_t on these modes and the zero mode agrees by total mass zero. The equality support is therefore one ordered pair, giving exactly the stated arcs up to constants and scaling. The kernel G_t has derivative jump −1/t and solves the homogeneous equation off zero; H_t=G_t*G_t has H_t″=∂_tG_t. The squared arc residual is 2t²[H_t″(s)−H_t″(0)], divided by four for V²; the differentiated expression and its integral from s=0 agree with the frozen formula. Its sign on the open half-circle is that of h(z)+2−h(a), where h(u)=u coth u strictly increases from 1. This gives a unique shorter optimum and includes the critical semicircle. In the small-time limit z=a−2+o(1), and the normalized bracket tends to 1+e^(−2). Near criticality h(z)=1+z²/3+O(z⁴) and a_c h′(a_c)=a_c²−6, yielding the stated square-root coefficient. Replay: RESULT.md proof §§1–4 and its positive Fourier-tail bound; the finite verifier was inspected, not executed. Scope is real circular BV and a single unit-circle constant-coefficient step.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Poisson-mixture theorem in its Finding requires the multiplier at n≥1 to be a positive moment sequence of radii in [0,1].",
+          "For b=4π²t the shifted resolvent sequence (1+b(n+1)²)^−1 consists of the moments of the signed density b^−1/2 sin(−log r/√b) on 0<r<1. Polynomial density gives uniqueness among finite signed measures; this density is not nonnegative, so it cannot be r times a positive mixture measure.",
+          "The backward-Euler stochastic-convolution bounds use Sobolev/Hilbert–Schmidt assumptions and compare an exact semigroup with powers of the numerical step."
+        ],
+        "reasoning": "The resolvent is outside the positive Poisson-mixture theorem even in the semicircle regime. An exponential time average of heat semigroups does represent it, but known optimized individual heat errors do not evaluate the L² squared error of the average, which involves cross terms and a common arc.",
+        "searches": [
+          "Resultary Poisson mixtures and periodic heat comparators",
+          "Kovács–Larsson–Lindgren, arXiv:1311.2067 §5, Proposition 5.1 and Theorems 5.3–5.4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic results for periodic BV approximation, including heat and Poisson-mixture RESULT.md passages",
+        "Miranda et al., CVGMT abstract (DOI 10.1515/CRELLE.2007.093)",
+        "Kovács–Larsson–Lindgren, arXiv:1311.2067",
+        "Frozen RESULT.md, AUDIT.json, REVIEW.md, VERIFICATION.md, SLOGAN.txt, METADATA.json and verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Miranda et al. abstract concerns a t→0 heat-gradient L¹ characterization on manifolds; the independently accessible abstract is not evidence about all resolvent passages.",
+          "The strongest adjacent circular exact results state either a Gaussian short-time jump separation or all-time antipodal extremizers under a distinct mixture hypothesis.",
+          "The resolvent proof instead requires evaluating a kernel derivative and proving h(z)+2−h(a) changes sign at most once for the entire circle range."
+        ],
+        "reasoning": "Neither the convergence bounds nor the different-multiplier classifications imply the exact transition a coth a=3 or its square-root approach. Full-text access limits for the older heat-BV paper remain explicit.",
+        "searches": [
+          "Miranda–Pallara–Paronetto–Preunkert DOI 10.1515/CRELLE.2007.093, CVGMT abstract",
+          "arXiv:1311.2067 §5",
+          "Resultary microscopic periodic heat finding and Poisson-mixture finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The operator is the periodic Bessel-potential multiplier (1+4π²tn²)^−1. The sharp residual norm is half the maximum translate-chord norm for −tG_t′.",
+          "The microscopic two-jump heat result, proof §§1–2, applies the same BV reduction but uses (1−e^(−4π²tn²))² in the objective."
+        ],
+        "reasoning": "The general chord/arc reduction is not a novelty claim. Changing the multiplier changes the entire separation problem, not just its units; the heat result's erfc critical profile is not the resolvent's hyperbolic optimizer equation.",
+        "searches": [
+          "Primary search: periodic bounded variation sharp L2 approximation resolvent Laplacian Bessel potential convolution BV Euler sharp norm extremal jumps coth; maximum chord approximation BV Green function circular",
+          "Resultary: sharp periodic BV to L2 norm identity minus backward Euler resolvent Laplacian Bessel potential semicircle pulse maximizing two jumps coth"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Related indexed entries concern Gaussian heat, fractional heat, twice-centred Steklov, a Fourier cutoff, and positive Poisson mixtures; the matching local mirror entry for implicit Euler is the frozen finding itself."
+        ],
+        "reasoning": "The neighboring exact constants refer to different Fourier sequences. No inspected entry evaluates the resolvent separation function or supplies its critical point, but indexed coverage is not exhaustive.",
+        "searches": [
+          "Resultary: sharp periodic BV to L2 norm identity minus backward Euler resolvent Laplacian Bessel potential semicircle pulse maximizing two jumps coth",
+          "Primary search for exact periodic resolvent norm, extremal two jumps and coth transition"
+        ]
+      },
+      "rationale": "The coupling-to-arcs mechanism is shared by other circular smoothing results. The distinguishable contribution is the explicit all-time resolvent maximization, its complete equality lengths, and the critical transition and coefficients; the inspected bounds for other operators do not furnish these.",
+      "residual_risks": [
+        "An older unindexed Bessel-potential/variation approximation result may give an equivalent formula.",
+        "The complete Miranda et al. text could not be independently read through the available lawful OA paths; its abstract does not settle whole-paper coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The accessible theorem description differs in functional, operator and limiting regime; no whole-paper exclusion inferred.",
+          "evidence": [
+            "Abstract identifies the heat-semigroup gradient L¹ limit as the BV characterization."
+          ],
+          "identifier_or_url": "https://cvgmt.sns.it/paper/376/",
+          "material_read": "CVGMT archive record and abstract; resolvent passages not independently accessed.",
+          "method": "Public archive and lawful OA attempts for DOI 10.1515/CRELLE.2007.093; publisher copies unavailable and linked DVI not parsed.",
+          "title": "Heat semigroup and functions of bounded variation on Riemannian manifolds",
+          "trigger": "Closest cited older BV paper; plausible resolvent background."
+        },
+        {
+          "assessment": "Stochastic/Sobolev convergence estimates, not the sharp deterministic single-step residual problem.",
+          "evidence": [
+            "E^n=(I+Δt A)^−n appears in the stochastic-convolution approximation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1311.2067",
+          "material_read": "Abstract, (1.2), §5 Proposition 5.1 and (5.1), Theorems 5.3 and 5.4.",
+          "method": "Open primary preprint, relevant result passages.",
+          "title": "On the backward Euler approximation of the stochastic Allen–Cahn equation",
+          "trigger": "Could contain a sharp resolvent estimate under the backward-Euler terminology."
+        },
+        {
+          "assessment": "Shares arc rigidity but solves the Gaussian heat error, not the one-step resolvent bifurcation.",
+          "evidence": [
+            "§2 gives the heat multiplier; §4 optimizes the short-time profile by an erfc equation."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-microscopic-two-jump-extremizers-for-sharp-periodic-heat-approxi--7bee99d6a8aa/RESULT.md",
+          "material_read": "Finding and proof §§1–5.",
+          "method": "Local mirror, primary RESULT.md passages.",
+          "title": "Microscopic two-jump extremizers for sharp periodic heat approximation of bounded-variation functions",
+          "trigger": "Same spaces, sharp norm and arc equality; nearest equivalent-form question."
+        },
+        {
+          "assessment": "Positive-radius-mixture hypothesis does not hold for this resolvent.",
+          "evidence": [
+            "The Finding assumes m_n=∫r^n dν(r) and gives antipodal extremizers for every nonidentity positive mixture."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-universal-antipodal-extremizers-and-a-half-order-crossover-for-p--8e1e09f82c1d/RESULT.md",
+          "material_read": "Finding, Assumptions and scope, beginning of proof §1.",
+          "method": "Local mirror, primary RESULT.md passages.",
+          "title": "Universal antipodal extremizers and a half-order crossover for Poisson-mixture approximation",
+          "trigger": "Potential broader filter theorem with semicircle rigidity."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a precise deterministic benchmark for a common implicit diffusion step on discontinuous data. It identifies where the worst pair of jumps is located, shows a finite-time transition that a norm bound alone misses, and quantifies both the small-time interaction and the approach to the semicircle. The result does not generalize by assertion to other boundaries or multiple steps.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

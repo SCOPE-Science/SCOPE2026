@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:18:30.714251Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:5–58; VERIFICATION.md; verify_bfs.cpp; verify_relax.cpp; verify_witness.py; witness.json; bfs.out; relax.out; witness.out",
+        "Independent replay: python3 -B /workspace/reproductions/3.py (Python 3 and NumPy); exact output /workspace/reproductions/3.out"
+      ],
+      "rationale": "Independent state variables are crucial: the images of the two subterms can be combined by the full Cartesian product, even when the two subterms have the same shape. Thus simultaneous subset closure describes exactly the images at height at most h. Before the first singleton, every nonstable round adds at least one of the eleven nonsingleton subsets, starting with Q already present. This gives at most eleven rounds to the first singleton; stabilization certifies infinity. A new batched frontier implementation exhausted all 4^10 tables for each of the five conjugacy representatives and matched all 60 entries, hence maxima 3, 7, 8, 10, 11. Weighting the rows by 1, 6, 3, 8, 6 gives 1,419,120 finite cases and 6*224=1,344 extremal pairs. I independently checked the code-739 table and masks 15,13,11,7,14,5,10,9,3,6,12,1; the stated recipes give those images with fresh leaves. A synchronizing pair with a four-cycle has trivial stabilizer: the centralizer of the unary cycle consists of its powers, and all nonidentity powers move the unique reset output. Directly partitioning the 224 extremal tables at the fixed four-cycle into four-element rotation orbits also gave 56 classes. These are four-state results for exactly the stated operations, with no constants or repeated leaf variables.",
+      "residual_risks": [
+        "The enumeration is exhaustive in the stated finite universe only; it gives no higher-state or noncommutative classification. The supplied executables were not run; the new enumeration was run and compared with the record."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Herrmann–Mörbitz §1 reports the earlier universal 2^n−n−1 height bound; their own two-symbol lower bounds are for families of automata, not an exact four-state symmetric-table census."
+        ],
+        "reasoning": "The upper bound already covers the value 11 as a ceiling; it says nothing about which restricted strata attain it or about distributions within them.",
+        "searches": [
+          "10.1142/S0129054125410096",
+          "arXiv:2609.01184, §§1,3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.01184 §§1,3",
+        "DOI 10.1142/S0129054125410096, bound confirmed indirectly",
+        "Local Resultary records 5734bc809a8e and bc9735e195f6, primary mirrored passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known four-state attainment and its subset closure certificate are material overlaps; that exact construction does not satisfy the new restriction. The earlier 11 bound supplies a stopping criterion, not an enumeration."
+        ],
+        "reasoning": "Extremality in a superclass need not survive restriction. The independent commutative witness, complete five-row classification and free-orbit census are additional mathematical results, not parameter substitutions into the older claim.",
+        "searches": [
+          "Mirrored RESULT.md of 5734bc809a8e, Finding and Proof",
+          "arXiv:2609.01184, §§1,3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Herrmann–Mörbitz §3 uses synchronization by full contexts over unary and binary operations, so this is the same reset-height notion, not word reset or a context with repeated variables.",
+          "In the older exact witness the binary table is ordered and not symmetric: f(1,2)=2, f(2,1)=3."
+        ],
+        "reasoning": "Taking a state relabeling or transposing the table cannot make a noncommutative operation commutative. The known witness and the new restricted census are not equivalent formulations.",
+        "searches": [
+          "Local Resultary: four-state unary/binary full-context synchronization, commutative/symmetric binary tables and reset-height census",
+          "arXiv:2609.01184, §3",
+          "2026/10/26/SCOPE-sharp-four-state-tree-synchronization-over-two-ranked-symbols--5734bc809a8e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The four-state result has a witness/certificate, not a census; the distinct three-state record counts 198 ordered-binary height–leaf Pareto tradeoffs."
+        ],
+        "reasoning": "Neither comparison supplies a table of the same labeled operations and the same observable. The identical indexed target was not counted as an independent antecedent.",
+        "searches": [
+          "Local Resultary: restricted four-state cycle-type census, extremal height eleven, and related exact full-context classifications",
+          "2026/10/26/SCOPE-sharp-four-state-tree-synchronization-over-two-ranked-symbols--5734bc809a8e",
+          "2026/11/22/SCOPE-a-sharp-height-leaf-pareto-tradeoff-in-three-state-unary-binary--bc9735e195f6"
+        ]
+      },
+      "rationale": "The distinct claim is the census for commutative f and permutation w, including commutative attainment and the 56-class count. Both the general upper bound and four-state attainment without commutativity are known. Neither gives the restricted census or even forces attainment by a commutative table. The closest available four-state table is outside the class. The decision is bounded to inspected evidence, not a claim of historical priority.",
+      "residual_risks": [
+        "The general-bound primary paper could not be read directly; accessible secondary mathematical statements and the closest exact four-state record were compared. No comprehensive search of every external corpus or unindexed table was performed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers background bound and two-symbol asymptotic constructions, not the restricted exact classification in the inspected passages.",
+          "evidence": [
+            "§1 records the earlier height bound 2^n−n−1 and discusses asymptotic lower bounds; §3 gives the full-context definition and unary/binary construction."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.01184",
+          "material_read": "§1 pp. 1–2 and §3 p. 4; extracted offsets 4740–7161 and 18100–20662",
+          "method": "Bounded OA PDF passage inspection",
+          "title": "On smallest synchronizing terms over constant alphabets",
+          "trigger": "Same unary-plus-binary full-context problem"
+        },
+        {
+          "assessment": "Known general height bound credited; not used as negative evidence about uninspected content.",
+          "evidence": [
+            "Herrmann–Mörbitz, arXiv:2609.01184, §1, attributes 2^n−n−1 to the earlier work."
+          ],
+          "identifier_or_url": "https://doi.org/10.1142/S0129054125410096",
+          "material_read": "No direct full-text passage retrieved; general result checked through Herrmann–Mörbitz §1.",
+          "method": "Tried cited lawful Diva OA PDF and DOI; direct retrieval did not succeed.",
+          "title": "On the Smallest Synchronizing Terms of Finite Tree Automata",
+          "trigger": "Original general upper-bound source"
+        },
+        {
+          "assessment": "Exact overlap on height eleven without commutativity; the displayed witness is excluded from the restricted class.",
+          "evidence": [
+            "f(1,2)=2 versus f(2,1)=3; a single witness with closure certificate, no cycle-type histogram or orbit census."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-four-state-tree-synchronization-over-two-ranked-symbols--5734bc809a8e",
+          "material_read": "RESULT.md Finding and Proof, offsets 600–5271 in mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary discovery and mirrored primary file inspection",
+          "title": "Sharp four-state tree synchronization over two ranked symbols",
+          "trigger": "Closest exact four-state height-eleven claim"
+        },
+        {
+          "assessment": "Different state count, ordered binary table, and Pareto statistic; not equivalent regardless of publication order.",
+          "evidence": [
+            "Three states; 198 automata split into 18 and 180 with two different height–leaf Pareto fronts."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-sharp-height-leaf-pareto-tradeoff-in-three-state-unary-binary--bc9735e195f6",
+          "material_read": "RESULT.md finding and assumptions, offsets 650–3574",
+          "method": "Local Resultary discovery and mirrored primary file inspection",
+          "title": "A sharp height–leaf Pareto tradeoff in three-state unary–binary tree automata",
+          "trigger": "Distinct indexed exact finite census in the same synchronization setting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:5–58",
+        "Independent exact census and orbit computation, /workspace/reproductions/3.out",
+        "arXiv:2609.01184 §§1,3 and Resultary 5734bc809a8e, for scope of existing bounds and examples"
+      ],
+      "rationale": "Commutativity and the conjugacy type of a unary permutation are intrinsic restrictions. The classification shows that the sharp reset height genuinely varies across these restrictions and that commutativity does not destroy sharpness at a four-cycle. The exact distributions and orbit count distinguish rare extremizers from a one-off witness and give an exact benchmark for full-context synchronization algorithms; they do not purport to establish any asymptotic law.",
+      "residual_risks": [
+        "The scientific value is the complete natural finite classification, not a claim of improved universal bounds or broader algorithmic performance."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

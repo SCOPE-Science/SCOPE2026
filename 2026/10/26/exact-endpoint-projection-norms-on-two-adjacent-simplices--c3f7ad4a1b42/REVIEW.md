@@ -1,12 +1,21 @@
-# Scientific review of the two-simplex endpoint norm
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The finite-element reproducing rows satisfy the defining Gram identities for every shared and exclusive node. Absolute row integrals reduce to a beta marginal with a single zero, and a closed integral identity gives the exact norm profile. Barycentric convexity reduces the global operator norm to nodes; the derivative of the profile is strictly negative for every positive ratio. Exact-rational independent matrix and integral checks confirm 432 nodal cases, but the analytic argument rather than these finite checks proves the universal claims. The result does not prove that all maximizing evaluation points are vertices.
+## correctness
 
-## Originality
-**PASS on the sources examined, with residual bibliographic uncertainty.** The closest full-text source, Karkulik–Pavlicek–Praetorius (2012 preprint), treats mesh-refinement and \(H^1\) stability, not the sharp \(L^\infty\) norm. Crouzeix–Thomée (1987) concerns general stability bounds, not an identified equal-area minimizer or two-simplex exact profile; full-text access was unavailable for this older paper. The published single-simplex affine-projection calculation gives only the shared-vertex row and does not imply the larger exclusive-tip rows. Searches of related terms and published mathematical records did not identify the formula \(N_d(r)\). An unindexed earlier exact computation remains possible.
+PASS
 
-## Mathematical value
-**PASS.** Two simplices sharing a facet are the smallest conforming mesh in dimension at least two whose continuous nodal projector genuinely couples different element volumes. The formula quantifies how grading changes worst-case \(L^\infty\) amplification, proves that equal volumes are uniquely optimal at the level of the volume ratio, isolates a sharp nonattained degeneration boundary, and holds in all spatial dimensions without geometric shape restrictions. Its planar envelope \(7/2\) and balanced value \(49/18\) are exact stability benchmarks.
+For positive volume fractions q and 1−q, multiply the nodal mass matrix by (d+1)(d+2). The shared-facet block is I+J, its columns to the tips are q·1 and (1−q)·1, and the tip block is diag(2q,2(1−q)). Eliminating the tips leaves I+J/2, whose inverse is I−J/(d+2); block substitution recovers the recorded facet and both tip representers. The row norm is maximal at some node because each evaluation row on a simplex is a convex combination of its nodal rows. The sign of a maximizing row attains the bound on real or complex L∞, and continuous functions K_v/(|K_v|+ε) approach it; the nodal value is also an essential-supremum lower bound by continuity and the nondegenerate incident simplex. Each affine row depends on one barycentric coordinate per element. Integrating against d(1−u)^(d−1) gives S_d=N_d(1) at shared nodes and N_d(q), N_d(1−q) at the tips. With m=d+1 and b=d/(d+2), the derivative equals (m+1)b[(q−1)(1+bq)^(m−1)/(1+q)^m−b^(m−1)]<0. This gives exactly the claimed nodal maximizers, balanced minimum, and unattained limit at q=0; varying heights over a common facet realizes all positive ratios. The calculation depends only on volumes, and exact substitution gives 49/18 and 7/2 in dimension two.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The known one-simplex projector gives exactly the shared-facet row and is credited, but not the two coupled tip rows. The closest exact spline result concerns a periodic one-dimensional mesh, while the same-endpoint finite-element literature inspected establishes stability under grading, not this exact volume-ratio profile and equality characterization. No equivalent exact pair profile was located in these bounded comparisons.
+
+## value
+
+PASS
+
+This is the smallest conforming multidimensional mesh that couples elements across a facet. The exact profile distinguishes balanced and collapsing-volume shapes and identifies precisely which nodal tests control the sharp endpoint constant, even without bounded aspect ratios. The mixed tip kernel and its strict extremal ordering are not a local projection calculation alone and are useful as sharp stability benchmarks for conforming P1 elements.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

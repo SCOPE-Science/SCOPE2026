@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:28:29.924039Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–99",
+        "VERIFICATION.md and check.py, inspected, not executed",
+        "Independent finite-grid check in /workspace/review_checks.py, ordinal 5"
+      ],
+      "rationale": "Parseval for the stated counting norms makes the normalized energy ∑λₖpₖ on the nonzero-frequency probability simplex. The four ground modes are (±1,0),(0,±1); summing sine-squares yields the stated mean. The two endpoint maxima and equality profiles follow from Cauchy–Schwarz. In the interior, for any t<Λ_N, weighted Cauchy–Schwarz bounds (∑√pₖ)² by (E−t)∑(λₖ−t)⁻¹. Equality requires full use of the budget and pₖ proportional to (λₖ−t)⁻². For this profile the derivative of its energy with respect to t is 2 Cov(λ,(λ−t)⁻¹)<0, with the stated limiting budgets. Thus the exact formula and all equality profiles follow; real phases may be chosen in conjugate pairs. This direct argument avoids needing the frozen proof's suggestion that two positive coordinates of an arbitrary candidate can always preserve both constraints. If using strict positivity instead, mix with the positive feasible distribution already given in the record: a zero entry gains order √η, while changes on positive entries cost at most order η. The uniform gap ≥8|k|², Taylor expansion of the sine multiplier and comparison of lattice squares with a planar annulus give S_N=log(N)/(2π)+O(1) and summable domination for T_N. Splitting the four minimal modes from the rest, weighted Cauchy–Schwarz and the trial inverse-gap profile give the exact two-sided bracket; its discrepancy is O_E(1/log N). Writing t_N=Λ_N−ε_N, the gap energy at fixed positive ε tends to infinity, forcing ε_N→0. The exact gap equation then yields Q_N=Δ_N A_N/B_N with A_N→T∞ and B_N=S_N+o(1), proving the condensate rate and ℓ¹ convergence of the normalized tail by domination. Independent bounded numerical replay at N=8,24,72,216 and E=60 checks the bracket and the energy equation (`python3 /workspace/review_checks.py 5`); the limits follow from the analytic argument, not those sizes.",
+      "residual_risks": [
+        "The large-grid limit holds at fixed E>4π² only. Fourier phase limits and recovery guarantees do not follow."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Alberti et al. bound the ratio with powers of the difference multiplier and show order-sharp critical square-root-log behavior on compact 2D manifolds.",
+          "Burstein et al. generalize the ratio to arbitrary orthonormal systems for questions of coefficient recovery and localization."
+        ],
+        "reasoning": "These broader frameworks contain the functional or apply an upper bound to related spectra, but no inspected theorem in them classifies this fixed-energy optimizer or its two-scale asymptotics.",
+        "searches": [
+          "arXiv:2611.19755v1, Section 2.1 Proposition 2.1 and Section 4.1 Theorem 4.3",
+          "arXiv:2601.16345v1, abstract and Theorem 4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact record and 669b93b48149 comparison",
+        "arXiv:2611.19755v1, arXiv:1012.2061v1 and arXiv:2601.16345v1 passages above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The d=2,s=1 multiplier sum estimate has a logarithm; the manifold theorem uses reciprocal eigenvalues for order sharpness. The continuous two-energy problem gives a different resolvent formula."
+        ],
+        "reasoning": "Logarithmic order alone does not determine the use of excess energy E−4π², the additive contribution from four bottom modes, or the inverse-gap-squared conditional mass. These require quantitative equality and spectral-gap analysis not supplied by the compared statements.",
+        "searches": [
+          "arXiv:2611.19755v1 offsets 13129 and 68822",
+          "arXiv:1012.2061v1 offsets 11665 and 25028"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With aligned phases the grid Fourier ratio also gives the normalized sharp point-evaluation/Sobolev constant with one first-difference energy budget. The continuous torus comparator takes L∞²/∥∇u∥₂² with fixed ∥Δu∥₂²/∥∇u∥₂², and profile [|k|²(1+μ|k|²)]⁻¹. The closest other catalog Sobolev result is one-dimensional and for real zero-sum sequences."
+        ],
+        "reasoning": "The continuous formula is methodologically close but not the same problem: renormalizing coefficients by |k| to make gradient energy an ℓ² norm introduces a nonconstant weight in the ℓ¹ objective. The 1D comparator does not cover the 2D logarithmic regime.",
+        "searches": [
+          "Resultary: sharp fixed-energy Fourier-ratio frontier and discrete Sobolev extremizers",
+          "arXiv:1012.2061v1, Problem (1.10) and Theorem 2.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/22/SCOPE-sharp-fixed-energy-fourier-ratio-frontier-and-a-four-mode-conden--33ae93d3d3f1 is this same record; the strongest distinct Sobolev hit has suffix 669b93b48149."
+        ],
+        "reasoning": "The exact self-match is not independent coverage, and the distinct catalog result does not give the assigned invariant.",
+        "searches": [
+          "Resultary: finite square-grid Fourier ratio at fixed relative Dirichlet energy, reciprocal-affine optimizer and four-mode condensation"
+        ]
+      },
+      "rationale": "The ratio itself, reciprocal spectral weights and weighted Cauchy–Schwarz are known ingredients. The strongest inspected sources give broad energy upper bounds, critical logarithmic order, or an exact resolvent extremizer under a different energy constraint. They do not cover the square-grid fixed-energy optimizer and its sharp additive term and conditional tail together. No stronger inspected statement giving these conclusions was found.",
+      "residual_risks": [
+        "Older finite graph or sharp discrete Sobolev formulations may contain further equivalent results; the comparison is bounded to actual inspected statements."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial shared ingredients and order-sharp logarithm; sharp fixed-budget claims not covered in inspected statements",
+          "evidence": "For d=2,s=1 the discrete multiplier sum is bounded by (N²/2)(1+log N); the manifold result obtains critical square-root-log growth with reciprocal-eigenvalue examples.",
+          "identifier_or_url": "https://arxiv.org/html/2611.19755v1",
+          "material_read": "Section 2.1 Proposition 2.1 near offset 13129 and Section 4.1 Theorem 4.3 near offset 68822",
+          "method": "Lawful open HTML excerpts by locator",
+          "title": "Fourier Ratio Bounds and Sensitivity to Sensor Placement",
+          "trigger": "Same Fourier ratio and discrete Dirichlet multiplier"
+        },
+        {
+          "assessment": "Related variational technique, different constraints and spectral family",
+          "evidence": "On the continuous two-torus the ratio normalized by gradient energy has a Laplacian/gradient energy constraint and coefficients proportional to [|k|²(1+μ|k|²)]⁻¹.",
+          "identifier_or_url": "https://arxiv.org/abs/1012.2061v1",
+          "material_read": "Problem (1.10), offset 11665; Theorem 2.3, offset 25028",
+          "method": "Lawful open paper excerpts",
+          "title": "Asymptotic expansions and extremals for the critical Sobolev and Gagliardo–Nirenberg inequalities on a torus",
+          "trigger": "Closest resolvent extremizer in Sobolev form"
+        },
+        {
+          "assessment": "Framework overlap, not the extremal energy problem in the compared theorem",
+          "evidence": "Theorem 4 concerns random-subsampling recovery for bounded orthonormal expansions.",
+          "identifier_or_url": "https://arxiv.org/html/2601.16345v1",
+          "material_read": "Abstract and Theorem 4 near offset 20890",
+          "method": "Lawful open HTML excerpts",
+          "title": "The Fourier Ratio: A Unifying Measure of Complexity for Recovery, Localization, and Learning",
+          "trigger": "General Fourier-ratio theory"
+        },
+        {
+          "assessment": "Different dimension, objective and scale",
+          "evidence": "One-dimensional real zero-sum first-difference Sobolev result with d^(3/2) scale and two-lobe rigidity.",
+          "identifier_or_url": "2026/11/17/SCOPE-sharp-zero-moment-discrete-sobolev-limit-and-two-lobe-rigidity--669b93b48149",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Sharp zero-moment discrete Sobolev limit and two-lobe rigidity",
+          "trigger": "Closest distinct catalog Sobolev hit"
+        },
+        {
+          "assessment": "Identical assigned record, not independent coverage",
+          "evidence": "Same exact square-grid frontier, additive term and tail.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-fixed-energy-fourier-ratio-frontier-and-a-four-mode-conden--33ae93d3d3f1",
+          "material_read": "Finding and literature comparison, including mirror passage near offset 10109",
+          "method": "Resultary search and local mirror",
+          "title": "Sharp fixed-energy Fourier-ratio frontier and a four-mode condensate on square grids",
+          "trigger": "Exact catalog hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 12–47 and 78–99",
+        "arXiv:2611.19755v1, Proposition 2.1 and Theorem 4.3"
+      ],
+      "rationale": "The canonical first-difference budget quantifies how spectrally diffuse a mean-zero signal can be at a specified energy. Beyond the routine weighted bound, the two-scale law identifies an exact excess-energy factor, the additive term forced by bottom multiplicity, and the distribution of the small high-frequency mass that contributes the growing part of the objective. These clarify sharpness of the logarithmic regime and distinguish spectra with the same leading order.",
+      "residual_risks": [
+        "No new sensor-placement guarantee is claimed; the limiting law is not a variable-budget result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The parity adjacency matrix reduces the general-order source operator to two positive mass equations. Dividing them gives a reversible ratio equation; with \(r=e^{2s}\) it yields the displayed \(M_1,M_2\) formulas and then the exact \(L=\Lambda_{k,\ell}(s)\) relation. The \(s\downarrow0\) limit and Taylor coefficient are explicit, while \(\Lambda_{k,\ell}(s)\sim e^{2s}\) gives the global return to infinity. The two-crossing argument is purely continuous, and the symmetric equation has a positive root by a sign change. The standalone checker independently replays representative substitutions but is not used as an infinite proof.
+## correctness
 
-## Originality
-PASS with a stated weak-indexing risk. The primary full text explicitly defines the operator for arbitrary tree order but begins its non-uniqueness section with \(k=2\); its parity reduction and five-fixed-point classification are consequently binary-tree statements. Searches by source identifier, parity-mass aliases, the exact merger scale, the hyperbolic parameterization, and the bending threshold found no published statement of the all-order result. The closest countable-state hard-core paper located uses a different spin graph and scalar dynamical-system reduction.
+PASS
 
-## Value
-PASS. This is not a routine numerical extension: it identifies the complete nonsymmetric branch of a source-designated phase-coexistence mechanism for every Cayley order, locates its symmetric merger exactly, and proves a nonempty general-order region where at least five translation-invariant Gibbs measures occur. The result preserves the physical object singled out by the source and explains how its binary-tree phenomenon persists and changes with degree.
+The frozen fixed-point result survives, but its undirected Gibbs interpretation is not established: the printed array has a_1j=1 and a_j1=0 for j>1, whereas the cited correspondence in §5 starts with an undirected graph. Formal summability does not resolve this incompatibility. The repair removes the Gibbs/boundary-law count and specifies the operator explicitly. Since F_1=ell, division of the two positive mass equations gives r=(1+M_1)/(1+M_2), and M_2=(r−1)/(r^k−r); the recovered coordinates x_i=lambda_i M_p/L in parity p are positive and summable, so ordered mass roots and fixed points are in bijection. With A=(k−1)ell+k+1, six times the Taylor coefficient is 1−(k−1)^2−k^3+k[(k−1)^3 ell+(k+1)^3]/A; collecting terms gives the stated threshold. The large-s exponent is 2 with prefactor 1. The first dip and the divergence imply an interior global minimum and one crossing on either side for every level strictly between the minimum and L_c, with two swaps and a separate equal-mass root. The k=2 specialization matches the binary-tree algebra. Replay the repaired RESULT.md proof; the frozen script was inspected, not executed, and its recorded finite checks corroborate only the formal reduction. The revised claim does not require or assert any symmetric transfer kernel, equality of individual activities, or global count.
 
-## Closest literature and limitations
-The direct source is arXiv:2206.13822v1 / DOI:10.1134/S0040577923020125. The nearby arXiv:2206.06333 countable-state hard-core model is structurally different. Later weakly periodic and translation-invariant countable-state studies were located, but no inspected statement covers the same parity operator and formula. The theorem does not give the exact total number of general-order fixed points or classify other activity asymmetries.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The confirmed distinction is an all-order classification of unequal-mass fixed points and a uniform sufficient five-fixed-point interval for the precise formal parity operator. The general operator and the full binary parity example are due to Olimov–Rozikov; no Gibbs-measure extension is claimed.
+
+## value
+
+PASS
+
+Independently of the invalid undirected interpretation, this classifies the asymmetry branch of the specific infinite-dimensional positive operator, shows an explicit order-dependent change of local direction, and demonstrates at least five fixed points on an open activity interval at every order in the sufficient regime. That extends a concrete binary multiplicity phenomenon, rather than merely renaming the parameters or verifying a few orders.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

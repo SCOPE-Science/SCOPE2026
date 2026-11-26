@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:29:48.317648Z",
+  "axes": {
+    "correctness": {
+      "rationale": "This pass applies to repairs/2/RESULT.md, not the frozen wording. As written over all n, the original's positive-limit premise is unattainable: it forces u_n-b_n to converge for b_n=log_2 n+log_2 log_2 n, whereas b_n has distinct lattice phases, and the original applies its theorem along subsequences anyway. The corrected theorem explicitly quantifies over arbitrary sequences of sizes tending to infinity, retains full-sequence tightness, fixes integer rounding in the coordinate truncation, and proves nonconvergence using sizes 2^(2^t) and floor(2^(2^t+1/2)). Rechecked the repaired claim: counts by length are squared positive-composition binomials, giving the stated hypergeometric law and an exponentially negligible noncentral contribution even to fixed factorial moments. In the central range the exact stars-and-bars ratio for O(log n) total size is uniformly the product of positive geometric(1/2) probabilities times 1+o(1). The coordinate tail bound with floor(T/2) makes the discarded part o(n^(-r)) for each fixed order r. The exact geometric-sum tail u*2^(1-u) times the asymptotic step count n/2 gives the stated intensity. Exchangeability, factorial moments, and moment determinacy give Poisson limits along each phase; rank events are the corresponding count events. Compactness of the intensities at rounded offsets gives tightness over all sizes; the two phases give different centered CDF values at every offset in (0,1/2). The original finite checker was inspected, not executed; it checks finite paths, not the limiting argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The one-dimensional Zeckendorf result has longest-gap CDF with leading term exp(-n lambda_1^(-f) K), for gaps between scalar summand indices.",
+          "The uniform-composition record represents a single composition via fair cut bits and studies regression/covariance of its part count and maximum."
+        ],
+        "reasoning": "The prior scalar extremes do not cover sums of two coordinates in coupled paths. A single largest composition part or two separate maxima do not determine a largest paired sum, whose tail includes an additional factor u.",
+        "searches": [
+          "arXiv:1402.3912 Theorem 1.9",
+          "SCOPE-20261004-0ee24a72cd31, mirrored Finding"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1909.01935v1",
+        "arXiv:1402.3912",
+        "SCOPE-20261004-0ee24a72cd31",
+        "SCOPE-20261018-c87972dec54e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Borade et al. §4 say more work is needed for simple paths because the two motions must have the same number of heads, and discuss a possible order-of-magnitude result.",
+          "The repaired proof estimates all fixed orders of joint exceedances by a relative local estimate on the logarithmic scale and uniform tail truncation after conditioning on a common length."
+        ],
+        "reasoning": "Neither pointwise convergence of sampled gaps nor an order estimate supplies relative accuracy for probabilities of order n^(-r) or Poisson asymptotics for ordered extremes. The scope correction does not collapse the result to those prior statements.",
+        "searches": [
+          "arXiv:1909.01935v1 §4 and Theorems 1.3–1.4",
+          "arXiv:1402.3912 Theorem 1.9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same simple-path law is a uniform pair of same-length positive compositions when conditioned on length; alternatively, independent positive geometric coordinate increments stopped on a simultaneous hit of (n,n) give weight 2^(-2n) per admissible path.",
+          "Borade et al. use the same simple paths and gap sum but prove a fixed-gap probability (s-1)2^(-s)."
+        ],
+        "reasoning": "Conditioning on a simultaneous hit or using paired compositions does not remove dependence or imply the critical-level limit. The event of a random fixed-size gap in the earlier theorem is identical in model but distinct from an exceedance count at a threshold growing with n.",
+        "searches": [
+          "arXiv:1909.01935v1, Definitions 1.1–1.2, Theorems 1.3–1.4, §4",
+          "Resultary uniform compositions, paired-composition gap sums and Poisson extremes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The composition hit is a single-composition dependence result. The distinct same-day Poisson-extremes hit uses independent truncated-Poisson gaps of semi-Heyting implications on a finite chain, with factorial thresholds."
+        ],
+        "reasoning": "Neither checked entry describes two-dimensional same-length paths or their log-log-centered gap-sum extremes. The distinction is mathematical, not a conclusion from a date or absence in a table.",
+        "searches": [
+          "Resultary paired compositions / Zeckendorf longest gap / Poisson extremes",
+          "SCOPE-20261004-0ee24a72cd31",
+          "SCOPE-20261018-c87972dec54e"
+        ]
+      },
+      "rationale": "For the corrected claim, the distinct result is the joint growing-threshold exceedance law, with the log-log shift and lattice-phase fixed-rank laws, in the equal-coordinate simple-path model. The closest same-model primary paper gives fixed-size one-gap results and identifies the longest-gap problem for simple paths; the other inspected models do not supply the conditional moderate-gap estimates needed here. No priority certification is implied.",
+      "residual_risks": [
+        "The motivating paper mentions partial longest-gap results; the inspected fixed-size statements and simple-path discussion do not establish full extreme-law coverage.",
+        "An unindexed equivalent conditional renewal or paired-composition theorem could exist; the bounded comparisons do not prove priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same fixed-gap marginals; no same-model extreme law in the inspected statements",
+          "evidence": [
+            "Fixed vector law 2^(-(v1+v2)) and sum law (s-1)2^(-s). The conclusion explicitly distinguishes longest gaps for simple paths from paths without the common-head-count constraint."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1909.01935v1",
+          "material_read": "§1 Theorems 1.3–1.4 at offset 11200; §4 at offset 38800",
+          "method": "OA HTML passage inspection",
+          "title": "Gaps of Summands of the Zeckendorf Lattice",
+          "trigger": "Identical paths and gap statistic; primary longest-gap discussion"
+        },
+        {
+          "assessment": "Longest-gap law in a scalar model with a different tail",
+          "evidence": [
+            "Samples integers in a generalized Zeckendorf interval and counts gaps of summand indices; leading void term exp(-n lambda_1^(-f) K)."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1402.3912",
+          "material_read": "§1 Theorem 1.9 at offset 28500",
+          "method": "OA HTML passage inspection",
+          "title": "The Distribution of Gaps between Summands in Generalized Zeckendorf Decompositions",
+          "trigger": "Plausible prior longest-gap Poisson-tail theorem"
+        },
+        {
+          "assessment": "Single-composition maximum and its relation to count",
+          "evidence": [
+            "Fair-cut representation of (K_N,M_N); regression/covariance statement, not paired gap-sum exceedances."
+          ],
+          "identifier_or_url": "SCOPE-20261004-0ee24a72cd31",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "Rigorous decorrelation of part count and maximum in uniform compositions",
+          "trigger": "Nearest composition-maximum hit"
+        },
+        {
+          "assessment": "Different object and factorial-tail scale",
+          "evidence": [
+            "Finite semi-Heyting chains with independent truncated-Poisson gaps."
+          ],
+          "identifier_or_url": "SCOPE-20261018-c87972dec54e",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "Factorial Poisson extremes for top implication gaps on finite semi-Heyting chains",
+          "trigger": "Same-day structurally similar extreme-law hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired theorem answers a longest-gap question specifically raised for simple jump paths, with the correct extra log-log centering and genuinely different lattice phases. The fixed-rank exceedance laws and control under the common-length constraint add more than a bound on the order of the maximum or a scalar analogy. The scope remains two equal starting coordinates and l1 gap sums, with no asserted expected-maximum asymptotic or convergence rate.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

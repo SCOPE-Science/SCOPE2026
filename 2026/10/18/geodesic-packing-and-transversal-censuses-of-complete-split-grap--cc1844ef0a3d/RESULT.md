@@ -1,70 +1,59 @@
-# Geodesic packing and transversal censuses of complete split graphs
+# Labelled geodesic packing census of complete split graphs
 
 ## Finding
 
-Let \(r\ge 1\) and \(s\ge 2\) be integers. The *complete split graph* \(G_{r,s}=K_r\vee\overline{K_s}\) has a specified \(r\)-vertex clique \(C\) and a specified \(s\)-vertex independent set \(I\), with all cross-edges present. A maximal geodesic is a shortest path not properly contained as a contiguous subpath in any other shortest path. A geodesic packing is an unordered collection of pairwise vertex-disjoint maximal geodesics. A geodesic transversal is a vertex subset intersecting every maximal geodesic; it is *inclusion-minimal* if no proper subset is a transversal.
-
-Define \(P_{r,s}(z)=\sum_{\mathcal P}z^{|\mathcal P|}\), where the empty packing is included, and define \(T_{r,s}(z)=\sum_{S}z^{|S|}\), over all inclusion-minimal geodesic transversals. Then
-
+Let \(G_{r,s}=K_r\vee\overline{K_s}\), with clique \(C\) of size \(r\ge1\) and independent set \(I\) of size \(s\ge2\). A maximal geodesic is a shortest path not properly contained as a contiguous subpath of another shortest path. A packing is an unordered collection of pairwise vertex-disjoint maximal geodesics. Let \(t\) count its three-vertex paths and \(u\) its two-vertex paths. Put \(h=\min(r,\lfloor s/2\rfloor)\). For \(0\le t\le h\) and \(0\le u\le\lfloor(r-t)/2\rfloor\), the number of such packings of type \((t,u)\) is
 \[
-P_{r,s}(z)=\sum_{t=0}^{\min(r,\lfloor s/2\rfloor)}\ \sum_{u=0}^{\lfloor(r-t)/2\rfloor}
-\binom rt\frac{s!}{2^t(s-2t)!}\frac{(r-t)!}{2^u u!(r-t-2u)!}\,z^{t+u},
-\qquad T_{r,s}(z)=z^r+rs\,z^{r+s-2}.
+A_{r,s}(t,u)=\binom rt\frac{s!}{2^t(s-2t)!}\frac{(r-t)!}{2^u u!(r-t-2u)!}.
 \]
-
-The second formula counts multiplicities when the displayed monomials have the same degree (in particular, when \(s=2\)). Set \(h=\min(r,\lfloor s/2\rfloor)\). The geodesic packing and transversal numbers, and their gap, satisfy
-
+It is zero for all other nonnegative integer types. The full size distribution, including the empty packing, is
 \[
-\operatorname{gpack}(G_{r,s})=\left\lfloor\frac{r+h}{2}\right\rfloor,\quad
-\operatorname{gt}(G_{r,s})=r,\quad
-\operatorname{gt}(G_{r,s})-\operatorname{gpack}(G_{r,s})=\left\lceil\frac{r-h}{2}\right\rceil.
+ P_{r,s}(z)=\sum_{t=0}^{h}\sum_{u=0}^{\lfloor(r-t)/2\rfloor} A_{r,s}(t,u)z^{t+u}.
 \]
-
-In particular, \(\operatorname{gpack}(G_{r,s})=\operatorname{gt}(G_{r,s})\) **if and only if** \(s\ge2r\). For \(s\ge3\), the clique \(C\) is the unique minimum transversal; for \(s=2\), exactly \(1+2r\) minimum transversals exist.
-
-Every maximum packing is structurally specified by the formula below. Write
-\[
-A_{r,s}(t,u)=\binom rt\frac{s!}{2^t(s-2t)!}\frac{(r-t)!}{2^u u!(r-t-2u)!}
-\]
-for feasible nonnegative integers \(t,u\), and put \(k=\lfloor(r+h)/2\rfloor\). The exact number of maximum packings is
+In particular, with \(k=\lfloor(r+h)/2\rfloor\), the number of maximum packings is
 \[
 [z^k]P_{r,s}(z)=A_{r,s}\left(h,\left\lfloor\frac{r-h}{2}\right\rfloor\right)
-+\mathbf1_{\{r+h\text{ odd}\}}A_{r,s}\left(h-1,\frac{r-h+1}{2}\right).
++\mathbf1_{\{r+h\text{ odd}\}}A_{r,s}\left(h-1,\frac{r-h+1}{2}\right),
 \]
-Thus optimal packings use exactly \(h\) three-vertex geodesics, except in the odd-parity case when \(h-1\) such paths are also possible. In the saturation range \(s\ge2r\), there are exactly \(s!/(2^r(s-2r)!)\) maximum packings.
+where the second term is included only for odd \(r+h\). When \(s\ge2r\), this coefficient is \(s!/(2^r(s-2r)!)\). The census counts actual labelled packings, not merely which types are feasible. For example, for fixed \(r\) throughout \(s\ge2r\) the maximum cardinality remains \(r\), but the number of optimizers varies with \(s\).
 
 ## Assumptions and scope
 
-Graphs are finite, simple, undirected, and explicitly vertex-labelled. Paths are counted without orientation (a path and its reversal are one object). Geodesic packings are sets of paths, not partitions of vertices; unused vertices are allowed. All statements concern exactly the integer domain \(r\ge1\), \(s\ge2\). The assertion for \(\operatorname{gt}\) itself is also a special case of a previously published join theorem; the new contribution is the complete paired census, packing number and maximum-packing classification, inclusion-minimal transversal census, and exact equality threshold for this family.
+Graphs are finite, simple and undirected, and vertices carry distinct labels. A path is counted without orientation; unused vertices are permitted. The finding concerns only the labelled packing distribution and its multiplicities. Maximal-path types, feasible packing types, the optimum size, and transversal facts below are specializations of existing complete-multipartite results, not separate contributions.
 
 ## Proof
 
-**Step 1 (all maximal paths).** Vertices in \(C\) are pairwise adjacent and adjacent to every vertex in \(I\), while two distinct vertices of \(I\) are at distance two. Hence the graph has diameter two. Its length-two geodesics are exactly the paths \(a-c-b\), where \(c\in C\) and \(a,b\in I\) are distinct. Such paths are automatically maximal because no longer geodesic exists. Every clique edge \(c-d\) is a maximal geodesic: a length-two shortest path containing it would have to end in a non-neighbor of one endpoint, but each clique endpoint is universal. Conversely, every clique–independent edge \(c-a\) extends to \(a-c-b\) with \(b\in I\setminus\{a\}\), which exists because \(s\ge2\). Thus maximal geodesics comprise precisely (i) the two-vertex edges within \(C\) and (ii) the three-vertex paths with two endpoints in \(I\) and one center in \(C\).
+**Maximal paths.** The graph has diameter two, realized by any two vertices of \(I\). Every length-two geodesic has distinct endpoints \(a,b\in I\) and a center \(c\in C\). Every such path \(a-c-b\) is maximal. Each clique edge is also maximal, since each endpoint is universal and any length-two path containing that edge has adjacent endpoints. Any clique–independent edge extends to a length-two geodesic by using a second independent endpoint, possible since \(s\ge2\); it is not maximal. Single vertices are not maximal since the graph has no isolated vertices. These are also the maximal-path types from the general complete-multipartite classification [1,2].
 
-**Step 2 (enumeration).** Suppose a packing chooses \(t\) paths of type (ii) and \(u\) of type (i). The \(t\) centers are a \(t\)-subset of the \(r\) clique vertices, chosen in \(\binom rt\) ways. Since each center is individually distinguished, assigning to these centers pairwise disjoint unordered pairs from \(I\) has \(s!/(2^t(s-2t)!)\) possibilities. From the remaining \(r-t\) clique vertices choose an unordered matching of size \(u\), in \((r-t)!/(2^u u!(r-t-2u)!)\) ways. All choices give vertex-disjoint maximal paths, and each packing determines its parameters and choices uniquely. Summing over \(t\) and \(u\) proves \(P_{r,s}\). Equivalently, its formal bivariate exponential generating function, extended to nonnegative \(r,s\) as a block-counting identity, is
+**Labelled multiplicities.** Select the \(t\) clique centers of three-vertex paths in \(\binom rt\) ways. A temporary order of these distinctly labelled centers lets one assign an ordered list of \(2t\) distinct vertices of \(I\) to them, two per center; switching the two endpoints at any center represents the same path. The number of assignments is \(s!/[2^t(s-2t)!]\). There is no division by \(t!\) because each pair is assigned to a specified center. A matching of size \(u\) among the remaining clique vertices then supplies the two-vertex paths; ordering its \(2u\) distinct vertices and dividing by the orders of matching edges and their endpoints gives \((r-t)!/[2^u u!(r-t-2u)!]\). Every packing uniquely determines these three choices. The resulting polynomial follows by grouping types according to \(t+u\).
+
+**Maximum coefficient.** For fixed \(t\) the greatest possible size is \(t+\lfloor(r-t)/2\rfloor=\lfloor(r+t)/2\rfloor\). On \(0\le t\le h\) its maximum is \(k\); it attains \(k\) at \(h\), and only when \(r+h\) is odd does it also attain \(k\) at \(h-1\). Summing the corresponding multiplicities proves the coefficient formula. In the saturation range \(s\ge2r\), \(h=r\) and the only optimal type is \((r,0)\), giving the stated specialization.
+
+Equivalently, the formal bivariate exponential generating function of these block counts is
 \[
-\sum_{r,s\ge0}\frac{x^r y^s}{r!s!}P_{r,s}(z)
-=\exp\!\left(x+y+\frac z2x^2+\frac z2xy^2\right).
+\sum_{r,s\ge0}P_{r,s}(z)\frac{x^ry^s}{r!s!}
+=\exp\!\left(x+y+\frac{z}{2}x^2+\frac{z}{2}xy^2\right).
 \]
+The four block types are unused clique vertices, unused independent vertices, clique edges, and three-vertex paths with one clique center. This uses the block-counting extension of the coefficients outside the stated graph domain.
 
-**Step 3 (maximum packings).** For fixed \(t\), the greatest possible \(u\) is \(\lfloor(r-t)/2\rfloor\), giving \(t+u=\lfloor(r+t)/2\rfloor\). The admissible values satisfy \(0\le t\le h\). This expression is nondecreasing in \(t\), so its largest value occurs at \(t=h\). If \(r+h\) is even, no smaller \(t\) attains the same value; if \(r+h\) is odd, precisely \(t=h\) and \(t=h-1\) do. This proves the claimed maximum, multiplicity and parity alternatives. The last alternatives include \(h-1\ge0\), since \(h\ge1\) in the stated domain.
+## Known specializations used for comparison
 
-**Step 4 (all minimal transversals).** Every transversal meets each clique edge, so it omits at most one clique vertex. If no clique vertex is omitted, inclusion-minimality forces the transversal to be \(C\) itself. If one clique vertex \(c\) is omitted, each path \(a-c-b\) must meet the transversal; hence at most one independent vertex can also be omitted. Inclusion-minimality forces exactly one independent vertex \(i\) to be omitted, yielding \((C\setminus\{c\})\cup(I\setminus\{i\})\). Conversely, \(C\) is minimal because deleting any clique vertex exposes a length-two path through it. Each alternative set is minimal: deleting another clique vertex exposes their maximal clique edge, and deleting another independent vertex exposes a length-two geodesic centered at the omitted clique vertex. For \(r=1\), the clique-edge deletion case is vacuous. There are \(rs\) distinct alternative sets, establishing \(T_{r,s}\). The minimum cardinality is \(\min\{r,r+s-2\}=r\), because \(s\ge2\). The packing-transversal equality and gap follow by substitution in Step 3; equality requires \(h=r\), equivalently \(s\ge2r\).
+Viewing \(G_{r,s}\) as the complete multipartite graph with one part \(I\) of size \(s\) and \(r\) singleton parts, the feasibility theorem in [1] reduces to \(2u+t\le r\) and \(2t\le s\). Indeed, its additional total-vertex bound \(2u+3t\le r+s\) follows from these two inequalities. This gives the support of the census and the optimal size, not the number of packings on that support.
+
+For transversals (sets meeting every maximal geodesic), [2] classifies their complements: in this family a complement is either contained in \(I\) or has at most one element of \(I\) and at most one vertex of \(C\). The maximal complements are therefore \(I\) and the pairs \(\{i,c\}\) with \(i\in I,c\in C\). Their complements give the inclusion-minimal transversal polynomial \(T_{r,s}(z)=z^r+rs\,z^{r+s-2}\), with multiplicities added when \(s=2\). The geodesic transversal number is \(r\), so the packing–transversal gap is \(\lceil(r-h)/2\rceil\) and vanishes exactly when \(s\ge2r\). These transversal and gap statements are included as comparison checks; the claimed advance is the labelled packing count.
 
 ## Verification
 
-The accompanying dependency-free `verify_split_geodesics.py` independently enumerates shortest paths in labelled complete split graphs, tests maximality by contiguous-subpath containment, enumerates vertex-disjoint families by mask dynamic programming, and tests all vertex subsets for inclusion-minimal hitting. It compares both complete polynomials and the cardinality claims. It checked 22 graph profiles with \(r+s\le9\): 3,592 vertex subsets, 414 maximal-geodesic objects, and 15,576 memoized packing states. A separate 5,000-profile exact-integer arithmetic sweep tests the packing-size and saturation identities for \(1\le r\le50\), \(2\le s\le100\). These finite checks supplement but do not replace the proof for all parameters.
+The included `verify_split_geodesics.py` (Python 3 standard library) constructs shortest paths directly, tests maximality by contiguous-subpath containment and enumerates disjoint packings by vertex-mask dynamic programming. The recorded run checked all 22 graph profiles with \(1\le r\le5\), \(2\le s\le6\), \(r+s\le9\), including the complete packing polynomial and the known transversal comparisons. The recorded arithmetic sweep over \(1\le r\le50\), \(2\le s\le100\) tests packing-size and saturation identities. These finite checks corroborate selected instances; the combinatorial proof establishes the exact coefficients on the full domain.
 
-## Relationship to prior work
+## Relationship to prior work and limitations
 
-Manuel, Brešar and Klavžar introduced and analyzed geodesic packing in `arXiv:2210.15325` (first public version 27 October 2022), including complexity, trees and selected graph products, and noted the balanced complete-bipartite packing number. Peterin and Semanišin established a general join theorem for the *geodesic transversal number* (`DOI:10.1007/s40314-022-01834-1`, Theorem 3.5). That general theorem already implies the scalar equality \(\operatorname{gt}(G_{r,s})=r\), so this scalar is not asserted as new. The inspected papers do not state or imply the present whole-family geodesic packing distribution, maximum-packing multiplicities, inclusion-minimal transversal distribution or exact equality boundary as a combined classification. Searches of accessible related research did not identify identical formulas; this is not a claim of exhaustive priority verification.
-
-## Limitations
-
-No theorem is asserted for arbitrary split graphs outside the complete-join family or for \(s<2\), where the geodesic types change. The displayed exponential generating function is an auxiliary block-counting identity, not a definition of the graph problem for degenerate parameters. The proofs are purely finite combinatorial; the experimental checks cannot establish the unbounded-parameter statements independently. Unindexed or inaccessible literature could contain equivalent results, and independent mathematical audit has not been performed.
+The complete-multipartite packing theorem [1] gives sharp existence constraints for each path-type pair and a scalar maximum; the complete-multipartite transversal theorem [2] classifies all transversals and therefore already implies every transversal assertion above. The work on geodesic packing by Manuel, Brešar and Klavžar [3] supplies the packing framework. A related complete-multipartite packing-polynomial calculation [4] assumes every part has at least two vertices and so does not address this singleton-part family, where maximal geodesics include clique edges. For the scalar geodesic transversal problem on joins, see also Peterin and Semanišin [5]. No general multipartite census, result for arbitrary split graphs, statement for \(s<2\), or priority claim beyond the comparisons made here is asserted.
 
 ## References
 
-1. P. Manuel, B. Brešar, S. Klavžar, *Geodesic packing in graphs*, arXiv:2210.15325v1 (27 October 2022), https://arxiv.org/abs/2210.15325 ; journal version *Applied Mathematics and Computation* 459 (2023), 128277, DOI:10.1016/j.amc.2023.128277.
-2. I. Peterin, G. Semanišin, *Geodesic transversal problem for join and lexicographic product of graphs*, *Computational and Applied Mathematics* 41 (2022), article 128, DOI:10.1007/s40314-022-01834-1; author preprint: https://mp.feri.um.si/osebne/peterin/clanki/2021_iIpgs_geod_trans_JLP.pdf.
-3. P. Manuel, B. Brešar, S. Klavžar, *The geodesic-transversal problem*, arXiv:2101.08042v1 (20 January 2021), https://arxiv.org/abs/2101.08042.
+1. *Geodesic packings of complete multipartite graphs: three sharp capacity constraints*, Resultary record `483fcd9cfba1`, Finding and Proof §§1–4.
+2. *All geodesic transversals of complete multipartite graphs*, Resultary record `e5c4e05a4d10`, Finding and Proof.
+3. P. Manuel, B. Brešar, and S. Klavžar, *Geodesic packing in graphs*, arXiv:2210.15325; *Applied Mathematics and Computation* 459 (2023), 128277.
+4. *Geodesic-packing polynomials of complete multipartite graphs and reentrant purity for doubleton parts*, Resultary record `e3ceab8f39fe`, Assumptions and scope.
+5. I. Peterin and G. Semanišin, *Geodesic transversal problem for join and lexicographic product of graphs*, *Computational and Applied Mathematics* 41 (2022), article 128, doi:10.1007/s40314-022-01834-1.

@@ -1,6 +1,6 @@
-"""Exhaustive finite tests of exact depth-two hedged-contraction lifetimes.
+"""Finite checks of depth-two truth-gated edge-insertion lifetimes.
 
-Execute with Python 3.9+ as `python checker.py`. All arithmetic and sets are exact.
+Run as python checker.py. All sets and calculations are exact.
 """
 from itertools import product
 
@@ -8,7 +8,6 @@ MODES = ('DB', 'BB', 'DD', 'BD')
 
 def lifetime(n, rows, truth, mode):
     rows=list(rows)
-    full=(1<<n)-1
     steps=0
     while True:
         clean=[(r & truth)==r for r in rows]
@@ -21,11 +20,12 @@ def lifetime(n, rows, truth, mode):
             active=[any((r>>j)&1 and live[j] for j in range(n)) for r in rows]
         elif mode=='BD':
             active=[all(not ((r>>j)&1) or live[j] for j in range(n)) for r in rows]
-        else: raise ValueError(mode)
+        else:
+            raise ValueError(mode)
         bad=sum((1<<j) for j,x in enumerate(active) if not x)
         new=[r|bad if x else r for r,x in zip(rows,active)]
         if new==rows:
-            return steps
+            return steps, bad
         steps+=1
         assert steps<=n*n, 'monotonicity check'
         rows=new
@@ -42,7 +42,7 @@ def run():
         for rows in product(range(1<<n),repeat=n):
             for truth in range(1<<n):
                 for mode in MODES:
-                    h=lifetime(n, rows, truth, mode)
+                    h,_=lifetime(n, rows, truth, mode)
                     maxima[mode]=max(maxima[mode],h)
                     total+=1
         assert maxima==predicted(n),(n,maxima,predicted(n))
@@ -50,15 +50,13 @@ def run():
     for n in range(3,36):
         path=[(1<<(i+1)) if i<n-1 else 0 for i in range(n)]
         cycle=[1<<((i+1)%n) for i in range(n)]
-        assert lifetime(n,path,1,'BD')==n
-        assert lifetime(n,cycle,1,'DD')==n-1
-        # Clone the third vertex in the three-world witness into n-2 twins.
-        # World 0 sees no world; world 1 sees 0; each twin sees 1.
+        assert lifetime(n,path,1,'BD')[0]==n
+        assert lifetime(n,cycle,1,'DD')==(n-1,1<<(n-1))
         rows=[0,1]+[2]*(n-2)
-        assert lifetime(n,rows,2,'BB')==2
-        # Clone the first vertex in the two-world witness.
+        assert lifetime(n,rows,2,'BB')[0]==2
         rows=[0]*(n-1)+[(1<<(n-1))]
-        assert lifetime(n,rows,1<<(n-1),'DB')==1
+        assert lifetime(n,rows,1<<(n-1),'DB')[0]==1
     print('ALL_CHECKS_OK',total,flush=True)
 
-if __name__=='__main__':run()
+if __name__=='__main__':
+    run()

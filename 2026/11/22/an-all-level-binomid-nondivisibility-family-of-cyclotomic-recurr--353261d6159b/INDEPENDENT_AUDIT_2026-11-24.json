@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:12:58.119386Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On dividing by q^n the recurrence reduces to u_(n+2)+u_(n+1)+u_n=0, giving the nonzero period-three weights −(t+1),1,t in residues 0,1,2. In a width-c column coefficient B_(C_c)(m+k,k), the normalization of the column cancels and shifting the ck factors by m gives q^(ckm). At each prime p the remaining contribution is ν_p(t)E_2+ν_p(t+1)E_0. Complete blocks of three in either sum contribute zero to each difference. Recounting the four nontrivial rectangle shapes, the pairs (E_0,E_2) at shifts 1,2 are: for 1×1, (0,1),(1,0); for 1×2 and 2×1, (1,0),(1,−1); for 2×2, (1,−1),(0,−1). Thus E_0≥0 and the only negative E_2 is −1 and requires ckm≥4. The case m=0 or k=0 gives one. This proves sufficiency at every width for t|q⁴, including each column entry (k=1). The witness B_f(4,2)=−q⁴(t+1)/t proves necessity by coprimality. Index divisibility forces t|q² via indices 2,4; conversely the only weight needing cancellation is t in a denominator at index i≡2 mod 3, and a proper multiple j supplies q^(j−i) with j−i≥2. For (q,t)=(2,8), f_2=32 and f_4=16 prove nondivisibility. Shapiro's Definition 4 and Corollary 10 confirm the all-level definition; §4.4 allows this recurrence (P=−q,Q=q²), and the integer sequences in Definition 1 may be signed. Frozen artifacts/check.py and its output were inspected, not run; arbitrary widths are handled by the exact residue argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shapiro's all-level Lucas criterion uses zero initial value; here f_0=−(t+1)≠0. Divisor-product hypotheses imply divisibility.",
+          "Interlaced chains require f_n|f_(n+2), violated at n=2; the catalogue periodic-second-order criterion concerns eventually periodic sequences, but |f_(n+3)|=q³|f_n|.",
+          "Caalim–Tanaka use prime-exponent binomid indices and characterize lexicographically minimal extensions, not integrality for every column of this family."
+        ],
+        "reasoning": "A periodic coefficient profile after division by q^n is not periodicity of the integer sequence. Neither the known sufficient classes nor the known bounded criterion for a different subclass subsume the nondivisible family here.",
+        "searches": [
+          "Shapiro, divisor-product and Lucas all-level results, §4.4",
+          "Local Resultary 5781f8464ab9 and 076dbf2243ff",
+          "Caalim–Tanaka, binomid index extensions"
+        ]
+      },
+      "checked_sources": [
+        "Shapiro, Integers 23 (2023) A57",
+        "Caalim–Tanaka, Integers 24 (2024) A53",
+        "Resultary f8a8d041cb09 and 5781f8464ab9; 076dbf2243ff (catalogue only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier same-family proof supplies the witness −q⁴(t+1)/t and all-level necessity; it does not control the rectangle of ck factors.",
+          "The common threshold is proved for arbitrary widths by the new deficit bound E_2≥−1, ckm≥4 when E_2=−1. The known observation that ordinary prime-exponent binomid indices add is not a closure theorem under the window sums used here."
+        ],
+        "reasoning": "A new sufficiency argument, not a definitional reformulation, shows that the old level-one counterexample answers the separate all-level branch of the question.",
+        "searches": [
+          "Shapiro, Recurrence (3) and Open Questions 29(1)",
+          "Resultary f8a8d041cb09, Finding and limitations",
+          "Caalim–Tanaka, Def. 1 and Prop. 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary f8a8d041cb09 has the same recurrence and the same basic threshold t|q⁴ but explicitly limits its binomid theorem to level one.",
+          "The complete-column formulation is precisely Shapiro's, not an alternative definition with weaker implications."
+        ],
+        "reasoning": "Level-one equality of parameter sets does not prove that every column is binomid; the same sharp necessary witness does not supply sufficiency at the other levels.",
+        "searches": [
+          "Local Resultary: cyclotomic second-order binomid separating integrality from divisibility",
+          "Shapiro, Definition 4 and Corollary 10, all levels and pyramid integrality"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact q,t threshold in the nearest prior classification is already t|q⁴, but it is for the base triangle, not the triangles of every column.",
+          "The theorem concerns an unbounded parameterized property, not a lookup of a particular sequence's finite entries."
+        ],
+        "reasoning": "An earlier example or a fixed finite table of coefficients cannot certify the all-level property without a covering theorem. No applicable exact all-level tabulation or cutoff was identified.",
+        "searches": [
+          "Local Resultary f8a8d041cb09, same recurrence with a complete base-level threshold",
+          "Local Resultary 076dbf2243ff, finite-row criterion for eventually periodic recurrences"
+        ]
+      },
+      "rationale": "The earlier theorem already gives the same parameter threshold at level one, all-level necessity and the divisibility classification. New in the compared material is the all-level sufficiency for the signed, exponentially growing family, which upgrades the earlier example to answer the all-level divisibility question negatively in Shapiro's stated setting.",
+      "residual_risks": [
+        "The source comparison is bounded; an earlier general theorem for affine-plus-periodic prime valuations could imply the rectangular inequality.",
+        "The exact full text of the eventually periodic test was unavailable through the configured mirror; its stated scope excludes this family."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Question applies; cited sufficient or necessary statements do not settle this example",
+          "evidence": "Definition 4 requires each column to be binomid; the nonzero integer scope allows signed terms. Open Questions 29(1) explicitly asks about all levels for Recurrence (3). The root ratio criterion is necessary only.",
+          "identifier_or_url": "https://math.colgate.edu/~integers/x57/x57.pdf",
+          "material_read": "Definition 1, abstract; Definition 4 (p. 6), Corollary 10 (p. 9); §4.4 Recurrence (3), Proposition 28 and Open Questions 29(1) (pp. 17–18)",
+          "method": "Bounded OA journal PDF passages and compare hypotheses and the signed recurrence",
+          "title": "Divisibility Properties for Integer Sequences",
+          "trigger": "Exact question and definitions; broader all-level criteria"
+        },
+        {
+          "assessment": "Proves the same level-one and divisibility criteria, not all-level sufficiency",
+          "evidence": "The earlier text expressly makes no assertion about all-level binomidness.",
+          "identifier_or_url": "Resultary 2026/11/8/f8a8d041cb09",
+          "material_read": "Finding and scope, offsets 0 and 3900",
+          "method": "Local mirror, compare exact quantifiers",
+          "title": "A cyclotomic second-order family separating binomid integrality from divisibility",
+          "trigger": "Identical recurrence and numerical threshold"
+        },
+        {
+          "assessment": "Non-covering hypotheses for the nondivisible example",
+          "evidence": "The criterion assumes positive terms with f_1|f_2 and f_n|f_(n+2); already f_2 does not divide f_4.",
+          "identifier_or_url": "Resultary 2026/10/26/5781f8464ab9",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror and check hypotheses against the counterexample",
+          "title": "Interlaced divisor chains are binomid at every level",
+          "trigger": "Sufficient all-level criterion"
+        },
+        {
+          "assessment": "The stated eventual-periodicity scope does not apply; no whole-document claim",
+          "evidence": "Here f_(n+3)=q³f_n with q≥2 and all terms nonzero.",
+          "identifier_or_url": "Resultary 2026/10/25/076dbf2243ff",
+          "material_read": "Catalogue synopsis only; exact record unavailable in the local mirror",
+          "method": "Match synopsis scope to recurrence growth",
+          "title": "A sharp four-row binomid test for eventually periodic second-order recurrences",
+          "trigger": "Comparable order-two all-level classification"
+        },
+        {
+          "assessment": "Ordinary binomid indices and extension, not this all-level criterion",
+          "evidence": "The scope describes the lexicographically minimal extension of finite indices; the index criterion is the comparison of a window sum with the initial one, at level one.",
+          "identifier_or_url": "https://math.colgate.edu/~integers/y53/y53.pdf",
+          "material_read": "Abstract and Definition 1/Proposition 1 (pp. 1, 3)",
+          "method": "Bounded OA PDF and compare objects",
+          "title": "Lexicographically Minimal Extension of a Finite Binomid Index",
+          "trigger": "Possible prime-adic general criterion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp all-level integrality across arbitrary column widths gives a concrete negative answer to the divisibility implication in a published question for signed nonzero integer sequences. The threshold is complete on this family and distinguishes all-level integrality from divisibility without claiming a positive-term counterexample or a general order-two classification.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

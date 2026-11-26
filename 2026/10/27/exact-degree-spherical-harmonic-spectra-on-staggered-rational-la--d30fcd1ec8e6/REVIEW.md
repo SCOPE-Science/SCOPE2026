@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The normalized harmonic evaluation columns are derived from the associated Legendre basis. The discrete Fourier transform reduces the Gram matrix to independent two-by-two blocks; half-step staggering gives a sign flip for consecutive aliases if and only if \(N\) is even. The two-adic unique-leading-term calculation proves every derivative of every Legendre polynomial is nonzero at reduced even-denominator heights, completing the all-degree rank proof. Independent exact-rational and floating-point matrix checks match the derived spectra in 130 finite cases. No finite sweep is used as a substitute for the all-degree argument.
+## correctness
 
-**Originality — PASS, qualified.** The closest primary full texts are zu Castell–Lain Fernández–Xu (2004), which concerns total-degree polynomial interpolation on several rings; McEwen–Wiaux (2011), which concerns whole-bandlimit spherical transform grids; and Khalid–Kennedy–McEwen (2014), which concerns whole-bandlimit fast sampling schemes. None states the complete two-ring exact-degree spectra or sharp even/odd ring-order transition. Targeted research-record searches found general Slepian/harmonic and Hamming-sphere spectra, but not the same object. A historical alias-block equivalence in the literature remains a real priority risk. The leading-term arithmetic lemma and Fourier separation are classical ingredients, not independently claimed as new.
+PASS
 
-**Mathematical value — PASS.** The theorem supplies a natural all-order and all-degree spectral classification of a geometrically prescribed pair of sampling circles, not a randomly selected finite instance. The parity-controlled sharp interpolation threshold and explicit singular-value formula answer both attainability and finite-degree conditioning questions for all \(N\), \(\ell\), and a dense arithmetic family of heights. It does not assert a uniform degree-independent lower frame bound.
+In longitude order the normalized Gram matrix is circulant with displacement entry P_ell((1-c²)cos(πd/N)+(-1)^d c²), by the probability-measure addition theorem. A harmonic of order m occupies discrete frequency (N+1)m+N ell modulo 2N and contributes eigenvalue weight 2N a_(ell,m). The multiplier N+1 has gcd 2 with 2N for odd N and gcd 1 for even N; this gives the claimed alias sums with their zero multiplicities. The Rodrigues coefficients of the k-th derivative, relative to the leading coefficient, are (-1)^j binom(ell-k,2j)(2j-1)!! divided by the product of the j descending odd factors from 2ell-1. Thus every such ratio is 2-adically integral. Since v_2(c)<0, the leading evaluated term has uniquely least valuation (the constant derivative case also holds). This establishes strict positivity at every allowed order, so counting attained residue classes proves the rank formulas and sharp onsets, including degree zero and one degree below each onset. The Gram diagonal is P_ell(1)=1; at N=3, c=1/2, ell=1 the weights 1/4, 3/8, 3/8 give the stated example. Dyadic heights give density. The frozen check.py and check_output.txt were inspected, not executed; the recorded 130 numerical spectral comparisons and 2,520 exact amplitude tests are corroborative only. The conclusion rests on the analytic argument, not on numerical agreement or formal certification.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The best verified overlaps cover half-step geometry, Fourier block separation, and related interpolation or conditioning, not the complete fixed-configuration exact-degree spectrum and parity-sharp rank for every degree at even-denominator heights. No priority claim is made for circulant diagonalization, the special-function identities, or the denominator argument in isolation.
+
+## value
+
+PASS
+
+For points that are fixed across degrees, knowing the exact alias weights and the parity-dependent sharp reachability threshold is materially stronger than a generic-rank or cumulative-bandlimit result. The even-denominator criterion gives an explicit dense choice of heights rather than exceptions defined separately at each degree. The spectral formula gives usable multiplicities and eigenvalues while correctly not promising uniform conditioning.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

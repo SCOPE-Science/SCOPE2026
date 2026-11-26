@@ -1,19 +1,21 @@
-# Scientific review: Shape-uniform logistic crossover for difference bodies of homothetic frusta
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The reconstructed proof uses exact horizontal sections of the Minkowski difference, the mixed-volume polynomial, strict inclusion for monotonicity, and established Brunn--Minkowski and Godbersen inequalities for sharp bounds. The key nonstandard universal asymptotic step uses reflection symmetry and Aleksandrov--Fenchel log-concavity to show that the binomial-reweighted mixed-volume index has variance at most \(m/4\), uniformly over all bases. This yields a Taylor remainder \(O_T(1/m)\) and the logistic profile. The six major steps and endpoint \(t=1\) are explicit. Exact-rational checks and direct 3D convex-hull computations passed; they do not replace the proof.
+PASS
 
-## Originality — PASS, provisional historical priority
+After shearing so the base contains zero, at fixed nonnegative height difference h both lateral scales decrease as the lower height increases. The nested Minkowski sums are largest at lower height zero. Integrating this section and its reflection gives (1), including the direct prism limit; the mixed-volume expansion gives the exact quotient. Its integrand relative to the denominator weight is vol(B−s^−1 B)/vol(B), strictly decreasing because the added body is full-dimensional. The lower bound and equality follow from Brunn–Minkowski; all upper weights are positive, so the verified Godbersen inequality and the arbitrary-body equality theorem force a simplex. These arguments also cover the prism and pyramid; in m=1 the bounds agree. Continuity along Minkowski interpolation fills the interval. For the crossover, reflection symmetry and Alexandrov–Fenchel make the mixed-volume reweighting of Binomial(m,1/2) decrease in distance from m/2. Opposite monotonicities give mean m/2 and variance at most m/4. Taylor expansion of (1−u/m)^J about J=m/2 gives error at most u²/(2m), and comparison to exp(−u/2) contributes at most as much. The denominator differs from exp(−u) by at most u²/m and its integral is bounded below by τ exp(−2T), giving a uniform O_T(1/m) ratio error including τ=0. The planar linear inverse follows by integrating 1+2cs+s². The standalone verify.py and check_polytope.py were inspected as finite diagnostics, not executed or used to prove the unlimited-dimension statement.
 
-The inspected 2023 Langharst--Putterman--Roysdon--Ye source concerns general difference-body operators, not a frustum logistic transition. Kotrbatý--Mouamine's 2026 theorem proves the general coefficientwise mixed-volume upper inequality, and Friedland--Putterman--Szusterman prove its all-convex-body simplex-only equality; these are **credited inputs**, not novelty claims. Existing published results about homothetic frusta concern Santaló volume products, John ellipsoids, reflected cores, and Minkowski centers; another published simplex-truncation result covers one equality family but not arbitrary-base concentration. The relevant records were compared by mathematical implication, not titles. An unindexed equivalent calculation remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The arbitrary-base exact reduction gives sharp all-dimensional difference-volume intervals, fixed-base strict monotonicity, and complete endpoint classifications. The main new mathematical value is the uniform-in-body logistic boundary layer, which shows that dramatically different convex bases share the same sharp relative transition at the dimensional scale \(1-t\asymp1/m\), with \(O_T(1/m)\) control.
+The exact symmetric-base profile and its logistic limit are already on record, as is the arbitrary-base pyramid endpoint. The distinct claim supported here is the uniform normalized crossover for arbitrary varying, possibly nonsymmetric bases, with a shape-independent compact-interval error bound, together with the all-taper arbitrary-base section formula. The prior symmetric formula removes base dependence before the limit; it does not give concentration for the full collection of mixed-volume profiles. Godbersen and its equality theorem are inputs, not original findings.
 
-## Scientific limitations
+## value
 
-The upper equality statement uses established recent literature. The theorem concerns homothetic sections and ratios to each base's own prism value, not general skew prismatoids or unnormalized high-dimensional volumes. Priority has not been independently established.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The quotient is a standard affine invariant of a natural family. The complete taper profile interpolates two distinct sharp geometric regimes, and the uniform extension identifies a boundary layer even when the base changes arbitrarily with dimension. Reflection symmetry plus mixed-volume log-concavity giving a shape-independent variance estimate is the substantive reusable mechanism, beyond the known extremal-base calculations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

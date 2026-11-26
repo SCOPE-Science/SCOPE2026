@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T15:32:21.510136Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–105",
+        "Frozen VERIFICATION.md and verify.py, inspected without executing the supplied script",
+        "Independent algebraic off-diagonal sign check via f′ and rational substitution at the partwise witness"
+      ],
+      "rationale": "The endpoint scalar filter has no poles for nonnegative arguments. The Laplacian acts by 0 on the constants, by q=N−p on mean-zero vectors supported in a part of size p, and by N on the part-constant centered space. The projectors give diagonals 1/N+(1−1/p)R(qh)+(1/p−1/N)R(Nh). Writing f(z)=(1−R(z))/z=(z+6)/(z²+4z+6), the between-part off-diagonal equals h f(Nh)>0 and the within-part off-diagonal equals (qh/p)[f(qh)−f(Nh)]>0 for h>0, since f′ is strictly negative on nonnegative arguments. The global scalar minimum is (5−3√3)/2 at z=3+3√3. The resulting lower bound on a diagonal has numerator at least 26−15√3>0 through order 11. For h=8/q and t=p/N, direct substitution uses R(8)=−5/51 and R(8/(1−t))=−(1−t)(5+3t)/(51−22t+3t²). The negative of the resulting diagonal has positive denominator and numerator N(255−110t+15t²)−2848+1056t. For N≥12 this numerator is bounded below by 4(45t²−66t+53)>0, since the quadratic has negative discriminant. The bound holds for every part, with no inference of a common negative timestep. At zero the endpoint is the identity, so the diagonals stay positive for small positive steps; at large steps the endpoint tends to J/N, so strict positivity returns. The uniform algebra rather than the supplied finite tests establishes the theorem.",
+      "residual_risks": [
+        "The theorem pertains to endpoint matrices only, with unit edge weights and complete multipartite structure. It does not classify all reentry windows or internal stages."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Horváth–Song–Terlaky give a sufficient invariant-polyhedron step bound τ=γρ. Lóczi–Ketcheson study scalar absolute-monotonicity radii and their general positivity implications. The two earlier Horváth articles were not available in full to this review."
+        ],
+        "reasoning": "General sufficient conditions and scalar method radii do not give a sharp universal order cutoff on this graph family or a negative diagonal at an explicit step for all parts. The inaccessible titles leave a remaining literature risk rather than evidence of coverage or noncoverage.",
+        "searches": [
+          "arXiv:1406.6755, Theorem 3.12",
+          "arXiv:1303.6651, §1 absolute monotonicity and positivity",
+          "DOI 10.1016/j.apnum.2004.08.026 and 10.1016/S0168-9274(98)00050-6"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Resultary 280b8b0c7f0a and 8c0d50ef8119 Findings and nearby subfamily catalogue entries",
+        "arXiv:1406.6755 and 1303.6651"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Balanced exact quartic calculations use equal part sizes; the general sufficient time bound runs in the positive direction. In the audited claim the diagonal combines R(qh) and R(Nh) at a continuously changing ratio q/N."
+        ],
+        "reasoning": "Showing strict positivity at small orders can reuse the same scalar minimum, but proving failure for each part requires controlling that mixed scalar combination uniformly for every p/N, including unbalanced graphs. Neither balanced classification nor a general sufficient step bound establishes that implication.",
+        "searches": [
+          "Resultary 280b8b0c7f0a and 8c0d50ef8119 Findings against frozen proof of the partwise witness",
+          "Horváth–Song–Terlaky Theorem 3.12 against frozen proof steps 3–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier 280b8b0c7f0a proves the same cutoff and strict off-diagonal positivity on balanced uniformly weighted graphs, with exact quartic window boundaries. Its witness differs in general, though a balanced order-12 case agrees after scale conversion. Earlier 8c0d50ef8119 also treats equal parts."
+        ],
+        "reasoning": "Uniform weight rescales h, so the unit-weight balanced case is genuinely covered, not a different theorem in that domain. A single global rescaling does not turn unequal internal part degrees into equal ones or produce the partwise witness for every arbitrary profile.",
+        "searches": [
+          "Resultary: two-stage Radau IIA twelve-vertex order cutoff complete multipartite positivity and reentry",
+          "Resultary: partwise negative diagonal witness h=8/(N−p)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "657de75ce7c2 is the frozen record itself. Earlier balanced records give the cutoff or explicit allowable balanced parameter pairs. Catalogue summaries for the stars and K₂,q give the same all-step order cutoff within those subfamilies."
+        ],
+        "reasoning": "The inspected full records and catalogue statements cover proper subfamilies. They are not a table or theorem for all multipartite profiles. The subfamily records do not determine priority from a shared date.",
+        "searches": [
+          "Resultary exact theorem lookup 657de75ce7c2; earlier balanced records 280b8b0c7f0a and 8c0d50ef8119; star and K₂,q positivity/reentry records 17146a0a41df, 3d0ba37aabda, ceeaeed369eb"
+        ]
+      },
+      "rationale": "Earlier balanced multipartite work already proves the same order cutoff, even with common positive edge weights, and classifies reentry more finely in its domain. This is substantial prior coverage, alongside overlapping star and K₂,q statements. The supported distinct contribution is the sharp result for arbitrary part profiles and a uniform explicit witness for each individual part at all orders N≥12. The inspected general time-discretization criteria do not imply that extension.",
+      "residual_risks": [
+        "The two Horváth full texts and several more specialized catalogue records were not available for direct comparison in the bounded review. Priority and the absence of broader specialist work remain unestablished."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial exact overlap on balanced parts; weights only rescale steps",
+          "evidence": "Same 11/12 barrier, strict off-diagonal positivity and quartic reentry boundaries, for uniformly weighted balanced graphs.",
+          "identifier_or_url": "Resultary 280b8b0c7f0a",
+          "material_read": "RESULT.md offsets 0–3859",
+          "method": "Local Resultary mirror",
+          "title": "The twelve-vertex reentrant positivity barrier for two-stage Radau IIA",
+          "trigger": "Exact cutoff and reentry in a potentially dominating family"
+        },
+        {
+          "assessment": "Proper equal-part subfamily",
+          "evidence": "Equal parts of size at least two, four all-step-positive parameter pairs and quartic reentry boundaries.",
+          "identifier_or_url": "Resultary 8c0d50ef8119",
+          "material_read": "RESULT.md offsets 0–3764",
+          "method": "Local Resultary mirror",
+          "title": "Sharp Radau IIA positivity and reentry on balanced multipartite diffusion networks",
+          "trigger": "Earlier balanced exact threshold classification"
+        },
+        {
+          "assessment": "Summary-level agreement on order cutoff for indicated subfamilies, no full-text inference",
+          "evidence": "K₁,m cutoff m≤10 and K₂,q cutoff q≤9 in the summaries.",
+          "identifier_or_url": "Resultary 17146a0a41df, 3d0ba37aabda, ceeaeed369eb",
+          "material_read": "Catalogue summaries only; mirror retrieval did not complete",
+          "method": "Resultary search and local-mirror read attempt",
+          "title": "Star and K₂,q Radau IIA positivity windows",
+          "trigger": "Potential overlap for unbalanced bipartite graphs"
+        },
+        {
+          "assessment": "General sufficient bound, not graph-specific cutoff",
+          "evidence": "The sufficient threshold uses τ=γρ and the rational function’s radius of absolute monotonicity.",
+          "identifier_or_url": "https://arxiv.org/abs/1406.6755",
+          "material_read": "Theorem 3.12, pp. 10–11, offset 35627",
+          "method": "OA PDF",
+          "title": "Steplength Thresholds for Invariance Preserving of Discretization Methods of Dynamical Systems on a Polyhedron",
+          "trigger": "Applicable general sufficient positivity criterion"
+        },
+        {
+          "assessment": "Scalar optimal-radii context, not graph-order classification",
+          "evidence": "Relates scalar absolute-monotonicity radii to positive and contractive step factors.",
+          "identifier_or_url": "https://arxiv.org/abs/1303.6651",
+          "material_read": "§1, HTML offsets 554–2997",
+          "method": "OA HTML",
+          "title": "Rational functions with maximal radius of absolute monotonicity",
+          "trigger": "General framework for positivity of rational discretizations"
+        },
+        {
+          "assessment": "Full actual statement comparison unresolved; no exclusion inferred",
+          "evidence": "The frozen result attributes an eigenvector-cone result to Theorem 17 and Remarks 18–19 of the 2005 paper; this review did not verify that passage directly.",
+          "identifier_or_url": "10.1016/j.apnum.2004.08.026; 10.1016/S0168-9274(98)00050-6",
+          "material_read": "Landing pages/abstracts only; no lawful full copy located in bounded attempt",
+          "method": "OA retrieval attempt",
+          "title": "On the positivity step size threshold of Runge–Kutta methods; Positivity of Runge–Kutta and diagonally split Runge–Kutta methods",
+          "trigger": "Earlier RK positivity criteria including a potential two-stage Radau IIA overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen sharp cutoff and witness",
+        "Earlier balanced multipartite exact analyses",
+        "General absolute-monotonicity literature"
+      ],
+      "rationale": "An all-step positivity bound for this endpoint update controls whether nonnegative data can acquire negative entries. The exact graph-order barrier for every part profile is stronger than a positive range from an unrestricted method criterion or isolated balanced examples. The simple explicit witness and all-time off-diagonal sign give usable information even though graph-specific positivity windows are not all classified.",
+      "residual_risks": [
+        "No implication is asserted for arbitrary network topologies or arbitrary weighted profiles."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

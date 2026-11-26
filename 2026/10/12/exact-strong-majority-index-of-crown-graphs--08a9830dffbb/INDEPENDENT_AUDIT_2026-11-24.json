@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:31:58.022914Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each edge has 2n−4 other incident edges, so two colours force exactly n−2 of each. Writing the indicator x_ij and row/column sums r_i,c_j gives r_i+c_j−2x_ij=n−2. The row and column equations are (n−3)r_i+T−c_i=(n−1)(n−2) and its transpose. Their difference gives r_i=c_i for n≥3; comparing different i then gives constant r_i unless n=4. The balance equation forces all indicators equal in that case, which violates exact half-balance. At n=4 the witness has row/column degrees 3 at the distinguished index and 1 otherwise, which satisfies all equations. The n=3 and n=5 matrices respectively have adjacent-colour maxima (1,1,1) and (3,3,3); the n=4 witness has maxima (2,2), all checked independently by pairwise edge incidence with /tmp/opencode/frozen_audit_small.py. The cyclic one-factors split evenly into three colours for n≥6: 2 ceil((n−1)/3)≤n−2 follows at n=6,7,8 and propagates by steps of three. An edge's own colour has two fewer incidences counted, so all colours meet the bound. A single colour fails at every n≥3. The frozen verifier was inspected but not executed. The infinite argument does not rely on finite tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Observation 11 covers Cr_3=C_6 exactly. The progressively stronger universal results are upper bounds; the δ≥5 theorem gives at most three for n≥6."
+        ],
+        "reasoning": "An upper bound of three alone does not exclude two and does not settle the cubic or degree-four crowns. The v1 degree assertion directly before Observation 11 is contradicted by the valid Cr_4 witness: exact half-balance requires even neighbourhood size d(u)+d(v)−2, not even vertex degrees.",
+        "searches": [
+          "arXiv:2605.23828v1 Observation 11 and Theorem 12",
+          "arXiv:2607.00212v1 Abstract",
+          "arXiv:2608.04122v1 Abstract"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.23828v1",
+        "arXiv:2607.00212v1",
+        "arXiv:2608.04122v1",
+        "Resultary:0d70fcb97654",
+        "Resultary:2b64d1d39b3e",
+        "Resultary:f0815fe7bf25",
+        "Resultary:f5dc398f09e3",
+        "Resultary:58fd0a1c9924"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cycle coverage and the degree-based upper bound apply exactly as above; the biclique theorem classifies K_{m,n} without restriction to crowns and is not a deletion theorem."
+        ],
+        "reasoning": "No inspected valid statement implies the rigidity at all orders or its unique cubic exception. The frozen symbolic obstruction uses the off-diagonal row/column constraints and the separate small-order witnesses.",
+        "searches": [
+          "arXiv:2608.04122v1, δ≥5 theorem as stated in the abstract; arXiv:2605.23828v1, p. 6–7; Resultary 0d70fcb97654 and 2b64d1d39b3e, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A two-colour strong-majority edge-colouring is an open-neighbourhood balanced two-colouring of the line graph. The inspected reference to Freyberg–Marr Theorem 4 concerns complete multipartite graphs, not crown line graphs. Resultary 58fd0a1c9924 is about sharing one's vertex colour with at least half one's neighbours, not bounding every adjacent edge colour above."
+        ],
+        "reasoning": "The line graph is exact as a formulation but is not complete multipartite for n≥3. For example, edges (0,1) and (0,2) share an endpoint while (1,0) is disjoint from both; nonadjacency is not transitive in a complete multipartite graph under that pattern. Ordinary majority and the majority-c convention apply different predicates and objectives.",
+        "searches": [
+          "Local Resultary: crown graph K_{n,n}−M_n strong-majority edge index, line graph, neighborhood-balanced two-colouring",
+          "arXiv:2605.23828v1, definition p. 1 and Remark 4 p. 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The complete bipartite exact index tables have no deleted matching. The complete-graph record has the same numerical pattern but on K_n. No exact crown under this definition surfaced among the ranked results."
+        ],
+        "reasoning": "Within n≥3, no crown is complete bipartite or complete. Deleting a one-factor changes the size and colour counts of open edge neighbourhoods; there is no restriction argument from those index tables.",
+        "searches": [
+          "Local Resultary: exact strong-majority edge indices for crown, complete bipartite and complete graphs; 0d70fcb97654, 2b64d1d39b3e, f0815fe7bf25"
+        ]
+      },
+      "rationale": "The exact n=3 value is already the cycle result; the three-colour upper bound for n≥6 is already covered by the minimum-degree theorem. The distinct supported content is the all-order two-colour obstruction except at n=4, its explicit odd-degree exception, and closure of the n=5 exact case. Nearby exact index tables concern different families or definitions. The initiating preprint's v1 even-vertex-degree assertion is false under its own definition and does not supply a valid obstruction. This is a bounded comparison, not a historical uniqueness claim.",
+      "residual_risks": [
+        "Freyberg–Marr's original full text was not directly retrieved; the cited complete multipartite result does not cover the line graphs in question.",
+        "An older result under a different line-graph or balanced-colouring alias may exist; the lookup was bounded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CYCLE_CASE_AND_GENERAL_UPPER_BOUND; EVEN_VERTEX_DEGREE_SENTENCE_FALSE",
+          "evidence": "Observation 11 gives index three for C_6; the degree-3 Cr_4 construction disproves the preceding general necessary condition as worded. Later-version correction not checked.",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.23828v1",
+          "material_read": "Definition p. 1, Remark 4 p. 3, p. 6–7 including Observation 11 and Theorem 12; PDF offset 13820–14876 for the latter passage",
+          "method": "Bounded primary open PDF passages",
+          "title": "Strong majority colorings of graphs",
+          "trigger": "Same definition, possible broader exact two-colour obstruction"
+        },
+        {
+          "assessment": "UPPER_BOUND_ONLY_IN_INSPECTED_PASSAGE",
+          "evidence": "Five colours for admissible graphs, not the exact crown dichotomy.",
+          "identifier_or_url": "https://arxiv.org/html/2607.00212v1",
+          "material_read": "Abstract, HTML near offset 745–965",
+          "method": "Original open article abstract",
+          "title": "Strong Majority Edge-Coloring",
+          "trigger": "General same-invariant bound"
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Minimum degree at least five guarantees at most three; applies to n≥6 and gives no two-colour obstruction.",
+          "identifier_or_url": "https://arxiv.org/html/2608.04122v1",
+          "material_read": "Abstract, HTML near offset 928–1646",
+          "method": "Original open article abstract",
+          "title": "On Strong Majority Edge Colourings with Few Colours",
+          "trigger": "Strongest relevant minimum-degree theorem"
+        },
+        {
+          "assessment": "DIFFERENT_GRAPH_FAMILY",
+          "evidence": "Exact tables are for K_{m,n}; neither is an exact theorem for deletion of one perfect matching.",
+          "identifier_or_url": "Resultary:0d70fcb97654; Resultary:2b64d1d39b3e",
+          "material_read": "Both Findings at local source-mirror offset 0",
+          "method": "Local Resultary and source mirror",
+          "title": "Strong-majority index of complete bipartite graphs; Exact strong-majority edge indices of complete bipartite graphs",
+          "trigger": "Nearest exact bipartite index tables"
+        },
+        {
+          "assessment": "DIFFERENT_GRAPH_FAMILY",
+          "evidence": "The unique size-four two-colour exception is on complete graphs, not crowns.",
+          "identifier_or_url": "Resultary:f0815fe7bf25",
+          "material_read": "Reported exact complete-graph statement",
+          "method": "Local catalogue statement comparison",
+          "title": "Exact strong-majority index of complete graphs",
+          "trigger": "Identical numerical pattern"
+        },
+        {
+          "assessment": "DIFFERENT_GRAPH_FAMILY_OR_COLOUR_PREDICATE",
+          "evidence": "The first refers to a neighbourhood-balanced complete multipartite vertex-colouring theorem; the second uses a lower bound for counts of a vertex's own colour and a maximization objective.",
+          "identifier_or_url": "Resultary:f5dc398f09e3; Resultary:58fd0a1c9924",
+          "material_read": "First record's comparison around offset 7320; second Finding at offset 0",
+          "method": "Local Resultary and source mirror",
+          "title": "Strong-majority number of complete multipartite graphs; Majority c-colorings of crown graphs",
+          "trigger": "Potential equivalent balanced-neighbourhood and crown terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The crown is a canonical regular bipartite family obtained by one-factor deletion. The exact index separates a genuine exceptional degree-three case from the rest of the family and answers the two-colour question left open by the general upper bounds. The exception also supplies a concrete counterexample to the initiating v1 preprint's even-vertex-degree sentence. This is useful structural information rather than another proof of the known large-order upper bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

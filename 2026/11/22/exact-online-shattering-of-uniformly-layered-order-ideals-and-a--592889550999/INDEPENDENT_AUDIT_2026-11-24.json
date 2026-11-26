@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:33:31.221158Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An ideal is empty or is specified by its last nonempty level and a nonempty subset of that level; all strictly lower levels are full. This gives 1+h(2^w−1), and exactly the antichains can be shattered. The one-point extension above any such ideal realizes the strict-order trace over the named finite poset. The critical online recurrence is exact: a query in a full cube at position j leaves the earlier or later full cubes with one additional (w−1)-cube at the cut and possibly the outer boundary cube. At zero full cubes, one boundary cube has rank w−1 and two have the same rank by width induction. With t≥1 full cubes, querying an end boundary has an outer branch of rank w−2; a full-cube query gives minimum residual rank w−1+floor(log2 min(j,t−j+1)), maximized at a middle cube. This proves the formula for all w,h, with w=1 given by threshold search. For s=floor(log2(h+1)), the counting bound lies between w−1+s and w+s; at h=1–4 substitution gives no deficit, and at h=5 the interval 2^(w+2)≤5·2^w−4<2^(w+3) gives the first deficit for every w≥2. RESULT.md lines 15–51 is the all-parameter proof. The supplied verify.py and verification_output.txt were inspected; their finite checks were not rerun and are not needed for the induction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "68248a42b6fd gives an exact polynomial-state algorithm for any bounded-width ideal family and dyadic equality on width-two product grids.",
+          "e81fb3128ebc gives exact ranks for root-and-two-edge arms with extra leaves, a different comparability geometry."
+        ],
+        "reasoning": "The generic algorithm covers finite inputs but does not itself give an explicit all-height expression; the grid and rooted-arm exact laws do not specialize to arbitrary equal-width ordinal sums.",
+        "searches": [
+          "Resultary 68248a42b6fd, Finding and §1",
+          "Resultary e81fb3128ebc, Finding"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and AUDIT.json",
+        "Resultary 68248a42b6fd, e81fb3128ebc, 5145b7c65b25, 5128d782fbe4",
+        "Littlestone 1988, pp. 291–292",
+        "Cambridge Chapter 21 landing page"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior interval recurrence restricts the upper ideal by deleting an upset or expands the lower ideal by including a downset.",
+          "It does not establish stability of the rank on attaching one or two boundary cubes of dimension w−1, which is the step yielding the uniform logarithmic formula."
+        ],
+        "reasoning": "Finite values, the general counting bound, and the width-two grid result do not settle the sharp universal first deficit at height five. No equivalent or dominating statement was established in the inspected sources.",
+        "searches": [
+          "Resultary 68248a42b6fd, §1 and Finding",
+          "Littlestone 1988, pp. 291–292"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Littlestone’s K(C) is the largest complete mistake-tree depth; changing to adaptive membership-query wording does not make the invariant new.",
+          "Glued cubes and strict-order finite traces are representations of the same ideal class; the same-day binary–ternary ordinal-comparison record instead uses threshold predicates on products."
+        ],
+        "reasoning": "Compared the full ideal family, not a product of independent thresholds or a parity-filtered subfamily. The new scope is the explicit rank and entropy boundary in these equivalent representations.",
+        "searches": [
+          "Resultary: ordinal sums of Boolean lattices, layered weak-order ideals, five-level information gap",
+          "Littlestone 1988, pp. 291–292"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matched record 592889550999 is the frozen finding itself.",
+          "The distinct same-day 5145b7c65b25 and 5128d782fbe4 concern product-alphabet threshold predicates and static shattering/homology of parity-filtered disjoint-chain ideals, respectively."
+        ],
+        "reasoning": "The closest indexed material inspected is not an exact formula/table for the claimed full family; the search is bounded and does not rule out other records.",
+        "searches": [
+          "Local Resultary queries for the layered rank and first entropy gap",
+          "Resultary 5145b7c65b25",
+          "Resultary 5128d782fbe4"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the uniform layered closed rank and sharp five-level entropy boundary, not for the general ideal-rank recurrence, VC-width equality, or the threshold rank of a chain. The closest broader exact algorithm requires a separate analysis to solve its recurrence on this family. Distinct same-day results inspected do not supply that solution.",
+      "residual_risks": [
+        "An equivalent ordinal-sum calculation under different weak-order, lattice or query-game terminology may be unindexed.",
+        "The Cambridge chapter was not read in full. The comparison does not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General recurrence and different exact subfamily covered",
+          "evidence": [
+            "All lower ideals of width-≤w posets are handled by an interval-state algorithm; two-row grids give exact dyadic saturation."
+          ],
+          "identifier_or_url": "Resultary 68248a42b6fd",
+          "material_read": "Finding and §1, from offset 0",
+          "method": "Local published-record mirror",
+          "title": "Online ranks of finite order-ideal classes: bounded-width exact computation and dyadic saturation",
+          "trigger": "Same full ideal membership game and a broader exact algorithm"
+        },
+        {
+          "assessment": "Related exact rank for a different poset",
+          "evidence": [
+            "Independent two-step arms over a root are not an arbitrary uniform ordinal sum."
+          ],
+          "identifier_or_url": "Resultary e81fb3128ebc",
+          "material_read": "Finding",
+          "method": "Local published-record mirror",
+          "title": "A leaf erases the online-shattering excess of rooted two-edge arms",
+          "trigger": "Other exact rank for lower ideals"
+        },
+        {
+          "assessment": "Not equivalent",
+          "evidence": [
+            "One-sided threshold predicates on finite product alphabets, not lower ideals of a weak order."
+          ],
+          "identifier_or_url": "Resultary 5145b7c65b25",
+          "material_read": "Finding",
+          "method": "Local published-record mirror",
+          "title": "Binary–ternary ordinal comparisons: exact static and online shattering",
+          "trigger": "Distinct same-day online-rank hit"
+        },
+        {
+          "assessment": "Not equivalent",
+          "evidence": [
+            "Counts static shattering and homology for parity-filtered ideals on disjoint chains."
+          ],
+          "identifier_or_url": "Resultary 5128d782fbe4",
+          "material_read": "Finding",
+          "method": "Local published-record mirror",
+          "title": "Parity-constrained ideals on disjoint chains",
+          "trigger": "Distinct same-day ideal-shattering hit"
+        },
+        {
+          "assessment": "Credits general invariant, not the layered calculation",
+          "evidence": [
+            "K(C) is defined by existence of a complete k-mistake tree."
+          ],
+          "identifier_or_url": "https://homepages.math.uic.edu/~lreyzin/papers/littlestone88.pdf",
+          "material_read": "pp. 291–292, mistake-tree definition (PDF text offset 18000)",
+          "method": "Open primary PDF",
+          "title": "Learning Quickly When Irrelevant Attributes Abound",
+          "trigger": "Original adaptive-rank definition"
+        },
+        {
+          "assessment": "Full chapter not assessed",
+          "evidence": [
+            "Public page identifies the online-learning chapter; no noncoverage conclusion drawn from it."
+          ],
+          "identifier_or_url": "https://www.cambridge.org/core/books/abs/understanding-machine-learning/online-learning/A43CEEF3F7F18953B592C983087C8A36",
+          "material_read": "Publisher landing page only",
+          "method": "Public page",
+          "title": "Understanding Machine Learning, Chapter 21: Online Learning",
+          "trigger": "Cited background"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result supplies an exact online benchmark in a natural class of fixed-width posets, including the first place a realizable decision tree must lose a bit relative to the number of ideals. The rank stability under small boundary cubes explains that loss and is more informative than tabulating ranks or just observing a static/online separation on chains. Scope is uniform positive widths and finite traces only.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

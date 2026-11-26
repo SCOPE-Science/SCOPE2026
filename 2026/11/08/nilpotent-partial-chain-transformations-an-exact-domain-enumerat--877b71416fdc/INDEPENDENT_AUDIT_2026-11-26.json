@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T10:02:05.734127Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–112, VERIFICATION.md and verify.py (inspected, not executed).",
+        "Independently written domain-and-image enumeration: /workspace/branches/ec9c5560-b7b9-4b3a-aa9d-a38babfb412b/independent_enumeration.py with check_small.txt and check_all.txt in that directory, matching every coefficient for 0≤n≤8."
+      ],
+      "rationale": "The monotone restriction to a persistent cycle is an increasing bijection of a finite chain and fixes it pointwise, so fixed points are precisely the obstruction to nilpotence even without injectivity. Marking fixed points forces monotone values into the adjacent closed target intervals; the end gaps therefore give B, the interior gaps C, and no marked point gives A. Signed marking gives A−zu B²/(1+zu C). Summing the coefficient identity [x^m]T(x)^(m+h)/(1−x) by substituting x=zT(x) gives the Jacobian denominator (1−zR)(1−zT′(zR))=R sqrt(Δ), yielding exactly the stated radical and constant term 1. For uniform singularity, R=2/(1+z+sqrt(Δ)) is nonzero on the chosen branch near the dominant disk. A zero of sqrt(Δ)+uzR would require sqrt(Δ)=−u(1+z)/(u+2), hence (1+z)^2=(u+2)^2 z. At u=1 the smaller root (7−3√5)/2 is positive and has the opposite sign of sqrt(Δ); the larger is outside a slit disk containing the dominant singularity. These exclusions persist in a common rescaled slit neighborhood after z=ρ(u)w for complex u near 1. The denominator at z=ρ equals u/(1+u) and the linear coefficient in sqrt(Δ) of its reciprocal is −sqrt(1+u)/(u²sqrt(ρ)); the expansion is a convergent Puiseux series, so uniform transfer gives the stated relative O(1/n). The leading log-mgf is 2n arsinh(sqrt(exp(t))) up to its value at t=0, giving derivatives 1/√2 and 1/(4√2) after division by n. Uniform analytic error permits differentiation for the O(1) moment remainders and gives the centered normalized Gaussian law.",
+      "residual_risks": [
+        "Finite enumeration only corroborates the formal coefficients; the complex-uniform transfer and limit law are justified by the singularity argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Garba's inspected text studies the nilpotent-generated subsemigroup and its structure. Earlier Resultary work treats the full weakly increasing monoid but enumerates image ranks only for maximal nilpotent domains n−1, with Catalan total."
+        ],
+        "reasoning": "The latter gives one domain stratum and not arbitrary d; structure of a generated semigroup is not the weighted size distribution of its nilpotent elements.",
+        "searches": [
+          "Garba DOI 10.1017/S001309150001885X, Introduction and pp. 15–16",
+          "Resultary earlier maximal-domain record ...--8f08dd8f928c"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ...--8f08dd8f928c and ...--6acaec0c4c01; Laradji abstract; Garba primary passages; OEIS A110122; Imam et al. retrieval attempt."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Unweighted interval counts cannot be differentiated in the new marker. The earlier maximal-domain theorem determines the coefficient at d=n−1, not the weighted interval factors for smaller d. The current singularity moves with the weight and supplies distinct mean and variance."
+        ],
+        "reasoning": "The two-parameter gap evaluation and its asymptotic use are not mechanized by the inspected one-variable counts or the stricter injection theorem.",
+        "searches": [
+          "Frozen Finding and Proof §§2–4 compared to Laradji accessible abstract, maximal-domain ...--8f08dd8f928c and strict-injection ...--6acaec0c4c01 Finding passages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In this monoid nilpotence is equivalent to no fixed points, translating the question into a domain-size-marked fixed-point-free count. Laradji's accessible abstract describes counting by number of fixed points, not by defined positions.",
+          "The later strict-injection result ...--6acaec0c4c01 gives mean n/2 and variance n/8, whereas repetitions in the present image sequences are allowed and affect both constants."
+        ],
+        "reasoning": "The fixed-point-free equivalence makes unweighted coverage material but cannot recover a domain distribution from the specialization u=1. Strict-injection restrictions are not equivalent.",
+        "searches": [
+          "Resultary: fixed-point-free partial weakly order-preserving maps, domain-size/rank refinements and Gaussian law",
+          "Laradji, DOI 10.1142/S0219498822500827"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A110122 lists a Delannoy-path sequence 1,3,12,53,247,..., agreeing with the tested unweighted totals at n=0 and n≥2 after accounting for the omitted second initial 1, not a bivariate table. The exact ...--877b71416fdc Resultary hit is the assigned entry itself."
+        ],
+        "reasoning": "Even equality of unweighted totals does not identify any distribution over the marked domain size or its limit law.",
+        "searches": [
+          "OEIS A110122 entry, offset 0",
+          "Resultary exact-title and domain-size search"
+        ]
+      },
+      "rationale": "Credit earlier fixed-point counts and the maximal-domain stratum in this exact monoid. The supported distinct part is the all-domain refinement for partial weakly increasing maps together with its intrinsic Gaussian constants. The nearest rank-limit result for strictly increasing partial injections is for a different sample space. Priority is assessed on accessible evidence and is not exhaustive.",
+      "residual_risks": [
+        "Laradji's full paper is the main unresolved plausible source for an equivalent domain-weighted refinement. The Imam et al. full text was also inaccessible in this check. A search or failed retrieval cannot exclude priority overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known last domain stratum, not whole weighted enumeration",
+          "evidence": [
+            "Maximal domain n−1, image-rank distribution there and Catalan total."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-image-rank-distribution-of-maximal-domain-nilpotent-partial-isot--8f08dd8f928c",
+          "material_read": "Mirrored RESULT.md Finding at offset 44",
+          "method": "Statement and scope comparison",
+          "title": "Image rank distribution of maximal-domain nilpotent partial isotone maps",
+          "trigger": "Same full weakly increasing partial monoid and nilpotence"
+        },
+        {
+          "assessment": "Different narrower monoid",
+          "evidence": [
+            "Strict injections, n/2 and n/8 constants."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-large-deviations-of-nilpotent-partial-order-preserving-injection--6acaec0c4c01",
+          "material_read": "Mirrored RESULT.md statement at offset 557",
+          "method": "Statement and scope comparison",
+          "title": "Large deviations of nilpotent partial order-preserving injections",
+          "trigger": "Neighboring rank Gaussian law"
+        },
+        {
+          "assessment": "Known unweighted comparison, potential domain-marked coverage not determined",
+          "evidence": [
+            "Abstract defines F(n,m) by fixed-point count and describes recurrences and generating functions."
+          ],
+          "identifier_or_url": "https://doi.org/10.1142/S0219498822500827",
+          "material_read": "Lawful KFUPM/Pure abstract, offset 400; full text unavailable",
+          "method": "Primary publisher DOI attempt (403) and lawful OA lookup, then identified institutional abstract",
+          "title": "Fixed points of order-preserving transformations",
+          "trigger": "Closest primary count for same fixed-point-free class"
+        },
+        {
+          "assessment": "Structural and generating-rank context in inspected passages",
+          "evidence": [
+            "Nilpotent-generated subsemigroup and Green-class/domain structure."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S001309150001885X",
+          "material_read": "Cambridge abstract and introduction p. 1, later pp. 15–16 (PDF pagination)",
+          "method": "Bounded lawful primary PDF passage inspection",
+          "title": "Nilpotents in semigroups of partial order-preserving transformations",
+          "trigger": "Same monoid and nilpotence"
+        },
+        {
+          "assessment": "No domain marking in this entry",
+          "evidence": [
+            "Single Delannoy-path sequence with offset 0,2 and initial numbers 1,3,12,53."
+          ],
+          "identifier_or_url": "https://oeis.org/A110122",
+          "material_read": "Entry at offset 0",
+          "method": "Lawful exact database entry read",
+          "title": "OEIS A110122",
+          "trigger": "Unweighted sequence comparison"
+        },
+        {
+          "assessment": "Exact coverage not determined",
+          "evidence": [],
+          "identifier_or_url": "https://doi.org/10.5281/zenodo.10580237",
+          "material_read": "Bibliographic record and frozen comparison only; readable article not retrieved",
+          "method": "Lawful DOI attempt returned 403",
+          "title": "Product of Quasi-Idempotents in Finite Semigroup of Partial Order-Preserving Transformations",
+          "trigger": "Same monoid; cited use of domain size"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, gap decomposition and analytic proof; earlier maximal-domain and strict-injection comparisons."
+      ],
+      "rationale": "Domain size is a natural parameter of a partial transformation, not a cut chosen after computation. Counting the entire nilpotent stratum by that parameter and identifying its global fluctuations with explicit constants are usable beyond the unweighted count, in particular for sampling and comparisons between weak and injective maps.",
+      "residual_risks": [
+        "The law is not a local limit theorem, nor does the enumerator retain image size or nilpotency index."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

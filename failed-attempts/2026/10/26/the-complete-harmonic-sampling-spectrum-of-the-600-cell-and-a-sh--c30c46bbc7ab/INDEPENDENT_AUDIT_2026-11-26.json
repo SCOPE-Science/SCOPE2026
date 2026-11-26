@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:21:44.565202Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, CHECK.py, CHECK_OUTPUT.txt and VERIFICATION.md",
+        "Independent reproduction: OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python3 /workspace/review_check_3_4.py; direct 120-point Gram spectra through degree 119 match to 2.28e-13, alongside exact integer ranks and shifts."
+      ],
+      "rationale": "The asserted spectrum is correct as a multiset indexed by isotypic blocks: d_j^2 is the contribution from block j, not the global multiplicity of a scalar shared by several blocks (notably zero). With normalized area the addition kernel after scaling is U_l(Re(g^-1 h))/(l+1). Character orthogonality diagonalizes this central kernel, and Clebsch–Gordan gives the stated affine E8 recurrence. Central parity cuts the regular representation to 60 dimensions; noncentral angles of denominators 2, 3 and 5 give the exact sixty-step shift after taking inner products, and vanishing of all noncentral kernel entries is equivalent to l+1 being divisible by 30. The independent recurrence gives ranks 59 and 60 at degrees 58 and 59 and the first full ranks at odd 13 and even 20; the shift proves full rank at every degree >=60, not merely within the checked range.",
+      "residual_risks": [
+        "Floating-point agreement samples finitely many degrees; the all-degree argument is character-theoretic. The source's multiplicity wording should be read blockwise as in its proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior exact-spectrum record gives permanent odd cutoff 29 and even cutoff 60, implying the common threshold 59 with failure at 58.",
+          "Weeks and Hirao–Nozaki–Tasaka supply invariant-sector information, including the absent degree-58 invariant, not the whole sampling spectrum."
+        ],
+        "reasoning": "Use the stronger exact-record rank bounds, not invariant-sector results alone, for the full sampling consequence.",
+        "searches": [
+          "10/25 Resultary record, rank and parity thresholds",
+          "arXiv:math/0502566, Section 10",
+          "arXiv:2507.01358, Theorem 1.2(iii)"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary index and the two listed mirrored RESULT.md files",
+        "arXiv:math/0502566",
+        "arXiv:1307.6768",
+        "arXiv:2507.01358",
+        "OEIS A087866",
+        "Backhouse–Gard DOI:10.1088/0305-4470/7/17/004 (metadata/access only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Off-antipodal entries vanish exactly when sin((l+1)theta) vanishes for every noncentral angle. Actual angles pi/2, pi/3 and pi/5 force the individual divisibilities, and all other angles have the same denominators."
+        ],
+        "reasoning": "The additional all-tight-degree classification is an immediate arithmetic consequence of the known kernel on this known vertex configuration, not an independent unknown residue.",
+        "searches": [
+          "10/25 Resultary record, exact zonal kernel and spectrum",
+          "Dechant arXiv:1307.6768, binary icosahedral geometry and McKay correspondence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 10/25 record uses K_l=[U_l(<x,y>)] and eigenvalues 120 m_l,j/d_j with multiplicities d_j^2. The frozen G_l is exactly K_l/(l+1). The later record also states the same full tightness progression; it is a content match, not earlier coverage."
+        ],
+        "reasoning": "The normalization changes eigenvalues by a common factor but not sampling information, multiplicities or rank.",
+        "searches": [
+          "Resultary semantic search: exact-degree harmonic sampling spectrum, 600-cell/binary icosahedral group",
+          "2026/10/25/SCOPE-the-exact-degree-harmonic-sampling-spectrum-of-the-600-cell--13f75a70c530",
+          "2026/11/2/SCOPE-parity-sharp-exact-degree-harmonic-sampling-on-the-600-cell--de93ffb99594"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A087866 counts only composition length; it is not a table of the nine multiplicities. The 10/25 record gives the full labeled recurrence, the degree-58 spectrum and the degree-59 tight matrix. The Backhouse–Gard paper was not inspected beyond access/metadata."
+        ],
+        "reasoning": "The relevant exact algorithmic table is the earlier result's recurrence; the scalar OEIS sequence cannot substitute for it.",
+        "searches": [
+          "OEIS A087866",
+          "10/25 Resultary record, recurrence, exceptional degrees and full spectral rule",
+          "Backhouse–Gard DOI:10.1088/0305-4470/7/17/004"
+        ]
+      },
+      "rationale": "The distinct earlier-indexed 10/25 record supplies the complete block spectrum up to a scalar normalization, the rank and period shift, and stronger parity-specific eventual cutoffs. The frozen all-tight-degree iff is not stated there in that form, but it is immediately implied by the same exact zonal kernel and the available noncentral angles pi/2, pi/3 and pi/5. This is a statement-level coverage finding, not a finding about authorship, dependence or publication priority.",
+      "residual_risks": [
+        "Backhouse–Gard was not available in a checked lawful full-text copy; this might reveal more representation-theory coverage, but is not the reason for FAIL.",
+        "Indexed dates and equivalent content do not establish independence, provenance or priority. The broad primary-literature search was not informative beyond the sources inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers full spectrum and sharp eventual rank; does not explicitly state all tight degrees",
+          "evidence": [
+            "Nine affine E8 blocks, d_j^2 repetitions, sixty-step shift and parity-specific permanent thresholds."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-the-exact-degree-harmonic-sampling-spectrum-of-the-600-cell--13f75a70c530",
+          "material_read": "RESULT.md offsets 0–7392 and 7600 through the decisive rank and special-degree statements",
+          "method": "Local mirrored text",
+          "title": "The exact-degree harmonic sampling spectrum of the 600-cell",
+          "trigger": "Closest earlier-indexed exact claim"
+        },
+        {
+          "assessment": "Later-indexed content match",
+          "evidence": [
+            "Tightness iff l=29 modulo 30, with the same recurrence and parity thresholds."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-parity-sharp-exact-degree-harmonic-sampling-on-the-600-cell--de93ffb99594",
+          "material_read": "RESULT.md offsets 0–3383 and 11800–14413",
+          "method": "Local mirrored text",
+          "title": "Parity-sharp exact-degree harmonic sampling on the 600-cell",
+          "trigger": "Strong exact match including tightness"
+        },
+        {
+          "assessment": "Trivial block only",
+          "evidence": [
+            "Invariant degrees generated via invariants of degrees 12, 20 and 30 with the stated basis constraints."
+          ],
+          "identifier_or_url": "arXiv:math/0502566",
+          "material_read": "Section 10, pp. 13–16, equations (27), (34)–(35)",
+          "method": "OA PDF passage inspection",
+          "title": "Exact Polynomial Eigenmodes for Homogeneous Spherical 3-Manifolds",
+          "trigger": "Exact invariants on the same binary group"
+        },
+        {
+          "assessment": "Invariant averaging, not full sampling",
+          "evidence": [
+            "The harmonic-strength set for 2I includes degree 58 and the positive odd degrees."
+          ],
+          "identifier_or_url": "arXiv:2507.01358",
+          "material_read": "Theorem 1.2(iii), p. 3",
+          "method": "OA PDF passage inspection",
+          "title": "Spherical designs for finite quaternionic unit groups and their applications to modular forms",
+          "trigger": "Exact harmonic degrees on the same vertex set"
+        },
+        {
+          "assessment": "Classical ingredients, not the full evaluated spectrum",
+          "evidence": [
+            "The binary icosahedral group realizes the 120 vertices, and its two-dimensional tensor graph is affine E8."
+          ],
+          "identifier_or_url": "arXiv:1307.6768",
+          "material_read": "pp. 20, 22–23",
+          "method": "OA PDF passage inspection",
+          "title": "Platonic solids generate their four-dimensional analogues",
+          "trigger": "Known geometry and graph underpinning the spectrum"
+        },
+        {
+          "assessment": "Scalar sum of multiplicities only",
+          "evidence": [
+            "Composition length does not label constituent multiplicities."
+          ],
+          "identifier_or_url": "https://oeis.org/A087866",
+          "material_read": "Definition and generating function",
+          "method": "Public page passage inspection",
+          "title": "Composition length of symmetric powers for the E8 subgroup",
+          "trigger": "Possible exact table"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "10/25 exact-spectrum record",
+        "Frozen RESULT.md, tightness proof and scope",
+        "Independent degree-0–119 Gram comparison"
+      ],
+      "rationale": "An all-degree conditioning or rank classification on this natural configuration would be useful if unknown. Here the complete spectral and rank information already has an explicit equivalent record, and the only identified difference is the immediate three-denominator zero test from the known exact kernel. It does not leave a substantive independent sampling result to repair.",
+      "residual_risks": [
+        "No assessment of interpolation constants, perturbed vertices or proper subsets; these are outside the finding."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

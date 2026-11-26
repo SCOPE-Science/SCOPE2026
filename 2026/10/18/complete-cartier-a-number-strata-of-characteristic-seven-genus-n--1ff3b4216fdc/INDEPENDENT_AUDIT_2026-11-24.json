@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:46:18.618769Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a degree-seven cyclic cover of the projective line, Deuring–Shafarevich gives −1=−7+6r, so there is one branch point; reduced Artin–Schreier form and Riemann–Hurwitz give 16=−14+6(d+1), hence pole order d=4. Move it to infinity, translate x to kill the cubic term, scale x to normalize the quartic coefficient, and translate y to remove the constant over the algebraically closed field. The nine x^iy^j dx with 7i+4j≤16 have distinct valuations at infinity and are regular: the different exponent is 30, so div(dx)=16P. They form a basis by genus. Expanding y^j=(y^7−f)^j and retaining exponents 6 modulo 7 verifies the active block over F7[a,b]; e.g. coefficients of x^6 and x^13 in f^4 are 6a²b² and 4b, and the y and y² rows of the last column are −4(a³+3b²) and 12a. Raising the actual matrix coefficients to seventh powers preserves rank over the perfect field. For a≠0 the relevant three-column minor is 4a³ and the two first columns are collinear; for a=0≠b the relevant two-column minor is b² and only two independent columns remain; at the origin the matrix vanishes. Consequently the a-numbers are 6, 7, 9 throughout the specified family, not just at F7 points. The frozen checker was inspected, not executed; an independently implemented sparse expansion also returned BASIS_OK and MATRIX_OK.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Farnell–Pries's constant-a theorem requires the pole order to divide p−1 in this one-pole case; 4 does not divide 6. Their monomial formula does cover a=b=0.",
+          "The ramification-only Booher–Cais Theorem 1.1 at p=7,d=4 supplies 6≤a(X)≤9 (maximal lower bound 6 and upper bound 9), not the exclusion of 8. Their coefficient-strata example is about p=5,d=3.",
+          "Tafazolian–Kazemifard establish a p-rank-zero existence range, not a-number strata."
+        ],
+        "reasoning": "The established methods and constraints are broader in parameter range, but not a stronger theorem determining these three coefficient loci.",
+        "searches": [
+          "Farnell–Pries arXiv:1202.4183v1, Theorem 1.1 and Remark 2.1",
+          "Booher–Cais arXiv:1807.10313v3, Theorem 1.1 and Examples 7.2–7.3",
+          "Tafazolian–Kazemifard arXiv:2610.13279v1, Theorem 3.5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_cartier7.py",
+        "arXiv:2610.13279v1; arXiv:1202.4183v1; arXiv:1807.10313v3",
+        "Resultary d8316cc2a165"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Monomial a=9 is a direct earlier formula specialization, and a=b=1 is a directly earlier example as a curve with its automorphism property.",
+          "The ramification data are identical throughout the normalized family. The bounds and other-parameter examples do not detect the independent pivots proportional to the normalized coefficients or exclude rank one."
+        ],
+        "reasoning": "The symbolic Cartier checks supply essential new coefficient-dependent information, rather than transcribing one of the exact points or specializing a known uniform formula for the stated family.",
+        "searches": [
+          "Farnell–Pries Theorem 1.1 and monomial Remark 2.1",
+          "Booher–Cais Theorem 1.1, Examples 7.2–7.3",
+          "Tafazolian–Kazemifard Lemma 3.3, Theorem 3.5, Question 7.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact quartic x^4+x²+x is an existing minimal-automorphism example in this characteristic; the earlier statement addressed automorphisms and genus/p-rank, not coefficient-plane Cartier rank.",
+          "d8316cc2a165 classifies one-pole genus-six curves with y³−y=x^7+ax^5+bx^4+cx², not the genus-nine characteristic-seven quartics."
+        ],
+        "reasoning": "Cartier ranks 3, 2, 0 equal a-numbers 6, 7, 9 after subtracting from genus nine. Neither the older example nor the differently parameterized catalogue theorem states the translated classification.",
+        "searches": [
+          "Resultary meaning searches by y^7−y=x^4+ax²+bx, genus nine characteristic seven, and first Cartier kernel/rank strata",
+          "Tafazolian–Kazemifard arXiv:2610.13279v1, Lemma 3.3 and Question 7.5",
+          "Resultary d8316cc2a165, Finding at offset 0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest catalogue classification is for a different family. The Example 7.2 table is introduced with p=13 and a single pole of order 7, not p=7 and pole order 4.",
+          "The monomial formula specializes to 5+3+1=9 here and is credited as an already known exact point."
+        ],
+        "reasoning": "An exact point and tables at different characteristic and pole data cannot determine a stratification over the algebraic closure. No inspected table independently gives the claimed loci.",
+        "searches": [
+          "Resultary searches by characteristic 7, genus 9, one-pole quartic and Cartier a-number",
+          "Booher–Cais §7, Example 7.2 and its Table 2 context",
+          "Farnell–Pries Remark 2.1"
+        ]
+      },
+      "rationale": "The supported distinct result is the complete coefficient-plane stratification and exclusion of a-number eight in the characteristic-seven genus-nine zero-p-rank family. The normalized one-pole framework, the monomial value, the genus-nine example without extra automorphisms, and general a-number bounds and computations all have prior coverage.",
+      "residual_risks": [
+        "The separate Pries source for the monomial formula was not recovered; that point is credited from the inspected Farnell–Pries quotation.",
+        "An unindexed or differently phrased genus-nine characteristic-seven classification is not excluded. The claimed loci are in normalized coefficient space, not an isomorphism classification of curves or a complete Ekedahl–Oort or Newton-polygon classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct overlap for the example, not the Cartier classification",
+          "evidence": [
+            "For N=3 and p≥5 the equation uses x^4+x²+x and has geometric automorphism group C_p; p=7 gives genus nine. The a-number at fixed p-rank is raised as a separate question."
+          ],
+          "identifier_or_url": "arXiv:2610.13279v1",
+          "material_read": "Lemma 3.3 p. 10 offset 30485; Theorem 3.5 p. 13 offset 39854; Question 7.5 p. 23 offset 73207",
+          "method": "OA PDF passage inspection",
+          "title": "Artin–Schreier Curves of Prescribed p-Rank Without Extra Automorphisms",
+          "trigger": "Same family exemplar, genus and rank regime"
+        },
+        {
+          "assessment": "Monomial overlap only; jump divides p−1 theorem is inapplicable",
+          "evidence": [
+            "The specialization of the quoted monomial formula is 9. The required congruence p≡1 mod 4 fails for p=7."
+          ],
+          "identifier_or_url": "arXiv:1202.4183v1",
+          "material_read": "Theorem 1.1 p. 2 offset 6318; Remark 2.1 p. 3 offset 11463",
+          "method": "OA PDF passage inspection",
+          "title": "Families of Artin–Schreier curves with Cartier-Manin matrix of constant rank",
+          "trigger": "Possible broader exact a-number formula"
+        },
+        {
+          "assessment": "Bounds and adjacent computations, not a full stratification at the frozen parameters",
+          "evidence": [
+            "Example 7.2 treats p=13 and pole order 7 with some computed a-numbers; Example 7.3 obtains two coefficient strata at p=5 and pole order 3.",
+            "Substituting p=7,d=4 into Theorem 1.1 bounds the a-number between 6 and 9 without excluding 8."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1807.10313",
+          "material_read": "Theorem 1.1 PDF p. 2, offsets around 8161–10571; Examples 7.2–7.3 pp. 40–41, offsets around 172465–174830",
+          "method": "OA PDF theorem/formula and example passage inspection",
+          "title": "a-Numbers of Curves in Artin–Schreier Covers",
+          "trigger": "General ramification bounds, exact computation examples and coefficient-dependent strata"
+        },
+        {
+          "assessment": "Similar method, different characteristic and family",
+          "evidence": [
+            "Classifies genus six, characteristic three, seventh-degree pole models rather than characteristic seven and quartic pole models."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-complete-cartier-jump-in-the-genus-six-one-pole-artin-schreier-s--d8316cc2a165",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "Complete Cartier jump in the genus-six one-pole Artin–Schreier stratum",
+          "trigger": "Closest indexed one-pole coefficient-space Cartier classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result fills the interval left by established ramification-only bounds with exact loci for a complete natural p-rank-zero family. In particular it identifies a genuine missing a-number and shows exactly which coefficient degenerations change the rank. It is not a value claim for the already-known monomial point or a claim about coarse moduli.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

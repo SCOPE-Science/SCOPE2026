@@ -1,0 +1,90 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:33:50.407281Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A nonzero ideal has exactly one generator with a>0, b>=0. For h=floor(sqrt(k)), b<h contributes at most h^2 and b=h contributes at most floor(sqrt(k-h^2))<=k-h^2; hence A(k)<=k. For s=n+1>2 the ordered-pair max-norm series U_s converges by coefficient comparison with 2Z(s-1)-Z(s). Dividing both ideals by their unique gcd gives a coprime pair, with multiplicative max norm under the common factor; thus U_s=Z(s)T_s. The circle estimate gives W_n(y)~pi*y^(n+1)/(4(n+1)) by partial summation. The bound W_n(y)<=y^(n+1), also below y=1, provides summable domination by the coprime max-norm weights after scaling the exact gcd decomposition by X^(n+1). Dividing the limit by A(floor X)^2/X^2 -> pi^2/16 gives the claimed coefficient, including n=2. Norm counts at 1,2,3,4 are 1,1,0,1, so the max-norm coefficient at k=4 is 5 versus 7 in the conjectured series. All other coefficient differences are nonnegative, giving the exact stated lower bound. This proves the claim for each fixed n, not a growing-exponent estimate. The supplied checker and verification note describe bounded corroboration, not the limiting argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3 asserts asymptotic existence for n>2 but gives no such coefficient. The introduction describes wider extensions as prospects rather than a theorem furnishing this expression."
+        ],
+        "reasoning": "Credit asymptotic existence above the endpoint, not the exact series or disproof.",
+        "searches": [
+          "Primary-literature search for Gaussian ideal gcd higher moments, corrected BCL constants and general ideal gcd moment theorems",
+          "arXiv:1502.02148v1, pp. 1 and 3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_gaussian_gcd.py (inspected)",
+        "arXiv:1502.02148v1",
+        "Resultary cef2dd3e9b66",
+        "MathDB 329844 search excerpt only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The displayed BCL candidate uses (2Z(n)-Z(n+1))/Z(n+1). In the integer analogue A(k)=k, so pair-count increments really are 2k-1; for Gaussian ideals the corresponding increment at k=4 is 5, not 7."
+        ],
+        "reasoning": "The integer-model identity depends on its different norm-counting function and does not imply the Gaussian coefficient. The checked proof instead forces the conjectured and actual constants to differ.",
+        "searches": [
+          "arXiv:1502.02148v1, Theorem 3 and Conjecture 1; rational-integer analogue discussed there"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "BCL have the identical norm cutoff and sampling measure. Counting Gaussian-integer generators instead multiplies pair counts by a constant sixteen. Resultary cef2dd3e9b66 concerns the rational gcd of two shifted quadratic norms, not this ideal gcd."
+        ],
+        "reasoning": "Unit-orbit normalization preserves the target; taking a gcd of rational norms does not.",
+        "searches": [
+          "Resultary: Gaussian ideal-pair gcd moment law and corrected max-norm series",
+          "arXiv:1502.02148v1, ideal sampling and Conjecture 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "BCL report numerical fits for moments 2 through 5; these are not exact coefficients. The MathDB snippet points to BCL's conjecture; the page returned 403 and was not inspected. No exact-table match was surfaced in Resultary."
+        ],
+        "reasoning": "The inspected fits neither specify the infinite series nor establish a strict gap for all fixed integers n>=2.",
+        "searches": [
+          "Resultary: Gaussian-ideal gcd coefficient and positive gap",
+          "arXiv:1502.02148v1, p. 10",
+          "MathDB record 329844 from search results"
+        ]
+      },
+      "rationale": "Pass for the corrected coefficient, endpoint n=2 and positive obstruction to the exact BCL coefficient in the whole stated domain. Existence of some coefficient for n>2 is already BCL's result, and their numerical fits are not a derivation of the corrected expression. No stronger theorem yielding the correction was located in the bounded comparison.",
+      "residual_risks": [
+        "An equivalent corrected formula may exist in unlocated gcd-moment or general ideal-counting literature.",
+        "The MathDB page was unavailable; only its indexed description was used."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model; higher-moment existence above the endpoint and a distinct conjectured coefficient",
+          "evidence": "Theorem 3 has n>2; Conjecture 1 explicitly has n>=2 and the quoted zeta ratio; numerical fits cover n=2 to 5.",
+          "identifier_or_url": "https://arxiv.org/pdf/1502.02148v1",
+          "material_read": "pp. 1, 3, 10, text offsets 2300, 8800, 35400",
+          "method": "Lawful OA PDF, targeted passage reading",
+          "title": "On the Distribution of the Greatest Common Divisor of Gaussian Integers",
+          "trigger": "Exact conjecture and closest prior higher-moment theorem"
+        },
+        {
+          "assessment": "Different gcd statistic",
+          "evidence": "Rational gcd of x^2+y^2 and (x+1)^2+(y+1)^2, not Gaussian ideal gcd.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-full-gaussian-diagonal-norm-gcd-law-with-an-infinite-limiting--cef2dd3e9b66",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A full Gaussian diagonal-norm gcd law with an infinite limiting support",
+          "trigger": "Closest topical Resultary hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The explicit coefficient replaces a published conjectural formula and decides it negatively for every exponent in its stated domain. The endpoint existence at n=2 and the norm-four obstruction add concrete information beyond estimates or numerical fits.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

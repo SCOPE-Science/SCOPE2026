@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The assertion is a single uniform theorem about the parity-restricted ideal family of \(k\) disjoint chains of length \(L\ge2\). Every ideal corresponds uniquely to an allowed prefix vector. A support can never contain comparable vertices if shattered. On a transversal, the only parity obstruction occurs when every queried threshold is at an endpoint and the corresponding forced label pattern has the wrong total cardinality parity. This yields the exact complete face polynomial. The integral topology calculation uses the augmented chain complexes of joins, explicit integral join cycles isolating each removed endpoint facet, and the long exact sequence of the pair. For the length-two odd-parity exception it uses the chain ranks of the cross-polytope boundary sphere. No inference from finite experiments is used for infinite parameters. Independent Python and C++17 enumerators reproduce all 24 small cases; a separate boundary-rank computation reproduces 18 finite topology cases. Risks: the usual reduced degree-\(-1\) convention is necessary for the one-chain length-two odd case, and this is stated explicitly.
+PASS
 
-## Originality — PASS within inspected evidence
+Represent each ideal by its chain prefix lengths in {0,...,L}, with sum of prescribed parity. Two queries in a chain forbid the nonmonotone trace; an unused chain supplies either parity via lengths 0 and 1. For a full transversal the response intervals are [0,j-1] and [j,L]. An interior height gives both parities for either response. At endpoint heights only the all-singleton choice can fail, and its total length is L times the number of top queries. This gives precisely the deleted facets, polynomial, and VC dimension. The undeleted join X has a free top reduced group of rank (L-1)^k and no other reduced groups. For L>=3, use an interior reference vertex in each chain: the join of differences of the missing facet's vertices with the reference vertices is a cycle evaluating to a signed unit on that relative facet and zero on every other omitted facet. Thus the top-to-relative map is onto over Z and its kernel is free of the displayed rank; no hidden lower group or torsion remains. For L=2 the join is the cross-polytope boundary. Deleting all its facets at odd parity leaves the old top boundary image as the new highest reduced homology, free of rank 2^k-1, with lower groups unchanged. The augmented calculation also gives H̃_{-1}=Z for k=1,L=2,p=1, and the vertex case for k=1,L>=3 agrees with the formula.
 
-Actual literature/database searches included "parity-restricted order ideals of finite posets VC shattering", "finite distributive lattices fixed-size order ideals shattering", "even cardinality down-sets shattering", "parity restricted order ideals of disjoint unions of chains full VC shattering polynomials and integral homology", and the alternate phrasing "even odd ideals in products of chain posets". A Campo–Erné (2018) studies downset counts and poset extensions, Early (2019) studies rank-unimodality in Cartesian *products* of chains, and Ghazi et al. (2021) studies general learning-dimension closure. Those statements do not entail the endpoint-forbidden full-transversal classification or its integral homology. Previously published investigations of unrestricted order-ideal online dimensions and maximal-antichain shattering were also compared by objects and implications, not title similarity; they do not impose the cardinality parity filter. The accessible earlier findings were used only for overlap exclusion, without re-auditing or revising them. A complete priority guarantee is not possible; unindexed exact formulas or alternate topological representations are residual risks.
+## originality
 
-## Value — PASS
+PASS
 
-The concept class is a canonical distributive-lattice family under one global congruence condition. Its ordinary width alone cannot distinguish the parity classes when \(L\ge3\), yet the complete face count and integral Betti number record exponential differences; the smallest chain length produces a genuine topological dimension shift. The result supplies a full all-parameter classification and an integral calculation rather than a single isolated finite count, and it provides an exact benchmark for parity-sensitive learning and topology of simplicial trace complexes. No downstream conjecture is claimed necessary for its value.
+The distinct same-day fence-ideal record supplies a general rigid-trace parity criterion, which is credited as overlapping the shattering mechanism. The claim assessed as distinct is the complete disjoint-equal-chain face polynomial and integral topology, including the length-two transition; the inspected fence result has a different poset and does not determine that answer. The decision does not assert same-day precedence or invention of ideal enumeration, the general rigid-trace test, or join homology.
 
-## Closest work and limitations
+## value
 
-The papers by A Campo–Erné (2018), Early (2019) and Ghazi et al. (2021) supply adjacent order-ideal enumeration and learning-theoretic context but not the stated exact parity-constrained topological result. The analysis is restricted to equal-length, disjoint chains and total-cardinality parity, and does not claim a general-poset criterion, a universal online dimension, or a complete homotopy classification. The mathematical proof is self-reviewed and reproduced in bounded finite cases; historical priority and the integral argument have not received independent specialist assessment.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A global parity constraint in a basic membership concept class leaves the VC dimension unchanged at even L>=4 while changing the top Betti number by exactly 2^k; at L=2 the homology instead shifts by a full degree. Computing the integral groups as well as the face counts makes this an explicit structural comparison beyond a VC bound or a set count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

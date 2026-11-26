@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:12:37.157139Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The covariance 2a I and angular radius 2 pi |xi| give the stated transform. On a negative lobe, u=ar^2+log(-J_0) tends to minus infinity at both ends. The Bessel ODE gives u''=4a-1-4a^2 r^2 at every stationary point, strictly negative by completing the square and r>1. Two maxima would force an intervening minimum, so there is exactly one stationary point, and its curvature gives the exact zero orders. The energy J_0^2+(J_0')^2 has derivative -2(J_0')^2/r, so at a=0 the negative-lobe heights strictly decrease. The envelope derivative of the log-height ratio is rho_l^2-rho_k^2>0, and comparison with a fixed interior point of I_l and the right endpoint of I_k makes the ratio diverge as a grows. In the endpoint proof, first bracket the critical point at s-x/s with fixed x on opposite sides of 1/(2a): the Bessel ODE and Taylor expansion normalized by J_0'(s) give J_0(s-h)/J_0'(s)=-h+O(h^2/s+h^3), J_0'(s-h)/J_0'(s)=1+O(h/s+h^2), hence u'=s(2a-1/x)+O_a(1/s). Within this bracket the critical equation gives h=1/(2as)+O_a(s^-3). The exponent loses exactly 1 in the limit and J_0'(s)~sqrt(2/(pi s)), giving the stated prefactor. Two roots per sufficiently late negative lobe yield the count by the Bessel zero locations. For the first root, |J_0|<=1 gives the lower bound sqrt(log(lambda)/a) and a negative antinode within bounded distance to the right of sqrt((1+epsilon)log(lambda)/a) gives the upper asymptotic. Independent bounded SciPy replay (independent_checks.py circle) reproduced all three stated crossover values and tested the endpoint scaling in log form. The frozen prose reports 45 sampled lobes, but its displayed loop/output has 15 distinct fold-sampling parameter pairs, plus further solver calls and six root-pair cases. No universal claim relies on the numerical count.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The annulus record gives interlacing and the same leading radial count for a different transform. The beta record considers real/complex zero motion for a one-dimensional family. The Gaussian-scale-mixture record concerns Zak, not Fourier, zeros.",
+          "The sphere uniqueness theorem gives an all-degrees Bessel nonvanishing criterion for recovering measures supported on a sphere."
+        ],
+        "reasoning": "None of these inspected statements controls varying Gaussian weight against negative J_0 lobes. The annulus resemblance is particularly close for the counting asymptotic, not for double roots or threshold order.",
+        "searches": [
+          "González Vieli DOI 10.1017/S0004972711002942, Prop. 1.2",
+          "Resultary 08d6dce0baa0, 1985d778d78f, 5647d8629fe5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_circle.py and verification_output.txt",
+        "arXiv:2112.06472 v2",
+        "doi:10.1017/S0004972711002942",
+        "NIST DLMF §§10.17 and 10.21",
+        "Resultary 08d6dce0baa0, 1985d778d78f, 5647d8629fe5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Bessel spacing and amplitude expansions supply the asymptotic input. The mixture's curvature identity and strict envelope derivative compare weighted interior extrema, whereas the annulus census compares roots against consecutive unweighted Bessel zeros."
+        ],
+        "reasoning": "The leading count and escape scale follow once the mixture is analyzed. The pairwise order reversal and endpoint optimizing scale are not direct applications of the compared theorems; they are the scientifically distinct content here.",
+        "searches": [
+          "Yin–Dong Lemma 2.1 and Theorem 3.1; DLMF Eq. 10.21.19 and Eq. 10.17.3; Resultary 08d6dce0baa0 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Yin–Dong Eq. (2.5) supplies the uniform sphere characteristic function, reducing to J_0 in dimension two; Theorem 3.1 gives radial Bessel integrals for elliptical densities.",
+          "The asserted bifurcation is equivalently the level-set census for -exp(a r^2)J_0(r) in its positive lobes at level (1-t)/t."
+        ],
+        "reasoning": "The sphere and Gaussian transform formulas provide the equation, not the weighted-lobe extrema, their relative heights, or the threshold asymptotic.",
+        "searches": [
+          "Resultary and primary literature: Gaussian–circle characteristic function J_0 Fourier zeros and lobe folds",
+          "Yin–Dong arXiv:2112.06472 v2 §2.3 and §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "DLMF gives Bessel zeros and their McMahon expansion, and the fixed-order large-argument expansion. It tabulates/characterizes the unweighted Bessel ingredients, not the a-dependent stationary heights or pairwise crossing parameters."
+        ],
+        "reasoning": "Knowing all j_{0,m} exactly would still not give the solutions of J_1=2arJ_0 or the relative threshold order. No matching fold-height or crossover table was located in the inspected sources.",
+        "searches": [
+          "DLMF §§10.21(i),(vi) and 10.17(i); Resultary radial Fourier-zero and fold-threshold records"
+        ]
+      },
+      "rationale": "The exact transform and asymptotic Bessel ingredients are classical. The distinct contribution is the complete real fold census, strict ordering reversal for each pair of lobes, and sharp fold-height/mass asymptotic for this mixture. The strongest inspected archive radial-zero results concern a different transform and do not imply this fold law.",
+      "residual_risks": [
+        "The external search was not exhaustive. Equivalent threshold analyses may occur in older diffraction, radial positive-definiteness or statistics literature. The inspected sources provide no such implication; the unsuccessful search itself is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Formula input, not mixture-zero theorem",
+          "evidence": [
+            "Uniform surface measure has characteristic function proportional to r^(1-n/2) J_(n/2-1)(r)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2112.06472",
+          "material_read": "v2 §2.3 Lemma 2.1 Eq. (2.5), and §3 Theorem 3.1; pp. 5–6, offsets 12666–13281 and 14306",
+          "method": "OA PDF locate and bounded passage read",
+          "title": "The Bessel Function Expression of Characteristic Function",
+          "trigger": "Bessel formulas for spherical and elliptical characteristic functions"
+        },
+        {
+          "assessment": "Sphere-supported uniqueness problem, not this mixture",
+          "evidence": [
+            "Uniqueness depends on nonvanishing of J_(d+(n-2)/2)(2 pi r) over all degrees d."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S0004972711002942",
+          "material_read": "Abstract, §1 and Proposition 1.2, pp. 78–79",
+          "method": "Cambridge OA PDF text",
+          "title": "A uniqueness result for the Fourier transform of measures on the sphere",
+          "trigger": "Direct spherical Fourier/Bessel zero comparison"
+        },
+        {
+          "assessment": "Standard Bessel zero and large-argument ingredients",
+          "evidence": [
+            "Positive j_{nu,m} locations have leading value (m+nu/2-1/4)pi; fixed-order Bessel amplitude has leading r^-1/2 scale."
+          ],
+          "identifier_or_url": "https://dlmf.nist.gov/10.21 and https://dlmf.nist.gov/10.17",
+          "material_read": "§10.21(i),(vi), Eq. 10.21.19; §10.17(i), Eq. 10.17.3",
+          "method": "OA public page passage reads",
+          "title": "NIST Digital Library of Mathematical Functions, Bessel Functions",
+          "trigger": "Possible direct coverage of critical positions versus classical zeros"
+        },
+        {
+          "assessment": "Different radial measure and zero mechanism",
+          "evidence": [
+            "One simple root between consecutive Bessel zeros for d>=2 annuli, with count R/pi+O_d(1)."
+          ],
+          "identifier_or_url": "Resultary 08d6dce0baa0",
+          "material_read": "Finding",
+          "method": "Resultary lookup and local mirror text",
+          "title": "Rigidity and Bessel interlacing of Fourier zeros of concentric annuli",
+          "trigger": "Closest radial-root census and same leading density"
+        },
+        {
+          "assessment": "Different one-dimensional beta family",
+          "evidence": [
+            "Asymmetry moves root branches into the complex plane rather than merging lobe pairs for a Gaussian–circle mixture."
+          ],
+          "identifier_or_url": "Resultary 1985d778d78f",
+          "material_read": "Finding",
+          "method": "Resultary lookup and local mirror text",
+          "title": "Phase rigidity and complex zero escape for asymmetric Beta Fourier transforms",
+          "trigger": "Parameter-dependent motion of Bessel-related Fourier zeros"
+        },
+        {
+          "assessment": "Zak, not Fourier, zero law",
+          "evidence": [
+            "One regular central Zak zero rather than a census of Bessel-lobe folds."
+          ],
+          "identifier_or_url": "Resultary 5647d8629fe5",
+          "material_read": "Finding",
+          "method": "Resultary lookup and local mirror text",
+          "title": "One regular Zak zero for every positive Gaussian scale mixture",
+          "trigger": "Gaussian mixtures with exact zero theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This canonical planar radial probability mixture adds a smooth strictly positive Fourier term to an oscillatory one. The natural question is how zero circles are born and ordered as the two independent mixture parameters change. The theorem gives the entire real zero set and exactly which pairs of folds exchange order, with explicit asymptotic size of the arbitrarily small masses needed in distant lobes. The fold comparison provides more information than the leading density alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

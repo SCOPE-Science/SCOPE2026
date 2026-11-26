@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The 23 explicit binary words have been rechecked against all 64 received words by enumerating all six-position subsets. For the converse, nonnegative integer output weights and two source weights certify the universal bound 24; a rational feasible fractional code verifies that the LP optimum is exactly \(1082/45\). Under the assumption of 24 codewords, the exact six-unit defect identity forces both constant words and restricts all remaining candidates to 54 zero-slack words and exactly 113 possible positive-slack subsets. The provided exact exhaustive branch procedure rules out every case and does not infer an infinite theorem from finite experiments. Risk: correctness of the upper bound depends on the reproducible finite program and its completeness argument, not independent proof certification.
+## correctness
 
-## Originality — PASS
-Lin's September 2026 full text gives asymptotic existence bounds in this exact list-deletion model but no eight-bit three-list extremum. Kiah–Wei–Zeng's September 2026 full text gives finite-length and asymptotic inequalities; its finite run-counting bound is no better than 106 here, and its fixed-list asymptotic results do not determine 23. The closest short-block records concern different list sizes, lengths, alphabets or coding constraints. Semantic equivalence and stronger-coverage searches did not reveal an implication giving the exact 23-word value. Risk: an unindexed finite enumerative table or earlier calculation might duplicate the value.
+PASS
 
-## Value — PASS
-List size three is a separately motivated decoding regime in the motivating 2026 papers. At this small length, a matched pair of exact rational primal–dual certificates proves the fractional packing optimum is \(1082/45\), while the exact integer obstruction reduces the maximum to 23. This supplies a reproducible example of a substantive integrality gap for the deletion-incidence packing problem, rather than a mere unevaluated numeric sample. Scope is deliberately finite and does not claim asymptotic consequences.
+I independently rebuilt all incidences by inserting two binary symbols in each length-six output, deduplicating each (word,output) pair. The 23 distinct witness words give an output-load distribution of 1 zero, 2 ones, 20 twos and 41 threes. I checked the nonnegative integer dual on all 256 words, and the 48-support rational primal on all 64 rows and every source unit cap. Their objectives coincide at 1082/45, so 24 is the rounded upper bound. Equality with 24 would leave an exact budget of 6 for selected slacks, omissions of the two 36-weighted constant words and unused weighted row capacity. This forces both constants and only slack-at-most-six words. Instead of replaying the supplied 113-case search, I branched directly on individual word inclusions and exclusions over all such candidates. Every discard uses the three-list capacity, remaining size, insufficient remaining defect budget, or forced saturation of a row whose weight exceeds that budget. For a row needing d occurrences to saturate, if fewer than d candidates remain its unavoidable deficit bounds the budget from below, and if exactly d remain in a mandatory row they must all be selected. No fractional or floating test enters this search. It exhausted 18,941 nodes without a 24-word completion. The construction and the exclusion together establish 23, not just a bound.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The closest exact table at length eight is for list cap two; the closest list-cap-three entry is at length seven. Neither implies 23 or the cap-three fractional optimum. The closest published inequalities apply to the model but do not determine its integral or fractional value at this parameter.
+
+## value
+
+PASS
+
+The cap-three regime is a natural list-decoding problem, and the result exhibits an explicit failure of the rounded incidence LP bound at a reproducible short-block instance. Even with optimal fractional weights, rounding gives a number unattainable by any actual code. The exact witness and integral exclusion give a benchmark for stronger packing converses and exhaustively checked code designs, beyond an isolated numerical best candidate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

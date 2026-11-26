@@ -1,15 +1,21 @@
-# Scientific assessment: two-fluctuator spectral collapse
+# Independent mathematical audit
 
-## Correctness — PASS
-For independent stationary symmetric two-state jump processes with positive coupling and switching, the single-fluctuator integrated-phase average solves a second-order constant-coefficient ODE. Squaring it and closing three product variables yields an explicit Laplace transform; its real-frequency boundary value is the spectral density. The polynomial controlling the derivative has a factorized derivative with one possible positive minimum; its minimum has the exact sign factor \(343t^2+106t-17\), giving a unique positive threshold. The endpoint \(\gamma=0\) is expressly excluded because it gives a discrete measure. Independent four-state resolvent calculations checked 390 cases and the polynomial sign regimes.
+## correctness
 
-## Originality — PASS on inspected evidence, priority provisional
-Anderson's classical exchange-narrowing formulation and the 1984 pre-Gaussian finite-fluctuator method predate this analysis. The accessible complete 2010 treatment explicitly gives the independent-fluctuator product and describes one-fluctuator doublet coalescence as well as the large-number Gaussian limit. The present theorem is not the already-known correlation product: it is the sharp algebraic count of *three* versus *one* spectral maxima for precisely two independent fluctuators, including the equality shoulders. Searches for identical-fluctuator triplet collapse, three-state binomial exchange coalescence, its explicit threshold and algebraic aliases did not reveal the same classification. The 1984 full text was inaccessible; consequently historical priority is not guaranteed and independent literature audit is necessary before stronger novelty claims.
+PASS
 
-## Mathematical value — PASS
-The number of resolved intrinsic local maxima is a physically motivated qualitative observable in stochastic line-narrowing experiments. The exact threshold distinguishes an otherwise subtle crossover from a true, quantifiable change in the number of stationary sidebands. The central peak survives throughout, unlike the standard one-fluctuator doublet regime. Derivative factorization supplies a global no-extra-peaks proof, not merely a plotted example or a tiny numerical improvement.
+At the individual flip rate gamma the stationary one-sign phase factor satisfies f''+2gamma f'+v²f=0 with data (1,0), and independence gives C=f², including the repeated-root case. The characteristic roots have negative real parts, so the transform converges. Independently lumping the two mixed sign states gives the row generator gamma times [[−2,2,0],[1,−2,1],[0,2,−2]] on shifts (−2v,0,2v), with weights (1/4,1/2,1/4). Its exact resolvent gives the displayed real-part spectrum, whose denominator and numerator are positive. By even extension and Fourier inversion its mass is C(0)=1. With t=(gamma/v)² and z=(omega/v)², the positive denominator leaves the derivative sign as −sign(P_t(z)). P_t(0)>0 and P_t' factors as 3(z+16t+4)(z−(8−20t)/3). For t≥2/5 the minimum over z≥0 is at zero; otherwise the minimum sign is that of 343t²+106t−17, with one positive threshold t_*. Thus below it there are two simple positive roots of P_t, producing a valley and then a peak on each half-axis; above it there are none. At t_* its positive minimum is a double root since P_t'' there is positive, so the derivative vanishes without reversal and gives two nonzero horizontal shoulders at the asserted detuning. The strict central peak never disappears, and the positive-frequency curve at equality still decreases strictly despite the horizontal tangent.
 
-## Closest literature and scope
-The 1984 Wódkiewicz–Shore–Eberly paper gives the broader finite-Markov formalism and is the principal remaining historical-priority risk. The complete 2010 Berthelot et al. review was compared section by section; it contains the product relaxation framework, but the inspected relevant discussion does not assert this exact two-fluctuator three-to-one threshold. No extensions to unequal amplitudes, asymmetric jump rates, homogeneous linewidth, or finite-time spectra are established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The established pre-Gaussian formulation gives the underlying lineshape by specialization, and the standard Markov resolvent is not new. The available close sources examined do not supply the exact finite-two threshold, global stationary-point count, or shoulder classification. The pass is for that classification only, under the stated symmetric finite-two intrinsic model.
+
+## value
+
+PASS
+
+Triplet visibility is a natural question in spectral diffusion that a correlation function and qualitative motional narrowing do not answer. The symmetric equal-two case is the minimal independent-telegraph model with three distinct possible instantaneous shifts. The exact threshold, persistent central peak and off-center shoulders give a usable quantitative criterion for intrinsic spectral morphology and distinguish it from uniform three-state and single-fluctuator coalescence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:43:53.643793Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The random tournament extension property realizes each new-vertex bit word, and homogeneity over the named base identifies realizations of the same word; different words differ on an atomic formula. For an adjacent reversal the reordered base is a chain. Its consecutive pairs enforce alternation, and its source/sink force first bit 0 and last 1; a module including the new point and some old vertices must contain both endpoints, so its old interval is the whole chain. In the nonadjacent case, the block B with cyclic classes {p}, M, {q} is strongly connected and the old tournament is the ordered sum L,B,R. If an old module meets B and an outside vertex but omits part of B, that outside member forces B intersected with the module to dominate or lose uniformly to the rest of B. Either cut contradicts strong connectivity. A module using more than one cyclic class within B must include all three classes, hence all their vertices (any omitted middle vertex sees p and q differently). This proves the interval/whole-block old-module list, including the crossing cases. To split every old module missing the new point it suffices to alternate within each run and make B nonconstant, the latter automatic except for singleton M. For a nontrivial module containing the new point the old part K is an old module and must include the old global source/sink wherever the respective outer run exists, because those vertices see the new point opposite to every old vertex. If an outer run exists, the possibilities for K are therefore a subset of an outer run, impossible because B is split, or a quotient interval containing B and the necessary endpoints, which is the whole base. If both outer runs are absent, |M|>=2 and K={p} or {q} would require constant bits on M. K contained in M would require b_p=1 and b_q=0; this combination is excluded and otherwise makes M plus the new point a module. Thus the bit conditions are sufficient as well as necessary. The 2 middle phases and 4 endpoint choices give 8, with exactly 2 removed in each of the disjoint exceptional regimes, and the span multiplicities give the stated sum. Inspected VERIFICATION.md, CHECKS.txt, verify.cpp and verify.py without running the uploads. The reported 458,720 vector checks and 80 endpoint-pair checks are finite diagnostics; contrary to the verification prose, the Python file tests individual pair counts rather than explicitly asserting the total polynomial. The total follows from the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "In the construction in Proposition 2.2 the authors inductively build specific extensions by substitution decomposition. They count 2^n-n-2 choices in the already simple base case, not all extensions of the decomposable reversed-arc bases.",
+          "Critical tournament censuses require every single deletion to be decomposable, not just deletion of the marked new point. For example, the n=5 base with p=0,q=2 and bit word (1,0,0,0,1) gives a prime extension and deleting old vertex 3 still gives a prime extension by the same bit criterion."
+        ],
+        "reasoning": "The stronger existence scope is not stronger counting content. Even exhaustive classification of critical tournaments would not enumerate this whole marked-vertex family.",
+        "searches": [
+          "Brignall–Ruškuc–Vatter arXiv:0911.4378, §2, Theorem 2.1 and Proposition 2.2 with proof",
+          "One-point extension counts and critical tournament classifications"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0911.4378 §2",
+        "DOI:10.1112/S0025579300004939 (full text unavailable)",
+        "Resultary e9761b21a2e4 (identical), bcdcae21fe8a, c4b8a3505ee0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The one-point existence criterion yields positive counts in the nontransitive cases and excludes sufficiently long odd chains. The proof constructs particular choices and does not require or derive the frozen endpoint exclusions and middle-run phases for all extensions.",
+          "The count for simple base tournaments in the same section cannot be applied to this family: the base has a nontrivial module, whether a chain pair, B itself when proper with singleton M, or the run M when |M|>=2."
+        ],
+        "reasoning": "Substitution decomposition is known machinery; excluding all modules containing or avoiding the marked vertex in this decomposable family supplies the nontrivial exact restrictions not furnished by the inspected constructive proof.",
+        "searches": [
+          "arXiv:0911.4378, Section 2 pp. 5–8 (OA offsets 17100–24034)",
+          "Erdős–Hajnal–Milner DOI:10.1112/S0025579300004939",
+          "Resultary nearest tournament-type census passages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The type count is equivalent to counting labelled, distinguished-vertex, finite prime tournament extensions of this exact base. Brignall–Ruškuc–Vatter section 2 treats existence of such an extension, not this count.",
+          "The adjacent arc case is exactly a chain up to relabelling and reproduces the alternating-word restriction; it is not the new nonadjacent counting phenomenon."
+        ],
+        "reasoning": "Counting all orientation words over named parameters cannot be replaced by existence or a census modulo automorphisms. The classical prime/simple terminology and interval/module terminology refer to the same property here.",
+        "searches": [
+          "Resultary: prime/simple one-point extensions of nearly transitive tournaments, labelled count after one arc reversal",
+          "Primary literature: simple one-point extensions of tournaments, prime/indecomposable extension enumeration"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "e9761b21a2e4 is the same frozen record. The exact census bcdcae21fe8a counts all size-seven tournaments of a given recursive extension rank; it does not tabulate orientation vectors for each fixed base.",
+          "The record c4b8a3505ee0 counts types in the oriented graph forbidding directed 3-cycles, not prime tournament extensions."
+        ],
+        "reasoning": "Neither a count over all base tournaments by another invariant nor a type census in a different ambient age supplies the 0/1/6/8 table or its all-order theorem.",
+        "searches": [
+          "Resultary: single reversal prime singleton type counts and counts of finite prime tournament extensions",
+          "Resultary: bcdcae21fe8a, c4b8a3505ee0"
+        ]
+      },
+      "rationale": "The distinct claim is the full marked, named-base cardinality law for every one-arc reversal, principally the 6 versus 8 distinction, not existence of a one-point extension or the parity obstruction for chains. The classical existence result and its constructive proof materially overlap the positivity and nonexistence information, but the inspected construction is not a characterization enumerating every admissible new-point orientation. Other indexed tournament censuses count different invariants. This assessment is bounded by the sources inspected.",
+      "residual_risks": [
+        "The early one-point extension full text and general historical literature were not exhaustively inspected; no universal priority judgment is made.",
+        "Same-day indexed results are distinguished by mathematical content, not date ordering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known structural methodology and existence results, plus an enumeration for already simple bases; no all-orientation count for these decomposable bases in the passages",
+          "evidence": [
+            "Proposition 2.2 constructs particular extensions inductively from the substitution decomposition; its proof explicitly handles order three separately, immaterial for the frozen scope n>=4.",
+            "The 2^n-n-2 count appears in the already simple base branch."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0911.4378",
+          "material_read": "Section 2, pp. 5–8 (OA offsets 17100–24034), and Moon citation in bibliography, p. 24 (offset 70600)",
+          "method": "Primary open PDF passage",
+          "title": "Simple extensions of combinatorial structures",
+          "trigger": "Classical one-point existence criterion and possible constructive enumeration"
+        },
+        {
+          "assessment": "Access gap; no whole-paper noncoverage conclusion",
+          "evidence": [
+            "The accessible later source attributes the one-point existence criterion and references Moon's finite work."
+          ],
+          "identifier_or_url": "https://doi.org/10.1112/S0025579300004939",
+          "material_read": "Original full text not retrieved; cited theorem and discussion in Brignall–Ruškuc–Vatter section 2 inspected",
+          "method": "Attempted lawful OA retrieval and comparison through later published proof",
+          "title": "Simple one-point extensions of tournaments",
+          "trigger": "Original plausible close one-point extension study"
+        },
+        {
+          "assessment": "Different invariant and quantification over bases",
+          "evidence": [
+            "Counts 1,503,216 labelled seven-vertex tournaments and 313 isomorphism classes for the stated recursive rank condition."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-the-seven-vertex-threshold-and-full-symmetry-census-for-tourname--bcdcae21fe8a/RESULT.md",
+          "material_read": "Opening Finding, OA offset 0",
+          "method": "Local Resultary mirror",
+          "title": "The seven-vertex threshold and full symmetry census for tournament extension rank",
+          "trigger": "Closest exact count involving tournament one-point extensions"
+        },
+        {
+          "assessment": "Different age and counted property",
+          "evidence": [
+            "Counts realizable types in a directed-3-cycle-free oriented graph, not prime extensions in the random tournament."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-two-type-spectra-over-transitive-tournaments-in-the-direct--c4b8a3505ee0/RESULT.md",
+          "material_read": "Opening Finding, OA offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact two-type spectra over transitive tournaments",
+          "trigger": "Type cardinalities over transitive tournament bases"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural minimal perturbation of the transitive tournament and asks quantitatively how changing one old orientation affects the pool of prime extensions. The answer is uniformly bounded, yet differs between cyclic singleton-middle, spanning and other one-reversal bases, and it classifies the admissible labelled words, not just their existence. That structural distinction matters for enumerating modular-decomposition-breaking extension types and is more than a finite-table or transitive parity recomputation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

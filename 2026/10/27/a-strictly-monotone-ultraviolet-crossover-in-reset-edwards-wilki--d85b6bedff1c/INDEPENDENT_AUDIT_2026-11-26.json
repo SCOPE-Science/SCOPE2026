@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:39:51.470228Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At a stationary observation time S=r times the reset age is unit exponential, and the conditional centered Gaussian has variance (D/(πνΛ))h(S/x). The exponential Laplace transform gives the stated mean and frequency-pair covariance, hence the exact standardized fourth moment. For h(z)=sqrt(πz)erf(sqrt(z))+exp(-z)-1, its elasticity decreases strictly: the logarithmic derivative of the ratio A/B in the proof is the difference of the negative means of two tilted laws and is negative by their strictly increasing density ratio. Thus for x₂>x₁, h(S/x₂)/h(S/x₁) is strictly increasing in S. Weighting the exponential law by h(S/x₁)^2 instead of h(S/x₁) strictly increases the expectation of the squared ratio; Jensen then gives strict monotonicity. For the small-x endpoint the difference between h(z) and sqrt(πz)-1 lies in [0,exp(-z)] by the Gaussian tail bound; changing variables S=xz shows its contributions to both raw profile moments are O(x). For the large-x endpoint the exponential moments and the integral Taylor remainder give E[h]=1/x-1/(3x²)+O(x⁻³), E[h²]=2/x²-2/x³+O(x⁻⁴). Both expansions match, and dominated continuity gives the stated open range. Identification uses standardized excess kurtosis, not the unnormalized fourth moment without knowledge of D. The independent age-space quadrature /workspace/review_checks/check_3.py corroborates both asymptotic regimes; it is not the proof of monotonicity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 3453b3cd8bb8 studies covariances of squared individual Fourier-mode energies in finite periodic EW",
+          "Gupta–Majumdar–Schehr use the infinite-band EW growth law for the continuum stationary scaling"
+        ],
+        "reasoning": "Neither mode-energy total positivity nor the general stationary mixture determines the sign of the derivative of this standardized height moment for an entire hard band. The two-mode counterexample in the frozen checker, whose rational formula was inspected, also delineates the general-spectrum obstruction.",
+        "searches": [
+          "Resultary searches for EW resetting, finite-band mode statistics and one-point kurtosis",
+          "arXiv:1312.5954v1, Eqs. (3)–(7)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "arXiv:1312.5954v1",
+        "Resultary 637c73ad6d17",
+        "Resultary 3453b3cd8bb8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Renewal mixing gives the framework and continuum constant; pinning gives a different elasticity and cutoff dependence; finite periodic total positivity concerns a different family of random variables."
+        ],
+        "reasoning": "The age-mixture formula plus elementary Gaussian moments naturally gives an integral representation. The new mathematical requirement is a strict comparison of its normalized second profile moment for every pair of cutoff ratios, plus the sharp crossover corrections.",
+        "searches": [
+          "arXiv:1312.5954v1 Eq. (3) and EW Eqs. (4)–(7)",
+          "Resultary 637c73ad6d17 and 3453b3cd8bb8 mirrored RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 637c73ad6d17: pinned infinite-line continuum EW excess kurtosis and strict monotonicity",
+          "arXiv:1312.5954v1, PDF pp. 2–3, Eqs. (3)–(7): continuum reset-age mixture and one-point EW stationary law"
+        ],
+        "reasoning": "Pinning shifts the whole relaxation spectrum and regularizes the infrared; a hard noise band removes ultraviolet modes without adding a positive lower relaxation rate. Varying the two dimensionless ratios is not a reparametrization of the same standardized moment function.",
+        "searches": [
+          "Resultary: reset Edwards–Wilkinson kurtosis, ultraviolet cutoff and pinning",
+          "Primary literature query: Edwards-Wilkinson stochastic resetting finite spectral cutoff excess kurtosis monotonic hard cutoff"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The continuum law determines the exact limiting constant 12/π−3; the inspected Resultary matches concerned a different regularizer or observable."
+        ],
+        "reasoning": "There is no natural classification table for this parameterized inequality. The closest exact computed invariant found was the already-known continuum limit, not the finite-band function, its first corrections, or monotonicity.",
+        "searches": [
+          "Resultary exact-model and observable comparison",
+          "Gupta–Majumdar–Schehr, arXiv:1312.5954v1, continuum EW equations"
+        ]
+      },
+      "rationale": "Pass for strict increase and the endpoint corrections of the finite hard-band crossover, not for the reset-age mixture or continuum leading endpoint. Neither the continuum EW law nor the closely related pinned or periodic results inspected covers this theorem.",
+      "residual_risks": [
+        "Bounded literature comparison, not a historical priority proof; specialized finite-band or microscopic interface regularizations remain a possible source of overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers reset-age mixture and continuum endpoint, not the finite hard cutoff",
+          "evidence": [
+            "Stationary noise-height mixture with exponential age; continuum EW profile variance proportional to sqrt(age)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1312.5954",
+          "material_read": "v1 PDF p. 1 and pp. 2–3, Eqs. (3)–(7)",
+          "method": "Targeted OA full-text passage inspection",
+          "title": "Fluctuating interfaces subject to stochastic resetting",
+          "trigger": "Foundational EW stationary law and possible moment coverage"
+        },
+        {
+          "assessment": "Different physical regularization and kurtosis range",
+          "evidence": [
+            "Positive harmonic pinning with unbounded wave numbers, rather than finite hard Fourier band and no pinning."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-joint-recovery-of-resetting-pinning-and-noise-strength-in-a-fluc--637c73ad6d17",
+          "material_read": "Mirrored RESULT.md opening statement, snapshot 36a7204",
+          "method": "Local Resultary search and mirror inspection",
+          "title": "Joint recovery of resetting, pinning and noise strength in a fluctuating interface",
+          "trigger": "Closest indexed match in observable and monotonicity"
+        },
+        {
+          "assessment": "Different observable and spatial domain",
+          "evidence": [
+            "Periodic Fourier-mode energy covariances rather than stationary one-point excess kurtosis on the line."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-strict-total-positivity-and-rate-tomography-from-jointly-reset-f--3453b3cd8bb8",
+          "material_read": "Mirrored RESULT.md opening statement, snapshot 36a7204",
+          "method": "Local Resultary search and mirror inspection",
+          "title": "Strict total positivity and rate tomography from jointly reset Fourier modes",
+          "trigger": "Closest indexed finite-cutoff setting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact hard-band monotonicity resolves identifiability of a physically meaningful cutoff from a dimensionless one-point statistic in the ideal model. The endpoint corrections quantify weakening sensitivity in both limits. This is not automatic for Gaussian modes under common resets, and goes beyond evaluating the already-known continuum limit.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

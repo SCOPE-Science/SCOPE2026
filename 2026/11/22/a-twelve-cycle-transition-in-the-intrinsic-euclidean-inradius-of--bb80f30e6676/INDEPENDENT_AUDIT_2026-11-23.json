@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:36:52.717541Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The canonical vertices span the affine sum-one hyperplane: a functional constant on all three vertices of each edge must have equal coefficients at its two endpoints, and comparison with the third vertex forces the edge and vertex coefficients equal as well. The connected-subgraph facet theorem exhausts the constraints, including the n spanning paths whose omitted edge contributes coefficient 2. Projecting each normal off the all-ones vector gives the intrinsic Euclidean denominators. Cyclic averaging preserves admissible radius. At (a,...,a,b,...,b), a+b=1/n, the singleton and scattering constraints cross at the claimed R0, and the constant two-vertex constraint gives R2=1/sqrt(n(n−2)). Comparison reduces to n−4 ≤ sqrt(6n−9), with n=3 automatic; the strict integer split is 11/12. For a0 at the crossing or a1=R2(c4−c3), the line of proper-path slacks dominates the secant of c_t through t=3,4, extended to t≥4, and hence lies strictly above R c_t at all later integer t. In the second regime L1(a0)>R2=L1(a1) forces a1>a0, so the scattering constraint is strict. At both centers b≥a>0, and the spanning-path/slack comparison gives M>S, since d_n/sqrt(n/2)<1+2/n. This proves the radius and exact contacts at the specified centers, not at every optimal center. The finite LP script was inspected, not executed or used as proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The main general theorem gives all supporting hyperplanes; the dual paper treats dual facets and triangulations; the graph-independent circumradius is an outer rather than inner extremum."
+        ],
+        "reasoning": "These determine constraints or other invariants but do not evaluate the normalized slack maximum.",
+        "searches": [
+          "arXiv:2209.08069, Theorem 2.1",
+          "arXiv:2603.03894, abstract and §3 Remark 3.5",
+          "Resultary connected-graph circumradius record 099bd090b126"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md; CHECK.py inspected",
+        "Kühne–Monin arXiv:2209.08069",
+        "arXiv:2603.03894 and arXiv:2303.05876",
+        "Resultary d78cc4c4e2be, 22da9e5835c2, a84f4820619e, 990eb4c5d9a6, 099bd090b126"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Path and star results optimize different facet systems; cycle spanning-path normals retain a coefficient 2 on a closing edge absent from the tree case. The cycle volume/triangulation work treats normalized volumes."
+        ],
+        "reasoning": "A tree radius is not carried to the cycle by adding an edge and new ambient coordinate; the active-facet comparison and feasible center are separate geometric calculations.",
+        "searches": [
+          "Resultary exact intrinsic inballs for path cosmological polytopes d78cc4c4e2be and tangential star cosmological polytopes 22da9e5835c2",
+          "arXiv:2303.05876, abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact cycle two-face area spectrum concerns the canonical metric but a different observable; the regular-simplex edge-midpoint inball concerns a different vertex realization."
+        ],
+        "reasoning": "An inball in the sum-one Euclidean metric is the Chebyshev ball for the projected normals, not a projective invariant or a consequence of either of these matches.",
+        "searches": [
+          "Resultary: intrinsic cycle cosmological inball and Chebyshev-center matches",
+          "cosmological polytope intrinsic Euclidean inradius cycle graph cycle C_n facet normals"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-object match records two-face areas; the mod-four incenter match studies an edge-midpoint hull and not the cosmological cycle polytope."
+        ],
+        "reasoning": "Neither supplies a formula or tabulation for the radius/contact transition on the assigned family.",
+        "searches": [
+          "Resultary cycle cosmological polytope metric matches a84f4820619e and 990eb4c5d9a6; matched assigned item excluded"
+        ]
+      },
+      "rationale": "The general facet theorem is an essential input, but none of the inspected same-object or general results evaluates the intrinsic Chebyshev radius of a cycle or its strict contact transition. The lower bound requires controlling all the proper and spanning paths beyond the two upper-bound competitors.",
+      "residual_risks": [
+        "Search and passage coverage are bounded; an uncatalogued exact cycle inball result could affect priority.",
+        "The facet theorem was checked in Kühne–Monin, not re-proved from the founding paper. No statement about weighted realizations or the entire incenter locus is audited."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes the input, not the inradius",
+          "evidence": "Each facet comes from a connected subgraph; the omitted internal edge contributes twice to the coefficient.",
+          "identifier_or_url": "https://arxiv.org/pdf/2209.08069",
+          "material_read": "p. 3, Theorem 2.1, OA offsets 12200–15946",
+          "method": "OA PDF passage",
+          "title": "Faces of Cosmological Polytopes",
+          "trigger": "Exact exhaustive facet input"
+        },
+        {
+          "assessment": "No radius evaluation in material read",
+          "evidence": "Treats canonical forms and facets of the dual, not the projected normalized slack optimization.",
+          "identifier_or_url": "arXiv:2603.03894",
+          "material_read": "Abstract and §3 Remark 3.5",
+          "method": "OA text passages",
+          "title": "On cosmological polytopes, their canonical forms and their duals",
+          "trigger": "Possible general formula in dual formulation"
+        },
+        {
+          "assessment": "Different graph family",
+          "evidence": "Path result, including its cubical center locus, does not identify the metric problem after closing the path to form a cycle.",
+          "identifier_or_url": "Resultary d78cc4c4e2be",
+          "material_read": "Finding and scope",
+          "method": "Published record mirror",
+          "title": "Exact Euclidean inballs and cubical incenter loci of path cosmological polytopes",
+          "trigger": "Nearest prior intrinsic inball theorem"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Two-dimensional face areas are not the minimum facet clearance from an optimal center.",
+          "identifier_or_url": "Resultary a84f4820619e",
+          "material_read": "Stated theorem",
+          "method": "Published record comparison",
+          "title": "Exact Euclidean two-face area spectrum of cycle cosmological polytopes",
+          "trigger": "Same cycle realization and metric"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The canonical radius is a natural metric invariant of a standard infinite family. Its exact evaluation shows where the global scattering obstruction gives way to local two-vertex facets, and establishes nρ_n→1. The transition is not a routine tabulation of the known faces.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

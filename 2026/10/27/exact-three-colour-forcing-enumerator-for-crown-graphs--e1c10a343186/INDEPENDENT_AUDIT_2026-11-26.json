@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:29:31.604583Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof steps 1–5",
+        "Frozen VERIFICATION.md and verify_crown.py (inspected, not executed)",
+        "Independent exhaustive n=4 and n=3 replay"
+      ],
+      "rationale": "A colour shared across the bipartition occurs at just one matched pair. Two shared colours would leave at least two indices (n>=4) whose remaining vertices would all have the third colour and create a monochromatic edge. This exhausts the terminal colourings into monochromatic opposite sides, one bichromatic side in disjoint colours, or one shared matched pair with monochromatic remainders. In the first type no vertex can be forced; in the second the entire bichromatic side is compulsory and an opposite vertex is compulsory exactly if its excluded partner is a singleton colour class. There are 2n onto colourings with such a singleton for each specified pair of colours. In the third type both shared-colour vertices are compulsory, and one further seed on either side suffices: it forces the opposite side except possibly its matched partner, after which n-2>=2 distinct newly available opposite vertices permit the forces on the original side and then the last partner. Additional compatible seeds cannot obstruct this process. Each step must agree with every proper extension of the seed, so a successful restriction is counted once. The resulting counts give the stated polynomial, its z^3 coefficient, and its top coefficient. Independent per-vertex initial-state probabilities give the stated polynomial substitution, including its endpoint by continuity. For K_{n,n}, no colour is shared across sides, and the whole bichromatic side is necessary and sufficient in a terminal colouring using three colours; the two-colour terminal case requires all vertices. An exhaustive independent replay at n=4 counts 144,396,672,720,432,114 assignments of sizes 3 through 8, with zeros below and agreement for both greedy scan orders. At n=3 it gives 12,162,180,66 for sizes 3 through 6, confirming the excluded boundary. Replay via python3 /workspace/branches/57a1add4-bd6c-45b6-976d-75e77fa34f12/replay_record2.py. The structural proof, not the replay, gives all n>=4.",
+      "residual_risks": [
+        "The frozen n=5 run is recorded evidence only; the independent finite check covers n=4 and the boundary n=3."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broader-palette complete bipartite result 45e5ee98b751 still requires all cross edges. The maximum-degree-two result 2226d8f07ffd applies to Cr_3=C6, not Cr_n of degree n-1>=3. Its C6 coefficients agree with the independent boundary check."
+        ],
+        "reasoning": "Neither a wider palette on another host nor a formula at smaller maximum degree specializes to the case in the finding. In particular, deleting the matching introduces a terminal type disallowed in the complete bipartite theorem.",
+        "searches": [
+          "Resultary: forced colouring function crown graph proper colouring forcing set complete bipartite matching deleted",
+          "Resultary 45e5ee98b751 and 2226d8f07ffd"
+        ]
+      },
+      "checked_sources": [
+        "Farr arXiv:2609.17108v1",
+        "Resultary 3fb93c858f69, 45e5ee98b751, fe94e840e8ec, 2226d8f07ffd and 24fe2313d105",
+        "Focused primary-literature query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The complete bipartite polynomial is 3(2^m-2)z^m(1+z)^n+3(2^n-2)z^n(1+z)^m+6z^(m+n), giving minimum n when m=n>=4. Farr's independent-state probability framework gives the substitution from counts to probability."
+        ],
+        "reasoning": "Credit both implications. For crowns, losing one neighbor can remove the last occurrence of a witness colour, and a matched nonedge can admit a shared colour; the former changes the bichromatic-side term while the latter adds a new family of seeds. Neither follows by evaluating the complete bipartite polynomial.",
+        "searches": [
+          "Farr arXiv:2609.17108v1 §§2–3",
+          "Resultary 3fb93c858f69, complete bipartite forcing polynomial"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Farr arXiv:2609.17108v1 §2 defines the same forcing function; §3 includes small-graph examples but does not give the n>=4 crown enumerator in those passages.",
+          "Indexed crown conflict-free colouring 24fe2313d105 uses an open-neighborhood uniqueness condition and gives chromatic number four, not a seed-counting polynomial."
+        ],
+        "reasoning": "The probability version at p and the counting version at z are equivalent via z=p/(1-3p), so both were checked. The other local colouring condition is not the iterative unique-available-colour rule.",
+        "searches": [
+          "Public literature: forced-colouring function crown graph forced colourings crown Cr_n",
+          "Resultary: FC_3(Cr_n) forced colouring probability polynomial exact formula named colours",
+          "Resultary: crown graph forced-colouring enumerator successful partial proper assignments H_n(z)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed 2026/10/4 record fe94e840e8ec counts 12n(n-1) named minimum four-colour neighborhood-parity-odd total colourings for odd n>=5."
+        ],
+        "reasoning": "The numerical expression and crown host really coincide, but the exact objects do not: size-three partial seeds rather than total colourings; three rather than four colours; iterative forcing rather than local parity; all n>=4 rather than odd n>=5. This is not an exact census of the frozen invariant.",
+        "searches": [
+          "Resultary: minimum local three-colour forcing seed assignments crown graph Cr_n 12n(n-1)",
+          "Resultary: exact three-colour forcing enumerator crown graphs Cr_n minimum seed 12n(n-1)"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the crown forcing enumerator for n>=4 and its minimum-seed census. The forcing framework and probability substitution are prior, and the complete bipartite half of the contrast follows from an existing polynomial. The inspected closest same-host and same-rule results concern other invariants or do not apply to these crowns.",
+      "residual_risks": [
+        "Farr's cited 1994 decision-complexity paper was not retrieved; a relevant example or equivalent terminology in older literature cannot be ruled out. Ranked search is not a proof of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same rule and probability model; the examined exact examples are not the n>=4 crowns",
+          "evidence": "Local forcing and weighted probability are defined, and small-graph examples are computed.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.17108v1",
+          "material_read": "§2, pp. 4–7; §3, pp. 9–10, Prop. 6 and Eqs. (10)–(14); §2 citation of decision complexity and Ref. [13]",
+          "method": "Targeted OA PDF",
+          "title": "The forced colouring function of a graph",
+          "trigger": "Primary formulation of the same invariant"
+        },
+        {
+          "assessment": "Covers the K_{n,n} baseline only",
+          "evidence": "The two bichromatic-side terms start at m,n; the complete bipartite domain rules out any shared colour across sides.",
+          "identifier_or_url": "3fb93c858f69",
+          "material_read": "Finding and Proof",
+          "method": "Configured local Resultary mirror",
+          "title": "Forced three-colouring polynomial of complete bipartite graphs",
+          "trigger": "Closest same-rule exact indexed formula"
+        },
+        {
+          "assessment": "Exact count for a different invariant",
+          "evidence": "Named minimum four-colour neighborhood-parity-odd total colourings, for odd n>=5.",
+          "identifier_or_url": "fe94e840e8ec",
+          "material_read": "Finding and Proof",
+          "method": "Configured local Resultary mirror",
+          "title": "Neighborhood-parity-odd colorings of crown graphs",
+          "trigger": "Same graph family and exact count 12n(n-1)"
+        },
+        {
+          "assessment": "Covers Cr_3=C6 but not the frozen range",
+          "evidence": "For n>=4 the crown has degree at least three.",
+          "identifier_or_url": "2226d8f07ffd",
+          "material_read": "Cycle formula (3) and coefficient formula (5)",
+          "method": "Configured local Resultary mirror",
+          "title": "Forced three-colouring at maximum degree two",
+          "trigger": "Broader-looking exact forcing enumerator with a crown boundary case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, enumerator and sensitivity consequence",
+        "Complete bipartite Resultary 3fb93c858f69",
+        "Farr arXiv:2609.17108v1, forcing-function motivation"
+      ],
+      "rationale": "Forcing on a crown is a natural test of sensitivity to removing a single incident edge per vertex from the complete bipartite host. The exact distribution describes more than the minimum: it separates singleton-neighbour effects from the new matched-pair seeds. The minimum drops from n to three while the degree decreases by only one, which is an unbounded change on a standard graph family.",
+      "residual_risks": [
+        "The result does not classify arbitrary matching deletions, other palettes or broader graph families."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

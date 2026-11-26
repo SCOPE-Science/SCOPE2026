@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:46:54.017709Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Gram normalization, affine symmetry, polynomial tables, root ordering, and assumptions; VERIFICATION.md, checker.py, checker_output.txt (inspected, original script not executed)",
+        "Independent replay: python3 /workspace/branches/0dc0e685-634b-4d54-a582-6233d1785492/independent_check.py; exact division-free subset determinant versus frozen Newton method, full affine partition, eight exact lower and upper-shift sign certificates."
+      ],
+      "rationale": "From the specified harmonic isometries, summing the Fourier terms for a nonzero difference gives diagonal entries ±1/10 and upper-right (3/10)(τ_k/√11)χ_k(b−a). For the nontrivial multiplicative character, squaring the Gauss-sum modulus and grouping pairs by their ratio gives 11: the inner additive sum is 10 at ratio one and −1 elsewhere. A common diagonal gauge therefore removes the phase. The blocks are Hermitian because χ_k is even, and their squares before division by 10 are 10I₂. Affine translation preserves differences and dilation supplies only one common removable phase. Acting on each block by J followed by conjugation negates every traceless Hermitian block and pairs real eigenvalues of B with their negatives, so its polynomial is Q(X²) with nonnegative squared roots. Independent exact subset determinants over Z[ω] verified the four rows, and disjoint affine orbits of sizes 55,110,110,55 exhaust 330 selections. Galois substitution in the sole real generator ω²+ω³ gives t₋ for k=1,4 and t₊ for k=2,3. Exact negative evaluations at L and positivity of every upper-shift coefficient exclude all larger roots outside the certified intervals. In class one the largest root is >77 and all other orbit maxima are <57 or <52 or <43; in class two it is >67.9 and the other maxima are <63, <67.3 and <66. The strict separation gives exactly the two claimed equality orbits. Since the winning upper brackets are <100, all Grams are positive definite. The sharp minimum is 1−δ and worst spectral Gram condition is (1+δ)/(1−δ); numerical re-evaluation gives δ≈0.8807235348056768 and 0.8242260805290105 and reproduces the displayed condition numbers.",
+      "residual_risks": [
+        "Exact finite arithmetic for F₁₁ and the stated characters. Numerical approximations illustrate, not certify, the exact root ordering. The condition number is that of the Gram matrix, not a general reconstruction or noise guarantee."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general construction yields these q=11 isometries and pairwise blocks. The conference paper opening treats antipodal covers, a real even-prime-power family, and connections to symmetric conference matrices. The totally symmetric codes passage introduces the invariant and leaves the proposed block-RIP investigation for follow-up."
+        ],
+        "reasoning": "Construction and common pairwise singular values do not supply any of the four-block profiles or pick their optimizers. Full permutation symmetry cannot be assumed in the q=11 family: the verified spectra vary across quartets. The conference-matrix opening was not used to exclude every possible related representation.",
+        "searches": [
+          "arXiv:2112.14267v1 Thm. 4.2, original construction",
+          "arXiv:2212.12617v1 opening scope; literal multiplicative character locate (no hit)",
+          "arXiv:2406.19542 pp. 2–3, block-RIP motivation and follow-up passage"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2112.14267v1",
+        "arXiv:2212.12617v1 (limited scope)",
+        "arXiv:2406.19542",
+        "Published records e1ffd8f9e8e9, 6ac1f89a68e6, 4515338e2335, 4b7a0818e249"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The q=13 scope requires q≡1 mod 4 and a real quadratic character; its table depends on ±1 phases, unlike the even order-five phases at q=11. The construction provides the matrix entries, but the exact determinants and largest-root ranking require inter-block phase products."
+        ],
+        "reasoning": "Neither a substitution in the real q=13 table nor an inference from pairwise equi-isoclinism recovers the q=11 result. An exact evaluation and ordering of separate affine-orbit determinants is needed to show, in particular, that the worst quartets change between the two classes.",
+        "searches": [
+          "Resultary e1ffd8f9e8e9 exact Finding, quartic table and assumptions; arXiv:2112.14267v1 Thm. 4.2 and eqs. (39)–(42)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For eight columns in eleven dimensions the eight Gram eigenvalues are the top eight of the sum of the four rank-two projections, with zeros included if needed. Changes of bases preserve spectra, and k and 5−k are related by conjugation."
+        ],
+        "reasoning": "The Gram and projection definitions measure the same extremum here. Conjugation and affine transformations account for stated equalities but do not identify the two different t profiles: their largest deviations already lie in disjoint certified intervals.",
+        "searches": [
+          "Fickus–Iverson–Jasper–Mixon arXiv:2112.14267v1, Thm. 4.2",
+          "Fickus et al. arXiv:2406.19542 pp. 2–3, literal block restricted isometry and passage at offset 11080",
+          "Resultary real Paley record e1ffd8f9e8e9, Finding and Assumptions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "e1ffd8f9e8e9 has q=13 real quadratic quartic counts 78,390,195,52 and sharp √3/2. 6ac1f89a68e6 concerns a real rank-three-per-block q=11 family. 4515338e2335 is q=7 complex two-plane and 4b7a0818e249 is q=9 octic."
+        ],
+        "reasoning": "Same field size alone is not the same object; the rank-three block spectrum is of a different Gram size. The other-field formulas do not tabulate either q=11 class, and the closest q=13 table contains integer squared-root polynomials of a different quadratic-character construction.",
+        "searches": [
+          "Resultary source IDs e1ffd8f9e8e9, 6ac1f89a68e6, 4515338e2335, 4b7a0818e249 (four-plane Gram and sharp stability comparisons)"
+        ]
+      },
+      "rationale": "Credit the original harmonic construction and the existing real q=13 spectral census. The supported distinct claim is the complete q=11 quintic complex two-plane four-block profile, two different character-class sharp constants, and two different optimizing affine orbits. The strongest inspected catalogued matches do not cover this family and invariant together.",
+      "residual_risks": [
+        "A differently formulated complex conference-matrix or finite-group calculation may exist. The attempted web search did not return usable contrary evidence; selective comparisons substantiate the scope but are not an exhaustive priority determination."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known construction, not the quartet census",
+          "evidence": [
+            "Constructs the harmonic family using a nontrivial even multiplicative character and computes the Gauss-sum blocks."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2112.14267v1",
+          "material_read": "Thm. 4.2, p. 24 around offset 108600, construction and Gram expression",
+          "method": "Open original PDF, targeted theorem comparison",
+          "title": "Harmonic Grassmannian codes",
+          "trigger": "Same harmonic family and normalization"
+        },
+        {
+          "assessment": "Similar exact invariant and methodology, different field and character family",
+          "evidence": [
+            "Complete real q=13 quadratic table, unique maximizing affine orbit of 52 quartets, δ₄=√3/2."
+          ],
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/11/SCOPE-three-block-rigidity-and-the-four-block-spectral-profile-of-real--e1ffd8f9e8e9/RESULT.md",
+          "material_read": "Finding, table, equality statement, and scope (offset 0–2862)",
+          "method": "Local published-record mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Three-block rigidity and the four-block spectral profile of real Paley harmonic fusion planes",
+          "trigger": "Strongest prior exact four-plane harmonic spectrum table"
+        },
+        {
+          "assessment": "Defines the equivalent projection invariant and motivates symmetry; no calculation for these two profiles in the inspected passage",
+          "evidence": [
+            "Permutation-symmetric codes have equal δ_S on all k-sets; further block-RIP investigation is deferred."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2406.19542",
+          "material_read": "Block-RIP introduction at pp. 2–3, offset 11080–14068",
+          "method": "Literal locate then open full relevant passage in original PDF",
+          "title": "Totally symmetric Grassmannian codes",
+          "trigger": "Possibly broader block-RIP theorem"
+        },
+        {
+          "assessment": "Relevant alternative framework, not exact spectral coverage in material read",
+          "evidence": [
+            "Abstract describes the Godsil–Hensel construction via antipodal covers, applications to real q+1 planes for even q, and complex symmetric conference matrices. A failed literal find is not a full-text exclusion."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2212.12617v1",
+          "material_read": "Abstract and opening, offset 0–2214; literal multiplicative character locate",
+          "method": "Open original PDF, scope read and targeted literal find",
+          "title": "Equi-isoclinic subspaces, covers of the complete graph, and complex conference matrices",
+          "trigger": "Possible equivalent complex-conference representation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, δ₄ and equality sets; exact certificate and block-RIP primary passage"
+      ],
+      "rationale": "Four-block Gram stability is a motivated erasure invariant not captured by pairwise angles. Entire finite spectral and equality data for a natural harmonic family quantify a nontrivial split even between Galois-related choices and change which affine configurations are worst. The optimal min-eigenvalues and spectral condition numbers describe concrete conditioning for every four-plane selection.",
+      "residual_risks": [
+        "This is scoped complete data at one field order, not a general theorem about fusion frames or arbitrary erasure models."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:36:36.850001Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–67",
+        "Frozen VERIFICATION.md and verify.py, read but not executed"
+      ],
+      "rationale": "For θ>0, T=(R−(1−θ)I)/θ with R=(I+tL)⁻¹, t=θh. The inverse is entrywise nonnegative: factor out 1+t times the maximum weighted degree (with the factor understood as 1+t d_max), and expand the resulting inverse as a Neumann series in the nonnegative matrix t(d_max I−L)/(1+t d_max), whose row sums are <1. Only the diagonal can obstruct positivity. On the orthogonal complement of the constant vector all eigenvalues of L are positive by connectedness and at most nw by the edge-energy comparison to the capped complete graph. Consequently R_ii decreases strictly to 1/n and is at least (1+tw)/(1+ntw). At t>0 equality requires every spectral component of e_i−1/n·1 to have eigenvalue nw, i.e. L e_i=nw(e_i−1/n·1). Comparing off-diagonal entries in this column gives exactly c_ij=w for each j≠i, with no constraint on peripheral edges. Solving the diagonal condition gives the displayed H and the θ cutoff. Strict monotonicity and the endpoint limit give the exact horizon behavior; for θ=0 it follows directly from 1−h d_i. The introductory phrase ‘row-stochastic … although it need not be entrywise nonnegative’ should be read as ‘has unit row sums’; under the usual nonnegative convention it is stochastic only in the positivity region. This wording does not alter the explicit theorem or proof.",
+      "residual_risks": [
+        "The theorem assesses the full time step on the stated connected, symmetric capped graph family, not nonlinear or intermediate-stage positivity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected exact monotonicity theorems concern one-dimensional diffusion discretizations.",
+          "The Cayley identity I+F=2(I+A)⁻¹ is prior general algebra, without the conductance-capped graph equality condition.",
+          "The Schatz–Thomée–Wahlbin primary text could not be read on the attempted lawful routes."
+        ],
+        "reasoning": "Neither the discrete-grid criteria inspected nor the general algebra settles the extremal graph-family structure.",
+        "searches": [
+          "Bonnans and Tan, HAL inria-00634417, Theorems 3.1 and 4.3",
+          "Fallat and Tsatsomeros, Cayley transform, Lemma 2.2",
+          "Schatz–Thomée–Wahlbin, DOI 10.2478/cmam-2010-0025"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ranked retrieval and local primary mirrors",
+        "Bonnans and Tan, INRIA 7778",
+        "Fallat and Tsatsomeros, ELA 9 (2002)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the October 4 inequality substitute uniform stationary mass 1/n and use λ_max≤nw to recover the θ=1/2 uniform bound; the prior complete-graph calculation makes that bound sharp.",
+          "Equality at a specific vertex needs the local spectral support to be at nw, equivalently a column identity for L; the earlier result's stated equality for equal nonzero eigenvalues does not classify graphs satisfying this local condition.",
+          "The October 25 exact characterization matches the w=1, θ=1/2 case, not the arbitrary-weight theorem as stated."
+        ],
+        "reasoning": "The spectral inequality and step bound are direct comparison consequences. The surviving structural conclusion identifies exactly which incident conductances must saturate and why all remaining peripheral edges are free.",
+        "searches": [
+          "October 4 resolvent-return law, proof, local mirror offsets 5200–6800",
+          "October 25 universal-vertex Crank–Nicolson result"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The October 4 record gives the same resolvent diagonal criterion at θ=1/2, the fixed-chain horizon and its spectral enclosure, and the threshold 2/[c(n−2)] on the weighted complete graph."
+        ],
+        "reasoning": "The return-probability and matrix-resolvent viewpoints are equivalent here. A complete-graph example, even when sharp, does not by itself classify every weighted graph attaining equality.",
+        "searches": [
+          "Resultary: capped graph θ positivity, diagonal resolvent, universal vertex",
+          "Resultary 2026/10/4 resolvent-return law, Finding and proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The close October 25 record explicitly identifies all universal-vertex extremizers for connected simple graphs at θ=1/2 and w=1; the displayed record date is after the frozen record date.",
+          "The November 8 complete-bipartite record covers general θ on K_p,q and identifies worst stars within that family, not arbitrary capped conductances."
+        ],
+        "reasoning": "Both are real overlaps, not mere title matches, but their covered scopes are restricted. Neither supplies earlier evidence of the full weighted all-θ classification.",
+        "searches": [
+          "Resultary ranked searches for sharp horizon and saturated universal vertices; actual returned Finding and proof comparisons"
+        ]
+      },
+      "rationale": "The defensible contribution is the exact weighted capped-graph comparison with identification of all equality graphs across the full θ interval. The prior spectral/diagonal criterion and complete-graph comparison already contain the numerical Crank–Nicolson bound when combined with the elementary capped spectral estimate, and the all-θ scalar comparison is a short extension. Do not credit those ingredients as stand-alone new claims. The checked earlier work does not supply the exact graph-family equality classification for arbitrary capped conductances and θ.",
+      "residual_risks": [
+        "The cited Schatz–Thomée–Wahlbin (2010) and Horváth (1998) primary bodies were not obtained, and unlocated prior equality classifications remain possible. Simple resolvent transport from Crank–Nicolson and the usual spectral bound are not separate originality claims."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Numerical bound is implied at θ=1/2 given the capped spectral estimate; not an explicit per-vertex structural characterization",
+          "evidence": [
+            "The diagonal is π_i plus its nonconstant spectral mixture, bounded below by π_i+(1−π_i)/(1+s λ_max).",
+            "For the complete graph all nonconstant eigenvalues equal nc."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a/RESULT.md",
+          "material_read": "Finding and proof, especially text offsets 5200–6800",
+          "method": "Local primary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A resolvent-return law for Crank–Nicolson positivity on reversible Markov chains",
+          "trigger": "Strong earlier overlap with exact criterion and complete-graph horizon"
+        },
+        {
+          "assessment": "Displayed later and limited to connected unweighted graphs for Crank–Nicolson",
+          "evidence": [
+            "The horizon is 2/(N−2) at worst, exactly when the graph has a universal vertex."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-universal-vertices-exactly-attain-the-worst-crank-nicolson-posit--00c118bf4f45/RESULT.md",
+          "material_read": "Finding and proof",
+          "method": "Local primary mirror",
+          "title": "Universal vertices exactly attain the worst Crank–Nicolson positivity threshold",
+          "trigger": "Exact match on a significant subcase"
+        },
+        {
+          "assessment": "Displayed later; limited to unweighted complete bipartite graphs",
+          "evidence": [
+            "Gives all-θ horizons on K_p,q with worst stars in that class."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-positivity-horizons-for-the-theta-method-on-complete-bipar--b76cdd4675ef/RESULT.md",
+          "material_read": "Finding and scope",
+          "method": "Local primary mirror",
+          "title": "Sharp positivity horizons for the θ-method on complete bipartite heat networks",
+          "trigger": "Related exact θ horizons and star extremizers"
+        },
+        {
+          "assessment": "Relevant exact monotonicity results, different graph class",
+          "evidence": [
+            "Theorems concern one-dimensional finite-difference diffusion and the heat equation on the line."
+          ],
+          "identifier_or_url": "https://inria.hal.science/inria-00634417/document",
+          "material_read": "PDF pp. 7 and 9, Theorems 3.1 and 4.3, offsets 9851 and 17556",
+          "method": "Primary OA PDF",
+          "title": "Bonnans and Tan, INRIA report 7778",
+          "trigger": "Exact θ-scheme monotonicity criteria"
+        },
+        {
+          "assessment": "Covers Cayley/resolvent algebra, not the graph extremizers",
+          "evidence": [
+            "I+F=2(I+A)⁻¹."
+          ],
+          "identifier_or_url": "https://journals.uwyo.edu/index.php/ela/article/download/173/173",
+          "material_read": "Lemma 2.2, PDF p. 2, offset 6970",
+          "method": "Primary OA PDF",
+          "title": "On the Cayley Transform of Positivity Classes of Matrices",
+          "trigger": "Broader matrix positivity and resolvent algebra"
+        },
+        {
+          "assessment": "Coverage unresolved for this source; access failure not used as negative evidence",
+          "evidence": [
+            "No inspected primary passage available."
+          ],
+          "identifier_or_url": "https://doi.org/10.2478/cmam-2010-0025",
+          "material_read": "No primary body obtained",
+          "method": "Bounded lawful OA attempts at DOI routes and repository-copy lookup",
+          "title": "On Positivity and Maximum-Norm Contractivity in Time Stepping Methods for Parabolic Equations",
+          "trigger": "Cited θ-scheme positivity precedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof Steps 2–4",
+        "Earlier Crank–Nicolson resolvent-return law"
+      ],
+      "rationale": "An exact step-size guarantee and a complete extremizer classification answer a motivated numerical-positivity question. In particular, one saturated vertex rather than a complete graph suffices, and adding, removing or reweighting peripheral edges cannot improve the worst horizon in that case. This specifies when the bound can and cannot be improved for a graph, unlike a norm/CFL guarantee alone.",
+      "residual_risks": [
+        "No claim of a simple closed formula for every graph's individual horizon, or of temporal-accuracy implications."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

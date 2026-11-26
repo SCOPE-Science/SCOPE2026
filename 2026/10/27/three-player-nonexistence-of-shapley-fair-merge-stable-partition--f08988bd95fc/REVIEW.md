@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The complete eight-value characteristic function has nonnegative coalition values. Exact permutation-averaged Shapley calculations yield \((19/6,19/6,-1/3)\) for the grand coalition, \((5/2,5/2)\) for the profitable pair, and \((1,-1)\) for each unfavorable pair containing player 3. The five partitions are all excluded explicitly; the proof for one and two players is exhaustive for any characteristic function with nonnegative singleton values. A separately executable exact-rational implementation independently confirms every calculation, update, and the Lyapunov vector's strict decrease.
+## correctness
 
-## Originality: PASS, with limitations
-The exact paper defining this solution concept was inspected in its sections on the split rule, merge rule, Lyapunov lemma, and invariance theorem. It states the disputed unconditional monotonicity but does not present or subsume the three-player nonexistence example. Its admitted zero-progress cycles differ from this strict-surplus-induced failure. published-finding corpus searches and accessible prior research claims produced no equivalent Shapley-fair merge-stability obstruction. Apt and Witzel's general coalition-formation framework predates and does not establish the exact numerical statement. Nonindexed prior examples and later revisions remain possible risks. The finding does not reject the source's conditional theorem under an independently imposed monotonicity hypothesis.
+PASS
 
-## Value: PASS
-The new exact smallest-size obstruction determines that the proposed fairness-plus-merger stability concept need not have any solution under the paper's natural weak nonnegativity assumptions. It also pinpoints why the proposed convergence proof cannot rely on merger preserving the negative Shapley mass. Both facts are consequential for applying the dynamics, not a routine renaming or an arbitrary census.
+For n=0 or 1 the natural partition works. For n=2, if the merge surplus is nonpositive the singleton partition works; if positive each player's Shapley gain over the singleton is exactly half that surplus. For n=3, independent exact subset-weight calculations (python3 /workspace/checks/check124.py, record 1) gave singleton payoffs (2,2,0), pair payoffs (5/2,5/2), (1,-1), (1,-1), and grand payoffs (19/6,19/6,-1/3). Both fair partitions have a strict gain of 1 from a merge; the other three are unfair. The split phase does nothing at {12,3} and the unique legal merge takes it to {123}, strictly lowering the vector from (0,5) to (-1/3,6). At {123} the residual {12} is fair, so the next composite returns to {123}; in separate split and merge steps this is a two-cycle. No tie or update-order assumption is needed here. Zhu–Han's primary §§3.1–3.3 use this operator and Lemma 3 asserts the disputed conclusion under nonnegative singleton values. Theorem 2 conditions on monotonicity separately and is not refuted. Coalition values here are all nonnegative but not monotone.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The best-supported distinct result is the minimal three-player failure of SFMS, with all coalition values nonnegative, and the consequent explicit refutation of monotonicity for the exact Zhu–Han composite. The definition, operators and proposed potential themselves are prior material.
+
+## value
+
+PASS
+
+This is a sharp failure boundary for an existing proposed solution concept and a counterexample to a concrete convergence argument, not just a generic cycling example. The all-nonnegative witness isolates the missing control on fairness at a strict surplus merger even with no negative coalition worth.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof is self-contained for all finite strict posets of width at most two. Its essential points are: stable classes are antichains and therefore have size at most two; any two doubletons must be joined by a consistently oriented complete relation or a perfect matching; the class order is linear; and an intervening matching forces matching connections through every intermediate doubleton class, with transitive composition. This yields an inductive isomorphism for any finite *poset* with the same stable counting profile. The group and chordality statements follow from the same matching constraints. The characteristic-formula construction uses two variables and quantifier rank at most the number of vertices plus one. Exhaustive checks to six elements, 381 five-doubleton transitive templates, and 800 independently sampled width-two orders support the all-size proof without replacing it.
+PASS
 
-## Originality — PASS (best-knowledge, residual priority risk)
+Every equitable class in any finite strict poset is an antichain, since a minimal element of the induced order has zero internal predecessors. Thus the target and any matching competitor have only singletons and doubletons. In the target, two doubletons must have a cross-comparison by width. If both directions occurred, regularity would force indegree and outdegree one on the full bipartite four-cycle, impossible. The profile therefore gives either a directed matching or a complete order between each pair, in the competitor as well. Any two successive directed relations between doubletons compose to a nonempty relation, hence the quotient order is total. A matching from i to k forces both legs through every intermediary j to be matchings, since a complete leg composes with a regular nonempty leg to a complete comparison. Transitivity also forces the long matching to equal the composition. Consequently each interval spanned by a matching edge is a matching clique, and one may choose labels along consecutive matched pairs so that every longer matching is label-preserving. This gives reconstruction even if the competing strict poset has no width promise. It also yields a perfect elimination order and shows that the only flips are independent simultaneous flips on connected matching components, so that stable classes are precisely orbits. To make the logical bound explicit, use one-variable colour definitions of quantifier rank ≤t for t≤|P|−1, include the rank-≤t+1 coverage conjunct that each vertex has some listed colour, and enforce class sizes and interclass counts up to rank t+2. Coverage rules out extra, unlisted colours. Initial named unary colours cost rank zero and are preserved. The empty matching graph and n=1 both satisfy the formulas. The three checkers and verification record were inspected statically, not replayed; the finite counts are not premises of the proof.
 
-The closest works are Kiefer–Schweitzer–Selman's general classification of relational structures identified by two-variable counting logic (arXiv:1503.08792), Arvind–Köbler–Rattan–Verbitsky's colour-refinement/compactness treatment for undirected graphs (arXiv:1502.01255), and Gajarský and collaborators' first-order model checking on bounded-width posets (arXiv:1504.04115). The first handles arbitrary binary relations rather than identification relative to transitive posets; the second concerns undirected graphs; the third concerns algorithmic evaluation rather than logical equivalence classes. None of the inspected relevant material states the universal width-two counting-identification theorem or its matching-component automorphism description. Other earlier specialized references may exist, and no search alone proves priority. Existing restricted-family results for forest orders or Cartesian grids do not cover all width-two posets.
+## originality
 
-## Value — PASS
+PASS
 
-This provides a complete logical identification theorem for a natural class of posets with arbitrarily many elements and arbitrary height, rather than a small-order census. The matching-intervention lemma explains precisely why the order axiom rules out colour-refinement twists, and computes the full automorphism group directly from the stable partition. The width-two promise is mathematically intrinsic, while the competing poset need not itself have bounded width. It contributes a structural boundary to finite-model-theoretic reconstruction and poset isomorphism.
+The strongest indexed overlap gives relative counting-logic identification and orbit recovery for forest orders. This class intersects but does not contain width-two posets, and the report does not give the width-two matching rigidity, chordality or flip group. The general C² literature treats identification among arbitrary relational structures, which fails for some frozen targets and so cannot simply be applied. The supported distinction is the all-size width-two reconstruction under the strict-poset promise coupled with the explicit automorphism structure, not the general connection between refinement and C².
 
-## Limitations and risks
+## value
 
-The theorem requires finite strict partial orders and does not apply to arbitrary directed graphs. The bound on quantifier rank is not claimed optimal, and no result about the next width level is asserted. Literature searches cannot rule out specialized priority overlap. The computational checks have only finite domains; the mathematical proof carries the universal quantification. Independent scientific validation has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result identifies a natural bounded-width family from a weak invariant even against unbounded-width strict-poset competitors, and identifies precisely which automorphisms remain after refinement. The transitivity-induced composition rule explains why matching ambiguities that obstruct unrestricted identification disappear. It yields a full reconstruction and elementary abelian symmetry group, not merely a fixed-size collision count or an invocation of generic C² machinery.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

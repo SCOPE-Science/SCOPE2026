@@ -1,0 +1,173 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:37:19.761693Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–79; VERIFICATION.md and verify.py inspected, not executed",
+        "Replay: python3 /workspace/branches/independent_replay.py 2 (SymPy)"
+      ],
+      "rationale": "An eigenvector with purely imaginary eigenvalue must vanish at the endpoints by the dissipative quadratic form, then vanish everywhere by the nearest-neighbor recurrence with J≠0. Thus e^(−Kt) decays, the integrated Gramian is positive definite, and its Lyapunov solution is unique. The same-parity part G of the Dirichlet inverse commutes with A, since the parity sign conjugates A to −A. The inner-path analogue B commutes on interior rows/columns and is zero on endpoints; hence [A,B] is supported on the boundary, with first-row entries B(2,j) and last-row entries B(N−1,j), matching the skew C anticommutator PC+CP (both vanish between opposite endpoints). For same-parity i<j the four affine neighbor terms in [C,A] cancel before truncation, with missing neighbors at i=1 and j=N contributing N+1−j and i respectively, exactly the corresponding copies of G. Opposite-parity entries there are zero. The commutator diagonal is twice the sum of adjacent C entries, giving −4 in the interior and 2(N−2) at either end. These identities, including N=2 where P=I and Q=I/κ, yield K†Q+QK=I with the stated sign of the imaginary term. The survival expectation is Tr(Qρ); the localized diagonal has the form a/κ+bκ, with a,b>0 in the interior and b=0 at an endpoint. Differentiation and strict convexity give the unique interior optimizer and stated minimum; both limiting optimal rates follow directly. An independent diagonal-phase transformation to a real rational Lyapunov equation followed by exact linear solves checked every complex entry for seven paths N=2 through 8 at varied rational couplings and rates.",
+      "residual_risks": [
+        "The rational samples check normalizations, parities and signs, not the infinite family by themselves. Only equal positive endpoint losses, a uniform coherent path and the total absorption channel are covered; the optimization is for a localized source."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first calculates a single-trap efficiency with competing bulk loss. The second likewise concerns a single trap and names transfer times and multiple traps as directions for further work. The third is semi-infinite with one boundary absorber and names finite geometries and multiple absorbers as extensions."
+        ],
+        "reasoning": "Efficiency with competing mechanisms or a semi-infinite boundary is not the finite two-terminal integrated lifetime. In an equivalent linear stationary covariance formulation the symmetric K gives KQᵀ+QᵀK†=I. Boundary-injection formulas with only boundary-supported noise do not supply the identity forcing at N>2; a general solution covering that forcing could subsume the finding, but no such passage was verified.",
+        "searches": [
+          "Resultary: boundary-driven finite quantum path Lindblad source drain transport exact absorption-time Gramian two boundaries",
+          "Kassal–Aspuru-Guzik arXiv:1201.5202v1; Razzoli–Paris–Bordone arXiv:2011.13794v1; Riberi arXiv:2605.08056v1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md comparison, lines 81–97; catalog queries and mirrored records as above",
+        "arXiv:1201.5202v1, arXiv:2011.13794v1, arXiv:2605.08056v1, bounded passages above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Catalog 64802ff320ee optimizes allocation at fixed energy on an infinite line, not total mean capture time from a finite-segment initial state. The same-day e0e709f4f0b3 treats a classical reflected Brownian motion with competing death. The exact cited catalog item 76980aefd4f5 could not be read in the mirror and is not treated as ruled out."
+        ],
+        "reasoning": "A scattering-rate budget and a coherent finite-segment lifetime are different observables with different boundary data. The verified single-end optimum lacks the finite factor √[(N+1−s)/(N−s)]; the limit agreement gives known partial overlap rather than an implication of the finite two-end claim.",
+        "searches": [
+          "Resultary records 38f306607e7a, 64802ff320ee and e0e709f4f0b3, local findings",
+          "Razzoli–Paris–Bordone pp. 1 and 18; Riberi model and conclusion",
+          "Frozen RESULT.md line 96 references catalog record 76980aefd4f5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both close catalog records give complete operators but with only one terminal sink. Item 38f306607e7a gives κ*=2J√[s/(s−1)], independent of length beyond s."
+        ],
+        "reasoning": "Adding a second loss changes K on the left and right of the Lyapunov equation, not just its inhomogeneity. Reflection partitions this two-end problem but does not reduce both parts to the cited uniform single-end paths: even N yields a central end detuning ±J after folding; odd N gives a symmetric half with central hopping √2J. The odd antisymmetric half does reduce to a uniform one-sink path but cannot give the whole kernel. The exact single-end optimizer is recovered in the fixed-s limit, not at finite interior s.",
+        "searches": [
+          "Resultary: exact two-boundary absorption-time kernel coherent quantum path equal end loss survival Gramian site-dependent optimal absorber rate",
+          "Resultary: two end equal loss coherent quantum path full survival Gramian exact site dependent absorption time optimizer",
+          "Resultary local mirrors for 38f306607e7a and 876a81781f4d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected closest exact catalog kernels are for a single end, not a table of the two-end Q. The primary keyword lookup was deferred without results and contributes no evidence of absence."
+        ],
+        "reasoning": "This is an operator for all N and continuous positive rate parameters, not a finite numeric dataset. A known closed matrix family for the same operator would count as coverage; a finite instance calculation would not supply the all-N formula or its optimizer.",
+        "searches": [
+          "Resultary: two absorbing endpoints coherent finite path integrated survival operator exact lifetime optimizer",
+          "Resultary: exact two-boundary absorption-time kernel coherent quantum path equal end loss survival Gramian site-dependent optimal absorber rate",
+          "Primary lookup attempted: quantum walk finite chain two absorbing ends exact mean absorption time coherent Lindblad traps boundary sites integrated survival operator Gramian"
+        ]
+      },
+      "rationale": "Full survival Gramians and site-dependent localized-source optimization already appear for a single terminal sink, and two-loss scattering is also prior. The distinct contribution supported here is the explicit finite equal-two-end Gramian and the resulting finite-size dependence on distance to both boundaries, not the Lyapunov method or the idea of optimizing a loss rate. The conclusion is bounded by inspected statements.",
+      "residual_risks": [
+        "Bounded search, a deferred primary keyword lookup, and mirror unavailability of 76980aefd4f5 limit historical priority. No arbitrary-forcing or exact boundary-driven covariance theorem was verified; an unindexed equivalent or a broader theorem could exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial overlap in one-end model only",
+          "evidence": [
+            "One sink at site 1, full kernel, κ*=2J√[s/(s−1)] for interior source s, independent of additional length."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-exact-survival-time-operator-and-sink-rate-optimization-on-finit--38f306607e7a",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary local mirror, offset 0",
+          "title": "Exact survival-time operator and sink-rate optimization on finite quantum paths",
+          "trigger": "Closest catalog exact full operator and optimizer"
+        },
+        {
+          "assessment": "Single terminal sink, not the two-end setting",
+          "evidence": [
+            "Exact operator for arbitrary coherent or mixed initial inputs with one terminal absorber."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-state-dependent-capture-times-and-optimal-sink-strength-on--876a81781f4d",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary local mirror, offset 0",
+          "title": "Exact state-dependent capture times and optimal sink strength",
+          "trigger": "Candidate covering arbitrary coherent inputs"
+        },
+        {
+          "assessment": "The paper-specific implication remains unverified; no negative inference from missing file",
+          "evidence": [
+            "Frozen RESULT.md characterizes it as single-end; other accessible single-end records were inspected independently."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-absorption-time-gramian-and-optimal-sink-strength-on-a-fin--76980aefd4f5",
+          "material_read": "Frozen citation and characterization only; exact underlying file unavailable",
+          "method": "Configured local-mirror retrieval attempt",
+          "title": "Exact absorption-time Gramian and optimal sink strength on a finite quantum path",
+          "trigger": "Cited nearby Gramian theorem"
+        },
+        {
+          "assessment": "Different loss geometry and objective",
+          "evidence": [
+            "One localized trap, uniform competing loss and transport efficiency η."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1201.5202v1",
+          "material_read": "Model passage",
+          "method": "OA PDF, offset 4749",
+          "title": "Environment-assisted quantum transport in ordered systems",
+          "trigger": "Coherent path with an absorbing trap"
+        },
+        {
+          "assessment": "Single-trap efficiency, not the two-end transfer-time operator",
+          "evidence": [
+            "The conclusion identifies transfer times/survival and more than one trap as further questions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2011.13794v1",
+          "material_read": "Abstract p. 1 and conclusion p. 18",
+          "method": "OA PDF, offsets 1841 and 78168",
+          "title": "Transport efficiency of continuous-time quantum walks on graphs",
+          "trigger": "Graph trap theorem potentially covering paths"
+        },
+        {
+          "assessment": "Semi-infinite single boundary",
+          "evidence": [
+            "Finite geometries and multiple absorbers are identified as extensions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2605.08056v1",
+          "material_read": "Model and conclusion p. 4",
+          "method": "OA PDF, offsets 7171 and 25469",
+          "title": "An Exactly Solvable Absorbing Quantum Walk",
+          "trigger": "Recent exact absorbing-walk solution"
+        },
+        {
+          "assessment": "Fixed-energy scattering on an infinite line",
+          "evidence": [
+            "Allocates a fixed loss budget for incident flux; not a total mean lifetime from a localized source."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-exact-parity-dichotomy-and-uniquely-optimal-loss-allocation-for--64802ff320ee",
+          "material_read": "RESULT.md Finding and Assumptions",
+          "method": "Resultary local mirror, offset 0",
+          "title": "Exact parity dichotomy and uniquely optimal loss allocation for two absorbing lattice sites",
+          "trigger": "Same number of absorbers and exact optimum"
+        },
+        {
+          "assessment": "Distinct classical diffusion model and optimization",
+          "evidence": [
+            "Reflected Brownian motion, endpoint reactivities and competing bulk death."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-boundary-allocation-transition-under-competing-bulk-and--e0e709f4f0b3",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary local mirror, offset 0",
+          "title": "A sharp boundary allocation transition under competing bulk and boundary loss",
+          "trigger": "Close same-day two-boundary optimization item"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–31 and 75; Resultary one-end optimizer 38f306607e7a for comparison"
+      ],
+      "rationale": "The finite coherent path with two terminal absorbers is a natural transport model, and absorption time cannot be recovered from eventual efficiency (which is one). An all-entry formula handles initial relative phases without a matrix solve. The finite-size site dependence of the optimum distinguishes fixed distance from one end from a bulk-scaled start; the exact endpoint case also shows why imposing a universal finite optimal rate would be wrong. This goes beyond solving the routine Lyapunov equation for isolated lengths.",
+      "residual_risks": [
+        "The value is for total mean survival and a localized-source loss-rate choice, not channel-resolved times, a full first-passage law, or an optimum for coherent inputs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,8 @@
 }
 ---
 
-# Verification
+# Reproduction and proof scope
 
-Running `python3 verify.py` requires only the Python standard library. The archived verifier uses exact rational arithmetic and a fixed pseudo-random seed, enumerating the complete balanced-sign support for all sampled weighted graphs and exhaustively checking the 4- and 6-vertex simple-graph classes.
+`python3 verify.py` uses only the Python standard library. For each case it enumerates all first parts of the chosen size and computes the exact support of the within-part edge totals. It tests covariance singularity by the rank of differences of these support points, without floating-point covariance calculations. It separately checks the constant-statistic conditions for regular and additive weights.
 
-Observed execution result: `PASS: 3434 exact assertions; 600 random weighted graphs; 200 additive weighted graphs; exhaustive simple graphs n=4,6`.
-
-Critical algebraic checkpoints are the balanced pair moment \(-1/(n-1)\), the distinct-index fourth moment \(3/[(n-1)(n-3)]\), the incidence Gram matrix \((n-2)I+\mathbf1\mathbf1^\top\), and the complete binary-potential rigidity step. Finite enumeration tests examples, not every dimension; the theorem's generality rests on the written proof. Independent scientific validation and external assessment have not been performed.
+Observed output: `PASS: 66624 simple graph/size cases; 560 weighted cases.` The simple-graph cases exhaust all labeled graphs of orders four, five and six for first-part sizes from two through half the order rounded down. The weighted cases include signed additive matrices, matrices with constant row sums, and general sampled integer weights. The exchange proof in `RESULT.md`, not finite enumeration, covers arbitrary admissible sizes and real weights. The balanced Laplacian variance is derived there from published weighted permutation moments and the incidence projection.

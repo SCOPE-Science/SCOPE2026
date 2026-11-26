@@ -1,19 +1,21 @@
-# Scientific review: a sharp real-to-log-periodic relaxation crossover
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The physical Bloch generator has a real mode at \(-2\kappa\) and a complex pair at \(-\kappa\pm i\sqrt{\omega^2-\kappa^2}\) for \(\omega>\kappa>0\). The exact uniform-history Volterra equation for each mode reduces to the regular confluent hypergeometric equation, with a nonzero leading coefficient for each eigenmode. Taking real parts gives the two exact late-time decay exponents. The difference has the sign of \(\omega^2-2\kappa^2-\kappa q\) for every \(q>0\), proving the complete switching classification, strictness, uniqueness and no-transition boundary. The proof explains why a nonzero initial projection is required in each mode. The standalone symbolic and numerical checks agree with the independent original Volterra system; they are supplementary rather than a replacement for the all-parameter proof.
+PASS
 
-## Originality — PASS, with publication-priority risk
+Reconstructed RESULT.md, Proof 1–4. The Bloch matrix has an x eigenvalue −2κ and a yz pair −κ±iΩ with Ω²=ω²−κ²>0. The causal mild Volterra equation preserves positivity and trace (positive history mean and Lindblad evolution, with weights summing to one), and Volterra iteration gives uniqueness. Multiplying a scalar mode equation by t and differentiating gives tf″+[1+(q−λ)t]f′−λf=0. For z=q−λ and a=q/z, 0<Re a<1; the normalized regular solution is exp(−zt)M(a,1,zt). Its Euler integral after reflection is proportional to the Laplace integral of s^(−a)(1−s)^(a−1) against exp(−zts); Re z>0 gives leading (zt)^(a−1)/Γ(a) and a relative O(t^−1) error. The real and imaginary parts of a nonreal eigenvector are an independent real basis for the yz plane; with nonzero initial projection the leading oscillation has norm bounded away from zero after removing its decay power. Direct subtraction gives βyz−βx=q(ω²−2κ²−κq)/[(q+2κ)(q²+2κq+ω²)]. Its sign proves both strict dominance regimes, equality of orders at qc>0, and no positive crossing at ω=√2κ. The observable switch requires both initial projections and is at fixed q>0 as t→∞, not at q=0 or at/under the exceptional point. VERIFICATION.md and check.py were inspected, not executed; their finite tests are not needed for the all-parameter result.
 
-The closest primary paper, de Mauro–Kulkarni–Majumdar (arXiv:2608.02297), establishes uniform-history Kummer dynamics for closed quantum systems, and explicitly identifies open quantum systems as a future direction. This calculation credits its scalar method. The other checked full texts treat real-spectrum classical preferential relocation (Boyer–Evans–Majumdar, arXiv:2411.00641) and fixed-state open quantum resetting (Rose–Touchette–Lesanovsky–Garrahan, arXiv:1806.01298). Their theorems do not imply the positive-rate competition between distinct real and complex Lindblad eigenmodes. Semantic-index comparisons identified uniform-history quantum decay and unrelated dephasing spectral optimizations, but none with the same Lindblad-memory phase boundary. An unindexed equivalent open-system result is still possible, and the Carollo–Wald reference was assessed at abstract level rather than exhaustively.
+## originality
 
-## Value — PASS
+PASS
 
-For the smallest open system with competing real and complex decay modes, the result gives a complete physically interpretable threshold and a concrete log-frequency. It identifies when the slowest polarization changes from monotone algebraic decay to logarithmically oscillatory decay although the stationary state is unchanged. This structural prediction is neither an exercise in ordinary Lindblad eigenvalue ordering nor a small improvement to an existing numerical constant: uniform-history resetting nonlinearly maps each complex eigenvalue into an algebraic exponent, changing its relative decay rank. It is an idealized analytical benchmark, not a general theorem for arbitrary dissipators.
+Credit the scalar uniform-history relaxation, Kummer method, and log-periodicity to previous work. The supported distinction is the exact competition of a real dissipative mode and a damped complex pair of this driven dephasing Lindbladian, with a positive-rate reversal precisely above the stated drive boundary. The strongest reviewed precedents each lack a necessary spectral sector or use a different resetting rule.
 
-## Scientific limitations
+## value
 
-The theorem requires nonzero initial projections in both sectors, \(\omega>\kappa>0\), and \(q>0\). It does not cover exceptional points, \(q=0\), nonuniform resetting, arbitrary Lindbladians or experimental noise. Proof details and exact reproduction steps are in `RESULT.md`, `VERIFICATION.md` and `check.py`.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A worked open-system mechanism in which memory can change which physical polarization is slowest, even though all positive rates share the same stationary state. The threshold predicts when a leading log-periodic polarization will be visible rather than subleading and excludes a switch throughout an entire nontrivial underdamped regime. Without resetting the yz pair has the slower exponential envelope, yet for strong drive and sufficiently small positive resetting the real x mode wins at late times. The scientific contribution is that sharp distinction, not a general Lindblad theorem or an experimental claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

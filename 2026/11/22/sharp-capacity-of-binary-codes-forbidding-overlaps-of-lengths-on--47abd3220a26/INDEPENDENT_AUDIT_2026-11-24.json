@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:40:01.491488Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Checked the reduction and certificate in RESULT.md, VERIFICATION.md, verify.py and verification_output.txt without executing the uploaded code. The one-bit condition permits normalization to words starting in 0 and ending in 1. At n≥14 the seven-bit endpoint blocks are disjoint, so the maximum is the largest compatible rectangle size times 2^(n−14); this includes the boundary n=14 and self-pairs. In the submitted search the product of the largest possible prefix count and current compatible suffix count is a valid upper bound. At equal depth and suffix mask the greater chosen count dominates every continuation, so memoization is valid. Independently, `python3 /workspace/replay/restricted_overlap_closed_sets.py 1 2 3 4 5 6 7` constructed the graph by literal string comparisons and enumerated mutual closures without objective pruning. Any positive rectangle can be enlarged to a mutually closed one; each nonroot closed prefix set is reachable by adding its least not-yet-included element and closing, with the canonical test rejecting additions inducing lower new indices. This traversed 1,944 closed sets with nonempty suffix side at cutoff seven, found maximum 744 with a 24×31 witness, and returned the sequence 1,2,6,20,64,216,744 across all seven cutoffs. A separate intersection-state dynamic program confirmed 744 and checked the frozen witness directly. These exact finite computations establish the endpoint coefficient only; the disjoint-block argument extends it to all stated n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The bound reproduced by Stanovnik, (q^n−q^(n−k))/(2k), gives about 1161.14 at q=2,k=7,n=14. The bound in the inspected Yang–Ding §5 is for a specified constructed family under extra conditions. The Cai–Wang–Feng paper was not accessible; the improved general bound and reduction attributed to it by Stanovnik do not yield 744."
+        ],
+        "reasoning": "A weaker bound leaves open the 744 maximum. A bound on a specified family is not an upper bound on the unrestricted class. Unread constructions or bounds in Cai–Wang–Feng cannot be assessed from the secondary citation alone.",
+        "searches": [
+          "arXiv:2411.02899 restricted-overlap bounds and factorization",
+          "DOI:10.1109/TIT.2023.3319010 through OA routes",
+          "DOI:10.1587/transfun.2025EAL2050 §5"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary catalogue and two distinct adjacent originals",
+        "arXiv:2211.10309v4",
+        "arXiv:2411.02899",
+        "DOI:10.1587/transfun.2025EAL2050",
+        "DOI:10.1109/TIT.2023.3319010 (bibliographic and secondary evidence only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary construction paper describes computational difficulty for k≥7, supplies an explicit size-744 witness at k=7, and keeps a separate larger upper bound. Its 2^n/(2k) bound and Stanovnik's sharper bound both exceed the witness."
+        ],
+        "reasoning": "The claimed additional fact is that every compatible rectangle is at most 744, not that one rectangle has size 744 or that it scales. Neither a lower-bound family nor the reviewed upper bounds imply this, and no distinct indexed proof of that upper bound was found in these checks.",
+        "searches": [
+          "arXiv:2211.10309v4 §II Theorem 2 and §V Tables III, V",
+          "arXiv:2411.02899 §3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Blackburn et al. formulate the endpoint incidence problem and construct the 24×31 rectangle. Stanovnik gives S₁ᵏ(q,n)=q^(n−2k)S₁ᵏ(q,2k), with a factorization for more general overlap ranges."
+        ],
+        "reasoning": "An unrestricted prefix/suffix biclique product at n=2k is the exact reduced invariant, so its 744 evaluation would cover every n≥14. The equivalence and its blocklength factor are themselves prior, but they do not determine the best rectangle.",
+        "searches": [
+          "Local Resultary: binary restricted overlaps 1–7; (1,7)-overlap-free codes; maximum bipartite compatible rectangle 744",
+          "arXiv:2211.10309v4 §V",
+          "arXiv:2411.02899 §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Blackburn et al. give 744·2^(n−14) as a construction and their Table V upper column gives 1170.3·2^(n−14). Local Resultary returned the assigned record as a self-match. Distinct inspected matches 2026/11/22/SCOPE-sharp-short-block-capacities-and-extremizer-census-for-reverse-c--74e0afab9676 and 2026/11/22/SCOPE-exact-sparse-non-overlapping-code-capacity-over-arbitrary-alphab--467052fb9d47 have different constraints."
+        ],
+        "reasoning": "The same integer in a construction column is not an exact table entry. The short-block census imposes reverse-complement closure and all proper-overlap restrictions for lengths through 12; the other record restricts weight to two and forbids all proper overlaps. Neither censuses the present endpoint graph.",
+        "searches": [
+          "arXiv:2211.10309v4 §V Tables III and V",
+          "Local Resultary: exact restricted binary overlap capacity; 744; short-block census; sparse non-overlap"
+        ]
+      },
+      "rationale": "Best of current evidence, the claimed distinct contribution is solely the unrestricted binary matching upper bound at cutoff seven. The witness, the compatibility-graph viewpoint and the middle-word scaling already occur in the literature. The strongest available same-parameter sources leave the coefficient gap open; an inaccessible plausible source remains a named risk, not negative evidence.",
+      "residual_risks": [
+        "The Cai–Wang–Feng full paper was unavailable; only its bound and reduction as described in Stanovnik could be assessed. Historical priority against additional theorems in that paper or unindexed equivalent searches is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same regime; lower witness and larger upper bound, not exact optimum",
+          "evidence": "The k=7 construction uses 24 prefixes and 31 suffixes while the upper-bound column uses coefficient 1170.3.",
+          "identifier_or_url": "https://arxiv.org/html/2211.10309v4",
+          "material_read": "§II Theorem 2; §V and Tables III and V, OA offsets approximately 33750 and 60200",
+          "method": "OA primary text with targeted passage read",
+          "title": "Constructions and bounds for codes with restricted overlaps",
+          "trigger": "Identical overlap regime, graph problem and exact numerical witness"
+        },
+        {
+          "assessment": "Factorization covered; upper inequality is not sharp at the target cutoff",
+          "evidence": "At q=2,n=14,k=7 the bound is 16256/14, and scaling transports a known base value but does not establish it.",
+          "identifier_or_url": "https://arxiv.org/abs/2411.02899",
+          "material_read": "§3 factorization and displayed bound for S₁ᵏ(q,n)",
+          "method": "OA primary text with targeted passage read",
+          "title": "Codes with restricted overlaps: expandability, constructions, and bounds",
+          "trigger": "Stronger general inequalities and possible parameter domination"
+        },
+        {
+          "assessment": "Unresolved for additional full-text results; visible secondary statements are insufficient",
+          "evidence": "The attributed stronger upper bound is still above 744; access failure is not evidence of noncoverage.",
+          "identifier_or_url": "https://doi.org/10.1109/TIT.2023.3319010",
+          "material_read": "Bibliographic identification and Stanovnik's attribution of the bound and length reduction; no primary full text",
+          "method": "Bounded direct and configured alternate OA attempts",
+          "title": "Constructions and Bounds for q-Ary (1,k)-Overlap-Free Codes",
+          "trigger": "Plausible same-model theorem in prior publication"
+        },
+        {
+          "assessment": "Inspected upper bound concerns a specified family, not the unrestricted class",
+          "evidence": "The bound is for a constructed S_{I,J}^{(k,1,t)}(n) family under conditions including equal subset sizes.",
+          "identifier_or_url": "https://doi.org/10.1587/transfun.2025EAL2050",
+          "material_read": "J-STAGE PDF abstract, §5 and conclusion",
+          "method": "OA publisher PDF targeted passages",
+          "title": "Q-Ary (t₁,t₂)-Overlap-Free Codes",
+          "trigger": "More general overlap interval and possible binary specialization"
+        },
+        {
+          "assessment": "Different admissible class and lengths",
+          "evidence": "The record imposes reverse-complement closure and full proper-overlap prohibition, with lengths through 12.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-short-block-capacities-and-extremizer-census-for-reverse-c--74e0afab9676",
+          "material_read": "Mirrored original Finding and scope",
+          "method": "Local Resultary comparison and mirror",
+          "title": "Sharp short-block capacities and extremizer census for reverse-complement-closed codes",
+          "trigger": "Adjacent exact indexed census"
+        },
+        {
+          "assessment": "Different admissible class",
+          "evidence": "Words have exactly weight two and all proper overlaps are forbidden.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-sparse-non-overlapping-code-capacity-over-arbitrary-alphab--467052fb9d47",
+          "material_read": "Mirrored original Finding and scope",
+          "method": "Local Resultary comparison and mirror",
+          "title": "Exact sparse non-overlapping code capacity over arbitrary alphabets",
+          "trigger": "Adjacent exact indexed capacity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the next natural binary cutoff after the previously exact smaller cutoffs and a case explicitly treated as computationally difficult in the construction paper. Closing the real gap between its witness and upper bound fixes the capacity for every n≥14, rather than reporting one experiment or recomputing a known table entry. The exact endpoint calculation is reproducible and avoids assuming that a specially constructed family contains an unrestricted optimum.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:05:11.992300Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:7–98; VERIFICATION.md and check.py inspected but not executed",
+        "Independent exact sequence enumeration through D=8 for both normalized risks; branches/ffdb5398-f2f9-474b-84fe-6a2cd73db8ec/INDEPENDENT_CHECK.md"
+      ],
+      "rationale": "For A=I₂ the corrected residual is (I−zzᵀ)E_D. Maximizing zᵀE_DE_Dᵀz leaves the smaller squared diagonal defect, α² min(S₁²,S₂²)/D². Centered programming maps one step to the full Cartesian product of two fair signs under (S₁+S₂,S₁−S₂), so the two D-step walks are independent and the minimum is one fourth of the squared difference of their absolute values. This gives (D−m_D²)/2 before rescaling. In the one-sided model S₁+S₂=D and the minimum is (D−|U_D|)²/4. Conditioning on the walk location gives m_{n+1}−m_n=Pr(U_n=0); the two stated binomial formulas satisfy this recursion at each parity and m₀=0. Stirling gives m_D=√(2D/π)(1+O(1/D)), yielding both limits and the stated remainder. D=1 gives zero; at D=2 distinct directions occur with probability 1/2 and give loss α²/4. At every D≥2 the event of all positive signs and both coordinates selected has positive probability, establishing strict expected loss, not almost-sure rank two. Directly summing the diagonal second moments gives the two decreasing uncorrected risks.",
+      "residual_risks": [
+        "The reported 2,557 frozen assertions and the new finite enumeration are diagnostics; the walk and Rayleigh arguments establish the all-D formulas. The minimization is inside the expectation and assumes an oracle."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shah's exact projected residual identity holds at general A and correction rank. Its averaging discussion uses a fixed input vector and a learned correction space.",
+          "The strongest distinct nearby catalogue record concerns one-step GMRES, a commuting error, and a deterministic identity safeguard."
+        ],
+        "reasoning": "The general residual identity does cover the map, but its fixed-input analysis neither performs the samplewise operator minimization nor evaluates its resulting expectation.",
+        "searches": [
+          "Shah et al., arXiv:2611.17251 §§2–3.1, Eqs. (25), (31), (36)–(37)",
+          "Resultary b966da101cb3"
+        ]
+      },
+      "checked_sources": [
+        "Shah et al. arXiv:2611.17251",
+        "Resultary 9b2fd1134f93, b966da101cb3 and 0f9fb3305c2a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Shah explicitly says the 1/D variability reduction does not guarantee monotonic improvement of corrected mean error; the nearby GMRES result has no random copy distribution."
+        ],
+        "reasoning": "The qualitative warning is prior. The D=1 to D=2 reversal and finite-copy expectations here require evaluating the oracle choice on the two-coordinate realization; the generic warning gives neither the exact risks nor their distinct limits.",
+        "searches": [
+          "arXiv:2611.17251 Eq. (37) and surrounding discussion",
+          "Resultary b966da101cb3 Finding and prior-work passage"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Assigned record 9b2fd1134f93 is the exact catalogue self-match. Resultary 0f9fb3305c2a instead concerns rank restoration by entrywise stochastic rounding.",
+          "Shah's projector equation coincides with the residual identity at A=I₂, Z=z."
+        ],
+        "reasoning": "The rank-one correction and equivalent best-rank-one Frobenius formulation are classical; neither equivalence states the expectation of the smaller squared programmed coordinate in these distributions.",
+        "searches": [
+          "Resultary searches for centered and one-sided exact risk, centered asymptotic constant, and copy averaging plus projection",
+          "arXiv:2611.17251 §2 Eq. (25)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact catalogue matches pointed to the assigned record itself, not a second source. The full-text averaging passages give bias/variance plus a projection, not binomial risk coefficients."
+        ],
+        "reasoning": "A table or formula for m_D alone is not a table for the corrected Frobenius risk; exact coverage would require the transformed independent-walk minimum or an equivalent order statistic for these laws.",
+        "searches": [
+          "Resultary centered/one-sided finite-law searches and centered coefficient 1/2−1/π",
+          "arXiv:2611.17251 §3.1 equations on copy averaging"
+        ]
+      },
+      "rationale": "Pass only the exact finite-copy two-sign-regime oracle Frobenius-risk laws and their quantitative consequences. Shah et al. already have the projection identity, bias/variance decomposition and warning about corrected error nonmonotonicity. The frozen record acknowledges these, and the inspected prior does not state or mechanically supply the nonlinear order statistics in this oracle model.",
+      "residual_risks": [
+        "A different stochastic low-rank approximation formulation could yield these distribution-specific order statistics; priority is not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified prior coverage of projection identity and qualitative caveat, not exact oracle risks",
+          "evidence": [
+            "I−M_Z(B)A=(I−P_Z)(I−BA). The discussion after (37) explicitly denies a general monotonic-improvement guarantee."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.17251",
+          "material_read": "§2 Eq. (25), OA offset about 26000, and §3.1 Eqs. (31), (36)–(37), offsets 29350–35791",
+          "method": "OA full-text passages",
+          "title": "Noise-Adaptive Analog–Digital Preconditioning",
+          "trigger": "Exact same correction map and copy averaging"
+        },
+        {
+          "assessment": "Different defect model and optimality criterion",
+          "evidence": [
+            "Deterministic commuting error with a GMRES safeguard; no averaging or oracle Frobenius risk."
+          ],
+          "identifier_or_url": "Resultary b966da101cb3",
+          "material_read": "RESULT.md Finding offset 0, prior-work passage offset 8220",
+          "method": "Local mirror",
+          "title": "Exact robust identity safeguard phase diagram for noisy inverses",
+          "trigger": "Noisy inverse and one-step error"
+        },
+        {
+          "assessment": "Distinct object and objective",
+          "evidence": [
+            "Entrywise rounding of a constant rank-one matrix and the resulting rank-failure probability."
+          ],
+          "identifier_or_url": "Resultary 0f9fb3305c2a",
+          "material_read": "RESULT.md Finding offset 0",
+          "method": "Local mirror",
+          "title": "A Lambert-W skew in rank restoration by stochastic rounding",
+          "trigger": "Probabilistic change in rank"
+        },
+        {
+          "assessment": "Detailed coverage unassessed; the classical low-rank projection is not claimed as new",
+          "evidence": [
+            "Unavailable text was not used to exclude overlap."
+          ],
+          "identifier_or_url": "https://doi.org/10.4213/sm10123e",
+          "material_read": "No full text obtained",
+          "method": "OA retrieval attempt",
+          "title": "On the existence of a close to optimal cross approximation in the Frobenius norm",
+          "trigger": "Cited background on low-rank Frobenius approximation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:14–28 and 90–112; Shah et al. Eq. (37)"
+      ],
+      "rationale": "The exact risk distinguishes a centered defect that decays at a known 1/D constant from a biased defect with a positive floor, even though the uncorrected risk decreases in both. The single-to-double-copy comparison demonstrates the failure of exact correction even with perfect information and no read noise. Together these are a quantitative benchmark for deciding what copy averaging and a fixed correction rank can accomplish, not simply the previously known nonmonotonicity caveat.",
+      "residual_risks": [
+        "This is a two-mode operator-loss benchmark, not a hardware performance, solver convergence, or finite-probe result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:37:53.526062Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–37 and 40–61",
+        "Frozen VERIFICATION.md, line 19",
+        "Frozen checker.py, lines 18–89 (Cayley polynomial and abstract twists), 99–121 (separate S3 check and bounded test parameters)"
+      ],
+      "rationale": "The Cayley substitution gives t+t^{-1}=2(1+z)/(1-z) for t=(1+sqrt(z))/(1-sqrt(z)). In characteristic p, Frobenius expansion of (1±sqrt(z))^(p^r+1) gives the claimed homogenized polynomial 2(1+z^d). Its roots are distinct and avoid 1 and infinity. Independently of the cited geometric theorem, the Hessian determinant of Z^d+W^d is a nonzero constant times (ZW)^(d-2), since d and d-1 are nonzero modulo p. A projectivity preserving the reduced divisor preserves the homogeneous form up to scale, so Hessian covariance forces it to preserve the pair {0,infinity}. The resulting rotations and inversions are exactly the stated D_d. Descent uses trivial H^1 of PGL_2 over a finite field; every dihedral cocycle value is allowed because the semidirect product by the finite-order Frobenius action is finite. Cocycle conjugation by (c,delta) sends a to delta(a+(epsilon Q-1)c). This yields exactly the two quotient-and-inversion sectors and the stabilizer conditions, with any descending reflection squaring to one and inverting the rotation subgroup. Writing z_j=eta^(2j+1) yields the affine action; iterating and solving the fixed-point congruence gives the formula for every extension. For d=6,Q=11 the + sector produces cycle types 2^3 and 1^2 2^2; the − sector is translation by a=0,1,2,3 and gives 1^6, 6, 3^2, 2^3, independently confirming the five stated zeta functions.",
+      "residual_risks": [
+        "Labels use a chosen primitive root and coordinate; uniqueness is for the chosen parametrization, not intrinsic naming.",
+        "The checker was inspected, not executed. Its finite group enumeration verifies the stated model on tested cases, not the full geometric stabilizer or Galois descent. The S3 check does not validate a second arithmetic classification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first source determines the geometric projective groups, including both exceptional regimes",
+          "The second treats automorphisms of the plane cover y^d=varphi_d(x)",
+          "The Meagher–Top landing page and abstract concern genus-three twists; full text was not recovered."
+        ],
+        "reasoning": "A geometric symmetry classification covers the geometric premise but does not classify its arithmetic forms. A theorem about automorphisms or twists of a covering curve addresses a different descended object; it may supply method, not automatically the rational PGL_2 orbits of the root divisor. No broader explicit arithmetic theorem in the read passages covers the finding.",
+        "searches": [
+          "arXiv:2611.05096v1, abstract and Prop. 5.2",
+          "arXiv:2505.01216v1, abstract, introduction and Prop. 3.3",
+          "DOI:10.1016/j.ffa.2010.06.001"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.05096v1 and arXiv:2505.01216v1, passages above",
+        "Meagher–Top DOI landing material only",
+        "Resultary ffc2f81c5501 (identical), 77fac464ebd4, 77543542936c, a86686226411"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known dihedral root-set stabilizer, general twists methodology, no explicit arithmetic form list in the geometric proposition",
+          "Separate finite-field affine and projective orbit classifications do not identify the twists of this embedded root set."
+        ],
+        "reasoning": "The geometric group and root set make the computation possible, but the nonconstant action on rotations, split and inversion sectors, twisted centralizers, and both affine actions on the roots must still be derived. The untwisted geometric symmetry theorem alone supplies none of those arithmetic outputs.",
+        "searches": [
+          "Tafazolian–Top arXiv:2611.05096v1 Proposition 5.2, OA offset 34000",
+          "Resultary 77fac464ebd4 and 77543542936c, Findings",
+          "Meagher–Top DOI landing page"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tafazolian–Top give the geometric root-of-unity model and rotation/inversion symmetries",
+          "Resultary 77fac464ebd4 classifies x -> a x^(p^r)+b over finite fields"
+        ],
+        "reasoning": "Passing to a Kummer divisor in a Cayley coordinate is known geometrically. Arithmetic equivalence asks for Frobenius-twisted conjugacy in its embedded stabilizer. The affine-cycle record uses a finite-field state space and enumerates a different class of maps; in particular it does not give the translation classes modulo gcd(d,Q±1) on Z/dZ.",
+        "searches": [
+          "Resultary: Chebyshev projective divisor twists / Frobenius cycles",
+          "arXiv:2611.05096v1 Proposition 5.2",
+          "Resultary 77fac464ebd4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact title hits the bound record ffc2f81c5501 itself",
+          "The other orbit table is for degree-five divisors of type (2)(3); the affine and Fermat–Ceva catalogues concern different state spaces or divisors."
+        ],
+        "reasoning": "A matching cycle table would still need to identify all forms and their automorphism groups, including zeta collisions. The (2)(3) table does not even meet this family's d=5 example sector: a scalar affine map on Z/5Z is a translation or is conjugate to multiplication with a fixed point. The indexed comparisons do not supply the actual classification.",
+        "searches": [
+          "Resultary: finite-field forms, symmetry spectra and Frobenius cycles of exceptional Chebyshev root divisors",
+          "Resultary orbit/stabilizer and affine Frobenius formula hits 77543542936c, 77fac464ebd4, a86686226411"
+        ]
+      },
+      "rationale": "The geometric Chebyshev stabilizer and the general descent method are established inputs, not new claims. The supported distinct content is the joint classification of actual projective-divisor forms, their rational stabilizers and their extension-field cycle data in both Frobenius multiplier sectors.",
+      "residual_risks": [
+        "A bounded search cannot rule out an exact treatment of all twists of general Kummer divisors or an equivalent normalizer computation under different terminology.",
+        "Meagher–Top full text was not recovered; no whole-document conclusion is drawn."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS GEOMETRIC PREMISE",
+          "evidence": "For d>=5 and 2d=p^r+1 the Cayley change gives a root-of-unity set with complete geometric stabilizer D_d.",
+          "identifier_or_url": "https://arxiv.org/html/2611.05096v1",
+          "material_read": "Abstract; Proposition 5.2, OA offset 34000",
+          "method": "OA full-text HTML passages",
+          "title": "Projective Symmetries of Chebyshev Polynomials",
+          "trigger": "Same exceptional root divisor and geometric stabilizer"
+        },
+        {
+          "assessment": "DIFFERENT OBJECT",
+          "evidence": "Treats the plane cover, not rational forms of the unordered projective root divisor.",
+          "identifier_or_url": "https://arxiv.org/html/2505.01216v1",
+          "material_read": "Abstract and introduction; Proposition 3.3, OA offset 20700",
+          "method": "OA full-text passages",
+          "title": "Automorphisms of Plane Curves defined from Chebychev polynomials",
+          "trigger": "Earlier same authors and exceptional Chebyshev family"
+        },
+        {
+          "assessment": "METHOD CONTEXT; DETAILED SCOPE NOT VERIFIED",
+          "evidence": "The read material concerns curves of genus three, not a stated census for this branch divisor.",
+          "identifier_or_url": "https://doi.org/10.1016/j.ffa.2010.06.001",
+          "material_read": "Landing page and abstract only",
+          "method": "Lawful OA lookup at DOI",
+          "title": "Twists of genus three curves over finite fields",
+          "trigger": "Cited context for nonabelian finite-field twisting"
+        },
+        {
+          "assessment": "DIFFERENT STATE SPACE",
+          "evidence": "Cycle types and coefficient counts over F_(p^m) for a x^(p^r)+b, not cyclic-label descent of a projective root divisor.",
+          "identifier_or_url": "Resultary 77fac464ebd4",
+          "material_read": "RESULT.md offsets 0 and 6600",
+          "method": "Local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Norm–trace census of all affine Frobenius cycle types",
+          "trigger": "Potential broader affine-cycle formula"
+        },
+        {
+          "assessment": "DIFFERENT ORBIT FAMILY",
+          "evidence": "Degree-five PGL_2 orbits with Frobenius type (2)(3), not the fixed geometric orbit in the frozen claim.",
+          "identifier_or_url": "Resultary 77543542936c",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local mirror",
+          "title": "Projective orbit and stabilizer classification for quadratic–cubic divisors",
+          "trigger": "Potential exact overlap for degree five"
+        },
+        {
+          "assessment": "DIFFERENT OBJECT AND INVARIANT",
+          "evidence": "A P^2 divisor and its Picard torus, not forms of a P^1 divisor.",
+          "identifier_or_url": "Resultary a86686226411",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local mirror",
+          "title": "Complete integral Frobenius tori of Fermat–Ceva divisors",
+          "trigger": "Contemporaneous divisors and Frobenius data"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 6–34 and 50–61",
+        "Tafazolian–Top arXiv:2611.05096v1 Proposition 5.2"
+      ],
+      "rationale": "This supplies explicit descent invariants for a distinguished family of branch divisors, not simply a new proof of the geometric dihedral group. It makes possible the independent tasks of counting embeddings up to rational projectivity, finding rational symmetries, and obtaining every extension-field count. The six-form example demonstrates a meaningful distinction: scheme zeta data can agree although projective forms differ. The elementary group calculation is valuable as a complete classification with computable stabilizer and cycle information.",
+      "residual_risks": [
+        "No equations for all descended divisors or data on covers or Jacobians are supplied. Interest is in the arithmetic forms of this specific family."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

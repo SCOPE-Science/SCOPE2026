@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Finite verification and proof boundaries
 
-The supplied standalone Python 3 program `verify_clique_corona.py` uses bitmask adjacency construction for the ordinary clique corona of each labeled core graph. It independently enumerates every possible dominating subset, tests both domination and the outside-neighbor capacity bound, computes the cardinality distribution directly, and compares it with the distinct coefficient formula built by summing the private-clique occupancy contributions. It also compares the actual minimum cardinality and count with the component-factor and bounded-core-cut predictions. All of the reported comparisons passed.
+# Independent mathematical audit
 
-Run with `python3 verify_clique_corona.py`. The resulting standard output must equal `verification_output.txt` byte-for-byte. Testing covers 75 labeled core graphs, 857 graph-parameter cases and 1,877,184 candidate vertex subsets, including the attached-single-leaf boundary as an auxiliary check. The theorem is unbounded in graph order and capacity: finite tests do not prove that unbounded claim. Necessity, sufficiency and the minimum-set classification are established by the mathematical proof in `RESULT.md`; the program tests the implementation independently and is not an external certification.
+## correctness
+
+PASS
+
+Condition on the exact core intersection B. An omitted core requires a private selection to cover its cluster; each selected private vertex then sees s+1−j outside, so the lower cutoff for its occupancy is max(1,s+1−k). A selected core covers its cluster and sees s−j+d_B(v) outside, which dominates the private vertices' outside count. This gives cutoff max(0,s+d_B(v)−k), including the empty range, and binomial multiplicity on each of the disjoint private cliques. It proves the full polynomial without double-counting. Every cluster has at least max(1,s+1−k) selected, and the all-private construction attains that bound. For k≤s, equality in an included-core cluster forces d_B(v)=0, equivalently the whole component must be chosen, with the two binomial weights as stated. For k>s equality forces one vertex per cluster and bounds d_B(v) by k−s; each omitted core contributes s choices. Both descriptions agree at k=s; k≥s+Δ(H) makes every core set feasible. Independent set-based enumeration checked the full distributions and minimum classifications by core choice in 71 configurations including connected and disconnected cores. Replay: python /workspace/branches/independent_replay.py 1.
+
+## originality
+
+PASS
+
+The supported contribution is the full cardinality distribution and equality-case transition for arbitrary uniform clique coronas. It is not the scalar minimum in known regimes, ordinary domination, or a new general equivalence to domination with degree-dependent requirements. In the sources inspected, none of these known equivalences or different graph-family formulas gives the new core-cut enumeration at limited capacities. The relationship paragraph's characterization of Tepeh as studying Cartesian products of leaf coronas is not substantiated by the passages checked; that attribution is not needed for the mathematical result or originality decision.
+
+## value
+
+PASS
+
+The whole distribution and equality classification separate two genuinely different ways core geometry enters the constraint. In the low regime the minimum count depends only on component sizes; at k=s+1, even connected cores of the same order can differ: on three vertices P₃ has two admissible singleton core sets (its ends), whereas K₃ has none; larger core sets are all admissible in both, giving a minimum-count difference 2s². This is a meaningful exact structural refinement of the topology-independent scalar minimum, not a claim to improve computational complexity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

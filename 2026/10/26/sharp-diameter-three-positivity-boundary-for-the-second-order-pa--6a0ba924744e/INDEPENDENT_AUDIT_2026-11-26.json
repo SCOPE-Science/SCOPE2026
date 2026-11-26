@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:56:44.510312Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–64 and VERIFICATION.md",
+        "certificate.json, verify.py and verification-output.txt as frozen evidence",
+        "/workspace/branches/independent_algebra.py (independent reproduction)"
+      ],
+      "rationale": "The scalar denominator is positive on the Laplacian spectrum, so the inverse is positive definite (in particular its diagonal is positive), and fixes the all-ones vector. Thus entrywise nonnegativity, a discrete min/max principle and sup-norm contractivity are equivalent. Multiplication of scalar series gives r(z)=1−z+z²/2−z⁴/4+O(z⁵). At distance four the first nonzero Laplacian power entry occurs at power four and is +1, from the unique geodesic. The two-vertex case follows from r(2h)<1; projection onto constant, leaf-difference and hub-versus-leaves subspaces gives the star formulas, with strict convexity of r ensuring positive leaf–leaf entries. Every diameter-three tree is a double star. The four-cell Laplacian is symmetric in the class-size weighted inner product and is a restriction of the original positive semidefinite operator. Its Padé denominator has positive determinant. Cross-cell inverse entries per vertex are quotient entries divided by destination cell size; same-leaf off-diagonals are the difference between the quotient diagonal entry and r(h), divided by class size, by the eigenvalue-one leaf-difference action. I reconstructed all eight numerator polynomials from alternating permutation sums for determinants and cofactors, verified exact leaf-count divisibility, and compared every rational monomial coefficient with the frozen certificate. All coefficients are strictly positive, with counts 18,22,15,15,22,10,28,28 and minimum h-degrees 1,1,2,2,1,4,2,2. This verifies the infinite positive direction, not just samples.",
+      "residual_risks": [
+        "Negative entries on diameter-four-or-larger trees are proved for sufficiently small h, not uniformly over all h. No weighted, directed, or cyclic-graph classification follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Itkin–Kazbek's Theorem 6 gives positivity above a generator-dependent step threshold rather than for every positive step.",
+          "The later three-transition theorem assumes acyclic directed support; the tree generator here has a directed 2-cycle on each edge. The later clique-product classification expressly does not cover arbitrary diameter-three graphs."
+        ],
+        "reasoning": "None of these statements includes the unrestricted diameter-three double-star family with every positive step.",
+        "searches": [
+          "arXiv:2608.22703v1, Theorem 6 and Remark 4",
+          "SCOPE-three-transition-immunity-and-a-sharp-five-state-positivity-thre--1a149558ee9c",
+          "SCOPE-three-cartesian-clique-factors-are-the-sharp-positivity-frontier--50476d4209bf"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md relationship and scope",
+        "The named primary leads and mirrored mathematical statements above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier Resultary finding gives −(A⁴)uv h⁴/4 at graph distance four for exactly this map, and explicitly disclaims sufficiency of diameter at most three for arbitrary graphs.",
+          "The frozen package attributes the analogous fourth-diagonal obstruction to the older Dirichlet finite-element analysis; that older text was not independently accessible."
+        ],
+        "reasoning": "The earlier Resultary formula specializes exactly via the unique tree geodesic and proves necessity. It does not give sufficiency, which hinges on all-step control of the weighted four-cell restriction and the leaf-difference contributions.",
+        "searches": [
+          "Earlier Resultary SCOPE-distance-four-positivity-obstruction-and-sharp-eight-cycle-recov--5b0558f2856d, Finding and Proof",
+          "DOI 10.2478/cmam-2010-0025, reported Theorems 6.7–6.9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The tree map is exactly r02(hQ) with Q=−L_T in Itkin–Kazbek's generator convention. Remark 4 distinguishes it from inverse M-matrix resolvent positivity and notes that it need not be unconditionally positive on Metzler generators.",
+          "Since rows sum to one, nonnegativity and maximum-norm contractivity are equivalent here; the tree result was compared under both formulations."
+        ],
+        "reasoning": "Resolvent positivity for a first-degree denominator is not the same map. A general sufficient large-step theorem does not establish contractivity at all positive steps or identify the correct tree family.",
+        "searches": [
+          "Resultary: [0/2] Padé heat positivity, trees, double stars, diameter three and distance-four obstruction",
+          "arXiv:2608.22703v1 §3.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The later all-graphs-through-five-vertices statement covers some small double stars, and the earlier cycle record provides an exact cycle cutoff and the distance-four obstruction. Neither tabulates or classifies all double stars."
+        ],
+        "reasoning": "A bounded vertex census and a cycle family, even combined, do not determine the positivity of trees with two arbitrarily large leaf classes. The eight polynomials are a uniform proof certificate, not a recomputed table of outcomes.",
+        "searches": [
+          "Resultary graph-heat [0/2] positivity and diameter searches",
+          "SCOPE-five-vertex-and-distance-four-positivity-barriers-for-pad-0-2-gr--cbdb39e5b48d",
+          "SCOPE-distance-four-positivity-obstruction-and-sharp-eight-cycle-recov--5b0558f2856d"
+        ]
+      },
+      "rationale": "The distance-four obstruction is exactly covered on trees by the earlier all-graph obstruction and is explicitly not claimed as new. The independently assessed distinct contribution is strict all-step positivity of all double stars, including arbitrarily unequal and unbounded leaf counts, and hence the exact all-tree diameter classification. No inspected covering statement supplies this positive direction.",
+      "residual_risks": [
+        "The older Schatz–Thomée–Wahlbin and Wade–Khaliq–Siddique–Yousuf papers could not be independently inspected in full. Older specialized positivity work might contain more than the available evidence shows."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the negative half, not the positive half",
+          "evidence": "Distance-four coefficient has the factor (A⁴)uv, equal to one on a tree; scope disclaims arbitrary diameter-three sufficiency.",
+          "identifier_or_url": "SCOPE-distance-four-positivity-obstruction-and-sharp-eight-cycle-recov--5b0558f2856d",
+          "material_read": "Mirrored RESULT.md Finding, assumptions and Proof",
+          "method": "Local catalogue and mirror",
+          "title": "Distance-four positivity obstruction and sharp eight-cycle recovery",
+          "trigger": "Exact overlap on the same graph heat function"
+        },
+        {
+          "assessment": "No all-step tree criterion in the relevant statement",
+          "evidence": "Positivity is obtained above a generator-dependent threshold; failure of unconditional positivity in the broader class is noted.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.22703",
+          "material_read": "v1 §3.4 p. 9, Theorem 6 and Remark 4",
+          "method": "Open primary PDF, bounded passage",
+          "title": "Itkin and Kazbek, Padé positivity results",
+          "trigger": "Same scalar Padé map and a broader generator class"
+        },
+        {
+          "assessment": "Partial coverage attributed by the package; no whole-paper exclusion",
+          "evidence": "Frozen RESULT.md lines 66–74 report the same function, local fourth-diagonal obstruction for a Dirichlet interval, and eventual positivity/contractivity for that setting.",
+          "identifier_or_url": "https://doi.org/10.2478/cmam-2010-0025",
+          "material_read": "Frozen attribution to Sections 2, 6 and Theorems 6.7–6.9 only; not primary full text",
+          "method": "Lawful DOI/publisher and identified ResearchGate alternate attempted, without accessible full text",
+          "title": "On positivity and maximum-norm contractivity in time stepping methods for parabolic equations",
+          "trigger": "Same map in older parabolic positivity work"
+        },
+        {
+          "assessment": "Later bounded overlap, not all double stars",
+          "evidence": "The all-graph positive cases classified there have at most five vertices.",
+          "identifier_or_url": "SCOPE-five-vertex-and-distance-four-positivity-barriers-for-pad-0-2-gr--cbdb39e5b48d",
+          "material_read": "Mirrored RESULT.md finding and scope",
+          "method": "Local catalogue and mirror",
+          "title": "Five-vertex and distance-four positivity barriers for Padé [0/2] graph heat",
+          "trigger": "Exact small-graph coverage with the same map"
+        },
+        {
+          "assessment": "Later distinct theorem with inapplicable acyclicity hypothesis",
+          "evidence": "The support of each tree generator has pairs of opposite directed arcs.",
+          "identifier_or_url": "SCOPE-three-transition-immunity-and-a-sharp-five-state-positivity-thre--1a149558ee9c",
+          "material_read": "Mirrored RESULT.md Finding and assumptions",
+          "method": "Local catalogue and mirror",
+          "title": "Three-transition immunity and a sharp five-state positivity threshold",
+          "trigger": "Potential general positive direction at path length three"
+        },
+        {
+          "assessment": "Later distinct graph family",
+          "evidence": "Requires Cartesian products of cliques; does not generalize to arbitrary diameter-three graphs.",
+          "identifier_or_url": "SCOPE-three-cartesian-clique-factors-are-the-sharp-positivity-frontier--50476d4209bf",
+          "material_read": "Mirrored RESULT.md Finding and assumptions",
+          "method": "Local catalogue and mirror",
+          "title": "Three Cartesian clique factors are the sharp positivity frontier",
+          "trigger": "Analogous exact same-map diameter/factor cutoff"
+        },
+        {
+          "assessment": "Unresolved historical risk",
+          "evidence": "No implication or noncoverage inferred from inaccessibility.",
+          "identifier_or_url": "https://doi.org/10.1002/num.20039",
+          "material_read": "Bibliographic lead only; full text not read",
+          "method": "Lawful OA attempt without accessible full text",
+          "title": "Wade–Khaliq–Siddique–Yousuf, related Padé positivity paper",
+          "trigger": "Related older numerical positivity work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md finding and proof; earlier graph-wide obstruction compared in originality"
+      ],
+      "rationale": "The all-step maximum principle is a natural structural requirement for a graph heat update. The result supplies a sharp topology test on the full class of trees: the known local obstruction becomes necessary and sufficient because every double star, even highly unbalanced, passes uniformly. This is useful beyond the already-known path obstruction or any finite census.",
+      "residual_risks": [
+        "The classification is for unweighted trees and this Padé order only."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

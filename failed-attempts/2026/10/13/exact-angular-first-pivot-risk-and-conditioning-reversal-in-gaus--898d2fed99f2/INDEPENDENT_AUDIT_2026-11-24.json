@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:02:21.850708Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each row whiten the two-dimensional centered normal with covariance [[κ²,κρ],[κρ,1]] after scaling the shorter column to unit norm and removing the common sketch variance. The indefinite quadratic form has trace κ²−1, determinant −κ²(1−ρ²), and eigenvalues (κ²−1±Δ)/2. The d-row difference is therefore the difference of independent, positively scaled chi-squares in the full-rank case; the ratio against their sum gives Beta(d/2,d/2) and the strict risk I_z. Parallel columns give a zero risk and no almost-sure tie since the longer sketch is a strictly larger multiple of a nonzero Gaussian sketch of the shorter. For fixed lengths, Δ and z decrease strictly with |ρ|, while the Gram eigenvalue gap grows, increasing the square root of the eigenvalue ratio. The beta integral at fixed 0<z<1/2 is asymptotic to [z(1−z)]^a/(a(1−2z)) for a=d/2, by the endpoint derivative of log[t(1−t)]. Stirling gives the asserted normalization. This is the first two-column pivot only, with the asymptotic not uniform over changing κ or ρ. Replay: RESULT.md lines 29–61 and the Fraction examples at lines 63–65. Inspected VERIFICATION.md and verify.py, not executed; their finite rational and Monte Carlo checks cannot prove either continuum or asymptotic statement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gaunt allows arbitrary means, variances and nonsingular correlations for each pair and gives the sign probability with two noncentrality indices. For zero means both indices vanish and only the central beta term remains. The inspected QR sources instead give the pivot setting, marginal sketch-norm laws or high-probability rank and dominance guarantees."
+        ],
+        "reasoning": "The broader sign theorem covers all nonparallel angles and allowed d without any QR-specific probability argument. The QR bounds themselves are not the decisive prior result.",
+        "searches": [
+          "arXiv:2408.04101v2, Theorem 2.1, Corollary 2.12, Eq. (2.17)",
+          "arXiv:1509.06820, §§3–3.3",
+          "arXiv:2311.08316 and arXiv:1804.05138, Gaussian-sketch QR guarantees"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary and the three indexed records above",
+        "arXiv:2408.04101v2",
+        "arXiv:1509.06820",
+        "arXiv:2311.08316",
+        "arXiv:1804.05138"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Once Gaunt's central beta expression is written in Gram coordinates, z strictly decreases with |ρ| and its endpoint Laplace expansion at fixed z gives exactly the claimed prefactor. The condition number increases by direct calculation of the two Gram eigenvalues."
+        ],
+        "reasoning": "The orthogonality maximum, conditioning reversal and sharp equivalent are short consequences of the known exact law and standard matrix/beta formulas, not a nonmechanical remainder.",
+        "searches": [
+          "arXiv:2408.04101v2, Corollary 2.12 and proof",
+          "Frozen RESULT.md lines 50–61"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For row coordinates X,Y set P=X−Y, Q=X+Y. Then X²−Y²=PQ, Cov(P,Q)=κ²−1, and Var(P)Var(Q)=Δ² in the common unit scale. Thus their correlation τ is (κ²−1)/Δ. Gaunt's centered case gives exactly I_{(1−τ)/2}(d/2,d/2)=I_z(d/2,d/2)."
+        ],
+        "reasoning": "The transformation is exact and preserves the sign event. The factors across rows are independent, satisfying the cited hypotheses. The probability is continuous at full rank and the collinear endpoint is the immediate degenerate case.",
+        "searches": [
+          "Correlated Gaussian squared-norm comparisons via sums of products of normals",
+          "arXiv:2408.04101v2, Theorem 2.1 and Corollary 2.12"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The orthogonal-pivot result specializes to the same two-column law and asymptotic only at ρ=0 and is later-dated. The Rayleigh-ranking and same-day QB-pruning records compare different quantities. Gaunt's illustrative Table 1 tabs some product-sign probabilities, but Eq. (2.17), not finite parameter matches in that table, covers this whole family."
+        ],
+        "reasoning": "Catalogue overlap is partial or for different operations; the exact older analytical coverage is independent of those records and of any matched numerical example.",
+        "searches": [
+          "Resultary: Gaussian sketch exact first pivot and shared-sketch ranking",
+          "2026/11/2/SCOPE-exact-gaussian-sketch-first-pivot-law-and-sharp-runner-up-princi--3e3b827418f2",
+          "2026/11/2/SCOPE-exact-ranking-inversion-law-for-paired-one-dimensional-sketched--60f775fc6960",
+          "2026/10/13/SCOPE-a-cauchy-law-probability-of-nonminimal-frobenius-qb-rank-pruning--7804e48298b5",
+          "arXiv:2408.04101v2, Table 1 following Corollary 2.12"
+        ]
+      },
+      "rationale": "The central exact law is already a direct specialization of Gaunt's Corollary 2.12, not merely a parallel use of standard probability tools. The extremal angle statement comes from monotonicity of that law; juxtaposing it with a two-by-two condition number does not produce an independent exact risk theorem. The other QR and catalogue comparisons do not override the exact older coverage.",
+      "residual_risks": [
+        "The journal landing page for Gaunt (PII S0167715225001993) was inaccessible; the decisive open 2025 preprint passage was read. Other instances of the conditioning observation could exist, but they are not needed for the equivalence decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct broader coverage of exact risk",
+          "evidence": "Centered specialization of Eq. (2.17) is I_{(1−τ)/2}(n/2,n/2) with n=d and τ=Corr(X−Y,X+Y).",
+          "identifier_or_url": "https://arxiv.org/pdf/2408.04101v2",
+          "material_read": "PDF pp. 2 and 9, Theorem 2.1, Corollary 2.12 Eq. (2.17), proof and adjacent Table 1",
+          "method": "Open-access primary PDF text; decisive Corollary passage read around offset 33000",
+          "title": "On the product of correlated normal random variables and the noncentral chi-square difference distribution",
+          "trigger": "Exact sign probability of the same Gaussian quadratic statistic after factorization"
+        },
+        {
+          "assessment": "Prior algorithm and marginal/conditional norms, not the decisive joint formula",
+          "evidence": "Describes marginal chi-square sketch lengths and their truncation after pivoting.",
+          "identifier_or_url": "https://arxiv.org/abs/1509.06820",
+          "material_read": "PDF pp. 7–8 and 10–11",
+          "method": "Open-access paper passages",
+          "title": "Randomized QR with Column Pivoting",
+          "trigger": "Gaussian pivoted QR predecessor"
+        },
+        {
+          "assessment": "Application setting and guarantees",
+          "evidence": "Applies pivoted QR to the sketch and analyzes rank-revealing guarantees.",
+          "identifier_or_url": "https://arxiv.org/abs/2311.08316",
+          "material_read": "PDF pp. 1 and 10",
+          "method": "Open-access paper passages",
+          "title": "CholeskyQR with Randomization and Pivoting for Tall Matrices",
+          "trigger": "Same QRCP sketch stage"
+        },
+        {
+          "assessment": "High-probability guarantees, not exact joint risk in inspected passages",
+          "evidence": "Bounds pivot quality and pseudo-diagonal dominance.",
+          "identifier_or_url": "https://arxiv.org/abs/1804.05138",
+          "material_read": "PDF pp. 2–4",
+          "method": "Open-access paper passages",
+          "title": "Fast Parallel Randomized QR with Column Pivoting Algorithms for Reliable Low-Rank Matrix Approximations",
+          "trigger": "Gaussian sketch QRCP quality guarantee"
+        },
+        {
+          "assessment": "Orthogonal slice only; later-dated",
+          "evidence": "Two mutually orthogonal columns give the present orthogonality beta law and asymptotic, not the nonorthogonal law.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-gaussian-sketch-first-pivot-law-and-sharp-runner-up-princi--3e3b827418f2",
+          "material_read": "Finding and assumptions",
+          "method": "Local Resultary and published-record mirror",
+          "title": "Exact Gaussian-sketch first-pivot law and sharp runner-up principle",
+          "trigger": "Near-exact indexed first-pivot match"
+        },
+        {
+          "assessment": "Different comparison",
+          "evidence": "Compares Rayleigh-quotient statistics rather than the two columns' squared norms.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-ranking-inversion-law-for-paired-one-dimensional-sketched--60f775fc6960",
+          "material_read": "Finding and assumptions",
+          "method": "Local Resultary and published-record mirror",
+          "title": "Exact ranking inversion law for paired one-dimensional sketched Rayleigh quotients",
+          "trigger": "Adjacent shared-Gaussian ranking law"
+        },
+        {
+          "assessment": "Different stochastic statistic and algorithm",
+          "evidence": "Unpivoted Gaussian QB with subsequent row pruning, not a first QRCP decision.",
+          "identifier_or_url": "2026/10/13/SCOPE-a-cauchy-law-probability-of-nonminimal-frobenius-qb-rank-pruning--7804e48298b5",
+          "material_read": "Finding and assumptions",
+          "method": "Local Resultary and published-record mirror",
+          "title": "A Cauchy-law probability of nonminimal Frobenius QB rank pruning",
+          "trigger": "Same-day Gaussian norm-order comparison"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The first-pivot error is a natural practical statistic and the conditioning warning is useful exposition. But in this frozen two-column problem the exact probability is already known through the sign theorem; the extrema, condition-number comparison and sharp equivalent follow by a scalar substitution, Gram diagonalization and standard beta endpoint asymptotics. No independently substantive unknown classification or downstream numerical result survives.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:21:33.791531Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The half-line Fourier transform divided by π is e^(−n²/(4t))/(2√(πt)). Substituting x=π+v/t in its omitted tail yields the sign factor (−1)^n and multiplier e^(−π²t)/(πt); this uses integer n. Independently checked that the even extension of the J_t integrand without the cosine is the product of a Laplace kernel and a Gaussian, whose strictly positive integrable Fourier transforms give strictly positive convolution at every real frequency. This gives all odd signs, not only nearby or at large t. For the rational approximation, both the L1 norm and second derivative L1 norm of e^(−2πv)(e^(−v²/t)−1) are O(1/t), by exponential domination of the polynomial derivative bounds; its first derivative vanishes at zero. Two integrations by parts and the small-frequency L1 bound give an absolute O(1/[t(1+q²)]) error, hence a uniform relative O(1/t). The resulting log comparison is decreasing for n>0 at large t and has slope −π+o(1) near its root. At n=2πt+Δ with Δ=O(log t) the balance is −πΔ+(log t)/2+log(2π^(3/2))+O((log t)^2/t). Uniform log error keeps the sign everywhere outside the claimed strip and the even lattice gives the added two units. Independently, at each fixed t>0 the eventual sign on even n is negative: two integrations by parts in the original integral give a_t(n)=[(−1)^n f′(π)+o(1)]/(π n²), with f′(0)=0, f′(π)<0 and the remainder by Riemann–Lebesgue. Thus existence, parity, and the large-t restriction on localization are consistent. Read frozen proof and support including the reported 81 checks; uploaded checker was not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Da Costa–Mostajeran–Ortega choose a finite circulant with a negative eigenvalue at an arbitrary fixed parameter.",
+          "Wood's abstract concerns classes of truncated line covariances that remain valid on circles for all or sufficiently large truncation parameters; full text was not available to this review."
+        ],
+        "reasoning": "The 2023 result gives qualitative failure and hence existence of a negative coefficient (if all were nonnegative, the summable Fourier series would be positive definite). It does not assert uniform comparison of each coefficient or first-index localization. Wood is potentially relevant but cannot be classified from its abstract as covering or not covering the quantified frontier.",
+        "searches": [
+          "arXiv:2302.10623 §4",
+          "When is a truncated covariance function Wood 1995 circle pdf Gaussian Fourier coefficients positivity odd",
+          "DOI 10.1016/0167-7152(94)00162-2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2302.10623",
+        "Resultary 07cd4e63f039 and 6597725d7d73",
+        "10.1016/0167-7152(94)00162-2 (abstract only)",
+        "Resultary and primary-literature queries listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The sampled eigenvalue at grid mode j is N times the sum of continuum coefficients at j+kN, not N times a single coefficient. For even N at Nyquist, aliases can contribute at the same order in the transition window.",
+          "The finite notes give a leading last-failure scale and a logarithmic window for a sampled Nyquist eigenvalue, respectively."
+        ],
+        "reasoning": "Leading scale agrees after geometric normalization and converting sample size to half-grid frequency. This does not determine the additive continuum log-window constant, positivity of each odd coefficient, or even-index sign bounds uniform over the entire frequency axis.",
+        "searches": [
+          "arXiv:2302.10623 §4 circulant proof",
+          "Resultary discrete-circle records 07cd4e63f039 and 6597725d7d73, RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same object is the periodic extension of the Gaussian truncated at the antipode; the wrapped Gaussian formed by periodizing a sum of shifted full Gaussians is different and has positive Fourier coefficients.",
+          "The equivalent Resultary title hit is the assigned item; the closest different hits are finite-cycle covariance results."
+        ],
+        "reasoning": "Continuous individual Fourier coefficients, their signs and the smallest negative integer frequency are the relevant equivalent invariants; a sampled grid eigenvalue or a wrapped Gaussian coefficient is not equivalent.",
+        "searches": [
+          "Resultary: circle geodesic Gaussian positive definiteness Fourier first negative mode logarithmic frontier",
+          "geodesic Gaussian circle Fourier positive odd coefficients first negative frequency asymptotic Da Costa Mostajeran Ortega periodic Gaussian truncated normal Fourier sign 2 pi",
+          "circular Gaussian geodesic Fourier coefficients odd even sign critical frequency truncation unwrapped cosine transform first zero"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The results include standard full Gaussian Fourier transform references and finite-grid thresholds; no inspected table gives the continuum sequence of first negative indices or the required sign margin.",
+          "The finite-cycle Nyquist-window result has constant 2 log(2/tanh(π/2)) in its discrete parameter normalization."
+        ],
+        "reasoning": "An exact transform evaluation does not tabulate signs after subtraction of the truncated tail, nor does a discrete window provide the threshold for a single unaliased mode.",
+        "searches": [
+          "Resultary continuum first-negative-frequency query",
+          "circular Gaussian geodesic Fourier coefficients odd even sign critical frequency truncation unwrapped cosine transform first zero"
+        ]
+      },
+      "rationale": "Qualitative non-positive-definiteness at all parameters and the logarithmic bulk-versus-endpoint mechanism for a finite grid are prior. Checked the continuum claim against those results at the level of the actual Fourier observable. The all-odd exact positivity and the uniform even-mode transition with its own constant were not established by the inspected statements. The oldest truncation result remains an explicit source-access risk.",
+      "residual_risks": [
+        "Wood (1995) was not read in full and may contain relevant modewise statements.",
+        "Older truncated-normal cosine transform literature may express the same transition without geodesic Gaussian terminology. Priority is qualified, not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Qualitative prerequisite is known; this proof does not locate the continuum first negative coefficient",
+          "evidence": [
+            "Section 4 explicitly makes K circulant, computes its DFT eigenvalues, and selects the N/2 mode using partial theta series."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2302.10623",
+          "material_read": "Relevant Section 4 passages in PDF, with eigenvalue setup and partial-theta proof strategy",
+          "method": "Compared the grid eigenvalue and quantification to the actual continuum coefficient",
+          "title": "The Gaussian kernel on the circle and spaces that admit isometric embeddings of the circle",
+          "trigger": "Identical kernel and qualitative spectral failure"
+        },
+        {
+          "assessment": "Relevant analogous balance in an aliased sum, not same claim",
+          "evidence": [
+            "For multiples of four it gives a scaled Nyquist limit 2e^(−s/2)−tanh(π/2)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-the-sharp-pi-n-gaussian-covariance-transition-on-discrete-circle--07cd4e63f039/RESULT.md",
+          "material_read": "Finding including graph-distance normalization, Nyquist scaling, and critical limit",
+          "method": "Translated normalization and compared the critical prefactors and spectral observable",
+          "title": "The sharp π/N Gaussian covariance transition on discrete circles",
+          "trigger": "Earlier logarithmic Gaussian sign window"
+        },
+        {
+          "assessment": "Leading sampled last failure, not the continuum first-index law",
+          "evidence": [
+            "The theorem is nτ_n→π for graph-distance damping, or asymptotic geometric damping n/(4π)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-a-sharp-pi-n-last-failure-scale-for-geodesic-gaussian-matrices-o--6597725d7d73/RESULT.md",
+          "material_read": "Finding, scope and initial Fourier decomposition",
+          "method": "Matched physical t and sample size, distinguishing all discrete modes from individual continuum modes",
+          "title": "A sharp π/n last-failure scale for geodesic Gaussian matrices on finite cycles",
+          "trigger": "Sampled all-larger-bandwidth result could look broader"
+        },
+        {
+          "assessment": "Plausible older coverage of part of the problem remains unresolved by access",
+          "evidence": [
+            "The abstract describes positive classes for all K or sufficiently large K, not a stated first-negative-index formula."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0167-7152(94)00162-2",
+          "material_read": "Bibliographic abstract only; full text could not be accessed through the OA reader",
+          "method": "Matched general question and reported classes from the abstract without inferring the complete contents",
+          "title": "When is a truncated covariance function on the line a covariance function on the circle?",
+          "trigger": "Older work on the equivalent truncation formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a natural circular covariance candidate, it matters how far a spectral truncation can be taken before the first negative variance appears, not merely that some negative coefficient exists. The explicit logarithmic displacement, uniform sign separation and even-lattice ambiguity provide this information for the continuum problem; exact odd positivity also allows unrestricted selection of that parity. No finite-bandwidth exact rounding or positive definiteness of the full kernel is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

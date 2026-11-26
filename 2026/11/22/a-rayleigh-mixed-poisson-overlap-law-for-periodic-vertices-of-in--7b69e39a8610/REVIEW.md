@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reconstructs the exact cyclical-root enumeration, its Rayleigh scale, the fixed-size multivariate Poisson limit using factorial moments (including all collision patterns), and random-size mixing. The exact empty-intersection integral and pair covariance formulas follow without simulation. The standalone checker completed 102 exact assertions for maps through five vertices. Risk: no quantitative rate for the multivariate weak convergence is established.
+## correctness
 
-## Originality
-PASS under an explicit historical-priority qualification. The principal closest sources are Hansen and Jaworski (2006), on a general mapping model and single-map cyclic statistics, and Hansen and Jaworski (2010), on conditional component structures. Neither inspected text states or implies by a directly published general multi-map theorem the joint pairwise periodic-set overlap law. Related published results on pair overlap for Cayley trees, and on one-map first periodic-label point processes, concern different observables and do not dominate the proposed claim. Broader classical multivariate sparse-set Poisson approximation is an ingredient, not an already-identified statement of this random-mapping consequence. Historical literature and unindexed equivalent formulas may remain.
+PASS
 
-## Value
-PASS. Independent deterministic dynamics can possess shared recurrent states despite each periodic set occupying a vanishing fraction of labels. The precise Rayleigh-mixed joint overlap law resolves their nondegenerate limit, yields the natural exact existence constant \(2/3\), and distinguishes positive dependence along shared-map pairs from exact independence across disjoint pairs. This is a structural dependence description across whole families, beyond a single moment or a routine rescaling.
+For a given periodic set of size k, its permutation contributes k!, and the complete-graph rooted forest determinant for the other vertices is k*n^(n-k-1) (one forest when k=n). This gives k*(n)_k/n^(k+1) and the telescoping tail (n)_k/n^k. Exchangeability gives independent uniform cyclic sets conditional on their sizes. The logarithm of the tail at k asymptotic to x*sqrt(n) tends to -x^2/2; the Gaussian tail bound ensures all fixed rescaled moments are uniformly integrable. For the fixed-size conditional array, selecting all distinct witnesses gives exactly (n)_L times the product of (m_i)_(d_i)/(n)_(d_i), with the claimed Poisson factorial limit. Any cross-pair collision forces one witness to demand at least three distinct memberships, giving a loss of at least n^(-1/2); there are only finitely many witness partitions for each fixed moment. A single intersection has factorial moments bounded by (m_i*m_j/n)^a, hence Hölder gives a joint exponential-moment bound when the sizes are O(sqrt(n)). This justifies Poisson moment convergence. Conditional convergence along every deterministic sequence with positive size limits and weak convergence of the size vector (or a Skorokhod coupling of the sizes) gives the claimed Rayleigh mixing for fixed q. For the empty probability, the Rayleigh double integral factors using r+s and r/(r+s), giving 1/3. Independently, summing the exact probability of disjoint sets of sizes a,b gives a*b*(n)_(a+b)/n^(a+b+2); collecting terms by a+b yields (E[K^2]-1)/(6*n), confirming 1/3 by moment convergence. Given the shared map's cyclic set, adjacent overlaps are independent with common conditional expectation K_i*E[K]/n, giving the asserted covariance, while disjoint pairs use independent maps. The mean and variance of the one-pair mixed Poisson follow from E[R]=sqrt(pi/2) and E[R^2]=2.
 
-## Scope and limitations
-The number of independent maps is fixed. No result is asserted for common directed cycles, optimal approximation rates or a growing number of maps. All primary observations and asymptotics are independently specified in RESULT.md, and the proof does not rely on finite enumeration as an infinite argument.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The one-map cyclic law and general Poisson approximation are classical, and the single deterministic pair is a hypergeometric special case. The checked sources do not give the random-mapping joint overlap array, its shared-map Rayleigh mixing and its exact empty probability. Strong approximation techniques can replace the proof of conditional Poisson asymptotics, with a model-specific comparison; neither the one-map distribution nor a Poisson approximation with deterministic means alone supplies the mapping array and its dependence.
+
+## value
+
+PASS
+
+The overlap is a natural recurrence observable for independently chosen dynamics on the same labels. Each periodic set has vanishing relative size, yet common periodic vertices have limiting probability 2/3. The array resolves information lost by a one-pair Poisson heuristic: triple label coincidences vanish while overlaps sharing a map remain positively dependent because of its fluctuating cyclic-set size. This distinction and exact existence constant give useful benchmarks, not just a first-moment calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

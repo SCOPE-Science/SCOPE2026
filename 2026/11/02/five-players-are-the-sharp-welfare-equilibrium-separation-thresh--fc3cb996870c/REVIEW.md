@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The universal four-player argument is algebraic: singleton colors contradict social optimality, cross-cut multiplicity at least two is dominated by a unanimous state, and a single-cut four-vertex path forces strict best replies at both internal vertices. The five-player exact-rational path recursion yields a unique optimum and exact complete enumeration checks all 32 profiles and three equilibria. Supplementary tests are not offered as an infinite proof.
+## correctness
 
-## Originality — PASS, qualified
-The closest inspected primary texts are Deligkas–Eiben–Gutin–Neary–Yeo (2023), arXiv:2305.07124v1 and arXiv:2311.03195v2. They investigate computational complexity and efficiency of binary threshold games, not an implication of welfare-optimality to strict Nash equilibrium uniformly through four players plus a five-player path separator. Semantic mathematical-record searches and accessible published claims did not identify an implication stronger than this proposed statement. The 2017 Neary–Newton abstract was inspected; its full text was inaccessible, so residual priority uncertainty remains.
+PASS
 
-## Value — PASS
-The smallest population size at which efficient outcomes need not be individually stable is a natural structural transition in finite heterogeneous binary coordination. The proof works on every connected network and continuous preference vector below the cutoff; the sharp example occurs on a path with only three preference types.
+In a welfare optimum every vertex must have at least one same-action neighbor: otherwise a unilateral flip creates strictly positive welfare on all its incident edges without losing any matched edge. Connectedness then leaves only unanimity for n=2,3, which is strict Nash. For n=4 a mixed optimum has two adjacent pairs choosing different actions. Their sum of matched-edge welfares is strictly below 4. On any graph the two unanimous welfares sum to 2|E|, so if the cross-cut has two or more edges, some unanimous profile has welfare at least 4. There must thus be one cross edge, forming a path. If the path preferences are (α,β,γ,δ) and its profile is aabb, comparison with all-a gives β+3γ+2δ<=2, and comparison with all-b gives 2α+3β+γ>=4. Since δ>0 and α<1, one has β+3γ<2<3β+γ, which forces β>1/2>γ. Each interior player strictly prefers its current matched edge to the alternative; leaves strictly match their only neighbors. The argument includes tied welfare maxima and uses the full continuum of open-interval types. Independent exact replay `python3 /workspace/branches/independent_checks.py 3` sums individual utilities in tenths and exhausts all 32 path profiles and all their individual reversals: unique optimum bbaaa has W=23/5, its third player's payoff rises from 2/5 to 3/5 by flipping, and the three Nash states are aaaaa, bbbaa, bbbbb with W=22/5, 9/2, 18/5, respectively. Thus 1/10 is an absolute unnormalized welfare gap, not a percentage. The frozen checker was inspected, not executed; its small graph grid is not needed in the continuum proof.
 
-## Scope and limits
-The universal theorem requires connected simple undirected graphs and strictly positive same-action rewards with no standalone action payoff. It does not measure the worst-case welfare ratio for larger graphs and does not extend to generic polymatrix games. No independent verification is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The utility and welfare model and the distinction between unconstrained welfare and best-equilibrium welfare are prior. The supported distinct contribution is the sharp connected-order threshold for every welfare maximizer to be a strict equilibrium and its exact P5 witness. The strongest inspected primary results give a polynomial welfare optimizer or complexity of optimizing over equilibria; they do not assert the universal n<=4 strictness property or the n=5 counterexample. The closest indexed records use anti-coordination or normalized costly stochastic coordination, different objectives or payoffs.
+
+## value
+
+PASS
+
+The first failure of self-enforcing social optimality is a natural boundary in this canonical positive coordination game. The continuum proof explains why four vertices cannot suffice even with welfare ties, and the rational path example exhibits an exact welfare cost of requiring equilibrium without relying on a complicated graph or generic hardness construction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

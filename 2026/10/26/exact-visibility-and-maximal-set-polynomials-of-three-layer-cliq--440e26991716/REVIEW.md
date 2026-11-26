@@ -1,11 +1,21 @@
-# Review of the three-layer clique-path visibility classification
+# Independent mathematical audit
 
-**Correctness — PASS.** The selected-pair shortest-path definition is analyzed by an exhaustive mathematical classification of path lengths one, two and three in \(K_n\square P_3\). The unique middle vertex excludes full columns; adjacent-layer length-two obstructions and opposite-layer length-three obstructions force either independent five-state columns or exactly one adjacent-layer pivot. Converse constructions and one-vertex extension tests establish sufficiency and maximality. Both polynomials are direct weighted counts of disjoint classified families. The packaged `verify.py` independently checks every subset for \(2\le n\le5\) against BFS shortest paths and reproduces all coefficients; the proof, not finite testing, covers the infinite family. No critical lemma is imported without its hypotheses.
+## correctness
 
-**Originality — PASS, subject to literature-priority uncertainty.** The primary full texts of Cicerone–Di Stefano–Klavžar (arXiv:2112.13024, Section 3), Brešar–Yero (arXiv:2307.02951, Sections 2–4), and Bujtás–Klavžar–Tian (arXiv:2412.03066, graph polynomials and definitions) were compared at the statement level. The general product theorem from the first source already gives \(\mu(K_n\square P_3)=2n\): this is credited, and is not the claimed new contribution. Its four-cycle characterization is specifically restricted to products with two complete factors and fails on the mixed product; the length-three obstruction distinguishes the present classification. The 2023 work concerns lower numbers for grids and complete-graph products, not the hybrid factor. The 2024 preprint defines visibility polynomials but does not state these two evaluations. Related 2026 game-theory work concerns optimization under alternating moves and Hamming graphs. Indexed-result and prior-literature comparisons did not identify the classified hybrid family. This is evidence of noncoverage of inspected work, not proof of global priority; differing formulations and unindexed papers remain risks.
+PASS
 
-**Mathematical value — PASS.** Determining the lower mutual-visibility number captures the worst terminal cardinality of a greedy vertex-selection procedure, compared with the known maximum of \(2n\). The complete ordinary and maximal polynomials quantify every feasible selection and the exponential multiplicity \(2n3^{n-1}+2^n-1\) of maximal ones. The exact two-family classification gives a natural structural explanation for the previously invisible linear maximality gap \(n-1\), rather than a routine derivation of the previously known scalar optimum.
+Independently reconstructing the geodesics, outer endpoints in the same column require the middle vertex to be absent. In different columns, an adjacent-layer pair has exactly two geodesics, with its two alternative corners as internal vertices; a far-layer pair A_i,C_j has internal pairs (A_j,B_j), (B_i,B_j), (B_i,C_i). A pivot A_i,B_i therefore precludes each possible double in another column: a second A/B double blocks A_i,B_j, a B/C double blocks A_i,C_j via B_i or B_j, and an A/C double blocks A_i,C_j via B_i or A_j. Reflection handles the other pivot. When the pivot is the only double, each pair incident with it has a clear path using the singleton endpoint's column, and all other pairs have the ordinary-column paths. Ordinary columns work because a selected outer endpoint never has its own middle vertex selected. In the ordinary class, empty columns and lone outer vertices can be extended; the all-middle set can become a pivot. When every column is middle-only or outer-paired and at least one is outer-paired, every addition makes a full column or a forbidden pivot. A pivot configuration is maximal exactly when every other column is occupied. The resulting counts give both polynomials, all maximal sizes, and the claimed unique maximum (n+1<2n for n≥2). In a separate direct BFS replay, all subsets for n=2,3,4 were checked: counts of visible/maximal sets were 41/15, 221/61 and 1137/231, and all coefficients agreed. No uploaded script was executed.
 
-**Scientific limitations.** No inference to longer paths, other visibility variants or independence/priority certification. The BFS computations are finite only. The literature search cannot rule out all equivalent prior results; independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the joint structural classification and the two family-wide enumerators for the hybrid product, not for the known maximum 2n or the previously covered all-set polynomial at n=2. Neither specialization supplies the maximal-set distribution or the ordinary visibility polynomial for n≥3.
+
+## value
+
+PASS
+
+The three-layer path is the first clique-path case with distance-three obstructions, which changes the classification from an adjacent-layer four-cycle test. The two enumerators and complete maximality spectrum supply natural, independently usable benchmarks for visibility and lower mutual visibility in Cartesian products. The value lies in the family-wide structure and maximality data, not the already known maximum or a tiny-grid recount.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

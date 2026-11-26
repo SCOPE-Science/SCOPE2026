@@ -1,19 +1,21 @@
-# Scientific review: integral incidence degeneration of the Cefalù Kummer configuration
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is an exact equality of finite schemes over the full base of integers. Each four-point marked component is the free rank-four group ring of two order-two sign coordinates. On each of the twelve ordered cross-component pairs, incidence eliminates one independent sign character, leaving a rank-eight free group ring. On each of the four diagonal pairs, the independent sign products satisfy \(1+r+s=0\) and \(r^2=s^2=1\), which force \(3=0\), \(r=s=1\), leaving a length-four group ring over \(\mathbb F_3\). The disjointness of coordinate components rules out missing overlap contributions. The characteristic-two local algebras and exceptional square-quadric reductions follow from these same universal presentations. The standalone verifier confirms the coefficients, combinatorial counts, and decisive integer determinant; it is not substituted for the algebraic proof.
+PASS
 
-## Originality — PASS, with residual risk
+On a chart setting one nonmissing coordinate to 1, the other two are independent involutions; the charts cover because no nonmissing coordinate can vanish at a geometric point. Different missing indices have disjoint supports, and the rings are free over Z, giving the schematic closures and their ranks. If i≠j, normalize both factors on one common coordinate: the incidence is x+y=0 for the signs on the other common coordinate, leaving three involution variables. If i=j, eliminate s from 1+r+s=0, r²=s²=1: 1+2r=0 and r+2=0 imply 3=0 and r=s=1. Conversely these values solve the relations over F3, leaving two independent signs and giving the diagonal there. This proves the full decomposition, not just point counts. In characteristic 2 all involution variables are 1 plus an independent square-zero variable; fixing a geometric plane leaves one such variable in each of the other three blocks, and no same-index incidence. Expanding the two squares verifies the special fibers, and (J+I)²=I over F2 and the F3 gradient verify quadric smoothness. The ordinary-characteristic marked geometry also checks directly: the gradient equations force exactly three nonzero equal-square coordinates; in the chart at [1:1:1:0] the quadratic part is -4u²-4v²+4uv+3w² with determinant 36. On the corresponding plane X0+X1+X2=0 the quartic restricts to -(X0²+X0X1+X1²-X3²)². Signs and permutations give the other cases. An independent enumeration of all 256 dot products of normalized sign representatives confirmed eight zeros per distinct-index pair of blocks and four additional, exactly diagonal, pairs per same-index block modulo 3.
 
-Catanese, arXiv:2101.10501, establishes the polynomial, sixteen generic nodes/tropes, their classical \((16_6)\) incidences, and the square reductions at the primes two and three. Those are specifically not claimed as new. Relevant full-text work of Dolgachev (2024, DOI 10.1112/blms.13033) and Kondō–Schröer (arXiv:1912.12015) concerns different characteristic-two Kummer models and does not calculate the stated marked incidence closure. Targeted semantic research-record searches compared the same scheme/parameter statement to the closest recovered IDs. The integral decomposition, characteristic-three vertical components, and characteristic-two local thickness were not found stated or implied in inspected primary materials. Priority in unindexed literature remains uncertain.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The full arithmetic incidence scheme of the distinguished \((16_6)\) configuration is a motivated complete invariant. It separates 96 horizontal incidences from sixteen genuinely characteristic-three incidences and retains length-eight inseparable incidence structure where reduced characteristic-two points coalesce. It provides an exact geometric boundary for one natural integral model, rather than a routine count or an unsupported global Kummer generalization.
+The supported distinct claim is the integral scheme of marked incidences, especially its F3-torsion diagonal and characteristic-two scheme lengths, not the signed-node configuration, generic incidence or exceptional quartic square factorizations already in Catanese. The closest published catalogue and primary comparisons do not cover the integral marked-incidence statement in the passages inspected.
 
-## Scope, reproducibility, and limitations
+## value
 
-The proof concerns marked schematic closures of the original sixteen points and sixteen polar planes, not the entire singular/trope schemes of the nonreduced exceptional quartics. Exact ring isomorphisms supply the infinite-base proof; `verify_incidence.py` supports the finite computations. Results are self-reviewed but have not received independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The invariant is attached to a distinguished primitive self-dual quartic and its natural marked closures. The calculation pinpoints nonflat incidence even at a prime where both marked sets individually remain reduced and distinct, and resolves the different F2 phenomenon at scheme level, including the fixed-plane curvilinear lengths. These data are useful for specialization of the marked configuration; they cannot be read off from the generic (16_6) table or obtained by counting sign supports in residue fields alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

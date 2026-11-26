@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:53:53.520577Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With occupation-density local time, the unrestricted resolvent at x is e^(−κ|x|)/κ for κ=√(2λ); killing at m>0 subtracts the image at 2m. For x<m the pre-hit part of the local-time increment must be weighted by the future hitting factor e^(−κ(m−x)), while the post-hit part has the independent restarting factor e^(−κm). For x≥m every increment is post-hit, and the transform is the unrestricted one divided by λ. Integrating over m gives e^(−κx)[x/(λκ)+7/(6λκ²)] for x≥0 and [e^(−κ|x|)/2+2e^(−2κ|x|)/3]/(λκ²) for x<0. These branches agree at zero. Time continuity follows by path continuity and domination on compact time intervals by an integrable product (Brownian maximum and local time each have finite second moments). Inverting and reflecting gives the claimed span product, and subtraction of E R_t times E L_t^x gives the formula. The zero-level value is strictly negative and both h-terms are strictly positive also at the boundary |x|=E R_t. Continuity gives existence, not uniqueness, of a crossing on each side. An independent bounded check conditioned on B_s=x, used the bridge and free-segment maximum distributions and integrated against p_s(x)ds; 24 signed mixed-moment checks agreed. Replay: OPENBLAS_NUM_THREADS=1 python /workspace/independent_checks.py (NumPy/SciPy). No finite calculation is required to extend the proof to all x,t.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mörters–Peres Theorem 3.25 and Theorem 6.1 supply occupation-measure and local-time background.",
+          "Cox–Hobson–Obłój impose flexible stopping criteria but their M is a local martingale, not a running maximum.",
+          "Annesi–Marinari–Oshanin derive a two-time range–range product, not a product with point local time."
+        ],
+        "reasoning": "The broader stopping, occupation, and extrema theories furnish machinery. The inspected statements do not furnish this marked mixed moment by changing parameters.",
+        "searches": [
+          "Mörters–Peres, Brownian Motion, Ch. 3 and Ch. 6",
+          "Cox–Hobson–Obłój arXiv:math/0702173",
+          "Annesi–Marinari–Oshanin DOI 10.1088/1751-8121/ab306c"
+        ]
+      },
+      "checked_sources": [
+        "Pitman TR 539",
+        "Mörters–Peres Ch. 3/6",
+        "Cox–Hobson–Obłój arXiv:math/0702173",
+        "Annesi–Marinari–Oshanin §2",
+        "Resultary 254aad83cd24, 2ef033b22d4d, 5e8da51794ea"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Endpoint/free bridge laws can help compute the marked product only after coupling the path maximum with the marked occupation: for each occupation time s one must use a bridge before s and a separate continuation after s.",
+          "A result at level zero cannot determine the nonzero profile by scaling or translation: translation changes the starting point relative to the level."
+        ],
+        "reasoning": "A genuinely additional spatial calculation is needed, whether by bridge conditioning or first-hitting and resolvent splitting. The span–range and displacement laws do not eliminate that step.",
+        "searches": [
+          "Pitman TR 539 §2; Resultary 254aad83cd24 and 5e8da51794ea, findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "By reflection the span product is the sum of the maximum–local-time products at x and −x. This is a comparison to a running maximum, not to |B_t|.",
+          "Pitman gives joint laws with the endpoint and conditioned bridge local-time laws; Resultary 254aad83cd24 gives the zero-local-time/absolute-displacement covariance in a Brownian bridge."
+        ],
+        "reasoning": "The inspected fixed endpoint/displacement laws are not equivalent to a time-running extreme joint with the marked occupation field. The bridge result conditions an endpoint and changes both the process and the spatial observable.",
+        "searches": [
+          "Resultary: Brownian local time–span/range covariance, extrema and endpoint",
+          "Pitman TR 539, eqs. (1), (3) and §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Inspected equations report endpoint/local-time and two-time range data, respectively, not the target product.",
+          "Resultary 254aad83cd24 gives a different exact bridge covariance; 2ef033b22d4d uses bridge local time and integrated even-power energies; 5e8da51794ea concerns range–endpoint covariance for symmetric increments."
+        ],
+        "reasoning": "These are comparison entries with explicit but different observables. No inspected exact source supplies the arbitrary-level covariance profile or its sign threshold. This does not exclude uninspected Brownian functional tables.",
+        "searches": [
+          "Resultary exact local-time covariance and range/maximum profiles",
+          "Pitman TR 539 eqs. (1), (3), Annesi–Marinari–Oshanin §2 eqs. (1)–(7)"
+        ]
+      },
+      "rationale": "The supported distinct result is the evaluated deterministic-time span–point-local-time covariance at arbitrary spatial levels and its sign separation. The classical local-time identities, range laws, resolvents and hitting transforms are prior. The exact origin constant alone is not the basis of the originality decision.",
+      "residual_risks": [
+        "Uninspected classical formulas for joint extrema and fixed-level local times, including at an exponential horizon, could implicitly contain the spatial profile.",
+        "The source mentions a discrete zero-level precedent without a full citation; no priority is assigned to the origin specialization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Endpoint and bridge conditioning, not running span",
+          "evidence": [
+            "Eq. (1) joint law uses the terminal Brownian coordinate."
+          ],
+          "identifier_or_url": "https://live-statistics.pantheon.berkeley.edu/sites/default/files/tech-reports/539.pdf",
+          "material_read": "Intro pp. 2–3, eqs. (1),(3) and §2",
+          "method": "OA author report PDF passages",
+          "title": "The distribution of local times of a Brownian bridge",
+          "trigger": "Joint Brownian local-time formula at a fixed spatial level"
+        },
+        {
+          "assessment": "Occupation density and construction, not the evaluated spatial product in inspected material",
+          "evidence": [
+            "Occupation measure; local time at zero by downcrossings."
+          ],
+          "identifier_or_url": "https://www.stat.berkeley.edu/~aldous/205B/bmbook.pdf",
+          "material_read": "Ch. 3 Theorem 3.25 p. 80; Ch. 6 Theorem 6.1 p. 147",
+          "method": "OA book theorem passages",
+          "title": "Brownian Motion",
+          "trigger": "Background and possible Brownian local-time identities"
+        },
+        {
+          "assessment": "Different observable and objective",
+          "evidence": [
+            "M denotes a local martingale; the results bound local time at zero in embedding/stopping problems."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0702173",
+          "material_read": "Abstract and §1, p. 1",
+          "method": "OA PDF comparison",
+          "title": "Pathwise inequalities for local time: Applications to Skorokhod embeddings and optimal stopping",
+          "trigger": "Potentially broad formulas for local time and a second path observable"
+        },
+        {
+          "assessment": "Two-time range product rather than marked local time",
+          "evidence": [
+            "The two time arguments apply to running ranges of the same Brownian motion."
+          ],
+          "identifier_or_url": "https://doi.org/10.1088/1751-8121/ab306c",
+          "material_read": "OA HAL manuscript §2 p. 3, eqs. (1)–(7)",
+          "method": "OA manuscript passage comparison",
+          "title": "Covariance of the running range of a Brownian trajectory",
+          "trigger": "Prior exact Brownian span dependence"
+        },
+        {
+          "assessment": "Different process, displacement and weighted area rather than running span; origin level only",
+          "evidence": [
+            "Unit Brownian bridge zero local time against absolute displacement at a fixed time and weighted absolute area."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-factorized-local-time-displacement-covariance-profile-for-the--254aad83cd24",
+          "material_read": "Finding at offset 0",
+          "method": "Local Resultary search and mirror inspection",
+          "title": "A factorized local-time displacement covariance profile for the Brownian bridge",
+          "trigger": "Closest material Resultary match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result quantifies the dependence of a path's total spatial footprint on occupation at a prescribed location, a natural marked first mixed moment of the occupation field. A negative center and positive outer region cannot be represented by a single correlation sign; the exact normal-tail law gives a usable spatial profile and a quantitative positive region. The occupation identity additionally enforces zero integral of that covariance. Neither unique crossing nor a full joint distribution is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

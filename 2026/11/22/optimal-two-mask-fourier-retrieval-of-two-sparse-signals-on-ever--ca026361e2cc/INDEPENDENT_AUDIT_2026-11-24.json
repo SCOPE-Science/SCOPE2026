@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:56:21.772573Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen construction is mathematically correct. Equality of B-pair sums first fixes the sum of group labels (the quadratic difference is smaller than L), then their product and unordered multiset. Quotient and remainder modulo R separate the physical choices within the groups, including a repeated group with its only distinct physical pair. Interleaving gives disjoint antipodal energy intervals. Inverse intensity DFT gives cyclic correlations; zero energy, no off-zero lags, two distinct off-zero lags, and the self-inverse lag are distinguished as in the proof. For nonantipodal support the magnitude ratio of one nonzero lag gives its unique amplitude product. Both two-site regimes solve the same nonsingular zero-lag system and then recover relative phase. The repaired proof retains these exact steps. For any positive amplitude budget the common exponential base exceeds one, so all orderings and product distinctions survive. With relative mask phase q/p=exp(iθ), the antipodal second real projection is cos(θ) Re(z) + sin(θ) Im(z) after normalization; together with Re(z) it is invertible exactly for sin(θ)≠0. When the alphabet is collinear, a common phase makes the mask real and the two signals e_0±i e_h have identical intensities at every frequency, though not phase-equivalent. Constant amplitude cannot locate a unit impulse even with varying phases; one mask alone cannot identify all impulses even with variable amplitudes. The recorded CHECK.py diagnostics apply to the quadrature specialization only; all alphabet and amplitude parameters in the repair follow from the analytic reconstruction, not from an executed or universal finite check.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "d1a29ce552bb has stronger unrestricted size/near-flatness guarantees and the same mask minimum, but no prescribed two-level phase guarantee.",
+          "Huang–Li gives full complex recovery with order-logarithmically many random masks; Bandeira–Chen–Mixon discusses logarithmically many masks determining every signal. Cai et al. prove a stability guarantee for order-logarithmically many random masks in the abstract, for a fixed target signal."
+        ],
+        "reasoning": "A result for greater signal dimension or sparsity is not coverage unless its permitted number and type of masks also imply the constrained design. The inspected general results do not supply two patterns with only two prescribed phase levels.",
+        "searches": [
+          "d1a29ce552bb published Finding and proof",
+          "arXiv:2608.02450, Theorem 1",
+          "arXiv:1303.4458, introduction",
+          "arXiv:2609.30825v1, abstract"
+        ]
+      },
+      "checked_sources": [
+        "Resultary and local full statement of d1a29ce552bb plus the odd-cycle and three-pattern comparators",
+        "arXiv:2608.02450, Theorem 1",
+        "arXiv:1303.4458, introduction",
+        "arXiv:2609.30825v1, abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The almost-flat proof uses distinct ordered phase differences and disjoint antipodal intervals. The odd-cycle record's real-mask obstruction already extends to all collinear alphabets by removing a common mask phase. The three-mask construction reserves an extra pattern for antipodal ambiguity."
+        ],
+        "reasoning": "Neither quantizing the prior phase code down to two levels nor adding a third measurement proves sufficiency under the two-pattern two-level constraint. The matching sufficiency is the nontrivial part: one amplitude code provides both collision-free support products and disjoint antipodal intervals while phase only supplies the missing real projection. The repair does not recast the already implied necessity as new.",
+        "searches": [
+          "d1a29ce552bb, Binary-difference phase code and Antipodal two-site case",
+          "cead19f36641, even-cycle real-mask impossibility",
+          "7705e6fa9c4a, three-pattern even-cycle construction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rescaling a passive mask by a common positive scalar preserves the data up to a known multiplicative constant, so the comparator's near-flat passive amplitude range and the frozen range [1,2) are not an originality distinction for the unrestricted count.",
+          "The comparator has N distinct phases φ_a=δ2^a/2^N and uses the argument of a cross-mask product to determine the ordered support. The two-setting claim instead only needs a nonreal relative phase for an antipodal pair; the unordered support product is encoded in amplitudes."
+        ],
+        "reasoning": "The exact recovery objective is equivalent at the unrestricted level. Arbitrary small phase excursion is not a restriction on the number of distinct phase settings: choosing smaller δ still leaves N distinct phases in the prior construction. The repair quantifies over a prescribed alphabet, modulo an irrelevant common phase, rather than over continuous phase excursion.",
+        "searches": [
+          "Resultary: even cycle complex two sparse unoversampled Fourier phase retrieval two masks binary phase alphabet two phase levels one flat prescribed noncollinear phases quadrature amplitude code antipodal pair",
+          "Websearch: sparse Fourier phase retrieval two coded diffraction patterns two-sparse unoversampled binary phase alphabet two phase levels diagonal mask antipodal even cyclic",
+          "d1a29ce552bb, RESULT.md, Finding and Proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact quadrature-construction hit is the frozen record itself. The almost-flat record supplies the exact unrestricted mask minimum two; the odd-cycle positive-real record concerns different lengths and gives an obstruction at even lengths; the even-cycle bounded-contrast comparator guarantees three patterns without asserting necessity."
+        ],
+        "reasoning": "The exact classification is now by allowed phase alphabet, not by a table of numerical signal tests. No distinct matching indexed classification of the permissible prescribed phase alphabets was found in the leading results; the exact unrestricted count is explicitly credited to the overlapping statement.",
+        "searches": [
+          "Resultary targeted phase-alphabet lookup (limit 30), exact record ca026361e2cc and nearby d1a29ce552bb, cead19f36641, 7705e6fa9c4a"
+        ]
+      },
+      "rationale": "PASS for the repaired prescribed phase-alphabet criterion. The frozen headline claim of the unrestricted sharp two-pattern count is covered, not merely suspected: d1a29ce552bb states the same uniform two-sparse result for all even N≥2 using one flat and one bounded-contrast arbitrarily near-flat mask, and gives the same one-mask lower bound. That is an originality failure for the broad claim, not a correctness failure or a chronological priority determination. The substantive surviving result is that two prescribed phase settings suffice exactly when their ratio is nonreal, with arbitrary positive amplitude contrast. The matching near-flat theorem instead uses a distinct phase at every site and a phase-difference code for locating nonantipodal pairs. The repair replaces that freedom by amplitude-product coding combined with two phase settings, and credits the already known real-mask obstruction as its necessity half.",
+      "residual_risks": [
+        "The matched almost-flat paper has the same catalogue date as the frozen original; no internal order or historical priority is inferred.",
+        "The cited Jaganathan–Eldar–Hassibi and Li–Li full texts and the random-binary-mask search lead were not obtained. Restricted-alphabet work under optical binary-mask nomenclature might still be relevant.",
+        "A finite search cannot certify priority, and narrow phase settings or small contrast need not give stable experimental inversion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers unrestricted optimum, not a prescribed two-level phase criterion",
+          "evidence": "All even N≥2; one flat and one almost-flat passive mask; N distinct phases determined by powers of 2; both antipodal projections recover phase; one mask fails on impulses.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-two-almost-flat-fourier-masks-recover-every-complex-two-sparse-s--d1a29ce552bb",
+          "material_read": "Mirrored RESULT.md offsets 0–5943, Finding, assumptions, binary-difference code, antipodal decoder and mask minimality",
+          "method": "Published local mirror after Resultary search",
+          "title": "Two almost-flat Fourier masks recover every complex two-sparse signal on even cycles",
+          "trigger": "Exact stronger coverage of unrestricted uniform two-pattern recovery"
+        },
+        {
+          "assessment": "Covers real/collinear impossibility at even orders, not two-level noncollinear sufficiency",
+          "evidence": "Uniform two-mask positive-real scheme at odd orders; antipodal conjugate ambiguity for any number of real masks at even orders.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-two-mask-fourier-recovery-of-complex-two-sparse-signals-on--cead19f36641",
+          "material_read": "Mirrored RESULT.md offsets 0 and 2900, Finding and even-order obstruction",
+          "method": "Published local mirror",
+          "title": "Sharp two-mask Fourier recovery of complex two-sparse signals on odd cycles",
+          "trigger": "Closest amplitude-coded two-real-mask recovery and even-order obstruction"
+        },
+        {
+          "assessment": "Three-pattern sufficient design, not the two-pattern criterion",
+          "evidence": "All at-most-two-sparse signals, three unoversampled masks, contrast below four; no necessity of three asserted.",
+          "identifier_or_url": "2026/11/22/SCOPE-three-bounded-contrast-fourier-masks-resolve-every-two-sparse-ev--7705e6fa9c4a",
+          "material_read": "Mirrored RESULT.md, Finding, offset 0",
+          "method": "Published local mirror",
+          "title": "Three bounded-contrast Fourier masks resolve every two-sparse even-cycle phase ambiguity",
+          "trigger": "Same signal class and even cycle with bounded-contrast nonreal masks"
+        },
+        {
+          "assessment": "Different mask number and random mask hypothesis",
+          "evidence": "Uses L≥Cω log n random masks.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.02450",
+          "material_read": "Theorem 1, PDF p. 5, text offset 16381",
+          "method": "OA primary PDF",
+          "title": "PhaseLift for Coded Diffraction Patterns: Optimal Sampling Rate",
+          "trigger": "General complex coded diffraction recovery rate"
+        },
+        {
+          "assessment": "No prescribed two-setting two-pattern claim in inspected passage",
+          "evidence": "Describes a logarithmic number of masks determining every signal.",
+          "identifier_or_url": "https://arxiv.org/abs/1303.4458",
+          "material_read": "Introduction, PDF pp. 1–2, text offset about 4694",
+          "method": "OA primary PDF",
+          "title": "Phase retrieval from power spectra of masked signals",
+          "trigger": "Explicit mask constructions in general Fourier phase retrieval"
+        },
+        {
+          "assessment": "The abstract's guarantee uses a different mask regime",
+          "evidence": "Fixed target and order-logarithmically many random masks in a lower-isometry/stability guarantee.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.30825v1",
+          "material_read": "PDF p. 1 abstract, offset 0",
+          "method": "OA primary PDF",
+          "title": "Stable Recovery and Benign Overparameterized Landscapes for Phase Retrieval from Coded Diffraction Patterns",
+          "trigger": "Primary search hit for recovery from coded diffraction"
+        },
+        {
+          "assessment": "No independent full-text assessment",
+          "evidence": "Frozen record describes oversampled generic recovery; not independently verified here.",
+          "identifier_or_url": "https://doi.org/10.1109/ISIT.2015.7282737",
+          "material_read": "Full text not retrieved",
+          "method": "OA attempt; no passage used as evidence of noncoverage",
+          "title": "Phase retrieval with masks using convex optimization",
+          "trigger": "Cited two-mask comparison"
+        },
+        {
+          "assessment": "No independent full-text assessment",
+          "evidence": "No substantive passage recovered; access gap remains.",
+          "identifier_or_url": "https://doi.org/10.3934/ipi.2021028",
+          "material_read": "Full text not retrieved",
+          "method": "OA direct and VPN attempts",
+          "title": "Phase retrieval from Fourier measurements with masks",
+          "trigger": "Cited finite Fourier mask comparison"
+        },
+        {
+          "assessment": "Unresolved source, not excluded on snippet evidence",
+          "evidence": "Snippet describes direct and inverse binary masking; does not provide a theorem statement establishing the even-cycle all-two-sparse phase-alphabet claim.",
+          "identifier_or_url": "https://www.researchgate.net/publication/260572321_Phase_Retrieval_from_Coded_Diffraction_Patterns",
+          "material_read": "Search snippet only; OA full text unavailable (HTTP 403)",
+          "method": "Primary web search followed by direct/VPN OA attempts",
+          "title": "Phase Retrieval from Coded Diffraction Patterns (binary-mask search lead)",
+          "trigger": "Search snippet mentions two random binary patterns"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired exact design addresses how many phase settings a single coded pattern actually requires beyond a flat pattern, while allowing amplitude variation. It gives an obstruction for any collinear alphabet and a matching construction from only two arbitrarily prescribed noncollinear settings, independent of the cycle length. This is materially useful when phase control is quantized: the support code no longer needs an individually resolved phase at every site. The theorem identifies which kind of second setting is necessary and sufficient, with positive amplitude contrast essential for locating impulses. It is not valued as a new count of patterns, or as a noise-stability guarantee.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

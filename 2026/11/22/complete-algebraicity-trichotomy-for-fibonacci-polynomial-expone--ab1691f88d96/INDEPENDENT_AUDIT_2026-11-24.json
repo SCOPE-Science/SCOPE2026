@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:10:58.910704Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–115, VERIFICATION.md and exact checker (inspected, not run)",
+        "Li–Zhong–Zhou arXiv:2611.16283v1 Theorem 1.1",
+        "/workspace/independent_checks/two_fibonacci.py and two_fibonacci.log"
+      ],
+      "rationale": "For arbitrary Z[T], expand Binet's formula into parameters (−1)^i α^(k−2i). At x=α^(−r) for the largest nonzero odd degree r, only the k=r,i=0 term can contribute: smaller odd degrees cannot reach exponent r, even terms have the wrong exponent parity, and sign cannot create an equality since α>1. The residue of E'/E is −a_r/(√5)^r and is irrational. An algebraic series with rational logarithmic derivative has rational residues (equivalently, the norm from a finite extension has logarithmic derivative equal to the extension degree times E'/E). Even weights pair the conjugate parameters into distinct Lucas quadratics and central ±1 factors. Thus 5^h kills all exponent denominators. At the largest j realizing h>0, the exponent of the positive-sign Lucas quadratic has leading term c_j/5^j, and all higher terms have strictly greater 5-adic valuation, even after binomial factors are inserted. That factor is irreducible by its discriminant 5F_(2j)^2. Its order in R=E^(5^h) is coprime to five and forces degree divisible by 5^h (also by taking norms of E^(5^h)=R), and any rationalizing power divisible by 5^h. The polynomial equation supplies the matching upper bound. The h=0 case includes constants and zero, with rational E. The cited integrality criterion applies to T^(2d)−T^(2d−4) for d≥3 and its leading deficit is d. Independently recovered even-weight exponent denominator data by Laurent multiplication and checked 24 exact logarithmic coefficients of the displayed degree-125 powered identity; the general proof is not based on truncation.",
+      "residual_risks": [
+        "The finite tests concern the explicit example and a few even-weight denominators; all odd weights and all exact degrees are certified by the symbolic residue and valuation arguments."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 8.1 expresses a rational function having the Gauss property as a rational linear combination of logarithmic derivatives x u'/u and its constant; Moss–Ward discuss the trace characterization but their own Fibonacci result has sampled indices"
+        ],
+        "reasoning": "For integral E, Dold–Euler yields Gauss congruences for x E'/E; Theorem 8.1 yields a rational-powered product and implies algebraicity. Its hypotheses do not cover all nonintegral even weights or provide the 5-adic orders of the Lucas factors. Sampling F_(n^j) is not evaluating a polynomial at F_n.",
+        "searches": [
+          "Beukers–Houben–Straub arXiv:1710.00423 Theorem 8.1; Minton trace sequence criterion; Moss–Ward arXiv:2011.13068"
+        ]
+      },
+      "checked_sources": [
+        "Li–Zhong–Zhou arXiv:2611.16283v1",
+        "Beukers–Houben–Straub arXiv:1710.00423",
+        "Moss–Ward arXiv:2011.13068",
+        "Resultary 92815a83dd01 and 65cc5bcef315"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 4.1 gives both degree 5^(k−1) and rationality of the matching power for E_(5T^(2k)); Theorem 1.1 gives integrality in terms of parity and three residues"
+        ],
+        "reasoning": "The new formula specializes exactly to the old monomial power and degree. Taking products of old factors can give upper bounds (and, with roots, algebraicity of even weights), but cannot by itself give a sharp degree: orders of a shared factor can cancel. The largest-maximizer argument establishes a surviving prime order for mixed coefficients, and the odd-residue obstruction treats the complementary non-even class irrespective of integrality.",
+        "searches": [
+          "Li–Zhong–Zhou Theorems 1.1 and 4.1, Example 3.4; compare exact mixed c_j 5-adic deficits to the monomial formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Corollary 2.3 of Li–Zhong–Zhou is the Dold–Euler integrality criterion; Beukers–Houben–Straub Theorem 8.1 decomposes rational functions with the Gauss property"
+        ],
+        "reasoning": "Algebraicity is equivalent here to a finite product with rational exponents, by rational residues and an elementary logarithmic-derivative integration; a Gauss criterion for integer coefficients is a stronger condition on the integral subfamily, not an equivalent classification for all weights.",
+        "searches": [
+          "Fibonacci polynomial-weight exponentials; rational-logarithmic derivatives, Gauss congruences and trace sequences; arXiv:2611.16283v1 §§1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "92815a83dd01 states ramification/genus and degree for the monomial 5T^(2k) and credits the prior degree theorem; 65cc5bcef315 treats a related Pell-polynomial classification at prime two; Li–Zhong–Zhou Example 3.4 gives integrality of T^6−T^2"
+        ],
+        "reasoning": "The published example is exact overlap for integrality, but the evaluated degree and minimal power 125 are not reported in that example. The Pell analogue changes the recurrence and quadratic field. No distinct full Fibonacci mixed-coefficient classification surfaced in the inspected catalogue; same-day dates do not establish ordering.",
+        "searches": [
+          "Resultary: arbitrary Fibonacci-polynomial degree; T^6−T^2; 5F_n^(2k) degree; Li–Zhong–Zhou mixed-weight example"
+        ]
+      },
+      "rationale": "The integrality criterion, integrality of the mixed example, and the exact monomial degrees for 5T^(2k) are explicitly prior. General Gauss-congruence results also imply algebraicity in the integral rational-logarithmic-derivative subfamily. The supported distinct claim is the full classification including nonintegral and non-even weights, and the uniform exact denominator/degree formula for arbitrary mixed even coefficients. No inspected stronger statement provides that coefficient-level result without controlling inter-monomial cancellation.",
+      "residual_risks": [
+        "Full texts of Minton 2014 and the Byszewski–Graff–Ward survey were unavailable by attempted routes. No exhaustive historical-priority or unindexed-source claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Genuine overlap on integrality and monomial degree, not full mixed-weight exact degree theorem",
+          "evidence": "Evenness and residues at 0,1,2 characterize integrality; T^6−T^2 is integral; the series with weight 5T^(2k) has degree 5^(k−1).",
+          "identifier_or_url": "https://arxiv.org/html/2611.16283v1",
+          "material_read": "Theorem 1.1 at offset 3681; §1 recurrence discussion; Corollary 2.3 at 11749; Example 3.4 at 19596 and Theorem 4.1 at 20309",
+          "method": "Lawful arXiv HTML bounded passages",
+          "title": "Integral Exponential Series: Fibonacci Weights and Implicit Equations",
+          "trigger": "Exact motivating recurrence, mixed example and monomial power/degree"
+        },
+        {
+          "assessment": "Implies algebraicity for the integral subfamily; not a coefficient-level degree formula",
+          "evidence": "Rational functions with the Gauss property decompose into rational multiples of x u'/u and the constant at zero.",
+          "identifier_or_url": "https://arxiv.org/pdf/1710.00423",
+          "material_read": "Introduction pp.1–2 and Theorem 8.1 p.18 at offset 62353",
+          "method": "Lawful OA PDF passages",
+          "title": "Gauss congruences for rational functions in several variables",
+          "trigger": "Broader Gauss property and logarithmic decomposition"
+        },
+        {
+          "assessment": "Trace framework and sampled-index results, not the polynomial-weight degree",
+          "evidence": "For even j the sampled sequence F_(n^j) is not realizable but 5F_(n^j) is.",
+          "identifier_or_url": "https://arxiv.org/pdf/2011.13068",
+          "material_read": "pp.1–2 and Corollary 3 at offset 8030",
+          "method": "Lawful OA PDF passages",
+          "title": "Fibonacci along even powers is (almost) realizable",
+          "trigger": "Trace-sequence approach and possible power-weight overlap"
+        },
+        {
+          "assessment": "Monomial overlap, and separate Pell family",
+          "evidence": "Degree 5^(k−1) appears for the same old monomial, not exact degrees of arbitrary Fibonacci weights.",
+          "identifier_or_url": "92815a83dd01; 65cc5bcef315",
+          "material_read": "Opening Findings and §1 attribution for 92815a83dd01",
+          "method": "Public Resultary mirror passage comparison",
+          "title": "Genus and five-adic ramification of Fibonacci-weighted exponentials; Pell polynomial weight exponentials",
+          "trigger": "Closest Resultary monomial and arbitrary-weight analogues"
+        },
+        {
+          "assessment": "Full-text comparison remains unresolved, no negative inference",
+          "evidence": "Access returned 403; the independent Gauss comparison above uses the accessible Beukers–Houben–Straub theorem instead.",
+          "identifier_or_url": "10.1090/S0002-9939-2014-12168-X; Minton (2014), and Byszewski–Graff–Ward (2021)",
+          "material_read": "No decisive original full-text passages; formulation discussed in accessible related papers",
+          "method": "Lawful DOI and publisher access attempts; accessible secondary discussion",
+          "title": "Linear recurrence sequences satisfying congruence conditions; Dold sequences, periodic points, and dynamics",
+          "trigger": "Historical trace and integrality classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and valuation proof",
+        "Li–Zhong–Zhou Theorem 1.1, Example 3.4 and Theorem 4.1"
+      ],
+      "rationale": "The natural family already arises in an independent integrality study. The parity boundary and exact field degree answer algebraic questions not resolved by that criterion; the valuation maximum computes the precise denominator even when spectral factors overlap. The result resolves the published integral mixed example at degree 125 and gives unbounded degrees with primitive leading coefficient. This is a uniform classification, not a monomial substitution or a finite series calculation.",
+      "residual_risks": [
+        "Scope is the standard Fibonacci recurrence and integer polynomial weights; no analogous recurrence, Galois-group or analytic classification inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

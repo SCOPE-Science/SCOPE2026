@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:51:21.350969Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The loss identity is S'=-kappa*rho_00. If a positive trajectory had a positive limiting trace, a nonzero positive accumulation state would evolve at constant trace. Positivity eliminates its hub row and column, and g!=0 then forces the leaf block to annihilate the all-ones vector. Its leaf Hamiltonian consequently commutes with it, and the leaf off-diagonals decay at rate delta. In the limit the diagonal block still annihilates the all-ones vector, so it is zero, a contradiction to the constant positive trace. Since positive matrices linearly span the full matrix space, finite-dimensional semigroup convergence on positive inputs gives negative spectral abscissa; no dilation is needed. Permutation symmetry allows a uniform mixture for the survival trace of a localized input. In the reduced system q=(kappa+delta)/2 and Delta=epsilon-(n-1)h. The integrated hub population, leaf off-diagonal and imaginary hub–leaf coherence are 1/kappa, -1/(n*delta), -1/(2*g*n), respectively; the real coherence integral is Delta/q times the imaginary one. Substitution into the imaginary-coherence equation yields exactly the stated T. At fixed kappa, T'' in delta is 2(n-1)/delta^3+2 Delta^2/[g^2(kappa+delta)^3]>0 and T diverges at both endpoints. At resonance the rate optimization separates; at zero dephasing the norm squared of the invariant dark projection is 1-1/n, while the bright–hub sector decays because g!=0. Twelve independently assembled full Liouvillian inversions for n=2,3,4,5,7 agreed to maximum absolute error 1.07e-14, and bounded direct minimizations agreed with the resonant rates and a detuned stationarity root. Replay: python3 /workspace/branches/304c9f9d-a4a0-4167-9ad5-4d3b39a27142/record5_full_liouvillian_check.py (NumPy and SciPy); these finite checks do not prove the continuous-domain claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Alterman et al. allow large detuning, arbitrary positive uniform dephasing and choice of localized initial state, with zero background loss available. Their (21)–(23) evaluate the transfer rate explicitly; taking Gamma=0 and S=1 gives the expression used in the reduction.",
+          "Caruso et al. identify the same dark fraction at zero noise for the uniform complete case; their printed (A25)–(A27) assume equal dephasing and do not by themselves give the selective formula.",
+          "Resultary 4514fb414d22 permits optional hub-site dephasing and gives the localized-star mean and resonant joint optimum. Its h=epsilon=0 restriction is not a source for the general detuning term; it is later than the frozen finding and not used to establish prior coverage."
+        ],
+        "reasoning": "The decisive stronger coverage for the scalar mean is not a qualitative dark-state or Zeno analogy. It comes from the exact formula and a correspondence of integrated equations. The all-time trajectories and the optimization path at fixed physical controls need not coincide with the uniform-noise model.",
+        "searches": [
+          "arXiv:2309.00164, complete network with detuning, uniform noise and background loss",
+          "arXiv:0901.4454, §II and Appendix A",
+          "Resultary: exact noise-assisted absorption and sharp joint rate optimization; coherence-dependent optimal dephasing for lossy stars"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2309.00164",
+        "arXiv:0901.4454",
+        "arXiv:2308.15857",
+        "DOI 10.1007/s11128-014-0891-y (bibliographic only)",
+        "Resultary 4514fb414d22, 0248fe9e0e67, 57062606578c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Write q=(kappa+delta)/2 for the audited model and q'=kappa/2+delta for prior uniform dephasing at lambda=delta and prior amplitude-trap rate kappa'=kappa/2. With N=n+1, S=1 and Gamma=0, the inverse rate from prior Eqs. (21)–(23) is N/kappa+(N-2)/delta+q'/(2J^2)+(Delta')^2/(2J^2*q'). The efficiency is one at positive dephasing and no background loss (also follows from the same constant-trace argument as for leaf-only dephasing).",
+          "Choose J=|g|*sqrt(q'/q) and prior detuning Delta'=Delta*q'/q by setting its hub energy to (N-2)J+Delta'. The sign of g is immaterial by rephasing the hub. This is an actual integrated-system correspondence: leave the integrated hub population, common leaf population and common leaf–leaf coherence unchanged, and multiply both integrated hub–leaf quadratures by sqrt(q/q'). The population and leaf-coherence equations contain the same product J times the new imaginary quadrature; the last two zero-frequency equations, whose initial-coherence sources vanish, are both multiplied by sqrt(q'/q). Thus the survival integrals agree. The prior formula with this substitution gives exactly the four terms of the Finding for all positive rates, without assuming h=g in the audited dynamics.",
+          "Strict convexity, the fixed-sink stationarity equation and the separated resonant minimum are immediate derivatives/minimizations of this implied expression. At delta=0 the dark projection depends only on the uniform hub-coupling direction, as in the earlier complete-network dark-state calculation, not on h."
+        ],
+        "reasoning": "The source treats a different noise generator, but its stronger parameterized scalar formula directly generates this one via a two-quadrature linear rescaling in the integrated equations; no new spectral quantity or full-time solution is claimed.",
+        "searches": [
+          "Alterman et al. arXiv:2309.00164 p. 2 (offset 8660), pp. 3–4 (offset 19100 and preceding reduced equations)",
+          "Caruso et al. arXiv:0901.4454 Eq. (5) and Appendix A.3–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With no background decay and unit trapping probability, the conditional first moment of sink flux used by Alterman et al. equals the survival integral in the Finding. Their population loss is 2 times their parameter kappa, and uniform dephasing lambda damps both leaf–leaf and hub–leaf coherences at lambda before adding the trap damping.",
+          "The symmetric system depends on h and epsilon only through the bright-state detuning. The detuned complete graph has that same detuning parameter independently tunable by its hub shift.",
+          "The 50%-capture observable in the extended-star paper is a median, not an equivalent formulation of a first moment."
+        ],
+        "reasoning": "Time integration, unit flux, permutation averaging and the factor-of-two loss convention must all be matched before converting the prior transfer rate to mean time. Leaf-selective noise does change trajectories; the exact equivalence is at zero frequency for the localized-start observable.",
+        "searches": [
+          "Alterman–Berman–Strauch arXiv:2309.00164 Eqs. (2)–(7), (12)–(16), (21)–(23)",
+          "Caruso et al. arXiv:0901.4454 Eqs. (5)–(8), (A23)–(A27)",
+          "Pepe–Pouthier–Yalouz arXiv:2308.15857 Eq. (8)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching numerical catalogue is needed for this continuous-parameter problem; the relevant exact material is formula-level. The October 26 Resultary finding is an exact match at h=epsilon=0 and zero hub dephasing. The October 18 finding has noise at the hub as well and a different linear dephasing coefficient; the same-day result treats coherent weak disorder and gives a different decay law.",
+          "The original complete-network formula is an exact formula covering arbitrary detuning after converting the parameters, rather than a finite table at selected rates."
+        ],
+        "reasoning": "A table of sample trapping times cannot resolve an all-parameter first-moment formula and extrema. The closely indexed analytic cases were compared by observable, dephasing placement and Hamiltonian, not just by date or shared quantum-star terminology.",
+        "searches": [
+          "Resultary: localized-leaf trapping time in dephased star and complete networks",
+          "Resultary 4514fb414d22, 0248fe9e0e67, 57062606578c",
+          "arXiv:2309.00164 Eqs. (21)–(23)"
+        ]
+      },
+      "rationale": "The physical dynamics have a different local dephasing convention, but the claimed integrated observable reduces exactly to the previously evaluated uniform fully connected mean-time observable of Alterman, Berman and Strauch. The reduction is a rescaling of the two integrated hub–leaf coherences with the corresponding hopping and detuning substitutions, valid at every declared parameter point. The optimizers in the Finding follow by elementary differentiation of that implied formula. There is no claim of full time-domain equivalence.",
+      "residual_risks": [
+        "Pouthier 2015 was unavailable in full; the exact priority of specialized-star statements is not determined. The arXiv version of Alterman et al. supplies the displayed formulas used in the positive coverage argument regardless of availability of the journal PDF."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact first-moment coverage by zero-frequency similarity of the coherence equations and parameter conversion; not identical time evolution",
+          "evidence": "Uniform site noise lambda, trap population loss 2*kappa', bright detuning epsilon_N-J(N-2), localized start S=1, explicit reciprocal rate at Gamma=0.",
+          "identifier_or_url": "https://arxiv.org/pdf/2309.00164",
+          "material_read": "Eqs. (2)–(7) p. 2 (OA offsets 8660–14160), reduced equations and Eqs. (12)–(23) pp. 3–4 (including passage offset 19100)",
+          "method": "Original arXiv OA PDF bounded passages; APS PDF not available",
+          "title": "Optimal Conditions for Environment-Assisted Quantum Transport on the Fully Connected Network",
+          "trigger": "Exact previously evaluated localized-start, detuned trapping observable"
+        },
+        {
+          "assessment": "Corroborates the zero-noise dark projection; displayed Laplace formula is for equal site noise and energies",
+          "evidence": "Eventual zero-noise capture 1/(N-1) from a localized non-trapping site; identifies the remaining invariant mass.",
+          "identifier_or_url": "https://arxiv.org/pdf/0901.4454",
+          "material_read": "Eq. (5)–(8) p. 4 (offset 23500); Appendix pp. 13–14 Eqs. (A23)–(A27) (offsets 89750 and 95300)",
+          "method": "Original OA PDF bounded passages",
+          "title": "Highly efficient energy excitation transfer in light-harvesting complexes: The fundamental role of noise-assisted transport",
+          "trigger": "Fully connected network, exact dark fraction and original site-noise equations"
+        },
+        {
+          "assessment": "Different observable and initial state",
+          "evidence": "Absorption time is the 50% threshold, and the initial excitation is delocalized on peripheral defects.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.15857",
+          "material_read": "p. 4 Eq. (8), offsets 22000 and 25000; initial-state convention",
+          "method": "Original OA PDF bounded passages",
+          "title": "Optimized excitonic transport mediated by local energy defects: survival of optimization laws in the presence of dephasing",
+          "trigger": "Extended-star dephasing optimum with a potentially similar absorption-time observable"
+        },
+        {
+          "assessment": "Unresolved, not relied on for the verdict",
+          "evidence": "Specialized star dephasing setting indicated by the title; no whole-paper comparison available.",
+          "identifier_or_url": "https://doi.org/10.1007/s11128-014-0891-y",
+          "material_read": "Bibliographic/title material only",
+          "method": "Lawful OA DOI, Springer and repository attempts without full-text access",
+          "title": "The excitonic qubit on a star graph: dephasing-limited coherent motion",
+          "trigger": "Potentially equivalent specialized star result"
+        },
+        {
+          "assessment": "Exact special-case overlap plus distinct results; not the decisive prior source",
+          "evidence": "4514fb414d22 matches the resonant leaf-only ordinary star at zero hub dephasing; 0248fe9e0e67 has hub dephasing; 57062606578c studies an inverse-square weak-disorder scale, not the mean and dephasing optimum.",
+          "identifier_or_url": "Resultary 4514fb414d22, 0248fe9e0e67, 57062606578c",
+          "material_read": "Mirrored exact findings and assumptions",
+          "method": "Resultary searches with matching mirror reads",
+          "title": "Resultary quantum-star and weak-disorder comparisons",
+          "trigger": "Localized-star mean or optimum and same-day transport comparison"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The model and observable make a natural benchmark, but the claimed exact mean is mechanically obtainable from the published uniform-noise formula by a coherence/rate conversion, and the reported optima and dark endpoint are elementary consequences. The finding supplies no additional time-dependent observable, structural threshold, or independently useful unknown exact fact beyond this conversion.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

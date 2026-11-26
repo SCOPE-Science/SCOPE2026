@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:19:31.741014Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The feature operator B_ε is Hilbert–Schmidt, since its squared norm is ε∫ζ(1+2εa)dν≤I+εM by integral comparison. H_ε=B_ε*B_ε and K_ε=B_εB_ε* have the same positive eigenvalues with multiplicity, also for a finite-dimensional L²(ν). The continuous Laplace feature u_t(a)=exp(−at) gives K_ν as a trace-class Bochner integral with ∫||u_t||²dt=I. For the logarithmic mesh t_n=ε log n, the excess positive weight ε/n−(t_(n+1)−t_n) sums to ε γ_E, hence costs at most ε γ_E M in trace norm. With h=ε log 2, the mesh left endpoint τ(t) lies between max(0,t−h) and t. For each a>0 the integral of exp(−a max(0,t−h))−exp(−at) is exactly h, and the same holds with a replaced by 2a. Since squared differences on [0,1] are bounded by differences, the squared feature discrepancy integrates to at most hM and the quadrature's trace is at most I+hM. Factoring the rank-one difference and using Cauchy–Schwarz gives exactly sqrt((4I+2hM)hM). The trace-ideal eigenvalue inequality transfers this to the ordered zero-padded lists. The zeta pole-subtracted function is bounded between zero and one and tends to γ_E, giving the trace residue by dominated convergence without a positive moment. Positivity and the uniform trace bound turn each vanishing diagonal entry into ||H_ε e_n||→0, extending by density. Spectral convergence gives a positive limiting norm because I>0. The atomic Cauchy matrix and classical determinant use the orthonormal measure coordinates. Analytic replay: frozen RESULT.md lines 35–105. The supplied script and requirements describe only finite-atomic diagnostics; the code was inspected, not executed. The O(√ε) estimate is not an optimality claim: for n≥2 the bound sup_(a>0) a exp(−at_n)=1/(e t_n) even gives interval error ≤M(t_(n+1)−t_n)²/(e t_n), summable with total O(εM) after separately bounding the first interval. This does not invalidate the stated estimate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.4 of arXiv:2610.12252 gives the positive trace-class criterion and exact trace integral ∫ζ(2s)dμ(s). Perfekt–Pushnitski give the moment representation and a finite-rank characterization.",
+          "arXiv:2608.22882v3 treats continuous/essential spectral type for a noncompact weighted model, not the finite-trace parameter limit."
+        ],
+        "reasoning": "The exact trace formula dominates the scalar trace asymptotic after substituting the pushed-forward measure, but does not itself control trace norm of the difference, which need not be positive, or yield a rate for the ordered spectral lists.",
+        "searches": [
+          "Ma–Lu–Zu arXiv:2610.12252v1 §3.4 Theorem 3.4",
+          "Ma–Lu–Zu arXiv:2608.22882v3 Theorem 1.1",
+          "Perfekt–Pushnitski arXiv:1611.03772 Theorem 3.1 and Corollary 6.8"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.12252v1",
+        "arXiv:1611.03772",
+        "arXiv:1709.06326",
+        "arXiv:2608.22882v3",
+        "Resultary e8faa07be8b3, 0ed82b356419, c8857d14679d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact trace formula, the bound 0≤ζ(1+y)−1/y≤1, and the Laurent limit imply the frozen γ_EεM+o(ε) directly. General spectral perturbation yields the ℓ¹ claim only once the small trace-ideal discrepancy has been established.",
+          "The log-mesh Laplace calculation supplies the measure-universal error; no inspected density-based or fixed-index-asymptotic result supplies it under the stated hypotheses. The original's finer gamma-density comparison is uncited and was not verified."
+        ],
+        "reasoning": "The new supported content is quantitative measure-universal operator convergence, not zeta regularization, representation of positive moment forms, the scalar trace identity, or the classical atomic determinant. The positive norm limit uses the moving spectral convergence rather than following from the fixed-operator trace formula.",
+        "searches": [
+          "arXiv:2610.12252v1 trace identity under s=1/2+εa",
+          "arXiv:1709.06326 Laplace/ζ representation compared to the log-mesh trace-norm estimate",
+          "Resultary e8faa07be8b3 high-index vs moving-scale limits"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equivalent moving family lives on the fixed space L²(ν) with kernel εζ(1+ε(a+b)), converging to the Cauchy kernel. The 2017 Helson/integral-Hankel paper relates Laplace-generated Helson matrices to an integral Hankel kernel involving ζ(1+x+y) under density assumptions, and compares fixed-operator eigenvalue decay.",
+          "Resultary e8faa07be8b3 includes a geometric atomic specialization of the same H_ε when its exponent r>1, but varies the eigenvalue index, not the boundary parameter."
+        ],
+        "reasoning": "Gram equivalence is real, but neither a fixed-operator comparison with a density nor a high-index asymptotic for each fixed ε controls the ℓ¹ difference of spectral lists as ε tends to zero for an arbitrary finite measure.",
+        "searches": [
+          "Helson spectral scaling, multiplicative Hankel Gram operator, Laplace quadrature, ζ-kernel",
+          "Perfekt–Pushnitski arXiv:1611.03772",
+          "arXiv:1709.06326 Theorem 2.1 and Lemma 2.2",
+          "Resultary: atomic Helson eigenvalue coefficients and Cauchy-Gram limits"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day e8faa07be8b3 fits ν=2∑_(j≥1) q^(−j)j^(−r) δ_(q^(−j)) for r>1, with I=∑j^(−r); its Finding treats λ_n∼C(q,r)n^(−r) at fixed ε. Same-day 0ed82b356419 treats a geometric class trichotomy, with the critical essential-spectrum case outside finite I.",
+          "Later c8857d14679d has a Cauchy-Gram strong/norm split for polynomial-projection commutators of multirate weighted Hardy averages, not Helson matrices."
+        ],
+        "reasoning": "These are actual mathematical overlaps of family or limit mechanism, not an exact table or a statement controlling arbitrary-ν moving-parameter convergence. The same-day hits are differentiated by assumptions and quantifiers, not by presumed priority.",
+        "searches": [
+          "Resultary: exact eigenvalue coefficient for geometric atomic Helson, critical atomic Helson theta spectrum, Cauchy-Gram escape"
+        ]
+      },
+      "rationale": "Pass for the uniform moving-measure trace-norm/spectral scaling under the sole stated inverse-moment condition for finite positive measures. The trace correction is a direct consequence of the known exact trace representation and the classical zeta Laurent residue; the Cauchy determinant and Gram machinery are known, and strong escape follows from the new spectral limit and elementary diagonal control. The examined catalogue and literature do not establish the arbitrary-measure quantitative limit.",
+      "residual_risks": [
+        "The frozen relationship section does not give a checkable citation for the asserted smoother gamma-family refinement. Its priority and precise rate remain unresolved.",
+        "An older general trace-ideal Laplace quadrature theorem could cover the approximation; no such coverage was established in the inspected passages."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact fixed-measure trace identity covers the scalar correction by substitution and dominated convergence; no moving trace-norm rate in matched theorem",
+          "evidence": [
+            "Tr H_μ=∫ζ(2s)dμ(s)."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.12252v1",
+          "material_read": "§3.4 Theorem 3.4, offsets 60400–66396",
+          "method": "Lawful primary arXiv text",
+          "title": "Unbounded Helson Forms with a Moment Representation",
+          "trigger": "Same exact trace-class Helson family"
+        },
+        {
+          "assessment": "Representation and finite-rank structure, not the moving limit",
+          "evidence": [
+            "Positive moment representation and finite-rank characterization for positive Helson forms."
+          ],
+          "identifier_or_url": "arXiv:1611.03772",
+          "material_read": "Theorem 3.1, PDF p.6; Corollary 6.8 p.22",
+          "method": "Lawful primary PDF passages",
+          "title": "On Helson matrices: moment problems, non-negativity, boundedness, and finite rank",
+          "trigger": "General Helson moment/Gram formulation"
+        },
+        {
+          "assessment": "Fixed-operator equivalence and high-index asymptotics with density hypotheses, not the asserted arbitrary-measure boundary convergence",
+          "evidence": [
+            "The Lemma connects Laplace-generated Helson matrices to ζ(1+x+y) with L¹∩L∞ data; the theorem compares smooth bounded compactly supported density models."
+          ],
+          "identifier_or_url": "arXiv:1709.06326",
+          "material_read": "§2 Theorem 2.1 and §2.2 Lemma 2.2, offsets 20167–27158",
+          "method": "Lawful primary full-text passages",
+          "title": "A Helson matrix with explicit eigenvalue asymptotics",
+          "trigger": "Continuous/Helson comparison and ζ-kernel"
+        },
+        {
+          "assessment": "Different noncompact weighted model; does not verify the uncited gamma example's claimed first-order estimate",
+          "evidence": [
+            "Spectral type for the weighted multiplicative Hilbert operator."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2608.22882v3",
+          "material_read": "Theorem 1.1, offset 9317 onward",
+          "method": "Lawful primary arXiv text",
+          "title": "On the Spectra of Multiplicative Hilbert Operator on Bergman Spaces of Dirichlet Series",
+          "trigger": "Possible stronger spectral limit or gamma-family comparison"
+        },
+        {
+          "assessment": "Fixed ε and increasing eigenvalue index rather than moving ε",
+          "evidence": [
+            "Polynomial high-index asymptotics and Schatten thresholds; r>1 gives finite inverse moment under the stated identification."
+          ],
+          "identifier_or_url": "Resultary 2026/10/18, e8faa07be8b3",
+          "material_read": "Finding and parameter hypotheses, offset 0",
+          "method": "Resultary search and local-mirror passage",
+          "title": "Exact eigenvalue coefficient for geometric atomic Helson matrices",
+          "trigger": "Exact common H_ε special case"
+        },
+        {
+          "assessment": "Class trichotomy and critical band, not the moving-measure result",
+          "evidence": [
+            "Critical β=1 has divergent inverse moment, while β>1 includes a family in scope with a different conclusion."
+          ],
+          "identifier_or_url": "Resultary 2026/10/18, 0ed82b356419",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary search and local-mirror passage",
+          "title": "A critical atomic Helson matrix has an exact theta-function essential spectrum",
+          "trigger": "Same geometric atomic setting"
+        },
+        {
+          "assessment": "Later, different operator family",
+          "evidence": [
+            "Polynomial-projection commutator singular values rather than Helson eigenvalues."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22, c8857d14679d",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary search and local-mirror passage",
+          "title": "The complete Cauchy-Gram leakage spectrum of multirate Hardy averages",
+          "trigger": "Analogous strong/norm split and Cauchy Gram spectrum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural boundary-scaling limit for positive multiplicative moment operators. All spectral mass and operator norms are tracked even though each fixed coordinate vanishes; compactness of support, density, and higher moments are unnecessary. The comparison supplies a measure-uniform quantitative control under the trace-class integrability requirement and converts singular or atomic input measures into explicit limiting operators. Its utility is the full trace-ideal control, not the standard trace identity or an assertion that the stated rate is sharp.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

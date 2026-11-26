@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:37:40.996578Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With rows recording the coefficients of the natural basis squares, the matrix is block upper triangular with first block determinant (9-1)/16=1/2 and all other diagonal entries 1. This proves perfection over any field with 2 invertible, even when 3/4 vanishes. For the first two coordinates let S=x_1+x_2 and D=x_1-x_2. The equations give D(1-S/2)=0 and 2S=S^2+D^2. If D were nonzero one would have S=2 and then D^2=0, impossible in a field. Thus D=0 and x_1=x_2 is 0 or 1. For j>=3 the actual entries give x_j^2-x_j+h_j=0, h_3=x_1^2/4 and h_(j+1)=(3h_j+x_j^2)/4. If h_j=1/4 the unique root is 1/2 and preserves h; if h_j=0 the root 0 preserves it and the root 1 switches it to 1/4. There is one branch with initial pair (1,1); the other has either no switch or one first switch at k=3,...,n. This proves each listed coordinate vector, distinctness and exhaustion, including the empty tail at n=2. The derivation works unchanged over any extension, so the geometric points are all rational already over the prime field. Repeated roots are counted as one point, not by scheme length. The recorded rational and finite-field tests are supplementary; no uploaded code was executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The survey conjectures all complex counts 2 through 2^n, and its discussed triangular constructions have count at least n+1. García-Martínez–Pérez-Rodríguez proves existence, not an exact count. The symmetric collision spectrum covers matrices aI+bJ only and its minima at n=3,4,5,6 are 5,6,17,23; the complete-graph point count only covers the fixed adjacency matrix of K_n over odd finite fields and can include singular matrices."
+        ],
+        "reasoning": "Conjecturing the full spectrum does not prove the desired case; the triangular counts in the survey miss it for n>=3. The known existence theorem and restricted exact families do not give the target all-dimensional construction.",
+        "searches": [
+          "arXiv:2610.22248v1 Conjecture 6",
+          "A note on complete evolution algebras, Theorem 3.5",
+          "Resultary symmetric idempotent-collision and complete-graph point-count results"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verification_output.txt",
+        "arXiv:2610.22248v1 and arXiv:2609.25023v1",
+        "García-Martínez–Pérez-Rodríguez 10.1007/s00013-026-02251-0",
+        "Hu 202610.1039 (access limited)",
+        "Resultary 0228f6cc0a9b, e6bbef61941b and 4a075844285b; fa04f82102ee identified as self-match"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The survey's cited triangular lower threshold is n+1; it does not entail count n. Over C the exact symmetric family minimum is 2^(n-1)+1 - 1_(n even) binom(n,n/2)/2, which is greater than n for n>=3 (for even n, binom(n,n/2)<=2^(n-1), and the case n=4 is explicit). The complete-graph family requires a fixed adjacency matrix and does not establish existence over C."
+        ],
+        "reasoning": "The audited matrix first uses a nontriangular two-coordinate collision, then uses repeated-root lifts so each old nonzero point has a unique extension but the zero branch creates one more point. Neither the known symmetric deformation nor the survey constructions supplies this below-threshold induction.",
+        "searches": [
+          "arXiv:2610.22248v1 discussion around Conjecture 6",
+          "0228f6cc0a9b support test and scope",
+          "e6bbef61941b Finding and 4a075844285b Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact-title hit fa04f82102ee is the audited record itself. The survey identifies the same count-of-distinct-points problem for perfect algebras. Hu–Wen's dimension-three examples can have very few idempotents but have square of dimension two, so fail the invertibility hypothesis."
+        ],
+        "reasoning": "Low counts for nonperfect quadratic maps or rational points alone do not realize the same geometric invariant for a perfect algebra. The specific equivalence is the fixed-point locus x=M^T(x_i^2)_i with M invertible.",
+        "searches": [
+          "Resultary perfect evolution algebra with exactly n idempotents, geometric point count of an invertible quadratic evolution map",
+          "Idempotent-Free Non-Solvable Evolution Algebras over C, arXiv:2609.25023v1",
+          "Kaygorodov–Martín González–Viruel Conjecture 6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "0228f6cc0a9b explicitly enumerates three-dimensional perfect F_3 algebras with exactly two nonzero rational idempotents, hence three including zero. Its support calculation relies on x_i^2 being 0 or 1 over F_3 and does not count geometric points. The complete-graph Theorem counts geometric points after passage to F_(q^2), but only for a different matrix family."
+        ],
+        "reasoning": "The dimension-three rational existence overlaps exactly as a rational assertion but does not settle geometric exhaustion or the characteristic-uniform theorem. A matching small count in a finite table cannot justify the arbitrary-dimensional statement.",
+        "searches": [
+          "Resultary 0228f6cc0a9b rational-point table",
+          "Resultary e6bbef61941b complex collision spectrum",
+          "Resultary 4a075844285b complete-graph point counts and extension formula"
+        ]
+      },
+      "rationale": "The supported scope is the uniform explicit construction over every field of characteristic different from two; over C the additional instances are n>=3. The survey already reports n=2 as solved, and the rational-point existence in the single ternary dimension-three case is covered. Neither these nor the inspected symmetric-family or existence theorems supply the exact geometric count uniformly. Historical priority beyond the checked sources is not established.",
+      "residual_risks": [
+        "A prior nonsingular diagonal-quadratic map or evolution algebra classification might implicitly realize the count, especially in dimension three. Hu's cited full text was not accessible through the attempted routes.",
+        "The ternary spectrum's rational count overlaps, but geometric counts of its representatives as studied there are not determined. No exhaustive historical priority is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MOTIVATING_GAP_NOT_COVERAGE",
+          "evidence": "Asks to realize totals 2 through 2^n, reports n<=2, and discusses triangular constructions yielding at least n+1.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.22248v1",
+          "material_read": "Conjecture 6 and surrounding discussion, PDF p. 28, OA offset 97898",
+          "method": "OA primary PDF passage",
+          "title": "Evolution algebras: a survey of results and a list of open problems",
+          "trigger": "Same complex cardinality problem"
+        },
+        {
+          "assessment": "EXISTENCE_NOT_EXACT_COUNT",
+          "evidence": "Complex regular evolution algebras admit an idempotent; no exact total n theorem in that passage.",
+          "identifier_or_url": "10.1007/s00013-026-02251-0",
+          "material_read": "Section 3.3, Theorem 3.5, PDF p. 6/journal p. 602, OA offset 16000",
+          "method": "OA primary passage",
+          "title": "A note on complete evolution algebras",
+          "trigger": "Nonzero idempotents for complex perfect evolution algebras"
+        },
+        {
+          "assessment": "ACCESS_LIMITED",
+          "evidence": "Full text was not inspected; earlier implicit realization in dimension three remains a risk.",
+          "identifier_or_url": "https://www.preprints.org/manuscript/202610.1039",
+          "material_read": "Landing-page material only; cited introduction and Corollary 3 not retrieved independently",
+          "method": "Lawful OA attempts; webpage returned 403",
+          "title": "Full-Support Solutions and Rigidity for Three-Dimensional Evolution Algebras",
+          "trigger": "Plausible overlap for complex dimension three"
+        },
+        {
+          "assessment": "NOT_PERFECT",
+          "evidence": "One or zero nonzero idempotents depending on parameter; square is only two-dimensional.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.25023v1",
+          "material_read": "Theorem 2.1, PDF p. 3, OA offset 6800",
+          "method": "Primary literature search followed by OA PDF passage",
+          "title": "Idempotent-Free Non-Solvable Evolution Algebras over C",
+          "trigger": "Few-idempotent examples in complex dimension three"
+        },
+        {
+          "assessment": "COVERS_SINGLE_RATIONAL_SPECIALIZATION",
+          "evidence": "Table has 1800 labelled perfect matrices with two nonzero idempotents over F_3; support argument does not extend unchanged to the algebraic closure.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-exact-idempotent-count-spectra-of-three-dimensional-ternary-perf--0228f6cc0a9b/RESULT.md",
+          "material_read": "Finding, Assumptions and proof Step 1, offsets 0–3179",
+          "method": "Resultary and original local mirror",
+          "title": "Exact idempotent-count spectra of three-dimensional ternary perfect evolution algebras",
+          "trigger": "Exact finite spectrum in one relevant characteristic and dimension"
+        },
+        {
+          "assessment": "DIFFERENT_FAMILY_AND_COUNT",
+          "evidence": "For the family aI+bJ, the displayed sharp minimum is above n; this does not prove a universal minimum.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-idempotent-collision-spectrum-of-permutation-symmetric-evo--e6bbef61941b/RESULT.md",
+          "material_read": "Finding, assumptions and opening of proof, offsets 0–3186",
+          "method": "Resultary and original local mirror",
+          "title": "Exact idempotent-collision spectrum of permutation-symmetric evolution algebras",
+          "trigger": "Exact complex collision spectrum in every dimension for a matrix family"
+        },
+        {
+          "assessment": "RESTRICTED_FAMILY_AND_BASE_FIELDS",
+          "evidence": "Uses only the complete-graph adjacency matrix, counts over odd finite fields and quadratic extensions, and includes the nonperfect case when p divides n-1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-idempotent-point-counts-for-complete-graph-evolution-algebras--4a075844285b/RESULT.md",
+          "material_read": "Finding, assumptions and first proof equation, offsets 0–3019",
+          "method": "Resultary and original local mirror",
+          "title": "Idempotent-point counts for complete-graph evolution algebras",
+          "trigger": "All-dimensional finite-field point and geometric counts in a graph family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This realizes the first count below the discussed triangular-construction threshold in every complex dimension n>=3 and gives explicitly the full rational point list in all odd characteristics as well. The dimension-two seed followed by forced repeated-root extensions is a reusable construction mechanism. It resolves an infinite set of motivated spectrum instances without claiming a lower bound for other algebras or the remaining cardinalities of the conjecture.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

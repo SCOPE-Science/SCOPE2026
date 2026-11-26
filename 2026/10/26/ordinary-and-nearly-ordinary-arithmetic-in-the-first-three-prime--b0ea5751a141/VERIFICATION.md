@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,7 @@
   "schema_version": 1
 }
 ---
-# Reproducible verification
 
-Use `python verify.py` under Python 3.10+ with SymPy 1.14.0 or a compatible version. The script contains the complete defining equations and all exact finite computations. It does not read any additional files or access networks.
+# Exact characteristic-five verification
 
-For the geometrically smooth parameters \((p,k)=(3,2),(5,4),(7,1),(7,3)\), the computed genus and Hasse–Witt ranks are respectively \((10,10),(21,21),(36,35),(36,35)\); ranks of Hasse–Witt squares are equal in every case. Determinants are \(1\), \(4\), \(0\), \(0\) modulo their associated primes. For the two characteristic-seven matrices, the designated rank-35 minors have determinants \(4\) and \(4\), and their square-matrix minors have determinants \(3\) and \(4\). Groebner tests certify absence of singularities over algebraic closures on all affine charts.
-
-The certificate is a self-contained finite-field calculation, not an independently conducted audit or verification of claims at other primes.
+Run `python3 verify.py` under Python 3.10+ with SymPy. The script computes in the prime field of order five. It checks the listed singular witnesses for the four excluded parameters, verifies the three unit chart ideals for the remaining parameter, and computes the Hasse–Witt determinant of the smooth degree-eight member. It ends with `p=5 k=4 smooth genus=21 det=4 ordinary`. The arithmetic interpretation of the determinant is in `RESULT.md`. No computations for other primes are part of this certificate.

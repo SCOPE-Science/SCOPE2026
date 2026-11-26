@@ -1,17 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Claim:** The mean-square error of exact one-Gaussian-probe log-determinant estimation with a Gaussian Nyström preconditioner on \(\operatorname{diag}(tI_r,I_s)\) has the exact leading term \(2(r-\ell)_+\log^2(1+t)\), with a nonnegative contrast-uniformly bounded remainder. The sharp uniform boundedness condition is \(\ell\geq r\).
+## correctness
 
-## Correctness: PASS
-Gaussian quadratic-form variance is exact. The skipped spike eigenspace is invariant and has dimension \((r-\ell)_+\). On its orthogonal complement, the Nyström variational residual is bounded by \(1+\|VU^+\|^2\), independently of \(t\). A Gaussian minor and its QR chi factors provide the finite half-moment of \(\|U^+\|\), which yields finite expected squared logarithm. These jointly prove the exact leading coefficient and the iff threshold; 1,008 reproducible finite cases independently check the critical matrix identities. No numerical sample is treated as proof of an infinite statement.
+PASS
 
-## Originality: PASS, with residual risk
-The closest complete primary source, Cortinovis--Toni (arXiv:2601.05778, first public 2026-01-09; 2026 publisher version), defines the precise estimator and derives the ideal-truncation variance and a generic Nyström estimate requiring \(p\geq2\). Those assertions do not cover the present zero-oversampling two-level Gaussian-sketch iff criterion. Frangella--Tropp--Udell's Nyström PCG paper treats linear-solve conditioning, not this probe-variance observable. Published similarity and alias searches found conceptually related but non-covering spectral-filter and Gaussian-fluctuation results. Priority is not independently established, and unknown equivalent older arguments remain possible.
+Independently reconstructed the proof. The determinant factorization makes the estimator conditionally unbiased and the Gaussian quadratic-form variance is twice the squared Frobenius norm of log M. Almost surely ker(U^T) in the spike block has dimension (r-ell)_+ and gives exactly that many forced eigenvalues 1+t in a reducing subspace. In its orthogonal complement substituting c=U^+a into the Nyström residual variational formula bounds the residual by (1+||VU^+||^2)I; the inverse congruence is contractive since P>=I and preserves the complement. The remaining eigenvalues lie in [1,2+||VU^+||^2]. The least positive singular value of U dominates that of a square Gaussian subblock by Gram matrix monotonicity. Its inverse norm has a half moment by the adjugate bound, Hölder exponents 3 and 3/2 and the QR chi-product negative determinant moment of order 3/4, including a final chi with one degree of freedom. Independence of U and V and log^2(2+z^2)=O(1+z^(1/2)) give the contrast-uniform expected bound including the square case ell=r. This yields the exact diverging coefficient and both directions of the threshold.
 
-## Value: PASS
-The sharp sketch dimension \(\ell=r\) answers whether one probe remains mean-square reliable as a fixed number of dominant eigenvalues become arbitrarily large, with an explicit quadratic logarithmic loss below threshold. The result identifies a zero-oversampling regime omitted by the source's general error bound and explains why inverse-Wishart raw-moment difficulties need not doom logarithmic trace estimation.
+## originality
 
-## Limitations
-Only fixed-dimensional two-level positive-definite spectra, independent real Gaussian sketch and probe, exact arithmetic, and exact quadratic forms. No dimension-free constant or bound on Lanczos approximation, finite precision, general spectra, or runtime is proved. Residual priority uncertainty persists; independent audit is not yet performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact two-dimensional predecessor is credited as overlapping and stronger in its own case. The supported distinct result is the all-multiplicity Gaussian-sketch threshold, with a bounded remainder and a zero-oversampling boundary. No examined benchmark or broader theorem supplies that result.
+
+## value
+
+PASS
+
+The benchmark isolates exactly how many sketch directions are needed to prevent contrast-driven one-probe variance, even when ordinary square Gaussian inverse moments are too strong to use. The logarithmic observable permits a sharp conclusion at the no-excess-sketch boundary, and the exact coefficient distinguishes failure to capture the spike subspace from bounded error on the remainder. This is more than reproducing the dimension-two example or the ideal spectral benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

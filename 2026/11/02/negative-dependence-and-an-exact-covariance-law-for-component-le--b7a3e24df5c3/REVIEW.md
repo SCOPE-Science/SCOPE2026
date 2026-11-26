@@ -1,12 +1,21 @@
-# Scientific review: cross-root leaf dependence in multinomial Hoppe forests
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The conditional color law is Pólya/Dirichlet-multinomial; conditional separate component trees are independent Hoppe trees. Adding a vertex cannot reduce the ordinary-leaf count, whereas increasing one group’s size strictly reduces the other group’s available occupancy draws. The opposite-monotonicity conditional-regression argument proves the claimed negative quadrant inequality, including strictness for strictly increasing test functions. Exact increment recurrences give the stated mixed moment formula, and conditional \(L^2\) bounds give the limiting half-Dirichlet leaf vector. The standalone exact checker confirms 1,001 assertions over 14,779 attachment histories. The infinite statement is proved by these mathematical arguments, not by finite enumeration.
+## correctness
 
-## Originality (O): PASS, with priority risk
-Iksanov et al., arXiv:2403.16448v1, give the multiroot forest, Dirichlet-multinomial color sizes, and single-component leaf laws. Those established results are credited. The full mixed moment and strict, arbitrary-monotone-functional negative-regression conclusion concern joint behavior not directly specified by the inspected results. Searches of published mathematical records and accessible prior research records claims showed related one-tree leaf covariances and occupancy models but no matching cross-root Hoppe leaf result. Mahmoud and Smythe's 1991 rooted-subtree leaf article remained unreadable beyond archival cover material; implicit earlier priority cannot be excluded.
+PASS
 
-## Value (V): PASS
-The result gives a natural complete sign law for dependence of different forest components, a closed expression for all positive root weights, and the nonvanishing scaled dependence limit, clarifying why separate-component fluctuations need not decouple. It does not purport to be full negative association or a general Gaussian theorem.
+Grouping roots is equivalent to collapsing each group into one weighted root, since the parent weight is the sum of the grouped root weights and only ordinary leaves are counted. Given the colors, the component parent-choice probabilities factor into independent Hoppe growth processes; their leaf laws depend on the colors only through the sizes. Given group A's size s, the usual beta-mixture coupling generates B's size by n-s draws (or n-s deterministically for no remaining group), decreasing stochastically in s. For strictly increasing g the averaged leaf test strictly increases with the size, since root attachment has positive probability at every step and the leaf count never decreases. The conditional regression of the g-test against s is therefore strictly decreasing; independent-copy covariance of this regression and the averaged f-test proves the sign, strict when both tests are strictly increasing since N_A is nondegenerate. Independently expanding the increments for distinct roots gives the printed recurrences: in the mixed size-leaf equation the two existing size-leaf terms cancel, and in the leaf-leaf equation they give the two H terms against the subtraction of 2J. The factorization by root weights follows by induction from these recurrences and the size moments, not from assuming equal weights. I checked the three closed-form recurrence identities by exact rational simplification, using the empty and one-vertex values separately (and the two-vertex values for H and J). For the limit, conditional leaf variance obeys V_(m+1) <= (1-1/(a+m))^2 V_m + 1/4, giving V_m <= m/4 from m=1 onwards. The bias relative to m/2 is bounded uniformly for positive a, with T_0=0 treated separately. The conditional variance bound plus the Dirichlet color coupling proves the claimed L2 convergence and both limits; the limiting variances are strictly positive.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The model, size allocation and single-component leaf laws are prior. The arbitrary-transform aggregate ordinary-leaf dependence theorem, including strictness and arbitrary positive weights, is the distinct claim supported here. The moments are a closed-form evaluation for the model, not a new joint probability mechanism; the limiting covariance and correlation are standard consequences of the mixture and half-size leaf asymptotics. No primary passage checked establishes the joint strict sign theorem for these aggregate leaf counts.
+
+## value
+
+PASS
+
+A sign for every increasing transform of two disjoint groups is a useful joint constraint in a model whose earlier leaf results focus on single marginals. It distinguishes conditional tree independence from the unconditioned negative dependence induced by allocating a fixed population among competing roots. The exact covariance gives a finite-size benchmark, while the limits distinguish persistent random proportions from smaller within-component fluctuations. The meaningful new part is the aggregate dependence result, not the general urn machinery.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

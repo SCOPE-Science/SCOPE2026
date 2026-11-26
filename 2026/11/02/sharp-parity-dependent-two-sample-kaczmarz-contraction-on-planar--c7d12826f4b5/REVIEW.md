@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The orthogonal-projection energy identity, planar unit tight-frame sum, explicit maximum-of-two formula, and fixed-sign interval concavity force the global optimizer to the aligned/bisector angular grid. Finite trigonometric sum identities give the distinct even/odd exact expressions, and strict concavity excludes off-grid minimizers. The proof explicitly distinguishes a sharp *single-step* conditional inequality from its generally non-sharp iterated upper bound. The standalone standard-library verifier independently enumerates unordered pairs for all integers from 3 through 74, probes 7,200 angles, and checks parity gaps and limits. Finite testing is only corroborative.
+PASS
 
-## Originality — PASS, qualified
+For phi=pi/m, projecting on the selected unit row removes squared error ||e||^2 max(r_i,r_j), where r_j=cos^2(theta-j phi). All unordered pairs have equal weight, and sum r_j=m/2. Thus normalized progress is 1/2+D/[m(m-1)], where D=sum_{i<j}|r_i-r_j|. By the difference-of-cosines identity and counting ordered cyclic displacements d, D=(1/2) sum_{d=1}^{m-1} sin(d phi) sum_{i=0}^{m-1}|sin(2 theta-(2i+d)phi)|. For odd m, 2i+d ranges over every residue modulo m, so at theta=0 the inner sum and the outer weight sum both equal cot(phi/2); translating theta by phi/2 preserves the value. For even m, the even and odd displacement weight sums are respectively cot(phi) and csc(phi); at theta=0 the respective inner sums are twice these, and at theta=phi/2 they are exchanged. Thus the candidate D values are cot^2(phi)+csc^2(phi) and 2 cot(phi)csc(phi), with difference tan^2(phi/2)>0. Every possible crossing is on the half-step grid. Between these points D''=-4D<0 because a set of m>=3 distinct projected polygon vertices cannot all have one identical projection. Strict concavity and row-rotation symmetry exhaust minimizers, including m=3. Ties do not change the squared decrement. The one-row mean is exactly 1/2; conditional expectation iterates the optimal one-step inequality without claiming a sharp long-run rate. Small-angle expansions give both the stated limit and the even gap asymptotic. The numerical script was inspected, not executed; the angular proof supplies the uniform guarantee.
 
-De Loera, Haddock and Needell (arXiv:1605.01418) introduce the sampled-greedy method; Haddock and Ma (arXiv:1912.03544) obtain broader state-dependent rate estimates; Zhang and Li (arXiv:2211.16682) extend subset/block selection. Wright and Recht (Optimization for Data Analysis, Section 5.2.2) examine the *same* harmonic frame and calculate the ordinary one-row expectation of 1/2. The inspected source material does not state or imply the exact two-row without-replacement angular minimax constant, the parity-resolved equality cases, or the quartic even-row angular gap. Related published mathematical finding summaries on maximal-distance residual coherence and two-row cyclic Kaczmarz concern different observables/selection schemes. Priority cannot be guaranteed; an overlooked specialized angular-average identity remains a genuine risk.
+## originality
 
-## Value — PASS
+PASS
 
-The result supplies a tight, unconditional, state-uniform mean-square progress benchmark for a natural two-residual Kaczmarz/Motzkin sampling budget. It covers every frame size, not an arbitrary fixed example, and determines the exact numerical benefit over single-row sampling as well as its subtle parity geometry. It does not claim new algorithmic principles, asymptotically optimal multi-step rates, or improved wall-clock performance.
+The supported increment is the exact worst-direction two-sample constant for the full family of regular planar frames, including the parity-resolved equality directions and the finite even-row gap. The selection algorithm, the state-dependent residual identity, and the regular three-row case are not distinct contributions. Neither the fixed-three-row comparisons nor the general state-dependent bounds evaluate the remaining angular optimization over all row counts.
 
-## Limits and evidence
+## value
 
-The result assumes consistent equations in two dimensions, equally spaced unit rows, exact projections, and distinct uniform unordered pairs drawn afresh. The script is an independent *numerical check of the algebraic formula*, not a computer proof for all integers. Independent mathematical audit remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The formula quantifies the benefit of one extra sampled residual in a natural tight frame and gives a sharp benchmark for geometry-agnostic contraction bounds. The exact minimizers change with row-count parity even though the limiting constant is the same; the small quartic gap measures a genuine geometric difference rather than numerical error. This is a state-uniform one-step benchmark, not a claim about fastest implementation or an optimal long-run residual budget.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

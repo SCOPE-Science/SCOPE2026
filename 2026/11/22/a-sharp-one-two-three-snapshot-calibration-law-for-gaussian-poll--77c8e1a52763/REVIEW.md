@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every integer dimension \(d\ge1\), the three array-rank alternatives are exhaustive. The hyperplane case has an explicit reflection ambiguity for entire time traces; the full quadratic-rank case has an exact one-round logarithmic reconstruction. For affine-spanning co-spherical arrays, noncentral spatial log ratios recover age and source position from two rounds. At the circumcenter, the strictly increasing shifted harmonic-mean identity makes two **known-mass** rounds sufficient; the strictly one-turning-point two-age log ratio makes three **unknown-mass** rounds sufficient. A unimodal one-time profile and a strictly folded two-time ratio supply lower-bound counterexamples for every time gap. The standalone checker exercised 34,099 exact/numerical assertions. Neither finite numerical tests nor graph examples are invoked as infinite proofs.
+PASS
 
-## Originality — PASS, with residual historical risk
+The rank cases are exhaustive: affine deficiency permits a fixed reflection twin at every time; at full affine rank, dependence of the squared-norm column is equivalent by completing the square to lying on one sphere of positive radius. Full rank of H recovers the entire log quadratic from one round: its negative quadratic coefficient gives positive age for known D, its linear coefficient gives center, and its intercept gives mass. In the spherical case the vector of spatial log contrasts is proportional to (z−o)/(t−t₀), with a full-rank linear map, so two distinct times identify any off-center source and no such source is confused with an exactly central one. At the center g(u)=u^(−p)e^(−a/u) with a,p>0. Equal known-mass observations at distinct ages u<v require a/p to equal the integral of the weighted harmonic mean of u,v; that integral strictly increases on shifting both ages by any positive gap, so there cannot be a second match. The one-round collision follows from the strictly unimodal g with zero limits. In the unknown-mass case the derivative of log[g(u+h)/g(v+h)] has the sign of −p+a[(u+h)^(−1)+(v+h)^(−1)], strictly decreasing, so a fixed ratio cannot occur at three distinct offsets. Conversely g(u+Δ)/g(u) strictly decreases then increases, tends to infinity at zero and to 1 on the increasing tail, so levels strictly between its minimum and 1 give two distinct ages and positive mass rescalings for every gap Δ>0. The exact planar witness follows by bounding the stated exponentials (RESULT.md lines 113–119). Replay: RESULT.md Proof §§1–6, especially the two scalar derivative signs at lines 97–109; supplied checker inspected as text only. These are global structural minima for fixed exact sensor locations, a known isotropic D and noiseless, positively calibrated data, not per-source thresholds or finite-noise claims.
 
-The SampTA 2011 and Allerton 2011 full texts treat the same diffusion impulse kernel, and already demonstrate spatial recovery with \(d+1\) sensors using multiple time-derived measurements. The 2014 author manuscript and the relevant 2015 reconstruction framework use different generalized-sample or aggregation methods. Their results do not state or imply the complete minimum **raw instantaneous** measurement count on every spatial design, especially the sharp two-versus-three cospherical mass-calibration transition. The accessible 2026 unknown-diffusivity sensor theorem proves nonidentifiability of co-spherical arrays when diffusivity is *not* known; that stronger-unknown setting does not subsume identification in the present known-diffusivity setting. A separate known-age result treated unknown tensor but fixed puff age and does not imply the present joint age, mass and sensor-round phase law. A broad mathematical classification could exist under other inverse-source terminology, so independent priority assessment remains necessary.
+## originality
 
-## Value — PASS
+PASS
 
-The exact tradeoff is a motivated resource-design fact for impulsive pollution/thermal source identification: one can choose between one nonspherical round with at least \(d+2\) sensors, or \(d+1\) affinely spanning co-spherical sensors with two rounds after mass calibration or three rounds without it. The necessity statements explain when adding temporal observations can and cannot replace a missing sensor or a missing calibration. The result includes all source positions and times, including a difficult circumcenter singularity often overlooked by generic identifiability arguments. These are exact structural guarantees, not claims about optimal noisy placement or real atmospheric deployment.
+The supported distinct contribution is the sharp finite raw-snapshot classification, particularly the central 2-versus-3-round threshold under mass calibration. Earlier Gaussian-kernel reconstruction, log-quadratic interpolation and affine reflection are not in themselves distinct contributions.
 
-## Sources, comparisons and limits
+## value
 
-The strongest primary comparisons were the full author-hosted SampTA 2011 paper (Section 3, pp. 3–4), Allerton 2011 paper (Section 3), ICASSP 2014 paper (Section 3), accessible dissertation Chapters 3–4 containing the 2015 reconstruction framework, and the full publicly available unknown-diffusivity Gaussian-puff theorem (2026). The 2015 journal article was verified via its publisher abstract and the overlapping open dissertation rather than read as a standalone publisher PDF. The general inverse-source bibliography was not exhaustively searched. The mathematical statement assumes free-space homogeneous diffusion, calibrated raw concentration and noiseless data.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result resolves an exact resource tradeoff on minimal full-span arrays: externally knowing mass saves an entire observation round even though the obstruction is confined to one specific possible center. It also distinguishes arrays where time cannot compensate for missing spatial affine span from those where one added sensor can save two rounds. These are noiseless design and identifiability benchmarks, not claims of stability or field performance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,20 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The argument starts from the published definition of \(K_1\), changes to reciprocal logarithmic coordinates \(x=\tfrac12\log v\), and uses an exact hyperbolic representation. The quadratic Taylor coefficient reproduces the source's critical radical. At that radical, exact polynomial reduction gives the quartic coefficient in terms of \(R_k(s_k^*)\). The inequalities \(Q_k(18/7)<0\), \(R_k(18/7)>0\), and \(\partial_sR_k\ge0\) prove that coefficient is negative for every \(k\ge2\). The local branch and its square-root law then follow from the analytic implicit-function theorem. The accompanying symbolic replay reconstructs these identities rather than relying on a precomputed log.
+PASS
 
-Risk: the theorem is local. It does not establish global maximization or the complete number of Gibbs measures for \(k\ge5\).
+For q=3 and m=1 the finite sums give p_k(e^(2x))=e^(kx) sinh((k-1)x)/sinh x and p_k(e^(2x))+1=e^((k-1)x) sinh(kx)/sinh x. All exponential prefactors cancel; the resulting logarithm is even and analytic near the positive-domain center since Q_k(18/7)=-120/49, Q_k(0)<0 and its positive zero s*>18/7>2. Independently differentiated the original finite polynomials using power sums, then applied the log-derivative formulas: python -B reviews/check_potts.py verifies the exact quadratic, checks the critical quartic by polynomial remaindering modulo Q_k, verifies the slope at that root, and checks the sign identities. R_k(18/7)=3(43k^2+5k-2)>0 and dR_k/ds=7(k-2)(k+1)(2k-1)>=0, including k=2 where the slope in s vanishes. Thus c4*<0 while c2'(t*)=A_k>0. The analytic equation F_x/(2x)=c2(t)+2c4(t)y+O(y^2), y=x^2, has exactly one nearby analytic y-branch by the implicit-function theorem, y=C_k delta+O(delta^2), C_k=-A_k/(2c4*)>0. For small positive delta the two real noncentral roots have second derivative 4y times the negative y-derivative of that equation, while the center has positive second derivative. Conversion to log v multiplies x by 2, and substituting gives log height gain (A_k C_k/2)delta^2+O(delta^3). No side pair is asserted at delta=0, and none of the derivation addresses distant extrema. The frozen script was inspected, not run: it normalizes P used without definition in the prose, checks the quadratic, quartic reduction and sign certificates symbolically, and evaluates slope/branch signs at finitely many k; the slope identity and normal form were independently derived here, not inferred from that finite loop.
 
-## Originality
+## originality
 
-PASS. The closest source is Bogachev--Rozikov itself. It gives the reciprocal symmetry, the same critical value, and the sign change of the second derivative, but the inspected manuscript does not give the fourth-order coefficient, its all-
-\(k\) sign, the reciprocal side-branch theorem, or the onset amplitude. Its separate global monotonicity scheme is explicitly carried out only for \(k=2,3,4\). The closest older Bethe-lattice symmetry-breaking paper is zero-field, and the earlier translation-invariant Cayley-tree work is likewise zero-field/order-two.
+PASS
 
-Risk: an equivalent local normal form may exist in older weakly indexed literature under a different order parameter. Exact-source, exact-radical, quartic, reciprocal-symmetry, square-root-onset, and broader Bethe-lattice searches did not locate one.
+The distinct claim is the explicit nonzero quartic normal form at the known threshold for every tree order and the resulting local branch and height amplitudes. The threshold itself, reciprocal symmetry and generic bifurcation argument are not new. The global uniqueness conjecture is a different issue.
 
-## Value
+## value
 
-PASS. The critical value \(\widetilde\theta_1(k)\) is a distinguished boundary in the source's exceptional three-state analysis. The negative quartic coefficient identifies the local critical type for every tree order and quantifies how the reciprocal extrema emerge. This supplies structural information precisely where the source's all-order global picture is incomplete, without pretending to settle that global problem.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The normal form gives a substantive uniform local classification at the source's critical external-field boundary, distinguishing quartic nondegeneracy from mere second-derivative sign change. The branch and height exponents with exact constants are useful when analyzing maximization near that threshold. The result does not require or resolve global uniqueness for high tree orders, and is not a thermodynamic phase diagram.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

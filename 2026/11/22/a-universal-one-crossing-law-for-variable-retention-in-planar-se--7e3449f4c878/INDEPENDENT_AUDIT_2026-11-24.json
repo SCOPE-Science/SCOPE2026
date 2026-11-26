@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:45:42.384326Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independence of the nonconstant positive finite-mean retention time and planar Brownian motion gives R^2/(4 kappa) distributed as T times an independent unit exponential. At squared-radius scale s the signed tail difference is E exp(-s/T) minus exp(-s/m). With Y=1/m-1/T, the scaled difference F(s)=E exp(sY)-1 is strictly convex for s>0: exponential damping of the negative tail justifies differentiation on each compact positive interval, and the positive tail of Y is bounded. The right derivative at 0 is E Y, possibly -infinity (one-sided monotone convergence for the negative part of the difference quotient, dominated convergence for the positive part). Strict Jensen makes this derivative negative, and positive mass on a finite interval strictly above m forces F to diverge upward. Strict convexity then gives exactly one positive zero and positive slope there. The scaled derivative has the opposite sign from J(s)=E[T^-1 exp(sY)]-m^-1, itself strictly convex by positive-s differentiability. Its left limit is positive by Jensen (possibly +infinity, with monotone convergence on T<m); at the crossing J=-F'<0; it diverges upward by the same finite-interval argument with T^-1 bounded below there. The two zeros bracket the crossing and exhaust stationary points; the difference vanishes at 0 and at infinity, so they are strict global extrema. The curvature of exp(-s/t) has sign s-2t, proving strict Jensen brackets even at s=2a or 2b. For bounded centered nonconstant perturbations the uniform Taylor expansion through one s-derivative has leading factor e^-x x(x-2), x=s/m. Its simple zero at 2 and simple stationary points at 2+/-sqrt(2) persist by local sign bracketing and cannot be accompanied by other roots by the global theorem. The constant law is explicitly excluded. The frozen standard-library checker was inspected; its finite examples do not establish the infinite-law proof or test a truly infinite inverse moment.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2011 PLOS paper develops a Gamma-retention spatial kernel and comparisons/optimization as the retention-time variance changes, including fraction beyond a cutoff.",
+          "The randomized-settling model permits mixtures of exponential times and variable diffusivity but studies radial densities and heavy tails rather than exact comparison to constant mean duration.",
+          "The GCP first-passage example gives an implicit crossover and Jensen-type mean inequality; the Resultary first-passage theorem has distribution-general scope for a different kernel."
+        ],
+        "reasoning": "The established conditional kernels and parametric or tail-class analyses provide the probabilistic starting point but do not imply the exact sign and turning-point theorem for this comparator. No light/heavy-tail distinction alone controls the finite-radius order.",
+        "searches": [
+          "Guttal et al. DOI 10.1371/journal.pone.0028447, Eqs. 4–6 and beyond-cutoff discussion",
+          "arXiv:2509.16385 §§2.1,3",
+          "Resultary ef2108b88c43; arXiv:2403.10138 Eqs. 34–39"
+        ]
+      },
+      "checked_sources": [
+        "PLOS ONE e28447",
+        "Text S9 of e28447 (listing read, separate supplement not retrieved)",
+        "arXiv:2509.16385",
+        "Resultary ef2108b88c43 and c8c729ce867b",
+        "arXiv:2403.10138"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Products TE and mE, E independent unit exponential, satisfy convex order by conditioning on E; this implies an integrated stop-loss inequality, not the pointwise crossover or exact number of stationary points.",
+          "The distinct first-passage results apply to an erfc mixture and have their own weak-disorder constants, rather than the exponential mixture with scale s=r^2/(4 kappa)."
+        ],
+        "reasoning": "Even the abstract zero-count viewpoint for exponential transforms only supplies shape constraints until the matched-mean signs and existence are verified, including the singular inverse-moment case. The two different scaled strict-convexity tests and the perturbation calculation furnish exactly those endpoint-specific conclusions, not implied by the inspected stronger-looking comparison results.",
+        "searches": [
+          "Resultary ef2108b88c43 offsets 0–4104 and 5900–8629, and c8c729ce867b Finding",
+          "arXiv:2509.16385 Eq. (3)",
+          "PLOS e28447 Fig. 2 and beyond-cutoff discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At constant duration the matched comparator has exponential squared radius; random retention makes a scale mixture (or, after inversion, a Laplace transform of the random rate). A static diffusivity randomized independently at fixed time is equivalent for this planar endpoint observable by multiplying the time scale.",
+          "Gordillo–Greenwood's radial density formula integrates the same conditional Gaussian radial kernel for a random-rate settling submodel, and Guttal et al. discuss radial kernels and fraction beyond a cutoff.",
+          "The distinct Resultary static-diffusivity first-passage theorem integrates an erfc kernel of one-dimensional hitting times, not the exponential radius-squared survivor."
+        ],
+        "reasoning": "Density crossing, time-of-first-passage crossing, and crossing of endpoint cumulative tails are not equivalent. The derivative of the first-passage erfc kernel introduces a mixing-scale weight and therefore does not transfer its crossing theorem to the unweighted planar endpoint experiment.",
+        "searches": [
+          "planar Brownian diffusion random retention time matched mean radial cumulative tail unique crossing extrema",
+          "matched mean Brownian diffusivity mixture first-passage cumulative probability one crossing stronger ordering",
+          "arXiv:2509.16385 §2.1 Eqs. (1)–(3)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The local search returned the frozen item itself, not an independent match. The closest distinct calculus-indexed records give one cumulative crossing, two derivative/density events and weak-disorder constants for the one-dimensional hitting-time problem.",
+          "The ecological figure compares selected densities; the separately listed absolute-dispersal supplement was not recovered."
+        ],
+        "reasoning": "Neither the exact first-passage entries nor the selected parametric density comparisons tabulate the same observable or the three stated universal endpoint scales. The inaccessible supplement is not evidence of absence.",
+        "searches": [
+          "Resultary 7e3449f4c878, ef2108b88c43, c8c729ce867b",
+          "PLOS e28447 Figure 2 and Text S9 listing"
+        ]
+      },
+      "rationale": "Pass is for the exact radial cumulative-tail and two-extrema morphology at a fixed matched mean for arbitrary nonconstant positive finite-mean retention laws, with strict support brackets and the three weak-variation locations. This is not a claim that variable retention or random parameter mixtures were first seen to enhance long-distance dispersal. The closest no-contact-model ambiguity is between endpoint tails and first-passage probabilities; those kernels and time scales differ. Guttal et al.'s separate supplement is a specific unresolved risk, not negative evidence.",
+      "residual_risks": [
+        "The separately listed 2011 Text S9 could not be recovered; its detailed absolute-dispersal comparisons remain unchecked.",
+        "Equivalent exact comparisons in unindexed reliability or scale-mixture literature are not exhaustively excluded. No historical priority is inferred from search absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantive parametric kernel and long-range fraction overlap; not the exact arbitrary-law endpoint theorem in accessible material",
+          "evidence": [
+            "Gamma-retention spatial kernel; selected density comparisons and far-cutoff fraction; supplement title Absolute measure of long-distance dispersal."
+          ],
+          "identifier_or_url": "https://doi.org/10.1371/journal.pone.0028447",
+          "material_read": "Primary PLOS PDF p. 3 Eqs. 4–6 near offset 20500; pp. 4–5 Fig. 2 and cutoff fraction offsets 29900–35957; p. 9 Text S9 listing near 63600. Separate S9 not retrieved.",
+          "method": "Primary PDF passages read; bounded alternate PLOS/PMC supplement attempts unsuccessful",
+          "title": "Retention Time Variability as a Mechanism for Animal Mediated Long-Distance Dispersal",
+          "trigger": "Closest ecological comparator and retention kernel"
+        },
+        {
+          "assessment": "Covers mixture representation for random rates and kernel-density use, not the fixed-mean exact comparison",
+          "evidence": [
+            "Planar Brownian movement to a mixture-of-exponentials settling time; integrates the conditional radial density to obtain g(r)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2509.16385",
+          "material_read": "§2.1 p. 2 offsets 7899–10880, Eqs. (1)–(3)",
+          "method": "Located then read bounded primary PDF passages",
+          "title": "Parameter variability can produce heavy tails in a model for the spatial distribution of settling organisms",
+          "trigger": "Same planar endpoint kernel and random settling"
+        },
+        {
+          "assessment": "Analogous general CDF crossing and extrema for hitting times, not endpoint distance",
+          "evidence": [
+            "Quenched diffusion coefficient; one-dimensional first-passage CDF with support-scale brackets."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-unique-brownian-first-passage-crossover-for-every-static-diffu--ef2108b88c43/RESULT.md",
+          "material_read": "Finding and proof passages, offsets 0–4104 and 5900–8629",
+          "method": "Primary local-mirror passages",
+          "title": "A unique Brownian first-passage crossover for every static diffusivity mixture",
+          "trigger": "Closest general crossing theorem in the local index"
+        },
+        {
+          "assessment": "Uses prior first-passage crossing counts and extends first-passage weak-disorder scales",
+          "evidence": [
+            "The observables are first-passage CDF and density, and their limiting constants differ from 2 and 2+/-sqrt(2)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exactly-one-cumulative-crossing-and-two-density-crossings-for-he--c8c729ce867b/RESULT.md",
+          "material_read": "Primary Finding and comparison with the prior static diffusivity crossover",
+          "method": "Local mirror",
+          "title": "Exactly one cumulative crossing and two density crossings for heterogeneous Brownian first passage",
+          "trigger": "Three weak-disorder event locations in close analogue"
+        },
+        {
+          "assessment": "Implicit crossing for a model and Jensen mean-first-passage inequality, not an exact endpoint-morphology theorem",
+          "evidence": [
+            "Analyzes first-passage probabilities and describes the plotted crossing as typical for the example."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2403.10138",
+          "material_read": "pp. 5–6 Eqs. 34–39 offsets 37900–43956",
+          "method": "Primary PDF passages",
+          "title": "Sposini et al., diffusivity mixtures and first passage",
+          "trigger": "Plausible mixture crossing in primary literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Fixing mean retention also fixes mean squared displacement, yet the signed abundance beyond a radius changes sign exactly once and has a unique largest suppression and enhancement. That gives a useful sharp benchmark for arbitrary retention distributions, including multimodal laws and singular inverse-time moments, not just another parametric simulation of long-range dispersal. The curvature-based support bracket and weak-variation constants provide concrete scales. The result is a homogeneous independent planar diffusion benchmark, not an ecological prediction when motion and release are coupled.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

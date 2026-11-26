@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:05:11.809546Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions, Proof; frozen VERIFICATION.md and VERIFY.py (inspected only)",
+        "Independent replay: python3 /workspace/review_checks.py 3 (exact labeled two-bit closed-walk transfer, all 4,064 targets at lengths 5–11, checked fibers and totals; passed)"
+      ],
+      "rationale": "An output mark forces an occupied pair, and the cyclic 111 exclusion forces the immediate outer neighbors to zero. No two marks can be at gap 1 or 2, and filling just the occupied pairs realizes any allowed output. At gap 3 the two outer zero requirements coincide; at gap 4 there is no free site; at larger gaps the d-4 free sites form a path with no adjacent ones. This gives the product of F_(d-2) including a single marked pair followed by its own wraparound gap. At zero output the preimages are all cyclic independent sets, counted by F_(n-1)+F_(n+1) on fixing one site. Pointing an output mark multiplies by k, whereas assigning the marked coordinate gives n choices; counting ordered gap compositions therefore gives both sums, the singleton one allowing only gaps 3 and 4. For a gap series W(z), the 1/k weighting gives the formal sum -log(1-W(z)); multiplying its derivative by z introduces n, giving zW'/(1-W). Adding the zero word to the image yields the stated rational functions. The log-derivative power sums give leading Perron coefficients exactly 1; the two companion matrices are primitive (cycle lengths 1,3 and 3,4). The ratio is consequently as stated. For k≥2 the addition identity for F bounds the product by F_(n-3k+1)≤F_(n-5)<F_(n-2), and the Lucas zero fiber is strictly larger still. Choosing one representative per output is exactly the maximal injective codebook. All arguments use indexed rings and n≥5; the smaller coefficients of the rational series are only a formal extension.",
+      "residual_risks": [
+        "The independent transfer computation is finite and does not imply the all-length formula; the gap decomposition does. The title's entropy refers to exponential count growth, not a Shannon entropy result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fukś Introduction studies preimages of blocks on unrestricted configurations on Z under repeated updates; the appendix includes Rule 136 for eight basic blocks. Stanovnik et al. frame the result around non-overlap code constructions and bounds."
+        ],
+        "reasoning": "An unrestricted exact one-step cyclic AND classification for arbitrary target words could imply the restricted law, because a 111 triple in a preimage is detected as consecutive output ones. The inspected infinite-line short-block iteration census is not that cyclic classification, and run-restricted code counts do not classify inverse multiplicity.",
+        "searches": [
+          "Fukś, Sequences of Preimages in Elementary Cellular Automata: Rule 136, scope and appendix",
+          "Stanovnik–Moškon–Mraz arXiv:2410.18458v1, run-restricted cyclic binary codes"
+        ]
+      },
+      "checked_sources": [
+        "Fukś publisher paper",
+        "Stanovnik–Moškon–Mraz arXiv:2410.18458v1",
+        "Four Resultary/SCOPE records identified in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The majority singleton gap series is z²+z⁵+z⁶+z⁷, rather than z³+z⁴.",
+          "Fukś counts sequences for small block preimages in the unrestricted line setting; the code paper uses a non-overlap notion distinct from injectivity under a fixed observation."
+        ],
+        "reasoning": "Standard transfer matrices could be specialized to pose the problem, but the inspected statements do not carry through the forced-zero gap decomposition, all-target product, and the two dominant growth rates for this combination of rule and domain.",
+        "searches": [
+          "Fukś Introduction and appendix; Stanovnik et al. abstract/Introduction; exact Finding of the closest same-day majority record"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-day majority record a6b917e52dd3 explicitly uses hard-core (no 11) inputs and factors c_(g-2); its reachable gaps are {2}∪{5,6,…} and singleton gaps {2,5,6,7}.",
+          "The same-day Rule 150 record da32a32421a1 uses XOR on no-11 inputs, with double/triple fibers at some lengths divisible by 3. Rule 254 record 626495165f76 uses OR on no-11 inputs with factors indexed by output run lengths."
+        ],
+        "reasoning": "These parallel methods and indexed cyclic settings are not the same local map and domain. Complement exchanges OR and AND but sends the no-11 constraint to no-00, not no-111. Majority on hard-core inputs tests the two sites flanking the center, with the original hard-core coupling intact, and even its admissible gaps differ from those audited. Shared gap enumerators do not determine the gap multiplicities of this channel.",
+        "searches": [
+          "Adjacent AND / elementary cellular automaton Rule 136; cyclic 111-forbidden input and one-step predecessor counts",
+          "Resultary cyclic restricted fibers: majority, XOR (150), OR (254)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/22/SCOPE-exact-fibonacci-inverse-fibers-and-singleton-entropy-for-a-const--9be8ae66e781 is the assigned record itself.",
+          "The Rule 136 row is within an eight-basic-block preimage-sequence table (appendix pp. 41–42), not a table of cyclic targets with restricted preimages. The exact row formula was not reliably extracted.",
+          "Distinct concrete same-day catalogued classifications were compared under equivalent_formulations."
+        ],
+        "reasoning": "None of the inspected distinct tables or records enumerates these same target fibers or these same image and singleton count sequences for this channel. Same-day dates supply no priority ordering.",
+        "searches": [
+          "Resultary exact Rule-136 conjunction inverse fiber and singleton entropy comparison",
+          "Fukś appendix Rule 136 row"
+        ]
+      },
+      "rationale": "Bounded comparison found structurally close cyclic counted-preimage results but not an existing restricted cyclic AND fiber classification or singleton-growth result implied by the inspected sources. The novelty assessment does not extend to the gap-composition method, Fibonacci/Lucas laws, or CA transfer methods as such.",
+      "residual_risks": [
+        "Equivalent cyclic Rule 136 results could exist in unindexed CA literature.",
+        "No assessment of the garbled Rule 136 appendix formula beyond its documented scope is used to support the verdict."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant but different target lengths, configuration space and time direction of enumeration",
+          "evidence": [
+            "The table includes Rule 136 and counts iterative preimages of eight basic blocks, not arbitrary cyclic outputs; its row formula was not legible in text extraction."
+          ],
+          "identifier_or_url": "https://content.wolfram.com/sites/13/2023/02/14-1-2.pdf (doi:10.25088/ComplexSystems.14.1.29)",
+          "material_read": "Introduction pp. 29–31; appendix/table pp. 41–42",
+          "method": "Publisher OA PDF, targeted passages and table scope",
+          "title": "Sequences of Preimages in Elementary Cellular Automata",
+          "trigger": "Rule 136 preimage counts"
+        },
+        {
+          "assessment": "Different code criterion and objective",
+          "evidence": [
+            "Studies constrained cross-bifix/non-overlap code design and bounds, not this channel's fibers."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2410.18458v1",
+          "material_read": "Abstract and Introduction p. 1",
+          "method": "OA paper",
+          "title": "On maximal almost balanced non-overlapping codes and non-overlapping codes with restricted run-lengths",
+          "trigger": "Cyclic run restriction and codebook size"
+        },
+        {
+          "assessment": "Analogous output invariant, different map and constraint",
+          "evidence": [
+            "Indexed ring; majority on no-11 sources; product c_(g-2) with different feasible and singleton gaps."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-periodic-majority-image-fibers-over-the-binary-hard-core-s--a6b917e52dd3",
+          "material_read": "RESULT.md, Finding and Assumptions and scope, offset 0",
+          "method": "Resultary, then exact local-mirror mathematical statement",
+          "title": "Exact periodic majority-image fibers over the binary hard-core shift",
+          "trigger": "Closest distinct gap-product and singleton asymptotic parallel"
+        },
+        {
+          "assessment": "Parallel classifications not covering this rule and constraint",
+          "evidence": [
+            "XOR on no-11 inputs gives a length-modulo-three fiber phenomenon; OR on no-11 inputs factors by one-runs."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-restricted-predecessor-spectrum-for-cyclic-rule-150-on-the--da32a32421a1; 2026/11/22/SCOPE-exact-inverse-fibers-and-output-capacities-of-cyclic-rule-254-on--626495165f76",
+          "material_read": "Both mirrored RESULT.md Finding passages, offset 0",
+          "method": "Resultary and local-mirror inspection",
+          "title": "Exact restricted predecessor spectrum for cyclic rule 150 on the hard-core shift; exact inverse fibers and output capacities of cyclic rule 254",
+          "trigger": "Distinct indexed CA classifications with similar invariants"
+        },
+        {
+          "assessment": "Same assigned record",
+          "evidence": [
+            "Same map, domain and formulas."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-fibonacci-inverse-fibers-and-singleton-entropy-for-a-const--9be8ae66e781",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Resultary and local mirror",
+          "title": "Exact Fibonacci inverse fibers and singleton entropy for a constrained cyclic conjunction channel",
+          "trigger": "Exact catalogue match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, extrema and asymptotics",
+        "Fukś CA preimage scope; same-day majority and OR analogues for mathematical context"
+      ],
+      "rationale": "For the indexed detector that reports adjacent coincident ones, one needs both the size of an optimally chosen zero-error codebook and the fraction of outputs inherently determining the input without such a codebook. The exact per-output law yields both and explains why exponentially many uniquely recoverable outputs still form a vanishing share. The constrained input is natural for separating occurrences of occupied pairs, and the classification covers every target rather than selected patterns or small lengths.",
+      "residual_risks": [
+        "No efficient ranked encoder, arbitrary-noise analysis, or nonindexed necklace classification follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

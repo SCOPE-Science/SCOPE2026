@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:46:09.242141Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent event-pair proof: if W is the off-diagonal jump-rate matrix and lambda=W1, the stationary ordered-pair event density at positive lag u is pi W exp(uQ) W1. Reversibility gives (pi W)_i=pi_i lambda_i. Subtracting the squared mean yields Var(C_T)=mu T+2 times the integral of (T-u)<f,exp(uQ)f>_pi from 0 to T for f=lambda-mu. The centered finite-chain inverse gives the asserted Green identity and long-time ratio. Every hop changes shore count. The three rates of departure are 2m,N-2,2n in order of 0,1,2 particles on the m shore, with hypergeometric equilibrium weights. Set the middle Poisson potential to zero; the two end potentials are [N plus/minus (m-n)(N-2)]/[N(N-1)]. The Dirichlet terms after division by the mean and multiplication by two have weights (n-1)/(N-2), (m-1)/(N-2) respectively, so an absent endpoint contributes zero. Expanding their squares gives N^2+(m-n)^2[(N-2)^2-2N] over N^2(N-1)^2. The sign change is exactly between 5 and 6. The energy can vanish only for constant jump intensity, which requires m=1,n=3 up to exchange; then each holding time is independently exponential of rate 2 and the full process is Poisson. At N=3 there is only K_1,2 with F=10/9. Central and star large-N claims follow directly. `python3 /workspace/reviews/replay_finite.py 2` independently solved exact grounded linear systems on all 19 unordered full configuration graphs for 3<=N<=9, with agreement. The frozen verifier was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "016805168b38 gives the Green variance identity and proves the Poisson characterization for complete graphs and balanced-occupancy stars in the interacting regime.",
+          "Mendonça gives the unmarked spectrum on complete bipartite graphs; Vanicat et al. relate marked activity and current generators for one-dimensional chains."
+        ],
+        "reasoning": "The finite-graph result implies the Poisson subclaim for K_m,n at interacting occupancy, but it does not evaluate the Fano ratio for every bipartition. An unmarked spectrum or one-dimensional marked mapping supplies method and context, not the evaluated topology reversal.",
+        "searches": [
+          "Resultary 016805168b38, finite-graph Poisson activity classification",
+          "arXiv:1207.4106, Sec. 4",
+          "arXiv:2011.02202, Sec. 2.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 3986b056b986, 016805168b38, 9e35afb2f386",
+        "arXiv:0804.2590, 1207.4106, 2011.02202"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the star, substituting |m-n|=N-2 in 3986b056b986 gives (N-4)^2/N^2; for balanced shores substituting imbalance 0 or 1 gives the frozen minimum order N^-2. The earlier general graph result gives the actual Poisson process at N=2k on stars, not just F=1."
+        ],
+        "reasoning": "The formula, order reversal, asymptotic consequences and full star exception are all stated or mechanically implied by verified coverage. Exact equivalence does not identify who first proved it.",
+        "searches": [
+          "Resultary 3986b056b986, Finding; Resultary 016805168b38, Finding and Green/Poisson proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "3986b056b986 counts all successful hops, at unit rate per admissible exchange, from uniform equilibrium on exactly two occupied sites. Its formulas, reversed extremizers at 5 versus 6, and exceptional K_1,3 agree verbatim up to notation for N>=4."
+        ],
+        "reasoning": "The variable change (r,s,n) to (m,n,N) is only notational; marking and time conventions agree. The lone N=3 case adds no regime or competing split.",
+        "searches": [
+          "Resultary: two-particle exclusion successful-hop counting noise on K_m,n and bipartition-balance reversal",
+          "Resultary 3986b056b986, Finding and scope"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "3986b056b986 contains the symbolic all-bipartition law, stronger than an instance table.",
+          "H(2,2)=K_2,2 is an exact F=10/9 instance in the Hamming result and follows independently from the L=4, two-particle ring cumulants."
+        ],
+        "reasoning": "The square is a check only, whereas the full symbolic catalogue overlap settles the range with nontrivial comparisons. No numerical table is needed to infer it.",
+        "searches": [
+          "Resultary 3986b056b986",
+          "Resultary 9e35afb2f386, Hamming graphs",
+          "arXiv:0804.2590 Sec. II, exact ring cumulants"
+        ]
+      },
+      "rationale": "Demonstrable result-level overlap, not an inference about priority. The distinct catalogue record 3986b056b986 states the identical evaluated formulas, fixed-order reversals and unique star exception for N>=4 under the same dynamics, and its conclusions imply the frozen asymptotic comparisons. The additional N=3 boundary is the lone two-state case, not a distinct substantive claim. The full Poisson-process characterization also follows from the independently indexed general finite-graph theorem 016805168b38. Thus no supported distinct main claim remains against the verified catalogue coverage. The calendar paths alone do not establish who obtained the theorem first or whether the overlap reflects independent derivations.",
+      "residual_risks": [
+        "No provenance or priority adjudication between the two equivalent catalogue findings.",
+        "Other primary literature may contain an evaluated specialization; the verdict does not depend on its absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical scientific main claim for N>=4; calendar path is not a priority determination",
+          "evidence": [
+            "Same mu, F, strict extremizers, K_1,3 exception and successful-hop assumptions."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-bipartition-balance-reversal-in-two-particle-exclusion-activity--3986b056b986",
+          "material_read": "Mirrored RESULT.md opening through first proof step, offsets 0–3178; relationship discussion offsets 7850–10253",
+          "method": "Local catalogue lookup and mirror passage inspection",
+          "title": "Bipartition-balance reversal in two-particle exclusion activity on complete bipartite graphs",
+          "trigger": "Possible entire-claim overlap"
+        },
+        {
+          "assessment": "Covers the Poisson exception for N>=4 and general variance technique, not the evaluated reversal",
+          "evidence": [
+            "Green formula and interacting occupancy complete-graph or N=2k star equality criterion."
+          ],
+          "identifier_or_url": "Resultary 016805168b38",
+          "material_read": "Mirrored RESULT.md Findings and relevant proof, offsets 0–2414 and 2800–5533",
+          "method": "Local mirror",
+          "title": "Poisson activity on finite exclusion networks: a complete graph classification",
+          "trigger": "Potential stronger Poisson criterion"
+        },
+        {
+          "assessment": "Overlap at the square, not general K_m,n",
+          "evidence": [
+            "H(2,2) is K_2,2, with F=10/9."
+          ],
+          "identifier_or_url": "Resultary 9e35afb2f386",
+          "material_read": "Mirrored RESULT.md Finding and comparison, offsets 0 and 7200–9358",
+          "method": "Local mirror",
+          "title": "Exact jump-activity noise for two-particle exclusion on Hamming graphs",
+          "trigger": "Exact common small graph"
+        },
+        {
+          "assessment": "Covers the four-cycle case, not the family",
+          "evidence": [
+            "The L=4 two-particle ring gives F=10/9 from its two activity cumulants."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0804.2590",
+          "material_read": "Sec. II, pp. 2–3, Eqs. 1–12",
+          "method": "PDF passage comparison",
+          "title": "Universal cumulants of the current in diffusive systems on a ring",
+          "trigger": "Published exact counted-activity formulas"
+        },
+        {
+          "assessment": "Unmarked spectral data, not the marked Fano result",
+          "evidence": [
+            "Ordinary spectrum and spectral gap on complete bipartite graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1207.4106",
+          "material_read": "Sec. 4, pp. 7–8, Eqs. 15–18",
+          "method": "PDF passage comparison",
+          "title": "Exact eigenspectrum of the symmetric simple exclusion process on the complete, complete bipartite, and related graphs",
+          "trigger": "Exact ordinary generator for same graph family"
+        },
+        {
+          "assessment": "Relevant method on chains, not an all-bipartition evaluation",
+          "evidence": [
+            "Deformed generators relate activity and current on periodic and open chains."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2011.02202",
+          "material_read": "Sec. 2, especially Sec. 2.2 and Eq. 2.8, pp. 3–4",
+          "method": "PDF passage comparison",
+          "title": "Mapping current and activity fluctuations in exclusion processes: consequences and open questions",
+          "trigger": "Potential activity mapping of sufficient generality"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The reversal and the exact invariant are substantively interesting, but they are already represented by a distinct, statement-equivalent catalogue finding. The only extension in the frozen scope is the graph K_1,2, which has no topology comparison and is an immediate two-state calculation; it does not supply an independently useful remainder.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

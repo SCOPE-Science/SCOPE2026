@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every cap \(J\ge1\), survival profile \(s_j\in(0,1]\), episode fraction \(p\in[0,1]\), and nonnegative initial mass vector, the linear transition is specified in `RESULT.md`. Direct matrix multiplication proves that the sole nonzero entries of the adjacent-swap commutator have value \((p-q)s_{j+1}(s_j-s_{j+1})\). All transitions are nonnegative, so the sign survives multiplication by arbitrary common prefix and suffix products. A finite sequence of adjacent swaps then proves global size-resolved optimality for all schedules. The converse uses initial mass in exactly one class and two episodes; it also covers the constant and nonmonotone cases. The standalone exact-rational verifier passed 28153 checks. Finite checks are corroboration, not the proof.
+PASS
 
-## Originality — PASS on inspected evidence
+Reassessed complete replacement repairs/1/RESULT.md; no change to the mass theorem, transition rule or supporting checks. The original Limitations wrongly suggested fixed-generation counts need not inherit the componentwise mass order even while noting fixed classwise rescaling. The replacement states exactly when count conversion is valid: c_j=2^j x_j/m_0 for a common generation-zero mass m_0, so a positive diagonal map preserves the ordering and its converse; variable particle mass within a bin is outside that inference. For the final mass theorem, direct expansion cancels the p q term, leaving (p-q)D(BD-DB), whose only possibly nonzero entries are (p-q)s_(j+1)(s_j-s_(j+1)) on the first subdiagonal including the transition into the cap. For p>q, T(p)T(q) means q then p. Every earlier and later transition product is nonnegative, so adjacent swaps give simultaneous sorted maximality under the indicated survival ordering. Each wrong-sign coefficient is detected by the same two rates acting on e_j; strict positivity of s_(j+1) is needed for necessity. This verifies both iff orientations, mixed rises/falls, constant survival, ties and p=0 or 1. The exact sample vectors match direct two-step substitution. Frozen checker and verification notes were inspected, not executed; neither needs replacement.
 
-Actual comparisons included the full accessible arXiv manuscript arXiv:2307.04162 (especially the model, its inflation discussion, and Appendix A), marine fragmentation-and-transport work from 2022, size-dependent sinking work from 2021, and the prior literature on stochastic rearrangement and killed birth–death chains. Earlier results cover fragmentation recurrence, loss processes, and broad rearrangement techniques, but the inspected statements do not present this precise *componentwise, every-schedule, necessary-and-sufficient* ordering classification for a capped mass cascade. Research-record similarity searches for fragmentation, stochastic matrix interchange, and monotone killing returned no corresponding claim. The older general scheduling paper and some environmental articles could not be inspected completely; mathematical priority remains provisional rather than certain.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem makes a structural prediction for coupled breakdown-and-sinking models: when smaller fragments are removed more efficiently, shifting high-fragmentation years later improves the remaining mass in every resolved class, not only the total. The sharp converse identifies exactly which survival patterns support the rule and when an order-independent baseline is valid. This is a meaningful classification of a physically motivated family of models, not a claim about measured pollution or clinical/ecological safety.
+The final distinct claim is the universal if-and-only-if temporal criterion for simultaneous componentwise final mass in the capped, fixed-batch cascade. The repaired count conversion is a rescaling and has no separate novelty. This is not a claim of a new interchange method or of prior ignorance of size-dependent marine loss. After direct inspection, the nearest birth–death comparison orders extinction time by starting state, not terminal bin mass by transition schedule. Indexed neighboring results use adjacent swaps for different transition families or optimize a different fragmentation outcome.
 
-## Scientific limitations
+## value
 
-This is an expected-mass, homogeneous-within-episode, single-batch, discrete-time model with stationary class-dependent loss and an absorbing lowest size class. Non-monotone retention, new sources, size-dependent break probabilities, interactions and coastal mixing lie outside the proved universal schedule claim. Some relevant older mathematical work is abstract-access only, so independent historical-priority examination remains worthwhile.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a natural finite cascade with stationary selective loss, the result answers when one schedule optimizes all retained bins simultaneously, and when no sorted orientation can be universally recommended. The two-step witnesses and the reversible sign criterion make this an exact structural classification, stronger than a scalar total-mass recommendation. It is valuable for the model, not advertised as calibrated marine management guidance; the count correction removes an inconsistency without changing that contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:40:09.376580Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the revised theorem set d=max S≥2. gcd(S)=1 leaves only the simple unit-circle pole 1; strict monotonicity of the probability polynomial on the positive axis rules out other positive poles. There are nonunit poles because the polynomial has degree d, and the top partial-fraction coefficients there do not vanish. After exponential and polynomial normalization the dominant error is a bounded real sum of distinct nonconstant unit frequencies, so its Cesàro mean is zero and its mean square strictly positive. An eventually one-signed error would make the opposite part of the sum tend to zero and force its mean square to vanish. Coupled with the exact nonnegative-coefficient recurrence for e_n at n≥d, this excludes a one-signed block of d terms anywhere from n=0. For curvature, let R_i=u_i/u_{i−1}. A block of d curvatures starting at s≥1 on which all u_{s−1},…,u_{s+d} are positive has curvature signs given by the d consecutive ratio differences. At t=s+d the ratio obeys R_t=Σ_j (p_j u_{t−j−1}/u_{t−1})R_{t−j}, from the renewal recurrences at t and t−1. The coefficients are nonnegative, sum to one, and that of R_s is strictly positive because p_d>0. If the d differences have only one weak sign, this last-step convex average forces R_s=R_t, hence every ratio in the block equals some x>0. The recurrence then gives f(1/x)=1, hence x=1, and propagates the constant masses forever, a contradiction. Convergence to L ensures eventual positivity, even when p₁=0. Disjoint d-blocks give the four lower bounds 1/d. The truncated-geometric example has a raised first mass in each block and all other masses equal to its increasing baseline A_m. Its error is positive and its curvature negative exactly at multiples of d on the appropriate domains; this includes d=2 and proves sharpness of the common bounds. The analytic proof establishes the universal quantifiers. Independently authored Python exact checks reproduced the frozen sign counts (`python3 reproductions/frozen_math_checks.py`) and the repaired sharpness examples for d=2..9 with three ratios (`python3 repairs/3/verify_sharp_blocks.py`, 24 examples); neither constitutes a general proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bell–Gerhold treats real constant-coefficient recurrences; its general class includes arbitrarily small positive densities. Kelmendi addresses densities and computation for recurrence sequences. Nikolov–Savov give the recent max–min mass inequalities for 0<p₁<1 and monotone envelopes."
+        ],
+        "reasoning": "The unquantified density implications are shared. The renewal ratio comparison exploits a strictly positive weight on the oldest ratio and the exact geometric equality case; the mass-envelope inequalities alone do not bound the gaps between curvature signs by d.",
+        "searches": [
+          "Bell–Gerhold arXiv:math/0506398, Thms. 1–2 and 11",
+          "Kelmendi arXiv:2109.14432, Thm. 1.4 and Thm. 2.2",
+          "Nikolov–Savov arXiv:2307.00545v1, Prop. 3.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_renewal.py and verification_output.txt",
+        "Repaired RESULT.md and supporting scientific files in repairs/3",
+        "Bell–Gerhold arXiv:math/0506398; Nikolov–Savov arXiv:2307.00545v1; Kelmendi arXiv:2109.14432, specified passages",
+        "Local Resultary record 23d76e5fa7f1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Apply Bell–Gerhold directly to the error and curvature generalized power sums: nonunit reciprocal poles give modulus ρ<1 with no positive dominating root, and the h_n quadratic roots have modulus ≤ρ². Nikolov–Savov's envelopes, with convergence to the renewal limit, already give related error-window behavior when p₁>0; the explicit phase-law record is for a different support regime."
+        ],
+        "reasoning": "This proves original coverage including both curvature signs, without any rational/algebraic restriction. The sharp d-block requirement is not recovered: the recurrence sign-density theorem discards the nonnegative renewal recurrence giving the ratio convexity and does not yield a curvature block or the exact uniform 1/d value. The repaired claim adds this content rather than relabeling the original theorem.",
+        "searches": [
+          "Bell–Gerhold arXiv:math/0506398, p. 2 Theorems 1–2 and §3 proof",
+          "Nikolov–Savov arXiv:2307.00545v1, Prop. 3.1, p. 3",
+          "Resultary 23d76e5fa7f1, exact generating-function example"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bell–Gerhold directly covers the unquantified strict signs, and its open-set rotation argument can suggest sequence-dependent bounded gaps. Nikolov–Savov study mass envelopes, not gaps between rises and falls of successive ratios."
+        ],
+        "reasoning": "The curvature formulation is equivalent on positive masses to both signs in successive-ratio changes. A law-dependent syndeticity statement or existence of a positive natural density is not the block length d, uniform in the probabilities for fixed maximum step.",
+        "searches": [
+          "Local Resultary searches for finite-support renewal sign gaps and curvature reversals",
+          "Primary-literature searches on linear recurrence sign densities and uniform/short gaps in finite-support renewal curvature",
+          "Bell–Gerhold arXiv:math/0506398, Theorems 1–2 and §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "That record computes a specific infinite-support law with four-phase oscillations. Its formula implies positive density for both mass-error signs and both curvature signs for that law."
+        ],
+        "reasoning": "There is no tabulated numerical value claimed. The relevant exact comparison is the periodic sign pattern: one infinite-support law, even with explicit phases, does not produce a sharp finite-maximum-step family for each d.",
+        "searches": [
+          "Local Resultary renewal phase-law record 23d76e5fa7f1, Finding and Proof §§1–2",
+          "Exact prior pattern comparison against the truncated-geometric maximum-step family"
+        ]
+      },
+      "rationale": "Pass the repaired, sharp maximum-step block bound for curvature and the resulting sharp common 1/d lower density, not the original unquantified signs. The strongest inspected general sign theorem proves the original claim but supplies no d-block guarantee. The closest renewal envelope argument overlaps the error-block portion; it does not give the local ratio recurrence with time-varying weights, the curvature-block conclusion, or sharpness. This is limited to the inspected evidence.",
+      "residual_risks": [
+        "An older ratio-recurrence or finite-support renewal gap formulation could give equivalent sharp curvature coverage beyond these bounded comparisons.",
+        "The frozen Berenhaut–Lund and Liggett references remain unresolved full-text leads on convergence rates and total positivity, respectively; no negative full-text judgment is made. These leads are not the basis for the resolved original coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strictly stronger than the original density conclusion, but not a d-dependent repaired bound",
+          "evidence": "Theorem 2 gives positive natural density of each strict sign for a nonzero real recurrence with no positive dominating characteristic root; Theorem 1 gives existence of density. The comparison to h_n uses its dominant linear component, not just formal closure under products. The attainable densities in the general class do not give a renewal-specific sharp estimate.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0506398",
+          "material_read": "Definition of real recurrence and Thms. 1–2 at pp. 1–2 (offset 0); §3 proof at offsets 14530ff, pp. 6–8; possible densities Thm. 11 p. 9",
+          "method": "OA arXiv PDF text",
+          "title": "The Positivity Set of a Recurrence Sequence",
+          "trigger": "Decisive general result for all four original signs"
+        },
+        {
+          "assessment": "Related envelope and error-window behavior, not the sharp curvature block theorem",
+          "evidence": "The p₁∈(0,1) statement gives strict comparison of u_n to recent min/max, monotone enclosing sequences, and nonultimate monotonicity of masses. Those envelopes converge to L; the result does not impose analogous inequalities on ratio changes.",
+          "identifier_or_url": "https://arxiv.org/pdf/2307.00545v1",
+          "material_read": "§3 Prop. 3.1 and Remark 3.2, p. 3, offset 8770ff",
+          "method": "OA arXiv PDF text",
+          "title": "Properties and conjectures regarding discrete renewal sequences",
+          "trigger": "Closest same-object assertions about oscillation and recent-window envelopes"
+        },
+        {
+          "assessment": "Relevant general sign-density background; Bell–Gerhold is the direct coverage source",
+          "evidence": "The diagonalizable positivity-set result identifies vanishing density with a finite positivity set in its scope; the general density-existence theorem is attributed to Bell–Gerhold. No renewal-specific d-block bound in the inspected statements.",
+          "identifier_or_url": "https://arxiv.org/pdf/2109.14432",
+          "material_read": "Abstract and Thm. 1.4, pp. 1, 3; §2 Thm. 2.2, p. 8",
+          "method": "OA arXiv PDF text",
+          "title": "Computing the Density of the Positivity Set for Linear Recurrence Sequences",
+          "trigger": "Stronger general sign-set density and computation machinery"
+        },
+        {
+          "assessment": "Exact signs in a particular infinite-support example, not a finite-support theorem",
+          "evidence": "The error about 1/4 has leading term (q^m/2)(cos(πm/2)−sin(πm/2)), q=√2−1. Substitution into curvature also gives opposite leading signs in residues 1 and 3 modulo 4; the increment law has weights at all j≥3.",
+          "identifier_or_url": "2026/10/18/SCOPE-a-four-phase-exact-renewal-law-for-renormalization-scales-of-a-r--23d76e5fa7f1",
+          "material_read": "Finding and Proof §§1–2, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary mirror text",
+          "title": "A four-phase exact renewal law for renormalization scales",
+          "trigger": "Closest exact catalogue oscillation pattern"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp bound of d on the window needed to witness both signs is a useful local obstruction to curvature stability in finite-support renewal models and entails a law-independent quantitative density floor at fixed maximum support. It resolves a natural question not answered by density positivity, includes missing unit interarrivals after masses become positive, and the extremizers explain why no shorter common window can work. The repaired claim does not promise individual sign densities or universal onset without its stated positivity condition.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:38:04.205934Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Assumptions and scope, Proof (lines 5–86)",
+        "Frozen VERIFICATION.md and check.py, inspected without executing uploaded code",
+        "Independent Bessel-transform evaluation: at t=10⁻³ and 3×10⁻⁴, gains per t were 3.347800120 and 3.344759485 for d=2 (limit 3.343448881), and 2.385454528 and 2.383690039 for d=3 (limit 2.382932276)."
+      ],
+      "rationale": "The normalized sphere kernel solves φ″+(d−1)φ′/s+φ=0 and φ′ has the sign of −J_{d/2}. At its first two positive critical points s₁ and s₂, the values are negative and positive respectively by the Bessel recurrence and the simple-zero crossing signs. The energy φ²+φ′² decreases, bounding the magnitude after each critical point by its value there. Together with monotonicity up to s₁ and between s₁ and s₂, this proves precisely the needed global minimum and exterior maximum. For s₁≤s<s₂, the normalized transform is at most b_d(s)+t(φ(s₂)−φ(s₁)) for every admissible set; no radial moment or bounded support is needed. Its upper envelope crosses zero near s₁ with derivative −A_d<0 in frequency, and continuity plus positivity at zero then bounds every first zero. For the explicit set, subtract the integral over v∈[1−t,1] and add the integral over v∈[a^d,a^d+t], where v=r^d and the integrand is φ(sv^(1/d)). This gives the claimed C¹ first variation and O(t²) error locally in s. The resulting simple root is first by positivity below a fixed neighborhood and monotonicity inside it. The recurrence at the two J_{d/2} zeros gives the displayed coefficient, with the factor s₁/d in the unscaled Fourier convention.",
+      "residual_risks": [
+        "Numerical checks are finite corroboration only. The proof is for d≥2 and small t; it neither assumes nor proves a finite-budget classification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The newer negative isoperimetric results concern centrally symmetric convex bodies at fixed volume; the older result builds balanced star-shaped near-disk examples."
+        ],
+        "reasoning": "Neither establishes a local uniform upper bound with matching shell placement for measurable radial sets, which include disconnected and unbounded sets.",
+        "searches": [
+          "arXiv:2609.10517 abstract and introduction",
+          "arXiv:0801.1617 Theorem 2.8 and §9"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0801.1617",
+        "arXiv:2609.10517",
+        "Resultary e36f73ce7769, 72c1da0f9bb0, 08d6dce0baa0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The spike proof is a witness rather than a uniform upper bound. A single concentric annulus is geometrically different from the residual ball plus detached shell at radius j_{d/2,2}/j_{d/2,1}."
+        ],
+        "reasoning": "The coefficient needs both the exterior kernel maximum as a universal upper bound and a perturbation realizing it at the first zero. The checked prior statements do not imply this pair.",
+        "searches": [
+          "arXiv:0801.1617 §9 proof",
+          "Resultary 08d6dce0baa0, concentric annulus result"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "This rate is the difference between extremal interior and exterior sphere-kernel values divided by the simple-root slope.",
+          "The earlier disk perturbation uses angular spikes on a balanced star-shaped domain and gives a strict improvement under an enclosure tolerance."
+        ],
+        "reasoning": "Closeness in radial enclosure is not a fixed moved-mass budget. Qualitative positivity in a larger, nonradial class is not the sharp directional gain on the rotationally invariant class.",
+        "searches": [
+          "arXiv:0801.1617 Theorem 2.8 and §9",
+          "Resultary search on first real Fourier zeros, radial perturbations and Bessel interlacing"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected related records concern affine images of products of balls, convex bipyramids, and zero interlacing for concentric annuli, respectively.",
+          "The Bessel zeros in the answer are classical inputs, rather than a tabulation of the mass-transfer coefficient."
+        ],
+        "reasoning": "These first-zero formulas, comparisons or interlacing statements do not optimize over the equal-mass radial redistributions. No exact catalogue match was identified in the inspected material.",
+        "searches": [
+          "Resultary e36f73ce7769, 72c1da0f9bb0 and 08d6dce0baa0"
+        ]
+      },
+      "rationale": "The supported distinct result is the sharp first-order variational constant and two-component realization over all measurable radial sets under the stated mass-transfer budget. Qualitative outward zero movement and standard Bessel extremum facts are not new. The actual nearby perturbation and convex-body results do not supply matching radial upper and lower bounds at fixed symmetric difference.",
+      "residual_risks": [
+        "Bounded search cannot establish priority; an equivalent kernel-redistribution result under another description could remain unlocated."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior qualitative result, not the sharp radial budget law",
+          "evidence": "Balanced planar star-shaped perturbation with angular spikes, fixed area and arbitrarily small radial enclosure tolerance.",
+          "identifier_or_url": "https://arxiv.org/abs/0801.1617",
+          "material_read": "Theorem 2.8 p. 6 and §9 pp. 33–35 (PDF offsets near 16000 and 86100)",
+          "method": "Bounded OA PDF text",
+          "title": "Fourier transform, null variety, and Laplacian's eigenvalues",
+          "trigger": "Prior first-zero improvement near the disk"
+        },
+        {
+          "assessment": "Different geometric and optimization constraints",
+          "evidence": "Fixed-volume centrally symmetric convex counterexamples and higher-dimensional nonattainment, not a radial symmetric-difference asymptotic.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.10517",
+          "material_read": "Abstract and introduction, pp. 1–4 (PDF offsets 0 and 8008)",
+          "method": "Bounded OA PDF text",
+          "title": "An isoperimetric problem for Fourier zeros of centrally symmetric convex bodies",
+          "trigger": "Related broader first-zero extremum problem"
+        },
+        {
+          "assessment": "Distinct",
+          "evidence": "Affine images of Cartesian products of balls, without the fixed radial moved-mass constraint.",
+          "identifier_or_url": "Resultary e36f73ce7769",
+          "material_read": "RESULT.md opening statement at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Affine rigidity, quantitative stability, and entropic Fourier-zero bounds",
+          "trigger": "Exact first zero involving balls and Bessel zeros"
+        },
+        {
+          "assessment": "Distinct",
+          "evidence": "Bessel zero-free strip for convex bipyramids, not radial first variation.",
+          "identifier_or_url": "Resultary 72c1da0f9bb0",
+          "material_read": "RESULT.md opening statement at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Pólya–Bessel zero-free strip for Fourier bipyramids",
+          "trigger": "Equal-volume comparison with balls"
+        },
+        {
+          "assessment": "Distinct",
+          "evidence": "Interlacing for a single annulus rather than optimizing small radial mass transfer.",
+          "identifier_or_url": "Resultary 08d6dce0baa0",
+          "material_read": "Result statement on concentric annuli",
+          "method": "Local Resultary comparison",
+          "title": "Rigidity and Bessel interlacing of Fourier zeros of concentric annuli",
+          "trigger": "Zeros of a nearby radial geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding and Proof",
+        "arXiv:0801.1617 Theorem 2.8 and §9"
+      ],
+      "rationale": "The coefficient quantifies precisely how much the known outward movement can improve per unit of volume relocated in the natural radial perturbation class. It gives a dimension-dependent sharp benchmark and the shell at which to realize it, with uniform control even for unbounded competitors. This is not just another strict-improvement example.",
+      "residual_risks": [
+        "It provides no sharp comparison for nonradial or convex perturbations, and no maximizer claim at fixed positive budget."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

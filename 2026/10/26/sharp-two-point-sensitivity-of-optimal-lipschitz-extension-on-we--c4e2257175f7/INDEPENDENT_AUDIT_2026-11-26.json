@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:13:38.375741Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–72",
+        "VERIFICATION.md lines 18–28",
+        "check_amle_star.py lines 10–88 (read, not run)"
+      ],
+      "rationale": "For a boundary datum of seminorm L the leaf-imposed center intervals intersect pairwise, hence have a common intersection. A slope-maximizing pair makes this intersection a singleton and forces the center to be its length-weighted interpolant. Absolute minimality forces linearity on every subinterval inside an arm. Conversely, the resulting affine-on-arms function is absolutely minimizing: a connected interior test set within an arm has its slope witnessed by its endpoints; in a test set containing the center, the two saturated arms persist up to the boundary of the center component and witness the global slope. For disconnected sets, splice the path between any two interior points at the boundary of their components. The center selector is continuous and switches only at finitely many comparisons along any line segment (permanent ties give the same center). On each piece, the change of arm i's slope is (h_i-C_ab(h))/ell_i. Its norm is one for i in the selected pair and at most 1+2 ell_a ell_b/((ell_a+ell_b)ell_i) otherwise by the two boundary pair constraints and the barycentric weights. These latter constraints can be saturated together by the proposed perturbation; the base datum has a strict maximizing pair, so a positive finite step preserves the selector and realizes equality. The harmonic mean is increasing in each argument, giving the ordered-length formula including ties. Two arms give a single affine interpolant and ratio one. Constant inputs and ties introduce no singular cases.",
+      "residual_risks": [
+        "Recorded finite checks are corroboration only. The LP code compares the maximum of all selector-coordinate norms to the formula, and rational examples check actual attained ratios; neither is needed for the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Peres–Schramm–Sheffield–Wilson abstract states uniqueness for bounded real Lipschitz data on length spaces; Juutinen gives existence in separable length spaces. Graph Kirszbraun results describe extensions and algorithms."
+        ],
+        "reasoning": "These wider-domain statements do not give a sharp Lipschitz-in-Lipschitz two-data estimate, an arm-length dependence, or an attaining pair. The norm-one property for an individual extension cannot be applied to a difference by linearity.",
+        "searches": [
+          "arXiv:math/0605002",
+          "Juutinen, Absolutely Minimizing Lipschitz Extensions on a Metric Space",
+          "arXiv:1511.01748v1"
+        ]
+      },
+      "checked_sources": [
+        "Bounded Resultary search and three distinct matching statements above",
+        "Peres–Schramm–Sheffield–Wilson arXiv:math/0605002",
+        "Juutinen (2002)",
+        "Le Gruyer–Phan Thanh Viet arXiv:1511.01748v1",
+        "Frozen RESULT.md, particularly lines 44–86"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A center computation for each datum does not itself compare changes of arm slopes over selector changes; the ordered-length factor requires a sharp operator bound on each realized selector and a compatible perturbation. The finite-p comparison provides no sensitivity limit and no unequal-length factor."
+        ],
+        "reasoning": "The related exact results do not mechanically specialize to the weighted AMLE amplification and finite equality. The center rule alone is not claimed as new.",
+        "searches": [
+          "arXiv:1511.01748v1, Theorem 8",
+          "Resultary record 169c7e389bc1, Finding",
+          "Resultary record 2ac17e8ba0a4, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Le Gruyer–Phan Thanh Viet Theorem 8 supplies the unique finite-graph scalar Kirszbraun extension and an algorithm; the star's center minimax rule agrees with the scalar vertex construction.",
+          "The same-date conductance-design record 5986e803b2b7 computes a norm of a fixed linear harmonic operator, not the nonlinear selector map."
+        ],
+        "reasoning": "The exact norm of a linear rule is its two-data modulus, but its choice of center is not the datum-dependent AMLE choice. Discretizing the star to a vertex problem identifies a selector, not the claimed stability modulus.",
+        "searches": [
+          "arXiv:1511.01748v1",
+          "Resultary weighted-star AMLE and harmonic extension comparisons"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Inspected Finding passages of records 5986e803b2b7, 169c7e389bc1 and 2ac17e8ba0a4. The closest finite-p unit-star hit gives factor 2 for m≥3 and p≠2, without attainment. The two harmonic hits involve linear conductance rules."
+        ],
+        "reasoning": "No matching exact catalogue formula or attainment statement was found in this bounded comparison. The same-date linear hit was rejected on mathematical content, not on date.",
+        "searches": [
+          "Local Resultary semantic comparison: weighted metric stars, two-data Lipschitz stability and harmonic/finite-p extensions"
+        ]
+      },
+      "rationale": "Classical AMLE and weighted graph extensions supply existence, uniqueness or a center rule. The distinct contribution supported by the comparison is the exact Lipschitz-seminorm amplification between two scalar AMLEs on arbitrary positive-length metric stars, with finite attainment. Neither linear harmonic extension on the same metric object nor finite-p energy minimization on unit stars identifies this invariant.",
+      "residual_risks": [
+        "Bounded best-of-knowledge assessment, not priority certification. A specialized earlier sensitivity result in graph lexicographic extension or scalar infinity-harmonic stability could exist; no implication-equivalent statement was established in the material read."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Background, not the amplification claim",
+          "evidence": "Bounded scalar Lipschitz data on a subset of a length space admit a unique absolutely minimal extension.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0605002",
+          "material_read": "p. 1 abstract, text offset 726",
+          "method": "OA primary PDF bounded passage",
+          "title": "Tug-of-war and the infinity Laplacian",
+          "trigger": "Canonical scalar AMLE on metric length spaces"
+        },
+        {
+          "assessment": "General existence only for this comparison",
+          "evidence": "Existence on separable length spaces, without the sharp two-input constant.",
+          "identifier_or_url": "https://www.acadsci.fi/mathematica/Vol27/juutinen.pdf",
+          "material_read": "p. 2, text offset 3084",
+          "method": "OA primary PDF bounded passage",
+          "title": "Absolutely Minimizing Lipschitz Extensions on a Metric Space",
+          "trigger": "General existence potentially covering the star extension"
+        },
+        {
+          "assessment": "Vertex-extension theory, not the two-data seminorm factor",
+          "evidence": "Tight extensions are Kirszbraun extensions; uniqueness and polynomial-time computation for real-valued finite-graph extensions.",
+          "identifier_or_url": "https://arxiv.org/abs/1511.01748v1",
+          "material_read": "p. 1 abstract at offset 313 and Theorem 8, p. 6 at offset 14350",
+          "method": "OA primary PDF bounded passages",
+          "title": "Kirszbraun extension on connected finite graph",
+          "trigger": "Equivalent scalar graph/tight extension formulation"
+        },
+        {
+          "assessment": "Different extension, regardless of same-day ordering",
+          "evidence": "Fixed linear conductance-weighted harmonic interpolation and best choice of conductance.",
+          "identifier_or_url": "Resultary:2026/10/26/5986e803b2b7",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Sharp conductance design for Lipschitz harmonic extension on metric stars",
+          "trigger": "Same geometric space and exact Lipschitz norm"
+        },
+        {
+          "assessment": "Finite-p, unit-arm comparison only",
+          "evidence": "Factor 2 for m≥3 and p≠2, not attained; the passage supplies no AMLE or unequal-arm limit.",
+          "identifier_or_url": "Resultary:2026/11/17/169c7e389bc1",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "A discontinuous Hilbert-exponent transition in weighted-star p-harmonic extension",
+          "trigger": "Two-input Lipschitz stability on stars"
+        },
+        {
+          "assessment": "Different linear extension operator",
+          "evidence": "Spider constant 1+(m−2)/(L_min sum_i L_i^(−1)) for the graph-harmonic rule.",
+          "identifier_or_url": "Resultary:2026/11/17/2ac17e8ba0a4",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Sharp leaf harmonic Lipschitz distortion on finite trees and spiders",
+          "trigger": "Exact weighted-spider formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and proof",
+        "Comparison with Resultary records 5986e803b2b7 and 169c7e389bc1"
+      ],
+      "rationale": "The Lipschitz seminorm of a difference is a quantitative stability question for the canonical AMLE, not answered by its norm-one action on each datum or by sup-norm stability. The result exposes a precise geometric cause of error amplification, identifies the two longest and one shortest arms as the only required lengths, and gives exact extremizers even for equal arms. This is a useful sharp benchmark for stability on trees with more than one branch point, without claiming such a generalization.",
+      "residual_risks": [
+        "Finite scalar stars only; no quantitative claim on general trees or other norms."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

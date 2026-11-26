@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:46:53.149333Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each counted jump regenerates the process at G and the waiting times have exponential tails. Let f(z) be their Laplace transform and T=γ+p+s+u+2r. A first-step calculation gives 1/f(z)−1=z(H+Tz+z²)/[γp(q+z)], with q=u+r. Its coefficients through cubic order are A₁=H/(γpq), A₂=(q²−ps)/(γpq²), and A₃=(1/q−T/q²+H/q³)/(γp), using qT−H=q²−ps. For the analytic cumulant-growth exponent λ(k), 1/f(λ(k))−1=e^k−1, so J=1/A₁ and F=1−2A₂J². At equality A₂=0 and A₃=1/(γpq), giving the third normalized cumulant 1−6A₃J³=1−6γ²p²q²/H³. This also verifies the boundary at r=0 and the signs since q is strictly increasing. The waiting-time transform decays as z⁻² at large positive z, incompatible with exponential renewal intervals. The rational example is consistent (H*=24/5); the bundled symbolic checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "6951e3b15413 allows finitely many arbitrary positive, finite almost-sure dark dwell laws, includes one exponential channel, and resets both emitter and dark age to G via independent Poisson events. It gives sgn(F−1)=sgn(pK(r)−1), with K(r)=Σsᵢ∫t exp(−rt)Pr(Uᵢ>t)dt, as well as exact cumulants through order three.",
+          "Liu's general memoryless-reset counting MGF is background but is not needed for the decisive covering comparison."
+        ],
+        "reasoning": "Here K(r)=s/(u+r)², giving the exact threshold √(ps)−u, its existence condition, and all positive-rate signs. The r=0 sign and boundary commute with the specialization because the no-reset exponential dark state retains an analytic waiting-time transform.",
+        "searches": [
+          "Resultary 6951e3b15413 Finding, Assumptions and Proof",
+          "arXiv:2308.02214v1 §III equation (25)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "Resultary fa3b9db644e0 and 6951e3b15413",
+        "arXiv:2407.13273v1",
+        "arXiv:2308.02214v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The covering proof uses A=p+γ+s+r+pΣsᵢ E Vᵢ, B=2−pΣsᵢ E Vᵢ² and C=pΣsᵢ E Vᵢ³, and gives c₁=pγ/A, F=1−pγB/A², and c₃/c₁=1−(pγ)²C/A³ at B=0.",
+          "For V~Exp(q), A=H/q, B=2−2ps/q² and C=6ps/q³; at equality C=6/q. Substitution gives exactly J=γpq/H, F=1+2γp(ps−q²)/H² and c₃/c₁=1−6γ²p²q²/H³, including strictness and the radiative-rate independence of the sign.",
+          "The general first-step transform with ψ(z)=q/(q+z) is exactly the frozen rational transform. All the needed derivatives remain finite at r=0 since u>0."
+        ],
+        "reasoning": "This implication is direct moment substitution into the exact covering formulas, not a new limit, obstruction, or finite-cutoff argument. The no-reset endpoint, strong-reset corollary, and example do not leave a distinct claim.",
+        "searches": [
+          "Resultary 6951e3b15413 Proof, offsets 0–5692; continuation near 5680–7480",
+          "Frozen RESULT.md Finding and Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With Γ=γ+r the total E→G rate is Γ, the D→G rate is q=u+r, and resets at G are null. Radiative returns are the iid Bernoulli thinning of all E→G returns with retention γ/Γ. This maps the position-independent reset model to the reset-free shelving rates (p,Γ,s,q) as far as the unmarked process is concerned.",
+          "In the broader reset model the dark return time after entry is min(U,Exp(r)); with U~Exp(u) this has law Exp(q)."
+        ],
+        "reasoning": "The reduction accounts for both pools of otherwise indistinguishable jumps. Thinning multiplies F−1 by γ/Γ and the third-cumulant deficit at F=1 by (γ/Γ)², so the reset interpretation does not evade equivalent coverage.",
+        "searches": [
+          "arXiv:2407.13273v1 §VI.0.6 equations (41)–(47)",
+          "arXiv:2308.02214v1 §III equations (17)–(26)",
+          "Resultary 6951e3b15413"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "fa3b9db644e0 is the identical indexed record; distinct 6951e3b15413 is the broader one-crossing and dark-time tomography result. The latter's original proof, not only its summary, was inspected in the mirrored RESULT.md."
+        ],
+        "reasoning": "The broader catalogue formula returns every proposed exact constant on this exponential slice, even when a particular rational example is not printed there. This is verified coverage, not an assertion of which same-date record appeared earlier.",
+        "searches": [
+          "Resultary fa3b9db644e0 and 6951e3b15413"
+        ]
+      },
+      "rationale": "Verified exact mathematical coverage by the distinct catalogue theorem 6951e3b15413 for multiple arbitrary dark dwell laws with the same reset mechanism. Its original proof yields the exact rate, Fano formula, crossing and exact normalized third-cumulant deficit, not merely a qualitative analogue. One exponential dark dwell is an immediate specialization; the r=0 endpoint follows from the same rational law without a new argument. Both records are dated the same day, so this establishes coverage, not chronological priority.",
+      "residual_risks": [
+        "Both catalogue records show the same calendar date; relative priority has not been determined. The verdict is on mathematical coverage.",
+        "Published Lachman et al. Appendix B numbering and content at DOI:10.1103/PhysRevResearch.6.033254 could not be checked against the available preprint numbering. This access limit does not underlie the finding of overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive stronger mathematical coverage of the frozen threshold and both exact cumulant formulas.",
+          "evidence": [
+            "The proof gives the interphoton transform and formulas in terms of E Vᵢ, E Vᵢ² and E Vᵢ³; substituting the moments of Exp(u+r) gives every claimed cumulant identity."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-universal-shot-noise-thresholds-and-dark-time-tomography-in-a-re--6951e3b15413",
+          "material_read": "Original RESULT.md Finding, Assumptions and Proof offsets 0–5692 and threshold continuation through 7480",
+          "method": "Resultary search and targeted reads in the original local mirror",
+          "title": "Universal shot-noise thresholds and dark-time tomography in a reset fluorescent emitter",
+          "trigger": "Strongest distinct exact overlap: same photon counting and reset with more general dark channels"
+        },
+        {
+          "assessment": "Covers the reset-free population model and photon correlations; relevant through exact thinning, not the sole basis for rejection.",
+          "evidence": [
+            "The preprint uses rates κₚ,κᵣ,κ₁,κ₂ for pump, radiative return, shelving and dark recovery; setting them to p,γ+r,s,u+r and thinning gives the frozen marked jump process."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2407.13273v1",
+          "material_read": "§VI.0.6 equations (41)–(47) near offset 61500; preprint Appendix B near 54100 checked for version correspondence",
+          "method": "OA original preprint passage inspection; publisher DOI full-text returned HTTP 403",
+          "title": "Experimental certification of level dynamics in single-photon emitters",
+          "trigger": "Same shelving dynamics before reset, with exact photon correlations"
+        },
+        {
+          "assessment": "Established general resetting machinery; the distinct catalogue record gives a closer explicit covering result.",
+          "evidence": [
+            "Equation (25) relates the reset MGF to the corresponding reset-free MGF with resets uncounted."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2308.02214v1",
+          "material_read": "§III equations (17)–(26), offset near 21100",
+          "method": "OA original preprint passage inspection",
+          "title": "Semi-Markov Processes in Open Quantum Systems. II. Counting Statistics with Resetting",
+          "trigger": "General exact counting for memoryless uncounted reset"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Radiative-rate independence and the higher-cumulant distinction are worthwhile phenomena, but for this record the stronger exact emitter theorem already answers both quantitatively by one exponential-moment substitution. The elementary square-root threshold, rational example and no-reset endpoint do not add an invariant, a new mechanism, or an independently needed boundary. This is a useful illustrative calculation, not a separate scientific finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

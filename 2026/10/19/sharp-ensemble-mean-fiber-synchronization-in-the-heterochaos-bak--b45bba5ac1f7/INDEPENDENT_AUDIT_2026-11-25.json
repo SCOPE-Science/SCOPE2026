@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:18:26.205451Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–80; VERIFICATION.md and check_fiber.py inspected. The analytic comparison of both parities above does not rely on the bundled numerical checks, whose large-horizon examples are all even."
+      ],
+      "rationale": "Up to null boundary conventions each initial full vertical fiber maps to one dyadic cell. A contraction sends it to a depth-one-higher cell, and doubling modulo one sends a positive-depth cell to a cell of depth one lower (not necessarily its geometric parent). Independent ternary digits give K_n the reflected walk with up probability p=2/3 and down probability q=1/3. The conditional mean of 2^{−K} is unchanged away from zero since p/2+2q=1, and at zero it is 2/3. Thus E_{n+1}=E_n−a_n/3. The reflected depth dominates the underlying walk S_n, which tends to infinity by the strong law; bounded convergence gives the exact tail formula. Independent ballot reconstruction: K_n=S_n−min_{0≤j≤n}S_j has the law of max_{0≤j≤n}S_j by reversal of the finite increment string. Thus a_n=Pr(τ_1>n), and Pr(τ_1=2k+1)=p(pq)^k C_k for Catalan numbers C_k, by a nonpositive excursion followed by an up step. Consequently A(w)=(1−pw∑_{k≥0}C_k(pqw²)^k)/(1−w), which rationalizes to the stated A(w). The return tail starts at k=m for n=2m and k=m+1 for n=2m+1. Stirling and geometric summation give even return amplitude 12√(2/π) against ρ^n n^{−3/2} and odd amplitude ρ times it, both with relative O(1/n); these equal √(2/π)(d_+^{−2}±d_-^{−2}). Finally summing the exact E_n tail weights the two terms by 1/[3(1−ρ)] and 1/[3(1+ρ)], respectively. The errors are uniformly O(1/n) in the scaled expression and both parity constants are positive, establishing the claimed limit and comparison with 2^{−1/3}.",
+      "residual_risks": [
+        "The exact result is for uniform ternary base, full fibers and lengths with boundary points immaterial. It is not a statement about arbitrary initial intervals, trajectory pairs, or a mixing rate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Takahasi gives Hölder correlation bounds and Dyck-system coding. Saiki–Takahasi–Yorke give typical central contraction factor 2^{−1/3}."
+        ],
+        "reasoning": "Neither the coding nor a correlation bound identifies the expectation of the length of an iterated entire leaf. A typical Lyapunov rate gives no such sharp annealed rate or amplitudes.",
+        "searches": [
+          "arXiv:2307.08119, §1.3 Thm. B and §2.9 Thm. 2.12",
+          "arXiv:1811.01009, §3.3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1811.01009",
+        "arXiv:2307.08119",
+        "Resultary 753317ea4533"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2018 paper gives branch rules and pointwise shrinkage. The catalogue comparator dated Nov. 17 gives the same exact return sequence and its asymptotic as an auxiliary part of the Oct. 19 frozen result."
+        ],
+        "reasoning": "Combined with the frozen harmonic-defect identity, the catalogue return theorem does imply the mean law by tail summation; its return computation is not an independent contribution relative to that theorem. The dated overlap is not evidence of earlier coverage, and the inspected earlier map and mixing theorems do not give that mean identity or sharp asymptotic. The supported distinction is the exact mean-width calculation and the typical-versus-ensemble comparison, not priority for Catalan or first-return formulas.",
+        "searches": [
+          "arXiv:1811.01009, Prop. 3.1 and §3.3",
+          "arXiv:2307.08119, Thms. B and 2.12",
+          "Resultary 753317ea4533, Finding and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 3D construction's third-coordinate projection gives the same width recursion as the stated 2D map. The local comparator's saturation probability p_n equals a_n=Pr(K_n=0); setting z=w/3 in its ballot generating function yields exactly A(w). The finite-walk reversal also identifies a_n with the probability of no up-crossing of zero."
+        ],
+        "reasoning": "The expected length is E[2^{−K_n}], not the atom at K_n=0. The two observables are exactly related via E_{n+1}−E_n=−a_n/3. In particular their transforms and parity amplitudes are not identical.",
+        "searches": [
+          "Saiki–Takahasi–Yorke arXiv:1811.01009, §3.1 Prop. 3.1",
+          "Resultary saturated-fiber/reflecting-walk comparison, local RESULT.md 753317ea4533, Finding and Proof §§1–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 3D projected full-leaf saturation probabilities are given exactly by a ballot sum and ∑3^np_n z^n=2/(1−2z+√(1−8z²)), with even and odd n^{−3/2}ρ^n constants. It does not give an exact table or asymptotic for the mean width."
+        ],
+        "reasoning": "This is an exact hit on the auxiliary sequence. The main claimed sequence E_n differs even at n=1 (a_1=1/3 and E_1=2/3); the exact mean cannot be read as a database of saturation probabilities without using the additional tail identity.",
+        "searches": [
+          "Resultary exact saturated-fiber returns, 753317ea4533, local RESULT.md Finding offset 575 and proof offset 4152 onward"
+        ]
+      },
+      "rationale": "Credit only the exact annealed mean-width observable and its parity-resolved law. The reflected-walk/ballot mathematics is standard. A distinct, later-dated catalogue record overlaps the auxiliary saturated-width sequence exactly, not just by sharing a rate; that sequence and its asymptotic are not credited as distinct against that comparator. The main result identifies the full-fiber mean by the harmonic defect at zero and gives its two different tail weights, rather than merely relabeling the return probability or the typical contraction rate.",
+      "residual_risks": [
+        "The literature comparison is bounded. Earlier random-walk or queueing work may contain the same annealed transform under another name, or an earlier dynamical treatment may already apply it. No priority for the return sequence against the later-dated catalogue record is inferred from dates alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same branch-width evolution and almost-everywhere shrinkage, not the mean-width theorem",
+          "evidence": [
+            "On R₁ the third-coordinate length halves, on R₂ a full interval stays full or a proper cell doubles. §3.3 gives (1/2)^{2/3}2^{1/3}=2^{−1/3}."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1811.01009",
+          "material_read": "PDF pp. 14–16, §3.1 Prop. 3.1 and §3.3; 2D projection comparison",
+          "method": "Lawful OA PDF passages",
+          "title": "Piecewise-linear maps with heterogeneous chaos",
+          "trigger": "Foundational same map, leaf contraction, and possible quantitative leaf law"
+        },
+        {
+          "assessment": "Correlation and coding results are for different quantities",
+          "evidence": [
+            "Thm. B uses Hölder correlations bounded by Cλ^n; Thm. 2.12 identifies symbolic images with Dyck systems."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2307.08119",
+          "material_read": "PDF pp. 5 and 17, §1.3 Thm. B and §2.9 Thm. 2.12",
+          "method": "Lawful OA PDF passages",
+          "title": "Exponential mixing for heterochaos baker maps and the Dyck system",
+          "trigger": "Broader quantitative or symbolic theorem could imply the mean law"
+        },
+        {
+          "assessment": "Exact auxiliary overlap, later catalogue date, not a statement of E_n",
+          "evidence": [
+            "The probability a 3D leaf's third-coordinate projection still has length one has the count generating function 2/(1−2z+√(1−8z²)) and the same two return asymptotics after scaling z=w/3."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-exact-saturated-fiber-returns-and-fractal-noncontraction-in-a-he--753317ea4533",
+          "material_read": "Local RESULT.md, Finding offset 575, Proof §§1–3 offset 4152 onward, prior-work and limitations sections",
+          "method": "Resultary semantic search and local-mirror passages",
+          "title": "Exact saturated-fiber returns and fractal noncontraction in a heterochaos baker map",
+          "trigger": "Potential exact recurrence, constants, or whole-fiber observable overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding; original-map typical Lyapunov number and catalogue saturation comparison."
+      ],
+      "rationale": "Averaging the surviving width of a whole leaf asks a different synchronization question from almost-sure shrinking or saturation probability alone. Its exact decay exposes rare near-balanced itineraries and quantifies the exponential gap between the ensemble and typical rates. The exponent, polynomial factor and two parity amplitudes give a sharp answer for a natural observable of the original map.",
+      "residual_risks": [
+        "The alternating amplitude is small but strictly nonzero. There is no claimed consequence for Hölder mixing, other parameters, or perturbed maps."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

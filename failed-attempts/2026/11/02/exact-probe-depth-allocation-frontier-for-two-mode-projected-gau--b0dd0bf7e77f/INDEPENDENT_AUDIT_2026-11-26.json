@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:34:16.340371Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In an eigenbasis, writing the real Gaussian probe as Rv with v uniform on the circle and independent R²∼χ²₂ gives S₁=R²/(vᵀBv) and S₂=R²vᵀB⁻¹v; two Lanczos vectors span the compression almost surely. The angular first reciprocal moment is 1/√(ab) by the tangent substitution, and differentiating it jointly in a and b gives the second moment (a+b)/(2(ab)^(3/2)). The radial moments 2 and 8 and the Gaussian coordinate variances give the two claimed variances, whose difference factors as stated. Independent averaging yields error difference bias²−(2 Var(S₂)−Var(S₁))/M at equal product count, giving the exact even-budget inequalities and the example M*=44. This compares the two homogeneous allocations under the stated per-node cost, not mixtures, total running time, or corrected covariance. The frozen verifier was inspected, not executed; the reported tests are supplementary.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fifen et al. already supply the projected Gaussian/reprojected Lanczos estimator, the compressed inverse trace and the Nl projected-product term; the inspected theorem gives bounds, not the exact threshold.",
+          "The October 26 source supplies E W^j=(1/2)_j/(n/2)_j and the exact n=2 angular risks."
+        ],
+        "reasoning": "The applicable prior inputs are the exact angular distribution/moments and the established projected cost model, not a general quadrature error bound alone.",
+        "searches": [
+          "Fifen–Karambal–Hennig arXiv:2609.10080, Theorem 20, Remark 21, Algorithm 1",
+          "SCOPE 945502efd97e, Finding and Proof"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–86, VERIFICATION.md and verify.py (read only)",
+        "SCOPE 945502efd97e, a6f6c2aa217b, 63138f0a4092, 03f0f72413a5",
+        "arXiv:2609.10080"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At n=2 the prior beta moments are (1/2)_j/j!. Therefore E G=Σ_j (1/2)_j δ^j/j!=(1−δ)^(-1/2), and E G²=(1+δ∂_δ)E G=(1+η)/(2η^(3/2)). The prior I is unbiased for the normalized inverse trace and gives Var(I)=(1−η)²/(8η²).",
+          "Multiplying by R²/a gives the frozen expectation and second moments using E R²=2 and E R⁴=8; subtracting squared means gives the displayed variance difference. For independent averages the matched-budget MSE difference is δ_bias²−(2V₂−V₁)/M, where V_l=Var(S_l). Its zero and sign are exactly the reported frontier."
+        ],
+        "reasoning": "No new probabilistic or spectral step is needed after the exact identification. The radial moments, elementary binomial series and solving a linear equation in 1/M give every substantive formula, including both budget conventions.",
+        "searches": [
+          "SCOPE 945502efd97e, Proof, local mirror offset 0 (beta-moment and n=2 formulas)",
+          "arXiv:2609.10080, Algorithm 1 p. 31"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the October 26 source's n=2 proof, G=(1−δW)⁻¹ and I=1+δW/η, with δ=1−η and W the squared coordinate in the smaller eigendirection. Taking η=b/a identifies G/a=1/(vᵀBv) and I/a=vᵀB⁻¹v exactly."
+        ],
+        "reasoning": "The endpoint interpolant is not a different angular estimator on a two-point spectrum: the endpoint line is 1/x at both eigenvalues, so its matrix function is the inverse. Both frozen random variables are obtained by multiplying these angular estimates by the same standard independent χ²₂ radial factor.",
+        "searches": [
+          "Resultary: two-mode Gaussian inverse trace, one-node inverse spectral quadrature and projected Lanczos depth allocation; SCOPE 945502efd97e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 26 risk reversal entry has directly applicable n=2 formulae. The other indexed findings concern respectively a Rademacher star-Laplacian residual law, a log-determinant ideal-deflation allocation frontier, and a corrected covariance positivity frontier."
+        ],
+        "reasoning": "No exact printed copy of this M* was established among the ranked matches. The October 26 record is nonetheless actual mathematical coverage via the reduction, unlike the three lookalikes.",
+        "searches": [
+          "Resultary: inverse spectral quadrature risk reversal, one-versus-two-step Lanczos and projected Gaussian allocation frontiers; SCOPE 945502efd97e, a6f6c2aa217b, 63138f0a4092, 03f0f72413a5"
+        ]
+      },
+      "rationale": "Demonstrable prior implication: the October 26 indexed result provides both of the same two angular estimators in dimension two, their common beta direction variable and its full moment sequence. The frozen Gaussian moments and variance comparison follow by independent radial scaling, and the one-versus-two-node budget boundary is then the zero of the elementary bias–variance difference using the existing P-SLQ node cost. The previous result need not have printed M* to cover the mathematical content of this special-case calculation.",
+      "residual_risks": [
+        "Earlier specialized Rayleigh-quotient identities may supply additional coverage; the web query did not settle that history. The rejection rests on the explicit indexed implication above, not on a search miss or a claim of ultimate priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers angular inputs of both estimators exactly after scaling in dimension two",
+          "evidence": "G=(1−δW)⁻¹, I=1+δW/η, beta moments for all j, and explicit n=2 risks. This implies the Gaussian result after independent radial rescaling and standard cost accounting.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-dimension-sharp-mean-square-risk-reversal-for-one-node-inverse--945502efd97e/RESULT.md",
+          "material_read": "Finding, scope and Proof, mirror offset 0 through 4128",
+          "method": "Local Resultary mirror, decisive formulas checked directly",
+          "title": "A dimension-sharp mean-square risk reversal for one-node inverse spectral quadrature",
+          "trigger": "Same one-node inverse estimator and two-eigenvalue risk comparison"
+        },
+        {
+          "assessment": "Existing projected setup and Nl cost term; no exact frontier in inspected statements",
+          "evidence": "Projected Gaussian probes and reprojected Lanczos estimate the compressed inverse trace. The full algorithm counts additional overhead beyond the Nl term compared here.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.10080",
+          "material_read": "pp. 25–26 Theorem 20, p. 28 Remark 21, p. 31 Algorithm 1; OA offsets 96846, 99789, 107840, 118720",
+          "method": "OA primary text",
+          "title": "Stochastic Lanczos Quadrature for Computational Uncertainty in Linear Algebra",
+          "trigger": "Source of the projected estimator and cost"
+        },
+        {
+          "assessment": "Not equivalent to the frozen inverse-trace MSE problem",
+          "evidence": "Different probes or loss/target: star-Laplacian Rademacher residuals, log-determinant error, and covariance positivity respectively.",
+          "identifier_or_url": "SCOPE a6f6c2aa217b, 63138f0a4092, 03f0f72413a5",
+          "material_read": "Each RESULT.md Finding and relevant proof passages from mirror offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Hub-induced one-step Lanczos bias; Gaussian probe allocation after ideal deflation; projected Lanczos covariance positivity",
+          "trigger": "Closest indexed depth and allocation terms"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A product-budget depth comparison is a sensible practical question, but the exact narrow invariant here is mechanically supplied by the published two-dimensional angular comparison, χ²₂ rescaling, and standard independent-mean cost arithmetic. As frozen it gives no additional nonmechanical allocation result, such as an optimization over mixed depths or a theorem beyond the two-point spectrum. This is not a rejection for the small dimension alone.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

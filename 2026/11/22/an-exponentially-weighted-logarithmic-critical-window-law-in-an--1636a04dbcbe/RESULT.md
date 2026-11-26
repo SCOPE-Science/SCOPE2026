@@ -1,131 +1,94 @@
-# An exponentially weighted logarithmic critical-window law in an immigration host-parasitoid map
+# An exponentially weighted logarithmic critical-window law in an immigration host–parasitoid map
 
-## Finding
+## Finding and scope
 
-An immigration-driven host–parasitoid map develops a universal second-order clock on the \(1/N\) detuning scale of its transcritical bifurcation. Fix \(0<\alpha<1\), \(\lambda\in\mathbb R\), and positive initial densities \(x_0,y_0\) independent of the integer \(N\). For each sufficiently large \(N\), keep the parameter \(\beta_N\) fixed for all iterates of **that** experiment:
+Fix \(0<\alpha<1\), \(\lambda\in\mathbb R\), and positive initial densities \(x_0,y_0\) independent of the integer \(N\). In each experiment keep \(\beta_N\) fixed for all iterates:
 \[
- x_{n+1}=\alpha x_ne^{-y_n}+\beta_N,\qquad
- y_{n+1}=\alpha x_n(1-e^{-y_n}),\qquad
- \beta_N=\frac{1-\alpha}{\alpha}+\frac{\lambda}{N}.
+x_{n+1}=\alpha x_ne^{-y_n}+\beta_N,\qquad
+y_{n+1}=\alpha x_n(1-e^{-y_n}),\qquad
+\beta_N=(1-\alpha)/\alpha+\lambda/N.
 \]
-Define
+Put
 \[
- c=\frac{\alpha}{1-\alpha},\quad
- a=\frac{1+\alpha}{2(1-\alpha)},\quad
- B=\frac{1+3\alpha+9\alpha^2-\alpha^3}{6(1-\alpha)^2(1+\alpha)}>0,
+c=\frac{\alpha}{1-\alpha},\qquad a=\frac{1+\alpha}{2(1-\alpha)},\qquad
+B=\frac{1+3\alpha+9\alpha^2-\alpha^3}{6(1-\alpha)^2(1+\alpha)},\qquad
+U_\lambda(t)=a\int_0^t e^{-c\lambda s}\,ds.
 \]
-and, for \(t>0\),
+Then for every fixed \(0<\varepsilon\le T<\infty\), uniformly for \(\varepsilon\le t\le T\),
 \[
- U_\lambda(t)=a\int_0^t e^{-c\lambda s}\,ds=
- \begin{cases}a(1-e^{-c\lambda t})/(c\lambda),&\lambda\ne0,\\at,&\lambda=0.\end{cases}
+\frac{1}{y_{\lfloor Nt\rfloor}}=N U_\lambda(t)+B e^{-c\lambda t}\log N+O(1).
 \]
-Then for every fixed compact interval \([\varepsilon,T]\subset(0,\infty)\),
-\[
- \boxed{\frac1{y_{\lfloor Nt\rfloor}}=N U_\lambda(t)+ B e^{-c\lambda t}\log N+O_{\alpha,\lambda,x_0,y_0,\varepsilon,T}(1)}
-\]
-uniformly in \(t\in[\varepsilon,T]\). Consequently, uniformly on these intervals,
-\[
- Ny_{\lfloor Nt\rfloor}\longrightarrow U_\lambda(t)^{-1},\qquad
- N(x_{\lfloor Nt\rfloor}-1/\alpha)\longrightarrow\frac{\lambda-U_\lambda(t)^{-1}}{1-\alpha}.
-\]
-This identifies both the leading near-critical crossover and the exponential weighting of its logarithmic finite-horizon correction. In particular, the logarithmic coefficient is independent of positive initial densities.
-
-## Assumptions and scope
-
-All parameters \(\alpha,\lambda,x_0,y_0\) and the compact positive-time window are fixed as \(N\to\infty\); the initial densities are strictly positive, and \(\beta_N>0\) for all sufficiently large \(N\). The asymptotic is for integer iterates \(n=\lfloor Nt\rfloor\), with a uniform bounded remainder, not a claim of convergence for the bounded residual. The fast host transient is included: initial states need not lie on any slow invariant manifold.
+In particular \(Ny_{\lfloor Nt\rfloor}\to U_\lambda(t)^{-1}\) and
+\(N(x_{\lfloor Nt\rfloor}-1/\alpha)\to [\lambda-U_\lambda(t)^{-1}]/(1-\alpha)\) uniformly on these windows. The bounded remainder may depend on the fixed parameters, initial data and window. Initial data need not be on any invariant manifold. No bounded-residual limit or assertion for times much larger than \(N\) is made.
 
 ## Proof
 
-**1. Entry into a uniform small neighborhood.** Write \(\mu=\lambda/N\), \(R_\mu=\beta_N/(1-\alpha)=1/\alpha+\mu/(1-\alpha)\), and \(h_n=x_n-R_\mu\). At \(\mu=0\), \(x_{n+1}\le\alpha x_n+\beta_0\) implies \(\limsup x_n\le1/\alpha\); for each \(\eta>0\), eventually \(x_n\le1/\alpha+\eta\). Hence \(y_{n+1}\le(1+\alpha\eta)(1-e^{-y_n})\). Comparison with this increasing scalar map, whose unique positive fixed point tends to zero as \(\eta\downarrow0\), gives \(y_n\to0\); then \(x_n\to1/\alpha\) follows from the first recurrence. By continuity of finitely many iterates, for all sufficiently large \(N\) the solution is in any chosen small neighborhood of \((h,y)=(0,0)\) by one fixed index \(n_0\), independent of \(N\). The local positive quadrant in that neighborhood is forward-trapped during \(n\le NT\): this follows from the ratio estimates below and the negative quadratic coefficient \(a\), after choosing the neighborhood small and \(N\) large.
-
-**2. Exact fast-coordinate identity and slow jet.** The sum of the original equations gives the exact identity
+**Entry and trapping.** Write \(\mu=\lambda/N\), \(R_\mu=1/\alpha+\mu/(1-\alpha)\), and \(h_n=x_n-R_\mu\). For sufficiently large \(N\), positive initial coordinates stay positive, and
 \[
- h_{n+1}=\alpha h_n-y_{n+1},\qquad
- y_{n+1}=(1+c\mu+\alpha h_n)(1-e^{-y_n}).
+h_{n+1}=\alpha h_n-y_{n+1},\qquad y_{n+1}=(1+c\mu+\alpha h_n)(1-e^{-y_n}).
 \]
-Let \(H(y)=py+qy^2\), where
+At \(\mu=0\), the inequality \(x_{n+1}\le\alpha x_n+\beta_0\) gives \(\limsup x_n\le1/\alpha\). For any \(\xi>0\), eventually \(y_{n+1}\le(1+\alpha\xi)(1-e^{-y_n})\). This increasing, strictly concave scalar map has a unique positive fixed point and its iterates from any positive point converge to that fixed point by monotone comparison. Its fixed point tends to zero as \(\xi\downarrow0\): the fixed points are bounded by \(1+\alpha\xi\) and every limit point solves \(y=1-e^{-y}\). Thus \(y_n\to0\), and the stable equation for \(h_n\) gives \(h_n\to0\).
+
+Set \(p=-1/(1-\alpha)\), \(z_n=h_n/y_n\), and \(r_n=y_{n+1}/y_n\). The equations imply
 \[
- p=-\frac1{1-\alpha},\qquad q=-\frac{\alpha(1+\alpha)}{2(1-\alpha)^3}.
+r_n=(1+c\mu+\alpha y_nz_n)\frac{1-e^{-y_n}}{y_n},\qquad
+z_{n+1}-p=\frac\alpha{r_n}(z_n-p)+\alpha p(1/r_n-1).
 \]
-Substitution into the preceding identities and Taylor expansion gives, uniformly for small positive \(y\) and \(|\mu|\),
+Along the critical trajectory \(r_n\to1\); the last equation is eventually a uniform contraction with vanishing forcing, so \(z_n\to p\).
+
+For detuned orbits take a rectangle \(|z-p|\le\delta_z\), \(0<y\le\eta\), with \(\delta_z>0\) small first and \(\eta>0\) chosen separately, sufficiently small relative to \(\delta_z\). The expansion \(r=1+c\mu+(\alpha z-1/2)y+O(y^2+|\mu|y)\), with \(\alpha p-1/2=-a<0\), gives constants \(D,c_1,c_2>0\) such that
 \[
- Y(y,\mu)=(1+c\mu+\alpha H(y))(1-e^{-y})
- =y+c\mu y-a y^2+b y^3+O(y^4+|\mu|y^2),
+1-D/N-c_2y\le r\le1+D/N-c_1y.
 \]
-where
+Take \(\eta\) smaller and \(N\) larger so that \(\alpha/r\le\theta_0=(1+\alpha)/2\) and \(|\alpha p(1/r-1)|\le(1-\theta_0)\delta_z\). This is possible since \(|r-1|\le D/N+C\eta\). The \(z\)-update stays in its interval. If \(y\le\eta/2\), \(r\le2\) suffices for \(ry\le\eta\); otherwise \(r\le1\) for large \(N\). The rectangle is therefore invariant. Choose a fixed \(n_0\ge1\) for which the critical orbit is in its interior. Continuity of finitely many iterates puts the detuned orbits there too for all sufficiently large \(N\).
+
+With \(u_n=1/y_n\), shrink \(\eta\) so \(D/N+c_2\eta\le1/2\) for large \(N\). Taking reciprocals in the ratio inequalities yields
 \[
- b=\frac{1-6\alpha^2-\alpha^3}{6(1-\alpha)^3}.
+(1-D/N)u_n+c_1\le u_{n+1}\le (1+2D/N)u_n+2c_2.
 \]
-The quadratic polynomial has an invariance defect
+Here the lower bound uses \(1/r\ge 2-r\); the upper uses \((1-v)^{-1}\le1+2v\) for \(0\le v\le1/2\). Iteration up to \(n\le NT\), with \(u_{n_0}\) bounded above and below away from zero by continuity, gives \(u_n\asymp_T n+1\).
+
+**Slow jet and stable error.** Put \(H(y)=py+qy^2\), where \(q=-\alpha(1+\alpha)/[2(1-\alpha)^3]\). Its image in the slow coordinate is
 \[
- H(Y(y,\mu))-[\alpha H(y)-Y(y,\mu)]
- =O(y^3+|\mu|y).
+Y(y,\mu)=(1+c\mu+\alpha H(y))(1-e^{-y})
+=y+c\mu y-a y^2+b y^3+O(y^4+|\mu|y^2),\quad
+b=\frac{1-6\alpha^2-\alpha^3}{6(1-\alpha)^3}.
 \]
-Defining \(e_n=h_n-H(y_n)\), direct subtraction (including the variation of \(H(y_{n+1})\)) gives
+Indeed the quadratic and cubic coefficients of \(Y(y,0)\) are \(\alpha p-1/2\) and \(1/6-\alpha p/2+\alpha q\). The choices \((1-\alpha)p=-1\), \((1-\alpha)q=a(p+1)\) cancel the linear and quadratic coefficients of \(H(Y(y,0))+Y(y,0)-\alpha H(y)\). Detuning changes this defect by \(O(|\mu|y)\), so it is \(O(y^3+|\mu|y)\). With \(e_n=h_n-H(y_n)\) we have \(y_{n+1}-Y(y_n,\mu)=\alpha(1-e^{-y_n})e_n\). The stable equation and bounded derivative of \(H(y)+y\) give
 \[
- |e_{n+1}|\le (\alpha+C y_n)|e_n|+C\bigl(y_n^3+|\mu|y_n\bigr).
+|e_{n+1}|\le(\alpha+C y_n)|e_n|+C(y_n^3+|\mu|y_n).
 \]
-The coefficient is **not** exactly \(\alpha e^{-y_n}\): differentiating the polynomial graph adds \(O(y_n)e_n\), which is included here. To establish uniform trapping and ratio bounds independently, put \(z_n=h_n/y_n\) and \(r_n=y_{n+1}/y_n\). The exact relation gives \(z_{n+1}=(\alpha/r_n)z_n-1\), while \(r_n=(1+c\mu+\alpha y_nz_n)(1-e^{-y_n})/y_n\). Along the critical base trajectory, \(r_n\to1\) and this contractive affine equation implies \(z_n\to p\). Thus one can choose a fixed entry index so \(y_n\) is small and \(z_n\) is close to \(p\) there. For all sufficiently small \(|\mu|\), the wedge \(|z-p|\le\delta\), \(0<y\le\delta\) is preserved for \(n\le NT\): its \(z\)-update contracts about \(p\), and within the wedge \(r_n\le 1+C/N-c_1y_n\) for some \(c_1>0\). In particular, comparison with \(r_n\ge1-C/N-c_2y_n\) gives constants \(C,c>0\) with \(c(n+1)\le1/y_n\le C(n+1)\) through \(n\le NT\). This establishes local trapping and the reciprocal bounds without using a higher-order expansion.
-
-Choose the wedge small enough that \(\alpha+C\delta<1\) and all \(r_n\in[1-\delta,1+\delta]\), with \((\alpha+C\delta)(1-\delta)^{-3}<1\). The geometric convolution of the preceding error inequality gives
+In the preceding rectangle choose \(\eta\) sufficiently small and \(N\) large so \(\alpha+C\eta\le\theta<1\), \(r_n\ge1-\rho>0\), and \(\theta(1-\rho)^{-3}<1\); choose \(\theta\) strictly between \(\alpha\) and one before shrinking. Then \(y_j\le y_n(1-\rho)^{-(n-j)}\) for \(j\le n\), and the geometric convolution gives
 \[
- |e_n|\le C\bigl(y_n^3+|\mu|y_n+\vartheta^{n-n_0}\bigr),\qquad \alpha<\vartheta<1,
+|e_n|\le C\bigl(y_n^3+|\mu|y_n+\theta^{n-n_0}\bigr)\qquad(n_0\le n\le NT).
 \]
-uniformly for \(n_0\le n\le NT\). The initial term has a fixed finite prefactor. This is a *finite-window* stable-slaving estimate; no assertion of globally defined center manifolds is required.
 
-**3. Reciprocal clock and its bounded error.** Put \(u_n=1/y_n\). The wedge comparison above already proves \(u_n\asymp n+1\) for \(n_0\le n\le NT\), with constants depending on \(T\).
-
-Expanding the reciprocal of \(y_{n+1}\) using Step 2 and \(u_n\asymp n+1\) gives
+**Reciprocal recurrence.** The actual ratio and the graph ratio \(Y(y_n,\mu)/y_n\) differ by \(O(|e_n|)\), with both bounded away from zero. Replacing the actual ratio by the graph ratio in \(u_{n+1}\) thus costs at most \(C u_n|e_n|\). In the graph reciprocal, retaining terms of orders \(1,\mu,y_n,y_n^2\) gives
 \[
- u_{n+1}=\left(1-\frac{c\lambda}{N}\right)u_n+a+\frac{d}{u_n}+E_{n,N},\qquad d=a^2-b,
+u_{n+1}=(1-c\lambda/N)u_n+a+\frac{d}{u_n}+E_{n,N},\qquad d=a^2-b,
 \]
-with a uniform bound
 \[
- |E_{n,N}|\le C\left(\frac1{u_n^2}+\frac1N+\frac{u_n}{N^2}+\vartheta^{n-n_0}u_n\right).
+|E_{n,N}|\le C\left(u_n^{-2}+N^{-1}+u_n/N^2+\theta^{n-n_0}u_n\right).
 \]
-Consequently \(\sum_{n=n_0}^{\lfloor NT\rfloor}|E_{n,N}|=O_T(1)\). In addition, this recurrence implies the rough but uniform expansion
+The bound includes the discarded products \(O(y_n^3+|\mu|y_n+\mu^2)\) in the graph reciprocal, multiplied by \(u_n\), and the stable error. By \(u_n\asymp_T n+1\), the sum of \(|E_{n,N}|\) through \(\lfloor NT\rfloor\) is bounded. Direct summation of \(u_{n+1}-u_n-a\) gives \(u_n=an+O_T(1+n^2/N+\log(n+1))\); dividing the difference by \(anu_n\) and summing gives
 \[
- u_n=an+O_T\bigl(1+n^2/N+\log(n+1)\bigr),
+\sum_{j=n_0}^{\lfloor NT\rfloor}\left|u_j^{-1}-(aj)^{-1}\right|=O_T(1).
 \]
-so
+
+**Weighted summation.** Write \(r_N=1-c\lambda/N>0\). Variation of constants, the bounded error sum, and uniformly bounded powers of \(r_N\) give
 \[
- \sum_{j=n_0}^{\lfloor NT\rfloor}\left|\frac1{u_j}-\frac1{aj}\right|=O_T(1).
+u_n=a\sum_{j=n_0}^{n-1}r_N^{n-1-j}+\frac{d}{a}\sum_{j=n_0}^{n-1}\frac{r_N^{n-1-j}}j+O_T(1).
 \]
-These statements include all initial fast-transient contributions as bounded sums.
+For \(n=\lfloor Nt\rfloor\), \(\varepsilon\le t\le T\), the first sum with its coefficient is \(NU_\lambda(t)+O_T(1)\), by the uniform Riemann sum estimate (also valid for \(\lambda=0\)). Since \(r_N^{n-1-j}=e^{-c\lambda t}+O_T((j+1)/N)\), the harmonic sum is \(e^{-c\lambda t}\log N+O_{\varepsilon,T}(1)\). Simplification gives \(d/a=B>0\). The host limit follows from \(h_n=H(y_n)+e_n=py_n+O_T(y_n^2+|\mu|y_n+\theta^{n-n_0})\) and the definition of \(R_\mu\).
 
-**4. Weighted summation.** Put \(r_N=1-c\lambda/N\); it is positive for sufficiently large \(N\). Variation of constants gives
-\[
- u_n=r_N^{n-n_0}u_{n_0}
- +a\sum_{j=n_0}^{n-1}r_N^{n-1-j}
- +d\sum_{j=n_0}^{n-1}\frac{r_N^{n-1-j}}{u_j}+O_T(1).
-\]
-The middle sum equals \(N U_\lambda(n/N)+O_T(1)\). For \(n=\lfloor Nt\rfloor\) with \(\varepsilon\le t\le T\), replacing \(u_j^{-1}\) by \((aj)^{-1}\) changes the last sum by only \(O_T(1)\). Moreover
-\[
- \sum_{j=n_0}^{n-1}\frac{r_N^{n-1-j}}j
- =e^{-c\lambda t}\log N+O_{\varepsilon,T}(1),
-\]
-since \(r_N^{n-1-j}=e^{-c\lambda t}+O_T((j+1)/N)\) and \(\sum_{j\le NT}((j+1)/N)/j=O_T(1)\). Therefore the logarithmic coefficient is \(d/a=(a^2-b)/a\), which simplifies to the stated \(B\). Replacing \(n/N\) by \(t\) affects the leading term by \(O_T(1)\).
+## Verification and prior context
 
-**5. Host scaling.** From \(h_{n+1}=\alpha h_n-y_{n+1}\) and \(y_n\asymp1/n\), the stable convolution yields \(h_n=-y_n/(1-\alpha)+O_T(n^{-2}+N^{-1}n^{-1})+O(\vartheta^n)\) for \(\varepsilon N\le n\le TN\). Combine with \(R_\mu=1/\alpha+\lambda/((1-\alpha)N)\) to obtain the claimed host limit.
+The companion `checker.py` uses exact symbolic arithmetic for the critical jet, the invariance cancellations and \(d/a\). Its floating-point trajectories are finite illustrations at \(t=1\), not a proof of trapping, uniformity or bounded remainder. The two-width invariant rectangle above is needed for the trapping argument; the ratio variable need not stay within an arbitrary equal-width box.
 
-## Verification
+Hu, Shen and Jia [1] establish the threshold and critical global attraction, not this two-term clock. Known leading finite-time scaling for transcritical normal forms [2] accounts for the leading profile once the slow equation is identified, not the logarithmic coefficient. A related finite-window weighted logarithm in a neutral-flip sigmoid map [3] uses inverse-square amplitude; it does not give the present map's cubic coefficient, positive-data trapping or host response. The result is model-specific; neither transcritical scaling nor the weighted summation method is claimed as new. No claim of exhaustive historical priority is made.
 
-`checker.py` uses exact polynomial arithmetic in SymPy to rederive the degree-two fast graph and the quadratic and cubic slow-map coefficients, and floating-point trajectory diagnostics for several positive data sets and both signs of detuning. It checks boundedness and stability of the residual on growing finite horizons; finite computations corroborate the algebra but are not the proof of the uniform infinite-horizon assertion. The proof is analytic and the checker has no hidden data or external inputs.
+[1] L. Hu, Y. Shen and X. Jia, *Global behavior of a discrete population model*, AIMS Mathematics **9** (2024), 12128–12143, https://doi.org/10.3934/math.2024592, Sections 4–5.
 
-## Relationship to prior work
+[2] D. A. Martin, Q.-Y. Tang and D. R. Chialvo, *Finite-time scaling on low-dimensional map bifurcations*, https://arxiv.org/abs/2505.24673, Sections II–III.
 
-Hu, Shen and Jia [1, Sections 4–5] identify the transcritical threshold and global attraction at and below it, but give no two-order finite-horizon inverse-density asymptotic. The source's normal-form analysis stops at the local bifurcation criterion; the explicit cubic contribution and its logarithmic finite-window accumulation are new calculations here.
-
-An independently published analysis of a neutral **flip** sigmoid interval map [2] obtains an exponentially weighted logarithmic crossover for its inverse-square amplitude. Its state variable, critical eigenvalue, smooth map and asymptotic coefficient differ; it neither states nor directly specializes to the two-dimensional host–parasitoid transcritical system. The leading finite-time scaling law for generic one-dimensional transcritical normal forms was established earlier [3]; it yields the leading \(N U_\lambda(t)\) profile after reduction, but does not give the model-dependent logarithmic term or fast-coordinate response. The shared weighted-summation mechanism is acknowledged, and no claim is made to invent that general technique.
-
-## Limitations
-
-The statement is for fixed positive initial histories, fixed finite detuning \(\lambda\), and times bounded away from zero on the \(N\)-scale. It does not quantify transient times uniformly across varying initial densities, nor describe behavior at times much greater than \(N\). It does not assert a universal bounded correction constant, or global convergence for each supercritical fixed parameter. The negative detuning and positive detuning have a common finite-window limit but different eventual states. The first public availability of [1] is recorded from the publisher's dated source, not a later journal-issue date.
-
-## References
-
-[1] Linxia Hu, Yonghong Shen and Xiumei Jia, *Global behavior of a discrete population model*, AIMS Mathematics **9** (2024), 12128–12143, first public 27 March 2024, DOI: https://doi.org/10.3934/math.2024592; full paper: https://www.aimspress.com/aimspress-data/math/2024/5/PDF/math-09-05-592.pdf.
-
-[2] *An exponentially weighted logarithmic crossover at the neutral flip of a sigmoid interval map*, public mathematical research record (2026), https://github.com/published-finding corpus/2026/tree/main/2026/11/17/SCOPE-an-exponentially-weighted-logarithmic-crossover-at-the-neutral-f--ec7e4796f3ca; the full open repository result was inspected for its model, hypotheses, proof and implications.
-
-[3] Daniel A. Martin, Qian-Yuan Tang and Dante R. Chialvo, *Finite-time scaling on low-dimensional map bifurcations*, arXiv:2505.24673v1, first public 30 May 2025, https://arxiv.org/html/2505.24673v1. Sections II and III treat leading-order finite-time scaling and selected one- and two-dimensional maps; no present next-order host–parasitoid term.
+[3] *An exponentially weighted logarithmic crossover at the neutral flip of a sigmoid interval map*, https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-an-exponentially-weighted-logarithmic-crossover-at-the-neutral-f--ec7e4796f3ca/RESULT.md.

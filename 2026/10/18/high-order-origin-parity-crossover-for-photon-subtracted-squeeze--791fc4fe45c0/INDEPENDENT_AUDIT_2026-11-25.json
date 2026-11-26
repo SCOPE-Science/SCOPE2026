@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:27:23.781420Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The theorem concerns the normalized ideal algebraic subtraction state as defined, with natural parity after subtraction, not a probability of implementing the filter. A Gaussian overlap with the positive trace-one thermal kernel (1-z)z^N gives the displayed generating function; its number series is analytic about ±1, and the factorially weighted parity is exactly G^(m)(-1)/G^(m)(1). The numerator coefficient sign follows from the common sign of terms with index k congruent to m modulo two in (1+ct-dt²)^(-1/2), and c vanishes exactly at the given threshold. I independently verified the simultaneous coefficient expansion via an arcsine moment: (1+A t)^(-1/2)(1-B t)^(-1/2) generates moments of the arcsine law on [-A,B], for A,B>0. Splitting the signed moment at zero, its positive contribution is B^(m+1/2)/(pi sqrt(A+B)) times the integral of (1-y)^m y^(-1/2)(1-By/(A+B))^(-1/2) over [0,1]; the negative piece is the reflected formula with sign (-1)^m. The beta integral and the O(y) remainder give relative O(1/m) for each magnitude, uniformly when A,B range over a compact positive set. This establishes the additive bound through the parity cancellation without needing a relative bound on the numerator. At +1 the positive branch dominates; division gives the two stated sqrt(R) prefactors using 4vw(alpha+beta)=b+e in the proof notation. Differentiation of half the log-ratio gives -2/sinh(2r), and the uniform error survives geometric-mean rescaling for bounded s. Both bases are <1 for fixed positive nu in the stated domain, and at nu=0 parity is exactly (-1)^m from even input number support. Independent replay `python /workspace/branches/independent_audit_replay.py` uses arcsine quadrature at six high-order test points, not an infinite-order certificate. The scope text's description of the unscaled map a^m rho (a†)^m as trace-decreasing is inexact: its trace factor can exceed one. This does not enter the conditional algebraic theorem, and it supplies no success probability; a physical implementation needs a bounded, appropriately attenuated Kraus operation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "DLMF has large-degree Legendre cosine-phase expansions uniform for real angles bounded away from the endpoints. Hertz–De Bièvre prove a general Gaussian photon-subtraction nonclassicality statement."
+        ],
+        "reasoning": "The inspected real-angle estimate does not itself certify the moving complex argument with both competing terms controlled, and the Gaussian proposition does not estimate repeated-subtraction parity. General coefficient/Laplace techniques are established; this is a specific asymptotic application, not a novel transfer principle.",
+        "searches": [
+          "DLMF 18.15(iii), 18.15.12–13",
+          "arXiv:2204.06358 §IV Proposition 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, AUDIT.json, verify.py and requirements.txt",
+        "arXiv:1008.5256v1, arXiv:1112.0854v1 and arXiv:2204.06358 relevant passages",
+        "DLMF §18.15(iii)",
+        "Resultary records 8c49adea461f and 66df55b3ec78"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The normalization, exact finite-order central value, and m=1 threshold are prior or directly calculable from prior formulas. Those passages do not state a uniform simultaneous limit."
+        ],
+        "reasoning": "The exact input allows the result to be derived using standard asymptotic methods, but to obtain the claimed profile it is necessary to retain the opposite-sign branch with its correct amplitude and control both under changing nu; selecting the fixed-parameter dominant term and substituting nu_m does not suffice. No priority claim is made for the sign criterion alone.",
+        "searches": [
+          "Hu et al. (2010) Sec. II and IV.3; Hu–Zhang (2011) equations (14)–(15), (29)–(31); DLMF §18.15(iii)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The finite-order central value follows from the full Wigner formula; it also follows by evaluating the Legendre generating function at z=-1 and +1 via factorial derivatives. The numerator coefficient is (i sqrt(d))^m P_m(ic/(2 sqrt(d))) in the RESULT proof's c,d notation."
+        ],
+        "reasoning": "These are equivalent finite-order formulations, not published versions of the joint limit. In the Legendre formulation the thermal layer takes its argument along an imaginary displacement of order 1/m from zero.",
+        "searches": [
+          "Resultary: photon-subtracted squeezed thermal parity large-order asymptotic two branches crossover",
+          "arXiv:1008.5256v1 Section IV.3; arXiv:1112.0854v1 equations (14)–(15), (29)–(31)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest crossover record is on single-photon addition, integrated Wigner negativity and a joint high-temperature/large-squeezing regime. The Poisson Fock re-preparation record concerns stationary photon loss and not squeezed thermal subtraction. Exact finite-m formulas are available in the primary literature."
+        ],
+        "reasoning": "Neither indexed observable nor the tabulated real-angle asymptotic matches this physical limit; finite-order values are not a table of the scaled limiting profiles.",
+        "searches": [
+          "Resultary photon-subtraction parity/crossover search; mirror 8c49adea461f and 66df55b3ec78 Findings",
+          "DLMF 18.15(iii); Hu et al. (2010) equations (37)–(39)"
+        ]
+      },
+      "rationale": "Only the sharp large-subtraction-order central parity and its moving-thermal-population boundary layer are credited. The state, exact finite-order Wigner values and photon generating function, and the single-photon threshold are prior art. The closest general asymptotic formulation inspected has a different stated uniformity domain; broader specialist complex Legendre literature may reduce the novelty further.",
+      "residual_risks": [
+        "A complex-angle Legendre expansion with uniform error near the segment, or a prior application to origin parity, may directly subsume the limit. The frozen audit mentions an inaccessible related thesis; no whole-thesis exclusion is made.",
+        "Catalogue and literature searches cannot certify publication priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Contains the finite-order antecedent and one-photon threshold; no joint asymptotic in relevant passages.",
+          "evidence": [
+            "Setting the displacement to zero in the arbitrary-order Wigner formula gives the exact observable. The m=1 condition is nbar<sinh²r."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1008.5256v1",
+          "material_read": "§II equations (11)–(13), PDF p. 4; §IV.3 equations (37)–(39), pp. 9–10 and the threshold passage",
+          "method": "Lawful OA PDF text",
+          "title": "Photon-subtracted squeezed thermal state: nonclassicality and decoherence",
+          "trigger": "Same state, arbitrary subtraction order and origin negativity"
+        },
+        {
+          "assessment": "Exact generating function and fixed-order subtraction normalization, not a co-scaled limit.",
+          "evidence": [
+            "Legendre generating function gives the number generating average and the exact m-th normalization."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1112.0854v1",
+          "material_read": "PDF pp. 3–4, equations (14)–(15) and (29)–(31)",
+          "method": "Lawful OA PDF text",
+          "title": "New approach for normalization and photon-number distributions of photon-added (-subtracted) squeezed thermal states",
+          "trigger": "Potential equivalent Legendre expression"
+        },
+        {
+          "assessment": "Mechanism relevant; quoted domain is real-angle, not the moving complex angle here.",
+          "evidence": [
+            "Cosine-type oscillations with real angle uniform away from endpoints."
+          ],
+          "identifier_or_url": "https://dlmf.nist.gov/18.15.iii",
+          "material_read": "§18.15(iii), equations 18.15.12–13 and stated angle range",
+          "method": "Lawful OA web-text passage",
+          "title": "DLMF, Asymptotic Approximations: Legendre",
+          "trigger": "Potential tabulated large-degree implication"
+        },
+        {
+          "assessment": "Nonclassicality preservation in a broader family, not the repeated-order parity profile.",
+          "evidence": [
+            "Proposition 1 addresses Gaussian-state photon subtraction nonclassicality."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2204.06358",
+          "material_read": "§IV Proposition 1, PDF p. 6",
+          "method": "Lawful OA PDF text",
+          "title": "Decoherence and nonclassicality of photon-added/subtracted multi-mode Gaussian states",
+          "trigger": "Broader Gaussian photon subtraction"
+        },
+        {
+          "assessment": "Different operation, observable and asymptotic variable.",
+          "evidence": [
+            "Single addition and total Wigner-negative volume, with scaled temperature/squeezing rather than variable subtraction order."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-a-uniform-thermal-squeezing-crossover-for-photon-added-wigner-ne--8c49adea461f",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Lawful local mirror text",
+          "title": "A uniform thermal–squeezing crossover for photon-added Wigner negativity",
+          "trigger": "Closest indexed thermal crossover"
+        },
+        {
+          "assessment": "Different state and threshold mechanism.",
+          "evidence": [
+            "Stationary Fock-state re-preparation under photon loss."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-parity-dependent-wigner-negativity-threshold-under-poisson-fock--66df55b3ec78",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Lawful local mirror text",
+          "title": "Parity-dependent Wigner-negativity threshold under Poisson Fock re-preparation",
+          "trigger": "Indexed parity threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a specified optical observable the exact sign is not enough to characterize the persistence of contrast. The parity-resolved crossover scale and absolute multiplicative contrast distinguish odd sign reversal from the competing positive contributions and the exponential loss at fixed thermal population. The co-scaled profile addresses a natural limit of the known central-negativity threshold, without implying global Wigner positivity, negativity volume or an experimental calibration/error bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

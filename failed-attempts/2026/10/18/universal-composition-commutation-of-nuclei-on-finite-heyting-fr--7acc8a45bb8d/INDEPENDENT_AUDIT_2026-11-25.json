@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:16:06.099515Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–69 and 71–73",
+        "Frozen VERIFICATION.md, AUDIT.json and verify_universal_nuclei.py lines 9–30 and 104–113 (inspected, not executed)",
+        "Replay: python3 -B /workspace/reproductions/recheck.py 2"
+      ],
+      "rationale": "The mathematical Finding holds. Each j_S is upset-valued, extensive, monotone and meet-preserving, and agrees with its argument on S, which gives idempotence. Conversely tag p as belonging to S_j iff p∉j(↑p∖{p}). If x∈j(U), then a tagged p≥x outside U would contradict meet preservation applied to U and ↑p. If x∉j(U), choose a maximal p≥x outside j(U); its strict upper set is in j(U), so idempotence forces p to be tagged. This proves the exhaustive and unique indexing. The two bottom-test outputs at p are P∖↓(S∩↓p), and either P∖↓p if p∈↓S or P otherwise. For p outside S with a point of S above it, the two outputs disagree at p; if there is no such upper point but some s of S is below p, they disagree at s. No crossing comparable pair means a component union, and then the map is identity or constant top on each factor. Incomparable singleton pairs give constant-top composites, while comparable ones already differ on the bottom. The count includes P empty. Independent fixed-point-family enumeration reproduced the correspondence and all tests on every distinct labelled poset of sizes 0–4. Verification discrepancy: the frozen script closes each acyclic directed graph without deduplicating its resulting order. Its 1,1,3,25,543 counts (573 visits) are DAG counts, not counts of distinct labelled posets, contra RESULT.md line 73, VERIFICATION.md and the historical self-review rationale. The actual distinct counts are 1,1,3,19,219 (243 posets). Every poset is nevertheless generated; the script's distinctness checks of subset maps do not establish surjectivity onto all nuclei, which the proof and the independent bounded fixed-family scan address. PASS is for the mathematical Finding, not the incorrect count in its verification notes.",
+      "residual_risks": [
+        "The source's verification evidence has the stated counting/mislabelling defect, not a missing large-poset proof or a counterexample to the mathematical Finding. The finite replay is corroboration only; do not cite 573 as a distinct-poset count."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "f1fb76461c77 gives an alternating-path bridge test for all finite posets and all powers of j_S∘j_T; in particular, the product is a nucleus iff each s∈S≤t∈T has an S∩T-point in [s,t].",
+          "fce37b8b9898 classifies commuting nuclei by separator purity on finite Gödel chains, with a product-of-chains scope; it is not by itself a result for arbitrary finite posets."
+        ],
+        "reasoning": "Apply the first criterion in both orders with T={p}. When p∉S, S∩T is empty; both ordered tests pass exactly when p is incomparable with every point of S. When p∈S all intervals already have p. This is precisely the no-cross-comparability condition. The trivial empty case changes no coverage. The broad web lookup was nondecisive, not evidence of absence.",
+        "searches": [
+          "Resultary f1fb76461c77 Finding and proof",
+          "Resultary fce37b8b9898 Finding",
+          "Web lookup: universal composition commutation of finite Heyting nuclei"
+        ]
+      },
+      "checked_sources": [
+        "Resultary f1fb76461c77 and fce37b8b9898",
+        "arXiv:1405.4408",
+        "arXiv:2107.08501",
+        "arXiv:1906.03640"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed expansion says x is absent from (j_S∘j_T)(U) iff x≤s≤t for s∈S,t∈T∖U. With T={p} and U empty, the respective failure sets are ↓(S∩↓p) and ↓p when p≤s for some s∈S (empty otherwise).",
+          "For p∉S, a point of S above p makes the two failure sets differ at p, and a point below p with none above makes them differ at that point. For p∈S both sets are ↓p. Distinct singleton pairs are the same specialization with S={q}."
+        ],
+        "reasoning": "The predecessor does not explicitly advertise a bottom-only universal commutant test, and an idempotent single product need not equal the reversed product. However, the displayed expansion supplies that diagnostic immediately with no new structural lemma. Thus the bottom-probe wording is not a separately surviving result.",
+        "searches": [
+          "f1fb76461c77 RESULT.md offsets 930–3369 and 3881, one-step criterion and composition expansion",
+          "Lindenhovius C.4/C.6(ix)",
+          "Frozen RESULT.md lines 46–69"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "f1fb76461c77 treats alternating products of arbitrary subset-indexed nuclei of any finite nonempty poset and gives an exact one-step criterion.",
+          "Lindenhovius C.4 and C.6(ix) cover downset nuclei; order duality gives the frozen upset formula. Ochs gives the inverse formula.",
+          "Ávila et al. study the pointwise-ordered assembly rather than operation by composition."
+        ],
+        "reasoning": "Neither the fixed-sublocale dictionary nor pointwise Booleanity is a statement about composition. But on this domain, j_S,j_T commute iff both ordered products are nuclei: if they commute, the product is idempotent; if both products are nuclei the indexed theorem makes both j_{S∩T}. This gives an exact bridge to the stronger indexed criterion.",
+        "searches": [
+          "Resultary: universally composition-commuting nuclei, bottom singleton probes, comparability components",
+          "Resultary: pairwise nucleus composition and fixed-set/sublocale criteria",
+          "arXiv:1405.4408 Appendix C",
+          "arXiv:1906.03640"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The chain separator/rank census is not a finite-poset universal-commutant table. The stronger all-poset bridge result does not print 2^{c(P)} but determines the exact class and count by the above specialization."
+        ],
+        "reasoning": "Coverage here is of an exact invariant via implication, not a numerical coincidence or a previously printed table entry. Counting the permitted subsets just independently chooses whether to take each whole component.",
+        "searches": [
+          "Resultary: 2^{c(P)} universally commuting nuclei on finite posets",
+          "Resultary: commuting nuclei joint rank census fce37b8b9898",
+          "Resultary: composition stabilization f1fb76461c77"
+        ]
+      },
+      "rationale": "A distinct same-date indexed theorem supplies both the general composition expansion and the interval-bridge criterion for when a product is a nucleus. Testing the two orders of a singleton product in that criterion gives the central classification; the prior expansion immediately supplies the bottom witness and the singleton graph test. The exact component count is then mechanical. This establishes material implication without assuming priority from the date.",
+      "residual_risks": [
+        "Chronological priority between the same-date records is unresolved; this does not weaken the mathematical implication.",
+        "No blanket claim about all older modal or sublocale literature follows from bounded primary inspection."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Materially covers frozen classification and diagnostics by specialization; date does not order the two",
+          "evidence": "Expansion x≤s≤t with endpoint tested in U; product is j_{S∩T} exactly in the one-step bridge regime. A nucleus in one order alone need not give commutation.",
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-alternating-nucleus-stabilization-on-finite-heyting-frames--f1fb76461c77/RESULT.md",
+          "material_read": "Finding near offset 934, composition expansion and exact bridge equivalence starting near 930, one-step proof at 3881 and related-work distinction",
+          "method": "Resultary plus bounded local mirror reads, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp alternating nucleus stabilization on finite Heyting frames",
+          "trigger": "Strong all-poset ordered-product classification"
+        },
+        {
+          "assessment": "Restricted precedent, not enough for arbitrary finite posets",
+          "evidence": "Separator purity on finite Gödel chains; common composite indexed by the common fixed-set intersection.",
+          "identifier_or_url": "2026/10/12/SCOPE-separator-rigidity-and-exact-joint-rank-census-for-commuting-nuc--fce37b8b9898/RESULT.md",
+          "material_read": "Finding and scope",
+          "method": "Resultary and bounded local mirror passage",
+          "title": "Separator rigidity and exact joint-rank census for commuting nuclei",
+          "trigger": "Exact pairwise classification in finite Heyting structures"
+        },
+        {
+          "assessment": "Exhaustive normal-form antecedent via order duality",
+          "evidence": "j_X(A)=X→A on downsets, every nucleus represented on Artinian P, with the corresponding fixed-point sublocale.",
+          "identifier_or_url": "arXiv:1405.4408",
+          "material_read": "Theorems C.4, C.6(ix), Corollary C.5, pp. 74–76, near text offset 204900",
+          "method": "OA primary PDF passages",
+          "title": "Grothendieck Topologies on Posets",
+          "trigger": "Subset–nucleus and sublocale correspondence"
+        },
+        {
+          "assessment": "Explicit inverse normal-form antecedent",
+          "evidence": "X_j={p:p∉j(↓p∖{p})}, with mathematical content credited to Lindenhovius.",
+          "identifier_or_url": "arXiv:2107.08501",
+          "material_read": "pp. 1–3, offset about 1500 onward",
+          "method": "OA primary PDF passages",
+          "title": "On a Formula That Is Not in Grothendieck Topologies on Posets",
+          "trigger": "Inverse subset criterion"
+        },
+        {
+          "assessment": "Different operation in checked statements",
+          "evidence": "Spatiality and Booleanity for the pointwise-ordered nucleus frame, not universal composition commutation.",
+          "identifier_or_url": "arXiv:1906.03640",
+          "material_read": "pp. 1 and 10 near offsets 0 and 26000",
+          "method": "OA primary PDF passages",
+          "title": "The Frame of Nuclei of an Alexandroff Space",
+          "trigger": "Possible frame-center or Boolean assembly equivalent"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and bottom-test proof",
+        "f1fb76461c77 composition expansion and one-step criterion"
+      ],
+      "rationale": "Universal commutation is natural, but following the stronger finite-poset composition result the count is simply a component selection and the one-input/comparability diagnostics are direct singleton evaluations of its displayed expansion. They are a useful explanatory corollary, not a distinct unresolved classification or probe theorem. Correcting the verification counts would not create a surviving research contribution.",
+      "residual_risks": [
+        "This assessment concerns separate research value under the demonstrated coverage, not the utility of the pointwise calculation in exposition."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

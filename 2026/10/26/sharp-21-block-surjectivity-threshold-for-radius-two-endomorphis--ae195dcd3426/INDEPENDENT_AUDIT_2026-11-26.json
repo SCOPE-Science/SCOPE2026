@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:39:47.886013Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Assumptions and Proof; VERIFICATION.md, verify.py and classification.csv inspected",
+        "Independent replay: python3 /workspace/branches/independent-checks/golden_mean.py; captured output in golden_mean.log; catalog comparison used the replay's is_preserving and first_missing functions."
+      ],
+      "rationale": "Each admissible input block extends bi-infinitely by zeros, so the 13 local values determine distinct maps and all 21 tests for two adjacent 1 outputs are necessary and sufficient. In the labeled graph on admissible four-blocks, a path corresponds to an overlapping legal input block, and conversely; hence its label appears in the image exactly when the endpoint subset is nonempty. The subset and last bit capture both continuation constraints. Breadth-first closure is exact at all lengths, and equality of finite languages implies equality of the two-sided shifts by compactness and shift invariance. Independent enumeration reproduces the 229 maps, 11 onto codes, 5 shifts, all six periodic collisions, every shortest-omission count and all 229 exact classification.csv rows. The unique mask with shortest omission of length 21 is 4132. Separately generating all 196418 legal length-25 inputs produces 28655 of 28657 legal length-21 words, with precisely the two stated reverse omissions and the complete length-20 prefix language. Radius one gives 7 self-maps and only the three shifts onto; radius zero has only identity onto. Thus both finiteness of the search and the extension to the infinite system are justified.",
+      "residual_risks": [
+        "This checks only the specified alphabet, constraint and centered radii. It is not surjectivity on every ring, a classification of larger radii, or a formal proof-assistant result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General results identify surjective endomorphism properties on irreducible shifts and relate onto factor maps, equal entropy and finite-to-one behavior; they do not enumerate the 13-bit rule space or bound the shortest missing word sharply for it.",
+          "The elementary classification is for 256 complete rules with three-bit windows, not the 8192 choices on legal five-blocks."
+        ],
+        "reasoning": "The inspected general theory supplies criteria and factor-map properties, while the exact full-shift elementary results have different hypotheses. Neither gives the constrained radius-two census by a specialization.",
+        "searches": [
+          "Kari–Taati arXiv:1311.2319, strongly irreducible shifts",
+          "Adler–Kitchens–Marcus DOI:10.1017/S0143385700003114, factor-map implications",
+          "Schüle–Stoop arXiv:1107.2080, exact elementary-rule classification"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 824122558fbf",
+        "arXiv:1311.2319, 1107.2080, 2209.13373",
+        "Adler–Kitchens–Marcus DOI:10.1017/S0143385700003114"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A generic finite-state search guarantees decidability or a coarse upper bound, not that the maximum first obstruction is 21, attained uniquely. The k>=2 classifications omit k=1 rather than giving a formula valid at k=1, where the counts and the existence of proper onto maps differ."
+        ],
+        "reasoning": "The complete finite computation and witnesses establish a new exact fact in a natural regime even though the decision method itself is not novel.",
+        "searches": [
+          "Adler–Kitchens–Marcus factor-map theorem; Kari–Taati hard-core endomorphisms; Resultary 824122558fbf Finding/Assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The golden-mean shift is the binary one-zero-separation case (k=1); replacing the bound with at least k zeros for k>=2 changes the domain and allowed local windows.",
+          "Salo Proposition 20 uses this shift and its flipped version in a weak-periodic-point argument for ECA 28, not a radius-two endomorphism enumeration."
+        ],
+        "reasoning": "In constrained automata language, the shortest missing legal label in the labeled predecessor graph measures failure of surjectivity; it is not finite-ring surjectivity or a full-shift classification. The different shift conventions were checked against their actual forbidden words.",
+        "searches": [
+          "Golden-mean / one-dimensional hard-core shift: Kari–Taati arXiv:1311.2319",
+          "Salo arXiv:2209.13373, golden-mean shift and ECA",
+          "Resultary centered radius-two binary hard-core shifts 824122558fbf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day record's first regimes report 23 self-maps and 5 onto at k=2 with maximum omission length 9, and 9 self-maps and 5 onto at k=3 with maximum omission length 6. At k>=4 only the five shifts remain. The record excludes k=1.",
+          "The published elementary rule census has a different domain and neighborhood width."
+        ],
+        "reasoning": "The close result is compared by actual model and parameters, not date. The inspected exact tables do not give the golden-mean code census or its sharp 21-block obstruction.",
+        "searches": [
+          "Resultary radius-two hard-core shift census and sharp finite observation threshold, 824122558fbf",
+          "Schüle–Stoop arXiv:1107.2080 exact ECA categories"
+        ]
+      },
+      "rationale": "The de Bruijn/predecessor presentation and subset closure are standard methods. The distinct result is the complete constrained-radius census, the first radius with a proper onto map, and the exact shortest-omission maximum with its unique rule and two defects. The nearest indexed claim is materially related but starts at two required zeros between ones; its counts and rigidity statements do not cover the one-required-zero golden-mean shift. None of the inspected general or exact classification results supplies the frozen figures and threshold.",
+      "residual_risks": [
+        "A bounded search does not rule out an older specialized catalogue. The Hedlund 1969 full text was not accessible via the tried lawful routes; its sliding-block theorem is standard background and no priority inference is made from that gap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material overlap in method but no covering parameter at k=1",
+          "evidence": [
+            "At least two zeros are required; k=2 and 3 have different counts and horizons, with only shifts at k>=4."
+          ],
+          "identifier_or_url": "Resultary 824122558fbf",
+          "material_read": "RESULT.md Finding and Assumptions at offset 0, proof and related-work discussion from offset 4980",
+          "method": "Local mirrored record",
+          "title": "Radius-two rigidity across binary hard-core shifts with sharp forbidden-word thresholds",
+          "trigger": "Same-day, same radius, nearby shift family and exact obstruction tables"
+        },
+        {
+          "assessment": "Same model occurs; no fixed-radius census in the inspected results",
+          "evidence": [
+            "The one-dimensional hard-core shift is identified with the golden-mean shift."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1311.2319",
+          "material_read": "pp. 9–10 and 13 on strongly irreducible shifts and the hard-core example",
+          "method": "OA primary passages, extracted-text offsets 33699 and 48206",
+          "title": "Statistical Mechanics of Surjective Cellular Automata",
+          "trigger": "Exact golden-mean model and general endomorphism results"
+        },
+        {
+          "assessment": "Different domain and radius",
+          "evidence": [
+            "Enumerates classes of elementary binary 3-window functions on the full shift."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1107.2080",
+          "material_read": "pp. 1–2 defining and classifying the local rule space",
+          "method": "OA primary passages at extracted-text offsets 371 and 11868",
+          "title": "A Full Computation-relevant Topological Dynamics Classification of Elementary Cellular Automata",
+          "trigger": "Closest published elementary cellular automaton exact classification"
+        },
+        {
+          "assessment": "Regularity and specific ECA 28 argument, not a census",
+          "evidence": [
+            "The golden-mean and flipped golden-mean shifts are used in a weak-periodic-point analysis."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2209.13373",
+          "material_read": "Abstract and Proposition 20, p. 9",
+          "method": "OA primary passages at extracted-text offsets 0 and 34455",
+          "title": "On von Neumann regularity of cellular automata",
+          "trigger": "Golden-mean example within finite-rule cellular automata"
+        },
+        {
+          "assessment": "Structural implications, not a finite-radius count or sharp horizon",
+          "evidence": [
+            "Relates onto, equal entropy and finite-to-one under irreducible shift hypotheses."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S0143385700003114",
+          "material_read": "p. 2, relevant factor-map implications",
+          "method": "OA primary PDF, extracted-text passage around offset 5031",
+          "title": "Almost topological classification of finite-to-one factor maps between shifts of finite type",
+          "trigger": "General SFT factor-map theorem potentially covering surjectivity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen radius-one and radius-two census, exact omission distribution and extremal witness",
+        "Resultary 824122558fbf as a neighboring family with distinct rigidity"
+      ],
+      "rationale": "The golden-mean shift is a canonical constrained binary system. The census resolves the minimum centered radius at which information can be lost by a surjective rule, and gives the exact observation length sufficient to distinguish every strict image by its block language. The unique rule whose language first differs at length 21 is a useful concrete test case for short-neighborhood surjectivity algorithms, not an arbitrary slice of a larger enumeration.",
+      "residual_risks": [
+        "The guarantee concerns comparison of full finite languages; a single observed output block does not in general certify surjectivity or its failure."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

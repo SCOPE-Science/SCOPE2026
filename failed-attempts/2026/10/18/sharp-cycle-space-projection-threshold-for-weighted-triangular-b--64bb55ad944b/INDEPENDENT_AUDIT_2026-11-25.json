@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:21:53.717506Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–69",
+        "Frozen VERIFICATION.md and verify.py (read, not executed)",
+        "Independent full-matrix weighted incidence and kernel LP, seven points"
+      ],
+      "rationale": "The m independent circulations e_xi+e_yi−e_c span by cycle rank. Averaging over hub interchange and leaf permutations preserves the projection and does not increase its weighted ℓ1 norm. Fixing each circulation gives spoke coefficients (1+u)/2 and u/2 and the hub image u times the sum of circulations. The weighted column maximum is max{m(2+t)|u|/t, |1+u|+(m−1)|u|+(t/2)|1+mu|}. For u≥0 it is at least 1+t/2. For −u>1/m the hub column alone exceeds 1+2/t≥1+t/2. In 0≤v=−u≤1/m the hub line is increasing from zero and the spoke line has slope m(1−t/2)−2. A nonnegative slope gives the u=0 minimum; a negative slope gives a unique intersection at v=t(t+2)/[m(t²+4)+4t] in the stated interval. This also proves the asserted optimal hub-coordinate behavior. Equality gives the same value from both formulas, and at t=2 the retained coordinate gives 2m/(m+1). The values at t=1 follow directly. Independent full matrix LPs after isometric diagonal scaling reproduced the formula at seven points straddling the threshold, including 1.495, 1.500 and 1.502479229200 for m=4 at t=0.99,1,1.01. Replay: python3 branches/independent_checks.py 3 (NumPy/SciPy).",
+      "residual_risks": [
+        "The LP checks do not prove the full range or uniqueness. The analytical minimization supplies the result including the two boundary cases and the asserted equivariant restriction."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Blatter–Cheney give exact minimal norms for hyperplanes of ℓ1, using a_N=∑_{i≤N} f_i, b_N=∑_{i≤N}1/f_i for the active positive coefficients and the ordering test of Theorem 7. Theorem 5 has the norm 1+2/[b_N−(N−2)/f_N−N+a_N/f_N], and Theorem 6 has 1+2/[a_N b_N/(N−2)−N] in its branch.",
+          "The multibranch diamond base graph K_{2,m} lacks the retained edge; the transportation-cost identification TC=ℓ_{1,d}/Z and projection/distortion inequalities alone are not norm formulas for the weighted book."
+        ],
+        "reasoning": "The classical theorem is an exact stronger invariant, not just a broad projection framework. The other graph-family sources address different presentations or invariants and are not the basis of the decision.",
+        "searches": [
+          "Blatter–Cheney, DOI 10.1007/BF02417105, Theorems 5–7 (printed pp. 221–224)",
+          "arXiv:1807.03814, definition 1.8 and §5.1",
+          "arXiv:1910.03625, Theorem 3.1",
+          "10.1090/pspum/106/01929, Proposition 8"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verification materials",
+        "10.1007/BF02417105",
+        "arXiv:1807.03814 and 1910.03625",
+        "10.1090/pspum/106/01929",
+        "Resultary 91b9f6372a7d, e649cfd1b981, 8fed74773860"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For f=(1,h,…,h,0,…), at a positive index N≥3, a_N=1+(N−1)h, b_N=1+(N−1)/h. For N≤m with another positive coefficient, f_(N+1)b_N=h+N−1>N−2; the stopping test reduces to a_N≤N−2. If such a stop is strict in the positive support, the Theorem 5 denominator is b_N−(N−2)/h−N+a_N/h=2/h, giving 1+h. This is the branch m(1−h)>2, which can also stop at the last positive index.",
+          "If m(1−h)<2, then a_N>N−2 up to N=m+1 and the active support terminates at N=m+1. Substituting the full sums into Theorem 6 gives 1+2(m−1)/(2+m(h+1/h))=m(1+h)²/[m(1+h²)+2h]. Equality and isolated active-set ties follow by continuity (the weighted ambient norms vary continuously up to multiplicative equivalence). Set h=t/2 to obtain exactly the frozen formula.",
+          "In the hyperplane model any projection has form I−x f with f(x)=1; annihilating the spine coordinate forces x=e_1, of norm 1+h as an operator I−e_1 f. Thus the strict smaller branch cannot annihilate the spine, and the saturated branch attains its minimum with that choice. The restriction/extension preserves this column property."
+        ],
+        "reasoning": "Both branches, the threshold, attainability, the spine-coordinate statement and the unweighted examples follow without new graph-specific optimization. The critical reduction is simply contractive elimination of the duplicate spoke coordinates.",
+        "searches": [
+          "10.1007/BF02417105, offsets 15800–22449 (case formulas and definitions), 23900–26736 (active-index rule and Theorem 7)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Let U be the graph edge subspace with x_i=y_i on each page. Averaging each (x_i,y_i) pair is contractive in the edge norm, fixes the spine coordinate, and fixes the whole cycle space. Restricting any graph projection to U gives a lower bound by λ(Z,U); composing U-projectors with the averaging gives the reverse.",
+          "The U isometry takes a flow to (t f_c, 2 f_x1,…,2 f_xm); incidence reduces to f_c+∑f_xi=0. Hence the normalized ℓ1 functional has coefficients (1,t/2,…,t/2)."
+        ],
+        "reasoning": "The equality is of relative projection constants, not just an abstract isometry of cycle spaces. Zero-extending the functional to ordinary sequence ℓ1 leaves the projection constant unchanged, by coordinate restriction/compression and by extending any finite projection with the identity on the ℓ1 tail.",
+        "searches": [
+          "explicit relative projection constant every hyperplane l_1^n formula norm minimal projection ker f Blatter Cheney Kobos weighted hyperplane saturation",
+          "10.1007/BF02417105, ℓ1 hyperplane projection formulas"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "91b9f6372a7d, Finding (offset 0), gives exact unweighted cycle projection minima for K_r∨overline(K_s); r=2, s=m gives 9/7, 27/19, then 3/2.",
+          "e649cfd1b981 calculates squared Hilbert distortion of the free space on the same weighted metric, not the cycle projection norm.",
+          "8fed74773860 concerns the cut space of weighted K_{2,m} without a hub edge."
+        ],
+        "reasoning": "The complete split graph match covers exactly t=1, not general t. This later-dated match does not establish historical priority; full weighted coverage instead follows from the primary ℓ1 hyperplane paper. The same-date matches are distinguished by their actual invariants.",
+        "searches": [
+          "Resultary 91b9f6372a7d: four-vertex saturation, complete split graphs",
+          "Resultary e649cfd1b981: weighted book metrics",
+          "Resultary 8fed74773860: weighted multibranch diamonds"
+        ]
+      },
+      "rationale": "The exact weighted formula, including the switch, follows mechanically from Blatter and Cheney's classical ℓ1 hyperplane projection theorem. The pairwise spoke averaging is a contraction onto the subspace where the two spoke coordinates on each page agree, and the cycle space lies in that subspace. Restriction and extension by this contraction preserve the projection infimum. In scaled coordinates the cycle space is therefore isometric as a relative projection problem to ker(1,h,…,h) in ordinary ℓ1^{m+1}, with h=t/2. The primary formulas give the two branches by direct substitution, and the hub-column condition follows by testing the coordinate annihilator. A distinct indexed result also exactly covers the unweighted slice as a complete split graph. Neither the same-date weighted metric-distortion result nor no-spine diamond work is asserted to prove this result.",
+      "residual_risks": [
+        "Not an exhaustive search for direct weighted graph statements. Such a match is unnecessary for coverage because the graph-to-hyperplane reduction and exact classical substitution establish it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Established stronger theorem, yielding both branches of the frozen result",
+          "evidence": [
+            "Theorems 5–6 supply the exact case formulas; Theorem 7 assembles them via the stopping rule on the ordered coefficients."
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/BF02417105",
+          "material_read": "Primary PDF summary, Theorems 5–6 and active-index Theorem 7 with proof (printed pp. 221–224, offsets 15800–22449 and 23900–26736)",
+          "method": "Lawful reader access via article URL to the primary PDF; bounded formula inspection and parameter substitution",
+          "title": "Minimal projections on hyperplanes in sequence spaces",
+          "trigger": "Paired-spoke averaging reduces the graph problem to an ℓ1 hyperplane"
+        },
+        {
+          "assessment": "Exact unweighted slice, narrower than the weighted branch claim",
+          "evidence": [
+            "Setting r=2 and s=m yields the same small-page and saturation values."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-four-vertex-saturation-law-for-minimum-cycle-projections-on-co--91b9f6372a7d/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Indexed source and bounded statement comparison",
+          "title": "A four-vertex saturation law for minimum cycle projections on complete split graphs",
+          "trigger": "Unweighted book is a complete split graph with clique size two"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": [
+            "The formula concerns Hilbert distortion of the free space rather than complementation in the weighted edge space."
+          ],
+          "identifier_or_url": "e649cfd1b981",
+          "material_read": "Finding, offset 0",
+          "method": "Bounded indexed statement comparison",
+          "title": "Sharp Hilbert distortion crossover for weighted book metrics",
+          "trigger": "Same weighted book metric and a crossover"
+        },
+        {
+          "assessment": "Adjacent family lacks the retained edge",
+          "evidence": [
+            "The base diamond replaces the original edge by multiple two-edge paths."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1807.03814",
+          "material_read": "Definition 1.8, p. 6; §5.1, p. 23",
+          "method": "Bounded open primary text comparison",
+          "title": "Lipschitz free spaces on finite metric spaces",
+          "trigger": "Multibranching diamond comparison"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and minimization",
+        "Blatter–Cheney Theorems 5–7",
+        "Resultary 91b9f6372a7d"
+      ],
+      "rationale": "The role of the retained spine in a graph complementability problem is natural, but the proposed exact invariant is a two-valued coefficient substitution in the already solved hyperplane problem after a contractive compression. Even the spine-annihilation threshold is exactly the feasibility of the coordinate annihilator at the known optimum. The unweighted observation is also a substitution into the published split-graph formula. No independently useful unresolved quantity remains in the frozen claim.",
+      "residual_risks": [
+        "This decision does not dispute the usefulness of the formula as an application or expository example."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

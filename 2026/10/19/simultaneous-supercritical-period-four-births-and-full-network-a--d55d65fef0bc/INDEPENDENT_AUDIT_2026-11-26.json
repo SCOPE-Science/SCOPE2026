@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:04:33.350630Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fix d≥2, and split the quotient directions into span(1) and its perpendicular; the coupling eigenvalues are d+1 and 1. On the diagonal α=(d+1)h, and each x_σ solves α sin x_σ=π, giving the two distinct antipodal prime-two orbits. At the representative x_σ set t=α cos x_σ. The recentered two-step return has derivative 1−t²=−1−ε and chain-rule second and third derivatives π(3t+t²) and 4t²+3t³+t⁴−3π²(1+t). Thus as t²=2 the flip coefficient g''²/4+g'''/6 is (2+t)(5π²+2)/2>0. Dividing the two-step return's second iterate minus the identity by the offset y gives a smooth function with strict local concavity, maximum 2ε+O(ε²) at y=O(ε), and negative values at fixed close endpoints. There are exactly two nonparent roots for ε>0 and none for ε<0; the return exchanges them because its only nearby fixed point is the parent. They have offsets ±sqrt(ε/B_σ)+O(ε); differentiating yields longitudinal four-step multiplier 1−4ε+O(ε^(3/2)). The leading ratio sqrt(B_−/B_+)=sqrt(2)−1, and oddness exchanges the two cycles (mapping a representative neighborhood to the other cycle's antipodal neighborhood). At the parent the transverse four-step derivative is q_d I with q_d=(1−2/(d+1)²)²∈(0,1). The projected four-step fixed-point equation has invertible perpendicular derivative (q_d−1)I, so its unique local transverse solution is the invariant diagonal. This excludes all nondiagonal local daughters on both sides. All transverse multipliers along each daughter equal q_d+O_d(sqrt(ε)), proving attraction in the full quotient for each fixed d. Neither global attraction nor stability in an unquotiented common-rotation direction is asserted. Independent finite brackets for ε=10⁻⁴ and 4·10⁻⁴ supported the offsets and multipliers; the uploaded code was read, not run, and the existence, count and stability follow from the local analysis rather than the brackets.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Buescu–D’Aniello–Oliveira §5.2 gives Morse–Smale dynamics of the three-leaf star for 0<h<1/4. The claimed strong-step event for d=3 is near h=√(π²+2)/4≈0.8613, not in that interval.",
+          "The indexed triangle theorem treats the constraint z₁+z₂+z₃=0 mod 2π, coupling 3I−11ᵀ, a double flip of twisted fixed points, and six prime-two saddles with μ_perp=1+(63/10)δ²+O(δ³)."
+        ],
+        "reasoning": "The general network setup and related bifurcations are relevant, but the available theorem for the star lies outside the parameter region and the triangle has a different invariant space, parent period and transverse behavior.",
+        "searches": [
+          "arXiv:2610.10993, §5.2 Corollary 5.5",
+          "Resultary: transversely unstable period-doubling cycles in the discrete Huygens triangle"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2610.10993",
+        "Resultary 2026/10/25 record 32d3c49b541d",
+        "Rochester circle-map notes, pp. 4 and 9",
+        "MathOverflow 382610 and frozen reference 4 (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The parent multiplier crossing alone has no cubic sign information. The circle-map flip criterion gives a conclusion conditional on that sign; evaluating it on both returning antipodal branches gives B_± and the exact splitting ratio.",
+          "Even an established scalar bifurcation would not on its own show attraction or exclusion of nondiagonal fixed points of the fourth iterate. Here the fixed transverse eigenspace, q_d<1, and the invertible transverse fixed-point equation are additional family-specific inputs."
+        ],
+        "reasoning": "The fully local, all-fixed-d star result is not a parameter renaming of the prior Morse–Smale window or triangle statement and requires checking the branch coefficients and the entire quotient separately.",
+        "searches": [
+          "Frozen RESULT.md, prior parent citation and Proof §§2–4",
+          "arXiv:2610.10993, §5.2 Cor. 5.5",
+          "Indexed 32d3c49b541d, Finding and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With θ=x/(2π) and a half-turn coordinate shift, the diagonal map is θ↦θ−K sin(2πθ)/(2π) with K=α and Ω=0.",
+          "Rochester circle-map notes, pp. 4 and 9, give the normalization and a period-doubling example at Ω=1/3. The exact-formula MathOverflow title was accessible, but the linked content and alternate StackPrinter retrieval were unavailable.",
+          "The unresolved parent citation in the frozen RESULT line 117 is explicitly credited there for the parent existence and crossing."
+        ],
+        "reasoning": "General sine-circle-map equivalence is exact only for the stated zero-drift scalar slice, with no transverse modes. A nonzero-drift example does not determine the branch data, and the inaccessible title does not establish either equivalence of conclusions or lack of overlap.",
+        "searches": [
+          "Resultary: Three-phase two-cycle bifurcation and sharp stability in synchronized Huygens stars",
+          "Scalar equivalent: Strange behavior of x_(n+1)=x_n+λ sin(x_n), MathOverflow 382610",
+          "Sine-circle-map zero-drift normalization and period doubling"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected three-leaf-star source counts eight fixed points in its Morse–Smale interval, not a local prime-four census near the claimed threshold.",
+          "The indexed triangle finding counts six prime-two cycles on reflection-fixed lines and supplies different multipliers. The uncatalogued parent reference could not be checked for exact tables."
+        ],
+        "reasoning": "No exact enumeration of the claimed star daughters or their coefficient data is provided by these inspected passages. The independent numerical brackets and frozen checker are corroboration, not literature tables.",
+        "searches": [
+          "Resultary: synchronized Huygens stars, two-cycle bifurcation and sharp stability; Huygens-star prime-four cycles and Floquet coefficients",
+          "arXiv:2610.10993, §5.2",
+          "Indexed Huygens triangle record 32d3c49b541d, Finding"
+        ]
+      },
+      "rationale": "The parent cycles and their −1 crossing are acknowledged antecedents. The supported distinct result is the simultaneous supercritical pair of prime-four births with explicit branch coefficients and locally exhaustive stability in the entire star quotient for every fixed d. No inspected match provides this theorem or directly implies its signed coefficients and transverse conclusion. Exact scalar-slice and parent-record access limitations are retained below.",
+      "residual_risks": [
+        "The exact zero-drift sine-circle-map slice may have been treated in older literature not surfaced here. The exact-formula Q&A and cited parent analysis were not inspectable beyond the title or attribution; no negative inference from either. The verdict concerns the supported full quotient result, not priority for all scalar period-doubling facts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same graph family at d=3, but the displayed theorem applies in a strictly smaller-step region",
+          "evidence": [
+            "0<h<1/4 and eight fixed points, rather than a flip near h≈0.8613."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.10993",
+          "material_read": "PDF p. 15, §5.2 Corollary 5.5, offset around 48000",
+          "method": "OA primary full-text passage inspection",
+          "title": "Morse–Smale dynamics in discrete Huygens networks",
+          "trigger": "Primary source for the same network quotient and the star"
+        },
+        {
+          "assessment": "Different graph, parent orbit and daughter stability",
+          "evidence": [
+            "Twisted fixed points at ±(2π/3)1, flip at h=4/3, six prime-two saddles; uniqueness on lines only."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-transversely-unstable-period-doubling-cycles-in-the-discrete-huy--32d3c49b541d/RESULT.md",
+          "material_read": "Finding and assumptions, offsets 0–1916",
+          "method": "Indexed local-mirror full-text passage inspection",
+          "title": "Transversely unstable period-doubling cycles in the discrete Huygens triangle",
+          "trigger": "Strongest indexed nearby bifurcation and transverse-multiplier claim"
+        },
+        {
+          "assessment": "Unknown overlap with the precise zero-drift scalar slice; not used as negative evidence",
+          "evidence": [],
+          "identifier_or_url": "https://mathoverflow.net/questions/382610/strange-behavior-of-x-n1-x-n-lambda-sin-x-n",
+          "material_read": "Title only; question, answers and comparisons unavailable",
+          "method": "Identified public retrieval and alternate-copy attempts",
+          "title": "Strange behavior of x_(n+1)=x_n+λ sin(x_n)",
+          "trigger": "Apparent exact-formula scalar lead, not primary literature"
+        },
+        {
+          "assessment": "The parent existence and crossing are credited; additional exact coverage unknown",
+          "evidence": [
+            "Frozen attribution explicitly disclaims novelty of the parent branches and first −1 crossing."
+          ],
+          "identifier_or_url": "Frozen RESULT.md, reference 4 (no supplied external ID)",
+          "material_read": "Only frozen attribution at lines 106 and 117; referenced text not located",
+          "method": "Indexed lookup by cited title and frozen attribution inspection",
+          "title": "Three-phase two-cycle bifurcation and sharp stability in synchronized Huygens stars",
+          "trigger": "Potential predecessor for the actual star parent cycles"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result resolves what becomes of both antipodal two-cycles once they lose longitudinal stability, including whether transverse perturbations preserve the attraction and whether other nearby daughters can exist. The simultaneous locally exhaustive result distinguishes a visible diagonal four-cycle from a true sink of the star quotient and supplies exact measurable branch splitting. It is not just a generic period-doubling assertion or rediscovery of the parent threshold.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

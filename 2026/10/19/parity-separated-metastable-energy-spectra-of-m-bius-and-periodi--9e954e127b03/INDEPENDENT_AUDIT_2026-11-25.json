@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:02:46.047630Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An independent direct classification avoids transfer determinants. On these cubic graphs the single-spin change is 2J(3-2a) for a aligned neighbors, so the aligned edges must form a matching. If a rung is parallel, all four rail edges incident to its endpoints must be antialigned, forcing adjacent rungs to be parallel too even at the swapped seam. Thus all rungs are parallel, alternating in sign around the ring, with two labeled assignments for even n and none for odd n, at K=n. Otherwise all rungs are antiparallel. Each rail transition then aligns both legs or neither, including at the seam; the aligned transitions form a nonconsecutive cyclic set of size j contributing K=2j. Their sign product requires (-1)^(n-j)=+1 in the prism and -1 in the twisted ladder, and each admissible set has exactly two global sign assignments. The number of nonconsecutive cyclic j-sets is n/(n-j) times binomial(n-j,j), so parity projection gives both exact polynomials for all n>=3. For even n the sole common value K=n has raw weights 2 and 6 (the two maximum-size alternating cyclic sets yield the extra four); for odd n the supports are disjoint. This implies the stated TV bound. At z=1, the C_n power sum gives Lucas numbers and the conjugate unit phases give the stated cosine. Near z=1 the common dominant analytic root is lambda=(1+sqrt(1+4z^2))/2, with exponentially subdominant contributions. Its logarithmic derivatives z*d/dz give 1-1/sqrt(5) and 4/5^(3/2), and log(lambda(1))/2 gives the claimed entropy. Exact independent sector polynomial and n=3 through 8 enumerations also agree; the supplied verifier was inspected but not executed. The conclusions are about labeled blocked configurations and their energy law, not flip basins.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The available Masui abstract reports a recursive strip method but does not identify energy resolution or a Möbius closure.",
+          "def1265feda1 gives unweighted prism counts for all fields; 7e14a56d13ba gives finite-field Möbius ground states; 190dc97a4214 concerns random-bond periodic chains."
+        ],
+        "reasoning": "A general counting method or broader field range does not by itself supply every energy coefficient at zero field for both boundary conditions. Global minimizers and periodic-chain statistics do not cover the set of locally stable labeled ladder states.",
+        "searches": [
+          "Masui–Southern–Jacobs Phys. Rev. B 39, 6925, APS and lawful OA copies; arXiv:cond-mat/0105037; Resultary def1265feda1, 7e14a56d13ba and 190dc97a4214"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "DOI:10.1103/PhysRevB.39.6925 (abstract)",
+        "arXiv:cond-mat/0105037",
+        "DOI:10.1038/s42005-021-00792-0",
+        "Resultary def1265feda1, 1cfbc39b1199, 7e14a56d13ba and 190dc97a4214"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "1cfbc39b1199 defines adjacency for all one-spin moves within K<=4 and exhibits n(n-3) isolated vertices for odd width.",
+          "The frozen TV result needs the support of all blocked energies, including high-defect configurations absent from that sublevel.",
+          "The circular-ladder all-field formula near zero is insensitive to the energy split at h=0."
+        ],
+        "reasoning": "At the top of a sublevel (K=4), no cubic single-spin flip can tie, so isolated states there are precisely the blocked states on that level. The two ground states and all K=3 states are non-isolated in that sublevel (the latter are single flips from a ground state), hence the low-energy result entails the odd-width Möbius K=4 coefficient. It does not constrain the rest of the weighted polynomial, and an unweighted count or ground-state degeneracy cannot imply the support or TV law.",
+        "searches": [
+          "Resultary 1cfbc39b1199 Finding; def1265feda1 Finding; Kalinin–Berloff Möbius ground-state discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mirror def1265feda1 uses the same weak single-spin stability on the labeled circular antiferromagnet, including at zero field.",
+          "Mirror 1cfbc39b1199 uses precisely equal-spin defects on the Möbius ladder but enumerates low-defect sublevel graphs.",
+          "The APS abstract for Masui et al. describes recursive counting of one-spin metastable states on chains and strips."
+        ],
+        "reasoning": "At zero field one-spin stability equals the aligned-defect matching rule, or local cut maximality. The even prism can be bipartitely gauge transformed to a ferromagnet with the corresponding defect statistic; replacing periodic closure by a row-swap changes the cyclic sign constraint, so the periodic baseline does not transfer wholesale to the twisted weighted polynomial.",
+        "searches": [
+          "Resultary: low-energy single-spin geometry Möbius ladders; critical-field entropy one-spin metastability cyclic Ising ladders; negative covariance levels metastability random chain",
+          "Spirin–Krapivsky–Redner arXiv:cond-mat/0105037; Masui–Southern–Jacobs DOI:10.1103/PhysRevB.39.6925"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "def1265feda1 gives L_n+1+(-1)^n+epsilon_n for 0<=|h|/J<1, with epsilon_n=2 for 3 dividing n and -1 otherwise, exactly the frozen unweighted prism formula.",
+          "Kalinin–Berloff give 2n ground configurations at K=2 for even n; 7e14a56d13ba tabulates zero-field degeneracies 2 and 2n for odd and even widths.",
+          "1cfbc39b1199 gives the entire odd-width sublevel through K=4, with n(n-3) isolated configurations."
+        ],
+        "reasoning": "There are exact known coefficients and a full evaluation at z=1 on the prism side. They are proper projections or truncations of the weighted comparison. No exact two-polynomial or TV-law entry was verified.",
+        "searches": [
+          "Resultary def1265feda1 zero-field count; 1cfbc39b1199 low-defect Möbius sublevels; 7e14a56d13ba zero-field table",
+          "Kalinin–Berloff DOI:10.1038/s42005-021-00792-0, Möbius ladder results"
+        ]
+      },
+      "rationale": "Covered parts include the Möbius ground-state sector, part of its low-energy blocked spectrum, the zero-field unweighted circular-ladder count and entropy, and the gauge-equivalent even periodic baseline. The supported distinct contribution is the full energy-resolved Möbius polynomial and its exact comparison to the periodic closure including parity-separated supports and near-maximal TV. No inspected result supplies or entails the complete weighted comparison; the older inaccessible strip paper remains a named risk.",
+      "residual_risks": [
+        "Full Masui–Southern–Jacobs strip treatment was not available; possible exact older boundary or weighted-enumeration coverage remains unresolved.",
+        "Later-dated index comparisons establish partial coverage without establishing independent discovery chronology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Unresolved coverage of closure conditions and energy weights",
+          "evidence": "The abstract describes chains and strips with spin-glass and random ferromagnetic cases; it does not specify a Möbius twist or coefficientwise energy counts.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevB.39.6925",
+          "material_read": "APS abstract; full text returned 403 and no lawful repository copy was located",
+          "method": "Primary abstract and lawful OA retrieval attempt",
+          "title": "Metastable states of Ising spin glasses and random ferromagnets",
+          "trigger": "Closest older recursive one-spin metastability study on strips"
+        },
+        {
+          "assessment": "Dynamical ferromagnetic freezing, not the uniform blocked-energy census in the inspected material",
+          "evidence": "The abstract discusses probabilities of final frozen and stripe states under dynamics.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0105037",
+          "material_read": "p. 1 and early model discussion, OA offsets 0–5173",
+          "method": "Bounded OA primary passages",
+          "title": "Freezing in Ising Ferromagnets",
+          "trigger": "Zero-temperature single-spin metastability antecedent"
+        },
+        {
+          "assessment": "Covers even-width minimum and its coefficient, not all metastable states",
+          "evidence": "For even width there are 2n configurations minimizing the energy with two frustrated edges.",
+          "identifier_or_url": "https://www.nature.com/articles/s42005-021-00792-0",
+          "material_read": "Results, Möbius ladder graphs, PDF offset about 16500",
+          "method": "Primary OA full-text section",
+          "title": "Computational complexity continuum within Ising formulation of NP problems",
+          "trigger": "Same Möbius antiferromagnetic graph and known frustration counts"
+        },
+        {
+          "assessment": "Exact overlap for the unweighted zero-field prism count and entropy, not the energy-resolved twisted comparison",
+          "evidence": "The zero-field value and entropy are the stated Lucas-plus-periodic correction and log(phi)/2.",
+          "identifier_or_url": "def1265feda1",
+          "material_read": "Mirrored Finding and Assumptions, offset 0",
+          "method": "Local mirror statement and formula comparison",
+          "title": "Critical-field entropy spikes for one-spin metastability on cyclic Ising ladders",
+          "trigger": "Exact stable-state enumeration on the same untwisted graph"
+        },
+        {
+          "assessment": "Covers low-energy shells and some blocked coefficients but not high-energy support or full law",
+          "evidence": "Odd-width L_n(4) splits into two specified nontrivial components plus n(n-3) isolated vertices; even-width L_n(3) is a decorated cycle.",
+          "identifier_or_url": "1cfbc39b1199",
+          "material_read": "Mirrored Finding, offset 0",
+          "method": "Local mirror statement and implication comparison",
+          "title": "Low-energy single-spin geometry of antiferromagnetic Möbius ladders",
+          "trigger": "Same defects and local flips on the twisted graph"
+        },
+        {
+          "assessment": "Only ground-state overlap at h=0",
+          "evidence": "Odd and even ground counts are 2 and 2n, respectively; the criterion is global minimization.",
+          "identifier_or_url": "7e14a56d13ba",
+          "material_read": "Mirrored Finding and zero-field table, offset 0",
+          "method": "Local mirror statement comparison",
+          "title": "Parity-dependent magnetic-field ground states on Möbius Ising ladders",
+          "trigger": "Exact Möbius energies and degeneracies"
+        },
+        {
+          "assessment": "Different graph and disorder assumptions",
+          "evidence": "The variables concern a periodic chain with iid bonds rather than a uniformly coupled cubic ladder.",
+          "identifier_or_url": "190dc97a4214",
+          "material_read": "Mirrored Finding, offset 0",
+          "method": "Local mirror scope comparison",
+          "title": "Negative covariance across two levels of metastability in a random-bond Ising chain",
+          "trigger": "Indexed exact metastability-count antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Changing a single seam condition provably places essentially all energy probability in opposite parity sectors even though both models have the same exponential state count and first two limiting energy cumulants. The complete polynomial pinpoints the exceptional overlap and shows why unweighted or thermodynamic comparisons miss it. This is a statement about blocked-state distributions, not a claim about dynamical basin selection.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

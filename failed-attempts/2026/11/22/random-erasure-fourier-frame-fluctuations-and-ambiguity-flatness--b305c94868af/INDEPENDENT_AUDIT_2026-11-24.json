@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:16:41.925436Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–54; VERIFICATION.md lines 19–21; CHECK.py lines 12–87, inspected without execution."
+      ],
+      "rationale": "The full shift orbit sums to N I, so the off-diagonal weights have row sum N−1 and mean mu=1/(N+1). Centering the weights by mu gives a symmetric edge kernel with zero row sums. If A is its sum of squares over unordered edges, the sum of products of distinct edges sharing an endpoint is −A; the corresponding disjoint sum is A/2 since the total edge sum is zero. Thus the variance of the centered edge sum is A(p_2−2p_3+p_4), with p_j=(m)_j/(n)_j. The factor is (m)_2(n−m)_2/(n)_4; covariance under label translations gives A=n D(g)/2, and trace-square uses twice the unordered sum. This yields the asserted mean and variance, also for n=4 and all four zero-variance masks. The Weyl squared ambiguities are in [0,1] and sum to N including the identity. The minimum centered dispersion is zero exactly for constant off-origin ambiguities, the SIC case. For the upper endpoint every ambiguity is 0 or 1; the unit-ambiguity labels form a subgroup of size N because their shifts fix the ray of g. Their scalar commutators equal one. The perfect commutator pairing then gives H=H^perp in every cyclic dimension, with no primality requirement. Conversely N unit entries exhaust the full sum and force all other entries to vanish. For the Alltop cubic the nonzero translation differences have a nondegenerate quadratic phase for p≥5, giving squared modulus 1/p; zero-translation, nonzero-modulation weights vanish. Inserting these values gives the claimed p^(-2) scaling of the maximum. That is a multiplicative identity even at trivial masks, not a quotient of two nonzero variances there.",
+      "residual_risks": [
+        "The lower benchmark is attained only where a Weyl–Heisenberg SIC exists, and the statistic does not determine individual subframe spectra or frame bounds."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The zero-row-sum pair identity holds for any symmetric constant-row weighted graph, and hence any labelled equal-norm tight frame; the Gabor specialization just replaces a population sum of squares by same-row dispersion. Bloznelis–Götze is a directly relevant finite-population decomposition lead, but the retrieved material was only bibliographic or abstract and no exact equation was verified there. Haikin–Zamir–Gavish use Bernoulli masks and expected single-trace moments."
+        ],
+        "reasoning": "The broad pair-sampling calculation explains the formula without any additional Gabor input beyond regularity and orbit covariance. The verified erasure theorem is not the variance of a squared trace statistic under cardinality conditioning; the unavailable sampling paper is not taken as an exact stated match.",
+        "searches": [
+          "Bloznelis–Götze, An Edgeworth expansion for symmetric finite population statistics, DOI 10.1214/aop/1029867127",
+          "Haikin–Zamir–Gavish arXiv:1801.04548v1, Theorem 1, p. 3"
+        ]
+      },
+      "checked_sources": [
+        "Salanevich–Strachan arXiv:2509.01325; Haikin–Zamir–Gavish arXiv:1801.04548v1; Klich arXiv:2408.15161v1; Resultary b305c94868af, 80965acafb26, ede488cf192e; Bloznelis–Götze DOI 10.1214/aop/1029867127 (abstract only)."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known Alltop MUB structure has squared overlaps 0 or 1/p exactly as used in the computation. Klich explicitly normalizes the Weyl probability and states that the stabilizer Rényi entropy vanishes exactly at stabilizer states. The particular isotropic order-N subgroup convention for all composite cyclic dimensions was checked algebraically here rather than assumed to be identical to every Clifford-orbit convention."
+        ],
+        "reasoning": "The maximization is the same as minimizing the order-two entropy; the lower endpoint is constant overlaps by the equality condition in the fixed-sum bound. The Gabor link follows by direct regular-row pair counting and one orbit covariance substitution, not a new distribution theorem. This sharply limits the credited distinct content.",
+        "searches": [
+          "Salanevich–Strachan arXiv:2509.01325 Thms. 5.3 and 5.5, Eq. (13); Klich arXiv:2408.15161v1 pp. 3–4; finite-population pair inclusion comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The statistic is the frame potential and differs from the unordered edge sum by the factor 2 and deterministic diagonal. For a pure qudit state the moment in Klich arXiv:2408.15161v1 Eqs. (27) and (32) gives D(g)=N exp(−M_2(g))−2N/(N+1)."
+        ],
+        "reasoning": "This is a change of variables identifying the same ambiguity moment, not a new window statistic in isolation. The fixed-cardinality Gabor variance expression connects that moment to a different observable.",
+        "searches": [
+          "Resultary: fixed-cardinality erasure trace-square variance and Weyl–Heisenberg ambiguity; regular weighted graph edge sums and fixed-size sampling",
+          "Primary: finite-population degree-two degenerate U-statistic variance; Stabilizer Rényi entropy on qudits and cyclic Weyl ambiguity fourth moment"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching indexed item b305c94868af is the target. The distinct three- and five-erasure results are about worst-case lower frame bounds for prime Alltop frames. Salanevich–Strachan's Eq. (13) determines the retained trace-square for each Alltop mask from its basis occupancy counts."
+        ],
+        "reasoning": "Eq. (13) determines the Alltop special-case distribution after counting fixed-cardinality occupancies, and the other indexed results use a different statistic. None of the inspected statements gives the claimed arbitrary-window variance.",
+        "searches": [
+          "Resultary b305c94868af, 80965acafb26 and ede488cf192e; Salanevich–Strachan arXiv:2509.01325 pp. 23–24"
+        ]
+      },
+      "rationale": "Credit only the explicit identification of the all-window fixed-cardinality Gabor trace-square variance with the centered Weyl ambiguity moment. No inspected statement gives that identification at this scope. The sampling calculation is generic, the strongest endpoint is the same Weyl fourth-moment extremum as in stabilizer Rényi entropy, and the Alltop mask statistic is prior. The bounded pass on the explicit identification is not credit for a new sampling law, an ambiguity rigidity theorem in isolation, or a new Alltop formula.",
+      "residual_risks": [
+        "A direct prior variance formula for general finite-population degenerate pair sums or its explicit Gabor application may exist. The broad identity and the equivalence of the ambiguity moment were independently checked, not inferred from an unavailable text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Alltop mask observable already determined; not general-window covariance",
+          "evidence": "For M MUBs the retained frame potential is J+(J²−sum_i |A_i|²)/M.",
+          "identifier_or_url": "https://arxiv.org/abs/2509.01325",
+          "material_read": "pp. 23–24, Thms. 5.3 and 5.5, Eq. (13), offsets 89600 and 91200",
+          "method": "Primary open PDF passage inspection",
+          "title": "Robustness to noise and erasures of Gabor frames in finite dimensions",
+          "trigger": "Same Gabor orbit, Alltop windows and erasures"
+        },
+        {
+          "assessment": "Different sampling and observable",
+          "evidence": "Bernoulli sampling and expectation of individual spectral moments, not fixed-cardinality covariance of trace-square.",
+          "identifier_or_url": "https://arxiv.org/abs/1801.04548",
+          "material_read": "v1 pp. 1 and 3, Theorem 1, offsets 1200 and 18800",
+          "method": "Primary open PDF passage inspection",
+          "title": "Frame Moments and Welch Bound with Erasures",
+          "trigger": "Possible overlapping moments under erasures"
+        },
+        {
+          "assessment": "Equivalent ambiguity moment and substantial overlap in the stabilizer extremum",
+          "evidence": "For one N-dimensional qudit p(z)=u_z/N and M_2=−log(sum p(z)²)−log N. The zero-entropy property is stated for STAB; this passage does not discuss the erasure covariance.",
+          "identifier_or_url": "https://arxiv.org/abs/2408.15161",
+          "material_read": "v1 pp. 3–4, Eqs. (27)–(32), zero-entropy property; offsets 18600 and 23443",
+          "method": "Primary open PDF passage inspection",
+          "title": "SWAP and Transpose by displacements, Stabilizer Renyi entropies for continuous variables and qudits and other applications",
+          "trigger": "Possible exact prior ambiguity-moment extremum and stabilizer characterization"
+        },
+        {
+          "assessment": "Exact formula not verified in this source",
+          "evidence": "Abstract specifies symmetric statistics sampled without replacement and the Hoeffding decomposition; its stated approximation assumes a nondegenerate linear component.",
+          "identifier_or_url": "https://doi.org/10.1214/aop/1029867127",
+          "material_read": "Bibliographic record and abstract, not body",
+          "method": "Lawful Project Euclid PDF and ordinary page retrieval attempts; no readable full-text passage obtained",
+          "title": "An Edgeworth expansion for symmetric finite population statistics",
+          "trigger": "Broader exact degree-two sampling formula may follow from the finite-population orthogonal decomposition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Proof §§1–4; independent centered-edge reduction; Klich Eqs. (27)–(32); Salanevich–Strachan Eq. (13)."
+      ],
+      "rationale": "The observable is natural, but the supported distinction is a routine specialization, not a substantive advance for it. After centering, the orbit gives a zero-row-sum kernel and its squared norm is exactly nD(g)/2: two- to four-label inclusion probabilities then mechanically read off all mask-size dependence. Optimizing it adds no new extremal analysis beyond the known Weyl fourth-moment statistic, interval equality, and the elementary ray-stabilizer condition; the Alltop comparison already follows from the known MUB frame-potential formula. There is no separate nonroutine estimate, parametrically new equality mechanism, or useful unknown case requiring more than these observations in the frozen claim.",
+      "residual_risks": [
+        "This does not deny the usefulness of studying distributional frame quality under erasures; no such stronger distributional or spectral claim is part of the reviewed finding."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

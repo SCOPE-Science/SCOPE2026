@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For each pair of integers \(q\ge2,r\ge1\), the exact recursive identity \(W_{j+1}=W_j0^{rq^j}W_j\) both produces and locates the proposed factors. The longest zero run internal to \(W_j\) is \(rq^{j-1}\) when \(j\ge1\); hence \(0^{rq^j}W_j\) is smaller than every nonempty proper suffix. The leading zero runs increase strictly, so the Lyndon factors decrease strictly. Finite factorization uniqueness proves completeness, and the recurrence for factor starts gives the closed forms and generating function, including the repeated-root case \(q=2\). The attached direct substitution/Duval checker independently corroborates finite test instances; it is not the infinite proof.
+## correctness
 
-## Originality — PASS against inspected sources, with residual risk
-The most pertinent comparison is the full paper by Goč, Saari, and Shallit (arXiv:1207.5124, 2012), which supplies general algorithmic properties of Lyndon factors in automatic sequences, but not the present exact family of Lyndon blocks, its recurrence, or critical-scale generating function. Lü, Chen, Guo, and Wen (doi:10.1016/j.tcs.2015.12.022; first online 2015) study ordinary/permutation complexity in the uniform Cantor subfamily, not its Lyndon decomposition. Published period-doubling factorization concerns a different substitution. The specific structural statements do not follow as stated from the compared theorems without additional analysis. Direct relevant title, alias, and parameter searches identified no equivalent result; this is **not** proof that no unindexed treatment exists.
+PASS
 
-## Mathematical value — PASS
-A natural two-parameter family of recursive binary words receives an exact decomposition into all Lyndon blocks at every substitution depth, with **no unspecified factors**, plus an explicit boundary generating function. The transition between \(q=2\) (double characteristic root and \(j2^j\) scale) and \(q>2\) (\(q^j\) scale) is a nontrivial structural consequence, and the familiar generalized Cantor words fall out as an exact special case. The claim is narrower than a classification of arbitrary morphic words and does not concern intermediate prefix decompositions.
+Substituting once at depth j gives W_{j+1}=W_j 0^{r q^j} W_j. The two copies start/end in 1, so the runs do not merge, and the new run is strictly longer than every earlier run. Thus in B_j each proper suffix either starts in 1 or has fewer leading zeros than B_j; W_0=1 handles j=0. The B_j are Lyndon and strictly decrease, so finite CFL uniqueness identifies the entire list, including k=0. The finite lists stabilize and give the infinite decomposition. In fact a Lyndon factor cannot cross a new record-run boundary from an earlier start: its suffix at the boundary is either a shorter all-zero prefix or has more leading zeros, and is smaller. An infinite Lyndon tail is also impossible because every suffix has a smaller later suffix starting at a longer run. Starts are |W_j|. Summing the linear recurrence gives n_j=2^j+r sum_{i=0}^{j-1}2^{j-1-i}q^i, with the empty sum at j=0, and generating function (1+(r-q)z)/((1-2z)(1-qz)). The two growth laws and q-uniform identity follow. The Duval checker is bounded corroboration by design and was inspected, not run.
 
-## Residual limitations
-Potential equivalent results for sparsely supported substitutions in inaccessible or differently indexed publications remain a risk. A generic factorization algorithm can compute individual examples but does not, by itself, assert the present all-parameter closed formula. Numerical verification is finite; the induction is the decisive argument.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the full two-parameter canonical block decomposition with explicit boundaries and the critical nonuniform q=2 scale. The standard factorization theorems, uniform Cantor word family, and membership of individual Lyndon factors in the overlapping ternary subfamily are not credited as new.
+
+## value
+
+PASS
+
+Gives the complete canonical decomposition, not just occurrence or lengths, for finite sparse morphic words and their infinite limit. Identifying exactly which boundaries obey the resonant j2^j law rather than the q^j law makes the count useful as a benchmark outside the uniform Cantor family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

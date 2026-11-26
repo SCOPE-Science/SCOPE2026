@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is mathematical and applies over any field, including the prime field of two elements. The computer checker supplies finite corroboration rather than a substitute for the infinite proof. Run `python3 checks/verify.py` and require the terminal line `FREE_CLASS2_LOCAL_DERIVATIONS_OK`.
+# Independent mathematical audit
 
-The checker constructs all elementary actions \(\rho(E_{ij})\) and, for every alternating bivector \(z\) over the test field, computes the annihilator of its evaluation span \(\{\rho(A)z\}\). These annihilators determine a linear constraint system for endomorphisms \(R\) that satisfy pointwise derivation matching. It verifies the dimensions of the resulting solution spaces and of \(\rho(\operatorname{End}V)\). Cases are \((n,p)=(3,2),(4,2),(5,2),(3,3),(4,3),(3,5)\).
+## correctness
 
-The checker additionally constructs an explicit normal-form sample local derivation and directly confirms the matching condition by span calculations on **every Lie algebra element** in dimensions \(n+\binom n2\) for \((n,p)=(3,2),(4,2),(3,3)\), totaling \(64+1024+729\) tested points. No claim of complete enumeration for higher dimensions or arbitrary non-prime finite fields is made.
+PASS
 
-The supplied program is standalone, standard-library-only Python, with no external files, services, or trusted certificates. The underlying infinite proof is in `RESULT.md`. Independent mathematical audit has not been performed.
+Derivations are exactly (Av,Bv+ρ(A)w), since the commutator ideal is W and the bracket is the exterior product. At any point with v≠0 prescribe Av=Pv and use the free Bv to match the entire central component; the only constraint is Rw∈ρ(End V)w for every w∈W. Applying that to e_i∧e_j forbids entries involving neither index. Evaluation on e_i∧(e_j+e_l) equates the coefficients replacing i by h for each pair of partners j,l (at n=3 there is only one). Subtracting that off-diagonal induced action leaves d_ij. In the four coordinates of (e_i+e_h)∧(e_j+e_l), the tangent entries are sums of row and column scalars, hence d_ij+d_hl=d_il+d_hj in any characteristic. Using anchors 1 and 2 the differences s=d_1i−d_2i are constant for i≥3; setting c=d_12+s, a_1=0, a_j=d_1j−c gives d_ij=a_i+a_j+c, also for n=3 where s=d_13−d_23. No division or density over an infinite field is needed. For sufficiency, split the alternating form on V* associated to w into nondegenerate two-dimensional blocks and a radical (valid also in characteristic two); acting by 1 on one vector and 0 on the other in each dual bivector pair realizes I_W pointwise. The kernel of ρ is zero outside characteristic two and the scalars in characteristic two; there three pairwise equations a_i+a_j=1 rule out I_W in the image. The central-block dimension is therefore n² in both cases, giving the stated dimensions and finite-field ratio. The finite checker was inspected, not run; the all-field argument is algebraic.
+
+## originality
+
+PASS
+
+The supported distinct contribution is the characteristic-two reflexive-hull defect, the division-free all-field computation, and the resulting invariant census that includes the modular case. The characteristic-not-two classification has an explicit matching indexed statement; it is credited as overlap, not claimed separately here. The inspected Lie-closure or existence theorems do not compute the required hull, and the odd-characteristic matching proof cannot be specialized to characteristic two by substituting parameters.
+
+## value
+
+PASS
+
+The derived action loses rank in characteristic two, yet its pointwise reflexive hull regains exactly that rank in a direction that is not induced by any fixed generator endomorphism. This structural classification explains why the local census remains uniform even over F₂ and goes beyond finding a proper local derivation or recording a dimension alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

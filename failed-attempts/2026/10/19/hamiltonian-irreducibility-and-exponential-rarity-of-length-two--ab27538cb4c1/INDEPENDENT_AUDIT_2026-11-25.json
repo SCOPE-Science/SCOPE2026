@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:38:04.912360Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof §§1–6",
+        "Frozen VERIFICATION.md and verify.py, inspected; not executed",
+        "Independent bounded replay: python3 /workspace/branches/audit_analytic.py"
+      ],
+      "rationale": "Use factor rank, i.e. containment of the image words in the semigroup on a candidate basis, not the number of generators of the image subsemigroup itself. With n distinct two-letter images, choosing singleton basis letters S forces every image not internal to S to occur as a two-letter basis word. The minimum basis size is therefore min_S(n+|S|-e(S)); e(S)≤|S| is the pseudoforest condition. Equality of the total edge and vertex counts forces one cycle per component. A nonempty proper tight S gives a size-n mixed basis and two nonautomorphisms; conversely a factorization of a rank-preserving map uses all intermediate letters and yields such a mixed basis unless one factor is a permutation. A proper tight S exists exactly when a cycle omits a vertex. In particular the binary irreducible image set is just {ab,ba}. In the connected EGF the loop, double-edge and longer cycle terms are T, T²/2 and 2^(k−1)T^k/k; summing components via SET and assigning the distinct images to source letters gives the two n! factors. At rho=1/(2e), 1−2T~sqrt(2(1−z/rho)). The rooted tree series is convergent at rho and has positive consecutive coefficients, so |T|<1/2 at all other boundary points and the implicit function is regular there. Transfer and B_n/A_n=2^(n−1)/(n[z^n]F) give the frozen constant and exponent. An independent Hall incidence-assignment count gives 6,72,1274,29610 rank-preserving image sets for n=2–5; independent Lagrange coefficient extraction agrees through n=8.",
+      "residual_risks": [
+        "Finite coefficient checks are corroboration, not the basis of the all-size proof. The final analytic continuation detail is made explicit here; aperiodicity is used for T along with the implicit equation, not as a general uniqueness theorem for singularities of arbitrary series."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1, arXiv HTML at approximately offset 22182: rank-preserving reducibility is equivalent to a nontrivial factor basis"
+        ],
+        "reasoning": "Specializing the general criterion and counting two-letter bases yields the graph characterization; the general theorem itself does not enumerate this class. The distinct exact record does.",
+        "searches": [
+          "Resultary: Bell–Foster–Reidenbach factor-basis criterion",
+          "arXiv:2603.15177v3, Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "075abbb32fd0",
+        "arXiv:2603.15177v3",
+        "Related Resultary hit decebbecba14 (different regime)",
+        "Frozen RESULT.md and its bibliographic comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "T=z exp(2T), F=exp(−T²/2)(1−2T)^−1/2 and B_n=n!2^(n−1)(n−1)! in 075abbb32fd0; frozen conditional ratio is in Finding lines 16–21"
+        ],
+        "reasoning": "The earlier-literature factor-basis statement alone does not supply the constant. The competing exact EGF and numerator do: divide by n!²[z^n]F and use the ordinary transfer of exponent −1/4. The competing record's displayed probability among all injective image assignments is not itself the same probability.",
+        "searches": [
+          "075abbb32fd0 exact counts and distinct-image probability sections"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/11/2/SCOPE-pseudoforest-criterion-and-exact-counts-for-length-two-free-semi--075abbb32fd0, RESULT.md offsets 0–7287"
+        ],
+        "reasoning": "The graph formulation agrees including distinct words, loops, opposite-word parallel edges, unicyclic components and a single spanning cycle. The returned fixed-binary varying-image-length parity record concerns a different regime.",
+        "searches": [
+          "Resultary: length-two graph theorem for free-semigroup endomorphisms",
+          "Resultary: Hamiltonian irreducibility and exponential rarity",
+          "Primary search: ‘2-uniform’ endomorphism ‘rank-preserving’ pseudoforest Hamiltonian irreducible enumeration length two free semigroup"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "075abbb32fd0 RESULT.md, offsets 4154–7287: same connected-component EGF and exponential formula; same exact irreducible count"
+        ],
+        "reasoning": "The generating function supplies the entire coefficient table, not just a matching initial segment. Off-topic primary-search results are not a finding of novelty.",
+        "searches": [
+          "Resultary: oriented unicyclic pseudoforest enumeration",
+          "Resultary: exact length-two free-semigroup counts"
+        ]
+      },
+      "rationale": "A distinct catalogue record gives the same graph classification, A_n generating function with the same labeling convention, and exact B_n. Its printed asymptotic has a different denominator, but the conditional ratio here is determined by those same exact counts and follows by standard square-root transfer at the critical point of the same rooted-tree equation. Thus there is demonstrated mathematical coverage of the core and no surviving distinct theorem in the denominator change. This is a coverage judgment, not a claim that the catalogue date establishes precedence or dependence.",
+      "residual_risks": [
+        "No priority or derivation order is inferred from the directory dates. Older elementary-morphism or oriented-enumeration literature could cover more; that does not weaken the demonstrated catalogue overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of classification and counts; the conditional asymptotic is a routine implication, not a separate uncovered theorem.",
+          "evidence": [
+            "Unicyclic components, spanning cycle, rooted-tree EGF and both label factors; distinct-image denominator for the separate stated rarity law."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-pseudoforest-criterion-and-exact-counts-for-length-two-free-semi--075abbb32fd0",
+          "material_read": "RESULT.md offsets 0–7287 and 8627–10625 in catalogue mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Bounded original statement and proof comparison, then derive the frozen conditional statistic from the exact functions",
+          "title": "Pseudoforest criterion and exact counts for length-two free-semigroup endomorphisms",
+          "trigger": "Exact match to both graph criteria and enumeration"
+        },
+        {
+          "assessment": "General criterion credited; not the matching all-size census.",
+          "evidence": [
+            "Theorem 1 equivalence with nontrivial factor basis."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.15177v3",
+          "material_read": "Theorem 1 and surrounding factor-basis statement, HTML at approximately offset 22182",
+          "method": "Primary-text comparison of hypotheses, conclusions and specialization",
+          "title": "Irreducibility of Endomorphisms of Finitely Generated Free Semigroups",
+          "trigger": "Same notion of factor rank and irreducibility"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof",
+        "Independent classification and counting checks"
+      ],
+      "rationale": "As a mathematical result the uniform-length classification gives an effective structural test and a full labelled census; the sharp rarity law describes a natural conditional population, not an arbitrary small slice. The result is useful, but the overlapping statements do not constitute a distinct contribution for this record.",
+      "residual_risks": [
+        "Does not classify longer uniform morphisms. A new denominator applied to the already covered counts does not rescue originality or supply an independently valuable repair."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

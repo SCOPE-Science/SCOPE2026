@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The square-zero reduction kernel is the additive adjoint module \(\mathfrak{sl}_2(k)\); the full argument verifies every involution lift, the dihedral base centralizers, and all edge fibers via simultaneous eigenlines. The graph-degree, commuting-pair, unique-triangle and subgroup formulas follow by explicit bijections. The packaged Python checker enumerates all relevant projective matrices and lift pairs for \(q=3\) and \(q=5\), corroborating but not replacing the proof. Scope excludes even characteristic, mixed-characteristic rings, and all unproved generalizations.
+## correctness
 
-**Originality — PASS relative to the inspected record.** Actual searches compared projective involution graph, square-zero lifts, two degree types, Klein four counts, and the stronger possibility of an existing general centralizer or Hensel-lifting theorem. Baek–Han treats graph diameters over fields; Cotner treats group-scheme centralizer geometry; Crisp–Meir–Onn treats representations; Panja–Roy–Singh treats power-map images. The closest indexed results concern characteristic-two \(\mathrm{SL}_2\) over two ring types and a fixed small-field \(\mathrm{GL}_2\) product-order spectrum. None of the inspected statements yields the entire odd-characteristic projective graph, its \(qK_{q,q}\) fiber geometry, or unique triangle decomposition. An unindexed equivalent characterization remains possible.
+PASS
 
-**Value — PASS.** This is a complete local-to-residue incidence classification for a natural commuting graph of a finite matrix group. It shows exactly how square-zero deformation multiplies the involutions, splits edge fibers into bicliques, and preserves a sharp clique ceiling, while supplying a uniform subgroup-lift formula. The result determines the graph's two degree strata and its complete triangle decomposition for an infinite family of non-field coefficient rings. These are natural invariants in the study of centralizers and involution-generated subgroups, not arbitrary parameter slices.
+Reduction splits by constants, and the additive reduction kernel is sl₂(k) because 2 is invertible. Involutions in the residue group are exactly the nonsingular trace-zero projective lines: Cayley–Hamilton proves both directions. The singular locus x²+yz=0 has q+1 projective points (q with y=1, one with y=0), leaving q² involutions. The split ones correspond to unordered pairs of projective-line fixed points. The plus part of the projective centralizer is k[A]×/k×, cyclic of size q−1 or q+1; an eigenspace swap or field conjugation gives the reversing involution, yielding the stated dihedral centralizer and other-involution count, also at q=3. Every lift of exact order two has additive part in the two-dimensional −1 eigenspace. Equal-base lifts commute only when equal. For distinct commuting residue involutions, projective commutation forces anticommutation of the trace-zero representatives A,B, so A,B,AB form the three different simultaneous character lines of the adjoint action. The lift commutation condition matches exactly the AB coefficients, giving q disjoint K_(q,q)'s and exactly q neighbors per commuting fiber. Counting residue pairs and diagonals gives q⁶; the stated degrees and edge counts follow. The reduction kernel has odd order and the residue dihedral centralizers rule out elementary abelian 2-rank three. Thus the product is the unique common neighbor of each commuting pair. Each fixed ordered generating pair of a residue Klein four has q³ commuting lift pairs, one per lifted subgroup. The frozen q=3,5 checker was inspected, not run; those cases do not establish the arbitrary prime-power statement.
 
-Closest work and limits: arXiv:1610.07938, arXiv:2203.15133, arXiv:1704.05575, arXiv:2508.18952. The result concerns split dual numbers over odd fields only. Search completeness is not proof of priority and independent validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Standard ingredients include residue involution centralizers, the split congruence kernel, and coprime lifting. The supported distinct claim is the exact local commuting graph across reduction fibers, together with how it accounts for the all-odd-field degrees, triangles and subgroup lifts. Checked field-level results and related finite-ring counts do not describe this projective biclique incidence. This is a bounded best-of-knowledge result.
+
+## value
+
+PASS
+
+Commuting involution graphs are standard group invariants; split dual numbers give a natural first nontrivial congruence extension. The classification gives the local relation above each edge, including complete components, independent fibers and unique triangles. That is more informative than the aggregate count q⁶ or an extrapolation from two small fields and is useful when comparing which features of a residue graph survive congruence lifting. No global isomorphism classification or extension to other rings is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

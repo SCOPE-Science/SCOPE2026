@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:57:10.656214Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Stable self-similarity scales the exit time by K=L^α and preserves the side. Integrating the stated symmetric Lévy density gives k_± with the two distances 1∓Λ. The marked short-time rate can be verified directly: truncate jumps at b below the two boundary distances, and bound the compensated small-jump supremum exceeding ε over [0,u] by C u b^{2−α}/ε² using its second moment. At most one larger jump occurs except on an O(u²) event for fixed b. On the good small-jump event, a jump beyond the corresponding distance plus ε forces that exit, while exit to that side requires a jump at least the distance minus ε. Let u↓0, b↓0, then ε↓0. This also gives F(u)≤Cu; jumps of absolute size larger than two give an exponential tail for T. For every fixed t>0 there is no fixed-time jump, so T=t would require the stable position to be an endpoint (which has probability zero by its density). This justifies the strict tie-free cycle identities even for atomic R. Independence across cycles gives a_±/(1−b_K) and E[min(KT,R)]/P(KT<R). For finite ER, the scaled success numerator tends to k_± ER under the bound CR; the failure-duration term is dominated by sR and tends to s ER. At critical shape one, the success Stieltjes integral can be written ∫F_±(u)K/(1+Ku)² du: replacing F_±(u) by k_±u below a small fixed cutoff gives k_±log K/K, with the tail O(1/K) and arbitrarily small relative error at zero. Inserting e^(−sT) changes it by at most s/K. In the failure term the same kernel multiplies (1−e^(−su))P(T>u)~su, giving s log K/K. The mean-cycle term is E log(1+KT)~log K by logarithmic integrability. For 0<δ<1 the scaled success converges by dominance by T^(−δ); the failure integral is dominated by min(su,1)u^(−1−δ). The sum of the limiting marked transforms is continuous at zero and equals one there, so it defines the joint weak limit. Integration of the Lomax survival yields the stated limiting mean; differentiating the summed transform at zero gives the same mean for the limiting law. The endpoint limits in δ follow by moment domination at zero and (1−δ)E[T^(−δ)]→k from the linear rate at one. For centered Cauchy flight, the usual Dirichlet mean is √(1−x²)/σ inside the interval, giving 1/σ at the centre; k=2σ/π, so the example detects a genuinely different subcritical limit for small δ. There is no packaged numerical proof and none is needed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The reset review gives general non-Poisson renewal equations; the stopped-bridge paper gives short-time marked overshoot ingredients.",
+          "The same-day Markov-site finding 93b40506411d keeps a Poisson clock and changes the reset location dynamics. The richer marked rare escape finding e5279064b8fa also keeps a Poisson clock."
+        ],
+        "reasoning": "Broader in processes, marks or reset-site dynamics does not imply broader in the relevant heavy-tailed reset clock. Generic renewal identities cover the setup but do not evaluate the critical or subcritical kernels.",
+        "searches": [
+          "arXiv:1910.07993 §2.8 eqs. (2.40)–(2.48)",
+          "arXiv:1203.2355 §2 Theorem 2.1 and Proposition 2.1",
+          "Resultary 93b40506411d and e5279064b8fa"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "Resultary 59a3c7eb0c4b, 93b40506411d and e5279064b8fa",
+        "arXiv:2610.20410, 1910.07993 and 1203.2355"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The marked Poisson catalogue law implies the present Poisson specialization by taking the sign; the published Poisson MFPT does not imply a joint law.",
+          "The generic renewal identities and the small-time rate supply ingredients. The critical event probabilities require a logarithmic integral across scales and the subcritical denominator retains P(T>u) across the full scale."
+        ],
+        "reasoning": "A routine finite-mean rare-event argument and existing Poisson results are not the distinct contribution. The singular clock-tail comparison and its explicit normalized transform are not supplied by the inspected results without the additional asymptotic calculations.",
+        "searches": [
+          "arXiv:2610.20410 §§III.1, eqs. (4)–(7)",
+          "arXiv:1910.07993 §2.8 versus the frozen three clock limits",
+          "arXiv:1203.2355 §2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 59a3c7eb0c4b gives the whole scaled exit position independently of the scaled exponential lifetime for Poisson resetting. Mapping position to side gives exactly the Poisson branch of this finding.",
+          "The mean asymptotic in arXiv:2610.20410 eq. (7) gives the same 1/k after Euler reflection and scaling by L^α/σ^α."
+        ],
+        "reasoning": "The side mark is weaker than the position mark and not a new Poisson result. The new comparison changes the waiting-time law rather than re-expressing the existing position result.",
+        "searches": [
+          "Resultary: marked stable-flight interval escape, Lomax/Pareto renewal, cycle thinning, heavy-tailed reset clocks",
+          "arXiv:2610.20410 eqs. (4)–(7)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Returned 59a3c7eb0c4b covers the Poisson subcase, 93b40506411d has Markov reset sites with Poisson times, and e5279064b8fa includes further marks and times only for Poisson resetting."
+        ],
+        "reasoning": "Exact overlap in the Poisson branch is credited. No returned record supplies the Lomax rate or transform; catalogue dates do not determine priority and the bounded search is not exhaustive.",
+        "searches": [
+          "Resultary: joint time/side stable-flight law under arbitrary renewal, critical tail-one and subcritical inverse-moment transform"
+        ]
+      },
+      "rationale": "The Poisson side-and-time specialization is demonstrably covered, even by an earlier catalogue result with a stronger position mark, and the Poisson mean and restart machinery are prior. The supported distinct claim is the crossover for fixed renewal clocks, especially the exponent-one logarithmic cancellation and the evaluated subcritical marked transform with its inverse-moment weighting. None of the inspected stronger or adjacent results covers that tail comparison.",
+      "residual_risks": [
+        "An uninspected general heavy-tailed restart theorem may imply some of the Lomax comparison; bounded primary and catalogue checks are not a priority certification.",
+        "The exponential behavior under Poisson resetting and its limiting side law are covered, and the finite-mean branch uses classical regenerative rare-event reasoning."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the Poisson time-and-side claim, not other clock classes",
+          "evidence": [
+            "Joint exponential scaled lifetime and full scaled exit position independently at fixed Poisson rate; side follows by taking the sign."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-a-marked-exponential-exit-law-for-poisson-reset-stable-flights--59a3c7eb0c4b",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A marked exponential exit law for Poisson-reset stable flights",
+          "trigger": "Exact same stable-flight escape model and stronger exit mark"
+        },
+        {
+          "assessment": "Stationary-averaged hazards under a Poisson clock; does not imply Lomax renewal regimes",
+          "evidence": [
+            "Exponential lifetime and independent side for Markov-correlated reset sites. A single site includes a Poisson special case."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-markov-correlated-reset-sites-have-a-stationary-averaged-l-vy-es--93b40506411d",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Markov-correlated reset sites have a stationary-averaged Lévy escape law",
+          "trigger": "Same-day marked model with several reset locations"
+        },
+        {
+          "assessment": "Matches mean and rate ingredient, not the three-regime marked law",
+          "evidence": [
+            "Equation (7) gives 2Γ(1−α)cos(πα/2) divided by the two-distance tail sum, which after the scale factor gives 1/k."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.20410",
+          "material_read": "pp.2–4, offsets 12500–23887, equations (4)–(7)",
+          "method": "Bounded OA primary PDF passages",
+          "title": "Asymptotic behaviour for escaping an interval by Lévy flights under stochastic resetting",
+          "trigger": "Same interval escape and Poisson coefficient"
+        },
+        {
+          "assessment": "Supplies renewal framework, not the evaluated clock-tail comparison in the inspected section",
+          "evidence": [
+            "Arbitrary waiting density and survival enter the propagator renewal equation."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1910.07993",
+          "material_read": "§2.8 pp.14–15, offsets 43500–50398, eqs. (2.40)–(2.48)",
+          "method": "Bounded OA primary review passages",
+          "title": "Stochastic Resetting and Applications",
+          "trigger": "General non-Poisson restart framework"
+        },
+        {
+          "assessment": "Established overshoot machinery, not verbatim the global marked side CDF or a reset limit",
+          "evidence": [
+            "Uses a test mark of the stopped position in local/stopped-bridge results; the global side coefficient can be verified by the truncation argument in this review."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1203.2355",
+          "material_read": "§2 pp.7–8, offsets 21200–26570, Theorem 2.1 and Proposition 2.1",
+          "method": "Bounded OA primary PDF passages",
+          "title": "Small-time asymptotics of stopped Lévy bridges and simulation schemes with controlled bias",
+          "trigger": "Marked small-time premise"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The distinction matters in interpreting heavy-tailed reset data: an infinite-mean clock at the exact unit exponent still erases the detailed excursion law, whereas the subcritical clock reweights it, including the side mark. The matching logarithms and the explicit Cauchy comparison explain why a universal exponential based only on near-zero escape hazards cannot be extrapolated across the boundary. This is a fixed-clock, fixed-interior-site result, not a claim about arbitrary correlated clocks.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:39:45.408976Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 7–32 and 36–89",
+        "Frozen VERIFICATION.md, lines 19–25",
+        "Frozen verify.py, inspected, not executed"
+      ],
+      "rationale": "All posterior normalizations are positive. Relative to the common base measure, the ratio for indices i<j is a positive constant times (u/(1-u))^(j-i) on (0,1); the atom at 0 can only add to the lower-index posterior and the atom at 1 can only add to the higher-index posterior. The one crossing gives both stochastic order and TV equal to the maximum CDF gap. The endpoint CDF gap dominates every posterior gap; expanding a pair of mixed rows as a convex combination of posterior differences bounds its TV by the endpoint TV, which the rows at 0 and 1 attain. Equality in the endpoint densities gives the stated theta, and an atom at theta contributes zero. Positive overlap on the interior gives TV<1, including the possible zero case. Regularity of finite Borel measures gives continuous [0,1]-valued approximations of the maximizing indicator in the two endpoint integrals, proving the oscillation supremum. The symmetric joint kernel gives stationarity; Jordan decomposition gives the TV bound, sharp for the two endpoint point masses in one step. The uniform integral is 1-2^(-n).",
+      "residual_risks": [
+        "The supplied finite checks are not an all-measure proof or a formal certificate; no sharp coefficient for powers is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The available first two descriptions treat arbitrary weights/measures and approximation or convergence; neither description establishes the exact row diameter. The Beta–Binomial chain literature treats the same beta-base Gibbs update with spectral and chi-square bounds."
+        ],
+        "reasoning": "General definitions, convergence, and a spectral gap do not determine the sharp one-step row TV. The available older descriptions are not a whole-document exclusion.",
+        "searches": [
+          "Berdysheva–Jetter, DOI:10.1016/j.jat.2009.11.005",
+          "Berdysheva, DOI:10.1016/j.jmaa.2012.03.004",
+          "Diaconis–Khare–Saloff-Coste, arXiv:0808.3852 §4.1.2"
+        ]
+      },
+      "checked_sources": [
+        "Jacobi Resultary record ff055fe1e2d7",
+        "arXiv:1307.4649",
+        "arXiv:0808.3852",
+        "DOI:10.1016/j.jat.2009.11.005",
+        "DOI:10.1016/j.jmaa.2012.03.004"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Jacobi theorem takes exactly a Beta(a,b) base. Its proof factors the posterior likelihood ratios into a normalization and an odds power; the same argument applies to general posterior densities relative to a common base measure."
+        ],
+        "reasoning": "The parameterized Jacobi theorem alone is not a corollary route to a general atomic law. The earlier proof, in contrast, transfers mechanically, a material limitation on the value of the broader statement.",
+        "searches": [
+          "Jacobi Resultary record ff055fe1e2d7, proof §§1–2, mirror offset 2232",
+          "Gaubert–Qu, Theorem 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior Jacobi result gives the same oscillation and TV coefficient via the two endpoint rows for all positive beta parameters.",
+          "Gaubert–Qu relates oscillation to dual TV for general Markov operators but does not evaluate this family’s diameter."
+        ],
+        "reasoning": "Changing from the continuous-function oscillation norm to the probabilistic TV diameter adds no claim by itself. The compared exact formula has a narrower base-measure class.",
+        "searches": [
+          "Resultary: Bernstein–Durrmeyer sharp oscillation/Dobrushin coefficient, endpoint maximal total variation",
+          "Gaubert–Qu, arXiv:1307.4649, Theorem 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "That exact-result entry has endpoint maximal TV on Jacobi weights and explicitly gives 1-2^(-n) for the uniform weight; its proof §§1–2 were read."
+        ],
+        "reasoning": "This is actual exact-result database coverage of a proper subfamily, not coverage of arbitrary singular base measures.",
+        "searches": [
+          "Local Resultary record ff055fe1e2d7, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4"
+        ]
+      },
+      "rationale": "Limited to literal theorem scope: the arbitrary finite-Borel-measure statement, including singular and atomic bases, is broader than the exact Jacobi theorem located in the prior record. The Jacobi and uniform formulas themselves are covered. No inspected prior general theorem states the evaluated endpoint diameter for this whole measure class; the ease of transferring the earlier proof is assessed separately under value.",
+      "residual_risks": [
+        "The older arbitrary-measure/weight papers were not retrieved in full. An older Bernstein–Durrmeyer paper surfaced with TV estimation in its abstract, but full text was not accessed. This is a priority limitation, not evidence of noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact proper-subfamily coverage and a directly transferable proof",
+          "evidence": [
+            "The ratio q_l/q_k is a constant times (y/(1-y))^(l-k). The CDF gap is bounded by F_0-F_1 and the maximum is attained at the endpoint rows. For a=b=1 the overlap is 2^(-n)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-oscillation-contraction-of-jacobi-weighted-bernstein-durrm--ff055fe1e2d7/RESULT.md",
+          "material_read": "Finding, assumptions, proof §§1–2 (mirror offset 2232)",
+          "method": "Published record via local mirror",
+          "title": "Sharp oscillation contraction of Jacobi-weighted Bernstein–Durrmeyer operators",
+          "trigger": "Exact endpoint TV for the same operator family"
+        },
+        {
+          "assessment": "General characterization, not a Bernstein-specific evaluation",
+          "evidence": [
+            "Theorem 1.1 characterizes Hopf oscillation contraction in terms of the dual norm."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1307.4649",
+          "material_read": "Theorem 1.1, p. 2",
+          "method": "OA primary PDF text",
+          "title": "Dobrushin’s ergodicity coefficient for Markov operators on cones",
+          "trigger": "Oscillation vs. TV equivalence"
+        },
+        {
+          "assessment": "Overlapping model, different distances and quantities",
+          "evidence": [
+            "Beta–Binomial theta-chain and associated chi-square bounds are not the one-step TV row diameter."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0808.3852",
+          "material_read": "§4.1.2, pp. 14–15",
+          "method": "OA primary PDF text",
+          "title": "Gibbs Sampling, Exponential Families and Orthogonal Polynomials",
+          "trigger": "Same kernel for a Beta prior"
+        },
+        {
+          "assessment": "No whole-document comparison possible",
+          "evidence": [
+            "Descriptions address the operator family and its approximation/convergence properties."
+          ],
+          "identifier_or_url": "DOI:10.1016/j.jat.2009.11.005; DOI:10.1016/j.jmaa.2012.03.004",
+          "material_read": "Available publication pages and abstracts only",
+          "method": "Lawful OA retrieval attempts",
+          "title": "Multivariate Bernstein–Durrmeyer operators with arbitrary weight functions; Uniform convergence of Bernstein–Durrmeyer operators with respect to arbitrary measure",
+          "trigger": "Broader base-measure framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Jacobi Resultary record ff055fe1e2d7, proof §§1–2",
+        "Frozen RESULT.md, proof steps 1–5"
+      ],
+      "rationale": "The retained difference from the exact Jacobi result is a routine extension of its proof, not a new sharp estimate requiring any new idea for singular measures. In the old proof replace the Lebesgue densities of posterior beta laws by the posterior Radon–Nikodym densities b_(n,k)/Z_k relative to the common base measure. In the likelihood ratio the base cancels; the same odds powers give the same two-by-two minor signs, CDF ordering, and endpoint sandwich, without beta integrals. The polynomial minors extend to u=0 and u=1 by continuity independent of whether the base charges those points; regularity handles the continuous test functions. The new threshold only substitutes the generalized normalizers. Neither the uniform formula nor a new singular-base asymptotic, extremal phenomenon, or contraction calculation remains as a distinct substantive result. The class of arbitrary bases is natural, but the exact invariant transfers mechanically from the closest proof.",
+      "residual_risks": [
+        "This judgment is about the contribution made here, not about whether arbitrary-measure Bernstein–Durrmeyer operators are worth studying."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,171 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:10:58.425843Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–53",
+        "Frozen VERIFICATION.md, lines 19–23; check.py, lines 8–77 (text inspection only)",
+        "Separate exact rational evaluation of the one- and two-box masses for (3,15,3), compared at s=6,7,11,12"
+      ],
+      "rationale": "For unequal loads the same-box product vanishes, giving the ordered-pair coefficient m(m-1) and the subtraction m²p_rp_s. The diagonal B is auxiliary only. On the feasible support the consecutive ratio is ((n-r-s)/(n-s))((m-1)/(m-2)), strictly decreasing for r>0 and constant above one for r=0. The zero forbidden tail preserves unimodality. An independent exact rational recalculation gave Q at s=6,7,11,12 respectively 14348907/17039360, 4782969/4259840, 4782969/3727360, 4782969/7454720 for (m,n,r)=(3,15,3), giving the stated two genuine reversals after deletion of s=3. For central r_n the consecutive ratio crosses one at n-(m-1)r_n, which is strictly inside the support for large n and gives standardized maximizing-load displacement x/rho, up to o(1), including an adjacent-integer tie. Thus the compact central local limit is used at the actual maximizer, not extrapolated to the tails. The Gaussian joint-to-marginal ratio completes to a_m exp(x²/2) times a Gaussian factor centered at x/rho. Here a_m<1 by the displayed polynomial inequality. Below the threshold the entire row is negative eventually; above it the maximum is positive and loads at suitable fixed displacements on each side give negatives. The maximizing loads are then distinct from r_n since x/rho!=x. No sign is claimed at equality.",
+      "residual_risks": [
+        "Finite replay covers the sharpness witness, not the entire bundled sweep. The asymptotic result fixes m, and the true variance diagonal and the critical equality case are excluded."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Barbour–Gnedin study standardized small counts and covariance in an infinite occupancy scheme.",
+          "The accessible extended-occupancy abstract concerns occupied-box distributions and an occupancy Markov chain. The classical occupancy DOI did not yield readable full text."
+        ],
+        "reasoning": "These frameworks do not in their inspected passages assert the row-wise finite sign classification or the sharp limit for a fixed number of boxes and loads moving with n. A stated central Gaussian approximation alone also does not locate a global discrete maximum.",
+        "searches": [
+          "arXiv:0809.4387, p. 10 Eq. (5.1)",
+          "arXiv:2209.02220",
+          "O'Neill DOI 10.1080/00031305.2019.1699445"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 46bdb4d9ec77, 48d2e4a1b70a, 053907168747, 5c35dd9e8369, 93dddb2be813",
+        "arXiv:0809.4387 and 2209.02220",
+        "DOI 10.1080/00031305.2019.1699445 and question 87779 (access attempts)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fixed loads with n of order m do not specialize to fixed m with r around n/m on a sqrt(n) scale. None of the inspected statements locates the maximizing s near n-(m-1)r.",
+          "Question 87779 could not be retrieved in readable form."
+        ],
+        "reasoning": "The known probability formula is the starting point, not itself a sign theorem. An implication for the sharp onset requires both the exact ratio maximizing location and the joint-to-marginal local limit there; no inspected broader statement supplied it.",
+        "searches": [
+          "Resultary 46bdb4d9ec77, 48d2e4a1b70a, 053907168747 and 93dddb2be813",
+          "arXiv:0809.4387 Eq. (5.1)",
+          "Mathematics Stack Exchange question 87779 (access attempt)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Record 46bdb4d9ec77 gives a single positive interval in n for fixed distinct positive r,s.",
+          "Record 93dddb2be813 varies r but takes Cov(K,M_r) with K the occupied-box count."
+        ],
+        "reasoning": "Symmetry can interchange r and s, but not a load and the total n, which changes both one-box margins. The richness covariance sums over frequencies and cannot determine their individual signs.",
+        "searches": [
+          "Resultary local search for occupancy-frequency covariance sign windows",
+          "Resultary 46bdb4d9ec77 and 93dddb2be813"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The singleton–quadrupleton and consecutive-square records give square-root-scale positive windows with fixed loads and m growing.",
+          "The isolated-occupancy record gives two switches in n for two boxes' singleton indicators; the same-day distinct-frequency record varies n and has a different witness (m,r,s)=(10,1,8)."
+        ],
+        "reasoning": "Neither the exact fixed-row profile nor the fixed-m threshold is an entry in the inspected findings. In the isolated-box case the statistics and subtraction are different. Same-day dates establish no ordering.",
+        "searches": [
+          "Resultary local mirror 46bdb4d9ec77, 48d2e4a1b70a, 053907168747 and 5c35dd9e8369"
+        ]
+      },
+      "rationale": "The ordered-box covariance formula and Gaussian approximation are classical tools, not distinct claims. The supported distinction is the sign interval as the second frequency s varies at fixed m,n,r, and the sharp fixed-m central-load threshold obtained by locating the true global maximum. The strongest indexed sign-window results share the model and in one case the covariance itself, but vary a different coordinate or take a different limiting regime.",
+      "residual_risks": [
+        "Unretrieved older covariance literature and the cited question could contain an equivalent argument. The comparison is statement-level and bounded; it does not assert global priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong analogue, different varying coordinate",
+          "evidence": "Fixed distinct positive loads; a log-concave sequence gives the window as the ball count n changes.",
+          "identifier_or_url": "2026/10/26/SCOPE-a-single-covariance-window-for-distinct-occupancy-frequencies--46bdb4d9ec77",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "A single covariance window for distinct occupancy frequencies",
+          "trigger": "Same model, statistics and one positive interval"
+        },
+        {
+          "assessment": "Different asymptotic regime",
+          "evidence": "Loads are 1 and 4, with the number of boxes growing and a window in the number of balls.",
+          "identifier_or_url": "2026/10/13/SCOPE-a-sharp-critical-window-for-positive-singleton-quadrupleton-occu--48d2e4a1b70a",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "A sharp critical window for positive singleton–quadrupleton occupancy covariance",
+          "trigger": "Sharp positive covariance threshold in the same model"
+        },
+        {
+          "assessment": "Different fixed loads and many-box scaling",
+          "evidence": "Covariances of consecutive square frequencies in a window for n with m growing.",
+          "identifier_or_url": "2026/10/25/SCOPE-square-root-covariance-windows-for-consecutive-square-occupancy--053907168747",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Square-root covariance windows for consecutive square occupancy frequencies",
+          "trigger": "Gaussian-scale mixed-frequency sign window"
+        },
+        {
+          "assessment": "Different observables and axis of variation",
+          "evidence": "Two specified boxes' singleton indicators; n-thresholds near m plus or minus sqrt(m/2).",
+          "identifier_or_url": "2026/10/26/SCOPE-a-two-switch-dependence-window-for-isolated-occupancy-boxes--5c35dd9e8369",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "A two-switch dependence window for isolated occupancy boxes",
+          "trigger": "Same model and two switches"
+        },
+        {
+          "assessment": "Richness aggregate, not frequency pairs",
+          "evidence": "The comparison fixes the richness variable K and classifies Cov(K,M_r), not the individual matrix entries.",
+          "identifier_or_url": "2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "A one-switch covariance law for occupancy richness and frequency counts",
+          "trigger": "Exact sign comparison as load varies"
+        },
+        {
+          "assessment": "Relevant covariance theory, different limit",
+          "evidence": "The covariance structure/normal approximations concern standardized small counts with infinitely many boxes.",
+          "identifier_or_url": "https://arxiv.org/pdf/0809.4387",
+          "material_read": "p. 10, §5, Eq. (5.1), offset 43864",
+          "method": "Lawful original PDF, bounded passage",
+          "title": "Small counts in the infinite occupancy scheme",
+          "trigger": "Primary occupancy-frequency covariance and asymptotics"
+        },
+        {
+          "assessment": "Abstract describes other observables; no whole-paper verdict",
+          "evidence": "It describes distributions derived from an occupancy Markov chain and spectral decomposition.",
+          "identifier_or_url": "https://arxiv.org/pdf/2209.02220",
+          "material_read": "Abstract, p. 2",
+          "method": "Lawful original PDF",
+          "title": "Three Distributions in the Extended Occupancy Problem",
+          "trigger": "Cited later primary occupancy paper"
+        },
+        {
+          "assessment": "Unresolved exact coverage",
+          "evidence": "DOI denied access and repository recovery did not complete.",
+          "identifier_or_url": "https://doi.org/10.1080/00031305.2019.1699445",
+          "material_read": "No readable full text",
+          "method": "Lawful DOI and repository recovery attempts",
+          "title": "The Classical Occupancy Distribution: Computation and Approximation",
+          "trigger": "Plausible classical coverage"
+        },
+        {
+          "assessment": "Unresolved exact coverage",
+          "evidence": "Public retrieval returned HTTP 403; the frozen record describes it as a many-box asymptotic result.",
+          "identifier_or_url": "https://math.stackexchange.com/questions/87779",
+          "material_read": "No readable passage",
+          "method": "Lawful public-page retrieval attempt",
+          "title": "Covariance of counts of bins having specified counts of balls",
+          "trigger": "Same covariance statistics, historical published discussion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, exact ratio law, witness and global-maximum argument",
+        "Resultary 46bdb4d9ec77 and 93dddb2be813"
+      ],
+      "rationale": "The sign of dependence between exact occupancy frequencies is not settled by knowing that the loads of two specific boxes are negatively correlated. The result gives a complete finite restriction on where positive covariance can occur, proves that two reversals really occur, and identifies the exact centered-load threshold separating no positive pairs from positive pairs across the entire row. The global maximizer is essential to that distinction.",
+      "residual_risks": [
+        "The critical boundary, simultaneous many-box limits, and the variance diagonal are outside this classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

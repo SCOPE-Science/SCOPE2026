@@ -1,20 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The optimizer is uniquely determined on the full stochastic edge-weight polytope by strict convexity of inverse trace on connected Laplacians. The symmetry reduction follows from uniqueness; it is not assumed. The exact apex and base eigenmodes yield a one-variable objective after maximizing base-edge conductances. Its derivative is bounded above by \(-4/(n+2)\), so both apex and base row constraints saturate. The cycle formula follows from an elementary Fourier resolvent and the ratio from explicit large-cycle asymptotics. The executable finite diagnostics pass but are not substitutes for proof.
+## correctness
 
-## Originality — PASS on the inspected comparison set
-The general Kemeny-convexity framework and automorphism method are acknowledged prior tools. The closest published double-cone result solves the SLEM optimization with three apex-weight regimes, not inverse-trace minimization; its spectral splitting does not entail this theorem's universal hub saturation or cycle Kemeny ratio. Earlier Kemeny navigation literature computes fixed-walk network indices rather than the all-weights optimum. The accessible source comparison and own-record overlap check found no stronger statement implying these results. Unindexed equivalent work or uninspected full texts remain a publication-priority risk.
+PASS
 
-## Value — PASS
-The claim settles all edge conductances and all holding probabilities uniquely for an infinite, graph-symmetry-motivated family rather than a selected symmetric subproblem. The apex saturation rule is independent of base spectrum, in contrast to the multiple regimes of the related fastest-mixing problem. On cyclic bases the optimal policy removes a square-root-order performance penalty relative to a natural maximum-degree baseline; the latter diverges multiplicatively with network size.
+For a connected admissible symmetric chain, L=I-P is positive definite on constants' orthogonal complement. The objective is the trace of the inverse there. For a nonzero symmetric direction D, writing B=A^(-1/2) D A^(-1/2) gives second derivative 2 tr(B A^(-1) B)>0. The compressed Laplacian identifies the full zero-row-sum matrix and hence every edge weight. A connected feasible walk exists, and along any approach to a disconnected walk the smallest nonconstant eigenvalue goes to zero and its reciprocal diverges. Thus compactness gives a connected optimum and strict convexity gives uniqueness before using symmetry. Conjugation by base automorphisms and the apex swap forces precisely one apex weight a and one base weight b, subject to 0<a≤1/n and 2a+db≤1. Laplacian modes are the apex difference (na), the constant-on-base contrast ((n+2)a), and the mean-zero base modes (2a+bη_i). Since η_i>0 for each such base mode, b must be maximal at each a. Then the base denominators are s_i+2a(1-s_i), 0<s_i≤2 by the regular undirected base spectrum. Terms with s_i≤1 contribute nonpositively to F'; for s_i>1 the denominator is at least one and the positive contribution is at most 2. The two apex terms dominate: F'≤-(1/n+1/(n+2))n²+2(n-1)=-4/(n+2). Both row classes are therefore saturated at the claimed weights; this is full uniqueness among symmetric kernels, not merely among orbit weights. For cycles the two spectra reduce to 1-(1-2/n)cosθ and (4-2cosθ)/n on the nonconstant base modes. Summing the Poisson expansion over roots of unity retains exactly indices divisible by n. The omitted k=0 term is n/2 in both evaluations; the apex contributions are 1+n/(n+2). For the optimum the geometric ratio simplifies to q_n=(√(n-1)-1)/(√(n-1)+1), giving exponentially small q_n^n in √n and leading term n^(3/2)/2. For maximum-degree weights the ratio is the fixed 2-√3 and the leading term is n²/(2√3). These give the displayed exact values and ratio, with equality at n=4, strict inequality for n≥5 by uniqueness, and no maximum-degree formula claimed at n=3. The inspected verify.py, with NumPy/SciPy requirements, was not executed; the recorded finite spectral and optimization diagnostics cannot prove unrestricted uniqueness or the asymptotics.
 
-## Closest sources and limits
-- Patel, Agharkar and Bullo (2015), reversible-chain Kemeny optimization and convexity, https://motion.me.ucsb.edu/pdf/2014b-pab.pdf.
-- Boyd, Diaconis, Parrilo and Xiao (arXiv:0709.0955), symmetry methods for fastest mixing, https://arxiv.org/abs/0709.0955.
-- Published double-cone fastest-mixing theorem for the **different SLEM objective**, https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-a-three-phase-fastest-mixing-law-for-double-cones-over-transitiv--7fd543281a6a.
-- Zhang, Sheng, Hu and Chen (arXiv:1211.4295), Kemeny constants of fixed-walk network families, https://arxiv.org/abs/1211.4295.
+## originality
 
-No claim is made for nonregular or non-transitive bases, irreversible chains, or nonuniform stationary measures. The finite verifier is not a proof of the infinite theorem, and search cannot establish universal priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Qualified pass for the uniform saturation theorem across connected vertex- and edge-transitive bases with two nonadjacent apexes, and the exact cyclic comparison. Credit the existing constrained convex Kemeny framework and effective-resistance connection, the earlier demonstration of unbounded improvements over uniform conductances with another budget and family, and the SLEM theorem's shared spectral reduction on exactly these double cones. The same-day single-hub Kemeny wheel result is especially close in both proof and conclusions: saturation, Poisson resolvent and the square-root loss pattern are already there for that model. The double-cone theorem still needs the distinct two-apex modes, derivative bound for an arbitrary permitted base spectrum, and different constants. No same-day priority is inferred.
+
+## value
+
+PASS
+
+The result gives the actual unique policy over all individual symmetric edge weights on a broad family, and shows that the saturation decision is independent of the base spectrum despite the spectral objective and the different fastest-mixing policies. For cycles it quantifies the growth of the performance penalty for a natural feasible maximum-degree policy with an explicit ratio, not merely a slight local improvement. The qualitative gap and argument have close precedents; the useful distinct output is the universal two-apex saturation and its quantified consequence under vertex row constraints.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:15:35.586118Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–27, 29–68, frozen VERIFICATION.md line 19 and verify.py inspected only",
+        "Repaired RESULT.md, Proof and exact table",
+        "python3 /workspace/replay.py 3: weighted occupancy-triple enumeration",
+        "python3 /workspace/repairs/3/verify.py: ordered word enumeration returns exactly the four rational values in the repair"
+      ],
+      "rationale": "For the repaired fixed p=(1,15,16)/32 finding, each occupancy triple has integer numerator equal to its multinomial coefficient times its product of integer masses, over 32^n. Summing the first and mixed moments of the two counts gives the covariance as an exact fraction. The four fractions in the repair were reproduced independently by summing over ordered allocations; their signs imply at least one reversal between each consecutive pair of checkpoints when zero terms are ignored. At n=3 with two positive-probability boxes, both counts coincide with the nonconstant split-(1,2) indicator, so covariance is positive. At n>3 they cannot both be positive but each has positive expectation, so covariance is strictly negative. For a one-point support the counts are deterministic. Hence three boxes is minimal over n>=3.",
+      "residual_risks": [
+        "Only the stated lower bound and the minimal number of boxes for this pair of loads are claimed. No assertion about an exact total switch count or a universal bound for unequal probabilities."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Barbour–Gnedin inspect small occupancy counts with infinitely many boxes, including Poissonized covariances and asymptotic standardized covariance. The indexed single-window result assumes uniform categorical probabilities. The exact finite moment formula is standard and credited as such."
+        ],
+        "reasoning": "Neither asymptotic nor uniform restrictions give the fixed heterogeneous multi-switch witness. A formula permitting evaluation is different from selecting a law that breaks the two-switch bound.",
+        "searches": [
+          "arXiv:0809.4387, Sections 1, 3 and 5",
+          "Harris–Park 1971 original PDF 023_1_0125, attempted",
+          "Resultary 46bdb4d9ec77, Finding"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 46bdb4d9ec77, 053907168747, 48d2e4a1b70a, d3caf6abcfaa and 08d9ba9adb10",
+        "arXiv:0809.4387, Sections 1, 3, 5; Harris–Park PDF attempted"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Uniform occupancy has the exact adjacent quotient and thus at most one positive phase in 46bdb4d9ec77. The square-window results cover the uniform critical regime. The richness counterexample has a different statistic and variable."
+        ],
+        "reasoning": "The uniform coverage is retained only as motivation for asking if it extends; it neither implies nor invalidates the repaired obstruction. Richness is a sum of occupancies, and its varying-frequency covariances at one sample size do not determine an individual cross-covariance across sample sizes.",
+        "searches": [
+          "Resultary 46bdb4d9ec77 Eq. (2); 053907168747 Eqs. (1)–(4); 48d2e4a1b70a Finding; d3caf6abcfaa Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "d3caf6abcfaa varies the frequency index for covariance with observed richness at fixed n=16 using probabilities (7/10,1/5,1/10). The Dirichlet–multinomial entry 08d9ba9adb10 holds sample size fixed and varies the Dirichlet shape in the unconditional mixture."
+        ],
+        "reasoning": "Neither becomes the singleton–doubleton covariance along sample size in one fixed iid categorical law by relabeling boxes or reparametrizing the varied quantity.",
+        "searches": [
+          "Resultary: heterogeneous multinomial three boxes probabilities (1,15,16)/32 singleton doubleton counts Cov(X1,X2) positive negative positive negative three sign reversals as sample size varies n=3,4,9,10",
+          "Resultary d3caf6abcfaa and 08d9ba9adb10, Findings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest retrieved exact alternating example specifies another probability vector, fixes 16 draws, and concerns richness–frequency covariance. The exact singleton–doubleton hit states one change in the concentration parameter, not four sample-size checkpoints."
+        ],
+        "reasoning": "No inspected exact entry supplies the fixed-frequency, fixed-probability sample-size obstruction. The conclusion rests on comparing the substantive matches, not on interpreting a search miss as proof of absence.",
+        "searches": [
+          "Resultary exact vector, pair of loads and four checkpoint sizes in the query above",
+          "Resultary d3caf6abcfaa and 08d9ba9adb10, Findings"
+        ]
+      },
+      "rationale": "The revised claim is the exact, fixed-probability counterexample to extending the uniform two-switch bound, with minimal box count for these loads. The two covered uniform theorems are removed as claims. The closest heterogeneous and singleton–doubleton comparisons change a different variable, model, or covariance observable and do not imply this alternating sample-size profile.",
+      "residual_risks": [
+        "The historical book was not inspected, and the Harris–Park PDF did not yield readable text through the attempted route. Broader fixed-frequency literature may contain an equivalent heterogeneous example. The dates of indexed mathematical coverage do not determine priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the frozen uniform sign statement at positive loads; not heterogeneous",
+          "evidence": [
+            "Identical adjacent quotient after expanding (n+1-j)(n+1-k); exact sign of normalized ratio minus one."
+          ],
+          "identifier_or_url": "Resultary 46bdb4d9ec77",
+          "material_read": "Finding, offset 0, Eqs. (1)–(5)",
+          "method": "Local-mirror primary text",
+          "title": "A single covariance window for distinct occupancy frequencies",
+          "trigger": "Exact uniform sign classification"
+        },
+        {
+          "assessment": "Implies the frozen normalized limit; uniform only",
+          "evidence": [
+            "Covariance profile obtained for every fixed adjacent square pair; same interval endpoints."
+          ],
+          "identifier_or_url": "Resultary 053907168747",
+          "material_read": "Finding and opening proof, offset 0, Eqs. (1)–(4)",
+          "method": "Local-mirror primary text",
+          "title": "Square-root covariance windows for consecutive-square occupancy frequencies",
+          "trigger": "Exact all-square critical scale"
+        },
+        {
+          "assessment": "Exact first-pair match to frozen uniform claim",
+          "evidence": [
+            "Uniform (1,4) endpoints 2m±sqrt(2m)+o(sqrt(m)) and matching covariance profile."
+          ],
+          "identifier_or_url": "Resultary 48d2e4a1b70a",
+          "material_read": "Finding, offset 0",
+          "method": "Local-mirror primary text",
+          "title": "A sharp critical window for positive singleton–quadrupleton occupancy covariance",
+          "trigger": "First critical pair"
+        },
+        {
+          "assessment": "Not equivalent; different covariance and varied parameter",
+          "evidence": [
+            "Fixed n=16, probabilities (7/10,1/5,1/10), Cov(richness, frequency count) as the frequency index changes."
+          ],
+          "identifier_or_url": "Resultary d3caf6abcfaa",
+          "material_read": "Finding, offset 0",
+          "method": "Local-mirror primary text",
+          "title": "A minimal three-species counterexample to one-switch richness–frequency covariance",
+          "trigger": "Closest alternative three-box, three-reversal statement"
+        },
+        {
+          "assessment": "Mixture model and concentration variation, not the revised fixed-law statement",
+          "evidence": [
+            "A positive-to-negative covariance reversal as the common Dirichlet shape grows at fixed n and alphabet size."
+          ],
+          "identifier_or_url": "Resultary 08d9ba9adb10",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "Local-mirror primary text",
+          "title": "A unique concentration-driven singleton–doubleton covariance reversal in symmetric Dirichlet–multinomial sampling",
+          "trigger": "Exact pair of occupancy observables"
+        },
+        {
+          "assessment": "Infinite occupancy, Poissonized and asymptotic comparisons",
+          "evidence": [
+            "Section 3 Poissonizes occupancy counts, Section 5 states a limiting standardized covariance."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0809.4387",
+          "material_read": "Abstract/Section 1 (offset 0), Section 3 (offset 11200), Section 5 Eq. (5.1) (offset 43800)",
+          "method": "Primary open-access paper passages",
+          "title": "Small counts in the infinite occupancy scheme",
+          "trigger": "Broader unequal-frequency theory"
+        },
+        {
+          "assessment": "No historical priority conclusion from this source",
+          "evidence": [
+            "Frozen RESULT.md lines 72, 81 identifies the work as a close general reference."
+          ],
+          "identifier_or_url": "Kolchin, Sevast'yanov and Chistyakov (1978)",
+          "material_read": "No primary passage",
+          "method": "Cited reference, not fully available for comparison",
+          "title": "Random Allocations",
+          "trigger": "Classical finite occupancy coverage risk"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md, Finding, Proof and relationship section",
+        "Resultary 46bdb4d9ec77, Finding"
+      ],
+      "rationale": "The example disproves a natural extension of an exact uniform one-positive-interval law, at the fewest boxes allowing the obstruction for the two stated occupancy sizes. A single exact fixed distribution and separated positive checkpoints provide a reusable benchmark for heterogeneous occupancy reasoning. The finding is not just an unmotivated covariance calculation.",
+      "residual_risks": [
+        "Does not characterize how widespread the nonuniform behavior is or give a general test for it."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

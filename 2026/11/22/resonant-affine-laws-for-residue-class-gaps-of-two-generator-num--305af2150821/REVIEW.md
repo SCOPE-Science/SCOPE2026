@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact rational gap polynomial is valid for every coprime pair. At each nontrivial root of unity the denominator has at most one vanishing generator factor, so the displayed limits exhaust all possibilities; discrete Fourier inversion yields the signed sawtooth. Subtracting the two generator configurations gives each exact step formula. The two resonant root subgroups are disjoint, and their moduli are coprime; CRT realizes simultaneous extreme values. All nonresonant terms have uniform root-of-unity denominator bounds, producing the claimed finite error. Boolean-representability tests independently verify 6,266 parameter triples, 8,766 admissible generator transfers, and 340 explicit progression histograms.
+## correctness
 
-## Originality
-PASS on inspected evidence, not a certification of priority. Shor (arXiv:2101.01760, §§2, 3, 5) proves precise zero-discrepancy criteria, including the modular-unit necessity for a two-generator semigroup, but no parameter-wide sawtooth lift or sharp leading nonunit discrepancy. Komatsu and Zhang (arXiv:2105.08274, Theorems 2–3, and arXiv:2101.04298, §§1–2) already supply general weighted sums, including resonant Fourier evaluations. Thus evaluating individual root-of-unity sums, the genus and the gap-generating identity are established prerequisites, not new results. The new content is the complete integer-affine transfer for all residue classes and the globally sharp two-resonance discrepancy coefficient obtained by independent CRT optimization. The strongest unresolved priority risk is that this structural consequence may be implicit or recorded elsewhere in weighted-Sylvester literature.
+PASS
 
-## Mathematical value
-PASS. Equidistribution tests distinguish only zero from nonzero error; they cannot quantify the imbalance when a generator shares a factor with the modulus. The theorem settles the precise growth mechanism simultaneously for all coprime generator pairs, identifies separate and additive resonance contributions, gives exact histogram updates without recalculating gaps, and proves uniform control with no invertibility assumption. The arithmetic-progression histogram is a diagnostic boundary case, not the sole motivation.
+Every semigroup element has a unique expression j b + k a with 0≤j<a and k≥0; subtracting the resulting Hilbert series from 1/(1−z) gives the gap polynomial. At a nonidentity m-root only one generator factor can vanish. Cancelling 1−z^a when z^a=1 gives b/(1−z^b), with the symmetric limit at z^b=1. A legal b-step changes only the mean and the modes in the nonidentity d-root subgroup, there by −m/(1−z^b). In the sawtooth inversion sum S_j=Σ_{w^d=1,w≠1} w^(−j)/(1−w), conjugate pairing gives S_0=(d−1)/2, and S_j−S_(j−1)=−1 for 1≤j<d; relabel w=z^b. The genus change then gives the claimed shift. For integrality, a and d have the same parity: if a is even both b and b+m must be odd for a legal shift, so d is even. The symmetric step is identical upon exchange. In the full decomposition, divisibility subgroups are disjoint away from 1 and the residual depends only on a,b modulo m. Each nonzero root denominator has modulus at least 4/m, and each two-factor numerator at most 2. Thus |R(r)|≤m/4+m²/8. CRT realizes both simultaneous extremes of the two independent centered residues; the oscillation of the residual bounds the error in their range. When m divides a and b≡1, every nonidentity Fourier mode reduces to (1−b)/(1−z), which inverts to the claimed exact histogram. The progressions concern admissible pairs, not walks through noncoprime intermediates.
 
-## Scope and limitations
-The nonasymptotic error bound is not claimed optimal, and no analogous statement is asserted beyond embedding dimension two. Theoretical proofs, not finite checker output, support the infinite quantifiers. Publication priority remains subject to further expert literature checking.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Distinct supported content is the structural all-modulus transfer and the simultaneous sharp nonunit leading discrepancy, not raw histogram computability or the unit-modulus case. The full Fourier data are prior, and a distinct same-day record covers the unit shift as a corollary and improves the bound there. Neither supplies the uniform structural comparison of both nonunit resonances found here.
+
+## value
+
+PASS
+
+For a natural gap distribution, nonunit moduli need not just spoil exact balance: each resonant generator contributes its own independent linear slope to the maximum imbalance, uniformly over unrestricted generator sizes. This separates two arithmetic sources of bias and predicts legal changes without recomputing gaps; the divisibility histogram gives an exact boundary case. A sharper bound in the unit case is already available and is not the reason for the value finding.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

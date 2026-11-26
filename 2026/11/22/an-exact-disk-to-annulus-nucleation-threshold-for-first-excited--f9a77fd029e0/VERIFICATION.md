@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the first-excited wavelet mask theorem
+# Independent mathematical audit
 
-The wavelet-kernel formula is imported explicitly from Abreu--Speckbacher (arXiv:2210.13056, Proposition 1, equation (20)); the scalar Jacobi specialization is checked symbolically in the proof. The radial hyperbolic measure, exact integrated energy, strict lobe monotonicity, uniqueness of all threshold levels and the bathtub inequality are reconstructed in `RESULT.md`. The local Taylor derivation establishes the linear-width and quadratic-disk shifts. The parameter limit requires a rescaled unique-root argument; a finite asymptotic sample is not substituted for this argument.
+## correctness
 
-Run `python check.py` after installing SciPy and mpmath. The embedded checker was executed successfully, with **104 finite assertions**. These cover four positive parameters, six finite budgets per parameter, analytic versus quadrature mass formulas, high-precision right-sided birth expansions, and exact weight-one radicals. A finite test cannot prove the global theorem or historical originality.
+PASS
 
-This verification is a self-review of the claim. Independent audit has not been performed.
+Abreu–Speckbacher Proposition 1, Eqs. (19)–(21), gives the unit-normalized self-transform by taking w=i in the kernel and removing its α/(4π) normalization, or directly by (21). The degree-one Jacobi polynomial gives 1−(α+2)u; the squared radial amplitude is (1−u)^(α+1) times its square. The Cayley area element integrates to 4π du/(1−u)²; differentiation of J_α and its endpoints verify the total energy 4π/α and the normalized mass. The derivative has exactly the stated inner zero node and outer nondegenerate maximum; the outer height bound is strictly below one. Strict superlevel area is continuous and strictly decreasing from infinite area to zero, and null level circles make the bathtub comparison unique even for fractional masks. The derivative of the optimal mass is the normalized common boundary level. For level deficit η, the two outer roots separate by 2√(2η/k_α)+O(η), weighted by 4π/(1−u_p)² in area; the inner displacement is η/|f'_α(u_*)|+O(η²). This gives the stated coefficients. Using √η as a smooth right-hand parameter yields zero right curvature, while the inner derivative is strictly negative on the left. At α→0 the limiting inner root is 1/3; at α→∞ uniform convergence in v=αu on [0,1] and strict monotonicity of e^(−v)(1−v)² give the claimed Lambert W root. At α=1 taking the positive square root on the inner branch gives the stated radicals. Read RESULT.md, VERIFICATION.md and check.py; the supplied finite script was inspected, not run. The analytic proof is decisive and does not extend to optimization over arbitrary input signals.
+
+## originality
+
+PASS
+
+The response and normalizations are explicit specializations of prior Laguerre wavelet theory, and the bathtub principle is standard. The supported distinction is the complete topology, exact curvature change, birth laws, and parameter limits for the fixed first-excited self-response. The nearest optimized-signal Cauchy results concern a different window and a different optimization problem.
+
+## value
+
+PASS
+
+The first nonanalytic Laguerre level is a natural setting to ask when a hyperbolic disk stops being optimal for a fixed state. The exact calculation answers that geometric question across all budgets: a second component appears with linear width while the old boundary shifts quadratically, and the optimal energy is not C². This supplies a quantitative boundary to disk optimality without overstating it as an operator-norm counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

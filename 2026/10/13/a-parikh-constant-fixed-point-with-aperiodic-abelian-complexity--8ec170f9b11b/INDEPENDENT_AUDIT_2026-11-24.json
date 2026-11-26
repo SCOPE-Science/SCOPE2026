@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:35:23.261723Z",
+  "axes": {
+    "correctness": {
+      "rationale": "All images have Parikh vector U=(1,1,1); the substitution is prolongable on 0 and primitive. Writing the letter at 3i+s as s−x_i mod 3 gives, for shifts 3m+t with t=1,2, the difference sets (t−D_m)∪(t−D_(m+1)) via no carry and carry, both realized over starting offsets. For t=0 the set is −D_m. At shift 1 the successive difference is 1 off the boundary and becomes 1 minus a smaller-index successive difference at a boundary; values 0 and 1 occur by index 2. At shift 2 the union with D_0={0} gives {1,2}. The only consecutive positive pairs in the exceptional family of powers and twice-powers of 3 are (1,2),(2,3); both unions of the corresponding D sets are full. Induction yields the asserted complete classification, including alternation at powers. Every factor occurs in some τ^j(0), and τ^j(a+c)=τ^j(a)+(−1)^jc. Since all letters appear in the fixed point, the entire translated factor language is realized. At length 3q, the two off-boundary offsets use opposite signed unit-vector differences for any one nonzero letter difference; cyclic translation gives both three-element orbits, while alignment gives qU. At length 3q+1 the baseline qU+e_j acquires a second three-element orbit exactly when 2∈D_q (q≥1); at 3q+2 the baseline qU+U−e_j acquires the orbit of qU+2e_j exactly when 1∈D_(q+1) (including q=0). These absence tests give the two sparse exceptional families and n=1 is direct. The exact value-3 lengths have unbounded gaps and occur infinitely often, ruling out ultimate periodicity. The formula is for positive lengths (the empty factor, if included, has complexity 1). I inspected verify.py and certificate.json without executing them; independent coordinate generation to length 19683 and window counts at 132 lengths (1–120 and triples around 244,728,2188,6560) agreed, but the infinite claim follows from the proof, not this prefix.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3 proves automaticity for Parikh-collinear fixed points; §6 asks about ultimate periodicity in the Parikh-constant case. The paper's aperiodic binary example has unequal image Parikh vectors. Theorem 13 in Rigo–Salimov gives bounded higher binomial complexity. Shallit gives a computation method under hypotheses; Turek's upper bound of 7 concerns a different family."
+        ],
+        "reasoning": "Automaticity and boundedness do not settle which lengths are exceptional or prove failure of periodicity for this example. A general computation method does not supply the formula unless instantiated and analyzed.",
+        "searches": [
+          "Rigo–Stipulanti–Whiteland arXiv:2405.18032v1, Theorem 3 and §6",
+          "Rigo–Salimov DOI 10.1016/j.tcs.2015.07.025, §5 Theorem 13",
+          "Shallit arXiv:2011.00453; Turek DOI 10.1051/ita/2010017"
+        ]
+      },
+      "checked_sources": [
+        "OEIS A287451",
+        "Rigo–Stipulanti–Whiteland arXiv:2405.18032v1",
+        "Rigo–Salimov Theorem 13",
+        "Shallit arXiv:2011.00453",
+        "Turek 10.1051/ita/2010017",
+        "Resultary a684306a38a7, 68bced155f5f, fd4fbbd9fcc8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior Parikh-collinear binary aperiodic example does not have equal image vectors. The inspected same-day one-marker record states a periodic spectrum for a specified binary family; the earlier full-support length-three classification is also binary."
+        ],
+        "reasoning": "The exact test that a letter difference is missing at a specific shift is not provided by these broader or nearby results; the prior aperiodic case cannot witness failure under the stronger Parikh-constant assumption.",
+        "searches": [
+          "Compare the explicit Rigo–Stipulanti–Whiteland §6 question and examples to the ternary 3/6/7 law; compare Resultary one-marker and binary length-three spectrum records"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The letter recurrence gives x_n = d_0−d_1+d_2−⋯ mod 3 on ternary digits, not the usual all-positive ternary digit sum. Resultary 68bced155f5f uses the different ternary Thue morphism 012,02,1 and studies valuations."
+        ],
+        "reasoning": "The alternating-sum alias was tested, and the distinct ternary-Thue title match supplies neither the word nor its abelian-complexity law.",
+        "searches": [
+          "Resultary and literature: ternary substitution 012,201,120; alternating ternary digit sum; generalized Thue–Morse abelian complexity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A287451's substitution comment records this word, not its factor-Parikh spectrum. Resultary a684306a38a7 and fd4fbbd9fcc8 give profiles for different binary classes."
+        ],
+        "reasoning": "A table of word coordinates is genuinely the same input but not a table or closed formula for distinct Parikh vectors across all factors. The binary classification cannot specialize to the ternary word.",
+        "searches": [
+          "OEIS A287451, exact substitution entry",
+          "Resultary exact morphism and complexity keywords, including binary Parikh-constant classifications"
+        ]
+      },
+      "rationale": "The word is known; credit the exact abelian-complexity formula and the counterexample to ultimate periodicity for a Parikh-constant fixed point. The closest inspected primary literature asks this question and does not answer it affirmatively or negatively for this substitution.",
+      "residual_risks": [
+        "An unindexed analysis of the catalogued alternating ternary digit-sum word may record the same bounded but aperiodic profile. Bounded searches and statement comparisons do not exclude it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves automaticity and asks the periodicity question; known counterexample has different hypotheses",
+          "evidence": "The aperiodic binary example is only Parikh-collinear; the paper's ternary example 012,112002,empty differs and has a periodic tail.",
+          "identifier_or_url": "https://arxiv.org/pdf/2405.18032v1",
+          "material_read": "Theorem 3 and examples p. 3 (offsets 6800–10789), §6 p. 15 (40550–43112)",
+          "method": "OA PDF comparison",
+          "title": "Automatic Abelian Complexities of Parikh-Collinear Fixed Points",
+          "trigger": "Direct conjectural context and potential prior counterexample"
+        },
+        {
+          "assessment": "Exact word already catalogued, not the abelian profile",
+          "evidence": "Comment lists the three identical substitution images; no abelian-complexity formula in the inspected entry material.",
+          "identifier_or_url": "https://oeis.org/A287451",
+          "material_read": "Comment, numerical entry and author date, offsets 350–1781",
+          "method": "OA public entry",
+          "title": "Fixed point of 0→012, 1→201, 2→120",
+          "trigger": "Exact substitution/fixed-point lookup"
+        },
+        {
+          "assessment": "Different invariant and conclusion",
+          "evidence": "Bounded higher m-binomial complexity (m≥2) is not a periodicity or exact ordinary abelian-complexity result.",
+          "identifier_or_url": "10.1016/j.tcs.2015.07.025",
+          "material_read": "§5 pp. 8–9, Theorem 13, offsets 23100–29061",
+          "method": "OA full-text passage",
+          "title": "Another Generalization of Abelian Equivalence: Binomial Complexity of Infinite Words",
+          "trigger": "Same restrictive morphism class"
+        },
+        {
+          "assessment": "Computation framework, no exact instance established by the inspected passage",
+          "evidence": "The method uses boundedness and synchronization hypotheses; it does not itself give this profile or sparse exceptions.",
+          "identifier_or_url": "https://arxiv.org/pdf/2011.00453",
+          "material_read": "Abstract and opening p. 1, offsets 700–2770",
+          "method": "OA PDF passage",
+          "title": "Abelian Complexity and Synchronization",
+          "trigger": "General methods could compute the same complexity"
+        },
+        {
+          "assessment": "Different ternary class",
+          "evidence": "An optimal upper bound of 7 for its family does not cover this morphism or locate its exceptional lengths.",
+          "identifier_or_url": "10.1051/ita/2010017",
+          "material_read": "p. 1, offsets 500–2626, statement and setting",
+          "method": "OA PDF passage",
+          "title": "Balances and Abelian Complexity of a Certain Class of Infinite Ternary Words",
+          "trigger": "Ternary abelian complexity bounded by 7"
+        },
+        {
+          "assessment": "Different family",
+          "evidence": "Binary one-marker substitutions have periodic abelian complexity in the stated family.",
+          "identifier_or_url": "Resultary:2026/10/13/a684306a38a7",
+          "material_read": "RESULT.md offsets 0–2440 and 7450–8536",
+          "method": "Local mirror",
+          "title": "Exact abelian factor spectra for a uniform one-marker substitution",
+          "trigger": "Same-day exact abelian-complexity spectrum for a substitution"
+        },
+        {
+          "assessment": "Binary setting does not cover this example",
+          "evidence": "Full-support binary profiles in the classified domain are periodic.",
+          "identifier_or_url": "Resultary:2026/10/12/fd4fbbd9fcc8",
+          "material_read": "RESULT.md offsets 0–2372",
+          "method": "Local mirror",
+          "title": "Exact abelian-complexity trichotomy for binary Parikh-constant morphisms",
+          "trigger": "Parikh-constant length-three exact classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This answers the explicit Parikh-constant periodicity question negatively with a primitive, transparent ternary example. The complete profile supplies exact exceptional lengths and isolates their arithmetic mechanism, rather than relying on a graph or a long finite prefix. It has a clear role as a boundary example for automaticity versus ultimate periodicity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

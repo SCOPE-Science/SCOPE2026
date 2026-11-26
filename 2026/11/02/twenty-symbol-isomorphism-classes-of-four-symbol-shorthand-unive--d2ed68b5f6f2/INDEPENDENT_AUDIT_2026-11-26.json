@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:00:40.053150Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–55; VERIFICATION.md; verify.py; classes.tsv",
+        "Independent exhaustive replay: python3 -B /workspace/independent_checks.py 4"
+      ],
+      "rationale": "A cyclic word corresponds exactly to an Euler tour of ordered distinct pairs linked by ordered distinct triples. The unique 012 window removes position rotations without modding out alphabet labels. To verify exhaustion independently, assign at each of the twelve overlap vertices a bijection between its two incoming and two outgoing arcs. The resulting permutation of 24 arcs is a valid Euler tour iff it has one orbit. Conversely each valid cycle gives one such assignment. Among all 4096 assignments this gives 384 words. Independent normalization by lexicographically least cyclic rotation and exhaustive tests of all 24 relabelings with and without reversal reproduced each per-permutation fixed count, the 20 and 11 quotients, the joint orbit sizes, and all 20 rows of classes.tsv, including self-mirrors 6 and 10. Burnside gives (384+96)/24=20 and (384+96+48)/48=11. No stabilizer can contain two alphabet transpositions since their product is another excluded type. The 96 cycles with a relabeling stabilizer therefore give eight orbits of size 12; the other twelve have size 24.",
+      "residual_risks": [
+        "Exhaustive only for these four symbols and the injective length-three factor condition. The count 11 uses the joint action, not reversal alone."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.3 counts universal cycles for P_{n,3}, n>=4, which includes this exact word set at n=4.",
+          "SETA 2024 Theorems 5–6 enumerate labeled cycles for injective windows of lengths three and four."
+        ],
+        "reasoning": "Specializing the broader labeled theorem mechanically yields 384 and must be credited; it gives no S4 or reflection fixed counts in the inspected theorem. Length-four windows do not refine this orbit census.",
+        "searches": [
+          "Chang–Xue arXiv:2111.13814, Theorem 1.3",
+          "Chang–Wang–Xue SETA 2024, Theorems 5–6"
+        ]
+      },
+      "checked_sources": [
+        "Chang–Xue arXiv:2111.13814 Theorem 1.3",
+        "Chang–Wang–Xue SETA 2024 Theorems 5–6",
+        "Resultary Findings 06733feed141, 2e6d8e176d7d and a080b92af285",
+        "Holroyd–Ruskey–Williams full-text access check"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary result specializes exactly to the labeled 384. The actual 48-element action has six transpositions fixing 16 cycles each and three double-transposition reflections fixing 16 each. These contributions are not in the inspected counting statements.",
+          "The orientable-cycles Finding a080b92af285 instead selects nonpalindromic factors up to reversal for ternary cycles of length nine."
+        ],
+        "reasoning": "A free-action division of 384 would give 16 rather than 20 for relabeling; the fixed-point data and mirror involution are exactly what is needed for the actual quotients. The general count alone does not compute these data.",
+        "searches": [
+          "Chang–Xue arXiv:2111.13814 p. 2 and SETA 2024 advancement, Theorems 5–6",
+          "Actual Findings of 06733feed141, 2e6d8e176d7d and a080b92af285"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Closest graph/word census returned concerns ternary Kautz factors, ternary surjection factors, or selecting ternary factors up to reversal, rather than all ordered distinct triples on four symbols.",
+          "Holroyd–Ruskey–Williams is the primary likely Gray-code alias; no readable full text was retrieved."
+        ],
+        "reasoning": "The relevant alternative formulation is an Euler tour on ordered unequal pairs with all injective triple arcs; generic Euler tour counts or counts for different graphs do not determine this action. In the inaccessible Gray-code paper, coverage of the exact refinements is unverified, not ruled out.",
+        "searches": [
+          "Resultary: shorthand universal cycles permutation Gray codes mirror reversal classification",
+          "Resultary: Euler tours universal cycles ordered distinct triples S4 symmetry quotient",
+          "Holroyd–Ruskey–Williams DOI 10.1007/s00453-011-9544-z, lawful full-text routes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "06733feed141 also gives 384 labeled cycles of length 24, but 64 relabeling and 34 joint classes: its factors are length four on three letters with unequal neighbors.",
+          "2e6d8e176d7d has 4800 labeled and 410 joint classes for ternary surjective length-four factors."
+        ],
+        "reasoning": "The common raw number and position length in the Kautz record are coincidental as statements of enumeration: the alphabets, S-actions, and factor conditions differ. The returned distinct tables are not prior tables of the claimed set.",
+        "searches": [
+          "Resultary: four-symbol shorthand universal cycles isomorphism reversal classes fixed-point census",
+          "Resultary: universal cycles injective triples alphabet relabeling orbits stabilizers"
+        ]
+      },
+      "rationale": "The labeled count 384 is exactly covered and is not claimed as the new contribution. The inspected counting theorems and closest indexed symmetry censuses do not imply the full four-symbol relabeling and mirror classification. The pass is for the nonfree action, fixed-point table and canonical orbits on the specified word set. Historical priority is qualified by the unavailable shorthand-cycle full text and possible unindexed tables.",
+      "residual_risks": [
+        "The exact-object Holroyd–Ruskey–Williams text could not be independently read. Earlier Gray-code symmetry tables or unindexed enumerations could overlap.",
+        "General web queries were deferred and do not constitute negative evidence; the pass relies on concrete source comparisons and the explicitly delineated refinement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior coverage of 384, not the refined census in that passage",
+          "evidence": "The theorem gives the number of cycles for P_{n,3} with n>=4; P_{4,3} is exactly the set of injective triples at issue.",
+          "identifier_or_url": "https://arxiv.org/pdf/2111.13814",
+          "material_read": "Theorem 1.3, p. 2, offset 4437",
+          "method": "Targeted OA PDF inspection",
+          "title": "Enumerations of Universal Cycles for k-Permutations",
+          "trigger": "Broader primary theorem on the exact labeled objects"
+        },
+        {
+          "assessment": "Labeled enumerations in inspected passages",
+          "evidence": "Formulas for cycles on P_{n,3} and P_{n,4}, without a group fixed-point tally.",
+          "identifier_or_url": "https://seta-2024.github.io/files/Pre-proceedings.pdf",
+          "material_read": "Abstract and Theorems 5–6, offset 561015",
+          "method": "Targeted OA PDF inspection",
+          "title": "An effective approach to enumerate universal cycles for k-permutations",
+          "trigger": "Later general enumeration might cover quotients"
+        },
+        {
+          "assessment": "Possible stronger coverage remains unverified",
+          "evidence": "Repository lookup did not return a copy and publisher PDF resolution redirected; the frozen cited comparison is not independent evidence of what the full paper omits.",
+          "identifier_or_url": "DOI:10.1007/s00453-011-9544-z",
+          "material_read": "No readable primary full text retrieved",
+          "method": "Lawful OA lookup by DOI and publisher PDF route",
+          "title": "Shorthand Universal Cycles for Permutations",
+          "trigger": "Exact object family and possible equivalent Gray-code enumeration"
+        },
+        {
+          "assessment": "Different factor set and group",
+          "evidence": "Order-four words over three symbols with no equal adjacent letters give 64 and 34 quotient classes.",
+          "identifier_or_url": "2026/10/18/SCOPE-reversal-and-relabeling-classes-of-ternary-order-four-kautz-cycl--06733feed141",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror inspection",
+          "title": "Reversal and relabeling classes of ternary order-four Kautz cycles",
+          "trigger": "Same total 384, length 24 and same kind of symmetry question"
+        },
+        {
+          "assessment": "Different factors and later date",
+          "evidence": "The length-four windows contain each of three symbols at least once; quotient uses S3 and reversal.",
+          "identifier_or_url": "2026/11/22/SCOPE-exactly-4-800-ternary-surjection-universal-cycles-in-410-symmetr--2e6d8e176d7d",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror inspection",
+          "title": "Exactly 4,800 ternary surjection universal cycles in 410 symmetry classes",
+          "trigger": "Closest indexed injective/surjective universal-cycle symmetry result"
+        },
+        {
+          "assessment": "Different constraint and object set",
+          "evidence": "Eight ternary length-nine cycles, selecting nonpalindromic triples up to reversal, form two classes of sizes six and two.",
+          "identifier_or_url": "2026/11/8/SCOPE-complete-classification-of-maximum-ternary-order-three-orientabl--a080b92af285",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror inspection",
+          "title": "Complete classification of maximum ternary order-three orientable cycles",
+          "trigger": "Nearby order, cyclic factor and reversal convention"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Euler-tour/orbit proofs; classes.tsv; independent orbit replay; Chang–Xue labeled theorem"
+      ],
+      "rationale": "Changing the letter names or orientation does not change the underlying construction, so their quotients are motivated directly by the cycle definition. This determines exactly which minimal nontrivial cases are essentially different, including nontrivial stabilizers and the two self-mirror classes. It supplies canonical test objects for permutation universal cycles and their Gray-code versions, data that cannot be reconstructed by dividing the established labeled total by group order.",
+      "residual_risks": [
+        "Finite classification at one natural alphabet size; no larger-order orbit formula or downstream theorem is implied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

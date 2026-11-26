@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:38:21.948483Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–55 and VERIFICATION.md lines 18–23; verify.py inspected but not executed",
+        "Independent exact rational spot checks: python3 /workspace/branches/reproduce.py 4; output /workspace/branches/reproduction.txt"
+      ],
+      "rationale": "Normalize the centers to 0,D; this preserves the positive weight magnitudes. For a scalar rank-two compression, the min–max principle already gives Re(e^{-iθ}z) ≤ λ₂(Hθ). With u=D cos θ, the four eigenvalues are ±r and u±s. For |u|≤r+s the second is min(r,u+s), so if D≤r+s the inequalities give precisely the disk intersection as an upper bound. Every point of that intersection is achieved by a pair of unit vectors, one in each block, with the prescribed scalar expectation (the numerical range of a 2×2 Jordan block is the disk). At D>r+s the directions cos θ=±(r+s)/D, each with both sine signs, force Im z=0 and Re z=Dr/(r+s). An isometry with block components √(s/(r+s)) I and √(r/(r+s)) diag(1,−1) attains it by exact off-diagonal cancellation. This establishes the formula even without sufficiency of the general half-plane characterization. Coincident centers, containment/tangency and external tangency follow directly; the normal limit is the whole segment since weighted block copies of the identity realize every point and ordinary expectations bound the range by the segment. Eventually the separated formula applies along every stated vanishing-weight path; all ratios, including both endpoints, can occur in the limit.",
+      "residual_risks": [
+        "The rational checks are supplementary; the continuum range and all path limits are established analytically."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li–Sze characterizes Λ_k by an intersection of Hermitian-pencil half-planes; the rule is credited in the finding.",
+          "The middle-gap record's available catalog statement assumes a positive direction-independent gap between the second and third Hermitian-pencil eigenvalues. For the present pencil the gap is h(u)+h(−u). It is 2 min(r,s) at u=0, equals r+s−D at u=D in the proper lens regime, and vanishes at u=r+s whenever D≥r+s."
+        ],
+        "reasoning": "The asserted constant positive middle-gap regime cannot contain the proper lens, tangency or separated phase. Containment can have constant gap, but does not account for the remaining classifications. This scope distinction follows by explicit substitution into the advertised hypothesis, not by claims about unread portions of the other record.",
+        "searches": [
+          "arXiv:0706.1536",
+          "Resultary distinct hit 0d366b2e6d38: Four-dimensional middle-gap rigidity for rank-two numerical ranges"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 47fb79955d92 (identity match), 0d366b2e6d38 (distinct)",
+        "Li–Sze arXiv:0706.1536 and Argerami–Mustafa arXiv:1908.05692 (specific statements via frozen documents)",
+        "Mustafa thesis (reported §3.2 example; primary pages inaccessible)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the separated range, inequalities in four critical directions force a unique point, and the two nilpotent parts cancel in the weighted compression. The normal specialization alone gives a segment, not a path selection rule.",
+          "The direction-independent-gap premise fails even at external tangency; in the proper lens its values differ between perpendicular and axial directions."
+        ],
+        "reasoning": "A universal implicit test is prior; evaluating it and constructing the cancellation yields the explicit phenomenon, rather than just a substitution into an existing explicit classification. No priority inference is drawn from the same-day catalog date.",
+        "searches": [
+          "arXiv:0706.1536 higher-rank half-plane rule",
+          "arXiv:1908.05692 one Jordan block plus a scalar block",
+          "Resultary 0d366b2e6d38"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Argerami–Mustafa's classified family J_n(α)⊕βI_m has only one active Jordan block.",
+          "Frozen source inspection locates a related singleton in Mustafa thesis §3.2, Example 3.2.2, for Λ₄(J₄(1)⊕J₄(0)); fresh access to the thesis failed.",
+          "The matching Resultary record 47fb79955d92 is the record being reviewed, not separate evidence of precedence."
+        ],
+        "reasoning": "One scalar block yields no cancellation between two active nilpotent pieces. The larger fixed-weight singleton example is not an arbitrary 2+2 phase theorem. The limiting assertion concerns scalar compressions, not ordinary expectations or constant-width ordinary ranges.",
+        "searches": [
+          "Resultary: two weighted 2×2 Jordan blocks, rank-two numerical range, lens, singleton and normal limit",
+          "arXiv:1908.05692; Mustafa thesis §3.2 as identified in frozen sources; targeted primary search for rank-two ranges of direct sums of weighted 2×2 Jordan blocks"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalog match is the target itself; the distinct middle-gap hit has a mathematically different regime. The search snippet about topic-level Jordan direct sums did not contain a usable formula or tabulated cases."
+        ],
+        "reasoning": "The relevant substitute for a database for this continuum problem is a parameter classification or exact worked family. Neither hit supplies such independent evidence for the full positive-weight phase and limit; this is not a negative priority claim about unavailable texts.",
+        "searches": [
+          "Resultary: 4×4 rank-two scalar compression, two Jordan shifts, separated disks and limiting segment",
+          "Targeted primary search for higher-rank numerical ranges of two shifted 2×2 Jordan blocks"
+        ]
+      },
+      "rationale": "Credit the known higher-rank half-plane characterization and normal segment. The supported distinct claim is the explicit weighted two-active-block phase law, including the persistent singleton outside both disks' intersection and the selection of arbitrary points of the limiting segment by weight ratios. The available statement-level comparisons do not cover this classification. The overlap phase alone is not the basis for the pass.",
+      "residual_risks": [
+        "An earlier explicit 2+2 calculation in the cited thesis or compression literature remains possible; lawful access attempts did not establish the thesis's complete scope.",
+        "No priority inference from same-day listing or unavailable text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_GENERAL_CHARACTERIZATION",
+          "evidence": [
+            "The prior rule uses the k-th largest Hermitian-pencil eigenvalue for each support direction."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0706.1536",
+          "material_read": "Half-plane theorem as precisely stated in frozen RESULT.md lines 25–29; fresh primary PDF lookup did not return text",
+          "method": "Statement comparison and independent elementary proof of the specialization",
+          "title": "Canonical forms, higher rank numerical ranges, totally isotropic subspaces, and matrix equations",
+          "trigger": "General characterization directly used in frozen proof"
+        },
+        {
+          "assessment": "SCALAR_BLOCK_FAMILY_DOES_NOT_COVER_TWO_ACTIVE_BLOCKS",
+          "evidence": [
+            "J_n(α)⊕βI_m has a scalar summand, unlike J₂(α)⊕J₂(β) with both weights nonzero."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1908.05692",
+          "material_read": "Classified family from frozen RESULT.md line 61 and frozen AUDIT.json lines 79–85; fresh OA text unavailable",
+          "method": "Scope comparison on the reported central formula, not an assertion about the whole text",
+          "title": "Higher Rank Numerical Ranges of Jordan-Like Matrices",
+          "trigger": "Closest named exact classification"
+        },
+        {
+          "assessment": "RELATED_REPORTED_EXAMPLE; FULLER_COVERAGE_UNRESOLVED",
+          "evidence": [
+            "Reported Example 3.2.2 gives Λ₄(J₄(1)⊕J₄(0))={1/2}, not a 2+2 weighted classification."
+          ],
+          "identifier_or_url": "https://www.academia.edu/99973650/Higher_Rank_Numerical_Ranges_For_Certain_Non_Normal_Matrices",
+          "material_read": "Frozen AUDIT.json lines 88–95 reports a §3.2 example; relevant primary pages not independently retrieved",
+          "method": "Tried cited transcript and OA route; distinguished reported example by sizes and rank",
+          "title": "Higher Rank Numerical Ranges for Certain Non-Normal Matrices",
+          "trigger": "Potential two-eigenvalue two-Jordan precedent"
+        },
+        {
+          "assessment": "ADVERTISED_PREMISE_EXCLUDES_DECISIVE_REGIMES",
+          "evidence": [
+            "Gap h(u)+h(−u) varies in the proper lens phase and vanishes at a direction when D≥r+s."
+          ],
+          "identifier_or_url": "Resultary:0d366b2e6d38",
+          "material_read": "Resultary catalog statement with explicit positive direction-independent middle-gap premise; mirror full-text retrieval timed out",
+          "method": "Local Resultary query, mirror attempt, and exact pencil comparison",
+          "title": "Four-dimensional middle-gap rigidity for rank-two numerical ranges",
+          "trigger": "Strongest distinct same-dimensional indexed theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 9–19, 39–55; independent analytic compression and limiting argument"
+      ],
+      "rationale": "The smallest pair of independently nonnormal Jordan blocks gives an explicit minimal-dimensional test family for scalar compression. The persistent unique compression beyond disk overlap, its radius-weighted location, and the ability to select every point of a much larger limiting range isolate a meaningful instability; this is more than a finite numerical check or a restatement of convexity.",
+      "residual_risks": [
+        "There is no claim for arbitrary larger block sizes or weights with one exactly zero."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

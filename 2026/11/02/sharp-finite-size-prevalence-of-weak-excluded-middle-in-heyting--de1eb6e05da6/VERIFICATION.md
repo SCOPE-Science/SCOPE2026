@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python3 verify_wem.py` using Python 3; no external modules or downloaded data are needed. The code encodes a finite poset by a tuple of predecessor bitsets, enumerates its downsets, and evaluates pseudocomplement and double pseudocomplement directly from the definition. It separately computes the product formula from comparability components and counts join-irreducible-size extremizers.
+## correctness
 
-Actual replay output from the packaged verifier:
+PASS
 
-```text
-n=1 orders=1 failures=0 extremizers=0
-n=2 orders=2 failures=0 extremizers=0
-n=3 orders=7 failures=1 extremizers=1
-n=4 orders=40 failures=15 extremizers=1
-n=5 orders=357 failures=216 extremizers=1
-n=6 orders=4824 failures=3741 extremizers=1
-SAME_STRONG_DEGREES_DIFFERENT_WEAK_DEGREE_PASS 4/7 5/7
-EXTREMAL_FAMILY_PASS n=3..16
-WEAK_EXCLUDED_MIDDLE_EXACT_CHECKS_PASS
-```
+Rechecked the final fixed-n extremal claim and its counting ingredient. For minima M(p) below p, pseudocomplement tests disjointness from the minima in the ideal, and double pseudocomplement tests all-inclusion. Comparable vertices have nested nonempty sets M(p), so gluing along paths makes the inclusion status constant across all minima of each component. Deleting the included minima realizes the factor 1+|J(C minus minima)|; the empty algebra representation has empty-product count one. A nonvalid component of size s with m>=2 minima has at most 1+2^(s-m) successes and at least 2^m-2 failures. The failure quotient is strictly monotone in the two counts in opposite directions, giving at least 2/(2^(s-2)+3). Equality forces m=2 and antihain structure on the remaining vertices, since every subset must be an ideal. A vertex lying above just one minimum would give a third failure by its principal ideal, so the two-level ordinal sum is forced, and direct count attains the bound. Probabilities factor across components; strict monotonicity of the size bound forces s=n in the equality case. This includes the first nonvalid size n=3. Frozen finite verifier and replay report were inspected, not rerun: all naturally labeled orders through size six (covering each isomorphism class), direct checks of extremizers through thirteen and structural checks through sixteen; these do not establish the universal claim.
 
-The naturally labeled enumeration represents every isomorphism class of finite posets up to six points, although it does not enumerate every arbitrary relabeling. All comparisons use exact integers and rational fractions. The independent direct evaluation confirms the all-size component expression in the tested range and the sharp upper bound and equality type there. The proof in `RESULT.md`, not this finite calculation, establishes the unrestricted theorem. This is not an independent human audit or an external mathematical certificate.
+## originality
+
+PASS
+
+PASS for the revised result only. The frozen claim of a distinct componentwise count overlaps exactly with the earlier Resultary joint table after dualizing. The repair removes it from the claimed contribution and credits it as known. The separately checked surviving claim is the sharp fixed-join-irreducible conditional proportion and its unique equality type, against all finite nonvalid orders. This is a best-of-knowledge assessment of the final claim.
+
+## value
+
+PASS
+
+The absence of an algebra-independent gap makes the smallest positive defect at a fixed structural size a natural question. Its exact exponential scale and constant, with rigidity of the sole maximizer among all nonvalid types, give a finite-size refinement of the satisfiability-gap theory rather than a reannouncement of the known component formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

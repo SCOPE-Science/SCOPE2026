@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:55:42.914097Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–75; inspection of verification/census.cpp, iterates.cpp and classes.py and their recorded outputs",
+        "Independent replay: python3 /workspace/branches/reproduction/review_p23.py (NumPy); review_p23.out in the same directory"
+      ],
+      "rationale": "The theorem uses labelled configurations, strict synchronous out-neighbor majority with eleven neighbors, and counts temporal orbits before taking affine classes. I independently built the entire successor array by vectorized bit counts. Its fourth-return locus has 2 fixed points and 14,168 nonfixed states, none fixed by the second iterate. Every input first hits that locus by step 10; exactly 1,012 first hit at step 10 and they all hit a consensus. This rules out every other recurrent period and proves both sharp identity statements. All entry-time counts and basin totals match. Canonicalizing by the minimum phase and then applying all 253 affine permutations reproduces the fourteen stated classes, free action on temporal orbits, and individual basin counts. The pointwise complement identity holds on the entire periodic four-state locus, so complementation preserves each temporal orbit, hence every affine class. The four final-shell representatives, sizes and complement pairings also match. This is exhaustive for the specified graph, not an all-prime argument.",
+      "residual_risks": [
+        "Finite enumeration, not formal verification or an extrapolation to other orders."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "13a06d889156 proves the tournament two-cycle obstruction and regular-tournament consensus-only fixed points, but its complete finite census stops at Paley order 19.",
+          "Benjamini et al.'s period-at-most-two result requires undirected graphs. Jørgensen's construction supplies doubly regular structure but no trajectory theorem. Goles's institutional abstract discusses transient and cycle lengths but does not specify hypotheses that give this census."
+        ],
+        "reasoning": "The broad tournament statements already cover the fixed-point and two-cycle parts, not exclusion of all other non-four periods. The undirected theorem does not apply.",
+        "searches": [
+          "Resultary Paley majority and no two-clock record 13a06d889156",
+          "Goles DOI 10.1016/0304-3975(85)90057-X",
+          "arXiv:1405.2486 Theorem 1.1; arXiv:1410.8424 §1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d6a7bd7d1f44 and 13a06d889156",
+        "DOI 10.1016/0304-3975(85)90057-X (abstract only)",
+        "arXiv:1405.2486 and arXiv:1410.8424"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The separate same-day record gives F_P^14=F_P^10 and F_P^13≠F_P^9 directly. Its Paley basin totals imply the stated oscillation probability by dividing by 2^23 and the individual consensus totals by complement symmetry."
+        ],
+        "reasoning": "The same-day record supplies much of the headline directly or by immediate consequences. Aggregate counts do not imply the affine orbit sizes, half-complementarity, or which initial states are complement-paired. No precedence inference is needed for that coverage comparison.",
+        "searches": [
+          "d6a7bd7d1f44 Finding, Proof and Verification; 13a06d889156 tournament claims"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "d6a7bd7d1f44, Finding and Assumptions at offset 0: same eleven residue differences, threshold six and labelled temporal counting; 3542 primitive four-cycles, two fixed points, no other least periods, and sharp maximum first entry ten."
+        ],
+        "reasoning": "Both update functions agree pointwise under the same bit convention; this is equality of exact classification statements, not similarity of tournament parameters.",
+        "searches": [
+          "Resultary: Paley(23) out-neighbor synchronous majority, 3542 primitive four-cycles, sharp ten-step tail; matching record d6a7bd7d1f44"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "d6a7bd7d1f44, Paley table at offsets 4100–6450: all nonzero cells agree, including 1012 at time ten in the period-one column; four-cycle basin total 69828 and consensus total 8318780. It does not report the fourteen-class census.",
+          "13a06d889156 has 342 period-four and 18 period-nineteen orbits at order 19; this is a different table."
+        ],
+        "reasoning": "There is exact table-level overlap on the frozen headline dynamical census. The affine refinement is not just that table.",
+        "searches": [
+          "Resultary published records for exact Paley-23 first-entry counts and affine classes: d6a7bd7d1f44, 13a06d889156"
+        ]
+      },
+      "rationale": "The frozen record presents the full recurrent census and sharp ten-step entry law as major distinct results. The inspected separate same-day Resultary record gives exactly those results on the same labelled map, including the whole entry table, basin totals and sharp iterate identities. The record date alone does not determine precedence; the failure is verified material equivalent coverage of central claims, not an assertion that the entire finding was published earlier. The fourteen affine classes, their individual basin sizes, half-complementarity and terminal-shell symmetries are not shown covered by that comparison. A claim restricted to that refinement would be a different claim and is not certified as a repair here.",
+      "residual_risks": [
+        "Same-day order is unresolved. Full Goles text was not obtained. No exhaustive priority claim is made about the affine refinement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material equivalent coverage on the Paley census and tail; no order of precedence inferred; no fourteen-class result in the statement",
+          "evidence": "The same threshold-six rule has 3542 primitive four-cycles and two fixed points, sharp ten updates, the same basin totals and exact entry-time cells.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-two-degree-matched-tournaments-separate-into-exclusive-four-and--d6a7bd7d1f44/RESULT.md",
+          "material_read": "Finding and Assumptions at offset 0; Proof and Verification including Paley table at offsets 4100–6450; refinement compared against complete statement",
+          "method": "Local Resultary mirror, statement and table comparison",
+          "title": "Two degree-matched tournaments separate into exclusive four- and twenty-three-step majority clocks",
+          "trigger": "Same Paley order, local update, orbit count and entry time"
+        },
+        {
+          "assessment": "Partial general coverage and different finite census",
+          "evidence": "No primitive two-cycle on finite tournaments under the stated update and no nonunanimous fixed point on regular tournaments; only orders 3,7,11,19 exhaustively classified.",
+          "identifier_or_url": "2026/11/17/SCOPE-a-forbidden-two-clock-and-the-paley-19-revival-of-majority-oscil--13a06d889156",
+          "material_read": "Finding and scope, offsets 0 and 618",
+          "method": "Local Resultary mirror",
+          "title": "A forbidden two-clock and the Paley-19 revival of majority oscillations",
+          "trigger": "Closest earlier Paley majority classification"
+        },
+        {
+          "assessment": "Scope unresolved; not evidence for or against exact coverage",
+          "evidence": "The abstract mentions a Lyapunov function and threshold and majority networks without stating the hypotheses for its dynamics classification.",
+          "identifier_or_url": "https://doi.org/10.1016/0304-3975(85)90057-X",
+          "material_read": "Institutional abstract, offset 521, and publication details; no full text obtained",
+          "method": "Lawful OA and identified institutional landing page",
+          "title": "Dynamics of Positive Automata Networks",
+          "trigger": "General majority-network cycle and transient bounds"
+        },
+        {
+          "assessment": "Not applicable to this directed update",
+          "evidence": "The period bound uses a finite undirected graph.",
+          "identifier_or_url": "https://arxiv.org/abs/1405.2486",
+          "material_read": "Theorem 1.1, PDF p. 2, text offset 4320",
+          "method": "OA paper text",
+          "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+          "trigger": "Possible general period bound"
+        },
+        {
+          "assessment": "Graph construction, not an implication for majority dynamics",
+          "evidence": "The passage constructs Paley tournaments as doubly regular tournaments.",
+          "identifier_or_url": "https://arxiv.org/abs/1410.8424",
+          "material_read": "§1, PDF p. 7, text offset 14126",
+          "method": "OA paper text",
+          "title": "Normally Regular Digraphs",
+          "trigger": "Same Paley family"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 8–12, 30–49 and 71–75; independent affine replay",
+        "d6a7bd7d1f44 Paley aggregate table for comparison"
+      ],
+      "rationale": "Independently of the duplicated census, the affine classification has mathematical use: it determines stabilizers and the complete per-family basin sizes for a canonical symmetric directed system, rather than only the distribution of eventual periods. Half-complementarity identifies complementation with a temporal half-turn on every nontrivial attractor, while the depth-ten initial shell exhibits complement pairing of distinct spatial classes. These are meaningful refinements that the aggregate table cannot supply.",
+      "residual_risks": [
+        "Value here is a finite symmetry-resolved classification, not a general theorem about Paley tournaments."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

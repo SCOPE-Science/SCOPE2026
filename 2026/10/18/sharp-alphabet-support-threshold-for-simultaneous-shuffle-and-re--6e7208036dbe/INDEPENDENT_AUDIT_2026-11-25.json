@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:52:12.039711Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Use the two witness partitions independently. In the ordinary matching both minima and maxima of the paired positions increase in pair-rank, excluding a nested pair. In the reverse matching paired subsequence ranks sum to n+1. If both endpoints were in one half, their prefixes or suffixes would require n+1 distinct positions there. With left ends partitioned by witness side, the right ends decrease on each side, so no increasing triple exists. Shared edges cross the midpoint and have increasing right ends by non-nesting, hence there are at most two. In the two-colored multigraph, a shared pair yields a size-two component and every other alternating cycle has at least four positions. Thus c≤floor((n+h)/2)≤floor(n/2)+1, and equality labels on edges give support at most c. For n=1 the argument allows the one shared edge. The explicit word aPaP with P a palindrome on the maximum number of letters uses both ordinary equal halves and reverse subsequences aP,Pa, giving equality for all n. Merging symbols proves exact full-support feasibility for smaller q, and injecting labels in the maximum-support pattern proves the lower counting exponent; finitely many equality patterns prove the upper one. For an alphabet fixed too small for the first unrestricted maximum, the actual maximum is min(q,floor(n/2)+1), as the relabeling argument shows. Independent replay: python3 -B /workspace/branches/reproduce_frozen_checks.py 4 directly enumerated equality partitions with even multiplicities for n=1..5 (1, 4, 31, 379, 6556 cases) and tested bipartitions without relying on the matching encoding, finding the claimed maxima 1,2,2,3,3. Uploaded checker and recorded support were inspected, not executed. The proof, not the replay, handles arbitrary n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The nest-free graphs paper characterizes ordinary witnesses and discusses reverse witnesses separately in §6.4.",
+          "Variations on Shuffle Squares §2.4 deals with variant shuffles and permutation coverage.",
+          "Being an abelian square only matches half-multisets, and allows n distinct letters."
+        ],
+        "reasoning": "Broader variant-shuffle or nest-free graph frameworks do not by themselves enforce the conflicting shared-edge ranks; the inspected statements neither give the joint ceiling nor an attainment theorem for these same hypotheses.",
+        "searches": [
+          "arXiv:2503.22043 Prop. 1 and §6.4",
+          "arXiv:2308.13882 §2.4",
+          "arXiv:1106.5767 Theorem 7 and Remark 8"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2109.12455",
+        "arXiv:1106.5767",
+        "arXiv:2308.13882",
+        "arXiv:2503.22043",
+        "Resultary a30546ec04ae, d4281bab60e0, ee8a475fe7fb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "He et al.'s separate leading counts allow support n for each family alone and compare matching unions within one family.",
+          "The joint proof needs the direction that shared midpoint edges must both be increasing as an ordinary witness subset and have no increasing triple as a reverse witness subset, and a word with two different witnesses attaining the resulting ceiling."
+        ],
+        "reasoning": "Neither an intersection-size bound with sharp exponent nor an extremal support bound of floor(n/2)+1 follows just by taking a minimum of the known separate counts. The mixed shared-edge obstruction and sharp palindrome-based witness supply the missing comparison.",
+        "searches": [
+          "arXiv:2109.12455 Theorems 1.1–1.2 and Lemma 4.1",
+          "arXiv:2503.22043 §6.4 reverse shuffle"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "He et al. identify ordinary witnesses with non-nesting perfect matchings and reverse witnesses with midpoint-crossing 123-avoiding permutations.",
+          "Henshall et al. §4 proves that reverse self-shuffles are abelian squares, and the converse for binary; Remark 8 gives a ternary counterexample to the converse."
+        ],
+        "reasoning": "By the matching characterizations the support problem is equivalently the maximum number of connected components of a mixed union of the two matching types, since a distinct letter can label each component. The known abelian-square test and the known two individual encodings do not state that mixed extremal bound.",
+        "searches": [
+          "simultaneous ordinary and reverse shuffle squares common matching edges maximum alphabet support",
+          "arXiv:2109.12455, proof of Theorem 1.1 and Lemma 4.1",
+          "Henshall Rampersad Shallit Shuffling and Unshuffling 2012 reverse shuffle square pdf simultaneous intersection both distinct letters"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The retrieved Resultary texts concern ordinary witness multiplicity of double-occurrence words, ordinary binary fixed-weight counts, or ordinary root multiplicity with two ones.",
+          "Henshall et al. §4 tabulates values for the reverse family separately, not for the intersection."
+        ],
+        "reasoning": "These are exact or asymptotic results on different invariants or a single family. They do not provide a mixed-component or joint-support table/formula. Bounded ranked returns do not exclude unindexed matches.",
+        "searches": [
+          "simultaneous ordinary/reverse shuffle squares common matching edges support maximum (ranked Resultary search)",
+          "2026/11/8/SCOPE-witness-multiplicities-and-rare-event-moments-for-double-occurre--a30546ec04ae",
+          "2026/10/12/SCOPE-fixed-weight-binary-shuffle-squares-have-full-polynomial-order--d4281bab60e0",
+          "2026/11/2/SCOPE-complete-root-multiplicity-spectrum-of-two-marker-binary-shuffle--ee8a475fe7fb"
+        ]
+      },
+      "rationale": "The known separate matching encodings and separate asymptotic counts are credited. What survives comparison is the coupled bound on shared edges, the sharp component/support ceiling for simultaneous membership, and its full-support and counting consequences. In the relevant retrieved primary passages and indexed records, no equivalent or stronger mixed-family classification was found. This is a bounded comparison, not a priority guarantee.",
+      "residual_risks": [
+        "Equivalent mixed matching, permutation or ordered graph formulations may fall outside the queries and inspected passages.",
+        "No exact intersection enumerator or classification of every extremizer is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers each encoding and separate asymptotics; the inspected results do not supply the mixed theorem.",
+          "evidence": [
+            "Ordinary non-nesting matching; reverse midpoint permutation with two decreasing subsequences."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2109.12455",
+          "material_read": "PDF pp. 1–2 main theorems; p. 6 near offset 25740; pp. 7–8 Lemma 4.1 near offset 30913",
+          "method": "Open primary preprint passages and matching comparison",
+          "title": "Shuffle Squares and Reverse Shuffle Squares",
+          "trigger": "Exact witness families and matching encodings"
+        },
+        {
+          "assessment": "Relevant abelian-square equivalence in binary and reverse counts, not a joint sharp unrestricted-alphabet statement in checked passages.",
+          "evidence": [
+            "Theorem 7's prefix/suffix count proves half-multiset equality. Its converse is binary, and 012012 is noted as a nonreverse ternary abelian square."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1106.5767",
+          "material_read": "§2 definitions near offset 5640 and §4 pp. 6–7 offsets 12033–16413, Theorem 7, Remark 8 and reverse-family counts",
+          "method": "Lawful OA version of original; bounded passages",
+          "title": "Shuffling and Unshuffling",
+          "trigger": "Foundational work on ordinary and reverse self-shuffles"
+        },
+        {
+          "assessment": "Not the same joint theorem in checked material.",
+          "evidence": [
+            "The section concerns generalized, cyclic or dihedral variants and permutation coverage."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2308.13882",
+          "material_read": "Abstract and §2.4 pp. 7–8 near offset 23405",
+          "method": "Open primary preprint passages",
+          "title": "Variations on Shuffle Squares",
+          "trigger": "Nearby shuffle variants and full alphabet constraints"
+        },
+        {
+          "assessment": "Ordinary witness characterization; reverse handling not a result covering joint support here.",
+          "evidence": [
+            "§6.4 proposes an adaptation of Proposition 1 for reverse shuffles as a possible tool."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2503.22043",
+          "material_read": "Prop. 1 pp. 8–9 near offset 22904 and §6.4 p. 30 near offset 76860",
+          "method": "Open primary preprint passages",
+          "title": "Shuffle Squares and Ordered Nest-Free Graphs",
+          "trigger": "Potentially broader graph characterization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This asks a natural compatibility question about two standard word languages, and resolves it for every length rather than a finite census. The exact drop in admissible letters and in the counting exponent, with a sharp full-support threshold and an independent structural explanation via shared edges, are useful even without the exact joint enumerator.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

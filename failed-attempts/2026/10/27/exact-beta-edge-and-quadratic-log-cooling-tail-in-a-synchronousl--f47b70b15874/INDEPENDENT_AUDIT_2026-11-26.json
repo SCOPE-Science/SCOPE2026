@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:08:55.021325Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The common-clock stationary convolution is bounded in conditional L² by the unreset OU convolution, with variance strictly inside (0,b/a) because there is a past reset almost surely. Synchronous coupling is contractive. At a fixed stationary time the particles are conditionally iid, giving the almost sure Gaussian empirical limit; conditional fourth moments give E[(M_N−V)²]=2E[V²]/N. The backwards Poisson gaps are independent exponentials, so the last age T and older pre-jump width are independent and 1−Y=e^(−aT)(1−cY′). The conditional power law remains unsaturated throughout 0<epsilon<1−c, giving exactly the claimed coefficient; the nonzero conditional slope and continuous age guarantee no atoms. For the lower end the event Y≤y forces both U≥1−y and Y′≤y/[c(1−y)], while U≥1−delta y and Y′≤(1−delta)y/c suffice. Each age-event factor is a positive multiple of y to leading order. Arbitrarily small positive y have positive CDF by packing sufficiently many jumps in a sufficiently short interval. Scaling to a fixed threshold by ratios (1−delta)/c and (1+eta)/c yields the two quadratic-log bounds with error O(log(1/y)) at each fixed ratio, and then delta,eta→0 give the coefficient. Independently, ordering n integration times in E[Y^n] separates the Poisson increments and gives n! divided by the product over j=1..n of j+beta(1−c^j), confirming the recurrence without assuming the generator. The stationary variance simplifies to the strictly positive expression in the finding and the two moment equations invert on 0<c<1, r>0. The frozen verify.py was inspected, not run. Its Monte Carlo checks are finite; its displayed finite-N loop checks positivity of the theoretical increment, not an independently sampled variance identity, and its recursion loop substitutes its own recurrence. Neither is needed for the analytical results.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.4 determines the density through (1−d x)f(x)=∫_x^∞ Π̄(log(y/x))f(y)dy for zero killing, with subordinator drift d. It also states the converse; the introduction attributes the earlier finite-mean unkilled case to Carmona–Petit–Yor, Proposition 2.1.",
+          "Aurzada gives −log P(W≤y) asymptotic to p log²(1/y)/(2 log(1/c)) for geometrically weighted iid positive inputs with lower CDF comparable to y^p. The waiting-time inputs here are exponential, giving p=1.",
+          "Haas explicitly assumes drift-free subordinators in §2.1, so its later large-time upper-tail result does not establish the finite upper edge here."
+        ],
+        "reasoning": "In the applicable density theorem d=1 and the Lévy measure is beta times a point mass at log(1/c), so the integral is exactly beta[S(x)−S(x/c)], with S the survival function and S zero at and above one. There is no general-theorem hypothesis excluding this finite-activity drift process. Aurzada's iid theorem does not apply to the nonlinear summands of Y verbatim; the clock-path comparison below supplies the implication.",
+        "searches": [
+          "Pardo–Rivero–van Schaik arXiv:1107.3760 Theorem 2.4, equation (2.5), and introduction equation (1.2)",
+          "Aurzada arXiv:0711.2576 §3.2 Theorem 4",
+          "Haas arXiv:2106.08691 §2.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1107.3760",
+        "arXiv:0711.2576",
+        "arXiv:2106.08691",
+        "arXiv:2602.21635v1",
+        "arXiv:2406.08387v1 abstract",
+        "arXiv:2406.10039 abstract",
+        "Resultary 3b8b757f8421",
+        "Resultary 8652cc621e2b",
+        "Resultary 2946eecc2e9a",
+        "Resultary e56c39b9e83a",
+        "Resultary e140ac2fc363"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From (2.5), the derivative of S(x)/(1−x)^beta is beta S(x/c)/(1−x)^(beta+1), which vanishes for x>c. Integrating from 0 to c and using the tail integral for E[(1−cY)^(-beta)] gives exactly the frozen K. Multiplying (2.5) by x^(n−1) and integrating yields E[Y^(n−1)]−E[Y^n]=beta(1−c^n)E[Y^n]/n. This is the same moment system and its two-equation inversion.",
+          "For the lower end put W=∫₀^∞ c^(N_t)dt=∑_{j≥1}c^(j−1)E_j with iid exponential gaps E_j. Then Y≤W. Write A=1−e^(-1), and let m be the least integer with A c^m≤y. Since Y≥A c^(N_1), on Y≤y at least m gaps have ended by time 1. Their weighted sum W_m is at most e y since e^(−t)≥e^(-1) on those gaps. Independently W=W_m+c^m W′, where W′ has the law of W; for any M with p0=P(W′≤M)>0 this gives P(W≤y)≤P(Y≤y)≤p0^(−1)P(W≤(e+M/A)y)."
+        ],
+        "reasoning": "Constant changes of threshold and constant multiplicative factors do not affect Aurzada's log-squared coefficient. Thus the lower equivalent is a direct comparison consequence of the established geometric small-deviation theorem, not merely a heuristic linearization of the nonlinear recursion. Together with the exact density specialization and the established common-history mechanism, the proof supplies no separate new endpoint or identifiability invariant.",
+        "searches": [
+          "arXiv:1107.3760 equation (2.5), p. 5 of the manuscript",
+          "arXiv:0711.2576 Theorem 4, p. 6",
+          "arXiv:2602.21635v1 main-text conditional-independence section"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen clock integral after rescaling is Y=∫₀^∞exp(−ξ_t)dt with ξ_t=t+log(1/c)N_t and N of rate beta. Pardo–Rivero–van Schaik arXiv:1107.3760, introduction and §2, use exactly the exponential functional of the negative of a subordinator, including positive drift and zero killing.",
+          "Galla offsets 13500–16439 gives conditional iid under the common history. Resultary 3b8b757f8421 derives the same clock-conditioned variance for a single confined OU particle."
+        ],
+        "reasoning": "No independence between macroscopic widths is asserted or needed: the width of the common-clock empirical Gaussian is this same single-particle conditional variance, in units b/a. The Lévy representation is exact and not a diffusion approximation.",
+        "searches": [
+          "Exponential functional of a subordinator with deterministic drift and fixed compound-Poisson jumps; arXiv:1107.3760",
+          "Common-clock partial resetting; arXiv:2602.21635v1; Resultary 3b8b757f8421"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The comparable exact data are a law and parameterized moments rather than a finite table. Resultary 3b8b757f8421, ‘Exact endpoint law’, gives P(V≥v_*−w)=C w^beta for 0<w≤v_*(1−q²), same after w=v_* epsilon. Resultary 8652cc621e2b opens with the exact stationary even moments for the same confined proportional-reset OU.",
+          "2946eecc2e9a has a linear iid geometric exponential sum from a distinct Bernoulli-subset model; e56c39b9e83a concerns free-particle spatial displacement; e140ac2fc363 concerns the excluded full-reset boundary."
+        ],
+        "reasoning": "The first two exact matches are dated later than the frozen source. They demonstrate overlap but do not establish earlier priority. In the moment match E[X²]=E[V] and E[X⁴]/3=E[V²] exactly. The different-model records are not exact lookups of the present law; the older primary equations, not chronology guesses, establish the coverage.",
+        "searches": [
+          "Published Resultary confined partial-reset OU endpoint and exact moments: 3b8b757f8421, 8652cc621e2b",
+          "Resultary 2946eecc2e9a geometric exponential weights, e56c39b9e83a weak-reset free displacement, e140ac2fc363 full-reset harmonic gas"
+        ]
+      },
+      "rationale": "The claimed new width laws are covered by a standard exponential-functional formulation and its prior theorems. The exact upper interval, including its prefactor, and the moment recursion are immediate exact specializations of an earlier density equation. The lower coefficient is the earlier iid geometric-weight small-deviation constant, transferred by deterministic comparison on a common Poisson path and an independent suffix. Conditional iid given a common clock is itself antecedent. The same-model later catalogue overlaps corroborate equivalence but are not the basis of the earlier-coverage conclusion. The result is correct, not rejected for access or priority uncertainty.",
+      "residual_risks": [
+        "The comparison does not determine who first presented this package in this physical language. The demonstrated earlier mathematical implications do not rely on that chronology.",
+        "The cited Springer weighted-Gaussian small-deviation chapter was unavailable and is not used for the verdict; this is not an exhaustive survey of resetting literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact stronger density equation; covers the interval and moment system under substitution",
+          "evidence": "Equation (2.5) is valid for the negative of a subordinator, with arbitrary drift, Lévy tail Π̄ and nonnegative killing; its q=0 means no killing, unrelated to the retention q in the frozen claim.",
+          "identifier_or_url": "https://arxiv.org/abs/1107.3760",
+          "material_read": "Intro equation (1.2) offsets 5530–7648, §2 Theorem 2.4 and equation (2.5) offsets 12800–15679",
+          "method": "OA manuscript PDF passages",
+          "title": "On the density of exponential functionals of Lévy processes",
+          "trigger": "Potential exact law for the dependent Poisson functional"
+        },
+        {
+          "assessment": "Provides exact asymptotic for W and hence for Y by the displayed sandwich",
+          "evidence": "For polynomial input CDF exponent p, the geometric sum has −log probability asymptotic to p log²(1/y)/(2 log(1/c)), with c the geometric weight.",
+          "identifier_or_url": "https://arxiv.org/abs/0711.2576",
+          "material_read": "Theorem 4, §3.2, manuscript p. 6, offsets 12000–13579",
+          "method": "OA manuscript PDF passage",
+          "title": "A short note on small deviations of sequences of i.i.d. random variables with exponentially decreasing weights",
+          "trigger": "Same log-squared coefficient for the natural Poisson-gap comparison variable"
+        },
+        {
+          "assessment": "Not used to infer this endpoint; restricts to zero drift",
+          "evidence": "‘Throughout we assume that the subordinator ξ is drift-free, unkilled and start from 0.’",
+          "identifier_or_url": "https://arxiv.org/abs/2106.08691",
+          "material_read": "Introduction and §2.1 around offset 8327, manuscript p. 3",
+          "method": "OA manuscript PDF passages",
+          "title": "Precise asymptotics for the density and the upper tail of exponential functionals of subordinators",
+          "trigger": "Nearby general tail theorem"
+        },
+        {
+          "assessment": "Covers conditioning mechanism; its weak-reset approximation is not relied upon for exact endpoint coverage",
+          "evidence": "Multiplicative jumps are modeled; common-history conditioning makes distinct particles conditionally iid and averaging generates correlations.",
+          "identifier_or_url": "https://arxiv.org/html/2602.21635v1",
+          "material_read": "Model offsets 2172–5150, common-history particle discussion offsets 13500–16439",
+          "method": "OA primary HTML passages",
+          "title": "A diffusion approximation for systems with frequent weak resetting",
+          "trigger": "Common reset mechanism and conditional independence"
+        },
+        {
+          "assessment": "Exact overlapping interval law in a later dated record",
+          "evidence": "v_*=D/alpha, beta=r/(2alpha) and the last-age factorization yield the same conditional variance survival law and coefficient after rescaling.",
+          "identifier_or_url": "Resultary:3b8b757f8421",
+          "material_read": "RESULT.md offsets 0–4968, especially ‘Exact endpoint law’",
+          "method": "Published local mirror",
+          "title": "Exact endpoint law and sharp Gaussian tails for partially reset Ornstein–Uhlenbeck motion",
+          "trigger": "Direct exact interval match"
+        },
+        {
+          "assessment": "Later dated and same model; even moments imply the inverse moment system",
+          "evidence": "Its second and fourth moments recover the first two conditional-variance moments via the centered Gaussian mixture identities.",
+          "identifier_or_url": "Resultary:8652cc621e2b",
+          "material_read": "RESULT.md opening Finding and assumptions, exact even moments",
+          "method": "Published local mirror",
+          "title": "Gaussian tail rigidity and the critical quadratic tilt of a partially reset process",
+          "trigger": "Exact moment overlap"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The random collective width is a physically meaningful observable, and the two edge interpretations are clear. As an original mathematical package, however, the results are direct density and moment specializations plus an elementary comparison with the established geometric small-deviation law; their combination is not a separate new invariant. The recovery uses exact moments and adds no robustness result or new identification beyond the elementary inversion. The frozen claim does not establish an independently substantial remainder warranting repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

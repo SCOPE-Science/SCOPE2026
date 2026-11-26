@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:22:01.998825Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–79",
+        "Frozen VERIFICATION.md, lines 19–27",
+        "Frozen verify.py, lines 11–124"
+      ],
+      "rationale": "Balance of prefix/suffix pairs at the four de Bruijn vertices with c111=0 forces c001=c100=x, c011=c110=y and c101=c010+y-x. Setting c010=a and c000=b gives the stated vector and t=a+y=w-y. At positive weight any balanced connected profile has t>=1; x<=t, and x=0 disallows b>0 (the 000 loop would be disconnected). All these vectors have connected support, so an Euler circuit realizes them, including n=1,2 under the specified wrap convention. Summing b and x gives the rational series. For w>=2 the y=0 summand remains strictly deficient below 3w even at the singleton boundary n=2w, and all others are bounded by their plateau values. Scaling y by n gives the integral of the positive part of min(alpha-beta,1-2alpha+beta) over [0,alpha/2], with intersection (3alpha-1)/2, yielding the three claimed quadratic pieces with O(n) error including the floors. The univariate series has an order-four pole with leading term 1/[12(1-z)^4] at 1 and genuine primitive third- and fourth-root poles. Its polynomial part is constant, so positive indices obey a quasipolynomial of exact period 12. Independent enumeration of balanced connected arc-multiplicity vectors at every n<=16 gives 394 profiles and matches every weight group (node /workspace/independent_checks.js, section 2). The finite test is not the proof. The frozen verifier was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "92625b7494d0 indexes a connected-flow parametrization and closed composition count; 9b2754288e6b indexes the five connected supports and rational length enumerator.",
+          "The observed output here is oriented and multiplicity-preserving. The indexed trimer-composition result 5ce7c84ef38b groups oriented coordinates and does not furnish this coverage."
+        ],
+        "reasoning": "Coverage is supplied by the prior exact binary cyclic classification, not inferred merely from the existence of a general restricted de Bruijn/Ehrhart framework. The same-day full-profile records corroborate the distinction between full and restricted enumerators; their dates are not used to infer priority.",
+        "searches": [
+          "Resultary: 92625b7494d0, 9b2754288e6b and fixed-content circular three-gram histograms",
+          "Kiah–Puleo–Milenkovic, Codes for DNA Sequence Profiles, arXiv:1502.00517v1, sections 2–4"
+        ]
+      },
+      "checked_sources": [
+        "92625b7494d0",
+        "9b2754288e6b",
+        "ca93411def6b",
+        "708ab3380ccb",
+        "5ce7c84ef38b",
+        "Frozen RESULT.md, lines 49–97"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Formula from the prior connected-flow domain specialized to c111=0: n=2w-y+x+b, 0<=x<=w-y, with the x=0 boundary allowing only b=0.",
+          "For mixed profiles, U=H0+Hplus/(1-uz), and the desired H0+Hplus equals (1-uz)U+uz H0. Positive weight code sizes count profiles because distinct classes cannot be confused, independently of the forbidden triple."
+        ],
+        "reasoning": "At fixed n,w the coefficient sum is direct integer-interval counting for the restricted flow, not an unexplained extraction from the single total U. The subsequent plateau and period are routine arithmetic properties of the same slice.",
+        "searches": [
+          "Resultary: 2026/10/26/SCOPE-composition-refined-enumeration-of-circular-binary-trigram-spect--92625b7494d0",
+          "Frozen RESULT.md, lines 53–79"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "92625b7494d0 expressly concerns every realizable cyclic trigram-multiplicity vector and fixed zero-one composition.",
+          "The frozen run counts are coordinates of exactly those flows: a=c010, y=c011=c110, x=c001=c100 and b=c000. Balance yields the remaining mixed coordinate; excluding an isolated 000 loop yields x=0 implies b=0."
+        ],
+        "reasoning": "Deleting 111 is setting a freely repeatable loop multiplicity to zero in the prior parametrization, without changing connected support for mixed profiles.",
+        "searches": [
+          "Resultary: composition refined enumeration circular binary trigram spectra 92625b7494d0 9b2754288e6b 708ab3380ccb 111 forbidden loop 11 fixed composition cyclic three gram exact support"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest earlier hit is an exact parameterized classification, not a numerical table. Same-day indexed summaries describe a full bivariate series and, in 708ab3380ccb, a different unrestricted plateau.",
+          "Independent finite census: the first mixed weights occur at (n,w)=(2,1) and (3,2); 394 total profiles through n=16 are a check, not prior coverage."
+        ],
+        "reasoning": "An exact table is not needed for the face specialization of an explicit all-composition parametrization; no standalone table of the restricted counts was established.",
+        "searches": [
+          "Resultary: exact capacity or fixed-content count for cyclic binary three-gram profiles with 111 forbidden; records 92625b7494d0, 708ab3380ccb, ca93411def6b"
+        ]
+      },
+      "rationale": "The October 26 composition-refined result explicitly supplies a complete connected-flow parametrization of the same eight oriented cyclic trigram coordinates at fixed composition. The new constraint is exactly deletion of the self-loop 111, a coordinate-zero face of that parametrization. It changes neither the balance equations nor the connectivity test for any nonconstant profile visiting 11. Setting that coordinate to zero therefore gives the claimed four-coordinate count directly, not merely a broader asymptotic or a count over an unrelated observation model. The generating series is also a routine specialization of the full fixed-composition count with a lower-support correction: if U counts all mixed profiles, H0 counts those not visiting 11 and Hplus counts the 111-free ones visiting 11, then U=H0+Hplus/(1-uz), since one can restore any number of 111 loops. Thus the desired mixed series is (1-uz)U+uz H0. H0 is the connected-flow slice with y=0. Constants, capacity, saturation, integral and pole statements follow from evaluating these elementary sums; no separate obstruction or structural claim survives this restriction. This is positive coverage through the prior stated parametrization, not a claim that the earlier text prints the forbidden-word formulas verbatim.",
+      "residual_risks": [
+        "Full prior record passages and the Kiah–Puleo–Milenkovic paper were unavailable during the retrieval attempts. The positive implication uses the explicit scope of the indexed exact parametrization and an independent reduction, not a title match or exclusion inferred from missing text.",
+        "This review does not assert historical priority for any of the exact restricted formulas as printed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The stated full connected-flow domain covers the restricted vectors directly by setting c111=0; exact printed formulas in the full record not assumed",
+          "evidence": [
+            "The realizable cyclic binary trigram-multiplicity vectors admit an exact connected-flow parametrization on the four-vertex de Bruijn graph, giving a closed formula for every fixed zero-one composition."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-composition-refined-enumeration-of-circular-binary-trigram-spect--92625b7494d0",
+          "material_read": "Published index statement summary; full text retrieval timed out",
+          "method": "Resultary; indexed-mirror passage retrieval attempted",
+          "title": "Composition-refined enumeration of circular binary trigram spectra",
+          "trigger": "Same cyclic oriented multiplicity vectors and fixed composition"
+        },
+        {
+          "assessment": "Supports the exact connected-support approach, though the summary gives the length enumerator, not the restricted weight formula",
+          "evidence": [
+            "Classifies five connected supports of balanced de Bruijn edge flows; the coefficients count exact optimal distinguishable-necklace code sizes."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-exact-cyclic-binary-three-gram-profile-enumeration--9b2754288e6b",
+          "material_read": "Published index statement summary",
+          "method": "Resultary",
+          "title": "Exact cyclic binary three-gram profile enumeration",
+          "trigger": "Exact support classification and necklace capacity"
+        },
+        {
+          "assessment": "Counts all profiles, not expressly the loop-deleted slice; comparable via the mixed-profile identity above, without inferring order from the date",
+          "evidence": [
+            "Explicit rational bivariate generating function refined by exact zero and one counts for the full circular histograms."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-fixed-content-enumeration-of-binary-circular-three-gram-spectra--ca93411def6b",
+          "material_read": "Published index statement summary",
+          "method": "Resultary",
+          "title": "Fixed-content enumeration of binary circular three-gram spectra",
+          "trigger": "Exact bivariate histogram series at fixed counts"
+        },
+        {
+          "assessment": "No inference of exclusion or noncoverage from the retrieval failure",
+          "evidence": [
+            "The frozen record cites restricted de Bruijn graphs and Ehrhart methods; the rejection relies instead on the exact indexed cyclic-flow result and the loop deletion."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1502.00517v1",
+          "material_read": "Bibliographic record and frozen comparison at lines 85–95; primary passages not obtained",
+          "method": "Targeted literature lookup and identified OA attempt",
+          "title": "Codes for DNA Sequence Profiles",
+          "trigger": "Primary literature on constrained exact profile codes"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The noiseless binary profile-code model is natural, but this submission restricts an already exact four-vertex flow classification by setting a single freely repeatable loop coordinate to zero. The resulting interval sum and its elementary asymptotic and pole analyses do not supply a separate scientific gap, a new obstruction, or a nonroutine exact invariant beyond that specialization. The representative construction is an alternative description of the same realizable flows.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

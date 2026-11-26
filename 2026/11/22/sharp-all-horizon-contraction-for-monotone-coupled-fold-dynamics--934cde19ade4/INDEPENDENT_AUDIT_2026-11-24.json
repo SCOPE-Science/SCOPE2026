@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:11:05.815253Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For x>=y>=0 the first folded component is x-h(y). Subtracting the second component yields either x-y+h(x)-h(y) or (x-h(x))+(y-h(y)), both nonnegative. Applying the ordered formula twice gives x-h(y)-h(|y-h(x)|). The subtracted sum is at least a(y+|y-h(x)|)>=a h(x)>=a²x. One-step nonincrease handles odd horizons. For h(t)=at, the boundary orbit maps (x,0) to (x,ax) and then ((1-a²)x,0), including a=1 with the zero-exponent convention. Continuity gives the positive-start supremum. For softplus, h(epsilon t)/epsilon tends to t/2 uniformly on bounded t; the rescaled starts (1,epsilon) and their fixed finite iterates stay bounded by the one-step estimate and converge to those of the linear corner orbit. At nonzero x, h(x)>x/2 makes the two-step estimate strictly smaller; at n=1 and positive inputs h(y)>0. In physical coordinates inverse logit has derivative at most 1/4; Satur's actual recurrence agrees exactly at alpha=2. The statement is toward the origin, not pairwise contraction.",
+      "replay": "python3 /workspace/review-evidence/replay.py 1: 21,600 exact inequalities for piecewise affine admissible maps, 36 exact linear equalities and 36 softplus samples. The frozen checker was inspected, not executed; these bounded tests corroborate, not prove, the arbitrary-horizon claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Satur Lemma 3(4) estimates the Jacobian determinant and gives qualitative critical collapse in the global analysis.",
+          "Resultary 7c07927c078a uses a different separable saturated forward map and Euclidean Fejér/pairwise estimates."
+        ],
+        "reasoning": "Neither comparison covers positive-quadrant absolute folding with parameterized incremental slopes [a,1] and exact sup-norm powers. A determinant constraint controls area and can hold even when a coordinate is expanded.",
+        "searches": [
+          "Resultary: all-horizon sharp sup norm contraction coupled fold nonlinear feedback incremental slopes",
+          "Web: O. R. Satur arXiv 2611.13318 Lemma 3 logarithmic coordinates recurrence determinant 3/4 critical alpha=2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.13318 Lemma 3 and global discussion",
+        "Resultary 8b71d315903b",
+        "Resultary 7c07927c078a",
+        "Frozen RESULT.md and supporting materials"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The determinant estimate 1-xy<=3/4 is not a statewise inequality.",
+          "The prior Resultary proof identifies the local matrix square (3/4)I, already enough to motivate and recover the softplus lower sharpness mechanism by rescaling around zero."
+        ],
+        "reasoning": "The common local mechanism should be credited. It does not control transient values globally, and the prior asymptotic theorem does not supply the inequality for every h with the stated slopes.",
+        "searches": [
+          "arXiv:2611.13318 Lemma 3(4) and global collapse discussion (PDF p. 28)",
+          "Resultary 8b71d315903b Finding and Relationship to prior work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Satur's logit map uses η(u,v)=log(alpha)+u-log(1+exp(v)), folded in each coordinate, exactly the same map at alpha=2.",
+          "Resultary 8b71d315903b, Finding, compares the asymptotic two-step ratios 3/4 off the diagonal and 1/4 on it."
+        ],
+        "reasoning": "The object and local factor coincide. The asymptotic theorem concerns each fixed orbit and does not upper-bound the supremum over starts at every fixed finite n.",
+        "searches": [
+          "Resultary: nonlinear critical-collapse amplitudes quadratic phase law two-player maxima dynamics",
+          "OA arXiv:2611.13318, query Lemma 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "934cde19ade4 is this same record, not an independent match; 8b71d315903b covers a limiting orbit ratio, not the all-horizon envelope."
+        ],
+        "reasoning": "This is a closed-form continuum supremum, not a finite catalogue of values; the relevant exact-formula archive comparison distinguishes the finite-horizon result from the earlier limiting value.",
+        "searches": [
+          "Resultary: all-horizon sharp sup norm contraction coupled fold nonlinear feedback incremental slopes",
+          "Resultary: nonlinear critical-collapse amplitudes quadratic phase law two-player maxima dynamics"
+        ]
+      },
+      "rationale": "The known fold and the local 3/4 mechanism are not new. The supported distinction is the sharp global every-horizon norm bound under a full interval of incremental slopes, together with its fixed-softplus specialization; neither geometric area decay nor the earlier orbit asymptotics supplies that uniform upper bound.",
+      "residual_risks": [
+        "No global priority certification. A more general historical coupled-fold theorem could subsume the estimate.",
+        "The fixed-softplus local lower bound overlaps materially with the previously analyzed linearization; the distinct result is the global sharp upper envelope and general feedback theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the recurrence and qualitative collapse, not the stated norm envelope",
+          "evidence": [
+            "η(u,v)=log(alpha)+u-log(1+exp(v)); the fold takes both absolute values.",
+            "Lemma 3(4) bounds |det JΨ|=1-xy<=3/4."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.13318",
+          "material_read": "PDF Lemma 3 pp. 12–13, offsets 44876–47931; global discussion p. 28 near offset 101155",
+          "method": "Lawful OA PDF, located by literal queries and read bounded passages",
+          "title": "From oscillations to symmetry breaking in a two-dimensional piecewise-smooth dynamical system",
+          "trigger": "Identical critical model and apparent 3/4 contraction"
+        },
+        {
+          "assessment": "Covers orbitwise asymptotics and the local sharpness mechanism, not the audited uniform upper bound",
+          "evidence": [
+            "Asymmetric two-step limit 3/4; diagonal limit 1/4; local linear matrix squares to (3/4)I."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-nonlinear-critical-collapse-amplitudes-and-a-quadratic-phase-law--8b71d315903b",
+          "material_read": "RESULT.md Finding and relation to prior work, offsets 0–5739 and 5700–8741",
+          "method": "Resultary search and matching local-mirror source passages",
+          "title": "Nonlinear critical-collapse amplitudes and a quadratic phase law in two-player maxima dynamics",
+          "trigger": "Identical map and sharp asymptotic numerical factor"
+        },
+        {
+          "assessment": "Different map and metric",
+          "evidence": [
+            "Separable saturation, Euclidean Fejér monotonicity and pairwise nonexpansiveness rather than this two-variable origin-norm fold."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22, 7c07927c078a",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary local comparison",
+          "title": "A universal sharp skewness boundary for separable saturated forward maps",
+          "trigger": "Nearby sharp contraction claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The critical convergence problem needs a starting-state error certificate rather than an eventual orbit-by-orbit asymptotic. The estimate is usable at every horizon, is unimprovable even for the fixed smooth model, and identifies the sharp loss under only monotonicity and incremental slopes, including nondifferentiable feedbacks.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

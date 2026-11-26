@@ -1,21 +1,21 @@
-# Scientific review: idempotent retractions of binary two-run factor monoids
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof constructs and proves minimality of the proper-prefix recognizing DFA, classifies nonidentity idempotents by initial runs and first change of symbol, gives explicit inducing words for every counted idempotent, and counts disjoint killed-domain/fixed-state families. The exceptional cases with a unit-length run are treated separately via two explicit retraction classifications and an anti-isomorphism cross-check under reversal. The rank statement is independently checked for all cases. Both self-contained verification programs independently enumerated entire finite monoids for all one hundred parameter pairs with parameters from one through ten and reproduced all counts and (where applicable) explicit idempotent transformation sets. The infinite claim rests on the structural proof rather than finite extrapolation.
+PASS
 
-## Originality — PASS, with priority risk
+The prefix automaton is minimal: the completion suffix for the longer prefix separates any two proper prefixes, as a shorter prefix followed by that suffix cannot contain the whole pattern. For a nonempty input, an initial 0^k with k≥r merges all live states; with k<r its first 1 starts a separate trajectory at B_1 from the high-zero suffix and resets the other class to A_0. Before the next zero, ones leave the latter class at A_0 and advance or kill the high class; the next zero merges the two if both survive. A high-class survivor before merging cannot be a fixed output, since every B-state belongs to the other input class. Starting with ones, the first zero already merges the survivors with killed domain K_k or K_*. Short pure runs are not idempotent; long ones give the already enumerated maps. Every listed kill-and-merge form is attained by the stated prefix and a suffix reaching the requested fixed output without acceptance. For s=1 the 1 kills the high class directly and the merged A_r state cannot leave without acceptance; for r=1 a live A_1 reached at the first zero cannot reach A_0 without acceptance. The (1,1) case has five elements and four idempotents. The identity, zero and disjoint rank-two form counts give the displayed formulas; division by the independently sourced total sizes gives the limits.
 
-The closest substantive earlier theorem is Gusev–Maslennikova–Pribavkina's 2013 principal-ideal syntactic-complexity theorem, which already determines the total number of transformations (and is credited). Its prefix/suffix normal forms are a potential source of derived information, but the reviewed theorem and proof do not calculate idempotence under composition, list the fixed-state retractions, or derive the idempotent density. The 2017 regular-ideal bound is for extremal transition semigroups and likewise does not cover this invariant. The 2023 syntactic-monoid learning paper develops inference methodology, not this special-family classification. The relevant indexed mathematical claims and exact-phrase literature searches showed no directly equivalent structural enumeration; search absence alone is not regarded as proof of novelty. An unindexed older equivalent or an unstated consequence developed elsewhere remains a real priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-Composition-idempotents are canonical stabilization transformations, not an artificial selected subset of a monoid. This exact family is a standard two-run pattern-detection construction for which only the total syntactic complexity was previously cited. The result supplies a complete structural and enumerative refinement, classifies all nontrivial idempotents as two-point-image retractions, and isolates a nontrivial change of the limiting stable-transform fraction from one-half to three-fifths. Its scope is limited to binary principal ideals and its implications for learning algorithms are not claimed as proved.
+Pass for the composition-idempotent count and the explicit rank and killed-domain classification, not the previously known total size. No distinct equivalent was established in the inspected evidence.
 
-## Closest sources and limitations
+## value
 
-- https://arxiv.org/abs/1304.3307 — Theorem 1 and exceptional cases; total monoid size already covered, rank-two idempotent classification not found in reviewed primary text.
-- https://doi.org/10.1007/s00224-017-9803-8 — broad upper-bound and extremal-witness results, not the present idempotent spectrum.
-- https://proceedings.mlr.press/v217/dieck23a.html — current motivating syntactic-monoid inference context (proceedings published 2023-07-05), with no idempotent enumeration in the inspected manuscript.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The idempotents describe all retract images and sink fibers in a natural benchmark family of factor-recognition monoids. The full classification, including both singular parameter axes, exposes rank collapse and determines asymptotic density while the known total syntactic complexity supplies neither. This is more informative than reproducing the total size or counting a few small instances.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:00:12.981478Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The prefix at T=t,L=i has r-1 occurrences of i and caps r-1 on every other count. The multinomial weight with the final draw fixed gives (1) and positive mass in every feasible cell. The factorial coefficient sequences have contiguous support and strictly decreasing successive ratios. Their Toeplitz kernels are TP2 in the nonnegative-minor sense. In the convolution log-concavity proof one may remove degree-zero factors as identities; for positive-degree factors the Cauchy–Binet term with intermediate indices s,s+1, s=max(0,k-A), is strictly positive, and the top-degree minor is positive by support. For the marked ratio the analogous s=max(0,k-Q) is always at most r-2 and furnishes a strictly positive product with the determinant x^s y^s(y-x)/(s!(s+1)!), including the m=2 point-mass case. Thus the sign is strict at every adjacent time. Constant and leading coefficients give the two endpoint odds; normalizing the time laws multiplies their ratio by a positive constant, and equal probabilities give equality by symmetry. As a separate finite check, (p_1,p_2,p_3)=(1,2,4)/7 and r=3 give odds 1/8,3/20,9/50,3/10,1/2 for times 3 through 7. The supplied code was inspected, not run; its captured output reports 1,737 profiles and is finite corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Camarri's open report describes k-fold repeat processes and asymptotics. Aston–Martin Eq. (3.3) supplies an absorbing-chain calculation method for competing-pattern waiting probabilities. The older quota paper is plausibly relevant but only abstract-level material was accessible."
+        ],
+        "reasoning": "Asymptotic point-process results do not imply a sharp sign at every pair of finite times, and a general method to compute absorption probabilities does not order their marked likelihood ratios.",
+        "searches": [
+          "Camarri report 524, k-fold repeat-time processes; Aston–Martin §3.3 competing patterns",
+          "Anderson–Sobel–Uppuluri quota fulfillment times, DOI 10.2307/3314900"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_quota.py, verify_quota.out",
+        "Resultary 3592d5791b09, 49ad21f71f59, 753b4c50a596, 76e2fa5b6718",
+        "Berkeley reports 523 (abstract) and 524 (selected full text), Aston–Martin §3.3, quota paper DOI 10.2307/3314900 (abstract-level)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The quota-two proof uses the elementary symmetric coefficient ratios from products of linear factors, via Newton's inequalities. Already for r=3, E_2(u)=1+u+u²/2 has nonreal roots, and the odds are ratios of longer sums. Weak TP2 composition supplies nonnegativity but does not itself select a positive summand."
+        ],
+        "reasoning": "The earlier first-repeat proof does not transfer by substituting a new quota. Higher quotas need the truncated-factorial kernel and strict support witness for adjacent minors. The absorbing-chain formulas likewise do not prove that strictness.",
+        "searches": [
+          "3592d5791b09 RESULT.md Proof, Eq. (3), offset 1440; Aston–Martin §3.3 Eq. (3.3)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "3592d5791b09 is exactly the target at r=2: its odds ratio is (p_i/p_j)^2 times (E_k+p_j E_{k-1})/(E_k+p_i E_{k-1}), with E_k the elementary symmetric coefficients on the remaining labels. Its endpoints agree. The first-repeat backward-distance record instead pairs T with an unmarked recurrence distance.",
+          "49ad21f71f59 treats the type that reaches its quota last, and 753b4c50a596 treats the last newly seen type."
+        ],
+        "reasoning": "First repeat is the same event at quota two. The final-completion results use all types reaching their quotas, not any type reaching quota; changing the event changes the support and joint mass, not merely the terminology.",
+        "searches": [
+          "Resultary: first quota completion, marked first quota winner, rare labels at first-repeat or quota times"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier indexed 3592d5791b09 gives exact earliest and latest odds for quota two; no inspected entry gives the exact first-winner ordering across arbitrary higher quotas. The frozen exact arithmetic profiles are illustrative, not a database proof of the functional claim."
+        ],
+        "reasoning": "Treat the exact two-hit result as existing coverage. Neither a finite list of checked profiles nor the corresponding last-coupon formulas establish the complete higher-quota law.",
+        "searches": [
+          "Resultary: truncated exponential convolution and first-quota winning category; first repeat and quota variants"
+        ]
+      },
+      "rationale": "The r=2 specialization, including the endpoint odds, is exactly covered by an earlier Resultary record and is not credited as new. The supported distinct contribution is extension to every common quota r>=3 with strictness at each pair of consecutive feasible times. Inspected repeat-time and competing-pattern results do not cover that extension; final-coupon orderings use the opposite stopping rule.",
+      "residual_risks": [
+        "The independent full-text inspection did not resolve whether Anderson–Sobel–Uppuluri or Camarri–Pitman contain closer implicit statements. The scope credited excludes the exactly known quota-two case. No exhaustive historical priority conclusion is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact special case only",
+          "evidence": [
+            "Strict increase of conditional odds and both endpoints, with the quota-two stopping rule."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-strict-likelihood-ratio-shift-in-the-identity-of-the-first-rep--3592d5791b09/RESULT.md",
+          "material_read": "Finding and Proof, offsets 0–3795 including Eq. (3)",
+          "method": "Local mirror passage inspection",
+          "title": "A strict likelihood-ratio shift in the identity of the first repeated value",
+          "trigger": "Exact earlier quota-two candidate"
+        },
+        {
+          "assessment": "Different stopping event",
+          "evidence": [
+            "Marks last quota reached when all required types complete."
+          ],
+          "identifier_or_url": "Resultary 2026/10/18 49ad21f71f59",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror reading",
+          "title": "A strict likelihood-ratio ordering for the last coupon under multiple quotas",
+          "trigger": "Same order and common quotas"
+        },
+        {
+          "assessment": "Different event; no within-day priority inference",
+          "evidence": [
+            "Marks the last new type after all appear once."
+          ],
+          "identifier_or_url": "Resultary 2026/10/26 753b4c50a596",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror reading",
+          "title": "Later completion favors rarer final coupons in strict likelihood-ratio order",
+          "trigger": "Same-day rare-category likelihood-ratio comparison"
+        },
+        {
+          "assessment": "Different marked statistic",
+          "evidence": [
+            "Dependence is with backward recurrence distance, not type identity."
+          ],
+          "identifier_or_url": "Resultary 2026/10/26 76e2fa5b6718",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror reading",
+          "title": "Sharp antitone dependence at the first repeated draw under unequal sampling",
+          "trigger": "Same early stopping event at two hits"
+        },
+        {
+          "assessment": "Abstract confirms topic, does not settle priority",
+          "evidence": [
+            "Discusses first repeated value and subsequent repeat times with limit distributions. The guessed repository PDF and publisher full-text route did not return usable full text."
+          ],
+          "identifier_or_url": "https://doi.org/10.1214/EJP.v5-58",
+          "material_read": "Berkeley report 523 landing abstract, offset 0; no independent full text obtained",
+          "method": "Repository landing read and DOI/publisher/repository full-text attempts",
+          "title": "Limit distributions and random trees derived from the birthday problem with unequal probabilities",
+          "trigger": "Foundational unequal-birthday result"
+        },
+        {
+          "assessment": "Later-repeat asymptotic framework, not the all-finite marked order in inspected passages",
+          "evidence": [
+            "k-fold repeat times and associated processes."
+          ],
+          "identifier_or_url": "https://statistics.berkeley.edu/sites/default/files/tech-reports/524.pdf",
+          "material_read": "Report pp. 1 and 3, offsets around 457 and 4380",
+          "method": "Open-access PDF passage inspection",
+          "title": "Asymptotics for k-fold repeats in the birthday problem with unequal probabilities",
+          "trigger": "General quotas and Poisson embedding"
+        },
+        {
+          "assessment": "Calculation method, not a strict determinant sign",
+          "evidence": [
+            "Finite-state absorption formulas for competing-pattern time distributions."
+          ],
+          "identifier_or_url": "https://doi.org/10.1239/jap/1134587810",
+          "material_read": "§3.3, p. 984, Eqs. (3.3)–(3.4)",
+          "method": "Cambridge full-text PDF passage inspection",
+          "title": "Waiting time distributions of competing patterns in higher-order Markovian sequences",
+          "trigger": "Potential broader theorem on marked waiting times"
+        },
+        {
+          "assessment": "Priority risk unresolved, not negative evidence",
+          "evidence": [
+            "Exact/asymptotic quota waiting times are advertised; whether it compares the marked first completer is not established."
+          ],
+          "identifier_or_url": "https://doi.org/10.2307/3314900",
+          "material_read": "Abstract-level descriptions only; no full text",
+          "method": "Bibliographic lookup and lawful OA DOI/Wiley attempts",
+          "title": "Quota fulfillment times",
+          "trigger": "Closest historical quota terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural marked stopping problem, not an arbitrary coefficient comparison: observing a longer race changes the relative identity of the likely winner. Higher quotas allow repeated nonwinning labels, and the sign remains strict at every feasible time with simple sharp endpoint odds. It provides information not captured by the time distribution or unconditional winner probabilities. The reusable strictness argument and the extension to all higher common quotas are the valuable part.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

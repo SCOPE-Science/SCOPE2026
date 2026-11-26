@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:46:57.034370Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a prescribed first bit, its earliest occurrence leaves the largest possible residual suffix, so minimizing the two residual shortest absent lengths gives exactly the SAS and their lengths. Applying this to 101000101 and its first-symbol-deleted suffix gives A·1·B and 11·B at lengths 5 and 4. Independently generated all bounded-length subsequences by iteratively appending each source symbol, verifying both base cases and the formula in 273 bounded gap configurations; replay: python3 /workspace/branches/independent-boundary-checks.py. For W_(r+1)=101000W_r, the residual offsets 3,4,5 each have the shorter choice starting with 1 and set 1^(2r−1)B; offset 2 ties with set {0,1}1^(2r−1)B; offset 1 has only the shorter 1 choice and set 1^(2r)B; offset 0 ties and gives A1^(2r−1)B. These transitions verify both induction statements for arbitrary r. Deleting surplus zeros embeds W_r, proving universality through m and presence of every noncandidate at m+1. A candidate's prefix 00 or 01 forces two or one initial source ones to be unused, respectively, and suffix 00 or 10 has the reversed effect; the units at the two ends suffice, regardless of internal odd gaps. The two sets of forced exclusions are disjoint, and the candidate needs one more 1 than remains. The nine choices are distinct because the boundary blocks occupy fixed positions. Finally, binary carrying in the ternary positions of the ones gives gap 3^ν₂(j); for k≥2 this places the complete Cantor iterates in the stated family. The original checker was inspected, not run; bounded checks are not the induction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kosche et al. already give an iff arch characterization and SAS enumeration for arbitrary finite words.",
+          "Fleischmann et al. distinguish the shortest-absence class with universality index one below the target length from general m-nearly universality.",
+          "Barker et al. define k-universality and give general algorithms."
+        ],
+        "reasoning": "Those general sources provide frameworks and algorithms, not a direct textual specialization to the nine strings in this gap class. The decisive covering implication is instead the exact indexed template and end-gap argument.",
+        "searches": [
+          "arXiv:2108.13968v1 §3 Theorem 2 and §4 Algorithm 6",
+          "arXiv:2202.07981v1 §4 and conclusion",
+          "arXiv:2003.04629v1 abstract and introduction"
+        ]
+      },
+      "checked_sources": [
+        "Resultary f1b1925790cc and d88887bf9366 RESULT.md",
+        "arXiv:2108.13968v1",
+        "arXiv:2202.07981v1",
+        "arXiv:1310.1278v1",
+        "arXiv:2003.04629v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed proof gets all noncases from W_m=(101000)^(m/2−1)101 and §4 excludes candidates by counting skipped 1s using only g₁=g_(m−1)=1.",
+          "Simon-congruence index bounds do not give the particular first missing spectrum."
+        ],
+        "reasoning": "Every frozen word contains that same W_m, so can lose none of the noncandidates; §4 prevents gaining any of the nine. Thus the frozen extension to inflated odd internal gaps is already a direct consequence, not an open special case of a generic enumeration algorithm.",
+        "searches": [
+          "f1b1925790cc RESULT.md, offsets 0 and 3385, Proof §§1,3–4",
+          "arXiv:1310.1278v1 abstract and introduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two indexed records use the same sets A and B, middle length m−3, and first nonuniversal length m+1 for complete Cantor iterates.",
+          "The general literature uses SAS, scattered subwords and m-near universality; at index m with nine missing strings of length m+1 these describe the same spectrum question."
+        ],
+        "reasoning": "Their interval of Cantor levels and all nine literal strings match, not merely the count or a different kind of absence.",
+        "searches": [
+          "Resultary: exact nine Cantor shortest absent scattered subsequences and alternating gap family",
+          "arXiv:2202.07981v1 §4, nearly universal words"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "f1b1925790cc gives the identical nine-string formula for the unit-odd-gap template and all allowed even inflations; d88887bf9366 gives it for all complete Cantor iterates k≥2."
+        ],
+        "reasoning": "These are actual exact symbolic entries, not finite checks or a statistical law for arbitrary words. The stated scope difference in odd gaps was checked using the proof, not ignored.",
+        "searches": [
+          "Resultary: m even, binary alternating gaps and nine length-(m+1) absences",
+          "Resultary: finite binary Cantor word exact SAS spectrum"
+        ]
+      },
+      "rationale": "The distinct indexed f1b1925790cc record proves the exact formula when every odd gap is one. Its proof already implies the full frozen extension: deleting surplus zeros from internal odd gaps preserves presence of every noncandidate through template embedding, and its §4 absence bound uses only the two unit end gaps. Both arguments apply unchanged to positive internal odd gaps. Thus the weakened hypothesis does not leave a distinct mathematical result, and the Cantor specialization is explicitly covered by both indexed matches. This is an implication comparison, not an inference about priority or provenance from a shared date.",
+      "residual_risks": [
+        "Shared origin and within-day temporal priority are unresolved and not needed for the implication finding.",
+        "The bounded primary comparisons are not an exhaustive publication history."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicitly proves the unit-odd-gap case and implies the positive-internal-odd-gap extension by its existing proof.",
+          "evidence": [
+            "The assumptions say odd gaps are one. The proof's occurrence half uses only W_m embedding and the absence half only unit boundary gaps."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-nine-missing-subsequences-at-the-first-nonuniversal-length-of-ca--f1b1925790cc/RESULT.md",
+          "material_read": "Finding and assumptions offset 0; template induction and absence proof at offset 3385",
+          "method": "Local mirror and direct comparison of used hypotheses",
+          "title": "Nine missing subsequences of Cantor words and alternating-gap words",
+          "trigger": "Exact formula and gap-family comparison"
+        },
+        {
+          "assessment": "Covers the complete Cantor iterates, not by itself the larger gap family.",
+          "evidence": [
+            "Its nine shortest absences have the same boundary blocks and central power of 1."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-nine-shortest-absent-subsequences-of-every-finite-binary-cantor--d88887bf9366/RESULT.md",
+          "material_read": "Finding at offset 0 and template/gap comparison at offset 3075",
+          "method": "Local mirror statement and proof comparison",
+          "title": "Nine shortest absent subsequences of every finite binary Cantor word",
+          "trigger": "Exact Cantor specialization"
+        },
+        {
+          "assessment": "General iff and enumeration; no explicit target formula in inspected sections.",
+          "evidence": [
+            "Theorem 2 uses positions in successive arches, and the SAS tree supports polynomial-delay enumeration."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2108.13968",
+          "material_read": "v1 PDF §3 Theorem 2 p. 6, Algorithm 6 p. 17, SAS tree p. 26",
+          "method": "Primary OA passage comparison",
+          "title": "Absent Subsequences in Words",
+          "trigger": "General exact SAS characterization"
+        },
+        {
+          "assessment": "General nearly-universal framework, without the target gap formula in the inspected parts.",
+          "evidence": [
+            "The paper distinguishes general m-near universality from the structured SAS subcase."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2202.07981",
+          "material_read": "v1 PDF §4 p. 14 and conclusion p. 20",
+          "method": "Primary OA passage comparison",
+          "title": "m-Nearly k-Universal Words — Investigating Simon Congruence",
+          "trigger": "Equivalent missing-length vocabulary and possibly covering classification"
+        },
+        {
+          "assessment": "Index bounds for bounded scattered-subword equivalence, not this explicit spectrum.",
+          "evidence": [
+            "The parameter being bounded is the index of the congruence defined by equality of length-bounded subword sets."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1310.1278",
+          "material_read": "v1 abstract and introduction p. 1",
+          "method": "Primary scope comparison",
+          "title": "On the index of Simon’s congruence for piecewise testability",
+          "trigger": "Scattered-subword formulation"
+        },
+        {
+          "assessment": "Definitions and algorithms; no whole-paper absence claim based on these passages.",
+          "evidence": [
+            "The inspected passage defines k-universality and describes associated algorithms."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2003.04629",
+          "material_read": "v1 abstract and introduction around offset 1542",
+          "method": "Primary passages at introductory depth",
+          "title": "Scattered Factor-Universality of Words",
+          "trigger": "Earlier general universality framework"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The full spectrum of first missing deletion patterns for a natural self-similar sequence family is mathematically informative: exact identities, not just the shortest length or number, describe its first failure of universality and its invariance to gap growth. This assesses the value of that structural result itself, not an incremental gain over the indexed proofs.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

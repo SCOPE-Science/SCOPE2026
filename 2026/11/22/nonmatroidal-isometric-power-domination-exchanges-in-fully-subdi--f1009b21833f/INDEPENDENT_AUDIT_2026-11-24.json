@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:32:08.518399Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Re-audited the unchanged theorem with the corrected scope of contribution. A residual cycle's edge subdivisions are initially unobserved, and no endpoint could force the first of these because it still has two such neighbors. If an original is selected it exposes each remaining original via the connecting subdivision. If none is selected, two unobserved originals would create a residual triangle; one unobserved original forces the residual forest to be its spanning star, which the observed originals and then one subdivision can finish. With all originals observed, peeling leaves finishes exactly the forests. For fixed omitted original set R, internal sensors complement a forest and all exterior subdivisions are free; Cayley's labeled tree count gives the EGF. The lower bound n-r+binom(r-1,2) for r>=1 ties n-2 only at r=2,3, giving exactly the two minimum types. Adjacent A–A states exchange omitted originals, A–B states are adjacent iff the omitted pair lies in the triple, and B–B adjacency requires the same triple or internal sensor. These cases give the degrees and edge count. The explicit path via omitted pairs maximizes overlap and attains the lower bound (n-2)-|S intersect T|; for distinct triples with different sensors this uses pairs sharing all common originals. Disjoint pair/triple or triple/triple omissions give the stated radius and diameter when feasible, with all eccentricities 1,2,3 respectively at n=3,4,5 by the same formula. In the nonmatroid witness both candidate replacements leave the subdivision incident to a selected original, so neither is an optimum, and four distinct original labels are necessary for that witness. Inspected the bundled C++ and Python code without executing it: the former checks all initial sensor subsets through n=6, the latter independently compares polynomials through n=5 and checks exchange metrics from the classified family through n=9. The analytic proof, not extrapolation, establishes the result for all n>=3.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brimkov et al. develop the general power-domination polynomial with formulas for a range of graph families, not this family in the inspected sections.",
+          "Bjorkman et al. give the general reconfiguration setup and study other families; the inspected sections establish no all-pair jump metric for full subdivisions of cliques.",
+          "438257c07ae7 goes further on inclusion-minimal sets but its reconfiguration theorem is for slides."
+        ],
+        "reasoning": "General definitions and broader domination classifications are credited, but no inspected mathematical statement subsumes the jump isometry/nonmatroidality combination.",
+        "searches": [
+          "Brimkov et al., arXiv:1805.10984, section 4",
+          "Bjorkman et al., DOI 10.1007/s44007-025-00187-5, section 5.1",
+          "Resultary: power domination reconfiguration minimum sets isometric exchange graph matroid basis exchange"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check_forest.cpp and check_enumerator.py; corrected RESULT.md and REVIEW.md",
+        "Resultary full-subdivision exchange and forest queries; the original passages above",
+        "arXiv:1805.10984 and DOI 10.1007/s44007-025-00187-5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact forest equivalence in 438257c07ae7 implies the stated polynomial by choosing a forest on unselected originals and freely choosing exterior subdivision sensors; this is overlapping coverage even without that polynomial written out.",
+          "The cycle-fort zero-forcing result anticipates the obstruction, and the standard closed-neighborhood reduction is relevant. Paired domination has a matching constraint and a different minimum size, 2(n-1).",
+          "The earlier or contemporaneous state classification is input, not itself a geodesic guarantee. The unrestricted proof needs explicit shortest paths satisfying the Johnson lower bound across all type pairs, and the matroid counterexample quantifies over a specified element to exchange."
+        ],
+        "reasoning": "The revised result credits known or equivalent counting/optimization content, leaving a specific statement about metric structure, not the existence of feasible placements or slide connectivity. The inspected slide distances cannot be transferred by just relabeling states or applying a parameter substitution.",
+        "searches": [
+          "438257c07ae7, RESULT.md offsets 0, 2850, 9300; 58aff7a86fea, RESULT.md offset 0",
+          "43a4c9836292, RESULT.md offsets 0, 6600, 10111; 3bd93f83b97d, RESULT.md offsets 365–1177"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target's unrestricted move is token jumping under Bjorkman et al.'s definition; token sliding requires adjacency in the original graph.",
+          "Same-day 438257c07ae7 and 58aff7a86fea classify the same optimum states but use slides. Their graph is a subdivision of J(n,2), with no same-type edges. At n=3 it has diameter three, versus one under unrestricted moves."
+        ],
+        "reasoning": "The minimum optimization problem is identical, but the transition graphs are not representation aliases. In particular a slide distance theorem is not an unrestricted distance theorem.",
+        "searches": [
+          "Resultary: power domination full subdivision complete graph minimum power-dominating sets reconfiguration exchange distances",
+          "Resultary: minimum power domination token jumping or single-vertex replacement on fully subdivided complete graphs, all-pairs exchange distances and nonmatroidal bases",
+          "Bjorkman et al., DOI 10.1007/s44007-025-00187-5, pp. 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact unrestricted catalogue hit f1009b21833f is the assignment itself.",
+          "The 43a4c9836292 small-order table for n=3,4,5 is for ordinary zero forcing, not the power-domination polynomial or jump metrics. The two same-day slide results overlap the minimum family exactly; their diameters are for a different move rule."
+        ],
+        "reasoning": "Exact same-state classification has been credited regardless of whether it appears in a table. No separate all-order jump table or matching theorem was identified in this bounded comparison.",
+        "searches": [
+          "Resultary: fully subdivided complete graphs forest criterion complete zero forcing polynomial minimal forts",
+          "Resultary full subdivision and token jumping comparisons, Finding passages of 438257c07ae7 and 58aff7a86fea"
+        ]
+      },
+      "rationale": "The repaired RESULT and REVIEW acknowledge exact overlap: another same-day record gives the identical forest criterion and minimum family and implies the enumerator; both slide records give the minimum family. These are no longer claimed as distinct contributions. The supported remainder is the all-pairs isometry and its failure to imply matroid basis exchange, with the exact unrestricted replacement geometry. No order is inferred from the shared date.",
+      "residual_risks": [
+        "Same-day order is unresolved; the repaired target disclaims distinct novelty for the exact overlaps without relying on chronology.",
+        "The foundational Haynes paper could not be read in full; the negative finding is restricted to available sources. The bounded search cannot exclude unindexed jump results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact forest and minimum-family overlap, polynomial consequence; different transition rule",
+          "evidence": [
+            "All-set residual forest criterion; same two types, slide graph Sub(J(n,2)) of diameter min(n,6)."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-minimum-power-domination-token-slides-subdivide-the-triangular-g--438257c07ae7",
+          "material_read": "RESULT.md offsets 0, 2850 and 9300",
+          "method": "Local catalogue mirror, bounded original passages",
+          "title": "Minimum power-domination token slides subdivide the triangular graph",
+          "trigger": "Exact same objects and classification; slide versus jump"
+        },
+        {
+          "assessment": "Same minimum family; slides only",
+          "evidence": [
+            "Subtype of moves is limited to edges of the subdivision graph."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-minimum-power-domination-slides-in-subdivided-cliques-form-a-sub--58aff7a86fea",
+          "material_read": "RESULT.md Finding offset 0",
+          "method": "Local catalogue mirror, original statement",
+          "title": "Minimum power-domination slides in subdivided cliques form a subdivided Johnson graph",
+          "trigger": "Distinct same-day same-object reconfiguration record"
+        },
+        {
+          "assessment": "Substantial obstruction-method overlap, distinct observation rule and table",
+          "evidence": [
+            "Ordinary zero-forcing forest characterization has an extra selected-original condition and a singleton exception."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-minimal-forts-and-the-complete-zero-forcing-polynomial-of-fully--43a4c9836292",
+          "material_read": "RESULT.md offsets 0, 6600 and 10111",
+          "method": "Local catalogue mirror, bounded original passages",
+          "title": "Minimal forts and the complete zero forcing polynomial of fully subdivided complete graphs",
+          "trigger": "Earlier same family and forest method"
+        },
+        {
+          "assessment": "Different optimization predicate",
+          "evidence": [
+            "Dominating sets must induce a perfect matching; the minimum is 2(n-1)."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-paired-domination-minima-in-subdivided-cliques-a-rooted-pseudofo--3bd93f83b97d",
+          "material_read": "RESULT.md offsets 365–1177",
+          "method": "Local catalogue mirror, bounded original passage",
+          "title": "Paired-domination minima in subdivided cliques: a rooted-pseudoforest enumeration",
+          "trigger": "Earlier optimization on the same graph"
+        },
+        {
+          "assessment": "General enumerator definitions and other explicit families",
+          "evidence": [
+            "Inspected formulas include complete graphs, cycles, paths, wheels, stars and threshold graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1805.10984",
+          "material_read": "pp. 1–2 offsets 0–7953 and section 4 pp. 10–15 offsets 35300–54182",
+          "method": "OA PDF, bounded passages",
+          "title": "Power domination polynomials of graphs",
+          "trigger": "General power-domination polynomial"
+        },
+        {
+          "assessment": "General move definitions and comparisons, not the inspected family's specific metric",
+          "evidence": [
+            "Jump exchanges arbitrary locations; slide exchanges adjacent locations. Specific families in the inspected section include complete and complete-bipartite graphs, paths, cycles and wheels."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s44007-025-00187-5",
+          "material_read": "Abstract and pp. 1–2 offsets 0–4684; section 5.1 around offset 60620",
+          "method": "OA primary-text passages",
+          "title": "Power Domination Reconfiguration",
+          "trigger": "Direct prior token-jumping and token-sliding framework"
+        },
+        {
+          "assessment": "Access limitation, not negative evidence",
+          "evidence": [
+            "No independent determination of coverage from this item."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/S0895480100375831",
+          "material_read": "Full text unavailable on attempted OA routes; no theorem passage relied on",
+          "method": "OA retrieval attempts",
+          "title": "Domination in Graphs Applied to Electric Power Networks",
+          "trigger": "Foundational power-domination source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired distinct contribution separates metric-geodesic flexibility from matroidal basis exchange in a natural optimization problem, all orders at once. A planner can achieve the absolute minimum possible number of replacements between any two optima despite a failure of the single-prescribed-element exchange axiom. The degrees and eccentricities show how that flexibility varies with optimum type. This is not a restatement of the identical minimum family or the adjacent-token slide theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

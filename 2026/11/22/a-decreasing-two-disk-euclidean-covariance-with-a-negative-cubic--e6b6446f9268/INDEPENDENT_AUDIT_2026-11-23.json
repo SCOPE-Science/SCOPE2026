@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T16:47:10.556988Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The disk at the origin has amplitude 5 and the annulus amplitude 2, giving 57π/4. Horizontal slices reduce each translated disk intersection to the overlap length of two intervals of fixed half-widths, a nonincreasing function of separation. The large-disk self term gives positivity for r<3 and zero for r≥3. L² translation continuity gives continuity; the Fourier quadratic form is strict because |ĝ|² is positive on a neighborhood of zero and an exponential sum of distinct frequencies cannot vanish there (restrict to a generic line and use Vandermonde). The Abel identity can also be proved without a singular limit: the J₀ series gives ∫₀ᵃ ρJ₀(ρr)/√(a²−ρ²)dρ = sin(ar)/r; pairing this integrable radial frequency window with the compactly supported F gives 2πaAₐ by Fourier inversion and Fubini. Independently checked the trigonometric Legendre formulas and all four normalization factors. For the tail, bₖ ≤ (21/8)(9/16)^k/(k!)², so convolution uses Σ binom(m,k)²=binom(2m,m)≤4^m; hₘ≤1, and the successive majorant ratio for m≥28 is ≤(9a²/4)/29². Reviewer-written exact rational replay `python /workspace/review_checks/2.py` confirms the lower-degree signs, 9A₃−A₁>1, and 5A₄−A₂<−1/200, with central value −0.005618338733205308 and certified radius less than 1.5×10⁻¹⁴. Multiplication by 2/57 gives the claimed bound; the Schoenberg obstruction follows. No properties of the coefficients above degree three were inferred. Frozen code inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ge covers arbitrary upper support bounds for smooth strictly Euclidean-positive-definite examples and distinguishes restricted subclasses in §5. Huang–Zhang prescribe the exact support radius, but do not impose nonnegativity and radial monotonicity."
+        ],
+        "reasoning": "A smaller or prescribable support radius is strictly stronger in support only, not in shape. A guarantee under Euclidean three-dimensional positive definiteness does not apply to every planar autocorrelation.",
+        "searches": [
+          "arXiv:2608.22173v1 Theorems 1.4, 1.6 and §5",
+          "arXiv:2608.25639v1 Theorem 1.1",
+          "arXiv:1111.7077v5 §4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.22173v1",
+        "arXiv:2608.25639v1",
+        "arXiv:1111.7077v5",
+        "SCOPE-509c2a9eeeb8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The sine/Hankel identity can be reused at any frequency, but the earlier sign calculations concern 9A₃−A₁ with different profiles, not the competing 5A₄−A₂ sign for this positive disk blend. The degree-two failure examples do not entail positivity in degree two."
+        ],
+        "reasoning": "The known method supplies a reduction, not the simultaneous nonnegative monotone geometry and the signed cubic inequality. There is no claimed advance on the unrestricted support theorem.",
+        "searches": [
+          "Ge §3 Lemma 3.2",
+          "Huang–Zhang §3 Proposition 3.2 and Theorem 1.1",
+          "Gneiting arXiv:1111.7077v5 §§2, 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ge's explicit signed three-disk construction uses weights −5, 5, −3 and detects degree two. Huang–Zhang detect degree two with a differential filter. Neither has the first negative degree three of the submitted profile."
+        ],
+        "reasoning": "In either physical-space overlap or spectral-window language the shape restriction is on the covariance; the actual constructions and coefficient signs, not the signs of the seeds alone, distinguish these claims.",
+        "searches": [
+          "arXiv:2608.22173v1 §§3, 5 and Appendix A",
+          "arXiv:2608.25639v1 §§3–4",
+          "Resultary query: Gneiting monotone nonnegative radial positive definite disk convolution Euclidean to spherical geodesic degree three Legendre counterexample"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Gneiting's tables list different named families such as the Askey and Wendland forms; they do not give the unequal-disk cross term or its cubic moment. The inspected Resultary record is a noncompact geodesic exponential times 1+b cos θ, not a planar disk overlap."
+        ],
+        "reasoning": "The checked tables and exact coefficient result cannot provide this four-sign certificate or a dominating shape-restricted counterexample. No inference is made from unavailable ranked search.",
+        "searches": [
+          "Gneiting, arXiv:1111.7077v5 Tables 1 and 3",
+          "Resultary exact-profile query above; transport failure",
+          "SCOPE-a-two-frequency-schoenberg-test-for-cosine-modulated-geodesic-ex--509c2a9eeeb8/RESULT.md"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the explicit compactly supported, nonnegative nonincreasing planar profile and its first negative spherical harmonic. The general even-dimensional counterexample, the Abel window, Schoenberg's test and autocorrelation positivity are not the contribution. The mathematical comparison is based on directly inspected primary and published texts, not on negative search evidence.",
+      "residual_risks": [
+        "Primary literature search services were unavailable and the ranked Resultary lookup failed in transport. No absence-of-results inference is used; unindexed Euclid-hat mixtures or earlier decreasing covariance counterexamples remain a priority risk.",
+        "An attempted fetch of the cited quadratic Askey support record did not supply its full text. Gneiting's inspected family table does not give this profile. The present claim gives no arbitrary-small-support result in the decreasing subclass."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers unrestricted failure and the analytic method, not the shape-restricted cubic example",
+          "evidence": [
+            "(3.1) signed disk seed; Lemma 3.2 Fourier–Bessel; (3.18) negative degree two; §5 distinguishes restricted classes."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2608.22173v1",
+          "material_read": "Theorems 1.4, 1.6, §§2–3 and §5 support-gap discussion",
+          "method": "Full-text arXiv HTML",
+          "title": "Isotropic Positive Definite Functions on Spheres: Even-Dimensional Gneiting's Problem",
+          "trigger": "Closest explicit planar autocorrelation counterexample and general support result"
+        },
+        {
+          "assessment": "Exact-support result does not impose the present shape or sign pattern",
+          "evidence": [
+            "Theorem 1.1 detects degree two; (4.4) filters a bump before self-convolution."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2608.25639v1",
+          "material_read": "Theorem 1.1 and differential filtering setup and sign argument §§3–4",
+          "method": "Full-text arXiv HTML",
+          "title": "Exact-Support Counterexamples to Euclidean-to-Spherical Transfer of Positive Definiteness in Even Dimensions",
+          "trigger": "Possibly stronger exact-support counterexample"
+        },
+        {
+          "assessment": "Background; no implication for the present planar example",
+          "evidence": [
+            "Compactly supported R³ inputs transfer to S²; Table 1 uses named spherical positive-definite families."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1111.7077",
+          "material_read": "Introduction, Tables 1–3, Euclidean classes and direct versus chordal transfer",
+          "method": "ArXiv PDF text",
+          "title": "Strictly and non-strictly positive definite functions on spheres",
+          "trigger": "Direct transfer theorem, shape conditions and exact family tables"
+        },
+        {
+          "assessment": "Different family; no covering implication",
+          "evidence": [
+            "The result minimizes two parity-specific ratios for e^(−aθ)(1+b cos θ)."
+          ],
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/26/SCOPE-a-two-frequency-schoenberg-test-for-cosine-modulated-geodesic-ex--509c2a9eeeb8/RESULT.md",
+          "material_read": "Finding, specialized recurrence and limitations",
+          "method": "Published full result text",
+          "title": "A two-frequency Schoenberg test for cosine-modulated geodesic exponentials on the two-sphere",
+          "trigger": "Published exact Legendre sign criterion on the same sphere"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Nonnegativity and radial nonincrease are natural covariance constraints, and dip detection through degree two would miss the obstruction. The two positive disks supply a reproducible shape-restricted counterexample, not another example solely of unrestricted even-dimensional failure.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

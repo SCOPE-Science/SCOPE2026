@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:25:59.580768Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, assumptions and proof, lines 5–69",
+        "Frozen VERIFICATION.md, lines 1–21; verify.py, lines 1–55, inspected without execution"
+      ],
+      "rationale": "A first-coordinate coincidence is transverse: uniqueness prohibits both differences from vanishing, and the inhibitory secant across the distinct second coordinates is strictly positive even if the pointwise derivative can vanish. Remove the common decay and scale by sqrt(B), sqrt(A). The lifted phase satisfies θ′=d cos²θ+c sin²θ+δ sin(2θ)≤Ω+δ sin(2θ), with c,d∈[0,Ω]. Every vertical hit is upward. Thus the next hit must advance by π even if phase reverses away from the vertical. If |δ|<Ω, integrating the reciprocal of the positive upper field over one period gives π/sqrt(Ω²−δ²), using the tangent substitution; the transformed phase has derivative ≤1 without any assumption of monotone rotation. If |δ|≥Ω the comparison flow cannot reach the next vertical ray because a stationary angle lies strictly between, including at the critical double zero. The bounded response construction joins the affine core to tails with matching slopes and has a stable linear core. Boundedness of the associated matrix semigroup keeps sufficiently small perturbations in that core for all forward times; the sine in the first-coordinate difference gives consecutive equality times exactly the claimed distance apart.",
+      "residual_risks": [
+        "The script uses deterministic sinusoidal modulation, despite the word ‘randomly’ in the frozen verification prose. These optional finite checks are not certificates of the variable-secant or infinite-time result.",
+        "Strict inhibition rules out exactly flat intervals; the limitation concerning noise should be understood as allowing arbitrarily weak secants, not assuming intervals of literal constancy."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Belgacem Theorem 1 uses the measured output and its instantaneous derivative; Lemma 2 is a differential mean-value representation.",
+          "Opposite cross-signs on nondegenerate portions of the present feedback system preclude a direct orthant cooperative or competitive comparison by flipping a state sign."
+        ],
+        "reasoning": "An instantaneous output/derivative injection result is not a bound on the distance between output coincidences. Relevant cyclic feedback and sampled-observability sources could not all be read in full; no narrower or stronger claim is imputed to the unread papers.",
+        "searches": [
+          "Belgacem arXiv:2611.17232v1, Theorem 1 and Lemma 2",
+          "Mallet-Paret–Smith DOI 10.1007/BF01054041",
+          "Guo DOI 10.1111/j.1934-6093.2005.tb00409.x; Chatzis–Maes–Lombaert DOI 10.1016/j.ymssp.2025.113142"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md; local Resultary overlap cf47a19cb224",
+        "Belgacem arXiv:2611.17232v1, Theorem 1 and Lemma 2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior half-turn bound uses 0≤θ′≤sqrt(AB); the unequal-loss flow need not have θ′≥0.",
+          "The reciprocal-phase bound and stationary-angle barrier establish the sharp nonlinear comparison even when the actual coefficients are time varying; the bounded affine-core construction is admissible for arbitrary specified underdamped A,B,γ1,γ2."
+        ],
+        "reasoning": "The prior common-loss estimate cannot be used by simply increasing a norm bound; doing so would not produce the sharp δ² correction or exclude all repeat crossings. The exact theorem is more than an equilibrium oscillation calculation or a consequence of differential observability.",
+        "searches": [
+          "Resultary cf47a19cb224, Half-turn comparison, versus frozen angular majorant and attainment",
+          "Belgacem arXiv:2611.17232v1, Theorem 1 and Lemma 2, versus the two-time criterion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary cf47a19cb224, Finding and Half-turn comparison, explicitly treats the same crossing problem at a common degradation rate.",
+          "Removing the mean loss produces opposite diagonal entries −δ,δ; these contribute δ sin(2θ) to the lifted rate. At |δ|≥Ω this introduces a barrier absent in the equal-loss formulation.",
+          "Eliminating the second difference formally would introduce a′/a and may divide by zero; the assumptions bound only the continuous secants and ensure a>0 at first-coordinate hits."
+        ],
+        "reasoning": "The same question in sampling language is injectivity of the two-value output map for times below the first allowable recrossing. The equal-rate result is identical only on the slice δ=0; neither a scalar common decay removal nor the scalar second-order oscillator formula alone covers arbitrary variable secants.",
+        "searches": [
+          "Local Resultary: half-turn separation and aliasing for planar monotone negative feedback",
+          "Angular/Sturm/disconjugacy comparison for two-variable negative feedback and unequal losses"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "cf47a19cb224 gives exactly π/sqrt(AB) for equal losses, with asymptotic logistic sharpness and exact bounded-response aliasing for one choice.",
+          "The constant saturated 2×2 difference matrix has eigenvalues −ḡ±sqrt(δ²−AB), providing the familiar candidate frequency but not a table or formula proving its extremality across variable secants."
+        ],
+        "reasoning": "Exact overlap on the equal-rate slice is credited regardless of same-day catalogue dating. The all-parameter variable-secant conclusion is not a lookup of linear eigenfrequencies.",
+        "searches": [
+          "Local Resultary: prescribed A,B with half-turn separation and unequal-loss no-return threshold"
+        ]
+      },
+      "rationale": "Credit exact overlap for equal decay (δ=0) and prior secant/observability and linear oscillator methods. The assessed distinction is the sharp unequal-decay modulus, the critical and overdamped no-return result for variable slopes, and exact attainability throughout the underdamped parameter region by bounded laws. These claims do not follow by substituting unequal losses into the equal-decay theorem.",
+      "residual_risks": [
+        "The focused external search did not produce relevant evidence. A general angular comparison theorem or an equivalent unequal-decay result in cyclic feedback, sampled observability or disconjugacy literature remains a priority risk; the inaccessible papers do not establish absence or coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap at δ=0; no same-day priority inference",
+          "evidence": "Common decay, angular bound sqrt(AB), gap π/sqrt(AB).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-sharp-half-turn-separation-bound-for-monotone-planar-feedback--cf47a19cb224/RESULT.md",
+          "material_read": "Finding and Half-turn comparison, local mirror offsets 0–5748",
+          "method": "Local Resultary search and mirror passage inspection",
+          "title": "A sharp half-turn separation bound for monotone planar feedback",
+          "trigger": "Same crossings, signs and slope budgets; exact equal-decay candidate"
+        },
+        {
+          "assessment": "Model and secant overlap, different observation claim",
+          "evidence": "Observability map uses the instantaneous derivative; the lemma establishes a differential-mean-value representation.",
+          "identifier_or_url": "https://arxiv.org/html/2611.17232v1",
+          "material_read": "Theorem 1, §3, offsets 22985–26474; Lemma 2, §4.2, offsets 33606–36103",
+          "method": "OA full-text passages",
+          "title": "Luenberger observers for two-gene regulatory networks with sigmoidal regulation",
+          "trigger": "Same feedback family with unequal degradation rates"
+        },
+        {
+          "assessment": "No statement-level exclusion inferred",
+          "evidence": "Unresolved potential general cyclic-feedback implication.",
+          "identifier_or_url": "https://doi.org/10.1007/BF01054041",
+          "material_read": "Citation only; DOI and Springer full-text access attempts failed",
+          "method": "Bounded lawful OA retrieval attempts",
+          "title": "The Poincaré–Bendixson theorem for monotone cyclic feedback systems",
+          "trigger": "Potentially stronger comparison for cyclic feedback"
+        },
+        {
+          "assessment": "No statement-level exclusion inferred",
+          "evidence": "No usable theorem passage was retrieved.",
+          "identifier_or_url": "https://doi.org/10.1111/j.1934-6093.2005.tb00409.x",
+          "material_read": "Citation only; Wiley returned 403",
+          "method": "Bounded lawful OA retrieval attempt",
+          "title": "Systems with nonequidistant sampling: controllable? observable? stable?",
+          "trigger": "Adjacent two-sample observability literature cited in record"
+        },
+        {
+          "assessment": "No statement-level exclusion inferred",
+          "evidence": "No usable theorem passage was retrieved.",
+          "identifier_or_url": "https://doi.org/10.1016/j.ymssp.2025.113142",
+          "material_read": "Citation/minimal publisher page, not full text",
+          "method": "Bounded lawful OA retrieval attempt",
+          "title": "Observability of nonlinear discrete-time systems with unmeasured inputs",
+          "trigger": "Adjacent nonlinear sampled observability literature cited in record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Proof and Limitations",
+        "Local Resultary cf47a19cb224 comparison for the equal-loss case"
+      ],
+      "rationale": "A two-sample identifiability threshold is useful when the measured coordinate is available but its derivative is not. The unequal-loss result identifies a sharp parameter-dependent gap and a qualitative transition to at most one equality, even with variable secants. Realization by bounded nonlinear responses makes the invariant meaningful beyond formal linearized frequencies.",
+      "residual_risks": [
+        "The result does not provide stability under observation noise or any estimator and is not an arbitrary planar-flow or higher-dimensional crossing theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

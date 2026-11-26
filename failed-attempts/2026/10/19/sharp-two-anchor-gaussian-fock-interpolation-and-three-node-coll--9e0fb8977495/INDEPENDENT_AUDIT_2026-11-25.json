@@ -1,0 +1,201 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:58:20.283305Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–39 and 43–90",
+        "verify.py lines 1–43 and verification_output.txt",
+        "requirements.txt",
+        "VERIFICATION.md"
+      ],
+      "rationale": "The frozen error definition in RESULT.md line 39 subtracts a normalized predictor from raw f(x). The unit vector satisfies ⟨f,k_x⟩=e^(−x²/2) f(x), not f(x). At x=L and f≡1 (unit Fock norm), Πk_L=k_L, so the frozen error is 1−e^(−L²/2)>0, but P_L(L)=0. The optimal raw-evaluation recovery error instead is e^(x²/2)P_L(x); even with the predictor properly scaled it cannot have a maximum at the midpoint, since there P_L>0 and P'_L=0 and the derivative of the raw error is positive. The normalized error, exact Gram determinant maximum and spectra in the record are mathematically sound. In the Schur complement the anchor determinant is 1−q⁴ and the midpoint determinant is (1−q)³(1+q). For the auxiliary midpoint inequality, F'_a(u) has the sign of A(u)−a, and A strictly increases since sinh(su)/sinh(u) strictly decreases for 0<s<1. Thus F_a has no interior maximum and F_a(a)=e^(−a)>F_a(0). The resulting strict monotonicity gives the stated midpoint determinant. The antisymmetric eigenvalue is 1−q² and the other two come from the symmetric 2×2 block, whose discriminant is q⁴+8q. In the collision the first perturbation compressed to the orthogonal complement of the ones vector is (Pt)(Pt)ᵀ, t=(0,a,1)ᵀ, P the orthogonal projection. Its nonzero eigenvalue is 2(a²−a+1)/3. Expanding the Gram determinant by Gaussian monomial features gives leading term a²(1−a)²L⁶/2 from the first three monomials; dividing by the two larger eigenvalues gives the stated smaller one. The factor 144 is for κ₂(G), the Gram ratio, not its square (the ratio is the squared sampling-map condition number).",
+      "residual_risks": [
+        "The finite mpmath checker tests normalized Gram quantities, not the frozen raw-error expression; it was inspected, not replayed. The expansions fix a strictly interior fraction."
+      ],
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Barthelmé–Usevich give the main term for each flat-limit eigenvalue by consecutive Gram–Vandermonde/Wronskian determinant ratios.",
+          "The broader heat-kernel concavity principle applies to convex domains; the ordered chamber is convex. The relevant diagonal special case follows directly by Gaussian marginalization on affine inequalities."
+        ],
+        "reasoning": "For K(u,v)=exp(−(u−v)²/2) and nodes (0,a,1) scaled by L, the Taylor coefficient matrix is triangularly congruent to diag(1/j!) via the two separable factors exp(−u²/2) and exp(−v²/2). The successive Wronskian determinants are 1, 1, 1/2, and successive Vandermonde Gram determinants are 3, 2(a²−a+1), a²(1−a)². The ratios give exactly 3 and the two coefficients stated. Analytic eigenvalue branches in L² give the indicated even-order remainders. This is not merely overlap of exponents.",
+        "searches": [
+          "arXiv:1910.14067 Theorem 4.2 and Corollary 4.3",
+          "arXiv:1404.5886 Theorem 3.3",
+          "\"heat kernel\" \"log-concave\" \"jointly\" convex domains Brascamp Lieb Dirichlet kernel x y"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0705.2460",
+        "arXiv:1404.5886",
+        "arXiv:2602.24093",
+        "arXiv:1910.14067",
+        "arXiv:1912.07316",
+        "arXiv:2104.06291",
+        "Resultary 609eba19f1af",
+        "Resultary 847472a019ae",
+        "Resultary 6b173840b97e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The diagonal determinant equals the survival probability for independent Brownian bridges from the ordered triple to itself. Writing their paths as the triple plus centered bridges, staying ordered at a finite dyadic grid is a convex system of affine inequalities in the triple and the centered bridge values. The Gaussian density times that convex-set indicator is log-concave; Prékopa gives log-concavity after integrating out the bridge values. Grid refinement preserves the inequality in the limit; continuous bridges starting and ending ordered have zero probability of touching a collision wall without crossing, so this is exactly the killed-kernel probability.",
+          "The restricted determinant D_L(x) is symmetric in x and L−x. Log-concavity gives the midpoint maximum; a second maximizer would force a plateau, impossible for a positive analytic determinant in (0,L) vanishing at the boundaries. The exact value then follows by substitution. The known flat-limit coefficient b²/[4(1−b)] with b=a(1−a) is maximized at a=1/2 immediately, yielding 144 for the Gram ratio."
+        ],
+        "reasoning": "The implication covers strict uniqueness at every positive separation, not only Gaussian truncations or small-L optimization. The two applications leave no substantive distinct theorem to repair.",
+        "searches": [
+          "arXiv:0705.2460 §1.2 (1.10)–(1.11)",
+          "arXiv:1404.5886 §3.1.3 Theorem 3.3",
+          "arXiv:1910.14067 Corollary 4.3",
+          "arXiv:1912.07316 §§2.1–2.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Schur complement is the Gaussian RKHS power function for normalized evaluations (arXiv:1912.07316 §2.1).",
+          "Eq. (1.11) gives the transition density of Brownian motion killed at the boundary of the ordered Weyl chamber as det[p_t(y_j−x_i)]. On the diagonal at t=1 this is (2π)^(−3/2) times the full normalized Gaussian determinant, with Brownian variance t."
+        ],
+        "reasoning": "The true normalized interpolation claim is an exact Gaussian kernel determinant problem and the latter is a diagonal killed heat-kernel restriction. The raw error definition has neither of these equivalences.",
+        "searches": [
+          "Resultary: exact Gaussian Fock power function midpoint with two fixed real anchors all separation",
+          "Brascamp Lieb Dirichlet heat kernel convex domain jointly log concave Brownian bridge log-concavity Gaussian kernel determinant nonintersecting Karlin McGregor chamber",
+          "arXiv:0705.2460 Eq. (1.11)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No checked source explicitly tabulates this finite L 3×3 spectrum. Resultary 609eba19f1af varies four Weyl-state rectangle corners at fixed small symplectic area; 847472a019ae concerns a Bergman circle configuration; 6b173840b97e concerns colliding derivative-evaluation jets."
+        ],
+        "reasoning": "These are different kernels, design spaces or sampling types and do not supply an exact table for this Gram matrix. Lack of a table does not avoid the broader implication, and the midpoint spectrum is just a scalar plus a quadratic once the maximizer is known.",
+        "searches": [
+          "Resultary: midpoint Gaussian Gram three eigenvalues q squared plus minus square root q fourth plus eight q",
+          "Resultary: Gaussian kernel three-node collision eigenvalues L^4 L^2 coefficient a(1-a)",
+          "Gaussian kernel fixed endpoints third point midpoint determinant D-optimal design three-node Gaussian Gram eigenvalue collision asymptotics"
+        ]
+      },
+      "rationale": "Even after correcting the normalization, the determinant optimum follows from known Gaussian heat-kernel log-concavity in an ordered chamber and the Karlin–McGregor determinant identity, by restricting to the diagonal, taking a symmetric one-dimensional slice and ruling out a constant analytic segment. This is a direct implication, not a claim that the exact displayed formula was printed in the sources. The flat-limit spectral law, including its a-dependent coefficients, is a direct case of Barthelmé–Usevich. The midpoint exact value and finite-distance spectrum require only evaluating a 3×3 determinant and a symmetry block at the already determined midpoint. Failure is supported by these implications, not by an unavailable paper or unsuccessful search.",
+      "residual_risks": [
+        "No historical priority is assigned for the exact three-node wording or this particular elementary proof. The original 1976 Brascamp–Lieb DOI route supplied no full text; the relevant marginalization theorem was checked in the cited review and used explicitly. A focused direct Fekete search returned no exact statement, which is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identity applies to the Gaussian Gram on the diagonal",
+          "evidence": [
+            "For increasing x and y, the absorbing transition density is det[p(t,y_j|x_k)]."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0705.2460",
+          "material_read": "§1.2, printed p. 3, (1.10)–(1.11), OA offset 11950",
+          "method": "OA primary text passage",
+          "title": "Noncolliding Brownian Motion and Determinantal Processes",
+          "trigger": "Exact determinant as heat kernel on a convex domain"
+        },
+        {
+          "assessment": "Applicable to Gaussian bridge samples subject to joint convex constraints",
+          "evidence": [
+            "A marginal integral of a log-concave function is log-concave (Prékopa); identifies a Brascamp–Lieb proof."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1404.5886",
+          "material_read": "§3.1.3 pp. 13–14, Theorem 3.3, OA offset 39500",
+          "method": "OA theorem statement and historical context",
+          "title": "Log-Concavity and Strong Log-Concavity: a review",
+          "trigger": "Marginal log-concavity for the ordered bridge event"
+        },
+        {
+          "assessment": "Context for the broader Brascamp–Lieb heat-kernel result; direct marginalization argument avoids relying on unstated details for an unbounded chamber",
+          "evidence": [
+            "Credits preservation of log-concavity under Dirichlet heat flow on convex domains to the log-concavity of the heat kernel."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2602.24093",
+          "material_read": "§1 p. 1, OA offset 990",
+          "method": "OA introductory passage",
+          "title": "Power-logconcavity of the Laplacian ground state",
+          "trigger": "Prior convex-domain heat-kernel log-concavity"
+        },
+        {
+          "assessment": "Direct specialization yields all three leading eigenvalues",
+          "evidence": [
+            "The leading coefficient products are Vandermonde Gram determinants times Wronskian determinants; adjacent ratios give individual coefficients."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1910.14067",
+          "material_read": "pp. 16–17, Theorem 4.2 Eq. (23), Corollary 4.3 Eq. (25), OA offset 76980",
+          "method": "OA primary theorem and formula inspection",
+          "title": "Spectral Properties of Kernel Matrices in the Flat Limit",
+          "trigger": "General theorem for Gaussian collision scales and exact coefficients"
+        },
+        {
+          "assessment": "Power-function identity is prior; truncated-kernel design alone does not imply full-kernel optimum",
+          "evidence": [
+            "Standard RKHS error/determinant relation and truncated approximate Fekete objective."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1912.07316",
+          "material_read": "§1, §2.1 and §2.2, pp. 2–6, extraction offsets 4383, 11076, 15681",
+          "method": "OA primary passages",
+          "title": "Kernel-based interpolation at approximate Fekete points",
+          "trigger": "Gaussian determinant design and interpolation power norm"
+        },
+        {
+          "assessment": "Different design procedure and hypotheses",
+          "evidence": [
+            "Candidate-set and gradient-enhanced determinant design, not the particular fixed-endpoints result."
+          ],
+          "identifier_or_url": "arXiv:2104.06291",
+          "material_read": "Abstract p. 1 and pp. 7–8, extraction offsets 43896, 44576",
+          "method": "OA primary passages",
+          "title": "Optimal design for kernel interpolation: applications to uncertainty quantification",
+          "trigger": "Potential broader kernel determinant optimal-design theorem"
+        },
+        {
+          "assessment": "Distinct geometry and number of nodes",
+          "evidence": [
+            "Four Gaussian Weyl-shift states at fixed small symplectic area."
+          ],
+          "identifier_or_url": "Resultary 609eba19f1af",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror statement comparison",
+          "title": "Asymmetric D-optimality of small-area Gaussian Gabor rectangles",
+          "trigger": "Nearest Gaussian determinant design catalogue match"
+        },
+        {
+          "assessment": "Different kernel and design constraint",
+          "evidence": [
+            "Bergman kernel with fixed common radius, equally spaced angular optimum."
+          ],
+          "identifier_or_url": "Resultary 847472a019ae",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror statement comparison",
+          "title": "Strict gap Schur concavity and sharp three-point Bergman determinant",
+          "trigger": "Related strict three-node determinant maximum"
+        },
+        {
+          "assessment": "Derivative-evaluation clusters differ from three value sites",
+          "evidence": [
+            "Colliding jet representers, not the fixed-fraction three-value Gaussian Gram."
+          ],
+          "identifier_or_url": "Resultary 6b173840b97e",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror statement comparison",
+          "title": "Sharp collision hierarchy for two equal Bargmann–Fock jet clusters",
+          "trigger": "Fock collision spectral hierarchy"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and Limitations",
+        "arXiv:0705.2460 Eq. (1.11)",
+        "arXiv:1404.5886 Theorem 3.3",
+        "arXiv:1910.14067 Corollary 4.3"
+      ],
+      "rationale": "The normalized maximum uncertainty and the loss of conditioning during collision are natural quantities, but the correct mathematical remainder consists of an exact convex-domain heat-kernel specialization and a known flat-limit specialization. The record supplies a self-contained elementary calculation but no substantive additional invariant or mechanism beyond those implications. Repairing just the evaluation convention would make the main formula correct in scope, not establish a new valuable claim.",
+      "residual_risks": [
+        "No claim is made for the location or exact value of the actual raw Fock evaluation maximum beyond the counterexample to the frozen midpoint claim."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

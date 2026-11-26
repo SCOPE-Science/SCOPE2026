@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:45:01.191226Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let t=(h−1)^2, so c=hb+t and b−t=h. Each of the three legal coin exchanges preserves the offset and either decreases cost or preserves cost and increases the number of c-coins. On a fixed offset there are finitely many representations, so reduction terminates; the no-exchange conditions give x<b, y≤h, and x<t if y=h, hence by+x<c. This independently establishes the greedy optimum. For residues dr, coprimality gives precisely offsets r+ell a, and translating by a=mc raises cost by mh^3, so no larger offset or positive a-generator contribution can improve the Apéry minimum. Within each of the first h full b-blocks the discrete weight increases with u, and the last full block and the partial block have equally high endpoints; elsewhere the weight is smaller. The top c-block adds (m−1)h^3, and d>0 makes the later of its two endpoints the unique largest Apéry element. Summing the weights in full and partial blocks gives the stated genus by the Apéry sum identity. For maximality in semigroup order only individual generator steps need be tested, since any increment once outside the Apéry set remains outside. The c-offset eliminates all earlier c-blocks. In the top block any v<c−b can advance by b. Within the remaining portion, the unit step eliminates all but the last full b-block endpoint and v=c−1. The b-offset at these two points wraps, and its residue u lies below b: w(r)≥h²(h−1)=h(b−1)≥w(u). The c-offset wraps with positive excess a(mh^3+d). The unit step fails at the first candidate by the strict cost drop relative to naive carrying, and wraps at the second with positive excess. Thus exactly two maxima remain and their weight difference is zero; their offsets differ by t, so their associated PF numbers differ by dt. This covers m=1, including a redundant fourth generator. A separate residue shortest-path check verified every residue and F, genus and PF in six cases (h,m,d)=(3,1,1),(3,2,51),(4,1,123),(4,3,2),(5,2,3),(6,1,5), including d>a. To replay, use the residues modulo a as vertices, with one edge adding each of the other three generators, weighted by that generator. Find shortest distances from residue 0, then compute gaps by the distance threshold and test each Apéry element minus a for the PF condition by the same modular-distance tests after adding each generator. The first example gives F=899, g=504, PF={895,899}. The frozen checker.py additionally describes larger finite diagnostics; neither experiment substitutes for the unrestricted proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Liu et al. §7 cover the higher-base orderly-coin setup but explicitly state that the monotone-weight argument fails. Their repunit Frobenius/genus results use offsets (h^i−1)/(h−1), and the second offset h+1 differs from h²−h+1 for h≥3.",
+          "Branco–Colaço–Ojeda use repunit increments and a repunit first generator. The uniform-coefficient family in arXiv:2304.09039 uses the coefficient h on all non-a generators, unlike h,h²,h³."
+        ],
+        "reasoning": "These general frameworks provide methods and known parameters, but the inspected formulas for repunit or uniform-coefficient families cannot be transferred by identifying h and m. The earlier same-family discussion expressly leaves further weight analysis.",
+        "searches": [
+          "arXiv:2306.03459v4 §§3 and 7; arXiv:2306.10738v1 Theorem 3.5; DOI 10.1007/s00009-022-02233-w Theorem 15; arXiv:2304.09039v2 model"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "Local Resultary 49bf8137cffa",
+        "arXiv:2306.03459v4, 2306.10738v1 and 2304.09039v2",
+        "DOI 10.1007/s00009-022-02233-w"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known greedy normal form plus a=mc gives a direct translation cost and hence the residue-minimum Apéry construction. It does not decide the maximal elements in the semigroup order by itself: the full-block end and partial-block end tie in the weight, and steps wrapping to lower residues have to be excluded by comparing to those residues' least elements.",
+          "The distinct later indexed statement supplies this same PF result by analyzing the same residue steps, and is not presented as scientific corroboration of priority from the dates alone."
+        ],
+        "reasoning": "Routine extraction using the Apéry genus identity and use of orderly denominations are not by themselves originality. Resolving which two residues are maximal in the nonbinary case and proving their exact separation is the substantive remaining implication, not a parameter substitution into the earlier known binary PF theorem.",
+        "searches": [
+          "arXiv:2306.03459v4 §7, especially statements (1)–(3) and the following weight discussion",
+          "Resultary 49bf8137cffa, Finding and Proof §§1–2 and subsequent extremum analysis"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In Liu et al. §7, the cost sum is offset plus (h−1) times the number of coins; the same higher-base offsets are orderly. Thus the unweighted greedy optimum and the weighted minimum in the frozen statement are equivalent for each fixed offset.",
+          "Resultary 49bf8137cffa identifies its u,v with the frozen b,c, has the same a=mc and hypotheses, gives F with (m+1)h³−2h²−1=T−1, gives the same Apéry and PF sets, and writes the same genus using the unexpanded block sum."
+        ],
+        "reasoning": "This is a genuine all-parameter duplicate in the catalogue, not a matching example or similar title. The indexed counterpart is later dated; neither equivalence nor dates alone establish provenance. The earlier higher-base publication gives the greedy constituent but not the evaluated PF comparison.",
+        "searches": [
+          "Local Resultary: cubic higher-base shifted-power semigroup with a divisible by h³−h+1 and type two",
+          "arXiv:2306.03459v4 §7 higher-base weighted coin formulation",
+          "Resultary 49bf8137cffa, exact matching statement"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed Nov. 8 counterpart gives the exact symbolic family, including the same h=3,m=d=1 example with F=899 and PF={895,899}; this is wider than a finite table match. It is separately recorded from the Nov. 2 assignment.",
+          "The binary h=2,k=3 row is already known: a=7m, generators a,2a+d,4a+3d,8a+7d and PF={F−d,F}; it lies outside the claimed h≥3 range."
+        ],
+        "reasoning": "The catalogue and binary symbolic formulas are pertinent exact-database comparisons for this parameterized invariant. Independent small-case computed values are correctness checks and are not priority evidence.",
+        "searches": [
+          "Local Resultary exact invariant and PF-spectrum lookup 49bf8137cffa",
+          "arXiv:2306.03459v4 Theorem 3.4; arXiv:2306.10738v1 Theorem 3.5"
+        ]
+      },
+      "rationale": "The underlying higher-base family and its orderly coin minimization are already known; the Apéry formula uses that known machinery and the divisible-offset hypothesis. The supported distinct content is the evaluation of the tied extremal weights and the exact two-element pseudo-Frobenius spectrum in the nonbinary cubic subfamily, not the binary case or greedy change-making. An exactly equivalent distinct indexed record dated later was inspected and is disclosed; it does not establish earlier priority or unique provenance for either proof. No inspected earlier result mechanically gives the nonbinary maximal Apéry classification.",
+      "residual_risks": [
+        "The exactly equivalent later-dated archive entry prevents any claim of catalogue uniqueness from this review; provenance between the records is unresolved.",
+        "The bounded literature search does not exclude an earlier equivalent nonbinary type theorem under a different semigroup presentation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact greedy constituent and binary PF base case; explicit nonmonotonicity in same nonbinary family, not the claimed classification.",
+          "evidence": "§7 has offsets h^i−h+1 and weight M+(h−1)opt_B(M), and says the weight is no longer increasing as in Lemma 2.11. The binary a=7m PF match is Theorem 3.4, not the shifted-a Theorem 6.1.",
+          "identifier_or_url": "https://arxiv.org/abs/2306.03459v4",
+          "material_read": "§3 Theorem 3.4, PDF p. 12 near offset 44800; §6 Theorem 6.1; §7, PDF pp. 20–21, offsets 76700–82784",
+          "method": "Primary OA text, read greedy normalization and substituted binary parameters in theorem",
+          "title": "A Generalization of Mersenne and Thabit Numerical Semigroups",
+          "trigger": "Identical higher-base offset pattern and exact binary comparison"
+        },
+        {
+          "assessment": "Exact repunit results, not the frozen nonbinary offsets.",
+          "evidence": "Uses the geometric-sum increments (q^i−1)/(q−1).",
+          "identifier_or_url": "https://arxiv.org/abs/2306.10738v1",
+          "material_read": "§3 Theorem 3.5, PDF p. 6, near offset 24900",
+          "method": "Primary OA formula and generator comparison",
+          "title": "A Note on Generalized Repunit Numerical Semigroups",
+          "trigger": "Closely related exact Frobenius and genus formulas"
+        },
+        {
+          "assessment": "Different generating family.",
+          "evidence": "The first generator and increments use repunits, not the given terminal shifted-power multiple and offsets.",
+          "identifier_or_url": "https://doi.org/10.1007/s00009-022-02233-w",
+          "material_read": "Notation 3, PDF p. 3 near offset 7500; Theorem 15, PDF p. 8 near offset 19900",
+          "method": "Primary OA text, compared defining sequence before testing implications",
+          "title": "The Frobenius Problem for Generalized Repunit Numerical Semigroups",
+          "trigger": "Plausible general Apéry or type coverage under a family reformulation"
+        },
+        {
+          "assessment": "Different coefficient pattern in its stated family.",
+          "evidence": "The coefficient h of a is fixed across its offset generators, unlike the powers in the frozen result.",
+          "identifier_or_url": "https://arxiv.org/abs/2304.09039v2",
+          "material_read": "Abstract, PDF p. 1",
+          "method": "Primary OA definition compared term by term",
+          "title": "The Frobenius Formula for A=(a,ha+d,ha+b₂d,...)",
+          "trigger": "Cited related Frobenius formula for similar notation"
+        },
+        {
+          "assessment": "Equivalent complete scientific result in a distinct later-dated record; neither priority nor independent provenance inferred solely from dates.",
+          "evidence": "Same a=mv with v=h³−h+1; its W_r, F, genus, PF separation dt and type two are identical under u=b and v=c.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-pseudo-frobenius-spectra-of-a-higher-base-shifted-power-semigrou--49bf8137cffa",
+          "material_read": "RESULT.md Finding and Proof, offsets 0–8240, with formulas checked at offsets 0–3024",
+          "method": "Local mirror, symbol-by-symbol comparison and expansion of genus block sum",
+          "title": "Pseudo-Frobenius spectra of a higher-base shifted-power semigroup at terminal-offset multiples",
+          "trigger": "Exact matches of generator, divisibility and PF-gap hypotheses in local search"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The shifted-power family is explicitly motivated in the earlier literature. Taking the initial generator to be a multiple of the terminal offset isolates the failure of naive weight monotonicity in a meaningful cubic subfamily, rather than imposing an arbitrary finite cutoff. The exact PF classification explains why precisely two top-block residues survive and why the separation is independent of m. This is a natural type and spectrum computation for all h, m and admissible d in the stated regime; it does not claim to solve the unrestricted higher-base problem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

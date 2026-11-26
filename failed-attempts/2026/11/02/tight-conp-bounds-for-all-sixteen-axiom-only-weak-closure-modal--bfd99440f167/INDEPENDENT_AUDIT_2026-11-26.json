@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:05:27.060994Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the stated axiom-only syntax with distinct conjunction and implication constructors, necessity follows immediately by reading the boxed-operand bits from the world’s generated set. For sufficiency let H be the set of true bits in the subformula-closed support S containing top, and P the closure of H under conjunction formation alone if C is present (P=H otherwise). P∩S=H by induction on conjunction formation: the operands of a conjunction in S are in S, and the finite C implications suffice. If M is present, any conjunction in P either came from H, where its parts are in H by the finite M constraints, or was constructed from parts in P. Any implication in P was already in H; if its antecedent is in P, it is in S and hence in H, so K supplies its consequent in H. N is already satisfied in H when selected. Thus P is globally closed under all selected rules and realizes exactly the guessed bits in S. Ordinary Boolean evaluation at a one-world model gives the witness; there are linearly many guessed bits and polynomial-time checks. Modal-free SAT and TAUT give the matching lower bounds, since all propositional assignments extend to suitable one-world models. This confirms the unrestricted proof, with ordinary faithful abbreviations read via the corresponding syntax, not arbitrary rewrites inside boxes. The frozen checker uses separate syntax constructors and 1,568 bounded comparisons; it was inspected, not executed, and the finite checks are not a proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The serial/positive-introspection record proves finite singleton completeness for M,C,N,K,D,4 selections without E/G, covering the base models but not stating the target bounds.",
+          "The variable-free complexity paper defines E with replacement of equivalents and credits Vardi with full-variable coNP-completeness for E, EM, EN and EMN. The provability paper studies arithmetical completeness and different systems."
+        ],
+        "reasoning": "A broader singleton-model theorem alone does not supply polynomial verification, and existing complexity results with RE are for different theorem sets. The exact finite verifier is instead found in Nishimura’s proof for the base systems.",
+        "searches": [
+          "Resultary serial consistency and positive introspection, 700dd8e5e5b0",
+          "arXiv:2507.09136v1 non-normal modal formula complexity",
+          "arXiv:2607.08730v1 closure semantics for provability predicates"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "arXiv:2610.01433v1, 2507.09136v1, 2607.08730v1",
+        "Resultary 700dd8e5e5b0 and 03c335126520"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Corollary 3.14 enumerates subsets Δ of Sub*(φ), builds the one-point model with generator {ψ: □ψ∈Δ}, and says for a fixed query ψ that it suffices to perform Definition 3.7 within the subformulas of G(Δ)∪{ψ,top}.",
+          "Definition 3.5 constructs Sub*(φ) from the original subformulas by adding boxed versions, top and its box, and one negation toggle for each. Definition 3.7 only adds elements at successive stages."
+        ],
+        "reasoning": "There are O(|φ|) candidate bits. For each query, the polynomial-size subformula support is listed directly from the candidate; every nonfinal stage adds at least one member. Each stage checks only polynomially many candidate formulas or pairs, hence membership is polynomial, even with a naive implementation. Guess one candidate and evaluate φ to check satisfiability (or its falsity to check nonvalidity). The same modal-free lower bounds are immediate. Thus the exact classification and linear-size guessing bound follow from reading the complexity of the published algorithm, without a new finite-support lemma.",
+        "searches": [
+          "Nishimura Corollary 3.14 proof, arXiv:2610.01433v1 PDF pp. 11–12, offsets 27500–31062",
+          "Nishimura Definitions 3.5 and 3.7, offsets 19700–22865"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nishimura §3.1 explicitly assumes absence of RE (E) and necessitation (G); its N is the axiom □top and its implication-chain form of K is Boolean-equivalent to the frozen form.",
+          "Definition 3.7 lists exactly the additions of top, the two conjuncts, a conjunction, and an implication consequent under the respective flags."
+        ],
+        "reasoning": "A formula-membership bit for each element of the finite support is precisely a propositional representation of Nishimura’s generated set. His generation stage is a sweep over the corresponding Horn implications; the change in notation does not change the computation.",
+        "searches": [
+          "arXiv:2610.01433v1 §3.1, Definitions 3.5–3.8, Theorem 3.12 and Corollary 3.14",
+          "Resultary exact weak modal principles E,G,M,C,N,K; 03c335126520"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed 64-presentation classification includes all sixteen target selections but tables equality and inclusion of theorem sets, not decision complexity.",
+          "Nishimura states primitive recursiveness uniformly for the sixteen selections and provides the exact candidate-model algorithm."
+        ],
+        "reasoning": "An equality/inclusion table is not a complexity table and is not cited as exact coverage. The earlier candidate algorithm, not any tabulated status, gives the decisive implication.",
+        "searches": [
+          "Resultary 03c335126520, exact classification of 64 weak-modal presentations",
+          "Nishimura Corollary 3.14, all sixteen no-rule systems"
+        ]
+      },
+      "rationale": "Nishimura’s Corollary 3.14 already gives linear-size one-point candidate descriptions and explicitly states the same finite subformula restriction for closure membership. The stages of Definition 3.7 are just monotone forward chaining of the four Horn rules over those formulas. Counting additions per stage rather than accepting the paper’s loose primitive-recursive bound makes the NP/coNP classification immediate. The complexity labels are sharper than the published labels, but the candidate space and the load-bearing finite-support algorithm are already in the proof for exactly the same sixteen logics.",
+      "residual_risks": [
+        "The bounded inspection does not determine who first stated the tighter complexity labels in print. The failure rests on a direct implication of an inspected proof, not on the possibility of other earlier complexity results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct implication of both bounds, despite the weaker stated complexity label",
+          "evidence": [
+            "One-point candidates from subsets of Sub*(φ); finite subformula restriction for each closure query is explicit."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.01433v1",
+          "material_read": "§3.1, PDF pp. 7–12, especially Definition 3.7 and Corollary 3.14 proof; bounded offsets 19700–22865 and 27500–31062",
+          "method": "OA PDF passages",
+          "title": "Closure Semantics for Weak Modal Logics: Completeness and Representations",
+          "trigger": "Exact axiom-only logics and prior algorithm"
+        },
+        {
+          "assessment": "Singleton semantics overlap, but not an asserted complexity classification",
+          "evidence": [
+            "Strong completeness and finite singleton countermodels for selections of M,C,N,K,D,4 without E/G."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-serial-consistency-and-positive-introspection-preserve-one-world--700dd8e5e5b0",
+          "material_read": "Finding",
+          "method": "Local mirror",
+          "title": "Serial consistency and positive introspection preserve one-world completeness",
+          "trigger": "Indexed coverage of stronger rule-free systems"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": [
+            "Equality/inclusion for 64 presentations, including the sixteen without modal rules."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-thirty-distinct-logics-from-six-weak-modal-principles-an-exact-i--03c335126520",
+          "material_read": "Finding",
+          "method": "Local mirror",
+          "title": "Thirty distinct logics from six weak modal principles",
+          "trigger": "Indexed exact classification over the same scheme vocabulary"
+        },
+        {
+          "assessment": "The audited systems omit RE; the frozen attribution also needs qualification",
+          "evidence": [
+            "The paper defines E with RE and attributes full-variable E, EM, EN, EMN complexity to Vardi; its own coNP result concerns variable-free fragments."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2507.09136v1",
+          "material_read": "PDF pp. 2–3 and 6–7; offsets near 3750 and 12000",
+          "method": "OA PDF passages",
+          "title": "Complexity of the variable-free fragments of non-normal modal logics",
+          "trigger": "Potential pre-existing coNP classifications"
+        },
+        {
+          "assessment": "Different provability interpretation; no broader noncoverage claimed from the introductory passage",
+          "evidence": [
+            "The stated goals include arithmetical completeness for provability-oriented systems."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.08730v1",
+          "material_read": "PDF p. 1, offset 0",
+          "method": "OA PDF passage",
+          "title": "Modal logics of conjunctively closed provability predicates",
+          "trigger": "Related closure semantic framework"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Optimal formula complexity is a legitimate question. Here the gap between primitive recursiveness and coNP closes by counting stages in the same previously published subformula computation and guessing one of its already published linear-size candidates. The Horn presentation is a convenient reformulation, not an independently useful new decision algorithm or structural lemma beyond that computation. No substantive remainder warrants a repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

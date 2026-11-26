@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:45:16.032872Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, scope and proof; VERIFICATION.md lines 18–27; verify.py lines 6–71 (read, not executed)",
+        "Vogels–Karimireddy–Jaggi, arXiv:1905.13727v1 Algorithm 1",
+        "Dürre–Vogel–Fried, arXiv:1403.7635v1 Proposition 1"
+      ],
+      "rationale": "Induction gives the direction of p_t as U diag(sigma_1^(2t−1),sigma_2^(2t−1))z, where z is standard bivariate Gaussian on the two-dimensional right singular support. Normalization is well-defined almost surely and discarded factors are scalar. The reconstruction is the orthogonal projection p_t p_t^T M. Orthogonal decomposition gives normalized residual 1+(kappa²−1) times the squared second coordinate of p_t in the left singular basis, with the 1 outside the product. Write d=kappa^(2t−1). That coordinate-square is 1/(1+d²V²) for V=z_1/z_2, standard Cauchy. Its expectation is 1/(1+d) by partial fractions against 1/(pi(1+v²)); at d=1 the expectation is 1/2 by symmetry. This recovers the stated law, benchmark sigma_2², geometric-mean initial error, one-reuse ratio and large-gap orders. At kappa=1 any attained left direction is in the column space and loses precisely sigma_2²; the explanatory equality of errors across left lines should be read within that support, not as a claim about all ambient lines for rectangular M.",
+      "residual_risks": [
+        "The numerical integration is finite and corroborative; the uploaded pointwise check shares the power-direction formula rather than iterating the full recurrence independently, and it was not rerun. No changing-matrix or optimizer-level conclusion follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Spatial Sign Correlation Proposition 1 diagonalizes the spatial sign covariance in the same eigenbasis as the shape; in dimension two its eigenvalues are sqrt(lambda_j)/(sqrt(lambda_1)+sqrt(lambda_2)) for an elliptical distribution.",
+          "The higher-dimensional follow-up expressly describes the dimension-two analytic relationship as already known."
+        ],
+        "reasoning": "This is a theorem about the full normalized direction moment for bivariate elliptical distributions, including the Gaussian special case. The target benchmark does not need a new Gaussian expectation or a new angular integral.",
+        "searches": [
+          "arXiv:1403.7635v1, Proposition 1, p. 3 and Appendix A",
+          "arXiv:1512.02863, introductory bivariate comparison p. 3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1905.13727v1",
+        "arXiv:1403.7635v1",
+        "arXiv:1512.02863",
+        "The mirrored Resultary findings above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Algorithm 1 uses Gaussian Q, left multiply/orthogonalize, then right multiply, with factor reuse. For stationary rank-two M the unnormalized bivariate iterate has scatter eigenvalues sigma_i^(4t−2).",
+          "Proposition 1 assigns the second projector diagonal entry the weight sigma_2^(2t−1)/(sigma_1^(2t−1)+sigma_2^(2t−1)). The residual is sigma_2²+(sigma_1²−sigma_2²) times that entry in expectation, with sigma_2² outside the product."
+        ],
+        "reasoning": "A direct substitution and trace identity prove the exact stated formula, not just upper bounds or convergence. The first-step, one-reuse and power-asymptotic identities are elementary algebraic consequences, not distinct mathematical claims surviving the prior implication.",
+        "searches": [
+          "PowerSGD Algorithm 1 matched to the hypothesis of Dürre–Vogel–Fried Proposition 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "After SVD the frozen rank-one algorithm is the Gaussian one-probe sketch with filter Sigma^(2t−1) and projection reconstruction. The October 26 Resultary finding gives G_q=b²+(a²−b²) beta/(alpha+beta) with alpha=a^(2q+1), beta=b^(2q+1).",
+          "The same-day orientation-law finding instead starts with Rademacher probes and has orientation dependence; that is not equivalent to the Gaussian law."
+        ],
+        "reasoning": "Set a=sigma_1,b=sigma_2,q=t−1 in the Gaussian sketch finding. Its positive-definite 2×2 model is precisely the compressed singular support for the Gaussian case, since the projected isotropic Gaussian remains standard. The spatial sign of the filtered Gaussian is exactly the normalized PowerSGD direction in that basis.",
+        "searches": [
+          "Local Resultary Gaussian one-column power sketch, exact rank-two Frobenius risk, warm-start and Gaussian/Rademacher angle laws",
+          "PowerSGD arXiv:1905.13727v1 Algorithm 1; Spatial Sign Correlation arXiv:1403.7635v1 Proposition 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 26 catalog Finding gives the exact same all-q Gaussian risk, as well as comparing Rademacher sketches. November 2 gives the Gaussian geometric-mean risk at the first probe."
+        ],
+        "reasoning": "This is exact formula coverage, not analogy of singular-value ratios. The entries are dated later than the frozen record; neither date nor the overlap determines priority. The pre-existing equivalent statistic in Proposition 1 independently settles originality.",
+        "searches": [
+          "Local Resultary exact-risk comparison; October 26 Gaussian/Rademacher crossover and November 2 orientation-reversal findings"
+        ]
+      },
+      "rationale": "The algorithm is prior and its fixed-matrix specialization immediately produces a bivariate elliptical direction. Dürre–Vogel–Fried's exact bivariate spatial sign covariance proposition already evaluates the whole normalized projector expectation, a stronger statistic than this one trace. Inserting the two scatter eigenvalues determined by the source iteration and taking that trace gives the full law mechanically. The later Resultary Gaussian power-sketch formula is also exactly equivalent; the decisive prior coverage does not depend on adjudicating dates between the catalog records.",
+      "residual_risks": [
+        "No claim that an earlier PowerSGD-specific paper printed the exact risk verbatim. The exact prior spatial sign result and source iteration suffice to establish the implication regardless of the catalog ordering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior recurrence, applies exactly when the input matrix is held fixed",
+          "evidence": "Gaussian initialization, left multiply and orthogonalize, multiply by the transpose, retain the right factor for subsequent use.",
+          "identifier_or_url": "https://arxiv.org/pdf/1905.13727v1",
+          "material_read": "p. 3 Algorithm 1 and nearby reuse paragraph",
+          "method": "OA PDF exact recurrence comparison",
+          "title": "PowerSGD: Practical Low-Rank Gradient Compression for Distributed Optimization",
+          "trigger": "Exact algorithm and published behavior of warm starting"
+        },
+        {
+          "assessment": "Decisive stronger prior theorem",
+          "evidence": "The bivariate spatial sign covariance eigenvalues are the square-root shape eigenvalues normalized by their sum, in the same eigenbasis.",
+          "identifier_or_url": "https://arxiv.org/pdf/1403.7635v1",
+          "material_read": "p. 3 Proposition 1; bounded PDF passage near offset 11786, appendix proof locator 56557",
+          "method": "OA PDF proposition and mathematical specialization",
+          "title": "Spatial Sign Correlation",
+          "trigger": "Exact bivariate elliptical normalized-projection moment"
+        },
+        {
+          "assessment": "Confirms existing analytic dimension-two law; not needed for the implication",
+          "evidence": "The analytic bivariate eigenvalue relationship is known before the higher-dimensional analysis.",
+          "identifier_or_url": "https://arxiv.org/pdf/1512.02863",
+          "material_read": "p. 3 discussion of bivariate case",
+          "method": "OA PDF passage comparison",
+          "title": "On the eigenvalues of the spatial sign covariance matrix in more than two dimensions",
+          "trigger": "Independent primary reference for dimensional scope of formula"
+        },
+        {
+          "assessment": "Exact Gaussian law in equivalent singular-support coordinates; later dated catalog record",
+          "evidence": "G_q=b²+(a²−b²) beta/(alpha+beta), with alpha,beta the singular values to power 2q+1.",
+          "identifier_or_url": "2026/10/26/SCOPE-sharp-angular-crossover-between-gaussian-and-rademacher-one-colu--739d1784d937",
+          "material_read": "Mirrored Finding and Gaussian power-sketch assumptions",
+          "method": "Local Resultary search and mirrored source read",
+          "title": "Sharp angular crossover between Gaussian and Rademacher one-column sketches",
+          "trigger": "Strongest catalog formula match"
+        },
+        {
+          "assessment": "Initial-step formula overlap",
+          "evidence": "Gaussian expected squared residual is sigma_1 sigma_2.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-sharp-orientation-reversal-between-gaussian-and-rademacher-one--24d8f4bb643c",
+          "material_read": "Mirrored Finding",
+          "method": "Local Resultary search and mirrored source comparison",
+          "title": "A sharp orientation reversal between Gaussian and Rademacher one-column sketches",
+          "trigger": "Same Gaussian one-probe benchmark"
+        },
+        {
+          "assessment": "Different probe distribution",
+          "evidence": "The Rademacher angular dependence is not a Gaussian projector expectation.",
+          "identifier_or_url": "2026/10/12/SCOPE-a-sharp-orientation-law-for-rademacher-subspace-iteration-on-two--01df0b03e02b",
+          "material_read": "Mirrored Finding and probe assumptions",
+          "method": "Local Resultary search and mirrored source comparison",
+          "title": "A sharp orientation law for Rademacher subspace iteration on two singular modes",
+          "trigger": "Same-day narrow rank-two subspace-iteration finding"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen stationary scope; PowerSGD Algorithm 1; Dürre–Vogel–Fried Proposition 1"
+      ],
+      "rationale": "Stationary compression is a motivated baseline, but this particular expected error is just the trace of the known bivariate normalized projector moment with the algorithm's scatter eigenvalues. The finding neither needs a new warm-start argument nor addresses moving gradients, noise, higher rank, or another non-mechanically-implied effect. The special values and asymptotics are algebraic re-expressions of the same covered fact.",
+      "residual_risks": [
+        "This does not assess the value of separate results for genuinely changing inputs or different higher-rank moments."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

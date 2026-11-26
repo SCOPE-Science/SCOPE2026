@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:05:14.632069Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–39 and 41–120",
+        "VERIFICATION.md",
+        "CHECK.py (read, not executed)"
+      ],
+      "rationale": "Eliminating z gives the shared endemic state. The Jacobian has trace −(A+κB), determinant κ(τ−1), and scaled discriminant (1−r)²−4rg for r=κ/κ₀; the nonzero off-diagonal entry rules out a scalar matrix at the two discriminant roots. Differentiating κ/(A+κB)² gives the unique damping-ratio optimizer. For the spectral rate, put S=A+κB, T=τ−1 and X=BS−2T; on the node branches X²−B²D=4TC>0, with X negative on the lower branch and positive on the upper branch. Thus the rate increases through the lower node and focus intervals and decreases on the upper one. For the nonlinear claim, at κ₀ the map e^(−Jt) applied to the state deviation is the initial deviation plus a convergent integral of the quadratic remainder. Indeed the normalized integrand is O(ε² exp(−(A−2δ)t)) for any fixed 0<δ<A/2 using local exponential stability with rate A−δ. This directly gives an ε+O(ε²) cosine coefficient. At fixed κ_b>κ₀, the eigenvalues are strictly left of −A (for real roots use the characteristic polynomial's value κ_b C>0 at −A and the sum of roots less than −2A). The faster local solution is o(exp(−At)), also at its Jordan point. Alternating signs at successive sufficiently late cosine extrema prove the exact nonlinear same-initial-state comparison. The RK4 and finite rational checks are supplementary only.",
+      "residual_risks": [
+        "Smallness of ε is local and can depend on κ_b. The spectral exponent at the upper defective threshold is not a pure uniform exponential or a finite-time optimization."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary single-population paper analyzes equilibrium and stability for the same functional responses, with spiral behavior in its example.",
+          "Multigroup periodic behavior under a different network structure is not the decaying one-population cross-policy comparison.",
+          "The moment-closure paper was not available as lawfully readable full text in the attempted routes."
+        ],
+        "reasoning": "The inspected broader results do not quantify a same-initial-state sign comparison along this common scaling; unavailable material is treated as risk only.",
+        "searches": [
+          "arXiv:2209.01224 §4.2",
+          "arXiv:2407.17639 abstract and §2",
+          "DOI 10.1103/PhysRevE.106.014308"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2209.01224",
+        "arXiv:2407.17639",
+        "Resultary 3db881d69750",
+        "DOI 10.1103/PhysRevE.106.014308 (full text unavailable)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Resultary proof uses unbounded angle winding for a single system at a fixed focus speed. The frozen result compares it with another stable nonlinear flow, including the upper node and its defective boundary.",
+          "The two optimization objectives use the same classical trace/discriminant data, but have different maximizers."
+        ],
+        "reasoning": "Winding alone does not bound the signed prevalence difference of two flows. The argument that the oscillatory leading term is nonzero at rate A while every faster-speed comparison flow is negligible at that rate supplies the extra implication.",
+        "searches": [
+          "arXiv:2209.01224 §4.2",
+          "Resultary 3db881d69750 nonlinear focus proof at offset 4200"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary model becomes exactly the frozen ODE by ξ=κ and ζ=ωκ.",
+          "The overlapping Resultary focus proof measures crossings of y=y_* in a single nonlinear solution, not zeroes of the difference of two nonlinear solutions."
+        ],
+        "reasoning": "Reparameterizing the rates or calling a spiral a crossing does not establish a ranking reversal. Two solutions can each cross their equilibrium without switching their ordering; the compared exponential scales and amplitude control matter.",
+        "searches": [
+          "arXiv:2209.01224 §4.2 Eq. (12)",
+          "Resultary 3db881d69750"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact interval and upper spectral optimum coincide in the match. It gives infinitely many damped endemic-level crossings and a fast-limit rate comparison, but not the separate optimum of Ω/λ or the same-initial cross-speed nonlinear sign theorem."
+        ],
+        "reasoning": "This is verified partial coverage even without settling priority from path dates. It does not encompass the joint finding.",
+        "searches": [
+          "Resultary same-model fixed-ratio adaptation-speed search; match 2026/11/8/SCOPE-sharp-adaptation-speed-tuning-for-damped-endemic-fluctuations--3db881d69750"
+        ]
+      },
+      "rationale": "Credit the model, endemic state, Jacobian, attraction and qualitative spiral to the primary article. A distinct Resultary record already displays the same phase interval and spectral-rate optimizer and proves nonlinear endemic-level crossings; those are not treated here as distinct on their own. The supported distinction is the two-objective tuning comparison and, in particular, the quantified nonlinear comparison of two trajectories with the same initial state and equilibrium, for every fixed faster κ_b, using a strict tail-rate separation and a nonvanishing slow leading term.",
+      "residual_risks": [
+        "Possible equivalent cross-speed statements under other network-adjustment terminology or in the inaccessible moment-closure literature. The matching Resultary thresholds and rate optimum are counted as overlap, independently of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the model, endemic equilibrium, Jacobian and stability; not the inspected comparison and two-objective result",
+          "evidence": "ξ(1−z)−ζzy is the network equation; the endemic equilibrium and spiral behavior are given for this response.",
+          "identifier_or_url": "https://arxiv.org/abs/2209.01224",
+          "material_read": "§4.2 Eq. (12), PDF pp. 9–10, text offset 29826",
+          "method": "Lawful OA PDF passage",
+          "title": "A minimal model for adaptive SIS epidemics",
+          "trigger": "Identical one-population responses"
+        },
+        {
+          "assessment": "Exact interval and spectral optimizer covered; endemic-level crossing is not cross-speed comparison",
+          "evidence": "The proof has polar equations for r and θ; θ winds and each revolution crosses y=y_* for one solution.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-adaptation-speed-tuning-for-damped-endemic-fluctuations--3db881d69750/RESULT.md",
+          "material_read": "Finding, nonlinear focus proof and prior comparison, offsets 0, 4200, 5853",
+          "method": "Local mirror",
+          "title": "Sharp adaptation-speed tuning for damped endemic fluctuations",
+          "trigger": "Exact fixed-ratio phase and spectral tuning overlap"
+        },
+        {
+          "assessment": "Different multigroup setting",
+          "evidence": "Two-community periodic dynamics and exclusion of one-community limit cycles; not the frozen asymptotic ranking comparison.",
+          "identifier_or_url": "https://arxiv.org/abs/2407.17639",
+          "material_read": "Abstract and §2, PDF pp. 1–2, offsets 0 and 7088",
+          "method": "Lawful OA passages",
+          "title": "A minimal model for multigroup adaptive SIS epidemics",
+          "trigger": "Closest multigroup periodicity result"
+        },
+        {
+          "assessment": "Unresolved access, not negative evidence",
+          "evidence": "The cited network moment-closure paper could not be compared at the required theorem level.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.106.014308",
+          "material_read": "No full-text passage obtained",
+          "method": "Lawful direct and alternate OA retrieval attempts",
+          "title": "Moment closure approximations of susceptible-infected-susceptible epidemics on adaptive networks",
+          "trigger": "Related adaptive SIS model and possible common-rate reduction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, especially lines 70–115",
+        "arXiv:2209.01224 §4.2",
+        "Resultary 3db881d69750"
+      ],
+      "rationale": "Holding equilibrium burden fixed separates transient behavior from limiting prevalence. The spectral and damping-ratio optima show that two well-defined transient objectives prefer different speeds, and the nonlinear result rules out an eventual permanent prevalence ordering for the specified paired perturbations. Infinitely late but vanishing reversals are more informative here than a plotted spiral or equal endpoints.",
+      "residual_risks": [
+        "A local deterministic mean-field comparison, not a stochastic epidemic claim, policy recommendation, or persistent-cycle result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

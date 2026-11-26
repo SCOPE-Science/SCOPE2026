@@ -1,17 +1,21 @@
-## Correctness — PASS
+# Independent mathematical audit
 
-The reciprocal change of variables gives an affine three-step return map with slope \(1/(abc)\), hence global convergence whenever \(abc>1\), and extinction otherwise. Direct substitution verifies each cyclic-phase rational formula. Clearing the six positive denominators gives the displayed factored sign identity, verified symbolically and on independent exact rational fixed-point calculations. The scaling construction proves an unbounded mean ratio, not just a single favorable schedule.
+## correctness
 
-## Originality — PASS, with residual literature uncertainty
+PASS
 
-The 2010 Beverton–Holt harvesting paper already demonstrates mean sensitivity to **carrying-capacity** ordering, and the Yang–Sacker 2012/2013 paper already gives general **phase-average** formulas (including period three). Those foundations are not claimed new. The present additional statement is a uniform **strict ranking** of the two growth-permutation classes in the fixed-denominator scalar map, with a sharp factored identity and an unbounded ratio. Neither of these exact conclusions is stated in the inspected relevant text. Closest research-record results concern different seasonal dynamics; a relevant 2013 paper was available only at abstract level and might contain an equivalent theorem. Related 2020 permutation work compares harvested-population geometric means, not the present arithmetic means. This assessment does not establish global uniqueness.
+For order (u,v,w), the map on the reciprocal y over three seasons is y↦(y+1+u+uv)/P. It has a unique positive attracting fixed point exactly for P>1; rotating the formula gives the other phases. For P≤1 the map instead drives y to infinity, and each within-period phase does so as well. For P>1, after canceling the mean's common factor (P−1)/3, the oriented mean difference is (b−a)/A−(c−a)/B+(c−b)/C, where A,B,C are the two-factor products for pairs ab,ac,bc respectively. I checked the expanded identity (b−a)BC−(c−a)AC+(c−b)AB=(b−a)(c−a)(c−b)(P−1)Q as an exact polynomial over the integers. Putting back the common factor gives the claimed formula and strictly positive sign. The example for (1/2,2,8) gives difference 36603/271700 by rational arithmetic. All permutations for periods one or two are phase shifts, and the two classes for three distinct rates have the stated strict inequality. In the unbounded-ratio family (1/t,t,t³), the leading reciprocal denominator for (a,b,c) is 1/(2+1/t) and for (a,c,b) is 1/(2+t), with the remaining terms O(t^−3) and O(t^−2), respectively. Their quotient is asymptotic to t/2.
 
-## Mathematical value — PASS
+## originality
 
-The theorem answers a naturally motivated scheduling question: given an identical multiset of environmental fecundity multipliers, which cyclic ordering maximizes long-run mean abundance? It determines the **first** number of seasons where a schedule can matter, ranks every 3-season permutation for all positive multiplier values in the persistence region, and quantifies unbounded sensitivity despite invariant persistence threshold. This exact global ordering is more informative than a parameter-specific numerical order-dependence example.
+PASS
 
-## Limits and literature risk
+Existing work already shows that three-season order can matter, and gives general periodic mean formulas. The supported distinct result is the strict ordering of the two growth-rate permutation classes with a fixed denominator, its exact positive gap and its unbounded relative advantage; neither a bare order effect nor the mean formula alone is new.
 
-The recurrence has season-independent crowding coefficient; no statement is made for general periodic harvesting, varying density dependence, or four or more seasons. The large-ratio regime includes an individual subcritical season. Allen–Kocic (2013) and Al-Ghassani–AlSharawi (2020) could not be reviewed in full, so equivalent statements cannot be categorically excluded.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+At the shortest period permitting a noncyclic reordering, the persistence threshold is order-invariant but the positive arithmetic mean has a universal strict ranking and can change by an unbounded factor. This separates viability from abundance in a naturally parameterized model, rather than merely illustrating order dependence with a chosen numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

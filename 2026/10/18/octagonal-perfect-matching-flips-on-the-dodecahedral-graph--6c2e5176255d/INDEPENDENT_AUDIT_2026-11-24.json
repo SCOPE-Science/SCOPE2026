@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:52:51.279361Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_pairwise.py, verify_faces.py, output_pairwise.txt, output_faces.txt and states_edges.json",
+        "/workspace/branches/dodecahedron-independent.py"
+      ],
+      "rationale": "Exhaustively reconstructed the matching state set independently: combine each partial matching of the ten outer edges with every partial matching of the ten inner edges covering exactly the same labels modulo 10, and fill all remaining labels with spokes. This gives exactly and uniquely all 36 matchings. Enumerated simple cycles by starting at their least vertex and taking one orientation. The 12 pentagons give a spherical embedding: every edge occurs twice, each vertex link is a triangle, and the connected complex has Euler characteristic 2. There are zero 4- and 6-cycles and exactly 30 octagons, equal to the boundaries of the 30 edge-sharing face pairs. Each octagon alternates at exactly eight matchings and toggles to another enumerated matching. Verified all 120 undirected edges, the exact complementary-factor and distance layers at every state, both exceptional incidence multiplicities, independence and all six induced C10 links. Every state has eccentricity 3. The canonical arrays agree entrywise with states_edges.json, and the digest is a70573c1719c0680ca78fc3919e5fc78b77a442c557fc17916c5968f7b23790c. Replay with python3 -B /workspace/branches/dodecahedron-independent.py <frozen-record-directory>/states_edges.json. Inspected both reference programs and their recorded outputs without executing uploaded code. The conclusion is exhaustive only for GP(10,2).",
+      "residual_risks": [
+        "The face verifier by itself does not assert complementary-factor types; the pairwise certificate and the fresh reconstruction check the types state by state."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ye–Qi–Zhang use alternating hexagonal faces; Ito et al. use one alternating cycle of unrestricted length."
+        ],
+        "reasoning": "Hexagonal-face resonance supplies no moves here. Connectivity via unrestricted alternating cycles does not give restricted connectivity or distances.",
+        "searches": [
+          "arXiv:0801.1483",
+          "arXiv:1907.01700"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 8aadbd6cc4ba",
+        "Fujita MATCH 69 (2013)",
+        "arXiv:0801.1483",
+        "arXiv:1907.01700"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Degree 4 in the Hamiltonian-only graph and its diameter 4 contrast with degree 6 for the same states and diameter 3 in the full graph."
+        ],
+        "reasoning": "The 30-state graph with a known six-state complement count does not determine which exceptional states attach to each pair, their C10 links, or all-pairs distances in the enlarged graph.",
+        "searches": [
+          "Resultary 8aadbd6cc4ba, Finding and verification",
+          "Ito et al., pp. 1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 8aadbd6cc4ba identifies the 30-vertex Hamiltonian switch graph at length 8 as the bipartite double cover of the Petersen line graph, with 60 edges and diameter 4."
+        ],
+        "reasoning": "Taking complements preserves symmetric difference, so this is exactly the induced ordinary sector. It does not give the remaining 60 edges to exceptional states or the full diameter 3. Its catalogue date is later than the frozen record, not evidence of earlier priority.",
+        "searches": [
+          "Local Resultary: GP(10,2) perfect matching flips; dodecahedron Hamiltonian eight-edge switches",
+          "arXiv:1907.01700"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Fujita's dodecahedral coefficient is 36 perfect matchings, not a transition table.",
+          "The Resultary switch census is exact for the complementary Hamiltonian state set, not for all 36 states."
+        ],
+        "reasoning": "A census of configurations does not specify alternating octagon adjacency; the exact inspected switch census is on a proper subset.",
+        "searches": [
+          "Local Resultary dodecahedral eight-edge switch census",
+          "Fujita, MATCH 69, formula (50)",
+          "MathOverflow 192159, access attempted"
+        ]
+      },
+      "rationale": "The supported distinct claim is the full octagon-only graph, including how the six exceptional states attach and alter its distances, not the perfect matching count or an assertion of novelty for the Hamiltonian sector in isolation.",
+      "residual_risks": [
+        "MathOverflow 192159 returned 403 and the cited Aluoch thesis page could not be retrieved; the Schwenk DOI lookup yielded no OA copy. Coordinated broader searches were deferred. These access limitations do not exclude an equivalent prior table."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact ordinary-sector overlap; later catalogue date; no full graph coverage established",
+          "evidence": [
+            "30 Hamiltonian complements retained from 36 perfect matchings; 60 internal flips; diameter 4."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-the-icosian-eight-edge-switch-graph-is-a-petersen-line-graph-dou--8aadbd6cc4ba",
+          "material_read": "Finding and exchange census, structure and verification (offsets 0 and 3000–9968)",
+          "method": "Local Resultary search and mirror",
+          "title": "The icosian eight-edge switch graph is a Petersen line-graph double cover",
+          "trigger": "Exact dodecahedral 8-switch alias"
+        },
+        {
+          "assessment": "Known state count",
+          "evidence": [
+            "Dodecahedral perfect-matching coefficient 36."
+          ],
+          "identifier_or_url": "https://match.pmf.kg.ac.rs/electronic_versions/Match69/n2/match69n2_333-354.pdf",
+          "material_read": "Printed pp. 345–346, formula (50)",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Restricted Enumerations … Enumeration of Kekulé Structures and Perfect Matchings of Graphs",
+          "trigger": "Possible exact dodecahedral matching table"
+        },
+        {
+          "assessment": "Different moves",
+          "evidence": [
+            "Alternating hexagonal faces."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0801.1483",
+          "material_read": "PDF pp. 1–2",
+          "method": "OA PDF passage inspection",
+          "title": "On k-Resonant Fullerene Graphs",
+          "trigger": "Fullerene resonance alias"
+        },
+        {
+          "assessment": "Unrestricted rather than minimum-length cycles",
+          "evidence": [
+            "One symmetric-difference cycle of any length."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1907.01700",
+          "material_read": "PDF pp. 1–2",
+          "method": "OA PDF passage inspection",
+          "title": "Shortest Reconfiguration of Perfect Matchings via Alternating Cycles",
+          "trigger": "Potential broader move theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Fresh complete enumeration",
+        "Resultary 8aadbd6cc4ba for the Hamiltonian-only comparison"
+      ],
+      "rationale": "The first nonvacuous even-length flip is a motivated local move on the dodecahedron, unlike unrestricted switches whose connectivity follows directly from the symmetric-difference decomposition. The full restricted graph answers whether these moves suffice and gives sharp routing distances and exceptional attachment structure not determined by the matching or Hamiltonian counts.",
+      "residual_risks": [
+        "No inference for other generalized Petersen graphs or fullerenes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the endomorphism classification
+# Independent mathematical audit
 
-The all-field argument is contained in RESULT.md, Proof Steps 1–5, starting from the original basis multiplication identity. The standalone Python 3 program `verify_cayley_loop_endomorphisms.py` uses independent finite-field arithmetic and directly tests multiplicativity rather than applying the claimed classification to filter candidates.
+## correctness
 
-Execute `python3 verify_cayley_loop_endomorphisms.py` in a directory containing the embedded program. It exhaustively checks the entire space of 512, 65,536 and 262,144 linear maps for the examples of dimensions three and four over the binary field and dimension three over the field of order four. Exactly 5, 6 and 7 maps pass, respectively. The last printed line is `CYCLIC_CAYLEY_ENDOMORPHISMS_VERIFIED`. Additional direct composition checks examine all classified maps in dimensions 3–6 over the binary field.
+PASS
 
-These checks are finite and neither prove the all-dimensional result nor establish publication priority. The proof uses the kernel of \(I+S\), coordinatewise support dichotomy, characteristic-two injectivity of the squaring map, and the cyclic square relations; algebra-ideal splitting follows from the unique square-zero line and the coordinate-sum quotient. The scope is characteristic two with cycle length at least three. Independent validation has not been performed.
+The basis-product constraints are equivalent to the original bilinear multiplicativity identity. The square equations propagate any zero column around the cycle. Otherwise the product of any two distinct columns is coordinatewise constant. A nonzero such product forces one column and then every other column to be everywhere nonzero; using two different other columns forces its inverse coordinates to have the same square. This uses n≥3 and injectivity, not surjectivity, of squaring. The square equations then force the constant-column images to agree. In the other branch all n supports are nonempty and disjoint in n positions, so each is a singleton. Comparing the square equation first at the support positions and then at their coefficients gives exactly rotations with unit coefficients. Both families preserve the defining products. The rank and count follow; composition of two line maps multiplies their scalars by n in the field. Multiplying an element of a nonzero ideal by one basis element and iterating gives every basis square; their span is the coordinate-sum hyperplane. The square-zero line is the constant line, which gives an algebra section precisely in odd dimension, and the monoid calculation gives exactly the listed idempotent retractions.
+
+## originality
+
+PASS
+
+The Cayley construction and monomial automorphism rigidity are known. The inspected results do not give the full unrestricted endomorphism monoid of this singular family, in particular the rank-one branch, its parity-dependent multiplication and the square-ideal splitting. Priority is assessed relative to the evidence inspected.
+
+## value
+
+PASS
+
+This determines a natural invariant not captured by automorphism results: in a strongly connected but singular family it simultaneously rules out every intermediate rank and determines multiplication of the nonunits. The parity switch has a concrete algebraic consequence, the existence of a complementary zero-product subalgebra to the square ideal. The finite-field count is a useful exact consequence rather than the sole contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

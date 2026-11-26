@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:29:51.131842Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every internal subspace of the abelian V is a subalgebra (2q²+2q+4 choices). An external subspace is K(e+w)+W, with w mod W, and closes iff W is invariant under T=diag(1,1,λ); distinct eigenvalues force W=(W∩X)⊕(W∩Y). Summing the q^{3−dim W} cosets gives (q+1)(2q²+q+1) external subalgebras. A mixed pair fails iff the image of the internal subspace in V/W is noninvariant. For W=0 there are 2(q²−1) such internal subspaces; for W a line in X the quotient has q−1 mixed lines, each with q+1 preimages as a projected subspace (q lines and one plane). Larger W or W meeting Y gives a scalar quotient and no failures. Including both orders gives 2q²(q²−1)(3q+1). For two exterior subalgebras W_1,W_2 and cosets w_1,w_2, closure fails iff their coset difference in V/(W_1+W_2) is nonzero in both eigenspace projections. The difference map has fibres of size q^{3−dim(W_1∩W_2)}. Only two zero kernels, zero plus an X-line in either order, and two copies of the same X-line contribute, giving q²(q−1)²(q+1)(3q+1). Adding yields B(q); the displayed expansion and leading coefficient ratio give sd and the limit 1/4. Any K-linear isomorphism preserves the derived ideal V and intertwines the two actions up to a scalar; the uniquely repeated eigenvalue 1 forces scalar 1. All counting and projection arguments work in characteristic two as well. The frozen RREF verifier was inspected, not run; its recorded small-field results corroborate but do not establish the universal formula.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary preprint uses the same bracket-sum test and computes Heisenberg and special linear examples",
+          "The plane-count result is dimension three; cb2f8fb8c65a treats two eigenspaces both of dimension at least two and uses the same quotient difference criterion"
+        ],
+        "reasoning": "Neither a general definition nor a theorem that excludes the (2,1) multiplicities settles the earlier exact count. The earlier Heisenberg algebra has different bracket geometry.",
+        "searches": [
+          "Muhie–Otera–Russo arXiv:2609.19086v1, permutability criterion and main explicit small-dimensional computations",
+          "Resultary 0c4c7f02cc9c and cb2f8fb8c65a"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and artifacts/verify.py",
+        "arXiv:math/0404071 and arXiv:2609.19086v1",
+        "Resultary 409c328075cb, cb2f8fb8c65a, 0c4c7f02cc9c, 246d7542fd6a and 2ca07ad52f23"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known isomorphism classification implies the q−2 parameter distinction. The scalar-affine invariance of T explains why λ drops out and why the later affine-rank-two computation transfers.",
+          "None of the inspected earlier definitions, isomorphism classifications or exact examples supplies the required ordered-pair incidence polynomial."
+        ],
+        "reasoning": "The distinct computation is the probability and its finite-geometry failure count, not existence of the family or the parameter distinction. A later general formula that acknowledges the earlier diagonal count does not demonstrate prior implication.",
+        "searches": [
+          "de Graaf arXiv:math/0404071 and Muhie–Otera–Russo arXiv:2609.19086v1",
+          "Resultary 409c328075cb, cb2f8fb8c65a, and 2ca07ad52f23"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "de Graaf's M^3_a has a separate 1-eigenline and a companion block with roots 1 and a. At a=λ≠0,1 it is exactly the frozen family up to change of basis.",
+          "P_Y has the same invariant subspaces as T, and its semidirect product with V is aff_1(K)⊕K². On the common vector space, the identity preserves all subalgebras and all permutable pairs."
+        ],
+        "reasoning": "The isomorphism-family clause is known. The central comparator is not isomorphic as a Lie algebra, but its incidence equality is exact, not a coincidence of two polynomials. Checked statements about centre or isomorphism alone do not enumerate this incidence structure.",
+        "searches": [
+          "Resultary: bracket-sum incidence, two-eigenspace permutability, central affine stabilization, scalar-shift invariance",
+          "de Graaf arXiv:math/0404071, four-dimensional classification"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The classification gives isomorphism types, not N(q) or B(q). The Heisenberg stabilization record 246d7542fd6a has the same limit but different finite polynomials.",
+          "Record 409c328075cb has all-rank finite sums for the affine stabilization; r=2 gives the frozen polynomials and the discussion acknowledges the diagonal count as earlier."
+        ],
+        "reasoning": "Exact equivalent entries are credited, while separating a later affine specialization from an earlier source. A shared limit is not an exact table match.",
+        "searches": [
+          "Resultary: exact N(q) and ordered nonpermutable pairs for diag(1,1,λ), affine central rank two, Heisenberg central stabilization",
+          "de Graaf arXiv:math/0404071, §4 classification"
+        ]
+      },
+      "rationale": "De Graaf's classification already distinguishes these isomorphism types, and the permutability degree itself is established terminology. The supported distinct content is the exact ordered-pair failure polynomial and subalgebra count for this normalized split family. The later affine-stabilization formula indeed covers exactly the same incidence structure: on the same vector space P_Y=(T−I)/(λ−1), and replacing T by P_Y does not change the subalgebra test for any vector subspace, hence also does not change sum-closure. The later entry explicitly describes the diagonal calculation as earlier; it is independent evidence of equivalent mathematical coverage, not evidence that the frozen calculation merely specialized an earlier affine count. The checked earlier primary results do not supply such a count.",
+      "residual_risks": [
+        "An older lattice-incidence calculation for the equivalent affine rank-two case would transfer automatically; the checked evidence does not establish such a source. This is a bounded statement comparison, not certification of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior coverage of family and nonisomorphism clause, not counts",
+          "evidence": "The normalized family M^3_a has companion polynomial (t−1)(t−a); de Graaf states M^3_a≅M^3_b iff a=b.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0404071",
+          "material_read": "§4, pp. 6–7, offsets 17630–21382, rational-canonical case with blocks of sizes one and two",
+          "method": "OA primary PDF passage",
+          "title": "Classification of solvable Lie algebras",
+          "trigger": "Four-dimensional solvable classification over arbitrary fields"
+        },
+        {
+          "assessment": "Exact definition and nearby distinct families; no direct count match in the relevant passages",
+          "evidence": "The measure uses [A,B]⊆A+B; the three-dimensional Heisenberg formula is different. Its narrow 'almost abelian' terminology means scalar action, not the present two-eigenvalue action.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.19086v1",
+          "material_read": "pp. 1–2 permutability criterion and Definition 1.1, offset 3150 and offsets 7350–10245; §2 Definition 2.1 around offset 15800; p. 9 Heisenberg proof around offset 33800",
+          "method": "OA primary PDF passages",
+          "title": "On the number of modular pairs in finite dimensional Lie algebras on finite fields",
+          "trigger": "Same measure and plausible exact examples"
+        },
+        {
+          "assessment": "Equivalent counts, but the passage expressly recognizes the earlier diagonal calculation; main new range r≥3",
+          "evidence": "The finite sums specialize to r=2; the prior-work passage explicitly matches T_2,N_2 to the earlier eigenvalues (1,1,λ) family.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-parity-phase-transition-for-subalgebra-permutability-in-centrall--409c328075cb/RESULT.md",
+          "material_read": "Mirrored finding and assumptions, offsets 0–2684; prior-work passage, offsets 8300–11044",
+          "method": "Local mirror passages and explicit projection equivalence",
+          "title": "Parity phase transition for subalgebra permutability in centrally stabilized affine Lie algebras",
+          "trigger": "Exact polynomials at affine central rank two"
+        },
+        {
+          "assessment": "Related broader mechanism, but stated multiplicity range excludes this boundary",
+          "evidence": "For exterior pairs, the difference must span an invariant line in the quotient; the stated split theorem needs both dimensions at least two.",
+          "identifier_or_url": "Resultary cb2f8fb8c65a",
+          "material_read": "Mirrored proof §4, offsets 5000–7432, and multiplicity assumptions",
+          "method": "Local mirror passage comparison",
+          "title": "Two-eigenspace subalgebra permutability and a three-phase finite-field limit",
+          "trigger": "Same incidence mechanism in two spectral spaces"
+        },
+        {
+          "assessment": "Different dimensions or bracket geometries",
+          "evidence": "The plane formula is specific to dimension three; the nilpotent example has the same 1/4 limit but different polynomials.",
+          "identifier_or_url": "Resultary 0c4c7f02cc9c and 246d7542fd6a",
+          "material_read": "Mirrored three-dimensional finding (offsets 0–3176) and stabilized Heisenberg findings and count passages (offsets 0–2706 and 3800–5971)",
+          "method": "Local mirror passage comparisons",
+          "title": "Plane counts control subalgebra commutativity in dimension three; Exact subalgebra commutativity degree after a one-dimensional central stabilization of the Heisenberg algebra",
+          "trigger": "Earlier exact enumerations for small Lie algebras"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This computes a full ordered-pair incidence probability for a natural isomorphism family in the smallest dimension beyond the plane-count framework. It quantifies how often sum closure fails, shows a uniform 1/4 limiting degree for the family, and exhibits exactly what this invariant cannot distinguish about its q−2 isomorphism types. The informative part is the finite incidence calculation and mixed-versus-exterior failure split, not the familiar normal form or the scalar shift by itself.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

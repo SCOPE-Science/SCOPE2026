@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:52:40.529451Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The binary cut matrix determines the flat nonzero Schmidt spectrum and hence the entropy, including all ordinary positive Rényi orders. The even-d adjacency squares to zero; multiplication by the nonzero linear form in the square-zero group algebra has half rank, giving r=2^(d-2) for B and identifying each parity image with the opposite transpose kernel. The cited minimum distance can also be checked directly: split on one cube coordinate and let S be the (d-1)-cube adjacency. S^2=I over F2 and the full adjacency image consists of (z,Sz). If the smaller block has weight k<=d/2, the other has weight at least k(d-1)-4 binom(k,2), since two distinct cube vertices share at most two neighbors and for t incidences the binary parity count is at least t-2 binom(t,2). The total is at least k(d+2-2k)>=d for 1<=k<=d/2; if both blocks are larger, the bound is immediate. A neighborhood attains d. Thus for k<d the distinct endpoint indicators are independent modulo the two images. In bases reducing B to an identity block and zero block, the full-rank quotient projections let block-triangular operations remove the upper parts of both update factors without changing B, giving the exact rank increment k. At k=d the neighborhood matching has just the all-ones endpoint relation on both sides. The projected kernel is the even-sum hyperplane; the candidate nonzero relation would require the all-ones vector plus a single indicator to be in this hyperplane, impossible for even d. This gives nullity r-d+1. The replacement changes the full endpoint sum by two coordinate vectors of weight two, which is below the code distance, so it is no longer in the image; translation gives the other side and the increment d. Interpreted in the usual positive-order Rényi domain: the wording does not justify finite negative-order full-space traces in the presence of zero eigenvalues. Inspected RESULT.md, VERIFICATION.md, checks/verify.py and checks/verification_output.txt. The logged 4,031 comparisons include exhaustive Q4 sizes 1–3, sampled larger cubes and both witnesses; the replay path is python3 checks/verify.py, not rerun here.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "4528be5291d1 gives the additive rank gain for every subset of a specified matching of size 2^(d-2).",
+          "0f1e8bff6768 gives an all-matching threshold for even-order projective-plane incidence graphs, with the first rank losses linked to line or pencil endpoint configurations.",
+          "The general single-edge change bound is at most one."
+        ],
+        "reasoning": "A large nested construction covers independent examples even at k=d, but not every placement and not the at-threshold loss. A projective plane is not a cube and its critical count is determined by distinct incidence structure. The general edge-change bound does not establish the sign.",
+        "searches": [
+          "Resultary: omitted-gate restoration on even hypercubes and graph-state incidence-matching thresholds",
+          "arXiv:quant-ph/0307130, Proposition 5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, checks/verify.py, checks/verification_output.txt and AUDIT.json",
+        "arXiv:quant-ph/0307130 and arXiv:quant-ph/0602096",
+        "doi:10.13069/jacodesmath.13099",
+        "Resultary records bcc73b58c68a, 4528be5291d1 and 0f1e8bff6768"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The minimum distance implies quotient endpoint independence below d once images are identified by parity; the rank increment then uses the matched low-rank update.",
+          "At d the distance alone says nothing about whether the complete endpoint set is a codeword or what the resulting updated kernel is. The two explicit d-edge matchings resolve this."
+        ],
+        "reasoning": "The known code and graph-state theorems give the inputs to the rank-update argument, not an already inspected theorem with both the all-placement rank interval and placement-sensitive boundary. In particular generic edge-change bounds and the later optimum matching cannot imply the dependent witness.",
+        "searches": [
+          "Seneviratne 2016, Introduction and graph-code definition",
+          "Key–Seneviratne 2007, doi:10.1142/9789812772022_0010",
+          "4528be5291d1, specified matching hypothesis"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hein et al. give exact binary cut rank and flat nonzero spectrum for graph states.",
+          "Seneviratne defines the graph code by adjacency row span and explicitly gives minimum weight d for even d; symmetry identifies the row span with the image used here."
+        ],
+        "reasoning": "The sharp matching-defect theorem is exactly a law for the rank of B+UV^T with disjoint coordinate endpoint factors; the cut-rank theorem is an equivalence, not a classification of those rank updates.",
+        "searches": [
+          "Resultary: hypercube graph-state checkerboard entropy, matching gate deletions and cut rank",
+          "arXiv:quant-ph/0602096v1, Proposition 10 and equations (143)–(146)",
+          "doi:10.13069/jacodesmath.13099"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "bcc73b58c68a states mn/2-gcd(m,n) for even C_m square C_n, and a universal one-bit gain from one omission. C4 square C4 is Q4, including its bipartition, so m=n=4 gives 4 to 5 bits.",
+          "4528be5291d1 gives the same numerical additive law at every size through 2^(d-2) within one specified matching."
+        ],
+        "reasoning": "The torus result covers the exact d=4,k=1 slice, which receives no new credit. The overlap between particular additive examples and the universal law does not supply arbitrary-placement additivity or the first loss. No ordering of the same-day torus and projective-plane entries is inferred.",
+        "searches": [
+          "Resultary: checkerboard graph state even periodic two-dimensional torus single missing controlled Z bond exact Schmidt rank entanglement one bit parity square grid",
+          "Resultary: even hypercube optimal entanglement restoration"
+        ]
+      },
+      "rationale": "The supported distinct result is the all-placement interval up to d-1 for every even d>=4, together with the first two rank values witnessed at k=d. Flat cut rank, the base rank and code distance are prior ingredients. The 4-cube one-edge instance is covered by the 4 by 4 torus calculation. The strongest same-cube indexed comparison produces subsets of a particular matching, not the universal quantifier or the dependent threshold witness. A same-day projective-plane threshold theorem concerns a different incidence matrix. No priority beyond these comparisons is asserted.",
+      "residual_risks": [
+        "The 2007 chapter could not be read directly; the 2016 exact restatement and direct proof support the mathematical input without claiming access.",
+        "Bounded catalog and literature comparison cannot exclude an unindexed equivalent rank-update theorem; novelty is not assigned to the already covered four-cube single-edge slice."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers flat spectrum via rank, not the placement classification",
+          "evidence": "Schmidt rank is two to the binary cut rank and the reduced state is proportional to a projection.",
+          "identifier_or_url": "https://arxiv.org/html/quant-ph/0602096v1",
+          "material_read": "Proposition 10, equations (143) and (145)–(146), printed pp. 39–40 (HTML offset about 178250)",
+          "method": "Open-access full-text passages",
+          "title": "Entanglement in graph states and its applications",
+          "trigger": "Exact graphical entropy reduction"
+        },
+        {
+          "assessment": "At-most-one change bound, not a signed matching law",
+          "evidence": "Edge addition/deletion changes the Schmidt measure by at most one.",
+          "identifier_or_url": "https://arxiv.org/abs/quant-ph/0307130",
+          "material_read": "Proposition 5, equation (44), PDF p. 8",
+          "method": "Open-access full-text passage",
+          "title": "Multi-party entanglement in graph states",
+          "trigger": "General effect of deleting an edge"
+        },
+        {
+          "assessment": "Confirms the exact code minimum distance in the frozen proof",
+          "evidence": "The ordinary even n-cube adjacency row-span code is self-dual with minimum weight n.",
+          "identifier_or_url": "https://doi.org/10.13069/jacodesmath.13099",
+          "material_read": "PDF pp. 37–38 introduction and graph-code definition; reference [5]",
+          "method": "Open-access journal PDF passages",
+          "title": "Generalized hypercube graph Q_n(S), graph products and self-orthogonal codes",
+          "trigger": "Verify exact adjacency-code premise for all even dimensions"
+        },
+        {
+          "assessment": "Original wording not verified; the mathematical premise is explicitly restated in the accessible 2016 paper and independently checked above",
+          "evidence": "The 2016 work identifies the 2007 chapter at pp. 152–159 and attributes the code result.",
+          "identifier_or_url": "https://doi.org/10.1142/9789812772022_0010",
+          "material_read": "Bibliographic reference in the 2016 paper; 2007 full text not accessed",
+          "method": "Lawful publisher and author-copy retrieval attempts and DOI recovery",
+          "title": "Permutation decoding for binary self-dual codes from the graph Q_n where n is even",
+          "trigger": "Original code-distance attribution"
+        },
+        {
+          "assessment": "Covers the d=4 single-deletion slice, not the full law",
+          "evidence": "Even rectangular tori have baseline mn/2-gcd(m,n) and every one-edge deletion gains one bit.",
+          "identifier_or_url": "2026/11/2/SCOPE-commensurability-deficit-and-single-bond-entanglement-gain-in-pe--bcc73b58c68a",
+          "material_read": "RESULT.md Finding and Assumptions and scope (mirror offsets 0–3633, including proof opening)",
+          "method": "Indexed lookup and mirrored full-text passage",
+          "title": "Commensurability deficit and single-bond entanglement gain in periodic square cluster states",
+          "trigger": "Exact d=4, k=1 overlap cited in the frozen result"
+        },
+        {
+          "assessment": "Later result on particular matching subsets, not coverage of arbitrary placements or the dependent witness",
+          "evidence": "A specified matching of size 2^(d-2) has additive gain on all its subsets.",
+          "identifier_or_url": "2026/11/22/SCOPE-optimal-entanglement-restoration-by-omitted-gates-on-even-hyperc--4528be5291d1",
+          "material_read": "RESULT.md Finding",
+          "method": "Indexed lookup and mirrored finding passage",
+          "title": "Optimal entanglement restoration by omitted gates on even hypercubes",
+          "trigger": "Closest same-system additive matching classification"
+        },
+        {
+          "assessment": "Related threshold pattern for a different graph and cutoff",
+          "evidence": "Universal incidence-matching gain through q, with one-bit losses at q+1 for specified line or pencil patterns.",
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-incidence-matching-fault-threshold-for-graph-state-entangl--0f1e8bff6768",
+          "material_read": "RESULT.md Finding",
+          "method": "Indexed lookup and mirrored finding passage",
+          "title": "Sharp incidence-matching fault threshold for graph-state entanglement on even-order projective planes",
+          "trigger": "Closest analogous sharp matching threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Disjoint omitted gates are a natural ideal fault model, and the question is whether their cut-entanglement effects superpose regardless of placement. The exact first placement-sensitive size, including both constructive outcomes there, is a useful boundary that cannot be inferred from a table of examples or a bound on single-edge effects. It makes no operational claim for noisy gates or fault-tolerance protocols.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

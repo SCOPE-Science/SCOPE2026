@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:36:31.266128Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–81; deterministic equation, independent agreement-set splitting proof and analytic transfer conditions checked",
+        "Frozen VERIFICATION.md and checker.py (inspected, not executed); 8,496 checks are reported self-tests"
+      ],
+      "rationale": "For a single attacker p(v), exclusion of v forces inclusion of p(v) and inclusion of v excludes p(v); an unattacked vertex must be included. Thus exactly the displayed Boolean complement equations encode stability. Following parent pointers in a weak component terminates at its sole root or sole directed cycle. Each independent even cycle has two phases that disagree at every vertex of its component, including off-cycle vertices; an odd cycle or loop rules out stability globally. Hence each even component contributes 2+2y^{s_i}, and rooted components contribute 1. In the total-map ensemble, partitioning the labelled vertices by agreement versus disagreement of E and H gives two sets each closed under the parent map, since p(v) complements both membership bits. On each set, H is determined by E, so per set the objects are functions decorated by one alternating colouring. An even cycle of length 2j has two such colourings and gives T(z)^{2j}/j. Taking a labelled set of components gives 1/(1−T²) for each set independently. This rederives Q(z)Q(zy), n!q_kq_{n−k}, and the Lagrange coefficient formula; q_0=1, q_1=0 and the ensemble is nonempty for all n≥2. For the limit, T(1/e)=1 and its positive coefficients at every degree imply |T(z)|<1 everywhere else on that circle (the series converges absolutely there). The implicit-function derivative is nonzero there; at 1/e the inverse z=Te^(−T) has a simple quadratic turning point, yielding a square-root expansion in a dented domain. Transfer yields q_m~e^m/(2√(2πm)) and [z^n]Q²~e^n/8. Their ratio gives the stated local law uniformly away from endpoints. Using q_m≤C e^m/√(m+1), each boundary window of relative width ε has mass O(√ε) for sufficiently large n; Riemann sums therefore give the whole beta distribution, not just local convergence. The size-five example follows from q_2=q_3=1, q_5=37/3; the resulting counts 1480,240,240,1480 agree with the recorded small check.",
+      "residual_risks": [
+        "The law is only for uniform ordered triples and includes identical pairs; it is not transferred to a uniform admissible map or a different graph orientation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Boolean-network paper identifies stable extensions with fixed points and gives a bound by a transversal of positive cycles. The diversity paper defines symmetric-difference distance broadly. The same-day three-viewpoint result optimizes a minimum of three pair distances on directed paths and cycles, never on branching in-trees of the parent function."
+        ],
+        "reasoning": "The general bound does not give the lower bound or arbitrary component-wise disagreements. Pairwise diversity as a notion is established, but neither a metric definition nor a three-extension optimum supplies the entire ordered-pair histogram for broader one-attacker components.",
+        "searches": [
+          "Trinh–Benhamou–Risch Theorem 16 and Corollary 3",
+          "Fichte et al. arXiv:2605.13332v1 p. 5",
+          "Resultary degree-one and functional-frame stable extension results"
+        ]
+      },
+      "checked_sources": [
+        "Resultary, including all three identified related Findings",
+        "DOI:10.5220/0013346400003890",
+        "arXiv:2605.13332v1",
+        "Limited lawful access attempts for the classical random-mapping paper"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known local encoding makes the deterministic parity mechanism close to immediate once specialized. Classical tree/cycle enumeration and analytic transfer give the probabilistic implication once the bivariate product is proved. The inspected functional-frame count does not establish that product: even a graph with one 2-cycle and one attached leaf can under reversed attacks force one preferred stable phase rather than two. The cited and alternative attempts at the mapping paper did not yield readable passages; it is not ruled out as a source of a related mapping-split result."
+        ],
+        "reasoning": "It is not a new general arcsine theorem or new fixed-point semantics. The material non-covered step is the exact correspondence for ordered stable pairs, where trees move with their cycles and the functional map has weight 4^c. No inspected general result was verified to already identify and give this exact split for the same model.",
+        "searches": [
+          "Trinh–Benhamou–Risch encoding and cycle bound",
+          "Resultary exact three-viewpoint and uniform functional-frame findings",
+          "Flajolet–Odlyzko Random Mapping Statistics, cited OA copy and author-site alternate"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A stable pair corresponds to a split into agreement and disagreement with one alternating assignment on each induced functional map; each side is a two-coloured map with edges switching colour. Its one-side EGF is Q. A prior Boolean fixed-point formalism does give the local parity updates. A search lead relating GEM/Poisson–Dirichlet and arcsine laws was not available in full text and does not establish this equivalence in the literature."
+        ],
+        "reasoning": "The analytic beta-split implication for two identical assemblies with exponent 1/2 is standard and not an independent novelty claim. The content here is identifying and evaluating precisely this argumentation statistic as such a split. In particular uniform unweighted mappings would have a different component weight; parity restriction plus four ordered phase pairs is essential. Equivalent unrestricted-colour bipartite mapping formulations remain relevant residual risk.",
+        "searches": [
+          "Resultary: ordered stable pair disagreement, degree-one argumentation and functional mapping multiplicities",
+          "Focused literature lookup for arcsine laws from coloured random mapping components and logarithmic assemblies",
+          "Trinh–Benhamou–Risch DOI:10.5220/0013346400003890, fixed-point encoding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The bidirected-path result tabulates the identical ordered-pair statistic via a rational generating function, but internal path vertices can have two attackers. The functional attack-frame result tabulates stable multiplicities with arcs v→f(v), not disagreement with arcs f(v)→v. The three-viewpoint result gives a makespan optimization rather than a pair-count enumerator."
+        ],
+        "reasoning": "There is no exact matching table among these passages; neither reversing all arcs nor substituting the path length leaves the problem unchanged. The main finding is an all-n formula and a limit, not a finite sample census.",
+        "searches": [
+          "Resultary: ordered stable-extension diversity polynomial, functional attack mappings, exact degree-one diversity",
+          "Three closest indexed RESULT.md Findings at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4"
+        ]
+      },
+      "rationale": "The stable Boolean encoding, symmetric-difference metric, parity ingredients and labelled mapping technology are prior background. The supported distinct claim is the exact whole-component ordered-pair enumerator and its translation to an exact size split and arcsine law for the stated pair-decorated mapping ensemble. The verified catalogue overlaps constrain this judgment but do not have that model and conclusion together.",
+      "residual_risks": [
+        "Older bipartite mappings, two-colour mapping assemblies or Poisson–Dirichlet splitting theorems could contain an equivalent combinatorial law. The unavailable search lead and inaccessible mapping text are not negative evidence. Same-day catalogue dates do not settle chronology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known fixed-point characterization and cycle-based upper bound; no identical diversity or ensemble result in the inspected parts",
+          "evidence": "For a single attacker the update complements its value; a positive-cycle transversal yields a 2^{|U|} extension-count bound.",
+          "identifier_or_url": "https://doi.org/10.5220/0013346400003890",
+          "material_read": "PDF p. 1 offset 850; encoding offset 27393; Theorem 16 and Corollary 3 around p. 9 offset 54300",
+          "method": "Primary OA passage inspection",
+          "title": "Graphical Analysis of Abstract Argumentation Frameworks via Boolean Networks",
+          "trigger": "Prior fixed-point equations and cycle results possibly covering one-attacker stability"
+        },
+        {
+          "assessment": "Known metric, not the weighted random-map structure",
+          "evidence": "Distance is |S△T| for extensions S and T.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.13332",
+          "material_read": "p. 5, OA offset 15700",
+          "method": "Primary OA passage inspection",
+          "title": "Diversity of Extensions in Abstract Argumentation",
+          "trigger": "General source for the same distance statistic"
+        },
+        {
+          "assessment": "Overlaps parity and diversity viewpoint; graph restriction and statistic differ",
+          "evidence": "For indegree and outdegree ≤1 it optimizes the minimum pair distance for three distinct extensions, via three-bin makespan on even cycle lengths.",
+          "identifier_or_url": "2026/10/26/SCOPE-exact-three-viewpoint-stable-extension-diversity-for-degree-one--507cf5e0d7fc",
+          "material_read": "RESULT.md Finding and scope, offsets 0–2089",
+          "method": "Resultary lookup and local-mirror passage inspection",
+          "title": "Exact three-viewpoint stable-extension diversity for degree-one argumentation graphs",
+          "trigger": "Closest same-day parity/diversity result"
+        },
+        {
+          "assessment": "Different orientation, measure and statistic",
+          "evidence": "Uses v→f(v), uniform maps and counts the number of stable extensions; its limit for the positive exponent is Poisson conditional on existence.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-stable-extension-multiplicities-in-uniform-functional-atta--fa7b2e080582",
+          "material_read": "RESULT.md Finding, offsets 0–1910",
+          "method": "Resultary lookup and local-mirror passage inspection",
+          "title": "Exact stable-extension multiplicities in uniform functional attack frames",
+          "trigger": "Exact distribution in a superficially matching random mapping model"
+        },
+        {
+          "assessment": "Different object; does not encompass putative branching one-attacker components or the map ensemble",
+          "evidence": "Bidirected paths have two attackers at internal vertices and yield a rational path-length generating function and a limiting mean.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-ordered-stable-extension-diversity-polynomial-of-bidirected--b542a4289c17",
+          "material_read": "RESULT.md Finding and scope, offsets 0–2021",
+          "method": "Resultary lookup and local-mirror passage inspection",
+          "title": "The ordered stable-extension diversity polynomial of bidirected paths",
+          "trigger": "Same polynomial on another natural graph family"
+        },
+        {
+          "assessment": "No source-level finding about coverage",
+          "evidence": "The mapping decomposition and square-root tree asymptotics are credited; access attempts do not resolve whether an equivalent split statistic was treated.",
+          "identifier_or_url": "Flajolet–Odlyzko, EUROCRYPT 1989, pp. 329–354",
+          "material_read": "No full-text passage obtained",
+          "method": "Attempted cited OA copy and identified author-site route (unavailable)",
+          "title": "Random Mapping Statistics",
+          "trigger": "Closest classical mapping toolkit; possible prior component-colouring law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–42 and the exact component-colouring mechanism",
+        "Resultary comparison of other argumentation diversity and random mapping results"
+      ],
+      "rationale": "The classification is an exact diversity statistic, not just an extension-count formula: branches amplify whole-component disagreements and the polynomial keeps subset-sum multiplicities. The natural pair-decorated model then has a computable finite distribution and a nonconcentrating arcsine limit for the disagreement fraction. Weighting and component sizes are essential, so the combination gives more than an isolated application of a familiar transfer theorem or a recomputation of a metric already tabulated on a different family.",
+      "residual_risks": [
+        "No implication for uniformly selected admissible frameworks or higher attack indegree is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

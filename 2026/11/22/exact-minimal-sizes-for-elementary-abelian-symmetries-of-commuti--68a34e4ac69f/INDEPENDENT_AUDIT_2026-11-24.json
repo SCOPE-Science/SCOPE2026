@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:58:50.360377Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–71",
+        "Frozen VERIFICATION.md lines 18–22 and CHECK.py, inspected without execution",
+        "/workspace/branches/review_checks.py (ordinal 5)"
+      ],
+      "rationale": "The two sides of the braid identity have coordinates (f²(z),gf(y),g²(x)) and (f²(z),fg(y),g²(x)); commuting with the solution is equivalent to commuting with f and g separately. The latter centralizer A contains f and g, so H=<f,g> is itself elementary abelian of dimension at most two if A=(C_p)^r. A map between transitive H-sets is an equivariant bijection exactly when their stabilizers agree, and each possible representative image then determines the map. Thus each orbit type K with multiplicity m_K contributes (H/K) wr S_(m_K). For nonfixed types a transposition of copies fails to commute with a translation on just one copy, so no type repeats. Fixed points may occur singly or, for p=2, in one pair contributing rank one. At rank two H there are p+1 distinct line stabilizers and one trivial stabilizer, contributing ranks one and two at costs p and p². H of smaller dimension adds no candidate above rank one for odd p or rank two for p=2. The faithful-action lower bound pr follows since the intersection of A-orbit stabilizers is zero and p^d>=pd. For odd p, exceeding p+1 forces the free orbit and leaves precisely r-2 line types, giving the stronger bound. Counting the types yields both impossibility cutoffs; distinct projective-form translations, the optional free block and the fixed pair attain all permitted ranks, including the cyclic single-form case. Independent bounded checks enumerated 54 block profiles at p=2,3,5,7 and calculated centralizer orders by extending possible representative images along orbits; these are corroboration, not the all-rank proof. Replay: `python3 /workspace/branches/review_checks.py 5`.",
+      "residual_risks": [
+        "Computational checks used selected primes and confirm centralizer orders; the proof, not cardinality alone, verifies the isomorphism and restrictions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Militaru §3 has finite realizations in broader classes and asks for small realizations.",
+          "The involutive paper assumes indecomposability and studies multipermutational level at most 2 with abelian associated permutation group."
+        ],
+        "reasoning": "Broader existential realizability does not imply the restricted size optimum; the classification under indecomposability and involutivity does not cover the possibly decomposable targets or the full two-commuting-permutation family.",
+        "searches": [
+          "Militaru arXiv:2610.39228v3",
+          "Jedlička–Pilitowska–Zamojska-Dzienio arXiv:2011.00229"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 68a34e4ac69f, e77898a3004e and 33e2bbb0da78",
+        "arXiv:2303.06700",
+        "arXiv:2611.03380v1",
+        "arXiv:2610.39228v3",
+        "arXiv:2011.00229"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cited remarks leave broader minimum-size questions open.",
+          "The general faithful minimum pr is attained by r independent p-point orbits whether or not any commuting pair has the required full centralizer. The one-free-orbit threshold and the p=2 fixed-pair correction are additional consequences of orbit-type multiplicity restrictions."
+        ],
+        "reasoning": "The standard faithful degree is not a solution to the restricted optimization, and even the wreath-product decomposition requires constraining H from A, determining which repeated types are possible, and optimizing the faithful block selections. No exact earlier classification with these controlling conditions was identified.",
+        "searches": [
+          "arXiv:2611.03380v1 Remark 3.4",
+          "arXiv:2610.39228v3 §3",
+          "Frozen RESULT.md steps 1–4 for the group-set and faithful-degree implications"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Frozen RESULT.md lines 28–39 give exact reduction to the joint permutation centralizer.",
+          "Agore–Chirvasitu–Militaru Thm. 4.2(1) and Militaru Thm. 3.1 allow arbitrary maps."
+        ],
+        "reasoning": "For prescribed elementary-abelian centralizer, f and g themselves must lie in that centralizer. This forces an at-most-two-dimensional elementary-abelian generated group. Centralizer realizations with arbitrary maps are not equivalent under this restriction.",
+        "searches": [
+          "Resultary semantic comparison for full automorphism groups of commuting maps and commuting permutation braid solutions",
+          "arXiv:2303.06700 §4",
+          "arXiv:2611.03380v1 §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "68a34e4ac69f is the assigned record itself.",
+          "e77898a3004e concerns finite-group universality with commuting idempotent maps of constant composite; 33e2bbb0da78 concerns realizing colored profiles of a single bijection."
+        ],
+        "reasoning": "The first distinct entry changes the allowed operations and does not optimize permutation sizes; the second changes the invariant to one-point profiles. No prior exact catalogue entry for the present function was identified, and no specific numerical table is needed for the symbolic all-prime classification.",
+        "searches": [
+          "Resultary 68a34e4ac69f, e77898a3004e and 33e2bbb0da78"
+        ]
+      },
+      "rationale": "The recognized classical ingredients are the commuting-permutation ansatz, equivariant centralizer decomposition and unrestricted faithful degree pr. The distinct claim is the sharp realization minimum and impossibility cutoff for full elementary-abelian automorphism groups in precisely this two-generator permutation family. Neither general centralizer/Yang–Baxter realizability nor the inspected involutive classification gives these cutoffs or minima. No independent equivalent was established in the bounded comparison.",
+      "residual_risks": [
+        "Older group-set or permutation-group literature might contain an unindexed exact equivalent; the standard centralizer formula and faithful degree are not claimed as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broader centralizer realization, with different allowable maps",
+          "evidence": [
+            "Centralizer of a family of at least two endomorphisms; no requirement that they are commuting permutations."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2303.06700",
+          "material_read": "§4, Theorem 4.2(1), around text offset 121800",
+          "method": "Open arXiv HTML passage",
+          "title": "The set-theoretic Yang–Baxter equation, Kimura semigroups and functional graphs",
+          "trigger": "General centralizer representation theorem"
+        },
+        {
+          "assessment": "Different construction; not a sharp restricted size theorem",
+          "evidence": [
+            "Transfers a finite map family to an idempotent braid solution on |X|+2k+3 points; poses the general minimum problem."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.03380v1",
+          "material_read": "§3 Theorem 3.1 and Remark 3.4, offsets around 30900 and 45900",
+          "method": "Open arXiv HTML passages",
+          "title": "Centralizers of maps as automorphism groups of Yang–Baxter solutions",
+          "trigger": "Strongest nearby direct transfer from map centralizers"
+        },
+        {
+          "assessment": "General finite existence, not restricted minimum",
+          "evidence": [
+            "Finite groups are realized on finite sets; the problem of smallest realizations is explicitly raised."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.39228",
+          "material_read": "Version 3, abstract and §3, pp. 15–16",
+          "method": "Open arXiv PDF passages",
+          "title": "Every group is the automorphism group of a set-theoretic solution of the Yang–Baxter equation",
+          "trigger": "Potential stronger realization theorem"
+        },
+        {
+          "assessment": "Different hypotheses and group invariant",
+          "evidence": [
+            "Involutive and indecomposable; the associated permutation group is not the stipulated full automorphism group."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2011.00229",
+          "material_read": "Abstract and §1, offsets around 0 and 5700",
+          "method": "Open arXiv HTML passages",
+          "title": "Indecomposable involutive solutions of the Yang–Baxter equation of multipermutational level 2 with abelian permutation group",
+          "trigger": "Adjacent classification with abelian permutation group"
+        },
+        {
+          "assessment": "Adjacent universality, not the same objects or minimum",
+          "evidence": [
+            "Commuting idempotent maps with constant composite, not commuting bijections."
+          ],
+          "identifier_or_url": "e77898a3004e",
+          "material_read": "Indexed finding summary",
+          "method": "Resultary semantic catalogue comparison",
+          "title": "Exact finite model census and automorphism universality for two commuting maps",
+          "trigger": "Closest Resultary map-centralizer realization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 34–65 and 73–81",
+        "arXiv:2611.03380v1 §3",
+        "arXiv:2610.39228v3 §3"
+      ],
+      "rationale": "This is a natural minimum realization problem suggested by work on full Yang–Baxter automorphism groups. It identifies a genuine obstruction not seen in faithful permutation degree: after the supply of line stabilizers is exhausted, odd primes require one costly free orbit and then no further rank is possible. At two, the free block has no excess cost and the fixed-pair exception extends the rank cutoff. The exact feasible ranges and optimal constructions are usable together.",
+      "residual_risks": [
+        "The impossibility cutoffs must not be transferred to general set-theoretic Yang–Baxter solutions or noninvertible maps."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

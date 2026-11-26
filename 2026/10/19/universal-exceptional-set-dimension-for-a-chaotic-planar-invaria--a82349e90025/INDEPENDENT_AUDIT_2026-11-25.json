@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:24:36.635059Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–85",
+        "VERIFICATION.md, lines 19–21",
+        "verify_three_returns.py, lines 8–46 (inspected, not executed)",
+        "arXiv:2410.01052 §5.7 and Appendix Figs. 60–61",
+        "repairs/5/RESULT.md, proof steps 1–3"
+      ],
+      "rationale": "The invariant graph and vertices were checked against Cima et al. §5.7 and Appendix Figs. 60–61. Direct affine endpoint substitution gives the eight core images in the repaired proof. Outside the core, [Z_1,X_3] maps into [X_1,Z_2], which maps onto the collapsing [X_2,Z_3]; the extra first-quadrant diagonal through S collapses to P_1. Thus no positive-length escaping branch contributes an additional survivor subsystem. The three core cycles all pass through C. Starting there and writing t=2u+b+2 gives the second iterate (t,b−1−t) in the core. The three full return domains in t are [0,b/2], [b,3b/2], [(7b−4)/8,b−1/2], with resulting first coordinates 2t−b, 2t−3b, 7b−8t−4. The last interval stays in I because b≤4 and enters the noncollapsing D part after B; the second fits G because b≤4; the first fits H because b≥2. Endpoint coincidences at b=2,3,4 leave the nondegenerate interiors and gaps intact. The two gaps in u are (3b−4)/16≥1/8 and 1/4, and the similarity ratios give both b(9/16)^k and the dimension equation 2·4^(−s)+16^(−s)=1. Preimages of finitely many partition vertices along noncollapsing prefixes are countable; histories that enter a constant branch are already excluded. The Cantor subset and its countably many noncollapsing affine preimages establish the claimed dimension on the entire graph, with isolated points harmless. No uploaded code was executed.",
+      "residual_risks": [
+        "The graph dimension is not a planar-area result. Endpoints are included in the hole, and closed inverse-branch extensions are not asserted to be strict surviving itineraries at all endpoints."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "335be622e78a explicitly covers every a<0, b real, on the same invariant graph and uses relative interiors of constant-image segments.",
+          "Cima et al.'s follow-up covers c<-2 and two short disjoint ranges near negative and subunit thresholds; c=b for a=-1."
+        ],
+        "reasoning": "The all-parameter theorem applies with a=-1 and all b∈[2,4]. The interiors of plateaus are contained in the union of closed plateaus, so its measure conclusion implies this one without requiring equality of the holes. Neither the general zero-length statement nor the other parameter ranges determine the dimension or the branch geometry.",
+        "searches": [
+          "Resultary exact-map/full-arclength absorption search; exact IDs 335be622e78a and d62f7b3284a3",
+          "arXiv:2503.02411 Theorem 3 and Propositions 10–11"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2410.01052",
+        "arXiv:2503.02411",
+        "Resultary 335be622e78a and d62f7b3284a3 (full decisive passages)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem C is open-dense and Proposition 38 gives topological entropy from λ^7−λ^4−λ^3−1. The finite graph supplies the noncollapsing itineraries, not their return contraction ratios.",
+          "The all-parameter killed-transfer result proves arclength zero for the surviving set but not dimension below 1.",
+          "The matched later exact dimension follows via weights from products of edge contractions; its escape root is from 16r^7−4r^4−4r^3−1=0 for counts of iterates, not counts of visits to C."
+        ],
+        "reasoning": "Full arclength absorption is demonstrated prior coverage and removed as a novelty claim. The separate calculation of return domains, affine offsets and uniform separation yields an explicit geometric survivor model and an exact return-depth law; these are not supplied by the published entropy or qualitative measure assertions.",
+        "searches": [
+          "arXiv:2410.01052 Theorem C, §5.7 Proposition 38 and Figs. 60–61",
+          "arXiv:2503.02411 Theorem 3",
+          "Resultary 335be622e78a theorem and killed-transfer proof",
+          "Resultary d62f7b3284a3 graph-directed dimension proof and iterate-length law"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "d62f7b3284a3 uses the same eight-core graph, and its graph-directed dimension equation at Perron eigenvalue 1 is 1−2·4^(−s)−16^(−s)=0.",
+          "The escaping edges first lead to a plateau, so all-core survivors and plateau survivors have the same positive Hausdorff dimension after omitting countably many boundary histories and isolated points.",
+          "Cima's return lengths 3,4,7 come from an unweighted Markov adjacency and determine topological entropy."
+        ],
+        "reasoning": "The later indexed exact dimension is mathematically equivalent, not a separate claim just because one version uses all-core language. The first-return maps and their closed domains, separation gaps, and exact cylinder law in number of returns give metric geometry not stated by the later per-iterate length formula or the unweighted entropy.",
+        "searches": [
+          "Exact dimension and contraction-ratio Resultary comparisons for F_b, b∈[2,4]",
+          "Resultary d62f7b3284a3, Finding and proof steps 1–3",
+          "arXiv:2410.01052 §5.7 Proposition 38"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2026-10-18 entry directly contains the broader arclength conclusion, not the dimension.",
+          "The 2026-11-08 entry contains the identical exact scalar dimension, with arclength escape per forward iterate.",
+          "Neither inspected statement gives the parameter-explicit three coordinate inverses and exact return-depth stage length b(9/16)^k."
+        ],
+        "reasoning": "The indexed dimension match is reported as equivalent and its date is not a priority certificate. It differs in methodology and in the finite-time invariant reported. The qualitative original claim therefore required narrowing regardless of the status of the exact metric comparison.",
+        "searches": [
+          "Resultary search for 335be622e78a Full arclength absorption by flat branches for every parameter in a planar absolute-value family; d62f7b3284a3 Universal survivor dimension and sharp arclength escape on a planar invariant graph",
+          "Mirrored RESULT.md files for 335be622e78a and d62f7b3284a3, exact statements and proofs",
+          "Cima Markov graph, periods 3,4,7 search"
+        ]
+      },
+      "rationale": "A material component of the original novelty framing fails: Resultary 335be622e78a already proves full arclength absorption for every a<0 and real b, implying this corollary even with its smaller, open plateau hole. The replacement credits that theorem and claims no new full-measure interval. The distinct supported content is the exact separated return geometry, the return-depth law, and exact dimension as a metric refinement of that broader arclength theorem. Resultary d62f7b3284a3 has demonstrably equivalent dimension on the same survivor core up to countable exceptions, with a different graph-directed computation and additional map-iterate escape law. Its later indexed date is recorded, not used to dismiss the scientific overlap or to prove priority. It does not state the parameter-explicit separated first-return system and exact law in return depth developed in the replacement.",
+      "residual_risks": [
+        "Equivalent constructions on the same graph may be implicit in other uninspected work. The exact dimension overlap with the later indexed record is established; catalogue dates alone are not proof of publication priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies graph, covering and entropy, not exact Hausdorff dimension or the three explicit affine return domains.",
+          "evidence": [
+            "§5.7 covers 2≤b<3 and 3≤b≤4, identifies the eight core edges and C as a rome with circuits of lengths 3,4,7.",
+            "Theorem C proves open-dense preimages; Appendix has X_4=X_1 at b=2 and the P_4 coordinate gives P_4=S at b=4."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2410.01052",
+          "material_read": "Theorem C around offsets 11700–14622; Proposition 17 around 44800; §5.7 and Proposition 38 around 158600–164109; Figs. 60–61, pp. 110–111 offset 235900",
+          "method": "Inspect graph description and vertex coordinates; recompute branch images and compare theorem conclusions",
+          "title": "Invariant graphs and dynamics of a family of continuous piecewise linear planar maps",
+          "trigger": "Exact graph, interval endpoints, Markov graph and claimed absorbing branches"
+        },
+        {
+          "assessment": "Its ranges are disjoint from the present interval but that does not exhaust prior coverage.",
+          "evidence": [
+            "Theorem 3 covers c<−2 or c in [−112/137,−13/16]∪[603/874,563/816]."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2503.02411",
+          "material_read": "Theorem 3 p. 7 around offset 18400; Pros. 10–11 pp. 31 and 33 around 79100 and 83900",
+          "method": "Compare ranges under c=−b/a",
+          "title": "Further results for a family of continuous piecewise linear planar maps",
+          "trigger": "Exact scope of earlier full arclength result"
+        },
+        {
+          "assessment": "Directly covers the arclength corollary, not the present exact dimension or separated return construction.",
+          "evidence": [
+            "For every a<0 and b real, the complement of preimages of relative plateau interiors has zero H^1 on the canonical graph."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-full-arclength-absorption-by-flat-branches-for-every-parameter-i--335be622e78a/RESULT.md",
+          "material_read": "Mirrored Finding, assumptions and killed-transfer proof through application, offsets 0 and 5274",
+          "method": "Match the graph and compare open and closed holes by inclusion; inspect the proof conclusion",
+          "title": "Full arclength absorption by flat branches for every parameter in a planar absolute-value family",
+          "trigger": "Potentially dominating arclength theorem in the same family"
+        },
+        {
+          "assessment": "Equivalent scalar dimension and overlapping dynamics; later catalogue entry with a distinct per-iterate law, not a statement of the parameter-explicit inverse-return system and return-depth stage lengths.",
+          "evidence": [
+            "Uses exactly the same eight edges and proves 4^d=1+√2; separate finite-time length is 1^T M^(n−1)ℓ_b."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-universal-survivor-dimension-and-sharp-arclength-escape-on-a-pla--d62f7b3284a3/RESULT.md",
+          "material_read": "Mirrored Finding, assumptions and proof steps 1–3, offsets 0, 5228 and 7556",
+          "method": "Compare survivor definitions via the transient edges; compare graph-directed spectral equation and per-iterate observable with first-return geometry",
+          "title": "Universal survivor dimension and sharp arclength escape on a planar invariant graph",
+          "trigger": "Exact same dimension and parameter interval in another indexed record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "repairs/5/RESULT.md Finding and proof steps 2–3",
+        "arXiv:2410.01052 Proposition 38",
+        "Resultary 335be622e78a, d62f7b3284a3"
+      ],
+      "rationale": "Zero arclength does not distinguish zero-dimensional, full-dimensional null, and intermediate-dimensional survivors. The theorem gives the exact noninteger invariant on a natural chaotic graph throughout a nontrivial closed range; the explicit return geometry describes the separated subset producing it and the exact length loss per return depth. This is useful metric information beyond known qualitative absorption and the entropy calculation. The value does not depend on opening a new arclength parameter interval.",
+      "residual_risks": [
+        "No claim about ambient basin area, exact physical-time escape rates from the return-depth law, or other parameter regimes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:46:51.393894Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Available vertices and the mover determine the future game. At a terminal induced graph both scores for additional moves are zero. Otherwise each legal edge counts one move and leaves the induced graph on the available subset minus its endpoints, with the roles alternating. Max takes the maximum of the Min-to-move child values; Min takes the minimum of the Max-to-move child values. This is exhaustive backward induction because each child has two fewer vertices. Fixing two opening moves gives 2 plus the residual value with the original starter on turn. Standard skeletons used include G(10,2) for the dodecahedron and the two staggered pentagonal rings and poles for the icosahedron; regular solids are edge-transitive. Independent check: run python /workspace/branches/6f86c7a1-5ffb-443c-b0b6-aa1ae3f7976d/record4_repro.py; the fresh exact output is record4_results.json in the same directory. After a small smoke test this checked up to 2^20 masks, ordinary terminal extremes and every second reply after each of the 30 openings on both dual solids. It reproduced (2,2), (4,4), (2,3), (8,9), (5,6) in the stated order and terminal extremes (2,2), (3,4), (2,3), (6,10), (5,6). For the dodecahedron the histograms over outcomes (8,9) are (5,20) for Max opening and (17,8) for Min opening. For the icosahedron the histograms over (5,6) are (9,12) and (20,1) respectively. The two supplied checkers and checks.json were inspected, not executed. This is a finite exact result for the standard skeletons, not a positional strategy theorem or independent certification of other polyhedra.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The original game paper gives the optimal move recurrence and bounds the difference of the starting values by one. Its constructions already realize strict second-player advantage."
+        ],
+        "reasoning": "The bound cannot distinguish equality from either sign of a one-point difference for either dual graph, nor assign absolute scores or the number of optimal replies. Applying the recurrence requires actual evaluation, not a parameter substitution into a scoring theorem.",
+        "searches": [
+          "arXiv:1208.0085, Propositions 2.1–2.2 and Theorem 2.3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1208.0085 §2",
+        "Resultary 7f0511b3b346 (same record), 98a001e14839"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cranston et al. show (2,3) on K6 minus a perfect matching. Their one-unit difference and monotonicity theorem, and ordinary minimum/maximum terminal matching sizes, do not fix residual minimax scores after two prescribed edges."
+        ],
+        "reasoning": "The distinctive claims are two exact start penalties on specified skeletons and the complete per-opening multiplicities, including the single perfect-score reply on the icosahedron. These do not follow from the known penalty construction or the existence of perfect matchings.",
+        "searches": [
+          "arXiv:1208.0085 Section 2 and exact special-case examples",
+          "Game matching number under aliases for dodecahedral and icosahedral graphs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The fixed-host P3-saturation game in Cranston et al. is the same rule: P3-free subgraphs consist of matchings plus isolated vertices. Proposition 2.1 evaluates K_(4k+2) minus a perfect matching, including the octahedron at k=1."
+        ],
+        "reasoning": "The octahedral (2,3) is exact prior coverage; the dodecahedral and icosahedral graphs are not that family. The different matcher-game rule described in the frozen comparison assigns one endpoint choice to each player within a single move, rather than alternating complete edges.",
+        "searches": [
+          "Platonic-solid alternating-edge game matching number, P3 saturation, dodecahedron and icosahedron",
+          "arXiv:1208.0085 §2, Proposition 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact matching hit 7f0511b3b346 is the assigned record itself. Same-graph preexisting 98a001e14839 enumerates perfect matchings and cycle-flip reconfiguration, not full edge-game trees."
+        ],
+        "reasoning": "A matching count or flip table does not resolve alternating edge choices and optimal terminal scores. No distinct table of these scores and reply counts was identified within the bounded comparisons.",
+        "searches": [
+          "Resultary: exact alternating game matching numbers on Platonic solids, icosahedral and dodecahedral reply histograms",
+          "Resultary 7f0511b3b346 and 98a001e14839"
+        ]
+      },
+      "rationale": "Qualified to evaluation of the two Platonic duals and their exact reply sensitivities, not discovery of the game, minimax recurrences, the existence of a reverse first-player penalty, or the known octahedral example. The tetrahedron and cube entries are not credited as separate discoveries.",
+      "residual_risks": [
+        "The comparison is targeted; literal misses for dodecahedron or icosahedron are not evidence against an identically constructed but differently labelled graph in another source.",
+        "No priority inference from the date of the identical Resultary hit; a prior unindexed calculation remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same game and completely covers octahedral case; generic additive difference bound does not give the two dual values or histograms",
+          "evidence": [
+            "Alternating disjoint edges is fixed-host P3 saturation.",
+            "K_(4k+2) minus a perfect matching realizes (2k,2k+1).",
+            "Theorem 2.3 proves |alpha'_g−hat alpha'_g|≤1."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1208.0085",
+          "material_read": "Abstract and §2; construction in Proposition 2.1 and game recurrence/difference passage around Proposition 2.2 and Theorem 2.3",
+          "method": "OA PDF pp. 1–4, passages near offsets 10800 and 12805",
+          "title": "Game matching number of graphs",
+          "trigger": "Same game, potential exact polyhedral precedents and bounds"
+        },
+        {
+          "assessment": "Different graph of states and objectives",
+          "evidence": [
+            "States are already perfect matchings; moves exchange an alternating cycle of length four or six. The table concerns flip counts and metric, not optimal greedy play."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-five-frozen-icosahedral-matchings-become-the-centers-under-six-c--98a001e14839/RESULT.md",
+          "material_read": "Finding and start of assumptions, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Five frozen icosahedral matchings become the centers under six-cycle flips",
+          "trigger": "Indexed exact calculation on icosahedral matchings"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Platonic skeletons form a motivated complete family. Both dual graphs favor going second despite edge symmetry, but the icosahedron reaches a perfect matching only under optimal Min-start play and only one of its replies preserves that outcome, whereas even the better dodecahedral start remains strictly below a perfect matching. The exact reply sensitivities are meaningful finite benchmarks beyond the general one-unit difference bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

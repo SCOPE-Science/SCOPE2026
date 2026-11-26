@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:55:31.229306Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The minimum-Rayleigh-quotient characterization proves concavity on the fixed constant-vector complement, so a wheel rotation average suffices for the value. Nonnegative uniform spokes attain positive value, and homogeneity forces budget exhaustion. The radial eigenvalue is (n+1)x and the first rim Fourier eigenvalue is x+α_n y, including n=3. Their minimum along the budget line is maximized at the crossing when Q<α_n P, at the star endpoint when Q>α_n P, and on the displayed interval when equal. An optimal averaged minimum eigenvector must also be a minimum eigenvector of any design realizing that average: the Rayleigh remainders are nonnegative and average to zero. In the star regime the vanishing average forces every rim weight to vanish; hub equations on rim differences then force equal spokes. In the crossing regime the radial vector forces equal spokes, and the first complex mode forces the flux differences around the cycle to be constant. Consecutive phases are not real multiples, so the real conductance deviations must vanish. This proves exactly the claimed uniqueness scope, not an assertion about asymmetric equality designs. The equal-price cases follow from α_6=1 and strict decrease, and n²α_n→4π² gives the stated critical-window limit including the crossover. The supplied verifier was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sun et al. formulate the general arbitrary-positive-price continuous-time problem; the inspected formulation does not solve this wheel instance.",
+          "The discrete-time wheel paper optimizes SLEM with stochastic row constraints, not the frozen objective.",
+          "The indexed continuous-time wheel theorem establishes edgewise uniformity even at equality."
+        ],
+        "reasoning": "The broad design framework and discrete-time wheel are not themselves direct coverage. The distinct specialized continuous-time theorem dominates the optimizer scope at the threshold for overlapping sizes.",
+        "searches": [
+          "Sun–Boyd–Xiao–Diaconis SIAM Review 2006 §1.2",
+          "Boyd–Diaconis–Parrilo–Xiao arXiv:0709.0955 §5.3.3",
+          "Resultary 24216ca23b99 optimizer classification"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 24216ca23b99 and 9d97645b0619",
+        "Sun et al. 2006 §1.2",
+        "Boyd et al. arXiv:0709.0955 §5.3.3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed proof's Fourier Rayleigh average and two-branch spectrum remain valid on the triangle rim. Its rigidity identity (4) uses sin(2π/n)≠0, which also holds at n=3.",
+          "Substitution t=n²/κ in the exact indexed formula and n²μ_n→4π² gives the frozen scaling limit; the indexed expansion is stronger for the location of the frontier."
+        ],
+        "reasoning": "The n=3 endpoint is outside the indexed theorem's literal quantifier but needs no new argument or exceptional mechanism. Neither this endpoint nor the direct specialization to a moving price supplies a valuable distinct repair.",
+        "searches": [
+          "Indexed wheel 24216ca23b99 proof steps 2–5, especially equation (4)",
+          "Indexed wheel price-frontier formula and large-ring expansion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed wheel statement uses unit budget and normalized spoke price t=P/Q; put a_i=Qx_i/B and b_i=Qy_i/B and use μ_n=4 sin²(π/n)=α_n.",
+          "The threshold t=1/μ_n, exact two branches, and optimal edge weights become the same statements after this rescaling."
+        ],
+        "reasoning": "The same Laplacian scales linearly with the conductances; reciprocating the price ratio reverses the inequality in precisely the way required for rim deletion.",
+        "searches": [
+          "Resultary: fastest mixing on weighted wheels, spoke/rim price frontier, algebraic connectivity and rim deletion",
+          "2026/10/12/SCOPE-quadratic-spoke-price-frontier-for-fastest-mixing-on-wheels--24216ca23b99"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 12 record returns exact formulas and optimizer classes, not just numerical cases.",
+          "The same-day helm record has one pendant leaf per rim vertex and a third price class; it is not a second copy of the frozen wheel model."
+        ],
+        "reasoning": "A true indexed formula match exists after normalization. The similar same-day screening rule concerns a different Laplacian and cannot replace or negate the exact match.",
+        "searches": [
+          "Resultary exact wheel price frontier 24216ca23b99",
+          "Same-day helm screening record 9d97645b0619"
+        ]
+      },
+      "rationale": "A distinct indexed wheel theorem already gives the same priced continuous-time optimization and all optimizer weights for n≥4, with a stronger boundary classification. Its proof also extends directly to n=3, and the critical-window limit is a mechanical consequence of its closed formula. Neither a reciprocal price convention nor a different rigidity presentation distinguishes the frozen scientific finding. This judges demonstrated coverage, not historical priority.",
+      "residual_risks": [
+        "Wan et al. precise coverage could not be assessed from the cited accessible route. The exact indexed match independently decides the overlap; neither date nor inaccessible literature establishes historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct normalized coverage with stronger equality case; proof applies to n=3",
+          "evidence": "Unit linear price budget, t=1/μ_n threshold, exact branch values and edge weights; Fourier identity forces all optimizers to be uniform; T_n=n²/(4π²)+1/12+O(n⁻²).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-quadratic-spoke-price-frontier-for-fastest-mixing-on-wheels--24216ca23b99/RESULT.md",
+          "material_read": "Finding and proof; offsets 0–5103 and 5103–9798, especially rigidity equation (4) and Step 5",
+          "method": "Local-mirror statement and proof comparison",
+          "title": "Quadratic spoke-price frontier for fastest mixing on wheels",
+          "trigger": "Exact topology, objective and asymmetric design space"
+        },
+        {
+          "assessment": "General framework, not evidence of this wheel classification in the inspected passage",
+          "evidence": "Maximizes the Laplacian gap with arbitrary positive linear costs and nonnegative rates, with saturated budget.",
+          "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+          "material_read": "§1.2, printed pp. 682–683, OA offsets 6171–10467",
+          "method": "OA primary-text comparison",
+          "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+          "trigger": "General priced continuous-time optimization"
+        },
+        {
+          "assessment": "Distinct discrete-time model",
+          "evidence": "Wheel variables p,q are stochastic transition probabilities with hub and rim self-loop constraints; the optimization is of SLEM.",
+          "identifier_or_url": "https://arxiv.org/abs/0709.0955",
+          "material_read": "§5.3.3, pp. 28–29, OA offsets 98176–105169",
+          "method": "OA primary-text comparison",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "Exact wheel topology in a plausible prior work"
+        },
+        {
+          "assessment": "Related but distinct",
+          "evidence": "Private rim leaves create a third edge orbit and different radial/Fourier blocks; zeroing the pendant conductances does not reduce the optimization to a connected wheel on the same vertex set.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-price-screening-for-algebraic-connectivity-on-helm-network--9d97645b0619/RESULT.md",
+          "material_read": "Finding, offsets 0–4447",
+          "method": "Local-mirror statement comparison",
+          "title": "Exact price screening for algebraic connectivity on helm networks",
+          "trigger": "Same-day indexed rim-support screening rule"
+        },
+        {
+          "assessment": "Coverage unverified; access failure not used as evidence",
+          "evidence": "No scientific inference drawn from the inaccessible copy.",
+          "identifier_or_url": "https://doi.org/10.1109/CDC.2008.4738734",
+          "material_read": "No full-text passage read",
+          "method": "Direct and configured alternate-route requests for the cited author-posted copy returned HTTP 403",
+          "title": "On the Structure of Graph Edge Designs That Optimize the Algebraic Connectivity",
+          "trigger": "Cited structural optimization comparison"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The edge-support decision is natural, but the indexed result already supplies it and more at equality. Extending the same rim Fourier calculation to n=3 and substituting a critical price sequence into the known closed formula do not yield a substantively new phenomenon or independently valuable remainder.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

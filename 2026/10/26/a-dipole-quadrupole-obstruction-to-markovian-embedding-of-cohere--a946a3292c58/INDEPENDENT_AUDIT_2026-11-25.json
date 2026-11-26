@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:43:39.222709Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The covariant Choi decomposition has multiplicity-one spin sectors; the positive trace-preserving covariant maps are convex combinations of their normalized channels. The recorded 6j symmetry gives u_L^(k)=u_k^(L). An independent low-rank check uses C(X)=∑J_i X J_i, whose eigenvalue on V_k is a-s/2 by the commutator Casimir, with a=j(j+1) and s=k(k+1). The rank-one channel is C/a. For Q_ij=(J_iJ_j+J_jJ_i)/2-δ_ij aI/3, the Kraus map ∑Q_ij X Q_ij is proportional to the rank-two extreme channel by covariance and support. Multiplying left and right spin actions (with opposite commutation signs) gives C²-C/2-a²/3, normalized by a(4a-3)/6 at the identity. Substituting C=a-s/2 and exchanging k and L reproduces the two multipliers. The resulting projected supporting inequality has slack 3s(s-2)/(2a(4a-3))≥0; this is a facet of the two-multiplier projection, not of the full simplex when 2j>2. At the semigroup identity, differentiating gives γ₂≤3γ₁. Every putative generator commutes with its exponential, and the coherent multipole eigenvalues are positive and distinct, so it preserves every multipole block. On the real Hermitian blocks det(exp(τL))=exp(τ tr L) fixes the real trace. Twirling the generator (not its exponential) retains the GKSL property and each block trace, and complex Schur's lemma on each irreducible operator block gives scalar log(λ_L)/τ. Thus the bound applies even to noncovariant proposed generators, with no assumption on logarithm branches. The spectrum from the coherent overlap integral gives λ₁=n/(n+2) and λ₂=n(n-1)/[(n+2)(n+3)]; direct subtraction gives the stated positive gap for n≥2 and the log expansion follows. At j=1/2 the rank-one commutator Casimir is 2, so the isotropic double commutator with coefficient -log(3)/2 realizes λ₁=1/3. Spin zero is outside the statement (and would give the identity). The reviewed frozen exact finite recoupling tests were not rerun and do not establish the infinite-spin or noncovariant argument. No time-dependent or ancilla-assisted obstruction is established.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The simplex and rank-k tensor Kraus operators/6j multipliers are supplied by the covariant-channel sources. The specific Casimir-diffusion semigroup is also treated.",
+          "The general embedding and Pauli-channel sources distinguish autonomous exponentials from broader divisibility, but no covered spin-j bound was located in the inspected passages. Holevo's primary theorem text was unavailable in the bounded retrieval."
+        ],
+        "reasoning": "A general channel parametrization is an input; need the supporting dipole/quadrupole inequality for every sector and a proof applicable to arbitrary generators, not merely covariant channels at the final time.",
+        "searches": [
+          "Rudnicki et al., SU(2)-Covariant Quantum Channels, Eqs. (28)–(38) and (50)–(51)",
+          "Aschieri–Ruba–Solovej, Proposition 18",
+          "Wolf–Cirac arXiv:math-ph/0611057v3, opening; Kattemölle–Gulácsi–Burkard pp. 1–2; Holevo 1996 covariant evolutions lookup"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Brody–Graefe–Melanathuru arXiv:2605.02696v1",
+        "Rudnicki et al. 10.3390/sym18071146",
+        "Aschieri–Ruba–Solovej 10.1007/s00220-024-05178-1",
+        "Wolf–Cirac arXiv:math-ph/0611057v3",
+        "Kattemölle–Gulácsi–Burkard 10.1038/s41534-026-01345-5",
+        "Holevo 1996 bibliographic lookup",
+        "Resultary ec7f5fd90fb3 and 5dc9160a23e2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known spectrum shows a gap relative to spin diffusion. To use it for nonembedding one must first derive γ₂≤3γ₁ uniformly over covariant GKSL generators from the sector multipliers, then show any GKSL logarithm would imply a covariant GKSL logarithm via distinct blocks, determinant and generator twirl."
+        ],
+        "reasoning": "Neither the prior specific diffusion nor the channel simplex on its own provides the required arbitrary-generator conclusion. Averaging channels cannot generally be substituted for the trace-preserving generator argument.",
+        "searches": [
+          "Brody et al. §IV Eqs. (30)–(33); Rudnicki et al. Eqs. (28)–(38), (50)–(51); Aschieri et al. Proposition 18"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same spin-coherent measurement map and spectrum appear in Brody et al. Their spin-one comparison is between decay-rate ratios 3 for the angular-momentum diffusion model and log(10)/log(2) for the measurement.",
+          "The reviewed test is not just that model comparison: it is λ₂≥λ₁³ for any autonomous embedding of this positive distinct-block channel, derived by the GKSL projection bound plus block-trace twirling."
+        ],
+        "reasoning": "A specific-generator mismatch cannot exclude other covariant tensor-sector generators or noncovariant logarithms. The latter exclusions are the reviewed claim.",
+        "searches": [
+          "Local Resultary: coherent-spin POVM channel, GKSL/quantum Markov semigroup embedding, multipole obstruction",
+          "Brody–Graefe–Melanathuru arXiv:2605.02696v1, §§III–IV Eqs. (26)–(33)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact spectrum itself is in the primary source and is not credited as new.",
+          "Resultary ec7f5fd90fb3 concerns state quantumness and negativity at spin one, and 5dc9160a23e2 concerns exact CP and entanglement-breaking arrival times for one affine qubit family; their findings do not classify embeddings of this measurement channel."
+        ],
+        "reasoning": "The checked formulas or exact indexed results do not answer the autonomous existence question for all positive spins.",
+        "searches": [
+          "Local Resultary search for spin-coherent channel embedding and autonomous GKSL semigroup obstructions",
+          "Closest indexed matches ec7f5fd90fb3 and 5dc9160a23e2, exact findings",
+          "Brody et al. multipole spectrum, Eqs. (26)–(29)"
+        ]
+      },
+      "rationale": "The coherent-POVM multipliers and their mismatch with the specific angular-momentum diffusion semigroup are known. The distinct content supported by the comparison is autonomous nonembedding beyond spin one-half for every GKSL generator, including noncovariant ones, as witnessed by the first two multipoles. No equivalent coverage was established by the sources inspected.",
+      "residual_risks": [
+        "A general covariant Markov generator classification, including the inaccessible Holevo source, might yield the rate inequality. The comparison does not certify historical priority for the intermediate inequality or rule out an overlooked exact embedding classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same channel and spectrum, but compares to a specific diffusion generator",
+          "evidence": "The rank-L coefficients and spin-one log(10)/log(2) versus 3 concern the channel and that comparator, not every autonomous GKSL generator.",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.02696v1",
+          "material_read": "pp. 3–4, Eqs. (26)–(29) and §IV Eqs. (30)–(33)",
+          "method": "Targeted open primary PDF reading",
+          "title": "Phase-space measurements and decoherence for angular momentum systems",
+          "trigger": "Same coherent measurement and explicit spin-one rate mismatch"
+        },
+        {
+          "assessment": "Gives prior tools but not the demonstrated embedding classification in the inspected material",
+          "evidence": "Normalized tensor-sector channel extrema and 6j multipliers; Casimir-diffusion example.",
+          "identifier_or_url": "https://doi.org/10.3390/sym18071146",
+          "material_read": "pp. 6–7 Eqs. (28)–(38), pp. 8–9 Eqs. (50)–(51)",
+          "method": "Targeted open primary PDF reading",
+          "title": "SU(2)-Covariant Quantum Channels",
+          "trigger": "Multiplicity-one simplex and possible general rate inequalities"
+        },
+        {
+          "assessment": "Prior simplex, not an autonomous embedding criterion in the cited statement",
+          "evidence": "Equivariant channels between irreducible spins form a simplex of Clebsch–Gordan channels.",
+          "identifier_or_url": "https://doi.org/10.1007/s00220-024-05178-1",
+          "material_read": "p. 30, Proposition 18",
+          "method": "Targeted primary paper reading",
+          "title": "SU(2)-Equivariant Quantum Channels: Semiclassical Analysis",
+          "trigger": "Prior general structural result for covariant channels"
+        },
+        {
+          "assessment": "General framework; no specific result matching this multipole witness in the inspected pages",
+          "evidence": "Distinction between continuous CP evolutions and a channel equal to a single Markovian exponential.",
+          "identifier_or_url": "https://arxiv.org/pdf/math-ph/0611057v3",
+          "material_read": "pp. 1–2",
+          "method": "Targeted open primary PDF reading",
+          "title": "Dividing Quantum Channels",
+          "trigger": "General quantum channel Markovianity and divisibility"
+        },
+        {
+          "assessment": "Different operation and channel family",
+          "evidence": "Channel-semigroup Markovianity versus divisibility and Pauli-channel analysis, rather than twirling a putative logarithm of this spin-j map.",
+          "identifier_or_url": "https://doi.org/10.1038/s41534-026-01345-5",
+          "material_read": "pp. 1–2",
+          "method": "Targeted open primary text reading",
+          "title": "Non-Markovianity induced by Pauli twirling",
+          "trigger": "Twirling and embedding terminology"
+        },
+        {
+          "assessment": "Plausible general-framework overlap unresolved",
+          "evidence": "Primary text not retrieved; not evidence of absence.",
+          "identifier_or_url": "A. S. Holevo, J. Math. Phys. 37 (1996)",
+          "material_read": "Bibliographic identification only; no primary theorem inspected",
+          "method": "Bounded lawful DOI and repository retrieval attempts",
+          "title": "Covariant quantum Markovian evolutions",
+          "trigger": "Possible implicit covariant generator rate bound"
+        },
+        {
+          "assessment": "Different object; no embedding claim in the finding",
+          "evidence": "Hilbert–Schmidt distance to the coherent-state hull for zero-dipole states and its equality with a multiple of negativity.",
+          "identifier_or_url": "2026/10/12/SCOPE-exact-quantumness-negativity-identity-for-zero-dipole-spin-one-s--ec7f5fd90fb3",
+          "material_read": "RESULT.md finding and scope at offsets 0–1500",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact quantumness–negativity identity for zero-dipole spin-one states",
+          "trigger": "Nearest spin-coherent indexed hit"
+        },
+        {
+          "assessment": "Different semigroups and question",
+          "evidence": "For a given affine qubit evolution, computes CP and EB arrival times, including when the given generator is not GKSL.",
+          "identifier_or_url": "2026/10/26/SCOPE-sharp-complete-positivity-and-entanglement-breaking-arrival-time--5dc9160a23e2",
+          "material_read": "RESULT.md finding at offsets 0–1788",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp complete-positivity and entanglement-breaking arrival times in affine qubit semigroups",
+          "trigger": "Closest semigroup indexed hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The question separates a natural repeated coherent measurement channel from every autonomous quantum Markov model, not only a preselected generator. The two observable multipoles give a strict witness valid for all higher spins, an exact qubit boundary and a quantified semiclassical gap. Resolving noncovariant logarithm branches prevents an otherwise material loophole.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

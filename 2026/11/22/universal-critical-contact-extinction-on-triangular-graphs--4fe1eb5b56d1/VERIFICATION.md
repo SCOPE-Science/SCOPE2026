@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -17,17 +20,6 @@
 ---
 # Reproducible checks
 
-The analytic proof covers every integer \(n\ge5\) and is not inferred from finite enumeration. To reproduce the finite checks:
+Run `python verification/exact_grouped.py 5 6` with Python 3.10 or later. Each output line gives the order, total weight, number of first-step groups, first-hit histogram (times 0 through 4), and the least base-three state label attaining time four, with the pairs in lexicographic order and the first pair at the least significant digit. For both orders, the exact partition and multiplicities are justified in `RESULT.md`; the integer computation accounts for all labelled initial configurations. The explicit edge-set witnesses in that file can also be checked directly.
 
-```sh
-c++ -O3 -std=c++17 verification/functional_graph.cpp -o functional_graph
-c++ -O3 -std=c++17 verification/direct_forward.cpp -o direct_forward
-./functional_graph 3
-./functional_graph 4
-./functional_graph 5
-./functional_graph 6
-./direct_forward 5
-./direct_forward 6
-```
-
-The functional-graph program constructs a complete labelled state transition array, traverses every transient, and reports the complete recurrent-component period spectrum and maximal entry depth. The independent forward program applies the update repeatedly from every base-three state and counts the earliest all-rest time. The two methods agree on extinction and sharp maximum four for the orders five and six. The forward histograms are provided in the finding and sum to the exact state-space cardinalities. Independent external checking has not been performed.
+The unchanged `verification/direct_forward.cpp` and `verification/functional_graph.cpp` implement ungrouped direct iteration and functional-graph traversal. At orders 5 and 6 they provide alternative ways to reproduce the histograms and maximum depths, respectively. The arbitrary-order recurrent classification cited in `RESULT.md` is background, and no large-order settling-time bound is inferred from the census.

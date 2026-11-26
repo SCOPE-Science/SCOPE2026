@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite network has \(N=3+2m+2m\ell\) vertices for every integer \(m,\ell\ge2\). Strict convexity of the inverse Laplacian trace forces a unique edge-by-edge optimum and invariance under tree automorphisms. The weighted-tree cut formula has exactly three orbit coefficients; the feasible row capacities reduce the problem to a strictly convex one-variable function. Its one-sided derivatives at the only kink yield the three phases. Two cubic sign polynomials and uniformly signed expansions in \(h=m-3\) establish the exact integer cutoffs. Symbolic identities and direct numerical eigenvalue comparisons are reproducible in `VERIFY.py`. Numerical tests do not prove the infinite-family theorem.
+## correctness
 
-## Originality — PASS on inspected evidence
-The general convex Kemeny/SDP design framework in Patel–Agharkar–Bullo (2015), the Kemeny representations of Catral–Kirkland–Neumann–Sze (2010), and the degree-driven tree formulas of Kirkland–Zeng (2016) do not state the present full three-generation integer holding-support classification. The 2026 structure-preserving perturbation paper addresses a general numerical design problem. Nearby design theorems on shorter trees or unbranched spiders do not imply this additional branching cutoff. Related terminology (mean first passage, Kirchhoff index, Laplacian pseudoinverse) and stronger-general-result possibilities were considered. **Risk:** unindexed equivalent work could establish publication coverage; search noncoverage is not a mathematical proof of priority.
+PASS
 
-## Value — PASS
-An exact structural switch between root holding, no interior holding, and depth-one holding occurs at explicit quadratic thresholds, with a natural intermediate window of \(2m-1\) consecutive branch sizes. This supplies a decision rule for uniform-stationary stochastic transport on a three-generation tree and a nontrivial cutoffs theorem that is not merely a finite recomputation or renaming.
+The tree has N=3+2m+2mℓ vertices. On connected support inverse trace of L+11ᵀ/N minus one is the stated spectral sum, and its second variation is a positively weighted sum of nonzero Laplacian-perturbation squares. A missing edge disconnects a tree and makes the extended objective infinite; compactness of the feasible closure gives existence and strict convexity gives uniqueness. Hence automorphisms force the three orbits for the original unrestricted problem. The three cut sizes are (N−1)/2, 1+ℓ and 1, with multiplicities 2, 2m and 2mℓ. Their products with the complementary sizes give exactly A,B,C. At fixed middle weight y, decreasing cost in the other two weights gives x=min(1/2,1−my), z=(1−y)/ℓ, on 0<y<1/m. The strictly convex resulting function has left and right derivatives at 1/(2m) equal to −4m²T and 4m²(A/m−T). This gives the cases including equality, both stationary formulas, and all holding signs (in particular z<1). Independently checked the integer certificates by forward differences: define D=m(Cℓ−(2m−1)²B), E=D+(2m−1)²A from the cut counts. To replay, use four evaluations in ℓ=0,1,2,3 to recover each cubic by Newton interpolation and recover its coefficients as polynomials of m using m=2,...,8. In the binomial basis in m−2 the leading coefficients of the two ℓ-cubics have positive sign, and all other coefficients have negative sign, with zero trailing terms. Descartes plus the endpoint signs gives one positive root each. For E at ℓ=4m²−8m+5 and +6, and for D at ℓ=4m²−6m+4 and +5, respectively, form the forward-difference rows of the substituted polynomials at m=3,...,12 (degree at most nine). The first entries of successive difference rows are sign-uniform after zeros: (−,7 degree), (+,6), (−,5), (+,7). Thus the signs hold for all integral m≥3 because the binomial basis in m−3 is nonnegative. At m=2, (D,E) at ℓ=5,6,7,8 are (−3872,−596), (−3456,864), (−2224,3284), (16,6856). This proves both cutoffs, the exceptional case and the 2m−1 window, without promoting numerical eigenvalue checks to universal evidence. The supplied script was inspected, not executed. Scope: symmetric uniform-stationary walks on the exact tree, using the inverse spectral normalization specified.
 
-## Limitations and references
-The result does not cover nonsymmetric walks, arbitrary stationary laws, or arbitrary rooted trees. Infinite claims depend on analytic polynomial identities rather than finite numerical checks. Closest primary literature: Catral et al. (2010), Patel et al. (2015), Kirkland–Zeng (2016), Durastante et al. (2026); exact sources are in `RESULT.md` and `AUDIT.json`.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bounded to the exact three-generation three-phase holding law, including both integer boundaries. Effective resistance and convex Kemeny design are established methods. The closest inspected branching threshold is on a distinct, shorter tree and does not establish where holding transfers between two internal levels in this tree.
+
+## value
+
+PASS
+
+The explicit switches identify when unused transition mass moves from the root to the first branching vertices and when neither level holds. The two cutoffs have the same leading quadratic scale but leave a provably distinct linear-width intermediate phase. This is a full active-constraint classification for a natural infinite tree family and supplies the optimizer without solving an edge-sized optimization or relying on a finite sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

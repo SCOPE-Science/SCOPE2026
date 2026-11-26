@@ -1,12 +1,21 @@
-# Review of even-cardinality circular-arc shattering
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The domain is all even-length cyclic intervals on even cycle orders at least four, including the empty and full sets. Each possible trace on singleton, pair, and nonconsecutive triple supports has an explicit construction. The consecutive-middle singleton trace fails, and cyclic alternation forbids every four-query shattering. For even orders at least six, every missing triangular loop bounds three present triangles with cone vertex four steps ahead, giving simple connectivity. Euler characteristic and free integral top homology, followed by Hurewicz and Whitehead, give the wedge-of-two-spheres type. Two independent finite trace enumerators agree through orders eighteen and twenty; binary boundary ranks agree through fourteen. These computations are supporting checks, not infinite proofs.
+## correctness
 
-## Originality (O): PASS, with residual historical risk
-published-finding corpus mathematical records were searched using the precise parity/arc/face polynomial description, aliases involving graph balls, convexity, geodesics and circular intervals, and topological equivalents. The most relevant published full texts were compared by inclusion of hypothesis sets and statement implication. The graph-ball radius result counts every triple in even cycles at maximal radius, so its formula is different; its odd-order case is explicitly excluded from this theorem because it covers complements of balls. The shortest-path geodesic result has a different support criterion and a mixed-dimensional complex. Chalopin et al. prove a cycle-ball compression scheme, not this even-length arc support count or homotopy type. Unindexed equivalent formulations in range-space or topological literature remain possible.
+PASS
 
-## Value (V): PASS
-The parity restriction changes the complete shattering complex of a canonical geometric range class. The result identifies exactly which \(n\) triangles are lost, proves that the remaining two-complex is still simply connected for every even order at least six, and computes an all-parameter integral wedge rank with an exceptional four-vertex boundary. This is a structural/topological classification rather than a numerical recomputation or an automatic corollary of the ordinary circular-arc VC bound. The explicit failure on odd cycle orders of novelty by complementation is handled by restricting the theorem to even orders.
+A length-two interval isolates either point of a pair and each singleton of a nonconsecutive triple; a consecutive triple's middle singleton is impossible. On a nonconsecutive triple the arc joining two selected vertices while avoiding the third can be extended at an endpoint if its length is odd: if both extensions hit the excluded point, that point has both selected vertices as its neighbors, a contradiction. Empty/full traces are supplied by definition, and cyclically alternating membership on four points is impossible. This proves the face counts, including no triangles at n=4, where K4 has cycle rank three. For n≥6 the apex i+4 is not adjacent to any vertex of the omitted triangle {i,i+1,i+2}; coning its boundary gives a disk consisting of present triangles, including for n=6. Attaching the omitted triangles therefore leaves the fundamental group unchanged and recovers the simply connected full two-skeleton. Integral H2 is a subgroup of the free 2-chain group, and the Euler characteristic gives rank binom(n−1,3)−n. Hurewicz and homological Whitehead then give the claimed wedge. Inspected the supplied proof/check_even_arcs.py, proof/check_even_arcs.cpp and their archived outputs (Python through n=18, C++ through n=20, F2 boundary ranks through n=14); not rerun. Those checks do not prove integral homotopy, which follows from the disk argument.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The inspected sources do not cover the even-length arc class on even cycles. The same missing-triple rule in a neighbor class on odd cycles is important overlap, but complement preserves cardinality parity at the audited even orders. Nearest even-order comparisons have different triangular faces and topology. The decision is scoped to the exact even-cycle classification and integral homotopy claim, not to general arc VC bounds or priority against unindexed work.
+
+## value
+
+PASS
+
+Cardinality parity is a natural restriction on cyclic range queries distinct from shortest paths or balls. The exact description identifies which triples fail (not just the VC dimension) and shows that losing precisely those faces changes the top sphere rank without creating first homology at all even orders ≥6, with a sharp circle-wedge exception at order four. These are useful exact comparators for cycle shattering complexes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

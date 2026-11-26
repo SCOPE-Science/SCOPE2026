@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:22:31.031392Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Complex multiplication represents this normal planar A, so G_j(h)=|R_j((-a+ib)h)|². Direct expansion gives G_3''/a²=4−t²+vP(t) with the stated v,t. On [0,2] this is positive by the convex combination and the positive squared-term decomposition of 6(4−t²+P(t)). For t>2 the cubic factor of P(t) is positive and strictly increasing. Differentiating (t²−4)/P(t) gives the stated negative multiple of Q(t); in Q(2+s) the coefficients have one sign change and Q(2) and Q(3) have opposite signs. Thus there is one interior maximum, 0<v_*<1, and at the critical ratio only one curvature zero, leaving strict convexity. Jensen including infinite expectation follows from the strict supporting tangent and finite mean (mean zero forces H=0); strictly negative curvature above the ratio gives a nonempty open interval of means with symmetric two-point reversals. G_1'' and G_2'' are strictly positive as stated. Independent exact evaluation gave G_3(1/5)=746/1125, G_3(2/5)=377/1125, and G_3(3/10)=2041/4000 at a=1,b=3, giving the stated gap 401/36000. Bisection corroborated t_*=2.57584803206939 and the displayed ratio near 1.904257074337731; uniqueness comes from the polynomial argument, not the calculation. Replay: RESULT.md lines 32–71; VERIFICATION.md and verify.py were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sun–Shu's norm nonincrease and filtering condition neither states nor requires convexity of amplification as a function of h. Bochacik et al. study repeated randomized-coefficient steps.",
+          "The fixed-mean backward Euler record gives a different integrator's threshold b/a=sqrt(3) and treats the per-mean minimizing law; the deterministic RK2 record is instead for a rank-one-damped matrix."
+        ],
+        "reasoning": "None of those hypotheses or conclusions supplies a uniform-in-h curvature statement for the cubic Taylor polynomial. The backward Euler rational function does not reduce to RK3 by rescaling parameters.",
+        "searches": [
+          "Sun–Shu arXiv:1912.11596 pp. 1–2, strong stability",
+          "Bochacik et al. arXiv:2006.12131 pp. 13–15, mean-square and asymptotic stability",
+          "Resultary d4a8e3bbf43d and c4ff16d39c20, original findings"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Kruse–Wu arXiv:1701.03444",
+        "Bochacik et al. arXiv:2006.12131",
+        "Sun–Shu arXiv:1912.11596",
+        "Resultary d4a8e3bbf43d and c4ff16d39c20"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Backward Euler yields reciprocal quadratic squared amplification; RK3 yields a sextic with quartic curvature and a nontrivial interior maximization in the normalized h parameter.",
+          "The inspected RK stability results govern convergence or nonincrease rather than the difference between expected squared amplification and squared amplification at the expected step."
+        ],
+        "reasoning": "The earlier polynomial and stability techniques can frame the problem, but the sharp quintic threshold and isolated zero case do not follow from inspecting a stability region or importing the backward Euler optimizer. The rational witness even lies inside the stable range at all three compared steps, illustrating the distinction.",
+        "searches": [
+          "Resultary d4a8e3bbf43d and c4ff16d39c20, original mirror findings",
+          "arXiv:1701.03444 p. 3 equations (3)–(5)",
+          "arXiv:2006.12131 pp. 13–15 and arXiv:1912.11596 pp. 1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equivalent deterministic formulation is convexity along all nonnegative radii of |1+z+z²/2+z³/6|² on a given damped ray. Kruse–Wu fix h and randomize where the right-hand side is evaluated; Bochacik et al. randomize a stage coefficient in a second-degree polynomial at fixed h.",
+          "Resultary d4a8e3bbf43d has exactly the fixed-mean law question on this matrix but uses a rational backward Euler amplification function."
+        ],
+        "reasoning": "The stochastic equivalence is fixed-mean convex order for actual step duration, not randomness in a stage formula. The radial second derivative is a different operation from the radial absolute-stability inequality |R(z)|≤1.",
+        "searches": [
+          "Local Resultary: fixed-mean randomized actual step, squared amplification, RK3 and damped planar rotation",
+          "Kruse–Wu arXiv:1701.03444 pp. 2–3",
+          "Bochacik et al. arXiv:2006.12131 pp. 13–15"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest distinct catalog item d4a8e3bbf43d gives sqrt(3) for backward Euler, and c4ff16d39c20 is a deterministic RK2 contraction frontier. The bounded catalog search surfaced no direct RK3 fixed-mean threshold match."
+        ],
+        "reasoning": "Usual stability-polynomial data specify R_j, not which rays give global convexity of |R_j|². No enumerative table is applicable to this continuum law comparison; the polynomial does make the question explicit but does not tabulate its solution.",
+        "searches": [
+          "Local Resultary lookup for RK3 damping, randomized timesteps and fixed means"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the exact global RK3 squared-amplification curvature boundary and constructive reversal. A separate same-day result investigates the same matrix and law comparison for backward Euler, a material overlap in problem formulation but not coverage of the RK3 threshold. Neither novelty of Jensen's equivalence to convexity nor priority for fixed-mean time randomization generally is claimed.",
+      "residual_risks": [
+        "The comparison is bounded to the local catalog and inspected primary papers; unindexed radial convexity or timestep-randomization work could contain an equivalent statement.",
+        "The same-day backward Euler entry is a genuine conceptual overlap but does not establish priority for one formulation over the other."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Fixed mesh and randomized evaluation, not fixed-mean random actual durations",
+          "evidence": [
+            "h sets the fixed time-grid spacing; independent random variables select evaluation locations/stage parameters."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1701.03444",
+          "material_read": "PDF p. 3 equations (3)–(5), OA offset 8500",
+          "method": "Original OA PDF targeted passage",
+          "title": "Error analysis of randomized Runge-Kutta methods for differential equations with time-irregular coefficients",
+          "trigger": "Randomized Runge–Kutta methods"
+        },
+        {
+          "assessment": "Different polynomial, random variable and stability criterion",
+          "evidence": [
+            "Second-degree polynomial with random coefficient at fixed h; mean-square and asymptotic stability regions for a repeated recurrence."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2006.12131",
+          "material_read": "PDF pp. 13–15, OA offsets 60000, 61200 and 69700",
+          "method": "Original OA PDF targeted passages",
+          "title": "Randomized Runge–Kutta method—stability and convergence under inexact information",
+          "trigger": "Squared stability of a randomized RK update"
+        },
+        {
+          "assessment": "Fixed-step norm nonincrease is a different objective",
+          "evidence": [
+            "Strong stability is stated as discrete norm nonincrease and enforced with deterministic filtering/superviscosity."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1912.11596",
+          "material_read": "PDF pp. 1–2, OA offset 550",
+          "method": "Original OA PDF targeted passage",
+          "title": "Enforcing strong stability of explicit Runge-Kutta methods with superviscosity",
+          "trigger": "Same class of explicit stability polynomials and discrete energy"
+        },
+        {
+          "assessment": "Strong overlap of question but a different method and threshold; same-day date does not establish ordering",
+          "evidence": [
+            "Backward Euler randomization improves over the deterministic mean exactly for b>sqrt(3)a at sufficiently small means, with a two-point optimizer using zero and a positive step."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-fixed-mean-randomized-backward-euler-damping-on-a-planar-o--d4a8e3bbf43d",
+          "material_read": "Original mirror RESULT.md, Finding",
+          "method": "Local Resultary followed by original mirror passage",
+          "title": "Sharp fixed-mean randomized backward Euler damping on a planar oscillator",
+          "trigger": "Same matrix, squared amplification, and admissible step laws"
+        },
+        {
+          "assessment": "Deterministic contractivity, not fixed-mean Jensen behavior",
+          "evidence": [
+            "The oscillator has rank-one damping and the question concerns deterministic RK2 single-step contraction."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-sharp-energy-contraction-frontier-for-explicit-rk2-on-damped-o--c4ff16d39c20",
+          "material_read": "Original mirror RESULT.md, Finding",
+          "method": "Local Resultary and original mirror passage",
+          "title": "A sharp energy-contraction frontier for explicit RK2 on damped oscillators",
+          "trigger": "Earlier exact damping criterion in a planar oscillator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The normal damped rotation is the standard oscillatory scalar test mode. This classification pinpoints when any fixed-mean randomization makes its one-step numerical energy no smaller, and when a simple two-point law can improve damping; it distinguishes RK3 from RK1 and RK2 and includes the sharp boundary. It isolates a property not captured by absolute or strong stability, without equating energy damping over random durations to accuracy at a fixed terminal time.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

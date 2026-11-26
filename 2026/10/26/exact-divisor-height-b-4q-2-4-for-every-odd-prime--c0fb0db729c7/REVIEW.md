@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof explicitly partitions the six low-level cyclotomic factors into small-prime and odd-prime groups. Every exceptional product is treated; the slice bound \(T_r(F)\le4\) follows from the flat/nonflat cases, the reciprocity argument for \((X+1)\Phi_q\Phi_{4q}\), and the signed convolution bound. The three high-level factors are lifts from the odd-prime group with flat products. A disjoint cyclotomic-factor witness has coefficient four. Exact exhaustive computations independently cover all 512 divisors for each of five sample primes, but the analytic argument, not the finite data, proves the infinite theorem.
+## correctness
 
-**Originality — PASS, with residual risk.** Ryan--Ward--Ward (2010), published Conjecture 4.1 / preprint Conjecture 3.3, records \(p^2q^2\) as conjectural and verifies examples numerically; their lower bound four does not imply the needed universal upper bound. Decker--Moree (2010/11) explicitly proves coefficient ranges only for \(p^2q\), and Wang (2013) considers \(pq^b\); neither stated family implies the claimed \(4q^2\) case. Searches for the precise value, coefficient-slice aliases, prime-square conjecture, and indexed mathematical claims did not locate a dominating exact theorem. Existing finite tables and an inaccessible full version of Kaplan (2009) are residual risks; bibliographic non-detection is not a proof of novelty.
+PASS
 
-**Value — PASS.** The result settles an entire previously conjectural infinite subfamily of a natural polynomial-height invariant. The residue-slice inequality supplies a structural mechanism explaining a constant maximal coefficient despite increasing polynomial degree and number of divisors, rather than merely computing a new small table entry. It does not address the general two-odd-prime conjecture.
+Reconstructed the universal proof, not just the low-prime enumeration. Split the six distinct low-index cyclotomic factors into A from (X−1,X+1,X²+1) and B from (U,U_−,V). The ℓ¹ norm of every A is ≤4, and the residue-slice norm of AB is bounded by a convolution with |A|'s coefficient weights. Six B-products (including 1) have at most one coefficient ±1 per residue, using UU_−=ΣX^(2j), UU_−V=ΣX^(4j) and odd q. X→−X reduces the other choices to B=UV. Factors X−1 and X²+1, when present, telescope with U and V respectively, giving the stated slice bound (in the both-present case four terms in residue zero, with an optional disjoint copy in residue one). UV itself is flat by the alternating consecutive-index coefficient formula, with at most three slots per residue. For W=(1+X)UV and q=2k+1, each middle-block coefficient (q≤n≤2q−1) has k+1 alternating summands with exactly one endpoint of weight one and all other weights two. Its absolute value is 1. In the low block n<q, the magnitude is 1 at even n and at most 2 at odd n. Reciprocity about degree 3q−2 pairs the outer coefficients of residue r≤q−2 with low indices r and q−2−r, of opposite parity, proving 4; the final residue has only two slots. The argument includes q=3. The three q²-index factors are precisely U,U_−,V evaluated at X^q by cyclotomic factorization; their subset products are flat before substitution. In each output coefficient the lifted factor can then draw only from a single slice of F, proving height ≤4. The proposed witness divides as the specified four distinct factors, and its coefficient of X³ is 4. Inspected verify.py and VERIFICATION.md but did not execute the frozen script; the finite checks are not needed to establish the quantified bound.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The established lower bound and proposed witness are prior work. The all-prime upper bound in the p=2 specialization and the uniform residue-slice lemma are the distinct contributions supported by the comparison. Neither a different exponent family nor a degree statistic at the same exponent constitutes coverage of height. The bounded search does not certify priority.
+
+## value
+
+PASS
+
+Resolves a uniform specialization of a concrete maximal-divisor-height conjecture, rather than adding instances to its table. The slice inequality is motivated by the q-dilation of the remaining factors and controls precisely the coefficient mass that can combine at a single exponent. It supplies the missing upper bound and is stronger than knowing a height bound for the factors alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

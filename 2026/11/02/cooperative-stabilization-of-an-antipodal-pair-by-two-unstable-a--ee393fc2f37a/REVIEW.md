@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The two softmax self-weights at the antipodal point are exactly \(3/4\) and \(7/8\). The pre-normalization radial gain is exactly \(9/4\), and score derivatives vanish on every tangent direction. The full six-dimensional real tangent Jacobian is a symmetric direct sum of the matrix \(\frac29\left(\begin{smallmatrix}1&1\\1&1\end{smallmatrix}\right)\) and two copies of \(\frac49I_2\), hence is strictly contractive. The two isolated-head unstable multipliers and local persistence follow from exact algebra and the implicit-function theorem. `check.py` and `checker_output.txt` independently exercise the model implementation and tangent derivatives but are not substituted for the proof.
+## correctness
 
-**Originality — PASS under inspected evidence.** Altafini's arXiv:2610.13518v1 explicitly leaves stable multihead bipartite points unsupported; its Theorem 3 only guarantees principal consensus. The previously established single-head stability work (arXiv:2511.11553v1) does not settle a two-head sink, still less one assembled from two unstable heads. Interacting-head continuous-time gradient flows (arXiv:2605.04279v2), high-dimensional masked single-head clustering (arXiv:2608.08922v1), and multihead continuous-time identity-value consensus (arXiv:2412.02682v2) do not imply the new example. Searches and competing-reduction checks identified no stronger covering theorem. General stabilization-by-combination mechanisms are well known, so priority for the precise example remains open to independent literature checks.
+PASS
 
-**Mathematical value — PASS.** The motivating source explicitly reports no stable multihead bipartite instance, and the construction supplies a fully explicit hyperbolic example in the standard head-concatenation model, including exact full-system stability and a quantitative individual-head contrast. It establishes a mechanism that a single averaged attention matrix with identical scores would hide; the fixed point remains under perturbation. It therefore answers a concrete gap in discrete multihead dynamics rather than merely renaming a generic stability calculation.
+In each head, the weight matrix at the pair has eigenvalues 1 and q_h on the symmetric and antisymmetric token directions, with (q_1,q_2)=(1/2,3/4). The joint unnormalized radial gain is 9/4. Score derivatives vanish on the tangent because all perturbations have zero first coordinate and the base second coordinates vanish. Thus in coordinate two the pre-normalization multipliers are 1+4-4=1 and 1+4q_1-4q_2=0. Both token directions in each of coordinates three and four have pre-normalization multiplier 1. Spherical normalization scales all six by 4/9. The isolated radial gains are 3/2 and 7/4, giving symmetric transverse multipliers 10/3 and -12/7, and antisymmetric multipliers 2 and -8/7. The joint derivative has Euclidean norm 4/9 in a tangent chart, hence a small invariant contracting neighborhood exists. The derivative minus the identity is invertible, so the implicit function theorem and continuity of the derivative give a unique nearby attracting fixed point under small smooth parameter changes. Within the bias-free architecture, the swap-and-negate symmetry actually forces the nearby fixed point to remain antipodal; that symmetry need not hold for general perturbations. check.py lines 41–74 and checker_output.txt were inspected, not executed: the rational identities, six finite-difference columns and finite trajectory tests are corroboration, not the proof or a formal certification.
 
-**Limitations and risks.** The construction is parameter-specialized, its output matrix is rank deficient, and only local dynamics are established. Prior general theorems on normalized multihead systems could cover the instance without using the same terminology. Numerical tests cannot establish universal asymptotic claims.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is an explicit stable antipodal fixed point of the cited discrete two-head architecture with both specified isolated ablations expanding, not a new general stability theorem or the first instance of antipodal behavior in attention. No inspected statement supplies or implies this conjunction.
+
+## value
+
+PASS
+
+The exact example answers an existence question explicitly left open in the same architecture and tests the substantive inference that head-wise expansion rules out joint attraction. It isolates cancellation of the antisymmetric transverse update independently of radial gain, and shows the joint attraction is not conditional on exact tuning of the full Jacobian. This is a useful local counterexample, not a claim about practical transformer behavior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

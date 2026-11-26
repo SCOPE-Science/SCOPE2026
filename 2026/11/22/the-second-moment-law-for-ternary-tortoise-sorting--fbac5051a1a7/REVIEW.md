@@ -1,19 +1,21 @@
-# Assessment of the ternary tortoise second-moment law
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The operator is defined for all finite words with maximum-letter splitting, including empty words. Binary output fertilities are obtained by allocating the initial zero block across two input zero blocks. An exact split convolution gives the first ternary block's fertility, and all later binary blocks contribute multiplicatively. The disjoint decomposition by numbers of maximal letters yields the rational series with no boundary omissions. Its dominant pole is simple, positive and strictly smaller in modulus than every other pole. Two independent programs confirm all length-at-most-nine ternary fibers, all binary split kernels through length twelve, and coefficient identities through degree eighty. This is a proof for all lengths, not an infinite inference from the finite checks.
+PASS
 
-## Originality (O): PASS against inspected comparisons
+For the frozen finding, the headline generating function is correct but the intermediate equality on line 37 of RESULT.md is false: its ending-one suffix must begin with 1 as well as end in 1, and has series z+z²/(1−2z), not z/(1−2z). The complete replacement repairs the proof without changing the theorem. After the correction, the weighted split c(u) is valid, with all cuts through the initial zero run and all cuts just after a one accounted for separately in the ending-one case. The squared weights sum via the explicit index-derivative formula in the replacement, and the separators 2 give the unique ordered decomposition used in the geometric-series argument. The cubic has a unique real zero 0<r<1/3, its conjugate roots have modulus (5r)^−1/2, and positivity precludes cancellation of the simple pole. Division by 9^n and the negative base-two logarithm yield the claimed entropy law. In an independent bounded calculation I encoded words of each fixed length as base-three integers, accumulated output histograms using the weak-pop stack, and squared and summed the bin counts through n=11. This reproduces all displayed terms and continues with 642495 and 2183967. The asymptotic values agree with independent root and residue evaluation. The infinite conclusion uses the algebraic proof, not this finite check; the supplied verification/exhaustive.py and verification/series.py and their recorded outputs were inspected, not rerun. Those are the package replay paths. Corrected file: repairs/5/RESULT.md.
 
-Defant--Kravitz establish the map and fertility methods. Campbell--Rampersad consider subword complexity of sorted/equivalent words, primarily over a binary alphabet. These results do not supply the **global square-summed ternary preimage counts** or entropy rate in their inspected relevant sections. Related published output-language formulas identify which fibers are positive, not their second moment. Search comparisons on tortoise fertility, collision moments, Rényi entropy and the specific cubic denominator did not surface an equivalent. However, prior work may contain an unindexed second-moment specialization.
+## originality
 
-## Value (V): PASS
+PASS
 
-The number of obtainable outputs misses the distribution of how often different inputs collide. The first three-symbol case has genuine weighted binary-block interactions, but an exact rational collision enumerator and explicit exponential rate. Its entropy rate is a natural operational statistic for information loss under deterministic string sorting, not a routine value substitution in a support-count formula.
+Originality attaches to the evaluated ternary second-moment series and its specific growth constant, not to the tortoise map, per-word fertility, the binary recursion, or the general Rényi collision identity. The strongest compared prior statements do not establish that aggregate.
 
-## Sources and residual risks
+## value
 
-The primary texts are *Stack-sorting for Words*, arXiv:1809.09158 (definition and fertility sections), and *Subword enumeration up to stack-sorting equivalence*, arXiv:2604.25811 (2026 methods and results on subwords/equivalence). The general fertility framework might allow deriving this special case with substantial algebra, but no inspected theorem already states or dominates the global ternary second moment. Independent external priority verification remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact collision law for this standard stack map gives the concentration of the output distribution, information that cannot be inferred from the image language. The ternary case is the first with a nontrivial split of two binary fibers and subsequent renewal blocks; the evaluated all-length series and dominant rate provide useful benchmarks for more general alphabet or moment analyses.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

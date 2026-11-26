@@ -1,15 +1,21 @@
-# Scientific review: fixed-marginal dual-batch stability contrast
+# Independent mathematical audit
 
-## Correctness — PASS
-The scalar proximals and the factor \(1+1/p_i=3\) give exactly the four claimed rational state matrices. The specified rational quadratic Lyapunov form has four positive leading principal minors. Its conditional one-step slack is the identity under exclusive serial selection and remains positive definite at joint-selection probability \(1/100\); interpolation proves uniform mean-square geometric contraction over the stated closed interval. Under consecutive full batches, the exact reduced update has eigenvalues \(-2\), \(0\), and \(15/22\), with a nonzero coefficient of the unstable mode for the admitted initial state. The \(q^k\) probability of this one event and positivity of squared error prove the explicit lower bound at every horizon. The package's independent standard-library exact-rational checks reproduced all displayed matrices, principal-minor signs, and path identities. No infinite-dimensional, floating-point, or probabilistic simulation inference is used.
+## correctness
 
-## Originality — PASS, subject to priority risk
-The full original SPDHG article defines arbitrary subsets and extrapolation but supplies ESO-based *sufficient* convergence conditions. Its sampling discussion and examples do not yield the stated opposite mean-square classifications at one fixed setting. The 2022 SPDHG full text studies mostly serial selection and sufficient step sizes; the later full-text arbitrary-sampling treatment proves convergence when its step-size operator norm is small. Neither result covers the over-threshold pair of stability and instability certificates used here. Search comparisons also included closely related published mathematical findings on coordinate sampling and a separate deterministic PDHG tuning result; these do not imply a fixed-marginal, two-block stochastic stability separation. Repeated index searches are supporting negative evidence, not proof of novelty. An equivalent counterexample in unindexed work remains possible.
+PASS
 
-## Value — PASS
-The example proves a structural limitation of diagnosing stochastic primal-dual stability from marginal inclusion probabilities and expected batch size alone. Its positive stability regime is robust to small joint sampling probabilities, whereas the full-batch event creates a nonvanishing mean-square error already at independent block selection. This matters for interpreting joint mini-batch design and extrapolation outside sufficient step-size bounds. The claim is a counterexample/boundary, not a general convergence theorem or a proposed optimal implementation.
+The two proximals give 10(x−z̄)/11 and (y_i+x_new)/2, and the dual extrapolation is the updated sum plus twice the selected increment. Basis evaluation reproduces the exact Lyapunov slacks. Independent determinant expansion gives the stated positive leading minors for P and H(1/100), with H(0)=I. The affine slack is positive on the closed interval, uniformly by bounding it below by the smaller endpoint minimum eigenvalue. Conditional on the current state the new subset is independent, so the expected quadratic energy contracts uniformly, and norm equivalence controls all four coordinates. The repeated full-batch update on (x,y_1+y_2,z̄) has eigenvalues −2,0,15/22, and the legitimate start has first-coordinate coefficients −25/59 and 16/177 on the two surviving eigenmodes. For k>=1 the latter contributes at most (25/118)2^k in magnitude, so the event of probability q^k proves the reported lower bound. At q=1/4 it is strictly positive, not an exponential lower bound; above it the lower bound grows. The unique saddle is zero from the linear saddle equations.
 
-## Relationship and limitations
-Closest primary sources are Chambolle–Ehrhardt–Richtárik–Schönlieb (arXiv:1706.04957; Algorithm 1, ESO condition and strongly convex sections), Alacaoglu–Fercoq–Cevher (arXiv:1911.00799; Algorithm 1 and standard-step convergence conditions), and Gutierrez–Delplancke–Ehrhardt (arXiv:2207.12291, arbitrary-sampling analysis). These sources establish the method and sufficient regimes; the present theorem is outside those sufficient regions. The interval \(1/100<q<1/4\) is not classified, and almost-sure behavior, general convex problems, and nonlinear settings are not claimed. The analytical lower bound arises from rare full-batch sequences and does not imply that typical trajectories diverge.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Strong prior conceptual coverage exists for dependence-induced stability changes, including the very same selection law for DIANA. The supported distinct claim is the exact SPDHG instance and its opposed mean-square bounds at fixed blocks, marginals and step sizes, not the general phenomenon or the certificate methods. Bounded statement-level comparisons did not yield an earlier theorem implying this instance.
+
+## value
+
+PASS
+
+At identical work in expectation, blockwise marginals, objective and extrapolated SPDHG steps, serial-like laws give uniform geometric mean-square contraction while independent inclusion is already insufficient and stronger batching drives exponential second-moment growth. This is a practical caution about substituting a batching law without joint analysis, with exact positive and negative certificates rather than a qualitative warning. Its relevance is outside existing sufficient step bounds, not a refutation of those bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

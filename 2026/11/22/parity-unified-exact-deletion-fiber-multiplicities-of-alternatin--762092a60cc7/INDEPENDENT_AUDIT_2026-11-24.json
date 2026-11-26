@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:11:47.517741Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–65 and VERIFICATION.md",
+        "Supplied verify_literal.py, verify_shuffle.py and their saved stdout, inspected without execution",
+        "Own bounded replay: python3 /workspace/branches/aff6cc0d-2276-4b4c-be48-62ab28ee7d12/record2_bounded_check.py; direct position-subset comparisons for all n≤14 (120 parameter pairs, 577 positive fibres)"
+      ],
+      "rationale": "After k deletions and j retentions, the next host letter has parity k+j, while the next required deleted letter has parity k. Thus a deletion is legal only at even j, and at odd j the next host letter, if any, must be retained. This gives consecutive opposite-letter pairs, with any odd tail last and equal to d mod 2. At an even retention count a full pair does not change phase; a deletion gap flips phase exactly when its length is odd. Boundary phases 0 and d mod 2 prescribe the parities of all ell+1 gaps, including the virtual phase at the end when r is even. Conversely each gap vector of those parities summing to d gives one positional embedding and the stipulated residual. Removing the T compulsory gap increments leaves (d−T)/2 freely allocated pairs of deletions, giving the stated binomial and the zero cases. Choosing transition positions is a bijection from size-t subsets of the ell+1 gaps when t has the endpoint parity. Summing and applying Pascal yields the finite binomial tail through min(d,ell); in particular all types are possible iff ell≤d, and at ell=d+1 the only omitted type switches at every gap. The empty word, no deletions, no retentions, and either tail parity obey the same argument. As an additional check, writing deleted positions with zero-based indices j+2z_j gives weakly increasing z_j between 0 and ell, so the aggregate number of embeddings is binomial(d+ell,d), also as stated.",
+      "residual_risks": [
+        "The replay is a finite diagnostic, not the proof for arbitrary lengths. The frozen runs through n=18 and n=22 and the reported longer tests are separate recorded evidence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The complement paper distinguishes seven embeddings from four complements and handles singleton complement cases. The cyclic-permutation spectrum counts all embeddings with no restriction on which complement is left. The two-run fibre record covers a different deleted pattern family."
+        ],
+        "reasoning": "For even hosts the unrestricted spectrum supplies the sum over v, not its split. A general definition or algorithm for shuffles is not a stronger closed conditional spectrum. The two-run formula does not range over alternating patterns of arbitrary length.",
+        "searches": [
+          "arXiv:2603.20790, example, shuffle characterization and Props. 32–33",
+          "Resultary bcaf0c227997 and 4b5c91af95ea"
+        ]
+      },
+      "checked_sources": [
+        "Adamson–Fleischmann–Huch arXiv:2603.20790",
+        "Resultary d7ef6cdd9c92, bcaf0c227997, 4b7dc91ebfc9, e046ddbbf6b9, 1e7ccb67347b, 4b5c91af95ea"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the known even-even case T is twice the number of runs of the 10 block; the known run condition gives support. An unrestricted embedding total yields a single sum constraint on the fibres."
+        ],
+        "reasoning": "Neither knowing which fibres are positive nor knowing their total fixes their weights. The d=3 result supplies those weights only at that d. The phase-gap argument computing each weight across both parities, not the known support or normalization, is the surviving claim.",
+        "searches": [
+          "Resultary d7ef6cdd9c92, bcaf0c227997 and e046ddbbf6b9; compared directly to frozen gap formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The paper represents complement membership by H_n in H_d shuffle v but studies distinct sets and the singleton case in the inspected passages. The same-day e046ddbbf6b9 gives an exactly matching two-point histogram for d=3 in an even host."
+        ],
+        "reasoning": "The shuffle multiplicity is the very same positional count; membership is weaker. For n=2N,d=3, the T=1 and T=3 bins have sizes N−1 and binomial(N−1,3), with multiplicities N−1 and 1, respectively. This is exact overlap, not independent novelty of that specialization, and does not determine arbitrary d or odd hosts.",
+        "searches": [
+          "arXiv:2603.20790, pp. 2–3 and Props. 32–33",
+          "Resultary d7ef6cdd9c92 and e046ddbbf6b9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The binomial-tail record and the three-symbol complement record count distinct outputs; the fixed-composition record counts outputs under arbitrary deletions. The two-point collision record codes the exact even-host d=3 histogram."
+        ],
+        "reasoning": "Distinguish tables of residual support from tables of positional multiplicities conditional on the deleted word. The strongest exact match covers the stated d=3 slice only.",
+        "searches": [
+          "Resultary d7ef6cdd9c92, 4b7dc91ebfc9, e046ddbbf6b9 and 1e7ccb67347b"
+        ]
+      },
+      "rationale": "The supported addition is the exact conditional positional fibre and histogram for arbitrary d and both host parities. Credit the known even-even support theorem and an exact same-day fixed-pattern multiplicity overlap; neither supplies the arbitrary-length result. General shuffle formulations and unconditioned embedding spectra also do not give these conditional fibre counts.",
+      "residual_risks": [
+        "An unindexed word-binomial or shuffle-spectrum specialization could overlap. The focused literature lookup did not produce a useful primary comparison beyond the inspected paper and is not evidence of absence. Same-day overlap is acknowledged without inferring priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Definitions and singleton overlap only in inspected results",
+          "evidence": "C(w,u) is a set; example separates output and embedding counts; Props. 32–33 concern a singleton complement.",
+          "identifier_or_url": "https://arxiv.org/pdf/2603.20790",
+          "material_read": "pp. 2–3 and 17–18, offsets 7256, 9357 and 55975–57539",
+          "method": "Primary PDF passages",
+          "title": "(Sets of) Complement Scattered Factors",
+          "trigger": "Same shuffle-complement framework"
+        },
+        {
+          "assessment": "Known support",
+          "evidence": "Distinct block words with at most k runs of the reversed pair after deleting (01)^k from (01)^(m+k).",
+          "identifier_or_url": "2026/11/2/SCOPE-binomial-tail-law-for-complements-of-alternating-words--d7ef6cdd9c92",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror RESULT.md",
+          "title": "Binomial-tail law for complements of alternating words",
+          "trigger": "Same even-even parameters"
+        },
+        {
+          "assessment": "Aggregate overlap, not conditioned",
+          "evidence": "Uses weak descents of a target to count embeddings, with no prescribed complement.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-embedding-multiplicity-spectrum-of-cyclic-permutation-powe--bcaf0c227997",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror RESULT.md",
+          "title": "Exact embedding-multiplicity spectrum of cyclic permutation powers",
+          "trigger": "Same hosts and embedding statistic"
+        },
+        {
+          "assessment": "Different conditioning and statistic",
+          "evidence": "B_{m,t,k} counts distinct outputs by weight after arbitrary t-position deletions.",
+          "identifier_or_url": "2026/11/8/SCOPE-fixed-composition-deletion-spectra-and-parity-bias-for-alternati--4b7dc91ebfc9",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "Local mirror RESULT.md",
+          "title": "Fixed-composition deletion spectra and parity bias for alternating binary words",
+          "trigger": "Deletion spectra from alternating hosts"
+        },
+        {
+          "assessment": "Exact even-host d=3 overlap; same-day order unknown",
+          "evidence": "For deleting 010 from (01)^N, N−1 outputs have multiplicity N−1 and binomial(N−1,3) have multiplicity one.",
+          "identifier_or_url": "2026/11/22/SCOPE-two-point-collision-spectrum-for-alternating-words-with-a-scatte--e046ddbbf6b9",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror RESULT.md",
+          "title": "Two-point collision spectrum for alternating words with a scattered deletion pattern",
+          "trigger": "Exact fibre-multiplicity hit"
+        },
+        {
+          "assessment": "Support overlap",
+          "evidence": "Counts distinct residuals, including the 010 even-host support.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-three-symbol-complement-deletion-spectra-of-finite-alterna--1e7ccb67347b",
+          "material_read": "Finding",
+          "method": "Local mirror RESULT.md",
+          "title": "Exact three-symbol complement deletion spectra of finite alternating words",
+          "trigger": "Same short deleted pattern"
+        },
+        {
+          "assessment": "Different pattern family",
+          "evidence": "The deleted patterns are 0^a1^b with a+b≥3, not alternating prefixes of arbitrary lengths.",
+          "identifier_or_url": "2026/11/22/SCOPE-split-invariant-complement-fiber-spectrum-for-two-run-deletions--4b5c91af95ea",
+          "material_read": "Finding",
+          "method": "Local mirror RESULT.md",
+          "title": "Split-invariant complement fiber spectrum for two-run deletions",
+          "trigger": "Full conditional fibre histogram"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and phase-gap bijection",
+        "Checked even-even support, unrestricted embeddings, and fixed-pattern histogram comparators"
+      ],
+      "rationale": "The exact conditional weights determine the law induced on residual words by uniformly chosen positional embeddings, which neither a support census nor an aggregate embedding count determines. The transition statistic gives all weights and frequencies in one uniform law including parity and the first missing-word threshold, not just a finite or short-pattern extension.",
+      "residual_risks": [
+        "No distribution under a nonuniform deletion mechanism or arbitrary deleted word is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

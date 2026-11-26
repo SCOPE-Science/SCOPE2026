@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,7 +19,24 @@
 }
 ---
 
-# Verification
-The standalone `verify.py` (Python 3 standard library only) was run successfully using `python3 verify.py`. It separately enumerates all binary producer sets, checks the exact local best-response equation, enumerates simple cycles using canonical-root depth-first searches, computes girth by breadth-first search, and compares all coefficients for integer supports below the sharp threshold. The test included cycles of lengths 5–13, the Petersen (12 shortest cycles) and Heawood (28 shortest cycles) graphs, and the three-path sharpness graphs at girths 5–9 (16 graphs total). For every tested sharpness graph, one simple cycle of length 2g-4 was present but no equilibrium of that support size existed. All checks completed PASS.
+# Independent mathematical audit
 
-The theorem is universal across finite simple graphs of girth at least five. The enumerated finite cases are consistency checks; only the combinatorial proof establishes that universally quantified statement. Neither external mathematical auditing nor independent validation has occurred.
+## correctness
+
+PASS
+
+For T(j)=1 exactly at j=2, the empty set is an equilibrium and each nonempty equilibrium induces a 2-regular graph, so supports of positive size below 2g induce one cycle. A chord of a k-cycle forces k+2>=2g; a two-edge path between distinct cycle vertices through an external vertex forces k+4>=2g. Hence below 2g-4 each cycle is induced and every external vertex sees at most one producer. Cycle vertex sets give the asserted bijection, including the absence of positive supports below g and the multiplicity at g. The simple theta graph with path lengths g-2,g-2,2 has cycles of lengths g,g,2g-4, and the internal vertex of the short path blocks its unique long cycle. The one-cycle necessity excludes another support at that boundary. An independent bounded enumeration of cycles and profiles on the theta graphs g=5 through 9 agreed. The frozen verify.py was inspected, not executed; its reported 16-graph run is finite corroboration only.
+
+## originality
+
+PASS
+
+The same exact-two rule was previously treated on specific periodic graph families. The examined sources do not give or imply this initial coefficient law for all graphs of a given girth, or its universal sharp boundary. This is a statement-level conclusion bounded by the comparisons below, not a global priority claim.
+
+## value
+
+PASS
+
+The result converts a strategy-profile count into ordinary cycle counts over an entire sharp low-support range on arbitrary high-girth graphs. It identifies both the smallest positive support and its multiplicity. The exact cutoff explains why the local graph shortcut, not merely the possible appearance of unions of cycles, limits the correspondence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

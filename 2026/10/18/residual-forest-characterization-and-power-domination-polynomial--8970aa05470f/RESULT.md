@@ -2,83 +2,52 @@
 
 ## Finding
 
-Let \(H=K_{a_1,\ldots,a_r}\) be a complete multipartite graph with \(r\ge2\) and positive integer part sizes \(a_1,\ldots,a_r\); put \(G=L(H)\). Each vertex of \(G\) represents an edge of \(H\). A subset \(S\subseteq E(H)=V(G)\) is power dominating in \(G\) if and only if \(S\ne\varnothing\) and the graph induced by the vertices of \(H\) incident with no edge of \(S\) is a forest. Equivalently, if \(t_i\) counts these unused vertices in part \(i\), then at most one \(t_i\) is positive, or exactly two are positive and at least one equals \(1\).
+Let \(H=K_{a_1,\ldots,a_r}\), with \(r\ge2\) and positive integer part sizes \(a_i\), and let \(G=L(H)\). Define the power-domination polynomial by \(\mathcal P_G(z)=\sum_S z^{|S|}\), over all power-dominating sets of the labelled vertices of \(G\).
 
-This yields the following explicit polynomial counting every power-dominating edge selection by cardinality. For vectors \(\mathbf b=(b_1,\ldots,b_r)\) of nonnegative integers define
+The full polynomial has a compact sum over part profiles. For \(0\le u_i\le a_i\), write \(|\mathbf u|=\sum_i u_i\), \(J(\mathbf u)=\{i:u_i>0\}\), and put
 \[
-Q_{\mathbf b}(z)=
-\sum_{0\le j_i\le b_i}
-(-1)^{\sum_i j_i}
-\left(\prod_{i=1}^r\binom{b_i}{j_i}\right)
-(1+z)^{\sum_{1\le i<k\le r}(b_i-j_i)(b_k-j_k)}.
+ \Gamma(\mathbf u)=1-|J(\mathbf u)|+
+   \sum_{\substack{i<j\\i,j\in J(\mathbf u)}}(u_i+u_j-u_i u_j),\qquad
+ e(\mathbf v)=\sum_{i<j}v_i v_j.
 \]
-Write \(\mathscr F(\mathbf t)\) for the stated forest condition and \(\mathbf b=\mathbf a-\mathbf t\). Then
+Set \(\delta=1\) if \(r=2\) and \(\min(a_1,a_2)=1\), and \(\delta=0\) otherwise. Then
 \[
-\boxed{
-\mathcal P_{L(H)}(z)
-=\sum_{\substack{0\le t_i\le a_i\\\mathscr F(\mathbf t)\\\sum_i b_i\ge2}}
-\left(\prod_{i=1}^r\binom{a_i}{t_i}\right)
-Q_{\mathbf b}(z).
-}
+ \boxed{\displaystyle
+ \mathcal P_G(z)=\sum_{0\le\mathbf u\le\mathbf a}
+ (-1)^{|\mathbf u|}\Gamma(\mathbf u)\prod_i\binom{a_i}{u_i}
+ (1+z)^{e(\mathbf a-\mathbf u)}-\delta.}
 \]
-Here \(\mathcal P_G(z)=\sum_{S\text{ power dominating in }G}z^{|S|}\) excludes the empty sensor set. The formula applies even when some parts are singletons.
-
-For the rook graphs \(K_m\square K_n=L(K_{m,n})\), where \(2\le m\le n\), it gives the **previously known** minimum \(\gamma_P=m-1\) and additionally the following exact number of minimum sensor sets:
-\[
-\boxed{
-N_{m,n}=\begin{cases}
-m n^{m-1},&m<n,\\
-2m^m-m^2(m-1)!,&m=n.
-\end{cases}}
-\]
-For triangular graphs \(T_n=L(K_n)\), \(n\ge3\), the minimum is \(\lceil(n-2)/2\rceil\). The number of its minimum sets is
-\[
-\boxed{
-N_{2k}=\frac{(2k)!}{2^k(k-1)!}\quad(k\ge2),\qquad
-N_{2k+1}=\frac{(2k+1)!}{2^k k!}
-+\begin{cases}0,&k=1,\\\dfrac{(2k+1)!}{2^k(k-2)!},&k\ge2.\end{cases}}
-\]
-Both families are covered by the same structural theorem, rather than being independent special-purpose claims.
+Equivalently, the number of size-\(k\) sets is given by replacing the power \((1+z)^{e(\mathbf a-\mathbf u)}\) by \(\binom{e(\mathbf a-\mathbf u)}{k}\) and subtracting \(\delta\) only when \(k=0\). This uses \(\prod_i(a_i+1)\) summands before dropping zeros or collecting equal exponents. It covers arbitrary mixed part sizes, not just bipartite roots or complete roots. For example, the profile \((1,2,3)\) is neither of those cases and gives two size-one and 49 size-two power-dominating sets.
 
 ## Assumptions and scope
 
-All graphs are finite, simple and undirected. Part sizes are positive, and there are at least two parts. For a graph \(G\), the power-domination process first observes the chosen set \(S\) together with all its neighbors, then repeatedly permits any observed vertex with exactly one unobserved neighbor to observe that neighbor. A power-dominating set observes all vertices at termination. In a line graph, the vertices are edges of the underlying graph and adjacency means incidence. Every generating polynomial counts labeled subsets of the fixed graph, including the full vertex set but excluding the empty set.
-
-A *forest* is an acyclic graph, including the empty graph and edgeless graphs. Thus a vector with zero or one positive coordinate satisfies \(\mathscr F\). A complete bipartite graph with part sizes \(u,v>0\) is a forest precisely when \(\min(u,v)=1\). These conventions cover all boundary cases.
+Graphs are finite, simple, undirected and labelled. The line graph has the edges of \(H\) as vertices; adjacency means sharing an endpoint. Power domination first observes the closed neighborhood of \(S\), then permits any observed vertex with exactly one unobserved neighbor to observe it. The empty set does not power dominate any graph in the stated family. An empty or edgeless graph counts as a forest. The case of only one part is not included.
 
 ## Proof
 
-**Step 1 (the initial observation).** Fix a nonempty edge set \(S\subseteq E(H)\). Let \(U\subseteq V(H)\) be the union of its endpoints and let \(W=V(H)\setminus U\). In \(G=L(H)\), the first observation step colors exactly those original edges having at least one endpoint in \(U\). Consequently, the unobserved vertices of \(G\) are exactly \(E(H[W])\). Since every selected original edge joins distinct parts, \(U\) meets at least two different parts. Hence each vertex \(v\in W\) has an original neighbor \(u\in U\): choose a represented part other than the part containing \(v\). The original edge \(uv\) is observed from the first step.
+**1. Structural input: unused endpoints.** Given \(S\ne\varnothing\) as an original edge set, denote its endpoints by \(U\) and let \(W=V(H)\setminus U\). The initially unobserved edges are precisely those of \(H[W]\). A cycle there cannot be broken: the first forced edge on the cycle would require a forcing source incident to one of its endpoints, and that source sees both unobserved cycle edges at that endpoint. Conversely, if the unobserved edges form a nonempty forest, pick a leaf \(v\) in a component with an edge. A selected original edge meets two different parts, so \(v\) has a neighbor \(u\in U\) in another part. The initially observed edge \(uv\) has exactly one unobserved neighbor in the line graph, the unobserved leaf edge. Forcing it and repeating strips all remaining edges. Thus the successful nonempty selections are characterized by \(H[W]\) being a forest. In a complete multipartite graph this is precisely the condition \(\mathscr F(\mathbf t)\) that at most one part of the residual profile \(\mathbf t\) is nonempty, or exactly two are nonempty and at least one has size one. Three occupied parts give a triangle and two parts of size at least two give a four-cycle. The other profiles give edgeless graphs or stars.
 
-**Step 2 (cycles cannot be broken).** Suppose \(H[W]\) contains a cycle. Every edge of this cycle is initially unobserved. If a cycle edge were ever observed by forcing, choose the first such edge \(e\). Its forcing source \(f\) is a previously observed, distinct original edge incident with an endpoint \(v\) of \(e\). At that time both cycle edges incident to \(v\) are still unobserved, and both are neighbors of \(f\) in \(L(H)\). This contradicts the one-unobserved-neighbor rule. Therefore \(S\) does not power dominate.
+**2. A sum on forbidden endpoints.** On subsets \(T\subseteq V(H)\), set \(f(T)=1\) if \(H[T]\) is a forest and zero otherwise. Define
+\[
+ \alpha(B)=\sum_{T\subseteq B}(-1)^{|B|-|T|}f(T).
+\]
+By cancellation on the subset lattice, \(f(W)=\sum_{B\subseteq W}\alpha(B)\). Now sum this identity over all edge sets \(S\), including the empty set for the moment, each weighted by \(z^{|S|}\), using for \(W\) the complement of the endpoints of \(S\). The sets satisfying \(B\subseteq W\) are precisely those made from edges internal to \(V(H)\setminus B\). Their sum of weights is \((1+z)^{e(\mathbf a-\mathbf u)}\), with \(u_i=|B\cap A_i|\) for the parts \(A_i\). For each \(\mathbf u\) there are \(\prod_i\binom{a_i}{u_i}\) choices of \(B\), all having the same \(\alpha(B)\). Finally the empty edge set contributes \(f(V(H))=\delta\) to this auxiliary sum, so it must be subtracted.
 
-**Step 3 (forest leaf stripping).** Conversely, assume \(H[W]\) is a forest. If any unobserved edge remains, its subgraph is a nonempty forest, so some vertex \(v\in W\) has exactly one incident unobserved original edge \(vw\). Select an original edge \(uv\) with \(u\in U\), which exists by Step 1. The line-graph vertex \(uv\) has been observed since the first step; every edge incident with \(u\) is observed, while \(vw\) is the only unobserved edge incident with \(v\). Thus \(uv\) forces \(vw\). Removing one unobserved edge retains the forest property; finite repetition observes every edge. This proves the equivalence.
+**3. Evaluation of the subset weight.** Remove the factor \((-1)^{|B|}\) from \(\alpha(B)\). The empty \(T\) contributes one. For a fixed occupied part \(i\in J(\mathbf u)\), the total contribution of nonempty selections confined to that part is \(\sum_{t=1}^{u_i}(-1)^t\binom{u_i}{t}=-1\). For exactly two occupied parts \(i,j\in J(\mathbf u)\), the condition is \(t_i=1\) or \(t_j=1\). The contribution with \(t_i=1\) equals \((-u_i)(-1)=u_i\); likewise the contribution with \(t_j=1\) is \(u_j\). Their overlap has contribution \(u_i u_j\), counted twice. No other support is allowed, so \(\alpha(B)=(-1)^{|\mathbf u|}\Gamma(\mathbf u)\). Inserting this into Step 2 proves the displayed formula.
 
-**Step 4 (the part-size criterion).** The induced graph \(H[W]\) is complete multipartite with part sizes \(t_i=|W\cap A_i|\). Three positive coordinates give a triangle, and two coordinates each at least two give a four-cycle. If neither occurs, the graph is edgeless or is a star. Hence it is a forest precisely under \(\mathscr F(\mathbf t)\).
-
-**Step 5 (coefficient enumeration).** Fix exact unused-vertex counts \(\mathbf t\), hence exact used-vertex counts \(\mathbf b=\mathbf a-\mathbf t\). The exact unused vertices can be chosen in \(\prod_i\binom{a_i}{t_i}\) ways. Once those vertices are fixed, an edge set has precisely the complementary used-vertex set \(U\) if and only if it uses only edges of the multipartite graph on \(U\), with none of the vertices of \(U\) isolated in the chosen edge set. Inclusion–exclusion on the \(\sum_i b_i\) vertices of \(U\) gives \(Q_{\mathbf b}(z)\): after requiring \(j_i\) specified vertices of part \(i\) to be isolated, there are \(\sum_{i<k}(b_i-j_i)(b_k-j_k)\) available cross-edges, yielding the factor \((1+z)\) to that exponent. The condition \(\sum_i b_i\ge2\) excludes the empty selection, and the forest condition is exactly the power-domination criterion. Every edge selection has unique unused vertices, so summation is disjoint and exact.
-
-**Step 6 (rook-graph minima and multiplicities).** For \(H=K_{m,n}\), the induced graph on unused vertices is a forest exactly when at most one unused vertex lies on at least one of the sides. Thus an edge set is power dominating if and only if its selected edges meet at least \(m-1\) left-side vertices or at least \(n-1\) right-side vertices. If \(m\le n\), fewer than \(m-1\) selected edges can do neither; \(m-1\) edges in distinct left-side rows suffice. The minimum \(m-1\) agrees with Soh and Koh's earlier result. If \(m<n\), each minimum selection has one edge in each of \(m-1\) distinct left-side rows, giving \(m n^{m-1}\) possibilities. If \(m=n\), the minimum families meeting \(m-1\) left or \(m-1\) right vertices each have \(m^m\) members. Their intersection consists of partial permutation matrices of size \(m-1\), numbering \(m^2(m-1)!\). Inclusion–exclusion gives the stated exact count.
-
-**Step 7 (triangular-graph minima and multiplicities).** For \(H=K_n\), every vertex is a singleton multipartite part; a power-dominating edge set covers at least \(n-2\) original vertices. Its cardinality is therefore at least \(\lceil(n-2)/2\rceil\), attained by near-perfect matchings. If \(n=2k\), a minimum set of \(k-1\) edges must be a matching covering exactly \(2k-2\) vertices; choosing the two uncovered vertices and pairing the others yields the even formula. If \(n=2k+1\), a minimum set of \(k\) edges covers either \(2k\) vertices (a matching) or \(2k-1\) vertices (one two-edge path and \(k-2\) disjoint edges). The matching count is \((2k+1)!/(2^k k!)\). For \(k\ge2\), the second type chooses two isolates, a three-vertex set and its middle vertex, and a matching of the remaining \(2k-4\) vertices, totaling \((2k+1)!/(2^k(k-2)!)\). No other edge-component profile reaches the required number of covered vertices. The case \(k=1\) has only the matching type.
+**4. Boundary and comparison formulas.** When \(H=K_{1,b}\), every nonempty set power dominates the complete graph \(L(H)=K_b\), giving \((1+z)^b-1\); the subtraction is essential there. For another form of the sum, fix the exact unused profile \(\mathbf t\) with \(\mathscr F(\mathbf t)\) and put \(\mathbf b=\mathbf a-\mathbf t\). After choosing the unused vertices in \(\prod_i\binom{a_i}{t_i}\) ways, the selected edges must leave no isolate in the complementary profile. Their weight enumerator is
+\[
+ \sum_{0\le j_i\le b_i}(-1)^{\sum_i j_i}\prod_i\binom{b_i}{j_i}
+             (1+z)^{e(\mathbf b-\mathbf j)}
+\]
+by inclusion–exclusion on isolated vertices. Summing over the stated forest profiles with \(\sum b_i\ge2\) gives a two-sum version. The compact formula evaluates the corresponding subset transform in closed form rather than running an inner inclusion–exclusion independently for each unused profile.
 
 ## Verification
 
-A standalone standard-library Python program, `verify_power_multipartite.py`, constructs each complete multipartite graph and its line graph independently. For each selected edge subset it simulates closed-neighborhood observation and subsequent vertex-by-vertex forcing without using the theorem. It separately calculates the exact set of unused original vertices and evaluates the forest criterion. Finally it computes every polynomial coefficient using the displayed inclusion–exclusion formula. Exhaustive agreement held for \(27\) multipartite profiles and \(255318\) edge subsets in total. Independent arithmetic checks reproduced the rook minimum-set counts in tested parameters and the triangular-graph minimum counts for \(3\le n\le8\).
+Run `python3 verify_compact_polynomial.py` (Python 3.10 or newer, standard library). The verifier builds labelled multipartite line graphs, simulates closed-neighborhood observation and parallel legal forces, and compares the full coefficient list to the compact formula for every sorted profile with two to five parts of sizes at most four and at most thirteen edges. It checks the mixed example and the star boundary. The exact proof, not the finite comparisons, establishes the formula for all profiles. The accompanying original `verify_power_multipartite.py` and `verification_output.txt` provide checks of the two-sum version and known specializations.
 
-To reproduce, run `python verify_power_multipartite.py`. Its output is included in `verification_output.txt`. The finite checks support the analysis but are not used as an infinite proof.
+## Relationship to prior work and limitations
 
-## Relationship to prior work
+Brimkov, Patel, Suriyanarayana and Teich, *Power domination polynomials of graphs*, arXiv:1805.10984, introduce the polynomial and give results for other graph families and a finite census. The structural criterion used here is covered on minimum-degree-at-least-two roots by *An edge-endpoint forest criterion and the complete power-domination landscape of the Petersen line graph* (Resultary df97bef8930a); a complete multipartite root with a vertex of degree one is a star. The rook minimum was already known to Soh and Koh (2014, DOI:10.1080/09728600.2014.12088762). The full rook and triangular specializations, including minimum-set multiplicities, are also covered by *Complete power-domination-set classification and polynomial of rectangular rook graphs* (48ce98e1f82f) and *Power domination of triangular graphs: star-forest rigidity and full enumerators* (b7c1b689a10e). No novelty is asserted for those statements, the ordinary inclusion–exclusion identity, or general subset Möbius inversion.
 
-Brimkov, Patel, Suriyanarayana and Teich introduced the power-domination polynomial, proved general properties and evaluated other families (2018, arXiv:1805.10984). Soh and Koh had already determined the **power-domination number** of Cartesian products of two complete graphs (2014); their scalar minimum is not claimed as new here. Koh and Soh's subsequent study (2016) also recalls that established value. Girish, Asiri and Somasundaram (2026) study fault-tolerance transfer to line graphs, rather than all-set enumerators. The present result addresses a different question: the complete power-dominating-set family for line graphs of *arbitrary* complete multipartite graphs, its exact weight enumerator, and exact counts of minimum sets in two natural subfamilies.
-
-## Limitations
-
-The equivalence relies on the complete multipartite structure, specifically that every unused original vertex has an incident edge to the set of endpoints covered by the selected edges. No equivalence is asserted for arbitrary line graphs. The explicit multipartite formula is a finite inclusion–exclusion sum; no uniform polynomial-time complexity bound is claimed when the number of parts varies. The literature comparison does not establish worldwide priority, and independent scientific assessment has not been performed.
-
-## References
-
-1. B. Brimkov, R. Patel, V. Suriyanarayana and A. Teich, “Power domination polynomials of graphs,” arXiv:1805.10984, first posted 28 May 2018. https://arxiv.org/abs/1805.10984
-2. K. W. Soh and K. M. Koh, “A note on power domination problem in diameter two graphs,” AKCE International Journal of Graphs and Combinatorics **11** (2014), 51–55, Theorem 3.3. https://doi.org/10.1080/09728600.2014.12088762
-3. K. M. Koh and K. W. Soh, “Power domination of the Cartesian product of graphs,” AKCE International Journal of Graphs and Combinatorics **13** (2016), 22–30. https://doi.org/10.1016/j.akcej.2016.02.004
-4. L. Girish, A. Asiri and K. Somasundaram, “Fault-tolerance amplification in line graphs: a framework for resilient PMU placement in power networks,” Scientific Reports **16** (2026), 25388. https://doi.org/10.1038/s41598-026-54352-z
+The distinct calculation is the explicit evaluated coefficient weight \(\Gamma(\mathbf u)\) giving a single profile sum for all labelled complete multipartite roots. Unlike separate rook or triangular formulas, it allows any number of parts and nonuniform multiplicities in three or more parts. The number of summands is polynomial in the total root order for fixed \(r\), not uniformly so for variable \(r\). This is a cardinality enumerator and makes no assertion about unlabeled selections, connected power domination, or arbitrary line graphs. The comparisons distinguish mathematical coverage, not historical priority; other equivalent formulas may exist outside the inspected sources.

@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:26:25.810402Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For independent fresh diagonal factors their means and mixed moment are one and their diagonal second moments are v=exp(σ²h). Expanding the covariance map in (u,w,d) gives the printed positive two-by-two block and the separate multiplier v exp(−2ah). The Perron root of the unscaled block exceeds vc>v and its smaller eigenvalue is positive (determinant v), so its Perron root gives the full spectral radius. It is strictly increasing in v≥1, starts below exp(2ah) at v=1 and diverges. Substituting q=exp(2ah) in the characteristic polynomial gives v*=q(q−c)/(qc−1). For v>1, the left Perron weight can be written (1,sinh(2bh)/(λ+−c)), with second weight strictly below one since λ+ increases from c+sinh(2bh). Any nonzero deterministic initial satisfies u>0 and |w|≤u, so its Perron coefficient is positive even for opposite-sign initials. This directly proves the nonzero limiting squared norm at equality and geometric growth above. The prose about positive definiteness after one step needs the exception already noted immediately afterward: if only one initial coordinate is nonzero, one step is still rank one and a second step suffices. The strict left-weight check does not require this intermediate definiteness. Expansion at h=0 and q≫c as h→∞ give the two limits as stated. The continuous covariance drift has symmetric block [−2a+σ²,2b;2b,−2a] and remaining exponent −2a+σ², which is strictly dominated by the larger block eigenvalue. Positive determinant and the negative second diagonal give the continuous threshold. Hence the stated strict noise band exists and the conclusion is about fixed-step second moments, not almost-sure instability. Positivity follows pathwise from the nonnegative heat matrix and positive diagonal factors.",
+      "replay": "python /workspace/check_frozen_algebra.py (section 3; characteristic polynomial, crossing and small-step coefficient)",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2017 tensor-operator principle gives a general criterion, not this model-specific exact rate.",
+          "The same independent-node exponential splitting occurs in Bréhier et al. at a=2b; its cited bounds are finite-horizon. The mass-lumped FEM paper gives finite-T estimates for finite-rank, space-coloured noise.",
+          "The two catalogue records additionally treat, respectively, pathwise decay for all noise and a strictly decreasing sharp threshold on the a=2b grid."
+        ],
+        "reasoning": "Finite-horizon convergence and the tensor criterion alone are not coverage. The mechanically extendable exact catalogue transfers, rather than those general estimates, are decisive.",
+        "searches": [
+          "Lang–Petersson–Thalhammer 2017 Theorem 2.1",
+          "Bréhier–Cohen–Ulander 2024 Eqs. (7),(11)–(15), Proposition 5/Theorem 6",
+          "Hearder–Le Bris–Djurdjevac arXiv:2602.16508 Theorem 5.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 8f70f549cfbd and e3e248fedd11",
+        "Bréhier–Cohen–Ulander 2024",
+        "arXiv:2602.16508",
+        "doi:10.1007/s10543-017-0684-7",
+        "doi:10.1016/j.camwa.2022.05.031 (abstract)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The latter record gives continuous block [σ²−4b,2b;2b,−4b], and its remaining mode σ²−4b. In general a, subtract 2(a−2b)I from that moment generator. The former record gives the explicit quadratic spectrum before the discrete decay comparison."
+        ],
+        "reasoning": "To recover the present result, set the transferred Perron root equal to one, equivalently solve the already known unscaled block's quadratic at exp(2ah), and use the generator shift for the continuous threshold. The limits follow by elementary expansion of that quotient. The v>1 adjoint weight <1 follows from monotonicity of the same Perron root and |w|≤u; it is not a separate substantial contribution.",
+        "searches": [
+          "Resultary 8f70f549cfbd offset 3640; e3e248fedd11 offsets 3200 and 5740"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At a=2b, put x=bh and m=exp(σ²h) in the 8f70f549cfbd recursion; its coefficients u=(e^(−2x)+e^(−6x))/2 and v=(e^(−2x)−e^(−6x))/2 are exp(−4x)cosh(2x) and exp(−4x)sinh(2x). Its exact larger eigenvalue is the frozen R at a=2b.",
+          "The November record writes the same full covariance decomposition explicitly, including the separate antisymmetric multiplier."
+        ],
+        "reasoning": "For any a>b, the same noise and b,h give S_h(a,b) = exp(−(a−2b)h) S_h(2b,b), even if a<2b. Thus every second-moment eigenvalue, and the norm sequence for the same initial up to that power, is obtained by multiplying per step by exp(−2(a−2b)h). This is not an inference from a similar title or merely from a narrower boundary inequality.",
+        "searches": [
+          "Resultary: exact two-site independent-noise stochastic heat Lie–Trotter mean-square stability frontier",
+          "Resultary 8f70f549cfbd and e3e248fedd11, Findings and covariance recursions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue gives the exact threshold at a=2b as log[(exp(4bh)−cosh(2bh))/(cosh(2bh)−exp(−4bh))]/h in the same units, together with the rate before thresholding."
+        ],
+        "reasoning": "There is an exact formula match, not merely tabulated approximations. The full formula for other a is determined by applying the scalar multiplier to the tabulated exact spectral expression and testing against one.",
+        "searches": [
+          "Resultary e3e248fedd11 Finding and proof §2, offset 3200 onward",
+          "Resultary 8f70f549cfbd Finding, exact recursion and spectrum at offset 3640"
+        ]
+      },
+      "rationale": "Two distinct indexed records treat a=2b and contain more than a matching special-case cutoff: they give the complete two-site moment transfer, one gives the exact two eigenvalues, and one gives the continuous moment generator. The full a>b family is mechanically obtained by factoring a scalar damping multiplier out of each sample matrix. The general discrete and continuous thresholds, including both limits and the stable-SDE/unstable-large-step window, then follow by solving the same quadratic or shifting the generator. The extra arbitrary-sign assertion is a direct left-weight consequence of that same block; it does not sustain an independently valuable replacement. The related records are later by catalogue date; this is a coverage finding, not a claim of earlier priority or attribution.",
+      "residual_risks": [
+        "Catalogue dates do not establish derivation, earlier priority, or independent discovery; this is demonstrable present coverage under the exact scalar reduction.",
+        "The inaccessible full texts on other discretizations leave uncertainty about older overlap, not the basis of the decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "same exact amplification factor before a scalar damping change; includes a separate almost-sure theorem",
+          "evidence": "Displays the exact two-by-two transfer and eigenvalues for all x and m, not only the unit-root condition.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-sharp-step-size-loss-of-mean-square-stability-in-a-positive-st--8f70f549cfbd/RESULT.md",
+          "material_read": "Finding and proof §§2–3, offsets 0 and 3640 and crossing context at 4874",
+          "method": "local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A sharp step-size loss of mean-square stability in a positive stochastic heat splitter",
+          "trigger": "exact two-node catalogue overlap"
+        },
+        {
+          "assessment": "same base split, exact block and complement, generator and continuous/discrete gap at a=2b",
+          "evidence": "Gives K and d multiplier, exact μ*, strict monotonicity and continuous block at a=2b.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-sharp-noise-stepsize-stability-boundary-for-two-site-positivit--e3e248fedd11/RESULT.md",
+          "material_read": "Finding, Assumptions, covariance/critical curve and continuous threshold, offsets 0, 3200, 5740",
+          "method": "local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A sharp noise–stepsize stability boundary for two-site positivity-preserving stochastic heat splitting",
+          "trigger": "same two-site closed-form frontier and generator"
+        },
+        {
+          "assessment": "scheme match, not exact long-time cutoff in the inspected estimates",
+          "evidence": "Independent interior-node drivers and exponential subflows; finite-T moment and convergence estimates.",
+          "identifier_or_url": "https://research.chalmers.se/publication/542281/file/542281_Fulltext.pdf",
+          "material_read": "Eq. (7), Eqs. (11)–(15), Proposition 5 and Theorem 6, pp. 1322–26",
+          "method": "OA PDF passages including convergence passage near offset 40000",
+          "title": "Analysis of a positivity-preserving splitting scheme for some semilinear stochastic heat equations",
+          "trigger": "same noise-first exponential scheme"
+        },
+        {
+          "assessment": "related mass-lumped scheme and finite-time bounds",
+          "evidence": "Finite-rank space-coloured noise; moment estimate on [0,T] with T-dependent constant.",
+          "identifier_or_url": "https://arxiv.org/pdf/2602.16508",
+          "material_read": "p. 2 offset 6055, Theorem 5.1 p. 14 offset 77750",
+          "method": "OA PDF passages",
+          "title": "A Fully Discrete Nonnegativity-Preserving FEM for a Stochastic Heat Equation",
+          "trigger": "motivation and possible FEM long-time coverage"
+        },
+        {
+          "assessment": "general tensor criterion, not the specialized exact rate",
+          "evidence": "Mean-square stability via discrete-time operator; examples emphasize Euler–Maruyama/Milstein with rational semigroup approximations.",
+          "identifier_or_url": "doi:10.1007/s10543-017-0684-7",
+          "material_read": "§2 including Theorem 2.1, OA offsets 11900 and 16850; applications described in introduction",
+          "method": "OA full-text passages",
+          "title": "Mean-square stability analysis of approximations of stochastic differential equations in infinite dimensions",
+          "trigger": "broader asymptotic moment operator theorem"
+        },
+        {
+          "assessment": "available statement about different scheme and stability notion; no full-text conclusion",
+          "evidence": "Abstract describes split-step backward Euler and almost-sure stability.",
+          "identifier_or_url": "doi:10.1016/j.camwa.2022.05.031",
+          "material_read": "abstract only",
+          "method": "lawful publisher and alternate retrieval attempts, full text not obtained",
+          "title": "Stochastic heat equation: numerical positivity and almost surely exponential stability",
+          "trigger": "closest additional numerical stability paper"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The base stability-gap phenomenon is a useful benchmark, but is already expressly established for this splitter on the two-node grid. The extension only multiplies every step by a common scalar, and the resulting family of thresholds and signs is obtained directly from the known moment blocks. Neither the shift nor the elementary all-sign Perron-weight check warrants a separate exact benchmark or replacement.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

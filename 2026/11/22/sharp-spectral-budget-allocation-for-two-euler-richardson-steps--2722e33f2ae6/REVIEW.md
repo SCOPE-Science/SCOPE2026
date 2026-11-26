@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim uses a strict spectral interval \(0<\mu<L\), nonnegative real step lengths with fixed sum, and the robust worst-case norm over the complete interval. The exact product reduction is reversible, the minimax crossing is unique by pointwise strict monotonicity, and convexity in the spectral variable exhausts all active extrema. The explicit threshold ordering and two positive-root identities prove the entire piecewise formula, not merely candidates from differentiation. The final nonexpansion horizon is derived from the active equioscillation constraints, with strict inequalities between boundaries. The separate checker confirms 1,886 scalar minimizations, exact rational balances and eight critical stability horizons. Finite checks corroborate the analytic argument but are not substitutes for it.
+PASS
 
-## Originality — PASS, with qualifications
+Scaling the spectrum to [1,kappa] makes the residual polynomial p_u(x)=1-tx+ux^2; the unordered feasible pair is exactly the nonnegative roots of z^2-tz+u with 0<=u<=t^2/4. The maximum P(u) of p_u strictly increases and the negative minimum N(u) strictly decreases because x^2>=1. At u=0, P-N=2-t(1+kappa), and at u=t^2/4 the polynomial is a nonnegative square not identically zero, so P-N>0. This proves a unique boundary optimum or a unique interior crossing, with positive unequal steps in the latter case. The maximum changes endpoint at t/(1+kappa). The minimum is at kappa, the vertex, or 1, separated by t/(2kappa) and t/2. Comparing the strictly increasing P-N at these three products in order gives, respectively, the signed expressions 2-t(kappa^2+2kappa-1)/(2kappa), 2-t(kappa^2+6kappa+1)/(4(1+kappa)), and 2+t(kappa^2-2kappa-1)/2. Their zeros give t_1,t_2,t_3 (no finite third zero for kappa>=1+sqrt(2)); the strict ordering follows from strict increase in u and the zero comparisons, including t_0<t_1. At the crossing, balancing opposite endpoints gives u=[t(1+kappa)-2]/(1+kappa^2), while balancing endpoint a and the vertex gives a^2 u^2+(2-ta)u-t^2/4=0 with its unique positive root; the formulas agree on transition boundaries. Strictly positive steps cannot attain the first-branch optimum, but can approach it. Independently, for norm at most one, p_u<=1 requires u<=t/kappa, and p_u>=-1 then requires t x(1-x/kappa)<=2 everywhere. The maximum of x(1-x/kappa) is 1-1/kappa if kappa<=2 and kappa/4 otherwise. This necessary bound is sufficient for t>=4/kappa by using the feasible product u=t/kappa, or for t<=4/kappa by equal steps. Below the boundary, strictness follows from equal steps for t<4/kappa and otherwise by a sufficiently small decrease from t/kappa, since the lower inequality has uniform slack on the compact interval. The equality case kappa=2 is shared and both time ratios follow.
 
-The most relevant earlier framework is the Chebyshev minimax residual polynomial discussed by Agarwal–Goel–Zhang (2021) and Takabe–Wadayama (2020). That unrestricted degree-two optimum fixes exactly one total step sum, whereas this theorem optimizes **every** externally prescribed sum and specifies four further non-Chebyshev regimes. The published stagewise-safe Richardson frontier enforces individual nonexpansivity rather than a fixed sum and gives a different feasible set. Classical real-axis Chebyshev stability optimization covers the large-condition-number endpoint of the stability corollary, which is explicitly not claimed independently as a novel generic result. Rack–Vajda's discussion of Zolotarev's first problem involves prescribed leading coefficients, unlike the prescribed constant and linear coefficients here. The complete conditional-sum optimizer and small-condition-number frontier have not been located in the inspected sources. Historical equivalents in specialist constrained polynomial approximation remain a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-In explicit two-stage diffusion integration or scheduled quadratic relaxation, the total elapsed integration/relaxation parameter can be externally fixed while the two steps may be allocated freely. The result gives the entire robust best allocation, identifies when one full step is better than two positive steps, and shows where the worst spectral mode migrates from an endpoint to the interior and back. The sharp safe horizon can be twice that of equal stepping for \(\kappa\ge2\), and can be much larger for nearly flat spectra, even though individual steps may be expansive. These are operationally meaningful stability facts beyond an arbitrary chosen numerical constant. They do not imply better accuracy, noise robustness, or intermediate-stage stability.
+The supported distinct theorem is the complete prescribed-sum minimax product and phase classification, with the finite-band time frontier for 1<kappa<2 as a consequence. The unrestricted Chebyshev optimum at t_2 and the classical degree-two real-axis stability endpoint for kappa>=2 are existing special coverage, not independently credited. No inspected statement supplies the full constrained classification; residual risk in weighted polynomial approximation and inaccessible related texts remains.
 
-## Evidence and limitations
+## value
 
-The primary full-text comparisons cover the residual-polynomial and Chebyshev method sections of Agarwal–Goel–Zhang (2021) and Takabe–Wadayama (2020), plus the classical iteration treatment of Schöberl. A published-result search of constrained approximations and the related source on Zolotarev polynomials was also made. The potential existence of an equivalent classical weighted-polynomial theorem is not excluded. Scientific verification here is same-model only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An externally prescribed final integration or solver budget makes spectral minimization at fixed p'(0) a natural constraint. The optimizer, unique up to step order, explains when one full step is best and when the active spectral modes shift between endpoints and the interior. The finite-band nonexpansion time can substantially exceed the equal-step or stagewise-safe budget, which matters when only final-time amplification is constrained.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:57:07.643162Z",
+  "axes": {
+    "correctness": {
+      "rationale": "There are 1+21+35+105=162 partitions in block-size patterns (7), (5,2), (4,3), and (3,2,2); consecutive arcs determine the partition by recovering the connected paths. The exact independent restricted-growth-word replay in /workspace/branches/83a45965-603f-4b54-99fe-67131a410611/independent_replay.py (results independent_replay_n5.json and independent_replay_n7.json in the same directory) reproduced 157808 zeros, rank 1939344, least nonzero magnitude 2, the first 19 zero modes all of weight 3, projection-kernel support 521828 and absolute numerator 298503520. All first zeros were checked by direct parity summation; Plancherel and Walsh involution also held. The maximum 162 occurs at the trivial character and is an upper bound by the triangle inequality, giving condition 81. The second transform gives the kernel numerator because the inverse Walsh transform divides by 2^21; the quotient for the absolute sum is 9328235/65536. A projection onto the range fixes that range, so averaging conjugates by translations still fixes it and still maps into it. The average commutes with translations and is forced to be the nonzero-frequency cutoff, since each Walsh character spans a one-dimensional simultaneous translation eigenspace over either field. The absolute row and column sums both equal the kernel l1 norm, proving the global minima without requiring uniqueness among arbitrary optimal projections. The replay and conclusions are for the specified labeled incidence encoding, not all partitions or arbitrary n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bóna–Mező count singleton-free partitions by number of blocks; Bloom–Elizalde use the same arcs for crossing and nesting but do not give the target signs in the inspected passage. The two same-day records encode singleton vertices or restricted co-block edges."
+        ],
+        "reasoning": "Even the ordinary block-count generating polynomial for the same family is not the signed incidence law: it cannot distinguish individual arcs chosen by a frequency. The broader family of all partitions is also not a dominating result when the encoding or conditioning differs.",
+        "searches": [
+          "arXiv:0705.2734v1 p. 1, offset 693",
+          "arXiv:1211.3442v1 p. 2, offset 4242",
+          "Resultary a1a5f0c48b62 and 964b11bf4c47, opening findings"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:0705.2734v1 and arXiv:1211.3442v1",
+        "Resultary d959f279b56a (self-match), a1a5f0c48b62, 964b11bf4c47 and 006bcae293e6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The closest checked claims treat crossing and nesting, singleton indicators, or co-block edge codes; none supplies a formula for the required consecutive-arc signs after singleton exclusion."
+        ],
+        "reasoning": "Generic Walsh and averaging facts imply how to extract rank and endpoint norm once the exact signed census is supplied, but do not imply the target frequencies, gap or absolute-kernel sum.",
+        "searches": [
+          "arXiv:0705.2734v1 and arXiv:1211.3442v1",
+          "Resultary 006bcae293e6, 964b11bf4c47 and a1a5f0c48b62, RESULT.md opening passages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary match d959f279b56a is the target itself. Bloom–Elizalde use consecutive arcs; the related 006bcae293e6 and 964b11bf4c47 records use pairwise same-block indicators."
+        ],
+        "reasoning": "Nonattacking upper-triangular rooks with no isolated labels are an equivalent representation via path components. Full co-block indicators are not a coordinate relabeling of arcs: they turn each block into a clique rather than a path, and their character sums need separate analysis.",
+        "searches": [
+          "Resultary: singleton-free partitions consecutive arcs versus co-block pair coordinates Fourier",
+          "Resultary: all set partitions Boolean edge incidence co-block pair indicator Walsh spectrum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed exact constants in d959f279b56a are a self-match. The external search returned broad results but did not provide a usable distinct spectral table."
+        ],
+        "reasoning": "The count 162 is already determined by the known partition counts and is not a novelty. The scoped search did not establish an existing table for the weight-three zeros, complete rank or projection numerator.",
+        "searches": [
+          "Resultary: singleton-free partitions consecutive arcs versus co-block pair coordinates Fourier",
+          "Primary web query: set partitions Walsh Fourier transform arc incidence vectors consecutive arcs singleton-free partitions co-block indicator Fourier spectrum rank"
+        ]
+      },
+      "rationale": "The checked sources establish the underlying partition enumeration and arc convention, or analyze substantially different Fourier encodings. They do not cover the seven-point singleton-free consecutive-arc spectral census and exact endpoint constant. The Walsh diagonalization and averaging argument are standard, not themselves originality claims.",
+      "residual_risks": [
+        "Searches and passage retrieval are bounded; an unindexed table or exact signed-arc enumerator may overlap the finite classification.",
+        "Same-day comparisons are distinctions of statements, not an inference of publication order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Established enumerative background",
+          "evidence": "The polynomials count partitions into nonsingleton blocks by number of blocks and the paper studies their roots.",
+          "identifier_or_url": "https://arxiv.org/pdf/0705.2734v1",
+          "material_read": "p. 1 at offset 693",
+          "method": "Bounded OA PDF reading",
+          "title": "Real Zeros and Partitions without singleton blocks",
+          "trigger": "Same no-singleton family"
+        },
+        {
+          "assessment": "Encoding background, different statistics",
+          "evidence": "Defines arcs between consecutive members of each block and studies crossing and nesting configurations.",
+          "identifier_or_url": "https://arxiv.org/pdf/1211.3442v1",
+          "material_read": "p. 2 at offset 4242",
+          "method": "Bounded OA PDF reading",
+          "title": "Pattern Avoidance in Matchings and Partitions",
+          "trigger": "Same consecutive-arc convention"
+        },
+        {
+          "assessment": "Different family/encoding",
+          "evidence": "All partitions contribute singleton-vertex masks with multiplicity, rather than the consecutive arcs of singleton-free partitions.",
+          "identifier_or_url": "Resultary a1a5f0c48b62",
+          "material_read": "RESULT.md Finding and Assumptions and scope",
+          "method": "Local mirror",
+          "title": "Exact Fourier inertia of singleton-set partition convolution",
+          "trigger": "Same-day partition Fourier result"
+        },
+        {
+          "assessment": "Different encoding and dimension",
+          "evidence": "Same-block indicators for edges of a triangle-unicyclic graph, not consecutive arcs on all 21 pair coordinates.",
+          "identifier_or_url": "Resultary 964b11bf4c47",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror",
+          "title": "Fourier inertia and sharp recovery for triangle-unicyclic partition codes",
+          "trigger": "Same-day partition Fourier and sharp recovery"
+        },
+        {
+          "assessment": "Different family, encoding and order",
+          "evidence": "Uses full pairwise co-block indicators for noncrossing/nonnesting families through order five.",
+          "identifier_or_url": "Resultary 006bcae293e6",
+          "material_read": "RESULT.md Finding and Assumptions and scope",
+          "method": "Local mirror",
+          "title": "First Walsh rank separation of noncrossing and nonnesting Catalan partition codes",
+          "trigger": "Prior finite rank census for partitions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Singleton exclusion and consecutive arcs define a natural constrained partition code, also a path-cover model with no isolated vertices. The seven-label census gives an exact recovery boundary within this cube: one- and two-coordinate signs never cancel, while cubic signs do, despite the large recoverable space. A researcher using this fixed code needs the whole rank, conditioning and the optimal endpoint cost to distinguish local cancellations from operator-level stability. These statistics are not apparent from the ordinary partition count. No general-order classification is asserted.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

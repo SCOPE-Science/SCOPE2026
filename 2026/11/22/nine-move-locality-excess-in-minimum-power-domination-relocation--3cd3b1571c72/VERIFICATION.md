@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-The included `verify_duads.py` and `verify_symplectic.cpp` both executed successfully. Their exact recorded outputs are included as `duad_results.txt` and `symplectic_results.txt`. The Python program enumerates and checks the ten symmetry orbits; the C++ program independently performs shortest-path enumeration from every one of 6,540 optimum configurations using a second incidence representation. All twenty counts in the ten-level locality-excess comparison (two programs times ten levels), together with minimum size, optimum count, movement-edge totals, degree distributions and eccentricity distributions, agree exactly.
+# Independent mathematical audit
 
-The proof is an exhaustive finite computation over all candidate subsets of cardinalities zero through four, with bounded observation propagation and shortest-path BFS on an explicitly constructed finite adjacency graph. A 13-move geodesic is printed with its endpoint labels; minimality is verified by exact BFS. These computations do not prove analogous statements for any other graph and are not independent mathematical audit.
+## correctness
 
-Reproduction:
+PASS
 
-```sh
-python3 verify_duads.py
-c++ -O3 -std=c++17 verify_symplectic.cpp -o verify_symplectic
-./verify_symplectic
-```
+The construction is the duad–syntheme incidence graph. A fresh enumeration used sequential forcing: an enabled still-unobserved target remains enabled as observation grows, so iteration to a fixed point gives the same least closure as synchronous rounds. Exhaustive testing at sizes 0 through 4 yielded counts 0,0,0,0,6540. Bucketing the four-sets by a shared triple generates exactly all jumps without duplicates; filtering the two differing vertices by incidence generates exactly the slides. I checked all 1440 permutations used for orbit reduction against the base graph. The induced side-preserving action is full: two duads have a common syntheme iff disjoint, and in the complementary intersection graph on duads the size-five cliques are exactly the six stars; fixing the stars fixes the duads and hence the synthemes. A checked duality supplies the other coset. Orbit BFS reaches all 6540 states in both graphs; weighting source histograms by orbit size and halving distinct ordered counts gives the exact unordered histograms. This independently reproduced the ten orbit rows, 126240 and 23040 edges, the jump radius and diameter 4, slide radius 11 and diameter 13, and slide eccentricity counts 1680,3420,1440 at 11,12,13. The penalty histogram agrees at every entry. Its largest entry index is 9, attained by 1440 pairs, all at (jump,slide)=(4,13); I also checked legality and geodesicity of the recorded 13-slide path.
+
+## originality
+
+PASS
+
+The closest inspected work supplies the general minimum-sensor reconfiguration framework, cubic bounds, or the same comparison on different named cages. It does not imply the exact optimum family and complete sharp joint distance census on this cage. The indexed exact hit was the assigned record itself. This is a best-of-knowledge comparison, not historical priority certification.
+
+## value
+
+PASS
+
+This canonical small cage is a natural fixed-budget benchmark: connectedness survives local moves, yet imposing physical adjacency forces a sharp nine-move overhead on a nontrivial class of pairs. The exact pair census and orbit profiles separate typical from extremal behavior and let a researcher verify a relocation algorithm on a symmetric instance with genuine obstructions. This is more informative than an isolated optimum count or diameter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

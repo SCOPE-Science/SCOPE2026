@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:41:41.462314Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The trace identities give 32 T_B(k)=B_{2k+1}-(2k+1)=P_{2k}C_{k+1}-2k. In the binomial expansion at odd t=2k+1 the combined j=1,2 terms are 2t(t^2-1)(t^2+1)/15 and have valuation v2(t^2-1)+2; every higher term has the additional factor t^2-9 divisible by 8 after accounting for the factorial against 4^j. This gives the claimed valuation for every k, including k=1. The consecutive-window differences are P_{2k} P_{4n+2k}/4; strong divisibility (already on the first two indices) yields difference gcd P_{2k}/2 at odd k and 3P_{2k} at even k. Taking the gcd with T_B(k) gives the stated power of 2 using v2(P_j)=v2(j). For odd primes the numerator reduces to -2k modulo P_{2k}; at 3 in even windows, the normalized P_{4j}/12 has valuation v3(j), as seen from its mod-3 recurrence and the triplication multiplier 3 mod 9. Thus the extra factor 3 in the difference gcd cannot change the answer. The argument is all-index; the supplied finite test was inspected, not used as proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2022 generalized-Fibonacci paper uses coefficient-one recurrence, not the balancing recurrence. The 2023 §6.1 poses the question and reports a numerical ratio, not a proof. A subsequent Resultary three-family statement includes the same balancing formula."
+        ],
+        "reasoning": "The cited literature does not itself dispose of the balancing formula, but the earlier exact parity-specific Results do. The later synthesis corroborates overlap, not priority.",
+        "searches": [
+          "arXiv:2204.12626",
+          "arXiv:2301.05758",
+          "SCOPE-three-exact-square-window-gcd-laws-for-balancing-companions--917a6e6a2ee5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary even-window, odd-window, Lucas-balancing and three-family records",
+        "arXiv:2301.05758 §6.1",
+        "arXiv:2204.12626 §1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior Proof §4 gives v2(T_B(j))=v2(j)-1 for even j; the companion record gives G_C(k)=gcd(k,B_k)."
+        ],
+        "reasoning": "For odd k let j=k+1. Then T_B(k)=T_B(j)-B_j^2; the second term has valuation 2v2(j)>v2(j)-1. Hence v2(T_B(k))=v2(k+1)-1, extending the known prefix valuation mechanically to all k. The odd-index lemma is the same valuation via 32 T_B(k)=B_{2k+1}-(2k+1). The companion GCD likewise supplies no uncovered claim.",
+        "searches": [
+          "SCOPE-exact-even-window-gcds-of-balancing-and-lucas-balancing-squares--dea4e87b5cd7, Proof §4",
+          "SCOPE-the-exact-consecutive-square-gcd-for-lucas-balancing-numbers--3e257746e75f"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two Findings give G_B(k)=gcd(k,B_k)/2 and gcd(k,B_k) for even and odd k respectively."
+        ],
+        "reasoning": "P_{2k}=2B_k and v2(B_k)=v2(k), so multiplying B_k by 2 changes no part of gcd(k,B_k). The two prior exact results cover all k.",
+        "searches": [
+          "Resultary: squared balancing-window GCD, Pell and Lucas-balancing companion",
+          "SCOPE-exact-even-window-gcds-of-balancing-and-lucas-balancing-squares--dea4e87b5cd7",
+          "SCOPE-odd-window-square-sum-gcds-for-balancing-and-lucas-balancing-seq--9976f1178eb2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The local index contains the two exact formulas; the published computational observation is only about the ratio."
+        ],
+        "reasoning": "This is an exact database match via two statements, not a match merely of numerical terms.",
+        "searches": [
+          "Resultary: exact balancing and Lucas-balancing square GCDs by parity",
+          "arXiv:2301.05758 §6.1 Question 30"
+        ]
+      },
+      "rationale": "Earlier Resultary records already give both parity branches of the same balancing-square GCD. The prior even-prefix valuation also immediately gives the odd-prefix formula by deleting the last square from the next even prefix. Neither the Pell reparameterization nor the unified prefix formula is a new exact result.",
+      "residual_risks": [
+        "Literature inspection is bounded and does not certify who first proved each formula; demonstrated earlier Resultary coverage suffices for this decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the even branch and even prefix valuation",
+          "evidence": [
+            "G_B(k)=gcd(k,B_k)/2 and v2(T_B(k))=v2(k)-1 for even k."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-exact-even-window-gcds-of-balancing-and-lucas-balancing-squares--dea4e87b5cd7",
+          "material_read": "Finding and Proof §4",
+          "method": "Local full-text mirror, targeted passages",
+          "title": "Exact even-window gcds of balancing and Lucas-balancing squares",
+          "trigger": "Exact even-parity overlap and prefix lemma"
+        },
+        {
+          "assessment": "Covers odd branch",
+          "evidence": [
+            "G_B(k)=gcd(k,B_k) for odd k."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-odd-window-square-sum-gcds-for-balancing-and-lucas-balancing-seq--9976f1178eb2",
+          "material_read": "Finding",
+          "method": "Local full-text mirror, targeted passage",
+          "title": "Odd-window square-sum GCDs for balancing and Lucas-balancing sequences",
+          "trigger": "Exact odd-parity overlap"
+        },
+        {
+          "assessment": "Problem and computational ratio are prior; proof not in that passage",
+          "evidence": [
+            "Question 30 asks about all four squared-window GCDs and reports an even/odd ratio observation."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2301.05758",
+          "material_read": "§6.1, pp. 21–22, Question 30, text offsets 64900–65780",
+          "method": "OA PDF passage inspection",
+          "title": "Pell and associated Pell braid sequences as GCDs of sums of k consecutive Pell, balancing, and related numbers",
+          "trigger": "Claimed response to open question"
+        },
+        {
+          "assessment": "Different recurrence family",
+          "evidence": [
+            "G_n=G_{n-1}+G_{n-2} rather than coefficient six and negative second coefficient."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2204.12626",
+          "material_read": "Abstract and §1, p. 1",
+          "method": "OA PDF passage inspection",
+          "title": "GCD of sums of k consecutive squares of generalized Fibonacci numbers",
+          "trigger": "Possible broader square-window theorem"
+        },
+        {
+          "assessment": "Known companion, not the subject of the proposed theorem",
+          "evidence": [
+            "G_C(k)=gcd(k,B_k)."
+          ],
+          "identifier_or_url": "SCOPE-the-exact-consecutive-square-gcd-for-lucas-balancing-numbers--3e257746e75f",
+          "material_read": "Finding and Proof (1)–(4)",
+          "method": "Local full-text mirror, targeted passages",
+          "title": "The exact consecutive-square GCD for Lucas-balancing numbers",
+          "trigger": "Companion identity attribution"
+        },
+        {
+          "assessment": "Later overlap, not evidence of earlier priority",
+          "evidence": [
+            "Includes the equivalent all-k piecewise balancing-square GCD."
+          ],
+          "identifier_or_url": "SCOPE-three-exact-square-window-gcd-laws-for-balancing-companions--917a6e6a2ee5",
+          "material_read": "Finding",
+          "method": "Local full-text mirror, targeted passage",
+          "title": "Three exact square-window GCD laws for balancing companions",
+          "trigger": "Potential combined coverage"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The original GCD question is motivated, but this record repeats an already classified invariant. The unified statement and the presentation of the two-adic calculation leave no independently useful unknown exact fact: both parity GCDs and the full prefix valuation follow as above. The presentation can be useful exposition without qualifying as a separate scientific finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

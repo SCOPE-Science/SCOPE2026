@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The record-weighted rank encoding is a bijection, and the product of its independent rank weights is exactly the normalized record-weighted permutation law. The peak-event equivalence uses only the three consecutive ranks; conditional enumeration separates the record case from the nonrecord cases and yields a rational expression whose difference from \(1/3\) factors as \(-\theta(\theta-1)(\theta-2)\) times a positive denominator. The finite expectation telescopes exactly. All boundary conditions \(n\ge3\), \(\theta>0\), and \(2\le i\le n-1\) are explicit. Independently, `verify.py` replayed 270 assertions in exact fractions through permutation order 8. The proof, rather than the finite checks, covers all sizes.
+## correctness
 
-## Originality — PASS (qualified)
-Bouvel–Nicaud–Pivoteau, arXiv:2409.01692v1, give the biased law, sampling construction, and expected descent statistics. The relevant complete preprint passages on local ranks and descents were inspected, together with an internal document-text search for peaks; they do not state the two-threshold local peak formula. Billey–Burdzy–Sagan, arXiv:1209.0693, treat uniform peak-set enumeration. Gessel–Zhuang, arXiv:2001.00654, treat peaks with cycle type and are not directly about record weighting. Three targeted published-finding corpus similarity searches for record-biased peaks, two-threshold invariance, and record-weighted peak distributions found no comparable established claim; they are not a novelty proof. Residual risk: a different paper or unrecognized transform may implicitly contain the formula. No claim of independent historical-priority certification is made.
+PASS
 
-## Value — PASS
-The source model has an asymmetric record-dependent law with genuinely biased adjacent descent rates. Nevertheless, the interior local-peak probability exactly reproduces its uniform value at a second, nonuniform bias, \(\theta=2\), and its deviation changes sign twice. This is a natural, uniform-in-position probability classification for a widely studied nonuniform permutation law; it clarifies that local maxima and local descents react differently to record-biasing. The result is a complete finite-size, all-parameter statement, not a single numerical instance. It does not imply a whole peak-set identity.
+The initial rank vector is bijective by successively inserting each new label into its prescribed position in the order of earlier labels. Its product weights give the required normalization, including the forced first record. In one-line order an ascent at i-1 is exactly R_(i-1)<R_i and a descent at i is exactly R_(i+1)<=R_i. With R_i=b<i their conditional probability is b(b-1)/[(theta+i-2)(theta+i)] since neither allowed choice reaches the earlier/new record rank; with b=i it is i/(theta+i). Summing b(b-1) gives i(i-1)(i-2)/3. In the numerator after subtracting 1/3, the i-dependent terms cancel: writing u=i-1, the product is (theta+u)^3-(theta+u); three times the summed numerator minus that product is -theta(theta-1)(theta-2). This also applies at i=2, when the nonrecord term vanishes. Positivity of the denominator gives the strict signs and two positive roots. Partial fractions of the shifted triple reciprocal telescope from theta to theta+n-3 and give the claimed expectation, with a strictly positive bracket for n>=3.
 
-## Limits and closest literature
-The model/rank construction originates in arXiv:2409.01692. Potential implicit formulas in wider peak-enumerator literature remain a historical-priority uncertainty. The result does not address full peak-set laws, covariances, limit distributions, or independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified to the explicit all-bias strict peak marginal, its nonuniform equality at theta=2, and the associated expectation. The known independent-rank construction and adjacent descent theorem nearly supply the computation, but the inspected sources do not give the joint adjacent comparison needed for a peak. First-order response at theta=1 is already covered separately; it is not credited here as new. The finite two-root classification is a short new enumeration from known inputs, not the introduction of the model or independent ranks.
+
+## value
+
+PASS
+
+A strict peak is a natural local refinement of the already studied descent statistic. Equality at the nonuniform bias theta=2 holds simultaneously at every interior position and finite size, with a sharp sign law on the three remaining open regimes. This is useful as an exact calibration and a distinction between a natural peak marginal and other local statistics under record bias; it is not inference about the complete distribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

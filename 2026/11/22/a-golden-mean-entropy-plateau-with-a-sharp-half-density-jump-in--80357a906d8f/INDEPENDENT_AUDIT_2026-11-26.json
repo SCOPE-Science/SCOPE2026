@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T15:32:36.609379Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the exact one-sided shift closure and ties-up rule, the discrepancy increases by β on a 0 and decreases by 1 on a 1. At fixed starting discrepancy, appending an initial 0 leaves at most b_(n−1) choices; an initial 1 determines the second digit, and dropping any residual constraint on the third leaves at most b_(n−2). From b_0=1, b_1=2 this gives the Fibonacci bound. Over all starting discrepancies, every transition in an n-word depends on the sign at a threshold o−βz with 1≤o+z<n, so there are at most n²+n−1 regimes including ties and the n=1 case. Cylinders are open, so closure adds no previously absent finite words. For β<1, each 1 in (10)^N has negative discrepancy, and the discrepancy after the whole prefix tends to −∞. A sufficiently long such prefix lets any finite no-11 word obey the correct rule through its trailing zero continuation. The proof works for arbitrary real β in the relevant ranges, so golden-mean inclusion matches the entropy upper bound for all 0<p<1/2. Independently of the endpoint citation, at β=1 the generator consists of concatenated blocks 0^k1^(k+1)0, k≥0, with a possible terminal all-zero tail: from discrepancy 0, the k zeros build discrepancy k, the following ones are forced until discrepancy −1, and the forced 0 restores 0. Complete blocks of total length 2m are counted by compositions of m, giving 2^(m−1) words. Factors can trim at most two boundary blocks; each partial piece has only polynomially many possibilities at length ≤n (each block has at most two runs plus its final zero), as do factors entirely within one block or the zero tail. The resulting upper rate is (log 2)/2, matching the complete-block lower rate. Hence the left jump is real since φ>√2; no right-hand claim is made. The supplied finite checker was inspected, not executed.",
+      "replay_paths": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "8fb4352bba3d states nearest-neighbor pressure for the k/(k+1) family, whose zero-potential specialization gives (log 2)/(k+1); 40d60d854aab concerns equilibrium correlations and digit counts for that family.",
+          "The focused article-title lookup returned no usable result; no broader primary statement was thereby verified or excluded."
+        ],
+        "reasoning": "The pressure statement is stronger than entropy on its own parameter family and is credited there, including at 1/2. All k/(k+1) with k≥1 are at or above 1/2. It does not cover the lower plateau or the language estimate for all real interior parameters.",
+        "searches": [
+          "Resultary: Becker Baraviera language count complexity Fibonacci upper bound arbitrary p",
+          "Resultary: entropy discontinuity at p=1/2 frequency shift Reyes",
+          "Public literature: exact Becker–Baraviera 2023 article title and DOI to locate an alternate manuscript or low-density theorem"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and entropy_plateau_check.py (read only)",
+        "Resultary 80357a906d8f, 3795de1dea56, af26cd84e0de, 8fb4352bba3d and 40d60d854aab",
+        "Reyes arXiv:2611.10995v1 and Becker–Baraviera DOI 10.1007/s10955-023-03158-8, cited statements and retrieval attempts as identified"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The available comparison describes positive entropy and structural properties in the founding article; it gives no verified exact below-half entropy statement. Full text unavailable.",
+          "Reyes's attributed family includes k=1 only at the endpoint and no p below it; the same restriction holds for the indexed pressure formula."
+        ],
+        "reasoning": "Positivity and nonsoficity alone do not imply the matching Fibonacci growth rate. Exact endpoint entropy plus the independently shown plateau does imply the claimed left jump, so it is not treated as separate originality for computing the endpoint.",
+        "searches": [
+          "Reyes arXiv:2611.10995v1 Theorem C(c) versus the p<1/2 finding",
+          "Becker–Baraviera 2023 abstract/entropy comparison in the bound record and targeted bibliographic lookup",
+          "Resultary rational transitivity, irrational transitivity and nearest-neighbor pressure comparisons"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact indexed 80357a906d8f is the assigned finding. Distinct 3795de1dea56 and af26cd84e0de cover transitivity (and nonmixing in the first case), respectively for rational sub-half parameters and irrational parameters."
+        ],
+        "reasoning": "The entropy statement is equivalent here to matching the exponential growth rate of the no-11 language, not to the existence of dense orbits. The cited transitivity statements do not supply either the needed global upper bound or the matching rate for the full shift closure.",
+        "searches": [
+          "Resultary: frequency shifts entropy equals log phi for all real parameter p below 1/2",
+          "Resultary: golden mean subshift embedded in low-density threshold frequency shift"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact identical catalogue hit states the same lower plateau and jump.",
+          "RESULT.md lines 72 and 88 gives Reyes's exact family h_top(Σ(k/(k+1)))=(log 2)/(k+1). The original theorem passage could not be fetched, but the value at k=1 is independently consistent with the block count and with the indexed pressure result."
+        ],
+        "reasoning": "An exact theorem/value check, rather than a numerical table, applies. The endpoint value is established for this rule and is not novel in this record; the same-record catalogue entry does not independently cover the low-half claim.",
+        "searches": [
+          "Resultary: exact golden-mean entropy plateau and half-density jump, 80357a906d8f",
+          "Reyes arXiv:2611.10995v1, Definition 2.2, Proposition 6.6 and Theorem C(c); Becker–Baraviera DOI 10.1007/s10955-023-03158-8"
+        ]
+      },
+      "rationale": "The supported distinct claim is the all-real sub-half plateau and the parameter-uniform language bound; the left discontinuity combines this with an already credited endpoint value. The exact-index match is the same record. Relevant distinct indexed rational and irrational results do not state a matching entropy theorem below 1/2 in the material read. Primary-source access limits remain, especially for the founding article.",
+      "residual_risks": [
+        "The full Becker–Baraviera article was not retrieved, so materially similar language or entropy bounds there remain an open priority risk.",
+        "Exact primary Reyes text was not obtained; the endpoint value has independent mathematical support, but the available quote does not exhaust that paper's contents."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Could not confirm whether it includes a low-frequency bound; no negative inference from access failure",
+          "evidence": [
+            "RESULT.md lines 80 and 84 report positive entropy and structural results and identify primary access as a limitation."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10955-023-03158-8",
+          "material_read": "Frozen references and reported known scope, not the primary manuscript",
+          "method": "Targeted lawful OA retrieval and focused title/DOI search for alternate copy or entropy theorem",
+          "title": "Symbolic Systems with Prescribed Partial Digit Density",
+          "trigger": "Founding primary work and most plausible source of stronger low-density estimates"
+        },
+        {
+          "assessment": "Endpoint and k/(k+1) family credited; the quoted family does not reach sub-half p. Other primary contents not ruled out.",
+          "evidence": [
+            "Proposition 6.6 and Theorem C(c), as quoted, give entropy (log 2)/(k+1), k≥1."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.10995v1",
+          "material_read": "Theorem statement and locator quoted in frozen RESULT.md; primary HTML/PDF requests timed out",
+          "method": "Bound source inspection and exact OA retrieval attempt",
+          "title": "Frequency shifts: non-soficity, absence of specification and intrinsic ergodicity",
+          "trigger": "Identical shift and exact endpoint attribution"
+        },
+        {
+          "assessment": "Different invariants from entropy and language growth in the material read",
+          "evidence": [
+            "Rational transitivity/nonmixing below half and irrational transitivity; neither statement gives an entropy rate."
+          ],
+          "identifier_or_url": "Resultary 3795de1dea56; af26cd84e0de",
+          "material_read": "Indexed mathematical statements",
+          "method": "Local Resultary search",
+          "title": "Every rational frequency below one-half gives a transitive nonmi…; Irrational frequency transitivity via dense restart phases",
+          "trigger": "Matching parameter ranges and shift definitions in distinct indexed work"
+        },
+        {
+          "assessment": "Verified scope of the indexed pressure statement covers endpoint entropy, not the lower interval",
+          "evidence": [
+            "Zero potential in the pressure statement recovers (log 2)/(k+1) at p=k/(k+1); the equilibrium result concerns that same parameter family."
+          ],
+          "identifier_or_url": "Resultary 8fb4352bba3d; 40d60d854aab",
+          "material_read": "Indexed pressure and equilibrium statements",
+          "method": "Local Resultary search",
+          "title": "Exact nearest-neighbor pressure and coexistence in rational frequency shifts; Periodic equilibrium correlations and tight digit counts in rational frequency shifts",
+          "trigger": "Potentially stronger exact conclusions for the same model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The rule has unbounded historical memory, so the language of all shifts cannot be counted by fixing one initial discrepancy. Showing that past history contributes only polynomial multiplicity while every golden-mean factor is realizable below half determines an exact invariant on an entire real parameter interval, including irrational parameters. Combined with the known half-density entropy, it shows an explicit and strict left discontinuity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

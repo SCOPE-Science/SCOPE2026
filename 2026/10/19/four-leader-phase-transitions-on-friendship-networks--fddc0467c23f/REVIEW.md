@@ -1,19 +1,21 @@
-# Review: four-leader phase transitions on friendship networks
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is an all-size, all-positive-gain global optimization over exactly four vertices of \(F_m\). Positive definiteness permits a hub Schur complement. The five occupancy profiles for \(m\ge4\), four for \(m=3\), and two for \(m=2\) are exhaustive. Each explicit rational difference is independently rederived and symbolically matched in `verify.py`; its denominator is positive in the claim domain. Three strict clustering penalties eliminate all noncanonical profiles for \(m\ge4\). A quadratic in \(\kappa\) then yields precisely two transitions for \(m=6,7\), and no other transitions in that size range. The small cases are separately controlled by strictly signed rational differences and one quartic with a single positive root. Exact full-matrix inverses for all four-leader subsets on \(F_2\) through \(F_5\) at four gains confirm the formulas. The finite checks alone are not the proof.
+PASS
 
-## Originality — PASS, with specific residual risk
+For the connected unit-edge graph with four positive equal diagonal gains, the quadratic form is strictly positive; the kernel of the Laplacian consists only of constants and any nonzero constant incurs a positive gain penalty. The covariance is half the inverse, so trace comparisons are unchanged. Pair occupancy plus hub inclusion exhausts the graph orbits: five, four and two profiles for m>=4, m=3 and m=2, respectively. I derived all seven rational trace differences separately by differentiating log det(L+kD+zI) at z=0, using the scalar arrowhead determinant and the three types of shifted 2x2 block determinants. All stated numerator and denominator identities match, and denominators are positive. The three cluster penalties are strict, leaving the two unclustered profiles for m>=4. The Q-H numerator has negative coefficients at m=4,5; its two positive roots at m=6 and 7 are as stated, with product 9/4; at m=8 its discriminant is negative with positive leading coefficient, and each larger m adds a strictly positive polynomial. For m=2 the other profile loses strictly. At m=3 strict dominance leaves A_3 and C_3, and the comparison quartic is strictly increasing on positive gain, has opposite signs at 3/10 and 1/3, and changes the winner in the stated direction. Strict dominance excludes additional ties. An independent exact calculation also inverted the full grounded matrices for each of the five representative profiles at gains 1/100, 1 and 25 for both m=6 and 7, giving hub/no hub/hub with no ties at those gains. Replay: python3 /workspace/branches/exact_review_checks.py 1 (SymPy). The frozen checker was read, not run; its 1,984 small-network and 36 larger sample checks are recorded evidence, not the universal proof.
 
-The complete source-level formulations in Lin–Fardad–Jovanović (arXiv:1302.0450v2) and Fitch–Leonard (arXiv:1407.1569v2) contain the general inverse-trace optimization objective and centrality relations, but neither states this all-size, four-leader friendship-network phase diagram or the reciprocal two-transition gain law. Targeted published-finding corpus comparisons found no equivalent published claim; the nearest returned results concern unrelated graph combinatorics such as generalized windmill general-position polynomials and multipartite power-domination selection. The closest directly overlapping graph literature is Sun–Li–Liu (Chaos, 2020, DOI:10.1063/5.0020696). Its abstract describes freely assigned leaders and windmill coherence, but the inaccessible full paper leaves a material historical-coverage risk. This is not treated as a complete negative full-text comparison. Mathematical proof is independent of any earlier general formulas, and the specialized phase classification is not an automatic stated corollary of the inspected texts.
+## originality
 
-## Value — PASS
+PASS
 
-The friendship family is a canonical clustered hub-and-spoke graph. Exact leader placements allow a clear comparison between relying on its central hub and spreading sensing across triangles. The global four-leader classification reveals a nonmonotone design reversal in precisely two network sizes and exact algebraic thresholds with common product \(9/4\). This distinction matters for finite-gain network design; it is not a selected numerical example, a parameter renaming, or a recomputation of the generic inverse-trace formula.
+Compared with the available exact and general results, the distinct claim is the all-m four-leader finite-gain friendship phase classification, including the exact double switches specifically at m=6,7 and their common root product. The noisy-consensus objective and placement problem are known, and reentrance exists on other graph/budget models. No inspected statement or implication covers the assigned classification. The plausible Sun–Li–Liu same-graph paper remains an unresolved source, not negative evidence or a reason by itself to fail.
 
-## Limitations
+## value
 
-Four equal positive finite feedback gains, unit edges, independent isotropic forcing, exactly one hub shared by disjoint triangles. The claim neither establishes historical priority beyond inspected material nor extends to generic clique bouquets, unequal-gain leaders, or higher leader budgets. The 2020 windmill paper's full text warrants independent literature review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The classification answers when a natural clustered graph's central hub should receive one of four noisy leaders, with the concentration-versus-spread tradeoff changing twice only at two graph sizes. It supplies usable exact thresholds and the root-product relation, and explains why low- or high-gain heuristics alone miss the intermediate optimum. The proof is a complete optimization over all placements and graph sizes, not merely a sampled nonmonotonicity example or a restatement of the general inverse-trace criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

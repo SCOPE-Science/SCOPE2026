@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:30:14.724365Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The entire group acts by (I+a)B, so the orbit is B+A_nB. The free coefficients in different rows of a are independent; hence the dimension of A_nB is the sum of ranks of rows strictly below each row, omitting the zero last row. Expose suffixes of m=0,…,N potentially nonzero rows from bottom to top. The next row has m+1 coordinates and there are q^(m−d) choices in the existing span for defect d. Defect therefore either stays d or increases to d+1; summing the new defect after each step gives both transfer entries and M−∑D_m for the exponent. The first row is unrestricted. Dividing point counts by q^ℓ gives disjoint orbit counts. Zero exponent forces the suffix to be zero; maximal exponent requires independence at every step, giving q(q−1)^(n−2) maximal orbits, including n=2. For uniform points the defect birth probability is q^(−d−1). The holding time before increment k is geometric with parameter q^(−k). For h=⌊log_q m⌋, completing the holding time for k=h+u by m has probability at most m q^(−h−u)≤q^(1−u); failure to reach k=h−u+1 by m is bounded by E[T_k]/m≤q^(2−u)/(q−1) for k≥1. Summable tails give E|D_m−h|=O_q(1), and the floor-log sum differs from N log_q N by O_q(N). Independence between different suffix ranks is not needed. These arguments work over all prime-power fields. The frozen finite enumeration and output were inspected, not rerun; the q=4 check is transfer-only, not an enumeration over the extension field.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The finite-size transition increases the first conjugate Jordan column µ′_1 with probability q^(−µ′_1) by taking j=1 in (3.13); otherwise that column stays fixed. The first column is exactly corank.",
+          "Theorem 1.2 by itself controls discrepancies of atom probabilities in D∞; it would not by itself justify uniform first absolute moments. Proposition 3.8 supplies the exact transition required to obtain those moments."
+        ],
+        "reasoning": "At block size m+1 the transition for D_m=µ′_1−1 is the same q^(−d−1) birth probability for every m,d. The full finite-dimensional partition growth theorem gives strictly more information than this projected chain and its integrated law.",
+        "searches": [
+          "arXiv:2407.19578v2, Proposition 3.8 equations (3.12)–(3.13), citing Borodin [5, Theorem 2.3], and Corollary 3.9 equation (3.14)",
+          "arXiv:2407.19578v2, Definition 1.1 and Theorem 1.2"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md, VERIFICATION.md, verify.py and verification_output.txt",
+        "arXiv:2407.19578v2",
+        "arXiv:1004.2674",
+        "Published SCOPE mirror record 8a8009d68c81",
+        "arXiv:2311.08023 and its A139382 pointer",
+        "DOI 10.37236/6829 introductory q-Stirling comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From the prior transition the waiting time in defect state d is geometric(q^(−d−1)). For k≥1, E[T_k]=∑_{j=1}^k q^j, while Pr(T_k≤m)≤m q^(−k) by the last holding time. Markov's inequality on the slower side and the latter bound on the faster side give uniform geometric tails about ⌊log_q m⌋.",
+          "For the known row action the exponent is M−∑D_m. The triangle inequality sums the resulting O_q(1) one-coordinate errors to O_q(N); summing floor-log centers gives N log_q N+O_q(N)."
+        ],
+        "reasoning": "This is a concrete corollary of the older finite-size transition, with routine inequalities and no additional joint rank limit, orbit enumeration or unverified uniform integrability. It recovers the actual claimed L¹ bound, not just the limiting scale.",
+        "searches": [
+          "arXiv:2407.19578v2 p. 13, Eq. (3.13), j=1",
+          "arXiv:1004.2674 §3.1 row-operation action"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "After restricting to the last m+1 rows and columns of B, with the last row zero, the block is an ordinary uniform strictly upper-triangular matrix. Its corank is D_m+1; reversing order and transposing identifies the nested trailing blocks with nested leading blocks throughout the process, not just one marginal at a time.",
+          "The lambda-action is the previously used left row-operation action: I+a adds multiples of later rows to earlier rows. Counting possible output rows independently gives the sum of the suffix ranks."
+        ],
+        "reasoning": "The same rank process is being observed using a one-unit shift of the corank and a reversal of the exposure convention. The statistic is its integrated value; it is not a distinct unexplained model or an independent sequence of ranks.",
+        "searches": [
+          "arXiv:2407.19578v2, §1, Theorem 1.2 and §3 Proposition 3.8 / Corollary 3.9",
+          "arXiv:1004.2674, §3.1",
+          "Resultary: rank-increment subsets and lambda-orbit spectra, record ending 8a8009d68c81"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day one-quarter record gives an exact rank-increment subset profile for the orbit census and acknowledges previous leading point-sampled behavior; its own asymptotic theorem instead samples distinct orbits equally, with leading center n²/8.",
+          "The q-Stirling comparison at field order 2 concerns rank layers or unrefined totals, not the point-weighted second-order exponent. A distinct-orbit profile is converted to a point profile by weighting each exponent ℓ by q^ℓ, then normalizing."
+        ],
+        "reasoning": "The exact census substantially overlaps and is not independently claimed as novel here. Neither the equal-orbit asymptotic nor unrefined table entries establish the point-sampled L¹ estimate. The older finite-size transition supplies the decisive coverage instead.",
+        "searches": [
+          "Resultary 2026/11/22/SCOPE-the-one-quarter-exponent-law-for-uniformly-sampled-lambda-orbits--8a8009d68c81",
+          "arXiv:2311.08023 Proposition 4 and OEIS A139382",
+          "DOI 10.37236/6829 q-Stirling identities"
+        ]
+      },
+      "rationale": "The claimed point-sampled L¹ law is a direct consequence of an already published, stronger finite-dimensional law: the first-column projection of the Borodin transition as stated in Van Peski, Proposition 3.8, gives precisely the whole suffix-defect birth process. The prior exact process, the established left-action row operations, and geometric waiting-time estimates give the stated integrated error, not just the leading quadratic exponent. The failure is based on that explicit implication, not on title similarity with terminal-rank work, the date of another catalogue record, or a claim that the exact displayed inequality was printed before.",
+      "residual_risks": [
+        "No priority claim is made for the first printed statement of this exact orbit L¹ inequality or for same-day transfer order. The originality decision rests on the demonstrated implication from the older exact partition transition."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior law makes the point-sampled integrated estimate a corollary; the marginal approximation alone would not",
+          "evidence": "Proposition 3.8 attributes the partition transition to Borodin [5, Thm. 2.3]. Its j=1 case with µ′_0=∞ gives q^(−µ′_1).",
+          "identifier_or_url": "https://arxiv.org/pdf/2407.19578",
+          "material_read": "v2 introduction and Theorem 1.2 around offsets 8590–13770; p. 13 Proposition 3.8 and Corollary 3.9 at offsets 52408–54602",
+          "method": "Read open full-text passages and projected the transition to the first column",
+          "title": "The rank of a random triangular matrix over F_q",
+          "trigger": "Earlier log-defect theorem and potential stronger exact stochastic law"
+        },
+        {
+          "assessment": "Covers the underlying row action; its cluster template theorem concerns the double action",
+          "evidence": "An elementary left transvection adds a multiple of row j to row i for i<j.",
+          "identifier_or_url": "https://arxiv.org/abs/1004.2674",
+          "material_read": "§3.1, p. 8, offset 17600, including Theorem 3.1",
+          "method": "Read open text on unitriangular multiplication",
+          "title": "Representations of Finite Unipotent Linear Groups by the Method of Clusters",
+          "trigger": "Prior row action and orbit-template literature"
+        },
+        {
+          "assessment": "Exact census overlaps; equal-orbit typical law is not the point-sampled correction",
+          "evidence": "Rank-increment subset formula and separate leading n²/8 center under equal-orbit sampling; the discussion credits prior point-sampled leading behavior.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-one-quarter-exponent-law-for-uniformly-sampled-lambda-orbits--8a8009d68c81",
+          "material_read": "Mirrored RESULT.md from offset 0 and prior-work discussion from offset 8248",
+          "method": "Read published local mirror and compared measures",
+          "title": "The one-quarter exponent law for uniformly sampled lambda-orbits",
+          "trigger": "Distinct same-day exact census and typical-size comparison"
+        },
+        {
+          "assessment": "Related binary layer recurrence, not the point-sampled orbit exponent",
+          "evidence": "Identifies the 3-free naturally labelled-poset recurrence with q-Stirling numbers at q=2.",
+          "identifier_or_url": "https://arxiv.org/abs/2311.08023",
+          "material_read": "Proposition 4 and comparison with A139382, pp. 3–4, offsets 9200 and 11500",
+          "method": "Read OA recurrence and compared rank-layer interpretation",
+          "title": "On enumeration of 3-free posets",
+          "trigger": "Rank-layer enumerative table overlap"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The observable is a natural group-action invariant with genuinely different typical sizes for equal-point and equal-orbit sampling. The explicit n log n deficit and a linear mean absolute error distinguish typical point-sampled orbits from maximal ones much more finely than a leading quadratic law. This is a useful quantitative interpretation, although the earlier exact growth process prevents accepting it as an original theorem on this evidence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

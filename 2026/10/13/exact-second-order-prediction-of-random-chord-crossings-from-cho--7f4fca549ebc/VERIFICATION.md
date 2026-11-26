@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The file `verify.py` is included in full. Its symbolic checks derive the pair-crossing moments from the density of the short-arc fraction, verify conditional-kernel first and second moments and the strict formulas for both variance components, and rederive their exact explained fraction algebraically for symbolic size. It constructs independent rotations of geometrically specified chords and computes genuine circular crossing indicators, rather than sampling the analytical Bernoulli kernel.
+## correctness
 
-The executed program returned:
+PASS
 
-```
-fixed_radii 2 mean 0.22026 target 0.22 variance 0.17174 target 0.1716
-fixed_radii 4 mean 1.82588 target 1.82 variance 1.06355 target 1.0628
-fixed_radii 3 mean 0.83796 target 0.84 variance 0.56271 target 0.5664
-iid_chords 3 cross_mean 1.00003 theory 1.0 cross_var 0.8003 theory 0.8 pred_var 0.29901 theory 0.3
-iid_chords 6 cross_mean 4.99292 theory 5.0 cross_var 5.99092 theory 6.0 pred_var 3.50022 theory 3.5
-VERIFY_OK symbolic=8 conditional_samples=3 unconditional_samples=2
-```
+For each chord the minor-arc start is uniform independent of its minor-arc length, by uniform translation of the two endpoints. Chords therefore have independent uniform rotations given their lengths, using the natural regular conditional version; repeated endpoint and diameter exceptions are null. For short arcs of fractions r,s≤1/2, the intersection of an interval of length r and its translate by s has length (r−s)_+ (no wraparound contributes positive length). Their symmetric difference has length 2min(r,s), exactly the endpoint-alternation event. Distinct crossing indicators on disjoint chord pairs use independent rotations. For pairs sharing a chord, fixing its rotation leaves the two other rotations independent with crossing probabilities constant in the fixed rotation, so the indicators are pairwise independent given the lengths. This suffices to sum the Bernoulli variances, not to assert mutual independence. For a moment replay, set W_i=2r_i, iid Uniform(0,1); g=min(W_i,W_j) has density 2(1−g) and moments 1/3 and 1/6. Its one-chord average is w−w²/2, with mean 1/3 and second moment 2/15, hence variance 1/45. There are three unordered pairs of edges sharing one endpoint per index triple; counting both covariance orders yields Var(M_n)=binom(n,2)/18+6 binom(n,3)/45. The integrated conditional variance is binom(n,2)/6. Their sum gives the quoted total variance, and their ratio gives the explained fraction, also at n=2. The L² projection property gives uniqueness up to almost-sure equality. The analytic argument proves the finite-n formulas. The frozen symbolic code and simulation record were inspected, not rerun; sampling is corroboration only.
 
-Environment: Python 3 with SymPy and NumPy. Reproduce with `python verify.py`. Numerical sampling tolerances are intentionally nonzero, are listed in the code, and do not establish an all-sample-size theorem. The proof uses conditional rotation symmetry, pairwise conditional independence of crossing indicators, exact integration, and the law of total variance; those steps are independent of the experimental checks. No human or external independent audit was performed.
+## originality
+
+PASS
+
+Marginal crossing-count moments are prior and explicitly excluded from the novelty claim. The supported distinct contribution is the full Euclidean-length-vector conditional mean and variance and the sharp decomposition of prediction risk, not the complete conditional distribution. The closest catalogue comparison uses only the additive one-chord projection, and the primary literature inspected does not supply the full geometric conditioning calculation.
+
+## value
+
+PASS
+
+The natural prediction problem asks how much of a topological count can be recovered from metric observations. The exact full-vector optimal risk separates the O(n²) residual rotation effect from O(n³) total variance, and the conditional variances apply even for fixed inhomogeneous length profiles. The exact residual also distinguishes conditioning on all lengths from the simpler additive one-chord predictor. No significance is claimed for other chord models or for conditional tail laws.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

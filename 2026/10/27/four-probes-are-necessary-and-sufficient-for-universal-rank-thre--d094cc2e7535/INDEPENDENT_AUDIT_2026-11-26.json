@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:09:33.098079Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The repaired statement holds for d≥2. Minimality is an open condition in the complex Stiefel space of stacked Kraus operators; the free U(r) gauge subtracts r² from 2rd²−d². Independently, the rank-r PSD Choi stratum has analytic Schur-complement charts, and congruence by (I+tH/2)⊗I gives any desired derivative H of the output partial trace at the trace-preserving level. Thus evaluation is analytic on the stated manifold. Each probe contributes at most d²−1 data dimensions; invariance of domain forbids an injection when the manifold dimension exceeds that of the data, including 11>9 for three qubit probes even against same-rank competitors. The listed states span the Hermitian inputs and hence determine the complex-linear map. On each connected component the highest nonzero exterior power of the differential gives the open dense maximal-rank locus; the zero-rank case is constant locally. The constant-rank theorem gives the stated smooth fibers of dimension ≥2 there. The repaired argument is analytic rather than empirical, and the sole d=1 channel needs zero probes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Iten–Colbeck give the exact fixed-rank Stiefel quotient and its dimension, with a circuit description application.",
+          "Raghunadhan et al. analyze full-rank Fisher-information identifiability for an informationally complete configuration on general qubit channels."
+        ],
+        "reasoning": "A dimension formula without evaluation or a full-data sufficiency result does not supply the fixed-input necessity or the local same-rank three-probe fibers.",
+        "searches": [
+          "Resultary search: fixed-input rank bounds and same-output fibers",
+          "arXiv:1610.02513, Lemmas 11–12",
+          "arXiv:2609.13584, Section III"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and REVIEW.md",
+        "Local Resultary: four targeted searches",
+        "arXiv:2609.14707",
+        "arXiv:1610.02513",
+        "arXiv:1305.3222",
+        "arXiv:2609.13584"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The full-rank bound specializes correctly to d² but a collision within full rank need not contain any rank-three channel.",
+          "The rank-two result and channel dimension neither assert that a universal triple works at rank three nor exhibit collisions on that stratum."
+        ],
+        "reasoning": "The proof adds the obstruction to injectivity of the fixed-probe evaluation map on the exact-rank stratum and derives exactness from a spanning probe set. The proof uses standard manifold and topology tools, not a new dimension computation.",
+        "searches": [
+          "arXiv:2609.14707 (full-rank bound and rank-two quantifiers)",
+          "arXiv:1610.02513, Lemmas 11–12"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 2 of arXiv:2609.14707 fixes three probes in canonical form; Proposition 1 conjugates those probes by the target's input unitary outside canonical form.",
+          "arXiv:1305.3222 studies identification and fidelity of unitary gates, not universal identification of nonunitary rank-three channels."
+        ],
+        "reasoning": "Rotating the probes separately for different targets does not give an all-target fixed set. The other closest formulation has a different target class.",
+        "searches": [
+          "Resultary search: rank-three qubit/four-probe identification and target-dependent probes",
+          "arXiv:2609.14707, Theorem 2 and Proposition 1",
+          "arXiv:1305.3222, Section II"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching record was returned in the results inspected; the primary paper's numerical input counts are for rank two and full Choi rank, not rank three."
+        ],
+        "reasoning": "This is a uniform identifiability theorem about a continuum and all fixed triples, not a finite object census susceptible to extraction from a catalogue of instances.",
+        "searches": [
+          "Resultary search: exact rank-three qubit/four-input identification",
+          "arXiv:2609.14707, scope, Theorem 2 and Proposition 1"
+        ]
+      },
+      "rationale": "The credited dimension and full-rank boundary case are not new. The closest inspected results do not identify the rank-three fixed-probe minimum or establish its generic same-rank ambiguity for arbitrary fixed triples. The substantive comparison is between quantifiers over probes and targets, not just the number of probes.",
+      "residual_risks": [
+        "Bounded statement-level search cannot rule out a differently indexed process-tomography theorem imposing the same product output dimension and fixing the probes.",
+        "No implication is claimed for target-adaptive or noise-robust identifiability; the dimension obstruction is standard."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial coverage, not the intermediate-rank threshold",
+          "evidence": "Full-rank necessity d²; the canonical-form triple is rotated by the particular input unitary for general rank-two targets.",
+          "identifier_or_url": "https://arxiv.org/html/2609.14707v1",
+          "material_read": "Introductory/full-rank statements, Theorem 2 and Proposition 1; HTML offsets 3400–6520, 19000–22000, 27300–29500",
+          "method": "Bounded open-access HTML passages",
+          "title": "Unique determination and generation of rank two single-qubit quantum channels",
+          "trigger": "Closest fixed-input channel-identification claim"
+        },
+        {
+          "assessment": "Supplies dimension/quotient, not probe statement",
+          "evidence": "For input size s and output size t, the quotient dimension is 2srt−s²−r² and the quotient represents exact-rank channels.",
+          "identifier_or_url": "https://arxiv.org/abs/1610.02513",
+          "material_read": "Lemmas 11–12; HTML offsets 22150–25137",
+          "method": "Bounded open-access primary text",
+          "title": "Smooth Manifold Structure for Extreme Channels",
+          "trigger": "Known exact-rank dimension and possible stronger parameter lower bound"
+        },
+        {
+          "assessment": "Different target class and objectives",
+          "evidence": "Unitary identification, testing unitarity, and estimating average fidelity.",
+          "identifier_or_url": "https://arxiv.org/abs/1305.3222",
+          "material_read": "Section II; HTML offsets 4500–7000",
+          "method": "Bounded open-access primary text",
+          "title": "Minimum number of input states required for quantum gate characterization",
+          "trigger": "Possible equivalent minimum-input formulation"
+        },
+        {
+          "assessment": "Does not give the exact-rank-three fixed-probe lower bound in the material examined",
+          "evidence": "Informationally complete single-qubit example with 12 parameters and full-rank Fisher information.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.13584",
+          "material_read": "Section III, HTML around offset 8000",
+          "method": "Bounded open-access primary text",
+          "title": "Identifiability in Quantum State, Process, and Network Tomography",
+          "trigger": "Possible general theorem covering qubit rank-three identifiability"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The useful result is the sharp intermediate-rank obstruction under the same fixed experimental design for all targets: despite removing one Choi eigenvalue, universal identification still needs a full Hermitian input basis, and the failure with three inputs persists with positive-dimensional fibers on an open dense locus. This distinguishes both target-adapted smaller probe sets and isolated examples of ambiguity. Its value is this specific exact boundary, not the routine topological tools or the already known full-rank endpoint.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

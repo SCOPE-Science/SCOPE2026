@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:08:43.872000Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The affine recurrence has b_i=(P_{2i−1}−1)/2 for i≥1. The identities P_{2i−1}=B_i−B_{i−1} and P_{2i−1}²=(C_{2i−1}+1)/4 yield the telescoped formula for 32W_k(n). The five exponential modes give the claimed integer recurrence, making the first five starts sufficient. The matrix determinant checks independently by dividing out the five stated column scalars (product 2^14), putting B_n,C_n first (even permutation), and replacing rows 2–4 by the forward row combinations with coefficients (1,−6,1). The resulting diagonal blocks have determinants −1 and (−4)28²(−192), recovering −2^26·3·7². At 3 and 7 the square residue periods are 4 and 3, with period sums 2 and 4 respectively, so divisibility occurs exactly at multiples of 12 and 21. The unit 3+2√2 has orders 4 and 3 there; lifting from B_4=204 and B_3=35 and using 16W_k(0)=5k+B_k(C_k−8) gives exact valuations. At 2, the parity period of b_n/2 proves the odd-k case; repeated squaring of the affine shift makes all even-k windows congruent modulo 2^(v_2(k)+1). The modulo-64 binomial calculation makes 5+(B_k/k)(C_k−8) equal 32 modulo 64, proving the first window has exactly the required valuation. This proves the formula at all primes and includes k=1, whose first zero window is allowed and whose next window is 4.",
+      "reproduction": {
+        "evidence": "All three numerical expressions agreed for the bounded range. No assertion about the infinite family is based on those finite data. The frozen verify.py was inspected, not run.",
+        "replay": "Generate b[0..111], B[0..80], C[0..80] by the frozen initial values and recurrences. For each k=1..80 form gcd(sum(b[i]**2 for i in range(n+1,n+k+1)) for n in range(32)); compare to the frozen parity formula and the prime-order product in Resultary 9c2a2a5070c4. For that product evaluate orders by repeated multiplication of (3,2) modulo p with z²=2."
+      },
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Question 30 requests four square-window GCDs and observes only that the cobalancing one is divisible by four. Theorem 28 concerns first-power windows.",
+          "Mbirika–Spilker's square-GCD theorem permits arbitrary initial values but fixes the homogeneous Fibonacci recurrence G_n=G_(n−1)+G_(n−2), not the affine cobalancing recurrence.",
+          "The October 18 order-spectrum result excludes 2,3,7; the October 26 dyadic-family result gives a finite reduction and exact G(12·2^r)=120·2^r."
+        ],
+        "reasoning": "The published general Fibonacci theorem and partial comparisons do not directly imply the whole formula, but the complete order-factorization record covers precisely the desired case.",
+        "searches": [
+          "arXiv:2301.05758 §6.1 Question 30 and Theorem 28",
+          "arXiv:2204.12626 Definition 2.1 and Theorem 3.11",
+          "Resultary ccb3ff598d74 and 9d626bd01489"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2301.05758 and arXiv:2204.12626",
+        "Resultary 9c2a2a5070c4, 688ac83f273a, ccb3ff598d74, 11cd03c19bb6, 9d626bd01489"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For odd p, C_k+2zB_k=(3+2z)^k. Both C_k−1 and B_k vanish modulo p exactly when r_p|k. If r_p|k, then p∤r_p (the norm-one group has order p±1), and binomial lifting puts both coefficients in p^(1+v_p(k)). Hence the minimum is v_p(5k) when r_p|k and zero otherwise.",
+          "The orders for p=3,5,7 are 4,6,3, respectively. The 2-adic exponent of the frozen parity formula is max(2,1+v_2(k)), matching the prior dyadic factor."
+        ],
+        "reasoning": "This proves equivalence to the prior product for all k and every prime, including 5 where v_5(5k)=1+v_5(k). No new cases are added by switching from orders to the three-integer GCD.",
+        "searches": [
+          "9c2a2a5070c4 mirrored Finding and §§1–3, order and lifting",
+          "Compare the exact frozen formula and 688ac83f273a local valuations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "9c2a2a5070c4 specifies b_0=b_1=0, b_(n+2)=6b_(n+1)−b_n+2 and the gcd of windows for every n≥0 and k≥1; its displayed prime factorization gives its value at every k.",
+          "11cd03c19bb6 gives odd k as 4 gcd(k,Q_k) for Q_n the associated Pell sequence with initial values 1,1. For odd k, B_k=P_kQ_k and C_k−1=2Q_k², with coprime P_k,Q_k. The norm Q_k²−2P_k²=−1 rules out 5|Q_k. So its odd formula is the same odd branch."
+        ],
+        "reasoning": "The different arithmetic presentations describe the same normalized all-start windows. The prime-order product and the gcd reformulation agree prime by prime, not merely on the computed sample.",
+        "searches": [
+          "Resultary: cobalancing square-window gcd, prime-order formula, odd windows; exact mirror Finding of 9c2a2a5070c4 and comparison with 11cd03c19bb6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "9c2a2a5070c4 lists an exact product for every k with factors at 2,3,5 and the order condition for all p≥7 (including p=7 with order 3).",
+          "688ac83f273a independently describes p≥5, p≠7 by exactly min(v_p(5k),v_p(B_k),v_p(C_k−1)), and includes the 5-adic criterion."
+        ],
+        "reasoning": "The October all-k record is exact catalogue coverage. The separate same-day partial overlap is noted on its merits, without a within-day priority claim.",
+        "searches": [
+          "Resultary 9c2a2a5070c4 (2026-10-26), Finding",
+          "Resultary 688ac83f273a (same day as the frozen result), Finding"
+        ]
+      },
+      "rationale": "The exact same all-k GCD with the same initialization and window starts is already covered by the earlier published Resultary record 9c2a2a5070c4. The compact gcd of three entries repackages its prime-power divisors without giving a distinct exact invariant. The result answers the cobalancing-square subquestion, not all four cases of Question 30.",
+      "residual_risks": [
+        "This is a demonstrated equivalent catalogue statement, not a claim about original priority or provenance. Other equivalent sources might also exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact all-k coverage",
+          "evidence": [
+            "Identical recurrence, windows, normalization, and quantifiers; explicit product for all primes."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-prime-order-formula-for-all-cobalancing-square-window-gcds--9c2a2a5070c4/RESULT.md",
+          "material_read": "Finding, assumptions, and opening local proof, offsets 0–4000",
+          "method": "Resultary search and local mirror",
+          "title": "Prime-order formula for all cobalancing square-window GCDs",
+          "trigger": "Exact candidate match"
+        },
+        {
+          "assessment": "Poses the square-window question, rather than answering it",
+          "evidence": [
+            "Four square-window cases; divisibility by four noted for the cobalancing case.",
+            "The known complete cobalancing theorem there is for first powers."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2301.05758",
+          "material_read": "§6.1 Question 30 p. 22 at offset 66003; Theorem 28 p. 20 at offset 60755",
+          "method": "OA PDF bounded passages",
+          "title": "Pell and Associated Pell Braid Sequences as GCDs of Sums of k Consecutive Pell, Balancing, and Related Numbers",
+          "trigger": "Statement of the posed problem"
+        },
+        {
+          "assessment": "Different recurrence class",
+          "evidence": [
+            "Fibonacci recurrence with arbitrary starting values, not arbitrary recurrence coefficients or affine terms."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2204.12626",
+          "material_read": "Definition 2.1 p. 3 at offset 10816; Theorem 3.11 p. 7 at offset 26910",
+          "method": "OA PDF bounded passages",
+          "title": "GCDs of sums of squares of generalized Fibonacci numbers",
+          "trigger": "Plausible general square-window theorem"
+        },
+        {
+          "assessment": "Identical for primes outside 2,3,7",
+          "evidence": [
+            "States the same minimum of valuations and exact 5-adic condition."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-prime-to-42-valuations-of-cobalancing-square-window-gcds--688ac83f273a",
+          "material_read": "Finding and scope of permitted primes",
+          "method": "Resultary search and local mirror",
+          "title": "Prime-to-42 valuations of cobalancing square-window GCDs",
+          "trigger": "Same-day direct partial result"
+        },
+        {
+          "assessment": "Partial coverage",
+          "evidence": [
+            "Gives order-based local law for p≥5 excluding 7; leaves the full numerical gcd open in that record."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-prime-power-divisor-spectrum-for-cobalancing-square-windows-outs--ccb3ff598d74",
+          "material_read": "Finding and exclusions",
+          "method": "Resultary search and local mirror",
+          "title": "Prime-power divisor spectrum for cobalancing square windows outside exceptional primes",
+          "trigger": "Earlier order-based local law"
+        },
+        {
+          "assessment": "Exact restricted coverage",
+          "evidence": [
+            "4 gcd(k,Q_k) for odd k, Q_0=Q_1=1."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-the-odd-window-square-sum-gcd-of-cobalancing-numbers--11cd03c19bb6",
+          "material_read": "Finding and Q normalization",
+          "method": "Resultary search and local mirror",
+          "title": "The odd-window square-sum GCD of cobalancing numbers",
+          "trigger": "Equivalent odd branch"
+        },
+        {
+          "assessment": "Exact restricted coverage",
+          "evidence": [
+            "G(12·2^r)=120·2^r and finite reduction, not an all-k closed form in this record."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-linear-divisibility-and-an-exact-dyadic-family-for-cobalancing-s--9d626bd01489",
+          "material_read": "Finding on finite reduction and the 12·2^r family",
+          "method": "Resultary search and local mirror",
+          "title": "Linear divisibility and an exact dyadic family for cobalancing square windows",
+          "trigger": "Prior exact dyadic cases and finite reduction"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "An unknown exact solution to this cobalancing-square subquestion would be worthwhile. Here the all-length values and exceptional-prime laws are already given by the exact order-product theorem. The shorter presentation mechanically recovers the same invariant, with no additional case, consequence or separately motivated structural result claimed. Convenience of evaluation alone does not supply a distinct scientific contribution.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

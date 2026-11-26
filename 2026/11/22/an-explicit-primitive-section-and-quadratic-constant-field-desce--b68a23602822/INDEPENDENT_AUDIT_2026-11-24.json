@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:39:50.303487Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–59, VERIFICATION.md and check.py (inspected, not executed)",
+        "Burek–Chmiel–Cynk–Oczko arXiv:2611.15943v1 Eq. (1) and Theorem 4.3",
+        "Schütt–Shioda arXiv:0907.0298 Corollary 6.13, Theorem 11.5, Table 4 and §11.10 Eq. (22)"
+      ],
+      "rationale": "For u=t+2 and x=tu, the right-hand side is t²u²(4tu+3u²+3t²)=2t²u² in characteristic five. The discriminant is t³u⁴ and j=4u⁵. The local discriminant orders in the minimal coordinates are 3,4,5 at 0,3,infinity (at infinity rescale by s² and s³), with types III, IV and I5 as in the original paper. P reduces to the singular point in each minimal Weierstrass fiber, respectively (0,0),(0,0),(1,0), and is disjoint from O. The identity component of the smooth model is the smooth locus of the Weierstrass fiber; sections of the regular model meet the smooth part of the fibration, so these reductions force nonidentity components, not a point of intersection on the strict transform. Their contributions are 1/2, 2/3 and either 4/5 or 6/5. The rational surface has chi=1, so the latter option gives a negative height -11/30; the former gives 1/30. The unimodular rank-ten NS lattice and root ranks 1+2+4 force geometric rank one, and the trivial-lattice determinant is 30. For a primitive free generator G its self-pairing is |T|²/30, T the finite torsion. Writing P=nG modulo torsion yields n²|T|²=1, proving both primitivity and torsion-freeness. Frobenius acts on alpha by alpha^5=-alpha and on P by negation, so its m-th invariants give the exact constant-field groups. The quadratic twist isomorphism (x,Y)↦(x,alpha Y) changes the descent sign and identifies the stated primitive generator.",
+      "residual_risks": [
+        "No formal certificate; the checker verifies algebraic identities only. Conclusions are only for constant-field extensions, not arbitrary extensions of the function field."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rank, torsion and geometric height lattice can be obtained from the fiber data without knowing P. For a hypothetical nonzero torsion section, the available sums using 0 or 1/2, 0 or 2/3, and 0 or 4/5 or 6/5 never equal 2+2(T·O); the determinant then fixes the abstract lattice to height 1/30."
+        ],
+        "reasoning": "Credit these abstract consequences to standard theory. Under this theory there is a generator, but obtaining the coordinates and certifying the specified section are different from applying the rank and determinant formulas alone.",
+        "searches": [
+          "Schütt–Shioda arXiv:0907.0298 Corollary 6.13, §11.6, Table 4 and §11.10; Oguiso–Shioda rational elliptic surface lattice classification as discussed there",
+          "Burek–Cynk Example 6.1, original fiber calculation"
+        ]
+      },
+      "checked_sources": [
+        "Burek–Cynk arXiv:2609.12522v1; Burek–Chmiel–Cynk–Oczko arXiv:2611.15943v1; Schütt–Shioda arXiv:0907.0298; Resultary comparisons above."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The e5ffefd1cc57 resolved-fiber counts (11,3,4,6,5,7) sum to 36. The normalized Frobenius trace on NS is (36−1−25)/5=2. The trivial lattice trace is 3: O, the fiber and the III component are fixed; IV exchanges two nonidentity components (nonsquare tangent), and nonsplit I5 reverses its cycle, pairing the four nonidentity components. Hence the rank-one quotient has trace −1."
+        ],
+        "reasoning": "Thus known point-count data for the nearby indexed object already imply the abstract parity of the rank (and, with torsion-freeness, the abstract groups). These data do not yield a primitive coordinate section. In the older twist equation one can reconstruct the specific section by exploiting all three singular reductions, degree bounds from disjointness with O, and a final coefficient check; the earlier example does not perform that reconstruction or the local height/index verification. This is a supported generator-level result, not novelty for the equations, lattice type, or Frobenius sign in isolation.",
+        "searches": [
+          "Resultary e5ffefd1cc57 Assumptions and proof step 1; Burek–Cynk Example 6.1, alternate coordinate equation; Schütt–Shioda §11.10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier model v²=z³−2uz+u⁴ becomes the frozen quadratic twist by t=3u/(u−1), x=2z/(u−1)², Y=4v/(u−1)³ over F5. The twist point corresponds to (z,v)=(2u,u(u−1)), by exact substitution; this point is not stated in the inspected earlier examples."
+        ],
+        "reasoning": "This is a genuine same-surface comparison after a constant twist and base reparametrization, not a similarity based on fiber types alone. Availability of an equation containing the point does not establish that the point, its primitivity, or the generator in the untwisted coordinates was previously identified.",
+        "searches": [
+          "Burek–Cynk arXiv:2609.12522v1, §6 Example 6.1 and §9.2 Example 9.1",
+          "Burek–Chmiel–Cynk–Oczko arXiv:2611.15943v1, Eq. (1) and Theorem 4.3",
+          "Resultary: rational elliptic surface III IV I5 characteristic p=5 exact section t(t+2) primitive Mordell Weil geometric height 1/30 root lattice A1 A2 A4 earlier arithmetic descent Frobenius"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "b68a23602822 is the identical frozen record. e5ffefd1cc57 gives the resolved self-product zeta function and counts for the underlying six regular fibers; caf121dde64a concerns the Kummer quotient. The general height table gives local corrections, not a coordinate section in either model."
+        ],
+        "reasoning": "No inspected independent exact entry identifies the primitive rational section. The trace implication of e5ffefd1cc57 is substantive and evaluated separately; same-day dates do not settle priority.",
+        "searches": [
+          "Resultary exact section, geometric height and constant Frobenius query above; same-surface comparison e5ffefd1cc57 and caf121dde64a",
+          "Schütt–Shioda Table 4 and rank-one examples following Eq. (22)"
+        ]
+      },
+      "rationale": "The surface, its earlier explicit quadratic-twist model, the abstract geometric group, and the general height tools are substantial existing coverage. There is also a same-day trace calculation from which the abstract Frobenius sign follows (without inferring priority from dates). The surviving distinct contribution is the explicit identification and certification of a specific primitive section in these coordinates, giving a generator-level constant-field and twist classification, rather than the abstract rank, height determinant, or sign alone.",
+      "residual_risks": [
+        "An older generator in a differently parametrized model may remain unindexed. No absolute priority is claimed. The earlier Burek–Cynk full text was accessible in this review; its equation is credited, not excluded merely because of the different coordinates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact F5 twist model precedes this work, generator not stated in inspected passages",
+          "evidence": "Displays v²=z³−2uz+u⁴ and IV, III, I5 at infinity, 0, 1; uses surface in a self-product and Kummer construction.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.12522v1",
+          "material_read": "§6 Example 6.1 p. 19 (offset from 74200 to 78789); §9.2 Example 9.1 p. 32 (around offset 122825)",
+          "method": "Lawful OA PDF, targeted original passages",
+          "title": "Crepant resolutions of fiber products and Kummer fibrations of rational elliptic surfaces with non-reduced fibers",
+          "trigger": "Older same-surface candidate previously cited only by abstract"
+        },
+        {
+          "assessment": "Known equation and fiber data",
+          "evidence": "Exact untwisted Weierstrass equation with III, IV, I5, not a section or its descent.",
+          "identifier_or_url": "https://arxiv.org/html/2611.15943v1",
+          "material_read": "§1 Eq. (1) around offset 2995, §4.3 Theorem 4.3 around 25989 and preceding passage on A1,A2,A4 points",
+          "method": "Lawful OA HTML, targeted original passages",
+          "title": "A projective Calabi–Yau threefold in characteristic 5 non-liftable to characteristic 0",
+          "trigger": "Initiating equation and singular fibers"
+        },
+        {
+          "assessment": "Standard theory and abstract group already accessible from fiber data",
+          "evidence": "Rank formula, positive height, correction table and discriminant identity; discusses Oguiso–Shioda classification.",
+          "identifier_or_url": "https://arxiv.org/pdf/0907.0298",
+          "material_read": "Corollary 6.13 p. 29; Theorem 11.5 p. 50; Table 4 p. 52; §11.10 Eq. (22), offsets 138920–141956",
+          "method": "Lawful OA PDF, targeted original passages",
+          "title": "Elliptic surfaces",
+          "trigger": "Broader lattice and possible prior mechanical implication"
+        },
+        {
+          "assessment": "Cohomological overlap implies abstract Frobenius sign using trivial-lattice trace, but not a coordinate generator",
+          "evidence": "Same surface and fiber counts in the self-product record; related Kummer zeta calculations concern the threefold.",
+          "identifier_or_url": "Resultary 2026/11/22 e5ffefd1cc57 and caf121dde64a",
+          "material_read": "Mirrored Finding and scope passages; e5ffefd1cc57 proof step 1 at offset 0 through 3188",
+          "method": "Configured local catalogue and mirror",
+          "title": "Frobenius descent and the zeta function of a characteristic-five resolved elliptic self-product; complete zeta function of the Kummer threefold",
+          "trigger": "Strongest distinct indexed exact-surface overlaps"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–5; Burek–Chmiel–Cynk–Oczko equation (1); earlier twist model and indexed trace comparison above."
+      ],
+      "rationale": "The section addresses explicit arithmetic on a naturally occurring characteristic-five elliptic surface used in Calabi–Yau constructions. The result identifies an actual integral generator, not a candidate point or a rational rank: its multiples produce all rational sections over every admissible constant extension, and the same coordinates give the descent on the twist. The concrete section and local index calculation supply the value beyond known geometric lattice type and count-derived sign.",
+      "residual_risks": [
+        "Narrow to this surface and constant extensions; no new threefold arithmetic or general classification is inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

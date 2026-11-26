@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof derives the exact distance/intersection relation separately for the exceptional seven-point odd graph and the diameter-two regime. The bisector formula for every pair intersection orbit is checked algebraically. For the exceptional case, the three equidistance cardinalities are \(9,13,15\), and all ten pairs of witnesses corresponding to one switch pair collapse to one of 21 labelled bisectors. For \(n\ge8\), the three sizes are compared symbolically, and an incidence-frequency argument proves unique parametrization of each maximum bisector. Independent breadth-first and intersection-formula programs reproduce the counts and multiplicities at five orders. No finite experiment is used as the infinite proof.
+PASS
 
-## Originality — PASS, provisional
+A nonresolving set is contained in a distance bisector, so the threshold is the largest bisector size plus one. At n=7 intersections of size 0,1,2,3 give distances 1,3,2,0. In the distance-three case with endpoints abc and ade and remaining points f,g, the path through def and bcg proves the upper bound, and no common disjoint triple exists. Equal distances then mean equal counts in the exclusive parts. For exclusive size k=3,2,1, the sum of binom(k,j)^2 binom(7−2k,3−2j) is 9,13,15 respectively. The 15-sets depend only on the pair of switched points, recoverable by their multiplicities 5 rather than 7. For n≥8 all nonadjacent distinct pairs have distance two. With q=binom(n−3,3) and c_r=binom(n−6+r,3), the number of distinguishers for overlap r is 2(q−c_r) plus two if r>0 (adjacent endpoints are already counted). This is strictly minimized at r=2, since c2>c1 and c2−c0>1, already at n=8. Its value is 2+2 binom(n−4,2). For overlap two, distinguishers are the two endpoints and the triples avoiding their shared pair K and choosing exactly one switch point in T. Ground-point frequencies on K, the complement of K∪T, and T are 2, 2(n−5), and 1+binom(n−4,2) in strictly increasing order, even at n=8. Thus both K and T are uniquely recoverable and the labelled census follows.
 
-The 2022 primary full HTML text on universal resolving thresholds treats paths, cycles and the Petersen graph, not rank-three Kneser graphs. The inspected published 2023 Kneser primary full PDF studies the minimum metric dimension and the localization game; these parameters do not determine the threshold for *every* landmark set. The related published rank-two research result covers two-subset Kneser/Johnson graphs, not the rank-three family or the exceptional switch-pair collapse. Targeted full-title, terminology, graph-alias, and research-record searches did not find the stated exact rank-three theorem. Full-text availability of one relevant published research artifact was limited to its summary, and unindexed earlier research remains a residual priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The worst-case resolving guarantee is a mathematically distinct network-location invariant, and rank-three Kneser graphs are a canonical infinite family whose first connected member is the odd graph \(\operatorname{KG}(7,3)\). The explicit extremal obstruction classification exposes a sharp geometric transition: 210 optimal witness pairs collapse to only 21 maximal-size failures at seven points, whereas from eight points onward each witness pair produces a different failure. These complete labelled multiplicities and the explicit exception are not consequences of an ordinary minimum-metric-dimension bound; they are useful for adversarial sensor placement and for comparison with higher-rank Kneser families.
+The supported distinction is the rank-three minimum-distinguishing-neighbourhood calculation together with the labelled largest-bisector classification and the exact loss of witness uniqueness at n=7. Known Kneser distances, abstract threshold reductions and constructions of small resolving sets are not claimed as new.
 
-## Closest literature and limits
+## value
 
-Korivand–Khashyarmanesh–Tavakoli (2022), DOI: https://doi.org/10.1155/2022/1838719, introduces the threshold and handles the rank-two Petersen graph. Bonato–Huggan–Marbach (arXiv:2008.04896, journal 2023) bounds ordinary minimum metric dimension in Kneser families. The rank-two published research record available at https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-maximum-nonresolving-landmark-families-of-triangular-and-two-sub--290a05e93094 does not assert a rank-three result in its available summary. The theorem does not classify smaller maximal failures or higher Kneser ranks. No independent audit or exhaustive historical priority certification is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For this natural connected Kneser family the universal landmark threshold is a worst-case guarantee not determined by ordinary metric dimension. The exact count and characterization also identify all obstructions at the sharp bound and explain why they merge tenfold only at the odd graph. This is a full natural rank family with a genuine exceptional order, rather than an isolated table entry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

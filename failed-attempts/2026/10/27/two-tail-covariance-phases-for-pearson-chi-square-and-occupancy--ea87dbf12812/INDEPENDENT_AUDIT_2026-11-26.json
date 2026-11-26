@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:15:05.529161Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The covariance formulas, signs, Pell parametrization, and limit are correct, but the Finding's inference of ‘zero dependence’ at its arithmetic zeros is false if read literally: these are zeros of covariance, not independence. At (m,n)=(3,3) one has M_2=1 exactly when X²=2; this event has probability 2/3, despite zero covariance. In fact at every listed Pell zero, n>2, all balls in one box attain the maximum X² and force M_2=0, whereas an occupancy with a doubleton has positive probability. For the exact formulas, condition the collision count on N_1=r: its mean becomes binom(r,2)+binom(n-r,2)/(m-1). Subtract the unconditional mean, multiply by 2m/n and by m times the binomial mass, and simplify to (2). Alternatively, for one fixed pair conditioned to collide, the tagged box contributes f(B+2) and all other boxes contribute f(B); comparing with two independent Bernoulli contributions gives (1). The upward quadratic is negative at its vertex inside (0,n) and positive at both endpoints; the constant sum of the M_r forces at least one negative covariance. The r=2 substitution gives a discriminant of 2(2m−1)²−1; multiplication by 3−2√2 descends the positive negative-Pell solutions to (1,1). Fixed-r Poisson point-mass convergence in the second difference gives (3). An independent bounded enumeration of labelled throws and arithmetic spot checks are replayable with /workspace/branches/independent_small_checks.py. The packaged VERIFY.py was inspected, not executed.",
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "4e1ebdd17a01 treats arbitrary real box scores, not just indicators.",
+          "The inspected Gupta–Price passage concerns covariance of bin scores in testing; Barbour–Gnedin treats normal approximation for occupancy frequencies. Neither inspected passage is needed for the exact overlap."
+        ],
+        "reasoning": "Taking h(s)=1{s=r} in the existing general result gives the finite second-difference formula directly; binomial-to-Poisson convergence at three fixed indices gives the frozen limit.",
+        "searches": [
+          "Resultary: arbitrary occupancy score curvature, covariance spectrum, Poisson–Charlier limit",
+          "Gupta–Price arXiv:2206.10722 Appendix A.2; Barbour–Gnedin arXiv:0809.4387 abstract and introduction"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and VERIFY.py",
+        "Resultary 4e1ebdd17a01, 9485777d7c83, 46bdb4d9ec77",
+        "arXiv:1812.08924, 2206.10722, 0809.4387, 1611.03579"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "9485777d7c83 gives m²r²−m(2n+m−2)r+n(n−1), exactly m²P_(n,1/m)(r).",
+          "Its singleton threshold and quadratic-root rule agree. The r=2 quadratic in n has discriminant 8m²−8m+1=2(2m−1)²−1."
+        ],
+        "reasoning": "The finite phases are already known in equivalent form. The remaining arithmetic calculation consists of the square-discriminant test and the standard recurrence for x²−2y²=−1, and the limit is ordinary Poisson convergence of the existing exact formula.",
+        "searches": [
+          "4e1ebdd17a01 Finding Eq. (1) and collision expansion in Proof; 9485777d7c83 Finding and Proof; 46bdb4d9ec77 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 4e1ebdd17a01 Eq. (1): Cov(X²,T_h)=(n−1)(m−1)/m times E Δ²h(Y) with Y distributed as Bin(n−2,1/m).",
+          "Resultary 9485777d7c83: collision count against the full frequency spectrum."
+        ],
+        "reasoning": "The first equation coincides exactly with (1). For the second source, Pearson X²=m−n+(2m/n) times the pair count, so rescaling does not change any signs or zeros.",
+        "searches": [
+          "Resultary: Pearson curvature; uniform multinomial collision-frequency covariance; Krawtchouk and size-biased occupancy"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Two matching earlier indexed records: 4e1ebdd17a01 and 9485777d7c83; related 46bdb4d9ec77 instead treats distinct frequency counts.",
+          "The targeted Pell lookup did not surface the occupancy equation; an unrelated chord-length Pell record is not evidence of coverage."
+        ],
+        "reasoning": "The exact object is an identity with a variable spectrum rather than an isolated numerical table. The index yielded direct matches for the identity and for the signs, not for the explicit Pell list.",
+        "searches": [
+          "Local Resultary: exact finite covariance, fixed-r Poisson–Charlier covariance, and doubleton Pell zeros"
+        ]
+      },
+      "rationale": "Two distinct earlier findings cover the principal claims, including the exact all-score identity and the finite two-tail spectrum. The Poisson limit and the remaining doubleton computation are direct deductions of the covered spectrum and classical binomial convergence and negative-Pell theory; no direct match for their explicit wording was established or is needed to establish the overlap.",
+      "residual_risks": [
+        "The literature comparison is bounded; explicit doubleton Pell wording could also be present elsewhere. This uncertainty does not affect the demonstrated exact overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct equivalent coverage",
+          "evidence": "The factor (n−1)(m−1)/m equals (n−1)q, with the same two-ball binomial shift and arbitrary score.",
+          "identifier_or_url": "Resultary 2026/10/13 4e1ebdd17a01",
+          "material_read": "Finding Eq. (1); Proof Eq. (7) onward",
+          "method": "Local mirror, bounded Finding and Proof text",
+          "title": "Pearson covariance is exactly a binomial average of discrete curvature",
+          "trigger": "Exact Pearson curvature hit"
+        },
+        {
+          "assessment": "Equivalent finite Pearson spectrum after affine rescaling",
+          "evidence": "The prior polynomial is m²P, the same quadratic sign rule; the prior probabilities are the same binomial second differences.",
+          "identifier_or_url": "Resultary 2026/10/18 9485777d7c83",
+          "material_read": "Finding; Proof at offset 1800",
+          "method": "Local mirror, bounded text",
+          "title": "Convex collision association and two-threshold frequency dependence in multinomial occupancy",
+          "trigger": "Collision-frequency spectrum hit"
+        },
+        {
+          "assessment": "Different observables",
+          "evidence": "Both observables are frequency counts, rather than Pearson and a frequency count.",
+          "identifier_or_url": "Resultary 2026/10/26 46bdb4d9ec77",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror",
+          "title": "A single covariance window for distinct occupancy frequencies",
+          "trigger": "Poisson loading window hit"
+        },
+        {
+          "assessment": "Pair representation established; no exact frequency law in the passage",
+          "evidence": "Pearson represented by a pair-kernel V-statistic.",
+          "identifier_or_url": "https://arxiv.org/abs/1812.08924",
+          "material_read": "Section 2, Lemma 2.1, p. 4",
+          "method": "OA PDF, text offset 13900",
+          "title": "Multinomial Goodness-of-Fit Based on U-Statistics: High-Dimensional Asymptotic and Minimax Optimality",
+          "trigger": "Pearson pair representation"
+        },
+        {
+          "assessment": "Related covariance framework, not this exact formula in the inspected passage",
+          "evidence": "Appendix concerns bin-score covariances in uniformity testing.",
+          "identifier_or_url": "https://arxiv.org/abs/2206.10722",
+          "material_read": "Appendix A.2, p. 17",
+          "method": "OA PDF, text offset 70800",
+          "title": "Sharp Constants in Uniformity Testing via the Huber Statistic",
+          "trigger": "Covariances of cell scores under uniformity"
+        },
+        {
+          "assessment": "Different asymptotic statistic and regime",
+          "evidence": "Joint normal approximation under occupancy-frequency variance-growth assumptions.",
+          "identifier_or_url": "https://arxiv.org/abs/0809.4387",
+          "material_read": "Abstract and introduction, p. 1",
+          "method": "OA PDF, text offset 0",
+          "title": "Small counts in the infinite occupancy scheme",
+          "trigger": "Asymptotics of frequency counts"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The natural Pearson–frequency question has a meaningful answer, but its exact spectrum is already recorded. The remaining work is a fixed-index binomial limit and a doubleton substitution followed by the textbook negative-Pell solution, with no further structural consequence established here. Removing the false independence gloss would not leave a separately supported, valuable new finding under the stated standard.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** Monotone arcsine conjugacy reduces every iterate and lag to an explicitly invariant full-branch folding map. Exact integration on its rising cells gives the strictly increasing event; an independent fine-cell cumulative calculation gives the second independent three-way ordering event. Stationarity and complete ordering then determine the remaining four probabilities. The proof includes both finite sums and their polynomial evaluations, and it computes true time reversal by reversing chronological labels. An independent rational-geometry verifier tests 68 exact degrees, including both parities and all six events. The finite test is corroboration, not a substitute for the universal proof.
+## correctness
 
-**Originality — PASS, subject to historical priority risk.** The 2014 Unakafov--Keller primary full-text sections define ordinal partitions and investigate logistic examples numerically and entropy-theoretically; they do not provide the universal all-degree all-lag rational six-law. The 2024 Acero et al. study treats symmetries, ordinal frequencies, and logistic examples through parameter sweeps and quantifiers, rather than these formulas across all integer Chebyshev degrees and sampling delays. The 2021 multiscale ordinal work examines delay dependence without this explicit family-wide calculation. Published research-record searches found no equivalent claim, and comparison with accessible earlier mathematical results found no encompassing implication. Some older ordinal-pattern treatments of the fully chaotic logistic map, especially the degree-two lag-one instance, are explicitly treated as known. Unindexed earlier exact treatments remain a residual risk; a failed search alone does not establish uniqueness.
+PASS
 
-**Mathematical value — PASS.** Ordinal patterns provide a scale-invariant observable of time order, and temporal asymmetry is a standard diagnostic of chaotic dynamics. The result determines six natural frequency invariants for an infinite family and all sampling lags in closed form, giving a sharp parity-dependent factor-of-three contrast between weak temporal arrows at long lag. It distinguishes full temporal-order information from invariant marginal density and is a reproducible exact benchmark for ordinal symmetry studies; it is not an arbitrary parameter slice or a mere numerical tabulation.
+The increasing arcsine coordinate h(y)=(1−cos(πy))/2 conjugates degree b to its full-branch folding map. Composition gives folded slopes q and q²; the inverse branches have equal weight and Lebesgue measure is invariant. The affine comparison slopes are distinct on each fine cell, so ties have zero measure. Pairing consecutive affine cells gives the two-point probabilities and the cumulative rising measure at even fine boundaries. For p102, a coarse crossing on even cell j occurs at j/(q−1), also the crossing in even fine cell J=j(q+1); on odd cell j the crossing at (j+1)/(q+1) is the crossing in even fine cell J=(j+1)(q−1). This verifies the key cumulative evaluations, including the endpoint case for odd q. For p012 the preimage count below the middle value is j+1 on the even-cell rising region and j on the odd-cell rising region. Summing these contributions and substituting in the three stationary pair marginals plus normalization yields the six stated masses. Summing absolute differences over the three index-reversal pairs yields the two positive TV formulas and the two leading coefficients. Value reflection is not time reversal (for example odd q is value-symmetric but TV remains positive). Independent exact affine-cell checks for q=2 through 8 agree; replay: python3 /workspace/branches/d802ba63-eb62-4aac-9925-3ac3baef7676/ordinal_law_check.py; corresponding ordinal_law_check.txt is in the same directory. These samples corroborate the all-q derivation and do not replace it. Frozen verifier inspected, not executed.
 
-**Scientific limits.** No result about higher ordinal lengths, stochastic perturbations, or noninteger parameters is asserted. The source comparison is best-knowledge rather than a certification of exhaustive historical priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the combined exact all-degree, all-lag law and temporal TV, not for the logistic special case or the general use of ordinal quantifiers. The strongest retrieved comparisons concern q=2 alone, different branch orientations, or different observables. None supplies the parity-uniform classification.
+
+## value
+
+PASS
+
+These are exact, monotone-coordinate-invariant benchmarks at every integer lag for a natural expanding dynamical family. In particular the parity split distinguishes a value-reflection-symmetric but still temporally asymmetric family, and identifies two different sharp rates' leading constants. This is more than checking forbidden orders or tabulating one slope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:34:27.271886Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With the stipulated left-to-right concatenation, left multiplication preserves terminal vertex. In the basis e_(i+2), a_(i+1), b_i the only possibly nonzero entries are x_(i+1), y_i, x_i below the diagonal, and the square has single possibly nonzero entry x_i x_(i+1). A nonzero square forces a size-three block, the zero matrix forces three size-one blocks, and all other cases have one size-two and one size-one block. Charge each nonzero x_i once on its outgoing support edge; independently summing y_i gives the four transfer entries, with the trace counting labeled cyclic sequences exactly once. The normalization is q^(2n); a proper run of a+1 nonzero x_i realizes exactly a adjacent pairs for 0<=a<=n-2, and any zero destroys at least two edges. The no-size-three event is a weighted cycle independent-set count; the eigenvalues are the roots of lambda²-lambda-(q-1), with |lambda_-|<lambda_+<q for q>=2. For covariance the single-site means are p² and r³, each same-type neighbor has joint expectation p³ or r⁵ respectively, and there are three disjoint-in-value overlapping cross terms per site, including at n=3. All other windows depend on disjoint underlying variables. This gives the stated matrix and determinant p³r⁴(r+4). After removing the seam and one site between consecutive blocks of length floor(n^(1/3)), retained scalar directional block sums are independent and uniformly o(sqrt n). The discarded variance is O(n^(2/3)) by finite dependence, so Lindeberg and Cramér–Wold give the claimed fixed-q limit. There is no rate claim. Independent exact rank and census replay on all elements at (q,n)=(2,3),(2,5),(4,3), using GF(4) arithmetic for the last case, also compared the cross-covariance and checked the determinant symbolically (python3 /workspace/branches/independent_replay.py 5). The frozen prime-field verifier was inspected, not executed. Neither replay proves the general limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Iarrobino–Macias Marques–McDaniel study multiplication Jordan types of maximal-ideal elements or module actions; the inspected abstract does not assert this all-element finite-field census.",
+          "Gao–Schiffler count tau-tilting module classes for Nakayama algebras, not radical multiplication matrices.",
+          "Fuchs–Kirillov count unrestricted triangular matrices, while Bergh–Erdmann–Jorgensen and Dequène use different algebras/representation quantifiers.",
+          "Finite-range CLT methods give a general way of taking limits. The classical Hoeffding–Robbins source was identified but full text not obtained; Gu–Zhang's abstract concerns the sublinear-expectation setting."
+        ],
+        "reasoning": "Unrestricted matrices do not specialize to the constrained and correlated image, and generic classifications are not field-element distributions. A general finite-range CLT can supply a normal limit once local statistics and variance are identified, not the explicit covariance/determinant on this algebra.",
+        "searches": [
+          "arXiv:1802.07383 Artinian algebras and Jordan type",
+          "arXiv:2002.02990 cyclic Nakayama radical-power quotients",
+          "arXiv:2204.00066 finite-field triangular types",
+          "arXiv:1910.06714 and arXiv:2308.16626 generic or constant Jordan types",
+          "Hoeffding–Robbins dependent-variable CLT DOI:10.1215/S0012-7094-48-01568-3; arXiv:2306.04355"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5ebbee94c07d",
+        "arXiv:1802.07383",
+        "arXiv:2002.02990",
+        "arXiv:2204.00066",
+        "arXiv:1910.06714",
+        "arXiv:2308.16626",
+        "DOI:10.1215/S0012-7094-48-01568-3 (metadata/abstract access only)",
+        "arXiv:2306.04355"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At U=0 and the other two variables 1 the matching transfer law also determines the square-zero probability; the stated radical formula is that matrix specialization and diagonalization.",
+          "The matching census determines all moments in principle, but does not evaluate the joint fixed-q limit. The explicit matrix requires accounting for same-edge and adjacent-edge overlaps and checking nondegeneracy before applying a finite-dependence CLT."
+        ],
+        "reasoning": "The census and its elementary marginals should not be relabeled as mathematically different results from the matching theorem. The separate asymptotic assertion with exact per-site covariance and positive determinant supplies additional mathematical content. No inspected earlier source covers that evaluated statement, and the later exact census does not settle priority.",
+        "searches": [
+          "Resultary 5ebbee94c07d Finding and Proof §§1–4",
+          "arXiv:2204.00066 abstract compared with the constrained image",
+          "Hoeffding–Robbins DOI:10.1215/S0012-7094-48-01568-3 and bounded OA retrieval attempts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 5ebbee94c07d uses (t,z)=(A,C), with n-t-z=B and n-t+2z=B+3C.",
+          "The frozen homogeneous polynomial is V^n Psi_n(q; U/V,W/V); multiplying the other transfer matrix by V after that substitution gives the transpose of the frozen matrix.",
+          "The later result covers left and right multiplication and all radical/nilpotent elements of the same truncated oriented cycle."
+        ],
+        "reasoning": "Partition, rank-pair and endpoint-block formulations here are equivalent. The two transfer polynomials give exactly the same counts; transpose preserves traces of powers. The later report additionally determines full attainable support and motivic strata. These are actual overlaps, not evidence of an earlier publication or of a matching Gaussian evaluation.",
+        "searches": [
+          "Resultary: Jordan-type gaps and a motivic transfer census for cyclic Nakayama radicals",
+          "Resultary: cyclic radical-cube-zero regular multiplication ranks and nilpotent Jordan-type distributions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact finite-field table is matched by 5ebbee94c07d's transfer trace, including the missing n-1 size-three count and total mass q^(2n).",
+          "The inspected Finding and proof there give no covariance or Gaussian evaluation. A targeted lookup did not identify the earlier square-zero enumeration alluded to in its discussion."
+        ],
+        "reasoning": "The finite distribution is a genuine exact catalog match. No exact Gaussian covariance evaluation for the frozen family was identified in the inspected material, and the unverified square-zero lead is not negative evidence or a basis to claim priority for that marginal.",
+        "searches": [
+          "Resultary: exact finite-field Jordan census for n-cycle truncated at J^3",
+          "Resultary: cyclic Nakayama Gaussian block counts covariance and square-zero census"
+        ]
+      },
+      "rationale": "A distinct later catalog report gives the same entire finite-field census and is stronger on support and motivic strata; the exact census overlap is credited, not treated as a novel change of variables. The visible dates are not a priority determination. Within inspected prior literature no statement gives this finite-field specialization and the explicit exact covariance and nondegenerate joint fluctuation law. The latter is an evaluated statistical refinement not stated by the overlapping report or the cited general limit methods. No novelty is assigned to the transfer technique or finite-dependence CLT themselves, nor to the square-zero count apart from its explicit evaluation in this family.",
+      "residual_risks": [
+        "The explicit joint Gaussian law might occur under Bernoulli pattern-count terminology or as an evaluated transfer-matrix limit in unindexed material.",
+        "The reported square-zero antecedent was not resolved to an inspectable primary statement; the matching transfer claim already determines that marginal.",
+        "Visible catalog dates document the compared records, not a historical priority finding; abstract-level scope comparisons are limited to the statements inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact census and forbidden-count overlap; stronger on support and motives, no evaluated Gaussian law in inspected statements",
+          "evidence": "The trace has matrix rows (V+q-1,q(q-1)) and (q,q(q-1)U); its normalized two-marker census is the frozen census after homogenization and transposition.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-jordan-type-gaps-and-a-motivic-transfer-census-for-cyclic-nakaya--5ebbee94c07d/RESULT.md",
+          "material_read": "Finding, assumptions and Proof §1 from offset 0; Proof §§2–4 offsets 4518–8849; prior-work passage near offset 8849",
+          "method": "Resultary lookup, bounded local mirror read and explicit polynomial substitution",
+          "title": "Jordan-type gaps and a motivic transfer census for cyclic Nakayama radicals",
+          "trigger": "Strongest exact same-family census hit"
+        },
+        {
+          "assessment": "Relevant general Jordan-type framework; passage does not give the census",
+          "evidence": "Studies possible Jordan types of multiplication on algebras or modules, including generic types.",
+          "identifier_or_url": "https://arxiv.org/abs/1802.07383",
+          "material_read": "Abstract, PDF p. 1, offset 0 only",
+          "method": "Bounded original arXiv PDF inspection",
+          "title": "Artinian algebras and Jordan type",
+          "trigger": "Jordan types of multiplication by ideal elements"
+        },
+        {
+          "assessment": "Distinct invariant in the inspected statement",
+          "evidence": "Recurrences enumerate τ-tilting and support τ-tilting modules.",
+          "identifier_or_url": "https://arxiv.org/abs/2002.02990",
+          "material_read": "Abstract, PDF p. 1, offset 0",
+          "method": "Bounded original arXiv PDF inspection",
+          "title": "On the Number of τ-Tilting Modules over Nakayama Algebras",
+          "trigger": "Same family of truncated cyclic path algebras"
+        },
+        {
+          "assessment": "Unrestricted triangular counts, not constrained left multiplication",
+          "evidence": "Enumerates strictly upper-triangular matrices by Jordan type.",
+          "identifier_or_url": "https://arxiv.org/abs/2204.00066",
+          "material_read": "Abstract, PDF p. 1, offset 0",
+          "method": "Bounded original arXiv PDF inspection",
+          "title": "Jordan Types of Triangular Matrices over a Finite Field",
+          "trigger": "Exact finite-field Jordan counts"
+        },
+        {
+          "assessment": "Different algebras and quantifiers in inspected statement",
+          "evidence": "Studies modules of constant type in the quantum complete intersection setting.",
+          "identifier_or_url": "https://arxiv.org/abs/1910.06714",
+          "material_read": "Abstract, PDF p. 1, offset 0",
+          "method": "Bounded original arXiv PDF inspection",
+          "title": "Modules of Constant Jordan Type over Quantum Complete Intersections",
+          "trigger": "Cited comparison on algebra-imposed Jordan types"
+        },
+        {
+          "assessment": "Not the specific census in its stated domain",
+          "evidence": "Generic nilpotent endomorphisms of A_n-type representations over algebraically closed fields.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.16626",
+          "material_read": "Abstract, PDF p. 1, offset 0",
+          "method": "Bounded original arXiv PDF inspection",
+          "title": "Canonically Jordan Recoverable Categories for Modules over the Path Algebra of A_n Type Quivers",
+          "trigger": "Jordan data from quiver representations"
+        },
+        {
+          "assessment": "Standard general-method antecedent; no conclusion about unread material",
+          "evidence": "Hoeffding–Robbins, Duke Math. J. 15 (1948), pp. 773–780. The frozen argument proves the limit by independent blocking rather than needing this source as its certificate.",
+          "identifier_or_url": "https://doi.org/10.1215/S0012-7094-48-01568-3",
+          "material_read": "Metadata/abstract access only; no lawful theorem passage obtained via publisher PDF or reprint routes",
+          "method": "Bounded lawful OA retrieval attempts",
+          "title": "The central limit theorem for dependent random variables",
+          "trigger": "Classical finite-dependence CLT comparison"
+        },
+        {
+          "assessment": "Different probability framework and no evaluated block covariance here",
+          "evidence": "Treats m-dependent sequences including the stationary case under sublinear expectations.",
+          "identifier_or_url": "https://arxiv.org/abs/2306.04355",
+          "material_read": "Abstract, PDF p. 1, offset 0",
+          "method": "Bounded original arXiv PDF inspection",
+          "title": "Gu and Zhang, CLT for m-dependent sequences under sublinear expectations",
+          "trigger": "Accessible related finite-dependence limit theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The regular action's finite-field Jordan partition is a natural invariant of this constrained family. The exact narrow census is also available in the later catalog record, but the evaluated joint statistics provide a useful additional description: exact finite means and cross-covariance, strictly positive determinant, and a normal law governing the full block-count vector at fixed q. The negative covariance and the explicit cubic-radical block parameters come from the overlapping windows, not from unrestricted triangular ensembles. The value is this concrete statistical refinement of a natural algebraic invariant, not a claim of a general CLT or of a convergence rate.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

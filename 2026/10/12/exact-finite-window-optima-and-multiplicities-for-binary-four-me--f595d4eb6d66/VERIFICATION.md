@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Finite proof verification
 
-The included `verify_graph.py` computes all 65,536 four-mer subsets through exact integer masks and the eight-vertex three-mer overlap graph, using topological sorting and longest-path DP. It checks the optimality/count profile for all integer windows from 4 through 11, all six cyclic rotation classes, all 128 transversals, and the exact 98/10/4/16 transversal breakdown.
+# Independent mathematical audit
 
-The included `verify_words.cpp` instead computes the four-mer presence set directly for every binary word of each length from 4 to 11 and tests each proposed hitting set against all those words. It asserts the same exact optimum/count table. Build/run with `c++ -O2 -std=c++17 verify_words.cpp -o verify_words && ./verify_words`; separately run `python3 verify_graph.py`. Both were executed successfully. The infinite range follows from the independently justified necklace obstruction and the heredity of hitting under extension.
+## correctness
 
-The finite package supplies an exhaustive computational proof, not a formal theorem prover certificate. Originality beyond the named inspected articles is uncertain because a 2021 supplementary document and unindexed computations were not completely inspected.
+PASS
+
+Unrestricted binary words of length L correspond to walks of L−3 edges in the order-three de Bruijn digraph, removing precisely the edges for U. A directed cycle gives arbitrary avoiding lengths. An acyclic remainder has at most seven edges on any path, so the longest avoiding word has length at most ten, including length three when there are no remaining edges. Each rotation class gives periodic avoiders unless hit, so size at least six is necessary at every L≥4, and six-element candidates are the 128 labeled transversals. I inspected both bundled verification programs and independently ran `python3 /workspace/reproductions/four_mer_reproduction.py`. That exact-integer census counts the occurring four-mer masks of every binary word at each L=4,…,11 and uses a subset zeta transform to obtain the number of avoiders for every complement of U. Across all 65,536 masks the computed (size,count) rows are (16,1),(10,2),(9,50),(7,8),(7,52),(6,10),(6,14),(6,30). Of 128 transversals the exact maximum avoiding lengths are 8, 9, 10 for 10, 4, 16 choices respectively, and the 98 others fail at length 11, hence have cycles. The length-11 row therefore persists for all longer windows at size six, not by extrapolation. This is exhaustive finite computation with an analytic tail, not a theorem prover certificate.
+
+## originality
+
+PASS
+
+The supported distinct claim is the joint exact labeled profile, especially the finite-window cardinalities and multiplicities before size six becomes attainable and the finer multiplicities at that transition. Neither the eventual thirty-set count nor the extremal path range or the first window attaining size six is credited as independently novel.
+
+## value
+
+PASS
+
+The cardinality versus guaranteed window is the natural UHS tradeoff, and this is a complete sharp profile for a small standard de Bruijn instance rather than an isolated word length. The multiplicities say how much choice an exact design has at the optimum: ten size-six designs attain the shortest possible six-set window, fourteen work one position later, and all thirty work at eleven. The shorter-window larger optima provide additional exact benchmarks for optimization and enumeration; the known total and endpoint range do not supply them. No large-alphabet or algorithmic performance claim is required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

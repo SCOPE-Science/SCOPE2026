@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:28:47.137038Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On all complex matrices the Hilbert–Schmidt orthonormal Weyl basis is W_(a,b)/sqrt(N). The columns for Tr(PH) are the distinct characters of the shift–modulation group times A(a,b)/sqrt(N) up to phase; the character norm N gives singular values sqrt(N)|A(a,b)|, including zeros. Expanding e_3(x+a)+e_3(x) gives off-diagonal quadratic coefficients t+a_i+a_j, t=|a| mod 2. When t=0 the polar image has dimension two except when a is zero or all ones; the latter case is even-weight only for even n. For t=1 the kernel condition is x=s(1+a)+u1 with s=1·x and u=a·x: consistency forces s=u for odd n, and leaves two independent parameters for even n. Thus the ranks for odd shifts are n-1 and n-2, respectively. Squaring the Walsh transform leaves a radical character sum: its squared modulus is either zero or N times the radical size, so Parseval gives exactly 2^r coefficients of modulus 2^(n-r/2). Counting the N/2 odd shifts and the two types of even shifts gives the three stated multiplicities, including the even exceptional all-ones shift. The levels are distinct for n>=5. Their extrema give the stated positive-subspace condition number and the rank densities follow by division by N^2. This does not assert nonlinear phase-retrieval injectivity. The frozen checker and numeric verification notes were inspected, not rerun; the all-size argument does not depend on them.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kagamihara–Tsuchiya give a general 3-uniform hypergraph Pauli-moment formula using ranks of binary matrices C(a)+C(a)^T, which in the complete case is the derivative polar matrix here. Bojarovska–Flinth supply the Gabor lifting framework using the Hilbert–Schmidt time–frequency basis. Lyons et al. recover the extra unit-magnitude coefficient at even n via the X or Y full stabilizer."
+        ],
+        "reasoning": "The general rank formula alone would still need rank evaluation, and stabilizer classification alone does not give smaller magnitudes. The exact same-family information in Chen–Yan–Zhou is the decisive coverage, with the standard Weyl basis supplying the normalization, not a new spectral invariant independent of that information.",
+        "searches": [
+          "Kagamihara–Tsuchiya arXiv:2602.23687v1 Sec. III Theorem 1",
+          "Bojarovska–Flinth arXiv:1503.05800v2 Sec. 2.2",
+          "Lyons et al. arXiv:1609.01306v4 Sec. 3 Theorems 2–3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, and check.py",
+        "arXiv:2308.01886v2, 2602.23687v1, 1503.05800v2, 1609.01306v4, and introductory/model sections of 2302.01695v2",
+        "Resultary 12e90942359e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Write c_b=|<psi,P_(a,b)psi>| for one odd a and r=n-(3+(-1)^n)/2. Eq. (106) gives sum c_b^4=2^(-r), Eq. (107) gives sum c_b=2^(r/2), and Walsh Parseval gives sum c_b^2=1 since the translation derivative is a sign function."
+        ],
+        "reasoning": "Hölder gives (sum c_b^2)^3 <= (sum c_b)^2(sum c_b^4), and the stated sums attain equality. Equality makes every positive c_b identical, so there are exactly 2^r such entries of size 2^(-r/2). Half the shifts are odd; multiplying the per-shift count by N/2 and using the even table gives all multiplicities. Standard Weyl scaling and reading off the extreme levels yield the entire claimed spectrum, rank and condition number with no new classification needed.",
+        "searches": [
+          "Chen–Yan–Zhou Appendix F.1 Eqs. (106)–(110), HTML offsets 139200–147341; compare frozen RESULT.md lines 47–83"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The product of all controlled-Z triple phases gives precisely psi(x)=2^(-n/2)(-1)^e_3(x). A normalized Pauli coefficient has magnitude |A(a,b)|/N; changing from ZX to the Hermitian Pauli convention contributes only a unit phase. Appendix F.1 conditions on the same translation a (called x there) and varies modulation b (called z there)."
+        ],
+        "reasoning": "A signed zero-frequency autocorrelation or a derivative count alone would not be enough; the prior appendix covers all modulations per translation in the required magnitude convention. The lifting singular values are N^(3/2) times these normalized Pauli magnitudes, with the same multiplicities.",
+        "searches": [
+          "Resultary: complete symmetric cubic Boolean derivative, Pauli magnitude spectrum and Gabor lifting",
+          "Primary literature: complete three-uniform hypergraph Pauli expectation distribution and moments; Chen–Yan–Zhou Appendix F.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue entry with one missing triple has a different state and its own spectrum. Its reference to Proposition 5 led to the intact-state primary text. In Eq. (108) and the counts used in (109)–(110), the nonexceptional even shifts have four magnitudes 1/2, while a=0 and, when even-weight, a=1 have one magnitude 1 each. The odd-shift rows are determined exactly by Eqs. (106)–(107)."
+        ],
+        "reasoning": "The stronger exact evidence is in the intact-state paper's per-shift calculation, rather than in a defective-state table or the two global moments alone.",
+        "searches": [
+          "Resultary 12e90942359e, single-edge-defective dense hypergraph spectrum",
+          "Chen–Yan–Zhou arXiv:2308.01886v2 Proposition 5 and Appendix F.1 Eqs. (103)–(112)"
+        ]
+      },
+      "rationale": "Chen–Yan–Zhou already analyze the identical complete three-uniform state's normalized Pauli coefficients by translation parity, not only its global moments. Their Appendix F.1 Eqs. (108)–(110) give the even-shift magnitudes and counts directly. Their Eqs. (106)–(107) give a fourth moment and a first absolute moment for each odd shift. Together with unit per-shift Parseval these saturate Hölder, forcing the precise odd-shift nonzero magnitude and multiplicity. Consequently the whole ambiguity histogram is mechanically recoverable from the prior appendix. The usual Weyl-to-lifting diagonalization rescales it; the compact polar-rank proof is another derivation, not a distinct claimed spectrum.",
+      "residual_risks": [
+        "This review establishes exact implication, not priority for the first literal statement in Gabor singular-value notation. The published journal text timed out, but the decisive lawful arXiv version was read directly."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct even-shift magnitude enumeration and odd-shift moments imply the audited exact table",
+          "evidence": [
+            "Odd-shift first and fourth sums are Eqs. (106)–(107); the even-shift case distinguishes exceptional empty or full support from the generic four coefficients in Eqs. (108)–(110)."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2308.01886v2",
+          "material_read": "Proposition 5 around HTML offset 55797 and Appendix F.1 Eqs. (103)–(112), offsets 139200–147341",
+          "method": "Read bounded primary OA arXiv HTML after journal retrieval failed; checked per-shift formulas and equality comparison",
+          "title": "Magic of quantum hypergraph states",
+          "trigger": "Exact intact complete 3-uniform state; a related catalogue result cites its moments"
+        },
+        {
+          "assessment": "General rank framework with the same rank mechanism; not needed for the exact intact-state implication",
+          "evidence": [
+            "The theorem sums functions of the ranks of C(a)+C(a)^T over translations."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2602.23687v1",
+          "material_read": "Sec. II Eqs. (8)–(10), Sec. III Theorem 1, PDF pp. 2–3",
+          "method": "Bounded primary OA text",
+          "title": "Stabilizer Rényi entropy of 3-uniform hypergraph states",
+          "trigger": "General hypergraph moment/rank method for this cubic phase family"
+        },
+        {
+          "assessment": "Prior lifting machinery, not a cubic-window table on its own",
+          "evidence": [
+            "Hilbert–Schmidt orthogonality of the time–frequency shifts and representation of the measurement map through the Gabor window coefficients."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1503.05800v2",
+          "material_read": "Sec. 2.2, Eqs. (2.1)–(2.2) and Theorems 2.1–2.2, PDF pp. 3–4",
+          "method": "Bounded primary OA PDF text",
+          "title": "Phase Retrieval from Gabor Measurements",
+          "trigger": "Lifting/ambiguity diagonalization antecedent"
+        },
+        {
+          "assessment": "Covers maximal normalized magnitudes, not the full table on its own",
+          "evidence": [
+            "The additional full stabilizer is of X type for n congruent to 2 mod 4 and Y type for n congruent to 0 mod 4."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1609.01306v4",
+          "material_read": "Sec. 2 definition, Sec. 3 Theorems 2–3, PDF pp. 3 and 6–8",
+          "method": "Bounded primary OA PDF text",
+          "title": "Local Pauli stabilizers of symmetric hypergraph states",
+          "trigger": "Stabilizers of the identical symmetric state"
+        },
+        {
+          "assessment": "Different defect family; useful lead to the intact-state primary result",
+          "evidence": [
+            "Its complete table assumes one omitted triple; it credits Chen–Yan–Zhou's Proposition 5 for the intact comparison."
+          ],
+          "identifier_or_url": "Resultary 12e90942359e",
+          "material_read": "Mirrored Finding and derivation (offsets 0–7799) and prior comparison around offset 8819",
+          "method": "Resultary query and bounded local-mirror text",
+          "title": "Complete Pauli magnitude spectrum of a single-edge-defective dense hypergraph state",
+          "trigger": "Close exact magnitude table and pointer to prior intact-state formulas"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The spectrum, null-space dimension and positive condition number are natural quantities for this lifted operator. However, the exact magnitude census follows from the prior per-shift formulas by one equality case, and putting it on the singular-value scale requires only the standard Weyl diagonalization. The submission establishes no other distinct exact invariant or meaningful extension; the alternative proof does not rescue the covered finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

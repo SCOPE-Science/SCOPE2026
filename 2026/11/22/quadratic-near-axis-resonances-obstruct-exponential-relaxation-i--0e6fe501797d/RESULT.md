@@ -2,126 +2,61 @@
 
 ## Finding
 
-A ballistic particle repeatedly travels left from \(L>0\) to an absorbing threshold at zero and instantaneously returns to \(L\). Its speed is independently resampled after each return, taking the value \(L/a\) with probability \(p\in(0,1)\) and \(L/b\) with probability \(q=1-p\), where \(a,b>0\) are distinct flight durations. Set \(\mu=pa+qb\). The process begins with a fresh speed draw at time zero. Let \(P_t\) be its position law and \(m(t)=\mathbb E[X_t/L]\), with positions defined immediately *after* a reset at a hitting instant.
+A particle travels from \(L>0\) to zero at constant speed and immediately returns to \(L\). At time zero and after every reset, independently draw the flight duration \(T\), taking the values \(a,b>0\) with probabilities \(p,q=1-p\in(0,1)\), respectively. The speed on that flight is \(L/T\). Let \(\mu=pa+qb\), let \(P_t\) be the position law, and put \(m(t)=\mathbb E[X_t/L]\). Positions at a reset are defined just after the reset.
 
-**Classical arithmetic comparison (not asserted as new).** Suppose \(b/a\in\mathbb Q\), and uniquely write \(a=mh\), \(b=nh\) with coprime positive integers \(m,n\) and \(h>0\). For each \(s\in[0,h)\), define the discrete probability law
+**Mean relaxation for irrational \(b/a\).** The position law tends weakly to uniform on \([0,L]\) but its total variation distance to uniform is one at every finite time. The mean tends to \(1/2\), with the quantitative lower bound
 \[
-\nu_s=\frac h\mu\left[p\sum_{j=0}^{m-1}\delta_{L(1-(s+jh)/a)}+q\sum_{j=0}^{n-1}\delta_{L(1-(s+jh)/b)}\right].
+\limsup_{t\to\infty}\sqrt{t}\,|m(t)-1/2|\ \ge\ \frac{\sqrt{\mu}}{2\sqrt{2\pi pq}}.
 \]
-Then \(P_{kh+s}\to\nu_s\) in total variation as the integer \(k\to\infty\), exponentially in \(k\). In particular,
+In particular the mean cannot relax exponentially. The bound comes from exact jumps: for nonnegative integers \(j,k\) with \(j+k>0\),
 \[
-\lim_{k\to\infty}m(kh+s)=\frac12+\frac{h/2-s}{\mu}.
+m((ja+kb))-m((ja+kb)^-)=\binom{j+k}{j}p^j q^k.
 \]
-The limiting mean therefore follows a nonconstant sawtooth of period \(h\), with a jump between the left and right phase limits.
 
-**Main finding: incommensurate case.** Suppose \(b/a\notin\mathbb Q\). Then \(P_t\) converges *weakly* to the uniform probability law on \([0,L]\), hence \(m(t)\to1/2\), but for **every** \(\beta>0\),
+There is also a spectral obstruction for this specific observable. Write \(D(z)=1-pe^{-az}-qe^{-bz}\). For any sequence of positive integers \(K\to\infty\) with integers \(M\) such that \(\delta_K=2\pi(Kb/a-M)\to0\), the known two-generator Dirichlet-polynomial expansion gives simple zeros of \(D\) of the form
 \[
-m(t)-\frac12\ne O(e^{-\beta t})\qquad(t\to\infty).
+\zeta_K=\frac{2\pi iK}{a}-\frac{iq}{\mu}\delta_K-\frac{pqa^2}{2\mu^3}\delta_K^2+O(\delta_K^3).
 \]
-For each finite \(t\), \(P_t\) is purely atomic, so its total variation distance to that continuous uniform law remains exactly one. Thus weak spatial relaxation and exponential relaxation of the physical mean are sharply distinct.
+**These zeros are genuine poles of the mean-position transform** for all sufficiently large approximants along the sequence. The denominator expansion itself is not a new result; see Lapidus and van Frankenhuijsen [3], §3.5.2, especially (3.29) and (3.32).
 
-The obstruction to exponential relaxation is quantitative. Choose any sequence of positive integers \(K\to\infty\) and integers \(M\) such that \(\delta_K=2\pi(Kb/a-M)\to0\), which exists by irrational approximation. The renewal denominator
+**Classical comparison for rational \(b/a\).** Write \(a=uh,b=vh\) with coprime positive integers \(u,v\). For each \(s\in[0,h)\), \(P_{nh+s}\) converges exponentially in \(n\), in total variation, to
 \[
-D(z)=1-pe^{-az}-qe^{-bz}
+\nu_s=\frac h\mu\left[p\sum_{j=0}^{u-1}\delta_{L(1-(s+jh)/a)}+q\sum_{j=0}^{v-1}\delta_{L(1-(s+jh)/b)}\right].
 \]
-has simple, nonzero roots \(\zeta_K\), for all sufficiently large such approximants, with
-\[
-\boxed{\ \zeta_K=\frac{2\pi iK}{a}-i\frac q\mu\delta_K-\frac{pqa^2}{2\mu^3}\delta_K^2+O(\delta_K^3).\ }
-\]
-These roots are genuine, uncancelled poles of the Laplace transform of \(m(t)\). Their real parts approach zero strictly from the left, with leading distance \(pqa^2\delta_K^2/(2\mu^3)\).
-
-## Assumptions and scope
-
-The flight times take precisely the two fixed values \(a,b\), with independent draws between completed flights and a fixed starting position \(L\). Both probabilities are strictly between zero and one; there is no diffusion or waiting at the threshold. The law at a reset instant is right-continuous, assigning the particle to \(L\). Weak convergence means convergence against all continuous functions on \([0,L]\). Total variation is normalized as \(\sup_A|P(A)-Q(A)|\). The arithmetic formula includes phases \(s=0\) but does not identify its value with the left-phase limit \(s\uparrow h\). The root expansion is along integer approximants with \(\delta_K\to0\), not a uniform expansion at arbitrary frequencies.
+Its mean normalized by \(L\) is \(1/2+(h/2-s)/\mu\). The phase law and the rate in the lattice case are not asserted as new.
 
 ## Proof
 
-**1. Renewal representation.** Put \(F=p\delta_a+q\delta_b\), the probability law of a flight duration, and let
+Let \(F=p\delta_a+q\delta_b\) and let \(U=\sum_{n\ge0}F^{*n}\) include the initial reset at zero. For any continuous \(g\) on \([0,L]\), conditioning on the last reset gives
 \[
-U=\sum_{j=0}^{\infty}F^{*j}
+\mathbb E[g(X_t)]=\int_{[0,t]}B_g(t-s)U(ds),\qquad
+B_g(r)=\sum_{T\in\{a,b\}}\Pr(T)\,g(L(1-r/T))\mathbf1_{[0,T)}(r).
 \]
-be the renewal measure, including the initial renewal at zero. For a bounded continuous spatial test function \(g\), define
-\[
-B_g(u)=\sum_{T\in\{a,b\}}\Pr(T)\,g\bigl(L(1-u/T)\bigr)\,\mathbf1_{[0,T)}(u).
-\]
-Conditioning on the time of the most recent completed flight gives the exact formula
-\[
-\mathbb E[g(X_t)]=\int_{[0,t]}B_g(t-s)\,U(ds).
-\tag{1}
-\]
-There is no contribution from incomplete flights preceding their last reset; each possible final flight is represented in the integrand.
+The upper endpoints of the two indicators are excluded because the particle resets there. The kernel \(B_g\) is compactly supported and directly Riemann integrable. For irrational \(b/a\), the law \(F\) is nonarithmetic: the two phases cannot both be one at a common nonzero frequency. The nonarithmetic key renewal theorem gives the limit \(\mu^{-1}\int_0^\infty B_g(r)\,dr=L^{-1}\int_0^L g(x)\,dx\). At any finite \(t\), a finite number of duration sequences suffice to describe position, because each completed flight lasts at least \(\min(a,b)\). Thus \(P_t\) is supported on a finite set that has uniform measure zero. We use total variation normalized as \(\sup_A|P(A)-Q(A)|\).
 
-**2. Arithmetic phase and its rate.** If \(a=mh\) and \(b=nh\), write \(u_k=U(\{kh\})\). The exact recurrence is \(u_0=1\) and
+For the jump formula, fix \(t=ja+kb>0\). Only finitely many finite sequences are relevant in a neighborhood of \(t\), so the expected left limit equals the left limit of the mean. Each sample path resetting at \(t\) jumps from left limit zero to normalized position one; all other paths are continuous there. Since \(b/a\) is irrational, no different pair of nonnegative integer counts can yield the same \(t\). Therefore a reset at \(t\) occurs exactly when the first \(j+k\) draws consist of \(j\) draws of duration \(a\) and \(k\) of duration \(b\). Order does not matter, and summing these disjoint events gives the asserted jump.
+
+Choose \(j_n=\lfloor np\rfloor\), \(k_n=n-j_n\), and put \(t_n=j_n a+k_n b=n\mu+O(1)\). Stirling's formula gives \(\binom{n}{j_n}p^{j_n}q^{k_n}\sim(2\pi npq)^{-1/2}\), because \(j_n-np\) stays bounded. The maximum of \(|m(t_n)-1/2|\) and \(|m(t_n^-)-1/2|\) is at least half that jump. The left-limit value can be approximated to error at most \(1/n\) by choosing an actual time in \((t_n-1/n,t_n)\). Multiplication by \(\sqrt{t_n}\) proves the lower bound for a limsup over actual times. This is a lower bound, not a matching upper estimate.
+
+To identify the poles for the mean itself, use \(g(x)=x/L\). Integrating the affine one-flight profile gives, for \(\Re z>0\),
 \[
-u_k=p\,u_{k-m}\mathbf1_{k\ge m}+q\,u_{k-n}\mathbf1_{k\ge n}\quad(k\ge1).
+\mathcal Lm(z)=\frac{B(z)}{D(z)},\qquad
+B(z)=\frac1z-\frac{p(1-e^{-az})/a+q(1-e^{-bz})/b}{z^2}.
 \]
-Its generating function is
-\[
-\sum_{k\ge0}u_k z^k=\frac1{1-pz^m-qz^n}.
-\]
-There is a simple pole at \(z=1\), of residue corresponding to \(h/\mu=1/(pm+qn)\). There is no other pole on the closed unit disk: the triangle inequality forces \(z^m=z^n=1\) for any unit-modulus zero of the denominator, and coprimality forces \(z=1\). Since the denominator is a polynomial, the other poles lie outside a disk of radius strictly larger than one. Consequently \(u_k=h/\mu+O(\rho^k)\) for some \(0<\rho<1\).
+The numerator has a removable singularity at zero with \(B(0)=\mu/2\), and \(D'(0)=\mu\). For citation and normalization of the prior expansion, the change \(z=2\pi iK/a+w\) gives the equation \(pe^{-aw}+qe^{-bw-i\delta_K}=1\). This is (3.28) of [3] with its real root shifted to zero, weights \(a,b\), normalized coefficients \(p,q\), and perturbation \(i\delta_K\). The expansion can also be checked directly for either ordering of \(a,b\): the implicit derivative in \(w\) is nonzero at \((0,0)\), and differentiating the implicit equation yields \(w'(0)=-iq/\mu\) and \(w''(0)=-pqa^2/\mu^3\). Rational approximation supplies the required sequences. The real part is strictly negative for large \(K\) because \(\delta_K\ne0\) and the quadratic coefficient is negative, and \(D'(\zeta_K)\to\mu\). At these roots both exponentials tend to one and \(|\zeta_K|\to\infty\), so \(B(\zeta_K)=1/\zeta_K+O(|\zeta_K|^{-2})\ne0\). Thus the mean transform does not cancel the simple poles. If \(m(t)-1/2\) had an exponential bound, its transform \(G\) would extend analytically to a wider half-plane. The identity \(D(z)(G(z)+1/(2z))=B(z)\) would then extend away from zero, contradicting noncancellation at a pole in that half-plane.
 
-For \(t=kh+s\), a currently unfinished flight of type \(T=mh\) can have only the ages \(s+jh\) with \(0\le j<m\), and similarly for \(nh\). Formula (1), evaluated at these atoms of \(U\), therefore yields the announced law \(\nu_s\) and total-variation error \(O(\rho^k)\). Its mass is \(h(pm+qn)/\mu=1\). Its normalized mean is
-\[
-\frac h\mu\left[p\sum_{j=0}^{m-1}\left(1-\frac{s+jh}{mh}\right)+q\sum_{j=0}^{n-1}\left(1-\frac{s+jh}{nh}\right)\right]
-=\frac12+\frac{h/2-s}{\mu}.
-\]
-This completes the arithmetic assertion.
+For the classical lattice comparison, put \(u_n=U(\{nh\})\). Its generating function is \(1/(1-pz^u-qz^v)\). There is no zero of its denominator inside the unit disk. A zero on the circle requires \(z^u=z^v=1\), hence \(z=1\), a simple pole. Subtracting \((h/\mu)/(1-z)\) leaves a function analytic on a disk of radius greater than one. Thus \(u_n=h/\mu+O(\rho^n)\) for some \(\rho<1\). The allowed ages at \(nh+s\) are \(s+jh\) with \(0\le j<u\) for duration \(a\) and \(0\le j<v\) for duration \(b\); the mass factors are \(p u_{n-j}\) and \(q u_{n-j}\). This gives the limit and the total variation rate on its finite support. Summing the two finite arithmetic progressions gives the displayed sawtooth mean, with the phase-zero value distinct from the left-phase limit.
 
-**3. Incommensurate weak limit.** When \(b/a\) is irrational, no nonzero frequency \(\omega\) satisfies \(pe^{-i\omega a}+qe^{-i\omega b}=1\). Thus \(F\) is nonarithmetic in the renewal-theorem sense. The function \(B_g\) in (1) is compactly supported and directly Riemann integrable. The nonarithmetic key renewal theorem gives
-\[
-\lim_{t\to\infty}\mathbb E[g(X_t)]
-=\frac1\mu\int_0^\infty B_g(u)\,du
-=\frac1L\int_0^L g(x)\,dx.
-\]
-The limit is uniform for each continuous \(g\), proving weak convergence. For fixed finite \(t\), at most \(\lfloor t/\min(a,b)\rfloor\) flights can finish, hence there are only finitely many possible speed sequences and positions. The atomic probability \(P_t\) is mutually singular with the continuous uniform law, giving total variation distance one.
+## Verification and scope
 
-**4. An exact mean transform.** Apply (1) with \(g(x)=x/L\). The Laplace transform for \(\Re z>0\) is
-\[
-\mathcal Lm(z)=\frac{B(z)}{D(z)},\quad
-B(z)=\frac1z-\frac{p(1-e^{-az})/a+q(1-e^{-bz})/b}{z^2},\quad
-D(z)=1-pe^{-az}-qe^{-bz}.
-\tag{2}
-\]
-The apparent singularity of \(B\) at zero is removable, with \(B(0)=\mu/2\), while \(D(z)=\mu z+O(z^2)\). Thus the steady-state pole at zero has residue \(1/2\), matching the weak-limit mean.
-
-**5. High-frequency resonances.** Because \(b/a\) is irrational, continued fractions give arbitrarily large \(K\) and integer \(M\) such that \(\delta_K=2\pi(Kb/a-M)\to0\). Near \(z=2\pi iK/a\), put \(z=2\pi iK/a+w\). The equation \(D(z)=0\) becomes
-\[
-G(w,\delta)=1-pe^{-aw}-qe^{-bw-i\delta}=0.
-\]
-At \((w,\delta)=(0,0)\), \(G_w=\mu\ne0\), so the analytic implicit-function theorem provides a unique small root \(w(\delta)\). Implicit differentiation gives
-\[
-w'(0)=-\frac{iq}{\mu},\qquad
-w''(0)=-\frac{pqa^2}{\mu^3},
-\]
-which proves the displayed quadratic root expansion. Since \(p,q>0\), its real part is negative for all sufficiently small nonzero \(\delta\), and approaches zero quadratically. The roots are simple because \(G_w\to\mu\). Furthermore, \(|\zeta_K|\to\infty\) and \(e^{-a\zeta_K},e^{-b\zeta_K}\to1\), so (2) gives
-\[
-B(\zeta_K)=\frac1{\zeta_K}+O(|\zeta_K|^{-2})\ne0.
-\]
-Thus every sufficiently high such root is a genuine, uncancelled pole of \(\mathcal Lm\).
-
-If there existed \(\beta>0\) with \(m(t)-1/2=O(e^{-\beta t})\), its Laplace transform would be analytic on \(\Re z>-\beta\). On the right half-plane it equals \(B(z)/D(z)-1/(2z)\) by (2), and the identity theorem would then forbid any nonzero pole in that wider half-plane. The sequence \(\zeta_K\) contradicts this, proving the nonexponential claim for the **specified physical mean observable**, not merely for a generic renewal test function.
-
-## Verification
-
-The accompanying standalone `checker.py` uses exact rational arithmetic to check normalized finite-time laws and phase limits for 20 coprime duration/probability choices and four phases each. It also checks complex near-resonance roots using irrational duration ratio \(\sqrt2\), the quadratic displacement formula, pole simplicity, and noncancellation of the mean numerator. It passes 19,578 deterministic assertions with Python's standard library. These finite checks are not substitutes for the renewal theorem, analytic-continuation argument, or the implicit-function proof.
-
-For the illustrative case \(L=1\), \(a=1\), \(b=2\), \(p=2/5\), \(q=3/5\), and phase \(s=1/4\), the limiting atoms and their masses are \(3/4\) with mass \(1/4\), \(7/8\) with mass \(3/8\), and \(3/8\) with mass \(3/8\). Their mean is \(21/32\), agreeing exactly with the sawtooth formula.
-
-Reproduction: run `python checker.py` using Python 3.9 or later; no external packages, network access, or source data files are required.
+The jump formula and its bound follow from the analytic proof, not from finite-time simulation. The accompanying `checker.py` supplies finite consistency diagnostics for selected rational phase limits and numerical complex poles for one irrational ratio. It does not certify the infinite sequence, the jump lower bound, or the weak limit. These results assume a fresh initial draw, exactly two fixed positive durations with nonzero probabilities, ballistic motion, and immediate resets. The bound is not an optimal-rate assertion, and the displayed expansion is not asserted at arbitrary frequencies.
 
 ## Relationship to prior work
 
-Das, Majumdar, and Pal (2026) establish the renewal description for threshold-reset ballistic motion, derive uniform equilibrium for velocity-density families, and analyze the *single deterministic speed* limit with a periodic delta peak (their Sections II–III and VII, equations (12), (17), and (47)–(50)). These results are premises here. The present finding concerns the irrational-duration nonexponential mean-position theorem and its explicitly calculated uncancelled quadratic quasipole sequence. The rational phase formula is supplied only as a classical lattice-renewal comparison; no originality is claimed for individual rational-duration examples or for generic phase-locking. The original paper does not explicitly give the particular irrational mean-observable resonance coefficient or its no-exponential-decay implication.
-
-The arithmetic and nonarithmetic key renewal theorems, the elementary renewal generating function, continued-fraction approximation, and the analytic implicit-function theorem are established tools, not proposed discoveries. Boyer's work on Diophantine conditions and Fourier–Laplace renewal spectra already explains why general renewal remainders can lack exponential bounds. The assessed contribution is the exact identification of this obstruction in the concrete two-speed threshold-reset *mean-position observable*, with an explicit quadratic resonance coefficient and direct proof of noncancellation. The arithmetic comparison is not the claimed novelty. Broader renewal theory may contain equivalent statements upon specialization; publication priority requires independent expert comparison.
-
-## Limitations
-
-The analysis is for exactly two positive flight durations, i.i.d. speed draws, immediate right-continuous resets, and a bounded spatial interval. The irrational result proves weak convergence but not a sharp subexponential rate; different irrational ratios can have different Diophantine approximation behavior. The pole expansion is only along small mismatch subsequences and does not describe all poles. No result is claimed for speed distributions with more than two atoms, Gaussian noise, finite resetting duration, or robustness to measurement error. The work has had only self-review; independent scientific audit has not been performed.
+Das–Majumdar–Pal [1] give the threshold-reset renewal description, a uniform equilibrium for speed-density models, and a periodic propagator for a single deterministic speed. Boyer [2] relates near-axis zeros to weak Diophantine conditions and obstructions to uniform exponential renewal convergence over classes of tests. The two-term denominator expansion is an instance of the earlier expansion for nonlattice Dirichlet polynomials [3]. The model-specific contribution here is the exact jump formula and rate lower bound for the instantaneous mean of a freshly reset particle, together with the fact that the known denominator poles are not canceled for that observable. No priority is claimed for the renewal limit, the two-term expansion, or the lattice comparison.
 
 ## References
 
-1. R. Das, S. N. Majumdar and A. Pal, *Freezing transition and shock-like transients in ballistic random walks under threshold resetting*, arXiv:2611.16733v1 (first public submission 12 November 2026), https://arxiv.org/abs/2611.16733 ; full text https://arxiv.org/html/2611.16733.
-2. J.-B. Boyer, *The speed of convergence in the renewal theorem*, arXiv:1506.07625 (2015), https://arxiv.org/abs/1506.07625 ; especially Sections 2 and 4 on weakly Diophantine measures and renewal spectra.
-3. *Blackwell renewal theorem*, Encyclopedia of Mathematics, https://encyclopediaofmath.org/wiki/Blackwell_renewal_theorem (classical arithmetic/nonarithmetic renewal context).
+1. R. Das, S. N. Majumdar and A. Pal, *Freezing transition and shock-like transients in ballistic random walks under threshold resetting*, arXiv:2611.16733v1, §§II–III and VII.
+2. J.-B. Boyer, *The speed of convergence in the renewal theorem*, arXiv:1506.07625, §§2 and 4.
+3. M. L. Lapidus and M. van Frankenhuijsen, *Fractal Geometry, Complex Dimensions and Zeta Functions*, §3.5.2, Lemma 3.29 and equations (3.28)–(3.32), https://math.ucr.edu/~lapidus/confidential/FGCD1.pdf .

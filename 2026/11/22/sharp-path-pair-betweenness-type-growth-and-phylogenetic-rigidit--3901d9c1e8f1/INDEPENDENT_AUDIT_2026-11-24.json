@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:44:27.007340Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a vertex in the minimal marked hull, the signature is the complete multipartite graph whose parts are the marked sets in the deletion components, together with the singleton of the vertex if marked. Distinct nonleaf essential vertices x,y are distinguished by choosing two parts at x other than the part facing y. An interior compressed-edge vertex realizes a split; different compressed edges have different splits because the intervening region contains a mark or has a branch leading to one. Only pendant splits coincide with marked-leaf stars. Every vertex outside the hull contributes the same empty signature. Thus q=m+b+s+epsilon. If l is the number of hull leaves, b≤l−2 by degree sum and s≤m+b−1−l, giving q≤min(n,3m−4), with equality at the second bound forcing all marks to be leaves, trivalency, every internal edge subdivided, and a vertex beyond the hull. All-marked paths, contraction of internal edges of a binary marked-leaf skeleton, internal subdivision, then attachment outside the hull give all orders; for m=2 there is just the marked-path type and possibly the empty type, and for m=1 all traces are empty. Maximal families expose all the edge splits, and these recover the reduced tree (equivalently, their separating counts recover pairwise leaf distances in the reduced unit-edge tree). Inserting the next named leaf in an edge is uniquely reversible, yielding (2m−5)!!. Independent replay in branches/080ee1f0-6235-4b3f-bec2-0d14e7da863a/independent_check.py compared 56,515 labelled-tree/marked-set cases through n=6 and obtained 1,3,15,105 maximal families for m=3–6. These are checks of the proof, not the basis of the universal claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The axiomatization and median law do not count marked directions or tell which compressed edge classes have original host witnesses.",
+          "The same-day rooted-tree result counts complete quantifier-free ancestry-and-equality types. The same-day forest result classifies saturated closed-neighbourhood intersections with the marks."
+        ],
+        "reasoning": "Neither full ancestry types in one chosen rooting nor neighbourhood traces give the arbitrary-internal-mark partition classes, subdivision occupancy and exterior empty profile by parameter substitution. The same-day dates do not establish any priority ordering.",
+        "searches": [
+          "Courcelle arXiv:2004.10127, Abstract and A7",
+          "Bradley-Williams–Truss arXiv:2108.12904v2 p. 1",
+          "Resultary a2548ec0b72a and a2e982503dd9 actual Findings"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_betweenness.py",
+        "Independent replay in branches/080ee1f0-6235-4b3f-bec2-0d14e7da863a/independent_check.py",
+        "Resultary 3901d9c1e8f1, a2548ec0b72a, a2e982503dd9",
+        "arXiv:2004.10127; arXiv:2108.12904v2; arXiv:2606.16963v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known edge-split reconstruction assumes a collection of edge splits. For the trace family, an internal split is visible only if its compressed edge actually has a nonessential representative; a branch signature has at least three parts. The empty type can depend on vertices outside the hull.",
+          "The reconstruction in arXiv:2606.16963 starts with an LCA-order relation and recovers the 2-regularization of a DAG."
+        ],
+        "reasoning": "Standard reconstruction covers the last implication once the splits are recovered. It does not supply the occupancy-sensitive exact formula or the extremal condition that every internal split must be witnessed.",
+        "searches": [
+          "Courcelle property A7 median",
+          "Classical compatible edge-split reconstruction, as invoked in frozen §5",
+          "arXiv:2606.16963v1, p. 1 regularization statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Courcelle studies ternary betweenness in order-theoretic trees; p. 11 describes a median as the common point of the three marked-pair paths in a noncollinear triple.",
+          "Hellmuth–Lindeberg–Moulton compare the ancestor order on two pairwise LCAs in a DAG, not incidence of an arbitrary vertex on an undirected marked-pair path."
+        ],
+        "reasoning": "Equivalent forms here include a vertex column of the all-marked-pair path-incidence matrix and the complementary partition into marked directions. Merely using the same ternary relation to reconstruct a tree or compare LCAs does not count those columns as the host vertices vary.",
+        "searches": [
+          "Resultary: tree betweenness marked-pair signatures, inclusive path incidence and type growth",
+          "Courcelle arXiv:2004.10127, Abstract and property A7 discussion",
+          "arXiv:2606.16963v1, Abstract"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit 3901d9c1e8f1 is the assigned record itself, not a distinct prior result.",
+          "The standard (2m−5)!! count for named-leaf binary trees is already known; the bijection follows after proving that equality families expose precisely the requisite edge splits and branch partitions."
+        ],
+        "reasoning": "The numerical census is not by itself new. It counts the objects in the finding only after identifying exactly which families reach saturation and showing that host subdivisions and exterior vertices introduce no additional choices.",
+        "searches": [
+          "Resultary: path-pair betweenness trace extremal bound and labelled binary family census",
+          "Frozen proof §5 and verification loop for the double factorial"
+        ]
+      },
+      "rationale": "Pass for the inclusive marked-pair trace formula, sharp host-order bound and characterization of when the family realizes every reduced edge split, not for classical split reconstruction or binary-tree enumeration in isolation. Inspected related results use a different relation, different parameters, or only reconstruct from assumed split data. No exact covering statement or immediate implication for the supported claim was found in the sources assessed.",
+      "residual_risks": [
+        "A specialized older finite-tree incidence or partition characterization under other terminology could overlap; the assessed passages and focused search do not establish worldwide priority. Classical split reconstruction and the binary-tree count are not originality claims."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers structural betweenness and existence of triple medians; no occupied-classes count in the inspected statements",
+          "evidence": "P. 11: the three pair paths meet at the median when the three nodes are not on one path.",
+          "identifier_or_url": "https://arxiv.org/pdf/2004.10127",
+          "material_read": "Abstract, introduction opening and p. 11 property A7 discussion",
+          "method": "OA PDF, bounded passages",
+          "title": "Axiomatizations of betweenness in order-theoretic trees",
+          "trigger": "Same underlying tree-betweenness relation and induced structures"
+        },
+        {
+          "assessment": "The inspected result concerns trees of B-sets and constructions of limits, not the finite single-host profile count",
+          "evidence": "Abstract states a flexible method of constructing limits of betweenness relations using a tree of B-sets.",
+          "identifier_or_url": "https://arxiv.org/pdf/2108.12904",
+          "material_read": "P. 1 abstract and introduction opening",
+          "method": "OA PDF, bounded passage",
+          "title": "On limits of betweenness relations",
+          "trigger": "Nearby extension and betweenness theory"
+        },
+        {
+          "assessment": "Different observation, directed LCA order between pairs; no occupancy or host-size count in the main abstract claim",
+          "evidence": "P. 1 defines (ab,xy) via descendant order between defined pairwise LCAs and identifies the resulting 2-regularization.",
+          "identifier_or_url": "https://pdfs.assets.alphaxiv.org/2606.16963v1.pdf",
+          "material_read": "P. 1 abstract",
+          "method": "OA PDF, bounded passage",
+          "title": "Encoding Phylogenetic Networks with Least Common Ancestor Constraints",
+          "trigger": "Potential reconstruction from data indexed by leaf pairs"
+        },
+        {
+          "assessment": "Different observations and extremizers; neither is the assigned record",
+          "evidence": "First Finding uses strict ancestry and equality; second uses N[v] intersected with the marks and saturates at 7q for 3q marks.",
+          "identifier_or_url": "Resultary a2548ec0b72a; a2e982503dd9",
+          "material_read": "Both original Findings from the mirror",
+          "method": "Local Resultary lookup and published-record mirror",
+          "title": "Sharp ancestry one-type spectra on rooted trees; Cayley-tree census of equality-case unary neighbourhood types in finite forests",
+          "trigger": "Closest distinct indexed sharp type-spectrum and census results on trees/forests"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The local formula measures exactly how much the host tree can be distinguished by the naturally specified path queries. It handles internal marks and explains separately which subdivisions contribute information and why arbitrary extra exterior vertices do not. The sharp all-order bound and conversion of saturation into the recovery of a named-leaf tree are useful beyond a finite census.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

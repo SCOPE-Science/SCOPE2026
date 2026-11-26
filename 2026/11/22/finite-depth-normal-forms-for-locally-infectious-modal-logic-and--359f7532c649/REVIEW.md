@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Claim assessed.** Every nonempty finite Bochvar modal frame has the support-indexed formula-function normal form stated in `RESULT.md`; a directed cycle has the displayed exact depth-graded census and a sharp depth cutoff at the cycle length minus one for at least one letter.
+## correctness
 
-## Correctness — PASS
+PASS
 
-The local infectious semantics makes the undefinedness set exactly the union of unguarded root letters; the external test removes that set. The depth signature recursion determines modal values, and external characteristic formulas define any Boolean selector of the finite signature set. The internal meaningfulness factor reintroduces exactly the chosen undefinedness support, proving equality and disjointness of the summands. A deterministic cycle sees precisely its successive three-color word, giving the binomial expression; every extra letter-position strictly enlarges the available signature palette until the cycle repeats. The standalone checker corroborated 12, 656 and 576 functions in the indicated finite cases. Finite tests do not establish the general theorem without the proof.
+Induction on syntax gives the root undefinedness support: negation and the locally infectious box preserve it, disjunction unions it, J_2 erases it, and constants have empty support. Distinct supports are distinguished by setting just a letter in their symmetric difference to u at a chosen root. The depth signatures truncate recursively by truncating every type in the successor set. Hence the depth-d signature fixes the previous-depth signature at the root and all previous-depth successor types, which suffices to evaluate a boxed operand, including at a dead end. For the converse, all three atomic colors have Boolean tests. A characteristic formula conjoins the root color test with box of the disjunction of the required successor-type tests and diamond of each required test, where diamond is negation-box-negation on Boolean-valued formulas. Empty conjunction and disjunction work at dead ends. These tests give arbitrary Boolean decisions on realized types; multiplying by the weak-Kleene conjunction of p_i or not p_i over the chosen support exactly inserts the prescribed u values. Thus the sum counts term functions with no overcount. On a cycle the recursive singleton successor signatures read the entire prefix of length min(d+1,n), after which they just repeat previous colors; every such prefix occurs. The exponents, small counts, and strict growth for k>=1 before saturation follow, including the trivial n=1 cutoff. For k=0 the cycle gives two functions at all depths, although nonserial frames can have nontrivial uncolored types. As a separate finite check, direct evaluation of the characteristic tests on a root with two terminal successors, with one letter and depth one, distinguished all 21 types (14 classical at the root) across all 81 world/valuation pairs.
 
-## Originality — PASS within inspected literature, with priority limits
+## originality
 
-The 2026 Bonzio–Vergottini–Zamperlin primary paper supplies the local Bochvar-Kripke clause and structural/algebraic representation and term-equivalence theorems, but the inspected definitions, main theorems and end sections do not state this depth-graded all-frame census or the cycle formula. Bonzio–Zamperlin (2024) treats relational completeness and decidability, while Bonzio–Pra Baldi (2024) describes nonmodal Bochvar algebra structure. Classical characteristic modal formulas and support counting are acknowledged ingredients. The logical implication from those standard ingredients to the present explicit function census is supplied here, not treated as previously established novelty merely by rewording. Closely related recorded Boolean deterministic modal clone and three-valued modal-operator expansion results count different structures and do not subsume a three-valued fixed-frame formula algebra. Older free-algebra and many-valued modal clone literature may contain equivalent instances; historical novelty has not been independently certified.
+PASS
 
-## Value — PASS
+The Bochvar semantics and classical characteristic-formula method are antecedents. The supported distinct claim combines the indecomposable root undefinedness supports with a full, depth-preserving Boolean decision algebra on each support's classical locus; it also supplies the exact cycle census and its sharp stabilization. The closest available papers and catalogue analogues do not supply that result.
 
-The exact separation of infectious undefinedness and external Boolean modal expressivity gives a usable finite-dimensional normal form on every finite frame. The cycle specialization determines an exact nontrivial graded formula-function invariant for arbitrary alphabet size and cycle length, with an optimal stabilization depth. This distinguishes the common Boolean approximation from genuine locally infectious behavior and is meaningful for semantic minimization and finite modal expressive-power analysis. This assessment does not claim a general formula-size bound or complexity breakthrough.
+## value
 
-## Limits and closest literature
+PASS
 
-Sources: arXiv:2611.09566, DOI:10.1093/logcom/exae046, and DOI:10.1017/S175502032400008X. The main preprint was inspected in its relevant semantic and representation sections; the older algebraic paper's available full text was inspected; the separate older relational-semantics article was checked at abstract/metadata level. Broad bibliographic exhaustiveness cannot be inferred from these readings or searches. The central normal form is proved for nonempty finite frames, and only the primitive Bochvar language and all-valuation semantic equivalence are counted.
+This explains structurally how local infection and finite modal observations interact: exactly one support controls the third value while modal types are freely selectable on the rest. The fixed-frame formula applies even with branching or dead ends; the directed-cycle case gives a complete census and exact point at which added modal depth is useless. Both are natural invariants of formula-function algebras and provide useful checks on depth-bounded expressivity, rather than simply counts of small syntactic examples.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim concerns the complete stable-sample-duration measure of a precisely defined real four-dimensional closed loop. Direct variation of constants gives the scalar complex step map, whose exact modulus inequality reduces to an interval of angular width \(2\arctan\omega\). For fixed beat horizon \(L>0\), uniform endpoint perturbation and a Lipschitz Riemann sum establish the error \(O_L(\varepsilon)\). The periodic triangle integral gives every branch of the formula, and differentiation plus a weighted-period-average comparison proves the unique global minimizer. Irrational equidistribution proves only the separately stated fixed-detuning limit. A standalone numerical checker independently exercises finite intersection geometry; finite tests are not infinite proofs.
+## correctness
 
-## Originality — PASS, qualified
-The 2018 sample-and-hold paper by Osinenko–Beckenbach–Streif proves robust *small-hold practical stabilization* with approximate control optimizers (Theorem 1), rather than measuring the proportion of stable sampling durations over a detuning-dependent horizon. The 2021 Osinenko–Yaremenko study proves *stochastic Lyapunov* sample-and-hold stabilization (Theorems 1–2), not an exact two-mode beat-scale arithmetic law. The 2021 Wakaiki article concerns infinite-dimensional Riesz-spectral sample-and-hold systems under sufficiently fast sampling, and its abstract does not cover this density classification. No matched record was returned by claim- and alias-focused database searches; this absence is not a uniqueness proof. Older specialist full-text coverage remains a publication-priority risk.
+PASS
 
-## Value — PASS
-Sample-and-hold feedback can be stable over infinitely many disconnected sampling-duration windows even when its continuous-feedback limit is stable. The theorem quantifies how close natural frequencies can make the proportion of acceptable common sample periods *temporarily worse* than both the resonant and incommensurate limits. A globally sharp crossover horizon and an exact minimum are meaningful benchmarks for multi-mode sampling resonance, not a mere change of notation or arbitrary finite table.
+Variation of constants gives the exact scalar multiplier for each complex block; its modulus inequality reduces, by the positive half-angle sine, to the open phase interval (0,2 arctan ω). On each full fast cell h=2πk+s, only s in (0,a) matters; discarding εs and replacing β_(1+ε) by a can change membership only within (1+a)ε of the two circular endpoints. The changed measure is uniformly O(ε) regardless of slow phase. Summing the errors, adding the bounded last incomplete cell, and applying a Lipschitz Riemann sum to U gives O_L(1) in stable measure, hence O_L(ε) in density. Integrating the triangle gives all three J branches. The first-period average decreases until the terminal branch where its derivative has the sign of 1−10a²/L²; the root a√10 lies strictly between 3a and 4a. Each subsequent period's average is a convex combination with positive weight on 1/16, strictly above the first-period minimum (√10−3)/4. For a fixed irrational detuning, all nonconstant torus characters have nonzero frequency and zero long-time average; rectangle boundaries are null, yielding the stated product density. For fixed T, convergence to the coincident windows as ε→0 follows by dominated convergence outside finitely many phase endpoints, proving the reversed iterated limit. Fresh finite computations passed 20,884 bounded assertions; replay with Python 3 at /workspace/branches/fabe897c-7ffe-4e86-8622-1dd55e6ae217/ordinal5_recheck.py. Floating-point checks are not proofs of the asymptotic or minimizer; the supplied checker was not executed.
 
-## Limitations and closest literature
-The model assumes two independent equal-gain rotation blocks, a single common constant hold time, and zero disturbances; extension to coupled or higher-mode systems is unproved. Relevant comparisons: arXiv:1803.02203, arXiv:2105.07152, DOI 10.1137/20M1356877. The latter was available only in abstract. Classical rotation equidistribution and zero-order-hold state transitions are not claimed novel.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified to the finite inverse-detuning density and its globally sharp trough. Neither the zero-order-hold map, the use of open Schur windows, nor the fixed-irrational equidistribution principle is new. The closest inspected statements do not supply the finite-horizon average along almost-coincident phases or its global minimum.
+
+## value
+
+PASS
+
+Two nearby modal frequencies are a natural setting for simultaneous sampling constraints. The exact profile gives a quantitative counterexample to interpolating between the resonant 1/4 and equidistributed 1/16 densities: the stable share falls to about 0.04057, strictly lower than either, over a uniquely determined rescaled horizon. This is a benchmark for the time scale of detuning, not a recommendation about jitter, changing holds, or arbitrary coupled feedback.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

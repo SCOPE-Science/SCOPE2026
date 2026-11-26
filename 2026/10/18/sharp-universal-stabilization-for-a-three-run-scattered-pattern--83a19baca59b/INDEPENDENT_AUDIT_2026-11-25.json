@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:17:10.183193Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For k>0 the gap bijection has A>=s+t and exactly s+t inactive gaps. A one in active gap i contributes C(i,s)C(A−i,t), as positions of the selected zeroes before and after it are independent. Setting u=A−s−t+1 and j=i−s gives weight at least (j+1)(u−j)=u+j(u−1−j), so u*h<=k for h active ones. The inequality u+h<=uh+1 gives M<=s+t+k, and enumeration of the inactive gaps yields the stated fixed-k length series. For n>=k+1 a term with n<M has 0<=n−M+d<d and vanishes in both interpretations. At n=k only maximal M contributes a defect of (−1)^d per configuration. Equality requires uh=k and u=1 or h=1. The u=1 configuration always exists; when h=1 and k>=2 an interior gap has weight>k, and the two endpoints contribute exactly for t=1 and s=1 respectively. When k=1 these cases coincide. The u=1 term also makes the leading coefficient strictly positive. Inspected check.py and its recorded output, not executed. Independently enumerated literal position tuples for n=0..10, s,t=1..3, k=1..6, and counted active vectors via multisets: 594 length identities and 54 exact signed-defect checks passed. Replay: python3 /workspace/check_three_run_independent.py. The unbounded conclusion rests on the inequalities and equality classification, not those checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bruda's Theorem 1.4 covers all binary patterns with at least two runs, giving eventual degree at most pattern length minus run count plus one, with equality for a singleton run. The current pattern has three runs and length s+t+1.",
+          "Menon–Singh give expressions for k=0,...,4. Their results on maximal occurrences for short run patterns ask a different question from this all-frequency stabilization."
+        ],
+        "reasoning": "The prior degree equality is exactly applicable; the finite-fiber proof and degree estimate do not supply the tight numerator cutoff independent of outer run sizes.",
+        "searches": [
+          "arXiv:2607.02578 Theorem 1.4 and its Section 2 proof",
+          "arXiv:2306.07870 §§3–4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.02578",
+        "arXiv:2306.07870",
+        "Resultary:02da9ce01629,618e49d0888b,0fe673644af7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Bruda proof explicitly writes an eventual sum of binomial polynomials and derives the degree from the maximum number of long runs; its subsequent singleton-run construction gives lower-bound families. The long-run minima contain k plus the maximum pattern-run length and do not establish the claimed uniform cancellation or stabilization threshold.",
+          "The gap bound u*h<=k and the equality conditions u+h=k+1 and w=k for h=1 give both a matching upper-support bound and the exact multiplicity at the upper support. Those complementary restrictions are absent from the general degree proof."
+        ],
+        "reasoning": "Recovering the cutoff and signed defect from a known general enumerator would require new control over its ranges or cancellations. Neither the general representation nor the exact formulas at small frequencies and at s=t=1 mechanically imply the all-parameter result.",
+        "searches": [
+          "Bruda, arXiv:2607.02578 Theorem 1.4 proof, equations (1)–(2)",
+          "Menon–Singh, arXiv:2306.07870 §3",
+          "Resultary:02da9ce01629 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bruda's long-run skeleton fibers give a different finite exact enumerator for the same statistic; the fiber consists of compositions after imposing minimum lengths on hatted runs, with a singleton-length contribution for a skeleton with no hats.",
+          "Reversal interchanges s,t and complementation swaps the binary letters. The Resultary quadratic-gap result 02da9ce01629 is exactly the s=t=1 specialization, including the defect after reversing the subtraction order."
+        ],
+        "reasoning": "General exact enumeration is not new as such. These equivalent views do not classify the top gap exponent uniformly for arbitrary positive s and t.",
+        "searches": [
+          "arXiv:2607.02578 §2, proof of Theorem 1.4 equations (1)–(2)",
+          "arXiv:2306.07870 §3",
+          "Resultary: scattered 010 sharp stabilization / fixed embedding frequency"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "02da9ce01629 gives the exact fixed-k enumerator, n=k+1 and B(k,k)−P(k)=1 at k=1 and 3 otherwise for 010. This is complete coverage of the s=t=1 specialization, without inferring priority from displayed dates.",
+          "618e49d0888b treats two-run 0^a1^b and 0fe673644af7 treats avoidance of ab^t a in fixed Parikh/inversion classes; the latter's same displayed date was not used to exclude it."
+        ],
+        "reasoning": "None of the compared findings extends the 010 cutoff and boundary multiplicity to arbitrary outer runs; the statistic and hypotheses of the other records differ.",
+        "searches": [
+          "Resultary: exact subsequence frequency and sharp polynomial stabilization for 0^s10^t, including scattered 010"
+        ]
+      },
+      "rationale": "Credit earlier polynomiality, exact degree, and general skeleton enumeration. The supported contribution is the sharp uniform onset and defect for the complete three-run singleton-middle family, with a gap representation giving precise numerator support and its top multiplicity.",
+      "residual_risks": [
+        "A differently organized fixed-frequency gap identity may already yield the cutoff outside the inspected passages or in unindexed work.",
+        "The exact overlap with the indexed 010 theorem and the general enumerative overlap with Bruda should be credited regardless of any unresolved priority ordering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers eventual polynomiality, exact degree here and a finite skeleton enumeration. No corresponding tight onset or signed defect in the inspected general proof.",
+          "evidence": [
+            "Extraction offsets 6902, 18400–22800 and 34253–39953."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2607.02578",
+          "material_read": "Theorem 1.4, §2 Lemmas 2.4–2.5, and proof equations (1)–(2) and equality construction, PDF pp. 2, 5–6, 9–10",
+          "method": "OA PDF passage inspection and specialization to three runs",
+          "title": "Enumerating binary words restricted by subsequence frequency",
+          "trigger": "Same statistic, arbitrary k, general theorem and binomial-fiber enumerator"
+        },
+        {
+          "assessment": "Covered low-frequency cases are not credited as new",
+          "evidence": [
+            "Extraction offset around 7501."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2306.07870",
+          "material_read": "§3, PDF p. 3 statement of the k=0,...,4 enumeration scope and preceding statement of research scope",
+          "method": "OA PDF passage comparison",
+          "title": "Subsequence frequency in binary words",
+          "trigger": "Same frequency parameter and exact low-frequency formulas"
+        },
+        {
+          "assessment": "Exact overlap for s=t=1; does not assert the full outer-run family",
+          "evidence": [
+            "The defect for 010 is 1 at k=1 and 3 otherwise in the order B−P, and the threshold is k+1."
+          ],
+          "identifier_or_url": "Resultary:02da9ce01629",
+          "material_read": "Local-mirror RESULT.md Finding, offset 0",
+          "method": "Resultary and local-mirror exact statement comparison",
+          "title": "Quadratic gap partition law and sharp stabilization for scattered 010",
+          "trigger": "Matching exact cutoff, statistic and boundary jump"
+        },
+        {
+          "assessment": "Different pattern family or avoidance conditioned on different statistics",
+          "evidence": [
+            "Two-run 0^a1^b versus three-run 0^s10^t; ab^t a with t>=3 and avoidance versus positive fixed embedding frequency."
+          ],
+          "identifier_or_url": "Resultary:618e49d0888b,0fe673644af7",
+          "material_read": "Local-mirror Findings, offset 0 in each",
+          "method": "Resultary and local-mirror scope comparison",
+          "title": "Exact fixed-frequency enumeration for every binary two-run subsequence; Exact Gaussian enumerator and stable partition law for binary scattered avoidance",
+          "trigger": "Adjacent fixed-frequency and three-run gap statements"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural infinite pattern family admits a stabilization age bounded solely by the frequency, even for arbitrarily long outer runs. The exact nonzero defect shows this bound is attained for each parameter choice and identifies precisely when additional maximal configurations occur. Those facts refine prior eventual polynomiality substantively; the degree statement by itself would not.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

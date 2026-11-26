@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:51:59.380426Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At stationary time the current renewal interval is length-biased, with uniform age inside it. Conditional on the renewal process the different Brownian excursions are independent and centered; it is this conditional independence, not necessarily independence of marginal random-age samples, that is used for the cross-interval covariance. A lag h in the same interval shares Brownian covariance 2D times the earlier age. Integration of the admissible ages gives C_Y(h)=D E[(T−h)_+²]/m for h≥0 and C_Y(0)=Ds/m. The stationary convolution exists in L² by this finite force variance. Splitting the convolution square into the two lag half-planes yields the prefactor 1/μ in its covariance integral. Integrating the kernel gives F_μ(t)=t²/μ−2t/μ²+2(1−exp(−μt))/μ³. Strict Jensen for exp(−μT) and for the size-biased test (1−exp(−μt))/t proves exactly the open endpoint inequalities when s>m², since strict positivity of T makes the size-biased law nonconstant whenever the original law is nonconstant. For each a in (0,m), the proposed two-atom law preserves the moments because (m−a)(b−m)=s−m². At the two boundaries it respectively tends to the law with mass at zero, and loses its second moment in the weak limit as the rare upper atom diverges. Taking limits of the bounded Laplace transform at fixed moments gives exactly the two variance endpoints. Continuity supplies every intermediate variance. At s=m² only T=m is possible. The lag tests are convex and F_μ is strictly convex for positive arguments, giving the claimed fixed-mean order and unique deterministic minimizer. The independent replay used D=μ=m=1, s=2: Exp(1) gives V=1; for a=1/2, b=3, q=1/5, the variance is 1.009636117113, between 0.864664716763 and 1.264241117657; a=10⁻⁶ and 0.999 approximate the two endpoints from inside. Replay script and output: branches/ed9631dd-5a8d-4da8-ad09-0e51ed6734ee/independent_check.py and independent_check.txt. These are bounded checks. Frozen VERIFICATION.md and verify.py were inspected; the frozen script was not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Pareto-tail record supplies a stronger all-clock finiteness criterion in addition to the identical finite-variance identity, the covariance for all lags, and the fixed-mean ordering.",
+          "The known two-moment maximum permits a zero atom and identifies it uniquely. The original physics paper directly treats the Poisson specialization, whereas the periodic result cited there is evaluated at reset epochs."
+        ],
+        "reasoning": "Restricting the known moment theorem from the nonnegative to the positive half-line excludes its optimizer when s>m², but does not create a new optimal constant. Equilibrium phase cannot be replaced by observation at an epoch, so the published periodic-epoch formula alone would not establish coverage.",
+        "searches": [
+          "Resultary: reset Brownian force renewal harmonic trap stationary position variance time stationary waiting interval law",
+          "Guljaš–Pearce–Pečarić Theorems A–B, DOI 10.1017/S0334270000012388",
+          "arXiv:2306.09453 §2, §3.1, §4 and Appendix E"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "DOI 10.1017/S0334270000012388",
+        "2026/11/22/SCOPE-pareto-positional-tails-from-renewal-reset-brownian-forcing-in-a--d0a2199c1680",
+        "arXiv:2306.09453",
+        "arXiv:1510.07876",
+        "arXiv:1801.09909"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The mirror gives C_Y(h), the resolvent integral and the strictly convex fixed-mean design functional. The primary moment theorem gives the sharp extremal measure and equality characterization for the nontrivial bound.",
+          "On the positive domain two atoms with prescribed moments satisfy (m−a)(b−m)=s−m², and their probabilities are uniquely set by the mean. Moving a between 0 and m provides continuous two-point approximations to the classical endpoint at zero and to the Jensen endpoint at the mean."
+        ],
+        "reasoning": "The explicit open interval, strict exclusion of its endpoints, and two-atom interpolation follow by the elementary moment parametrization, continuity, and affine change of variable. The lag comparison also follows immediately from the already stated covariance and convexity of squared positive parts. These are not an additional distinct optimization beyond the verified coverage.",
+        "searches": [
+          "Pareto-tail mirror Finding and Proof §§5–6",
+          "10.1017/S0334270000012388 Theorem B and preceding discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Pareto-tail mirror gives the same all-renewal formula and D E[(T−h)_+²]/m under the identical forcing-only reset and equilibrium sampling assumptions.",
+          "At fixed first and second moments, the variance functional is an affine decreasing function of the single Laplace transform value. Guljaš–Pearce–Pečarić Theorem B uniquely maximizes that transform over nonnegative laws at (1−m²/s)δ₀+(m²/s)δ_{s/m}."
+        ],
+        "reasoning": "The sharp lower variance endpoint is the classical sharp upper Laplace endpoint in different units, with zero forbidden here. The transform at the mean is the lower Laplace endpoint by Jensen and maps to the upper variance endpoint. This comparison uses the statement on the same two moments, not a resemblance of formulas at Poisson parameters.",
+        "searches": [
+          "Resultary: stationary variance renewal-reset Brownian force harmonic trap fixed first and second waiting-time moments open interval two-point laws",
+          "Web: sharp bounds Laplace transform nonnegative random variable given first two moments exp two point zero size biased Jensen Eckberg moment problem"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed finding gives the same formula for arbitrary waiting-time laws, not only power-law clocks. The Laplace extremal measure and its weights are explicit in the primary literature; their value is 1−(m²/s)(1−exp(−μs/m))."
+        ],
+        "reasoning": "This is an all-parameter result rather than a numeric-table entry. Substituting the exact extremal measure in the exact indexed identity gives the displayed bound for every m,s,μ,D, and not merely the normalized illustration.",
+        "searches": [
+          "2026/11/22/SCOPE-pareto-positional-tails-from-renewal-reset-brownian-forcing-in-a--d0a2199c1680",
+          "Guljaš–Pearce–Pečarić Theorem B, print p. 81"
+        ]
+      },
+      "rationale": "The same-model mirrored Pareto-tail record explicitly gives the equilibrium stationary force covariance, the all-renewal variance identity, and the fixed-mean convex comparison and minimizer. At fixed m and s the whole envelope is an affine transform of the classical two-moment Laplace transform extremum, whose nontrivial sharp side and unique zero-atom law are explicitly in Guljaš–Pearce–Pečarić Theorem B. The opposite side is strict Jensen, and positive two-point laws joining the limits follow by solving the elementary two-point moment constraints. Thus the envelope is covered by combining checked results and routine consequences, even though neither source uses the exact displayed variance interval as its headline. This is a statement-and-implication comparison, not an inference about priority from dates.",
+      "residual_risks": [
+        "Additional moment-problem sources, including Sharp Bounds on Laplace–Stieltjes Transforms (JSTOR 3689650), were surfaced but not used as full-text evidence; the exact sharp theorem was verified in the Cambridge primary paper.",
+        "The dated records do not resolve priority or provenance. The verdict relies on existing statement-level and implication coverage, not search exhaustiveness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the sharp upper Laplace bound and unique equality law",
+          "evidence": [
+            "Theorem B fixes positive first and second moments of a probability on [0,∞); it uniquely maximizes the transform at the two-atom measure with weight m₁²/m₂ at m₂/m₁ and its complementary weight at zero. The text identifies this specialization as already known in teletraffic."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S0334270000012388",
+          "material_read": "Guljaš–Pearce–Pečarić (1998), introductory discussion and Theorems A–B, print pp. 80–81, OA offsets 0–3767",
+          "method": "Lawful Cambridge primary PDF",
+          "title": "Jensen's inequality for distributions possessing higher moments, with application to sharp bounds for Laplace–Stieltjes transforms",
+          "trigger": "Exact sharp Laplace moment-problem coverage"
+        },
+        {
+          "assessment": "Identical covariance and finite-variance identity; broader finiteness statement, not explicit jointly fixed-moment interval",
+          "evidence": [
+            "The covariance is D/m times E[(T−h)_+²]; the variance is 1/μ times its one-sided Laplace integral. Deterministic clocks uniquely minimize at fixed mean, and the record gives the convex-order implication."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-pareto-positional-tails-from-renewal-reset-brownian-forcing-in-a--d0a2199c1680",
+          "material_read": "Finding and assumptions at offset 0; variance proof and fixed-mean design at offset 7350",
+          "method": "Exact local mirrored RESULT.md",
+          "title": "Pareto positional tails from renewal-reset Brownian forcing in a harmonic trap",
+          "trigger": "Closest same-model and same-observable indexed theorem"
+        },
+        {
+          "assessment": "Same model, periodic-epoch result different; exact Poisson specialization",
+          "evidence": [
+            "For the paper’s force tilde y_r=r y_r, identify the target force diffusivity with r²D_paper. The Poisson covariance is then 2D_target exp(−rh)/r, yielding the same stationary variance as Eq. (E.2). Its periodic Eq. (11) is an epoch variance, not the time-stationary periodic variance."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2306.09453",
+          "material_read": "§2 Eq. (2) p. 5, §3.1 Eq. (11) p. 7, §4 Eqs. (37)–(38) p. 14, Appendix E Eq. (E.2) p. 44 (OA offsets 14900, 20500, 48800, 161800)",
+          "method": "OA primary PDF, bounded passages",
+          "title": "Active particle in a harmonic trap driven by a resetting noise: an approach via Kesten variables",
+          "trigger": "Closest cited physical model; possible sampling/normalization equivalence"
+        },
+        {
+          "assessment": "Background for different reset observables, not the basis for the decision",
+          "evidence": [
+            "The passages concern resetting a process to an initial condition or additive functionals of a position-reset Brownian motion, rather than an unreset harmonic position driven by a reset force."
+          ],
+          "identifier_or_url": "arXiv:1510.07876; arXiv:1801.09909",
+          "material_read": "First paper abstract p. 1; second paper abstract p. 1 and Eq. (I.3) p. 2",
+          "method": "OA primary PDF, bounded passages",
+          "title": "Non-equilibrium steady states of stochastic processes with intermittent resetting; Properties of additive functionals of Brownian motion with resetting",
+          "trigger": "Cited possible arbitrary-renewal and filtered-observable comparisons"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Holding force intensity and renewal cadence fixed is a sensible physical comparison. In the frozen formulation, however, the only part beyond the covered model identities and comparisons is the affine re-expression of a classical sharp Laplace extremum, supplemented by elementary two-point interpolation. It does not provide a separate or nonroutine scientific result beyond those ingredients.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,22 +1,21 @@
-# Scientific review: cyclic versus independent reset destinations
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The attempted protocol is fully specified, including random initial cyclic phase and independently restarted Poisson clocks. The discounted single-attempt capture and interruption weights are derived from the exponential-clock integral. Summing discounted trajectories gives the exact block-product identity. The two/three/four-site inequalities follow from AM–GM, elementary symmetric means and the opposite-pair factorization; the periodic factorization extends them to all cycle lengths. The mean follows by dominated convergence at zero discount because the full-cycle failure product is less than one. The five-site reversal is an exact rational evaluation and is realized by finite Brownian reset distances. The general five-or-more obstruction follows by continuity and a small-discount-factor expansion. The independent rational checker is supplementary, not an infinite proof.
+PASS
 
-## Originality — PASS, with publication-priority limits
+Integration against the independent exponential clock gives discounted success u_i(r+s) and discounted reset c(1−u_i(r+s)), where c=r/(r+s). Averaging products over the uniform initial cyclic phase gives the block sum 1−(1−c)Σ_{k≥1}c^{k−1}B_k; iid replaces B_k by the mean failure probability to power k. A full block factors into the product P times shorter blocks. AM–GM bounds P, the symmetric-mean inequality bounds the shorter blocks that are full averages over pairs or triples, and for four modes the adjacent-pair sum factors as (q_1+q_3)(q_2+q_4). Thus B_k ≤ (mean q)^k for every k when m≤4, including q_i=0 or 1, and the full-block comparison is strict for nonconstant q. At s↓0, P(r)<1 by the capture assumption, so blockwise geometric domination in a neighborhood of zero justifies passage to the means after division by s. Independently solved the mode-specific renewal equations F_i=u_i+cq_i F_{i+1} with fractions at the Brownian witness. The cyclic and iid transforms are 2729396/5242745 and 12/23 respectively, with difference −136832/120583135. The distances yield u_i(4)=1/4,1/4,1/4,3/4,3/4 in the stated cyclic order. Strictness gives distinct perturbed sites by continuity. More generally, three consecutive ones and zeros elsewhere give B_2=2/m>9/m² for m≥5; interior perturbation and the uniform O(c²) tail give the claimed small-c reversal and Brownian realizability.
 
-The close two-site paper by Julián-Salgado–Dagdug–Boyer (arXiv:2311.11897, Section III and setup) treats independently occurring reset-to-site events at two rates, not a random-phase deterministic cycle of modes. Méndez–Flaquer-Galmés–Campos (arXiv:2401.01125, Section II, equation (6), and conclusions) independently redraw reset positions from a density; no phase-correlated site order or sharp site-number boundary is provided. The exact assessed advance is the universal four-site transform comparison and sharp five-site failure; classical renewal transforms and inequalities are not presented as separately new. Search was also directed at cyclic permutations, periodic sites versus periodic clocks, aliases and the published-finding corpus records identified in AUDIT.json. A broader unpublished or unindexed correlated-scheduling result could imply this result; no claim of exhaustive priority is made.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The location schedule is an experimentally and algorithmically meaningful control dimension that is invisible to the independent-reset spatial marginal. The result finds a sharp, minimal obstruction: at most four modes, fair cyclic scheduling is universally favorable in Laplace order, whereas five modes can invert the comparison despite unchanged marginal use frequencies and identical clocks. It supplies a nontrivial boundary of a plausible comparison principle for spatial resetting, a complete small-mode classification with general counterexamples beyond the threshold, and a fully physical exact Brownian example. The five-mode bound is not an arbitrary numerical slice, and the distinction is not a routine restatement of first-passage renewal.
+The supported distinct claim is the sharp four/five boundary for Laplace dominance over iid uniform destinations, including the Brownian obstruction, and the extensions beyond the known two-site mean comparison. The m=2 mean subclaim directly overlaps the inspected same-day Markov reset-site record and is not counted as a distinct contribution; relative priority is not established. Renewal identities and the Brownian free transform are antecedents, not novelty claims.
 
-## Closest literature and limitations
+## value
 
-- Julián-Salgado, Dagdug and Boyer, "Diffusion with two resetting points," arXiv:2311.11897 (2023-11-20).
-- Méndez, Flaquer-Galmés and Campos, "First-passage time of a Brownian searcher with stochastic resetting to random positions," arXiv:2401.01125 (2024-01-02).
+PASS
 
-Only Laplace-transform dominance and a mean corollary are established, not pointwise first-passage survival order. The five-site witness reverses a Laplace comparison, not necessarily the mean. Other scheduling protocols are outside the theorem. Unindexed stronger coverage remains the principal originality risk.
+Matching single-attempt marginals do not determine the ordering of the total search time. The sharp cutoff in the number of modes, uniform over free hitting-time laws, gives a reusable policy comparison for regenerative searches; the Brownian counterexample rules out extrapolating it even for standard first-passage laws at finite positive locations. A positive-discount obstruction is informative without claiming a mean or survival reversal.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

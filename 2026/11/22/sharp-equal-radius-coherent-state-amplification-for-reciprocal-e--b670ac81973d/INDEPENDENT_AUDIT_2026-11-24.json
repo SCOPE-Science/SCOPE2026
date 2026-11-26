@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:47:17.759789Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 3–154; Biolek et al. Proposition 6 and Bommier-Hato–Youssfi–Zhu §2, Lemma 1",
+        "VERIFICATION.md and verify.py, inspected without execution"
+      ],
+      "rationale": "The squared monomial norm is πΓ((n+1)/m)/m, so the kernel is (m/π)E_(1/m,1/m)(z w̄). For fixed w, positivity of the series bounds its modulus by the positive-axis kernel, with growth at most a polynomial factor times exp(O(|z|^m)). Thus e^(±g)K_w is in the weighted space since max(d,m)<2m. Projection of the anti-holomorphic symbol on K_w yields its conjugate value at w times K_w by pairing against monomials. This verifies the product domain and the exact normalized two-point factorization. For ζ=R²exp(iθ) in a fixed small sector, the dominant Mittag–Leffler term is mζ^(m−1)exp(ζ^m) with an algebraic remainder (the term in ζ⁻¹ has reciprocal gamma factor 1/Γ(0)=0). Its prefactor modulus cancels at equal radii; division by the uniformly exponentially large leading factor gives log Q=R^(2m)(cos(mθ)−1)+O(exp(−cR^(2m))). On the closed angular complement the kernel sector bounds give O(exp(−c'R^(2m))) after positive-axis normalization. In the near sector the maximum polynomial gain over the common phase is d|a_d|R^d|θ|+O(R^(d−1)|θ|+R^d|θ|³), by taking the exact leading-monomial phase maximum and bounding the lower monomials. Because d<2m, the far sector cannot beat the diagonal. Near it the inequality 0≤C R^d|θ|−c R^(2m)θ²+O(exp(−c'R^(2m))) confines every maximizer to |θ|=O(R^(d−2m)). After setting θ=vR^(d−2m), the normalized log objective converges uniformly on bounded v to d|a_d||v|−m²v²/2, even when d<m. Its unique maximizing magnitude gives both constants. Unit kernel normalization yields the stated boundedness consequences, using the published existence of the bounded extension at integer d=m. The Gaussian kernel gives the exact check |sin(θ/2)|=|a_1|/(2R) for sufficiently large R and log maximum |a_1|²/2.",
+      "residual_risks": [
+        "The statement is for fixed g and equal radii and gives no norm equality beyond the separately checked Gaussian case.",
+        "The constant coefficient cancels in modulus; the complex matrix coefficient retains the unimodular factor exp(a₀−conj(a₀)).",
+        "The printed FINITE_CHECKS_OK 44 is inconsistent with the supplied script's loop counts (12+18+15=45 if all assertions succeed). The numerical replay count is not used as evidence for the theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published generalized Fock boundedness result applies for m≥1, but gives no angular maximum. Hagger's Thm. 1 concerns small-parameter products of bounded smooth symbols; it does not include the fixed unbounded polynomial exponentials in this limit. Biolek et al. provide the general sector expansion, not the angular optimization."
+        ],
+        "reasoning": "General kernel or product estimates are ingredients, not a theorem subsuming the actual sharp maximum and localization, and the boundedness result does not cover 1/2<m<1.",
+        "searches": [
+          "Resultary: Hagger A product expansion for Toeplitz operators on the Fock space semiclassical symbols",
+          "Resultary: Virtanen On the product formula for Toeplitz and related operators Fock spaces",
+          "Bommier-Hato–Youssfi–Zhu main theorem and Biolek et al. Proposition 6"
+        ]
+      },
+      "checked_sources": [
+        "Bommier-Hato–Youssfi–Zhu arXiv:2004.04094; Biolek et al. Proposition 6; Virtanen arXiv:2205.12345; Hagger arXiv:1808.10376; Cho–Park–Zhu through the cited restatement",
+        "Resultary b670ac81973d (self), 20eeece8686a, afadf5723e21, 3dcfdda1a7f9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lemma 12 gives a lower bound up to a multiplicative constant with leading exponent |a_d|²d²R^(2d−2m)/m² for the integrated squared statistic. Its proof finds a radial displacement (r_R−R)/R∼−(d|a_d|/m²)R^(d−2m). The Gaussian translation formula yields the classical critical norm for m=d=1."
+        ],
+        "reasoning": "Halving the radial exponent does not produce an asymptotic equality for this equal-radius angular supremum: an integral lower bound permits other radii and gives neither a matching pointwise upper bound nor localization of every angular maximizer. Known boundedness and Gaussian identities do not imply the claimed uniform distinction between the three regimes.",
+        "searches": [
+          "Bommier-Hato–Youssfi–Zhu, Lemmas 3 and 12, pp. 5–7 and 24–26",
+          "Virtanen, pp. 7–8; Cho–Park–Zhu DOI 10.1090/S0002-9939-2014-12110-1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lemma 3 writes the normalized two-kernel coefficient used in the finding. Lemma 12 treats a squared-symbol Berezin transform times a point value, integrated over other positions. The closest distinct exact-query catalogue result, 20eeece8686a, optimizes Gram spectra of two full sampling rings, without a reciprocal exponential product."
+        ],
+        "reasoning": "A change of notation from normalized kernels to coherent states gives the same coefficient in Lemma 3, but neither the integrated Berezin statistic nor the ring Gram spectral objective equals its fixed-radius two-point supremum.",
+        "searches": [
+          "Resultary: equal radius two point coherent kernel reciprocal Toeplitz product angular maximum maximizing gap asymptotic d squared over two m squared Fock Mittag Leffler radial saddle",
+          "Resultary: Bommier-Hato Youssfi Zhu Sarason Toeplitz product power weighted Fock reciprocal exponentials",
+          "Bommier-Hato–Youssfi–Zhu, Lemma 3 and Lemma 12"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed hit b670ac81973d is the frozen record itself. Distinct hits 20eeece8686a and afadf5723e21 concern respectively Gaussian ring Gram spectra and harmonic projection leakage; neither gives the two numbers for a reciprocal exponential product."
+        ],
+        "reasoning": "The exact self-match is not independent coverage. The Gaussian linear-exponential special case is classical and is not the novel table entry or limiting law claimed here.",
+        "searches": [
+          "Resultary: equal radius two point coherent kernel reciprocal Toeplitz product angular maximum maximizing gap asymptotic d squared over two m squared Fock Mittag Leffler radial saddle",
+          "Resultary: Cho Park Zhu Products of Toeplitz operators on the Fock space bounded product exponential symbols"
+        ]
+      },
+      "rationale": "The equal-radius two-coherent maximum and necessary separation, with exact constants, are distinct from every inspected predecessor. The two-kernel expression, Gaussian case, qualitative boundedness test, and sector asymptotics are existing inputs. The closest earlier saddle has the same shift scale and magnitude in a radial coordinate, but for a different, integrated squared statistic.",
+      "residual_risks": [
+        "Cho–Park–Zhu was not directly readable in the attempted lawful routes. Earlier unindexed pointwise or saddle estimates could entail the same law; the bounded comparison does not establish absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers qualitative classification for m≥1 and the exact coefficient representation, not the sharp equal-radius supremum",
+          "evidence": [
+            "Lemma 12 uses an integrated squared quantity with a radial saddle shift, not the maximizing angular gap on an equal-radius torus."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2004.04094",
+          "material_read": "Main theorem p. 3; §2 Lemma 1 p. 4; Lemma 3 pp. 5–7; Lemma 12 pp. 24–26 (especially OA offsets 73070 and 76779)",
+          "method": "Bounded OA PDF passage inspection",
+          "title": "Sarason's Toeplitz product problem for a class of Fock spaces",
+          "trigger": "Same operator, normalized coefficients, sharp-looking saddle and Fock kernel estimates"
+        },
+        {
+          "assessment": "Covers sector expansion used as a premise",
+          "evidence": [
+            "With α=β=1/m<2, the expansion applies near the positive axis and the first inverse-power coefficient is 1/Γ(0)=0."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11071-025-11682-3",
+          "material_read": "§4 Proposition 6, journal p. 34393",
+          "method": "OA PDF passage inspection",
+          "title": "Derivatives of Mittag-Leffler functions: theory, computation and applications",
+          "trigger": "Nonstandard uniform kernel remainder"
+        },
+        {
+          "assessment": "Gaussian classification and weighted translations, not the power-weighted asymptotic",
+          "evidence": [
+            "Reciprocal linear exponential symbols yield a scalar multiple of a unitary translation in the Gaussian normalization of that source."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2205.12345",
+          "material_read": "Fock-space discussion, PDF pp. 7–8 (HTML offsets 22551–26430)",
+          "method": "Bounded OA passage inspection",
+          "title": "On the product formula for Toeplitz and related operators",
+          "trigger": "Gaussian product formula and possible general implication"
+        },
+        {
+          "assessment": "Different limit and symbols",
+          "evidence": [
+            "The expansion is for bounded uniformly continuous differentiable symbols in a small-parameter regime."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1808.10376",
+          "material_read": "Theorem 1, PDF p. 3, OA offset 11703",
+          "method": "Bounded OA PDF passage inspection",
+          "title": "A product expansion for Toeplitz operators on the Fock space",
+          "trigger": "Candidate broader asymptotic theorem"
+        },
+        {
+          "assessment": "Direct comparison beyond the restated Gaussian criterion unavailable",
+          "evidence": [
+            "Virtanen credits the Gaussian boundedness criterion to Cho–Park–Zhu."
+          ],
+          "identifier_or_url": "https://doi.org/10.1090/S0002-9939-2014-12110-1",
+          "material_read": "No direct full-text passage; criterion compared through Virtanen pp. 7–8",
+          "method": "Lawful DOI and AMS OA routes returned HTTP 403; inspected accessible secondary restatement",
+          "title": "Products of Toeplitz operators on the Fock space",
+          "trigger": "Potential Gaussian exact predecessor"
+        },
+        {
+          "assessment": "Different angular objective and geometry",
+          "evidence": [
+            "It treats spectra of a 2N by 2N Gaussian Gram matrix with regular polygon nodes and optimal shift π/N, without symbols g or a two-point amplification statistic."
+          ],
+          "identifier_or_url": "2026/11/1/SCOPE-universal-half-step-spectral-optimality-for-paired-fock-sampling--20eeece8686a",
+          "material_read": "Finding, scope and opening proof, RESULT.md offsets 0–2491",
+          "method": "Resultary query and local mirror passage",
+          "title": "Universal half-step spectral optimality for paired Fock sampling rings",
+          "trigger": "Strongest distinct hit on the exact angular/maximum query"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and Proof §§4–5",
+        "Bommier-Hato–Youssfi–Zhu, normalized two-kernel coefficient and qualitative theorem"
+      ],
+      "rationale": "At fixed radius the two normalized coherent states test the same radial scale, and the known boundedness proof already motivates this matrix coefficient. The exact size of its amplification and the common angular magnitude required of all extremizers give quantitative information absent from a bounded/unbounded decision. The same law governs log-amplification tending to zero, staying finite, or diverging, and gives a useful critical norm lower bound depending only on the top coefficient.",
+      "residual_risks": [
+        "The invariant is an equal-radius test, not the full operator norm or singular-value law; its Gaussian normalization check is already known."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:20:08.335922Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–93",
+        "VERIFICATION.md",
+        "check_retracts.py",
+        "Clark quadratic-forms notes §7, Theorem 22"
+      ],
+      "rationale": "Any bracket-preserving map induces A on the quotient V, a central functional f, and a scalar c on the characteristic derived line. The form condition is b(Ax,Ay)=c b(x,y), and idempotence gives A²=A, c²=c, fA+cf=f. Nondegeneracy makes the c=1 case the identity; c=0 gives exactly an isotropic-image projection with f=theta A. Each U of dimension r has q^r possible graphs and each graph has q^{r(d−r)} projection kernels (complements to U). Counting independent isotropic vectors after each quotient U_j^perp/U_j gives q^j Z_{d−2j} choices, and division by ordered bases gives I_r. Adjoining a hyperbolic plane gives N_0(H⊥W)=q N_0(W)+(q−1)q^{dim W}, verifying the Z formula including the anisotropic base cases. For rank one, P(x)=b(a,x)u with b(a,u)=1. The Gram matrix of (u,a) has determinant −1, so Witt extension proves transitivity for fixed t=b(a,a); representative rescaling changes t by a square and a similitude of multiplier c changes it by c^−1. Comparing b and c b using finite-field isometry by dimension and determinant shows all multipliers occur in even dimension and only square ones in odd dimension. In a hyperbolic splitting with partner v, a=v+beta u+w has t=2 beta+b(w,w), giving q^{d−2} choices for each t. Central shears are transitive on the q graph functionals above a rank-one projection. This proves the two/three orbits and their sizes over every odd prime power. The d=2 cases and the q=3,d=4 examples check: I_1=16,10 respectively, I_2=8 in split dimension four, giving 7130 and 812 total maps. The supplied check was inspected statically, not executed.",
+      "residual_risks": [
+        "Prime-field script coverage alone would not prove arbitrary odd prime powers. There is no assertion on higher-rank conjugacy orbits."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mancini–La Rosa Proposition 2.2 gives bilinear-form congruence for ambient-algebra isomorphism.",
+          "Kurdachenko–Subbotin–Yashchuk treat an infinite-dimensional cyclic algebra.",
+          "Vinroot §2 Theorem 1 factors a similitude into involutions."
+        ],
+        "reasoning": "Ambient isomorphism and factorization theorems do not give orbits of idempotent operators. No directly dominating exact orbit census was located.",
+        "searches": [
+          "arXiv:2106.12904 §2",
+          "arXiv:2104.05922v1",
+          "Vinroot, A note on orthogonal similitude groups"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 7bb1168c556c, 78ccea9942e8, 95c651ebafa0, 08d22328f3e7",
+        "arXiv:2106.12904 §2",
+        "arXiv:2104.05922v1",
+        "Clark §7",
+        "Vinroot §2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Witt extension matches normalized pairs of the same Gram matrix.",
+          "The split-bilinear spectrum report does not classify conjugacy.",
+          "The checked similitude theorem is an involution factorization, not an invariant of projection conjugacy."
+        ],
+        "reasoning": "One must identify the projection normalization and quotient by rescalings and the multiplier group, then show the independent shear transitivity and count parameters. Ordinary orthogonal fixed-Gram orbits and rank counts alone are not the claimed parity-dependent algebra census.",
+        "searches": [
+          "Clark quadratic-forms notes, §7 Theorem 22 and Corollary 23",
+          "Vinroot §2 Theorem 1",
+          "Resultary 7bb1168c556c limitations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "7bb1168c556c specializes at lambda=1 to the split even rank spectrum.",
+          "78ccea9942e8 counts isotropic projections for an evolution algebra with nondegenerate form on its whole underlying space; 95c651ebafa0 counts idempotent derivations."
+        ],
+        "reasoning": "The split even count is equivalent on its range but omits orbit data; a derivation uses a sum rule, not preservation of the bracket. The evolution algebra uses a different central-form condition and is not this extension.",
+        "searches": [
+          "Resultary 7bb1168c556c, 78ccea9942e8, 95c651ebafa0",
+          "Finite orthogonal or similitude pair orbit search"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "7bb1168c556c gives the split-even rank polynomial through the product for I_r, and explicitly does not treat conjugacy of retractions.",
+          "95c651ebafa0 treats derivations and 08d22328f3e7 counts annihilating skew-adjoint tuples, not conjugacy."
+        ],
+        "reasoning": "The matching rank formula is partial overlap and sums over the orbits of interest; the other tables concern different maps. A table of I_r would count U, not orbits of the projections and graph maps.",
+        "searches": [
+          "Resultary 7bb1168c556c, 95c651ebafa0, 08d22328f3e7"
+        ]
+      },
+      "rationale": "The strongest indexed comparison gives the same rank distribution in split even dimension, and another indexed statement counts idempotent derivations of the same algebra. Neither classifies these rank-one retractions under the full algebra automorphism group. The supported distinction is the complete zero/nonzero or square-class orbit splitting with exact multiplicities, including the graph shear factor and its coupling with the Witt-type spectra across odd and even dimensions. The counting of isotropic subspaces, the split-even rank formula and fixed-Gram isometry extension are not credited as new. The checked coverage does not provide the rank-one conjugacy invariant and census for this endomorphism problem.",
+      "residual_risks": [
+        "A broader unlocated similitude-orbit result may subsume the normalized-pair step; priority is not certified.",
+        "Lam and Artin book passages were not verified because the attempted lawful routes did not yield readable full text; the Witt-extension statement was inspected independently in accessible notes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial exact overlap, not conjugacy coverage",
+          "evidence": "The product equals I_r when d=2n and the form is split; conjugacy is excluded.",
+          "identifier_or_url": "Resultary 7bb1168c556c",
+          "material_read": "Lambda=1 rank formula and Limitations, mirror offset 6850",
+          "method": "Primary local-mirror passages",
+          "title": "Complete retraction-rank spectra of split bilinear-product algebras",
+          "trigger": "Same split-symmetric algebra and rank distribution"
+        },
+        {
+          "assessment": "Different underlying form or operator",
+          "evidence": "Nondegenerate form on whole evolution algebra versus central extension, and derivations versus bracket-preserving endomorphisms.",
+          "identifier_or_url": "Resultary 78ccea9942e8 and 95c651ebafa0",
+          "material_read": "Findings",
+          "method": "Primary local-mirror passages",
+          "title": "Retraction rank spectra of evolution algebras with one-dimensional square; Witt-type rigidity and exact idempotent-derivation counts",
+          "trigger": "Similar isotropic projection count and same ambient family respectively"
+        },
+        {
+          "assessment": "Structural background",
+          "evidence": "Bracket values in a derived line, with isomorphism by congruence; no exact retraction orbit result in these passages.",
+          "identifier_or_url": "https://arxiv.org/abs/2106.12904",
+          "material_read": "§2 pp. 3–4, Proposition 2.2, offsets 9429 and 12430",
+          "method": "Primary OA PDF",
+          "title": "Two-step nilpotent Leibniz algebras",
+          "trigger": "Bilinear presentation and classification of the ambient algebra"
+        },
+        {
+          "assessment": "Different scope",
+          "evidence": "Infinite-dimensional cyclic algebra, not the finite symmetric central extension.",
+          "identifier_or_url": "https://arxiv.org/html/2104.05922v1",
+          "material_read": "Abstract, offset 510",
+          "method": "Primary OA page",
+          "title": "On the endomorphisms and derivations of some Leibniz algebras",
+          "trigger": "Endomorphism structure of a Leibniz family"
+        },
+        {
+          "assessment": "Known mechanisms, not an algebra-retraction census",
+          "evidence": "Witt extension for isometries of subspaces; factorization of similitudes into involutions.",
+          "identifier_or_url": "https://people.reed.edu/~ormsbyk/kgroup/resources/Pete_Clark_Quadratic_Forms.pdf ; https://www.math.wm.edu/~vinroot/orthogj.pdf",
+          "material_read": "Clark §7 Theorem 22 and Corollary 23, p. 16; Vinroot §2 Theorem 1, pp. 391–392",
+          "method": "Primary OA passages",
+          "title": "Quadratic-forms notes; A note on orthogonal similitude groups",
+          "trigger": "Broader orbit-theoretic tools"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof §§2–4",
+        "Resultary 7bb1168c556c rank spectrum and limitation"
+      ],
+      "rationale": "Rank sizes alone conceal inequivalent retractions of the same algebra. The theorem gives the intrinsic obstruction and exact orbit sizes in the first nontrivial rank, showing how the multiplier group changes the answer with dimension parity, and ties this to explicit Witt-sensitive endomorphism-monoid statistics. These data are useful for distinguishing and enumerating idempotents up to algebra automorphism, beyond the classical isotropic-subspace totals.",
+      "residual_risks": [
+        "The value decision concerns rank-one symmetry and Witt-sensitive spectra, not a higher-rank orbit theory."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

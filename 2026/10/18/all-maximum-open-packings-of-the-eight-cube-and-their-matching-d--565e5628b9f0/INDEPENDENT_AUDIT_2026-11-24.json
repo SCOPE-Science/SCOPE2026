@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:13:41.981211Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each parity half contains at most sixteen centers because their disjoint open neighborhoods have eight elements each and lie in the opposite 128-vertex half. Appending the parity-determining bit to a seven-word maps distances 1,2 to distance 2 and all larger punctured distances to at least 4; distinct centers on one side have a common neighbor exactly at distance 2. Thus equality on each side is a length-seven 1-perfect code, by radius-one ball size, and the punctured even/odd pair is unique relative to the stated coordinate. The two sides do not conflict. Every selected vertex has exactly one selected neighbor because a maximum packing partitions the whole cube by open neighborhoods; this induces a matching. A zero-containing perfect code has seven weight-three words covering each pair of coordinates once. Their Fano lines exclude 28 distinct four-subsets; coverage of the 28 other weight-three words forces the seven line complements. A weight-five or weight-six vector is respectively at distance one or two from a line complement, leaving the all-ones word as the last codeword. The unique Fano plane up to labels has 7!/168=30 labels, and the corresponding parity-check kernels each have eight cosets. Thus there are 240 possible codes per side. For affine codes a+U,b+V, the edges in a direction count an affine intersection (shift by one punctured basis vector, or no shift for the appended direction), so each nonzero count is 2^dim(U∩V), with sum 16. The intersection consists of zero, all-ones and the weight-three/four complementary words associated to common lines; the allowed shared-line counts are 0,1,3,7. For fixed F, the zeroth, first, second binomial moments across F' are 30,42,42 (six planes per triple, two per intersecting pair), with one self-intersection. This gives frequencies 8,14,7,1; multiplying by 8 cosets and 240 first codes gives the profile table and identifies the 1920 one-direction fibers. Independently, python3 /tmp/opencode/q8_frozen_review_exact.py enumerated all 240 exact covers directly on the even half using 256-vertex neighbor bit masks, a deterministic uncovered-point choice, and every currently disjoint incident block. Translation by one coordinate produces all odd covers. Direct neighbor tests of all 57600 pairs reproduced 1920,13440,26880,15360 and confirmed the matching for each. The replay uses no Fano or perfect-code assumption; saturation proves its exhaustion of the maximum packings but it is not a claim about smaller packings or automorphism orbits. The frozen script/output were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The bipartite prism theorem establishes the scalar relation and a product-form maximum; the hypercube table gives 32. The injective-coloring theorem partitions Q8 into maximum open packings. Borges–Dejter's available abstract mentions complements through dimension 8 and Fano-plane edge partitions, but the actual convention and conclusions of the scanned paper could not be retrieved as readable text."
+        ],
+        "reasoning": "One product-form construction or a partition of the cube into optima cannot enumerate all maximizing subsets or describe their matching-direction multiplicities. The 1996 title/abstract is a plausible overlap, not a theorem comparison without the full statement.",
+        "searches": [
+          "Brešar–Klavžar–Rall arXiv:2309.04963 Theorem 2.2, Table 1",
+          "Brešar–Samadi–Yero arXiv:2106.09823 Theorem 19",
+          "Borges–Dejter JCMCC 20 (1996), 161–173"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2309.04963 Theorem 2.2 and Table 1",
+        "arXiv:2106.09823 Theorem 19 and definition",
+        "Livingston–Stout pp.1,7",
+        "Borges–Dejter 1996 (publisher abstract and full-text retrieval attempts)",
+        "Resultary d4fb72f17bca and 61054e3a0ae8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The product transformation takes an optimizer to a fiber-form one; it does not preserve or determine its individual directions. A perfect injective coloring uses some optimizers as classes but does not record how different parity codes intersect. The Fano plane and Hamming code constructions are classical inputs."
+        ],
+        "reasoning": "The direction count requires the affine intersection in each of the eight offsets and the overlap-dimension frequencies. Those are not supplied by the prior scalar theorem or existence of a partition; the source proofs checked give no automatic directional distribution.",
+        "searches": [
+          "arXiv:2309.04963 Theorem 2.2 proof, p.5 offset 11582",
+          "arXiv:2106.09823 definition p.13 and Theorem 19 p.17",
+          "Borges–Dejter publisher abstract and lawful PDF retrieval"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At 32 centers, total neighborhood size is 256, so a packing is an efficient open dominating set and equivalently a 2-coloring in which every vertex has exactly one neighbor in the selected color. A closed perfect dominating set imposes uniqueness including the vertex itself; Livingston–Stout use the closed convention (p.1) and the dimension-plus-one condition (Theorem 2.9). The additional focused lookup yielded no usable new comparison."
+        ],
+        "reasoning": "The open convention does allow adjacent selected vertices and does not reduce to a closed code in dimension eight. A census under the equivalent efficient-open or 2-coloring formulation would count, but a closed-ball existence result is on different objects.",
+        "searches": [
+          "Open packing, efficient open domination and total perfect codes in Q8; open versus closed perfect dominating sets",
+          "arXiv:2309.04963 p.9; Livingston–Stout Perfect Dominating Sets Theorem 2.9",
+          "Literature lookup for 8-cube total perfect codes and (1,7) perfect colorings with Fano direction counts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published table lists the Q8 scalar optimum, not an optimizer/profile count. The same-day neighbouring catalogue entries give an edge-open Q5 census of 80 and a Q5 fort/open packing scalar result, respectively."
+        ],
+        "reasoning": "Neither changes the vertex-set domain and dimension to the target while preserving the invariant. No exact profile table match was demonstrated in the inspected ranked results; this is not exhaustive evidence of absence.",
+        "searches": [
+          "Resultary eight cube maximum vertex-open packings, code pairing/profile; local semantic queries with limits 50 and 100",
+          "Resultary 2026/10/18/d4fb72f17bca and 61054e3a0ae8 Findings",
+          "arXiv:2309.04963 Table 1, p.9"
+        ]
+      },
+      "rationale": "The prior scalar 32, existence of a fiber-form optimum, and classical seven-bit perfect-code ingredients are not credited as original. The simple ordered-pair size product by itself is not the basis for the pass. The core distinction is the complete direction-resolved classification of optimum vertex subsets, including the exact sizes and relative frequencies of non-fiber profiles, furnished by connecting matching intersections with the Fano overlap moments. No inspected prior statement covered that classification or supplied that implication; one potentially relevant older paper remains uninspected in full.",
+      "residual_risks": [
+        "Borges–Dejter's actual dimension-eight statements and Fano constructions could not be read in the retrieved copies.",
+        "An earlier efficient-open-dominating or perfect-coloring classification under coding-theory terminology might be missed by these bounded comparisons; priority is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior scalar and product-form existence",
+          "evidence": "The proof replaces an optimizer by a product-form optimizer; 32 follows from a length-seven perfect code.",
+          "identifier_or_url": "https://arxiv.org/abs/2309.04963",
+          "material_read": "Theorem 2.2, p.5 offset 11582; Q8 discussion and Table 1, p.9 offset 21375",
+          "method": "OA PDF passages",
+          "title": "Packings in bipartite prisms and hypercubes",
+          "trigger": "Exact known Q8 scalar and prism structure"
+        },
+        {
+          "assessment": "Existence of certain collections, not the separate optimizer census",
+          "evidence": "A perfect injective coloring partitions into maximum open packing classes; Q_(2^k) has such a coloring.",
+          "identifier_or_url": "https://arxiv.org/abs/2106.09823",
+          "material_read": "p.13 offsets 47013–47442; p.17 offset 59129, Theorem 19",
+          "method": "OA PDF passages",
+          "title": "Injective coloring of graphs revisited",
+          "trigger": "Hyper­cube partitions by maximum open packings"
+        },
+        {
+          "assessment": "Closed-neighborhood result, not an efficient open domination census",
+          "evidence": "The definition demands unique coverage by closed neighborhoods; the distance-one existence condition is dimension plus one a power of two.",
+          "identifier_or_url": "Livingston and Stout, Congressus Numerantium 79 (1990), 187–203",
+          "material_read": "PDF p.1 offset 0 and p.7 offset 21450, Theorem 2.9",
+          "method": "OA PDF passages",
+          "title": "Perfect Dominating Sets",
+          "trigger": "Equivalent name hazard for open versus closed efficient domination"
+        },
+        {
+          "assessment": "Unresolved historical match, not a whole-document noncoverage finding",
+          "evidence": "Abstract mentions characterizing complements in low-dimensional cubes and Fano-plane edge partitions; the convention and exact count are not established from it.",
+          "identifier_or_url": "https://combinatorialpress.com/jcmcc-articles/volume-020/on-perfect-dominating-sets-in-hypercubes-and-their-complements/",
+          "material_read": "Publisher abstract only; not full text",
+          "method": "Publisher direct and VPN OA returned a non-text scan; different lawful PDF attempt returned 403",
+          "title": "On Perfect Dominating Sets in Hypercubes and Their Complements",
+          "trigger": "Potential old dimension-eight and Fano coverage"
+        },
+        {
+          "assessment": "Adjacent but different exact invariants",
+          "evidence": "The first counts edge sets in Q5, not vertex sets in Q8. The second reports Q5 fort and vertex-open packing numbers, not the target classification.",
+          "identifier_or_url": "Resultary 2026/10/18/d4fb72f17bca and 61054e3a0ae8",
+          "material_read": "Findings at mirror offsets 249 and 269, respectively",
+          "method": "Local mirror passages",
+          "title": "Parity-split Hamming stars improve hypercube edge-open packing; Five disjoint forts in the five-cube and the first strict open packing bound",
+          "trigger": "Same-day hypercube/open packing catalogue comparands"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The cube coordinates give a natural invariant of an induced matching, with sorted profiles unchanged by cube automorphisms. The profile classification distinguishes the known fiber optima from the much larger non-fiber population and shows that all active directions carry equal multiplicity, with only four possible support sizes. These exact counts answer which extremizers can occur in a natural optimum problem, and the affine-intersection explanation makes this a structural finite classification rather than a recalculation of the scalar bound or a census without a reason for its statistic.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

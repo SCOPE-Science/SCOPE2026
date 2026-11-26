@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,6 +21,6 @@
 
 # Verification checks and limits
 
-The arithmetic and finite semigroup checks can be reproduced with `python3 verify.py` from the same folder. It uses no external packages, constructs all fixed-point singular transformations as tuples, enumerates every nonroot tournament for \(n=4\) and \(n=5\), independently tests strong connectivity, computes right-composition closure, and verifies the cardinalities and complete-tournament criterion. It also checks the four-arrow case \(n=3\), the unique singular map at \(n=2\), the cyclic tournament construction at \(n=6\), and the strong-tournament recurrence through six vertices. The recorded output is in `VERIFY_OUTPUT.txt`.
+`python3 verify.py` constructs all pointed singular transformations at the tested sizes, checks the arc-based criterion on all nonroot tournaments at \(n=4,5\), checks the cyclic strong tournament at \(n=6\), and tests the small idempotent examples and the strong-tournament recurrence. Its recorded output is in `VERIFY_OUTPUT.txt`; it does not test the ordinary rank at \(n=3\).
 
-The proof of the universal statement is the rank/kernel and factorization argument given in `RESULT.md`. The classical Howie criterion that strong tournaments generate the full singular transformation semigroup is a published theorem and is cited there. The finite computation is a consistency test, not a proof at arbitrary \(n\). Historical priority remains provisional where source access was incomplete; no independent audit is asserted.
+`python3 verify_n3.py` enumerates all seven singular maps fixing \(0\) on three points, tests closure of candidate generating subsets, and checks the explicit ordinary three-generator witness from `RESULT.md`. It reports ordinary rank 3 and idempotent rank 4. Both programs use the Python standard library. The all-size theorem is proved by the kernel bound, pointed factorization and Howie's unpointed criterion; the finite computations verify only the cases they enumerate.

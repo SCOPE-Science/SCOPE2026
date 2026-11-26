@@ -1,20 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS (same-model).** The theorem is limited to two explicit nonempty local open wedges. At the fold parameters the host exponent is exactly \(-\delta^2/(B+\delta)\), giving the inverse-time host clock. The diagonalizing transverse variable \(v=x-2-\beta\delta\) makes its two-step composition equal to \(v+2Kv/t-v^3/3+O(t^{-5/2})\) on bounded positive squared-amplitude annuli. The resulting logistic-type recurrence for \(w=tv^2\) has a strictly inward trapping interval and a contracting squared-error inequality. This provides an infinite-time proof, not merely an asymptotic series or numerical conjecture. `verify.py` checks the critical symbolic cancellations and four diagnostics.
+PASS
 
-## Originality
+The exact host exponent is −δ²/(B+δ); for sufficiently small δ>0 the next δ is positive and smaller, with δ′=δ−δ²/C+O(δ³). Consequently the exact clock t=C/δ diverges with one-step increment 1+O(1/t), hence t/n→1. Analyticity gives d_n=p_n−p_(n+1)=O(t⁻²) and d_(n+1)−d_n=O(t⁻³). In v=x−2−p the map is h_p(v)+d_n with h_p(v)=(2+p+v)e^(−v)−2−p. The forcing residual over two steps is d_(n+1)−d_n plus O(t⁻²|v|+t⁻³), since ∂p h=O(v) and ∂v h=−1+O(p+|v|). Independent composition gives quadratic coefficient p²(1+p)/2, cubic −1/3+O(p), and quartic O(p); the remainder is uniform on a bounded t v² annulus. Thus w=t v² obeys w′′=w+2w(W*−w)/(3t)+O(t⁻²). Fixed strips near each endpoint have strict inward increments for large t, and the uniform O(1/t) increment cannot leave from the interior. Even-step signs persist and squared error contracts by 1−4w_min/(3t) up to O(t⁻²); divergent total contraction and summable error imply w→W*. Odd/even v ratio tends to −1, while p=O(1/n) is negligible. Both wedges are nonempty and have positive x for sufficiently small initial δ. This yields exactly the original-iteration constants and the two signed limits.
 
-**PASS within inspected evidence.** The 2023 source studies the same exact model and explicitly lists the simultaneous positive fold–flip case as future work. It gives neither the coupled original-time amplitude coefficient nor an attracting annulus proof. The 2024 nonlinear-harvesting paper studies a different map with fold–flip bifurcation curves and a normal form; those do not imply a long-time law for this triangular commensal map. Indexed results on critical Ricker and two-component ecological relaxation concern other dynamical systems; agreement in the exponent alone is not statement coverage. Accessible previous claims in the relevant research ledger show no same-map/source or theorem overlap. An unindexed theorem or a general parabolic skew-product result containing this coefficient remains a residual risk; a search is not a proof of priority.
+## originality
 
-## Value
+PASS
 
-**PASS.** The motivating mathematical gap is the simultaneous neutral \(+1\) and \(-1\) dynamics left untreated in the originating paper. The host and commensal coordinates have different critical rates, and a slowly vanishing positive coupling changes the leading oscillatory constant, not only a lower-order correction. The sharp parameter-dependent coefficient is an original-time invariant quantity for two open phase sectors. It measures a natural, dynamically observable response at a codimension-two point; it is not merely a restatement of eigenvalues or a generic normal-form exponent.
+The neutral multipliers and autonomous inverse-square-root rate are not credited as new. The assessed distinction is the signed original-time amplitude 3(1+2βC) on the two accessible phase sectors of the same positive commensalism fold–flip, combined with the exact host clock. No inspected theorem entails this pair of limits.
 
-## Boundaries and source evidence
+## value
 
-The proof does not classify all initial states, the exact exceptional separatrix, global attraction, or parameter detuning. The originating 2023 full-text HTML sections 2–3 and conclusion were inspected; the 2024 *Mathematics* article's defining equations and fold–flip section were inspected.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This resolves a precisely motivated local dynamical question in the originating model. At the codimension-two point a host mode decaying like 1/n changes the leading flip amplitude, despite the forcing itself being smaller than the observed oscillation. The original-time constants and both open phase sectors provide information not contained in the linear bifurcation classification.
 
+The dated certificate retains the supplied scientific assessment, sources and limitations.

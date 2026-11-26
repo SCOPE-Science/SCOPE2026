@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The ordered-time four-point cumulant of the symmetric telegraph process equals \(-2e^{-2\gamma[(u_3-u_1)+(u_4-u_2)]}\); permutation symmetry gives the exact factor \(-48v_0^4/\Gamma(n)^4\). In gap coordinates the exponential factor is \(e^{-2\gamma(x+2y+z)}\), whose total mass is \(1/(16\gamma^3)\). Local integrability is guaranteed by \(n>0\). The large-base-point integrand is \(s^{4n-4}/(16\gamma^3)\), with a controlled \(O(s^{-1})\) relative remainder. Integrability changes precisely at \(n=3/4\), giving the finite, logarithmic, and power regimes with exact coefficients. The variance calculation independently gives the stated standardized rates. The numerical checker passed 156 deterministic assertions, supplementary to the proof.
+PASS
 
-## Originality — PASS (best-knowledge literature comparison)
+Reversibility identifies the one-time law with the forward power-weighted integral. At four ordered times the sign-increment parity gives the adjacent-pair product as the fourth moment; subtracting the three pairings cancels that one and leaves twice the negative of either crossing pairing. The cumulant prefactor is consequently −2·4! v₀⁴/Γ(n)⁴. Write the three gaps as x,y,z and the base time as s. The gap kernel e^{−2γ(x+2y+z)} has total mass 1/(16γ³). After factoring s^{4n−4}, expansion of ∏(1+partial gap sum/s)^{n−1} has a gap-integrated O(1/s) error by the mean-value theorem with a polynomial gap majorant. Local ordered integrability follows from n>0 and the exponential controls remote gaps. For n≥1, on the excluded strip s+x+y+z≥t, its s-width is at most x+y+z, and the power product is bounded by t^{4n−4}(1+x+y+z)^{4n−4} for t≥1; the resulting error is O(t^{4n−4}). For n<1 use s≥t/2 for the same power bound and strip width; for s<t/2 use x+y+z≥t/2 and peel off an exponential tail, retaining an integrable weight locally and at most polynomial growth in t. Thus the finite-time truncation cannot alter the leading cumulative tail, and at n=3/4 the remainder is bounded. Integrating s^{4n−4} gives the exact finite negative limit, critical logarithm, and power regimes and their amplitudes. The variance repeats the argument with two times and mass 2∫₀∞e^{−2γx}dx=1/γ, yielding its 1/2 boundary and all five excess-kurtosis limits/rates. In particular Γ(1/2)^2=π and (2n−1)^2=1/4 at n=3/4, giving the stated critical prefactors.
 
-The principal exact-family paper (Dean–Majumdar–Schawe, arXiv:2009.01487, full text examined) covers the \(n=1/2\) variance threshold, general distribution tails and special-order generating functions, not the all-order fourth-cumulant transition at \(n=3/4\). Santra–Ajgaonkar–Basu, arXiv:2304.11378, examines the integer acceleration case; it neither states nor subsumes this fractional-index transition. Existing positive-filter telegraph cumulant literature already implies strict negativity; the result **does not** claim that sign as new. The distinct object of originality is the sharp bounded/logarithmic/divergent absolute fourth-cumulant classification and its universal amplitudes, which is not an immediate stated consequence of the previously published variance result. Risk: equivalent unindexed applications of connected-correlation expansions may exist; no exhaustive publication-priority assertion is made.
+## originality
 
-## Value — PASS
+PASS
 
-The source identifies a localization threshold via second moments. Here the fourth cumulant remains finite through a strictly larger index interval and develops a second exact singular boundary at \(n=3/4\). This makes a physically motivated distinction between width growth and non-Gaussian fluctuation-amplitude growth; the critical logarithm and universal kurtosis coefficients give measurable diagnostics beyond an isolated numerical evaluation or restatement of general cumulant negativity.
+The supported distinction is the all-real-order fourth-cumulant threshold, exact amplitudes and standardized rates, not the telegraph model, its variance localization, filtered-cumulant negativity, or previously solved integer-order examples. Available exact-family and catalogue statements do not supply the all-index tail classification. Primary passage access was incomplete and an older direct general asymptotic specialization remains possible.
 
-## Scope and verification limits
+## value
 
-All claims concern fixed positive \(n\), \(\gamma\), and \(v_0\) with a symmetric stationary telegraph sign. The finite tests cannot certify statements at infinitely many times. Inaccessible or unindexed literature remains a possible priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The same physically motivated family has a gap between width delocalization and divergence of the connected fourth moment. The exact n=3/4 threshold, including its logarithmic coefficient and the change in kurtosis rates, resolves that distinction quantitatively and gives benchmarks for non-Gaussian corrections. Negativity alone would not provide these rates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

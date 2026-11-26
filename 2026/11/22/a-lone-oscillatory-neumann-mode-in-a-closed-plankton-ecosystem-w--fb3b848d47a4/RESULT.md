@@ -4,7 +4,7 @@
 
 For the four-compartment closed nutrient–phytoplankton–zooplankton–detritus reaction–diffusion model, a strictly positive coexistence equilibrium can be stable within its fixed-total-biomass homogeneous state space, yet have **exactly one unstable nonconstant Neumann harmonic**, caused by a **nonreal conjugate eigenpair**, while the constant coefficient of every positive-wavenumber dispersion polynomial stays strictly positive. This occurs when only nutrient diffusion differs from the three identical other diffusion coefficients. A fully rational certificate establishes all infinitely many mode conclusions.
 
-Specifically, on \(0\leq x\leq2\pi\), with homogeneous Neumann boundaries, use \(\nu=22\), \(g=2\), \(\lambda=\delta=1\), \(\alpha=2\), and diffusivities \((d_N,d_P,d_Z,d_D)=(20,1,1,1)\). At total biomass \(35/2\), the equilibrium \((N_*,P_*,Z_*,D_*)=(1,1,10,11/2)\) has stable spatially homogeneous perturbations preserving total biomass; the harmonic \(\cos(x)\) alone has two unstable temporal exponents, which form a nonreal conjugate pair. The harmonics \(\cos(nx/2)\), for every integer \(n=1\) and \(n\geq3\), have all temporal exponents in the open left half-plane. Further, the characteristic determinant of the linearized Fourier matrix is strictly positive at *every* positive continuous squared wavenumber.
+Specifically, on \(0\leq x\leq2\pi\), with homogeneous Neumann boundaries, use \(\nu=22\), \(g=2\), \(\lambda=\delta=1\), \(\alpha=2\), and diffusivities \((d_N,d_P,d_Z,d_D)=(20,1,1,1)\). At integrated total biomass \(35\pi\) (spatial mean biomass density \(35/2\)), the equilibrium \((N_*,P_*,Z_*,D_*)=(1,1,10,11/2)\) has stable spatially homogeneous perturbations preserving total biomass; the harmonic \(\cos(x)\) alone has two unstable temporal exponents, which form a nonreal conjugate pair. The harmonics \(\cos(nx/2)\) for \(n=1\) or integers \(n\geq3\) have all temporal exponents in the open left half-plane. Further, the characteristic determinant of the linearized Fourier matrix is strictly positive at *every* positive continuous squared wavenumber.
 
 ## Assumptions and scope
 
@@ -19,7 +19,7 @@ Let \(N,P,Z,D\) be nonnegative densities of dissolved nutrient, phytoplankton, z
 \end{aligned}
 \]
 
-The spatial domain is \([0,2\pi]\) with no-flux conditions at each endpoint. The total biomass \(\int_0^{2\pi}(N+P+Z+D)\,dx\) is conserved. For the particular rates given in the finding, substitution shows that \((1,1,10,11/2)\) is a positive constant equilibrium. Its density sum is \(35/2\). Stability statements here concern the **spectrum of the linearization**; for the constant harmonic only, the invariant fixed-total-biomass tangent space is used to remove the conservation eigenvalue. No claim is made about nonlinear patterns, periodic solutions, or the viability of the chosen rates for a particular field ecosystem.
+The spatial domain is \([0,2\pi]\) with no-flux conditions at each endpoint. The total biomass \(\int_0^{2\pi}(N+P+Z+D)\,dx\) is conserved. For the particular rates given in the finding, substitution shows that \((1,1,10,11/2)\) is a positive constant equilibrium. Its density sum is \(35/2\), so the conserved integral at this state is \(2\pi(35/2)=35\pi\). Stability statements here concern the **spectrum of the linearization**; for the constant harmonic only, the invariant fixed-total-biomass tangent space is used to remove the conservation eigenvalue. Every nonconstant Neumann harmonic already has zero spatial integral. No claim is made about nonlinear patterns, periodic solutions, or the viability of the chosen rates for a particular field ecosystem.
 
 ## Proof
 
@@ -53,7 +53,7 @@ For \(q>0\), \(b_0(q)>0\): the cubic in its parenthesis has discriminant \(-5523
 \det(sI-J)=s\bigl(s^3+(5/2)s^2+39s+185/2\bigr).
 \]
 
-The zero root is the conserved-total-mass direction. The cubic is Hurwitz: its three positive coefficients satisfy \((5/2)\cdot39>185/2\), the strict cubic Routh–Hurwitz inequality. Thus all eigenvalues tangent to the fixed-total-biomass homogeneous state space have negative real parts.
+Conservation gives \((1,1,1,1)J=0\). The sum-zero hyperplane is invariant and the induced map on its one-dimensional quotient is zero. Since the zero root is simple, the characteristic polynomial of the restriction to the hyperplane is exactly the cubic factor. Its three positive coefficients satisfy \((5/2)\cdot39>185/2\), the strict cubic Routh–Hurwitz inequality. Thus the fixed-total-biomass homogeneous state space is linearly stable.
 
 **3. Exact quartic Routh–Hurwitz diagnostics.** Define
 

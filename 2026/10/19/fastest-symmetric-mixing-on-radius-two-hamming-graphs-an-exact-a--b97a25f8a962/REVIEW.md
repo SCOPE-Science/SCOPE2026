@@ -1,15 +1,21 @@
-# Scientific review: radius-two Hamming fastest mixing
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The global minimax statement follows by averaging arbitrary feasible symmetric stochastic kernels over alphabet and coordinate permutations, which does not increase the centered spectral norm. The exact spectrum on the reduced two-orbit family follows from character sums on a cyclic alphabet: the nontrivial degree-\(k\) modes have two explicitly computed Krawtchouk coefficients. For three coordinates, quadratic interpolation supplies a universal \(1/7\) lower certificate, and nonnegative equality allocations exist exactly at alphabet sizes two through four; an independent first-mode bound settles larger alphabets. For higher dimensions, a first-mode certificate is attained by one- or two-orbit formulas after checking every remaining mode. The binary and nonbinary cases require different minimax signs, and the proof verifies them separately. The formulas are algebraically valid at each transition and at the smallest dimensions. A standalone exact-rational checker and independent linear programs passed 5,172 assertions. Generality rests on the analytic argument, not extrapolation.
+PASS
 
-## Originality — PASS, with residual risk
+Averaging the conjugates over coordinate and alphabet permutations preserves all constraints and cannot increase the norm, so the orbit-invariant optimum is global. Tensor characters with k nontrivial factors give normalized eigenvalues by averaging a product of one or two factors chosen from d-k copies of 1 and k copies of -1/u. The resulting spectrum includes every nonconstant mode. For d=2 uniform on all vertices is feasible and unique. For d=3 the quadratic identity 1=3λ1-3λ2+λ3 gives μ≥1/7 with unique equality contacts (1,-1,1)/7, and the corresponding masses are feasible through q=4. For q≥5, λ1≥1-2q/(3u)>0, with equality only at b=1, and the two remaining absolute eigenvalues (2u-1)/(3u²) and 1/u² are smaller. For binary d≥4, λ1≥1-4/d+2a/d and λd=1-2a; intersecting the bounds gives the unique invariant candidate and the centered quadratic λk shows that no intermediate negative eigenvalue exceeds the contact modulus. For nonbinary d≥4, λ1≥1-2q/(du)>0 with equality only at b=1. At b=1 the convex quadratic has maximum at an endpoint and F2(d)=1/u²≤F2(1). Its minimum is bounded below by -1/(d-1) via the square-minus-squares form for d≥5; the listed four values verify the d=4 cases, including the tie when q=3. Radius-one endpoint balancing gives exactly half the optimal absolute spectral gap, with averaging valid there as well. Phase statements are understood in the indicated invariant family, not as a claim that every unrestricted optimizer is uniform.
 
-The closest full-text work is Boyd–Diaconis–Parrilo–Xiao, arXiv:0709.0955, whose Sections 2–3 establish global symmetry averaging and the fastest-mixing solutions for *distance-one* Hamming graphs. Their general convex formulation gives a way to **compute** a solution to the enlarged two-orbit problem, but not the explicit two-orbit phase diagram, adjacent three-coordinate alphabet thresholds, or global factor-two spectral-gap law. Earlier Boyd–Diaconis–Xiao provides the unrestricted spectral-norm optimization framework, not these formulas. Karlin–Lindqvist–Yao (1993) directly treats Hamming-cutoff hypercube walks and hence is an important possible equivalent source. Its accessible abstract describes fixed-walk spectra and majorization; the full paper was unavailable and an unindexed exact optimization cannot be excluded. Search absence is not treated as proof of originality; the novelty assessment is a statement-and-implication comparison at best-known accessible coverage.
+## originality
 
-## Value — PASS
+PASS
 
-Selecting between one-coordinate changes, two-coordinate changes, and waiting is a natural mixing-design problem on a ubiquitous family of product-state networks. The result completely classifies an infinite two-parameter family under unrestricted edge assignment rather than selecting a numerical instance. The smallest nonsaturated dimensions have two adjacent genuine allocation transitions, and beyond them the global optimizer is strikingly simple: uniform distance-one-plus-two edges for binary alphabets, only distance-two edges for nonbinary alphabets. The exact spectral-gap doubling for every large enough dimension is a substantial quantitative gain that is not obtained merely by restating the general convex formulation. Computational costs per move and finite-time total-variation objectives are outside scope.
+Credit the standard FMMC formulation, automorphism averaging, Hamming spectra, radius-one baseline, trivial complete-graph case, and the binary reduction to the known edge-transitive formula. The scientifically distinct part supported by this review is the nonbinary radius-two minimax phase diagram and its gap consequence, within the complete classification. The materially matching later catalog records are explicit overlap, not proof of prior coverage of the October finding.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Allowing the next Hamming radius is a natural change to a canonical mixing graph. The exact minimax result identifies which transitions and holding are beneficial and quantifies the SLEM-gap gain. In three dimensions the interpolation contacts and feasibility cutoff explain why distance-one moves and then holding disappear at different alphabet sizes. That boundary information is not a trivial restatement of symmetry or of the existing distance-one optimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:12:36.394485Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 5–77",
+        "VERIFICATION.md and verify.py, inspected, not executed"
+      ],
+      "rationale": "The common factor 1/s changing discounted transforms to the specified s^(n-1) cycle weights cancels in Q=F_0/(F_0+F_a). Tridiagonal cofactors give odds C s^(2z-a) D_right/D_left: the product of steps to each endpoint pairs with the continuant on the opposite side. Every restricted transient transition matrix has spectral radius below one (uniformly positive chance of exiting its finite interval in bounded time); it is similar to a symmetric bipartite matrix. Thus continuants are positive products of 1-lambda²s² on [0,1], and nonincreasing. Reflect to z<=a/2; off-center for a<=6 this gives z<=2, D_left=1, and a strictly decreasing power factor. At the midpoint only constant odds (a=2,4) or a ratio of two linear factors in s² (a=6) occur. At a=7 the only new sites are 3 and 4. At z=3 the derivative sign is N(t)=-1+(3b-A)t-Abt², t=s². It is negative if b<=A, since N(t)=-(1-bt)²+(b-A)t(1+bt); otherwise N'(t)>0 on [0,1]. The unique interior minimum occurs precisely when N(1)>0; equality is only an endpoint stationary point. The smaller quadratic root gives the stated s_*. Reflection exchanges exit sides and gives a maximum, not a second minimum. Substitution of the exact witness gives b=16/25, A=1/2, C=32/25, Q(1)=16/25 and the claimed radical. Its reevaluated numerical values are s_*=0.9369685842877506 and Q(s_*)=0.6362752323028685.",
+      "residual_risks": [
+        "The recorded finite checks are supplementary; universal exclusion is proved by the continuant argument. The conclusion is for the indicated exit-side convention, not absorption time or arbitrary reset clocks."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Newton and Vega Coso explicitly leave classification of interior reset extrema open in section 10.3. Vega Coso's midpoint theorem assumes homogeneous jump probabilities. The larger-size threshold excludes two extrema, not one."
+        ],
+        "reasoning": "A general formula and sufficient monotonicity tests are useful ingredients but do not supply the stated inhomogeneous finite-size exclusion and sharp iff criterion. Homogeneity does not imply the arbitrary-environment conclusion.",
+        "searches": [
+          "Newton and Vega Coso, arXiv:2611.01756v1",
+          "Vega Coso, arXiv:2603.24803v1",
+          "Resultary b7682f792857, two-extrema threshold"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.01756v1; arXiv:2603.24803v1; arXiv:2208.10220",
+        "Resultary records 3aea3b6fb9ce, b7682f792857, f112d06fb3f2 and 581750305912"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Weighted renewal and the single-target Gillis walk address different conclusions. The two-extrema theorem gives a bound on pairwise multiplicity, compatible with a lower threshold for one."
+        ],
+        "reasoning": "Even a proven twelve-state minimum for two cannot exclude one at seven states or furnish the necessary and sufficient inequality for the eight-state response. The frozen result uses standard continuants for a different sharp classification.",
+        "searches": [
+          "Newton and Vega Coso, Appendix A.1 and section 10.3",
+          "Resultary b7682f792857, Finding and Relationship to prior work",
+          "Radice, arXiv:2208.10220, abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The renewal framework compares the same type of exit observable. Section 7.6 studies temporal reversals of exact-time conditional exit ratios on an a=12 example, not extrema as s varies."
+        ],
+        "reasoning": "Seven edges mean eight total states; survival s and reset probability 1-s describe the same extrema. Exact-time reversals are not the same observable as extrema of the reset-weighted average.",
+        "searches": [
+          "Resultary: geometric reset splitting probability, birth–death, eight vertices and turning points",
+          "Newton and Vega Coso, arXiv:2611.01756v1, sections 7 and 10.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "3aea3b6fb9ce is the frozen result itself. The distinct exact witnesses cover twelve states with two extrema and seventeen states with at least three. The twelve-state threshold record's Relationship to prior work, offset 9370, mentions an eight-state example without giving an independent identification or its parameter classification."
+        ],
+        "reasoning": "An example with more extrema does not provide the minimal size or exact witness for one; an unassigned reference to an eight-state example is not an independently identified exact entry.",
+        "searches": [
+          "Resultary matches 3aea3b6fb9ce, f112d06fb3f2, b7682f792857 and 581750305912"
+        ]
+      },
+      "rationale": "The renewal identity and resolvent tools are prior. The inspected sources do not establish the sharp minimum of eight total vertices for one interior optimum together with the complete size-eight environment criterion. The strongest distinct same-day records treat two or more extrema; one explicitly mentions an eight-state example, but that mention does not identify an independent source for the full frozen classification. No chronology is inferred from a shared date.",
+      "residual_risks": [
+        "A public lookup returned irrelevant results, not evidence of absence. Earlier or unindexed finite-state classifications are not excluded.",
+        "The unnamed eight-state witness mention and same-day metadata cannot settle historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Overlapping framework, different example and open classification",
+          "evidence": "Renewal weighted average; temporal sign reversals for a=12, z=5; asks when interior reset extrema arise.",
+          "identifier_or_url": "https://arxiv.org/html/2611.01756v1",
+          "material_read": "Appendix A.1, section 7.6 and Corollary 7.9; section 10.3",
+          "method": "Bounded open full-text passages",
+          "title": "Stochastic Orders of the Exit Pair and the Monotone Response to Resetting",
+          "trigger": "General discrete exit-pair reset framework"
+        },
+        {
+          "assessment": "Homogeneous theorem outside the decisive arbitrary-environment comparison",
+          "evidence": "At an even-path midpoint gives the s-independent ratio (q/p)^(a/2)/(1+(q/p)^(a/2)).",
+          "identifier_or_url": "https://arxiv.org/html/2603.24803v1",
+          "material_read": "Section IV, Theorem 3 (around OA offset 41200)",
+          "method": "Bounded open full-text passage",
+          "title": "Critical Spectral Invariants in Random Walks with Geometric Resetting",
+          "trigger": "Exact splitting results with geometric resetting"
+        },
+        {
+          "assessment": "Distinct quantifier on number of extrema; witness orientation in that separate record was not adjudicated here",
+          "evidence": "Two-extrema threshold and attribution of unnamed eight-state one-extremum example; no independent eight-state classification there.",
+          "identifier_or_url": "2026/11/22/SCOPE-twelve-states-are-the-sharp-threshold-for-two-geometric-reset-sp--b7682f792857",
+          "material_read": "Finding, cofactor identity, Relationship to prior work (offset 9370)",
+          "method": "Bounded local Resultary mirror passages",
+          "title": "Twelve states are the sharp threshold for two geometric-reset splitting extrema",
+          "trigger": "Strongest distinct indexed minimum-size theorem in the same model"
+        },
+        {
+          "assessment": "No one-extremum minimality",
+          "evidence": "A specified twelve-state environment realizes two extrema.",
+          "identifier_or_url": "2026/11/22/SCOPE-two-strict-reset-rate-turning-points-in-a-finite-birth-death-spl--f112d06fb3f2",
+          "material_read": "Finding and rational witness",
+          "method": "Local Resultary mirror passage",
+          "title": "Two strict reset-rate turning points in a finite birth–death splitting probability",
+          "trigger": "Distinct exact example for the same reset observable"
+        },
+        {
+          "assessment": "Separate existence question",
+          "evidence": "At least three extrema, without claiming minimality.",
+          "identifier_or_url": "2026/11/22/SCOPE-three-interior-reversals-of-geometric-reset-absorption-in-a-17-s--581750305912",
+          "material_read": "Finding",
+          "method": "Local Resultary mirror passage",
+          "title": "Three interior reversals of geometric-reset absorption in a 17-state path",
+          "trigger": "Indexed higher-extrema existence result"
+        },
+        {
+          "assessment": "Different first-passage target and objective",
+          "evidence": "Gillis model one-target passage and mean hitting times.",
+          "identifier_or_url": "https://arxiv.org/pdf/2208.10220",
+          "material_read": "Abstract, p. 1",
+          "method": "Open PDF passage",
+          "title": "Non-homogeneous random walks with stochastic resetting",
+          "trigger": "Inhomogeneous reset walks"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and proof of sharpness",
+        "Newton and Vega Coso, section 10.3"
+      ],
+      "rationale": "This resolves a minimal nonmonotonicity question for the natural endpoint observable under geometric restarting, within the broader open classification for arbitrary birth–death environments. It gives both universal exclusion below the threshold and the exact phase boundary for all environments at the first size; the rational witness is not an isolated numerical optimization.",
+      "residual_risks": [
+        "No general classification for larger paths or non-geometric clocks is implied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

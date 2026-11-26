@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-An exhaustive graph-independent implementation of the finite combinatorial definition constructs all 282 disconnected quadruples and all 559 dual simplices. Its deterministic 125 elementary free-face collapses are individually validated, after which signed integral boundary matrices have exact Smith forms with only unit nonzero factors of ranks 11, 55, and 80. Integral duality yields the reported free homology ranks in degrees six and seven; independent full-complex finite-field ranks agree. This is exhaustive for the fixed graph, not an extrapolation.
+## correctness
 
-## Originality: PASS (inspected evidence)
-Direct record searches using the Chvátal name, fourth cut parameter, exact ranks and Alexander dual find the already reported third cut but not the fourth. Full-text comparison of the 2023 foundational cut-complex paper and the 2024 sequel finds no treatment of this graph and parameter. The published Chvátal third-cut result differs mathematically: it computes a two-torsion Moore space at a different cutoff. The broader girth-at-least-five four-cut theorem cannot cover the Chvátal graph, whose girth is four. No stronger direct or equivalent formula was found; unindexed results remain a priority risk.
+PASS
 
-## Value: PASS
-This is a natural, previously unclassified adjacent cut parameter for the smallest four-regular triangle-free four-chromatic graph. Exact integral Smith calculations demonstrate a substantive topological contrast: two-torsion at the three-cut threshold versus eight independent torsion-free classes in each of two degrees at the four-cut threshold. The non-top classes also obstruct shellability. The computation resolves a natural finite boundary, rather than an arbitrary graph-label slice.
+The posted NetworkX generator edge list agrees with the 24 edges in the supplied verify.py. For the ordinary cut complex, σ fails to be in the dual exactly when V\σ is a face of Δ_4, i.e. when σ contains a disconnected four-set. Independently checked all quadruples by testing proper bipartitions, then listed every face of the full uncollapsed dual. Replay: python /workspace/audit-evidence/frozen4.py. This finds 282 disconnected quadruples and dual face vector (12,66,220,213,48), with no higher face. On the full signed boundaries, integer unit row/column splitting gives Smith forms with only unit nonzero entries and ranks (11,55,157,48); the code tests that the residual matrix after the unit pivots vanishes and verifies consecutive compositions are zero. Thus each boundary image is primitive in its target chain group; H_i embeds in the resulting torsion-free quotient of that chain group. Ranks in degrees 2 and 3 are 220−55−157=8 and 213−157−48=8, and other reduced ranks are zero. The frozen collapse-based script was inspected, not executed: its unique immediate coface and maximality tests are sufficient for the reported elementary-collapse approach, and the independent full-dual integer computation bypasses it. Integral UCT introduces no Ext term, so Alexander duality on twelve vertices places the two free groups in original degrees 9−2=7 and 9−3=6. All 282 original facets have size eight; H̃_6≠0 rules out pure shellability. This is not an identification of homotopy type or a map between cut parameters.
 
-## Limits
-The work determines integral homology and nonshellability, not the complete homotopy type; it makes no claim for all four-regular graphs or natural maps across thresholds. Reproducible code is not an independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct result is the complete integral ordinary four-cut homology on the standard Chvátal graph, notably two adjacent free groups of rank eight and no torsion. The same-graph three-cut Moore space, related four-cut computations, and conditional general four-cut theorems do not imply this invariant. In particular, the most relevant general result requires a complete 6-skeleton, whereas the computed dual has 48 faces of size five whose complements give absent size-seven faces. The comparison uses exact graph, parameter, and ordinary/total distinctions, not inference from absent keywords.
+
+## value
+
+PASS
+
+The standard Chvátal graph is already a test object for torsion in ordinary cut complexes. Its next cut parameter is a natural point of comparison, is outside the available girth theorem, and gives a concrete benchmark with two nonzero free integral homology degrees rather than the nearby sphere-wedge pattern or three-cut torsion. The exact integer computation also settles nonshellability; this is a meaningful invariant for this named graph, not a proposed persistence trend.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

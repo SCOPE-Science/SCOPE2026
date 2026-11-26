@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The orbitwise necessary product identity follows by one-sided differentiation of the identity iterate. The converse solves the finite cyclic multiplicative difference equation, imposes a single global product-one condition by an orbitwise scalar, integrates a strictly positive step function into a circle homeomorphism, and applies the jump quotient identity. Every quantifier, including \(q\ge2\), coprime rotation numerator and finite \(K\), is covered. The sharp count spectrum follows from integer composition with part sizes \(2\) through \(q\). The rational checker passed 641 instances; the infinite result rests on the proof.
+## correctness
 
-## Originality
-**PASS on checked evidence, with residual bibliographic risk.** Glendinning–Ma–Montaldi prove the forward orbit-product restriction and conjugacy characterization, but the inspected full text does not include the inverse prescription for arbitrary positions and jumps on multiple rotation orbits or the count-spectrum equivalence. Adouani–Marzougui's earlier Lemma 2.2 constructs a piecewise-linear map with prescribed total-product-one jumps; this ingredient is credited, and that lemma alone does not create prescribed breaks of a conjugated order-\(q\) rotation. Combining the two known ingredients with the cyclic coboundary construction yields the precise new realization statement. More remote literature in class-P and affine circle actions may contain an equivalent formulation; an unrestricted priority claim is not made.
+PASS
 
-## Value
-**PASS.** The recent rigidity theorem gives constraints on how many periodic derivative breaks may occur on each orbit. The converse shows that there are no hidden geometric realizability constraints, classifies every attainable orbit multiplicity at once, and isolates the exact parity obstruction at period two. This complete inverse classification is useful when selecting admissible break-orbit combinatorics for parameter families. It is deliberately narrower than an analysis of those families' mode locking.
+The one-sided chain rule gives orbitwise cancellation by applying it to f^q=id. Conversely, on a chosen q-cycle the recursion λ_{i+1}=γ_i λ_i closes exactly when the γ product is one. A common factor P^(−1/q) on the first cycle preserves its ratios and changes the product of all λ values from P to one. Propagating positive slopes around the circle is then consistent even at the cut, and normalizing their integral gives a degree-one PL homeomorphism H. The conjugate f=HRH⁻¹ has J_f(H(y))=J_H(Ry)/J_H(y); off the union of selected cycles both factors are one, and on it the quotient is the prescribed γ. This includes nonunit support at precisely the selected positions, with positions understood in the rotation coordinate, not prescribed independently in physical space. A populated orbit needs at least two nonunit jumps and has at most q; every such size is attained by using r−1 jumps of 2 and one of 2^(1−r). Summing K sizes gives the entire interval 2K,…,qK. Twos and threes give every n≥2 for q≥3; q=2 gives only positive even totals. The omitted zero-break case is the rigid rotation. For the unrestricted necessity statement, an orientation-preserving finite-order circle map fixing a point is the identity (otherwise it moves monotonically under iteration on a cut interval). Thus every point of an order-q map has least period q.
 
-## Closest literature and limitations
-The fundamental orbit cancellation is Theorem 2.3 of arXiv:2505.13689, and prescribed jumps for an auxiliary conjugacy are classical (Lemma 2.2 of arXiv:1508.03549). These are explicitly not claimed as new. Numerical physical locations of breaks cannot be prescribed independently of the conjugacy. No independent bibliographic or scientific audit was conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is inverse realization for arbitrary orbit-coordinate jump data, together with exact support. The product-one invariant and the finite-jump construction for the conjugating map are known and credited. The closest prior conjugacy theorem is an iff for a map already specified; it does not construct a map with arbitrary given orbit data. No equivalent inverse statement was located in the inspected sources.
+
+## value
+
+PASS
+
+This answers a natural inverse question raised by the known cancellation condition: are there extra global constraints when exact break supports and all jump sizes on disjoint cycles are specified? Removing the distinct global compatibility obstruction without changing any prescribed quotient gives a family of exact witnesses for every allowed data set. It proves the sufficiency and sharp count spectrum, not just a new derivation of a necessary invariant or a check of a few low periods.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite-extension orbit correspondence is supported by Henson's homogeneity theorem and Conant's graph-type consistency criterion. With \(r=m-2\) new vertices, a forbidden clique must use all new vertices and exactly one old vertex from each of the two biclique parts. The counts of nonempty all-one incidence vectors multiply, producing the stated exact correction. The symbolic balancing difference is strictly positive for positive parts with difference at least two; symmetry gives injectivity of the recovered unordered pair. The proof covers all integer parameters and boundary cases. The standalone verifier independently tests forbidden cliques in 92 finite diagrams classes and 39600 inverse instances; finite checking is corroboration rather than proof.
+## correctness
 
-## Originality — PASS (historical priority provisional)
-The 1971 homogeneity theorem and 2014 type-admissibility criterion already characterize which finite diagrams occur, but do not state the first detecting arity or its numerical inverse reconstruction. The publicly indexed one-type polynomial result establishes the unary count and is credited. A maximal-multipartite two-type result has a different base clique number and only arity two; a higher-arity result concerns the triangle-free ambient structure. The present claim identifies and proves the first threshold where forbidden mixed cliques can see a nonmaximal two-part base for every \(m\ge4\). Searches found no equivalent inverse theorem. A hidden equivalence in unindexed combinatorial literature remains possible.
+PASS
 
-## Mathematical value — PASS
-The invariant has a natural logical meaning: the size of the smallest tuple whose complete-type **number**, not a marked diagram, distinguishes two named biclique parameter bases of equal order. The theorem determines this sharp arity for every forbidden-clique size, proves reconstruction at the threshold, and supplies exact adjacent-partition gaps. It isolates the transition from completely unrestricted incidence diagrams to detectable base geometry, rather than enumerating an arbitrary small example. The result is intentionally restricted to a natural test family; it does not claim a general classification of all parameter graphs.
+Every admissible finite graph diagram embeds in H_m by universality; homogeneity moves the embedded named base back onto A. An isomorphism fixing each named vertex and each corresponding tuple coordinate extends to an automorphism, so the full ordered injective types are exactly the labelled admissible diagrams, with no quotient by shore or tuple permutations. Since the old clique number is two, all diagrams are admissible with s<m−2, including the empty tuple. At r=m−2 a forbidden clique must use all r new vertices and an old adjacent pair, one from each part. It exists iff the new vertices form a clique and each old part contains a vertex with all-one incidence to the new clique. Counting incidence assignments on the two parts independently gives (q^a−h^a)(q^b−h^b); this counts a whole forbidden diagram once, regardless of how many old adjacent pairs witness it. Fix n from t_1=2^n (r>=2). Subtracting the corrections at (a+1,b−1) and (a,b) by expanding the cross terms gives (q−h)(qh)^a(q^(b−a−1)−h^(b−a−1)), strictly positive for b−a>=2 because q−h=1. Thus t_r strictly decreases along distinct steps toward balance. No shorter prefix separates K_{1,n−1} from K_{2,n−2} for n>=4; n=2,3 have unique positive unordered splits. The ambient is fixed throughout. Homogeneity makes every higher numerical count invariant under base isomorphism, with no canonical renaming required.
 
-## Closest literature and limitations
-Henson (1971) and Conant (2014) provide the model-theoretic diagram framework. The indexed one-type, maximal-multipartite two-type, and triangle-free higher-arity results supply different components of the surrounding literature; their stronger-sounding generic scopes do not give this same bipartition inverse theorem as a stated specialization. Potential unindexed earlier computations remain a residual originality risk. The theorem recovers only two positive part sizes and assumes the forbidden clique parameter is known.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is numerical recovery of the two positive part sizes at their first detecting tuple arity m−2, uniformly in fixed H_m, with exact spacing under balancing. Finite-extension admissibility, unary counts, and (for m>=5) the two-type invisibility of these bases have documented coverage. Same-day coverage of pieces does not order the records or give the later-arity correction and inverse result.
+
+## value
+
+PASS
+
+Numerical tuple-type totals are natural invariants of pointwise named finite bases, and a biclique is the first family here with fixed clique number two but varying internal geometry at a fixed size. The theorem determines precisely when that geometry first becomes detectable from totals alone, gives quantitative separation between successive unordered sizes, and proves uniform impossibility below the threshold. The benign low-arity formula itself is routine; the value is the exact inverse boundary and spacing, potentially useful when comparing or calibrating reconstruction from finite extension counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

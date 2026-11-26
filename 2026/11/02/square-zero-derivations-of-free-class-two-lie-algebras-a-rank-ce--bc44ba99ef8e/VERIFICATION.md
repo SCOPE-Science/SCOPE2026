@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility record
+# Independent mathematical audit
 
-The standalone source `check_square_zero_derivations.py` constructs the exterior-square derivation matrix over three fields using exact finite-field arithmetic, including a polynomial-basis realization of \(\mathbb F_4\). It tests \(A^2=0\), computes \(\rho(A)\) and \(\rho(A)^2\), calculates the rank of \(\rho(A)\), row-reduces the full system \(BA+\rho(A)B=0\), and compares its nullity with the theoretical exponent.
+## correctness
 
-All square-zero quotient matrices \(A\) were enumerated for \((n,q)=(2,2),(2,3),(2,4),(3,2),(3,3),(3,4),(4,2)\). Of these, the control cases \(n=2\) are not part of the novelty assertion. Every possible \(B\) was also directly enumerated for \((n,q)=(2,2),(2,3),(3,2)\), yielding respectively \(10\), \(33\), and \(1184\) square-zero derivations. The complete quotient-matrix enumeration for \((n,q)=(3,3),(3,4),(4,2)\) gives respectively \(44955\), \(584704\), and \(19357696\) after exact fiber counts. The rank-two branch in dimension four contributes \(210\cdot 2^{12}=860160\) over \(\mathbb F_2\), whereas the same rank-two quotient matrix makes the induced central square nonzero over \(\mathbb F_3\).
+PASS
 
-Execute `python3 check_square_zero_derivations.py` from the directory containing the embedded script; the last line should be `SQUARE_ZERO_FREE_TWO_STEP_DERIVATIONS_OK`. The exact output of the executed script is provided as `checker_output.txt`. No external package is required.
+Derivations preserve the derived ideal W and satisfy D|_W=ρ(A) by applying the ordinary derivation identity to [u,v]; every B:V→W is allowed at this stage. Squaring D gives A²=0, ρ(A)²=0 and BA+ρ(A)B=0. On decomposable wedges, after A²=0 the middle condition is precisely 2Au∧Av=0. This yields the stated obstruction in odd characteristic; in characteristic two B=0 realizes every rank of a square-zero A. In a Jordan-pair basis Ay_i=x_i, with a complement spanned by z_j, the images from Y∧Z, ∧²Y and X∧Y give independent spaces of dimensions r(n−2r), binom(r,2), binom(r,2), respectively. In particular the ∧²Y images x_i∧y_j−x_j∧y_i have distinct off-diagonal supports, including in characteristic two. The equation for B then lets one choose B(y_i) freely and B(z_j) in ker ρ(A), with B(x_i)=−ρ(A)B(y_i); the equations on x_i are automatic. The flag U=im A⊆K=ker A and invertible map V/K→U give the exact count and include r=0. For geometry the same flags and fiberwise invertible maps describe the reduced rank-r base, smooth and geometrically irreducible. The flag dimensions r(n−r)+r(n−2r) plus the open isomorphism fiber of dimension r² give 2r(n−r). Over that reduced base the B equation is a constant-rank map between trivial vector bundles; locally a maximal minor splits off the image, giving the claimed kernel bundle and reduced smooth stratum in each allowed characteristic. No property of the entire unreduced scheme follows. The frozen checker and recorded output were inspected, not executed; they report finite-field fiber tests and small exhaustive checks, not a general certificate.
 
-The mathematical theorem is proved by the normal-form, exterior-square rank, fiber and flag arguments in `RESULT.md`; the finite checks alone do not verify arbitrary rank, field or dimension. No statement is made concerning reducedness of the full equation scheme, component intersections, restricted derivations, or a review by a different mathematical reviewer.
+## originality
+
+PASS
+
+The derivation normal form and the general identity giving the odd-characteristic abelian-image obstruction are structural antecedents or standard consequences. The supported distinct result is the uniform census by rank of the quotient map (not total operator rank) and its reduced bundle strata on the free class-two family for n≥3, including the higher-rank characteristic-two fibers. The exact Heisenberg boundary, local-derivation theory and partially overlapping rank-one Nijenhuis operators do not supply this census.
+
+## value
+
+PASS
+
+The precise quotient-rank distribution in a natural family of derivation algebras distinguishes modular behavior not seen in the tangent-space dimension, and the smooth vector-bundle fibers explain the point counts geometrically. Already at n=4 a rank-two branch appears in characteristic two and is structurally excluded in odd characteristic. The result counts whole families over arbitrary finite fields, not just this boundary witness or a test table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

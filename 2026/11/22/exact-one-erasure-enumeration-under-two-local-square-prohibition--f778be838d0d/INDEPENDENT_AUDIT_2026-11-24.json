@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:32:17.245492Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–45 and VERIFICATION.md; verify_direct.py and verify_transfer.py inspected, not executed.",
+        "Independent reproduction: python3 /workspace/reproduction/check.py 2; stdout /workspace/reproduction/2.txt. Counts via simultaneous literal completions to H_42=33887840, binary determinant by principal minors, core/cycle and gcd checks, and high precision evaluation of rho and c."
+      ],
+      "rationale": "A forbidden window ending at an append has length four or six, so the last five characters and the used-hole bit suffice. Complement symmetry gives 16/40/16 states in the before/visible/forgotten blocks; initializing with actual valid prefixes avoids counting invalid suffix states. A hole-bearing suffix survives at most four further steps inside its block; configurations with the hole already forgotten use the same binary matrix Q as those before insertion. Thus the denominator divides det(I−zQ)^2, and with both binary resolvents the numerator degree is at most 5+15+15+1+4+1=41. Paths omitting a resolvent cost at most deg(D)=6 for its missing factor and do not increase the bound; the length<5 contribution has degree at most 16 after multiplication. Independent difference-bit states and principal-minor expansion gave det(I−zQ)=D. The pair-of-completions recurrence reproduces D²H through degree 42, including the entire asserted numerator and zeros above degree 18, enough by the degree bound. The binary graph has a single eight-state recurrent core, with cycles of lengths two and three and no other cyclic component; this gives the simple unique dominant Perron root. Exact polynomial gcd verifies noncancellation. The leading coefficient of the double pole is nonzero and must be positive by nonnegative counts and the strict gap to other poles. Extracting that pole gives the stated c and n factor.",
+      "residual_risks": [
+        "The finite coefficient test establishes the whole series only with the transfer degree bound; the asymptotic uses the dominant-pole argument. Decimal values are approximations to the exact algebraic expressions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The one-hole factor-count bounds are 7n/2 and, for binary words, strictly less than 3n; they count distinct squares occurring in a single partial word, without restricting to the prescribed two periods.",
+          "The cyclic record's object is the no-hole periodic binary system under literal prohibitions."
+        ],
+        "reasoning": "The broad factor bounds do not count how many one-hole words have no occurrence in either prescribed length. The no-hole zeta counts closed walks, not positions of an interface that simultaneously permits both completions of a single hole.",
+        "searches": [
+          "Blanchet-Sadri–Mercaş, Thm. 2.4",
+          "Halava–Harju–Kärki, DOI 10.1051/ita/2010008, Thm. 3.5",
+          "Resultary cyclic zeta function under half-lengths 2 and 3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md Finding, scope and relationship to prior work; two primary partial-word papers and the strongest distinct local-mirror result above."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The zeta denominator includes D as a factor and yields the common growth rate. A hole must be counted using interface transitions between two copies of the binary transfer, and the resulting numerator and noncancellation do not appear in the cyclic statement."
+        ],
+        "reasoning": "Credit the shared exponential rate and standard finite-state technique. The linear prefactor with explicit c and the exact H_n require marked-interface data not carried by the no-hole determinant, and neither follows from the factor-count upper bounds.",
+        "searches": [
+          "Cyclic zeta mirror RESULT.md Finding",
+          "Primary theorems on the number of squares in one-hole words"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With one binary hole, a forbidden compatible factor means at least one of the two completions has a literal square at that window. Thus acceptance means both completions are accepted.",
+          "Equivalently H_n is an unordered Hamming-distance-one edge count inside the literal binary linear avoidance language; the hole position is the differing coordinate."
+        ],
+        "reasoning": "This exact universal-completion equivalence was used in the independent enumeration. Counts imposing only existence of a square-free completion, or counting completions instead of one edge, are not equivalent. No equivalent one-edge enumeration was established in the checked sources.",
+        "searches": [
+          "Resultary: one-hole/one-erasure partial words, compatible tandem squares of half-lengths 2 and 3",
+          "Blanchet-Sadri–Mercaş, DOI 10.1051/ita/2009019, compatibility definition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE-exact-one-erasure-enumeration-under-two-local-square-prohibition--f778be838d0d is the frozen record itself. The closest distinct mirror gives zeta=1/(D E), E=1+z²+z³−z⁴−z⁶, and periodic counts with base 1/rho and no linear prefactor."
+        ],
+        "reasoning": "Same half-lengths and D are substantive overlap, but periodic no-hole traces do not determine the one-hole linear counts or N. The equal publication day does not establish an order.",
+        "searches": [
+          "Resultary exact local-square and one-erasure enumeration queries",
+          "SCOPE-exact-cyclic-zeta-function-and-missing-primitive-periods-under-s--4c3beeb5d56e"
+        ]
+      },
+      "rationale": "The compatibility definition is prior, and the distinct cyclic result shares D and the growth base. The supported distinct result is the exact indexed one-hole linear enumerator with numerator N and squared denominator, and its positive double-pole prefactor. Neither bounds on factors in an individual partial word nor no-hole periodic counts give that statement.",
+      "residual_risks": [
+        "The broad web lookup returned irrelevant material and supplies no negative evidence. Unindexed equivalents, including enumerations of Hamming edges in the same avoidance language, remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior definition and related occurrence bounds",
+          "evidence": "Compatible halves define squares; 7n/2 bounds the number of distinct squares in any one-hole word, not the number of avoiding words.",
+          "identifier_or_url": "https://www.numdam.org/item/ITA_2009__43_4_767_0.pdf",
+          "material_read": "PDF abstract p. 1 text offset 455; Theorem 2.4 p. 7 offset 20034",
+          "method": "OA primary PDF text",
+          "title": "A note on the number of squares in a partial word with one hole",
+          "trigger": "Same one-hole compatible-square terminology"
+        },
+        {
+          "assessment": "Bound in the same general model on a different statistic",
+          "evidence": "Sq(w)<3n for binary one-hole partial words in the inspected theorem, not an enumerator or asymptotic for the stated avoidance language.",
+          "identifier_or_url": "https://www.numdam.org/item/ITA_2010__44_1_125_0.pdf",
+          "material_read": "PDF abstract p. 1 text offset 835; Theorem 3.5 p. 13 offset 38277",
+          "method": "OA primary PDF text",
+          "title": "On the number of squares in partial words",
+          "trigger": "Sharper directly related binary one-hole theorem"
+        },
+        {
+          "assessment": "Substantive polynomial and rate overlap, different counting object",
+          "evidence": "No-hole periodic binary counts under literal square bans give zeta 1/(D E) and base 1/rho, not the one-hole linear N/D² count or its prefactor.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-cyclic-zeta-function-and-missing-primitive-periods-under-s--4c3beeb5d56e",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary GitHub mirror",
+          "title": "Exact cyclic zeta function and missing primitive periods under square prohibitions",
+          "trigger": "Strongest distinct match, with identical two local periods and a shared polynomial factor"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–23 and 38–51; closest cyclic zeta Finding for the baseline comparison."
+      ],
+      "rationale": "This is an all-length count for one erasure under a fixed natural local constraint. It quantifies erasure tolerance under both possible fillings, gives exact finite counts, and shows that the marked location contributes a genuine linear prefactor without changing the exponential base. The result supplies information absent from no-hole periodic counts, not just a rerun of the binary zeta calculation.",
+      "residual_risks": [
+        "The theorem handles only these two forbidden half-lengths and one hole, not arbitrary squares, multiple erasures or circular words."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

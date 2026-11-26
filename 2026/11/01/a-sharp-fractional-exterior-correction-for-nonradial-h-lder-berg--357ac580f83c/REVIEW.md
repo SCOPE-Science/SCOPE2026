@@ -1,19 +1,21 @@
-# Scientific review: sharp Hölder Bergman exterior response
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The positive disk weight is explicitly Hölder of exponent \(\alpha\). Fourier-mode orthogonality gives a tridiagonal moment matrix with \(\gamma_n=2\varepsilon B(2n+2,1+\alpha+i\tau)\). The resulting exact monic polynomial recursion yields both the nonzero \(n^{-\alpha-i\tau}\) exterior correction and the separate \(n^{-2\alpha}\) leading-coefficient change. Uniform exterior control follows from the decaying recursion coefficient. The accompanying reproducibility script tests the finite formulas and constants; the proof covers every positive degree.
+PASS
 
-## Originality — PASS under inspected evidence
+With the inner product linear in its first slot, the conjugate angular mode gives the sole lower off-diagonal moment 2ε B(2n+2,1+α+iτ); all diagonals are unchanged. Projection of z^n onto the lower-degree space is therefore entirely in the q_(n−1) direction. For monic norms the exact recursion t_n=1−n(n+1)|γ_n|²/t_(n−1), t_n=(n+1)h_n, and the lower bound t_n≥1−2|ε| give the quadratic leading-coefficient term with positive sign. The gamma quotient gives a_n=γ_n/h_(n−1)=A n^(−α−iτ)(1+O(n^−1+n^−(2α))). On the full exterior |1/z|≤1 and a_n→0, so the monic ratio recursion is uniformly bounded and one substitution gives the −a_n/z term with O(n^−(2α)) error. The full replacement error in Step 4 is O(n^(−α−1)+n^(−3α)), not in general just O(n^(−α−1)); both terms are absorbed by the proved remainder. Homogeneity and boundedness of (1−t^(α−iτ))/(1−t)^α on [0,1) give the Hölder extension. Gamma has no zeros, and for τ≠0 rounding exp((2πm+θ)/|τ|) gives subsequences approaching every prescribed phase; τ=0 gives the single stated limit.
 
-Hübner, arXiv:2610.24693v1 (first public 2026-10-17), proves exterior asymptotics for positive Hölder weights with a quantitative bound for exponents strictly below \(\alpha\). The explicit nonzero sharp endpoint correction, normalization coefficient and log-periodic cluster circle are not supplied by its inspected theorem and relevant proof sections. Hedenmalm–Wennman, arXiv:2008.02682, treats analytic weights, excluding this boundary perturbation. published-finding corpus semantic searches for one-band angular moment matrices, Gamma/Beta corrections and log-periodic phases found no corresponding prior claim. Classical Suetin literature could conceivably contain an implicit specialization; full passages were not accessible, and search failure does not prove uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The construction directly determines whether a general Hölder-error theorem can be sharpened beyond its natural regularity exponent. It supplies a positive, constant-boundary-data, minimally nonradial benchmark in which the pointwise response has sharp order \(n^{-\alpha}\) while its normalization responds only in second order. This is a motivated boundary case for strong planar orthogonal-polynomial asymptotics rather than just a numerically computed constant.
+The supported distinction is the sharp explicit endpoint correction, quadratic normalization and phase cluster law for a positive one-mode Hölder area weight, not the known leading Bergman asymptotic, the beta integral or the tridiagonal method.
 
-## Limitations
+## value
 
-Only one angular Fourier mode is analyzed. The result is not a universal upper bound for arbitrary Hölder weights. There is a residual historical priority risk from inaccessible classical material, and there has been no independent mathematical audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The example gives an actual obstruction to improving the rate to little-o(n^−α) from Hölder regularity and constant boundary trace alone, even at a single fixed exterior point. The separation of the leading-coefficient and exterior scales, and the optional phase oscillation, give a benchmark for endpoint claims that a generic rate estimate cannot supply.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

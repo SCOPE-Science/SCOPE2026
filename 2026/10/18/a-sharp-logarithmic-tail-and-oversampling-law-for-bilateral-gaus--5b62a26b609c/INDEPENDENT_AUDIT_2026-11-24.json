@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:01:03.537034Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–100",
+        "Frozen VERIFICATION.md, lines 19–23",
+        "Frozen verify.py, lines 13–95, inspected without execution; independent analytic replay above"
+      ],
+      "rationale": "For the fixed Gaussian coupling, the Gram determinant gives sigma_1 sigma_2 = epsilon sqrt(det(G^T G) det(H^T H)), while sigma_1^2 tends to the squared norm of the leading outer product. Each orthogonal residual norm has a conditional chi law independent of the first column norm, and the two sketches are independent. Gamma integration gives the stated ratio density and the moments, with divergence at p=d as well as beyond. For unequal indices, x^s P(T_s>x/T_t | T_t) is dominated by a constant times T_t^s. In the equal-index case the conditional integral over 1<=u<=x/K contains u^d f_d(u)~d c_d/u; the remaining ranges contribute O_K(x^-d), and the relative tail approximation error on the middle range vanishes as K increases. This verifies the logarithmic coefficient. Independent special-case arithmetic gives c_2=1/2, M_3(2)=2, coefficients 1/2 and 1 for (2,2) and (2,3), and second moment 4 for (3,3). Fatou gives the asserted moment blowup along every sequence of positive gaps tending to zero; at a fixed gap the ratio is bounded.",
+      "residual_risks": [
+        "No uniform tail asymptotic at positive gap and no convergence of finite-gap subcritical moments are claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Meier–Nakatsukasa treat independent bilateral sketches YAX and leading singular-value order and oversampling guarantees.",
+          "Akemann–Ipsen–Kieburg give finite-size singular-value laws for complex Gaussian products; Burda et al. use growing dimensions at fixed aspect ratios."
+        ],
+        "reasoning": "The algorithmic bounds do not give an exact weak-gap law; the product results use different field, deformation or dimensional hypotheses. No inspected theorem entails the fixed-dimensional real result by restricting its parameters.",
+        "searches": [
+          "arXiv:2105.07388 §§3.2, 4–5",
+          "arXiv:1307.7560 §§I–II",
+          "arXiv:1007.3594 abstract and model"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and references",
+        "Resultary IDs and primary passages in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The angle comparison fixes a right vector target, whereas the audited claim uses both positive singular values and two independent sketch factors.",
+          "The Frobenius error law is for reconstruction residuals, not the relative singular-value statistic."
+        ],
+        "reasoning": "Once the independent chi-ratio reduction is proved, the tail and moment consequences use standard arguments; the inspected prior results do not supply that reduction for the stated observable.",
+        "searches": [
+          "Mean-angle RESULT.md, Finding and Assumptions and scope",
+          "arXiv:2105.07388 §§3.2 and 4",
+          "Residual-spectrum RESULT.md, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mean-angle RESULT.md, Finding and scope: R_s is the expected squared sine between right singular directions after a left sketch, with R_2 of order epsilon^2 log(1/epsilon) and R_3=epsilon^2/(1+epsilon^2).",
+          "The generalized Nyström result concerns chi-square ratios for leave-out diagnostics."
+        ],
+        "reasoning": "The angle and leave-out errors are distinct observables. In particular, the angle record has one sketch and a logarithm in a small-gap expectation, not a logarithm in the product survival tail at a large threshold. No priority inference follows from a shared date.",
+        "searches": [
+          "Resultary: Gaussian rank-two weak gap, two-to-three row logarithmic transition",
+          "2026/10/18/SCOPE-a-two-to-three-row-mean-angle-transition-in-gaussian-sketched-nu--672f7b4a2f0b",
+          "2026/10/18/SCOPE-sharp-moment-and-tail-thresholds-for-gaussian-generalized-nystr--3ac2429e030f"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The residual-spectrum Finding gives a rank-one-residual beta-prime/F law for normalized squared Frobenius reconstruction error, with moment cutoff (ell-r+1)/2.",
+          "By the standard F definition, T_d^2 has distribution ((d-1)/d) F_(d-1,d); the one-factor law and its constants are already standard.",
+          "The inspected exact matrix-product distributions concern undeformed complex Gaussian products."
+        ],
+        "reasoning": "Exact neighboring distribution formulas do not identify the observed singular-gap ratio with a product of these factors. The one-factor distribution is credited as existing and is not the originality basis.",
+        "searches": [
+          "Resultary: exact Gaussian sketch failure laws and moment thresholds",
+          "2026/10/12/SCOPE-residual-spectrum-convex-ordering-and-the-exact-gaussian-sketch--23a3fc6123ad",
+          "arXiv:1307.7560 §§I–II finite-size product distributions"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the exact bilateral observed-gap limit and its sharp tails at fixed real sketch dimensions. Neither the closest same-day one-sided angle result nor the inspected two-sided sketching and matrix-product statements covers this statistic and limit. The F distribution, gamma moments and product-tail methods are not new.",
+      "residual_risks": [
+        "Bounded comparison, not a global priority determination; older deformed real product laws or alternative formulations might overlap. The same-day records are compared on claims, not chronological precedence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closely related, distinct statistic and meaning of the logarithm; no priority inferred.",
+          "evidence": [
+            "R_s=E[1-|e_2^T v_s|^2], R_3=epsilon^2/(1+epsilon^2); a fresh real Gaussian left sketch only."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-a-two-to-three-row-mean-angle-transition-in-gaussian-sketched-nu--672f7b4a2f0b",
+          "material_read": "RESULT.md, Finding and Assumptions and scope (offset 0 and angle contexts)",
+          "method": "Local Resultary mirror",
+          "title": "A two-to-three-row mean-angle transition in Gaussian sketched null-space extraction",
+          "trigger": "Strongest same-day rank-two Gaussian and logarithmic-transition match"
+        },
+        {
+          "assessment": "Different statistic and hypotheses.",
+          "evidence": [
+            "Normalized squared Frobenius reconstruction error, rank-one-residual beta-prime law and cutoff (ell-r+1)/2."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-residual-spectrum-convex-ordering-and-the-exact-gaussian-sketch--23a3fc6123ad",
+          "material_read": "RESULT.md, Finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Residual-spectrum convex ordering and the exact Gaussian sketch failure law",
+          "trigger": "Exact two-sided Gaussian failure law"
+        },
+        {
+          "assessment": "Nearby exact distribution, different observable.",
+          "evidence": [
+            "The ratio law concerns leave-out diagnostics."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-moment-and-tail-thresholds-for-gaussian-generalized-nystr--3ac2429e030f",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "Sharp moment and tail thresholds for Gaussian generalized Nyström",
+          "trigger": "Exact chi-square-ratio thresholds"
+        },
+        {
+          "assessment": "Algorithmic estimates, distinct from the exact rank-two law.",
+          "evidence": [
+            "Section 4 treats independent YAX sketches; the estimates and oversampling recommendations bound singular-value orders."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2105.07388",
+          "material_read": "PDF p. 1; §3.2 pp. 12–13 (text offset 37400); §4 pp. 16–17 (47800); p. 21 (60000)",
+          "method": "Lawful open PDF, bounded passages",
+          "title": "Fast randomized numerical rank estimation for numerically low-rank matrices",
+          "trigger": "Primary work on the same sketch and purpose"
+        },
+        {
+          "assessment": "Relevant distribution theory with different model.",
+          "evidence": [
+            "Finite-size singular-value distributions for products in the complex Gaussian model, not this deterministic near-rank-one diagonal deformation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1307.7560",
+          "material_read": "Abstract p. 1 and §§I–II p. 2, text offset 8500",
+          "method": "Lawful open PDF, bounded passages",
+          "title": "Products of Rectangular Random Matrices: Singular Values and Progressive Scattering",
+          "trigger": "Potential exact finite-size product-law coverage"
+        },
+        {
+          "assessment": "Different scaling and matrix model.",
+          "evidence": [
+            "Limiting spectral density as dimensions grow at fixed aspect ratios."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1007.3594",
+          "material_read": "Abstract p. 1 and model p. 2, text offset 4000",
+          "method": "Lawful open PDF, bounded passages",
+          "title": "Eigenvalues and Singular Values of Products of Rectangular Gaussian Random Matrices",
+          "trigger": "Potential Gaussian product limit coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 30–63",
+        "arXiv:2105.07388 §§3.2, 4"
+      ],
+      "rationale": "Rank-revealing bilateral sketches motivate the observed gap, and this minimal benchmark identifies separate roles for the two sketch dimensions: adding a row to one side can remove the balanced logarithm without making the limiting second moment finite; both sides must clear the cutoff. The sharp constants quantify the difference, beyond bounds on singular-value order. This is not a practical optimal oversampling rule for arbitrary spectra.",
+      "residual_risks": [
+        "Practical finite-gap error rates and extensions to other spectra or sketch distributions are outside the claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

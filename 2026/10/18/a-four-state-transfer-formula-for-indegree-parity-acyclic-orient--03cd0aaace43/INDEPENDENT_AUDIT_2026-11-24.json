@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:01:41.105174Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–63 and 71–73; corrected /workspace/repairs/1/RESULT.md",
+        "VERIFICATION.md lines 3–25 and verify_wheel.py inspected read-only",
+        "Replay: python3 -I /workspace/reproductions/1.py; DFS exhaustive orientation counts for m=3,…,8 (87360 orientations, 504 rim parities); all unrestricted counts, transfer counts and existence comparisons pass; total acyclic counts 24,78,240,726,2184,6558 and m=4 histogram agree."
+      ],
+      "rationale": "If e_i encodes the rim direction and s_i the outgoing spoke from the hub, the prescribed rim parity forces s_i=1+p_i+e_(i−1)+e_i mod 2. Hence every choice of rim bits determines one orientation, and even total indegree forces the hub parity to be the rim parity sum. A directed cycle through the hub must follow a rim path from spoke bit one to spoke bit zero, so its first 1-to-0 transition gives a directed hub triangle. Any cycle avoiding the hub is the directed rim. The corrected proof explicitly includes the possible directed rim triangle for m=3. The trace counts every labelled cyclic assignment once by the paired-state overlap and forbids exactly the local hub triangles. A constant rim-direction assignment can survive this local test only with constant spoke bits, equivalently constant p, giving the subtraction of two. Constant spokes in the solvable even-sum cyclic system e_(i−1)+e_i=q_i construct both complementary nondirected rims when q≠0. For odd m a choice of common spoke direction always gives even q-sum; for constant p the odd-degree source/sink obstruction is exact. For even m and odd p-sum a zero-parity site can be the unique incoming spoke and a rim source in the solvable cyclic system, forbidding all triangles. For even m and constant p, the hub is forced to be a sink or source, leaving exactly the two alternating rims. Fixed 4×4 products take O(m) arithmetic operations, not necessarily O(m) bit operations. The repair fixes the false universal assertion about triangles at m=3 without changing any claim or count.",
+      "residual_risks": [
+        "Finite exhaustive checks end at m=8; closure and the construction arguments, not enumeration, establish the general statement."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorems 1.3–1.4 cover Cartesian products of paths and cycles with an existence objective",
+          "SCOPE b94aa3a64173 is a four-state exact fan recurrence; c0aa7bda86b4 concerns multi-theta graphs; 40bb307c91bb cacti"
+        ],
+        "reasoning": "A wheel is a cone over a cycle, not these products or cacti. Closing the fan path changes vertex degrees and introduces the directed rim cycle and the periodic boundary triangles. The open-chain result does not treat this closure or the resulting subtraction and constant-vector obstruction.",
+        "searches": [
+          "Gravier–Petiteau–Sivignon arXiv:2603.09475 Theorems 1.3–1.4 and source/sink conditions",
+          "Configured Resultary: parity-refined acyclic orientations of fans, theta graphs and cacti"
+        ]
+      },
+      "checked_sources": [
+        "Configured Resultary/SCOPE findings for wheels, fans, multi-theta and cactus graphs; three primary papers listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Odd-degree source/sink constraints imply the constant-parity nonexistence direction when m is odd",
+          "The fan supports similar local states; the later wheel-Walsh formula already implies the entire frozen fibre census"
+        ],
+        "reasoning": "The obstruction direction is not by itself new. The constructive sufficiency including the single-incoming-spoke case, exact two counts for the even constant fibres, and cyclic trace with its correction are not implications of the inspected earlier statements or the fan theorem as stated. The later full-wheel implication is explicit, irrespective of different wording.",
+        "searches": [
+          "Gravier–Petiteau–Sivignon p. 2 source/sink conditions; Mühlherr–Poullot p. 10 wheel Hamiltonicity; Resultary SCOPE b94aa3a64173 and fdac81f374c7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE fdac81f374c7 gives all edge-Walsh coefficients of the wheel acyclic-orientation indicator",
+          "Mühlherr–Poullot's polynomial records edge-disagreement counts, not arbitrary edge-Walsh coefficients or vertex parity counts"
+        ],
+        "reasoning": "For a rim vertex subset S, the character of its indegree parities is, up to a fixed reference sign, the edge character using spoke frequencies 1_(i∈S) and rim frequencies 1_(i∈S)⊕1_(i+1∈S). The later full Walsh data give each parity moment and inversion gives every fibre. The univariate edge-disagreement enumerator does not supply these separate characters.",
+        "searches": [
+          "Configured Resultary: wheel indegree-parity fibres, four-state trace and exact title",
+          "Mühlherr–Poullot arXiv:2609.02249, wheel results and acyclic polynomial"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Later SCOPE fdac81f374c7 gives exact all-frequency wheel data equivalent for this purpose",
+          "Stanley's evaluation gives 3^m−3 for the total, not counts by rim vector"
+        ],
+        "reasoning": "A total or even an unlabelled multiplicity histogram does not identify individual labelled fibres. The later wheel Walsh data do; no earlier exact distribution/table was identified by the bounded checks.",
+        "searches": [
+          "Configured Resultary labelled wheel parity fibres, exact count/trace",
+          "Stanley, Acyclic orientations of graphs, total via χ_G(−1)"
+        ]
+      },
+      "rationale": "Bounded pass for the labelled wheel fibre formula and exact feasibility boundary. A later wheel Fourier result supplies the same counts by an explicit reduction; it is genuine later coverage, not evidence of prior coverage. The same-day open-path fan result is particularly close in method but not a theorem about the closed rim; no priority is inferred from its date.",
+      "residual_risks": [
+        "Equivalent later wheel coverage is documented. Literature comparison was bounded to the retrieved primary texts and index comparisons; an earlier parity enumerator or general theorem with a wheel specialization could remain unlocated."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mathematically covers the fibre counts by a Fourier pushforward; record is later-dated",
+          "evidence": "All edge-Walsh coefficients are given; restrict to the edge characters of rim indegree parity and apply Hadamard inversion.",
+          "identifier_or_url": "2026/11/22/SCOPE-parity-transition-in-wheel-acyclic-orientation-fourier-recovery--fdac81f374c7",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Configured local mirror reader",
+          "title": "Parity transition in wheel acyclic orientation Fourier recovery",
+          "trigger": "Strongest exact wheel counting overlap"
+        },
+        {
+          "assessment": "Closely related method but open path and no wheel formula; date does not resolve priority",
+          "evidence": "Four-state recurrence and obstructions for K₁∨P_n, not K₁∨C_m.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-parity-fibres-and-all-obstructions-for-acyclic-orientation--b94aa3a64173",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Configured local mirror reader",
+          "title": "Exact parity fibres and all obstructions for acyclic orientations of fans",
+          "trigger": "Same-day closely corresponding four-state result"
+        },
+        {
+          "assessment": "Different graph families, not wheel fibre class counts",
+          "evidence": "Two-terminal multi-theta multiplicity data and cactus rigidity/spectrum, respectively.",
+          "identifier_or_url": "SCOPE c0aa7bda86b4 and 40bb307c91bb (2026/10/18)",
+          "material_read": "Both RESULT.md Findings, offset 0",
+          "method": "Configured local mirror reader",
+          "title": "Acyclic orientation counts within parity classes of multi-theta graphs; indegree parity rigidity and exact orientation spectra of cactus graphs",
+          "trigger": "Other exact same-day parity enumerations"
+        },
+        {
+          "assessment": "Prior existence framework and obstruction, not wheel multiplicities",
+          "evidence": "Acyclic T-odd orientations; product-of-paths/cycles results and source/sink parity conditions.",
+          "identifier_or_url": "https://arxiv.org/pdf/2603.09475",
+          "material_read": "pp. 1–3, offsets 0, 8500, 13400; necessary conditions and Theorems 1.3–1.4",
+          "method": "Lawful OA primary PDF bounded extraction",
+          "title": "Some polynomial classes for the acyclic orientation with parity constraint problem",
+          "trigger": "Closest primary source on indegree-parity orientations"
+        },
+        {
+          "assessment": "Wheel Hamiltonicity and univariate edge statistics, not labelled indegree-parity fibres",
+          "evidence": "Polynomials count by number of disagreements with a chosen orientation; the wheel orientation-graph Hamiltonicity criterion is rim length odd.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.02249",
+          "material_read": "pp. 3, 10, offsets 12000, 46450",
+          "method": "Lawful OA primary PDF bounded extraction",
+          "title": "Hamiltonicity of graphs of acyclic orientations and acyclic polynomials",
+          "trigger": "Wheel-specific result and polynomial orientation enumeration"
+        },
+        {
+          "assessment": "Totals only",
+          "evidence": "Total acyclic orientation count is (−1)^|V|χ_G(−1).",
+          "identifier_or_url": "https://math.mit.edu/~rstan/pubs/pubfiles/18.pdf",
+          "material_read": "p. 1, chromatic evaluation",
+          "method": "Lawful OA primary PDF reading",
+          "title": "Acyclic orientations of graphs",
+          "trigger": "Standard exact total as potential coverage/check"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected RESULT.md Finding and Proof; comparison with SCOPE fan and with standard total χ_G(−1)"
+      ],
+      "rationale": "Wheels are a natural simple closed-rim test family for parity-constrained acyclic orientation. The new information relative to feasibility or total counting is sharp labelled fibre multiplicity, in linear arithmetic time, with a complete obstruction and constant-vector boundary. The cyclic correction is required rather than a mere change of graph name from the fan recurrence; a researcher checking parity-refined counting on elementary planar families can use the exact formula and boundary counts.",
+      "residual_risks": [
+        "No priority or extension to all planar graphs or bit-linear arithmetic claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

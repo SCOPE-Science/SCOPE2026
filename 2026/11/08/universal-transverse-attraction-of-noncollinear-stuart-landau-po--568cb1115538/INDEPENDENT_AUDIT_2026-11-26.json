@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:31:42.919061Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Subtracting the common rotation ω−Mγ in the complete unnormalized diffusive system gives (β_j−Mε−k|u_j|²)u_j+(ε+iγ)Σu_l. Closure with the prescribed positive radii is rank two in phases exactly at noncollinear polygons; the implicit function theorem gives an (M−2)-dimensional equilibrium patch and its continuation in ε. At ε=0 the real Jacobian is minus the sum of the positive radial projectors scaled by 2k, plus the skew-adjoint mean-field term. Its real semigroup is contractive (and the complexification satisfies the same Hermitian energy inequality), so imaginary-axis eigenvalues are semisimple. Any imaginary-axis eigenvector has vanishing radial projections. If frequency is nonzero, the remaining eigenvector equation forces a common two-vector across oscillators; orthogonality to the two independent real radii forces it to be zero. At zero frequency the kernel is exactly the phase variations with sum zero because γ≠0. The other M+2 eigenvalues have strictly negative real parts. The gap is uniform on a sufficiently small relatively compact regular patch; the local stable foliation of the equilibrium manifold gives exponential approach to a nearby equilibrium, not a fixed polygon. The rotation does not change the growth rates (for ω−Mγ=0 these are equilibrium exponents). The local spectral cluster near zero keeps multiplicity M−2 under small ε and the continued tangent space already has that dimension, so no additional small normal modes appear and the gap stays negative. Strict triangle inequalities supply both orientations. Independent replay: python /workspace/reproductions/check.py 3, 16 finite-difference Jacobians at two heterogeneous radius profiles, both orientations, both signs of γ and ε=0 or 0.0001; smallest sampled normal gap 0.079792784. This supports the linearization but is not a nonlinear or uniform-gap proof. The frozen script was inspected, not run; it constructs one explicit triangular orientation (the independent replay tests both).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhao–Uchida's broader model includes Kerr and dissipative coupling, but the relevant stability study is sampled on C_r=C_i/4 with specified growth profiles.",
+          "León–Pazó uses identical sites in a reduction near incoherence; Lepri–Pikovsky uses random natural frequencies and nearest neighbors.",
+          "Nicks–Allen–Coombes metadata verified; full equations were inaccessible in this review."
+        ],
+        "reasoning": "A broader equation does not imply a stronger stability theorem; neither a homogeneous population nor a nearest-neighbor model settles arbitrary radii with complete coupling.",
+        "searches": [
+          "arXiv:2610.08239v1 Eqs. (1), (2), (12), (55)–(57)",
+          "arXiv:2006.02159v2 Eq. (8)",
+          "arXiv:2112.04852v1 Eq. (1)",
+          "10.1063/5.0179430"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.08239v1",
+        "a0832bb5dd4e",
+        "6d3b7509813e",
+        "3e86ca58217e",
+        "arXiv:2006.02159v2",
+        "arXiv:2112.04852v1",
+        "10.1063/5.0179430 (metadata only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The C_r=C_i/4 path reaches C_r=0 only with C_i=0, which is excluded here.",
+          "The homogeneous exact result does not supply unequal-rate stability; continuity alone near equal rates does not prove the result for arbitrary positive rates or every shape."
+        ],
+        "reasoning": "The unequal-radius stability proof depends on eliminating common undamped motions using any two independent radii, not specializing the labelled samples or homogeneous polynomial. Small-ε persistence is a standard spectral continuation once that new stability statement is known.",
+        "searches": [
+          "Zhao–Uchida arXiv:2610.08239v1 Eq. (12) and §5 stability analysis",
+          "a0832bb5dd4e RESULT.md",
+          "León–Pazó arXiv:2006.02159v2 Eq. (8)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zhao–Uchida's closed polygon is exactly zero order parameter in the co-rotating frame; Eq. (1) includes this model.",
+          "a0832bb5dd4e states exact finite-population, purely reactive attraction for identical growth rates and gives a characteristic polynomial."
+        ],
+        "reasoning": "The manifold formulation is not new. Equal radii enforce identical radial damping scales, whereas unequal growth rates change the Jacobian and admissible closure configurations; the equal-growth spectrum does not determine the heterogeneous spectrum.",
+        "searches": [
+          "Resultary: reactive all-to-all Stuart–Landau noncollinear vanishing mean polygon transverse stability",
+          "a0832bb5dd4e",
+          "arXiv:2610.08239v1 §5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "a0832bb5dd4e covers the homogeneous case only.",
+          "6d3b7509813e treats β_j=j+3q and C_r=q,C_i=4q, with a bounded stability window.",
+          "3e86ca58217e treats β=(52,172,292) with real coupling fixed at 1 and a threshold in |γ|.",
+          "The same-model §5 instability-ratio plots aggregate samples, not a universal classification."
+        ],
+        "reasoning": "None of the checked exact records supplies a census of all noncollinear shapes with heterogeneous radii at pure reaction. The triangle overlaps are real, but involve parameter paths for which instability does not conflict with local persistence at fixed γ.",
+        "searches": [
+          "Resultary: exact reactive polygon spectrum, heterogeneous triangle onset and stability windows",
+          "a0832bb5dd4e",
+          "6d3b7509813e",
+          "3e86ca58217e"
+        ]
+      },
+      "rationale": "Credit the closed-polygon manifold to the same-model literature and the exact homogeneous purely reactive stability case to indexed work. The supported distinct result is universal local normal attraction for arbitrary unequal positive growth rates and every admissible noncollinear polygon, together with its local small-positive-dissipation continuation when reactive strength is held fixed. The nearest exact heterogeneous triangle and same-model sampling results have a nonzero real component on different parameter paths; they neither imply nor contradict this quantifier and limit.",
+      "residual_risks": [
+        "Exact no-Kerr formulas in Nicks–Allen–Coombes were not retrieved independently.",
+        "An earlier unindexed implication for unequal positive growth rates is not ruled out; this is a bounded comparison, not historical priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers polygon existence and configuration-dependent sampled stability on fixed coupling-ratio path; not the pure-reactive uniform-in-shape theorem",
+          "evidence": [
+            "Eq. (1) matches the complete diffusive model; Eq. (12) imposes C_r=C_i/4; §5 studies sampled instability ratios."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.08239v1",
+          "material_read": "Abstract, §2 Eqs. (1)–(5), (12), offsets 0–11439; §5 Eqs. (55)–(57), from offset 34600",
+          "method": "Targeted OA HTML passages",
+          "title": "Heterogeneity-induced chaos in globally coupled Stuart–Landau oscillators",
+          "trigger": "Same model and closure manifold"
+        },
+        {
+          "assessment": "Material homogeneous special case; no arbitrary-growth theorem or small real-coupling continuation",
+          "evidence": [
+            "Identical growth rates; exact homogeneous characteristic polynomial."
+          ],
+          "identifier_or_url": "a0832bb5dd4e",
+          "material_read": "Local-mirror RESULT.md statement",
+          "method": "Resultary and mirrored file passage",
+          "title": "Exact finite-population spectrum and slow relaxation of reactive polygon states",
+          "trigger": "Exact purely reactive normal-attraction overlap"
+        },
+        {
+          "assessment": "Different parameter path and one profile; no ordering inferred from date",
+          "evidence": [
+            "C_r=q and C_i=4q; β_j=j+3q, bounded window."
+          ],
+          "identifier_or_url": "6d3b7509813e",
+          "material_read": "Local-mirror RESULT.md statement",
+          "method": "Resultary and mirrored file passage",
+          "title": "A sharp attracting triangle window in a heterogeneous Stuart–Landau family",
+          "trigger": "Same-day exact heterogeneous stability claim"
+        },
+        {
+          "assessment": "Fixed real coupling equal to 1 does not meet the pure-reactive hypothesis",
+          "evidence": [
+            "Growth rates (52,172,292), real part of coupling 1."
+          ],
+          "identifier_or_url": "3e86ca58217e",
+          "material_read": "Local-mirror RESULT.md statement",
+          "method": "Resultary and mirrored file passage",
+          "title": "Sharp reactive coupling stability transition for a heterogeneous triangle",
+          "trigger": "Heterogeneous triangle stability threshold"
+        },
+        {
+          "assessment": "Covers identical population with a different asserted stability domain",
+          "evidence": [
+            "The SL equation has identical linear and cubic coefficients at every site."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2006.02159v2",
+          "material_read": "Abstract p.1 offset 1627 and Eq. (8) p.2 offset 11966",
+          "method": "Targeted OA PDF passages",
+          "title": "Quasi phase reduction of all-to-all strongly coupled λ–ω oscillators near incoherent states",
+          "trigger": "Analytic incoherent-state stability for all-to-all oscillators"
+        },
+        {
+          "assessment": "Nearest-neighbor graph and random natural frequencies rather than the common-frequency mean field",
+          "evidence": [
+            "Eq. (1) couples nearest neighbors; reactive choice c_2=0,c_3≠0."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2112.04852v1",
+          "material_read": "Abstract p.1; Eq. (1) p.3 offset 8835",
+          "method": "Targeted OA PDF passages",
+          "title": "Phase-locking dynamics of heterogeneous oscillator arrays",
+          "trigger": "Reactive coupling and oscillator heterogeneity"
+        },
+        {
+          "assessment": "No whole-paper conclusion; retained as an access risk",
+          "evidence": [
+            "Frozen self-review describes a homogeneous result; that account is not an independent reading of the equations."
+          ],
+          "identifier_or_url": "https://doi.org/10.1063/5.0179430",
+          "material_read": "Title and DOI metadata only; formulas not retrieved",
+          "method": "Targeted OA attempts",
+          "title": "Insights into oscillator network dynamics using a phase-isostable framework",
+          "trigger": "Exact splay stability comparand"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Normal stability of the existing polygon family is not automatic from its existence or stable samples. The result settles every regular shape for arbitrary positive growth rates at the pure-reactive boundary, separates phase and shape neutrals from damped directions, and explains how radial damping stabilizes through the skew mean field. Continuation gives a genuine nearby parameter regime, without claiming a uniform coupling threshold or global basin.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:25:07.546988Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Finding, assumptions and proof, lines 4–69",
+        "VERIFICATION.md, recorded statuses and diagnostic scope",
+        "check.py, matrix, optimizer and asymptotic diagnostics, inspected without execution",
+        "Fresh bounded bisection at c=10⁻³, 10⁻⁵, 10⁻⁷, 10⁻⁹, 10⁻¹¹"
+      ],
+      "rationale": "The uniqueness is on the reduced half-zone [0, π] and is for the speed magnitude, not its signed value. Diagonalizing the mass-weighted Bloch matrix gives ω₊²=Ω²(1+u). Eliminating q from its derivative gives (4|v₊|/(aΩ))²=(1−u)(1−c²/u²), with u decreasing bijectively from 1 to c. Its derivative has the sign of 2c²−c²u−u³, strictly decreasing from positive to negative at the endpoints. This proves the unique interior optimum and its formulas. The acoustic slope is aΩ√(1−c²)/(2√2), and (1−u)(1−c²/u²)<1−c² proves the strict ratio bound. With t=c^(2/3), the cubic becomes y³+ty=2 for y=u/t. The edge shift is 2u+O(t²) and the speed deficit is (u+c²/u²)/2+O(t²), giving all stated coefficients and sharpness of the limiting ratio. A fresh numerical check, replayable by bisecting the cubic on [c,1] and computing the edge shift as 2 asin(√((u²−c²)/(1−c²))), gives scaled values 1.259921038, 2.519842038 and 0.944940790 at c=10⁻¹¹. That check is corroboration, not the uniqueness proof.",
+      "residual_risks": [
+        "In a full signed zone the maximizers occur at opposite wavenumbers; the theorem uses the explicit half-zone convention.",
+        "The separated-branch proof requires strictly unequal masses; equal masses enter only through a one-sided limit."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dhar–Saito, pp. 1–2: ordered binary-mass chains are treated for heat-current scaling.",
+          "Faver–Wright, Theorem 1, p. 3: nonlinear traveling waves with optical ripples.",
+          "Qin's full text was unavailable in the lawful retrieval attempted."
+        ],
+        "reasoning": "A broader chain or nonlinear-wave setting does not by itself establish an extremum of the optical dispersion derivative or its singular location. The inspected outcomes concern transport scaling and wave existence, not a dominating theorem for this optimizer.",
+        "searches": [
+          "arXiv:0806.4067v1",
+          "arXiv:1511.00942v1",
+          "DOI:10.1137/130949609"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary index and the exact localized-mode record",
+        "arXiv:1511.00942v1, Theorem 1 and p. 7",
+        "arXiv:0806.4067v1, pp. 1–2",
+        "DOI:10.1137/130949609 access check"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Diatomic dispersion and group velocity are classical inputs. The compared passages do not analyze the contrast-degenerate extremum, or give its scaling or the sharp optical/acoustic comparison."
+        ],
+        "reasoning": "The standard dispersion makes the scalar differentiation available but leaves the location and the singular c→0 optimization to be resolved. Fixed-wavenumber equal-mass limits do not determine the optimizer's edge scale or the leading peak deficit.",
+        "searches": [
+          "Faver–Wright dispersion and phase-resonance calculation, arXiv:1511.00942v1, p. 7",
+          "Dhar–Saito binary-mass transport discussion, arXiv:0806.4067v1, pp. 1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Faver–Wright, arXiv:1511.00942v1, p. 7: the unique positive resonance solves c²k²−λ̃₊(k)=0 for a prescribed traveling-wave speed.",
+          "No equivalent optimizer or contrast law surfaced in the bounded searches."
+        ],
+        "reasoning": "The phase-speed resonance solves ω₊/k equal to a prescribed speed. Here the speed |dω₊/dk| itself is maximized, giving a stationary point of that derivative; the two equations are not equivalent.",
+        "searches": [
+          "Resultary semantic searches for the diatomic optical-speed optimum, its stationary cubic, the two-thirds edge law and the sound-speed ratio",
+          "Primary-literature search for the maximum optical group velocity of a harmonic diatomic lattice"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest distinct inspected entry, 2026/11/2/SCOPE-sharp-mass-budget-threshold-and-balanced-design-for-the-second-p--8bb916f9794e, classifies localized defect modes and optimizes the second defect frequency under a mass budget."
+        ],
+        "reasoning": "The indexed defect invariant is a localized-mode frequency, not a periodic Bloch-band group velocity. No matching entry or exact tabulation surfaced; a numerical dispersion table for finitely many contrasts would not establish the global formula and limiting law.",
+        "searches": [
+          "Resultary exact-invariant searches for u³+c²u=2c², the optical-speed ratio and the two-thirds law"
+        ]
+      },
+      "rationale": "Credit standard diatomic dispersion and group velocity as existing input. The supported distinct contribution is the global optical-speed optimizer together with its singular equal-mass asymptotics and sharp acoustic-normalized bound. The closest inspected transport, phase-resonance and defect-mode results do not give this combination. This is a bounded best-of-knowledge comparison, not a historical-priority determination.",
+      "residual_risks": [
+        "Qin's original full text was not lawfully recovered in the bounded search.",
+        "Older foundational lattice texts, including the Brillouin treatment cited by Faver–Wright, were not exhaustively inspected; no priority assertion follows."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related but different objective",
+          "evidence": "The unique phase-resonance wavenumber solves c²k²−λ̃₊(k)=0 for prescribed speed; it is not the maximum of optical group speed.",
+          "identifier_or_url": "https://arxiv.org/abs/1511.00942",
+          "material_read": "v1, pp. 3 and 7, Theorem 1 and dispersion/phase-resonance passage",
+          "method": "Original open-access preprint, targeted passages",
+          "title": "Exact diatomic Fermi-Pasta-Ulam-Tsingou solitary waves with optical band ripples at infinity",
+          "trigger": "Optical branch and unique distinguished wavenumber in diatomic chains"
+        },
+        {
+          "assessment": "Related transport analysis, not an equivalent result",
+          "evidence": "The binary-mass comparison is for heat-current scaling.",
+          "identifier_or_url": "https://arxiv.org/abs/0806.4067",
+          "material_read": "v1, pp. 1–2, transport and ordered-chain discussion",
+          "method": "Original open-access preprint, targeted passages",
+          "title": "Heat conduction in the disordered Fermi-Pasta-Ulam chain",
+          "trigger": "Ordered binary-mass harmonic submodel and propagation"
+        },
+        {
+          "assessment": "Unresolved source-specific risk",
+          "evidence": "Publisher retrieval was denied and no accessible repository copy was located in the attempted recovery.",
+          "identifier_or_url": "https://doi.org/10.1137/130949609",
+          "material_read": "Bibliographic identification; no retrieved primary full-text passage",
+          "method": "Publisher retrieval and lawful open-access recovery attempt",
+          "title": "Wave Propagation in Diatomic Lattices",
+          "trigger": "Potential diatomic wave-propagation coverage"
+        },
+        {
+          "assessment": "Distinct invariant on a distinct configuration",
+          "evidence": "The modes are localized above a propagation band; the design target is the second defect frequency.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-mass-budget-threshold-and-balanced-design-for-the-second-p--8bb916f9794e",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp mass-budget threshold and balanced design for the second localized mode",
+          "trigger": "Closest indexed harmonic-chain mass and phonon match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, optimizer, degeneracy and sharp ratio",
+        "Faver–Wright, dispersion and phase-speed context",
+        "Dhar–Saito, binary-mass transport context"
+      ],
+      "rationale": "The meaningful result is not a rederivation of the standard dispersion or just a stationary cubic. It resolves how the fastest optical mode approaches the band-folding degeneracy, quantifying both the wavenumber boundary scale and the speed deficit with leading coefficients. The comparison to sound speed provides a sharp scale independent of mass contrast for this natural propagation observable.",
+      "residual_risks": [
+        "The bound pertains only to harmonic group speed; no transport, dissipation, or nonlinear propagation inference is warranted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review: a fixed-Puiseux-pair Tjurina flag
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The weighted Newton polygon and coprimality of \(m,mq+1\) establish irreducibility and constant Milnor number. The exact Euler identity makes \(x^n\) part of the Tjurina ideal for nonzero parameters, after which Weierstrass division in \(y\) gives a finite free coefficient-ring module and a single explicit relation. Its monomial multiples and a change of module basis prove the stated direct sum; this yields exact Tjurina dimensions and all stratum boundaries without relying on finite samples. Thirty-eight exact Gröbner computations check representative cases. Remaining scientific scope risk: the module is relative to the chosen projection; no assertion is made about broader deformation spaces.
+## correctness
 
-## Originality (O): PASS, historical priority provisional
-The primary 2026 source is qualitative about degeneration and quasihomogeneity. The classical semiquasihomogeneous-moduli and plane-branch classification works provide broad frameworks and algorithms but do not visibly state the coefficient-flag formula, the exact module structure, or the nonlinear highest-term defect. The 2025 two-branch Tjurina formula concerns reducible singularities and does not imply this irreducible family. Searches for monomial deformations, first nonzero coefficients, Puiseux-pair formulations, and Tjurina-strata tables found no equivalent statement; negative search results are not uniqueness proofs. Some older general algorithms might recover the formula by specialized computation, so historical priority remains provisional. The related published surface Milnor--Tjurina profile and a four-branch conic-pencil example concern different objects and do not imply this all-parameter local theorem.
+PASS
 
-## Mathematical value (V): PASS
-The first allowed higher-weight \(y\)-linear terms form a canonical finite interval ending at the central Jacobian cutoff, rather than an arbitrary finite slice. The complete stratification gives the local deformation-tangent dimension, an exact coordinate-module filtration, and a sharp distinction between linearized-trivial and analytically nontrivial perturbations. Unlike a one-off Milnor--Tjurina calculation, it applies to all \(m\ge5,q\ge2\) and all coefficients, with changes by predictable jumps on explicit locally closed subsets. It is relevant to explicit equisingular deformation questions and to local examples for the recent quasihomogeneity criterion; no downstream theorem is asserted.
+With weights (m,n), each perturbing term is higher than mn by m(i−1)+1. Substitution x=t^m, y=t^nY gives simple leading roots Y^m=1; the t↦ζt action is transitive on them because gcd(m,n)=1, giving one branch with the stated pair and semigroup. The initial partial derivatives are the coprime pure powers x^(n−1), y^(m−1), giving Milnor colength (m−1)(n−1). For nonzero parameters the weighted Euler remainder is x^v y times a unit, and xf_x then forces x^n into the ideal. Conversely f belongs to (f_x,f_y,x^n) by eliminating y^m and using that xf_x forces x^v y modulo x^n. In the free monic quotient over R/(x^n), the remaining generator is g=x^(v−1)y−c x^(n−1) with c=n/(v a_j); multiplying by x^(n−v) yields x^(n−1)y. Its products by y through y^(m−2) give precisely the extra relations killing x^(v−1)y^k, 2≤k≤m−2. The last reduced product adds no scalar relation since x^(v−1)h is divisible by x^(2v−1) and 2v−1≥n. These products span the whole ideal over R/(x^n), and replacing y by y−c x^(n−v) diagonalizes the module. The stated length and x-adic dimensions follow. At the central point the ideal is (x^(n−1),y^(m−1)); otherwise the defects are positive and pairwise distinct, giving the flag and the quasihomogeneity conclusion by the Milnor–Tjurina criterion. An independently written rational Gröbner check for f=y^5−x^11+x^10y gave leading monomials y^4,x^9y,x^11, colength 38 and the stated profile for that case.
 
-## Closest literature and limits
-See the primary sources cited in `RESULT.md`: He (2026), Greuel--Hertling--Pfister (1995), Hefez--Hernandes (2007), and Almirón--Hernandes (2025). The result does not classify analytic equivalence classes or global curves, and the provenance check is not a proof of historical novelty.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The checked general classifications give fixed-principal-part and fixed-Puiseux-pair frameworks, not the explicit module over the fixed x-projection or the first-nonzero-coefficient formula on this slice. The supported distinct result is the exact full coefficient flag and the module, not the existence of Tjurina strata in general, an analytic classification, or a priority claim.
+
+## value
+
+PASS
+
+The semiweighted homogeneous slice varies a natural band of higher terms linear in y while preserving the singularity's topological data. It gives a usable closed formula for every allowed complex coefficient choice, not just a generic or individual Tjurina number. The fixed-projection module strengthens the scalar defect, determines the complete x-adic profile, and detects a positive defect even for the endpoint perturbation lying in the central Jacobian ideal. The resulting coordinate flag describes concrete jumps within a single equisingular family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

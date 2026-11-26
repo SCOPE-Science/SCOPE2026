@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:45:08.458105Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–90",
+        "Frozen VERIFICATION.md and checker.py (inspected, not run)"
+      ],
+      "rationale": "For h_s=1_(s,1), subtract the mean and project onto v_q=x^q−1/(q+1). The variance s(1−s), covariance (s−s^(q+1))/(q+1) and v_q variance q²/[(2q+1)(q+1)²] give F_q exactly. The signed distributional derivative represents f modulo constants as an L²-valued integral of h_s; its total variation gives the sharp norm upper bound by the triangle inequality, with attainment at a maximizing point. Any equality measure is supported on maximizers. Two distinct step residuals cannot be proportional since their jumps are at distinct points and the projection is continuous, excluding mixed equality even at q=1. Reflection compares the positive secants G_q(s)=(1−s^q)/(1−s), which strictly increase/decrease as q is above/below 1. At the midpoint F'_q has the negative sign of 1−(q+1)2^(−q), so the midpoint is excluded by strict convexity of 2^q relative to its chord through q=0 and q=1 (with extrapolation for q>1). For q>1 F''_q is quadratic in s^q, hence at most two positive zeros and F'_q at most three; signs at 0,1/2,2^(−1/q),1 are +,−,+,−. The third evaluation follows from strict concavity of 2^z−1−(z+z²)/2 on 0≤z≤1 and its zero endpoint values. For q<1, F'_q(s)/s as a function of v=s^q on the right half has second derivative (q+1)/q² times [v^(−1/q−2)−4(2q+1)]<0: its first term is bounded above by 2·4^q≤2(1+3q)<4(2q+1). Opposite boundary signs and strict concavity give exactly one right root. At q=1 write u=s(1−s); u−3u² has maximum 1/12 at u=1/6 exactly. Compactness on the favored halves gives the two optimizer limits; the two variational squeeze inequalities for the maximum give slopes ∂_qF_q(s±)|_1=1/9+s±² log s±. Indeed at s+ the negative log is at least 1−s+, and .788²·.211>1/9; at s− it is less than log 5<2 and 2·.212²<1/9. This verifies both signs and the strict local minimum/cusp without relying on the finite root grids.",
+      "residual_risks": [
+        "Scope is ordinary interior distributional variation, real functions modulo a.e. equality, unweighted Lebesgue L², and exactly two projection modes. Numerical checks are illustrative only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The publisher-indexed Cui–Xu abstract describes theoretical and numerical Müntz–Legendre approximation for prescribed exponent families; the frozen comparison identifies a weighted Sobolev projection context. Frozen RESULT.md lines 92–105 credits general Müntz orthogonalization/Markov inequalities and bases/smoothness work."
+        ],
+        "reasoning": "An exponent sequence can include the present two-dimensional projection, but a general approximation estimate does not imply its sharp unweighted variation endpoint, complete maximizing set, or one-sided derivatives. The accessible abstract does not establish whether a stronger theorem in the body covers those features.",
+        "searches": [
+          "Cui–Xu DOI 10.1090/mcom/3987, AMS PII S0025-5718-2024-03987-X",
+          "Borwein–Erdélyi–Zhang DOI 10.2307/2154639",
+          "Ludkowski arXiv:1605.09665"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "Resultary:57a70e7bfcf9, 50de2eabbe22 and b1eb9d66a8b6 (index)",
+        "Cui–Xu DOI 10.1090/mcom/3987 (abstract; full-text attempts)",
+        "DOI 10.2307/2154639 and arXiv:1605.09665 as compared in the frozen source"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The frozen work credits prior affine Legendre coverage and builds on the standard Gram calculation and BV step decomposition. The actual additions are the reflected half-selection, global uniqueness on the favored half for every q≠1, and the explicit two-branch envelope slopes."
+        ],
+        "reasoning": "The affine case already determines the tie at q=1 but cannot identify which critical point wins under a nonpolynomial deformation or exclude further extrema for distant exponents. Having the jump residual formula is not equivalent to its complete global maximization.",
+        "searches": [
+          "Cui–Xu publisher abstract and targeted full-paper passage attempts",
+          "Resultary:b1eb9d66a8b6 and 50de2eabbe22",
+          "Frozen RESULT.md lines 37–86 and 92–98"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact two-mode switch entry 57a70e7bfcf9 is the assigned record itself. Companion 50de2eabbe22 describes cubic Legendre variation amplification, not L² residual norm."
+        ],
+        "reasoning": "The target claim can be rephrased as the largest L² norm of a derivative-to-residual kernel column for regression on 1 and x^q. BV variation of the projected output is a different functional; optimizing that amplification does not determine the residual kernel norm.",
+        "searches": [
+          "Resultary: sharp ordinary BV to L2 two-mode Müntz or power projection; worst jump and optimizer switching",
+          "Resultary: exact Legendre projection residual and step extremizers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day b1eb9d66a8b6 describes a sharp integrated cellwise affine error and two within-cell jump positions. Same-day 50de2eabbe22 describes cubic Legendre BV amplification at a central jump. In the bounded search, only the assigned entry states the full positive-exponent switch."
+        ],
+        "reasoning": "Even if a one-cell restriction of the mesh result includes a closely related affine q=1 case, it does not classify powers on either side of one. The index does not resolve whether the one-cell norm and knots coincide. No conclusion about inaccessible exact tables is inferred.",
+        "searches": [
+          "Resultary: integrated bounded variation error of cellwise affine orthogonal projection, jump knots",
+          "Resultary: cubic Legendre sharp bounded-variation amplification",
+          "Resultary: exact two-mode worst-jump switch and cusp"
+        ]
+      },
+      "rationale": "Pass is confined to the sharp positive-exponent family with optimizer switching, equality rigidity and cusp; the classical affine q=1 calculation and orthogonal projection machinery are not independent novelty. Closest accessible statements address other error/smoothness quantities or other spaces. The plausibly close Cui–Xu paper remains a named full-text risk, not established absent coverage or a priority certificate.",
+      "residual_risks": [
+        "Full theorem-level overlap with the Cui–Xu article and the affine mesh companion was not settled by retrieved text.",
+        "Classical q=1 overlap is explicitly credited; neither same-day dates nor missing hits settle priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Close subject; abstract does not show the sharp BV endpoint optimizer theorem; full paper not ruled out",
+          "evidence": [
+            "Abstract treats approximation properties theoretically and numerically for fixed exponent sequences; frozen RESULT.md lines 94, 98 and 105 separately flag the full-text risk."
+          ],
+          "identifier_or_url": "https://doi.org/10.1090/mcom/3987; AMS PII S0025-5718-2024-03987-X",
+          "material_read": "Publisher-indexed abstract, not theorems; DOI, publisher URLs and candidate PDF requests timed out or exceeded fetch limit",
+          "method": "Targeted OA requests and publisher abstract indexing",
+          "title": "Müntz Legendre polynomials: Approximation properties and applications",
+          "trigger": "Closest primary Müntz–Legendre projection error paper; exponent-family coverage plausible"
+        },
+        {
+          "assessment": "General ingredients do not determine the reported switches; no claim of exhaustive full-text checking",
+          "evidence": [
+            "Frozen RESULT.md lines 92–105 describes orthogonalization/Markov inequalities and smoothness/bases."
+          ],
+          "identifier_or_url": "https://doi.org/10.2307/2154639; https://arxiv.org/abs/1605.09665",
+          "material_read": "Cited scope in frozen relationship discussion",
+          "method": "Statement-level comparison to frozen credited claims",
+          "title": "Müntz systems and orthogonal Müntz–Legendre polynomials; Approximation in Müntz spaces of Lp functions for 1<p<∞ and bases",
+          "trigger": "General orthogonalization and approximation context"
+        },
+        {
+          "assessment": "Different space and objective; no q-switch indicated",
+          "evidence": [
+            "Index reports cubic Legendre BV variation amplification attained at a central jump."
+          ],
+          "identifier_or_url": "Resultary:50de2eabbe22",
+          "material_read": "Index statement; mirror timed out",
+          "method": "Configured Resultary and targeted mirror retrieval attempt",
+          "title": "Cubic Legendre projection sharp bounded-variation amplification",
+          "trigger": "Same-day sharp projection over BV with jump extremizer"
+        },
+        {
+          "assessment": "Potential affine-case overlap not decided at full-statement level; no all-q classification indicated",
+          "evidence": [
+            "Index reports a sharp mesh error scaling as κh times variation with two within-cell positions."
+          ],
+          "identifier_or_url": "Resultary:b1eb9d66a8b6",
+          "material_read": "Index statement; mirror timed out",
+          "method": "Configured Resultary and targeted mirror retrieval attempt",
+          "title": "Sharp integrated bounded-variation error of cellwise affine orthogonal projection",
+          "trigger": "Same-day affine residual and two extremizing jump positions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–35, 47–86"
+      ],
+      "rationale": "The power family is the elementary nonpolynomial deformation of linear least-squares fitting. Its exact worst variation-normalized residual is useful for discontinuous data; the two separated best knots at the linear exponent turn into persistent unique one-sided worst knots, with a nonsmooth optimal norm and exact slopes. The structural transition and equality cases go beyond a single classical constant.",
+      "residual_risks": [
+        "Does not compare all two-dimensional approximation spaces or extend the result to higher modes or other norms."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

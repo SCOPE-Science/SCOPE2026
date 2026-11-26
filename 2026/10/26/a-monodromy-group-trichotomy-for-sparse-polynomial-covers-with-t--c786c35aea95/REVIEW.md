@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The displayed nonsymmetric branch cycles generate \(A_{d+4}\) by explicit three-cycle production and overlapping-support enlargement; parity upgrades to the symmetric group when \(d\) is even. The signed-pair branch cycles have correct ramification types and full-cycle product, and generate \(C_2\wr S_{(d+4)/2}\) by elementary conjugation, unsigned pair permutations, and a single sign flip. The already-proved two-orbit classification transfers these calculations to every cover in each class. Exact computational samples check the group orders but are not a substitute for the proof.
+PASS
 
-## Originality
+The three specified finite cycle types and the full cycle at infinity exhaust the ramification sum 2n−2 for n=d+4. Centering the degree-d critical point and subtracting its value gives the asserted sparse support. Vladimirov's Propositions 4.1 and 4.6 give the exact braid-class count and the normalized even C₁ characterization. For the first representative, the product with rightmost factor applied first is the full cycle in order n,d+3,d+2,d+1,d,1,…,d−1. Products of two c-conjugates of b give all pivot three-cycles on T, generating A_T. Products of A_T-conjugates of a give the pivot three-cycles attaching d+3, and conjugation by b and then a gives overlapping alternating subgroups attaching d+1 and d+2. Alternating groups supported on sets overlapping in at least three letters generate the alternating group on the union (use three-cycles based at a common pivot and conjugation within either set). Thus parity gives A_n for odd d and S_n for this even class, including d=3 and d=4. For even d=2k the signed-pair triple has an m-cycle on blocks in its product and odd total flip, hence a 2m-cycle: it satisfies the genus-zero polynomial passport. The k conjugates of the unsigned swap between B_{k−1} and B_k avoid the sign wrap and, with the remaining swap, generate unsigned S_m. Comparing the signed k-cycle to its unsigned version supplies a single flip; conjugation adds all independent flips. This gives equality with the full wreath product, not only containment. The imprimitive group cannot be in the S_n braid class, so C₁ is the remaining class. Hurwitz moves preserve the generated group and the affine normalizations do not change the cover group.
 
-PASS, with residual priority risk. Vladimirov's 2026 paper classifies topological orbits and their tropical data, without giving this three-group list. Esterov's generic-system symmetric-group theorem does not apply on this constrained passport locus. Behajaina--König--Neftin's length-two bounds do not identify the exact group in all three classes. Wreath-group embedding theory establishes only upper bounds. Directly relevant full-text passages and targeted searches were compared by logical implication, not titles. An earlier group-theoretic reinterpretation of the known cacti may exist.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. This computes the natural geometric Galois invariant of every topological class of an emerging classification, sharply identifies the unique imprimitive family in even degree, and exhibits the parity transition from alternating to symmetric monodromy in the other families. The distinction is structural and not a finite table or routine renaming. It directly refines a current research classification without pretending to reprove the source's orbit count.
+The prior passport classification provides the class count, a branch-cycle representative, and the even quadratic-composition identification. The supported contribution is the evaluation of the generated permutation groups in those classes, especially the distinction between containment in a signed wreath product and generation of its full base and top groups. The inspected broader composition results do not establish this equality or the trichotomy for this passport.
 
-## Closest literature and limitations
+## value
 
-Vladimirov, arXiv:2610.15550v1, Prop. 4.6, gives the orbit classification and the quadratic-composition component; these are inputs. Behajaina--König--Neftin, arXiv:2603.27609v1, supplies general composition-group theory with different scope. Over \(\mathbb C\), the result applies only to the specified critical-value passport, not arbitrary branch configurations. Published priority is not independently certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The topological class count naturally raises the group question: the same even passport can produce a full symmetric group or an imprimitive group. Establishing the full signed group, rather than a block system or a loose kernel bound, and completing the natural-action classification in both parities supplies information not given by the class count or by generic sparse-system monodromy. It is an exact classification on a nontrivial infinite passport family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

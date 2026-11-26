@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:11:54.512744Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently exhausted the full range using half-word gluing rather than the frozen enumerator's length-2n position masks. In any interleaving with root r=ab split after k letters, if the first half uses k forward-root letters it uses exactly n-k letters of the reverse root. It is therefore a shuffle of a and reverse(b), while reversing the second half gives another shuffle of those same two strings. Conversely any two such half-shuffles concatenate, reversing the second one, to realize r. The reproduction recursively forms distinct half-shuffles, takes all ordered pairs for each of the n+1 splits of every root, and deduplicates across splits by stamping each word with its last root. Scanning the full labeled universe returns maxima 1,2,3,5,9,16,29,52,94,170 and optimizer counts 2,4,8,8,8,8,8,8,8,8, with all optimizer sets matching profile.txt and the eight length-20 words matching RESULT.md. A direct grid interleaving test agreed on all words through n=5 and on every optimizer through n=10. Both halves of a realizable word have the same letter counts by the split argument; conversely if counts agree, take a and b to be the monochromatic zero and one blocks of those lengths. Thus coverage is binomial(2n,n), agreeing with the run, including 184756 of 1048576 at n=10. The frozen enumerate.cpp and profile.txt are present and were read, not executed; the C++ bitset merges repeats of a root correctly. A separate read-only check verified each of the 170 supplied witness selections for the first listed optimizer. Replay: python3 /workspace/branches/reverse_halves_review.py 1 7 and python3 /workspace/branches/reverse_halves_review.py 8 10 (NumPy); outputs /workspace/branches/reverse_halves_1_7.txt and /workspace/branches/reverse_halves_8_10.txt. The conclusion stops at n=10.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lemma 6.2 characterizes coverability via a 123-avoiding permutation of the halves. The generalized-squares paper discusses related membership and cutting distance.",
+          "Resultary ee8a475fe7fb counts distinct ordinary roots with exactly two ones in the source; d4281bab60e0 counts ordinary shuffle-square source words at fixed weight."
+        ],
+        "reasoning": "These frameworks treat membership, different operations or different counts; no statement giving the unrestricted reverse-root multiplicity maximum was found in the inspected passages.",
+        "searches": [
+          "He et al. SURIM manuscript Lemma 6.2 p. 20",
+          "Grytczuk, Pawlik and Pleszczyński, DOI 10.3390/sym15111982 pp. 8–9",
+          "Resultary ee8a475fe7fb and d4281bab60e0"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, enumerate.cpp, profile.txt, verify_small.py, verify_witnesses.py and witnesses_n10.tsv",
+        "arXiv:2109.12455 and SURIM Lemma 6.2",
+        "DOI 10.3390/sym17020305",
+        "DOI 10.3390/sym15111982",
+        "Resultary ee8a475fe7fb and d4281bab60e0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known binomial count enumerates words with any root; it cannot separate words with 1 and 170 roots. Even a characterization by admissible matchings does not count distinct root words, since different matchings can support the same root.",
+          "The ordinary-root table supplies a precise comparator and natural cutoff, not an upper bound or optimizer list for reverse roots."
+        ],
+        "reasoning": "Recovering these exact values needs a further exhaustive deduplicated root census or a structural extremal proof. The available coverage theorems and the exact ordinary table do not give the finite reverse profile as a substitution or immediate corollary.",
+        "searches": [
+          "arXiv:2109.12455 p. 2 and SURIM Lemma 6.2",
+          "DOI 10.3390/sym17020305 Table 6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "He et al. show binary reverse-shuffle coverability is equivalent to being an abelian square, not that all such words have the same root multiplicity.",
+          "Datko and Pawlik's ordinary root is a self-shuffle with the same word, not with its reverse. For example 0110 has reverse roots 01 and 10 and no ordinary root."
+        ],
+        "reasoning": "Existence of some root and the size of the root set are not interchangeable, and the two root conventions do not define the same invariant. The frozen census counts roots, not assignments or symmetry classes.",
+        "searches": [
+          "He, Huang, Nam and Thaper, arXiv:2109.12455 p. 2 and SURIM manuscript Lemma 6.2",
+          "Datko and Pawlik, DOI 10.3390/sym17020305 p. 2",
+          "Resultary reverse and ordinary shuffle distinct-root multiplicities"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 6 lists the ordinary maxima 1,1,1,2,3,4,6,9,13,19 through length 20, not the reverse-shuffle values or their optimizer sets.",
+          "The indexed lookup found only related ordinary-shuffle entries; the focused literature lookup for 170 and the sequence tail returned no relevant hits."
+        ],
+        "reasoning": "The matching table length and extremal-statistic wording do not make the root operations equivalent. The noisy exact-number search gives no positive coverage evidence and cannot rule out an unindexed table.",
+        "searches": [
+          "Resultary reverse-shuffle root maximum, length 20 and optimizing words",
+          "Datko and Pawlik, Table 6 p. 7, DOI 10.3390/sym17020305",
+          "\"reverse shuffle\" binary distinct roots maximum 170 length 20 \"29\" \"52\" \"94\""
+        ]
+      },
+      "rationale": "The exact distinct-reverse-root extremal profile and optimizers through length 20 are the supported distinct claim. The characterization and number of coverable binary words are prior results used only as checks; the analogous ordinary-root table uses a different operation.",
+      "residual_risks": [
+        "The searches were bounded, and an earlier unavailable or unindexed reverse-root census could overlap. Dates of indexed records alone do not settle priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior exact coverability, not distinct-root multiplicity",
+          "evidence": "States that binary reverse-shuffle squares are exactly abelian squares, counted by binomial(2n,n).",
+          "identifier_or_url": "https://arxiv.org/pdf/2109.12455",
+          "material_read": "p. 2, OA offset 6550",
+          "method": "Open primary PDF passage",
+          "title": "Shuffle Squares and Reverse Shuffle Squares",
+          "trigger": "Identical reverse-shuffle word family"
+        },
+        {
+          "assessment": "Characterizes existence via matching rather than tabulating distinct roots",
+          "evidence": "A 123-avoiding permutation matching letters between halves characterizes reverse-shuffle coverability.",
+          "identifier_or_url": "https://surim.stanford.edu/sites/g/files/sbiybj26191/files/media/file/twins_in_words_and_shuffle_squares.pdf",
+          "material_read": "Lemma 6.2, p. 20, OA offset 72600",
+          "method": "Open manuscript passage",
+          "title": "Twins in Words and Shuffle Squares",
+          "trigger": "Potential stronger reverse-shuffle characterization"
+        },
+        {
+          "assessment": "Strong comparator for ordinary roots only",
+          "evidence": "Ordinary self-shuffle maximum is 19 at length 20.",
+          "identifier_or_url": "https://doi.org/10.3390/sym17020305",
+          "material_read": "Definition p. 2, OA offset 3000; Table 6 p. 7, offsets 28600–29326",
+          "method": "Open primary PDF passages",
+          "title": "Roots of Binary Shuffle Squares",
+          "trigger": "Exact binary extremal root table at the same lengths"
+        },
+        {
+          "assessment": "Nearby membership and cutting-distance result",
+          "evidence": "Binary reverse-shuffle membership is discussed through anagram squares.",
+          "identifier_or_url": "https://doi.org/10.3390/sym15111982",
+          "material_read": "pp. 8–9, OA offset 40400",
+          "method": "Open primary PDF passage",
+          "title": "More Variations on Shuffle Squares",
+          "trigger": "Generalized shuffle squares and reverse-square classification"
+        },
+        {
+          "assessment": "Ordinary self-shuffle with restricted marker count",
+          "evidence": "Its exact threshold counts and maximum apply to ordinary roots of source words with two ones, not the unrestricted reverse-shuffle statistic.",
+          "identifier_or_url": "2026/11/2/SCOPE-complete-root-multiplicity-spectrum-of-two-marker-binary-shuffle--ee8a475fe7fb",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror passage",
+          "title": "Complete root multiplicity spectrum of two-marker binary shuffle squares",
+          "trigger": "Strongest related indexed distinct-root multiplicity theorem"
+        },
+        {
+          "assessment": "Different statistic and root convention",
+          "evidence": "Counts ordinary shuffle-square source words at fixed weight rather than distinct roots per word.",
+          "identifier_or_url": "2026/10/12/SCOPE-fixed-weight-binary-shuffle-squares-have-full-polynomial-order--d4281bab60e0",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror passage",
+          "title": "Fixed-weight binary shuffle squares have full polynomial order",
+          "trigger": "Earlier indexed counting results on binary shuffle squares"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the per-word ambiguity of a natural word operation whose binary existence condition is already known. Length 20 is a meaningful matched cutoff with the published ordinary-shuffle profile; 170 versus 19 and the exact optimizer sets give a reusable extremal benchmark and test instances. The result is finite, not evidence of an infinite recurrence or asymptotic law.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

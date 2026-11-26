@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,25 +19,24 @@
 }
 ---
 
-# Reproducible finite verification and proof scope
+# Independent mathematical audit
 
-The universally quantified classification over all positive \(a,b,c\) follows from the two symbolic parity relations (1) and (2) in `RESULT.md`, with the four parity cases proved separately. The computational tests below independently verify instances but are **not** asserted to establish the universal theorem.
+## correctness
 
-Compile and run the exhaustive test from this directory:
+PASS
 
-```sh
-g++ -O2 -std=c++17 verify_direct.cpp -o verify_direct
-./verify_direct
-```
+For the binary base incidence matrix D, the closed-neighbourhood matrix of the line graph is I+D^T D: its diagonal is 1, and its off-diagonal entries mark shared endpoints. Thus x=1+D^T p, p=Dx, and substitution gives the equivalent vertex system (I+DD^T)p=D1. This proves sufficiency and injectivity as well as necessity; swapping the labels does not introduce duplicate solutions. In a part of degree parity zero, all labels equal the sum of the other parts' label totals; in a part of degree parity one, that sum must equal one. All-even sizes force all labels to zero, and all-odd sizes give the four constant triples of even parity. In each mixed case the two parts of the same parity have freely chosen odd subsets and the other part is all zero (substitute first the two forced part-total equations, then the constant equation for the remaining part). The weight formulas count edges separately inside the two label classes. Each class with an edge has a connected line graph, so the connected selections are exactly those with edges in just one class: all selections in the unmixed cases, just the bipartite set between the odd parts in the two-odd case, and none in the one-odd case since neither even part can be exhausted by an odd subset. For K_(1,2m,2m), the line degrees are 4m and 6m-1, so the minimum is 4m even at m=1. The edge and solution counts then give the announced family.
 
-The direct checker iterates every vertex subset of eleven line graphs (up to 21 vertices), computes the oddness of every closed-neighborhood intersection and tests induced connectivity by graph traversal. The output is recorded in `verify_direct_output.txt` and ends in `ALL_DIRECT_CASES_PASS`.
+## originality
 
-Independently, run the complete finite-field linear-system enumeration:
+PASS
 
-```sh
-python3 verify_linear.py
-```
+The parity method has substantial precedent and K_(1,1,1) is an exact prior instance. The distinct claim is the full weighted and connected four-regime classification for three-part bases, including the explicit claw-free line-graph obstruction with unbounded minimum degree. The closest host-graph theorem applies to a different graph. No exact broader covering statement was identified in the compared material.
 
-The second program constructs the entire closed-neighborhood matrix and performs exact binary Gauss–Jordan elimination. It compares all solution-weight coefficients against the theorem and checks connectivity in fourteen examples (up to forty line-graph vertices). Its reference output is `verify_linear_output.txt` and ends in `ALL_GAUSSIAN_CASES_PASS`.
+## value
 
-The two checks employ distinct search mechanisms and do not rely on downloaded or precomputed graph data. They do not establish historical uniqueness, imply an independent validation, or verify graphs of unrestricted size by exhaustion.
+PASS
+
+The tripartite base is the next natural setting beyond complete-bipartite line graphs. The result separates abundant odd-dominating sets from the existence of a connected one, even at arbitrarily large minimum degree within a connected claw-free family. It also gives the exact weight distribution and singles out the only connected set in the two-odd case. The permanent split into two edge-bearing label classes explains the obstruction rather than merely supplying small examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

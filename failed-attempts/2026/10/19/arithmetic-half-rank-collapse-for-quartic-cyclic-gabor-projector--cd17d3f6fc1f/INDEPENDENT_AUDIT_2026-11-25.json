@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:01:47.421493Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With the stated shift convention the projector Gram is the convolution kernel |A(h,w)|² at h=a−c,w=b−d. For the character (a,b)↦ζ_N^(ua+vb), expanding the ambiguity square and summing over w sets the two sample indices a lag v apart; the h-transform factors as a modulus square. This gives N|A(−v,u)|² at the stated label, not only as an unordered spectrum. Fourier-character kernel directions of the projector Gram correspond to zero weights, while Weyl operator directions describe the intensity-lifting kernel. Centering s=t+h/2 gives 4hs³+(h³−w)s+wh/2. Modulo p, cyclotomic irreducibility makes exact cancellation equivalent to the cubic being a permutation. For nonzero linear coefficient b in ax³+bx, the off-diagonal collision conic u²+3v²=−4b/a has p−χ(−3) solutions (count the quadratic character by a split difference of squares), at most two with u=0; for p≥5 this forces a collision. For b=0, cyclicity gives the p≡2 mod 3 condition. Modulo p², the two-digit split leaves exactly the stationary residue contributions, without a simple-root restriction. For unit h there are zero, one or two such residues; two p²-th roots cannot cancel at odd p. For h=pH≠0 only w=pW can survive and the residue sum is exactly the already classified cubic 4Hx³−Wx. The h=0 row is orthogonality. Counting 1, then (p−1)(p−δ_p), then (p²−p)p(p+1)/2 gives the square-order rank, and the h=0 and nonzero-shift zeros give the prime-order rank. The frozen checker’s floating comparisons sort spectra and do not by themselves test labels. Independent replay /workspace/branches/frozen-review-replay.py checks unsorted character-by-character values from the first Gram row and checks exact exponent-histogram cancellations for p=5,7 at both orders; ranks 17,43,317,1219 and worst labeled error below 1.5e−14. The analytic classification, not finite evidence, proves all p≥5.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General Weyl expansions and ambiguity-factor identities supply the spectral bridge. Cochrane’s simple-critical-point formula handles nondegenerate unit-shift stationary residues; the Cochrane–Zheng survey explicitly splits x=u+p^(m−1)v and obtains the restriction to critical residues. At m=2 that split leaves exactly a factor p times the critical phase, even at the repeated root."
+        ],
+        "reasoning": "The general literature anticipates the lifting and most of the arithmetic mechanism; the inspected simple-root theorem alone is not cited as covering the repeated-root or prime-divisible strata. Exact coverage instead comes from the matched catalogue statements with all strata present.",
+        "searches": [
+          "Bojarovska–Flinth arXiv:1503.05800v2, §2, Theorem 2.3",
+          "Alaifari–Wellershoff arXiv:1901.05296, Lemma 2.2",
+          "Cochrane Exponential sums modulo prime powers, Theorem 1.1",
+          "Cochrane–Zheng survey §§2.3–2.8 equations (2.3)–(2.8)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_quartic.py, verify_output.txt, requirements.txt",
+        "Resultary 47a21e8da15a, 26ee2b47d69a and 1f76e4a64221",
+        "arXiv:1503.05800v2 and 1901.05296",
+        "Cochrane prime-power sum paper and Cochrane–Zheng survey",
+        "IEEE 264573 retrieval attempted"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "47a21e8da15a additionally states the same p² half-rank asymptotic and a perfect-autocorrelation dichotomy. 26ee2b47d69a additionally gives an exact fourth ambiguity moment. The p-order full-rank fraction tending to 1 is immediate from its exact counts. The character relabeling fixes the convention and leaves only the usual Fourier transformation of ambiguity squared."
+        ],
+        "reasoning": "The exact supports, ranks, nullities, and asymptotics all follow from the inspected matches. The additional scalar normalization and simultaneous presentation at p and p² are not independent claims. Neither the autocorrelation dichotomy nor the fourth-moment result is new content in the assigned finding.",
+        "searches": [
+          "Resultary 47a21e8da15a, Finding and stationary phase proof",
+          "Resultary 26ee2b47d69a, Finding and cubic proof",
+          "arXiv:1901.05296, Lemma 2.2 and frozen Fourier convention"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "47a21e8da15a uses an unnormalized sum; its unit-shift nonzero test uses χ_p(3h(w−h³))∈{0,1}. The argument is 36h² times the frozen criterion argument, a nonzero square multiple. The zero shift and p-divisible nonzero shifts also match exactly.",
+          "26ee2b47d69a uses a plus frequency sign; b=−w makes its additional prime-order zeros (a,−a³) precisely the frozen nonzero-shift zeros. Its linear lifting rank agrees in both prime congruence classes."
+        ],
+        "reasoning": "Both are identical windows up to norm at the same moduli. Opposite frequency convention and norm scale preserve the mapped zero set and exact rank. This is not comparison merely by titles or low-rank resemblance.",
+        "searches": [
+          "Resultary: quartic chirp cyclic Gabor ambiguity, exact rank and half-rank at prime-square order",
+          "Resultary 47a21e8da15a and 26ee2b47d69a, actual Findings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first two records contain exact all-prime classifications (not just data tables): rank at p² is 1+p²(p²−1)/2+(p−1)(p−δ_p), and ranks at p are p²−p+1 or p²−2p+2. The older quartic-graph record uses an indicator supported on the graph in F_p² and does not give these cyclic rank formulas."
+        ],
+        "reasoning": "The exact matched statements jointly cover the two-exponent family. Neither is the assigned record itself; the catalogue path dates establish neither mathematical precedence nor copying.",
+        "searches": [
+          "Resultary 47a21e8da15a, prime-square exact ambiguity support",
+          "Resultary 26ee2b47d69a, prime-field exact Gabor ranks",
+          "Resultary 1f76e4a64221, quartic-graph Gabor ranks"
+        ]
+      },
+      "rationale": "Two distinct inspected Resultary records give exact coverage of the quartic cyclic support and lifting ranks, one at each order. Their catalogue path dates are later than the frozen path date, which does not establish who obtained the results first; the decision is about demonstrable known equivalent content and lack of distinct remainder, not provenance. The normalized, character-labeled Gram identity is the standard Weyl/ambiguity diagonalization, and combining the two exact rank cases adds only elementary counts and limits.",
+      "residual_risks": [
+        "Exact personal or publication priority is not inferred from record dates. The coverage assessment is statement-level.",
+        "IEEE 264573 was not readable, and older perfect-polyphase constructions may overlap with the autocorrelation slice; neither issue affects the verified exact rank coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact square-order coverage, plus stronger autocorrelation statement",
+          "evidence": "All three ambiguity strata, exact lifting rank and nullity, and half-rank asymptotic.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-quartic-prime-square-chirps-a-perfect-autocorrelation-dichotomy--47a21e8da15a/RESULT.md",
+          "material_read": "Opening Finding, assumptions and stationary phase proof, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Quartic prime-square chirps: a perfect-autocorrelation dichotomy and exact ambiguity support",
+          "trigger": "Same quartic cyclic window and p² order"
+        },
+        {
+          "assessment": "Exact prime-order coverage with opposite frequency convention",
+          "evidence": "Complete zero set and both ranks for p≥5, plus separate fourth moment.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-gabor-lifting-ranks-and-fourth-ambiguity-moments-of-quarti--26ee2b47d69a/RESULT.md",
+          "material_read": "Opening Finding, assumptions, and first three proof steps, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact Gabor lifting ranks and fourth ambiguity moments of quartic prime-field chirps",
+          "trigger": "Same quartic chirp in prime-field case"
+        },
+        {
+          "assessment": "Different generator and space; not used for coverage",
+          "evidence": "Its input is an indicator of the graph {(t,t⁴)} in F_p², not the cyclic chirp.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-rank-and-weyl-kernel-classification-for-quartic-graph-gabo--1f76e4a64221",
+          "material_read": "RESULT.md opening Finding",
+          "method": "Resultary local mirror",
+          "title": "Exact rank and Weyl kernel classification for quartic-graph Gabor lifting",
+          "trigger": "Earlier quartic Gabor rank record"
+        },
+        {
+          "assessment": "Prior standard framework, not this arithmetic census",
+          "evidence": "Bounds for the rank-one Gabor projector frame use shift inner products of the generator.",
+          "identifier_or_url": "https://arxiv.org/html/1503.05800v2",
+          "material_read": "§2, Theorem 2.3, OA near offset 18000",
+          "method": "OA primary text",
+          "title": "Phase Retrieval from Gabor Measurements",
+          "trigger": "General Gabor lifting and spectral structure"
+        },
+        {
+          "assessment": "General ambiguity factorization; no quartic zero census in inspected passage",
+          "evidence": "Fourier/ambiguity product formula for discrete Gabor measurement data.",
+          "identifier_or_url": "https://arxiv.org/html/1901.05296",
+          "material_read": "Lemma 2.2, OA near offset 12100",
+          "method": "OA primary text",
+          "title": "Stability estimates for phase retrieval from discrete Gabor measurements",
+          "trigger": "Fourier and ambiguity labeling relation"
+        },
+        {
+          "assessment": "Nonstationary classes removed, explicit simple-root formula; repeated roots use a separate conversion",
+          "evidence": "A simple critical class at exponent two contributes p times a phase in the pure unit-leading case; formula (1.12) is limited to simple roots.",
+          "identifier_or_url": "https://math.ksu.edu/~cochrane/research/expprpowa.pdf",
+          "material_read": "§1, pp. 2–3, Theorem 1.1, (1.12)–(1.13)",
+          "method": "OA primary PDF passage",
+          "title": "Exponential Sums Modulo Prime Powers",
+          "trigger": "Potential broader exact cubic-sum implication"
+        },
+        {
+          "assessment": "Classical exact sum mechanism; not itself a Gabor census",
+          "evidence": "Splitting x=u+p^(m−1)v annihilates all noncritical classes. For m=2 the sum in each class has only the one base residue u, giving the special exact contribution directly.",
+          "identifier_or_url": "https://www.math.ksu.edu/~cochrane/research/ill00p.pdf",
+          "material_read": "§2, p. 2, equations (2.3)–(2.8), OA offset 3600",
+          "method": "OA PDF passage",
+          "title": "A survey on pure and mixed exponential sums modulo prime powers",
+          "trigger": "Check the underlying digit split at exponent two independent of root multiplicity"
+        },
+        {
+          "assessment": "Unresolved; not relied on for the verdict",
+          "evidence": "Available description concerns estimation; it does not settle full-text coverage of finite-cyclic quartic zeros.",
+          "identifier_or_url": "https://ieeexplore.ieee.org/document/264573",
+          "material_read": "Search description only; full text unavailable via attempted OA (HTTP 202)",
+          "method": "Web discovery and OA attempt",
+          "title": "Ambiguity function, polynomial phase signals and higher-order …",
+          "trigger": "Potential older polynomial-phase ambiguity antecedent"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Half-rank collapse is a meaningful invariant for this window, but the precise support and rank are already covered in both orders. The joint presentation and permutation of Fourier labels add no comparably useful unknown fact. No experiment or motivation change can rescue originality of this same claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

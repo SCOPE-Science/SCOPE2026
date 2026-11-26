@@ -1,0 +1,163 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:37:19.257645Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The repaired RESULT.md counts all cliques, including the empty set, on nonzero elements. From multiplication, commutation within a diagonal index is group commutation and across distinct diagonal indices holds automatically. An off-diagonal element is incompatible with any diagonal at its endpoints. Two off-diagonals commute iff both products vanish: when both are nonzero they lie in different diagonal positions. Hence occupied source and target supports of chosen off-diagonals are disjoint and uniquely determined by the clique. For fixed occupied supports of sizes s,t, choosing arbitrarily from the labeled pairs on allowed i,j sub-supports gives (1+z)^(mij); inclusion–exclusion enforces that each support index occurs. Unused indices give independent factors P_G, the empty-off-diagonal case gives P_G^n, and the multinomial counts each ordered support partition once. Zero is optional and multiplies by 1+z. The original maximal classification and its derived formulas are also correct: saturation fills the rectangle and maximal abelian group choices on unused indices; threshold size maximization follows from discrete convexity of (n−x)a+m floor(x²/4), attained at x=0 or n. Their removal is for coverage, not error. Independent finite replay: python3 /workspace/branches/56f9329d-edcb-444d-8077-3debe5330f94/independent_brandt_check.py C1 and the same command with S3. Direct multiplication and clique enumeration matched all coefficients for B_2(C_1) and B_2(S_3), including the empty term (see independent_brandt_check.out). At n=2 the support term is exactly 2[(1+z)^m−1]. The repaired all-order proof is not inferred from the finite tests. The unchanged frozen verify.py was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kumar–Dalal–Pandey give the disjoint-source/target argument and extremal rectangle in the trivial-group case. Margolis–Rhodes–Silva give the lattice of subsemigroups containing zero for the aperiodic case. The divisor results for Brandt or Rees 0-matrix semigroups classify abstract commutative divisors across ambient semigroups.",
+          "For the nonzero completely simple Rees product, maximal commutative subsemigroups occupy one group H-class. Related Rees matrix clique-number results have external-commutativity hypotheses."
+        ],
+        "reasoning": "Extremal aperiodic cliques and the abstract divisor structure give real structural antecedents, not a distribution of all pairwise-commuting subsets in one fixed B_n(G). A nonzero Rees product does not encode rectangular zero-product supports.",
+        "searches": [
+          "\"maximal commutative subsemigroups\" Brandt semigroup clique classification Rees matrix semigroup commuting graph all maximal cliques",
+          "arXiv:2010.05000 Lemma 3.10 Theorem 3.14",
+          "arXiv:1705.04956 Section 5",
+          "Resultary 2026/11/8/SCOPE-commutative-divisors-of-finite-completely-zero-simple-semigroups--64205f67af4f"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 4fb43e2cf90b, a62e32d5a371, a2f16599b2ee, 375b1d05a823 and 64205f67af4f",
+        "Kumar–Dalal–Pandey arXiv:2010.05000",
+        "Margolis–Rhodes–Silva arXiv:1705.04956",
+        "Commuting graphs of completely simple semigroups arXiv:2412.06560",
+        "Rees matrix semigroup commuting graphs DOI 10.1007/s00233-025-10597-0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The maximal normal forms do describe cliques indirectly as subsets of maximal faces. Such an enumeration must correct for overlaps across those faces; maximal sizes do not supply their intersections. The repaired derivation instead groups cliques by the actual nonempty sources/targets and enforces all occupied indices by an independent inclusion–exclusion count.",
+          "The same-day abstract-divisor result determines a minimal index over some Brandt semigroup, not how labeled pairwise-commuting subsets sit in one fixed Brandt semigroup."
+        ],
+        "reasoning": "A generic union over maximal faces is not the stated explicit transform in m and P_G. Credit prior normal forms and remove them from findings; the finer all-clique coefficient formula with unique support avoids dependence on enumerating maximal subgroups or intersections of maximal faces.",
+        "searches": [
+          "Resultary 4fb43e2cf90b RESULT.md Finding and normal forms at offsets 460 and 2256",
+          "Resultary 2026/11/2/SCOPE-commutative-brandt-divisors-coincide-with-embeddings-with-the-sh--375b1d05a823",
+          "Resultary all cliques clique polynomial Brandt commuting graph empty clique arbitrary finite group occupied source target inclusion exclusion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Maximal cliques become exactly maximal commutative subsemigroups when zero is adjoined: closure follows from pairwise commutation and maximality. Thus the comparator's polynomial including zero is t times the original M_{n,G}(t).",
+          "Arbitrary cliques need not be product-closed, e.g. a singleton consisting of a nonidentity diagonal element for G=C_3. The repaired all-clique polynomial cannot be identified with a semigroup size distribution."
+        ],
+        "reasoning": "Zero removal is an exact change of convention for maximal objects, not a new enumeration. Subsets and subsemigroups differ for the all-clique claim. Including zero in the graph is handled uniformly by multiplying by 1+z.",
+        "searches": [
+          "Resultary Brandt semigroup maximal commutative subsemigroups maximal cliques complete clique polynomial commuting graph arbitrary finite group source sink blocks",
+          "Resultary all cliques clique polynomial Brandt commuting graph empty clique arbitrary finite group occupied source target inclusion exclusion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "4fb43e2cf90b Finding offsets 460–1708 gives exactly t M_{n,G}(t) under renaming its group polynomial, the same total, and the same maximum size plus one; n≥4 is off-diagonal maximal since a≤m and floor(n²/4)≥n.",
+          "a62e32d5a371 gives the all-clique polynomial for all nonempty rectangular Boolean relations, and a2f16599b2ee counts only rank-one idempotent Boolean relations. The former includes trivial-group Brandt vertices as singleton-by-singleton relations but does not refine its counts by singleton support; the latter omits the off-diagonal matrix units."
+        ],
+        "reasoning": "The first is strong exact coverage of a material part of the original claim. The rank-one formulas encode different graph/counting objects and do not recover the arbitrary-group complete polynomial.",
+        "searches": [
+          "Resultary Brandt semigroup commuting graph counts all commuting subsets arbitrary finite group source sink clique polynomial",
+          "Resultary 2026/11/22/SCOPE-maximal-commutative-subsemigroups-of-brandt-semigroups-exact-siz--4fb43e2cf90b",
+          "Resultary 2026/11/22/SCOPE-full-clique-and-maximal-clique-spectra-of-rank-one-boolean-relat--a62e32d5a371",
+          "Resultary 2026/11/2/SCOPE-clique-and-maximal-clique-enumerators-for-rank-one-idempotent-bo--a2f16599b2ee"
+        ]
+      },
+      "rationale": "PASS for the repaired all-clique identity only. The original does not pass as stated: a distinct Resultary record gives exactly its maximal-commutative-subsemigroup normal forms, total and size polynomial, and equivalent clique number after removing zero, with a larger index range and an additional limit theorem. That match is a material overlap, not a priority determination. Affected queries and statement checks on the repaired claim found no inspected formula for all clique coefficients for these arbitrary finite structure groups. The maximal-size distribution alone omits incomplete off-diagonal supports and nonmaximal local commuting choices. The corrected files retain the all-clique contribution and no longer present the covered results or the routine abelian corollaries as findings.",
+      "residual_risks": [
+        "The distinct exact maximal-polynomial comparator is later-dated in the catalogue; that does not decide first publication, authorship or provenance.",
+        "A broader formula about cliques in graph or Rees 0-matrix semigroups may contain the repaired identity under terminology not retrieved. Available evidence does not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact for maximal structure and polynomial; inspected passages do not give all-clique enumeration",
+          "evidence": "Full labeled rectangle with maximal abelian subgroups elsewhere; F_{n,G}(t)=t M_{n,G}(t), same maximum and count, with added size limit.",
+          "identifier_or_url": "2026/11/22/SCOPE-maximal-commutative-subsemigroups-of-brandt-semigroups-exact-siz--4fb43e2cf90b",
+          "material_read": "RESULT.md Finding offsets 460–1708 and normal forms near offset 2256",
+          "method": "Local Resultary mirror",
+          "title": "Maximal commutative subsemigroups of Brandt semigroups: exact size spectra and a Gaussian law",
+          "trigger": "Strong exact match for arbitrary structure groups"
+        },
+        {
+          "assessment": "Different ambient graph and support statistics",
+          "evidence": "Counts arbitrary nonempty A×B relations, refined by idempotence or square-zero property, not singleton supports or arbitrary group labels.",
+          "identifier_or_url": "2026/11/22/SCOPE-full-clique-and-maximal-clique-spectra-of-rank-one-boolean-relat--a62e32d5a371",
+          "material_read": "RESULT.md Finding, offsets 0–2392",
+          "method": "Local Resultary mirror",
+          "title": "Full clique and maximal-clique spectra of rank-one Boolean relation semigroups",
+          "trigger": "All cliques in a relation semigroup containing trivial-group matrix units"
+        },
+        {
+          "assessment": "Different vertex family",
+          "evidence": "Restricts to rank-one idempotents; it excludes Brandt off-diagonal matrix units.",
+          "identifier_or_url": "2026/11/2/SCOPE-clique-and-maximal-clique-enumerators-for-rank-one-idempotent-bo--a2f16599b2ee",
+          "material_read": "RESULT.md Finding offsets 0–1785",
+          "method": "Local Resultary mirror",
+          "title": "Clique and maximal-clique enumerators for rank-one idempotent Boolean relations",
+          "trigger": "Similar clique polynomials and inclusion–exclusion"
+        },
+        {
+          "assessment": "Abstract commutative divisors, not an embedded clique enumerator",
+          "evidence": "Abelian group components and annihilator elements determine the minimal index permitting some embedding.",
+          "identifier_or_url": "2026/11/2/SCOPE-commutative-brandt-divisors-coincide-with-embeddings-with-the-sh--375b1d05a823",
+          "material_read": "RESULT.md Finding and assumptions, offsets 0–2599",
+          "method": "Local Resultary mirror",
+          "title": "Commutative Brandt divisors coincide with embeddings, with the sharp matrix index",
+          "trigger": "Same-day structural theorem on commutative Brandt objects"
+        },
+        {
+          "assessment": "Abstract divisor class, not coefficient coverage",
+          "evidence": "Commutative divisors across all completely zero-simple semigroups are the commutative Brandt divisors.",
+          "identifier_or_url": "2026/11/8/SCOPE-commutative-divisors-of-finite-completely-zero-simple-semigroups--64205f67af4f",
+          "material_read": "RESULT.md Finding at offsets 0–1295",
+          "method": "Local Resultary mirror",
+          "title": "Commutative divisors of finite completely zero-simple semigroups collapse to Brandt embeddings",
+          "trigger": "Possibly dominating Rees 0-matrix classification"
+        },
+        {
+          "assessment": "Extremal special-case coverage and prior support method",
+          "evidence": "Disjoint source and target sets and a full rectangle for extremal off-diagonal cliques; clique number at n>4 in the aperiodic case.",
+          "identifier_or_url": "https://arxiv.org/abs/2010.05000",
+          "material_read": "Lemma 3.10 p. 7 (offset 23954), Theorem 3.14 p. 8",
+          "method": "OA PDF",
+          "title": "On the commuting graphs of Brandt semigroups",
+          "trigger": "Same semigroup graph for the trivial group"
+        },
+        {
+          "assessment": "Lattice result, no commuting-subset coefficient formula",
+          "evidence": "Subsemigroups containing zero correspond to transitive relations.",
+          "identifier_or_url": "https://arxiv.org/abs/1705.04956",
+          "material_read": "§5, Theorem 5.2(i), p. 8; offset 27066",
+          "method": "OA PDF",
+          "title": "On the subsemigroup complex of an aperiodic Brandt semigroup",
+          "trigger": "Broader aperiodic subsemigroup description"
+        },
+        {
+          "assessment": "Nonzero Rees product, materially different from Brandt",
+          "evidence": "A maximal commuting subsemigroup is a maximal abelian subgroup at a single group H-class; there is no rectangular zero-product block as here.",
+          "identifier_or_url": "https://arxiv.org/abs/2412.06560",
+          "material_read": "Definition p. 4, offset 13999; Corollary 3.5 proof p. 8, offset 24840",
+          "method": "OA submitted version of DOI 10.1080/00927872.2025.2481079 after publisher access failure",
+          "title": "Commuting graphs of completely simple semigroups",
+          "trigger": "Primary classification of maximal commuting subsemigroups in related Rees products"
+        },
+        {
+          "assessment": "Different invariant and external-commutativity conditions",
+          "evidence": "Clique and chromatic numbers under hypotheses, not an all-clique enumerator.",
+          "identifier_or_url": "https://doi.org/10.1007/s00233-025-10597-0",
+          "material_read": "Theorem 3.7 p. 6, offset 17005",
+          "method": "OA article text",
+          "title": "Commuting graphs of Rees matrix semigroups",
+          "trigger": "Related graph invariants with Rees product"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Repaired claim only: the whole clique polynomial is a natural graph invariant and conveys partial configurations of every size, not just maximal ones. It reduces a graph on n²|G| vertices to explicit polynomial operations using the group-level polynomial and order, without listing intersections of maximal families. The exact uniform transform for all index sizes and arbitrary finite structure groups is useful apart from the covered extremal and maximal statements.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

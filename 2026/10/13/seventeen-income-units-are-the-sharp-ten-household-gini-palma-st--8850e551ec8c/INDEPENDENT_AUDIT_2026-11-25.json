@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:06:21.478418Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With ten equally weighted households and no partial quantiles, Palma is the largest income divided by the sum of the four smallest; at common S, the Gini denominator is 10S and its numerator is the sorted linear form sum_i(2i−11)x_i for i=1,...,10. I inspected the frozen proof, verification notes and checker without executing that checker. An independent census built sorted profiles by incrementing one entry and sorting, starting from ten ones. Completeness follows by decrementing an entry above one and sorting in the reverse direction. The layer sizes for S=10,...,17 were 1,1,2,3,5,7,11,15. Exact pair comparisons gave no strict reversal until S=17, and exactly the two displayed pairs there, with numerator pairs (53,51) and (45,43) and Palma pairs (1,5/4) and (3/4,1). The first tie split at S=14 was also confirmed (Gini numerators 32 versus 30 at equal Palma 3/4). Replay: python3 -I /workspace/review_math.py 5. No threshold is asserted for other household counts, income grids, or unequal totals.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The nearly perfect exponential fit cited in section 4 concerns a PovCal subsample, with reported fit rising to 0.9962 on excluding outliers; the two-share regression concerns grouped-data Gini.",
+          "Published Gini–CV (103df8304114) and Gini–Atkinson (da327edb82c3) boundaries use different second functionals."
+        ],
+        "reasoning": "Empirical association is not a universal ordering theorem. The CV and Atkinson boundaries do not specialize to Gini versus Palma; even on the relevant grid Palma can tie while Gini splits.",
+        "searches": [
+          "Resultary searches for fixed-total profiles and first strict reversals",
+          "ECINEQ WP 2013-308, section 4, pp. 23–25, Figure 12 and Table 7 discussion"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary and frozen-source exact-profile searches",
+        "ECINEQ WP 2013-308, abstract and section 4",
+        "Published-record IDs 103df8304114, da327edb82c3, 785cb5dc23d2, 59c65892117c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For S<=16 on this grid the four lowest incomes are all one: x4>=2 would require at least seven excess units. At S=17 this bound is attained only by the profile with three ones and seven twos; the two displayed inversions have denominator four throughout.",
+          "Published comparisons establish the Palma definition and differing sensitivities; none of the compared statements classifies orders of the sorted Gini linear form against maxima on these constrained partitions."
+        ],
+        "reasoning": "The elementary denominator observation does not order the Gini linear form among intermediate partitions. Neither a high empirical correlation nor replacing the second metric by CV, Atkinson, Pietra or Theil determines the sign reversals or their minimal total.",
+        "searches": [
+          "Statement comparison against the abstract and section 4 of ECINEQ WP 2013-308 and the exact Gini boundaries surfaced by Resultary"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The paper defines Palma by the top 10% and bottom 40% shares; for ten households this is maximum divided by the sum of the smallest four.",
+          "The same-day Gini–Pietra split (785cb5dc23d2) compares Gini with Pietra/Hoover, not with Palma; its P notation is not equivalent to the ratio here."
+        ],
+        "reasoning": "The share-ratio notation is genuinely equivalent to the frozen Palma statistic; the Pietra index is not. No catalog match to the ten-household sharp strict reversal under either notation was surfaced.",
+        "searches": [
+          "Resultary semantic search: ten-household Gini–Palma strict reversal",
+          "Local frozen-source search for Gini and Palma",
+          "Cobham and Sumner ECINEQ WP 2013-308, abstract and section 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Local exact profile hits were in the assigned result only. The near Gini–Theil catalog hit (59c65892117c) is a three-household primitive reversal at total 13.",
+          "The inspected PovCal tables summarize group shares and regressions, not all ten-part positive integer partitions at fixed total."
+        ],
+        "reasoning": "Neither the surveyed findings nor the empirical tables give the exhaustive set of inversions in the target layer or exclude any earlier one.",
+        "searches": [
+          "Resultary and local frozen-source searches for the two exact ten-household witness profile pairs",
+          "ECINEQ WP 2013-308, section 4, Figure 12 and Table 7 discussion"
+        ]
+      },
+      "rationale": "The supported distinct fact is the sharp same-total integer boundary and complete first layer, not generic Gini–Palma disagreement or the definition of Palma. The strongest inspected direct comparison treats near-empirical equivalence and decile sensitivities, not exact order equivalence or a discrete first inversion. Nearby exact results concern different indices and/or a different household count. No inspected result covers this boundary.",
+      "residual_risks": [
+        "Versions of record DOI 10.1111/j.1467-7660.2011.01694.x and DOI 10.1111/j.1740-9713.2014.00718.x were not read in full.",
+        "An undiscovered discrete inequality exercise, worked example, or software test could contain the exact boundary or witnesses; this is a best-of-knowledge decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant primary comparison; inspected results do not give the discrete first reversal. This is the working paper, not an asserted reading of the 2014 Significance article.",
+          "evidence": [
+            "Abstract defines Palma as the ratio of national income shares of the top 10% to the bottom 40%.",
+            "Section 4 specifies the PovCal data, nearly perfect empirical fit and regression on the two shares; it explicitly contrasts the ignored middle five deciles with the Gini's sensitivity."
+          ],
+          "identifier_or_url": "https://www.ecineq.org/milano/WP/ECINEQ2013-308.pdf",
+          "material_read": "Abstract; section 4 pp. 23–25, Figure 12 discussion and opening of Table 7 analysis",
+          "method": "Lawful open working-paper PDF, bounded passages at text offsets 0 and 53200",
+          "title": "Is it all about the tails? The Palma measure of income inequality (ECINEQ WP 2013-308)",
+          "trigger": "Direct Gini–Palma comparison by the authors cited in the frozen record"
+        },
+        {
+          "assessment": "Not used as negative evidence; possible overlap not independently excluded from this exact text.",
+          "evidence": [
+            "The cited version of record was not accessible by the attempted routes."
+          ],
+          "identifier_or_url": "https://doi.org/10.1111/j.1467-7660.2011.01694.x",
+          "material_read": "No full-text passage retrieved",
+          "method": "Lawful DOI/publisher and open-copy retrieval attempts",
+          "title": "Homogeneous Middles vs. Heterogeneous Tails, and the End of the Inverted-U",
+          "trigger": "Foundational tail-share citation"
+        },
+        {
+          "assessment": "Edition not independently cleared by full-text inspection.",
+          "evidence": [
+            "The cited edition was not accessible by the attempted routes."
+          ],
+          "identifier_or_url": "https://doi.org/10.1111/j.1740-9713.2014.00718.x",
+          "material_read": "No full-text passage from this edition retrieved; compare the separately identified 2013 working paper above",
+          "method": "Lawful DOI/publisher and open-copy retrieval attempts",
+          "title": "Is Inequality all about the Tails?: The Palma Measure of Income Inequality (Significance)",
+          "trigger": "Frozen direct Gini–Palma citation"
+        },
+        {
+          "assessment": "Different targets; same-day date does not establish priority or equivalence.",
+          "evidence": [
+            "Gini–CV: S=12, four households; Gini–Atkinson: S=11, three households; Gini–Pietra: three-household witness at total 16; Gini–Theil: primitive three-household boundary 13."
+          ],
+          "identifier_or_url": "Resultary records 103df8304114, da327edb82c3, 785cb5dc23d2, 59c65892117c",
+          "material_read": "Finding sections of the four exact records",
+          "method": "Local Resultary search and published-record mirror passages",
+          "title": "Published exact Gini comparisons",
+          "trigger": "Nearby fixed-total or first-layer reversals, including distinct same-day records"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Ten equally weighted units are the smallest population that realizes both Palma percentile cuts without interpolation. Fixing resources and positivity, the minimum integer resolution and complete first strict layer give clean test cases for separating tail rank from dispersion rank. Both witnesses keep the bottom-four sum at four, so the disagreement is already attributable to how the maximum and the broader spread are ranked, not a change in lower-tail normalization. The result is an exact finite benchmark, not a monetary cutoff or an empirical claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

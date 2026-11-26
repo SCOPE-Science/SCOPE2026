@@ -1,88 +1,80 @@
-#!/usr/bin/env python3
-"""Exact small-instance checks for two-seat reciprocal representation.
-
-This file is an independent finite checker, not an infinite proof.
-Usage: python verify.py
-"""
+"""Exact finite checks of the two-seat reciprocal-EJR reduction."""
 from fractions import Fraction
-from itertools import product, combinations
+from itertools import combinations, product
 from random import Random
 
 
-def jr(n, h, support, W):
-    """Direct reciprocal-JR condition by enumerating voter groups."""
-    size = len(h)
-    chosen = set(W)
-    for mask in range(1, 1 << n):
-        voters = [v for v in range(n) if mask >> v & 1]
-        common = [c for c in range(size) if all(support[c] >> v & 1 for v in voters)]
-        if not common:
-            continue
-        if all(not any(support[c] >> v & 1 for c in W) for v in voters):
-            if any(2 * len(voters) * h[c] >= n for c in common):
-                return False
-    return True
+def subsets(items):
+    return [frozenset(S) for k in range(1, len(items) + 1)
+            for S in combinations(items, k)]
 
 
-def ejr(n, h, support, W):
-    if not jr(n, h, support, W):
-        return False
-    for mask in range(1, 1 << n):
-        voters = [v for v in range(n) if mask >> v & 1]
-        common = [c for c in range(len(h)) if all(support[c] >> v & 1 for v in voters)]
-        for c, d in combinations(common, 2):
-            if Fraction(1, h[c]) + Fraction(1, h[d]) <= Fraction(2 * len(voters), n):
-                if all(sum(bool(support[t] >> v & 1) for t in W) < 2 for v in voters):
-                    return False
-    return True
+def check(n, h, support):
+    voters = frozenset(range(n))
+    candidates = range(len(h))
+    pairs = list(combinations(candidates, 2))
+    unanimous_units = sum(h[c] == 1 and support[c] == voters for c in candidates)
+    affirmative = {v: frozenset(c for c in candidates if v in support[c]) for v in voters}
+    demands = []
+    for group in subsets(voters):
+        common = frozenset.intersection(*(affirmative[v] for v in group))
+        for T in subsets(common):
+            if n * sum(1 / h[c] for c in T) <= 2 * len(group):
+                demands.append((group, len(T)))
 
+    def representation(pair, group):
+        return max(len(affirmative[v].intersection(pair)) for v in group)
 
-def optimal_ratio(n, h, support, axiom):
-    allW = list(combinations(range(len(h)), 2))
-    best_possible = max(sum(h[c] for c in W) for W in allW)
-    eligible = [sum(h[c] for c in W) for W in allW if axiom(n, h, support, W)]
-    assert eligible
-    return max(eligible) / best_possible
-
-
-def instance(n, h, support):
-    bound = Fraction(3 * n - 2, 4 * (n - 1))
-    jr_ratio = optimal_ratio(n, h, support, jr)
-    ejr_ratio = optimal_ratio(n, h, support, ejr)
-    assert jr_ratio >= bound, (n, h, support, jr_ratio, bound)
-    assert ejr_ratio >= bound, (n, h, support, ejr_ratio, bound)
-    # EJR and JR have equal optimum for two seats.
-    assert jr_ratio == ejr_ratio, (n, h, support, jr_ratio, ejr_ratio)
-    return 1
-
-
-def witness(n):
-    tau = Fraction(n, 2*(n-1))
-    h = [Fraction(1), Fraction(1), tau]
-    sup = [1 << (n-1), 1 << (n-1), (1 << (n-1)) - 1]
-    ratio = Fraction(3*n-2, 4*(n-1))
-    assert optimal_ratio(n, h, sup, jr) == ratio
-    assert optimal_ratio(n, h, sup, ejr) == ratio
-    return 1
+    q = {pair: sum(h[c] for c in pair) for pair in pairs}
+    jr = {pair for pair in pairs
+          if all(representation(pair, group) >= 1 for group, _ in demands)}
+    ejr = {pair for pair in pairs
+           if all(representation(pair, group) >= seats for group, seats in demands)}
+    if unanimous_units < 2:
+        assert jr == ejr
+    else:
+        assert ejr == {pair for pair in jr if support[pair[0]] & support[pair[1]]}
+        assert max(q[pair] for pair in ejr) == 2
+    top = max(q.values())
+    opt_jr = max(q[pair] for pair in jr)
+    opt_ejr = max(q[pair] for pair in ejr)
+    assert opt_jr == opt_ejr
+    for pair in jr:
+        if q[pair] == opt_jr:
+            for a in pair:
+                assert any(a in R and q[R] == opt_ejr for R in ejr)
+    bound = Fraction(3*n-2, 4*(n-1))
+    assert opt_ejr >= bound * top
+    for pair in pairs:
+        if q[pair] == top:
+            assert any(set(pair).intersection(R) and q[R] >= bound * top for R in ejr)
+    return opt_ejr / top, jr, ejr
 
 
 def main():
+    grid = tuple(map(Fraction, ['1/3', '3/4', '1']))
     count = 0
-    qualities = (Fraction(1,2), Fraction(2,3), Fraction(3,4), Fraction(1))
-    for n in (2, 3):
-        for masks in product(range(1, 1 << n), repeat=3):
-            for hs in product(qualities, repeat=3):
-                count += instance(n, hs, masks)
-    rng = Random(20260908)
-    for n in range(2, 8):
-        for _ in range(120):
-            m = rng.randint(3, 6)
-            sup = tuple(rng.randint(1, (1 << n)-1) for _ in range(m))
-            hs = tuple(qualities[rng.randrange(len(qualities))] for _ in range(m))
-            count += instance(n, hs, sup)
-    for n in range(2, 9):
-        count += witness(n)
-    print('CHECKS_OK', count, 'including exhaustive 3-candidate profiles for 2-3 voters, sampled 2-7 voters, and sharp witnesses 2-8 voters')
+    for n, m in ((2, 3), (3, 3), (2, 4)):
+        for support in product(subsets(range(n)), repeat=m):
+            for h in product(grid, repeat=m):
+                check(n, h, support)
+                count += 1
+    rng = Random(260908830)
+    for n in range(4, 8):
+        choices = subsets(range(n))
+        for _ in range(60):
+            m = rng.randint(2, 6)
+            check(n, rng.choices(grid, k=m), rng.choices(choices, k=m))
+    for n in range(2, 11):
+        p, bloc = frozenset({0}), frozenset(range(1, n))
+        tau = Fraction(n, 2*(n-1))
+        ratio, _, _ = check(n, [Fraction(1), Fraction(1), tau], [p, p, bloc])
+        assert ratio == Fraction(3*n-2, 4*(n-1))
+    p, q = frozenset({0}), frozenset({1})
+    _, jr, ejr = check(2, list(map(Fraction, [1, 1, '1/2', '1/2'])), [p|q, p|q, p, q])
+    assert (2, 3) in jr - ejr
+    print(f'EXACT_OK exhaustive={count} sampled=240 sharp=9 separation=1')
+
 
 if __name__ == '__main__':
     main()

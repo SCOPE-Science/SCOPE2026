@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:30:13.717920Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent replay: python3 /workspace/review-evidence/02_check.py"
+      ],
+      "rationale": "At fixed colength m, every ideal contains the m-th power of the maximal ideal, so the action and its weight decomposition can be checked in a finite truncation. The punctual pair locus is a closed finite-dimensional projective incidence locus. Torus Euler localization reduces its Euler characteristic to the finite set of fixed pairs; distinct monomial weights imply these are exactly monomial ideal pairs. For the larger diagram lambda, the condition is lambda_v<=u in zero-based row indexing, and taking the smaller diagram gives inclusion in the correct direction. Two removed boxes form two original corners, a horizontal domino at a gap of at least two, or a vertical domino at a repeated part size. Those disjoint cases yield the stated unweighted statistic. For exactly r rows longer than u, split off u from each, giving a length-r alpha and a bounded beta. Conjugation identifies alpha with parts <=r and at least one part of size r, preserving corner and two-box deletion counts. The cross term is the product of corner counts, and the only changed horizontal gap is the shortest long row when min(alpha)=1 and max(beta)<=u-1 (including empty beta); the generating term is q^((u+1)r) P_(r-1) P_(u-1). This proves the entire formula, including r=0 with its stated conventions, symmetry by conjugating the original diagrams, cancellation of q^-2 and the denominator bound. At q=1 only the r=v contribution can have order u+v, with coefficient (u+v)(u+v+1)/(2u!v!); other roots of unity lose at least the j=1 factor from each side, giving the stated coefficient asymptotic. An independent implementation enumerating two successive corner deletions and deduplicating endpoints matched 576 coefficients on u,v=1..6, n=0..15, and exact symbolic substitution also verified the displayed (2,2) numerator.",
+      "residual_risks": [
+        "The replay is finite and checks examples, not the universal quantifier, which follows from the decomposition. Euler localization supplies no motivic or cohomological formula."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Huang–Jiang–Oblomkov give an all-fat-node single-ideal motivic series, and a contact-length refinement, rather than a two-ideal incidence series.",
+          "Luan analyzes strata of single-ideal schemes in the stated ranges. The inspected results of Lee and Ramkumar–Sammartano concern geometry of flags or nested schemes, rather than this both-branch Euler count."
+        ],
+        "reasoning": "A stronger invariant on single ideals is not automatically a stronger result for endpoint incidences, and the inspected smooth-surface results do not specialize to these fat-node punctual strata with the endpoint weights.",
+        "searches": [
+          "arXiv:2610.34676, Theorems A and B",
+          "arXiv:2604.03111, Theorem 1.5",
+          "arXiv:2109.09002, Theorem 1.1",
+          "arXiv:0906.3097, p. 3",
+          "Focused primary-literature search for two-step nested Hilbert Euler or weighted partition identities"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 57ae78e590b1",
+        "arXiv:2610.34676, 2604.03111, 2606.08120, math/0410037, 0906.3097, 2109.09002"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Euler specialization of the inspected motivic series retains only one ideal. Summing full flags counts all intermediate choices, and its unequal multiplicities for domino versus disconnected removals cannot be eliminated by a constant normalization.",
+          "The frozen proof needs a new weighted sum separating corner pairs and both domino types and accounting for the forbidden-rectangle boundary."
+        ],
+        "reasoning": "No inspected prior theorem supplies the endpoint weighting or the series through a direct corollary. This does not assume that the reduced-node examples or the geometric setup are new.",
+        "searches": [
+          "arXiv:math/0410037, Theorem 5 and preceding flag definition",
+          "arXiv:0906.3097, relative full flags",
+          "arXiv:2610.34676, Theorems A and B",
+          "Resultary 57ae78e590b1, stated single-ideal weight"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same-date 57ae78e590b1 counts single ideals by minimal-generator number, not endpoints of two successive diagram additions. The diagrams (4) and (2,2) on the (2,2) fat node each have two one-box extensions but respectively four and five distinct two-box extensions.",
+          "An intermediate one-box flag weights a two-box skew shape twice for incomparable boxes and once for a domino; this report's endpoint formula counts both shapes once."
+        ],
+        "reasoning": "Equal one-box statistics need not give equal endpoint counts. Neither the generator statistic nor the flag count is an equivalent formulation by specialization of its stated weights. Exchanging branches merely exchanges u and v in the same claim.",
+        "searches": [
+          "Resultary semantic search for two-step nested fat nodes, single-ideal generator statistics and Young-diagram coverage (limit 300)",
+          "Resultary 57ae78e590b1 RESULT.md, Finding and prior-work comparison",
+          "arXiv:2606.08120 and arXiv:math/0410037, definitions of one-box pairs/flags"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed record is a distinct same-date single-ideal result, and the relevant exact all-fat-node formula in the literature is also for single ideals.",
+          "No matching endpoint-incidence formula was identified in the audited sources; the focused literature search returned no directly useful candidate beyond the inspected comparisons."
+        ],
+        "reasoning": "The appropriate database comparison is the complete symbolic endpoint series; a finite table for colengths or the same ring with a different statistic would not show exact coverage. The same-date record was not excluded by date.",
+        "searches": [
+          "Resultary search for the all-(u,v) fat-node incidence series and the two-step statistic",
+          "Resultary 57ae78e590b1 full-text Finding",
+          "arXiv:2610.34676 Theorem A"
+        ]
+      },
+      "rationale": "The inspected records and primary sources give single-ideal invariants, different flag data, one-box nesting or smooth-surface geometry. They do not state or mechanically yield the unweighted endpoint-incidence series uniformly for all fat-node multiplicities. The qualifying distinction is the two-box deletion series with its cross-boundary correction, not Euler localization, single Hilbert schemes, or claimed priority for reduced-node special cases.",
+      "residual_risks": [
+        "Only the relevant sections of the prior sources were inspected, not their entire texts. An unlocated general identity for weighted two-box endpoints could affect coverage; no claim of absolute priority is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "A distinct same-date record with a different invariant.",
+          "evidence": "Counts single ideals refined by dim I/mI, not pairs of colength difference two.",
+          "identifier_or_url": "Resultary 2026/11/2, 57ae78e590b1",
+          "material_read": "RESULT.md Finding (offset 0) and prior-work comparison (offset 7300)",
+          "method": "Resultary local mirror text",
+          "title": "Generator-refined Euler series and extremal strata of fat-node punctual Hilbert schemes",
+          "trigger": "Same universal fat-node parameters and Euler series"
+        },
+        {
+          "assessment": "Stronger coefficient invariant for a different moduli problem.",
+          "evidence": "Theorem A enumerates single ideals motivically; Theorem B adds a contact-length refinement on single ideals.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.34676",
+          "material_read": "Theorem A, p. 3, offset 13284; Theorem B, p. 4, offset 17597",
+          "method": "Primary OA PDF passages",
+          "title": "Sheaves on nodal singularities I",
+          "trigger": "All-fat-node Hilbert series, possibly stronger than Euler series"
+        },
+        {
+          "assessment": "Different moduli problem.",
+          "evidence": "The stated strata results concern single-ideal Hilbert schemes for u=v, v-1, v-2.",
+          "identifier_or_url": "https://arxiv.org/abs/2604.03111",
+          "material_read": "Theorem 1.5, p. 4, offset 13200",
+          "method": "Primary OA PDF passage",
+          "title": "Hilbert scheme of points on non-reduced nodal curves",
+          "trigger": "Same equation x^u y^v and partition-based punctual geometry"
+        },
+        {
+          "assessment": "Different colength gap and ambient space.",
+          "evidence": "The pair scheme on the smooth plane in the cited definition has colengths n+1,n.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.08120",
+          "material_read": "p. 3 definition, offset 9690",
+          "method": "Primary OA PDF passage",
+          "title": "Deformation Theory and Torus-Fixed Geometry of the Nested Hilbert Scheme of Points",
+          "trigger": "Potential torus-fixed two-step geometry"
+        },
+        {
+          "assessment": "Flag geometry on the reduced node; no all-fat-node endpoint series in this passage.",
+          "evidence": "Flag schemes record ideals of the chosen length sequence; Theorem 5 treats the geometry of one-box flags.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0410037",
+          "material_read": "Flag definition and Theorem 5 passage, pp. 9–10, offsets 25106–27201",
+          "method": "Primary OA PDF passages",
+          "title": "A note on Hilbert schemes of nodal curves",
+          "trigger": "Prior nested nodal Hilbert and flag formulas"
+        },
+        {
+          "assessment": "Relevant full-flag geometry, not the bound endpoint series.",
+          "evidence": "The passage treats relative full flags and their normal/LCI geometry for a nodal-curve family.",
+          "identifier_or_url": "https://arxiv.org/abs/0906.3097",
+          "material_read": "p. 3, offset 7500",
+          "method": "Primary OA arXiv PDF passage, successfully retrieved",
+          "title": "The Full Flag Hilbert Scheme of Nodal Curves and the Punctual Hilbert Scheme of Points of the Cusp Curve",
+          "trigger": "Flag formulas could potentially imply a reduced-node case"
+        },
+        {
+          "assessment": "Different conclusion and ambient hypotheses.",
+          "evidence": "The theorem establishes a singularities property for a nested Hilbert scheme on smooth surfaces, not an incidence Euler series for fat nodes.",
+          "identifier_or_url": "https://arxiv.org/abs/2109.09002",
+          "material_read": "Theorem 1.1, p. 2, offset 8609",
+          "method": "Primary OA PDF passage",
+          "title": "Rational singularities of nested Hilbert schemes",
+          "trigger": "Broader nested-Hilbert theorem possibly covering two-point data"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and two-box proof",
+        "Resultary 57ae78e590b1",
+        "arXiv:2610.34676 Theorems A and B"
+      ],
+      "rationale": "The unweighted endpoint Euler characteristic answers a natural nested-incidence question not captured by the single-ideal series or full flags. The formula relates both multiplicities to one boundary correction and determines all colengths and the leading growth, rather than just enumerating small examples. It also identifies precisely what information is lost when replacing two-box endpoints by generator numbers or by intermediate chains.",
+      "residual_risks": [
+        "The result is numerical Euler-characteristic information, not a description of the motives, singularities or Betti numbers of the incidence schemes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

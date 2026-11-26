@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The two input graphs are defined by integer coordinate differences modulo four, with no external graph data. `verify.py` computes all rooted simple paths by exact visited-subset/last-vertex dynamic programming. The recurrence sums paths after every extension by one previously unseen adjacent vertex. `verify.cpp` independently enumerates each complete rooted simple path by recursive depth-first search and accumulates exact 64-bit counts. Neither program uses floating point computations, and no partial search is presented as exhaustive.
+## correctness
 
-Reproduction commands:
+PASS
 
-```sh
-python3 verify.py
-c++ -O2 -std=c++17 verify.cpp -o verifier
-./verifier
-```
+Both coordinate graphs are vertex-transitive. Independent exact neighbor checks give degree six, two common neighbors per distinct pair, and local 2-regular graphs with two and zero triangles respectively, distinguishing the isomorphism types. Thus A²=4I+2J, so A has eigenvalues 6, 2, −2 of multiplicities 1, 6, 9, and D=2(J−I)−A gives 24, −4, 0 with the same multiplicities. I independently computed rooted simple paths by the reverse recurrence f(U,w)=sum of f(U minus w,j) over j adjacent to w in U minus w, with f({0},0)=1 and no other path ending at its own start. Deleting the last edge is a bijection, so this exhausts the ordered nonempty simple paths at all lengths 1–15. All 30 entries match RESULT.md, including 34452 and 34320 at the first differing length seven. (Total paths, total lengths) are (13991682,177310488) and (14029326,177724236); the exact reduced quotient difference is 24601265726/5452607446287. Vertex transitivity gives F=cI−D, yielding the stated eigenvalues; the distinct traces alone prove separation.
 
-The exact expected totals are 13,991,682 paths and 177,310,488 total path edges for the rook graph, and 14,029,326 paths and 177,724,236 total path edges for Shrikhande. The Python script checks all fifteen coefficients, first discrepancy at length seven, 6-regularity and two common neighbors per vertex pair, local neighborhood triangles, and the exact reduced rational difference; the C++ implementation independently checks full path totals and weighted sums. These checks were executed successfully on the embedded source files before packaging. The eigenspectrum proof follows directly from the displayed common-neighbor matrix identity, so spectral floating-point numerical diagonalization is not relied on.
+## originality
 
-No assertion is made about graphs of other parameter sets. Independent mathematical audit has not been performed.
+PASS
+
+The novel claim supported here is the exact all-length weighted mean difference for this pair and the resulting average-flow spectral separation. Prior work has the scalar shift, the graph pair, and a path-multiset separation through length seven. Those do not establish that the weighted mean survives cancellation across lengths. No complete prior table or stronger covering result was established in the inspected material.
+
+## value
+
+PASS
+
+The rook and Shrikhande graphs are a canonical test of graph invariants: both are vertex-transitive and have identical adjacency and distance spectra. It is worthwhile to know whether the single scalar contributed by the new average-flow matrix actually distinguishes this pair after summing all lengths, since known path-based distinctions need not survive that aggregation. The exact nonzero shift is a counterexample to sameness of average-flow spectra for distance-cospectral graphs and provides a reproducible numerical benchmark. The finite count is motivated by that question, not by a randomly chosen pair or the numerical size of the gap.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

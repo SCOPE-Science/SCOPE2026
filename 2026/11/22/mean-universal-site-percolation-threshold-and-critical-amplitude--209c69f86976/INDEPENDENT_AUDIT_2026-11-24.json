@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:22:31.698156Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditional on retaining the root, a retained target is reachable exactly when no consecutive pair of its ancestors is deleted. Jump over isolated deletions for sufficiency. For necessity, if a deleted vertex y has deleted parent x on the ancestral path, an edge leaving the strict-descendant subtree of y can exit only from a child of y to y or x; both are deleted. For an independent one-type reconstruction, collapse each deleted bridge between two retained vertices. Each retained individual discovers one effective child from each retained original child, or the retained grandchildren through an original child that is deleted. Discovery of a retained successor reveals no offspring below it. Different successor subtrees are disjoint, so the retained genealogy is Galton–Watson, and the cluster size is its total progeny. Its mean is R=mp+m²p(1−p). For 0<p<1 the effective offspring variable has positive probability of zero (delete all original children and grandchildren, which are finite almost surely), so at mean ≤1 extinction is almost sure, and above 1 survival has positive probability. The quadratic crosses 1 once in (0,1), at q_m as stated; p=0 gives the empty cluster and p=1 reduces to the original supercritical tree. The geometric progeny mean gives 1/(1−R) subcritically and divergence at criticality. With η finite, the individual per-original-child contribution has mean u=p+(1−p)mp and second factorial moment (1−p)ηp². For the random sum the second factorial moment is B(p)=ηu²+m(1−p)ηp². Its PGF is φ(pz+(1−p)φ(1−p+pz)); the finite-second-moment Taylor expansion (uniform near q_m by the composed expansion of φ at 1) gives R h−B(p)h²/2+o(h²) on the survival side. The positive solution tends to 0 as p decreases to q_m, by continuity of the PGF and the sole critical fixed point. Hence h/(p−q_m) tends to 2R′(q_m)/B(q_m), with u(q_m)=1/m and R′(q_m)>0. Conditioning is essential: unconditionally multiply by p and obtain residue q_m K for the survival slope. The expected level recurrence also follows by partitioning the feasible ancestral words by their final one-site step or deleted/retained two-site step. Inspected the frozen checker but did not execute it. Replay: python3 -B /workspace/review_evidence/independent_checks.py 1, testing 1,024 site assignments on an irregular tree, 11,264 memberships, 11 exact rational marginals at p=1/3 and the effective offspring moments by exact convolution for four p values. Finite corroboration only; the genealogy and expansion establish the unbounded theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hutchcroft Thm. 1.6 gives order bounds on bond susceptibility and survival for the quasi-transitive nonunimodular setting, not exact site amplitudes for random offspring.",
+          "The related multirange regular-tree literature treats independent short/long bonds, distinguished explicitly by Ménard–Sénizergues §1.5. The attempted Quine full text was not readable."
+        ],
+        "reasoning": "A general branching theorem yields extinction and near-critical consequences once the effective child law has been derived. It does not supply the site-connectivity separator or its resulting mean and second factorial moment for this model. Neither a regular graph bond order bound nor an independent-range bond law gives the three stated site formulas.",
+        "searches": [
+          "arXiv:2611.09762v1 §§1.4–1.5, 2.1–2.3; arXiv:1711.02590v3 Thm. 1.6; de Lima–Szabó–Valesin DOI 10.1002/rsa.21104; Quine DOI 10.2307/1425989"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.09762v1",
+        "arXiv:0801.4153",
+        "arXiv:1711.02590v3",
+        "Resultary 3adef7c2522b",
+        "DOI 10.1002/rsa.21104 and DOI 10.2307/1425989 (unavailable full-text attempts)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The bond critical value varies at fixed offspring mean in the stated regimes; the same-day bond susceptibility uses its own branch exploration and augmented initial parent state."
+        ],
+        "reasoning": "Replacing a Bernoulli bond with a Bernoulli site parameter does not preserve joint connectivity. The new site-specific blocked-pair criterion yields the exact effective offspring law, including dependence on the full law away from the threshold but only m at criticality and m plus η for the slope. Same-day date does not itself establish priority or imply equivalence.",
+        "searches": [
+          "Compare the threshold statements of arXiv:2611.09762v1 and the Finding and root/parent distinction of Resultary 3adef7c2522b to RESULT.md §§1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ménard–Sénizergues use independent edge variables and a PGF-dependent critical equation; their parameters do not have the shared-site deletion correlation. Resultary hit for the frozen site result itself adds no precedent."
+        ],
+        "reasoning": "Independently tested the square-of-a-tree alias: adding sibling edges does not change root membership in the Bernoulli site model. At a blocked pair x,y the only square-graph crossings from a strict descendant of y can still lead to y or its parent x; sibling edges of the children stay inside. The ancestral shortcut proof is unchanged in the other direction. Thus a matching rooted site theorem for the tree square would count as coverage, although no such exact formula was established in the bounded search. In contrast the original edges versus added sibling edges matter to general bond laws.",
+        "searches": [
+          "Resultary: BGW grandparent site threshold and susceptibility; primary lookup: site percolation on squares of Galton–Watson trees and consecutive deletions in ancestral paths; arXiv:2611.09762v1 §2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Špakulová §5.3 reports 0.158656326… for the regular grandparent bond model, related to deterministic X=2 by Ménard–Sénizergues. The corresponding site formula is (3−√5)/4≈0.190983.",
+          "Resultary 3adef7c2522b gives an exact susceptibility and pole residue for the augmented-parent bond cluster at finite offspring mean."
+        ],
+        "reasoning": "The discrepancy reflects different laws, not a contradiction, and the indexed exact susceptibility applies to a different cluster observable under a different randomness. No table compared supplies the exact site values even for the deterministic X=2 case.",
+        "searches": [
+          "arXiv:0801.4153 §5.3 and Fig. 2; arXiv:2611.09762v1 §§1.5,2.3; Resultary 3adef7c2522b; literature lookup for exact tree-square site threshold"
+        ]
+      },
+      "rationale": "The distinct claim is the exact annealed Bernoulli site threshold, susceptibility and finite-second-moment slope on the grandparent graph of a BGW tree. Generic branching-process machinery, not these particular formulas, is background. The closest verified same-graph thresholds and susceptibility calculations concern independent bonds.",
+      "residual_risks": [
+        "Unindexed finite-range ancestor-occupancy or tree-power site theorems may imply the same formulas. No exact counterpart was located; search absence is not proof.",
+        "Full text of de Lima–Szabó–Valesin and Quine was unavailable in these bounded attempts. Their applicable model or theorem scope was not inferred beyond accessible evidence. Quenched and other percolation claims are not audited here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same graph, different random law and exact value",
+          "evidence": [
+            "Bernoulli independent edge states; critical equation and fixed-mean distribution effects."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.09762v1",
+          "material_read": "Abstract p. 1, Thm. 1/Cor. 3 and Thm. 6 pp. 2–3, §§1.5 and 2.1, and deterministic-root comparison §2.3 p. 11",
+          "method": "Lawful OA PDF, offsets 0, 5600–10309, 12616, 13500 and 43700",
+          "title": "Percolation on grandparent graphs of Bienaymé trees",
+          "trigger": "Identical named graph and exact threshold"
+        },
+        {
+          "assessment": "Regular grandparent bond threshold, not the stated site theorem",
+          "evidence": [
+            "Reported bond threshold 0.158656326… from graph piece decomposition."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0801.4153",
+          "material_read": "§5.3 including Fig. 2, p. 24, offsets 65000–69472",
+          "method": "Lawful OA PDF",
+          "title": "Critical percolation of virtually free groups and other tree-like graphs",
+          "trigger": "Earlier exact/numerical grandparent percolation result"
+        },
+        {
+          "assessment": "Order bounds for bond percolation, not exact annealed site formulas",
+          "evidence": [
+            "Susceptibility and survival comparable to (p_c−p)⁻¹ and p−p_c respectively in the stated regime."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1711.02590v3",
+          "material_read": "§1.2 Thm. 1.6, p. 6, offset about 18500",
+          "method": "Lawful OA PDF",
+          "title": "Percolation on quasi-transitive nonunimodular graphs",
+          "trigger": "General recurrence and critical-exponent coverage"
+        },
+        {
+          "assessment": "Material overlap in questions, but augmented-parent bond versus original-root site",
+          "evidence": [
+            "Finite-mean formula and exact residue for bond susceptibility; not the site reduction."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-universal-simple-pole-susceptibility-for-grandparent-bond-percol--3adef7c2522b",
+          "material_read": "Finding and cluster convention, RESULT.md offsets 0 and 5600",
+          "method": "Resultary search and local mirror read",
+          "title": "Universal simple-pole susceptibility for grandparent bond percolation",
+          "trigger": "Closest indexed exact susceptibility for this graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Site versus bond dependence on the same family of random graphs is a motivated contrast. The exact threshold fixes the role of the first moment, whereas the critical survival slope detects the second factorial moment and the explicit susceptibility demonstrates a divergent mean despite almost-sure critical extinction. These are natural observables across all allowed offspring laws, not a numerical value for just one tree.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

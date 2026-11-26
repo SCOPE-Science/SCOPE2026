@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification procedure
+# Independent mathematical audit
 
-Run `python3 verify_grid_vertex_punctures.py` (Python standard library only) in a directory containing the embedded script. Its exact current output is embedded as `CERTIFICATE_OUTPUT.txt`; it concludes with `PASS cases=16 faces=87378 covers=419433 pairs=43636`.
+## correctness
 
-The checker re-generates all possible nonempty matchings for all row/column-reversal representative vertex deletions in the \(3\times4\), \(3\times5\), and \(3\times6\) grids. For every complex, it checks disjoint Morse pairings, coverage and counts of critical cells, acyclicity of the complete directed Hasse graph by Kahn topological sorting, independently calculated mod-two reduced Betti numbers by full simplicial boundary ranks, and direct alternating face-count Euler characteristics. Each of the original grid vertices is accounted for exactly once by the listed representative symmetry orbits.
+PASS
 
-The perfect discrete-Morse matching establishes the integral homotopy types without needing the mod-two computations: the CW models have one critical vertex and critical cells in only one dimension at least two. The calculations make no statement for widths outside the specified finite range. The 2026 primary paper's full text and external independent audit were not available; priority is not certified.
+I reconstructed all sixteen complexes from the induced retained grid vertices. In the independent generator, the least available grid vertex is either unmatched or matched to one available neighbor; this gives every matching once. The two grid reflections give exactly (r,c) with r=0,1 and 0<=c<ceil(n/2). On the nonempty face posets I reconstructed the specified coreduction pairing and independently certified acyclicity by retirement times: a directed Hasse cycle would have to alternate up and down, since upward matched edges are disjoint and on a cycle the number of up and down steps is equal. After each upward matched edge, every available unmatched downward edge goes to a strictly earlier retired face. That precludes a cycle. Each case has one critical 0-cell and exactly the reported number of critical cells in one dimension d>=2. Forman's CW model then has only the point and d-cells, each attached to the point, proving the claimed wedge over the integers, not just mod-two homology. All table entries and totals 87,378 nonempty faces, 419,433 covers, and 43,636 pairs agreed; the unpunctured width-four comparison gives 9 spheres of dimension three.
+
+## originality
+
+PASS
+
+The exact claim is a full width-4–6 graph-vertex-deletion profile. The closest inspected results classify the unmodified graphs, graph-edge deletions, or links associated with deleting two adjacent endpoints. None supplies the sixteen sphere-wedge types of this different operation.
+
+## value
+
+PASS
+
+Graph-vertex deletion is the first site-defect operation, genuinely different from the studied edge defect. The natural thin-grid family now has comparable exact types at three successive widths, including a dimension drop at the middle-row width-four endpoint and five distinct multiplicities at width six. These give useful base cases for deletion, links and connectivity calculations. The actual homotopy type, not just a field Betti table, is determined.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

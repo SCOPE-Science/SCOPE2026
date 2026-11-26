@@ -1,19 +1,21 @@
-# Review of the Shrikhande–Dyck relocation classification
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is a finite theorem with an analytic reduction: the six Shrikhande connection differences, translations, and the displayed invertible generators produce three complete pair-orbits. A direct neighborhood check for one representative per orbit establishes the exact list of successful power-dominating pairs. The same computation proves every singleton fails and identifies all 48 optimum configurations. The unrestricted exchange graph is exactly the line graph of the successful-difference Cayley graph; an explicit invertible matrix identifies the latter with the Shrikhande graph. A six-neighbor local calculation partitions the successful partners of each vertex into two triangles, yielding a 32-vertex cubic incidence graph whose line graph is precisely the allowed slide graph. A supplied 32-vertex permutation proves that incidence graph is the Dyck graph by matching its full 48-edge LCF presentation. Both standalone verifiers were executed from the actual package and agree on all configuration and distance counts.
+## correctness
 
-The scope is the 16-vertex graph only. The pair-orbit argument proves exact classification for all pairs, not merely a sampled subset. The breadth-first-search counts cover all unordered pairs of the 48 relocation states. No claims of an infinite-family theorem or independent external audit are made.
+PASS
 
-## Originality — PASS, with residual priority risk
-Bjorkman et al., *Power domination reconfiguration*, arXiv:2201.01798v1, was read in accessible HTML including the definition, reconfiguration rules, family results and concluding problems. Its TAR/TJ framework does not classify optimal Shrikhande placements or identify an associated Dyck line graph; it describes token sliding as a future direction. Brouwer's complete Dyck-graph entry and MathWorld's entry provide the already-known cubic graph, its Shrikhande triangle-duality and its LCF description. Their pre-existing geometric relationship alone does **not** determine the successful sensor differences or the optimization-preserving relocation restrictions. Indexed searches for Shrikhande power domination, Dyck line-graph sensor relocation, strongly regular cospectral twins and corresponding aliases did not expose a covering claim. The closest indexed prior work on rectangular rook graphs covers the rook comparison but not the new Shrikhande classification. No priority claim is made for the known definitions, rook enumeration, or known Dyck graph structure.
+For the stated simple graph on Z_4^2, translations, coordinate interchange and (x,y)->(x,x−y) preserve D. Their nonzero offset orbits are D, the three order-two offsets Q, and C; C is not the full nonedge set. A singleton stops with 7 marked. Representatives of the three pair orbits have initial/final marked counts 10/10, 12/12 and 12/16 respectively; for (0,0),(1,2) the four listed forces have distinct unique unmarked targets. Thus all and only the 16·6/2=48 pairs of C are optimal. A jump keeps one endpoint, giving the line graph of the C-Cayley graph, and the displayed determinant-one linear map carries C onto D. For slides, the permissible partners of each fixed sensor induce two disjoint triangles under original adjacency. Splitting each fixed sensor into these two triangles gives the cubic graph H with one edge per optimal pair. Two edges meet precisely when the configurations keep a sensor and the two other endpoints are adjacent in G. The frozen 32-entry permutation was checked as data against the full edge sets and maps H onto the Dyck LCF graph. An independent exhaustive power-closure and graph reconstruction confirms both isomorphisms and both unordered distance histograms with the stated eccentricities. The rook comparison follows from the unmarked block with both sides at least two for two sensors, and the single unmarked cell for a triple meeting distinct rows and columns; the common degree and pair parameters yield cospectrality.
 
-Residual risk: historical work that treats the same optimal placements under alternative terminology or is not indexed may exist. An index search is not a uniqueness proof; none of the inspected substantive sources implies the joint classification.
+## originality
 
-## Value — PASS
-The theorem links a natural electrical-network monitoring objective to a canonical symmetric cubic graph through an exact line-graph isomorphism. It separates unrestricted and physical sensor-relocation geometries, with diameters three and five, and shows that the cospectral strongly regular rook twin has a different minimum sensor budget. This is a structural sensor-mobility boundary, rather than an arbitrary table of parameters or an unmotivated numerical slice. In particular, the third party's known Dyck–Shrikhande duality is repurposed as a precise model for local optimal movement.
+PASS
 
-## Limits
-The result has not been independently audited, and publication priority outside inspected accessible sources has not been certified. No result on arbitrary strongly regular graphs is asserted. The delivered certificate explicitly covers every edge of the cubic intermediary; neither numerical coincidence nor spectrum matching is substituted for an isomorphism proof.
+The surviving distinct claim is the exact Shrikhande optimum-pair classification and the jump and edge-slide line-graph identifications with their distance data. The Dyck graph's independent construction from Shrikhande triangles, the standard move rules and the complete prior rook classification receive full credit. None of the inspected statements supplies the successful-offset classification and the relocation correspondences together.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The Shrikhande graph is a canonical small strongly regular graph rather than an arbitrary board size. Its two relocation models give different classical line graphs, showing exactly how much restricting feasible moves to original edges changes optimal relocation distances. The identification explains the census and gives a reusable structural model. The cospectral rook twin illustrates that the common (16,6,2,2) parameters do not determine power-domination number; its known numerical value is not the main contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

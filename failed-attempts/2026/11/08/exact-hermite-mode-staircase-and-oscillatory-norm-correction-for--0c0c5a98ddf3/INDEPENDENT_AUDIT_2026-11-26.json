@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:27:31.812723Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the stated unit Gaussian the Hermite STFT has squared amplitude e^{-u}u^n/n! and an angular monomial phase up to a common phase, so the radial integral is diagonal; u=π(x²+ξ²) has radial area element du after integrating the angle. The eigenvalues sum to L. The adjacent difference is the lower endpoint minus the upper endpoint of e^{-u}u^{n+1}/(n+1)!; for s>0 it has the sign of L−(n+1)log(1+L/s), and for s=0 it is negative. This gives all maximizers and ties. At a tie, the common endpoint value times (n+1)(1/s−1/(s+L)) gives the claimed slope jump. For m=floor(ρ) and δ=m−s, Stirling gives log of the Poisson density times sqrt(2πs) equal to −[δ/2+(v−δ)^2/2+1/12]/s+O_L(s^{-2}) uniformly on 0≤v≤L because δ is bounded. Averaging this coefficient yields C_L+(δ−(L−1)/2)^2/2. Then δ=L/2−{ρ}+O_L(s^{-1}), also at ties with this choice of mode. The continuous unbounded monotone ρ crosses every phase arbitrarily far out, giving the stated cluster set. The attached verify_annulus.py was inspected, not executed; its finite Simpson checks are corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Knutsen §3.1, p. 6 offsets 17800 and 19468, covers two adjacent candidates and the leading R^{-1} law for unit area, with an O(R^{-3}) error.",
+          "Galbis, Theorem 1, p. 3 offset 5451, gives a norm upper bound for general real radial symbols.",
+          "The two distinct Nov. 8 first-Hermite-window records at offsets 0 and 56 use different eigenvalue integrands or width scaling."
+        ],
+        "reasoning": "General radial bounds do not determine a maximizing mode at prescribed annular endpoints. Knutsen does not resolve the exact crossings and correction; the exact October record does. A first-Hermite window is not the Gaussian even when the annulus area agrees.",
+        "searches": [
+          "arXiv:1907.00848: 3.1.",
+          "arXiv:2102.02031: Theorem 1",
+          "Resultary: Gaussian annulus Hermite mode crossing fixed area oscillatory correction"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_annulus.py",
+        "Resultary exact records 57fcc645d909, 77e5c39000ed, 4e06172f4e4e, 24013d1f560c",
+        "arXiv:1907.00848",
+        "arXiv:2102.02031"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "October 18 offsets 549 and 1270: lower coordinate a, width w, transition index m and centered area c=a+w/2; switch a_m=w/(exp(w/m)−1), derivative jump, and coefficient B₂({c})/2+w²/24."
+        ],
+        "reasoning": "Set a=s, w=L, m=n+1. Expand c^{-1/2}=s^{-1/2}(1−L/(4s)+O_L(s^{-2})) and use B₂(x)=(x−1/2)^2−1/12. The new coefficient is C_L+({c}−1/2)^2/2. The periodic extension of ({x}−1/2)^2 is continuous and Lipschitz even across integers. Since ρ−c=O_L(s^{-1}), the phase change costs only O_L(s^{-2}) inside the bracket uniformly, so it is not a stronger boundary estimate. The range of this periodic term gives exactly the frozen cluster interval.",
+        "searches": [
+          "2026/10/18/SCOPE-exact-gaussian-annulus-eigenmode-crossings-and-a-bernoulli-secon--57fcc645d909/RESULT.md",
+          "2026/11/2/SCOPE-resonant-annular-fock-localization-an-exact-logarithmic-mean-pha--77e5c39000ed/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nov. 2 resonant-annular Fock RESULT.md, offset 0, gives the logarithmic mean and adjacent tied monomial degrees.",
+          "Oct. 18 Gaussian-annulus RESULT.md, offsets 549 and 1270, uses the same Poisson integrals and a centered periodic Bernoulli term."
+        ],
+        "reasoning": "Bargmann monomials correspond to Gaussian STFT Hermites, and dividing the integrated Poisson masses by L does not change their maximum index. Setting the Fock upper area coordinate to s+L gives the same exact logarithmic mean. Neither rephrasing changes the spectral test.",
+        "searches": [
+          "Resultary: uniform Poisson mixture modal index annular Fock Toeplitz concentration logarithmic mean",
+          "Resultary: Gaussian annulus Hermite mode crossing fixed area oscillatory correction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Distinct 2026/10/18/SCOPE-exact-gaussian-annulus-eigenmode-crossings-and-a-bernoulli-secon--57fcc645d909, exact-ID mirror RESULT.md at offsets 549 and 1270, gives all switches and the asymptotic as symbolic formulas."
+        ],
+        "reasoning": "The exact catalogue item covers the continuum of widths and locations; a finite table of modes or switch radii is not equivalent evidence.",
+        "searches": [
+          "Resultary: exact Hermite maximizing staircase annular area derivative jumps oscillatory norm correction",
+          "Resultary: Gaussian annulus Hermite mode crossing fixed area oscillatory correction"
+        ]
+      },
+      "rationale": "The October 18 indexed Gaussian-annulus theorem already contains all fixed-area mode/tie and derivative-jump formulas and the full second-order asymptotic with an equivalent Bernoulli phase. Its remainder is unchanged by recentering and replacing the phase as in the frozen statement. Neither Knutsen's partial earlier result nor an inaccessible source is the basis of this verdict.",
+      "residual_risks": [
+        "Bounded primary query 'Gaussian annulus Hermite eigenvalue mode switch Poisson Fock Toeplitz operator norm fixed area' surfaced a Krech 2013 Poisson-integral approximation source; repository retrieval timed out and no exact-match conclusion is drawn from it. Earlier mixed-Poisson or Fock antecedents remain possible; they do not affect demonstrated indexed coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the full frozen claim",
+          "evidence": "Identical spectral integral and logarithmic mode index; equivalent Bernoulli correction after converting c to s.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-gaussian-annulus-eigenmode-crossings-and-a-bernoulli-secon--57fcc645d909",
+          "material_read": "RESULT.md offsets 549 and 1270, exact switches, derivatives and centered asymptotic",
+          "method": "Exact-ID bounded local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact Gaussian-annulus eigenmode crossings and a Bernoulli second term",
+          "trigger": "Strongest matching fixed-width Gaussian eigenmode and second-term indexed statement"
+        },
+        {
+          "assessment": "Covers the mode/tie classification",
+          "evidence": "Monomial degrees switch at integer (t−s)/log(t/s); maps to Hermite degrees at t=s+L.",
+          "identifier_or_url": "2026/11/2/SCOPE-resonant-annular-fock-localization-an-exact-logarithmic-mean-pha--77e5c39000ed",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Bounded exact-ID mirror read",
+          "title": "Resonant annular Fock localization",
+          "trigger": "Equivalent Fock formulation"
+        },
+        {
+          "assessment": "Different window and eigenvalue sequence",
+          "evidence": "First-Hermite window contributes (u−n)^2 to its spectral density and is not the Gaussian result.",
+          "identifier_or_url": "2026/11/8/SCOPE-the-lower-shoulder-selection-law-for-thin-first-hermite-localiza--4e06172f4e4e",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Bounded exact-ID mirror read",
+          "title": "The lower-shoulder selection law for thin first-Hermite localization",
+          "trigger": "Same-day fixed-area annulus hit"
+        },
+        {
+          "assessment": "Different window and scaling",
+          "evidence": "First-Hermite window and width 2b√n, not a unit Gaussian at fixed L.",
+          "identifier_or_url": "2026/11/8/SCOPE-a-sharp-three-mode-transition-for-first-hermite-gabor-annulus-co--24013d1f560c",
+          "material_read": "RESULT.md Finding at offset 56",
+          "method": "Bounded exact-ID mirror read",
+          "title": "A sharp three-mode transition for first-Hermite Gabor annulus concentration",
+          "trigger": "Same-day annular transition hit"
+        },
+        {
+          "assessment": "Partial overlap",
+          "evidence": "The mode lies among two candidates for unit width, and the remainder after the leading norm is O(R^{-3}); the inspected statement does not resolve these candidates and this coefficient.",
+          "identifier_or_url": "https://arxiv.org/abs/1907.00848",
+          "material_read": "§3.1 p. 6 offset 17800, Proposition 3.1 near offset 19468",
+          "method": "OA PDF locating query and bounded passage read",
+          "title": "Daubechies' Time-Frequency Localization Operator on Cantor Type Sets",
+          "trigger": "Closest cited primary unit-area annulus theorem"
+        },
+        {
+          "assessment": "General bound, not the exact annular classification",
+          "evidence": "The theorem bounds norms of real radial symbols without supplying exact maximizing annular degrees.",
+          "identifier_or_url": "https://arxiv.org/abs/2102.02031",
+          "material_read": "Theorem 1 p. 3, offset 5451",
+          "method": "OA PDF by bounded passage",
+          "title": "Norm estimates for selfadjoint Toeplitz operators on the Fock space",
+          "trigger": "Broader radial Fock norm theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact mode staircase and nonconstant norm correction address natural quantitative questions beyond Knutsen's leading term, but the frozen record repeats the earlier indexed solution. Changing the phase coordinate within the already established remainder does not establish an independently new invariant, asymptotic order or transition law.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

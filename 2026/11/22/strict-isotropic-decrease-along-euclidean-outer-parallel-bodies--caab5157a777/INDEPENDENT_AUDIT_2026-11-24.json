@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:18:21.956759Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reflection symmetry makes the covariance diagonal and centered. Independently decomposing into the base rectangle, side strips and four quarter-disks gives A and both unnormalized moments: the x moment of one translated quarter-disk is a²πt²/4+2at³/3+πt⁴/16. Normalization is MxMy/A⁴. The expansion of 4A′MxMy−A(MxMy)′ has no constant term or terms above degree seven and agrees with all seven frozen coefficients. The first is positive by π<4; for the others the rational shift π=157/50+u gives positive monomial coefficients, establishing the sign for every a,b,t>0, including unequal sides and no aspect-ratio restriction. The endpoint values follow from the constant and leading terms. The coefficients of t and t⁷ in the derivative numerator give the stated quadratic corrections after division by A⁵ and integration at the respective endpoints; they also show the linear corrections vanish. Continuity gives strict decrease on the closed half-line despite J′(0)=0. Replay: python /workspace/audit_checks/reconstruct.py 1. The uploaded checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frozen RESULT.md lines 88–89 describe parallel-body isoperimetric and quermassintegral quotients and isotropic-constant perturbation results as adjacent comparisons; the primary passage requests timed out.",
+          "The independently recovered cube source labels its complete profile as three-dimensional."
+        ],
+        "reasoning": "A covariance-determinant monotonicity theorem holding for all Euclidean planar outer parallels would subsume the result. Known mixed-volume quotients involve area/perimeter, not both normalized second moments. Local first-order information cannot establish the sign for every radius.",
+        "searches": [
+          "Richter–Saorín Gómez, arXiv:2003.14182",
+          "Kipp, arXiv:2303.18033 and arXiv:2407.01353",
+          "Resultary c7d29f80bf57"
+        ]
+      },
+      "checked_sources": [
+        "Resultary c7d29f80bf57 (decisive onset/profile passages)",
+        "Resultary caab5157a777 (self-match)",
+        "Frozen RESULT.md lines 88–98 and AUDIT.json (reported prior comparisons)",
+        "arXiv:2003.14182, arXiv:2303.18033, arXiv:2407.01353 (primary requests attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "All-dimensional cube onset proves the square onset; the full 3D theorem is for a different volume normalization and different body.",
+          "The frozen record credits a prior regular-polygon calculation for the square case; an exact full-radius planar-square source passage was not identified."
+        ],
+        "reasoning": "Even granting the full square case, the sign certificate for an arbitrary aspect ratio is mathematically separate. A generalized planar isotropic monotonicity theorem would matter if established, but the identified statements do not provide it.",
+        "searches": [
+          "Cube rounding result, sections ‘All-dimensional onset’ and ‘Complete three-dimensional profile’",
+          "Frozen RESULT.md lines 88–89: related regular-polygon rounding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact caab5157a777 hit is the assigned record itself.",
+          "Resultary c7d29f80bf57 gives the cube onset in all dimensions and the all-radius profile in dimension three."
+        ],
+        "reasoning": "Writing J=L⁴ or det of central covariance divided by squared area is equivalent to ordering L. An affine map taking an unequal rectangle to a square changes the Euclidean disk gauge to an ellipse, so the known disk-rounded square does not cover unequal rectangles.",
+        "searches": [
+          "Resultary: isotropic constant under Euclidean rounding of rectangles, squares, and cubes",
+          "Primary literature: normalized covariance determinant / isotropic constant of Euclidean outer parallel rectangles"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Cube onset in d=2 gives L²=1/12−(4−π)t²/48+O(t³); squaring recovers the assigned unit-square quadratic coefficient.",
+          "Frozen AUDIT.json identifies rounded-rectangle section-property formulas as a possible source for moment data, not a checked prior determinant monotonicity theorem."
+        ],
+        "reasoning": "Moment tables can cover inputs to the profile; they do not by themselves certify whole-range ordering of the product after dividing by A⁴. The nonsquare small-radius coefficient and large-radius correction were not found in the retrieved overlap.",
+        "searches": [
+          "Resultary c7d29f80bf57, sharp isotropic response to Euclidean rounding of cubes",
+          "Frozen AUDIT.json engineering comparison: https://www.calcresource.com/cross-section-rectround.html"
+        ]
+      },
+      "rationale": "Pass for strict all-radius monotonicity of the nonsquare rectangle family and its sharp quadratic responses. The unit-square onset is demonstrably prior and the square profile is not counted as new. No retrieved stronger theorem supplies the unequal-rectangle all-radius inequality.",
+      "residual_risks": [
+        "Primary source retrieval for general adjacent results was incomplete; this is not evidence of absence.",
+        "An older mechanics table plus a published determinant sign result, or an unindexed generalization of regular-polygon rounding, could affect priority. The square is expressly excluded from the new contribution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "covers the planar unit-square onset and the complete 3D cube profile, not unequal rectangles",
+          "evidence": "In d=2, L²=1/12−(4−π)t²/48+O(t³); the source confines its complete monotonicity theorem to d=3.",
+          "identifier_or_url": "Resultary:c7d29f80bf57",
+          "material_read": "source passages ‘All-dimensional onset’ and ‘Complete three-dimensional profile’",
+          "method": "local Resultary search and local record reader",
+          "title": "Sharp isotropic response to Euclidean rounding of cubes",
+          "trigger": "same functional and deformation on cubes"
+        },
+        {
+          "assessment": "reported theorem is about mixed-volume quotients, with no identified implication for J",
+          "evidence": "The frozen comparison distinguishes isoperimetric and quermassintegral quotients from covariance determinants.",
+          "identifier_or_url": "https://arxiv.org/abs/2003.14182",
+          "material_read": "frozen comparison at RESULT.md lines 88–89; exact primary passage not recovered",
+          "method": "targeted open-access passage request",
+          "title": "On the monotonicity of the isoperimetric quotient for parallel bodies",
+          "trigger": "possible stronger monotonicity along the same deformation"
+        },
+        {
+          "assessment": "no all-radius implication identified; not a whole-document exclusion",
+          "evidence": "Frozen RESULT.md lines 88–89 credit perturbation and extremality restrictions.",
+          "identifier_or_url": "arXiv:2303.18033; arXiv:2407.01353",
+          "material_read": "frozen comparison only; exact primary passage requests timed out",
+          "method": "targeted open-access retrieval",
+          "title": "Small perturbations of polytopes; Isotropic constants and regular polytopes",
+          "trigger": "possible isotropic response theorem covering the rectangle family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Euclidean outer rounding is a natural path from a rectangle to the disk, and the determinant normalized by area is an intrinsic affine shape statistic along it. The result controls the ordering at all radii and arbitrarily large aspect ratio, not just near the initial body; the common onset in units of √(ab) exposes a simple aspect-independent response. It makes no assertion for arbitrary planar bodies.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

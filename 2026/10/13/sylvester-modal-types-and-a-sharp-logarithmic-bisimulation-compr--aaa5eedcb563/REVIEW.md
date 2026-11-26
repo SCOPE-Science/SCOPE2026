@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite structures, the color-respecting forward/backward bisimulation relation, and all quantifiers are stated precisely. Descendant descriptors are complete bisimulation invariants on finite outward trees, with different remaining heights separated by modal reachability formulas. The exact type recursion follows from sets of child types and the surjectivity of the assignment of \(q\) children onto each chosen set. The lower exponential estimate for the type count uses a valid binomial lower bound once \(t_k\ge2q\), and the linear affine recurrence in its logarithm yields \(\exp(cq^k)\le t_k\). Splitting levels at logarithmic height proves the uniform \(O(N/\log N)\) upper bound; independently choosing inequivalent colors on disjoint subtrees proves the matching lower bound. The one-color and one-branch boundary cases are separated. The standalone checker was run and reproduced the finite counts; computation is supporting evidence, not a substitute for the proof.
+PASS
 
-## Originality — PASS, with residual risk
+Under immediate-child accessibility, induction on remaining height identifies greatest ordinary bisimulation exactly with equality of (color, set of child descriptors); different remaining heights are separated by a sufficiently long iterated diamond. Any nonempty set of at most q available child types is realizable independently, with repeats filling any unused slots. This proves the exact type and level-count formulas. The recurrence gives t_(k+1)≥a t_k; after t_k is large, the q-element subsets give log t_(k+1)≥q log t_k−q log(2q). Subtracting the fixed affine threshold yields log t_k≥c q^k, while counting all colorings gives log t_k≤C q^k. Splitting levels at q^k comparable to h with a sufficiently small constant bounds the lower-height terms by O(log h·q^(h/4)) and the upper-height tail by O(q^h/h). At q^k comparable to h with a sufficiently large constant there are at least q^(h−k) types, realized on disjoint height-k subtrees to attain Ω(q^h/h). Thus the lower bound concerns the maximum, not every coloring. The one-color and unary cases have exactly h+1 classes; t_k+1 in the binary sequence means addition of one, not the successor index. Independent greatest-relation pruning over all 32,768 binary height-three colorings found maximum nine classes. The frozen Python verifier and its recorded five small cases were inspected, not run; the asymptotic estimate is analytic.
 
-Closest logical source: Figueira–Goren-Roig, arXiv:2307.09679 (2023), whose inspected text develops modal and graded-bisimulation semantics, unravelling and categorical characterization, not the fixed-palette complete-tree quotient extremum. Closest compression source: Ganardi et al., arXiv:1407.4286 / JCSS 2017, whose Section 5.3, Theorem 10 proves a closely related \(O(N/\log N)\) bound for an ordered-subtree DAG. That upper bound is explicitly treated as prior work, not new. An ordered-DAG lower bound does not entail this theorem's lower bound after quotienting by the strictly coarser ordinary bisimulation. Searches for the exact fixed-alphabet greatest-bisimulation quotient lower bound and Sylvester-type count did not yield an equivalent theorem. A prior result under a different coalgebraic or compressed-DAG formulation remains possible; no assertion of exhaustive literature clearance is made.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The quotient size is the actual modal state-space remaining after exhaustive bisimulation minimization, a canonical invariant used to reduce finite models. Complete regular trees of bounded branching and bounded observable alphabet are natural hard inputs rather than an arbitrary restricted computation. The result gives the sharp worst-case logarithmic compression rate—including a constructive lower bound against **all** additional ordinary-bisimulation merging—where a generic DAG upper bound alone cannot decide the issue. The separate exact type census and its binary Sylvester specialization supply reproducible finite refinements and a bridge to extremal modal-model compression.
+Credit prior ordered-DAG and graded upper bounds, the classical sequence, and material binary two-color coverage from the companion catalogue result. The distinct claim is the exact ordinary type census and sharp ordinary extremum in the genuinely set-valued regime q≥3 (with arbitrary fixed palette); neither the binary coincidence nor large graded quotients establishes that ordinary lower bound. The binary case and Sylvester recognition are a specialization and context, not independently cleared contributions.
 
-## Limitations
+## value
 
-No exact formula for the finite-height global extremal quotient size is asserted. The theorem requires fixed \(q,a\ge2\) and irreflexive immediate-child edges; it does not cover graded bisimulation or varying palettes. The 43,276 enumerated valuations are finite confirmation only. Independent review is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The invariant is the actual space remaining after ordinary modal minimization on a canonical family. The matching lower bound shows what unordered, multiplicity-free model reduction really cannot compress, rather than relying on the order-sensitive or graded counts that can overestimate it substantially. The finite type census explains why the transition occurs near remaining height log_q h.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

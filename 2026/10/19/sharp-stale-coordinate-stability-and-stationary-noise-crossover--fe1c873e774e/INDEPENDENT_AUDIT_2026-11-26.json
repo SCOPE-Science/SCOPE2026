@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:06:54.290209Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–89",
+        "Frozen VERIFICATION.md lines 1–23 and artifacts/verify_asynchronous.py lines 1–107 (inspect only)",
+        "Corrected RESULT.md and VERIFICATION.md in repairs/5"
+      ],
+      "rationale": "Reassessed the corrected scope, which makes the entire noise sequence independent of the coordinate selections, so the conditional centering and variance in the augmented covariance recursion follow. Independently eliminated the four swap-invariant stationary equations: b=d=-rc and the remaining two equations in a,c have determinant beta(1-r^2)(4-2beta-beta^2 r^2). Its positive root is the claimed frontier; there the forcing gives 0=sigma^2(2-beta r^2), a contradiction. Below it the stationary covariance is positive definite, and Q+L(Q) is positive definite by its common-kernel test on the current and previous coordinate blocks. This gives geometric contraction in the homogeneous problem and convergence to the forced second moment for arbitrary deterministic histories. Conversely, stability for every deterministic history forces decay of L^k on the rank-one spanning set and hence spectral radius less than one; averaging the hypothesized forced stationary PSD solution under the swap is impossible at the root and above it, where a temporal antisymmetric mode is negative. The fresh step has strictly declining expected SPD energy for 0<beta<2 and exact stationary off-diagonal balance b=-ra. Both variances and the factored difference follow; beta=1 is in the stable interval and is the only crossover there.",
+      "residual_risks": [
+        "No claim for selector-dependent noise. The recorded 6,908 assertions use finite rational parameter samples, mostly beta<=1, and test algebra under the prescribed operator; they do not establish the universal frontier or adequacy of the noise assumptions in an applied setting."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The accessible Carson–Ma theorem is a sufficient convergence-rate result for general locally current/remotely delayed updates. The 1993 work was available at abstract level only; full text could not be inspected for it, Verkama, or the Moga–Dubois report."
+        ],
+        "reasoning": "The inspected theorem cannot decide necessity at and beyond the root, or the sign of a stationary-error difference. The inaccessible results are residual risks rather than negative comparisons.",
+        "searches": [
+          "Carson–Ma arXiv:2609.15605v1 §4.1 Theorem 1, Eqs. (12)–(15)",
+          "DOI 10.1016/0167-8191(93)90038-M; DOI 10.1137/0917058; Moga–Dubois CENG 95-06"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 9ae0040f2dac and 1b839e7f4866",
+        "Carson–Ma arXiv:2609.15605v1",
+        "Beidas–Papavassilopoulos abstract",
+        "Identified Verkama and Moga–Dubois sources attempted"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact-overwrite recurrence excludes general relaxation and stationary forcing. The sufficient-rate bound supplies no necessity regime or noise covariance comparison."
+        ],
+        "reasoning": "Neither specialization determines the covariance with both a current own-coordinate term and delayed remote term for free beta, nor the sharp root and difference under selector-independent noise.",
+        "searches": [
+          "Resultary 9ae0040f2dac, Statement, Proof and Limitations",
+          "Carson–Ma §4.1 Theorem 1 and discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "9ae0040f2dac treats fair exact overwrites with bounded i.i.d. random delays; its fixed D=1 case is literally the present beta=1 noiseless case. 1b839e7f4866 gives the sharp one-step-stale randomized Kaczmarz criterion alpha+alpha^2 max_i p_i<2 on the identity system."
+        ],
+        "reasoning": "Exact overwrites do not permit free beta or stationary noise. The identity-system stale additive residual update delays a different part of the rule and has no coupled SPD cross-read comparison.",
+        "searches": [
+          "Resultary semantic search for two-coordinate stochastic-delay randomized Gauss–Seidel",
+          "Resultary 9ae0040f2dac and 1b839e7f4866"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The retrieved catalog supplies a closed scalar second-moment recurrence for unrelaxed noiseless overwrites with delay distributions, not a beta-parametrized stationary-noise law."
+        ],
+        "reasoning": "The frozen claim is a continuous-parameter analytic law, not a finite tabulation. The closest exact indexed entry covers the previously identified special case, not the full law.",
+        "searches": [
+          "Resultary searches for exact two-coordinate stale stability and stationary-noise crossover; strongest exact hit 9ae0040f2dac"
+        ]
+      },
+      "rationale": "For the corrected model, the actual overlap is the prior beta=1 exact-overwrite/noiseless result. The general constant-relaxation sharp frontier and exact noise-floor crossover remain distinct in the sources compared. General random-delay criteria and lifted second-moment recursions are not new.",
+      "residual_risks": [
+        "An equivalent special-case analysis in the named historical literature remains possible. No published priority or exhaustive search is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact noiseless overlap for beta=1 and fixed delay one",
+          "evidence": "The recurrence is for exact overwrites, without arbitrary relaxation or stationary noise.",
+          "identifier_or_url": "Resultary 9ae0040f2dac, 2026/09/20",
+          "material_read": "Mirrored Statement/Proof at offset 0 and Relation/Limitations at offset 6800",
+          "method": "Local mirror text inspection",
+          "title": "Exact delay-distribution law for two-coordinate randomized Gauss-Seidel",
+          "trigger": "Same delay and selection model at exact overwrite"
+        },
+        {
+          "assessment": "Different update and objective",
+          "evidence": "Its threshold concerns stale additive residual updates on the identity system.",
+          "identifier_or_url": "Resultary 1b839e7f4866, 2026/10/18",
+          "material_read": "Mirrored Finding and Assumptions and scope, offset 0",
+          "method": "Local mirror text inspection",
+          "title": "Sharp row-diversity threshold for one-step-stale randomized Kaczmarz",
+          "trigger": "Nearby exact one-delay stochastic threshold"
+        },
+        {
+          "assessment": "Related sufficient rate result, not this exact frontier or forced comparison",
+          "evidence": "Theorem 1 gives a sufficient convergence condition and rate with no additive-noise stationary calculation.",
+          "identifier_or_url": "https://arxiv.org/html/2609.15605v1",
+          "material_read": "Model and assumptions at HTML offset 15700; §4.1 Theorem 1 and Eqs. (12)–(15) at offset 24450",
+          "method": "Bounded original OA HTML inspection",
+          "title": "Asynchronous Jacobi and randomized Gauss–Seidel methods in shared and distributed memory",
+          "trigger": "Same fresh-own and delayed-remote model class"
+        },
+        {
+          "assessment": "Full-text coverage unresolved",
+          "evidence": "No claim of noncoverage is made from the abstract.",
+          "identifier_or_url": "https://doi.org/10.1016/0167-8191(93)90038-M",
+          "material_read": "Landing page and abstract only",
+          "method": "Bounded lawful OA and repository lookup",
+          "title": "Convergence analysis of asynchronous linear iterations with stochastic delays",
+          "trigger": "Historical second-moment analysis for random delays"
+        },
+        {
+          "assessment": "Unresolved historical comparison",
+          "evidence": "No scientific negative conclusion follows from the inaccessible text.",
+          "identifier_or_url": "https://doi.org/10.1137/0917058",
+          "material_read": "No full-text passage obtained",
+          "method": "Bounded lawful OA and repository lookup",
+          "title": "Random Relaxation of Fixed-Point Iteration",
+          "trigger": "Historical random relaxation"
+        },
+        {
+          "assessment": "Unresolved historical comparison",
+          "evidence": "The reachable PDF yielded no extractable text for this comparison.",
+          "identifier_or_url": "USC technical report CENG 95-06",
+          "material_read": "No extractable relevant original passage",
+          "method": "Attempted bounded OA text extraction of cited report",
+          "title": "Performance of Asynchronous Linear Iterations with Random Delays",
+          "trigger": "Historical two-variable random-delay analysis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected RESULT.md Finding, Proof and Limitations",
+        "Carson–Ma §4.1 and Resultary 9ae0040f2dac"
+      ],
+      "rationale": "The smallest coupled SPD model exposes a quantifiable loss of admissible relaxation due to delayed cross-coordinate data and a nonmonotone practical consequence: stale reads lower the stationary noise floor on one side of beta=1 but raise it on the other, although they narrow the stability interval. A sharp boundary and independent fresh/stale comparison are useful benchmark predictions, not a generic Lyapunov calculation presented as a new method.",
+      "residual_risks": [
+        "Stationary error is not a guarantee of faster transients or smaller runtime; no inference is made for arbitrary dimensions, schedules, or delay distributions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:33:42.532381Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The stable affine OU/free-diffusion recurrence defines the stationary event-indexed chain; its random coefficient contracts in L^4 and the innovations have finite fourth moment. For an independent derivation, write the conditional start variance as Q+R given past durations and put M=exp(-2kT). The conditional release variance is Q+MR and the next excess variance is MR+2DS. Thus E[R]=L/(1-a) and E[R^2]=(2aL E[R]+H/3)/(1-b). Conditional Gaussian square products give G=2(a-1)Q^2+(1-a)Q E[R]+3(a-b)E[R^2]-L(Q+a E[R]), which simplifies to the recorded expression. The affine conditional second moment propagates the next-cycle covariance by a at each additional lag, giving strictly positive prefactors multiplying G for all j>=1. Substitution independently reproduces the three rational functions; the third numerator polynomial has one sign change and a positive root bracketed by 11.141522 and 11.141523. The weak and strong limits give the claimed endpoint signs for all fixed m>=3, not uniqueness beyond m=3. The deterministic variance recursion gives the stated negative formula, and A-B=L gives the identical mean work kD/q. Replay via RESULT.md lines 40–113 or the variance recursion above. The supplied verification script was inspected, not executed; the conclusions are exact, not simulation estimates.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected semi-Markov power calculation concerns a first moment, even though the clock formalism is broader. The prior intermittent-trap paper's stated Poisson scope and diagnostics concern position, relaxation and first passage. The related semi-Markov spectral comparator concerns integrated position autocovariance."
+        ],
+        "reasoning": "Neither a more general clock treatment of mean work nor a position autocovariance formula controls covariance of the two-time quadratic work difference across completed cycles. A general renewal-reward theorem with evaluated work-product kernels could subsume the formula, but no such covering statement was established.",
+        "searches": [
+          "arXiv:2607.05173 §§VI.A–VI.B, decisive §VI.B passage",
+          "arXiv:2104.00609",
+          "Resultary 2026/11/8/SCOPE-a-spectral-discriminator-for-semi-markov-switching-harmonic-trap--0dffd78bb5f6"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Resultary exact self-match, active feedback engine, physical-time Gaussian work fluctuations, shared-clock work-noise, and position spectral comparator",
+        "Santra–Das–Nath arXiv:2104.00609",
+        "Frydel arXiv:2607.05173"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The active feedback-engine hierarchy is not an alternating-trap renewal model; its lag-two sign already differs from the negative regime here. The semi-Markov power identity and Poisson physical-time fluctuation theorem concern the mean and an aggregate variance, respectively."
+        ],
+        "reasoning": "OU transitions, affine moments and geometric propagation are established tools. The covariance coefficient needs a coupled fourth-moment calculation for the work and release state, followed by comparisons across clock laws. Neither the equal mean nor the prior fluctuation theorem implies the minimal stage or the common-lag sign boundary.",
+        "searches": [
+          "arXiv:2607.05173 §VI.B",
+          "Resultary 2026/11/22/SCOPE-a-sharp-sign-transition-in-successive-cycle-work-correlations-of--e795ee52c808",
+          "Resultary 2026/11/2/SCOPE-gaussian-work-fluctuations-without-finite-exponential-moments-in--82e1d04ffdf8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Frydel's §VI.B expresses cycle-averaged power in terms of birth-distribution second moments. The former catalogue record is a physical-time accumulated-work CLT/variance result for Poisson switching; the latter gives cross-particle accumulated-work covariance for a common Poisson clock."
+        ],
+        "reasoning": "Palm/event-indexed reward autocovariance, physical-time accumulated-work variance, and two-particle shared-clock covariance are different statistics. Even a fixed-clock long-time variance rate combines effects and does not supply the covariance at each positive event lag or its dependence on Erlang shape.",
+        "searches": [
+          "arXiv:2607.05173 §VI.B",
+          "Resultary 2026/11/2/SCOPE-gaussian-work-fluctuations-without-finite-exponential-moments-in--82e1d04ffdf8",
+          "Resultary 2026/11/2/SCOPE-a-rank-one-work-noise-law-for-brownian-particles-in-a-common-fla--3f986da2e9c0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact clock-threshold hit is the frozen record itself. The closest distinct cycle-work result is an active-bath information engine whose lag-one covariance can switch sign while lag two and higher stay positive."
+        ],
+        "reasoning": "The quantity sought is a symbolic shape/sign classification, not a recomputed numerical root. The distinct cycle-work record has different innovations, protocol and lag sign hierarchy; chronology is not inferred from its date.",
+        "searches": [
+          "Resultary 2026/11/22/SCOPE-a-three-stage-clock-threshold-for-the-sign-of-cycle-resolved-wor--28453d97e316",
+          "Resultary 2026/11/22/SCOPE-a-sharp-sign-transition-in-successive-cycle-work-correlations-of--e795ee52c808"
+        ]
+      },
+      "rationale": "The distinctive result is the exact stationary cycle-indexed switching-work covariance for renewal trapping, with all positive lags sharing the sign and a minimal three-stage matched Erlang clock for negative covariance. Inspected annual-catalogue and literature results overlap in model, work statistics, or correlation transitions, but the compared statements do not imply this sign classification.",
+      "residual_risks": [
+        "The comparison does not exhaust the literature on tilted renewal kernels or joint work statistics in switching harmonic systems.",
+        "The generic moment formalism may permit further implicit specializations. No priority claim follows from the bounded primary and catalogue inspections."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same record; not prior evidence",
+          "evidence": "Identical covariance formula, Erlang assumptions and threshold.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-three-stage-clock-threshold-for-the-sign-of-cycle-resolved-wor--28453d97e316",
+          "material_read": "Frozen RESULT.md Finding and proof",
+          "method": "Local package and catalogue identity comparison",
+          "title": "A three-stage clock threshold for the sign of cycle-resolved work memory in a flashing harmonic trap",
+          "trigger": "Exact catalogue hit"
+        },
+        {
+          "assessment": "Different model and lag hierarchy",
+          "evidence": "Periodically measured active OU bath and full-shift feedback; sign transition only for lag one, with higher lags positive.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-sign-transition-in-successive-cycle-work-correlations-of--e795ee52c808",
+          "material_read": "Local RESULT.md Finding, offset 0",
+          "method": "Bounded local mirror reading",
+          "title": "A sharp sign transition in successive-cycle work correlations of a harmonic information engine",
+          "trigger": "Closest distinct cycle-work covariance hierarchy"
+        },
+        {
+          "assessment": "Physical-time and Poisson only in the compared result",
+          "evidence": "Long-time variance rate and CLT of accumulated work, not event-indexed reward covariances or an Erlang sign threshold.",
+          "identifier_or_url": "2026/11/2/SCOPE-gaussian-work-fluctuations-without-finite-exponential-moments-in--82e1d04ffdf8",
+          "material_read": "Local RESULT.md decisive finding, offset 155",
+          "method": "Bounded local mirror reading",
+          "title": "Gaussian work fluctuations without finite exponential moments in an intermittent harmonic trap",
+          "trigger": "Same intermittent trap and work fluctuations"
+        },
+        {
+          "assessment": "Cross-particle rather than serial covariance",
+          "evidence": "Asymptotic accumulated-work covariance under shared Poisson switching.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-rank-one-work-noise-law-for-brownian-particles-in-a-common-fla--3f986da2e9c0",
+          "material_read": "Local RESULT.md decisive finding, offset 140",
+          "method": "Bounded local mirror reading",
+          "title": "A rank-one work-noise law for Brownian particles in a common flashing trap",
+          "trigger": "Related covariance for flashing-trap work"
+        },
+        {
+          "assessment": "Background for the model; assessment limited to inspected passage",
+          "evidence": "Constant-rate switching and study of positional distributions, relaxation and first passage.",
+          "identifier_or_url": "https://arxiv.org/abs/2104.00609",
+          "material_read": "PDF abstract, p. 1, offset 1295",
+          "method": "Bounded OA PDF reading",
+          "title": "Brownian motion under intermittent harmonic potentials",
+          "trigger": "Established on/off harmonic model"
+        },
+        {
+          "assessment": "Inspected work result is cycle-averaged power, not the claimed covariance",
+          "evidence": "Injected power is computed from the second moments of the birth distributions.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.05173",
+          "material_read": "§VI.B, pp. 5–6, offsets 41263 and 43115",
+          "method": "Bounded OA PDF reading",
+          "title": "Semi-Markovian switching in a fluctuating harmonic trap: An age-structured formulation",
+          "trigger": "Closest broader-clock primary formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Changing the dwell-time shape at fixed mean changes an experimentally interpretable cycle-memory statistic while leaving mean injected work unchanged. The exact minimal-stage boundary and common sign at every positive lag are sharper than observing a numerical sign change or a physical-time variance trend. The result supplies a testable benchmark for linear renewal-driven energetics; it does not claim a laboratory-time sign law or uniqueness for all Erlang shapes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

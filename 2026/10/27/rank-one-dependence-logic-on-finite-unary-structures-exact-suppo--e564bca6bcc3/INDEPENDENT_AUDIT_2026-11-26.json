@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:19:19.196870Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In a closed rank-at-most-one sentence, each quantifier matrix has only its own possible free variable; above those quantifiers, splitting disjunction on the singleton empty assignment reduces to ordinary disjunction by the empty-team property. In the matrix, a support-preserving induced restriction preserves quantifier-free satisfaction on any retained subteam and is downward closed, so a true universal persists. An existential is equivalent to the existence of a satisfying singleton by downward closure, and singleton matrix truth depends only on its colour. This proves the necessary order property, up to isomorphism. For the converse, U_{t,k} recognizes n_t<=k because its non-t disjunct cannot receive t and each constancy disjunct can receive at most one t-assignment; if there are at most k, the required split exists. U_{t,0} is literal colour exclusion. Guards select the exact support, and in the positive multiplicity orthant, Dickson's lemma gives a finite antichain of minimal exclusions, each avoided by a disjunction of the upper bounds n_t<=b_t−1. Empty and full fibres, and the empty class, are covered by this construction. In pure equality, the exact one-variable team capacities are zero/infinite for false/true literals, one for constancy, and infinite for dependence with a nonempty determining tuple (only x can occur). Conjunction takes min, splitting disjunction adds; overlap never raises the bound, and a disjoint split realizes it. Every finite capacity is bounded by the number of constancy occurrences by induction. Existentials have constant truth across nonempty sets, and the outer min/max of cutoffs must select a universal cutoff k if the whole spectrum is {1,...,k}. The k-fold constancy split attains that cost. The checker was inspected, not run; in its synthesis check it selects the support in code, so that specific test checks the obstruction formula on an already selected fibre, not a direct evaluation of the written existential guard. The general proof covers the guard independently.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prenex dependence normal form in Theorem 2.5 does not preserve rank one, and the general game compares truth preservation between pairs of structures. Width-one dependence atoms yield first-order sentences without a target quantifier-rank restriction. FOT-downarrow characterizes downward-closed elementary properties of a team in another syntax."
+        ],
+        "reasoning": "Neither an unrestricted sentence translation nor a game for one-way theory containment constructs every support-fibre ideal or proves a lower bound for the number of constancy occurrences. The team-property closure is not domain thinning.",
+        "searches": [
+          "Puljujärvi–Väänänen v1 Theorem 2.5, Definition 3.2 and Theorem 6.1",
+          "Durand–Kontinen arXiv:1105.3324 Proposition 2.13",
+          "Kontinen–Yang Complete Logics for Elementary Team Properties section 3 and Theorem 3.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.00812v1, 1105.3324 and 2508.16146; Kontinen–Yang section 3",
+        "Resultary 68a4f552b2de Finding, normal form and scope",
+        "Frozen RESULT.md, VERIFICATION.md and check_rank1_unary.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The game relates truth transfer to a uniform winning strategy, downward closure supplies restriction of universal teams, and the earlier dependence-disjunction work concerns model checking and coherence. The frozen converse needs explicit count atoms built from constancy disjunctions and a finite Dickson antichain for each support; its lower bound uses exact capacities under min and sum."
+        ],
+        "reasoning": "Even an alternative proof of pairwise rank-one preservation from the general game would not by itself give finite positive synthesis for every fibrewise ideal or the exact syntax lower bound. The inspected prior results supply tools and related logical fragments, not a specialization already covering those conclusions.",
+        "searches": [
+          "Puljujärvi–Väänänen v1 Theorem 6.1 and Fact 2.3",
+          "Durand–Kontinen Proposition 2.13; Resultary 68a4f552b2de exact classification",
+          "Fröhlich–Kolaitis–Meier arXiv:2508.16146 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For a finite unary signature, an induced unary restriction that retains every realized colour is equivalent, up to isomorphism, to coordinatewise decrease within a positive support fibre. The game paper defines the same quantifier rank and one-way theory preservation and gives a general game characterization. The indexed unary InqBT finding instead shrinks a team X inside a fixed domain D and has uniform-value quantifiers and implication."
+        ],
+        "reasoning": "Shrinking a team at fixed domain is not shrinking the whole model in a sentence interpretation. Even on the full-team diagonal, the InqBT theorem allows the FO property X empty or |D|>=3, which does not obey the pure-set rank-one spectrum constraint. Thus the two classifications are not the same under a change of vocabulary.",
+        "searches": [
+          "Resultary searches for monadic/unary rank-one dependence logic, constancy, multiplicity and cardinality normal forms",
+          "Puljujärvi–Väänänen arXiv:2606.00812v1 sections 2–3 and Theorem 6.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest catalog exact classification has eventual forms |X|<=k or |D minus X|>=d, with finite exceptions, in pure equality InqBT. The separate literature search did not locate a table or exact spectrum result matching the language and rank restriction; the result surfaced on first-order spectra concerns a different unrestricted problem."
+        ],
+        "reasoning": "The bounds in the catalog depend on two team/domain counts, not arbitrary colour-support fibres of finite rank-one dependence sentences. The frozen forbidden bases range over all such fibres, and the pure-set result counts syntactic occurrences; neither is a lookup of finite exceptional cases in the comparator.",
+        "searches": [
+          "Resultary 2026/10/26/SCOPE-unary-inquisitive-team-logic-collapses-exactly-to-downward-close--68a4f552b2de/RESULT.md, Finding and scope",
+          "Dependence logic quantifier rank one constancy unary structures spectrum multiplicity and lower bound"
+        ]
+      },
+      "rationale": "The exact rank-one classification on finite unary structures, the associated formula construction, and the sharp pure-set occurrence bound survive the comparison. Downward closure, the expressive behavior of constancy over teams, and the finite-basis lemma are ingredients, not themselves new results. The closest catalog normal form is for a different logic and a different preservation order; general dependence-logic normal forms and games do not supply this combination of finite-domain expressiveness and syntax-sensitive cost.",
+      "residual_risks": [
+        "Bounded rather than exhaustive priority review. Older rank-preserving normal forms or a quantitative constancy theorem could imply part of the finding, but none of the inspected results supplies these conclusions. The claims do not extend to larger signatures, infinite structures or added team operators."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant general tool, not the claimed classification with atom optimum",
+          "evidence": "Theorem 2.5 is an unrestricted prenex conversion, and Theorem 6.1 equates one-way bounded-rank theory preservation with a game strategy without measuring occurrences.",
+          "identifier_or_url": "https://arxiv.org/pdf/2606.00812v1",
+          "material_read": "section 2 pp. 7–8: rank, Fact 2.3 and Theorem 2.5; section 3 game and uniformity; Theorem 6.1 p. 21",
+          "method": "OA PDF passages at offsets 15400, 18500, 24040 and around 46843",
+          "title": "A New Ehrenfeucht–Fraïssé Game for Dependence Logic",
+          "trigger": "Same quantifier-rank convention and general expressiveness game"
+        },
+        {
+          "assessment": "Unrestricted rank/width comparison, not matching spectrum",
+          "evidence": "Width-one dependence sentences are first-order expressible; no rank-one finite-colour ideal or optimal occurrence count is asserted there.",
+          "identifier_or_url": "https://arxiv.org/pdf/1105.3324",
+          "material_read": "section 2 Proposition 2.13, PDF p. 5, around offset 16500",
+          "method": "OA PDF passage",
+          "title": "Hierarchies in Dependence Logic",
+          "trigger": "First-order expressive collapse for constancy-width dependence"
+        },
+        {
+          "assessment": "Exact but different class of objects and logic",
+          "evidence": "Classifies one-free-variable pure-equality InqBT teams with fixed-domain downward closure; its normal form includes complement size and finite exceptions, and it does not measure constancy costs.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-unary-inquisitive-team-logic-collapses-exactly-to-downward-close--68a4f552b2de/RESULT.md",
+          "material_read": "Finding, assumptions and normal-form scope",
+          "method": "Resultary local mirror, offset 0 and relevant continued passages",
+          "title": "Unary inquisitive team logic collapses exactly to downward-closed first-order properties",
+          "trigger": "Closest indexed unary exact cardinality and downward-closure classification"
+        },
+        {
+          "assessment": "Different team-property fragment and semantics",
+          "evidence": "FOT-downarrow captures downward-closed elementary properties of a team modulo the empty team; this is not a description of the finite-domain spectra at dependence-logic rank one.",
+          "identifier_or_url": "https://helda.helsinki.fi/server/api/core/bitstreams/fe5360e8-ec3a-4d22-a6fa-95bea82377e3/content",
+          "material_read": "section 3 and Theorem 3.1, PDF pp. 8–9 around offset 25813",
+          "method": "OA PDF passage",
+          "title": "Complete Logics for Elementary Team Properties",
+          "trigger": "Potentially stronger downward-closed elementary classification"
+        },
+        {
+          "assessment": "Related operator, with no matching statement in the material read",
+          "evidence": "The abstract concerns model-checking complexity and coherence, rather than syntax cost for rank-one pure-set sentences.",
+          "identifier_or_url": "https://arxiv.org/pdf/2508.16146",
+          "material_read": "Abstract p. 1",
+          "method": "OA full preprint, bounded opening passage",
+          "title": "Disjunctions of Two Dependence Atoms",
+          "trigger": "Exact structure of disjunctions of dependence atoms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives a complete answer at the first nontrivial quantifier rank for a natural finite-structure class. The exact support-fibre invariant identifies what positive multiplicity information can and cannot be expressed, with finite formula synthesis and a sharp separation between quantifier rank and atom cost. It is more informative than showing unbounded finite thresholds alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

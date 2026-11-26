@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The reproducible calculation is supplied in `verify.py` and requires only Python 3.10+ standard library. Run `python3 verify.py`; expected status marker: `TRIANGULAR_T6_HIGHER_INDEPENDENCE_HOMOTOPY_VERIFIED`.
+# Independent mathematical audit
 
-The checker performs two independently worded exact membership tests for each of the 32768 vertex subsets; verifies the augmented face count `(1,15,105,195,90)` and the 15 lower-dimensional facets; produces 185 legal matching pairs; checks all 1155 nonempty face-poset incidence arrows for acyclicity; and verifies critical counts `(1,0,24,10)`.
+## correctness
 
-The signed integer Morse boundary from critical dimension three to critical dimension two is computed by eliminating unit matched incidences along acyclic gradient paths. Every coefficient is exactly zero. A separate mod-two Gaussian reduction on the unreduced simplicial chains checks boundary ranks `(14,91,80)`; the mod-two calculation is not substituted for the integral attaching-degree argument. The topological step uses the fact that all maps from the 2-sphere into a simply connected wedge of 2-spheres are classified by integral degree vectors.
+PASS
 
-These finite checks concern this single explicitly defined complex. They do not certify an arbitrary infinite graph family, an equivariant splitting, or independence from existing literature.
+The edges selected from K6 have nonempty edge components K2 or P3, giving at most four edges. Independent reproduction (`python3 /workspace/branches/independent_checks.py 2`) assembled components on the original six vertices, obtained (15,105,195,90) nonempty face counts by size, and checked the frozen order on the whole nonempty face poset: all 1,155 oriented covers form a DAG with 185 pairs and critical counts (1,0,24,10). Rather than using the supplied signed Morse elimination or mod-two check, the replay reduces the ordinary oriented simplicial boundaries over the rationals; the top rank is 80 of 90, so H3 has rational dimension 10. Thus the integer boundary out of the ten critical 3-cells has rational rank zero and is identically zero over the integers. The Morse 2-skeleton is a wedge of 24 two-spheres; Hurewicz on that skeleton identifies each attaching class in pi_2 with its integral cellular degree vector, so the ten attaching maps are null. This checks the non-equivariant homotopy statement, not just Betti numbers or an equivariant decomposition. The uploaded checker was inspected, not executed.
+
+## originality
+
+PASS
+
+The exact mixed-dimensional integral wedge is not implied by the inspected earlier primary literature. The same wedge appears in a distinct later-dated Resultary entry as its n=6 case; that is exact mathematical coverage, not an antecedent shown to predate this frozen result. The inspected same-day entry computes a different complex. This is a scoped best-of-knowledge finding, not a certification of priority.
+
+## value
+
+PASS
+
+Six is the first size at which disjoint pairs of two-edge paths coexist with perfect matchings as maximal packings of different cardinalities. The exact integral splitting of this natural nonpure base case distinguishes actual mixed-dimensional spheres from merely mixed-dimensional facets or modular homology. It is a usable benchmark for Morse constructions and for any attempted triangular-family classification. The value is specific to the non-equivariant finite result; no pattern for larger n is inferred.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

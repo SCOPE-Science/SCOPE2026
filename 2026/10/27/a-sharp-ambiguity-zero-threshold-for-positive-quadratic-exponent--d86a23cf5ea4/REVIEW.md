@@ -1,19 +1,21 @@
-# Scientific assessment: positive quadratic-exponential ambiguity zeros
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof starts from the explicitly integrated self-ambiguity of \(g_d\) and its quartic numerator on \(\operatorname{Re}z=2\). For \(0<d\le 4(1+\sqrt6)/5\), every positive-delay shifted quartic has positive coefficients and positive second and third Routh–Hurwitz determinants. At zero delay, an exact quartic root calculation identifies the only critical pair; above the threshold continuity of the maximal root real part forces a nonzero-delay pair. The case \(d=0\), negative delays, both frequency signs and both endpoint windows are accounted for. Symbolic checker identities and direct quadrature passed; the analytical proof—not the finite tests—establishes the quantified theorem.
+PASS
 
-## Originality — PASS, qualified
+Use evenness in delay and conjugation at opposite frequencies. For T≥0 shift the integration variable by T/2; the lower support endpoint is then zero, and integrating each monomial of (1+d(v+T)^2)(1+dv^2) against exp(−zv) gives the stated quartic divided by z^5, z=2+iω. At T=0 its z²-roots are −2d±2i√5 d, giving real part magnitude √[d(√6−1)] for z and hence exactly d_* and the stated angular frequency at the crossing. At d=0 the transform is an elementary nonvanishing reciprocal times a phase. Independently expanded the imaginary-axis test of Q(s)=P(s+2): writing its coefficients as a_4,…,a_0, positive coefficients rule out s=0 and at s=iω with ω≠0 its imaginary part forces ω²=a_1/a_3. Substitution into its real part gives exactly −Δ_3/a_3². Reconstructing from the integral integrand recovers all seven coefficients in the record. For 0<d≤d_*<3 the constant is nonnegative and positive-degree coefficients are positive by the displayed d²<3d and d³<9d bounds. This proves no nonzero-delay zero through the threshold, independently of the stronger Hurwitz conclusion. For d>d_* the rightmost real part starts above 2 and tends to zero, since the normalized quartic tends to z²(z²+2d) with fixed degree and nonzero leading term. The rightmost real part is continuous, so crosses 2 at a positive delay; a positive-coefficient polynomial cannot vanish at z=2. This gives the advertised pair and its delay reflection, without asserting a count. The pure quadratic endpoint has numerator 2T²z²+12Tz+24, stable for T>0 and constant at T=0. Exact symbolic reconstruction and critical-root substitution were run independently; the frozen quadrature and root examples were inspected, not treated as proof of infinite-parameter assertions.
 
-The most relevant complete primary text is Gröchenig–Jaming–Malinnikova, *Zeros of the Wigner Distribution and the Short-Time Fourier Transform* (arXiv:1811.03937, Section 3, Theorem 4.2). It covers single exponentials, two-factor exponential convolutions and individual gamma moments, but not their positive two-moment mixtures or this sharp threshold. Kloos–Stöckler (arXiv:1311.7359) concerns Zak zeros and Gabor frames of totally positive functions, not the claimed ambiguity bifurcation. No directly covering published claim was identified after comparisons of formulations and implications. Historical radar-window priority remains a residual risk, and absence from the inspected sources cannot prove uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a global sharp parameter boundary for a physically natural causal pulse family. The threshold marks a change from total phase-space nonvanishing to an exact critical frequency pair and then genuine off-axis blind spots. Since each of the two generating exponential moments is separately zero-free, the result displays a substantive nonclosure mechanism for zero-free ambiguity under positive addition.
+Credit is confined to the sharp mixed-window threshold, exact threshold pair and universal existence of nonzero-delay zeros above it. The pure-window endpoints, ambiguity/STFT correspondence, polynomial integration and stability criteria are known. The inspected prior statements do not settle the sign transition for this positive mixture.
 
-## Limitations and verification status
+## value
 
-The supercritical zeros are proved to exist, not globally enumerated or proved unique. The proof is analytical and backed by the standalone exact checker; no independent mathematical audit has been performed. The archive-era primary work was inspected for scope, not treated as evidence of a full-document exclusion.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a concrete sharp failure of closure under positive addition for zero-free self-ambiguity in a natural minimal causal family. The endpoints are individually zero-free; identifying where cancellation first occurs and proving off-axis delay zeros at every larger weight materially strengthens a single example or a finite parameter sweep.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

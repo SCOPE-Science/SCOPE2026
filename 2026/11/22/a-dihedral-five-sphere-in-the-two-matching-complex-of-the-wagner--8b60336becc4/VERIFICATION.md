@@ -5,31 +5,22 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
     "status": "not_performed"
   },
-  "schema_version": 1
+  "schema_version": 1,
+  "record_status": "passed"
 }
 ---
+# Reproducing the finite checks
 
-# Verification
+Run `python3 verify_wagner.py` with Python 3.10 or later. The program generates admissible simplices by direct degree counts and checks the full automorphism group by enumerating all vertex permutations. It verifies a complete directed Hasse sorting and the critical masks for the nonequivariant discrete Morse calculation. For each automorphism it sums alternating contributions on all unions of its edge cycles which form faces, and verifies the reduced-homology character. Sorting all 1696 Hasse vertices certifies the matching, not an equivariant Morse equivalence.
 
-## Reproducibility
-
-Run `python3 verify_wagner.py` from the extracted files, using Python 3.10 or later and no third-party packages. The checker constructs all twelve edges of the eight-vertex Wagner graph, all 4096 edge masks, and tests the eight maximum-degree-two constraints. It confirms exactly 1696 nonempty simplices and the full face vector \((12,66,212,423,516,352,108,7)\).
-
-It deterministically forms 848 pairs in the augmented face poset, removes the empty-face pair, verifies each remaining pair is a cover and used at most once, identifies the sole critical vertex and critical five-simplex, orients every nonempty Hasse incidence, and topologically sorts all 1696 directed nodes. The exhaustive sort succeeded. These checks constitute a complete finite discrete-Morse certificate for the claimed \(S^5\) homotopy type.
-
-The program also enumerates every four-cycle to prove the graph edge-orbit distinction, then checks signed simplicial Lefschetz traces for each of the eight rotations and eight reflections. The rotation and reflection generator traces are both \(-1\). Given reduced integral homology only in degree five, these traces determine the integral orientation character, while the rational quotient conclusion follows from standard finite-group invariant-homology theory.
-
-## Observed execution
-
-The delivered program was executed successfully in the ordinary Python environment. It printed `PASS`, reported 847 ordinary matched pairs, critical masks `1` and `2646`, all 1696 Hasse vertices visited, and rotation/reflection traces \(-1\). This is an actual computation from the provided source, not a statement about a timed-out or unrun checker.
-
-## Boundaries
-
-The result concerns the specified twelve-edge graph, not all Möbius ladders. The checker establishes the entire finite combinatorial result, not a new theorem that the same pairing necessarily extends to an infinite graph family. The rational orbit-space statement does not determine integral torsion in the geometric quotient. Bibliographic novelty is assessed against the inspected relevant sources and still admits the possibility of an unindexed equivalent.
+Observed checks: 52 facets of dimension six and seven of dimension seven; critical masks 1 and 2646, 847 pairs; graph automorphism order 16. The chain alternating contributions in degrees 0 through 7 are `(0,0,0,1,0,0,0,1)` for `r` and `(2,4,-8,-7,12,6,-6,-1)` for `s`. The augmentation gives the reduced Lefschetz number 1 in each case, so the degree-five sign is −1 in each case. The program does not calculate integral homology of geometric quotients. The rational quotient statement in `RESULT.md` is deduced by averaging, not by numerical inference.

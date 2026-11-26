@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:14:56.987895Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–58",
+        "Frozen VERIFICATION.md and check.py (especially lines 99–140)"
+      ],
+      "rationale": "Counting empty and singleton traces, marked nonsingletons, and outside witnesses separately gives m+1+(m-a-b)+h. The full incidence graph is a forest with a+b+c+h vertices and at least 2h edges, so h<=a+b+c-1 and the total is at most 2m+c. At 7q for m=3q, equality forces c=q, a=b=0, every marked component to have exactly three vertices, and h=q-1. The incidence forest has 2q-1 vertices and 2q-2 edges, with each outside witness of degree two; its suppression is the block tree, also valid for q=1. The converse construction supplies exactly one vertex per trace, including an unmarked vertex beyond a private leaf for the empty trace. The triples recover the partition, the internal pairs recover the centres, and the remaining pairs recover both the block tree and labelled attachments. Counting these choices gives the stated factorial/Cayley product and small values; 7q vertices are necessary simply because all 7q traces are distinct. A separate bitmask DFS adding only edges between disconnected endpoints found 36961 labelled forests on seven vertices. Marking the first three vertices yielded 288 saturated hosts and exactly three distinct trace families, one per possible centre. The submitted checker was inspected, not run. Its comment about two reduced tree shapes at q=3 is inaccurate if shape means an unlabelled tree: all the q=3 block trees are paths, with different labels at the centre. That comment does not affect any check or theorem.",
+      "residual_risks": [
+        "The bounded enumeration independently tests the first equality case, not the all-q conclusion. The theorem counts trace families and not larger ambient forests or other congruence classes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier all-k forest theorem proves floor(7k/3), bounds outside witnesses by marked component count minus one, and constructs sharp examples with arbitrary trees on path blocks, arbitrary marked attachment vertices, leaves for singleton traces and an extra vertex for the empty trace.",
+          "The 2005 identifying-code result is credited in the primary forest paper as a precursor; the older scanned theorem text was not legibly retrieved in this review."
+        ],
+        "reasoning": "The broad forest theorem's proof supplies the counting chain and the converse construction for k=3q directly. The older identifying-code paper is not needed for the coverage decision.",
+        "searches": [
+          "arXiv:2607.16889v1, Section 3 proof and sharp construction",
+          "Bertrand–Charon–Hudry–Lobstein, 1-identifying codes on trees (2005)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "arXiv:2607.16889v1, definition, Theorem 2 and full relevant proof and construction",
+        "Resultary e0393b89ea9b",
+        "Official OA scan of the 2005 identifying-code paper (comparison limited)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Their last upper-bound chain simplifies to 2k+(k-|S_1|-2c_2)/3. At 7k/3, there can be no isolated mark or two-vertex component, and equality in the component bound gives q triples and q-1 external high-degree witnesses. Their auxiliary graph selects any two marked components per witness and is a spanning tree on the q components. If a witness met a third component, delete its selected edge; of the two endpoints, one lies on the same resulting side as the third component. Selecting those two incidences instead would add an edge inside that side of the spanning tree, contradicting that every permitted selection gives a forest. Thus every witness has exactly two incidences and gives the stated cross-block pair. The marked path traces and all smaller traces are forced by equality in the first count.",
+          "The source explicitly allows arbitrary choices of block tree and marked attachments in its construction. Taking k=3q gives the stated 7q-vertex host."
+        ],
+        "reasoning": "This recovers every part of the normal form from the inspected proof, not merely the numerical upper bound. Reading the data back from the family and applying Cayley's formula give the exact census by direct counting.",
+        "searches": [
+          "arXiv:2607.16889v1, Theorem 2 proof offsets 16900–24000; equality in the last display and the path-block construction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Boolean vector of formulas x=a or E(x,a) is exactly the closed S-neighbourhood trace used in Theorem 2. The Resultary self-match was excluded. The distinct open-forest record e0393b89ea9b classifies a different invariant, with 2m traces and a tree on individual marks rather than on triples."
+        ],
+        "reasoning": "The first-order-formula wording does not change the invariant from Berthe et al.; the open-neighbourhood analogue does change it.",
+        "searches": [
+          "Resultary: saturated closed-neighbourhood traces, labelled triple blocks and exact counts",
+          "arXiv:2607.16889v1, closed S-neighbourhood definition and Theorem 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct Resultary open census does not enumerate this closed invariant. The primary forest paper gives the exact 7q-vertex host construction but does not print C_q as a table or formula."
+        ],
+        "reasoning": "Absence of the printed sequence does not establish novelty: after tightness, its factorial/Cayley formula comes from the earlier construction with no new degrees of freedom. From a trace family one reads off the triples and then the pair data, so the direct product count has no duplicates.",
+        "searches": [
+          "Resultary: exact 7q closed trace families and the Cayley census",
+          "arXiv:2607.16889v1, Section 3 construction at r=0"
+        ]
+      },
+      "rationale": "The prior Theorem 2 proof and construction of Berthe–Foucaud–Lehtilä–Parreau already yield the classification at zero rounding slack by taking equality in their displayed inequalities. Their construction gives every proposed choice, with minimum order. The only extra outside-incidence observation is immediate from the auxiliary forest in that proof, and the census is the direct labelled count of the resulting choices. The exact formula need not have been printed previously for this to be covered as a routine corollary. This is a demonstrated mathematical implication, not a judgment based on missing access or on shared keywords.",
+      "residual_risks": [
+        "No claim that the exact formula was printed by Berthe et al. or by the older identifying-code paper; the FAIL follows from direct coverage by the 2026 proof and construction.",
+        "The official scan of the older result did not yield a legible primary theorem extraction; broader historical priority was not settled."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier proof plus construction imply the stated classification and direct census at 3q, although not printed in that form",
+          "evidence": [
+            "Component count uses |S_1|+c_2+(|S_2+|-2c_2)/3; one arbitrary component pair per outside witness gives an auxiliary forest.",
+            "For each edge of any tree on the blocks, add a two-edge path between chosen marked vertices; attach the empty-trace vertex outside the marks."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2607.16889v1",
+          "material_read": "Theorem 2 at offset 12937; closed-neighbourhood definition and Section 3 proof and construction, offsets 12800–25547",
+          "method": "OA primary HTML passages with equality and implication reconstruction",
+          "title": "Neighbourhood complexity and identification problems for graphs of bounded treewidth and pathwidth",
+          "trigger": "The identical sharp forest invariant, proof and tight examples"
+        },
+        {
+          "assessment": "Residual comparison only; not used to reject originality",
+          "evidence": [
+            "Berthe et al. cite the identifying-code bound and construction and note that the code bound itself does not immediately translate to neighborhood complexity."
+          ],
+          "identifier_or_url": "https://ajc.maths.uq.edu.au/download/31/ajc_v31_p021.pdf",
+          "material_read": "Citation and its role in Berthe et al. Section 3; no legible extracted passage of the original theorem",
+          "method": "Lawful official OA PDF retrieval and targeted locate attempt",
+          "title": "1-identifying codes on trees",
+          "trigger": "Older bound and constructions cited by Theorem 2"
+        },
+        {
+          "assessment": "Related but different invariant",
+          "evidence": [
+            "Open traces on m marks attain 2m and are indexed by trees on marks, not triple blocks."
+          ],
+          "identifier_or_url": "Resultary e0393b89ea9b",
+          "material_read": "RESULT.md Finding, lines 5–19",
+          "method": "Published mirror passage and assigned source comparison",
+          "title": "Cayley rigidity of maximal open-adjacency types in finite forests",
+          "trigger": "Closest distinct catalogue forest trace census"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Classification, Exact census and Proof",
+        "arXiv:2607.16889v1, Section 3"
+      ],
+      "rationale": "The census concerns a natural invariant and may be convenient as an explicitly stated corollary. As an independent finding, however, it supplies no nonmechanical refinement beyond the zero-slack equality of the known proof and the direct labelled count of the known freely parametrized construction. Its exact minimum order is already realized by the earlier construction and needs only one vertex per trace for the lower bound.",
+      "residual_risks": [
+        "This does not judge distinct questions such as the nonzero-rounding-slack congruence classes; no such repair has been proved here."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

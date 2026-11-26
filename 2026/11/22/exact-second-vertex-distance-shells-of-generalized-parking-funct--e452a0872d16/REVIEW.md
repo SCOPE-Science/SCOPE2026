@@ -1,15 +1,21 @@
-# Scientific review of the second vertex-distance shell
+# Independent mathematical audit
 
-## Correctness — PASS
-The vertex premise is precisely Theorem 2.3(b) in Bayer et al. The translation and the condition \(b_1\ge2\) ensure distinct, positive labels, allowing strict rearrangement and uniqueness of the positive intersection pattern. The proof identifies the top rank profile, the next-best disjoint rank profiles, and all possible one-overlap profiles. A strict rank-deletion inequality excludes every deeper overlap; a separate \(2t_mt_{m+1}\) or \(2t_m^2\) bound excludes nonmaximizing arrangements inside the diametral rank profiles. Factorial counts follow from distinct label assignments and the precise identical-rank symmetry factor. The exact checker enumerates every pair for nine cases, including the three-mode tie. The finite check supports but does not replace the all-parameter proof.
+## correctness
 
-## Originality — PASS, with residual priority risk
-Bayer et al. (arXiv:2403.07387, Theorems 2.3 and 4.4) establish vertex orbits and combinatorial graph diameter, but not the second Euclidean vertex-distance shell. Hanada–Lentfer–Vindas-Meléndez (arXiv:2212.06885) treat the restricted two-parameter family and its volumes and equivalences. The available published partial-permutohedron diameter result establishes only the first Euclidean shell for a particular consecutive-label family. A prior classical parking-polytope second-shell formula applies to the degenerate \(b_1=1\) orbit structure, outside this theorem. The previously published Pitman–Stanley second-shell theorem uses distinct vertex sets and a different standard Euclidean metric. Neither the inspected implications nor the targeted indexed searches establish the present arbitrary-parameter sharp minimum with all tied equality configurations. This is best-knowledge originality, not proof of universal historical uniqueness.
+PASS
 
-## Mathematical value — PASS
-The second distinct vertex-distance level is a natural geometric invariant refining the diameter, and its equality count resolves which nearly diametral configurations actually occur. Arbitrarily varying cumulative parking parameters produce genuinely different winning support geometries and nontrivial multiway ties; all are classified by an explicit linear-size calculation. The calculation is not a renaming of the already known first diameter: the new overlapping-support competitors and factorial equality census are mathematically necessary. Precise scope: standard Euclidean vertex metric, \(n\ge4\), \(b_1\ge2\).
+The translated vertex orbits follow from Bayer et al., Thm. 2.3(b); the strictly increasing positive labels ensure no coincident ranks. For fixed ranks, opposite rearrangement minimizes the dot product. If their sum exceeds n, each endpoint's smallest positive label is on a shared coordinate in an opposite arrangement. Delete the smaller of the two minima: its partner is at least the larger minimum, so the squared distance strictly increases by u(2v-u). This excludes sums above n+1 from the second shell. For sums below n, one can add a new minimum in a vacant coordinate; for a fixed disjoint rank sum, strict discrete concavity of F gives balanced ranks and, at sum n, the next-best imbalance. At the diametral ranks, any defective pair has overlap cost at least 2t_m^2 in even dimension or 2t_mt_{m+1} in odd dimension, more than the missing-slot deficit t_m^2. For sum n+1 the minimum positive product requires just one overlap and both minima at that coordinate. Counting placements of the distinct labels gives n! at each winning rank/overlap pattern, with factor 1/2 exactly when one can exchange equal-rank endpoints. These arguments prove the second distinct level and all ties. Independent exact orbit-compressed enumeration (/workspace/replay/parking.py) reproduced both levels and each second-shell geometry/count in 132 label lists at n=4,5,6, including (D,D2,count)=(112692,102692,240) on the three-mechanism tie. Computations corroborate the all-parameter argument; the result is not for b_1=1, graph distances, or the continuous polytope.
 
-## Limitations and provenance
-The underlying full-parameter vertex theorem is attributed to its authors. The result does not assert the second metric level for all continuous points of the polytope, nor cover the orbit-collapsing case \(b_1=1\). Finite computations cannot certify the infinite theorem. An unindexed equivalent result and non-obvious metric-preserving reformulation remain residual priority risks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The classical second-shell result is a real structural antecedent. Its degenerate orbit set and fixed label gaps do not supply the arbitrary positive-label competition, all realizers, or tie census here. Other inspected close results give vertex orbits, a first diameter, or a probabilistic regime, rather than this second Euclidean level.
+
+## value
+
+PASS
+
+The next distinct Euclidean chord length and its all-pair census refine the diameter of a standard polytope. The formula replaces enormous vertex-pair enumeration by a linear-size list; variable gaps change which geometry wins and can force ties. This is not just the diameter calculation or a reinterpretation of a combinatorial graph invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:32:53.633933Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen inequalities are mathematically sound: the decreasing Gram-cycle kernel gives the cube-sum bound and the missing lower face is bounded by u*B^(k-2)u with u_j=1/j; the logarithmic change of variables leaves the cyclic total-variation kernel, with c_k obtained by Fourier convolution. The weight normalization is exactly H_n and the Schur test gives support in [0,4]. In the repair, the lower trace bound still follows from cells starting at the lattice points and an anchor-length deficit at most (k-1)c_k. The new upper trace bound fixes one coordinate at i before integrating the other coordinates on cells ending at the integers. The integral over all positive remaining coordinates equals c_k/i (one Jacobian absent), strictly greater than the integral over the finite domain. This gives the claimed strictly signed finite defect, including n=1; k=1 is exact. Beta moments and compact support give the arcsine law. The frozen CHECK.py tests a relaxed upper bound with 2 in place of zeta(2). The independent /workspace/independent_checks.py check 4 tested the original bounds on 49 rational cases with a certified stricter upper constant; python3 /workspace/repairs/4/CHECK.py separately passed the repair's strict sign and kc_k bound in 49 cases, not the logarithmic refinement. Neither replay proves the all-parameter theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.1 gives log-normalized traces for Lipschitz g with g(0)=0. The symbol has the log-integrability for Lemma 5.1, so §4's discrete-to-continuous power-trace difference is O(1).",
+          "The discrete-Mellin theorems concern Toeplitz-algebra membership and products modulo Hilbert–Schmidt operators."
+        ],
+        "reasoning": "The known comparison is absolute and does not give the sign. Coupling it with the elementary exponential-kernel range estimate already gives the qualitative bounded remainder; that is not the repaired contribution. Neither the broad normalized theorem nor the operator-algebra statements inspected yield the particular finite bounds.",
+        "searches": [
+          "Pushnitski Theorem 2.1, §4 and Lemma 5.1",
+          "Bellavita–Stylogiannis arXiv:2609.09453v1 Theorems 1.1–1.2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen package",
+        "A. Pushnitski arXiv:2103.12642",
+        "Two Resultary comparisons identified above",
+        "arXiv:2609.09453v1",
+        "Brown–Halmos–Shields, Cesàro operators, introductory scope",
+        "Lacruz et al. arXiv:1403.4844v1, extended-eigenvalue scope"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bounded Lipschitz extensions of x^k from [0,4] yield the moment limits via (2.2); the symbol integrals are central binomial coefficients. With test g(x)=x p(x) on [0,4], the law becomes the arcsine probability law, with H_n/log n tending to one.",
+          "The repaired proof integrates all positive coordinates except a fixed lattice coordinate, obtaining an exact c_k/i bound and a strict inequality at finite size. The lower trace bound uses the explicit anchored range deficit."
+        ],
+        "reasoning": "The original limits are prior implications, and an unsigned O(1) comparison cannot force any sign or the explicit constants. On the sources inspected the repaired inequality needs the two finite integral comparisons, not just specializing a normalized limit or extracting the name arcsine.",
+        "searches": [
+          "Compare (2.2) and Lemma 5.1 in arXiv:2103.12642 to the fixed-coordinate and cube comparisons in the repair"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The finite Gram kernel is 1/max(i,j)=exp(-|log(i/j)|/2)/sqrt(ij). This is exactly the finite Hardy section of the symbol (t^2+1/4)^(-1) in Pushnitski's convention.",
+          "The nearest catalogue Cesàro records concern the fixed-rank edge of C_n and the log-normalized spectrum of a modulation commutator, respectively."
+        ],
+        "reasoning": "The Hardy parameter match is exact, not an analogy with the Hilbert kernel 1/(i+j). The same-matrix edge law and different-matrix commutator law do not give signed trace defects.",
+        "searches": [
+          "Local Resultary searches for finite Cesàro Schatten moments, spectral energy laws and logarithmic counting",
+          "Literature lookup on finite Cesàro logarithmic trace and Hardy matrix asymptotics",
+          "Pushnitski arXiv:2103.12642 Theorem 2.1, symbol convention and finite trace comparison"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue hits tabulate neither the trace defects nor their bounds. At k=2 the defect is exactly the second-order harmonic sum, an elementary identity."
+        ],
+        "reasoning": "The contribution is an inequality simultaneously in size and power, not a table of exact trace values or the second-moment identity.",
+        "searches": [
+          "Local Resultary comparison to logarithmic Cesàro spectral edge (502b7b013a69) and logarithmic commutator counting (8b8cd7b837b4)",
+          "Frozen k=2 formula and elementary maximum-index grouping"
+        ]
+      },
+      "rationale": "Pass is for the repaired, strictly signed and order-explicit finite-size defect bound, not the original unqualified presentation of the moment/arcsine limits or a qualitative bounded remainder. Those asymptotic contents are covered or implied by Hardy-kernel theory. The repair credits this and proves a stronger finite inequality than the original. No inspected source gives or directly entails this signed bound.",
+      "residual_risks": [
+        "Lawful access to the MathOverflow norm thread failed with HTTP 403 and the surfaced Springer Cesàro PDF could not be read owing to redirects; neither failure counts as evidence of noncoverage.",
+        "Hardy-kernel quadrature or finite Wiener–Hopf estimates under different terminology could contain comparable constants. The pass is a best-of-knowledge decision for this precise signed bound, not a priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Normalized limits follow exactly; bounded discrete-to-continuous remainder applies; no signed finite bound in these statements",
+          "evidence": "(2.2) has right-hand side (2π)^(-1) integral g(phi); the sign-free trace norm estimate in Lemma 5.1 applies to the bounded rational symbol.",
+          "identifier_or_url": "https://arxiv.org/html/2103.12642",
+          "material_read": "Section 2 symbol normalization and Theorem 2.1 around offsets 7000 and 8771–10500; §4 trace comparison around 28530–29640; Lemma 5.1 around 31591–32500",
+          "method": "Direct open-access HTML passages",
+          "title": "The spectral density of Hardy kernel matrices",
+          "trigger": "Identical homogeneous Gram kernel after choosing the symbol"
+        },
+        {
+          "assessment": "Different spectral invariant",
+          "evidence": "Fixed-rank limit for singular values near 2, not traces or uniform trace bounds.",
+          "identifier_or_url": "2026/10/11/SCOPE-logarithmic-spectral-edge-of-higher-singular-values-of-finite-ce--502b7b013a69",
+          "material_read": "Finding and relationship/limitations, offsets 0 and 8422",
+          "method": "Local Resultary mirror",
+          "title": "Logarithmic spectral edge of higher singular values of finite Cesàro matrices",
+          "trigger": "Same matrices and logarithmic normalization"
+        },
+        {
+          "assessment": "Operator differs; no matching bound",
+          "evidence": "Traces and counting for a Cesàro modulation commutator rather than C_n C_n*.",
+          "identifier_or_url": "2026/10/18/SCOPE-logarithmic-singular-value-counting-and-spectral-band-splitting--8b8cd7b837b4",
+          "material_read": "Finding, proof and related-work passages around offsets 0, 4700 and 8248",
+          "method": "Local Resultary mirror",
+          "title": "Logarithmic singular-value counting and spectral-band splitting",
+          "trigger": "Log-normalized Cesàro-related spectral sums"
+        },
+        {
+          "assessment": "The inspected statements do not imply the signed finite estimates",
+          "evidence": "The statements are operator-algebra results about the infinite matrix and the Hilbert–Schmidt ideal.",
+          "identifier_or_url": "arXiv:2609.09453v1",
+          "material_read": "Theorems 1.1–1.2 in open-access HTML, offsets 3700–11783",
+          "method": "Open-access HTML passage inspection",
+          "title": "A discrete Mellin calculus in the Toeplitz algebra",
+          "trigger": "Possible general sampled-kernel estimates"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repair specifies which side of the limiting energy moments each finite section lies on, and controls the deficit with constants explicit in n and k. This yields one-sided errors for polynomials with nonnegative nonconstant coefficients, which the normalized spectral law or a qualitative bounded remainder alone does not supply. It makes no claim of optimal constants or of a uniform asymptotic in growing k.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

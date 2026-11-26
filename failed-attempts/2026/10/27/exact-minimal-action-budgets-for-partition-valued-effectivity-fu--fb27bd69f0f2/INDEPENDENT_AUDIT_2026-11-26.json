@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:31:09.126894Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each outcome has one block per agent. With one action of a selected block fixed, reaching every outcome in a cell requires that many distinct completions within the other blocks. This proves the product lower bound, including the uniform and the two-agent coordinatewise inequalities. In the uniform construction the cyclic differences give a bijection on every fixed-coordinate slice: if the last coordinate is fixed, solve each coordinate directly; otherwise its difference determines the last coordinate first. Composing with a surjection to the cell is enough; varying opponent blocks then covers exactly the specified block. For two agents the modular sum on each rectangular cell is onto along every row and column since both dimensions are at least the cell size. Therefore all lower bounds are attained simultaneously, also when a dimension or the whole cell is a singleton. Inspected RESULT.md, VERIFICATION.md and checker.py (small exhaustive frame construction checks, no game-space enumeration for optimality); no script replay was needed. The reported 1,655 admissible inputs also follow by summing B! S(r,B)/prod_i b_i! over positive block counts b_i with B=prod_i b_i<=r, where S(r,B) is a Stirling number of the second kind.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ciardelli constructs actions indexed by a neighborhood and a global state; Chen–Ju–Ågotnes give qualitative two-agent representation.",
+          "The chromatic theorem handles overlapping as well as partition neighborhoods and permits distinct deterministic multiplicity factors by agent."
+        ],
+        "reasoning": "The qualitative representations alone do not imply these action minima without a quantitative construction. The chromatic result is the stronger relevant source for the upper bound and for constructing each cell.",
+        "searches": [
+          "OA arXiv:2606.31866 Theorem 2.2",
+          "OA arXiv:2603.04160v2 §4.4 Theorem 2",
+          "Resultary fdd82819f033 and e6ecbe7ccc64"
+        ]
+      },
+      "checked_sources": [
+        "Resultary fdd82819f033, 114a0e0912e6, e6ecbe7ccc64 and ab8e933d61f4",
+        "Ciardelli arXiv:2606.31866",
+        "Chen–Ju–Ågotnes arXiv:2603.04160v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier chromatic theorem allows b1,b2 with min(b1,b2)>=chi when k=2. Applied to a single cell with each agent's only block the whole cell, it gives a rectangular array with exact range C in every row and column."
+        ],
+        "reasoning": "For cell C_ij use dimensions alpha_i=max_j |C_ij| and beta_j=max_i |C_ij|. Label its rows and columns consistently with the actions of their respective blocks, and splice these independent arrays. Each fixed action then sees the union of its cells, exactly its block. Necessity is immediate by fixing an opponent action and counting its available counterparts in the cell. Thus the earlier sufficient theorem plus direct localization and slice counting supply both claimed optima.",
+        "searches": [
+          "Resultary fdd82819f033, Finding and rectangular product condition at offset 0",
+          "Resultary 114a0e0912e6, Finding and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary fdd82819f033, Finding: a joint-outcome conflict graph joins outcomes occurring together in a joint intersection; uniform copy count ceil(chi^(1/(k-1))) suffices.",
+          "Resultary 114a0e0912e6 gives an ambient |R| bound, not a per-frame minimum."
+        ],
+        "reasoning": "With unique block membership the graph is a disjoint union of complete cell graphs. Thus chi is exactly the largest cell size. Necessity comes from the same cell-local counting for any action, so the sharper form is a direct specialization plus the unavoidable slice bound.",
+        "searches": [
+          "Resultary near-title search for Sharp root-size action realization for finite actual-effectivity frames and Sharp local-range compression for actual-effectivity representations",
+          "Focused literature lookup combining those titles and partition-cell action copies"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The later ab8e933d61f4 Finding explicitly gives feasibility iff both relevant block counts are at least |C_ij| in each cell, and the same simultaneous row/column maxima."
+        ],
+        "reasoning": "There is no numerical sequence or independent table of minima to consult for arbitrary input partitions; the catalogue has a direct formula match for the two-agent part. The later record shows exact coverage but is not the basis for inferring earlier priority.",
+        "searches": [
+          "Resultary search for partition-valued effectivity action budgets and coordinatewise exact counts; Resultary ab8e933d61f4"
+        ]
+      },
+      "rationale": "The earlier instance-sensitive chromatic compression theorem already gives the matching upper bound on this subclass and the exact partition optimum is immediate by counting a single cell slice. Its two-agent form also gives the seemingly new block-dependent construction by realizing each cell separately with its two prescribed dimensions and reusing labels for each block. No distinct exact invariant remains after this comparison.",
+      "residual_risks": [
+        "The exact-title record Sharp local-range compression for actual-effectivity representations was not resolved; its reported ambient bound was not relied on. No exhaustive priority determination is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly supplies the needed uniform upper bound and exact-dimension cell realizations",
+          "evidence": [
+            "Defines edges by co-occurrence in an intersection and attains prescribed factors whenever each complementary product is at least chi."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-chromatic-compression-of-finite-actual-effectivity-action-repres--fdd82819f033/RESULT.md",
+          "material_read": "Finding, scope and proof opening, offsets 0–3083",
+          "method": "Local Resultary mirror",
+          "title": "Chromatic compression of finite actual-effectivity action representations",
+          "trigger": "Prior instance-sensitive sufficient product condition"
+        },
+        {
+          "assessment": "Related construction; ambient upper bound not itself per-frame necessity",
+          "evidence": [
+            "Uses ceil(|R|^(1/(k-1))) and explicitly disclaims per-frame minima."
+          ],
+          "identifier_or_url": "114a0e0912e6",
+          "material_read": "Finding, assumptions and proof, offsets 0–4739",
+          "method": "Local Resultary mirror",
+          "title": "Sharp root-size action realization for finite actual-effectivity frames",
+          "trigger": "Named ambient-root upper bound"
+        },
+        {
+          "assessment": "Agent-dependent rather than block-dependent budget",
+          "evidence": [
+            "Budget for an agent is uniform across its neighborhoods."
+          ],
+          "identifier_or_url": "e6ecbe7ccc64",
+          "material_read": "Finding and budget conditions",
+          "method": "Local Resultary mirror",
+          "title": "Exact heterogeneous action-budget region for finite actual-effectivity frames",
+          "trigger": "Potential nonuniform multiplicities"
+        },
+        {
+          "assessment": "Exact later overlap, stronger feasibility statement",
+          "evidence": [
+            "Both dimensions at least cell size are necessary and sufficient; all maxima are simultaneously attained."
+          ],
+          "identifier_or_url": "ab8e933d61f4",
+          "material_read": "Finding offset 0 and Proof offset 2600",
+          "method": "Local Resultary mirror",
+          "title": "Exact action profiles for partition-valued two-agent effectivity",
+          "trigger": "Same two-agent partition data and block minima"
+        },
+        {
+          "assessment": "Qualitative representation with global state labels",
+          "evidence": [
+            "Actions are (s,v) with v a state, rather than an exact minimum determined by a joint cell."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.31866",
+          "material_read": "Theorem 2.2, pp. 3–4, PDF offsets 10950–16675",
+          "method": "OA PDF bounded passage",
+          "title": "Inquisitive Action Logic",
+          "trigger": "Named qualitative representation baseline"
+        },
+        {
+          "assessment": "Qualitative two-agent baseline, no cell action-count formula in passage",
+          "evidence": [
+            "Characterizes representability for general concurrent game frames."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.04160v2",
+          "material_read": "§4.4, Theorem 2, offset 67400",
+          "method": "OA HTML bounded passage",
+          "title": "Representation theorems for actual and alpha powers over two-agent general concurrent game frames",
+          "trigger": "Two-agent actual neighborhoods"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Exact action budgets are a useful quantitative refinement of qualitative representability, and cell sizes can be much smaller than |R|. Here, however, the earlier chromatic product bound already sees exactly those sizes, and applying its rectangular case per cell and counting a fixed slice recovers the full two-agent result. A self-contained reformulation does not provide a distinct mathematical gain under the narrow-exact-result standard.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

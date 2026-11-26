@@ -1,15 +1,21 @@
-# Review: commuting torsion partial permutations
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The stated power identities are equivalent to permutation actions on the respective domains. Equality of partial products forces each pairwise domain intersection to be invariant, which yields a canonical decomposition into independently acted-on Boolean support atoms. Finite abelian transitive actions contribute exactly one orbit type per subgroup and \((k-1)!\) labeled actions on \(k\) points, proving the exponential series. Hermite normal form proves the two-factor arithmetic coefficients. The independent checker confirms full rank distributions in six parameter families, cyclic subgroup indices and commuting triple counts.
+## correctness
 
-## Originality
-**PASS within the examined source set.** Elliott–Levine–Mitchell (arXiv:2303.12387) enumerate isomorphism types of monogenic submonoids, not ordered commuting tuples or their support ranks. Araújo–Bentz–Konieczny (arXiv:1205.1664) give a general commutation criterion and extremal-subsemigroup results; their structural criterion is a predecessor, but their inspected statements do not furnish the labeled subgroup-index series for all prescribed powers and all Boolean product ranks. Actual targeted mathematical-record searches did not locate an equivalent formula. The residual risk is an equivalent formula expressed in species, subgroup-lattice, or partial-action terminology.
+PASS
 
-## Value
-**PASS.** For a canonical finite inverse monoid the result supplies an exact, finite prescription for all coefficients of a natural joint algebraic invariant: the ranks of each generator and every product in an arbitrarily long commuting prescribed-power tuple. The support-atom classification is structural, and the explicit two-factor arithmetic and involution cases are useful independently of the general formula. This is a complete infinite-family enumeration, not an arbitrary small numerical slice.
+A local power identity makes each map a permutation of its domain. Commutation with the partial idempotent f_j^{d_j} forces f_i to preserve membership in D_j throughout D_i (compare the domains of the two products). This yields independent actions of G_S on the exact support atoms, and conversely these actions give precisely the tuples in the claim. A connected labelled orbit of index k contributes (k-1)!/k!=1/k, once per actual subgroup since G_S is abelian; the empty-support labels contribute exp(x). Product domains are exactly the intersections, including with empty domains, so the rank substitution follows; Boolean Möbius inversion also recovers the atom counts from the ranks and n. In the cyclic pair case one can project a subgroup to eC_b and intersect it with C_a in dC_a: the remaining choice is the graph of a map eC_b to C_d, giving gcd(d,b/e) choices at index de. These arguments verify the stated formal EGF, including n=0 and trivial cyclic factors. The frozen checker was read, not run; its bounded tests are corroborative, not needed for the proof.
 
-## Scientific limitations
-The literature search is not a proof of global novelty; finite checks are not a proof of the formal identity. The asserted identity is limited to the specified power-preserving partial bijections, not arbitrary partial injections. The cited 2012 commutation criterion and the standard finite-group action exponential formula are credited as known input.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit known partial-injection commutation structure, the standard orbit exponential formula and previously enumerated rank-two subgroup indices. The supported distinction is the exact labelled enumeration with simultaneous marks for every support atom/every subproduct under arbitrary prescribed powers. The closest located equivalent specialization is dated later and is strictly narrower. No priority is claimed for the pair-subgroup arithmetic itself.
+
+## value
+
+PASS
+
+Knowing the full joint profile is useful for exact rank counts under simultaneous commutation: separate ranks and even full-product rank lose information about the proper subproducts. The Boolean enumeration recovers that information for any arity with independent power constraints and reduces exact coefficients to finite subgroup data. This is not a claim of novelty for the standard subgroup counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

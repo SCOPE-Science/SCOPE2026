@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:12:05.614250Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions and Proof; VERIFICATION.md; verify.py (inspected, not executed)",
+        "Independent replay: python3 -B /workspace/branches/independent-replay.py 3",
+        "/workspace/branches/90fe2b1f-69eb-4bd7-970c-a64515b4b50e/full_check.txt"
+      ],
+      "rationale": "The companion matrix has determinant −1; its fixed states are (a,a) with ca=0 modulo 2^k, equivalent to the stated Smith factors and F_0=2^min(k,h). The identity M²−I=cM gives U_1=(c/2^h)M of odd determinant. Squaring M^{2^j}=I+2^{h+j−1}U_j produces U_{j+1}=U_j+2^{h+j−2}U_j²; the multiplier of the second term is even for h>=2 and j>=1, so all U_j act invertibly modulo 2^k. Thus the fixed states of each power of two are exactly the kernel of scalar multiplication by 2^{h+j−1}, giving F_j=2^{2 min(k,h+j−1)}. Saturation ensures there are no non-dyadic lengths. Subtracting adjacent F_j and dividing by 2^j gives the advertised multiplicities, also at k=1, k=h and k=h+1; summing the resulting geometric progression gives the displayed totals. Negative c has the same proof with odd signed unit. Equal cycle type gives permutation conjugacy; trace invariance rules out linear conjugacy when traces differ, as for c=4 and 12 modulo 16. An independent complete enumeration for 42 combinations checked exact cycle counts, fixed-point counts and totals; a separate independent traversal checked the 144 source parameter pairs through k=8. The induction, not extrapolation, proves the unrestricted result.",
+      "residual_risks": [
+        "The proof expressly excludes h=1, odd c and c=0. The checked permutation conjugacy at each modulus is not a claim of compatible conjugacies over an inverse limit."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The polynomial x²−cx−1 reduces to (x+1)², violating Brent's irreducibility assumption in the inspected theorem. The Falcón–Plaza definitions and period calculations treat the seed (0,1). Gültekin–Taşyurdu study a generalized sequence obtained by reducing polynomial coefficients and exponents, relating its period to the polynomial matrix order. The Falcón 2012 accessible abstract concerns construction/containment of generalized sequences."
+        ],
+        "reasoning": "The verified hypotheses and invariants of these period results do not supply the fixed-point counts on arbitrary pairs for the repeated-root parameter layer. The 2012 comparison was abstract-only and does not establish noncoverage of its full text.",
+        "searches": [
+          "Brent arXiv:1004.5439v1, irreducible recurrences modulo 2; Falcón–Plaza period section; Gültekin–Taşyurdu §§2 and companion-matrix order Theorems 5–6; Falcón DOI 10.5539/jmr.v4n2p97"
+        ]
+      },
+      "checked_sources": [
+        "Resultary c46e41780d2b, 2a4860fa5277, 6a4d0e478c63, 23ba7f995042",
+        "Brent arXiv:1004.5439v1; Falcón–Plaza DOI 10.1016/j.chaos.2008.02.014; Falcón DOI 10.5539/jmr.v4n2p97; Gültekin–Taşyurdu DOI 10.1155/2013/731482"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For h=1 the normalized factor at M^4−I contains I+uM, rank one modulo two; for h>=2 it contains I+2^{h−1}uM, invertible modulo two. Consequently the h=1 kernel induction cannot simply be specialized or rescaled into the two equal exponents here. A global order is only a bound on each state's period."
+        ],
+        "reasoning": "No verified same-invariant theorem implies the h>=2 distribution. The decisive extra step is simultaneous invertibility of both normalized directions at all dyadic powers, yielding complete uniform multiplicities rather than one class of initial conditions.",
+        "searches": [
+          "6a4d0e478c63 §§Finding, Assumptions, and Proof (first doubling); Brent irreducibility theorem; Falcón–Plaza period section; Gültekin–Taşyurdu Theorem 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Swapping coordinates conjugates (a,b)→(b,a+cb) to (x,y)→(cx+y,x). With arbitrary initial values, the ordered two-term state is the complete dynamical variable. A canonical seed's period, even if it determines the companion order, does not give the kernel sizes of all its powers. The examined Lucas image-ball result uses a minus sign in the recurrence and a single distinguished image set."
+        ],
+        "reasoning": "The coordinate swap is an exact equivalent and was checked against the strongest indexed census. It preserves the coefficient, so does not change h=1 into h>=2. Specializing a polynomial matrix at x=c gives the update matrix, but a polynomial matrix order does not determine state multiplicities of the specialized matrix.",
+        "searches": [
+          "Resultary: Fibonacci companion maps, dyadic Pell state cycles, even-parameter orbits, even-trace Lucas; Falcón–Plaza k-Fibonacci sequences modulo m; Gültekin–Taşyurdu 10.1155/2013/731482"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "c46e41780d2b and 2a4860fa5277 give all-state Pell results for c=2. The stronger parameter-uniform 6a4d0e478c63 restricts K to positive K=2 mod 4 and gives F_j=2^{min(k,j)+min(k,j+1)} for j>=2. Record 23ba7f995042 covers the different Lucas image invariant. No exact dominating state census surfaced in the returned Resultary results."
+        ],
+        "reasoning": "The effectively overlapping indexed tables are for h=1, including the same-day Pell table; this is a scope and invariant distinction, not a date-based exclusion.",
+        "searches": [
+          "Resultary all-state cycle spectrum for generalized Fibonacci mod powers of two and h>=2; inspected c46e41780d2b, 2a4860fa5277, 6a4d0e478c63 and 23ba7f995042"
+        ]
+      },
+      "rationale": "Credit is for the exact whole-state least-period census uniform over the repeated-root layer h>=2, not merely for canonical sequence periods, Smith normal form, or the orbit-count identity. The strongest inspected matching state census assumes h=1 and has unequal Smith valuations after the first doubling where the target has equal valuations. The nearby full-text primary results on the sequence or companion order do not provide the all-state kernel ranks for this layer. Comparison is limited to the checked sources.",
+      "residual_risks": [
+        "The Falcón 2012 PDF was not inspected; an unindexed equivalent all-state theorem or a general repeated-root matrix census remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong parallel theorem; explicitly h=1, not covering h>=2",
+          "evidence": "K>=2 and K≡2 mod 4; fixed exponent pattern min(k,j)+min(k,j+1). The first doubling has a nonunit determinant factor. Snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-orbit-census-for-even-parameter-fibonacci-recurrences-m--6a4d0e478c63/RESULT.md",
+          "material_read": "Finding, Assumptions, and Proof through the first doubling",
+          "method": "Resultary local mirror, offset 0 onward",
+          "title": "Complete orbit census for even-parameter Fibonacci recurrences modulo powers of two",
+          "trigger": "Same map up to coordinate swap and same desired all-state invariant"
+        },
+        {
+          "assessment": "Both specialize to c=2; one supplies individual state periods",
+          "evidence": "Same-day c46e41780d2b has F_0=2 and F_1=4 in its nontrivial moduli, but c=2 is outside the frozen h>=2 range.",
+          "identifier_or_url": "Resultary c46e41780d2b and 2a4860fa5277",
+          "material_read": "Findings and coefficient assumptions",
+          "method": "Resultary local-mirror statements",
+          "title": "Exact Pell state cycle spectrum; Complete dyadic cycle census for the Pell companion recurrence",
+          "trigger": "All-state least-period distribution in a nearby layer"
+        },
+        {
+          "assessment": "Different recurrence sign and different invariant",
+          "evidence": "U_(n+2)=P U_(n+1)−U_n and P divisible by four; closure of one scalar image, not state cycles.",
+          "identifier_or_url": "Resultary 23ba7f995042",
+          "material_read": "Finding and recurrence convention",
+          "method": "Resultary local-mirror statement",
+          "title": "Three exact 2-adic image balls for the even-trace Lucas sequence",
+          "trigger": "Same valuation range under a Lucas-type alias"
+        },
+        {
+          "assessment": "The inspected theorem does not apply to a repeated root",
+          "evidence": "Initial state not all even and polynomial irreducible modulo 2 in the relevant theorem, versus (x+1)^2 here.",
+          "identifier_or_url": "https://arxiv.org/html/1004.5439v1",
+          "material_read": "Introduction and cited irreducibility-based theorem",
+          "method": "OA HTML near offsets 300 and 14100",
+          "title": "On the periods of generalized Fibonacci recurrences",
+          "trigger": "Possible broad dyadic recurrence period classification"
+        },
+        {
+          "assessment": "Canonical-seed period coverage, not the full cycle census",
+          "evidence": "Seed (0,1); the abstract's explicit formula concerns odd recurrence parameter. This lawful alternate permits the textual comparison not available to the frozen authors.",
+          "identifier_or_url": "https://personales.ulpgc.es/angelplaza.dma/ficheros/investigacion/ficheros/chaos7.pdf",
+          "material_read": "Definition and period section, printed p. 499",
+          "method": "Author-hosted OA PDF, offsets about 1260 and 5650",
+          "title": "k-Fibonacci sequences modulo m",
+          "trigger": "Same scalar recurrence and potential modulo-power period result"
+        },
+        {
+          "assessment": "Abstract establishes a construction/containment agenda; full-text overlap not ruled out",
+          "evidence": "No modular whole-state spectrum is identified in the accessible abstract.",
+          "identifier_or_url": "https://www.ccsenet.org/journal/index.php/jmr/article/view/14516",
+          "material_read": "Publisher abstract only",
+          "method": "Public publisher page; PDF not obtained",
+          "title": "Generalized Fibonacci Sequences Generated from a k-Fibonacci Sequence",
+          "trigger": "Possible general initial-state formulation"
+        },
+        {
+          "assessment": "Polynomial sequence and companion order, not the specialized all-state census",
+          "evidence": "Q_2^n is expressed using Fibonacci polynomials; the period obtained by reducing polynomial coefficients and exponents is identified with matrix order, with a prime-modulus formula. These are not the Smith valuations of specialized companion powers.",
+          "identifier_or_url": "https://www.maths.tcd.ie/EMIS/journals/HOA/DDNS/Volume2013/731482.pdf",
+          "material_read": "Introduction, p. 2 polynomial reduction definitions, Theorems 5–6 and Eq. (10)",
+          "method": "Lawful EMIS OA PDF, extracted offsets about 1400, 8100 and 9340",
+          "title": "On Period of the Sequence of Fibonacci Polynomials Modulo m",
+          "trigger": "Potential general matrix and dyadic recurrence formulation; alternate copy for DOI 10.1155/2013/731482"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof",
+        "Resultary 6a4d0e478c63, separate h=1 layer"
+      ],
+      "rationale": "This gives an exact orbit inventory in the natural remaining even-coefficient layer, with arbitrary initial states rather than a single distinguished orbit. It quantifies the change from coordinate-swap dynamics below the valuation threshold to a full hierarchy of periods above it, explains invariance under variation of the odd part of c, and determines finite permutation equivalence. General order information or the neighboring h=1 census would not recover these multiplicities.",
+      "residual_risks": [
+        "No classification for other primes, the excluded coefficient layers, or the whole linear conjugacy problem is supplied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

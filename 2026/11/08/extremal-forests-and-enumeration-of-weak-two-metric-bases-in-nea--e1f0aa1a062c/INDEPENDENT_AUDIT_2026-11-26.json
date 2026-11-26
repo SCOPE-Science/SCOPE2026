@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T10:07:00.212668Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§Finding and Proof",
+        "VERIFICATION.md",
+        "artifacts/verify.py",
+        "artifacts/verify_six.cpp",
+        "Replay: python3 /workspace/branches/94d472e0-48cc-443c-aaed-67a6f065f4e7/independent_record4_check.py"
+      ],
+      "rationale": "For the two nonaligned corners, incidence degree sums count the crossed landmarks twice even though each contributes zero; subtracting twice their indicators yields the exact separation. Positive degrees and no single-edge component suffice, since two occupied cross corners are disjoint edges whose endpoint sums are each at least three. At s=ceil(2N/3)≤2n−3, an empty row or column would require at least 2n−2 landmarks. A K₂ component forces all other components to have order ≥4 by applying the nonaligned test with its edge and any other edge. This gives ≥(3N−2)/4>s for N≥16. Hence N−c≤|S| and c≤q, so equality |S|=N−q forces exactly q spanning tree components with total excess r over order three. The star and larger-tree constructions have the needed part sizes and realize the bound. The component coefficients follow from counting bipartite trees on the fixed color classes (e.g., for (2,3), choose the shared column and attach each other column to one row, giving 12), and division by factorials accounts for unordered components of equal size. A fresh check verified direct distance sums for the constructions across all 72 admissible pairs with 8≤n≤16 and reproduced all three displayed exact counts, 31,046,400; 1,079,038,800; and 47,628,000.",
+      "residual_risks": [
+        "The independent finite check tests constructions and coefficient values, not an enumeration of all labelled bases in the theorem's range. The frozen 6×6 checker is out of range and conditions its enumeration on incidence filters; neither it nor the larger finite checks substitute for the classification proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kumar gives m beyond the 2n−2 threshold and a lower bound m+1 below it.",
+          "The public resolution gives the complete scalar minimum and sufficient incidence conditions, not the classification of all optima."
+        ],
+        "reasoning": "Wider parameter coverage for the numerical optimum does not quantify over all extremizers; its forest construction is sufficient but not necessary as a construction.",
+        "searches": [
+          "arXiv:2609.32161 §2.3",
+          "Kumar’s remaining rectangular weak two-metric dimensions, public resolution"
+        ]
+      },
+      "checked_sources": [
+        "Resultary thematic lookup",
+        "arXiv:2505.19642",
+        "arXiv:2609.32161",
+        "Public rectangular weak two-metric dimension resolution"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The square proof already contains the component inequality.",
+          "The public rectangular proof postulates no component classification for its lower bound and builds one sufficient forest for the upper bound."
+        ],
+        "reasoning": "The novelty is an equality analysis using a strict exclusion of isolated edges and empty classes in the stated range, followed by counting all allowed component profiles, not a new scalar formula. The exponential formula and small bipartite-tree counts are standard tools, not separate novelty claims.",
+        "searches": [
+          "Fernández et al. §3.3 component proof",
+          "Public resolution: ceiling upper construction and bipartite_degree_charging"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact-name Resultary match is the frozen result itself.",
+          "Fernández et al. use the same incidence-graph representation and size-three argument in the square case."
+        ],
+        "reasoning": "Rook grids and two-factor Hamming graphs are the same graph here. The alternate incidence language is known, but the inspected square scalar result is not the full rectangular equality classification or label count.",
+        "searches": [
+          "Resultary: near-square rook graph weak two-metric basis spanning-forest classification",
+          "arXiv:2505.19642 §3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching Resultary ID 2026/11/8/SCOPE-extremal-forests-and-enumeration-of-weak-two-metric-bases-in-nea--e1f0aa1a062c is the same record.",
+          "Prior weak metric dimension values tabulate cardinalities of bases, not numbers of distinct labelled bases."
+        ],
+        "reasoning": "No independent exact count or enumerator was identified in the inspected comparisons; a scalar dimension entry is different from B(n,m).",
+        "searches": [
+          "Resultary: labelled enumeration of weak two-metric bases of rook graphs",
+          "arXiv:2505.19642, weak two-metric dimensions"
+        ]
+      },
+      "rationale": "Credit the scalar optimum, the distance identities and the component lower-bound method to prior work. The supported contribution is the equality-case classification of all spanning labelled incidence forests throughout the stated range, together with their enumeration. The prior rectangular construction produces particular forests and its degree-charging lower bound does not characterize all equality cases; the older square component argument anticipates the rigidity method.",
+      "residual_risks": [
+        "Historical priority of the public rectangular resolution was not independently dated. The equality-case extension is close to known methods, and an equivalent count under different terminology could be missed in a bounded search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial coverage: square value and method",
+          "evidence": [
+            "Theorem 1.1 gives ceil(4n/3); the incidence graph proof uses absence of isolates and K₂ components for its lower bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2505.19642",
+          "material_read": "Theorem 1.1 p. 2; §3.3 pp. 7–9",
+          "method": "Targeted OA PDF text",
+          "title": "On the weak k-metric dimension of Hamming graphs",
+          "trigger": "Same weak metric and square incidence model"
+        },
+        {
+          "assessment": "Numerical threshold and lower bounds, not all extremizers",
+          "evidence": [
+            "For m≥2n−2 the value is m, and below the threshold the source leaves remaining k=2 values unresolved."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.32161",
+          "material_read": "Introduction p. 2 and §2.3 pp. 5–6",
+          "method": "Targeted OA PDF text",
+          "title": "Weak k-metric dimension of Hamming graphs: rectangular products and near-maximum parameters",
+          "trigger": "Same weak two-metric problem for rectangles"
+        },
+        {
+          "assessment": "Numerical and construction coverage, not a classification/count",
+          "evidence": [
+            "The formula is min{ceil(2(n+m)/3),2n−2}. The upper proof adjoins stars to construct a forest, and the incidence lower-bound note expressly does not classify components."
+          ],
+          "identifier_or_url": "https://www.trureturing.org/research/kumar-2026-rectangular-weak-two-metric-dimension/",
+          "material_read": "Scalar formula (text offsets 500–2982); forest construction and triage (3650–6580)",
+          "method": "Targeted OA website text",
+          "title": "Kumar’s remaining rectangular weak two-metric dimensions",
+          "trigger": "Direct prior coverage of the scalar optimum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md §§Finding and Proof"
+      ],
+      "rationale": "The scalar optimum cannot describe or count individual optimal landmark configurations. The spanning-forest theorem reduces all of them to a short list of component profiles, and the enumerator distinguishes the full labelled families without checking landmark subsets one by one. The strict near-square conditions arise from excluding empty rows and columns, not from an arbitrary finite slice.",
+      "residual_risks": [
+        "No statement about automorphism orbits, larger k, or the transition strip is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

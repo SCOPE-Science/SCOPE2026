@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:24:47.571652Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Choosing the original pair of positions is in bijection with gap-based insertion vectors producing a given output, including repetitions. An output with at least two positions outside the joint center alphabet can have at most two usable positions, which cannot realize both distinct centers, so an alphabet of size q contributes exactly C_p+(q-s)E_p. Of the 15 partitions of four positions, two give identical centers, leaving 13 patterns, independently recomputed. Four patterns have (s,C,E)=(2,11,8) and all other admissible expressions are 8q-6, 4q or 6, strictly smaller than 8q-5. The four patterns are precisely one constant word and one mixed word with one letter in common, in either order, hence 2q(q-1) unordered labeled pairs. Any shared output multiset can be realized with distinct vectors up to each minimum multiplicity, so the maximum plus one is the exact threshold. Independent replay: /workspace/branches/fe1c6237-5bbe-4323-a9b5-63c887d34d3c/record4_coeff_check.py and record4_coeff_check.log, all 13 coefficients, 44 finite pattern/alphabet cases, and full maximizer checks for q=2 through 8. The original verifier was inspected, not executed; the all-q proof is the support argument plus the exhaustive finite table.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 27 requires length at least three. Theorem 28 applies at n=2,t=2 but bounds the answer above by N_q^m(1,2)+(q-1)N_q^m(2,1)+2M_q(2,1).",
+          "Its first and last terms already sum to (6q-6)+6q, larger than 8q-5 for all q>=2. The earlier workshop and ISIT papers were not available in full text."
+        ],
+        "reasoning": "The inspected general bounds do not force the stated exact value or equality cases. The recursively represented intersections still need an exact calculation and pattern comparison.",
+        "searches": [
+          "arXiv:2607.06181 Theorems 27–28 and recursive relations (22)–(23)",
+          "ITW DOI 10.1109/ITW62417.2025.11240278 and ISIT DOI 10.1109/ISIT62367.2026.11653882"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2607.06181",
+        "ITW DOI 10.1109/ITW62417.2025.11240278 and ISIT DOI 10.1109/ISIT62367.2026.11653882 (full texts unavailable)",
+        "Resultary 80befdb8fc44 and 0641ec461636"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At q=2 patterns requiring three or four center symbols do not exist, and the one-outsider coefficients for binary center supports are invisible.",
+          "The finite pattern comparison gives both the exact alphabet coefficient and exclusion of competitors using more symbols; neither follows from the known binary optimum."
+        ],
+        "reasoning": "These are substantive extra pieces of the reconstruction calculation, not interpolation from a known table entry or restatement of a bound.",
+        "searches": [
+          "Compare Table II, Example 4 and Theorem 28 against the support reduction and 13-pattern classification",
+          "Compare neighboring Resultary records 80befdb8fc44 and 0641ec461636"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Their exact-t multiset sphere uses the same sum of minimum multiplicities and pairwise maximization, although their broader channel definition permits weight at most t.",
+          "Resultary 80befdb8fc44 uses gapped scattered-pair decks, and 0641ec461636 uses successive burst deletions and distinct outputs."
+        ],
+        "reasoning": "Only the exact-t multiset sphere matches. Mixed weights, ordinary set intersections, deck fibers and burst deletions compute different invariants.",
+        "searches": [
+          "Exact-two multiset insertion intersection / distinct insertion vectors, Resultary semantic searches",
+          "Junnila et al. arXiv:2607.06181 §II-A eqs. (3)–(4), Example 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table II reports N_2^m(2,2)=11 as an exhaustive-search result, stronger than just the witness (01,11) in Example 4.",
+          "No all-alphabet or equality-pair table appeared in the inspected passages or local findings."
+        ],
+        "reasoning": "The scalar binary case is definitively covered and removed from the novelty claim. Its number alone cannot identify the C and E contributions across alphabets or all maximizers.",
+        "searches": [
+          "arXiv:2607.06181 Table II and Example 4",
+          "Resultary formula and title searches"
+        ]
+      },
+      "rationale": "The repair expressly credits both binary maximum and consequent threshold to prior work. The remaining claim is the exact all-alphabet size and full equality classification, not the binary scalar or established multiset model.",
+      "residual_risks": [
+        "The earlier workshop and closely related ISIT full texts were unavailable after lawful attempts; an unindexed equality table or stronger exact result could alter the priority comparison. The binary maximum is credited without qualification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact binary value covered; all-alphabet formula and equality classification not supplied by the inspected entries and bounds",
+          "evidence": "Explicit binary N_2^m(2,2)=11 in Table II; recursive upper bound in Theorem 28, and length condition n>=3 in Theorem 27.",
+          "identifier_or_url": "https://arxiv.org/pdf/2607.06181",
+          "material_read": "§II-A eqs. (3)–(4) and Example 4 (PDF offsets 20300–22700 and 25400), Table II (37350), Theorems 27–28 (98250 and 117750–121208)",
+          "method": "Original OA PDF passage inspection",
+          "title": "Unique Insertion Error Patterns in Levenshtein's Reconstruction Problem",
+          "trigger": "Same multiplicity definition, model and exact parameters"
+        },
+        {
+          "assessment": "Precise workshop coverage unresolved",
+          "evidence": "The accessible extended paper is directly relevant and was compared separately; the workshop itself is not counted as read.",
+          "identifier_or_url": "10.1109/ITW62417.2025.11240278",
+          "material_read": "Bibliographic listing and related extended preprint; workshop full text unavailable",
+          "method": "Lawful OA retrieval attempts",
+          "title": "On Levenshtein's Reconstruction Problem for Channels with Unique Insertion Error Patterns",
+          "trigger": "Earlier same authors and reconstruction model"
+        },
+        {
+          "assessment": "The exact statement and hypotheses could not be compared from full text",
+          "evidence": "The exact two-insertion wording reported in the frozen record makes this a residual priority risk, not a non-overlap verdict.",
+          "identifier_or_url": "10.1109/ISIT62367.2026.11653882",
+          "material_read": "Bibliographic listing; frozen record's abstract-level comparison only",
+          "method": "DOI and IEEE original locator plus lawful alternate landing-page attempt",
+          "title": "Number of Channels with Different Insertion Errors Required for the Levenshtein's Reconstruction Problem",
+          "trigger": "Plausible exact-two theorem in a related error-diversity model"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Classifies fibers of a gapped scattered-pair deck, not exact insertion multiset intersections.",
+          "identifier_or_url": "80befdb8fc44",
+          "material_read": "RESULT.md finding",
+          "method": "Local Resultary search and mirror text",
+          "title": "Exact short length-2 gapped-pair deck reconstruction across finite alphabets",
+          "trigger": "Nearest local finite length-two reconstruction match"
+        },
+        {
+          "assessment": "Different error and observation model",
+          "evidence": "Uses successive burst deletions and distinct outputs rather than exact insertion multisets.",
+          "identifier_or_url": "0641ec461636",
+          "material_read": "RESULT.md finding",
+          "method": "Local mirror text",
+          "title": "Sharp six-read reconstruction and equality-pair census for two-length burst deletions",
+          "trigger": "Same-day sharp threshold and equality classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The motivating unique-error reconstruction model needs a sharp multiset overlap bound. The all-alphabet formula gives the exact worst-case observation requirement and the equality classification identifies every ambiguous extremal pair. This is a complete base regime for the model's recursive bounds, not merely recomputation of the published binary number.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

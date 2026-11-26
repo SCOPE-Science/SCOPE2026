@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The commutator formula follows on the polynomial core from the diagonal moment representation and the annihilation-shift coefficients. Because the resulting columns are mutually orthogonal, their absolute weights are exactly the singular-value multiset. Tonelli's theorem gives both the first-order Hilbert–Schmidt kernel and the complete trace-class criterion. The binomial comparison and its checked ratio inequality prove the trace-ideal estimate in every higher order. Beta moments and gamma asymptotics prove optimality of the two universal ideal endpoints. The bounds establish bounded extensions and compactness, with the unbounded differentiation operator never asserted to extend. Finite tests are supplementary.
+PASS
 
-## Originality — PASS, subject to historical-priority uncertainty
+On polynomials [D,C_s]=(s-1)C_sD and iterating yields (s-1)^k C_sD^k; integration on this core gives the stated orthogonal-output weights. The identity atom contributes zero. Tonelli of the square of each moment gives the geometric-derivative kernel for the Hilbert–Schmidt norm, and 1-st>=max(1-s,1-t) bounds it by one. For an atom at s the norm is 1/(1+s), proving sharpness as s decreases to zero. For the trace iff, Tonelli gives the integral of Phi(s)=(1-s) sum sqrt(j+1)s^j. At s=e^{-h}, h^{3/2} times the sum converges by a Riemann sum with exponential tail to Gamma(3/2); Phi is comparable to (1-s)^(-1/2) near one, and extends with value 1 at zero. For k>=2 the successive-factor comparison reduces to (j+k)^2-(j+k+1)(j+1)=(k-2)j+k^2-k-1>0, proving the claimed weighted binomial estimate from equality at j=0. Summing the negative-binomial generating function cancels (1-s)^k and gives sqrt(k!)rho((0,1)). For an atom, the j=0 term alone tends to sqrt(k!), giving sharpness by squeezing. The l^2 or l^1 bounds give compact bounded extensions from the dense core. Beta integration gives the weights, with consecutive ratio sqrt((j+1)(j+k+1))/(j+alpha+k+1)<1 and decay j^(-alpha-k/2). The p-series criterion proves each stated endpoint exclusion (p>0); it does not assert a sharp p=1 threshold separately for each k>2. Independent bounded checks: 287 weighted-binomial comparisons, 6 atomic norm sums and 930 beta weight ratios, /workspace/branches/spectral_design_replays.js, fockCheck. The frozen checker was inspected, not executed; its rational matrices use the unnormalized monomial basis and its numerical truncations do not prove ideal membership.
 
-The closest primary sources are Galanopoulos–Stylogiannis (arXiv:2008.06684, operator family and original Schatten criteria), Blasco–Galbis (arXiv:2310.01059, boundedness/compactness/summing), and Alpay–Cerejeiras–Kähler–Kling (arXiv:2208.03394, weighted-shift commutator calculus). The algebraic commutator reduction is not claimed as new. Their inspected statements do not give the sharp, arbitrary-positive-measure uniform \(\mathcal S_2\) versus \(\mathcal S_1\) regularization, the measure-boundary trace iff condition, or the beta-density sharpness family as a package. Semantic mathematical-record searches for equivalent formulations returned different operators and estimates. Older work phrased in completely monotone sequences or weighted-shift ideals remains a plausible residual priority risk; failed searches do not establish uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The nontrivial issue is whether an unbounded annihilation generator makes the commutator of a bounded Fock dilation mixture regular in a universal operator ideal independent of the positive measure's concentration near identity. The result obtains a sharp two-level phenomenon with explicit optimal constants, a quantitative iff condition for the only nonuniversal trace endpoint, and a family realizing every limiting exponent. This is a structural all-measures statement, not a single parameter computation or a change of notation for the original Hausdorff multiplier's Schatten criterion.
+The moment representation and weighted-shift interpretation are not claimed to be new. The closest inspected exact shift commutator treats a single Cantor measure with unit Hardy shift weights. The operator-ideal results for H_rho itself and the algebra of pairs of weighted shifts do not cover the sharp positive-mixture bounds for its Fock annihilation commutators or their trace endpoint. No exact prior coverage of the hierarchy was found in the bounded comparison.
 
-## Limitations and source comparison
+## value
 
-The theorem treats positive measures and the standard one-variable Gaussian Fock space. It does not establish global publication novelty. The 2026 spectral Hausdorff literature offers a further possible historical comparison but was not available in full text in the inspection route. Earlier full-text articles address related diagonal and shift structure, not the stated sharp universal estimates. No independent mathematical review has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The structural regularization is uniform over dilation mass arbitrarily near the identity. B1 may fail to be trace class even while all higher iterates are: the exact half-order boundary moment and the sharp beta examples distinguish the two universal thresholds. The nontrivial part is the sharp nature of the ideal gain and its endpoint mechanism, not the elementary computation of a single shift matrix.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

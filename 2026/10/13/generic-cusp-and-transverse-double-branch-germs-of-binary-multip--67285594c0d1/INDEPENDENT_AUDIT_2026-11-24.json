@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:29:36.311261Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Repaired RESULT.md, Finding and Proof; repaired VERIFICATION.md",
+        "Frozen RESULT.md and VERIFICATION.md",
+        "Frozen checks/verify_multiple_root_germs.py, checks/check_output.txt, checks/requirements.txt"
+      ],
+      "rationale": "For the repaired reduced complex locus, work on the monic coefficient chart around any exact (m,m,1^(d−2m)) form. The derivative of multiplication on the product of the two ordered degree-m monic cluster spaces and the residual monic factor has zero kernel by reduction modulo each coprime factor with lower-degree variations. Domain and target dimensions are d, so this is an étale chart. If d=2m, the constant residual factor is omitted. On the open where the factors are mutually coprime and the residual is squarefree, an m-fold root must come from one of the two degree-m factors. Their pure-power loci are smooth graphs with the root recovered from the degree-(m−1) coefficient. In the two independent normal-coordinate blocks they impose (a) or (b), giving the reduced ideal (a)∩(b)=(a_i b_j); the étale pullback is reduced and completions agree at the complex closed point. The q=d−2m+2 free coefficients are the two root parameters and the residual coefficients; each branch has c=m−1 additional parameters and multiplicity one. The restriction sequence to the common regular dimension-q intersection gives depth q+1 because c≥2, and multiplicity associativity gives two. The generic point of the ordered intersection in this algebraic chart maps to the generic point of the stratum closure. Localizing there gives regular branches of dimension c with field intersection, hence depth 1; étale localization has field fiber and preserves dimension and depth. This proves failure of S₂ exactly as claimed in the repaired m≥3 range. The original frozen checker, requirements and recorded output were read, not executed; its tangent-space results and monomial formula checks are bounded support only, and the monomial assertions compare two forms of the same formula.",
+      "residual_risks": [
+        "Only the exact two-designated-root stratum is treated, not any deeper collision, the nonreduced singular scheme, or a global Cohen–Macaulay classification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.1 treats unequal two-part partitions and its proof specifically computes the square diagonal ideal in the normalized coefficient ring. This covers the removed cusp but not the two-root local ring of the larger locus with multiplicity threshold m.",
+          "Chipalkatti's Theorem 5.4 describes support; §6 discusses arithmetic Cohen–Macaulayness and numerical observations for d≤6, not the generic local depth formula. Kurmann's local-generator calculations of the incidence construction concern a different scheme from the completed ring of its reduced image.",
+          "Weyman's 1993 multiplicity-ideal paper is a relevant uninspected risk. The degree-of-generators bound specifically quoted in Chipalkatti §6 is from a different Weyman paper (1989) in the range above half the degree, not the present range m≤d/2."
+        ],
+        "reasoning": "Broader results on singular support or regularity of individual normalization branches give important inputs, but do not furnish the precise reduced-image gluing. The repair removes what the prior algebra actually determines.",
+        "searches": [
+          "Chipalkatti, Theorems 4.1 and 5.4, §6 comments",
+          "Kurmann, Proposition 2.1 and pp. 2–4 incidence-scheme calculations",
+          "Weyman, DOI:10.1006/jabr.1993.1224 and Chipalkatti §6 reference trail"
+        ]
+      },
+      "checked_sources": [
+        "Chipalkatti, §§4–6",
+        "Kurmann, §2",
+        "Weyman 1993 bibliographic/context evidence",
+        "Macaulay2 CoincidentRootLoci documentation",
+        "Resultary 94655d664a9d and 9ea8509797c5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the removed one-cluster claim, q_λ(I_(d))=(ξ−η)²C[ξ,η] and the weighted center belongs to the coefficient ring. Hence that ring is C[center,(ξ−η)²,(ξ−η)³] for λ=(m,1); extra simple roots factor off étale-locally. This is direct prior implication.",
+          "For the retained claim the prior fiber count and tangent criterion do not compute the sum of the two tangent spaces or the intersection ideal. The separate calculation showing the branch conditions live in disjoint monic coefficient blocks supplies the additional local information needed for the depth result."
+        ],
+        "reasoning": "Treat implication as coverage for the cusp even without a printed completed-ring equation; treat the two-branch gluing and defect as distinct from the qualitative singularity and normalization statements.",
+        "searches": [
+          "Chipalkatti, Theorem 4.1 proof, pp. 14–16; Theorem 5.4",
+          "Kurmann, Proposition 2.1 proof and surrounding nodal-type discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kurmann's splittings for (m,m,1^(d−2m)) yield two normalization preimages with no tangent degeneration of the individual branch maps. The nodal-type language does not give independent normal blocks or the local ring as a fiber product over the q-dimensional intersection.",
+          "Indexed record 94655d664a9d is a characteristic-p two-part single-cluster cusp, not a characteristic-zero double-branch germ. The same-day record 9ea8509797c5 concerns residual discriminant curves on a different surface."
+        ],
+        "reasoning": "Compare root collisions, normalization fibers and completed local rings as distinct levels of information. The retained assertion is equivalently the fiber product of regular branch rings over their smooth common q-dimensional quotient, or its exact depth and transverse gluing consequences.",
+        "searches": [
+          "Resultary searches for binary/coincident multiple-root germs, ordinary cusp, transverse two branches and depth",
+          "Chipalkatti, arXiv:math/0110224, §§4–6",
+          "Kurmann, arXiv:1108.4532, §2, Proposition 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The documentation lists coincident-root loci whose union is the singular support, not completed local rings or local depths. Chipalkatti's finite numerical comparisons address an arithmetic Cohen–Macaulay question, not the displayed depth of this exact stratum.",
+          "The identified catalogue records treat different characteristic or different varieties, despite shared cusp/crossing keywords."
+        ],
+        "reasoning": "An exact singular-stratum catalogue is relevant and was checked, but a list of singular partitions and a Hilbert function of a global graded ideal are not exact local-germ/depth tables.",
+        "searches": [
+          "Resultary characteristic-zero binary root-locus and related germ comparisons 94655d664a9d and 9ea8509797c5",
+          "Macaulay2 CoincidentRootLoci documentation, singularLocus(CoincidentRootLocus)",
+          "Chipalkatti §6, d≤6 comparisons"
+        ]
+      },
+      "rationale": "For the repaired claim, the strongest accessible primary results characterize normalization fibers, smoothness and singular support, not the independent normal blocks, reduced transverse gluing and exact depths for every m≥3 and d≥2m. Their consequences about two smooth local branches are credited; their number and individual regularity do not specify their mutual contact or local depth. The covered single-cluster cusp and the classical m=2 case were dropped from the finding. No equivalent indexed two-branch/depth result was identified in the bounded comparison.",
+      "residual_risks": [
+        "Weyman's 1993 full text was unavailable. Additional local-algebra consequences there cannot be excluded. The empty external search does not support a claim of exhaustive novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct cusp implication, prior singular support, no precise double-branch depth in inspected passages",
+          "evidence": [
+            "q_λ(I_(d))=(ξ−η)²C[ξ,η] on the monic chart in the unequal two-part case; §6 discusses arithmetic Cohen–Macaulayness and explicitly limits the numerical check to d≤6."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0110224",
+          "material_read": "§4, Theorem 4.1 and proof pp. 13–16 (offsets 29700, 33880); §5 Theorem 5.4 around offset 49063; §6 comments and references pp. 26–27 (offset 55240)",
+          "method": "Bounded primary OA text by theorem locator and exact passages",
+          "title": "On equations defining coincident root loci",
+          "trigger": "Exact coincident-root object, possible completed-ring and Cohen–Macaulay coverage"
+        },
+        {
+          "assessment": "Two-preimage and qualitative nodal-type coverage, not transverse union/depth",
+          "evidence": [
+            "Proposition 2.1 counts the normalization points by splittings and tests tangent degeneracy by the evenness of the split partitions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1108.4532",
+          "material_read": "§2, Proposition 2.1, proof and Corollaries 2.2–2.3, pp. 5–6 (offset 14700); incidence equations pp. 2–4 (offsets 5855–12562)",
+          "method": "Bounded primary OA text",
+          "title": "Some remarks about equations defining coincident root loci",
+          "trigger": "Prior branch and tangent classification"
+        },
+        {
+          "assessment": "Unresolved; no lawful accessible same-paper full text identified",
+          "evidence": [
+            "The citation context includes generator/Hilbert-function work; no exact local-depth claim could be assessed from that context."
+          ],
+          "identifier_or_url": "https://doi.org/10.1006/jabr.1993.1224",
+          "material_read": "Bibliographic reference and its context in Chipalkatti §6; no primary passages accessible",
+          "method": "DOI/publisher and identified OA-route availability check",
+          "title": "On the Hilbert functions of multiplicity ideals",
+          "trigger": "Possibly stronger ideal or local-depth treatment"
+        },
+        {
+          "assessment": "Set-theoretic singular strata only",
+          "evidence": [
+            "The output is a list whose union is the singular locus."
+          ],
+          "identifier_or_url": "Macaulay2 CoincidentRootLoci documentation",
+          "material_read": "Output and cited criteria, HTML offsets 276–536",
+          "method": "Bounded public documentation passage",
+          "title": "singularLocus(CoincidentRootLocus)",
+          "trigger": "Possible exact strata/germ catalogue"
+        },
+        {
+          "assessment": "Different characteristic and one-cluster type, no match for retained claim",
+          "evidence": [
+            "Treats p dividing the difference of unequal part sizes and obtains a characteristic-dependent cusp; cites Chipalkatti's Theorem 4.1 for the characteristic-zero setting."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-wild-cusps-on-two-part-coincident-root-surfaces-in-positive-char--94655d664a9d",
+          "material_read": "Finding and relationship to prior work",
+          "method": "Local Resultary mirror passage",
+          "title": "Wild cusps on two-part coincident-root surfaces in positive characteristic",
+          "trigger": "Closest indexed formal cusp calculation for coincident roots"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired Finding and Proof",
+        "Chipalkatti, Theorem 5.4 and §6",
+        "Kurmann, Proposition 2.1"
+      ],
+      "rationale": "At a natural singular stratum of the standard multiple-root locus, the exact gluing describes the analytic type, multiplicity and failure of S₂ uniformly, including d=2m where there are no residual roots. The exact defect m−2 and the depth-one obstruction off the codimension-one merger locus distinguish features that singular-support and fiber-count descriptions alone do not answer. This is a meaningful local contribution to the Cohen–Macaulay behavior question, not a claim to settle the global problem.",
+      "residual_risks": [
+        "No priority or value credit is attributed to the removed cusp and classical node. Other strata and the parameter ranges where this stratum does not exist are outside the result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

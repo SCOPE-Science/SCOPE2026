@@ -1,23 +1,21 @@
-# Scientific review: composition-centralizer spectrum for an odd Heisenberg group
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim specifies an odd prime \(p\), the exponent-\(p\) Heisenberg group of order \(p^3\), and *all* group endomorphisms under composition. The established normal form \(f_{A,u}(w,z)=(Aw,(\det A)z+uw)\), with column \(w\) and row \(u\), gives \(|M_p|=p^6\). Direct substitution establishes the composition and two simultaneous commutation conditions. A complete case partition separates the two special scalar matrices, the other \(p-2\) scalars, nonscalars with invertible \(A-\det(A)I\), and rank-one singular matrices of semisimple or Jordan form. The crucial rank-one quotient argument yields exactly the two root counts \(2p-1\) and \(2p\). Thus the seven terms cover every endomorphism disjointly.
+PASS
 
-Two checksum identities were verified algebraically: coefficient sum \(p^6\) and weighted centralizer sum \(p^8+5p^7-8p^5+3p^3\). The standalone computational checker independently enumerates matrix commutation and linear-fiber conditions for \(p=3,5,7\); separate actual group-operation tests exhaust all endomorphism homomorphism laws and composition-on-generators at \(p=3\). These finite checks support, but do not replace, the universal algebraic proof. No characteristic-two claim is made.
+Every endomorphism preserves the derived subgroup, which equals the center here. Its linear action A on the quotient scales the commutator form by det A, forcing that scalar on the center. After removing this scalar action, the central coordinate is an additive functional u; conversely the group law verifies all p^6 maps. Composition gives AB=BA and v(A−det(A)I)=u(B−det(B)I). Scalar A other than 0,I makes the latter map in v invertible and gives p^4 partners. For A=0,I, u=0 commutes universally, while nonzero u can be made (1,0), giving B=[[a,0],[c,d]] with a(1−d)=0 and p^2 free v, hence p^3(2p−1) partners. A nonscalar A has centralizer algebra span{I,A} by a cyclic-vector argument. When A−det(A)I is nonsingular this gives p^2 partners. Otherwise that matrix has rank one: its determinant vanishes precisely in the split distinct cases {0,t} with t≠0 or {1,t} with t≠0,1, or in a nonscalar Jordan case at 0 or 1. Ordered eigenspace lines count s=p(p+1)(2p−3) distinct-eigenvalue matrices; each nontrivial Jordan class has size p^2−1, giving j=2(p^2−1). The remaining nonscalar matrices number p^4−p−s−j. In the rank-one cases, u in the row space yields p choices of v for every B. For u outside, B=xI+yA must satisfy det B=x+y det A on the one-dimensional quotient. Its solution locus is two intersecting affine lines in the split case and two disjoint parallel lines in the Jordan case, yielding p(2p−1) and 2p^2 partners after counting v. The coefficients sum to p^6; the weighted sum simplifies to p^8+5p^7−8p^5+3p^3 and normalization by p^12 gives the ordered-pair probability. The seven centralizer sizes are strictly ordered for p≥3 and only 0 and the identity attain p^6. A separate exact matrix-and-functional census reproduced all seven multiplicities at p=3,5,7, with ordered-pair counts 15,633; 756,625; and 9,749,089 respectively.
 
-## Originality — PASS relative to inspected literature
+## originality
 
-The closest direct paper is Kumar and Pradhan, *On the Endomorphism Semigroups of Extra-special p-groups and Automorphism Orbits* (arXiv:1908.00331, first posted 2019-08-01). Its Theorem \(\Omega\) gives the general endomorphism normal form, and its subsequent sections calculate the total endomorphism population, semigroup images of **group elements**, and automorphism orbits of group elements. These findings are credited, not rebranded. The present centralizer-size **distribution in the endomorphism composition monoid** is not one of those stated formulas; deriving it requires the new rank-one solvability and affine-line cases. Szabó, *Finite Class 2 Nilpotent and Heisenberg Groups* (arXiv:2301.01863, first posted 2023-01-05), studies structural decompositions/embeddings rather than this invariant.
+PASS
 
-Related indexed mathematical findings on automorphism Reidemeister numbers, Heisenberg Lie-algebra endomorphism ranks, commuting rank-one group retractions, and centralizers of a different prime-kernel Frobenius endomorphism monoid do not imply the complete seven-stratum census. Historical claims in the accessible algebra archive were compared by mathematical objects, restrictions and logical implications, not matching titles alone. A non-exhaustive search is not proof of absolute novelty; earlier unindexed or differently worded semigroup-centralizer enumerations remain a possible priority risk.
+Kumar–Pradhan already give the extraspecial endomorphism model and its order; those are not credited as new. The checked distinct result is the seven-level composition-centralizer distribution on all endomorphisms of the smallest odd Heisenberg group and its moment. The strongest local same-invariant result concerns a different group family, and the same-family prior invariant results count different objects. No inspected source states or furnishes this distribution as a special case.
 
-## Value — PASS
+## value
 
-The centralizer-size histogram of a finite monoid is a natural invariant: it refines the global number of commuting ordered pairs, records degrees of its commuting graph, and detects the center. The exact seven-value spectrum gives a complete nonabelian infinite-prime family and a sharp probabilistic statement, not an arbitrary finite count. Its nontrivial semisimple-versus-Jordan split explains why two different intermediate centralizer degrees arise, beyond the previously known total endomorphism count.
+PASS
 
-## Scientific limitations and closest sources
+The smallest nonabelian exponent-p p-group is a natural first family for studying composition commutation beyond automorphism groups. The distribution identifies precisely which structural types and functionals create large centralizers and provides an exact all-odd-prime benchmark for higher-rank monoids. The commuting probability and monoid center are precise consequences not captured by the known endomorphism count or by group-element commuting probabilities.
 
-The result applies only to the smallest exponent-\(p\) extraspecial group for odd \(p\). It does not assert statements for exponent-\(p^2\) groups, characteristic two, or higher Heisenberg rank. The checker is exhaustive only for \(p=3,5,7\), and group-operation testing is exhaustive for \(p=3\). The 2019 general-parametrization paper makes eventual rediscovery by simpler methods plausible; the seven centralizer coefficients require the separately documented calculation. No independent mathematical audit has been performed.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

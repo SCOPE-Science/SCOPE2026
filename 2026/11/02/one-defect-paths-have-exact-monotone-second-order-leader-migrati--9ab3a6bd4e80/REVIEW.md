@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim fixes every domain parameter and defines the ideal Dirichlet leader precisely. The inverse of each grounded path arm is the cumulative-resistance Green matrix; expanding the square gives the exact all-index objective. Subtracting successive objectives proves strict improvement toward the longer side, and a direct cross-edge subtraction excludes every location on the shorter side. On the larger side the next-step difference is exactly \(2h^2(x-t_k)\), strictly increasing with the leader position, so the consecutive-threshold conditions classify all minima and ties. Reflection and the equal-side identity complete all boundary cases. The standalone rational verification reconstructs actual Laplacian inverses (2,296 checks) and compares exact global argmins (16,519 configurations), including positive threshold equalities; it is supporting evidence, not an infinite proof. No independent validation has been performed.
+PASS
 
-## Originality — PASS, subject to a specialist-priority risk
+Grounding creates two independent arms. The unit injection at position j sends unit current through exactly the first j edges of that arm, giving the common-prefix resistance Green entry at position i. In the unit case the squared Frobenius norm counts 2L−2s+1 pairs with minimum s; summation gives F(L) and F(k)−F(k−1)=g(k). One exceptional resistance x adds x−1 on the downstream p-by-p block. Its ordinary entry sum there is p²(d−1)+C(p), since for min(i,j) on a unit p-by-p block the sum equals the sum of ℓ² for ℓ=1,…,p. Expansion proves the claimed formula. For h≤p=n−h and k<h, g(n−k)−g(k)≥g(p+1)−g(p)>2p², so the maximum possible adverse correction at x>0 cannot cancel the strict descent. At k=h the exact cross-edge difference factors as −(p−h)x[(p+h)x+(2(h²+hp+p²)−3(h+p)+1)/3]. The constant in the bracket is positive by expanding in h−1 and p−1; this excludes the shorter side or gives the exact middle tie when p=h. On the larger side the differences are 2h²(x−t_k), strictly increasing in k. Nonpositive incoming and nonnegative outgoing differences characterize all minima, with at most one adjacent tie at a positive threshold; reflection treats the opposite orientation. The proof includes endpoint leaders and x=1. The supplied stochastic normalization follows mode by mode: for eigenvalue λ, stationary cross-covariance is zero, velocity variance is 1/(2βλ), and position variance is 1/(2αβλ²). Independent exact replay for n=3…12, every h, six positive rational samples and each positive threshold in both orientations gave 4,220 objective equalities and 470 argmin checks (140 ties). For x=N/D, it built the integral tridiagonal N·L_FF with edge weights N except D at the defect, then used leading/trailing principal determinant recurrences and the product of intervening off-diagonals to compute inverse entries by cofactors. All argmins came from this exact inversion, not from the proposed formula. At n=12,h=4 the extra tie x=89/16 gave {5,6}.
 
-The closest focal primary sources are the 2014 Fitch–Leonard leader-centrality paper and 2014/2016 Patterson–McGlohon–Dyagilev exact weighted-path leader algorithms: their first-order functional is \(\operatorname{tr}(L_{FF}^{-1})\), rather than the present squared inverse. The 2014 Sun et al. second-order results use ungrounded Laplacian spectral coherence, with no optimized grounded leader. The 2019 Mackin–Patterson higher-order formulation uses a soft information diagonal rather than an ideal Dirichlet deletion and does not give this threshold law. The associated published-finding corpus conceptual searches returned adjacent spectral/dynamical-sampling results but no theorem implying the one-defect Dirichlet squared-inverse phase classification. This is comparative evidence, not a claim that unsuccessful search proves uniqueness. Specialized historical coverage, including implicit reduction via a general weighted-path Green-function lemma, is a residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact natural functional is total stationary variance of second-order noisy leader–follower consensus. The result classifies all infinitely many path sizes, defect positions and positive defect resistances, shows a universal strict exclusion principle for the smaller component, and proves a monotone migration law with exact rational thresholds and all ties. It replaces exhaustive leader search with an explicit threshold lookup and reveals a qualitative structural change as a single conductance varies; this is not just a relabeling of first-order leader selection or a finite table.
+Credit the existing weighted-path first-order selection theory, the inverse-square criterion under soft pinning, and the exact same unit-arm sum in two same-day unweighted path records. The distinct supported result is the exact weighted perturbation law and the full positive-resistance argmin diagram for one ideal grounded leader, notably strict shorter-side exclusion and all tie locations. The verified statements do not give that diagram. The comparison is bounded and does not establish historical priority.
 
-## Scientific limitations
+## value
 
-The proof covers exactly one ideal grounded leader, one exceptional edge and homogeneous positive stiffness/damping gains; it does not imply the same phase diagram under soft pinning, several defects or arbitrary noise covariance. Absolute publication priority remains unverified; the comparison is documented in the originality checks. The analysis has not received independent mathematical audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The squared-inverse trace is the total follower variance up to a positive scale in an ideal second-order consensus model. For the natural one-resistance perturbation, this gives a sharp comparison over all path sizes and positions instead of a numerical leader search: the shorter side never minimizes, and the theorem resolves every transition, equal-side case and tie as resistance varies. The value is the classification and monotonicity, not the elementary Green matrix alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness: PASS
-The area-sequence slope condition is equivalent to weakly increasing legal parent labels, giving a reversible breadth-first labeling of plane rooted trees. The independent-set-ending-at-vertex recurrence equals tree depth, while a greedy partition into consecutive cliques has an independent set of starting vertices, proving both inequalities for the optimal clique count. The plane-tree recursion proves the rational generating series for every finite height. Independent exhaustive subset and clique-partition checks cover all 6,917 area sequences of orders 1--9. The proof, not this finite check, establishes the universal quantifiers. No unsupported inference from finite testing is used.
+## correctness
 
-## Originality: PASS
-Alexandersson--Leite [1] prove the \(m=1\) count and introduce the general \(m\)-Abelian class, but Sections 3--7 do not give the all-\(m\) enumeration or breadth-first tree-height identity. Bacher [2] proves general bounded-excursion rational generating functions: this source *does* cover the lattice-path enumeration once the height-bounded family is identified, and is credited accordingly; it does not identify the graph-theoretic \(m\)-Abelian class with that family. Saitoh et al. [3] enumerate proper interval graphs up to isomorphism, not the ordered area-sequence independence distribution. Searches for the terminology, graph independence/clique cover, Dyck height, and equivalent formulations did not establish the necessary graph-to-tree height identity. Unindexed equivalent formulations and connections to other classical Catalan encodings remain residual risks.
+PASS
 
-## Value: PASS
-This is a complete infinite two-parameter classification of a recently defined graph family by an intrinsic graph invariant, not a one-off coefficient or a relabeling of an already bounded-height class. It explains why \(m=1\) gives powers of two and reveals the previously unreported \(m=2\) odd-index Fibonacci and \(m=3\) three-power classes, while furnishing a canonical tree encoding suitable for further refined enumeration. The original Dyck encoding of an area sequence does not itself preserve the graph independence number, so the new breadth-first construction is a substantive bridge. The finding deliberately stops short of the peak/peak-nesting distribution questions of [1].
+The area inequalities are equivalent to 0≤p_i<i and nondecreasing p_i; these parent-index conditions give a rooted tree whose children's blocks, traversed by queue in increasing parent order, yield exactly labels 0,…,n. Conversely breadth-first labelling yields those conditions and hence the unique area sequence. The earlier nonneighbors of i are exactly 1,…,p_i, so the maximum independent size ending at i is 1+max_{0≤j≤p_i} b_j, with b_0=0. The nested prefixes make b_i nondecreasing, giving b_i=1+b_{p_i} and equality with the breadth-first depth. The greedy partition starting each next block at the first vertex t with p_t≥ the previous start indeed has clique blocks; its starts form an independent set, giving a matching certificate of optimality without a connectedness assumption. The bounded-height plane-tree recurrence H_h=1/(1−zH_{h−1}), H_0=1, gives the stated continuants. For m=1,2,3, the positive-degree coefficients follow by recurrence/partial fractions, with the third denominator (1−z)(1−3z) and the second the odd Fibonacci recurrence. n=0 is used only as the height-zero generating-function seed. The height claim concerns the contour of the new tree, not the original area-sequence path or an unlabeled graph class. Own replay: python3 /workspace/review_replay.py 1, enumerating the area sequences from Dyck words, independently counting all consecutive cut choices and independent subsets, and checking that the image equals the separately enumerated plane trees through n=7. The supplied script and saved transcript through n=9 were inspected but not executed. Nonmaterial environment note: int.bit_count() requires Python ≥3.10, not 3.8 as stated in the frozen replay instructions.
 
-## Sources, scope and risks
-Primary inspected texts: arXiv:2609.38084v1, Sections 3, 4, 7 and references; arXiv:1303.2724v1, Introduction and bounded-excursion theorem; DOI:10.1587/transinf.E93.D.1816, enumeration methods and conclusion. Classical bounded-height formulas are attributed, not claimed new. Scope is naturally ordered area-sequence objects, not isomorphism classes. Independent external checking has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No credit is assigned to the Catalan/plane-tree bijection in isolation, the bounded-height enumerator, or the m=1 graph count. The distinct assertion in the original finding is that this explicit breadth-first construction transports two graph invariants to tree height and therefore gives uniform unweighted enumeration in Alexandersson–Leite's ordered m-Abelian classes. Neither the prior weighted bounce definition nor the inspected proper-interval/canonical Dyck encodings state that identity; the precise relation to bounce-composition length is recorded below.
+
+## value
+
+PASS
+
+This gives the unweighted cardinality of a recently defined ordered graph family for all m and identifies exactly which graph invariant becomes height under the map. The equality with optimal consecutive clique partition also supplies an explicit witness, not merely a count. It recovers a known boundary case and makes the unweighted count accessible to standard height methods, without claiming progress on the weighted peak questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

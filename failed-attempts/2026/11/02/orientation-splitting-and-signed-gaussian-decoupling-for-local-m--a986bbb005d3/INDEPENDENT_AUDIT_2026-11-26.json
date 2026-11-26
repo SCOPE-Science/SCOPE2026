@@ -1,0 +1,92 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:00:58.657836Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Forced consecutive blocks are full components, so different occurrences have disjoint supports. Each specified orientation on a four-site block gives a unique reinsertion into each unrestricted pair of remaining matchings. Laying out labeled intervals of lengths 2 and 4 and distributing the remaining vertices in gaps gives (2n-4)(2n-5) mixed placements, exactly the displayed expression; the two equal-length counts follow by the same argument. Exact rational algebra (python3 /workspace/evidence/5_covariances.py) reproduced both finite covariance formulas, positive shifted numerators at n=4+x, and all covariance and concentration limits. Independently switching each four-site block preserves outside arcs, all supports, and the uniform measure. Thus conditioning on information invariant under every such switch gives independent fair signs, not unconditional independence of the two counts. Since Y_n/n tends to 1/64 in L^2, the conditional characteristic function of D_n/sqrt(n) tends boundedly in probability to exp(-s^2/128). Multiplying by the short-loop phase and using Janson–Thévenin Eq. (3.8) establishes exactly the independent signed bivariate limit; it does not require a full three-dimensional CLT. The frozen finite checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Janson–Thévenin Thm. 1.2 is one fixed shape at a time, with Eq. (3.8) giving exactly the X marginal; Sec. 5 explicitly identifies remaining joint-moment/CLT work.",
+          "Resultary b3ce5f6d9010 gives the full factorial array and a joint Gaussian law for (X,Y), with limiting Var(Y)/n=121/8192."
+        ],
+        "reasoning": "The unmarked CLT alone is not a marked CLT. Combined with the explicit reinsertion for prescribed orientations in the same source, it supplies the stronger unmarked Gaussian input along with the fair marking mechanism. By the conditional cosine limit it would also give joint Gaussian convergence of (X,Y,D) with D independent of the limiting unmarked pair.",
+        "searches": [
+          "Resultary: joint local CLT and fixed meandric shapes",
+          "arXiv:2303.01900 Theorem 1.2 and Section 5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2303.01900",
+        "Resultary:b3ce5f6d9010"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Each orientation on every selected block can be inserted in the same arbitrary ordered exterior, even under an external arc.",
+          "The unsigned array implies Y/n tends to 1/64; the verified marginal short-loop CLT supplies the same X limit."
+        ],
+        "reasoning": "Fix the complete set of these four-site blocks and both ordered exterior matchings. From the reinsertion statement, each assignment of signs has exactly one completion. Because none changes the exterior and each block stays a single component, specifying the complete set of blocks does not rule out any assignments. Thus even conditioning on this fine exterior data gives fair product signs. The asymptotic signed independence then follows directly by conditional characteristic functions, and the marked moments by deleting the orientation factor. This covers the strongest orbitwise claim, not just the unsigned aggregate.",
+        "searches": [
+          "Resultary b3ce5f6d9010 RESULT.md offsets 2590–3620, local deletion/insertion proof",
+          "arXiv:2303.01900 Eq. (3.8) and Section 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary b3ce5f6d9010, Finding at offset 505, counts exactly the same X and both orientations combined in Y.",
+          "Its proof at offsets 2590–3620 assigns probability q_(r+2s)^2 to each specified collection AND orientation, with arbitrary exterior matchings under deletion/insertion."
+        ],
+        "reasoning": "This is the same labeled uniform model, same supports, and same two local pairings. An orientation assignment at any selected four-site block simply chooses one of the two forced reinsertions of an otherwise identical remainder. This is stronger than unmarked marginal equality or global reflection symmetry.",
+        "searches": [
+          "Resultary: signed and oriented local meandric loops",
+          "Resultary: joint Gaussian law for local consecutive-support loops",
+          "arXiv:2303.01900 Eq. (3.8)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published array is E[(X)_r(Y)_s]=2^s (2n-r-3s)_(r+s) q_(r+2s)^2. The proof identifies 2^s as precisely the choices of the prescribed local orientations.",
+          "The source's exact mixed unsigned covariance is twice the frozen mixed marked covariance; the unsigned covariance matrix is the sum projection of the frozen marked matrix."
+        ],
+        "reasoning": "There is no relevant point lookup: the same parametric moment array is stronger. Fixing a prescribed mark on each of s labeled occurrences removes 2^s and gives all mixed factorial moments with both mark types. The displayed entries and strict signs then follow by the same Catalan ratio algebra, not from a new enumeration.",
+        "searches": [
+          "Resultary b3ce5f6d9010 Finding and proof sections 1–2",
+          "Resultary: local meandric loop orientation covariance and factorial moments"
+        ]
+      },
+      "rationale": "The marked statement is not verbatim in the strongest inspected Resultary record, but its decisive content is mechanically implied by that record's unrestricted deletion/reinsertion for each orientation, full joint factorial-moment array, and joint unsigned Gaussian law. This is demonstrable current-corpus coverage by a distinct work, not an assertion of historical priority or copying. The 2023 Janson–Thévenin paper alone does not provide that coverage.",
+      "residual_risks": [
+        "There is no finding about which work independently obtained the consequences first. The failing assessment rests on available statement-and-proof implication, not on the records' dates or inability to retrieve other sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct mathematical implication of marked claims from the moment law and per-orientation reinsertion; no chronology inferred",
+          "evidence": "Both orientations included in Y; deletion/insertion leaves arbitrary exterior matchings, with probability q_(r+2s)^2 for every specified collection and orientation.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-joint-gaussian-law-for-the-two-smallest-consecutive-support-lo--b3ce5f6d9010/RESULT.md",
+          "material_read": "Finding and joint factorial-moment proof, decisive block insertion passage at offsets 2590–3620; covariance and limiting-law statements",
+          "method": "Published local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A joint Gaussian law for the two smallest consecutive-support loops",
+          "trigger": "Same unmarked counts, exact moments and joint Gaussian law"
+        },
+        {
+          "assessment": "Exact marginal input, not a marked bivariate result",
+          "evidence": "Eq. (3.8) centers X at n/8 and standardizes by sqrt(13n/128); Section 5 leaves the general multivariate extension unestablished.",
+          "identifier_or_url": "https://arxiv.org/abs/2303.01900",
+          "material_read": "Theorem 1.2 (p. 2), Eq. (3.8) (p. 5), Section 5 (p. 18)",
+          "method": "OA PDF original passages",
+          "title": "Central limit theorem for components in meandric systems through high moments",
+          "trigger": "Cited limit theorem and plausibly broader shape results"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The marked-versus-unmarked distinction is meaningful, and the exact conditioning has a useful interpretation. But in the inspected coverage every mark assignment is already a free local completion, and the unmarked array and Gaussian law are known for the same counts. The residual computations merely unfold those completions into binomial moments and the immediate Gaussian projection; no independent obstacle or surviving nonmechanical invariant is supplied. A full vector theorem for other shapes is not part of the frozen claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

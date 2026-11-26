@@ -1,26 +1,21 @@
-# Review of exact palette-sensitive forcing on clique windmills
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every integer \(r\ge3\), \(m\ge2\), \(q\ge1\), the proof independently derives the conditions for a seed assignment to complete under the stated local forcing rule. With the chromatic palette, hub-seeded and hub-unseeded cases separate; each blade must contain at least \(r-2\) seeds, and a missing hub succeeds exactly when their collectively seeded leaf colours cover all \(r-1\) non-hub colours. This gives the exact polynomial and the minimum coefficient. For a larger palette, a leaf has degree \(r-1<q-1\) and can never be forced, so all leaves are initial seeds; inclusion-exclusion counts the exact surjective colourings that force the hub. The proof checks the \(q<r\) impossibility, \(q>N\) boundary, and the \(q=r+1\) seed jump. The probability polynomial follows by independent state weights. A separately implemented adjacency-based exhaustive local-rule verifier checked every seed size in 489,479 assignments across 12 instances and returned `VERIFY_OK`; finite enumeration is corroboration, not the all-order proof.
+PASS
 
-## Originality — PASS, with residual risks
+The frozen all-palette formula is mathematically correct; its failure was originality, not an incorrect enumeration. In its q=r case, each blade must initially be missing at most one leaf, and if the hub is blank it must be the first force and see all r-1 leaf colours. Relative to a proper completion the r-1 excluded patterns are exactly the patterns in which every blade omits the same colour. Counting relative to a completion does not duplicate seeds: every proper completion of a seed must agree with every forced step, by induction, so a successful seed has one completion. The repaired claim is restricted to r<q<=N. No leaf can be forced since its degree r-1 is less than q-1, so only total assignments or assignments blank solely at the hub can succeed. Proper total assignments have q choices for the hub and independent blade-wise injections. With a blank hub, precisely q-1 colours must appear on the leaves. Choosing the absent colour and applying inclusion–exclusion to unused colours gives the repaired z^(N-1) coefficient. It is positive throughout the claimed range: partition the q-1 available leaf colours into m groups of size at most r-1, then pad each blade with distinct colours. This is possible also at q=N, when every leaf must use a distinct colour. It proves the minimum and multiplicity. The stated probability model weights each monomial coefficient by p^k(1-qp)^(N-k), including the endpoints. Fresh enumeration of 139,868 initial states across eight cases, including both retained palette endpoints for W(3,2), matched the coefficient vectors and the probability transform at p=1/(2q). The repaired program separately compared union-size dynamic programming against inclusion–exclusion in 435 cases, also checking the factorial count at q=N and the vanishing coefficient at q=N+1.
 
-The first public source (Farr, arXiv:2609.17108v1, 15 September 2026) defines the invariant and gives complete-graph cases; that is the \(m=1\) boundary, not the \(m\ge2\) theorem. The earlier Farr–Morgan arXiv:2406.15746v1 develops general graph-polynomial machinery but does not state the uniform windmill closed formula. Fully read published quantitative theorems on complete multipartite and complete bipartite graphs do not imply the windmill result, as \(W_{r,m}\) is not complete multipartite for the stated range. A fully read friendship-graph zero-forcing result concerns a different forcing rule. The older forcing chromatic number counts unique extensions, not local iterative propagation. The relevant literature and published-finding corpus searches did not return the precise all-palette windmill formula, the exact seed polynomial, or the \(m\)-sized chromatic-palette transition. Failed search cannot certify global novelty; unindexed prior work is possible.
+## originality
 
-## Value — PASS
+PASS
 
-The finding gives a complete exact domain-size polynomial in a natural, infinite, two-parameter family, **at every palette size**. It identifies a sharp behaviour change upon adding one available colour: the minimum successful seed size grows by exactly the number of clique blades, because local propagation becomes impossible away from the hub. This is an interpretable structural feature of chromatic propagation, not a parameter substitution, and it provides full coefficient counts and probabilities rather than an isolated small instance.
+This PASS applies only to the reassessed intermediate-palette claim r<q<=N. The frozen all-palette finding fails originality as stated: an earlier exact windmill result and an earlier broader bouquet result already cover its entire q=r seed enumerator, minimum, multiplicity and probability transform. The omitted q<r and q>N regimes are already consequences of Farr's general propositions. The necessary scientific repair is to remove all three regimes from the claimed contribution, retaining the nonzero hub-blank coefficient and its minimum-size consequences for the intermediate range. No earlier coverage of that narrower coefficient was established. A distinct later record gives the same larger-palette enumeration; it is equivalent coverage, not evidence of earlier priority.
 
-## Closest sources and scientific limits
+## value
 
-- G. E. Farr, *The forced colouring function of a graph*, arXiv:2609.17108v1 (2026): definition, general identities, complete-graph boundary; not this multi-blade formula.
-- G. Farr and K. Morgan, *Graph polynomials: some questions on the edge*, arXiv:2406.15746v1 (2024): polynomial framework.
-- *Forced colourings of complete multipartite graphs at the chromatic palette size* (published-finding corpus): non-overlapping graph class and palette restriction.
-- *Forced three-colouring polynomial of complete bipartite graphs* (published-finding corpus): non-overlapping family.
-- *Zero forcing polynomial of friendship graphs* (published-finding corpus): different rule.
-- F. Harary, W. Slany, O. Verbitsky, *On the Computational Complexity of the Forcing Chromatic Number* (2004): distinct unique-extension notion.
+PASS
 
-The theorem is restricted to uniform clique windmills, named colours, and the stated iterative forcing process. Independent mathematical assessment and a conclusive historical-priority determination have not been performed.
+The retained coefficient evaluates, for an unbounded natural graph family, the entire contribution of successful incomplete seeds above the chromatic palette and at or below the largest palette permitting any local force. A minimum-size statement alone would not give the seed count or the probability of a final hub force; the exact colour-coverage coefficient gives both and replaces a search over all partial assignments. It isolates a genuine structural change from the prior chromatic-palette case, in which leaves can still be forced and fewer seeds suffice. Its significance is this precise intermediate regime, not the already known extreme regimes or the simplicity of the inclusion–exclusion method.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

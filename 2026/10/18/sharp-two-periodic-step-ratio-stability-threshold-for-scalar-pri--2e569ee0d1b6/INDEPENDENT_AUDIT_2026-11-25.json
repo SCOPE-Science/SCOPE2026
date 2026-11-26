@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:22:00.014891Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the map from the coordinate updates in RESULT.md lines 23–46. A single step has trace 2(1−r), determinant 1−r and discriminant −4r(1−r). The two-step map has trace 2−4r+4r²−rU and determinant (1−r)². In its real monic quadratic the Schur expressions 1−det and p(1) are strictly positive, respectively r(2−r) and r(U+2−3r); p(−1) is F_U(r). A zero of p(−1) yields distinct multipliers −1 and −(1−r)². If p(−1)<0 there is one root below −1 and a stable complementary eigenline. The intervening phase is fixed and invertible, so the convergence and generic growth conclusions extend to the full trajectory. Independently minimizing the boundary U=5r−6+4/r gives its unique minimum 4√5−6 at the interior r=2/√5; only this r is marginal at q=q*. The quadratic roots are positive, F_U(1)=3−U, and the vertex for U*<U≤3 lies inside (0,1); this recovers all root/interval cases. Phase reversal gives similar products. Exact multiplication at (r,q,t)=(4/5,3,4/5) gives P entries (−7/5,16/25;−4/15,7/75) and p(−1)=−4/15. The exact identities above and RESULT.md lines 30–60 are replay paths. Inspected VERIFICATION.md and verify.py (not executed); the recorded 1,941 checks supplement, not prove, the continuum result. Scope is the declared scalar bilinear, primal-first, fixed-unit-extrapolation, two-periodic schedule in exact arithmetic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang–Lan–Ye fix the step product but their convergence theorem needs summable step variation and θ_k=α_k/α_{k−1}.",
+          "Goldstein et al. explicitly warn of instability at individually subcritical products in the same update convention."
+        ],
+        "reasoning": "Nontrivial periodic alternation has infinite total variation and the assigned extrapolation is identically one. Neither the broader sufficient theorem nor the warning settles the exact boundary.",
+        "searches": [
+          "arXiv:2402.00311v1 full-text Algorithm 1 and Theorem 2.1",
+          "arXiv:1305.0546v2 full-text Algorithm 1 and Remark 1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1305.0546v2",
+        "arXiv:2402.00311v1",
+        "Resultary record 1d2b92edc54c",
+        "Resultary record 788191221208"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-convention warning does not quantify which contrasts/products fail. The closest explicit prior comparison has different monodromy and a different uniform boundary, (4√5−2)/3 in U rather than 4√5−6."
+        ],
+        "reasoning": "The assigned frontier requires deriving the appropriate monodromy and optimizing its stability boundary over admissible products; it is not obtained by quoting fixed-step radii, renaming the compared periodic steps, or applying the adaptive convergence theorem.",
+        "searches": [
+          "arXiv:1305.0546v2 Remark 1, equations (8)–(9)",
+          "Resultary 2026/10/25 sharp Floquet frontier, equations (3)–(6)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest corpus comparator extrapolates the previous dual increment in the primal update and depends on a ratio of successive applied dual steps. Its two-step determinant is 1+r²−rU, rather than (1−r)².",
+          "At r=4/5 and contrast 2, the assigned frontier gives p(−1)=2/5 while the comparator gives −2/5: unstable in the comparator, stable here."
+        ],
+        "reasoning": "Swapping variables or permuting phase order does not identify these two schedules: the monodromies have different spectra and even disagree on stability at the same product and contrast. No equivalence inferred or excluded merely by date.",
+        "searches": [
+          "Resultary semantic comparison: scalar PDHG, alternating reciprocal steps, fixed product, period-two/Floquet frontier",
+          "Resultary 2026/10/25 sharp Floquet frontier, RESULT.md equations (1)–(6)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The fixed-product rate record classifies one constant iteration matrix on a strongly convex–concave scalar saddle; the sharp Floquet record tabulates a different expression, 4+5r²−2r−3rU, for its p(−1)."
+        ],
+        "reasoning": "These are relevant exact indexed classifications, but neither supplies the assigned period-two threshold or equivalent stability intervals.",
+        "searches": [
+          "Resultary semantic comparison of exact scalar PDHG step-product phase diagrams and periodic thresholds",
+          "Resultary 2026/10/4 exact fixed-product rate phase diagram; 2026/10/25 sharp Floquet frontier"
+        ]
+      },
+      "rationale": "The prior qualitative warning and general Schur tools are not new. The inspected primary sources and corpus comparators did not cover the particular two-parameter frontier and its sharp global contrast cutoff for the declared update. This is a bounded statement-level judgment, not a priority certification.",
+      "residual_risks": [
+        "The broader switched-linear/Floquet literature search was bounded; an equivalent specialization under different terminology is not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers same-convention qualitative instability, not the inspected exact frontier",
+          "evidence": "Specialize A=1 and zero proximal penalties; the remark warns of nonconvergence despite each product below the conventional bound.",
+          "identifier_or_url": "https://arxiv.org/html/1305.0546v2",
+          "material_read": "Algorithm 1 discussion, Remark 1 and equations (8)–(9), HTML offsets 8200–12688",
+          "method": "OA full-text passage",
+          "title": "Adaptive Primal-Dual Hybrid Gradient Methods for Saddle-Point Problems",
+          "trigger": "Same variable steps and possible instability"
+        },
+        {
+          "assessment": "Different convergence hypotheses",
+          "evidence": "The conditions impose summable step variation and ratio-dependent extrapolation, absent for nontrivial alternation here.",
+          "identifier_or_url": "https://arxiv.org/html/2402.00311v1",
+          "material_read": "Algorithm 1 and Theorem 2.1, HTML offsets 10500–15499",
+          "method": "OA full-text passage",
+          "title": "A Tuning-Free Primal-Dual Splitting Algorithm for Large-Scale Semidefinite Programming",
+          "trigger": "Variable steps with fixed product"
+        },
+        {
+          "assessment": "Close but mathematically different recurrence and exact frontier",
+          "evidence": "The previous increment in bar y_k uses the previous step, yielding 1+r²−rU in the determinant.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-sharp-floquet-frontier-for-periodically-balanced-primal-dual-s--1d2b92edc54c/RESULT.md",
+          "material_read": "Finding, assumptions, update, eliminated recurrence and frontier, equations (1)–(6), offsets 0–6500",
+          "method": "Local Resultary mirror full-text passage",
+          "title": "A sharp Floquet frontier for periodically balanced primal–dual steps",
+          "trigger": "Direct match on scalar bilinear pairing, reciprocal step contrast and period-two stability"
+        },
+        {
+          "assessment": "Different problem and time dependence",
+          "evidence": "One constant iteration matrix for a strongly convex–concave scalar saddle, not the alternating monodromy.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-fixed-product-rate-phase-diagram-for-scalar-pdhg--788191221208/RESULT.md",
+          "material_read": "Finding and constant-parameter comparison, offsets 0 and 4250",
+          "method": "Local Resultary mirror full-text passages",
+          "title": "Exact fixed-product rate phase diagram for scalar PDHG",
+          "trigger": "Exact scalar PDHG phase diagram"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Reciprocal step balancing keeps the usual product constraint fixed while changing the primal–dual scales. The exact interior most vulnerable product and sharp uniform contrast cutoff quantify when that operation is safe, and separate marginal from unstable trajectories. This adds information beyond a numerical witness or the prior qualitative warning; no extension to adaptive or arbitrary switching is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

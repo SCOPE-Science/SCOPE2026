@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:23:51.088275Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–92",
+        "VERIFICATION.md and check_hazard.py inspected, not executed",
+        "Independent replay: python3 /workspace/reviews/replay_2_3.py"
+      ],
+      "rationale": "With A=U_n, B=U_(n+1), D=U_(n+2), the sign of the usual hazard increment is the sign of S_(n+1)^2-S_n S_(n+2). Clearing positive factors gives B^2-AD-cB[B(A+D)-2AD]; B^2-AD=e^(-2(n+1)t)t^2 and B(A+D)>2AD. The failure-odds convention preserves all signs and ties. Independently expanding with r=1+z+t gives P=r[2(cosh(t)-1)r^2-2t sinh(t)r+2t^2], and yields the displayed cubic coefficients. The constant coefficient of P-P' is negative, the leading coefficient positive; when q>=1/2 both middle coefficients are nonpositive (the linear coefficient is strictly negative using 1-q>=qt and 5-4/q+1/q^2<=2), and when q<1/2 the quadratic coefficient is positive, allowing only one sign change irrespective of the linear coefficient. The positive root is unique and the continuous threshold strictly decreases then increases; comparing its two neighboring grid points gives the exact minimum, strict sublevel sets give one finite block, and C_0<1 follows from E-(B^2-AD)=D(1-B)^2 at A=1. For t approaching zero, the scaled cubic tends to z(z^2-2z-1); fixed positive brackets on either side of 1+sqrt(2) trap its unique positive root despite the limiting root at zero. Local uniform convergence, strict transverse limiting level crossings and lattice unimodality trap both extreme indices for the stated fixed c, and prove the critical-tilt limit. A separate rational certificate verifies the six strict signs in the example; the infinite tail follows from unimodality, not the finite computation.",
+      "residual_risks": [
+        "The replay certifies the exhibited two-turn example only; all-parameter and asymptotic conclusions are analytic, not formally verified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The continuous MOLBE formulas describe the underlying continuous hazard; the DGBH record gives agewise thresholds and a delayed turn for a different discrete survival, and MOPHL has continuous two-turn boundaries for a power-half-logistic baseline."
+        ],
+        "reasoning": "Neither a different baseline nor the continuous predecessor is a stronger theorem establishing the finite-mesh phase diagram. The limiting smooth level equation is consistent with differentiating the known continuous hazard; the distinct conclusion is convergence of the discrete critical tilt and both discrete turns.",
+        "searches": [
+          "Ahsan-ul-Haq et al. 10.1016/j.jksus.2017.09.006, journal PDF pp. 2–3",
+          "Resultary 2026/11/22 SCOPE-a-sharp-three-regime-hazard-phase-diagram-for-discrete-generaliz--d75bb3879263",
+          "Resultary 2026/10/12 SCOPE-exact-mophl-hazard-phase-diagram-contradicts-theorem-1--2e6ca0a2ca4a"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "Aljohani et al. and Ahsan-ul-Haq et al. open PDFs",
+        "Resultary distinct Finding comparisons d75bb3879263, 646ecb6220e4, 2e6ca0a2ca4a, 8ad5a6f1739b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-model formulas permit evaluating any prescribed age pair and show qualitative examples. The Rayleigh–Weibull theorem excludes increase–decrease–increase for its own law, unlike the certified regime here."
+        ],
+        "reasoning": "Pointwise evaluability and illustrations do not imply cubic unimodality, a sharp all-age boundary or a nonempty two-turn regime for the stated law.",
+        "searches": [
+          "Aljohani et al., Eqs. (6)–(7) and Fig. 2 discussion",
+          "Resultary 2026/11/22 SCOPE-exact-hazard-reversal-thresholds-for-the-discrete-rayleigh-weibu--646ecb6220e4; Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The paper uses survival discretization and p_n/S_(n+1), equivalent for ordering to the standard discrete hazard under h -> h/(1-h). Fig. 2 is cited there for qualitative variation."
+        ],
+        "reasoning": "The change of convention is not novel. The same-model formulas still require an agewise coefficient test and a global proof that the thresholds have only one valley.",
+        "searches": [
+          "Aljohani et al. 10.1038/s41598-023-39183-6, full PDF pp. 2–3, Eqs. (1), (3)–(4), (6)–(7)",
+          "DMOLBE / discrete Marshall–Olkin length-biased exponential / failure odds"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact match c56eaf093042 is the assigned record itself. The distinct DGBH, Rayleigh–Weibull and Chen–Perks matches use different survival laws and do not tabulate these thresholds."
+        ],
+        "reasoning": "Same-day entries were compared by claim, not excluded by date; none of these distinct comparisons gives the DMOLBE cubic or its critical tilt.",
+        "searches": [
+          "Local Resultary comparison: c56eaf093042, d75bb3879263, 646ecb6220e4, 8ad5a6f1739b; original Finding passages"
+        ]
+      },
+      "rationale": "The same-model survival, discrete failure odds and qualitative hazard illustrations are known. The supported distinct contribution is the exact lattice-age threshold and finite global minimization, the all-parameter contiguous-block theorem, and the associated discrete fine-resolution limits. Inspected same-model and analogous results do not give that combination or imply the exact discrete decision rule.",
+      "residual_risks": [
+        "The published figure was considered through its accompanying text, not as a graphical proof. Further unindexed exact DMOLBE analysis or a more general prior discretization theorem remains possible. No worldwide priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers model, formulas and qualitative illustration, not the exact discrete classification in the inspected text",
+          "evidence": "Eq. (1) uses survival discretization; Eq. (7) uses failure odds; the adjacent discussion refers to plotted hazards.",
+          "identifier_or_url": "https://doi.org/10.1038/s41598-023-39183-6",
+          "material_read": "OA PDF pp. 2–3, Eqs. (1), (3)–(4), (6)–(7) and Fig. 2 discussion",
+          "method": "Bounded full-text passages from the open article",
+          "title": "Analysis of Covid-19 data using discrete Marshall–Olkinin Length Biased Exponential: Bayesian and frequentist approach",
+          "trigger": "Original discrete model and hazard convention"
+        },
+        {
+          "assessment": "Continuous precursor, not discrete lattice ordering",
+          "evidence": "The documented hazard is a derivative-based continuous quantity; the inspected passages do not dispatch unit-step hazard comparisons.",
+          "identifier_or_url": "https://jksus.org/content/185/2019/31/2/pdf/10.1016_j.jksus.2017.09.006.pdf",
+          "material_read": "Journal PDF pp. 2–3, survival and hazard formulas and selected shape discussion",
+          "method": "Bounded OA full-text passages",
+          "title": "The Marshall-Olkin length-biased exponential distribution and its applications",
+          "trigger": "Same baseline and tilt in continuous time"
+        },
+        {
+          "assessment": "Different distribution",
+          "evidence": "It obtains agewise thresholds, a positive–negative–positive regime and delayed-turn asymptotics for DGBH survival.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-three-regime-hazard-phase-diagram-for-discrete-generaliz--d75bb3879263",
+          "material_read": "RESULT.md Finding, beginning at offset 0",
+          "method": "Local mirror",
+          "title": "A sharp three-regime hazard phase diagram for discrete generalized Burr–Hatke lifetimes",
+          "trigger": "Closest indexed discrete threshold and two-turn analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and proof of threshold unimodality",
+        "Aljohani et al., same-model hazard discussion"
+      ],
+      "rationale": "For an existing fitted lifetime family, the cubic gives a sharp finite decision procedure in place of arbitrary finite-age plots, identifies a certified regime with two reversals, and rules out hidden decreasing blocks on infinite support. The limiting turn separation explains a feature that a fixed observation window can miss.",
+      "residual_risks": [
+        "This is a theoretical shape classification of this family, not statistical inference or a general result for other baselines."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

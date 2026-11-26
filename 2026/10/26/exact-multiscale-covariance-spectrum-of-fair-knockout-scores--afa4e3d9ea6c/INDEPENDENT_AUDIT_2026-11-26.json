@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:41:54.425752Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–71",
+        "Frozen VERIFICATION.md and verify_knockout_spectrum.py (read, not executed)"
+      ],
+      "rationale": "A leaf survives r rounds precisely when its first r independent ancestral choices favor that leaf's path. Two survival paths before the common node use disjoint coins whenever at least one requested survival is below that node; if both reach it, the choices are mutually exclusive. Summing covariances yields the negative square in the claim. Summing (2r-1)2^(-r) gives the second marginal moment; subtracting the squared mean gives the stated variance. With z=1/n and a_h=2^(1-h)-z, constant total wins gives a zero row sum and the subtree contrasts have eigenvalues 2^d a_d^2 plus sum_{h>d} 2^(h-1)a_h^2. Expanding gives 6/2^d-[2(ell-d)+5]/n. Their multiplicities sum to n-1, all are positive, and successive differences are 3/2^d-2/n>0. The extremal Rayleigh bounds follow, including n=2 where both equal 1/2. The permuted deterministic score multiset gives equal diagonal and off-diagonal entries under random labeling and hence one positive eigenvalue nv/(n-1). The fixed weight at level d is 2^(-d); the tail vanishes uniformly in the weak spectral comparison. Bounds 2^(-d)<=lambda_d<=6*2^(-d) dominate the logarithms after weighting, giving per-entrant log pseudodeterminants log(3/2) and log 2 in the limit. Exponentiating their difference gives 3/4. The kernel direction is constant, not a nonzero vector in the zero-sum contrast subspace; the scope wording about a zero-sum direction should be read in this sense, as the finding and proof explicitly say.",
+      "residual_risks": [
+        "The archived finite code corroborates the forms only at its stated sizes. Its reported 1085 counter includes a floating-point tolerance check; this is not 1085 counted exact-rational checks plus that test. The limiting argument is analytic and independent of that counter."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Adler et al. discuss winner probabilities and format under varying strength or random match formation, rather than a score covariance spectrum.",
+          "The generic Haar calculation applies to a kernel constant at each pair's common-node level once that kernel is known. The named ultrametric reference was not accessible through the attempted routes."
+        ],
+        "reasoning": "A general diagonalization method alone does not supply the kernel of this tournament or its limiting comparison to random labeling. No negative evidence is inferred from the inaccessible reference.",
+        "searches": [
+          "Random Knockout Tournaments arXiv:1612.04448",
+          "Hierarchical/ultrametric spectral and determinant formula; Ultrametricity for Physicists DOI 10.1103/RevModPhys.58.765"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2206.08461",
+        "arXiv:2505.01971v1",
+        "arXiv:1612.04448",
+        "Resultary 8ea3fa598b27, 9e75550d1170 and b2c8f4434d6b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proposition 2 provides the deterministic score multiset and its uniform random permutation, which directly imply the exchangeable covariance baseline. The fixed-bracket dependence statements give no numerical level kernel."
+        ],
+        "reasoning": "The random-draw eigenvalue is a routine implication, not a novel part by itself. A full exact fixed-bracket calculation and the subsequent log-spectral limit are necessary for the 3/4 ratio; the checked sources do not give that comparison.",
+        "searches": [
+          "Malinovsky–Rinott arXiv:2206.08461, Proposition 2 and §3.2",
+          "Su–Zou–Hu arXiv:2505.01971v1, Theorem 3.9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Malinovsky–Rinott §3.2 studies fixed-draw dependence; Su–Zou–Hu Theorem 3.9 treats negative association for the equal-strength deterministic schedule. The inspected passages concern dependence signs and inequalities, not the dyadic covariance magnitudes."
+        ],
+        "reasoning": "Nonpositive pairwise covariance implied by dependence theory does not fix c_d, the positive eigenvalues, or the pseudodeterminant. The entrant-win variable and match model agree in the relevant fixed-bracket comparisons.",
+        "searches": [
+          "Fixed draw and knockout score dependence: arXiv:2206.08461 and arXiv:2505.01971",
+          "Fixed-bracket covariance, joint score moments and hierarchical tournament spectrum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day Resultary 8ea3fa598b27 concerns cyclic triads and degree statistics in round robin. Resultary 9e75550d1170 concerns score-frequency counts, also round robin. Resultary b2c8f4434d6b treats singular values of a tree ancestor-average operator."
+        ],
+        "reasoning": "Those are different random vectors or operators: none tabulates the entrant score spectrum of a fixed elimination bracket or the fixed/random ratio. The same-day record was compared by its statement, not excluded by its date.",
+        "searches": [
+          "Resultary: exact fair tournament covariance, knockout scores, tree spectral formulas"
+        ]
+      },
+      "rationale": "Random-draw score exchangeability and the deterministic multiset were already explicit, and hierarchical Haar diagonalization is standard. The inspected fixed-bracket dependence results do not state the exact distance-dependent covariance for fair win counts, which is needed to specialize the hierarchical calculation. The supported distinct contribution is that exact kernel and its full spectrum and quantified fixed-versus-random comparison, not the sign or the generic tree diagonalization. No equivalent statement or stronger implication for that full knockout covariance was found in the inspected matching sources.",
+      "residual_risks": [
+        "Bounded search cannot rule out older equivalent knockout joint moments or spectral treatments.",
+        "No full text obtained for the Rammal–Toulouse–Virasoro review; generic ultrametric formulas are not claimed as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers random-draw multiset; fixed-bracket dependence overlap",
+          "evidence": "The random draw uniformly permutes the stated deterministic wins multiset. Fixed draw is studied with negative-dependence properties.",
+          "identifier_or_url": "https://arxiv.org/abs/2206.08461",
+          "material_read": "§1.6, p. 7, and Proposition 2 and §3.2, pp. 10–12, text near 16700 and 24300–27300",
+          "method": "OA primary paper",
+          "title": "On Tournaments and Negative Dependence",
+          "trigger": "Same score variable and fixed/random knockout models"
+        },
+        {
+          "assessment": "Negative-association result, not the exact kernel or spectral limit in the inspected passage",
+          "evidence": "Proves negative association of the score vector for the deterministic equal-strength schedule.",
+          "identifier_or_url": "https://arxiv.org/abs/2505.01971v1",
+          "material_read": "Theorem 3.9, p. 12, text near 44439",
+          "method": "OA primary paper",
+          "title": "Negative Dependence in Knockout Tournaments",
+          "trigger": "Same deterministic equal-strength schedule"
+        },
+        {
+          "assessment": "Different statistic in inspected passages",
+          "evidence": "Studies tournament win probabilities and strength-dependent match formats.",
+          "identifier_or_url": "https://arxiv.org/abs/1612.04448",
+          "material_read": "Abstract and introduction, text around 1650",
+          "method": "OA primary paper",
+          "title": "Random Knockout Tournaments",
+          "trigger": "Closest named paper on bracket formats"
+        },
+        {
+          "assessment": "Unresolved general-method coverage, not adverse scientific evidence",
+          "evidence": "Attempts returned HTTP 403; no theorem credited or excluded on that basis.",
+          "identifier_or_url": "https://doi.org/10.1103/RevModPhys.58.765",
+          "material_read": "No lawful full text retrieved",
+          "method": "Lawful DOI/PDF access attempts",
+          "title": "Ultrametricity for Physicists",
+          "trigger": "Possible general diagonalization antecedent"
+        },
+        {
+          "assessment": "Different model and statistic",
+          "evidence": "Uniform round-robin cyclic triples and outdegrees rather than knockout wins.",
+          "identifier_or_url": "2026/10/26/SCOPE-conditional-triad-fluctuations-and-a-krawtchouk-projection-for-f--8ea3fa598b27",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Conditional triad fluctuations and a Krawtchouk projection for fair tournaments",
+          "trigger": "Same-day indexed covariance hit"
+        },
+        {
+          "assessment": "Different covariance object",
+          "evidence": "Frequency counts of round-robin scores, not entrant win counts in a knockout.",
+          "identifier_or_url": "2026/10/18/SCOPE-an-exact-covariance-isometry-for-the-score-histogram-of-a-fair-t--9e75550d1170",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "An exact covariance isometry for the score histogram of a fair tournament",
+          "trigger": "Exact score covariance hit"
+        },
+        {
+          "assessment": "Different operator",
+          "evidence": "Ancestor averaging singular values, not bracket covariance.",
+          "identifier_or_url": "2026/10/18/SCOPE-geometric-fixed-rank-singular-staircase-for-finite-tree-ces-ro-a--b2c8f4434d6b",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Geometric fixed-rank singular staircase for finite-tree Cesàro averaging",
+          "trigger": "Tree spectrum hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Malinovsky–Rinott Proposition 2 and Su–Zou–Hu Theorem 3.9 for the comparison baseline"
+      ],
+      "rationale": "The full spectrum quantifies effects not captured by negative dependence alone: final-half contrasts have variance per squared norm 1/n while local contrasts are of order one, and uniform label randomization removes that anisotropy. The exact eigenvalues and limiting geometric mean make the dependence and fixed/random comparison usable beyond a sign result.",
+      "residual_risks": [
+        "Limited to balanced independent fair play and linear second moments; not a conclusion about outcome independence, skill inference or ellipsoid volumes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

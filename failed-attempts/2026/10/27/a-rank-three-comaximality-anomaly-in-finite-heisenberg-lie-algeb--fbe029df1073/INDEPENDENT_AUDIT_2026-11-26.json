@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:37:55.300511Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Over any prime power, the quotient by the derived central line is a 2r-dimensional symplectic space. Over each proper quotient subspace there is one center-containing lift, and over each nonzero isotropic k-space there are q^k additional functional-graph lifts. An ordered isotropic basis has q^(2r−j)−q^j choices after j steps, so dividing by the number of ordered bases gives I_{r,k}. Two lifts generate iff their projections sum to the quotient: a subalgebra surjecting to the quotient contains a nonzero central bracket by nondegeneracy. Choosing the intersection with a fixed k-space and then a quotient graph gives C_{2r,k}; when both lifts omit the center, spanning requires complementary Lagrangians. After choosing a Lagrangian complement as reference, the other complements are symmetric graphs, q^(r(r+1)/2) also in characteristic two. These facts yield the three edge terms with the correct divisions. Coloring by a containing hyperplane is proper and the hyperplane lifts form a matching-size clique. In a maximum clique the nonempty sets of containing hyperplanes are pairwise disjoint and exhaust exactly one hyperplane per projection, so the projections are those hyperplanes. For r≥2 each has one lift, and for r=1 each has q+1, proving both maximum-clique counts. The leading population exponents are k(2r−k) and f_r(k)=2rk−3k²/2+3k/2. Ranks 1 and 2 are dominated by center-free Lagrangians; r≥4 by center-containing r-spaces since (4r+3)²/24<r². At r=3 there are three size-q^9 strata, one of dimension 2 and two of dimension 3. Only the four ordered pairs of 3-space strata can span; for each of them the ordinary or symplectic complement count divided by the corresponding population of projections tends to 1. Thus the limit is 4/9 there and 1 otherwise. Conditioning on distinct sampled vertices vanishes in the limit. Separate RREF enumeration using the projection criterion (not iterative bracket closure) gives (N,E)=(10,27), (156,3805), (691,100905) at (r,q)=(1,2),(2,2),(2,3); replay is projection_repro.py with recorded outputs in branches/d639dd7e-d580-4267-8c0f-9b52507d1a4b. Only those small prime-field instances were enumerated in that check; larger ranks were formula-only, and the proof, not the finite checks, extends to arbitrary prime powers. The frozen checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Frattini-quotient result of Towers–Zuleta–Gutierrez gives quotient adjacency; its extra assertion that every nonzero-image fiber has at least two lifts fails for, e.g., a nondegenerate plane in H_5/Z, which has only its center-containing lift.",
+          "Das proves the hyperplane clique and quotient clique/chromatic equality. cea008ee3276 specifies exactly all the graph fibers, including singleton nonisotropic fibers; the H_3 classification covers the remaining rank."
+        ],
+        "reasoning": "The general quotient adjacency principle alone does not supply the nonuniform weights or density. The exact indexed Heisenberg census supplies those weights and both sums, and there is no dependence on the erroneous lower bound for fiber size. Rank three means H_7, not the three-dimensional H_3.",
+        "searches": [
+          "arXiv:2608.16575, Theorem 6.1 and H_3 treatment",
+          "arXiv:2605.09583, Proposition 4.3",
+          "arXiv:1702.08245, Theorems 4.1 and 6.2",
+          "cea008ee3276, Finding and classification of fibers"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_heisenberg.py",
+        "Resultary cea008ee3276, 958f18ab300e, e3fb5b5762fa",
+        "arXiv:2605.09583, 2608.16575, 1702.08245"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In D_k, the summand indexed by s=n−j is monic of degree s(2r−s), so deg D_k=k(2r−k) for k<r and r² for k≥r, with leading coefficient one. In rank 3 the vertex sum has three monic degree-9 terms. Its three edge sums have leading coefficients 1/2, 1, 1/2 at degree 18 (the isotropic dimension-2 mixed terms have degree 17). Thus the indexed formulas alone give 2E/(N(N−1))→4/9.",
+          "In rank 2 the Lagrangian/Lagrangian term dominates; at ranks ≥4 the center-containing/center-containing term dominates because f_r(k)<r² and r²+3r<2r². Their leading coefficients give limit 1, as does the classified rank-one multipartite graph.",
+          "The indexed adjacency rule makes any two projections with a common containing hyperplane nonadjacent. A clique of the known extremal size must use each hyperplane exactly once and therefore only hyperplane projections."
+        ],
+        "reasoning": "No unproved asymptotic step or structural invariant must be added to the existing weighted census to obtain the anomaly: it is a direct leading-degree and coefficient comparison. The clique counts are the corresponding elementary extremal fiber product, with one lift per hyperplane for r≥2 and q+1 for r=1. The distinct wording of the limit and clique counts does not establish an independently new theorem.",
+        "searches": [
+          "cea008ee3276, displayed edge and vertex counts, mirrored Finding offset 0",
+          "arXiv:1702.08245, Theorem 6.2",
+          "arXiv:2605.09583, Proposition 4.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "cea008ee3276 uses rank m, n=2m, I_k for the identical symplectic count, and D_k whose substitution s=n−j gives C_{2r,k}. The three exact edge terms match term by term.",
+          "The 5/9 catalogue hit counts permuting pairs of subalgebras, not Lie-generating pairs, in a different sample space."
+        ],
+        "reasoning": "The exact census is identical after reindexing, not just similar for a few q. The Lie-generation graph is a fiber-weighted version of the subspace-sum graph, and the permuting-pair statistic is not an equivalent reformulation.",
+        "searches": [
+          "Resultary semantic search for Heisenberg comaximal graph, exact weighted edge count, rank-three large-field adjacency: cea008ee3276, 958f18ab300e, e3fb5b5762fa",
+          "arXiv:1702.08245 subspace sum graph definition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "958f18ab300e gives the complete H_5 degree distribution, vertex census, quotient-generation rule and isotropic fiber sizes; summing degrees also recovers the rank-two edge census.",
+          "cea008ee3276 gives the exact symbolic census for every prime power and all ranks ≥2, stronger than a numerical table.",
+          "The H_3 classification gives an isolated center and the complete multipartite graph over q+1 quotient lines with q+1 lifts per line."
+        ],
+        "reasoning": "The exact formula covers the numerical object at all relevant parameters without extrapolating a table. The rank-two hit alone would be limited overlap, but the all-rank symbolic census is decisive.",
+        "searches": [
+          "Resultary exact Heisenberg graph census: cea008ee3276 and 958f18ab300e",
+          "arXiv:2605.09583, Proposition 4.3, H_3 classification"
+        ]
+      },
+      "rationale": "Distinct indexed Resultary record cea008ee3276 gives the identical all-rank vertex and edge formulas for r≥2, including the weights, complement term and clique/chromatic number; the previously classified H_3 supplies r=1. The advertised 4/9 and its uniqueness follow by directly taking the leading terms of those exact formulas. The maximum-clique lift counts follow by the containing-hyperplane pigeonhole argument from the published quotient graph and the very same indexed fibers. This is demonstrated mathematical coverage; no precedence inference is drawn from the catalogue dates. The superficially similar 5/9 result for permuting pairs is not the basis of this decision.",
+      "residual_risks": [
+        "The exact indexed match determines mathematical coverage, not historical priority or dependence among records. Its catalogue date alone establishes neither.",
+        "The Frattini result's fiber-size defect should not be extrapolated to its valid quotient adjacency equivalence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact formula and clique/chromatic overlap; implies the fixed-rank density limits",
+          "evidence": "Identical two-term vertex count and three-term unordered edge count, with the same functional-graph/symplectic interpretation.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-edge-count-and-symplectic-fibers-in-heisenberg-comaximal-g--cea008ee3276",
+          "material_read": "Mirrored RESULT.md offsets 0–6410, Finding, assumptions and proof of fibers and counts",
+          "method": "Configured Resultary search and bounded local-mirror inspection; verified displayed formulas at offsets 0–4169",
+          "title": "Exact edge count and symplectic fibers in Heisenberg comaximal graphs",
+          "trigger": "Matching exact invariant in the same graph for arbitrary q and r≥2"
+        },
+        {
+          "assessment": "Substantive rank-two coverage only",
+          "evidence": "Five degrees and their multiplicities, vertex count, generation criterion and isotropic fiber sizes.",
+          "identifier_or_url": "2026/10/13/SCOPE-five-degree-strata-in-the-comaximal-graph-of-the-five-dimensiona--958f18ab300e",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Configured Resultary search and bounded local-mirror inspection",
+          "title": "Five degree strata in the comaximal graph of the five-dimensional Heisenberg Lie algebra",
+          "trigger": "Exact low-rank census of the same graph"
+        },
+        {
+          "assessment": "Different event and sample space",
+          "evidence": "Rank-three 5/9 for permuting subalgebra pairs, not 4/9 for Lie generation.",
+          "identifier_or_url": "2026/9/18/SCOPE-heisenberg-subalgebra-commutativity-degree--e3fb5b5762fa",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Configured Resultary search and bounded local-mirror inspection",
+          "title": "Heisenberg subalgebra commutativity degree",
+          "trigger": "Potential rank-three anomaly overlap"
+        },
+        {
+          "assessment": "Direct low-rank graph coverage",
+          "evidence": "The center is isolated, the q+1 planes form a clique, and the noncentral lines form a complete multipartite graph by their projected lines.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.09583",
+          "material_read": "PDF pp. 9–10, Proposition 4.3, offset near 24800",
+          "method": "Read decisive primary OA PDF passage",
+          "title": "Comaximal Graphs of Lie Algebras",
+          "trigger": "Rank-one exact graph classification"
+        },
+        {
+          "assessment": "Quotient adjacency is pertinent; not the exact correct Heisenberg fiber weights by itself",
+          "evidence": "The stated proof of a fiber lower bound treats A+Φ(L) as distinct from A even when A already contains Φ(L). A nondegenerate quotient plane in H_5 verifies the singleton-fiber counterexample.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.16575",
+          "material_read": "PDF p. 6 H_3 example and p. 22 Theorem 6.1 and proof, offsets near 16700 and 64000",
+          "method": "Read decisive primary OA PDF passages",
+          "title": "Comaximal Graphs of Finite-Dimensional Lie Algebras over Finite Fields: Triangle Counts and Structural Invariants",
+          "trigger": "Possible dominating weighted Frattini quotient and Heisenberg census"
+        },
+        {
+          "assessment": "Direct unweighted quotient coverage; weighted census requires isotropic lifts",
+          "evidence": "Subspaces are adjacent when their sum is the entire space; the hyperplanes form a clique and the clique/chromatic number equals the number of hyperplanes.",
+          "identifier_or_url": "https://arxiv.org/abs/1702.08245",
+          "material_read": "PDF pp. 1, 4, 9, definition, Theorems 4.1 and 6.2, offsets near 650, 11363 and 25000",
+          "method": "Read decisive primary OA PDF passages",
+          "title": "Subspace Sum Graph of a Vector Space",
+          "trigger": "Same skeleton after quotienting by the center"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The rank-three effect is an informative interpretation of the natural edge-density invariant, but as an incremental finding here it is exactly a leading-term calculation from the already indexed exact weighted census. The maximum-clique counts are the direct product from hyperplane fibers, and the exact counts themselves are covered. No independently valuable uncovered remainder is established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

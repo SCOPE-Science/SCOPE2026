@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:24:55.150895Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For uniform permutation insertion, root rank is uniform and the subtrees are conditionally independent. Decompose the conditional leaf means into a flat term plus boundary deviations δ_0=−1/3 and δ_1=1/3. For C_n the law of total covariance then gives n C_n=2Σ_{k<n}C_k−(4/3)(H_{n−1}−1), since b_{n−1}−b_{n−2}=2(H_{n−1}−1) for the path-length mean. With C_2=0, subtract consecutive recurrences and divide by n+1 to obtain C_n/(n+1)−C_{n−1}/n=−4/[3(n−1)n(n+1)], which telescopes to the stated expression. This also checks the degenerate n=2 and first nonzero n=3 cases. The leaf-local indicators give the stated variance for n≥4; the classical internal path-length variance, in the same root-depth-zero convention, tends to (7−2π²/3)n² to leading order. Normalization gives the finite correlation and limit. Frozen support was inspected but not run. A separate exact rational mixed-moment recurrence passed n=2 through 80 (replay /workspace/branches/f1bec0d3-8e57-4f7f-9837-e8bb06c0643a/independent_mixed_recurrence.py); the finite test does not replace the recurrence proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chern et al. Theorems 5.4 and 5.6 give joint asymptotic results for the same two statistics at d=1. Holmgren–Janson give finite fixed-size fringe-count covariances in a restricted range and a general additive-functional setup. Kapur gives general additive moment recurrences."
+        ],
+        "reasoning": "The asymptotic theorem already covers order/decorrelation. One can express leaves as X_{n,1} and path length as Σ_{k=1}^n(k−1)X_{n,k}, but the inspected fringe covariance theorem's n>k+m+1 requirement leaves boundary terms, so it does not directly give the full sum. The general additive-moment framework permits setting up the problem without itself establishing the closed expression in the inspected passages. These comparisons are subordinate to the exact older catalogue match.",
+        "searches": [
+          "Chern et al. arXiv:1501.05135 §5.2",
+          "Holmgren–Janson arXiv:1406.6883 Theorems 1.12 and 1.20",
+          "Kapur arXiv:math/0304411 §§2.2–2.3",
+          "Devroye 1991 local counters and Drmota–Hwang profile covariance"
+        ]
+      },
+      "checked_sources": [
+        "October 12 Resultary exact covariance and leaf variance record 2943b7ea14eb",
+        "arXiv:1501.05135 §5.2",
+        "arXiv:1406.6883",
+        "arXiv:math/0304411",
+        "Devroye 1991 local counters",
+        "Drmota–Hwang profile covariance comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original and earlier record both use a uniform root split and the total covariance decomposition. The earlier result provides C_n and Var(L_n) exactly; the classical Var(P_n) is known exactly and its n² coefficient is 7−2π²/3."
+        ],
+        "reasoning": "The only additional displayed results are Corr=C_n/sqrt(Var(L_n)Var(P_n)) and its immediate asymptotic after division by the leading powers of n. Neither calculation requires a new lemma, and a citation correction cannot turn the repeated covariance identity into a new result.",
+        "searches": [
+          "October 12 Eq. (1)–(2) and Proof Eq. (9)",
+          "Frozen RESULT.md lines 80–91 (classical path-length variance)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "October 12 Finding Eq. (1) gives −(n−2)(n+3)/(9n) for all n≥2; Eq. (2) gives 2(n+1)/45 for n≥4. The Finding and Assumptions specify uniform insertion permutations, stored-key leaves, and root depth zero."
+        ],
+        "reasoning": "(n−2)(n+3)=n(n+1)−6. The same centered quantities, parameter range, tree law and boundary conventions are used. The earlier record is a distinct item, not a search return of the audited text itself.",
+        "searches": [
+          "Resultary random BST leaf–path-length covariance, internal path length, negative search cost and leaf abundance",
+          "Mirrored 2026/10/12/SCOPE-random-bst-leaf-abundance-has-an-exact-negative-search-cost-cova--2943b7ea14eb/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Strongest hit was confirmed in the actual October 12 mirrored text, Eqs. (1) and (2); later indexed matches ending 2ebe22d1a117 and bb8f7b84dc3a give the same covariance but are not needed for the earlier-coverage inference."
+        ],
+        "reasoning": "The earlier index hit provides an all-size formula, not a short numerical list or a coincidental match of early terms. It covers strictly more than a finite table check could.",
+        "searches": [
+          "Resultary exact finite random-BST leaf/search-cost covariance, including alternate factorization"
+        ]
+      },
+      "rationale": "The main identity was already stated and proved for exactly these variables and all n≥2 in the October 12 Resultary record random-bst-leaf-abundance…2943b7ea14eb. The shifted-looking numerator (n−2)(n+3) is n(n+1)−6. That earlier record also supplies the finite leaf variance. Normalizing its covariance by that variance and the established path-length variance gives the finite correlation immediately; the limiting constant follows from the classical leading variance coefficient. There is no distinct mathematical remainder to repair. This is verified earlier catalogue coverage, not a claim about ultimate publication priority.",
+      "residual_risks": [
+        "The bounded review does not establish ultimate bibliographic priority or rule out still earlier implicit evaluations in the fringe-count or additive-toll literature. This uncertainty does not affect the verified October 12 overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive earlier exact overlap",
+          "evidence": "Identical covariance for n≥2 and finite leaf variance for n≥4 in the same permutation-insertion model; conditional covariance proof uses the same structural split.",
+          "identifier_or_url": "2026/10/12/SCOPE-random-bst-leaf-abundance-has-an-exact-negative-search-cost-cova--2943b7ea14eb",
+          "material_read": "Mirrored RESULT.md Finding Eqs. (1)–(4), Assumptions, and root-split proof Eqs. (5)–(9); decisive text offsets 0–3000",
+          "method": "Resultary semantic index and OA local mirror, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Random-BST leaf abundance has an exact negative search-cost covariance",
+          "trigger": "Exact same covariance with factored numerator"
+        },
+        {
+          "assessment": "Earlier joint asymptotic coverage",
+          "evidence": "Linear-order covariance with a suitable constant and asymptotic independence; d=1 is the BST. These passages are not an all-n evaluation.",
+          "identifier_or_url": "https://arxiv.org/abs/1501.05135",
+          "material_read": "§5.2 Theorem 5.4 PDF p. 32 offset 115700; Theorem 5.6 p. 34 offset 122260",
+          "method": "OA primary PDF",
+          "title": "Dependence and phase changes in random m-ary search trees",
+          "trigger": "Same leaf/path-length pair in one-dimensional quadtrees"
+        },
+        {
+          "assessment": "Material partial route; no unrestricted exact leaf/path-length identity in the inspected results",
+          "evidence": "Fixed-size fringe covariances for n>k+m+1; path-length size toll discussed as too large for the stated general limit theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/1406.6883",
+          "material_read": "Theorem 1.12 p. 7, Eq. (1.28) p. 9, Theorem 1.20 and discussion pp. 10–11",
+          "method": "OA primary PDF",
+          "title": "Limit Laws for Functions of Fringe Trees for Binary Search Trees and Random Recursive Trees",
+          "trigger": "Possible stronger exact covariance formula for additive fringe counts"
+        },
+        {
+          "assessment": "General recurrence setup, not inspected as stating the closed covariance",
+          "evidence": "Internal path length is additive; general tolls can encode a mixed moment through combinations of additive functionals.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0304411",
+          "material_read": "Abstract, §2.2 pp. 6–7 offsets 22900–30878, §2.3 moment framework",
+          "method": "OA primary PDF",
+          "title": "Additive Functionals on Random Search Trees",
+          "trigger": "Potential general mixed-moment route"
+        },
+        {
+          "assessment": "Prior leaf marginal methods, different from joint covariance",
+          "evidence": "Leaf-local representation and limit-law framework.",
+          "identifier_or_url": "https://luc.devroye.org/devroye_1991_limit_law_counter_random_binary_search_tree.pdf",
+          "material_read": "pp. 303–305, offsets 0–7564",
+          "method": "OA primary PDF",
+          "title": "Limit Laws for Local Counters in Random Binary Search Trees",
+          "trigger": "Known leaf indicators and marginal leaf variance"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact covariance is a well-motivated invariant and is useful for quantifying the link between leaves and search depth, but this same quantitative gap was already closed by the earlier exact result. Presenting the known covariance and marginal variances as a Pearson correlation is routine normalization; it yields no independent result of comparable value, even though the formulas themselves are correct.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

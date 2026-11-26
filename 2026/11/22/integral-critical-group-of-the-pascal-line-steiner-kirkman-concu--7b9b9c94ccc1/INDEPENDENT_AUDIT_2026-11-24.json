@@ -1,0 +1,91 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:15:25.448769Z",
+  "axes": {
+    "correctness": {
+      "frozen_scope_defect": "The finding says general position, but its assumptions specify distinctness without excluding extra Pascal lines at a named point, and the frozen geometry verifier checked only the specified triples and distinctness, not the absence of extra flags. If distinctness is read as sufficient, this scope is false: with parameters (0,65,195,585,1755,9), all 60 lines and 80 named points are distinct, but Steiner point [731:43875:9240075] on ABCFED, ABEDCF and ADCBEF is also on ACFEBD, and the actual graph has 243 edges. The expressly generic interpretation survives. The repair restricts the hypotheses to the full prescribed flag condition and proves it on a nonempty open set; it does not change the generic graph, spectrum or group.",
+      "rationale": "For the repaired claim, Props. 3.2–3.3 of arXiv:1209.4795 establish the two labelled concurrence patterns. I generated their full relabelling orbits, built all 60 lines using the chord formula (tu,−t−u,1), and recovered all actual marked flags by exact projective intersections. At (0,1,3,9,27,81) there are 80 distinct marked points each on exactly its prescribed three lines; the absence of other marked flags is a finite list of open conditions, so the graph is constant on a nonempty Zariski open set. The independent adjacency gave a connected 8-regular graph with 240 edges, the stated exact characteristic polynomial and tree count 2^71·3^13·5^8·11^16. An integer Smith calculation on its cofactor gave 1(36), 2(7), 22, 88, 176, 528(5), 2640(4), 5280(4), with parenthesized multiplicities. The replacement geometry verifier also passes its full flag tests.",
+      "replay": [
+        "python3 /workspace/audit_recompute.py 3 (python-flint and SymPy)",
+        "python3 /workspace/repairs/3/verify_geometry.py (standard library only)"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary result proves the representative geometric concurrences and supports all their relabellings. No inspected theorem diagonalizes the combined graph Laplacian; the focused query supplied no usable additional source."
+        ],
+        "reasoning": "A broader geometric account of Pascal configurations implies the labelled input, not the integral quotient. Lack of additional hits is not negative evidence.",
+        "searches": [
+          "arXiv:1209.4795, Section 3",
+          "Focused literature query: integral critical group Pascal Steiner Kirkman concurrence graph"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1209.4795 §§3.2–3.3 (propositions)",
+        "Resultary 7b9b9c94ccc1 (identical record), df83889b5b24 (distinct graph)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The propositions supply named concurrence triples. The distinct catalogue result computes the point/line incidence group, not the group on Pascal lines."
+        ],
+        "reasoning": "A graph construction and spectral information are not an integral Smith decomposition. An exact computation for the combined adjacency is needed.",
+        "searches": [
+          "arXiv:1209.4795, Propositions 3.2–3.3",
+          "Resultary df83889b5b24, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published triples generate the same geometric graph as the squared-cycle and edge-disjoint triple models; equivalently it is the graph on the Pascal side of the combined marked Levi structure, joining pairs that share a marked neighbour."
+        ],
+        "reasoning": "The geometry establishes the equivalent graph construction but does not give the Smith factors. Neither the marked Levi graph itself nor the distinct Steiner–Plücker graph has the claimed vertex set and Laplacian.",
+        "searches": [
+          "Resultary: Pascal line Steiner–Kirkman concurrence critical group",
+          "arXiv:1209.4795, Propositions 3.2–3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit 7b9b9c94ccc1 is the assigned record itself. The strongest distinct match df83889b5b24 is the 35-vertex, 60-edge Steiner–Plücker Levi graph with different invariant factors."
+        ],
+        "reasoning": "The exact hit is a self-match; the distinct indexed result shares Steiner geometry but does not tabulate this graph.",
+        "searches": [
+          "Local Resultary search for the combined Pascal concurrence graph and its integral critical group"
+        ]
+      },
+      "rationale": "Best of the checked evidence, the surviving distinct result is the exact integral critical group of the generic combined marked graph. The cited incidence theorem is prior input, not the arithmetic result, and the strongest distinct catalogue match computes a different graph. The scope repair does not change the arithmetic claim assessed for originality.",
+      "residual_risks": [
+        "The focused web lookup provided no useful additional primary source; graph tables or a source under a different alias may still cover the group. Priority is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Geometric input established; not an integral graph-group result",
+          "evidence": "Prop. 3.2 names ABEDCF/ADEFCB/AFEBCD at a Steiner point; Prop. 3.3 names ABFDCE/AEFBDC/ABDFEC at a Kirkman point.",
+          "identifier_or_url": "https://arxiv.org/pdf/1209.4795",
+          "material_read": "PDF p. 4, Propositions 3.2 and 3.3, OA text offsets 10566–11600",
+          "method": "Lawful OA text, passage-level comparison",
+          "title": "Illumination of Pascal's Hexagrammum and Octagrammum Mysticum",
+          "trigger": "Primary source for both defining geometric relations"
+        },
+        {
+          "assessment": "Different graph; no exact overlap",
+          "evidence": "20 Steiner points and 15 Plücker lines, 60 incidence edges; no Pascal-line vertices.",
+          "identifier_or_url": "2026/11/22/SCOPE-integral-critical-group-of-the-steiner-pl-cker-incidence-graph--df83889b5b24",
+          "material_read": "RESULT.md, Finding and scope, mirror offset 0",
+          "method": "Local Resultary and mirror passage inspection",
+          "title": "Integral critical group of the Steiner–Plücker incidence graph",
+          "trigger": "Strongest distinct closely related catalogue result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Both kinds of marked point are canonical parts of the generic hexagrammum; taking both, but not ordinary intersections, is geometrically motivated. The complete primary structure and exponent distinguish integral chip-firing obstructions not determined by the rational spectrum. The repaired scope additionally explains an actual marked-incidence jump while keeping all named objects distinct. No wider claim about special sextuples or the conic Jacobian is needed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

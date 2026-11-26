@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:48:04.659416Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen proof counts i+α selected X′ points at the zero-branch endpoint t=m, although the queried trace is empty. This is a real counting error in the proof, not a counterexample to the theorem. The replacement proves that the one possible completion has exactly α=2u−i selected X′ points, even by the zero branch's choice of i. I checked the full corrected argument: complement pairs halve the slice and make the all-zero and all-one traces incompatible for a support of size m. After querying x₀, the two branches choose opposite parities of i from {u−1,u}; both exterior blocks are nonempty. For 0<t<m the lower endpoint max(0,t−β) is strictly smaller than both α and t, so the needed parity is always attainable. At the other endpoint t=0 in the one branch, the full support has the required odd count. This yields a complete depth-m tree and a static support of size m−1. No complete tree can exceed m because an all-positive path cannot repeat queries or use more than m positives. If a=1 the singleton is absent; if b=1 its label is fixed by m. Each residual class is a full k-of-(2m−1) layer with both dimensions min(k,2m−1−k)=m−1, including m=1. The unrestricted slice has both dimensions m by the same uniform-layer argument.",
+      "reproduction": {
+        "command": "python3 /workspace/reproduction/1.py",
+        "result": "All 15 ordered odd splits of total sizes 2,4,6,8,10 agree in cardinality and both dimensions, including (1,1)→(0,0) and (3,3)→(2,3). This uses full static trace projections and a split recurrence on nonempty version spaces. The frozen checker was inspected, not run; neither finite computation proves the universal formula."
+      },
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The constant-weight coding bound at weight m and length 2m gives VC dimension at most m when using minimum distance at least 2.",
+          "The aggregation result supplies a general O(kd log k) upper bound for pointwise Boolean aggregation of classes of bounded Littlestone dimension."
+        ],
+        "reasoning": "The code bound loses the needed unit and has no adaptive conclusion; generic aggregation inequalities do not produce the necessary and sufficient singleton-block boundary or a depth-m witness.",
+        "searches": [
+          "arXiv:1703.01586 §3.1, Lemma 4",
+          "Ghazi et al., ALT 2021 §2.2, Proposition 3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1703.01586",
+        "PMLR 132: ghazi21a",
+        "Resultary indexed comparisons and web literature results described above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The full balanced layer gives both dimensions m; taking a subclass supplies only upper bounds of m. The stronger VC obstruction uses the odd-block complement, and the adaptive lower bound uses branch-specific shattering."
+        ],
+        "reasoning": "Neither source theorem yields those two opposing parity effects or their exact separation without the additional branch construction. The singleton reduction to a uniform layer is standard and is not novel on its own.",
+        "searches": [
+          "arXiv:1703.01586 §3.1",
+          "ALT 2021 Ghazi et al. Definition 1 and Proposition 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Viewed as binary codewords, this is the weight-m slice intersected with one homogeneous parity check on an odd-size coordinate block; points are queried by coordinate projection.",
+          "Swapping the parity coset by complementing the entire slice preserves both dimensions; the related indexed result on exactly-two-coordinate parity instead varies the support of a parity hypothesis and queries input vectors. It is a different evaluation relation."
+        ],
+        "reasoning": "Complementation and coordinate renaming do not make this the unrestricted slice or the indexed parity-function class. The query domain matters for both dimensions.",
+        "searches": [
+          "Resultary: constant weight parity intersection two odd blocks VC Littlestone dimension uniform slice adaptive membership",
+          "Web literature: Littlestone dimension parity constrained constant weight slice balanced two blocks VC dimension uniform set family intersection parity balanced Boolean layer"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed hit was the review target. Other returned parity-shattering records used complete-tree frontiers, fence ideals, or interleaving comparisons, not the row family of this slice."
+        ],
+        "reasoning": "Those are not tables for the simultaneous VC and adaptive ranks of these labelled slices; the small exact enumeration is corroboration, not the source of the all-parameter result.",
+        "searches": [
+          "Resultary: constant weight parity intersection two odd blocks VC Littlestone dimension uniform slice adaptive membership",
+          "Resultary: parity filtered balanced Boolean layer sharp strict Sperner antichain marked subset odd middle binomial"
+        ]
+      },
+      "rationale": "The exact simultaneous dimension classification, in particular preservation of depth m by different static supports after the first answer, survives the local proof correction unchanged. No materially compared source gives that implication. This is a qualified originality judgment, not priority certification.",
+      "residual_risks": [
+        "An unindexed exact calculation for parity sections of uniform set systems could affect priority. Nonmatching index results are not evidence of historical absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The uniform weight/distance bound does not use the additional odd-block parity and is not sharp for this family.",
+          "evidence": [
+            "At length 2m and weight m the theorem gives at best m with the general guaranteed distance 2; it says nothing about an adaptive lower bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1703.01586",
+          "material_read": "Abstract and §3.1, Lemma 4, p. 5",
+          "method": "Lawful open PDF, targeted reading",
+          "title": "On the VC-Dimension of Binary Codes",
+          "trigger": "Finite constant-weight coordinate projections might give the static formula as a special case."
+        },
+        {
+          "assessment": "General aggregation bound, not exact dimensions of a parity-selected subfamily of a fixed-weight layer.",
+          "evidence": [
+            "The Littlestone bound is O(kd log k) given a pointwise aggregation of k component classes of dimension at most d."
+          ],
+          "identifier_or_url": "https://proceedings.mlr.press/v132/ghazi21a/ghazi21a.pdf",
+          "material_read": "§2.1 Definition 1 and §2.2 Proposition 3, pp. 2–4",
+          "method": "Lawful open PDF, targeted reading",
+          "title": "Near-tight closure bounds for the Littlestone and threshold dimensions",
+          "trigger": "General theorem for Boolean combinations of concept classes."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The model is a natural constant-weight class with one parity check. The sharp result distinguishes fixed from adaptive coordinate access at every size and explains why the gap disappears at a singleton block. The adaptive certificate consists of two explicit branchwise static supports. The value is this structural mechanism and complete boundary, not a numerical gap at a selected size or the standard uniform-layer formula.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

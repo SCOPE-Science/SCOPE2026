@@ -1,78 +1,65 @@
-# Complete associator nuclei and commutants of dihedral quandle algebras
+# Associator nuclei and commutant of even-order dihedral quandle algebras
 
 ## Finding
 
-Let \(K\) be any field, \(n\ge2\), and \(A=K[R_n]\), with basis \(e_i\), \(i\in\mathbb Z/n\mathbb Z\), and bilinear product \(e_i e_j=e_{2j-i}\). Write \(N_l,N_m,N_r\) for the left, middle, and right associator nuclei, \(N=N_l\cap N_m\cap N_r\) for the associative nucleus, \(C=\{a\in A:ab=ba\text{ for all }b\in A\}\) for the commutant, and \(Z=N\cap C\) for the nonassociative center. Set \(m=n/2\) in the even case.
+Let \(K\) be any field, let \(n=2m\ge2\), and give \(A=K[R_n]\) basis \(e_i\) for \(i\in\mathbb Z/n\mathbb Z\), with bilinear multiplication \(e_i e_j=e_{2j-i}\). Write \(N_l,N_m,N_r\) for the subspaces of elements that annihilate every associator in the left, middle and right positions, respectively; write \(N=N_l\cap N_m\cap N_r\), \(C=\{a:ab=ba\text{ for every }b\in A\}\) and \(Z=N\cap C\). For \(a=\sum_i a_i e_i\), put \(s_j=a_j+a_{j+m}\) for \(0\le j<m\).
 
-The six exact \(K\)-dimensions \((\dim N_l,\dim N_m,\dim N_r,\dim C,\dim N,\dim Z)\) are
+* \(N_l\) consists of the vectors with coefficients constant separately on the even and odd indices.
+* \(N_m\) consists of the vectors with \(s_j\) constant in \(j\).
+* If \(m\) is odd, \(N_r=N_m\). If \(m\) is even, \(N_r\) consists of the vectors with all \(s_j=0\).
+* \(C=Z=0\) for all even orders.
 
-\[
-\begin{array}{c|c}
-\text{condition}&(\dim N_l,\dim N_m,\dim N_r,\dim C,\dim N,\dim Z)\\\hline
-n\text{ odd}&(1,1,1,\gcd(n,3),1,1)\\
-n\equiv2\pmod4&(2,m+1,m+1,0,2,0)\\
-4\mid n,\ \operatorname{char}K\ne2&(2,m+1,m,0,0,0)\\
-4\mid n,\ \operatorname{char}K=2&(2,m+1,m,0,2,0).
-\end{array}
-\]
+The dimensions follow:
 
-These are classifications of subspaces, not just dimensions. With \(a=\sum_i a_i e_i\), the coefficient conditions are as follows.
+| Condition | \(\dim N_l\) | \(\dim N_m\) | \(\dim N_r\) | \(\dim C\) | \(\dim N\) | \(\dim Z\) |
+|---|---:|---:|---:|---:|---:|---:|
+| \(m\) odd | 2 | \(m+1\) | \(m+1\) | 0 | 2 | 0 |
+| \(m\) even, \(\operatorname{char}K\ne2\) | 2 | \(m+1\) | \(m\) | 0 | 0 | 0 |
+| \(m\) even, \(\operatorname{char}K=2\) | 2 | \(m+1\) | \(m\) | 0 | 2 | 0 |
 
-* If \(n\) is odd, \(N_l=N_m=N_r=N=Z=K\Omega\), where \(\Omega=\sum_i e_i\). The commutant consists of coefficient sequences constant on residue classes modulo \(\gcd(n,3)\).
-* If \(n=2m\), write \(s_j=a_j+a_{j+m}\) for \(0\le j<m\). Then \(N_l\) consists exactly of sequences constant separately on even and odd indices; \(N_m\) is given by \(s_0=\cdots=s_{m-1}\); and \(N_r=N_m\) when \(m\) is odd, whereas \(N_r=\{a:s_j=0\text{ for every }j\}\) when \(m\) is even. The commutant and center are zero.
-
-For even \(n\), put \(\Omega_0=\sum_{i\text{ even}}e_i\), \(\Omega_1=\sum_{i\text{ odd}}e_i\). Whenever \(N\ne0\), its basis is \(\Omega_0,\Omega_1\) and its multiplication is explicitly
-
+Whenever \(N\ne0\), it is spanned by the parity sums \(\Omega_0,\Omega_1\), where \(\Omega_\epsilon=\sum_{i\equiv\epsilon\bmod2}e_i\). Its multiplication is
 \[
 (\alpha\Omega_0+\beta\Omega_1)(\gamma\Omega_0+\delta\Omega_1)
 =m(\gamma+\delta)(\alpha\Omega_0+\beta\Omega_1).
 \]
-
-For odd \(n\), the center is the line \(K\Omega\), with \(\Omega^2=n\Omega\). In particular, in characteristic different from \(2\), the associative nucleus vanishes for every order divisible by \(4\), although all three individual nuclei remain nonzero. In characteristic \(2\) it jumps to dimension \(2\), with zero internal multiplication, for those same orders.
+In particular, for \(4\mid n\), the full nucleus vanishes outside characteristic two, even though all three individual nuclei are nonzero. In characteristic two it is two-dimensional with zero internal multiplication.
 
 ## Assumptions and scope
 
-The operation is always \(i\triangleright j=2j-i\) modulo \(n\); changing the left/right quandle convention without corresponding changes to the algebra changes the nucleus labels. A field of arbitrary characteristic, including \(0\), is permitted. No separability, algebraic closure, or invertibility of \(n\) in \(K\) is assumed. All statements hold simultaneously for every integer \(n\ge2\). The word 'center' means the intersection of the three associator nuclei and the commutant, not merely the commutant.
+The associator is \((a,b,c)=(ab)c-a(bc)\) and the multiplication convention is the one given above. No field extension or inversion of \(2\), \(m\), or \(n\) in \(K\) is assumed. The theorem concerns even orders only, including \(n=2\), and the center is distinguished from the commutant.
 
 ## Proof
 
-Identify the underlying vector space with \(K[t]/(t^n-1)\) by mapping \(e_j\mapsto t^j\). This is only a linear identification: ordinary polynomial multiplication is not the quandle-algebra multiplication. Write \(P(t)=\sum_j a_jt^j\), and interpret negative exponents modulo \(t^n-1\). Bilinearity reduces each universal associator or commutator identity to pairs of basis elements. Direct use of \(e_i e_j=e_{2j-i}\) yields four equivalent systems:
-
+Identify the vector space linearly with \(K[t]/(t^n-1)\) by \(e_i\mapsto t^i\); polynomial multiplication is used only for indexing and is not the quandle-algebra product. Put \(P(t)=\sum_i a_i t^i\). Since the product is bilinear, it suffices to test associators and commutators with basis elements in the other positions. In the left nucleus identity with \(e_u,e_v\), the two exponents for the input term \(a_i e_i\) are \(2v-2u+i\) and \(4v-2u-i\). In the middle identity they are \(2v+u-2i\) and \(4v-u-2i\). In the right identity they are \(2i-2v+u\) and \(4i-2v-u\). And for \(a e_v=e_v a\) they are \(2v-i\) and \(2i-v\). Removing common shifts gives
 \[
 \begin{aligned}
-a\in N_l&\iff P(t)=t^{2v}P(t^{-1})\quad\text{for all }v,\\
-a\in N_m&\iff t^{2u}P(t^{-2})=t^{2v}P(t^{-2})\quad\text{for all }u,v,\\
-a\in N_r&\iff t^{2u}P(t^2)=P(t^4)\quad\text{for all }u,\\
-a\in C&\iff t^{3v}P(t^{-1})=P(t^2)\quad\text{for all }v.
+a\in N_l&\iff P(t)=t^{2v}P(t^{-1})\quad(\text{all }v),\\
+a\in N_m&\iff t^{2u}P(t^{-2})=t^{2v}P(t^{-2})\quad(\text{all }u,v),\\
+a\in N_r&\iff t^{2u}P(t^2)=P(t^4)\quad(\text{all }u),\\
+a\in C&\iff t^{3v}P(t^{-1})=P(t^2)\quad(\text{all }v).
 \end{aligned}
 \]
 
-For the first equivalence, setting \(v=0,1\) gives reversal symmetry \(P(t)=P(t^{-1})\) and invariance under multiplication by \(t^2\). Such a coefficient sequence is constant on the orbits of index translation by \(2\). These are one orbit if \(n\) is odd and the even/odd orbits if \(n\) is even; in either case reversal preserves the orbits. This proves the left-nucleus description.
+For the left system, \(v=0,1\) gives reversal symmetry and invariance under a shift of two. Exactly the sequences constant on each parity orbit have both properties. For the middle system, \(P(t^2)=\sum_{j=0}^{m-1}s_jt^{2j}\); reversing exponents does not affect the property of shift invariance. A shift of two is transitive on the even exponents, so the condition is constancy of the \(s_j\). The map to \((s_j)\) is onto because the first \(m\) coefficients can be chosen freely and the second \(m\) set to zero; its kernel has dimension \(m\) over every field.
 
-For the middle nucleus, the displayed condition reduces exactly to invariance of \(P(t^{-2})\) under multiplication by \(t^2\). If \(n\) is odd, doubling permutes the indices, hence all coefficients of \(P\) are equal. If \(n=2m\), the coefficient of \(t^{2j}\) in \(P(t^2)\) is \(s_j=a_j+a_{j+m}\); the same fact holds with the indices reversed for \(P(t^{-2})\). Multiplication by \(t^2\) is transitive on these \(m\) even exponents. Thus middle-nucleus membership is exactly constancy of all \(s_j\), giving dimension \(m+1\).
+For the right system, \(u=0,1\) first forces \(Q=P(t^2)\) to be shift invariant, hence \(Q=s\sum_{j=0}^{m-1}t^{2j}\), and then requires \(Q(t^2)=Q(t)\). Doubling permutes the even exponents when \(m\) is odd, so this is automatic. If \(m\) is even, \(Q(t^2)\) has no coefficient at exponent 2, since reduction modulo \(n\) preserves divisibility by 4. The equality forces \(s=0\), which conversely suffices.
 
-For the right nucleus, the equations demand both invariance of \(Q=P(t^2)\) under multiplication by \(t^2\) and the identity \(Q=P(t^4)\). The odd case again gives precisely constant \(P\). In the even case the first demand is \(s_j=s\) for all \(j\), so \(Q=s\sum_{j=0}^{m-1}t^{2j}\). If \(m\) is odd, doubling permutes the even exponents and \(Q(t^2)=Q\) automatically. If \(m\) is even, \(Q(t^2)\) is supported on exponents divisible by \(4\), while \(Q\) has coefficient \(s\) at exponent \(2\), forcing \(s=0\). Conversely \(s=0\) makes both equations true. This proves the right-nucleus alternatives without dividing by \(2\) in \(K\).
+For the commutant, \(v=0,1\) implies invariance of \(P(t^{-1})\) under a shift of three. Its coefficient sequence is therefore constant modulo \(\gcd(n,3)\), which is odd; every such orbit contains an odd index. The equality at \(v=0\) forces every odd-indexed coefficient to be zero, because \(P(t^2)\) has even support. Thus the commutant and the center vanish.
 
-For the commutant, the equations at \(v=0,1\) show that \(P(t^{-1})\) is invariant under multiplication by \(t^3\); hence its coefficients are constant on residue classes modulo \(d=\gcd(n,3)\). If \(n\) is even, \(P(t^2)\) has no odd-degree coefficients, whereas every residue class modulo \(d\in\{1,3\}\) contains an odd index, so the equality at \(v=0\) forces every coefficient to vanish. If \(n\) is odd, multiplication of exponents by \(2\) is bijective. For \(d=1\), every constant sequence satisfies the equality; for \(d=3\), \(2^{-1}\equiv-1\pmod3\), giving \(P(t^{-1})=P(t^2)\) for every sequence constant modulo \(3\). Thus the commutant has dimension \(d\).
-
-Finally, when \(n\) is odd the three nuclei are \(K\Omega\) and \(\Omega\) lies in the commutant. When \(n=2m\), a left-nuclear vector has coefficients \(c_0\) on even indices and \(c_1\) on odd indices. If \(m\) is odd, its pair sums are all \(c_0+c_1\), so it belongs to both remaining nuclei. If \(m\) is even, its pair sums are \(2c_0\) or \(2c_1\); the right-nucleus condition makes both vanish. Hence the intersection is zero unless \(\operatorname{char}K=2\), in which case both vanish automatically and the full left nucleus survives. The commutant is zero for all even \(n\), establishing the center formula. Each \(\Omega_\epsilon e_j=\Omega_\epsilon\) because the reflection \(i\mapsto2j-i\) permutes each parity class, proving the stated two-dimensional multiplication. The odd case follows similarly by summing over all \(j\). This completes all claims.
+If \(m\) is odd, the pair sums of a vector in \(N_l\) add coefficients of opposite parities and are therefore all equal. If \(m\) is even, the pair sums are twice the coefficient on their respective parity, so the condition \(s_j=0\) gives precisely the stated characteristic switch (both parities are represented). Finally the reflection \(i\mapsto2j-i\) permutes each parity class, so \(\Omega_\epsilon e_j=\Omega_\epsilon\). Bilinearity gives the displayed product.
 
 ## Verification
 
-The standalone file `verify.py` constructs the multiplication table, forms the *original linear associator and commutator constraints* directly at every triple of basis indices, and computes their nullities by modular Gaussian elimination; it does not encode the claimed basis vectors as input. It verifies all six dimensions for each \(2\le n\le14\) in characteristics \(2,3,5\), checks the explicit bases of the full nuclei and their multiplication wherever nonzero, and checks the predicted commutant coefficient patterns. Reproduce with `python3 verify.py`. The code also prints each compared tuple, ending with `ALL_NUCLEUS_CHECKS_OK` on success. These are finite tests; the proof above, not extrapolation, establishes arbitrary size and characteristic.
+The accompanying `verify.py` constructs all constraints directly from the basis multiplication using modular elimination. Its even-order checks cover \(2\le n\le14\) over the prime fields of orders 2, 3 and 5, including the dimension switch, parity bases when the full nucleus is nonzero and their product. It also includes odd-order checks as comparisons outside this theorem. Run `python3 verify.py`; the success marker is `ALL_NUCLEUS_CHECKS_OK`. The exact proof above, not extrapolation from these checks, establishes the even-order result over every field.
 
-## Relationship to prior work
+## Relationship to prior work and limitations
 
-Kaur and Singh, *Decomposition of quandle rings of dihedral quandles* (arXiv:2206.03162, first posted 2022-06-07), determine right-module decompositions for even-order dihedral quandle rings over the real or complex field, distinguishing orders divisible by \(4\). Their orbit-sum submodules motivate the parity vectors above, but the six associator/commutant spaces and the characteristic-two jump are different invariants and are not stated there.
-
-Elhamdadi, Fernando, and Tsvelikhovskiy, *Ring Theoretic Aspects of Quandles* (arXiv:1805.05908, 2018), establish the general quandle-ring framework and analyze its ideals, but do not state this nucleus classification. Sangaré and Ta, *Idempotents, automorphism groups, and commutator widths of quandle algebras* (arXiv:2608.01550, 2026), explicitly prove \(N_l=K\Omega\) in odd order (Proposition 4.7): that component is prior work, not an independent novelty claim. The full middle/right/commutant profile, the even-order regimes, and the characteristic-sensitive full nucleus constitute the distinct assertion here.
-
-## Limitations
-
-The theorem concerns dihedral quandles with the displayed multiplication, not arbitrary Alexander quandles. No claims about automorphism groups, all ideals, or module decompositions are made. The checked sources do not establish exhaustive publication priority; a nucleus classification under alternative terminology may exist. A later work already proves the odd-order left-nucleus component, and the result does not claim otherwise. Numerical verification covers prime fields and finitely many orders only; all-field validity is justified by the algebraic argument.
+The odd-order dihedral quandle is Latin: \(1-T=2\) is invertible on the index group for \(T=-1\). The general Latin-quandle and Latin Alexander-quandle nucleus classifications in [1,2] already cover all three odd-order nuclei and the resulting nonassociative center. Sangaré–Ta [3, Proposition 4.7] also covers the odd left nucleus directly. The split Alexander commutant theorem in [4] specializes to the odd-order dihedral commutant over its finite splitting fields. None of these odd-order statements is part of the present finding. In even order the quandle is not Latin, and the pair-sum collapse and right-nucleus condition are not captured by that specialization. Kaur–Singh [5] distinguish even orders divisible by four in right-module decompositions over \(\mathbb R\) or \(\mathbb C\); the associator kernels and the characteristic-two intersection here are different invariants. This theorem does not classify non-Latin Alexander quandle algebras in general or establish publication priority over unexamined work.
 
 ## References
 
-1. D. Kaur and P. Singh, *Decomposition of quandle rings of dihedral quandles*, arXiv:2206.03162 (first submitted 2022-06-07), https://arxiv.org/abs/2206.03162.
-2. M. Elhamdadi, N. Fernando and B. Tsvelikhovskiy, *Ring Theoretic Aspects of Quandles*, arXiv:1805.05908 (2018), https://arxiv.org/abs/1805.05908.
-3. B. Sangaré and L. Ta, *Idempotents, automorphism groups, and commutator widths of quandle algebras*, arXiv:2608.01550 (2026), especially Proposition 4.7, https://arxiv.org/html/2608.01550v1.
+1. *Associator span and nuclei of connected and Latin quandle algebras*, [Resultary record 84e5c5bb458f](https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-associator-span-and-nuclei-of-connected-and-latin-quandle-algebr--84e5c5bb458f/RESULT.md), Finding and assumptions.
+2. *Associator quotients and the three nuclei of finite Latin Alexander quandle rings*, [Resultary record 2cc2877d146f](https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-associator-quotients-and-the-three-nuclei-of-finite-latin-alexan--2cc2877d146f/RESULT.md), Finding and assumptions.
+3. B. Sangaré and L. Ta, *Idempotents, automorphism groups, and commutator widths of quandle algebras*, [arXiv:2608.01550v1](https://arxiv.org/html/2608.01550v1), Proposition 4.7.
+4. *Exact commuting-pair counts and commutants of split finite Alexander quandle algebras*, [Resultary record 41d844a58011](https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-commuting-pair-counts-and-commutants-of-split-finite-alexa--41d844a58011/RESULT.md), Finding and proof §3.
+5. D. Kaur and P. Singh, *Decomposition of quandle rings of dihedral quandles*, [arXiv:2206.03162](https://arxiv.org/abs/2206.03162).

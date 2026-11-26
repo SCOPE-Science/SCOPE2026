@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:34:04.810423Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–82, and VERIFICATION.md, lines 19–31",
+        "/workspace/branches/048d9cb4-2eea-479d-8d86-b2d49c3530dd/bounded_reproduction.py"
+      ],
+      "rationale": "The scope is ordinary two-summand sumsets on N0, including repeated summands, with A and B given by the odd part of n+1. The recursions split the even terms into 4N0 for A and 4N0+2 for B, and reduce every odd term 2u+1 to u. For A+A, residues 0,1,3 mod 4 have explicit witnesses using 0,1,3, and residue 2 reduces to a smaller even target by requiring two lifted odd terms. For A+B, residues 2,3 have immediate witnesses and residue 1 is represented from 5 onward using the B-term 5; the multiples of 4 from 8 onward lift the already represented odd targets 2m-1. The only possible B-term below 5 is 2, ruling out 0,1,4. For B+B, two even terms cover the positive multiples of four, and using 5 or 11 with an even B-term covers odd residues from 7 or 13, respectively. Below those bounds the odd totals 1,3,5,9 are impossible by the actual initial B-terms. A target congruent to 2 mod 4 forces two odd terms and is representable iff (n-2)/2 is. Every such chain stays even and terminates; the only missed terminal value is zero, whose backwards orbit is 2^k-2 for k>=1. Counting that disjoint even family gives floor(log_2(X+2)) for real X>=0, and the four odd indicators give the rest. Density one follows. Fresh direct enumeration allowing repeats matched all three sumsets and the integer-threshold counting formula through 4095.",
+      "residual_risks": [
+        "The bounded check is finite; the exact all-target result depends on the residue reductions. Generalized paperfolding words and representation counts are not asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bell–Hare–Shallit characterize which automatic sets are asymptotic bases for some finite number of summands. Allouche–Shallit's closest compared representation statements concern parity of binary digit sum and counts with distinct summands."
+        ],
+        "reasoning": "Existence of some finite number of summands does not imply the exact two-summand results or an infinite dyadic defect. Binary digit-sum parity is not the odd-part partition, and the comparison does not transfer its representation counts.",
+        "searches": [
+          "Bell–Hare–Shallit, arXiv:1710.08353, Theorem 1.1",
+          "Allouche–Shallit, arXiv:2112.13627, evil/odious additive properties"
+        ]
+      },
+      "checked_sources": [
+        "OEIS A014577",
+        "DOI 10.1017/S0004972724000169 (abstract only)",
+        "arXiv:2412.17930, 2112.13627 and 1710.08353",
+        "Resultary 9120b141ec1c and 4fac2a0e9b85"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The bit characterization yields the two disjoint membership recursions, not directly their sumset defects. The exceptional orbit uses the extra fact that a target congruent to 2 mod 4 in B+B can only come from two odd summands."
+        ],
+        "reasoning": "Neither the known input sequence nor the automatic-basis theorem supplies the parity-specific exact width-two exception propagation. The other exact sign-class papers do not map to the present classes by changing sign convention or index origin.",
+        "searches": [
+          "arXiv:1710.08353, Theorem 1.1 and preceding definitions",
+          "Resultary 9120b141ec1c and 4fac2a0e9b85, Finding passages",
+          "A014577 bit characterization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A014577 identifies the digit to the left of the least-significant 1 of n+1; complementing it gives a 1 for odd parts ending in 01 and a 0 for 11. Bunder et al.'s 'summed' terminology refers to run lengths in its accessible abstract, as also described in arXiv:2412.17930."
+        ],
+        "reasoning": "This is precisely the zero-based A014577 convention. If the positions are instead taken from one, the pairwise sums all translate by two, so a search for an equivalent defect must also allow the powers-of-two form. Runs measure consecutive signs rather than allowing any two positions to add.",
+        "searches": [
+          "Regular paperfolding pairwise sumsets and additive bases",
+          "Paperfolding sumset exceptions 2^k-2",
+          "OEIS A014577, regular paper-folding sequence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A014577 catalogs the sequence defining the sets, not their sumsets. The strongest exact Resultary hits were same-day 9120b141ec1c for the Rudin–Shapiro classes and 4fac2a0e9b85 for binary digit-weight mod 3 classes. No exact paperfolding table was identified."
+        ],
+        "reasoning": "The Rudin–Shapiro mixed exceptions are {0,1,2,9} and its other same-class complement is finite, unlike the dyadic infinite defect here. The mod-3 result gives logarithmic exceptions but for a different digit statistic and different classes. The shared date does not establish priority.",
+        "searches": [
+          "OEIS A014577, main entry and bit formula at offset 213",
+          "Resultary semantic search for paperfolding sign-class pairwise sumsets and exact two-summand exceptions",
+          "Focused literature search using the dyadic defect 2^k-2"
+        ]
+      },
+      "rationale": "The normalizing rule for the paperfolding classes is classical. The inspected additive works and exact same-day sign-class findings do not give the three sumsets of these classes, including the precise dyadic defect. No publication priority is established.",
+      "residual_risks": [
+        "Bunder–Bates–Arnold full text was not retrieved. Shallit, The Logical Approach to Automatic Sequences, chapters 11–12 (DOI 10.1017/9781108775267), was not inspected and remains a plausible source for exact Walnut calculations. The bounded comparison is not a priority determination."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact input sequence; not an exact sumset table",
+          "evidence": [
+            "Bit adjacent to the least-significant 1 of n+1 determines the sign."
+          ],
+          "identifier_or_url": "https://oeis.org/A014577",
+          "material_read": "Entry offset 0 and bit rule at offset 213",
+          "method": "Public database passage",
+          "title": "The regular paper-folding sequence (or dragon curve sequence)",
+          "trigger": "Exact index normalization and possible tabulation"
+        },
+        {
+          "assessment": "Abstract points to run lengths; full document unverified",
+          "evidence": [
+            "The abstract describes the 'summed' sequence in terms of lengths of runs."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S0004972724000169",
+          "material_read": "Cambridge abstract snippet; primary full text not retrieved",
+          "method": "Abstract result and lawful DOI, Cambridge PDF and ResearchGate retrieval attempts",
+          "title": "The Summed Paperfolding Sequence",
+          "trigger": "Potential alternate terminology for sums"
+        },
+        {
+          "assessment": "Run statistics, not sums of indexes",
+          "evidence": [
+            "The introduction describes the run-length generalization."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2412.17930",
+          "material_read": "p. 1, offset 1446",
+          "method": "OA full-text passage",
+          "title": "Runs in Paperfolding Sequences",
+          "trigger": "Related account of what the Bunder–Bates–Arnold result concerns"
+        },
+        {
+          "assessment": "Different classes and representation count",
+          "evidence": [
+            "Evil/odious by digit-sum parity; Dombi's two-representation statement uses x<y."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2112.13627",
+          "material_read": "Abstract; pp. 2 and 4, offsets 4009 and 10464",
+          "method": "OA full-text passages",
+          "title": "Additive Properties of the Evil and Odious Numbers and Similar Sequences",
+          "trigger": "Exact additive results for automatic sign partitions"
+        },
+        {
+          "assessment": "General criterion, not the width-two exact classification",
+          "evidence": [
+            "Criterion concerns the asymptotic additive-basis property with a bounded number of summands."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1710.08353",
+          "material_read": "Theorem 1.1, p. 2, offset 6942",
+          "method": "OA full-text passage",
+          "title": "When Is an Automatic Set an Additive Basis?",
+          "trigger": "Potential general automatic-set theorem"
+        },
+        {
+          "assessment": "Different automatic partition",
+          "evidence": [
+            "Parity of overlapping 11 blocks, and different explicit exceptions."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-exact-two-summand-exception-sets-for-the-rudin-shapiro-sign-clas--9120b141ec1c",
+          "material_read": "RESULT.md offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact two-summand exception sets for the Rudin–Shapiro sign classes",
+          "trigger": "Distinct same-day exact sign-class sumset finding"
+        },
+        {
+          "assessment": "Different restriction on summands and sign classes",
+          "evidence": [
+            "Digit-weight modulo 3, with exact one- or two-summand same-class conditions."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-exact-two-summand-exceptions-for-binary-digit-weight-classes-mod--4fac2a0e9b85",
+          "material_read": "RESULT.md offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact two-summand exceptions for binary digit-weight classes modulo three",
+          "trigger": "Distinct same-day exact logarithmic exceptions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–25 and 31–82; Bell–Hare–Shallit Theorem 1.1 for context"
+      ],
+      "rationale": "For a canonical automatic partition, an exact width-two additive classification distinguishes a full basis, a cofinite mixed sumset, and a density-one sumset with infinitely many holes. The dyadic backward orbit and four odd exceptions specify which large targets fail, not merely how often failure occurs, giving an exact benchmark for additive-basis methods on automatic sets.",
+      "residual_risks": [
+        "No claim about higher-order sums or the multiplicity of representations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:27:08.458944Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently enumerated all 8,192 and 131,072 labelled configurations using cyclic rotations and bit-plane binary addition to construct the successor, then forward iteration to the first y with F(F(y))=y. The residues were verified directly from squares. For replay, rotate the p-bit state right by each residue, add the resulting bits lane-wise, and set each output bit by comparing its lane sum to 3 or 4 respectively, retaining the input bit at equality. For each input iterate while F(F(y))≠y and increment the basin keyed by min(y,F(y)); this labels one orbit rather than counting each of its states. Every input reached the test within six updates; because the test is equivalent to period dividing two, this also excludes all longer periods without assuming the general period theorem. At p=13 the depth vector is [106,1664,3640,2314,78,234,156] and basin triples are (1,1,26),(1,5,78),(1,3888,2). At p=17 the vector is [3164,17782,69054,29376,9112,2040,544] and triples are (1,1,34),(1,29,68),(1,62323,2),(2,2,1122),(2,4,272),(2,8,136). Both unanimous masks were checked directly for their basin totals. Witness paths through time 6 are 375→574→119→62→54→34→0 and 4971→67506→1003→66482→937→640→0, with F(0)=0. This establishes the sharp F^8=F^6, F^7≠F^5 and verifies all published populations and probabilities. Inspected the frozen enumeration methods and their reference outputs; no submitted script was executed. The result is finite and asserts neither a general cutoff nor a monotone onset over primes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Benjamini et al. state the finite symmetric threshold period theorem attributed to Goles–Olivos. The Goles–Olivos DOI resolved to a landing page, not the paper text.",
+          "The general Kaaser et al. bound 1+|E| gives 40 and 69 here, not the sharp time 6."
+        ],
+        "reasoning": "The equivalent symmetric closed-neighborhood map falls under the period bound; that bound allows both periods for both graphs and does not decide exact orbits or attraction. The inspected time bound is not sharp on either graph.",
+        "searches": [
+          "10.1016/0012-365X(80)90121-1",
+          "arXiv:1405.2486, Theorem 1.1",
+          "arXiv:1508.03519, Corollary 3.4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, AUDIT.json, VERIFICATION.md, both census outputs, both census implementations, comparison and replay scripts",
+        "arXiv:1307.4035",
+        "arXiv:1405.2486",
+        "arXiv:1508.03519",
+        "10.1016/0012-365X(80)90121-1 (landing only)",
+        "Resultary 13a06d889156, 200a56a85158, d6a7bd7d1f44"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The period theorem establishes a universal recurrent-period upper bound, and the voting-time bounds leave much larger allowed times at these sizes. The catalogue oscillators are in directed tournaments."
+        ],
+        "reasoning": "None of these implications counts even the recurrent masks on either undirected graph, distinguishes absence from presence of period two, or identifies the first-entry and basin distributions. Settling those facts requires the complete finite threshold-map analysis performed here.",
+        "searches": [
+          "arXiv:1405.2486, Theorem 1.1",
+          "arXiv:1508.03519, Corollary 3.4",
+          "Resultary 13a06d889156 and 200a56a85158"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tamuz–Tessler p. 3 and Benjamini et al. p. 2 describe absorbing a tie convention into a self-neighbor; Kaaser et al. pp. 13 and 22 explicitly use a self-loop at an even-degree vertex.",
+          "The inspected catalogue Paley majority records concern out-neighbors in Paley tournaments with p≡3 (mod 4)."
+        ],
+        "reasoning": "Strict majority on the closed neighborhood in the undirected graph is exactly the frozen map: for degree 2k its condition s_i+x_i≥k+1 matches tie retention. The directed tournament convention, by contrast, is a different adjacency and has no identification transporting these spectra.",
+        "searches": [
+          "arXiv:1307.4035",
+          "arXiv:1405.2486",
+          "arXiv:1508.03519",
+          "Resultary Paley majority dynamics comparisons"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 13a06d889156 classifies directed Paley tournaments of orders 3, 7, 11, 19; 200a56a85158 and d6a7bd7d1f44 concern the directed order-23 graph (3,542 period-four orbits and an entry cutoff of ten in the order-23 census).",
+          "The inspected voting theorem and convergence-bound passages are bounds, not graph-specific tables of labelled state basins."
+        ],
+        "reasoning": "No inspected table contains these spectra. In particular, the same-day catalogue records were compared by content; their temporal rotation counts refer to a different adjacency and state space, not a quotient of these two graphs. The frozen same-record census is evidence for correctness, not separate prior coverage.",
+        "searches": [
+          "Resultary: Paley majority census and periodic entry; compared records 13a06d889156, 200a56a85158, d6a7bd7d1f44",
+          "arXiv:1405.2486",
+          "arXiv:1508.03519"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact labelled two-graph classification, not eventual period at most two or the known self-vote equivalence. The strongest inspected general results do not give the exact cutoff, presence/absence of temporal two-cycles, or basin spectra. The closest catalogue statements use different directed graphs and do not imply these counts. This finding is best of current knowledge, not a priority certificate.",
+      "residual_risks": [
+        "An unindexed exhaustive symmetric-threshold table or differently encoded undirected census may contain the exact counts; the literature screen is bounded.",
+        "The original Goles–Olivos article was not available in full in the inspected retrieval; its theorem was checked through an open statement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Convention and period background, not exact finite census",
+          "evidence": "Even-degree ties can be removed by including/excluding the vertex; eventual period at most two.",
+          "identifier_or_url": "https://arxiv.org/abs/1307.4035",
+          "material_read": "p. 3, OA offset 8220",
+          "method": "OA text passage",
+          "title": "Majority Dynamics and the Retention of Information",
+          "trigger": "Odd-degree assumption and equivalent tie rule"
+        },
+        {
+          "assessment": "Period restriction only as applied here",
+          "evidence": "Tie reversion can be encoded by adding the vertex; Theorem 1.1 gives period at most two for finite graphs.",
+          "identifier_or_url": "https://arxiv.org/abs/1405.2486",
+          "material_read": "p. 2, OA offset 4012 and Theorem 1.1",
+          "method": "OA text passage",
+          "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+          "trigger": "Equivalent self-vote rule and general period theorem"
+        },
+        {
+          "assessment": "Its closed-neighborhood convention applies, but its bounds do not give the sharp Paley time",
+          "evidence": "The self-loop absorbs even-degree ties; the edge bound evaluates to 40/69, respectively.",
+          "identifier_or_url": "https://arxiv.org/abs/1508.03519",
+          "material_read": "p. 13, OA offset 40274 and Corollary 3.4; p. 22, offset 63623",
+          "method": "OA text passages",
+          "title": "On the Voting Time of the Deterministic Majority Process",
+          "trigger": "Possibly stronger entry-time result"
+        },
+        {
+          "assessment": "Primary text not inspected; theorem as cited is an upper bound on periods",
+          "evidence": "No primary-paper census was inferred from the landing page.",
+          "identifier_or_url": "https://doi.org/10.1016/0012-365X(80)90121-1",
+          "material_read": "DOI landing page only; statement additionally checked in Benjamini et al., Theorem 1.1",
+          "method": "Lawful DOI retrieval and OA secondary theorem statement",
+          "title": "Periodic behaviour of generalized threshold functions",
+          "trigger": "Original symmetric threshold periodicity theorem"
+        },
+        {
+          "assessment": "Directed tournaments only",
+          "evidence": "Orders 3, 7, 11, 19 and directed periods beyond two.",
+          "identifier_or_url": "Resultary 13a06d889156",
+          "material_read": "Finding and Assumptions and scope, offsets 0–2201; Relationship to prior work, offset 6927",
+          "method": "Local catalogue mirror of RESULT.md",
+          "title": "A forbidden two-clock and the Paley-19 revival of majority oscillations",
+          "trigger": "Potential crossing Paley oscillation threshold result"
+        },
+        {
+          "assessment": "Different directed graph",
+          "evidence": "3,542 period-four orbits and ten-update cutoff at order 23.",
+          "identifier_or_url": "Resultary 200a56a85158",
+          "material_read": "Finding, offset 0",
+          "method": "Local catalogue mirror of RESULT.md",
+          "title": "Paley-23 majority: fourteen affine oscillator families and a sharp clock",
+          "trigger": "Related exact majority census"
+        },
+        {
+          "assessment": "Paley tournament and carousel comparison",
+          "evidence": "The order-23 overlap is directed; neither undirected graph in the frozen claim is covered.",
+          "identifier_or_url": "Resultary d6a7bd7d1f44",
+          "material_read": "Finding, offset 0",
+          "method": "Local catalogue mirror of RESULT.md",
+          "title": "Two degree-matched tournaments separate into exclusive four- and longer-period spectra",
+          "trigger": "Related same-day exact majority comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Paley-17 is the canonical maximal (4,4)-Ramsey example, and 13 is the preceding prime order in the undirected prime Paley family; comparison uses canonical objects rather than arbitrarily selected graphs. The exact spectra answer a meaningful finite dynamical question that a period bound does not answer: oscillations appear in one graph but not the other, yet the two have the same sharp transient length. The basin multiplicities distinguish the occurrence of oscillations from their exact reach under uniform initial data. These are usable finite invariants for comparing bounded-time and long-time behavior without claiming a family-wide phase transition.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

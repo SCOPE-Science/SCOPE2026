@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:02:00.728940Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (read, not executed)",
+        "Independent exact replay: python3 /workspace/audit_checks/check.py 4"
+      ],
+      "rationale": "Independently verified the certificate with degree-set arithmetic and direct polynomial remainders of t^j r, not the supplied shift recurrence. P=f^3 divides t^28+1, so reduction is a surjective intertwiner, and the four independent quotient rows pull back to the four stated length-28 rows and preserve codimension four. All 22 least representatives, orbit lengths and first kernel witnesses matched; the size histogram is {1:1,7:1,14:4,28:16} and exhausts 512 states. Each quotient orbit hits K, so a shift of each original vector lies in the preimage U. The union bound for 28 shifts gives 2^c<=28<32, establishing sharpness.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang–Shi Theorem 5 gives h_2(2p)=2 under odd-prime and primitive-root restrictions. Li–Yuan–Li–Zeng attribute h_2(21)=4 to Sun–Ma–Zeng. The latter paper's abstract says it solves some special lengths without specifying length 28 in the material accessed."
+        ],
+        "reasoning": "28 is not twice a prime. The reported exact value at 21 is not an applicable family theorem or certificate at 28. No verified broader theorem subsumes the claim.",
+        "searches": [
+          "arXiv:2607.24351, Theorem 5",
+          "arXiv:2602.04558v2, p. 3",
+          "doi:10.1016/j.ffa.2025.102625"
+        ]
+      },
+      "checked_sources": [
+        "Resultary and matching local mirror record",
+        "arXiv:1903.10613",
+        "arXiv:2607.24351",
+        "arXiv:2606.13307",
+        "arXiv:2602.04558v2",
+        "doi:10.1016/j.ffa.2025.102625 (abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior upper estimate already gives c<=4, but its listed companion result only reaches c=3. Neither the double-prime regime nor the known value at 21 supplies a length-28, rank-four covering witness."
+        ],
+        "reasoning": "Credit the known upper bound; the operative addition is an explicit codimension-four covering. No checked implication yields it.",
+        "searches": [
+          "arXiv:1903.10613, Table 1 (cites Theorems 2.1 and A.3)",
+          "arXiv:2607.24351, Theorem 5",
+          "arXiv:2602.04558v2, reported length-21 value"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wang–Shi treat cyclic-code criteria for covering subspaces, not the cyclic invariance of the covering subspace itself. The local prism record classifies parity kernels of closed neighborhoods on C_n square K_2, not a shift-covering extremum."
+        ],
+        "reasoning": "Recasting shifts as multiplication by t or checking related binary parity kernels does not make the statements equivalent; the prism result does not give shift coverage of all binary words.",
+        "searches": [
+          "Resultary semantic lookup for h_2(28) and binary cyclic-shift coverings",
+          "arXiv:2607.24351",
+          "Resultary 2026/11/2/SCOPE-parity-kernel-codes-of-cyclic-prisms-and-their-reed-muller-suppo--6f178222ad14"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Aaronson–Groenland–Johnston list (3,4) at n=28, cited to Theorems 2.1 and A.3. The Li–Yuan table has a length-28 value but is for h_5, not h_2. No exact binary match surfaced among the ranked indexed findings inspected."
+        ],
+        "reasoning": "The direct binary entry supplies a feasible interval, not the optimum, and changing the field is not an equivalence.",
+        "searches": [
+          "arXiv:1903.10613, Table 1, p. 36",
+          "arXiv:2606.13307, Table 1, p. 16",
+          "Resultary semantic lookup for exact binary cyclic covering codimension at 28"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the exact length-28 value and certificate. The direct binary table leaves a gap, and the strongest inspected nearby literature/indexed results do not give the missing lower bound. This is not a priority certification.",
+      "residual_risks": [
+        "Uninspected full text of Sun–Ma–Zeng (2025) could contain a special-length overlap; inspected abstract and later attribution do not settle that scope."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior interval, not an exact value",
+          "evidence": "n=28 is (3,4), with sources Theorems 2.1 and A.3.",
+          "identifier_or_url": "https://arxiv.org/abs/1903.10613",
+          "material_read": "Table 1 and caption, p. 36",
+          "method": "Public primary PDF, located and read table passage",
+          "title": "Cyclically covering subspaces in F_2^n",
+          "trigger": "Direct predecessor's binary small-length table"
+        },
+        {
+          "assessment": "Outside reported double-prime range",
+          "evidence": "The theorem requires n=2p for an odd prime p>=5 with 2 primitive modulo p.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.24351",
+          "material_read": "Theorem 5, p. 6",
+          "method": "Public primary PDF, theorem passage",
+          "title": "Cyclic codes and cyclically covering subspaces",
+          "trigger": "Same invariant and potentially overlapping exact-length family"
+        },
+        {
+          "assessment": "Different field",
+          "evidence": "The length-28 value 0 is in the h_5 table.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.13307",
+          "material_read": "Table 1, p. 16",
+          "method": "Public primary PDF, table passage",
+          "title": "Discrete Fourier Transform Approach to Cyclically Covering Subspaces of F_q^n",
+          "trigger": "A table with a length-28 entry"
+        },
+        {
+          "assessment": "Length-21 precedent, no implication to length 28 shown",
+          "evidence": "Reports Sun–Ma–Zeng's h_2(21)=4.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.04558",
+          "material_read": "v2, p. 3, known exact binary example",
+          "method": "Public primary PDF, localized passage",
+          "title": "On cyclically covering subspaces of F_q^n",
+          "trigger": "Recent binary literature and citation to Sun–Ma–Zeng"
+        },
+        {
+          "assessment": "Unresolved extent of special lengths; not credited as negative evidence",
+          "evidence": "The abstract does not enumerate those lengths; later citation specifically confirms 21.",
+          "identifier_or_url": "https://doi.org/10.1016/j.ffa.2025.102625",
+          "material_read": "Abstract; the article and PDF were not available through the attempted OA retrieval",
+          "method": "Public abstract and OA attempts; cross-checked the explicit later citation",
+          "title": "Cyclically covering subspaces of F_q^n",
+          "trigger": "Potentially overlapping primary work on exact binary special lengths"
+        },
+        {
+          "assessment": "Different action and invariant",
+          "evidence": "Dimensions and weight enumerators of a prism parity kernel do not assert coverage by its cyclic shifts.",
+          "identifier_or_url": "2026/11/2/SCOPE-parity-kernel-codes-of-cyclic-prisms-and-their-reed-muller-suppo--6f178222ad14",
+          "material_read": "RESULT.md finding on closed-neighborhood parity patterns",
+          "method": "Local mirror",
+          "title": "Parity kernel codes of cyclic prisms and their Reed–Muller support",
+          "trigger": "Nearby indexed binary-code result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:1903.10613, Table 1",
+        "Frozen RESULT.md, quotient proof and orbit certificate"
+      ],
+      "rationale": "Length 28 is an explicitly unresolved table entry of a standard covering invariant, not an arbitrary code slice. The equality resolves whether the counting upper bound is attainable at this length. A nine-dimensional orbit quotient gives a compact independently checkable witness for the full 28-dimensional covering.",
+      "residual_risks": [
+        "No general formula or classification of other length-28 covering spaces follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

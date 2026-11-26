@@ -1,0 +1,168 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:14:42.507220Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–54",
+        "Frozen VERIFICATION.md and check_minimizers.py (inspected, not executed)",
+        "Replay: python3 -B /workspace/reproductions/recheck.py 3"
+      ],
+      "rationale": "The orientation fixes the relative order of every opposite-part pair, so changes between topological orders can only permute labels within same-letter runs. An AB/BA swap after prefix counts (i,j) has cost difference Δφ(i)−Δφ(j), retaining all other indegrees. A prefix with A-surplus ≥2 has a future B; at the last A before the first such B the pre-pair surplus is ≥1 and the swap improves. A prefix with B-surplus ≥2 while an A remains similarly has a strictly improving BA swap at the first subsequent A. Consequently every even prefix of length ≤2m must have zero surplus in an optimum: a negative even surplus there cannot occur after all m A's, and positive even surplus is excluded globally. Thus each pair is balanced and all excess B's trail. Each tile starting at (j,j) contributes {j,j+1}; the tail contributes t copies of m, giving the stated value and multiset. Each improving exchange is an integer balancing transfer, terminates by strict decrease of sum of squares, and certifies majorization, so convex costs with flat increments may have extra ties but cannot undercut the tiled words. The multiplicity per word divides m!(m+t)! by its run factorials: a tile change creates one length-2 run and no length-3 run can arise except from the tail; the final run factors are t! and (t+1)!, with 0!=1. The weighted change count at a fixed final tile is (1+1/2)^(m−1), proving the formula including m=1 and t=0. The independent Boolean-row enumeration used nesting (equivalent to no directed 4-cycle, hence no cycle because a longer shortest cycle would have a chord). It checked all 13 packaged sizes, 104334 assignments and 13638 acyclic orientations: every indegree vector dominates the target for every hinge, and equality for all hinges selects exactly the labelled tile-generated masks. The computed counts at (2,3) and (3,3) were 27 and 162.",
+      "residual_risks": [
+        "Finite rows corroborate, not prove, the unrestricted exchange and run-count argument. The cost must be common across vertices, and strict convexity is required for the exact optimizer set."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Borsik–Madarasi study the same general objective and show that dec-min and inc-max can differ under acyclicity and that convex optima can depend on the cost.",
+          "Borradaile et al. treat acyclic maximum indegree and hardness of acyclic lexicographic minimization."
+        ],
+        "reasoning": "These bounds, algorithms and obstructions do not yield all universal minimizers or the weighted labelled count in the biclique case. In particular, the corresponding unconstrained fairness principles are not a broader universal acyclic theorem.",
+        "searches": [
+          "arXiv:2509.06182v2, abstract and §5.1",
+          "arXiv:1212.2178, abstract and §1.1",
+          "Web lookup: biclique acyclic indegree convex optimization and alternating orientations"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2509.06182v2",
+        "West aobip.pdf",
+        "arXiv:1412.3685",
+        "arXiv:1103.4884",
+        "arXiv:1212.2178",
+        "Resultary 6d8ac156470a, 361e3944de6f, ae804bc7c076"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "West has the canonical blocks, but his main criterion concerns independently reversible edges. The all-orientation Stirling count sums unrestricted block partitions, not the weights on balanced tiles.",
+          "The frozen exchange identifies the strict side-dependent convex improvements and the count uses a size-2 run weighting conditioned on the final tile."
+        ],
+        "reasoning": "The normal form is an important premise, not a new result here. To get the claimed specialization still requires the optimizing exchange, its all-cost majorization consequence, and a distinct weighted sum over the surviving words.",
+        "searches": [
+          "West pp. 395–396, Lemma 3 and Theorem 1",
+          "arXiv:2509.06182v2 §5.1",
+          "arXiv:1412.3685 §§3.1 and 3.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "West's Lemma 3 gives the exhaustive alternating-block form for all acyclic biclique orientations. Cameron et al. Thm. 3.5 gives the lonesum matrix correspondence; Kim–Krotov–Lee p. 1 count all binary lonesum matrices."
+        ],
+        "reasoning": "In the lonesum formulation the target is the best joint multiset of row sums and complemented column sums and the number of matrices realizing it. Neither all-matrix enumerations nor alternating-run admissibility alone determine this filtered subfamily. A lexicographic or minimax orientation need not minimize every convex sum.",
+        "searches": [
+          "Resultary: K_{a,b} convex indegree acyclic optimum, joint majorization minimum, alternating tile-word counts",
+          "arXiv:1412.3685 §3.3",
+          "arXiv:1103.4884",
+          "West, aobip.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact poly-Bernoulli sum counts 46 and 230 total orientations at (2,3) and (3,3), not the convex subsets 27 and 162.",
+          "361e3944de6f counts/characterizes parity signatures, and 6d8ac156470a concerns coefficientwise one-point types on K_{3,b} without the target objective and acyclicity. The same-date ae804bc7c076 treats binary edge weightings, not orientation minimizers."
+        ],
+        "reasoning": "The checked exact counts refer to different populations or objectives. No statement-level match for the exact optimizer count arose in the bounded comparison; numerical coincidences would not suffice.",
+        "searches": [
+          "Resultary: exact labelled tiled optimizer count m!(m+t)!(3/2)^(m−1)(1/t!+1/(t+1)!)",
+          "arXiv:1412.3685 §3.1 Thm. 3.1",
+          "Resultary: K_{a,b} acyclic indegree signatures and biclique extremality"
+        ]
+      },
+      "rationale": "Credit West's exhaustive alternating-block representation and the earlier total orientation counts. The distinct supported claim is the simultaneous strict-convex minimizer class, least-majorized multiset, and exact filtered count over all bicliques. The strongest checked general optimization statements do not establish a least-majorized acyclic orientation in general; the matching biclique statements encode or enumerate the whole orientation class, not this optimizer subset.",
+      "residual_risks": [
+        "An unindexed margin-restricted lonesum enumeration or biclique optimization statement might overlap. The inspected statement comparison does not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same optimization problem, not the explicit universal biclique theorem in checked passages",
+          "evidence": "Connected simple graph hardness and cost dependence under acyclicity.",
+          "identifier_or_url": "arXiv:2509.06182v2",
+          "material_read": "p. 1 abstract and §5.1 p. 30, offsets 0 and 142600",
+          "method": "OA primary PDF passages",
+          "title": "Separable convex optimization over indegree polytopes",
+          "trigger": "Same general objective and possible dominating theorem"
+        },
+        {
+          "assessment": "Exhaustive block-form antecedent; different extremal statistic",
+          "evidence": "Every acyclic orientation arises from alternating blocks; the main result concerns numbers of independently reversible edges.",
+          "identifier_or_url": "https://dwest.web.illinois.edu/pubs/aobip.pdf",
+          "material_read": "pp. 395–396, Lemma 3 and Theorem 1; offsets 4050 and 6550",
+          "method": "OA primary PDF passages",
+          "title": "Acyclic orientations of complete bipartite graphs",
+          "trigger": "Exact graph class and canonical form"
+        },
+        {
+          "assessment": "Total count and coding, not optimized count",
+          "evidence": "Stirling sum of all orientations and forbidden checkerboard lonesum characterization.",
+          "identifier_or_url": "arXiv:1412.3685",
+          "material_read": "§3.1 Thm. 3.1 and interval proof pp. 5–6, §3.3 Thm. 3.5 p. 7, offsets 10000 and 14800",
+          "method": "OA primary PDF passages",
+          "title": "Acyclic orientations and poly-Bernoulli numbers",
+          "trigger": "Exact all-size counts and lonesum equivalence"
+        },
+        {
+          "assessment": "The checked total count does not specify the optimizing margins",
+          "evidence": "Enumeration of binary lonesum matrices by poly-Bernoulli numbers.",
+          "identifier_or_url": "arXiv:1103.4884",
+          "material_read": "p. 1, offset 0",
+          "method": "OA primary PDF passage",
+          "title": "Poly-Bernoulli numbers and lonesum matrices",
+          "trigger": "Equivalent matrix counting formulation"
+        },
+        {
+          "assessment": "Different acyclic objectives in checked statements",
+          "evidence": "Maximum-indegree algorithm and acyclic lexicographic hardness.",
+          "identifier_or_url": "arXiv:1212.2178",
+          "material_read": "Abstract and §1.1 p. 4, offsets 0 and 9100",
+          "method": "OA primary PDF passages",
+          "title": "Egalitarian Graph Orientations",
+          "trigger": "Potential universal indegree balancing antecedent"
+        },
+        {
+          "assessment": "Different objective and no imposed acyclicity in the comparison",
+          "evidence": "Coefficientwise one-point-type objective.",
+          "identifier_or_url": "2026/11/22/SCOPE-coefficientwise-extremality-and-mod-six-balanced-orientations-of--6d8ac156470a/RESULT.md",
+          "material_read": "Finding and objective",
+          "method": "Resultary and bounded local mirror read",
+          "title": "Coefficientwise extremality and mod-six balanced orientations",
+          "trigger": "Exact counted optima on K_{3,b}"
+        },
+        {
+          "assessment": "Parities do not imply optimal indegree multisets or multiplicities",
+          "evidence": "Feasibility and counting of indegree-parity signatures.",
+          "identifier_or_url": "2026/11/8/SCOPE-a-parity-complete-characterization-of-acyclic-orientations-of-co--361e3944de6f/RESULT.md",
+          "material_read": "Finding",
+          "method": "Resultary and bounded local mirror read",
+          "title": "A parity-complete characterization of acyclic orientations",
+          "trigger": "Acyclic biclique indegrees"
+        },
+        {
+          "assessment": "Different objects and constrained statistic",
+          "evidence": "Minimum-support binary edge weightings with star-union minimizers.",
+          "identifier_or_url": "2026/10/18/SCOPE-sparse-and-nearly-complete-binary-vertex-colouring-edge-weightin--ae804bc7c076/RESULT.md",
+          "material_read": "Finding",
+          "method": "Resultary and bounded local mirror read",
+          "title": "Sparse and nearly complete binary vertex-colouring edge weightings",
+          "trigger": "Same-date biclique extremal classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and exchange/count arguments",
+        "Borsik–Madarasi §5.1 and West Lemma 3 for context"
+      ],
+      "rationale": "This resolves a natural unbounded graph family for a general acyclic convex optimization problem where the optimizer can otherwise depend on the cost. It gives the common optimizer set, a certificate by balancing transfers, and the exact number of distinct optimal orientations rather than orders or all orientations. The simultaneous hinge/majorization bound is a usable strengthening of one-off quadratic optimization.",
+      "residual_risks": [
+        "No claim of an algorithm or universal convex optimizer for arbitrary bipartite graphs, or of uniqueness for merely convex costs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The defined Markov transition semantics is exact-real polynomial evaluation followed by one unbiased stochastic rounding, with positive probabilities on its one/two bracket outputs. The companion standard-library checker enumerates all \(15{,}361\) binary16 states with exact fractions, constructs all \(30{,}623\) positive-probability edges, and exhaustively computes SCCs and directed reachability: exactly two terminal singleton SCCs, \(0\) and \(3/4\), with exact reachability partition. Standard finite-Markov-chain recurrence proves almost-sure absorption. Proof is limited to this explicitly defined arithmetic semantics; finite graph exploration suffices because the state space is fully exhausted.
+PASS
 
-## Originality — PASS, subject to identified priority risk
+The support graph exactly represents the stipulated single stochastic rounding: an exact binary16 output has probability 1, otherwise both bracketing states have strictly positive probability. Independently enumerating scaled integers in units 2^-24 and finding the bracket by the local binary16 spacing reproduces all 15,361 states and 30,623 arcs and the transition SHA-256 94b900c38f4dfb6e88c690e7cdead1540bce5d3836c0daa46b0534d0b89c2917. The forward/backward reachability intersection at code 0x3a01 is one 1,746-state SCC; deleting it and ignoring singleton self-loops leaves an acyclic graph by a topological elimination, giving 13,616 SCCs total. This large SCC has an exit, and the only closed singleton classes are 0 and 3/4. Reverse walks give reachability sizes 15,359 and 46 with intersection 44, and only 1/4 and 3/4 reach 3/4 alone. The maximum shortest distance is 23 at seven states. An independent exact rational Tarjan computation agreed. To infer finite-time absorption, every start has a path of at most 23 arcs to a sink, so the smallest positive transition probability gives a uniform positive chance of absorption in each 23-step block, conditional on the start of the block. Every reachable absorber has positive hitting probability, giving the claimed partition. Replay: python3 /workspace/reproductions/binary16_logistic.py. The supplied verify.py was inspected, not run.
 
-Klöwer et al., *Periodic orbits in chaotic systems simulated at low precision* (initially public 8 November 2022; peer-reviewed 2023) empirically document transient benefits of stochastic rounding and mention Bernoulli-map stochastic collapse, but do not state the exact two-absorber stochastic logistic \(r=4\) theorem. Related deterministic binary16 logistic census covers a different, one-output functional graph, so it implies neither the two absorbing recurrent classes nor the mixed stochastic absorption partition. Targeted published-record and literature searches revealed no equivalent classification. The search is not a proof of global historical uniqueness. Primary-source arithmetic-order differences prevent treating their implementation as identical to the explicitly defined one-rounding model.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The fixed parameter \(r=4\), IEEE binary16, and ideal unbiased stochastic rounding are canonical rather than arbitrary slices. The complete result resolves a motivated question left open by simulation-based demonstrations: whether stochastic rounding preserves nonperiodic behavior indefinitely. It shows almost-sure fixed-point absorption, and identifies the exact reachability partition, thus distinguishing short-run accuracy improvements from long-time recurrent structure. This is a natural complete finite-state classification; no general theorem beyond the specified arithmetic semantics is claimed.
+The supported distinct claim is the exhaustive recurrent-class and basin-reachability classification of the nonuniform IEEE binary16 chain with exact polynomial evaluation then ideal stochastic rounding once. Inspected logistic-map experiments, the uniform-grid stochastic classification, and the deterministic binary16 census do not give this classification. This is an assessment on the checked evidence, not a claim of priority or a general theorem about stochastic rounding.
 
-## Closest literature and boundaries
+## value
 
-The 2022/2023 Klöwer–Coveney–Paxton–Palmer work contains the same base logistic polynomial and both deterministic and stochastic rounding, but provides qualitative or experimentally observed effects, not this graph's exact recurrent classes. A prior deterministic binary16 orbit census is scientifically related but does not imply the stochastic result. A possible unpublished equivalent graph computation and intermediate-operation convention differences remain residual priority and applicability risks. Independent mathematical audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a complete natural-format support census motivated by the distinction between numerical recovery of finite-time chaotic behavior and the true infinite-horizon law. The two sinks and the exact mixed-outcome partition quantify that failure of indefinite nonperiodicity, even without deterministic rounding or a finite random-number period. They also distinguish near-universal certain fixation at zero from the blanket claim that every start fixes at zero.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

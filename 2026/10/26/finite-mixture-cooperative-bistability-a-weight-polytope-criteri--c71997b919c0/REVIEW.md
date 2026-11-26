@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The payoff response is the finite weighted average of the published class-wise geometric-return payoff differences. Its second derivative is nonnegative throughout the physical interval and strictly positive whenever a genuinely nonlinear class has positive weight. The proof establishes the root ceiling, exact necessary-and-sufficient endpoint slope criterion, full stability sign pattern, mixing-weight feasibility criterion, and positive quadratic onset coefficient, including the rational three-order example. `verify.py` passed 1,555 exact-arithmetic consistency assertions. None of the finite checks is treated as proof for arbitrary mixture size.
+## correctness
 
-## Originality — PASS, subject to priority risk
-The closest primary work is Llabrés et al. (2026), Sections III.2 and Appendix A, which treats two interaction orders and displays a pairwise/triplewise bifurcation diagram. Peña (2012) analyzes variable group sizes under a common nonlinear rule; Zhu et al. (2024) treats stochastic synergy versus discounting at fixed group size. Archetti (2018) develops general Bernstein analysis rather than this mixture's explicit linear-weight feasibility and quadratic onset coefficient. A search for implications, aliases and stronger results did not identify a result simultaneously treating arbitrarily many classes with independent nonlinearities, the exact weight halfspaces, and the quadratic boundary coefficient. The underlying convexity and Taylor arguments are standard; independent derivation and unindexed-literature risks remain.
+PASS
 
-## Mathematical value — PASS
-In empirically heterogeneous group interactions, mixing two orders is a restrictive idealization. The result states exactly which probability mixes can support an attracting active population *and* a stable all-cooperative population, shows this mechanism cannot create more complicated interior fixed-point multiplicity as interaction types proliferate, and quantifies the smallness of the resulting benefit-to-cost window near the critical mixture boundary. The strict rational three-order example demonstrates that the quadratic law is realized in a genuinely multi-order model, rather than merely a formal limiting expansion of pairwise/triplewise dynamics.
+The frozen iff for two distinct interior fixed points was false as written: two n=2 classes with δ=1/2 and 3/2 at equal weights give H≡1/2 and A=B=0; at r=2 every point is fixed. The repair consistently requires two isolated equilibria and explains the affine and continuum cases. Each active nonlinear class contributes strictly positive curvature throughout the interval; otherwise H is affine. For strict convexity the endpoint slopes characterize the interior minimum, and the line 1/r must be strictly between that minimum and both endpoint values. The +,−,+ drift supplies the two attractors and two repellers. An opposite-slope pair with exponent factors u≤1≤v has a feasible weight ratio exactly when u<v, which holds if either chosen class has size at least three. The repair identifies z(t) as the saddle-node location, not the stable branch itself. The implicit function theorem gives z=κt/c+O(t²) and Taylor expansion gives H_t(0)−H_t(z)=κ²t²/(2c)+O(t³); the product of the two positive H-values gives the inverse-threshold coefficient. Reflection gives the right-end formula with positive right-slope speed. Independent exact expansion of the three-class witness gives A=−11t/12, B=905/2816−19t/12, H₀(0)=31/88 and c=251/704, yielding 20614528/2170899 exactly. The proof covers general parameters; the supplied finite script was inspected, not executed.
 
-## Limits
-The result is restricted to the specified finite exogenous class mixture, the common benefit-to-cost ratio, the deterministic well-mixed replicator equation, and strict (nondegenerate) bifurcation inequalities. It neither establishes structured-population dynamics nor asserts novelty beyond the inspected literature. No independent scientific audit has been carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The repaired contribution is the exact weight-space feasibility classification and the quantitative width law for the deterministic arbitrary-class mixture, not convexity or the two-order root ceiling in isolation. The strongest inspected counterparts include a two-order phase analysis and same-day arbitrary-size finite-population discrete convexity with a binomial limit. These cover important ingredients but not the retained combined classification and onset law.
+
+## value
+
+PASS
+
+The exact weight criterion permits deciding from class parameters whether any mixture, including one with all classes active, can support two attracting outcomes, without sweeping r or solving high-degree equations. The opening width and its coefficient quantify how much parameter room for cooperative bistability is gained on crossing the feasibility boundary. Correcting the continuum case makes this a usable classification of isolated states; generic convexity alone is not the asserted contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

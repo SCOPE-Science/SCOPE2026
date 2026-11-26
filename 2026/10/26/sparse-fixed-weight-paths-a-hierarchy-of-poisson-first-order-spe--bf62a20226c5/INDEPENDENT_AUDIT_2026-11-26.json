@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:00:09.752451Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–40",
+        "Frozen VERIFICATION.md, lines 19–27; check_sparse_words.py, finite hypergeometric and moment calculations"
+      ],
+      "rationale": "In uniform fixed-cardinality sampling, a specified v-site union has inclusion probability (k_n)_v/(n)_v, asymptotic to c^v n^(-v/r) at the critical scale. In a fixed mixed factorial moment of h occurrences, the g connected overlap components have O(n^g) placements since each pattern has bounded span. Distinct normalized patterns and distinct starts cannot be the same site set; every nonsingleton component therefore contains at least r+1 sites. Such terms vanish; the disjoint selections contribute (c^r)^h. All mixed moments converge and the independent Poisson law has a moment generating function near the origin, giving joint convergence. For each feasible interior radius-R type with s<r marks, positive-pattern counts have variance at most the mean plus O(n(k_n/n)^(s+1)): disjoint required sets are negatively correlated and only O(n) distinct placements overlap. Specifying zeros removes o(mean) occurrences in probability. The zero-mark case follows from the same first-moment removal bound with deterministic positive-only count. Types with s>r are absent with high probability. For exactly r marks, a type fixes the normalized shape and the root offset; loss through extra marks or a boundary cut has probability o(1). End windows are unmarked with high probability and their truncated counts stabilize. Effective bounded-degree Hanf locality then reduces each sentence to a finite Boolean rule on truncated pattern counts; finite integer atoms converge and the corresponding Poisson probabilities are finite symbolic combinations of masses and tail complements. Conversely any finite Boolean rule on specified exact counts is expressible by bounded successor chains and exact-count sentences. For density, the largest atom of d independent zero-count bits tends to zero. Off-critical regular powers yield vanishing or diverging n(k_n/n)^s for every fixed positive s, so all the truncated local counts stabilize in probability. The proof requires fixed sentence, radius and pattern span, and no global order. The frozen checker was read but not run; it tests finite moment identities, not the limit or locality arguments.",
+      "residual_risks": [
+        "Effective symbolic evaluation does not assume arbitrary real c is computable as a real number; the result supplies an expression in c."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.1 gives a Bernoulli circular-order zero-one law when np^m diverges and np^(m+1) tends to zero; Theorem 1.2's converse tests a consecutive run at p~c n^(-1/m).",
+          "STACS 1998 characterizes limiting sentence probabilities at r=2 in a stronger vocabulary, and the 1997 result is at p=c/n."
+        ],
+        "reasoning": "A stronger vocabulary can transfer convergence to an actually definable reduct of the same law, but it cannot supply equality with the successor-only spectrum, and the accessible critical-law theorems treat different marking scales or laws. The Bernoulli critical-power locations and off-critical background are credited.",
+        "searches": [
+          "Shelah–Spencer, Random Sparse Unary Predicates, pp. 377–378, Theorems 1.1–1.2",
+          "Spencer–St. John, STACS 1998, globally ordered critical law",
+          "St. John, EJC 1997, sparse globally ordered law"
+        ]
+      },
+      "checked_sources": [
+        "Shelah–Spencer (1994), Theorems 1.1–1.2",
+        "Spencer–St. John (1998), Theorems 1–3",
+        "St. John (1997), pp. 1–2",
+        "Resultary b5d6aa1e2e12 catalogue entry",
+        "Frozen RESULT.md, lines 25–49"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The critical-run test already supplies nontrivial critical events in the Bernoulli model. Conditioning an unconditional FO probability on exact weight is not an identity for that limit; the unconditional probability averages across weights.",
+          "The fixed-weight proof uses a hypergeometric expansion for arbitrary mixed moments and a two-way passage between Hanf local rules and exact-count sentences."
+        ],
+        "reasoning": "A transfer is plausible for local patterns (e.g. monotone sandwiches of their counts at nearby weights and saturation of other local types), so fixed weight alone is not claimed to be intrinsically hard. But the known r=2/critical-run statements do not supply the joint higher-r law and the exact converse FO realization by any direct specialization.",
+        "searches": [
+          "Compare Shelah–Spencer Theorems 1.1–1.2 and Spencer–St. John Theorems 1–3 to frozen RESULT.md Steps 1–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fixed weight is the conditional Bernoulli law at a specified count, and normalized increasing offsets are equivalent to successive positive gaps.",
+          "Spencer–St. John's distance sequences capture bounded gaps at p of order n^(-1/2), in the globally ordered Bernoulli model. Shelah–Spencer use runs of k consecutive marks to identify all reciprocal critical powers."
+        ],
+        "reasoning": "Compare the same critical powers after converting p to expected weight np and the same local mark geometry under the gap parametrization. The critical-run witness or the r=2 rare-pair law does not specify independent counts of all distinct r>=3 gap patterns or realize the exact spectrum at those powers.",
+        "searches": [
+          "Resultary: sparse fixed-weight successor paths, Poisson local patterns and first-order spectra",
+          "Spencer–St. John, STACS 1998, Theorems 1–3 and distance sequences",
+          "Shelah–Spencer 1994, Theorem 1.2 and proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary b5d6aa1e2e12 summary describes independent Poisson short gaps in fixed-weight words at the square-root scale, determining fixed-length overlapping read frequencies and matching probabilities. Its exact RESULT passage could not be retrieved from the local mirror."
+        ],
+        "reasoning": "The relevant exact object is a classification of all attainable FO probabilities, not a table of one-pattern expectations or read frequencies. The observed entry overlaps in sampling and first-collision mechanism; its accessible statement does not show the r>=3 exact FO classification. The inaccessible record is not evidence of noncoverage by its full text.",
+        "searches": [
+          "Resultary: fixed-weight word/read spectra; Poisson gap patterns and successor-only logical limits"
+        ]
+      },
+      "rationale": "The reciprocal critical powers and failure of an off-critical-style zero-one law at those powers are not new in Bernoulli unary-predicate logic. The identified results do not give the exact countable dense spectrum, jointly independent normalized r-pattern coordinates, and fixed-weight successor-only classification at r>=3. The closest Resultary hit is at the square-root scale and concerns finite read statistics; only its indexed summary was accessible.",
+      "residual_risks": [
+        "The closest indexed read-spectrum record was not available beyond its summary. Unidentified higher-threshold Bernoulli or conditional results could supply stronger antecedents; no priority certification is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial overlap on the phase locations and Bernoulli off-critical zero-one law; the proof of the critical obstruction is not the exact spectrum",
+          "evidence": "Example A_k tests k consecutive marks; at p~c n^(-1/k) its probability tends to an interior probability. The off-critical theorem uses circular order and product sampling.",
+          "identifier_or_url": "https://shelah.logic.at/files/95813/432.pdf",
+          "material_read": "Theorems 1.1–1.2 and critical-run proof, pp. 377–378, PDF extraction offsets 4800–9538",
+          "method": "OA PDF passage inspection",
+          "title": "Random Sparse Unary Predicates",
+          "trigger": "Closest classification of all critical powers and off-critical Bernoulli regimes"
+        },
+        {
+          "assessment": "Close r=2 precedent, not an r>=3 fixed-slice successor-only spectrum",
+          "evidence": "Global linear order and independent Bernoulli marks with p of order n^(-1/2); classification of limiting sentence probabilities via rare pairs and ordered configurations.",
+          "identifier_or_url": "https://stjohn.github.io/research/stacs98.pdf",
+          "material_read": "Abstract/introduction, pp. 1–2, offsets 0–3587; Theorems 1–3 and distance sequences, pp. 2–3, offsets 4762–11244",
+          "method": "OA PDF passage inspection",
+          "title": "Random Sparse Bit Strings at the Threshold of Adjacency",
+          "trigger": "Rare-gap mechanism and FO probability classification at first collision"
+        },
+        {
+          "assessment": "Different critical power, law and language",
+          "evidence": "Uses independently marked globally linearly ordered words at p=c/n.",
+          "identifier_or_url": "https://stjohn.github.io/research/ejc97.pdf",
+          "material_read": "PDF pp. 1–2, offsets 0–3587",
+          "method": "OA PDF passage inspection",
+          "title": "Limit Probabilities for Random Sparse Bit Strings",
+          "trigger": "Earlier published FO probability calculation for sparse marked words"
+        },
+        {
+          "assessment": "Summary indicates square-root read-spectrum statistics; exact full-text relationship unresolved",
+          "evidence": "Indexed claim concerns short-gap Poisson counts determining overlapping fixed-length reads and matching probabilities at the first-collision scale.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-poisson-read-spectrum-phase-transition-in-sparse-fixed-weight--b5d6aa1e2e12",
+          "material_read": "Local catalogue summary; local-mirror full-text retrieval unavailable",
+          "method": "Resultary search and local mirror attempt",
+          "title": "A Poisson read-spectrum phase transition in sparse fixed-weight words",
+          "trigger": "Same fixed-weight marking model and Poisson local-gap statistics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Steps 1–5",
+        "Shelah–Spencer (1994), critical-run witness and off-critical theorem",
+        "Spencer–St. John (1998), r=2 critical law"
+      ],
+      "rationale": "The result classifies precisely what fixed-radius first-order sentences can detect at each higher collision power. It identifies independent limiting coordinates and proves both inclusion and realizability for the exact set of probabilities, explaining how a countable spectrum is still dense. This is more informative than the previously known existence of a rare-run obstruction or proof that probabilities converge.",
+      "residual_risks": [
+        "Locality-based symbolic computability does not yield efficient complexity bounds or a global-order result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

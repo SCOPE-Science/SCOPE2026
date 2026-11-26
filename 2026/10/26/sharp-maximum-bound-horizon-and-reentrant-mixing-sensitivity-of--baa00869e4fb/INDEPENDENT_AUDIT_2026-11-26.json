@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:39:57.701160Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof §§1–5; VERIFICATION.md and verify_etd1_complete_graph.py (inspected only)",
+        "Independent replay: /workspace/review_evidence/frozen_review_replay.py, section 5; symbolic h'(y) factor and 60-digit maximizing input, overshoot and onset coefficient for n=2, gamma=6. At h=0.45 the exact row maximum is about 1.001440901772698."
+      ],
+      "rationale": "The mean projector diagonalizes Q into the constant and mean-zero spaces, giving positive diagonal/off-diagonal semigroup coefficients p and their integrals k. In each row the independent input coordinates maximize odd cubics g(v)=pv+k(v-v^3). These have maximum p iff 2k<=p and otherwise attain the printed interior maximum. Since the p row sum is one, the two coefficient tests are both necessary and sufficient. The off-diagonal test holds strictly for h<=1/2 by increase of p_o(s); the diagonal test has a unique crossing below 1/2 since k_d grows and p_d decreases. Constant vectors rule out larger steps. With v=1-epsilon the excess is (2k-p)epsilon-3k epsilon^2+k epsilon^3; maximizing yields the claimed quadratic coefficient once k_d'=p_d is used. In the parameter y=gamma h_*, gamma(y) strictly increases from zero to infinity, and h'(y) has the sign of H_a(y). Its third derivative is positive, H_a'' starts negative and all three lower derivatives/functions ultimately grow with the positive exponential; thus there is one positive zero of H_a and one minimum in gamma. Expanding the threshold equation gives the two fixed-dimension endpoint expansions, and dividing by n-1 and using the strict scalar limiting root gives the large-dimension limit.",
+      "residual_risks": [
+        "Mixing reentrance is at fixed intermediate h as gamma varies, not a return to preservation at larger h for fixed gamma. The diagonal-only overshoot expression holds through h=1/2; the general two-coefficient maximum expression applies also at larger h. Finite replay is not a proof of all-parameter behavior."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Du–Ju–Li–Qiao give unconditional maximum bounds for stabilized ETD1 and ETDRK2 in the nonlocal example and a general framework. The latter requires kappa>=max_{|xi|<=beta}|f_0'(xi)| as a sufficient choice."
+        ],
+        "reasoning": "Choosing kappa=0 is outside those stabilization conditions for f_0(v)=v-v^3 on [-1,1]. The sufficient operator maximum-bound result cannot be specialized to the sharp finite cutoff or extremal overshoot of the unshifted method.",
+        "searches": [
+          "arXiv:1902.04998, Theorems 3.4–3.5",
+          "arXiv:2005.11465, stabilized formulation and Theorems 3.1–3.2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and its prior-work discussion",
+        "arXiv:1902.04998",
+        "arXiv:2005.11465",
+        "Resultary SCOPE-1bac0d84d1ed",
+        "DOI:10.1007/s10543-005-7141-8 (identification only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The accessible stabilization results give unconditional guarantees for shifted methods, without the individual cubic coefficient optimization or derivative sign analysis as mixing varies. The identified 2005 full text was not obtained through DOI/OA attempts or a focused lookup for an accessible copy."
+        ],
+        "reasoning": "A stabilized maximum-bound proof does not yield the required necessary conditions for the other split. In the frozen map, the diagonal and off-diagonal coefficients behave oppositely and the exact scalar maximum provides a sharp witness. The unresolved older source is not used for any positive or negative claim about its contents.",
+        "searches": [
+          "arXiv:1902.04998 and arXiv:2005.11465 maximum-bound preservation proofs/theorems",
+          "Du–Zhu 2005, exact title and DOI 10.1007/s10543-005-7141-8 full-text lookup"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2019 paper uses L_h=-epsilon^2 D_h+kappa I and nonlinear part (kappa+1)U-U^3. The closest indexed threshold hit SCOPE-1bac0d84d1ed concerns a Heun step on a linear diffusion equation on regularized multipartite graphs."
+        ],
+        "reasoning": "The shifted split integrates a different linear operator and freezes a different reaction than the frozen unshifted map. The indexed Heun threshold concerns a different integrator and operator, with no cubic reaction or mixing optimum.",
+        "searches": [
+          "Resultary searches for sharp Allen–Cahn maximum-bound step restrictions, unstabilized ETD1 on a complete graph, and mixing reentrance/overshoot",
+          "arXiv:1902.04998, shifted definition and Theorem 3.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected papers and indexed result give different max-bound/positivity regimes, not an exact table or formula for this dependent horizon."
+        ],
+        "reasoning": "A database lookup for a finite sequence is not naturally applicable to a continuum of mixing rates and steps. The relevant exact formulas for adjacent problems were compared by map and assumptions rather than by a numerical threshold coincidence.",
+        "searches": [
+          "Resultary searches for the paired n,gamma sharp step and exact mixing minimum",
+          "arXiv:1902.04998 Theorem 3.4 and closest Resultary threshold hit SCOPE-1bac0d84d1ed"
+        ]
+      },
+      "rationale": "The original ETD1 formula and the maximum-bound results for stabilized splits are not claimed as new. The supported distinct result solves the exact all-input cube optimization for the unshifted complete-graph cubic map and gives its sharp horizon, unique interior mixing minimum and overshoot onset. The relevant published comparison theorems use a different split; the unread 2005 paper remains a named risk, not evidence of noncoverage.",
+      "residual_risks": [
+        "An earlier sharp unshifted Allen–Cahn result in the unread Du–Zhu paper or under other terminology is not excluded. Ranked corpus and accessible literature comparisons are limited."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Unconditional preservation for stabilized maps, not the frozen map",
+          "evidence": "L_h=-epsilon^2 D_h+kappa I, f=(kappa+1)U-U^3; Theorem 3.4 with kappa>=2 allows every tau>0.",
+          "identifier_or_url": "https://arxiv.org/abs/1902.04998",
+          "material_read": "PDF p. 6 offset 21174, shifted split; p. 9 offset 29600 and Theorems 3.4–3.5",
+          "method": "OA PDF passages",
+          "title": "Maximum principle preserving exponential time differencing schemes for the nonlocal Allen–Cahn equation",
+          "trigger": "Same reaction and exponential step in the nearest cited maximum-bound result"
+        },
+        {
+          "assessment": "General sufficient conditions for a stabilized split",
+          "evidence": "Uses u_t+kappa u=Lu+N[u] and N=kappa I+f, with kappa bounded below by the maximal absolute scalar reaction derivative on the interval.",
+          "identifier_or_url": "https://arxiv.org/abs/2005.11465",
+          "material_read": "PDF pp. 6–7 offset 26100 and pp. 18–19 offsets 67800–71792, Theorems 3.1–3.2",
+          "method": "OA PDF passages",
+          "title": "Maximum bound principles for a class of semilinear parabolic equations and exponential time differencing schemes",
+          "trigger": "Broader general maximum-bound theory for ETD1 and ETDRK2"
+        },
+        {
+          "assessment": "Thematic analogy, different map and property",
+          "evidence": "A Heun linear diffusion positivity cutoff is not an invariant-cube cutoff for exponential Euler with cubic Allen–Cahn reaction.",
+          "identifier_or_url": "Resultary SCOPE-1bac0d84d1ed",
+          "material_read": "RESULT.md, exact finding on linear heat operators on extended multipartite graphs",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A sharp maximum-principle phase boundary for Heun diffusion",
+          "trigger": "Most similar indexed sharp diffusion-step bound among the returned hits"
+        },
+        {
+          "assessment": "Access unresolved; no verdict about its coverage",
+          "evidence": "DOI recovery did not produce a readable repository copy, landing-page retrieval did not reach full text, and the additional exact-title lookup returned no candidate.",
+          "identifier_or_url": "https://doi.org/10.1007/s10543-005-7141-8",
+          "material_read": "Bibliographical identification only; no full-text theorem or passage obtained",
+          "method": "DOI/OA retrieval and focused exact-title/DOI literature lookup for an accessible copy",
+          "title": "Analysis and applications of the exponential time differencing schemes and their contour integration modifications",
+          "trigger": "Older closely related ETD and Allen–Cahn source cited in the finding"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, extremal formula, optimal-mixing analysis and limits",
+        "arXiv:1902.04998 stabilized comparison"
+      ],
+      "rationale": "The exact Allen–Cahn flow preserves a canonical physical cube. A sharp all-input time-step bound for the standard unshifted method is useful even on the idealized complete graph. The unique intermediate mixing minimum and explicit maximizing witnesses show why stronger mixing need not monotonically aid cube preservation, and the quadratic onset quantifies the size of the worst violation.",
+      "residual_risks": [
+        "No implication for arbitrary weighted graphs, other reactions, shifted ETD schemes, energy monotonicity, or typical-trajectory error."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

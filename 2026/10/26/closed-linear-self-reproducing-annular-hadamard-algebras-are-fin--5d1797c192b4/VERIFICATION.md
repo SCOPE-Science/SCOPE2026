@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification scope
+# Independent mathematical audit
 
-This is a proof-based result: no finite enumeration, numerical experiment, timeout, or external certificate is used as evidence for an infinite-dimensional assertion. The Laurent coefficient inequality is obtained by Cauchy integration at both reciprocal radii. Arbitrarily many actual Hadamard factors give analytic extensions to all widths. The continuation operator has a closed graph in the two Fréchet spaces, yielding the quantitative wider-annulus bound. For the resulting complete single-norm space, Montel compactness makes the unit ball compact, so Riesz's lemma rules out infinite dimension. The algebraic step is constructive zero-constant polynomial interpolation in a generic element on finitely many separating Laurent coordinates.
+## correctness
 
-The selected interpolation values must be nonzero and pairwise distinct; existence follows by avoiding finitely many proper complex hyperplanes. Orthogonality is established by injectivity of the finite coefficient map and therefore holds at all Laurent indices, not merely at the selected ones. Cauchy decay proves every global idempotent has finite support. The converse factors each vector as an exact square in the stated algebra.
+PASS
 
-Coverage limitations: hypotheses include nonempty complex-linear, compact-open closed, and setwise exact self-reproduction; weakening these is not addressed. The original 2026 paper's general-family and ideal results are acknowledged; an accessible full-text inspection of the broad 1996 Hadamard algebra reference remains unavailable, so literary priority may require later independent assessment. Independent audit and independent validation have not been performed.
+Two-sided Cauchy estimates on |z|=e^{±b} give decay e^{−b|n|} for every b<a. Exact internal factorization makes any member an m-fold product for each m, so multiplication of coefficients improves b to mb, giving a unique continuation in particular to Ω_{2a}. The graph of that linear extension is closed by continuous restriction and the identity theorem; closedness of V gives the needed Fréchet domain. For any a<b₁<2a its larger-annulus seminorm is controlled by a single smaller compact-annulus norm p_{b₀}, which then generates the topology of V. The p_{b₀}-unit ball is uniformly bounded on the larger compact annulus and Montel supplies relative compactness in p_{b₀}; completeness makes the ball compact. Thus V is finite-dimensional. An injective finite coordinate restriction exists by separation of points; using distinct nonzero generic evaluation values, zero-constant interpolation constructs orthogonal idempotents, with identities holding on all coordinates by injectivity. Their 0–1 coefficients tend to zero at both ends, so the supports are finite, and orthogonality gives disjointness. The idempotents span, are exactly the primitive ones, and finite block elements have internal coefficientwise square roots. The zero space and closedness of the converse are accounted for. This is a proof check, with no finite certificate needed.
+
+## originality
+
+PASS
+
+Analytic continuation and ambient power/root identities are prior work. The distinct contribution supported by the inspected evidence is the closed-linear obstruction to infinite dimension together with the classification of arbitrary internal block algebras, including non-ideals. This is not a claim about all annular subalgebras, all Köthe algebras, or absolute priority.
+
+## value
+
+PASS
+
+The theorem separates a familiar dense infinite-dimensional self-reproducing family from closed ones, for which exact factorization forces finite dimension. It identifies every surviving family, not only its dimension or the ideal cases. The exact role of compact-open closedness and the description of non-ideal blocks make a useful structural classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

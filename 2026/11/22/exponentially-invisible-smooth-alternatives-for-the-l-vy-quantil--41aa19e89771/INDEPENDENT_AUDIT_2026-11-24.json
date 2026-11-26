@@ -1,0 +1,91 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:32:14.508871Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Equations (8), (10), and (15) of arXiv:2311.15359 give exactly the specified floor-based rank sets and fixed population normalizers. The extended sine-power bump is C3, with first three derivatives zero at the joins; the derivative of the perturbed quantile is everywhere greater than 0.8015. The inverse thus has a positive C2 density, and tail equality plus change at the midpoint excludes the entire Lévy scale family. The claim for the displayed density is C2, not C-infinity; genuinely C-infinity compactly supported bumps also work under the monotonicity condition. Under common uniforms, both samples maintain ranks and agree on every used order statistic when N_p>=k and N_q<ell. The coupling inequality gives the TV bound, hence also controls every rejection probability based on this statistic. Stirling at the near-threshold masses and Chernoff upper bounds prove the two binomial exponents, with the lower excursion dominating. Conditional on N_p=k-1, the added count up to q is Bin(n-k+1,1/2), and lies between 1 and ell-k with probability tending to one. That event strictly raises the lower band while leaving the upper band unchanged, proving the matching exponent for this coupling only. The one-point CDF separation distinguishes the full samples. No sharp TV lower bound or ensemble-test conclusion is inferred.",
+      "replay": "python3 /workspace/review_checks.py 5; exact rational binomial tails give eta_500=1.51157135492376e-6 and eta_1000=2.034473025139664e-11; the KL rates are approximately 0.02160085414 and 0.02573209248. The frozen checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary text identifies the empirical QCM as a classical subsample mean and discusses its consistency and CLT; Proposition 2 gives null asymptotic normality for the ratio.",
+          "The same paper studies other statistics, including an ensemble using additional estimators; the published O_n proof of null calibration does not require using those."
+        ],
+        "reasoning": "CLT and power comparisons do not entail exponentially small distance between entire statistic laws at a fixed alternative. A general high-probability omitted-rank coupling theorem could subsume the pathwise argument, but no exact such covering statement was established in the checked sources.",
+        "searches": [
+          "Goodness-of-fit tests for the one-sided Lévy distribution based on quantile conditional moments; arXiv:2311.15359 sections 2 and 3.1",
+          "Resultary conditional moments, quantile calibration, rank insensitivity"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md:5–104, VERIFICATION.md and checker source",
+        "arXiv:2311.15359 Eq. (8), (10), (15) and Prop. 2",
+        "Local Resultary quantile-ratio calibration and sliding order-statistic neighbors"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Null pivot and null CLT follow from the established ratio; published ranks imply that no central observations enter it.",
+          "A strictly positive supported bump and the conditional lower-excursion witness give the TV upper bound and sharp coupling exponent, respectively."
+        ],
+        "reasoning": "The omission of the middle ranks suggests blindness but is not deterministic equality of the sample statistic under a fixed alteration; random ranks can enter the band. The two excursions quantitatively address this, and the sharp exponent needs a disagreement event with no cancellation from the other band.",
+        "searches": [
+          "arXiv:2311.15359 equation (15), Proposition 2, and sample definition equations (8), (10); Resultary first-order Cauchy quantile-ratio comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published QCM scale estimate is a rank-band sample mean divided by its unit-scale population value; O_n is the scale-free quotient with the audited two bands.",
+          "Under strict monotone quantiles, unchanged uniforms outside the support are equivalent to unchanged observations in the two used rank sets on the stated count event."
+        ],
+        "reasoning": "The functional is not new. The exact high-probability identity of its coupled sample values under a fixed nonnull is distinct from the published definition and calibration.",
+        "searches": [
+          "Resultary Lévy fixed quantile conditional means, blind/smooth alternatives, rank-statistic indistinguishability",
+          "arXiv:2311.15359 equations (8), (10), (15)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected catalogue description for false Cauchy quantile-ratio calibration concerns a four-quantile Cauchy index with matching first-order behavior under a non-Cauchy mixture; no local full text available for that neighbor.",
+          "Resultary 4ad37e5b5ca9 concerns rank-dependent variation sensitivity in sliding order-statistic filters, not this fixed-band sampling law."
+        ],
+        "reasoning": "No exact invariant table is expected for an infinite family of alternative distributions; the relevant catalogue comparisons concern equivalent indistinguishability statements. The neighboring summaries do not report these bands, Lévy null or exact binomial-law bound.",
+        "searches": [
+          "Resultary quantile-ratio calibration and sliding order-statistic rank sensitivity; matched assigned package excluded"
+        ]
+      },
+      "rationale": "The exact published statistic and rank geometry are established, as are the coupling and binomial tools. The supported contribution is the construction of fixed smooth nonnull alternatives that are invisible in the whole statistic law at an exponential rate, with a matching exponent for the specified coupling. This is stronger than equality of population conditional means or of local first-order behavior.",
+      "residual_risks": [
+        "General omitted-rank insensitivity results under other terminology were not ruled out. Relevant catalogue neighbors were compared where available; summary-only comparisons do not establish whole-text absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same statistic and null calibration; inspected passages do not establish quantitative blind alternatives",
+          "evidence": "The lower index is [na]+1 and the upper [nb], with [.] explicitly the floor; equation (10) uses unit-scale QCM normalization, and section 3.1 fixes (0,.3), (.8,.95).",
+          "identifier_or_url": "https://arxiv.org/pdf/2311.15359",
+          "material_read": "Equations (8), (10), (15), Proposition 2, OA offsets 15100–17444, around 17400, and 25200–27581",
+          "method": "Open-access primary text",
+          "title": "Goodness-of-fit tests for the one-sided Lévy distribution based on quantile conditional moments",
+          "trigger": "Identical statistic and implementation; possible preexisting treatment of alternative behavior"
+        },
+        {
+          "assessment": "Different object and functional at description level",
+          "evidence": "Variation sensitivity of sliding order-statistic filters, not statistic-law blindness under quantile perturbation.",
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-exact-rank-dependent-variation-sensitivity-of-sliding-order-stat--4ad37e5b5ca9",
+          "material_read": "Indexed scientific description only; local full text not found",
+          "method": "Local catalogue lookup",
+          "title": "Exact rank-dependent variation sensitivity of sliding order statistics",
+          "trigger": "Neighboring rank-sensitivity result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result exposes a concrete detection limit of an actually specified goodness-of-fit test, uniformly over all rejection rules based on its statistic, even though an elementary statistic on the full data separates the same alternatives. Explicit finite-n error bounds and the sharp coupling exponent quantify the effect without overclaiming a TV lower bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

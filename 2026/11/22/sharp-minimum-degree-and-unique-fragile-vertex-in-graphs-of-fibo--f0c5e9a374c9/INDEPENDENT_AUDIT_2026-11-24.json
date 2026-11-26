@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:50:44.786566Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any one-run of length b, its last min(b,q) flips to zero are legal: any newly tested suffix has fewer than q ones, and a preceding run constraint can only weaken. Thus at least q flips are legal with at least q ones. With at most q-2 ones all flips are legal; with q-1 ones a first-zero flip is legal in addition to deleting any one (it shortens the first zero-run or makes or extends an unrestricted prefix, including when a singleton zero is removed). The all-one word has exactly q neighbors for n>q, and n<=q gives the cube. At n=q+1 only 01^q is deleted; at n=q+2 exactly three words are deleted and the unique distance-two pair, 01^(q+1) and 101^q, has the two stated surviving common neighbors. At n>=q+3 and q-1 ones, there is at most one illegal addition because the only forbidden word with q ones is 01^q followed by zeros. At q ones a first-zero flip works for a split run, or a suitable endpoint zero can be flipped for a single run: a leading run of at least three zeros can lose its first zero, or two leading zeros permit extending q ones to q+1 into a trailing zero. An initial one-run can always extend. Above q ones multiple runs already give q+1 deletions; a single noninitial run admits one extra deletion at its first one, and a non-full initial run admits extension. These cover q=2 as well as all larger q. Independent replay `python /workspace/branches/independent_replay.py 1` checks 83 full induced graphs, totaling 48289 admissible vertices, and verifies the full extremizer sets in the noncube cases.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The run graph paper gives degree enumerators and two degree-two vertices at large length in its graph.",
+          "The q-decreasing-word paper gives a 3-Gray code for the family and treats 1-Gray listings for q=1. The 2024 title identifies a cyclic 2-Gray code for the target word family; full text was not obtained."
+        ],
+        "reasoning": "The broad enumerator concerns a different graph and cannot specialize to the target degree law as stated. Listings with distance at most 2 or 3 do not imply prescribed one-coordinate degrees; the q=1 one-step result is outside the hypotheses.",
+        "searches": [
+          "arXiv:2010.05521v1 Theorem 6.1 and Example 6.3",
+          "arXiv:2010.09505v1 Corollary 7",
+          "DOI:10.1007/978-981-97-0566-5_8 cyclic 2-Gray code"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2010.09505v1",
+        "arXiv:2010.05521v1",
+        "DOI:10.1007/978-981-97-0566-5_8",
+        "SCOPE-de0f0d994914",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-family construction controls distances between selected successive words, not all incident one-bit edges. The closest both degree and word-restriction results impose different run or factor constraints."
+        ],
+        "reasoning": "The local run-end flip guarantees, exceptional boundary deleted vertices, and strict improvement for every other word after q+2 require separate arguments; none follows from the retrieved listings or other graphs' enumerators.",
+        "searches": [
+          "arXiv:2010.09505v1 abstract, Definition 1 and Corollary 7",
+          "arXiv:2010.05521v1 Theorem 6.1",
+          "SCOPE-degree-distributions-and-a-four-periodic-minimum-degree-law-for--de0f0d994914 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Baril–Kirgizov–Vajnovszki words have exactly the strict qa>b condition in the target; the paper bijects them with words avoiding 1^(q+1).",
+          "Fibonacci-run graphs require a strictly longer following zero-run for each one-run, with a terminal 00 suppressed.",
+          "The distinct avoidance-of-111 indexed graph has minimum degree 3 at n=5; the target with q=2 has minimum degree 2 there."
+        ],
+        "reasoning": "Neither the equal vertex counts nor reversal with a terminal convention yields the required adjacency equivalence. The two degree minima at n=5 directly rule out graph equivalence with the avoidance model.",
+        "searches": [
+          "arXiv:2010.09505v1 Definition 1 and avoidance bijection",
+          "arXiv:2010.05521v1 definition of Fibonacci-run graphs",
+          "Resultary: q-decreasing words, induced hypercube minimum degree"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-title hit is the finding under review. The distinct indexed finding SCOPE-degree-distributions-and-a-four-periodic-minimum-degree-law-for--de0f0d994914 gives ceil(n/2)+1_{n=2 mod 4} for the 111-avoiding induced cube and a unique (0110)^(n/4) when 4 divides n."
+        ],
+        "reasoning": "The distinct indexed census is materially related but does not cover this degree distribution or uniqueness. The shared date gives no ordering or priority evidence.",
+        "searches": [
+          "Resultary semantic lookup: degree distribution, Fibonacci q-decreasing words and minimum-neighbor words"
+        ]
+      },
+      "rationale": "Earlier work defines these words, counts them, and lists them with Gray bounds. The nearest degree-sequence results instead use other graph definitions. No inspected result gives or implies the exact one-coordinate minimum and attained multiplicities for this graph.",
+      "residual_risks": [
+        "The cyclic 2-Gray code full text was not obtained; a separate degree lemma in it cannot be excluded.",
+        "A result under a different representation of q-decreasing words might not surface under indexed language and graph aliases."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same language and count; listing theorems do not give these degrees",
+          "evidence": "Definition qa>b; avoidance bijection; 3-Gray listing.",
+          "identifier_or_url": "https://arxiv.org/abs/2010.09505",
+          "material_read": "PDF p. 1 abstract (offset 0), p. 3 Definition 1 (7400), p. 9 Corollary 7 (25700)",
+          "method": "Targeted open full-text PDF passages",
+          "title": "Gray codes for Fibonacci q-decreasing words",
+          "trigger": "Exact language definition and claimed equivalent avoidance model"
+        },
+        {
+          "assessment": "Title identifies listing objective; independent auxiliary degree coverage cannot be checked",
+          "evidence": "The cited construction is identified as cyclic 2-Gray, not a one-bit minimum-degree theorem.",
+          "identifier_or_url": "https://doi.org/10.1007/978-981-97-0566-5_8",
+          "material_read": "Bibliographical title and citation only",
+          "method": "DOI and identified official Springer PDF retrieval attempted; no readable full text",
+          "title": "Generating Cyclic 2-Gray Codes for Fibonacci q-Decreasing Words",
+          "trigger": "Same language and a direct two-change adjacency comparator"
+        },
+        {
+          "assessment": "Exact degree enumerator on a distinct word graph",
+          "evidence": "Terminal-00 convention and longer following zero-runs; example gives two degree-two vertices for n>=8.",
+          "identifier_or_url": "https://arxiv.org/abs/2010.05521",
+          "material_read": "PDF pp. 1–2 (offsets 0, 2800), pp. 15–16 Theorem 6.1 through Example 6.3 (37100)",
+          "method": "Targeted open full-text PDF passages",
+          "title": "Fibonacci-run graphs II: Degree sequences",
+          "trigger": "Closest primary work on exact degree distributions for run-constrained cubes"
+        },
+        {
+          "assessment": "Different graph, with an explicit degree discrepancy",
+          "evidence": "Avoids 111, with a length-dependent minimum and a different minimizing word.",
+          "identifier_or_url": "2026/11/22/SCOPE-degree-distributions-and-a-four-periodic-minimum-degree-law-for--de0f0d994914",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Published local mirror",
+          "title": "Degree distributions and a four-periodic minimum degree law for a constrained-word graph",
+          "trigger": "Material distinct indexed minimum-degree finding on the q=2 equinumerous avoidance language"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For single-coordinate generation on a known constrained family, minimum degree and its minimizing words locate the states with the fewest legal next moves. The exact universal transition from the cube through two boundary strata to a unique bottleneck is a useful structural invariant, especially because other equinumerous languages behave differently. This is local degree information, not a claim about connectivity, Hamiltonicity, or generation complexity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

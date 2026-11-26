@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The fully specified \(5\)-coordinate exponent box has \(3125\) distinct vertices. Two executable exhaustive implementations tested all \(4{,}881{,}250\) unordered integer-square pairs, all potential three-cliques, and all \(41{,}328\) unordered triangle pairs. Both found \(14{,}856\) edges, \(288\) triangles, only the two previously known primitive brick types, and \(57\) mutually isolated intersecting pairs among triangles, which also follow from two explicit scale ratios. The Python certificate also constructs optimal disjoint-triangle and triangle-hitting witnesses. The mathematical optimality proof requires no untested cases. Verification files `verify_bricks.py` and `verify_independent.cpp` are complete and standalone.
+PASS
 
-## Originality — PASS, with residual risk
+A separate gcd-reduced integer-square census exhausts all 4,881,250 leg pairs and all unordered triples found via common neighbors. It reproduces 3125 vertices, 14856 edges, and exact set equality of the 288 triangles with the two 144-member scaling families. Gcd reduction preserves the square test because a rational square root of an integer is integral. The seeds have gcd one and per-prime maximum valuations (4,2,2,1,1), so the stated scale range is exact. The coordinate 2-adic valuations are (4,2,0) for both seeds and every scale is odd, ruling out overlaps between different coordinate positions. The two cross-family ratios 21/5 and 275/63 give respectively 48 double overlaps and 9 single overlaps by exponent-range intersection. Their endpoint ranges are disjoint within both families; each ratio by itself gives a matching. Thus the conflict graph is 174 isolated vertices and 57 edges, also verified by checking all unordered triangle pairs. One triangle per component packs 231 disjoint triangles; one vertex in each singleton or common to each pair is a transversal of size 231. The packing is also a lower bound for any transversal.
 
-Xiao's 2026 main result establishes a large-box asymptotic bound, not the exact fifth-box triangle hypergraph. Knill's earlier Babylonian-graph work proves the triangle/Euler-brick equivalence and displays both old seed triples; neither is claimed original. OEIS A239618 and a public brick list count different coordinate-bounded domains. The prior fifth-box nonbipartiteness witness establishes only one triangle, not the \(288\)-triangle exhaustion or the \(231\) packing/transversal equality. Statement-level searches for equivalent parametrizations, stronger coverage, exact tables and alternate graph language found no covering result. A sufficiently comprehensive unindexed database may still encode the same finite enumeration implicitly.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The fifth prime-power box is the first nonbipartite case of the natural Pythagorean-leg graph. The complete enumeration classifies its smallest odd-cycle obstructions, proves a matching-plus-isolates intersection structure through exact prime-exponent ratio constraints, and determines two sharp hypergraph invariants, both equal to \(231\). This exact bounded classification is natural independently of computing the full independence number. The triangle structure is not asserted to improve existing bounds for the independence number. Neither classical bricks nor their existence is claimed as a new discovery.
+Both primitive bricks and the unrestricted triangle/Euler-brick correspondence are known. The distinct supported claim is completeness in the fifth prime-power box and the exact intersection structure, packing and transversal, not discovery of the seeds. The same-day independence record is material but does not establish these claims.
 
-## Limits and closest literature
+## value
 
-This is a finite, computer-assisted exact theorem, not a formula for arbitrary prime boxes. Old Euler-brick catalogs may conceal overlapping filtered data. Principal comparisons: Xiao, arXiv:2610.11965v1 (2026); Knill, *The Babylonian Graph*, arXiv:2205.13285 (2022); OEIS A239618; the public 10-million-side Euler-brick dataset. Independent verification remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The fifth box is the first nonbipartite box in the related extremal problem, not a convenient arbitrary cutoff. The explicit overlap decomposition and the exact packing and transversal numbers supply reusable structural information about the triangle obstruction at that threshold. These invariants go beyond a re-listing of known bricks and are not asserted to improve independence bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:23:23.696226Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–27 and 29–74",
+        "Frozen VERIFICATION.md lines 3–19, verify.py and verification_output.txt",
+        "Independent manual digit-sum check for (m,p)=(11,2)"
+      ],
+      "rationale": "Legendre digit sums allow removal of the common p^t from upper, lower and complementary arguments. Write k=p^(a−v)j with p∤j, so its valuation is that of the coefficient C(up^v,uj). The exact minimization at level a is over the disjoint primitive-index levels 1≤v≤a. The first v positions in uj+u(p^v−j)=up^v each carry: the first digit is nonzero in each summand and sums to zero modulo p, and at each subsequent position an incoming carry cannot yield zero without another carry. Equivalently, C(up^v,uj)=(up^v/(uj))C(up^v−1,uj−1) gives valuation at least v. The level-one candidate j=1 has valuation c≥1, so levels v≥c cannot improve that minimum, yielding cutoff R=max(1,c−1), not a claim of least cutoff. Lower exponent gcd valuations can also be recovered from the upper row at exponent R by using only lower indices with k divisible by p^(R−a). Only level 1 can give valuation 1, and Legendre there gives the stated expression. For p=2 it is the digit sum of odd u, equal to 1 exactly when u=1; for p>u, (p−1)u=(u−1)p+(p−u) has digit sum p−1. A separate manual check gives D_1(11,2)=3 and D_2(11,2)=2, the latter using the valuation-2 coefficient C(44,11) and both level lower bounds. The supplied checks were inspected but not run; finite recorded output is corroboration only.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wu Theorem 2 assumes a prime-power m and restricted prime factors of C(mn,m); Theorem 3 gives the full gcd for m=2. The 1985 publisher abstract describes consecutive terms in a Pascal row. The non-coprime indices abstract describes a larger index family, not the same selection."
+        ],
+        "reasoning": "Selecting a subset of the indices of a known gcd can increase its valuations, so the unrestricted, consecutive or non-coprime family does not determine this minimum. A stronger exact-family theorem for carefully selected m does not imply certification at arbitrary u.",
+        "searches": [
+          "Wu arXiv:2606.20940v2, Theorems 1–3",
+          "Joris–Oestreicher–Steinig DOI 10.1016/0022-314X(85)90013-7",
+          "Hong DOI 10.1016/j.crma.2016.06.001",
+          "Chung–Yang–Zhou DOI 10.37256/cm.6120255017",
+          "Binomial coefficients with non-coprime upper/lower indices DOI 10.1007/s00009-026-03202-3"
+        ]
+      },
+      "checked_sources": [
+        "Wu arXiv:2606.20940v2, Section 1 definition and primary statements of Theorems 1–3",
+        "Resultary records 9bcc7b944830, 339a752cfdc3 and 8a8c31acbe70 (catalogue)",
+        "Joris–Oestreicher–Steinig and Chung–Yang–Zhou (abstract excerpts); Hong and OEIS A265388 (limited evidence as described)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kummer/Legendre give individual coefficient valuations. The theorem requires partitioning admissible indices into primitive levels, proving the uniform lower bound per level and comparing with the fixed level-one witness. Wu Theorem 1 gives the exact prime-power multiplier slice, not that partition-and-cutoff consequence for arbitrary u."
+        ],
+        "reasoning": "The classical valuation tools justify the ingredients, but do not state the upper limit on the number of levels one must inspect or the equivalence to a single level for valuation one. The prime-power result concerns precisely the slice where the remaining factor u is 1 and cannot handle strict drops at u=11 or u=39.",
+        "searches": [
+          "Ram unrestricted row gcd as cited in Wu Section 1",
+          "Kummer carries and Legendre digit sums",
+          "Wu arXiv:2606.20940v2 Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wu Section 1 defines the exact same gcd; Theorem 1 gives ν_p=1 at n=p^a for m=p^t. The exact Resultary hit is the assigned record 9bcc7b944830."
+        ],
+        "reasoning": "The claim can be phrased as stabilization of a minimum over valuations in a Pascal row restricted to every m-th entry. Wu uses this exact object, but the relevant valuation theorem assumes u=1; on that slice the assigned theorem merely recovers an existing result.",
+        "searches": [
+          "Resultary: restricted binomial gcd with indices multiples of m, p-adic stabilization along n=p^a",
+          "arXiv:2606.20940v2, Section 1 and Theorems 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A265388 is identified in the frozen record as tabulating g(2,n). The two distinct catalogue hits concern row counts of p-divisibility and a binary valuation classification at a fixed modulus, respectively."
+        ],
+        "reasoning": "A table or classification for a fixed multiplier or modulus does not encode the exponent cutoff across all multipliers; the exact catalogue hit is identical frozen evidence, not prior work.",
+        "searches": [
+          "OEIS A265388",
+          "Resultary 9bcc7b944830, 339a752cfdc3 and 8a8c31acbe70"
+        ]
+      },
+      "rationale": "Wu's primary text treats the identical restricted gcd and covers the prime-power multiplier special case; the evaluated contribution is the arbitrary-m cutoff and valuation-one characterization, not that special case or the digit-sum/carry formulas. The strongest verified same-object theorems do not cover arbitrary multipliers in the p-power index tower.",
+      "residual_risks": [
+        "Full texts of the 1985 Joris–Oestreicher–Steinig article and several other restricted-family comparisons were not available. Possible stronger or less obvious corollaries remain unresolved; abstract scope is not a whole-document exclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact special-case coverage; does not subsume arbitrary-m theorem",
+          "evidence": "Theorem 1: m=p^t; Theorem 2: m=p^t with restrictions on prime factors of C(mn,m); Theorem 3: m=2.",
+          "identifier_or_url": "https://arxiv.org/html/2606.20940v2",
+          "material_read": "PDF front matter, Section 1 definition; public HTML Theorems 1–3 statements",
+          "method": "OA retrieval attempt, then comparison with bounded passages of the same public preprint",
+          "title": "Computing the Greatest Common Divisor of Binomial Coefficients",
+          "trigger": "Exact same restricted family, strongest plausible earlier generality"
+        },
+        {
+          "assessment": "Available passage is about a different family; whole-paper overlap unresolved",
+          "evidence": "The stated gcd formula concerns consecutive terms in a Pascal row.",
+          "identifier_or_url": "https://doi.org/10.1016/0022-314X(85)90013-7",
+          "material_read": "Publisher abstract excerpt; full text not retrieved",
+          "method": "Primary lead lookup and lawful retrieval attempt",
+          "title": "The greatest common divisor of certain sets of binomial coefficients",
+          "trigger": "Longstanding germane restricted-gcd article"
+        },
+        {
+          "assessment": "Different restrictions in the supplied comparison; no full-text exclusion",
+          "evidence": "The cited restriction is coprimality with m, not taking multiples of m.",
+          "identifier_or_url": "https://doi.org/10.1016/j.crma.2016.06.001",
+          "material_read": "Bibliographic identification and scope comparison in frozen RESULT.md lines 76–79; theorem not independently obtained",
+          "method": "Targeted source inspection attempt",
+          "title": "The greatest common divisor of certain binomial coefficients",
+          "trigger": "Broader-looking restricted gcd article"
+        },
+        {
+          "assessment": "No exact claim established by the retrieved material",
+          "evidence": "The passage singles out gcdA₂(n); it does not define that family in the retrieved portion.",
+          "identifier_or_url": "https://doi.org/10.37256/cm.6120255017",
+          "material_read": "Publisher abstract excerpt only",
+          "method": "Primary lead lookup and lawful retrieval attempt",
+          "title": "The Greatest Common Divisor of Sets of Binomial Coefficients with Restrictions",
+          "trigger": "Possibly broader restricted-set formulas"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md proof lines 40–71 and strict-drop examples line 74",
+        "Wu arXiv:2606.20940v2, same-family definition and special multiplier theorems"
+      ],
+      "rationale": "For a fixed multiplier the proof removes dependence on a potentially arbitrarily large prime-power exponent in a natural restricted gcd problem. The primitive-level decomposition explains actual strict valuation drops and makes a nontrivial finite cutoff and complete valuation-one test possible. This is not a fresh calculation of the classical full-row gcd.",
+      "residual_risks": [
+        "The cutoff need not be minimal and concerns only the selected prime, not all factors of the gcd."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

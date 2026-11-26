@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:19:10.988036Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen proof incorrectly describes ranks (1,19,141,300) as coming from dimensions 1–4. A four-element face is three-dimensional and there is no 4-chain space. The full replacement repairs the paragraph: the ranks are for degrees 0–3, with the degree-0 augmentation included and the degree-4 map zero. It also states the learning separation as a difference of dimensions rather than query-identification complexity. Independent reproduction using set-inclusion neighborhoods and literal intersections, row rather than column elimination over F2, and branch-by-branch certificate replay: counts by cardinalities 0–6 for dominating sets (0,0,0,0,0,0,130); faces (1,20,190,560,360,0); facet counts 30/80/360 at sizes 2/3/4; degree-0–4 ranks (1,19,141,300,0) yield reduced Betti (0,30,119,60,0). The supplied permutation matches all 30 GP(10,3) edges and the supplied tree has 64 distinct valid leaf witnesses. Every vertex has 39 positive concepts, so depth seven is impossible (root-positive branch would require 64). The independent replay was `python3 /tmp/opencode/desargues-review.py /workspace/source/2026/11/22/exact-static-and-adaptive-shattering-of-minimum-dominating-sets--51fdae664688`; inputs are the frozen depth6_tree.json and vertex_isomorphism.json. The frozen finite algorithms and unaffected certificate files were inspected, not executed. The corrected result is for one graph, with homology over F2 only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Knor et al., PDF p.1, treats domination-versus-independent-domination inequalities in regular graphs.",
+          "Pappus gives 18 optima, 1+18z+126z^2, dimensions 2/3; Heawood gives 1+14z+70z^2, dimensions 2/3 and a 57-circle wedge."
+        ],
+        "reasoning": "The inequalities do not specify individual minimum sets or their traces; the graph-specific precedents do not cover Desargues.",
+        "searches": [
+          "arXiv:2010.13467",
+          "2026/11/22/SCOPE-minimum-domination-reconstructs-the-pappus-graph-and-separates-s--2312bedeb2f5",
+          "2026/11/22/SCOPE-the-minimum-domination-shattering-complex-of-the-heawood-graph--e9b5f8960619"
+        ]
+      },
+      "checked_sources": [
+        "2026/11/22/...--51fdae664688 (self)",
+        "Resultary IDs c51ca415adf8, 91609797437d, 2312bedeb2f5, e9b5f8960619",
+        "arXiv:2010.13467",
+        "VinuPriya et al. (2019), access limited"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The frozen citation attributes gamma=6 to the 2019 paper; its primary text was not retrieved. The inspected regular-graph inequality and same-day findings give no Desargues-specific concept traces or learning-tree certificates."
+        ],
+        "reasoning": "Knowing the minimum cardinality does not give the positive fibers, shattered supports, or their boundary ranks. The focused literature lookup was unproductive and is not evidence of absence.",
+        "searches": [
+          "VinuPriya–Mageswari–Ameenal Bibi (2019), Theorem 3.15, Academia identifier 39262725",
+          "arXiv:2010.13467",
+          "Desargues / generalized Petersen minimum dominating sets and shattering (focused literature lookup)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Desargues dominance-complex Finding defines faces by domination of the complement, giving a wedge of 13 S^9.",
+          "The two model descriptions in the reviewed record are one graph, not distinct claims; the supplied permutation was checked."
+        ],
+        "reasoning": "No five-element support is shattered here, but five vertices chosen from a single bipartition class have dominating complement, so they can form a face of the other complex. Its nonzero ninth homology also excludes equivalence. Renaming the graph GP(10,3) does not change either complex.",
+        "searches": [
+          "Resultary: Desargues graph minimum domination shattering, GP(10,3), middle levels",
+          "2026/10/18/SCOPE-integral-homotopy-and-cyclic-character-of-the-desargues-dominanc--c51ca415adf8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed self-match is the assigned record itself; the nearest other same-graph homology tables concern dominance or matching complexes. The matching-complex Finding concerns independent edge sets and degrees 5/6."
+        ],
+        "reasoning": "No independent exact table was identified among these inspected passages; identical graph parameters do not imply identical chain groups.",
+        "searches": [
+          "Local Resultary: exact Desargues minimum-dominating-set shattering and homology",
+          "2026/11/22 exact self-match ending 51fdae664688",
+          "2026/10/4/SCOPE-mod-2-homology-of-the-desargues-matching-complex--91609797437d"
+        ]
+      },
+      "rationale": "Credit the known domination-number antecedent; the supported contribution is the exact Desargues minimum-set/shattering census, dimensions and topology, not gamma=6 or the general method. Same-day learning results on Pappus and Heawood are substantive conceptual overlaps but compute different graph-specific invariants; dates do not establish relative order. The same-graph dominance complex uses a different face rule. The replacement makes these distinctions explicit. Best-of-knowledge only.",
+      "residual_risks": [
+        "2019 full text not inspected; priority for the 130-set census by itself is uncertain.",
+        "Same-day publication ordering unresolved; an unindexed exact alternative could change priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Domination number credited; whether the source already tabulates the 130 optima is unresolved",
+          "evidence": "Frozen RESULT.md, lines 48,58.",
+          "identifier_or_url": "https://www.academia.edu/39262725/Total_Domination_and_Inverse_Total_Domination_Number_of_Some_Special_Classes_of_Graphs",
+          "material_read": "Frozen citation to Theorem 3.15; no primary pages recovered",
+          "method": "Open-access primary lookup, direct and VPN both HTTP 403",
+          "title": "Total Domination and Inverse Total Domination Number of Some Special Classes of Graphs",
+          "trigger": "Possible prior Desargues domination census"
+        },
+        {
+          "assessment": "Does not imply the claimed exact shattering or homology via the inspected results",
+          "evidence": "Regular-graph domination versus independent-domination inequalities.",
+          "identifier_or_url": "arXiv:2010.13467",
+          "material_read": "PDF page 1, near text offset 780",
+          "method": "Open primary PDF excerpt",
+          "title": "Domination versus independent domination in regular graphs",
+          "trigger": "Potential broader domination theorem"
+        },
+        {
+          "assessment": "Distinct complex",
+          "evidence": "Complements that dominate; wedge of thirteen 9-spheres.",
+          "identifier_or_url": "2026/10/18/SCOPE-integral-homotopy-and-cyclic-character-of-the-desargues-dominanc--c51ca415adf8",
+          "material_read": "RESULT.md Finding from offset 204",
+          "method": "Local Resultary mirror",
+          "title": "Integral homotopy and cyclic character of the Desargues dominance complex",
+          "trigger": "Same graph and homology"
+        },
+        {
+          "assessment": "Conceptual overlaps; neither identifies the Desargues invariants",
+          "evidence": "Pappus and Heawood graph labels, different polynomials, both dimensions 2 and 3.",
+          "identifier_or_url": "2026/11/22/...--2312bedeb2f5 and 2026/11/22/...--e9b5f8960619",
+          "material_read": "Both RESULT.md Findings at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Minimum-domination shattering on the Pappus and Heawood graphs",
+          "trigger": "Same concept construction and same-day indexed records"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The object is a standard symmetric cubic graph and the ordinary minimum-set concept class separates VC dimension four from adaptive depth six with an explicit tree and a tight first-split obstruction. The polynomial alone cannot determine the nonpure facet profile or the three nonzero homology ranks. The package is a precise benchmark for conjectures about dominance, static versus adaptive shattering, and the topology of shattered supports on symmetric graphs, not just recovery of its known domination number. The replacement limits interpretation to those actual invariants.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

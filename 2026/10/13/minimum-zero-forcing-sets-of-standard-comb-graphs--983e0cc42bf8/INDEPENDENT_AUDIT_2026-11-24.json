@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:09:52.869281Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 2–42",
+        "Frozen VERIFICATION.md and verify_comb.py (inspected, not run)",
+        "AIM work group, Proposition 4.2, including arbitrary endpoint choices",
+        "Independent replay: python3 /workspace/branches/independent_replay.py comb_graph; 314,282 subsets on the two layers k−1,k for n=2..12, with separate all-leaf and spine counts"
+      ],
+      "rationale": "Forcing chains cover the tree, with one initially blue endpoint per chain. A chain contains at most two pendant leaves; the cover by adjacent pairs of teeth, with a one-tooth path in odd order, attains the ceiling lower bound using the tree endpoint theorem. With even n every path must contain two leaves; a chain skipping an index would strand its internal pendant leaf as a singleton, so only the adjacent perfect pairing is possible. With odd n just one path has one leaf. If it has a spine endpoint, no two-leaf path can skip a tooth, so the sole unmatched tooth has odd index and gives the one spine choice. Otherwise either all paired paths are adjacent or exactly one pair skips one tooth and leaves its middle leaf as a singleton. That latter pattern is represented in the stated union by moving the unmatched choice to the selected outer endpoint. For counting distinct odd all-leaf choices, 00 cannot start a valid word. For prefix 10 or 01 the initial two entries can be deleted and prepended bijectively (when q=1 and the word starts 10, entry 3 is selected and can serve as the new singleton). For 11 one needs q=1 and entry 3 zero; there are 2^(m−1) remaining choices. With A₁=3 this yields the stated all-leaf, spine and total counts. The n=2 boundary gives the two endpoints of P₄.",
+      "residual_risks": [
+        "The finite replay uses the immediate lower layer and the minimum layer; monotonicity excludes smaller layers in those instances. All-order completeness rests on the path argument, not extrapolation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "AIM proves arbitrary endpoint choices on minimum tree path covers work. Menon–Singh Proposition 3.13 compares counts under merging two hanging paths by an inequality, not equality or a comb coefficient. Benson et al. study other graph products, including tensor/lexicographic results, not a retrieved path-corona census. Butler et al.'s game is different."
+        ],
+        "reasoning": "The broader tree theorem is indispensable but does not classify the comb's covers or count distinct endpoint transversals across them. Product bounds and hanging-path inequalities do not specialize to the exact minimum layer in question.",
+        "searches": [
+          "AIM work group Proposition 4.2",
+          "Menon–Singh arXiv:2405.01423 §3.3",
+          "Benson et al., Zero forcing and power domination for graph products",
+          "Butler et al. arXiv:1809.07640, Lemma 2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary mirror records 243a67e5cc7b and 8889f2ffb401",
+        "AIM Proposition 4.2",
+        "arXiv:1809.07640",
+        "arXiv:2404.05963",
+        "arXiv:2405.01423"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior endpoint theorem immediately provides feasibility for a chosen comb cover. Necessity uses the leaf deficit and the long-versus-adjacent path analysis. Distinct odd all-leaf outputs are not the number of cover/endpoint parameter choices; q can be nonunique."
+        ],
+        "reasoning": "The declared contribution is the structural and deduplicated census, not the theorem's scalar corollary. Neither the overlapping odd endpoint representations nor their exact cardinality is supplied by the arbitrary-tree construction.",
+        "searches": [
+          "AIM Proposition 4.2 exact proof at offset 46030",
+          "Frozen RESULT.md, path cover and distinct-word proof, lines 25–42"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 243a67e5cc7b concerns inclusion-minimal sets of spider trees and covers the n=3 comb, not n≥4 with several degree-three vertices. Record 8889f2ffb401 instead concerns the circular ladder.",
+          "Butler et al. define a broadly named comb but their Lemma 2 is for the q=1 game."
+        ],
+        "reasoning": "The path corona is the object to match, not any tree called comb. Inclusion-minimal and minimum agree only after selecting the lowest layer; the spider result can cover the n=3 instance but not the entire family.",
+        "searches": [
+          "Resultary standard comb, path corona K₁, ordinary minimum zero forcing sets",
+          "Web: zero forcing polynomial corona path comb minimum zero forcing sets comb graph P_n corona K_1 exact counts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No identified table evaluated both claimed parity formulas for Pₙ∘K₁. The closest indexed tree result has only the n=3 spider within this family; the circular-ladder count is 13n for a different graph. The substantive nearby graph-operation proposition compares inequalities."
+        ],
+        "reasoning": "A small overlapping instance or an exact coefficient of a different graph does not supply this arbitrary-order census.",
+        "searches": [
+          "Resultary standard comb minimum zero forcing count; spider and circular ladder comparisons",
+          "Web: zero forcing polynomial corona path comb minimum zero forcing sets",
+          "Menon–Singh arXiv:2405.01423 PDF, corona and comb locators"
+        ]
+      },
+      "rationale": "The tree path-cover theorem supplies the scalar result and any chosen cover's endpoint construction, not the explicit parity-dependent census of distinct endpoint sets across the standard comb's minimum covers. The closest indexed spider result overlaps at n=3 only, the broader comb literature studies a different forcing game, and graph-operation work inspected does not provide this exact enumeration.",
+      "residual_risks": [
+        "An unindexed enumeration of the same path corona or a stronger formula under a different name is not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies tree equality and endpoint construction, not an explicit comb census",
+          "evidence": [
+            "Select one endpoint of each path in a minimum path cover; the proof starts at a path joined to the rest by one edge and recurses."
+          ],
+          "identifier_or_url": "https://www.mat.uc.pt/~leal/FCT09/AIM08.pdf",
+          "material_read": "Proposition 4.2 and proof, PDF pp. 17–18, offsets 46030–47996",
+          "method": "Lawful university mirror of the primary PDF; exact proposition and proof",
+          "title": "Zero forcing sets and the minimum rank of graphs",
+          "trigger": "Strong general tree endpoint theorem"
+        },
+        {
+          "assessment": "Different q-analogue and broader graph definition",
+          "evidence": [
+            "Broad comb convention and Lemma 2 on Z₁; the ordinary minimum-set census is not that lemma."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1809.07640",
+          "material_read": "PDF p. 6, offset 17510, and p. 4, offset 13099",
+          "method": "Open primary PDF passage",
+          "title": "Properties of a q-analogue of zero forcing",
+          "trigger": "Comb terminology and a related classification"
+        },
+        {
+          "assessment": "Minimal forts and failed forcing sets, not a minimum comb census",
+          "evidence": [
+            "The 4-comb illustrates forts; the subsequent count is of forts in spiders."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2404.05963",
+          "material_read": "PDF pp. 9–10, offsets 32600–35789",
+          "method": "Open primary PDF passages",
+          "title": "On the Number of Minimal Forts of a Graph",
+          "trigger": "Comb and spider zero forcing context"
+        },
+        {
+          "assessment": "Hanging-path monotonicity, not an identified tooth-attachment formula",
+          "evidence": [
+            "Merging two hanging paths at the same vertex weakly increases z(G;i)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2405.01423",
+          "material_read": "§3.3 Proposition 3.13, p. 11, offset 26800, plus PDF locators for corona and comb",
+          "method": "Open preprint of the same paper after publisher 403",
+          "title": "Exploring the Influence of Graph Operations on Zero Forcing Sets",
+          "trigger": "Exact coefficients under graph operations and pendant paths"
+        },
+        {
+          "assessment": "No relevant corona passage identified; keyword miss is not proof of noncoverage",
+          "evidence": [
+            "Abstract identifies power domination for tensor products and zero forcing number for lexicographic products among its results."
+          ],
+          "identifier_or_url": "https://ajc.maths.uq.edu.au/pdf/70/ajc_v70_p221.pdf",
+          "material_read": "Identified product scope and a corona locator on the published PDF",
+          "method": "Lawful publisher PDF locator and indexed abstract",
+          "title": "Zero forcing and power domination for graph products",
+          "trigger": "Candidate broader graph-product coverage"
+        },
+        {
+          "assessment": "Spider overlap only at n=3; circular ladder is a different graph",
+          "evidence": [
+            "Spiders have at most one branch vertex; standard combs n≥4 have multiple degree-three vertices. Circular ladders are Cₙ□K₂."
+          ],
+          "identifier_or_url": "243a67e5cc7b; 8889f2ffb401",
+          "material_read": "Local mirrored RESULT.md Findings, offset 0 for both",
+          "method": "Local Resultary lookup and exact statement comparison",
+          "title": "Resultary spider-tree and circular-ladder results",
+          "trigger": "Closest indexed tree overlap and same-day analogous census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen minimum-set statement and count proof",
+        "AIM Proposition 4.2"
+      ],
+      "rationale": "For the natural path-corona tree family this describes exactly which minimum seed sets can contain a spine vertex and counts the distinct minimum sets, not the representations by path covers. The nonunique odd all-leaf parametrization and parity distinction are genuine structure beyond the known scalar zero forcing number.",
+      "residual_risks": [
+        "Scope is the standard comb and the ordinary minimum layer only; no full zero forcing polynomial or generalized-comb theorem is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

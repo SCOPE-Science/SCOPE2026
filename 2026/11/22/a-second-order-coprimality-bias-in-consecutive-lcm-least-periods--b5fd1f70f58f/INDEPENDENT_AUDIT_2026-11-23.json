@@ -1,0 +1,179 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:33:47.903968Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Farhi–Kane gives omission of the full p-power p^a in L_k exactly when v_p(k+1)≥a=floor(log_p k), with at most one omitted prime. For N=k+1 this gives N=mp^a with 2≤m≤p: k≥p^a excludes m=1, and k<p^(a+1) gives m≤p. Conversely these inequalities ensure the exact defect exponent. For a=1 the prime p≥m is the unique largest prime factor at least sqrt(N), including equality for squares. For each a≥2, split the higher-power count at B=Y^(1/(a+1)); summing p below B and Y/p^a above B over all integers gives O(B²) with a uniform constant for a≥2 by the integral tail. Summing exponents gives O(Y^(2/3) log Y), negligible against Y/log²Y. The reindexing Y=X+1 changes the centered count by O(1); p dividing fixed q contributes only finitely many exponent-one pairs. The cofactor weight w_q has O(q) partial sums, so the lower endpoint subtraction π(m-1) costs O_q(sqrt(X)). The effective prime number theorem works uniformly for X/m≥sqrt(X); summing individual errors costs at most a logarithmic factor before the exponential saving. Li(t)-t/log t has derivative 1/log²t, and Abel summation bounds its weighted contribution by O_q(X/log²X). For the last Taylor remainder, write u=log m and L=log X: the logarithmic derivative of u exp(-u)/(L-u) is 1/u-1+1/(L-u), nonincreasing for u≤L/2. Thus this factor has supremum and variation O(1/L), giving the required second Abel bound. The centered harmonic tail converges by bounded partial sums. Möbius inclusion–exclusion gives the local logarithmic divisor sum; subtracting w_q(1) is essential because primes are not defects. This yields C_2=(log 2-1)/2<0 and C_3=(log 3-1)/3>0. The unweighted leading integral between m=2 and sqrt(X) is log 2+O(1/log X), and the total effect of the π(m-1) terms there is O(X/log X). Independently, cyclically comparing quotient samples modulo L_k gave the predicted least periods for k=1 through 8; a separate smallest-prime-factor sieve applying the pointwise formula to k≤300000 gave 195365 defects, split 193988 and 1377, and normalized centered counts -0.175111 and +0.035803 for q=2,3 at that bound. Replay by direct quotient evaluation over a full period for the small cases and factorization of k+1 for the larger diagnostic. The frozen verify.py was inspected, not executed. Neither finite check proves the asymptotic. The theorem fixes q in advance.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hildebrand–Tenenbaum's precise de Bruijn approximation (attributed to Saias) applies uniformly for x=X/d and y=sqrt(X), including u near 2 from below, with a remainder smaller than x/log²y. Granville reports the familiar two-term expansion.",
+          "For X large every d dividing fixed q is y-smooth, so Ψ_q(X,y)=Σ_{d|q} μ(d) Ψ(X/d,y). Taylor expansion at u=2 of the common-cutoff approximation gives a d-dependent term (X/d) log d/log X because ρ'(2)=-1/2; the common lower-order term cancels in Ψ_q-(φ(q)/q)Ψ. Thus the centered fixed-cutoff smooth coefficient is Σ μ(d)log(d)/d, and complementing it reverses its sign.",
+          "The smooth-number progression results of Harper, Soundararajan and the Cambridge article normalize by Ψ_q/φ(q); they do not by themselves supply the total coprimality correction."
+        ],
+        "reasoning": "The uniform unweighted expansion is stronger than a first-order Dickman estimate and actually yields the analytic coefficient for the fixed-threshold proxy. To see the requisite uniformity from (1.29), subtract the unit step from floor(v)/v in its Stieltjes integral. Integration by parts yields a first correction proportional to ρ'(u)/log y; the remaining integral is O(log^-2 y) near u=2 because floor(v)/v-1=O(1/v), the log moment in the differentiated integral is integrable, and ρ' is Lipschitz near 2. Its exact common coefficient cancels. Transferring this proxy to the moving composite threshold and then to actual period defects requires the separate arithmetic estimates; the inspected smooth-number statements do not make that transfer.",
+        "searches": [
+          "Web: Ramaswami second order smooth number asymptotic Psi(x,y) rho(u) remainder O(x/log^2 y) uniform 1<u≤2 de Bruijn Saias primary theorem",
+          "Hildebrand–Tenenbaum, Theorem 1.8 and (1.29)",
+          "arXiv:1103.2106 Theorem 1",
+          "arXiv:0707.0299 Theorem 1",
+          "Cambridge smooth-number AP result, Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Farhi–Kane arXiv:0808.1507",
+        "Huang–Yang arXiv:2611.15379",
+        "Hong–Qian arXiv:0903.0530 opening passage",
+        "Hildebrand–Tenenbaum J. Théor. Nombres Bordeaux 5 (1993), Theorem 1.8",
+        "Granville smooth-number survey",
+        "Harper arXiv:1103.2106 and Soundararajan arXiv:0707.0299 theorem passages",
+        "Cambridge smooth-number progression theorem",
+        "Published pointwise-period record b42ad25dab65"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Farhi–Kane identifies which prime is absent at each k but does not count how often that happens on varying windows.",
+          "Using the older smooth-count approximation and fixed-threshold Möbius calculation gives an alternative route to the same prime-local coefficient once the diagonal-to-fixed cancellation and the two defect-layer estimates have been proved.",
+          "The frozen proof supplies a direct argument with effective PNT and zero-mean cofactor weights rather than borrowing any unverified moving-threshold smooth-number theorem."
+        ],
+        "reasoning": "Do not credit the local coefficient as new for a fixed-cutoff smooth count or the pointwise period test as new. The nonautomatic steps for the original object are identification of the dominant defect layer, quantitative treatment of all other defects and the prime exclusion, and extraction of the centered moving-threshold bias. These are necessary to conclude the claimed least-period sign reversal; the inspected statements do not contain a direct specialization giving those steps.",
+        "searches": [
+          "Farhi–Kane arXiv:0808.1507, Theorem 3.2 and Proposition 3.3",
+          "Huang–Yang arXiv:2611.15379, Theorem 1.1 and comparison passage",
+          "Hildebrand–Tenenbaum Theorem 1.8",
+          "Granville, Smooth numbers: computational number theory and beyond, pp. 2 and 8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Up to the bounded higher-power layer, shortening is equivalent to being composite with P^+(N)≥sqrt(N). The prime slice of that large-factor count must be removed.",
+          "After centering, the difference between the moving cutoff P^+(N)≥sqrt(N) and the fixed cutoff P^+(N)>sqrt(X) costs O_q(sqrt(X)): for each prime p≤sqrt(X) in the difference the cofactors are exactly m≤p, and for p not dividing q their cumulative weight is O_q(1). Primes dividing q have bounded contribution in that difference. This replacement is not valid with that error for the uncentered count.",
+          "Removing the prime layer subtracts (1-φ(q)/q)π(X)+O_q(1) from the centered count, explaining the negative term; finite totals only corroborate the formula."
+        ],
+        "reasoning": "The closest equivalent statistic is a centered smooth-number correction, after complementing, subtracting all primes, and using cancellation between the two different thresholds. The near-equivalence is quantitative and depends on the special cofactor structure and negligibility of higher omitted powers; the all-integer fixed-cutoff statement alone is not the period-law statement.",
+        "searches": [
+          "Resultary: consecutive lcm least period exact formula Farhi Kane coprimality bias window length X/log X",
+          "Resultary: large prime factors integers residue classes harmonic weights sum log p/(p-1) least period defect",
+          "Web: largest prime factor distribution P+(n) ≤ n^u variable threshold second-order uniform asymptotic coprimality fixed modulus smooth numbers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact least-period records give prime-local factors for fixed k or fixed multiplicative functions, not a joint count as k varies with a coprimality restriction.",
+          "The Resultary matches include the target itself, pointwise-period work, and secondary biases for different statistics. The finite normalized counts here are not a prior table."
+        ],
+        "reasoning": "No prior aggregate table or exact frequency evaluation for the defect statistic was established in the bounded comparison. An exact pointwise formula allows enumeration but is not a quantitative frequency or bias theorem.",
+        "searches": [
+          "Resultary: second-order coprimality bias least periods consecutive LCM large prime factor density fixed modulus",
+          "Resultary: smooth numbers arithmetic progressions second order coprimality bias moving cutoff square root Dickman",
+          "Exact least periods for positive multiplicative consecutive-LCM quotients, RESULT.md"
+        ]
+      },
+      "rationale": "The fixed-window period criterion and the leading largest-prime-factor density are prior. Moreover the classical uniform smooth-number expansion gives the fixed-cutoff coprimality coefficient by inclusion–exclusion; that analytic coefficient in isolation is not a new smooth-number phenomenon. What remains is the arithmetic reduction linking the actual least-period defect at its moving cutoff to that coefficient at the stated error scale, excluding the prime layer and controlling higher omitted powers. This produces an explicit sign-changing second-order law for the original period statistic. The bounded comparison did not establish earlier coverage of this reduction or frequency law. It is not publication-priority clearance.",
+      "residual_risks": [
+        "Earlier work on centered largest-prime-factor counts at a varying threshold, or on frequencies of Farhi–Kane exceptions, could already contain the substantive reduction or the law. The comparison does not exclude unindexed results.",
+        "The original Saias article was not independently obtained; the Hildebrand–Tenenbaum statement is the checked precise uniform approximation. Other cited full papers were not all read in full.",
+        "Nearby fixed-cutoff smooth-number asymptotics genuinely account for the corresponding local coefficient after Möbius summation; originality should not be attributed to that proxy calculation alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the pointwise prime-power input; no frequency result in those statements",
+          "evidence": [
+            "Theorem 3.2 determines each full p-primary factor; Proposition 3.3 allows at most one prime for which the full power is omitted."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0808.1507",
+          "material_read": "PDF p. 6 Theorem 3.2, offsets 16460–20006, and p. 7 Proposition 3.3, offsets 20165–22510",
+          "method": "Open primary PDF, decisive passages",
+          "title": "New results on the least common multiple of consecutive integers",
+          "trigger": "Exact defect classification"
+        },
+        {
+          "assessment": "Pointwise period generalization, not a count across k",
+          "evidence": [
+            "Specializations recover the Farhi–Kane and Hong–Qian cases."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.15379",
+          "material_read": "PDF Theorem 1.1 and specializations, pp. 4–5 at offsets 9512–12082",
+          "method": "Open primary PDF excerpts",
+          "title": "On least periods of a class of arithmetic functions",
+          "trigger": "Broader theorem containing the fixed-window case"
+        },
+        {
+          "assessment": "Inspected scope is fixed progression parameters",
+          "evidence": [
+            "Determines smallest periods of quotients formed from consecutive arithmetic-progression terms."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0903.0530",
+          "material_read": "Opening statement and abstract, offset 0–4105; no full-paper clearance",
+          "method": "Open primary PDF excerpt",
+          "title": "The least common multiple of consecutive arithmetic progression terms",
+          "trigger": "Related exact-period generalization"
+        },
+        {
+          "assessment": "Rigorous approximation implies the requisite fixed-cutoff coefficient after centering; does not address least periods",
+          "evidence": [
+            "Psi(x,y)=Lambda(x,y) times 1+O(exp(-(log y)^(3/5-epsilon))) in the stated uniform range, which includes u near 2. Lambda is an explicit Dickman–Stieltjes integral. The theorem is attributed to Saias and proved in §3."
+          ],
+          "identifier_or_url": "https://www.numdam.org/item/JTNB_1993__5_2_411_0.pdf",
+          "material_read": "§1 Theorem 1.8 and equation (1.29), printed p. 422 / PDF p. 13, text offset 23258 and original page layout",
+          "method": "Open PDF theorem passage and page image check",
+          "title": "Integers without large prime factors",
+          "trigger": "Strong uniform lower-order smooth-count input at the square-root cutoff"
+        },
+        {
+          "assessment": "Covers classical fixed-cutoff input, including a second term, not the period count",
+          "evidence": [
+            "ρ(u)=1-log u for 1≤u≤2; p. 8 reports the next term involving Euler's constant and ρ(u-1)."
+          ],
+          "identifier_or_url": "https://math.utoledo.edu/~codenth/Spring_13/3200/NT-books/Smooth_Numbers-Computational_Number_Theory_and_Beyond-Granville.pdf",
+          "material_read": "PDF p. 2 offsets 3902–5744, p. 3 offsets 6114–8184, p. 8 offsets 21070–22929",
+          "method": "Open survey PDF, bounded Dickman and expansion passages",
+          "title": "Smooth numbers: computational number theory and beyond",
+          "trigger": "Classical first- and second-order smooth-number facts near u=2"
+        },
+        {
+          "assessment": "Equidistribution within reduced classes, not the total coprimality correction",
+          "evidence": [
+            "Compares Ψ(x,y;q,a) with Ψ_q(x,y)/φ(q), not Ψ_q with (φ(q)/q)Ψ."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1103.2106",
+          "material_read": "Opening definitions and PDF p. 2 Theorem 1, offsets 0–4152 and 4228–6712",
+          "method": "Open primary PDF, formulation and theorem passage",
+          "title": "On a paper of K. Soundararajan on smooth numbers in arithmetic progressions",
+          "trigger": "Coprimality-related smooth-number theorem"
+        },
+        {
+          "assessment": "Reduced-class discrepancy with different normalization and range, not least-period bias",
+          "evidence": [
+            "Main comparison there is with Ψ_q/φ(q), so the total coprime share is not evaluated by that discrepancy."
+          ],
+          "identifier_or_url": "https://www.cambridge.org/core/journals/compositio-mathematica/article/smooth-numbers-in-arithmetic-progressions-to-large-moduli/D8E4EE07BDAA6D41CCD8C5455D81CD7A",
+          "material_read": "Cambridge PDF p. 3 Theorem 1.1, offsets 8618–11590",
+          "method": "Open primary PDF, theorem and cutoff range",
+          "title": "Smooth numbers in arithmetic progressions to large moduli",
+          "trigger": "Potentially dominating recent smooth-number distribution bound"
+        },
+        {
+          "assessment": "Pointwise formula, not a parameter-frequency law",
+          "evidence": [
+            "Its result prescribes least-period factors at specified window size and function."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-least-periods-for-positive-multiplicative-consecutive-lcm--b42ad25dab65/RESULT.md",
+          "material_read": "RESULT.md from offset 0, full mathematical comparison",
+          "method": "Published record, local mirror",
+          "title": "Exact least periods for positive multiplicative consecutive-LCM quotients",
+          "trigger": "Nearest matching exact-period corpus result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A fixed-k exact period formula does not quantify how frequently its full period fails over k, or how coprimality affects that frequency. The leading share hides a signed correction which changes direction even for the two smallest prime moduli. The prime exclusion and suppression of higher omitted powers explain that phenomenon and give a usable second-order benchmark for this natural period statistic. The significance is the centered period law, not a new general smooth-number asymptotic or the finite sieve data.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

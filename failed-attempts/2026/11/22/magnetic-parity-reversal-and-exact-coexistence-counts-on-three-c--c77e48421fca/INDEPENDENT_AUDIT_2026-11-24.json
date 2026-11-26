@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:19:04.619162Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–56",
+        "Frozen VERIFICATION.md and verify.py, inspected without execution",
+        "Fresh enumeration: python3 /workspace/reproductions/mobius.py"
+      ],
+      "rationale": "Let k be the number of favored vertices, B their complement, and c the total monochromatic edge cost. Cubicity gives c=3(k-n)+e(B)+b(B); c>=0, and equality in c>=3(k-n) holds exactly when B is independent. Independence allows at most one selected vertex in each rung, with alternating sides away from the reversed seam; odd n has two size-n sets, even n has no size-n set and 2n size-(n-1) sets (the hole and either compatible alternating pattern). For even n, at k=n-1 the complement of a maximum independent set induces three edges, a forest by triangle-freeness, hence 2^(n-2) assignments. For k=n, cost one forces each color-zero/complement part to induce one edge. A doubled favored rung would already use its only edge and imply exactly one empty rung; one of its two neighboring rungs would then have a favored vertex, imposing a second edge. Thus all rungs are split, the unique frustrated longitudinal link has n choices and two side patterns, and the complement has 2^(n-1) proper two-color assignments. At k=n+1 the 2n independent complements each admit 2^(n-1) arbitrary assignments. The two cubic bounds eliminate all other candidates off saturation for nonnegative field, and comparing the candidate lines gives exactly the stated crossings and counts; x>3 selects the unique all-favored state. At x=3 all independent B contribute 2^|B|. In the three-state rung transfer the symmetric subspace has characteristic polynomial lambda^2-3lambda-2 and the swap-odd eigenvalue is -2, yielding the signed hard-core formula and entropy. At x=0 the six-state transfer in cyclic orientations and their reversals has diagonal blocks J_3-I_3 and off-diagonal blocks I_3; the swap-even block is J_3 and the swap-odd block J_3-2I_3. The signed trace is exactly the stated chromatic count. Direct integer enumeration independently agreed on ground energies and degeneracies at eight rational fields for each n=3,...,6 (32 cases), including ties.",
+      "residual_risks": [
+        "Finite enumeration corroborates the all-n argument; it does not prove that quantifier independently."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2009 Eq. (2.33) is an exact sum of transfer-matrix traces with the reflected closing matrix, in q,v,w, for Möbius strips",
+          "The 2015 square/triangular ladder result in the frozen discussion treats cyclic strips in the inspected abstract and introduction"
+        ],
+        "reasoning": "The 2009 exact partition function includes all exchange and field energies at the submitted width, not merely the independence number or a general inequality. The 2015 cyclic calculation is not the decisive comparison.",
+        "searches": [
+          "Chang–Shrock arXiv:0907.0925v2 §II.A and Eq. (2.33), PDF offsets 38500–45074; width-two transfer basis p. 5",
+          "Chang–Shrock arXiv:1506.07392v1 abstract and introduction"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0907.0925v2",
+        "arXiv:cond-mat/9908323v1",
+        "arXiv:1506.07392v1",
+        "arXiv:2608.30601v1 abstract",
+        "Resultary 7e14a56d13ba and 2d809678ac3c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With q=3, v=u-1 and w=z the 2009 expression gives Z_n(u,z)=sum_{c,k} N_n(c,k) u^c z^k for the identical labelled spin model",
+          "For rational x=p/s with s>0, substituting u=t^s, z=t^(-p) gives minimum exponent s times the dimensionless ground energy and leading coefficient precisely its degeneracy; retaining z as an auxiliary marker keeps each favored-population contribution separate."
+        ],
+        "reasoning": "For all n the known exact bivariate specialization determines the support and coefficients, hence also the lower convex envelope, its crossings, and counts for real x. In particular x=0,1,2,3 all use direct integer initial-coefficient extraction. This establishes implication at the level of the enumerated invariant; it is not a claim that the earlier source printed this simplified phase diagram or its independent-set proof.",
+        "searches": [
+          "arXiv:0907.0925v2 model on p. 2 and Eq. (2.33) on p. 10",
+          "Frozen RESULT lines 5–26 and 34–52"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "0907.0925v2 defines the external weight w for one favored color and exchange weight 1+v; the Möbius seam reverses rows",
+          "Resultary 7e14a56d13ba treats two rather than three spin states and counts I(M;1) at saturation",
+          "Frozen RESULT lines 46–50 identify D3 with I(M;2)"
+        ],
+        "reasoning": "The rung relabelling (rung i, side 0/1) -> i or i+n turns the reversed seam into exactly the ring M_(2n) with rung chords at width two. q=3 and the field definition give the same distinguished color and both named alternatives, not the two-state analogue. At x=3 the two choices per occupied independent-set vertex distinguish I(M;2) from I(M;1).",
+        "searches": [
+          "Web: exact Möbius strip Potts magnetic-field partition function and independence polynomial at activity 2",
+          "arXiv:0907.0925v2 model definitions and Möbius seam, §II.A",
+          "Resultary: Möbius ladder parity, magnetic thresholds, saturation and independent-set polynomials"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2d809678ac3c gives maximal independent dominating sets, not the all-independent-sets polynomial",
+          "arXiv:2608.30601 abstract discusses the homotopy of the independence complex, not the required weighted count",
+          "Shrock (1999) already computes zero-field chromatic data for width-two Möbius strips",
+          "The exact two-variable coefficient enumerator is supplied by Eq. (2.33); no separate exact table is needed to establish that coverage."
+        ],
+        "reasoning": "A database of maximal independent sets or homotopy types would not alone yield this complete field census. No independently located explicit all-threshold table is claimed. The matching exact partition-function formula, unlike these partial comparisons, encodes the complete labelled coefficient data.",
+        "searches": [
+          "Resultary: exact ground sectors and independent-set counting on the Möbius ladder",
+          "Web: Möbius ladder independence polynomial and saturation degeneracy",
+          "0907.0925v2 Eq. (2.33) and cond-mat/9908323v1 abstract"
+        ]
+      },
+      "rationale": "Chang–Shrock (2009), arXiv:0907.0925v2 §II.A Eq. (2.33), gives an exact arbitrary-length Möbius square-strip partition function with a single favored color, not merely a cyclic counterpart. Width 2 and q=3 are precisely this graph and spin model. The positive-field ground envelope, favored-population sectors and labelled multiplicities are initial exponents and coefficients of the exact two-variable specialization. This is verifiable broader exact coverage of the invariant, not just a similar technique or an unavailable possible source. The frozen case-by-case simplification is not asserted to appear verbatim in the 2009 paper, and the direct combinatorial interpretation is useful, but the submitted result does not frame a separate independent contribution beyond the specialized census. The 2009 antecedent is absent from the frozen comparison.",
+      "residual_risks": [
+        "It remains unresolved whether the explicit parity formulas or the hard-core closed form were previously printed in this exact form. The finding fails on verified broader coverage, not a claim about that unresolved priority or on a search miss."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broader exact coverage of the same enumerator",
+          "evidence": "Arbitrary q,v,w and length; reflected transfer closing matrix supplies Möbius rather than cyclic closure.",
+          "identifier_or_url": "https://arxiv.org/abs/0907.0925",
+          "material_read": "v2 abstract; p. 2 model and field; p. 5 width-two basis; §II.A reversed row order and Eq. (2.33), PDF text offsets 40900–45074 for the decisive formula",
+          "method": "OA PDF and direct comparison of Eq. (2.33)",
+          "title": "Structure of the Partition Function and Transfer Matrices for the Potts Model in a Magnetic Field on Lattice Strips",
+          "trigger": "Exact field-dependent partition function on twisted square strips"
+        },
+        {
+          "assessment": "Supports credited zero-field coverage",
+          "evidence": "Exact chromatic/zero-temperature results for Möbius strips including width two.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/9908323",
+          "material_read": "v1 abstract, p. 1",
+          "method": "OA PDF",
+          "title": "T=0 Partition Functions for Potts Antiferromagnets on Möbius Strips and Effects of Graph Topology",
+          "trigger": "Prior zero-field end of census"
+        },
+        {
+          "assessment": "Inspected claims address cyclic ladders; not the decisive Möbius source",
+          "evidence": "Cyclic square and triangular strips.",
+          "identifier_or_url": "https://arxiv.org/abs/1506.07392",
+          "material_read": "v1 abstract and introduction, p. 1",
+          "method": "OA PDF",
+          "title": "Exact Partition Functions for the q-State Potts Model with a Generalized Magnetic Field on Lattice Strip Graphs",
+          "trigger": "Frozen closest generalized-field ladder comparison"
+        },
+        {
+          "assessment": "Graph analogue, two-state specialization only",
+          "evidence": "Even-length intermediate plateau and unweighted independent-set saturation census.",
+          "identifier_or_url": "2026/11/2/SCOPE-parity-dependent-magnetic-field-ground-states-on-m-bius-ising-la--7e14a56d13ba",
+          "material_read": "Local-mirror RESULT.md finding",
+          "method": "Resultary and local mirror",
+          "title": "Parity-dependent magnetic-field ground states on Möbius Ising ladders",
+          "trigger": "Same graph and parity-dependent saturation"
+        },
+        {
+          "assessment": "Counts only independent dominating sets",
+          "evidence": "Maximal independent sets and independence number, not the weighted count over all independent sets.",
+          "identifier_or_url": "2026/10/12/SCOPE-odd-cardinality-rigidity-and-exact-independent-domination-polyno--2d809678ac3c",
+          "material_read": "Local-mirror RESULT.md finding",
+          "method": "Resultary and local mirror",
+          "title": "Odd-cardinality rigidity and exact independent-domination polynomial",
+          "trigger": "Possible stronger independence polynomial"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–26, 34–52 and 58–64",
+        "Chang–Shrock arXiv:0907.0925v2 Eq. (2.33)"
+      ],
+      "rationale": "The even/odd contrast for a natural twisted ladder is well motivated, and the proof is a useful transparent extraction of ground-state data. But the exact census submitted as an independent contribution is a width/color/temperature specialization of a known exact Möbius field enumerator; the result does not establish an additional independently useful mathematical invariant beyond those census data. The elementary cubic reduction explains the extraction, not a new claim beyond it.",
+      "residual_risks": [
+        "This does not dispute the expository or physical usefulness of the simplified plateau description."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

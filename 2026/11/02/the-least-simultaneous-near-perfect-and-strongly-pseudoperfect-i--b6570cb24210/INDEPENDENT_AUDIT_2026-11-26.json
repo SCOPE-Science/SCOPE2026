@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:38:51.676198Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 11–69",
+        "Frozen VERIFICATION.md",
+        "Frozen verify_near_strong_overlap.py",
+        "Independent exact sieve and complementary-orbit computation"
+      ],
+      "rationale": "At N=174592 the displayed factorization gives sigma(N)=1023*12*32=392832; the excess over 2N is 43648=N/4. The nine pairs consist of 18 distinct divisors, their products are N and their sum is 349184=2N, so their union is complement-closed. For leastness, 1 cannot satisfy the proper-divisor condition. For every 2<=n<=N the divisor-sum sieve counts each divisor once and near-perfectness is exactly 0<e=sigma(n)-2n<n and n mod e=0. Complement is an involution; any closed subset is precisely a union of whole orbits, counting a square-root singleton once. The reachable-sum update from B=1 is B=(B|(B<<w)) & ((1<<(2*n+1))-1) for each orbit weight w; the 2n bit tests the condition. Positive weights make the truncation exact. A separately written Python reproduction (independent_sieve.py, default limit 174592) returned all 37 listed candidates and sole intersection [174592], independently checking the factorization, excess and witness. The frozen code was inspected, not executed.",
+      "residual_risks": [
+        "The bounded exhaustion proves the least element, not any structural or asymptotic assertion about larger elements."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5 raises an already strongly pseudoperfect base with an included (1,n) pair to positive powers; Theorem 6 restricts the shape 2^k p, p a Mersenne prime. The catalog Findings for 516c480fca5c and 7d2c76c9ad9a treat respectively three and two omissions at omega(n)=3, Omega(n)=4. The indexed 3ed82619b9c4 description is restricted to 2^a p^2, but its full text was unavailable in the mirror."
+        ],
+        "reasoning": "A power theorem needing a known strongly pseudoperfect base does not generate this witness, whose prime exponents have gcd one. N has eleven prime factors counted with multiplicity, not four, and neither of the two catalog omission counts is the stated joint condition. The prime-square result as described has the wrong support and exponent shape.",
+        "searches": [
+          "arXiv:2609.36068, Theorems 5–6",
+          "Resultary entries 516c480fca5c, 7d2c76c9ad9a, 3ed82619b9c4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2312.11661",
+        "arXiv:2609.36068",
+        "OEIS A181595 and A334405",
+        "Resultary entries 516c480fca5c, 7d2c76c9ad9a and 3ed82619b9c4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Question 40 asks about a square with its square root as the omitted divisor; Question 41 concerns infinitely many strongly pseudoperfect squares. The result here has an odd exponent of 2 and omitted divisor N/4. It admits a different divisor set of sum 2N, using several complementary pairs."
+        ],
+        "reasoning": "An affirmative Q40 alone would imply Q42 by omitting the unique fixed point of the complement involution, but that prior question is not an established construction of this nonsquare witness. The N/4 omission by itself does not give complementary closure. Neither that possible square construction nor the scope of the Wang–Zelinsky theorems gives the nonsquare witness or its minimum.",
+        "searches": [
+          "arXiv:2312.11661, paragraph containing Questions 40–42",
+          "arXiv:2609.36068, pp. 3 and 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Question 42 asks: ‘Is there any number which is both near-perfect and strongly pseudoperfect?’ Wang–Zelinsky p. 3 imposes sum 2n and the biconditional d in S iff n/d in S, exactly as in the frozen finding."
+        ],
+        "reasoning": "The witness answers precisely this existential question, and the search adds leastness over all positive integers. Ordinary pseudoperfectness does not impose closure under complement.",
+        "searches": [
+          "arXiv:2312.11661, Questions 40–42",
+          "arXiv:2609.36068, complementary-divisor definition",
+          "Resultary: joint near-perfect and strongly pseudoperfect numbers and minimum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A181595 lists 174592 under the near-perfect condition. A334405 records the strong condition, but the inspected ordered b-file ends at index 1650, value 30324, so it contains no information at 174592."
+        ],
+        "reasoning": "The two lists are not a prior complete intersection certificate through N. Appearance in A181595 credits the known near-perfect example without establishing its second property.",
+        "searches": [
+          "OEIS A181595",
+          "OEIS A334405 and b334405.txt",
+          "Resultary: least simultaneous near-perfect and strongly pseudoperfect"
+        ]
+      },
+      "rationale": "The contribution is the conjunction and its least element, not the appearance of N in the near-perfect sequence, or the separate definition or theory of strong pseudoperfectness. The explicit witness answers Question 42. No covering prior intersection statement or sufficient theorem furnishing this example was identified in the compared passages.",
+      "residual_risks": [
+        "An extended private table or differently indexed joint example could predate the finding; the public table comparisons and available full-text passages are not exhaustive.",
+        "Full text of the related two-orbit prime-square catalog result was unavailable; only the scope in its index was used."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical existential question, stated as open there; distinct square-root problem",
+          "evidence": "‘Is there any number which is both near-perfect and strongly pseudoperfect?’",
+          "identifier_or_url": "https://arxiv.org/abs/2312.11661",
+          "material_read": "PDF p. 18, Questions 40–42 and adjoining text",
+          "method": "Lawful OA full-text passage",
+          "title": "Weighted Versions of the Arithmetic-Mean-Geometric Mean Inequality and Zaremba's Function",
+          "trigger": "Exact open question for the joint condition"
+        },
+        {
+          "assessment": "Same strong property; inspected main results do not generate the nonsquare witness; not a whole-document exclusion based on keyword misses",
+          "evidence": "Theorem 5 concerns powers of an already established strong example with (1,n) included; Theorem 6 concerns 2^k times one Mersenne prime.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.36068",
+          "material_read": "Definition and A334405 discussion, pp. 1 and 3; main theorem statements 5–6, p. 5",
+          "method": "Lawful OA PDF passages",
+          "title": "Strongly Pseudoperfect Numbers",
+          "trigger": "Direct subsequent paper on the stronger divisor constraint"
+        },
+        {
+          "assessment": "N is known in the first set; accessible second prefix does not reach N",
+          "evidence": "A181595 lists 174592; b334405.txt ends with ‘1650 30324’.",
+          "identifier_or_url": "https://oeis.org/A181595 ; https://oeis.org/A334405/b334405.txt",
+          "material_read": "A181595 definition/list; A334405 definition and linked b-file endpoint",
+          "method": "Public database entries and table",
+          "title": "Near-perfect and strongly pseudoperfect sequences",
+          "trigger": "Exact possibility of preexisting numerical evidence"
+        },
+        {
+          "assessment": "Different omission counts or exponent shape; unavailable full text remains a limitation, not a date-based exclusion",
+          "evidence": "Three or two omissions and omega(n)=3, Omega(n)=4 for first two; 2^a p^2 scope in the third synopsis.",
+          "identifier_or_url": "516c480fca5c; 7d2c76c9ad9a; 3ed82619b9c4",
+          "material_read": "Finding of first two; indexed description only for third",
+          "method": "Local catalog and local full-text mirror where available",
+          "title": "Related near-perfect and strong pseudoperfect Resultary records",
+          "trigger": "Closest distinct catalog matches"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "McCormack–Zelinsky, Questions 40–42",
+        "Frozen RESULT.md, Finding and witness"
+      ],
+      "rationale": "An explicit nonsquare example answers a precise published existence question without assuming the conjectural square-root omission route. Leastness is a natural, fully checked numerical invariant of that intersection rather than an arbitrary bounded slice.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

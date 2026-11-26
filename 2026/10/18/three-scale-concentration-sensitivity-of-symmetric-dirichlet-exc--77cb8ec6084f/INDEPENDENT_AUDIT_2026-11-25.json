@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:50:44.831570Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen decimal with equality and ellipsis was inaccurate in its trailing digits: independent 60-digit quadrature of the defining gamma-score integral and bisection on [1,2] gave 1.3714020181783566482956564..., rather than 1.3714020181783595.... The complete corrected RESULT.md uses the correctly rounded approximation 1.3714020181784 and spells out dominated differentiation at small shape. The repaired claim was checked as follows. Centering the symmetric Dirichlet score gives L−EL, and exchangeability yields the beta-tail derivative. The beta score has derivative (1−mx)/(x(1−x)), negative endpoint limits and mean zero; the two score roots force a unique strict positive-to-negative crossing of its upper integral. Subtracting x^(alpha−1) from the incomplete-beta integrand leaves an integrable differentiable remainder even at alpha=0, with finite part log(t/(1−t)); multiplication by the inverse beta normalization gives the claimed small-shape covariance limit and traps its zero near 1/2. At large shape the limiting score has its sole maximum zero at 1/m; monotonicity and negativity at the two fixed bracketing points bring both score roots, hence the covariance root, to 1/m. At fixed alpha, the rescaled marginal and score converge locally to the stated gamma density and score. Trigamma cancellation bounds the beta-score second moment uniformly in dimension; Cauchy–Schwarz and tightness (EY_m=1) control the omitted upper tails. The analogous unimodal centered gamma score gives a unique strict crossing, and two fixed points flanking it trap the scaled beta zero. Integration by parts gives the E_1 expression, and the independent numerical quadrature verifies the repaired approximation but does not certify all digits or prove uniqueness. Only RESULT.md required correction; the unexecuted supplied script and verification notes already use finite tolerance and the same rounded output. No formal verification or expert attestation is claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 18960b009db5 gives a single crossing for a C²([0,1]) strictly convex separable statistic. The comparison is with −log, which fails the endpoint hypothesis, although the regression proof is closely related.",
+          "Resultary 2c4e4bd2ab5b treats power sums with q>1, and 93f5621be126 treats nested threshold counts, including a gamma covariance crossing.",
+          "Same-day Greenwood record 178c0a43180a obtains 1/2 and 1/m as endpoints for a different covariance with the quadratic statistic."
+        ],
+        "reasoning": "A proof based on conditional regression can be adapted to the integrable log singularity, so the sign-crossing mechanism receives no independent novelty credit. These broader results do not give the score's limiting amplitudes or its gamma cutoff; the power-sum result's parameter range does not include a limit at q=0 that would yield the logarithm.",
+        "searches": [
+          "Resultary 18960b009db5, 178c0a43180a, 2c4e4bd2ab5b, 93f5621be126",
+          "Portnoy–Torrado–Veerman p. 12 and §5"
+        ]
+      },
+      "checked_sources": [
+        "Portnoy–Torrado–Veerman, bunching.pdf",
+        "arXiv:1611.01439",
+        "Resultary 18960b009db5, 178c0a43180a, 2c4e4bd2ab5b, 93f5621be126",
+        "Hjelle, Heuristics for setting sparse Dirichlet priors"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Taking shape differences toward zero in the beta result can at most transfer a weak crossing condition without using further score structure. It does not evaluate the small-shape incomplete-beta derivative or establish convergence of scaled beta-score tails.",
+          "For the smooth convex-score theorem the signed statistic needed here is singular at zero; even an adaptation only supplies the finite-dimensional crossing. The other exact cutoffs show concrete disagreement in the gamma-scale location."
+        ],
+        "reasoning": "The fixed-mean stochastic comparison, covariance sign shape and ordinary beta-to-gamma convergence are not new by themselves. The limiting score-weighted tail integral needs extra integrability and sign control, and the two shape limits use separate expansions. The combined quantitative result is not a mere substitution into the inspected theorems.",
+        "searches": [
+          "Portnoy–Torrado–Veerman Theorem 4.3 at p. 12",
+          "Resultary 18960b009db5 Finding and conditional regression proof",
+          "Resultary 178c0a43180a and 93f5621be126"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Portnoy–Torrado–Veerman Theorem 4.3 compares two shapes at fixed mean, with a unique crossing of their CDFs.",
+          "Soch–Allefeld §2.1 Eqs. (6)–(7) defines exceedance as a named coordinate being the largest among all coordinates, not exceeding a common numerical threshold."
+        ],
+        "reasoning": "The score argument is infinitesimal concentration sensitivity; pairwise bunching is closely related but does not directly give the strict nonvanishing signs of a pointwise derivative or its three scale limits. The rank-exceedance use of the term is a different statistic.",
+        "searches": [
+          "Resultary comparison for symmetric Dirichlet log-product / log concentration score and threshold count",
+          "Portnoy–Torrado–Veerman Theorem 4.3",
+          "Exceedance Probabilities for the Dirichlet Distribution; arXiv:1611.01439"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Greenwood formula is (alpha+1)/(m alpha+2) with scaled zero (alpha+1)/alpha, which at alpha=1 is 2 rather than 1.371402....",
+          "Hjelle's numerical zero 0.434818204... solves E_1(x)=exp(−x) for a fixed-total-mass optimization."
+        ],
+        "reasoning": "There is no natural finite sequence table for these continuum-parameter limits; matching exact-formula and numerical-cutoff sources were compared by statistic and scaling. Neither of these is the fixed-shape gamma score root.",
+        "searches": [
+          "Resultary 178c0a43180a and 18960b009db5 exact thresholds",
+          "Hjelle (2025), Heuristics for setting sparse Dirichlet priors, exponential-integral zero"
+        ]
+      },
+      "rationale": "The repair does not change the mathematical scope. Fixed-mean beta concentration crossing and score differentiation are established ingredients, and catalogue results give analogous covariance thresholds for other statistics. The supported distinct claim is the quantitative three-scale sensitivity of the log-product covariance, in particular its small-shape amplitude and the fixed-shape gamma score profile and moving cutoff.",
+      "residual_risks": [
+        "Bounded comparison, not publication-priority certification. Broader work on derivatives of incomplete beta or gamma concentration families might independently contain some of the scale limits; exact coverage was not established in the inspected evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Pairwise stochastic crossing, not the score-covariance asymptotic triple",
+          "evidence": [
+            "Theorem 4.3 explicitly fixes 0<a1<a2 and compares Fa1 with Fa2; the proof crosses at an interior point."
+          ],
+          "identifier_or_url": "https://web.pdx.edu/~veerman/bunching.pdf",
+          "material_read": "Theorem 4.3 and proof, p. 12, and neighboring conclusions; PDF offsets 29220–33847",
+          "method": "Open PDF text, bounded passages",
+          "title": "The Bunching and Monotonicity Properties of Families of Probability Distributions",
+          "trigger": "Fixed-mean beta concentration crossing for the same beta subfamily (up to reflection)"
+        },
+        {
+          "assessment": "Rank exceedances, not fixed threshold count or its shape derivative",
+          "evidence": [
+            "phi_j is the probability that r_j is larger than all other elements of r."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1611.01439",
+          "material_read": "§2.1, p. 2 Eqs. (6)–(7), and §2.2 opening, offsets 4200–7773",
+          "method": "Open same-paper arXiv PDF text, bounded passages",
+          "title": "Exceedance Probabilities for the Dirichlet Distribution",
+          "trigger": "Potential direct literature overlap suggested by exact title; lawful preprint resolves the inaccessible search hit"
+        },
+        {
+          "assessment": "Strong structural overlap; smoothness excludes the singular log score, and the quantitative scale laws are not supplied",
+          "evidence": [
+            "The theorem assumes phi in C²([0,1]) with positive curvature and proves strict single crossing by conditional regression."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-shape-dependent-sharp-covariance-threshold-for-symmetric-diric--18960b009db5",
+          "material_read": "Finding, scope, conditional regression, mirror offsets 0–2770",
+          "method": "Local Resultary mirror, bounded passages",
+          "title": "A shape-dependent sharp covariance threshold for symmetric Dirichlet samples",
+          "trigger": "Broader separable concentration-score theorem with the same exceedance count"
+        },
+        {
+          "assessment": "Quadratic score, not log-product; gamma-scale cutoff differs",
+          "evidence": [
+            "The cutoff is (alpha+1)/(m alpha+2), so its dimension-scaled limit is (alpha+1)/alpha, in particular 2 at unit shape."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-a-sharp-greenwood-exceedance-covariance-crossover-for-dirichlet--178c0a43180a",
+          "material_read": "Finding, exact quadratic cutoff and scaled gamma limit",
+          "method": "Local Resultary mirror, bounded passage comparison",
+          "title": "A sharp Greenwood–exceedance covariance crossover for Dirichlet samples",
+          "trigger": "Same-day result with the same endpoint threshold limits and gamma scaling"
+        },
+        {
+          "assessment": "Different fixed-total-mass regime and objective",
+          "evidence": [
+            "The equation E_1(x)=exp(−x) gives a root near 0.434818204."
+          ],
+          "identifier_or_url": "https://eohjelle.com/posts/heuristics-for-setting-sparse-dirichlet-priors/",
+          "material_read": "Public section with scalar root around offset 23057",
+          "method": "Lawful open webpage, bounded passage comparison",
+          "title": "Heuristics for setting sparse Dirichlet priors",
+          "trigger": "Exponential-integral root in a Dirichlet exceedance optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The score covariance is a natural sensitivity for threshold occupancy in a symmetric Dirichlet model. A mere positive/negative crossing would overlap significantly with established concentration comparisons. The quantified sparse response and distinct fixed-shape gamma cutoff give usable scale-dependent predictions, notably distinguishing the high-dimensional cutoff from the mean-coordinate rule; the numerical repair leaves that contribution intact.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

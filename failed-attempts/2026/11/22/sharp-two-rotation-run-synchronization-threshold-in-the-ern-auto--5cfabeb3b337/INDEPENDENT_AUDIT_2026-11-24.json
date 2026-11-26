@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:43:06.233369Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For words with no aa, once b occurs, the only possible images are S={1,…,n−1} and T=Q∖{1}, with Sb=S, Sa=T, and Tb=S; after reaching T another a is forbidden. Hence the minimum rank is exactly n−1 and cannot be one for n≥3. On S, x=ab is increment modulo N=n−1. The block y=aab acts as x² except at N, which maps to 1 instead of 2. Therefore e=yx^(N−2) fixes 1,…,N−1 and maps N to N−1, also when N=2 and the exponent is zero. After be, xe shrinks the interval [j,N−1] to [j+1,N−1] until singleton. All blocks end in b, with runs of at most two rotations. Direct counting gives 2n²−5n+1. The classical unconstrained lower bound gives quadratic growth, not exact optimality of this word. Independent bit-mask subset/constraint BFS (python3 /workspace/branches/independent_checks.py 4) found no cap-one reset for n=3,…,12, verified the witness for those sizes, and found cap-two minima 4,11,20,33,48,67,88,113,140,171. This range also independently agrees with the closest indexed stronger formula, not a proof of that formula for all n. Frozen verify.py inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hoffmann arXiv:2109.02743v1 abstract, PDF p.1, covers polynomial-time decidability for binary input automata with simple idempotents (including Černý) under a partial constraint automaton with at most three states. The cap-one and cap-two languages have two and three states, respectively.",
+          "8a6293fb58a5 gives the all-n constructive exact optimum, and 303d4a010712 separately gives the exact even-size optimum."
+        ],
+        "reasoning": "The algorithmic theorem in isolation is not an explicit uniform verdict. In contrast, an optimal witness of the same constrained problem in all sizes does imply the positive claimed existence and its length bound.",
+        "searches": [
+          "primary search: Černý automaton constrained synchronization forbid consecutive occurrences of one letter no aa aaa-free reset word regular constraints Hoffmann 2021",
+          "Resultary: exact shortest reset word in classical Cerny automaton avoiding aaa no three consecutive rotation letters cyclic interval potential"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 8a6293fb58a5 and 303d4a010712, exact indexed statements",
+        "Hoffmann arXiv:2109.02743v1, PDF p.1 abstract",
+        "Frozen RESULT.md §§1–4 and cited Fernau et al. framework (not independently passage-verified)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "8a6293fb58a5 describes a construction via a reverse cyclic-interval potential alongside the sharp formula. Neither indexed summary explicitly states the no-aa obstruction or the precise x,e block word."
+        ],
+        "reasoning": "The known positive claim entails a witness within the asserted length since floor((3n²−8n+6)/2)≤2n²−5n+1. The cap-one negative side independently follows immediately because ab acts bijectively after the first b; do not assert it was explicitly covered. A longer alternate witness does not by itself establish a novel constrained-synchronization theorem.",
+        "searches": [
+          "Resultary 8a6293fb58a5 and 303d4a010712 exact claim comparison",
+          "arXiv:2109.02743v1; frozen comparison to Theorem 4.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The identical indexed record 5cfabeb3b337 was excluded as comparison. Distinct 8a6293fb58a5 states shortest reset avoiding three consecutive rotation letters of the classical n-state Černý automaton for n≥3.",
+          "The conventional b(n−1)=0 with the increment rotation is conjugate to b(0)=1 by adding one to all state labels. Relabeling states preserves reset words and runs of the designated letter."
+        ],
+        "reasoning": "The indexed stronger claim specifies the same standard family and contiguous-run constraint, not a scattered subsequence or total rotation count. Word reversal alone is not used as an equivalence.",
+        "searches": [
+          "Resultary: Černý automaton synchronization forbidding consecutive rotation letters no aa no aaa constrained reset word Cerny family",
+          "Resultary: Černý all n exact shortest no triple rotation reset threshold floor (3n^2-8n+6)/2 no double rotation predecessor collapse"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "8a6293fb58a5 indexes floor((3n²−8n+6)/2); 303d4a010712 indexes 6m²−8m+3 at n=2m. The latter is the even specialization of the former. These are all-parameter indexed claims, not a small-instance table."
+        ],
+        "reasoning": "The stronger all-n formula fits the bounded independent BFS and beats the frozen witness bound for n≥4. Finite agreement corroborates identification of the variant, not the universal optimum theory.",
+        "searches": [
+          "Resultary: Černý all n exact shortest no triple rotation reset threshold floor (3n^2-8n+6)/2 no double rotation predecessor collapse",
+          "Resultary: exact shortest reset word in classical Cerny automaton avoiding aaa no three consecutive rotation letters cyclic interval potential"
+        ]
+      },
+      "rationale": "The strongest distinct indexed record explicitly solves the same all-n no-triple rotation problem, with an optimal witness and strictly smaller lengths for n≥4. It covers the substantive positive existence and quadratic construction-length claim; the stated uniform dichotomy appends a direct no-aa invariant, not an established distinct substantial finding. The exact displayed word is verified here but is not asserted identical to another word. This is a coverage decision, not a priority or authorship decision based on a shared date.",
+      "residual_risks": [
+        "Full texts of the closer indexed records and their conventions/proof words were not retrieved; the statement-level overlap is exact in the designated standard-family setting and independently corroborated in a bounded range. No historical priority or explicit prior derivation of the cap-one obstruction is established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong explicit coverage of positive cap-two synchronizability and a tighter length; no conclusion about literal construction identity or the order of same-day records.",
+          "evidence": [
+            "Indexed statement: shortest reset word avoiding three consecutive rotation letters has length floor((3n²−8n+6)/2) for every n≥3; reverse cyclic-interval potential constructs a matching word."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-the-exact-no-triple-rotation-reset-threshold-of-the-ern-automata--8a6293fb58a5",
+          "material_read": "Exact indexed mathematical statement, including lengths, all-n range and constructive proof description; full text not retrieved.",
+          "method": "Local Resultary lookup and attempted targeted OA mirror passage for assumptions.",
+          "title": "The exact no-triple-rotation reset threshold of the Černý automata",
+          "trigger": "Directly stronger all-n theorem on the same run cap"
+        },
+        {
+          "assessment": "Positive constraint coverage on even n, with exact length.",
+          "evidence": [
+            "Indexed formula 6m²−8m+3 in the standard 2m-state automaton for m≥2."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-bounded-rotation-reset-threshold-for-even-ern-automata--303d4a010712",
+          "material_read": "Exact indexed statement and description of alternating-parity construction.",
+          "method": "Local Resultary lookup; targeted full mirror attempt timed out.",
+          "title": "Exact bounded-rotation reset threshold for even Černý automata",
+          "trigger": "Direct overlap on an infinite parameter subfamily"
+        },
+        {
+          "assessment": "Relevant broader decision framework; does not resolve the exact family claims from the abstract alone.",
+          "evidence": [
+            "Abstract explicitly includes the Černý family and describes the up-to-three-state partial constraint algorithm."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2109.02743",
+          "material_read": "PDF p.1 abstract; full §4 and appendix not independently read here.",
+          "method": "Primary search and open PDF preview; OA passage retrieval timed out.",
+          "title": "Constrained Synchronization for Commutative Automata and Automata with Simple Idempotents",
+          "trigger": "General constraint theorem specifically encompassing the Černý automata"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Bounded-run reset length is a worthwhile problem, but its substantive existence and length component is covered by a sharp constructive all-n result. The surviving direct observation that the normalized block ab is a permutation (no-aa obstruction) and a longer elementary witness are not shown to address a separate useful gap, e.g. a different invariant or control objective. No demonstrated independent valuable remainder justifies a repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:04:00.814257Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Ragnarsson–Tenner's wedge theorem and affine cycle count give integral freeness, degree n−1 and rank L_n−2. Each cell is a directed induced graph from an injective word, with its simplex orientation fixed by the increasing label order. Thus the augmented Hopf trace has prefactor (−1)^n, and a selected support orbit contributes −1 regardless of its size. For a rotation with d orbits, proper supports lift paths (so invariant directions are independent); on full support exactly the two consistently directed cycles are excluded, including d=1,2. For d≥3 use the chromatic evaluation at −1. The cyclic coloring/vacancy transfer acts on the constant-vacancy and constant-ordinary-color sector by [[1,q],[1,q−1]], with the remaining eigenvalue −1 of multiplicity q−1. Power traces are polynomials in q; at −1 the two roots have power sum (−1)^d L_d, and the remaining contribution is −2(−1)^d. Direct sums give Z_1=Z_2=1. For reflections the endpoint-swapped edges forbid their whole orbits; the remaining path lengths k, k+1, k−2 give the three cases. The weight Q_l satisfies Q_l=Q_(l−2)−Q_(l−1) (sum the last bit, giving factor 0 after a vacant penultimate vertex and −1 after an occupied one), with Q_0=1,Q_1=0. This gives (−1)^l F_(l−1) and covers n=3 and the empty quotient path at n=4. Independent replay: python3 /workspace/review-evidence/reproduce.py 3, log /workspace/review-evidence/3.txt, all 66 character values for 3≤n≤8 using enumerated word classes; this finite check does not prove the general formula. The supplied exact cellular script computes and prints the characters and checks kernel stability but does not automatically assert equality with the theorem; its terminal PASS alone is not a character-comparison certificate. Supplied scripts were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ragnarsson–Tenner give the general wedge theorem and the affine-type cycle multiplicity.",
+          "Jonsson–Welker identify commutation classes with acyclic orientations of induced subgraphs and identify the face order."
+        ],
+        "reasoning": "These general theorems provide rank and cell structure, not the signed character. The exact overlapping cycle theorem, not these prerequisites, determines the verdict.",
+        "searches": [
+          "Ragnarsson–Tenner arXiv:0806.0906 Theorem 3.4 and Corollary 3.6",
+          "Jonsson–Welker arXiv:0712.2143 Lemma 3.4(iii)–(iv)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary f3988be26e9c exact Finding and prior-work section",
+        "Ragnarsson–Tenner arXiv:0806.0906",
+        "Jonsson–Welker arXiv:0712.2143",
+        "Resultary 1615d98daf23 summary"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed theorem states the same character directly and computes the associated invariant multiplicity. It likewise attributes the sphere counts to earlier work.",
+          "The earlier nonequivariant wedge classification cannot distinguish dihedral representations of the same rank."
+        ],
+        "reasoning": "The frozen arithmetic presentation in Fibonacci notation follows mechanically from the indexed recurrence. The later catalogue path is separated from the proof of equivalence; no historical priority or attribution judgment is made.",
+        "searches": [
+          "f3988be26e9c RESULT.md Finding and Relationship to prior work (offsets 0 and 7600)",
+          "arXiv:0806.0906 affine-type table"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed theorem uses the same support, word commutations, and r(i)=i+1, s(i)=−i. It states (−1)^(n+d)(L_d−2) for all rotations and gives reflections as −P_k, P_(k+1), P_(k−2) in the odd, even vertex-axis, even edge-axis cases respectively.",
+          "Its P_0=1,P_1=0,P_(m+2)=−P_(m+1)+P_m implies P_m=(−1)^m F_(m−1), including m=0."
+        ],
+        "reasoning": "With this substitution every reflection case, every rotation and the n≥3 scope are identical, with no generator or axis changes. The extra quotient formula is an invariant-space average, not a new feature of the frozen statement.",
+        "searches": [
+          "Resultary search for cyclic Boolean complexes and signed dihedral top homology",
+          "f3988be26e9c RESULT.md Finding, mirror offset 0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The retrieved theorem gives the entire character (all 2n elements), not just the identity value. It also gives invariant ranks by averaging.",
+          "An indexed ordinary cycle coloring-complex character (1615d98daf23) concerns a different complex; its summary is not evidence about the word-commutation complex."
+        ],
+        "reasoning": "There is a verified exact formula match distinct from the frozen ID. Earlier rank tables concern only the identity trace and would not themselves cover the character.",
+        "searches": [
+          "Resultary search on Boolean complex of a cycle, Lucas/Fibonacci rotation and reflection formulas",
+          "f3988be26e9c RESULT.md complete dihedral character and quotient formula, offset 0"
+        ]
+      },
+      "rationale": "A distinct indexed manuscript, f3988be26e9c, demonstrably gives the same all-n character for the same Boolean complex and action. This is a coverage verdict for the frozen contribution, not a claim that the indexed manuscript preceded it or that either was derived from the other. The comparison uses the exact theorem, not title similarity or inaccessible evidence.",
+      "residual_risks": [
+        "Catalogue paths alone do not determine priority or provenance; f3988be26e9c has a later path date than the frozen record.",
+        "The follow-up arXiv:1005.4411 and exact coloring-complex file were not readable in bounded attempts; this does not affect the demonstrated exact coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact full-scope equivalence plus quotient corollary; no conclusion about who originated the result.",
+          "evidence": [
+            "All n≥3; (−1)^(n+d)(L_d−2); reflection cases −P_k, P_(k+1), P_(k−2)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-dihedral-homology-characters-of-cyclic-boolean-cell-complexes--f3988be26e9c/RESULT.md",
+          "material_read": "Finding and beginning of proof, mirror offset 0; verification note and prior-work/limitations passages, offset 7600",
+          "method": "Local mirror; explicit term-by-term conversion of recurrence; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Dihedral homology characters of cyclic Boolean cell complexes",
+          "trigger": "Exact object, action and possible character match"
+        },
+        {
+          "assessment": "Covers homotopy and dimension, not the asserted equivariant character in the inspected theorem.",
+          "evidence": [
+            "Wedge of β(G) spheres of dimension |V|−1; affine cycle count agrees after indexing by cycle size."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0806.0906",
+          "material_read": "p. 7 Theorem 3.4 and Corollary 3.6 affine-cycle entry and sequence",
+          "method": "Open-access PDF passage comparison",
+          "title": "Homotopy Type of the Boolean Complex of a Coxeter System",
+          "trigger": "Source of concentration and Lucas multiplicity"
+        },
+        {
+          "assessment": "Covers cell identification; no dihedral trace supplied by this lemma.",
+          "evidence": [
+            "Commutation classes with support σ correspond to acyclic orientations of G induced on σ."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0712.2143",
+          "material_read": "p. 8 Lemma 3.4(iii)–(iv)",
+          "method": "Open-access PDF passage comparison",
+          "title": "Complexes of Injective Words and Their Commutation Classes",
+          "trigger": "Same word-commutation cells and possible structural implication"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The full symmetry invariant would be a motivated contribution if not already covered. The frozen statement, however, differs from the independently indexed all-element formula only in expressing the reflection recurrence in Fibonacci notation. It adds no distinct invariant, scope, or mathematical consequence to that coverage. This is not a criticism of the correctness or usefulness of the common theorem.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

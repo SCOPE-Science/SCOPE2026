@@ -1,0 +1,169 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:20:15.849477Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–107; VERIFICATION.md and CHECK.py inspected without execution",
+        "Independent replay: cd /workspace && python3 review_evidence/independent_checks.py; balanced() constructs a reversal-symmetric singular pair at q=0.8 using 60-digit decimal arithmetic. For a=b, reversing the rows of T+tI gives a symmetric nonnegative matrix. The computed positive eigenvector is a top singular witness and agrees with the upper bound, giving t≈0.27400057319754646 and radius≈0.67331091290729588."
+      ],
+      "rationale": "Diagonal unitary conjugations remove the phases and rotate the whole constrained range, so the radius is the maximal real part. The Hermitian part has eigenvalues 0 and ±1/2 at the stated Frobenius normalization, proving q=1 and giving F(t)=||T+tI||≥t+1/2. Convexity is strict: equality for distinct shifts would produce a common norming vector with positively collinear shifted images; their difference forces it to be an eigenvector of T, hence killed by nilpotency, contradicting F(t)>t. For t>0 and two positive weights, the top eigenvalue of the Gram matrix is simple by irreducible nonnegative tridiagonal structure. With one weight zero the nontrivial 2×2 block dominates the isolated singular value t and still has a simple largest singular value. Norm differentiation gives the overlap of the top singular vectors; F'(t) tends to 1 by convexity and t≤F(t)≤t+||T||. At t=0 the right derivative is 0 for distinct weights. For equal weights the first derivative of the Gram matrix compressed to its top eigenspace has eigenvalues ±1/sqrt(2); conversion to the singular value gives right derivative 1/2. Nonnegative top pairs at zero realize every overlap up to that value. Thus the finite minimum of F(t)−qt for q<1 is attained by a singular-pair witness at the appropriate slope or at zero, not just an upper bound. The characteristic polynomial has trace coefficient 3t²+1, principal-minor coefficient 3t⁴+t²+π, and constant −t⁶. At the simple largest root its z-derivative is positive, so the root decreases strictly with π, with continuous endpoint extension; the t=0 root also decreases strictly. Evaluation at a finite minimizer for the smaller π transfers strictness to the radius. This identifies both equality cases, and direct minimization for one edge and the balanced cubic derivative yield the profiles. For an unbalanced allocation, the positive minimizing shift for any q>0 gives strict decrease in q, including departure from q=0.",
+      "residual_risks": [
+        "The high-precision example is a bounded numerical check of a displayed value, not the proof of strict ordering or uniqueness. The analytic proof uses only three-site one-step shifts and does not extend to arbitrary 3×3 nilpotents."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2010 tree circularity applies to the target, and Theorem 2.1 gives the b=0 plateau. Its other interval is empty when b=0. The 2013 theorem includes the one-step family as c=0 of a general triangular family, but its conclusion classifies cubic-surface types and boundary degrees, not comparative radii under an energy constraint.",
+          "The 2008 explicitly solved matrix has a nonzero second superdiagonal. The general rank-one formula gives exactly the upper profile once the maximizing rank-one allocation is known. The same-day defect-asymptotic record includes a scalar envelope identity, not the global ordering."
+        ],
+        "reasoning": "These sources cover techniques, geometry and endpoint profiles. The full energy-allocation comparison needs control of the largest shifted singular value in the product parameter and strictness after optimization.",
+        "searches": [
+          "Chien–Nakazato 2010 full text pp. 377–379, 389; Chien–Nakazato 2013 Theorem 3 p. 140; Koide–Nakazato 2008 Theorem 1.1; Denčić et al. arXiv:2503.05036; Resultary 370db7a49306"
+        ]
+      },
+      "checked_sources": [
+        "All eight inspections above; frozen RESULT.md lines 109–125 compared to retrieved 2010 and 2013 full-text passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A general norm envelope reduces computation to an optimization but gives no sign when the energy allocation changes. The required step here is the sign of the top-root derivative −z_+/P_z and its strict transfer using a finite minimizing shift, even when the balanced shift is zero.",
+          "Knowing either a boundary degree or both endpoint profiles does not compare two interior allocations. The dilation-radius record uses positivity of a pencil with an ab/t² second-superdiagonal entry, whereas the q-envelope uses shifted singular values and the minimizing slope equal to the pair overlap."
+        ],
+        "reasoning": "No checked stronger theorem subsumes the strict q-ordering by a parameter substitution or normalization change; the distinct result is the ordering and its sharp equality cases, not the standalone plateau or endpoint formula.",
+        "searches": [
+          "2010 Theorem 2.1 and 2013 Theorem 3 compared with frozen Proof sections 1–3; arXiv:2503.05036 rank-one formula; Resultary 370db7a49306 envelope and 484e1b5a4ee8 Finding and Proof §§1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The balanced matrix is exactly J_3/sqrt(2) up to phases, so the Jordan threshold cos(pi/3)=1/2 and its norm-envelope profile already give the balanced subcase. Chien–Nakazato Theorem 2.1 includes this plateau at its b=0 endpoint.",
+          "For every fixed q>0 dividing by q preserves the ordering. The rho-radius catalogue match imposes a unitary rho-dilation condition on the operator powers and uses a different positive matrix pencil involving T²; its formula is not a reparameterization of the two-vector overlap constraint by matching normalizations."
+        ],
+        "reasoning": "Credit the exact Jordan and scaled aliases. The strict ordering of unequal allocations is a separate mathematical assertion, not a new name for the endpoint calculations or the rho-radius reversal.",
+        "searches": [
+          "Normalized/unscaled q-numerical range versus scaled W_q/q; Chien–Nakazato DOI 10.13001/1081-3810.1382; Resultary Jordan profile f322322a276d and rho-radius 484e1b5a4ee8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Jordan-shift item states the formula for n≥4 but explicitly notes that the proof also applies to n=2,3 and does not claim those cases as new. This is an exact match of the balanced endpoint profile after scaling.",
+          "The same-day item works at large n with q=1−c/n² for finite end defects. The November item matches the three-site budget and weight parameters exactly but studies the rho-dilation radius and a reversal at rho=2, a different conclusion."
+        ],
+        "reasoning": "Subcase and method overlap are credited; none of these inspected statements gives the complete q-allocation ordering. No priority inference follows from same-day or later dates.",
+        "searches": [
+          "Resultary local catalogue/mirror: Jordan norm plateau f322322a276d; same-day finite-edge boundary layer 370db7a49306; dilation radius allocation 484e1b5a4ee8"
+        ]
+      },
+      "rationale": "The rank-one endpoint, circularity, scalar norm-envelope mechanism, balanced plateau, and balanced Jordan profile have existing coverage. The 2010 primary paper actually includes the balanced plateau at its b=0 endpoint, contrary to the frozen discussion's omission. The supported distinct claim is the strict fixed-energy ordering of all two-edge allocations for every q<1, with the resulting simultaneous unique extremizers. The inspected cubic geometry, endpoint results, and a related dilation-radius calculation do not imply that ordering.",
+      "residual_risks": [
+        "The 1998 full text was unavailable through the attempted routes; it may cover more low-dimensional profiles. Bounded searches do not rule out an older equivalent strict comparison. Neither this gap nor the known endpoint overlaps by themselves decide the distinct ordering claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Tree circularity and exact balanced plateau, not post-plateau or weight ordering",
+          "evidence": [
+            "The range for A(b) is the disk of squared radius 1+b² up to q=(1−b)²/[2(1+b²)]; A(0)=J_3. The other interval of the theorem contributes nothing at b=0."
+          ],
+          "identifier_or_url": "https://journals.uwyo.edu/index.php/ela/article/download/765/765",
+          "material_read": "p. 377 circularity passage; pp. 378–379 Eq. (1) and Theorem 2.1; p. 389 summary",
+          "method": "Lawful journal full PDF, targeted passages",
+          "title": "The q-Numerical Range of 3×3 Tridiagonal Matrices",
+          "trigger": "Direct overlapping tridiagonal parameters and possible balanced result"
+        },
+        {
+          "assessment": "Surface and degree classifications, not normalized allocation ordering",
+          "evidence": [
+            "Family A has weights 1,b on the first superdiagonal and c on the second; c=0 includes one-step shifts up to scaling."
+          ],
+          "identifier_or_url": "https://hrcak.srce.hr/101406",
+          "material_read": "Full-text Theorem 3, p. 140, and its stated matrix family",
+          "method": "Lawful OA full-text retrieval and bounded comparative reading",
+          "title": "Cubic surfaces and q-numerical ranges",
+          "trigger": "General primary family includes the bound shift when c=0"
+        },
+        {
+          "assessment": "Different shift structure",
+          "evidence": [
+            "Its fixed matrix has entries N_12=N_23=1 and N_13=1/2."
+          ],
+          "identifier_or_url": "https://www.m-hikari.com/imf-password2008/21-24-2008/nakazatoIMF21-24-2008.pdf",
+          "material_read": "Theorem 1.1 p. 1003",
+          "method": "Lawful OA PDF, theorem passage",
+          "title": "The q-Numerical Range of a Certain 3×3 Matrix",
+          "trigger": "Exact range for a close 3×3 upper-triangular matrix"
+        },
+        {
+          "assessment": "Exact rank-one endpoint, no allocation comparison",
+          "evidence": [
+            "Orthogonal unit vectors give (1+sqrt(1−q²))/2 in the stated formula."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2503.05036",
+          "material_read": "p. 1, displayed general rank-one radius formula",
+          "method": "OA primary PDF bounded reading",
+          "title": "q-Numerical Radius of Rank-One Operators and the Generalized Buzano Inequality",
+          "trigger": "Exact known endpoint formula"
+        },
+        {
+          "assessment": "Exact balanced profile by specialization",
+          "evidence": [
+            "Norm envelope and plateau threshold cos(pi/n); proof noted to apply also to n=2,3."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-quadratic-exit-from-the-norm-plateau-for-q-numerical-radii-of-jo--f322322a276d",
+          "material_read": "Finding and assumptions concerning the lower-dimensional cases",
+          "method": "Resultary local mirror, RESULT.md",
+          "title": "Quadratic exit from the norm plateau for q-numerical radii of Jordan shifts",
+          "trigger": "Balanced shift is precisely a scaled J_3"
+        },
+        {
+          "assessment": "Norm-envelope overlap; different asymptotic regime and questions",
+          "evidence": [
+            "Treats large n and q=1−c/n² with finitely many end defects."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-universal-critical-q-numerical-boundary-layer-under-finite-edge--370db7a49306",
+          "material_read": "Finding and scalar envelope passage",
+          "method": "Resultary local mirror, RESULT.md",
+          "title": "Universal critical q-numerical boundary layer under finite edge defects",
+          "trigger": "Same-day weighted-shift q-radius technique"
+        },
+        {
+          "assessment": "Different norm-like radius defined by unitary rho-dilations, with optimizer reversal at rho=2",
+          "evidence": [
+            "Gives an explicit formula depending on (rho−1)² and the weights, from a Herglotz positivity pencil in T and T². Does not claim the constrained pair overlap radius."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-a-sharp-allocation-reversal-for-the-rho-numerical-radius-of-thre--484e1b5a4ee8",
+          "material_read": "Finding, Assumptions and Proof §§1–4 start, offsets 0–3994",
+          "method": "Resultary local mirror, RESULT.md bounded passage",
+          "title": "A sharp allocation reversal for the rho-numerical radius of three-site shifts",
+          "trigger": "Strong categorical match in objects, normalization, and extremizers"
+        },
+        {
+          "assessment": "Possible earlier low-dimensional profile coverage; no conclusion from access failure",
+          "evidence": [
+            "Identified as a relevant prior reference in the 2010 primary text."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/03081089808818539",
+          "material_read": "Bibliographic information and citation by the 2010 paper only; full text unavailable",
+          "method": "Direct DOI/repository attempt for lawful full text",
+          "title": "Some Results on the q-Numerical Range (Li–Nakazato, 1998)",
+          "trigger": "Historical relevant q-range paper cited by the tridiagonal study"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof sections 2–4; checked prior endpoints and broader geometry under originality"
+      ],
+      "rationale": "The fixed Frobenius budget makes this the first one-step shift family with a free allocation between two nonzero links. Uniform strict ordering solves a natural optimization of the q-numerical radius and its scaled version simultaneously for the full overlap interval, distinguishing the rigid interior regime from complete degeneracy at q=1. It gives sharp constants and exact equality cases for all admissible weights, not merely computations of previously known endpoints.",
+      "residual_risks": [
+        "No scientific value is assigned to the known endpoint profiles on their own, or to a claim about all nilpotents or longer shifts."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

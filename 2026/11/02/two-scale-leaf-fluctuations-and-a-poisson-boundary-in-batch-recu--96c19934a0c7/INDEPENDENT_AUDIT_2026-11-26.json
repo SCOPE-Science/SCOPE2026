@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:04:55.391490Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof Steps 1–5",
+        "VERIFICATION.md and CHECK.py inspected without running the supplied checker",
+        "Independent bounded replay: python /workspace/branches/audit_replay_3.py"
+      ],
+      "rationale": "The old leaf is lost exactly for a leaf recruiter, and an intact cohort is lost exactly for a recruiter among its members. The events are nested, giving the three transitions and covariance q(1-p). The first deterministic round initializes both means and all second moments; direct substitution checks the claimed means and total covariance gives the exact recurrences. An independent exact enumeration of individual recruiter histories verifies the first and second moments at 18 finite (m,n) pairs. For the fixed-m martingale CLT, the propagated weights converge to x^(1/m) and x, giving integrals m/(m+2), m/(2m+1), and 1/3. For predictable variations, it suffices to average the pointwise L1 errors from the variance bounds, with no uniform-in-time limit assumption. For growing m, the leaf weights tend to one in averaged square; m E|p_t-Ep_t| is at most sqrt(m)/((m+1)sqrt(t)), and the cross term is O(m^-1/2) in L1 after normalization. The maximal normalized innovations vanish under m=o(n); the cohort CLT alone has no such restriction. At m=1 the observables coincide, so the singular covariance is required. For the Poisson regime the repeat-recruitment chain couples below independent Bernoulli(t/(mt+1)) increments: the expected mismatch and the correction to the Poisson mean each cost at most n/[m(m+1)], and Le Cam adds n/m^2. This proves the stated finite-n TV bound and both limiting cases.",
+      "residual_risks": [
+        "No joint Poisson/Gaussian assertion at m asymptotic to cn, and no local limit theorem. The finite enumeration is not evidence for an asymptotic law by itself."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For fixed m, the center-hook star K_(1,m) with uniform latch gives precisely the attachment rule in the degree-count theorem (for m=1 the undirected degree-one count can differ at the root by one).",
+          "The 2020 article also reports the earlier 2014 block-tree leaf CLT. The 2017 fringe-subtree CLT covers leaves of the uniform recursive tree at kappa=1, where C=L."
+        ],
+        "reasoning": "This constitutes prior coverage of the fixed-batch leaf marginal, including the degenerate m=1 case. Degree counts lose cohort identity and fixed building blocks do not give the growing-m triangular limit or the explicit TV bound.",
+        "searches": [
+          "Desmarais–Holmgren DOI 10.37236/9139, §1.2.1, Theorem 4 and Corollary 6",
+          "Gopaladesikan–Mahmoud–Ward DOI 10.1017/S0269964813000338",
+          "Holmgren–Janson–Sileikis arXiv:1603.08125 §3.3 Theorem 3.9"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.33636, 2308.03857, 1603.08125",
+        "DOI 10.37236/9139; reported coverage of DOI 10.1017/S0269964813000338",
+        "Resultary 4490954b5d10, d3480f1053f7 and 64c654896be4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2609.33636 defines the same process but the inspected results concern distance and path-length statistics.",
+          "Cohort s survives with probability (m(s-1)+1)/(m(n-1)+1), by multiplying the no-hit probabilities on changing supports. This gives the mean but not the joint law.",
+          "Even with the fixed-m leaf CLT, the conditional covariance depends on shared recruitment events; the triangular proof requires uniform rare-event control."
+        ],
+        "reasoning": "The means and martingale method are elementary parts of the calculation, not standalone priority claims. The checked prior statements do not imply the combined explicit joint-cohort covariance, two-scale normal limit and quantitative Poisson crossover.",
+        "searches": [
+          "Compare same-batch-model arXiv:2609.33636 and the fixed-block degree-count CLT to the joint martingale limit and Poisson repeat count",
+          "Check telescoping cohort survival and cohort/vertex occupancy reductions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bhutani et al. 2609.33636 use the same growth step and retain birth-round labels; 2308.03857 instead uses latch capacity and seed copies.",
+          "The same cohort count is the number of cohort bins never hit; the mass of a present bin is m/(mt+1), distinct from the root mass 1/(mt+1). The repeat count is on individual vertices, with the root already used in the first round."
+        ],
+        "reasoning": "The occupancy equivalence checks the substantial alternative formulation; empty-bin indicators are not independent and the successive sampling supports change, so the claim is not simply a fixed-law occupancy theorem. Intact batches do not require the common parent to have no other children and are not fringe stars.",
+        "searches": [
+          "arXiv:2609.33636 §1, simultaneous recruitment and birth labels",
+          "arXiv:2308.03857 §1.1, m-ary hooking terminology",
+          "Time-inhomogeneous occupancy, independent uniform parent labels on deterministic nested supports"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "4490954b5d10 gives covariance 1/2 and a joint limit for root leaf-children and total leaves; d3480f1053f7 treats terminal-sibling pairs and the m=1 leaf marginal, including its n/12 variance under its vertex-count convention.",
+          "64c654896be4 gives exact covariance of depths of distinct birth batches in the same process, not covariance of counts of intact cohorts and leaves."
+        ],
+        "reasoning": "These are close exact claims but do not give the stated covariance matrix for m>1 or the batch-size boundary. Root leaf-children, sibling pairs and birth-batch depth are observably different from intact birth cohorts.",
+        "searches": [
+          "Resultary: simultaneous recruitment leaves, birth-cohort persistence, and Poisson repeat recruiting",
+          "Resultary 4490954b5d10, d3480f1053f7 and 64c654896be4"
+        ]
+      },
+      "rationale": "Neither the batch model nor the fixed-m leaf-marginal CLT is new. The intact birth-cohort observable with its explicit joint covariance, and the growing-batch Gaussian-to-Poisson transition with a quantitative leaf-count coupling, are the distinct supported contributions.",
+      "residual_risks": [
+        "The 2014 block-tree full text was not available; additional time-inhomogeneous occupancy or triangular-array implications may exist outside the checked material. This is not historical priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model antecedent",
+          "evidence": "Uniform extant-vertex recruitment with m children; results stated for depth, height, Wiener index and internal path length.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.33636",
+          "material_read": "Abstract, §1, offsets 0–3000 and distance-statistics passage near 4450",
+          "method": "Primary OA HTML excerpts",
+          "title": "Distances in m-ary recursive trees",
+          "trigger": "Same simultaneous recruitment model"
+        },
+        {
+          "assessment": "Positive prior coverage of fixed-m leaf marginal",
+          "evidence": "A star at each attachment fits the uniform latch rule; degree-count normal limits retain no information on all-or-none survival of a birth cohort.",
+          "identifier_or_url": "https://doi.org/10.37236/9139",
+          "material_read": "Introduction p. 2, §1.2.1 p. 3, Theorem 4 and Corollary 6 pp. 9–10",
+          "method": "Primary OA PDF passages and star-block specialization",
+          "title": "Normal limit laws for vertex degrees in randomly grown hooking networks and bipolar networks",
+          "trigger": "General fixed-block result could cover leaf CLT"
+        },
+        {
+          "assessment": "Known related marginal result, assumptions not independently matched from original full text",
+          "evidence": "The later paper attributes a normal leaf limit to the 2014 work.",
+          "identifier_or_url": "https://doi.org/10.1017/S0269964813000338",
+          "material_read": "Report of the leaf theorem in introduction to DOI 10.37236/9139, p. 2; primary full text unavailable",
+          "method": "Bounded OA lookup and secondary passage, limitations retained",
+          "title": "Building random trees from blocks",
+          "trigger": "Related fixed-block leaf theorem"
+        },
+        {
+          "assessment": "Different meaning of m",
+          "evidence": "Uses latch capacity and attachment positions; the parameter does not count simultaneous leaf births.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.03857",
+          "material_read": "§1.1, pp. 2–3",
+          "method": "Primary OA PDF passage",
+          "title": "Degrees in random m-ary hooking networks",
+          "trigger": "Possible equivalent model name"
+        },
+        {
+          "assessment": "Leaf coverage for the random recursive tree at m=1; different observables for m>1",
+          "evidence": "Uniform recursive tree arises at kappa=1; one-vertex fringe subtrees are leaves.",
+          "identifier_or_url": "https://arxiv.org/abs/1603.08125",
+          "material_read": "§3.3 Theorem 3.9",
+          "method": "Primary OA HTML passage",
+          "title": "Multivariate normal limit laws for the numbers of fringe subtrees in m-ary search trees and preferential attachment trees",
+          "trigger": "Possible general fringe-count coverage"
+        },
+        {
+          "assessment": "Different second observable and regime",
+          "evidence": "Counts root leaf-children, not untouched birth cohorts or repeat recruitments at m growing with n.",
+          "identifier_or_url": "Resultary 4490954b5d10",
+          "material_read": "Finding",
+          "method": "Local Resultary mirror",
+          "title": "Exact joint leaf law at the root of a uniform recursive tree",
+          "trigger": "Joint exact leaf law and Poisson/Gaussian behavior"
+        },
+        {
+          "assessment": "Leaf marginal overlap at m=1, different clustering count",
+          "evidence": "Counts unordered pairs of terminal siblings, not cohorts surviving intact.",
+          "identifier_or_url": "Resultary d3480f1053f7",
+          "material_read": "Finding",
+          "method": "Local Resultary mirror",
+          "title": "Exact terminal-sibling clustering covariance in uniform recursive trees",
+          "trigger": "Sibling-leaf covariance"
+        },
+        {
+          "assessment": "Different depth statistic",
+          "evidence": "Covariance of distinct birth-batch depths is independent of the later batch index.",
+          "identifier_or_url": "Resultary 64c654896be4",
+          "material_read": "Finding",
+          "method": "Local Resultary mirror",
+          "title": "Persistent birth-depth covariance in batch recursive trees",
+          "trigger": "Batch cohort covariance in same process"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and growing-batch limits",
+        "Desmarais–Holmgren fixed-block marginal comparison"
+      ],
+      "rationale": "Preserving birth groups gives an observable not measurable from the degree counts. Its fluctuations remain of order sqrt(n) even while the leaf fluctuations shrink, and the explicit covariance, decorrelation and Poisson boundary quantify that loss of leaf-count variability. The finite TV estimate provides a mechanistic rare-repeat explanation rather than just a numerical transition.",
+      "residual_risks": [
+        "The applications and comparison are for deterministic equal-sized batches and uniform selection; no claim about randomized batches or preferential recruitment."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

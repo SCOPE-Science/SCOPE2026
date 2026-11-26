@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:48:06.107590Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen formulas are mathematically correct: outside the equal-color flat F the arrow columns give independent pivots; after removing them, only the nonzero weighted incidence rows on S⊆F remain. The incidence kernel consists of constants on spanning components, in all characteristics and with parallel arrows. Exact colorings of F are proper colorings of its contraction, counted by q^c times the matroid characteristic polynomial. For one cycle, independent bridge differences give factors 1+(q²−1)T. On the cycle the q lifts of each admissible difference vector cancel the 1/q character average; the trivial and nontrivial edge-character sums are 1+(q²−1)T and 1−T respectively. Only zero differences with full cycle arrow support need the one-degree correction. I separately enumerated the GF(4) triangle from products and column reduction over GF(2)[x]/(x²+x+1), obtaining (4,36,792,3264), as predicted. The supplied prime-field verifier was inspected, not executed; historical replay is `python verify.py` in the source directory. For the narrowed replacement I rechecked the generator and isomorphism arguments directly. Each pair and arrow contributes the polynomial (d_u−d_v)z′−(d′_u−d′_v)z; one reversal multiplies all generators on that arrow by a unit, so the ideals themselves coincide for every s≥2. The full arrow ideal is the characteristic abelian derived ideal, and the quotient action has three distinct weights on the three one-dimensional arrow lines. Isomorphism must permute the functional weights after one common dual quotient isomorphism, not rescale them independently. Independence of the first two weights leaves one relation, with generators (1,1,1) and (1,1,−1) respectively; no permutation and common rescaling works in odd characteristic. In characteristic two the brackets match. For a forest the independent edge differences allow all sign changes to be absorbed in the quotient, verifying the comparison in the repaired proof. The repaired RESULT.md and VERIFICATION.md give algebraic replay, not a finite test or a formal attestation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Additive Z-isoclinism compares the commutator tensor by additive isomorphisms on the input central quotient and output derived group; they need not be a single Lie isomorphism. With field-linear maps and identified central coordinates the tensor comparison explains equality of commuting equations. The inspected example concerns relative probabilities with trivial relative commutator groups; Lemma 3.2 and Theorem 3.3 concern commutator subgroups and probabilities.",
+          "Rossmann enumerates conjugacy classes of graphical groups. Lindell–Rubio y Degrassi §3.2 and c0b9137ae1c8 concern derivation/cohomological Lie algebras rather than the commutator Lie algebra of the quiver algebra."
+        ],
+        "reasoning": "General tensor equivalence explains why commutativity can survive an independent output sign change, but does not show that the specified quiver algebras fail to be Lie-isomorphic. The arrow weights are an invariant of a single Lie isomorphism, not an invariant of independent input/output equivalence. The compared group and outer-derivation results address different objects.",
+        "searches": [
+          "Dutta–Basnet–Nath arXiv:1510.08211 §3, Lemma 3.2 and Theorem 3.3",
+          "Rossmann arXiv:2107.05564v3 §1.2",
+          "Lindell–Rubio y Degrassi arXiv:2411.03080v2 §3.2",
+          "Resultary c0b9137ae1c8 on outer derivation Lie algebras"
+        ]
+      },
+      "checked_sources": [
+        "Resultary/SCOPE 38b9edb44d0d, 73e61818e07a, d24c3c8c856e, 3547be760bfd, 43a9e317850f, 857ae871be86, c0b9137ae1c8",
+        "arXiv:1510.08211, arXiv:2107.05564v3, arXiv:2411.03080v2",
+        "Original bibliography abstracts: arXiv:1401.1438, arXiv:1407.3045, arXiv:1504.00582"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier rank pivot proof is rowwise and uses only the graph-incidence kernel, so parallel edges merely repeat difference rows. Applying it to a cycle plus bridges and imposing the single telescoping cycle constraint gives the closed correction. Scheme equality is directly implied by the established sign argument.",
+          "Neither those statements nor the additive output isomorphism constrain the three simultaneous Lie-action eigenvalue functionals by a single change of quotient coordinates. In the repaired theorem the unique relation among those weights changes from all equal nonzero coefficients to two equal and one opposite."
+        ],
+        "reasoning": "The original flagship formula is covered to the required standard despite real additional scope on parallel edges and an explicit cycle formula. The particular Lie witness is not a special case of the inspected rank or commuting-scheme statements, and does not follow from knowing only that the underlying associative rings or their one-sided invariants differ.",
+        "searches": [
+          "38b9edb44d0d Finding Eq. (1) and Proof steps 1–3 against the frozen flat and cycle formulas",
+          "43a9e317850f proof on edge reversal against the triangle weight-relation test",
+          "Dutta–Basnet–Nath §3 additive Z-isoclinism against the genuine Lie obstruction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "38b9edb44d0d states the simple-graph rank polynomial as a sum with the contraction's proper-coloring count; q^cχ_{M/F}(q) is that same count, not a different invariant.",
+          "The Proof in 43a9e317850f around offset 4400 explicitly states that reorienting an arrow multiplies the defining commutator polynomial by −1 and preserves all pairwise-commuting tuple equations. Its witness distinguishes left/right associative image ranks on a path.",
+          "The first proof paragraph of 857ae871be86 writes exactly the pairwise-commuting conditions as exterior products of vertex differences and arrow vectors, and its finding counts simultaneous-conjugacy orbits, not Lie structures."
+        ],
+        "reasoning": "Credit the full equivalence of the rank formulas on simple graphs and the scheme identity under orientation reversal; these are not part of the repair's originality. On a path, independent weights make the opposite orientations Lie-isomorphic even if associative invariants differ. That path comparison is not the triangle counterexample.",
+        "searches": [
+          "Resultary: adjoint rank spectra and centralizer cardinalities of radical-square-zero graph/quiver algebras",
+          "Resultary: identical commuting tuple schemes under reorientation but nonisomorphic commutator Lie algebras for cyclic and transitive triangles",
+          "Primary literature: quiver radical-square-zero reorientation, commuting varieties, triangle weights, isoclinism"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "38b9edb44d0d has the exact flat formula on simple graphs and a triangle F₂ row. 73e61818e07a has the exact vertex-label sum on all loopless multigraphs; grouping labelings by their equal-color flat proves equivalence. 3547be760bfd displays the same unicyclic specialization and d24c3c8c856e counts distinct inner maps (divide the element enumerator by q^c). The latter records being later does not establish historical priority.",
+          "43a9e317850f supplies the equation coincidence and path comparison but no Lie-nonisomorphic triangle pair in the inspected passage. The closest outer-derivation and conjugacy-table records do not use the repaired invariant."
+        ],
+        "reasoning": "The original numerical and enumerative overlap is concrete, not inferred from titles. The repaired conclusion is not a rank-table entry: to match it one needs both the scheme coincidence and the Lie obstruction on these two orientations. A catalogue may still omit earlier exact examples.",
+        "searches": [
+          "Resultary/SCOPE graphic-matroid centralizer spectra, unicyclic correction and parallel arrows",
+          "Resultary/SCOPE equal commuting schemes, nonisomorphic cyclic and transitive triangle"
+        ]
+      },
+      "rationale": "This PASS is solely for the repaired triangle witness. The original featured rank claim fails the originality criterion: the earlier 38b9edb44d0d Finding and proof have the same complete simple-graph rank distribution, normalization and pivot lemma, the parallel-edge extension changes neither elimination nor the spanning-component kernel, and the unicyclic expression is an explicit specialization, not a second new invariant. The exact sign-invariance argument is also established background in the catalogue. The repaired files remove those priority claims and state the genuinely distinct obstruction: identical embedded commuting ideals at all arities in a natural pair of Lie-nonisomorphic triangle orientations, certified by the signed dependence. Closest inspected claims use an associative invariant on a forest, a commutator tensor up to independent input/output maps, or outer derivations; none gives the triangle Lie witness. This is a best-of-knowledge assessment, not a historical priority certification.",
+      "residual_risks": [
+        "Classification of solvable Lie algebras or work on commuting varieties, commutator tensors and commutativity preservers may contain the particular witness under other terminology.",
+        "The frozen record mentions almost-abelian examples without identifying their sources; there is no claim to have excluded those works or certified priority for this pair.",
+        "The repaired theorem claims no new rank spectrum or general scheme-invariance mechanism."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent for simple graphs; proof essentially unchanged for parallel arrows; no repaired triangle Lie comparison located in these passages",
+          "evidence": "The exact element-counted formula, independent-of-orientation conclusion and direct matrix pivot proof coincide on the earlier theorem's domain.",
+          "identifier_or_url": "2026/10/12/SCOPE-graphic-matroid-adjoint-spectra-and-vertex-arboricity-for-radica--38b9edb44d0d",
+          "material_read": "Finding Eq. (1), proof steps 1–3, offsets 0–5275; limitations and verified examples around offset 7900",
+          "method": "Resultary search and OA local mirror of original text",
+          "title": "Graphic-matroid adjoint spectra and vertex arboricity for radical-square-zero quiver algebras",
+          "trigger": "Decisive earlier overlapping statement"
+        },
+        {
+          "assessment": "Equivalent expanded all-graph sum, without an inferred priority claim",
+          "evidence": "The vertex-label sum, grouped by equality flat, is the frozen formula; the path example concerns associative algebra distinctions.",
+          "identifier_or_url": "73e61818e07a",
+          "material_read": "Finding Eq. (1), offsets 0–3351",
+          "method": "Resultary search and OA local mirror",
+          "title": "Adjoint-rank enumeration and the vertex-arboricity threshold for radical-square-zero quiver algebras",
+          "trigger": "All loopless multigraphs, including parallel arrows"
+        },
+        {
+          "assessment": "Matching unicyclic spectrum up to whether a central factor is counted; later dates do not prove priority",
+          "evidence": "The first counts distinct inner maps and gives q^c elements per map; the second explicitly gives the same element-counted formula.",
+          "identifier_or_url": "d24c3c8c856e; 3547be760bfd",
+          "material_read": "Mirrored Findings from offset 0",
+          "method": "Resultary search and OA local mirror",
+          "title": "Graphic-matroid adjoint-rank spectra; The adjoint-rank polynomial of a unicyclic radical-square-zero quiver",
+          "trigger": "Exact cycle-correction overlap"
+        },
+        {
+          "assessment": "Established background for identical equations; different invariant and no triangle Lie obstruction in inspected text",
+          "evidence": "States [x,y]_a=(λ_s−λ_t)ν_a−(η_s−η_t)μ_a and says arrow reversal negates it; distinguishes one-sided dimensions for path orientations.",
+          "identifier_or_url": "43a9e317850f",
+          "material_read": "Proof near offsets 4400–5973 and Finding around offset 1650",
+          "method": "Resultary search and OA local mirror",
+          "title": "Joint principal-ideal dimension spectrum of radical-square-zero quiver algebras",
+          "trigger": "Exact all-arity sign argument and closely analogous orientation comparison"
+        },
+        {
+          "assessment": "Its exterior-product criterion reproduces the equations as background, and its computed invariant is a conjugacy-orbit count, not a Lie witness",
+          "evidence": "For each arrow the exterior product of the endpoint differences with the arrow vector must vanish.",
+          "identifier_or_url": "857ae871be86",
+          "material_read": "Finding and first Proof paragraph around offsets 0–3492",
+          "method": "Resultary search and OA local mirror",
+          "title": "A random-cluster formula for all-arity commuting-tuple orbits in radical-square-zero quiver algebras",
+          "trigger": "All-arity orientation invariance for the same quiver family"
+        },
+        {
+          "assessment": "Explains independent output maps but does not establish the specified Lie counterexample",
+          "evidence": "The maps on additive central quotients and derived groups are independent; the relative example has trivial relative derived groups, and the theorem compares probabilities.",
+          "identifier_or_url": "https://arxiv.org/pdf/1510.08211",
+          "material_read": "§3 pp. 11–13, additive Z-isoclinism diagram, example, Lemma 3.2 and Theorem 3.3, offsets 24300–32550",
+          "method": "OA primary PDF passages",
+          "title": "On commuting probability of finite rings",
+          "trigger": "Possible general tensor result and prior example dominating the scheme/Lie contrast"
+        },
+        {
+          "assessment": "Different group and class-counting object",
+          "evidence": "Counts conjugacy classes and their sizes for graphical groups, not inner-derivation ranks or the commutator Lie isomorphism type of kQ/J².",
+          "identifier_or_url": "https://arxiv.org/abs/2107.05564",
+          "material_read": "Abstract and §1.2 p. 2 around text offset 4669",
+          "method": "OA primary PDF passages",
+          "title": "Enumerating conjugacy classes of graphical groups over finite fields",
+          "trigger": "Potential broader graph/algebra-group class enumeration"
+        },
+        {
+          "assessment": "Wrong Lie algebra: first Hochschild cohomology",
+          "evidence": "The indexed triangle example computes modular commuting probabilities for outer derivations with two arrows in each class; Lie structure on cohomology is not the arrow ideal representation in the repaired theorem.",
+          "identifier_or_url": "arXiv:2411.03080v2; Resultary c0b9137ae1c8",
+          "material_read": "arXiv §3.2 p. 7 around offset 26183; indexed Finding and first proof step of c0b9137ae1c8",
+          "method": "OA primary passages and local mirror",
+          "title": "Relative Hochschild cohomology and outer-derivation Lie algebra comparisons",
+          "trigger": "Plausible Lie-algebra overlap on the same algebra family and triangle example"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the repaired claim the triangle is the first simple cycle, not an arbitrary test instance. Forest weights are independent and can absorb every arrow sign in a diagonal change of coordinates. Closing the triangle introduces exactly one dependence. Changing its signs prevents Lie isomorphism even though the full polynomial ideals, not just finite-field pair counts or the adjoint spectrum, still coincide at every arity. This gives a concrete reconstruction boundary and separates commuting-equation information from the intrinsic quotient action on the derived ideal. The standard rank and reorientation results are retained as context only, not offered as new value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

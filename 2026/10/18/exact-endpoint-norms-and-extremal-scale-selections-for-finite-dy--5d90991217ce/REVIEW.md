@@ -1,19 +1,21 @@
-# Review of finite dyadic Haar scale projection constants
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The operator reduces isometrically for its norm to the \(2^d\)-atom matrix because \(P_SE_d=P_S\) and conditional expectation is contractive. Dyadic automorphisms make all columns norm-equivalent. The shell calculation gives the exact objective in binary digits, and the Bellman recurrence reduces for every remaining depth to two explicit affine branches. Solving the exact coefficient recurrences yields the closed norm and strict branch comparison identifies every extremizing selector. The proof covers both real and complex \(L^1\), all depths and all level subsets. Exact-rational matrix construction through depth \(6\) and complete selector searches through depth \(15\) passed; these finite checks do not replace the all-depth proof.
+PASS
 
-## Originality
+The operator factors through the contractive E_d and is determined by its finite matrix on equal-measure atoms; dyadic automorphisms give identical absolute column sums. Prefix-shell multiplicities 2^(d−ℓ−1), entries 2^(−d)(A_ℓ−b_(ℓ+1)2^ℓ) and the diagonal 2^(−d)A_d give the control objective. The two Bellman branches with k≥2 differ by (1−c)(t−1/2) when the preceding value function is a+c|t−1/2|; the update c↦(1−c)/2 preserves c<1. For one remaining step the value from digit 1 is 1 versus t from digit 0, so 1 is forced for every reachable t<1. If the depth is at least two, the first digit forces t=1/2; only at the second digit and d≥3 does a tie occur. Each subsequent strict action maps an interior state to the opposite open half and cannot hit 1/2, proving alternation and excluding every other candidate. The cases d=1,2 have sole optima (1),(1,1). The update for a recovers the stated (known) sharp value. Xoring the initial frequency segment by N shifts it exactly to the selected blocks, and Walsh multiplication is an L¹ isometry, giving the index classification without changing norms. Summing the digit patterns gives the two listed indices. Replay: repaired RESULT.md, or original lines 24–80; checker.py was inspected, not executed. Finite regression tests are not the all-depth proof.
 
-PASS with residual priority risk. The closest primary literature is Seeger–Ullrich (2015), which concerns Sobolev/Triebel–Lizorkin estimates for Haar projections, and Astashkin et al. (2022), which features the alternating-scale transform in a sharp distributional comparison rather than an exact finite-depth optimization across all scale selections. Osękowski (2013) addresses restricted weak type, while Kadets (2005) addresses monotone bounded completeness. Comparisons by object, norm, domain, and quantifiers do not find a theorem implying the entire sharp \(L^1\) formula together with all extremizers. An equivalent old endpoint calculation could be unindexed, and the 2014 Osękowski paper was inspected in full (sharp distribution functions, not strong finite-level norms).
+## originality
 
-## Value
+PASS
 
-PASS. Unconditionality breaks at \(L^1\) for Haar bases, so the size of finite-level suppression projections is a natural quantitative measure of the endpoint obstruction. A sharp all-depth projection constant, its parity-sensitive correction, and a complete classification of extremizing scale masks resolve a motivated finite-dimensional extremal problem, not an arbitrary table entry. The all-depth closed formula and equality classification sharpen qualitative growth observations without claiming a result for unrestricted Haar subsets.
+The numerical maximum in the frozen result is covered: the Walsh reduction makes it the exact dyadic-block maximum of the Walsh–Paley Lebesgue constants; Dick–Pillichshammer give that expression via the binary van der Corput discrepancy, citing Faure. The repair expressly credits the known value and keeps full equality classification only. The inspected statement supplies one attaining index, not an exclusion of all the others. The repaired strict Bellman comparison proves that exclusion. No priority is asserted for a witnessing digit pattern, the value, or the pointwise norm formula; older full equality results remain a real access risk.
 
-## Scientific limitations
+## value
 
-Uniform binary dyadic filtration only; selections comprise entire Haar levels; no claim for an arbitrary Haar subset or general martingale transform. No independent mathematical or bibliographic validation has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The binary dyadic filtration and Walsh Lebesgue constants are standard exact endpoint objects. Knowing one high-norm selector and the sharp value does not say whether many distinct scale patterns tie, or which alterations are possible. The all-depth necessity-and-sufficiency theorem answers that structural question: one binary tie, forced alternation among subsequent nonterminal choices, and a forced terminal digit. Through the isometry it also gives a complete optimizing-index classification for the discrepancy/Walsh formulation. This distinct equality question, not the recomputation of the known maximum, justifies retention.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

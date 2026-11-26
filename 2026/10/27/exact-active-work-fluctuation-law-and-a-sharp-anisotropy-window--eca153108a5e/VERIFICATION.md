@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-The proof is analytic and self-contained in `RESULT.md`. In particular, the generator eigenfunction and exact pointwise flip-rate identity imply the explicit martingale bracket; finite simulation is not the basis for the theorem.
+## correctness
 
-`check_entropy_work.py` runs reproducible fixed-seed exact-event simulations, with a Brownian Ornstein–Uhlenbeck conditional transition on each orientation-held interval. The stationary orientation state is sampled at the outset, but the simulated initial position is zero rather than stationary; this affects finite-time statistics only through an order-one transient. Program thresholds allow finite-sample noise; they cannot certify asymptotic normality or an exact equality for arbitrary parameters. It also evaluates the analytic derivative and its zero-count in six switching-ratio cases (including both boundary ratios).
+PASS
 
-Direct symbolic identities used in the proof are \(QV=-\Gamma V\), \(V^2=s^2+hV\), \(L A=-(\kappa+\Gamma)A\), and \(q_v(v'-v)^2=2\Gamma s^2+\Gamma h v\). Limits and critical-point uniqueness follow from a strictly decreasing rational function on the unit interval. The two-state stationary process has finite moments of every order under strictly positive confinement and diffusion.
+Independently reconstructed using D W_T=[UY]_0^T−∫Y dV, where Y and V are the centered states. With c=E[YV]=s²/(κ+Γ), the Poisson solution for Γ(YV−c) is ψ=(Γ(YV−c)+hV)/(κ+Γ). Combining its martingale with −∫Y dM^V gives the Brownian coefficient √(2/D) ΓV/(κ+Γ) and jump (h−κY)ΔV/[D(κ+Γ)]. Since q_v(ΔV)²=Γ(2s²+hv), insertion of E[Y²]=(D+c)/κ and E[Y²V]=2hc/(2κ+Γ) gives exactly the stated variance. Stationarity gives an O(1) L² endpoint and hence a vanishing scaled endpoint covariance; ergodicity gives bracket convergence, and bounded switching rates plus E[(1+|Y|)^4]<∞ bound the expected normalized jump Lindeberg term by O(1/T) at fixed cutoff. Differentiation reduces the peak criterion to comparing 2h²/s² with G(t), which decreases from 1 to 0 on [0,1]. Solving 2(r−1)²<r gives 1/2<r<2, with strict decrease for positive stiffness at both endpoints and the symmetric peak at Γ. The free limit is one-sided, not an unconfined stationary law.
 
-All verification here is self-review. No independent audit has been performed.
+## originality
+
+PASS
+
+The stationary mean is already published, and the martingale CLT is standard. The supported distinct content is the evaluated long-run active-work variance and its exact rate-ratio peak criterion for the asymmetric harmonic telegraph process.
+
+## value
+
+PASS
+
+A sharp, speed- and temperature-independent distinction separates monotone confinement response from a strict finite-stiffness maximum. The variance is a natural statistic of the same active work whose mean was known; the competing stiffness terms and exact boundary rates are useful beyond merely invoking a CLT.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

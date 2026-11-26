@@ -1,13 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** For every fixed class partition, parity-compatible orientations form independent row-plus-column affine spaces with exactly the rank given in the proof; old-base restriction is surjective. Summing exact extension fibres over class partitions gives the all-arity formula. The strict inequality comparing the two-type counts when the one-type counts agree is proved for all integers \(n,m\ge1\), \(1\le k\le n\), \(1\le j\le m\), with the \(k=2\) boundary handled separately. The explicit collision-family arithmetic is exact. Direct finite-diagram enumeration and an independent arithmetic sweep support, but are not substituted for, the proof.
+## correctness
 
-**Originality — PASS, with historical-priority risk.** The foundational parity law and two-block rank are prior; the previously published global unmarked Stirling-layer count is explicitly credited. The new proposition is the *global, cardinality-free* two-arity rigidity of pointwise named-base numerical spectra and explicit arbitrarily separated unary collisions. The closest grid-structure analogue conditions reconstruction on a known base cardinality and uses two transverse equivalences rather than parity-constrained multipartite orientations. No covering published statement was located in the actual searched records or inspected primary material. Unindexed folklore or an equivalent older account is a residual possibility, not proof of originality.
+PASS
 
-**Mathematical value — PASS.** The minimum arity of a numerical invariant sufficient to recover an unknown parameter-support profile is a natural logical reconstruction problem. The theorem supplies an all-arity normal counting form, proves the sharp reconstruction threshold, and finds an infinite family of failures when one arity is discarded, with arbitrarily large parameter-size separation. The result is not merely the pre-existing parity-matrix count: the main rigidity and sharpness require the independent Diophantine argument. It does not purport to reconstruct the full induced finite digraph.
+The parity axiom gives a row-plus-column binary matrix per pair of distinct occupied classes, with one gauge bit and no cross-pair constraints. Restriction to the actually named base is surjective, block by block, by extending the row and column potentials; the orientation fibre has the difference of the full and base dimensions. Assigning new coordinates to distinguished existing classes or to blocks of an unordered partition into fresh classes gives the displayed binomial/Stirling factors without a factorial loss. Homogeneity and the age property identify labelled extension diagrams with the ordered injective types. For r=2, the cases of zero fresh classes, one fresh class (one or two new coordinates there), and two fresh classes contribute respectively k²2^(2k−2), (2k+1)2^(n+k), and 2^(2n+1). At fixed unary count U and unequal class numbers k>j, equality forces n<m and U/2^(j−1)<2k·2^(k−j). Substituting in the difference of the two binary counts gives a strict negative upper bound, at most −13 for k=2 and −3k²−1 for k≥3 after normalization. Equal class numbers recover n from U. In the family k=2^(g+2)(2^e−1)−1, the change in the power of 2 cancels the change in the class term exactly; feasible bases realize every e≥1. An exact independent integer sweep found 30 equal-unary pairs for n≤255 and all had the proved ordering.
 
-**Most relevant prior work:** Cherlin's semigeneric construction; Coskey–Ellis's section 4; *Exact Stirling-layer orbit profile of the semigeneric complete multipartite digraph*; the distinct two-equivalence grid analogue. See the main result and structured audit for precise comparisons.
+## originality
 
-**Limitations:** Historical priority remains provisional; only numerical spectra are classified; finite checker runs are not proof of infinite assertions; no independent mathematical validation has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The known parity-matrix factor and unmarked spectrum are not original. The unary formula has exact same-date catalogue overlap (including a graded specialization for two classes); its priority cannot be determined from those dates. The supported distinct result is the marked-base spectrum together with cardinality-free two-count recovery and explicit arbitrarily separated unary collisions, not another presentation of the unary classification alone.
+
+## value
+
+PASS
+
+The pointwise type spectrum is a natural invariant of a homogeneous structure with named parameters. The nontrivial distinction is exact recovery of both base size and support count without either supplied, with an explicit family showing that unary ambiguity can hide an arbitrarily large difference in base size. This gives a usable sharp numerical reconstruction threshold, beyond recording parity counts already available.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

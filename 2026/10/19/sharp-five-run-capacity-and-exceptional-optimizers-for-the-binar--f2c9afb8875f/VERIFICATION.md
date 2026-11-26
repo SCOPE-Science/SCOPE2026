@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility checks
+# Independent mathematical audit
 
-Use Python 3 standard library and run `python3 verify.py` in the folder containing the files. The script uses no network, third-party packages, or external data.
+## correctness
 
-It enumerates **every** binary host of length \(n\in\{4,5,6,7,8\}\) and evaluates \(c_{0101}(w)\) twice, once by a standard backwards dynamic program and once directly by all four-position subsets. The exact unrestricted maxima are \(1,2,5,9,16\). It also exhaustively checks the low-run optimum for every length from \(4\) through \(12\), checks the six-run count identity through length \(512\), and checks the signed residue expression through length \(4096\).
+PASS
 
-The all-length proof requires no extrapolation: the four-run balanced-product bound, the unused endpoint block for five-run hosts, the explicit six-run count identity, and four elementary positive polynomials establish the universal part. Only the three exceptional global comparisons require finite exhaustive enumeration. Python integer arithmetic is exact; no randomized samples, timeouts, or approximate certificates are used.
+For the scattered pattern, every occurrence uses four strictly ordered runs. A five-run host either has an unusable leading 1-run or an unusable trailing 0-run; deleting it and padding a participating run strictly improves any positive count. At four runs the count is the product of their lengths, maximized by balancing the positive integer parts. In the proposed six-run host the second selected bit lies either in the inserted singleton 1 or in the following run of length b-1. Summing these two contributions leaves the gain (a-1)(b-1+d)-cd over abcd; the four balanced residues yield t^2-3t+1, t^2-t, t^2 and t^2-t, each strictly positive in its n>=9 range. I separately enumerated all compositions of n with both starting bits, counting by the middle two runs, and obtained unrestricted/restricted pairs (1,1), (2,2), (5,4), (9,8), (16,16) at lengths 4–8. The six-run witnesses 010101 and 0010101 achieve 5 and 9, respectively. This proves the claimed exact exception set, with no extrapolation or assertion of six-run global optimality.
 
-Originality was compared with the cited primary source, which already covers the length-six failure, and other pattern-packing literature. No independent literature or proof audit was performed; an unknown equivalent published result remains a residual risk.
+## originality
+
+PASS
+
+The length-six failure and its alternating witness are already in Menon–Singh, as the frozen text credits. The supported distinct result is the exact five-run capacity together with the complete finite exception set and explicit six-run improvements for every other length. The analogous published catalogue result treats different patterns, and the closest structural results compared do not supply this classification.
+
+## value
+
+PASS
+
+The known alternating counterexample shows that matching the target's four runs can fail once. The reviewed theorem determines exactly when even a five-run budget fails, and shows that a six-run witness already certifies this obstruction at every nonexceptional length. The isolated return to equality at n=8 is part of a full structural boundary, not an arbitrary small-value census. The balanced-product formula alone is elementary; the value is its exact comparison to unrestricted packing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

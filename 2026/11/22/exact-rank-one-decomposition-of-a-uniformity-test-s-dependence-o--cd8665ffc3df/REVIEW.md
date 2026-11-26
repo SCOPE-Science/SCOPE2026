@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Under the fully specified continuous simple null, the probability integral transform yields independent uniforms. Expanding the two quadratic Hilbert statistics into diagonal and degenerate off-diagonal pieces gives the exact covariance identity (1). Independently checked polynomial integrals give the six displayed rational contractions. The separate Watson identity and the derivative factorizations prove both correlation inequalities for every \(n\ge2\). The standard-library rational checker passed 13,510 checks, including independent direct-statistic evaluation, without using simulations as infinite proof. Boundary \(n=1\) has deterministic Watson statistic and is explicitly excluded from the correlations.
+PASS
 
-## Originality — PASS, with residual priority risk
+Under the iid uniform simple null the centered upper-tail feature has the same squared empirical norm as the centered CDF. Integrating the upper-tail feature gives U−1/2, so Watson subtracts the orthogonal constant-function projection. In the product of two empirical quadratic statistics a covariance survives only for a shared diagonal label or an identical unordered off-diagonal pair; all one-label overlaps involving a degenerate pair vanish on conditioning. Hence each of the six moments is affine in 1/n. An independent exact integration of the defining statistics over the sorted-sample simplex verifies all six moments at n=1 and 2, which determines those two affine coefficients, and also at n=3 as a cross-check. This checks the finite-n terms, not just the Gaussian limit. Symbolic differentiation gives the stated positive derivatives of squared correlations and their positive gap for n≥2. The covariance share decreases from 29/35 to 10/13, not reaching 10/13. At n=1 Watson is deterministic and its correlation is undefined. The frozen check.py was inspected but not executed. Independent replay: python3 /workspace/checks/4.py (SymPy); output /workspace/checks/4.out.
 
-Ebner–Liebenberg–Visagie (2021, arXiv:2108.06391) defines the exact characterization statistic, its limiting Gaussian law and its empirical power comparisons against the classical tests. Inspection of the full manuscript's definitions, limit calculations, simulation sections and conclusion identified neither the exact cross-covariances nor the rank-one contribution fractions. Hwang–Kuriki (2024, arXiv:2404.06040) treats generalized classical EDF quadratic processes, not the weighted-indicator statistic. Existing exact Cramér–von Mises/Watson cross-correlations concern two different kernels, so they do not imply this three-way theorem without new integrals. Literature searches and relevant existing mathematical research records were checked by statement, not only by keyword. Historical priority is not exhaustively settled; a general formula from another source might have evaluated the same particular cross-kernel.
+## originality
 
-## Value — PASS
+PASS
 
-The 2021 paper compared the new omnibus statistic against classical Cramér–von Mises and Watson procedures in the same applications, leaving unquantified how redundant their joint signals are under a simple null. Exact covariance for every sample size is useful in analyzing combined or multiscale calibrations. The stronger structural statement identifies that over 76.9% of the covariance with Cramér–von Mises is carried by the sample-mean component, while Watson retains a substantially weaker but nonzero coupling. This is a motivated, parameter-free joint-null comparison, rather than a free-standing arbitrary integral. It does not establish independence, a power benefit or combined-test critical values.
+Pass is for the evaluated exact mixed finite-sample laws of the characterization statistic against these classical statistics and the finite-n mean-mode share. The statistic, the contraction method, and the constant-mode definition of Watson are not new. The closest inspected statements concern the classical pair, marginal limiting cumulants/eigenstructure, marginal finite-sample skewness, or empirical power, none of which gives the mixed contractions. This is a bounded best-of-knowledge assessment.
 
-## Scope and remaining risks
+## value
 
-Only fully specified continuous simple nulls. No composite-null parameter fitting, simultaneous local-alternative analysis or joint distribution. The method is a standard degenerate-kernel identity; possible earlier unlocated explicit cross-kernel evaluation is the main originality risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The initiating uniformity paper compares these particular tests, making their redundancy on the same observations a natural question. The exact formulas quantify a distinction not visible in marginal variances or power: the squared empirical mean accounts for more than 10/13 of the CvM cross-covariance at every n≥2, while Watson centering leaves a weaker but positive association. This is useful for reasoning about comparisons on one sample; it is not a joint calibration, a power guarantee, or a claim of independence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

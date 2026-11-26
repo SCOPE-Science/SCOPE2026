@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:00:37.254318Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–53 and 57–131",
+        "Frozen VERIFICATION.md lines 19–21 and checks/check_hessian.py lines 1–66; inspected, not executed"
+      ],
+      "rationale": "The rank-one integral has trace norm bounded by the domain area, and its squared trace energy is the double integral of the squared normalized Bergman overlap. The weight gives kernel (1−z w̄)^−λ and dν=(1/2) du dθ, so the mean-zero graph has exactly area πU and the energy has prefactor 1/4. Differentiating upper limits gives E′ proportional to angular mean and E″=(C/2)∫f²+(1/2)∬f(θ)f(φ)B(θ−φ), with C the integrated single radial kernel derivative at U and B the two-boundary kernel. The derivatives at U are bounded also as the inner radial coordinate goes to zero. To fix C independently, the real translated circle satisfies |z−a|²=ρ²|1−az|² with ρ²=U/(1+U); differentiation gives boundary u-velocity 2√(U(U+1)) cos θ. The translation preserves both area and overlap integral, so the first variation applied to its acceleration vanishes by the area constraint and the cosine is in the Hessian kernel. With the stated Fourier normalization this gives C=−2πc₁; convolution, Parseval and the Taylor factor 1/2 yield exactly π²(c₁−c_|n|) in the deficit. The Gamma representation has a positive Bessel weight. The recurrences give (I_{n+1}/I_n)′=1−(2n+1)(I_{n+1}/I_n)/x−(I_{n+1}/I_n)²; the positive ratio starts at zero and cannot first reach one with negative derivative. Thus the coefficients are strictly decreasing and positive, and vanish at infinity by Riemann–Lebesgue. Only n=±1 are flat on the mean-zero space; equality on the nontranslation subspace is exactly the pure second harmonic. Expanding the two binomial factors at t=U/(1+U) yields the hypergeometric series; at λ=2, U=1 the geometric sums give (5+3n)/(27·2ⁿ), hence 5π²/216 for cos(2θ). The Cayley/Bergman wavelet interpretation concerns the Cauchy window with Fourier exponent (λ−1)/2 under the matching positive normalization, not another wavelet class.",
+      "residual_risks": [
+        "Fixed-profile small-ε expansion only. Removing first harmonics is a Hessian restriction, not a proved uniform nonlinear stability estimate. Finite quadrature is not needed by the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hyperbolic Cauchy-wavelet HS rearrangement is already established; the quantitative estimate inspected there is for Euclidean Gaussian localization.",
+          "Euclidean perimeter-plus-Riesz second variation supplies a related constrained boundary form."
+        ],
+        "reasoning": "The rearrangement gives disk optimality but not the Hessian sequence or its strict order. The Euclidean Riesz setting does not supply the hyperbolic overlap multipliers; the boundary normalization and Bessel ordering are specific steps.",
+        "searches": [
+          "Nicola–Riccardi arXiv:2401.04659v1 section 6, Proposition 6.1 and Proposition 4.2",
+          "Bonacini–Cristoferi arXiv:1307.5269v1, pp. 1–3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2401.04659v1, 2205.07998v1, 2411.16010v1, 1307.5269v1",
+        "Resultary 13294f14508d, d959e329c797, 3a4d327853c6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Global HS optimality can constrain the sign of a second variation but does not determine the exact diagonal Fourier coefficients or identify the strict smallest gap.",
+          "The wavelet operator-norm results optimize over signals and do not give the response of the sum of squared localization eigenvalues."
+        ],
+        "reasoning": "Credit the global extremizer, shape-calculus methodology and prior quadrupole analogues. The supported increment is the exact normalized HS Fourier response and sharp nontranslation gap for every stated U and λ.",
+        "searches": [
+          "arXiv:2401.04659v1 Proposition 6.1",
+          "arXiv:2205.07998v1 Theorem 1.1",
+          "arXiv:2411.16010v1 pp. 1–3 and Resultary 13294f14508d Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Trace L² equals squared HS norm for the positive localization operator, and the Cayley correspondence transfers it up to a fixed positive factor.",
+          "The closest Bergman/Cauchy Hessians diagonalize variation of the largest eigenvalue, not the sum of squared eigenvalues."
+        ],
+        "reasoning": "The unitary model change does preserve the HS problem. Replacing trace L² with the top eigenvalue or a Ky Fan sum does not, even when translation and second harmonic play similar roles.",
+        "searches": [
+          "Cauchy-wavelet and weighted Bergman Hilbert–Schmidt purity disk shape Hessian; Resultary records 13294f14508d, d959e329c797",
+          "arXiv:2401.04659v1, section 6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "13294f14508d and d959e329c797 have Fourier curvature, translation nullity and a sharp quadrupole for the optimized top eigenvalue; the former uses q_m rather than c₁−c_m.",
+          "Same-date 3a4d327853c6 is the rank-two Ky Fan sum in the Euclidean Gaussian Fock setting."
+        ],
+        "reasoning": "These are precise catalogue comparators, not an exact table of the claimed HS multipliers. Distinct same-date and later records were compared on the statement rather than discarded by date.",
+        "searches": [
+          "Resultary searches for angular disk Hessian, hyperbolic wavelet purity, and quadrupole localization; inspected IDs 13294f14508d, d959e329c797, 3a4d327853c6"
+        ]
+      },
+      "rationale": "The exact mode-resolved squared-Hilbert–Schmidt Hessian and its strict least positive nontranslation gap are distinct from the known global HS rearrangement theorem and the close operator-norm Hessians. No equivalent HS multiplier was identified in the inspected sources; no historical priority is certified.",
+      "residual_risks": [
+        "Targeted literature and catalogue results are not exhaustive. An unlocated HS variation formula with the same sharp multiplier ordering could change this assessment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same functional, global rearrangement rather than the claimed Hessian",
+          "evidence": "Hyperbolic monotone overlap and HS disk rearrangement; quantitative estimate inspected for Euclidean Gaussian case.",
+          "identifier_or_url": "https://arxiv.org/abs/2401.04659",
+          "material_read": "Section 6, pp. 17–19, offsets 43469–49616, Proposition 6.1; pp. 11–12 Proposition 4.2",
+          "method": "Lawful OA primary PDF, targeted passage inspection",
+          "title": "The quantitative isoperimetric inequality for the Hilbert–Schmidt norm of localization operators",
+          "trigger": "Same HS functional and hyperbolic Cauchy-wavelet kernel"
+        },
+        {
+          "assessment": "Different operator-norm functional",
+          "evidence": "Maximum fixed-area concentration over unit signals, with disks as extremizers.",
+          "identifier_or_url": "https://arxiv.org/abs/2205.07998",
+          "material_read": "p. 3, Theorem 1.1 around offset 7420",
+          "method": "Lawful OA primary PDF, targeted passage inspection",
+          "title": "A Faber–Krahn inequality for wavelet transforms",
+          "trigger": "Same Cauchy-wavelet disks"
+        },
+        {
+          "assessment": "Different operator-norm functional",
+          "evidence": "Quantitative stability for the maximal concentration over unit signals.",
+          "identifier_or_url": "https://arxiv.org/abs/2411.16010",
+          "material_read": "pp. 1–3, offsets 0–10044",
+          "method": "Lawful OA primary PDF, targeted passage inspection",
+          "title": "Uniform stability of concentration inequalities and applications",
+          "trigger": "Cauchy-wavelet quantitative stability"
+        },
+        {
+          "assessment": "Method analogy, different geometry and kernel",
+          "evidence": "Constrained second variation for Euclidean perimeter-plus-Riesz energy.",
+          "identifier_or_url": "https://arxiv.org/abs/1307.5269",
+          "material_read": "p. 1 abstract and pp. 2–3 second-variation discussion near offset 7900",
+          "method": "Lawful OA primary PDF, targeted passage inspection",
+          "title": "Local and global minimality results for a nonlocal isoperimetric problem",
+          "trigger": "General nonlocal shape variation analogy"
+        },
+        {
+          "assessment": "Close analogue, not equivalent",
+          "evidence": "Fourier spectrum q_m and sharp quadrupole are for the optimized largest eigenvalue.",
+          "identifier_or_url": "Resultary 2026/10/25/13294f14508d",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Exact angular shape Hessian for hyperbolic wavelet concentration",
+          "trigger": "Closest indexed exact hyperbolic Fourier Hessian"
+        },
+        {
+          "assessment": "Different functional",
+          "evidence": "Top-eigenvalue Fourier Hessian and least stable second harmonic.",
+          "identifier_or_url": "Resultary 2026/11/2/d959e329c797",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Sharp local shape Hessian for hyperbolic Bergman wavelet concentration",
+          "trigger": "Another close indexed Hessian"
+        },
+        {
+          "assessment": "Different geometry and functional",
+          "evidence": "Euclidean Gaussian rank-two Ky Fan sum rather than Cauchy-wavelet HS purity.",
+          "identifier_or_url": "Resultary 2026/11/1/3a4d327853c6",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Sharp Fourier-mode shape Hessian for the rank-two Fock Ky Fan localization problem",
+          "trigger": "Distinct same-date Fourier shape result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Hessian theorem and exact example",
+        "Nicola–Riccardi Proposition 6.1 and Resultary 13294f14508d Finding"
+      ],
+      "rationale": "The full Hessian answers a natural stability question that disk optimality alone leaves open: it separates geometric translations from true deformations and quantifies which shape mode produces the least quadratic loss in the HS objective. The exact sharp gap for all disk areas and weights provides local conditioning for this natural localization functional, not just a sample computation or a restatement of global optimality.",
+      "residual_risks": [
+        "No uniform nonlinear or operator-norm stability theorem follows from this review."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

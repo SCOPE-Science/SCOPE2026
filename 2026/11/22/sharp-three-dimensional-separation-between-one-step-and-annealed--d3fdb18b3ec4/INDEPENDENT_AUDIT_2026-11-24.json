@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:00:27.897097Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For q=p3, s=1-q and D=p1-p2, the smaller planar eigenvalue of the expected row projector is (s-sqrt(c²s²+(1-c²)D²))/2. The planar lifted top eigenvalue is q+(s+sqrt(c⁴s²+(1-c⁴)D²))/2: the weighted Gram matrix of the two planar rank-one complementary projectors has their Frobenius overlap c². The axial rate is s and the cross-block norm is at most s. The trace test for the annealed factor is valid, also on the boundary: the top plane eigenspace contains a positive combination of the active rank-one projectors (at s=0 the plane map is the identity), and the axial eigenmatrix is itself PSD. Thus the top eigenspace has nonzero projection of I, and the PSD matrices Phi^k(I) have spectral and Frobenius norms within a fixed factor. At each q with s>0 the planar terms are strictly optimized by D=0. For D=0 the lower envelopes are maxima of one strictly decreasing and one strictly increasing affine function; crossing gives the displayed unique laws. At the one-step optimum q is smaller than the annealed crossing, so the axial rate is exactly 2/(3-c). Differentiating the ratio gives sign(c²-6c+3); its unique maximum on (0,1) is at 3-sqrt(6), with value 6-2sqrt(6), and the rational example agrees. For minimal dimension, use planar doubled-angle unit vectors n_i of the complementary projectors: the one-step rate is (1+|E n|)/2 and the lift is half the 3-by-3 moment matrix of (1,n). If zero is in the convex hull, the lift minimum is 1/2 exactly at mean zero. Otherwise let rv be the nearest point of the hull to zero. All n_i·v>=r. The lift Rayleigh quotient at (1,rv) is at least (1+r²)/2, with equality possible only on the supporting chord; equal masses at its two ends attain it, and equality in the eigenvector condition forces zero tangent mean. This is precisely the one-step minimizing mean rv. Dimension one is immediate. The apparent malformed fraction token in the displayed comparison at line 26 does not change the unambiguous rates in the other displays and proof. The frozen numerical checker was inspected, not executed; strict analytic inequalities rather than its finite grid establish uniqueness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dai–Soltanalian–Pelckmans use a minimum-eigenvalue SDP; Agaskar–Wang–Lu use lifted MSE spectral optimization; frozen AUDIT identifies Eq. (16) and Eq. (20), respectively",
+          "Resultary's signed-triangle summary solves the one-step half in a stronger three-row setting; its planar coincidence summary concerns all spanning two-dimensional row pools"
+        ],
+        "reasoning": "Both general optimization problems cover the setup, and the one-step subformula is credited as a special case of the signed-triangle formula. Solving both unrestricted problems symbolically as functions of c and optimizing their relative loss still needs the block structure and equality analysis. Two-cluster one-step results do not address that comparison.",
+        "searches": [
+          "DOI 10.1109/GlobalSIP.2014.7032145",
+          "arXiv:1402.2863",
+          "Resultary 54597ea58934, fc51ccf74dc5, 6e183c9f201f"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1109/GlobalSIP.2014.7032145 (literature search and frozen passages; primary OA unavailable)",
+        "arXiv:1402.2863 (frozen comparison and attempted OA)",
+        "Resultary d3fdb18b3ec4, 54597ea58934, fc51ccf74dc5, 6e183c9f201f, 7d2ee1c7d4d5, 14008f5e88ba (indexed summaries)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Planar coincidence is corroborated by a direct doubled-angle proof, but does not extend to the orthogonal direct sum with the extra row",
+          "Frozen source places 3D examples in the 2014 MSE paper; decisive figure and passages could not be independently retrieved"
+        ],
+        "reasoning": "The SDP formally poses the relevant optimizations but does not by itself give two differing exact optimum laws, their unrestricted uniqueness or a uniform parametric sharp ratio. The one-step half alone and the dimensional obstruction are not claimed novel. No priority claim about all possible earlier numerical separations is needed.",
+        "searches": [
+          "Resultary 54597ea58934 and fc51ccf74dc5",
+          "Agaskar–Wang–Lu author archive, attempted targeted Fig. 2 and exact-rate comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Agaskar–Wang–Lu, DOI 10.1109/GlobalSIP.2014.7032145, exact-MSE lifted formulation and sampling optimization, as identified by the literature search and the frozen comparison",
+          "Resultary 7d2ee1c7d4d5 concerns almost-sure rather than exact mean-square exponential rate; 14008f5e88ba concerns cost-normalized two-row optimization"
+        ],
+        "reasoning": "Covariance lifting and Kronecker-product spectral optimization are equivalent formulations of the annealed criterion and are prior art. Almost-sure rates and cost-normalized rates are different objectives; neither indexed comparison implies this numerical gap under ordinary equal-cost iid steps.",
+        "searches": [
+          "Primary literature: Randomized Kaczmarz 'annealed' one-step optimal sampling three-dimensional separation exact gap",
+          "Resultary: annealed MSE versus one-step optimal Kaczmarz, dimension three"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary exact hit d3fdb18b3ec4 is the identical frozen record",
+          "Distinct catalog hits 54597ea58934, fc51ccf74dc5, 6e183c9f201f, 7d2ee1c7d4d5 and 14008f5e88ba differ in dimension, objective or scope as identified in their summaries"
+        ],
+        "reasoning": "An indexed copy of the bound result is not prior coverage. The distinct same-day result on almost-sure sampling and the two-row cost-normalized result do not match, independently of date. This is not an exhaustive exact-formula census.",
+        "searches": [
+          "Resultary semantic search for three-dimensional one-step and annealed Kaczmarz separation and exact penalty",
+          "Primary literature query for separation and exact gap"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the explicit, unrestricted annealed-versus-one-step separation and family-wise sharp penalty, not either general optimizer formulation or the one-step law alone. No inspected statement supplies this comparison; priority is qualified by unavailable close full texts.",
+      "residual_risks": [
+        "The full 2014 exact-MSE paper was not independently accessible via the author archive in this review; a closer explicit example or formula is possible.",
+        "Resultary comparison used available indexed statements and the frozen evidence; matching full mirror files were not retrieved. A general SDP specialization or unindexed explicit equivalent may precede this finding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General lift and optimization credited; primary full-text overlap of an explicit parametric separation not independently resolved",
+          "evidence": "The earlier optimization of the covariance lift corresponds to the annealed objective here; the frozen comparison describes numerical, not parametric, examples.",
+          "identifier_or_url": "https://dash.harvard.edu/server/api/core/bitstreams/7312037d-8b4a-6bd4-e053-0100007fdf3b/content (DOI 10.1109/GlobalSIP.2014.7032145)",
+          "material_read": "Search title and summary; frozen RESULT lines 92–100 and AUDIT locators for Eqs. (5)–(6), (20) and Fig. 2; archive requests timed out",
+          "method": "Primary literature search and targeted lawful author-archive OA retrieval",
+          "title": "Randomized Kaczmarz Algorithms: Exact MSE Analysis and Optimal Sampling Probabilities",
+          "trigger": "Closest general exact-rate optimization, possible 3D example"
+        },
+        {
+          "assessment": "One-step formulation is known and is credited",
+          "evidence": "The objective maximizes the smallest eigenvalue of the expected row-normal projector.",
+          "identifier_or_url": "https://arxiv.org/abs/1402.2863",
+          "material_read": "Frozen source comparison and locators Theorems 1–2 and SDP (16); independent targeted OA request timed out",
+          "method": "Frozen evidence and lawful OA retrieval attempt",
+          "title": "On the Randomized Kaczmarz Algorithm",
+          "trigger": "Broader one-step sampling optimization"
+        },
+        {
+          "assessment": "Covers the lower-dimensional obstruction, not the three-row comparison",
+          "evidence": "The indexed theorem identifies coincident planar optimal laws for spanning real row pools.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-planar-coincidence-theorem-for-optimal-randomized-kaczmarz-sampl--54597ea58934",
+          "material_read": "Resultary synopsis, frozen statement and attempted Finding lookup through mirror; no mirror passage returned",
+          "method": "Resultary search, targeted mirror request, independent planar proof",
+          "title": "Planar coincidence theorem for optimal randomized Kaczmarz sampling",
+          "trigger": "Exact prior obstruction in dimension two"
+        },
+        {
+          "assessment": "Covers the one-step subclaim; the indexed objective is not annealed",
+          "evidence": "The result solves one-step minimax sampling for nonsingular three-row systems, including this family.",
+          "identifier_or_url": "Resultary fc51ccf74dc5",
+          "material_read": "Indexed synopsis and frozen relationship section; full mirror retrieval did not succeed",
+          "method": "Resultary query and attempted mirror lookup",
+          "title": "A signed-triangle formula for minimax three-row randomized Kaczmarz sampling",
+          "trigger": "Same three-row setup with a general minimax formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The planar coincidence makes dimension three the first meaningful setting for an objective mismatch. A correlated pair plus an orthogonal row isolates why the two rates depend on c versus c² and proves that optimizing a standard one-step proxy can incur a sharply quantified loss (even exactly 10 percent at c=3/5). This is an exact guide to the choice of criterion, not a claim about all 3D row systems or about almost-sure rates.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

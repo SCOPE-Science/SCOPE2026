@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:33:25.766312Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Two wholly unseeded path interiors form an obstruction: neither terminal can make a first force into their union while both interiors remain white. A connected set with neither terminal lies in one interior and is obstructed. With one terminal, connectedness permits just end-prefixes, and at least two must be nonempty; their degree-two propagation reaches the other terminal and fills the two paths, leaving at most one final forceable path. With both terminals, connectivity requires a full path and excludes internal blue runs not touching an end. A proper nonempty end-union of size j has j+1 splits between ends, each distinct, whereas a full path counts once. Forcing is equivalent to having at least two nonempty interiors: each seeded but incomplete path propagates into its gap, after which a single empty path fills. Multiplication over paths, subtraction of configurations with no full path in the both-terminal case, and the terminal choices give the stated coefficient formula. No connected forcing set has size below three; exactly six size-three sets arise from one terminal and two adjacent interior vertices on different paths. The full set gives the monic term. All arguments allow one-vertex interiors but not direct terminal edges. Fresh fort-based enumeration (a set fails iff its complement contains a nonempty set into which every exterior vertex has either zero or at least two neighbors) agreed on every coefficient for 54 nondecreasing triples with 1≤r_i≤7 and N≤15, testing 509,994 nonempty subsets. Replay: python /workspace/replay_frozen.py 4. The packaged 68-triple pass is reported evidence; CODE/verify_theta.py was not supplied among the frozen support files. The independent proof covers all admissible lengths, not just the replay cutoff.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mukherjee–Ray study the connected zero-forcing polynomial for trees and pose the general finite-graph question as Problem 5.4.",
+          "Davila–Henning–Magnant–Pepper Theorem 10 bounds the connected forcing number for 2-connected graphs by n−g+2."
+        ],
+        "reasoning": "The theta graph has two independent cycles, so the tree class does not contain it. The 2-connected bound applies but is a scalar inequality, not a statement giving either the exact minimum coefficient or the coefficient vector.",
+        "searches": [
+          "arXiv:2611.10985v1, tree classification and Problem 5.4",
+          "arXiv:1605.02124v1, connected forcing number and Theorem 10"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "arXiv:2611.10985v1",
+        "arXiv:1801.08910v1",
+        "arXiv:1605.02124v1",
+        "Resultary records 330fb48de372, f222a63972b1, eb162260c6ac"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One can infer the equal-arm minimum coefficient from the two ordinary minimum-set classes, but they make no assertions about larger initial sets.",
+          "The present formula requires both terminal-connectivity constraints and an obstruction based on the number of empty paths, yielding separate prefix and end-union counts."
+        ],
+        "reasoning": "No checked theorem or table gives the conjunction for all subset sizes by direct substitution. An ordinary forcing generating function records no information with which to filter sets by induced connectivity. The full enumeration is the distinct component.",
+        "searches": [
+          "Resultary f222a63972b1 and eb162260c6ac, Finding sections",
+          "arXiv:2611.10985v1, Problem 5.4; arXiv:1801.08910v1, definition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Distinct Resultary record f222a63972b1 classifies ordinary minimum sets for equal-arm theta graphs of arm length at least three, with 12ℓ−6 minima across its two classes; filtering them by initial connectivity gives six.",
+          "Boyer et al. count all zero-forcing subsets, without an initial induced connectivity requirement."
+        ],
+        "reasoning": "Initial connectivity is an additional constraint, not a relabeling of ordinary zero forcing. The equal-arm overlap covers the minimum connected coefficient in that subfamily, not the complete polynomial.",
+        "searches": [
+          "Resultary: three-path theta graph connected zero-forcing polynomial / ordinary minimum-set classifications",
+          "arXiv:1801.08910v1, definition of zero-forcing polynomial"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalog hit 330fb48de372 matches this frozen record and is not independent evidence.",
+          "The same-day f222a63972b1 gives equal-arm minimum and exchange data; the distinct eb162260c6ac gives a polynomial for a cycle with pendant paths at a hub."
+        ],
+        "reasoning": "The same-day matches are assessed by coverage, not date. Neither distinct record gives the connected coefficient census for all three-path theta graphs; the cycle-spider graph has a different core. No distinct matching table was identified in the inspected catalog results.",
+        "searches": [
+          "Resultary: complete connected theta counts, equal-arm minima, and nearby connected-polynomial formulas"
+        ]
+      },
+      "rationale": "The supported distinct result is the complete connected polynomial for three paths with arbitrary lengths at least two, not the definition or the equal-arm minimum alone. The closest equal-arm classification gives a genuine overlap at the minimum coefficient, but the comparisons did not establish coverage of the remaining size coefficients or unequal-arm family.",
+      "residual_risks": [
+        "Earlier decomposition formulas for related forcing invariants could imply more than the inspected passages show; the bounded comparison does not establish historical priority.",
+        "No priority is inferred between same-day records; verified equal-arm minimum overlap is explicitly credited."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines and solves cases for the same invariant; not a bicyclic theta formula",
+          "evidence": "The object of systematic study is trees and Problem 5.4 asks for the polynomial of an arbitrary finite graph.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.10985",
+          "material_read": "v1 p. 2 scope, p. 21 Problem 5.4",
+          "method": "Lawful OA PDF text",
+          "title": "On the connected zero forcing polynomial of finite trees",
+          "trigger": "Nearest connected-polynomial primary literature"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "The count on each size is over ordinary zero-forcing sets, including disconnected sets.",
+          "identifier_or_url": "https://arxiv.org/pdf/1801.08910",
+          "material_read": "v1 p. 2 definition",
+          "method": "Lawful OA PDF text",
+          "title": "The zero forcing polynomial of a graph",
+          "trigger": "Possibility of equivalent unfiltered polynomial"
+        },
+        {
+          "assessment": "Relevant bound but not coefficient enumeration",
+          "evidence": "Defines a minimum-size parameter and bounds it by n−g+2 in 2-connected graphs.",
+          "identifier_or_url": "https://arxiv.org/pdf/1605.02124",
+          "material_read": "v1 p. 2 definition, p. 8 Theorem 10",
+          "method": "Lawful OA PDF text",
+          "title": "Bounds on the connected forcing number of a graph",
+          "trigger": "Broader connected-forcing theorems"
+        },
+        {
+          "assessment": "Partial implication at minimum size for equal arms",
+          "evidence": "Two classes count 12ℓ−6 ordinary minima; restricting to connected minima gives six when equal arm length ℓ≥3.",
+          "identifier_or_url": "Resultary 2026/11/22 record f222a63972b1",
+          "material_read": "Mirrored RESULT.md Finding, ordinary minimum-set classes",
+          "method": "Local catalog and mirror",
+          "title": "Sharp token-slide freeze-out for minimum zero forcing on equal-arm theta graphs",
+          "trigger": "Same-day overlap with equal-arm theta graphs"
+        },
+        {
+          "assessment": "Different graph family",
+          "evidence": "Cycles with paths pendant at one hub are not the doubly cyclic theta family.",
+          "identifier_or_url": "Resultary 2026/11/22 record eb162260c6ac",
+          "material_read": "Mirrored RESULT.md Finding, offset 464",
+          "method": "Local catalog and mirror",
+          "title": "Connected zero-forcing polynomials of cycle spiders",
+          "trigger": "Same-day overlap on the exact invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Three-path theta graphs form a natural simple bicyclic family for testing how induced connectivity interacts with forcing, beyond trees and cycles. A complete labelled size distribution for all three lengths distinguishes the two terminal mechanisms and provides exact counts (including the probability by initial set size), information not available from the scalar minimum or an ordinary forcing polynomial. Value rests on the complete structurally motivated classification, not on finite subset scans.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

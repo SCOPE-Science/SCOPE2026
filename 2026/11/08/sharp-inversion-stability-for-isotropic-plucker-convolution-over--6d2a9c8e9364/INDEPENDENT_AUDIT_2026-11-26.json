@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:01:39.857330Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–91",
+        "Frozen VERIFICATION.md, CHECK_PRIME.py and CHECK_GF4.py inspected, not run; frozen finite markers include full prime-field spectra and a dimension-four GF(4) sample, not all-field proof, expert attestation, prior independent audit or Lean verification.",
+        "Cardinali–Giuzzi arXiv:1503.05456, Lemma 3.1 and equation (2), comparison to the per-vector count"
+      ],
+      "rationale": "For the unweighted full isotropic cone, the characters indexed by B are a basis (a nonzero F_q-linear bivector functional is surjective, even for a nonprime field). Each nonzero wedge has exactly q(q²−1) ordered presentations of determinant one. Independently, for each u!=0 sum the character over v in u^(perp_Omega): it totals q^(n−1) precisely when B(u,.) is proportional to Omega(u,.), and otherwise zero. Subtract the q multiples of u for every u!=0. The nonzero proportional vectors are a disjoint union of the nonzero radicals of B+tOmega. This gives lambda_B=[q^(n−2)(sum_t q^(2s_t)−q(q+1))+1]/(q²−1), as in the original proof. Alternating rank is even also in characteristic two, hence the formula is q^(n−2)(J−1)−delta with integer J>=0. Since 0<2delta<q^(n−2), only J=1 attains the smallest permitted magnitude, and J=1 is exactly one corank-two pencil member with all others invertible. An m-by-m nilpotent single Jordan block N yields an alternating off-diagonal pencil with blocks N^T+tI and −(N+tI); its lone singular member has corank two, in every characteristic. The positive row sum (q^n−1)delta is attained at B=0 and is a norm upper bound by the triangle inequality. Unitary Fourier diagonalization gives positive least singular value and condition number q^n−1. A fresh direct proportional-vector tally through all 4095 nonzero vectors for the Jordan witness at (q,n)=(4,6) found 15 proportional vectors, giving −17 against row sum 69615 by the per-vector count; this is finite corroboration in a nonprime field within scope.",
+      "residual_risks": [
+        "Not a complete spectral multiplicity computation, nor a result for weighted or incomplete cones. Dimension-four tests in the frozen evidence are outside the theorem scope."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cardinali–Giuzzi Lemma 3.1 identifies projective eigenspaces of the alternating pencil; equation (2) expresses eta using their total point count N_1. Theorem 3.4 maximizes eta for the minimum-distance problem using M^(-1)S=diag(I_2,0), which has eigenspaces of dimensions 2 and n−2, not the sole corank-two level.",
+          "Schmidt studies rank/type translation schemes for quadratic and symmetric forms, with alternating strata in even characteristic. The inspected passages do not impose the fixed Omega slice or solve the nearest-zero problem. Resultary b1d5ef36cc98 is a Gram spectrum on the nonsingular alternating-matrix locus, not the slice of rank-two bivectors."
+        ],
+        "reasoning": "Broader rank schemes explain the ordinary-cone Fourier input. Maximizing a simultaneous isotropy count does not guarantee that the much smaller count at the nearest-zero lattice point can occur.",
+        "searches": [
+          "Cardinali–Giuzzi arXiv:1503.05456 Section 3 and arXiv:1412.5466 enumeration/coding context",
+          "Schmidt arXiv:1803.04274 and its cited Delsarte–Goethals alternating-form schemes",
+          "Resultary ordinary Plücker cone 91dfe0fce2d0 and nonsingular alternating forms b1d5ef36cc98"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6d2a9c8e9364 (self), 91dfe0fce2d0, b1d5ef36cc98",
+        "arXiv:1503.05456, 1412.5466, 1803.04274",
+        "Delsarte–Goethals 1975 (citation and unsuccessful access only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In ambient dimension n, equation (2) gives (q+1)eta=q^(n−3)N_1+(q^n−1)(q^(n−3)−1)/(q−1)^2. By Lemma 3.1 and rank parity, N_1=sum_t (q^(2s_t)−1)/(q−1)=(q+1)J. Substitution into q eta−L gives exactly q^(n−2)(J−1)−delta. Thus the evaluation, congruence, and conditional equality if J=1 need no new theorem from the older count.",
+          "The inspected minimum-distance witness has two singular pencil members and realizes maximum eta, not J=1. The frozen nilpotent construction realizes J=1 for every q,n in scope, not just a candidate spacing bound or a computed case."
+        ],
+        "reasoning": "The earlier formula yields a lower bound and necessary-and-sufficient profile for attaining that bound, but gives no witness or realized least singular value without solving the additional pencil feasibility problem. No inspected theorem or exact table was found to give that uniform attainment. The distinction is between allowed and realized distance from zero; the supported originality is the realized sharp boundary, not rederivation of the transform.",
+        "searches": [
+          "Exact sliced transform from 91dfe0fce2d0 by character orthogonality",
+          "Cardinali–Giuzzi arXiv:1503.05456 equation (2), proof of Lemma 3.2, Theorem 3.4 and Proposition 3.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matching Resultary 6d2a9c8e9364 is the target itself. Resultary 91dfe0fce2d0 concerns the ordinary Plücker cone; its proof gives the exact normalized character sum for any alternating frequency of specified rank. Orthogonality filters the fixed Omega=0 slice by averaging at B+tOmega, so it covers the sliced multiplier as an immediate corollary.",
+          "In Cardinali–Giuzzi arXiv:1503.05456, a projective support line contributes q−1 if B vanishes and −1 otherwise. Thus lambda=(q−1)L−q wt = q eta−L, where L is the number of isotropic projective lines and eta the number also isotropic for B. Nearest-zero magnitude corresponds to weight nearest (q−1)L/q, not minimum positive weight."
+        ],
+        "reasoning": "The character sum and projective weight are interchangeable descriptions, so a relevant exact weight or attainment theorem would count as coverage even if it did not mention inverses. The ordinary-cone identity and slice reduction already cover the underlying evaluation, not the realized nearest-zero level.",
+        "searches": [
+          "Resultary: isotropic Plücker bivectors, Fourier spectrum, symplectic restriction and alternating matrices",
+          "Primary search: symplectic Grassmann code weight distribution, polar line sections, alternating-form translation schemes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Proposition 3.5 gives a full weight enumerator for W(2,2), i.e. ambient dimension four; Theorem 4.1 concerns a different rank-three Lagrangian code. The ordinary-cone rank formula at 91dfe0fce2d0 is exact but averaging it needs the realized pencil nullities, which it does not tabulate.",
+          "The original Delsarte–Goethals text was not available through the attempted publisher route (403); Schmidt's citation and rank-scheme material do not establish the scope of every table in that work."
+        ],
+        "reasoning": "An exact weight table covering all line codes in the stated range could resolve sharpness immediately. The checked exact tables are out of range or on different spaces; the unavailable paper is residual risk, not negative evidence.",
+        "searches": [
+          "Cardinali–Giuzzi arXiv:1503.05456 Proposition 3.5, Theorem 4.1",
+          "Alternating-form association scheme literature through Schmidt arXiv:1803.04274; attempt at the original Delsarte–Goethals paper",
+          "Resultary exact coordinate Fourier spectra on Plücker cones and alternating forms"
+        ]
+      },
+      "rationale": "Credit is limited to the sharp all-field nearest-zero endpoint, including its attainment and least-stable frequency characterization (and their conditioning interpretation), as distinguished in the frozen prior-work section. The per-frequency sliced multiplier itself is already implicit in two inspected sources; neither the isotropic point count, the arithmetic step, nor the row sum carries separate originality credit. The actual older theorems give a different extremum or do not give realizability at the nearest-to-zero level.",
+      "residual_risks": [
+        "The multiplier is demonstrably already implicit in prior work; this pass does not credit it as new. Earlier pencil classifications or as-yet uninspected code weights may also imply attainment. No available statement in the compared literature was found to do so; the unavailable original rank-scheme text was not treated as negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the multiplier by an immediate reduction, not the optimizing pencil profile's realizability",
+          "evidence": "For ambient dimension M and frequency rank r its normalized value is (q^(2M−r)−(q+1)q^M+q^3)/(q^(2M)−(q+1)q^M+q^3); unnormalize and average at B+tOmega.",
+          "identifier_or_url": "Resultary 2026/10/11/SCOPE-sharp-coordinate-fourier-spectrum-on-the-finite-field-pl-cker-co--91dfe0fce2d0",
+          "material_read": "Finding and proof containing the arbitrary alternating-frequency rank formula, offset 0 onward",
+          "method": "Local mirror RESULT.md, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp coordinate Fourier spectrum on the finite-field Plücker cone",
+          "trigger": "Plausible exact transform via slicing the ordinary cone"
+        },
+        {
+          "assessment": "Exact counting input covers evaluation; its attained weight optimization is different",
+          "evidence": "Equation (2) counts common isotropic lines by the projective eigenvector count. Theorem 3.4 uses diag(I_2,0) to attain minimum distance; Proposition 3.5 gives the full weight distribution only in ambient dimension four.",
+          "identifier_or_url": "https://arxiv.org/abs/1503.05456",
+          "material_read": "Section 3 pp. 3–6, offsets 10200–18769 (Lemma 3.1, equation (2), parity argument, Theorem 3.4, Proposition 3.5); Theorem 4.1, p. 7",
+          "method": "OA PDF locate and bounded passage reads",
+          "title": "Minimum Distance of Symplectic Grassmann Codes",
+          "trigger": "Same projective line geometry; exact counts and weight extremum"
+        },
+        {
+          "assessment": "Establishes the coding interpretation, not the checked sharp nearest-zero result",
+          "evidence": "Line polar Grassmannian Plücker/coding framework.",
+          "identifier_or_url": "https://arxiv.org/abs/1412.5466",
+          "material_read": "PDF pp. 1–2 introductory setup",
+          "method": "OA PDF bounded passages",
+          "title": "Enumerative Coding for Line Polar Grassmannians with Applications to Codes",
+          "trigger": "Foundational polar line enumeration and code construction"
+        },
+        {
+          "assessment": "Related rank spectra, no fixed-symplectic-slice endpoint in the checked material",
+          "evidence": "In even q, a symmetric-form stratum corresponds to alternating forms of a specified rank.",
+          "identifier_or_url": "https://arxiv.org/abs/1803.04274",
+          "material_read": "PDF pp. 1–2 offset 3900, pp. 6–7 offset 18400, and alternating-form citation p. 32",
+          "method": "OA PDF bounded passages",
+          "title": "Quadratic and symmetric bilinear forms over finite fields and their association schemes",
+          "trigger": "Plausible general rank-scheme spectral coverage"
+        },
+        {
+          "assessment": "Unresolved exact-table comparison, not evidence of noncoverage",
+          "evidence": "Identified as a source on alternating-form rank schemes through the inspected citation; no claim made about its uninspected tables.",
+          "identifier_or_url": "Delsarte–Goethals, J. Combin. Theory A 19 (1975), 26–50",
+          "material_read": "Citation in Schmidt; original full text unavailable in attempted retrievals",
+          "method": "Publisher access attempted (403)",
+          "title": "Alternating Bilinear Forms over GF(q)",
+          "trigger": "Original alternating-form association scheme / potential exact tables"
+        },
+        {
+          "assessment": "Different operator and support",
+          "evidence": "A coordinate-character Gram spectrum on nonsingular alternating matrices, not the convolution supported on isotropic decomposable bivectors.",
+          "identifier_or_url": "Resultary 2026/11/2/SCOPE-exact-coordinate-fourier-spectra-on-nonsingular-alternating-form--b1d5ef36cc98",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror RESULT.md",
+          "title": "Exact coordinate Fourier spectra on nonsingular alternating forms",
+          "trigger": "Close alternating-form Fourier comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–24 and 61–91",
+        "Cardinali–Giuzzi arXiv:1503.05456 equation (2) and Theorem 3.4 for the distinct projective extremum"
+      ],
+      "rationale": "Once the entire nonzero isotropic Plücker cone is used, the natural question for inversion is how close its additive Fourier multipliers come to zero, not how large the projective section can be. Sharp all-field attainment quantifies stability on counting l² exactly, including characteristic two, and identifies the pencil profile of the least stable components. This adds an extremal fact not supplied by the exact but profile-conditional count or by code minimum distance; the standard counting argument alone is not the value claim.",
+      "residual_risks": [
+        "No value claim about all spectral multiplicities, arbitrary apertures, weighted kernels, or improved inversion algorithms."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

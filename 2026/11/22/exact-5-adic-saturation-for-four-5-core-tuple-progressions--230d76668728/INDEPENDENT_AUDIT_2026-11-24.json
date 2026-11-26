@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:13:20.714432Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–3, VERIFICATION.md and check.py (inspected)",
+        "https://arxiv.org/pdf/2611.00693, Lemma 2.2 and Theorem 3.1 (pp. 2–4)",
+        "python3 /workspace/evidence/5.py; results /workspace/evidence/5.txt"
+      ],
+      "rationale": "Maity's Lemma 2.2 gives exactly the stated starting values and recurrence, and Theorem 3.1 proves the baseline on the same four progressions. The independent replay recomputes the complete sparse recurrence polynomials and calculates the low coefficients directly from the Euler product, rather than by logarithmic differentiation. For the deepest lift, 1646+3125b plus 1479 is 3125(b+1); moving this factor to q^5 leaves exponent 7605+15000b. Extraction shifts q by (1479−4)/5=295, canceled by xi^295. This gives the stated intermediate E(q)-exponent 9375+15000b. The factor 1920 has valuation one, so Frobenius modulo 625 gives the claimed final dissection, with all four target progressions outside its support. The first lift works by the same two exact Frobenius steps at the indicated lower moduli. For the sharpness witnesses, F(q)^(5^t)−1 has coefficients divisible by 5^(t−1) through degree 14: after Frobenius the remaining Euler product at q^5 to exponent 24·5^(t−1) can itself be moved to q^25 modulo 5^(t−1). Thus the quadratic parameter terms vanish modulo 5^(t+1) in each of the three strata. The affine residues give exact valuations in the first two strata; 3−b and 3+b cannot both vanish modulo 5 in the last.",
+      "residual_risks": [
+        "Section 2's heading says 'one quarter', but 13 mod 25 is one of five classes within 3 mod 5. The finding and proof use the correct congruence classes.",
+        "The optimum is common across all four progressions, not proved separately for each."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Maity's general recurrence gives a way to compute U5(zeta^m), and the worked specializations include m=104 at higher precision; the passage to the target parameter in Theorem 3.1 only lifts the Euler quotient modulo 125.",
+          "Full text of three other relevant publications was unavailable; no negative coverage assertion is based on their landing pages."
+        ],
+        "reasoning": "Higher precision in the m=104 polynomial alone does not carry through the modulo-125 reduction for arbitrary 125i+21. The newly needed m=1479 congruence, its subsequent support argument, and sharpness computation are not statements of the general recurrence.",
+        "searches": [
+          "Maity §2–3",
+          "Tang JRMS 40 (2025) 245–256",
+          "Liang–Tang DOI:10.1017/S0013091525000215",
+          "Ananya–Keerthana–Ranganatha DOI:10.1007/s40590-026-00901-5"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary targeted comparisons",
+        "arXiv:2611.00693v1",
+        "Resultary ba3d8a96ff84",
+        "Tang JRMS 40 (2025) 245–256 (limited)",
+        "DOI:10.1017/S0013091525000215 (limited)",
+        "DOI:10.1007/s40590-026-00901-5 (limited)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known modulo-625 dissection can bound the target valuations only below the next lift. To obtain the higher support requires the new specialized polynomial congruence and precision in the Euler-product transformation; to stop the lift requires two independently varying coefficients."
+        ],
+        "reasoning": "The general recurrence and Frobenius lemma are established tools, not an optimal-depth theorem. In particular a single vanishing normalized residue at 9 can coexist with a nonzero one at 14; the joint obstruction is not a corollary of either known lower bound.",
+        "searches": [
+          "Maity Lemmas 2.2 and 2.4 and Theorem 3.1 proof",
+          "Frozen RESULT relationship-to-prior-work section",
+          "Resultary record ba3d8a96ff84"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 3.1 is the same family and support at modulus 5^3; Theorem 3.3 uses 125i+111 and a different progression modulus and residues.",
+          "The same-day 5-adic-branches record ba3d8a96ff84 treats the single coefficient A_(5,111+125i)(39), not a common depth across the target progressions."
+        ],
+        "reasoning": "Rephrasing the four progressions as support of a fifth dissection or as a common gcd valuation does not change the comparison. Neither the different tuple-order residue nor the single-coefficient statement supplies the target dissection.",
+        "searches": [
+          "Local Resultary: exact 125i+21 four-progression saturation, 396+625a fifth dissection, and joint coefficient obstruction",
+          "Maity arXiv:2611.00693v1, Theorems 3.1 and 3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct related local hit ba3d8a96ff84 was inspected; the matching exact local hit was the identical frozen finding.",
+          "Maity's tabulated powers include 104 and the powers for the 125i+111 result, not the decisive 1479 specialization or paired residues."
+        ],
+        "reasoning": "No separate inspected table gives the claimed common-depth law. The identical indexed record is not a separate predecessor, and shared dates do not resolve priority.",
+        "searches": [
+          "Local Resultary: exact parameter family and lifts; 396+625a; residue and coefficient obstruction",
+          "Maity Eq. (2.5)–(2.12)"
+        ]
+      },
+      "rationale": "Credit the exact modulo-125 family to Tang/Maity and treat the modulo-625 dissection as prior as reported. The supported distinct claim is the modulo-3125 dissection on the narrower family, the paired obstruction to a further common lift, and the resulting complete depth classification. No inspected statement supplies or already implies these extra results without new arithmetic and lifting arguments.",
+      "residual_risks": [
+        "The frozen note's earlier first-lift citation is incomplete and its priority was not resolved. It is not counted as a new contribution.",
+        "Inaccessible full texts and unindexed congruences leave priority risk; the decision is best of current knowledge."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior baseline and tools, not the deeper saturation law",
+          "evidence": [
+            "Theorem 3.1 states modulo 5^3 for exactly 125i+21 and r=9,14,19,24.",
+            "Lemma 2.2 gives the complete U5 recurrence and initial values; Theorem 3.3 changes family to 125i+111."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.00693",
+          "material_read": "pp. 2–4, Lemmas 2.2 and 2.4, Eq. (2.5)–(2.12), Theorem 3.1 and proof; p. 5–6 statement of Theorem 3.3",
+          "method": "OA original preprint PDF, relevant offsets 6400 and 9900 and theorem passages",
+          "title": "On Certain Congruences for Partition k-Tuples with 5-Cores",
+          "trigger": "Same parameters and modular equation"
+        },
+        {
+          "assessment": "Different tuple order and single coefficient, not a uniform four-progression result",
+          "evidence": [
+            "Exact valuation concerns A_(5,111+125i)(39); the scope excludes lifting the whole progression."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-two-simple-5-adic-branches-for-the-first-high-order-5-core-tuple--ba3d8a96ff84",
+          "material_read": "Original finding and scope",
+          "method": "Local Resultary search and mirror",
+          "title": "Two simple 5-adic branches for the first high-order 5-core tuple progression",
+          "trigger": "Closest distinct local valuation/lift finding"
+        },
+        {
+          "assessment": "No paper full text obtained",
+          "evidence": [
+            "Maity attributes the same modulo-125 family to Tang, Eq. (4.4). Higher-order implications from inaccessible text remain unverified."
+          ],
+          "identifier_or_url": "https://www.mathjournals.org/jrms/2025-040-003/2025-040-003-004.html",
+          "material_read": "Journal record; baseline attribution checked in Maity's Theorem 3.1",
+          "method": "Lawful OA journal/source attempts",
+          "title": "An iterative approach for proving congruences of partition k-tuples with t-cores",
+          "trigger": "Cited precursor of baseline"
+        },
+        {
+          "assessment": "No full-text comparison; residual priority risk",
+          "evidence": [
+            "No exclusion based on the landing page."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S0013091525000215",
+          "material_read": "Bibliographic/landing material only",
+          "method": "Lawful OA publisher and alternate-copy attempts",
+          "title": "Congruences modulo powers of 5 for partition k-tuples with 5-cores",
+          "trigger": "Potential more general prime-power coverage"
+        },
+        {
+          "assessment": "No full-text comparison; residual priority risk",
+          "evidence": [
+            "No exclusion based on the landing page."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s40590-026-00901-5",
+          "material_read": "Bibliographic/landing material only",
+          "method": "Lawful OA publisher and alternate-copy attempts",
+          "title": "Partition k-tuples with 5-cores modulo powers of 5",
+          "trigger": "Potential general congruences on related orders"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof §3",
+        "Maity Theorem 3.1"
+      ],
+      "rationale": "An existing uniform partition congruence motivates the optimal common modulus for every tuple order in that family. The deepest exceptional class and an all-index support identity answer that question rather than merely detecting isolated high valuations. The two small coefficients' incompatible zero classes explain why the uniform lifting stops even at tuple orders where either coefficient alone would miss the obstruction.",
+      "residual_risks": [
+        "No claim about separately optimizing the modulus for each residue class or generalizing to other orders."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

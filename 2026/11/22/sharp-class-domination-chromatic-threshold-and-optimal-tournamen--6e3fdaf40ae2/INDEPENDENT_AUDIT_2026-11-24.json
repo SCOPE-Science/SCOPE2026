@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:33:04.234509Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Classes are pairwise-intersecting edge families. A nonstar family must contain a triangle and can contain no other edge; a star of r edges has r+1 ground labels so a common disjoint pair exists iff r≤n−3. The n−2 class capacities at n=5,6,7 are 9,12,20, below the respective totals 10,15,21. The displayed n−1 partitions at n=5,6,7 were independently checked for coverage, properness and common disjoint-pair witnesses. For the optimum normal form, take t triangle classes and n−2−t star classes, designating an arbitrary valid centre for a singleton. There are at least t+2 noncentres, whose mutual edges require triangle classes, so binom(t+2,2)≤3t forces t=1 or 2. The latter would partition all edges of a K4 into two triangles, impossible. Hence t=1 and there are exactly three noncentres and distinct star centres; all triangle-to-centre edges are forced and remaining edges orient uniquely toward assignment to their tail class. This separately verifies the prior structural premise. The cap 3+d⁺(s)≤n−3 is necessary and sufficient, and near-regular tournaments satisfy it for m=n−3≥5 since ceil((m−1)/2)≤m−3. The ordinary chromatic bound is n−2. The independent enumerator /workspace/branches/be07c5a9-b777-4256-97bf-ec74e3df2db7/independent_check_record4.py exhausts 2^10 and 2^15 labelled tournaments and gives 24 and 5184, respectively; multiplying by binom(n,3) gives 1344 and 435456. Each unlabelled partition has (n−2)! distinct name assignments. Replay also at RESULT.md lines 14–29. The frozen Python verification was inspected, not executed; the cited C++ checker was not among the frozen support and the counts do not rely on it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Behtoei–Omoomi pp. 4–5 and Zhao et al. p. 111 classify every proper (n−2)-colouring",
+          "Resultary 22a170961b8a Proof §1 states the ordinary triangle-plus-tournament representation and unrestricted counts."
+        ],
+        "reasoning": "These results cover the normal form, not which ordinary optima have a common-neighbour witness in every class. They also cannot supply an n−1 construction when the proper optimum fails to be CD.",
+        "searches": [
+          "Behtoei–Omoomi arXiv:1104.3097v1 Theorem 1",
+          "Zhao et al. Proposition 1.4",
+          "Resultary: ordinary optimum Kneser stars triangles tournaments"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_constructions.py",
+        "arXiv:2203.09106, 1104.3097v1, 2209.03925v2",
+        "Zhao et al. DOI 10.47974/JIOS-1285",
+        "Resultary 6e3fdaf40ae2, 22a170961b8a, 644e832bfd94"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2024 article separately states the dominated-colouring problem despite including the prior proper optimum normal form",
+          "The conflict-free catalogue theorem uses a different witness condition and has no CD outdegree cap."
+        ],
+        "reasoning": "Intersecting-family classification and the tournament normal form make the CD proof short, but they do not alone imply the transition. The common disjoint-pair constraint selects a score cap; the feasible regularity bound and the small-order obstructions and witness constructions establish the exact new statement.",
+        "searches": [
+          "Zhao et al. Problem 1 and Proposition 1.4",
+          "Resultary: tournament encodings and witness-based colourings of KG(n,2)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Krithika et al. p. 1 explicitly match the requirement that each class lie in the neighbourhood of some vertex",
+          "Zhao et al. p. 109 require each vertex to dominate a class for their different dominator invariant; their Problem 1 at p. 119 asks for the dominated-colouring value.",
+          "Resultary record 644e832bfd94 counts dominating sets by cardinality."
+        ],
+        "reasoning": "Dominating sets, vertex-wise dominator colouring and class-wise dominated colouring are not interchangeable. Zhao et al.'s value n answers the vertex-wise question, not the frozen class-wise question they separately pose.",
+        "searches": [
+          "Resultary: same-graph domination and class-domination threshold",
+          "Krithika et al. arXiv:2203.09106",
+          "Zhao et al. DOI 10.47974/JIOS-1285, definition and Problem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Leading catalogue entry 6e3fdaf40ae2 is the assigned record itself",
+          "arXiv:2209.03925v2 p. 1 distinguishes counts of sorted score sequences from counts of tournaments."
+        ],
+        "reasoning": "The relevant finite counts are of labelled score-capped tournaments, not distinct sorted scores. Older score multiplicity tables may subsume these examples; the all-order CD criterion is not a claim about priority of the two counts in isolation.",
+        "searches": [
+          "Resultary: sharp class-domination chromatic threshold and optimal tournament colourings",
+          "Counting tournament score sequences arXiv:2209.03925v2 abstract and introduction"
+        ]
+      },
+      "rationale": "The triangle-plus-stars normal form and unrestricted tournament encoding are prior. The supported distinction is the solution to the class-wise dominated-colouring problem on KG(n,2): the small-order obstruction, exact onset of ordinary-optimal size, and score-cap classification of the resulting optima. The numerical counts support the classification but do not carry the originality judgment.",
+      "residual_risks": [
+        "Same-day catalogue overlap does not determine order.",
+        "Unindexed class-wise results under other terminology and old score-sequence multiplicity tables remain possible; a limited web search did not settle them."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Definition agrees; source concerns general algorithms",
+          "evidence": "Every color class is contained in the neighbourhood of some vertex.",
+          "identifier_or_url": "https://arxiv.org/pdf/2203.09106",
+          "material_read": "Abstract, p. 1, OA offset 975",
+          "method": "Lawful OA PDF, bounded passage",
+          "title": "Parameterized and Exact Algorithms for Class Domination Coloring",
+          "trigger": "Same CD invariant"
+        },
+        {
+          "assessment": "Different main invariant; explicitly poses the class-wise problem and restates the proper optimum classification",
+          "evidence": "The stated value n is for vertex-wise dominator colouring; Problem 1 asks to determine the dominated-colouring value for KG(n,2).",
+          "identifier_or_url": "https://tarupublication.s3.ap-south-1.amazonaws.com/articles/jios-1285.pdf",
+          "material_read": "Definition p. 109, Proposition 1.4 p. 111 (offset 7929), Problem 1 p. 119 (offset 21911)",
+          "method": "Publisher OA PDF, bounded passages",
+          "title": "Dominator coloring of Kneser graph",
+          "trigger": "Same graph, terminology and stated open problem"
+        },
+        {
+          "assessment": "Exact prior coverage of ordinary normal form",
+          "evidence": "One triangle, n−3 stars with forced edges into the triangle, and assignment of each centre–centre edge to one endpoint class.",
+          "identifier_or_url": "https://arxiv.org/pdf/1104.3097v1",
+          "material_read": "Theorem 1, printed pp. 4–5, offset 8868",
+          "method": "Lawful OA PDF, bounded pages",
+          "title": "On the locating chromatic number of Kneser graphs",
+          "trigger": "Universal ordinary-optimum normal form used by the proof"
+        },
+        {
+          "assessment": "Material overlap with the unrestricted normal form, not the capped CD problem",
+          "evidence": "The proof encodes and counts ordinary optima by all tournament orientations without a CD score restriction.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-proper-conflict-free-colouring-surcharge-and-witness-def--22a170961b8a",
+          "material_read": "RESULT.md Proof §1, local-mirror offset 0",
+          "method": "Local mirror, bounded passage",
+          "title": "A sharp proper conflict-free colouring surcharge and witness deficit",
+          "trigger": "Same graph and tournament encoding"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Counts dominating vertex sets by cardinality.",
+          "identifier_or_url": "2026/11/2/SCOPE-complete-domination-polynomials-of-two-subset-kneser-graphs--644e832bfd94",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror, bounded passage",
+          "title": "Complete domination polynomials of two-subset Kneser graphs",
+          "trigger": "Exact same graph and domination terminology"
+        },
+        {
+          "assessment": "Counts sorted score sequences rather than labelled tournament realizations",
+          "evidence": "The two counting problems are explicitly distinguished.",
+          "identifier_or_url": "https://arxiv.org/pdf/2209.03925v2",
+          "material_read": "Abstract and introduction, p. 1, offset 0",
+          "method": "Lawful OA PDF, bounded passage",
+          "title": "Counting tournament score sequences",
+          "trigger": "Possible precomputed or equivalent score-cap counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result answers an explicit problem in the literature for a natural infinite family and pinpoints when the extra common-neighbour requirement costs a colour. The characterization classifies every optimum beyond that threshold and links their enumeration to a precise tournament condition. This is useful beyond the two small numerical counts.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

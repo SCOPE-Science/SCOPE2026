@@ -1,0 +1,166 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:55:31.429761Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:7–63 and 65–111 (conditional Gaussian model, coefficients, contraction and limits)",
+        "Frozen VERIFICATION.md and check_correlated_cv.py (inspection only)",
+        "Independent replay: python3 -I -B /workspace/branches/check_conditional_v.py; both drifts and squared norms match as symbolic polynomial identities"
+      ],
+      "rationale": "I reconstructed the moments by conditioning on the reference v, rather than on u as in the frozen proof. Put z=1−q, b=x−m, V=||Pv||², W=||(I−P)v||², U=V+W, and X=v·x. Given v, u is Gaussian with mean ρv and covariance zI, also valid when z=0. Then G=m+u(u·b), E[u(u·b)|v]=qv(v·b)+zb, and E[||u||²(u·b)²|v]=q² U(v·b)²+qz[U||b||²+(d+4)(v·b)²]+z²(d+2)||b||², by expanding the standard centered Gaussian moments. For a unit x in one invariant subspace, put ε=1 on ran(P), 0 on ker(P). One has v·b=(1−V)X, m·v=VX, m·b=(ε−V)X², and ||b||²=1+(V−2ε)X². Average using independent χ²_k and χ²_(d−k) variables V,W, and conditional expectation of a squared coordinate equal to its block radius squared divided by rank (used only when that axis exists). Substituting these identities in an independently written integer-polynomial replay verifies both drifts and both printed second-moment polynomials coefficient by coefficient in d,k,q, rather than in a dimension grid. Orthogonal invariance preserving P forces block-scalar first and second moment forms and no mixed block. Nonnegativity of C_parallel−C_perp and the difference q in mean drifts make the parallel multiplier maximal, also at k=d where no other block is present. Expanding the scalar quadratic gives strict contraction exactly at the displayed subcritical q and positive h interval; a positive C_parallel gives the unique minimizer there. Freshness gives the conditional iteration bound. At the boundary the expected hinted projection is unchanged, and above it grows by (1−h[1−(k+1)q])^t; Jensen gives the stated nonconvergence/divergence for nonzero hinted initialization. The two-point noiseless differences on the specified quadratic are exact at every nonzero radius.",
+      "residual_risks": [
+        "Contraction here means a uniform one-step expected squared-norm inequality. The theorem does not claim that every step above the subcritical interval gives asymptotic divergence, or that the worst-case one-step factor is the exact asymptotic rate.",
+        "The impossibility argument at and beyond the correlation boundary is stated for a nonzero hinted initial component. Nonlinear objectives, non-Gaussian law, measurement noise and time-correlated probes are outside scope."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ryabchenko–Qian–Mou's estimator allows a reference chosen before fresh independent exploration; their oracle and their basis-query construction target a subspace projection of the gradient.",
+          "Geffner–Domke analyze double-descent quadratic control variates for reparameterization gradients. The five-pair Resultary theorem instead estimates a multifidelity scalar mean using an OLS slope with a random denominator."
+        ],
+        "reasoning": "The broader independent-reference convergence guarantee does not extend by specialization to positive within-step correlation; the other variance/reuse theorems treat different estimators and assumptions. In particular the five-pair denominator singularity is not a mechanism of the present polynomial Gaussian update, whose moments are finite.",
+        "searches": [
+          "arXiv:2609.08277 v1 and v2 control-variate analysis and reference construction",
+          "arXiv:2007.14634 §§3.3–3.4",
+          "Resultary: A five-pair variance threshold for reused Gaussian-quadratic control variates: coefficient fitting and sample reuse bias for Gaussian quadratic Monte Carlo, versus jointly Gaussian hint reference and same-step directional correction"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.08277v1/v2",
+        "arXiv:2007.14634",
+        "Resultary c97544bc105f (self-match), 25504f3aca16, 37929a05e40d, 20da1a5ec768, 472ee7d72553, e31f3f81d896"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Projected noise floors use m=Px and independent one-sided directions; no same-step dependence parameter enters. The OU result uses correlation across iterations in scalar Langevin steps. The reference-free iid update has mean-square edge 2/(d+2) and no hinted component.",
+          "In the frozen conditional drift the block factor 1−(k+1)ρ² comes from averaging a dependent product uuᵀPvvᵀ. An independent conditional identity removes precisely that mechanism."
+        ],
+        "reasoning": "None of these retrieved statements yields the rank-dependent reversal or both moment polynomials by substituting parameters. Generic dependent-control bias and independent Gaussian moment formulas are credited; the specified sharp frontier requires this coupled calculation.",
+        "searches": [
+          "arXiv:2609.08277v1/v2 §§3–4; Resultary 25504f3aca16, 37929a05e40d, 20da1a5ec768, 472ee7d72553 Finding and scope passages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Expected objective and expected squared norm are proportional on f(x)=||x||²/2, making the golden-ratio one-step safety theorem a real comparison, not a different objective label.",
+          "That theorem uses oracle m=P_S Hx and an independent Gaussian direction. The frozen reference is a random Pvvᵀx even at ρ=0. With the exact oracle m=Px and H=I, the second-moment coefficients would be 1 and d+2; at q=0 the frozen model instead gives dk+d+k+2 on both blocks."
+        ],
+        "reasoning": "The stability criteria become equivalent under the isotropic objective substitution, but the estimators do not. Setting ρ=0 removes the probe dependence, not the random reference noise. Sign reversal ρ↦−ρ is a true equivalence within the frozen class since the update depends on outer products.",
+        "searches": [
+          "arXiv:2609.08277v1 §§3.1–3.2; v2 §§3.1–4.2",
+          "Resultary Gaussian projected hint control variate sharp one-step squared norm/expected objective and correlated reference"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact match c97544bc105f is this assigned record itself. Distinct matches include projected noise-floors result 25504f3aca16, one-step oracle safety result 37929a05e40d, across-time OU correlation result 20da1a5ec768 and same-day ordinary Gaussian-probe result 472ee7d72553; their stated estimators differ."
+        ],
+        "reasoning": "This is a continuous parameter theorem rather than an exact tabulation problem; the appropriate exact check is the theorem catalogue. The distinct same-day record was compared mathematically: its reference-free update is not the frozen k≥1 estimator. Neither identity nor priority is inferred from a date.",
+        "searches": [
+          "Resultary semantic searches for exact Gaussian directional-hint projected-control-variate, same-step correlation, probe averaging and mean-square frontier",
+          "Resultary five-pair Gaussian-quadratic reuse query"
+        ]
+      },
+      "rationale": "The control-variate form and the general risk of dependent data reuse have prior coverage. The distinct contribution supported by actual comparisons is the coupled one-probe model's exact rank-dependent drift reversal and optimized worst-case mean-square frontier, not an assertion about the published independent-reference algorithm.",
+      "residual_risks": [
+        "Bounded primary and catalogue comparisons; an unindexed coupled Gaussian estimator analysis could overlap. No exhaustive priority or absence claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct estimator-form coverage only; convergence regime requires fresh exploration independent of its reference.",
+          "evidence": [
+            "Uses projected-gradient reference oracle or basis-query construction, not a coupled random Pvvᵀx and exact correlation threshold."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.08277",
+          "material_read": "v1 §§3.1–3.2, PDF pp. 3–4, offsets 15200–21680; v2 §§3.1–4.2, offsets 15300–35632",
+          "method": "Lawful OA primary text, both versions",
+          "title": "Adaptively Incorporating Directional Hints into Zeroth-Order Optimization",
+          "trigger": "Same estimator template and primary motivating source"
+        },
+        {
+          "assessment": "Different gradient estimation and no corresponding projected-reference iterative frontier.",
+          "evidence": [
+            "Quadratic approximation and double descent for reparameterization gradients in variational inference."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2007.14634",
+          "material_read": "PDF p. 1 abstract and p. 4 §§3.3–3.4, offsets 1017 and 15600–21026",
+          "method": "Lawful OA exact-passage inspection",
+          "title": "Approximation Based Variance Reduction for Reparameterization Gradients",
+          "trigger": "Prior quadratic control-variate framework"
+        },
+        {
+          "assessment": "Independent one-sided probes and exact reference; not a coupled two-probe subcase.",
+          "evidence": [
+            "m=Px; conclusions concern bounded trajectories and stationary finite-difference noise floors."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-exact-finite-difference-noise-floors-for-projected-control-varia--25504f3aca16",
+          "material_read": "Mirrored RESULT.md Finding and scope, offsets 0–4496",
+          "method": "Resultary search and local mirror inspection",
+          "title": "Exact finite-difference noise floors for projected control-variate Gaussian descent",
+          "trigger": "Same quadratic/Gaussian projected-control setting"
+        },
+        {
+          "assessment": "Exact one-step theorem with independent probe and oracle hint, not the present random reference.",
+          "evidence": [
+            "Sharp expected-objective safety threshold for m=P_S Hx."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-the-golden-ratio-conditioned-two-dimensional-safety-transition-f--37929a05e40d",
+          "material_read": "Mirrored RESULT.md offsets 0–4928",
+          "method": "Resultary search and local mirror inspection",
+          "title": "The golden-ratio-conditioned two-dimensional safety transition for Gaussian hinted descent",
+          "trigger": "Sharp one-step stability in closely related hinted descent"
+        },
+        {
+          "assessment": "Correlation across iterations, not within the reference/exploration pair.",
+          "evidence": [
+            "Scalar Langevin update with OU probe persistence; no rank-k projector."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-unique-correlation-induced-mean-square-frontier-for-gaussian-pro--20da1a5ec768",
+          "material_read": "Mirrored RESULT.md offsets 0–4365",
+          "method": "Resultary search and local mirror inspection",
+          "title": "Unique correlation-induced mean-square frontier for Gaussian probes",
+          "trigger": "Gaussian correlation and exact mean-square frontier"
+        },
+        {
+          "assessment": "Reference-free fresh iid estimator; different model, regardless of date.",
+          "evidence": [
+            "g=(uᵀx)u, mean-square step edge 2/(d+2), with a separate pathwise comparison."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-24-d-3-pathwise-mean-square-gap-for-gaussian-zeroth-order--472ee7d72553",
+          "material_read": "Mirrored RESULT.md offsets 0–4371",
+          "method": "Resultary search and local mirror inspection",
+          "title": "Sharp pathwise–mean-square gap for Gaussian zeroth-order descent",
+          "trigger": "Same-day Gaussian quadratic mean-square stability claim"
+        },
+        {
+          "assessment": "Gaussian-quadratic Monte Carlo reuse with a fitted OLS denominator; not directional descent or its drift reversal.",
+          "evidence": [
+            "Uses a paired high/low-fidelity sample with fitted slope and concludes a sample-size moment boundary."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-five-pair-variance-threshold-for-reused-gaussian-quadratic-con--e31f3f81d896",
+          "material_read": "Mirrored RESULT.md Finding, offsets 0–2058",
+          "method": "Targeted Resultary query and local mirror inspection",
+          "title": "A five-pair variance threshold for reused Gaussian-quadratic control variates",
+          "trigger": "Explicit prior on Gaussian quadratic reuse and sharp moment boundary"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:5–63 and 119–129",
+        "arXiv:2609.08277v2 §§3–4 for the independent-reference design contrast"
+      ],
+      "rationale": "Reusing a probe to save reference work is a natural algorithmic shortcut. A rank-only threshold that no choice of small positive step can fix beyond the boundary is a substantive limitation, not just an observation of bias. On the safe side the exact moments give a full minimax stepsize calibration, while the quadratic model isolates the reuse mechanism from curvature or measurement noise.",
+      "residual_risks": [
+        "No claim against independent exploration or of practical performance improvement on general objectives."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

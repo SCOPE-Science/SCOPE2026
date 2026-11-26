@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:52:21.422827Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 17–86; corrected RESULT.md, Assumptions and proof Steps 1–6",
+        "Frozen VERIFICATION.md and verify.py inspected without executing the supplied code; independently derived the two tableau jet coefficients, uniform moments, scalar multiplier expansion and cancellation identity"
+      ],
+      "rationale": "The frozen interpolation warning incorrectly said that separately interpolating both grid trajectories introduces a defect; piecewise linear interpolation commutes with subtraction. The corrected RESULT distinguishes subtracting the continuous exact flow (whose grid interpolation error can be O(h^2)) from subtracting its grid interpolant, explicitly allows a degenerate limit and supplies the maximal-error estimate. For the same tableau c=(x,1-x), the two third-order elementary terms have coefficients x(1-x) and 1/4-x(1-x)/2, leaving h^3 delta(x) H after subtracting the exact flow. Uniform integration gives E delta=0 and Var delta=1/180. Bounded Df gives sequential contractions and the linear growth bound with small h gives a common compact set. The sum of the centered adapted local defects has maximal second moment O(h^5); summing the error equation and applying discrete Gronwall gives the same bound for the nodal errors. The sum of the absolute remainders after linearization is o_P(h^(5/2)). After scaling, the driving martingale has bounded O(sqrt(h)) increments and covariation converging uniformly to the deterministic integral of HH^T/180. The martingale FCLT gives a continuous limit; the Euler drift sum converges to the integral of JZ (the linear integral equation is continuous in the driving path in the uniform norm), yielding the claimed covariance and shared Brownian driver. Independently the scalar multiplier is 1+z+z^2/2+x(1-x)z^3+O(z^4). For independent steps the first two moments are powers of the one-step moments; the squared bias is O(h^6) and the variance is u0^2 exp(2 lambda T) N [(lambda h)^6/180]+O(h^6). This proves the positive scalar limit for nonzero lambda and u0. In the nonvanishing scalar case, H=f^4(1/f)''/2, so the reciprocal-affine classification holds on intervals; on a compact trajectory region inside such an interval, summing the O(h^4) defects yields pathwise order 3.",
+      "residual_risks": [
+        "The scalar variance proof is separate from weak convergence. The functional statement is for smooth autonomous f, fixed T and independent uniform draws; the reciprocal case is local and stops short of any pole. The limit need not be nondegenerate for general f."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary paper has expected order conditions and the upper bound with mean-square exponent 4+4 min(sigma,1/4). The indexed Poisson critical-window statement uses the same scheme but a different repeated-large-step sign-loss regime. The moment-frontier paper concerns other methods."
+        ],
+        "reasoning": "The low-regularity upper bound and stability theorems cover method and rate, not a fixed-horizon distribution or a matching leading error constant.",
+        "searches": [
+          "Eisenmann et al., Remark 3.3 and Theorem 7.5",
+          "Resultary: exact-method randomized SDIRK stability and broader implicit two-stage moment frontiers"
+        ]
+      },
+      "checked_sources": [
+        "The four catalogue query themes and primary PDF passages above, compared with the final corrected RESULT"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Expected order conditions imply centering of the cubic defect, and the theorem bounds RMS. Neither computes the propagated quadratic variation or proves a strictly positive lower coefficient. The standard martingale FCLT needs the nonlinear error linearization and covariance limit."
+        ],
+        "reasoning": "The sharp scalar coefficient is a direct but purposeful expansion of known ingredients. The functional limit for the nonlinear tableau uses additional stochastic control; the prior upper bound does not imply it or the cancellation classification.",
+        "searches": [
+          "arXiv:2607.18928 Remark 3.3/Theorem 7.5 and exact lower bound/ sharp passage checks; Resultary: sharp scalar MSE and reciprocal cancellation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary tableau and draws are identical, not merely another randomized RK2 method. A direct index hit is the audited record itself.",
+          "The inspected antithetically paired explicit method has an endpoint Hessian-based limit after bias subtraction, not this H and trajectory-level law."
+        ],
+        "reasoning": "Same convergence exponent does not equate a bound, an endpoint CLT for a different method and the functional nodal CLT of the corrected finding.",
+        "searches": [
+          "Resultary: functional CLT and h^(5/2) nodal process for randomized SDIRK",
+          "arXiv:2607.18928, Rand and Assumption 3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Distinct inspected records are ed6af91e7d5b (antithetic explicit Gaussian error), 119cb032c3ba (same-tableau sign loss) and 3342f4e645f9 (other implicit schemes' moment stability)."
+        ],
+        "reasoning": "These exact findings either alter the one-step map or evaluate a different observable and limit. A stability multiplier by itself does not state the fixed-horizon mean-square expansion or the nonlinear process limit.",
+        "searches": [
+          "Resultary: SDIRK sharp MSE/1/180; reciprocal cancellation; same-method variants"
+        ]
+      },
+      "rationale": "The exact method, expected order-three cancellation and RMS upper order 5/2 are established prior results and are not claimed by the corrected text. The audited contribution is the functional fluctuation law and covariance, an exact positive coefficient establishing sharp scalar RMS order, and the local cancellation classification. The closest sources do not derive these assertions for this method.",
+      "residual_risks": [
+        "An unlocated stochastic modified-equation or Gaussian-error theorem for this exact tableau could change priority. Broad search results and literal misses do not establish absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same method and rate ceiling; no matching functional law or lower coefficient established by these statements",
+          "evidence": [
+            "Independent uniform [1/2,1] per step. Order-three conditions hold in expectation. Theorem 7.5 is an inequality, reaching O(h^5) in mean square."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2607.18928",
+          "material_read": "Rand, Assumption 3.2 and Remark 3.3 p. 6 (offsets 30100–34692), Theorem 7.5 p. 25 (offset 140125 onward), and candidate sharpness passage p. 16",
+          "method": "OA PDF bounded passages and literal searches followed by passage inspection",
+          "title": "Error Bound and Stability Analysis for a Randomized Singly Diagonally Implicit Runge–Kutta Method",
+          "trigger": "Exact method and prior order-5/2 bound"
+        },
+        {
+          "assessment": "Related but different tableau, centering and driving differential",
+          "evidence": [
+            "Antithetically paired explicit RK2; endpoint limit with deterministic bias removed and Hessian-only forcing."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-unique-antithetic-stage-pairing-and-a-hessian-only-gaussian-erro--ed6af91e7d5b",
+          "material_read": "RESULT.md Finding",
+          "method": "Local published-record mirror",
+          "title": "Unique antithetic stage pairing and a Hessian-only Gaussian error",
+          "trigger": "Indexed h^(5/2) Gaussian error limit"
+        },
+        {
+          "assessment": "Same scheme, different regime and event",
+          "evidence": [
+            "Scalar multiplier sign reversals and repeated-step Poisson critical window, not fixed-T, h->0 error."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-sign-loss-probability-and-poisson-critical-window-for-rand--119cb032c3ba",
+          "material_read": "RESULT.md Finding",
+          "method": "Local published-record mirror",
+          "title": "Sharp sign-loss probability and Poisson critical window for randomized SDIRK",
+          "trigger": "Same tableau, random scalar multiplier and limit"
+        },
+        {
+          "assessment": "Different schemes and stability question",
+          "evidence": [
+            "Analyzes moment-stability frontiers, not this functional Gaussian error."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-all-moment-stability-frontiers-for-randomized-implicit-two-stage--3342f4e645f9",
+          "material_read": "RESULT.md Finding",
+          "method": "Local published-record mirror",
+          "title": "All-moment stability frontiers for randomized implicit two-stage schemes",
+          "trigger": "Exact indexed random implicit RK moment formulas"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected RESULT.md, functional law and sharp scalar limit; Eisenmann et al. Theorem 7.5"
+      ],
+      "rationale": "For an existing randomized implicit integrator, the process law gives the temporal error covariance and distinguishes vanishing leading random forcing from generic error. The positive exact asymptotic on a dissipative scalar equation resolves whether the known 5/2 upper order can be improved uniformly over smooth autonomous problems; it is not merely another upper bound or a finite numerical slope.",
+      "residual_risks": [
+        "The result does not give finite-h stability or error claims for correlated draws or rough nonautonomous forcing."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

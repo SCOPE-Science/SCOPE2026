@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The conditional three-threshold probability gives an exact beta-integral expectation. Joint events for closed triples require disjoint vertex sets, and cross-triple edge constraints vanish under quantile scaling. The full mixed factorial moment measures converge by an integrable exponential bound. All boundary cases include \(n=3\), and the standalone finite checker passed exhaustive \(n=4\) enumeration and intensity derivative tests.
+## correctness
 
-**Originality — PASS, qualified.** Cooper and Frieze's law for isolated undirected two-neighbor cycles is materially distinct: it requires no incoming connections and reports isolated three-cycle intensity about \(0.00415239\), versus the \(1/18\) limit for every closed directed triangle here. Ball's geometric reciprocal neighbor graph uses spatially dependent distances and studies logarithmic-degree connectivity, not the independent symmetric-link marked sink law. A published exact mutual one-neighbor-pair theorem concerns a different outdegree and motif. Searches covering closed bidirected triads, absorbing triples, edge marks and Poisson laws produced no directly covering record. General rare-structure theorem priority has not been eliminated.
+PASS
 
-**Value — PASS.** Three mutually reciprocal choices give the smallest absorbing component of the directed two-out similarity network. Their frequency and internal edge-length profile are natural network-fragmentation diagnostics; unlike isolated-component enumeration they detect closed three-node attractors even with external in-links. The explicit joint marked limit gives multi-threshold incidence probabilities beyond a single average count.
+The probability-integral transform yields iid uniform edge weights and preserves the finite rankings almost surely even for a continuous CDF with flat intervals. With internal order statistics a≤b≤c on [0,1], the endpoints of c have threshold c and the third vertex has threshold b. All 3(n−3) outside edges are distinct, so the closure probability conditional on the internal weights is (1−b)^(n−3)(1−c)^(2n−6). Multiplying the integral by 6 and integrating first over a and then c gives 6/(2n−5) times ∫_0^1 b(1−b)^(3n−8) db, hence the stated finite mean after multiplication by binom(n,3). It gives 1 at n=3 and 4/15 at n=4. Distinct triples sharing a vertex cannot both be closed by outdegree two. For r disjoint ordered triples, edges to the n−3r outside vertices impose their own single-endpoint thresholds, and the finitely many edges between selected triangles impose maxima of two thresholds, each such edge counted just once. Under the scale n, the latter factors tend to one for any assignment of the sorted marks to the three edges. The former tend jointly to the product of exp(−b−2c). The number (n)_{3r}/6^r of tuples cancels the sorted density 6^r/n^(3r) in the limit. For n≥6r, domination by exp(−sum(b+2c)/2) on the product of ordered cones controls all fixed factorial integrals; in particular the first moment gives tail tightness for the whole finite measure. Joint factorial moments of continuity-set counts identify the Poisson law, and the bounded first moments and tight marks yield the finite point-process convergence. The intensity integrates to (1/2)∫_0^∞ b exp(−3b) db=1/18. Its mass for c≤t has derivative exp(−2t)−(t+1)exp(−3t) and value zero at t=0, matching the stated formula. The frozen VERIFICATION.md and CHECKER.py were inspected, not executed; the source's finite n=4 computation does not establish the limit.
 
-**Limitations.** Only closed three-sets in the independent symmetric-weight model are analyzed, not arbitrary strongly connected components, physical Euclidean distances or convergence rates. Historical theorem coverage remains a residual risk. Verification is not independent.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest primary model match is Cooper–Frieze's symmetric random k-nearest-neighbor graph. The stated distinction between directed closure and undirected isolation is mathematical, not terminological: the latter adds the requirement that no outside vertex point into the triangle. The supported finding counts all directed closed triples including incoming arcs, and gives their full quantile-edge law. The original paper's exact isolation calculation was not recovered legibly; I do not exclude overlap with an ancillary calculation and do not rely on the isolation intensity quoted by the frozen record. The distinct same-date reciprocal-nearest-neighbor result has a different outdegree and concerns edge indicators and a variance, not closed directed triangle profiles.
+
+## value
+
+PASS
+
+Directed sink triples are a natural minimal closed motif at outdegree two, including those hidden by an undirected isolation requirement. The quantile-weight profile quantifies their occurrence at every maximum-edge threshold, and the disjointness and joint Poisson law describe the population beyond a finite expectation or a single boundary check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

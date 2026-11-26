@@ -1,0 +1,92 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:24:26.708524Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With ε=1/g, the mass-preserving real polynomial flow is smooth in ε on compact s=gt intervals and its ε=0 solution is e^{is} at the root and zero elsewhere. In the Taylor coefficient recursion the hopping term at order k uses order k−1; the off-root cubic uses lower orders because each factor has vanishing order zero. Induction gives zero coefficients below the distance h, and at order h only predecessor edges contribute. The leading coefficient therefore integrates the geodesic-count recursion with R_h′=iR_{h−1} for h≥2. The root's first variation is homogeneous and vanishes; hence a neighbor's second coefficient is (A²)_{vo}R_2. In the squared-amplitude cross term Re(conj(R_1)R_2)=2(1−cos s)−s sin s, and the sum of (A²)_{vo} over neighbors is (A³)_{oo}=2T_o. Distance-two and farther sites contribute only from order g^−4, giving the stated sign and the coefficient 16T_o at s=π. Separately, mass and energy conservation give gq(1−q)≤2√(d_o q(1−q))+||B||q for leakage q and root-deleted adjacency B. For g>4||A||, q=1/2 is impossible, and continuity from q=0 confines the flow below it. Absorbing ||B||q with q≤1/2 gives q≤8d_o/(g−2||B||)² uniformly for large g; substituting this into the divided inequality gives the sharp limsup 4d_o. Evaluation at π/g gives the matching liminf. Only the supremum result is global in physical time; the expansions are compact in s with a fixed graph.",
+      "status": "PASS",
+      "verification": "The uploaded RK4 verifier and its report of 117 assertions were inspected as recorded evidence, not executed. Independently, rk4_finite_check.py at /workspace/branches/a45d35e0-3690-4314-aa56-8d35dbcb2415/rk4_finite_check.py integrated a five-vertex graph with root degree two, one root triangle, and two geodesics each to vertices at distances two and three, using 10,000 RK4 steps to s=π for g=40,80,160. Mass errors were at most 1.1e−14; g² times leakage was 8.427556, 8.206960, 8.101746, and g⁴(q−8/g²−16/g³) was 44.088813, 44.545011, 44.689750. Scaled amplitude errors were bounded in those trials. This is finite floating-point corroboration, not an all-time or rigorous numerical certification."
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shi–Wong give a path/cycle bound, with degree-one and degree-two thresholds discussed on p. 6. Appendix A's argument uses the root-deleted adjacency norm bound of 2. The targeted lookup returned no results; the comparison relies on the actual paper passages."
+        ],
+        "reasoning": "Replacing the constant 2 by the actual adjacency norm in the energy estimate extends the upper-bound method; that replacement alone is not the new conclusion. The inspected upper-bound result does not cover arbitrary graph motifs or state the exact sharp limit.",
+        "searches": [
+          "arXiv:2605.20464v2 §3 and Appendix A",
+          "Targeted primary-literature lookup for nonlinear quantum walk self-trapping bounds and graph structural strong-coupling asymptotics"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.20464v2",
+        "Resultary 0e18dfc58559",
+        "Resultary 92dbdbb7ae5a (summary only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Appendix A bounds |g| by 2√d_r/√(p(1−p))+2/p along the flow. The paper uses it to prove all-time confinement on paths and cycles and describes its thresholds as not tight."
+        ],
+        "reasoning": "Together with confinement this prior inequality entails the leading upper constant 4d_r on paths and cycles. It does not give attainment to leading order at π/g, resolve vertex amplitudes by distance, or identify a signed third-order triangle correction. The matching lower bound here uses the local dynamics, not the energy inequality alone.",
+        "searches": [
+          "arXiv:2605.20464v2 §3 and Appendix A"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shi–Wong use the same adjacency hopping, on-site DNLS term and single-site initial state; p, their root survival probability, is 1−q. Their bound written in q involves q(1−q) and the path/cycle root-deleted norm bound 2."
+        ],
+        "reasoning": "The common result is not made new by changing normalization or writing a survival bound as a leakage bound. The Taylor coefficients and time-resolved motif dependence are extra statements.",
+        "searches": [
+          "Resultary: strongly nonlinear graph walks, geodesic amplitudes and triangle leakage",
+          "arXiv:2605.20464v2 p. 2, §3 and Appendix A"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The superficially close Resultary 0e18dfc58559 Finding concerns volumes of anchored Lipschitz balls and a reachability poset, not DNLS. A geodesic-path counting summary, 92dbdbb7ae5a, is about layered paths; its full record was not available for comparison."
+        ],
+        "reasoning": "Geodesic-count records do not tabulate these dynamical coefficients by virtue of counting shortest paths. No exact match for the coefficient identities surfaced; the unavailable full record is not negative evidence.",
+        "searches": [
+          "Resultary: nonlinear walks, shortest-path amplitude and triangle leakage"
+        ]
+      },
+      "rationale": "The distinct result is a time-resolved, distance-by-distance geodesic count and next-order root-triangle signal for arbitrary fixed finite connected simple graphs, together with a matching sharp leading all-time supremum. The upper localization estimate and its leading scale are not distinct on paths and cycles and use an established energy argument.",
+      "residual_risks": [
+        "Other strongly nonlinear or anti-continuum expansions may express the local coefficient identities implicitly; no exhaustive priority conclusion is made.",
+        "The full 92dbdbb7ae5a text was unavailable. Its summary was not used to exclude whole-document overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct overlap of leading upper bound for paths and cycles, not the two-sided arbitrary-graph limit or motif expansions",
+          "evidence": [
+            "Appendix A uses root-deleted norm at most 2 and bounds |g| by 2√d_r/√(p(1−p))+2/p."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.20464",
+          "material_read": "v2 p. 2 (offset 10400), §3 pp. 5–6 (34200 and 38500–39312), Appendix A p. 9 (57600)",
+          "method": "Bounded OA primary-text passages",
+          "title": "Self-Trapping Bounds for Continuous-Time Nonlinear Quantum Walks on Path and Cycle Graphs",
+          "trigger": "Same dynamics and localized start; exact overlap with energy bound"
+        },
+        {
+          "assessment": "Different object and invariant",
+          "evidence": [
+            "Anchored Lipschitz-ball volume via a geodesic reachability poset, not nonlinear evolution."
+          ],
+          "identifier_or_url": "0e18dfc58559",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary lookup and local mirror text",
+          "title": "Geodesic poset volume law and a counting-complexity barrier",
+          "trigger": "Closest same-date geodesic catalogue hit surfaced"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem ties a natural localized evolution to three different rooted graph invariants: onset order gives distance, amplitude gives geodesic multiplicity, and the first correction to leakage gives triangles. It also shows a leading global bound is attained on the short time scale, beyond simply proving confinement. These are useful fixed-graph asymptotics; they do not establish growing-network uniformity, stability of inverse motif recovery, or an all-time higher-order expansion.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

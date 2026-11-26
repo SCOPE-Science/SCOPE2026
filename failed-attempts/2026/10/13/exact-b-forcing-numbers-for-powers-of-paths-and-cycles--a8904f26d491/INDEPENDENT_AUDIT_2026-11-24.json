@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:43:06.054003Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The first force needs its source and at least degree minus b already-black neighbors, giving max(1, minimum degree minus b plus 1); an initially all-black graph meets this bound as well. The endpoint of a nonsaturated path power fills its closed neighborhood from the stated initial segment, after which successive black vertices one at a time force the next vertex. On a nonsaturated cycle the chosen source's radius-k interval contains the entire seed, and its force fills a block of length 2k+1. A black vertex k-1 positions before the right endpoint sees only the next white vertex outside a block of that length or greater, so propagation reaches the entire cycle. Complete powers reduce to the white count at any black vertex. Independent exhaustive closure enumeration for paths of orders 2–9, cycles of orders 3–9, powers 1–7 and thresholds 1 through minimum degree plus 2 agreed in 589 profiles over 21493 candidate seeds. Replay: python3 /workspace/branches/3a953430-ceb1-40e5-9963-5c40a3df0143/independent_bforcing_check.py. This is bounded corroboration of the symbolic result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The recent graph-powers paper proves the relevant ordinary path- and cycle-power equalities with their minimum degrees; its b-forcing monotonicity in power is not the reason for exactness.",
+          "Amos et al. give the minimum-degree lower bound for arbitrary graphs and the complete-graph equality for every threshold."
+        ],
+        "reasoning": "Exact ordinary equality is stronger for this purpose than threshold or power monotonicity: saturation of the ordinary first-force bound forces a minimum-degree source and identifies all of its black neighbors. This is enough to reduce the generalized case to the published ordinary result.",
+        "searches": [
+          "arXiv:2610.03892, propositions 6–8 and §3",
+          "arXiv:1401.6206, Proposition 2.1 and Observation 2.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.03892v1",
+        "arXiv:1401.6206v1",
+        "Resultary 27af5da49cb2",
+        "Resultary 816bf7a10356",
+        "Resultary bee65d36f8ec"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Let d be a positive minimum degree and suppose an ordinary zero-forcing seed S has size d. At its first force the black source u has exactly one white neighbor and at most d-1 black neighbors. Necessarily deg(u)=d and S is contained in N[u]. Thus N[u] is itself an ordinary forcing set, by monotonicity in the black set.",
+          "For any b, start with u and max(0,d-b) of its neighbors. Its first b-force fills N[u], and the remaining ordinary sequence works by skipping any targets already black. Hence Z_b=max(1,d-b+1) by the prior lower bound. Proposition 7 gives the hypothesis for nonsaturated paths and Proposition 8 does so for nonsaturated cycles. Observation 2.2 gives the saturated cases."
+        ],
+        "reasoning": "This implication uses the published ordinary *scalar equality* alone, not just an adaptation of its displayed interval seeds. It covers every claimed threshold and addressable graph-power order; an explicit all-b line in the prior paper is unnecessary.",
+        "searches": [
+          "arXiv:2610.03892, Proposition 6 proof and Propositions 7–8 (PDF offset 18150 onward)",
+          "arXiv:1401.6206, Proposition 2.1 and Observation 2.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Abiad et al. call the parameter Z_b; Amos et al. call the same all-white-neighbors forcing rule F_k, where their k denotes the forcing threshold and not the graph power.",
+          "Resultary's same-day crown-graph power domination has an additional initial observation of N[S], and is not the generalized zero-forcing rule."
+        ],
+        "reasoning": "Changing the threshold's symbol or calling the process k-forcing preserves the parameter. Power domination does not preserve the starting condition and is excluded.",
+        "searches": [
+          "Z_b and F_k generalized graph forcing: arXiv:2610.03892 §3; arXiv:1401.6206 §1–2",
+          "Resultary: generalized forcing for powers of paths and cycles"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed cycle census supplies exact ordinary values including complete powers; the optimal-seed classifications give ordinary seed results and explicitly credit earlier k and 2k values.",
+          "Neither indexed finding is presented as a table of higher-threshold values."
+        ],
+        "reasoning": "The related exact data have the ordinary parameter, not a direct all-b table. The ordinary equality they repeat is already sufficient for a direct implication; no inspection of finite tables is needed to extrapolate the theorem.",
+        "searches": [
+          "Resultary: minimum zero forcing set census and token-jumping connectivity 27af5da49cb2",
+          "Resultary: exact optimal zero forcing seed classifications 816bf7a10356"
+        ]
+      },
+      "rationale": "The all-threshold equality is a direct corollary of the prior ordinary zero-forcing equality with minimum degree, not just a coincidence at b=1. It follows on any nonempty graph satisfying that ordinary equality; no new path- or cycle-specific ingredient is needed. The saturated powers also follow from the earlier exact complete-graph result.",
+      "residual_risks": [
+        "A supplemental text-locate call timed out and keyword search was uninformative. No claim is made about the earliest statement of the generic first-force implication; the positive proof of coverage uses the passages actually read."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers all claimed formulas by first-force reduction from ordinary equality plus the general lower bound",
+          "evidence": "Proposition 7 gives k for paths and Proposition 8 gives 2k for cycles in the required nonsaturated ranges. The proofs explicitly start from consecutive ordinary seeds.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.03892",
+          "material_read": "§3 p. 3; Proposition 6 proof and Propositions 7–8, pp. 5–6; decisive passages at OA offsets 11700 and 18150",
+          "method": "Original PDF text, bounded passages",
+          "title": "The Zero Forcing Number of Graph Powers",
+          "trigger": "Same graph powers and generalized forcing rule; exact ordinary values"
+        },
+        {
+          "assessment": "Supplies the universal lower bound and directly covers complete graphs",
+          "evidence": "F_k(G) >= min degree - k + 1; F_k(K_n)=max(n-k,1).",
+          "identifier_or_url": "https://arxiv.org/pdf/1401.6206",
+          "material_read": "§1 definition and §2 Proposition 2.1/Observation 2.2 (offsets 5500 and 9000)",
+          "method": "Original PDF text, bounded passages",
+          "title": "Upper bounds on the k-forcing number of a graph",
+          "trigger": "Alias and general sharp degree bound; saturated powers"
+        },
+        {
+          "assessment": "Ordinary equality, not a direct b-forcing table",
+          "evidence": "Gives n-1 for n <= 2k+1 and 2k otherwise.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-minimum-zero-forcing-set-census-and-token-jumping-connectivity-o--27af5da49cb2/RESULT.md",
+          "material_read": "Mirrored finding and ordinary rule assumption, offset 0",
+          "method": "Resultary local search and mirror",
+          "title": "Minimum zero-forcing set census and token-jumping connectivity of cycle powers",
+          "trigger": "Exact values for the same cycle-power family"
+        },
+        {
+          "assessment": "Uses prior ordinary values; distinct seed classification",
+          "evidence": "Classifies ordinary seeds and credits previously established scalar values k and 2k.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-optimal-zero-forcing-seed-classifications-for-powers-of-pa--816bf7a10356/RESULT.md",
+          "material_read": "Mirrored finding and parameter scope, offset 0",
+          "method": "Resultary local search and mirror",
+          "title": "Exact optimal zero-forcing seed classifications for powers of paths and cycles",
+          "trigger": "Same families and optimal seeds"
+        },
+        {
+          "assessment": "Different rule and graph family",
+          "evidence": "Power domination starts by observing the closed neighborhood, unlike the audited forcing process.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-exact-generalized-power-domination-profile-of-crown-graphs--bee65d36f8ec/RESULT.md",
+          "material_read": "Mirrored finding and initial observation step, offset 0",
+          "method": "Resultary local search and mirror",
+          "title": "Exact generalized power domination profile of crown graphs",
+          "trigger": "Same-day generalized propagation result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The higher-threshold exact values concern natural graph families, but are mechanically implied by the already established ordinary equalities and the known lower bound, with the saturated cases already explicit. The finding claims no additional extremal-seed classification or structural result beyond those values; replay does not create an independent useful unknown invariant.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

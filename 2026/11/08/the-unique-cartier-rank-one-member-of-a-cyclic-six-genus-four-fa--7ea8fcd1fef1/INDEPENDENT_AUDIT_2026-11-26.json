@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:02:38.770889Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Squarefreeness of xQ(x³) in characteristic 11 is equivalent to bΔ≠0, yielding a genus-four smooth completion. The coefficients of f^5 at indices 11i−j have exactly the displayed three disjoint blocks. On b≠0 the first outer block vanishes only at (0,−2). For the other block v_2−3v_1=aL: a=0 again gives (0,−2); a=4 gives only b=−2, which is singular; otherwise substituting (1−3a)b=−a²+3a+4 gives the cleared powers of a−4, excluding any further simultaneous zero over the algebraic closure. At (0,−2), Δ=10 and P=5, so precisely the Frobenius-stable middle direction survives; Cartier rank and 11-rank are both one. Everywhere else the outer blocks contribute two, so the smooth P=0 locus has a-number two and the remaining locus has a-number one. `python3 /workspace/reviews/evidence/reproduce.py 1` used independent multinomial coefficient extraction, exact polynomial reductions, a squarefree gcd and modular minors on all 121 base-field pairs, obtaining 101 smooth parameters and counts 83,17,1. The finite enumeration is not the proof over the closure. The supplied scripts were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cyclic-cover rank bounds and a family-level matrix computation are available in Kudo–Nakagawa–Takagi; their enumeration spans primes 17 through 1000.",
+          "The reviewed nonexistence of superspecial genus-four hyperelliptic curves at p≤13 gives rank≠0 at p=11.",
+          "Frei's obstruction g≥p for a=g−1 does not apply to g=4,p=11; his characteristic-11 example has genus ten."
+        ],
+        "reasoning": "A lower bound or classification of rank zero cannot distinguish rank one from ranks two and three. The general matrix machinery still requires the characteristic-specific elimination.",
+        "searches": [
+          "arXiv:2210.14822 §§2.2–2.4, Lemma 3.2.2",
+          "arXiv:1703.03516v2 Theorem 1.1 and §5",
+          "DOI:10.1007/978-3-030-05153-2_3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2210.14822",
+        "Frei arXiv:1703.03516v2",
+        "Kudo–Harashita DOI:10.1007/978-3-030-05153-2_3 (indirect passage and access attempt)",
+        "Resultary 7ea8fcd1fef1 (self-match), 519d5d7df39a, 366b0706ceb7, e7dfb8149902",
+        "Frozen RESULT.md, VERIFICATION.md and both Python sources"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general method produces the matrix in principle, but no inspected passage classifies the simultaneous zero loci of its outer blocks in characteristic 11.",
+          "The same-family F11 Weil record identifies two supersingular curves with a-number two; the frozen rank-one point is instead 11-rank one."
+        ],
+        "reasoning": "Neither known rank bounds nor outcomes at finitely many coefficients imply that the geometric vanishing is cut out by P or that after excluding singular parameters the two outer blocks each drop exactly at the same point.",
+        "searches": [
+          "Kudo–Nakagawa–Takagi §3.2 Lemma 3.2.2 and §2.3 Theorem 2.3.1 compared with the frozen block vanishing argument",
+          "Resultary 366b0706ceb7 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kudo–Nakagawa–Takagi §1 uses the identical normalized equation, not merely an isomorphic ambient family.",
+          "Cartier rank one is a-number three, while the P=0 stratum has rank two; P(0,−2)=5."
+        ],
+        "reasoning": "Comparisons are made at the level of the normalized coefficient locus; neither changing matrix conventions nor translating rank to a-number changes the theorem. The earlier result on this exact family focuses on rank zero.",
+        "searches": [
+          "Resultary: normalized cyclic-six genus-four hyperelliptic family characteristic eleven Cartier rank and a-number",
+          "arXiv:2210.14822 exact family and Cartier–Manin computation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "7ea8fcd1fef1 is the target self-match.",
+          "519d5d7df39a gives complete same-equation geometric strata in characteristic 17, with two rank-one points and one rank-zero point.",
+          "366b0706ceb7 covers the same 101 marked F11 parameters in a Weil numerator and 11-rank classification.",
+          "e7dfb8149902 is a same-day result for a different quaternionic equation with constant a-number two."
+        ],
+        "reasoning": "None supplies the geometric characteristic-11 elimination. A finite-field Weil or 11-rank table is not a Cartier rank stratification over the closure; same-date and later entries are compared on content, not assumed to determine priority.",
+        "searches": [
+          "Resultary: exact characteristic-11 coefficient family; finite F11 models and Weil data; same-date genus-four a-number loci"
+        ]
+      },
+      "rationale": "Supported for the explicit characteristic-11 positive-rank stratification over the algebraic closure, in particular the smooth divisor P=0 and its separate unique rank-one parameter. The family, Cartier coefficient rule, rank-zero exclusion, and method of computing matrices are prior, and the finite counts are supporting data rather than a new isomorphism classification.",
+      "residual_risks": [
+        "The full Kudo–Harashita text was unavailable; a nonzero-rank observation in uninspected material is not excluded.",
+        "Bounded checking leaves the possibility of an unlocated equivalent rank classification in another normalization; no priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact family and fundamental methods, but rank-zero focus and no characteristic-eleven geometric positive-rank locus in inspected statements",
+          "evidence": [
+            "The family is y²=x^10+x^7+ax⁴+bx; Theorem 2.4.1 reports nonexistence of superspecial examples at p≤13."
+          ],
+          "identifier_or_url": "arXiv:2210.14822",
+          "material_read": "§1, §§2.2–2.4 (PDF offsets 25508–31610 for §§2.3–2.4), and §3.2 Lemma 3.2.2 (HTML offset 47200)",
+          "method": "OA primary passages",
+          "title": "Efficient Search for Superspecial Hyperelliptic Curves of Genus Four with Automorphism Group Containing Z6",
+          "trigger": "Exact normalized family, general matrix method and cyclic rank bounds"
+        },
+        {
+          "assessment": "Broader obstruction and a distinct example",
+          "evidence": [
+            "Theorem 1.1 excludes g≥p, and the characteristic-eleven case discussed is genus ten rather than four."
+          ],
+          "identifier_or_url": "arXiv:1703.03516v2",
+          "material_read": "PDF p. 2 Theorem 1.1 and p. 6 §5",
+          "method": "OA primary PDF passages",
+          "title": "The a-number of hyperelliptic curves",
+          "trigger": "Potential hyperelliptic a=g−1 classification"
+        },
+        {
+          "assessment": "Rank-zero coverage known; original text unavailable for broader comparison",
+          "evidence": [
+            "The reproduced result rules out rank zero in the characteristic at issue."
+          ],
+          "identifier_or_url": "10.1007/978-3-030-05153-2_3",
+          "material_read": "Cited superspecial statement as reproduced in arXiv:2210.14822; original full text not accessed",
+          "method": "OA retrieval timed out; inspected accessible later review of its result",
+          "title": "Superspecial Hyperelliptic Curves of Genus 4 over Small Finite Fields",
+          "trigger": "Small-characteristic genus-four classification"
+        },
+        {
+          "assessment": "Material same-family precedent, different characteristic",
+          "evidence": [
+            "Characteristic 17 has two a-number-three points and an a-number-four point."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-the-complete-characteristic-seventeen-a-number-stratification-of--519d5d7df39a/RESULT.md",
+          "material_read": "Finding and comparison passages, offsets 0 and 5350",
+          "method": "Local Resultary mirror",
+          "title": "The complete characteristic-seventeen a-number stratification",
+          "trigger": "Same normalized equation and complete geometric strata"
+        },
+        {
+          "assessment": "Finite-field Weil and p-rank data, not the geometric Cartier rank strata",
+          "evidence": [
+            "The two supersingular members have rank-two Cartier operators."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sixty-nine-weil-types-and-two-supersingular-members-of-an-order--366b0706ceb7/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sixty-nine Weil types and two supersingular members",
+          "trigger": "Same characteristic and 101 marked parameter pairs"
+        },
+        {
+          "assessment": "Different equation and invariant scope",
+          "evidence": [
+            "The quaternionic family has constant a-number two."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-forty-five-rank-zero-parameters-and-seven-quaternionic-isomorphi--e7dfb8149902/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Forty-five rank-zero parameters and seven quaternionic isomorphism classes",
+          "trigger": "Same-date characteristic-11 genus-four locus"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For an already studied cyclic genus-four family, the result identifies the full geometric jump divisor and one isolated more extreme Cartier type; the exceptional point also has exactly determined stable rank. Exact geometric membership, not merely enumeration of rational parameters, makes the result a useful classification.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

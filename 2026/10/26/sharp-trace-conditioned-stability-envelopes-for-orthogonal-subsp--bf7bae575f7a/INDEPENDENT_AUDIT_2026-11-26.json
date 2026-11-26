@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:33:52.940536Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 6–90",
+        "Frozen VERIFICATION.md and check.py",
+        "/workspace/independent_checks.py, stability()"
+      ],
+      "rationale": "The centered difference is exact. In the Hessian basis, squared coordinates close under B = D + b eta^2 1 (lambda_i^2)^T. The coefficients follow from the beta diagonal moment and projector idempotence; a-1 = (d-2)(d-k)/(k(d-1)(d+2)) is nonnegative. Similarity by diag(lambda_i) gives M = D + b eta^2 lambda lambda^T, symmetric positive semidefinite. Strict stability requires I-M positive definite, hence each D_i<1, and after diagonal congruence the remaining rank-one condition is exactly the claimed scalar inequality. The scalar increases from zero to infinity below the common pole. For eta above the pole even a largest-eigenvalue diagonal entry excludes stability. For eta=0 the iterate is fixed; for eta<0 the mean iterate grows for every nonzero start. For k<d and eta>0 strict positivity makes the Perron mode visible from every nonzero squared-coordinate initialization, including at the boundary. The column sums establish the isotropic bound and strict non-scalar improvement. Strict convexity gives the balanced and saturated spectra with exact equality conditions, including coinciding degenerate trace endpoints. The k=d bound is a uniform threshold, not a per-start assertion for initializations missing the top eigenspace. Independently recovered both secular polynomials and checked 28 spectra using symmetric eigenvalues (python /workspace/independent_checks.py 4).",
+      "residual_risks": [
+        "Numerical spectra are bounded corroboration. Scope is fixed SPD quadratics, independent real Haar sampling, and expected squared norm; no almost-sure or nonquadratic extension."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kozak uses the same scaled-Haar-frame update with sufficient bound 2k/(dL). Song compares general single-vector fourth-moment maps. Ghosh's inspected introduction concerns persistence-of-memory subspace methods."
+        ],
+        "reasoning": "A sufficient all-H convergence estimate does not imply an anisotropic necessary bound; averaging independent directions is not averaging the dependent orthogonal columns. The abstract general second-moment framework is prior, but does not present the rank-k formula and equality-classified trace extremizers.",
+        "searches": [
+          "Kozak et al., arXiv:2107.03941, §2 and Theorem 3.1(iv)",
+          "Song et al., Appendix B.2",
+          "Ghosh et al., arXiv:2609.18416, intro"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "arXiv:2604.14669, 2107.03941, 2609.18416",
+        "Resultary d9ecf263b248"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Song gives a scalar full-spectrum exact condition in the Gaussian case and an equivalent covariance boundary for one spherical direction. Prior Haar moments and covariance recursions can be combined to derive the rank-k variance map."
+        ],
+        "reasoning": "Credit the derivable operator formulation rather than claiming a new general stability theorem. The exact root comparison across fixed-endpoint fixed-trace spectra requires a spectral convexity comparison and is not given or subsumed by the inspected convergence conclusions. The Gaussian scalar formula uses a different direction law.",
+        "searches": [
+          "Song et al., Appendix A.2 Theorem 4 and Appendix B.2 (131)–(135)",
+          "Kozak et al., Remark 3.2",
+          "Resultary d9ecf263b248"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Song's uniform-sphere map has exactly a=2d/(d+2) and b=d/(d+2), the present k=1 map. A positive diagonal similarity turns the present variance operator into a symmetric diagonal-plus-rank-one matrix."
+        ],
+        "reasoning": "The k=1 scalar stability criterion is equivalent to the corresponding known operator criterion after restriction to squared coordinates and a rank-one test; its envelope follows by the same convexity proof. This overlap does not implement the joint Haar frame law for k>1.",
+        "searches": [
+          "Song et al., arXiv:2604.14669, Appendix B.2 and Appendix A.2",
+          "Resultary d9ecf263b248"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "d9ecf263b248 gives Haar compressed-projector moments and rank-one-active-objective quadratic sharpness in one-step expected objective contraction."
+        ],
+        "reasoning": "A compressed-moment formula is a shared ingredient, not an exact table of all-mode stability edges; a rank-one active objective is not a positive definite full-spectrum fixed-trace comparison.",
+        "searches": [
+          "Resultary: Haar moments, sparse SSD, rank-k orthogonal mean-square stability and trace envelopes"
+        ]
+      },
+      "rationale": "Credit the prior covariance formulation, the spherical k=1 stability criterion, the Haar moments and the known isotropic/sufficient baseline. The supported distinct contribution is the explicit all-spectrum rank-k orthogonal specialization and sharp conditioned spectral envelopes, not the general covariance method or the rank-one threshold in spectral-radius form.",
+      "residual_risks": [
+        "Exact equivalents may exist in generalized sketch or positive-map literature; Ghosh Theorem 6 was not retrieved, so no negative inference is drawn from it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent k=1 operator and general method; Gaussian exact result; no rank-k Haar trace envelope in compared passages",
+          "evidence": "Uniform-sphere coefficients agree at k=1; the other exact scalar theorem is Gaussian.",
+          "identifier_or_url": "https://arxiv.org/html/2604.14669v1",
+          "material_read": "Appendix B.2 (131)–(135), OA offsets approximately 158000–165000; Appendix A.2 Theorem 4, offset approximately 67900",
+          "method": "OA primary passages",
+          "title": "Zeroth-Order Optimization at the Edge of Stability",
+          "trigger": "Exact mean-square stability under nearby direction laws"
+        },
+        {
+          "assessment": "Identical scaled oracle; sufficient step",
+          "evidence": "2k/(dL) guarantee is not an anisotropic necessary-and-sufficient condition.",
+          "identifier_or_url": "https://arxiv.org/abs/2107.03941",
+          "material_read": "§2, pp. 2–3, and Theorem 3.1(iv) and Remark 3.2, pp. 4–5",
+          "method": "OA primary PDF",
+          "title": "Zeroth order optimization with orthogonal random directions",
+          "trigger": "Same projector iteration"
+        },
+        {
+          "assessment": "Material shared ingredients, different conclusion",
+          "evidence": "Stationarity/PL bounds and rank-one active quadratics concern expected objective contraction, not the family of mixed-mode asymptotic edges.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/18/SCOPE-exact-haar-moments-sparse-ssd--d9ecf263b248/RESULT.md",
+          "material_read": "Finding, moment formulas and rank-one objective sharpness",
+          "method": "Local Resultary mirror",
+          "title": "Exact Haar moments remove sampling-dimension restrictions in sparse stochastic subspace descent",
+          "trigger": "Same Haar moments and quadratic sharpness"
+        },
+        {
+          "assessment": "Incomplete specific comparison",
+          "evidence": "Read material describes subspace convergence and persistence of memory; it cannot exclude further exact overlap.",
+          "identifier_or_url": "https://arxiv.org/html/2609.18416v1",
+          "material_read": "Abstract and introduction; full Theorem 6 lookup not retrieved",
+          "method": "OA primary excerpts",
+          "title": "Gradient Descent with Stochastic Subspaces via Persistence of Memory",
+          "trigger": "General stochastic subspace descent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 21–37 and 74–90",
+        "Kozak et al., Theorem 3.1(iv)",
+        "Song et al., Appendix B.2"
+      ],
+      "rationale": "The fixed-curvature-statistics question is natural for step selection: the extrema and trace do not identify the edge, but they determine exact attainable best and worst limits. The strict envelope, equality cases and explicit separation quantify what information is lost beyond a simple safe-step bound.",
+      "residual_risks": [
+        "Not a spectrum-free estimator or guarantee of comparable behavior outside the stationary quadratic model."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "Gaussian conditioning produces the exact quadratic-energy estimator and captured variance 2(H/(V+eta))^2. Direct covariance-square integration yields H and the exact total variance. The identities H_prime=V_prime D and G_prime=(V+eta)D_prime give one positive-to-negative crossing, strict global uniqueness, boundary coverage, monotonicity in noise, and a unique finite interior high-noise limit. SymPy identities, 25 independently integrated covariance squares and 19,932 numerical competitors are supplementary verified evidence, not the global proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sikolya–Baran 2018 is stronger in spatial prediction model complexity but addresses the linear state trajectory, not the quadratic integral.",
+        "Folia–Rattray 2017 treats many aggregated observations and parameter inference, but with a different target and estimation criterion."
+      ],
+      "reasoning": "Neither an arbitrary-number-of-state-observations linear-prediction theorem nor a distributional result for integrated quadratic OU energy automatically implies the specific one-snapshot posterior-risk optimum; the second-chaos conditional-variance functional must be derived separately.",
+      "searches": [
+        "Ornstein Uhlenbeck integral optimal single observation time noisy integration posterior variance OU started at zero",
+        "Ornstein Uhlenbeck quadratic functional one observation optimal time nonlinear Bayesian design",
+        "Optimal designs for estimating the path of a stochastic process Ornstein Uhlenbeck",
+        "On the optimal designs for the prediction of complex Ornstein-Uhlenbeck processes"
+      ]
+    },
+    "checked_sources": [
+      "https://link.springer.com/article/10.1007/s11222-017-9779-x (full HTML: Sections 4, Discussion, Appendix A.4)",
+      "https://arxiv.org/abs/1808.03444 (full HTML preprint including Theorems 3.1 and 4.1, appendix)",
+      "https://arxiv.org/abs/2202.07348 (full HTML preprint including integral moment model, methods and results)",
+      "https://doi.org/10.1137/S0040585X97T989799 (publisher abstract only; material-access limitation)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Folia–Rattray 2017 Section 4 has linear Gaussian integral covariance for estimating physical parameters; it does not imply the nonlinear posterior-energy design.",
+        "Sikolya–Baran 2018 Theorems 3.1/4.1 are pointwise IMSPE and entropy criteria with stationary initial law.",
+        "Nickelsen–Touchette 2022 Equation (2), Sections II–IV analyze time-integrated moments and their large-deviation distribution, not sensor timing.",
+        "Known finite-noise Brownian quadratic-energy design is the zero-damping limit, not the positive-damping all-noise theorem."
+      ],
+      "reasoning": "Checked mathematical directions of implications: a change in chaos degree replaces squared covariance of linear target by squared L2 kernel energy; changing the initial law changes the covariance, and finite- versus zero-damping quantification is not inherited. No inspected theorem dominates the full claim.",
+      "searches": [
+        "Ornstein Uhlenbeck quadratic path energy one-sample posterior variance minimax unique site",
+        "OU integrated squared process conditional expectation one sensor Gaussian measurement optimal timing variance captured",
+        "Nickelsen Touchette 2022 time integrated OU squared moment sparse sampling design"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A quadratic Gaussian-path functional is a second-Wiener-chaos target; its scalar-snapshot conditional estimator is a centered quadratic in the observed Gaussian, not the linear predictor used for OU path-integral estimation.",
+        "The closest full-text Gaussian-design treatment at arxiv:1808.03444 optimizes pointwise process IMSPE/entropy, which does not imply this quadratic-functional claim."
+      ],
+      "reasoning": "Compared the exact estimator, target functional, source covariance/initial condition and global time quantifiers. No inspected equivalent formula or implication covers H/(V+eta) with its unique root and monotonic noise law.",
+      "searches": [
+        "zero-start Ornstein Uhlenbeck quadratic path energy integral of X(t)^2 one noisy observation optimal time unique monotonic noise",
+        "OU integrated squared process conditional expectation one sensor Gaussian measurement optimal timing variance captured",
+        "single observation optimal recovery integrated square OU gaussian process conditional estimator",
+        "Ornstein Uhlenbeck quadratic functional one observation optimal time nonlinear Bayesian design"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact entry for the zero-start OU quadratic one-point noisy design was surfaced by the queried research-record searches; nearest records concerned linear OU integral sampling and stationary OU quadratic two-site design.",
+        "No numerical-only grid or standard numerical table implying the exact derivative identity and global monotone root was found in the inspected publications."
+      ],
+      "reasoning": "The desired statement quantifies over all positive damping and all finite nonnegative noise levels; a known single parameter table or noiseless-grid rule would not imply it. No database search is asserted exhaustive.",
+      "searches": [
+        "zero-start Ornstein Uhlenbeck quadratic path energy integral of X(t)^2 one noisy observation optimal time unique monotonic noise",
+        "single observation optimal recovery integrated square OU gaussian process conditional estimator",
+        "integrated OU squared functional conditional Gaussian one-sample posterior variance minimax unique site",
+        "one point OU Wiener integral Bayes quadrature node one noisy observation"
+      ]
+    },
+    "rationale": "The inspected full texts treat linear integrated OU filtering, stationary complex-OU linear IMSPE/entropy, or the distribution of integrated OU moments. None gives a theorem about global timing of one noisy scalar state observation for the zero-start quadratic path integral. The historical one-site linear integral and stationary quadratic two-site results concern different objective functionals and assumptions, so their statements do not imply this classification. Residual risk is explicitly retained; keyword nonappearance alone is not taken as proof of priority.",
+    "residual_risks": [
+      "An older unindexed theorem could establish the same single-snapshot quadratic OU law under alternate terminology.",
+      "The Palamarchuk 2020 article was inspected only at abstract level; an unanticipated appendix-level comparison remains possible, though its advertised theorem has another objective.",
+      "A general Gaussian quadratic-functional experimental-design result not found in tested queries could imply the special derivative-based classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the claimed theorem: parameter inference with linear accumulated data is not one-snapshot Bayes design for a quadratic integral.",
+        "evidence": [
+          "Section 4 seeks the unknown OU decay and diffusion parameters from time-aggregated observations of the linear integrated process.",
+          "No free observation-time global optimization of the quadratic state energy occurs in the inspected OU example or conclusions."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s11222-017-9779-x",
+        "material_read": "Full HTML scientific body: Introduction; Section 4 equations (19)–(21); Discussion; Appendix A.4 and associated derivations.",
+        "method": "Direct full-text HTML examination of exact target and hypothesis; checked original paper, not only metadata.",
+        "title": "Trajectory inference and parameter estimation in stochastic models with temporally aggregated data",
+        "trigger": "Uses an Ornstein–Uhlenbeck state and its time integral with noisy partial observations."
+      },
+      {
+        "assessment": "NOT_COVERING: stationary complex-OU linear path prediction IMSPE and entropy with multiple design points, not a zero-start quadratic-path-functional Bayes risk.",
+        "evidence": [
+          "Theorem 3.1 is a formula for IMSPE of the process itself, and Theorem 4.1 concerns observation entropy.",
+          "Their stationary initial law and linear predictor objective differ from a zero-start second-chaos energy and its conditional squared-error risk."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1808.03444",
+        "material_read": "Full HTML preprint: Abstract; Sections 1–5; Theorems 3.1 and 4.1; the Appendix proof and conclusion.",
+        "method": "Direct full-text arXiv preprint examination with comparison of process initialization, observable, criterion and placement constraints.",
+        "title": "On the optimal designs for the prediction of complex Ornstein-Uhlenbeck processes",
+        "trigger": "Directly relevant title about optimal OU sensor designs and integrated prediction errors."
+      },
+      {
+        "assessment": "NOT_COVERING: density asymptotics and importance sampling for integrated moments, without noisy single-time state observation or optimizing its time.",
+        "evidence": [
+          "Equation (2) defines time-integrated OU moments.",
+          "Analysis concerns instanton action, large-deviation density and Gaussian prefactors, not conditional inference from one noisy snapshot."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2202.07348",
+        "material_read": "Full-text HTML preprint: Introduction, Sections II–IV, exact integrated-moment setup, simulation and appendices.",
+        "method": "Compared formulas, physical questions and quantifiers across full accessible article.",
+        "title": "Noise correction of large deviations with anomalous scaling",
+        "trigger": "Studies time-integrated moments of the Ornstein–Uhlenbeck process, including quadratic energy as a natural functional."
+      },
+      {
+        "assessment": "PARTIAL: abstract describes asymptotic upper functions and stochastic regulation; no exact observation-placement result is evidenced, but an appendix-level overlap cannot be excluded.",
+        "evidence": [
+          "Publisher abstract targets almost-sure majorants for long-time quadratic-functional fluctuations.",
+          "No observation times or conditional Bayes-risk optimization appear in accessible material."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/S0040585X97T989799",
+        "material_read": "Publisher abstract and subject/keyword/metadata only; full text inaccessible in checked channel.",
+        "method": "Abstract-level triage only, not treated as a whole-document negative novelty check.",
+        "title": "On Upper Functions for Integral Quadratic Functionals Based on Time-Varying Ornstein–Uhlenbeck Process",
+        "trigger": "Quadratic integral of an Ornstein–Uhlenbeck process could be mistaken for the same target."
+      }
+    ],
+    "status": "PASS"
+  },
+  "previously_published_pending_reaudit": false,
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7c5064a2-bb85-48d8-9a92-faea36f43806",
+  "value": {
+    "rationale": "Accumulated squared state is a natural linear-quadratic monitoring cost. The theorem gives a complete exact one-observation design for every damping and noise strength, with a nontrivial all-parameter uniqueness proof, strict delayed-time effect under added noise, exact risk and finite interior high-noise location. At lambda=1 noiseless the location reduces risk by 30.52% relative to midpoint monitoring. It is not merely re-evaluating the linear OU integral, since the target belongs to second Gaussian chaos and has a distinct objective.",
+    "status": "PASS"
+  }
+}

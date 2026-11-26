@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:23:55.660524Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Proof §§1–4",
+        "Frozen VERIFICATION.md and verify_prisms.py, inspected, not executed",
+        "Independent bounded replay: python /workspace/review_evidence/replay.py (record 2, quadrature by sorted projected magnitudes and continuous latitude bands; four base-order/height pairs, p3* = 0.12260171954089094)"
+      ],
+      "rationale": "Away from null directions, project the central cut down to the base. It is the base intersected with the strip between the projected cap lines, with thresholds ±q for q=λ|U_z|/√(1−U_z²). If the cap lines cut the base, there are four new cap/base-edge intersections, and every original vertex within the strip contributes one section vertex. Symmetry pairs the surviving base vertices. The most possible is 2m−2 survivors plus four, and this occurs exactly between the second-largest and largest projected magnitudes from the m antipodal pairs. When the caps are not cut, the section has 2m sides. On the uniform folded azimuth [0,θ], the two largest magnitudes are a=cos φ and b=cos(2θ−φ). Integrating the independent uniform |U_z| gives a/√(λ²+a²)−b/√(λ²+b²); the azimuth antiderivative is arcsin(t sin φ), with the argument adjusted for the second term. Differentiating in t, the difference of the squared positive bracket terms has the sign of 1−3cos²θ t². The unique optimizer lies in (0,1), gives λ²=3cos²θ−1 under the half-height convention, and substitution yields the optimum. Taylor expansion gives bracket θ³t(1−t²)+O(θ⁵), so at t→1/√3 the coefficient of m⁻² is π²/(6√3). The hexagon value agrees under the same normalization.",
+      "residual_risks": [
+        "Only nonexceptional directions need be classified for probability. The quadrature is diagnostic; it does not certify the continuum optimizer or asymptotics."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Later fbfccb3b80e1 gives the order-statistic side-count law for arbitrary centrally symmetric polygonal prisms, including the regular hexagon optimum. 45d2a55425d4 gives the exact cuboid hexagon law. Brandenburg et al. give polytope section chambers; Lonke gives expected face counts of central cube sections."
+        ],
+        "reasoning": "The generic polygon formula specializes to these strips but is later; the unequal-sided cuboid case does not include bases of ≥6 sides. Cube volume criticality and chamber combinatorics alone are not the optimization theorem. The earlier b6d28d7c72f4 already covers the full regular range regardless.",
+        "searches": [
+          "Resultary fbfccb3b80e1 and 45d2a55425d4",
+          "arXiv:2304.14239, arXiv:2307.03792, arXiv:math/9812123"
+        ]
+      },
+      "checked_sources": [
+        "Resultary b6d28d7c72f4, fbfccb3b80e1, 938d4e81d3a3, 45d2a55425d4, eb371b3be549",
+        "arXiv:2304.14239 pp. 1–2 and 8; arXiv:2307.03792 pp. 1–2; arXiv:math/9812123 pp. 1 and 3",
+        "Targeted primary search on regular even prism central section side-number probabilities"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier exact optimizer theorem directly gives the same unique critical height and the exact probability function; the earlier width result eb371b3be549 is a projection statistic."
+        ],
+        "reasoning": "Evaluating the previous formula at its own optimizer gives the displayed p_m*. A second derivation, notation change, or writing the substitution explicitly does not create a new result. No reduction from width is needed.",
+        "searches": [
+          "b6d28d7c72f4 RESULT.md Finding and Proof §§1–5",
+          "Resultary eb371b3be549 and arXiv:2304.14239 Theorem 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "b6d28d7c72f4 uses n even ≥6, θ=π/n and circumradius one. Its probability and height optimizer coincide after n=2m and h→h/R.",
+          "938d4e81d3a3 also states the same result, with a later indexed date."
+        ],
+        "reasoning": "Changing the size of the whole solid preserves side count for each central normal and the normal law. The earlier n variables therefore give every parameter value in the frozen claim, not a special case.",
+        "searches": [
+          "Resultary exact maximal-side probability for regular even polygonal prisms; b6d28d7c72f4; 938d4e81d3a3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier b6d28d7c72f4 explicitly gives h=√5/2 for unit circumradius and probability 0.1226017195408906…; it gives n²p_n*→2π²/(3√3)."
+        ],
+        "reasoning": "Both the example and exact leading constant were already recorded; dividing the n² limit by four yields the m² limit.",
+        "searches": [
+          "Resultary exact hexagonal-prism P8 and aspect ratio; b6d28d7c72f4 and fbfccb3b80e1"
+        ]
+      },
+      "rationale": "The earlier indexed Resultary record b6d28d7c72f4 states the same theorem for every even n≥6 under circumradius one and caps at ±h. With n=2m and scale h→h/R it gives the identical all-height maximal-side Haar law, the identical unique optimizer and hexagonal example, and the identical optimized large-base limit. The explicit p_m* formula substitutes the previously known optimizer into the already-stated exact law. No substantive remainder of the frozen finding survives this comparison; this is direct prior coverage within the corpus, not a claim about earliest historical publication.",
+      "residual_risks": [
+        "Full text for the Voss (1982) and Ohser–Mücklich (1995) stereology leads was not read after DOI access attempts. Thus earlier independent precedents are unresolved; the existing exact indexed match suffices for the verdict."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive earlier equivalent coverage",
+          "evidence": "Every even n≥6, same half-height normalization at circumradius one, optimizer √(3cos²(π/n)−1), n² optimal probability limit 2π²/(3√3), same optimal hexagon example.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-a-unique-maximal-section-optimizer-for-every-even-regular-polygo--b6d28d7c72f4",
+          "material_read": "RESULT.md Finding and Proof §§1–5, from offset 0",
+          "method": "Indexed lookup and mirrored result inspection",
+          "title": "A unique maximal-section optimizer for every even regular polygonal prism",
+          "trigger": "Exact all-height law, optimizer and large-base limit with a different base parameter"
+        },
+        {
+          "assessment": "Broader on section counts, later indexed date",
+          "evidence": "Gives an order-statistic integral for any fixed centrally symmetric polygon and the same regular hexagon optimum.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-central-section-stratification-and-height-rigidity-for-symmetric--fbfccb3b80e1",
+          "material_read": "RESULT.md Finding and Proof, from offset 0",
+          "method": "Indexed lookup and mirrored result inspection",
+          "title": "Central-section stratification and height rigidity for symmetric polygonal prisms",
+          "trigger": "General polygon law and hexagonal specialization"
+        },
+        {
+          "assessment": "Exact overlap but later, not the decisive precedent",
+          "evidence": "Same regular law, optimizer, optimized value and asymptotic.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-maximal-complexity-central-sections-of-regular-even-sided--938d4e81d3a3",
+          "material_read": "RESULT.md Finding",
+          "method": "Indexed lookup and mirrored result inspection",
+          "title": "Sharp maximal-complexity central sections of regular even-sided prisms",
+          "trigger": "Possible additional exact match"
+        },
+        {
+          "assessment": "Combinatorial apparatus rather than the exact Haar side-count law",
+          "evidence": "The located theorem describes polytope slicing chambers, not an integrated regular-prism probability or height extremum.",
+          "identifier_or_url": "https://arxiv.org/pdf/2304.14239",
+          "material_read": "Abstract and Theorem 1.1, pp. 1–2; central-section moments passage, p. 8",
+          "method": "Bounded primary PDF text inspection",
+          "title": "The Best Ways to Slice a Polytope",
+          "trigger": "Polytope section combinatorial chambers that might imply the count law"
+        },
+        {
+          "assessment": "m=2 analogue only",
+          "evidence": "Rectangle-base hexagon law with cubical rigidity; it does not pertain to a prism over ≥6 base sides.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-haar-hexagon-law-and-cubic-rigidity-for-central-sections-o--45d2a55425d4/RESULT.md",
+          "material_read": "Finding and prior-work passage, text offsets 0 and about 6940",
+          "method": "Mirrored result inspection",
+          "title": "Exact Haar hexagon law and cubic rigidity for central sections of rectangular boxes",
+          "trigger": "Rectangular-box analogue cited in the frozen record"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof §§1–4",
+        "Resultary b6d28d7c72f4 Finding and Proof §§1–5"
+      ],
+      "rationale": "The all-height probability, unique optimizer and large-base law are meaningful results for random convex geometry, but this frozen finding adds no scientific contribution beyond the earlier exact result. The scaling and notation conversions and explicit evaluation at the known maximizer do not constitute a new geometry, statistic, boundary, or method with an additional conclusion.",
+      "residual_risks": [
+        "This assessment does not devalue the underlying earlier theorem; no distinct valuable repair is supplied by the frozen material."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

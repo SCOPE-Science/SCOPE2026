@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:49:53.394098Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–41; VERIFICATION.md and verify_monodromy.py inspected, not executed",
+        "Vladimirov arXiv:2610.15550v1, PDF pp. 8–9 and 13, Propositions 4.1 and 4.6; independent permutation-product, parity and generation checks"
+      ],
+      "rationale": "The three specified finite cycle types and the full cycle at infinity exhaust the ramification sum 2n−2 for n=d+4. Centering the degree-d critical point and subtracting its value gives the asserted sparse support. Vladimirov's Propositions 4.1 and 4.6 give the exact braid-class count and the normalized even C₁ characterization. For the first representative, the product with rightmost factor applied first is the full cycle in order n,d+3,d+2,d+1,d,1,…,d−1. Products of two c-conjugates of b give all pivot three-cycles on T, generating A_T. Products of A_T-conjugates of a give the pivot three-cycles attaching d+3, and conjugation by b and then a gives overlapping alternating subgroups attaching d+1 and d+2. Alternating groups supported on sets overlapping in at least three letters generate the alternating group on the union (use three-cycles based at a common pivot and conjugation within either set). Thus parity gives A_n for odd d and S_n for this even class, including d=3 and d=4. For even d=2k the signed-pair triple has an m-cycle on blocks in its product and odd total flip, hence a 2m-cycle: it satisfies the genus-zero polynomial passport. The k conjugates of the unsigned swap between B_{k−1} and B_k avoid the sign wrap and, with the remaining swap, generate unsigned S_m. Comparing the signed k-cycle to its unsigned version supplies a single flip; conjugation adds all independent flips. This gives equality with the full wreath product, not only containment. The imprimitive group cannot be in the S_n braid class, so C₁ is the remaining class. Hurwitz moves preserve the generated group and the affine normalizations do not change the cover group.",
+      "residual_risks": [
+        "The finite exact-order tests in the frozen evidence are corroboration only. The theorem relies on the cited exact braid-class count and concerns geometric monodromy in the natural degree action, not arithmetic or coefficient monodromy."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Vladimirov exactly gives the class count and the first representative, but not the generated groups in those propositions.",
+          "The composition-length-two theorem has a cyclic-socle lower bound potentially only C₂^{m−1} for inner X² and exceptional cases. Although a degree-eight small kernel appears in its table, that entry is not identified with this passport. General wreath embeddings give an upper bound.",
+          "Esterov's generic reduced-irreducible systems result uses a different parameter space."
+        ],
+        "reasoning": "The possible cyclic-kernel bound and wreath embedding leave room for proper subgroups; they do not say that this even class gives all independent flips, and do not evaluate the noncomposite representative in either parity.",
+        "searches": [
+          "Vladimirov Propositions 4.1, 4.6",
+          "Esterov Theorem 1.5",
+          "Behajaina–König–Neftin Theorem 1.2 and Table 1",
+          "Barquero-Sanchez–Calvo-Monge wreath embeddings"
+        ]
+      },
+      "checked_sources": [
+        "Vladimirov arXiv:2610.15550v1",
+        "Behajaina–König–Neftin arXiv:2603.27609v1",
+        "Esterov arXiv:1801.08260v3",
+        "Barquero-Sanchez–Calvo-Monge arXiv:2306.14386v1",
+        "Related local Resultary findings",
+        "Specific sparse critical-value monodromy literature search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Vladimirov gives the precise c,a,b on the nonsymmetric representative. Their signs bound the group but do not force it to contain A_n; the pivot-three-cycle and support-enlargement argument supplies that lower bound.",
+          "The composition characterization g(x²) implies imprimitive preservation of pairs but not full independent flips. Constructing and assigning the signed representative and obtaining both the unsigned S_m and a single flip is the extra step."
+        ],
+        "reasoning": "The proof uses a prior classification of the input orbits, but evaluating the group in each infinite family is separate from naming or counting those orbits and is not a direct specialization of the inspected general bounds.",
+        "searches": [
+          "Vladimirov proof of Proposition 4.1 and Proposition 4.6",
+          "Composition-length-two and wreath-embedding results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equivalent invariant is the group of f(X)−t over C(t), or the subgroup generated by finite branch cycles; infinity is the inverse of their product. The signed-pair group is the full hyperoctahedral permutation group on the 2m letters.",
+          "The inspected Resultary signed-wreath example is a Fermat coordinate-pair projection, not a polynomial with this infinity cycle and finite passport."
+        ],
+        "reasoning": "Isomorphism to the same abstract wreath product in a different cover is not an equivalent classification. Generic coefficient-space monodromy is also not the fixed-cover group.",
+        "searches": [
+          "Local Resultary: sparse-polynomial passport (d,1^4),(2,2,1^d),(2,2,1^d), branch-cycle cactus and hyperoctahedral monodromy",
+          "Websearch: polynomial monodromy three finite critical values two double transpositions d-cycle sparse Vladimirov cactus degree d+4 alternating symmetric wreath product branch cycles"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Fermat coordinate-pair projections have the same abstract wreath group but different ramification and covering map; the sparse Euler Belyi record uses (q),(q−1,1),(2,1^{q−2}).",
+          "The degree-eight entry in the composition table has group 2.S₄ rather than the full signed group and supplies no entry identifying the exact frozen passport as this table case."
+        ],
+        "reasoning": "Neither the catalogue statements nor the inspected exception table gives the same all-d passport-by-class group table.",
+        "searches": [
+          "Local Resultary: 2026/10/12/SCOPE-hyperoctahedral-monodromy-and-branching-of-fermat-coordinate-pai--0cec2ee2b834",
+          "Local Resultary: 2026/11/2/SCOPE-three-branch-value-collision-geometry-and-full-symmetric-monodro--14f790cb908f",
+          "Behajaina–König–Neftin Table 1"
+        ]
+      },
+      "rationale": "The prior passport classification provides the class count, a branch-cycle representative, and the even quadratic-composition identification. The supported contribution is the evaluation of the generated permutation groups in those classes, especially the distinction between containment in a signed wreath product and generation of its full base and top groups. The inspected broader composition results do not establish this equality or the trichotomy for this passport.",
+      "residual_risks": [
+        "Historical priority is not certified. An earlier exact cactus-to-group computation or a stronger result for this passport not found in the inspected sources could alter originality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior braid-class result and nonsymmetric representative, not the group evaluation",
+          "evidence": "One class for odd d and two for even d; C₁ has derivative proportional to x^{d−1}(x²−x₁²)(x²−x₂²), hence a normalized even polynomial; C₂ is the other even class.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.15550v1",
+          "material_read": "Proposition 4.1 and displayed cactus proof, PDF pp. 8–9 (offsets 22713–23365); Proposition 4.6 and proof, p. 13 (offset 40971)",
+          "method": "Lawful OA bounded PDF passages",
+          "title": "Topological Classification of Univariate Sparse Polynomials via Tropical Geometry",
+          "trigger": "Exact same branch passport and labelled classes"
+        },
+        {
+          "assessment": "Potentially large kernel, not exact full base or this passport trichotomy",
+          "evidence": "The cyclic-socle case may allow rank m−1 in a product of m cyclic groups; table lists a different possible small-kernel degree-eight group without identifying it with this passport.",
+          "identifier_or_url": "https://arxiv.org/pdf/2603.27609v1",
+          "material_read": "Theorem 1.2, p. 2, OA offset 5572; Table 1, p. 24, offset 93000",
+          "method": "Lawful OA bounded PDF passages",
+          "title": "Monodromy groups of polynomials of composition length 2",
+          "trigger": "Strongest cited general result for quadratic compositions"
+        },
+        {
+          "assessment": "Different parameter family",
+          "evidence": "Generic reduced irreducible support tuples in a coefficient-space cover, rather than a single f(X)−t with the prescribed critical-value collisions.",
+          "identifier_or_url": "https://arxiv.org/pdf/1801.08260v3",
+          "material_read": "Theorem 1.5, p. 2, OA offset 7655",
+          "method": "Lawful OA bounded PDF passage",
+          "title": "Galois theory for general systems of polynomial equations",
+          "trigger": "Possible general symmetric-monodromy coverage for sparse supports"
+        },
+        {
+          "assessment": "Upper bound only for the comparable composition",
+          "evidence": "Wreath embedding for normal closures, not equality for the signed-pair cover.",
+          "identifier_or_url": "https://arxiv.org/pdf/2306.14386v1",
+          "material_read": "PDF p. 1 opening result, OA offset 0",
+          "method": "Lawful OA bounded PDF passage",
+          "title": "On the embedding of Galois groups into wreath products",
+          "trigger": "General wreath result for a field tower"
+        },
+        {
+          "assessment": "Different family and passport",
+          "evidence": "Fermat coordinate-pair projection, not the constrained sparse-polynomial cover.",
+          "identifier_or_url": "2026/10/12/SCOPE-hyperoctahedral-monodromy-and-branching-of-fermat-coordinate-pai--0cec2ee2b834",
+          "material_read": "Local Resultary Finding",
+          "method": "Local mirror statement comparison",
+          "title": "Hyperoctahedral monodromy and branching of Fermat coordinate-pair projections",
+          "trigger": "Exact wreath group in a nearby geometry setting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof §§1–4",
+        "Vladimirov class count and quadratic class",
+        "Comparison to composition-length-two bounds"
+      ],
+      "rationale": "The topological class count naturally raises the group question: the same even passport can produce a full symmetric group or an imprimitive group. Establishing the full signed group, rather than a block system or a loose kernel bound, and completing the natural-action classification in both parities supplies information not given by the class count or by generic sparse-system monodromy. It is an exact classification on a nontrivial infinite passport family.",
+      "residual_risks": [
+        "No claim about perturbing critical values, arithmetic monodromy, or arbitrary sparse supports."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:51:46.420410Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The canonical product partition function gives C/k_B=H_r(y)=f(y/r)+f(y), f(z)=z² exp(-z)/(1+exp(-z))². Differentiating directly gives f'(x)=x/2+O(x³), f''(x)=1/2+O(x²) near zero and f''(y)=exp(-y)(y²-4y+2+O(y² exp(-y))) at infinity. Uniformly on [L,3L], L=log r, both second derivatives entering H_r'' are therefore positive for large r. The first derivative is negative at L and positive at 3L by comparing y/(2r²) with y² exp(-y)(1-2/y+O(exp(-y))). Thus the intermediate root exists, is unique in the window and is a strict local minimum. At the root the comparison gives y=2L+log(2y)+o(1); the window bounds first yield y=2L+O(log L), then y=2L+log L+log 4+o(1). The two heat-capacity terms there are asymptotic to y²/(4r²) and y/(2r²), respectively, giving the height. Bracket the single-gap maximizer at fixed offsets in y for one peak, and in x=y/r for the other: the single-gap derivative dominates in each bracket and has opposite endpoint signs, giving interior maxima. No global critical-point classification is implied. Independent replay: python3 /workspace/branches/reproduction/valley.py solves a stable log-derivative balance at log r=8,20,100,1000; at 1000 the position error is 0.0031436502 and the normalized height is 1.009319554. Finite replay is diagnostic only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "De Souza et al. model a three-level Schottky system; inspected passages relate double peaks to gap ratios and degeneracies but give no intermediate-window minimum theorem.",
+          "Resultary be57174ea22e proves separated peaks in an equally spaced three-level spectrum with degeneracies 1,M²,M³, not a gap ratio tending to infinity for two independent TLS."
+        ],
+        "reasoning": "The canonical formula and qualitative peak-splitting results are antecedents, not a covering theorem. A three-level energy/degeneracy hierarchy is not the four-energy product partition function (1+exp(-x))(1+exp(-rx)).",
+        "searches": [
+          "de Souza et al. arXiv:1504.07525 §III, Eqs. (7), (10)–(11), Fig. 3, conclusions",
+          "Resultary be57174ea22e RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_schottky.py",
+        "arXiv:0803.4495",
+        "arXiv:1504.07525",
+        "DOI:10.1038/srep18797",
+        "PII:S0038109812005534 abstract",
+        "Resultary be57174ea22e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The HoPdBi work assigns different features to nuclear hyperfine and crystalline-electric-field effects (below roughly 0.6 K and near 15 K), not the fixed two-factor TLS model.",
+          "The inspected one-gap and multilevel equations do not state a stationary-point theorem balancing the algebraic small-argument derivative against the activated large-argument derivative."
+        ],
+        "reasoning": "Known heat-capacity formulas are starting points; the uniform derivative estimates, root analysis and exact double-log constant are not yielded by an inspected prior general theorem by parameter substitution.",
+        "searches": [
+          "Pavlosiuk et al. DOI:10.1038/srep18797 p. 4",
+          "arXiv:1504.07525 Fig. 3 and conclusion",
+          "arXiv:0803.4495 Eq. (5)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mahdavifar–Akbari p. 2 gives a single effective two-level excitation and one-gap Schottky law.",
+          "The retrieved abstract of Crossover and splitting of the heat capacity peak describes a double-Schottky form near a crossover without hybridization; it was not independently accessible in full text."
+        ],
+        "reasoning": "A double peak or sum of standard one-gap terms does not itself identify or quantify a stationary valley; the model equivalence and claimed asymptotic in the inaccessible paper are not established.",
+        "searches": [
+          "Resultary: separated Schottky anomalies, independent two-level gaps and intermediate stationary valley asymptotics",
+          "Mahdavifar–Akbari arXiv:0803.4495 §II Eq. (5)",
+          "Focused literature search for crossover and splitting of a double Schottky heat-capacity peak"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest inspected catalogue counterpart is dated 2026/11/02 (UTC catalogue date); it gives peak positions asymptotic to log M and 2 log M and a vanishing value at 3 log M/2 for a different mechanism.",
+          "No exact counterpart to the large-gap-ratio stationary-point law was identified in the inspected returns."
+        ],
+        "reasoning": "A finite temperature table or a separating test point for another model does not establish an unbounded-parameter location, uniqueness and height theorem.",
+        "searches": [
+          "Configured Resultary search for Schottky valley, two thermal scales and logarithmic location/height",
+          "Compared exact statements in be57174ea22e RESULT.md, offsets 234 and 5590"
+        ]
+      },
+      "rationale": "The single-gap formula, multiple Schottky features, and asymptotic peak separation under a degeneracy hierarchy are not the contributions assessed. No examined antecedent supplies the separation-window theorem and precise location and height of the valley for the product of two equally weighted nondegenerate independent TLS with a diverging gap ratio. This is a bounded best-of-knowledge conclusion.",
+      "residual_risks": [
+        "The full crossover article was not accessible in attempted OA retrieval; a more specific comparison within it remains unresolved.",
+        "An earlier asymptotic treatment of an independent, additive two-gap anomaly may not be indexed under the same terminology. No historical-priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Standard one-gap input only in inspected passage",
+          "evidence": [
+            "p. 2, offsets 11900–15473: maps low states to a TLS and gives its single-gap response."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0803.4495",
+          "material_read": "Section II, Eq. (5) and local discussion",
+          "method": "Original OA passage comparison",
+          "title": "Heat capacity of Schottky type in low-dimensional spin system",
+          "trigger": "Cited single-gap formula"
+        },
+        {
+          "assessment": "Multi-level double-peak behavior, no exact frozen asymptotic in these passages",
+          "evidence": [
+            "pp. 3–4, offsets 15800–23074: three-level partition function and gap/degeneracy comparison; conclusion p. 6, offset 38900."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1504.07525",
+          "material_read": "Abstract, three-level equations, §III/Fig. 3, conclusion",
+          "method": "Original OA bounded passages",
+          "title": "Specific Heat Anomalies in Solids Described by a Multilevel Model",
+          "trigger": "Prior qualitative and modeled two-peak behavior"
+        },
+        {
+          "assessment": "Physical two-feature observation is distinct from the idealized asymptotic theorem",
+          "evidence": [
+            "Offsets 17650–19707: hyperfine upturn and crystal-field shoulder with a Schottky fit."
+          ],
+          "identifier_or_url": "https://www.nature.com/articles/srep18797",
+          "material_read": "Heat-capacity findings on p. 4",
+          "method": "Original open passage comparison",
+          "title": "Antiferromagnetism and superconductivity in the half-Heusler semimetal HoPdBi",
+          "trigger": "Cited physical two-scale analogue"
+        },
+        {
+          "assessment": "Plausible antecedent; abstract does not settle coverage",
+          "evidence": [
+            "Abstract states a double-Schottky-peak form near a crossover absent hybridization; OA full-text request failed."
+          ],
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0038109812005534",
+          "material_read": "Retrieved abstract; full text uninspected",
+          "method": "Focused literature retrieval and attempted OA copy",
+          "title": "Crossover and splitting of the heat capacity peak",
+          "trigger": "Possible earlier double-Schottky model"
+        },
+        {
+          "assessment": "Later-dated related result with different mechanism and invariants",
+          "evidence": [
+            "Offsets 234 and 5590: 0,Δ,2Δ with degeneracies 1,M²,M³, two peaks for M≥256 and a vanishing separating value."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-degeneracy-only-splitting-of-schottky-peaks-in-an-equally-spaced--be57174ea22e",
+          "material_read": "Finding and peak/valley analysis in RESULT.md",
+          "method": "Configured catalogue search and local-mirror statement reading",
+          "title": "Degeneracy-only splitting of Schottky peaks in an equally spaced spectrum",
+          "trigger": "Closest inspected asymptotic catalogue analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two individual peak scales do not locate their point of separation. The sharp valley law gives a quantitative benchmark for distinguishing two thermal scales and explains the double logarithm as a balance of algebraic and activation tails. It is useful within the explicitly idealized model without requiring a threshold for every gap ratio or a claim about experimental extraction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

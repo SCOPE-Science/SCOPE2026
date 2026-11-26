@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:21:43.328474Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Zeckendorf cutoff F_(k+2) corresponds to words of length k on indices 2 through k+1, with F_2 the only copy of 1. I reconstructed the generating function without relying on the 84-state certificate. Put L=1-z^4 and let A=z^4/L, B=z^5/L, C=z^2/L, D=z^3/L weight allowed gaps congruent to 0,1,2,3 mod 4. With P_10, P_01, P_11 the accepting extension series from the three nonzero parity pairs, the published count recursion modulo two gives P_10=1+(A+B)P_11+(C+D)P_01, P_01=(A+C)P_10, and P_11=1+(A+D)P_01+(B+C)P_11; the zero pair is absorbing and rejecting. The first selection at index j has weight z^(j-1); indices 2,3 mod 4 begin at 11 and 0,1 mod 4 at 01. The empty word and free final zeros give the full series [1+((z+z^2)P_11+(z^3+z^4)P_01)/L]/(1-z)=(1+z)P_11/(1-z). Eliminating the other two states gives P_11=(1-2z^4)/(1-z^2-2z^4-2z^5), which simplifies to the claimed series and implies the recurrence for all k>=5. Separately, a fresh subset-sum DP through cutoff 987 gave B_0 through B_14 as 1,2,3,4,5,8,13,20,29,44,69,108,165,252,389, with the ten recurrence residuals zero. The DP is a finite check only: start with weight 1 at sum zero and add each distinct part through 610 by descending-sum updates, then sum the odd entries below each Fibonacci cutoff. The cubic in the characteristic variable is strictly increasing on the reals and has its real root alpha between sqrt(2) and phi; its complex conjugate roots have modulus sqrt(2/alpha)<alpha. The two remaining characteristic roots are +/-1. The leading pole is simple and uncancelled, hence gives the stated residue and asymptotic; monotone comparison of consecutive Fibonacci cutoffs and Binet's formula give the all-real-cutoff Theta bound, not a universal leading constant. The supplied checker was inspected, not executed; the package does not attest external or formal verification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Coons–Kristensen–Laursen sum the unreduced q_F(m), with periodic modulation on the scale N^(log 2/log phi).",
+          "The fixed-fiber finding is for each fixed output value and explicitly lacks uniformity as that value grows."
+        ],
+        "reasoning": "The total multiplicity sum is not an odd-index count. Summing fixed-fiber asymptotics over all odd output values is not justified without uniform information; no inspected broad result supplies the cutoff recurrence for their union.",
+        "searches": [
+          "Resultary: broad Fibonacci-partition counting and fixed fibers",
+          "Coons–Kristensen–Laursen, arXiv:2611.04869v1, Theorem 1 and generalizations",
+          "2026/11/22/SCOPE-fixed-value-fibonacci-partition-fibers-have-exact-affine-cutoff--480a482a72b6"
+        ]
+      },
+      "checked_sources": [
+        "Chow–Slattery arXiv:2009.08222",
+        "Sanna arXiv:2309.12724v2",
+        "Coons–Kristensen–Laursen arXiv:2611.04869v1",
+        "Robbins 1998, indexed excerpt only",
+        "OEIS A000119",
+        "Resultary 0ef0f422a8a2, 480a482a72b6 and f0209d185493"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-day power-partition finding gives a rational parity series on b^m windows in an integer-base digit model. The other near matches concern fixed-value Fibonacci fibers and inequalities for doubling at Fibonacci multiples.",
+          "Chow–Slattery's exact summatory formula sums R(n) without reducing mod two."
+        ],
+        "reasoning": "No identified change of variables takes the integer-base windows and digit-restricted partition counts to the Zeckendorf model. Neither pointwise doubling inequalities nor an unreduced summatory count implies this residue-sensitive prefix law. Same-day dating did not exclude a match and provides no priority conclusion.",
+        "searches": [
+          "2026/11/22/SCOPE-parity-sparsity-under-one-additional-digit-in-power-partitions--0ef0f422a8a2",
+          "2026/11/22/SCOPE-fixed-value-fibonacci-partition-fibers-have-exact-affine-cutoff--480a482a72b6",
+          "2026/11/8/SCOPE-a-sharp-fibonacci-partition-doubling-dichotomy-across-lucas-inte--f0209d185493",
+          "Chow–Slattery, arXiv:2009.08222, Theorem 1.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chow–Slattery give the pointwise Zeckendorf-gap recursion used as an input; Sanna's automaton counts positive power sums.",
+          "The accessible Robbins excerpt applies a criterion for infinitely many parity changes to distinct positive Fibonacci values."
+        ],
+        "reasoning": "Reducing the pointwise recursion mod two gives a recognizer, but neither that pointwise recurrence nor infinite changes supplies its accepted-word count, generating function, or dominant pole. The quantitative parity-specific risk of the uninspected Robbins chapter remains explicit.",
+        "searches": [
+          "Resultary: Fibonacci-window parity/generating functions and parity automata/sparsity",
+          "Chow–Slattery, arXiv:2009.08222, Theorem 1.1 and Lemma 2.1",
+          "Sanna, arXiv:2309.12724v2, abstract and §1",
+          "Robbins, DOI 10.1007/978-94-011-5020-0_36"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A000119 defines pointwise R(n), not B_k. The relevant distinct Resultary findings inspected count base-power partition parity, fixed Fibonacci fibers, or Fibonacci doubling inequalities, not these B_k entries."
+        ],
+        "reasoning": "A table of pointwise counts can check finitely many windows after reduction mod two but is not the claimed cutoff sequence with its infinite recurrence. No exact matching database entry was established by these checks.",
+        "searches": [
+          "OEIS A000119",
+          "Resultary: A000119 and Fibonacci-window parity/generating functions"
+        ]
+      },
+      "rationale": "The theorem under review is the exact odd-support cutoff series (and its sharp power exponent), not the pointwise partition recurrence or the finite-state approach in itself. The strongest inspected comparisons give recurrence ingredients, qualitative parity changes, moment/sum growth, fixed-value fibers, or parity laws for different partition functions. None established coverage of the claimed odd-support count. This is a bounded statement-level assessment, not a priority determination.",
+      "residual_risks": [
+        "No Lawson OA full text was obtained of Robbins's 1998 chapter; only the qualitative excerpt could be compared.",
+        "Unindexed parity-automaton or cutoff-sequence derivations remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Ingredient and adjacent aggregate",
+          "evidence": "Exact R(H) from Zeckendorf gaps and exact unreduced sum, not a parity-window formula.",
+          "identifier_or_url": "https://arxiv.org/html/2009.08222",
+          "material_read": "Theorems 1.1 and 1.2; gap-recursion discussion, including Lemma 2.1 locator",
+          "method": "Lawful OA HTML, theorem passage from offset 1891",
+          "title": "On Fibonacci partitions",
+          "trigger": "Same partition count, exact gap formulas and aggregate counts"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Positive power sums of R(n), not support of R mod 2.",
+          "identifier_or_url": "https://arxiv.org/html/2309.12724v2",
+          "material_read": "Abstract and §1 from offset 0",
+          "method": "Lawful OA HTML",
+          "title": "A Note on the Power Sums of the Number of Fibonacci Partitions",
+          "trigger": "Automata and growth exponents for the same R"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Growth of total q_F multiplicity, not number of odd counts.",
+          "identifier_or_url": "https://arxiv.org/html/2611.04869v1",
+          "material_read": "Theorem 1 and generalization, from offset 4405",
+          "method": "Lawful OA HTML",
+          "title": "Asymptotics for partitions over the Fibonacci numbers and related sequences, II",
+          "trigger": "Broader summatory theorem at the same cutoffs"
+        },
+        {
+          "assessment": "Qualitative overlap verified; stronger overlap unresolved",
+          "evidence": "The excerpt applies conditions for infinitely many parity changes to the distinct positive Fibonacci values.",
+          "identifier_or_url": "https://doi.org/10.1007/978-94-011-5020-0_36",
+          "material_read": "Indexed Springer excerpt only; no chapter full text",
+          "method": "Indexed excerpt and attempted lawful DOI, chapter, and PDF retrieval",
+          "title": "On the parity of certain partition functions",
+          "trigger": "Direct parity antecedent for distinct Fibonacci parts"
+        },
+        {
+          "assessment": "Pointwise ingredient, not the cutoff sequence",
+          "evidence": "Number of ways of writing n as a sum of distinct Fibonacci numbers.",
+          "identifier_or_url": "https://oeis.org/A000119",
+          "material_read": "Sequence definition at offset 0",
+          "method": "Public database entry",
+          "title": "OEIS A000119",
+          "trigger": "Pointwise count and possible tabular coverage"
+        },
+        {
+          "assessment": "Analogue for another family",
+          "evidence": "Odd coefficients at base-b power cutoffs with a distinct recurrence and exponent.",
+          "identifier_or_url": "2026/11/22/SCOPE-parity-sparsity-under-one-additional-digit-in-power-partitions--0ef0f422a8a2",
+          "material_read": "Finding and parameter regime",
+          "method": "Local publication mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Parity sparsity under one additional digit in power partitions",
+          "trigger": "Closest distinct parity-sparsity hit"
+        },
+        {
+          "assessment": "Different aggregation",
+          "evidence": "Eventual affine counts for each fixed R(n) value, not the unbounded odd-value union.",
+          "identifier_or_url": "2026/11/22/SCOPE-fixed-value-fibonacci-partition-fibers-have-exact-affine-cutoff--480a482a72b6",
+          "material_read": "Finding and lack-of-uniformity limitation",
+          "method": "Local publication mirror",
+          "title": "Fixed-value Fibonacci partition fibers have exact affine cutoffs",
+          "trigger": "Same function and cutoff style"
+        },
+        {
+          "assessment": "Does not give the stated prefix law",
+          "evidence": "Pointwise doubling inequalities on specified multiples, divided by Lucas intervals.",
+          "identifier_or_url": "2026/11/8/SCOPE-a-sharp-fibonacci-partition-doubling-dichotomy-across-lucas-inte--f0209d185493",
+          "material_read": "Finding",
+          "method": "Local publication mirror",
+          "title": "A sharp Fibonacci partition doubling dichotomy across Lucas intervals",
+          "trigger": "Same R and Fibonacci-scale structure"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a classical partition function, parity is a natural arithmetic statistic distinct from its mean and moments. The theorem measures the full odd set, establishes density zero with an exponent close to but below one, and gives an exact count on the natural Fibonacci windows. This is a quantitative conclusion not provided by knowing that parity changes infinitely often or by merely recognizing parity in a finite automaton.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

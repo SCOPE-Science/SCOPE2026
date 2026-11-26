@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:43:16.520213Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The scoped statement is about spanning the projection for the paper's two CSS sectors, not optimizing over all observables. Matsumoto arXiv v1 identifies this dimension in Theorem 4 (not Theorem 5 in v1), Proposition 10 and §5.3; Remark 9 distinguishes the smaller possible unrestricted count. Each erased primal edge imposes y_u+y_v=0 with missing/open vertices set to zero. The resulting relation space has one all-ones basis vector per completely retained component and none on grounded components. The binary face system is the same incidence system on faces after adding a grounded endpoint to each erased boundary edge. Thus the two ranks are the active row counts minus ungrounded component counts, including I empty, isolated dual faces, and erased edges with omitted endpoints. Removing one row per ungrounded component kills the full relation space, giving a basis of the projection and hence the exact minimum within this model. Each physical edge has at most two incident faces in the source and an erased one-face edge is closed; using local incidence with constant-time access and marking of active nodes, construction and traversal take O(1+|I|) time. The original checker was inspected, not executed; its synthetic inputs do not validate arbitrary cellulations. Independent replay python3 /workspace/branches/independent_probes.py 3: 115712 exact retained-row span comparisons on up to three edges on five labels with all omission masks, allowing parallel edges and loops interpreted as two cancelling incidences in that auxiliary graph test. This is bounded corroboration, not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prop. 4.1 is for arbitrary open graphs, so it applies even when the erased graph is not itself a surface cellulation.",
+          "Prop. 4.4 proof says face rows are independent on a component with a closed boundary, but any |F_C|-1 suffice and are independent on a component with no closed boundary. §4.4 characterizes ordinary one/two-face edges."
+        ],
+        "reasoning": "The open-graph lemma covers both erased sectors with the dummy endpoint construction, while the older unpunctured surface argument already exhibits the same local-basis rule.",
+        "searches": [
+          "Delfosse–Iyer–Poulin arXiv:1606.07116 Proposition 4.1, Proposition 4.4 proof, §4.4",
+          "Binary graph incidence rank n-c; open-row deletion"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2510.22890v1 §§3–6",
+        "arXiv:1606.07116 Prop. 4.1, Prop. 4.4 and §4.4",
+        "Resultary 22932f55648e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Matsumoto's sector dimension is dim P_I(C) and §5.3 selects original vertex or face rows via elimination; this is not the Theorem 7 general minimum.",
+          "Applying the earlier open-graph rank to the erased primal and augmented dual graphs gives both displayed formulas. The component relation is all ones on an ungrounded component, so any one deletion gives the right local basis. The adjacency lists of both graphs have O(|I|) total length."
+        ],
+        "reasoning": "The standard restriction, grounding and component traversal steps yield the exact output; the manuscript does not supply a new decoding or measurement-cost optimization beyond that mechanically implied selection.",
+        "searches": [
+          "Matsumoto §3 Theorem 4, §4 Proposition 10, §5.3 original-row selection",
+          "Delfosse–Iyer–Poulin Proposition 4.1 and Proposition 4.4 proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prop. 4.1 gives dim ker B=|E|-|V_nonopen|+ number of components with no open vertex. The restricted CSS row rank is |E|-dim ker B.",
+          "A dual boundary half-edge is exactly an ordinary edge to an omitted/open dummy vertex. The incidence matrix on retained rows is unchanged by that representation."
+        ],
+        "reasoning": "This is the same numerical rank on the same type of open graph, not merely a similarity between topological formulas in different settings.",
+        "searches": [
+          "Matsumoto arXiv:2510.22890v1 §5.1 and §5.3, restricted vertex and face rows",
+          "arXiv:1606.07116, connected components; Proposition 4.1 and §4.2",
+          "Local Resultary: erased surface stabilizer rank / anchored incidence / component minimum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed 22932f55648e has a component-rank formula for quadratic harmonic samples on a cuboctahedron, not these stabilizers.",
+          "Matsumoto's concrete projective-plane erasures already give one face and one vertex at single erased edges e_7 and e_8, but examples alone do not establish the unbounded formula."
+        ],
+        "reasoning": "No exact matching catalog entry was identified in this bounded Resultary check. The mathematical coverage follows from the prior open-graph theorem and the established objective, not from a table.",
+        "searches": [
+          "Local Resultary: surface-code erased stabilizers, graph rank, connected components",
+          "Matsumoto arXiv:2510.22890v1 §6.1–6.2 examples"
+        ]
+      },
+      "rationale": "The closest decisive prior is not merely a fast decoder: Delfosse–Iyer–Poulin, arXiv:1606.07116, Proposition 4.1 proves exactly the open-vertex incidence rank by rank-nullity on any open graph, and Proposition 4.4's proof explicitly gives the closed-boundary face-row independence and any-one-omitted rule. Apply Prop. 4.1 to the erased primal graph, declaring omitted vertices open; for the dual graph attach a dummy open leaf to the unique face at each erased boundary edge. The open-graph incidence rows are exactly the two erased stabilizer matrices. Both minima then follow from Matsumoto's established rank objective. In a connected open graph the only possible dependency is the all-ones relation when unanchored, so retaining all rows on anchored components and deleting any one on others is direct. A local DFS/BFS implements the same component criterion in linear time. The measurement language and runtime are useful explicitizations but do not leave a distinct mathematical or algorithmic step under the originality standard.",
+      "residual_risks": [
+        "Journal numbering for Matsumoto was not checked independently; the references and distinction in this review are to arXiv v1.",
+        "Neither the component proof nor the originality disposition depends on whether earlier fast decoders explicitly choose optimal original measurements."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior projected rank objective and cubic selection; explicit distinction from unrestricted objective.",
+          "evidence": [
+            "§5.1 defines vertex and face membership indicators and a boundary edge by exactly one incident face.",
+            "§5.3 identifies an original vertex subset from elimination and does the same for faces, with cubic complexity."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2510.22890v1",
+          "material_read": "Theorem 4 around OA offset 13700; Remark 9 / Proposition 10 around 20400–20700; §5.1, Prop. 12, Cor. 13 at offsets 23900–30292; §§5.3–7 at 33200–39683",
+          "method": "Primary HTML text and definition/statement comparison",
+          "title": "Reducing measurements in quantum erasure correction by quantum local recovery",
+          "trigger": "Identical minimum-measurement objective and incidence model"
+        },
+        {
+          "assessment": "Decisive open-graph rank theorem and explicit boundary basis dependence, applicable on erasure-restricted graphs.",
+          "evidence": [
+            "Prop. 4.1 computes the open-graph cycle-space dimension under omission of open-vertex constraints.",
+            "Prop. 4.4 proof explicitly says any |F_C|-1 face rows are independent if the component has no closed boundary, with all rows independent otherwise."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1606.07116",
+          "material_read": "Proposition 4.1 and following boundary-map definitions (PDF printed pp. 12–14, OA offsets 38600–46085); Proposition 4.4 proof and §4.4 (pp. 15–16, offsets 46085–52242)",
+          "method": "Primary PDF extraction, exact statement and proof comparison",
+          "title": "Generalized surface codes and packing of logical qubits",
+          "trigger": "Matsumoto's own model reference; same open-vertex/boundary incidence ranks and potential broader coverage"
+        },
+        {
+          "assessment": "Different evaluation map and unrelated application; no exact count coverage.",
+          "evidence": [
+            "It gives the component formula 13-|T|-c(G_T) for quadratic harmonic samples, not for omitted-row surface incidence."
+          ],
+          "identifier_or_url": "Resultary:2026/10/18/22932f55648e",
+          "material_read": "Local mirror RESULT.md Finding and sampling setup",
+          "method": "Indexed statement and scope comparison",
+          "title": "The tetrahedral graphic matroid controls quadratic harmonic sampling",
+          "trigger": "Nearest Resultary component-rank formula"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Reducing the implementation cost of the paper's minimum-selection step is well motivated, but for this scoped claim the exact count and choice are given mechanically by the already available incidence results and ordinary traversal. No further structural, cost-model or algorithmic advance survives this comparison. The observation can be useful as an implementation note without qualifying as a distinct finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:00:27.185767Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Uniform marginals force the diagonal masses u/2 and off-diagonal masses (1−u)/2. The four affine multipliers are 79,37,97,91 divided by 100. Bounded offsets and products bounded by (97/100)^k make the stationary backward affine series converge absolutely. A common fresh pair sequence contracts discrepancies and yields second-moment convergence for finite-second-moment initializations. The moment equations use freshness and give the stated mean and risk about zero. Reviewer-authored `python3 /workspace/independent_reproduction.py affine` (SymPy 1.14.0) reconstructed the maps, rational risk and three comparison values; its critical points were about 0.718624522 and 2.078872634. The derivative has sign opposite to the stated strictly decreasing quadratic with endpoint signs + and −, proving exact strict global optimality. Smooth dependence retains the endpoint signs under small perturbations. With equal slopes, centering at the mean root gives contraction 1−t+t² and centered noise td(S_J−tS_I) with E[S_IS_J]=2u−1. Its variance and hence risk decrease strictly in u for 0<t<1 and distinct roots; coincident roots tie. These are fixed IID stationary-risk conclusions, not adaptive or root-convergence claims.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yoon–Loizou report comparative stability/convergence/gap statements and counterexamples for same-sample and independent-sample SEG",
+          "The reshuffling algorithm reuses the component within a step and varies epoch order",
+          "The bilinear precedents yield endpoint optimality or a tie under their finite-horizon or contraction objectives"
+        ],
+        "reasoning": "Neither two prescribed variants nor reshuffling optimizes the joint law here. A common-root multiplicative model lacks the stationary mean and second-moment cross term responsible for this affine example.",
+        "searches": [
+          "arXiv:2608.06182v1 §§1.1, 1.3",
+          "arXiv:2403.07148 §1 and Algorithm 1",
+          "Resultary:002177710edb, 1eae25261845, 2b6eab28d021"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.06182v1",
+        "arXiv:2403.07148",
+        "Resultary:002177710edb",
+        "Resultary:1eae25261845",
+        "Resultary:2b6eab28d021",
+        "Resultary:7f3b12106861"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "002177710edb gives the finite-horizon threshold eta²=2/9 for its two strengths and endpoints, and a different threshold for the typical-path objective",
+          "The additive-Gaussian GDA stationary optimum switches from reuse to a swapped-coordinates design; it is not discrete component slope/offset coupling"
+        ],
+        "reasoning": "These are substantive contextual overlaps but do not yield an interior optimizer for affine SEG, or the stated equal-slope noise cancellation inequality as a special case. No broad priority claim is made for coupling optimization or affine moment identities.",
+        "searches": [
+          "Direct comparison of the Finding and Mean-square policy of Resultary:002177710edb with the affine fixed-marginal claim",
+          "Direct comparison with Resultary:7f3b12106861 and arXiv:2608.06182v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same or independent component variants of arXiv:2608.06182v1 correspond exactly to u=1 and u=1/2",
+          "002177710edb also optimizes all within-step pairings of two uniform marginals; its bilinear system has a common zero and no affine forcing",
+          "7f3b12106861 couples additive Gaussian noises between signed GDA steps instead of discrete component draws between SEG stages"
+        ],
+        "reasoning": "The joint-law parameter is shared with the homogeneous work, but equality of coupling coordinates does not identify the stochastic dynamics or the infinite-time objective. Fresh paired draws do not equal temporal reshuffling.",
+        "searches": [
+          "Resultary: fixed-marginal extragradient couplings, stationary risk, same/independent/antithetic",
+          "arXiv:2608.06182v1 §1.1",
+          "Resultary:002177710edb and 7f3b12106861"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest exact catalogue expressions are switches between boundary or coordinate noise designs in bilinear models, rather than the stated risk rational function or a table of the stated stationary optima"
+        ],
+        "reasoning": "No distinct matching formula/table in the checked corpus was found; exact optimizer values for a different model are not coverage. The assigned record itself is not prior evidence.",
+        "searches": [
+          "Resultary: scalar affine stochastic extragradient interior stationary-risk minimizer and equal-slope optimum",
+          "Resultary nearest exact coupling thresholds: 002177710edb, 1eae25261845, 2b6eab28d021, 7f3b12106861"
+        ]
+      },
+      "rationale": "Optimization over within-step uniform-marginal couplings is already present for homogeneous bilinear stochastic extragradient, and stagewise noise-coupling optimization appears for a different noisy two-step algorithm. Credit those precedents. The supported distinct result is an interior minimizer of genuine nonzero stationary affine root risk for strongly monotone components, with a contrasting equal-slope boundary and persistence under perturbation.",
+      "residual_risks": [
+        "Bounded searches and inspected passages are not an exhaustive priority determination: unindexed or differently named stochastic affine operator literature could cover the example or a broader optimality theorem.",
+        "The equal-slope identity uses elementary variance algebra; the originality assessment rests on the combined contrast and the heterogeneous interior optimum, not on priority of that algebra."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_DIFFERENT_OPTIMIZATION",
+          "evidence": "The methods are based on identical or independent stage indices; the inspected contributions are convergence, gap and impossibility comparisons, rather than optimizing all fixed joint laws for affine stationary squared error.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.06182v1",
+          "material_read": "PDF §§1.1 and 1.3, extraction offsets 11990 and 19188",
+          "method": "Lawful OA PDF, passage comparison",
+          "title": "On Same-Sample and Independent-Sample Stochastic Extragradient for Monotone Variational Inequalities",
+          "trigger": "Closest primary same-versus-independent SEG comparison"
+        },
+        {
+          "assessment": "DIFFERENT_SAMPLING",
+          "evidence": "A fresh permutation is used across each epoch, with reuse at the two within-step calls.",
+          "identifier_or_url": "https://arxiv.org/abs/2403.07148",
+          "material_read": "PDF pp. 2–3, §1 and Algorithm 1, extraction offset 12207",
+          "method": "Lawful OA PDF, passage comparison",
+          "title": "Stochastic Extragradient with Random Reshuffling: Improved Convergence for Variational Inequalities",
+          "trigger": "Possible nonstandard sampling design in stochastic SEG"
+        },
+        {
+          "assessment": "PARTIAL_METHOD_OVERLAP",
+          "evidence": "Endpoint policies and thresholds are computed for common-root bilinear dynamics; no stationary affine error floor is optimized.",
+          "identifier_or_url": "Resultary:002177710edb",
+          "material_read": "Original Finding, Assumptions and Proof, Mean-square policy",
+          "method": "Resultary search and local mirror read",
+          "title": "Two distinct optimal coupling transitions for stochastic extragradient on a bilinear game",
+          "trigger": "Exact optimization over the same two uniform stage marginals"
+        },
+        {
+          "assessment": "RELATED_HOMOGENEOUS_MODELS",
+          "evidence": "All-pairing bilinear optimizations switch between shared and complementary endpoints, with exact thresholds.",
+          "identifier_or_url": "Resultary:1eae25261845; 2b6eab28d021",
+          "material_read": "Original findings and model assumptions",
+          "method": "Resultary search and local mirror read",
+          "title": "A sharp coupling-reversal frontier for stochastic extragradient; Sharp antithetic pairing and stability cuts",
+          "trigger": "Earlier indexed exact coupling optima"
+        },
+        {
+          "assessment": "RELATED_DIFFERENT_ALGORITHM_AND_NOISE",
+          "evidence": "Stationary Gaussian coupling for signed two-step bilinear GDA yields reuse and swapped-coordinate regimes; it does not imply the SEG index-coupling optimum. Same date does not order the results.",
+          "identifier_or_url": "Resultary:7f3b12106861",
+          "material_read": "Original finding and noise-coupling model",
+          "method": "Resultary search and local mirror read",
+          "title": "Sharp oracle-coupling reversal for noisy two-step slingshot descent",
+          "trigger": "Distinct same-day two-stage stationary-risk optimum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A strict interior risk optimum rules out the common design shortcut of considering only reuse, independence or maximal antithetic pairing, even with scalar strong monotonicity and contraction under every pair. The nonzero stationary bias at the optimum, the equal-slope obstruction, and a perturbation-stable example establish a meaningful boundary of the heuristic; the contribution does not need a universal nonlinear classification.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

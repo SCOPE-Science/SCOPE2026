@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:50:04.512254Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof 1–4; VERIFICATION.md; verify.py inspected without execution.",
+        "Independent scalar bisection: the t-family boundary is about 2.808354145600886, and the (3,1,1) admissible endpoint is about 0.576322617786634 < 3/5."
+      ],
+      "rationale": "The cubic is the fixed SSPRK(3,3) end-step for a linear generator, with row sum one since Q1=0. Expanding Q as a forward cyclic shift with rate weights minus the diagonal exit-rate matrix, a predecessor entry gets its quadratic term xy and its cubic term −xy(x+y+z); a successor gets x, −x(x+y), x(x²+xy+y²). On a diagonal the cubic return walk gives +abc in addition to −x³. The successor quadratic multiplier has negative discriminant, predecessors become strictly negative together after H=3/S, and r′<0 makes the maximum-rate diagonal the minimum for all h>0. Independently of the Bernstein proof, set z=Mh and k=abc/M³: G(h)/z³=z⁻³−z⁻²+1/(2z)−(1−k)/6 has derivative −((z−2)²/2+1)/z⁴. Thus G can cross only once and does so strictly when G(H)<0. If G(H)=0 the endpoint is still admissible. When rates are equal, H=1/M; otherwise H>1/M and all entries are strictly positive at 1/M, including G=1/3+abc/(6M³). The t-family polynomial follows by substitution and has exactly one crossing for t≥1 since its derivative increases there, changing sign once, while the polynomial starts negative and diverges to +∞.",
+      "residual_risks": [
+        "Exact real arithmetic, closed directed three-cycle, completed step only. The auxiliary rational grid does not cover arbitrary reals; the algebra and sign proof do."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The standard convex forward-Euler guarantee is 1/M in this setting, not a fixed-instance necessary upper bound. Horváth's accessible abstract concerns positivity of RK for positivity-preserving IVPs and thresholds for certain IVP classes.",
+          "The exact n≥4 formula has a diagonal bound from the scalar Taylor zero and lacks the three-edge return contribution."
+        ],
+        "reasoning": "A class-uniform sufficient threshold cannot yield strict improvement on every nonuniform three-cycle or the two-regime condition. In the n≥4 theorem the missing return term prevents deriving the n=3 horizon by a change of labels or direct specialization.",
+        "searches": [
+          "Horváth DOI 10.1016/j.apnum.2004.08.026 (publisher abstract and OA access attempt)",
+          "Gottlieb–Shu–Tadmor DOI 10.1137/S003614450036757X (SSP guarantee, as cited in frozen RESULT.md)",
+          "Resultary arbitrary-rate directed-cycle RK3 theorem 3dfae05a47c1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary original records 3dfae05a47c1, f4cc1467215d, d34a4ad012e9, 1180efbbc2f7",
+        "arXiv:2005.06268v1",
+        "Horváth DOI 10.1016/j.apnum.2004.08.026, abstract only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Nüßlein–Ranocha–Ketcheson allow adaptive weights; the related indexed result allows up to second-order conditions on a pure-birth chain. The longer-cycle RK3 result does not contain the fastest-diagonal return walk used here."
+        ],
+        "reasoning": "An existence result for some adaptive weights is not a bound on the prescribed weights. For fixed RK3 the three-cycle needs its own return term and the sign of G at the reverse-entry cutoff.",
+        "searches": [
+          "arXiv:2005.06268v1 pp. 2 and 4; Resultary 1180efbbc2f7 and 3dfae05a47c1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Indexed 3dfae05a47c1 fixes RK3 but assumes n≥4. Indexed f4cc1467215d fixes the topology but uses the fourth-order polynomial. Indexed d34a4ad012e9 gives a fastest-exit threshold for the Crank–Nicolson rational update."
+        ],
+        "reasoning": "Row-stochastic end-step and linear positivity on all nonnegative initial vectors are equivalent here; none of the cited changes in topology or integrator is an equivalent reformulation of this matrix polynomial.",
+        "searches": [
+          "Resultary fixed RK3 positivity on directed cycles; exact RK4 stochasticity on three-cycles; directed-cycle Crank–Nicolson positivity",
+          "arXiv:2005.06268v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed exact cutoffs apply to n≥4 RK3, n=3 RK4, Crank–Nicolson, or an adjustable-weight absorbing chain. The rational grid in the source package is verification authored for this finding, not independent prior coverage."
+        ],
+        "reasoning": "The relevant object is a continuous three-rate classification, not a table of sample triples; no checked exact indexed formula covers both regimes for the stated polynomial and generator.",
+        "searches": [
+          "Resultary records 3dfae05a47c1, f4cc1467215d, d34a4ad012e9 and 1180efbbc2f7"
+        ]
+      },
+      "rationale": "The distinct finding is an all-positive-rate necessary and sufficient endpoint horizon with an explicit branch criterion for the three-cycle. The fixed polynomial, the general SSP guarantee, and the known fastest-exit idea alone are not priority claims. The closest inspected fixed-RK3 directed-cycle theorem excludes n=3 for a reason the algebra makes material: a length-three diagonal return adds an abc term absent for n≥4.",
+      "residual_risks": [
+        "The Horváth article was not independently inspected in full; an older exact special-case result could predate the narrow contribution. Priority is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Abstract establishes general context, not a whole-text exclusion",
+          "evidence": "The abstract describes positive IVPs with arbitrary positive starting vectors and certain classes of IVPs. The frozen package reports a full-text comparison, not independently confirmed here.",
+          "identifier_or_url": "https://doi.org/10.1016/j.apnum.2004.08.026",
+          "material_read": "Publisher abstract only; full text not independently accessed",
+          "method": "OA and publisher retrieval attempts; PDF unavailable",
+          "title": "On the positivity step size threshold of Runge–Kutta methods",
+          "trigger": "Plausible general positivity threshold antecedent"
+        },
+        {
+          "assessment": "Different hypotheses, weights, and example",
+          "evidence": "Selects weights after computing the stages via a linear program; SSP(3,3) example changes weights to restore positivity for a two-component problem.",
+          "identifier_or_url": "https://arxiv.org/pdf/2005.06268",
+          "material_read": "v1 pp. 2 and 4, extracted offsets near 7180 and 13470",
+          "method": "Primary open-access PDF passage inspection",
+          "title": "Positivity-Preserving Adaptive Runge–Kutta Methods",
+          "trigger": "Same three-stage method discussed with endpoint signs"
+        },
+        {
+          "assessment": "Neither equivalent nor dominating in n=3; catalogue date does not determine priority",
+          "evidence": "Assumes n≥4 and gives H₃=min{ρ/M,3/C}. A three-edge return on the diagonal is absent at those sizes.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-25-loss-50-gain-law-for-rk3-versus-rk2-positivity-on-dir--3dfae05a47c1",
+          "material_read": "Original RESULT.md Finding, mirror offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A sharp 25% loss / 50% gain law for RK3 versus RK2 positivity on directed cycles",
+          "trigger": "Very close indexed same-integrator claim on arbitrary-rate directed cycles"
+        },
+        {
+          "assessment": "Different polynomial and threshold",
+          "evidence": "Both the test and the classified two-equal-rate family are for RK4.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-rk4-stochasticity-test-and-a-rate-bias-phase-transition-on--f4cc1467215d",
+          "material_read": "Original RESULT.md Finding, mirror offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp RK4 stochasticity test and a rate-bias phase transition",
+          "trigger": "Same heterogeneous three-cycle"
+        },
+        {
+          "assessment": "Known mechanism, distinct map",
+          "evidence": "A Cayley transform with rational entries is not the fixed cubic Taylor map.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-fastest-exit-positivity-frontier-for-crank-nicolson-on-directe--d34a4ad012e9",
+          "material_read": "Original RESULT.md Finding, mirror offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A fastest-exit positivity frontier for Crank–Nicolson on directed cycles",
+          "trigger": "Same graph class and fastest-exit obstruction"
+        },
+        {
+          "assessment": "Distinct quantifiers and topology",
+          "evidence": "Equal-rate absorbing pure-birth model with adaptable endpoint weights under order-one and order-two conditions.",
+          "identifier_or_url": "2026/10/25/SCOPE-a-sharp-three-state-feasibility-barrier-for-second-order-adaptiv--1180efbbc2f7",
+          "material_read": "Original RESULT.md Finding, mirror offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A sharp three-state feasibility barrier for second-order adaptive SSPRK(3,3) weights",
+          "trigger": "Same stage matrix and three states"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RK3 classification, including strict gap from 1/M at unequal rates",
+        "Resultary longer-cycle RK3 comparison 3dfae05a47c1"
+      ],
+      "rationale": "A three-cycle is the smallest closed one-way Markov network with a missing reverse edge and a full three-step return. This makes it a motivated test of when stage-independent SSP bounds are conservative. The result gives the exact completed-step positivity limit for arbitrary heterogeneity, distinguishes return-diagonal and reverse-edge obstructions, and proves why the answer cannot be obtained simply from the SSP bound or the longer-cycle formula.",
+      "residual_risks": [
+        "No implication for accuracy at that limit, internal stages, or directed networks with more arcs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

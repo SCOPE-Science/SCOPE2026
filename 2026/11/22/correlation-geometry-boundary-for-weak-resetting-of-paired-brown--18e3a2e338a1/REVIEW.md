@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stochastic dynamics, first-hit stopping time, common-reset regeneration and domain are explicitly defined. Whitening transforms correlated Brownian motion to the classical absorbing wedge with opening \(\alpha=\arccos(-\rho)\), giving the sharp integrability cutoffs for the first three exit moments. The degree-two, degree-four, and degree-six polynomial formulas satisfy the stopped-process moment equations and boundary conditions; finiteness from the wedge tail legitimizes their expectation interpretation. The known Poisson-restart renewal identity then gives the exact sign polynomial \(cU+6-9c^2\). Its unique positive root determines every possible strict first-order sign, and the computed third moment gives a positive quadratic coefficient at every physical tangency. The packaged symbolic checker passed 27 assertions and independently reproduced the perfectly anticorrelated interval limit. It does not replace the analytic tail argument. Risks: no global rate optimization is proved; degenerate \(\rho=-1\) is only a verification limit.
+PASS
 
-## Originality — PASS (best-knowledge)
+Whitening gives the wedge of angle arccos(-rho): the unit inward normals after whitening have inner product rho. The positive survival-tail amplitude gives moment cutoff k<pi/(2 alpha), with logarithmic divergence at equality. Independently solved the generator equations in the space of homogeneous polynomials vanishing on the axes (replay: python /workspace/branches/independent_replay.py 1, SymPy, D=1; restore D^(-k) in moment k). This yields all three stated polynomials. To justify rather than assume uniqueness, apply stopped Dynkin at time t to each polynomial P_k; its remainder E[P_k(X_t); T>t] tends to zero. Gaussian moments and Hölder bound it by O(t^k) times P(T>t)^(1-1/p), and p can be chosen large enough when the tail exponent exceeds k. Induction and the Markov property identify the forcing integral k times the expected integral of the (k−1)st remaining-time moment with E[T^k]. The reset renewal quotient A/(1-rA) uses the exponential clock independent of each excursion. For rho>=0 the unreset mean diverges while the quotient is finite for every positive r. When only m1 is finite, (A(r)-m1)/r tends to minus infinity by monotone convergence and the quotient differs from A by O(r). When m2 exists, the linear coefficient has opposite sign to cU+6−9c²; the root is physical exactly for 2<=U<3. All such roots exceed sqrt(3)/2, so m3 is finite. The independently simplified equality coefficient after dividing out (xy)^3/D^3 is (162−161c²)/(720c³(4c²−3)), positive throughout the physical interval. The conclusions are local in reset rate, not claims about all-rate optima.
 
-The nearest direct physical source, Biroli–Majumdar–Schehr, arXiv:2303.18012, treats searchers with independent Brownian noises, even when their reset alarms are shared. The new intrinsic covariance \(\rho\) is not a synonym for their reset-induced dependence. Their complete first-passage approach does not state the correlation–starting-geometry phase diagram. Chupeau–Bénichou–Majumdar, arXiv:1501.02274, study arbitrary Brownian wedges without resetting; Pal–Reuveni, arXiv:1607.06048, study restart in general without the present exact correlated-exit moments. The generic renewal formula and wedge exponent are acknowledged as prior results. The full relevant primary texts were inspected in their lawful arXiv HTML representations, including the primary paper's model and synchronous protocol, the wedge survival exponent, and the renewal identity. Comparisons against public scientific statements found adjacent but non-covering work on shared-clock dependence, independent-walker resetting, and other first-passage statistics. Residual priority risk: earlier wedge exit-moment studies could indirectly supply the formulas and a reader could combine them with the standard restart rule; an independent comprehensive literature review is still required.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a motivated complete **local** classification for the simplest cooperative search with nonzero intrinsic noise correlation. It separates spatial heterogeneity from common-bath anticorrelation and produces exact, scale-free critical boundaries: \(\rho_* = -(1+\sqrt{55})/9\) at equal starts and \(U=3\) as the geometry boundary beyond which arbitrarily weak reset always helps. Crucially, the vanishing first response is resolved by a strict quadratic theorem rather than being misclassified as improvement or left indeterminate. The result can guide correlation-controlled paired search protocols, although it does not imply an experimentally implementable resetting benefit or a global optimum.
+The standard Poisson criterion together with previously available wedge moments covers the strict first-order classification after a change of coordinates; credit that implication explicitly. What distinguishes the complete sharp local theorem as stated is resolving the physical zero-slope set, with an explicit coefficient of fixed positive sign on the whole set. The inspected prior moment and restart formulas do not supply this third-moment conclusion or the full strict local result including equality.
 
-## Literature and limitations
+## value
 
-Sources: arXiv:2303.18012 (primary dated 2023-03-31), arXiv:1501.02274 (wedge survival), arXiv:1607.06048 (renewal). The claim excludes global reset optimization, empirical uncertainty and energetic accounting. The independent publication-priority check has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The zero-derivative curve is a necessary part of a sharp decision rule for weak resetting and cannot be classified using mean and variance alone. Its uniform second-order sign, on every attainable start geometry where the first-order test is silent, resolves that issue without a numerical rate search. The scope is meaningful for the local correlated-search problem and does not require an all-rate optimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,24 +1,21 @@
-# Scientific review: superposed inverse-time creep modes
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The full-domain claim follows from the identity \(R''=-2(S_1S_3-S_2^2)/S_1^3\) and Cauchy–Schwarz, with an equality case requiring all singular times to coincide. The secant argument uses strict concavity through the zero at the earliest singularity; it proves strict late prediction for every pair of observation times. In the two-mode case, explicit rational algebra gives the exact bias, and the derivative of the apparent exponent has a unique zero because \(H(z)=a(1-3z)-bz^2(3-z)\) decreases strictly on \((0,1)\). Its equal-amplitude and large-contrast consequences follow by substitution and asymptotic balance. A self-contained Python checker produced 14,809 passing deterministic diagnostic checks, which complement rather than substitute for the algebraic proof. No noise-robustness or physical calibration statement is claimed.
+PASS
 
-## Originality — PASS relative to inspected evidence, with residual priority risk
+Writing S_k=sum c_i/(T_i-t)^k yields R''=2(S_2^2-S_1 S_3)/S_1^3 and alpha=2 S_1 S_3/S_2^2. The Cauchy–Schwarz equality condition is that all clocks coincide, since every amplitude is positive. Otherwise strict concavity up to R(T_*)=0 puts the extrapolated secant strictly above zero at T_*, and its slope is negative. In two modes, R=x(x+Delta)/((a+b)x+a Delta); taking its divided difference and its secant intercept gives the stated delay, which is b Delta divided by (a+b)+a Delta(1/x_1+1/x_2)+a Delta^2/(x_1 x_2). This gives the sign, strict monotonicity, two limits and sharp bound. In z the exponent excess is 2abz(1-z)^2/(a+bz^2)^2; its derivative has sign a(1-3z)-bz^2(3-z), strictly decreasing through zero before 1/3. For equal amplitudes the cubic has admissible root 2-sqrt(3), where substitution gives excess 1/4. With r=b/a the root equation first gives z_*=O(r^(-1/2)), then r z_*^2=1/3+O(r^(-1/2)); substitution gives the claimed square-root leading coefficient and O(1) remainder. The theorem applies to the stipulated positive, noiseless additive velocity model, not physical or operational failure prediction. The supplied script and reported replay were inspected, not executed; the universal claims use the exact argument.
 
-Fukuzono (1985, DOI 10.3313/jls1964.22.2_8) studies single-process inverse-velocity singularity laws; the accessible original paper's abstract and introductory material do not state this superposition theorem. Carlà et al. (2016, DOI 10.1007/s10346-016-0731-5) study filtering and empirical prediction errors from noisy inverse-velocity records, rather than deterministic composition of two different singular times. Ren et al. (2025, DOI 10.3390/app15137449) treat multiple monitoring points but not an additive scalar velocity from independent singular modes. The 2023 improved-inverse-velocity article (DOI 10.1080/19475705.2023.2239991) was available only in search-indexed portions, so no whole-document negative coverage claim is made. Results about summed inverse-time Omori decay also involve positive pole sums, but their reported phenomenon concerns apparent decay exponents under a distinct time domain and does not entail the rational late-forecast bias or the stated unique acceleration-exponent maximum. Generic Cauchy–Schwarz concavity is acknowledged as background and excluded from the originality claim. A broader unseen mathematical study of positive reciprocal-pole sums remains a priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The motivating data-analysis problem is scientifically consequential: slope-displacement measurements can mix kinematic modes, and extrapolating the reciprocal of the mixture is not the same as analyzing each mode. The result isolates two nontrivial structural artifacts—sign-definite late prediction and a spurious, potentially arbitrarily large acceleration exponent—without invoking noise or a change in any constituent physical exponent. It gives a complete exact benchmark for recognizing a limitation of a widely used phenomenological method and supplies quantitative bias and peak formulas. Its relevance is diagnostic, not operational: additive mode superposition may not hold in an instrument, the model diverges formally at failure, and the formulas do not establish safe warning times.
+The harmonic-mean concavity and its secant-direction consequence are elementary and not credited as new general principles. The distinct result supported by the comparison is the precise two-clock combination of the noise-free forecast delay, sole apparent acceleration maximum, and lack of a universal maximum bound. The most relevant indexed Omori comparisons use reciprocal or inverse-power mixtures but focus on a different logarithmic derivative. No earlier exact coverage or implication was established in the inspected material; this is not a priority guarantee.
 
-## Closest literature and limitations
+## value
 
-- Fukuzono, 1985, https://doi.org/10.3313/jls1964.22.2_8 : original constant-exponent model, but not different-pole velocity aggregation.
-- Carlà et al., 2016, https://doi.org/10.1007/s10346-016-0731-5 : filtering/line choice in empirical inverse-velocity forecasting; not the specified deterministic superposition classification.
-- Ren et al., 2025, https://doi.org/10.3390/app15137449 : multiple measuring sites analyzed by inverse velocity, not the single summed-velocity signal.
-- Relevant 2023 improvement, https://doi.org/10.1080/19475705.2023.2239991 : incomplete full-text access; residual historical-priority risk.
+PASS
 
-Unproved limits: heterogeneous arbitrary acceleration exponents, noisy inference, unknown mode decomposition, physical identifiability and field-calibrated reliability. These are not claimed.
+Even with noise removed and every input exponent fixed to two, the model yields a systematic late forecast with a sharp sample-dependent size and an arbitrarily high but single apparent peak. The exact calibration quantifies an inferential ambiguity in positive additive observations; the inequality from harmonic-mean concavity alone does not quantify either effect. This gives a useful analytic benchmark, not field validation.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

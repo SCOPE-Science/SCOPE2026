@@ -2,110 +2,51 @@
 
 ## Finding
 
-For a finite word \(w\), let \(\operatorname{occ}_w(u)\) count overlapping starting-position occurrences of the **distinct, nonempty contiguous factor** \(u\), and put
+For a finite word \(w\), let \(\operatorname{occ}_w(u)\) count starting positions of \(u\) in \(w\), including overlaps. Let \(\Phi(w)\) count the distinct nonempty contiguous factors \(u\) with \(\operatorname{occ}_w(u)>|u|\). For a binary word with exactly two ones, write \(w=0^{g_1}1\,0^{g_2}1\,0^{g_3}\) and \(N=g_1+g_2+g_3=|w|-2\). Then, with \(z_+=\max(z,0)\),
 \[
-\Phi(w)=\#\{u:\ u\text{ is a nonempty factor of }w,\ \operatorname{occ}_w(u)>|u|\}.
+ \Phi(w)=1+\sum_{j=1}^N\mathbf 1_{\{\sum_{i=1}^3(g_i-j+1)_+>j\}}.
 \]
-For every binary word containing exactly two ones, write uniquely
+The sum is over the three indexed gaps, even if two or more have equal length. For every \(N\ge0\), the exact extrema over these words are
 \[
-w=0^a1\,0^b1\,0^c,\qquad a,b,c\in\mathbb Z_{\ge0},\quad N=a+b+c=|w|-2.
+ \min\Phi=1+\left\lfloor\frac{N+2}{4}\right\rfloor,\qquad
+ \max\Phi=1+\left\lfloor\frac N2\right\rfloor.
 \]
-Then the following exact formula holds, including \(N=0\):
-\[
-\boxed{\Phi(w)=1+\sum_{j=1}^{N}\mathbf 1_{\{\sum_{g\in\{a,b,c\}}(g-j+1)_+>j\}}},\qquad (x)_+=\max(x,0).
-\]
-For every \(N\ge0\), the sharp range endpoints over the \(\binom{N+2}{2}\) such words are
-\[
-\boxed{1+\left\lfloor\frac{N+2}{4}\right\rfloor\ \le\ \Phi(w)\ \le\ 1+\left\lfloor\frac N2\right\rfloor.}
-\]
-The lower endpoint is attained when \((a,b,c)\) is as balanced as possible; the upper endpoint is attained when all zeros occupy one gap.
+Balanced gaps attain the minimum, and putting all zeros in one gap attains the maximum.
 
-Let \(W_n\) be chosen uniformly from binary words of length \(n\) containing exactly two ones. As \(n\to\infty\),
+Let \(W_n\) be uniform on binary words of length \(n\) with exactly two ones. Then \(\Phi(W_n)/n\) converges in law to a random variable \(Y\) supported on \([1/4,1/2]\), with distribution function
 \[
-\frac{\Phi(W_n)}n\ \Longrightarrow\ Y.
+ F_Y(t)=\begin{cases}
+ 0&t<1/4,\\
+ 33t^2-12t+1&1/4\le t\le 1/3,\\
+ -12t^2+12t-2&1/3<t\le 1/2,\\
+ 1&t>1/2.
+ \end{cases}
 \]
-The limiting law has one atom and an absolutely continuous part:
+In particular there is one atom, of mass \(1/16\) at \(1/4\). The absolutely continuous density is \(66t-12\) on \((1/4,1/3)\), \(12-24t\) on \((1/3,1/2)\), and zero elsewhere. The first two moments and variance of \(\Phi(W_n)/n\) converge respectively to
 \[
-\boxed{\mathbb P(Y=1/4)=1/16},\qquad
-\boxed{f_Y(t)=\begin{cases}66t-12,&1/4<t<1/3,\\12-24t,&1/3<t<1/2,\\0,&\text{otherwise},\end{cases}}
+ \mathbb E Y=\frac{187}{576},\qquad \mathbb E Y^2=\frac{1499}{13824},\qquad \operatorname{Var}(Y)=\frac{1007}{331776}.
 \]
-with no other atoms. Equivalently, its right-continuous distribution function is
-\[
-\boxed{F_Y(t)=\begin{cases}
-0,&t<1/4,\\
-33t^2-12t+1,&1/4\le t\le1/3,\\
--12t^2+12t-2,&1/3\le t\le1/2,\\
-1,&t\ge1/2.
-\end{cases}}
-\]
-The limiting first two moments, and hence the normalized limiting variance, are
-\[
-\boxed{\mathbb EY=\frac{187}{576}},\quad
-\boxed{\mathbb EY^2=\frac{1499}{13824}},\quad
-\boxed{\operatorname{Var}(Y)=\frac{1007}{331776}}.
-\]
-The same limits hold for the corresponding moments of \(\Phi(W_n)/n\).
 
 ## Assumptions and scope
 
-All factors are linear (not cyclic), distinct by spelling (not by positional occurrence), and occurrence counts include overlaps. The strict comparison \(\operatorname{occ}_w(u)>|u|\) is essential. For the finite formula and sharp extrema, \(n=N+2\ge2\) is arbitrary. For the distributional assertion \(n\to\infty\) through integers, the two one-positions are uniformly chosen without replacement. A repeated factor must be interpreted according to the original linear word, without a terminal sentinel. The source is sparse: its Hamming weight is exactly two, not merely asymptotically two.
+Factors are linear, not cyclic, and counted by spelling, not by position. The frequency threshold is strict. The finite formulas include \(n=2\), and the limit is through integer lengths with the two one-positions uniformly chosen without replacement.
 
 ## Proof
 
-**1. Complete finite factor classification.** A factor containing both ones occurs at most once, since the two marker positions are unique. A factor containing exactly one one occurs at most twice, so if its length is at least two it cannot occur more often than its own length. The one-letter factor \(1\) occurs twice and therefore always qualifies. Every remaining candidate has the form \(0^j\), and its occurrences are precisely the runs inside the three zero gaps. The count is
-\[
-\operatorname{occ}_w(0^j)=(a-j+1)_++(b-j+1)_++(c-j+1)_+.
-\]
-This expression decreases with \(j\), while the comparison threshold \(j\) increases. Hence qualifying powers of zero, if any, are exactly \(0^1,\ldots,0^L\), for a single cutoff \(L\), giving the first formula.
+**1. Complete factor classification.** An occurrence of a factor with at least one one must align its first one with one of the two marked positions. Thus there are at most two occurrences, which cannot exceed the length unless the factor is the single letter \(1\), which always qualifies. Any remaining factor is \(0^j\), with precisely \(\sum_{i=1}^3(g_i-j+1)_+\) occurrences. This quantity is nonincreasing in \(j\), so the qualifying powers form an initial segment and the displayed formula follows.
 
-**2. Sharp finite extrema.** For every positive integer \(j\),
-\[
-\sum_{g\in\{a,b,c\}}(g-j+1)_+\ge N-3(j-1).
-\]
-Thus every \(j\) satisfying \(4j<N+3\) qualifies, and every word has at least \(1+\lfloor(N+2)/4\rfloor\) frequent factors. This bound is sharp: balance the three gaps, so each is either \(q\) or \(q+1\), with \(N=3q+r\), \(0\le r\le2\). The resulting zero-power occurrence count is \(N-3(j-1)\) for \(j\le q\), is \(r\) for \(j=q+1\), and is zero above. Its final qualifying index is exactly \(\lfloor(N+2)/4\rfloor\), also for the small cases \(q=0\).
+**2. Exact extrema.** The zero-factor occurrence count is at least \(N-3(j-1)\); every positive integer \(j\) with \(4j<N+3\) therefore qualifies. For gaps differing by at most one, write \(N=3q+r\) with \(0\le r\le2\). The count is exactly \(N-3(j-1)\) through \(j=q+1\), and zero beyond. The largest positive integer with \(4j<N+3\), taking zero if there is none, is \(\lfloor(N+2)/4\rfloor\), which is at most \(q+1\). At the other extreme the count is at most \((N-j+1)_+\): if some gaps contribute, their total length is at most \(N\) and at least one subtraction of \(j-1\) is made. For \((N,0,0)\) this bound is attained for all \(j\); the strict threshold is then equivalent to \(j\le\lfloor N/2\rfloor\). Including \(1\) gives both extrema.
 
-For the other endpoint, whenever \(j\ge1\), the sum of positive run contributions is at most \((N-j+1)_+\): if there are any active gaps, the total contribution equals the sum of their lengths minus \((j-1)\) times their count. Consequently qualifying indices obey \(2j<N+1\), so \(L\le\lfloor N/2\rfloor\). Taking gaps \((N,0,0)\) attains every such index. Both bounds are sharp for every \(N\ge0\).
+**3. Limiting root.** For \(N>0\) let \(x_i=g_i/N\). On the unit simplex, define \(T(x)\) by \(\sum_i(x_i-T(x))_+=T(x)\). The left side minus the right is continuous, decreases at least at unit rate, and has a unique positive root. Perturbing \(x\) changes the function by at most the \(\ell_1\) perturbation, proving continuity of \(T\). The discrete sign test for \(0^j\) uses \(x_i-j/N+1/N\) in place of \(x_i-j/N\) in the positive part. This increases the left side by at most \(3/N\), so the corresponding root increases by at most \(3/N\); the grid cutoff under the strict inequality is within \(1/N\) of that root (the discrete root is at most 1). Counting \(1\) adds \(1/N\), giving \(|\Phi(w)/N-T(x)|\le5/N\). Replacing \(N\) by \(n=N+2\) preserves the uniform approximation as \(N\to\infty\). The uniform grid of gap compositions converges by Riemann sums to normalized area on the simplex, so \(Y=T(X)\) for a uniform simplex point \(X\).
 
-**3. Continuous root representation.** For \(N>0\), set \(x=(a/N,b/N,c/N)\) on the simplex \(\Delta=\{x_i\ge0,\sum x_i=1\}\) and define
-\[
-H_x(t)=\sum_{i=1}^3(x_i-t)_+-t,\qquad t\ge0.
-\]
-The function is continuous and strictly decreasing (its slope on every linear segment is at most \(-1\)); moreover \(H_x(0)=1\) and \(H_x(1)<0\). It has a unique root \(T(x)\in[1/4,1/2]\). This root is continuous as a function of \(x\), since perturbing \(x\) changes \(H_x\) by at most the \(\ell_1\) perturbation, and the inverse-root shift is no larger than the same perturbation.
+**4. Distribution.** The sum of the positive parts is the maximum of the subset sums of the signed terms. Consequently, for \(t\ge0\), \(T(x)\le t\) holds precisely when each subset \(A\) satisfies \(\sum_{i\in A}x_i\le (|A|+1)t\). For the whole triple this requires \(t\ge1/4\), for pairs it requires \(x_i\ge1-3t\) for all \(i\), and for singletons it requires \(x_i\le2t\) for all \(i\). On \([1/4,1/3]\), translate each coordinate by \(-(1-3t)\). The remaining simplex has total \(9t-2\), and the forbidden corner above \(2t\) in any original coordinate leaves a simplex of total \(4t-1\) after translation. Two forbidden corners cannot overlap, since the remaining total would be \(-t\). Area scales quadratically, giving \((9t-2)^2-3(4t-1)^2=33t^2-12t+1\). For \(1/3\le t\le 1/2\) only the upper bounds matter; the three disjoint caps have relative area \((1-2t)^2\) each. For \(t\ge1/2\) all constraints hold. This gives the stated distribution, including its endpoint jump.
 
-The discrete sign test for \(0^j\) is \(H^{(N)}_x(j/N)>0\), where
-\[
-H^{(N)}_x(t)=\sum_{i=1}^3(x_i-t+N^{-1})_+-t.
-\]
-Pointwise, \(H_x(t)\le H_x^{(N)}(t)\le H_x(t)+3/N\). The monotonicity estimate implies their unique roots differ by at most \(3/N\), and replacing the root by the largest strictly positive integer-grid test loses at most one grid cell. Including the always-frequent factor \(1\) yields the uniform bound \(|\Phi(w)/N-T(x)|\le5/N\). Thus \(\Phi(w)/n\) and \(T(x)\) differ uniformly by \(O(N^{-1})\).
-
-The \(\binom{N+2}{2}\) zero-gap triples form the complete uniform integer grid on \(\Delta\). Normalized Riemann sums therefore converge to normalized two-dimensional area on \(\Delta\), namely the Dirichlet\((1,1,1)\) distribution. By continuity of \(T\), the limit variable is \(Y=T(X)\) with \(X\) uniform on that simplex.
-
-**4. Derivation of the mixed law.** The simplex has constant coordinate density two when described by \((x_1,x_2)\). First, if all three coordinates are at least \(1/4\), the root is exactly \(1/4\). Translating the simplex by \((1/4,1/4,1/4)\) leaves total mass \(1/4\), hence area ratio \((1/4)^2=1/16\). The boundary has zero area, so this is the only atomic contribution.
-
-Away from the boundary, let \(k\in\{1,2\}\) be the number of coordinates strictly larger than the root \(t\). If \(k=2\), sort \(x_1\ge x_2\ge x_3\). Then \(x_3=1-3t\), \(t<x_2<3t/2\), and \(1/4<t<1/3\). There are six coordinate permutations. Multiplying simplex density two, the Jacobian \(|dx_3/dt|=3\), and the \(x_2\)-interval length \(t/2\) yields density \(18t\).
-
-If \(k=1\), choose the unique largest coordinate (three choices). It equals \(2t\), while the two other coordinates sum to \(1-2t\) and each is at most \(t\). Their allowed interval length is \(4t-1\) when \(1/4<t<1/3\), and \(1-2t\) when \(1/3<t<1/2\). Multiplying by simplex density two, three coordinate choices, and Jacobian two yields respective densities \(12(4t-1)\) and \(12(1-2t)\). Adding the \(k=1\) and \(k=2\) contributions gives the displayed piecewise density. Direct integration, including the atom, gives the distribution function and rational moments. The atom plus density integrate to one.
-
-**5. Moment convergence.** The finite bound in Step 2 gives \(0\le\Phi(W_n)/n\le(1+\lfloor N/2\rfloor)/(N+2)\le1\). Consequently weak convergence implies convergence of the first two moments, proving the asserted expectation and variance limits.
+**5. Moments.** Integration against the atom and the two density pieces gives total mass one and the displayed rational moments. The normalized finite counts are bounded by 1, so weak convergence gives convergence of both moments and hence of variance.
 
 ## Verification
 
-The independent literal checker `verify.py` builds all substring multiplicities without using the zero-gap formula. It compared the claimed finite formula and both extrema for all \(1140\) length-composition instances with \(0\le N\le17\). It also compared normalized finite cutoffs to the continuous-root model for \(N\in\{19,30,61,100,150,225\}\), and integrated the density with exact rational arithmetic for normalization, mean, second moment, and variance. All checks passed; see `output.txt`. These finite checks do not prove the unbounded claims: Steps 1–5 provide the proof.
+The accompanying standard-library `verify.py` enumerates literal factor multiplicities for all 1140 gap triples with \(0\le N\le17\), comparing the exact indexed-gap formula and both extrema. It checks the normalized cutoff against the root model at several larger sizes and integrates the density with exact rational arithmetic. `output.txt` records the original checker output. The analytic proof, not these finite checks, proves the unbounded statements.
 
-Reproduce with `python3 verify.py` using the Python standard library, with no external data or dependencies. The full source and captured output accompany this text.
+## Relationship to prior work and limitations
 
-## Relationship to prior work
-
-Bals, Charalampopoulos, Lachish, Pissis, and Verbeek, *Text Indexing: From Reporting to Counting* (arXiv:2607.24043, first public 2026-07-27; ESA 2026), establish the general \(\Phi(w)\le|w|\) theorem and a construction with a growing alphabet. Their Theorem 1 and Proposition 6 address the unrestricted upper bound and witnesses, not the fixed-Hamming-weight-two statistic or its limiting distribution.
-
-The public result *Fixed-binary asymptotic sharpness of the frequent-factor bound* (2026) extends the unrestricted extremal asymptotic to the binary alphabet via periodic de Bruijn words, but those sources have many ones and the assertion \(\max\Phi(w)/n\to1\) does not imply the law at fixed weight two. Related fixed-two-marker factor results concern other invariants, including minimal absent factors, not factors whose overlapping occurrence count exceeds their own length.
-
-## Limitations
-
-The distribution is for uniformly sampled words of weight exactly two; neither the fixed-weight-three law nor the regimes of marker weight increasing with length are settled here. The density describes only the limiting normalized count, not a complete finite-length probability mass function. No independent mathematical audit has been performed. Published sources were inspected as described in the accompanying review, but historical priority cannot be proved by database search and an unindexed equivalent remains possible.
-
-## References
-
-1. B. Bals, P. Charalampopoulos, O. Lachish, S. P. Pissis, H. Verbeek, *Text Indexing: From Reporting to Counting*, arXiv:2607.24043 (first version 2026-07-27), ESA 2026, Article 68, DOI: 10.4230/LIPIcs.ESA.2026.68. Full open text: https://drops.dagstuhl.de/storage/00lipics/lipics-vol388-esa2026/html/LIPIcs.ESA.2026.68/LIPIcs.ESA.2026.68.html
-2. *Fixed-binary asymptotic sharpness of the frequent-factor bound* (2026), public record and proof: https://github.com/published-finding corpus/2026/blob/main/2026/10/18/SCOPE-fixed-binary-asymptotic-sharpness-of-the-frequent-factor-bound--18eac5e211b6/RESULT.md
-3. *Minimal absent factors of two-marker binary words: exact counts and a limit law* (2026), related distinct invariant, public record: https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-minimal-absent-factors-of-two-marker-binary-words-exact-counts-a--e744971e8c41
+Bals, Charalampopoulos, Lachish, Pissis, and Verbeek, *Text Indexing: From Reporting to Counting* (ESA 2026, Article 68, [DOI](https://doi.org/10.4230/LIPIcs.ESA.2026.68), arXiv:2607.24043), study the general frequency-versus-length statistic and its unrestricted extremal bound. *Fixed-binary asymptotic sharpness of the frequent-factor bound* (record 18eac5e211b6) addresses a dense worst-case regime. *Minimal absent factors of two-marker binary words: exact counts and a limit law* (record e744971e8c41) counts a different, absence-based invariant of the same sparse family. The scope here is fixed weight two; neither other weight regimes nor a full finite-length probability mass function are claimed. Unindexed equivalent prior work remains possible.

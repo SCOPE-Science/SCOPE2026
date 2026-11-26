@@ -1,11 +1,21 @@
-# Scientific review of the first information-bound failure for maximal matchings of a path
+# Independent mathematical audit
 
-**Correctness — PASS.** The domain is the inclusion-maximal matchings of the paths with 0 through 15 edges. The binary-string characterization (no adjacent ones, every zero dominated by a neighboring one) is equivalent to maximality, and the recurrence for the number of hypotheses has base values 1, 1, 2. An explicit full shattered tree for every value 0 through 15 proves the lower bound, while cardinality bounds prove all upper bounds through 14. At 15, the 65-class obstruction reduces all possible depth-six roots to two reflected positions, then uniquely determines the only possible deeper balanced queries, and terminates with two branches whose every query has a smaller side of size at most three. Two independent standalone implementations reproduce the dimension profile and verify the root obstruction. Exact computation is used only for a fully finite claim. There is no unchecked extrapolation.
+## correctness
 
-**Originality — PASS, subject to historical priority risk.** The closest primary theory paper studied general computational hardness of VC/Littlestone dimensions (P. Manurangsi, arXiv:2211.01443, 2022), not these edge-indexed maximal-matching classes. The closest paper with the actual combinatorial objects (M. Krivelevich et al., DOI: 10.1002/rsa.21200, 2023 first-public date) studies random greedy maximal independent sets and asymptotic occupancy, not adaptive shattered trees. Classical maximal-independent-set counts (Z. Füredi, 1987) do not imply a Littlestone dimension. Searches for the exact class, aliases (maximal independent sets in the line graph of a path), numerical first-failure values 15 and 65, and the information-bound equality found no stronger covering result. This cannot establish universal historical novelty, especially outside searched literature.
+PASS
 
-**Mathematical value — PASS.** Information-bound attainment is a natural and nonautomatic property of exact finite online learning. The 15-edge case is the **first** obstruction in a standard combinatorial concept family, rather than an arbitrary slice: the number of hypotheses alone first ceases to determine optimal adaptive depth. Both a sharp positive witness (depth five) and a succinct query-balance obstruction (depth six) are supplied. The full minimality certificate across the smaller path sizes makes the 15-edge cutoff intrinsic. This is a deliberately limited finite boundary theorem; it does not purport to classify larger paths.
+A path matching is inclusion-maximal exactly when its indicator has no adjacent ones and every zero touches a one. For m>0 this is equivalent to a first one at edge 1 or 2, successive gaps of length 2 or 3, and the last one at edge m−1 or m (indices restricted to existing edges). The empty path has one hypothesis. The two first-one choices give the asserted recurrence for m≥3. A depth-d tree needs at least 2^d distinct consistent hypotheses, since each fixed matching follows one leaf. My independent gap-based enumeration and depth-feasibility recursion exactly recovered the complete profile, checked every leaf of each supplied shattered tree against its entire branch (including the empty-path certificate), and checked the printed 65-matching list against the generated class. At m=15 only edges 4 and 12 give two branches of size at least 32, each splitting 33 no/32 yes. Reflection reduces to edge 4. In its no branch only edge 12 splits with both counts ≥16, giving 17 no/16 yes. In the doubly negative branch only edge 8 splits with both counts ≥8, giving 8 no/9 yes. In both final subfamilies the maximum smaller side over all edges is 3, so neither can shatter depth three. This precludes depth six at m=15, while the validated tree gives depth five; all smaller paths attain the cardinality bound. The replay directly checked the supplied JSON and text data, rather than assuming the frozen Python generator had reread those files.
 
-**Residual risks.** The literature search is not a proof of worldwide priority. The finite matching counts are elementary/previously known, and the claim of novelty concerns only their online-shattering interaction and first-failure cutoff. Independent external scientific validation remains to be done.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The concept classes are exactly path maximal-independent-set classes under the line-graph relabeling. The classical count and information ceiling are not new, and exact early dimensions and a static formula appear in related catalogue work. The inspected statements do not give the decisive adaptive depth-six obstruction at 15 or prove the exact first miss; this is the distinct claim.
+
+## value
+
+PASS
+
+In a natural concept family indexed by path size, the cardinality bound is the benchmark for adaptive membership-query depth, and equality up to the first miss is not automatic. The exact cutoff at 15 edges distinguishes hypothesis counting from optimal realizable mistake depth. The short query-balance obstruction and explicit depth-five witness make the meaningful first failure independently reusable, rather than merely providing a finite table entry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

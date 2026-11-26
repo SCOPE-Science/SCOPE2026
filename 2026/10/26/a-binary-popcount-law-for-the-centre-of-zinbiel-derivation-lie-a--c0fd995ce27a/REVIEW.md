@@ -1,11 +1,21 @@
-# Scientific review of the Zinbiel derivation-centre formula
+# Independent mathematical audit
 
-**Correctness (PASS).** The proof establishes the multiplication identity over integers and shows that each derivation is uniquely determined by its value at the generator. It constructs all homogeneous derivations, derives their exact commutator constants, and uses absence of cancellation between distinct homogeneous output degrees to characterize the Lie centre. In odd characteristic, two test partners eliminate every index except the top. In characteristic two, Lucas parity determines the first nonzero bracket at an exact binary power; binary-digit bookkeeping then proves the dimension formula. A standard-library checker independently corroborated the identities and 360 central-basis cases. Finite tests are supporting evidence only; the all-dimensions statement rests on the symbolic proof.
+## correctness
 
-**Originality (PASS, conditional on bounded literature access).** Actual research-record searches, archived internal claims for deduplication, and primary source inspections did not identify the characteristic-two centre basis or popcount formula. Complex classification of Zinbiel structures does not give this modular derivation-Lie-centre invariant. The 2024 study of *central derivations* concerns maps with central image, rather than central elements of the full derivation Lie algebra, and its scope is complex dimension at most four. Residual risk: the same Lie bracket is that of the truncated positive divided-power Witt algebra. Although exact arbitrary-truncation centre formulas were not located in searches using that alias, a broader Witt classification or a general uninspected treatment of modular one-generator operadic derivations could imply the result.
+PASS
 
-**Value (PASS).** The exact Lie centre is a natural structural invariant of the symmetry algebra of a canonical infinite family. Its dimension exhibits an unbounded, explicitly controlled characteristic-two excess despite uniformly bounded odd-characteristic behaviour, with a complete homogeneous basis rather than merely sample numerical counts. The binary carry mechanism explains the difference. This is not a relabeling of known nilindex classification or a narrow arbitrarily selected finite count.
+For the stated integral multiplication and n>=2, e_1 generates the algebra, so a derivation is determined by its value on e_1. In the derivation identity, after factoring out (a+b+h-2)!/((a-1)! b! h!), the left side has factor a+b+h-1 and the two right sides have factors a+h-1 and b. This verifies the identity over the integers and hence over any field; truncation preserves it by degree. The indicated maps extend the arbitrary generator images, and their brackets follow by evaluating on e_1. Fixing a partner, distinct basis terms have distinct output degrees, so no mixed central term can survive by cancellation. The partner 1 forces i=1 in characteristic 0 or i=1 modulo p in characteristic p. Partner 2 rules out i=1 in characteristic 0 and all such i<n for odd p; the top degree is then central exactly as stated. In characteristic 2, for odd i with s trailing ones, Lucas carry tests give both binomial coefficients even for 2<=j<2^s, both odd at j=1, and exactly one odd at j=2^s. Thus centrality means the first nonzero partner is beyond the cutoff. With N=n+1 the inequalities for i=2^s(2u+1)-1 say that digit s of N must be one and its remainder modulo 2^s at most 2^s-2. These are exactly one-bits above the trailing run, of length nu_2(n+2), including the no-admissible-bits case. At n=2^r-3 this gives r-1. The 360 finite cases reported in the inspected checker and verification notes are corroboration; the uploaded script was not executed.
 
-**Scope and limitations.** Only the specified null-filiform family is treated. No classification of all Zinbiel algebras or independent validation is asserted. Publication priority remains bounded by the accessible primary sources and searches.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The contribution is the Lie centre for every truncation, in particular the characteristic-two homogeneous basis and exact dimension law. The Zinbiel multiplication and the divided-power Witt presentation are established background. The closest indexed results address different invariants or different Lie brackets; no covering arbitrary-truncation theorem was found in the checked sources.
+
+## value
+
+PASS
+
+The Lie centre is a natural invariant of the derivation algebra. The result classifies the actual central degrees and their dimension for every truncation, revealing unbounded growth governed by binary carries in characteristic two versus dimension at most one in odd characteristic. This is not just a re-expression of the known multiplication or a finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

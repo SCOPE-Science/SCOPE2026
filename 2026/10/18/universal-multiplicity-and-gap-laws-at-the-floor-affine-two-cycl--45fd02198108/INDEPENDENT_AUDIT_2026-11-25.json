@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:17:00.581908Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 38–95 and VERIFICATION.md; frozen verify.py read but not executed",
+        "Independent replay: python3 /workspace/checks/5.py; rational floor iteration, both signs, phase grid at true floor discontinuities, exact cell-length tails"
+      ],
+      "rationale": "For positive gap k, the two floor equations give two unit half-open intervals whose displacement has magnitude k*epsilon. Their intersection is empty at and beyond k*epsilon=1. Choosing the smaller endpoint x=−floor(k/2) places the nonempty phase window wholly within [0,q); other x translate it by integer multiples of q and do not intersect that interval. The even windows [j*epsilon,1−j*epsilon) and the sign-dependent odd windows are nested on disjoint phase ranges. Thus N>=m is exactly the union of the even window at gap 2m and the odd one at 2m−1, including the endpoint convention. Counting integers with the resulting weak lower-window and strict upper-window tests gives a floor or ceiling count within one of the triangular height divided by epsilon, with the odd cutoff shifted by at most one mesh cell; [2,q) on the expanding side contributes zero. Setting m=floor(t/epsilon)+1 in the survival formula proves the stated CDF bound by Lipschitz continuity of positive part, and the bounded support gives moment convergence. On N>0 the available gaps are the first N even or odd gaps; coupling the rank to ceil(NV) makes the error relative to 2*epsilon*N*V at most 2*epsilon. The zero-cycle probability tends to zero, so conditioning does not affect the phase limit. Rescaling the phase to [0,2) gives the uniform triangular height independently of V, proving the joint law and the product-of-uniforms marginal. Independent direct iteration also agreed throughout 748 rational phase cells, with 2,534 profile/survival checks in addition to direct gap-list and half-open-cell checks.",
+      "residual_risks": [
+        "Rational-cell checks are finite; the interval and coupling arguments establish the continuum and joint limit. The law is for parameter sampling, not randomly evolving initial states or cycle-weighted parameter sampling."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hoseana parametrizes all primitive two-cycles by integer gap and admissible integer starting point in both slope regimes. Theorem 3 classifies orbit omega-limits, not offset averages. The earlier indexed contraction result concerns the attraction basins at fixed parameters. The Rozikov et al. model has no offset."
+        ],
+        "reasoning": "The fixed-phase census is complete antecedent information, but the theorem does not state an offset measure, distribution of overlapping windows, or a uniform-within-phase random gap. Basin or unshifted classifications cannot supply these sampling claims unchanged.",
+        "searches": [
+          "Hoseana arXiv:2406.14055v1 §2, Theorems 2 and 3",
+          "Rozikov–Sattarov–Usmonov arXiv:1503.07129, model definition",
+          "b81ca333b81c/RESULT.md, Finding and deterministic basin proof"
+        ]
+      },
+      "checked_sources": [
+        "Hoseana Theorems 2–3; Rozikov et al. model definition",
+        "Local Resultary exact law and basin record passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hoseana's gap condition determines the individual windows. The ensemble tail still requires nesting by parity and disjoint placement to integrate the count; a count statistic alone does not specify the law of a sampled orbit mark. The frozen proof uses the arithmetic progression of gaps and a rank coupling, and controls the negligible set with no cycles."
+        ],
+        "reasoning": "The local cycle criterion is prior; the ensemble analysis reorganizes it into an exact probability law and a joint scaling statement. Even where existing parity windows make the contraction-side coupling available, the inspected results do not give or directly state the full two-sided marked theorem. Initial-state basin sampling would give a different mark bias.",
+        "searches": [
+          "Hoseana Theorem 2 endpoints versus the two parity towers in the frozen Proof",
+          "ea2e17a70f5e parity windows and final limit proof",
+          "b81ca333b81c exact basin descriptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For slope −1+epsilon, epsilon<=1/2, the indexed comparator has the identical tail divided by 2−epsilon. Its triangular profile is 2*dist(v,(1/2)Z) in the normalized phase v={mu/(2−epsilon)}, with a 3*epsilon/2 error. It gives the identical uniform limit for counts on the contraction side."
+        ],
+        "reasoning": "This is exact one-sided count overlap, not just a common critical scale. Its normalized triangle equals the limiting profile evaluated at phase 2v, whereas the frozen finite error is in the unnormalized phase. The expanding-side count and conditional gap law remain distinct.",
+        "searches": [
+          "Resultary: floor affine map lambda near -1 period two cycle count parameter phase distribution gap law",
+          "ea2e17a70f5e/RESULT.md Finding and Steps 2–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact finite-parameter survival formula was found on the contraction side, reproduced above; the fixed-phase count is also explicitly computable by a floor-difference sum. No exact jointly sampled mark result was established in the inspected material."
+        ],
+        "reasoning": "The exact same law on the restricted count entry is recorded as overlap. An exact census at each parameter is not an exact table for the two-stage joint statistic; the search limits do not constitute proof of historical absence.",
+        "searches": [
+          "Resultary count, basin and conditional-gap searches; exact indexed entry ea2e17a70f5e",
+          "Hoseana Theorem 2, floor-difference census"
+        ]
+      },
+      "rationale": "Do not credit the fixed-offset periodic-orbit census. Credit the explicit two-sided parameter-ensemble law, pointwise profile and, in particular, the joint gap limit for uniform-within-phase cycle sampling. The strongest exact comparator repeats the contraction-side count formula and leading profile on a narrower parameter range; its later index date is reported without assigning historical priority. Its result does not state the two-sided law or the joint mark limit.",
+      "residual_risks": [
+        "Journal revision of Hoseana was not inspected; that route failed, but the original preprint theorem was inspected. An unindexed equivalent parameter-ensemble analysis could affect priority; no priority conclusion is drawn from later overlap alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FIXED_PARAMETER_CENSUS_COVERED",
+          "evidence": "Theorem 2 specifies the integer gap and lower-endpoint ranges and a floor-difference count; Theorem 3 classifies omega-limits for fixed maps.",
+          "identifier_or_url": "https://arxiv.org/html/2406.14055v1",
+          "material_read": "§2 Theorems 2 and 3, HTML offsets 11300–13788 and 13800–19628",
+          "method": "OA arXiv HTML of same paper; journal DOI route returned 403",
+          "title": "The dynamics of one-dimensional quasi-affine maps",
+          "trigger": "Complete prior fixed-phase census in both regimes"
+        },
+        {
+          "assessment": "EXACT_RESTRICTED_COUNT_OVERLAP_LATER_INDEX",
+          "evidence": "Matches the survival law for slope −1+epsilon up to epsilon=1/2 and its weak limit, with a normalized phase/error bound; no expanding branch or marked gap limit in the inspected theorem.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-exact-two-cycle-multiplicity-distribution-at-the-negative-flip-b--ea2e17a70f5e/RESULT.md",
+          "material_read": "Finding, assumptions and Proof Steps 1–4",
+          "method": "Resultary and local mirror",
+          "title": "Exact two-cycle multiplicity distribution at the negative-flip boundary of quasi-affine maps",
+          "trigger": "Exact count law and triangular profile hit"
+        },
+        {
+          "assessment": "DIFFERENT_STATISTIC",
+          "evidence": "Gives the outer/inner deterministic basins of the contraction and settling times, not a distribution under uniform phases or ranks.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-outermost-cycle-basin-selection-and-logarithmic-settling-for-qua--b81ca333b81c/RESULT.md",
+          "material_read": "Finding and fixed-offset basin passages, offsets 0–4468",
+          "method": "Resultary and local mirror",
+          "title": "Outermost-cycle basin selection and logarithmic settling for quantized affine contractions",
+          "trigger": "Earlier same-map cycle geometry"
+        },
+        {
+          "assessment": "ZERO_OFFSET_ONLY",
+          "evidence": "Studies floor(lambda*x) without the additive phase.",
+          "identifier_or_url": "https://arxiv.org/abs/1503.07129",
+          "material_read": "PDF p. 2 model definition, offset 4817",
+          "method": "OA arXiv PDF text",
+          "title": "The dynamical system generated by the floor function",
+          "trigger": "Earlier floor-map classification candidate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and joint-limit proof; Hoseana fixed-parameter classification"
+      ],
+      "rationale": "A natural uniform translation-conjugacy phase turns the proliferation of periodic orbits near slope −1 into an exact finite-parameter law, including the different normalizations on the two sides. The marked law adds geometric information: the gaps are asymptotically uniform up to the phase-dependent maximum, while mixing over phases creates a logarithmic singularity. The within-phase sampling distinction makes this more than a restatement of the fixed-parameter census.",
+      "residual_risks": [
+        "No claim about basins, random forcing, or phases sampled proportionally to their cycle counts follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

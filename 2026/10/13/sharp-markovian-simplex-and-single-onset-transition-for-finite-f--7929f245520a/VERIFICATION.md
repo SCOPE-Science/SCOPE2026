@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The universal theorem is analytical. Its critical identities and checks are these:
+## correctness
 
-1. Each of the \(q+1\) finite-field lines is self-symplectic-orthogonal. Its character sum over the nonzero labels is \(q-1\) for a label in that line and \(-1\) otherwise. These identities fix all normalization factors in the canonical rates.
-2. Every nontrivial channel eigenvalue is \(x_j+(1-x_j)e^{-ct}>0\) at finite time, so no singular time-local generator is assumed. Weyl Fourier inversion gives \(\gamma_k=q^{-2}(\sum_{j\ne k}g_j-(q-1)g_k)\), where \(g_j=c(1-x_j)e^{-ct}/[x_j+(1-x_j)e^{-ct}]\).
-3. The first-order Choi test shows negativity of any individual coefficient is an obstruction to complete positivity, while the nonnegative coefficients form a GKLS generator.
-4. In the simplex interior, \(a_j=(1-x_j)/x_j\), \(m=\max_j a_j\), and monotonicity of \(a/(1+ay)\) give CP-divisibility if and only if \(\sum_j a_j\ge qm\). Otherwise the one-dimensional function \(F(y)\) in the proof increases strictly, starting negative and ending positive, establishing precisely one onset of a negative rate.
-5. Zero-weight faces are checked directly at every positive time; a vertex reduces to its original semigroup. The equality-case expansion is a Taylor expansion with a strictly positive coefficient.
+PASS
 
-The packaged `verify.py` uses only Python 3.9+ standard-library modules. Run `python3 verify.py` in the directory containing this document. It directly evaluates all nonidentity Weyl Fourier characters (not only the derived formula) for prime fields of sizes 3, 5, 7 and the proper degree-two field of size 4. It uses a reproducible seed, 240 mixing vectors for each dimension, eight times, and direct character sums over \(q^2-1\) labels. All 182400 direct Fourier-to-formula comparisons passed, together with sign, onset-root and face classification tests. This finite computation cannot establish the claim for all prime powers or exclude unexamined prior work.
+Scope is the q+1 F_q-linear lines in F_q², not every maximal isotropic additive subgroup in composite prime-power dimension. Each line is its own field symplectic perpendicular; for a Weyl label off the line the symplectic pairing runs through F_q, so the nontrivial trace character averages to zero. This yields the stated T_j eigenspaces and positive finite-time λ_j=x_j+(1−x_j)y with y=e^(−ct), including zero weights. Independently invert the generator in T_j−Id: its coefficient b_j must satisfy Σ_i b_i−b_j=g_j=−(d/dt)log λ_j on sector j. Summing gives Σ_i b_i=Σ_i g_i/q, and T_j−Id is the sum of the q−1 nonidentity Weyl conjugation differences divided by q. Hence γ_j=(Σ_i g_i−qg_j)/q². Nonnegative Weyl coefficients yield a GKLS generator; a negative one has a negative first-order Choi expectation along its orthogonal nonidentity Bell vector for a short propagator. Finite-time invertibility makes this propagator the unique intermediate map. In the simplex interior a least rate always corresponds to m=max_j a_j. Its exact expression is cyF(y)/[q²(1+my)], where F is the displayed root function. (Dividing by cyφ_y(m)/q² gives F/m, not F itself; the proof only uses the sign.) F(0)=A−qm and F(1)=q; F is nondecreasing, with strictly positive derivative unless all a_j=m. Thus A≥qm is necessary and sufficient, and A<qm gives exactly one crossing in (0,1) and local CP-indivisibility at every later time, with inclusive endpoint on the initial interval. At equality A=qm the leading term is c(qm²−Σ_j a_j²)y²/q², positive because all a_j>0 and not all equal. On a proper face with 2≤s≤q active weights, each active g_j<c(1−x_j) for t>0 and each absent g_j=c, so γ_k<0 in every absent direction; a vertex is the original semigroup. Substitution of qutrit weights (1/10,3/10,3/10,3/10) gives exactly y*=11/21. Inspected, did not run, the frozen finite numerical diagnostic. Its reported 182400 counts nonidentity-label units over the main test cases; the actual rate assertions there are made for one representative per direction, not 182400 distinct rate-to-formula comparisons. The continuous proof and all prime powers do not depend on that reporting convention.
 
-A diagnostic exact example is \(q=3\), \(x=(1/10,3/10,3/10,3/10)\): the onset occurs at \(e^{-ct_*}=11/21\). The numerical tests do not certify numerical precision outside their tested samples, nor provide an independent external audit.
+## originality
+
+PASS
+
+The evaluated interior simplex condition together with the exact global single-onset structure is the supported distinction. Existing generalized-Pauli formulas already give the same mixture and pointwise rate sign test, even in the complete-MUB prime-power setting, and substantial proper-face behavior was known; neither derivation of the instantaneous rates nor mere extension using prime powers is the new result. The inspected sources do not evaluate the general all-time sign problem into the stated weight-only condition and monotone crossing classification.
+
+## value
+
+PASS
+
+For a natural equal-rate mixture of mutually unbiased pinchings, a weight-only rule is useful in place of testing every time instance. The evaluated classification establishes a sharp distinction between immediate, delayed and absent loss of CP-divisibility, including a permanent-onset theorem and the critical tail behavior. The contribution is not the existing pointwise generator formula or a one-weight example; scope remains fixed weights, a common decay rate and the complete field-line family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

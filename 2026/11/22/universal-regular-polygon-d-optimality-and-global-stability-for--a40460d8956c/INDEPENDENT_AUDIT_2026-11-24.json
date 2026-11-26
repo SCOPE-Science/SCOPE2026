@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:25:12.491596Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For p=q^2 and R=rho^2, Katori–Shirai's theta quotient and Frobenius identity give the asserted product of angle-dependent ratios: the extra theta argument is -r*R^N, the diagonal argument is R, and conjugate factors pair into squared moduli. The kernel is strictly positive definite on distinct nodes, also seen by restricting the Laurent quadratic form to the first N nonnegative exponents and applying Vandermonde. In the theta logarithm differentiation, the product factors give the difference of L-periodizations of sin(t)/(cosh(x)-cos(t)) at shifts 0 and a. Its Fourier transform follows by Abel-expanding in exp(-j|x|) and using the sine coefficients of the differentiated periodic resolvent for -d^2/dt^2+xi^2; at zero frequency the value is 2(pi-t). Poisson summation thus cancels the zero mode and combines opposite frequencies to give exactly the factor 4pi/L in v'. Termwise differentiation is justified by exponential decay locally in 0<t<2pi. The curvature series has nonnegative terms and h=1 gives exactly c_{q,rho}>0. The estimate is strict on every nontrivial interval since h=1 already has cosh>1 off t=pi. All k-th arcs average 2pi*k/N; counting both directions of each unordered pair introduces a factor 1/2, so strong Jensen yields c_{q,rho}/4 times the squared arc deviations. A nonregular configuration has unequal first gaps and gives strict inequality. The regular Gram matrix has Fourier eigenvalues N*A_j by residue classes, with absolute convergence since p<R<1; dividing by the common diagonal A gives the stated normalized maximum. This holds for r>0 and N>=2 on the prescribed interior circle, with no claim of sharpness of the stability coefficient. The supplied numerical script and verification notes were inspected without executing the uploaded script.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Katori–Shirai covers the full weighted annular kernel and arbitrary-node Frobenius factorization. Their angular extrema lemma uses theta(-beta exp(i phi))/theta(alpha exp(i phi)), unlike the positive numerator with a collision zero here. Gafai et al. give product and zero formulas. Dubickas–Pritsker treat an external-field weighted Vandermonde, with generally Möbius-transformed equispaced maximizers."
+        ],
+        "reasoning": "A broader algebraic determinant formula does not prove the sign and modulus of curvature in the varying angles. A two-point angular extrema lemma for a signed numerator cannot replace curvature on the full interval, and the external-field objective changes the interaction.",
+        "searches": [
+          "arXiv:2008.04177, Proposition 2.2, Sect. 3.2 and Lemma 3.4",
+          "arXiv:2202.09114, Theorem 3",
+          "arXiv:1902.08348, Theorems 3.1 and 4.1",
+          "Resultary 44f30fce73fa"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_annular_design.py",
+        "arXiv:2008.04177",
+        "arXiv:2202.09114",
+        "arXiv:1902.08348",
+        "Resultary 44f30fce73fa and exact self-match a40460d8956c",
+        "Green.pdf §13.2",
+        "DOI 10.1023/A:1006150004533 (retrieval attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The disk gap is essentially the same angular deviation functional: writing epsilon_i=theta_i-2pi*i/N, the squared directed arc deviations sum to 2N*sum_i(epsilon_i-mean(epsilon))^2. But its disk Cauchy pair potential is not the annular theta ratio. On the log cylinder of width L/2, the equivalent check of the frozen curvature would use Dirichlet sine modes with eigenfrequencies 2pi*h/L and the periodic one-dimensional resolvent in angle. The first mode has radial weight proportional to sin^2(pi*a/L). The generic partial-eigenfunction construction in the inspected textbook example does not give the claimed annular angular estimate as a stated inequality."
+        ],
+        "reasoning": "Both proofs can use the same Jensen step once the interaction has positive curvature; the nontrivial parameter-specific step is an annular curvature estimate with an explicit positive coefficient throughout the domain. The disk result and the known factorization alone do not imply it. The possibility of an earlier explicit equivalent periodic-cylinder expansion is not excluded.",
+        "searches": [
+          "arXiv:2008.04177, Eq. (3.3) and Lemma 3.4",
+          "Resultary 44f30fce73fa, Finding and Proof §§2–4",
+          "Green's Functions for Dirichlet Boundary Value Problems, §13.2, Example 13.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For p=q^2 the annular Dirichlet Green function with singularity -log|z-w| can be written as -log|theta(z/w;p)/theta(z*conj(w);p)| plus a harmonic radial correction. Indeed on |z|=1 the uncorrected value is log|w| by theta inversion, and on |z|=q it is zero by theta(p/z)=theta(z); a radial log term fixes the boundary values. At fixed equal radii this is -v/2 plus an angle-independent constant. The determinant optimization is therefore equivalent to fixed-circle discrete Green-energy minimization, and the curvature term to an explicit lower bound on the second angular derivative of that Green interaction."
+        ],
+        "reasoning": "An annular equal-radius Green convexity or radial-eigenmode formula yielding the same constant could subsume the result when combined with Frobenius and Jensen. General separation-of-variables sources establish the technique, but the inspected example is for a rectangle, not the periodic angular problem with the claimed positive curvature series. No inspected annular Green theorem establishes this equivalent bound.",
+        "searches": [
+          "Web: annulus Green function fixed concentric circle equally spaced points discrete Green energy regular polygon Dubinin convexity Green function cylinder sin hyperbolic series angular",
+          "Web: Dirichlet Green function annulus rectangle periodic strip separation of variables sin cosh Green's function cylinder annulus circumferential Fourier sin radial",
+          "arXiv:2008.04177, Eq. (3.3)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact annular result in a40460d8956c is the frozen record itself. 44f30fce73fa supplies exact determinant, spectrum and a sharp quadratic angular gap for the disk kernel. Other distinct results from the same displayed day treat a restricted two-ring bianalytic disk D-design or a weighted Bergman A-design."
+        ],
+        "reasoning": "Credit the disk exact classification, not a new design principle. The window of annular parameters, the two-sided Laurent residues and the annular second-derivative constant are not covered by that formula or the differently constrained designs.",
+        "searches": [
+          "Resultary semantic search for weighted annular Szegő determinant maximizers and global angular stability: a40460d8956c, 44f30fce73fa, 7b41ba687f60, babd666c20d6"
+        ]
+      },
+      "rationale": "The theta factorization, general cyclic Jensen step, and analogous disk Szegő optimum and stability are established. The supported distinct content is the annular equal-radius theta-ratio curvature estimate for every admissible q and rho, and its fixed-circle weighted determinant consequence. The closest inspected formulas and disk theorem do not supply that annular estimate. Equivalent Green-function literature remains an explicitly bounded priority risk.",
+      "residual_risks": [
+        "An older equivalent annular Green-energy theorem or angular expansion of the annular Green kernel could give the same coercivity by differentiation. The bounded search and inaccessible annular papers do not exclude this.",
+        "Same-day entries on other design problems are not evidence of publication order. The Frobenius determinant and the general design strategy are not claimed as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Determinant factorization is known; angular extrema result for a different signed ratio does not give this curvature",
+          "evidence": "Specializing Eq. (3.3) to nodes of equal modulus gives the angle-factor product in the finding; Lemma 3.4 concerns the modulus ratio with negative numerator argument.",
+          "identifier_or_url": "https://arxiv.org/pdf/2008.04177",
+          "material_read": "Proposition 2.2, Eq. (2.30), p. 23; Section 3.2, Eq. (3.3), p. 33; Lemma 3.4 and proof, p. 36",
+          "method": "OA primary PDF",
+          "title": "Zeros of the i.i.d. Gaussian Laurent series on an annulus: weighted Szegő kernels and permanental-determinantal point processes",
+          "trigger": "Exact theta kernel and determinant reduction, and a possible related curvature lemma"
+        },
+        {
+          "assessment": "Strong overlap in the geometry, functional and proof strategy, with a different kernel",
+          "evidence": "Sharp disk bound c_r*N times the centered squared deviations for normalized kernels proportional to (1-conj(a_j)*z)^(-1), plus regular spectrum.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-determinant-stability-and-conditioning-of-concentric-szeg--44f30fce73fa/RESULT.md",
+          "material_read": "Finding, offset 0, and Proof §§2–4",
+          "method": "Local mirror",
+          "title": "Sharp determinant stability and conditioning of concentric Szegő orbit frames",
+          "trigger": "Identical disk design objective, related curvature argument and global gap"
+        },
+        {
+          "assessment": "Kernel representation, not an optimization or curvature result in the inspected theorem",
+          "evidence": "Gives weighted product/theta representation and its zero condition.",
+          "identifier_or_url": "https://arxiv.org/pdf/2202.09114",
+          "material_read": "Theorem 3, equations (37)–(41), p. 10",
+          "method": "OA primary PDF",
+          "title": "Infinite Product Representation for the Szegő Kernel for an Annulus",
+          "trigger": "Exact annular Szegő product and possible theta-ratio inequality"
+        },
+        {
+          "assessment": "Different determinant-like objective and different optimizer family",
+          "evidence": "Weighted Vandermonde with external field 1/|z-b| has a Möbius image of an equally spaced grid; the continuous theorem concerns its own equilibrium energy.",
+          "identifier_or_url": "https://arxiv.org/pdf/1902.08348",
+          "material_read": "Theorems 3.1 and 4.1, pp. 6–7",
+          "method": "OA primary PDF",
+          "title": "Weighted Fekete Points on the Real Line and the Unit Circle",
+          "trigger": "Exact fixed-circle design from potential theory"
+        },
+        {
+          "assessment": "Prior method, not the stated periodic-cylinder formula or annular angular result",
+          "evidence": "Illustrates normalized sine eigenfunctions in one coordinate and solves the remaining Dirichlet problem on a rectangle.",
+          "identifier_or_url": "https://home.cc.umanitoba.ca/~dtrim/BooksandNotes/PDE/Green.pdf",
+          "material_read": "§13.2, partial eigenfunction construction and Example 13.2, document pages 3–5, offsets about 9750–11714 and locator near 14537",
+          "method": "OA textbook PDF",
+          "title": "Green’s Functions for Dirichlet Boundary Value Problems",
+          "trigger": "Potential exact Green-function implication through partial eigenfunction expansion"
+        },
+        {
+          "assessment": "Residual risk; no claim on whole-paper contents",
+          "evidence": "Direct and alternate retrieval did not recover the paper. The accessible description concerns annular and Möbius-strip Green functions.",
+          "identifier_or_url": "https://doi.org/10.1023/A:1006150004533",
+          "material_read": "Public bibliographic description; no available full text recovered",
+          "method": "Bounded lawful OA retrieval attempt",
+          "title": "Explicit Formulas for Green’s Functions on the Annulus and on the Möbius Strip",
+          "trigger": "Plausible earlier explicit representation of the equivalent Green interaction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For exact D-optimal sampling on a prescribed annular circle, the result gives the unique geometry, exact determinant and a uniform positive loss estimate with explicit domain dependence for any perturbation, independent of the boundary weight. The annular curvature estimate is the substantive addition to a known disk method. The theorem makes no claim of multi-radius optimality or a best possible stability coefficient.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

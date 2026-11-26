@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The all-height statement follows from the directly proved valuation formula for Fibonacci numbers, exact factorial decomposition for each mod-four index pair, an ordinary base-three carry count, and two finite-state transfer inversions. There are exactly ten non-crossing and six crossing residues per pair of quotient indices; the crossing case has its additional factor \(u^{1+\nu_3(R)}\). Independent exhaustive Fibonomial factorial valuations reproduce all 472878 coefficients at the largest tested height (level five), and the checker tests all six levels. The proof covers every height, not only these finite cases.
+PASS
 
-## Originality — PASS on checked evidence
+The Fibonacci addition identity gives integrality: the interior entry (m,k) equals F_(m-k+1) times the entry (m-1,k-1) plus F_(k-1) times the entry (m-1,k), from boundary 1. The Fibonacci matrix has off-diagonal zero modulo 3 exactly at multiples of four; Q^4=-(I+3C), and cubing successively increases the valuation of the correction by one and preserves its normalized off-diagonal modulo 3. Raising to a power prime to 3 proves v3(F_(4j))=1+v3(j). Partitioning the factorial quotient by residues of m,k modulo four gives ten residue pairs with ordinary binomial valuation and six with an extra 1+v3(R), the latter only when R=Q-K>0. In adding K and R the base-three transfer has rows (6,3u),(3,6u) and must end without overflow. Before the first nonzero digit of R, carry remains zero and each zero has total weight 3u; first exit weights are (3,3u). Thus the resolvents give (1-6uz)/Delta for the ordinary term and z(3,3u)(I-zT)^(-1)(1,0)^T/(1-3uz)=3z/Delta for the trailing-zero term. Their weighted sum gives the claimed all-level GF. Specializing to u=0 gives 10·6^L; at L>=2 only 6uH_(L-1) contributes to degree L, so its coefficient is 18·6^(L-1) from level one. Independent recursion computing actual integral entries gives the same complete histograms at L=0 through 3.
 
-Chen and Sagan (2013), Section 5, Theorem 5.1, prove only a congruence modulo three at the same natural triangular scales. Phunphayap and Pongsriiam (2018) give individual prime-adic valuation formulas, while their 2022 paper treats digital divisibility and asymptotics of the one-parameter family of Fibonomial coefficients with top index a prime multiple of the lower one. Knuth and Wilf (1989) provide the general carry principle. Those results underpin, but do not state, the exact complete finite-block bivariate histogram and its maximal-valuation count. The step from per-entry formulas to the closed transfer resolvent is explicitly established here. The accessible literature may omit a differently formulated or unindexed equivalent count.
+## originality
 
-## Value — PASS
+PASS
 
-The first \(4\cdot3^L\) rows are a distinguished natural scale from the earlier modulo-three fractal theorem, not an arbitrarily selected cutoff. Passing from nonzero modulo three to *every* divisibility level resolves the higher-order distribution at these scales. The exact denominator of degree two, sharp maximum \(L\), and its multiplicity reveal arithmetic structure not supplied by the original sign/fractal congruence. This is an exact infinite family of useful distribution invariants rather than merely a finite computation.
+The evaluated whole-triangle distribution at all levels is the supported distinct claim. The same-size mod-three fractal already determines the nonzero pattern, and the 2018 Theorem 11(iii) already gives the entrywise reduction used by the proof, exactly at p=3 after specialization. Neither examined result enumerates the complete block of valuations. The block summation with both the carries and the trailing zeros and their explicit rational combination is the contribution assessed here.
 
-## Sources and limits
+## value
 
-See the proof's references, especially Chen–Sagan (2013), Phunphayap–Pongsriiam (2018, 2022), and Knuth–Wilf (1989). Uninspected or weakly indexed specialized counting papers could contain the same histogram. This assessment does not address unrelated primes or the actual mod-nine residue classes.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The scales are those of the classical mod-three Fibonomial fractal, not arbitrary cutoffs. The whole positive-valuation spectrum makes exact prime-power frequency queries and the sharp top stratum available from a short recurrence rather than coefficient-by-coefficient computation. The previously known entrywise valuation and valuation-zero pattern are not counted as the contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

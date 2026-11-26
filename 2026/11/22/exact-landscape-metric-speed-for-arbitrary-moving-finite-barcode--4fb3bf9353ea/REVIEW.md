@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every fixed parameter the order-statistic sorting lemma groups tied tent values and shows that positive- and negative-direction difference quotients are permutations of the original endpoint velocities within each tie block. The sums of their absolute \(p\)-th powers agree even if a two-sided vector derivative fails. Pointwise dominated convergence over a uniformly bounded support gives the exact metric-speed formula for all finite \(p\), and the usual length theorem for Lipschitz curves yields the path-length identity. Critical boundaries: differentiable endpoints, finite bars, positive lengths, constant bar count. The exact-rational standalone checker passed 324 secant comparisons for \(p=1,2,3\), including coincidence cases; this does not prove the infinite statement.
+PASS
 
-## Originality — PASS, priority risk remains
+At each x except the finitely many base tent breakpoints, the unsorted tents have first-order velocities -b_i' on the rising halves, d_i' on the falling halves, and zero elsewhere. Finiteness keeps distinct base-height blocks disjoint for sufficiently small |h| at that x. Inside a tied block, each baseline coordinate is the same, so the sum of p-th powers of the increments agrees exactly with the unsorted sum regardless of the ordering at h. The order-statistic sup-norm bound and the common compact support give an integrable dominator; integrating yields exactly the two half-lifetime factors for all finite p>=1, including p=1. On a compact C^1 track the same bounds give Lipschitz continuity and the metric length theorem gives the stated integral. For the example [g,4),[-g,6), the top layer is x+|g| for small |g| at each fixed x in (0,2); on any compact subinterval the resulting one-sided quotients already exclude a strong L2 derivative. Independently, for 0<h<1 the shorter perturbed tent is nested in the longer, and direct integration over the moving birth and apex strips gives ||lambda(h)-lambda(0)||_p^p = h^p[5-h(3/2-3/(p+1))], consistent with speed sqrt(5) for p=2.
 
-Belchí–Statuto, arXiv:2611.11358v1 (first public 2026-11-08), gives a closed speed formula for a common fixed birth, explicitly states the method does not apply to unequal or moving births and lists that as future work. Its formula is recovered on specializing the present theorem to fixed zero births and \(p=2\), rather than vice versa. Bubenik's 2015 landscapes establish the order-statistic and Banach framework but do not state this general moving-endpoint speed identity. Flammer–Hüper (2026) develops extended-zigzag spatiotemporal landscapes and stability, not this local endpoint-speed formula. Targeted literature comparisons for landscape velocity, moving birth, metric speed and endpoint variations returned no covering result; the closest matches concerned ordinary persistence computations. The result could still be equivalent to an unindexed local-rearrangement theorem not located in this review.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The motivating paper expressly identifies variable birth times as an open extension of its closed formula. The present result resolves that scope gap for all finite fixed-cardinality differentiable barcodes: no nested-tent assumption, complete overlap and collision allowance, every finite \(p\)-norm, and a computable length of the full landscape path. The output depends only on endpoint velocities and lifetimes, so repeated landscape construction and pointwise order-statistic tracking become unnecessary. The collision/strong-differentiability distinction is mathematically important and exhibited explicitly.
+The identical indexed record is not separate coverage. The closest explicit formula establishes the fixed common birth Hilbert case under differentiability of sorted death times. The inspected older landscape stability theorem gives an upper bound, not the exact local equality. No competing statement or stronger implication was established for the full moving-endpoint, all finite-p, tie-tolerant speed claim. This verdict does not credit the classical metric length identity separately.
 
-## Literature and limitations
+## value
 
-Relevant scientific sources: Belchí–Statuto, *Persistence landscape velocity* (arXiv:2611.11358v1); Bubenik, *Statistical Topological Data Analysis using Persistence Landscapes* (JMLR 16, 2015); Flammer–Hüper, *Spatiotemporal persistence landscapes* (Journal of Applied and Computational Topology, 2026). Residual risks: undiscovered equivalent endpoint-speed theorems; paths with bar creation and annihilation; strong differentiability at positive-measure ties. No independent audit has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The formula computes a previously restricted topological path observable directly from endpoint velocities even when unequal births and collisions switch landscape layers. Independence from overlaps at all finite p is useful for interpreting the result; the positive-length tie example marks a concrete difference between speed and strong differentiation. This is not merely a stability upper bound or a substitution into the fixed-birth formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

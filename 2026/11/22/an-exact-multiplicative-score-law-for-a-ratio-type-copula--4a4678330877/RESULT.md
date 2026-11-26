@@ -24,7 +24,7 @@ In particular,
 \[
 \mathbb E W=2,\qquad \operatorname{Var}(W)=8\log2-4.
 \]
-There is also a **unique crossing of the multiplicative-score CDF with independence**. If \(Z_0\) is the product of two independent uniform random variables, then \(\Pr(Z_0\le z)=z(1-\log z)\). There exists exactly one \(z_*\in(0,1)\), numerically \(z_*=0.09920455417196283\ldots\), with
+There is also a **unique crossing of the multiplicative-score CDF with independence**. If \(Z_0\) is the product of two independent uniform random variables, then \(\Pr(Z_0\le z)=z(1-\log z)\). There exists exactly one \(z_*\in(0,1)\), numerically \(z_*=0.0992045541719469983\ldots\), with
 \[
 \Pr(Z\le z)<\Pr(Z_0\le z)\quad(0<z<z_*),\qquad
 \Pr(Z\le z)>\Pr(Z_0\le z)\quad(z_*<z<1).

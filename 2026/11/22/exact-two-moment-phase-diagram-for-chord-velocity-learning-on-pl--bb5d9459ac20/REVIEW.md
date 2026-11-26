@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The regression normal equations give the unique optimizer because its isotropic feature covariance is a positive scalar multiple of the identity for every \(0<\theta<\pi\). An exact Pythagorean variance identity gives the residual. Differentiation and a strictly monotone cosine give the unique angular fold; Taylor expansions give the necessary and sufficient fourth-order moment pair. The supplied standard-library checker reproduces the normal equations and risk in exact rational arithmetic and performs finite phase diagnostics. The proof is analytic; diagnostics do not establish universal claims on their own.
+PASS
 
-## Originality — PASS, with attribution and priority risk
+Independently reconstructed the two regression covariances (RESULT.md 48–65): for input K_S x and target Cx they are (r²/2)D I and (r²/2)C E[K_S]^T. The smallest possible D is cos²(θ/2)>0 on 0<θ<π, so the optimizer over all matrices is unique. Subtracting its explained energy from 2r²(1−cos θ)/h² leaves 4r²v(1−cos θ)²/(h²D). This gives the stated exact residual and radial sign, including all deterministic laws. At fixed h the angular derivative of h times the fitted frequency has numerator (1−2q)cos θ+2q and positive denominator D², giving the unique fold or the increasing deterministic-midpoint endpoint case. For a fixed offset law and fixed true ω>0, the radial coefficient starts with (μ−1/2)ω²h; the angular h² and h⁴ coefficients are (q−1/6)ω³ and (q²−q/4+1/120)ω⁵. Thus the full-matrix order criterion, −1/180 coefficient, residual expansion and 2π/3 fold follow. Read VERIFICATION.md and the finite checker without executing it; the checked analytic proof suffices. The fold refers only to the fitted angular coefficient, not identification from all data.
 
-The original velocity-matching objective, general uniform-collocation bias–variance decomposition and average-vector-field interpretation are due to Farenga and Manzoni. The uniform-law frequency factor is **the already-known classical fourth-order compact Padé differentiation symbol** analyzed by Lele and displayed in Li–Li–Liao (2023); its standalone frequency fold is consequently not new. Lu and Tsai study a different rollout-fitting objective. No source inspected supplied the **joint arbitrary-distribution first-two-moment population minimizer, irreducible loss, symmetric/asymmetric drift law, and all-law exact-order tradeoff**. This is an originality assessment of that complete statement, not a uniqueness certificate. Historical equivalent formulations may remain unindexed.
+## originality
 
-## Value — PASS
+PASS
 
-The result identifies a tangible distribution-design constraint for learning conservative oscillatory dynamics: midpoint bias is the only way to eliminate spurious radial behavior, choosing variance \(1/12\) yields fourth-order generator recovery but forces a \(120^\circ\) angular-information fold, whereas a deterministic midpoint has zero residual and no interior fold but loses fourth-order consistency. The exact residual also shows that small learning error of the recovered generator and small fitted chord loss are not synonymous. The finding concerns the clean single-frequency population regime, not general nonlinear dynamics or noisy identification.
+The supported contribution is the exact arbitrary-law statistical classification: full optimizer and irreducible risk, with the necessary and sufficient moments for simultaneous conservative fourth-order recovery and the resulting fold. Velocity-matching interpolation, the general bias–variance viewpoint, and the compact-difference angular family (not just its uniform instance) are prior; they do not identify the fitted full matrix and residual or tie these to feasible offset laws. No matching joint result was established in the comparisons below.
 
-## Limits and nearest antecedents
+## value
 
-The source's exact distribution-independent linear regression formulas, rather than the known compact-difference frequency symbol, are the assessed content. No finite experiment proves infinite-dimensional uniqueness or historical novelty. The experiment is noiseless, rotationally isotropic and uses a single known sample interval below Nyquist. Prior literature on compact first derivatives and integrator-induced learning artifacts is acknowledged explicitly.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The motivated question is how to choose collocation offsets to recover conservative oscillatory dynamics, not how to maximize a known trigonometric symbol. Deterministic midpoint gives zero risk and no fold but only second-order frequency accuracy; fourth order fixes the variance, gives nonzero irreducible loss and forces a fold within the sampling range. This separates three practically different targets by exact, usable population conditions. The interpretation is limited to the specified noiseless linear model and the angular statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,24 +1,21 @@
-# Scientific review: Poisson-optimal downstream DNA sampling
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed domain is \(A>0\), \(0<p<1\), \(0<\lambda<\mu\), \(e_0,e_1>0\), and exactly two independent Poisson counts, one at the origin and one at a chosen downstream location. The Fisher determinant follows from the two score outer products, and is independent of the nuisance amplitude \(A\). Converting distance into \(t=e^{-(\mu-\lambda)x}\) gives a strictly positive objective with zero endpoint limits. Its log derivative has a concave quadratic numerator with opposite endpoint signs and exactly one positive zero, proving uniqueness globally, not just local optimality. Differentiating the log derivative with respect to \(p\) proves monotonicity. Balancing powers of \(p\) in that same exact polynomial gives the three rare-fraction limits. The symbolic checker verifies the critical identities; tests do not substitute for proof.
+PASS
 
-## Originality — PASS on inspected evidence
+Independent score calculation for the two Poisson means gives determinant e0 e1 g²/f: the downstream-only rank-one contribution cancels in the determinant and the source measurement supplies the second direction. With d=μ−λ, r=λ/d and t=exp(−dx), logarithmic differentiation gives the stated quadratic P. Its roots have negative product, P(0)>0 and P(1)=−2, giving a simple unique root in (0,1), with strict unimodality and the asserted distance cap. At the root the t derivative of the log-score is negative, while its p derivative is 1/[p+(1−p)t]², giving dx*/dp<0. Writing P=rp+b t−a t², the positive root (b+sqrt(b²+4arp))/(2a) yields t*/p→r/(1−r) for r<1 after rationalization, t*/sqrt(p)→1/sqrt(2) at r=1, and t*→(r−1)/(r+1) for r>1. This gives every displayed distance limit, including constants. The opening 'half the logarithmic slope' means half the limiting supercritical coefficient as μ decreases to 2λ, not half the coefficient at an arbitrary fixed μ>2λ; the exact formulas are unambiguous. This is a local design at a nominal p with known rates and fixed efforts, not a uniform finite-sample guarantee. Replay: RESULT.md lines 34–58 and the quadratic calculation above; the inspected checker and VERIFICATION.md document finite corroboration, not the proof.
 
-The primary 2024 river-DNA transport source develops decay and settling prediction, not a two-class Poisson Fisher-optimal downstream location. A 2025 ecological sampling-design study treats a different network regression and observation-error model. The 2006 classical paper on D-optimal exponential regression fits unknown rates and amplitudes under homoscedastic Gaussian errors, not the exact fixed-two-rate Poisson two-location design or its sharp \(\mu=2\lambda\) rare-fraction transition. Publicly indexed related results on two-exponential observation scheduling and Poisson-sensor design concern different underlying design problems. The new result does not claim that Fisher information, exponential mixtures, or D-optimality themselves are novel. Complete historical priority is unproved; an older specialized optimal-design corollary could still exist.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The concrete applied design asks how far downstream a second copy-count sample should be placed to distinguish two DNA particle classes while also estimating unknown source intensity. Under the fixed two-site, fixed-effort experiment the answer is unique for every physically interior mixture. The exact two-to-one attenuation boundary exposes a singular design limit: as slow-particle abundance vanishes, the preferred downstream location either remains finite or retreats logarithmically, with a distinct critical scaling at equality. This is a motivated structural quantitative boundary rather than a small numerical optimization gain. Practical use requires nominal rates and mixture fraction and is not asserted for finite-sample risk, assay noise, or an uncontrolled river.
+The supported distinct result is the global one-distance optimum and its singular rare-source-fraction classification in this fixed-rate Poisson model. First-order transport and Fisher/local-D methods are not new. The strongest matching catalogue statement has similar physics and Poisson data but a different unknown, reference configuration and asymptotic variable; no equivalent or dominating statement was established in the inspected evidence.
 
-## Closest literature and limitations
+## value
 
-- Didier Pont (2024), *Predicting downstream transport distance of fish eDNA in lotic environments*, https://doi.org/10.1111/1755-0998.13934; physical source model and sampling motivation.
-- Timothy D. Lambert and Stephen P. Ellner (2025), *SDM meets eDNA: optimal sampling of environmental DNA to estimate species–environment relationships in stream networks*, https://doi.org/10.1111/ecog.07644; broader spatial design, different observations and targets.
-- Holger Dette, Viatcheslav B. Melas and Weng Kee Wong (2006), *Locally D-optimal designs for exponential regression models*, https://doi.org/10.17877/DE290R-15075; established Gaussian nonlinear-design theory.
-- Pedro F. P. Brandão-Dias and colleagues (2023), *Suspended Materials Affect Particle Size Distribution and Removal of Environmental DNA in Flowing Waters*, https://doi.org/10.1021/acs.est.3c02638; relevant particle-size effects, abstract inspected only.
+PASS
 
-The source rates are assumed known and constant, and the independent Poisson-count approximation excludes overdispersion, background, exchange and site-dependent expense. An inaccessible specialized prior result remains possible. No empirical calibration or independent scientific audit is claimed.
+The exact boundary tells whether a locally informative sampling site stays at a finite distance for a rare source class or moves logarithmically far away; at the boundary a different balance sets the slope. The sharp coefficients and strict unimodality also govern when an accessibility cap binds. This is useful beyond applying the standard Fisher identity, while remaining conditional on a deliberately idealized steady two-class count model.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

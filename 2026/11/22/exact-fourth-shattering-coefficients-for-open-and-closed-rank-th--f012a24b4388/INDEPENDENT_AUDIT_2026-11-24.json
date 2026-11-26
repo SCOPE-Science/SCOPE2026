@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:15:50.820225Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–75",
+        "CENSUS.json, both coefficient tables",
+        "VERIFICATION.md, verify_kneser_rank_four.py and direct_kg9.cpp, inspected but not run",
+        "Independent replay: python3 /tmp/opencode/frozen_review_exact_5.py"
+      ],
+      "rationale": "Checked the finite reduction for every n>=3: each ordered support determines the multiset of nonzero four-bit point-incidences and is uniquely determined by it up to relabeling. For an internal subset S of size k<=3, completing it to a center takes exactly 3-k external points; the open trace is the complement of the incidence OR, and the closed trace adds equality with a queried triple only for k=3. The largest, over the 16 traces, of their least external costs is precisely the activation threshold. Factorial placement counts on a given ground subset and division by 24 correctly give unordered coefficients, since every support uses distinct queries. Independently generated shapes by adjoining each next triple as a subset of old points plus canonically introduced new points, deduplicating the resulting incidence multisets, then evaluated each trace cost by internal subset size. This regenerated 666 shapes, all 15 buckets, and the unique first active profile (1,2,4,8,15,15) in both modes at n=9. It gives 1260 in both modes at n=9 and 280350 versus 607950 at n=10. Collecting the stable coefficients yields exactly the stated three-term difference. The all-n result follows from the complete reduction, not numerical extrapolation.",
+      "residual_risks": [
+        "No claim is made beyond four distinct queried triples in rank three; the coefficients are supported by a complete finite computation, not a handwritten classification of all contributing profiles."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Coudert et al. give general closed-neighborhood graph VC-dimension algorithms.",
+          "The 2026-10-25 open-neighborhood dimension result determines existence, not multiplicities; the 2026-11-08 rank-three rigidity Finding specifies six-supports at order 13."
+        ],
+        "reasoning": "An algorithm for deciding maximum size does not give the symbolic coefficients; shattering is hereditary but the six-support census does not count four-supports with or without extensions, nor closed supports at arbitrary n.",
+        "searches": [
+          "arXiv:2405.07588v1",
+          "Resultary rank-three Kneser VC dimension and support rigidity records"
+        ]
+      },
+      "checked_sources": [
+        "Resultary target f012a24b4388 (same record)",
+        "Resultary 38f8cf862323",
+        "Resultary 473a9e5037c3",
+        "arXiv:2007.16042v1",
+        "arXiv:2405.07588v1",
+        "arXiv:2006.13712v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Its Witnesses passage gives four triples of the form {a,b,p_i} and three unused points, and its dimension formula gives first open existence at n=9."
+        ],
+        "reasoning": "The witness already implies at least 1260 open samples at n=9 by relabeling, and the displayed construction can also avoid equality with the queried triples. It does not prove that every shattered sample has this form, or imply any of the higher-order coefficient tables.",
+        "searches": [
+          "Resultary 2026-10-25 SCOPE-exact-open-neighborhood-vc-dimension-of-kneser-graphs-on-triples--38f8cf862323, Finding and Witnesses"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Complementing open disjointness traces gives the same shattered supports for the hit relation.",
+          "Johnson adjacency in arXiv:2007.16042v1 requires overlap in k-1 points, not all nonempty intersection; disjointness communication complexity in arXiv:2006.13712v1 does not count graph supports."
+        ],
+        "reasoning": "A hit-trace formulation would be equivalent for the open count and was included in the comparison; neither Johnson adjacency nor a communication bound represents the exact rank-three two-family census.",
+        "searches": [
+          "Resultary: rank-three Kneser open/closed shattered four-support coefficients and disjointness traces",
+          "arXiv:2007.16042v1",
+          "arXiv:2006.13712v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed two-table match is the same frozen record, not a distinct source. The separate dimension table only gives the maximum size; the separate exact support count is for size six."
+        ],
+        "reasoning": "No distinct matching coefficient table was verified; a narrowly focused index is not exhaustive literature coverage.",
+        "searches": [
+          "Resultary: exact KG(n,3) open and closed four-support counts, coefficient tables and activation thresholds"
+        ]
+      },
+      "rationale": "The open onset and the common-core open witness are prior coverage; novelty here is the exact all-order two-family coefficient census, including the classification of all first-layer supports and the distinct closed activations, not shattering existence or the witness itself.",
+      "residual_risks": [
+        "The comparisons are to retrieved index records and relevant primary-source passages; an unindexed census in set-system or covering-design terminology could exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified coverage of open existence threshold and construction only",
+          "evidence": "Dimension 3 at n=8 and 4 at n=9,10; F_i={a,b,p_i} for 1<=m<=4, with three unused points.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-open-neighborhood-vc-dimension-of-kneser-graphs-on-triples--38f8cf862323/RESULT.md",
+          "material_read": "Finding and Witnesses at offset 4985",
+          "method": "Resultary local mirror",
+          "title": "Exact open-neighborhood VC dimension of Kneser graphs on triples",
+          "trigger": "Same graph and first four-support onset"
+        },
+        {
+          "assessment": "Different support size, ambient orders and neighborhood family",
+          "evidence": "Open six-support classification and 21621600 at order 13.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-rigidity-and-exact-count-of-six-point-shattering-supports-in-the--473a9e5037c3/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Rigidity and exact count of six-point shattering supports in the smallest rank-three Kneser graph",
+          "trigger": "An earlier exact support count on the same family"
+        },
+        {
+          "assessment": "Different adjacency",
+          "evidence": "Adjacency requires intersection of size k-1.",
+          "identifier_or_url": "arXiv:2007.16042v1",
+          "material_read": "Open-neighborhood definitions and Johnson adjacency, offsets 850 and 3450",
+          "method": "OA HTML passages",
+          "title": "Vapnik–Chervonenkis Dimension and Density on Johnson and Hamming Graphs",
+          "trigger": "Possible graph adjacency or trace equivalence"
+        },
+        {
+          "assessment": "Computes dimension; no symbolic KG(n,3) table in inspected statement",
+          "evidence": "VC dimension uses closed neighborhoods and maximizes shattered support size.",
+          "identifier_or_url": "arXiv:2405.07588v1",
+          "material_read": "Introduction and definition, offset 700",
+          "method": "OA HTML passage",
+          "title": "Practical Computation of Graph VC-Dimension",
+          "trigger": "General graph closed-neighborhood algorithm"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "The results concern communication complexity of disjointness under VC constraints.",
+          "identifier_or_url": "arXiv:2006.13712v1",
+          "material_read": "Opening statements, offsets 0 and 1130",
+          "method": "OA HTML passages",
+          "title": "Disjointness through the Lens of Vapnik–Chervonenkis Dimension: Sparsity and Beyond",
+          "trigger": "Disjointness/hitting formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding, consequences and trace definitions"
+      ],
+      "rationale": "This refines a natural VC-dimension threshold to exact counts on a standard graph family and quantifies how equality of query and center affects shattering. The first-layer rigidity, several earlier closed activation thresholds, and identical leading coefficient despite a positive closed surplus give information not encoded by maximum dimension or by isolated examples.",
+      "residual_risks": [
+        "No count for larger support sizes or arbitrary Kneser rank is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:20:44.960252Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–57",
+        "Frozen VERIFICATION.md and verify_matching.py (read only)",
+        "/workspace/repairs/3/RESULT.md",
+        "Independent replay: python3 /workspace/review_checks/3_independent.py"
+      ],
+      "rationale": "Rechecked the repaired claim and proof. For disjoint matched pairs, a first-return comparison forces the first interior empty and an end-symbol comparison forces the second empty; the intervening word then commutes with (), hence is a run of leaves at that same parent. In the nested case irreducibility forces the outer vertex unary, and cancelling its unique child's delimiters reduces to the shorter nested comparison, with the parent-child base case immediate. The collision links form paths (leaf runs cannot meet a unary link). Counting their components gives n-D=U+L. The forest grammar assigns u exactly when a vertex has just one child, or a leaf is appended after a leaf; eliminating T=F_L=zF/(1+z-uz) gives the quadratic and its triangular coefficient recursion. A deepest leaf forces U+L>=1 for n>=2. At u=0 the solution is 1+z, and the linear coefficient in u is z^2(2+z)/(1-z-z^2); n>=2 has tail 2,3,5,...; a single collision path gives only the two stated minimal words. Independently generated 23,713 nonempty Dyck words at sizes 1–10 by choosing and checking up-step positions; computed pair matches by first returns and checked all pairwise collision predictions and the quadratic coefficients by integer interpolation.",
+      "residual_risks": [
+        "Finite replay is corroboration; the unbounded sizes and formal-series claim follow from the proof. No arbitrary up/down erasure or multiple erasure extension is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prop. 2.1 counts all rank-one valid Dyck subword predecessors with no original-match restriction. b0d39b903b8b uses that count for random Dyck moments; 3635f93f657f treats shared one-symbol reads across two sources."
+        ],
+        "reasoning": "For ()()() the wider count is two but all matched deletions produce the same output. Neither channel supplies the generating function of the repaired finding.",
+        "searches": [
+          "Bernini–Ferrari–Pinzani–West arXiv:1303.3785, definitions and Prop. 2.1",
+          "Resultary b0d39b903b8b and 3635f93f657f"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 35167ae70630, b0d39b903b8b, 3635f93f657f",
+        "arXiv:1303.3785",
+        "arXiv:math/0511045",
+        "Frozen and repaired RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Preorder labels remain preorder on a spliced plane tree, so standardized descendants are equal exactly when Dyck outputs agree. The Stirling theorem thereby gives D=n-U-L and the one-output classification. Its C_n(i,j) counts one event over all increasing-ancestor labellings, not simultaneous overlaps and not the restriction to opening-order labellings."
+        ],
+        "reasoning": "Pointwise coverage is credited even without a priority determination. No parameter substitution in the Stirling counts or the scattered-subword counts yields the repaired series; it needs the joint forest enumeration.",
+        "searches": [
+          "35167ae70630 Finding, exact C_n(i,j) and mean; Bernini et al. Prop. 2.1; compare domains and statistics"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "35167ae70630 gives nested consecutive-label and increasing/decreasing contiguous doubled-sibling collisions. Canonical preorder gives exactly the nested unary chain and increasing leaf run, and its deletion commutes with standardization. Chen–Li–Shapiro §5 defines chains as selections on root-to-leaf paths, not splice-deletion classes."
+        ],
+        "reasoning": "The Stirling result is a reduction, not merely an analogy, for the pointwise lemma. The fixed-canonical-source bivariate distribution is a different enumeration; the searches did not supply an equivalent distribution theorem.",
+        "searches": [
+          "Resultary matched-pair erasure, ordered-tree splicing and Stirling pair erasure",
+          "Resultary Dyck words plane tree preorder Stirling permutations bivariate generating function unary vertices adjacent leaf siblings joint distribution Fibonacci matched pair erasure deletion",
+          "Literature search for ordered/plane-tree deletion promoting children and contractions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact-channel hit 83c34875495f is the frozen record itself; 35167ae70630 tabulates/counts individual collisions over all Stirling words; searches also exposed only different leaf or deletion statistics."
+        ],
+        "reasoning": "The Catalan and Fibonacci sequences themselves are not claimed as new. No inspected table gives the matched-Dyck spectrum or identifies the sharp upper tail as the stated Fibonacci count.",
+        "searches": [
+          "Resultary on the exact bivariate and Fibonacci distribution terms and compatible tree statistics"
+        ]
+      },
+      "rationale": "The repaired claim is the complete algebraic distribution on Dyck sources and its exact upper-tail counts, not the pointwise collision classification or minimum in isolation. Opening-order (preorder) labelling embeds the channel into 35167ae70630 and exposes genuine coverage of the latter facts regardless of priority. The inspected enumeration there is over all Stirling permutations and counts individual label-pair collisions, not the full distribution on the fixed canonical labellings. The broader scattered-subword predecessor count cannot distinguish which erasures were originally matched. The surviving series is supported as distinct in the bounded comparison, not certified historically first.",
+      "residual_risks": [
+        "Same-day dating does not establish precedence; the comparison establishes mathematical coverage only.",
+        "The bounded literature query did not locate decisive alternative node-splicing literature; equivalent formulations in plane-tree statistics remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strictly stronger pointwise theorem on a class containing the canonical Dyck encodings; different enumeration domain.",
+          "evidence": "Three mutually exclusive contiguous nested/monotone-sibling factors; C_n(i,j) is a count over all Stirling words, with an expectation and a one-output classification.",
+          "identifier_or_url": "Resultary 35167ae70630",
+          "material_read": "RESULT.md Finding and Two-erasure cancellation lemma at local-mirror offset 0 (first 5687 characters)",
+          "method": "Catalogue search and bounded local mirror full-text passage",
+          "title": "Pair-erasure collision rigidity in Stirling-permutation words",
+          "trigger": "Strongest potentially dominating deletion-collision theorem"
+        },
+        {
+          "assessment": "Valid scattered-subword deletion rather than an originally matched pair.",
+          "evidence": "Rank difference one and a count with UDU/DUD corrections; permitted up/down symbols need not be matching.",
+          "identifier_or_url": "https://arxiv.org/pdf/1303.3785",
+          "material_read": "Printed pp. 2–3, definitions and Proposition 2.1",
+          "method": "OA PDF passages at text offsets 5491 and 8237",
+          "title": "The Dyck pattern poset",
+          "trigger": "Broader predecessor-count formula"
+        },
+        {
+          "assessment": "Relevant tree grammar context but different chain invariant.",
+          "evidence": "A chain is a selection of vertices on a root-to-leaf path, not a deletion-collision class.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0511045",
+          "material_read": "Abstract and §5, printed pp. 1 and 11",
+          "method": "OA PDF passages at offsets 0 and 32555",
+          "title": "The Butterfly Decomposition of Plane Trees",
+          "trigger": "Tree encoding and possible equivalent chain statistics"
+        },
+        {
+          "assessment": "Different channels: wider allowed pair or cross-source shared single reads.",
+          "evidence": "Unmatched up/down pairs are allowed in the former; one erased symbol per read in the latter.",
+          "identifier_or_url": "Resultary b0d39b903b8b, 3635f93f657f",
+          "material_read": "First record Finding and pointwise prior identity at offset 0; second record Finding and channel definition at offset 0",
+          "method": "Bounded local mirror passages",
+          "title": "A rare-event variance anomaly for balanced deletion outputs; Dyck-restricted two-read deletion graph",
+          "trigger": "Closest distinct Dyck deletion-output invariants"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "/workspace/repairs/3/RESULT.md, Finding and Forest enumeration",
+        "Comparison with Bernini et al. Proposition 2.1 and Resultary 35167ae70630"
+      ],
+      "rationale": "The algebraic invariant answers an exact ambiguity question for a natural matching-respecting deletion channel. It supplies all class-count frequencies by source size, including how rarely maximum distinguishability is attained. This is more informative than a particular deletion count or the specialization of a pointwise collision theorem, and does not rely on claims about coding capacity.",
+      "residual_risks": [
+        "The maximum count is a consequence of the distribution, not another independently novel theorem; no communication-system application is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

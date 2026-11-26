@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:53:57.060580Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–40; VERIFICATION.md lines 19–24; verification/verify.cpp and verification/output.txt (read, not executed)",
+        "Independent proof_notes.md and word_checks.py"
+      ],
+      "rationale": "There are n deletion sites. Adjacent equals collide; a nontrivial period likewise identifies deletion sites. The unique marker distinguishes its own deletion and roots all other outputs, reducing to different linear deletions of an alternating tail. In a collision the deleted letters agree by comparing output histograms. Closing a cyclic alignment by i→j then gives a permutation on whose cycles the source letters are constant. A fixed retained site would root both outputs at the same original position; distinct linear deletions of a proper source are different at the earlier deleted index, a contradiction. Thus there are at most floor(n/2) cycles; the n−1 rotations per pair give the claimed union bound. The adjacency matrix J−I gives the stated exact cycle coloring count and makes the ratio sqrt(q)/(q−1)<1 for q≥3. I independently enumerated direct deletion/rotation classes for ternary n=3–8 and quaternary n=3–7, reproducing the maxima and full-shadow counts. Replay with python3 /workspace/branches/independent-check/word_checks.py. The universal proof does not rely on these finite tests.",
+      "residual_risks": [
+        "The probability is conditional on circularly proper indexed words and concerns rotation-only identification. No claim of optimality for the displayed rate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For arbitrary indexed q-ary circles, eef1c8604afc gives run-exactness with error at most binom(n,2)q^(-ell) for ell≤floor(n/2).",
+          "The multiple-deletion marker theorem covers t≥2, and its marker/data recipe reduces for t=1 to 2 followed by alternating binary data."
+        ],
+        "reasoning": "The former controls disagreement with the run count for all circles; the latter overlaps constructively, without claiming a formal t=1 theorem.",
+        "searches": [
+          "Resultary eef1c8604afc, Finding and Proof §§1–2",
+          "Resultary f0f036e50847, Finding, Proof and Limitations"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary results eef1c8604afc, f0f036e50847, 2341722fce11, 29e5e80ff472, 09f6b02deb24",
+        "arXiv:2412.03289, 2009.01346v2, 2512.02412v1 and 2609.00394v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Multiplying the run-error probability at ell=floor(n/2) by q^n bounds the number of exceptional proper words by binom(n,2)q^ceil(n/2). After dividing by C_q(n) this is O_q(n²(sqrt(q)/(q−1))^n), versus n³ in the frozen asymptotic.",
+          "The precise all-q odd-length displayed bound is not a numerical inequality obtained from the run-error bound for all q. Its derangement step, however, follows by rooting the two aligned outputs at any fixed surviving site, exactly the same linear-deletion argument used in eef1c8604afc Proof §1. Counting cycles and possible alignments gives the bound directly."
+        ],
+        "reasoning": "The genericity theorem and central obstruction are materially covered; the different model used to state the prior probability is not an escape from that implication.",
+        "searches": [
+          "eef1c8604afc actual deterministic/random-source statements and shared-root proof, local mirror offset 0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In a proper circular source the cyclic run count is n, so run-exactness is exactly the full-shadow event of this record.",
+          "Random circular deletion traces and scattered-subword reconstruction do not have this equivalence."
+        ],
+        "reasoning": "Identifying the full-shadow question with run-exactness on the conditioned event gives a direct mathematical reduction, independent of title differences.",
+        "searches": [
+          "Resultary: circular one-deletion shadows, indexed necklaces, proper circles and run-exact counts",
+          "Luchinin–Puzynina–Rao arXiv:2412.03289 and circular trace papers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2341722fce11 gives exact binary maxima; 29e5e80ff472 gives an exact binary fixed-weight-three spectrum; 09f6b02deb24 gives the exact spectrum for de Bruijn sources."
+        ],
+        "reasoning": "These near matches do not give the same exact table or general q≥3 proper-source law. The decisive coverage is the analytical implication in eef1c8604afc, not these restricted tables.",
+        "searches": [
+          "Local Resultary search for one-deletion outdegree maxima and counts by alphabet/source"
+        ]
+      },
+      "rationale": "The principal novelty claim, exponential full-shadow genericity among proper circles, is already implied with the same base and a smaller fixed-q polynomial prefactor by the distinct indexed run-exact theorem eef1c8604afc. Its shared-root argument is also the key obstruction behind the frozen uniform bound: any fixed start of an alignment puts the deletions in one run, and properness makes runs singletons, so the derangement union bound is a short corollary of this proof. The other distinct result f0f036e50847 has precisely the marker-and-periodic-data construction at t=1, though its formal theorem excludes t=1. This is a decision about demonstrated coverage, not which same-day record was first. No substantive uncovered claim in the frozen formulation is established by its alternative count.",
+      "residual_risks": [
+        "Same-day posting does not settle precedence; older unindexed necklace-poset and deletion-graph literature may establish additional coverage.",
+        "Publisher full text for the 1981 graph article was not obtained; this did not drive the decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive implication covering proper-source genericity",
+          "evidence": "For ell≤floor(n/2), failure probability at most binom(n,2)q^(-ell); any shared original start roots the deletion outputs and forces equal intervening letters.",
+          "identifier_or_url": "2026/11/22/SCOPE-short-factor-uniqueness-makes-circular-one-deletion-shadows-asym--eef1c8604afc",
+          "material_read": "RESULT.md Finding, scope and Proof §§1–2, starting at offset 0",
+          "method": "Local Resultary mirror, statements and proof",
+          "title": "Short-factor uniqueness makes circular one-deletion shadows asymptotically run-exact",
+          "trigger": "Same indexed rotation-only deletion statistic and genericity"
+        },
+        {
+          "assessment": "Construction overlaps; formal theorem requires t≥2",
+          "evidence": "t distinct unique markers followed by period-(t+1) data on disjoint symbols.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-alphabet-threshold-and-repeat-onset-for-full-circular-dele--f0f036e50847",
+          "material_read": "RESULT.md Finding, Proof and Limitations",
+          "method": "Local Resultary mirror",
+          "title": "Sharp alphabet threshold and repeat onset for full circular deletion shadows",
+          "trigger": "Same extremal full-shadow marker construction"
+        },
+        {
+          "assessment": "Restricted to binary alphabet",
+          "evidence": "Exact parity-dependent binary maxima; not nonbinary genericity.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-one-deletion-outdegree-of-binary-necklaces--2341722fce11",
+          "material_read": "Finding and scope",
+          "method": "Local Resultary mirror",
+          "title": "Sharp one-deletion outdegree of binary necklaces",
+          "trigger": "Same extremal statistic"
+        },
+        {
+          "assessment": "Different alphabet/observable and problem",
+          "evidence": "Uses scattered subwords to distinguish binary cyclic words rather than a single-deletion shadow degree.",
+          "identifier_or_url": "https://arxiv.org/html/2412.03289",
+          "material_read": "Theorem 1.1, offset 3300",
+          "method": "OA HTML passages",
+          "title": "Recovery of cyclic words by their subwords",
+          "trigger": "Cyclic subword reconstruction"
+        },
+        {
+          "assessment": "Different stochastic reconstruction problem",
+          "evidence": "Independent random deletions and cyclic shifts, and reconstruction sample complexity rather than exactly one deletion's support size.",
+          "identifier_or_url": "https://arxiv.org/html/2009.01346v2 ; https://arxiv.org/html/2512.02412v1",
+          "material_read": "First paper abstract and introduction; second paper Definition 5, offset 25000",
+          "method": "OA HTML passages",
+          "title": "Circular Trace Reconstruction; New Bounds for Circular Trace Reconstruction",
+          "trigger": "Closely named deletion channels"
+        },
+        {
+          "assessment": "Inspected graph definition not the circular word statistic; older full-text coverage unresolved",
+          "evidence": "Graph-vertex deletions are tested for graph isomorphism without an original graph automorphism exchanging those vertices.",
+          "identifier_or_url": "https://arxiv.org/html/2609.00394v1 ; https://doi.org/10.1002/jgt.3190050207",
+          "material_read": "2026 paper abstract/intro at offsets 0 and 2800; 1981 publication full text inaccessible",
+          "method": "OA HTML and lawful publisher retrieval attempt",
+          "title": "Pseudosimilar vertices (graph literature comparison)",
+          "trigger": "Potential alternate language for deletion collisions"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof §§2–4; comparable run-exact theorem eef1c8604afc"
+      ],
+      "rationale": "Quantifying whether every distinct site of a proper circular source is distinguishable after one deletion is a natural exact and asymptotic problem; the proper-source conditioning is essential, and the alignment count supplies a transparent all-length estimate. This value assessment does not confer originality.",
+      "residual_risks": [
+        "No optimal rate or exact counts by length are claimed by the general theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

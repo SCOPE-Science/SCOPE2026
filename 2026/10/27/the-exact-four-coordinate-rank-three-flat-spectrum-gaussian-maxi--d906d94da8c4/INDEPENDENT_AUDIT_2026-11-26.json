@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:56:58.457170Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–102",
+        "Frozen VERIFICATION.md, verify.py and verification_output.txt"
+      ],
+      "rationale": "Exact spectral normalization gives (3/4)R=I-vvᵀ, and diag R=1 forces v_i²=1/4. Thus the three sign-multiplicity orbits, modulo global sign, exhaust the feasible covariances. For unit Gram vectors in R³, the distributional Laplacian of their maximum linear form has jump density ||u_i−u_j|| on the parts of the tie planes where the pair dominates; three distinct unit vectors cannot be collinear, so triple ties do not add surface mass. Euler homogeneity and Gaussian integration by parts convert this to the expected maximum. The plane Gaussian mass is its domination wedge probability divided by √(2π); this also covers correlations ±1. Substitution of the signed Gram entries yields same-sign distance √(8/3), opposite-sign distance √(4/3), and projected correlations 1/3 (all same), 1/√3 and 0 (one flip), −1 and 1 (balanced), respectively. As a check bypassing facets for the minimum, the balanced realization has common third coordinate 1/√3 and planar vertices ±√(2/3)e_1, ±√(2/3)e_2. Its mean maximum is √(2/3) times E max(|G_1|,|G_2|)=2/√π, by the half-sum of |G_1+G_2| and |G_1−G_2|. For the strict comparisons, arcsin(1/√3)>1/√3 and π<4 give the lower bound in lines 89–94, while 2 arcsin(1/3)>arcsin(1/√3) gives the upper orbit comparison. The independent-three-normal baseline follows by integration of 3xφ(x)Φ(x)^2 and gives the stated gap. The frozen code and recorded quadrature were inspected, not executed.",
+      "residual_risks": [
+        "The 261 recorded checker assertions mix symbolic and finite numerical checks; they do not substitute for the singular Gaussian argument or prove other parameter regimes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Paatur's general lower bound is c_k/√(kN) for the gap; the nondivisible upper bound requires N≥2k². Sun–Hu–Lan identify the unconstrained regular-tetrahedron maximum and evaluate general four-coordinate expectations. Li–Huang address projections of bodies containing support of centered isotropic measures. The Mulgund statements are upper-side stochastic comparisons."
+        ],
+        "reasoning": "The first bound is not sharp at these parameters, the conditional upper bound does not apply there, and unconstrained upper extremizers or centered-measure projection inequalities do not give the minimizing covariance under the exact spectrum.",
+        "searches": [
+          "Paatur Theorems 1.1–1.2",
+          "Sun–Hu–Lan arXiv:2008.04827v2 Theorems 1.1–1.2, 3.3 and Lemma 3.2",
+          "Li–Huang arXiv:2111.10729v2 Theorem 1.3",
+          "Mulgund arXiv:2609.28452v2 and arXiv:2607.14087v4"
+        ]
+      },
+      "checked_sources": [
+        "Paatur arXiv:2610.14086v1",
+        "Sun–Hu–Lan arXiv:2008.04827v2",
+        "Resultary d208eae303a2",
+        "Li–Huang arXiv:2111.10729v2",
+        "Mulgund arXiv:2609.28452v2 and arXiv:2607.14087v4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sun–Hu–Lan's Lemma 3.2 makes their formula applicable when no off-diagonal entry is 1, including the singular balanced case. Paatur states exact equality only in the divisible case."
+        ],
+        "reasoning": "Plugging matrices into the old formula recovers evaluations, but taking the unconstrained maximum or specializing the general gap inequality does not yield the sharp minimum. Exhausting the admissible covariances from the one-dimensional null space and proving the lower-orbit comparison are the added constrained analysis; the balanced hull is a square, not a tetrahedron.",
+        "searches": [
+          "Sun–Hu–Lan PDF pp.14–15 offsets 52994–56018",
+          "Paatur PDF p.2 offsets 6100–9003"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Paatur's L_{N,k} is exactly the same minimum at N=4,k=3. Resultary d208eae303a2 is a small-threshold probability minimization with rank at most d, with explicit case d=3,n=5."
+        ],
+        "reasoning": "The prior expected-max objective is identical, but his result for it is a bound. A small-threshold CDF coefficient in another dimension and with no fixed spectrum is not equivalent to the sharp expected maximum.",
+        "searches": [
+          "Resultary: fixed flat spectrum rank-three four-coordinate expected Gaussian maximum, signed simplex and Gaussian mean width central projection",
+          "Primary Gaussian maximum and simplex mean-width lookup",
+          "Paatur arXiv:2610.14086v1, equations (1.5)–(1.6)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The regular-tetrahedron value is covered and Theorem 3.3 gives an exact general evaluation of all three covariances. The closest surfaced catalogue result tabulates a different small-threshold quantity."
+        ],
+        "reasoning": "The exact object here is an extremum and equality set over a new finite feasible orbit list, not merely numerical values of named Gram configurations. The published evaluational formula already supplies the individual entries by substitution.",
+        "searches": [
+          "Resultary catalogue: exact rank-three four-coordinate width and (2,2) covariance",
+          "Sun–Hu–Lan Theorem 3.3 and regular tetrahedron statements"
+        ]
+      },
+      "rationale": "Supported for the sharp constrained minimum and its equality orbit, not for a new four-normal integration formula or the unconstrained tetrahedron maximum. The closest exact-object prior gives a positive but nonsharp gap; the general four-variable width formula provides objective values but not the constrained extremum and minimizer classification.",
+      "residual_risks": [
+        "An earlier specialized signed-frame computation could exist; the inspected primary statements and bounded catalogue search do not determine historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact objective and nonsharp applicable lower bound, no sharp (4,3) equality classification in the theorem",
+          "evidence": "The exact case is N=mk; k∤N gives a lower bound and an upper bound only when N≥2k².",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.14086v1",
+          "material_read": "p.2, equations (1.5)–(1.8) and Theorem 1.2, offsets 6100–9003",
+          "method": "OA PDF passage",
+          "title": "Linear stability and divisibility gaps for Gaussian maxima",
+          "trigger": "Defines the same fixed-flat-spectrum optimization"
+        },
+        {
+          "assessment": "Covers individual evaluations and the unconstrained maximum, not the fixed-spectrum minimum",
+          "evidence": "Formula (3.5) applies on S_1=S_2 (all off-diagonal entries distinct from 1); the regular tetrahedron maximizes the objective in the unrestricted problem.",
+          "identifier_or_url": "https://arxiv.org/pdf/2008.04827v2",
+          "material_read": "Theorems 1.1–1.2 p.3 around offset 6617; Lemma 3.2 and Theorem 3.3 pp.14–15 offsets 52994–56018",
+          "method": "OA PDF passages, evaluated hypotheses against the signed covariances",
+          "title": "The 4-D Gaussian Random Vector Maximum Conjecture and the 3-D Simplex Mean Width Conjecture",
+          "trigger": "Apparently overlapping four-variable evaluation and extremum"
+        },
+        {
+          "assessment": "Different statistic, dimension and covariance constraints",
+          "evidence": "Treats minimum small-threshold probability and an explicit triangular-prism coefficient at d=3,n=5.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-small-threshold-rank-constrained-gaussian-maxima-are-governed-by--d208eae303a2",
+          "material_read": "Mirrored RESULT.md Finding and scope at offset 0",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Small-threshold rank-constrained Gaussian maxima are governed by spherical caps",
+          "trigger": "Closest surfaced Gaussian-maxima catalogue match"
+        },
+        {
+          "assessment": "Does not cover the sign-orbit comparisons",
+          "evidence": "The centered-isotropic projection hypotheses differ from the fixed unit-diagonal spectral family.",
+          "identifier_or_url": "https://arxiv.org/abs/2111.10729v2",
+          "material_read": "Theorem 1.3 p.3 around offset 9000",
+          "method": "OA PDF passage",
+          "title": "Mean width inequalities of sections and projections of convex bodies for isotropic measures",
+          "trigger": "General width bounds for isotropic supports"
+        },
+        {
+          "assessment": "Upper comparisons, not a lower-side fixed-spectrum classification",
+          "evidence": "The regular simplex provides upper domination; the weak-simplex comparison under R−J/4 PSD applies to the balanced orbit only as an upper comparison.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.28452v2; https://arxiv.org/abs/2607.14087v4",
+          "material_read": "First paper Theorem 1.1 p.3 around offset 9224; second paper abstract p.1",
+          "method": "OA passages",
+          "title": "Regular-simplex stochastic domination and weak-simplex comparison (Mulgund)",
+          "trigger": "Possible stronger comparison dominating the expected Gaussian maximum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and orbit/exact comparison proof",
+        "Paatur Theorem 1.2",
+        "Sun–Hu–Lan Theorems 1.1 and 3.3"
+      ],
+      "rationale": "This is the first nondivisible case in rank three of a previously defined exact-spectrum minimization family, not a slice selected from an arbitrary covariance matrix. It gives the exact positive gap and its unique optimizer, which the nonsharp divisibility theorem does not determine. The finite proof compares all feasible geometries, showing that a coplanar square Gram hull minimizes despite rank-three covariance, and distinguishes this constrained minimum from the regular-tetrahedron maximum. The individual closed forms are prior-formula evaluations, not a separate value claim.",
+      "residual_risks": [
+        "The discrete codimension-one argument in this finding gives no larger-dimensional sharp constants or stochastic ordering."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

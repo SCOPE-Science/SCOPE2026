@@ -1,23 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The transfer system is indexed by pairs of consecutive nine-label columns. For each of its 601 allowed local transitions the displayed integer potential makes the reduced exponent nonnegative. Each closed walk of length \(n\ge3\) corresponds bijectively to one Roman dominating function, and the potential differences telescope. Therefore the two coefficient identities follow from the zero- and one-exponent matrices. Exact integer multiplication confirms the entrywise identity \(B_0^3=B_0^7\) and all base traces; matrix multiplication propagates the coefficient laws to every \(n\ge3\). A separate direct vertex-neighborhood enumeration checked the entire Roman polynomial through \(n=6\), comprising 597780 labelings. Neither the infinite result nor the proof depends on assuming eventual periodicity from observed data.
+PASS
 
-## Originality — PASS with residual priority risk
+A rooted length-n trace walk determines exactly one labeling of the labeled prism: at each step the middle column is checked against its rung and the two neighboring columns and contributes its weight once. This works at n=3 as well, where the two rail neighbors are still distinct. The tabulated potential telescopes and makes every weight after subtracting n nonnegative. The constant coefficient uses only B0; the linear coefficient uses exactly one B1, with its n possible positions related by cyclic trace. Independently regenerated all 601 admissible triples, with reduced exponent counts 104,299,144,54 at exponents 0,1,2,3. Exact sparse path counting established B0^3=B0^7 entry by entry, traces (0,4,0,0) and marked traces (5,6,4,2,4); multiplication by further powers proves the eventual period. A separate count chooses the set S of 2-labels, forces each vertex outside its closed neighborhood to be 1, and chooses additional 1s freely in the closed neighborhood minus S. This gave the two stated coefficients and no smaller weights for n=3 through 10, including (0,15) at n=3. Replay: python3 -I -B /workspace/audit_replays/frozen_math.py 3.
 
-Pavlič and Žerovnik (2012, Section 5.3) prove the minimum Roman weight for prisms, but do not supply the multiplicity of all weight-minimizers nor the next weight coefficient in the portions of the complete article examined. Deepak G. and collaborators (2021) develop Roman-domination polynomials and compute other graph classes and operations, not the cycle prism. Allagan and collaborators (2026) determine counts of ordinary *minimum dominating subsets* of prisms; these are not Roman 0/1/2 labelings, and their counts differ at orders 5 and 6. Searches of the terminology “Roman domination”, “circular ladder”, “prism”, Roman-domination polynomial, and OEIS did not reveal an equivalent complete coefficient law. The risk of an older equivalent enumeration under another name remains; a negative search result is not proof of worldwide priority. General Roman-domination counting algorithms could specialize to this graph family, but no previously derived version of the stated periodic coefficient laws was identified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The minimum weight alone conceals substantial information about optimal guard deployments. Exact counts at every order are not a textbook substitution into the known minimum formula: an explicit 81-state representation and a non-obvious exact four-step nilpotent/periodic identity are required. The coefficient immediately above optimum in the length-divisible-by-four family adds an exact near-optimal robustness profile. The congruence-class formulas, their exceptional triangular-prism case, and the explicit finite potential provide both structural interpretation and reproducible results. The contribution is intentionally limited to two natural low-weight coefficients and does not claim a complete closed Roman polynomial.
+The supported distinction is the unrestricted standard-Roman count at n+1 for labeled prisms, including the next-to-minimal layer when 4 divides n. The minimum weight is known; the weight-n coefficient reduces to efficient domination, and the small triangular-prism instance falls within an existing atlas's stated coverage. No independent novelty is attributed to those overlaps. Closest same-day indexed records count different graph classes or domination objects; the later unique-response restriction omits genuine labelings of the layer at issue.
 
-## Closest literature and limitations
+## value
 
-1. P. Pavlič and J. Žerovnik, *Roman Domination Number of the Cartesian Products of Paths and Cycles*, EJC 19(3), P19 (2012), DOI 10.37236/2595: same graph, minimum weight only.
-2. Deepak G. et al., *On the Roman Domination Polynomial of Graphs*, Bulletin IMVI 11(2), 355–365 (2021): full enumerator notion, other families.
-3. J. Allagan et al., *Exact Dominion of the Prism Graph* (2026), DOI 10.1155/ijmm/1411005: unweighted minimum dominating subsets rather than Roman functions.
+PASS
 
-Independent mathematical audit and exhaustive priority determination have not been performed. The general result rests on an exact finite matrix identity, not on the bounded direct enumeration.
+A minimum weight alone cannot tell how many optimal labelings exist; the leading and first-excess coefficients of the natural Roman polynomial encode that multiplicity and the first defect layer. In this canonical periodic graph family the count changes residue class and rule, is exact for unbounded n, includes label 1, and has a nontrivial matrix-period certificate. The supported contribution is the all-order n+1 enumeration rather than the known weight threshold, the perfect-code coefficient alone, or the isolated six-vertex exception.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

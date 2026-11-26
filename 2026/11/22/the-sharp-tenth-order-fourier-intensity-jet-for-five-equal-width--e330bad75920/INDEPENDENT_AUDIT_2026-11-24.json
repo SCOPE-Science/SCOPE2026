@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:56:51.386358Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–80",
+        "Frozen VERIFICATION.md and checks/five_interval_jet_check.py (read, not run)",
+        "Independent exact companion-matrix and rational calculations"
+      ],
+      "rationale": "The zeroth derivative gives the width by I(0)=25w². Dividing by the analytic squared sinc factor then recovers the point-intensity jet at the same order. Its 2k derivative is 2(−1)^k times the unordered gap moment. An independent companion-matrix trace calculation verifies all five moment identities by multiplying the traces of exp(TC) and exp(−TC). The triangular coefficients of e₂, e₄, e₃², e₃e₅ and e₅² are −10, −20, −75, −800 and −3125. They determine the centered polynomial up to simultaneous reversal of the two odd elementary symmetric functions, exactly the reflection ambiguity. When e₃≠0 the first four moments suffice. At e₃=0, a small change of just the constant coefficient keeps the five roots simple, real, and strictly separated, does not change the first four moments, and need not merely reflect the configuration. Exact rational checks confirm the brackets and moments for e₅=1 and 2 and the tenth-derivative difference −375/2. The nonzero-e₃ starting polynomial also has the five stated simple roots; its constant-term perturbation gives sixth-order insufficiency on the open stratum without leaving the strictly separated class. Replay: python /workspace/branches/independent-checks/fourier_jet.py.",
+      "residual_risks": [
+        "Exact Taylor data only; no numerical stability result near e₃=0."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xia–Xu Theorem 4.9 assumes collision-free points and uses the full difference multiset. Boutin–Kemper discusses generic full-distribution reconstruction. The Crofton result uses a planar component statistic, with a cutoff to recover the complete distance multiset."
+        ],
+        "reasoning": "Neither a general result with stronger data or additional genericity, nor a finite-jet theorem for a different observable, implies this collision-tolerant global cutoff or its exact exception.",
+        "searches": [
+          "arXiv:2606.19855v1, Definition 4.4 and Theorem 4.9",
+          "Boutin–Kemper, full distance distributions and invariants",
+          "Resultary: 2026/10/18/SCOPE-finite-jet-crofton-tomography-of-the-distance-spectrum-of-circul--74c3a87a97e6"
+        ]
+      },
+      "checked_sources": [
+        "Xia–Xu, Boutin–Kemper and Huang–Dokmanić OA sources above",
+        "Resultary same-observable analogues, homometry reduction, distinct finite-jet analogue, and self-hit above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The closest smaller-component jet theorem addresses four starts only. The full-distance theorems do not recover the distance multiset from five power sums; they also give no eighth-order collision example for five equal-width intervals."
+        ],
+        "reasoning": "The extra degree-five coefficient and its joint sign invariants with e₃ are material. The audited proof separately determines when those invariants are recoverable and when they can vary invisibly.",
+        "searches": [
+          "Four-interval record a2fc9110328e, Finding",
+          "Xia–Xu Theorem 4.9 and Boutin–Kemper pp. 1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equal-width full-spectrum fiber theorem equates diffraction to oriented difference measures. Turnpike uses unassigned full distances; the audited equivalent formulation uses only the first five even gap moments after removing the window."
+        ],
+        "reasoning": "Rephrasing as point homometry does not eliminate the loss of data in the moment truncation. The proposed theorem does not follow from the full-spectrum fiber statement.",
+        "searches": [
+          "arXiv:2606.19855v1, distance/turnpike; arXiv:1804.02465v4",
+          "Resultary: 2026/10/18/SCOPE-equal-width-interval-diffraction-reduces-exactly-to-finite-point--417f34275d33"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The five-interval hit e330bad75920 is the assigned record itself; a distinct same-date entry a2fc9110328e concerns four intervals and order six, and entry df0589a6cbc2 concerns three intervals and order six."
+        ],
+        "reasoning": "No checked exact entry independently lists the five-interval cutoff; same-day proximity establishes neither coverage nor priority.",
+        "searches": [
+          "Resultary: Fourier-intensity jets for three, four and five equal-width intervals"
+        ]
+      },
+      "rationale": "The literature and closest catalogue comparators cover complete distance data, a different moment observable, or fewer equal-width components. None supplies or implies the claimed global tenth-order and open-stratum eighth-order cutoffs for five starts, including the lower-order collision. Full-intensity reduction is prior and is not credited as a new result.",
+      "residual_risks": [
+        "Searches were bounded. An unindexed invariant-theoretic result about these particular truncated power sums could overlap; full-data uniqueness alone does not establish such overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full data and collision-free turnpike result, not finite globally sharp jets",
+          "evidence": "Offsets 0, about 68806 and 74750: full Fourier magnitude; collision-free definition; m≠6 uniqueness from the full difference multiset.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.19855",
+          "material_read": "PDF pp. 1, 19 and 21; abstract, Definition 4.4 and Theorem 4.9",
+          "method": "Lawful OA arXiv PDF statement inspection",
+          "title": "Fourier Phase Retrieval for Finite Unions of Intervals",
+          "trigger": "Closest primary interval-union phase-retrieval paper"
+        },
+        {
+          "assessment": "Relevant invariants, but generic full-distribution reconstruction",
+          "evidence": "Offsets 0, about 3440 and 5200: n≥m+2 for generic configurations in dimension m from full pairwise-distance distributions.",
+          "identifier_or_url": "https://www.math.cit.tum.de/fileadmin/w00ccg/algebra/people/kemper/Boutin.Kemper_03.pdf",
+          "material_read": "PDF pp. 1–2 including invariant discussion",
+          "method": "Lawful OA PDF bounded passages",
+          "title": "Which Point Configurations are Determined by the Distribution of their Pairwise Distances?",
+          "trigger": "General distance invariants and reconstruction"
+        },
+        {
+          "assessment": "Full unassigned distance data rather than truncated moments",
+          "evidence": "Offset 0 introduces reconstruction from unassigned pairwise distances.",
+          "identifier_or_url": "https://arxiv.org/abs/1804.02465",
+          "material_read": "PDF p. 1",
+          "method": "Lawful OA PDF",
+          "title": "Reconstructing Point Sets from Distance Distributions",
+          "trigger": "Turnpike under alternate terminology"
+        },
+        {
+          "assessment": "Exact full-spectrum relation, no jet threshold",
+          "evidence": "Magnitude equality at all frequencies corresponds to equality of the oriented difference measure.",
+          "identifier_or_url": "2026/10/18/SCOPE-equal-width-interval-diffraction-reduces-exactly-to-finite-point--417f34275d33",
+          "material_read": "Finding at offset 0",
+          "method": "Resultary and original via local mirror",
+          "title": "Equal-width interval diffraction reduces exactly to finite point-set homometry",
+          "trigger": "Exact same-window reduction"
+        },
+        {
+          "assessment": "Distinct theorem in a smaller component count",
+          "evidence": "Sharp derivative order six for exactly four equal-width intervals, not five.",
+          "identifier_or_url": "2026/11/22/SCOPE-sixth-order-fourier-intensity-jets-identify-four-equal-width-int--a2fc9110328e",
+          "material_read": "Finding at offset 0",
+          "method": "Resultary and original via local mirror",
+          "title": "Sixth-order Fourier-intensity jets identify four equal-width intervals",
+          "trigger": "Closest distinct same-day Fourier-jet hit"
+        },
+        {
+          "assessment": "Smaller component count",
+          "evidence": "The sixth-order recovery theorem is for three components.",
+          "identifier_or_url": "2026/11/8/SCOPE-sixth-order-fourier-intensity-recovery-for-three-equal-width-int--df0589a6cbc2",
+          "material_read": "Finding at offset 0",
+          "method": "Resultary and original via local mirror",
+          "title": "Sixth-order Fourier-intensity recovery for three equal-width intervals",
+          "trigger": "Prior equal-width short-jet result"
+        },
+        {
+          "assessment": "Different input geometry and statistic",
+          "evidence": "First 2M nonzero even Crofton coefficients recover the full inter-hole distance multiset.",
+          "identifier_or_url": "2026/10/18/SCOPE-finite-jet-crofton-tomography-of-the-distance-spectrum-of-circul--74c3a87a97e6",
+          "material_read": "Finding at offset 0",
+          "method": "Resultary and original via local mirror",
+          "title": "Finite-jet Crofton tomography of the distance spectrum of circular perforations",
+          "trigger": "Finite-jet distance moment analogue"
+        },
+        {
+          "assessment": "Identical assigned record",
+          "evidence": "Same global tenth-order cutoff and eighth-order open-stratum statement.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-sharp-tenth-order-fourier-intensity-jet-for-five-equal-width--e330bad75920",
+          "material_read": "Indexed statement compared with frozen Finding",
+          "method": "Resultary and frozen original",
+          "title": "The sharp tenth-order Fourier-intensity jet for five equal-width intervals",
+          "trigger": "Exact catalogue match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and sharpness argument",
+        "Comparisons with full turnpike and smaller point counts"
+      ],
+      "rationale": "Full-intensity uniqueness does not specify how many low-frequency exact measurements are needed. This result gives the sharp measurement depth both globally and on a natural open class, isolates the invariant invisible to the shorter jet, and certifies an admissible lower-order collision.",
+      "residual_risks": [
+        "Restricted to five strictly separated equal-width intervals; no claims about noisy data or unequal widths."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:39:22.044569Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The input has filled consecutive triples and no larger cliques; tolerance one gives a complete 1-skeleton, triples containing an original edge, and tetrahedra containing a consecutive triple. In the L-phase, a proposed face (a,a+1,d) can be completed only by a+2 or a−1. When d=a+3 the pair (a+1,d) is at gap two but again requires the already counted a+2. The completion with a−1, if it exists, was removed earlier. In the R-phase, the selected triangular face (a,b+1,b+2) has first gap at least three and can be completed only by b or b+3; the b+3 completion was removed earlier. The two phases have distinct selected triangles and give exactly (n−3)² ordinary collapses. Before collapse the triangles with consecutive edges let any edge be replaced by its path of consecutive steps, proving simple connectivity, which persists after collapse. The missed triples have both gaps at least three, counted by shifting the three indices by 0,2,4 to obtain C(n−4,3). Thus χ=1+C(n−4,2), and the connected simply connected two-dimensional remainder has free H₂ of rank χ−1. Hurewicz and the homological Whitehead theorem give the integral wedge, including contractibility at n=4,5. The frozen nested checker was inspected, not executed. The direct proof, not its finite assertions or mod-two ranks, establishes the theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Selvaraja: the t-tolerance of the clique complex of a chordal graph is (2t+1)-collapsible for t≤3, in particular 3-collapsible at t=1. The operation removes a free face of size at most three and all its cofaces; free means one maximal coface. Kim–Lew gives 3-Leray at t=1 for a 1-collapsible input; endpoint peeling makes the original filled strip 1-collapsible."
+        ],
+        "reasoning": "The chordal theorem is a general covering theorem for full top-dimensional removal here. The older all-field homology bound provides a second route to the same wedge, though not an ordinary tetrahedral-collapse certificate. The frozen discussion only recognizes bounds and does not carry through either specialization.",
+        "searches": [
+          "arXiv:2611.14384v1 Theorem 1.3 (Theorems 5.9 and 5.11), HTML offsets 8440–9601; definition around 17899",
+          "arXiv:2109.03030v1 Theorems 1.5 and 1.6, HTML offsets around 10070 and 11113"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.14384v1 Theorem 1.3 and collapse definition",
+        "arXiv:2109.03030v1 Theorems 1.5–1.6",
+        "Resultary local-mirror records 6217221a2721 and 8051329e5a96",
+        "Frozen RESULT.md and nested checker"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In a Selvaraja 3-collapse deleting a tetrahedron τ via a free face σ of size at most three, choose any triangular facet F of τ containing σ. No other surviving tetrahedron can contain F because it would contain σ. Replay only the tetrahedron-deleting steps, retaining all lower cells not needed as paired facets. The surviving tetrahedra agree at each step with those of the d-collapse sequence; each chosen facet is still an ordinary free face because it is present in τ and no other tetrahedron. Thus there is exactly one ordinary pair per original tetrahedron, hence (n−3)² pairs. Simply connectedness from consecutive-edge triangles and the elementary Euler count then give the exact integral wedge.",
+          "Independently, Kim–Lew implies H₃=0 over every field. In this at-most-three-dimensional simply connected complex, the universal coefficient theorem then gives H₃(ℤ)=0 and torsion-free H₂(ℤ); the Euler count and Hurewicz/Whitehead again give the wedge, without establishing a collapse order."
+        ],
+        "reasoning": "This is a concrete logical implication, not a suggestion that a Leray bound by itself is a collapse or that the prior paper printed the path-square multiplicity. Only the particular prescribed L/R order is left unaccounted for by these implications.",
+        "searches": [
+          "arXiv:2611.14384v1 Theorem 1.3 and elementary d-collapse definition",
+          "arXiv:2109.03030v1 Theorem 1.5",
+          "Frozen RESULT.md steps 2–5 for pairings, connectivity, and face counts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The intersection graph of the closed intervals [i,i+2] is exactly P_n², so the filled input is a chordal clique complex satisfying the hypothesis of Selvaraja’s theorem. The arbitrary-graphs tolerance record uses unfilled triangles, while the squared-cycle record uses a different circular family."
+        ],
+        "reasoning": "Aliases such as a strip of filled triangles or a tolerance of an interval clique complex describe the assigned input. Treating the same graph as a one-dimensional complex would change the object and is not the source of coverage; the chordal clique formulation is.",
+        "searches": [
+          "Resultary records 6217221a2721 and 8051329e5a96, RESULT.md Finding and assumptions",
+          "arXiv:2611.14384v1 Theorem 1.3 and definition of elementary d-collapse"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day one-dimensional graph result expressly leaves graph triangles unfilled. The same-day filled squared-cycle result gives (n²−7n−2)/2 spheres for n≥9 and an ordinary collapse, but concerns the cycle square. No compared record tabulates the exact L/R path-square pairings."
+        ],
+        "reasoning": "The distinct same-day statements cannot be identified with the path-square input and establish no priority. Lack of an exact table entry does not rescue an exact multiplicity and existence statement that are already immediate from a broader theorem.",
+        "searches": [
+          "Resultary 2026/11/22 ordinary graph tolerance wedge record 6217221a2721",
+          "Resultary 2026/11/22 filled squared-cycle wedge record 8051329e5a96, RESULT.md Finding and Proof §2"
+        ]
+      },
+      "rationale": "The wedge classification and the existence and length of the tetrahedron-removal sequence are covered as direct consequences of the published general tolerance-collapse theorem and elementary counting and connectivity for the path square. The frozen prior-work discussion distinguishes the wording of the statements but misses this implication. The exact indexed L/R pairing order is not shown to be prior, but it is not the substantive classification claimed as new.",
+      "residual_risks": [
+        "The search does not settle priority for the precise L/R pairing order. The scientific failure is based on demonstrated general-theorem implication for the principal claim, not a missing source or conjectured same-day priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive covering result: ordinary top-simplex collapse follows in dimension three by the facet replay described above.",
+          "evidence": [
+            "For chordal H, if t≤3 or H is a subtree graph of a spider, T_t(Cl(H)) is (2t+1)-collapsible.",
+            "An elementary d-collapse removes a free face of cardinality at most d and all its cofaces, and a free face has a unique maximal coface."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.14384v1",
+          "material_read": "Theorem 1.3 and context, HTML offsets 8440–9601; elementary d-collapse definition near offset 17899",
+          "method": "Open-access primary HTML text",
+          "title": "Tolerance complexes of chordal graphs and squarefree symbolic powers",
+          "trigger": "General tolerance theorem directly containing the filled path-square input"
+        },
+        {
+          "assessment": "Earlier independent implication for the wedge from 3-Leray over all fields, dimension, simple connectivity and Euler characteristic, but no ordinary collapse certificate.",
+          "evidence": [
+            "Theorem 1.5 gives 3-Leray at d=1,t=1; the original strip is 1-collapsible by endpoint-vertex removal."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2109.03030v1",
+          "material_read": "Theorems 1.5 and 1.6 around HTML offsets 10070 and 11113",
+          "method": "Open-access primary HTML text",
+          "title": "Leray numbers of tolerance complexes",
+          "trigger": "Earlier tolerance bounds and whether they force the wedge here"
+        },
+        {
+          "assessment": "One-dimensional graph input, not the filled clique complex.",
+          "evidence": [
+            "Graph triangles are unfilled; the statement distinguishes this from flag clique complexes with triangles."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-the-homotopy-type-of-one-tolerance-complexes-of-arbitrary-graphs--6217221a2721",
+          "material_read": "RESULT.md Finding and assumptions starting at offset 0",
+          "method": "Published local mirror",
+          "title": "The homotopy type of one-tolerance complexes of arbitrary graphs",
+          "trigger": "Same-day exact graph-tolerance wedges including a path result"
+        },
+        {
+          "assessment": "Related nonchordal family; grants no implication for the path square and no order of priority.",
+          "evidence": [
+            "C_n² with n≥9, wedge multiplicity (n²−7n−2)/2, and explicit ordinary tetrahedron collapses."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-quadratic-sphere-wedges-in-one-tolerance-complexes-of-squared-cy--8051329e5a96",
+          "material_read": "RESULT.md Finding, assumptions, and Proof §2",
+          "method": "Published local mirror",
+          "title": "Quadratic sphere wedges in one-tolerance complexes of squared cycles",
+          "trigger": "Closest same-day filled-clique construction and top-dimensional collapse method"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The homotopy type is a natural invariant, but in this family the advertised classification and exact count are mechanically obtained from the covering theorem and direct face counts. The concise L/R ordering makes the proof self-contained and is a useful exposition. As a standalone remainder it gives a particular choice of pairs for an already guaranteed reduction, with no established independent invariant, new bound, or mathematical need for that specific order. No distinct valuable repaired claim has been established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

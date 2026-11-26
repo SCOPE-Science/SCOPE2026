@@ -1,15 +1,21 @@
-# Review: full-set two-deletion decoding in six-permutations
+# Independent mathematical audit
 
-## Correctness — PASS
-The assertion is exact and finite. For every one of the 720 permutations, 15 four-position choices are standardized and encoded into one of 24 possible rank patterns. A separate pairwise-comparison containment implementation computes the same complete observation for every input. The two methods agree on all inputs; the grouped fibers have exactly 710 singleton, two doubleton and two tripleton values, with all ten exceptional sources explicitly listed. This proves the sharp 714 deck-injective codebook size and the 36 labeled optimum codebooks by one independent representative choice from each fiber. The embedded `verify.py` is a complete, small reproducible enumerator, not a statistical experiment. No infinite-length statement is inferred.
+## correctness
 
-## Originality — PASS, qualified
-Smith (2006), Proposition 3.1, gives one pair of the six-letter collisions and a lower bound for the set-reconstruction threshold, but not the complete four exceptional fibers. Raykova (2006) already proves the threshold of seven; no novelty is claimed for that threshold. The public length-seven permutation-pattern sphere spectrum determines a **single source's number of children**, not the equality classes of complete length-six set-decks, and its full `RESULT.md` was compared. Gabrys et al. (2014) treat deletion-correcting permutation codes with a different received observation. Searches using the exact census values, standardized-minor aliases and set-deck coding variants did not identify the full classification. This is positive, qualified evidence of originality rather than proof of unique historical priority. The inaccessible full Smith (2005) thesis is a residual risk.
+PASS
 
-## Mathematical value — PASS
-This classifies every exception at the sharp final nonreconstructible order in a concrete full-trace-set synchronization/code-design problem, and yields an exact maximum distinguishable-source dictionary size and a complete count of its 36 optima. In particular, it identifies which ten of 720 sources require disambiguation rather than giving only the already-known existence of ambiguity. The comparison carefully separates complete-set decoding from traditional decoding of a single arbitrary trace, so the numerical optimum has a precise nontrivial information model. The result is a motivated natural finite classification, not a claim to a general code-capacity theorem.
+An independent exhaustive construction started from all 720 permutations and took two successive one-symbol deletions, re-ranking after each by subtracting one from each remaining label greater than the deleted label. This retains only relative order; composing it twice gives precisely the 15 retained-position possibilities with duplicates discarded. Grouping by literal frozensets, not by the source's bitmask or rank sorting, returned 710 singleton fibers and exactly the listed tripletons {132465,132546,213546} and {564231,645231,645312}, and doubletons {241635,315264} and {462513,536142}, with deck sizes five and ten respectively. Reversal and complement swap the two fibers of each size; inversion fixes each fiber setwise. These operations commute with taking subpatterns when applied also to the patterns, and none of the exceptional sources has fewer than two descents. The 58 sources with at most one descent can also be counted as 1+(2^6−7): choose the first increasing run as a nonempty proper subset and exclude the five initial intervals (the splits of the increasing word). A full-deck decoder admits one representative per fiber, hence 714 as the maximum size and 3×2×2×3=36 distinct labeled maximum codebooks.
 
-## Scope and limitations
-The 714/36 values are specifically for complete set-decks on labeled six-permutations. No conclusion follows for a single received trace. All counts are proved by an auditable exhaustive finite program, not independent formal or external verification. The 2005 dissertation is a priority risk and earlier hidden equivalent tables cannot be excluded.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Smith gives a collision in the very same set model and Raykova identifies the last ambiguous length. The supported distinct claim is the complete fiber classification at that length, including the independent choices among all exceptional sources, not the existence of a collision or the reconstruction threshold.
+
+## value
+
+PASS
+
+Six is the last ambiguous length for this natural observation; it is not an arbitrary small cutoff. Resolving every exceptional labeled source at that threshold quantifies exactly what information the full set loses, gives an optimal decoding dictionary and all its degrees of freedom, and identifies symmetry and descent restrictions on ambiguity. These are useful in reconstruction questions that assume complete access to distinct patterns, not merely as a repeat of a known threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:14:57.624932Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Proof §§1–4; supporting DFS and Walsh verifier sources and both recorded JSON outputs",
+        "Fresh exact enumeration: python3 /tmp/opencode/reproduce_1_2.py. The graph section found zero forests of order 10, 80 geometric forests of order 9, three peeling layers of sizes 4,4,1, exchange edges 280,280,920 with respective profiles (1,7),(1,7),(1,23,48,8), and 40 slide edges with profile (1,1)."
+      ],
+      "rationale": "The 16 characters on the even-parity group are represented without repetition by supports of sizes 0, 1 and 2. The generators flip all but one coordinate, so the respective eigenvalues are 5, −3 and 1. Parseval and the induced edge count give e(U)=m²/4−3m/2+Σbᵢⱼ²/8. At ten vertices this exceeds the forest bound; at nine each bᵢⱼ is odd, so eight edges are necessary and a forest forces all |bᵢⱼ|=1. The five odd coordinate sums then have squares summing to 53; the three listed patterns exhaust the possibilities. Two majority counts of seven would overlap in at least five points, impossible for two halfspaces; in the 7,6,6,6 majority-count case, the two points outside the 7-point majority agree on four coordinates and hence on all five. Thus only a full halfspace plus one point survives. The halfspace induces a matching; the outside point has one neighbor in each edge by triangle-freeness, giving the subdivided star. For the exchange rule, cross-index adjacency at cost three requires neither omitted point to lie in the intersection. The degree is 7+4·4. When both omissions block a cross-index move, they agree on a third coordinate by parity; opposite that bit, choose an omitted point with the opposite values on the two original coordinates, giving a common neighbor. States from complementary halfspaces cannot have a common neighbor because its omission would have to miss both; a third-clique route of length three exists using any coordinate on which the two original omissions agree. Token slides occur along just the four matching edges per halfspace. At threshold four the inactive induced graph is pruned at degree at most one, giving precisely three rounds on these trees.",
+      "residual_risks": [
+        "All enumeration is on the specified degree-five graph. The exchange analysis does not allow sequential unit moves through intermediate optimum configurations when the exchange size is above one."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Morrison–Noel uses the ordinary one-bit-edge hypercube, not its folded counterpart. Agrawal et al. asks for a common deletion set among edge-colored graphs, not exchange between optima. Decycling Connected Regular Graphs and the full Bousquet text could not be read."
+        ],
+        "reasoning": "Neither accessible general theorem specializes to the optimum sets and reconfiguration graph here; incomplete access is not exclusion of coverage.",
+        "searches": [
+          "Morrison–Noel arXiv:1506.04686 §1; Agrawal et al. arXiv:1510.01557 pp. 1–2; Bousquet et al. DOI 10.1016/j.tcs.2023.114188; Decycling Connected Regular Graphs"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records e915e15e008d and 172a33943b95; the primary and unresolved sources above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "These same-graph records concern homotopy, persistence, f-vectors and signed symmetry. The frozen result supplies omissions in ten specified affine halfspaces, their intersections and the complete metric profile under the stated move cost."
+        ],
+        "reasoning": "Homotopy or f-vector data do not identify which masks are optimal or the exchange graph. An exhaustive mask list could mechanically reconstruct a move graph, but neither inspected finding supplies the hyperplane theorem and its distance description. The claimed numerical overlap is explicitly separated from that structural content.",
+        "searches": [
+          "Resultary e915e15e008d and 172a33943b95; FVS exchange and token sliding comparisons"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cores of Cubelike Graphs identifies the folded five-cube as Clebsch and the halved five-cube as its complement. Forest complementation and degree-one pruning translate the three problem formulations."
+        ],
+        "reasoning": "Compare results on the degree-five graph only; a nine-vertex induced forest is the complement of a seven-point optimum, and the threshold-four bootstrap classification follows from exactly the same forest list.",
+        "searches": [
+          "Resultary and literature: Clebsch/folded five-cube decycling, minimum FVS, maximum induced forest, induced-forest complex, four-neighbor bootstrap percolation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Oct. 18 filtration record enumerates all acyclic masks and reports total counts by induced maximum degree; its Finding and aggregate table do not describe the optimum-set geometry. The Oct. 25 topology record explicitly gives its f-vector ending in 80 faces of dimension eight, with no larger faces."
+        ],
+        "reasoning": "The later f-vector proves both 7 and 80 by complementation, so those numbers are not distinct from that exact tabulation. The same-day enumeration contains the information to extract the numerical census, but the inspected statements are not a family classification. Same date is not an ordering or priority determination.",
+        "searches": [
+          "Resultary induced-forest topology and filtration on the Clebsch graph; exact word/number lookup in e915e15e008d; comparison with the f-vector in 172a33943b95"
+        ]
+      },
+      "rationale": "The supported distinct result is the complete geometric description of the optima and their exact exchange and slide structure. The numerical extremum and count were checked separately; the threshold-four equivalence is a reduction, not a separate new general theorem.",
+      "residual_risks": [
+        "The inaccessible regular-graph and reconfiguration sources, and unindexed tables or old small-graph classifications, leave priority uncertainty. Pass is for the geometric and movement result, not a historical claim about discovery of 7 or 80."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct same-object computational overlap, not the optimum/reconfiguration classification; no priority inference from date.",
+          "evidence": "Offsets 90–2622: forest filtration definition, homotopy and persistence, face totals 392 through 13838.",
+          "identifier_or_url": "2026/10/18/SCOPE-integral-homotopy-and-persistent-four-dimensional-homology-of-th--e915e15e008d",
+          "material_read": "RESULT.md Finding, scope and first Proof passage with counts",
+          "method": "Local Resultary mirror",
+          "title": "Integral homotopy and persistent four-dimensional homology of the Clebsch forest filtration",
+          "trigger": "Same graph and exhaustive induced-forest enumeration; same-day entry"
+        },
+        {
+          "assessment": "Later f-vector demonstrably implies minimum FVS size and count, not their geometry or move graph.",
+          "evidence": "Offsets 0–4013; (16,120,560,1780,3696,4376,2560,650,80) through dimension eight.",
+          "identifier_or_url": "2026/10/25/SCOPE-integral-induced-forest-topology-and-signed-permutation-symmetry--172a33943b95",
+          "material_read": "RESULT.md Finding, scope and first Proof passages",
+          "method": "Local Resultary mirror",
+          "title": "Integral induced-forest topology and signed permutation symmetry of the folded five-cube",
+          "trigger": "Exact face table for the same graph"
+        },
+        {
+          "assessment": "Ordinary hypercube, not the specified graph.",
+          "evidence": "§1 defines Q_d by Hamming distance one and gives an exact formula for r=3.",
+          "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/1506.04686",
+          "material_read": "§1 process, graph definition and exact-case statement",
+          "method": "OA rendering of primary paper",
+          "title": "Extremal Bounds for Bootstrap Percolation in the Hypercube",
+          "trigger": "Prior bootstrap extremal results"
+        },
+        {
+          "assessment": "Common deletion across multiple edge-coloured graphs is a different problem.",
+          "evidence": "PDF text offsets 2107–7408.",
+          "identifier_or_url": "https://arxiv.org/abs/1510.01557",
+          "material_read": "pp. 1–2 problem definition",
+          "method": "OA PDF passage retrieval",
+          "title": "Simultaneous Feedback Vertex Set: A Parameterized Perspective",
+          "trigger": "Similar terminology for simultaneous FVS"
+        },
+        {
+          "assessment": "Folded five-cube matches; halved five-cube is its complement.",
+          "evidence": "PDF offset 27440.",
+          "identifier_or_url": "https://arxiv.org/abs/1808.02051",
+          "material_read": "p. 7 graph identification",
+          "method": "OA PDF passage retrieval",
+          "title": "Cores of Cubelike Graphs",
+          "trigger": "Resolve folded and halved graph aliases"
+        },
+        {
+          "assessment": "Scope and precise possible overlap were not independently resolved.",
+          "evidence": "DOI and title, not full-document evidence.",
+          "identifier_or_url": "https://doi.org/10.1016/j.tcs.2023.114188",
+          "material_read": "Bibliographic identification only; full text not retrieved",
+          "method": "OA retrieval attempt",
+          "title": "Feedback vertex set reconfiguration in planar graphs",
+          "trigger": "Direct reconfiguration literature"
+        },
+        {
+          "assessment": "Not a basis to establish or exclude coverage.",
+          "evidence": "Title-level lead only.",
+          "identifier_or_url": "https://ajc.maths.uq.edu.au/pdf/35/v35.pdf",
+          "material_read": "Bibliographic lead only",
+          "method": "OA retrieval attempt; timeout",
+          "title": "Decycling Connected Regular Graphs",
+          "trigger": "Regular-graph decycling could cover the scalar extremum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and Proof §§2–4; independently replayed distance profiles"
+      ],
+      "rationale": "A standard symmetric graph supports a natural comparison between its exact extremal structure and mobility of optimal configurations. The ten-family description explains all optima and the sharp contrast between isolated slide pairs, ten exchange components, and eventual connectivity; this is more informative than tabulating the extremal value or the number of forest faces.",
+      "residual_risks": [
+        "Single graph and explicitly simultaneous endpoint move convention; no wider folded-cube claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

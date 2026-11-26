@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:39:32.160753Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md proof §§1–4; VERIFICATION.md, check_jets.py and check_jordan_differential.py inspected without executing the supplied programs",
+        "Independent bounded replay: /workspace/branches/f41dc5a3-e5a1-4076-9e0a-ad48c117bc2b/bounded_rank_replay.py and bounded_rank_replay.out. All 344 rectangular cases for p∈{2,3,5,7}, 3≤d≤6 and 1≤a,b≤d matched. Full-map samples include (p,d,λ)=(2,3,(3)) giving (4,1,1), (3,3,(3,2,1)) giving (16,10,0), (5,4,(4,2)) giving (21,6,1), and (2,4,(4)) giving (8,4,0). Direct dual-number counts were 64 and 128 for a length-3 block over F2 at d=3 and d=4."
+      ],
+      "rationale": "For commuting left and right multiplication L,T by N, both dth powers vanish and D=h(L,T) with h=Σ_{j=0}^{d−1}s^j t^{d−1−j}. In k[s,t]/(s^d,t^d), degree forces h² to be supported only on s^{d−1}t^{d−1}, contributed by exactly d ordered pairs, and h³=0. Thus rank D² is 0 if p|d and m_d² otherwise, since rank N^{d−1}=m_d and left/right multiplication by it has rank m_d². On a rectangular block pair of lengths a,b, choose a cyclic basis for each of the two independent shifts (reverse the right shift where needed), identifying D with multiplication by h in k[s,t]/(s^a,t^b). Since (s−t)h=0, the image is spanned by s^rh. For a+b>d, the term s^{d−b+r}t^{b−1} survives precisely for r≤a+b−d−1, and is the survivor with smallest s-exponent; above that threshold all terms vanish. For a+b≤d no term survives, and the surviving s^rh are independent by total degree. Summing ranks over ordered block pairs yields R and counting admissible column indices gives the same h_i expression. The ranks of D and D² now determine all Jordan multiplicities. The dual-number expansion gives the stated fixed-residue kernel count. If m_d>0, rank D>0 and its nilpotency index changes from 2 to 3 according to divisibility; if R=0 the map really is zero, which is compatible with square-zero wording.",
+      "residual_risks": [
+        "The bounded computation uses prime fields, and its lift checks are fixed-residue examples only; the proof establishes the unrestricted field and dimension hypotheses."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Noferini Theorem 4.2 solves a general derivative Jordan-form problem within an algebraically closed characteristic-zero setting.",
+          "Norman's available abstract explicitly describes polynomial bivariate maps over a field F, a plausible broader scope. Noferini describes Norman as treating small block sizes fully and giving partial arbitrary-size results. The primary full text could not be retrieved.",
+          "Moreau–Yu study first jets of orbit closures over C, not the modular operator's square and cube."
+        ],
+        "reasoning": "An arbitrary-characteristic theorem for all relevant bivariate maps could cover the result, but no inspected full theorem establishes that implication. Characteristic-zero Jordan forms do not automatically specialize through the rank drop of the square.",
+        "searches": [
+          "OA checks of arXiv:2512.08399, arXiv:1411.6427 and Kressner DOI 10.7153/oam-08-23",
+          "Primary search: C W Norman, ‘On the Jordan form of a family of linear mappings’, 1997, nilpotent positive characteristic divided difference; identified ScienceDirect PII S0024379596001553 and checked for a lawful alternate copy"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and cited comparison passages",
+        "Resultary 5c39e77ec446",
+        "Kressner; Moreau–Yu; Noferini; Prasad–Singla–Spallone; Norman abstract and Noferini secondary discussion"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a single length-d block R=d in all characteristics, but square rank changes from 0 to 1. In the truncated two-shift ring it is the coefficient d of s^{d−1}t^{d−1}, not the rank formula, that detects the difference."
+        ],
+        "reasoning": "The known operator representation is the starting framework; the first-rank theorem does not mechanically yield the modular higher-rank result. The explicit second-power cancellation and all-characteristic bound on Jordan lengths are the additional mathematical statements.",
+        "searches": [
+          "5c39e77ec446, arXiv:1212.6157 §6.2, and arXiv:2512.08399 Theorem 4.2 compared with frozen proof §§1–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prasad–Singla–Spallone display L_N(X)=Σ_{a+b=N−1}J_λ^aXJ_λ^b and compute it on matrix units. The power differential is the same operator at a nilpotent Jordan residue.",
+          "The earlier Resultary ordered-pair sum Σ_{i,j} max(0,λ_i+λ_j−m) equals R after grouping lengths and setting m=d."
+        ],
+        "reasoning": "Operator renaming and passage to tangent dimensions or first jets do not introduce novelty. The higher powers of this same operator are the distinct questions assessed here.",
+        "searches": [
+          "Resultary: power-zero matrix schemes, dual-number fibers, and modular Jordan signatures of power-map differentials",
+          "Kressner Section 5; Prasad–Singla–Spallone arXiv:1212.6157 §6.2; bivariate Jordan and divided-difference descriptions in arXiv:2512.08399"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier all-characteristic formula supplies R and q^{n²−R} exactly, including the same (n,d,λ,q) range. Its stated geometric divisibility condition concerns d dividing n, not p dividing d."
+        ],
+        "reasoning": "The closest exact catalogue formula is fully covering for the first rank and lift count, but it gives neither the square rank nor the p-dependent partition. Equal ranks and dimensions can leave different numbers of size-three blocks.",
+        "searches": [
+          "Resultary 5c39e77ec446, Finding and exact rank/lift formulas"
+        ]
+      },
+      "rationale": "The exact first rank and fixed-residue first-jet count are already covered by Resultary 5c39e77ec446 and are not independent contributions. The supported distinct claim is the full positive-characteristic Jordan signature, with the square controlled by p|d and the cube always zero. First-rank data do not imply that signature, and the available published treatments furnish the operator framework, entry formulas, or characteristic-zero Jordan forms rather than this modular result. Norman's plausible broader paper could not be inspected beyond its abstract and a secondary scope description; that limitation is not negative evidence.",
+      "residual_risks": [
+        "Norman’s exact theorem remains unverified due to unavailable full text; related modular bivariate or tensor literature could include an encompassing result. No conclusion about historical priority is made. Rank and first-jet overlap is established independently of that risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior overlap for first rank and lifts, not the stated higher-power Jordan signature",
+          "evidence": "R_m(λ) and q^{n²−R_m(λ)} are identical; the other theorem concerns generic reducedness and a total dual-number census.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-power-zero-matrix-schemes-exact-dual-number-fibers-and-a-generic--5c39e77ec446/RESULT.md",
+          "material_read": "Finding at offset 0, rank, lift, and geometric statements",
+          "method": "OA local Resultary mirror",
+          "title": "Power-zero matrix schemes: exact dual-number fibers and a generic-reducedness divisibility criterion",
+          "trigger": "Same derivative at the same power-zero locus"
+        },
+        {
+          "assessment": "Operator framework, not inspected modular signature",
+          "evidence": "The Fréchet derivative is a bivariate function of left and right shifts with divided-difference scalar function.",
+          "identifier_or_url": "https://files.ele-math.com/articles/oam-08-23.pdf",
+          "material_read": "Section 5 framework; p. 2 near offset 3300, match at 3386",
+          "method": "OA PDF",
+          "title": "Bivariate matrix functions",
+          "trigger": "Earlier divided-difference expression for the derivative"
+        },
+        {
+          "assessment": "Different scope",
+          "evidence": "Nilpotent-orbit closure jets over C, rather than positive-characteristic differential Jordan multiplicities.",
+          "identifier_or_url": "arXiv:1411.6427",
+          "material_read": "P. 1 offsets 0 and 1450",
+          "method": "OA PDF",
+          "title": "Jet schemes of the closure of nilpotent orbits",
+          "trigger": "Prior first-order nilpotent jet geometry"
+        },
+        {
+          "assessment": "Strong characteristic-zero coverage, not the modular claim",
+          "evidence": "The base field in the theorem is algebraically closed of characteristic zero.",
+          "identifier_or_url": "arXiv:2512.08399",
+          "material_read": "P. 2 near offset 4600; p. 3 near 7200 discussing Norman; p. 16 near 58000, Theorem 4.2; p. 28 reference",
+          "method": "OA PDF",
+          "title": "The Jordan canonical form of the Fréchet derivative of a matrix function and the bivariate Jordan problem",
+          "trigger": "Broadest directly relevant available Jordan-form theorem"
+        },
+        {
+          "assessment": "Primary scope unresolved; not evidence of noncoverage",
+          "evidence": "The abstract allows general fields subject to eigenvalues lying in F; the available secondary passage describes partial general-size results, not the needed modular statement.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0024379596001553",
+          "material_read": "Indexed abstract excerpt only; secondary scope discussion in Noferini p. 3",
+          "method": "Primary literature lookup, OA direct/VPN both HTTP 403, and lawful alternate-copy lookup that identified no accessible copy of this article",
+          "title": "On the Jordan form of a family of linear mappings",
+          "trigger": "Bivariate Jordan forms in potentially arbitrary characteristic"
+        },
+        {
+          "assessment": "Material operator-level overlap, no full modular Jordan signature in inspected passage",
+          "evidence": "Defines L_N by the same sum and computes its action on matrix units for the relevant residue problem.",
+          "identifier_or_url": "arXiv:1212.6157",
+          "material_read": "§6.2 pp. 20–21, offsets 50500–54755",
+          "method": "OA PDF",
+          "title": "Similarity of matrices over local rings of length two",
+          "trigger": "Prior construction of the identical nilpotent power differential"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen D², D³ and multiplicity formulas and examples",
+        "Earlier exact rank and fixed-residue count in 5c39e77ec446"
+      ],
+      "rationale": "For a natural nilpotent input family this completely determines a linear operator's Jordan type from the input partition and characteristic. The first rank and finite-field lift dimensions alone cannot see the sharp modular change, whereas the square rank distinguishes genuinely different nilpotency indices as soon as a length-d input block is present. The theorem is not just a new rendition of tangent dimensions.",
+      "residual_risks": [
+        "The full Jordan signature concerns only the derivative of a power at N^d=0; it does not classify more general matrix functions or higher-order lifts."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

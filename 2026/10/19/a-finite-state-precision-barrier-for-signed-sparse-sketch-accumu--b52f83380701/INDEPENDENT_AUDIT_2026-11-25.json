@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T16:55:46.201026Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, assumptions and proof",
+        "Frozen VERIFICATION.md, check.py, and CHECKS.txt (read only)",
+        "Independent exhaustive binary16 transition replay and integer uniform second-moment computation"
+      ],
+      "rationale": "Put h=1/sqrt(ζ) in {1,1/2}. Every jh for |j|≤2048 is representable. At the boundary the outward exact sum is the midpoint between ±2048h and ±2050h, and the former encodes the even low significand bit; inward updates are exact. Thus the scaled walk clips at ±2048 for any ordering. A separate exhaustive binary16 check of all 16388 state-direction cases matched this rule. Summing squares gives the pointwise ceiling, and assigning at least 2048 positive updates to each bucket in each layer attains it for N≥2048b. The strict N inequality ensures lower-embedding failure without any probability estimate. For the exact sketch, diagonal terms sum to N and unordered signed collisions have coefficient 2/ζ; distinct terms are orthogonal because some independent fair sign appears only once. There are ζ binom(N,2) terms each of second moment 1/b, giving 2N(N−1)/m and the stated Chebyshev bound. For the limiting law, conditional on the hashes and with sign-blind processing order, the bucket sign strings use disjoint independent signs. The clipped chain is symmetric, irreducible and aperiodic thanks to endpoint self-loops; one inward update exits an endpoint, so saturation is not absorption under fair signs. Each count is Bin(N,1/b); the minimum tends to infinity in probability for fixed m, and a sum of the individual conditional total-variation errors bounds the product error. This proves joint convergence despite dependent counts within layers. Finite support permits expectation convergence, and the exact uniform second moment of the scaled integer state is 1398784. Replay: compare RN binary16 serialization of (j±1)h against h·clip(j±1) for every allowed j and both h, then apply the bounded-state chain and collision expansion; the frozen script and stored output were inspected, not executed.",
+      "residual_risks": [
+        "The limit uses fixed m and ζ and a sign-blind order conditional on bucket assignments. The ceiling itself needs no ordering independence. There is no inference to arbitrary scale, rounded norm evaluation, different formats, or GPU execution semantics."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mixed-precision sketching/QR analyzes roundoff bounds; the earlier summation envelope assumes positive summands and no absorption; the GPU paper tests several rounding modes."
+        ],
+        "reasoning": "These hypotheses or empirical scopes differ from an exact signed, fixed-precision, unbounded-height Markov chain, and do not supply the joint law.",
+        "searches": [
+          "arXiv:2410.06319v2 §3",
+          "Resultary 2026/10/18/58a9cebb1abe",
+          "arXiv:2606.20195v1 pp. 2 and 8"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.20195v1, 2410.06319v2, 2610.10819v2",
+        "Resultary 893b68c79546, 58a9cebb1abe, b944eb52abb2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior exact two-bucket distribution and standard exact collision variance should be credited. Tested GPU distortion and generic stagnation characterize separate parts of the setup."
+        ],
+        "reasoning": "On the same motivated all-ones sketch, the deterministic sharp failure ceiling and the quantitative hash-conditioned joint limit address an untested regime and are not implied by the exact Gram law or finite hardware comparison. The contrast relies on simultaneous, precisely normalized exact and rounded analyses.",
+        "searches": [
+          "arXiv:2606.20195v1 pp. 2 and 8",
+          "Resultary 2026/10/13/893b68c79546 Finding",
+          "arXiv:2610.10819v2 stagnation discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The SparseStack experiments study the directly relevant precision and signed sketch, but report measured distortion in bounded regimes. The summation work treats partial, total and near-total stagnation."
+        ],
+        "reasoning": "The reflected-walk representation is a natural equivalence in this specified scale. General stagnation or empirical insensitivity does not itself give a sharp uniform sparse-sketch norm bound combined with the limit for all accumulators.",
+        "searches": [
+          "CountSketch and SparseStack signed accumulation; nearest-even saturation",
+          "arXiv:2606.20195v1",
+          "arXiv:2610.10819v2",
+          "floating point round to nearest ties to even symmetric random walk signed summation FP16 stagnation stationary distribution saturation 2048 CountSketch SparseStack signed accumulation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier two-bucket result identifies the entire real-arithmetic Gram law up to a rotation; the later clipped-SGD record has the symmetric reflected-chain uniform law."
+        ],
+        "reasoning": "The earlier result subsumes the real-arithmetic moment claim at b=2, but not binary16 accumulation; the later record is a different application and does not establish prior coverage of the sketch result.",
+        "searches": [
+          "Resultary 2026/10/13/893b68c79546",
+          "Resultary 2026/11/02/b944eb52abb2"
+        ]
+      },
+      "rationale": "The distinct claim is the sharp absolute binary16 energy ceiling and consequent certain rank-one distortion in the same signed-sketch setting as the finite experiments, quantified further by its joint product-uniform limit. Standard midpoint stagnation, reflected-chain equilibrium, and exact arithmetic sketch moments are not claimed independently new. The b=2 exact Gram law is already covered more strongly by an earlier record.",
+      "residual_risks": [
+        "An earlier specialized deterministic signed-summation theorem could contain an equivalent obstruction; the comparison is bounded. No novelty is assigned to the exact-arithmetic b=2 law, midpoint ties-to-even, or the uniform invariant measure of a symmetric reflected walk in isolation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closest application prior, different regime",
+          "evidence": "Compares deterministic, stochastic and dithered rounding in experiments; nearly overlapping coherence-sweep distortions at tested sizes, not a worst-case all-height proof.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.20195v1",
+          "material_read": "PDF pp. 2 and 8 (around offsets 7000 and 33956)",
+          "method": "OA PDF passages read",
+          "title": "Randomized Sketching is Robust to Low-Precision Rounding on GPUs",
+          "trigger": "Same sparse sketch and binary16 rounding application"
+        },
+        {
+          "assessment": "Normwise analysis, not this finite-state law",
+          "evidence": "Sufficient inequalities in unit roundoff for sketching and QR are not sharp signed-bucket invariant-state descriptions.",
+          "identifier_or_url": "https://arxiv.org/abs/2410.06319v2",
+          "material_read": "§3, PDF p. 4 (around offset 14300)",
+          "method": "OA PDF passage read",
+          "title": "Mixed precision sketching for least-squares problems and its application in GMRES-based iterative refinement",
+          "trigger": "Potential general finite-precision sketch theorem"
+        },
+        {
+          "assessment": "Direct prior coverage of exact-arithmetic b=2 subclaim",
+          "evidence": "Every deterministic input has the dense-Rademacher Gram law for block width two; no rounded accumulator is involved.",
+          "identifier_or_url": "Resultary 2026/10/13/893b68c79546",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Published record passage read",
+          "title": "Two-bucket SparseStack is exactly a dense Rademacher sketch up to a fixed rotation",
+          "trigger": "Possible exact Gram or norm-distribution overlap"
+        },
+        {
+          "assessment": "Different signs and regime",
+          "evidence": "Works for positive summands, every update advancing the sum, and an unbounded exponent model.",
+          "identifier_or_url": "Resultary 2026/10/18/58a9cebb1abe",
+          "material_read": "Finding and stated restrictions",
+          "method": "Published record passage read",
+          "title": "A two-sided error envelope without floating-point summation absorption",
+          "trigger": "Potential nearest-even saturation theorem"
+        },
+        {
+          "assessment": "Related rounding mechanism, not the target sketch law in the inspected results",
+          "evidence": "Studies partial, total and near-total stagnation without the norm ceiling and joint sketch-law statement.",
+          "identifier_or_url": "https://arxiv.org/html/2610.10819v2",
+          "material_read": "Stagnation definitions and detection, offsets 3749–6910",
+          "method": "OA HTML passage read",
+          "title": "Mikaitis and Woolfenden on recursive floating-point summation stagnation",
+          "trigger": "Potential general signed summation obstruction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, theorem and limitations",
+        "arXiv:2606.20195v1, motivating experiments"
+      ],
+      "rationale": "This supplies a concrete failure witness on the all-ones equal-leverage direction, for a specified sketch actually used in the motivating GPU study. In a regime with real-arithmetic norm preservation at high probability, it shows certain lower-norm failure without skewed leverage or overflow. The sharp ceiling separates a discrete accumulator constraint from the ordinary collision variance, and the joint stationary law predicts the scale of the asymptotic rounded energy rather than just warning that errors may grow.",
+      "residual_risks": [
+        "The model is a boundary example, not a prediction of failure at the sizes already benchmarked; it provides neither practical mixing-time estimates nor guarantees against other rounding modes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

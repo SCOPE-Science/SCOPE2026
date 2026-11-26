@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:12:11.905977Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 7–80 and VERIFICATION.md lines 19–25; frozen verify.py inspected only",
+        "python3 /workspace/replay.py 2: at beta=log(81), 256 complete kernel entries for two differently weighted edges and 120 exact pair covariance checks on a weighted path and weighted cycle"
+      ],
+      "rationale": "Fix any initial configuration. Independence and finite fields give a full-support product law for the intermediate spins. Conditional covariance of distinct outputs reduces to covariance of their intermediate-state mean functions. When they share a neighbor, both mean functions are strictly increasing in its spin, and nondecreasing in every other spin. Conditioning on the shared spin, the first covariance term is nonnegative by induction on the remaining independent coordinates; the second is strictly positive since both conditional means strictly increase and the shared spin is nondegenerate. If there is no such pair, every vertex has degree one under the graph hypotheses. Its partner map is bijective, so the output coordinates use distinct independent intermediate spins and separate second-step noise. Each binary channel has mean tanh(beta/2) times its input; the composition has mean tanh(beta/2)^2 times the initial spin, giving the asserted parameter. Equality of the two-step kernels extends to the even-time path laws, with the same starting law. The path witness reduces to the shared-spin variance, including the stated rational values.",
+      "residual_risks": [
+        "No claim at beta=0, at infinite beta, or for signed interactions and nonproduct update noise. The finite reproduction supplements the conditional association proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The reversible PCA comparison concerns the invariant law. The empirical M3 field includes a social term alongside self-persistence. Product association gives nonnegative covariance for monotone functions; it does not by itself supply strictness or the composed channel."
+        ],
+        "reasoning": "The application to full-support shared-neighbor strictness and the complementary effective channel calculation establish a specific boundary not supplied by these broader statements.",
+        "searches": [
+          "arXiv:1307.8234, Section 2.2",
+          "arXiv:2609.23690, Section III.A, Eqs. (4), (6), (10)",
+          "Harris / Esary–Proschan–Walkup product association"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1911.03289v1, 2609.23690 and 1307.8234",
+        "Resultary 481fe34018b6, 015760bc21d0, a7e4828ea67d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inertia parameter in the frozen theorem comes from composing two normalized degree-one channels, not from a fit of the M3 one-step persistence parameter. Stationary factorization does not describe K^2(s,·). Non-strict association requires an additional strict conditional term."
+        ],
+        "reasoning": "The known setup and elementary association ingredient are credited; no inspected statement subsumes the matching-only alias and strict obstruction as stated.",
+        "searches": [
+          "arXiv:1911.03289v1, Eqs. (12)–(14); arXiv:2609.23690, Eq. (10); frozen RESULT.md lines 53–70"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The zero-self-coupling square-lattice equilibrium splits into two interacting sublattices (Section IV.A, PDF p. 10). The claimed product is over individual vertices and conditions on an arbitrary deterministic initial state."
+        ],
+        "reasoning": "An interacting sublattice product for a stationary measure is not the row-by-row factorization of the squared transition kernel.",
+        "searches": [
+          "Resultary: two-step sampling, heat-bath social influence, inertia, all-initial-state product kernels",
+          "arXiv:1911.03289v1, Eqs. (1)–(2), Section IV.A"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest catalogue records concern rooted clique bouquets through hub lag statistics, rooted complete bipartite graphs through stationary same-root two-time laws, or endpoint lag-two statistics on paths."
+        ],
+        "reasoning": "None has the same model and all-start joint output observable. A finite transition table is not a plausible substitute for the all-graph if-and-only-if; the closest indexed exact statements were compared instead.",
+        "searches": [
+          "Resultary 481fe34018b6, 015760bc21d0, a7e4828ea67d, each Finding; shared-parent, temporal coarsening and stroboscopic product kernels"
+        ]
+      },
+      "rationale": "The supported distinction is the exact all-initial-state two-step product-kernel boundary and inertia alias for the given model. Closest inspected results concern one-step model specification, stationary sublattice factorization, or stationary one-site time series, not the stated conditional transition-kernel equivalence.",
+      "residual_risks": [
+        "The classical association originals were not retrieved in readable form; the standard product inequality was reconstructed directly. Focused literature search produced no additional usable hit; equivalent results in graphical-model or PCA literature outside the inspected sources remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stationary, not two-step conditional, factorization",
+          "evidence": [
+            "Independent sublattices retain two- and four-spin couplings."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1911.03289",
+          "material_read": "v1 PDF p. 2, Eqs. (1)–(2), and Section IV.A, Eqs. (12)–(14), p. 10 / text offset 28600",
+          "method": "Primary open-access paper passages",
+          "title": "Kinetic Ising Models with Self-interaction: Sequential and Parallel Updating",
+          "trigger": "Parallel zero-self-coupling factorization"
+        },
+        {
+          "assessment": "Different one-step comparison",
+          "evidence": [
+            "M1 has h+beta*u_i and M3 adds lambda*s_i without removing beta*u_i."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.23690",
+          "material_read": "Section III.A, p. 6, Eqs. (4), (6), (10)",
+          "method": "Primary open-access paper passages",
+          "title": "Inferring the microscopic mechanisms of opinion dynamics using a kinetic Ising model",
+          "trigger": "Same social and persistence modeling vocabulary"
+        },
+        {
+          "assessment": "Reversibility and equilibrium, not matching criterion",
+          "evidence": [
+            "The parallelized kernel has a stationary measure different from the starting statistical-mechanics model's measure."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1307.8234",
+          "material_read": "Section 2.2, PDF pp. 7–8",
+          "method": "Primary open-access paper passages",
+          "title": "Effect of self-interaction on the phase diagram of a Gibbs-like measure derived by a reversible Probabilistic Cellular Automata",
+          "trigger": "Parallel heat-bath precedent"
+        },
+        {
+          "assessment": "Stationary single-site observables, not conditional full output laws",
+          "evidence": [
+            "Hub lag correlations; rooted two-time laws at every lag; endpoint lag-two ordering, respectively."
+          ],
+          "identifier_or_url": "Resultary 481fe34018b6; 015760bc21d0; a7e4828ea67d",
+          "material_read": "Each RESULT.md Finding, offset 0",
+          "method": "Local-mirror text",
+          "title": "Related Resultary lag-two and rooted laws",
+          "trigger": "Exact comparisons under temporal coarsening"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 18–35, 53–76, 88–90"
+      ],
+      "rationale": "Exact even-time aliasing limits mechanistic inference even with the complete transition kernel. The graph classification and strict covariance witness identify when the alias breaks, beyond merely giving an example of indistinguishability.",
+      "residual_risks": [
+        "The witness separates independent inertia only; it does not furnish noise-robust inference guarantees or exclude latent/correlated alternatives."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

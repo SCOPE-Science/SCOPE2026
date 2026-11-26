@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:11:38.847806Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md lines 5–39 and 41–54; VERIFICATION.md lines 19–27; search_colorings.cpp, exact_cover.cpp and analyze_orbits.py inspected.",
+        "Independent replay: python3 /workspace/branches/independent-checks/mcgee.py. It checks census, exact agreement with both frozen partition lists, listed witness, profile table, square subset, and automorphism orbit histogram."
+      ],
+      "rationale": "For a cubic graph, a proper coloring is strong odd exactly when each color class is independent and no open neighborhood meets it twice. The LCF edges give 36 edges, cubic degree and girth seven (computed by shortest paths with one edge deleted). Independently enumerating independent subsets and applying the neighborhood filter gives 1,196 admissible nonempty classes. For a fixed remaining vertex mask one can pick any deterministic pivot in it and branch over all wholly remaining classes containing that pivot; every completion has a unique such class and is reached exactly once. This gives 0,0,0,0,1304 partitions for k=1..5. The resulting set agrees with both frozen lists and contains the stated witness. Sorting sizes yields the six counts 16,48,96,336,400,408 in the reported order. The 32 automorphisms are exactly the bijections preserving the graph-distance matrix (distance one is adjacency); backtracking with pairwise distance constraints gives the full group. Its action on partitions gives orbit multiplicities 5,19,30 for sizes 8,16,32. Exactly 320 partitions have three distinct colors in every open neighborhood, hence are proper square colorings; the complement is 984. Five occupied named colors multiply the unnamed count by 120. The supplied search and exact-cover code were inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kwon and Park pp. 1, 4 give class-level bounds based on sparsity and cycles; Caro et al. p. 1 identifies structural classes under consideration."
+        ],
+        "reasoning": "A sparsity or planarity bound, even when it gives a useful upper bound, cannot determine the partition census and group action. The inspected statements supply neither this census nor a structural result specializing to its profiles.",
+        "searches": [
+          "Resultary: McGee graph strong odd chromatic number chi_so",
+          "Kwon and Park arXiv:2401.11653v3; Caro et al. arXiv:2410.02336v1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary four McGee strong-odd, square, and exact-census queries and the distinct mirrored findings above",
+        "arXiv:2401.11653v3 pp. 1 and 4; arXiv:2410.02336v1 p. 1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier same-graph perfect matching/2-factor classification; adjacent same-day strong-odd censuses on two other cubic graphs; sparse strong-odd class bounds."
+        ],
+        "reasoning": "Knowing the automorphism group order does not determine the distribution of stabilizers of these partitions. Square coloring implies strong odd, but without also testing allowed monochromatic neighborhoods it supplies no exhaustion or lower bound for the larger class. No statement inspected implies the full vertex partition census and minimum. Same-day dates are not used to infer priority.",
+        "searches": [
+          "Resultary: McGee graph strong odd chromatic number chi_so",
+          "Resultary: McGee graph color partitions automorphism orbits exact census"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kwon and Park, arXiv:2401.11653v3, p. 1, strong odd as a relaxation of square coloring.",
+          "Same-day dodecahedral and Coxeter strong-odd censuses, Findings."
+        ],
+        "reasoning": "Color-name quotienting recovers the same partitions; it does not make edge colorings equivalent. The all-distinct neighbor condition characterizes the square subset; strong odd allows monochromatic triples as well. A square five-color census could duplicate the 320 subset, but would not classify the 984 additional partitions. The 20- and 28-vertex examples are not isomorphic to the 24-vertex target.",
+        "searches": [
+          "Resultary: McGee graph strong odd coloring",
+          "Resultary: McGee graph square coloring strong odd colorings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching catalogue entry is the assigned record itself. The distinct October 13 McGee census enumerates 2-factors and edge colorings and already gives automorphism order 32.",
+          "The distinct same-day dodecahedral and Coxeter records tabulate other graphs."
+        ],
+        "reasoning": "The October record is a same-object exact census but tabulates a different combinatorial invariant. Its eight symmetry classes are of 2-factors, not the 54 strong-odd vertex partition orbits. The inspected catalogue evidence does not reproduce the six size profiles or the square subset.",
+        "searches": [
+          "Resultary: McGee graph color partitions automorphism orbits exact census",
+          "Resultary: McGee graph square coloring strong odd colorings"
+        ]
+      },
+      "rationale": "The supported distinct finding is the complete strong-odd optimum census for the specified McGee graph, including profiles, orbits and the square subset. The graph definition, automorphism order and strong-odd definition are not discoveries. Neither the inspected sparse-coloring bounds nor the closely related catalogue entries cover the exact claim.",
+      "residual_risks": [
+        "An unindexed census or a table phrased in square-coloring or equivalent partition terminology could overlap the exact claim or its 320 subset. The bounded general search yielded no useful further text, which is not evidence of historical absence.",
+        "No priority is claimed relative to same-day related results; no novelty is attributed to automorphism order 32."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior graph order and symmetry fact; different census",
+          "evidence": "60 perfect matchings/2-factors, eight 2-factor orbits, 204 named proper edge colorings, automorphism order 32.",
+          "identifier_or_url": "2026/10/13/SCOPE-the-complete-2-factor-spectrum-of-the-mcgee-graph-and-its-eight--434d398b5fa9",
+          "material_read": "Finding around offset 80",
+          "method": "Resultary and mirrored RESULT.md",
+          "title": "The complete 2-factor spectrum of the McGee graph and its eight symmetry classes",
+          "trigger": "Earlier exact census and automorphism orbits on the same graph"
+        },
+        {
+          "assessment": "Different graph",
+          "evidence": "20 vertices, five colors, 212 unnamed partitions, three size profiles, two square colorings.",
+          "identifier_or_url": "2026/11/22/SCOPE-strong-odd-colourings-of-the-dodecahedral-graph-a-212-partition--8bec1e4c5fa9",
+          "material_read": "Finding around offset 100",
+          "method": "Resultary and mirrored RESULT.md",
+          "title": "Strong odd colourings of the dodecahedral graph: a 212-partition census",
+          "trigger": "Same-day closest cubic strong-odd and square subset census"
+        },
+        {
+          "assessment": "Different graph",
+          "evidence": "28 vertices, 336 named colorings, 14 unnamed partitions, one orbit.",
+          "identifier_or_url": "2026/11/22/SCOPE-strong-odd-colorings-of-the-coxeter-graph-a-fourteen-partition-r--8d64cd44581c",
+          "material_read": "Finding around offset 100",
+          "method": "Resultary and mirrored RESULT.md",
+          "title": "Strong odd colorings of the Coxeter graph: a fourteen-partition result",
+          "trigger": "Same-day strong-odd census with symmetry classification"
+        },
+        {
+          "assessment": "Definition and class bounds rather than the census",
+          "evidence": "Relaxation of square coloring, maximum-average-degree bounds and results for cycle-excluding and planar classes; no census in the inspected statements.",
+          "identifier_or_url": "https://arxiv.org/abs/2401.11653",
+          "material_read": "Version 3 PDF p. 1 around offset 650 and p. 4 around offset 8917",
+          "method": "OA primary PDF passages",
+          "title": "Strong odd coloring of sparse graphs",
+          "trigger": "Definition and possible covering sparse-graph bounds"
+        },
+        {
+          "assessment": "Scope background only",
+          "evidence": "Results on planar graphs, trees, unicyclic graphs and graph products; no whole-document noncoverage inference from abstract or keyword searches.",
+          "identifier_or_url": "https://arxiv.org/abs/2410.02336",
+          "material_read": "Version 1 PDF p. 1, abstract",
+          "method": "OA primary PDF passage",
+          "title": "On strong odd colorings of graphs",
+          "trigger": "Possible structural coverage for strong odd colorings"
+        },
+        {
+          "assessment": "Not used to infer noncoverage",
+          "evidence": "Automorphism order is independently checked and already recorded in the earlier same-graph exact census.",
+          "identifier_or_url": "https://mathworld.wolfram.com/McGeeGraph.html",
+          "material_read": "No usable full scientific page obtained beyond landing access",
+          "method": "Bounded OA retrieval attempt",
+          "title": "McGee Graph",
+          "trigger": "Classical graph parameters and possible known exact facts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The unique cubic girth-seven cage is a natural benchmark rather than an arbitrary sampled graph. The census resolves both the optimum and its multiplicity modulo two meaningful symmetries (color names and graph automorphisms), and measures how much larger the strong-odd family is than the distance-two family at the optimum. These exact benchmark data are substantively useful even without a theorem for all cages.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

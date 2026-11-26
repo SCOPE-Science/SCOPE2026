@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:26:44.382245Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Lemmas 1–3 and induction, lines 20–53; VERIFICATION.md; verify_base.py, verify_extensions.py and both recorded .out files (not executed)",
+        "Independent finite replay in the review: for each positive j≤2^k use the odd part of j modulo four, count exact overlapping substring keys at all legal starts by length until the first singleton, and count P8 windows at lengths 7 (split by start parity) and 16 (bucket by multiplicity). Reported bases: (5;43,47), (9;87,95), (17;175,191)."
+      ],
+      "rationale": "The proof uses zero-based starts, overlapping windows, and a one-ended finite prefix. For same-parity coverage of length sixteen, at most one letter per window has index divisible by 16; the others depend only on index mod 32. The seven representatives at each residue fit in P8 and realize both values of the exceptional letter (alternation on odd arguments, or two odd arguments two apart after division by 2). The independent finite replay matched the disjoint 12/16 parity sets of length seven, the length-sixteen multiplicities (3:16,4:47,5:1), and the three base pairs of starts at lengths 5,9,17. For longer factors, if the first retained odd-position letter occurs at global position 2j+1, the projected factor starts at j. Its parity fixes all reinserted filler bits. The start is either 2j or 2j+1, both legal on the left; on the right only a final filler after the last retained letter can fail to fit. A shorter projected suffix has at least three occurrences, so losing one preserves nonuniqueness. A lifted suffix ends at an odd position and loses none, maintaining the stronger suffix invariant. At length 2d−1 the even-start factors project to length d−1 and cannot be unique; odd-start factors project to length d with no loss. Iteration gives the claimed length and both starts.",
+      "residual_risks": [
+        "The computation certifies only the bases and fixed-length windows; the unbounded conclusion is from the induction. No arbitrary prefix length, cyclic or generalized paperfolding result follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Allouche Lemma 2 proves parity rigidity for any paperfolding sequence; the theorem counts distinct infinite-word factors. Shallit's abstract and introduction concern runs and their positions."
+        ],
+        "reasoning": "The parity result is used and credited. Neither infinite-word distinct-factor complexity nor run statistics specifies the multiplicity at finite right boundaries.",
+        "searches": [
+          "Allouche 1992, DOI 10.1017/S0004972700011655",
+          "arXiv:2412.17930"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary index and the named primary passages",
+        "Frozen RESULT.md, Relationship to prior work and references"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Distinct infinite factors of length m>7 number 4m. The arbitrary-input algorithms give a way to compute the finite-prefix invariant on each supplied word."
+        ],
+        "reasoning": "Knowing the number of distinct factors does not fix which occur once in a specified finite prefix. An arbitrary-input algorithm does not give the boundary invariant, sharp threshold or minimizer classification for all k.",
+        "searches": [
+          "Allouche 1992, factor-complexity theorem and Lemma 2",
+          "arXiv:2605.04826, general shortest-unique problem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Charalampopoulos et al. study global shortest unique substrings; Faro–Marino–Pavone §1.5 use inclusion-minimal uniqueness and a different automatic word (Thue–Morse)."
+        ],
+        "reasoning": "A global shortest unique factor is inclusion-minimal, but a classification in a different word, or a general input algorithm without the evaluated family, does not give these two lengths/locations laws.",
+        "searches": [
+          "Global shortest unique substrings in regular paperfolding dyadic prefixes; Resultary semantic search",
+          "arXiv:2605.04826",
+          "arXiv:2610.10950"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact 5752f791719e match is this record. The strongest distinct Resultary hits summarize a three-marker extremal shortest-unique result (7b8f6d07cd68) and a dyadic-paperfolding longest minimal absent factor result (f6c9d76a7c6f)."
+        ],
+        "reasoning": "A maximum over three-marker words is not the classification of a fixed paperfolding prefix. An absent word has frequency zero, not one; the indexed absent-factor statement does not tabulate unique factors. No second exact-table match was verified.",
+        "searches": [
+          "Resultary semantic search for shortest-unique factors and paperfolding prefixes",
+          "Focused primary literature search for the exact dyadic shortest-unique theorem"
+        ]
+      },
+      "rationale": "The exact finite-prefix minimum and two minimizer locations are supported as distinct to the best of current knowledge. Prior work includes length-seven parity rigidity, infinite distinct-factor counts, and general algorithms for this invariant, all distinct from the evaluated finite-prefix theorem.",
+      "residual_risks": [
+        "Neighboring index summaries are not full-text coverage assessments. Unindexed or differently formulated earlier evaluations remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Parity result is prior and credited; distinct-factor count is a different invariant",
+          "evidence": "Length at least seven determines start parity; distinct factors count 4m for m>7.",
+          "identifier_or_url": "https://doi.org/10.1017/S0004972700011655",
+          "material_read": "PDF pp. 4–5, offsets 8400, 8753 and 10000; Lemma 2 and factor-complexity theorem",
+          "method": "OA Cambridge PDF, bounded passage inspection",
+          "title": "The number of factors in a paperfolding sequence",
+          "trigger": "Same word family and strongest structural coverage"
+        },
+        {
+          "assessment": "Prior general algorithm, not the evaluated paperfolding family",
+          "evidence": "Algorithms for arbitrary input strings.",
+          "identifier_or_url": "arXiv:2605.04826",
+          "material_read": "Abstract and introduction at offset 0",
+          "method": "OA PDF, bounded passage inspection",
+          "title": "Faster Algorithms for Shortest Unique or Absent Substrings",
+          "trigger": "Same global shortest-unique objective"
+        },
+        {
+          "assessment": "Different word statistic",
+          "evidence": "Run lengths and run-position synchronization, not finite-prefix factor uniqueness.",
+          "identifier_or_url": "arXiv:2412.17930",
+          "material_read": "Abstract and introduction at offset 0",
+          "method": "OA PDF, bounded passage inspection",
+          "title": "Runs in Paperfolding Sequences",
+          "trigger": "Same family and exact positional sequences"
+        },
+        {
+          "assessment": "Different word and inclusion-minimal criterion",
+          "evidence": "A minimal unique substring loses uniqueness after trimming either end.",
+          "identifier_or_url": "arXiv:2610.10950",
+          "material_read": "Abstract and §1.5 around offsets 0 and 10400",
+          "method": "OA PDF, bounded passage inspection",
+          "title": "Smallest String Attractors and Minimal Coverage Certificates of Thue–Morse Words",
+          "trigger": "Closest alternative uniqueness terminology for an automatic word"
+        },
+        {
+          "assessment": "Summary-level comparison only, no inference from ordering or date",
+          "evidence": "The first maximizes over words with exactly three ones; the second concerns absence rather than single occurrence in this family.",
+          "identifier_or_url": "Resultary 7b8f6d07cd68 and f6c9d76a7c6f",
+          "material_read": "Indexed scientific statements; exact-ID local mirror lookups returned no paths",
+          "method": "Local Resultary index",
+          "title": "Shortest-unique extrema for three-marker words; maximal minimal absent factors of dyadic paperfolding prefixes",
+          "trigger": "Strongest distinct indexed hits, both same day"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and induction (A)/(B); general shortest-unique algorithm and paperfolding factor-complexity comparisons"
+      ],
+      "rationale": "The automatic word and its canonical dyadic prefixes are natural, and the global shortest-unique invariant measures finite-prefix distinguishability not captured by ordinary factor complexity. The result gives both a sharp threshold and a complete location classification for an unbounded family. Its suffix invariant addresses a genuine boundary defect in naive desubstitution and is useful for exact prefix occurrence calculations.",
+      "residual_risks": [
+        "Value concerns this specified family and invariant, not a classification of all inclusion-minimal unique substrings."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

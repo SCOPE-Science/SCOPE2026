@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:39:38.807711Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–105; VERIFICATION.md and verify.py inspected, not executed",
+        "Replay: python3 /workspace/reviews/evidence/replay.py 4"
+      ],
+      "rationale": "Deleting any original edge leaves two components; all cross-component edges except the original are exactly the valid replacements. Eliminating the pendant coordinates gives x=rho² as the larger root of (x−k)(x−m)−x, strictly above max(k,m), and with k+m fixed its sign comparison depends oppositely on km. To independently derive the central-exchange polynomials, use chi of the joined components = chi(S_k)chi(S_m)−chi(S_k−i)chi(S_m−j) for join endpoints i,j, from the forest matching recurrence. The vertex-deleted star factor is λ^r when deleting its hub and λ^(r−2)(x−r+1) when deleting a leaf of an r-leaf star, with λ>0 also valid for r=1. This gives the corrections m−1, k−1, and k+m−2−(k−1)(m−1)/x to the original quadratic. They are strictly positive at and above x0 except for the stated boundary equalities, which have the same polynomial. A pendant deletion with p,q≥1 leaves a base double star. Schur complementation gives the fresh-leaf Perron root as the unique root λ>rho(H) of λ=R_w(λ); strict monotonicity of R_w there follows from its derivative, −[(λI−A)^−2]_(ww). Substituting the hub block inverse and the one-leaf update gives the four positive differences in the proof, so either hub strictly beats all base leaves. The two hub transfers compare products by k−m−1 and m−k−1. When removing the sole B-leaf, the base star has k+1 leaves; adding at its center yields squared radius k+2, whereas the original root satisfies x0=k+2−k/x0. Attaching to another leaf of the base star gives an isomorphic double star. The symmetric k=m=1 pendant case and three central moves give (2,5); the one-off case k=2,m=1 gives (1,5). The number of labelled opportunities in total is (k+1)(m+1)−1+(k+m)², consistent with the table and its decreasing complement. Independent exact replay checked every sign for 4,410 labelled exchanges with 1≤m≤k≤8: evaluate each forest characteristic polynomial at x0 modulo the original quadratic and compare in exact radical arithmetic. The cut forest has top eigenvalue below original rho and the restoring edge is a perturbation with only one positive direction, so no second new eigenvalue can reach rho; this makes evaluation at rho a valid exact sign test.",
+      "residual_risks": [
+        "The replay is finite and exact, whereas the frozen evidence for all labelled tests through k=12 is numerical with tolerance. Neither finite range substitutes for the arbitrary-parameter proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Moving a connecting endpoint to a principal vertex is strictly improving under Lemma 3.1 when the edge is not already incident to it. The generalized tree shift monotonicity concerns moving a set of neighbors, which may alter multiple edges. Proposition 3.8 treats the short-arm starlike case."
+        ],
+        "reasoning": "The principal-hub lemma includes the B-to-u transfer (and symmetric transfers at balance); it does not rank all other valid choices. Generalized shifts imply signs for some leaf reconnections, but comparison of two possible bases or attachments via shift alone may compare to the better hub rather than the original hub. No inspected general theorem states the full combination of strict and equal signs.",
+        "searches": [
+          "arXiv:2610.17078 Theorem 1.1(a), Lemma 3.1, Theorem 3.7 and Proposition 3.8",
+          "Csikvári, On a poset of trees, generalized tree shift and Corollary 4.7"
+        ]
+      },
+      "checked_sources": [
+        "Resultary searches and record 6a9ca238b9fe",
+        "Bencs–van Dijk–Guo arXiv:2610.17078",
+        "Csikvári, On a poset of trees, author-hosted PDF"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The k,m≥2 central obstruction is exactly prior. For m=1,k≥3 the prior short-arm proposition gives all decreasing moves of an A-leaf edge; Lemma 3.1 gives specific improving moves. Transfer between hubs follows from the usual double-star quadratic or isomorphism at k=m+1."
+        ],
+        "reasoning": "The labelled totals are bookkeeping once all signs are known; they are not novel merely because the earlier paper omitted multiplicities for its covered cases. The remaining full claim requires an additional strict hub-versus-leaf comparison across both sides for every positive-parameter remaining base, plus neutral boundary cases, rather than a rephrasing of the hub result.",
+        "searches": [
+          "arXiv:2610.17078 Example 3.6, Lemma 3.1 and Proposition 3.8",
+          "Csikvári generalized shift monotonicity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same tree is called S_(k,m) or a double broom B(1,k+1,m+1) in Example 3.6; when m=1 it is starlike with k short arms and one two-edge arm. Non-sustainability is the absence of any nondecreasing replacement for an edge, not a count of all signs."
+        ],
+        "reasoning": "The paper's central-edge figures account for every valid central replacement up to leaf symmetry, and strictly decrease for m≥2. The short-arm statement in the starlike notation likewise recovers part of the pendant profile. Neither formulation of those subcases is treated as a new theorem here.",
+        "searches": [
+          "Resultary: double-star spectral edge exchange, spectral sustainability, and labelled tree rewiring",
+          "Bencs–van Dijk–Guo arXiv:2610.17078 Example 3.6 and Proposition 3.8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact labelled (I,N) profile appears in the strongest matches inspected. The close indexed exchange/spectrum hit concerns distances and the Laplacian of a graph whose vertices are spanning trees of K_(2,n), not adjacency spectral radii of individual exchanged trees."
+        ],
+        "reasoning": "The two spectra refer to different graphs, and an exchange graph degree does not classify strict or neutral changes to individual trees. The limited catalogue query is not evidence that no table could exist elsewhere.",
+        "searches": [
+          "Resultary double-star adjacency spectral exchange profile, double-broom sustainability and strict/neutral labelled counts",
+          "Comparison record 6a9ca238b9fe and arXiv:2610.17078 §§3.1–3.3"
+        ]
+      },
+      "rationale": "Pass the simultaneous exhaustive sign classification of single-edge exchanges on all double stars and the resulting exact labelled profile, not central-edge non-sustainability or the improving move to a principal hub. Bencs–van Dijk–Guo already prove strictly decreasing central exchanges for both leaf counts at least two and several pendant claims, including the short-arm result in the one-leaf subfamily. Their inspected results do not exclude every pendant-to-leaf reconnection on the two-positive-hub base in all the needed regimes, nor give the full labelled profile. The residual comparison resolves the actual strict/equal distinction and includes all boundary cases.",
+      "residual_risks": [
+        "Bounded best-of-knowledge judgment; other spectral grafting literature could contain comparable pendant inequalities. The cited central and short-arm cases and principal-hub transfer should not be claimed as novel. No historical priority conclusion is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material partial coverage, not the complete sign classification and count profile",
+          "evidence": [
+            "Example 3.6 says all replacements of the central edge up to isomorphism are shown, and each yields a strictly lower radius when k,m≥2. Lemma 3.1 gives a specified improving reconnection to a principal vertex. The k≥4-arm part of Proposition 3.8 proves strict decrease for all replacements of a short-arm edge, including D_(r,1) at r≥3."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.17078",
+          "material_read": "PDF pp. 2,7,9–11; Theorem 1.1(a), Lemma 3.1 near offset 20606, Example 3.6 and Figures 6–7 near offset 24589, Proposition 3.8 statement and proof near offsets 27376–30141",
+          "method": "Bounded OA PDF passage inspection, with direct follow-up on the decisive central and pendant statements",
+          "title": "Sustainable trees",
+          "trigger": "Same spectral sustainability operation and double-star family"
+        },
+        {
+          "assessment": "General monotonicity for a related operation, not a single-edge exhaustive table in the inspected passages",
+          "evidence": [
+            "The generalized shift transfers an off-path neighbor set, potentially more than one edge, and the spectral-radius corollary orders trees related by these shifts."
+          ],
+          "identifier_or_url": "Csikvári, Combinatorica 30 (2010), On a poset of trees",
+          "material_read": "Author-hosted PDF p. 2 definition near offset 4208 and pp. 8–9 Corollary 4.7 near offset 20127",
+          "method": "Bounded OA inspection of author-hosted version after the DOI route did not locate a repository copy",
+          "title": "On a poset of trees",
+          "trigger": "General tree shifts used in the same double-star comparison"
+        },
+        {
+          "assessment": "Neither the graph model nor spectral observable is the same",
+          "evidence": [
+            "The spectrum is the Laplacian of the reconfiguration graph on K_(2,n) spanning trees, with exchange restricted to a fundamental four-cycle."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-square-supported-spanning-tree-exchanges-of-k-2-n-exact-distance--6a9ca238b9fe",
+          "material_read": "RESULT.md Finding at offsets 0–2052",
+          "method": "Bounded local-mirror passage inspection, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Square-supported spanning-tree exchanges of K_(2,n): exact distances and Laplacian spectrum",
+          "trigger": "Nearby same-date catalogue result on a single-edge tree exchange and a spectrum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen theorem and counts; Sustainable trees Example 3.6 and Proposition 3.8"
+      ],
+      "rationale": "Double stars are a natural two-hub test family for spectral sustainability, but knowing one non-sustainable central edge leaves most permissible moves unclassified. The full classification determines which edges admit nondecreasing alternatives, separates strictly improving moves from neutral ones, and identifies the imbalance threshold and the one-leaf exceptions. This answers the actual one-step optimization question on the family, including ties and labelled multiplicities, rather than just reproducing a known obstruction or running a finite experiment.",
+      "residual_risks": [
+        "No implication for repeated rewiring or general trees is claimed; the incremental value lies in resolving the unclassified portion of the complete natural family."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

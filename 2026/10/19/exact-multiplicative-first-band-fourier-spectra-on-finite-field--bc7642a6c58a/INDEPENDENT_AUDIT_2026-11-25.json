@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:00:16.136321Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Findings and Proof §§1–4",
+        "VERIFICATION.md metadata",
+        "verification/verification_output.txt, lines 1–23 (recorded finite checks)"
+      ],
+      "rationale": "Reconstructed the Gram operator in the uniform ambient inner product. Rescaling coordinates and a nonzero level preserves its spectrum. Counting remaining nonzero summands gives (m^r+m(-1)^r)/q at sum zero and (m^r-(-1)^r)/q otherwise. At level zero the two-coordinate exceptional term is supported on v=-u; character orthogonality yields same-character off-diagonal entries cχ(-1), with identity on-coordinate blocks and the constant decoupled. The symmetric and contrast directions give the claimed multiplicities. In d=3, |c|=1/(m-1); in d=4, |c|=1/(m²-m+1); in d≥5, (d-1)|c|<1. Applying the available character parities gives nullities 2, 1 and 2 at (3,3), (3,4) and (4,3), respectively. Both parities occur for odd q≥5, giving exactly the claimed ratio of Gram extremes (the squared synthesis condition number). At nonzero level, the one-coordinate mass changes only at u=1 and the pair exceptional term is supported on v=1-u. Splitting each mean-zero coordinate space into the evaluation direction η at 1 and the vanishing-at-1 subspace gives the two reflection parities (one fixed point in odd characteristic and none in even characteristic). On η the projected reflection has eigenvalue 1/m, giving off-diagonal e/N; the constant coupling is -e√(m-1)/N per coordinate. This recovers B and the coordinate contrasts. The vanishing-at-1 space is absent at q=3, and the plus reflection parity is absent at (4,3), excluding the possible small-case zeros outside B. In B the determinant reduces to m[mC²+eC(d-m-1)-(d-1)]/N². At d=3 the bracket is (m-1)(m²-2)-2, zero exactly at m=2. For d≥4, C≥d-1 and mC-|d-m-1|>1, so the determinant is strictly positive. The displayed eigenvalues exhaust the dimension; their shifts from 1 are uniformly O_q(d/m^{d-1}), including those of B by its operator norm after subtracting I. The proof covers all admissible fields and dimensions without any finite computation assumption.",
+      "residual_risks": [
+        "The 44 reported full-spectrum comparisons are floating-point finite corroboration, not a fresh run, independent formal verification, or evidence for all dimensions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first results estimate scalar affine-subspace character sums; Koh gives norm bounds for another finite-field variety. The all-degree law samples additive Fourier bands on fixed-weight shells."
+        ],
+        "reasoning": "The scalar estimates do not give the exact joint block action or rank, while the all-degree extension enlarges the wrong band on a different family of observation sets.",
+        "searches": [
+          "Rojas-León, arXiv:2106.05339v1, Theorems 1–2",
+          "Koh, arXiv:2208.07784v2, Theorem 1.5",
+          "Resultary all-degree q-ary Hamming sphere law, f3d01cadaa90"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2106.05339v1",
+        "arXiv:2208.07784v2",
+        "Resultary 89a15e26e594",
+        "Resultary f3d01cadaa90",
+        "Resultary 75b261de521c",
+        "Resultary 32f66dbfde20"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical orthogonality supplies the summand counts. It does not state the evaluation/reflection splitting of the nonzero-level operator, the coupled two-dimensional block, or the rank transitions. In the closest indexed spectra, holding the operator fixed while changing parameters does not turn a shell, a full checksum hyperplane, or a product constraint into this toric additive level set with its given band."
+        ],
+        "reasoning": "The known tools are ingredients, not a prior exact theorem whose parameter specialization yields the two spectra. The distinct claim is the combined decomposition and its sharp consequences, not the underlying counting identities.",
+        "searches": [
+          "Rojas-León, arXiv:2106.05339v1, definition and Theorems 1–2",
+          "Koh, arXiv:2208.07784v2, Theorem 1.5",
+          "Resultary Hamming shell 89a15e26e594 and product-one band 32f66dbfde20"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Scalar toric hyperplane character sums are Jacobi sums up to rescaling at nonzero level. The parity-check record instead uses additive characters on a full finite abelian checksum hyperplane, including zero coordinates. The multiplicative-variety record uses an additive sampled band on a product-one constraint."
+        ],
+        "reasoning": "Taking entrywise scalar sums does not itself diagonalize the normalized Gram operator; neither related Resultary operator has both the same constraint and the same sampled subspace. No operator-preserving identification was found.",
+        "searches": [
+          "Rojas-León, arXiv:2106.05339v1",
+          "Resultary exact alias spectra for parity checks, 75b261de521c",
+          "Resultary additive Fourier bands on multiplicative varieties, 32f66dbfde20"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed exact spectra inspected have distinct operators; the Jacobi-sum paper states scalar bounds and identities, not the target multiset or rank-exception table."
+        ],
+        "reasoning": "An applicable exact database entry would need the toric linear level set, the normalized entire first multiplicative band including its one constant, and the level-dependent nullities; these are not the tables or indexed spectra inspected.",
+        "searches": [
+          "Resultary first-band q-ary Hamming shell, 89a15e26e594",
+          "Resultary parity-check alias spectra, 75b261de521c",
+          "Resultary finite-field multiplicative varieties, 32f66dbfde20",
+          "arXiv:2106.05339v1"
+        ]
+      },
+      "rationale": "The supported distinct claim is the full normalized constant-plus-one-coordinate multiplicative Gram spectrum at both levels, including multiplicities and exceptional nullities. The inspected sources supply scalar character-sum machinery or different restriction operators, not this decomposition or a demonstrated stronger theorem implying it.",
+      "residual_risks": [
+        "An unindexed equivalent computation in the Jacobi-matrix or association-scheme literature remains possible; bounded search is not a novelty certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant counting machinery, not the combined Gram spectrum",
+          "evidence": "Defines scalar hyperplane sums and treats general affine-subspace estimates via L-functions; does not state the target block decomposition in the inspected results.",
+          "identifier_or_url": "https://arxiv.org/abs/2106.05339",
+          "material_read": "v1 PDF p. 1 and pp. 2–3, definition/rescaling and Theorems 1–2",
+          "method": "Lawful OA bounded passages",
+          "title": "On a generalization of Jacobi sums",
+          "trigger": "Same scalar multiplicative-character sums on affine hyperplanes"
+        },
+        {
+          "assessment": "Different variety and type of operator result",
+          "evidence": "Sharp L²→Lʳ bounds for flat disks, not an exact finite Gram eigenbasis for toric hyperplanes.",
+          "identifier_or_url": "https://arxiv.org/abs/2208.07784",
+          "material_read": "v2 PDF p. 1 and p. 4, Theorem 1.5",
+          "method": "Lawful OA bounded passages",
+          "title": "Restriction estimates for the flat disks over finite fields",
+          "trigger": "Potential broader finite-field restriction result"
+        },
+        {
+          "assessment": "Analogous spectrum and conditioning for a different operator",
+          "evidence": "Constant and one-coordinate additive characters sampled on a fixed-weight shell; different null mechanism.",
+          "identifier_or_url": "89a15e26e594",
+          "material_read": "2026-10-11 RESULT.md, Finding",
+          "method": "Resultary search and local mirror",
+          "title": "Exact q-ary Hamming-shell Fourier concentration",
+          "trigger": "Closest earlier first-band exact spectrum in Resultary"
+        },
+        {
+          "assessment": "Broader degree, different sampling family",
+          "evidence": "Higher additive bands on a shell, not multiplicative bands on a toric hyperplane.",
+          "identifier_or_url": "f3d01cadaa90",
+          "material_read": "2026-10-11 RESULT.md, Finding",
+          "method": "Resultary search and local mirror",
+          "title": "An all-degree spectral law for Fourier sampling on q-ary Hamming spheres",
+          "trigger": "Potential broader spectral theorem"
+        },
+        {
+          "assessment": "Close indexed analogue, not equivalent coverage",
+          "evidence": "Full finite-abelian checksum hyperplane and additive group characters instead of restricting both coordinates and band multiplicatively.",
+          "identifier_or_url": "75b261de521c",
+          "material_read": "2026-11-08 RESULT.md, Finding",
+          "method": "Resultary search and local mirror",
+          "title": "Exact alias spectra and the binary Nyquist boundary for parity checks",
+          "trigger": "Exact spectra on a checksum hyperplane"
+        },
+        {
+          "assessment": "Close indexed analogue, not equivalent coverage",
+          "evidence": "Product-one torus and additive Fourier-frequency bands, with multiplicative characters used as diagonalizing vectors.",
+          "identifier_or_url": "32f66dbfde20",
+          "material_read": "2026-11-22 RESULT.md, Finding",
+          "method": "Resultary search and local mirror",
+          "title": "Exact additive Fourier Hamming-band spectra on finite-field multiplicative varieties",
+          "trigger": "Potential operator duality with toric level sets"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and Proof §§2–4",
+        "Resultary 89a15e26e594 for analogous conditioning questions on a different sampling set"
+      ],
+      "rationale": "For a natural coordinate-additive space on a toric sample, the full exact spectrum tells whether each coefficient is identifiable and gives sharp lower and upper sampling bounds. The two levels can differ in rank even at fixed field and dimension; the characteristic-two cases and complete exceptional list sharpen that distinction. This is useful structural information not supplied by an entrywise bound or by a few small examples.",
+      "residual_risks": [
+        "The result concerns the constant and the single-coordinate band, not higher interactions or nonlinear recovery."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

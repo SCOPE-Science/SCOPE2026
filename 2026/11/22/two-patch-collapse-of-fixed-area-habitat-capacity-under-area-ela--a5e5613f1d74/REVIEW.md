@@ -1,15 +1,21 @@
-# Scientific self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For each positive row, the bound uses the nonnegative power-sum inequality at elasticity at least one and the sharp arithmetic–geometric mean inequality. The Perron root is bounded by the maximum row sum. Allocating half the budget to each endpoint of a maximum-weight edge attains the bound; equality analysis on a positive irreducible component forces all component vertices to carry half the total budget, hence exactly two. The equal three-site comparison follows from an explicit rank-three spectrum. A clean replay of `checker.py` passed 8,103 diagnostics; these are supplementary, not a proof of the universal statement.
+## correctness
 
-## Originality — PASS relative to accessed evidence
-Research-record searches across fixed-area allocation, area exponents, spectral-radius optimization, the strongest-edge formulation and eigenvalue capacity did not expose this same general fixed-budget classification. Closest indexed items optimize colonization effort, extinction time, conductance gaps, or a distinct uniform-patch recruitment matrix. Hanski–Ovaskainen (2000) supplies the capacity motivation, Etienne and Heesterbeek (2000) and Etienne (2004) study reserve sizes and stochastic viability, Nicol–Possingham (2010) studies restoration dynamic programming, and Bertuzzo et al. (2015) analyze fluvial-network topology with spectral tools. The full Bertuzzo et al. article was read in its mathematical methods and results sections and does not optimize all area vectors with fixed affinities. Some closest historical articles were not fully accessible; the priority conclusion is provisional, and no independent audit was performed.
+PASS
 
-## Value — PASS
-This is a complete, sharp classification for an arbitrary finite weighted symmetric habitat network, revealing a model-selection hazard: under the specified elastic kernel, a pure spectral objective will always recommend deleting all but two habitat sites, irrespective of the network size. The contrasting three-site square-root exponent gives an exact boundary on extending this conclusion. Because real conservation objectives include robustness, spatial constraints and stochastic extinction, the collapse theorem is most useful as a diagnostic against relying on the proxy alone, not as advice to reduce biodiversity habitat to two reserves.
+For each row, nonnegativity and gamma>=1 give R_i<=w_max A_i^gamma sum_{j!=i} A_j^gamma<=w_max[A_i(B-A_i)]^gamma<=C=w_max(B^2/4)^gamma. A maximum-affinity pair split evenly gives a 2x2 block with Perron root C. Conversely, if the root is C>0, a connected support block attains it; multiplying R_i<=C in that block by its positive left Perron vector forces every row to attain C. Each vertex in that block has area B/2, so there are exactly two, the whole budget is there, and its edge must be a maximum-affinity edge. This includes gamma=1, reducible W, and ties among heaviest edges. For the unit-weight K3, the equal three-site design has root 2(B^2/9)^gamma versus at most (B^2/4)^gamma on any two sites. Thus the strict witness is exactly gamma<log(2)/log(9/4) among positive exponents, without claiming a global transition below one. The frozen checker was inspected rather than executed; the inequality and equality analysis certify all admissible parameters directly.
 
-## Closest literature and limitations
-The nearest literature is Hanski–Ovaskainen (2000), Etienne–Heesterbeek (2000), Etienne (2004), Nicol–Possingham (2010), and Bertuzzo–Rodriguez-Iturbe–Rinaldo (2015). The first and some related papers could not be inspected in full; other modeling choices and earlier exact statements remain a historical priority risk. The model allows zero-area patches and fixes dispersal affinities under area changes. No claim is made about all standard metapopulation kernels, physical restoration feasibility or the globally sharp phase boundary below elasticity one.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The kernel family and area-to-graph spectral reduction already occur in the earlier corridor record. The square-root K3 comparison is also an instance of Motzkin–Straus and is not credited as independently new. The supported increment is the sharp arbitrary-weight, all-size gamma>=1 maximum and full two-site equality criterion, a p<=2/3 quasi-norm problem not covered by the usual p>=1 results consulted. The low-exponent comparison delimits that theorem, not a new general threshold result.
+
+## value
+
+PASS
+
+The row-sum method is elementary, but the conclusion resolves a concrete allocation question rather than just bounding an eigenvalue: under the specified model all optimal designs spend the entire budget on a heaviest edge, and this remains true despite degeneracies or numerous alternative positive edges. The three-site contrast shows why the area elasticity matters. Its usefulness is as an exact consequence of the surrogate's assumptions, not a claim about ecological management under realistic constraints.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

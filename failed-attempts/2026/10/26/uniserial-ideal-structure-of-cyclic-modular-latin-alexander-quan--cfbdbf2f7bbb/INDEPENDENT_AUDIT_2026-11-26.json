@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:04:47.689966Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–35",
+        "Frozen VERIFICATION.md and verify.py, read without executing"
+      ],
+      "rationale": "For right multiplication by g^b the basis action on C_m is the affine bijection R_b(x)=tx+(1-t)b. An invariant subspace is invariant under its inverse by finite dimensionality, so it is invariant under R_b R_c^(-1), which translates by (1-t)(b-c). This covers every cyclic displacement. For left multiplications the corresponding difference translates by t(a-c), again covering the regular cyclic action. In either direction closure is therefore equivalent to an ordinary group-ring ideal: the converse holds because every ordinary ideal is a power of (g-1) and is preserved by the two multiplier automorphisms. Over any field of characteristic p, g^(p^s)-1=(g-1)^(p^s), and the ideals of K[z]/(z^m) are exactly (z^a): a nonzero element of least z-adic order a is z^a times a unit. The basis transport multiplies the two automorphic images in this ordinary ring; it gives the stated span even for zero powers and saturated exponents. Induction on the product tree gives J^k for any parenthesization, nonzero for k=m-1 and zero for k=m.",
+      "residual_risks": [
+        "Exact finite checks recorded for orders 3, 5 and 9 are illustrative only. The proof uses both Latin units and the defining-characteristic prime-power cyclic group algebra."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhang's transport is general and the power theorem gives the ordinary powers in the Latin case, with arbitrary parenthesizations.",
+          "The explicit dihedral semisimple ideal decompositions in arXiv:1805.05908 are not themselves modular results. The general permutation-module identification has no such split-semisimple restriction.",
+          "The checked Bardakov–Elhamdadi power calculations concern powers rather than exhaustion of one-sided ideals."
+        ],
+        "reasoning": "The stronger transport and invariant-subspace formulations apply here irrespective of the restrictions in the explicit decompositions. The key step is using the general framework, not extrapolating a semisimple decomposition to characteristic p.",
+        "searches": [
+          "Zhang Group-ring methods for Alexander quandle rings Proposition 2.1 Theorem 2.2 augmentation powers",
+          "arXiv:1805.05908, Corollary 4.12 and Proposition 4.18",
+          "arXiv:2601.07057, Secs. 4–5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.08204",
+        "arXiv:1805.05908",
+        "arXiv:2601.07057",
+        "Resultary 9b7bd8f34375",
+        "Resultary 01ae9d990327"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The transport recovers stability under the ordinary multiplication via I*1 on the right or 1*I on the left and the other automorphism's surjectivity.",
+          "The sole coefficient-ring specialization is K[C_(p^s)]=K[z]/(z^(p^s)); the ordinary ideal chain, dimensions, and products follow immediately.",
+          "All these powers are invariant under both automorphisms, which preserve augmentation, so the reduction is an equivalence."
+        ],
+        "reasoning": "The combination is a direct corollary, including exhaustion; powers alone would not imply exhaustion. No new modular classification step beyond the standard cyclic group algebra is required.",
+        "searches": [
+          "arXiv:2610.08204, Proposition 2.1 and Theorem 2.2",
+          "arXiv:1805.05908, Sec. 4, permutation-module correspondence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:1805.05908, Sec. 4, identifies right ideals with invariant subspaces of the inner permutation action.",
+          "The affine permutation differences on each side contain the whole regular cyclic group because each of t and 1-t is a unit."
+        ],
+        "reasoning": "After reduction to the regular module, the ideal chain is just the invariant-subspace chain of multiplication by g, a single unipotent Jordan block of size m over K. The same reduction holds for the left action without a convention change.",
+        "searches": [
+          "quandle ring one-sided ideal permutation representation Latin Alexander dihedral right ideals Elhamdadi Fernando Tsvelikhovskiy Proposition 4.18",
+          "uniserial quandle algebra cyclic p-group defining characteristic one-sided ideals regular cyclic scalar action"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "9b7bd8f34375 uses overlapping modular Alexander algebras but counts multiplication ranks and zero-product pairs.",
+          "01ae9d990327 gives two-sided Boolean ideal lattices in coprime characteristic over splitting fields, not the modular chain."
+        ],
+        "reasoning": "Neither near catalogue record is the asserted modular lattice or an exact table thereof. That distinction does not remove the deduction from primary results.",
+        "searches": [
+          "cyclic modular Latin Alexander quandle algebra ideals characteristic p prime power all one-sided ideals augmentation powers",
+          "Resultary records 9b7bd8f34375 and 01ae9d990327"
+        ]
+      },
+      "rationale": "No checked source was found to print precisely this modular left-and-right classification verbatim. Nevertheless it is a direct consequence of the prior Alexander transport and the standard ordinary cyclic regular-module chain. From the published transport one has I*1=alpha(I) for any right ideal and 1*I=beta(I) for any left ideal. Invertibility gives equality, and surjectivity of the other multiplier then gives closure under ordinary multiplication by every element. Conversely all ordinary ideals of the truncated polynomial ring are multiplier-invariant. This mechanically yields the asserted exhaustion in both directions. It is also immediate from the published permutation-module description for the right side, since a quotient of two affine translations gives every cyclic shift, with the same calculation for the left side. The powers and independence of parenthesization are already covered by the prior general augmentation theorem; the pairwise product formula is ordinary multiplication of preserved powers. The failure is deductive prior coverage, not evidence of a verbatim duplicate or reliance on inaccessible literature.",
+      "residual_risks": [
+        "No exhaustive priority statement about an explicit earlier wording is made. The decision rests on the immediate mathematical implication, independent of whether the formulation appears elsewhere."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives transport and augmentation powers, and implies exhaustion by a direct specialization rather than explicitly stating it",
+          "evidence": [
+            "u*v=alpha(u)beta(v) with ordinary ring multiplication",
+            "Augmentation-product spans agree for arbitrary parenthesizations"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.08204",
+          "material_read": "PDF p. 3, Proposition 2.1 and Theorem 2.2 (OA text offsets 8828 and 9501–10116)",
+          "method": "Targeted primary OA PDF reading",
+          "title": "Group-ring methods for Alexander quandle rings",
+          "trigger": "Strongest known transport and power identities"
+        },
+        {
+          "assessment": "General right-module correspondence applies; explicit dihedral decomposition is over R or C",
+          "evidence": [
+            "Inner-action invariant subspaces are precisely right ideals",
+            "Ordinary regular translations are obtained by affine differences under the Latin hypothesis"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1805.05908",
+          "material_read": "Sec. 4, PDF pp. 7–9, including Corollary 4.12 and Proposition 4.18",
+          "method": "Targeted primary OA PDF reading",
+          "title": "Ring Theoretic Aspects of Quandles",
+          "trigger": "One-sided ideals as permutation-invariant subspaces"
+        },
+        {
+          "assessment": "Power calculations, not a modular one-sided exhaustion claim",
+          "evidence": [
+            "Augmentation-ideal powers in dihedral and small commutative quandle settings"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2601.07057",
+          "material_read": "PDF pp. 2 and 12, scope of Secs. 4–5 and Propositions 5.7–5.8",
+          "method": "Targeted primary OA PDF reading",
+          "title": "Idempotents and Powers of Ideals in Quandle Rings",
+          "trigger": "Prior quandle augmentation calculations"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": [
+            "Multiplication ranks and ordered zero-product counts in the cyclic p-Sylow setting"
+          ],
+          "identifier_or_url": "Resultary 9b7bd8f34375",
+          "material_read": "RESULT.md finding",
+          "method": "Local Resultary search and mirror read",
+          "title": "Modular multiplication-rank distributions in finite Alexander quandle algebras",
+          "trigger": "Same modular object in the Latin cyclic specialization"
+        },
+        {
+          "assessment": "Does not cover the defining-characteristic case",
+          "evidence": [
+            "Splitting coefficient field of characteristic prime to the group order; two-sided ideals"
+          ],
+          "identifier_or_url": "Resultary 01ae9d990327",
+          "material_read": "RESULT.md finding",
+          "method": "Local Resultary search and mirror read",
+          "title": "Boolean ideal lattices in finite Latin Alexander quandle algebras",
+          "trigger": "Same ideal-lattice question under different characteristic assumptions"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 17–46",
+        "Prior transport and permutation-module passages documented above"
+      ],
+      "rationale": "Describing all one-sided ideals is natural, but in this precise cyclic case the proposed increment is a routine recognition of the standard regular-module chain, not a new modular obstruction or structural calculation. The ideal count, quotients, exact products and nilpotency add no separate invariant beyond that chain and the previously established transport.",
+      "residual_risks": [
+        "This does not devalue one-sided ideal classification in noncyclic or non-Latin settings, which is outside the claim."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

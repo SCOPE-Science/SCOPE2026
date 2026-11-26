@@ -1,19 +1,21 @@
-# Scientific review of the 240-curve critical-group calculation
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The fixed geometric claim reduces, using the classical \(E_8\) correspondence, to an explicitly specified \(240\)-vertex integer adjacency matrix. The proof gives the complete root enumeration, exact adjacency-polynomial identity, connectedness, and spectral derivation; the matrix-tree number is then exact. Prime-power elementary-divisor calculations use genuine unit-pivot row/column equivalences and division of wholly prime-divisible residual blocks, with sufficiently large moduli to resolve every pivot. Two distinct choices of deleted vertex (from the two root families) reproduce all valuations, which multiply to the independently proved determinant. The complete executable checker was run successfully. The claim does not identify this graph group with a surface Picard group.
+PASS
 
-## Originality — PASS, provisional historical priority
+For exceptional classes E,F on a degree-one del Pezzo surface, K_S²=1 and E·K_S=F·K_S=−1, so (E+K_S)·(F+K_S)=E·F−1. Under the classical positive-definite E8 model this makes the intersection-one relation precisely orthogonality on all 240 roots. An independent integer replay generated the 240 signed roots, matched antipodal fibres, and counted common neighbors on the 120-fibre quotient: parameters (120,63,30,36). The full graph replaces each fibre vertex with an independent pair, so it is connected, is 126-regular and has 15120 edges. The quotient adjacency eigenvalues 63,3,−9 give full nonzero Laplacian eigenvalues 120^84,126^120,144^35 by doubling on the fibre-constant space and adding 126 on the difference space. The matrix-tree product is 2^508·3^393·5^83·7^120. The separately built reduced 239-square matrix gave exact prime-local valuation multiplicities at 2: (0:120,2:9,3:26,4:50,6:26,7:8); at 3: (0:36,1:48,2:120,3:35); at 5: (0:156,1:83); at 7: (0:119,1:120). Their sums give the determinant valuations, excluding missed torsion; putting the prime lists in increasing order reproduces every stated factor, including 36 units and exponent 120960. Vanishing row and column sums split off one zero from a full Laplacian by integral operations, which also explains the equivalence between the reduced cokernel and full torsion cokernel.
 
-The closest same-object primary literature is Serganova–Skorobogatov (2010), Winter–van Luijk (2021), and Desjardins–Winter (first posted 2022). Their inspected materials provide root/exceptional-class identification, colored-graph and orbit structure, cliques, and curve concurrence. None of the inspected statements or relevant appendices supplies an integral Laplacian Smith decomposition for the all-vertex orthogonality graph. Exact statement and implication searches were also made against published mathematical records. Related graphs for exceptional curves on degree-two and degree-four del Pezzo surfaces have different vertex sets and do not imply the degree-one result. Since a differently titled unpublished or older computation may exist, priority is provisional.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is the natural full \(240\)-curve configuration associated to the highest-rank exceptional root system \(E_8\), not a selected small subconfiguration or arbitrary graph. The fully integral \(7\)-primary rank \(120\), large \(2\)-primary block structure, and exponent \(120960\) capture chip-firing divisor-class information unavailable from the unweighted spectrum and tree count. The exact finite invariant has a plausible role in comparisons of arithmetic group actions or graph divisors associated with degree-one del Pezzo configurations. It is a self-contained classification, without a claim of a downstream theorem.
+The all-root graph, the 126 orthogonality degree and the projective quotient are known. The strongest nearby exact group uses all intersection multiplicities, not adjacency for intersection one. The strongest broader Laplacian Smith theorem inspected applies to isotropic projective points, not the norm-one mod-2 classes of E8 roots. The quotient reduction would make a known full quotient Smith form relevant, but none was found in the read comparisons; neither the quotient parameters nor the prior weighted graph gives the claimed integral factors.
 
-## Limits and closest literature
+## value
 
-Historical novelty remains a best-knowledge judgment. Known literature treats the all-color intersection graph and the geometry, while the proof computes one specific unweighted relation on all vertices. The computation is exhaustive but not independently audited. The source's root-lattice correspondence establishes uniformity across smooth characteristic-zero degree-one del Pezzo surfaces, not in unspecified singular or positive-characteristic specializations.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Intersection one is a natural distinguished relation on the entire uniform exceptional-curve configuration; its root interpretation makes the graph useful independently of surface moduli. The full integral invariant refines the known strongly regular quotient parameters and spectrum, including substantial 2- and 3-power structure not recoverable from their tree order alone. It is not an arbitrary subgraph or a replacement of an already evaluated weighted group by new terminology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

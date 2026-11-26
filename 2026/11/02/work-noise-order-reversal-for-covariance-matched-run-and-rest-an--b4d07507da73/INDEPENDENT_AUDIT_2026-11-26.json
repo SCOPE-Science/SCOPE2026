@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:27:50.379834Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, assumptions, generator proof and variance formulas",
+        "Frozen VERIFICATION.md; verification/verify_algebra.py lines 12–29; verification/check_event_driven.cpp lines 14–48, inspected without execution"
+      ],
+      "rationale": "Both force generators take u to -gu, and the stated stationary laws give E[U²]=v²/2. Stationary harmonic convolution preserves equality of all force, position and mixed two-time covariances. Applying the stationary joint generator to xu and x² gives E[XU]=v²/[2(k+g)] and k E[X²]=E[XU], yielding the common mean work rate. For run-and-rest, the generator sends Q=u² to gv²-2gQ and P=xu to Q-(k+g)P. Therefore Phi=aQ+bP with a=1/[2(k+g)] and b=-k/(k+g) has L Phi=mu-(Q-kP). Both run-to-rest and rest-to-run holding rates are g; the squared-jump bracket has a²v⁴ and b²v² E[X²] from the two jump types collectively, and the mixed 2abv² E[XU] term comes only from the running states because the rest-to-run sign is symmetric. The two b-dependent contributions cancel by k E[X²]=E[XU], giving the proposed V3. For the telegraph process Q is constant and Phi=bP; the squared difference from flips is 4 b²X²U² at rate g/2, giving V2. The stationary joint process is an ergodic factor of the stationary irreducible force path, and the coordinate is bounded by v/k. Martingale bracket averaging and the bounded jump sizes give the CLT; the bounded endpoint corrector changes variance per unit time by o(1) via Cauchy–Schwarz. The ratio and derivatives give the crossing at g=k and unique parameter maxima at g=k and g=k/2, respectively. The result matches second-order moments, not full one-time or path distributions.",
+      "residual_risks": [
+        "Finite-horizon simulation is corroboration only. Results are for the frozen rates and amplitudes, stationary deterministic harmonic confinement, and mechanical active work defined by the displayed pathwise integral; no Brownian work convention is used."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Semeraro et al. use the same mechanical form of active work with a Gaussian Ornstein–Uhlenbeck drive, not general finite-state drives. The inspected catalogue records on switched traps calculate switching work, and the four-time bath record does not compute the dynamical work of a three-state rest drive."
+        ],
+        "reasoning": "The Gaussian reduction does not cover finite-state fourth-order structure. Markov-additive Poisson/martingale theory permits a bracket representation but does not supply this jump-intensity evaluation, cancellation or sign boundary.",
+        "searches": [
+          "arXiv:2302.12535, work fluctuations for harmonically confined AOUP",
+          "Resultary: work noise under switched harmonic traps; four-time signatures of matched Gaussian/resetting/telegraph baths"
+        ]
+      },
+      "checked_sources": [
+        "Configured Resultary catalogue and the listed distinct mirror records",
+        "Basu et al., arXiv:1910.10083",
+        "Sun–Ye–Podgornik, arXiv:2409.00578",
+        "Semeraro et al., arXiv:2302.12535"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior run/rest results do not evaluate the work bracket; the AOUP result cannot be specialized by covariance matching. The frozen source mentions an earlier telegraph active-work calculation at nonzero translational noise, but its bibliography does not identify that paper."
+        ],
+        "reasoning": "Even granting the telegraph comparator from the zero-diffusion limit of a prior calculation, the run/rest bracket remains to be found. The mean and the second moments do not determine its variance by themselves: the Poisson equation and corrector jump structure are needed, including averaging possible signs on departure from rest. This yields the exact cancellation and crossing, not a renamed known threshold.",
+        "searches": [
+          "Basu et al. arXiv:1910.10083, stationary solution and projected chain",
+          "Sun–Ye–Podgornik arXiv:2409.00578, equal-rate limit of finite run/tumble process",
+          "Semeraro et al. arXiv:2302.12535, active work definition",
+          "Resultary: sharp damping threshold for reversal of matched active-noise fluctuations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The known positive/negative/zero projected velocity process has the frozen equal-rate run/rest normalization after matching its overall switching rate; this is an equivalent underlying system, but the cited exact solution concerns position.",
+          "The same-day matched active-noise reversal record instead compares telegraph with active Brownian forcing of an inertial oscillator, and reverses a fourth position cumulant."
+        ],
+        "reasoning": "A stationary one-time position law or a cumulant of its filtered trajectory is not the long-time variance of the time integral of U²-kXU. Covariance matching gives the mean work rate here, not its integrated fluctuation rate.",
+        "searches": [
+          "Resultary: covariance-matched propulsion and higher-order reversal; active-work variance in a harmonic trap",
+          "arXiv:1910.10083, projected three-state process",
+          "arXiv:2409.00578, finite run/tumble dynamics"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest exact position-law and moment sources supply lower-order stationary information, not a rate for W_T. The exact work-noise catalogue hits concern another work definition; no inspected exact entry reports these run/rest and telegraph rates with the frozen matching."
+        ],
+        "reasoning": "Exact stationary moments are inputs to the Poisson-bracket calculation, not tabulated values of the dynamic variance. The supplied finite simulations are not an exhaustive table or an originality check.",
+        "searches": [
+          "Resultary: exact stationary variance for harmonic confinement with finite-tumble/rest forcing; active work under switched confinement",
+          "arXiv:1910.10083 and arXiv:2409.00578, exact stationary results"
+        ]
+      },
+      "rationale": "No independent originality is credited to the stationary run-and-rest model, the telegraph comparator alone, or the martingale method. The supported finding is the evaluated run-and-rest work variance and its exact reversal against a second-order-matched telegraph comparator across the trap/switching rate equality. The strongest inspected same-model literature concerns stationary position laws. The strongest matching reversal and work records change the observable, model or both. None yields this pair of rates or the ordering by specialization.",
+      "residual_risks": [
+        "The finite-translational-noise telegraph attribution in the frozen text is not traceable from its references and was not independently verified. The comparator was checked directly and is not credited as original. The bounded search does not establish historical priority or rule out a more general unindexed finite-state work calculation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model and stationary-law background; no active-work variance in these decisive passages.",
+          "evidence": [
+            "Projected positive, zero and negative velocities with the run/rest transitions; stationary position density as the target."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1910.10083",
+          "material_read": "PDF pp. 1 and 4, offsets 0 and 10900",
+          "method": "Bounded primary PDF passage inspection",
+          "title": "Exact stationary state of a run-and-tumble particle with three internal states in a harmonic trap",
+          "trigger": "Identical three-state propulsion and harmonic trap"
+        },
+        {
+          "assessment": "Generalizes the run/rest rates for stationary distribution and moment calculations, not identified integrated-work rates.",
+          "evidence": [
+            "Definition of harmonic motion with distinct run and tumble states, and steady-state moment/distribution targets."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2409.00578",
+          "material_read": "PDF pp. 1–2, offsets 0 and 13400",
+          "method": "Bounded primary PDF passage inspection",
+          "title": "Exact moments for a run and tumble particle in a harmonic trap with a finite tumble time",
+          "trigger": "Broader model with finite rest duration and rate choices"
+        },
+        {
+          "assessment": "Active-work analysis for a Gaussian, not run/rest or telegraph, drive.",
+          "evidence": [
+            "The source integrates propulsion against the coordinate increment; its propulsion is active OU."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2302.12535",
+          "material_read": "PDF pp. 1–2, offsets 600 and 10300",
+          "method": "Bounded primary PDF passage inspection",
+          "title": "Work fluctuations for a harmonically confined Active Ornstein-Uhlenbeck Particle",
+          "trigger": "Same observable and harmonic confinement"
+        },
+        {
+          "assessment": "Related phenomenon, not the same work, drive pair, or dynamical model; no priority judgment from record date.",
+          "evidence": [
+            "Telegraph vs active-Brownian forcing in an inertial oscillator, comparing position fourth cumulants."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-damping-threshold-for-reversal-of-matched-active-noise-f--1f30dcaa8e6e",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Bounded local-mirror record inspection",
+          "title": "A sharp damping threshold for reversal of matched active-noise fluctuations",
+          "trigger": "Strong conceptual match: reversal despite covariance matching"
+        },
+        {
+          "assessment": "Cumulant comparison, not the frozen work-integral problem.",
+          "evidence": [
+            "Includes telegraph forcing and four-time cumulants under linear filtering, not the target run/rest work variance."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-four-time-sign-fingerprints-of-covariance-matched-resetting-gaus--c69dc0d762a5",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Bounded local-mirror record inspection",
+          "title": "Four-time sign fingerprints of covariance-matched resetting Gaussian and related noise",
+          "trigger": "Higher-order trajectory differences under second-order matching"
+        },
+        {
+          "assessment": "Switching the trap contributes work rather than integrating the propulsion force against displacement.",
+          "evidence": [
+            "One record concerns exact fluctuations in an on/off harmonic trap, the other cross-particle work covariance in a common stochastic trap."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-gaussian-work-fluctuations-without-finite-exponential-moments-in--82e1d04ffdf8 ; https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-rank-one-work-noise-law-for-brownian-particles-in-a-common-fla--3f986da2e9c0",
+          "material_read": "Both RESULT.md Findings at offset 0",
+          "method": "Bounded local-mirror record inspection",
+          "title": "Gaussian work fluctuations without finite exponential moments in a switched trap; a rank-one work-noise law for Brownian particles in a common flashing trap",
+          "trigger": "Exact catalogue work-noise calculations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and squared-jump calculations",
+        "ArXiv:1910.10083 stationary-law context",
+        "Same-day Resultary matched-noise reversal record"
+      ],
+      "rationale": "This is a quantitative counterexample to inferring work-noise ordering from matched second-order propulsion or position data, even when the mean work also matches. The reversal at a physically interpretable rate equality, rather than only a pointwise difference, supplies a test of models with identical covariance diagnostics. The explicitly evaluated jump-bracket cancellation explains why the difference survives the matching.",
+      "residual_risks": [
+        "Not a result about general dissipation, thermal-noise work, or large deviations; work noise here is an observable of two idealized active drives."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

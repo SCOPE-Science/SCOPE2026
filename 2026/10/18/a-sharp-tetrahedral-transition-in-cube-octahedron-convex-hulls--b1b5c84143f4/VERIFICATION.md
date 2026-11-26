@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and reproducibility
 
-The exact self-contained script `verify.py` is included alongside the proof. Run `python3 verify.py` with Python 3.9 or later, without third-party packages. It must exit successfully with a line beginning `VERIFY_OK`. The script constructs all fourteen formal vertices as polynomials in the real parameter \(t\), enumerates all \(\binom{14}{4}=1001\) four-vertex subsets, and evaluates determinants by two different exact integer-polynomial expansions. It compares all eighteen complete sign-normalized determinant classes against the expected multiplicities, and tests the ten potential maximizing vertex sets for any shared triple. This validates the finite case split, not a sampling of real parameters.
+# Independent mathematical audit
 
-The geometric proof in `RESULT.md` separately establishes the complete vertex set; the affine-in-each-corner reduction from arbitrary tetrahedra; strict dominance of the other sixteen polynomial classes over the entire open interval \(1<t<3\); and the exclusion of all nonvertex maximizers. The volume dissections establish \(\operatorname{vol}_3(P_t)=8t\) for \(t\le2\), and \(4t^2\) for \(t\ge2\). Direct differentiation of the three resulting volume-fraction branches proves the unique minimizer. These continuous and geometric assertions are not consequences of a program's mere successful exit and require the supplied analytic arguments.
+## correctness
 
-No independent audit has been performed. Historical novelty depends on the named literature comparisons and retains explicitly stated residual risks.
+PASS
+
+Verified the volume law and all unrestricted equality cases on the open interval 1<t<3. Signed coordinate and cube-diagonal linear functionals expose all 14 vertices. Separate affinity reduces the maximum to vertex quadruples. An independent exact replay interpolated the homogeneous 4×4 determinants from t=0,1,2,3 (degree at most three), recovering all 18 classes, all 1001 multiplicities, exactly the two alternating and eight opposite-axis configurations, and maximum pairwise intersection two among these ten. The strict inequalities in RESULT.md:66 exclude every other class throughout the open interval. A positive maximizing determinant expanded over support vertices is an average of signed determinants ≤ that maximum; two support choices at one corner would give distinct maximizing quadruples sharing three vertices, impossible. For the volume dissections, representative side planes are x+(t−1)y=t for t≤2 and x+y+(t−2)z=t for t≥2; all generators satisfy their halfspace inequalities, and signed permutations give the exterior faces of the respective pyramid unions. This gives 8t and 4t², agreeing at t=2. The fraction decreases to τ and increases thereafter, and the independently recomputed decimals agree. Endpoint equality counts are not asserted. Replay for the finite and decimal checks: python review_evidence/finite_checks.py (section labelled 2); the continuum and rigidity steps are analytic.
+
+## originality
+
+PASS
+
+Pass for the full parameter transition and optimizer rigidity of the frozen claim, not for an isolated t=2 calculation. A later record explicitly covers the entire claim and more; this establishes equivalent present catalogue coverage, not earlier publication. The same-day four-generator zonotope result gives exactly the t=2 slice; the order of those two records is not determined. No inspected earlier result gives or implies the varying-hull transition.
+
+## value
+
+PASS
+
+The natural hull interpolation has a discrete switch of optimizing geometry and a uniquely least efficient shape, at a crossover distinct from the facet-regime change at t=2. The exact profiles and no-nonvertex equality result are useful in simplex packing/shape comparisons beyond the special rhombic dodecahedron or a finite enumeration alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:47:59.065412Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–54",
+        "VERIFICATION.md and CHECKER.py, inspected as frozen evidence",
+        "Independent reproduction: python3 /workspace/branches/audit_exact_replay.py (binary16 section)"
+      ],
+      "rationale": "The unsigned positive encodings 0 through 0x3bff comprise 15·1024 states, counting one zero and keeping subnormals. Values are integers in units of 2⁻²⁴. An independent reproduction decoded these states and rounded the product using integer quotient/remainder against the binade spacing (even significand at ties), rather than midpoint search. Subtracting one at rounded products in [1,3/2] is exact: the difference is a multiple of 2⁻¹⁰ in [0,1/2]. The computed graph matched the source SHA-256 and all five (period, basin size, minimum encoding, max entry depth) tuples using forward path revisits and reverse label propagation rather than indegree peeling. Cycle means use exact rational arithmetic. Independently assigning each adjacent encoding gap half to each endpoint assigns the upper endpoint's half-cell to the basin of F(1)=1/2, without adding 1 to the stored domain. This gave weights with numerator vector (12777057,68656,7273607,4398294,9036818) and denominator 2²⁵; the stored and rounded means were 825722879/2751463424 and 13332128797227/45079976738816. Integrating the standard Parry density gives the ratio of the weighted endpoint-orbit square sum divided by twice the weighted linear sum. An exact 120-term dyadic-orbit reproduction bounds the denominator tail by 3(2/3)^120 and the numerator tail by half that. It recovered the stated enclosure width and certified the strict real-minus-rounded gap between 0.103 and 0.104.",
+      "residual_risks": [
+        "This is the stated multiply-then-subtract binary16 model, not exact-product/final-rounding nor another choice of initial ensemble. The continuum comparator is the absolutely continuous invariant probability."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boghosian et al. analyze Float32 at the same β and account for real interval-cell size; their modeled precision and operation order differ.",
+          "Klöwer et al. compare format-specific maps, including Float16 numerical invariant-measure results and Wasserstein comparisons across β. Its repository overview presents histogram, attractor and bifurcation comparisons."
+        ],
+        "reasoning": "Precision comparisons and a known initial-cell weighting method motivate the benchmark but do not supply the exact binary16 ensemble masses, means or rigorous bias interval. A binary32 attractor need not persist under a different rounding grid.",
+        "searches": [
+          "Boghosian–Coveney–Wang DOI 10.1002/adts.201900125, Float32 at β=3/2 and real cell weights",
+          "Klöwer et al. DOI 10.1038/s41598-023-37004-4, Float16 invariant measure and Fig. 3; BernoulliMap public repository overview"
+        ]
+      },
+      "checked_sources": [
+        "Resultary census, stored mean, rounded mean and endpoint-cell searches",
+        "Indexed record 384041ddfda5",
+        "DOI 10.1038/s41598-023-37004-4",
+        "DOI 10.1002/adts.201900125",
+        "BernoulliMap repository overview and Zenodo record 8138508"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed graph construction is enough to reproduce successor and basin labels, but the published periods, counts, and checksum alone convey neither statewise basin cells nor their exact X-coordinate minima or sums. The published comparison says the basin sizes are uniform counts over representable states.",
+          "The classical density formula gives the continuum comparator; it does not calculate the discrete bias."
+        ],
+        "reasoning": "Equal-cardinality basins need not have equal rounded-real mass, and periods do not determine cycle-average coordinates. The exact means require recovering orbit values and integrating the discrete initial partition with two different measures, including an initial state outside the stored graph. These are distinct quantitative invariants, not substitutions into the stated published cycle census.",
+        "searches": [
+          "Record 384041ddfda5 Proof §§2–3 and Verification, compare per-cycle graph data and weighting",
+          "Klöwer et al. Eq. (6) and invariant-measure passages",
+          "Boghosian et al. real-interval cell weighting in Float32"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Record 384041ddfda5 map B first rounds the product; its extra round after subtracting 1 is redundant. It gives SHA-256 5b2f33943cdf5fa52dafdaaa48c8b354e29542389d30954404fe1842cfe245e6, identical to the frozen result.",
+          "Klöwer et al. explicitly distinguish multiplication and subtraction in the target format from wider intermediates and give the standard real-map density in Eq. (6)."
+        ],
+        "reasoning": "The equivalent map is B, not the comparator A that rounds after exact reduction modulo 1. Identical arithmetic, a matching transition digest and matching counts establish graph overlap. The two initial-ensemble observables are additional calculations, not differently named period spectra.",
+        "searches": [
+          "Resultary: binary16/Float16 beta shift β=3/2, exact cycle/basin spectrum and successor digest",
+          "Klöwer et al., Revisiting the generalised Bernoulli map"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record 384041ddfda5 lists the exact B period/basin pairs (1,5705), (3,26), (4,3138), (24,2013), (41,4478) and overall entry depth 155. Its table explicitly uses stored-state counts rather than Lebesgue basin weights.",
+          "The inspected exact table and accompanying verification passages give neither exact mean nor the endpoint assignment."
+        ],
+        "reasoning": "This is a matching indexed graph result, not merely a nearby parameter, but the additional cycle-coordinate sums and real-cell masses are absent from the table. The catalogue date is not priority evidence.",
+        "searches": [
+          "Resultary: exact five cycles at β=3/2, stored-state mean 825722879/2751463424, rounded-real mean 13332128797227/45079976738816 and F(1)=1/2 cell"
+        ]
+      },
+      "rationale": "The independent contribution supported by the comparisons is the exact ensemble-weighted long-time mean calculation, especially for uniform real initialization with the rounding-to-one cell, and its certified gap. The period/basin graph itself has an exact indexed overlap: the later two-rounding-order result's B map has the identical successor digest and period/basin pairs. Neither the general finite-precision pathology, the arithmetic model, the invariant density, the cell-weight method, nor the shared graph census alone warrants originality credit.",
+      "residual_risks": [
+        "The Zenodo archive contents and the journal supplement were not inspected; an exact tabulation there or elsewhere is not ruled out.",
+        "Graph overlap is established without any inference of historical priority or independent validation from catalogue dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact shared B graph; no match to the stated ensemble-mean calculations in the inspected material",
+          "evidence": "Same five pairs, entry-depth maximum 155, and complete B successor SHA-256; separate A spectrum has periods 1,3,8,18,164.",
+          "identifier_or_url": "2026/11/8/SCOPE-two-exact-cycle-spectra-for-differently-rounded-half-precision-b--384041ddfda5",
+          "material_read": "Finding, Proof §§1–3, Verification and start of prior-work discussion; mirror offsets 0–7826",
+          "method": "Local mirror passage inspection",
+          "title": "Two exact cycle spectra for differently rounded half-precision beta shifts",
+          "trigger": "Exact map and successor digest overlap"
+        },
+        {
+          "assessment": "Same arithmetic convention and relevant numerical invariant-measure analysis, not exact matching rational means in inspected passages",
+          "evidence": "Format-specific multiplication and subtraction contrasted with wider intermediate arithmetic; analytic beta-map density and simulation-based Wasserstein comparison.",
+          "identifier_or_url": "https://doi.org/10.1038/s41598-023-37004-4",
+          "material_read": "Revisiting the generalised Bernoulli map and Eq. (6), PDF p. 4; Float16 discussion and Fig. 3, pp. 5–6; data availability and supplementary link, pp. 11–12",
+          "method": "Open article PDF passage inspection",
+          "title": "Periodic orbits in chaotic systems simulated at low precision",
+          "trigger": "Same half-precision Bernoulli map, relevant numerical measures and data links"
+        },
+        {
+          "assessment": "Same dynamical motivation and relevant weighting idea; different precision, not the binary16 census or means",
+          "evidence": "Float32 analysis with real-interval cell lengths, at β including 3/2.",
+          "identifier_or_url": "https://doi.org/10.1002/adts.201900125",
+          "material_read": "Float32 basin/real-interval weights and β=3/2 discussion, PDF pp. 2 and 4",
+          "method": "Open paper passage inspection",
+          "title": "A New Pathology in the Simulation of Chaotic Dynamical Systems on Digital Computers",
+          "trigger": "Same β and rounding-cell-weighted basin analysis"
+        },
+        {
+          "assessment": "Identifies simulation diagnostics and a versioned archive; does not establish what every archive file contains",
+          "evidence": "Repository overview describes Float16 histograms and attractor comparisons; Zenodo lists BernoulliMap-v0.1.zip.",
+          "identifier_or_url": "https://github.com/milankl/BernoulliMap; https://doi.org/10.5281/zenodo.8138508",
+          "material_read": "Public repository overview, offsets 7000–10044; Zenodo record and archive listing around offset 187",
+          "method": "Public webpage passage inspection",
+          "title": "BernoulliMap analysis repository and archived version",
+          "trigger": "Data and software companion may contain stronger coverage than the article"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 15–25 and 44–54",
+        "Independent exact graph and measure replay",
+        "Klöwer et al., numerical invariant-measure comparisons"
+      ],
+      "rationale": "The 3/2 map is an established finite-precision benchmark. The exact long-time scalar observable distinguishes uniform bit-pattern initialization from nearest rounding of a real-uniform input; these are easy to conflate and give measurably different expectations. The certified gap against the real invariant mean gives a quantitative reference for assessing precision and initialization choices without finite-orbit sampling or empirical burn-in.",
+      "residual_risks": [
+        "The numerical bias is specific to this precision, arithmetic order, map parameter, observable and initialization; it is not evidence of a monotone trend with precision."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

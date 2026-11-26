@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The projected update on a diagonal matrix is exactly coordinate replacement; zero-residual draws are rejected and must be counted in the raw-proposal budget. The two-unpinned-row stopping time is precisely a two-coupon collection time, with disjoint monochromatic histories after every integer \(t\ge1\), giving the stated tail and expectation. The mean is strictly monotone in singular-value imbalance; comparing \(s_2/s_3\) with \(s_1/s_2\) gives the exact boundary \(s_2^2=s_1s_3\), including both strict and equality cases. In arbitrary dimension, a geometric waiting-time lower bound for sampling the smallest row and a conditional discovery-probability upper bound for all remaining rows establish a divergence in raw-work ratio. The Frobenius costs and their near-optimal ratio are direct projector calculations. The standalone exact-rational checker passed 2475 independent finite computations; no infinite assertion is based on those finite tests.
+PASS
 
-## Originality — PASS, with remaining bibliographic uncertainty
+For pinning i the nullspace projector deletes coordinate i, and the ζ=1 update sets the sampled unsolved coordinate to one without changing another. An unpinned row is accepted exactly on its first appearance, so T is the coupon collector of the fixed norm-squared probes. For two weights w,z the disjoint failure histories at t≥1 have probabilities (w/(w+z))^t and (z/(w+z))^t. Summing with the t=0 term gives 1+w/z+z/w. Both this mean and the stated unconditioned first-step proxy increase with the ratio of larger to smaller remaining singular value. Removing the middle leaves the extreme ratio; comparing s₂/s₃ and s₁/s₂ gives the claimed strict choices and equality. The Frobenius cost simply deletes s_i². The example gives 21/4 for pinning the smallest row. In dimension n the rare-row geometric mean is a lower bound (n−2+ε²)/ε²; after pinning that rare row the conditional chance of a new item is at least 1/(n+2) until completion, giving the upper bound (n−1)(n+2). The F-ratio is at most 1+4/(n−2), so fixed n>2+4/δ proves the quantified near-Frobenius result. The repair changes the claim's emphasis and comparisons, not the formulae or verifier. Packaged code was inspected, not executed.
 
-Sun et al. (arXiv:2605.29304v1), Algorithm 1, explicitly reject null draws, and Section 3.2 adopts projected Frobenius error for selection; they analyze contraction by accepted iterations, not the exact raw-draw stopping law or its tradeoff against their Frobenius selector. Lok and Rebrova (arXiv:2309.04889, original SCRK Algorithm 1 and Section 3.3.2) already established the subspace-constrained method and rank-based row selection; these are not new. Nutini et al. (UAI 2016) already exploit orthogonality to suppress unproductive Kaczmarz selections. The weighted coupon-collector tail calculation is classical. The assessed distinction is the complete three-row pin-selection phase boundary for the newer source's **explicit null-rejection** with its particular Frobenius surrogate, and the arbitrarily small relative Frobenius sacrifice with divergent raw-probe work in a controlled higher-dimensional family. Searches of the current accessible claims, mathematical research records, and relevant literature found no covering combined theorem. An equivalent earlier specialized analysis under alternative terminology cannot be excluded.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The work identifies a measurable tradeoff in the motivating method's actual sampling mechanism: its accepted-step theorem hides arbitrarily expensive repeated draws of already-solved rows. It supplies a sharp dimension-three design criterion, a concrete family with unbounded sampling overhead, and a quantitative robustness counterexample showing that even a near-optimal Frobenius constraint does not control that overhead. These address the cited algorithm's explicit surrogate and therefore are not arbitrary numerical examples or a recomputation of an existing table.
+Pass the exact optimal pinning crossover for the all-active three-row diagonal class and the separation within the all-active diagonal family, not the broad unbounded-overhead claim. The October 13 Resultary example already proves an unbounded raw-probe ratio for the same algorithm and surrogate, with one effective update; the relative-gap refinement alone can be obtained by padding that construction. It does not classify the pinning optimizer when every unpinned row is initially unsatisfied. The repaired Finding and prior-work section make this distinction explicit.
 
-## Closest literature, risks, and limitations
+## value
 
-The original source proves matrix-based accepted-iteration convergence and recommends the Frobenius surrogate. The earlier SCRK paper proves accepted-iteration rates and discusses approximate low-rank selection. Existing orthogonality-aware sampling avoids wasted row actions in other mechanisms. A broad coupon-collector law provides a proof ingredient, not the studied surrogate-selection classification. Remaining risk: a specialized earlier pin-selection calculation may imply this exact boundary; the 2016 orthogonality-graph paper was only inspected to the available abstract in the present review. The theorem assumes fixed independent probes with explicit rejected-draw accounting and makes no general-time complexity claim.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact boundary tells which constraint to choose in the smallest diagonal case with a genuine choice between two weights after pinning. It shows that equal accepted-step counts conceal an exact and potentially large probe-cost difference even without initially satisfied equations. The comparison is a meaningful sharp witness for a named selection surrogate; the textbook coupon formulas and generic divergence are not the basis for acceptance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

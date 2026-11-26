@@ -2,7 +2,7 @@
 
 ## Finding
 
-Let \(C\subset\mathbb P^2_{\mathbb C}\) be Klein's smooth quartic \(X^3Y+Y^3Z+Z^3X=0\). Let \(\mathcal B\) be the set of its 28 geometric bitangents and \(\mathcal Q\) the set of the 21 points at which exactly four of those bitangent lines meet. Form the bipartite *Levi graph* \(\Gamma\) with 28 line-vertices, 21 point-vertices, and an edge for containment.
+Let \(C\subset\mathbb P^2_{\mathbb C}\) be Klein's smooth quartic, for example in the cyclic model \(X^3Y+Y^3Z+Z^3X=0\). Use the projectively equivalent symmetric model below for the tabulated equations. Let \(\mathcal B\) be the set of its 28 geometric bitangents and \(\mathcal Q\) the set of the 21 points at which exactly four of those bitangent lines meet. Form the bipartite *Levi graph* \(\Gamma\) with 28 line-vertices, 21 point-vertices, and an edge for containment.
 
 The graph is connected, its line-vertices all have degree three, its point-vertices all have degree four, and its critical group (the degree-zero integral divisor class group of the graph) is
 \[
@@ -14,9 +14,13 @@ There is an explicit incidence-preserving graph isomorphism from \(\Gamma\) to t
 
 ## Assumptions and scope
 
-All configurations and critical groups are over characteristic zero. The defining equations used are over \(\mathbb Q(e)\), where \(e^2+e+2=0\). The 28 bitangent line triples are those of Janasz–Pokora–Zieliński (2023), Table 2, and the 21 Klein-line triples are the classical Klein arrangement as presented by Bauer et al. (2014), §4.1. Every computational step is exact over this quadratic field or over the integers. The listed equations and incidence certificates are included in `VERIFY.py` and `INCIDENCE.json`.
+All configurations and critical groups are over characteristic zero. Work over \(\mathbb Q(e)\), where \(e^2+e+2=0\). The 28 bitangent line triples in Janasz–Pokora–Zieliński [2], Table 2, use the symmetric Klein model
+\[
+x^4+y^4+z^4+3e(x^2y^2+x^2z^2+y^2z^2)=0,
+\]
+not the displayed cyclic coordinates. In [2, §3] this is the Klein member of the Ciani pencil with parameter \(\lambda=3e\) satisfying \(\lambda^2+3\lambda+18=0\). The two models are projectively equivalent: they represent the same smooth curve, and adjunction identifies their plane embeddings with the canonical embedding. Such a coordinate change preserves bitangency and incidence, so it is not necessary to apply the change to each line. For the 21 reflection-line triples we use the equations of Gévay–Pokora [4, §2.1], with their parameter \(a=e\). Bauer et al. [1, §4.1] describe the classical reflection arrangement and its singular points. The arithmetic in both lists is exact over the quadratic field or over the integers. The equations and incidence certificates are included in `VERIFY.py` and `INCIDENCE.json`.
 
-For a connected graph \(G\), \(K(G)=\mathbb Z^{V(G)-1}/\operatorname{im}L'\) for a reduced Laplacian \(L'\) obtained by deleting one row and one column. Here the bipartite graph has 49 vertices and 84 edges; it has cycle rank \(84-49+1=36\). No claim is made about the Jacobian of the original smooth Klein quartic.
+For a connected graph \(G\), \(K(G)=\mathbb Z^{|V(G)|-1}/\operatorname{im}L'\) for a reduced Laplacian \(L'\) obtained by deleting the row and column of the same vertex. Here the bipartite graph has 49 vertices and 84 edges; it has cycle rank \(84-49+1=36\). No claim is made about the Jacobian of the original smooth Klein quartic.
 
 ## Proof
 
@@ -34,7 +38,7 @@ Exact characteristic-polynomial calculation using the enumerated integer inciden
 \[
 \det(tI-L)=t(t-7)(t-3)^7(t^2-7t+9)^8(t^4-14t^3+65t^2-112t+56)^6.
 \]
-The nonzero eigenvalue product divided by 49 is the number of spanning trees by Kirchhoff's theorem. Evaluating the derivative at zero gives
+The zero eigenvalue is simple, so the graph is connected. The nonzero eigenvalue product divided by 49 is the number of spanning trees by Kirchhoff's theorem. Evaluating the derivative at zero gives
 \[
 \tau(\Gamma)=\frac{7\cdot3^7\cdot9^8\cdot56^6}{49}=2^{18}3^{23}7^5.
 \]
@@ -48,11 +52,11 @@ Thus no primes other than \(2,3,7\) can occur in the critical group.
 | 3 | \(0^{40},2^1,3^7\) |
 | 7 | \(0^{43},1^5\) |
 
-The precision moduli are respectively \(2^{20}\), \(3^{24}\), and \(7^7\); all pivots have valuation below the precision. Pivot selection of minimal valuation guarantees each pivot divides the remaining entries in the corresponding local principal ideal ring, so unimodular row and column elimination yields the Smith exponents. Combining valuations in nondecreasing order and using the established prime support gives precisely 36 units and the eleven nonunit invariant factors listed above. Direct exact-integer Smith normal form, independently calculated from each of the two incidence constructions, agrees. This proves the group decomposition and completes the claim.
+The precision moduli are respectively \(2^{20}\), \(3^{24}\), and \(7^7\); all pivots have valuation below the precision. Pivot selection of minimal valuation guarantees each pivot divides the remaining entries in the corresponding local principal ideal ring, so unimodular row and column elimination yields the Smith exponents. Combining valuations in nondecreasing order and using the established prime support gives precisely 36 units and the twelve nonunit invariant factors listed above. Direct exact-integer Smith normal form, independently calculated from each of the two incidence constructions, agrees. The quotient modulo twice the group is a 12-dimensional binary vector space, so the twelve displayed cyclic factors also give a minimum generating set.
 
 ## Verification
 
-`VERIFY.py` rebuilds both line configurations from explicit quadratic-integer coefficient triples; normalizes every projective pairwise intersection; checks all intersection multiplicities; compares their incidence graphs by a complete 49-vertex labelled bijection; verifies the Laplacian characteristic polynomial; calculates two Smith normal forms independently; and runs a third, prime-local elimination routine that does not call a library Smith implementation. To reproduce, place `VERIFY.py` and `INCIDENCE.json` together and run `python VERIFY.py` with Python and SymPy. Expected terminal line: `KLEIN_BITANGENT_LEVI_SMITH_AND_LOCAL_CERTIFICATE_OK`. All arithmetic is exact, including finite field-pair operations and modular elimination; no sampling, floating-point tolerances, or search cutoffs occur.
+`VERIFY.py` rebuilds both configurations from their coefficient triples (in the coordinate systems of the cited tables); normalizes every projective pairwise intersection; checks all intersection multiplicities; compares their incidence graphs by a complete 49-vertex labelled bijection; verifies the Laplacian characteristic polynomial; calculates two Smith normal forms; and also runs a prime-local elimination without a library Smith call. It checks incidence and the integer calculations, not the projective equivalence of Klein models. To reproduce, place `VERIFY.py` and `INCIDENCE.json` together and run `python VERIFY.py` with Python and SymPy. Expected terminal line: `KLEIN_BITANGENT_LEVI_SMITH_AND_LOCAL_CERTIFICATE_OK`. All arithmetic is exact, including the number-field and modular computations.
 
 ## Relationship to prior work
 

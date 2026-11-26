@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The full infinite-wire Hamiltonian, on-site detuning convention, and incoming-wave normalization are explicit. Schur elimination yields the exact scattering probability; the path endpoint spectral weights are positive and prove strict monotonicity between the split eigenvalues. The unique zero, exact pole transparencies, compact-state gcd count, center displacement and both half-height widths follow from these identities, with a controlled fixed-length small-detuning limit. The independent checker solves the original complex boundary-matching system on 28 examples and verifies 24 rational resolvents, eight gcd counts, and 16 sharp-width comparisons. The general result is analytic; finite tests are not offered as an infinite proof.
+## correctness
 
-## Originality — PASS on examined evidence, provisional
-The classic side-chain Fano reduction of Chakrabarti (arXiv:cond-mat/0609082, 2006) uses a single attached chain or distinct attachments along the backbone, not the one-root branching pendant. The general BIC/scattering determinant machinery of Gorbatsevich–Shubin (arXiv:1707.05531, 2017) covers the mechanism but does not evaluate the path-length arithmetic and sharp per-resonance coefficient. Petráček–Kuzmiak (doi:10.1364/OE.464599, 2022), equations (1)–(4), (9)–(10), attach two single sites **directly to the lead**, so their side eigenenergies are zero-transmission points, as opposed to the exact unit-transmission points here. Kuo–Chen–Chen (doi:10.1038/srep37766, 2016) studies a different common-cavity/dot geometry, with generic Fano interference but no arbitrary arm lengths. Nearby published exact results on spider dark modes and Fano leakage are explicitly recognized as mechanism-level overlaps. No inspected source directly implies the joint gcd, three-energy window, all-length center ratio, and sharp linewidth coefficient without an additional computation. Unindexed or inaccessible exact analogues remain possible; no uniqueness or independence is certified.
+PASS
 
-## Mathematical value — PASS
-The precise finite-length spectral arithmetic determines how many controllable narrow reflection features exist inside the propagating band. Their exact transparent endpoints, unique perfect-reflection interior, length-dependent center and quadratic narrowing are physically motivated filter-design observables, and the universal local line shape facilitates comparing devices of different sizes. This is an infinite family of exact multi-feature classifications, not an arbitrary parameter slice. The quadratic mechanism alone is prior physics; the new content is the explicit all-length quantitative law.
+For E=2cos(k) in the open band the lead recurrence has only the two oscillating solutions, so an embedded square-summable vector vanishes on the lead and hence at the coupled root. Each Dirichlet arm eigenvalue is simple with nonzero endpoint amplitude. A dark state requires both arms, and cancellation at the root leaves one vector per common frequency. The sine grids meet at s/d for s=1,...,d-1, with d=gcd(m+1,n+1). The endpoint resolvent is the minor-to-determinant path ratio; eliminating the arms and root yields the point potential 1/H and T=(4-E^2)H^2/[1+(4-E^2)H^2]. At an arm eigenvalue the arm solvability condition instead forces the root amplitude to zero; a resonant arm amplitude can enforce the root equation while lead scattering is free. Thus the limiting value T=1 is physical including at the undetuned coincidence. In the split interval H has opposite infinite endpoint limits and H'>0. To check the center asymptotics, set u=(E-E_s)/delta and multiply H by delta: on compact subsets of 0<u<1 this is -A/u-B/(u-1)+O(delta), where A,B are the positive sine-squared residues. The limiting root at u=A/(A+B) is simple; the remaining resolvents are analytic near E_s, giving u=A/(A+B)+O(delta). This yields the length ratio and H'(E_*)=(A+B)^3/(AB delta^2)+O(delta^-1). Throughout the interval the uniform lower bound H'>=(A+B)/delta^2 suffices for uniqueness against the bounded derivatives of the two half-height curves; a two-sided order estimate up to the poles, as the wording may suggest, is not needed and is not uniform. On the delta^2 window the root stays a distance of order delta from both poles, with H''=O(delta^-3), so Taylor expansion gives H(E_*+Gamma delta^2 x) -> x/(2 sin(theta_s)) and reflection -> 1/(1+x^2). This yields the two local half-widths separately, with Gamma as stated and Gamma=1/16 for m=n=1. Replay: RESULT.md lines 25–69, especially the residue and centered-rescaling computation. The uploaded checker was inspected, not executed; its width tests are finite comparisons with the coded coefficient, not a symbolic or exhaustive certificate.
 
-## Scope and limitations
-Uniform unit hoppings, one side root, paths of lengths at least one, positive small uniform detuning of the second arm, and no absorption. The \(\delta\downarrow0\) bounds are fixed-length, and no independent audit or universal priority is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit is limited to the explicit joint split-window classification for uniformly detuned open path arms, particularly the sharp real-axis linewidth and symmetric scaling profile at each arithmetic common mode. The general exact scattering mechanism, dark-state arithmetic, and quadratic narrowing in other single-contact systems are substantial prior ingredients rather than independently new principles. The strongest same-day triangular-bouquet match has a different local singularity and does not specialize to this claim.
+
+## value
+
+PASS
+
+The precise real-axis width distinguishes the distances between transparency points (order delta) and the observable half-height notch (order delta^2). An explicit coefficient resolves how the two open path lengths and common-mode index set the much smaller scattering scale, which is not supplied by dark-state counting alone. The result is useful as a fully specified benchmark for one-channel scattering, without claiming generic new Fano physics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

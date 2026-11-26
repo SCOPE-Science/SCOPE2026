@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:59:45.342721Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A partial bijection equal to its inverse has an invariant domain and is an order-at-most-two permutation there. Ambient rim distances are 1 for rim adjacency and 2 otherwise, so these maps are exactly involutive automorphisms of induced rim subgraphs. On a nonempty proper domain, a marked run gives n choices of its first vertex, r!/prod(m_j!) length words and binom(n-k-1,r-1) positive gap compositions, with exactly r marked versions per labelled subset. For m_j equal-length components, t transpositions can be chosen in m_j!/(2^t t!(m_j-2t)!) ways, with a_j choices per fixed component and per paired component pair, since the reverse is forced. On the full rim the dihedral possibilities are the identity, n reflections, and one extra half-turn for even n; the empty coefficient is one. Adding a fixed hub multiplies the rim sum by z, in addition to the maps omitting it. If the hub is exchanged with v, any other domain vertex x has d(v,x)=d(0,alpha(x))=1, and its image is likewise a rim neighbor of v. An arbitrary involution on any subset of the two rim neighbors preserves all distances with the swapped pair and within the subset. The empty, singleton and pair choices give 1,2,2 per v, proving the correction in exactly ranks 2–4. Fresh bounded brute-force distance checks reproduce every coefficient for rim lengths 5,6,7, including the intermediate vector (1,7,42,86,98,54,20,8). Replay with python3 /workspace/branches/12dc9ffb-b009-43ed-b4c7-a6420659384d/independent_wheel_involution_check.py; output is reproduction-small.txt in the same directory. The uploaded checker was inspected but not executed; its n=3–9 evidence is recorded, not claimed as a fresh run. Finite checks are not the all-n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fernandes Lemma 1.1 bounds rank by four when the hub moves. Theorem 2.4 treats Green J; Theorem 4.4 gives floor(n/2)+3 as the minimum generating-set size."
+        ],
+        "reasoning": "Prior work supplies rank support for the moving-hub cases and the underlying structural framework. Generating-set rank is not the size of a partial map's domain; the theorem neither computes the involutive correction coefficients nor counts the rim involutions by domain size. The broad lookup yielded no diagnostic additional source.",
+        "searches": [
+          "Fernandes arXiv:2307.16257, Lemma 1.1, Theorems 2.4 and 4.4",
+          "Bounded primary literature lookup for wheel and partial-automorphism involution enumerators"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and wheel_self_inverse_checker.py (read only)",
+        "Fernandes arXiv:2307.16257",
+        "Jajcay et al. arXiv:1809.04422",
+        "Resultary d147c97c6256 and 6984d732ffaa, local mirror"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Inversion pairs distinct maps at the same domain rank and leaves all involutions fixed. Knowing total elements by rank gives no count of paired versus fixed maps. The arbitrary-domain/image isomorphism statistic uses whole automorphism group orders, not counts of elements of order at most two.",
+          "The hub rank bound for involutions starts at two because moving a hub in an involution forces a transposition; the split 1,2,2 per rim neighbor choice follows by identifying the actual invariant neighbor subsets."
+        ],
+        "reasoning": "Credit the antecedent rank support and path-run framework. Extracting the self-inverse portion needs a separate count of transposed equal-size components and their internal path isomorphisms, plus the fixed-point restriction on the hub cases. It is not a specialization of the all-map polynomial or a reworded graph-metric result.",
+        "searches": [
+          "Compare Fernandes Lemma 1.1, the Resultary all-map wheel coefficients and the cycle-own-metric condition with the frozen polynomial"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In a diameter-two wheel, a partial isometry is exactly an induced partial graph automorphism, and self-inverse elements are automorphisms of a common induced domain with square identity.",
+          "Jajcay et al. classify Green D-classes by the induced subgraph's isomorphism type, not by a wheel involution count."
+        ],
+        "reasoning": "Translate the wheel metric to adjacency before comparing; the general monoid description does not supply the size-weighted wheel sum or its run multiplicities.",
+        "searches": [
+          "Local Resultary, wheel partial isometries, self-inverse cycle restrictions and partial graph automorphisms",
+          "Jajcay et al., arXiv:1809.04422 Proposition 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The wheel source has all-map polynomial (1+z)Q_n+2nz+5n^2z^2+2n^2(n-1)z^3+2n^2z^4; Q_n counts arbitrary induced rim isomorphisms, with independently chosen source and target.",
+          "The same-day cycle source counts the right inversion property using the cycle's own shortest-path metric. For n>=6 the rim of the wheel instead truncates nonneighbor distances to 2. The coincident metrics at n=5 can cover that rim contribution but not the wheel family."
+        ],
+        "reasoning": "These are close comparisons in either object or counted class, not the exact polynomial. Shared dating establishes no priority relation.",
+        "searches": [
+          "Resultary d147c97c6256 (wheel finite-rank hub correction), RESULT.md offsets 0–3168 and 9000–11090",
+          "Resultary 6984d732ffaa (self-inverse partial isometries of finite cycles), RESULT.md offsets 0–3042 and 3000–5499"
+        ]
+      },
+      "rationale": "The ambient graph and wheel monoid are prior; in particular the small-rank bound for a moving hub and broad partial-automorphism structure are known. The strongest checked enumerator counts all maps at each rank, not fixed points of inversion. The related cycle involution enumerator uses a different metric. Neither provides the stated involution-weighted induced-run sum and hub coefficients.",
+      "residual_risks": [
+        "Catalogue and literature searching were bounded and cannot exclude an unindexed equivalent fixed-point enumerator.",
+        "Lawful direct retrieval of the separate cycle primary paper was unsuccessful; metric distinction also follows directly from the definitions and is verified against the accessible same-day cycle record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior structural results and hub bound, not a fixed-point enumerator",
+          "evidence": "The two notions of rank differ; the moving-hub bound is genuinely prior.",
+          "identifier_or_url": "https://arxiv.org/pdf/2307.16257",
+          "material_read": "Abstract and rank definition p. 1 offsets 0 and 1850; Lemma 1.1 p. 3 around 10200; Theorem 2.4 p. 7 around 31700; Theorem 4.4 p. 13 around 62000",
+          "method": "Lawful OA full-text passage inspection",
+          "title": "On the monoid of partial isometries of a wheel graph",
+          "trigger": "Same wheel monoid and potential rank classification"
+        },
+        {
+          "assessment": "Material overlap in method and ambient structure, distinct enumerated class",
+          "evidence": "The main finding gives all-map coefficients and the rim statistic includes arbitrary domain–image isomorphisms.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-finite-rank-hub-correction-for-wheel-partial-isometry-monoids--d147c97c6256",
+          "material_read": "RESULT.md offsets 0–3168 and 9000–11090",
+          "method": "Resultary catalogue and local mirror passage inspection",
+          "title": "A finite-rank hub correction for wheel partial-isometry monoids",
+          "trigger": "Very similar polynomial on identical wheels"
+        },
+        {
+          "assessment": "Same-day analogue, not an equivalent general wheel formula",
+          "evidence": "The distances are measured along the cycle itself, not via the hub.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-rank-distribution-of-self-inverse-partial-isometries-of-finite-c--6984d732ffaa",
+          "material_read": "RESULT.md offsets 0–3042 and 3000–5499",
+          "method": "Resultary catalogue and local mirror passage inspection",
+          "title": "Rank distribution of self-inverse partial isometries of finite cycles",
+          "trigger": "Exact inversion statistic on a proposed equivalent rim family"
+        },
+        {
+          "assessment": "Framework, not the exact coefficients",
+          "evidence": "Green D-classes correspond to induced-subgraph isomorphism classes.",
+          "identifier_or_url": "https://arxiv.org/pdf/1809.04422",
+          "material_read": "Proposition 3.1, p. 8 around offset 33650",
+          "method": "Lawful OA full-text passage inspection",
+          "title": "Inverse monoids of partial graph automorphisms",
+          "trigger": "General graph-automorphism monoid may imply wheel count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the full inversion fixed-point statistic of a natural graph inverse monoid at all domain sizes, not a handful of small instances or only the dihedral unit group. It separates the equal-length path-component symmetries from the low-rank effects specific to the hub. For example, with the all-map polynomial the result gives the rank profile of inverse pairs versus self-inverse maps coefficientwise; the total rank data alone cannot recover that profile.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

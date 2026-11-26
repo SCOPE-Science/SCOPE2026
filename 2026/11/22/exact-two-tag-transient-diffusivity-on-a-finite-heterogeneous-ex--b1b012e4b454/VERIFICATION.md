@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility checks
+# Independent mathematical audit
 
-The separately embedded `checker.py` constructs every allowed marked hop directly from the hard-core rule. With Python 3, NumPy and SciPy installed, run:
+## correctness
 
-```sh
-python checker.py
-```
+PASS
 
-The complete execution returned `PASSED 564 independent-generator and exact Poisson-corrector tests`. The independent moment generator is a three-block matrix exponential, not a repeated implementation of the spectral calculation. Exact `Fraction` arithmetic verifies the Poisson equation, including both reflecting endpoints, for all tested integer ring sizes and rate pairs. Further tests compare both tags' second moments across lengths, rates and times; check the squared-rate contrast; and verify the precise intercept at long numerical times.
+For the repaired RESULT.md: the frozen opening unconditionally asserted unequal finite-time diffusivities although a=b was admitted and gives K_1(t)=K_2(t) at every t. The repair states equality iff a=b, distinguishes the linear part of the MSD from the relaxation terms, and clarifies that the ratio has a constant limit as t tends to infinity although plugging in the limiting diffusivities gives 0/0. No coefficients or rate assumptions were changed. Independently, conditioned on the reflecting gap path, each gap jump is a tag-1 jump with probability p=a/(a+b), independently of other marks. Tag 1's increment is minus the gap increment when it jumps, and tag 2's is plus the gap increment when it jumps. Hence each tag's conditional variance is p(1−p) times the number of gap jumps, whose mean is 2q(n−1)t/n. Its conditional mean is, respectively, −p or 1−p times the net gap displacement. The stationary gap is uniform and E[(G_t−G_0)^2]=2⟨f,(I−e^{tQ})f⟩ with f(k)=k−(n+1)/2. The reflecting cosine eigenbasis and −Qf=q(1_{k=n}−1_{k=1}) give exactly the stated odd-mode coefficients and zero even overlaps. Mode m=1 exists also at L=3. The activity at time zero, strict signs at every finite time, common exponent, rate ratio, and intercept from the uniform gap variance all follow. The 90 fresh full-configuration marked uniformization comparisons covered both tags, equal/unequal rates and the triangle.
 
-All claims for arbitrary positive rates and all times rest on the complete analytic proof in `RESULT.md`, not on the finite test sweep. Numerically tiny differences of near-zero excess diffusivities are excluded from a ratio test to avoid cancellation; strict positivity follows symbolically from the first odd eigenmode. Numerical large-time comparisons do not assert exhaustive numerical verification of an infinite-time limit. No independent audit has been performed.
+## originality
+
+PASS
+
+The supported distinct result is the exact finite-lattice stationary two-tag MSD spectrum and constant squared-rate ratio for its excess instantaneous diffusivities. Reflecting-gap reduction, finite-ring activity spectra for homogeneous rates, and long-time diffusivity mechanisms are not claimed as new. The comparison applies to the repaired precise statement, including that the two curves coincide at equal rates.
+
+## value
+
+PASS
+
+For the smallest interacting finite ring system the joint time dependence, odd-mode weights, strict decay and intercept distinguish transient tagged transport from its common asymptotic diffusivity. The exact squared-rate excess ratio provides a useful check across all observation times and jump-rate contrasts, not just a trivial equal-rate check or a re-expression of the long-time diffusivity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

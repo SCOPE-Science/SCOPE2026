@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:26:37.412677Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§ Finding, Assumptions and scope, Proof 1–4",
+        "VERIFICATION.md; verify_b3_tori.py (inspected, not executed); verify_output.txt (recorded evidence)",
+        "python3 /workspace/branches/check5.py (independent bounded certificate replay)"
+      ],
+      "rationale": "The thirteen projective sign-pattern points account for all 36 line pairs (6 double, 4 triple, 3 quadruple), with no change in the declared characteristic. The seven blowups give a connected 16-vertex, 30-edge dual graph of minimum degree three, so the rational components give a stable genus-15 curve. The normalization units sequence identifies the character lattice as the kernel of the integral incidence map, not just the rational cycle representation. Independent reconstruction in /workspace/branches/check5.py used the sign-pattern points, directed graph edges, leaf-to-root cycle lifting and exact rational elimination to check all five integral basis certificates with the supplied seeds; determinants are 1, 1, -1, 1, -1. The five representatives act on the long diagonals with the asserted cycle types and sizes. No edge orientation is reversed, so each node orbit contributes two branch orbits of the same length. A fixed component of the normalization contributes q^r+1 points over F_(q^r) (a finite-field form of P^1 is split); subtracting fixed branches and adding fixed nodes yields the stated zeta products for every extension degree. The integral regular and sign blocks give the displayed restriction and norm-one tori and their cyclic groups of points. The two involutions have different fixed lattice ranks, and the other three actions have different orders. This does not classify twists by any additional abstract automorphisms.",
+      "residual_risks": [
+        "The assertion is only for characteristic greater than three and the five classes of the specified projective action."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Geisser gives a general equivariant integral description of the Picard torus; Casalaina-Martin–Kass–Viviani use dual graphs for the local geometry of compactified Jacobians."
+        ],
+        "reasoning": "The general constructions apply or provide context, but leave the specific integral Z[F]-module evaluation and fixed component/node enumeration to be done.",
+        "searches": [
+          "arXiv:0704.0479v4 Theorem 1",
+          "arXiv:1107.4166v3 introduction"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1804.03610",
+        "arXiv:1501.05991",
+        "arXiv:0704.0479v4",
+        "arXiv:1107.4166v3",
+        "Resultary:67900a95da4f",
+        "Resultary:71e0231fbb0b",
+        "Resultary:88803cbc29d5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The graph-theoretic Picard theorem identifies which lattice to compute, but does not provide a unimodular orbit-block basis for this incidence pattern. A rational character cannot distinguish Z[C2] from Z plus the sign lattice, although they imply different integral tori."
+        ],
+        "reasoning": "The same B3 equation, a prior case with the same S4 parameter set, or a rational-character calculation cannot supply the integral decomposition or the evaluated zeta table without new object-specific checks.",
+        "searches": [
+          "arXiv:0704.0479v4 Theorem 1",
+          "Resultary 88803cbc29d5 Finding",
+          "arXiv:1804.03610 §2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The nine-line B3 equations agree with the arrangement dualized in arXiv:1804.03610; the dual unexpected quartic is not the resolved nodal divisor. The Cayley calculation instead starts with the nine lines on a cubic surface, with a 22-vertex branch-incidence graph and rank-nine torus."
+        ],
+        "reasoning": "Neither projective dualization of the nine lines nor rephrasing the Cayley invariant as a graph torus identifies it with this rank-fifteen character lattice.",
+        "searches": [
+          "arXiv:1804.03610 §2",
+          "arXiv:1501.05991 introduction",
+          "Resultary 2026/11/22 Cayley nine-line divisor, 88803cbc29d5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Heawood table uses a 14-vertex incidence graph and GL(3,2) twists; the Igusa calculation treats a 15-line boundary with an S6 action and an integral five-cycle case; the Cayley table has five S4 types but dimension nine."
+        ],
+        "reasoning": "These are evaluated nearby tables rather than the five rank-fifteen integral types of the resolved B3 arrangement.",
+        "searches": [
+          "Resultary 2026/11/2 Heawood stable curve, 67900a95da4f",
+          "Resultary 2026/11/2 Igusa fifteen-line boundary, 71e0231fbb0b",
+          "Resultary 2026/11/22 Cayley nine-line divisor, 88803cbc29d5"
+        ]
+      },
+      "rationale": "The arrangement, Picard-lattice formalism and close arithmetic analogues are established. The inspected evidence does not cover the integral cycle actions and zeta functions for this resolved plane B3 divisor. The same-day Cayley nine-line calculation was compared on its merits, not excluded by date. This is an evidence-bounded decision, not a claim of historical priority.",
+      "residual_risks": [
+        "Equivalent integral matrices or invariant decompositions in differently indexed arrangement literature were not excluded. No historical priority is inferred from the same-day record dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same input arrangement, different invariant",
+          "evidence": "The B3 equation identifies a dual nine-point configuration for an unexpected quartic.",
+          "identifier_or_url": "https://arxiv.org/abs/1804.03610",
+          "material_read": "§2, pp. 2–3, offsets 6352–9917",
+          "method": "OA paper text",
+          "title": "Quartic unexpected curves and surfaces",
+          "trigger": "Identical nine-line arrangement"
+        },
+        {
+          "assessment": "Geometric background",
+          "evidence": "Polyhedral characterization of Coxeter arrangements, rather than a nodal arithmetic classification.",
+          "identifier_or_url": "https://arxiv.org/abs/1501.05991",
+          "material_read": "Abstract and introduction p. 1, offsets 0–2696",
+          "method": "OA paper text",
+          "title": "Coxeter arrangements in three dimensions",
+          "trigger": "Broader Coxeter-arrangement coverage"
+        },
+        {
+          "assessment": "General method credited",
+          "evidence": "Galois-module description of the maximal torus, without the B3 computation.",
+          "identifier_or_url": "https://arxiv.org/abs/0704.0479v4",
+          "material_read": "Theorem 1, p. 1, offsets 1560–4279",
+          "method": "OA paper text",
+          "title": "The affine part of the Picard scheme",
+          "trigger": "Integral Picard-torus theorem"
+        },
+        {
+          "assessment": "Different output invariant",
+          "evidence": "Local geometry of compactified Jacobians expressed through dual graphs.",
+          "identifier_or_url": "https://arxiv.org/abs/1107.4166v3",
+          "material_read": "Abstract and introduction, offsets 0–2459",
+          "method": "OA paper text",
+          "title": "The Local Structure of Compactified Jacobians",
+          "trigger": "Nodal dual-graph Jacobian theory"
+        },
+        {
+          "assessment": "Different graph and twist group",
+          "evidence": "Fourteen vertices and GL(3,2) twists.",
+          "identifier_or_url": "Resultary:2026/11/2/SCOPE-five-integral-picard-tori-of-the-fano-plane-heawood-stable-curve--67900a95da4f",
+          "material_read": "Finding, offsets 500–3100",
+          "method": "Local mirror text",
+          "title": "Five integral Picard tori of the Fano-plane Heawood stable curve",
+          "trigger": "Exact five-class table"
+        },
+        {
+          "assessment": "Different curve and group",
+          "evidence": "Fifteen-line Igusa arrangement and S6 twists, including an integral five-cycle torus.",
+          "identifier_or_url": "Resultary:2026/11/2/SCOPE-finite-field-twists-and-integral-picard-tori-of-the-fifteen-line--71e0231fbb0b",
+          "material_read": "Finding, offsets 350–2786",
+          "method": "Local mirror text",
+          "title": "Finite-field twists and integral Picard tori of the fifteen-line boundary",
+          "trigger": "Resolved line-divisor arithmetic analogue"
+        },
+        {
+          "assessment": "Strong analogue but demonstrably different object and table",
+          "evidence": "Cayley cubic, 22-vertex/30-edge branch-incidence graph and rank-nine torus versus the resolved plane B3 rank-fifteen torus.",
+          "identifier_or_url": "Resultary:2026/11/22/SCOPE-integral-picard-tori-and-zeta-functions-of-cayley-s-nine-line-di--88803cbc29d5",
+          "material_read": "Finding, offsets 0–2894",
+          "method": "Local mirror text",
+          "title": "Integral Picard tori and zeta functions of Cayley’s nine-line divisor",
+          "trigger": "Same-day nine-line, five-S4-type exact classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md integral and zeta tables",
+        "Geisser Theorem 1",
+        "Resultary Heawood and Cayley arithmetic analogues"
+      ],
+      "rationale": "The canonical reflection arrangement and its full prescribed geometric symmetry group motivate a complete arithmetic classification, rather than a class selected after computation. For this genus-15 curve the integral table differentiates restriction and norm-one factors that an eigenvalue table does not determine individually. It supplies explicit torus isomorphism types, their finite rational-point groups, and extension-degree counts for every specified twist, useful as exact data for comparison with other arithmetic graph curves.",
+      "residual_risks": [
+        "No general classification of resolved arrangements, all forms, or smoothing invariants follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

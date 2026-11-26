@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement is an all-parameter classification for the line graphs of trees with two branching endpoints and a simple connecting spine. The proof recognizes the two intrinsic maximal triangle-containing cliques, derives every automorphism orbit, and then separates cases by the two leaf counts and the spine length. The most delicate case, two leaves at each end, is resolved by distance from the degree-three connector cell and by its distance-two neighbours. With a four-edge spine, the degree partition is explicitly equitable but combines two different orbits; this is a proof, not an inference from a finite sweep. Two standalone implementations constructed the graphs differently and independently checked 2,730 analytic-orbit cases and 63 exact marked-isomorphism cases, respectively.
+PASS
 
-## Originality — PASS, with limitations
+For a,b>=2 the two terminal cliques are exactly the maximal cliques of order at least three. The sole connector is their intersection at ell=1. Otherwise the unique connecting path identifies the two connector vertices and path positions; any orbit merger must preserve these data up to interchange of equal sides. Independent leaf permutations and, for equal sides, reflection realize all stated orbits. Stable colors are automorphism-invariant and distinguish distances to any stable cell or stable union by iterative neighborhood counts. At ell=1 degrees suffice. For unequal a>b and ell>=2 the degree-(a+1) singleton separates spine positions by distance; the only possible left-leaf collision is with p_1, resolved by degrees except at ell=2 and a=b+1, when the neighboring degree multiplicities differ. When a=b>=3, degrees distinguish leaves, connectors and interiors, and distances to the connector pair separate interior reflection orbits. When a=b=2, ell=2 has no interiors and ell=3 has one with two connector neighbors. At ell>=5 the first interior pair has a distance-two neighbor, unlike the leaves, and the rest are separated by distance. At ell=4 the degree-(3,2) cells are equitable with neighbor counts (0,3) and (1,1) respectively, whereas the four leaves and two interior vertices are distinguished by triangle membership. This proves the exception [2,6] versus [2,2,4] and exhausts the domains. Independent finite replay: python3 /workspace/check_frozen_mathematics.py 1, testing the 27 cases with 2<=a<=b<=3 and 1<=ell<=9 by ordered partition splitting and exhaustive testing of color-preserving permutations for automorphisms. It finds exactly the stated exception and verifies its sizes without relying on an orbit formula for those automorphisms. The recorded source checks cover 2730 triples by the orbit formula and a second method on 63 of those triples; these and the independent sample are finite corroboration only.
 
-Arvind et al. (arXiv:1502.01255, 2015), inspected at its initial definitions and Section 8, define the orbit-equality property and place it in a hierarchy, but do not give this line-graph double-broom classification. Kiefer et al. (arXiv:1503.08792, 2015), inspected at their Section 4 classification, concern identification among all competing graphs, a distinct stronger property. A finite line-graph tree census identifies the same smallest bad example but only for trees of at most nine vertices, not for arbitrarily long spines or arbitrary two endpoint-leaf multiplicities. A previously established one-marked-vertex block-graph assertion does not imply uniform-start refinement. Published research record searches found no mathematically dominating result; however, an unpublished or differently named specialized theorem is still possible. The investigation does not certify publication priority.
+## originality
 
-## Value — PASS
+PASS
 
-The graph family has a canonical two-branch decomposition and natural unbounded parameters. The theorem determines the exact orbit-refinement behavior for every member, showing that a single small balanced configuration is the only exception. It explains a genuine failure mechanism: the internal path pair and four triangle-edge vertices form an equitable degree-two cell despite being separated by triangle membership. This is a complete infinite-family classification, not a small-parameter census or merely one more example.
+The eight-vertex obstruction itself and the absence of a smaller one are already covered by the exact finite census. The distinct supported claim is uniqueness over the full double-broom line-graph family with unbounded terminal leaf counts and spine length. Neither the corresponding result on double-broom trees nor identification theorems imply this full classification.
 
-## Boundaries and literature
+## value
 
-The conclusion does not apply to arbitrary tree line graphs, to arbitrary block graphs, or to graph identification by two-variable counting logic. No exact stopping-round formula is claimed. The finite verification is supportive only. A previous nine-vertex census already contains the exceptional example and is not claimed here as a new discovery; the all-parameter uniqueness theorem is the new portion.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The family isolates the interaction of an induced path with two terminal clique symmetries using independent, natural parameters. The complete classification explains both why the known obstruction merges triangle and path vertices and why no further merging survives in arbitrarily large members. It answers a structural question beyond detection of the smallest witness and is not a claim about all block graphs or graph identification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

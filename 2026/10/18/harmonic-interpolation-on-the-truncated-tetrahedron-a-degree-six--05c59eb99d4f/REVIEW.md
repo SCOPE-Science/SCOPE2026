@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The all-degree theorem is reduced via the spherical-harmonic addition theorem to four exact geometric dot classes on the twelve ordered edges. A complete direct-sum decomposition has dimensions 1, 2, 3 and 6 and yields three scalar blocks and one real-spectrum two-by-two matrix repeated three times. Exact rational Legendre recurrence confirms all seven exceptional ranks and strict positivity for every integer degree from 7 through 575; the attached checker also row-reduces thirteen independent full Gram matrices. An explicit Laplace integral inequality proves strict diagonal dominance for every degree at least 576. The degree-six circulation equivalence is the elementary orthogonal decomposition of edge flows on the complete graph of four vertices. No finite sample is treated as evidence of an infinite result.
+## correctness
 
-## Originality — PASS, with risk
-The relevant full-text materials distinguish three mathematical propositions. Bannai–Okuda–Tagami characterize harmonic-index design constraints and bounds; constant-sum moments do not imply every sector of a point-evaluation image. Khalid–Kennedy–McEwen construct latitude-ring bandlimited transforms, not a fixed single-degree Archimedean orbit. Fritz studies degree-six algebraic surfaces singular at exactly these vertices, but does not calculate the harmonic evaluation Gram matrix or its rank in the inspected section. Searches for truncated-tetrahedron harmonic interpolation, ordered-edge circulation, the specific four dot-product values, and an equivalent all-degree rank statement did not identify an identical or stronger prior claim. General addition theorems and exact-recurrence techniques are pre-existing ingredients, not asserted discoveries. An implicit older tetrahedral representation-theory or tabulation result remains possible; absence in a search is not a proof of worldwide priority.
+PASS
 
-## Mathematical value — PASS
-The object is the canonical twelve-vertex Archimedean truncated tetrahedron, rather than an arbitrary parameter slice. The striking transition from full source-dimensional rank eleven in degree five to rank nine despite thirteen source dimensions in degree six is explained by a natural three-dimensional graph-cycle constraint on oriented tetrahedral edges. The complete all-degree classification proves degree seven is the sharp permanent full-recovery threshold and provides exact least-norm interpolation. This is structural information not determined merely by counting spherical-harmonic dimensions, and it motivates design selection and alias avoidance on symmetric polyhedral sampling sets.
+The dot product of ordered-edge vertices has numerator −9+4(4δ_ik+2δ_il+2δ_jk+δ_jl). Its classes give the stated row-sum operator, which on constants, symmetric zero-row-sum arrays, and antisymmetric zero-row-sum arrays has exactly the three scalar actions claimed. Source and target coordinate arrays from the sum-zero four-vertex space are perpendicular to those three subspaces; substituting them gives the two columns of the displayed block. Their basis metric on each pair is proportional to [[3,−1],[−1,3]], so any block pseudoinverse must use its inherited inner product, not a Euclidean pseudoinverse of the nonorthogonal matrix. The addition theorem gives Gram = (2ℓ+1) times the normalized matrix. A newly written raw-Gram check, using the original coordinates and not the frozen code, reproduced ranks 1,3,5,7,9,11,9 by exact row reduction and positive definiteness by rational Schur pivots at every degree 7–575 (569 degrees). It also verified that the four oriented triangular cycles span a three-dimensional kernel at degree six. Orthogonality to these vectors is the zero-circulation condition, and the lone zero block at degree five is the constants. The finite check is not an infinite proof: in the Laplace integral, the absolute integrand is (1−(1−t²)sin²θ)^(ℓ/2); bounding it by a Gaussian on each half interval gives the stated √(π/[2ℓ(1−t²)]) estimate. Thus at ℓ≥576 the squared row bound is less than 322102/(560ℓ)<1, giving strict diagonal dominance. The kernel interpolant uses (2ℓ+1) times the normalized Gram and is the minimum-norm solution because it lies in the orthogonal complement of the evaluation kernel. Finite replay from the workspace root: python3 reproductions/4/independent_gram_check.py --max-degree 575; output in reproductions/4/full_run.txt.
 
-## Scope and residual risks
-No result is claimed for variable truncation, multidgree harmonic bands, or an optimal conditioning constant. Exact arithmetic covers a finite range, and the separate analytic argument proves the infinite tail. Earlier invariant-theory studies involving the same geometry may conceal a different formulation; additional independent literature verification could change the originality assessment. The proof and calculations have not been independently audited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The bounded comparison did not establish antecedent coverage. A distinct catalogue record indexed under a later date demonstrably contains the entire rank law and the equivalent degree-six kernel; these are not unique to the assigned text in the current catalogue. The index dates do not establish priority or derivation. The assigned uniform spectral-block formulas are not supplied by that record's rank certificates. The inspected earlier geometry, harmonic-design and transform passages do not imply the fixed-orbit rank or spectral law.
+
+## value
+
+PASS
+
+The orbit is the classical uniform truncation, and exact-degree interpolation asks a different question from bandlimited sampling. The sample rank drops despite increasing source dimension, with a precise geometric obstruction in edge circulations, then recovers permanently at the next degree. The block spectrum provides structural information beyond a rank table and a way to solve interpolation in each sample channel. The finding does not rely for its value on high-degree eventual invertibility alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

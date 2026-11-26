@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:48:11.515899Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every allowable word has a terminal descendant in the finite prefix order; incomparable words have disjoint descendant sets, so choosing one leaf for each injects any code into the set of all leaves. For m≤N/2 a palindrome can be doubled and is never a leaf. For m>N/2 an extension by t≤N−m must have its original palindrome as both prefix and suffix and hence must overlap consistently at offset t. Conversely, gluing two copies with this overlap gives a unique compatible word; reversal interchanges the covering copies and fixes the word. Thus the exclusions are precisely periods 1 through N−m. The connected components of the reflected/shifted position graph are the exact equality classes for simultaneous periods, so inclusion–exclusion gives the count including N=1. For each period t, reflection on residue classes has at most two fixed points and hence at most floor(t/2)+1 orbits. Summing the resulting geometric upper bound for exclusions over t and m costs O_q(h q^(h/2+1)). Summing all candidate palindrome counts q^ceil(m/2) gives the displayed leading constants, including the unpaired final layer for odd N. Independent `python3 /workspace/reproduce_reviews.py` deletes word-prefix ancestors directly and compares to graph counting through N=18,11,9 for q=2,3,4 respectively. Its finite agreement is supplementary; the suffix-overlap equivalence and group count prove the arbitrary-N result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The open DCC paper abstract tests existence for a given set of codeword lengths and describes a separate branch-and-bound optimization. The ternary length-five indexed result concerns non-overlapping codes rather than palindromes."
+        ],
+        "reasoning": "A prescribed-length existence decision does not give the target length-ceiling extremum without varying lengths and solving a new optimization. The ternary maximum size 16 under non-overlap at N=5 is a different constraint, not a result with the palindrome hypothesis as a specialization.",
+        "searches": [
+          "DCC 2010 DOI 10.1109/DCC.2010.22",
+          "DOI 10.1093/comjnl/46.1.100",
+          "US 5488616",
+          "Resultary: maximum-cardinality codes under a length ceiling"
+        ]
+      },
+      "checked_sources": [
+        "Abedini–Khatri–Savari DCC 2010 (primary Abstract and §1)",
+        "Tseng–Chang DOI 10.1093/comjnl/46.1.100 (metadata; frozen comparison)",
+        "US5488616 (frozen comparison; direct access unavailable)",
+        "Related Resultary indexed findings identified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "DCC 2010 explicitly treats palindrome codewords in its symmetric variant, but its existence statement takes specified lengths. The indexed three-message result minimizes total length at fixed cardinality, with non-overlap rather than palindromes."
+        ],
+        "reasoning": "These results do not identify the leaf set via prohibited periods, count it as equality-graph components, or yield the limiting parity gains. The leaf injection itself is standard poset reasoning and is not claimed as an independent novelty.",
+        "searches": [
+          "A SAT-Based Scheme to Determine Optimal Fix-free Codes, Abstract and §1",
+          "2026/11/8/SCOPE-four-optimal-binary-three-message-variable-length-non-overlappin--14ce9a1b3b00"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "DCC 2010, Introduction, defines fix-free via prefix and suffix and the symmetric variant via palindrome codewords. The closest catalogue match for the period criterion is the assigned record itself. The reverse-complement-closed catalogue result imposes a different symmetry and cross-bifix restriction."
+        ],
+        "reasoning": "On reversal-fixed words prefix-free iff suffix-free, hence symmetric fix-free is the same class. Reverse-complement closure of the codebook is not reversal fixing each word; cross-bifix mismatch across prefixes and suffixes is not just prefix incomparability.",
+        "searches": [
+          "Resultary: maximum cardinality palindromic prefix code length bound terminal words periods inclusion exclusion",
+          "Resultary: bifix/symmetric-code comparison"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct cardinality and parity searches returned the assigned record as an exact self-match, not independent tabulation. Table 3 is described in the frozen evidence as counting dominant length sequences at fixed codebook size; the primary abstract independently establishes the prescribed lengths objective for the existence test."
+        ],
+        "reasoning": "Counting dominant length sequences at fixed cardinality is not tabulating maximal cardinality at fixed common ceiling. The table description was not independently checked against the table page, so neither it nor a catalogue nonmatch excludes a finite or sequence-database overlap.",
+        "searches": [
+          "Resultary: palindrome-prefix parity gains 2q/(q−1) and (q+1)/(q−1)",
+          "DCC 2010, Table 3 comparison in frozen RESULT.md and REVIEW.md"
+        ]
+      },
+      "rationale": "The distinct claim is the all-q,N exact period-exclusion count and its sharp parity gains for cardinality under a maximum length, not the already known bidirectionally decodable palindrome constraint, prefix tree, or feasibility of prescribed lengths. The strongest available comparisons either use prescribed lengths and an average-length-style optimization or impose genuinely different combinatorial constraints. A generic existence algorithm might be iterated to compute particular finite optima, but does not supply this exact expression or asymptotic.",
+      "residual_risks": [
+        "Specialized symmetric or reversible code literature, including the unavailable full Tseng–Chang text and patent passages, may contain an equivalent result.",
+        "DCC Table 3 description not independently verified on the primary table page. No comprehensive sequence or literature priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Feasibility statement specifies the lengths as inputs; inspected passages do not give cardinality at a free length ceiling. No whole-document exclusion inferred from the abstract.",
+          "evidence": [
+            "Abstract explicitly describes determining existence 'with a given set of codeword lengths' and requiring palindrome codewords in the symmetric variant."
+          ],
+          "identifier_or_url": "https://www.mit.edu/~medard/Itpaperaward/A%20SAT-Based%20Scheme.pdf",
+          "material_read": "Abstract, PDF extraction lines 10–20, and Introduction lines 21–43. Table 3 details available only via the frozen comparison; targeted read did not return that passage.",
+          "method": "Lawful author-hosted PDF; bounded extracted passage, targeted table retrieval attempted.",
+          "title": "A SAT-Based Scheme to Determine Optimal Fix-free Codes",
+          "trigger": "Same symmetric fix-free code class and codebook optimization."
+        },
+        {
+          "assessment": "The frozen comparison describes source-probability backtracking rather than a length-ceiling count; priority risk remains because direct full text was unavailable.",
+          "evidence": [
+            "Frozen review describes symmetric-child tree expansion for a probability-weighted objective."
+          ],
+          "identifier_or_url": "https://doi.org/10.1093/comjnl/46.1.100",
+          "material_read": "Citation metadata independently accessible; method described in frozen REVIEW.md only.",
+          "method": "Targeted DOI/OA lookup.",
+          "title": "Construction of Symmetrical Reversible Variable Length Codes Using Backtracking",
+          "trigger": "Same code class and prefix expansion may contain a cardinality specialization."
+        },
+        {
+          "assessment": "The recorded procedure concerns code design from probabilities/length vectors; inaccessible text was not used to exclude matching coverage.",
+          "evidence": [
+            "Frozen comparison describes a probability-driven construction."
+          ],
+          "identifier_or_url": "US5488616",
+          "material_read": "Construction description in frozen RESULT.md/REVIEW.md; direct patent passages were not returned.",
+          "method": "Public patent page and lawful alternate retrieval attempted.",
+          "title": "System for providing reversible variable length codes",
+          "trigger": "Earlier reversible symmetric code construction."
+        },
+        {
+          "assessment": "Different word-family or code-family constraints; no priority inference from catalogue dates.",
+          "evidence": [
+            "Ternary non-overlap with ceiling 5; binary reverse-complement-closed cross-bifix-free fixed block lengths through 12."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-ternary-length-five-extremizers-cannot-use-shorter-codewords--82ffa6f9370a; 2026/11/22/SCOPE-sharp-short-block-capacities-and-extremizer-census-for-reverse-c--74e0afab9676",
+          "material_read": "Indexed statements only.",
+          "method": "Resultary catalogue.",
+          "title": "Ternary length-five extremizers cannot use shorter codewords; and sharp short-block capacities for reverse-complement-closed codes",
+          "trigger": "Length-ceiling maximum and symmetry-based supremum under related constraints."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "With a hard maximum decoding length this gives the entire allowable noiseless dictionary size and a canonical maximizing codebook, as well as actual sharp relative gains versus using only the maximum length (binary four versus three). The result uses the overlap structure of palindromes and is not a Kraft-bound restatement. It does not promise efficient arbitrary-size computation, unique optimal codes, or noise correction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

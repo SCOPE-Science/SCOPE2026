@@ -1,19 +1,21 @@
-# Review of the cyclic-doublet dichromatic-root theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The equivalence between a monochromatic directed cycle and a color represented in every cyclic layer is both necessary and sufficient; the layer-wise intersections of one and two colors give a complete inclusion-exclusion proof of the formula. The proof separates all real intervals. For negative inputs, parity reduces the polynomial either to an entirely positive expression or to an auxiliary polynomial with exactly two sign variations and two bracketed sign changes. For inputs above one, the binomial coefficient expansion and quadratic lower bound forbid new zeros. All roots claimed are simple. Independent explicit digraph-cycle tests corroborate the counting identities on a finite sample, not all parameters.
+PASS
 
-## Originality
+Every directed cycle uses all layers; any color in all layers furnishes an r-cycle. Inclusion-exclusion over named colors has only singleton and pair terms, counted by (2q-1)^r and 2^r respectively. Interpolation gives the polynomial; valid two-colorings exist by assigning opposite monochromatic colors to two layers. For F_r=P/q, F_r(0) is nonzero and F'_r(1)=2^(r-1)-1>0, giving simplicity at 0 and 1. Below x=1/2, elementary bounds by x and 1-2x give F_r<0 for both parities; on [1/2,1), the difference x^(2r)-(2x-1)^r is at most r*x^(2r-2)*(1-x)^2, yielding a strict upper bound below zero. For x=1+y>1, the linear, quadratic and cubic coefficients are 2^(r-1)-1, -(r-1) and r-1. The higher coefficients are nonnegative: the binomial ratio starts strictly above 2^3 at degree 3 and its successive ratios exceed 2 through degree r. The phrase 'equality at j=3' in the proof is imprecise; evaluating that coefficient gives r-1, not equality of the two binomial terms. The positive lower bound follows by completing the square in y^2-y. For negative q=-t, all terms of P(-t)/t are positive when r is even. When r is odd, its signs at 0, 1/2 and infinity are +,-,+, and the descending coefficient signs have exactly two changes (the linear coefficient does not affect the count). Descartes' bound including multiplicity proves exactly two simple roots, one on each side of t=1/2.
 
-**PASS, subject to historical-priority risk.** Full-text examination of the recent source on dichromatic-polynomial properties shows general coefficient and zero-density results, not the exact all-parameter doublet formula or its parity-sharp real-root classification. Full-text sections of earlier digraph chromatic-polynomial work and comparisons against mathematical-record results for cyclic blowups, digraph colorings, and real-root geometry did not show an equivalent classification. A generic chromatic/dichromatic polynomial expression or recurrence is not the same as the explicit sharp real-root theorem. A closely related 2022 original journal article was accessible at abstract level only, so its possible deeper coverage remains the main unresolved priority risk; an independent bibliographic assessment has not occurred.
+## originality
 
-## Value
+PASS
 
-**PASS.** Strongly connected oriented graph families with a simple local blowup operation furnish an exact benchmark for the newly studied real zeros of dichromatic polynomials. The new result is a sharp all-order qualitative parity transition in the number of real zeros, requiring global real-variable arguments in addition to the initial inclusion-exclusion identity. The classification differentiates a concrete family from general root-density results and provides reproducible exact polynomial data; it does not depend on claiming significance for a gratuitous small parameter instance.
+The inspected prior statements concern general dichromatic polynomial structure, density over digraph classes, or exact results for different families. They do not give the oriented cyclic-doublet polynomial together with its complete, parity-controlled real-root classification.
 
-## Closest sources and limitations
+## value
 
-The first motivating public source is Crew et al., *Properties of the Dichromatic Polynomial*, arXiv:2611.13273v1, first publicly posted on 2026-11-09. González-Moreno et al., *The Dichromatic Polynomial of a Digraph* (2022) could not be fully inspected in the available access conditions. The result is limited to independent layers of size two and makes no claim of generality for other blowups. Computational enumerations are finite and independent mathematical audit is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is an explicit natural oriented family with all real roots located and their multiplicities controlled uniformly in its size. It gives a test case for general directed root theory: the odd sizes have two negative roots despite ordinary chromatic-polynomial intuition, whereas the even sizes and all positive-root regimes are completely resolved. The enumerator alone, without the sign census, would not provide this comparison.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

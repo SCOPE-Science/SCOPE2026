@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:21:31.820733Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A mixed factor cannot repeat: two occurrences of an unequal-letter bigram would witness a,b,a,b. The counts of (k−1)-factors minus indegrees and outdegrees prescribe both endpoints of the order-(k−1) factor trail, including when they coincide; descending by factor counts and the prescribed suffix recovers all shorter counts from such a trail. After deleting homogeneous loops a^k, the only repeated vertices are a^{k−1} belonging to two separate runs. Each such run must have length exactly k−1, with no loops, since the multiplicity bound is 2k−2. Any deleted loops accordingly belong to vertices with just one remaining visit. Repeated vertices in the contracted source trail cannot interleave. To verify the step-5 uniqueness hinge, suppose another contracted trail first departs differently at v. The source must have two departures from v, so the rival takes the later one first. No vertex strictly between the two source visits to v occurs outside that interval, as that would interleave with v. Thus the internal vertices of the return segment have no entrance from outside except the bypassed first departure; the only unused incoming edge to v is the return from that segment. After taking the second departure first, the rival cannot get back to use the first, a contradiction. This proves uniqueness of the contracted trail, and the deleted loops restore uniquely at their sole visits. Rivals are not assumed noncrossing; shorter words are immediate from their complete spectra. The sharpness pair has precisely the same one a^k and the same k factors containing the singleton b, with matching (k−1)-suffix, hence identical complete spectra. The block containing 1 leaves j noncrossing subproblems and gives the stated generating function, while injectivity makes the whole source optimal. Independent bounded replay /workspace/branches/98027cd5-fac2-4cb9-aff5-b081fd1f5587/independent_check_record4.py (bounded_check.log beside it) found no collisions in the five tested alphabet/read/length ranges, checked sharpness for k=2 through 8 and counted bounded-block words through n=8. The supplied script was inspected, not executed; its multiplicity filter cannot remove a same-spectrum rival because letter counts are part of the data. Neither enumeration is an unbounded proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general repeat/interleaving arguments are antecedents for the two-orders-at-a-vertex obstruction. Bresler et al. discuss unbridged repeats in a read-assembly model, not the complete bounded-length factor-count data here."
+        ],
+        "reasoning": "Even using a general exact trail criterion, the multiplicity threshold requires collapsing homogeneous loops without introducing alternate loop allocations and excluding interleaved projected visits. General repeat criteria alone neither set the cutoff nor give its tight witness.",
+        "searches": [
+          "Bresler–Bresler–Tse, DOI 10.1186/1471-2105-14-S5-S18, pp. 4–6",
+          "Şaşoğlu–Tse, section II.A",
+          "Focused primary-literature lookup for noncrossing factor-count reconstruction"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verification package",
+        "Local Resultary matches f558cb3257d9 and 548b5bcbdca0",
+        "Karhumäki–Saarela–Zamboni arXiv:1301.5104v1",
+        "Bresler–Bresler–Tse DOI 10.1186/1471-2105-14-S5-S18",
+        "Şaşoğlu–Tse section II.A",
+        "Lin–Fu DOI 10.37236/6728"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original restricted-growth interpretation uses the established noncrossing-partition correspondence and block decomposition.",
+          "Fully doubled rigidity does not compare source words with singleton blocks or derive the sharp cutoff for k>2. The block recurrence counts words regardless of whether their spectra collide."
+        ],
+        "reasoning": "The distinct contribution is identifying and proving the all-k sharp multiplicity boundary and using injectivity to attain the count; the individual equivalence, counting and switching frameworks are credited as known.",
+        "searches": [
+          "f558cb3257d9 Finding",
+          "Lin–Fu, DOI 10.37236/6728",
+          "arXiv:1301.5104v1 Lemma 2.3; assembly criterion passages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The complete directed contiguous k-spectrum is exactly the k-Abelian equivalence invariant.",
+          "The antecedent identifies the endpoint data; the inspected result does not give a noncrossing bounded-multiplicity singleton-class theorem."
+        ],
+        "reasoning": "The rigidity question is whether such a source word's k-Abelian class is a singleton in the full alphabet, not merely within the source. Endpoint recovery addresses the data reduction but does not give the class size for this source.",
+        "searches": [
+          "Local Resultary lookup for noncrossing word factor-count rigidity",
+          "Karhumäki–Saarela–Zamboni, arXiv:1301.5104v1, k-Abelian equivalence and Lemma 2.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact top match is the assigned record itself. The distinct f558cb3257d9 match is the fully doubled k=2 case; 548b5bcbdca0 uses a different nonnesting source.",
+          "The standard small-block count sequences are not claimed as new numerical entries."
+        ],
+        "reasoning": "A doubled bigram classification is a real overlap but does not index the mixed-multiplicity all-k bound or its sharpness. Known counting sequences do not by themselves certify capacity under this observation map.",
+        "searches": [
+          "Local Resultary semantic search on noncrossing words and directed k-gram uniqueness; distinct hits f558cb3257d9 and 548b5bcbdca0"
+        ]
+      },
+      "rationale": "The data model, endpoint identities, general repeat criterion and noncrossing partition enumeration are known ingredients. The closest distinct indexed result is for exactly doubled noncrossing words and directed bigrams. Neither it nor the general antecedents inspected state or directly supply the source-specific sharp 2k−2 cutoff for all k, which uses homogeneous-loop placement as well as noninterleaving. The capacity consequence uses the standard count, not a novel enumeration formula.",
+      "residual_risks": [
+        "Same-day catalogue dates establish no historical ordering.",
+        "The targeted additional query produced no relevant source; that is not a proof of absence. Unlocated k-Abelian or trail formulations could still give equivalent coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Genuine special case, not coverage of all k",
+          "evidence": "The source has exactly two copies of each symbol and the observable is the directed bigram count.",
+          "identifier_or_url": "2026/11/22/SCOPE-global-two-gram-rigidity-of-labeled-noncrossing-double-occurrenc--f558cb3257d9",
+          "material_read": "Finding at mirror offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Global two-gram rigidity of labeled noncrossing double-occurrence words",
+          "trigger": "Strongest distinct overlap on noncrossing spectral rigidity"
+        },
+        {
+          "assessment": "Data and endpoint antecedent",
+          "evidence": "Counts through length k define the equivalence; length-k counts and endpoints characterize the lower-length counts.",
+          "identifier_or_url": "https://arxiv.org/html/1301.5104v1",
+          "material_read": "Abstract and Lemma 2.3 around offset 15467",
+          "method": "OA full-text passages",
+          "title": "On a generalization of Abelian equivalence and complexity of infinite words",
+          "trigger": "Equivalent k-Abelian formulation"
+        },
+        {
+          "assessment": "General antecedent in a different observation framework",
+          "evidence": "The obstruction is phrased using unbridged interleaved or triple repeats, not multiplicity thresholds in a noncrossing source.",
+          "identifier_or_url": "https://doi.org/10.1186/1471-2105-14-S5-S18",
+          "material_read": "PDF pp. 4–6, OA offsets 16365–20280",
+          "method": "OA paper passages",
+          "title": "Optimal assembly for high throughput shotgun sequencing",
+          "trigger": "General interleaved/triple-repeat comparison"
+        },
+        {
+          "assessment": "Known switching principle, not the source-specific bound",
+          "evidence": "The one-dimensional discussion describes swappable regions of repeated substrings.",
+          "identifier_or_url": "https://web.stanford.edu/~dntse/papers/conf_st14.pdf",
+          "material_read": "Section II.A around offset 12900",
+          "method": "OA paper passage",
+          "title": "DNA assembly from paired reads as 2-D jigsaw puzzles",
+          "trigger": "One-dimensional repeat/switch criterion cited in the submission"
+        },
+        {
+          "assessment": "Partition encoding antecedent",
+          "evidence": "The 1212-avoiding restricted-growth functions encode noncrossing partitions; the paper concerns partition statistics, not the spectral cutoff in the passage inspected.",
+          "identifier_or_url": "https://doi.org/10.37236/6728",
+          "material_read": "PDF p. 1",
+          "method": "Open journal PDF passage",
+          "title": "On 1212-avoiding restricted growth functions",
+          "trigger": "Bounded-block noncrossing partition interpretation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This resolves the exact error-free reconstruction boundary in a natural hereditary word class, including competitors outside that class. A one-unit increase in multiplicity yields collisions for every k. The result also gives a concrete maximum codebook on a natural partition source, with the familiar enumeration becoming its exact size rather than just an upper bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

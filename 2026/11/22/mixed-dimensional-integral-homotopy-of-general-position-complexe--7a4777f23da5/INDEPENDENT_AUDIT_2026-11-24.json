@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:54:09.117251Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 18–49, VERIFICATION.md, verify_double_spider.py and verification_output.txt",
+        "Independent enumeration of the 12-vertex witness and mod-two simplicial boundary reduction"
+      ],
+      "rationale": "Two points in one arm and a third vertex always make a forbidden triple. A hub with a vertex of its own arm or with the other hub likewise cannot occur in a face of size at least three. With no hub, all selections of at most one point per arm are allowed; with one hub, all selections of at most one point per opposite-side arm are allowed. In each converse, a path between selected endpoints passes through no other selected vertex. Thus the join J_U*J_V and the two hub cones contain every larger face and all vertices; the only omitted edges are the intra-arm pairs, the hub-to-own-arm pairs and the hub-to-hub edge, exactly E. Each cone inclusion is already null in the full join by coning from any opposite-side arm vertex, so the second stays null after the first attachment. These cofibrations give the join and the two suspended factors as a wedge. Iterating the discrete-set join formula yields ranks alpha and beta for J_U and J_V in degrees p-1 and q-1, with contractibility if an arm has length one. Joining the two factors gives the alpha*beta family in degree p+q-1; this also follows from the suspension of their smash product. The join and attached cones are connected, so each of the E maximal edges attaches by a null map from S^0 and supplies one circle. The freshly enumerated p=2,q=3, all-length-two case has 12 vertices, 294 nonempty faces, and mod-two Betti ranks 16,1,1,1 in degrees 1–4. Integrality and all parameter cases follow from the attachment proof, not the finite checks.",
+      "residual_risks": [
+        "Only adjacent hubs of degree at least three, with two or more positive-length path arms each. No claim for arbitrary branching trees or an equivariant decomposition."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The all-tree statement yields a full multivariate polynomial (not just face numbers), but its theorem and decomposition lemma do not analyze the integral homotopy of the complexes. Complete bipartite coronas have a GP wedge theorem but are not the specified two-hub family. The primary polynomial papers concern enumeration and unimodality."
+        ],
+        "reasoning": "Broader face coverage is credited and can reproduce the combinatorial input; broader homotopy coverage subsuming the frozen scope was not found in the inspected statements.",
+        "searches": [
+          "Resultary ee2d6713bee6 all-tree theorem and 977fe3873a92 corona theorem",
+          "arXiv:2401.05696v1 and arXiv:2603.06930v1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ee2d6713bee6, 82f2669defb7, 86888c8b4991, 977fe3873a92, e7290fd8d5c1 and 9525e342e100",
+        "arXiv:2401.05696v1 and arXiv:2603.06930v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The face-level rooted antichain description specializes, with root at a hub, to pieces yielding the two hub cones, full arm join and edges. Neither the one-hub nor the corona homotopy statement gives the two-hub gluing and product rank."
+        ],
+        "reasoning": "One must calculate the attachment maps in the shared join and show that both nullhomotopies are available before the cone attachments; the cross term comes from joining both groups, not treating two one-hub wedges as independent components. The inspected prior theorems do not compute this invariant by a parameter substitution or mechanical extraction of topological data.",
+        "searches": [
+          "Resultary ee2d6713bee6 Theorem and Decomposition lemma; 82f2669defb7 and 977fe3873a92 Findings",
+          "Frozen RESULT.md lines 24–46"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "ee2d6713bee6 gives an equivalent set-wise decomposition into rooted antichains or a parent plus an antichain in one descendant subtree. Higher independence uses bounded induced-component sizes; bidirected multipath complexes use directed arcs as vertices."
+        ],
+        "reasoning": "The antichain form really does cover the faces; the shape-matched alternative complexes do not. Passing from that presentation to the four-degree integral wedge requires identifying the attachments and their simultaneous splitting in the two-hub family.",
+        "searches": [
+          "Resultary tree geodesic antichains, spiders, higher independence of double-stars and double-star multipath: ee2d6713bee6, 86888c8b4991, e7290fd8d5c1, 9525e342e100"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest same-predicate wedge classification, same-day 82f2669defb7, concerns a single center with equal-length arms and has circles and a single higher sphere family. The other spider record counts faces only."
+        ],
+        "reasoning": "No independent exact classification for two adjacent hubs with arbitrary positive arm lengths was identified; the same-day date itself neither establishes priority nor removes the one-hub overlap.",
+        "searches": [
+          "Resultary two-hub/double-spider topology, general-position spider and bipartite-corona matches including 82f2669defb7, 86888c8b4991, 977fe3873a92"
+        ]
+      },
+      "rationale": "The all-tree multivariate antichain theorem does cover the face predicate and gives a general combinatorial presentation that recovers the face pieces in this family. It does not give their homotopy attachment analysis, the resulting nullhomotopies, or the mixed-degree wedge. The closest actual topology results cover either a single hub or a different, cyclic family. The two-hub result adds two suspended terms and their joint product term by analyzing how the pieces attach, not by reading off the face polynomial or substituting parameters in an existing wedge theorem.",
+      "residual_risks": [
+        "Bounded primary and catalogue searches cannot exclude an unindexed equivalent two-center result. Same-day chronology for the single-hub record is unresolved and not needed for the statement-level distinction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Subsumes the face classification, not the wedge calculation",
+          "evidence": "For every rooted tree, the theorem expresses the polynomial by the antichain term and terms obtained by adjoining a parent vertex to nonempty antichains; no homotopy conclusion in the inspected theorem.",
+          "identifier_or_url": "Resultary ee2d6713bee6",
+          "material_read": "Finding/Theorem plus Assumptions, Antichain and Decomposition lemmas, local-mirror offset 750",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "An antichain expansion for general position polynomials of all trees",
+          "trigger": "Broader tree result and exact multivariate face coverage"
+        },
+        {
+          "assessment": "Single hub with equal arms, not two hubs; no priority inference from same publication date",
+          "evidence": "Wedge of circles and spheres of dimension r-1 for r equal-length arms, with arm-symmetry information.",
+          "identifier_or_url": "Resultary 82f2669defb7",
+          "material_read": "Finding, offset 24",
+          "method": "Local mirror",
+          "title": "Integral arm-symmetry homology of spider general-position complexes",
+          "trigger": "Closest single-hub integral topology"
+        },
+        {
+          "assessment": "Different family",
+          "evidence": "The theorem concerns K_{a,b} corona K_1, not two adjacent branching hubs with path arms.",
+          "identifier_or_url": "Resultary 977fe3873a92",
+          "material_read": "Finding, offset 51",
+          "method": "Local mirror",
+          "title": "Mixed-dimensional integral homotopy of bipartite-corona general-position complexes",
+          "trigger": "Same face predicate and integral mixed wedge"
+        },
+        {
+          "assessment": "Different face rule",
+          "evidence": "Faces are controlled by induced-component sizes rather than shortest paths.",
+          "identifier_or_url": "Resultary e7290fd8d5c1",
+          "material_read": "Finding and Assumptions, offset 300",
+          "method": "Local mirror",
+          "title": "Integral symmetry and exact homotopy of higher-independence complexes of double-star trees",
+          "trigger": "Similar double-star shape and exact homotopy"
+        },
+        {
+          "assessment": "Enumeration rather than integral topology",
+          "evidence": "The univariate polynomial counts general-position sets by cardinality.",
+          "identifier_or_url": "https://arxiv.org/pdf/2401.05696v1",
+          "material_read": "Definition and surrounding statements, PDF pp. 1–2, offsets 2102 and 4133",
+          "method": "OA PDF passages",
+          "title": "General Position Polynomials",
+          "trigger": "Primary general-position counting framework"
+        },
+        {
+          "assessment": "Does not supply the frozen wedge in the inspected comparison",
+          "evidence": "Complete multipartite counts and corona unimodality, not topology for this tree family.",
+          "identifier_or_url": "https://arxiv.org/pdf/2603.06930v1",
+          "material_read": "PDF p. 4, offset 10080",
+          "method": "OA PDF passage",
+          "title": "Explicit Formulas and Unimodality Phenomena for General Position Polynomials",
+          "trigger": "More recent GP work on corona and complete multipartite graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and uniform attachment proof",
+        "Resultary ee2d6713bee6 and 82f2669defb7",
+        "Independent four-degree example enumeration"
+      ],
+      "rationale": "A uniform homotopy classification for a natural two-branch tree family goes beyond face counts and single-center classifications. The adjacent centers generate a product-rank sphere family separately from the two hub-cone families and the maximal-edge circles. The four-distinct-degrees witness, explicit integral torsion-freeness, and degeneration when some arms have length one give concrete information useful for comparisons with general tree results.",
+      "residual_risks": [
+        "No conclusion about arbitrary separations or symmetry representations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

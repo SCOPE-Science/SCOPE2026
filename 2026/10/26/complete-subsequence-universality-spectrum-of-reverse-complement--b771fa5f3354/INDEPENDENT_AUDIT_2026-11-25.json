@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:27:32.990370Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–48",
+        "Frozen VERIFICATION.md, lines 18–26 and verify_rc_universal.py, lines 36–128"
+      ],
+      "rationale": "For the fixed labelled alphabet and fixed-point-free involution, the t leftmost complete greedy arches of the half-word and the t rightmost mirrored arches leave exactly R followed by its complemented reversal. Every family of at least 2t+1 complete disjoint blocks can have its outside t blocks on each side replaced by those greedy arches, since the left endpoints of the remaining region can only move left and its right endpoints can only move right. A complete block in the centre exists exactly when the residual support meets every involution pair; two such disjoint blocks are impossible because each must cross the central cut. The greedy characterization follows, for example, by using the arch-terminal letters in order followed by a letter absent from the remainder to witness non-universality at the next length. The geometric series uses q! S(n−1,q−1) arches of length n, and for support size s uses s! S(n,s) words per support; the orbit-covering proper supports number binom(p,s−p)·2^(2p−s). This verifies the GF, including the empty word and the binary specialization. Every h-universal word has at least h occurrences of each symbol, so equality at physical length qh forces minimum-size permutation arches, and for odd h a final p-letter remainder with one letter per pair. Index at equality cannot exceed h.",
+      "residual_risks": [
+        "The uploaded checker was inspected, not executed. Its archived 35,856 half-word checks use whole-word arch index comparisons and test the direct subsequence definition only through target length 3 (or the smaller length bound). Coefficient DP assumes the central identity when it assigns indices; the analytic proof, not that DP, resolves the identity for unbounded lengths."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The finite-automaton counting theorem assumes an input regular language of whole words. Intersecting the entire fixed-point-free folded-word language with a* followed by bar(a)* gives the nonregular equal-run language.",
+          "The mixed-involution record assumes both fixed letters and transposed pairs and expressly excludes the no-fixed-letter endpoint. The remainder paper treats repetition/circular universality in the passages read."
+        ],
+        "reasoning": "Neither general scope contains this fixed-point-free distribution as a stated specialization. Running an automaton on half-words after discovering the orbit test is not a prior whole-word theorem evaluating the claimed coefficients.",
+        "searches": [
+          "arXiv:2311.10658, introduction and §4 scope",
+          "arXiv:2104.09063, §§1–2",
+          "Resultary mixed-involution SCOPE-415b7f2a14b7, Finding"
+        ]
+      },
+      "checked_sources": [
+        "Local published Resultary index and SCOPE-415b7f2a14b7",
+        "arXiv:2003.04629",
+        "arXiv:2104.09063",
+        "arXiv:2304.04583",
+        "arXiv:2311.10658"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Adamson's count is for unrestricted k-universal words of fixed length and alphabet size. Passing to exact index by differencing such counts still does not impose folded-word symmetry. Neither the palindrome doubling calculation nor counting by the number s of residual letters alone tells whether those letters hit all involution pairs."
+        ],
+        "reasoning": "The arch methods make the central identity a close adaptation; the new information in the GF is the joint count of residual support sizes and pair coverage, which also identifies the precise equality cases.",
+        "searches": [
+          "arXiv:2304.04583, abstract",
+          "arXiv:2003.04629, §4",
+          "arXiv:2311.10658, counting discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proposition 15 folds by reversal alone, and has its own odd-centre result. The permutation lemmas treat wπ(w), not wπ(w^R). For example the former construction has no reversal of arch order ensuring that the rightmost greedy arches end at the mirrored remainder."
+        ],
+        "reasoning": "The relevant invariant is on fixed points of permuted reversal, not ordinary palindromes or whole-word duplication by a letter permutation; a fixed-point-free involution is equivalent under relabelling to a pairing, and that equivalence is included in the comparison.",
+        "searches": [
+          "Local Resultary semantic comparison for mixed involution and reverse-complement universality",
+          "arXiv:2003.04629, §4, Proposition 15, Lemma 17 and Proposition 18"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest distinct indexed result found is the mixed-involution GF, SCOPE-415b7f2a14b7 (2026-11-02); the Finding does not include f=0. No exact matching external coefficient table was established."
+        ],
+        "reasoning": "A family of coefficients is being counted for all even alphabets, not an isolated tabulated term. The explicit exclusion is mathematical evidence; the catalogue date does not settle priority.",
+        "searches": [
+          "Local Resultary semantic lookup for length/index enumeration, paired involution and shortest-word counts"
+        ]
+      },
+      "rationale": "Pass is for the full symmetry-constrained length/exact-index distribution and its equality-case multiplicities, not the general greedy arch theorem, palindrome doubling or Stirling identities. The inspected sources give close arch/remainder arguments but not the fixed-point-free folded-word count or a stronger counting theorem covering it. Conditional on the new orbit-covering refinement, the extremal formula is a consequence, not an unrelated second novelty claim.",
+      "residual_risks": [
+        "Bounded source comparison, not a priority guarantee; an unlocated count under another name or a general concatenation lemma could further limit the central lemma's originality. The verdict does not depend on novelty of that technique."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Close prior ingredients, not the stated constrained enumeration",
+          "evidence": [
+            "The constructions there are uu^R and wπ(w), respectively."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2003.04629",
+          "material_read": "§4 Proposition 15 and Lemma 17/Proposition 18, PDF pp. 11–12 and following, offsets 37273–38793 and 39145–44066",
+          "method": "lawful OA PDF passages",
+          "title": "Scattered Factor-Universality of Words",
+          "trigger": "Closest palindrome and alphabet-permutation precedent"
+        },
+        {
+          "assessment": "Context and overlap in remainder technique; only bounded passages were inspected",
+          "evidence": [
+            "Examines word powers and circular universality rather than counting this involution's fixed points."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2104.09063",
+          "material_read": "§§1–2, pp. 1–3, offsets 1786–6830",
+          "method": "lawful OA PDF passages",
+          "title": "Scattered Factor Universality – The Power of the Remainder",
+          "trigger": "Possible stronger remainder theorem"
+        },
+        {
+          "assessment": "Counts an unrestricted class",
+          "evidence": [
+            "U(n,k,σ) contains all k-universal words of length n over the given alphabet."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2304.04583",
+          "material_read": "Abstract, PDF offset 600 onward",
+          "method": "lawful OA PDF passage",
+          "title": "Ranking and Unranking k-Subsequence Universal Words",
+          "trigger": "General prior counting algorithms"
+        },
+        {
+          "assessment": "Regular-input scope does not directly cover this fixed-point language",
+          "evidence": [
+            "Counts length-ℓ universal words accepted by a finite automaton."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2311.10658",
+          "material_read": "Introduction, pp. 3–4, including counting-problem definition near offset 13205 and Section 4 description near 15768",
+          "method": "lawful OA PDF passages",
+          "title": "k-Universality of Regular Languages",
+          "trigger": "Possible broader language-restricted counting"
+        },
+        {
+          "assessment": "Companion result; its theorem excludes the assigned endpoint and does not establish a prior source for it",
+          "evidence": [
+            "Both fixed letters and transposed pairs are required (f,d≥1)."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2/SCOPE-exact-universality-index-enumeration-for-mixed-involution-symmet--415b7f2a14b7",
+          "material_read": "RESULT.md Finding and fixed-point-free related-work comparison",
+          "method": "local published-record mirror",
+          "title": "Exact universality index enumeration for mixed involution symmetry",
+          "trigger": "Strongest catalogue match to length-index GF and extremal multiplicities"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Findings and proofs of the GF and equality cases",
+        "arXiv:2003.04629, §4 comparator",
+        "Resultary SCOPE-415b7f2a14b7"
+      ],
+      "rationale": "Fixed points of reverse-plus-relabel symmetry form a natural constrained word class. The formula gives the entire exact-index distribution uniformly, distinguishing even and odd exact indices by pair coverage, and supplies exact minimum-length witness counts. Those are useful counts for the constrained class, not just the general minimum-length bound or a small table.",
+      "residual_risks": [
+        "No claim about other involutions, quotienting words by symmetries, or applications outside abstract word combinatorics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

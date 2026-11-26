@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:47:04.745586Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–47",
+        "VERIFICATION.md lines 19–23; check_six_cycle.py inspected, not executed",
+        "Replay: cd /workspace && OPENBLAS_NUM_THREADS=1 python3 -B audit_evidence/recheck_1_3.py; market()"
+      ],
+      "rationale": "Each update replaces the first coordinate by one of three symbols, so the second iterate is in the exact nine-state grid for any real starting point. In previous/current order, with r=h/d, the only non-neutral pairs for 1<=r<2 are opposites: each goes to an equal nonzero pair, then to a trailing zero and then (0,0). For r>=2 all differences are neutral, including at r=2; the grid then extinguishes within two steps. For 0<r<1, six distinct states close in the given cyclic order while the two opposite pairs enter in one step and (0,0) is fixed. Swapping to current/previous coordinates gives the stated word. For a concrete worst transient at h<2d use (x_0,y_0)=(-d-h-1,0), which enters the grid as (d,-d) in current/previous order; five steps are attained for d<=h<2d and three for h<d. When h>=2d the bound is actually four and is attained, for example from (d+h+1,d+3h+1). The invariant set is Borel and the complement has empty sufficiently high preimage, so invariance forces full mass on the finite periodic set; the cycle weights are uniform. Independent rational grid and off-grid checks confirmed the transitions and time witnesses.",
+      "residual_risks": [
+        "Five is sharp uniformly for d<=h but not at each parameter in that regime. Attraction here is finite-time capture of a basin, not an assertion of openness at the discontinuity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Indexed abstract confirms a three-partition stock-market map, sentiment traders and period-adding structures",
+          "Frozen source lines 53–57 describes earlier analysis with d>h and positive chartist feedback; boundaries were not verified against full text"
+        ],
+        "reasoning": "A period-adding analysis at positive feedback does not by continuity give global bounded capture at zero feedback; the discrete collapse is an exact degeneracy and threshold transitions are discontinuous.",
+        "searches": [
+          "Gardini et al., DOI 10.1016/j.chaos.2023.114143, attempted OA Sections 2–4 and conclusion"
+        ]
+      },
+      "checked_sources": [
+        "Resultary comparison 2c50dbdce3ba (summary)",
+        "Gardini et al. indexed abstract; frozen model comparison lines 53–65"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The catalogue prior has b=1/4, c=5/4 and threshold d/h>205/252 for two five-cycles in the weak-forcing regime",
+          "Here b=0, c=1, and the switch is at d/h=1 for a unique six-cycle with full-plane capture"
+        ],
+        "reasoning": "The ordinary substitution in the model gives the map but not the exhaustive branch graph, time bounds or invariant simplex; the prior's positive-feedback slice result neither includes the boundary nor is conjugate by rescaling.",
+        "searches": [
+          "Resultary record 2c50dbdce3ba and Gardini et al. DOI 10.1016/j.chaos.2023.114143"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen recurrence after amplitude scaling is a three-symbol second-order threshold rule with normalized threshold h/d",
+          "The closest catalogue match concerns a strictly positive chartist slice and a period-five onset"
+        ],
+        "reasoning": "Scaling amplitude or switching state ordering preserves least periods and cannot turn the reported five-cycle branch into this six-cycle/origin classification.",
+        "searches": [
+          "Resultary for no-chartist boundary, unit-response threshold and six-cycle",
+          "Focused literature lookup on the named three-partition market map"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest independent hit 2026/11/1/SCOPE-a-sharp-weak-sentiment-five-cycle-threshold-in-a-three-zone-mark--2c50dbdce3ba describes different cycles and parameters",
+          "No distinct exact transition-table or classification was located in the consulted statements"
+        ],
+        "reasoning": "A table for the exact nine states and all normalized threshold regimes could imply the theorem given capture; the identified five-cycle record is not such a table.",
+        "searches": [
+          "Resultary for the exact six-cycle word, threshold and global finite-time classification by model and regime"
+        ]
+      },
+      "rationale": "The distinct contribution is the complete global classification of the two-step memory-collapse boundary, including its closed endpoint, finite-time capture and invariant measures. No novelty is attributed to the market model or the finite-state method itself.",
+      "residual_risks": [
+        "Neither primary full text nor the matching catalogue full record was available in lawful retrieval attempts; a prior boundary analysis elsewhere is possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirmed topical overlap; full-text boundary coverage unresolved",
+          "evidence": "Available abstract describes the three-partition sentiment-trader map and period-adding; not an all-plane time bound on the specified boundary.",
+          "identifier_or_url": "https://doi.org/10.1016/j.chaos.2023.114143",
+          "material_read": "Indexed abstract and frozen account in RESULT.md lines 53–65; primary sections unavailable",
+          "method": "Focused literature lookup, attempted publisher and lawful institutional OA copy",
+          "title": "A 2D piecewise-linear discontinuous map arising in stock market modeling: Two overlapping period-adding bifurcation structures",
+          "trigger": "Primary model and possible boundary classification"
+        },
+        {
+          "assessment": "Different slice and periodic classification; ancillary boundary discussion unverified",
+          "evidence": "b=1/4 and c=5/4, with two attracting five-cycles at d/h>205/252 in the weak-forcing regime.",
+          "identifier_or_url": "2026/11/1/SCOPE-a-sharp-weak-sentiment-five-cycle-threshold-in-a-three-zone-mark--2c50dbdce3ba",
+          "material_read": "Resultary indexed statement; full record not retrieved",
+          "method": "Catalogue comparison and attempted mirror passage retrieval",
+          "title": "A sharp weak-sentiment five-cycle threshold in a three-zone market map",
+          "trigger": "Same market model family and explicit thresholds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–25, 29–61",
+        "Primary and earlier-slice comparison in originality"
+      ],
+      "rationale": "Zero trend following and exact fundamental-price correction are a motivated boundary, not fitted constants chosen to get a particular period. The finite-state graph characterizes every real starting point and resolves what happens at both switching equality and strict threshold, separating exact extinction from coexistence with one repeating orbit. The uniform capture bound and measure classification give a concrete baseline before chartist memory is restored. The proof is elementary but the complete boundary result is independently useful.",
+      "residual_risks": [
+        "No inference to positive-chartist dynamics, perturbative basin stability, or economic predictive validity."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:53:04.207156Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–86 and 98",
+        "Frozen VERIFICATION.md",
+        "Frozen verify_cyclic.py (inspected; source replay entry point)",
+        "Independent exact solution of the five linear renewal equations in the rational witness"
+      ],
+      "rationale": "Integration against the independent exponential clock gives discounted success u_i(r+s) and discounted reset c(1−u_i(r+s)), where c=r/(r+s). Averaging products over the uniform initial cyclic phase gives the block sum 1−(1−c)Σ_{k≥1}c^{k−1}B_k; iid replaces B_k by the mean failure probability to power k. A full block factors into the product P times shorter blocks. AM–GM bounds P, the symmetric-mean inequality bounds the shorter blocks that are full averages over pairs or triples, and for four modes the adjacent-pair sum factors as (q_1+q_3)(q_2+q_4). Thus B_k ≤ (mean q)^k for every k when m≤4, including q_i=0 or 1, and the full-block comparison is strict for nonconstant q. At s↓0, P(r)<1 by the capture assumption, so blockwise geometric domination in a neighborhood of zero justifies passage to the means after division by s. Independently solved the mode-specific renewal equations F_i=u_i+cq_i F_{i+1} with fractions at the Brownian witness. The cyclic and iid transforms are 2729396/5242745 and 12/23 respectively, with difference −136832/120583135. The distances yield u_i(4)=1/4,1/4,1/4,3/4,3/4 in the stated cyclic order. Strictness gives distinct perturbed sites by continuity. More generally, three consecutive ones and zeros elsewhere give B_2=2/m>9/m² for m≥5; interior perturbation and the uniform O(c²) tail give the claimed small-c reversal and Brownian realizability.",
+      "residual_risks": [
+        "Equality of the free transforms at a single sampled argument gives equality of the comparison there (or of the means at r); equality in law requires transform equality across discounts, not at a single point.",
+        "No survival stochastic order or five-mode mean reversal is established. Regenerative independent attempts and uniform initial phase are essential."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Julián-Salgado et al. specify independent site-specific rates for two Brownian reset sites. Méndez et al. draw reset locations from a density at events of rate r. The inspected chapter passages provide general random-resetting background."
+        ],
+        "reasoning": "An iid-location renewal calculation can accommodate the iid protocol by mixing one-attempt transforms, but it drops order information. None of the checked passages gives a policy comparison controlling consecutive products for deterministic cyclic site choice. The chapter comparison was introductory only.",
+        "searches": [
+          "arXiv:2311.11897v4, Abstract and §II",
+          "arXiv:2401.01125v1, Abstract/Introduction and §II",
+          "Primary literature on cyclic/Markov reset destination vs random destination; arXiv:2310.12057v2, Abstract and Introduction"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 7dc3fc35ecdc",
+        "arXiv:2311.11897v4, 2401.01125v1 and 2310.12057v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Identical one-attempt marginals produce different multi-attempt failure correlations in the two protocols. A bound on the two-site mean is not a pointwise Laplace inequality. At five sites a cyclic arrangement makes the adjacent-product average exceed the squared mean, despite the full product obeying AM–GM."
+        ],
+        "reasoning": "No specialization of the checked iid-location transforms or the two-site mean statement supplies the universal four-site discounted bound or the opposite sign at five. These need short-block bounds and an arrangement-dependent obstruction, not just symmetric averaging of capture rates.",
+        "searches": [
+          "Méndez–Flaquer-Galmés–Campos, arXiv:2401.01125v1, §II",
+          "Julián-Salgado–Dagdug–Boyer, arXiv:2311.11897v4, §II",
+          "Resultary 7dc3fc35ecdc, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The inspected two-site Finding uses a symmetric two-state Markov site-selection kernel with a uniform initial state and fresh Poisson clocks. The always-switch kernel is the two-cycle; the equal-row kernel is iid uniform. It optimizes mean completion in this family.",
+          "For a general cycle the equivalent sequence comparison uses averages of consecutive failure products against powers of their arithmetic mean, rather than just the single-attempt marginal."
+        ],
+        "reasoning": "The Markov formulation is genuine equivalent coverage of the m=2 mean subclaim. Its inspected mean result does not establish the discounted comparison, the three- or four-mode bounds, or the five-mode obstruction.",
+        "searches": [
+          "Resultary: cyclic vs independent reset destination, random starting phase and Markov-site refreshing",
+          "Resultary 7dc3fc35ecdc"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact four/five hit is the assigned record. The nearest distinct Finding covers two-state mean-time optimization, including alternation vs iid, rather than the four/five cutoff."
+        ],
+        "reasoning": "The database overlaps on the two-site mean but did not yield a separate table or theorem giving the exact cutoff and witness in the inspected matches. Same-day dates do not settle chronological priority.",
+        "searches": [
+          "Resultary: four-site Laplace dominance and five-site Brownian cyclic-reset reversal",
+          "Resultary 52c5a945cec1 and 7dc3fc35ecdc"
+        ]
+      },
+      "rationale": "The supported distinct claim is the sharp four/five boundary for Laplace dominance over iid uniform destinations, including the Brownian obstruction, and the extensions beyond the known two-site mean comparison. The m=2 mean subclaim directly overlaps the inspected same-day Markov reset-site record and is not counted as a distinct contribution; relative priority is not established. Renewal identities and the Brownian free transform are antecedents, not novelty claims.",
+      "residual_risks": [
+        "Equivalent cyclic block inequalities or an encompassing policy comparison may exist in uninspected scheduling or Markov-renewal literature.",
+        "The catalogue date does not resolve relative priority for the shared two-site mean result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct overlap on the two-site mean. Neither relative priority nor coverage of the sharp general Laplace boundary established.",
+          "evidence": [
+            "Uniform initial state, symmetric two-state Markov kernel, fresh Poisson interruptions; deterministic alternation minimizes the mean"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-alternating-the-reset-site-strictly-accelerates-two-location-poi--7dc3fc35ecdc",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Alternating the reset site strictly accelerates two-location Poisson resetting",
+          "trigger": "Strong and potentially exact Markov-policy overlap"
+        },
+        {
+          "assessment": "Site-specific reset rates and mean-time optimization rather than cyclic vs iid policy ordering.",
+          "evidence": [
+            "Fixed x_1,x_2 with rates r_1,r_2"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2311.11897v4",
+          "material_read": "Abstract (p. 1); §II (pp. 1–2, offsets about 8500–9600)",
+          "method": "Bounded OA PDF passages",
+          "title": "Diffusion with two resetting points",
+          "trigger": "Cited two-site Brownian resetting model"
+        },
+        {
+          "assessment": "Random-position iid resetting background, not a cycle comparison.",
+          "evidence": [
+            "Reset events at rate r; destination drawn from a density"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2401.01125v1",
+          "material_read": "Abstract/Introduction (p. 1); §II (p. 2, offsets about 8900–12700)",
+          "method": "Bounded OA PDF passages",
+          "title": "First-passage time of a Brownian searcher with stochastic resetting to random positions",
+          "trigger": "Cited iid renewal model"
+        },
+        {
+          "assessment": "No direct comparison in inspected introductory passages; rest not excluded.",
+          "evidence": [
+            "General background on random resetting and search completion"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2310.12057v2",
+          "material_read": "Abstract p. 1 and Introduction p. 2 (offsets 0–3950)",
+          "method": "Bounded OA PDF passages",
+          "title": "Random resetting in search problems",
+          "trigger": "Broad resetting theory from focused literature search"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–19 and 32–86",
+        "Resultary 7dc3fc35ecdc, two-mode mean comparison"
+      ],
+      "rationale": "Matching single-attempt marginals do not determine the ordering of the total search time. The sharp cutoff in the number of modes, uniform over free hitting-time laws, gives a reusable policy comparison for regenerative searches; the Brownian counterexample rules out extrapolating it even for standard first-passage laws at finite positive locations. A positive-discount obstruction is informative without claiming a mean or survival reversal.",
+      "residual_risks": [
+        "No extremal result for other cyclic orders or general policies, or for nonregenerative search, is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

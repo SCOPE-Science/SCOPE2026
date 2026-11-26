@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:11:21.112043Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–87 and VERIFICATION.md / verify.py",
+        "Replay: python3 /workspace/branches/368ed023-b12d-4196-b110-d953c218c591/reproduce.py; retained reproduce_output.json in the same directory"
+      ],
+      "rationale": "Counting convolution on the binary group is self-adjoint and diagonal in the normalized Walsh basis. At support weight s, the contribution of all triples is the degree-three Krawtchouk value; removing the ten triangles subtracts 10−2o, where o is the number of triangles meeting the support in an odd number of edges. Complementation negates the multiplier because the base size is odd. The independent exact calculation constructed all 110 bases, obtained all 1,024 multipliers both by signed sums and by the Walsh–Hadamard transform, and reproduced the signed histogram including the 72 zeros. As a structural cross-check, if w is the number of selected two-edge wedges and t is the number of selected triangles, then o=3s−2w+4t by counting selected edges and wedges within each triangle of K5. At s=5 a zero requires w−2t=5. For t=0 this forces all degrees to be two; for t=1 it forces degrees 3,3,2,1,1, with the two nontriangle edges attaching two leaves at distinct triangle vertices. Two triangles on five edges instead give a diamond plus an isolated vertex and w−2t=4. Thus the two zero motifs have 5!/10=12 and 5!/2=60 labelled realizations. The exact histogram excludes all other zeros and gives inertia (476,476,72), rank 952, and absolute nonzero extremes 2 and 110. On the orthogonal complement of the kernel the Euclidean condition number is therefore 55, and the pseudoinverse norm is 1/2; these use the singular values, irrespective of sign.",
+      "residual_risks": [
+        "The result is an exact finite classification of the specified 110-base matroid with counting normalization, not a formal certification or a result for the 100-base trilateral matroid."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Saniga describes the ten points and ten lines; Stroppel and Stroppel give the pair/triple inclusion incidence model. The retrieved source passages establish the geometry used as input. Raney's cited full text timed out on both lawful routes attempted."
+        ],
+        "reasoning": "The incidence descriptions fix the input of the transform, but do not evaluate its signed histogram or classify intermediate odd-incidence counts. No broader spectral theorem furnishing this output was established.",
+        "searches": [
+          "arXiv:1101.0977v1, p. 1",
+          "Stuttgart Preprint 2012/017, §1.1",
+          "Raney, Ars Mathematica Contemporanea 14 (2018) 267–284"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary index and matched original records",
+        "Saniga arXiv:1101.0977v1",
+        "Stroppel and Stroppel preprint 2012/017"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The incidence model yields the generic identity λ=K3(s;10)−10+2o. The E-optimal theorem optimizes a least singular value of a 15-sample real evaluation matrix and enumerates its optimizer shapes."
+        ],
+        "reasoning": "Obtaining the precise Walsh histogram still requires determining the odd triangle counts across edge supports. Even knowing the D5 optimizer shapes gives no implication that optimizers are exactly the roots of this Walsh expression without a separate mathematical identification.",
+        "searches": [
+          "Stroppel and Stroppel, Stuttgart Preprint 2012/017, §1.1",
+          "D5 root-line RESULT.md, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4 offsets 0 and 1656"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The root-line frame has precisely the same two optimal doubled-edge shapes with 384 and 1,920 selections (32 per labelled graph). The perfect-matching result uses the 30 edges of the 20-vertex Desargues graph, not the ten points of the Desargues configuration."
+        ],
+        "reasoning": "The motif sets correspond after forgetting the frame sign choices, so the motifs as a pair are not new. Neither comparison identifies the scalar Walsh operator on 110 bases with the real matrix-evaluation frame or with a perfect-matching convolution.",
+        "searches": [
+          "Resultary: Desargues 110 bases, 72 null modes, C5 bull",
+          "2026/11/16/SCOPE-a-sharp-e-optimal-fifteen-sample-quadratic-frame-on-the-type-d-5--56771725ce8b",
+          "2026/11/22/SCOPE-zero-free-signed-perfect-matchings-and-sharp-inverse-walsh-norms--93f8d550f67c"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact table hit was the assigned 2026/11/22 record itself. The inspected D5 table enumerates E-optimal sample selections, not character multiplicities."
+        ],
+        "reasoning": "Self-matches do not establish independent coverage. The D5 counts are of samples over graph supports, not signed eigenvalues, and do not yield the nonzero spectrum or its gap.",
+        "searches": [
+          "Resultary: 110-base Desargues Walsh spectrum and exact Krawtchouk-minus-lines table",
+          "Resultary: 72 C5/bull zero characters and D5 motif coincidence"
+        ]
+      },
+      "rationale": "The incidence model and the generic character formula are established or elementary ingredients. The exact signed spectrum and the graph-motif description of the Fourier kernel on this particular ten-coordinate operator are the supported distinct result. The strongest same-motif catalogue result is genuine prior mathematical overlap but uses a different operator, predicate and sign data. No equivalent spectrum or stronger statement supplying it was established by the inspected sources.",
+      "residual_risks": [
+        "The broad primary-literature search lookup was unavailable and Raney's full text was not retrieved. This bounded comparison does not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Established input geometry",
+          "evidence": "The passage specifies the ten points and ten lines of the Desargues configuration.",
+          "identifier_or_url": "https://arxiv.org/abs/1101.0977",
+          "material_read": "p. 1, PDF text offset about 2099",
+          "method": "Lawful OA paper passage",
+          "title": "Geometric Hyperplanes: Desargues Encodes Doily",
+          "trigger": "Same classical incidence configuration"
+        },
+        {
+          "assessment": "Known incidence representation; no checked spectral claim",
+          "evidence": "Points are two-subsets and lines three-subsets of a five-element set under inclusion.",
+          "identifier_or_url": "Stuttgart Preprint 2012/017 (B. Stroppel and M. Stroppel)",
+          "material_read": "§1.1, text offset about 2100",
+          "method": "Lawful OA paper passage",
+          "title": "Desargues, Doily, Dualities, and Exceptional Isomorphisms",
+          "trigger": "Exact pair/triple representation"
+        },
+        {
+          "assessment": "Prior same-motif classification with a distinct invariant",
+          "evidence": "The stated 384 and 1,920 optimal selections are for an E-optimal real quadratic sampling design, with 32 signed choices per labelled support.",
+          "identifier_or_url": "2026/11/16/SCOPE-a-sharp-e-optimal-fifteen-sample-quadratic-frame-on-the-type-d-5--56771725ce8b",
+          "material_read": "Original RESULT.md, offsets 0 and 1656, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local publication mirror",
+          "title": "A sharp E-optimal fifteen-sample quadratic frame on the type-D5 root lines",
+          "trigger": "Exact C5/bull motif match"
+        },
+        {
+          "assessment": "Different kernel and dimension",
+          "evidence": "Uses 60 perfect matchings of a 30-edge graph, not 110 triples on ten coordinates.",
+          "identifier_or_url": "2026/11/22/SCOPE-zero-free-signed-perfect-matchings-and-sharp-inverse-walsh-norms--93f8d550f67c",
+          "material_read": "Original Finding, offset 0",
+          "method": "Local publication mirror",
+          "title": "Zero-free signed perfect matchings and sharp inverse Walsh norms",
+          "trigger": "Desargues name and Walsh inversion"
+        },
+        {
+          "assessment": "Not used as negative evidence",
+          "evidence": "Both retrieval attempts timed out. The audited kernel is specified directly and does not rely on the separate trilateral matroid's nomenclature or count.",
+          "identifier_or_url": "Raney, Ars Mathematica Contemporanea 14 (2018), 267–284",
+          "material_read": "No full-text passage retrieved",
+          "method": "Lawful direct and VPN retrieval attempts",
+          "title": "Trilateral matroids induced by n3-configurations",
+          "trigger": "Possible alternative matroid on the same configuration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–34 and 79–99",
+        "Independent signed spectrum and zero-support data",
+        "D5 root-line Finding"
+      ],
+      "rationale": "The standard rank-three Desargues matroid is a natural small symmetric base kernel, and Fourier invertibility is intrinsic to its convolution rather than a hand-picked evaluation. The exact support of the unresolved characters tells which data cannot be recovered, and the nonzero gap gives sharp Euclidean noise amplification on the recoverable part. The complete histogram and structural zero description supply information beyond the known incidence geometry or the shared D5 motif labels.",
+      "residual_risks": [
+        "No extension to larger matroids, alternative normalization or non-Euclidean inverse bounds is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

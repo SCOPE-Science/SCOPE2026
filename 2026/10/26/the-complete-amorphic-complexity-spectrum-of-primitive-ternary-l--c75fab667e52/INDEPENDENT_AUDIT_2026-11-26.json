@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:36:52.804149Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (uploaded script inspected only)",
+        "Independent finite replay: python3 /workspace/branches/0268c057-2912-4bf2-9417-de05f398e1af/independent_enum.py; full_run.txt in the same directory",
+        "Gröger–Krawczyk, arXiv:2602.23267v1, Theorems A and B, Definitions 2.15 and 3.4, Theorem 2.18, Proposition 3.10"
+      ],
+      "rationale": "The independent integer census ranges over all 3^6 labeled rules, verifies 288 primitive rules by support growth through power 5, and matches all 16 pair-matrix characteristic-polynomial rows. Theorem B uses the raw pair matrix only at height one. Height is coprime to two and bounded by three, since the height classes have disjoint nonempty letter supports, so the only exception is height three, which forces a 3-cycle. The substitution maps that orbit to itself; using substitution-shift covariance with shift multiplier two, there is a unique fixed phase modulo three. In that phase its rule is (ab,ca,bc) on (a,b,c). Each of the six rules is primitive and has height three; all are in the indicated 18-rule raw Perron-2 row. Reassigning them to complexity zero leaves 42 infinite-complexity rules. The 12 nilpotent pair matrices give the other finite systems. Factoring the remaining polynomials and checking signs in the three named cubics gives 1 < sqrt(2) < alpha < phi < beta < tau < 2. The complexity transform is strictly increasing on these rates and sends sqrt(2) to 2. This proves the exact eight counts, the sharp gap, and, via Theorem A, the 114 versus 174 tame/null split.",
+      "residual_risks": [
+        "The infinite-dynamics theorem is imported, not independently reproved. A literal length bound on height in Remark 2.16 is inconsistent with the period-three example; the proof uses only the alphabet-size bound and coprimality."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gröger–Krawczyk gives the formula for each primitive constant-length substitution and the tame/null equivalence. Fuhrmann–Gröger gives a binary formula and broader bounds under discrete spectrum, not an exact ternary census."
+        ],
+        "reasoning": "These general results do not give which spectra are attained by the 288 labeled rules, their exact multiplicities, or the height exceptions that change aggregate counts.",
+        "searches": [
+          "Gröger–Krawczyk arXiv:2602.23267v1, Theorems A and B and pure-base reduction",
+          "Fuhrmann–Gröger arXiv:1812.10789v1, Theorems 1.1 and 1.2"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary semantic searches and matched records above",
+        "arXiv:2602.23267v1",
+        "arXiv:1812.10789v1",
+        "Bounded primary-literature search for the exact ternary census"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For each fixed pure-base rule the complexity is determined by its discrepancy spectral radius. The distribution and sharp gap require evaluating the whole ternary rule space with primitivity and height checks. Using the raw Perron formula without the latter gives the wrong finite and infinite counts."
+        ],
+        "reasoning": "The tame/null counts are consequences of Theorem A and the new census, so not separately credited. Per-rule computability is different from prior exact coverage of the attainable spectrum and sharp exclusion interval.",
+        "searches": [
+          "arXiv:2602.23267v1, Theorems A and B, Definition 3.4 and Proposition 3.10",
+          "Frozen characteristic-polynomial census and independent integer check"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 10/18 record treats an explicit discrepancy family with length r+2 and alphabet size d+2 and counts its progression/kernel behavior, not all rules here. The same-day hit concerns Abelian complexity on a different coded family with length r+1 for r>=4."
+        ],
+        "reasoning": "A parametric discrepancy construction and a census of all literal rules are not interchangeable; Abelian factor-counting is not amorphic complexity.",
+        "searches": [
+          "Local Resultary: ternary length-two automatic substitutions, pair-discrepancy Perron census, amorphic complexity spectra, tame/null counts",
+          "2026/10/18/SCOPE-polynomial-discrepancy-ladders-in-primitive-automatic-subshifts--68724b88883e",
+          "2026/10/26/SCOPE-an-infinite-nonregular-abelian-complexity-family-with-interval-v--7b09e62adf22"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching explicit table was found in returned ranked records. The checked papers supply formulas or bounds, not a labeled table on this domain. The frozen sixteen rows were independently reproduced, not accepted from an existing table."
+        ],
+        "reasoning": "An exact-table equivalent would need to give either the aggregate spectrum and counts or the raw pair-matrix census plus the finite-height exceptions; neither combination was found in the material inspected.",
+        "searches": [
+          "Local Resultary exact-census searches for ternary length two, discrepancy matrices and amorphic-complexity spectrum",
+          "Fuhrmann–Gröger and Gröger–Krawczyk exact formulas noted above"
+        ]
+      },
+      "rationale": "The supported claim is the joint exact finite spectrum, multiplicities and sharp gap on all labeled ternary length-two primitive rules, not the general spectral formula or a new dynamical criterion. The closest checked general theorem computes a per-rule rate and treats the pure base; it gives no explicit attainable-rate list, aggregate counts or gap on this subclass without new exhaustive classification and finite-height accounting. The strongest distinct indexed findings are both substantively different. This is a bounded best-of-knowledge judgment, not a historical priority claim.",
+      "residual_risks": [
+        "A specialized enumeration under terms such as coincidence/disagreement matrices or automatic symbolic dynamics may exist outside the retrieved material. Empty broad search results and ranked-search misses do not prove absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the exact per-rule spectral transform and dynamical equivalences; not an explicit aggregate census in the inspected results",
+          "evidence": [
+            "Definition 3.4 uses the pure base at greater height; Proposition 3.10 identifies zero discrepancy rate with finiteness."
+          ],
+          "identifier_or_url": "arXiv:2602.23267v1",
+          "material_read": "Theorems A and B, pp. 2–3 (offsets 8253, 10524); height/pure-base passages pp. 10–11 (36047); Definition 3.4 p. 13 (44294); Proposition 3.10 p. 15 (51271)",
+          "method": "OA PDF passage inspection",
+          "title": "Tameness, nullness, and amorphic complexity of automatic systems",
+          "trigger": "Strongest general theorem for the same invariant"
+        },
+        {
+          "assessment": "Binary exact formula and broader bounds, no checked all-rule ternary classification",
+          "evidence": [
+            "The exact formula in Theorem 1.1 assumes an infinite binary-alphabet primitive system."
+          ],
+          "identifier_or_url": "arXiv:1812.10789v1",
+          "material_read": "Theorems 1.1 and 1.2, p. 3, offset 10982",
+          "method": "OA PDF passage inspection",
+          "title": "Constant length substitutions, iterated function systems and amorphic complexity",
+          "trigger": "Earlier exact calculations on nearby constant-length regimes"
+        },
+        {
+          "assessment": "Different target: a constructed family and progression/kernel counts",
+          "evidence": [
+            "The family is parametrized by length r+2 and alphabet size d+2, not all ternary length-two substitutions."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-polynomial-discrepancy-ladders-in-primitive-automatic-subshifts--68724b88883e",
+          "material_read": "RESULT.md opening finding, offset 0",
+          "method": "Local mirrored scientific text",
+          "title": "Polynomial discrepancy ladders in primitive automatic subshifts",
+          "trigger": "Closest indexed discrepancy-spectrum family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, complete census, height exceptions and sharp gap",
+        "Independent labeled-rule census",
+        "Fuhrmann–Gröger Theorem 1.1 for comparison with the binary setting"
+      ],
+      "rationale": "The smallest natural nonbinary, length-two family gives a complete test case beyond binary formulas: an exact spectrum with a sharp forbidden interval directly above complexity one, endpoint witnesses counted exactly, and a necessary height correction separating periodic and infinite-complexity cases with the same raw discrepancy root. This is a useful reference for finite-spectrum and tame/null behavior, not an arbitrary short list of instances.",
+      "residual_risks": [
+        "The counts classify labeled substitutions, not conjugacy classes; they do not imply analogous gaps for larger alphabets or image lengths."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

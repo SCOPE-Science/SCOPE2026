@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:40:57.011342Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–94",
+        "Frozen VERIFICATION.md and checker.py (recorded scope and code inspection)",
+        "/workspace/reproductions/trace_and_commutant.py (fresh finite check)"
+      ],
+      "rationale": "Work with A:U→V and e_i:V→U. The projections E_i=e_iA on U and F_i=Ae_i on V commute within each family. A intertwines these families, and each e_i is also an intertwiner in the reverse direction. On an active signature σ, take i with σ_i=1: A and e_i are inverse isomorphisms on the joint spaces, and each e_j there is σ_j times A inverse. On the zero signature each e_j vanishes. On im A the joint eigenspaces W_σ form an ordered direct-sum decomposition, counted by the stated GL quotient. The active spaces in U are independent sections of A over W_σ, contributing q^((m-r)D); the zero space is A^{-1}(W_0). The active spaces in V are the W_σ themselves; the zero space modulo W_0 is a complement to W_active in V/W_0, contributing q^((n-r)D). These choices construct all tuples without overcount. A matrix Y centralizes the tuple exactly when E_iY=YF_i for all i, hence is an unrestricted diagonal family of maps between equal signatures. The active square algebra factors use invertible A, and the residual rectangular factor uses A of rank d_0. Ordinary ranks add, with rank-j rectangular maps counted by the full-rank two-factor count divided by |GL_j|. This proves the stated polynomials including all-zero tuples, r=0, zero-size factors, ordered repetitions and arbitrary characteristic. The claimed independence means fixing the active multiplicities; the literal full type includes d_0 and determines r. Fresh bounded corroboration: python3 /workspace/reproductions/trace_and_commutant.py gives 113 triples over F_4 at m=n=2 and a non-diagonal rank-one A: the zero type occurs once and each active bit pattern 16 times, with active commutant coefficients (1,6,9) and zero-type coefficients (1,75,180). The frozen checker was inspected, not run.",
+      "residual_risks": [
+        "Finite corroboration does not prove arbitrary parameters; that rests on the simultaneous decomposition."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The all-arity catalogued split-basic results concern idempotent tuples, Peirce cut counts or regular-module ranks, not ordinary rank of arbitrary intertwiners in nonunital rectangular sandwich algebras."
+        ],
+        "reasoning": "Those statements cover a related method, not broader parameters with the same final statistic.",
+        "searches": [
+          "Resultary: 4fe52ac53574, 6bd72380c528",
+          "arXiv:1503.03139v1"
+        ]
+      },
+      "checked_sources": [
+        "Dolinka–East arXiv:1503.03139v1 abstract",
+        "Resultary:85aa4c5711c9",
+        "Resultary:4fe52ac53574",
+        "Resultary:6bd72380c528",
+        "Frozen RESULT.md lines 106–125"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The frozen prior comparison identifies rank normalization and the single-idempotent census; the pair summary has no free commuting matrix. Standard simultaneous projections reduce the unrestricted equations to intertwiners, but one must identify the matching active spaces and the rectangular zero-signature block before the rank weights follow."
+        ],
+        "reasoning": "The product of ordinary matrix-rank polynomials is routine once the specific rank-preserving reduction is proved; neither identified prior count encodes that reduction and statistic together.",
+        "searches": [
+          "Dolinka–East, arXiv:1503.03139, Lemma 4.1 and Proposition 7.2",
+          "Resultary: 85aa4c5711c9, 4fe52ac53574"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The pair census summary concerns both coordinates restricted to idempotents; the journal preprint abstract uses exactly XAY and treats the regular and idempotent-generated subsemigroups among other topics."
+        ],
+        "reasoning": "Neither replacing the second idempotent in the earlier pair count by an arbitrary commuting matrix nor restricting to regular elements preserves the enumerated object.",
+        "searches": [
+          "Resultary: 85aa4c5711c9",
+          "arXiv:1503.03139v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Available catalogue summaries describe two-idempotent and split-basic idempotent-tuple enumerators respectively."
+        ],
+        "reasoning": "These are the closest exact enumerators found; neither offers tables for ordinary ranks of unrestricted common centralizers. This is a limited catalogue comparison, not a claim all databases are negative.",
+        "searches": [
+          "Resultary: 85aa4c5711c9; 4fe52ac53574"
+        ]
+      },
+      "rationale": "Credit the established one-idempotent rank formula, the commuting idempotent pair census, and simultaneous projection/Peirce methods. The supported distinct claim is the complete ordinary-rank polynomial for an unrestricted common centralizing element, with its rectangular residual block, and the resulting all-arity mixed census. The available comparisons do not establish this as a specialization of an earlier enumerator.",
+      "residual_risks": [
+        "Decisive full-text passages from some plausible sources were inaccessible; the abstract and summaries do not rule out additional coverage.",
+        "A prior specialized Peirce formulation or simultaneous rectangular normal form could make the same polynomial an immediate corollary."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirmed same operation; proposition scope is from the frozen comparison, not independently retrieved full text",
+          "evidence": [
+            "Abstract expressly defines XAY and describes structure, generation and finite isomorphism results; targeted full-text requests timed out."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1503.03139v1",
+          "material_read": "Abstract, extracted lines 21–36; frozen RESULT.md lines 108, 122 for lemma/proposition comparison",
+          "method": "Lawful arXiv alternate version and targeted passage request",
+          "title": "Semigroups of rectangular matrices under a sandwich operation",
+          "trigger": "Same algebra and single-idempotent count"
+        },
+        {
+          "assessment": "Established reported idempotent-only overlap; full-text risk remains",
+          "evidence": [
+            "Bivariate enumerator for commuting ordered idempotent pairs; frozen lines 110 and 123 compare its specialization."
+          ],
+          "identifier_or_url": "Resultary:85aa4c5711c9",
+          "material_read": "Catalogue summary",
+          "method": "Local catalogue lookup; targeted mirror attempt",
+          "title": "Joint matrix-rank spectrum of commuting idempotents in rectangular sandwich semigroups",
+          "trigger": "Same multiplication and closest exact rank census"
+        },
+        {
+          "assessment": "Scope and statistic differ in accessible descriptions",
+          "evidence": [
+            "Split-basic algebras, commuting idempotents and regular-rank or affine-scheme point counts, not unrestricted ordinary-rank weights."
+          ],
+          "identifier_or_url": "Resultary:4fe52ac53574; Resultary:6bd72380c528",
+          "material_read": "Catalogue summaries",
+          "method": "Local catalogue lookup; targeted mirror attempt",
+          "title": "Simultaneous idempotent spectra of split basic algebras and an inverse random-cluster invariant; Peirce-cut affine schemes and Potts counts of commuting idempotents",
+          "trigger": "Possible broader all-arity enumerators"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 21–47, 98–102"
+      ],
+      "rationale": "This yields the full rank distribution of the commutant of each tuple, not just the number of compatible idempotents. It resolves which data control the distribution: active signatures matter even at the same marginal ranks (the displayed 32 versus 8 example), whereas changes in the residual sandwich rank do not affect the ordinary-rank polynomial. This is a useful uniform invariant for studying the common commutants of these nonunital matrix algebras.",
+      "residual_risks": [
+        "No claim for defining tuples of nonidempotents or for an invariant that recovers residual multiplication."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

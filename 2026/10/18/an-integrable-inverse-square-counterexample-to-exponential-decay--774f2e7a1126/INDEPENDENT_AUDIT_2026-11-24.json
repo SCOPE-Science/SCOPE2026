@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:25:05.955169Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 14–87",
+        "VERIFICATION.md, verify.py and requirements.txt, inspected without execution",
+        "arXiv:2511.02437v1, Definitions 6–7, Assumptions 1–2, Proposition 1 and Conjecture 1"
+      ],
+      "rationale": "The stated channels give the four ODEs and conserve total mass. The multiplicative equations preserve positivity of X, U and Y at finite time; Z is nondecreasing. Independently differentiating U/√X and Y+U−X/2 gives zero, with respective initial values 1/2 and 1/8. Thus with s=√X−1/2, Y=s²/2 and ds/dt=−s²(1+2s)/4. From s(0)=1/10, s decreases to zero without hitting it at finite time. Then (1/s)'→1/4, so ts→4 and t²Y→8. Conservation gives the other limits; integrating −(log U)'=Y gives log(6/5). This strict algebraic tail precludes any positive exponential upper-bound rate. By the cited definitions the three transition edges are acyclic; the only dependency cycle is X↔Y and Y has persistent successor X (limit 1/4). Proposition 1, Case 1 expressly permits an on-cycle successor. The exhibited strictly positive trajectory is enough to contradict the conjecture as stated, without contradicting the integrability theorem.",
+      "residual_risks": [
+        "The verification is analytic. No claim is made that other initial conditions or nearby parameters exhibit the same decay law."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The theorem bounds the integral, not the rate; the discussion explicitly allows t⁻² in principle. The self-cycle and three-cycle examples fail Assumption 2."
+        ],
+        "reasoning": "Permitting a rate in an upper-level theorem does not construct an example. The paper's subexponential examples outside the hypotheses cannot entail a counterexample within them.",
+        "searches": [
+          "arXiv:2511.02437v1, Theorem 2, discussion preceding Conjecture 1, and the examples on pp. 25–26"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary catalogue and selected neighboring records",
+        "arXiv:2511.02437v1",
+        "Focused literature lookup for the conjecture"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Conjecture 1 says every vanishing state decays exponentially under Assumptions 1 and 2 (p. 25). Theorem 2 states time-integrability under the same hypotheses."
+        ],
+        "reasoning": "One strictly positive trajectory with a verified integral and an algebraic limit negates the conjecture. Previous graph and integrability results imply neither that trajectory nor its rate.",
+        "searches": [
+          "arXiv:2511.02437v1, Proposition 1 Case 1, Theorem 2 and Conjecture 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The definitions classify the outflow dependencies by catalyst, not by transition destination. In the frozen ODE the only dependency cycle has persistent successor X.",
+          "The indexed critical T-system and logistic cusp relay have different ODEs and respective relaxation powers 1/2 and 3/2."
+        ],
+        "reasoning": "A cancellation-neutral relaxation in another ODE is not equivalent unless it yields a mass-action transition system with the required transition and dependency graphs. The compared records do not make that realization.",
+        "searches": [
+          "Resultary searches for the cited spreading-model authors, paper title and graph conjecture",
+          "arXiv:2511.02437v1, Definitions 6–7 and Assumptions 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact comparable witnesses are ODE examples, not numerical values in a table. The source paper gives a two-state t⁻¹ example and a four-state example with a transient no faster than t⁻¹ under different dependency graphs."
+        ],
+        "reasoning": "No applicable numeric table would settle this fully quantified example. The relevant exact-witness check distinguishes the directed cycle and persistent successors, not just the number of compartments or decay exponent.",
+        "searches": [
+          "Local Resultary catalogue for the spreading conjecture and related algebraic decay",
+          "arXiv:2511.02437v1, pp. 25–26 and Appendix C cross-reference"
+        ]
+      },
+      "rationale": "The original paper already recognizes that its integrability theorem permits inverse-square rates, but does not exhibit one satisfying both graph assumptions. Its algebraic examples omit Assumption 2. The inspected related records use different equations and do not give a qualifying counterexample.",
+      "residual_risks": [
+        "Search coverage is bounded; no historical priority claim follows. The focused search provided no further relevant source."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The conjecture is exactly targeted; examples do not supply coverage",
+          "evidence": "An on-cycle persistent successor is allowed; the article distinguishes integrable algebraic decay from its exponential-decay conjecture.",
+          "identifier_or_url": "https://arxiv.org/pdf/2511.02437v1",
+          "material_read": "Definitions 6–7 (PDF p. 7), Assumption 1 (p. 11), Assumption 2 (pp. 14–15), Theorem 2 (p. 17), Proposition 1 Case 1 (p. 21), and discussion, conjecture and examples (pp. 24–26)",
+          "method": "Bounded OA PDF passage reading",
+          "title": "Asymptotic behavior for a general class of spreading models",
+          "trigger": "Exact source of the conjecture and both graph hypotheses"
+        },
+        {
+          "assessment": "Different dynamical model",
+          "evidence": "The y component has generic t⁻¹ᐟ² scaling and a logarithmic correction to its inverse square; this is not the stated graph-constrained compartment counterexample.",
+          "identifier_or_url": "2026/11/22/SCOPE-global-critical-attraction-and-an-exact-logarithmic-clock-in-the--368fbbb506e3",
+          "material_read": "RESULT.md finding on the critical decay law",
+          "method": "Local mirror passage",
+          "title": "Global critical attraction and an exact logarithmic clock in the T-system",
+          "trigger": "Closest catalogued critical algebraic relaxation analogue"
+        },
+        {
+          "assessment": "Different dynamics and scope",
+          "evidence": "Its logistic relay law is t⁻³ᐟ², or exponential at exact balance; it does not address the two graph assumptions here.",
+          "identifier_or_url": "2026/11/8/SCOPE-critical-cusp-relay-a-sharp-algebraic-cancellation-and-feedforwa--4a9ed04844c0",
+          "material_read": "RESULT.md finding on the balanced relay",
+          "method": "Local mirror passage",
+          "title": "Critical cusp relay: a sharp algebraic cancellation and feedforward relaxation",
+          "trigger": "Catalogue analogue for algebraic cancellation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, analytic reduction and asymptotics",
+        "arXiv:2511.02437v1, Theorem 2 and Conjecture 1"
+      ],
+      "rationale": "A minimal-purpose explicit witness separates the proved integrability conclusion from a published conjectured rate under the same hypotheses. Its exact limit coefficient and integral make the distinction rigorous without relying on finite-time fits.",
+      "residual_risks": [
+        "This is a tuned example, not a generic classification or a minimal-compartment theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

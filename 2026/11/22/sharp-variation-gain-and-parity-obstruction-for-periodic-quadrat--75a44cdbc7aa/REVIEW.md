@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For any cell the quadratic is \(y_i+m_it+(\Delta_i-m_i)t^2\); matching first derivatives gives \((I+S)m=2\Delta\). On an odd circle its inverse is an alternating cyclic sum. For each elementary difference \(e_p-e_q\), the inverse yields derivatives in \(\{-2,0,2\}\), and the variation of each of the \(n\) cells is at most one. Finite positive/negative mass pairing of an arbitrary zero-sum difference vector gives the sharp upper bound \(nV_d(y)/2\). A one-site spike has variation one on every cell and achieves equality. The even-cycle alternating nullspace and compatibility condition follow directly from the cyclic shift. The exact-rational checker was run from the packaged source path and all its asserted tests passed; numerical testing does not substitute for the proof.
+PASS
 
-## Originality — PASS with historical-priority risk
+A unit-cell quadratic with secant Δ_i and left slope m_i has right slope 2Δ_i−m_i, so C¹ matching at every knot including the seam is (I+S)m=2Δ. For even n the nullspace and cokernel are both the alternating line; its pairing with Δ is −2 times its pairing with y. Slopes in the kernel generate the nonzero zero-data splines c(−1)^i t(1−t). For odd n the alternating finite series in S inverts the equation. On an atom Δ=e_p−e_q the slopes are 0, ±2. A nonflat-data cell is monotone and has variation 1; a flat-data cell goes out and back by |m_i|/4, for variation |m_i|/2≤1. Every zero-sum Δ is a nonnegative combination of these atoms with total mass ||Δ||₁/2, so linearity modulo constants proves the bound for every real datum. For the spike at 0, m_0=0 and m_i=2(−1)^i elsewhere, giving variation 1 on every cell, including the seam. Independent cell calculations for n=3 and 5 give ratios 3/2 and 5/2. The exact-arithmetic verifier was inspected, not executed; its reported finite checks are consistent with its loops but do not supply the universal proof.
 
-The accessible full Schoenberg (1968) text treats odd-degree cardinal splines on the whole integer line. The Goodman (1983) synopsis concerns general interpolation solvability and may contain versions of the parity criterion, which is not offered as independently novel; the sharp quadratic odd-circle total-variation norm is the distinctive result. Albasiny–Hoskins (1973) studies periodic spline circulants and error/derivative bounds; its full text was inaccessible, so its possible implications cannot be exhaustively excluded. Nochetto–Salgado (2012) provides an averaging-based TV-diminishing operator, not this nodal quadratic interpolant. Published-record searches returned sharp norms for *linear spline orthogonal projectors* rather than the present exact periodic quadratic interpolation. The detailed equivalence and implication comparisons and access risks are recorded in the structured audit.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem determines a complete, natural family of sharp BV sensitivity constants, not an arbitrary fixed-grid example. It exhibits a sharp parity cliff between unisolvence on every odd knot cycle and failure of unrestricted interpolation on every even cycle; the seemingly innocent exact-knot quadratic scheme is increasingly oscillatory, amplifying variation by a factor growing linearly in the number of sites. The single-spike extremizer identifies the mechanism and contrasts naturally with TV-diminishing averaging interpolants.
+Credit is for the sharp attained finite-circle TV norm, not for cyclic slope equations or a claim of new parity lore. The identical catalogue record is not independent priority evidence. The strongest distinct quadratic-periodic paper overlaps the interpolation/solvability setup, but the available evidence does not establish the n/2 norm. The inspected related catalogue statements concern different operators or domains. This is a best-of-evidence judgment, not an absolute priority claim.
 
-## Limits
+## value
 
-Only equal-spaced real cyclic quadratic \(C^1\) knot interpolation is covered. The even-cycle compatibility mechanism is familiar in broad interpolation theory; no novelty is claimed for the underlying circulant algebra alone. Full-text access to relevant older articles was not achieved, so historical priority remains qualified. Independent validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For the ordinary exact periodic nodal interpolator, parity-based existence is not a stability result. The exact attained gain shows linear growth despite the existence and uniqueness of every odd mesh. A single-site datum produces order-one variation even on each flat-data cell, locating a real instability rather than an artifact of a loose operator bound. The invariant is directly useful when choosing or comparing periodic interpolation schemes in BV.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

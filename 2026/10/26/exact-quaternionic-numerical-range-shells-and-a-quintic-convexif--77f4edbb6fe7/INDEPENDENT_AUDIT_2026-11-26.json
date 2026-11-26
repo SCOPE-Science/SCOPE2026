@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:36:00.796438Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–79, VERIFICATION.md lines 18–24, and verify.py inspected as text; the recorded 50,396 checks were not rerun.",
+        "Analytic replay: project the parameter sphere along p_3, maximize the quadratic at the interval endpoints, and check the closed profile by differentiation or the first four sine-power integrals. The sharper local expansion is I(r)=r^5/20+r^7/280+O(r^9)."
+      ],
+      "rationale": "Use right unit-quaternion multiplication to make the first vector coordinate u real and nonnegative (the zero case is allowed). For the other coordinate q, put t=u^2-|q|^2 and p=2u q in real coordinates; the whole sphere t^2+|p|^2=1 is attained, including t=-1. The Hermitian off-diagonal part contributes x=2cu Re(jq)=-cp_2. The i coefficient of conjugate(q) i q is 2(q_0^2+q_1^2)-|q|^2, giving |v|^2=(d+st)^2/4+ab(p_0^2+p_1^2). Since p_3 is invisible, its square fills any sphere slack: at fixed x the feasible (t,p_0,p_1) form the closed radius-R ball with R=sqrt(1-x^2/c^2). Its connected image gives an interval. Minimizing takes p_0=p_1=0 and clips the lower endpoint at zero; maximizing takes p_0^2+p_1^2=R^2-t^2 and then t=R by convexity of the resulting quadratic and d>=0. The endpoints are L=max(0,d-sR)/2 and U=(d+sR)/2, valid also at x=±c and d=0. Quaternionic conjugation fills all imaginary directions. Concavity of U and the convex hull of each outer sphere establish the proposed convex hull. The missing section has volume 4 pi L^3/3; symmetry, the factor 1/8 from cubing L and x=c cos(theta) give the prefactor pi c s^3/3. The stated elementary antiderivative expression vanishes at zero and its derivative 3r^2+2-(r^2+2)sqrt(1-r^2)-3r arcsin(r) equals the differentiated integral. Rescaling sin(theta)=rt gives I(r)=r^5(1/20+O(r^2)); the positive integral and its monotone integrand verify strict increase of the normalized profile and the sharp coefficient pi c/(60 s^2) multiplying d^5. The zero deficit occurs exactly at d=0.",
+      "residual_risks": [
+        "Direct numerical evaluation of the elementary closed form near r=0 loses precision by cancellation; use the positive rescaled integral or the expansion there. The proof concerns the given parameter domain, not arbitrary quaternionic matrices."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The five-coordinate representation covers the family and supplies the shell calculation after specialization and constrained optimization.",
+          "Theorem 3.6 of the complex-entry paper is stated for complex matrices, not directly for the displayed cj off-diagonal matrix. It gives upper-bild data rather than the missing four-volume."
+        ],
+        "reasoning": "Do not count the specialized shell as a new general method. The broader statements read do not evaluate the cross-sectional loss or its singular small-anisotropy behavior.",
+        "searches": [
+          "arXiv:2610.18096v1, Lemma 7 and Propositions 8, 14",
+          "arXiv:2008.02850, Theorem 3.6"
+        ]
+      },
+      "checked_sources": [
+        "Resultary",
+        "arXiv:2610.18096v1",
+        "10.4153/CMB-1998-016-4",
+        "arXiv:2008.02850",
+        "10.1016/j.laa.2019.04.005 (abstract only)",
+        "Frozen RESULT.md lines 81–94"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general theorem guarantees a concave upper boundary and convex lower boundary for the upper bild; the selected skew family still needs its own radius extrema.",
+          "The loss is supported only on |x|>c sqrt(1-r^2), a region of width of order r^2, with radial cavity of order r; the actual weighted integral gives the coefficient of r^5."
+        ],
+        "reasoning": "The exact profile and coefficient require determining geometry, the x-dependent support, and the weighted volume integral. Binary convexity or the general bild description alone does not evaluate them.",
+        "searches": [
+          "arXiv:2610.18096v1, equations (5)–(6), Proposition 14",
+          "So (1998), Theorem 2.2",
+          "Frozen RESULT.md lines 49–79"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Carvalho works with the planar upper bild, which lifts by similarity to the quaternionic range; the inspected propositions do not give the four-volume of the convexification loss.",
+          "So's criterion detects exactly the transition a=b in this family; it yields no quantitative volume or asymptotics."
+        ],
+        "reasoning": "Compared upper-bild, rotational-shell and convexity formulations. Their exact implications for shape or yes/no convexity were credited, but neither is the stated volume law.",
+        "searches": [
+          "Targeted quaternionic 2-by-2 numerical-range/convexification literature lookup",
+          "arXiv:2610.18096v1",
+          "10.4153/CMB-1998-016-4",
+          "10.1016/j.laa.2019.04.005"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest same-day indexed item describes complex antilinear numerical ranges and radialized translated-ellipse annuli. Its statement is not the quaternionic shell or the four-dimensional deficit."
+        ],
+        "reasoning": "The profile is a continuum invariant; no exact numerical table is required, and the closest catalogue match does not contain an equivalent invariant.",
+        "searches": [
+          "Two Resultary lookups for the quaternionic shell or exact convexification-volume profile",
+          "2026/10/26/SCOPE-translated-takagi-ellipses-determine-every-planar-antilinear-con--84e9dca96708"
+        ]
+      },
+      "rationale": "Credit the general upper-bild representation and the earlier yes/no convexity criterion. The supported distinct contribution is the exact four-dimensional convexification deficit for this family, including its normalized profile and sharp quintic onset, not a new general numerical-range representation or a new convexity criterion. No verified equivalent coverage of the quantitative result was established in the bounded search.",
+      "residual_risks": [
+        "The full Chien–Nakazato paper and the 1996 So–Thompson treatment were not compared at the exact-formula level. They may contain earlier equivalent geometry; whether that includes the evaluated volume or quintic coefficient remains unresolved. A low-yield search does not establish absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General planar-bild description and convexity are prior; exact family volume not supplied in the passages read",
+          "evidence": "Sphere-to-ball equality and the interval description enable the shell computation but make no four-volume claim.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.18096v1",
+          "material_read": "PDF pp. 3, 6–8, 10, 12: equations (5)–(6), Lemma 7, Propositions 8, 14, Corollary 10 and Lemma 11",
+          "method": "OA passage reads at offsets 7000, 15700, 21812, 23660, 30235 and 33300",
+          "title": "On the Convexity of the Upper Bild",
+          "trigger": "Motivating general result; direct coverage of the 2-by-2 parameterization"
+        },
+        {
+          "assessment": "Covers convex/nonconvex dichotomy, not the quantitative deficit",
+          "evidence": "At the Hermitian eigenvalues ±c the relevant criterion detects nonconvexity when the diagonal skew projection is nonzero (d>0).",
+          "identifier_or_url": "https://doi.org/10.4153/CMB-1998-016-4",
+          "material_read": "Theorem 2.2, journal pp. 107–108",
+          "method": "OA PDF passage, offset 9264",
+          "title": "An Explicit Criterion for the Convexity of Quaternionic Numerical Range",
+          "trigger": "Possible broader theorem for full quaternionic ranges"
+        },
+        {
+          "assessment": "Restricted comparison, not an explicit calculation of this family and its volume",
+          "evidence": "States upper-bild formulas for complex-entry matrices.",
+          "identifier_or_url": "https://arxiv.org/abs/2008.02850",
+          "material_read": "Abstract, introduction, Theorem 3.6, PDF p. 7",
+          "method": "OA passage read, offset 18500",
+          "title": "Quaternionic Numerical Range of Complex Matrices",
+          "trigger": "Possible exact upper-bild classification"
+        },
+        {
+          "assessment": "Unresolved beyond the abstract, not used as negative evidence",
+          "evidence": "The abstract is about boundary-generating curves; the accessible material does not settle this volume comparison.",
+          "identifier_or_url": "https://doi.org/10.1016/j.laa.2019.04.005",
+          "material_read": "Landing page and abstract only",
+          "method": "Bounded OA attempt; no identified accessible full-text copy in that check",
+          "title": "Boundary Generating Curves of Quaternionic Numerical Ranges",
+          "trigger": "Possible implicit exact 2-by-2 shape coverage"
+        },
+        {
+          "assessment": "Different object and dimension; not equivalent",
+          "evidence": "Uses radialized translated ellipses for complex conjugate-linear maps on a complex two-plane, without a four-dimensional quaternionic volume law.",
+          "identifier_or_url": "2026/10/26/SCOPE-translated-takagi-ellipses-determine-every-planar-antilinear-con--84e9dca96708",
+          "material_read": "RESULT.md finding at offset 0",
+          "method": "Local mirror at 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Translated Takagi ellipses determine every planar antilinear constrained numerical range",
+          "trigger": "Closest same-day indexed shape result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 19–36 and 63–79",
+        "So (1998), Theorem 2.2",
+        "Carvalho, arXiv:2610.18096v1, Proposition 14"
+      ],
+      "rationale": "A full-range convexity criterion is qualitative. The four-volume quantifies how much nonconvexity remains in a natural two-level family as skew anisotropy breaks the convex case. Its quintic law distinguishes the simultaneous collapse of the two cap widths and the radial cavities and gives a sharp coefficient, not just a nonconvex example.",
+      "residual_risks": [
+        "This is an exact family invariant, not a universal exponent or a claim about other distances to convexity."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

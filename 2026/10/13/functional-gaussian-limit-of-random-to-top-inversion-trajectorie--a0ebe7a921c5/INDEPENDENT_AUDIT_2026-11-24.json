@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:30:19.270997Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The theorem is intact but the frozen proof sums over integer k<nt: off grid this counts one extra step, so its martingale is not the stated càdlàg one and its exact Y_n identity is false there. The corrected RESULT uses k=0,...,floor(nt)-1 for both the martingale and drift, exhibits the exact discrete integral, and bounds the continuous Volterra error by 2||Y_n||/n. I reconstructed the exact inversion regression and checked the occupancy law with hypergeometric front and complement counts. Continuous coordinate marginals justify product-measure convergence despite the diagonal mass. The front and tail squared counts give (1+2b^3)/9; subtracting b^4/4 yields the bracket integrand. Boundedness and the deterministic-time compactness argument imply uniform bracket convergence in probability, with jumps bounded by 2/sqrt(n). Martingale FCLT and the continuous-input Gronwall map give J1 convergence; Ito isometry gives the displayed covariance. Time zero is the increment check on the diagonal and Y_n(0)=0. The exact finite variance was reconstructed via sign products on pairs, triples and disjoint pairs. Replay is the repaired analytic proof; the frozen checks/check_inversions.py was directly located and inspected, not executed, and only checks finite regression and variance. The scope is identity start and fixed finite T.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Clay establishes the same fixed-time normal variance, plus a one-time equilibrium-regime limit, not joint temporal convergence.",
+          "The general martingale functional CLT requires predictable-bracket convergence and small jumps; those are separate shuffle-dependent hypotheses. Whitt's full text was not obtained for a source-level comparison."
+        ],
+        "reasoning": "A one-time theorem cannot establish the path result, and a general CLT does not verify its own predictable-bracket assumptions for random-to-top.",
+        "searches": [
+          "Clay arXiv:2603.09008, Theorem 1.3 and §7",
+          "Martingale functional CLT (including Whitt 2007 landing page)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checks/check_inversions.py",
+        "arXiv:2603.09008",
+        "Pike dissertation, Cornell public PDF",
+        "Resultary 7cc85a6a6c85, 58e254fb7215, 82b4f7bf365b and a3087e76edf6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Iterating the eigenfunction regression makes the two-time covariance exactly (1−2/n) to the step-gap power times the earlier-time variance. Clay gives the same single-time variance profile; a putative Gaussian diffusion with drift −2 has intensity V′+4V.",
+          "Neither the fixed-time scalar or joint Gaussian statements nor the regression defines the realized predictable bracket, proves temporal joint Gaussianity, or gives tightness."
+        ],
+        "reasoning": "The variance, formal covariance and plausible intensity can be inferred without a path theorem. The separate empirical bracket computation and process convergence are the surviving non-mechanical result.",
+        "searches": [
+          "Clay arXiv:2603.09008 Theorem 1.3 and Prop. 7.1",
+          "Pike dissertation PDF p. 118",
+          "Resultary 7cc85a6a6c85"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Uniform independent requests for labels give exactly the same path as fresh uniform choices of positions. Clay's uniform ordered prefix/increasing complement is precisely the recency representation at one time; fixed-time inversion transfer to top-to-random uses inversion of the shuffle.",
+          "Pike identifies the centered inversion eigenfunction in the same transition chain."
+        ],
+        "reasoning": "The one-time descriptions and inverse-shuffle marginal transfer do not supply temporal tightness or a continuous Gaussian limit for the coupled paths. Nonuniform requests are not the stipulated model.",
+        "searches": [
+          "Clay arXiv:2603.09008, Proposition 4.1 and Theorem 4.3",
+          "Pike, Eigenfunctions for Random Walks on Hyperplane Arrangements, random-to-top",
+          "Uniform move-to-front, Tsetlin and last-request formulations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "7cc85a6a6c85 is a one-time joint CLT for two statistics at a fixed time in the same model. The cubic-clock path is for sequential shelf insertion. The same-date records concern arithmetic path counts or a numerical Lyapunov equation."
+        ],
+        "reasoning": "These matches were compared by process, time parameter and limit type. None supplies the random-to-top J1 limit; a list of exact moments or simulations in small decks cannot do so either.",
+        "searches": [
+          "Resultary random-to-top occupancy-mediated descent/inversion fluctuations 7cc85a6a6c85",
+          "Resultary cubic-clock Gaussian process 58e254fb7215",
+          "Resultary same-date Ulam–Kac/Mahonian counts 82b4f7bf365b and covariance positivity a3087e76edf6"
+        ]
+      },
+      "rationale": "The supported distinction is an identity-start functional CLT over a fixed discrete-clock window and its model-specific bracket/tightness proof. The one-time law, exact mean, subset description and eigenfunction already appear in prior work. Two-time covariance is also a mechanical consequence of the prior regression and finite or limiting variance, not independent novelty.",
+      "residual_risks": [
+        "The primary-search attempt was unavailable; this is not evidence of absence. A less-indexed general empirical or move-to-front path theorem could give a relevant limit under the same clock and initial state. The inspected sources establish overlaps but do not settle exhaustive priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the single-time limit, mean and key combinatorial setup, not the path theorem.",
+          "evidence": "Uniform ordered prefix conditional on distinct-count; one-time centered normal limit at k/n→c>0 with exactly V(c), and exact mean.",
+          "identifier_or_url": "https://arxiv.org/pdf/2603.09008",
+          "material_read": "Theorem 1.3 p. 3 (near offset 10400), Proposition 4.1 p. 8 (near 30200), Theorem 4.3, Proposition 7.1 (near 74800)",
+          "method": "OA PDF, bounded passages",
+          "title": "On the statistics of random-to-top shuffles",
+          "trigger": "Same process, same exact mean and one-time variance"
+        },
+        {
+          "assessment": "Covers the regression input.",
+          "evidence": "Centered inversion count is an eigenfunction for random-to-top; this controls conditional means, not the conditional variances needed for tightness.",
+          "identifier_or_url": "https://pi.math.cornell.edu/~jp999/hyperplane%20walks.pdf",
+          "material_read": "PDF p. 118 (printed p. 112; near offset 270800)",
+          "method": "OA dissertation, bounded passage",
+          "title": "Eigenfunctions for Random Walks on Hyperplane Arrangements",
+          "trigger": "Potential prior inversion-process regression or limit"
+        },
+        {
+          "assessment": "Same model but joint across statistics at one time, not across time.",
+          "evidence": "Fixed-c identity-start Gaussian limit with components descents and inversions.",
+          "identifier_or_url": "2026/10/26/SCOPE-occupancy-mediated-joint-gaussian-fluctuations-of-descents-and-i--7cc85a6a6c85",
+          "material_read": "Finding and scope offsets 0–3168",
+          "method": "Resultary search and local published mirror",
+          "title": "Occupancy-mediated joint Gaussian fluctuations of descents and inversions",
+          "trigger": "Closest distinct same-model catalogue result"
+        },
+        {
+          "assessment": "Different process and clock.",
+          "evidence": "Sequential shelf insertion rather than repeated uniform random-to-top; prefix-indexed cubic-clock Brownian scaling.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-orthogonal-prefix-increments-and-a-cubic-clock-gaussian-pr--58e254fb7215",
+          "material_read": "Finding and model",
+          "method": "Resultary search and local published mirror",
+          "title": "Exact orthogonal prefix increments and a cubic-clock Gaussian process",
+          "trigger": "Functional Gaussian catalogue hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The one-time fluctuation laws do not describe a shuffle trajectory, for example its joint fluctuations or path functionals over a fixed window. The validated process limit, with topology and explicit noise over the nonstationary transient, fills that gap. This rests on a bracket calculation and tightness, not merely restating the already known variance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

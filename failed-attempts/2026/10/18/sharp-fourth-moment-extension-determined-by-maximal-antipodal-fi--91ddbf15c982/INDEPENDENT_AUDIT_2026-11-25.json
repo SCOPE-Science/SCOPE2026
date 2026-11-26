@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:48:16.119731Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:5–77,79–81",
+        "VERIFICATION.md",
+        "artifacts/verify.py",
+        "artifacts/verify_output.txt",
+        "Independent exact reproduction: branches/fd6b305e-5fa9-430e-b1e2-1ba9bb9ba36f/independent_block_check.py (python3)"
+      ],
+      "rationale": "With counting input and probability output, character orthogonality produces the unscaled pair-sum energy. When the first pair sum s is nonzero, s³−3s ab determines ab from the cubic sum, hence determines the unordered pair even over nonprime fields. When s=0, evenness puts each antipodal pair into a fiber labeled by 2h(t), and isolated origin separates the diagonal (0,0). The trivial energy is 2S²−∑|f|⁴; the exceptional correction is four times the off-diagonal product sum for each block because there are two ordered representatives per nonzero antipodal pair. On a block of size n with pair masses s_i and total W, equal magnitudes within pairs and aligned products give the bound W²−(3/2)∑s_i²≤(1−3/(2n))W². Strictness within an occupied pair follows from the strictly increasing quadratic in its product magnitude on the nonnegative domain (unless the pair has zero mass); Cauchy–Schwarz forces all pair masses equal at positive W. For M≥2 the maximal coefficient is positive, so the strict sum-of-squares comparison forces precisely one nonzero block, of size M, with no origin mass. For M=1 there are no distinct-pair collisions and the ℓ⁴ term is minimized only by uniform positive magnitude on all q points. Cyclicity gives kernel size 2gcd(m,(q−1)/2) for t↦t^(2m). The numbers on the monomial line are fourth powers as explicitly scoped in the record, not literal operator norms. The supplied verifier was read, not executed. The recorded finite tests cover 81 maps and 648 seeded Gaussian-integer inputs. An independent exact pair-sum check reproduced 5/2 and the perturbed 29/18 in resonant examples over q=7 and q=13, including unequal sizes [3,2,1], and 25/13 for singleton blocks over q=13.",
+      "residual_risks": [
+        "The finite checks compare convolution and its implications in selected cases; the hypotheses and full equality classification are established analytically, not by exhaustive code checks."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The full consecutive moment curve endpoint is L²→L^(2d); the authors flag noninjective sparse polynomial sum maps as outside direct application of their methods. Other inspected restriction estimates address other specified surfaces or nonsharp planar criteria.",
+          "The conic erasure theorem, in contrast, covers every block size needed and even admits unmatched points, which the frozen isolated blocks do not have."
+        ],
+        "reasoning": "General finite-field extension theory alone does not settle the exact norm here. The specific conic one-block theorem, not a broad theorem on unrelated surfaces, supplies the exact prior optimization.",
+        "searches": [
+          "arXiv:2508.08377v1 pp. 1, 3, 15",
+          "arXiv:2405.16647v1 Theorem 1.1",
+          "arXiv:1003.4240v3 Theorem 1.1",
+          "Resultary 6b59f93aeabe"
+        ]
+      },
+      "checked_sources": [
+        "Resultary searches and exact records 6b59f93aeabe, 0c95b0b9fd4f, b11b0dc59997, 2db777d1e47b",
+        "arXiv:2508.08377v1",
+        "arXiv:2405.16647v1",
+        "arXiv:1003.4240v3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Any h-block can be identified with n complete pairs of a split conic, since n≤(q−1)/2. The collision identity implies that each block contributes the conic energy less 2W². The singleton coefficient is −1/2, and the origin supplies just −|f(0)|⁴.",
+          "For M≥2 the maximal local correction coefficient is positive and increasing in block size. The sum of squares is maximal by placing all mass in one block; the strict equality condition forces exactly the claimed support."
+        ],
+        "reasoning": "After the two-line collision split, applying the exact known block theorem followed by the elementary mass inequality supplies the purported invariant and all extremizers; the multiblock packaging has no further interacting optimization.",
+        "searches": [
+          "Resultary 6b59f93aeabe, Proof, offsets 3050–5500",
+          "RESULT.md:38–77"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For the conic, every nonzero sum has at most one unordered representation; zero contains all intact antipodal pairs. Its energy is 2W²−∑|f|⁴+4(|∑z_i|²−∑|z_i|²). This is exactly the restricted energy for one antipodal h-block under transport of pair labels.",
+          "The conic result states both 3−3/(2n) and equal magnitudes with equal complex pair products for n≥2."
+        ],
+        "reasoning": "The known one-block result is exactly equivalent, including normalizations after character orthogonality and the equality constraints. The frozen expression is the trivial global term plus a sum of independent copies of that correction.",
+        "searches": [
+          "Resultary searches for antipodal pair and additive-fiber sharp fourth-moment inequalities",
+          "Resultary 6b59f93aeabe, Finding and Proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The conic-erasure record already lists the entire numerical law 3−3/(2n) with equality configurations. The lacunary quartic record gives precisely the t⁴ specialization, and the single pair-product collision record covers the two-pair block in a compact abelian group setting.",
+          "The separate accessible cubic-graph record 2db777d1e47b includes the origin pair in its zero fiber and gives 3−6/(2q+1), so it is not equivalent. The cited cubic record 5a2b58c43575 was not retrieved."
+        ],
+        "reasoning": "No literally identical arbitrary-map entry was identified. The exact sequence and equality data occur in the conic entry; the other entries show partial overlap or genuinely different hypotheses.",
+        "searches": [
+          "Resultary searches for antipodal-fiber extension, quartic resonance and single collision constants",
+          "Resultary 6b59f93aeabe, 0c95b0b9fd4f, b11b0dc59997, 2db777d1e47b, 5a2b58c43575"
+        ]
+      },
+      "rationale": "The exact one-block variational problem and its complete extremizers already appear in the conic-erasure result 6b59f93aeabe. This covers every relevant block size over the same field: the split conic has (q−1)/2 antipodal pairs, so retain exactly n complete pairs. The conic's pair-sum identity equals the frozen block's identity on paired coefficients; subtracting 2W² from the known sharp energy gives exactly the frozen local bound and all equality cases. Relabeling by h creates several copies but no cross-block correction, since s³−3s ab resolves all collisions for s≠0 and h labels the s=0 blocks. With c*=1−3/(2M)>0 the remaining optimization is the elementary comparison ∑c_n W_n²≤c*∑W_n²≤c*(∑W_n)², with equality only in one largest block. Isolating the origin is a hypothesis that makes this direct comparison possible. The M=1 alternative is the usual collision-free quartic identity plus Cauchy–Schwarz, and the monomial specialization is the ordinary cyclic-group fiber count. No premise is that the antecedent already prints the identical multiblock theorem; the adverse conclusion rests on the direct reduction and scalar maximization, not keywords, publication dates, or inaccessible sources.",
+      "residual_risks": [
+        "The external query wave was deferred and the separately cited cubic entry could not be inspected. The verdict is based on demonstrated direct coverage by the inspected conic result, not on either access limitation or a claim that the exact wording is already printed elsewhere."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent on each paired block; elementary aggregation gives the frozen multi-block optimum",
+          "evidence": "Theorem gives c(m,p)=3−3/(2p) for p≥2 and common pair products at equal nonzero magnitudes; split conic provides all p up to (q−1)/2. Its proof states the identical one-block quartic correction.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-fourier-extension-and-phase-transitions-under-arbitrary-er--6b59f93aeabe/RESULT.md",
+          "material_read": "Finding with full equality description, assumptions and pair-sum proof, offset 0 onward and equality region near offset 5133",
+          "method": "Local Resultary mirror, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp Fourier extension and phase transitions under arbitrary erasures of finite-field conics",
+          "trigger": "Exact antecedent for one collision block of any size"
+        },
+        {
+          "assessment": "Exactly h=t⁴, but not arbitrary h",
+          "evidence": "Constants 2−1/q and 9/4 with complete extremizers for q≡3 and 1 mod 4, respectively.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-arithmetic-resonance-and-sparse-sharp-extremizers-on-a-lacunary--0c95b0b9fd4f/RESULT.md",
+          "material_read": "RESULT.md Finding and norm/attainment argument",
+          "method": "Local Resultary mirror",
+          "title": "Arithmetic resonance and sparse sharp extremizers on a lacunary finite-field curve",
+          "trigger": "Cited exact quartic specialization"
+        },
+        {
+          "assessment": "Exact two-pair overlap, not multiple blocks",
+          "evidence": "Treats one nonsingleton pair-product fiber of two pairs with constants including 9/4; excludes multiple collisions.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-lambda-4-constants-for-a-single-pair-product-collision--b11b0dc59997",
+          "material_read": "RESULT.md Finding and scope",
+          "method": "Local Resultary mirror",
+          "title": "Sharp Lambda-4 constants for a single pair-product collision",
+          "trigger": "Possible general additive-energy block theorem"
+        },
+        {
+          "assessment": "Different collision geometry",
+          "evidence": "The norm fourth power is 3−6/(2q+1) and the extremizers charge the origin, which belongs to the same collision fiber as nonzero antipodal pairs.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-sharp-finite-field-cubic-graph-l-2-to-l-4-extension-norm-a--2db777d1e47b",
+          "material_read": "RESULT.md Finding and zero-fiber conditions",
+          "method": "Local Resultary mirror",
+          "title": "Exact sharp finite-field cubic-graph L² to L⁴ extension norm",
+          "trigger": "Test whether pure cubic graph is covered by isolated origin"
+        },
+        {
+          "assessment": "Unavailable; not used to decide coverage",
+          "evidence": "The accessible 2db777d1e47b is a different identifier and is not substituted for this citation.",
+          "identifier_or_url": "Resultary 2026/10/11/5a2b58c43575",
+          "material_read": "Only the citation and description in the frozen record; no cited RESULT.md retrieved",
+          "method": "Bounded local Resultary tree/blob retrieval",
+          "title": "Sharp cubic-graph Fourier extension and its inflection-point deficit",
+          "trigger": "Separately cited cubic result"
+        },
+        {
+          "assessment": "Related method, different endpoint and collision hypotheses",
+          "evidence": "The consecutive curve is treated at the L²→L^(2d) endpoint; the discussion notes that the methods do not directly adapt to a noninjective sparse sum map such as for (t,t³,t⁵).",
+          "identifier_or_url": "https://arxiv.org/pdf/2508.08377v1",
+          "material_read": "pp. 1, 3 and p. 15 discussion of general polynomial curves",
+          "method": "OA primary PDF",
+          "title": "Sharp endpoint extension inequalities for the moment curve on finite fields",
+          "trigger": "Possibly broader finite-field extension theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:17–30,38–77",
+        "Resultary 6b59f93aeabe, Finding and Proof"
+      ],
+      "rationale": "Sharp extension norms and their equality cases are natural invariants, but this particular exact law is mechanically transferable from the known conic optimization. The h-coordinate partitions an already understood collision into independent copies, and the only new global step puts a quadratic mass on the largest positive coefficient. The monomial values give applications of this rule and elementary kernel counts, not an additional nontrivial invariant. No surviving distinct valuable remainder was identified for a repair.",
+      "residual_risks": [
+        "The multiblock formulation may still be useful expository packaging or a convenient reference; the decision concerns scientific novelty and value of the frozen contribution."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

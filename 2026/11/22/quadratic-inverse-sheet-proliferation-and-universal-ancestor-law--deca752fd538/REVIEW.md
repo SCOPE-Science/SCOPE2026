@@ -1,19 +1,21 @@
-# Scientific review: Quadratic inverse-sheet proliferation and universal ancestor law in a coupled cosine–sine map
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact phase inversion equations of the literal published map are solved for the second source coordinate before the first. For the scalar equation \(\cos(K\sin(\pi z)+\delta)=t\), \(t\in(-1,1)\), the two disjoint phase progressions each have spacing \(2\pi/K\); their intersections with four monotonicity intervals yield \(4K/\pi+O(1)\) roots. Bounded-variation quadrature on the monotonic inverse-sine branches supplies a target- and phase-uniform error for 1-Lipschitz test functions. The two actual frequencies are \(K_x=\pi(4/b)\) and \(K_y=4/b\), giving \(256/(\pi b^2)+O(b^{-1})\); the sequential structure gives the product inverse distribution at rate \(O(b)\). Jacobian factorization isolates possible critical inverse points and shows their fraction is \(O(b)\). The standalone check independently substitutes 70,328 computed inverse points across 95 parameter cases. Its finite scope does not certify the analytic limit.
+PASS
 
-## Originality — PASS within inspected evidence
+The publisher's deposited MathML in Yang et al. Eq. (6) confirms the nesting and the asymmetric π factors: the x amplitude is πH, the y amplitude is H, and the logistic argument in the second coordinate uses x at the next time (the fixed target u). For a scalar fiber over an interior cosine value, each of two distinct shifted lattices has s-spacing 2π/K in s=sin(πz). On each of the four source branches s sweeps an interval of length one, giving 4K/π+O(1) distinct roots after a bounded endpoint correction. For any centered 1-Lipschitz test function, its composition with each inverse branch has bounded total variation, so its shifted-grid quadrature differs from density K|cos(πz)| by O(1). This does not require a Lipschitz inverse branch at the turning point. Thus the scalar probability law is within O(K⁻¹) of μ. The triangular inversion gives 4H/π+O(1) choices of y and 4H+O(1) choices of x per y, giving 256/(πb²)+O(b⁻¹). Fiber-size reweighting changes normalized bounded expectations by O(H⁻¹); applying the scalar estimate twice gives W₁=O(b) by Lipschitz duality. On an interior fiber, cancellation of the chain-rule terms through u leaves the determinant proportional to cos(πx)cos(πy)sin A sin B. Only x=±1/2 or y=±1/2 can be singular, giving O(H) exceptions. Every grid bound is independent of phase, and the phase branches remain disjoint for all strictly interior targets even if they approach an edge. Frozen floating-point code was inspected, not run; its point and moment samples do not certify exact cardinality near coalescence or a Wasserstein rate.
 
-The primary full text is Yang et al., *Entropy* 26 (2024), 254, doi:10.3390/e26030254, especially Equation (6) and its forward-dynamical evaluation. It does not state the inverse multiplicity or ancestor law. The nearest indexed inverse-sheet results are a cubic Gumowski–Mira network classification, an unbounded cosine-flux Chialvo inverse law, and fixed-point branches of a reciprocal-phase coupled map. Their objects, parameter limits, and results do not dominate the statement. A similarly titled logistic–sine coupling encryption paper was examined at abstract level only; its uninspected full text is an explicit residual priority risk. Standard inverse trigonometric counting supplies familiar ingredients but not this model-specific joint theorem. Search-absence is not proof of novelty; publication priority remains qualified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-All-target inverse multiplicity is a natural measure of the noninjectivity of a map explicitly built from cosine transforms; the sharp \(b^{-2}\) law and its mixed \(1/\pi\) coefficient distinguish the two differently scaled source coordinates. The empirical ancestors converge to a nonuniform, target-independent product measure with a quantitative transportation bound and overwhelmingly regular local inverse branches. These are global structural facts not apparent from forward bifurcation and statistical plots and require no unsupported claims about encryption security.
+The contribution is a uniform inverse-fiber cardinality, quantitative product law, and regularity bound for a specific published sequential map, not its definition or the two elementary scalar techniques. The strongest related catalogue finding has the same broad theme but a different map, mechanism and joint law.
 
-## Limitations
+## value
 
-The assertions concern the closed source square, interior targets, and the exact printed bracket placement of Equation (6), not boundary targets, forward invariant/physical measures, or cryptographic guarantees. General high-frequency inverse theory and some related literature could contain an equivalent theorem outside accessible records. No independent audit has taken place.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The count quantifies global one-step ambiguity in the natural invariant square, but the main added value is knowing where the ancestors lie. The same nonuniform product distribution applies uniformly even with phases/coupling changing as b→0 and interior targets moving near the edges. The regular fraction distinguishes this law from a count dominated by degenerate inverses. This information is not supplied by orbit plots or a leading count alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

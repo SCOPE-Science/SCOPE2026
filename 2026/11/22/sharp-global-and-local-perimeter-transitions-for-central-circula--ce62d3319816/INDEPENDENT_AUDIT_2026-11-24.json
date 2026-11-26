@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:49:01.119982Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof (1)–(6), and VERIFICATION.md",
+        "Frozen check_section.py (read, not run)",
+        "/workspace/checks/5-elliptic.py and 5-elliptic.txt; replay python3 /workspace/checks/5-elliptic.py (mpmath)"
+      ],
+      "rationale": "With t=tan(theta) and k=min(1,h/t), the boundary is four ellipse arcs plus two chords of total length 4R sqrt(1-k²). In the clipped regime the quarter arc is the integrated norm of (t,(1-x²)^(-1/2)) on [0,k]. Its strict integrated-norm bound gives P/(4R)>sqrt(h²+alpha²)+cos(alpha), alpha=arcsin(k). The derivative has the sign of alpha cot(alpha)-h, a strictly decreasing test; the bound's minimum is at an endpoint. At h=pi/2-1 the lower endpoint bound is pi/2; monotonicity in h and the full-ellipse strict inequality give exactly the claimed minimizers. Near the axial angle, the integral in the vertical coordinate gives w and w² coefficients 2Rh(1-h) and R(2h³/3-h/2-h⁴/2), so h=1 is already a strict local maximum. The full-ellipse expansion at zero angle starts with +pi R theta²/2. At contact, the missing arc minus chord is (2R/3)(1+t²)a³+O(a⁵), a²=1-h²/t². The quotient by a³ extends analytically in a² and t; substitution into theta gives the stated 3/2 coefficient and C¹ but not C² regularity, without differentiating an arbitrary error term. Strictness is for the angle variable, not for azimuthal motion among rotationally equivalent planes. Independent high-precision diagnostics agreed; the analytic proof, not those tests, establishes the theorem.",
+      "residual_risks": [
+        "No classification of all oblique stationary points; nonuniform expansions in extreme aspect ratios are outside scope."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior-work comparison in frozen RESULT.md lines 89–91 identifies a central-section maximum-area transition and a study of oblique-cylinder surface area, mean width and ellipse circumference; independent full-text requests timed out"
+        ],
+        "reasoning": "A theorem for all cuts could cover this only with a lower bound valid on central cuts and matching equality information. The named central maximum-area result and ellipse circumference calculations are not such a broader theorem.",
+        "searches": [
+          "Dirksen arXiv:1602.07854; Lemma 2.1 and Theorem 3 identified in frozen comparison",
+          "Finch arXiv:1212.5946"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local catalogue",
+        "arXiv:1602.07854 and arXiv:1212.5946 (retrieval attempted)",
+        "Frozen RESULT.md prior-work section",
+        "MathWorld Cylindric Section (web lookup result)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The central area setting shares the truncated ellipse geometry, not the perimeter integrand. Area-tail and cap-incidence statements concern random-plane observables, not the deterministic P(theta)."
+        ],
+        "reasoning": "Even an exact section-area law does not determine its perimeter by a fixed monotone transformation across h and orientations. A full-ellipse perimeter describes the left contact branch only; the loss is the missing elliptical arc minus new chords.",
+        "searches": [
+          "Dirksen arXiv:1602.07854",
+          "Finch arXiv:1212.5946",
+          "Resultary near-neighbor records 488ad84c6b0e and 0b656f49bef5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Catalogue target ce62d3319816 is the identical frozen result, not an independent match",
+          "MathWorld Cylindric Section gives general section descriptions; the actual statistic here includes two straight chords when clipping occurs"
+        ],
+        "reasoning": "A minimum-circumference formulation only matches if it includes the clipped perimeter and centrality; an oblique ellipse circumference without cap chords is not equivalent.",
+        "searches": [
+          "Resultary: central finite circular cylinder plane-section perimeter minimum axial disk transition local stability cap contact",
+          "Dirksen arXiv:1602.07854",
+          "Finch arXiv:1212.5946",
+          "Literature lookup on central cylinder-section perimeter optimization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest distinct summaries respectively describe upper tails near maximal normalized area of random central sections and intact-section probabilities for convex cylinders"
+        ],
+        "reasoning": "Neither indexed statement classifies the two aspect thresholds, equality orientations or the contact coefficient. Endpoint circumference numbers alone are elementary and already known; they are not the classification.",
+        "searches": [
+          "Resultary central cylinder-section perimeter query",
+          "Record 2026/10/25/488ad84c6b0e",
+          "Record 2026/11/1/0b656f49bef5"
+        ]
+      },
+      "rationale": "The available evidence supports a distinct central perimeter theorem with equality, axial stability and cap-contact regularity. Adjacent results about area, cap-incidence probabilities or complete ellipse circumference do not establish that theorem. Assessment is best-of-knowledge, not a guarantee of priority.",
+      "residual_risks": [
+        "The two plausible primary texts were not independently accessible in this review; an uninspected or unindexed clipped-perimeter result remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closest classical comparator; area/perimeter distinction supported by frozen comparison, not an independent full-text exclusion",
+          "evidence": [
+            "RESULT.md lines 89–91, 100 identify Lemma 2.1 and Theorem 3; OA requests timed out."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1602.07854",
+          "material_read": "Frozen comparison and references; no primary text retrieved",
+          "method": "Lawful OA requests for abstract-page and PDF locators, including Theorem 3",
+          "title": "Hyperplane Sections of Cylinders",
+          "trigger": "Exact central geometry and a competing extremal theorem"
+        },
+        {
+          "assessment": "Plausible adjacent geometry, not established as a matching theorem",
+          "evidence": [
+            "RESULT.md lines 89–91, 99; OA requests timed out."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1212.5946",
+          "material_read": "Frozen description; no primary text retrieved",
+          "method": "Lawful OA requests for abstract-page and PDF locators, including circumference",
+          "title": "Oblique Circular Cones and Cylinders",
+          "trigger": "Possible ellipse circumference law"
+        },
+        {
+          "assessment": "Available statement varies area, not perimeter; no whole-record exclusion implied",
+          "evidence": [
+            "Summary identifies upper-tail behavior near maximal normalized area for random central sections; mirror timed out."
+          ],
+          "identifier_or_url": "Resultary 2026/10/25/488ad84c6b0e",
+          "material_read": "Catalogue result summary; decisive Finding not retrieved",
+          "method": "Local Resultary search, followed by a bounded mirror Finding retrieval attempt",
+          "title": "Fourth-root upper tails and crossover scaling of random central sections",
+          "trigger": "Strongest distinct local catalogue match"
+        },
+        {
+          "assessment": "Different observable and section-selection quantifier",
+          "evidence": [
+            "Summary treats intact-section probabilities governed by cap incidence, not a central perimeter minimum."
+          ],
+          "identifier_or_url": "Resultary 2026/11/1/0b656f49bef5",
+          "material_read": "Catalogue summary",
+          "method": "Local Resultary search",
+          "title": "Sharp intact-section probabilities for convex cylinders with fixed constraints",
+          "trigger": "Cap-incidence geometry and perimeter-related bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md theorem and proof"
+      ],
+      "rationale": "The natural orientation optimization is not settled by comparing the obvious disk and rectangle: a clipped oblique section also competes. Ruling it out, proving that local and global changes occur at different aspect ratios, and quantifying the loss of contact smoothness give usable geometric information beyond an ellipse formula.",
+      "residual_risks": [
+        "Value is the centered circular-cylinder classification, not a general theorem about arbitrary solids or all planes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The explicitly defined normal-mode copula has mixed density bounded between \(1-\theta\) and \(1+\theta\), giving positivity and exact margins. The integer-frequency cosine pushforward is the arcsine law independently of frequency, proving invariance for every integrable density-value functional. Exact absolute and even moments give total variation, chi-square, and an absolutely convergent mutual-information series. Direct conditional-CDF integration gives both directional Chatterjee coefficients with denominator normalization \(1/6\); even-frequency concordance cancellations and the exact sine supremum establish the limiting separation. The ordinary Python checker passed across six configurations; the analytical proof handles every positive integer mode, not just sampled modes.
+PASS
 
-## Originality (O): PASS, with explicit priority limitations
+The mixed derivative is bounded by 1±theta with uniform margins. Under the uniform reference, each of the m or n half-waves maps to the same arcsine law after reflection, so the entire likelihood-ratio distribution is mode-independent. This proves invariance of every finite density-value integral in the stated sense, not of arbitrary dependence measures. TV is one half theta times (2/pi)^2; chi-square is theta^2/4. Symmetry kills odd cosine-product moments in the uniformly absolutely convergent expansion of (1+x)log(1+x) on |x|≤theta<1. The jth even moment is the square of the central-binomial factor, giving the stated KL series and its strictly positive first term. The conditional CDF given U deviates from v by theta cos(m pi u) sin(n pi v)/(n pi). Its squared average, divided by the uniform-response normalization integral ∫v(1−v)dv=1/6, gives 3theta²/(2n²pi²); exchanging coordinates gives the other direction. Both classical concordances contain the factor (1−(−1)^m)(1−(−1)^n); in the Kendall formula the quadratic term is separately zero. The copula-CDF supremum is exact because each sine can independently attain absolute value one. Along the even-even sequence the divergence argument is fixed and strictly positive, so a positive lower calibration fails at that value even with common uniform density bounds. An independent 120-by-120 Gauss–Legendre calculation in /workspace/branches/6b723482-3a63-4963-b98f-7a2ea90253ee/independent_check.py gives KL 0.0320392688664850 and the two coefficients 0.002374715242 and 0.009498860966 at (m,n,theta)=(2,4,1/2). The finite check does not prove the universal formulas; the supplied midpoint checker was inspected read-only. At theta=1 strict positivity would fail and derivative bounds do not persist uniformly in mode; neither case is asserted.
 
-Chesneau (2021) supplies the trigonometric construction; Fukumoto (2023/2024) supplies classical concordance, nonmonotonicity, and estimation, including even-frequency zero rho and tau. Those are not claimed to be new. Chatterjee (2021) supplies the population rank statistic, and Ansari–Rockel (2026) describes the unrestricted xi/rho feasible region, not an information-divergence/rank-calibration law. Relevant published mathematical records about rank-one Sarmanov information capacity, frequency folding, and quantization artifacts were compared by their stated claims: none asserts the paired fixed-information, vanishing-two-directional-xi theorem. In particular, a result retaining xi under folding cannot imply its collapse here; the rank-one Sarmanov capacity result bounds mutual information but does not determine the two xi values across harmonic modes. Actual search phrases and comparison notes accompany the finding.
+## originality
 
-The indexed summaries of some related mathematical records were available but their full underlying articles were not retrieved. They are not classified as fully inspected or conclusively non-covering on the basis of snippets alone. A hidden equivalent argument in unindexed or inaccessible literature remains a priority risk.
+PASS
 
-## Value (V): PASS
+Best-of-knowledge pass for the exact joint information-versus-directional-rank frequency law and separation, not for the model, concordance cancellation, or definition of xi. The ingredients are elementary once juxtaposed; no inspected result states the same quantitative comparison or entails it without the specific additional mode analysis.
 
-Oscillatory copulas were specifically introduced for dependencies that ordinary monotonic concordance does not capture. The theorem gives a quantitative and exact structural distinction between density-level information and directional conditional-CDF rank predictability. It identifies an infinite smooth, uniformly bounded family in which both directional population rank measures become arbitrarily small at **fixed strictly positive** total variation and mutual information; the zero concordance and uniform-CDF limit sharpen interpretation. This rules out an otherwise plausible universal quantitative calibration from either information divergence to rank predictability and specifies exact frequency rates, rather than restating a single zero-correlation example.
+## value
 
-## Limits
+PASS
 
-The result says nothing about universal sample-test power, uniform density-derivative bounds, or complete historical priority. The supplied checker is corroborating evidence only; independence of the source calculations and any external certification have not been assessed.
+The construction refutes a plausible positive lower calibration of both directional xi coefficients by TV or mutual information, at exactly the same likelihood-ratio law across modes rather than just bounded-away alternatives. It also separates which axis controls which direction and shows why a uniformly positive, smooth density may still exhibit arbitrarily small conditional-CDF variance. The conclusion is operationally meaningful at the population level and does not purport to be a sample-power theorem.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:06:56.946800Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The rung states and their predecessor rules enumerate the weighted independent sets, and row exchange maps (z,t) to (tz,1/t). Independently enumerating two no-adjacent-one rail masks with zero intersection checks every bivariate coefficient through five rungs. I recomputed the discriminants via exact resultants and used exact root counts and gcd checks at t=1 (python3 /workspace/branches/independent_exact.py ladders, SymPy). For t>0 the degree never drops and all coefficients are positive. The first through fourth degrees stay simple and negative by continuity, since their discriminants never vanish. For degree five the normalized discriminant is −G(v), v=(t−1)^2/t; the single sign variation of G and opposite signs at zero and positive infinity give exactly one simple positive root. On t>1 this yields a simple discriminant crossing at T, independently bracketed by 4.01178730250453 and 4.01178730250455. To justify the multiplicity step, the Sylvester determinant of P and its z-derivative would have zero first derivative at any rank defect at least two, so its simple zero forces gcd degree exactly one, hence just one double root. The other three simple real roots persist locally. The sign flip of the discriminant changes the colliding pair to nonreal conjugates; no further collision is possible on that connected outer interval. Reciprocity supplies the other critical point and its outer interval. Strict positivity of the coefficients excludes nonnegative real zeros throughout. Five is the first rung count admitting some positive bias with nonreal zeros, not a claim of nonreal zeros for every bias, every longer ladder or physically positive fugacity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Scalar second-order recurrence and interlacing results give symmetric baseline methods. Weighted claw-free real-rootedness, and the characterization of same-phase stability, give more general results at the level of independently varied weights. Composite-graph unimodality/log-concavity statements concern different constructions and properties."
+        ],
+        "reasoning": "For n≥3 the ladder has an induced claw at an interior rail vertex. Failure of full multivariate same-phase stability on these graphs does not force failure on this row-homogeneous slice; lengths three and four in fact protect that slice. The symmetric second-order recurrence does not analyze the biased collision.",
+        "searches": [
+          "Wang–Zhu, arXiv:1008.2605v1, Lemma 2.2 and Theorem 3.1",
+          "Leake–Ryder, arXiv:1610.00805v4, Abstract/Introduction",
+          "Zhu–Lu, arXiv:1507.05754v1, Theorems 2.1–2.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1008.2605v1",
+        "arXiv:1610.00805v4",
+        "arXiv:1507.05754v1",
+        "Resultary 755b10f3d0c4",
+        "Resultary 36aaf0497284"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The isotropic recurrence and weighted real-rootedness on claw-free graphs are pertinent special cases. The inspected results do not give uniform-row protection up to four, the threshold polynomial, the simple discriminant crossing, or its resulting exact number of real roots."
+        ],
+        "reasoning": "A nonreal example under arbitrary individual weights is not a counterexample under row homogeneity. Unimodality and log-concavity do not imply real-rootedness, much less locate a double-root threshold. The oscillation argument at t=1 still needs the discriminant and collision analysis to count roots throughout the slice.",
+        "searches": [
+          "arXiv:1008.2605v1, scalar recurrence criterion",
+          "arXiv:1610.00805v4, weighted claw-free result and characterization",
+          "arXiv:1507.05754v1, composite-graph properties"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact matching Resultary result was the assigned record itself. The multivariate independence polynomial restricted to positive coefficients times one z is the correct general model; this record restricts the coefficients to two row-constant values. Two related same-day records concern a soft rung between paths and two-activity wheels, not this restriction on a hard-core ladder."
+        ],
+        "reasoning": "Graph independent-set and hard-core descriptions are equivalent with these weights. Independently varying all vertex weights cannot be substituted for varying just a homogeneous ratio on two rails. The same-day records use different graphs or interaction types, and same-day metadata do not determine priority.",
+        "searches": [
+          "Resultary: row-biased open ladder, two-activity hard-square strip, weighted independence polynomial and five-rung discriminant",
+          "arXiv:1610.00805v4, multivariate independence polynomial and common-phase restrictions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact threshold match was this record. The two related exact classifications concern a wheel with fixed hub activity and two uniform paths with one soft coupling, respectively; neither tabulates the stated ladder discriminant or threshold."
+        ],
+        "reasoning": "The wheel changes one fixed hub activity rather than multiplying each of five lower activities by the shared z. A soft inter-path rung does not impose hard exclusions on every rung. Their collision data cannot be read as the present data.",
+        "searches": [
+          "Resultary: five-rung row-anisotropic ladder and critical ratio 4.0117873",
+          "2026/11/22/SCOPE-exact-real-zero-collision-staircase-for-a-two-activity-hard-core--36aaf0497284",
+          "2026/11/22/SCOPE-arithmetic-real-zero-protection-for-a-single-attractive-rung-in--755b10f3d0c4"
+        ]
+      },
+      "rationale": "The novelty supported is the all-positive-row-bias boundary, including the first admissible length for nonreal roots and the exact five-rung phase diagram. Scalar recurrence methods cover the symmetric baseline, and claw-free weighted real-rootedness already covers short claw-free cases as far as real-rootedness is concerned. Neither addresses a constrained row-homogeneous bias transition in the clawed ladders.",
+      "residual_risks": [
+        "An unindexed small hard-square strip enumeration or discriminant analysis might give the same exact threshold. The broad web lookup was inconclusive and provides no evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers a scalar recurrence method and isotropic comparison, not the biased threshold",
+          "evidence": "Interlacing and real-zero criterion for a scalar second-order recurrence and results for vertex-glued concatenations.",
+          "identifier_or_url": "https://arxiv.org/html/1008.2605v1",
+          "material_read": "§2, Lemma 2.2, offsets 7213–12749; §3, Theorem 3.1, offsets 13510–16679",
+          "method": "Lawful OA full-text passages",
+          "title": "On the unimodality of independence polynomials of some graphs",
+          "trigger": "Possible general transfer recurrence and real-rootedness theorem"
+        },
+        {
+          "assessment": "General real-rootedness for the claw-free setting; full same-phase characterization does not give the sharp bias slice",
+          "evidence": "Positive vertex rescalings and the characterization by claw-freeness allow independent activity biases rather than a fixed ratio between the two rows.",
+          "identifier_or_url": "https://arxiv.org/html/1610.00805v4",
+          "material_read": "Abstract/Introduction, offsets 0–6714",
+          "method": "Lawful OA full-text passages",
+          "title": "Generalizations of the Matching Polynomial to the Multivariate Independence Polynomial",
+          "trigger": "Broad weighted stability framework could cover the short ladders"
+        },
+        {
+          "assessment": "Different graph constructions and properties",
+          "evidence": "Log-concavity and unimodality criteria for polynomial composition and lexicographic products, with real-zero results for particular constructions.",
+          "identifier_or_url": "https://arxiv.org/html/1507.05754v1",
+          "material_read": "Abstract (0–2000), §2 Theorems 2.1–2.2 (8929–14467)",
+          "method": "Lawful OA full-text passages",
+          "title": "Unimodality of the independence polynomials of some composite graphs",
+          "trigger": "Potential independence-polynomial root theorem for composite graphs"
+        },
+        {
+          "assessment": "Soft single-rung coupling, not hard constraints at all rungs with homogeneous row bias",
+          "evidence": "Gcd-based census for two uniform-fugacity paths with one soft inter-path rung.",
+          "identifier_or_url": "2026/11/22/SCOPE-arithmetic-real-zero-protection-for-a-single-attractive-rung-in--755b10f3d0c4",
+          "material_read": "Finding and assumptions, offsets 0–3471",
+          "method": "Resultary and local mirror text",
+          "title": "Arithmetic real-zero protection for a single attractive rung",
+          "trigger": "Real-zero protection on two coupled paths"
+        },
+        {
+          "assessment": "Wheel parameterization does not specialize to an open ladder row bias",
+          "evidence": "A shared complex rim fugacity and fixed nonnegative hub fugacity with exact collision staircase.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-real-zero-collision-staircase-for-a-two-activity-hard-core--36aaf0497284",
+          "material_read": "Finding and assumptions, offsets 0–2892",
+          "method": "Resultary and local mirror text",
+          "title": "Exact real-zero collision staircase for a two-activity hard-core model",
+          "trigger": "Exact threshold in a related two-activity hard-core model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Uniform row bias is a natural activity perturbation of a finite-width lattice gas. The sharp first failure shows a genuine gap between isotropic, row-homogeneous and unrestricted-weight real-rootedness; in particular a claw alone does not predict the failure on this slice. The exact location and type of the first collision give a concrete benchmark for zero studies of weighted strips, without making an inference about the thermodynamic limit.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

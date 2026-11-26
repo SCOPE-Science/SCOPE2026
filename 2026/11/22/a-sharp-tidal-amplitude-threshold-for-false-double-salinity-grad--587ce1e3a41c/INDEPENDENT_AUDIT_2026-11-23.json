@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:14:03.241076Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–67",
+        "Frozen VERIFICATION.md and CHECK.py (inspected as evidence)",
+        "Evans–Williams, arXiv:math/9801146, Theorem 1.2",
+        "Independent sign-count derivation and rational endpoint-sign replay"
+      ],
+      "rationale": "The averaged gradient is the Gaussian convolution of the centered arcsine law of radius A, with A=0 giving a single Gaussian. It is analytic and even, with negative first derivative for x>A. For A>0 the bounded approximants have derivative measures with signs +,−,+,− in order (the outer signs are endpoint atoms). The Gaussian variation-diminishing result applies to these finite measures, with the uniform derivative limit following from L¹ convergence. The bound can also be checked directly: after factoring the Gaussian, four distinct zeros of a convolved approximant derivative would give four exponentials orthogonal to the derivative measure weighted by e^{−y²/(2σ²)}. A nonzero combination vanishing at −A,0,A has only these three zeros and all are simple, by the Rolle induction for distinct real exponentials. It has opposite signs on the two interior intervals and kills both atoms, so its integral against the weighted measure cannot vanish. Thus the limiting derivative has at most three sign changes. Symmetry and its eventual negativity give exactly the claimed maxima once the near-center derivative sign is fixed; zeros without sign changes cannot add extrema. The circular-mean identity reduces the central curvature to e^{−u}[(2u−1)I₀−2u I₁]/(sqrt(2π)σ³). For u>1/2 each zero of d=1−1/(2u)−I₁/I₀ has d′=1/(4u²)>0, and d is negative at 1/2 and positive at 1, so there is only one zero. At that root the Bessel bracket B has B′=I₀/(2u) and B″=−I₀/(2u²); applying σ⁻²(u∂²_u+∂_u) again gives p_A⁽⁴⁾(0)=−p_A(0)/σ⁴, settling strict unimodality at equality. Separate rational positive-series bounds with geometric remainders verify opposite bracket signs at 7899784/10⁷ and 7899785/10⁷, and numerical bisection gives u≈0.78997842134357 and A/σ≈1.77761460541206. The frozen CHECK.py was inspected, not executed. The strictly positive mean gradient and Gaussian symmetry prove the single midpoint crossing regardless of mode count.",
+      "residual_risks": [
+        "The theorem concerns full-cycle uniform averaging on the whole real line with fixed intrinsic width and rigid sinusoidal translation. No field or finite-window validation is supplied."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Genda et al. identify continuous phase averaging with cross-correlation and explicitly use the arcsine density for harmonic motion on p. 9; Appendix A derives its moments.",
+          "Evans–Williams give the general bound on the number of sign changes after a scalar diffusion transition, including for finite signed measures."
+        ],
+        "reasoning": "These theorems genuinely yield the initial arcsine representation and the global upper bound on sign changes, respectively. They do not show for which smoothing parameters the upper bound is attained or that central curvature changes sign once.",
+        "searches": [
+          "Genda–Fidlin–Gendelman, DOI 10.1002/zamm.202300432, KIT open copy",
+          "Evans–Williams, arXiv:math/9801146, Theorem 1.2"
+        ]
+      },
+      "checked_sources": [
+        "Genda–Fidlin–Gendelman, DOI 10.1002/zamm.202300432 (KIT open copy)",
+        "Evans–Williams, arXiv:math/9801146",
+        "Resultary 587ce1e3a41c and 498dfb6644cb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior averaging theorem specializes to the convolution used here. The diffusion theorem bounds sign changes without prescribing either their existence or their multiplicity at the center.",
+          "The inspected reset threshold uses a central derivative test for a different law. The audited proof requires the Bessel ratio crossing, global uniqueness of its root and the sign of the fourth derivative at that root."
+        ],
+        "reasoning": "Knowing the averaged distribution representation and maximum allowed number of modes does not classify the number as a function of amplitude. The missing signed curvature and threshold-equality analysis are not obtained by merely relabeling the nearest stated modal theorem.",
+        "searches": [
+          "10.1002/zamm.202300432, p. 1, p. 9 and Appendix A",
+          "arXiv:math/9801146, Theorem 1.2",
+          "Resultary 498dfb6644cb, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The nondimensionalized density equals that of a sinusoid evaluated at independent uniform phase plus a scalar Gaussian, not necessarily the envelope of a noisy quadrature vector.",
+          "Resultary 498dfb6644cb is a two-shift Gaussian/Laplace smoothing from Brownian resetting and has the critical equation g_b(a_c)=φ_σ(a_c), not the arcsine Bessel bracket.",
+          "A noisy sinusoidal amplitude representation surfaced as a search lead, but no accessible statement was obtained to determine whether its variable is the scalar marginal or an envelope."
+        ],
+        "reasoning": "The arcsine-plus-scalar-Gaussian formulation is exactly equivalent and was treated as such, not dismissed by terminology. The inspected resetting result has different mixing support and only a similar bifurcation shape. The uninspected noisy-sinusoid lead cannot establish overlap or noncoverage.",
+        "searches": [
+          "Uniform-phase sinusoid plus independent Gaussian noise: arcsine–Gaussian marginal and its modes",
+          "Resultary 587ce1e3a41c and 498dfb6644cb",
+          "Signal-processing search for Bessel representation of noisy sinusoidal amplitudes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary match is the frozen finding itself. The same-day reset threshold is a distinct model with a different threshold equation. No inspected independent table or entry gives the exact arcsine–Gaussian root and modes."
+        ],
+        "reasoning": "An identical self-match cannot count as an independent statement. The available entries were compared by equations and laws, not date or name. No priority conclusion follows from search misses.",
+        "searches": [
+          "Resultary 587ce1e3a41c and 498dfb6644cb; modal threshold under Gaussian smoothing",
+          "Noisy sinusoidal amplitude distribution / 1.7776 threshold literature lookup"
+        ]
+      },
+      "rationale": "Both the arcsine averaging reduction and the Gaussian variation bound are covered by prior mathematics. The distinct result assessed here is the sharp one-to-two modal classification for this particular arcsine–Gaussian convolution, with its unique Bessel-ratio root and strict quartic equality regime. The inspected close catalogue analogue uses a different smoothing law, and the inspected general theorems do not determine the central sign or the unique threshold. A plausible signal-processing lead remains unresolved rather than treated as negative evidence.",
+      "residual_risks": [
+        "Unresolved noisy-sinusoid source and possible unindexed Gaussian scale-space equivalents. Best-of-knowledge distinction does not settle historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the cross-correlation identity and arcsine reduction, not the asserted Gaussian convolution modality analysis in the inspected material",
+          "evidence": "Harmonic phase density is arcsine with half-width A; Appendix A develops its moment-generating function.",
+          "identifier_or_url": "https://publikationen.bibliothek.kit.edu/1000169557/152514465 (DOI 10.1002/zamm.202300432)",
+          "material_read": "p. 1 abstract (offset 0), p. 9 harmonic example (48200), pp. 28–29 opening of Appendix A (129400)",
+          "method": "Bounded PDF inspection of lawful KIT repository copy of the same paper",
+          "title": "An alternative approach to averaging in nonlinear systems using classical probability density",
+          "trigger": "Exact prior representation for phase averaging and arcsine input"
+        },
+        {
+          "assessment": "Direct prior method and mode-count bound; no arcsine-specific threshold",
+          "evidence": "One-dimensional diffusion transition operators do not increase sign changes of finite signed measures.",
+          "identifier_or_url": "https://arxiv.org/abs/math/9801146",
+          "material_read": "Theorem 1.2, PDF p. 3 (near offset 11500)",
+          "method": "Bounded OA PDF text inspection",
+          "title": "Transition operators of diffusions reduce zero-crossing",
+          "trigger": "Broad diffusion sign-variation result used in the global mode bound"
+        },
+        {
+          "assessment": "Distinct process and mixing law",
+          "evidence": "Two-shift Gaussian/Laplace smoothing associated with resetting, with threshold g_b(a_c)=φ_σ(a_c).",
+          "identifier_or_url": "Resultary 498dfb6644cb",
+          "material_read": "Finding at offset 0",
+          "method": "Local Resultary mirror text inspection",
+          "title": "A sharp Gaussian reset-separation threshold for modal survival",
+          "trigger": "Same-day closely analogous quartically flat one-to-two modal transition"
+        },
+        {
+          "assessment": "Identical frozen record, not a separate antecedent",
+          "evidence": "Same arcsine–Gaussian law, threshold bracket and equality analysis.",
+          "identifier_or_url": "Resultary 587ce1e3a41c",
+          "material_read": "Finding and proof, offsets 330–7722 in bounded passages",
+          "method": "Local Resultary mirror text inspection",
+          "title": "A sharp tidal-amplitude threshold for false double salinity gradients in a single diffusive interface",
+          "trigger": "Exact match in the local catalogue"
+        },
+        {
+          "assessment": "Unresolved scope; no negative inference from access failures",
+          "evidence": "The search phrases concern a Bessel amplitude representation, but do not establish the random variable, the theorem or any modality classification.",
+          "identifier_or_url": "Springer candidate DOI 10.1007/s00362-021-01262-z; ResearchGate search hit 354481009",
+          "material_read": "Search citation only; no primary passage or verified DOI-to-title match obtained",
+          "method": "Targeted lookup and bounded lawful retrieval attempts, including the identified ResearchGate link",
+          "title": "Bessel representation for amplitude distribution of noisy sinusoidal signals (search lead, title not independently confirmed)",
+          "trigger": "May analyze a probability law in the equivalent sinusoid-plus-Gaussian formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, theorem, model and limitations",
+        "Genda–Fidlin–Gendelman, DOI 10.1002/zamm.202300432 (representation only)"
+      ],
+      "rationale": "This is a quantitatively sharp diagnostic for interpreting a plausible averaging artifact: a single translating interface can give two averaged gradient peaks without adding any median salinity crossing or instantaneous interface. The critical amplitude relative to the intrinsic width and the strict equality case decide whether this can happen for the specified model, rather than merely giving a numerical counterexample. The all-parameter mode bound also excludes more complex false profiles in this specific setting.",
+      "residual_risks": [
+        "Does not establish how common the effect is in field data or apply directly to truncated wells, nonlinear conductivity averages, or non-Gaussian coupled transport."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

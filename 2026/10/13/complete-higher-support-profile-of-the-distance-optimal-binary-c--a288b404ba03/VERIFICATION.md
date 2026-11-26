@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,36 +18,25 @@
   "schema_version": 1
 }
 ---
-`artifacts/verify.py` uses only the Python standard library.
 
-It encodes
-\[
-g(x)=x^9+x^7+x^6+x^3+x^2+1
-\]
-as a binary bit vector and forms the six shifted rows
-\[
-g(x),xg(x),\ldots,x^5g(x).
-\]
-The verifier checks that these rows have rank \(6\).
+# Independent mathematical audit
 
-It enumerates all \(64\) messages and verifies the exact ordinary weight distribution
-\[
-1+25z^6+30z^8+3z^{10}+5z^{12}.
-\]
+## correctness
 
-For each
-\[
-1\le r\le6,
-\]
-the script generates every \(r\)-dimensional subspace of \(\mathbb F_2^6\) exactly once in reduced-row-echelon form. It checks the dimension counts
-\[
-63,\ 651,\ 1395,\ 651,\ 63,\ 1,
-\]
-for a total of
-\[
-2824.
-\]
+PASS
 
-For every basis it computes the bitwise union of the corresponding codeword supports, compares the complete histogram with `artifacts/certificate.json`, and checks one explicit minimizing basis in each dimension.
+Polynomial long division verified that g divides x^15+1 with quotient 1+x²+x³+x⁴+x⁶. Its six shifts have distinct leading degrees and rank six. Independent hyperplane/coset enumeration generated all 2,824 message spaces and computed support from the sum of all word weights on each divided by 2^(r−1), rather than the frozen script's basis-support union. Every bin, the hierarchy (6,9,11,13,14,15) and all six minimizer counts agree. The ordinary distribution also agrees by independently comparing all 64 words to arrays a_i+b_j with a and b even, in CRT order.
 
-Successful replay prints `VERIFY_OK`.
+## originality
+
+PASS
+
+The cyclic construction and classical parameters are not claimed as new. The full support counts of its exact parity-cut presentation are not supplied by the inspected cyclic or graph-code comparisons. The pass concerns the verified distribution of this fixed code, not its presentation or all length-15 optimal codes.
+
+## value
+
+PASS
+
+The fixed natural cyclic code also describes even cuts of a small complete bipartite graph. Its table counts all simultaneous cut supports, including 40 extremal two-spaces and 11 two-spaces meeting every coordinate. These incidence-sensitive counts distinguish it from alternatives with the same parameters and are useful beyond confirming its already-known minimum distance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

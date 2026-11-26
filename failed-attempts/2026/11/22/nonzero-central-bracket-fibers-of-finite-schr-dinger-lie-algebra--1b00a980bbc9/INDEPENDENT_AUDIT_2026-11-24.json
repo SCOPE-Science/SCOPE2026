@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:21:23.659415Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In odd characteristic the trace-zero centralizer of any nonzero X in sl₂ is its span: X is nonscalar and its full matrix centralizer is spanned by I and X. Thus a nonzero commuting pair is (αT,βT) in a unique projective direction. The determinant-one change (u,v)↦(t,w) in the proof preserves ω and reduces the vector condition to Tw=0. Each w≠0 gives q^(2n−1) choices of t for any scalar c, whereas w=0 contributes only at c=0. Exactly q+1 projective lines are nilpotent, each with q^n kernel vectors, and each has q²−1 coefficient pairs. Including the purely symplectic case X=Y=0 and the q² free center coordinates gives the stated N_c. The extra zero fiber consists of q^(2n+2) choices per commuting sl₂ pair, and the number of such pairs is q³+(q³−1)q. This checks ordered pairs, all nonzero c and all odd prime powers. Independent replay `python /workspace/branches/independent_math.py bracket` used ranks of adjoint matrices with and without their center row rather than the supplied pair loop. It reproduced the three recorded prime-field checks and found (N_0,N_c)=(52494561,4723920) for q=9,n=1; these are examples, not the general proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sosnov studies bracket width; Fulman–Guralnick enumerate commuting pairs for classical Lie algebras. The distinct record ending f0f5cc8317b1 gives fibers for targets whose sl₂ projection is a fixed nonzero nilpotent e."
+        ],
+        "reasoning": "A nonzero nilpotent target projection is not the zero projection of a pure central target. The stronger coverage relevant here is the same-algebra typed census together with its proof, not these other results.",
+        "searches": [
+          "arXiv:2611.16812v1",
+          "arXiv:1611.05499",
+          "Resultary: three-level bracket-fiber law on nilpotent slices"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records ending f15d2ef997cd and f0f5cc8317b1",
+        "arXiv:2611.16812v1",
+        "arXiv:1611.05499"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For X=0, the proof gives Y_V v=0 and a nonzero residual functional on V exactly when v≠0. For X≠0, it gives Y=tX, w=tv+u with u in ker X_V, and expressly classifies the image of u↦ω(v,u) as zero or one dimensional; invertible X has trivial kernel."
+        ],
+        "reasoning": "Changing the right side of that already-classified functional from 0 to c immediately selects the three rows and retains their counts. Applying the invertible-X exclusion to either input shows that every contributing nonzero direction is nilpotent. The all-zero sl₂ part is the direct nondegenerate symplectic count, and the remaining q+1 nilpotent directions have equal counts, either from the fixed-matrix counts in the proof or by symplectic conjugation of their kernel lines. The displayed decomposition is therefore a regrouping, not an independent unresolved invariant.",
+        "searches": [
+          "Resultary record ending f15d2ef997cd, proof of the X=0 and X≠0 cases, RESULT.md offset 2530"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The relevant centralizer theorem uses the same diagonal standard sl₂ action and the same symplectic central term. Fixing A, any nonempty fiber over cz is a coset of C_L(A).",
+          "Sosnov's same-algebra bracket-width result concerns attainment rather than this quantitative census."
+        ],
+        "reasoning": "With the same normalization, the sum of the sizes of C_L(A) over A with z in the image of ad_A is exactly N_c for each c≠0. The typed centralizer proof determines that image test.",
+        "searches": [
+          "Resultary: finite Schrödinger Lie algebra centralizer ranks, prescribed central bracket fiber and nilpotent slices",
+          "arXiv:2611.16812v1, Definitions 2.1–2.2 and Theorem 1.1(3)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The table's types with z in the image are X=0 with v of rank one or two, and nonzero nilpotent X with v outside ker X_V. Their (multiplicity, centralizer dimension) pairs are (q(q+1)(q^n−1),2n+1), (q(q^n−1)(q^n−q),2n), and (q(q²−1)(q^(2n)−q^n),n+1)."
+        ],
+        "reasoning": "Multiplying each displayed multiplicity by q raised to the matching dimension and summing gives exactly q^(2n+1)[q^(2n)−1+(q+1)(q²−1)(q^n−1)]. Removing that sum from the full six-type sum gives the frozen N_0−N_c. Thus the table supplies the exact count for all parameters even though its reported aggregate concerns commuting.",
+        "searches": [
+          "Resultary record ending f15d2ef997cd, Finding table and Proof"
+        ]
+      },
+      "rationale": "The centralizer record ending f15d2ef997cd does not print N_c, but its six-type table and proof mechanically imply it. The proof already gives the projected centralizer equations and exactly when the residual linear functional vanishes or has one-dimensional image. For any prescribed c≠0 the nonvanishing cases have the same solution counts as c=0, while vanishing cases give none. The exact formula, its nilpotent split and the zero excess are recoverable from these statements. This is scientific coverage, not an inference of priority or ordering from the common date; the scalar commuting probability alone would not have sufficed.",
+      "residual_risks": [
+        "No ordering or historical priority is inferred from the two records' common date. The failure is based on demonstrated mathematical implication.",
+        "The comparison does not exhaust unindexed bracket-fiber literature and makes no claim about off-center targets."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The stated equations and typed counts imply the claimed nonzero-target count and yield the stated decomposition",
+          "evidence": "The proof says that on ker X_V the symplectic functional vanishes identically iff v belongs to that Lagrangian kernel, otherwise it has one-dimensional image. This determines which centralizer sizes to sum.",
+          "identifier_or_url": "2026/11/22/SCOPE-centralizer-rank-spectra-and-a-stable-commuting-law-for-finite-s--f15d2ef997cd",
+          "material_read": "RESULT.md Finding, six-type table around offset 648, and Proof offsets 2530–4310",
+          "method": "Resultary lookup and bounded local mirror reading",
+          "title": "Centralizer rank spectra and a stable commuting law for finite Schrödinger Lie algebras",
+          "trigger": "Closest exact same-algebra typed census"
+        },
+        {
+          "assessment": "Different target slice, not direct coverage of central targets",
+          "evidence": "The fixed sl₂ target e is nonzero nilpotent; cz has sl₂ projection zero.",
+          "identifier_or_url": "2026/11/22/SCOPE-three-level-bracket-fiber-law-on-nilpotent-slices-of-schr-dinger--f0f5cc8317b1",
+          "material_read": "Mirrored RESULT.md Finding and Proof passages, offsets 0–6992",
+          "method": "Resultary lookup and bounded local mirror reading",
+          "title": "Three-level bracket-fiber law on nilpotent slices of Schrödinger Lie algebras",
+          "trigger": "Exact brackets in the same algebra on a nearby target slice"
+        },
+        {
+          "assessment": "Same convention and an attainability result, not a target fiber count",
+          "evidence": "The bracket-width criterion is in terms of sums of squares, not the number of representations.",
+          "identifier_or_url": "https://arxiv.org/html/2611.16812v1",
+          "material_read": "Theorem 1.1(3) and §2 Definitions 2.1–2.2",
+          "method": "Open-access HTML passage reading",
+          "title": "Uniqueness of addition in Schrödinger algebras",
+          "trigger": "Primary same-object bracket-width work"
+        },
+        {
+          "assessment": "Classical algebras and zero targets, not this semidirect extension's pure central nonzero fibers",
+          "evidence": "Counts for general linear, unitary and symplectic Lie algebras.",
+          "identifier_or_url": "https://arxiv.org/abs/1611.05499",
+          "material_read": "Abstract and Introduction, PDF pp. 1–3",
+          "method": "Open-access PDF passage reading",
+          "title": "Enumeration of Commuting Pairs in Lie Algebras over Finite Fields",
+          "trigger": "Related exact finite-field Lie bracket census"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Counting pure central representations is naturally motivated, and the determinant-one proof is a clear alternate derivation. But the exact invariant and its nilpotent grouping are mechanical consequences of the six-type census and its explicit image calculation. Repackaging the same counts without a distinct quantitative or structural increment does not meet the bar for a stand-alone exact invariant; no valuable unaddressed remainder of this specific Finding was identified.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

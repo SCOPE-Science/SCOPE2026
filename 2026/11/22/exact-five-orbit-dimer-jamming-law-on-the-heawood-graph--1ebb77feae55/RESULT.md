@@ -1,75 +1,45 @@
-# Exact five-orbit dimer-jamming law on the Heawood graph
+# A derangement classification of the six-dimer Heawood orbits
 
 ## Finding
 
-In irreversible random sequential dimer adsorption on the Heawood graph, the final number \(X\) of deposited dimers has the **exact** law
+Let \(M\) be a maximal matching of size six in the Heawood graph, viewed as the point–line incidence graph of the Fano plane. Its unmatched vertices are a point \(p\) and a nonincident line \(\ell\). Define
 \[
-\Pr(X=5)=\frac{19}{330},\qquad
-\Pr(X=6)=\frac{497}{792},\qquad
-\Pr(X=7)=\frac{1247}{3960}.
+d(M)=\#\{xy\in M:x\in N(\ell),\ y\in N(p)\},
 \]
-No other terminal count is possible. Thus the mean is \(\mathbb EX=24779/3960\), the expected vertex coverage is \(24779/27720\), and perfect occupancy has probability \(1247/3960\). The possible terminal matchings number \(42\), \(168\), and \(24\), respectively. Under the full graph automorphism group, these \(234\) matchings split into **five** orbits with the following exact per-matching probabilities:
+where \(x\) is a point, \(y\) is a line, and \(N\) denotes graph neighbors. The integer \(d(M)\) takes precisely the values \(0,2,3\) and is a **complete invariant** under the full graph automorphism group. For each fixed nonincident pair \((p,\ell)\), the matching is determined by a subset \(D\) of the three points of \(\ell\) and a derangement on \(D\); here \(|D|=d(M)\). The three orbits are:
 
-| Dimers | Orbit cardinality | Probability of each labelled matching | Total orbit probability |
-|---|---:|---:|---:|
-| \(5\) | \(42\) | \(19/13860\) | \(19/330\) |
-| \(6\) | \(28\) | \(261/98560\) | \(261/3520\) |
-| \(6\) | \(56\) | \(8257/1995840\) | \(8257/35640\) |
-| \(6\) | \(84\) | \(91723/23950080\) | \(91723/285120\) |
-| \(7\) | \(24\) | \(1247/95040\) | \(1247/3960\) |
+| \(d(M)\) | Matchings for each fixed unmatched pair | Orbit size | Probability of each labelled matching under i.i.d. edge-priority adsorption |
+|---:|---:|---:|---:|
+| 0 | 1 | 28 | \(261/98560\) |
+| 2 | 3 | 84 | \(91723/23950080\) |
+| 3 | 2 | 56 | \(8257/1995840\) |
 
-In particular, terminal matchings with the *same cardinality* can have different deposition probabilities; the three distinct size-six orbit probabilities are not recoverable from the static matching-size census.
+Thus a local incidence count distinguishes the three weight classes of six-dimer outcomes. The numerical output weights are taken from the separate exact matching-output census [1]; the result here explains their symmetry classes and gives an invariant to recognize them without listing the matchings or computing any probabilities.
 
 ## Assumptions and scope
 
-The Heawood graph \(G\) has point vertices \(P_i\) and line vertices \(L_j\), indexed modulo seven, with an edge \(P_iL_j\) exactly when \(i-j\in\{0,1,3\}\pmod7\). It is the point–line incidence graph of the Fano projective plane, with fourteen vertices, twenty-one edges, and degree three. Initially all sites are empty. Every edge receives one independent, identically distributed continuous arrival priority. Processing the edges in increasing order, an arrival occupies its two endpoints if and only if both are vacant; rejected arrivals have no further effect. Accepted edges form a matching, which is inclusion-maximal when the process ends. Independent rate-one exponential arrival clocks give the same terminal law. Results are for a *single irreversible deposition round*, not equilibrium monomer–dimer fugacity sampling or repeated desorption.
+Points are the nonzero vectors of \(V=\mathbb F_2^3\); lines are kernels of nonzero linear forms on \(V\). Incidence means that a form vanishes on a vector. The structural result concerns inclusion-maximal matchings of size six, not arbitrary matchings of size six or maximum matchings. The probability column refers to a single irreversible run in which the edges are processed in ascending order of i.i.d. continuous priorities and an edge is accepted if both endpoints remain vacant. No orbit assertion about other terminal sizes is needed.
 
 ## Proof
 
-**First-arrival recursion.** For any set \(U\subseteq V(G)\) of occupied sites, put \(A(U)=\{uv\in E(G):u,v\notin U\}\). Let \(F_U(z)\) be the probability generating polynomial of the number of *future* accepted edges. Conditioning on the earliest arrival among currently feasible edges gives the finite identity
-\[
-F_U(z)=\begin{cases}
-1,&A(U)=\varnothing,\\[3pt]
-\displaystyle\frac{z}{|A(U)|}\sum_{uv\in A(U)}F_{U\cup\{u,v\}}(z),&A(U)\ne\varnothing.
-\end{cases}
-\]
-The recurrence terminates because each transition occupies two previously empty vertices. The conditioning is valid even though some rejected priorities may have occurred: the remaining feasible priorities retain exchangeable relative order. This also follows directly by ordering all twenty-one i.i.d. continuous priorities.
+**The unmatched pair and coordinates.** A size-six matching leaves one point and one line uncovered. It is maximal exactly when they are nonincident, since their connecting edge would otherwise be the only available addition. Fix such a pair and write \(\lambda\) for the form defining \(\ell\). Since \(\lambda(p)=1\), we have \(V=U\oplus\langle p\rangle\) for \(U=\ker\lambda\). Let \(x_1,x_2,x_3\) be the nonzero vectors of \(U\). The six remaining points are the \(x_i\) and \(p+x_i\). Let \(y_i\) be the unique nonzero linear form with \(y_i(p)=0\) and \(y_i(x_i)=0\); the restriction of \(y_i\) to \(U\) takes value one on the other two nonzero vectors. The six remaining lines are represented by \(y_i\) and \(y_i+\lambda\) for \(i=1,2,3\). Here \(N(p)\) consists of the three \(y_i\), and \(N(\ell)\) of the three \(x_i\).
 
-**Two-step reduction.** Edge transitivity lets the first accepted edge be \(P_0L_0\). Sixteen disjoint edges remain eligible for the second accepted dimer. Exactly eight second-edge choices leave twelve feasible edges and eight leave eleven; within each class the residual graph is isomorphic. The distribution of the number \(Y\) of *additional* dimers after the first two is:
+**Derangement description.** In the graph with \(p,\ell\) removed, point \(x_i\) is adjacent precisely to the lines represented by \(y_i\) and \(y_i+\lambda\). Point \(p+x_i\) is adjacent to \(y_i\) and the lines \(y_j+\lambda\) for \(j\ne i\). These assertions follow using \(\lambda(x_i)=0\), \(\lambda(p)=1\), and the values of \(y_i\) above. Let \(D\) be the set of \(x_i\) matched to \(y_i\). If \(x_i\notin D\), then \(x_i\) is matched to \(y_i+\lambda\) and \(p+x_i\) must be matched to \(y_i\), because no other remaining point is adjacent to the unused \(y_i\). For \(x_i\in D\), the remaining point \(p+x_i\) must be matched to \(y_j+\lambda\) with \(x_j\in D\) and \(j\ne i\). These choices define exactly a fixed-point-free permutation of \(D\), and every such pair \((D,\pi)\) reconstructs a matching. The empty set gives one matching, a two-element set gives one transposition (three choices of subset), and the three-element set gives two three-cycles. A singleton has no derangement. The edges from \(N(\ell)\) to \(N(p)\) in the matching are precisely the edges from \(x_i\in D\) to \(y_i\), so \(d(M)=|D|\).
 
-| Feasible edges after second dimer | Number of second-edge choices | \(\Pr(Y=3)\) | \(\Pr(Y=4)\) | \(\Pr(Y=5)\) |
-|---|---:|---:|---:|---:|
-| \(12\) | \(8\) | \(4/105\) | \(731/1260\) | \(481/1260\) |
-| \(11\) | \(8\) | \(89/1155\) | \(1559/2310\) | \(191/770\) |
+**Orbits.** Linear isomorphisms of \(V\) act by graph automorphisms and are transitive on nonincident point–line pairs: map a basis of one kernel and its complementary vector \(p\) to the corresponding vectors for another pair. For a fixed pair, every linear automorphism of \(U\) extends fixing \(p\), so its action on the three nonzero vectors of \(U\) gives all of \(S_3\): an ordered pair of distinct nonzero vectors is a basis and determines the third by addition. It permutes the choices of \(D\) and conjugates their derangements. This is transitive on each of the three types, including the two three-cycles. No graph automorphism can merge different types: \(d(M)\) counts matching edges between the neighborhoods of the two uncovered vertices and is unchanged even when their roles are interchanged. Each point is nonincident with four lines, giving \(7\cdot4=28\) pairs and hence orbit sizes \(28,84,56\).
 
-These entries are obtained by repeated application of the displayed exact finite recurrence; the complete edge list and replay code appear in the standalone verifiers. Averaging the two equally likely rows and adding the first two dimers gives precisely the stated \(5,6,7\) law. This is an *exhaustive finite proof*, not a Monte Carlo estimate.
-
-**Terminal configurations and symmetry.** A final matching \(M\) is possible if and only if it is inclusion-maximal, equivalently every graph edge touches an endpoint of an edge of \(M\). The include/exclude enumeration over all twenty-one labelled graph edges, with the no-common-endpoint restriction, gives exactly \(42\), \(168\), and \(24\) maximal matchings at sizes five, six, and seven. A complete enumeration of the Fano-plane point permutations preserving its seven line triples yields \(168\) incidence-preserving collineations. The explicit duality \(P_i\mapsto L_{-i}\), \(L_j\mapsto P_{-j}\) doubles this to the full group of \(336\) graph automorphisms. Their induced actions on the maximal matchings have orbit cardinalities \(42,28,56,84,24\).
-
-For a fixed maximal matching \(M\) of size \(k\), its exact probability is obtained by summing over the \(k!\) orders of its edges, or equivalently by dynamic programming over its subsets:
-\[
-H_M(S)=\begin{cases}
-1,&S=M,\\[2pt]
-\displaystyle\frac{1}{|A(V(S))|}\sum_{e\in M\setminus S}H_M(S\cup\{e\}),&S\subsetneq M,
-\end{cases}
-\]
-where \(V(S)\) is the union of endpoints in \(S\). For every intermediate \(S\subsetneq M\), the denominator is positive. Evaluating \(H_M(\varnothing)\) for a representative of each of the five computed orbits gives the five per-matching probabilities in the table. Since graph automorphisms preserve the arrival-priority law, the value is constant within each orbit. The individual class masses sum to one and recover the size distribution.
+**Connection to the known weights.** The priority law is invariant under each graph automorphism, so a labelled matching probability is constant within an orbit. The exact census [1, Finding and Proof] establishes three distinct weights at size six; their multiplicities are \(28,84,56\). Since there are exactly three orbits and three weights, no weight class can combine two of the orbits, and their distinct multiplicities identify the probability column. It is the geometric identification of the classes, rather than the weights themselves, that is asserted here.
 
 ## Verification
 
-Three standalone standard-library Python checkers are included: `check_vertex.py` executes the occupied-vertex-mask recurrence with exact rational arithmetic; `check_edge.py` independently constructs the seven Fano lines by nonzero binary vectors and executes an edge-conflict-mask recurrence; `check_orbits.py` enumerates all \(234\) terminal matchings, all \(336\) symmetries, their five orbits, and the exact probability of every terminal matching by edge-order subset recursion. All programs contain assertions of the full stated outputs; running `python3 check_vertex.py`, `python3 check_edge.py`, and `python3 check_orbits.py` requires only the Python standard library. A second-edge partition into two eight-member classes supplies an intermediate cross-check independent of the orbit census.
+`python3 check_six_orbits.py` enumerates all bijections of the remaining vertices for each of the 28 nonincident pairs in the binary model, confirms their derangement description and stabilizer transitivity, and independently checks the three weights for representatives by exact rational summation over accepted edge orders. The analytic argument above proves completeness and invariance under the full graph automorphism group without relying on the exhaustive calculation.
 
-## Relationship to prior work
+## Relationship to prior work and limitations
 
-Penrose and Sudbury (2005) defined dimer random sequential adsorption on general graphs and developed occupation equations and results for Bethe lattices, with large-graph limit theory. Gamarnik and Goldberg (2008) gave randomized greedy matching bounds and finite-girth corrections for regular graphs. Those frameworks justify the model and general algorithm but their examined results do not state the exact five-orbit Heawood terminal measure. The classical count of twenty-four perfect matchings on the Heawood graph is background information, not claimed as new. The contribution assessed here is the full rational terminal distribution and its finer symmetry-orbit splitting for this canonical cubic cage.
-
-## Limitations
-
-The result concerns the labelled fourteen-site Fano incidence graph and equal, independent, continuous edge-priority laws. It does not provide a limiting jamming law for growing projective-plane incidence graphs, unequal edge rates, desorption, finite-time coverage, or adsorption on arbitrary cubic graphs. Historical novelty is assessed only against the examined literature and research records; inaccessible or unlocated equivalent computations remain possible. The computations are exact and finite and do not imply a general theorem for infinite networks.
+The exact Heawood output distribution in [1] lists the same six-edge weight-class multiplicities and probabilities. A list of weights need not distinguish graph automorphism orbits: several orbits could have a single weight. The derangement model and the invariant \(d(M)\) supply the structural comparison. The separate records share a catalogue date, from which no order of publication is inferred. General greedy matching and random sequential adsorption frameworks [2,3] give the underlying selection process and do not identify the three local incidence types. This classification applies to the Fano incidence graph only, and the probability identification does not extend to non-invariant priority laws. Historical priority for the structural lemma is not established beyond the inspected evidence.
 
 ## References
 
-- M. D. Penrose and A. Sudbury, *Exact and approximate results for deposition and annihilation processes on graphs*, Annals of Applied Probability 15 (2005), 853–889. Earliest arXiv preprint 24 March 2005, `arxiv:math/0503519v1`, https://arxiv.org/pdf/math/0503519.
-- D. Gamarnik and D. A. Goldberg, *Randomized greedy algorithms for independent sets and matchings in regular graphs: Exact results and finite girth corrections*, `arxiv:0807.1277v1`, first submitted 8 July 2008, https://arxiv.org/html/0807.1277v1.
-- N. Pippenger, *Random Sequential Adsorption on Graphs*, SIAM Journal on Discrete Mathematics 2 (1989), 393–401, https://doi.org/10.1137/0402034.
-- Standard Heawood-graph combinatorial data, including the twenty-four perfect matchings: https://jaanos.github.io/tables/graphs/Heawood.html.
+1. *Exact random-priority dimer jamming and matching-output weights on the Heawood graph*, Resultary, record `538d2c590718`, https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-random-priority-dimer-jamming-and-matching-output-weights--538d2c590718/RESULT.md.
+2. M. D. Penrose and A. Sudbury, *Exact and approximate results for deposition and annihilation processes on graphs*, Ann. Appl. Probab. 15 (2005), 853–889, https://arxiv.org/abs/math/0503519.
+3. D. Gamarnik and D. A. Goldberg, *Randomized greedy algorithms for independent sets and matchings in regular graphs: Exact results and finite girth corrections*, https://arxiv.org/abs/0807.1277.

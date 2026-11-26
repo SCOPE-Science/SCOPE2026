@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:18:46.693918Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, assumptions and Proof §§1–4",
+        "Frozen VERIFICATION.md and verify_width.py"
+      ],
+      "rationale": "The orbit matrix has determinant 1−(−w)^n and column sum w+1, so the affine hull is the full sum hyperplane. Using the basis e_i−e_0 of its lattice differences gives all integer coefficient vectors modulo constants. An entry attaining M gives a predecessor evaluation at least m+wM; an entry attaining m gives one at most M+wm. Width is thus ≥(w−1)(M−m). Even order attains this at coefficient range one by alternation. At odd order the coordinate indicator gives width w and range ≥2 is excluded by the bound except for w=2, range two. In that exception width ≤2 forces the shifted evaluations into [2,4]; a 2 must be preceded by 0 and a 0 by 2. Following predecessors cyclically then forces even order, excluding the exception. For binary coefficients, the mixed transitions both occur and yield 1 and w; exactly one equal transition type gives width w, both give w+1, and no equal transitions yields the even alternating optimum. At odd n, complementing thus gives a unique nonempty no-11 representative modulo reversal; it is primitive because an intrinsic difference of coefficients is one. Splitting the independent-set count by occupancy of one vertex gives F_(n+1)+F_(n−1)=L_n; subtract the empty support. These arguments include n=3 and w=2. A separate bounded ternary enumeration at w=2 for n=3,4,5,7,9 gave counts 3,1,10,28,75, respectively. The frozen Python checker was inspected, not executed; finite results are not needed for the exhaustive symbolic classification.",
+      "residual_risks": [
+        "This is intrinsic lattice width, not Euclidean width, and assumes w≥2 and a consistently directed cycle."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The retrieved weighted-cycle statements study integer decomposition, including a uniform-weight sink/source regime, whereas the target orientation has one incoming and one outgoing edge at every vertex. Theorem 4.5 gives width 1 for odd d and 2m for even d for S(d,m); Theorem 1.3 adds emptiness in a restricted parameter range. The indexed same-date odd-cycle result studies Ehrhart numerators and first decomposition failure."
+        ],
+        "reasoning": "IDP and Ehrhart statements do not optimize over dual directions. The retrieved width theorem is stronger than its emptiness-range specialization in its own family, but its hypotheses require a different presentation up to equivalence and cannot cover all target parameters.",
+        "searches": [
+          "arXiv:2611.17047v1, introduction and Definition 2.5",
+          "arXiv:2103.14925, Theorems 1.3 and 4.5",
+          "Resultary ad47a8b7a625"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, Proof and Relationship to prior work",
+        "arXiv:2103.14925, Theorems 1.3 and 4.5 and latter proof",
+        "arXiv:2611.17047v1, identified excerpts",
+        "Resultary identifiers listed above (indexed statements)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior circulant evaluation is u_i+m(u_(i+1)−u_(i−1)); for even d it uses step-two cyclic order and a local extremal difference to prove width ≥2m. The target evaluation is u_i+w u_(i+1), where optimum coefficient ranges are ruled out by the predecessor bound and its w=2 equality case."
+        ],
+        "reasoning": "A general encoding by cyclic integer forms is common. The retrieved bound does not constrain when both digits occur, which equal transitions are permitted, or the complete set of minimizing normals in this family. The full uniform width/optimal-set statement needs that additional argument.",
+        "searches": [
+          "arXiv:2103.14925, §4.2, Theorem 4.5 and proof",
+          "arXiv:2611.17047v1 weighted oriented graph framework"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The weighted edge construction has exactly the target vertex columns on a naturally oriented uniformly weighted cycle. The circulant simplex S(d,m) instead has generator (1,m,0,…,0,−m). The latter family does intersect the target up to unimodular equivalence: P_(4,2) maps to S(3,1) and P_(5,2) to S(4,1). In e_i−e_0 coordinates, taking vertex 0 to vertex 0, the respective linear parts have rows [[0,0,−1],[1,1,1],[−1,0,0]] and [[1,0,1,0],[−1,−1,0,−1],[−1,0,−1,−1],[0,1,0,1]]. Substitution maps vertex labels respectively by (0,1,2,3) and (0,3,1,4,2); both determinants are −1."
+        ],
+        "reasoning": "The two checked equivalences really are intrinsic integral-affine equivalences, not merely simplex similarity. They do not generalize to all n,w: P_(3,2) has normalized volume (2³+1)/3=3, whereas S(2,m) has normalized volume 1+3m²≥4. So a result for S cannot be used as a full-family reduction. The same-object Ehrhart comparison concerns a different invariant.",
+        "searches": [
+          "Biermann–Lin–O’Keefe arXiv:2611.17047v1",
+          "Doolittle–Katthän–Nill–Santos arXiv:2103.14925, §4.2, Theorem 4.5",
+          "Resultary ad47a8b7a625"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact width theorem, via the explicit equivalences, already gives widths 1 and 2 for P_(4,2) and P_(5,2). It is not necessary to impose the emptiness bound to transfer these widths. The indexed assignment match f90977c760e6 is the record itself; ad47a8b7a625 gives different exact quantities and 7e2a40d010fc counts directions of another equality simplex."
+        ],
+        "reasoning": "Credit exact applicable values even without an entry in target notation. The proof of Theorem 4.5 gives witnesses and bounds, not the complete direction census for those examples or for general P_(n,w).",
+        "searches": [
+          "arXiv:2103.14925, exact width Theorem 4.5 and discussion of the emptiness regime after Theorem 1.3",
+          "Resultary f90977c760e6, ad47a8b7a625, 7e2a40d010fc"
+        ]
+      },
+      "rationale": "The same graph-polytope construction is known and the Doolittle–Katthän–Nill–Santos width theorem covers particular lattice-equivalent members, including P_(4,2) and P_(5,2). Those widths are not credited as new. The distinct contribution is the uniform width and complete primitive-direction classification for this weighted nonnegative orbit family, in particular the Lucas census rather than simply the value of the width. The compared circulant width theorem demonstrably does not transfer to the whole family and does not state this census.",
+      "residual_risks": [
+        "Other isolated lattice equivalences or differently named cyclic/simplex characterizations may provide additional cases. The review does not classify all such equivalences.",
+        "Unavailable portions of related sources and limited indexing leave residual priority risk; unavailable text is not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same construction and natural orientation terminology, but inspected claims concern decomposition; no whole-text exclusion",
+          "evidence": [
+            "Definition 2.5 distinguishes the consistently directed cycle; introduction discusses uniform-weight sink/source IDP cases."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.17047v1",
+          "material_read": "Introduction locate excerpts at offsets about 4548–4931 and Definition 2.5 excerpt about 7649",
+          "method": "OA HTML passage location; further offset open timed out",
+          "title": "Integer Decomposition Property of Edge Polytopes of Weighted Oriented Graphs",
+          "trigger": "Exact natural weighted-cycle vertex construction"
+        },
+        {
+          "assessment": "Confirmed transfer of the widths at (n,w)=(4,2),(5,2); not a full-family or full direction theorem. The DOI route was unavailable; the identified arXiv copy supplied the decisive proof.",
+          "evidence": [
+            "Theorem 4.5: S(d,m) has width 1 for d odd and 2m for d even. The proof gives the even-coordinate-sum or individual-coordinate witnesses and the lower bound, not the census."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2103.14925; DOI:10.1017/fms.2024.131",
+          "material_read": "OA arXiv PDF, p. 3 from offset ~11700 (definition and Theorem 1.3); pp. 15–16 at offsets ~57480–60354 (§4.2, Theorem 4.5 and proof)",
+          "method": "Lawful OA PDF passage inspection plus exact difference-coordinate verification",
+          "title": "Empty simplices of large width",
+          "trigger": "Potential lattice-equivalent family and exact width coverage"
+        },
+        {
+          "assessment": "Different invariant or object on available evidence; no priority ordering assumed",
+          "evidence": [
+            "The first concerns weighted odd-cycle Ehrhart and decomposition data; the second lists nine unoriented directions for another simplex of width one."
+          ],
+          "identifier_or_url": "Resultary ad47a8b7a625; 7e2a40d010fc",
+          "material_read": "Catalogue statements; local mirror attempts did not return the linked full texts",
+          "method": "Resultary search",
+          "title": "Binomial residue Ehrhart series and the first lattice decomposition failure; Exact minimum-width directions of the sharp lattice-width simplex",
+          "trigger": "Same-date exact family and another exact direction census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§1–4",
+        "arXiv:2611.17047v1, identified cycle-construction passages",
+        "arXiv:2103.14925, Theorem 4.5"
+      ],
+      "rationale": "The simplices come from a known integer-polytope construction; the intrinsic width controls their thinnest integral slabs. The parity distinction is stronger for extremizing directions than for the width itself: on changing parity a unique unoriented direction becomes a canonical family of independent sets with exponential Lucas growth. The range-two obstruction at w=2 is necessary for completeness rather than a cosmetic special case. The reusable exact census and parity structure are not a rounded numerical or known-table recomputation.",
+      "residual_risks": [
+        "No assertion for arbitrary orientation or nonuniform weight; exact covered widths are background, not a separate value claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

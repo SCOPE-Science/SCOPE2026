@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,7 @@
   "schema_version": 1
 }
 ---
+
 # Reproduction and scope
 
-Run `python3 verify.py` using standard Python 3, without external packages. The script performs exact integer polynomial multiplication, differentiation, and comparison; confirms the two cubic Jacobian syzygies and \(\det=-147f\), conic smoothness by a nonzero Hessian determinant, tangent gradients at the listed points, and numerical incidence and Tjurina totals.
-
-A successful run emits `VERIFY_OK`. The script does not prove the external published nonexistence result for maximizing degree-seven conic-line arrangements. That premise is Merta–Zieliński (2026), Proposition 3.2, arXiv:2610.16658v1; the local exhaustive intersection argument and all quantifiers for the new statement appear in RESULT.md. Numerical statements are exact identities over the integers, not floating-point experiments. Independently adjudicated priority and validity remain unperformed.
+The unchanged companion `verify.py` uses exact integer polynomial arithmetic. With standard Python 3, `python3 verify.py` checks both cubic Jacobian syzygies, the determinant \(-147f\), selected tangent and point incidences, and the multiplicity and Tjurina totals; its expected indication of success is `VERIFY_OK`. The proof in `RESULT.md` accounts for all local branches and gives the classification in the stated stratum by normalizing the five lines to a grid and solving the two remaining tangency equations. Neither projective uniqueness nor the comparison with earlier extremizers is a claim of the computational check.

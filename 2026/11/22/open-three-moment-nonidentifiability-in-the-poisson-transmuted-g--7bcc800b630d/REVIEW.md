@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact two-geometric-component mass function produces the stated probability-generating-function factorization. Differentiating its logarithm gives the three factorial cumulants. The equal-second-cumulant parameterization is strictly interior because \(b<c<a\), and a factored quadratic difference proves positivity of the Poisson rate. Strict convexity of \(x\mapsto x^{3/2}\) forces a third-cumulant bulge between equal endpoint values, so the intermediate-value theorem supplies two distinct parameters for every target below the maximum. An exact positive integer comparison certifies the displayed collision, and noncancellation of the dominant pole establishes distinct full laws. The included reproducibility program passed 71 finite checks; none substitutes for the continuum argument.
+## correctness
 
-**Originality — PASS, with residual historical uncertainty.** The 2023 defining preprint was read through its introduction, model, generating-function, moment and estimation sections. It gives moment expressions and maximum-likelihood/EM methods but does not present the open-region failure of the first-three-moment inverse map. A later full-text model treatment was compared; no such theorem was found in the inspected material. Searches for the model's moment inversion, factorial cumulants, geometric-mixture aliases, and parameter nonidentifiability revealed no directly covering result. General moment-identifiability research is not a proof of novelty, and an overlooked general theorem or alternate-version appendix remains a risk.
+PASS
 
-**Value — PASS.** This is a concrete obstruction in a natural three-parameter overdispersed count model: matching the first three population moments, even exactly and with strictly positive parameters, does not determine its distribution. The collision persists across an open moment region and is not due to nonidentifiable full likelihoods. It therefore identifies a substantive limit of any globally unique estimator based only on these three moments, while leaving full-likelihood inference untouched.
+Combining the two geometric series gives numerator (1-q)(1+alpha q)(1-rz), where r=q(q+alpha)/(1+alpha q). Normalizing at z=1 yields the stated logarithmic PGF and the first three factorial cumulants. With a=q/(1-q), b=q²/(1-q²), fixing the second cumulant at s² gives c²=a²+b²−s². On the specified interval a>s>b, hence b<c<a and the inverse r-to-alpha formula is strictly interior. The identity c²−(a+b−s)²=2(a−s)(s−b)>0 with a+b−s>0 makes lambda positive even at mu=s. The third-cumulant half F_s has equal endpoint values s³ and strictly exceeds them inside: for d=a²−s²>0, the increment of x^(3/2) over [s²,s²+d] exceeds that over [b²,b²+d]. Every intermediate height therefore crosses on both sides of an interior maximizer, without any unimodality assumption. Continuous dependence of the maximum on s follows by putting the interval on [0,1]; the coordinate change (mu,s,y) to factorial cumulants is a homeomorphism for s>0, and the raw-moment conversion is triangular and invertible. Independently recomputed the exact witness 8409²−401³=6230080 at s=1, q=3/5; the endpoint values are 1 so the level 3/2 has two distinct interior preimages at mu=1. The factorial cumulants (1,1,3) yield ordinary cumulants (1,2,7) and raw moments (1,3,14). The nearest PGF pole at 1/q is not canceled, so differing q means differing laws, not relabeling.
 
-**Scope and risks.** No claim is made about a complete moment-fiber census, fourth moments, numerical estimators, or finite-sample power. Historical priority has not been independently verified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The known PMF, moments and latent-mixture representation are not new. The verified additional claim is the open collision region with distributionally distinct interior preimages, and the exact interior-parameter witness (1,3,14). No equivalent coverage was found in the strongest inspected distinct sources.
+
+## value
+
+PASS
+
+This is a structural failure of globally unique three-population-moment estimation in an established three-parameter count model. An open set rules out an isolated coincidence, strict model parameters rule out endpoint degeneracy, and genuine distributional distinctness separates the finding from redundant parameter labels or a numerical ill-conditioning example. The exact witness gives an independently usable check of any proposed general inversion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Verification scope
-Run `python verify.py` with Python 3.10 or later. No dependencies outside the standard library are needed. The checker constructs two-coordinate rectangle implications directly from word pairs, repeatedly applies those implications until fixed point, identifies Hamming-connected components, verifies that each component is a coordinate box, and compares closure with greedy box merges. For small cases it also checks every smaller-size generator fails and searches for optimal-size generators. It prints `VERIFY_OK` only if every assertion completes.
+# Independent mathematical audit
 
-Actual verified output:
-```
-PASS (2, 2) points 4 tested_sets 16 minimum_generator 2 witness (0, 3)
-PASS (2, 3) points 6 tested_sets 64 minimum_generator 3 witness (0, 1, 5)
-PASS (3, 3) points 9 tested_sets 512 minimum_generator 3 witness (0, 4, 8)
-PASS (2, 2, 2) points 8 tested_sets 256 minimum_generator 3 witness (0, 1, 6)
-PASS (2, 3, 2) points 12 tested_sets 4096 minimum_generator 3 witness (0, 3, 10)
-PASS (2, 2, 2, 2) points 16 tested_sets 65536 minimum_generator 3 witness (0, 3, 12)
-PASS (3, 3, 3) points 27 tested_sets 800 minimum_generator 4 witness (0, 4, 11, 24)
-PASS (3, 2, 4) points 24 tested_sets 800 minimum_generator 4 witness (0, 5, 10, 19)
-PASS (2, 2, 2, 2, 2) points 32 tested_sets 800 minimum_generator 4 witness None
-VERIFY_OK exact_closure=PASS canonical_boxes=PASS merging=PASS generator_lower_upper=PASS
-```
-The final `witness None` means that exhaustive witness search was intentionally disabled for the 32-point product; it does not report a negative mathematical result. The constructive proof in RESULT.md supplies a witness for all sizes. The 70,480 exhaustively checked subsets concern products of at most sixteen words; there are 2,400 additional deterministic samples on three larger products. The exact all-parameter theorem is proved mathematically, not inferred from these tests. No external audit has been performed.
+## correctness
+
+PASS
+
+The implication stays in a box and cannot cross boxes at distance at least three. A new symbol in just one coordinate can be propagated over the base box one distance-one step at a time: the new-symbol word at the old base and the old-symbol word at the next base are the two distance-two premises. For a point at distance two, the first rectangle supplies the two one-symbol extensions, after which both can be absorbed. Traversing a distance-one spanning tree in the second box extends this to the box merge. The resulting greedy process stays in the actual closure and terminates in a closed cover of the seed, so it yields the closure for any merge order. For a closed set the distance-one components are precisely the boxes; the merge lemma rules out components at distance two. This includes the empty union. Coordinate coverage forces k≥1+M, and for a merge the rank Σ(|Bᵢ|−1) increases over the sum of the two ranks by Σ(1−|Bᵢ∩Dᵢ|)≤2, proving the other lower bound. For attainment, if the largest symbol class dominates, pair each other token with a distinct token of that class. Otherwise pair from two largest classes: with n tokens and each class at most ceil(n/2), any class attaining that cap must be among the two selected, so after removal the new cap ceil((n−2)/2) is maintained. The construction yields max(M,ceil(T/2)) groups. With the common base word, the group words generate all one-change words and then all words by the rectangle rule and induction on support. In dimension one this gives exactly q₁, consistent with there being no triggers.
+
+## originality
+
+PASS
+
+The structural recursion has a strong antecedent in ordinary P₃ convexity: connected hulls factor and nearby subproducts can merge, and in the binary case the two rules coincide. The supported distinct result is the exact induced-P₃ structure with arbitrary coordinate symbol subsets and its sharp heterogeneous generator count. Ordinary P₃ hulls fill an entire clique fibre as soon as there are two symbols in it; that operation is unavailable for induced P₃. The known geodesic result has a different closure and generator count in general.
+
+## value
+
+PASS
+
+Separated product components are a canonical description of the actual implication closure, making the box-merge algorithm exact rather than just an upper bound. The minimum generator formula distinguishes a single large alphabet's supply constraint from the total two-symbol growth budget. Those are natural structural features not detected by the established dimension-only ordinary-P₃ result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

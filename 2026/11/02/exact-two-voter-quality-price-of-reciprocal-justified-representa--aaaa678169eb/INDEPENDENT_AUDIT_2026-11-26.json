@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:22:54.099555Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two-person coalition is represented by every nonempty committee because each candidate has an approver. For each voter the singleton demand exists precisely when some approved candidate has quality ≥2/k (an empty approval set has no demand). A top-k committee that violates rJR misses exactly one eligible voter i, and every selected candidate is approved by the other voter. Let t be the least selected quality and choose a qualifying unselected c for i, of quality s∈[2/k,t]. Replacing a quality-t candidate represents i and leaves the other voter represented because k≥2. With Q*≥kt, the resulting ratio is 1+(t−s)/(Q*−t+s)≤kt/((k−1)t+s)≤k/(k−1+2/k), since t≤1. Replacing the denominator by the optimal feasible quality only improves the bound. With k exclusive quality-one candidates for voter 1 and one exclusive quality-2/k candidate for voter 2, rJR forces that last candidate; the feasible optimum is exactly k−1+2/k. This also covers k=2, where s=t=1 and any repair costs zero. The difference 8/7−k²/(k²−k+2)=(k−4)²/[7(k²−k+2)] proves the unique four-seat maximum. The constructive scan and one replacement have the stated sorting or selection complexity with two explicit approval bits. A bounded independent replay, /workspace/branches/replay_1.js, checks all three coalitions in size-(k+1) profiles on two quality levels in twelfths for k=2 through 7 (56, 126, 252, 462, 792, 1287 multiset-index cases). It corroborates the inequality but is not a universal proof or an equality check when 2/k falls off the twelfths grid. The frozen verification code was inspected but not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Boehmer et al. lower bound 4/3 uses two seats but a growing electorate in Example G.1; the 3/4 approximation gives the matching unrestricted upper bound.",
+          "The two-seat support-frontier record assumes n≥4 and minimum support d≥2, with retained fraction (3n−2d)/(4(n−d)) below half support and 1 from half support onward."
+        ],
+        "reasoning": "The global price is an upper bound on the restricted problem, not a sharp constant there: its construction leaves the two-voter setting. The indexed support thresholds trade off electorate size and support with the seat count held at two, so the result cannot specialize to k>2.",
+        "searches": [
+          "\"reciprocal justified representation\" \"quality price\" Boehmer Dong Kreisel Utke 2026",
+          "arXiv:2609.08830v1 Proposition 5.6; Example G.1; Corollary G.4",
+          "Resultary 5ea6dcb6a811"
+        ]
+      },
+      "checked_sources": [
+        "Boehmer–Dong–Kreisel–Utke arXiv:2609.08830v1",
+        "The Price of Justified Representation arXiv:2112.05994, abstract",
+        "Resultary 5ea6dcb6a811, exact mirrored text"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Specializing the general 4/3 bound to two voters still gives only 4/3; the sharp two-voter bound never exceeds 8/7.",
+          "A two-seat price of 1 follows at k=2 even from this proof, but gives no control when varying k reduces the singleton threshold to 2/k.",
+          "The sharp argument needs the two-person coalition collapse, the one-swap repair retaining the other voter, and matching exclusive-support profiles for all k."
+        ],
+        "reasoning": "The definition is an ingredient. None of the compared theorem statements, by specialization or objective renormalization, yields the entire exact sequence or its maximizer.",
+        "searches": [
+          "arXiv:2609.08830v1 Definition 5.2 and Appendix G",
+          "5ea6dcb6a811 Finding and related-work passage"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Definition 5.2 uses reciprocal affordability; for a singleton and n=2 this is the quality threshold 2/k, not unconditional representation.",
+          "Definition 5.3 compares total candidate qualities for the unrestricted and axiom-constrained optima. Maximizing the reciprocal price is equivalent here to finding the sharp minimum retained-quality fraction (k²−k+2)/k².",
+          "The classical JR price uses approval-count welfare or voter coverage under ordinary JR, not this quality objective and affordability condition."
+        ],
+        "reasoning": "A convention based on retained fraction instead of price is equivalent upon inversion. Replacing reciprocal affordability or candidate quality with classical JR or voter welfare is a different mathematical problem.",
+        "searches": [
+          "arXiv:2609.08830v1 Definition 5.2 and Definition 5.3",
+          "arXiv:2112.05994v2",
+          "two voters reciprocal justified representation quality price of representation exact ratio"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearby exact catalogue theorem fixes two seats and n≥4, d≥2, so its numerical frontier is for a different domain.",
+          "Its related-work passage reports a two-seat d=1 price 4(n−1)/(3n−2), giving 1 at n=2. The underlying older result was not independently retrieved."
+        ],
+        "reasoning": "The exact mirrored result was compared in both directions, not discarded because of the catalogue date. It reports the boundary overlap but neither the adjacent seat sizes nor the four-seat peak. The ranked searches found no exact varying-k match.",
+        "searches": [
+          "two voters reciprocal justified representation quality price of representation exact ratio",
+          "k^2/(k^2-k+2) exact two-voter rJR price 8/7 k=4",
+          "Resultary 5ea6dcb6a811 RESULT.md"
+        ]
+      },
+      "rationale": "The inspected sources supply the reciprocal axiom and unrestricted price, and indexed two-seat results overlap the trivial k=2 boundary. They do not supply the exact two-voter price as a function of arbitrary seat count or its unique four-seat maximum. The bounded comparison supports that specific contribution, not a claim to the reciprocal rule or publication priority.",
+      "residual_risks": [
+        "The underlying earlier d=1 two-seat result was reported but not independently located; that overlap is credited at k=2 only on the evidence available.",
+        "The primary search was bounded and returned no substantive additional source; a search miss or catalogue date does not prove priority or exclude broader unindexed work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same objective and reciprocal axiom, but the exact unrestricted price does not imply the sharp fixed-two-voter sequence.",
+          "evidence": [
+            "The price assumes every candidate has a supporter.",
+            "Example G.1 uses two seats and increasing electorate size; Corollary G.4 provides the matching general quality guarantee."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.08830v1",
+          "material_read": "§5.2 p. 14 Definitions 5.2–5.3 (offset 56872); Proposition 5.6 pp. 15–16 (offsets about 65149–65407); Appendix G Example G.1 p. 41 (156327) and Corollary G.4 p. 43 (163809).",
+          "method": "Read the original OA preprint's defining passages, lower-bound construction and upper-bound corollary.",
+          "title": "Approval-Based Multiwinner Voting with Candidate Qualities",
+          "trigger": "Introduces the same reciprocal JR axiom and gives an exact global quality price."
+        },
+        {
+          "assessment": "The described results concern ordinary JR and different objectives; no coverage of the precise reciprocal candidate-quality problem is established by that passage.",
+          "evidence": [
+            "The stated price objectives include approval-based social welfare and voter coverage under ordinary JR."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2112.05994",
+          "material_read": "Abstract, PDF p. 1, offset 0.",
+          "method": "Read the original OA abstract for the policy and objectives being compared.",
+          "title": "The Price of Justified Representation",
+          "trigger": "Related price-of-representation terminology, with a possible objective or axiom match."
+        },
+        {
+          "assessment": "The main theorem has two seats but at least four voters and minimum support at least two; its related-work passage reports a separate overlap at k=2 only.",
+          "evidence": [
+            "The main retained-quality frontier uses the parameters n,d, not a varying seat count.",
+            "The related-work price 4(n−1)/(3n−2) is specifically for two seats and at d=1."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-minimum-support-quality-frontier-for-two-seat-reciprocal-r--5ea6dcb6a811/RESULT.md",
+          "material_read": "Finding, assumptions and related-work passage, offsets 0 and 4850.",
+          "method": "Read exact mirrored text; compare seat count, electorate size, support and direction of the price ratio.",
+          "title": "Exact minimum-support quality frontier for two-seat reciprocal representation",
+          "trigger": "Closest exact catalogue result on quality loss under the same axiom."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The smallest nontrivial electorate isolates the effect of seat count on the cost of reciprocal representation. The exact bound and matching examples quantify that effect, showing that the worst loss is neither at two seats, as in an unrestricted construction, nor asymptotically, but exactly at four. The one-swap structural reduction also gives a usable repair with a sharp quality guarantee. This is an exact structural result over all seat counts rather than a numerical check at a few chosen k.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

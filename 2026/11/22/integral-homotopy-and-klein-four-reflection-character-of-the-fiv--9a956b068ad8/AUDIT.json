@@ -1,165 +1,106 @@
 {
   "correctness": {
-    "rationale": "Two exact all-mask face tests coincide (1048576 masks); complete 72568-face Morse matching has 36039 pairs and critical vector one vertex + 489 dimension-seven cells; complete acyclicity via 446610 Hasse covers proves integral wedge. Signed invariant-face Lefschetz sums give character and correct nonnegative integral rational decomposition; executable verifier rerun and compared.",
+    "rationale": "The dual lexicographic matching computes the one positive homology degree and rank over the integers. Exact enumeration of all fixed unions of vertex orbits computes the signed Lefschetz sums; the orientation contribution of a union of b orbits is (−1)^(b−1). Taking the inner products with the four rational sign characters gives the multiplicities. Quotient ranks follow from exactness of finite-group coinvariants over Q.",
     "status": "PASS"
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
+  "independent_audit_status": "passed",
+  "independent_validation": true,
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "Filakovský proves all rectangular grids for k=2,3, all k under edge-only square gluing, but declares k>3 corner-gluing unresolved.",
-        "Chandrakar et al. Theorem 1.1 covers 2-row total cuts of any k and 3-row total 3-cuts.",
-        "The published integral full series on the 4-by-4 grid does not include 4-by-5."
+        "The proved robust-grid formulas cover lower k on general rectangles, or all k under edge-only square attachments. The cited total-cut theorem treats two-row grids and three rows at k=3."
       ],
-      "reasoning": "None is a stronger theorem whose specialization proves parameter-five four-by-five homotopy or the representation; rank-only duality is not such coverage.",
+      "reasoning": "The proved families do not cover the stated higher-k rectangular representation; the conjecture is nonequivariant.",
       "searches": [
-        "five-robust clique 4x5 grid P4 square P5 k5 total five-cut homotopy",
-        "rectangular grid k-robust clique four by five grid 2026",
-        "arxiv:2602.11365 Theorem 1 Corollary 3 Conjecture 5",
-        "arxiv:2408.07646 Theorem 1.1",
-        "published-finding corpus:2026/10/25/SCOPE-integral-homotopy-classification-of-robust-clique-complexes-on-t--ad24e6739c28"
+        "arXiv:2602.11365 Theorems 1–2, Corollary 3 and Conjecture 5",
+        "arXiv:2408.07646v3 Theorem 1.1"
       ]
     },
     "checked_sources": [
-      "arxiv:2602.11365 (full HTML)",
-      "arxiv:2209.13503 (primary PDF page 22 screenshot and relevant text)",
-      "arxiv:2408.07646 (full HTML theorem scope)",
-      "published-finding corpus published 4-by-4 full-series RESULT.md",
-      "published-finding corpus published 3-by-5 and 3-by-6 series RESULT.md",
-      "published-finding corpus published k4 finite rectangular-grid RESULT.md"
+      "arXiv:2209.13503",
+      "arXiv:2602.11365",
+      "arXiv:2408.07646v3",
+      "a723a1190e9a",
+      "ad24e6739c28",
+      "695baded869f",
+      "39d3a3f8c30c"
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "The current proof exhibits exactly one critical 0-cell and 489 critical 7-cells under an exhaustively checked acyclic matching, which gives the integral homotopy statement.",
-        "Signed fixed-simplex Lefschetz calculation yields traces (489,31,13,15), not determined by an ordinary Betti-number table.",
-        "The 3-by-5 and 3-by-6 finite classifications give k5 homotopy at different row counts; no implication to 4-by-5 follows.",
-        "Post-proof claim-specific published-finding corpus queries naming the tuple (489,31,13,15) and eigenspace multiplicities (137,123,114,115) returned closest fourth-robust rectangular grids and 4-by-4/3-by-5 fifth-robust work, not an exact result."
+        "An exact replay of the earlier lexicographic element matching on the dual has 489 unmatched ten-dimensional faces aside from the base vertex supplied by the empty-face pair. This and Alexander duality yield the known support and, by simple connectivity, the ordinary wedge. Neither step computes the representation."
       ],
-      "reasoning": "Knowledge of the rank and some grid parameter cases does not force an integral homotopy equivalence or an action of two reflections on homology. The presented matching and fixed-simplex trace calculations supply the missing stronger data.",
+      "reasoning": "The new signed fixed-orbit counts supply information absent from the nonequivariant matching and rank.",
       "searches": [
-        "five-robust clique 4x5 grid P4 square P5 k5 total five-cut homotopy",
-        "reflection character five robust clique grid 4x5 k5 489 C2 x C2 representation",
-        "grid robust clique fifth homology representation on rectangle 4 by 5",
-        "arxiv:2602.11365 Sections 1,3",
-        "arxiv:2209.13503 Section 5 Table 3 Appendix Theorem 7.2",
-        "published-finding corpus:2026/10/25/SCOPE-sharp-binomial-breakdown-in-the-robust-clique-homotopy-of-two-wi--695baded869f",
-        "The five robust clique complex of the four by five Cartesian grid is wedge 489 seven spheres and has row column reflection character 489 31 13 15",
-        "Integral homotopy type Cliq_5 P_4 square P_5 top seventh homology Klein four eigenmultiplicities 137 123 114 115"
+        "Bayer et al. Table 3 and Appendix Theorems 7.2 and 7.5",
+        "arXiv:2602.11365 Conjecture 5"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "The five-robust complex is the Alexander dual of the total five-cut complex (Filakovský, Definition 9 and arXiv HTML lines 201-206).",
-        "Bayer et al. Table 3 already lists rank 489 for total five-cut of G(4,5)."
+        "The robust complex is Alexander dual to the total five-cut complex on the same labelled grid. The earlier text computes Betti data, not traces for either formulation."
       ],
-      "reasoning": "Alexander duality establishes the numerical rank but not integral unstable homotopy or the equivariant trace. Both aliases were explicitly considered; no same claim found.",
+      "reasoning": "Even after accounting for orientation in equivariant duality, the rank alone does not specify the two reflection traces and the trace of their product.",
       "searches": [
-        "five-robust clique 4x5 grid P4 square P5 k5 total five-cut homotopy",
-        "rectangular grid k-robust clique four by five grid 2026",
-        "arxiv:2602.11365 Conjecture 5 and Definition 9",
-        "arxiv:2209.13503 Table 3"
+        "Bayer et al., arXiv:2209.13503 §5 and Appendix §7, total five-cut dual",
+        "Resultary: five-robust clique P4 square P5 Klein-four homology character"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "Bayer et al. Table 3 row k=5, n=5 has beta_10=489 and dimension 14 for the total cut complex.",
-        "published-finding corpus k4 finite grid record contains 4-by-5, but not k5.",
-        "No exact character tuple (489,31,13,15) was returned by targeted published-finding corpus queries."
+        "Table 3 reports the already known dual rank 489. Nearby indexed classification results at k=4, on the 4×4 grid, on width-three grids, and for sequences of five squares concern other cases."
       ],
-      "reasoning": "The exact number 489 is published; it is not a new finding. The integer homotopy wedge certification and reflection character are distinct invariants not present in the relevant table. No matching whole theorem was identified, with unindexed tables a residual risk.",
+      "reasoning": "No verified table other than the finding being assessed gives the full character for the indicated graph and threshold.",
       "searches": [
-        "five-robust clique 4x5 grid P4 square P5 k5 total five-cut homotopy",
-        "reflection character five robust clique grid 4x5 k5 489 C2 x C2 representation",
-        "4x5 total 5 cut complex rational reflection traces 31 13 15",
-        "four by five grid robust clique k=5 homology numerical wedge 495",
-        "arxiv:2209.13503 Table 3 PDF page 22",
-        "published-finding corpus:2026/10/18/SCOPE-four-robust-clique-homotopy-on-the-first-two-dimensional-grid-ra--a723a1190e9a"
+        "arXiv:2209.13503 Table 3",
+        "Resultary: 4×5 five-robust reflection traces 489 31 13 15",
+        "a723a1190e9a, ad24e6739c28, 695baded869f, 39d3a3f8c30c"
       ]
     },
-    "rationale": "Distinct from published Betti rank 489: a complete non-equivariant integral wedge homotopy certificate and new full rational Klein-four character. The two closest exact finite grid results and the two most pertinent full primary articles do not imply the refinement. Priority uncertain for unindexed prior computational reports.",
+    "rationale": "The statement concerns only the exact rational reflection character and its quotient-rank consequences; the known rank and the homotopy type implied by the published matching recipe are not originality claims.",
     "residual_risks": [
-      "Bayer and coauthors report Morse-element computations for tabulated Betti values; equivalent unpublished perfect matching data might have existed.",
-      "An unindexed appendix, software repository, or later paper could already contain this specific character or homotopy classification.",
-      "No independent verification of mathematical or publication priority has been performed."
+      "The search and inspected passages do not rule out unindexed computation of the exact representation.",
+      "Only the rational character and consequences are asserted, not an integral lattice or an equivariant Morse matching."
     ],
     "source_inspections": [
       {
-        "assessment": "No k5 4-by-5 homotopy or reflection character; all-grid theorem covers k2 and k3 only",
+        "assessment": "Rank and mechanical integral wedge implication; no reflection character in these results",
         "evidence": [
-          "Theorem 1 and Corollary 3 (k2,3 / edge-only), Conjecture 5 (higher-k corner gluing), Definition 9"
-        ],
-        "identifier_or_url": "https://arxiv.org/html/2602.11365",
-        "material_read": "Full HTML introduction, Definitions 9 and 12, Theorem 1, Corollary 3, Conjecture 5, Example 10, proof discussion and references",
-        "method": "Public lawful arXiv HTML, examined actual theorem hypotheses and stated conjecture",
-        "title": "The Topology of k-Robust Clique Complexes in Grid-like Graphs",
-        "trigger": "Lead 2026 paper defining the exact complex, its grid theorem and its open square-sequence conjecture"
-      },
-      {
-        "assessment": "Exact rank 489 already present; neither unstable homotopy classification of the robust dual nor reflection representation is stated",
-        "evidence": [
-          "Table 3: total 5-cut of G(4,5), beta_10=489",
-          "Section 5 reports numerical grid values; Appendix gives discrete-Morse methodology"
+          "Table 3 gives β_10=489; Theorem 7.5 gives acyclicity. The exact recipe produces 489 critical ten-faces."
         ],
         "identifier_or_url": "https://arxiv.org/pdf/2209.13503",
-        "material_read": "PDF full text relevant Sections 1,5, Appendix discrete-Morse definitions and Table 3 (page 22) viewed as screenshot",
-        "method": "Public arXiv PDF text plus actual page screenshot for table",
+        "material_read": "§1 p. 2, §5 pp. 21–22, Appendix §7 p. 23",
+        "method": "Open-access bounded PDF passages and exact matching reproduction",
         "title": "Total Cut Complexes of Graphs",
-        "trigger": "Alexander-dual original table can dominate numerical novelty"
+        "trigger": "Same graph and parameter under Alexander duality"
       },
       {
-        "assessment": "Theorem 1.1 covers total k-cuts only for 2-row grids or total 3-cuts for 3-row grids, not parameter 5 on 4-by-5",
+        "assessment": "The higher-k rectangular case is conjectural, with no character statement here",
         "evidence": [
-          "Theorem 1.1 equations and stated 2-by-n/3-by-n proof sections"
+          "Theorem 1 treats k=2 or 3; Corollary 3 requires edge-only sequences for arbitrary k."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2602.11365",
+        "material_read": "Theorems 1–2, Corollary 3 and Conjecture 5",
+        "method": "Open-access bounded HTML reading",
+        "title": "The Topology of k-Robust Clique Complexes in Grid-like Graphs",
+        "trigger": "Same robust-clique predicate and grid family"
+      },
+      {
+        "assessment": "Different grid dimensions or threshold",
+        "evidence": [
+          "The theorem concerns two rows or three rows at k=3 for total cuts."
         ],
         "identifier_or_url": "https://arxiv.org/html/2408.07646v3",
-        "material_read": "Public arXiv HTML introduction, Conjecture 1.1, Theorems 1.1 and 1.2, sections of proofs describing two-row and three-row scope",
-        "method": "Public lawful arXiv HTML full text inspected by theorem and parameter searches",
+        "material_read": "Theorem 1.1",
+        "method": "Open-access bounded HTML reading",
         "title": "Topology of Total Cut Complexes and Cut Complexes of Grid Graphs",
-        "trigger": "Plausibly dominating grid total-cut homotopy results"
-      },
-      {
-        "assessment": "Covers every k on the 4-by-4 grid but no 4-by-5 k5 or reflection traces",
-        "evidence": [
-          "k5 on 4-by-4 has 122 seven-spheres; source expressly credits previously tabulated Bayer numerical ranks"
-        ],
-        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/25/SCOPE-integral-homotopy-classification-of-robust-clique-complexes-on-t--ad24e6739c28/RESULT.md",
-        "material_read": "Complete RESULT.md including claim, matching proof, prior work, verification, limitations",
-        "method": "Authorized published file fetch",
-        "title": "Integral homotopy classification of robust clique complexes on the 4-by-4 grid",
-        "trigger": "Same parameter family and close grid size"
-      },
-      {
-        "assessment": "k5 wedges at 3-by-5 and 3-by-6 only, no four-row case",
-        "evidence": [
-          "3-by-5 k5 rank 67 and 3-by-6 k5 rank 206"
-        ],
-        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/25/SCOPE-sharp-binomial-breakdown-in-the-robust-clique-homotopy-of-two-wi--695baded869f/RESULT.md",
-        "material_read": "Complete RESULT.md: theorem, exact matching, scope, limitations, references",
-        "method": "Authorized published file fetch",
-        "title": "Sharp binomial breakdown in the robust-clique homotopy of two width-three grids",
-        "trigger": "Same robust clique parameter k5 on nearby 3-row grids"
-      },
-      {
-        "assessment": "Addresses 4-by-5 at k4, never k5; k4 character does not imply k5 character",
-        "evidence": [
-          "4-by-5 k4 wedge of 220 fifth spheres; no parameter-five representation"
-        ],
-        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/18/SCOPE-four-robust-clique-homotopy-on-the-first-two-dimensional-grid-ra--a723a1190e9a/RESULT.md",
-        "material_read": "Complete RESULT.md of six finite grids, including explicit 4-by-5 at k4 and k4 square characters",
-        "method": "Authorized published file fetch",
-        "title": "Four-robust clique homotopy on the first two-dimensional grid range and square-symmetry characters",
-        "trigger": "Identical 4-by-5 graph and related homology symmetry methods"
+        "trigger": "Grid-specific exact total-cut classifications"
       }
     ],
     "status": "PASS"
   },
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
-  "schema_version": 1,
-  "scope_run_id": "9a956b06-8ad8-44d3-a496-299896eb9d8b",
+  "previously_published_pending_reaudit": false,
   "value": {
-    "rationale": "The natural first unresolved four-row parameter-five robust-clique case in a recent higher-parameter square-sequence homotopy conjecture is classified up to integral homotopy, strengthening known Alexander-dual rank-only data. The complete rational row-column symmetry representation is a meaningful additional invariant with quotient consequences, not a numerical rank recomputation. Specific 20-vertex instance is a structurally motivated finite cutoff, not an arbitrary parameter slice.",
+    "rationale": "This finite calculation determines the action of the natural rectangular symmetries on cycles of a geometrically motivated robust-clique complex. It yields exact rational quotient ranks that the nonequivariant wedge does not determine.",
     "status": "PASS"
   }
 }

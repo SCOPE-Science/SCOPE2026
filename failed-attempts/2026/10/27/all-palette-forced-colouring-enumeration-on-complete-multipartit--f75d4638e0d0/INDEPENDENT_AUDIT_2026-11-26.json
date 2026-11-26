@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:54:35.181474Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–68; VERIFICATION.md and verify.py inspected without executing",
+        "python3 /workspace/branches/replay_2_3_4.py 4: direct forcing of all assignments versus independent inclusion–exclusion counts for 28 excess-palette cases; verifies minimum, cutoff and parallel-round bound, including the four K(2,2,2) coefficients"
+      ],
+      "rationale": "Every force agrees with any proper extension of the current assignment, proving uniqueness when the process succeeds. If the assignment is incomplete, the first force requires lambda minus one distinct neighbour colours and introduces or uses the last colour. Different parts have disjoint final palettes. Thus a part with two or more final colours can never receive a force, and two empty monochromatic parts would prevent the first force. Conversely, if at most one part is empty and all multicoloured parts are full, an empty part fills first if present; all remaining vertices in seeded monochromatic parts then see every other colour. The falling factorial and Stirling product count ordered disjoint part palettes and within-part surjections; the subtraction in the correction removes exactly the already-counted total assignment. For the minimum, one can empty a monochromatic part and keep just one seed in every other monochromatic part. The extra colours can be assigned to the remaining split parts precisely when their number is at most the surplus and their aggregate capacities reach it. A smallest possible target part attains the degree cutoff: choose lambda-1 colour classes over the outside parts (at least one and at most their sizes per part), then use the remaining colour on the target. If the palette exceeds the cutoff the total-colouring term still applies, even when lambda>N.",
+      "residual_risks": [
+        "Exhaustion in the replay is restricted to the tabulated small parameter profiles; the proof supplies generality."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "SCOPE-20261013-5336d2e3f828 for r>=3, lambda=r+1",
+          "SCOPE-20261018-2d913e8a2a13 for r>=3, lambda>=r+2",
+          "SCOPE-20261013-45e5ee98b751 for r=2, lambda>=3",
+          "Farr Proposition 5 p. 9 covers the high-palette total-only regime for any graph"
+        ],
+        "reasoning": "The three parameter domains partition the whole new regime claimed in the frozen record. Farr additionally gives the high-palette bound via maximum degree, so the upper cutoff is not a distinct advance. The chromatic-palette result and Farr's two-colour bipartite theorem are boundary references, not what establishes coverage here.",
+        "searches": [
+          "Earlier multipartite one-spare and beyond-one-extra Resultary results",
+          "Farr arXiv:2609.17108v1, Proposition 5 and Theorem 7"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.17108v1",
+        "SCOPE-20261013-45e5ee98b751",
+        "SCOPE-20261013-5336d2e3f828",
+        "SCOPE-20261018-2d913e8a2a13",
+        "SCOPE-20261004-ab08eebc2655",
+        "SCOPE-20261004-3fb93c858f69"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The October 18 minimum minimizes the same split-part capacity sum over proper subsets; October 13 one-spare gives the minimum from the single split part; October 13 bipartite requires a full shore"
+        ],
+        "reasoning": "A proper split-part subset has a vertex part j outside it, exactly the allowed unseeded monochromatic target. With one spare colour this subset has size one; with two shores one either seeds an eligible entire shore or uses a total colouring. The earlier structural criteria also imply the two-round bound directly: first an empty monochromatic part if any, then all other missing vertices. Joining these cases and presenting a common variable do not supply a distinct theorem.",
+        "searches": [
+          "2d913e8a2a13, Minimum domain; 5336d2e3f828, Finding and Proof; 45e5ee98b751, Finding; arXiv:2609.17108v1 pp. 7, 12"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE-20261018-2d913e8a2a13, Finding and Proof: multicoloured parts are full and at most one monochromatic part is empty; the evaluated correction is B_t(z)-z^N",
+          "SCOPE-20261013-45e5ee98b751, Finding: one shore must be fully coloured with lambda-1 colours and the other has only the remaining colour whenever seeded"
+        ],
+        "reasoning": "Multiplying the frozen E_t by z^b gives the earlier B_t minus z^N exactly. For two parts, the earlier one-full-shore criterion is the same classification. The probability basis p^k(1-lambda p)^(N-k) recovers the domain enumerator by dividing by (1-lambda p)^N and setting z=p/(1-lambda p).",
+        "searches": [
+          "Resultary: excess-palette forced colouring, split part, complete multipartite and complete bipartite forcing-domain polynomials",
+          "Farr arXiv:2609.17108v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected October 13 and October 18 Finding sections give functional exact enumerations, not just sample values",
+          "The October 4 chromatic-palette and bipartite three-colour records cover known boundary or special cases"
+        ],
+        "reasoning": "These parameterized enumerators dominate a lookup table. K(2,2,2) at four colours is an immediate one-spare specialization, not an independent uncovered coefficient result.",
+        "searches": [
+          "Configured Resultary lookups for forcing-function profiles, all palettes and multipartite strict excess",
+          "Exact local-mirror RESULT.md files for 5336d2e3f828, 2d913e8a2a13, 45e5ee98b751, ab08eebc2655 and 3fb93c858f69"
+        ]
+      },
+      "rationale": "The cited chromatic and three-colour comparisons are not the complete coverage picture. Three distinct earlier indexed results jointly cover every admissible parameter: all excess palettes on two shores, one spare colour on r>=3 parts, and two or more spare colours on r>=3 parts. The proof structure, full coefficient enumerator and minimum in the last range match directly, and the other ranges match by specialization or elementary coefficient conversion. The unified statement leaves no distinct uncovered scientific result.",
+      "residual_risks": [
+        "The coverage decision is a statement comparison with identifiable earlier corpus records, not a resolution of historical priority for the predecessors themselves."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves general high-palette boundary and general statistics; does not supply the claimed classification in inspected passages",
+          "evidence": "For lambda>Delta+1 only total proper assignments contribute; non-total forcing must have at least lambda-1 initially represented colours.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.17108",
+          "material_read": "Probability change of variables p. 7; Proposition 5 p. 9; Theorem 7 p. 11; Propositions 8–9 and discussion p. 12",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "The forced colouring function of a graph",
+          "trigger": "Closest primary work; frozen record reported missing full text"
+        },
+        {
+          "assessment": "Direct earlier coverage of the entire two-part range",
+          "evidence": "Full shore with lambda-1 distinct colours, other shore seeded only in last colour if at all, and exact probability polynomial.",
+          "identifier_or_url": "SCOPE-20261013-45e5ee98b751",
+          "material_read": "RESULT.md Finding and Assumptions, offsets 0–6164",
+          "method": "Resultary and local mirror",
+          "title": "Forced colouring functions of complete bipartite graphs for lambda>=3",
+          "trigger": "Full coverage of r=2"
+        },
+        {
+          "assessment": "Direct earlier one-spare specialization",
+          "evidence": "Unique fully precoloured split part, monochromatic-part seed condition, domain polynomial and minimum.",
+          "identifier_or_url": "SCOPE-20261013-5336d2e3f828",
+          "material_read": "RESULT.md Finding and Proof, offsets 0–8249",
+          "method": "Resultary and local mirror",
+          "title": "One spare color forces a unique split part in complete multipartite graphs",
+          "trigger": "One-extra-palette overlap for r>=3"
+        },
+        {
+          "assessment": "Direct earlier coverage for every part profile with r>=3 and surplus>=2",
+          "evidence": "Same local criterion, corrected profile contribution B_t-z^N, and capacity minimum over proper subsets.",
+          "identifier_or_url": "SCOPE-20261018-2d913e8a2a13",
+          "material_read": "RESULT.md Finding, Proof, Minimum domain, offsets 0–11538",
+          "method": "Resultary and local mirror",
+          "title": "Forced-colouring polynomials of complete multipartite graphs beyond one extra colour",
+          "trigger": "Same proof and formula for all higher surplus"
+        },
+        {
+          "assessment": "Endpoint consistency only; not needed for the excess-palette coverage decision",
+          "evidence": "At lambda=r>=3 all parts are monochromatic and a seed in at least r-1 parts suffices.",
+          "identifier_or_url": "SCOPE-20261004-ab08eebc2655",
+          "material_read": "RESULT.md Finding and Proof",
+          "method": "Resultary and local mirror",
+          "title": "Forced colourings of complete multipartite graphs at the chromatic palette size",
+          "trigger": "Chromatic-palette boundary"
+        },
+        {
+          "assessment": "Exact earlier three-colour subcase",
+          "evidence": "Three forcing classes and probability/domain-size enumerations on all K(m,n).",
+          "identifier_or_url": "SCOPE-20261004-3fb93c858f69",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary and local mirror",
+          "title": "Forced three-colouring polynomial of complete bipartite graphs",
+          "trigger": "Named special case"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 4–47",
+        "SCOPE-20261013-45e5ee98b751",
+        "SCOPE-20261013-5336d2e3f828",
+        "SCOPE-20261018-2d913e8a2a13"
+      ],
+      "rationale": "The structure and coefficient profile are useful mathematical invariants, but this record recombines already resolved cases with matching formulas. Its two-round observation and numerical example follow from those same classifications. The convenience of unified notation does not give an independently useful new mathematical result to retain as a repair.",
+      "residual_risks": [
+        "This is not a rejection of the mathematical correctness or expository usefulness of the synthesis."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

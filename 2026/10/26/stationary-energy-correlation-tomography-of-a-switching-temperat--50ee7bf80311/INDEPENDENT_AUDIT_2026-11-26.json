@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:56:44.716875Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An independent generator calculation gives V=bar D/kappa, M=E[S X²]=bar D delta/(kappa+lambda), and E[X^4]=3(V²+bar D delta M/kappa), by applying stationarity to X², SX² and X^4. For g(h)=Cov(X_0²,X_h²)/V², conditioning on the current bath state gives g'(h)=-2 kappa g(h)+2 bar D delta M exp(-2 lambda h)/V² with g(0)=2+K. Solving gives exactly C=2a+(K/3)(2a+F(lambda)). Differentiation of the integral for F gives a strictly negative derivative for every h>0, including at lambda=kappa. At fixed 0<K<3 the physical contrast constraint is exactly 0<lambda<kappa(3/K-1); the endpoints yield F=1 and F=F(kappa(3/K-1)) with contrast reaching 1 at the latter. The intermediate-value theorem and strict monotonicity give necessity, sufficiency and uniqueness of the unordered diffusivity pair and rate. Ordinary two-point positional covariance only uses V and kappa. The bound VERIFICATION.md and check_claim.py were inspected, not executed; the reported 600 finite tests are not the basis for the universal result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Huang et al. cover general Markov-modulated OU forward moment recursions and multi-time transforms in §§3.4 and 4."
+        ],
+        "reasoning": "Their scope includes this two-state forward model. The cited results do not give a global identification theorem from this compression to three scalars; one must derive the fixed-K strict monotonicity and the finite physical endpoint.",
+        "searches": [
+          "arXiv:1412.7952v1 §§3.4 and 4",
+          "Resultary: switching diffusivity inverse realizability and stationary higher moments"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1412.7952v1",
+        "arXiv:1605.00106",
+        "arXiv:2207.14068",
+        "Resultary 4bb3a4c40dbd",
+        "Resultary 56d3d976847e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The forward recursions recover moments after specialization, but no inspected theorem supplies the inequality F(kappa(3/K-1))<3(C-2a)/K-2a<1 or inverse uniqueness for this tuple.",
+          "The same-date unconfined result does not specify priority and has different observables and dynamics; the later-dated same-model result uses an independent one-time input."
+        ],
+        "reasoning": "A forward joint-law formula or invertibility of a different statistic does not itself identify a unique physical model from V,K,C. The strict lag-kernel argument at fixed K is the distinct content.",
+        "searches": [
+          "arXiv:1412.7952v1 §§3.4 and 4",
+          "Resultary 4bb3a4c40dbd and 56d3d976847e, Findings and assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Miyaguchi–Akimoto–Yamamoto Eq. (1) has no restoring drift. Lanoiselée et al. use continuous CIR diffusivity in a harmonic trap.",
+          "Resultary 56d3d976847e treats the same stationary trap but infers the rate from m2,m4,m8 and explicitly excludes lagged inputs."
+        ],
+        "reasoning": "Relabeling squared position as energy changes only fixed factors. A one-time eighth-moment input is not a lagged square covariance, and the eighth-moment region is not a realizability condition on the requested input. Neither different bath dynamics nor unconfined displacement is equivalent to the frozen model.",
+        "searches": [
+          "Resultary: symmetric two-state switching diffusivity, trapped stationary variance and kurtosis, lagged squared-position or energy covariance inverse",
+          "arXiv:1605.00106",
+          "arXiv:2207.14068",
+          "Resultary record 56d3d976847e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected indexed classifications use second, fourth and eighth cumulants of unconfined displacement, or stationary m2,m4,m8 in the trap. Neither gives the sharp region with C as the third coordinate."
+        ],
+        "reasoning": "The target is a continuous exact classification rather than a finite table. The closest indexed classifications were compared by their actual inputs and hypotheses, not by their titles or date.",
+        "searches": [
+          "Resultary: two-state fluctuating diffusivity exact moment inversion and sharp compatibility",
+          "Resultary records 4bb3a4c40dbd and 56d3d976847e"
+        ]
+      },
+      "rationale": "Pass is limited to the exact three-scalar inverse and its strict physical realizability region at a known positive lag, not the forward Markov-modulated OU moment framework or the general idea of diffusivity tomography. The inspected primary and indexed statements do not cover this inverse from these observables.",
+      "residual_risks": [
+        "The comparisons are bounded and do not establish historical priority; an identifiability result under alternate fourth-order stochastic-volatility terminology could be missed.",
+        "The frozen prior review notes a related 2016 switching-OU article examined only by abstract; it is not evidence of either coverage or noncoverage of this inverse."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Forward framework covers specialized moment calculations, not the stated inverse in the inspected passages",
+          "evidence": [
+            "General higher-moment recursion and multi-time transform setup."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1412.7952v1",
+          "material_read": "Primary PDF p. 1 and pp. 10–11 (§3.4, start of §4; text offset 37627)",
+          "method": "Bounded OA primary-text reading",
+          "title": "Markov-modulated Ornstein-Uhlenbeck processes",
+          "trigger": "General model includes the frozen process"
+        },
+        {
+          "assessment": "Unconfined diffusion, not the frozen inverse",
+          "evidence": [
+            "Eq. (1) specifies noise with time-varying amplitude but no trap drift."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1605.00106",
+          "material_read": "Primary PDF pp. 1–2, Eq. (1), text offsets 8100–15671",
+          "method": "Bounded OA primary-text reading",
+          "title": "Langevin equation with fluctuating diffusivity: a two-state model",
+          "trigger": "Two-state diffusivity switching"
+        },
+        {
+          "assessment": "Trapped continuous diffusivity, not two-state lag inverse",
+          "evidence": [
+            "A CIR square-root diffusion models the diffusivity."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2207.14068",
+          "material_read": "Primary PDF pp. 1 and 3 (model offset 24026)",
+          "method": "Bounded OA primary-text reading",
+          "title": "Temperature and friction fluctuations inside a harmonic potential",
+          "trigger": "Trapped fluctuating diffusivity and kurtosis"
+        },
+        {
+          "assessment": "Different model and observables; same date alone says nothing about precedence",
+          "evidence": [
+            "One-time displacement cumulants of orders two, four and eight for unconfined diffusion."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-single-time-cumulant-tomography-of-a-symmetric-two-state-fluctua--4bb3a4c40dbd",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local published-record mirror",
+          "title": "Single-time cumulant tomography of a symmetric two-state fluctuating diffusivity",
+          "trigger": "Close indexed sharp inverse"
+        },
+        {
+          "assessment": "Alternative inverse, not the one-lag realizability theorem",
+          "evidence": [
+            "Uses stationary raw moments m2,m4,m8; expressly does not require lagged measurements."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-eighth-moment-identification-of-hidden-diffusivity-switchi--56d3d976847e",
+          "material_read": "RESULT.md Finding and assumptions, offsets 0 and 1784",
+          "method": "Local published-record mirror",
+          "title": "Sharp eighth-moment identification of hidden diffusivity switching",
+          "trigger": "Same trapped model and a sharp inverse"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Every positional covariance at every lag is blind to contrast and rate. The exact inverse shows that excess kurtosis plus one lagged energy measurement restores identifiability and gives a sharp compatibility test separating the no-switching and zero-diffusivity boundaries. This is useful for deciding whether ideal stationary data can come from the model; it is not a claim of noise robustness, practical estimability or identification for asymmetric switching.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,89 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:53:36.102941Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The potential change for a flip from 0 to 1 is exactly the payoff change; on an update of a single uniformly chosen vertex, the forward/reverse probability ratio is the ratio of the two Gibbs weights. At finite β the chain is irreducible with self-loops. Conditioning on the anchors makes each incident leaf contribute A or B. Since the two unanimous numerators depend only on the fixed edge count, their respective probabilities and their sum all have the same optimizer. For unequal A,B the discordant-anchor terms combine into a positive multiple of cosh(log(A/B)(s−s_*)); minimization means nearest feasible integer, including endpoint clamping, with a two-way tie only at a feasible half-integer. Equal A,B gives a constant partition function. Independent enumeration of the 16 paw-core profiles gives C01=t³+t²+2t, C10=t⁶+2t²+t, C00=t C01, C11=t² C10. Expanding C10 A²−C01 B² and C10 A⁴−C01 B⁴ gives the positive and negative factorizations in RESULT.md:58–66 for t>1; hence 0<s_*<1. Directly Z0−Z1=(B−A)(C01 B³−C10 A³)=−t²(t−1)²Q(t). Q has two sign changes and brackets of opposite signs on (0,1) and (2,3), so exactly one root is feasible; its sign gives the stated switch and tie. Bisection gives t≈2.005236660909933, β≈2.08728626747837. The degree-square sums from the stated degree sequences are 44 and 46. The frozen check.py was inspected, not executed; its advertised 88 comparisons count 84 direct-versus-pinned partition checks plus four adjacent-allocation comparisons. The analytic argument covers all β>0 within this design family, not every graph or a mixing-time optimum.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 6 gives regular or near-regular maximizers at sufficiently low β when N and the edge count are fixed. The paw allocation family is highly nonregular, with fixed core and labeled leaves and unequal candidate anchor degrees."
+        ],
+        "reasoning": "A sufficient condition for a global maximizer over all graphs says nothing decisive about the rank order among these nonregular constrained graphs. Its low-β regime cannot imply the uniqueness of the crossing for all β.",
+        "searches": [
+          "Wang–Akyol–Vasconcelos arXiv:2604.07751, Section IV.C Theorem 6",
+          "Local Resultary search for more general coordination topology design"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "Wang–Akyol–Vasconcelos arXiv:2604.07751",
+        "Resultary ef79742bd1fe"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The sharp constrained rule uses the two discordant pinned partition sums C01 and C10; the low-rationality regularity theorem compares degree regularity instead. The exact crossing uses the sign of C01 B³−C10 A³, not a degree statistic alone."
+        ],
+        "reasoning": "The standard Gibbs formula reduces the question to minimizing a partition sum but does not by itself select the topology. The two-anchor conditional reduction and the polynomial inequality over the full β range are additional, model-specific content, not evaluation of a threshold already supplied by these sources.",
+        "searches": [
+          "Wang–Akyol–Vasconcelos arXiv:2604.07751 Section IV.C",
+          "Resultary ef79742bd1fe Finding and assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wang–Akyol–Vasconcelos study stationary unanimous coordination at finite rationality, so comparing their optimization is germane even in spin-system partition-function notation.",
+          "Resultary ef79742bd1fe is a degree-normalized path coordination problem with a zero-noise θ threshold, not an allocation switch in homogeneous finite-rationality Gibbs weights."
+        ],
+        "reasoning": "Changing variables to a weighted partition function is exactly equivalent when the unanimous numerators are fixed. This equivalence does not identify a degree-normalized game or a θ limit with the present β-driven switch at fixed θ.",
+        "searches": [
+          "Targeted literature search for stationary log-linear coordination network design and leaf allocation",
+          "Local Resultary search for pinned Gibbs, leaf relocation and rationality reversal"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest inspected catalogue item ef79742bd1fe is an exact threshold on P3 under degree-normalized utilities, with θ=9/10 and zero-noise selection. The primary graph-design theorem lists no pinned paw comparison."
+        ],
+        "reasoning": "An exact threshold for a different graph, utility and varied parameter cannot give the paw polynomial or select its feasible root here; the checked sources supply no such table. This is bounded coverage, not proof of absence.",
+        "searches": [
+          "Local Resultary search for the paw core four-leaf coordination switch and exact stationary partition comparison",
+          "Wang–Akyol–Vasconcelos Theorem 6 graph-design statement"
+        ]
+      },
+      "rationale": "The Gibbs representation, conditional factorization and convexity are established techniques, not originality claims. The checked literature and catalogue do not supply the exact nearest-feasible-integer rule for the pinned-core allocation problem together with the unique finite-rationality paw switch. A low-rationality regularity theorem on a larger graph family does not solve the constrained problem on this nonregular family, much less at all rationalities.",
+      "residual_risks": [
+        "A graph-specific spin partition-function comparison adopting different notation may be missed by the bounded search. Priority is not established outside the inspected literature and catalogue statements."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related sufficient theorem, not a complete constrained finite-β design rule",
+          "evidence": "For sufficiently low β, fixed-N, fixed-edge-count maximization favors regular or near-regular graphs.",
+          "identifier_or_url": "https://arxiv.org/abs/2604.07751",
+          "material_read": "Section IV.C, Theorem 6, PDF p. 9 (extraction offset 75500)",
+          "method": "Targeted literature search and open-access PDF passage inspection",
+          "title": "Learning to Coordinate over Networks with Bounded Rationality",
+          "trigger": "Same finite-rationality objective and graph design interpretation"
+        },
+        {
+          "assessment": "Different payoff, graph and parameter regime",
+          "evidence": "Degree-normalized coordination on P3 has a zero-noise selection threshold at θ=9/10; neither leaf allocation nor a finite-β switch is studied there.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-sharp-nine-tenths-selection-threshold-for-normalized-coordinat--ef79742bd1fe",
+          "material_read": "RESULT.md Finding and assumptions, opening mirror passage",
+          "method": "Local Resultary search and mirrored statement inspection",
+          "title": "A sharp nine-tenths selection threshold for normalized coordination",
+          "trigger": "Exact coordination threshold on a small graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The closed-form rule is usable for any finite core once the pinned partition sums are known; it avoids enumerating or comparing the whole leaf-budget family. The paw then gives a minimal-complexity explicit witness to a genuine phenomenon, not a claim of smallest among all graphs: the topology maximizing a fixed stationary objective can change at a provably unique positive rationality and favor a larger degree-square sum. This quantifies the limits of using a low-rationality regularity heuristic throughout the finite-rationality range.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

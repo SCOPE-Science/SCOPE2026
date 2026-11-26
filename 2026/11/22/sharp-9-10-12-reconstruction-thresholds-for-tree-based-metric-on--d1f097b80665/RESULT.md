@@ -31,6 +31,8 @@ W_T(t)=1+20t+162t^2+692t^3+1704t^4+2492t^5+2160t^6
 \]
 Its scalar value is \(8649\). The complete polynomial distinguishes these trees: the coefficient corresponding to two distance-\(1\) points, four distance-\(2\) points and four distance-\(3\) points is \(364\) for the first and \(363\) for the second.
 
+The existence of this ten-vertex occupancy collision follows from the previously known ten-vertex collision for the stronger subgraph component polynomial. The occupancy census here establishes that this specialization does not introduce an earlier collision or another collision pair at order ten.
+
 The unique first twelve-vertex complete-polynomial collision consists of two nonisomorphic trees with the same degree multiset
 \[
 (1,1,1,1,1,1,2,2,2,3,3,4).
@@ -72,6 +74,8 @@ Run `python3 artifacts/verify.py` from a directory containing the bundled artifa
 
 ## Relationship to prior work
 
+Tittmann, Averbouch and Makowsky define the subgraph component polynomial \(Q(T;u,v)=\sum_{A\subseteq V(T)}u^{|A|}v^{k(T[A])}\), where \(k\) counts connected components. In the vacancy formula above, take \(A=V(T)\setminus Z\) and set \((x,y,z)=(t,1,t)\). Each occupied component contributes \(2t^{|C|}\), so \(W_T(t)=Q(T;t,2)\) and \(N_T=Q(T;1,2)\). Their Propositions 2–3 show that \(Q\) separates all trees through order nine and has exactly one collision pair at order ten. Their pair must also collide for \(W_T\), so by the occupancy census it is the pair here. Injectivity of \(Q\) at smaller orders and uniqueness of its collision at order ten do not imply the same facts for the specialization. Nor does the known \(Q\)-collision imply a collision for the full distance-graded polynomial: the differing coefficients above demonstrate that distinction.
+
 Delhomme, Laflamme, Pouzet and Sauer provide an early publicly dated investigation of countable homogeneous metric spaces. The published *Widom–Rowlinson partition functions as 1-type polynomials of the generic diameter-3 metric space* already derives the Katětov/spin-state bijection and its vacancy-component formula for all graph-metric parameter sets. The present claim concerns **unlabelled-tree reconstruction and the exact first collision fibres of three successive specializations**, neither the bridge nor its computational-complexity consequences.
 
 Cutler and Radcliffe's *Extremal graphs for homomorphisms* determines extremal homomorphism counts to the looped three-vertex path at fixed graph size and edge number; it does not classify arbitrary equal-count tree pairs or the scalar-to-activity-to-full-polynomial first collision progression. Galvin, Marmorino, McMillon, Nir and Redlich's *Hoffman–London graphs: When paths minimize H-colorings among trees* proves path minimization and related extremal statements, including applications to the Widom–Rowlinson target, not the full tree collision-fibre census. Published tree-distance-law collision and tree-source homomorphism fingerprint findings use genuinely different invariants: intrinsic continuous distances or variable source-query families, rather than the target fixed at the three-state looped path and its occupation refinements. Targeted searches did not find the stated \(9\)-\(10\)-\(12\) first-collision hierarchy; this is a best-knowledge originality assessment, not a proof of historical uniqueness.
@@ -87,3 +91,4 @@ The reconstruction results are finite and sharp **through order twelve only**. N
 3. J. Cutler, A. J. Radcliffe, *Extremal graphs for homomorphisms*, Journal of Graph Theory 67 (2011), 261–284. https://doi.org/10.1002/jgt.20530
 4. D. Galvin, P. Marmorino, E. McMillon, J. D. Nir, A. Redlich, *Hoffman–London graphs: When paths minimize H-colorings among trees*, arXiv:2512.23828, 2025. https://arxiv.org/abs/2512.23828
 5. OEIS A000055, *Number of trees with n unlabeled nodes*. https://oeis.org/A000055
+6. P. Tittmann, I. Averbouch and J. A. Makowsky, *The Enumeration of Vertex Induced Subgraphs with Respect to the Number of Components*, arXiv:0812.4147v2, §2, Propositions 2–3. https://arxiv.org/abs/0812.4147

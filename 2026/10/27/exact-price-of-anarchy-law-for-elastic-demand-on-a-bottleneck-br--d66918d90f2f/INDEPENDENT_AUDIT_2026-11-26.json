@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:55:37.672102Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, assumptions and proof; frozen VERIFICATION.md and verify_braess_benchmark.py inspected without execution",
+        "repairs/2/RESULT.md, SLOGAN.txt, VERIFICATION.md and verify_braess_benchmark.py",
+        "Exact counterexamples and rational grids: python3 /workspace/reviews/reproduce.py 2; replacement checker run at 9/8, 6/5, 3/2 and 7/4"
+      ],
+      "rationale": "The frozen Finding fails as stated. At B=6/5, (0,6/5,6/5) is Nash with travel 12/5, above the optimal 2; the three route costs and the outside option are all 6/5. Under no-profitable-deviation Nash, at B=7/4 the full-travel flow (0,3/2,3/2) costs 9/2, not 21/4. Even if indifference is imposed at full participation, the first counterexample still applies. The replacement proves the complete Nash family for 1<B<2: the common used cost exceeds 1 (it equals B with nonparticipants, and it is at least 3/2 with full participation because r<=u+v<=2c). Unequal variable-edge loads would make every route using the larger load strictly worse than the other outer route, so u=v=w. This yields w=B below full participation and 3/2<=w<=B at full participation, and the shortcut-only flow attains worst Nash cost 3B. The objective is affine in shortcut flow at fixed u,v. Using both extended endpoint values as lower bounds, not claiming both are feasible for each u,v, gives two sharp minima 2(1-B) and -B^2/4 after subtracting 3B. They occur at different (u,v) and feasible flows, proving uniqueness off the threshold and exactly two optimizers at the threshold. The ratio and the benchmark survive; the universal demand reversal does not.",
+      "residual_risks": [
+        "Rational-grid checks do not establish continuum optimization or the irrational switch; those conclusions use the endpoint proof.",
+        "No extension to other populations, benefits, path norms or networks is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The bottleneck bound assumes subpath optimality; §5 imposes Nash travel at least optimal travel for its elastic comparison and states that it does not analyze the nonlinear case without that ordering. The shortcut-only worst equilibrium fails both assumptions in the upper regime.",
+          "The Wheatstone Resultary record uses additive path costs and fixed demand. The older abstract-level sources concern symmetric cost-map bounds or nonadditive equilibrium formulation and algorithms."
+        ],
+        "reasoning": "General bounds/existence results do not identify this exact worst ratio, maximizers or global minimizers; the strongest inspected bounds also exclude the low-travel shortcut equilibrium.",
+        "searches": [
+          "Cole–Dodis–Roughgarden, Theorem 4.6, §5 Propositions 5.1–5.2",
+          "DOI:10.1016/S0167-6377(03)00030-0",
+          "DOI:10.1287/trsc.31.4.337",
+          "Resultary Wheatstone/Wardrop excess-time bound, 587c1e5f20e8"
+        ]
+      },
+      "checked_sources": [
+        "Cole–Dodis–Roughgarden author manuscript §§2, 3.1, 4.2 and 5",
+        "Local Resultary entries 17296667d81d, 587c1e5f20e8, e05e82179b2b",
+        "Gabriel–Bernstein and Chau–Sim abstract-level evidence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Matching the shared topology does not preserve the participation condition or max path cost in those local records. Cole et al.'s outside-option reduction leaves a fixed-demand max-cost optimization problem; its bound is not an exact solution.",
+          "The replacement compares two distinct feasible optimization modes, obtaining a sharp threshold, and resolves all equal-load participation regimes."
+        ],
+        "reasoning": "The corrected result does not follow by inserting B into an inspected exact formula or specializing an inspected classification.",
+        "searches": [
+          "Cole–Dodis–Roughgarden, §2 Definition 2.1 and §5 flow ordering and constant-edge reduction",
+          "Resultary records 17296667d81d and 587c1e5f20e8, findings and assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No-profitable-deviation elastic routing at constant B is equivalent to fixed demand with a parallel direct outside-option edge of latency B. The paper already uses this modeling idea.",
+          "The demand-uncertainty Braess record uses the same original graph and latencies but a random fixed-at-realization demand and a different travel objective, not the outside-option Wardrop classification."
+        ],
+        "reasoning": "Neither the representation by an extra edge nor the graph is a contribution. The equivalence does not supply an exact optimizer switch or Nash participation interval.",
+        "searches": [
+          "Resultary: bottleneck Braess constant travel benefit population 3; exact elastic-demand price-of-anarchy title and ratio 3B/(B+2)",
+          "Cole–Dodis–Roughgarden, author manuscript §§2, 3.1 and 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected closest entries were the demand-uncertainty example (17296667d81d), the fixed-demand Wheatstone bound (587c1e5f20e8), and the same-day directed quadratic effort game (e05e82179b2b). None states the corrected invariant."
+        ],
+        "reasoning": "No matching formula or optimizer classification was identified in the checked entries; a noisy catalogue lookup does not exclude unindexed coverage. Same-day dating is not used to infer order.",
+        "searches": [
+          "Resultary exact ratio 3B/(B+2), exact case 6/5 and 9/8, constant-benefit bottleneck Braess setup"
+        ]
+      },
+      "rationale": "Best of current knowledge for the corrected network-specific Nash classification, sharp optimum switch and worst-equilibrium cost ratio. The established model and Braess latency pattern are not new. The closest primary bounds use different hypotheses and do not specify the equilibrium correspondence or optimize the combined objective on this network.",
+      "residual_risks": [
+        "The journal version and the two older related papers were not verified in full; a previously worked equivalent example remains possible.",
+        "The positive judgment is for the repaired exact classification and formula, not the false frozen equilibrium generalization or the established routing model."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines max path costs and combined cost, and gives conditional bounds, not the classification in the repaired claim.",
+          "evidence": "§5: “We do not know how to analyze the price of anarchy for instances with elastic traffic and nonlinear path norms in which this technical condition does not hold.” The condition is Nash travel at least optimal travel; the bottleneck proposition additionally assumes subpath optimality.",
+          "identifier_or_url": "https://cs.nyu.edu/~dodis/ps/bottleneck.pdf; DOI:10.1145/1109557.1109630; related journal DOI:10.1002/net.21458",
+          "material_read": "Author manuscript §§2–3.1 (offset 20760), Theorem 4.6 and §5 (offset 42500); journal metadata",
+          "method": "Lawful author-hosted full-text PDF with bounded passage reads; journal DOI metadata",
+          "title": "Bottleneck Links, Variable Demand, and the Tragedy of the Commons",
+          "trigger": "Closest primary model and possible exact prior example"
+        },
+        {
+          "assessment": "Different demand model and target invariant.",
+          "evidence": "Compares shortcut-present and shortcut-absent networks under observed random demand, not welfare with a constant-benefit outside option.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-mean-variance-frontier-for-demand-uncertain-braess-routi--17296667d81d",
+          "material_read": "Finding in mirrored RESULT.md, offset 70",
+          "method": "Local Resultary search and mirrored file read",
+          "title": "A sharp mean-variance frontier for demand-uncertain Braess routing",
+          "trigger": "Same Braess graph and edge latencies"
+        },
+        {
+          "assessment": "Does not cover the elastic maximum-edge objective.",
+          "evidence": "The excess-time bound concerns fixed-demand Wardrop flows with additive costs.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-rigidity-and-a-quantitative-deficit-certificate-for-maximal-boun--587c1e5f20e8",
+          "material_read": "Finding and assumptions in mirrored RESULT.md, offset 110",
+          "method": "Local Resultary search and mirrored file read",
+          "title": "Rigidity and a quantitative deficit certificate for maximal bounds on a Wheatstone network",
+          "trigger": "Five-edge network with close Wardrop comparison"
+        },
+        {
+          "assessment": "Available scope is close but does not establish coverage.",
+          "evidence": "Abstract describes elastic-demand bounds for symmetric cost maps; no exact network-level result verified.",
+          "identifier_or_url": "DOI:10.1016/S0167-6377(03)00030-0",
+          "material_read": "Abstract and metadata; full text not obtained",
+          "method": "Publisher lookup and lawful full-text retrieval attempt",
+          "title": "The price of anarchy for non-atomic congestion games with symmetric cost maps and elastic demands",
+          "trigger": "Possible older elastic PoA coverage"
+        },
+        {
+          "assessment": "Available statement addresses a neighboring problem, not verified exact coverage.",
+          "evidence": "The abstract describes equilibrium formulation and algorithmic questions with nonadditive costs, not a confirmed elastic combined-cost formula.",
+          "identifier_or_url": "DOI:10.1287/trsc.31.4.337",
+          "material_read": "Abstract and metadata; full text not obtained",
+          "method": "Publisher lookup and lawful full-text retrieval attempt",
+          "title": "The Traffic Equilibrium Problem with Nonadditive Path Costs",
+          "trigger": "Possible older equivalent nonadditive example"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "repairs/2/RESULT.md, optimizer and equilibrium classifications",
+        "Cole–Dodis–Roughgarden §5, stated limitation of the comparison"
+      ],
+      "rationale": "A sharp topology-specific optimizer switch and full equilibrium demand interval quantify precisely what can and cannot be inferred from elastic participation. In the upper regime equilibria occur on both sides of optimal travel despite a determinate worst cost. This gives an exact benchmark for the low-equilibrium-travel, non-subpath-optimal bottleneck regime and distinguishes it from a global welfare bound.",
+      "residual_risks": [
+        "This is a single-model benchmark, not a universal bound or a general solution to the low-travel regime."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

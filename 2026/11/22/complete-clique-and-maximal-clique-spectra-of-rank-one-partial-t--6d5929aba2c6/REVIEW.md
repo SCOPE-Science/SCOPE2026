@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The classification starts from a directly derived two-product commutation criterion for all distinct rank-one partial maps. Each clique has a unique set of image points and a unique external-versus-self choice at each image point; the criterion supplies the product enumeration. A complete extension test proves the two mutually exclusive maximality cases. The extremal inequality and boundary cases \(n=1,2,3\) are explicit. The independent enumerator uses direct partial-map composition, not the derived criterion, and exhaustively checks every coefficient for \(1\le n\le4\). The checker is finite supporting evidence, not a substitute for the proof.
+## correctness
 
-**Originality — PASS with residual priority risk.** The archival primary paper arXiv:1210.4775 studies generators, order and presentations of partial-transformation monoids, not rank-one commuting cliques; arXiv:1205.1664 restricts to partial bijections. The later arXiv:2511.09495 concerns largest commutative subsemigroups and the full graph's clique number; those results do not subsume the complete rank-one induced-graph clique and maximal-clique polynomials. The closest public rank-one Boolean-relation and square-zero-matrix graph results involve different vertex sets and multiplication. Searches for aliases, special cases and stronger coverage found no direct enumerator. An earlier equivalent hidden in broader semigroup graph work is still possible; independent priority review is not performed.
+PASS
 
-**Value — PASS.** Exact size distributions of every clique and every maximal clique, and the sharp maximizer classification, are natural complete commutation invariants of the full partial-transformation monoid's rank-one stratum. They distinguish nilpotent-domain and idempotent-domain contributions, extend to all finite ranks of the underlying set, and organize induced-graph extremal questions beyond computation of a single clique number. This is not a restatement of the full-transformation or inverse-semigroup case.
+For distinct rank-one constants A→a and B→b, two nonempty equal composites would force A=B and a=b. Thus commutation is exactly mutual zero products, b not in A and a not in B. For image set H and complement R, each image can carry one map whose domain contains that image, or a nonempty selection from the 2^|R|−1 nonempty domains contained in R; choices at distinct images are independent. This gives P_n. A maximal clique must saturate any external image, which then uses every point of R in its domains and prevents any new image. If there are no external images, the only extension risk is an unused point of R; its singleton identity can be added exactly when that point is absent from every domain. Each point in R must therefore assign itself to a nonempty subset of the self-domains. These two disjoint cases prove M_n, including R empty. For h<n the size is at most h(2^(n−h)−1), strictly below 2^(n−1)−1 if h>=2 by h<=2^(h−1). The h=n case has size n. At n>=4 this leaves exactly n one-image cliques of all external maps. The proof's one-image equality sentence at RESULT.md line 43 should be restricted to n>=3 (and h<n): at n=2 a singleton self-map ties the external size one, but the maximum is two and the finding does not claim its maximizer classification there. Independently reconstructed direct pointwise compositions and counted all cliques and extensions for n=1–4, confirming every coefficient, with P_4 total 1376, M_4 total 221, and four degree-7 terms counted with multiplicity. Small-case checks do not replace the uniform argument.
 
-**Limits.** No assertion is made about maximal commutative subsemigroups of the entire partial-transformation semigroup. Source comparison and finite tests are not independent certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the exact commutation rule and the extremal size and structure to the applicable 0-Rees matrix framework of Paulista. The separate contribution is the two complete labelled enumerators for the singleton-output induced graph. The strongest same-day Resultary record genuinely contains this graph as an induced subgraph, but its actual enumerators do not specialize to the two polynomials just by evaluating their variables; in particular the ambient maximality census excludes some induced maximal cliques. No precedence is inferred from the catalogue date.
+
+## value
+
+PASS
+
+Rank one is a canonical stratum of the partial transformation monoid. The two labelled polynomials give fine information not determined by its already covered clique number: how idempotent and external-domain choices combine, and when every possible extension is blocked. The exact distinction between ambient and induced maximality is useful in comparing partial maps with relations and partial bijections. The coverage of extremal size alone does not reduce the two enumerators to a rephrasing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

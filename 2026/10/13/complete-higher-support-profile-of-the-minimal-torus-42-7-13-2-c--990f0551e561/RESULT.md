@@ -5,12 +5,12 @@ Lorite López, Camazón Portela, and López Ramos attach in Example 5.3 a binary
 \[
 [42,7,13]_2.
 \]
-Its complete generalized Hamming-weight hierarchy is
+As a specialization of the induced-subcomplex formula [5], its generalized Hamming-weight hierarchy is
 \[
 (d_1,d_2,d_3,d_4,d_5,d_6,d_7)=(13,23,30,35,39,41,42).
 \]
 
-The complete support-size distributions, with \(w:N\) meaning exactly \(N\) subcodes of support size \(w\), are
+The contribution here is the complete support-size distributions, with \(w:N\) meaning exactly \(N\) subcodes of support size \(w\), including the multiplicities of the known minima:
 \[
 r=1:\quad13:7,\ 20:42,\ 21:43,\ 24:21,\ 25:14,
 \]
@@ -83,6 +83,8 @@ A coordinate is absent exactly when every basis word, and hence every word of th
 (13,23,30,35,39,41,42).
 \]
 
+These minima also follow directly from [5], which gives \(d_r=42-\max_{|P|=7-r}\#\{\sigma\ne\varnothing:\sigma\subseteq P\}\) over vertex subsets \(P\). At sizes \(6,5,4,3,2,1,0\) the maximum numbers of contained facets are \(8,4,2,1,0,0,0\), respectively: a removed vertex meets six facets, any removed pair meets ten, and any removed triple meets twelve plus one if it is itself a facet. A nonfacet triple exists. At size three one can take a facet. Adding \(|P|+\binom{|P|}{2}\) for vertices and edges gives the hierarchy without a subspace census. This formula supplies the minima, not the frequencies of the subcode supports.
+
 ## Verification
 
 `artifacts/verify.py` uses only the Python standard library. It reconstructs the cyclic fourteen-facet complex, verifies the surface-incidence and orientability conditions, forms all forty-two nonempty face columns, and checks generator rank seven, row weight thirteen, and the ordinary weight distribution above.
@@ -95,9 +97,9 @@ Successful replay prints `VERIFY_OK`.
 
 The primary paper develops a geometric interpretation of ordinary codeword weights for arbitrary simplicial complexes and derives classical code parameters. Example 5.3 records length \(42\), dimension \(7\), and minimum distance \(13\); it does not state generalized Hamming weights or subcode-support distributions.
 
-Liu, Zheng, Lu, and Wang study generalized Hamming weights for simplicial-complex defining sets. Their general intersection identity applies in principle to the binary face set here, but the paper states that exact evaluation is difficult for a general simplicial complex and derives closed hierarchies for special configurations of maximal supports. The torus has fourteen overlapping maximal triangles and is not one of the explicitly solved configurations found there. A generalized-weight sequence also does not determine the complete support-size distribution proved here.
+Liu, Zheng, Lu, and Wang study generalized Hamming weights for simplicial-complex defining sets. Their general intersection identity applies to the binary face set here, and the induced-subcomplex formula [5] evaluates the whole hierarchy by considering only induced vertex subsets. That computation does not count all message subspaces, including the noncoordinate ones, even when restricted to minimizers. The distinction between the hierarchy and the distribution is essential here.
 
-Pan, Chen, Liu, and Liu determine complete subcode-support distributions for several repeated-simplex and projective-subspace-deletion constructions. Those constructions do not identify the minimal-torus face-incidence code, and exact searches for \([42,7,13]_2\), the torus construction, and the hierarchy above found no prior complete profile.
+Pan, Chen, Liu, and Liu determine complete subcode-support distributions for several repeated-simplex and projective-subspace-deletion constructions. No table for this exact minimal-torus face-incidence code was identified in the comparisons. The Tutte polynomial of its generator-column matroid would determine the full table by counting sets of coordinates simultaneously zero on a subcode and applying binomial inversion; an evaluated polynomial for that exact matroid would therefore be relevant equivalent coverage.
 
 ## Limitations
 
@@ -105,7 +107,7 @@ This is an exact finite classification for one canonical topological example, no
 
 The result classifies subcodes by support size, not by automorphism-group orbit.
 
-The minimum distance \(13\) is prior work. The new claim is the higher generalized weights, their minimizer multiplicities, and the complete support distribution in every positive dimension.
+The generalized Hamming weights are prior implications. The claim here is the complete support distribution in every positive dimension, including the minimizer multiplicities.
 
 An unindexed computation could contain the same finite census; no such source was found in the inspected literature.
 
@@ -115,3 +117,4 @@ An unindexed computation could contain the same finite census; no such source wa
 2. Chao Liu, Dabin Zheng, Wei Lu, and Xiaoqiang Wang, *The weight hierarchies of linear codes from simplicial complexes*, Discrete Mathematics 348 (2025), 114240, DOI 10.1016/j.disc.2024.114240; arXiv:2310.11873.
 3. Xu Pan, Hao Chen, Hongwei Liu, and Shengwei Liu, *Optimal Few-SSW Linear Codes and Their Subcode Support Weight Distributions*, IEEE Transactions on Information Theory 71 (2025), 1028--1042, DOI 10.1109/TIT.2024.3519672.
 4. V. K. Wei, *Generalized Hamming weights for linear codes*, IEEE Transactions on Information Theory 37 (1991), 1412--1418.
+5. *Full generalized Hamming hierarchy from induced subcomplex maxima*, [archived result](https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-full-generalized-hamming-hierarchy-from-induced-subcomplex-maxim--fc8afde3d48f/RESULT.md).

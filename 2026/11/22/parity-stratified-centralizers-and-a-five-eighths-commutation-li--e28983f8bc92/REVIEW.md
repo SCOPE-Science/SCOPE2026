@@ -1,11 +1,21 @@
-# Review
+# Independent mathematical audit
 
-**Correctness — PASS.** The universal normal-form product formula is deduced from the Coxeter right-descent rule. Comparing forward and reverse products gives an exhaustive three-case commutation predicate; summing parity-indexed partners gives the exact element-centralizer distribution. Two independent descriptions of multiplication (closed alternating form and dihedral group BFS/length-ascent implementation) agree through \(m=64\). The finite check supports but does not establish the universal quantifier; the structural proof does.
+## correctness
 
-**Originality — PASS with residual priority risk.** Denton et al. (2010), §§2.4, 3.7.1, address the Hecke monoid presentation and representation-theoretic quiver/radical invariants, not full element centralizers. He (2015), §§4–5, studies the algebraic center/cocenter and does not state the monoid centralizer spectrum. A separate earlier invariant on this dihedral monoid counts powers, not commuting pairs. Direct literature and mathematical-result searches did not identify a stronger theorem that gives the two-parity centralizer profile; unlocated prior enumerations cannot be excluded. The known Coxeter normal forms, descent multiplication, and center-of-algebra theorems are explicitly credited, not presented as new.
+PASS
 
-**Value — PASS.** Centralizer-size distribution is a natural complete invariant of finite-monoid commutativity, not an arbitrary subcase. Here it determines an unexpected parity-dependent jump from two to four central elements and an exact persistent commutation density \(5/8\) across an unbounded sequence of noncommutative monoids. The uniform formulas supply a concrete rank-two baseline for comparisons with higher-rank zero-Hecke monoids and J-trivial semigroups, and they are not merely a single small-case table.
+For nonboundary words with lengths a,b, the concatenation loses exactly one letter if the junction letters agree and otherwise none; an alternating word reaching length m represents the absorbing z. Equal starts and equal length parities give equal products without needing absorption. Different starts prohibit equality before absorption, and simultaneous absorption requires a+b>=m for different starts with both lengths odd, or a+b>=m+1 for every remaining case. For m=2k, the numbers of same-start and opposite-start partners are k+j-1 and 2j-1 at a=2j-1 or 2j (the latter restricted to j<k); for m=2k+1 they are k+j-1 and 2j-2 at a=2j-1, and k+j-1 and 2j-1 at a=2j. Including 1 and z gives the claimed spectra, including the extra even-m central elements of length m-1. Summing gives 10k^2+6k or 10k^2+12k+4 with denominator (2m)^2. A separate finite word-concatenation/run-contraction check agreed for every element at 3<=m<=24; generality is from the predicate and interval counts, not the test.
 
-**Closest prior literature and risks.** The monoid presentation and indexing already occur in Denton et al. (arXiv:1010.3455); the different algebraic center in He (arXiv:1502.02183) must not be conflated with the center of the monoid. The proof is self-contained after these standard definitions. A specialized older commuting-pair table could diminish originality, but none was located in the comparisons recorded in the structured audit. No independent validation is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of current knowledge, the exact all-element dihedral monoid centralizer spectrum and parity-dependent pair count survive the comparisons. Normal forms and the algebra-center results are prior, and the title of the latter does not settle this monoid question.
+
+## value
+
+PASS
+
+Centralizer sizes distinguish how each element of the natural rank-two test family participates in commutation, beyond whether the monoid is commutative or what its center is. The full spectrum shows two additional central elements at even braid length and identifies the persistent 5/8 proportion with exact finite corrections. The parity stratification and probability are reusable baselines for comparison with other zero-Hecke types, rather than a finite sample or an algebra-center rephrasing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

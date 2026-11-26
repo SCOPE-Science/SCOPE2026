@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:47:30.808104Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The list constraint is on distinct transmitted words per length-five output, not on deletion patterns. For each nonnegative certified vector y, set z_w=(1−Σ_u a_{u,w}y_u)_+. On any admissible code, summing Σ_u a_{u,w}y_u+z_w≥1 gives |C|≤LΣy+Σz. Integrality and |C|≤256 permit the floor of the minimum. An independent exact replay in /workspace/branches/53425eac-f557-4e76-9c2f-f492bac5ccb0/replay_capacity.py read the frozen certificate as data and reconstructed all incidence entries, checked the six nonnegative duals and rational intercepts, and checked each separately listed feasible witness for L=1,…,93 for cardinality equal to that floor. Its log is replay.log in the same directory. It reproduced transitions at 4,12,30,35,53 and the cap at 93. At L=0 every prospective word has at least one output, excluding a nonempty code. For a fixed output, greedy matching of its next bit (with an arbitrary continuation after the fifth match) is a success or failure on each of eight steps. These eight success/failure bits biject with the eight input bits, giving Σ_{j=5}^8 binom(8,j)=93 matching input words. Thus the whole set is infeasible below 93 and feasible at and above 93. The exact certificate and these endpoints prove the all-integer profile; neither continuous LP optimality nor enumeration of all optimal codes is asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lin treats arbitrary list and deletion parameters via general lower bounds and common-subsequence/supersequence estimates.",
+          "Kiah–Wei–Zeng give a finite-length runs bound and a reduction exchanging insertion and deletion budget, preserving the code and list size."
+        ],
+        "reasoning": "The broad results apply to the model or reduce between models but do not provide simultaneous exact upper and lower values at all integer allowances at n=8,k=3.",
+        "searches": [
+          "Lin arXiv:2609.26650v1, Theorem 1.1, Corollary 1.2 and Theorem 1.4",
+          "Kiah–Wei–Zeng arXiv:2609.21395v1, Theorem 23 and insertion/deletion reduction"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ce7218c60f05",
+        "arXiv:2609.26650v1",
+        "arXiv:2609.21395v1",
+        "doi:10.1007/s10623-023-01342-1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The runs bound at q=2,n=8,t=3,r=2 is 32L+16, e.g. 48 at L=1, where the exact value is 4. Larger admissible r already have correction term at least 58.",
+          "The other primary statements are existence/lower or common-subsequence estimates and minimum-Levenshtein-distance bounds; they do not give the six supports or 93 matched codebooks."
+        ],
+        "reasoning": "The implication was checked against statements and their parameters, not keyword differences. The general results and the matching single slice do not imply the complete finding.",
+        "searches": [
+          "Kiah–Wei–Zeng Theorem 23, PDF p. 25, offsets 92275–96430",
+          "Lin Theorems 1.1 and 1.4, PDF pp. 1–2",
+          "Yasunaga Theorems 1–2, PDF pp. 3–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same rectangular incidence packing is obtained by forbidding all (L+1)-subsets of an individual received word's supersequence set.",
+          "Lin uses the same per-output deletion-list constraint. Resultary ce7218c60f05 uses the same distinct-codeword rule, specialized to list size two."
+        ],
+        "reasoning": "These are equivalent formulations for fixed parameters; the exact two-list slice at n=8 does not determine the all-list function.",
+        "searches": [
+          "Resultary: exact n=8 three-deletion all-list-size profile, incidence packing or hypergraph formulation",
+          "Lin arXiv:2609.26650v1, definition of t-list k-deletion codes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed profile for L=2 at lengths 3,…,10 is (2,3,4,4,4,7,10,14), which gives the matching value 7 at n=8. Its catalogue date is later than that of the frozen finding; no priority follows.",
+          "Yasunaga's table presents bound comparisons at lengths 20 and 40, not this finite list profile."
+        ],
+        "reasoning": "The exact indexed slice is credited; the other L values together with sharp fractional supports and integer attainment across the range do not follow from it.",
+        "searches": [
+          "Resultary 2026/11/8/SCOPE-exact-initial-profile-of-binary-two-list-three-deletion-codes--ce7218c60f05, RESULT.md",
+          "Yasunaga doi:10.1007/s10623-023-01342-1, Table 1"
+        ]
+      },
+      "rationale": "The supported distinct claim is the complete fixed-block all-list profile, including the six-line bound with integer attainment and the full finite witness range. The closest matching indexed result covers exactly the L=2 slice at n=8. The inspected primary results cover the model and general bounds, not the exact all-L theorem. This is bounded comparison, not a statement of absolute priority or novelty of each individual list value.",
+      "residual_risks": [
+        "An unindexed exact finite table or a stronger result expressed in different packing language could overlap. Deferred search queries are not negative evidence.",
+        "The exact overlap at list size two is not adjudicated for priority, and other isolated values may also be known independently."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap only at L=2",
+          "evidence": [
+            "n ranges from 3 to 10 at fixed L=2; n=8 value is 7"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-initial-profile-of-binary-two-list-three-deletion-codes--ce7218c60f05/RESULT.md",
+          "material_read": "RESULT.md Finding and assumptions, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact initial profile of binary two-list three-deletion codes",
+          "trigger": "Same finite n and deletion budget"
+        },
+        {
+          "assessment": "General existence and estimates, not exact all-L capacities in inspected claims",
+          "evidence": [
+            "Theorem 1.1, Corollary 1.2 and Theorem 1.4"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.26650v1",
+          "material_read": "Abstract and theorem block pp. 1–2, offsets 7100–10082 for latter",
+          "method": "Open arXiv primary PDF",
+          "title": "Lower Bounds for all List-Decodable Deletion Codes",
+          "trigger": "Same list-deletion model and arbitrary parameters"
+        },
+        {
+          "assessment": "General reduction and nonexact finite-length runs bound",
+          "evidence": [
+            "Theorem 23 evaluated at n=8,t=3 and binary alphabet does not yield capacity even at L=1"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.21395v1",
+          "material_read": "Abstract and Theorem 23 with derivation, p. 25, offsets 92275–96430",
+          "method": "Open arXiv primary PDF",
+          "title": "Constant-List Insertion--Deletion Codes: New Bounds and an Improvement of Levenshtein's Lower Bound",
+          "trigger": "Same type of finite list-deletion bound and reduction"
+        },
+        {
+          "assessment": "Different framework for the bounds; tabulated lengths and quantities do not match",
+          "evidence": [
+            "Minimum Levenshtein distance bounds; selected q=2,4 and n=20,40 comparisons"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10623-023-01342-1",
+          "material_read": "Theorems 1–2, pp. 3–4, offsets 7700–12178; Table 1, p. 10, offsets 32783–35355",
+          "method": "Lawful open primary PDF",
+          "title": "Improved bounds for codes correcting insertions and deletions",
+          "trigger": "Finite insdel code bounds and tables"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The list limit interpolates between unique three-deletion correction and inclusion of every binary 8-bit word. Determining the entire interpolation for the natural 32-output incidence problem, not just one chosen allowance, provides a concrete tight benchmark for finite list-code bounds and optimization. The successive rational bounds, saturation cutoff, and exact constructions for every allowance make the benchmark reusable without an optimizer. No asymptotic benefit or larger-block theorem is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:58:47.282619Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–61; VERIFICATION.md and proof_checker.py inspected, not executed",
+        "/workspace/review_evidence/algebra.py, octic block"
+      ],
+      "rationale": "Reconstructed the actual bound. For p1=1/2 write A=p3-1/2 and D=p2 sum_i x_i^2(x_i^2-1)^2, so F=A^2+9D-1/16. Rounding each coordinate to 0 or its sign at magnitude 2/3 gives |x_i^3-sigma(x_i)| <= 3 x_i^2|x_i^2-1| (the ratio is at most 6/5 below the cutoff and 57/20 above, with the zero cases immediate). Cauchy–Schwarz and the distance of a half-integer to the nearest integer yield |A|+3 sqrt(D)>=1/2, hence F>=1/16. Homogeneity rescales this to F>=16 p1^8; p1=0 is covered directly. On the p2=1 sphere, if s^2=p1^2>=1/(8n) this gives 1/(256n^4); otherwise ||x^3-4s^2 x||_2>=1/n-4s^2>=1/(2n) by the power mean and the reverse triangle inequality, which more than compensates the negative term. Independently expanded both parity witnesses by the binomial theorem: p1=1/2, q=p2=n+1/(4n) for even n and n-3/(4n) for odd n, and the two numerators agree exactly. For even n>=2 the unnormalized F is less than 13 and q>=n. For odd n>=3 it is at most 159/16 (the last two positive terms are dominated by the negative n^(-2) term) and q/n>=11/12, giving n^4 F/q^4 <= (159/16)(12/11)^4<16. Normalization divides by q^4. The exact replay is python3 /workspace/review_evidence/algebra.py (SymPy; octic block).",
+      "residual_risks": [
+        "This proves the exponent and the stated nonoptimal constants, not an optimal leading constant, a limit for n^4 mu_n, or a minimizer characterization."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.1 proves positivity for the same octic. The earlier Positivstellensatz requires a dimension-uniform positive margin; the later authors explicitly note that this form lacks one."
+        ],
+        "reasoning": "Neither positivity in every dimension nor a theorem conditional on uniform positivity establishes matching decay for this nonuniform case.",
+        "searches": [
+          "arXiv:2611.16690v1, Theorem 3.1; arXiv:2606.27551, introduction and Theorem 5.4 as quoted in Remark 3.7"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.16690v1 §3 and Remark 3.7",
+        "arXiv:2606.27551 introduction and quoted Theorem 5.4 hypothesis",
+        "Local Resultary match 44edf5a71f5a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original proof gives F>=1/16 on p1=1/2, and its fixed witness sequence has p1=0. The submitted small-p1 estimate covers where the inherited bound degenerates; the parity-aware perturbed witnesses instead attain O(n^(-4))."
+        ],
+        "reasoning": "The prior estimate alone gives zero as a lower bound when p1=0, and the original witnesses yield only an upper bound of larger order. Neither supplies the submitted matching order without additional estimates and witnesses.",
+        "searches": [
+          "arXiv:2611.16690v1, Theorem 3.1 proof and Remark 3.7; frozen RESULT.md Steps 2–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Remark 3.7 uses the same p2=1 spherical minimization; by degree-eight homogeneity this is equivalent to the best constant in F_n >= mu_n p2^4 for nonzero real vectors."
+        ],
+        "reasoning": "Changing from sphere minima to homogeneous lower bounds does not yield prior coverage: the primary passage discusses positivity/nonuniformity, not an optimal decay exponent for the constants.",
+        "searches": [
+          "Resultary: same-form symmetric degree-eight positivity margin; record 44edf5a71f5a",
+          "arXiv:2611.16690v1 §3 and Remark 3.7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest exact catalog match is the identical record, not a separate result. The closest numerical expression in Remark 3.7 gives 36m^2 on p2=2m in dimension d=2m, hence 9/d^2 after normalization."
+        ],
+        "reasoning": "There is no matching tabulated or indexed spherical rate in the inspected independent evidence; the identified sequence does not determine the infimum's exponent.",
+        "searches": [
+          "Resultary: 2026/11/22/SCOPE-sharp-fourth-power-decay-of-the-positivity-margin-for-a-symmetri--44edf5a71f5a",
+          "arXiv:2611.16690v1 Remark 3.7"
+        ]
+      },
+      "rationale": "The polynomial, positive definiteness, and base rounding estimate are already due to Debus–Schabert. The distinct supported claim is the all-dimension matching order n^(-4) for the spherical minimum. The closest primary statement uses balanced sign vectors and proves only nonuniform positivity with a weaker even-dimensional O(n^(-2)) upper bound. The strongest matching catalog entry is the frozen record itself. No distinct coverage was established in the inspected sources.",
+      "residual_risks": [
+        "Direct retrieval of the Theorem 5.4 passage in arXiv:2606.27551 did not complete; the assessment uses the readable introduction and the original form paper's explicit quotation/application. Indexed and inspected sources cannot rule out unindexed equivalent analyses."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same form and inherited proof ingredient; weaker dimension dependence only",
+          "evidence": [
+            "F>=1/16 on p1=1/2; balanced signs give F=36m^2 for p2=2m"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.16690v1",
+          "material_read": "§3 Theorem 3.1 and proof (OA offset 42946); Remark 3.7 (offset 56932)",
+          "method": "Bounded OA primary-text reading",
+          "title": "Hilbert's 17th problem for symmetric functions: undecidability and a counterexample",
+          "trigger": "Exact polynomial and sphere-minimum discussion"
+        },
+        {
+          "assessment": "Read material treats the uniform positive lower-bound regime, unlike this example",
+          "evidence": [
+            "Remark 3.7 explicitly invokes and rules out the uniform-margin hypothesis for this polynomial"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.27551",
+          "material_read": "OA introduction; Theorem 5.4's relevant hypothesis and its applicability as quoted and discussed in arXiv:2611.16690v1 Remark 3.7",
+          "method": "OA passage and authors' later quotation; direct targeted theorem retrieval timed out",
+          "title": "Any-dimensional Positivstellensätze for symmetric functions",
+          "trigger": "Potential broader quantitative result"
+        },
+        {
+          "assessment": "Self-match, not distinct coverage",
+          "evidence": [
+            "Same record hash 44edf5a71f5a and same all-dimension matching order"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-fourth-power-decay-of-the-positivity-margin-for-a-symmetri--44edf5a71f5a",
+          "material_read": "Indexed statement and exact ID, matched to frozen Finding",
+          "method": "Local Resultary search and identity comparison",
+          "title": "Sharp fourth-power decay of the positivity margin for a symmetric octic",
+          "trigger": "Exact Resultary hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof",
+        "arXiv:2611.16690v1 Theorem 3.1 and Remark 3.7"
+      ],
+      "rationale": "This is the particular octic at the center of a dimension-uniform SOS obstruction, so its spherical margin is an independently motivated invariant. The result pins down the rate of loss of positivity in every dimension rather than just its eventual loss; it exhibits a near-balanced mechanism missed by the exactly balanced witnesses and rules out faster-order decay for all real directions. It does not claim new SOS certificates or their degree bounds.",
+      "residual_risks": [
+        "The contribution is specific to this form and to the order of its margin."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

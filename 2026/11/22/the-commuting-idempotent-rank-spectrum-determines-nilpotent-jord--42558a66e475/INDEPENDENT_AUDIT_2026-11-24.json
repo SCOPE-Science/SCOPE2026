@@ -1,0 +1,175 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:31:09.377404Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Over the fixed field F_q, commuting idempotents are ordered decompositions of the nilpotent F_q[t]-module into image and kernel; the projection is unique for each decomposition. The multiplicities add by uniqueness of the cyclic summands, and orbit-stabilizer gives the stated ordered profile count. Independently checking the unit-group factor: Hom between cyclic blocks of sizes i,j has dimension min(i,j). Reducing modulo t gives a block triangular matrix ordered by lengths, since maps from a shorter source into a longer block reduce to zero. Invertibility is equivalent to invertibility on M/tM by the finite nilpotent filtration, hence to each same-length leading block being invertible; this gives exactly q^D times the product of the stated Phi factors. The resulting Gaussian coefficient formula follows. The identity gives degree n, and the empty space gives polynomial 1. The first positive rank d is the shortest summand length. Its coefficient equals q^(2d(B−1)) times the geometric sum of m_d terms lying in [1,q), including at q=2; the exact base-q integer logarithm recovers B. After shorter multiplicities are known, their contributions at rank j need only the number B−S_j of blocks of length ≥j, since min(i,l)=i for i<j≤l. The rank-j residual can use only a single length-j summand; it is zero if absent and otherwise a known power of q times a strictly increasing finite geometric sum giving m_j. This closes the induction through n and similarity is equivalent to partition equality in the nilpotent class. Separate direct enumeration of every 3×3 candidate over F₂, for each of the three partitions, gave coefficient vectors (1,0,0,1), (1,4,4,1), (1,28,28,1); replay details are in /workspace/branches/9ec909e3-e716-425f-a9cb-fbdae5be481d/record3-independent-check.md. Source scripts and recorded logs were inspected, not executed. The exhaustive small-matrix check and the separate logged formula tests through n=22 are finite corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The centralizer structure and radical quotient are prior inputs to the unit-group factor; Huang's inspected module groupoid sums use partition and automorphism data, not inversion from rank coefficients.",
+          "Ellerman's direct-sum counts treat vector spaces, corresponding to N=0 only."
+        ],
+        "reasoning": "Structure descriptions using known Jordan type run in the forward direction. Neither them nor the inspected groupoid sums provide an inverse theorem in the input invariant. Unrelated web results were not treated as negative evidence.",
+        "searches": [
+          "Resultary: finite module direct summand rank distribution determines Jordan partition idempotent endomorphism",
+          "Websearch: \"commuting idempotents\" nilpotent matrix rank polynomial Jordan partition finite field rank distribution reconstruct",
+          "OA arXiv:1909.06198; de la Cruz–Misa ELA 38 (2022) Thm. 3.1; arXiv:2404.19483 §4.2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and check_output.txt",
+        "Resultary 62a1fa4ec9b3, 8be29dd91c24, 4fe52ac53574, 6b81699a8630, 2522159117e6, 97edd392e94e, d4e95733d323, cabfb16a59f1 and 0e69fccd676e",
+        "Mingueza–Montoro–Roca arXiv:1909.06198; de la Cruz–Misa ELA 38; Ellerman arXiv:1603.07619; Huang arXiv:2404.19483"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "0e69fccd676e sums Aut(M)/(Aut(A)Aut(B)) over module splittings with a q^(dim B) translation factor. Passing from N to I+N preserves its module splittings, and removing that factor at each fixed dimension recovers the forward multiplicities here.",
+          "The two-length theta paper likewise treats the profile count as classical; the partial-permutation inverse has a different census."
+        ],
+        "reasoning": "Verified prior coverage of the forward formula is credited. The earlier formula depends on the full partition; extracting the shortest coefficient's leading base-q exponent and evaluating shorter-profile contributions knowing only the total block count is the extra triangular inference, not an input or direct specialization of those earlier statements.",
+        "searches": [
+          "Local mirror 0e69fccd676e at offsets 0 and 5996; 62a1fa4ec9b3 at offsets 0 and 6418; 8be29dd91c24 Finding and Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "8be29dd91c24 recovers chain partitions from the domain-rank census of all commuting partial injections; 2522159117e6 recovers repeated permutation cycle lengths from nilpotent partial commuting maps.",
+          "4fe52ac53574 uses joint left/right regular ranks and all-arity commuting counts to recover a random-cluster polynomial for split-basic algebras."
+        ],
+        "reasoning": "None is a reparametrization of ordinary image dimension for field-linear commuting idempotents. The partial-injection category embeds in linear maps only as a special set of matrices, does not account for general linear idempotents, and counts different objects. The regular-rank inverse has a different target and data.",
+        "searches": [
+          "Resultary: nilpotent commuting idempotent rank polynomial reconstruct Jordan block multiplicities coefficient-by-coefficient",
+          "Resultary: same-day spectral rigidity rank polynomial reconstruct Jordan type nilpotent field-linear idempotent",
+          "Resultary: simultaneous idempotent spectra split basic algebras inverse invariant"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "62a1fa4ec9b3 uses the exact forward two-length profile count for a theta-limit study. 6b81699a8630 and the same-day 97edd392e94e and d4e95733d323 concern rank rigidity of skew or exterior-algebra derivations; cabfb16a59f1 counts ranks for a finite-transformation retraction.",
+          "No distinct checked table contains this inverse from linear commuting-idempotent rank coefficients for arbitrary partitions."
+        ],
+        "reasoning": "The formula for a two-length subfamily is verified overlap in counting, not a general inverse or matching table. The same-day results were compared by invariant and assumptions, not discounted by date.",
+        "searches": [
+          "Resultary: nilpotent commuting idempotent rank polynomial reconstruct Jordan block multiplicities coefficient-by-coefficient",
+          "Resultary: same-day spectral rigidity rank polynomial reconstruct Jordan type nilpotent field-linear idempotent"
+        ]
+      },
+      "rationale": "The forward profile count is existing orbit-stabilizer input and is not credited as new. The distinct surviving claim is the inverse for every nilpotent Jordan partition from its ordinary-rank commuting-idempotent polynomial. Actual inspected analogues use other ranks, idempotents, or operator classes, and the closest forward formulas do not supply the rank-coefficient inverse.",
+      "residual_risks": [
+        "A broader inverse theorem on rank distributions of module direct summands could cover the result; the inspected sources do not verify such coverage. Huang's comparison is bounded and a keyword query there timed out.",
+        "No historical priority certification follows from the catalogue and literature checks."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Forward overlap only",
+          "evidence": [
+            "Two fixed lengths with equal multiplicities; classical profile count as input, parity-sensitive theta laws as output."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-independent-theta-coordinates-for-idempotents-centralizing-two-l--62a1fa4ec9b3",
+          "material_read": "Finding offset 0 and Relationship offset 6418",
+          "method": "Local mirror bounded RESULT.md",
+          "title": "Independent theta coordinates for idempotents centralizing two-length Jordan forms",
+          "trigger": "Same idempotent census for a subfamily"
+        },
+        {
+          "assessment": "Different category, maps, and rank",
+          "evidence": [
+            "Domain rank of all commuting partial injections yields chain lengths, not the ordinary ranks of idempotent linear projections."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-nilpotent-partial-permutation-conjugacy-is-determined-by-its-cen--8be29dd91c24",
+          "material_read": "Finding and proof from offset 0",
+          "method": "Local mirror bounded RESULT.md",
+          "title": "Nilpotent partial-permutation conjugacy is determined by its centralizer rank spectrum",
+          "trigger": "Closest rank-polynomial inverse analogue"
+        },
+        {
+          "assessment": "Different input and inverse target",
+          "evidence": [
+            "Joint regular-action ranks and tuple counts for split-basic algebras determine a random-cluster polynomial."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-simultaneous-idempotent-spectra-of-split-basic-algebras-and-an-i--4fe52ac53574",
+          "material_read": "Finding offset 0 and random-cluster inversion around 5925",
+          "method": "Local mirror bounded RESULT.md",
+          "title": "Simultaneous idempotent spectra of split basic algebras and an inverse random-cluster invariant",
+          "trigger": "Inverse commuting-idempotent invariant"
+        },
+        {
+          "assessment": "Different operator class and data",
+          "evidence": [
+            "A single rank in a specific skew-derivation family determines the derivation's Jordan partition."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-jordan-rank-rigidity-for-taft-compatible-skew-derivations-of-tru--6b81699a8630",
+          "material_read": "Finding offset 0",
+          "method": "Local mirror bounded RESULT.md",
+          "title": "Jordan-rank rigidity for Taft-compatible skew derivations",
+          "trigger": "Distinct same-day Jordan rigidity"
+        },
+        {
+          "assessment": "Reduction recovers forward count, not inverse",
+          "evidence": [
+            "Same ordered-splitting group quotient with additional translation factor; I+N preserves N-invariant decompositions."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-commuting-lie-retractions-a-rational-canonical-joint-rank-census--0e69fccd676e",
+          "material_read": "Finding offset 0 and decomposition count around 5996",
+          "method": "Local mirror bounded RESULT.md",
+          "title": "Commuting Lie retractions: a rational canonical joint rank census",
+          "trigger": "Automorphism-weighted decomposition census"
+        },
+        {
+          "assessment": "Structural forward input",
+          "evidence": [
+            "Centralizer structure and dimension, not the rank-polynomial inverse."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1909.06198",
+          "material_read": "p. 1 abstract, p. 23 §6.2, offsets 0 and 78070",
+          "method": "OA PDF text",
+          "title": "The Centralizer of an Endomorphism over an Arbitrary Field",
+          "trigger": "General linear centralizer theorem"
+        },
+        {
+          "assessment": "Justifies forward unit count, not inverse",
+          "evidence": [
+            "Identifies the semisimple quotient of the nilpotent matrix centralizer."
+          ],
+          "identifier_or_url": "https://journals.uwyo.edu/index.php/ela/article/view/6503",
+          "material_read": "Thm. 3.1 p. 5 near offset 22160",
+          "method": "Lawful journal PDF via direct download located through mirror reference",
+          "title": "The Algebra Generated by Nilpotent Elements in a Matrix Centralizer",
+          "trigger": "Nilpotent centralizer radical and semisimple quotient"
+        },
+        {
+          "assessment": "Underlying field-vector-space case only",
+          "evidence": [
+            "No variable truncated-module structure; here X as a vector space alone corresponds to N=0."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1603.07619",
+          "material_read": "p. 2 around offset 6450",
+          "method": "OA PDF text",
+          "title": "The Number of Direct-Sum Decompositions of a Finite Vector Space",
+          "trigger": "Exact direct-sum enumeration"
+        },
+        {
+          "assessment": "No covering inverse established by the passages inspected; not a whole-text exclusion",
+          "evidence": [
+            "Finite-module weighted groupoid counts and automorphism-weighted partition sums."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2404.19483",
+          "material_read": "p. 1 abstract near 926 and p. 13 §4.2 near 55606; focused idempotent literal lookup timed out",
+          "method": "OA bounded PDF passages",
+          "title": "Commuting Matrices via Commuting Endomorphisms",
+          "trigger": "Finite-module groupoid counts with partition sums"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The invariant is natural: it grades all splittings of an operator module by image dimension without observing image Jordan types. It is not apparent that the resulting coarse sums can separate arbitrary partitions. Recovering the total number of blocks from the shortest-rank term and subtracting lower-length contributions with limited information gives a uniform constructive rigidity theorem, not a re-enumeration or a small-table observation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

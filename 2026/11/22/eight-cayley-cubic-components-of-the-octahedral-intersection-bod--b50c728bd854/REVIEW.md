@@ -1,14 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The Laplace density/central-section identity fixes normalization by coarea and a two-dimensional radial integral; it gives the exact formula including zero-coordinate limits. The eight sign-octant boundary equations follow with positive denominators. A projectively invertible map identifies each equation with the Cayley cubic; the singular-gradient argument supplies precisely four isolated nodes and hence irreducibility. Distinct signed quadratic/cubic coefficient patterns and smooth real open-octant patches give exactly eight Zariski components and degree 24. `check.py` passed 320 symbolic and independent section-polygon assertions. The computational checks support the proof; they do not replace it. Remaining risk: errors in untested independent literature equivalents, not an observed algebraic or normalization counterexample.
+## correctness
 
-## Originality (O): PASS (provisional literature priority)
-The closest primary source is Berlow–Brandenburg–Meroni–Shankar (arXiv:2110.05996, 2021-10-12, Sections 2–6). Its general algorithms can compute the intersection body of any polytope, but its printed explicit three-dimensional case is the **cube**, not the octahedron; its stated cube result has six planar and eight cubic components. Brandenburg–Meroni (arXiv:2302.11764, 2023, full open article) focuses on translations and convexity. Their statements do not imply the explicit octahedral area formula or the count, type, and node loci of the eight octahedral components without a further substantial computation. published-finding corpus searches for octahedral intersection bodies, Cayley cubics, cross-polytope sections, algebraic boundary and polar duality did not return an equivalent claim; the closest published findings concern octahedron section-area distributions and a cubic cusp in higher-dimensional cross-polytope sections. Accessible local prior claims were checked for overlapping objects and implications, including the previous cube-only algebraic-boundary result; no prior octahedron algebraic-boundary claim was found. MATHREPO documentation was read, but its downloadable notebooks were not fully examined, which is a real residual priority risk; a search failure does not prove priority.
+PASS
 
-## Mathematical value (V): PASS
-The exact algebraic boundary is a canonical geometric-tomography invariant: all eight irreducible components, their projective Cayley type, their four ordinary nodes and total degree are classified. Unlike the familiar polar-dual cube, the octahedral intersection body has no planar algebraic boundary component, a structural contrast that is not visible from facet counts or the known general construction. The radial formula also permits direct evaluation of central-section areas for every direction. This is a complete natural classification, not a hand-picked finite numerical test.
+The frozen proof contains a false coarea equality: the weighted density integral must extend over the whole hyperplane v⊥, not the bounded section O∩v⊥. The integrand is strictly positive outside the bounded section. The repaired proof instead triangulates the hexagon with vertices u,w,z,−u,−w,−z obtained by the six edge crossings. After the opposite triangles cancel the triangle factor of 1/2, the three cross products contribute a/((a+b)(a+c)), c/((a+c)(b+c)), and b/((b+c)(a+b)) to area divided by normal length. Continuity of the section area and the axis diamond supply the missing-coordinate cases. The boundary is the radial level set at one; coordinate-plane strata are covered by continuity. Independent symbolic calculations verify the stated section formula, all signed forms and the Cayley change. The Cayley gradient forces all q_i to solve the same quadratic; checking multiplicities (1,3) and (2,2) and the equal-coordinate case leaves exactly the four coordinate points. Each has nondegenerate quadric tangent cone, and all their images have t≠0. A reducible projective cubic would be singular along a curve or surface, so these are absolutely irreducible. Their signed cubic and quadratic coefficients distinguish them; each has a smooth real octant patch and its Zariski closure is the whole cubic. These arguments certify the repaired claim, not just the finitely checked nodes. The frozen checker was inspected but not executed.
 
-Independent audit has not been performed. The irreducible-component claim is confined to this octahedron and does not claim new general intersection-body algorithms.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass only for the repaired refinement: explicit Cayley normal form and projective/affine singularity classification of the eight octahedral cubics. The section law follows directly from known section theory, and the equations, component count and degree overlap materially with the distinct same-date general cross-polytope record. The repair credits and retains these parts as background without assigning dated priority. No inspected source supplied the Cayley identification and the ambient affine node locations for this object.
+
+## value
+
+PASS
+
+The repaired refinement answers the natural geometric question of how the known octahedral boundary components sit projectively and which singularities appear in the physical affine chart. The explicit normal form and exact node exhaustion distinguish an extraneous algebraic point (the origin) from the axial boundary nodes; this is more informative than a degree recomputation and complements the different cube boundary geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

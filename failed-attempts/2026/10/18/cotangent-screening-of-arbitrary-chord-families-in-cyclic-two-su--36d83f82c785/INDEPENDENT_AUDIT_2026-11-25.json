@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:04:13.280676Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The real free two-convex norm has the same weak-2 test constraint as π₂ for the row operator. For each test vector choose a maximizing row and dualize the resulting Euclidean norm. Operator/nuclear duality gives tr√(Σw_r v_r v_rᵀ), where w_r is the sum of squared dual coordinates assigned to row r. Every probability vector is attainable, so the simplex reformulation is unrestricted. Cyclic averaging optimizes the cycle-only design at A₀=L_n/n; Fourier eigenvalues give the stated baseline. All rows lie in the mean-zero space and A₀ is positive definite there. The derivative at A₀ in a chord-mass direction minus the old distribution is the difference of the chord gradient (√n/2)a²ρ_{n,k} and the old gradient (√n/2)ρ_{n,1}. Hence any positive derivative strictly improves the objective, while if all derivatives are nonpositive the supporting inequality bounds every point in the full simplex. Fourier diagonalization and the identity for successive sin² terms give ρ_{n,k+1}−ρ_{n,k}=(2/n)cot((2k+1)π/(2n)); telescoping is valid through floor(n/2). The decreasing positive cotangents give the strict threshold inequalities, and the short-arc distance potential witnesses strict enlargement at a point, not at every potential. The fixed-span limit and diameter equivalent follow from the reciprocal-argument expansion of cotangent. A fresh direct spectral check over n=5,…,12 (32 spans) corroborated the formulas numerically, not the all-n proof. The supplied script was not executed; despite the verification description, it enforces an original-edge weight floor of 10⁻⁷ and samples selected one- and two-chord cases. The omitted simplex faces and larger families are controlled by the analytic proof, not by that numerical corroboration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The hypercube record's Proof §1 states the unrestricted formula for the list of amplitude-weighted rows and the derivative (1/2)vᵀA^(−1/2)v on the mean-zero cone for a connected original graph. Proof §2 gives the old-uniform first-order criterion, including simultaneous additions and the strict directional converse.",
+          "The graph-gradient record proves the exact unperturbed value on edge-transitive graphs and explicitly gives the cycle baseline. Its statement alone does not cover weighted chord additions.",
+          "The Johnson and split-graph Findings give additional simultaneous screening instances on different base graphs."
+        ],
+        "reasoning": "Uniform optimality of the old design, equality of the old gradients, and positive definiteness on the mean-zero space are the only graph conditions used in the first-order test; the cycle satisfies all three. Nothing in that argument requires a hypercube-specific representation.",
+        "searches": [
+          "Resultary 802f32599c5e, Proof §§1–2: row-weight trace-square-root design and derivative",
+          "Resultary de73f9fb4574, Proof §§2–5: edge half-resistances and exact unperturbed cycle",
+          "Resultary 1e74501e0c1c and e4d3cb6e15d4: other augmented edge-transitive designs"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_cycles.py",
+        "arXiv:2101.03510",
+        "Resultary 802f32599c5e, 241f167596e5, de73f9fb4574, 1e74501e0c1c and e4d3cb6e15d4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The graph-gradient proof and cyclic symmetry supply A₀=L_n/n and Φ₀=2cot(π/(2n))/√n. The unrestricted design differentiation gives the old gradient (√n/2)ρ_{n,1} and the new gradient (√n/2)a²ρ_{n,k}. The already explicit half-grid kernel evaluates both ρ terms by the identity in equivalent_formulations."
+        ],
+        "reasoning": "At the old uniform vector, nonpositivity of every new-coordinate derivative relative to the old gradient is exactly sufficient by concavity and necessary by a one-coordinate perturbation. Substituting the two known kernel expressions gives the exact coordinatewise iff, with arbitrary simultaneous amplitudes. The elementary distance-potential witness, strict comparison with 1/√k, and fixed-span limit are direct consequences of the known sequence and the triangle inequality; the diameter asymptotic is covered by the earlier stronger endpoint expansion. No substantive remainder is identified.",
+        "searches": [
+          "Local-mirror Proof §§1–2 of 802f32599c5e, offsets 3300–6575",
+          "Local-mirror graph-gradient proof de73f9fb4574, offsets 3450–6850",
+          "Local-mirror cycle Riesz Finding 241f167596e5, offsets 200–3050"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary norm representation equates the two test definitions with no scalar factor.",
+          "Record 241f167596e5 uses the same zero-on-constants L_n^(−1/2), and gives the forward difference operator (T−I)L_n^(−1/2) the normalized convolution kernel −cot(π(r+1/2)/n)."
+        ],
+        "reasoning": "Let G(r) be the matrix entry of L_n^(−1/2) at displacement r. The prior kernel gives G(r+1)−G(r)=−cot(π(r+1/2)/n)/n. Symmetry implies ρ_{n,k}=2(G(0)−G(k)), so summing those known differences already gives exactly the frozen cotangent sum for every k. At k=floor(n/2) it is also the earlier record's endpoint norm, which is known with stronger asymptotics.",
+        "searches": [
+          "Resultary: chord screening in graph-gradient/free two-convex/absolutely 2-summing norms",
+          "Resultary 241f167596e5: inverse-square-root cycle Laplacian and half-grid cotangent kernel",
+          "Jardón-Sánchez et al., arXiv:2101.03510, Eq. (1.1) and §6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact cycle entry de73f9fb4574 gives the baseline; the cycle Riesz entry 241f167596e5 gives the kernel at every displacement, including the entire half-grid cotangent sequence. The hypercube entry supplies the systematic test, not a cycle-specific table."
+        ],
+        "reasoning": "Finite threshold samples are irrelevant to coverage for all n and spans. The exact input needed by the optimization is obtainable from the earlier kernel entry by a finite telescoping identity for every n and k, even if there is no separately printed threshold table.",
+        "searches": [
+          "Resultary catalogue: 802f32599c5e, de73f9fb4574, 241f167596e5, 1e74501e0c1c and e4d3cb6e15d4"
+        ]
+      },
+      "rationale": "The core criterion is mechanically implied by the inspected exact general row-design formula and derivative test, the known cycle optimizer, and an already explicit cycle Riesz kernel. The hypercube's Walsh distance formula is not being treated as a formula on cycles: it is the graph-independent optimization preceding that formula that transfers unchanged. The cycle Riesz result gives precisely the needed consecutive inverse-square-root kernel differences, not just a visually similar cotangent sum. This is demonstrated coverage by implication, not an assertion about priority between distinct same-date records.",
+      "residual_risks": [
+        "Same-date archive paths do not resolve who first developed the proof or chronology of public availability; the finding is statement-level implication, not a priority adjudication.",
+        "A still earlier general operator-ideal formulation may exist. That possibility is not needed for the failure finding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different explicit graph family but directly transferable exact criterion",
+          "evidence": "Unrestricted row-weight formula, derivative for a connected original graph, old-edge uniform optimization, coordinatewise global first-order criterion and strict increase for a violating row.",
+          "identifier_or_url": "2026/10/18/SCOPE-dimension-saturated-chord-screening-for-hypercube-two-summing-no--802f32599c5e",
+          "material_read": "RESULT.md Finding and Proof §§1–2, including offsets 3300–6575",
+          "method": "Local Resultary mirror, bounded passages",
+          "title": "Dimension-saturated chord screening for hypercube two-summing norms",
+          "trigger": "Exact simultaneous screening analogue, possible general proof coverage"
+        },
+        {
+          "assessment": "Provides exact kernel data sufficient to compute every chord half-resistance",
+          "evidence": "The forward difference of L_n^(−1/2) has entries −cot(π(r+1/2)/n)/n. The absolute row sum is the diameter half-resistance and has an explicit expansion.",
+          "identifier_or_url": "2026/10/11/SCOPE-cycle-riesz-transforms-as-parity-blocks-of-doubled-cyclic-hilber--241f167596e5",
+          "material_read": "RESULT.md Finding and opening Fourier proof, offsets 200–3050",
+          "method": "Local Resultary mirror, bounded passage",
+          "title": "Cycle Riesz transforms as parity blocks of doubled cyclic Hilbert transforms",
+          "trigger": "Same cycle inverse-square-root kernel, apparent cotangent overlap"
+        },
+        {
+          "assessment": "Exact baseline coverage, not a standalone chord theorem",
+          "evidence": "Uses equal edge half-resistances for equality and explicitly specializes to the cycle sine sum. Its limitations do not assert a weighted-edge extension.",
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-spectral-bounds-and-equality-for-graph-gradient-two-summin--de73f9fb4574",
+          "material_read": "RESULT.md Finding, Proof §§2–5, and limitations; offsets 3450–6850 and 7530–9830 for the latter passages",
+          "method": "Local Resultary mirror, bounded passages",
+          "title": "Sharp spectral bounds and equality for graph-gradient two-summing norms",
+          "trigger": "Exact unweighted cycle norm and half-resistance comparison"
+        },
+        {
+          "assessment": "Framework, not the explicit cycle or chord result",
+          "evidence": "Gives the free p-convex norm over weakly p-summable sequences; at p=2 this matches the π₂ tests for the stated vector of rows.",
+          "identifier_or_url": "https://arxiv.org/abs/2101.03510",
+          "material_read": "Eq. (1.1), PDF p. 3, and §6, pp. 16–17",
+          "method": "Lawful OA PDF, bounded passages",
+          "title": "Free Banach lattices under convexity conditions",
+          "trigger": "Primary norm formula and normalization"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The natural cycle design and exact threshold are motivated and would be useful if not already determined by existing results. In this submission the entire simultaneous classification follows from the available general design test and the already evaluated cycle kernel, with no new optimization or spectral invariant required. The explicit potential and elementary limits do not give a substantive independent remainder. This is mechanical application of known data, not a rejection for being a narrow exact result.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,23 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The complete finite proof reduces circular no-`11` covering to a closed walk in the exact overlap digraph. Every reversal class is represented by one mask bit; exhaustive BFS from every starting vertex determines minimum length for each of the five orders. An independent brute-force program examines every circular bitstring of each shorter length and checks all cyclic windows directly, then validates explicit optimal examples. Both programs passed; no inference to larger orders is attempted.
+PASS
 
-## Originality — PASS (qualified)
+Each host gives a closed walk of the same length in the directed admissible overlap graph, recording its classes on successive edges. Conversely a closed walk gives the periodic host spelled by the edge symbols; overlap and closure enforce all windows, including for walks shorter than the window length. The bit-mask BFS finds a shortest return to its start with all classes visited. Independently, python3 /workspace/branches/independent_finite.py circles (NumPy integer arrays) exhausts both versions for lengths at most 28: extend all linearly legal words one symbol at a time, discard exactly those with a forbidden wrap, and test modular windows against separate oriented and reversal masks. The oriented and reversal minima, respectively, are (3,6,10,17,28) and (3,6,10,17,23) for orders 2–6. The specified 23-symbol witness was directly checked. The extra order-one comparison in the reproduction ties, with minima 2 in both versions. There is no extrapolation beyond order six.
 
-The closest full-text primary paper, Burris–Motta–Shipman (2016), studies unrestricted-alphabet unoriented de Bruijn graphs, not the golden-mean shift. Previously indexed all-order golden-mean covers are oriented, while unrestricted reversal-cover results concern full binary alphabets. No indexed statement of the exact reversed, run-constrained n=6 bound and first-saving threshold was identified. A previously unindexed finite optimization or a worked special case of the general Eulerization framework might cover this result; that residual risk is recorded.
+## originality
 
-## Value — PASS
+PASS
 
-The order-six case is the first strict reduction caused by treating reflected words as equivalent in a constrained synchronization-source universal cycle. The reduction from 28 to 23 symbols is substantial and motivates a subsequent all-order study, but no all-order statement is implied here.
+The oriented baseline and the general unoriented graph approach are prior; the sharp restricted reversal minima and first strict saving are not established by the inspected statements. The scope is internal admissibility of targets and cyclic admissibility of the host, with only reversal identifying targets.
 
-## Sources and limitations
+## value
 
-- https://arxiv.org/abs/1608.08480
-- https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-sharp-fibonacci-length-for-cyclic-covers-avoiding-adjacent-ones--115d2faf86fa
-- https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-shortest-cyclic-binary-reversal-covers-through-order-five--d2dd86a41c28
+PASS
 
-Only orders two through six are proved. Independent audit was not conducted.
+This is the first strict gain in a natural run-length-limited cyclic covering problem, not an isolated example. Knowing that four smaller orders admit no gain and that the first saving is exactly five positions gives a sharp benchmark for constrained reversal-cover constructions: counting reversal classes alone significantly underestimates the optimum. This finite comparison is useful without an all-order formula.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

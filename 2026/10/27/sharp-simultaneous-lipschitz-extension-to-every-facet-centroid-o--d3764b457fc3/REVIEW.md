@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The unrestricted extension problem is reduced by finite isometry averaging to two real coefficients, one per signed vertex orbit at a facet. An incident-vertex 1-Lipschitz distance witness and an opposite-facet ± signed-set witness give affine bounds meeting at one positive parameter. The explicit positive operator attains them. Finite Kantorovich–Rubinstein transport is computed for all vertex/facet types and every possible face-center Hamming separation, with derangement matching verifying the full facet-to-facet upper bound. The proof applies to all integers \(d\ge3\), with no experimental extrapolation. The standalone standard-library checker passed 1,264 vertex-center and 2,660 center-center comparisons for dimensions 3–6; a separate transportation LP agreed for dimensions 3–5.
+## correctness
 
-## Originality — PASS, subject to bibliographic risk
-The inspected original 2018 linear extension construction and 2021 finite Lipschitz projection-constant theorem supply general machinery but not the exact all-dimensional cross-polytope facet-center invariant. Actual published-finding corpus searches targeted cross-polytope facet barycenters, octahedron face centers and polar-cube duality. Closest research records concern nearest-point retractions, single cube centers, different simplex \(p\)-interpolation, and edge midpoints. The accessible current-week and previous-week claim ledgers were compared; cross-polytope edge-midpoint constants and polar cube-vertex facet-center constants do not imply this theorem. Unindexed equivalent calculations remain possible.
+PASS
 
-## Value — PASS
-The result computes a natural exact extension invariant throughout an infinite family of regular polytopes, with an explicit positive globally optimal operator. The requirement of simultaneously satisfying all \(2^d\) facet-centroid cross constraints is the structural issue: local facet averaging is strictly suboptimal, even though positivity and complete symmetry survive at the global optimum.
+Averaging over signed permutations reduces every finite-norm extension, even a signed one, to incident and opposite weights a=1/d-b and b. The distance-to-an-incident-vertex test bounds the norm below by A(b)=sqrt(2(d-1)/d)+2b/r, and the two-level test on antipodal facets bounds it below by sqrt(d/2)|1-2db|. For d>=3 the increasing and decreasing affine bounds meet at a strictly positive b*<1/(2d), and their maximum bounds every real b from below by the intersection value. For these positive weights, the mixed pair with an opposite vertex is no worse than the incident pair: at b=0 the comparison is 1<=(2-sqrt(2))(d-1), and increasing b only improves it. For a k-coordinate sign change, cancel the equal masses. If k=1 the only transport costs 2(a-b); otherwise each remaining cross-distance is at least sqrt(2), attained in all k matches by a cyclic permutation of the changed coordinates. Thus the centroid-pair maximum is achieved at k=d, including comparison with k=1. Substitution gives the stated formula, which exceeds 1, is strictly below ordinary averaging, and tends to sqrt(2).
 
-## Limitations
-This theorem concerns real scalar-valued extensions under ambient Euclidean distance, not general Banach targets or arbitrary point configurations. The all-dimensional proof is analytical; finite computations corroborate but cannot certify it. No independent mathematical review has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No inspected source covered the exact signed-coordinate-vertex to all facet-centroid extension constant. The closest catalogue result has the same domain and an adjacent geometric target, but not the target metric or the antipodal-facet obstruction. The inspected general theory supplies tools, not this exact pairwise optimum.
+
+## value
+
+PASS
+
+Facet centroids give a canonical family in every dimension, with a genuinely simultaneous obstruction. Ordinary averaging on just the incident vertices is sufficient for a strictly smaller one-centroid norm, but treating every facet at once forces a competition with antipodal centroid differences. The exact result quantifies this cost and shows how strictly positive mass on all vertices improves the simultaneous norm from order sqrt(d) to a bounded constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

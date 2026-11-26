@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Computational corroboration
-Run `python3 verify_unicyclic.py` using Python 3 with no third-party packages. The program independently backtracks over proper assignments of three named colours, checks that each non-isolated vertex has a singleton colour in its open neighborhood, and compares that count with an independent implementation of the cyclic signed formula. It additionally checks the positive/zero count against the gap criterion, and directly checks four-colour existence for small graphs when the three-colour count vanishes.
+# Independent mathematical audit
 
-Completed output:
-```
-RANDOM_GRAPH_CYCLE_AND_DIRECT_THREE_COLOUR_CENSUS_PASS 276 total_vertices 1815
-CYCLE_WITH_ALL_LEAF_SUBSET_PATTERNS_PASS 504
-FIVE_CYCLE_ATTACHMENT_PHASE_TRANSITION_AND_BOUNDARY_PASS
-VERIFY_OK
-```
+## correctness
 
-The first test set samples finite connected simple unicyclic graphs on three through nine vertices (including long and branched attachments). The second enumerates all 504 choices of attaching zero or one pendant leaf at each vertex of cycles of length three through eight. For small enough resulting graphs it performs complete direct colour enumeration; for larger instances it compares the signed formula against the independently encoded modular criterion. Random generation uses a fixed seed, and the script is standalone and reproducible.
+PASS
 
-The finite checks cannot establish the claim at unbounded order. The full proof in `RESULT.md` supplies the all-order local-factor bijection, residue closure reduction, and explicit four-colour constructions. No external audit or computationally exhaustive proof for all graph orders is asserted.
+With a vertex and parent fixed in three named colours, the permitted assignments to children are either all in the third colour or exactly one in that colour; merge these when there is one child, and handle no children separately. This gives b(d). With the cycle fixed, equal cycle-neighbour colours require exactly one child in the third colour (t_i choices), and distinct colours require monochromatic attachments (two choices if nonempty, one if empty). The tree recursion is a bijection and the sign sum counts exactly the proper cycle assignments with these weights. Unattached vertices force the edge increment to remain constant. Each nonzero gap contributes freely +1 or −1 modulo three and these can sum to zero via opposite pairs or an equal triple unless there is exactly one. Two colours cannot provide a witness at a cycle vertex. The length-3 and length-4 core blocks have distinct consecutive triples even across joins; on a decorated C5 rotate (1,2,3,4,2) so its only equal-neighbour vertex has a child available as a witness. Outward extension with children different from the vertex and parent preserves a singleton parent colour. Independent direct checks matched N₃=6 and 0 for adjacent and distance-two C5 leaves, and 12 and 36 for two C6 examples including a branched tree; the obstructed C5 example had 288 valid four-colour assignments.
+
+## originality
+
+PASS
+
+The verified overlap is the old tree/bare-cycle and corona chromatic information, and the exact census on uniformly hairy cycles. The part supporting the pass is the exact modular obstruction for arbitrary nonuniform attachment positions together with the three-colour census for arbitrary attached rooted trees. The strong-odd citation in RESULT.md should not be described as a stronger condition implying PCF: it permits odd multiplicities greater than one. This attribution issue does not affect the explicit four-colour PCF construction or the distinctive three-colour results.
+
+## value
+
+PASS
+
+The attachment-position obstruction is a natural exact colouring invariant and distinguishes equal-size and equal-degree-multiset examples. It applies across arbitrary rooted trees, and the local factorization gives exact polynomial-time three-palette counting rather than only an existence bound. Neither the four-colour construction alone nor the uniform leaf subfamily is the value claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

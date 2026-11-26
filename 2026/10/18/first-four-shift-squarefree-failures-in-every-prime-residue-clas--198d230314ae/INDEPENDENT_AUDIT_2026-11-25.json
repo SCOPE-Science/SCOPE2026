@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:13:48.994539Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions, Proof; VERIFICATION.md; verify.py; certificate_output.txt",
+        "Independent replay: python3 /tmp/opencode/independent_finite.py squarefree"
+      ],
+      "rationale": "I reproduced all twelve minima by independently marking multiples of every integer square ≥4 through B=6165527, and separately marking odd composites using all odd factors up to sqrt(B). Marking composite-base squares adds no false positives, since their bases themselves have prime divisors; an odd composite has a smaller odd factor at most its square root. The exhaustive increasing candidate scan starts at p=9, ensuring positive shifts, and reaches a verified witness in every reduced class. Every displayed prime, each prime-square witness and every forced-offset count f(r) was checked from the frozen table. The prime units 5 and 7 below the positivity cutoff could not create extra cases even if one allowed nonpositive shifts, because their p−2 remainders are 3 and 5. There is no density claim for other classes and no inference for exponents beyond 0,1,2,3.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Harman–Paquin's census and positive-density result concern only p≡7 mod 36. Later Resultary records increase the least admissible exponent threshold or scanning bound but remain in that class. Hercher's integer enumeration tests a different window."
+        ],
+        "reasoning": "Greater range in p or a larger threshold on the exponent for one class is not a generalization over the remaining classes.",
+        "searches": [
+          "Harman–Paquin §5.1–5.2 and Corollary 2",
+          "Hercher 2025, abstract and Table 3",
+          "Resultary 7ca9eaac71fe and cda17ec27474"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§Relationship to prior work, Limitations",
+        "Harman–Paquin arXiv:2610.07214; Hercher JIS 25.3.1; OEIS A257545; Resultary 7ca9eaac71fe and cda17ec27474"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The theorem and complete failure list imply the r=7 row and its certificates. The argument assumes r=7; no unified exact table or exact recurrence for the other classes was located. Local forced factors by 4 and 9 vary by class and do not decide primality and the remaining square-divisor conditions."
+        ],
+        "reasoning": "The computational method is transferable, but the existing computed results and density theorem do not determine the other minima. Computation over the remaining classes is necessary to establish their first occurrences.",
+        "searches": [
+          "Harman–Paquin Remark 5, Corollary 2, Theorem 7 and Table 2 compared with frozen table and exact minimality proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Having no squarefree remainder at exponents 0,1,2,3 is the identical four-shift condition, with p>8. Harman–Paquin use exactly this condition in class 7. Hercher's initial window starts at exponent 1 and ranges over odd integers. A257545 uses consecutive additive shifts rather than powers of two."
+        ],
+        "reasoning": "Changing the exponent window or replacing the prime classes by all odd integers does not preserve the minimum. The 5051 coincidence for the consecutive shifts does not give the class-11 result.",
+        "searches": [
+          "Resultary: first complete failures of the one-power Erdős problem over the reduced classes modulo 36",
+          "Harman–Paquin arXiv:2610.07214, Remark 5 and Table 2",
+          "Hercher Table 3; OEIS A257545"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first r=7 row in both the Harman–Paquin census and the later Resultary certificate is 4851151, with (5,409,7,53). A257545 gives 5051 for consecutive shifts. No matched table inspected gives all twelve unit-class minima."
+        ],
+        "reasoning": "The r=7 row is demonstrably the same quantitative result. Neither a numerical coincidence for a different predicate nor a database search miss establishes coverage or priority of the full profile.",
+        "searches": [
+          "Harman–Paquin Table 2",
+          "Resultary 7ca9eaac71fe obstruction_certificate.csv",
+          "OEIS A257545",
+          "Resultary and focused literature lookup for the full four-shift profile modulo 36"
+        ]
+      },
+      "rationale": "This passes for the complete twelve-class profile, not for claiming novelty of each row. Harman–Paquin explicitly give the r=7 minimum 4851151 and the same four prime-square witnesses; this is verified prior coverage, not merely a possible overlap. The frozen contribution is the joint exact classification, with the other eleven minima not implied by the r=7 proof or census. No inspected source gives the full classification. The frozen discussion already singles out possible prior coverage of r=7; for any subsequent use, credit it as confirmed prior work.",
+      "residual_risks": [
+        "Harman–Paquin describe their smallest complete failure as previously known; the earlier provenance of that one row was not resolved. A prior unlocated full profile cannot be excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct earlier coverage of r=7; not the complete profile",
+          "evidence": "Smallest complete failure 4851151, with witnesses (5,409,7,53); exhaustive list below 10^8 and positive asymptotic density in that class.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.07214",
+          "material_read": "Remark 5 and Corollary 2, p. 11, offset 38500; §§5.1–5.2, Theorem 7 and Table 2, pp. 14–15, offsets 47700–55628",
+          "method": "OA primary full-text passage inspection",
+          "title": "The One-Power Erdős Conjecture for Primes p≡7 (mod 36)",
+          "trigger": "Same exponents, prime domain and one exact residue class; frozen paper comparison had not seen this full text"
+        },
+        {
+          "assessment": "Different window and domain",
+          "evidence": "A table for failure at exponents 1 through m gives 849 for m=4, not prime minima in the classes here.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL28/Hercher2/hercher24.pdf",
+          "material_read": "Abstract, p. 1, offset 0; Table 3, p. 11, offset 33300",
+          "method": "OA primary PDF",
+          "title": "On the Sum of a Squarefree Integer and a Power of Two",
+          "trigger": "Possible broader small-integer table"
+        },
+        {
+          "assessment": "Different shifts",
+          "evidence": "Consecutive shifts from p−1 through p−n, rather than offsets 1,2,4,8.",
+          "identifier_or_url": "https://oeis.org/A257545",
+          "material_read": "Sequence definition and initial entries, page offset 0",
+          "method": "OA public page",
+          "title": "Least prime with consecutive preceding nonsquarefree shifts",
+          "trigger": "Exact numerical coincidence at 5051"
+        },
+        {
+          "assessment": "Later catalog entry covers the r=7 row only as a subsidiary datum",
+          "evidence": "First exponent-six threshold at 189954151 for r=7; the preceding four-failure list starts with 4851151 and the exact witnesses.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-first-exponent-six-prime-in-the-squarefree-one-power-problem-mod--7ca9eaac71fe",
+          "material_read": "RESULT.md Finding and Proof; obstruction_certificate.csv opening rows, local mirror",
+          "method": "Resultary search and local file inspection",
+          "title": "First exponent-six prime in the squarefree one-power problem modulo 36",
+          "trigger": "Nearby Resultary exact computation and possible table overlap"
+        },
+        {
+          "assessment": "Different exponent condition, same single class",
+          "evidence": "Two primes through 10^9 in the class 7 first succeed at exponent six, not a profile over all units modulo 36.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-first-exponent-six-prime-in-the-squarefree-plus-power-of-two-pro--cda17ec27474",
+          "material_read": "RESULT.md Finding, local mirror",
+          "method": "Resultary search and local file inspection",
+          "title": "The first exponent-six prime in the squarefree-plus-power-of-two problem",
+          "trigger": "Possible dominating computational range"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions and scope, Relationship to prior work",
+        "Harman–Paquin arXiv:2610.07214, §5"
+      ],
+      "rationale": "The four shifts come from the initial exponent window in a studied squarefree-plus-power-of-two question, and 36 is the combined modulus of the two smallest prime squares. The partition is exhaustive over the prime classes and naturally separates the offsets already forced to fail, rather than selecting strata after the scan. The resulting exact thresholds distinguish the genuinely unforced classes (including the verified r=23 threshold 6165527), and provide benchmarks for residue-sensitive searches. No statistical law or causal conclusion is drawn from the finite table.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

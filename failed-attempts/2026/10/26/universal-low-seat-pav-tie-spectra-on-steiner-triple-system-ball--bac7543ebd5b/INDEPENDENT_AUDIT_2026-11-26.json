@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:30:55.336552Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–48; frozen VERIFICATION.md and verify_sts_thiele.py (inspected, not executed)",
+        "Independent replay: python3 /workspace/branches/38b7410a-7001-48fb-90de-d79de44902e2/independent_sts15_sixsets.py"
+      ],
+      "rationale": "Expand the Thiele weight in the first three binomial coefficients of the ballot intersection. The sums are k(v-1)/2, binom(k,2) and tau by replication, pair coverage and definition. Harmonic weights give coefficients 1, -1/2 and 1/3. Nondecreasing concave weights permit all signs: harmonic weights give positive, weights (1,2,2) give negative and linear weights give zero. Two blocks cannot fit in a four-set; three cannot fit in a five-set, since their union has size at least six. Counting intersecting block pairs and then block–committee incidences gives all three table rows, including the two exceptional orders and the five-seat winning proportion. For six seats each point has induced block-degree at most two, so at most four blocks fit. An independent enumeration from the two definitions checked all 105 pairs and 5,005 six-sets per design and returned Bose (315,2100,2170,420,0) and projective (420,1680,2800,0,105); the five-set vectors were both (1008,1680,315). The maxima and their multiplicities therefore agree with the finding.",
+      "residual_risks": [
+        "The independently enumerated spectra are for the two specified order-15 systems only; universality of the smaller-seat spectra follows from the incidence proof, not enumeration."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The configuration paper discusses Pasch listing and parameter-dependent versus variable configuration counts, including the v(v-1)(v-3)/24 occurrence count for some systems.",
+          "The voting paper defines Thiele rules and addresses difficulty of counting winners for general ballots."
+        ],
+        "reasoning": "General hardness by itself is not prior coverage of these structured counts. Configuration counting is the relevant formulation; its overlap is confirmed concretely by the exact earlier witness counts, not by a broad method label.",
+        "searches": [
+          "Heinlein–Östergård arXiv:2110.00320 §2.2 and Theorem 4",
+          "Janeczko–Faliszewski arXiv:2305.01769, definitions and opening results"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Resultary 8a313964a774 actual witness section",
+        "Heinlein–Östergård arXiv:2110.00320 §§2 and 3 comparison as limited to the passages listed",
+        "Janeczko–Faliszewski arXiv:2305.01769 inspected passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "M_t=sum_j binom(j,t) N_j. Each three-block union of size six arises once from three distinct pair intersections, which form a noncollinear triple; each noncollinear triple supplies such a union. The analytic lower moments agree with the independent counts in both designs."
+        ],
+        "reasoning": "M_3=binom(v,3)-b, and M_2=v*binom((v-1)/2,2)*(v-5)+binom(b,2)-v*binom((v-1)/2,2). M_1=b*binom(v-3,3). Thus no new design-dependent census is needed after the prior Pasch counts; converting the completed histogram to tie counts is direct.",
+        "searches": [
+          "Resultary 8a313964a774, pair-completion characterization and witness enumeration",
+          "Frozen RESULT.md lines 36–48 and independent configuration moments"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At fixed k a PAV score is a fixed affine function of the induced-block count with positive coefficient 1/3.",
+          "At six seats a fourth contained block forces the six-point Pasch configuration, and the indexed record uses the same two explicit STS(15) definitions."
+        ],
+        "reasoning": "Tie spectra are ordinary induced-block histograms under a score relabeling; in the zero-coefficient case all levels merge. The Pasch counts in the prior record cover the only design-dependent factorial moment of the histograms.",
+        "searches": [
+          "Resultary: induced Steiner triple-system counts, Pasch and Thiele/PAV spectra",
+          "Janeczko–Faliszewski arXiv:2305.01769 pp. 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The previous record specifies the identical GF(2)^4 and Z5 x Z3 constructions and explicitly reports 105 Pasches in the projective system and none in the Bose system, with pair coverage checked."
+        ],
+        "reasoning": "This supplies the exact nonparameter datum of the six-set histograms. The complete election table is not printed there, but is obtained by unique inversion from the published datum and universal moments.",
+        "searches": [
+          "Resultary 8a313964a774, section The projective and Bose order-fifteen witnesses, local offset 6250"
+        ]
+      },
+      "rationale": "No identical election-spectrum statement was encountered, but the only design-dependent entry in either six-seat table is the Pasch count, already explicitly given for the exact same Bose and projective witnesses in Resultary record 8a313964a774. The other entries follow by triangular binomial inversion of incidence moments fixed by the STS parameters. In detail, the six-set factorial moments M_0 through M_3 at v=15 are 5005, 7700, 3430 and 420: count subsets, contained blocks, pairs of blocks split by whether they meet, and noncollinear triples of pairwise block-intersection vertices, respectively. M_4 is exactly the Pasch count: all six points must have block-degree two, forcing every pair of the four blocks to meet in a different point. The prior values 0 and 105 therefore recover the full frozen tables and winning counts mechanically. At three through five seats the analogous moments stop at degree at most two and are fixed by replication and pair coverage. For fixed k the conversion to Thiele and PAV scores is binomial interpolation on intersections of size at most three, not a new incidence invariant.",
+      "residual_risks": [
+        "The verdict is prior implication and elementary parameter counting, not a finding that these exact election tables were printed before or that all STS election problems are covered."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior exact coverage of the essential six-set datum despite a different logic application.",
+          "evidence": "Identical block constructions; reports 105 projective and zero Bose four-block Pasches, with 420 projective anchored triples witnessing them.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-three-anchor-pasch-detection-and-blockwise-blindness-in-steiner--8a313964a774/RESULT.md",
+          "material_read": "Finding at offset 0; projective and Bose witnesses at offset 6250",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Three-anchor Pasch detection and blockwise blindness in Steiner incidence graphs",
+          "trigger": "Exact overlap in the order-15 systems and Pasch distinction"
+        },
+        {
+          "assessment": "Relevant incidence methodology and Pasch counts, not an explicit voting result.",
+          "evidence": "Theorem 2 discusses the count v(v-1)(v-3)/24 for some systems; Theorem 4 relates variable and full configuration counts.",
+          "identifier_or_url": "https://arxiv.org/pdf/2110.00320",
+          "material_read": "§2.2 Theorem 2, around offset 11939 (p. 5), and Theorem 4, around offset 13600 (p. 6)",
+          "method": "OA arXiv PDF after publisher access was unavailable",
+          "title": "Algorithms and complexity for counting configurations in Steiner triple systems",
+          "trigger": "Closest configuration counting results and Pasch enumeration"
+        },
+        {
+          "assessment": "Establishes score formulation and general tie-counting context; the inspected material does not give an STS census.",
+          "evidence": "Thiele scores sum weights of intersections and the paper studies winning-committee counts in general elections.",
+          "identifier_or_url": "https://arxiv.org/abs/2305.01769",
+          "material_read": "Opening and definitions, pp. 1–2, offsets 0, 4400 and 7400",
+          "method": "OA primary text",
+          "title": "Ties in Multiwinner Approval Voting",
+          "trigger": "Thiele score and PAV tie work"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–30 and 36–48",
+        "Resultary 8a313964a774 witness section and independent six-set moment output"
+      ],
+      "rationale": "The structured voting example is natural and the counts are correct. But the small-seat formulas are parameter incidence identities and the specific six-seat boundary simply recovers the already established Pasch distinction in the same two systems by affine scoring and binomial inversion. The independently reproduced tables add no nonmechanically determined invariant for either witness.",
+      "residual_risks": [
+        "This does not rule out value in studying higher-seat counts with additional, genuinely unknown design invariants."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

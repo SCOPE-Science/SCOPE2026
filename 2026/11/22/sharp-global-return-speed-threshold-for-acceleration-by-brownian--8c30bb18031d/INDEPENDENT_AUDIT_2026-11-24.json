@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:29:07.713509Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The mean return from y is |y-x|/a by the one-sided first hitting law of a Brownian motion with constant drift toward x; only that conditional mean enters the regeneration. Subtracting the stopped exit-potential identity from the renewal equation gives p times the mean time difference as the expected alarm contribution |y-x|/a+f(x)-f(y). Since f(z)=z(L-z)/(2D), its strict interior chord bound is |f(y)-f(x)|<(L/(2D))*|y-x| for y!=x. The killed alarm law has positive density, so every positive rate is strictly worse at A<=2, including equality. In dimensionless units the success probability is S/sinh(k), S=sinh(k*u)+sinh(k*(1-u)); integrating the killed Green kernel on either side uses integral_0^u (u-y)*sinh(k*y) dy=(sinh(k*u)-k*u)/k^2 and its reflected version, giving the stated exploratory and return terms. The derivatives at u=0 of these normalized terms are tanh(k/2)/k and (1-k/sinh(k))/A respectively. Their difference from the baseline slope 1/2 tends to 1/A-1/2, so for A>2 one first takes a large finite k, and only then a positive sufficiently small u. The derivative at zero rate is the r=0 Green integral of the same alarm bracket (divide the renewal identity by r and use p->1); independently integrating its two polynomial pieces gives 117623/800000000 at the witness. The independent replay `python3 /workspace/branches/brownian_review_check.py` bounds the mean strictly between 0.00439269746548251 and 0.00439269746548252 by exact rational odd-power sinh series bounds, below 0.00495. The witness calculation is not a substitute for the analytic all-rate threshold proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-day conditional-exit finding uses inactive targets and arbitrary return overhead but compares target-conditional completion distributions, not unconditional mean acceleration against no reset.",
+          "The Brownian star result already has finite-rate improvement despite harmful weak resetting, with instantaneous returns and different geometry; the reflecting/partially reactive interval threshold also has no finite return cost. Dubey–Pal have harmonic and target-active return dynamics."
+        ],
+        "reasoning": "Neither conditional target ordering with arbitrary overhead nor the phenomena in other reset or absorption geometries provide the asserted no-benefit/attainability classification here.",
+        "searches": [
+          "Resultary return-inactive conditional exit ordering ff4440eb15e5 and rate thresholds bca1b9dbd5be, a02eb1d7ba06",
+          "arXiv:2610.18814v1 abstract/Introduction"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.23790v1",
+        "arXiv:2503.03697v1",
+        "arXiv:2610.18814v1",
+        "Resultary 8c30bb18031d, ff4440eb15e5, bca1b9dbd5be, a02eb1d7ba06"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The mean formula can reproduce individual points, including the reversal, but the reported weak-rate cutoff and examples do not establish a sharp optimization over rate and starting position. In particular weak-rate nonbenefit allows finite-rate benefit at A=3."
+        ],
+        "reasoning": "The global result is analysis of a known exact function, not recomputation or a direct corollary of the weak-reset criterion. The strict obstruction at all rates uses a potential bound; sharp attainability uses a joint near-boundary/large-rate regime with a controlled order of limits.",
+        "searches": [
+          "arXiv:2611.23790v1 §III Eqs. (21)–(31), Fig. 2; §VII"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chen et al. use the identical reset site, linear potential and inactive-target return, with conditional return mean |y-x_R|/a and dimensionless drift aL/D. Their exponential mean equations are the same expressions as the frozen hyperbolic mean equations after substitution.",
+          "Deterministic constant-speed return is an equivalent mean-time convention if detection remains inactive and regeneration is otherwise unchanged; the inspected discrete-space-time-cost analogue instead uses discrete-time jumps on a half-line."
+        ],
+        "reasoning": "The closest model match is exact, so different notation or stochastic/deterministic return cannot justify novelty by itself. The prior A=4 criterion is for the initial slope, whereas the frozen criterion quantifies over every positive rate and starting point on the nonbenefit side and some pair on the benefit side.",
+        "searches": [
+          "Focused literature lookup for the two-absorbing-endpoint finite-return model and global speed threshold",
+          "arXiv:2611.23790v1 §§II–III, Eqs. (12), (21)–(25) and (28)–(31)",
+          "arXiv:2503.03697v1 Introduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The hit matching A=2 is the frozen entry itself. The distinct same-day result was inspected in the mirror and states a conditional distribution result.",
+          "Chen et al.'s Fig. 2 discussion has x/L=0.1 and describes initial decrease for strong trapping, not a positive-slope later improvement at x/L=0.01; their threshold statement is weak-rate A=4."
+        ],
+        "reasoning": "The closest exact published quantities are the same all-rate mean expression and a different weak-rate boundary, not an independent all-rate optimizing cutoff or reversal witness.",
+        "searches": [
+          "Resultary Brownian return-speed acceleration threshold and finite-rate reversal; 8c30bb18031d, ff4440eb15e5, bca1b9dbd5be, a02eb1d7ba06",
+          "arXiv:2611.23790v1 Fig. 2 and Eqs. (28)–(31)"
+        ]
+      },
+      "rationale": "Best of current knowledge: the all-rate existential threshold A=2 and the finite-rate reversal with positive initial slope in this specific bounded return-inactive model are distinct. Chen–Tang–Li already solve the identical mean-time model and report rapid-return finite-rate optima; no novelty is assigned to the model, renewal decomposition, or all-rate mean formula.",
+      "residual_risks": [
+        "The prior identical all-rate formula is material; the distinction is the sharp optimization theorem and reversal, not a new formula. The focused search and bounded primary-text comparison do not establish exhaustive historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model and global mean; weak-rate threshold and strong-trapping examples do not establish the all-rate cutoff",
+          "evidence": "Linear mean return time, exact mean decomposition; A=4 cutoff derived from weak derivative; Fig. 2 discussion describes initial decrease for sufficiently strong trapping.",
+          "identifier_or_url": "https://arxiv.org/html/2611.23790v1",
+          "material_read": "§II and Eq. (12), offsets 8700 and 14200; §III Eqs. (21)–(31) and Fig. 2 discussion, offsets 19800 and 24900; §VII offset 46000",
+          "method": "Primary OA HTML passages",
+          "title": "Finite-time stochastic resetting in bounded domains: competing targets, energetic cost, and optimal search strategies",
+          "trigger": "Identical return-inactive Brownian model and prior exact all-rate mean"
+        },
+        {
+          "assessment": "Related cost law, different geometry and process",
+          "evidence": "Linear cost interpreted as constant-speed return time in a discrete-time jump model.",
+          "identifier_or_url": "https://arxiv.org/html/2503.03697v1",
+          "material_read": "Introduction, offset 5600",
+          "method": "Primary OA HTML passage",
+          "title": "The cost of resetting discrete-time random walks",
+          "trigger": "Equivalent constant-speed linear return-cost interpretation"
+        },
+        {
+          "assessment": "Return dynamics and target activation differ",
+          "evidence": "Harmonic trap with detection possible on return.",
+          "identifier_or_url": "https://arxiv.org/html/2610.18814v1",
+          "material_read": "Abstract/Introduction, offset 700",
+          "method": "Primary OA HTML passage",
+          "title": "Towards synergy between theory and experiments: First-passage processes under resetting with stochastic return protocols",
+          "trigger": "Stochastic finite return first-passage comparison"
+        },
+        {
+          "assessment": "No unconditional mean benefit threshold",
+          "evidence": "Target-conditional exit-delay distribution ordering with arbitrary overhead.",
+          "identifier_or_url": "Resultary ff4440eb15e5",
+          "material_read": "RESULT.md offsets 0 and 2800",
+          "method": "Local mirrored exact record",
+          "title": "An infinitely divisible conditional exit delay survives arbitrary return overhead",
+          "trigger": "Distinct same-day record with same regenerative setup"
+        },
+        {
+          "assessment": "Different geometries and no finite return overhead",
+          "evidence": "Star-graph reversal with instantaneous reset; reflecting/partially reactive interval global benefit classification.",
+          "identifier_or_url": "Resultary bca1b9dbd5be and a02eb1d7ba06",
+          "material_read": "Both RESULT.md findings, offset 0",
+          "method": "Local mirrored exact records",
+          "title": "Finite restart helps on absorbing Brownian stars even when weak resetting hurts; An exact global reset benefit threshold for a partially reactive interval",
+          "trigger": "Prior finite-rate reversal and global threshold analogues"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact drift-speed threshold answers whether any rate is worth trying in an existing model, and separates an all-rate strict obstruction from the weak-reset cutoff of 4. The constructive near-boundary argument and a certified failure of the local diagnostic make the distinction useful. The result is existential in position and rate, not an optimizer formula for every position.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

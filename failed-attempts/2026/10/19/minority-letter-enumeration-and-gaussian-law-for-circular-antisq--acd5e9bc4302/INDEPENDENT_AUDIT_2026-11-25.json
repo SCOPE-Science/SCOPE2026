@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:48:08.125610Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–6, VERIFICATION.md and verify.py; uploaded code inspected as evidence, not executed",
+        "Baranwal et al., arXiv:2209.09223, Theorem 11, Proposition 18 and §7",
+        "Independent replay: python3 /tmp/opencode/frozen_audit_antisquares.py. Direct periodic antisquare check through n=16 and an independent cyclic 5-bit transfer trace agree with the binomial and rational coefficients through n=48; computed mu=0.19425400402459374 and variance=0.04956151754045080."
+      ],
+      "rationale": "The all-length mathematics is sound. Theorem 11 of Baranwal et al. supplies the minimal antisquares; there is no minimal one of order four. Proposition 18 removes the two exceptional factors in a periodic lift. In particular, if 0^a 101^a is followed by 00 or 01, respectively 1100 or an order-(a+2) antisquare occurs; reverse-complement symmetry gives the other extension. The even first-difference runs give one or two minority visits per run, separated between runs by at least four positions. Labeling and cyclic marking account for 2n/k even at short periods. The log derivative gives the exact power sum, and the isolated simple root gives a uniform exponential error and the Gaussian limit. With masses p=(rho,rho^4,rho^6) on (length,minority)=(1,0),(4,1),(6,2), the variance is E[(minority-mu*length)^2]/E[length], strictly positive from the length-one term. The frozen phrase 'group adjacent two-gaps' should be read as grouping the two minority visits joined by each isolated two-gap, not permitting consecutive short gaps.",
+      "residual_risks": [
+        "Finite replay corroborates rather than proves the unbounded result. The infinite reduction uses the cited theorem; the limit is not a local limit theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Baranwal et al. give the forbidden-pattern and difference-run grammar and linear-order growth, not the claimed circular bivariate series.",
+          "585d5e7587a7 gives both complementary phases of a fixed-weight zeta function and the feasibility criterion n>=3k+(k mod 2)."
+        ],
+        "reasoning": "The stronger fixed-weight polynomial covers both choices of minority color. The published linear count and pseudosquare work do not by themselves supply the circular weighted count.",
+        "searches": [
+          "arXiv:2209.09223, Theorem 11, Proposition 18, §7 and Theorem 19",
+          "arXiv:1904.09157, abstract and introduction",
+          "Resultary: periodic orbit law and constant-weight rigidity for antisquare avoidance"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 585d5e7587a7, 29a622fd334c, 379da1cc57ba",
+        "arXiv:2209.09223",
+        "arXiv:1904.09157"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fixed-weight zeta denominator is F(z,u)F(uz,1/u), F(z,u)=1-z-uz^4-u^2z^6. Folding complementary weights of the log derivative gives -2z*d/dz log F(z,u).",
+          "6*1_{3|n}*(-1)^(n/3)=2(-1)^n+4cos(n*pi/3); the entropy record also gives the corresponding typical minority frequency."
+        ],
+        "reasoning": "Differentiating the same simple dominant root gives exactly the stated CLT mean and variance. There is no different probability statistic or non-routine implication left, although the limit was not found stated verbatim in those entries.",
+        "searches": [
+          "585d5e7587a7, RESULT.md Finding and proof",
+          "29a622fd334c, RESULT.md Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "585d5e7587a7 gives the exact |w|_1 distribution for the same labeled two-sided periodic language; complementation pairs weights k and n-k and the two constants give C(n,0)=2.",
+          "379da1cc57ba marks cyclic transitions, not minority counts; it agrees after forgetting the mark."
+        ],
+        "reasoning": "Exact fixed-weight refinement, unlike transition refinement alone, determines the minority variable by a deterministic fold.",
+        "searches": [
+          "Resultary: circular antisquare avoidance, minority/composition-refined enumeration; fixed binary weight",
+          "Resultary: cyclic transition-refined antisquare census"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "585d5e7587a7: at density 1/3 or 2/3 there are exactly six words at each weight for n divisible by six.",
+          "29a622fd334c: exact periodic-point law P_n=2S_n+6*1_{3|n}*(-1)^(n/3).",
+          "379da1cc57ba: identical unweighted periodic generating function."
+        ],
+        "reasoning": "These are exact indexed statements, not extrapolations from coincident entries in a short sequence; the indexed exact period law and zeta function fix the oscillatory terms.",
+        "searches": [
+          "Resultary: exact minority census, density/extremizers, exact oscillations and Gaussian law"
+        ]
+      },
+      "rationale": "The principal exact census, density rigidity and periodic oscillation are covered by distinct indexed results. Complement-folding the stronger fixed-weight census recovers the entire minority generating function and coefficient formula. The Gaussian statement and variance were not found verbatim, but the recovered series makes both immediate by simple-pole quasi-powers and implicit differentiation. This is an assessment of distinct scientific content in the compared corpus, not a finding that the later dated entries preceded or were copied by the frozen work.",
+      "residual_risks": [
+        "Indexed matches have later path dates; the comparison does not establish publication priority or dependence.",
+        "External comparison was bounded to the identified primary sources; no exhaustive literature-absence claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger exact coverage",
+          "evidence": "Two complementary fixed-weight factors in the zeta denominator, exact coefficients, feasibility threshold and density-equality counts.",
+          "identifier_or_url": "Resultary 2026/11/8, 585d5e7587a7",
+          "material_read": "RESULT.md Finding and proof, mirror offsets 0–8348",
+          "method": "Local indexed record and direct algebraic comparison",
+          "title": "Constant-weight rigidity and exact spectra of circular antisquare-avoiding words",
+          "trigger": "Strongest same-language composition census"
+        },
+        {
+          "assessment": "Covers total count and oscillation; frequency overlap",
+          "evidence": "P_n=2S_n+6*1_{3|n}*(-1)^(n/3); minority phase frequency 1/[psi^2(3psi-2)].",
+          "identifier_or_url": "Resultary 2026/10/25, 29a622fd334c",
+          "material_read": "RESULT.md Finding, mirror offsets 0–3864",
+          "method": "Local mirror and root-of-unity comparison",
+          "title": "Two maximal-entropy phases and an exact periodic-orbit law",
+          "trigger": "Exact periodic asymptotics and frequency"
+        },
+        {
+          "assessment": "Unweighted overlap, different refinement",
+          "evidence": "Its transition-refined periodic count specializes to the same total count.",
+          "identifier_or_url": "Resultary 2026/10/25, 379da1cc57ba",
+          "material_read": "RESULT.md Finding, mirror offsets 0–3704",
+          "method": "Local mirror and specialization at mark 1",
+          "title": "Exact transition-refined census of periodic binary antisquare-avoiding words",
+          "trigger": "Distinguish cyclic changes from minority counts"
+        },
+        {
+          "assessment": "Known structural premise and linear growth, not the fixed-weight census",
+          "evidence": "Minimal antisquares, exceptional bi-infinite word, difference avoidance list and linear Theta(psi^n).",
+          "identifier_or_url": "arXiv:2209.09223",
+          "material_read": "OA PDF pp. 13, 17, Theorem 11, Proposition 18 and Section 7/Theorem 19",
+          "method": "Open primary text, statement and implication comparison",
+          "title": "Antisquares and Critical Exponents",
+          "trigger": "Primary source for structure and plausible general coverage"
+        },
+        {
+          "assessment": "Inspected statements address different avoidance questions",
+          "evidence": "Simultaneous bounds on distinct squares/antisquares and xp(x), xt(x), xh(x) avoidance, not circular minority composition.",
+          "identifier_or_url": "arXiv:1904.09157",
+          "material_read": "OA PDF abstract and introduction, pp. 1–2",
+          "method": "Open primary text, definitions and scope comparison",
+          "title": "New results on pseudosquare avoidance",
+          "trigger": "Plausible related binary avoidance classification"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Resultary exact fixed-weight census 585d5e7587a7 and exact periodic-point law 29a622fd334c",
+        "Frozen RESULT.md §§4–6"
+      ],
+      "rationale": "Circular weighting of this language is a natural question, but the stronger exact count already supplies the proposed quantitative information. The remaining Gaussian wording is a routine consequence of the identical weighted simple pole, with no new limit regime, statistic or extra estimate. No independently valuable remainder was established for a narrower repair.",
+      "residual_risks": [
+        "This does not discount the mathematical utility of an exact circular composition census when first established."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

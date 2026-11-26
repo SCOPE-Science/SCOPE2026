@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:46:48.432472Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–26 and 28–88; VERIFICATION.md; checker.py; full_hessian_check.py",
+        "Independent replay: /workspace/branches/review-5-replay.py, direct analytic differentiation of the oriented determinants, not finite differences"
+      ],
+      "rationale": "The local theorem holds in the stated sum-of-vertex metric. At the orthogonal pentagon pair, each of the 25 edge-pair tetrahedra has a strict supporting gap to the six remaining vertices, and the origin is interior; these simplex facets persist and their consistently oriented determinants give 24 times the volume. The first variation vanishes by the cyclic cancellation of angular differences, with the mixed wedge contributions starting at second order. In the second variation, the in-plane area loses s/4 times the angular difference energy and s/2 times the squared cross velocities. Only first-harmonic cross velocities contribute linearly to the mixed bivectors. For their matrix parts M,N the mixed pairing is the quadratic term of the block determinant of [[I,tN],[tM,I]], namely -tr(MN) times the squared base area; pairing with the radial losses yields the stated squared norm of M+N^T. The five-cycle Laplacian and the splitting N=±M^T, with matrix metric factor 5/2, give all 30 eigenvalues with six precisely rotational zeros. Normal displacement from a compact smooth orbit has chordal distance equal to its length to first order, so Taylor's factor 1/2 gives the sharp 25/192 and the first angular mode realizes it. The externally cited global maximum is antecedent, not reproved here.",
+      "residual_risks": [
+        "The floating-point spectrum and rotation-kernel replay (maximum eigenvalue discrepancy below 1.0e-15) is corroboration only; the exact spectrum is established by the analytic decomposition. No global quantitative bound follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.5 establishes global volume and equality configuration. The nine-vertex paper gives an oriented cycle-join volume bound and equality, and credits the Hodge-star pairing and Fourier argument. Indexed local spectra for a triangle plus two diameters and a square plus a pentagon are for distinct configurations."
+        ],
+        "reasoning": "Global maximum and equality give neither the second variation nor its sharp least transverse level. These sources are background; the indexed ten-vertex result is what establishes exact coverage.",
+        "searches": [
+          "arXiv:2611.14674v1, Theorem 4.5",
+          "arXiv:2611.10078v1, Section 5, Theorem 5.1 and Corollary 5.2",
+          "Resultary local spectra, seven and nine vertices"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d61b7796b7ba (ten vertices), 52fa6031286c (nine vertices), 713bd690255d (seven vertices)",
+        "Medgyes arXiv:2611.14674v1 and arXiv:2611.10078v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed theorem gives a lower bound with coefficient 25/192 minus arbitrary epsilon in a neighborhood and a sequence attaining the limiting ratio 25/192. These together are the submitted liminf assertion."
+        ],
+        "reasoning": "The indexed theorem implies both the full Hessian assertion and sharp stability of the frozen claim under normalization and restriction to the displayed component. The earlier global theorem alone would not do so.",
+        "searches": [
+          "d61b7796b7ba/RESULT.md, Finding and Assumptions and scope",
+          "arXiv:2611.14674v1, Theorem 4.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matching Finding expressly calls its form the half-Hessian and gives levels 0, 25/192, 5(5+sqrt(5))/192, 25(3+sqrt(5))/384, 5(5+sqrt(5))/96 with multiplicities 6,4,12,4,4."
+        ],
+        "reasoning": "Doubling exactly reproduces all five submitted levels in the same labelled product metric. For a spanning labelled configuration the SO(4) component and the reflected component are disjoint compact sets, so the O(4) and SO(4) distances agree near the displayed component. This change does not change the local constant or the tangent kernel.",
+        "searches": [
+          "Resultary: ten-vertex inscribed four-polytope, pentagon pair, sharp local volume stability/Hessian",
+          "d61b7796b7ba/RESULT.md, Finding and Assumptions and scope"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The original Finding of the distinct indexed record contains the full five-level table, multiplicities, six-dimensional rotation kernel and optimal deficit-to-distance ratio."
+        ],
+        "reasoning": "This is a complete exact match in equivalent normalization, not agreement with sampled eigenvalues or with a different number of vertices.",
+        "searches": [
+          "Resultary: complete 30-dimensional pentagon-pair spectrum and coefficient 25/192",
+          "2026/11/22/SCOPE-sharp-local-volume-stability-of-the-ten-vertex-inscribed-four-po--d61b7796b7ba"
+        ]
+      },
+      "rationale": "A distinct indexed record gives the same complete local theorem, not just the same optimizer or a related computation. Its complete half-Hessian spectrum converts exactly into the submitted ordinary Hessian spectrum; its sharp local coefficient is identical. Their shared calendar date does not establish priority in either direction. The comparison establishes equivalent coverage, not a finding about which result was first.",
+      "residual_risks": [
+        "Relative ordering of the two indexed ten-vertex records is not established. Unsearched sources could affect historical attribution, not the demonstrated equivalent coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent coverage; publication order not established",
+          "evidence": [
+            "Complete spectrum and explicit factor-of-two convention; sharp 25/192 with a matching limiting sequence"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-local-volume-stability-of-the-ten-vertex-inscribed-four-po--d61b7796b7ba/RESULT.md",
+          "material_read": "Original Finding and Assumptions and scope (offset 0), plus the spectrum and sharpness discussion",
+          "method": "Read matching GitHub file through the local mirror and compared metric, orbit and half-Hessian conventions",
+          "title": "Sharp local volume stability of the ten-vertex inscribed four-polytope",
+          "trigger": "Exact object, invariant and stability coefficient in a distinct indexed record"
+        },
+        {
+          "assessment": "Global maximality and equality are antecedent, not a statement of the local spectrum",
+          "evidence": [
+            "The maximizer is the orthogonal regular-pentagon pair, with the same maximal volume"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.14674v1",
+          "material_read": "Theorem 4.5, HTML offset 28318",
+          "method": "Read decisive OA theorem passage",
+          "title": "The inscribed 4-polytope of maximal volume with ten vertices",
+          "trigger": "Same maximizing configuration"
+        },
+        {
+          "assessment": "Methodological antecedent, not the submitted ten-vertex local spectrum",
+          "evidence": [
+            "The join-cycle signed-volume bound and equality condition do not state transverse curvatures"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.10078v1",
+          "material_read": "Introductory description of the area pairing; Section 5, Theorem 5.1 and Corollary 5.2, offset 53729",
+          "method": "Read relevant OA statements",
+          "title": "The inscribed 4-polytope of maximal volume with nine vertices",
+          "trigger": "General polygon-join volume methods"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The invariant is intrinsically useful: it distinguishes angular and cross-plane stiffness and answers a quantitative rigidity question left by global uniqueness. But the distinct exact result already supplies the full normalized spectrum, kernel and sharp coefficient. This record offers no additional invariant or estimate beyond the exact matched theorem; a change of Hessian convention or restriction to the local connected orbit component is not a new mathematical contribution.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

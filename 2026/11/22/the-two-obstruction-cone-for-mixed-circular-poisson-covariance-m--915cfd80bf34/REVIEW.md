@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Poisson Fourier expansion is absolutely summable. Splitting the weighted Fourier quadratic form by parity leaves two Jacobi operators with independently computed exact lower spectral values. Density of finite atomic quadratures in the weighted Fourier sequence space establishes necessity as well as sufficiency. The strict finite-site assertion is proved by the impossibility of an exponentially decaying nonzero even Fourier sequence for a finite atomic measure. `CHECKER.py` passed 289 exact rational/quadratic-field checks, including an explicit eight-site negative witness.
+## correctness
 
-## Originality — PASS, qualified
-The closest published record is *Sharp harmonic-modulation cutoff and polygonal singularities for circle Poisson covariances*, which covers the sum-angle-only slice, not the joint separation-angle coefficient and the distinct even-mode on-site defect. The primary nonisotropic spectral papers of Buhmann–Jäger (2021/2022) and Guella–Jäger (2022/2024) supply general spectral background but not this closed cone. A differently parameterized equivalent in the circular-covariance or Jacobi literature remains a specific priority risk; the claim is not independently certified as novel.
+PASS
 
-## Mathematical value — PASS
-Two different mechanisms impose sharp constraints on a natural mixed stationary/nonstationary circular covariance model. The negative-baseline transition and the spectrally marginal but finite-site strictly positive boundary cannot be inferred from the known one-modulation threshold. The result supplies complete admissibility and strict interpolation criteria without relying on a numerical cutoff.
+The original antipodal-pair claim at r=1/2, a=−1/4, c=1 is false if it refers to positivity of the whole pair: 4/5 tests only the antisymmetric vector. For u=b cos(2x), the eigenvalues of the antipodal Gram matrix are (p+q)(a+(c+u)/μ) and (p−q)(a+μ(c+u)), with p=P_r(0), q=P_r(π). Requiring both yields |b|≤min(c+μa,c+a/μ)=11/16 in the example. In particular b=4/5 and x=π/2 give eigenvalue −3/10. The complete corrected result derives both eigenvalues; 67/100 still satisfies every antipodal test and violates the full PSD bound. Independent exact evaluation recovers the indicated eight-site energy −1217/1275 and minimum diagonal 6/25. The main theorem survives unchanged: direct Fourier expansion gives even/odd Jacobi sectors, and approximating trigonometric-polynomial densities by atomic measures proves necessity on all weighted finitely supported Fourier vectors. The repaired odd-sector argument uses a positive eigenvector supported with geometric tails of ratio r and the sum-of-squares ground-state identity; sign alternation gives the opposite extremum. The even-sector bulk bottom is h−|b|; an attractive defect −cδ yields h−sqrt(b²+c²δ²) by matching the unique decaying solution on the two tails and the origin, and a nonattractive defect cannot lower the bottom. The diagonal b=0 case gives the same formula. At odd equality an antipodal antisymmetric vector is null (or the b=h=0 kernel is constant). At strict odd margin a possible even zero mode has ratio |t|<r per step of two indices, so its unweighted even Fourier sequence tends to zero despite F_0≠0. Cesàro orthogonality rules this out for finite atomic measures, including the b=0 constant-Fourier-mode nullspace. Fourier uniqueness excludes the zero sequence for a nonzero distinct-site vector. This checks the repaired theorem, example, and endpoints without a finite-to-infinite extrapolation.
 
-## Limitations
-Only one sum-angle and one separation-angle cosine frequency are classified. No result about all higher harmonics or a uniform witness size for exterior points is claimed. The supplied finite checker does not prove infinite-dimensional assertions, which instead follow from the analytic Jacobi argument. Independent mathematical audit is not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The repaired result credits two exact overlaps: the earlier c=0 sum-angle harmonic model and the same-day b=0 stationary finite-knot classification. The latter is exact present coverage of the stationary slice, not evidence of any within-day ordering. The supported distinct claim is the full sharp mixed nonstationary cone and its strict even-sector boundary, not either specialization, the general Fourier framework, or the elementary corrected antipodal bound.
+
+## value
+
+PASS
+
+The full criterion distinguishes two genuinely different obstructions for a natural radial-plus-nonstationary covariance model. It explains why strict positivity on every finite set can persist at a sharp operator boundary and supplies a finite negative witness just outside the admissible region which passes all antipodal tests. The corrected example strengthens the interpretation without changing the theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

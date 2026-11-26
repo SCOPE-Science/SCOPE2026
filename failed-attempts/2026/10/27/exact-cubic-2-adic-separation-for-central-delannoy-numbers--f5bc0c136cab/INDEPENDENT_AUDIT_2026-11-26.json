@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:01:30.244398Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–51, VERIFICATION.md lines 18–20, verify_delannoy.py lines 6–41",
+        "Independent exact replay: multiply factors (1−8w/j+16w²/j²) over rationals in T_k(w) for k=1..8, then evaluate nu2 of each coefficient minus 64 times the degree-3 indicator; compute B(k) for 9..31"
+      ],
+      "rationale": "The interpolation F(z)=sum 2^k binom(z,k)^2 converges uniformly on Z_2 by integrality of each binomial. For z=2u, u odd, reduction mod 8 leaves 4 binom(z,2)^2≡4 in F(z)−1. On z=4w each k-term has Gauss valuation at least B(k), by subtracting twice the sum of max(nu2(j)−2,0) over j<k. The bound tends to infinity; the independent exact calculation finds min B(k)=10 for 9<=k<=31, and k/2+9/2−2 log2(k) is increasing and at least 10.5 for k>=32. Thus the series is restricted analytic on the scaled ball and the tail vanishes coefficientwise mod 128. The separate exact rational polynomial replay for k=1..8 gave residual coefficient valuations for degrees 0..16 of (infinity,infinity,12,7,7,10,9,11,10,18,16,20,19,28,24,27,26) after subtracting 64w³. The quadratic coefficient is exactly zero, not merely 0 mod 128: formal differentiation proves Li2(t)+Li2(t/(t−1))=−log(1−t)^2/2, with valid restricted-series substitution on t in 2Z_2. At t=2 both arguments are 2 and log(−1)=0. Together with vanishing of the linear term this yields F(4w)−1=64w³ times a unit series congruent to 1 mod 2, proving the exact order on 4Z_2 away from zero. Euler's rational hypergeometric transformation can be evaluated at t=2, giving F(−m−1)=−F(m); continuity extends it to every 2-adic index. This transfers each even residue ball to the corresponding odd one and preserves the valuation. The cases cover n>=1; n=0 is outside the assertion. The finite replay verifies arithmetic, not the infinite identities or bounds, and did not execute the frozen script.",
+      "residual_risks": [
+        "No valuation assertion at n=0 or at odd primes. Finite calculations do not establish the reflection or infinite-tail proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The dyadic-fiber result proves f(x)−1=x³U(x) for x in 4Z_2, that U(4u) has odd constant and even higher coefficients, and the reflection f(−x−1)=−f(x). It also states an exact same-shell difference law.",
+          "The dyadic-period result is a shift-minimum theorem and the cubic-sum result gives a different adjacent-sum subsequence valuation.",
+          "Alekseyev et al. treat nu_p(P_n(p)) at odd primes, not the dyadic signed-unit separation. A Zenodo abstract suggests broader exact differences, but the exact theorem was not available."
+        ],
+        "reasoning": "The indexed analytic theorem subsumes the frozen critical factorization, not just its numerical values. Shift minima, nearby sum defects and odd-prime identities alone do not give pointwise signed-unit separation. No exclusion or acceptance depends on the inaccessible Zenodo item.",
+        "searches": [
+          "Resultary 70933221cf22 critical normal form and fiber laws",
+          "Resultary 10ca819394b8 and b16bdcc10064",
+          "arXiv:2505.08935 Legendre-polynomial valuations",
+          "Delannoy differences: exact valuations and the two-adic image; identified Zenodo article and download"
+        ]
+      },
+      "checked_sources": [
+        "Lengyel A86 pp. 4–5",
+        "Resultary 2170cbfaeec0, 70933221cf22, 10ca819394b8, b16bdcc10064",
+        "OEIS A001850",
+        "arXiv:2505.08935 pp. 3, 5; arXiv:1008.3887, 1412.7724, 1602.00574 first pages; arXiv:1009.2486 Theorem 1.1",
+        "Zenodo 24316985, abstract and retrieval only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2170cbfaeec0 states the complete D_n−1 valuation and proves the critical part using the vanishing dilogarithm and interpolation; 70933221cf22 states and proves the complementary D_n+1 branch and the same analytic unit form and reflection.",
+          "Lengyel's Lemmas 2 and 3 contain the exact value 2 for the two other residue classes. The Sun and Guo results inspected concern different aggregate congruences."
+        ],
+        "reasoning": "Piecewise substitution immediately yields all n>=1. Even the mechanism offered as a possible distinct remainder is already present as an analytic cubic normal form plus a reflection in the stronger record. The frozen finite polynomial reduction is an alternate way to certify its coefficient parity, not a new invariant or a substantively different claimed result.",
+        "searches": [
+          "Lengyel A86 §2",
+          "Local mirror 2170cbfaeec0 finding and proof",
+          "Local mirror 70933221cf22 finding, reflection and §§2–3",
+          "arXiv:1008.3887, 1412.7724, 1602.00574 and 1009.2486"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two nontrivial frozen cases are exactly Lengyel Conjecture 3 for positive even m with n=2m, and Conjecture 2 with n=4m+3. Lemmas 2–3 already give the other two branches.",
+          "The indexed works state the same central Delannoy binomial formula and the exact cubic valuations for D_n−1 and D_n+1 on their respective index balls."
+        ],
+        "reasoning": "For even n the frozen difference is D_n−1, and for odd n it is D_n+1. Since nu2(4m+4)=2+nu2(m+1), no normalization or quantifier differs from the prior expressions on the positive-index branches. A published conjecture alone is not a proof overlap; the distinct indexed proofs supply that overlap.",
+        "searches": [
+          "Lengyel, Integers 21 (2021), A86, §2, Conjectures 1–3 and Lemmas 2–3",
+          "Resultary 2170cbfaeec0 and 70933221cf22"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A001850 supplies the sequence and finite examples such as D_3=63 and D_7=48639, not a proof of the all-index dyadic valuation in the material inspected.",
+          "The two distinct catalogue entries give exact matching analytic branch rules, not merely matching initial values."
+        ],
+        "reasoning": "A finite entry of Delannoy numbers can only support spot checks of the valuation; the independent proof-level catalogue statements cover the full branches and determine the requested all-index invariant.",
+        "searches": [
+          "OEIS A001850 central Delannoy numbers and references",
+          "Resultary queries for individual exact cubic dyadic Delannoy valuations, plus local findings 2170cbfaeec0 and 70933221cf22"
+        ]
+      },
+      "rationale": "Lengyel explicitly conjectures each cubic branch and proves both small-valuation branches, so the cubic proof would be a meaningful resolution if outstanding. But distinct indexed mathematical records actually state and prove the cubic branches, and the dyadic-fibers result also gives the same critical analytic factorization with coefficientwise odd-unit control and the same reflection. Taken with Lengyel's lemmas they cover the entire frozen claim. This is a determination of mathematical coverage at review, not historical priority, which cannot be inferred from the catalogue dates.",
+      "residual_risks": [
+        "Coverage in the inspected catalogue is not a determination of historical precedence, dependence or attribution.",
+        "The exact Zenodo theorem and its date were not established from readable primary text. The decision does not rely on that inaccessible source."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The cubic laws were stated as conjectures, the small branches as proved lemmas",
+          "evidence": "Conjecture 2 is the exact odd cubic branch, Conjecture 3 the even cubic branch; Lemmas 2–3 give order 2 in the other two classes.",
+          "identifier_or_url": "https://math.colgate.edu/~integers/v86/v86.pdf",
+          "material_read": "Integers 21 (2021), A86, pp. 4–5, offset 7690–11332, Theorem 3, Conjectures 1–3 and Lemmas 2–3",
+          "method": "Lawful OA primary PDF passage read",
+          "title": "On some p-adic properties and supercongruences of Delannoy and Schröder numbers",
+          "trigger": "Exact valuation claims for the same central sequence"
+        },
+        {
+          "assessment": "Exact coverage of even branches; priority not inferred",
+          "evidence": "For all n>=1 states nu2(D_n−1)=1 when odd, 2 at n=2 mod 4, and 3nu2(n) when 4 divides n; it uses the same zero dilogarithm sum and an odd cubic quotient.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-resolution-of-the-sharp-binary-valuation-conjecture-for-central--2170cbfaeec0/RESULT.md",
+          "material_read": "Finding, scope and proof steps 1–5 opening, local mirror offset 0–3598",
+          "method": "Resultary search and local primary finding and proof read",
+          "title": "Resolution of the sharp binary valuation conjecture for central Delannoy numbers",
+          "trigger": "Exact same even-index valuation"
+        },
+        {
+          "assessment": "Odd branch explicit; even and analytic structure also covered; priority not inferred",
+          "evidence": "Proof gives the same reflection, cubic factorization on 4Z_2 with coefficientwise odd unit and even higher coefficients, plus a stronger exact comparison between critical indices of equal valuation.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-complete-dyadic-fibers-and-one-seventh-image-density-of-central--70933221cf22/RESULT.md",
+          "material_read": "Finding, scope and proof offsets 0–3328 and 3328–7466, especially Eqs. (1) and (4)–(7)",
+          "method": "Resultary search and local mirror statement and proof read",
+          "title": "Complete dyadic fibers and one-seventh image density of central Delannoy numbers",
+          "trigger": "Exact odd branch and stronger dyadic image and local structure"
+        },
+        {
+          "assessment": "Related but not pointwise coverage by itself",
+          "evidence": "It specifies the minimum over starting indices for a shift, rather than the value at each index against a fixed target.",
+          "identifier_or_url": "Resultary 10ca819394b8",
+          "material_read": "Local finding about periods and the shift minimum",
+          "method": "Resultary search and local mirror read",
+          "title": "Exact dyadic periods and sharp translation valuations for central Delannoy numbers",
+          "trigger": "Delannoy dyadic differences could specialize to differences from 1"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Its sparse nu2(D_(2^r)+D_(2^r−1))=3r+1 does not state the pointwise signed-unit laws.",
+          "identifier_or_url": "Resultary b16bdcc10064",
+          "material_read": "Local finding including adjacent sum",
+          "method": "Resultary search and local mirror read",
+          "title": "Sharp fourth-order defect in the dyadic Delannoy cubic sum",
+          "trigger": "Cubic valuation in a dyadic Delannoy setting"
+        },
+        {
+          "assessment": "Finite sequence data and leads, not full valuation proof in material read",
+          "evidence": "The entry gives the same sequence and values; its linked Legendre valuation work concerns odd p.",
+          "identifier_or_url": "https://oeis.org/A001850",
+          "material_read": "Definition, initial numbers and Legendre-polynomial reference",
+          "method": "Public entry inspection",
+          "title": "Central Delannoy numbers",
+          "trigger": "Exact sequence database and aliases"
+        },
+        {
+          "assessment": "Potential broader coverage and chronological risk unresolved; not decisive",
+          "evidence": "The abstract indicates exact differences between distinct central Delannoy numbers, but no exact passage was obtained.",
+          "identifier_or_url": "https://zenodo.org/records/24316985",
+          "material_read": "Indexed abstract description only; identified record and PDF did not yield readable paper",
+          "method": "Lawful OA PDF and identified record attempts",
+          "title": "Delannoy differences: exact valuations and the two-adic image",
+          "trigger": "Search abstract claims stronger exact valuations and resolution of Lengyel conjectures"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–51",
+        "Lengyel Conjectures 2–3",
+        "Resultary 2170cbfaeec0 and 70933221cf22"
+      ],
+      "rationale": "Proving Lengyel's two exact conjectured valuations is mathematically motivated and the cubic orders matter to dyadic interpolation. But the checked catalogue already gives these orders and the stronger controlled cubic structure needed for exact fibers. The frozen proof's different finite expansion of eight terms is a useful cross-check, not a distinct exact fact or a new method materially beyond the same dilogarithm cancellation, interpolation, and reflection. No valuable distinct remainder in the frozen theorem was identified for repair.",
+      "residual_risks": [
+        "The conclusion concerns added value relative to the checked coverage, not the inherent mathematical interest of the conjectures or priority of their resolution."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

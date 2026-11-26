@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:12:12.080020Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the orthogonal complement of the constants, the objective is N times the trace of the inverse Laplacian. Its second directional derivative is strictly positive for any nonzero Laplacian perturbation, and the edge-to-Laplacian map is injective here. As a connected allocation approaches disconnection the smallest restricted eigenvalue goes to zero. Compactness therefore gives an attained unique optimum, fixed by S_p × S_q; either orbit weight zero would isolate original vertices. Homogeneity forces full spending. In an orthonormal left-standard block the diagonal is (qx,x+y) and the off-diagonal is −√q x, giving determinant qxy; the right block gives pxy. In the constant block the three principal two-minors are pqxy, qxy, pxy, so their sum is Nxy. The remaining (p−1)(q−1) directions have eigenvalue x+y. Summing inverse eigenvalues verifies all coefficients. The full-budget t parametrization is regular and bijective on the positive budget segment, so strict convexity on the segment justifies uniqueness of the stationary root, without claiming convexity in t. In the balanced case c_m/a_m ∼ m; for Q>P the root is bounded above by √(P/Q), hence tends to zero and gives m t² → P/(Q−P). Swapping sides and equality handle the other prices. In the fixed-δ window the limiting derivative equation has a unique sign-changing zero because φ(t)=(1−t)(1+t)^3/t² strictly decreases from +∞ to −∞. Uniform convergence on compact positive t-intervals brackets the finite-size root at that zero. These are general proof checks; verify.py was inspected, not run. Its spectral and optimizer examples are finite numerical corroboration, not certificates of the limits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yang–Klein gives a general unit-resistor subdivision index formula and credits earlier work for it.",
+          "Ghosh–Boyd–Saberi gives the general convex optimization setup; three symmetry classes are solved for the barbell, not for two priced spoke classes."
+        ],
+        "reasoning": "The subdivision theorem covers the x=y specialization and can be rescaled in the common conductance, but then only gives the sum of the three coefficients, not their separate price response. General convexity does not supply the finite coefficients or limit.",
+        "searches": [
+          "arXiv:1403.1851, §2 Theorem 2.3, eq. (6)",
+          "Ghosh–Boyd–Saberi, printed p. 1185 and §V pp. 1193–1194"
+        ]
+      },
+      "checked_sources": [
+        "Ghosh–Boyd–Saberi proceedings pp. 1185, 1193–1194",
+        "Yang–Klein arXiv:1403.1851 abstract and §2",
+        "Resultary 203ba798113c",
+        "Resultary b65b2ff40797",
+        "Resultary 8a3533e467e4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier matching-price deletion frontier has a 1/n window with a truncated linear profile (1−s/2)₊, and the A-versus-D record also treats a matching on the unsubdivided graph. The left-vertex-price record has a shifted square-root law for concentration on cheapest vertices."
+        ],
+        "reasoning": "Matching the window scale or seeing a square root does not imply the positive profile defined by φ(t), the m^(−1/2) ratio at fixed price gap, or global positivity. The graph topology and pricing partition are essential to the difference.",
+        "searches": [
+          "Resultary 203ba798113c and b65b2ff40797, critical profiles in Findings",
+          "Resultary 8a3533e467e4, square-root conductance Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Kirchhoff index equals N tr(L⁺); the general trace-inverse formulation uses a normalized conductance budget, and the explicit example inspected is a barbell.",
+          "Resultary 8a3533e467e4 optimizes the unsubdivided biclique with prices indexed by left vertices."
+        ],
+        "reasoning": "The equivalent resistance and trace objectives match, but pricing on a different edge space is not a relabeling of the two spoke classes. Eliminating inserted nodes for effective resistances of original nodes alone does not preserve the objective over all pairs.",
+        "searches": [
+          "Resultary: resistance-optimal bipartite conductance allocation, square-root price law and subdivision",
+          "Ghosh–Boyd–Saberi, Minimizing Effective Resistance of a Graph, introduction and §V"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest records determine pricing profiles for matching or left-vertex classes on ordinary bicliques, and the primary formula determines unit-conductance subdivision values."
+        ],
+        "reasoning": "Neither these exact formulas nor the unweighted subdivision evaluations tabulate the two-spoke weighted trace or the two limiting laws. The original record itself is not corroboration of separate priority.",
+        "searches": [
+          "Resultary nearest complete-biclique records: 203ba798113c, b65b2ff40797, 8a3533e467e4; compared Finding statements",
+          "Yang–Klein arXiv:1403.1851 Theorem 2.3"
+        ]
+      },
+      "rationale": "General convexity and the homogeneous subdivision Kirchhoff index are covered antecedents. The supported distinct contribution is the unequal-price, two-spoke-orbit optimization on the once-subdivided biclique, and its fixed-gap and positive critical-window laws. The strongest inspected matching-price records concern unsubdivided graphs and their different support limit does not imply this one.",
+      "residual_risks": [
+        "Bounded source and statement comparison, not exhaustive historical priority; other weighted-subdivision formulas could cover some of the finite trace.",
+        "Same-day dates do not determine priority; comparison is by mathematical content."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General optimization antecedent, not the weighted subdivision solution.",
+          "evidence": [
+            "Normalized budget 1ᵀg=1; explicit §V solution uses barbell symmetry classes."
+          ],
+          "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+          "material_read": "Printed p. 1185 and §V pp. 1193–1194",
+          "method": "OA PDF passages, offsets 1900 and 67076",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "Same global resistance objective and analytic allocation method"
+        },
+        {
+          "assessment": "Covers homogeneous subdivision trace, not unequal spoke conductances or prices.",
+          "evidence": [
+            "R(S(G))=2R(G)+R⁺(G)+R*(G)+(m²−n²+n)/2 for unit resistors; abstract notes ordinary subdivision formula as earlier work."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1403.1851",
+          "material_read": "Abstract and §2 Theorem 2.3, eq. (6), pp. 3–4",
+          "method": "OA PDF passages, offsets 0 and 4931",
+          "title": "Resistance distance-based graph invariants of subdivisions and triangulations of graphs",
+          "trigger": "General subdivision Kirchhoff-index formula might dominate the trace"
+        },
+        {
+          "assessment": "Related window, different graph, price classes and limiting support.",
+          "evidence": [
+            "Prices a perfect matching on K_{n,n}; window t=1+s/n gives (1−s/2)₊."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-the-matching-price-deletion-frontier-for-resistance-optimal-bala--203ba798113c",
+          "material_read": "Finding, pricing classes and critical law",
+          "method": "Resultary local discovery and mirrored statement",
+          "title": "The matching-price deletion frontier for resistance-optimal balanced bicliques",
+          "trigger": "Same base graph and inverse-size price window"
+        },
+        {
+          "assessment": "Distinguished matching and A/D comparison do not supply the subdivision law.",
+          "evidence": [
+            "The resistance-optimization part concerns the unsubdivided matching-priced graph and a truncated critical law."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-an-a-versus-d-support-gap-for-a-priced-perfect-matching-in-compl--b65b2ff40797",
+          "material_read": "Finding, graph and critical limits",
+          "method": "Resultary local discovery and mirrored statement",
+          "title": "An A-versus-D support gap for a priced perfect matching in complete bipartite graphs",
+          "trigger": "Same-day two-price resistance optimizer"
+        },
+        {
+          "assessment": "No equivalence under the stated graph and pricing assumptions.",
+          "evidence": [
+            "No subdivision; prices vary by left vertex and the result describes cheapest-vertex concentration."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-shifted-square-root-conductance-law-for-heterogeneously-priced-b--8a3533e467e4",
+          "material_read": "Finding, graph, pricing and concentration result",
+          "method": "Resultary local discovery and mirrored statement",
+          "title": "Shifted square-root conductance law for heterogeneously priced bicliques",
+          "trigger": "Same-day square-root price result for bicliques"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural design problem reveals support retention despite an asymptotically vanishing expensive allocation. The weighted trace resolves the competition between the leading (x+y) term and the spoke-specific singular terms, quantifies the exact optimum for finite graphs, and yields a continuous positive crossover distinct from matching deletion on ordinary bicliques. That makes the result useful beyond a unit-weight numerical evaluation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

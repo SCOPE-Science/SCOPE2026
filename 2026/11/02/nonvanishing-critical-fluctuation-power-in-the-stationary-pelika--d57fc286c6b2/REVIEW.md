@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The invariant law is constructed explicitly from a uniform binary tail and a geometric leading-zero level. Independent digit averaging reduces every lag to two reversible reflected-walk kernels. The displayed Poisson solutions satisfy their equations at the boundary as well as in the interior; the Jacobi spectral gaps justify summation. Exact geometric moments yield the rational variance and the singular parameter limit. A standalone exact-arithmetic checker independently compares 182 finite resolvent and evolution coefficients and verifies the Poisson identity. Residual correctness risk: the proof addresses second-order stationary statistics, not a functional central limit theorem.
+## correctness
 
-**Originality — PASS with residual priority risk.** The original paper arXiv:2308.09269 computes invariant-density and early correlation information but does not give this stationary Green–Kubo function or its critical limit. The closest and most substantial prior source, arXiv:2409.19999, develops essentially the same tilted-walk machinery and an exact transform, but its explicitly computed correlation uses uniform—not stationary—initial data. Its general kernels might provide another route to the present stationary result; the claim is therefore confined to the exact stationary partial-sum variance and the noncommuting critical limit, and no originality is asserted for the lifted walk or spectral technology. No matching stationary formula was found in inspected records, though absence from searches cannot prove priority.
+PASS
 
-**Value — PASS.** Long-run fluctuations of a stationary trajectory are a natural dynamical invariant, particularly near the map's anomalous critical point. The result quantitatively separates instantaneous fluctuations from accumulated fluctuations: one tends to zero while the other approaches four. It is a motivated exact critical limit and not an arbitrary short-lag evaluation. The scope is the coordinate observable and independent two-map switching.
+For the absolutely continuous stationary law use X=2^(−J)U with geometric J of ratio r=q/p and independent uniform U. The reflected walk leaves this law stationary, and a doubling at depth zero is exactly one shift of U. Fair binary digits give E[U{2^k U}]=1/4+2^(−k)/12. This splits C_n into the centered depth term for P_1 and the uncentered term for P_{1/2}, with zero-loop weight b. To check the required spectral bound, conjugate by sqrt(π) to a symmetric half-line tridiagonal with off-diagonal c=sqrt(pq) and boundary diagonal a=pb. Outside [−2c,2c] an ℓ² eigenmode must decay geometrically with factor c/a, so it exists only when a>c and then has eigenvalue a+c²/a. For b=1 it is the simple constant mode at 1 before conjugation; for b=1/2 it exists only for p>4/5 and is strictly below 1. This gives absolute summability and the resolvent identity on the required subspaces. Substitution at both j=0 and j≥1 verifies the two Poisson solutions in RESULT.md; the first is in L²(π) and the second bounded. Contracting with the indicated weights gives S=(51p³−51p²+17p−1)/[3(3p−1)³(5p−1)], C_0=s/3−m²/4 and σ²=2S−C_0 by the stationary variance sum and absolute summability. At p→1/2 the rational σ² tends to 4, geometric J escapes, and C_0=(16/9)(p−1/2)+O((p−1/2)²). At p=1 the uniform doubling covariance is 2^(−n)/12, giving 1/4. There is no critical-state CLT or variance assertion. RESULT.md lines 25–78 are the all-time analytic replay; verify.py and VERIFICATION.md were inspected, not executed, and their finite tests do not prove the infinite result.
 
-**Closest literature and limitations.** Yan et al., *Chaos* 34 (2024); C. Monthus, arXiv:2409.19999v2, notably §§VI.4–VI.5; Kalle–Zeegers (2023) for different critical random intermittent systems. Monthus's general tilted propagator is a significant coverage risk, but the inspected paper does not state the stationary centered Green–Kubo value or its critical discontinuity. Neither existence of a central limit theorem nor uniform finite-time crossover is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of the inspected evidence, the explicit integrated stationary coordinate variance and its critical constant are distinct. The invariant law, latent reflected walk, general tilted propagation and short stationary lag formulas are prior. Monthus's exact correlation is for uniform initial position, while the closest exact stationary covariance transform in the catalogue is later-dated. The priority assessment is for the evaluated stationary statistic, not for all-lag calculability or the method.
+
+## value
+
+PASS
+
+The coordinate is a standard observable of this map. The exact variance separates equilibrium collapse from a surviving time-integrated fluctuation, fixes the critical constant 4 and quantifies the divergence relative to C_0. Neither stationary moments alone nor short-lag correlations resolve that distinction, and the resolvent gives a useful exact benchmark for fluctuation and crossover analyses.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

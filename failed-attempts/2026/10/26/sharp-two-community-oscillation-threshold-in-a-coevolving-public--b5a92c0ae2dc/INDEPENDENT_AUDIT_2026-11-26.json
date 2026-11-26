@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:17:51.844041Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–83",
+        "Davidson et al. arXiv:2604.08840v1 Proposition 1, Remark 1, Assumption 1, Remark 2, Theorem 2 and conclusion",
+        "VERIFICATION.md lines 19–27",
+        "verify.py lines 10–109 (read, not run)"
+      ],
+      "rationale": "Davidson et al. v1 permits the all-active schedule and breaks payoff ties toward defection. For each tentative action, completing the square in the opinion payoff gives the stated optimizer, which is in [0,1]; the action comparison reduces to βλ/(β+λ) times m_i−θ. An anti-phase orbit has H+L=1 by mean preservation over a phase swap and L=p[εH+(1−ε)L], which uniquely solves to the stated H,L. The two inputs are b=ε/(1−p+2pε) and 1−b. Since θ>1/2, the strict requirement 1−b>θ automatically makes b<θ, and is equivalent to ε<ε_*. Equality fails by the tie rule. The positive-priority denominator gives 0<ε_*<1/2. On the two strict branches contracting by p in sup norm follows from row stochasticity and unchanged branch actions; the smaller threshold margin ensures these branches persist under the claimed strict-radius perturbations, including perturbations that are not constant on blocks. The uniform consensus branches are invariant and contract. W² has positive entries, because an intermediate vertex distinct from the endpoints can be chosen, so the four-agent counterexample really is primitive. For the rational witness, b=1/5, 1−b=4/5, the smaller margin is 1/20, and H=9/10, L=1/10. This refutes the unrestricted conjecture under the allowed synchronous schedule but does not contradict Davidson et al.'s proved all-defection theorem or exclude other orbits beyond the cutoff.",
+      "residual_risks": [
+        "The frozen script tests below- and above-threshold profiles and a finite perturbation trajectory. It does not run an equality-cutoff profile in the parameter loop; equality is instead resolved by the analytic strict action threshold. No asynchronous conclusion follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Davidson's Theorem 2 is limited to a forced-defection regime; its conclusion conjectures unrestricted convergence. The Oct. 18 record gives unbounded-period attracting cycles in the same all-active public-goods model with a different directed network and robust complete perturbations. The coordination/anti-coordination references concern different update maps."
+        ],
+        "reasoning": "The unrestricted nonconvergence observation is already covered directly and by the directed construction. These broader comparisons alone would not establish the specific symmetric cutoff; the earlier symmetric example with the same quotient map does.",
+        "searches": [
+          "Davidson et al. arXiv:2604.08840v1",
+          "Resultary 2026/10/18 record 5b961b8c0ad8",
+          "Aghbolagh et al. arXiv:2206.07242",
+          "Liang et al. arXiv:2505.03078v1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–67 and 89–97",
+        "The primary and indexed sources listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier b<θ<1−b reduces to ε<ε_* as θ>1/2. Any prescribed alternating branch has a unique affine two-step fixed point since the linear part contracts by p², so the candidate is the one already exhibited by the earlier result. For ε≥1/2, the candidate's 1−b≤1/2 cannot trigger cooperation; this follows from the same explicit b."
+        ],
+        "reasoning": "Lift or project through the invariant two-block quotient, keeping p and θ fixed. The affine fixed point and strict action test transfer in both directions, including cutoff equality. Attraction in the entire opinion cube follows from exactly the same strict margins and sup-norm contraction used in the earlier network, independent of the dimension. The novel wording does not change the proven boundary.",
+        "searches": [
+          "Earlier record 173bd96ccffc, Finding, scope, proof",
+          "Frozen RESULT.md lines 12–30 and 51–67"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier four-player result has ρ=p, η=1−p, D=η+2ρε, b=ε/D, H=1−L and L=ρb. Both use the quotient matrix with diagonal ε and off-diagonal 1−ε. The earlier payoff parameters are arbitrary positive homogeneous weights with r∈(1,4), not fixed to its witness."
+        ],
+        "reasoning": "Every target pair (p,θ) can be realized in the earlier four-player model: fix r=3, set β=p(1−α) and λ=(1−p)(1−α), and solve θ−1/2=α/[4(1−α)p(1−p)] for α∈(0,1). Thus a different permissible r/n range creates no new effective threshold. The quotient's opinion map and tie convention are identical on each invariant block plane.",
+        "searches": [
+          "Resultary 2026/10/12 record 173bd96ccffc via local mirror",
+          "Davidson et al. arXiv:2604.08840v1 Proposition 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Oct. 12 record 173bd96ccffc gives the identical strict window for the quotient, in inequality form. Nov. 8 record 12d5eb0c5823 states the same all-even-community cutoff explicitly with c=p and q=2θ−1 and is broader in allowing general opinions for the prescribed alternating actions."
+        ],
+        "reasoning": "The later record documents equivalent catalogue coverage, not earlier historical priority. The earlier exact reduced-map overlap provides the relevant prior comparison regardless of the timing of the later record.",
+        "searches": [
+          "Local Resultary semantic comparison for synchronous public-goods cycles and sharp community-switching thresholds"
+        ]
+      },
+      "rationale": "An earlier indexed finding already gives the same model, open attracting anti-phase period two, both consensus basins, and convergence counterexample for four players, with exactly the same reduced map and strict parameter window. For the specified block-constant orbit the full-size statement is mechanically implied: the dynamics on two block values does not depend on block size once p and θ are fixed; lifting preserves the phase, and the earlier row-stochastic contraction works without change in every dimension. Writing the implicit cutoff explicitly and observing uniqueness of the prescribed affine two-step response do not supply a distinct phenomenon or a genuinely new sharp boundary. A later record has the exact general cutoff too, but no earlier priority is inferred from it and it is not the basis for this verdict.",
+      "residual_risks": [
+        "The comparison is bounded; no assertion of global historical priority is made. The originality failure rests on the checked earlier equivalent reduced dynamics and actual implication, not the absence of other hits or the existence of the later record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms model and scope; not prior proof of the cycle",
+          "evidence": "Proposition 1 and Remark 1 characterize the best responses; the dynamic rule chooses x=0 at a tie, Remark 2 allows all-active updating, and the conclusion conjectures equilibrium convergence.",
+          "identifier_or_url": "https://arxiv.org/html/2604.08840v1",
+          "material_read": "Sections II-B and II-C, offsets 17600–24833; Theorem 2 near 35800; conclusion near 42550",
+          "method": "OA primary HTML bounded passages",
+          "title": "Modelling the coevolution of opinion dynamics and decision making in social dilemmas",
+          "trigger": "Actual payoff, tie, synchronous activation, and conjecture"
+        },
+        {
+          "assessment": "Earlier exact quotient and attraction; covers the finding by direct lift",
+          "evidence": "Four homogeneous players, each pair with mass ε and each opposing pair with total 1−ε, give H,L, b and the strict inequalities as above. Both consensus equilibria attract, and the branch attracts under a strict-margin contraction.",
+          "identifier_or_url": "Resultary:2026/10/12/173bd96ccffc",
+          "material_read": "RESULT.md Finding, Assumptions and proof, offsets 0–4582; comparison passage 8200–10393",
+          "method": "Local published-record mirror, decisive Finding and proof checked directly",
+          "title": "Stable period-two switching on a complete network in an opinion–action public-goods game",
+          "trigger": "Same model, architecture and stable anti-phase cycle"
+        },
+        {
+          "assessment": "Prior counterexample in a different network, not a cutoff calculation",
+          "evidence": "All-active attracting cycles of arbitrarily large prime period persist to positive off-diagonal networks; symmetry and the two-community case are not that construction.",
+          "identifier_or_url": "Resultary:2026/10/18/5b961b8c0ad8",
+          "material_read": "RESULT.md offsets 0–5022 and 8500–10587",
+          "method": "Local published-record mirror",
+          "title": "Attracting cycles of unbounded period in a public-goods opinion network",
+          "trigger": "Earlier nonconvergence in the same model"
+        },
+        {
+          "assessment": "Exact all-size comparison; later date, not evidence of earlier priority",
+          "evidence": "p_*=(1−c)(1−q)/(2(1−c+cq)) with c=p and q=2θ−1 equals ε_*. The theorem treats the broader prescribed-action class.",
+          "identifier_or_url": "Resultary:2026/11/08/12d5eb0c5823",
+          "material_read": "RESULT.md offsets 0–4897, 5200–8395 and 8300–10806",
+          "method": "Local published-record mirror",
+          "title": "Sharp cross-community switching threshold for an attracting public-goods opinion cycle",
+          "trigger": "Same all-size sharp threshold"
+        },
+        {
+          "assessment": "Different model",
+          "evidence": "Pairwise coordination interactions depend on neighboring actions, not the linear population public-goods incentive.",
+          "identifier_or_url": "https://arxiv.org/html/2206.07242",
+          "material_read": "Model passages near offsets 8050 and 18700",
+          "method": "OA primary HTML bounded passages",
+          "title": "Coevolutionary Dynamics of Actions and Opinions in Social Networks",
+          "trigger": "Earlier action–opinion coordination and possible cycle overlap"
+        },
+        {
+          "assessment": "Different model",
+          "evidence": "Coordination/anti-coordination action thresholds with separate action and opinion network structure do not implement this public-goods map.",
+          "identifier_or_url": "https://arxiv.org/html/2505.03078v1",
+          "material_read": "Model passages near offsets 13250 and 16550",
+          "method": "OA primary HTML bounded passages",
+          "title": "Coevolution of Actions and Opinions in Networks of Coordinating and Anti-Coordinating Agents",
+          "trigger": "Earlier synchronous threshold behavior in adjacent models"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding, rigidity, cutoff and basin proofs",
+        "Resultary 173bd96ccffc Finding and proof",
+        "Davidson et al. conclusion"
+      ],
+      "rationale": "The counterexample and coexistence mechanism are useful, but were already available in the earlier four-player result. For the frozen contribution, repeating vertices without changing the two-state quotient, rearranging its switching inequality, and applying dimension-free row-stochastic contraction do not add a size-dependent effect or a new useful exact boundary. It does not classify other cycles, unequal blocks, or asynchronous schedules. No surviving independent result of scientific value beyond the already useful prior claim is established in this frozen record.",
+      "residual_risks": [
+        "This is a judgment on the incremental contribution of this record, not a denial of the value of the valid counterexample or its basin estimates as mathematical facts."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

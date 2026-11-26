@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:32:55.406920Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–45, including the augmented matching and explicit integer cycles",
+        "Frozen VERIFICATION.md, check.py and expected_output.json, inspected, not executed",
+        "Fully whiskered baseline and integral basis in Resultary 8c80f796f478"
+      ],
+      "rationale": "An augmented face is a base matching and a subset of the available leaves. On the fiber where no edge other than e covers u or v, toggling e is always legal; otherwise e is absent and the least uncovered leaf-bearing vertex, if any, gives a legal leaf toggle. Both toggles are involutions. A directed Hasse cycle would have constant endpoint-incidence fiber since removing edges cannot increase the indicator. In the first fiber an upward e-toggle cannot be reversed by a downward unmatched e-step. In the second fiber a cycle would have constant base matching (no upward base additions), hence a fixed leaf pivot that likewise cannot be removed. The unpaired faces cover all leaf-bearing vertices and at least one endpoint by an edge different from e. Parity gives exactly all perfect base matchings avoiding e at even order, or the two disjoint one-endpoint-omitting matching sets at odd order. Omitting the empty face restores the extra critical vertex e; the remaining critical faces all have dimension m-1, yielding the asserted wedge also for m=1 or zero additional cells. For the integral map, each perfect matching not using e has a leaf-bearing endpoint on every edge. Joining the corresponding differences of zero-chains gives a reduced cycle with coefficient +1 on its oriented perfect base simplex and 0 on every other perfect base simplex. These simplices are maximal, so their coefficients give cocycles and thus an integral left inverse to the cycles. The ranks from the wedge type make them a basis, with no finite index ambiguity. For full whiskering the least uncovered original vertex can be toggled in each base-matching fiber, giving a point or one sphere per perfect matching; the identical coefficient-pairing argument gives the full integral basis. Hence the inclusion is the coordinate embedding for matchings avoiding e, with the unused coordinates naturally counted by p(H-{u,v}). For cycles these counts are one in even order and two in odd order, from the resulting paths. The argument uses neither connectedness nor bounds on degrees of H.",
+      "residual_risks": [
+        "The package's exact finite checks support the proof locally; mod-two ranks alone would not prove integral primitivity. The proof uses maximal-face coefficient cocycles over Z instead.",
+        "The claimed inclusion is a homology splitting in even order only, not a homotopy retraction."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Barik–Mondal–Mukherjee Theorem 1.1 constructs an acyclic matching recursively from a simplicial graph vertex and the closed-neighborhood-deleted subgraphs of its neighbors.",
+          "Bayer–Jelić Milutinović–Vega Theorem 2 covers abstract wedge-or-contractible types for outerplanar graphs, not all base graphs or this integral map."
+        ],
+        "reasoning": "An attached leaf edge is a simplicial vertex in the line graph. The corresponding recursive branches choose an incident base edge and delete its endpoints. An isolated pivot contributes a cone; stopping without leaves with both distinguished vertices left retains e and contributes no sphere, whereas stopping with at most one leaves the empty-edge terminal case. Consequently the defect wedge counts are closely tied to the existing recursive method. Such recursion gives abstract homotopy types; it does not track the natural map for adding two leaves.",
+        "searches": [
+          "arXiv:2604.12606v1",
+          "arXiv:2411.04601",
+          "Resultary 8c80f796f478"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d5c5cd91be47, 8c80f796f478, 6fff08bada93, d148e7a31082, c0ed1e901cf3",
+        "arXiv:2604.12606v1",
+        "arXiv:2411.04601"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The predecessor supplies the target basis for every base graph, while the general recursion suggests the abstract ranks via the pendant-edge pivot.",
+          "An abstract wedge rank or the identity p(H)=p(H-e)+p(H-{u,v}) does not fix an integral map: even same-rank images can be nonprimitive. The distinct mechanism here is a simultaneous chain representative in the defect and the full complex for each perfect matching avoiding e."
+        ],
+        "reasoning": "The common cycle labels actually prove that the map is a coordinate embedding and that its cokernel has the claimed labelled basis. The inspected antecedents do not imply this merely by specialization of their homotopy or critical-cell formulas.",
+        "searches": [
+          "Resultary 8c80f796f478",
+          "Resultary 6fff08bada93",
+          "arXiv:2604.12606v1 Theorem 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Deleting the two pendant graph edges from W(H) is also deleting their two corresponding vertices from the ordinary matching complex, or taking the induced independence subcomplex of its line graph.",
+          "The indexed fully whiskered theorem gives the full-graph matching-indexed basis, not the inclusion image for those vertex deletions. The nearby missing-whisker indexed theorem concerns a two-independence complex instead."
+        ],
+        "reasoning": "Relabeling the objects under the line graph is exact, but the published full-whisker formula and different independence parameters do not identify this natural homology map.",
+        "searches": [
+          "Resultary 8c80f796f478",
+          "Resultary d5c5cd91be47",
+          "arXiv:2604.12606v1, Theorem 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact universal two-endpoint finding in the catalogue is the assigned record itself.",
+          "The fixed C3 square C4 record gives exact integral maps for two single graph-edge faults. The K8 record is a fixed low-fault table, and the Heawood record is for perfect-matching extendability."
+        ],
+        "reasoning": "The closest same-day analogue concerns actual inclusion maps but no universal leaf-endpoint formula or indexing by perfect base matchings. A same-day date is neither redundancy nor proof of priority.",
+        "searches": [
+          "Resultary d5c5cd91be47",
+          "Resultary 6fff08bada93",
+          "Resultary d148e7a31082",
+          "Resultary c0ed1e901cf3"
+        ]
+      },
+      "rationale": "Credit the fully whiskered classification and integral ambient basis to the direct antecedent. Credit the simplicial-vertex machinery for the defect wedge calculation: applying the standard recursion at a leaf edge and iterating already offers a route to the same counts, so the wedge phenomenon and method are not the independent originality basis. The supported distinct result is the exact natural integral coordinate inclusion for this universal two-leaf defect, with its full parity counts specifying the domain. Neither the known ambient basis nor a recursive abstract wedge equivalence gives that inclusion.",
+      "residual_risks": [
+        "The supplementary broad literature search was deferred; an unindexed inclusion theorem could change the assessment. The available full statements and their implications are the basis for this verdict."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the full-whisker result, not the two-leaf map",
+          "evidence": [
+            "Classifies full whiskering and constructs a primitive integral basis indexed by all perfect matchings."
+          ],
+          "identifier_or_url": "Resultary 8c80f796f478",
+          "material_read": "Mirrored RESULT.md, Finding and basis passage, offsets 0 and 4100",
+          "method": "Local mirror",
+          "title": "Perfect matchings govern the integral topology of fully whiskered matching complexes",
+          "trigger": "Direct antecedent on the target complex"
+        },
+        {
+          "assessment": "Relevant general recursion; no natural two-endpoint-whisker map",
+          "evidence": [
+            "Theorem 1.1 gives critical-cell recursion with hypotheses on the simplicial vertex; the stated family applications are chordal and grid comparability."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2604.12606v1",
+          "material_read": "Theorems 1.1–1.2, HTML offsets 4424–7436",
+          "method": "Open primary text",
+          "title": "A recursive construction of an acyclic matching on the independence complex of a graph with a simplicial vertex",
+          "trigger": "Plausible general theorem for a line graph with leaves"
+        },
+        {
+          "assessment": "Restricted family and weaker conclusion",
+          "evidence": [
+            "A wedge of spheres or a contractible complex for outerplanar graphs, without the defect multiplicities or map."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2411.04601",
+          "material_read": "Theorem 2, HTML offset 3150",
+          "method": "Open primary text",
+          "title": "Matching Complexes of Outerplanar Graphs",
+          "trigger": "Broad absolute wedge theorem"
+        },
+        {
+          "assessment": "Different fault, fixed graph",
+          "evidence": [
+            "C3 square C4 orbit-specific maps: one split injection with rank-eight cokernel, another rank-two kernel and cokernel."
+          ],
+          "identifier_or_url": "Resultary 6fff08bada93",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Two distinct integral edge-fault maps in the matching complex",
+          "trigger": "Closest same-day map comparison"
+        },
+        {
+          "assessment": "Different simplicial complex",
+          "evidence": [
+            "The perfect-matching-extendability complex is not the ordinary matching complex."
+          ],
+          "identifier_or_url": "Resultary c0ed1e901cf3",
+          "material_read": "Mirrored finding",
+          "method": "Local mirror",
+          "title": "A primitive nine-sphere cofiber for single-edge faults in the Heawood graph",
+          "trigger": "Possible related primitive fault map"
+        },
+        {
+          "assessment": "Fixed K8 fault computation",
+          "evidence": [
+            "A fixed complete-graph family, not a universal two-leaf inclusion."
+          ],
+          "identifier_or_url": "Resultary d148e7a31082",
+          "material_read": "Mirrored finding",
+          "method": "Local mirror",
+          "title": "Complete low-fault homotopy profile of the eight-point matching complex",
+          "trigger": "Exact low-fault table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, Proof §§B–C",
+        "Resultary 8c80f796f478, full-leaf baseline"
+      ],
+      "rationale": "The defect is geometrically canonical: remove the two pendant edges selected by one original edge. For every base graph the absolute topology detects avoiding or near-perfect matchings, and the even-order inclusion measures exactly which classes are missing because the distinguished edge is used. Primitivity supplies integral information not determined by Betti numbers. The cycle examples show an actual parity change rather than only a numerical rank refinement.",
+      "residual_risks": [
+        "No classification or splitting for other missing-leaf patterns, nor an equivariant or homotopy-level splitting, follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review: sharp sixth-moment endpoints for quadratic harmonics on the three-sphere
+# Independent mathematical audit
 
-## Correctness — PASS
-The normalized degree-two harmonic is a traceless real-symmetric quadratic on four variables, or a complex combination of two. Gaussian cumulants, the fourth-order Newton identity and radial moment 322560 yield the exact normalized sixth-moment formula. Cauchy--Schwarz gives the lower endpoint with balanced eigenvalue equality; the paired-four-eigenvalue parametrization gives both sharp upper spectral inequalities and their joint equality at zonal eigenvalues. Uniform angular averaging of real parts proves the complex upper constant, its precise phase-rank deficit, and constant-phase necessity. `check.py` independently applies the spherical monomial integration formula to 9 real examples, 20 off-diagonal complex examples, and 3 symbolic identities: 32 successful checks, supplementary to the universal proof.
+## correctness
 
-## Originality — PASS, best-knowledge qualification
-Dai--Gorbachev--Tikhonov, *Nikolskii inequality for lacunary spherical polynomials*, arXiv:1905.00323v1, was inspected in complete six-page text and establishes growth-order Nikolskii bounds, not the exact sixth-moment interval at fixed spherical degree two. The closest published result, *Sharp L4/L2 norm and extremizers for degree-two spherical harmonics* (2026, published-finding corpus record d4106097159f), was inspected in full: its fourth-moment theorem supplies a previously known sharp trace-fourth-power bound, but it does not state or logically give the exact sixth-moment identity, the sharp real lower sixth moment, or the complex sixth-moment phase-rank inequality. Dai--Feng--Tikhonov gives broad reverse-Hölder estimates rather than these exact fixed-degree endpoints; De Carli--Gorbachev--Tikhonov concerns a broader norm-ratio question with different exact target. Multiple published-finding corpus alias searches returned no direct covering record. Absence from search is not proof of novelty. Invariant-theoretic equivalents and uninspected older full texts remain priority risks.
+PASS
 
-## Mathematical value — PASS
-A natural, dimension-specific sharp reverse-Hölder problem is solved completely: exact sixth-moment range for *all* nonzero real degree-two spherical harmonics on S^3, both spectral equality classes, sharp complex upper constant and its complete equality class, plus explicit deficits. The distinction between balanced and zonal eigenvalue geometry is structural rather than a numerical sample or arbitrary coefficient slice. The exact lower endpoint and complex phase-rank estimate are not implied by the known sharp fourth-moment constant alone.
+On probability S³ a Gaussian's radial moments are 24 and 322560 at orders 4 and 12. For a trace-free symmetric matrix the quadratic Gaussian cumulants are 2^(j−1)(j−1)!p_j; the sixth moment uses partitions 6, 4+2, 3+3, 2+2+2. Newton gives p₆=(3/4)p₂p₄+p₃²/3−p₂³/8. Thus ∥Y∥₂²=p₂/12 and the ratio is −27/14+(162/7)p₄/p₂²+(72/7)p₃²/p₂³. As an independent check of the endpoints, write the four eigenvalues as r+s+t, r−s−t, −r+s−t, −r−s+t and put D=r²+s²+t². Then p₂=4D, p₃=24rst, and p₄/p₂²=3/4−(r⁴+s⁴+t⁴)/(2D²). The last term gives bounds 1/4 and 7/12; AM–GM gives p₃²/p₂³≤1/3. Lower equality is one nonzero coordinate (two plus and two minus eigenvalues), and the upper bounds are jointly saturated exactly when |r|=|s|=|t| (one-versus-three). The unit sphere of trace-free real matrices is connected, so the full real interval is attained. For Y=U+iV the angular mean of |Re(e^(−iθ)Y)|⁶ is (5/16)|Y|⁶. If the real component Gram matrix has trace L=a+b and determinant d=ab−c², the angular mean of ∥Re(e^(−iθ)Y)∥₂⁶ is (5/16)L³−(3/4)Ld by diagonalizing the Gram matrix. The real inequality then yields deficit at least 36Ld. Zero determinant forces constant phase; real upper equality then forces the zonal profile. Conversely each stated extremizer gives equality. There is no claimed lower bound for general complex harmonics.
 
-## Limits
-No complex lower endpoint, higher-degree generalization, or independent validation is claimed. The coefficient in the complex phase-rank deficit is not claimed sharp away from global maximizers. Older equivalent formulations remain possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact real interval, equality cases, invariant formula and both real defects have equivalent coverage in distinct record ae7779ab9a93. The checklist does not credit those as an uncovered result in the current corpus, or infer priority or derivation from dates. The distinction supported for the frozen finding is the quantitative complex phase estimate on S³, with sharp complex upper classification. Qualitative complexification follows from the real upper bound by a standard triangle inequality, but the explicit Gram determinant control is not furnished by that argument or any inspected stronger theorem. The real inputs, already known trace bounds, and later equivalent real statement should be distinguished from this quantitative conclusion.
+
+## value
+
+PASS
+
+S³ degree two is a natural fixed harmonic eigenspace, and the quantitative phase conclusion adds information to a qualitative equality classification. In fact the determinant is the product of the squared L² lengths of the phase-rotated perpendicular components; the phase loss forces the smaller one to vanish at equality and controls it for near extremizers, not just on the zonal orbit. The exact real norm range is useful context for the complex estimate but is not counted again as a new result relative to the equivalent real record.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

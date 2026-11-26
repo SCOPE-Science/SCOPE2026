@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The Gaussian-kernel expansion has a uniform \(O_p(d^{-1})\) remainder across the finite set of observed cross-split pairs. The second-half squared-norm offset is common to every first-half score and cancels from both the numerator and pooled variance. A finite-dimensional multivariate coordinate CLT yields \(2s\) independent Gaussian projected scores with variance \(2\sigma^4/s\). The exact ratio has independent normal and chi-square factors, giving \(\sqrt{s/(s-1)}\,t_{2s-2}\). The attached executable checks the implementation, limit cutoffs and representative Gaussian simulations. Its finite experiments are not relied upon as proofs.
+## correctness
 
-**Originality (O): PASS, qualified.** The original NeurIPS paper and its expanded arXiv treatment define the identical studentized statistic and establish normality when sample sizes tend to infinity; their assumptions do not cover fixed sample size with dimension only tending to infinity. Related high-dimensional unsplit MMD and the witness-two-sample test have different statistics or growing test sets. Published related-result searches and targeted mathematical-record searches did not identify the scaled-Student limit for this characteristic Gaussian kernel, but this is not a proof of historical novelty. Classical Studentization covers the last algebraic step, not the kernel linearization and joint high-dimensional projection limit. Residual priority risk remains from broader unlocated studentized-witness literature.
+PASS
 
-**Value (V): PASS.** For a named, published permutation-free goodness-of-fit methodology, the theorem identifies a material calibration boundary: increasing dimension with fixed sample count does not remove the normal-cutoff error. The exact 18.2400% limiting rejection probability at nominal 5% with four observations per group is practically consequential, and the proof supplies a corresponding scaled-Student cutoff. The same result holds for a natural data-selected bandwidth and non-Gaussian coordinate laws under finite fourth moments.
+The balanced split statistic and its s-denominator within-group variances agree with the published equations. For the finitely many cross-split pairs, distance-square fluctuations about 2d sigma^2 are jointly O_p(sqrt(d)). Taylor expansion about that center with the same random bandwidth in all pairs gives a uniform O_p(d^(-1)) remainder; neither conditioning on the bandwidth nor pretending it is independent is needed. The constant and evaluation squared norm cancel when taking the witness contrast. The remaining second-split squared-norm term is common across both first-split groups and cancels from their mean difference and each centered variance. Dividing by the positive common factor exp(-d sigma^2/ell_d^2)*sqrt(d)/ell_d^2 makes the remainders o_p(1) and leaves the scores X_i dot G_d/sqrt(d) and Y_i dot G_d/sqrt(d), with G_d the difference of second-split means. The vector contribution from one coordinate has covariance (2 sigma^4/s)I by split independence and zero means; the multivariate iid CLT yields independent Gaussian limit scores despite shared G_d. Their difference of means is independent of pooled within-group residual sum of squares, which after variance scaling is chi-square_(2s-2). The published denominator uses s twice in squared units, giving sqrt(2s) Z/sqrt(Q), not ordinary t_(2s-2). The limiting denominator is positive almost surely, hence zero denominators vanish in probability. The repaired bandwidth example explicitly applies the median to ell_d^2, and a positive fallback on a zero median preserves the stated limit and avoids undefined kernels under discrete laws. No main limit or calibration number changes.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The repair credits Zhu–Shao's explicit fixed-sample high-dimensional Gaussian-kernel regime and centered-pair expansion framework, a closer antecedent than the growing-sample work alone. The credible distinct contribution is the exact limiting calibration of the published split statistic with its biased studentizer, including shared data-dependent bandwidth and the fixed-sample nominal-size discrepancy. It is not a claim to originate high-dimensional distance linearization, joint Gaussian approximations, or the Student ratio.
+
+## value
+
+PASS
+
+The question concerns calibration of a named published two-sample procedure in a natural different asymptotic regime. At four observations per group, a nominal one-sided 5% Gaussian cutoff has limiting null rejection about 18.24%; the theorem yields an exact replacement cutoff. The discrepancy is not a cosmetic Bessel correction: even correcting the variance does not turn a fixed-degree Student limit into a normal law. Applicability to non-Gaussian coordinates and common pooled bandwidth selection broadens the usefulness of the calibration boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

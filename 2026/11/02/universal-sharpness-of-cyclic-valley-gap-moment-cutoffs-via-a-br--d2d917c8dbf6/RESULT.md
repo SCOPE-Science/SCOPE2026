@@ -1,124 +1,41 @@
-# Universal sharpness of cyclic valley-gap moment cutoffs via a Brownian-bridge trace
+# Universal covariance cutoff sharpness for cyclic valley gaps via a Brownian-bridge trace
 
 ## Finding
-
-For every pair of positive integers \(i,j\), the exact-linear moment thresholds for the number \(D_{i,K}\) of successive valleys separated by \(i+1\) sites in a uniformly random cyclic permutation are **optimal without exceptions**. Specifically, put
+In a uniform cyclic permutation, let \(D_{i,K}\) count successive valleys separated by clockwise distance \(i+1\). For all positive integers \(i,j\), at \(K_0=i+j+6\) the covariance per site exceeds the exact slope \(c_{ij}\) valid for \(K\ge i+j+7\). Specifically, with integral kernels on \([0,1]^2\)
 \[
-a_i=\frac{i\,2^{i+1}}{i!\,(i+1)(i+2)(i+4)},\qquad K_0=i+j+6.
+A_i(s,t)=\frac{(s+t)^i-|s-t|^i}{2i!},\qquad M(s,t)=\min(s,t),\qquad B(s,t)=M(s,t)-st,
 \]
-Then
+the discrepancy is
 \[
-\boxed{\mathbb E D_{i,i+3}=(i+4)a_i>(i+3)a_i.}
+K_0^{-1}\operatorname{Cov}(D_{i,K_0},D_{j,K_0})-c_{ij}=\operatorname{tr}(A_iBA_jB)>0.
 \]
-Let \(c_{ij}\) denote the exact covariance slope for \(K\ge i+j+7\) as given in Matijasevick (2026), Proposition 3.1. Introduce the symmetric integral kernels on \([0,1]^2\)
-\[
-A_i(s,t)=\frac{(s+t)^i-|s-t|^i}{2i!},\qquad
-B(s,t)=\min(s,t)-st.
-\]
-Writing \(A_i\) and \(B\) also for their operators on \(L^2([0,1])\), the exact first subthreshold covariance correction is
-\[
-\boxed{\frac{\operatorname{Cov}(D_{i,K_0},D_{j,K_0})}{K_0}-c_{ij}
-=\operatorname{tr}(A_i B A_j B)>0.}
-\]
-In particular the variance slope \(b_i=c_{ii}\) fails at \(K=2i+6\) for **every** \(i\ge1\); the mean fails at \(K=i+3\); and the mixed covariance fails at \(K=i+j+6\) for every \(i,j\ge1\). Hence the proven thresholds \(i+4\), \(2i+7\), \(i+j+7\) for exact linearity cannot be reduced in any parameter.
+This proves optimality of the mixed covariance cutoff \(i+j+7\) and of the variance cutoff \(2i+7\) for every index. As a companion calculation, the known mean-cutoff defect admits the explicit evaluation \(\mathbb E D_{i,i+3}=(i+4)a_i\), where \(a_i=i2^{i+1}/[i!(i+1)(i+2)(i+4)]\). Universal *mean sharpness* is credited to Matijasevick, arXiv:2610.21094v2, Remark 3.2.
 
 ## Assumptions and scope
-
-Take \(K\ge3\) independent continuously distributed priorities at cyclic sites \(0,\ldots,K-1\), with cyclic subscripts. A site is a **valley** when its priority is strictly less than those of both neighbors. Let \(D_{i,K}\) count cyclically successive pairs of distinct valleys at positive clockwise distance \(i+1\), including the wrap-around gap; set it to zero when there is only one valley. Only positive integers \(i,j\) are considered. This priority model is the root-set representation of uniform ballistic deposition established in Matijasevick (2026), Lemmas 2.1–2.2. Its probability law is unchanged by any common continuous increasing transform of the priorities.
-
-The slope \(c_{ij}\) is **not** claimed as new. For an independent infinite sequence, put \(g=i+1\), \(h=j+1\), and define \(Y_x^{(g)}\) as the indicator that \(x\) and \(x+g\) are successive valleys. Write \(u(s)=s\) and \(M(s,t)=\min(s,t)\). With the integral-operator convention \((Af)(s)=\int_0^1A(s,t)f(t)dt\), the source constants have the precise representation
+Take \(K\ge3\) i.i.d. continuous priorities (equivalently independent uniform priorities on \([0,1]\) as far as ranks are concerned) on cyclic sites. A valley has strictly smaller priority than its immediate neighbors. Count gaps between distinct successive valleys in the clockwise direction, including those crossing the origin, and use zero if only one valley exists. The operator convention is \((Af)(s)=\int_0^1 A(s,t)f(t)dt\), with real inner product below. Set \(u(s)=s\), \(a_i=\langle u,A_i u\rangle\), \(\nu_{ij}=\langle u,A_iA_j u\rangle\), and \(v_{ij}=\langle u,A_i M A_j u\rangle\). The established slope is
 \[
-a_i=\langle u,A_i u\rangle,\quad
-u_{ij}=\langle u,A_i A_j u\rangle,\quad
-v_{ij}=\langle u,A_i M A_j u\rangle,
+c_{ij}=\mathbf1_{i=j}a_i+2\nu_{ij}+2v_{ij}-(i+j+7)a_i a_j .
 \]
-\[
-c_{ij}=\mathbf1_{\{i=j\}}a_i+2\nu_{ij}+2v_{ij}-(i+j+7)a_i a_j.
-\]
-All integral operators are bounded Hilbert–Schmidt operators, so the indicated fourth-order products are trace-class.
 
 ## Proof
-
-**1. Excursion and outside-neighbor kernels.** Conditional on endpoint priorities \(1-s\) and \(1-t\), the probability that the \(i\) interior priorities form the required single increasing-then-decreasing excursion is \(A_i(s,t)\). This is the excursion-kernel identity proved in Matijasevick (2026), Lemma 4.2; alternatively it follows by choosing the peak and assigning each remaining interior value to its allowed side. When the two immediate outside neighbors are distinct, independent uniform priorities, the additional probability that the endpoints are valleys is \(st\). For a gap with a **shared** outside neighbor, that probability becomes \(\min(s,t)\).
-
-At \(K=i+3\), the outside neighbors of the length-\(i+1\) gap are the same cyclic site. Therefore
+Condition on the two endpoint priorities \(1-s,1-t\). Successive valleys imply a single increasing-then-decreasing excursion between them, with the peak at an interior site. If the peak is at priority \(1-v\) and there are \(k\) interior sites to its left, the probability for the two monotone sides, conditional on that peak value, is \((s-v)^k(t-v)^{i-1-k}/[k!(i-1-k)!]\) for \(0<v<\min(s,t)\). Summing over the peak position and integrating gives \(A_i\). The outside neighbors give a factor \(st\) if distinct or \(M(s,t)\) if shared. At \(K=i+3\) they are shared, so the per-site mean defect is \(\iint A_i B\). On the triangle \(s<t\), put \(s=tz\), use \(B=s(1-t)\), then double by symmetry:
 \[
-\mathbb E D_{i,i+3}=(i+3)\int_0^1\!\int_0^1 A_i(s,t)M(s,t)\,ds\,dt.
+\iint A_iB=\frac{\int_0^1 z[(1+z)^i-(1-z)^i]dz}{i!(i+3)(i+4)}=\frac{a_i}{i+3}.
 \]
-Subtract the usual \((i+3)a_i\) and use \(B=M-u\otimes u\). Because \(A_i\) and \(B\) are symmetric and \(B(s,t)=s(1-t)\) on \(0<s<t<1\), substituting \(s=tz\) gives
+The middle integral equals \(i2^{i+1}/[(i+1)(i+2)]\); the same triangular substitution with \(st\) in place of \(B\) gives the stated \(a_i\). Multiplying by \(i+3\) gives the displayed mean value.
+
+Write \(g=i+1,h=j+1\). Fix the first gap at start zero. A second gap can coincide only if \(i=j\), giving weight \(a_i\); share an endpoint by starting at \(g\) or \(-h\), each giving \(\nu_{ij}\); or use distinct endpoints on the complementary arc. In the last case the two separating arcs have lengths at least two because neighboring valleys cannot be adjacent. At \(K_0=g+h+4\), the lengths must therefore both be two, at the single offset \(g+2\equiv-h-2\). No other overlap is possible because a start or end strictly inside the other gap would be an intervening valley. In the last configuration the gaps occur cyclically as \(g,2,h,2\), and each length-two excursion has kernel \(A_1=M\). Integrating the four endpoints gives \(q_{ij}=\operatorname{tr}(A_i M A_j M)\). For a shared endpoint, the two unconstrained outside neighbors are distinct and the integral is \(\nu_{ij}\), with symmetry giving the same weight in reverse order.
+
+For comparison at \(K\ge g+h+5\), the offsets of possible dependence form \([-h-2,g+2]\) modulo \(K\), with no identifications. The same coincident and consecutive cases contribute as above; the two endpoint offsets give \(v_{ij}\) each, because on one side a single outside site is shared and on the other side the outside sites are distinct. All other offsets in that interval are incompatible; offsets outside it have disjoint indicator windows and contribute zero covariance. Subtracting \((g+h+5)a_i a_j\) thus recovers the established slope formula.
+
+At \(K_0\) the individual gap means per site are still \(a_i,a_j\). Translation invariance and the offset list give
 \[
-\begin{aligned}
-\int_0^1\!\int_0^1 A_i(s,t)B(s,t)\,ds\,dt
-&=\frac{1}{i!(i+3)(i+4)}
-\int_0^1 z\big((1+z)^i-(1-z)^i\big)dz\\
-&=\frac{i\,2^{i+1}}{i!(i+1)(i+2)(i+3)(i+4)}
-=\frac{a_i}{i+3}.
-\end{aligned}
+K_0^{-1}\operatorname{Cov}(D_{i,K_0},D_{j,K_0})=\mathbf1_{i=j}a_i+2\nu_{ij}+q_{ij}-K_0a_i a_j.
 \]
-Hence \(\mathbb E D_{i,i+3}=(i+4)a_i\). The correction equals \(a_i>0\) in the unnormalized mean.
+Since \(B=M-u\otimes u\), expanding the trace and using symmetry and cyclicity gives \(q_{ij}-2v_{ij}+a_i a_j=\operatorname{tr}(A_iBA_jB)\). The kernels are bounded Hilbert–Schmidt, so the trace identity applies. Each kernel \(A_i\) and \(B\) is strictly positive on the interior, so the integrand \((A_iB)(s,t)(A_jB)(t,s)\) in the trace pairing is strictly positive there. This proves the all-index strict correction without assuming positive semidefiniteness of the excursion operators.
 
-**2. The unique collision of the two covariance boundary offsets.** Fix \(i,j\ge1\), write \(g=i+1\), \(h=j+1\), \(K_0=g+h+4\), and set
-\[
-q_{ij}=\operatorname{tr}(A_i M A_j M).
-\]
-Since \(K_0\ge i+4,j+4\), every single-gap indicator has the ordinary expectation \(a_i\) or \(a_j\). For a fixed initial length-\(g\) gap beginning at zero, another length-\(h\) gap can overlap without contradicting the valley condition only at the following offsets modulo \(K_0\):
-
-- \(h_0=0\) if \(i=j\), giving probability \(a_i\);
-- \(h_0=g\) or \(h_0=-h\), when the long gaps are consecutive, each giving \(\nu_{ij}\);
-- \(h_0=g+2=-h-2\pmod {K_0}\), where the two long gaps are separated by *two* distinct length-two gaps, giving \(q_{ij}\).
-
-This list is exhaustive: no two valleys are adjacent; an extra valley cannot lie strictly inside either selected gap; and the two indicator windows have total size \(K_0+2\), so they cannot be disjoint. The wrapped configuration in the last case consists cyclically of gap lengths \(g,2,h,2\). Each length-two gap has excursion kernel \(M(s,t)\), yielding the trace formula for \(q_{ij}\) by four endpoint integrations.
-
-Translation invariance thus gives
-\[
-\frac{\operatorname{Cov}(D_{i,K_0},D_{j,K_0})}{K_0}
-=\mathbf1_{\{i=j\}}a_i+2\nu_{ij}+q_{ij}-K_0a_i a_j.
-\]
-Comparing with the displayed established formula for \(c_{ij}\), where \(i+j+7=K_0+1\), gives
-\[
-\frac{\operatorname{Cov}(D_{i,K_0},D_{j,K_0})}{K_0}-c_{ij}
-=q_{ij}-2v_{ij}+a_i a_j.
-\]
-As \(B=M-u\otimes u\), cyclic invariance of trace and symmetry of \(A_i,A_j,M\) imply exactly
-\[
-q_{ij}-2v_{ij}+a_i a_j=\operatorname{tr}(A_i B A_j B).
-\]
-
-**3. Strict positivity for every pair.** For \(s,t\in(0,1)\), \(A_i(s,t)>0\) because \(s+t>|s-t|\), and \(B(s,t)=\min(s,t)(1-\max(s,t))>0\). Thus the kernel of \(A_iB\) is strictly positive throughout \((0,1)^2\); likewise for \(A_jB\). The trace identity
-\[
-\operatorname{tr}(A_i B A_j B)
-=\int_0^1\!\int_0^1 (A_iB)(s,t)(A_jB)(t,s)\,dt\,ds>0
-\]
-is valid for these Hilbert–Schmidt products. This completes the universal proof, including the diagonal \(i=j\) case. For the diagonal, it is also the squared Hilbert–Schmidt norm of \(B^{1/2}A_iB^{1/2}\).
-
-## Verification
-
-The standalone `verify.py` exhaustively enumerates all permutations through ten sites at selected boundary instances and compares **exact fractions** with the published slopes and the predicted anomalies. It also evaluates the trace by 200-node Gaussian quadrature, independently checking four small pairs. Run with `python verify.py` from a directory containing `verify.py` and, for the quadrature checks, NumPy. The attached `verification_output.txt` records 26 passed finite equality/positivity/quadrature assertions. These finite tests are supplementary and do not replace the quantified all-integer proof above.
-
-In particular, the exact covariance discrepancies per site are
-\[
-\begin{array}{c|c}
-(i,j)&\operatorname{Cov}(D_{i,K_0},D_{j,K_0})/K_0-c_{ij}\\\hline
-(1,1)&29/28350\\
-(1,2)&2/2835\\
-(1,3)&47/155925\\
-(2,2)&1/2025
-\end{array}
-\]
-with the respective boundary sizes \(8,9,10,10\). The expectation formula was independently checked for \(i=1,2,3,4\). All fractions refer to probabilities of finite random permutations and are exact.
+## Verification and limits
+The accompanying `verify.py` enumerates permutations at selected sizes through ten, checks exact rational moment discrepancies, and optionally compares 200-node quadratures using NumPy. `verification_output.txt` records 26 finite checks. In particular the covariance discrepancies for \((1,1),(1,2),(1,3),(2,2)\) are \(29/28350,2/2835,47/155925,1/2025\). The all-index conclusion uses the proof, not these diagnostics. This result concerns only the first subthreshold size for each moment; it does not treat all smaller sizes, nonuniform ranks, or new limit laws.
 
 ## Relationship to prior work
-
-Matijasevick (2026), Proposition 3.1, proves exact linearity for \(K\ge i+4\) in the mean and \(K\ge i+j+7\) in covariance; Remark 3.2 reports empirical sharpness only over the parameters reached by exhaustive enumeration. The present result proves optimality **uniformly for every pair of positive indices**, and evaluates the entire first subthreshold discrepancy as a strictly positive Brownian-bridge trace. It does not claim the slope formulas, the excursion kernel, or the random-priority representation as new.
-
-Mansour–Rastegar–Roitershtein (2019) supplies the underlying deposition model and particular small-gap formulas. Earlier enumerations of peak sets and classical linear-run covariances are relevant antecedents, but do not in the inspected material establish this precise all-index cyclic boundary correction. General pattern-overlap methodology may provide alternative derivations; full historical priority should be independently assessed.
-
-## Limitations
-
-The theorem concerns uniform cyclic-deposition priorities / uniform random cyclic permutations, only exact first and second moments, and the **single** cycle size just below each known exact-linear threshold. It does not give formulas at every smaller size, a nonuniform-deposition extension, a new central limit theorem, or a claim of full bibliographic uniqueness. Numerical quadrature is not used to prove strict positivity, which follows directly from the kernels. Independent external mathematical validation has not been performed.
-
-## References
-
-1. Mateo Matijasevick, *Gaps between roots in ballistic deposition on a strip: linear variance, Gaussian limits and a Poisson regime* (first posted 2026-10-15), arXiv:2610.21094v1. https://arxiv.org/abs/2610.21094 . Particularly Proposition 3.1, Remark 3.2, Lemma 4.2, and Theorem 4.5.
-2. Toufik Mansour, Reza Rastegar, Alexander Roitershtein, *On ballistic deposition process on a strip* (2019), arXiv:1903.12548v2. https://arxiv.org/abs/1903.12548 .
-3. Howard Levene and Jacob Wolfowitz, *The covariance matrix of runs up and down* (1944), *Annals of Mathematical Statistics* 15. Historical context; no priority assertion is based on an inspection of its complete text.
+Mateo Matijasevick, *Gaps between roots in ballistic deposition on a strip: linear variance, Gaussian limits and a Poisson regime*, [arXiv:2610.21094v2](https://arxiv.org/abs/2610.21094v2) (30 October 2026), Proposition 3.1 gives linearity and Remark 3.2 proves strict mean failure for all indices by the shared-neighbor integral; the explicit mean evaluation above follows by integrating that identity. The remark checks covariance sharpness in finite ranges but does not provide the all-pair covariance defect or its positivity proof. The [first version](https://arxiv.org/abs/2610.21094v1) reported finite mean checks. The earlier model and finite-gap results appear in Mansour, Rastegar and Roitershtein, [arXiv:1903.12548v2](https://arxiv.org/abs/1903.12548v2). The new claim advanced here is the universal covariance correction and its strictness, including the diagonal. Historical priority beyond the compared sources is not asserted.

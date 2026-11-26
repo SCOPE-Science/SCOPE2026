@@ -1,15 +1,21 @@
-# Scientific review: rare-antipodal-flip cutoff crossover
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact law is the mixture of two independent-sign product measures, with mixing weights determined by the parity of an independent Poisson count. Its Walsh coefficients, finite chi-square identity and exact binomial total-variation identity are independently checked with exact rational arithmetic. At the cutoff window, Gaussian convergence and a bounded second moment justify convergence of both total variation and chi-square; symmetry gives strict dependence on the rare-flip intensity. The late-window exponents follow from genuine Gaussian \(L^1\) Taylor expansions. No finite experiment is treated as a proof of the asymptotic theorem.
+## correctness
 
-## Originality — PASS within inspected evidence
-Baran–Šarković study random *graph twists* and absence of cutoff, rather than a fixed cube with a small antipodal generator. The classical Gaussian-tilt endpoint is due to Diaconis–Graham–Morrison; the pure Gaussian–cosh endpoint is related to an existing published quotient-walk calculation. These endpoints are credited, not claimed as new. The result tested here is the critical continuum of intermediate likelihoods, strict ordering, the exact chi-square interpolation, and the late-window exponent transition. Nestoridi studies uniform fixed-cardinality simultaneous flips, not a superposed Poisson all-bit clock; Collevecchio–Griffiths study general nonlocal discrete-time schemes but not this precise rate-scale crossover. The accessible published comparisons and full text of the most pertinent records did not imply the full claimed result. An equivalent historical formula could exist in spectral treatments of folded or antipodally symmetrized chains.
+PASS
 
-## Value — PASS
-A global nonlocal event that is rare on the ordinary mixing scale changes the complete limit law continuously, rather than merely changing a spectral bound or a constant. The two different late-window exponents show a genuine qualitative change between finite rare-event intensity and full antipodal symmetrization. This is a natural exact classification of nonlocal perturbations to classical hypercube cutoff, with the rate threshold determined intrinsically by the standard mixing time.
+The continuous-time law is a mixture of the product measures with coordinate means b and −b, where b=exp(−2t/n); the Poisson parity gives the weight difference h_t=exp(−2γ_n t). Walsh orthogonality gives the two binomial terms in the exact chi-square, with the odd levels multiplied by h_t². At the stated time b=a/√n and h_t→h also for θ=∞. The two log likelihoods under uniform measure have joint limit ±aZ−a²/2 (the Taylor remainder is O(n b³)); the exact second moments are bounded, so expectations of absolute deviations converge. Pairing z and −z gives the integral of max(|A(z)|,hB(z)) over positive z. The positive zero of A and B>0 around that zero yield strictness even when the smaller parameter is zero. Gaussian-integrable Taylor bounds give the two late coefficients, with E|Z²−1|=4φ(1). The finite-n law is sandwiched between its antipodal symmetrization and its pure-product endpoint in TV. The early symmetrized profile tends to 1 by applying bounded convergence to min(likelihood,1); the late product profile tends to 0. At each fixed c the two endpoint limits are strictly between 0 and 1, so the order-n scale is genuine even without convergence of the rates. The closing conclusions are for fixed parameters as stated, not a simultaneous limit h→0 and a→0.
 
-## Limits and nearest literature
-The source published 2026-10-15 studies a different random twisted graph and cannot itself establish a cutoff for the standard cube. The related two-endpoint-toggle result includes a cosine-hyperbolic endpoint but not the intermediate Poisson mixture; the folded-cube spectral-gap optimization is a different objective. General spectral representations for nonlocal hypercube walks do not automatically provide the variation-distance likelihood limit at this crossover. Full historical priority remains uncertain; only the exact rates, state space and fixed-window regime stated in RESULT.md are proved. Some older literature was inspected at its theorem and model sections rather than all pages.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the ordinary-cube endpoint and the already available Gaussian–cosh endpoint. The supported distinct contribution is the finite-intensity parity-bias crossover for a superposed global Poisson clock, including strict TV ordering and the singular change of late-window exponent, with the companion chi-square crossover and bounding profiles uniform over clock rates. No inspected source covers that package under these dynamics; this is a bounded priority judgment.
+
+## value
+
+PASS
+
+A parity clock with a bounded expected number of flips on the mixing scale can change the entire limiting TV profile without moving the cutoff. The strict continuum, explicit asymptotic coefficients and uniform-in-rate cutoff distinguish two consequences of this natural perturbation that endpoint profiles or a spectral gap alone cannot quantify. The result is modest and elementary and claims neither new endpoints nor a general theorem for nonlocal walks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

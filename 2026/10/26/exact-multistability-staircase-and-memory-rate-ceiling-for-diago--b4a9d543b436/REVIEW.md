@@ -1,9 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The scalar two-cycle equations eliminate every asymmetric pair, leaving one nonzero sign-flipping pair per crossed threshold. Cartesian products supply the exact count. Differentiation gives a quadratic for the half-return eigenvalues with determinant equal to the memory coefficient. Strict Schur inequalities prove attraction for every active coordinate. The inactive boundary is handled separately by explicit contraction or instability, avoiding a smoothness claim at zero memory. The sharp memory plateau is the discriminant interval, and coordinatewise feasibility is equivalent to the stated Hessian condition-number bound. Finite checks supplement these exact arguments.
+## correctness
 
-**Originality — PASS under inspected evidence.** The May 2026 rod-flow paper gives the RMSProp map and approximate continuous-time oscillation model, not its exact discrete full-state orbit census. The August 2026 RMSProp work addresses stochastic error estimates. The October 2026 paper proves broad two-cycle existence and eventual large-step branches; its inspected local-bifurcation statements do not yield this all-step diagonal count or exact curvature-ratio criterion. A previous two-dimensional equal-diagonal/off-diagonal investigation treats a different nonseparable Hessian family and does not cover the heterogeneous diagonal spectrum and simultaneous rate obstruction. Prior general spectral analyses remain a potential historical subsumption risk.
+PASS
 
-**Mathematical value — PASS.** The result classifies naturally occurring spurious attractors across the complete stepsize axis and gives a sharp obstruction, determined jointly by curvature anisotropy and memory decay, to attaining the best possible two-step linear rate in all coordinates. The dimension-exponential coexisting family persists under small nonseparable perturbations. The scope excludes global attraction, longer cycles, and critical equality stability; there is no independent mathematical or priority validation.
+I rechecked the complete repaired RESULT.md and SLOGAN.txt in /workspace/repairs/1/. Scalar opposite-sign returns satisfy a memory consistency relation ruling out unequal magnitudes; each crossed coordinate contributes zero or ±(h/2−ε/a) and the global sign quotient gives the credited census, with no additional coordinate option at equality. The active half-return block has determinant β and trace s=−1+3β+2(1−β)/q, q=ha/(2ε)>1; conjugation by the sign flip gives its square as the return derivative. The three strict Schur inequalities hold on 3β−1<s<1+β. At zero the relative derivative follows from the O(|x|√v⁺) error term, so the frozen text's 'every cycle' smoothness description is corrected: only all-active cycles have strictly positive memory in all coordinates. The repaired proof supplies the two zero-coordinate multipliers, a local expansion/contraction argument in the actual state space, and the product count of 2^(k−1) attracting cycles off threshold equalities. At their positive-memory states the implicit function argument persists under small symmetric Hessian perturbations. The determinant lower bound is attained exactly at |s|≤2√β; monotone s(q) gives the stated q_− and q_+ (finite upper edge only when β<1/9). The intersection of the rescaled bands is precisely the inclusive curvature cutoff; if empty, the spectral radius stays strictly above β even at the infimum by its endpoint limits and continuity. Replay: python /workspace/checks/1.py (SymPy symbolic Jacobian and exact samples). At β=1/16 it gives endpoints 10/7 and 6, ratio 21/5; a mixed cycle with h=3, ε=1 and curvatures 1 and 3/5 has radius 16/25 even though its nonzero block is on the plateau. Frozen verify.py and its output were read, not executed. The spectral optimum concerns all-active cycles, not critical boundary stability, a mixed-orbit global optimum, or a uniform pure-power norm estimate.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The frozen originality assessment was too broad: the exact total orbit census is already covered as an immediate corollary of Loh et al. Theorem 5.2, even if the specialized formula is not printed. The complete repair explicitly credits that result, the sign-symmetry factorization and the prior near-threshold and large-step branches, and claims only the surviving exact diagonal full-step stability and sharp all-active spectrum/curvature gate. These were not supplied or subsumed by the strongest inspected statements. PASS applies to that repaired contribution, not to the original novelty claim for the census.
+
+## value
+
+PASS
+
+The repair isolates the exact attractor count at all noncritical stepsizes and the sharp attainable local linear rate for the diagonal family. The coupled condition-number bound gives an actionable distinction between an individual block's optimal rate and joint attainability at a single stepsize. This remains useful beyond known existence and near-threshold stability, without counting the prior orbit census as an independent contribution or implying global attraction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

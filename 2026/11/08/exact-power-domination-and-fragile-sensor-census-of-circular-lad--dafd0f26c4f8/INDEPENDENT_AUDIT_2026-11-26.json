@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:40:26.971308Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–90",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "/workspace/replay/birth_prism_checks.py, prism() (fresh finite replay, executed)",
+        "Girish–Somasundaram, Lemma 2 and Theorem 2"
+      ],
+      "rationale": "For opposite-rail offsets 0,1,2 and same-rail offset 1 the initial observations include two consecutive complete rungs. For same-rail offsets 2 or 3, the observed rail vertex at column 1 can force its rung partner if needed, giving complete rungs 0 and 1; then the full rungs propagate. Only realizable offsets are needed at short rim orders. Conversely, distance at least four leaves disjoint closed neighborhoods with no edges between them. The cubic triangle-free graph gives each observed nonsensor exactly two dark neighbors, so the process stops at 4k<2n (each cyclic gap is at least three, with the singleton handled separately). A singleton succeeds on the triangular prism. Choosing the even number of cyclic color changes, adding nonnegative slack to minimum gaps of three or four, and marking and unmarking a starting sensor give the stated labelled binomial coefficients. The two-color gap matrix has eigenvalues x³(1+x)/(1−x) and −x³; the logarithmic derivative gives the rational series and its Lucas corrections at z=1. At fixed retention the positive root ρ is simple and strictly dominant by the triangle inequality with equality requiring the x term to be positive real; the other factors are analytic there and −xD'/D contributes leading coefficient ρ⁻ⁿ. A disjoint horizontal matching bounds failure by an exponentially decaying probability, so q²/ρ<1. At p=c/√n the distance-three graph has 11n edges; disjoint edge tuples give the Poisson factorial moments and tuples with any overlap contribute O(n⁻¹ᐟ²) because a component then requires at least three selected vertices. The same matching and a first-moment bound give the two off-window limits. Weighting failed sets by retention probabilities and dark counts gives reliability and expected coverage. A fresh bit-mask enumeration for orders 3–8 reproduced the distance, stopping-size and coefficient statements there.",
+      "residual_risks": [
+        "The upper index floor(n/3) is not always attained. The fixed-q and sparse limits refer to independent equal retention probabilities; the finite replay does not establish the all-order statements by itself."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first paper classifies close pairs for n≥5 and the maximum failed cardinality for n≥6. The two arXiv texts define the polynomial and probabilistic frameworks. No decisive Byrne passage could be retrieved."
+        ],
+        "reasoning": "Framework definitions and extremal cardinality do not give the distribution of labelled independent sets in the third power. The general reliability model can be applied only once that distribution and the observed count on failure are supplied.",
+        "searches": [
+          "Girish–Somasundaram DOI 10.3390/sym16070781, Lemma 2/Theorem 2",
+          "Brimkov et al. arXiv:1805.10984v1",
+          "Bjorkman et al. arXiv:2312.12259v1 Defs. 2.4–2.6",
+          "Byrne et al. DOI 10.2140/involve.2023.16.705"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary index and mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+        "Girish–Somasundaram, Symmetry 16 (2024), 781",
+        "Brimkov et al. arXiv:1805.10984v1",
+        "Bjorkman et al. arXiv:2312.12259v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The close-pair lemma and cubic local geometry yield the failure stopping characterization, and the known number 11n plus bounded dependency supports the sparse Poisson parameter. The prior maximum formula determines the degree of F_n, not its full coefficients. The gap enumerators actually inspected either constrain alternation with gaps 2 or 3, or use weaker external-support conditions or base-graph properties."
+        ],
+        "reasoning": "The reduction is prior-derived and the sparse limit gets credit as a consequence, not an independent replacement for the census. Computing F_n requires a distinct counting argument for the mixed minimum gaps; it is not a substitution into any of the inspected enumerators. Fixed-retention asymptotics and expected coverage use information about all sizes, not just close pairs counted individually.",
+        "searches": [
+          "Girish–Somasundaram pp. 3–6",
+          "Minimum-pair RESULT.md cc8c39c56161",
+          "Frozen RESULT.md proof Steps 1–4 against the ESI, dissociation and packing-isolating statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact invariant is I((C_n□K₂)^3;z), or the complement by size of the power-domination polynomial. At n=4 the frozen failure polynomial is 1+8z, while the exact same-day ESI polynomial is 1+8z+12z². In the packing-isolating record the empty set is excluded and gap length two is allowed; those sets do not satisfy the same stopping condition."
+        ],
+        "reasoning": "The two equivalent formulations refer to all labelled sizes, not just an independence number or minimum pair count. ESI requires only one external neighbor of each dominated nonsensor, too weak to prevent forcing. Packing-isolating sets additionally require independence of the dark complement and have opposite gap restrictions.",
+        "searches": [
+          "Local Resultary: circular ladder failure polynomial, prism third-power independence polynomial, externally supported independence 6443063ca5fe, cyclic-gap packings",
+          "Girish–Somasundaram Lemma 2; Brimkov et al. arXiv:1805.10984v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact failure-census index hit is the assignment. The minimum-pair record counts 11n for n≥7, identifying the quadratic success coefficient, and the older theorem gives a six-residue maximum size. The nearby transfer enumerators count other families; the strongest same-day comparison gives an explicit n=4 polynomial disagreement."
+        ],
+        "reasoning": "A single coefficient, residue-wise maximum, or different family's all-size polynomial is not a table of this invariant. The labelled census sums over all allowed gap slack and parity of rail changes.",
+        "searches": [
+          "Local Resultary index: exact prism failure/independence enumerators and minimum pairs",
+          "Local mirror 6443063ca5fe, d2470e7871c7, 619736a433f3, ba7310887a14 and cc8c39c56161",
+          "Girish–Somasundaram Theorem 2 residue formula"
+        ]
+      },
+      "rationale": "The prism pair criterion, pair count 11n, scalar maximum and random-sensor framework are prior, and much of the sparse limit is a natural consequence of that pair criterion and bounded degree. The full labelled failure distribution, its rational gap generating function and Lucas correction for these particular admissible sets survive that overlap. The strongest exact competing all-sizes enumerators on the same prisms count different set systems, including a same-day externally supported independence census whose actual definition and short polynomials are demonstrably different.",
+      "residual_risks": [
+        "Byrne and Anitha–Rajasingh decisive passages were not inspected; the prior coverage of the exact third-power independence polynomial is bounded by the available comparisons. The single general lookup returned no relevant evidence and is not a priority argument."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers distance criterion and maximum size, not all-size count in the inspected statements",
+          "evidence": "Two vertices on GP(m,1) for m≥5 succeed iff at distance at most three. For m≥6 the maximum failed cardinality is 2 floor(m/6) plus one in residues 4 and 5.",
+          "identifier_or_url": "https://doi.org/10.3390/sym16070781",
+          "material_read": "PDF Lemma 2 pp. 3–4 (offset 13100); Theorem 2 pp. 5–6 (offset 19400)",
+          "method": "Lawful publisher OA PDF",
+          "title": "Bound for the k-Fault-Tolerant Power-Domination Number",
+          "trigger": "Exact same prism and pair criterion; possible full fatigue census"
+        },
+        {
+          "assessment": "General polynomial framework; no matching circular-ladder statement located",
+          "evidence": "Counts power-dominating sets by size; computes various other families in the inspected version.",
+          "identifier_or_url": "https://arxiv.org/pdf/1805.10984v1",
+          "material_read": "p. 1, definition around offset 550; bounded literal checks for prism/ladder/independence polynomial",
+          "method": "Lawful OA PDF",
+          "title": "Power domination polynomials of graphs",
+          "trigger": "Same invariant in complementary form"
+        },
+        {
+          "assessment": "Prior probabilistic framework, not the exact graph-specific answer",
+          "evidence": "Sensors fail independently before the domination step; the probability of full observation and expected number of observed vertices are considered, with an expected-value polynomial.",
+          "identifier_or_url": "https://arxiv.org/pdf/2312.12259v1",
+          "material_read": "Abstract p. 1, offset 450; Definitions/Observation 2.4–2.6, p. 4 offset 12800",
+          "method": "Lawful OA PDF",
+          "title": "Power domination with random sensor failure",
+          "trigger": "Same random-retention model and observation statistics"
+        },
+        {
+          "assessment": "Prior exact pair count and equivalent pair criterion",
+          "evidence": "Same-rail cyclic distance 1–3 or opposite-rail cyclic distance at most two; 11n such pairs for n≥7 with short-order exceptions.",
+          "identifier_or_url": "2026/11/2/SCOPE-all-minimum-power-dominating-pairs-in-circular-ladder-graphs--cc8c39c56161",
+          "material_read": "RESULT.md, Finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "All minimum power-dominating pairs in circular ladder graphs",
+          "trigger": "Same network and exact close pairs"
+        },
+        {
+          "assessment": "Distinct counted objects despite strong methodological overlap",
+          "evidence": "An independent set is ESI if each vertex in its open neighborhood has some neighbor outside its closed neighborhood. E₄(z)=1+8z+12z²; the frozen failure polynomial has no pairs at n=4. This establishes non-equivalence without relying on dates.",
+          "identifier_or_url": "2026/11/8/SCOPE-six-residue-externally-supported-independence-and-maximum-set-ce--6443063ca5fe",
+          "material_read": "RESULT.md, Finding and opening of proof, offsets 0–3139",
+          "method": "Local Resultary mirror",
+          "title": "Six-residue externally supported independence and maximum-set census of circular ladders",
+          "trigger": "Same-day same graph and all-size transfer census"
+        },
+        {
+          "assessment": "Different constraints and enumerator",
+          "evidence": "Requires disjoint closed neighborhoods and an edgeless dark complement; alternating rails and gaps exactly 2 or 3 characterize its sets.",
+          "identifier_or_url": "2026/10/26/SCOPE-packing-isolating-sets-of-circular-ladders-an-exact-cyclic-gap-e--ba7310887a14",
+          "material_read": "RESULT.md, Finding and proof opening, offsets 0–3029",
+          "method": "Local Resultary mirror",
+          "title": "Packing-isolating sets of circular ladders: an exact cyclic-gap enumeration",
+          "trigger": "Strong cyclic-gap enumerator analogue"
+        },
+        {
+          "assessment": "Count different sets on the base graph",
+          "evidence": "One uses induced maximum degree one; the other adds an odd external-neighbor condition to base-graph independence.",
+          "identifier_or_url": "2026/11/2/SCOPE-dissociation-polynomials-and-extremal-configurations-of-circular--d2470e7871c7; 2026/10/18/SCOPE-odd-independent-set-polynomial-of-circular-ladders--619736a433f3",
+          "material_read": "Both RESULT.md Findings at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Dissociation polynomials and extremal configurations of circular ladders; Odd-independent-set polynomial of circular ladders",
+          "trigger": "Same graph, analogous size enumerators or Lucas terms"
+        },
+        {
+          "assessment": "Access limitation, not a negative comparison",
+          "evidence": "No full-text passage-level inference from the unavailable or unextractable material.",
+          "identifier_or_url": "10.2140/involve.2023.16.705; Anitha–Rajasingh (2020)",
+          "material_read": "Bibliographic identification only; decisive passages not available",
+          "method": "Bounded lawful OA/publisher and alternate-copy retrieval attempts",
+          "title": "Failed power domination in grids, cylinders, and tori; Power Domination in Tree Derived Architectures",
+          "trigger": "Possible prior stopping obstructions and circular-ladder results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and scope",
+        "Girish–Somasundaram Lemma 2/Theorem 2",
+        "Bjorkman et al. random sensor framework",
+        "Independent proof check and finite replay"
+      ],
+      "rationale": "The census answers a natural reliability question that the known extreme sizes and minimum pairs do not: the chance of full or partial observation for an arbitrary independent survival probability on this family. The cyclic color/gap formula determines an exact size-refined invariant, unusually simple total counts, and the fixed-retention decay. The sparse window is a useful further interpretation, with the prior close-pair contribution credited.",
+      "residual_risks": [
+        "Does not optimize placement with a fixed budget, address correlated failures or generalize beyond the complete two-rail circular ladders."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

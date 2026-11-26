@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:53:22.313830Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Squaring the exponential in the Rayleigh–normal convolution gives exp(−x²/2) times the integral of r times a normal kernel with center ηx and scale s; this yields the stated density, including the normalization and the η=0 case. With t=η/s and g(z)=φ(z)+zΦ(z), the derivative in t of the noncommon part tΦ(tx)/g(tx) of the x-score is φ(z)[(1+z²)Φ(z)+zφ(z)]/g(z)². Integrating (u+z)² against φ(u) on u>−z gives exactly the bracket, strictly positive even for negative z. At η=1 the ratio vanishes for x≤0 and its positive-half-line log derivative is φ(t_a x)/(x g(t_a x)). Independently, one integration by parts in the mixture CDF gives F_η(x)=Φ(x/s)−η exp(−x²/2)Φ(ηx/s) for η<1. On differentiating, the terms containing derivatives of the Φ factors cancel since φ(x/s)=exp(−x²/2)φ(ηx/s); the remaining derivative is strictly negative at each finite x. The mixture converges almost surely to R in this representation, whose CDF is continuous (including at zero); an interior strict gap persists to the endpoint by monotonicity. The ordered quantiles couple the variables so that the transport cost equals the mean difference, which is also a lower bound for every coupling. The Rayleigh mean sqrt(π/2) gives the exact W1 metric and hence the constant-speed path. I inspected but did not run the included finite quadratures; none is needed for the assertion on the continuum.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhao et al. give a two-parameter density with ψ(u)=φ(u)+uΦ(u); the target interior family is the unit-variance stationary specialization with tilde sigma=1 and rho=−η. Their Proposition 1 treats the singular Rayleigh endpoint."
+        ],
+        "reasoning": "The general distribution formula covers the family, but the inspected statements do not assert comparison over rho or exact transport cost between these marginals. A generic TP2 result that covers the ordered kernel could subsume the MLR part; no such applicable statement was identified.",
+        "searches": [
+          "arXiv:2502.12452v1, Theorem 1 and Proposition 1",
+          "Wider Gaussian peak-height families in conditional curvature correlation, skew-normal and total positivity"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.27687v1",
+        "arXiv:2502.12452v1",
+        "Resultary records 0067c071f45e, 48121e61fb36 and a2b6df5ccce5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier passages supply the kernel and endpoint information, hence also the input for algebraic derivatives. The present proof requires a positivity check of the mixed score for MLR and an explicit signed derivative at every finite threshold."
+        ],
+        "reasoning": "MLR implies stochastic order, and stochastic order plus the affine mean implies W1 equality by standard coupling, so the transport step is not itself a new general identity. The known means and weak or total-variation convergence do not force pairwise order; the family-specific sign is the substantive ingredient.",
+        "searches": [
+          "Cheng–Ginos Eq. (3.9), Remark 4.2",
+          "Zhao et al. Eqs. (3)–(4)",
+          "Rayleigh–normal convolution, Gaussian Palm stochastic order and exact Wasserstein distance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cheng–Ginos give exactly h_η and identify the endpoints, with total-variation convergence. Their interpolation in the sense of endpoint limits does not assert monotonicity between each pair of intervening parameters."
+        ],
+        "reasoning": "For η<1, monotone likelihood ratios are equivalent to TP2 of the parameter-by-height density; the normal and positive parameter factors cancel, so this is the comparison of g(tx) minors. Neither the density nor total-variation convergence establishes that sign; the bounded skew-normal/TP search did not yield a matching theorem.",
+        "searches": [
+          "Peak-height law and Rayleigh–normal mixture; density monotone likelihood ratio / TP2; literature query including Cheng–Ginos, Zhao, skew-normal and total positivity",
+          "arXiv:2610.27687v1, Eq. (3.9) and Remark 4.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Inspected catalog hits 0067c071f45e, 48121e61fb36 and a2b6df5ccce5 concern height-thresholded curvature, finite star-graph semigroup W1 amplification, and CDF-TP2 for geometric–FGM copulas, respectively."
+        ],
+        "reasoning": "These do not give pairwise distances or the ordered density family here. Exact individual peak laws are already in the primary papers; the target exact invariant is a pairwise formula on a continuum, not a table of marginal densities.",
+        "searches": [
+          "Resultary: Gaussian peak-height likelihood-ratio ordering, Rayleigh endpoint, exact W1 geodesic and TP2 kernel"
+        ]
+      },
+      "rationale": "The density, its interpolation between endpoint laws, and those endpoint laws are established prior content. The supported distinct content is global parameter likelihood-ratio ordering with the stated endpoint qualification, the signed CDF derivative and strict order, and the resulting exact W1 geometry for the fixed family. This is a bounded comparison, not a priority guarantee.",
+      "residual_risks": [
+        "A general total-positivity result for g(tx) or another equivalent one-sided Gaussian family may cover the MLR component; the search was bounded and is not an absence proof.",
+        "The original family and endpoints are prior, and the exact W1 equality is a direct consequence once stochastic ordering and the affine first moment hold."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the family, its density, limiting endpoints and convergence, not pairwise MLR or W1 in the inspected statements.",
+          "evidence": [
+            "Overview at offsets 4800–8299, Remark 4.2 at 53500–56472."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.27687v1",
+          "material_read": "Family overview and Remark 4.2 referring to Eq. (3.9).",
+          "method": "Lawful arXiv HTML, bounded passages.",
+          "title": "Local Maxima of Discrete Gaussian Processes: Exact Distributions and Infill Limits",
+          "trigger": "Exactly the same parameterized smooth Palm marginal laws."
+        },
+        {
+          "assessment": "Density specializes to the target family, including the known singular Rayleigh form under the endpoint hypotheses. No quantitative parameter comparison was established by those statements.",
+          "evidence": [
+            "Theorem 1 offsets 13400–17887, Proposition 1 offsets 24600–28497."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2502.12452v1",
+          "material_read": "Theorem 1 Eqs. (3)–(4) and Proposition 1.",
+          "method": "Lawful arXiv HTML, bounded passages.",
+          "title": "On the peak height distribution of non-stationary Gaussian random fields: 1D general covariance and scale space",
+          "trigger": "Broader Gaussian peak law using conditional curvature correlation."
+        },
+        {
+          "assessment": "Different law and parameter: curvature conditional on height threshold, not height across correlations.",
+          "evidence": [
+            "Height-thresholded curvature and a Rayleigh-to-Rician crossover."
+          ],
+          "identifier_or_url": "2026/11/1/SCOPE-curvature-statistics-and-a-rician-squeeze-crossover-at-high-gaus--0067c071f45e",
+          "material_read": "Mirrored RESULT.md offsets 1900–4400.",
+          "method": "Published record through local mirror.",
+          "title": "Curvature statistics and a Rician squeeze crossover at high Gaussian peaks",
+          "trigger": "Nearby Gaussian Palm and Rayleigh-related record."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The family is fixed by Palm peak-height calibration, not an arbitrary Gaussian mixture. The result orders all finite height thresholds as curvature correlation changes, with the stronger likelihood-ratio comparison on the full interior support. The exact W1 formula supplies a uniform sharp sensitivity measure for these fixed marginals. None of this asserts a comparison for finite meshes or a coupling of the underlying Gaussian processes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:30:30.756342Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–27 and Proof (1)–(5)",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent analytic grouped-site risk and equality derivation"
+      ],
+      "rationale": "Unrestricted quadratic polynomials force the three moment constraints. For any design, group calls by site: exact worst-case bias in absolute value is (a/6)∑_u |u|³|∑_{δ_j=u} w_j|, attained by assigning aligned remainder signs with disjoint smooth cutoffs away from the anchor. The largest variance is b∑_j w_j² and can be realized with that same function. Averaging repeated-site weights leaves this bias invariant and strictly decreases the variance unless already equal; thus it suffices for the lower bound and is necessary for an optimizer. Equation (2) in the proof uses this averaged-design reduction (the expression with ungrouped absolute weights need not bound the risk of a raw mixed-sign repeated-site design). After this reduction, Hölder yields C≥S⁻²; the zero-sum constraint gives sign totals S/2. Separate Cauchy–Schwarz gives variance at least bS²(1/p'+1/q')/4, uniquely minimized in the counts when all n weights are used with the most balanced split. The positive-scalar minimum for odd n occurs at S⁶=a²/(18bk_n), k_n=n/(n²−1), with the stated exact value. Equality in the slope triangle inequality and Hölder forces sign agreement and a common nonzero |δ|=1/S. Thus only the reflected/permuted replicated two-site designs attain the bound, and they satisfy even the quadratic exactness constraint. A cubic realizes the worst bias at these sites. For n=1 the first two moments conflict; the even-budget formula and both n=3 percentages also check.",
+      "replay": "Apply the exact grouped-site bias formula, pairwise averaging, and the inequality (1/p'+1/q')/4≥n/(n²−1) at odd n. With S=1/h, minimize a²h⁴/36+bk_n/h² and track weighted Hölder and sign-class equality.",
+      "residual_risks": [
+        "Exactness is only for deterministic nonadaptive linear estimators with independent centered call errors of bounded variance; does not extend here to correlated, adaptive, or nonlinear schemes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The closest theorem expressly attains its lower bound at even n. The Berahas et al. abstract describes broader noisy gradient approximation and optimization methods; only the abstract was used."
+        ],
+        "reasoning": "No inspected broader exact result covers the sharp odd integer allocation and uniqueness. The contextual abstract does not establish whole-paper noncoverage.",
+        "searches": [
+          "Lam–Li–Zhang arXiv:2007.04443, §2.1, pp. 4–6",
+          "Berahas et al. arXiv:1905.01332, abstract"
+        ]
+      },
+      "checked_sources": [
+        "Lam–Li–Zhang arXiv:2007.04443",
+        "Berahas et al. arXiv:1905.01332 abstract",
+        "Resultary exact matching record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The proof uses unrestricted n-term Cauchy–Schwarz. Its equality requires uniform absolute weights, incompatible with a nonzero zero-sum vector of odd length."
+        ],
+        "reasoning": "Nonattainment of the continuous-allocation bound does not identify the next sharp bound or classify the designs. The signed-group integer refinement and equality analysis supply both.",
+        "searches": [
+          "Lam–Li–Zhang arXiv:2007.04443, proof of Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary theorem uses the same anchored Taylor class and centered bounded-variance calls; its linear lower bound is (3a²b²/16)^(1/3)n^(−2/3)."
+        ],
+        "reasoning": "After matching constants, budget, repeated calls, and estimator scope, the odd formula has a strictly larger factor; it is not an equivalent restatement of that bound.",
+        "searches": [
+          "Lam–Li–Zhang arXiv:2007.04443, §2.1 Theorem 1 and proof",
+          "Resultary odd-budget minimax / stochastic finite-difference comparison"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact match 2026/11/22/SCOPE-exact-odd-budget-minimax-numerical-differentiation-under-indepen--05359e237394 is the assigned record itself. It reports the same risk and optimizer classification."
+        ],
+        "reasoning": "This is not a distinct indexed entry or earlier tabulation.",
+        "searches": [
+          "Resultary search for the exact odd-n factor and replicated symmetric stencil"
+        ]
+      },
+      "rationale": "Lam–Li–Zhang treat precisely the pertinent linear estimation setting and establish the all-budget lower bound and even-budget equality. The sharp odd-budget bound and classification of every optimizer are supported as a distinct refinement, not a new derivation of their established even case.",
+      "residual_risks": [
+        "An unindexed equivalent odd-allocation analysis is possible; bounded primary comparisons do not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers lower bound for all n and even equality, not the exact odd result",
+          "evidence": [
+            "Unrestricted n-term Cauchy–Schwarz yields coefficient 1/n; calibrated balanced central differences attain equality for even n."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2007.04443",
+          "material_read": "§2.1 Theorem 1 and proof, pp. 4–6; extraction offsets 9000, 13600, 20567",
+          "method": "OA primary PDF, bounded passages",
+          "title": "Minimax Efficient Finite-Difference Stochastic Gradient Estimators Using Black-Box Function Evaluations",
+          "trigger": "Same statistical model and minimax linear theorem"
+        },
+        {
+          "assessment": "Contextual comparison only; not evidence of full-text noncoverage",
+          "evidence": [
+            "Abstract describes methods and convergence rather than this exact minimax problem."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1905.01332",
+          "material_read": "p. 1 abstract, extraction offset 331",
+          "method": "OA primary PDF abstract only",
+          "title": "A Theoretical and Empirical Comparison of Gradient Approximations in Derivative-Free Optimization",
+          "trigger": "Noisy finite-difference context"
+        },
+        {
+          "assessment": "Target itself",
+          "evidence": [
+            "Same odd-budget formula, repeated central stencil and uniqueness scope."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-odd-budget-minimax-numerical-differentiation-under-indepen--05359e237394",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact odd-budget minimax numerical differentiation under independent noise",
+          "trigger": "Exact formula in indexed match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and optimizer proof",
+        "Lam–Li–Zhang arXiv:2007.04443, Theorem 1"
+      ],
+      "rationale": "Exact odd-budget minimaxity resolves the natural parity gap in an established result, and rigidity tells practitioners exactly how to spend an indivisible extra call. The sharp finite-budget answer and complete equality conditions are meaningful even though the relative penalty tends to one and the refinement admits a short proof.",
+      "residual_risks": [
+        "The largest practical gains are at very small budgets; no claim for estimator classes beyond the specified one."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

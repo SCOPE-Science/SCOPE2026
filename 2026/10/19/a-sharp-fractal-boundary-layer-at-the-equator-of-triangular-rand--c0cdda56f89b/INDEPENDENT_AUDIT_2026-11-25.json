@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:16:38.270233Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the claim from RESULT.md:5–47,49–85 and inspected VERIFICATION.md and checker.py. Left multiplication gives S_n=ξ_n+ρS_{n−1}; the normalized output vector is exactly (r_n,1+r_n S_n/λ), r_n=cρ^((t−1)n). The operator norm is comparable uniformly to λ^n, and the determinant gives the smaller singular-value rate log μ. A separate rational calculation reproduced 558 norm-square identities for three parameter pairs and all words through length five at t=1,2,3, without running the source script; the word (−1,1) distinguishes the two multiplication orders. The real-t argument is analytic: bounded S_n makes the error O(r_n) when t>1; at t=1 the normalized norm is F_c(S_n); for t<1 the top-scale normalization is within r_n^{-1} of H(S_n). Reversal in distribution couples S_n to the forward limit with deterministic tail bound ρ^n/(1−ρ); the Lipschitz constants c/λ and 1/λ give the stated W1 bounds. This coupling is not a samplewise convergence claim. Independent repeated block trials put every reversed finite prefix arbitrarily late on one probability-one event, and the two tails differ by at most 2ρ^k/(1−ρ); extending the current prefix gives the converse limit-set inclusion. Strong separation gives cylinder covering and mass bounds with dimension log 2/log(1/ρ). The critical map has derivative bounded below on the hull under the strict c hypothesis. The even top-scale map is bi-Lipschitz on the positive first-level piece and has at most two preimages, so dimension and nonatomicity are not lost on folding. The exact support follows from the positive masses of all cylinders and continuity of the maps. Normalized norms are uniformly bounded above and asymptotically bounded away from zero, so the exponential rates hold on every sequence. At λ=2, μ=1/2 both Cantor images have dimension 1/2; only the t=1 regime is critical in the strict sense.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Barrientos–Malicet Theorem B has hypotheses for each fixed x outside E and x-dependent constants; Theorem C controls weighted projective contraction.",
+          "Aoun–Guivarc’h Theorem 6.2 actually gives a pointwise expected-distance estimate with an inverse-distance-to-equator prefactor and can be applied to moving directions, subject to that deteriorating bound."
+        ],
+        "reasoning": "These are stronger in family scope and include some moving-direction projective control, but the controlled variable is not the precisely renormalized norm. They do not identify the critical profile and the two pathwise images; a negative claim about fixed-vector theorems is neither needed nor made.",
+        "searches": [
+          "Barrientos–Malicet arXiv:2610.12678v1 Theorems B–C",
+          "Aoun–Guivarc’h arXiv:1705.09593v4 Theorems 2.9 and 6.2 and §6.3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py (inspection only)",
+        "arXiv:2610.12678v1",
+        "arXiv:1705.09593v4",
+        "Resultary 4cd423fedf50 and 6e17594aec7a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A stationary-support statement identifies Cρ; fixed-direction and weighted projective results describe other observables. The output here retains the initial slow component at t=1 and loses it for t<1."
+        ],
+        "reasoning": "Using the base measure is direct for the distribution once the norm formula is known; the generation of a complete cluster set additionally uses the order of the signs along a single random trajectory. The norm dependence must be derived rather than inferred from projective weak convergence or stationary support.",
+        "searches": [
+          "arXiv:1705.09593v4 Theorem 2.9 and Remark 2.11(4); arXiv:2610.12678v1 Theorems B–C"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The projective complement is an affine-fiber skew product; the contracting-affine Bernoulli convolution is explicit background there.",
+          "Resultary 4cd423fedf50 concerns the spectral-radius rate of a deterministic period-four product; 6e17594aec7a concerns constant triangular-generator L^p contractivity."
+        ],
+        "reasoning": "The affine slope and Bernoulli measure coincide with the standard framework, but that convergence alone is not the exact Euclidean norm after combining the slow component and an exponentially moving input. Neither indexed record asks for the same observable, regime or pathwise set.",
+        "searches": [
+          "Resultary: time-dependent vector approaching exceptional equator, triangular random matrix product, normalized norm and Cantor cluster set",
+          "Aoun–Guivarc’h arXiv:1705.09593v4 §2.2.1, Theorem 2.9, Remark 2.11(4)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The mirror's triangular-shear Finding tabulates L^p contractivity thresholds of a constant generator; the ordered-product record gives two subsequence limits for the spectral-radius rate.",
+          "Remark 2.11 identifies classical Bernoulli convolution support in the affine model."
+        ],
+        "reasoning": "The known continuous Cantor family determines the base support but is not a table of norm images or results about chronological sign recurrence at an exponentially approaching input. No finite graph or product enumeration could on its own cover the arbitrary real parameters and probability-one statement here.",
+        "searches": [
+          "Resultary triangular matrix phase diagram and ordered-product growth neighbors 6e17594aec7a and 4cd423fedf50",
+          "Aoun–Guivarc’h Remark 2.11(4)"
+        ]
+      },
+      "rationale": "The distinct result supported is the exact finite-time, moving-input norm crossover in this specific reducible Bernoulli cocycle, including normalized weak laws and full pathwise norm limit sets. The affine recursion, stationary Cantor measure, generic support machinery and its dimension are not claimed as new.",
+      "residual_risks": [
+        "Priority was not established across the wider chaos-game and contracting affine recursion literature. Indexed and general literature lookup had noisy results; only the inspected statements support this comparison.",
+        "The result is for a particular separated triangular family and does not extend on this evidence to overlapping convolutions or general simple-exponent cocycles."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Fixed-direction norm laws and projective contraction, not this moving-input norm statement",
+          "evidence": "Theorem B applies to each x outside E with x-dependent constants.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.12678",
+          "material_read": "PDF pp. 2–4, especially Theorem B p. 3 around offset 8403 and Theorem C p. 4",
+          "method": "Located and read relevant primary theorem passages",
+          "title": "Limit theorems for random matrix products with a simple top Lyapunov exponent",
+          "trigger": "Same exceptional-equator question"
+        },
+        {
+          "assessment": "Covers affine-support ingredient and projective estimate, not the joint norm laws and cluster sets",
+          "evidence": "Affine fiber recursion encompasses Bernoulli convolutions; projective expected-distance bound includes exp(−nβ) divided by distance to the exceptional subspace.",
+          "identifier_or_url": "https://arxiv.org/pdf/1705.09593v4",
+          "material_read": "§2.2.1 pp. 5–6 equation (2) near offset 21815; Theorem 2.9 and Remark 2.11(4) pp. 9–10 offsets 37316–40062; Theorem 6.2 p. 32 offset 131763 and §6.3 p. 34",
+          "method": "Read bounded preprint passages by theorem and offset",
+          "title": "Random matrix products when the top Lyapunov exponent is simple",
+          "trigger": "Closest broad reducible-product structure and moving-direction estimate"
+        },
+        {
+          "assessment": "Different cocycle and observable",
+          "evidence": "Deterministic period-four spectral-radius rate with even/odd limits.",
+          "identifier_or_url": "2026/9/18/SCOPE-ordered-product-spectral-rate-nonconvergence--4cd423fedf50",
+          "material_read": "Mirrored RESULT.md, Result",
+          "method": "Resultary search and local-mirror passage inspection",
+          "title": "Ordered-product spectral growth need not converge to the top Lyapunov exponent",
+          "trigger": "Indexed product-growth oscillation"
+        },
+        {
+          "assessment": "Constant-generator norm contractivity, not random products on moving inputs",
+          "evidence": "No backward Bernoulli recursion or time-dependent initial direction in the theorem.",
+          "identifier_or_url": "2026/10/11/SCOPE-exact-l-p-contractivity-phase-diagram-for-planar-triangular-shea--6e17594aec7a",
+          "material_read": "Mirrored RESULT.md, Finding and Assumptions",
+          "method": "Resultary search and local-mirror passage inspection",
+          "title": "Exact L^p contractivity phase diagram for planar triangular shears",
+          "trigger": "Indexed triangular boundary formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a nonuniformity example at a natural quantitative scale, the exponential gap between the two singular-value rates. It shows that nondegenerate law convergence of normalized output can coexist with almost-sure oscillation over a specific fractal set, and distinguishes two different images of the same stationary support on and below the scale. The useful content is that combination, not a new proof of the classical Cantor dimension or an assertion about arbitrary matrix products.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

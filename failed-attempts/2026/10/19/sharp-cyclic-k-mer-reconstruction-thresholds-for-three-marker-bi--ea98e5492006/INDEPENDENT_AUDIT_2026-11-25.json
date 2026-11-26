@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:14:24.749954Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–53",
+        "Frozen VERIFICATION.md and CHECK.py, inspected as evidence",
+        "Independent replay: python3 /workspace/branches/frozen-review-checks.py 5"
+      ],
+      "rationale": "A length-k deck determines all shorter decks by prefix projection and counts global weight because every one contributes to exactly k reads. At n-c a read covers all three ones, leaving no other placement. With distinct gaps the reverse is not a rotation; below n-c there are only zero-, one-, and two-marker reads. For one-marker reads, either the smaller tail fits every gap or both tails can use exactly the two larger gaps, giving one eligible ordered adjacency in the latter case. For two-marker reads the total exterior tail fits even the smaller adjacent gap, so reversal preserves their counts. For repeated gaps, short decks with minimum gap at least k-1 factor into three occurrences of each one-marker pattern plus all-zero reads. This proves the equal-gap and two-small-gap collisions, with the fixed gap sum or projected short-gap counts giving uniqueness at the next length. For a<b=c, projection at b+1 forces the only short gap and hence both remaining gaps. At b the alternative (a,b-1,b+1) admits the same two-marker patterns (only across a), and one-marker counts are 1 plus the two indicators that the two respective tails fit a, even when a=b-1. The all-zero count follows by subtraction. For k=1 there is no shorter admissible length, including the all-one cycle. Independent circular cut enumeration found the predicted first singleton for all 327 three-marker rotation classes through n=19, including unrestricted binary competitors through n=9.",
+      "residual_risks": [
+        "The enumeration is finite; the proof applies to ordered circular factor multisets, not sets, deletion subsequences, or identification up to reversal."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ota–Manada's setup requires distinct substrings at its specified length; Bresler et al. give unbridged-repeat obstructions for shotgun reads; Kingsford et al. give the de Bruijn graph traversal formulation."
+        ],
+        "reasoning": "These general frameworks do not state the five cases. In contrast the matching Resultary theorem covers all of them, and adds the worst-case threshold and a distribution theorem.",
+        "searches": [
+          "DOI 10.1587/transfun.2023TAP0015, Assumption 1 and weighted-automaton condition",
+          "DOI 10.1186/1471-2105-14-S5-S18, Theorem 1",
+          "DOI 10.1186/1471-2105-11-21, pp. 2–3"
+        ]
+      },
+      "checked_sources": [
+        "Two distinct exact- or partial-match Resultary mirrored results cited above",
+        "Ota–Manada and Bresler–Bresler–Tse OA text",
+        "Kingsford–Schatz–Pop, Marcovich–Yaakobi, and Alanko–Biagi–Puglisi passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matching theorem plus deck weight counting yields the frozen claim. Marcovich–Yaakobi discuss a sufficient condition for linear multispectra; Alanko–Biagi–Puglisi index sets of distinct substrings."
+        ],
+        "reasoning": "There is no uncovered case or residual consequence in the frozen claim after accounting for the exact indexed theorem. The other spectrum definitions are not decisive overlaps.",
+        "searches": [
+          "Resultary 53b37289c576, opening reconstruction theorem",
+          "arXiv:1912.11108v2 §I",
+          "arXiv:2306.04850 pp. 1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Record 53b37289c576 gives the same oriented pointwise gap formula up to rotation; it compares weight-three competitors."
+        ],
+        "reasoning": "For any n-position competitor, total ones in its k-spectrum equal k times global weight; restricting opponents to weight three therefore does not change the theorem.",
+        "searches": [
+          "Local Resultary: sharp cyclic read length for binary three-marker necklaces",
+          "Matching RESULT.md, opening theorem"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "53b37289c576 gives all five values a+b+3, a+1, a+1, a+2, b+1 under the same respective gap conditions. 19f2074d3041 gives the distinct-gap formula n-max(g_i) and sharp reversal obstruction but not the full repeated-gap pointwise split."
+        ],
+        "reasoning": "The first is exact symbolic coverage on all lengths, not merely a coinciding finite table or self-hit.",
+        "searches": [
+          "Resultary records 53b37289c576 and 19f2074d3041, RESULT.md"
+        ]
+      },
+      "rationale": "A distinct published matching Resultary record already covers the entire five-case pointwise theorem on the same objects and also extends it. The apparent difference in whether competitors must have weight three disappears because the circular deck determines the global weight. This is duplicate coverage, not a conclusion about historical priority or independence.",
+      "residual_risks": [
+        "The available records decide equivalent coverage, not who first derived the theorem. No exhaustive primary literature survey is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "exact independent-record coverage of the claimed statement",
+          "evidence": "Same five pointwise cases under oriented factor multisets and rotation; its weight restriction is forced by deck equality.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sharp-cyclic-read-length-reconstruction-for-three-marker-binary--53b37289c576/RESULT.md",
+          "material_read": "opening theorem in mirrored RESULT.md",
+          "method": "local Resultary search and mirror inspection",
+          "title": "Sharp cyclic read-length reconstruction for three-marker binary words",
+          "trigger": "strongest three-marker Resultary overlap"
+        },
+        {
+          "assessment": "partial pointwise overlap",
+          "evidence": "Gives n-max(g_i) for distinct gaps and the uniform worst case, not the repeated-gap pointwise cases.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-read-length-reconstruction-of-binary-three-marker-necklace--19f2074d3041/RESULT.md",
+          "material_read": "RESULT.md finding and limitations",
+          "method": "local Resultary search and mirror inspection",
+          "title": "Sharp read-length reconstruction of binary three-marker necklaces",
+          "trigger": "further indexed overlap"
+        },
+        {
+          "assessment": "general reconstruction criterion, narrower hypothesis in one respect",
+          "evidence": "Its distinct-substring assumption excludes periodic cases covered here.",
+          "identifier_or_url": "10.1587/transfun.2023TAP0015",
+          "material_read": "pp. 2 and 4, Assumption 1 and weighted-automaton condition",
+          "method": "J-STAGE OA PDF passages",
+          "title": "A Reconstruction of Circular Binary String Using Substrings and Minimal Absent Words",
+          "trigger": "same circular binary reconstruction object"
+        },
+        {
+          "assessment": "repeat obstruction, not a pointwise classification under the frozen observation rule",
+          "evidence": "Unbridged interleaved or triple repeats allow a different sequence of the same likelihood.",
+          "identifier_or_url": "10.1186/1471-2105-14-S5-S18",
+          "material_read": "pp. 5–6, definitions and Theorem 1",
+          "method": "OA full-text passages",
+          "title": "Optimal assembly for high throughput shotgun sequencing",
+          "trigger": "possible repeat criterion implying the threshold"
+        },
+        {
+          "assessment": "generic test rather than gap classification",
+          "evidence": "Reads give edges between length-(k-1) vertices and alternative traversals can cause ambiguity.",
+          "identifier_or_url": "10.1186/1471-2105-11-21",
+          "material_read": "pp. 2–3, edge/read and traversal descriptions",
+          "method": "OA full-text passages",
+          "title": "Assembly complexity of prokaryotic genomes using short reads",
+          "trigger": "general de Bruijn formulation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–53",
+        "Matching Resultary reconstruction theorem and extensions, 53b37289c576"
+      ],
+      "rationale": "As mathematical content, the exact cutoff is a natural complete classification over an unbounded family: it separates orientation ambiguity from spacing ambiguity and handles all equality and short-word cases. This is not credit for a novel contribution beyond the matching indexed theorem; that issue fails originality.",
+      "residual_risks": [
+        "No four-marker or general sparse-necklace classification is in the frozen record; no repair of the duplicate claim is proposed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:41:51.284341Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Unit-pivot elimination factors exactly the primitive determinant-zero matrices as uv^T, with one unit-scaling orbit per factorization. Subtracting the sum over nonprimitive v requires T^Tu in the socle because the character generates the additive dual. For kernel-size exponents x,y in the two coordinates, the primitive count is q^(x+y)-q^(min(x,m-1)+min(y,m-1)); use (x,y)=(a,b) or (min(a+1,m),min(b+1,m)). In the nonprimitive part, A=pi B is parametrized by B modulo pi^(m-1). Its fibers over length m-2 have size q^4 and their Fourier sum vanishes unless T is divisible by pi. For T=pi S the induced quotient character is psi(pi^2 times a lift), which is generating; the length-zero case works with the trivial sum. Rank-one factorization over the residue field gives the base. Counting lifts with a unit pivot whose Schur complement is prescribed, or factoring out the common power of pi, gives the four negative multiplicities, and convolution gives both sharp norms by a delta input and a phase-matching input respectively. Independent exact replay, evidence/1/reproduce.py and evidence/1/replay.txt, evaluated 46 diagonal Smith sums over Z/8, Z/16, F2[t]/(t^4), and F4[t]/(t^2), including 750 negative frequencies and mass 407/32 at Z/8. The all-length result rests on the argument, not these examples.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Watanabe's Smith-class first eigenmatrix gives the length-two Galois-ring specialization by summing determinant-zero columns.",
+          "Choosuwan–Jitman–Udomkavanich give the zero-frequency fiber cardinality but do not give matrix-frequency coefficients in that theorem.",
+          "The earlier Resultary record covers arbitrary length, including noncyclic additive groups and both characteristics."
+        ],
+        "reasoning": "The determinant-count and Galois-ring papers alone would not decide arbitrary-length coverage; the earlier closed formula does.",
+        "searches": [
+          "arXiv:2607.21913v1 Theorem 4.2 and Example 4.3",
+          "arXiv:1605.06826v2 Theorem 3.8",
+          "10.1080/00927870903390652"
+        ]
+      },
+      "checked_sources": [
+        "2026/11/1/SCOPE-universal-fourier-spectrum-of-the-determinant-zero-cone-over-fin--34c64b212a4e",
+        "arXiv:2607.21913v1",
+        "arXiv:1605.06826v2",
+        "10.1080/00927870903390652 (bibliographic only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier formula gives each negative coefficient -q^5 at length three and its multiplicity, with all other coefficients nonnegative.",
+          "Sum of signed coefficients is q^12 because the zero matrix is in the determinant-zero set."
+        ],
+        "reasoning": "The kernel absolute mass is therefore 1+2q^5 Z_-/q^12 by ordinary inversion and the sharp convolution norm identity. The recursion can likewise be derived by substituting the earlier closed values on both sides; separating a primitive part gives an alternative proof, not a new invariant.",
+        "searches": [
+          "2026/11/1/SCOPE-universal-fourier-spectrum-of-the-determinant-zero-cone-over-fin--34c64b212a4e, equations and proof §§2–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At a nonzero Smith frequency (a,b), the earlier record's common entry valuation is v=a and its determinant valuation after dividing out pi^a is d=b-a, including b=m via truncation.",
+          "The earlier negative-sign Fourier convention gives the same values since the determinant-zero set is invariant under A -> -A."
+        ],
+        "reasoning": "The earlier three cases reduce to a+b<m-1, then a+b>=m-1 with b<m, and finally b=m, respectively. They give the exact frozen coefficients, not just their signs or a different singularity notion.",
+        "searches": [
+          "finite chain rings Fourier transform determinant-zero 2x2 matrices Smith type eigenmatrix recurrence",
+          "2026/11/1/SCOPE-universal-fourier-spectrum-of-the-determinant-zero-cone-over-fin--34c64b212a4e, Fourier-null classification"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier closed law gives the ten length-three entries. Its rank at m=3 is B_q q^7+q^8, where B_q=(q-1)(q+1)^2; the positive nonzero-frequency counts sum to B_q(q^6+q^3+1)."
+        ],
+        "reasoning": "Subtracting the positive counts and the single zero frequency from the rank gives precisely q^10-q^8-q^5+q^4-q^2+q, so not printing that polynomial in a separate table does not avoid coverage.",
+        "searches": [
+          "2026/11/1/SCOPE-universal-fourier-spectrum-of-the-determinant-zero-cone-over-fin--34c64b212a4e, §§4–5 spectral multiplicities and exact rank"
+        ]
+      },
+      "rationale": "The earlier Resultary determinant-zero cone record gives a stronger closed all-length coefficient formula and all spectral multiplicities for exactly the same chain rings. Its valuation parameters are a change of coordinates, and its negative histogram directly supplies the endpoint norms. The two-step identity is a correct alternate evaluation, but no distinct substantive spectral or norm claim survives.",
+      "residual_risks": [
+        "The historical origin of the earlier closed formula was not exhaustively investigated; that does not affect verified equivalent coverage.",
+        "Cao full text was not accessible and is not decisive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers the claimed spectrum and implies the length-three endpoint norm",
+          "evidence": [
+            "Three-case valuation formula, exact multiplier (1), spectral multiplicities and rank by valuation strata"
+          ],
+          "identifier_or_url": "2026/11/1/SCOPE-universal-fourier-spectrum-of-the-determinant-zero-cone-over-fin--34c64b212a4e",
+          "material_read": "Fourier-null classification, assumptions, proof §§1–5 and verification excerpt, mirror offsets 1850–8888",
+          "method": "Local Resultary search and direct mirrored RESULT.md inspection",
+          "title": "Universal Fourier spectrum of the determinant-zero cone over finite chain rings",
+          "trigger": "Same matrix group, ring lengths, and Fourier transform"
+        },
+        {
+          "assessment": "Covers length-two Galois rings but not arbitrary length or equal-characteristic chains of the same order",
+          "evidence": [
+            "R=GR(p^2,r); eigenmatrix by Smith type; explicit Z/4 example"
+          ],
+          "identifier_or_url": "arXiv:2607.21913v1",
+          "material_read": "Abstract, §4 Theorem 4.2 and Example 4.3, §5 ring declaration",
+          "method": "OA PDF passages pp. 1, 11–13",
+          "title": "Bivariate Affine q-Krawtchouk Polynomials and Association Schemes over Galois Rings",
+          "trigger": "Potentially stronger character sums over Smith orbits"
+        },
+        {
+          "assessment": "Counts the fiber, equivalent to the zero-frequency coefficient only",
+          "evidence": [
+            "Theorem 3.8 formula d_n(R,0)"
+          ],
+          "identifier_or_url": "arXiv:1605.06826v2",
+          "material_read": "Abstract and §3 Theorem 3.8",
+          "method": "OA PDF passages pp. 1 and 9–11",
+          "title": "Determinants of Matrices over Commutative Finite Principal Ideal Rings",
+          "trigger": "Same determinant-zero fiber on chain rings"
+        },
+        {
+          "assessment": "Not used as evidence for or against coverage",
+          "evidence": [
+            "Full-text comparison unavailable; decisive coverage comes from the earlier Resultary theorem"
+          ],
+          "identifier_or_url": "10.1080/00927870903390652",
+          "material_read": "Bibliographic identification only; full article not inspected",
+          "method": "Identified DOI and publisher OA retrieval attempt",
+          "title": "Association Schemes and Directed Graphs Determined by Orbitals of General Linear Groups Over Finite Chain Rings",
+          "trigger": "Potential overlap via finite-ring association schemes"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The Fourier spectrum of the determinant-zero cone is a natural invariant. But its coefficient distribution is already known in a strictly more directly usable closed form, and the length-three sign tally and norm are mechanical evaluations of that spectrum. The alternate two-step proof, while sound, does not furnish an additional motivated unknown mathematical fact; the earlier proof is also elementary and already valid in both characteristics.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

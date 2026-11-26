@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:25:33.348569Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Translation by L=lcm(1,...,n) preserves all eligible offsets. At m=(n-1)^2 and H=2n-3 the sole multiple of each of n-1 and n is at offset n-1, proving the uniform lower bound by monotonicity in H. I wrote and ran an independent exact search /workspace/branches/audit_interval.py (arguments 2 through 17); the executed n=17 scan was split into million-residue chunks, with logs in /workspace/branches/interval_runs. The search uses no augmenting paths: it eliminates a modulus of degree at least the remaining number of moduli (assign it last), eliminates a modulus with a private offset (assign it there), enforces forced singleton assignments, and otherwise branches over every candidate offset of a minimum-degree modulus. Modulus 1 can be assigned last because H>=n. Reflection of actual interval values maps m to -m-H-1 modulo L and preserves matching, so one representative per reflection pair is exhaustive. For 2<=n<=16 the scan found no failures at 2n-2. At n=17,H=32 it checked all 6,126,120 reflection classes, recovered 32 full-period failures, minimum 485749, and checksum 11468177711038706587. None of the checked failures is consecutive modulo the full period; hence every length-33 interval contains a successful length-32 subinterval starting at m or m+1. This independently proves the upper bound without testing all length-33 intervals separately. At 485749 the six stated moduli have union {9,11,22,23,26}, validating the explicit Hall obstruction. Nothing beyond n=17 is certified.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Erdős–Pomerance set the general all-start extremal question and identify its period.",
+          "Kominers' inspected primary result is a limiting lower bound involving F(n)-f(n,n). Chen–Korsky's abstract states asymptotic upper and lower bounds on the uniform function."
+        ],
+        "reasoning": "The inspected asymptotic statements do not force a finite first index or a census of misses. The bounds are stronger in range, not dominating statements about these finite exact values.",
+        "searches": [
+          "Erdős–Pomerance (1980), §1 p. 147",
+          "Kominers arXiv:2607.10431v1, abstract and §1 p. 1",
+          "Chen–Korsky arXiv:2607.26450v2, abstract and §1 p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.cpp",
+        "Resultary 8a75e6efc3e7 and exact matching searches",
+        "Erdős–Pomerance p. 147; arXiv:2607.10431v1 p. 1; arXiv:2607.26450v2 p. 1",
+        "OEIS A219787 retrieval and search attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The period reduction makes the search finite but does not imply that a matching exists in every residue class at any proposed length.",
+          "The finite obstruction at 485749 and the positive classification depend on separate Hall or matching arguments; the old fixed-start example and the cited bounds do not supply them in the available material."
+        ],
+        "reasoning": "Even an eventual improvement over 2n-2 would neither locate its first occurrence nor give the exact residue count. Conversely a single obstruction would not determine the uniform length or census.",
+        "searches": [
+          "Compare Erdős–Pomerance period and uniform function, Kominers and Chen–Korsky asymptotic statements, and frozen RESULT.md lines 19–40"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Erdős–Pomerance's max over starts of f(n,m) is the same function as F(n), not their separate quantity f(n) for the interval starting at n.",
+          "Kominers explicitly uses a maximum over natural-number starts of the length for (m,m+h]; periodicity makes this identical to an all-integer-start maximum."
+        ],
+        "reasoning": "The formulations coincide after period reduction and distinguishing a right endpoint from a length. In particular the fixed-start f(10)=24 example in the 1980 paper is not a conflicting uniform value.",
+        "searches": [
+          "Resultary: uniform distinct multiples, interval matching F(n), first excess at n=17, 32 obstruction starts",
+          "Erdős–Pomerance (1980) §1 p. 147 and Kominers arXiv:2607.10431v1 §1 p. 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed result 8a75e6efc3e7 is the frozen record itself, including the 32 failures and six-to-five obstruction.",
+          "A database search surfaced OEIS A219787, but targeted retrieval and the exact-ID follow-up did not recover its defining statement. No exact table claim can be attributed to it."
+        ],
+        "reasoning": "The self-match does not establish prior coverage. The OEIS lead remains unresolved and is not counted as evidence of absence.",
+        "searches": [
+          "Resultary exact series, F(17)=33, 32 exceptional starts and least start 485749",
+          "OEIS A219787 follow-up and uniform distinct-multiple matching table query"
+        ]
+      },
+      "rationale": "Credit the all-start problem, its period reduction, and prior bounds to the existing work. The supported distinct contribution is the first finite deviation from 2n-2, together with the exact obstruction census at that index. The exact matching Resultary item is the assignment itself. The closest primary material inspected establishes the same uniform function and asymptotic bounds, not a finite result implying this census. Unavailable portions and the unresolved database lead leave a historical-priority risk; neither is used as negative evidence.",
+      "residual_risks": [
+        "Later pages of the primary matching papers and the definition of OEIS A219787 were not recovered in the bounded inspection. An earlier finite computation or table is possible.",
+        "The revised Chen–Korsky author credit is specific to the version inspected; the frozen citation names the first posting and should distinguish the versions if updated."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit same problem and period; inspected example is a different fixed-start invariant",
+          "evidence": [
+            "f(n,m) is a least length; the paper asks to estimate its maximum in m and relates it to the lcm. Its separate f(10)=24 is an endpoint."
+          ],
+          "identifier_or_url": "https://math.dartmouth.edu/~carlp/PDF/matching.pdf",
+          "material_read": "§1 p. 147, opening definitions and example; remaining pages not inspected",
+          "method": "Lawful author PDF preview and bounded targeted retrieval",
+          "title": "Matching the natural numbers up to n with distinct multiples in another interval",
+          "trigger": "Original problem and possible early finite examples or tables"
+        },
+        {
+          "assessment": "The inspected theorem is asymptotic, not the finite classification",
+          "evidence": [
+            "F(n)=max_m f(n,m); a limiting estimate compares F(n) to the fixed-start length f(n,n)."
+          ],
+          "identifier_or_url": "arXiv:2607.10431v1",
+          "material_read": "Abstract and §1 p. 1",
+          "method": "Primary PDF preview and bounded targeted retrieval",
+          "title": "Long Intervals Without Distinct Multiples of the First n Positive Integers",
+          "trigger": "Exact same uniform invariant and possible large-range theorem implying the finite cutoff"
+        },
+        {
+          "assessment": "Same uniform function, asymptotic results; v2 is credited to Kaizhe Chen and Samuel Korsky, rather than Chen alone as in the frozen citation",
+          "evidence": [
+            "The uniform length is defined using the least length for all starts with the same open-left interval rule."
+          ],
+          "identifier_or_url": "arXiv:2607.26450v2",
+          "material_read": "Version 2 author line, abstract and §1 p. 1",
+          "method": "Primary PDF preview and bounded targeted retrieval",
+          "title": "Improved Bounds for Distinct Multiples in Intervals",
+          "trigger": "Latest closely related bounds for the same uniform interval rule"
+        },
+        {
+          "assessment": "Same record in Resultary; database candidate unresolved",
+          "evidence": [
+            "8a75e6efc3e7 has the identical title, F(17)=33, and the same count of 32 exceptions."
+          ],
+          "identifier_or_url": "8a75e6efc3e7; https://oeis.org/A219787/internal",
+          "material_read": "Resultary exact statement; no usable OEIS defining passage recovered",
+          "method": "Configured indexed search; bounded OEIS retrieval and exact-ID lookup",
+          "title": "Resultary exact matching record and OEIS candidate",
+          "trigger": "Possible exact census or earlier tabulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural, historically posed uniform matching problem. Locating the first failure of the simple two-modulus lower bound identifies where that obstruction ceases to explain the exact extremum; the explicit six-to-five Hall obstruction explains the change. The full residue census also shows that the obstruction is rare and never occurs at consecutive starts, precisely the structural fact needed for an independent length-33 proof. The cutoff was motivated by the first deviation, not an arbitrary finite endpoint.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

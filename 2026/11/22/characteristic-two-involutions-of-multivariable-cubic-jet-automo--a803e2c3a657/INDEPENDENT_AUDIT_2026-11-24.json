@@ -1,0 +1,189 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:11:30.963193Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–86; VERIFICATION.md, CHECKS.txt and checker.py, inspected without executing uploaded code",
+        "Symbolic alternate verification using the swapped-pair monomial basis; direct substitution of example parameters into the formulas"
+      ],
+      "rationale": "Images of the generators lie in the nilpotent maximal ideal. In the graded splitting, an automorphism is specified by an invertible L on V and any Q:V→Sym²V, and its square has linear part L² and quadratic part QL+(Sym²L)Q. In characteristic two L²=I iff (L−I)²=0; its rank-r square-zero part is counted by an image, a containing kernel, and an isomorphism from the quotient onto the image, including r=0. Independently, put L into a basis with r swapped pairs and s=d−2r fixed variables. The induced monomial permutation on Sym²V fixes exactly r+s(s+1)/2 degree-two monomials. The remaining two-orbits give rank (D−r−s(s+1)/2)/2=r(d−r) for Sym²L−I. On a swapped pair the image of one generator freely determines the other, while each fixed generator must map to the (D−r(d−r))-dimensional fixed space. Thus the fiber exponent is rD+s(D−r(d−r)), as claimed. For large d the ratio of each rank-r term to the r=0 term is bounded by c_q^(−2) q^[2r(d−r)−rD−(d−2r)r(d−r)], at most c_q^(−2) q^[−r d(d−3)/2]. Summing the resulting geometric bound verifies the fixed-q concentration. Composition adds Q in the identity-linear subgroup and all its nonzero elements have order two. Removing the identity changes only the order-exactly-two total by one. At d=1 the r=0 term alone gives q; substituting d=2,3 yields the stated three example totals.",
+      "residual_risks": [
+        "The recorded checker covers small-field enumeration and selected larger Jordan types, not all dimensions and fields. The bundled replay path is python3 checker.py in the original source directory; this review did not rerun the script.",
+        "This counts elements of order dividing two, not conjugacy classes or all nonlinear involutions in polynomial rings; the asymptotic is at fixed q and fixed truncation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tanimoto classifies triangular involutions of the full four-variable polynomial ring up to conjugacy in three forms, not all automorphisms of this finite truncated algebra. The cited arXiv sources concern triangular automorphism groups, trace-surjective modular actions, or complex quasi-cyclic subgroups; their inspected statements do not cover the census.",
+          "The odd-characteristic same-day jet result varies jet order at fixed dimension and expressly excludes characteristic two and N≤3. The older parity-switching result is also odd characteristic and varies jet order."
+        ],
+        "reasoning": "Removing truncation while restricting to triangular lifts does not give a theorem on all square-one finite jets. The odd-characteristic parity asymptotic has a nonoverlapping parameter regime and does not imply the fixed-truncation limit.",
+        "searches": [
+          "Web query above; Tanimoto arXiv:2410.21167 Theorem 1",
+          "Resultary: involution classes finite two-variable jet automorphism groups parity switching odd finite fields",
+          "arXiv:1007.2711 §5; arXiv:1507.00227 introduction; arXiv:1501.02626 theorem near p. 2"
+        ]
+      },
+      "checked_sources": [
+        "Targeted Resultary searches and actual same-day and earlier Findings above",
+        "Primary web query and OA primary passages above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A split group description describes lifts as fixed points, but supplies no explicit ranks of the symmetric-square action. Tensor-square results use a different dimension and cannot supply symmetric monomial fixed counts just from their census. The inspected polynomial-ring theorem does not give multiplicities of finite jet lifts, and the odd-q limit is taken in a different variable."
+        ],
+        "reasoning": "The explicit stratum requires computing the symmetric action and combining it with the rank distribution for linear square-zero parts; concentration then needs comparison of all these contributions with the identity-linear term. The checked sources provide standard tools or analogues, not a stronger result from which the target specializes.",
+        "searches": [
+          "Resultary: modular symmetric squares of indecomposable cyclic C2 modules in characteristic two and involution counts for cubic symmetric algebras",
+          "Same-day associative and odd-characteristic jet Findings at offset 0; Tanimoto Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The relevant lift space is Hom over the cyclic group of order two from the cotangent module to its symmetric square; this is equivalent to the quadratic square-one equation, not to a tensor-square or flip-twisted equation.",
+          "The same-day associative-automorphism Finding has the related lift equation but uses V⊗V and counts automorphisms of a noncommutative nonunital algebra. The earlier anti-involution Finding also changes the type of map."
+        ],
+        "reasoning": "In characteristic two, passing to the symmetric quotient is not a mere change of basis or a split averaging of the tensor action. The module and its fixed-space dimension differ. Neither analogue is an equivalent census.",
+        "searches": [
+          "Resultary: characteristic two square-one automorphisms commutative cubic jet algebra F_q rank cotangent distribution",
+          "Resultary: semidirect product or group cohomology count of square-one automorphisms of truncated commutative polynomial algebras in characteristic two",
+          "Web: characteristic-two involutions automorphism group commutative truncated polynomial algebra (x_1,...,x_d)^3 exact cotangent-rank count symmetric powers cyclic modules"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matched characteristic-two tensor jet Findings give exact formulas on other lift spaces. The exact-count derivation Finding uses the same commutative graded algebra and symmetric square but counts composition-idempotent Leibniz maps, not multiplicative square-one maps. The two-variable parity-switching Finding counts involution classes over odd fields."
+        ],
+        "reasoning": "No inspected exact table gives this element census. Neither specializing parameters of the tensor census nor exchanging element counts for the different derivation or conjugacy invariants gives the target.",
+        "searches": [
+          "Resultary: anti-involutions free cube-zero noncommutative algebra exact census characteristic two",
+          "2026/11/22/SCOPE-involution-spectra-and-a-cubic-modular-conjugacy-obstruction-for--75e95a6e06c6",
+          "2026/10/12/SCOPE-idempotent-derivations-of-cubic-truncated-symmetric-algebras-ove--25d3e577a3dc",
+          "2026/11/2/SCOPE-parity-switching-involution-classes-in-finite-two-variable-jet-a--391410cf76e4"
+        ]
+      },
+      "rationale": "The distinct claim is the exact cotangent-rank census and its fixed-truncation, growing-dimension concentration for square-one automorphisms of the commutative cubic jet algebra in characteristic two. The normal form, classification of linear involutions, and elementary cyclic-module calculations are ingredients, not claims of new general theory. The most relevant distinct actual Findings change the multiplication, the characteristic, the truncation limit, or the map being counted.",
+      "residual_risks": [
+        "The DOI 10.1007/s00031-022-09764-2 and 1997 truncated-algebra hit could not be checked in full. There may be unlocated work on modular finite jets or a different group-theoretic presentation. No priority is inferred from the same-day dates or negative searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different algebra and lift module",
+          "evidence": "Counts involutive automorphisms of nonunital associative V⊕(V⊗V), with tensor square and a modular conjugacy obstruction.",
+          "identifier_or_url": "2026/11/22/SCOPE-involution-spectra-and-a-cubic-modular-conjugacy-obstruction-for--75e95a6e06c6",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local mirror",
+          "title": "Involution spectra and a cubic modular conjugacy obstruction for free cube-zero algebras",
+          "trigger": "Closest distinct same-day characteristic-two involution census"
+        },
+        {
+          "assessment": "Different algebra and anti-automorphism identity",
+          "evidence": "Tensor algebra with reversed product in the anti-automorphism condition, not a symmetric quotient census.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-modular-conjugacy-obstruction-and-exact-census-of-anti-involut--e842947e3cb4",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local mirror",
+          "title": "A modular conjugacy obstruction and exact census of anti-involutions on free cube-zero algebras",
+          "trigger": "Exact cube-zero involution counts and modular action"
+        },
+        {
+          "assessment": "Different characteristic and limiting parameter",
+          "evidence": "Odd fields, fixed dimension, varying jet order; excludes characteristic two and N≤3.",
+          "identifier_or_url": "2026/11/22/SCOPE-involution-populations-and-a-parity-driven-phase-transition-in-m--47997eb6cbdc",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local mirror",
+          "title": "Involution populations and a parity-driven phase transition in multivariable jet groups",
+          "trigger": "Distinct same-day jet-involution asymptotics"
+        },
+        {
+          "assessment": "Different characteristic, counting invariant, and limit",
+          "evidence": "Varies jet order in two variables over odd finite fields and studies conjugacy classes.",
+          "identifier_or_url": "2026/11/2/SCOPE-parity-switching-involution-classes-in-finite-two-variable-jet-a--391410cf76e4",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local mirror",
+          "title": "Parity-switching involution classes in finite two-variable jet automorphism groups",
+          "trigger": "Earlier exact involution statistic for jet groups"
+        },
+        {
+          "assessment": "Different operators and equation",
+          "evidence": "Classifies Leibniz derivations with D²=D and counts their ranks.",
+          "identifier_or_url": "2026/10/12/SCOPE-idempotent-derivations-of-cubic-truncated-symmetric-algebras-ove--25d3e577a3dc",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local mirror",
+          "title": "Idempotent derivations of cubic-truncated symmetric algebras",
+          "trigger": "Identical truncated symmetric algebra"
+        },
+        {
+          "assessment": "Different domain and classification problem",
+          "evidence": "Conjugacy into three forms for triangular involutions of a full polynomial ring in dimension four; no implication for all commutative cubic jets in the inspected theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/2410.21167",
+          "material_read": "pp. 1–2, abstract and Theorem 1, offset 0",
+          "method": "OA PDF passage inspection",
+          "title": "Triangular involutions of the four-dimensional polynomial ring in characteristic two",
+          "trigger": "Strongest primary-search hit for characteristic-two polynomial involutions"
+        },
+        {
+          "assessment": "Different group and no such finite census in the passages",
+          "evidence": "Discusses finite-order elements of a triangular automorphism group in characteristic zero.",
+          "identifier_or_url": "https://arxiv.org/abs/1007.2711",
+          "material_read": "p. 1 offset 3332 and §5, p. 14 offset 40344",
+          "method": "OA literal PDF passages",
+          "title": "Groups of triangular automorphisms of a free associative algebra and a polynomial algebra",
+          "trigger": "Cited triangular-automorphism finite-order context"
+        },
+        {
+          "assessment": "Different action framework",
+          "evidence": "The inspected framework concerns trace-surjective algebras, not complete finite local-jet group element counts.",
+          "identifier_or_url": "https://arxiv.org/abs/1507.00227",
+          "material_read": "p. 1, offsets 2478 and 5904 under trace-surjective",
+          "method": "OA literal PDF passages",
+          "title": "Modular group actions on algebras and p-local Galois extensions for finite groups",
+          "trigger": "Possible general modular actions on commutative algebras"
+        },
+        {
+          "assessment": "Different scope",
+          "evidence": "Nonconjugate quasi-cyclic subgroups over the complex numbers.",
+          "identifier_or_url": "https://arxiv.org/abs/1501.02626",
+          "material_read": "p. 2 theorem at offset 5504",
+          "method": "OA literal PDF passage",
+          "title": "Example of non-linearizable quasi-cyclic subgroup of automorphism group of polynomial algebra",
+          "trigger": "Cited nonlinear torsion analogue"
+        },
+        {
+          "assessment": "Unresolved access risk",
+          "evidence": "The synopsis describes full polynomial rings and mentions dimension two; no assumption about the full text was made.",
+          "identifier_or_url": "https://doi.org/10.1007/s00031-022-09764-2",
+          "material_read": "Search synopsis only",
+          "method": "Bounded OA attempt; redirect errors",
+          "title": "Polynomial Automorphisms of Characteristic Order and Their… (indexed title)",
+          "trigger": "Potential general order-p polynomial automorphism theorem"
+        },
+        {
+          "assessment": "Unresolved access risk",
+          "evidence": "The synopsis describes graded commutative algebras in characteristic zero; exact scope not verified.",
+          "identifier_or_url": "Primary-search hit, same title and year",
+          "material_read": "Search synopsis only",
+          "method": "Identified linked copy returned HTTP 403",
+          "title": "Automorphism groups of truncated polynomial algebras (1997; indexed title)",
+          "trigger": "Potential broader theorem on the same family of rings"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, equations (1)–(6) and concentration proof",
+        "Characteristic-two tensor and odd-characteristic jet comparison Findings above"
+      ],
+      "rationale": "This is the first commutative jet cutoff with a nontrivial quadratic lift space. Here the cotangent action of a square-one map does not determine its nonlinear possibilities, particularly when the characteristic divides two. The uniform stratum count measures that distinction for every dimension and finite field of characteristic two, and the resulting concentration distinguishes trivial cotangent action from actual triviality of the automorphism. The exact census is useful in its own right as a comparison with tensor-algebra and higher-order jet statistics.",
+      "residual_risks": [
+        "No value claim relies on optimality of the asymptotic error exponent, on a conjugacy classification, or on a theorem for longer truncations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

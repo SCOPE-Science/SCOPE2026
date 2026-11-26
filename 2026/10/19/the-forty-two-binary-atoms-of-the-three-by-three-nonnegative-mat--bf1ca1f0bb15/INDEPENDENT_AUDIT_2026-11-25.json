@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:06:26.109353Z",
+  "axes": {
+    "correctness": {
+      "rationale": "If a nonsingular binary A=BC over the nonnegative integers, all columns of B and rows of C are nonzero. Any entry ≥2 in either factor then contributes ≥2 to an entry of A, with no cancellation, so the factors are necessarily binary. This is the required reduction to a finite search. Independently, `python3 -B /workspace/reproduce_frozen.py 4` enumerates the three rank-one support rectangles for a possible binary product, requiring pairwise disjointness and rejecting the two unit-selector patterns. Empty rectangles are included, so this also supplies composite witnesses over the integers for every singular binary target. It gives 464 composites and exactly 42 remaining nonunits, split by row and column permutations into 36 shears and six complementary permutation matrices. Independent Leibniz determinants gave 338 singular matrices and precisely the six complementary permutations with absolute determinant two. The proof's support inequality also explains the two obstructions: nonsingular binary nonunits require at least four ones, and disjoint support of PQ, PV and UQ gives w(BC)≥w(B)+w(C)−3. This forbids a four-one shear product and forbids a six-one determinant-two product (one factor would already have six ones). The frozen verifier was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Baeth et al.'s indexed abstract concerns the nonsingular full semigroup and is closely relevant; the publisher and identified author-posted PDF attempts returned 403, so details beyond available evidence were not verified.",
+          "Bell and Dever et al. focus on order two; the frozen bibliography also identifies an order-three upper-triangular classification in a different factorization domain."
+        ],
+        "reasoning": "Order two does not cover binary order-three targets. An upper-triangular classification can rule out or exhibit factorizations inside the triangular subsemigroup; it does not settle exotic factorizations in the full monoid, nor does its target family include row/column equivalents of J−I (triangular binary matrices have determinant 0 or 1).",
+        "searches": [
+          "Baeth et al. DOI 10.1080/00927872.2021.1979569; exact-title search for open manuscript",
+          "Bell et al. arXiv:2609.26033",
+          "Dever et al. arXiv:2606.14914"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Bell et al. and Dever et al. OA passages",
+        "Baeth et al. abstract and attempted lawful OA copies",
+        "Resultary catalogue comparison",
+        "Independent replay /workspace/reproduce_frozen.py, argument 4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ordinary multiplication requires disjoint rank-one support rectangles for a binary product; a Boolean rectangle cover permits overlaps.",
+          "For S=I+E12 one has S²=S in Boolean arithmetic and (I+E12/2)²=S over the nonnegative reals, giving nonunit factorizations there; neither gives a nonunit integer factorization.",
+          "A Boolean-irreducible nonsingular binary target would be integer-irreducible by binary reduction, but the converse fails and no broader classification implying both frozen orbits was verified."
+        ],
+        "reasoning": "The known presence of shear atoms and a lower-order decision method do not select the full list. Possessing rank three or Boolean/nonnegative rank data does not enforce nonunit disjoint rectangular factorizations in the target domain.",
+        "searches": [
+          "Compare integer factorization with Boolean rectangle cover and ordinary/nonnegative rank; Bell et al. arXiv:2609.26033 pp. 1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bell et al. use 'prime' for no decomposition into two nonunits, the same test as atomhood in the frozen claim, but principally classify or test order two.",
+          "The local catalogue comparison did not return a verified equivalent exact census. The broad primary query largely returned matrix multiplication complexity, not factorization into nonunits."
+        ],
+        "reasoning": "The terminology is equivalent when both factors range over the full nonnegative-integer matrix monoid. A result about tensor rank, or primes in a weaker multiplicative semigroup, is not a renaming of this classification.",
+        "searches": [
+          "Resultary: binary 3×3 matrix atoms/primes, 42, rank and factorization aliases",
+          "Primary literature: \"3×3\" OR \"3x3\" binary matrices primes atoms irreducible nonnegative integer matrix multiplication factorization Baeth Chen J-I 42",
+          "Bell et al., arXiv:2609.26033, introduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest method-level Resultary hit was 2026/9/7/SCOPE008, a binary 5×5 nonnegative-rank census, not a census by square nonunit factorizations.",
+          "No matching exact count/orbit table was found in the inspected sources; the inaccessible Baeth text was not used as negative evidence."
+        ],
+        "reasoning": "The rank census classifies minimum nonnegative factor dimensions or ranks, not whether full-size nonunit factors give an exact ordinary integer product. Even a table with the same dimension and target support would need the same factorization criterion.",
+        "searches": [
+          "Resultary: 42 binary atoms, 3×3 prime matrices, and rectangular/rank classifications",
+          "Primary search for factorization classification under atom, prime and irreducible aliases"
+        ]
+      },
+      "rationale": "The supported contribution is the complete two-orbit classification for binary order-three targets in the full integer monoid, not the standard shear family or the definition of an atom. The matching-domain factorization literature examined does not give this census, and nearby Boolean, nonnegative-real and triangular results are not equivalent. This assessment is bounded by the identified full-text access risk.",
+      "residual_risks": [
+        "Baeth et al. could include an earlier pertinent family or classification in the inaccessible full text.",
+        "An unindexed binary-factorization census under different terminology could affect priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same definition; order-two focus does not give the order-three census",
+          "evidence": "Prime iff no factorization into two nonunits; integer entries include zero.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.26033",
+          "material_read": "pp. 1–2, definitions and indicated dimension, offsets 1100–4637",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Factorisability of Low Dimensional Non-Negative Integer Matrices",
+          "trigger": "Same notion under prime/factorisable terminology"
+        },
+        {
+          "assessment": "Lower-order context, not evidence for or against the complete binary order-three result",
+          "evidence": "Focuses on nonsingular 2×2 matrices.",
+          "identifier_or_url": "https://arxiv.org/pdf/2606.14914",
+          "material_read": "p. 1, abstract and introduction, offsets 0–1688",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Atoms in the Semigroup of Non-Negative Integer Matrices",
+          "trigger": "Identical factorization term in a related matrix semigroup"
+        },
+        {
+          "assessment": "Material full-text limitation, not a whole-document noncoverage determination",
+          "evidence": "Indexed abstract studies nonsingular n×n matrices over the nonnegative integers.",
+          "identifier_or_url": "10.1080/00927872.2021.1979569",
+          "material_read": "Indexed abstract only; full text not read",
+          "method": "DOI OA attempt, exact-title lookup and OA attempts on identified author-posted ResearchGate PDF (403)",
+          "title": "Semigroups of non-negative integer-valued matrices",
+          "trigger": "Broader potentially covering same-domain factorization work"
+        },
+        {
+          "assessment": "The surface classification target is nonnegative rank, not square nonunit factorization",
+          "evidence": "Different dimension and criterion; the rank statistic cannot decide the factorability test here.",
+          "identifier_or_url": "2026/9/7/SCOPE008",
+          "material_read": "Indexed description only",
+          "method": "Local Resultary catalogue search",
+          "title": "Binary 5×5 nonnegative-rank census",
+          "trigger": "Nearest catalogue hit for rank and binary classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Order three is the first dimension permitting the complementary-permutation determinant-two obstruction, absent in the order-two binary problem. The classification does more than give 42: it distinguishes the familiar four-one shears from a second structural obstruction in ordinary integer multiplication and shows that these exhaust all binary targets. It is a sharp finite test case for studying nonnegative-integer square factorizations, not a claim for larger dimensions or for other semirings.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

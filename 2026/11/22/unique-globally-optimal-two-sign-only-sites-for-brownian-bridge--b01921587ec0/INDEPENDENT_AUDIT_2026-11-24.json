@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:59:45.329015Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Integrated bridge covariance gives Var(J)=1/12 and Cov(J,B_s)=s(1-s)/2. With two interior distinct sites all sign atoms have positive probability, and global sign reversal makes the Bayes decoder odd; the odd functions on the sign square are exactly the span of the two signs. Thus the arcsine sign Gram matrix and the Gaussian mixed moment give the exact objective, not a restricted linear decoder. In logit coordinates, decomposing into sign sum and difference gives the two terms (1+h)w/(1+c) and h(w-1)/(1-c), divided by 4 pi(w+h)^2; this verifies the frozen rational expression. Its unconstrained w-critical point grows with c, and for rho>=1/3 the factor (1-rho)(1+rho)^2(3rho-1)/(8rho^2) and c<rho give strict merit loss for every w>1. For rho<=1/3 the Lipschitz bound for log cosh gives both amplitude ratios at least rho, allowing a strict upper bound by replacing c with 3rho/5. The sign of the resulting variance certificate reduces to 4(1-rho^2)^2(25-9rho^2)-3(5-rho^2)^2 = (5-rho^2)^2-(6rho^3-14rho)^2, the stated opposite-sign cubic factors with an overall minus sign. This bounds the low correlations strictly below 1/(6 pi), realized by the symmetric rho=1/2 design. For the reflected design the logarithmic derivative sign is Q(rho)-1; the positive term of Q'/Q is <1/(1-rho), showing strict decrease of Q from infinity to zero. Pinned and duplicate observations reduce to at most a single sign (variance explained at most 1/(8 pi)). For the real-valued benchmark, the conditional residual consists of independent bridges on three intervals, giving residual variance sum(length^3)/12, minimized uniquely at trisection by strict convexity. Independent double-precision bisection gives rho=0.5393616215470003, s=0.3503800627463755, and explained fraction 0.638028078245238. Replay: /workspace/reproductions/frozen-review-checks.js, record 2, Node.js. The frozen high-precision output and script were inspected, not independently executed or taken as the global proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pronzato–Zhigljavsky optimize observations of function values under a Gaussian prior. The bridge-kernel Resultary finding optimizes a law of independent full-value nodes. Fesl et al. supplies closely related conditional-mean tools in noisy one-bit Gaussian signal models."
+        ],
+        "reasoning": "The general Gaussian estimator ingredients can recover the sign-risk formula, but the reported pilot or full-value optimizer statements do not cover choosing sites on the pinned covariance manifold with this exact target and information alphabet.",
+        "searches": [
+          "arXiv:1808.10722v1 §2.2",
+          "arXiv:2212.04470v2 §II",
+          "Resultary: 2026/11/2/SCOPE-unique-optimal-i-i-d-two-node-design-for-brownian-bridge-kernel--1c7b05ec88c4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen record 2 RESULT.md, VERIFICATION.md, verify.py and verification_output.txt",
+        "arXiv:2212.04470v2, 1808.10722v1, 1904.06998v3 and 1909.01317v3",
+        "Resultary 1762f87feac4, 1068bd71181d, 9ecbcf851358, d32f39263c6e, 15716724ea95, 1c7b05ec88c4 and 5b6200720fdd"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bussgang/conditional-mean methodology is standard background. Foster et al. optimizes weighted path approximation from Gaussian polynomial coefficients. Adjacent mirror findings give a one-site cubic Brownian-motion design or a two-site full-value bridge energy optimum."
+        ],
+        "reasoning": "None of these statements imposes the frozen site's correlation-amplitude relation. In particular a formula for the decoder at given sites does not exclude asymmetric designs or solve the unique root; these are separate analytic steps here. The full-value and single-sign benchmarks are not claimed as new.",
+        "searches": [
+          "arXiv:2212.04470v2 abstract and §II",
+          "arXiv:1904.06998v3",
+          "Resultary d32f39263c6e and 5b6200720fdd"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The OU mirror optimizes fixed two-sign quadrature with a stationary OU covariance and an endpoint-to-interior transition. Fesl et al. §II defines complex one-bit channel estimation with pilots and additive noise. Guo and Kostina p. 1 describes an adaptively sampled innovation sign for Wiener-path reconstruction."
+        ],
+        "reasoning": "Normalized bridge values do become stationary OU in logit time, so sign laws alone are not a distinction. However, in those variables the bridge integral is over the entire real line with nonconstant weight [s(1-s)]^(3/2), where s is the logistic function. The fixed finite-interval uniform OU integral objective is not mapped to it. Causal innovation queries and channel pilots also do not preserve the two deterministic bridge sites and their target.",
+        "searches": [
+          "Resultary: 2026/11/22/SCOPE-a-sharp-endpoint-to-interior-transition-in-two-sign-ornstein-uhl--1762f87feac4",
+          "arXiv:2212.04470v2",
+          "arXiv:1909.01317v3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Occupation yields an optimizer around s=0.336785 within the reflected class only. The energy mirror uses the quadratic integral and gives reflected symmetry but does not assert scalar uniqueness. The full-value noisy design tends to trisection in the zero-noise limit."
+        ],
+        "reasoning": "The same sensor inputs do not preserve the conditional-mean target for occupation or energy. The zero-noise limit of a Gaussian reading does not perform sign quantization. No distinct mirror entry or table identified the frozen exact root or fraction for its observation and loss model.",
+        "searches": [
+          "Resultary: 2026/11/22/SCOPE-exact-two-sign-brownian-bridge-occupation-quadrature-and-a-uniqu--1068bd71181d",
+          "Resultary: 2026/11/22/SCOPE-two-sign-observations-of-brownian-bridge-energy-exact-bayes-risk--9ecbcf851358",
+          "Resultary: 2026/11/22/SCOPE-unique-noncolliding-optimal-locations-for-two-noisy-brownian-bri--15716724ea95"
+        ]
+      },
+      "rationale": "The part supported as distinct is the exact all-pairs, fixed zero-threshold sign design for the linear signed integral of this pinned Gaussian process. Gaussian conditional-mean and sign-correlation formulas are inputs, and related binary quadrature results concern different targets or covariance. No matching global optimizer was identified in the bounded comparisons; historical priority is not certified.",
+      "residual_risks": [
+        "One focused primary search and bounded source reads do not exclude an unindexed earlier quantized Gaussian design yielding the same optimum.",
+        "Same-date neighboring mirror records are compared by their statements; the date itself provides no priority information."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material methodological overlap, not the fixed bridge integral design",
+          "evidence": [
+            "Complex channel vector, pilot vector and additive noise; conditional means and Bussgang comparison."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2212.04470v2",
+          "material_read": "PDF p. 1 abstract and §II p. 2, offset 10200",
+          "method": "Lawful OA arXiv PDF",
+          "title": "On the Mean Square Error Optimal Estimator in One-Bit Quantized Systems",
+          "trigger": "Closest Gaussian sign estimation and design methodology"
+        },
+        {
+          "assessment": "Inspected design conditions on function values",
+          "evidence": [
+            "Gaussian prior and value samples at a design X_n."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1808.10722v1",
+          "material_read": "Abstract, §2.2 and posterior variance criterion, pp. 4 and 6, offsets 15000 and 21900",
+          "method": "Lawful OA arXiv PDF",
+          "title": "Bayesian Quadrature and Energy Minimization for Space-Filling Design",
+          "trigger": "General Gaussian integration design"
+        },
+        {
+          "assessment": "Distinct specified observations and objectives; abstract-level comparison only",
+          "evidence": [
+            "Orthogonal polynomial coefficients and weighted reconstruction loss; respectively causal innovation thresholding for Wiener-path reconstruction."
+          ],
+          "identifier_or_url": "arXiv:1904.06998v3 and arXiv:1909.01317v3",
+          "material_read": "Both p. 1 abstracts, offset 0",
+          "method": "Lawful OA arXiv PDFs",
+          "title": "An Optimal Polynomial Approximation of Brownian Motion; Optimal Causal Rate-Constrained Sampling of the Wiener Process",
+          "trigger": "Related Brownian approximation and sign-based sampling"
+        },
+        {
+          "assessment": "Strong analogue, not the logit-transformed weighted bridge target",
+          "evidence": [
+            "Stationary OU integral with fixed sites on a finite interval and endpoint-to-interior transition."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22/1762f87feac4",
+          "material_read": "Local mirror RESULT.md statement and model assumptions",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A sharp endpoint-to-interior transition in two-sign Ornstein–Uhlenbeck quadrature",
+          "trigger": "Closest two-sign linear Gaussian integral analogue"
+        },
+        {
+          "assessment": "Different integral functional or different observed data",
+          "evidence": [
+            "Occupation and energy are nonlinear functionals; the noisy full-value integrand samples converge to the trisection design in the full-value limit."
+          ],
+          "identifier_or_url": "Resultary 1068bd71181d, 9ecbcf851358, 15716724ea95",
+          "material_read": "Local mirror Findings and model scopes",
+          "method": "Local Resultary mirror",
+          "title": "Two-sign Brownian bridge occupation and energy designs; Unique noncolliding optimal locations for two noisy Brownian-bridge quadrature observations",
+          "trigger": "Matching bridge and sensors or matching bridge and target"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A bridge integral is a basic Gaussian quadrature target, and exact sign reports impose a natural one-bit measurement constraint. The global optimizer moves away from the full-value trisection design; precisely quantifying that movement and the retained variance, with asymmetric and boundary designs ruled out, answers a genuine design question rather than just recomputing a decoder or giving a numerical placement.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

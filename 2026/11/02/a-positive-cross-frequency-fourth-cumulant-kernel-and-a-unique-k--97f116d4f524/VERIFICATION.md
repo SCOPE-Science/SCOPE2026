@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The attached `verify_spectral.py` uses exact rational arithmetic and only the Python standard library. It evaluates the explicit rational kernels for finite mixtures of independent OU speed modes and independently computes the first four orders of the tilted planar Fourier–Hermite generator. Comparing the second and fourth cumulant eigenvalue derivatives gives four exact identities, including unequal colored relaxation rates and a zero-mean process. It checks off-diagonal mixed spectral kernels rather than just a single OU rate.
+## correctness
 
-Run: `python verify_spectral.py`. A successful run prints `True` for each exact comparison and exits with no exception. The test reports values at unit rotational diffusivity and unit colored-noise intensity. General \(D_r\) factors are obtained by rescaling ordered time gaps.
+PASS
 
-The proof of the arbitrary positive finite spectrum uses Wick's identity, the explicit angular four-point function, an elementary integrated connected cumulant and the spectral-gap dominated-convergence argument; its mathematical validity cannot be inferred from four examples. A non-gapped spectrum, correlated angular and propulsion noise, or non-Gaussian signed speed is outside scope. Long-time cumulant sign is not finite-time sign. Independent audit has not been performed.
+At D_r=1 use ordered gaps u,v,w and P=e^(−u−w). The angular four-point is P(1/4+e^(−4v)/8) by the zero-total-charge constraint, while the direct and crossed products of angular two-points are P/4 and Pe^(−2v)/4. Expand the independent speed by Wick and subtract each product using its paired speed factors. For the constant-speed coefficient the resulting integrand is P(e^(−4v)/8−e^(−2v)/2), which integrates with factor 24 to −21/4. Put L(x)=6/x+3/(x+4)−6/(x+2). The direct and crossed contributions to the λμ² kernel sum to 3/[2(1+q)]+(q+2)² L(q)/(q+1)². The λ² kernel is 3/[4(q+1)(r+1)]+(q+r+2)² L(q+r)/[2(q+1)²(r+1)²]; here the two crossed pairings give the outer factors 1/[(q+1)(r+1)] and the symmetrized mean of (q+1)^−2 and (r+1)^−2. Combining fractions gives the stated a and b, so a pair of distinct atoms contributes 2b(q,r), not b(q,r). Every surviving term is exponentially bounded in all three gaps using the spectral gap and finite measure, also after multiplying by u+v+w. Thus the exact finite-window weight (t−u−v−w)_+ gives K₄t+O(1) and the gap rescaling restores D_r^−3. Integrating the two-point correlation and adding independent thermal variance gives K₂; thermal noise adds no fourth cumulant. Positive kernels give a single positive root for μ≠0, and no sign change for μ=0, λ>0. For K₂>0 the normalized cumulant at the root is O(t^−2).
+
+## originality
+
+PASS
+
+Credit the one-OU physical model, earlier exact moment methods, and standard cumulant identities. Pass the distinct evaluated off-diagonal positive coefficient, extension to arbitrary finite gapped positive spectra, and the resulting unique long-time sign threshold for the nonzero mean case. Do not claim the one-OU setting itself or transient kurtosis reversals as new.
+
+## value
+
+PASS
+
+An explicit positive mixed term answers a question that checking one relaxation time cannot settle: whether combining modes preserves a single reversal as speed variance increases. The theorem handles continuous spectra and explains the disappearance of the inverse-time kurtosis term at the unique nonzero-mean threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

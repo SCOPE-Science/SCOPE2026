@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:34:28.558279Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Recomputed the whole finite domain independently (python3 /tmp/opencode/factorial_review_exhaust.py {1..12}). Enumerated divisors by integer factor pairs up to the square root. Maintained at-most-k reachability directly, initialized with zero in every layer, and updated layers downward with the union of the old layer and the old next-lower layer shifted by the current divisor. This encodes exactly the two choices to omit or include that divisor once. Positive summands justify discarding sums above N. The first full layer and the complement size in the preceding layer reproduced all twelve rows, including the n=1 boundary; zero is always covered. At 12!, all 792 divisors were processed and all 479001601 positions were covered at layer 8. The layer-7 complement was read in ascending order and matched EXTREMAL_TARGETS.json entry by entry. Its 175 targets are odd and have endpoints 475785157 and 479001547. The frozen C++ cross-check only treats n=8 through 11 and is not needed for that final comparison. No result for n≥13 follows.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hughes defines this invariant and proves h(n!)≤(2 log 2+o(1))n/log n asymptotically. The inspected problem page records the classical bound and open asymptotic questions.",
+          "Hughes cites the older bounds and greedy approach; full mathematical text of the classical papers was not available in the inspected copies."
+        ],
+        "reasoning": "The coarse or asymptotic inequalities inspected are not exact small-index coverage and cannot specify individual exceptional targets. They are context, not the grounds for FAIL.",
+        "searches": [
+          "arXiv:2609.10902 §1 and Theorem 1; Erdős Problems #18; Tenenbaum–Yokota (1990); Yokota (1995)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py, crosscheck.cpp and EXTREMAL_TARGETS.json",
+        "Resultary 034373a7dea0 and eight_term_layer.txt",
+        "arXiv:2609.10902v1",
+        "Erdős Problems #18",
+        "Yokota 1995 bibliographic entry"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier proof states full bit coverage at each h and nonzero complement at h−1, includes the full layer at 12!, and reports verifying its complete list against recomputed bits."
+        ],
+        "reasoning": "Those statements imply that no smaller factorial reaches eight and that every 12! target with no at-most-seven representation needs exactly eight. Re-encoding the list in JSON or choosing a different exact bitset implementation does not yield a different mathematical claim.",
+        "searches": [
+          "034373a7dea0 proof and Verification; exact-seven complement and exact-eight total coverage"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "034373a7dea0 defines the same minimum k for all positive targets up to N, gives the identical vector and first crossing, and lists the same complement as the maximal layer."
+        ],
+        "reasoning": "At N≥1 the zero-term budget cannot cover target 1, so the earlier definition k≥1 is equivalent to the frozen k≥0. Since all targets are covered at k=8, those uncovered at k=7 are precisely the maximal layer.",
+        "searches": [
+          "Resultary: first eight-term threshold for sums of distinct factorial divisors, factorial knapsack h(n!), 175 exceptional targets"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "All twelve h values and maximal-layer counts match exactly. The indexed list has 175 increasing odd entries and the same two endpoints."
+        ],
+        "reasoning": "The earlier source presents the complete set for the identical reachability predicate, not merely a list of sample witnesses. Parity of all entries is already encoded in that earlier list.",
+        "searches": [
+          "Resultary 034373a7dea0, maximal-layer table and artifacts/eight_term_layer.txt"
+        ]
+      },
+      "rationale": "The earlier Resultary record 034373a7dea0 explicitly gives the same exact profile and counts, the first threshold at 12!, and the complete 175-element exceptional layer. Its accompanying sorted list has the stated endpoints and consists solely of odd targets. This is direct coverage of the scientific finding, not an inference from an inaccessible classical text or from a matching threshold alone.",
+      "residual_risks": [
+        "The exact historical priority among classical sources is unresolved without the unavailable original texts. The earlier direct catalogue match is independently sufficient for the coverage decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct matching coverage",
+          "evidence": "The profile, maximal-layer counts and exact exceptional set are stated; the artifact is the sorted 175-line list.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-the-first-eight-term-threshold-for-sums-of-distinct-factorial-di--034373a7dea0/RESULT.md",
+          "material_read": "Finding, definition, full finite table and verification passage; offsets 0–5367; accompanying artifacts/eight_term_layer.txt inspected for count, order, parity and endpoints",
+          "method": "Indexed full record and artifact via local mirror",
+          "title": "The first eight-term threshold for sums of distinct factorial divisors",
+          "trigger": "Exact same factorial threshold, census and endpoints"
+        },
+        {
+          "assessment": "Asymptotic bound in the inspected result, not the exact layer census",
+          "evidence": "The main bound is (2 log 2+o(1))n/log n for the same h(n!).",
+          "identifier_or_url": "arXiv:2609.10902v1",
+          "material_read": "PDF p. 1, §1 and Theorem 1, and references to classical papers",
+          "method": "Lawful OA primary PDF passage inspection",
+          "title": "Sums of distinct divisors of factorials",
+          "trigger": "Same invariant and plausible broader theorem or table"
+        },
+        {
+          "assessment": "Named invariant and large-n questions; not the exact twelve-row result in the inspected passage",
+          "evidence": "States the divisor-sum question and a classical bound; does not specify the exceptional layer here.",
+          "identifier_or_url": "https://www.erdosproblems.com/18",
+          "material_read": "Problem and historical context, offsets 305–800",
+          "method": "Public problem-page passage inspection",
+          "title": "Erdős Problems, Problem 18",
+          "trigger": "Classical problem statement and possible prior numerical data"
+        },
+        {
+          "assessment": "Contents unresolved; not treated as negative evidence",
+          "evidence": "Access to the 1990 full text was refused on attempted routes; the 1995 accessible bibliographic entry confirms authorship and citation only.",
+          "identifier_or_url": "10.1016/0022-314X(90)90109-5; https://jglobal.jst.go.jp/detail?JGLOBAL_ID=200902179472007507",
+          "material_read": "References and summary in Hughes; institutional bibliographic entry for Yokota; no original mathematical passage retrieved",
+          "method": "Lawful retrieval attempts and bibliographic inspection",
+          "title": "Length and denominators of Egyptian fractions, III; On a Knapsack Problem involving Divisors of n!",
+          "trigger": "Classical factorial-divisor results could include exact computations"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The first eight-divisor boundary and its complete obstruction set are meaningful objects for this classical invariant. But the frozen work recomputes an already available exact table and list, with the oddness read off that list. It provides no new arithmetic explanation, additional threshold, or other substantive scientific remainder.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

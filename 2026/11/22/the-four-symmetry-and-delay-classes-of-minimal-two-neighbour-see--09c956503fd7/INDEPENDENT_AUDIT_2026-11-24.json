@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:19:31.394234Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–49, VERIFICATION.md, verify_direct.cpp and verify_orbits.py (inspected)",
+        "Independent complete replay: python3 /workspace/review-work/exact_finite.py 5; output /workspace/review-work/5.log"
+      ],
+      "rationale": "The synchronous rule can be computed from four shifted copies of the infection mask, one per coordinate. A vertex is added if its bit occurs in at least two of those copies. Each nonterminal step strictly increases the mask. An independent exact census over all 65,536 masks gave 63,687 percolating sets and 256 minimal ones; one-vertex deletion tests suffice by monotonicity. The size/time counts were (3,4):48, (3,5):96, (4,3):16 and (4,4):96. Taking all affine coordinate permutations of each representative gave four disjoint orbits whose union equals the minimal census. Enumerating Hamming signatures, XOR and disjointness of the two distance-one pairs at sizes 3 and 4 gave the same set exactly. There were 96 five-round triples and 96 five-round four-sets, with no other sizes, and direct inclusion tests gave a bijection by unique extension (e.g. {0011,0100,1000} extends by 1100). All slow four-sets are nonminimal since they contain their slow triple.",
+      "residual_risks": [
+        "The census applies only to synchronous threshold-two dynamics on the binary four-cube. The independent replay does not depend on the subcube-merging theorem or an external upper bound on seed size."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Riedl gives the extremal size and both size-four classes at dimension four. Przykucki gives maximum time floor(n²/3). Shende gives containment between maximal induced paths and minimal percolating sets."
+        ],
+        "reasoning": "The bounds and containment result do not specify the full labelled minimal-orbit/time distribution or the maximal-delay equality cases.",
+        "searches": [
+          "Riedl, Largest Minimal Percolating Sets in Hypercubes under 2-Bootstrap Percolation",
+          "Przykucki Thms. 1 and 14",
+          "Shende, Maximal induced paths and minimal percolating sets in hypercubes"
+        ]
+      },
+      "checked_sources": [
+        "Resultary record 09c956503fd7",
+        "Riedl, Przykucki and Shende, primary passages above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The labelled multiplicities and times of the two size-four minimal types can be recovered from Riedl's representatives by orbit-stabilizer and simulation. Przykucki's general bound with a sample equality case does not give converse geometric restrictions or fixed-size extension counts."
+        ],
+        "reasoning": "Credit the derivable size-four orbit subdata. The uniform uniqueness assertion must exclude other fourth vertices and all other attaining seeds; those are additional exact checks, not parameter substitutions into existing extremal results.",
+        "searches": [
+          "Riedl Prop. 7 and p. 9 classification",
+          "Przykucki Thm. 1 and proof of Thm. 14",
+          "Shende structural result p. 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Riedl's unit-vector and jagged types are affine copies of the two frozen four-seed types. Przykucki's {0000,1100,0111} is a translate by 0100 of the slow triple."
+        ],
+        "reasoning": "These are genuine shape/example overlaps, not new orbits recovered under different notation. One maximum-time example is not a classification of all attaining seeds.",
+        "searches": [
+          "Resultary: Q4 two-neighbour minimal percolating seeds, geometry up to cube isometry, five-round equality and fourth-vertex extension",
+          "Riedl p. 9 and Prop. 7; Przykucki proof of Thm. 14"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "09c956503fd7 matches the frozen ID and statement; it is this record, not an antecedent. Other catalogue hits addressed threshold three or minimal forts. The relevant primary passages give two size-four types and one attaining triple, not the joint table."
+        ],
+        "reasoning": "The named variants do not ask the same minimal spanning or synchronous equality question; the two primary statements give partial exact coverage only.",
+        "searches": [
+          "Resultary Q4 orbit/time census and unique slow-triple extension; record 09c956503fd7",
+          "Riedl p. 9; Przykucki proof of Thm. 14"
+        ]
+      },
+      "rationale": "The two minimal four-seed isomorphism classes, the five-round maximum, and an example in the slow-triple orbit are prior work and credited. What is supported as distinct is the joint labelled geometry/time census and the exhaustive equality classification with its unique extension bijection. No inspected distinct record establishes those claims.",
+      "residual_risks": [
+        "The bounded catalogue and primary-text checks cannot rule out unindexed or unpublished equality tables. No claim of priority is made for the credited shapes, example or extremal sizes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical record, not independent prior coverage",
+          "evidence": [
+            "Same 256 minimal sets, four orbits and unique time-preserving extensions."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-the-four-symmetry-and-delay-classes-of-minimal-two-neighbour-see--09c956503fd7",
+          "material_read": "RESULT.md at offsets 0 and 7040",
+          "method": "Local published mirror",
+          "title": "The four symmetry-and-delay classes of minimal two-neighbour seeds on Q4",
+          "trigger": "Exact indexed hit"
+        },
+        {
+          "assessment": "Direct prior coverage of two orbit types",
+          "evidence": [
+            "The unit-vector and jagged constructions represent the two size-four isomorphism classes in Q4."
+          ],
+          "identifier_or_url": "https://doi.org/10.37236/352",
+          "material_read": "Primary PDF p. 4 Prop. 7 (OA offset 10924), p. 9 small cases (offset 23325)",
+          "method": "Lawful primary PDF",
+          "title": "Largest Minimal Percolating Sets in Hypercubes under 2-Bootstrap Percolation",
+          "trigger": "Exact four-cube size-four classification"
+        },
+        {
+          "assessment": "Maximum and an attaining orbit representative are prior; inspected passage is not the equality census",
+          "evidence": [
+            "Bound gives 5 for dimension four and displays the attaining triple {0000,1100,0111}."
+          ],
+          "identifier_or_url": "https://doi.org/10.37236/2412",
+          "material_read": "Primary PDF Thm. 1, p. 2 (offset 0); proof of Thm. 14, p. 9 (offset 25279)",
+          "method": "Lawful primary PDF",
+          "title": "Maximal Percolation Time in Hypercubes Under 2-Bootstrap Percolation",
+          "trigger": "Maximum time and possible exact dimension-four equality census"
+        },
+        {
+          "assessment": "Structural containment, not orbit/time enumeration",
+          "evidence": [
+            "Every maximal induced path contains a minimal percolating set and every minimal percolating set occurs in a maximal induced path."
+          ],
+          "identifier_or_url": "https://doi.org/10.13069/jacodesmath.15518",
+          "material_read": "Primary PDF p. 1, OA offset 1137",
+          "method": "OA paper retrieval after direct timeouts",
+          "title": "Maximal induced paths and minimal percolating sets in hypercubes",
+          "trigger": "Structural characterization could constrain orbit enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen definition and Finding",
+        "Independent finite census and prior extremal statements above"
+      ],
+      "rationale": "The four-cube already distinguishes minimum-size spanning seeds from larger irredundant seeds, so their full geometry/time census specifies a natural transition rather than an arbitrary slice. The exact equality cases for a known sharp time bound are useful independently: a five-round triple has a unique one-vertex augmentation that does not speed up spreading, and these are all the nonminimal equality cases.",
+      "residual_risks": [
+        "Finite classification only; the maximum time itself and the two four-seed shapes carry no separate new value here."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

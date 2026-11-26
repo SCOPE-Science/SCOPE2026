@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:11:12.789963Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Condition on |A|=u>0 and rotate input and output. The map z^2-u zbar is proper of degree two and its critical circle has radius u/2. The critical value curve has nonzero radius and strictly monotone lifted argument (derivative vanishes only at the cusps), with one clockwise turn. This gives one bounded and one unbounded regular region; simple roots at zero and degree at infinity give four and two respectively. The Gaussian target avoids the caustic. The rotating phase preserves the conditional circular target law. Integrating the unit exponential |A|^2 gives the stated Laplace transform with strictly positive rate, which proves strict derivative signs. Changing argument to boundary parameter and integrating the Rayleigh variable gives the erfc expression. Expanding at small noise uses bounded reciprocal radii and finite Rayleigh moments; the first two angular moments give the stated elliptic expression and 2/3. At large noise the area and second area moment of the deltoid are 2 pi and 3 pi, and the exponential radial dilation moments give 1/4 and -9/32. The supplied checker.py was inspected, not run. The independent area-formula quadrature inside the negative-Jacobian disk in python /workspace/reproductions/reproduce.py gave p(1)=0.14635487513720 and independently reproduced the two large-noise coefficients.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "9c1cf2345cea covers the same distribution in every n>=2, with a coupled threshold and two-term fixed-n expansions at both coupling endpoints.",
+          "The OA Kac and high-valence sources give expected counts or existence, and the inspected quadrinomial source treats deterministic regions; none is needed for the affirmative prior-coverage finding."
+        ],
+        "reasoning": "For n=2 the earlier q_n=2, r_n=1/2 give a_2=1/4 and b_2=9/32. Its strong-coupling moment coefficients become 2 sqrt(pi) I_1 and 8 I_2 because its radial function is the frozen radius divided by four up to rotation. Both asymptotics therefore specialize directly.",
+        "searches": [
+          "9c1cf2345cea, equations (1), (3)–(4)",
+          "arXiv:2308.10333 Theorem 1.3",
+          "arXiv:2201.00788",
+          "arXiv:2106.15824 §3.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 9c1cf2345cea",
+        "arXiv:2106.15824",
+        "arXiv:2201.00788",
+        "arXiv:2308.10333",
+        "10.1090/bproc/51 (lookup only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier equation (1) at n=2 and coupling s^(-1/2) is the uniform-angle average of the integral of exp(-x) exp(-s sqrt(x)/rho_2(theta)) dx. This is already a Laplace transform with strictly positive rate; all derivatives exist by the finite moments and positive minimum radius.",
+          "The strong-coupling coefficient already equals the inverse-radius moment; (6)–(7) reduce its n=2 evaluation to the elementary standard reduction to E and K."
+        ],
+        "reasoning": "Every strict derivative sign is an immediate corollary, even though the earlier statement highlights only ordinary strict monotonicity in coupling. The probability, endpoint constants and monotonicity cannot be separated into a genuinely distinct surviving claim here.",
+        "searches": [
+          "9c1cf2345cea, equations (1), (4), (6)–(7)",
+          "Frozen RESULT.md, lines 39–59"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With z=sqrt(s) w and division by s, the frozen equation in w has law w^2+s^(-1/2) A wbar+B with A and B independent standard circular Gaussians. The earlier finding uses precisely this model for arbitrary n>=2 and counts distinct zeros."
+        ],
+        "reasoning": "Thus p(s)=p_2(s^(-1/2)) for every s>0. Changing conjugation/sign of a circular Gaussian does not change the joint coefficient law.",
+        "searches": [
+          "Resultary Gaussian harmonic trinomials / valence law; 9c1cf2345cea RESULT.md, Finding and Assumptions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct earlier record gives an exact integral in equation (1), and equations (6)–(7) give the radial angle quadrature. At n=2 its curve (e^(-it)+e^(2it)/2)/2 is the frozen curve divided by four after rotation and reparametrization."
+        ],
+        "reasoning": "This is earlier exact indexed coverage, not merely a table entry with similar parameters. Specializing the integral and integrating in the Rayleigh variable gives the frozen erfc integral and hence the same p(1).",
+        "searches": [
+          "Resultary 2026/10/26/SCOPE-gaussian-harmonic-trinomials-a-one-crossing-valence-law-and-its--9c1cf2345cea, local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4"
+        ]
+      },
+      "rationale": "Demonstrably covered as a specialization of the earlier Resultary finding 9c1cf2345cea. The probability law, asymptotics and complete monotonicity in the new parameter are already explicit or immediate in its general probability representation. Re-expressing a radial moment by standard elliptic integrals does not rescue the frozen finding.",
+      "residual_risks": [
+        "Detailed coverage of the inaccessible deterministic trinomial paper is unresolved. The rejection rests on an actual earlier exact indexed finding, not the access issue."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Affirmative broader prior coverage by n=2",
+          "evidence": "Exact two-count law, same integral after scaling, both endpoint expansions, and radial averaging formula.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-gaussian-harmonic-trinomials-a-one-crossing-valence-law-and-its--9c1cf2345cea/RESULT.md",
+          "material_read": "Finding and Assumptions, offsets 0–4409, equations (1)–(7)",
+          "method": "Local mirror original passage",
+          "title": "Gaussian harmonic trinomials: a one-crossing valence law and its logarithmic large-degree correction",
+          "trigger": "Same monic sparse harmonic model and exact law"
+        },
+        {
+          "assessment": "Deterministic context, not the probability law",
+          "evidence": "Zero regions and bounds for specific quadrinomial parameters.",
+          "identifier_or_url": "arXiv:2106.15824",
+          "material_read": "Abstract and §3.2, p. 7",
+          "method": "OA original passages",
+          "title": "Zeros of a Two-parameter Family of Harmonic Quadrinomials",
+          "trigger": "Deterministic zero-region and valence comparison"
+        },
+        {
+          "assessment": "Different statistic in inspected material",
+          "evidence": "Uses expected-zero arguments to show existence of high valence.",
+          "identifier_or_url": "arXiv:2201.00788",
+          "material_read": "Abstract",
+          "method": "OA original abstract",
+          "title": "The valence of harmonic polynomials viewed through the probabilistic lens",
+          "trigger": "Probabilistic valence comparison"
+        },
+        {
+          "assessment": "Different ensemble and asymptotic",
+          "evidence": "Large-degree expectation in a full i.i.d. Kac ensemble.",
+          "identifier_or_url": "arXiv:2308.10333",
+          "material_read": "Theorem 1.3, p. 4",
+          "method": "OA original passage",
+          "title": "On the average number of zeros of random harmonic polynomials with i.i.d. coefficients: precise asymptotics",
+          "trigger": "Possible Gaussian theorem specialization"
+        },
+        {
+          "assessment": "Unresolved comparison, not used in the decision",
+          "evidence": "No passage on which to base a coverage inference.",
+          "identifier_or_url": "10.1090/bproc/51",
+          "material_read": "No full-text passage obtained",
+          "method": "Lawful lookup; publisher access unsuccessful",
+          "title": "Zeros of a one-parameter family of harmonic trinomials",
+          "trigger": "Closest cited deterministic trinomial comparison"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The four-zero probability is a motivated benchmark, but the earlier general law already yields it, its two noise limits and its strict derivative signs directly. The remaining change of notation, standard elliptic evaluation and sample decimal do not supply a distinct useful result that merits a repaired finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

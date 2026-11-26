@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The unique matrix parametrization \(\varphi\leftrightarrow(A,f,\lambda)\), \(A^{\mathsf T}BA=\lambda B\), is derived directly from multiplication and applies to singular as well as invertible maps. The \(\lambda=0\) branch is counted by isotropic image spaces, surjective maps onto them, and functionals on the kernel; these pieces are disjoint and exhaustive. The \(\lambda\ne0\) branch uses standard orthogonal group orders and an explicit multiplier-image proof. The isotropic-subspace products are independently derived from line flags. The sharp ranks and asymptotic limits follow by positivity and leading-term comparison. Independent direct calculations include odd extension-field arithmetic. Finite enumerations are not relied upon for the proof for arbitrary dimensions.
+PASS
 
-## Originality — PASS, with residual risk
+An endomorphism is uniquely (A,f,lambda) with A^tBA=lambda B and f arbitrary. A nonzero multiplier forces invertibility and contributes q^n times the similitude count. The multiplier image consists of squares in odd dimension by determinants and scalars, and all units in even dimension by hyperbolic-pair scaling and surjectivity of the norm on any anisotropic plane. At multiplier zero, choose an isotropic image U of dimension r and a surjection onto it; exactly q^r functionals vanish on the kernel, giving rank r, and the remaining functionals add one rank. For the polar factors, adding a hyperbolic plane gives the zero-vector-count recursion Z_(d+2)=(q-1)q^d+q Z_d, by counting solutions of xy=c, with base Z=1 in each anisotropic kernel of dimension 0, 1 or 2. The Z count includes the zero vector. Counting lines in r-spaces and passing to L-perp/L gives the claimed I products. Selecting a nonzero isotropic first vector, then a norm-zero partner with bilinear pairing 1, gives (Z_d-1)q^(d-2) choices of hyperbolic pair and reduces the isometry order to its dimension-(d-2) counterpart. The base orders are 1, 2 and 2(q+1), respectively. This also reconstructs the orthogonal group orders used. The rank support follows because every isotropic rank through the Witt index occurs and r<n. Summing over the functional fiber gives singular-stratum degree n+nr+r(n-2)-3r(r-1)/2, strictly increasing through w. The leading singular-minus-automorphism exponent is (m-1)(m+2)/2 for odd or split even, and (m^2-m-4)/2 for nonsplit even. Leading coefficients coincide in both ties (1 odd, 2 split), giving exactly the claimed threshold cases. At q=3,n=4 the isotropic counts are (1,16,8) split and (1,10) nonsplit; with P1=80, P2=6240 these reproduce both full example polynomials. Frozen code was inspected, not executed: direct histograms cover small n=2,3, with dimension 4 and 5 checks only of polar counts; the unrestricted proof does not rely on them.
 
-Elduque–Labra (arXiv:1602.01590, Definitions and Theorem 4.7(i)) give the same family of nilpotent evolution algebras and classify isomorphism via similitudes. Their inspected theorem does not enumerate singular endomorphism ranks or their asymptotic proportions. Martín Barquero et al. (2025, §4.2) study commutative algebras with one-dimensional square and associated symmetric bilinear forms, not the present finite-field full endomorphism-rank spectrum. Orthogonal group and isotropic-subspace products are classical and are not represented as new. The novel synthesis is the complete algebra-endomorphism rank census plus the precise Witt-sensitive automorphism-density boundary. Searches found no dominating published equivalent, though older algebraic-transformation-semigroup literature remains an unresolved bibliographic risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a complete, uniform, natural invariant of all nondegenerate type \([1,n]\) nilpotent evolution algebras over odd finite fields; it specifies each singular rank fiber rather than just automorphism orders or isomorphism classes. The dimension-four nonsplit case has asymptotically almost all endomorphisms invertible, while the split form in the same dimension has asymptotically almost none invertible. That sharp opposite behavior depends on orthogonal Witt type and is absent from the corresponding alternating-form setting. It provides a concrete structural distinction and an exact enumerative baseline for studying constrained endomorphism monoids.
+Distinct best-of-knowledge contribution: the full symmetric-algebra endomorphism rank census, including singular maps and the fixed-Witt-type density transition. The family, polar counts and classical group orders are known; so are related rank censuses on other operator classes.
 
-## Sources and limitations
+## value
 
-Primary source: Elduque–Labra, arXiv:1602.01590 (2016-02-04), §4.1 and Theorem 4.7(i). Supporting source: Martín Barquero et al., DOI:10.1007/s00009-025-02812-7, §4.2 (2025). Standard finite orthogonal-group and polar-space counts are used and explicitly identified as prior background. Characteristic two, degenerate forms, and other evolution-algebra types are outside scope. Search incompleteness and alternate terminology remain residual originality risks.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This natural complete census explains how multiplication constrains ranks even when the map is not invertible. Its rank support detects the two Witt types and the density law separates small nonsplit spaces, a balanced regime and singular domination. These type-sensitive conclusions are not a recomputation of the isometry order or an arbitrary small-field slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

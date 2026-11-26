@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:44:18.443809Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Proposition 9 supplies the exact-two distinct-deletion-output criterion. In a fixed-weight binary layer the alternating disagreement interval is even; deleting it gives a Dyck context, and both phases are admissible exactly at a positive marked vertex. The three disagreement masks satisfy XOR, and three nonempty interval masks with this relation must consist of two adjacent pieces and their uniquely longest union. Balance makes each piece even. The third vertex is an even splice of the two phases, so all three remain Dyck; the union, its cut and the third vertex recover all tuple data. Zero-height marks split into two Dyck paths, so H_r=(2r+1)C_r−C_{r+1}=binomial(2r+1,r−1) for r≥1, H_0=0. The weight 2(k−1) for a long edge of half-length k gives the sum, the cumulative law including n=1, and the formal generating functions. H_r~2rC_r and the eventual backward ratio bound less than one give dominated convergence with constants 4/9 for triangles and 2/3 for edges relative to nC_n; the incidence ratio tends to 2. Independently rebuilt the graph from actual output intersections through n=8, yielding E=(0,1,6,27,111,441,1728,6733) and T=(0,0,2,14,68,290,1172,4628). Inspected both supplied programs and VERIFICATION.md without executing them; the motif code counts and checks uniqueness through n=8 but guards its explicit Dyck-membership assertion by n≤7. This small documentation overstatement does not affect the analytic proof or the independent direct check.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Unrestricted Proof §4 says every triangle is uniquely obtained from its long alternating edge and one of the two splices at an interior cut with both pieces of length at least two. The earlier Dyck edge theorem identifies all possible long edges exactly by half-length and a marked positive-height vertex in a Dyck context."
+        ],
+        "reasoning": "The broader structural theorem, rather than its unweighted numerical total, applies and the published Dyck admissibility criterion supplies all context restrictions.",
+        "searches": [
+          "unrestricted triangle spectrum e753c7b5bfd6, Proof §§4–5",
+          "Dyck edge bijection 3635f93f657f, Finding and proof"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_direct.py and verify_motifs.py",
+        "Exact source passages listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Take any long Dyck edge from the known marked-edge classification, with disagreement length 2k and positive height at its starting point. The unrestricted classification leaves exactly the two known splice orientations at a cut. An odd cut changes the number of ones relative to either endpoint, so cannot give a Dyck word. An even cut balances both blocks and cannot leave the Dyck region because each alternating block stays within one step of its common positive baseline. Thus exactly 2(k−1) splices survive for every such edge, with no additional context constraint.",
+          "Weighting the known count H_{n−k} for those edges gives T_n=2Σ_{k≥2}(k−1)H_{n−k}. A first difference gives 2Σ_{r=1}^{n−1}H_r=2E_n. The remaining series and limits follow from the same Catalan mark counts."
+        ],
+        "reasoning": "This is a direct restriction of the explicit existing exhaustive classification, followed by a sum over already enumerated contexts. No new admissibility problem remains after discarding the odd cuts.",
+        "searches": [
+          "e753c7b5bfd6 RESULT.md, offset 4050 onward",
+          "3635f93f657f RESULT.md, Finding and marked-edge formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A graph triangle is a triple with pairwise Type-A confusion, not a triple required to share a common pair of deletion descendants. The unrestricted spectrum works with intersections of size at least two; every exact-two triangle lies within that graph, and conversely every binary alternating splice it constructs is exact-two pairwise by the Type-A criterion."
+        ],
+        "reasoning": "The interval comparison therefore concerns the same triangles once the induced Dyck restriction is applied, not a common-descendant hypergraph or a multiplicity-weighted count.",
+        "searches": [
+          "Resultary: exact Dyck triangle census, two-read deletion alternating interval and splice",
+          "Cai–Kiah–Nguyen–Yaakobi, arXiv:2001.01376v2 Definition 8 and Proposition 9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Dyck triangle index hit is the frozen record itself. The single-triple avoidance record has an indexed cumulative law for a different binary word language. No separate matching table for the Dyck triangle counts was established in the bounded comparison."
+        ],
+        "reasoning": "The uncovered exact integer listing does not establish distinctness because a prior constructive theorem and the exact marked-edge table imply every coefficient. The other cumulative law alone does not identify the same graph.",
+        "searches": [
+          "Resultary: exact Dyck triangle counts and cumulative Dyck edge–triangle law",
+          "44e8c5424f44 single-triple avoidance record, Finding and Proof §5"
+        ]
+      },
+      "rationale": "The exact Dyck census does not appear merely by substituting q=2 and N=2n in the unrestricted total. Nevertheless the claimed canonical classification and all quantitative consequences are immediate from the already explicit unrestricted unique-splice normal form restricted to the published marked-positive-height Dyck edges. Neither comparison source alone prints the claimed series; the two exact statements jointly cover it by the parity restriction and immediate summation below.",
+      "residual_risks": [
+        "The bounded search does not establish earliest appearance of an explicit Dyck-only table or formula. The failure is mathematical coverage by the two verified results, not missing access or a claim about external publication chronology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the exact binary Type-A criterion, not a Dyck count",
+          "evidence": "At Hamming distance at least two the deletion-ball intersection has size two exactly for a shared context with opposite alternating phases; at distance one it has size one.",
+          "identifier_or_url": "https://arxiv.org/html/2001.01376v2",
+          "material_read": "Definition 8 and Proposition 9, extracted offsets 33272–37424, plus the distinct-descendant construction around offsets 39000–40000",
+          "method": "Lawful OA original text",
+          "title": "Coding for Sequence Reconstruction for Single Edits",
+          "trigger": "Exact adjacency definition"
+        },
+        {
+          "assessment": "Covers the full long-edge and splice normal form used here",
+          "evidence": "Unique longest interval, exactly two orientations for every allowed cut, and an exact count on unrestricted words of length N.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-triangle-spectrum-of-the-two-read-deletion-confusability-g--e753c7b5bfd6",
+          "material_read": "RESULT.md Finding and Proof §§3–5, including extracted offsets 4050–5630",
+          "method": "Resultary and local source mirror",
+          "title": "Exact triangle spectrum of the two-read deletion-confusability graph",
+          "trigger": "Potentially covering unrestricted theorem"
+        },
+        {
+          "assessment": "Supplies the full Dyck long-edge population without a new count",
+          "evidence": "Edges indexed by alternating half-length and positive marked context; E_n=Σ_{r=1}^{n−1}H_r with H_r=(2r+1)C_r−C_{r+1}.",
+          "identifier_or_url": "2026/11/8/SCOPE-dyck-restricted-two-read-deletion-graph-a-vertex-marked-bijectio--3635f93f657f",
+          "material_read": "RESULT.md Finding and marked-edge statement from offset 400 onward",
+          "method": "Resultary and local source mirror",
+          "title": "Dyck-restricted two-read deletion graph: a vertex-marked bijection and sharp degree",
+          "trigger": "Exact same graph and Dyck constraints"
+        },
+        {
+          "assessment": "Different source language; not used to establish the implication",
+          "evidence": "A cumulative identity for a factor-avoiding binary language does not include the fixed Dyck path condition.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-edge-and-triangle-laws-for-two-read-reconstruction-under-s--44e8c5424f44",
+          "material_read": "RESULT.md Finding, offset 0, and Proof §5 around offset 6462",
+          "method": "Resultary and local source mirror",
+          "title": "Exact edge and triangle laws for two-read reconstruction under single-triple avoidance",
+          "trigger": "Parallel indexed cumulative identity for word restrictions"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact triangle count of this natural confusability graph is a relevant statistic, but this particular increment is mechanically implied by the existing canonical triangle motifs and exact Dyck edge bijection: every eligible edge has the same fixed number of viable splices at each half-length, with no additional height interaction. The recurrence, coefficient list and limiting edge incidence are consequences of that weighted count rather than independently unresolved invariants in the record.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:54:47.235674Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–42; VERIFICATION.md and CHECK.py (inspected, not executed)",
+        "Independent interval-complement enumeration of all degrees and exact simple and maximizing word sets for n=3..14: /workspace/branches/review-4-replay.py"
+      ],
+      "rationale": "Reflecting the odd ideal-indicator coordinates sends x_odd>=x_even on each cover to y_odd+y_even<=1, giving the full-dimensional path stable-set polytope. Two independent-set words that differ on several components admit component swaps with the same midpoint, so are not adjacent. For a single difference interval, common zeros are fixed by nonnegativity, common ones by a tight equality to an adjacent common zero, and alternating entries on the interval by tight neighbor sums leaving one parameter. A flippable interval hitting a cluster of k ones may take any ordered pair of its one positions as endpoints, or use its available flanking zeros, giving k(k+1)/2+k(a+b)+ab choices. Intervals not hitting a one consist of single zeros not adjacent to a one. Subtracting the disjoint augmented cluster spans and adding the cluster contributions gives n+sum binom(t_i,2) with t_i=k_i+a_i+b_i-1. A zero correction permits only isolated endpoint ones; for n>=3 all four indicated words exist. For c nonempty clusters, augmented spans have lengths at least 2t_i-1, so if T=sum t_i then T-c+1<=(n-c+2)/2. Merging A,B>=1 loses (A-1)(B-1) in the binomial sum. Thus equality for odd n needs one cluster; its span fills the path with a=b=1. Even n also excludes c>=3. If c=2 at equality each span must be length 2t_i-1, forcing a_i=b_i=1 for both, so t_i>=2 and merging is strict. The remaining single even cluster has t_i=n/2, filling the path for a+b=1 or leaving exactly one endpoint outside its span for a+b=2. These give the two plus two displayed even words. The all-zero word has degree n, and the path Fibonacci recurrence yields the asserted simple-vertex fraction.",
+      "residual_risks": [
+        "The finite enumeration is corroboration only. The dimension assumption n>=3 matters for the distinct endpoint pair and the equality argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lee gives connected-convex-subset edge classes, their multiplicities, and Fibonacci vertex and total edge formulas for the zigzag poset. Section 4.6 counts empty-ideal incidences via nonempty connected ideals. Coons–Sullivant studies Ehrhart h*-statistics."
+        ],
+        "reasoning": "Lee provides general incidence data but an aggregate sum or a degree at one vertex does not bound all other degrees or determine how local cluster boundaries control equality. The Ehrhart statistic counts other data, not neighbors of each vertex.",
+        "searches": [
+          "Lee arXiv:2610.07413v3, Theorem 7, Proposition 22 and Sections 4.5–4.6",
+          "Coons–Sullivant arXiv:1901.07443v2"
+        ]
+      },
+      "checked_sources": [
+        "Mori arXiv:2307.08447v4; Lee arXiv:2610.07413v3; Coons–Sullivant arXiv:1901.07443v2",
+        "Resultary 73bf874a4f11 (identical target), bc3ed54b4aa7, 8a744a6317a6 and 29d08be283fc"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For Z_(2m), Lee's empty-ideal rule gives m(m+3)/2 by counting interval ideals: there are m(m+1)/2 intervals with both endpoints odd (including singleton minima) and m more with odd left endpoint and right endpoint 2m. The coordinate flip gives the odd-position stable set, one of the submitted maximizers."
+        ],
+        "reasoning": "That evaluates an antecedent incidence formula and produces the sharp candidate value at a particular vertex. It does not show any global upper bound, the unique odd maximizer, all four even maximizers, or all simple vertices. The disjoint span bound and merging equality argument supply those parts; the already known incidence rule itself receives no novelty credit.",
+        "searches": [
+          "Lee arXiv:2610.07413v3, Section 4.6 (p. 19, OA offset 58600) and Theorem 7",
+          "Mori arXiv:2307.08447v4, §2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mori §2 gives adjacency of nested ideals with connected difference. Lee p. 4 gives the symmetric-difference connectedness rule for stable-set polytopes, reducing to intervals on a path. Catalogue records on fan zonotopes or alternating adjacent-sum path constraints have different hypotheses."
+        ],
+        "reasoning": "The odd-coordinate reflection identifies the two names for the audited polytope and transports the edge rule. Counting local incidence and proving the equality-sensitive degree bound remain separate from stating the general edge rule. Sharing a path parameter does not identify a fan zonotope or a parameter-s>=2 alternating-sum polytope with this stable-set polytope.",
+        "searches": [
+          "\"zigzag order polytope\" vertex degree simple vertices maximum degree cluster formula",
+          "Resultary: zigzag/fence order polytope, path stable-set polytope, alternating interval-flip degree",
+          "Mori arXiv:2307.08447v4 and Lee arXiv:2610.07413v3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue hit 73bf874a4f11 is the frozen record itself. The fan-graphical-zonotope record has a degree spectrum of a different object; the alternating-path record gives first smoothness failures for s>=2, and the fence deep-hole record concerns Hausdorff distance. Lee's zigzag counts give totals, not a per-word table."
+        ],
+        "reasoning": "Global edge counts and other-object extremizers do not give the audited local exact degree or its even/odd equality sets. No separate matching local-degree table was established by the inspected sources.",
+        "searches": [
+          "Resultary: exact path order-polytope degree spectrum, simple and maximizing vertices",
+          "Lee Proposition 22, global edge count and average degree",
+          "Resultary 29d08be283fc, 8a744a6317a6, bc3ed54b4aa7"
+        ]
+      },
+      "rationale": "The evaluated cluster formula and full classification of simple and maximizing vertices are distinguishable from the known adjacency criterion, connected-block edge census, and an earlier incidence formula that gives the degree of the empty ideal (already yielding the even maximum value at one vertex). Neither computing that one degree nor knowing the average or an algorithm for individual incidences states the sharp upper bound and exhausts the equality cases. The pass concerns the evaluated structural classification only.",
+      "residual_risks": [
+        "An earlier evaluated corollary of the general local incidence framework or a result under another path-polytope name cannot be excluded. The focused search and inspected comparisons are not a historical priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior edge rule, not an evaluated local-degree extremal theorem",
+          "evidence": [
+            "Nested ideals give an edge exactly when the difference is connected"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2307.08447v4",
+          "material_read": "Section 2, p. 2, OA offset 4700",
+          "method": "Read the primary adjacency criterion",
+          "title": "Simplex Faces of Order and Chain Polytopes",
+          "trigger": "General order-polytope adjacency"
+        },
+        {
+          "assessment": "Strong antecedent for the mechanism, edge census, and a special local degree, not the submitted complete classification",
+          "evidence": [
+            "Connected symmetric difference for stable-set edges; connected-convex incidence classes; total edge census and average degree; one edge per nonempty connected ideal at the empty ideal"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.07413v3",
+          "material_read": "p. 4 adjacency (offset 10350); Theorem 7 (12895); §4.5 Proposition 22 (54100); §4.6 (58600)",
+          "method": "Read the relevant primary results and specialize the empty-ideal criterion",
+          "title": "A Refinement of the Edge Theorem for Order and Chain Polytopes",
+          "trigger": "Same path/fence incidence structure and exact zigzag counts"
+        },
+        {
+          "assessment": "Ehrhart and triangulation study, not a statement of local graph degrees",
+          "evidence": [
+            "The result is expressed through the h*-polynomial"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1901.07443v2",
+          "material_read": "p. 1, OA offset 0, statement of the object and studied invariant",
+          "method": "Compare primary statement and statistic",
+          "title": "The h*-Polynomial of the Order Polytope of the Zig-Zag Poset",
+          "trigger": "Same zigzag order-polytope family"
+        },
+        {
+          "assessment": "Different geometric extremum",
+          "evidence": [
+            "Cube-to-order-polytope Hausdorff distance and a deepest corner"
+          ],
+          "identifier_or_url": "Resultary 2026/11/17/SCOPE-hall-transport-and-catalan-deep-holes-of-order-polytopes--bc3ed54b4aa7",
+          "material_read": "Original Finding passage on the fence",
+          "method": "Read local-mirror statement and compare metric",
+          "title": "Hall transport and Catalan deep holes of order polytopes",
+          "trigger": "Same fence with a rigid extremizer"
+        },
+        {
+          "assessment": "Different constraints and dimensions of first loss of simplicity",
+          "evidence": [
+            "Parameter s>=2, with one or two nonsimple vertices at first smoothness failure"
+          ],
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-a-one-dimension-smoothness-gap-for-alternating-adjacent-sum-path--8a744a6317a6",
+          "material_read": "Original Finding, parameter regime and smoothness thresholds",
+          "method": "Read local-mirror statement and compare polytopes and classification",
+          "title": "A one-dimension smoothness gap for alternating adjacent-sum path polytopes",
+          "trigger": "Same-day related path geometry and simplicity"
+        },
+        {
+          "assessment": "Degree spectrum for different polytopes",
+          "evidence": [
+            "Graphical zonotopes of K_1 joined with a path, not the stable-set polytope of that path"
+          ],
+          "identifier_or_url": "Resultary 2026/10/18/SCOPE-fan-graphical-zonotopes-have-a-rational-local-degree-spectrum--29d08be283fc",
+          "material_read": "Original Finding, graph family and invariant",
+          "method": "Read local-mirror statement and compare object",
+          "title": "Fan graphical zonotopes have a rational local-degree spectrum",
+          "trigger": "Related exact local degree table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, cluster count and equality analysis; Lee §4.5 average and §4.6 empty-ideal incidence"
+      ],
+      "rationale": "The same Fibonacci-sized family has only four simple vertices but vertices of quadratic degree, versus the known linear average. The explicit cluster correction and parity-rigid equality classification explain this spread and allow individual degrees to be read off without enumerating neighbors. This is more than calculating the degree of a known highly symmetric vertex or recomputing a global count.",
+      "residual_risks": [
+        "No full degree-distribution series or extension beyond the path is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

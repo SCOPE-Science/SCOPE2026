@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The width identity follows exactly from support-function additivity and independent spherical angular factors. Five elementary expectations give the first and second moments with no smoothness hypothesis. A derivative with exactly one sign change yields the positive optimal height. The monotone optimized ratio and a two-term nonnegative rational identity give the sharp inequality and both equality conditions. The n-gon corollary explicitly invokes Akiyama and Kamae's published planar classification; it does not silently assume that result or apply it to power-of-two side counts. The packaged checker passed independent exact-expression tests and numerical integrations. Remaining limitation: computational tests are finite and do not certify originality.
+## correctness
 
-## Originality — PASS (with residual risk)
-The 2022 primary source analyzes planar polygonal directional width and supplies the Reinhardt minimum but not arbitrary right prisms or optimized height. The closest public prism calculation gives the second width moment only for uniform regular prisms, with height fixed to one edge. Its full result supplies the angular moment mechanism, but its statement cannot imply a global minimum over arbitrary bases and heights without the new optimization and equality analysis. The other inspected right-cylinder result studies covariance of shadow area and perimeter, different quantities. Targeted searches found no exact two-term shape–height identity or complete arbitrary-right-prism classification. An overlooked stereological formulation remains possible; lack of search hits is not a proof of novelty.
+PASS
 
-## Mathematical value — PASS
-This solves a natural complete three-dimensional extremal problem for the entire infinite-dimensional family of right prisms, with a sharp universal constant and unexpectedly nonunique equality bases (every constant-width planar body). The exact rigidity decomposition detects separately base-width variance and height mismatch. For polygonal bases it transfers the established Reinhardt classification into a complete height-and-shape optimizer rather than a numerical radius or isolated example. The result is more than a fixed-cylinder moment calculation; it does not claim a general three-dimensional convex-body minimizer.
+For a uniform direction on S^2, its absolute vertical component T is uniform on [0,1] and independent of planar azimuth. The product support function gives width sqrt(1−T^2)w_K(V)+hT. Integrating the five required scalar moments gives EW=μ(π/4+λ/2) and EW²=μ²(2q+2λ+λ²)/3. For q>=1 the sign of the height derivative is the sign of (π−2)λ+π−4q, which switches at a single positive height. Substitution gives R_*(q)=16(2q−1)/[3(π²−4π+8q)] for the minimized second-moment ratio. Its derivative is strictly positive, so q=1 is necessary and sufficient for the global shape optimum; continuity of width turns equality almost everywhere into constant width everywhere. Completing the square in the height numerator and taking the difference R_*(q)−R_*(1) give exactly the two displayed positive-denominator deficit terms. Direct evaluation reproduces Δ_*=0.0753372200107355 and h/w=0.7519383938841089. The polygonal specialization uses the cited planar result legitimately: Akiyama–Kamae eqs. (1), (3) define the same coefficient of variation and give q_n=1+ν_n²; Theorems 6–7 identify all minimizers with Reinhardt n-gons for n not a power of two. Monotonicity and the Cauchy mean-width formula then give exactly the stated bound and equality height. Inspected frozen RESULT.md, VERIFICATION.md and verify.py without executing the checker; the proof covers nonsmooth bases and all positive heights, unlike the recorded finite tests. The frozen related-record URL text in references 2–3 does not give functional URLs; the material comparator has the exact catalogue locator in the originality evidence. The mathematical proof uses the arXiv planar theorem, not those related-record links.
 
-## Closest literature and limitations
-The primary planar paper is Akiyama–Kamae, arXiv:2201.06736v1, 18 January 2022. The closest publicly available prism record is *Exact mean-square width of every uniform regular prism*, 11 October 2026, inspected in full. The cylinder-shadow mixed-moment result dated 11 October 2026 concerns projected shadow statistics, not widths. Unindexed older literature and equivalently formulated stereological results remain residual originality risks. Independent review has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the arbitrary-planar-convex-base, free-height right-prism optimum with the exact two-term deficit and equality at all constant-width bases. The closest identified earlier prism record has regular polygonal bases and fixed height, while the planar theorem is explicitly imported. A later catalogue result covers this exact three-dimensional theorem as part of a higher-dimensional extension; it is not an earlier source against the frozen record.
+
+## value
+
+PASS
+
+The question compares width anisotropy in a natural product class with free aspect ratio, not a prescribed regular base or a single numeric example. The exact deficit separates height mistuning from planar width variation; the sharp extremizer family includes nonsymmetric constant-width bases and the theorem transfers existing planar optima to exact spatial prism bounds. It does not claim more general shape-distance stability or an unrestricted convex-body optimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:51:53.460994Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof §§1–5",
+        "Frozen VERIFICATION.md and verify.py, inspected as evidence"
+      ],
+      "rationale": "The four morphism letters encode (parity of overlapping 11 pairs, last bit); their two children are exactly the append-0 and append-1 transitions in numerical order, including the leading-zero convention. Each full greedy arch embeds one prescribed letter, and requesting the successive arch-ending letters forces any embedding to reach at least the corresponding arch ends. Appending a letter missing from the tail proves the reverse bound. Recomputing from the one-letter scanner, at level 3 the exits for a,b,c,d are 1,2,1,2, with count triples (2,2,3),(2,2,3),(2,3,2),(2,3,2). Composition gives level-4 exits 2,1,2,1 and triples (4,4,5),(5,5,6),(5,6,5),(4,5,4). In a composition one adds the right count evaluated at the left exit; applying this to all four rows in both directions gives the stated parity tables with q replaced by 2q. The small-level maximum errors for all starting states are 11/16,10/16,12/16,8/16, so every aligned block costs at most one unit of error. Each block in the descending binary decomposition begins at a multiple of its own length; telescoping the counts through the actual scanner states proves the popcount bound, and its logarithmic upper bound gives the limit. The empty prefix and the four small dyadic values are consistent with the fixed two-symbol alphabet. The recorded scans and brute-force checks are consistent supporting evidence; the complete transfer induction is the all-level proof and the uploaded checker was not run.",
+      "residual_risks": [
+        "The theorem is for zero-based prefixes, not arbitrarily shifted factors."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2026-10-26 Resultary record 893531ec9160 proves a bound 2 floor(log2 N)+2 for every factor, gives the same 5/16 limit and repeats the dyadic index formula.",
+          "Signature composition applies to many words but does not fix or state their recurrence constants."
+        ],
+        "reasoning": "The later theorem is broader in location of factors and covers the density and dyadic formula explicitly; its all-factor bound is weaker than s_2(N) for prefixes and does not imply that bound by specialization.",
+        "searches": [
+          "Local Resultary lookup for Rudin–Shapiro subsequence universality and 5/16 density",
+          "Schnoebelen–Veron, arXiv:2304.11932, signature definition and composition algorithms"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2003.04629",
+        "arXiv:2304.11932",
+        "arXiv:2302.00405",
+        "Resultary 893531ec9160",
+        "Resultary 1ffd6b13dc1b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general signature results recover the index and describe composition; for this proof the simultaneous all-state two-parity profiles and the aligned-block estimate do the additional work.",
+          "The later catalogue results explicitly cover subclaims, but the cited all-factor estimate or a table of dyadic counts alone does not yield the sharper prefix error."
+        ],
+        "reasoning": "An algorithm to evaluate any single input word is not an explicit infinitely valid Rudin–Shapiro formula or discrepancy theorem. The transfer induction is genuine additional analysis.",
+        "searches": [
+          "Schnoebelen–Veron, arXiv:2304.11932, pp. 9 and 11–12",
+          "Comparison with Resultary 893531ec9160 and 1ffd6b13dc1b"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The arch count and shortest-absent-subsequence length minus one are equivalent to the frozen index (for the fixed alphabet); Barker et al. supply the general arch framework.",
+          "Rampersad–Shallit count signed sequence terms and ordinary signed sums, not subsequence universality."
+        ],
+        "reasoning": "The named-word evaluation is not a different notation for an existing signed Rudin–Shapiro sum, nor is the general arch/index equivalence the new claim.",
+        "searches": [
+          "Focused literature lookup for Rudin–Shapiro scattered-subsequence universality, greedy arches and exact prefix index",
+          "Barker et al., arXiv:2003.04629, Definition 6 and Remark 7",
+          "Rampersad–Shallit, arXiv:2302.00405, pp. 1 and 7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record 893531ec9160, RESULT.md offsets 0 and 4241, repeats the dyadic formula and uses related transfer data.",
+          "Record 1ffd6b13dc1b (2026-11-02), RESULT.md offset 0, repeats the dyadic counts and treats shortest-absent-subsequence counts; does not give an all-prefix popcount bound."
+        ],
+        "reasoning": "Exact indexed overlap of dyadic values is real and distinguished from chronological priority; both located matching records are later dated than the frozen record.",
+        "searches": [
+          "Local Resultary lookup for Rudin–Shapiro dyadic subsequence universality, absence counts and discrepancy"
+        ]
+      },
+      "rationale": "Greedy arch factorization and compositional signatures are prior methods, not distinct contributions of this record. The supported contribution is their explicit evaluation for the standard Rudin–Shapiro fixed point, including the parity correction and the prefix-specific popcount bound. Two later dated records explicitly repeat results: their equivalent content is credited below, but they do not demonstrate earlier priority and neither gives the stated popcount bound. No earlier exact coverage was established by the checked sources.",
+      "residual_risks": [
+        "An earlier unindexed equivalent calculation could exist; the scoped literature search is not evidence of exhaustive absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior general equivalence, no specific word evaluation in the compared result",
+          "evidence": [
+            "The number of arches gives the universality index."
+          ],
+          "identifier_or_url": "arXiv:2003.04629",
+          "material_read": "PDF p. 5, Definition 6 and Remark 7, extracted offset 16900",
+          "method": "Lawful OA primary-text passage",
+          "title": "Scattered Factor-Universality of Words",
+          "trigger": "Exact general equivalence of universality and arch factorization"
+        },
+        {
+          "assessment": "General machinery, not a Rudin–Shapiro evaluation",
+          "evidence": [
+            "Universal signature Sigma(u) and algorithms to recover indices and combine signatures."
+          ],
+          "identifier_or_url": "arXiv:2304.11932",
+          "material_read": "PDF p. 9 and pp. 11–12, extracted offsets 24000 and 29944",
+          "method": "Lawful OA primary-text passages",
+          "title": "On arch factorization and subword universality for words and compressed words",
+          "trigger": "General compositional theorem might make the frozen computation redundant"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": [
+            "Recurrences concern signed coefficients and their ordinary partial sums."
+          ],
+          "identifier_or_url": "arXiv:2302.00405",
+          "material_read": "PDF pp. 1 and 7, extracted offsets 1680 and 19875",
+          "method": "Lawful OA primary-text passages",
+          "title": "Rudin-Shapiro Sums Via Automata Theory and Logic",
+          "trigger": "An exact recurrence on the same sequence could concern an equivalent invariant"
+        },
+        {
+          "assessment": "Later explicit equivalent dyadic values and density, broader factor scope but looser discrepancy bound",
+          "evidence": [
+            "Same even/odd correction; factor error 2 floor(log2 N)+2 rather than s_2(N)."
+          ],
+          "identifier_or_url": "Resultary 2026/10/26, 893531ec9160",
+          "material_read": "RESULT.md offsets 0 and 4241",
+          "method": "Local mirror",
+          "title": "Uniform 5/16 subsequence universality density in the Rudin–Shapiro word",
+          "trigger": "Strongest distinct catalogue hit on same statistic"
+        },
+        {
+          "assessment": "Later overlap in dyadic index; additional absence statistics, not the same all-prefix bound",
+          "evidence": [
+            "Exact dyadic index alongside shortest-absent-word counts."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2, 1ffd6b13dc1b",
+          "material_read": "RESULT.md offset 0",
+          "method": "Local mirror",
+          "title": "Exact scattered-subsequence universality and absence counts",
+          "trigger": "Same dyadic index in candidate catalogue table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof §§3–5",
+        "Schnoebelen–Veron signature framework",
+        "Resultary 893531ec9160 for the quantitative comparison"
+      ],
+      "rationale": "The exact density and parity effect measure a natural, nonadditive subsequence invariant of a standard automatic word. The explicit four-block profiles and popcount bound let a researcher predict universality thresholds with a certified error for all prefixes, not just compute a few dyadic examples or substitute parameters into a general formula.",
+      "residual_risks": [
+        "The bound is not asserted optimal at each N; this is not a classification of all automatic words."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

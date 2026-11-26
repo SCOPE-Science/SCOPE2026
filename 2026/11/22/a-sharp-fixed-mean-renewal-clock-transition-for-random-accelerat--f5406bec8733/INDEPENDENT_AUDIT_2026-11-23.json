@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:56:38.331769Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The covariance gives conditional velocity N(3u/(2t), k²t/4), so the absolute-velocity Rice intensity at the nonzero level is g(t/τ)/τ with τ=(|u|/k)^(2/3). Rice can be used away from zero (bounded level density on compact positive time intervals and continuously differentiable position), followed by monotone convergence at zero. There is no crossing at the independent cycle endpoint with positive probability. The kernel is bounded, so crossing rewards are integrable for any allowed clock; the renewal reward law is almost sure, including lattice clocks. The unfinished cycle is negligible: integrable iid rewards have N_i/i→0 almost surely, while cycle indices scale linearly in elapsed time. The derivative D=5-2z²-3R is positive for z<=1, strictly decreasing for z>=1 where R<1/3, and negative for z>=√(5/2). Thus g first increases then decreases. Q(s)=s g(s)-H(s) has derivative s g'(s) and tends to -∞ by the logarithmic growth of H, so the positive tangency is unique. The straight tangent from zero joined to H at a is concave, with strict separation on (0,a) and strict curvature beyond a. At mean a or above, the majorant and Jensen equality conditions force the point mass; below a the only potential contacts in the affine interval are 0 and a, with 0 prohibited. The supplied positive two-point construction has exactly the prescribed mean and converges to the bound. Independent quadrature and bisection reproduced a≈2.31788487331918, g(a)≈0.14139329860537, rτ≈0.52032768949327 and Poisson maximum ≈0.10467026210716/τ (gain ≈35.0845%). The Poisson extremum is also unique by the one-sign-change Laplace-transform argument on s g'(s): after scaling its derivative by exp(rτ s_peak), that derivative's scaled value is strictly decreasing in rτ. The supplied script was read, not executed. A separate solve of D=0 gives s_peak≈1.224035815670, about 9e-11 below the illustrative finite-difference value in the record; this does not affect the theorem or tangent/flux constants. The decimal calculations are not interval certificates, and reset jumps are not counted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The active-Brownian alignment and Brownian stationary occupancy results both give bursty versus deterministic regimes, for different model-specific kernels. The backward-Euler report uses a single randomized numerical-step objective. The sign-decorrelation report optimizes a different diffusion's stationary correlation."
+        ],
+        "reasoning": "Jensen and upper concave envelopes are standard moment-optimization techniques. The checked adjacent statements do not supply the arbitrary-kernel one-peak-to-sharp-transition theorem for crossing flux or the model-specific thresholds. Their other contact constants and equality cases do not transfer numerically.",
+        "searches": [
+          "Resultary:9af371fa60df and a1a5c9c420de, fixed-mean renewal clock envelopes",
+          "Resultary:d4a8e3bbf43d and 1ee39cc9ce47, same-day fixed-mean and renewal comparisons"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2301.06608 §IV.B",
+        "arXiv:2312.13968 §IV.1.1",
+        "Resultary:4aef38b21273",
+        "Resultary:9af371fa60df",
+        "Resultary:a1a5c9c420de",
+        "Resultary:d4a8e3bbf43d",
+        "Resultary:1ee39cc9ce47"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Same-model Poisson uniqueness explicitly excludes non-Poisson clocks. The earlier model-specific envelopes have the same proof architecture but different underlying rewards. The frozen work constructs the crossing-specific envelope and strict contact argument, including unattainability with 0 excluded and deterministic attainment at equality."
+        ],
+        "reasoning": "Combining the known kernel with renewal reward and Jensen is the route to the result, not a new general method. The examined statements themselves do not provide the crossing-law comparison over all positive fixed-mean durations.",
+        "searches": [
+          "arXiv:2312.13968 Eqs. (15)–(16), §IV.1.1",
+          "Resultary:4aef38b21273 assumptions and proof",
+          "Resultary:9af371fa60df tangency proof and a1a5c9c420de Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The free inertial Rice formula at zero initial velocity gives this kernel after rescaling. The exponentially clocked version is the same reset-to-rest nonzero-level experiment as the Poisson study and 4aef38b21273."
+        ],
+        "reasoning": "The stochastic experiment itself and the Poisson restriction are not new. The crossing reward is a linear expectation of H(T/τ) with fixed mean cost. First-passage objectives, occupancy density and alignment correspond to different rewards; an optimal exponential parameter is not an optimization over laws.",
+        "searches": [
+          "Resultary meaning lookup for random acceleration, nonzero-level continuous-crossing flux and fixed-mean renewal reset clocks",
+          "arXiv:2301.06608 §IV.B",
+          "arXiv:2312.13968 §IV.1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior sources provide the Poisson maximum and the later uniqueness proof, not the renewal tangency value 2.3178848733… or the optimizer over all distributions with a prescribed mean. The close same-day catalogue entries use different objectives."
+        ],
+        "reasoning": "The numerical Poisson benchmark is already covered; reproducing it is verification, not originality. A table of free or exponentially averaged intensities alone does not settle the exact renewal threshold or nonattainment.",
+        "searches": [
+          "Resultary lookup for the same reset-to-rest crossing experiment and numerical threshold",
+          "Resultary:4aef38b21273 §Proof.3–4",
+          "arXiv:2312.13968 Eqs. (24)–(25) and accompanying optimum"
+        ]
+      },
+      "rationale": "The free Rice law, unimodality of this free kernel, Poisson formula and best Poisson rate are already covered. The distinct claim supported here is the sharp crossing-rate comparison over all fixed-mean iid positive renewal laws, with its contact constant and attainment classification. Fixed-mean clock envelopes with the same qualitative structure exist for other kernels, but the inspected analogues do not state a general theorem of the needed scope that already covers this crossing objective. The envelope method itself is not new.",
+      "residual_risks": [
+        "A general renewal-clock theorem or unindexed same-observable result could cover the model-specific application. Bounded searches and passages are not proof of worldwide priority.",
+        "No priority ordering is inferred from matching dates of distinct records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_KERNEL_PRIOR",
+          "evidence": "Zero initial velocity in the general random-acceleration intensity gives the frozen free intensity; no clock optimization in this passage.",
+          "identifier_or_url": "https://arxiv.org/abs/2301.06608",
+          "material_read": "§IV.B, pp. 11–12, Eqs. (50)–(56)",
+          "method": "Primary OA full-text passages",
+          "title": "Counting of level crossings for inertial random processes: Generalization of the Rice formula",
+          "trigger": "Exact free crossing kernel"
+        },
+        {
+          "assessment": "POISSON_RESTRICTION_PRIOR",
+          "evidence": "Poisson renewal crossing formula and numerical optimum for the matching nonzero-level regime.",
+          "identifier_or_url": "https://arxiv.org/abs/2312.13968",
+          "material_read": "Eqs. (15)–(16) and §IV.1.1, pp. 5–7, Eqs. (24)–(25)",
+          "method": "Primary OA full-text passages",
+          "title": "The effect of stochastic resettings on the counting of level crossings for inertial random processes",
+          "trigger": "Exact same observable with stochastic resetting"
+        },
+        {
+          "assessment": "EXACT_POISSON_SUBCLAIM_PRIOR",
+          "evidence": "First experiment is the same reset-to-rest crossing at a nonzero level; it proves kernel unimodality and uniqueness of the Poisson optimum, and explicitly does not optimize non-Poisson clocks.",
+          "identifier_or_url": "Resultary:2026/11/2/SCOPE-unique-optimal-resetting-in-two-random-acceleration-level-crossi--4aef38b21273",
+          "material_read": "RESULT.md, §Proof.3–4, local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary and original in mirror",
+          "title": "Unique optimal resetting in two random-acceleration level-crossing experiments",
+          "trigger": "Same experiment and exact optimality claim"
+        },
+        {
+          "assessment": "SAME_METHOD_DIFFERENT_REWARD",
+          "evidence": "Same short-mean unattained and long-mean deterministic behavior but for an alignment reward.",
+          "identifier_or_url": "Resultary:2026/11/2/SCOPE-a-sharp-fixed-mean-reset-clock-transition-for-active-brownian-al--9af371fa60df",
+          "material_read": "RESULT.md Finding and tangency argument, offsets 0 and about 4702",
+          "method": "Local Resultary and original in mirror",
+          "title": "A sharp fixed-mean reset-clock transition for active Brownian alignment",
+          "trigger": "Closest envelope of another reset observable"
+        },
+        {
+          "assessment": "SAME_METHOD_DIFFERENT_KERNEL",
+          "evidence": "Pointwise occupation density at nonzero displacement is the optimized reward, not crossing intensity of integrated Brownian motion.",
+          "identifier_or_url": "Resultary:2026/11/8/SCOPE-sharp-fixed-mean-stationary-occupancy-under-brownian-renewal-res--a1a5c9c420de",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary and original in mirror",
+          "title": "Sharp fixed-mean stationary occupancy under Brownian renewal resetting",
+          "trigger": "Most similar renewal optimization domain"
+        },
+        {
+          "assessment": "STRUCTURAL_ANALOGUE",
+          "evidence": "One-stage randomized-step squared norm amplification, not a reset crossing process.",
+          "identifier_or_url": "Resultary:2026/11/22/SCOPE-sharp-fixed-mean-randomized-backward-euler-damping-on-a-planar-o--d4a8e3bbf43d",
+          "material_read": "RESULT.md Finding/Proof, offset 0",
+          "method": "Local Resultary and original in mirror",
+          "title": "Sharp fixed-mean randomized backward-Euler damping on a planar oscillator",
+          "trigger": "Distinct same-day fixed-mean envelope"
+        },
+        {
+          "assessment": "DIFFERENT_OPTIMIZATION_OBJECTIVE",
+          "evidence": "Periodic clocks minimize stationary sign correlation at positive lag for a different diffusion.",
+          "identifier_or_url": "Resultary:2026/11/22/SCOPE-sharp-renewal-reset-sign-decorrelation-and-a-heavy-tail-occupati--1ee39cc9ce47",
+          "material_read": "RESULT.md Finding/Assumptions, offset 0",
+          "method": "Local Resultary and original in mirror",
+          "title": "Sharp renewal-reset sign decorrelation and a heavy-tail occupation law",
+          "trigger": "Distinct same-day arbitrary-clock comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The available clock laws have an operationally meaningful sharp transition not visible to Poisson optimization: an entire short-mean interval shares a supremum but no optimal positive clock, whereas a periodic clock uniquely optimizes at and above the boundary. The contact scale and comparison with best Poisson resetting quantify this gap for a well-studied crossing observable. The burst limit is an idealization permitting arbitrarily small intervals and excluding reset jumps and overhead; neither realistic resetting constraints nor first-passage performance are evaluated.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

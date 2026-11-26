@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction
 
-Use Python 3.9 or later. Run `python3 verify_cyclic_switches.py` from this directory. It requires only the standard library. The archived output is `verification_output.txt`; the final line must read `CYCLIC_SWITCH_CHECKS_PASS supports=23200`.
+# Independent mathematical audit
 
-The checker performs direct enumeration of every \(n\)-bit cyclic word for \(3\le n\le11\), every feasible even \(k\), and every coordinate support, testing shattering independently of the proof's gap argument. It also directly checks the completion-polynomial coefficient for every support of size at most three, and runs a memoized exact Littlestone recursion through \(n=10\) for \(k=2\). The separate `depth4_certificate.json` contains an explicit 16-leaf, four-level adaptive tree on five cycle vertices. Read each node's `position` as a one-based coordinate query and its `zero` and `one` branches as the resulting bits; every leaf is a concrete feasible word consistent with its path. Its leaves and node choices were checked against all paths when generated.
+## correctness
 
-The exact general statements are justified by the all-parameter proof in `RESULT.md`, not by these finite checks. This package does not constitute independent validation or a historical originality certificate.
+PASS
+
+A fixed trace fixes the parity on each disjoint cyclic edge gap; a switch-edge subset and one bit determine the whole word. Thus the binomial gap coefficient counts exactly, including singleton and empty supports. The allowable totals fill a step-two interval. Its lower endpoint has maximum 2 floor(s/2); its upper endpoint has minimum 2 ceil((n-s)/2), because the allowed gap-difference vectors have even parity. These separate extrema suffice for a universal trace condition and give the asserted rank with even k. Lexicographic shelling and the reduced Euler characteristic give the stated wedge, including r=1. The online upper bound counts distinct leaves, while the fixed-initial-bit subclass with one switch per block permits median splitting independently in each block. The size bound gives equality at n=3,4 with k=2; all 16 supplied n=5 certificate paths lead to distinct consistent two-switch words. A new bitmask check verified 2,208 support/class instances covering all traces for n=3..8, and every certificate path; replay: /workspace/branches/replay-cyclic.py. The all-n claims rest on the proof, not this finite check.
+
+## originality
+
+PASS
+
+The inspected exact linear and circular-partition antecedents share methods and phenomena, but do not cover the complete cyclic exact-k vertex-bit trace classification and specified four-query certificate. The fixed-k logarithmic order alone and uniform-matroid topology are not independent originality contributions.
+
+## value
+
+PASS
+
+For this natural exact-switch concept class the full labelled trace multiplicities describe every partial observation, beyond determining a single VC number. The uniform rank across supports remains informative near the dense boundary, where a small-k interval bound does not suffice. The exact first adaptive gap gives a concrete separation of observation modes. The standard homotopy corollary and the inherited order-of-growth technique are not the basis for the value pass.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

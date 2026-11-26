@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:20:46.480050Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–77, VERIFICATION.md and source of VERIFY.py inspected",
+        "Independent replay: cd /workspace && python3 reproductions/scalar_checks.py ; recorded output reproductions/scalar_checks.txt"
+      ],
+      "rationale": "With a=alpha-1>0 the displayed law equals a mixture of negative-binomial counts of shapes a and a+1 at the same success probability t/(1+t), weighted t/(1+t) and 1/(1+t). This recovers the positive, normalized mass. The gamma recurrence gives the neighboring ratio R_j with b=a(t+2). Clearing its positive denominators shows R_{j+1}-R_j has sign opposite the monic H(j)=j^2+(2b-2t-1)j+b(b-t)-2(t+1). The first-index value H(0) has its unique positive shape root at a_c(t); at b=t+1/2, where the linear coefficient vanishes, H(0)=-(6t+7)/4. Thus above or at the boundary the linear coefficient is positive, and H(j)>H(0) for j>0. Below the boundary H(0)<0 and its two real roots have opposite sign, giving exactly one curvature transition and at most one flat step. For the peak count, the sign numerator of R_j-1 is a strictly concave quadratic with leading coefficient -t, so the positive indices are a single finite block; zeros allow ties but no additional separated peak. In particular, when the positive block is empty, two integer zeros must be adjacent if both occur, so any weak interior peak is confined to one equality plateau. For a=2/3 the exact rational endpoint tests give R_0<1<R_1 and R_2<1 across the stated interval. Decreasing forward differences of the concave numerator then give R_j<1 for all j>=2. The only global candidates are 0 and 2. Their probability difference has the sign of minus the cubic, which is strictly increasing in t>0 and changes sign inside the rational bracket. This proves the unique switch and excludes all other counts at the tie, without using finite samples to make an infinite assertion.",
+      "residual_risks": [
+        "The theorem is about the full count PMF for alpha>1 and t>0, not a hazard theorem or a regression performance claim. Peak counting allows adjacent equalities; strict decreases are asserted only where the ratio inequality is strict."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen 2023 source inspection records a matching PMF and an unconditional log-concavity claim, with unimodality discussed in the same section. The 2024 source reuses the same marginal for bivariate models. The same-family Resultary summary addresses thinning self-decomposability, not probability ratios at successive counts."
+        ],
+        "reasoning": "An unconditional curvature/unimodality conclusion is not a stronger correct result here: the exact low-shape witness contradicts it. The available bivariate and thinning statements do not give a sign test for successive ratios or the global mode location.",
+        "searches": [
+          "doi:10.17713/ajs.v52i1.1344, Theorem 1 and Section 2 post-ratio discussion",
+          "doi:10.17713/ajs.v53i1.1551, Section 2",
+          "Resultary: 2026/11/22/SCOPE-sharp-thinning-self-decomposability-frontier-of-the-two-paramete--d7a7540680dd"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary summaries cited above; frozen AUDIT.json lines 37–137 and RESULT.md lines 85–101 for recorded source inspections; one targeted alternate-copy literature search for the 2010 paper"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published mass formula provides the starting ratio, while the asserted theorem needs the derivative-free sign classification of its discrete increment for all count indices and comparison of p_0 and p_2 with the entire remaining tail. The overlapping modal summary uses a different law and exponent-based parameter."
+        ],
+        "reasoning": "A reused mass formula is not an already-proved all-index statement, and a two-mode example in a nonidentical family cannot imply exact phase inequalities in this one. The 2010 full-text implication question is unresolved, not assumed negative.",
+        "searches": [
+          "doi:10.17713/ajs.v52i1.1344, Section 2",
+          "doi:10.1080/03610920902898514",
+          "Resultary: separated global modes and skipped modal transition in exponentiated discrete Lindley"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen source inspections identify alpha_2023=1+alpha_GPL, corroborated there by the 2022 PGF and Lawal's 2025 equivalent PMFs. The frozen normalized mass itself gives the PGF t/(t+1)*(t/(t+1-z))^a + 1/(t+1)*(t/(t+1-z))^(a+1), explicitly exhibiting the shapes a and a+1.",
+          "Primary and alternate-copy retrieval did not yield the 2010 full text in this review."
+        ],
+        "reasoning": "Under the one-unit shift the new curvature and mode statements must remain the same mathematical claims; changing name does not make a different law. The earlier reported mass/PGF equivalence covers the model itself, not automatically the asserted all-index threshold or exact global switch.",
+        "searches": [
+          "doi:10.1080/03610920902898514, Mahmoudi–Zakerzadeh (2010), exact title plus preprint, PMF and unimodality",
+          "doi:10.1007/s42519-022-00261-z, Section 2.4, equations (19)–(23)",
+          "doi:10.9734/ajpas/2025/v27i2714, Sections 2.2 and 2.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest distinct modal summary states a 0/2 tie at q=21/25 and an exponent between 0.779 and 0.78 for the exponentiated discrete Lindley law. The present record gives a shape-a=2/3 negative-binomial mixture and an algebraic rate root in (0.153,0.154). The same-family thinning hit states a different invariant; the exact curvature/mode self-hit is this assigned record."
+        ],
+        "reasoning": "Sharing the two modal indices is not equality of laws or of thresholds. The exponentiated discrete Lindley law with a fixed q has probabilities with a linear-geometric leading tail (exponentiating the CDF multiplies its leading survivor by a constant). The present a=2/3 mass has leading factor j^(2/3) times a geometric factor, so the exhibited tied laws cannot coincide by changing parameters. No priority inference is made from same-day dating.",
+        "searches": [
+          "Resultary: generalized Poisson–Lindley curvature boundary and separated global modes",
+          "Resultary: 2026/11/22/SCOPE-separated-global-modes-and-a-skipped-modal-transition-in-the-exp--092e96c8a189",
+          "Resultary: 2026/11/22/SCOPE-sharp-thinning-self-decomposability-frontier-of-the-two-paramete--d7a7540680dd"
+        ]
+      },
+      "rationale": "The older generalized Poisson–Lindley law and its mixed-Poisson formula are not novel. The supported distinct claim is the sharp global curvature threshold, quantified restriction on peak shape, and certified nonadjacent tie and switch in this law. The strongest compared same-family evidence gives formulas, a different property, or the reported blanket shape assertion contradicted by the witness. A separate indexed 0/2 tie concerns a different PMF. The inaccessible 2010 full text remains a material priority risk, not an automatic failure.",
+      "residual_risks": [
+        "The exact 2010 primary-paper shape discussion was inaccessible and decisive passages of the later sources were not retrieved independently. Older equivalent results or a broader theorem under another parametrization are not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers law, not the corrected phase or separated modes in the available evidence",
+          "evidence": [
+            "Recorded Section 2 sentence: 'The distribution is log-concave'; ratio analysis follows the PMF."
+          ],
+          "identifier_or_url": "doi:10.17713/ajs.v52i1.1344",
+          "material_read": "Frozen AUDIT.json lines 83–94 reports Theorem 1, Section 2 after (3), and shape conclusions; independent journal page and exact publisher PDF passage retrieval did not succeed",
+          "method": "Compare the recorded law and universal assertion with the exact counterexample",
+          "title": "A New Poisson Generalized Lindley Regression Model",
+          "trigger": "Same law and reported universal curvature and unimodality assertions"
+        },
+        {
+          "assessment": "Covers the underlying law; original shape analysis and priority remain unresolved",
+          "evidence": [
+            "Older GPL model and mixture/inference focus in recorded abstract; no full-text shape passage available."
+          ],
+          "identifier_or_url": "doi:10.1080/03610920902898514",
+          "material_read": "Bibliographic abstract as documented in frozen AUDIT.json lines 128–137, with credited equivalent law in later articles. Independent DOI retrieval timed out; one exact alternate-copy search returned no usable result.",
+          "method": "Compare available model and bibliographic evidence, without drawing whole-text negative conclusions",
+          "title": "Generalized Poisson–Lindley Distribution",
+          "trigger": "Earliest identified equivalent mass law and plausible shape discussion"
+        },
+        {
+          "assessment": "Equivalent formulation, no covering shape conclusion in the recorded evidence",
+          "evidence": [
+            "Section 2.4 credits Mahmoudi–Zakerzadeh for the PGF."
+          ],
+          "identifier_or_url": "doi:10.1007/s42519-022-00261-z",
+          "material_read": "Frozen AUDIT.json lines 95–105 identifies Section 2.4, equations (19)–(23); new OA attempt timed out",
+          "method": "Compare shifted PMF/PGF recovery and scope of the reported result",
+          "title": "Bivariate Discrete Poisson–Lindley Distributions",
+          "trigger": "Explicit later reproduction of older GPL formula"
+        },
+        {
+          "assessment": "Establishes model equivalence in the recorded passage, not the exact shape result",
+          "evidence": [
+            "Reported formula alpha_NPGL=1+alpha_GPL."
+          ],
+          "identifier_or_url": "doi:10.9734/ajpas/2025/v27i2714",
+          "material_read": "Frozen AUDIT.json lines 117–127 identifies Sections 2.2 and 2.4 and p. 81; new OA attempt timed out",
+          "method": "Check the reported parameter substitution and compare property studied",
+          "title": "Comparative Analyses of the Poisson-Exponential-Gamma to Selected Discrete Distributions with Applications",
+          "trigger": "Explicit shift between the two named Lindley families"
+        },
+        {
+          "assessment": "Close conceptual analogue, but not the same law or the same count curvature boundary",
+          "evidence": [
+            "Exponentiated discrete Lindley at q=21/25, with a crossing exponent in (0.779,0.78), not the current mixture rate crossing."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-separated-global-modes-and-a-skipped-modal-transition-in-the-exp--092e96c8a189",
+          "material_read": "Local Resultary summary; attempted local-mirror result retrieval timed out",
+          "method": "Compare the asserted distributions, parameters and claimed modal invariants",
+          "title": "Separated global modes and a skipped modal transition in the exponentiated discrete Lindley law",
+          "trigger": "Exact overlap of modal indices and transition pattern"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–30, 34–77 and 85–93; independent exact curvature and witness check"
+      ],
+      "rationale": "Replacing a blanket shape assertion for an actually used count model with a sharp full-domain curvature test is substantive. The exact separated tied modes and strict switch show a qualitative failure of unimodality, not merely failure of a sufficient test or a numerical irregularity. The witness and the peak bound are directly useful for modal interpretation without making unsupported claims about reliability or estimation.",
+      "residual_risks": [
+        "The explicit switch is a proved parameter slice, not a complete two-dimensional list of all coexistence curves."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

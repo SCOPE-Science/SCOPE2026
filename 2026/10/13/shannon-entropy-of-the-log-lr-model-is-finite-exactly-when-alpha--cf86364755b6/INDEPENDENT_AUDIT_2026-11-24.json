@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:04:49.898971Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The published CDF composed with x(t)=lambda sqrt(-2 log(1-exp(-t))) gives the Lomax survival since the transform is decreasing. The absolute Jacobian has log J(t)=-t/2+O(1) at infinity and log J(t)=-log t-(1/2)log log(1/t)+O(1) at zero. Under the Lomax density, -log f_T is absolutely integrable for all positive shapes, the positive part of log J is integrable, and its negative tail contributes asymptotically -(alpha beta^alpha/2)t^(-alpha) to the entropy integrand. Thus the change of variables is valid in the extended-real sense, including logarithmic divergence at alpha=1, with no subtraction of divergent expectations. Integrating the Lomax survival gives E[T]=beta/(alpha-1) for alpha>1, and log((beta+T)/beta) is exponential with rate alpha (the log-eta expectation is actually finite for every alpha>0). Differentiating the CDF and taking minus the log density yields exactly the simplified entropy formula; E[X^2] and E[|log X|] are finite in that regime by the same endpoint estimates. VERIFICATION.md and verify_entropy.py were inspected, not executed; the latter encodes formulas locally rather than checking a package API. The proof, not recorded or sampled output, establishes the boundary.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general CDF quoted in the frozen RESULT.md at lines 167–171 would imply Lomax survival for -log B(X). The primary generator passage was not accessible; this comparison uses the quoted formula conditionally."
+        ],
+        "reasoning": "The same transformed distribution is shared by arbitrary baselines, whereas entropy depends on the inverse-baseline Jacobian; no general entropy-domain theorem covering the Rayleigh case was established in the material inspected.",
+        "searches": [
+          "10.1063/5.0171949, general Lomax-G generator; AIP/DOI and identified alternate copy",
+          "Resultary: transformed Lomax variable and entropy boundary"
+        ]
+      },
+      "checked_sources": [
+        "Alomari, DOI 10.3934/math.2026796",
+        "Sapkota et al., DOI 10.1063/5.0171949 (full text inaccessible)",
+        "Configured Resultary index and indicated mirrored finding"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior CDF implies the transformed law and the two simple Lomax expectations when expressed in that coordinate. Finite entropy of that coordinate for every positive shape does not imply finite entropy after applying the inverse Rayleigh transform."
+        ],
+        "reasoning": "Credit the existing generator and standard identities. The model-specific signed tail analysis and failure of the published numerical prescription on a full parameter regime are the surviving claim; a prior entropy result implying that correction was not located.",
+        "searches": [
+          "Compare Alomari Eq. (2.5) and section 2.8.1 with the general Lomax-G CDF quoted in RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Alomari's expression splits H into expectations involving the same F_R and eta but gives no integrability split; at alpha<=1 it cannot be interpreted as a sum of real terms.",
+          "The closest distinct indexed comparison concerns p!=1 Rényi integrability for a unit arcsine–Weibull density, not the Log-LR Shannon integral."
+        ],
+        "reasoning": "The monotone Lomax coordinate reproduces the published law, but only the Rayleigh inverse-Jacobian tail identifies the signed extended entropy and its threshold. Different power-integrability thresholds for a different distribution do not imply this result.",
+        "searches": [
+          "Resultary: Log-LR Shannon entropy boundary and alpha=1, including transformed Lomax formulation",
+          "10.3934/math.2026796, Eqs. (2.5) and section 2.8.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Retrieved Resultary candidates did not contain an exact threshold for this law. The target entropy section states numerical evaluation of expectations rather than giving the exact entropy-domain classification."
+        ],
+        "reasoning": "Finite numerical entropy evaluations cannot tabulate a continuum-wide sign/integrability classification at a singular endpoint. The specific exact indexed phase-diagram candidate is for another law and another entropy functional.",
+        "searches": [
+          "Resultary exact law and threshold aliases (Log-LR, Shannon, alpha=1)",
+          "Alomari, section 2.8.1"
+        ]
+      },
+      "rationale": "The supported contribution is a model-specific correction of the entropy domain and evaluation of two expectations, not discovery of the Lomax generator or the entropy change-of-variables formula. The strongest accessible matching primary passage leaves the relevant expectations numerical and does not give a finiteness domain. No demonstrated coverage of the correction was found in the inspected evidence.",
+      "residual_risks": [
+        "An uninspected part of the precursor literature or an unindexed note could contain a broader Jacobian/entropy result or an equivalent model-specific derivation; negative retrieval does not rule this out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact model and entropy decomposition; no stated boundary in the inspected discussion",
+          "evidence": [
+            "G=(beta/eta)^alpha, eta=beta-log F_R for positive parameters; section 2.8.1 says the expectations do not admit tractable closed forms and are evaluated numerically."
+          ],
+          "identifier_or_url": "https://doi.org/10.3934/math.2026796",
+          "material_read": "Publisher PDF p. 4 (printed 19597), Eq. (2.5), offset 11973; p. 11 (printed 19603), section 2.8.1, offset 32545",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "A new logarithmic Lomax–Rayleigh distribution: properties, simulation, and applications",
+          "trigger": "Defines the exact model and evaluates its Shannon entropy"
+        },
+        {
+          "assessment": "Inaccessible for statement-level entropy coverage; conditional comparison from formula cited in record",
+          "evidence": [
+            "The AIP and identified alternate page returned HTTP 403; no repository copy was recovered."
+          ],
+          "identifier_or_url": "https://doi.org/10.1063/5.0171949",
+          "material_read": "Bibliographic identification; the original generator/entropy text was not retrieved",
+          "method": "Lawful AIP landing-page and PDF attempts, DOI/repository recovery, and identified author-copy page attempt",
+          "title": "New Lomax-G family of distributions: Statistical properties and applications",
+          "trigger": "Possible broader generator result"
+        },
+        {
+          "assessment": "Different distribution and Rényi order, not equivalent",
+          "evidence": [
+            "The result concerns p!=1 Rényi integrals for a unit arcsine–Weibull density, including fitted k=0.9952; neither the Log-LR density nor its Shannon cutoff is treated in this passage."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-exact-r-nyi-integrability-phase-diagram-for-the-unit-arcsine-wei--be042b840513",
+          "material_read": "Mirrored RESULT.md finding passage, offset 891",
+          "method": "Configured Resultary search and local-mirror passage inspection",
+          "title": "Exact Rényi integrability phase diagram for the unit arcsine–Weibull model",
+          "trigger": "Closest distinct indexed entropy-integrability comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact cutoff corrects a published summary statistic across an entire admissible parameter regime, distinguishing genuinely finite entropy from a numerically plausible truncation of a divergent integral. The two analytic terms also reduce the legitimate finite-regime computation. This is useful without claiming novelty for standard transformation identities.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

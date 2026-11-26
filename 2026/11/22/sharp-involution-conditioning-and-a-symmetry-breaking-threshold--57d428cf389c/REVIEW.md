@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The classification exhausts all anticommuting involutions by preservation of the two nilpotent kernel flags, fixes the upper triangular entries through the anticommutation and involution equations, and converts the norm into the norm of a rank-one oblique projection. The exact identity \(p^2=\rho^2+(rs-1)^2\) reduces the global complex optimization to an interval of feasible products, proving the two cases and all optimizers. The second-derivative jump follows by composition with a strictly increasing smooth function at the threshold. `CHECK.py` additionally completed 22,463 independent finite diagnostic assertions. Numerical sampling does not prove the continuous theorem.
+PASS
 
-## Originality — PASS, subject to bibliographic limits
+Reconstructed the exhaustion and the sharp calculation. An anticommuting involution preserves ker N_c and ker N_c², hence is triangular. Up to overall sign its diagonal is (1,-1,1), its adjacent entries x,z satisfy x+z=-2c, and its (1,3) entry is -xz/2; these equations also suffice. The rank-one projection P=(I-J)/2 has norm p=sqrt((1+|x|²/4)(1+|z|²/4)). In an orthonormal range/kernel-complement block the reflection has a 2-by-2 block with diagonal -1,1 and off-diagonal magnitude 2 sqrt(p²-1); its largest singular value is p+sqrt(p²-1). For c≠0, shrinking the two moduli to a sum of |c| and aligning with -c strictly improves any strict triangle inequality. On that boundary p²=|c|²+(rs-1)² and rs runs through [0,|c|²/4]. This proves attainment and all equality cases including c=0 and the merged pair at |c|=2. J^{-1}=J gives squared condition number; the derivative jump is in the second derivative, since p and p' match at 2 with unequal p''. The one-sided construction has p=sqrt(1+|c|²) and is strictly worse for c≠0. Frozen RESULT.md §§1–4 are analytically sufficient. CHECK.py was inspected, not run; it tests finite samples and symbolic feasible-family identities, not continuum optimality. No formal or expert certification is claimed.
 
-Aouichaoui's October 2026 article studies existence of anticommuting involutions for three-block nilpotents. Its explicit one-sided involution is not spectrally optimal on the present scalar family. Its Section 4 and theorem statements do not calculate the minimum norm or classify a sharp transition. The earlier Marcoux–Radjavi–Zhang paper treats closure, factorization and qualitative similarity; its full text could not be obtained, so a possible undocumented quantitative special case remains a live risk. Related research records on affine Jordan norm pencils and conditioning of different cascades do not imply the constrained norm formula. Matching an operator family or a projection identity is not the same as proving the optimized equality profile.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The first nontrivial three-step nilpotent carries a shortcut coupling not present in a two-step chain; the explicit optimization measures how costly it is to implement the algebraically guaranteed sign reversal by an actual bounded involution. The piecewise exact norm is a motivated quantitative operator invariant and detects a genuine optimizer-bifurcation at shortcut magnitude \(2\). Both the strict improvement over the canonical construction and the classification of all optimal implementations have direct relevance to operator similarity and norm-controlled factorization. No general higher-dimensional claim is made.
+The supported distinct result is the sharp scalar spectral-norm optimum, its full minimizing set over complex involutions and its transition. The general qualitative anticommutation and involution–projection reduction are antecedents, not new claims. Ranked comparisons disclosed no distinct equivalent. This is a best-of-knowledge decision, not a priority guarantee.
 
-## Residual limitations
+## value
 
-The result concerns a normalized scalar three-block matrix, not arbitrary block dimensions, arbitrary non-involutive similarities or arbitrary operator norms. The 2023 comparator could not be inspected beyond the public abstract and indirect theorem citations. Independent validation remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A qualitative sign symmetry does not measure how much distortion its implementation costs. The normalized three-step complex chain is a natural first case in which an extra coupling remains, and the least norm and the implementers are useful in comparing norm-controlled sign similarities. The two-to-one split of optimizers modulo sign and the optimal condition number are substantive, not just an explicit evaluation of the canonical construction. No claim is made for arbitrary block sizes or unrestricted similarities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

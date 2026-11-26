@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:11:50.262400Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The set of available k-subsets grows, preserving every earlier distinct sample. On a sample operation, exactly E_{t−1}−D_{t−1} currently available subsets count as hits, even for multiplicities >2, so the predictable Bernoulli mean is q(E_{t−1}−D_{t−1})/binom(k+B_{t−1},k). This includes initial times. For B_{t−1}≥p(t−1)/2 the mean is bounded by C t^{1−k}, and the complement has exponentially small probability; summing expectations proves both claims for k≥3. Almost surely B_{t−1}=pt+O(t^{2/3}) by summable concentration. At k=2, a_t=O(1/t) eventually; the martingale differences divided by log(t+1) have a.s. summable conditional variances and bounded increments. Localization, convergence and Kronecker give M_n/log n→0, then D_n=O(log n). Substitution gives a_t=c_p/t+O(t^{-4/3}+log(t)/t²), so A_n−c_p log n converges a.s. and Σ a_t²<∞. The predictable variance is c_p log n+O(1) a.s.; divided by c_p log n it tends to one, and bounded increments give conditional Lindeberg at that normalization. The martingale CLT and the bounded centering error prove the stated normal limit. Both graphs have the same vertices and components, so Euler's cycle-rank formula subtracts exactly the number of repeat attempts. This applies for every fixed 0<p<1 without a percolation hypothesis. The frozen checker was inspected but not run; its enumeration and simulations are finite diagnostics and do not enter the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Krapivsky's extensive percolation and topological analysis treats distinct faces; it describes the no-repeat assumption as negligible for its purposes.",
+          "ed7916b39a61 is a Gaussian law for isolated vertices jointly with vertex count in a previously absent-hyperedge model with k≥3."
+        ],
+        "reasoning": "Negligibility at an extensive scale does not quantify repeats at the log scale. An isolated-vertex CLT or another model's parallel-pair cumulants do not dominate the target theorem.",
+        "searches": [
+          "Web literature search for repeat/collision limits in growing uniform hypergraphs; arXiv:2611.14824v1",
+          "Resultary ed7916b39a61 and 6155b52e972f"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.14824v1",
+        "arXiv:cond-mat/0104546v2",
+        "Resultary b741cb34ac32 (self), ed7916b39a61, 6155b52e972f, 0b5f2161f223"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The standard probabilistic limit theorem needs a verified predictable variance and centering; those come from the distinct-sample feedback E−D and its summable error.",
+          "The higher-rank summability follows directly from the k-subset denominator, and the finite-time Euler difference is already implied by standard cycle-rank theory."
+        ],
+        "reasoning": "The cycle identity is not a new topological theorem, and higher-rank finiteness is elementary once the intensity is identified. Neither the model predecessor nor the abstract CLT supplies the actual logarithmic stochastic asymptotics without the model-specific intensity and variance analysis.",
+        "searches": [
+          "arXiv:2611.14824v1 PDF pp. 1–2",
+          "Resultary ed7916b39a61 and 6155b52e972f",
+          "Frozen RESULT.md §§1–5 of proof, including the martingale CLT and Euler identity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Krapivsky PDF p. 2 says the same three vertices cannot be chosen again once chosen.",
+          "Callaway et al. add a vertex at each step and then independently attempt a graph edge, unlike the exclusive two operations here.",
+          "Resultary 6155b52e972f and 0b5f2161f223 concern pairs of parallel edges attached from the same new vertex, not arbitrary uniform samples over the current population."
+        ],
+        "reasoning": "A multiplicity m contributes m−1 to repeat attempts but binom(m,2) to parallel pairs. Equivalence to a pair statistic would need a bound on the difference in the same process, not just a shared logarithmic order in another process.",
+        "searches": [
+          "Resultary: logarithmic repeated edges, growing uniform hypergraphs, parallel-edge counts",
+          "arXiv:2611.14824v1",
+          "arXiv:cond-mat/0104546v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact retrieved target was the assigned theorem itself (b741cb34ac32).",
+          "6155b52e972f tabulates exact harmonic expectation and variance for parallel pairs in two-parent attachment, and 0b5f2161f223 gives pair-cumulant formulas in a related attachment model."
+        ],
+        "reasoning": "The exact formulas are for different sampling and counting; neither tabulates c_p or gives the stated limit theorem for D_n.",
+        "searches": [
+          "Resultary: repeated-edge fluctuations and finite repeated-hyperedge tails; local mirror 6155b52e972f and 0b5f2161f223"
+        ]
+      },
+      "rationale": "The supported distinct result is the with-replacement repeat-attempt dichotomy, in particular the sharp graph constant, strong law and CLT. The birth-versus-uniform-selection mechanism is related to Krapivsky's model, but his triadic rule explicitly forbids repeated triples. The deterministic graph cycle-rank identity is a classical Euler consequence, not original by itself.",
+      "residual_risks": [
+        "A prior general collision theorem for growing nested sampling pools or an unindexed derivation of this particular martingale CLT was not ruled out.",
+        "The inspected early graph-paper passage establishes its model description, not an exhaustive absence of comments on repeated attempts elsewhere in the text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related rule but explicit prohibition of repeated triples in the triadic model",
+          "evidence": "‘Once chosen, the same three vertices cannot be chosen again’; associated graph of distinct edges.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.14824",
+          "material_read": "v1 PDF p. 1 abstract/introduction and p. 2, around offsets 9080–9783",
+          "method": "OA full-text passages",
+          "title": "Randomly growing uniform hypergraphs",
+          "trigger": "Closest growth mechanism, same k-uniform setting"
+        },
+        {
+          "assessment": "Different operation clock as described there",
+          "evidence": "A vertex is added every step, then two uniformly chosen vertices are joined with probability δ.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0104546v2",
+          "material_read": "PDF p. 1 abstract near offset 1185",
+          "method": "OA full-text abstract passage",
+          "title": "Are randomly grown graphs really random?",
+          "trigger": "Earlier random graph growth/percolation"
+        },
+        {
+          "assessment": "Different fluctuation variable and no-repeat rule",
+          "evidence": "Joint isolated-vertex and vertex-count theorem with previously absent hyperedges and k≥3.",
+          "identifier_or_url": "ed7916b39a61",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror",
+          "title": "A joint Gaussian law for isolated vertices in growing uniform hypergraphs",
+          "trigger": "Same growing hypergraph family and Gaussian limit"
+        },
+        {
+          "assessment": "Similar order, different statistic and model",
+          "evidence": "E C₂=H_{n−1}, Var C₂=H_{n−1}−H^{(2)}_{n−1} for parallel-edge pairs in two-parent attachment.",
+          "identifier_or_url": "6155b52e972f",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror",
+          "title": "Exact second cumulant matrix for the shortest cycles of a two-parent recursive multigraph",
+          "trigger": "Closest indexed logarithmic parallel-edge statistic"
+        },
+        {
+          "assessment": "Different process and observable",
+          "evidence": "Independent outgoing attachment choices per birth; gives a parallel-pair variance and covariance with triangles.",
+          "identifier_or_url": "0b5f2161f223",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror",
+          "title": "Exact negative covariance of two- and three-cycle counts in uniform attachment",
+          "trigger": "Previously indexed exact parallel-edge calculation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repeat count measures a natural difference between two practical graph versions that have the same connectivity. It is invisible at extensive scales yet diverges with a sharp constant and nontrivial fluctuation scale for pairs, while larger subsets cause only integrably many defects. The phase-independent theorem explains exactly what is lost by collapsing parallel edges in the graph case.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

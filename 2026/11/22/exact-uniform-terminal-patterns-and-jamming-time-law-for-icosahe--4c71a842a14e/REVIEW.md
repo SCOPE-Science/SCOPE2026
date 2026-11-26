@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The finite substrate is given by twenty explicit labelled triangular faces, with each of the thirty edges used twice. At every occupied-site mask the next successful face is uniform among currently admissible faces; this follows from independent equal-rate Poisson attempts, not an unproved symmetry assumption. The ten possible second faces after a fixed first face have residual admissible counts \(4,2,0\), with multiplicities \(6,3,1\); the four-admissible branch splits \(2+2\) after the third face. Those exact counts give all size probabilities and the waiting-time mixture. Terminal pattern uniformity follows from the 120 graph automorphisms and three verified terminal orbits. The included standalone verifier uses two different exact-rational enumeration approaches and rechecks both probability and time moments. The argument is exhaustive for this twelve-site substrate and does not substitute finite experiments for an infinite theorem.
+PASS
 
-## Originality: PASS (examined evidence, residual priority risk)
+Admissibility can only decrease. At a stopping time just after an acceptance, the currently admissible clocks have fresh independent unit exponential residual lives, so the minimum has rate equal to their number and is independent of the next chosen face. Independent exact replay derived the faces from the regular icosahedron coordinates and enumerated all successful histories by intersecting the remaining face sets in the conflict graph. It gave reachable-state counts 1,20,100,80,1 and exactly 10 six-site and 60 nine-site terminals each with weight 1/100, plus the full set with weight 3/10. Backtracking adjacency-preserving vertex maps gave the 120 automorphisms and the single orbit of each size; the vacancy checks on every mask confirmed the connected induced six-cycle or distances 1,2,3. Coverage is (6/12)(1/10)+(9/12)(3/5)+3/10=4/5. The entire rate-vector distribution is supported on (20,10), (20,10,4), (20,10,2), (20,10,4,1) with weights 1/10,3/10,3/10,3/10. Conditional transforms multiply the rate/(rate+s) factors, and the mixture yields both the stated transform for all s≥0 and exact mean 3/4 and variance 251/400. There is no waiting-time contribution from rejected proposals after jamming.
 
-Cieśla–Barbasz (arXiv:1309.7021; full arXiv article and open-access Springer paper, model/results sections inspected) treat trimers on a continuous flat collector with numerical saturation estimates, not face-constrained trimers on the finite icosahedron. Penrose–Sudbury (arXiv:math/0503519; PDF introduction, model, and relevant result sections examined) concern graph monomers and dimers, supplying a general event-order viewpoint but not the present hypergraph formula. The abstract of Budinski-Petković–Kozmidis-Luburić (Phys. Rev. E 56, 6904) concerns a planar triangular lattice; the subscription-controlled full text was not accessible, and no whole-paper noncoverage determination is asserted. The closest published-record searches on icosahedral face packings and trimer jamming and the available earlier results from the indexed mathematical database did not identify an implication giving this exact 71-state law. Unindexed earlier exact enumerations cannot be excluded.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The problem asks for complete irreversible packing statistics on the unique highly symmetric twelve-site spherical triangulation by its natural triangular adsorbates. The exact distribution resolves the physically meaningful complete-packing probability, quantifies jamming after only two or three particles, and identifies a nonobvious uniform law on both imperfect terminal geometries. The exact last-deposition-time transform supplies a different, rate-sensitive kinetic observable and a small finite benchmark for irreversible three-site adsorption. The result is not claimed to be a general theorem or an asymptotic phase transition.
+The process is a canonical instance of established random-order greedy packing and graph blocking RSA. The supported distinct content is the exact site-pattern distribution and the explicit last-success time mixture for this graph. Neither the basic greedy construction nor the elementary finite recurrence is claimed as new.
 
-## Scope and outstanding limitations
+## value
 
-The theorem assumes all twenty face placements have equal unit exponential rates, immutable occupied vertices, and no other allowed trimer shapes. The finite exact benchmark does not establish broader universality, equilibrium behavior, desorption effects, or behavior under inhomogeneous rates. Historical priority beyond checked sources and independent validation remain open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a natural finite benchmark for irreversible packing on a regular triangulated sphere. The full per-pattern distribution and exact kinetic law answer distinct questions: the former reveals that all imperfect terminal site sets have the same mass despite two sizes, and the latter quantifies the time cost of reaching any jammed outcome. A researcher can use the exact distribution and moments to check finite RSA or random-greedy computations without interpreting this as an asymptotic theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

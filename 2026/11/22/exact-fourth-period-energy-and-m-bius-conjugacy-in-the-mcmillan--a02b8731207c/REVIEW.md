@@ -1,15 +1,21 @@
-# Scientific review — fourth-period locus of the McMillan sextupole
+# Independent mathematical audit
 
-## Correctness: PASS
-The first integral and the two rational factorization identities are proved by direct expansion and checked symbolically. On the proposed cubic, both pole coordinates are excluded except at one removed point. The Möbius map is involutory, which gives the fourth-return identity for all such points without a finite-time extrapolation. Every genuine fourth-period orbit must obey one of two opposite-coordinate inequalities; injectivity failure of the force then forces the same cubic equation. Solving the fixed-point equation of the involution leaves exactly two exceptional fixed states. The degenerate parameter is an order-three linear map on its original domain. Local smoothness at the omitted pole proves each nondegenerate parameter has continuum many primitive four-cycles. The tangential-return and unit-Jacobian argument proves neutrality only at smooth cubic points. `checker.py` replays exact identities and illustrative rational trajectories; it is not used as a substitute for the quantified proof.
+## correctness
 
-## Originality: PASS relative to inspected evidence
-The 2022 and 2024 sextupole studies provide the force, invariant, fixed points, two-cycles, resonant degeneracy and rotation-number formalism. The inspected sections and appendices do not provide the exact global level \(K_a=-a\) of least-period-four points, explicit fourth-order Möbius action or complete real pole/lower-period exclusions. The 2024 mixed-nonlinearity sequel discusses Hénon fourth-order resonance and a broader invariant atlas rather than the sextupole formula in this claim. Searches for sextupole four-torsion, QRT four-period levels, matching invariants and related research records found no statement covering the complete result. General QRT translation principles, and the 2001–2002 Iatrou–Roberts normal-form works, are important antecedents; the latter were available only as abstracts. A mathematically equivalent unindexed calculation could exist, so publication priority is not established independently.
+PASS
 
-## Value: PASS
-The family is a canonical integrable symplectic map in beam dynamics. Period-four resonances are natural dynamical invariants in this setting. The theorem provides a complete exact primitive-period-four locus for every real trace parameter, including the noncompact part of the real dynamics not covered by stable-trajectory portraits; an explicit Möbius conjugacy makes the neutral family readily analyzable. The disappearance of the entire fourth-period level at a third-order linear resonance shows that periodic-point geometry can change dramatically outside the compact stable domain. It is not merely an isolated numerical example or a cosmetic restatement of the invariant.
+Set x=q+1, y=p+1 and b=a+1. The shifted map is (y,b+3-x-y-b/y), and H=K+a becomes xy(x+y-b-3)+b(x+y). For b!=0, H=0 forbids either coordinate being zero except at the excluded origin of these shifted coordinates. On H=0 the next scalar is b/x, yielding the involutive opposite-coordinate action and a defined fourth return. Conversely, in any defined four-cycle x,y,z,w, comparing the recurrence at opposite inputs shows x=z or xz=b, and y=w or yw=b. A primitive cycle cannot have both pairs equal, so one product equals b and the recurrence implies H=0. Removing period at most two amounts to checking x^2=y^2=b on H=0; only x=y=1 at b=1 and x=y=3 at b=9 survive, both fixed. The shifted pole has gradient (b,b), so the real curve contains a smooth arc of defined points near it. At b=0 the map on its domain is the restriction of an order-three linear map in original coordinates, with no primitive period four. The derivative of the fourth return on smooth points where the orbit is defined fixes the tangent and has determinant one, giving both unit multipliers. Independent symbolic reconstruction checked the invariant, pole, lower-period factors and representative exact rational trajectories in shifted coordinates.
 
-## Closest literature and limits
-Zolkin–Nagaitsev–Morozov (2022), arXiv:2204.12691v1; Zolkin et al. (2024), arXiv:2405.05652v2 and arXiv:2410.10380v3; Iatrou–Roberts (2001, 2002), DOI:10.1088/0305-4470/34/34/308 and DOI:10.1088/0951-7715/15/2/313. The last two were not available in full. The theorem is limited to the original partially defined real rational map, and does not classify all periods, global boundedness, or complex projective points. This review is not independent mathematical validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct result supported is the exact invariant level together with its real-affine converse and finite lower-period/pole exclusions in the sextupole family. The map, invariant and third-order degeneration at a=-1 are prior. Fourth order on other QRT families, and generic genus-one translation, are also prior and not credited here.
+
+## value
+
+PASS
+
+This locates and classifies a natural four-period resonance in a standard integrable beam-dynamics map for all real parameters, including outside stable bounded regions. The exact level and pole-safe explicit dynamics are useful for locating or ruling out primitive four-cycles without computing elliptic rotation numbers. The global converse and exclusions add substance beyond the known linear resonances.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

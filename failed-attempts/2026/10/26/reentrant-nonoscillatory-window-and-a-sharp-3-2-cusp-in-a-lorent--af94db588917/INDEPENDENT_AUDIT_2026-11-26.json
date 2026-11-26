@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:54:19.629973Z",
+  "axes": {
+    "correctness": {
+      "rationale": "As written, RESULT.md:8 puts the imaginary eigenvalues on the amplitude generator. With the equation stated at line 31, the time-evolution generator is iH, not H. In the window its three eigenvalues are distinct real negative numbers; the imaginary-axis statement is true of H. Indeed for every positive parameter, an H eigenvector x gives Im(E)=Lambda |x_3|^2/||x||^2>0, since x_3=0 forces x_2=x_1=0 by the row equations, so the generator has no purely imaginary eigenvalue at all. The intended geometric result for H is correct: the normalized cubic is y^3-y^2+(u+v)y-u; its repeated roots obey u=r^2(1-2r), v=2r(1-r)^2 and 0<r<1/2. The two branches straddle r=1/3 and the discriminant has signs negative, positive, negative for increasing v below, between and above the folds. Irreducible tridiagonality forces geometric multiplicity one. The displaced parameter r=1/3+s gives delta=1/27-u=s^2+2s^3 and v-2u-2/9=6s^3, hence width 12 delta^(3/2). Replay: python3 /workspace/reproductions/independent_checks.py 4. The frozen checks/check_spectrum.py was inspected; its sampled eigenvalues illustrate, rather than prove, the window. Correcting the generator name would not cure the originality and value findings.",
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Holst–Blasi–Khandelwal distinguish three real modes from a conjugate pair by the exact depressed-cubic discriminant in the nearby two-Lorentzian reaction-coordinate setting, using discriminant zero for EP2 and p=q=0 for EP3. They do not use the same trimer matrix.",
+          "The other cited articles treat different two-mode and two-dot models with their own EP conditions. The same-day Cauchy wavelet record applies the discriminant to a different cubic and gives a width law of exponent 3/2."
+        ],
+        "reasoning": "The broad cubic result covers the linear phase test and canonical cusp regardless of physical realization. The adjacent papers and the four-atom wavelet are not claimed to have the trimer parameters or a matching experiment.",
+        "searches": [
+          "arXiv:2610.26620 Sec. V, depressed cubic",
+          "arXiv:2206.14745 §5.1 Eqs. (44)–(51)",
+          "arXiv:2409.08100v4 §2.1 and §4",
+          "Resultary 9812aa5539e1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2406.18362v1",
+        "arXiv:2406.00411",
+        "arXiv:2610.26620",
+        "arXiv:2206.14745",
+        "arXiv:2409.08100v4",
+        "Resultary 04abec39aac0 and 9812aa5539e1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "On setting y=x+1/3, delta=1/27-u and b=v-2u-2/9, the source matrix gives the standard depressed cubic x^3+(b-3 delta)x+b/3. The known discriminant is exactly 4(3 delta-b)^3-3b^2. Its double-root curve is p=-3s^2 and q=2s^3, hence b=6s^3 and delta=s^2+2s^3.",
+          "The two folds, cusp, and correct spectral phase follow from that discriminant and the published coefficients by substitution; the width comes from b=±6 delta^(3/2)+O(delta^2)."
+        ],
+        "reasoning": "The precise 12 is not asserted to be printed in the original Lin paper. It is the coefficient obtained directly from the canonical cusp in the coordinates of the published linear model. The equivalent indexed classification supplies another concrete statement-level check; it is not invoked to claim that a later record is prior.",
+        "searches": [
+          "arXiv:2406.18362v1 Eq. (28) and Eq. (29)",
+          "arXiv:2610.26620 Sec. V",
+          "Resultary 04abec39aac0 exact fold"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The coherent-work catalogue result and the 2024 Hadipour–Haseli transform use D(s)=s^3+kappa s^2+(2 kappa lambda+g^2)s+kappa g^2. Setting (kappa,g,lambda)=(Lambda,chi,Gamma/4) yields D(s)=det(s I-iH) identically. This is a bijection of the positive parameter triples, not just a topological cusp analogy.",
+          "In the catalogue fold K=(t+2)^3/(t+1)^2 and w=t(t+2)^3/(t+1)^4, the trimer variables are v=2/K and u=w/K^2. With r=1/(t+2) these become exactly v=2r(1-r)^2 and u=r^2(1-2r)."
+        ],
+        "reasoning": "The entire indexed root classification and boundary map apply to precisely the same spectral problem; no implication is made for coherence numerators, eigenvectors or backflow. The model narratives differ, but the positive-domain polynomial equivalence is exact. The catalogue entry is dated 2026-11-01, later than the assigned item; the mathematical equivalence does not establish priority.",
+        "searches": [
+          "Resultary 04abec39aac0",
+          "arXiv:2406.00411 Eq. (14)",
+          "arXiv:2406.18362v1 Eqs. (25),(28)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Lin et al. give exact EP3 coordinates u=1/27, v=8/27 and a cube-root eigenvalue splitting, not a tabulated exact pair of finite-width endpoints or the window width. Their Markovian EP2 formula is from a different two-mode matrix.",
+          "The equivalent catalogue fold functions give both endpoints, with the conversions specified above. The wavelet record's exact width law is in different physical variables and is not an exact table of the trimer constant."
+        ],
+        "reasoning": "No enumeration or exact database of constants is claimed; the natural exact comparison is the EP-coordinate formulas and full indexed fold map rather than a search for the literal number 12.",
+        "searches": [
+          "Lin et al. arXiv:2406.18362v1 §3, Eqs. (27)–(31)",
+          "Resultary 04abec39aac0 Finding",
+          "Resultary 9812aa5539e1 Finding and Proof"
+        ]
+      },
+      "rationale": "The trimer matrix and EP3 are prior. For the stated linear spectral claim the remaining result is a direct specialization of the real depressed-cubic discriminant to the already published physical coordinates. An independently indexed finding gives the exact same positive-parameter cubic and the full fold locus after a bijective parameter substitution; its later catalogue date is not evidence of earlier priority. The width coefficient is the coordinate-dependent form of the standard cubic cusp, recovered by one shift and the explicit discriminant, not an additional model-specific spectral mechanism.",
+      "residual_risks": [
+        "Exact publication priority for the width coefficient in this physical normalization is not established.",
+        "Equivalent pole loci do not imply equivalent density-operator or time-domain observables. The rejection is based on algebraic coverage and lack of a separate substantive inference, not a claim that Lin printed every endpoint formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Source matrix, time convention and EP3 already known; no printed sharp width in those passages",
+          "evidence": "Eq. (25) evolves by iH_eff; Eq. (28) is the given matrix; Eq. (29) gives chi magnitude Lambda/(3 sqrt(3)), Gamma=16 Lambda/27 and eigenvalue i Lambda/3.",
+          "identifier_or_url": "arXiv:2406.18362v1",
+          "material_read": "§3 pp.6–7 Eqs. (24)–(31), PDF offsets 33500–38548",
+          "method": "OA PDF",
+          "title": "Non-Markovian Quantum Exceptional Points",
+          "trigger": "Identical Hamiltonian and EP3"
+        },
+        {
+          "assessment": "Exact same cubic phase and fold classification after parameter conversion, but distinct time-domain claims and later catalogue date",
+          "evidence": "D(s)=s^3+kappa s^2+(2kappa lambda+g^2)s+kappa g^2; displayed K,w fold maps to the trimer repeated-root locus.",
+          "identifier_or_url": "Resultary:04abec39aac0",
+          "material_read": "RESULT.md Finding and model, offsets 0–4226, prior work offsets 8511–10631",
+          "method": "Resultary search and local mirror",
+          "title": "Reentrant pole spectra and a monotone third-order cusp for coherent qubit work",
+          "trigger": "Algebraic equivalence to another reentrant cubic"
+        },
+        {
+          "assessment": "Exact cubic is prior in an alternative model; no global fold theorem inferred from the transform passage alone",
+          "evidence": "Denominator s^3+kappa s^2+(2kappa lambda+g^2)s+kappa g^2, matching the trimer generator upon substitution.",
+          "identifier_or_url": "arXiv:2406.00411",
+          "material_read": "p.3 Eq. (14) and surrounding transform passage near PDF offset 18722",
+          "method": "OA PDF passage and exact parameter comparison",
+          "title": "Ergotropy dynamics in non-Markovian environments under a non-equilibrium dephasing process",
+          "trigger": "Prior primary text with the equivalent cubic"
+        },
+        {
+          "assessment": "Relevant general EP discriminant method, different realization",
+          "evidence": "Depressed cubic has three distinct real roots for positive discriminant, one real plus pair for negative, EP2 on the nontriple zero and EP3 at p=q=0.",
+          "identifier_or_url": "arXiv:2610.26620",
+          "material_read": "p.4 spectral-discriminant passage, Sec. V and Fig. 2 around offsets 45400–51429",
+          "method": "OA PDF passages",
+          "title": "Reaction-coordinate analysis of non-Markovian exceptional points",
+          "trigger": "Earlier cubic EP2/EP3 theory for Lorentzian baths"
+        },
+        {
+          "assessment": "Different two-mode model",
+          "evidence": "EP criterion is a vanishing frequency branch in two-mode Heisenberg–Langevin dynamics.",
+          "identifier_or_url": "arXiv:2206.14745",
+          "material_read": "§5.1 pp.13–15 Eqs. (44)–(51), PDF offsets 53000–59771",
+          "method": "OA PDF passages",
+          "title": "Quantum Liouvillian exceptional and diabolical points for bosonic fields with quadratic Hamiltonians",
+          "trigger": "Potential exact related EP conditions"
+        },
+        {
+          "assessment": "Different dissipative double-dot model",
+          "evidence": "Resonant EP2 condition g^2=((Gamma_1-Gamma_2)/4)^2, not the trimer cusp.",
+          "identifier_or_url": "arXiv:2409.08100v4",
+          "material_read": "§2.1 Eqs. (6)–(7) around HTML offsets 4800–12792 and §4 offsets 20888–23365",
+          "method": "OA HTML passages",
+          "title": "Emergent Liouvillian exceptional points from exact principles",
+          "trigger": "Critical damping and exact EP conditions"
+        },
+        {
+          "assessment": "Same standard mechanism, different parameter-dependent rational wavelet and width",
+          "evidence": "A different cubic in z^2 controls three upper imaginary-axis zeros; the exact width involves (q^2-34q+1)^(3/2).",
+          "identifier_or_url": "Resultary:9812aa5539e1",
+          "material_read": "RESULT.md Finding and Proof to offset 4271",
+          "method": "Resultary search and local mirror",
+          "title": "A semicubical cusp in the zero geometry of a four-atom Cauchy wavelet",
+          "trigger": "Same-day imaginary-axis window and 3/2 cusp"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "An exact spectral window is a sensible physical question, but this record's remaining claim is just the known cubic cusp, globally expressed in the two coefficients of an already specified cubic and locally rescaled to the supplied coordinates. Neither the canonical exponent nor its rescaled constant resolves an independent model-specific difficulty in this setting. The proof adds no transient, observable, or dynamical distinction to the prior spectral mechanism; the factor 12 is obtained directly from the canonical fold substitutions. The objection is to the routine deduction actually delivered, not to narrow exact phase diagrams or to the prior potential value of the physical model.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

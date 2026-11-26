@@ -1,11 +1,21 @@
-# Review: sharp finite-world periods for iterated belief disagreement
+# Independent mathematical audit
 
-**Correctness (PASS).** For functional KD45 relations the agent successors are retractions, and the two-agent disagreement truth-set map is the linear operator \(Tx=x\circ f+x\circ g\) over \(\mathbb F_2\). Its constant-vector kernel forces the stable invertible image to have dimension at most one less than the number of worlds. If its exact eventual order is \(2^r\), the nilpotency index of \(S+I\) exceeds \(2^{r-1}\), implying the claimed lower bound. The alternating retraction construction attains the bound with one-step stabilization. The extracted standalone checker verifies small-frame cases and the proposed explicit family, without replacing the general proof.
+## correctness
 
-**Originality (PASS within inspected material).** The relevant 2026 bundled-modality source analyzes axiomatization and semantics, not the exact iteration-period model-size theorem. A 2018 paper on the same strong-disagreement bundle was located, but only its abstract and bibliographic material were available: its full-text contents remain a substantive historical-priority risk. Published records on unrelated parity automata, nonstandard KD45 models, and separate epistemic operations do not imply the present minimal-world statement. Searches cannot establish absolute novelty.
+PASS
 
-**Mathematical value (PASS).** This gives a sharp infinite family of finite-model-size thresholds for a natural logical phenomenon: arbitrarily long oscillatory nesting of one bundled operator made from two individually idempotent belief modalities. The exact minimality holds throughout the entire functional-KD45 class, not merely within the constructed example family. It also yields pairwise non-equivalence of all positive iterates across finite frames, a direct expressivity consequence.
+Serial functionality yields total successor maps, and transitivity (or the Euclidean property) forces them to be idempotent; idempotent total maps have all three KD45 properties. Disagreement is XOR of the two successor truth values on every input truth set. Atomic valuations realize all of F_2^n, so operator equality is exactly the uniform frame condition. For a stable image U=im(T^h), T restricted to U is invertible; since every sufficiently large power maps onto U, its order is exactly the eventual period. T kills the nonzero all-one vector, so dim U<=n-1. Exact dyadic order 2^r implies (T|_U+I)^(2^r)=0 but (T|_U+I)^(2^(r-1)) is nonzero. A nilpotent operator with that property needs dimension at least 2^(r-1)+1. For the stated alternating retractions on 0,...,m, both maps fix their targets, and the XOR output is zero at 0 and x_i+x_(i-1) elsewhere. On x_0=0 the map is identity plus a single length-m shift, with m=2^(r-1)+1. That restriction is invertible, so U is already the first image, and the exact order is 2^r for every r>=1, including r=1. Stabilization cannot start at zero because T is singular. Choosing a dyadic period larger than the gap between any two positive exponents verifies inequivalence over the class, not on each frame. An independent labelled enumeration on n=1..4 found 1,9,100,1681 pairs and first occurrences of periods 2 and 4 at n=3 and 4; the uploaded checker was inspected, not executed. Finite tests are corroboration only.
 
-**Scope and risks.** The result covers only two deterministic agents and dyadic eventual periods, does not classify all other periods, and has no independent historical-priority or mathematical certification. Earlier specialist modal-logic results could be equivalent; the 2018 directly relevant source was not inspected in full.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is sharp realization of every exact dyadic period of iterated two-agent disagreement on a minimum-size functional KD45 frame. Neither the previously studied bundle nor the underlying characteristic-two algebra is claimed to be new. The accessible comparisons did not establish coverage of the frame-size result.
+
+## value
+
+PASS
+
+A standard logical bundle built from two individually idempotent agents has no uniform collapse under iteration. The theorem answers the natural sharp finite-model question for every dyadic order and counts worlds rather than just constructing arbitrary large-period binary operators. It also gives finite witnesses distinguishing any two positive iterates. Non-dyadic periods and nonfunctional accessibility are not classified.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

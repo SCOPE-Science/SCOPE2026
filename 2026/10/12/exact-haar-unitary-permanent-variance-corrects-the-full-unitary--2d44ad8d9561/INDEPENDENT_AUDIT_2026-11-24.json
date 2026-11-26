@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:36:42.290020Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On full U(n) with normalized Haar measure, the unit symmetrization of e_1⊗…⊗e_n has diagonal matrix coefficient perm(U) in Sym^n(C^n): each of the n! summands in the bra contributes the same sum of permanent monomials. This irreducible representation has dimension binom(2n−1,n); the Haar average of the rank-one projector is the identity divided by that dimension. Scalar phase invariance gives mean zero, so the second moment is the variance. The ratio equals the product of (n+j)/n over j=0,…,n−1, strictly above one for n≥2 and one at n=1; Stirling's ratio Γ(2n)/[Γ(n)n^n] gives the stated 2^(−1/2)(4/e)^n. The central-binomial estimate gives the stated RMS, and Markov gives exactly q(n)/R_n for any fixed positive polynomial q. Rivin v3 really applies the erroneous variance to the entire Haar unitary; §8.3 separately writes n!/poly(n) as the PACC threshold and then argues using σ²/poly(n). The original review claim controls the latter variance-based scale (and a fortiori the larger threshold on a literal full-Haar reading); it does not identify these two source thresholds or refute Gaussian-submatrix PACC. No conclusion about Gaussian shape at correct full-Haar scale. Inspected VERIFICATION.md and artifacts/verify.py; finite arithmetic script not run or needed for the analytic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Eq. (13) expands Haar minor moments, explicitly including the full matrix when k=d. At moment order t=1 the only partition is the symmetric one, and its representation dimension yields the inverse binomial."
+        ],
+        "reasoning": "This broader earlier theorem covers the exact identity, not just its asymptotic, and separates full matrices from scaled Gaussian limits of small minors. It does not evaluate the later source's erroneous normalization claim or how that claim affects its probability conclusion.",
+        "searches": [
+          "Nezami arXiv:2104.06423 §1.4, p. 9, Eq. (13)",
+          "Literature: Rivin 2602.10141 correction full Haar unitary permanent exact variance and anti-concentration normalization"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2602.10141v3",
+        "arXiv:2104.06423",
+        "SCOPE-20261108-345a2dc9701f",
+        "SCOPE-20261012-0e21877b6a1a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Rivin's actual text calls n!/n^n exact and infers high-probability size, with a near-one assertion at σ²/poly(n). The prior identity, Stirling and Markov make that source-scale exceedance probability exponentially small; the written n!/poly(n) threshold is larger still."
+        ],
+        "reasoning": "The bound is a direct implication, not an independent new inequality about the correct-scale law. The distinct claim is applying it to identify and quantify a concrete error in that later source. The inspected passages and ranked searches did not turn up the same source-specific correction.",
+        "searches": [
+          "Rivin arXiv:2602.10141v3 §§3.2, 8.3–8.4 compared with Nezami arXiv:2104.06423 §1.4",
+          "Focused literature search for the Rivin full-Haar normalization correction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bi-unitary Haar invariance and scalar phase invariance permit the comparison as a moment, variance or symmetric-power coefficient. The full U(n) law in §3.2 is not the complex Gaussian entry law scaled by 1/sqrt(n)."
+        ],
+        "reasoning": "The prior moment and the formula here agree; they contradict the exact variance asserted for the same full-Haar law in §3.2. Distinguish this from the Gaussian-entry ensemble, where summing pairwise orthogonal permanent monomials does give n!/n^n after the stated entry scaling.",
+        "searches": [
+          "Resultary: full-Haar permanent variance/second moment, symmetric power, boson-sampling scaling",
+          "Rivin arXiv:2602.10141v3 §3.2 and §8.3; Nezami arXiv:2104.06423 §1.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The former is an L6/L2 ratio of linear real trace coefficients on U(n), not a degree-n permanent. The latter is a third purity cumulant for independent phases on a bipartite state, not a full-Haar permanent statistic."
+        ],
+        "reasoning": "Neither indexed statement reproduces the variance correction or concerns Rivin's threshold. There is no separate exact table claim beyond the already covered analytic moment. The date of the same-day hit is not evidence of priority.",
+        "searches": [
+          "Resultary: permanent Haar U(n) exact moment and anti-concentration",
+          "SCOPE-20261108-345a2dc9701f and SCOPE-20261012-0e21877b6a1a, mirrored Findings"
+        ]
+      },
+      "rationale": "The exact moment is prior coverage, and the ratio and Markov estimate are routine once the true scale is known. Pass applies to the specific diagnosis and propagation of Rivin v3's incompatible full-Haar normalization through its typical-size/anti-concentration discussion, not to the second-moment formula as a new theorem.",
+      "residual_risks": [
+        "A separate published comment or correction could have made the same comparison; the ranked search is not exhaustive. The diagnosis concerns the inspected v3, not any subsequent revision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified disagreement for the stated full-Haar ensemble",
+          "evidence": [
+            "§3.2 directly asserts exactness of n!/n^n; §8.3 uses an exponential law at σ²/poly(n) to argue near-one probability; §8.4 leaves the appropriately scaled Gaussian limit open."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2602.10141v3",
+          "material_read": "§3.2 p. 5 (offset 22817), §§8.3–8.4 p. 18 (including offset 136978)",
+          "method": "Version-specific OA PDF passages",
+          "title": "Permanents of matrix ensembles: computation, distribution, and geometry",
+          "trigger": "Claimed incorrect full-Haar exact variance and probability implication"
+        },
+        {
+          "assessment": "Exact coverage of the second moment via a stronger formula",
+          "evidence": [
+            "t=1, k=d specializes to the full-Haar inverse symmetric-power dimension."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2104.06423",
+          "material_read": "§1.4 p. 9, Eq. (13) and surrounding comparison of k=d with large ambient dimension",
+          "method": "OA PDF passages",
+          "title": "Permanent of random matrices from representation theory",
+          "trigger": "Prior exact Haar permanent moment formulas"
+        },
+        {
+          "assessment": "Different function and moment",
+          "evidence": [
+            "f_A(U)=Re tr(A*U); controls ||f_A||_6^6/||f_A||_2^6."
+          ],
+          "identifier_or_url": "SCOPE-20261108-345a2dc9701f",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Sharp sixth-moment majorization for real Haar-unitary matrix coefficients",
+          "trigger": "Ranked Haar moment hit"
+        },
+        {
+          "assessment": "Different ensemble and statistic",
+          "evidence": [
+            "P=Tr(ρ_A²) for a random phase-flat bipartite state."
+          ],
+          "identifier_or_url": "SCOPE-20261012-0e21877b6a1a",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Exact third purity cumulants and a cubic-root resonance in random Hadamard states",
+          "trigger": "Ranked same-day random matrix/state moment hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The correction reverses a specific published-in-preprint probability inference for a standard ensemble, from near one to exponentially small even with any polynomial slack. It sets the RMS benchmark necessary to interpret full-Haar numerical experiments and avoids transferring a Gaussian-entry conjecture to a different ensemble at an incompatible scale. The specific quantitative error and its consequence justify the correction; the standalone classical identity or generic use of Markov would not.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-All dimensions \(n\ge3\), horizons \(K\ge1\), and correlations \(0<\rho<1\) are covered by a projection composition identity and a finite-sign expansion. The latter proves strict global balancing of the correlated pair for any fixed total pair mass. Balancing the orthogonal modes then yields the unique exact optimizer and sharp expected terminal-loss value, including probability-simplex boundaries. The included standalone checker passed 864 finite comparisons, which support but do not prove the universal assertions.
+PASS
 
-## Originality — PASS, with residual historical risk
+In residual coordinates each exact all-but-one update projects onto the normal to the retained columns. The two nonorthogonal normals can be chosen with dot product rho; all others are mutually orthogonal and orthogonal to the pair. For a fixed sample string the squared norm is its first-direction squared projection times the squared overlaps of successive normals. Averaging gives a pair block h_1 P_1+h_2 P_2 and the separate eigenvalues p_j^K for j>=3. Fix positive pair mass t. The bisector tests the pair block at (1+rho)(h_1+h_2)/2, attaining its top eigenvalue at balance. In the path expansion for h_1+h_2 each selected bond set forces the selected field factors to be precisely its odd-degree vertices. Hence only even powers of the imbalance appear, all with nonnegative coefficients; one selected bond gives a positive quadratic term when K>=2. This proves strictness at all imbalances, including boundary probabilities. For K=1 the pair trace is fixed and the determinant (1-rho^2)p_1 p_2 is uniquely maximized at balance. At t=0 the block is zero. The two lower bounds on the K-th root, C_K t/2 and (1-t)/(n-2), intersect at a unique interior pair mass; both are active and enforce exact balance in each group at an optimum, including n=3 with only one orthogonal direction. This gives the claimed sampler and sharp value. For the one-step law its orthogonal block dominates at every K and has retention r_1^K; the K-th root of the ratio tends to r_1/r_infinity>1. The proof concerns exact fixed iid sampling and terminal expected objective, not adaptive or pathwise extrema. The shipped verification was inspected, not rerun; its reported 864 finite checks support the projection and recurrence, not the minimax proof.
 
-The general batch-sampling framework of Xie–Yang (arXiv:2610.04685), Gower–Richtárik's sketch-and-project analysis (arXiv:1506.03296), and Rodomanov–Kropotov's fixed-volume method (arXiv:1904.04587) are examined. A published one-step optimal omission rule covers the case \(K=1\); a published fixed-volume analysis provides the transfer-matrix method for one chosen distribution. Neither statement, nor other retrieved near matches, asserts the all-horizon globally optimal static law or supplies the strict imbalance inequality required to derive it. The exact one-step optimizer and the idea of transfer matrices are not claimed separately new. Unknown prior equivalent formulations remain a risk.
+## originality
 
-## Value — PASS
+PASS
 
-Choosing one fixed batch distribution is a central practical question in randomized block descent. For a transparent, fully solvable and strongly convex instance, the best distribution depends strictly on the number of updates left even though all candidate blocks have equal size and cost. Reusing the one-step-optimal distribution incurs an exponentially increasing relative worst-case terminal expected-loss penalty. This establishes a meaningful distinction between one-step bound optimization and finite-horizon design; it does not extend to all dense systems or adaptive sampling.
+The distinct claim is the exact unique optimizer and sharp value for each K>=2 and every 0<rho<1 in the specified one-pair family, with quantified loss from the one-step law. The K=1 case is already covered, and the broad horizon-dependence phenomenon also occurs in a same-day result; neither is credited as independently new here.
 
-## Limitations and closest sources
+## value
 
-The source and related literature are linked in RESULT.md. The all-horizon claim is limited to one correlated column pair and exactly minimized all-but-one-coordinate blocks; priority remains subject to independent human mathematical review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+One nonorthogonal pair is the smallest residual geometry where mixing two types of errors can change the optimal law with the horizon. The exact optimum, strictness, and exponentially growing worst-case penalty of a one-step-optimal fixed law quantify a real distinction between tuning a one-step contraction and tuning terminal performance. The evidence does not generalize to dense Gram matrices, nonstationary or adaptive sampling, or time-based costs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

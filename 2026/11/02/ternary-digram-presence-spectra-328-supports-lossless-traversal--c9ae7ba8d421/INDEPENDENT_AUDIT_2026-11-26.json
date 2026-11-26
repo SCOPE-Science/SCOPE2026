@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:25:00.048391Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Proof §§1–5, VERIFICATION.md, verify.py, and verification_output.txt",
+        "/workspace/reproductions/digrams.py and digrams.txt (Python 3: all 512 candidates, exact-length states through 40, and four-letter check)"
+      ],
+      "rationale": "A covering walk cannot revisit a strong component, so all intercomponent arcs must form a single directed path of components with exactly one actual arc per step. Conversely one can cover the edges within each strong component between its entry and exit. On at most three vertices a single strong component has imbalances of magnitude at most one; if there are multiple components, each is internally balanced and only the end components contribute uncancelled transition imbalances. In particular any intermediate component must be a singleton. The resulting Euler trail attains |E|+1. The independent weak-connectivity/imbalance census over all 512 masks and exact-length walk-state calculation agree with the polynomial and the 13 acyclic supports. The all-length result follows symbolically: repeat an available loop, extend the trail arbitrarily at a strongly connected terminal vertex, or pad at the cyclic end of the only remaining case, a reciprocal pair attached to a singleton by a single arc. Complete support forces the sharp threshold of ten. In the four-letter example imbalance (+2,-2,0,0) rules out length seven and the displayed eight-letter word realizes exactly the six arcs.",
+      "residual_risks": [
+        "The bounded state calculation is corroboration only for the all-length statement; the padding argument is required. The theorem is for linear words and labelled alphabets."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The paper models the general support realization and shortest-string problems, with an exact algorithm and a directed-postman reduction (the binary reduction permits k to vary)."
+        ],
+        "reasoning": "An optimizer for arbitrary k does not assert that each feasible ternary length-two support reaches the edge-count lower bound. The small-alphabet structural theorem, first failure at four, and stabilization of all exact lengths require reasoning not supplied by the general algorithm.",
+        "searches": [
+          "Shortest S_k-Equivalent String, directed Chinese postman, de Bruijn support",
+          "Bernardini et al., Theory of Computing Systems 70:21, pp. 1–3 and §3"
+        ]
+      },
+      "checked_sources": [
+        "Bernardini et al.; Karhumäki–Saarela–Zamboni",
+        "Resultary 8ada8bf40720, 87bc1f36ef2d, 4aee40122a4b, 0e302c97be0b, 9d4b0696d935"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General feasible digram supports are walks with possibly repeated arcs. The quaternary unordered comparison has an undirected Euler-parity obstruction; the linear multiplicity record uses the Euler criterion on its prescribed counts."
+        ],
+        "reasoning": "The general walk formulation permits repetitions, and the unordered parity obstruction concerns a different invariant. Neither states the impossibility of forced repetitions on three vertices, nor the threshold at which all cyclic supports are realized at every length.",
+        "searches": [
+          "Bernardini et al. §1 and §3",
+          "Resultary 8ada8bf40720, 87bc1f36ef2d, 0e302c97be0b RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bernardini et al. §1 identify equality of length-k substring sets with edge-cover walks. Karhumäki–Saarela–Zamboni define k-abelian equivalence via counts of all factors through length k."
+        ],
+        "reasoning": "Length-two substring-support equality is exactly the present observation; 2-abelian equivalence refines it by counts, so counts of 2-abelian classes do not enumerate its quotient.",
+        "searches": [
+          "2-abelian, k-abelian, substring support and Euler trail",
+          "arXiv:1301.5104",
+          "DOI 10.1007/s00224-025-10240-z"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "8ada8bf40720 refines cyclic multiplicity matrices by the number of positive off-diagonal entries. 87bc1f36ef2d counts linear ternary nine-entry multiplicity matrices at fixed length. 4aee40122a4b and 0e302c97be0b use unordered multiplicities under different hypotheses."
+        ],
+        "reasoning": "These counts retain repeated edges or forget their direction and may impose circular closure or exclude runs. In particular a table of multiplicity matrices cannot be read as a table of distinct masks by merely forgetting multiplicities in its numerical totals.",
+        "searches": [
+          "Resultary ternary digram presence, support-refined ternary dinucleotide spectra, 328 and 315, two-factor Euler walks"
+        ]
+      },
+      "rationale": "The distinct contribution is the exact presence-only ternary classification, sharp lossless alphabet boundary and length stabilization. Edge-cover walks in de Bruijn graphs and the general shortest-string optimization problem are already known. The closest records have different observations: cyclic or linear multiplicity matrices, sometimes with endpoints forgotten or a run restriction.",
+      "residual_risks": [
+        "The 2-abelian homopolymer-free record was accessible only by indexed summary. Unindexed enumerations or earlier small-alphabet observations are possible; searches do not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General framework already known; inspected statements do not settle the ternary special structure",
+          "evidence": "Edge-cover walk correspondence and directed-postman reduction for shortest equivalent strings.",
+          "identifier_or_url": "https://doi.org/10.1007/s00224-025-10240-z",
+          "material_read": "§1 p. 2, publisher PDF text around offset 4395; abstract and §3 reduction introduction",
+          "method": "Lawful open full text",
+          "title": "On Strings Having the Same Length-k Substrings",
+          "trigger": "Same support equivalence and shortest-string problem"
+        },
+        {
+          "assessment": "Different, finer equivalence",
+          "evidence": "Retains occurrence counts for each nonempty factor of length at most k.",
+          "identifier_or_url": "https://arxiv.org/abs/1301.5104",
+          "material_read": "Definition on PDF p. 2 around offset 4200",
+          "method": "Lawful open arXiv PDF text",
+          "title": "On a generalization of Abelian equivalence and complexity of infinite words",
+          "trigger": "Possible equivalent naming under 2-abelian equivalence"
+        },
+        {
+          "assessment": "Does not cover linear presence profiles",
+          "evidence": "Counts cyclic ordered multiplicity matrices, with support statistic limited to positive off-diagonal entries.",
+          "identifier_or_url": "Resultary 8ada8bf40720",
+          "material_read": "RESULT.md offsets 0–3299",
+          "method": "Local catalogue and mirrored record",
+          "title": "Support-refined enumeration of ternary cyclic dinucleotide profiles",
+          "trigger": "Most directly named support-refined census"
+        },
+        {
+          "assessment": "Enumerates a different observable",
+          "evidence": "The fixed-length generating function counts full nine-entry multiplicity matrices, not distinct presence masks.",
+          "identifier_or_url": "Resultary 87bc1f36ef2d",
+          "material_read": "RESULT.md offsets 0–3379",
+          "method": "Local catalogue and mirrored record",
+          "title": "Exact ternary adjacent-pair spectrum enumerator for linear words",
+          "trigger": "Closest linear ternary Euler-trail comparison"
+        },
+        {
+          "assessment": "Neither is an equivalent directed presence claim",
+          "evidence": "The former uses unordered cyclic counts with a run restriction; the latter uses unordered linear multiplicities and undirected parity.",
+          "identifier_or_url": "Resultary 4aee40122a4b and 0e302c97be0b",
+          "material_read": "RESULT.md offsets 0–3156 and 0–2908 respectively",
+          "method": "Local catalogue and mirrored records",
+          "title": "Exact cyclic pair composition capacity for ternary words; Exact quaternary unordered bigram spectra",
+          "trigger": "Same-day exact spectra and Euler boundary results"
+        },
+        {
+          "assessment": "Related but full source not assessed",
+          "evidence": "The summary concerns 2-abelian observations under a homopolymer restriction.",
+          "identifier_or_url": "Resultary 9d4b0696d935",
+          "material_read": "Indexed summary only; mirrored full text unavailable",
+          "method": "Local catalogue and attempted local mirror",
+          "title": "Exact 2-abelian reconstruction capacity of homopolymer-free ternary words",
+          "trigger": "Closely related ternary equivalence with Euler analysis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof §§1–5",
+        "Bernardini et al., general shortest equivalent string problem"
+      ],
+      "rationale": "Presence-only adjacent factors are a natural information loss relative to multiplicity profiles and define an exact shortest-representative problem. The result identifies where repetitions can first be forced, classifies all ternary observations and all attainable lengths, and provides a sharp finite threshold. The structural boundary and complete attainable-length invariant make the small-alphabet census useful beyond a standalone count.",
+      "residual_risks": [
+        "No support census for four or more letters, circular words, or longer factors is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

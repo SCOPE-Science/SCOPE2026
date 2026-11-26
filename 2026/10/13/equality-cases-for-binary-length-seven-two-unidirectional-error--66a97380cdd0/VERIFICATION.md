@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-`VERIFY.py` performs the following finite checks from definitions.
+# Independent mathematical audit
 
-It generates every binary word of length seven and its radius-two unidirectional error ball, where all changed coordinates in one received word have the same direction. Independently, it computes the classical unidirectional distance and confirms for all unordered pairs that ball disjointness is equivalent to \(d_u\ge5\).
+## correctness
 
-It constructs the complete compatibility graph, enumerates every four-clique, and checks that each has no common neighbor. Thus the exhaustive computation proves both existence of four-word codes and nonexistence of five-word codes. It then recomputes all \(1680\) equality cases, their two weight-profile classes, their directional-pair profiles and their covered-output counts.
+PASS
 
-Finally, it applies all \(7!\) coordinate permutations and global complementation to one representative of each class, obtaining disjoint orbits of sizes \(1260\) and \(420\) whose union is the full equality census. The resulting stabilizer orders are checked by orbit-stabilizer in the order-\(10080\) acting group.
+For incomparable supports, a shared reception must cover both supports or be contained in both; the least required radius is max(N(x,y),N(y,x)), attained by the union or intersection. For comparable supports the best shared reception splits the coordinate gap and has radius ceil(gap/2). Thus the d_u>=5 rule and radius-two disjointness agree, but the independent reproduction uses only the literal balls. Its increasing-label pairwise disjointness search exhausts the 128 words and finds 2976 edges and 1680 four-cliques; each has empty common-neighbor intersection, ruling out any larger family. Generating the S_7 times complement images of both given representatives exhausts the census in disjoint classes of sizes 1260 and 420; dividing 10080 gives stabilizers 8 and 24. Both directional-difference multisets and coverage totals 72 and 80 agree. The individual ball size independently equals 1+7+binom(weight,2)+binom(7-weight,2); maxima meet the compatibility constraints with exactly the stated profiles. Replay: python3 /workspace/branches/e6cdbafd-8755-46f7-9adf-cde3f6429f90/direct_census.py; corresponding output is direct_census_output.txt in the same directory. No uploaded program was executed and no assertion about the full graph automorphism group is needed.
 
-The verification is finite and exact. It does not establish that the stated acting group is the full automorphism group of the compatibility graph, and it does not address lengths other than seven or error radius other than two.
+## originality
+
+PASS
+
+Credit the known optimum and directional-distance criterion, not as novelties. The supported distinct claim is the exhaustive length-seven two-unidirectional-error equality classification: labeled multiplicities, the declared symmetry orbits, and their invariants. The strongest inspected indexed census changes both the channel and length. The closest historical primary papers could not be retrieved in full during this review, so this is not a finding about the absence of equality results in those papers.
+
+## value
+
+PASS
+
+This is the first two-error case of the cited short-length optimum family, with an exact equivalence question not settled by the known cardinality. Classifying all optima under the channel's natural coordinate and bit symmetries identifies precisely two choices up to equivalence. These differ structurally (a comparable pair occurs only in the smaller orbit) and cover different numbers of received words at the same code size. A researcher choosing or comparing extremal codebooks can use these distinctions; the value is not a replay of the known bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

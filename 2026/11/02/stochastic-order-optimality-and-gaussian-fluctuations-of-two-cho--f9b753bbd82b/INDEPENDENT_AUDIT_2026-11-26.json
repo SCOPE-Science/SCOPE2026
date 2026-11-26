@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:56:50.297776Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Four ordered offers give the 3:1 weighting of the smaller and larger continuation tails. The symmetric exit survival cone d_j≥0, d_{j+1}≤3d_j is preserved: interior differences are weighted averages, and the odd midpoint difference is (3d_{m−1}−d_m)/4, the even one 3d_{m−1}/4. The adjacent ratio comparisons at both ends, including m=1,2, close the induction from (1,0,…). Thus the same action attains every finite-horizon exit minimum. Every stage finishes a.s. even under an adaptive controller, by positive-probability blocks of forced same-direction moves. Conditional stochastic dominance and sequential quantile coupling give whole-cover dominance. Under the proposed policy history-independent folded stage laws give independence even with history-dependent symmetric tie choices. From the one-level passage decomposition, given upper-level mean e and variance v, the next lower ones are e'=(4+e)/3 and v'=v/3+(e+e')²/4, with top data (1,0) or (4/3,4/9). This gives both parity formulas; deficit sums are 57/4 and 12, giving 6n−129/4 plus the stated tail error. A common down/up Bernoulli sequence dominates the folded stages by the biased walk from 1 with the displayed generating function; no bounded third-moment or Lyapunov gap remains. In the corrected files the target identification preserves each transient state's two offers and kills exactly on exit; L=1 remains separate. No mathematical conclusion was dropped or enlarged.",
+      "replay": "python3 /workspace/branches/frozen_review_replay.py 1; exact integer whole-cover Bellman comparisons at all starts for n=3…8 and horizons 1…17; exact passage recurrence for L=1…40. Also checked fixed-target moment specialization at d=1 exactly for L=2…100. Frozen check.py inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.3 gives Θ(n) optimal expected cover for tori including cycles. The inspected path record …497a68eed5a9 gives exact expected path cover and endpoint-directed control for a different graph."
+        ],
+        "reasoning": "A bound or an exact minimum of a mean need not minimize each tail. A path-cover result does not transport to cycles just because the visited cycle vertices form a path: exiting that path, rather than finishing a path cover, is the objective.",
+        "searches": [
+          "arXiv:1911.05170, Theorem 1.3",
+          "ITCS 2020 Choice and Bias in Random Walks",
+          "Resultary expected cover of paths and path coverage CLT"
+        ]
+      },
+      "checked_sources": [
+        "Resultary …b80e6e972489 and …497a68eed5a9",
+        "Resultary path coverage …e4d3f5d97d1c",
+        "arXiv:1911.05170",
+        "DOI:10.4230/LIPIcs.ITCS.2020.76"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior hitting CLT requires initial target distance tending to infinity; all cover stages start at distance one. Independent cover stages and a uniform exponential moment yield the aggregate fluctuations. The all-horizons cone argument is not a consequence of the expectation Bellman equation."
+        ],
+        "reasoning": "Even the exact stage moments plus the prior fixed-policy CLT do not compare exit distributions of all policies. The corrected theorem identifies the cover-time stochastic order as the distinct contribution.",
+        "searches": [
+          "Resultary …b80e6e972489 Finding, scope, and Gaussian theorem",
+          "Resultary …497a68eed5a9 Finding",
+          "arXiv:1911.05170 Theorem 1.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For L≥2, identify the two absorbing labels of the arc with a single target: the stage is the fixed-target problem on C_(L+1) started at d=1. The prior variance at d=1 is 6−24A_N+2B_N−4A_N², exactly both parity-specific stage variances."
+        ],
+        "reasoning": "This proves coverage of the stage moments, regardless of different wording. The inspected scope explicitly restricts optimality to expected hitting time, not the all-tail minimum.",
+        "searches": [
+          "Resultary fixed-target two-choice simple cycle",
+          "Resultary 2026/10/18 …b80e6e972489, Finding and proof §§1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The material exact catalogue hit is …b80e6e972489, with closed formulas covering the single stage. Exact path counts are for different graphs. No covering indexed table for optimized whole-cycle tails was identified."
+        ],
+        "reasoning": "An exact table or formula for the single-target moments cannot establish an all-deadline comparison. The frozen exact cover mean is reproduced mathematically, not claimed original, and no historical attribution for it was independently identified.",
+        "searches": [
+          "Resultary exact two-choice cycle cover time, finite horizon order, fluctuation variance",
+          "Primary search for exact expected cycle cover time under two choices"
+        ]
+      },
+      "rationale": "The corrected attribution identifies prior coverage of the one-stage moment formulas, and narrows the originality claim to all-deadline whole-cycle cover optimality. The aggregate variance and CLT are consequences, not an independent claim of stage-moment novelty. No inspected result implies the retained all-tail comparison.",
+      "residual_risks": [
+        "The historical source of the exact cover mean remains unresolved; no novelty is assigned to that mean. Bounded searches do not exclude less visible risk-sensitive control work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers stage moments exactly, not all-tail cover control",
+          "evidence": "Gives exact mean and variance for every d but declares only expectation optimality; limiting regime is d→∞.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/10/18/SCOPE-exact-optimal-hitting-time-fluctuations-for-a-two-choice-walk-on--b80e6e972489/RESULT.md",
+          "material_read": "Finding, scope, proof steps 1–2 (offset 0–4484)",
+          "method": "Read bounded passages of mirrored RESULT and substituted d=1",
+          "title": "Exact optimal hitting-time fluctuations for a two-choice walk on a cycle",
+          "trigger": "Same cycle, offer sampling, exact moments, and Gaussian law"
+        },
+        {
+          "assessment": "Known linear-order optimized expected cover; does not cover stochastic optimality",
+          "evidence": "The bound is Θ(n) for fixed-dimensional tori and grids.",
+          "identifier_or_url": "https://arxiv.org/pdf/1911.05170",
+          "material_read": "Theorem 1.3 p. 3, offset 11942",
+          "method": "OA PDF statement comparison",
+          "title": "The Power of Two Choices for Random Walks",
+          "trigger": "Broad same-model cover results"
+        },
+        {
+          "assessment": "Related but not equivalent",
+          "evidence": "Exact expectation and control on paths, not all-tail cycle coverage.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-two-choice-cover-times-on-paths-and-the-first-failure-of-u--497a68eed5a9",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Mirrored record passage",
+          "title": "Exact two-choice cover times on paths and the first failure of universal greediness",
+          "trigger": "Exact cover control, related graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A controller chosen without knowing the deadline minimizes failure at every deadline, uniformly over arbitrary nonanticipative strategies. This is stronger than an expected-time improvement and resolves a natural risk-sensitive question for cycle cover. Explicit whole-cover fluctuations quantify the selected policy. This value survives attributing all exact one-stage moments to the prior fixed-target theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

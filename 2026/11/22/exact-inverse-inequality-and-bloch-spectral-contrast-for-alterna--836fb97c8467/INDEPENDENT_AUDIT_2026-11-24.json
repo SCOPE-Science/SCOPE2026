@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:31:33.348276Z",
+  "axes": {
+    "correctness": {
+      "rationale": "RESULT.md lines 4–35 and 38–68 use the consistent physical-length mass. On an edge with nodal values x,y, the mass is at least h(|x|²+|y|²)/6 and the stiffness at most 2(|x|²+|y|²)/h; both are sharp only at y=−x. Since each vertex belongs to one edge of each length, their global quotient is bounded by 12(1/a+1/b)/(a+b)=12/(ab), with precisely the alternating equality pattern on the even cycle. Assembly across two-vertex cells and the discrete Fourier basis give the two stated Hermitian blocks at each of the m phases, with mass diagonal (a+b)/3 and off-diagonal magnitude at most (a+b)/6. The determinant therefore gives all eigenvalues with multiplicity. At phase 0 the two constant-in-cell modes give 0 and 12/(ab); at π the vectors (1,1) and (1,−1) give the two claimed inner edges. The determinant's c=cos θ derivative is strictly negative for λ≥0 and the λ-derivatives have opposite signs at ordered simple roots. A repeated Hermitian generalized root would require K=λM; the off-diagonal cancellation forces θ=π, and together with diagonal equality forces a=b. The resulting branch monotonicities extend continuously to that touching endpoint. The inner edges are sampled exactly when m is even, so the continuous gap/contrast formula must not be applied to the middle separation of an odd finite spectrum. Subtracting the inner edges and using (3a+b)(a+3b)=(a+b)²(4−δ²) gives the strictly increasing normalized gap. Example a=1,b=2,m=2: spectrum 0,6/5,12/7,6, normalized gap 3/35. The frozen checker.py and VERIFICATION.md were inspected, not executed; the code uses rational form tests and floating-point phase checks and is not an all-phase proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Takacs–Takacs Remark 3 gives a minimum-cell bound under its spline assumptions. The accessible Dahmen preprint abstract describes weighted inverse estimates on locally refined meshes. Valencia et al. describe general Bloch analysis and FE band construction."
+        ],
+        "reasoning": "A minimum-cell estimate loses the alternating geometric mean whenever a≠b and says nothing about the inner edges. General dispersion machinery describes how to pose the eigenproblem; the inspected material does not specialize it to these cell and mass matrices or imply the stated band-gap law by changing parameters in an existing exact formula. Exact prior coverage in the inaccessible full texts is not determined.",
+        "searches": [
+          "Takacs–Takacs, arXiv:1502.03733, Remark 3",
+          "Dahmen et al., MiS preprint 24/2001",
+          "Valencia–Gómez–Guarín-Zapata, arXiv:1904.01162v1, p. 2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary assigned self-hit, closest alternating-projector and same-day Cesàro records above, and related endpoint-projector records",
+        "arXiv:1502.03733",
+        "MiS Preprint 24/2001 abstract",
+        "arXiv:1904.01162v1",
+        "Diatomic-chain chapter identification/attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The projection record uses the same two-periodic spline space and exact contrast analysis but for L∞ orthogonal projection, not the derivative generalized eigenproblem. The same-day Cesàro contrast record uses a singular-value tail of a different operator. The identified diatomic-chain chapter did not yield readable full text."
+        ],
+        "reasoning": "The shared spline mass alone does not give the derivative matrix or its generalized eigenvalue ratios. Exact band-edge comparison needs the consistent mass as well as alternating stiffness; similar acoustic/optical terminology is not evidence of equivalent spectra. Relative priority is not inferred from a catalogue date.",
+        "searches": [
+          "2026/11/8/SCOPE-exact-two-periodic-spline-projection-norms-and-a-quadratic-mesh--5a407f379fb4, Finding and Assumptions",
+          "2026/11/22/SCOPE-period-two-geometric-weights-singular-weyl-law-and-contrast-rigi--aa2e3f6295b0, Finding",
+          "Dynamics of the Linear Diatomic Chain, DOI 10.1007/978-3-642-81781-6_2, attempted retrieval"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The operator is the Ritz stiffness/mass pencil, equivalently the normal-mode problem for axial restoring energy with consistent finite-element mass. The nearest same-space Resultary work studies L∞ projector norms; the nearest same-day contrast work studies singular values of a geometrically weighted Cesàro operator."
+        ],
+        "reasoning": "A projector norm is a norm of a map defined by the mass inner product, not the stiffness Rayleigh quotient. Period two alone does not identify the pencil: replacing the off-diagonal mass by a diagonal point-mass model changes its λ-dependent coefficients and generally its band edges.",
+        "searches": [
+          "Resultary: alternating linear splines, sharp inverse inequality, period-two Bloch spectrum, and contrast rigidity",
+          "Primary-literature lookup: alternating-grid consistent finite-element dispersion and diatomic-chain spectra"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The comparisons found an indexed self-record, several alternating-knot projector records, and a two-periodic Cesàro contrast result, but their inspected findings do not tabulate or state the stiffness/mass eigenvalues or the ratio δ/(4−δ²)."
+        ],
+        "reasoning": "No relevant integer-sequence table covers this continuously parameterized pencil. The appropriate indexed check is for exact continuous/discrete dispersion and gap formulas.",
+        "searches": [
+          "Resultary formula-level queries: sharp inverse constant on alternating mesh; two-periodic inverse spline spectrum; exact gap and mesh contrast"
+        ]
+      },
+      "rationale": "The distinct contribution supported by the comparison is the full alternating periodic P1 consistent-mass spectrum, including explicit gap edges and a normalized inverse contrast law. Generic local inverse estimates, Fourier reduction and the fact that two cells can split a folded band are not credited as new.",
+      "residual_risks": [
+        "The full Dahmen preprint and the identified diatomic-chain chapter were not read; neither can be excluded as implicit coverage from the accessible material.",
+        "An equivalent exact pencil or normalization may have appeared in less-indexed periodic-FE literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General minimum-cell estimate; not this sharp alternating result in the inspected passage",
+          "evidence": "The nonuniform norm bound uses √12/h_min, not √(12/(ab)).",
+          "identifier_or_url": "https://arxiv.org/abs/1502.03733",
+          "material_read": "PDF p. 24, Remark 3, extracted offset 82400",
+          "method": "OA full-text targeted passage",
+          "title": "Approximation error estimates and inverse inequalities for B-splines of maximum smoothness",
+          "trigger": "Possibly stronger exact nonuniform inverse inequality"
+        },
+        {
+          "assessment": "Potential scope overlap; unavailable full-text implication remains unresolved",
+          "evidence": "Abstract presents mesh-dependent inequalities for locally refined finite-element spaces.",
+          "identifier_or_url": "https://www.mis.mpg.de/de/publications/preprint-repository/article/2001/issue-24",
+          "material_read": "Preprint page abstract, extracted offset 900; not full text",
+          "method": "OA preprint page",
+          "title": "Inverse inequalities on non-quasiuniform meshes and application to the Mortar element method",
+          "trigger": "Broader inverse estimates covering piecewise-linear nonuniform meshes"
+        },
+        {
+          "assessment": "General FE/Bloch framework, not exact alternating P1 formula in inspected material",
+          "evidence": "Sets up Bloch analysis and periodic-material FE band construction.",
+          "identifier_or_url": "https://arxiv.org/abs/1904.01162",
+          "material_read": "v1 PDF p. 2, extracted offset 5200",
+          "method": "OA full-text targeted passage",
+          "title": "A general purpose element-based approach to compute dispersion relations in periodic materials with existing finite element codes",
+          "trigger": "General FE Bloch dispersion that might imply the result"
+        },
+        {
+          "assessment": "Same space, different operator and exact invariant",
+          "evidence": "The stated theorem concerns the L∞ norm and positivity defect of the L²-orthogonal projector and a limiting contrast law.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-two-periodic-spline-projection-norms-and-a-quadratic-mesh--5a407f379fb4",
+          "material_read": "RESULT.md Finding and Assumptions, offset 80",
+          "method": "Resultary and local mirror",
+          "title": "Exact two-periodic spline projection norms and a quadratic mesh contrast law",
+          "trigger": "Closest match by spline space and geometry"
+        },
+        {
+          "assessment": "Thematic analogue, not the same operator",
+          "evidence": "Uses a geometrically weighted Cesàro operator and a singular-value tail to identify weight contrast.",
+          "identifier_or_url": "2026/11/22/SCOPE-period-two-geometric-weights-singular-weyl-law-and-contrast-rigi--aa2e3f6295b0",
+          "material_read": "RESULT.md Finding, offset 90",
+          "method": "Resultary and local mirror",
+          "title": "Period-two geometric weights, singular Weyl law and contrast rigidity",
+          "trigger": "Same-day overlapping period-two band/contrast terminology"
+        },
+        {
+          "assessment": "No coverage conclusion from inaccessible text",
+          "evidence": "The retrieval did not provide readable equations for a pencil-level comparison.",
+          "identifier_or_url": "10.1007/978-3-642-81781-6_2",
+          "material_read": "Search identification only; full text did not resolve",
+          "method": "Lawful OA attempt",
+          "title": "Dynamics of the Linear Diatomic Chain",
+          "trigger": "Potential equivalent dispersion terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The periodic alternating mesh is a natural minimal nonuniform case. Its exact top constant replaces a pessimistic minimum-cell bound, while the consistent-mass band formula separates an actual alternating-contrast gap from a finite sampling effect and gives a scale-free way to recover the contrast for the continuous dispersion or even periods. The precise band edges and finite-versus-continuous distinction are useful beyond the routine Fourier calculation, with no claim for general meshes or mass lumping.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

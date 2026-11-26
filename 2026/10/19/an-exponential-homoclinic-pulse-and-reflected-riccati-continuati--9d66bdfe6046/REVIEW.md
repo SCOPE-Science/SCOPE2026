@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Direct polynomial differentiation verifies the exact \((u,q)\) equations and the first integral. The monotone complete time quadrature controls both infinite-time endpoints; it proves existence, uniqueness, and globality of the concentration maximum. Two endpoint Laplace integrations by parts give the two coefficients of its physical-time location, with a locally uniform remainder for fixed positive imbalance. Exact time-reversal symmetry plus ordinary ODE continuous dependence proves the reflected Riccati limit on each side of the excluded singular instant. Locally uniform convergence and inversion of strictly monotone quadratures prove the universal compact-interval profile. An executable diagnostic checks identities and finite examples, but is not used to prove any infinite-time statement.
+PASS
 
-## Originality
+In total concentration u and imbalance q, the equations are u̇=a u²q and q̇=−δu(1−q²)/2. Eliminating time gives u=Cδ(1−q²)^(a/δ). The physical-time quadrature diverges at both q endpoints, so it defines a complete nonstationary positive orbit approaching the origin at both ends; strict monotonicity of q yields the unique maximum. With k=a/δ and fixed q₀>0, the normalized quadrature on [0,q₀] has endpoint coefficients 1/(2q₀k) and (1−q₀²)/(4q₀³k²): for f=−log(1−q²), g=(1−q²)⁻¹ one has g/f′=1/(2q), and differentiating gives the second coefficient. A split away from q=0 controls the remainder O(k⁻³). The even quadrature gives exact time reversal with q changing sign, so compact-time dependence before t* also gives the reflected Riccati arc after t*. Substituting q=z/√k makes the centered clock kernel converge locally uniformly to exp(z²); strict monotonicity gives compact-uniform inverse convergence, including balanced data with Cδ=u₀ and diverging width.
 
-**PASS against the accessible literature, with a disclosed priority risk.** The 2026 motivating paper already gives a fixed-rate homoclinic example and its first integral. The 2018 integrability paper covers analytic normal forms, while Newton's older classification is geometric. None of the relevant portions accessible in full states or implies this exact rate-to-boundary physical-time event law, the species-swapping singular Riccati continuation, or the scaled universal profile. Mathematical-record searches across the exact reaction network, the equivalent projective coordinates, and inverse-error-function terminology found no direct covering claim. The full text of Newton's 1978 work could not be accessed; the priority comparison is therefore not claimed exhaustive.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The exchange-rate equality is the natural sharp boundary between the source's positive-quadrant homoclinic phase and a critical family with finite-time quadratic blow-up for initially \(X_0>Y_0\). The exact exponential maximum, two-term event clock, reflected post-event limit, and universal profile distinguish genuinely different physical-time scales not determined by the phase portrait or first integral alone. The contrast with balanced data identifies an explicit nonuniformity in initial-condition space. This quantifies a structurally motivated singular transition, rather than an arbitrary parameter substitution.
+The fixed-rate homoclinic geometry and first integral at (1,3,1) are explicitly prior; integrability is not the novelty. The supported distinction is the quantified degeneration in physical time: exponential height for fixed positive imbalance, the two-term event clock, the compact-uniform inverse-erfi profile, and the selected, species-swapped post-singularity limit. The inspected matching statements do not already give or mechanically imply this package.
 
-## Closest literature and remaining limits
+## value
 
-N. Yeung and R. Erban, arXiv:2610.06130v1, Example 2.1; A. Algaba, C. García, M. Reyes, arXiv:1805.02873v1; T. A. Newton, SIAM Review **20** (1978), DOI 10.1137/1020007 (abstract only). Earlier geometric classification and integrability are not disputed. The theorem is deterministic, requires positive rates, and is not uniform at zero imbalance or the blow-up instant. Further full-text priority checks remain desirable.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This natural exchange-rate boundary is where a complete positive flow develops finite-time singular behavior in the limit. The peak scale and correction are needed to locate the increasingly narrow concentration excursion, the balanced regime exhibits an opposite time scaling, and the reflected arc identifies what the positive regularization actually selects after the limiting blow-up. These facts add dynamical information beyond the phase portrait or a conserved quantity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

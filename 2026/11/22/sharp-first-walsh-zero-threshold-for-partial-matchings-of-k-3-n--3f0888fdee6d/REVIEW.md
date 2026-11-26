@@ -1,19 +1,21 @@
-# Scientific review of the sharp partial-matching Walsh threshold
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The matching total is \(N_n=n^3+2n+1\); the number containing any fixed edge is \(Q_n=n^2-n+1\). The union estimate \(W_n(S)\ge N_n-2|S|Q_n\) proves strict positivity through degree \(r=(n+1)/2\) for odd \(n\), with equality \(2n\) on row stars. Parity proves invertibility for even \(n\). Appending one edge in a second row but a column already in the star causes exactly a signed decrement of \(2n\), yielding a zero. Uniqueness of the heavy row when \(r\ge2\) proves the stated constructed-zero count. Both independent exact-integer programs pass; finite tests are not substituted for the general argument.
+PASS
 
-## Originality
+The total number of partial matchings is N=n^3+2n+1 by choosing occupied rows and injecting them into columns. A specified edge occurs in Q=n^2-n+1 matchings because its endpoints leave K_{2,n-1}. The number of matchings with odd intersection with S is at most |S|Q, proving W>=N-2|S|Q. This is at least 2n for |S|<=r=(n+1)/2 when n is odd. If n is even, every multiplier has the parity of the odd N and cannot vanish. An r-edge row star attains the union bound since a matching uses at most one edge in that row. Appending an edge in another row but a selected column flips exactly those matching contributions containing the new edge. In the residual board K_{2,n-1}, omitting the star row has n completions, and using it has signed column sum (n-1)-2(r-1)=0 with the same number of remaining completions per chosen column. Thus the new support has W=2n-2n=0. When n>=3, r>=2 distinguishes the heavy row, so the 3 choices of heavy row, binomial(n,r) column selections, 2 extra rows and r extra-edge columns give distinct supports. This proves a lower bound on multiplicity, not a classification. Counting convolution has these unnormalized multipliers on the full Boolean edge group, so invertibility and injectivity statements follow. Both frozen verifiers and reported results were inspected, not executed. A separate direct signed-count run (python3 /workspace/review_checks.py 3) exhausts frequencies at n=3,4,5 (36 first zeros, none, and 270 first zeros, respectively), and checks selected boundary stars and their extensions through n=25. The proof, not these finite tests, covers all widths.
 
-**PASS under bounded search.** Rectangular rook coefficients supply unsigned matching totals, while the matching-polytope and multivariate matching polynomial literature inspected have different statements and do not imply the all-width sharp Fourier-zero degree. Previous fixed-board complete-bipartite matching calculations do not imply this uniform threshold, and a spanning-tree Fourier result uses a different configuration family. Multiple indexed searches for Walsh matching sums, signed rook cancellations, and \(K_{3,n}\) found no logically dominating theorem. A possible unindexed signed-rook theorem remains a residual priority risk; this review does not establish absolute novelty.
+## originality
 
-## Value
+PASS
 
-**PASS.** The first Walsh zero is the exact boundary of faithful low-degree recovery under a natural matching-constrained convolution channel. The parity split between even and odd board widths, the strictly positive edge-frequency gap through the maximal recoverable degree, and a large explicit family of first lost modes determine a structural recovery threshold across an infinite family; this is not merely an unsigned rook polynomial recount.
+The earlier same-operator finding 5bf177d89df5 covers the even/odd global singularity split and establishes full-spectrum minimum positive magnitudes and zero family counts. These overlap and should be credited rather than presented as a discovery here. The distinct contribution supported by the available statements is the sharp odd-width bound at bounded frequency weight, exact first-zero degree, and its explicit multiplicity bound at that degree. The available stronger global spectral statements are not bounds in frequency weight.
 
-## Limits and closest prior literature
+## value
 
-The count of constructed zeros is a lower bound rather than a complete first-zero census. The full odd-width nullity is not determined. Relevant literature: Weisstein's rectangular rook polynomial exposition; Walter, arXiv:1607.01880; Leake–Ryder, arXiv:1610.00805. Priority outside the indexed and inspected literature remains open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The precise first lost degree is a motivated recovery boundary for the natural all-matchings model, not merely the already known singularity parity. The positive margin 2n and a uniform family of lost modes together distinguish low-frequency recovery from the full spectrum across all odd widths. The count is not the total number of lost modes or an exact minimum-degree census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim fixes the zero-extended boundary convention and includes the exact recurrence for internal ascents. The two-case division by powers of two is justified inductively, not inferred from experiments. Reducing the normalized recurrence yields a pair of formal power-series identities in characteristic two. Direct differentiation proves their unique rational closed forms, giving the binomial parity law by coefficient extraction. Binary Lucas congruence then proves the exact first sharp row, the least period, and the natural density. The checker verifies 195380 finite assertions through row 360, including an independent small-object enumeration; these are error checks rather than an infinite proof.
+PASS
 
-## Originality — PASS, with residual risk
+Use internal ascents, excluding sentinels. Inserting nn in one of the ascent gaps or at the beginning leaves the ascent count unchanged and all other gaps add one; the empty word initializes column zero. For k=2j>0 the two old coefficients share divisor 2^j and the multipliers are odd. For k=2j+1 the old same-column term has divisor 2^(j+1) and an even multiplier, while the incoming column has divisor 2^j and multiplier 2(n-j-1). This proves integrality and yields the printed parity recurrences, including the zero boundary. An independent induction on the proposed binomial parity works directly: in even columns the two older binomials combine by Pascal with upper index n-1-j, and in odd columns (u-2j)binom(u,2j)=(2j+1)binom(u,2j+1) with u=n-j-1. The first 1 is at n=k+ceil(k/2); summing the shifted binomial coefficients gives the stated formal series (also for k=0). Lucas yields the bit test for fixed k>=1; among residues modulo 2^r, r the bit length of k, exactly 2^(r-s_2(k)) qualify. Any eventual period is a period of the residue pattern, and the least must divide 2^r; a half-period flips the highest required bit at u=k, so the least is 2^r. Independent literal Stirling-word enumeration by open and closed pairs through n=7 in python3 /workspace/review_evidence/recompute_arithmetic.py confirmed the normalization and parity. This finite reproduction is diagnostic, not the universal proof.
 
-The closest inspected source is Haglund–Visontai (2012), whose full paper treats stability and related counting recurrences, not integer coefficient normalization. The Chen–Hao–Yang full text concerns stable polynomial refinements; its factor \(2^n\) is not the columnwise power \(2^{\lceil k/2\rceil}\). Castro–González–Medina study ordinary Eulerian numbers; Zhao–Hong–Zhao's prime-adic statements concern ordinary Stirling numbers. Neither covers second-order Eulerian coefficients. Published related findings on flattened Stirling permutations and generic row-content formulas do not imply the fixed-column binary congruence. Finite OEIS data cannot prove the infinite statement. Exact-phrase and structural alias searches located no dominating theorem. Nonetheless historical novelty remains provisional: older digit-congruence material may contain an unindexed equivalent.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The second-order Eulerian triangle is a canonical permutation-enumeration object. Its exact columnwise minimum \(2\)-adic valuation, all equality indices, and least period/density form a natural complete arithmetic classification, with nontrivial binary dependencies not entailed by real-rootedness. The formula is simultaneously uniform in row and column, and resolves a sharply formulated divisibility problem rather than an arbitrarily chosen numerical slice.
+Best of current knowledge: the recurrence, raw triangle, and its one-column aliases are established. The exact bit-level result after division by 2^ceil(k/2), and its uniform sharpness classification, are not stated by the inspected sources. Lucas and the period/density deductions are standard once the nontrivial normalized parity is known.
 
-## Residual scientific risks
+## value
 
-The paper-wide literature inspection is limited to the accessible full texts and indexed comparisons named in the accompanying structured audit; an unknown earlier exact congruence could affect originality. The theorem gives only the first binary digit of the normalized coefficient, not all subsequent valuation digits. There is no independent mathematical audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a standard triangle the result identifies the exact minimum column valuation and all rows attaining it by a low-cost binary test, with exact onset, period and density. This is a natural unbounded arithmetic classification, not a small table recomputation or a reindexing of standard Stirling numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

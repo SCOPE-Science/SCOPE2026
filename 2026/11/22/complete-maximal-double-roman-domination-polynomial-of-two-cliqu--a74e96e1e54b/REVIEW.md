@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The zero-set non-domination condition forces all zeros into one clique. The proof then partitions all labellings into both-clique positive functions and three exhaustive cases according to the number of labels \(3\) and \(2\) in the zero-containing clique. The product factors and all subtractions impose the required witnesses without double counting. The minimum and its optimizer classification follow from minimum degrees of the disjoint summands. The spectrum follows from two explicit overlapping constructions. The two computational approaches agree coefficientwise for \(n=3,4,5,6\), including the exceptional boundary \(n=3\); the symbolic identity is proved independently of these tests.
+PASS
 
-## Originality — PASS, with priority risk
+Zeros in both cliques dominate; with zeros only in B the maximality witness exists exactly when B also has a positive label, whose mate in A has no zero neighbor. With neither clique containing zeros, one can choose a high (2 or 3) in each (E_n²), or have one all-1 clique forced to match only high labels in the other (the second term). With zeros in B, A must have a high label because the mate of a zero could not be a defended 1 if A were all ones. The three B regimes are disjoint: (i) some 3 or at least two 2s gives internal defense, counted by E_n B_n after excluding no-zero and deficient B assignments; (ii) exactly one 2 and no 3 gives its column z²a, then other columns either b_i=1 with factor za, or b_i=0 requiring a_i≥2 with factor z²+z³, and the all-positive B choice is subtracted; (iii) only 0s and 1s in B requires a_i=3 at each zero and a_i≥2 at each one, with both constant B choices forbidden. Orientations supply the stated factors of two. The first one-sided regime starts at n+4 only with a single 2 among the positive clique's ones and a single 3 among the other clique's zeros. The independent choice of two positions gives 2n². Competing regimes start at 2n+2, 2n+1 or 3n, all strictly above n+4 for n≥4. The two intervals [n+4,3n+3] (hold the lone 3 in B) and [2n+2,6n] (positive and high in each clique) overlap and realize the entire spectrum. At z=1 the zero-free terms and no-high term combine to 9^n−1, and the remaining terms give the displayed total. Independent replay: python3 /workspace/reviews/check_mathematics.py 3 tests the dominance witness and defender conditions directly on graph neighborhoods for n=3,4,5, with coefficientwise matches and exact listed optimizer sets at n=4,5. At n=3 there are 36 minima rather than 18, confirming the need for the scope restriction.
 
-The original maximal double Roman article (DOI 10.1016/j.amc.2021.126662, open full text arXiv:2402.07013) was inspected for the definitions, general inequalities, clique case and special-graph theorems. It does not give this full prism weight enumerator. The 2023 survey's section 4.8 does not state it. Nearby published results on cocktail-party graphs or on quasi-total double Roman domination concern distinct graphs or different admissibility conditions. Search comparisons of equivalent formulations, broader theorems and exact tables did not produce a statement implying this formula. Because an unindexed publication or table might exist, historical priority is provisional.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result supplies the complete labelled weight distribution of a natural infinite graph family for a named graph invariant, identifies the only optimal label geometry and its exact multiplicity, and proves a contiguous feasible-weight spectrum. The two-clique matching structure produces a nontrivial three-regime boundary calculation, including a special one-defender interaction and a witness subtraction, rather than a mere substitution into a published general formula. These results can serve as a closed benchmark for future algorithmic and enumerative work on this invariant.
+The exact maximal double Roman weight enumerator for two matched cliques is distinct from the scalar clique result, ordinary Roman-variant product results and the same-graph calculations for other defender rules. No earlier equivalent was located in the bounded comparisons.
 
-## Limits and sources
+## value
 
-Scope: \(K_2\square K_n\), \(n\ge4\), maximal double Roman functions with named vertex labels. Sources: Ahangar et al., DOI 10.1016/j.amc.2021.126662, full preprint arXiv:2402.07013; Rupnik Poklukar and Žerovnik, DOI 10.3390/math11020351. The exact earliest public day of the initial 2022 journal article was not recovered; the 2023-01-09 survey provides a verified dated motivating source. No outside priority or independent proof certificate is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The full weight distribution for the natural matched-clique family isolates which configurations need defenders across the matching and which are internally self-sufficient. The non-domination witness removes entire extreme configurations, not just weights. The polynomial gives a uniform benchmark for weighted enumeration, recovering the exact minimum multiplicity and full contiguous spectrum rather than only a scalar optimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

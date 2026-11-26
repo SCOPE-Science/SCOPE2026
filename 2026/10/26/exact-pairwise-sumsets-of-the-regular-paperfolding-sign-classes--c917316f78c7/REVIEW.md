@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact membership decompositions \(A=4\mathbb N_0\sqcup(2A+1)\) and \(B=(4\mathbb N_0+2)\sqcup(2B+1)\) follow from the odd part of \(n+1\). A strong induction gives all representations in \(A+A\) and \(A+B\) outside the stated three mixed exceptions. For \(B+B\), explicit odd and divisible-by-four representations reduce all remaining cases to \(4m+2\in B+B\iff2m\in B+B\); its unique unrepresentable even chains begin at zero and become \(2^k-2\). The exact counting formula follows from this chain. The proof supplies all base cases; no finite enumeration is elevated to infinite proof. The independent bounded script checks recurrences, constructive witnesses through 99999, and direct sumsets below 8192.
+PASS
 
-## Originality — PASS within inspected evidence
+The scope is ordinary two-summand sumsets on N0, including repeated summands, with A and B given by the odd part of n+1. The recursions split the even terms into 4N0 for A and 4N0+2 for B, and reduce every odd term 2u+1 to u. For A+A, residues 0,1,3 mod 4 have explicit witnesses using 0,1,3, and residue 2 reduces to a smaller even target by requiring two lifted odd terms. For A+B, residues 2,3 have immediate witnesses and residue 1 is represented from 5 onward using the B-term 5; the multiples of 4 from 8 onward lift the already represented odd targets 2m-1. The only possible B-term below 5 is 2, ruling out 0,1,4. For B+B, two even terms cover the positive multiples of four, and using 5 or 11 with an even B-term covers odd residues from 7 or 13, respectively. Below those bounds the odd totals 1,3,5,9 are impossible by the actual initial B-terms. A target congruent to 2 mod 4 forces two odd terms and is representable iff (n-2)/2 is. Every such chain stays even and terminates; the only missed terminal value is zero, whose backwards orbit is 2^k-2 for k>=1. Counting that disjoint even family gives floor(log_2(X+2)) for real X>=0, and the four odd indicators give the rest. Density one follows. Fresh direct enumeration allowing repeats matched all three sumsets and the integer-threshold counting formula through 4095.
 
-OEIS A014577 records the paperfolding digit rule but no exact pairwise sumset classification. The available author-posted paper of Bunder, Bates and Arnold (2024, DOI 10.1017/S0004972724000169) discusses summatory run lengths and continued fractions, rather than this additive question. The paper of Allouche and Shallit (arXiv:2112.13627) treats Thue–Morse evil/odious integer classes instead. Bell, Hare and Shallit (arXiv:1710.08353) give general decidability machinery for automatic additive bases, not these formulas or their implicit complete exception census. Searches for paperfolding two-summand sets, one-positions/zero-positions, and the specific geometric exceptional family found no equivalent statement. The 2022 monograph by Shallit has potentially relevant chapters that were not fully accessible; the accessible 2024 paper may differ from the final journal pagination. Thus publication-priority risk remains; failed searches alone are not evidence of uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The two complementary sign sets of a canonical automatic number sequence constitute natural additive sets. Exact ordinary two-term representation behaves differently in their three pairings: universal coverage for one-plus-one, three missing integers for one-plus-zero, and infinitely many yet logarithmically sparse exceptions for zero-plus-zero. The precise contrasting classification is a nontrivial complete answer and the proof gives constructive representations.
+The normalizing rule for the paperfolding classes is classical. The inspected additive works and exact same-day sign-class findings do not give the three sumsets of these classes, including the precise dyadic defect. No publication priority is established.
 
-## Boundaries
+## value
 
-Only zero-based regular paperfolding and sums of exactly two nonnegative indices are covered; no generalized folds or multiplicities are established. The known membership recurrence is not claimed as new, and the 2022 monograph remains an unresolved literature-inspection risk. All computations are bounded corroboration; the infinite claim uses the symbolic proof. Scientific provenance and independent audit are not certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a canonical automatic partition, an exact width-two additive classification distinguishes a full basis, a cofinite mixed sumset, and a density-one sumset with infinitely many holes. The dyadic backward orbit and four odd exceptions specify which large targets fail, not merely how often failure occurs, giving an exact benchmark for additive-basis methods on automatic sets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

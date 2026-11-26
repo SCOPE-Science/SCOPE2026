@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:03:36.504271Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The derivative of each dilated coordinate along the two-input segment is the perturbation at a maximizing index almost everywhere; identical affine pieces have the same slope. Cyclic variation of the integral is bounded by the integral of selector variations. For proper consecutive windows the rightmost lifted maximizer is nondecreasing and winds once, so its arcs charge each input edge once. A spike attains one; the whole window is constant and has factor zero. For two taps each adjacent selected pair lies on a three-edge lifted arc, giving factor three. The coarea inequality bounds selector variation by 2 floor(n/2) times input oscillation, and input variation is at least twice that oscillation; this gives two for n=4,5 and one for n=3, also a shifted interval. The given strict comparisons select the indicated Boolean perturbations, with output variation respectively 2,4,4,6 on input variation 2, and stay fixed at small displacement, including at the wrap for n=6 and n>6. The one-input estimate follows from the max/min sorting inequality and a spike has two separated sites for n>=4. An independently written bounded check enumerated realizable strict selector graphs, using acyclicity and exact arc tests at n=3 through 9, and reproduced the sharp two-tap factors; the universal statements rely on the analytic estimates, not this sweep.",
+      "replay_paths": [
+        "/workspace/replay/4_selector_check.py"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Aldaz–Pérez Lázaro prove V(Mf)<=V(f) for a one-input noncentered averaging maximal operator.",
+          "5f5f2cb7d7b2 concerns weighted variation on finite paths with truncated windows, proper windows giving one in the unweighted case."
+        ],
+        "reasoning": "One-input contraction does not control differences of two outputs of a nonlinear map, and finite-path results about truncated intervals do not give a cyclic gapped support bound.",
+        "searches": [
+          "Heijmans §6.2 flat grey-scale operations",
+          "arXiv:math/0601044 Theorem 2.5",
+          "Resultary finite-window morphology 5f5f2cb7d7b2"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1109/TASSP.1987.1165259",
+        "Heijmans §6.2",
+        "arXiv:math/0601044",
+        "Resultary 5cf009af2475",
+        "Resultary 59530ef626eb",
+        "Resultary 5f5f2cb7d7b2",
+        "Resultary de0f8eaa224c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known operations provide the moving-max definition; the indexed width-two norm applies where the taps really are consecutive, and the median theorem is about a different attainable-selector set."
+        ],
+        "reasoning": "The new comparison needs both a cyclic two-input selector upper bound and feasible strict selector witnesses with the separated taps; definitions, one-input variation estimates, and adjacent-tap bounds do not provide that conjunction.",
+        "searches": [
+          "Resultary 5cf009af2475, 59530ef626eb and 5f5f2cb7d7b2 Findings",
+          "Maragos–Schafer §III-C"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Maragos–Schafer §III-C and Heijmans §6.2 identify the ordinary moving maximum/flat-dilation formulation.",
+          "Resultary 5cf009af2475 specializes under uniform edge weights to the exact consecutive width-two result; n=3 gapped is a cyclic translate of that case."
+        ],
+        "reasoning": "The width-two overlap is exact in the stated subcase. For n>=4 a shift does not turn {0,2} into consecutive taps; the different support is essential and no such reduction covers the rest.",
+        "searches": [
+          "Mathematical morphology finite flat dilation two-input cyclic TV operator norm",
+          "Resultary cyclic running maximum, BV perturbation, and two-wall variation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "59530ef626eb gives 0,2,2,3,... for the cyclic three-point median.",
+          "de0f8eaa224c treats cyclic running maxima with exact complete-graph Gini factor w(n-w)/(n-1).",
+          "5cf009af2475 gives the exact weighted width-two consecutive operator norm."
+        ],
+        "reasoning": "The median has the same factors only from n=4 onward but is a different operator; Gini has a different edge seminorm. No matching exact gapped classification is established by the located entries.",
+        "searches": [
+          "Resultary sharp BV perturbation factors for cyclic finite-window filters"
+        ]
+      },
+      "rationale": "Flat dilation and related variation bounds are standard, and the width-two consecutive special case is directly covered in the catalogue. The strongest looked-up results do not cover the support-gap comparison or its exact cyclic gapped classification. Equal factors for a three-point median are not equivalent statements for dilation. No priority conclusion rests on catalogue dates.",
+      "residual_risks": [
+        "The primary query was noisy; historical equivalents under other signal-processing terminology are possible. The check does not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Definition overlap",
+          "evidence": "On finite discrete windows dilation/erosion are moving local maximum/minimum.",
+          "identifier_or_url": "doi:10.1109/TASSP.1987.1165259",
+          "material_read": "§III-C, paper p. 1161, OA offset 46992",
+          "method": "Bounded author-hosted open PDF reading",
+          "title": "Morphological Filters—Part I",
+          "trigger": "Standard dilation under equivalent terminology"
+        },
+        {
+          "assessment": "Flat-operation framework only in inspected passage",
+          "evidence": "Flat structuring function is zero on its support and minus infinity outside; equations (6.2)–(6.5).",
+          "identifier_or_url": "https://ir.cwi.nl/pub/2230/2230D.pdf",
+          "material_read": "§6.2, pp. 28–30, OA offsets 83500–85876",
+          "method": "Bounded OA passage",
+          "title": "Mathematical Morphology",
+          "trigger": "Primary flat-operation treatment"
+        },
+        {
+          "assessment": "One-input and averaged, not two-input flat dilation",
+          "evidence": "V(Mf)<=V(f) for the noncentered Hardy–Littlewood operator.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0601044",
+          "material_read": "Theorem 2.5, PDF p. 4, offset 11411",
+          "method": "Bounded OA theorem inspection",
+          "title": "Functions of bounded variation, the derivative of the one dimensional maximal function, and applications to inequalities",
+          "trigger": "Potential prior BV contraction"
+        },
+        {
+          "assessment": "Direct width-two special case",
+          "evidence": "Attained weighted cyclic norm for max(z_i,z_{i+1}); no {0,2} for n>=4.",
+          "identifier_or_url": "Resultary 5cf009af2475",
+          "material_read": "RESULT.md Finding, mirror offset 0",
+          "method": "Local catalogue and bounded mirror reading",
+          "title": "Sharp two-wall variation law for one-sided cyclic dilation",
+          "trigger": "Exact same norm and closest dilation operator"
+        },
+        {
+          "assessment": "Different operator and n=3 value",
+          "evidence": "Three-point median constants are 0,2,2,3,... and its one-input bound contracts.",
+          "identifier_or_url": "Resultary 59530ef626eb",
+          "material_read": "RESULT.md Finding, mirror offset 0",
+          "method": "Local mirror reading",
+          "title": "Sharp BV perturbation threshold for cyclic three-point medians",
+          "trigger": "Numerical match in factors; possible equivalent selector result"
+        },
+        {
+          "assessment": "Finite paths, not cyclic separated taps",
+          "evidence": "Truncated interval windows on paths; unweighted proper-window factor one.",
+          "identifier_or_url": "Resultary 5f5f2cb7d7b2",
+          "material_read": "RESULT.md Finding, mirror offset 0",
+          "method": "Local mirror reading",
+          "title": "Finite-window morphology: sharp two-input variation and a boundary effect",
+          "trigger": "Sharp interval bound in another geometry"
+        },
+        {
+          "assessment": "Different seminorm",
+          "evidence": "Exact factor w(n-w)/(n-1) for the complete-graph Gini seminorm.",
+          "identifier_or_url": "Resultary de0f8eaa224c",
+          "material_read": "RESULT.md Finding, mirror offset 0",
+          "method": "Local mirror reading",
+          "title": "Sharp Gini stability of cyclic running maximum filters",
+          "trigger": "Same cyclic operators but another graph variation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The contiguous interval versus the first genuinely separated two-tap support tests whether ordinary variation stability also governs perturbations. The exact small-cycle cutoff, attained amplification three with a one-input factor two, and proof across arbitrary cycle lengths distinguish two natural stability notions. This is a structural boundary example, not a claim about all disconnected windows.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

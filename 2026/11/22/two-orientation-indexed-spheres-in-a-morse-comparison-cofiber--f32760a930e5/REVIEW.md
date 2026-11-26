@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The two possible closed oriented gradient paths are the two directed traversals of the only cycle. The directed cycle consumes all its graph vertices and cycle edges, and the residual link uses exactly three permitted incidences, with one compatible pair and the third isolated. The two forbidden orientations cannot belong to the same generalized field; the cofiber is the wedge of their two simplex–link quotients. Each quotient is the \(n\)-fold suspension of an edge-plus-isolated-vertex link, hence \(S^n\). Direct integral relative boundary calculations have primitive rank-one differentials and yield precisely \(\mathbb Z^2\) in degree \(n\). The finite verifier checks all graph incidence sets for \(3\le n\le10\) with two independent tail choices, but is not the infinite proof.
+## correctness
 
-## Originality — PASS against inspected evidence
-The 2022 Donovan–Scoville text gives only the one-leaf collapse. The full scientific text of the closest published 2026 four-cycle example computes two absolute homotopy types at \(n=4\) and explicitly says it does not address longer cycles. Neither theorem supplies the map-level cofiber for arbitrary \(n\); matching the two absolute Betti numbers at one value does not determine the full family of inclusion maps. Additional targeted searches for unicyclic Morse cofibers, attached-path relative Morse homology, and generalized-complex inclusion yielded no logically covering statement. The general inclusion-to-cofiber construction itself is standard topology, and the claim of novelty concerns its exact all-length application and the two primitive orientation obstructions, not that abstract method. A related honors thesis was accessible only at abstract level; an equivalent unindexed theorem remains a residual risk.
+PASS
 
-## Value — PASS
-The comparison between ordinary and generalized discrete Morse complexes is an explicit open research direction in the motivating 2022 paper. The one-leaf inclusion is a collapse, whereas an extra single edge produces a nontrivial rank-two integral cofiber in arbitrarily high dimension and for **every** cycle length, not merely the known four-cycle witness. It identifies the precise topological obstruction (one generator per cycle orientation), including an integral calculation and a sharp local threshold. This is a motivated infinite structural boundary theorem, not a free parameter renaming or a finite isolated computation.
+Compatible incidences use each tail vertex and each graph edge at most once as a matching pair. Any directed closed gradient path here uses the unique graph cycle; the two cyclic incidence faces each use all cycle vertices and edges, and cannot occur together. The cofaces of either cyclic simplex are exactly its join with the tail link. In that link the sole compatible pair is (u,v0u) with (w,uw); (u,uw) is isolated. The two closed stars intersect only inside the ordinary Morse complex, and each meets the ordinary Morse complex precisely in its boundary-simplex join with the link. Thus the geometric quotient splits as the wedge of the two relative quotients. Retracting the link edge to an endpoint gives a deformation of both joined spaces respecting the relative subspace. Afterward the pair is the suspension of the (n-1)-simplex and its boundary, an n-ball and its boundary, so each pointed quotient is S^n. Independently the relative groups for one block occupy degrees n-1,n,n+1 with ranks (1,3,1); the lower map is onto, the upper image is a primitive rank-one subgroup of the kernel, and the remaining generator has degree n. The inclusion is a simplicial cofibration, so its noncontractible cofiber rules out a homotopy equivalence. The one-edge comparison has a point link (and the published collapse). Inspected the frozen code and finite results for n=3 through 10, without executing the supplied script; the proof is uniform and does not rely on these cases.
 
-## Sources and limitations
-Donovan–Scoville, *Star clusters in the Matching, Morse, and Generalized Morse complex*, arXiv:2207.13780v1, relevant sections read in full; published-finding corpus *A two-edge tail separates generalized and ordinary Morse complexes of \(C_4\)*, 2026-10-11, full RESULT.md read. The 2020 higher-connectivity paper and a 2023 honors thesis were considered using available excerpts/abstracts, without a full-text noncoverage assertion. The theorem does not classify the absolute complexes or general trees attached to cycles. Independent validation has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+This is a cofiber and relative-homology result for the prescribed inclusion on an infinite family, not the previously published finite separation of the two absolute complexes and not the one-leaf collapse. The exact known partial overlap is credited.
+
+## value
+
+PASS
+
+Identifies what first breaks the known one-leaf comparison on a natural modification: a second pendant edge creates a specific noncontractible obstruction, one sphere for each direction of the cycle. This determines the relative topology uniformly and gives more than distinguishable absolute ranks in a single small instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:28:28.648538Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–61",
+        "Frozen VERIFICATION.md and artifacts/verify_jumping.py, inspected without execution",
+        "Independent replay: python3 /workspace/review_checks/finite_checks.py; rational elimination confirms scaling and coordinate-zero tests for r=2–6"
+      ],
+      "rationale": "Euler's identity identifies the logarithmic tangent bundle with the kernel of O(1)^3→O(2r+1) given by the three gradient monomials. Chern classes follow by division and twisting: c₁(F_r)=0 and c₂(F_r)=3r². There is no degree-r coefficient syzygy, since monomial supports are disjoint below coefficient degree 2r; H⁰(F_r)=0 implies slope stability by extending a rank-one subsheaf to its double dual. The fiberwise square restriction map has rank-3r source and target bundles; its cokernel is the first higher direct image of the restricted F_r(−1), so its zeroth Fitting divisor is the canonical first determinant scheme. For c≠0, deleting the two pivot blocks leaves the middle binomial minor: all determinant terms carry A^(r²)B^(r²), and the remaining binomial matrix is PPᵀ of full row rank by Vandermonde and triangular pivots. Permuting coordinates verifies the remaining chart and gives the global Cartier equation. On a coordinate line in the dual plane a constant gradient syzygy splits off, and the other two restricted gradient forms have disjoint zeros, giving O(r)⊕O(−r) after twisting. The determinant is invertible on the remaining lines, forcing the degree-zero splitting O⊕O.",
+      "residual_risks": [
+        "Finite replay supports the calculation but does not prove the all-degree formula. Nonvanishing uses characteristic zero; the first determinant scheme must not be confused with higher jumping schemes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The weak Lefschetz property holds for height-three Artinian complete intersections over characteristic zero; Brenner–Kaid relate this to balanced generic splitting of these syzygy bundles.",
+          "Interpolation determinant examples with fixed components treat point configurations and line arrangements, not this Fermat curve."
+        ],
+        "reasoning": "Unlike an unrelated determinant method, WLP directly applies to the displayed Fermat Jacobian quotient. Diagonal symmetry transports the generic conclusion to every line with abc≠0.",
+        "searches": [
+          "arXiv:math/0208201 Theorem 2.3 and Remark 2.10(1)",
+          "arXiv:1003.0824 §2",
+          "arXiv:2601.11114v1 §5 Example 5.3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1804.06349",
+        "arXiv:1003.0824",
+        "arXiv:math/0208201",
+        "arXiv:2601.11114v1",
+        "Resultary 2333a59846b1 catalogue summary"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The square determinant on the Fermat quotient is nonzero on the entire coefficient torus by WLP and scaling.",
+          "The determinant degree is dim R_(3r−2)=binom(3r,2)−3 binom(r,2)=3r²; coordinate permutations preserve the determinant divisor.",
+          "On a coordinate pencil the restricted syzygy has a constant relation and the two remaining powers are relatively prime."
+        ],
+        "reasoning": "A torus-nonvanishing homogeneous polynomial in three variables is a monomial, and symmetry splits its degree equally across the three variables. This supplies the Cartier multiplicities as well as the support. The elementary coordinate restriction then supplies the remaining splitting types, leaving no new case of the claimed classification.",
+        "searches": [
+          "arXiv:1804.06349 Remark 4.7 first determinant",
+          "arXiv:math/0208201 §2 Theorem 2.3",
+          "arXiv:1003.0824 Corollary 2.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The normalized bundle is the monomial syzygy bundle Syz(x^(2r),y^(2r),z^(2r))(3r).",
+          "Dimca–Sticlaru's odd-degree Barth determinant is multiplication by the line form from N(f)_(3r−2) to N(f)_(3r−1). For the smooth Fermat curve N(f) is the full Artinian Jacobian quotient."
+        ],
+        "reasoning": "The logarithmic and Jacobian-graded formulations are equivalent. Failure of maximal rank of that specific multiplication map, with its determinant rather than just support, is the same scheme problem.",
+        "searches": [
+          "Published Resultary searches for odd Fermat jumping divisors and powers syzygy bundles",
+          "arXiv:1003.0824 §2 Lemma 2.1 and Corollary 2.2",
+          "arXiv:1804.06349 Remark 4.7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Fermat cubic has first jumping divisor abc, outside the r≥2 range. The Fermat quartic has a coordinate-power determinant, but for jumping lines of the second kind.",
+          "The related sextic catalogue summary concerns a local length-three scheme at a jumping line, not an odd-Fermat determinant."
+        ],
+        "reasoning": "No inspected exact table gave the all-r formula. The quartic equation cannot count as direct coverage of this first determinant; the stronger-theorem implication is decisive independently of tabulation.",
+        "searches": [
+          "Published Resultary searches for the exact Cartier equation and coordinate multiplicity",
+          "arXiv:1804.06349 §6 Example 6.1",
+          "Resultary 2333a59846b1 catalogue summary"
+        ]
+      },
+      "rationale": "No inspected primary source was found to print the entire all-r formula as a Fermat example. Nevertheless it is an immediate specialization of the established first Barth determinant on the graded Jacobian quotient and the characteristic-zero weak Lefschetz theorem. On the smooth Fermat Jacobian quotient R=C[x,y,z]/(x^(2r),y^(2r),z^(2r)), diagonal scaling preserves the ideal and acts transitively on linear forms with all coefficients nonzero. WLP therefore gives invertibility everywhere on abc≠0. The determinant is homogeneous of degree dim R_(3r−2)=3r², and a homogeneous polynomial nonzero throughout that torus is a monomial. Coordinate permutation symmetry forces that monomial to be (abc)^(r²) up to a scalar. Generic balanced splitting extends to the entire open orbit; at the complementary lines, two independent coordinate powers and their redundant third generator give the exact order r by restriction. Thus the complete splitting and nonreduced multiplicities are mechanically forced even without the published special-case equation.",
+      "residual_risks": [
+        "Catalogue retrieval was incomplete for the sextic hit; its contents beyond the summary are not inferred. The decision rests on the affirmative primary-source implication, not on the absence of an exact catalogue hit or a claim of ultimate historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies exact odd-degree determinant formulation and lower-degree precedents",
+          "evidence": "Remark 4.7 gives det(α_L:N(f)_(3r−2)→N(f)_(3r−1)); Example 6.1 distinguishes the cubic first divisor from the quartic second-kind determinant.",
+          "identifier_or_url": "https://arxiv.org/pdf/1804.06349",
+          "material_read": "Remark 4.7 p. 12, PDF-text offset 32150–34288; §6 Example 6.1 pp. 18–19 near offset 49000",
+          "method": "OA PDF bounded passages by offset",
+          "title": "On the jumping lines of bundles of logarithmic vector fields along plane curves",
+          "trigger": "Same logarithmic bundle, first determinant and Fermat examples"
+        },
+        {
+          "assessment": "Applies to generic splitting",
+          "evidence": "WLP is equivalent to balanced generic line restrictions for the syzygy bundle of the three equal powers.",
+          "identifier_or_url": "https://arxiv.org/pdf/1003.0824",
+          "material_read": "§2 Lemma 2.1 and Corollary 2.2, pp. 2–3, offsets about 3900–8847",
+          "method": "Bounded OA PDF",
+          "title": "A note on the weak Lefschetz property of monomial complete intersections in positive characteristic",
+          "trigger": "Equivalent monomial syzygy bundle"
+        },
+        {
+          "assessment": "Directly covers maximal-rank multiplication for a general line form",
+          "evidence": "Every height-three Artinian complete intersection has WLP in characteristic zero; the jumping-line remark connects defective multiplication to special lines.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0208201",
+          "material_read": "§2 Theorem 2.3 p. 5 near offset 17016; §1 p. 2 near offset 7128; HTML Remark 2.10(1) near offset 36491",
+          "method": "Bounded OA PDF and HTML",
+          "title": "The Weak and Strong Lefschetz Properties for Artinian K-Algebras",
+          "trigger": "Stronger WLP theorem covering the Fermat Jacobian quotient"
+        },
+        {
+          "assessment": "Related determinant technique, different bundles",
+          "evidence": "Uses bundles from point configurations and arrangements; example has a triple line plus a residual curve.",
+          "identifier_or_url": "https://arxiv.org/pdf/2601.11114v1",
+          "material_read": "Introduction p. 2 near offset 3665 and §5 Example 5.3 pp. 14–15 near offsets 41600–46073",
+          "method": "Bounded OA PDF",
+          "title": "Interpolation matrices and jumping lines of logarithmic bundles",
+          "trigger": "Nearby fixed-component computations"
+        },
+        {
+          "assessment": "Nondecisive comparison only",
+          "evidence": "Summary concerns the local ideal (u,v)² on a sextic, not an all-odd Fermat formula.",
+          "identifier_or_url": "Resultary 2333a59846b1",
+          "material_read": "Catalogue summary only; exact local mirror retrieval timed out",
+          "method": "Published Resultary index",
+          "title": "The deeper jumping line on the explicit sextic has local length three",
+          "trigger": "Closest catalogue hit"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 34–67",
+        "arXiv:1804.06349 Remark 4.7",
+        "arXiv:math/0208201 Theorem 2.3"
+      ],
+      "rationale": "A thickened first jumping scheme is a natural invariant and the proof is an accurate explicit illustration. But once the existing determinant and Lefschetz theorems are applied, coordinate scaling and permutation symmetry alone force the exact exponents, and the remaining splitting follows from a redundant generator on a line. No independently useful new invariant or claim remains; the finite tests and computational presentation do not alter that.",
+      "residual_risks": [
+        "The decision concerns the claimed first determinant over C; it says nothing about the potential value of new results in positive characteristic or on deformations of the Fermat curve."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

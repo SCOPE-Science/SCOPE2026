@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and scope
+# Independent mathematical audit
 
-Run `python3 verify.py` using a standard Python 3 interpreter. Expected output: `VERIFY_OK`.
+## correctness
 
-The checker reconstructs exact integer matrices \(Q,B,D\), confirms their displayed powers and determinants, checks seven parity types for every nonzero binary starting vector, and verifies dyadic leading-term matrices. It exhaustively tests all primitive initial triples modulo \(2^k\) for \(1\le k\le5\), then performs nonexhaustive higher-precision tests on five distinct triples for \(6\le k\le12\). The checker is not an exhaustive verification beyond \(k=5\) and is not the proof of the infinite assertion. The proof in `RESULT.md` explains the all-precision valuations, isometric branches, and even-fiber pairing. Independent mathematical audit has not been performed.
+PASS
+
+Modulo two the companion matrix acts on the seven nonzero vectors as multiplication by a nonidentity element of F_8^×, so a primitive return time is a multiple of seven. The lifts Q^7=I+2B and Q^14=I+4D give valuation ν₂(h)+1 for the matrix difference at shift 7h acting on a primitive vector, because both leading matrices are invertible modulo two. This proves the least state period. The three linear forms e, eB and eD modulo two are independent, so all seven nonzero branch types occur. For b=d=1, the difference valuations force a bijection from the full branch to the designated parity class, with one such branch per parity. For b=0,d=1 the two input parity classes map bijectively onto the same mod-four ball. For d=0, translating by 2^{k−2} pairs the inputs in each output fiber; k≥3 is essential to using the even-step lift. Thus exactly one contribution per fiber is odd. The mod-two counts are specifically 3 at zero and 4 at one; at modulus four the b=1 branches come in pairs per parity and b=0 branches contribute even counts.
+
+## originality
+
+PASS
+
+Credit the previously stated period and lift identities to the earlier zero-hit record. The supported distinct contribution is odd multiplicity of every scalar residue over the state period for every primitive starting state, hence universal dyadic surjectivity. The inspected fixed-seed sections, cycle-averaged moments, and general density or frequency results do not cover that assertion.
+
+## value
+
+PASS
+
+Exact parity for every target in every primitive orbit is strictly finer than a mean zero-hit count or a guarantee for the standard seed. It gives a uniform obstruction to missing any dyadic residue and explains why the coverage mechanism persists under arbitrary primitive initialization. The two low moduli mark where the odd-fiber law actually starts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

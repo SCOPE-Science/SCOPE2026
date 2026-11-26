@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:31:11.206533Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n=m+1 the constant vector, the hub-vs-leaves contrast (m,-1,...,-1), and the sum-zero leaf modes are the orthogonal Laplacian spaces for 0,n,1. With a=exp(-t) and b=exp(-nt), the two diagonal values differ by (m-1)(a-b)/m in favor of the leaves. The SPD residual is a Gram compression onto the orthogonal complement of K^(1/2)e_v; its trace error is the common full trace minus the gain K(2t)_vv/K(t)_vv. Clearing the two positive gain denominators and grouping terms gives (m^2-1)[(a-b)-(a^2-b^2)-mab(a-b)]; the sign is minus the sign of mab+a+b-1. This last factor decreases strictly from m+1 to -1, proving all three cases for finite t>0 and failure of the largest-diagonal rule above the threshold. For the asymptotic, at t=c log(m)/m the positive term b(1+ma) is asymptotic to m^(1-c), whereas 1-a is asymptotic to c log(m)/m. Taking c=1 and c=3 brackets the root. With z=m tau, the exact root equation rewrites as z exp(z)=m^2 exp(-2 tau)(1+exp(tau)/m)/[(1-exp(-tau))/tau]; the multiplicative correction is 1+O(log(m)/m) on the bracket. The derivative of W(exp(s)) with respect to s is W/(1+W)<=1, giving the claimed remainder after dividing by m. At fixed t>0, the gain limits are 1 and a, the top eigenspace is uniquely the constants, and diagonal sampling normalizes the hub diagonal by 1+(m-1)a+b, giving the asserted success scales. For sufficiently large m the hub is uniquely optimal and exact expected excess is (1-p_h)(G_h-G_leaf); hence the limit is absolute, not relative or uniform in t. Inspected CHECK.py and its finite checks, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The sampled-column and leverage papers work on general PSD matrices; the randomized Cholesky paper specifies the sampling and largest-diagonal rules. The screened-star record treats all landmark budgets for a shifted inverse. The related cone setting requiring a connected noncomplete base excludes the star's independent-vertex base."
+        ],
+        "reasoning": "General algorithm definitions and residual bounds do not determine exact time-dependent optimal columns. A broader budget result for a different matrix function does not give the heat-specific optimum.",
+        "searches": [
+          "Drineas–Mahoney JMLR 6 (2005), p. 2155, eq. (1)",
+          "arXiv:1303.1849 p. 3, eq. (2)",
+          "arXiv:2207.06503v6 secs. 2.3.1–2.3.4",
+          "Resultary screened-star and cone landmark migration"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: a61ec413932b (self-match) and 17294883f457",
+        "Drineas–Mahoney JMLR 6 (2005), 2153–2175",
+        "arXiv:1303.1849",
+        "arXiv:2207.06503v6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The screened proof uses the sparse principal block of mu I+L to evaluate the complement trace; this cannot be transferred by replacing mu with t in the block formula. The exponential inverse has different principal blocks.",
+          "Top-eigenspace leverage immediately gives uniform probabilities on a constant eigenvector. The diagonal rule gives the general formula K_hh/tr K, but its order m^-2 and both limiting excess errors require the heat weights and the trace-optimal gains."
+        ],
+        "reasoning": "Credit the definitions and direct uniform-probability implication, and the same-star non-heat obstruction. None of those computes the positive root of the specific heat factor, its Lambert scale, or the fixed-time loss relative to the best heat column.",
+        "searches": [
+          "Screened-star 17294883f457, Assumptions and Proof steps 1–6",
+          "Gittens–Mahoney eq. (2)",
+          "Chen et al. sec. 2.3 and eq. (2.6)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Maximizing the one-column residual trace decrease is equivalent to maximizing squared column norm divided by the pivot diagonal, not maximizing that diagonal.",
+          "The screened-star result uses the same loss and graph. Its singleton threshold is mu=1 for the shifted inverse. After normalizing the top eigenvalue to 1, its other weights are mu/(mu+1) and mu/(mu+n), rather than a and a^n."
+        ],
+        "reasoning": "Both kernels have the same projectors and both exhibit hub/leaf reversals, a material overlap. The shifted inverse follows a different spectral-weight curve: with first nonconstant weight a it has other weight a/[n-(n-1)a], strictly larger than a^n for 0<a<1 and n>1. One free-parameter substitution cannot identify both weights or transfer the exact crossing.",
+        "searches": [
+          "Resultary star Nyström trace-optimal landmark and hub/leaf migration",
+          "17294883f457, Finding and Proof steps 1–6",
+          "arXiv:2207.06503v6 sec. 2.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact heat record is the assigned item. The distinct closest exact catalogue result gives a rational screened parameter staircase with threshold 1 for the singleton, not a finite heat-time transition or its probabilities."
+        ],
+        "reasoning": "The indexed exact formulas are the relevant alternative to a finite table here. The comparison recognizes the same-day screened record on its scientific content without inferring an ordering or priority from its date.",
+        "searches": [
+          "Resultary star heat and screened-star Nyström transitions; a61ec413932b and 17294883f457"
+        ]
+      },
+      "rationale": "The generic gain identity, pivot rules, uniform rank-one leverage on this eigenspace and a closely related same-star pivot reversal do not merit novelty credit. The exact exponential-kernel transition, Lambert-W asymptotic and quantified large-star separation from the standard first-pivot rules are distinct from the inspected results.",
+      "residual_risks": [
+        "An unindexed star example or general spectral-multiplier criterion might contain an equivalent sign factor or heat specialization.",
+        "The catalogue date does not establish priority among same-day related results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material same-star pivot-reversal overlap, restricted to a different matrix function",
+          "evidence": "At k=1 the hub is optimal for 0<mu<1, all leaves for mu>1, tied at mu=1; the proof uses the unselected principal block of the shifted Laplacian to evaluate the residual.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-hub-abandonment-staircase-for-screened-star-nystr-m-landma--17294883f457",
+          "material_read": "RESULT.md Finding, Assumptions and Proof steps 1–6 (offsets 0 and 1900–6450)",
+          "method": "Local published-record mirror",
+          "title": "Sharp hub-abandonment staircase for screened-star Nyström landmarks",
+          "trigger": "Strongest distinct same-star same-loss exact transition, dated the same day"
+        },
+        {
+          "assessment": "General method, not exact one-column star optimization",
+          "evidence": "Nonuniform sampled columns with replacement and spectral/Frobenius approximation bounds.",
+          "identifier_or_url": "https://www.jmlr.org/papers/volume6/drineas05a/drineas05a.pdf",
+          "material_read": "Journal p. 2155 (PDF p. 3), eq. (1), text offset about 10350",
+          "method": "OA PDF passage",
+          "title": "On the Nyström Method for Approximating a Gram Matrix for Improved Kernel-Based Learning",
+          "trigger": "Sampled-column approximation framework"
+        },
+        {
+          "assessment": "The generic rank-one rule implies the uniform probability once the top eigenvector is known",
+          "evidence": "Rank-k leverage scores are squared row norms of the top-k eigenspace basis.",
+          "identifier_or_url": "https://arxiv.org/abs/1303.1849",
+          "material_read": "PDF p. 3, eq. (2), text offset about 13397",
+          "method": "OA PDF passage",
+          "title": "Revisiting the Nyström Method for Improved Large-Scale Machine Learning",
+          "trigger": "Leverage probability and possible nuclear-norm implication"
+        },
+        {
+          "assessment": "Algorithmic rule antecedent, not heat-star success or regret asymptotics",
+          "evidence": "The surrounding prose chooses the largest diagonal for greedy pivoting; RPC probability is the residual diagonal divided by its trace.",
+          "identifier_or_url": "https://arxiv.org/abs/2207.06503v6",
+          "material_read": "PDF p. 5, sec. 2.3, prose on greedy pivot and eq. (2.6), text passages near 18400 and 20375; tempered-pivot limit",
+          "method": "OA PDF passages",
+          "title": "Randomly pivoted Cholesky: Practical approximation of a kernel matrix with few entry evaluations",
+          "trigger": "Largest-diagonal and randomized-Cholesky pivot comparisons"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a motivated exact example where largest-diagonal greedy pivoting never picks the trace-optimal column beyond a sharply located time, and two common random rules find that column with vanishing probability while incurring nonvanishing absolute loss. The asymptotic locates the narrowing leaf-optimal regime, and the regret makes the ranking mismatch quantitative. This is useful for single-column trace optimization; it is not evidence about multipivot methods or normalized relative loss.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

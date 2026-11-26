@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:39:22.561519Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the specified projective generator and 0≤x<b<1, write L/c in divergence form ∂_x[x(1−x)∂_x]. The absorbing boundary at b and the bounded branch at the entrance 0 give cm=log[(1−x)/(1−b)]. The bounded stopped mean solution gives a uniform bound on the mean, and iteration of the Markov bound at a fixed time using the strong Markov property gives a geometric survival bound. For V=c² Var(T_b), the product rule gives [x(1−x)V']'=−2x/(1−x), hence x(1−x)V'=2[x+log(1−x)]; integration with V(b)=0 yields the displayed dilogarithm expression. Poisson renewal gives M=(1−ϕ)/(rϕ); its expansion gives M'(0+)=(m²−Var)/2=−Φ_b/c². The continuous function yΦ_b'(y)=−log(y)/(1−y)−1−log(y/δ) decreases strictly from positive to negative, while Φ_b(δ)=0 and Φ_b(1)<0 by the series comparison. Thus there is exactly one interior zero with the claimed signs after reversing coordinates x=1−y. Setting x=zb, the expansion starts with b²(1−z)(3z−1)/4 and its cubic coefficient at z=1/3 is −7/243; the leading factor has z-derivative 1/2 there, giving z=1/3+(14/243)b+O(b²). For δ<e^-1, Φ_b(e^-1)>0 so the unique root satisfies y_c>e^-1. Then L+log y_c≥L−1 for L=log(1/δ). The root equation first implies y_c=e^-1+O(1/L), then expansion at e^-1 yields the stated positive correction in y_c and negative one in x_c. This proves only the infinitesimal-rate transition; it does not classify global rate optima or the next response at equality. Frozen CHECK.py and VERIFICATION.md were inspected: they report finite moment, transform and threshold checks (not executed here, not an all-parameter proof).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pal–Reuveni's renewal relation yields the universal weak-reset CV rule. Abundo gives a general transform/mean framework and explicit examples for drifted Brownian and OU processes. The cited general Jacobi paper's full text was not accessible by the attempted lawful routes."
+        ],
+        "reasoning": "The broad renewal theorem covers the derivative in terms of moments. A general method for obtaining moments, even specialized to reproduce them, is not a theorem on uniqueness of their CV crossing and its endpoint coefficients; no inspected general theorem subsumed those parts.",
+        "searches": [
+          "Web: weak Poisson resetting first passage Jacobi diffusion projective qubit Brownian fidelity critical initial state threshold coefficient of variation",
+          "arXiv:1607.06048 pp. 2–3",
+          "arXiv:2505.19759v2 p. 1",
+          "DOI 10.1063/1.5051494"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and CHECK.py",
+        "Tóth §4.3; Pal–Reuveni restart formula; Chen–Huang Eq. (1) and critical ball radius",
+        "Resultary harmonic-fluctuation, voter-restart, sticky-escape and Haar-scale fidelity records",
+        "Abundo arXiv:2505.19759v2 p. 1; Reuveni arXiv:1512.01600 p. 1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Combining the generic renewal derivative with no-reset moments directly gives the dilogarithmic sign function. Combining the CV criterion with the indexed orthogonal-start result also gives that reset initially worsens completion there. The separate Reuveni optimal-rate theorem is a statement at a nonzero optimum, not a zero-rate rule."
+        ],
+        "reasoning": "Credit direct implications for the derivative formula as a moment substitution and for the x=0 sign. The proof of a single interior transition uses the strictly decreasing yΦ'_b and signs at both ends, and the endpoint asymptotics require resolving the root in two different scales. These are not implicit in the single-start comparisons.",
+        "searches": [
+          "arXiv:1607.06048, Mean FPT under restart",
+          "arXiv:2109.11101 Eq. (1)",
+          "2026/11/8/SCOPE-a-sharp-harmonic-limit-for-first-passage-fluctuations-of-project--50b86ca17263/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nov. 8 harmonic first-passage fluctuations result (50b86ca17263) uses the same fidelity process but only orthogonal initial fidelity x=0; it has CV²<1 for every finite threshold.",
+          "Chen–Huang Eq. (1) and ball result concern diffusion inside a Euclidean ball, not on the Bloch sphere; the Oct. 18 voter threshold (34f2f028eecb) and Nov. 22 sticky-escape threshold (a9190d29f4ba) concern different generators."
+        ],
+        "reasoning": "Changing Bloch angle to fidelity is an equivalence accounted for in the search. A statement at x=0 supplies one boundary sign via the CV criterion, not a threshold as x ranges up to b. A flat disk or a different diffusion is not a coordinate relabeling of the curved surface hitting problem.",
+        "searches": [
+          "Resultary: unique weak-reset threshold projective qubit diffusion Jacobi fidelity Poisson resetting",
+          "Resultary: single critical threshold weak resetting spherical cap Brownian fidelity endpoint asymptotics",
+          "Resultary: projective Brownian fidelity first passage fluctuations coefficient variation weak resetting"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Tóth's same-model passage gives the first-passage boundary problem, mean and high-fidelity behavior, without resetting. The ball literature gives r_c²/R²=d/(d+4), i.e. 1/3 in dimension two. The orthogonal-start indexed result has an exact fluctuation limit but not the threshold curve."
+        ],
+        "reasoning": "The natural exact lookup is a statement of the critical curve or its endpoint coefficients, not a table of sampled roots. The flat limiting fraction is covered by a different limiting geometry; it does not determine the curvature correction 14/243 or the small-target logarithmic coefficient.",
+        "searches": [
+          "Resultary: Unique weak-reset threshold for projective qubit diffusion and its two geometric limits",
+          "Resultary: resetting first passage Jacobi diffusion projective fidelity",
+          "arXiv:2606.11438 §4.3 and arXiv:2109.11101 Introduction"
+        ]
+      },
+      "rationale": "The specific contribution is the single cap-dependent critical fidelity for the surface/projective diffusion at every b, and its two quantified endpoint laws. General Jacobi moment methods and Poisson renewal are prior; the CV rule by itself gives a criterion, not the number of changes of its sign as the initial fidelity varies. The leading small-cap-coordinate fraction 1/3 agrees with the flat-disk result and is not a distinct universal reset criterion. The available source statements do not give the projective one-crossing result and its sharp corrections.",
+      "residual_risks": [
+        "Full text of DOI 10.1063/1.5051494 was unavailable; it may contain stronger specialized Jacobi calculations. Access difficulty is not evidence for or against coverage.",
+        "The search is bounded; another unindexed curved-surface or Jacobi reset theorem could overlap. No publication-priority claim follows."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior base model and mean, not a reset classification.",
+          "evidence": "The first-passage boundary problem and high-fidelity behavior are for the unreset process.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.11438",
+          "material_read": "§4.3 p. 6, OA offset about 34000",
+          "method": "OA PDF bounded passage review",
+          "title": "Isotropic random walks and Brownian diffusion on complex projective space",
+          "trigger": "Exact projective diffusion and fidelity passage problem"
+        },
+        {
+          "assessment": "General identity covered; no projective threshold specialization.",
+          "evidence": "Poisson restart specialization and expansion give (m²−Var)/2.",
+          "identifier_or_url": "https://arxiv.org/abs/1607.06048",
+          "material_read": "Mean FPT under restart, pp. 2–3, offset about 14250",
+          "method": "OA paper passage review",
+          "title": "First Passage Under Restart",
+          "trigger": "General renewal law implies weak-reset derivative"
+        },
+        {
+          "assessment": "Relevant criterion and flat-ball analogue, not diffusion on a sphere.",
+          "evidence": "Critical launch radius √[d/(d+4)]R in a ball; shell geometry also treated.",
+          "identifier_or_url": "https://arxiv.org/abs/2109.11101",
+          "material_read": "Abstract and Introduction p. 1, Eq. (1) and critical radius, offset about 1400",
+          "method": "OA PDF passage review",
+          "title": "First passage of a diffusing particle under stochastic resetting in bounded domains with spherical symmetry",
+          "trigger": "Reset threshold in spherical geometry and exact flat limit"
+        },
+        {
+          "assessment": "Partial overlap via x=0 and CV; no varying-launch threshold.",
+          "evidence": "Strictly subunit CV² only for the orthogonal start, plus a limiting fluctuation deficit.",
+          "identifier_or_url": "2026/11/8/SCOPE-a-sharp-harmonic-limit-for-first-passage-fluctuations-of-project--50b86ca17263/RESULT.md",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Resultary local mirror",
+          "title": "A sharp harmonic limit for first-passage fluctuations of projective Brownian fidelity",
+          "trigger": "Same-process indexed fluctuation theorem"
+        },
+        {
+          "assessment": "Unresolved full-text coverage risk.",
+          "evidence": "Direct and alternate full-text retrieval returned 403 or unreadable responses.",
+          "identifier_or_url": "https://doi.org/10.1063/1.5051494",
+          "material_read": "Bibliographic identification; no readable full text obtained",
+          "method": "Lawful OA retrieval and identified repository alternatives",
+          "title": "The Jacobi diffusion process as a neuronal model",
+          "trigger": "Cited general Jacobi first-passage moment methods"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This identifies exactly when a small resetting intervention helps rather than harms a geometrically natural first-passage task. A generic CV condition or endpoint checks cannot resolve the partition of initial states. The flat-limit correction and slow logarithmic approach to 1−e^-1 distinguish the two geometries and quantify where the change of sign occurs without overclaiming finite-rate optimality.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

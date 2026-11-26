@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:21:38.856426Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof §§1–4 and assumptions",
+        "Frozen VERIFICATION.md, analytic checkpoint list; no executable certificate claimed"
+      ],
+      "rationale": "Deleting the first n edges leaves at most n+1 components, so the union of their finite components is finite. Every vertex outside that union has a simple ray in its infinite component by local finiteness. Choosing for v_j the largest admissible deletion prefix among lengths at most j ensures that for fixed n, only the finite exceptional union and indices j<n can have rays using e_n. With multiplicity m_n, resistance r_n=2^(−n)/(1+m_n) is positive and has total load Σ_n m_n r_n≤1. Along each simple ray an ℓ² function tends to zero, and telescoping plus Cauchy–Schwarz bounds |f(v)|² by that ray's resistance sum times the common *total* energy; summing over starts gives the stated bound without treating the rays as edge-disjoint. The maximal weighted gradient is closed by coordinate convergence and dense by local finiteness; its form gives a selfadjoint operator bounded below by I. For a bounded above form, delta functions give c_e≤B, and finite-set indicators force |∂F|/|F|≥A/B. Conversely with maximum degree d, coarea on |f|² and Cauchy–Schwarz give the unweighted lower bound h²/(2d) and the upper bound 2d, extending by density. The signs of orientations do not affect coefficient squares and the semi-frame weights are √c_e. The argument uses counting measure and an edge sum counted once.",
+      "residual_risks": [
+        "The proof concerns the selfadjoint operator of the specified closed form, not essential selfadjointness of the finite-support operator. The two-sided sufficiency uses bounded degree; the infinite-energy case of the lower inequality is understood in the extended sense."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Keller–Mugnolo Theorems 3.1–3.2 estimate spectral bounds of given weighted graphs from isoperimetry; Kostenko–Nicolussi (7.23) uses an intrinsic-weight/Cheeger hypothesis"
+        ],
+        "reasoning": "Those bounds are conditional on properties of given weights. They do not choose weights satisfying the hypotheses and producing a counting-measure gap for every underlying graph, including graphs with zero unweighted edge expansion.",
+        "searches": [
+          "Primary query: arbitrary conductances; spectral gap; infinite locally finite graph Laplacian; weighted Cheeger lower bound; counting measure",
+          "DOI 10.4171/MEMS/3 §7.3.2",
+          "arXiv:1509.06062 §3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 7ce374d6c8d1 (self)",
+        "arXiv:2310.18957v1 and arXiv:1509.06062",
+        "DOI 10.4171/MEMS/3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Weighted Cheeger results require expansion/intrinsic control; available semi-frame theorems cover specific sufficient cases; the unweighted bounded-degree sufficiency is the usual coarea argument"
+        ],
+        "reasoning": "Ordinary bounded-degree Cheeger plus finite-set tests explains the two-sided clause. It cannot directly prove the one-sided assertion on amenable examples. No inspected general theorem supplies the finite-overlap family of escaping rays or another universal conductance selection for the same hypotheses.",
+        "searches": [
+          "arXiv:1509.06062 Theorems 3.1–3.2",
+          "arXiv:2310.18957v1 Conjecture 3.1 and Remark 3.8",
+          "DOI 10.4171/MEMS/3, (7.16) and (7.23)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary hit 7ce374d6c8d1 is the assigned text; Conjecture 3.1 proposes arbitrary positive rescaling of every complete Hilbert sequence"
+        ],
+        "reasoning": "Graph incidence vectors are complete because a vector orthogonal to all edge differences is constant, thus zero in counting ℓ² on an infinite connected graph. Conductances are squared coefficient rescalings. The equivalent Hilbert formulation is within the conjecture but not implied by a conjecture.",
+        "searches": [
+          "Local Resultary searches on arbitrary edge reweighting and lower semi-frames",
+          "arXiv:2310.18957v1 §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The only exact indexed hit identified is the frozen text. Remark 3.8 in the semi-frame source distinguishes its proved cases from the whole class."
+        ],
+        "reasoning": "A table of spectra of given graphs or fixed weights is not a suitable lookup for an existence theorem over all locally finite infinite graphs with free weights. The applicable theorem-index and class comparisons yielded no independent equivalent.",
+        "searches": [
+          "Local Resultary graph reweighting and lower-semi-frame searches; 7ce374d6c8d1",
+          "arXiv:2310.18957v1 §3 sufficient-case summary"
+        ]
+      },
+      "rationale": "The bounded-degree Cheeger implications are standard; they are not a distinct originality claim. The supported contribution is unrestricted existence of finite positive edge-by-edge conductances yielding a positive counting-measure gap on every graph in scope, hence the graph-incidence case of a general lower-semi-frame question. The strongest inspected results give conditional gap bounds or propose general rescalability, not this existence statement.",
+      "residual_risks": [
+        "Bounded searches and selected full-text passages do not exclude an older arbitrary-resistance construction under equivalent hypotheses."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broader conjecture with specified proved sufficient classes, not universal graph-incidence coverage",
+          "evidence": "Conjecture 3.1 permits any positive prescribed lower bound for any complete sequence, but it is not a theorem; Remark 3.8 notes the limitations of the available cases.",
+          "identifier_or_url": "https://arxiv.org/html/2310.18957v1",
+          "material_read": "§3 Conjecture 3.1 and Remark 3.8, offsets 9250 and 16200",
+          "method": "OA primary full-text passages",
+          "title": "Weighted frames, weighted lower semi frames and unconditionally convergent multipliers",
+          "trigger": "Equivalent positive Hilbert-sequence rescaling problem"
+        },
+        {
+          "assessment": "Known estimates from prescribed isoperimetry, not unrestricted gap creation",
+          "evidence": "Estimates for a weighted graph (X,b,m) given its isoperimetric quantities.",
+          "identifier_or_url": "https://arxiv.org/pdf/1509.06062",
+          "material_read": "§3 Theorems 3.1–3.2, PDF pp. 7–8, offset 18100",
+          "method": "OA primary PDF passage",
+          "title": "General Cheeger inequalities for p-Laplacians on graphs",
+          "trigger": "General weighted-graph Laplacian gap estimates"
+        },
+        {
+          "assessment": "Conditional metric and discrete Cheeger bounds; distinction from choosing an arbitrary counting-measure reweighting",
+          "evidence": "The discrete estimate imposes an intrinsic-weight/Cheeger hypothesis; the metric statement treats a different Laplacian.",
+          "identifier_or_url": "https://doi.org/10.4171/MEMS/3",
+          "material_read": "Theorem 7.33 (7.16), printed p. 153, offset 442300; §7.3.2 (7.23), pp. 156–157, offset 453250",
+          "method": "OA monograph full-text passages",
+          "title": "Laplacians on Infinite Graphs",
+          "trigger": "Broad exact spectral results for infinite weighted graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and §§1–4; arXiv:2310.18957v1 §3 for the rescaling motivation"
+      ],
+      "rationale": "This resolves a natural existence question for a graph-incidence family and separates lower stability from bounded invertible frame behavior. The escaping-ray construction removes any degree bound or unweighted expansion requirement for the one-sided result; the obstruction explains exactly why the same strategy cannot produce a two-sided bound on amenable bounded-degree hosts. That distinction is useful independently of how optimal the weights are.",
+      "residual_risks": [
+        "No optimal weights, efficiency guarantee or conclusions for the normalized Laplacian are implied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

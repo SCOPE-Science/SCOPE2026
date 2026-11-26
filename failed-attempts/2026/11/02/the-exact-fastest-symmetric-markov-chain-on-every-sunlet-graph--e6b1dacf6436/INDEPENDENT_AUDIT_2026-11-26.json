@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:34:38.335389Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Dihedral averaging preserves the feasible symmetric stochastic matrices and lowers the convex norm, so optimizing the two edge weights suffices for the global value. Each Fourier block is (1-beta)I plus entries -2 alpha d on the rim diagonal and beta off-diagonal. Its larger nonstationary eigenvalue at d=delta strictly decreases with beta for alpha>0, so beta=1-2alpha minimizes this lower bound. On that boundary lambda_+(d) decreases and -lambda_-(d) is bounded by sqrt(beta^2+4 alpha^2)=lambda_+(2); this also bounds |1-2beta| since the squared difference is 4 alpha(1-2alpha). The bound is attained for every boundary pair, including the endpoints. For D=4+delta^2, the scalar norm squared is D(alpha-2/D)^2+delta^2/D. Its second derivative is positive; the derivative of the full objective runs from -delta to 2 at the two endpoints. The proposed alpha solves the unsquared stationary equation with norm sqrt(delta)/2, so both weights and the objective are correct, and only uniqueness within the invariant family is asserted. This check applies to the triangle and both parities (only d<=2 is needed). The m=4 substitution gives (3/10,2/5,4/5); expanding delta=2 sin^2(pi/m) yields the stated asymptotics. The uploaded program and frozen numerical output were read, not executed; the universal certificate is RESULT.md lines 35–107, not the sampled spectral tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The four-fifths barrier gives a lower bound and equality classification for transitive leaf coronas, not this exact value for varying m.",
+          "The later indexed transitive-core corona theorem does specialize to the sunlet and supplies stronger rigidity; it is not needed for the failure.",
+          "Boyd et al. give the general symmetry reduction plus cycle and wheel solutions, not a private pendant at each rim vertex in the compared sections."
+        ],
+        "reasoning": "Generic convex reductions and a uniform barrier alone would not give the formulas, but there is a directly matching specialized claim.",
+        "searches": [
+          "SCOPE-a-sharp-four-fifths-fastest-mixing-barrier-for-transitive-leaf-c--16afafb3a1dc",
+          "SCOPE-universal-fastest-mixing-and-pendant-edge-rigidity-on-vertex-and--9e788ca7bde4",
+          "arXiv:0709.0955",
+          "DOI 10.1109/TSIPN.2020.2964211"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verification_output.txt",
+        "SCOPE-exact-fastest-mixing-on-sunlet-networks-and-a-fifty-percent-spec--6de3873d5eaa",
+        "SCOPE-a-sharp-four-fifths-fastest-mixing-barrier-for-transitive-leaf-c--16afafb3a1dc",
+        "SCOPE-universal-fastest-mixing-and-pendant-edge-rigidity-on-vertex-and--9e788ca7bde4",
+        "DOI 10.1137/S0036144503423264",
+        "arXiv:0709.0955",
+        "DOI 10.1007/s00440-023-01257-x (vertex conductance bounds, checked abstract and FMMC discussion)",
+        "DOI 10.1109/TSIPN.2020.2964211 (unread)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matched record establishes both the unrestricted optimum and uniqueness among dihedrally invariant chains only.",
+          "Its exact formulas at x=sqrt(2) sin(pi/m) give the frozen asymptotic terms by Taylor expansion."
+        ],
+        "reasoning": "The earlier indexed statement covers the actual quantifiers; the current finding has no extra asymmetric-optimum classification. The expansions are mechanical corollaries.",
+        "searches": [
+          "SCOPE-exact-fastest-mixing-on-sunlet-networks-and-a-fifty-percent-spec--6de3873d5eaa RESULT.md, Finding and proof",
+          "arXiv:0709.0955 §§3.1.1, 5.3.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matched sunlet record uses x=sqrt(delta): alpha=(x+2)/(2(x^2+2x+2)), beta=x(x+1)/(x^2+2x+2), mu=2(x+1)/(x^2+2x+2).",
+          "Multiplication by x^2-2x+2 produces the frozen numerators over x^4+4; both optimize over the same symmetric uniform-equilibrium class."
+        ],
+        "reasoning": "The difference is rationalization, not a change in graph, normalization or optimizer domain.",
+        "searches": [
+          "Resultary: sunlet, cycle-with-pendants, cycle-corona, uniform-stationary-measure fastest mixing",
+          "SCOPE-exact-fastest-mixing-on-sunlet-networks-and-a-fifty-percent-spec--6de3873d5eaa"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matched all-size catalogue result explicitly gives (3/10,2/5,4/5) at m=4, not just a numerical approximation.",
+          "It gives the same formulas for every integer m>=3."
+        ],
+        "reasoning": "There is exact all-size coverage; an isolated shared table entry would not have sufficed.",
+        "searches": [
+          "Resultary local mirror: exact sunny/sunlet graph fastest mixing comparison, SCOPE-exact-fastest-mixing-on-sunlet-networks-and-a-fifty-percent-spec--6de3873d5eaa"
+        ]
+      },
+      "rationale": "A distinct indexed sunlet result states the same unrestricted symmetric-chain optimum, edge weights, zero rim holds at the displayed solution, and dihedral uniqueness for every size. Its radicals are identical after rationalization. The explicit asymptotic terms are obtained by ordinary Taylor expansion of the same formulas and do not supply a distinct claim. This is demonstrable coverage, not an inference about authorship or priority from dates.",
+      "residual_risks": [
+        "Scholarly priority beyond the verified catalogue overlap is unresolved, including any inaccessible clique-lift treatment. The decision does not depend on it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Materially exact coverage",
+          "evidence": "Same all-size SLEM and weights in rationalized form; zero rim holding, invariant-only uniqueness, and same worked example.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-fastest-mixing-on-sunlet-networks-and-a-fifty-percent-spec--6de3873d5eaa/RESULT.md",
+          "material_read": "Finding, proof and limitations, offsets 0 and 4989, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirrored full-text comparison and algebraic simplification",
+          "title": "Exact fastest mixing on sunlet networks and a fifty-percent spectral improvement",
+          "trigger": "Same graph family and symmetric SLEM minimization"
+        },
+        {
+          "assessment": "Different, universal bound",
+          "evidence": "Lower bound 4/5 and equality classification, not the sunlet closed form for all sizes.",
+          "identifier_or_url": "2026/10/25/SCOPE-a-sharp-four-fifths-fastest-mixing-barrier-for-transitive-leaf-c--16afafb3a1dc",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "A sharp four-fifths fastest-mixing barrier for transitive leaf coronas",
+          "trigger": "Broader one-leaf corona result"
+        },
+        {
+          "assessment": "Later indexed stronger specialization",
+          "evidence": "Transitive core with leaf at each vertex includes cycles and adds rigidity.",
+          "identifier_or_url": "2026/11/8/SCOPE-universal-fastest-mixing-and-pendant-edge-rigidity-on-vertex-and--9e788ca7bde4",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Universal fastest mixing and pendant-edge rigidity",
+          "trigger": "Potential superfamily specialization"
+        },
+        {
+          "assessment": "General tools and different topologies",
+          "evidence": "Uniform symmetric SLEM minimization, cycle and wheel examples; wheel uses a shared hub, not private pendants.",
+          "identifier_or_url": "DOI 10.1137/S0036144503423264; https://arxiv.org/pdf/0709.0955",
+          "material_read": "First paper p. 1 (offset 0); symmetry paper §§3.1.1, 5.3.3, pp. 9, 28–29 (offsets 29769 and 98396)",
+          "method": "Open primary PDF excerpts",
+          "title": "Fastest Mixing Markov Chain on a Graph; Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "Established convex formulation and topology examples"
+        },
+        {
+          "assessment": "Unresolved, not evidence for or against coverage",
+          "evidence": "ResearchGate returned 403, and the DOI recovery did not yield readable full text.",
+          "identifier_or_url": "https://doi.org/10.1109/TSIPN.2020.2964211",
+          "material_read": "Bibliographic identification only; no readable full text",
+          "method": "Identified ResearchGate and DOI/IEEE retrieval attempted",
+          "title": "Fastest Mixing Reversible Markov Chain: Clique Lifted Graphs and Subgraphs",
+          "trigger": "Potential clique-lift or pendant subgraph formula"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Fastest mixing on a cycle with individual pendants is a natural exact optimization problem, and an all-size solution is intrinsically useful. However the submitted contribution reproduces that known solution; the worked example and routine Taylor terms do not give an independently useful new invariant or optimizer classification.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

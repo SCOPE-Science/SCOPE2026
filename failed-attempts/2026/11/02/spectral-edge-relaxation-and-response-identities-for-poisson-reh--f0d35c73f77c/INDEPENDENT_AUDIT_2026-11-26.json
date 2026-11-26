@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:36:17.160496Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 20–153",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)"
+      ],
+      "rationale": "On the event of a reset before h, the terminal temperature depends only on the independent Poisson increments after time zero; conditioning gives C(h)=exp(-rh)Cov(f(A),f(A+h)) with A exponential of rate r. Integrating against the two gamma densities uses the same age A, and the difference r/(r+u+v)-r²/((r+u)(r+v)) gives the claimed strictly positive kernel. Its quotient by v is u/(r+u)² times (1+v/(r+u))^(-1)(1+v/r)^(-1), giving a uniform relative O(v) bound at the edge. The gamma tail dominates all rate moments. Laplace integration of the edge term gives the factor Γ(p+1)/Γ(p)=p; the ratio of first excess-rate moment to mass yields (p+1)/h+O(h^(-2)). The variance under the tilted density proves strict log-convexity and monotonicity of the log decay rate. With probability rh+O(h²) a reset makes the squared temperature increment (T0-f(A))²+O(h); on no reset the square is O(h²) by bounded f'. Stationarity relates the squared increment to 2(C(0)-C(h)), proving the jump formula. Dominated convergence and strict pointwise decrease in c for positive ages give the exact mean-based inversion.",
+      "residual_risks": [
+        "The phrase about independence of the stationary age transform at line 58 is misleading: the exponentials are evaluated at the same age. The displayed calculation correctly uses their joint transform.",
+        "Reported finite quadrature is corroboration only; this decision rests on the analytic calculation and does not certify the numerical benchmark or any microscopic model."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The matching theorem is explicitly for every positive exponent and cooling time, not just the cubic Haff specialization suggested by its title.",
+          "Majumdar–Oshanin Section II gives a general Poisson-reset correlation formula; Rose et al. Section III.1 gives a generator-spectrum shift."
+        ],
+        "reasoning": "Age-renewal covariance and a generator shift do not by themselves state an explicit continuous observable weight or its edge; the November 8 theorem does and covers the full frozen parameter range.",
+        "searches": [
+          "arXiv:2403.18974v5",
+          "arXiv:1806.03435",
+          "arXiv:1806.01298v2",
+          "Resultary 2026/11/8 continuous relaxation spectrum theorem"
+        ]
+      },
+      "checked_sources": [
+        "Resultary continuous-relaxation and weak-reset findings at the locators above",
+        "arXiv:2403.18974v5",
+        "arXiv:1806.03435",
+        "arXiv:1806.01298v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bodrova et al. give the cooling law, stationary one-time law, mean and variance. The October 26 result contains the common covariance identity and develops CLT/weak-reset limits. The November 8 result gives the actual spectral evaluation and the asymptotic parameter recovery."
+        ],
+        "reasoning": "The earlier statements are premises or methods, not the all-parameter edge conclusion. The later indexed theorem demonstrably covers that conclusion. The additional mean recovery is strict monotonicity in c in the known mean, and the slope identity is the standard stationary jump-variance calculation. Neither establishes a nonroutine surviving remainder.",
+        "searches": [
+          "Resultary 2026/10/26, SCOPE-two-weak-reset-noise-transitions-in-power-law-cooled-granular-te--811bb0215f24",
+          "Resultary 2026/11/8 continuous relaxation spectrum theorem",
+          "Bodrova–Chechkin–Dubey arXiv:2403.18974v5, Sections II–III"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "November 8 Finding, items 1–3; proof Steps 1–2: same independent age/future decomposition and identical rational kernel."
+        ],
+        "reasoning": "Substitute q=p, τ=1/c, m=μ and s=v. Then the catalogue gamma density multiplied by T0 equals the frozen Laplace density, and both measures, edge coefficients and long-lag amplitudes coincide. The strictly decreasing effective rate is strict log-convexity in equivalent form. The distinct locator is not the frozen record itself.",
+        "searches": [
+          "Resultary: Poisson-reset power-law cooling and continuous relaxation spectrum",
+          "Resultary 2026/11/8, SCOPE-a-continuous-relaxation-spectrum-and-a-sharp-cubic-correlation-t--47d42e7f77d7, RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "November 8 items 1–3 index the symbolic density and constants and include the exact q=2 tail. October 26 indexes weak-reset thresholds and the exact age covariance identity, not this density."
+        ],
+        "reasoning": "The exact match is an indexed symbolic theorem, not a coincident numerical benchmark. A separate table of example amplitudes would not decide distinctness of this all-parameter result.",
+        "searches": [
+          "Resultary local index and matching November 8 and October 26 records; catalogue RESULT.md statements"
+        ]
+      },
+      "rationale": "The core claim is not established as distinct from a separate published catalogue record. Its exact spectrum, edge coefficient, sharp tail, strict log-rate decrease, rate correction and recovery of r and p match that record under a parameter rename. The matching record is indexed November 8, later than the November 2 source path; this identifies equivalent coverage, not earlier priority, authorship, or provenance. The remaining jump identity and mean inversion are routine consequences and do not supply a distinct scientific contribution sufficient to pass the frozen joint finding.",
+      "residual_risks": [
+        "No priority or relationship between the two records is inferred from their path dates; further provenance might explain the exact overlap.",
+        "Targeted literature checks are not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent core claim, chronology of scientific priority not determined",
+          "evidence": "The density is T0² times a gamma density times the integral of the same age covariance kernel; the all-q edge, tail, and log-rate expansion match.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-continuous-relaxation-spectrum-and-a-sharp-cubic-correlation-t--47d42e7f77d7/RESULT.md",
+          "material_read": "Finding, items 1–3, assumptions, and early proof; offsets 0–7413, decisive formulas at offsets 330–4131",
+          "method": "Targeted read of local mirror at commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A continuous relaxation spectrum and a sharp cubic correlation tail for a reset-cooled granular gas",
+          "trigger": "Closest exact indexed theorem"
+        },
+        {
+          "assessment": "Covers the age covariance premise; inspected finding concerns integrated fluctuations and weak resetting",
+          "evidence": "C(t)=exp(-rt)Cov(f(A),f(A+t)).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-two-weak-reset-noise-transitions-in-power-law-cooled-granular-te--811bb0215f24",
+          "material_read": "RESULT.md Finding from offset 0",
+          "method": "Targeted local mirror read",
+          "title": "Two weak-reset noise transitions in power-law-cooled granular temperature",
+          "trigger": "Same stationary model, earlier indexed covariance study"
+        },
+        {
+          "assessment": "Model and one-time quantities established here, not the spectrum in these passages",
+          "evidence": "Haff/generalized cooling, stationary distribution and moments.",
+          "identifier_or_url": "arXiv:2403.18974v5",
+          "material_read": "Section II Eq. (6); Sections III.1–III.2 Eqs. (11), (14)–(21)",
+          "method": "Targeted primary OA read",
+          "title": "Granular gases under resetting",
+          "trigger": "Same physical model and special exponents"
+        },
+        {
+          "assessment": "General correlation decomposition under Poisson resetting",
+          "evidence": "Exponential reset renewal with arbitrary underlying process; not the explicit deterministic cooling edge.",
+          "identifier_or_url": "arXiv:1806.03435",
+          "material_read": "Section II, Eqs. (4) and (6), PDF pp. 3–4",
+          "method": "Targeted primary OA read",
+          "title": "Spectral content of fractional Brownian motion with stochastic reset",
+          "trigger": "Potential broader reset correlation theorem"
+        },
+        {
+          "assessment": "Generator eigenvalue shifts, not the observable covariance measure",
+          "evidence": "Nonstationary generator eigenvalues shift by the reset rate under the specified construction.",
+          "identifier_or_url": "arXiv:1806.01298v2",
+          "material_read": "Section III.1, Eqs. (13)–(14)",
+          "method": "Targeted primary OA read",
+          "title": "Spectral properties of simple classical and quantum reset processes",
+          "trigger": "Potential broader spectral result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, spectral representation and response calculations",
+        "Bodrova–Chechkin–Dubey Section III"
+      ],
+      "rationale": "As mathematics, the full theorem connects an explicit positive covariance measure, a sharp edge response and identification of the cooling exponent. It quantifies a different lag exponent from the deterministic cooling exponent and gives the leading coefficient, beyond a rate bound. This value does not make the two routine additions independently sufficient for a repaired claim.",
+      "residual_risks": [
+        "Identifiability here is from exact stationary laws, not an estimation guarantee or a particle-scale result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

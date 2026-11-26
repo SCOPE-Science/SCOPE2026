@@ -1,19 +1,21 @@
-# Self-review of common terminal-sibling persistence
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The two-tree coupled parent kernel is explicit, and the exact probability of simultaneous parent equality at birth labels \(i<j\) is a finite sum over matching diagonal and off-diagonal parent pairs. Independent intermediate and later attachment avoidance yields exact products. The universal bound \(U_{ij}V_j\le (i-1)(j-1)/((n-1)(n-2))\) controls the triangular Riemann sums, including the vanishing-copying regime and the bounded different-parent law. The packaged `verify.py` independently exhausts small paired recursive trees and passes 78 grouped assertions. No finite enumeration is substituted for an infinite proof.
+PASS
 
-## Originality — PASS, with residual priority uncertainty
+Summing the product of the two birth-parent laws over matching ordered parent-label choices gives r^2/b+r(1-r)/(ab)+(1-r)/b^2; restricting to off-diagonal parent labels gives (1-r)^2(a-1)/(ab^2). At j the sibling event already avoids i; the independent remaining births contribute the products of one- and two-label avoidance probabilities on exactly the ranges given. At r=1 the products telescope to give single-tree pair probability a/[(n-1)(n-2)]; squaring it at r=0 gives n/[12(n-2)], and summing it at r=1 gives n/6. With D=(n-1)(n-2) the products are at most ab/D. Using step functions on the scaled label triangle, this gives uniformly bounded summands after scaling by n/b for the normalized leading sum, and n^2/b^2 for the accidental and different-parent sums. At interior points the logarithmic expansions give x^(2-r)y^(2-r) along any sequence tending to r. The middle term contributes at most r/2; the integrals give 1/[(3-r)(5-2r)] and 1/[(3-r)(4-2r)] before the prefactors. For r_n tending to zero the first and last coefficients tend to 1/15 and 1/12 separately, not with a single additive o(1) error when n r_n^2 diverges. At n=3 the exact probability is (1+r)/4 with no mismatched parents. Inspected the supplied checker without executing it; the proof does not depend on its finite checks.
 
-The closest prior literature includes Janson's one-tree degree-count laws, Gopaladesikan–Mahmoud–Ward's one-tree fringe-motif work, and Bäumler–Rácz–Ross–Sridhar's correlated attachment model. Public one-tree terminal-sibling results already imply the exact zero- and full-coupling endpoints; those endpoints are credited rather than treated as novel. A published full degree-profile cross-tree covariance kernel in the same coupling was read and does not record label-pair sibling intersections, so it does not imply the new kernel or crossover. The original 2026 correlated-tree paper's full text and a 2013 primary motif text were not fully inspectable here; an unlocated stronger pair-motif theorem could imply the result. This is best-knowledge originality, not independent priority certification.
+## originality
 
-## Value — PASS
+PASS
 
-A correlated pair of growing trees can have a linear expected number of identical terminal-sibling label pairs even though its expected pairs with *different* parent labels stay bounded. As copying decreases, the expected shared-pair count changes from the independent accidental baseline \(1/12\) at the sharp \(n^{-1/2}\) mean crossover. These are structural motif-level facts not conveyed by individual tree degree counts, and address persistence of local genealogical information under noisy copying. They do not, by themselves, establish a hypothesis-testing threshold or distributional convergence.
+The credited coupling and the endpoint expectations are antecedent. The distinct claim is the exact intermediate-coupling terminal-sibling overlap resolving mismatched parents, and its expectation crossover for vanishing alignment. No inspected distinct result gives or implies that combined claim.
 
-## Sources and limitations
+## value
 
-See `RESULT.md` references and the structured comparison in `AUDIT.json` for primary-source and public prior-result IDs, actual query terms, broader-coverage comparisons, material inspected and residual access risks. Exact formulas are restricted to uniform parent choices and aligned birth labels; the asymptotic claims are for expectations only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The overlap is a natural genealogy-sensitive statistic for the aligned pair of trees; degree and leaf totals cannot resolve it. The exact kernel separates a linear-order shared-parent contribution from bounded parent mismatches, and the two constants describe the competition of copied and accidental incidence at small alignment. This is useful as an exact expectation benchmark and does not assert concentration or detectability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Review of the sharp two-bit finite de Finetti projection
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The exchangeable two-bit law is fully parametrized by its two diagonal masses. A direct four-atom calculation gives the exact total-variation expression. Infinite exchangeability is equivalent to a nonnegative mixing measure over Bernoulli product laws; Minkowski's inequality makes the square roots of the two diagonal masses sum to at least one, with equality only for a point-mass mixture. For a negative-covariance target, any candidate smaller than the target on either diagonal is strictly beaten by an admissible endpoint product. In the remaining quadrant the distance reduces to the sum of diagonal excesses; a strictly convex scalar minimization gives the stated unique product approximation. The urn reduction and a checked monotonicity calculation give the sharp even/odd finite-extension radius for every integer \(N\ge2\). The standard-library verifier recomputed all 1,323 finite urns for \(2\le N\le50\) and checked 9,240 sampled product or two-point-mixture competitors. These checks supplement, rather than replace, the proof.
+PASS
 
-## Originality
+On exchangeable pairs with endpoint masses (a,c), TV to (A,C) is one half the sum of |A−a|, |C−c|, and |A+C−a−c|. Negative covariance is equivalent to √a+√c<1: both endpoint deviations from the product at the original mean equal the covariance. A de Finetti competitor satisfies √A+√C≥1 by the L² triangle inequality. If A<a, the product at √a strictly improves on the competitor's error on cell 00; the reverse case is symmetric. In the remaining quadrant the endpoint sum is the objective. A point with √A+√C>1 dominates a product law at any parameter in [√a,1−√c]∩[1−√C,√A], which is nonempty and lowers at least one endpoint strictly. This reduces the problem to a strictly convex quadratic, giving the clamped half and uniqueness. Equality in the L² bound forces a constant directing variable (including degenerate endpoints). For nonnegative covariance, mixing the deterministic parameter at the original mean with the {0,1} distribution of the same mean realizes the needed variance; means 0 and 1 are immediate. Finite exchangeability is the convex hull of the fixed-count urn laws, so convexity of distance reduces the maximum to them. With z=(N−m)/N≥1/2, the endpoint branch 2z−2√[z(Nz−1)/(N−1)] decreases in z, since (2Nz−1)²−4(N−1)z(Nz−1)=4z(Nz−1)+1>0; the central branch grows with m through N/2 and joins continuously. Thus the balanced integers are extremal. Substitution yields the claimed parity formulas; N=2,3,4 give 1/2, 4/3−√(4/3), and 1/6 respectively, in half-L¹ TV.
 
-**PASS, with explicitly bounded bibliographic uncertainty.** The motivating 2021 Carlier–Friesecke–Vögler article characterizes finitely exchangeable extreme-point laws and their correlated corrections, but its fixed-population polynomial and total-variation order estimate do not perform the nearest-point optimization in the space of infinitely extendible two-bit laws. The 2024 Gavalakis–Johnson–Kontoyiannis full-text survey states universal finite de Finetti total-variation bounds and relative-entropy results; these do not imply the optimized three-phase projection, the unique approximating Bernoulli parameter, or the parity-dependent exact binary radius. Volfovsky–Airoldi's full-text restatement of Diaconis–Freedman gives a general sampling bound, not the optimized two-symbol radius. Relevant alternatives include finite-alphabet bound improvements, an equivalent Hausdorff-moment formulation, and the possibility that older works contain the exact binary projection; the original 1980 source was not fully accessible and its complete noncoverage cannot be asserted.
+## originality
 
-## Value
+PASS
 
-**PASS.** The binary two-marginal is the smallest nontrivial finite-exchangeability obstruction. The theorem gives a complete distance and optimizer for every negatively correlated pair, identifies an optimal approximation that is generically *not* the empirical-frequency product, and solves the natural sharp worst-case extension problem with distinct even and odd constants. The scope is mathematically natural and supplies more than a routine restatement of a generic asymptotic error bound. It does not claim extensions to more coordinates or to a fixed-mean projection.
+Credit the exact TV projection onto all infinitely extendible binary pairs, including uniqueness and the nontrivial odd-N extremal value. The fixed-count urn reduction and finite de Finetti type bounds are known; the symmetric even value alone is readily obtained from standard urn computations plus a diagonal-event lower bound. The inspected general results do not give the unique clamped parameter, or the odd-N optimum when the mean may change.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The projection answers how much any negatively dependent binary pair must change to become infinitely extendible, not merely how well a prescribed sampler approximates it. It shows exactly when moving the one-bit marginal improves the fit and identifies a unique product even among all product mixtures. The first nontrivial odd urn already distinguishes the optimized and empirical parameters; the parity formulas give the sharp finite-extension benchmark. The value is the projection geometry and sharp optimization, not the size of the small asymptotic improvement alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

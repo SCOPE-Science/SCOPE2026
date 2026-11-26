@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:19:43.495679Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With the specified complex density, |G|² is Exp(1), and log|G| has mean −γ/2. For normalized values of two Gaussian evaluations, put c=|ρ|². The joint Laplace transform of their squared moduli is 1/((1+s)(1+t)−cst). Substituting the Laguerre generating variables gives 1/(1−cuv); also integrating the one-variable generating function against log x times exp(−x) gives −γ+log(1−u), hence the Laguerre coefficients −1/k for log|G|². The square-summable expansion yields Cov(log|G|,log|G'|)=Li₂(c)/4 including c=1. The marginal second moments justify angular integration and give the factor 1/(8π) in the variance. For n=1 this gives π²/24 as it should. Parseval and the nonnegative Li₂ tail bound separate H_n(2α)/(4H_n(α)²) with residual at most a constant times ||F||₄⁴/H_n(α)^4. Splitting the Fourier sum near |t|⁻¹, bounding the head by an integral and the monotone tail by Abel summation gives the claimed power bound; near α=1 use j^(±λ/log n)≤exp(|λ|) for j≤n, including in the logarithmic head, to give uniformly bounded fourth moments. For α<1/2, after t=u/n the normalized sum has the claimed Riemann limit and an integrable squared majorant min(1,|u|^(2α−2)), giving the positive full-chaos constant. At α=1/2 the residual is O(n⁻¹); on 1/2<α<1 it is lower order than the first term, including the log fourth moment at α=3/4. At α=1 the residual is O(log⁻⁴ n); at α>1 uniform convergence of the normalized series gives a positive integral. For λ in a fixed compact, H_n(1/2+λ/log n)~2√n exp(−λ) and H_n(1+κ/log n)/log n→∫_0^1 exp(−κs)ds uniformly for κ=λ or 2λ by integral comparison. In the second window the numerator H_n(2α)→ζ(2) uniformly. These produce both profiles with the stated normalizations and removable λ=0 singularities; higher terms are uniformly negligible (O(n⁻¹) and O(log⁻⁴ n), respectively). The frozen numerical checker was inspected, not executed; its FFT/Jensen-root sample checks are not evidence of uniform error control.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Regularly varying random-polynomial zero behavior has an amplitude exponent −1/2 transition, corresponding here to variance exponent α=1, but for a zero process. Kawada's PDF covers iid-coefficient radial zero counts, using J_N(r) concentration and adjacent-degree control in its radial law proof; its sharp variance statements in the abstract concern counts of zeros."
+        ],
+        "reasoning": "Coverage of more coefficient laws or of regularly varying amplitudes for other observables is not dominance of this Jensen-average variance statement. In particular α=1/2 here means amplitude exponent −1/4, not the cited zero-process threshold.",
+        "searches": [
+          "arXiv:2511.12302 introduction and phase diagram for regularly varying coefficient amplitudes",
+          "arXiv:2610.11324 abstract and Jensen argument for unweighted iid coefficients",
+          "arXiv:1911.13051 Appendix A (A.2)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary:0d5fa733eb8c",
+        "Resultary:e03594da668d",
+        "Resultary:ec4368ab0a4e",
+        "Resultary:e6b835417cd5",
+        "arXiv:1911.13051",
+        "arXiv:2511.12302",
+        "arXiv:2610.11324",
+        "Choi–Erdélyi Littlewood PDF",
+        "DOI:10.2140/pjm.2011.252.31 (retrieval attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For α=0, the squared modulus of the rescaled Fourier transform of the uniform density on [0,1] is the squared sinc used in 0d5fa733eb8c; the match is mathematical, not just keyword level. A generic Gaussian log-covariance identity already yields the finite-n variance integral by integrating the angular kernel of the weighted process."
+        ],
+        "reasoning": "Neither the stronger unweighted expansion nor the general covariance identity evaluates the competition of H_n(2α), H_n(α) and the higher chaoses as α moves with n. The novelty assessment does not credit the finite-n identity by itself or the previously known unweighted term.",
+        "searches": [
+          "Compare 0d5fa733eb8c Finding and proof with α=0 constant and α-dependent scaling; compare arXiv:1911.13051 (A.2) and arXiv:2610.11324 radial law"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Choi–Erdélyi gives the Jensen equivalence between the boundary logarithmic integral and the leading coefficient plus exterior log roots, in a Littlewood coefficient setting. Kiro–Nishry (A.2) uses a normalized Gaussian kernel and Laplacians of its dilogarithm for the variance of zero counts."
+        ],
+        "reasoning": "The boundary angular logarithmic average and the Jensen root expression are exactly the same statistic, so compare under both names. The two Laplacians or radius variation in the zero-count theorem change the observable; shared Gaussian covariance technology is not new here.",
+        "searches": [
+          "Resultary: angular Jensen average, root-sum/logarithmic Mahler measure, Gaussian power-weighted variance",
+          "Choi–Erdélyi, Average Mahler’s Measure and L_p Norms of Littlewood Polynomials, p. 1",
+          "Kiro–Nishry arXiv:1911.13051 Appendix A"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "October 25 record 0d5fa733eb8c gives exactly the unweighted Li₂ integral and C_0/n, plus a finer n⁻³ term. The distinct October 27 e03594da668d gives a Dirichlet kernel Gram spectrum near the disk boundary, not this variance.",
+          "Other returned October 27 Findings ec4368ab0a4e and e6b835417cd5 address Bergman-kernel zeros and harmonic-Bergman Toeplitz spectra, respectively."
+        ],
+        "reasoning": "The strongest exact data are the unweighted overlap, already excluded from the novelty claim. The other same-date records differ in actual object, not merely date. The search did not establish a complete catalogue.",
+        "searches": [
+          "Resultary: exact logarithmic-Mahler variance for Gaussian polynomials; both critical scales, power-law Fourier weights, and other same-date boundary/Fourier results"
+        ]
+      },
+      "rationale": "The generic Gaussian logarithmic covariance machinery and the explicitly excluded exact unweighted specialization are prior. The distinctive evaluated result is the power-weighted variance profile at positive exponents and, in particular, both compact-uniform moving-exponent crossover functions. Neither a covariance representation nor the inspected prior zero-count or leading unweighted results imply the two evaluated critical profiles without the weighted localization and summability analysis.",
+      "residual_risks": [
+        "Historical priority for Jensen functionals under other terminology is not exhaustive. The Choi–Mossinghoff full text was not available in the attempted read; this is not evidence of noncoverage.",
+        "The exact covariance technology and unweighted benchmark are excluded from the originality decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of α=0 only; sharper unweighted expansion",
+          "evidence": "Same exact variance at α=0 and same C_0 of the leading 1/n term, with an additional n⁻³ term.",
+          "identifier_or_url": "2026/10/25/SCOPE-two-term-variance-law-for-the-logarithmic-mahler-measure-of-gaus--0d5fa733eb8c",
+          "material_read": "Local-mirror RESULT.md Finding/Proof at offset 0, related work and limitations at offset 5172",
+          "method": "Compared coefficient indexing, dilogarithm integral and squared-sinc constant",
+          "title": "Two-term variance law for the logarithmic Mahler measure of Gaussian polynomials",
+          "trigger": "Exact same statistic for α=0"
+        },
+        {
+          "assessment": "Prior covariance machinery for zero-count variance, not the weighted boundary-log crossover",
+          "evidence": "(A.2) integrates Δ_z Δ_w Li₂(|J_f(z,w)|²) for a zero count; the angular log variance uses the undifferentiated kernel.",
+          "identifier_or_url": "https://arxiv.org/pdf/1911.13051",
+          "material_read": "PDF introduction, Appendix A (A.2), OA offsets 106350–107923, and Claim A.2",
+          "method": "Read original covariance-based variance formulas and compared the observable",
+          "title": "Fluctuations for Zeros of Gaussian Taylor Series",
+          "trigger": "Complex-Gaussian coefficients and normalized-kernel dilogarithm"
+        },
+        {
+          "assessment": "Related zero-process transition; does not give the evaluated logarithmic-Mahler windows in inspected results",
+          "evidence": "Coefficient-amplitude threshold −1/2 maps to α=1 but concerns distribution of zeros.",
+          "identifier_or_url": "https://arxiv.org/abs/2511.12302",
+          "material_read": "PDF introduction and discussion of liquid/weak-crystalline transition (OA offset 35610)",
+          "method": "Matched coefficient amplitude vs variance exponents and compared statistics",
+          "title": "On the Distribution Patterns of Zeros for Random Polynomials with Regularly Varying Coefficients",
+          "trigger": "Same broad coefficient profiles"
+        },
+        {
+          "assessment": "Relevant unweighted Jensen method; not weighted moving-exponent coverage in these passages",
+          "evidence": "The microscopic radial law derives from angular-log concentration on sparse degrees and comparison within blocks; the variance asymptotics described concern zero counts.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.11324",
+          "material_read": "v1 PDF abstract at offset 0 and proof overview at offsets 13900–16235",
+          "method": "Read actual iid-coefficient hypotheses and use of J_N(r); distinguished count variance from concentration of the auxiliary Jensen average",
+          "title": "Universal Radial Laws for Random Polynomials: Erdős Problem #522 and Non-Universal Fluctuations",
+          "trigger": "Uses the same boundary-log/Jensen functional in a radial-count proof"
+        },
+        {
+          "assessment": "Equivalent definition; different coefficient ensemble and statistic",
+          "evidence": "Jensen gives the root product for the angular integral; the study concerns Littlewood polynomials.",
+          "identifier_or_url": "https://www.sfu.ca/~schoia/paper/meanmeasurelittlewood.pdf",
+          "material_read": "PDF p. 1",
+          "method": "Checked root-product and angular definitions and coefficient class",
+          "title": "Average Mahler’s Measure and L_p Norms of Littlewood Polynomials",
+          "trigger": "Equivalent Jensen and Mahler terminology"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Studies spectra of normalized reproducing-kernel Gram matrices for points near the disk boundary.",
+          "identifier_or_url": "2026/10/27/SCOPE-critical-exponential-boundary-layer-for-cyclic-dirichlet-gram-sp--e03594da668d",
+          "material_read": "Local-mirror RESULT.md Finding, offset 0",
+          "method": "Compared object and invariant, not catalogue date",
+          "title": "Critical exponential boundary layer for cyclic Dirichlet Gram spectra",
+          "trigger": "Same-date boundary and Fourier search hit"
+        },
+        {
+          "assessment": "Unresolved at statement level; no negative whole-paper inference",
+          "evidence": "The identified title concerns Mahler and L_p averages for unimodular polynomials.",
+          "identifier_or_url": "https://doi.org/10.2140/pjm.2011.252.31",
+          "material_read": "Bibliographic title; no relevant full-text passage obtained",
+          "method": "Lawful OA retrieval and publisher-page attempt did not return inspectable full text",
+          "title": "Average Mahler’s measure and L_p norms of unimodular polynomials",
+          "trigger": "Plausible earlier Mahler-average result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The variance of a natural logarithmic spectral statistic distinguishes collective Fourier peak/chaos effects, an intermediate summability regime and persistent boundary randomness. The two different, sharp compact-uniform transition functions quantitatively connect these behaviors; they are substantial even without a distributional limit or a non-Gaussian extension.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:20:30.327224Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The unit hats give tridiagonal Gram entries 2/3 and 1/6; q=sqrt(3)-2 solves q+q^(-1)=-4 and the zero row gives the coefficient sqrt(3) of the summable inverse. The inverse defines the stated extension, reproduces constants and agrees with the Hilbert-space projector by the Gram equations. Independently solved the two inhomogeneous interface equations and verified both distinct quadratic branches (/workspace/independent_exact_checks.py, linear_projection()). The central slope is strictly positive, and summing the two alternating tails gives the multiplier (1-q)/(1-|q|)=sqrt(3). The upward-opening left amplitude is positive at 0 and negative at 1/2 and 1, so its unique zero lies before 1/2; reflection gives exactly the other sign transition. This yields the three pieces and a strict interior loss since the middle maximum is 3/2. The finite signed derivative measure decomposes any admitted input into jumps plus a constant; absolute summability and Tonelli for the absolute nodal differences give the upper bound. Knot jumps belong to the extension domain, not L², and truncating the summable gradient tails proves asymptotic additivity for two separated jumps from compact interval indicators.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The finite-mesh synopsis states the optimal universal bound 3 over increasingly graded meshes.",
+          "The search excerpts for Oswald and other max-norm papers address L∞ stability; the frozen citations also distinguish the periodic setting and a local averaging interpolant."
+        ],
+        "reasoning": "Even if the finite bound is passed to a whole-line limit, it gives 3, not the exact sqrt(3) value. Stability in L∞, or TV diminution for a different operator, does not supply the sharp gradient estimate.",
+        "searches": [
+          "Resultary: b3ad57d2e5ab finite linear mesh variation bound",
+          "arXiv:math/0611573; arXiv:1608.06720; arXiv:1211.1069"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Resultary entries 30721168f9c5, 832330230bf0, b3ad57d2e5ab",
+        "arXiv:math/0611573, arXiv:1608.06720, arXiv:1211.1069 (primary lead/related background as scoped above)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier record's indexed statement concerns extreme endpoint values in a finite uniform problem. The frozen result resolves both geometric tails and both subcell amplitude sign changes, RESULT.md 37–57. Primary and mirror OA retrievals did not yield decisive additional text."
+        ],
+        "reasoning": "A maximum excursion, even when attained by a step and even if related constants appear, does not tell how reversals accumulate for every phase. The checked statements do not contain the normalized all-phase total variation profile.",
+        "searches": [
+          "Resultary 832330230bf0 mirrored record",
+          "Oswald arXiv:math/0611573, primary text retrieval",
+          "Frozen RESULT.md, relationship to prior work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "RESULT.md 37–64: the norm is the supremum over phase of the ℓ¹ norm of the projected step's nodal differences.",
+          "Resultary 832330230bf0 gives an endpoint range defect for monotone [0,1]-valued inputs with a single-jump witness."
+        ],
+        "reasoning": "An endpoint or a range controls an amplitude, not the absolute sum of all alternating nodal differences. The localized range extremization is not a reformulation of this whole-line column norm.",
+        "searches": [
+          "\"linear spline\" \"total variation\" orthogonal projection BV sharp operator norm",
+          "Resultary: cardinal linear orthoprojection, step response, monotone endpoint range defect"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Only the identical frozen-ID synopsis states sqrt(3), knot equality, the three-part profile and the compact-pulse approximation. The closest endpoint synopsis reports (sqrt(3)-1)/2, the limiting range defect, not a variation constant."
+        ],
+        "reasoning": "The scope and observable distinguish the indexed exact numbers. No identified prior exact table of the absolute step-difference norm was found; such tables are not ruled out.",
+        "searches": [
+          "Resultary indices 30721168f9c5, 832330230bf0, b3ad57d2e5ab",
+          "Exact spline TV norm and max-norm kernel search"
+        ]
+      },
+      "rationale": "No checked distinct source gives the sharp homogeneous variation norm together with the exact uniform-cell phase profile. The closest results address endpoint range overshoot or finite graded meshes; the geometric inverse itself is classical. The decision is scoped to the uniform whole-line variation theorem, without a priority claim for spline stability or Green functions.",
+      "residual_risks": [
+        "The strongest related indexed record's mirror and the Oswald primary text were inaccessible; older or unindexed spline-variation results may cover part of the theorem. The reported comparisons concern the available statements, not negatives for whole documents."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical record, not separate evidence of coverage",
+          "evidence": "RESULT.md 3–24 and 37–64",
+          "identifier_or_url": "2026/11/17/SCOPE-sharp-bounded-variation-gain-of-the-cardinal-linear-spline-ortho--30721168f9c5",
+          "material_read": "Indexed synopsis and exact local source; external mirror attempted",
+          "method": "Resultary and bound frozen Finding/proof comparison",
+          "title": "Sharp bounded-variation gain of the cardinal linear-spline orthoprojector",
+          "trigger": "Exact sqrt(3) norm and phase profile"
+        },
+        {
+          "assessment": "The available result optimizes a different observable; full-text equivalences not ruled out",
+          "evidence": "Endpoint undershoot/overshoot for monotone [0,1]-valued data and limiting defect (sqrt(3)-1)/2",
+          "identifier_or_url": "2026/10/26/SCOPE-sharp-monotone-endpoint-range-defect-of-uniform-linear-spline-or--832330230bf0",
+          "material_read": "Exact indexed synopsis; full mirror inaccessible",
+          "method": "Resultary statement comparison and targeted OA attempt",
+          "title": "Sharp monotone endpoint range defect of uniform linear spline orthogonal projection",
+          "trigger": "Uniform projector, monotone steps, exact sharp constants"
+        },
+        {
+          "assessment": "The stated universal result does not establish the uniform-grid optimum",
+          "evidence": "Finite one-dimensional meshes, universal 3, sharp by grading",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-universal-variation-bound-for-one-dimensional-linear-spl--b3ad57d2e5ab",
+          "material_read": "Indexed mathematical synopsis",
+          "method": "Resultary comparison of quantitative implications",
+          "title": "A sharp universal variation bound for one-dimensional linear spline projection",
+          "trigger": "Exact BV question for a broader mesh family"
+        },
+        {
+          "assessment": "Accessible scope is L∞ stability; no full-document exclusion",
+          "evidence": "Frozen RESULT.md 69–79 and indexed max-norm scope",
+          "identifier_or_url": "https://arxiv.org/abs/math/0611573",
+          "material_read": "Search excerpts and frozen citation; OA full-text attempt timed out",
+          "method": "Literature search and bounded arXiv retrieval attempt",
+          "title": "A counterexample concerning the L²-projector onto linear spline spaces",
+          "trigger": "Linear-spline projection with max-norm stability results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural uniform Galerkin projector can increase total variation even for a monotone step. Its exact gain is a usable sharp stability constant for BV data, and the phase profile tells how ringing accumulation depends on alignment with the grid, beyond a worst-case overshoot or an arbitrary-mesh bound. Showing the same sharp coefficient for compactly supported inputs makes the invariant relevant to the genuine L² operator.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

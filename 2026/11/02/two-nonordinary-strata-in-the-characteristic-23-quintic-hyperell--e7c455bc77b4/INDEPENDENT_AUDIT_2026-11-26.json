@@ -1,0 +1,173 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:39:42.181859Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Assumptions and Proof",
+        "VERIFICATION.md",
+        "verify_katz23.py (read, not executed)",
+        "Independent replay: python3 -B /workspace/audit-replay/quintic.py"
+      ],
+      "rationale": "Eliminating a common root of x⁵+x+t and 5x⁴+1 gives t⁴=1 exactly in characteristic 23. For the Frobenius convention one can use the Čech classes y/x and y/x²: the coefficient in output row i, input column j is [x^(23j−i)](x⁵+x+t)^11. Independent expansion by occupied factor positions confirmed all four entries and det=2t⁴(t⁴+2). On t⁴=−2 the Frobenius matrix Mᵀ has image the first coordinate line and restricts there to the nonzero semilinear map z↦−5t z^23. Its stable rank is therefore exactly one, not an inference from one-step rank alone. With column vectors the two-step matrix is H H^(23); both orders of these two factors have the same image and nonzero eigenvalue 13 here. The zero and invertible matrices give stable ranks zero and two respectively. One-step ranks give the stated a-numbers, and a=2 is superspecial in dimension two. The determinant has order four at zero and all four other smooth roots are simple. Those roots lie in F529 by the multiplicative-order calculation and are not F23-rational since −2 is a nonsquare; the independent field replay confirmed all four. Under x=s²X, y=s⁵Y with s⁸=1 the parameter multiplies by s^(−2), acting transitively on the four roots; distinct p-rank separates their geometric curve from the center.",
+      "residual_risks": [
+        "The nonordinary divisor is on the indicated smooth parameter line, not a statement about moduli multiplicities or singular fibers. The orbit conclusion is geometric, not a classification of twists over the field of definition."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhu's general theorem covers generic ordinarity at d=5, p=23 and α=1, and the general formula gives the coefficient matrix; the theorem does not identify nonzero stable-rank strata.",
+          "The other catalogue stratification finding is in characteristic 5 for a different fibration; the characteristic-7 result focuses on full level-three monodromy and a nowhere-ordinary pencil."
+        ],
+        "reasoning": "The broader theorem gives generic behavior, not the classification at the zeros. The same-pencil/similar-invariant catalogue results have materially different hypotheses.",
+        "searches": [
+          "Zhu, arXiv:2606.31783, §3 Eq. (6), Definition 3.5, and §4 Theorem 4.1",
+          "Resultary same-pencil monodromy record 9499aaf0245d and genus-two strata record ce33c731b185"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.31783, §§3–4",
+        "Ibukiyama–Katsura–Oort (1986), Prop. 1.12",
+        "arXiv:1903.06451, p. 3",
+        "Steinberg (2018), abstract",
+        "Resultary original findings 9499aaf0245d and ce33c731b185",
+        "ePrint 2008/398 (access unsuccessful)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Zhu's formula at these integers immediately gives determinant −90t⁸+27t⁴ and one-step ranks 0,1,2. Rank one of a one-step matrix by itself does not determine the stable Frobenius rank.",
+          "On the four nonzero zeros the specialized matrix preserves a line and acts invertibly there after Frobenius twisting. The scaling symmetry then gives a single geometric isomorphism class; the known central case does not imply that statement."
+        ],
+        "reasoning": "The exact Hasse divisor, a-number values and rational exclusion by a nonsquare are direct coefficient consequences and are not independent originality grounds. The supported increment is resolving the stable rank and the symmetry of the entire exceptional geometric locus, which requires a separate rank-one and isomorphism analysis rather than an application of a generic-ordinarity assertion.",
+        "searches": [
+          "arXiv:2606.31783, coefficient formula and generic-ordinarity theorem",
+          "ArXiv:1903.06451, central superspecial model",
+          "Resultary characteristic-7 same-pencil finding 9499aaf0245d"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The central curve is geometrically equivalent to y²=x⁵−x by scaling with s⁸=−1. The equivalent latter curve is explicitly known to be superspecial for p≡5,7 mod 8, which includes p=23.",
+          "The closest same-pencil catalogue finding (9499aaf0245d) is characteristic 7, for which the generic p-rank is one rather than two."
+        ],
+        "reasoning": "Isomorphic central models are prior coverage, but they do not identify either the nonzero rank-one orbit or the rest of the smooth parameter line. Changing characteristic is not an isomorphism or a formal specialization of the characteristic-7 statement.",
+        "searches": [
+          "Resultary: y²=x⁵+x+t characteristic 23, quintic pencil and Hasse–Witt exceptional fibers",
+          "Ibukiyama–Katsura–Oort (1986), Proposition 1.12",
+          "arXiv:1903.06451, p. 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected thesis abstract describes general code but reports enumerations over F2 and F3. It was not run, and those enumerations are not tables for F23 or F529. A table only over F23 would miss all four nonzero exceptional parameters.",
+          "Lawful OA retrieval of ePrint 2008/398 returned HTTP 403; no claim about its table coverage is made."
+        ],
+        "reasoning": "No inspected exact table supplied both the parameter classification and the exceptional-fiber structure. A table of isomorphism classes over a finite field would in any event not directly establish the Hasse divisor on this parameter line.",
+        "searches": [
+          "Rose K. Steinberg, Enumerating Curves of Genus 2 Over Finite Fields (2018), abstract",
+          "Satoh, ePrint 2008/398",
+          "Resultary exact characteristic and parameter-stratum searches"
+        ]
+      },
+      "rationale": "Credit only the complete mixed geometric p-rank stratification of this characteristic-23 pencil and its nonzero exceptional isomorphism class. Zhu's coefficient formula covers the determinant and one-step ranks by substitution, and the central superspecial curve is classical. Neither the generic-ordinarity theorem nor the sources on the central curve supply the exceptional stable Frobenius rank and the full pencil-orbit classification. No matching characteristic-23 statement was identified in the bounded primary and catalogue comparisons.",
+      "residual_risks": [
+        "Other historical curve tables or a different presentation of the rank-one orbit could overlap. The access limitation and catalogue nonreturn are not evidence of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the coefficient evaluation and generic ordinarity, not the stable-rank/isomorphism classification as stated.",
+          "evidence": [
+            "For d=5 the bound P_+(5)=7, met by p=23.",
+            "The universal coefficient formula specializes to the displayed 2×2 matrix and determinant."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.31783",
+          "material_read": "§3 Eq. (6), Definition 3.5, p. 9; §4 Theorem 4.1, p. 13",
+          "method": "OA primary PDF, formula and theorem comparison with d=5, α=1, p=23",
+          "title": "Construction of Generically Ordinary Families of Hyperelliptic Curves",
+          "trigger": "Exactly the general trinomial family and coefficient formula"
+        },
+        {
+          "assessment": "Different arithmetic regime and generic rank, not the frozen classification.",
+          "evidence": [
+            "In characteristic 7, nonzero smooth parameters have (7-rank,a)=(1,1); the center is superspecial and no smooth fiber is ordinary."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-full-mathrm-sp-4-mathbb-f-3-monodromy-in-a-nowhere-ordinary-genu--9499aaf0245d",
+          "material_read": "Mirrored original RESULT.md Finding, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary search and original statement comparison",
+          "title": "Full Sp(4,F3) monodromy in a nowhere-ordinary genus-two pencil",
+          "trigger": "Same equation with a different characteristic"
+        },
+        {
+          "assessment": "Different pencil and characteristic.",
+          "evidence": [
+            "The indicated exact classification is for a different fibration in characteristic 5."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-complete-p-rank-and-a-number-stratification-of-an-extremal-genus--ce33c731b185",
+          "material_read": "Mirrored original Finding",
+          "method": "Local Resultary search and original statement comparison",
+          "title": "Complete p-rank and a-number stratification of an extremal genus-two fibration",
+          "trigger": "Nearby exact genus-two strata finding"
+        },
+        {
+          "assessment": "Covers the classical central superspecial case under scaling.",
+          "evidence": [
+            "Class (5) has the supersingular-product criterion p≡5,7 mod 8."
+          ],
+          "identifier_or_url": "Ibukiyama–Katsura–Oort, Compositio Math. 57 (1986), 127–152",
+          "material_read": "Proposition 1.12, p. 137, Class (5)",
+          "method": "OA primary text, targeted proposition comparison",
+          "title": "Supersingular curves of genus two and class numbers",
+          "trigger": "Prior treatment of the central highly symmetric model"
+        },
+        {
+          "assessment": "Confirms the previously known central curve, not the full pencil.",
+          "evidence": [
+            "States superspeciality for p≡5,7 mod 8 and cites Ibukiyama–Katsura–Oort."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1903.06451",
+          "material_read": "p. 3, statement about y²=x⁵−x",
+          "method": "OA primary paper, bounded statement comparison",
+          "title": "Hash functions from superspecial genus-2 curves using Richelot isogenies",
+          "trigger": "Explicit assertion for the model equivalent to the center"
+        },
+        {
+          "assessment": "The stated F2 and F3 enumerations do not resolve the later fields; no conclusion about uninspected material.",
+          "evidence": [
+            "Abstract says the code is general but lists enumerations over F2 and F3."
+          ],
+          "identifier_or_url": "Rose K. Steinberg, thesis (2018)",
+          "material_read": "Abstract, front matter only",
+          "method": "Lawful OA, checked stated domains of enumerations rather than inferring from title",
+          "title": "Enumerating Curves of Genus 2 Over Finite Fields",
+          "trigger": "Possible exact finite-field enumeration"
+        },
+        {
+          "assessment": "Coverage undetermined, not negative evidence.",
+          "evidence": [],
+          "identifier_or_url": "https://eprint.iacr.org/2008/398",
+          "material_read": "Identifier only; primary PDF was not readable through the attempted route",
+          "method": "Lawful OA lookup, HTTP 403",
+          "title": "Satoh ePrint 2008/398",
+          "trigger": "Possible finite-field table surfaced in the literature search"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and Proof",
+        "arXiv:2606.31783, coefficient formula and generic theorem",
+        "Independent lower-prime screen in /workspace/audit-replay/quintic.py"
+      ],
+      "rationale": "For the standard sparse hyperelliptic pencil, understanding where ordinary fibers degenerate and distinguishing stable ranks there is a natural classification problem, not just a coefficient evaluation. An independent smaller-odd-prime screen supports the relevance of 23: at 3, 11, 17 and 19 the center is ordinary; at 5 and 7 the determinant vanishes identically; at 13 it is a nonzero multiple of t⁴, giving no second nonordinary parameter. At 23 a superspecial center coexists with both an ordinary generic fiber and a separate rank-one exceptional class. The four-to-one relation between nonzero parameter presentations and the single geometric class and the divisor multiplicities are useful exact data about that transition.",
+      "residual_risks": [
+        "The lower-prime screen motivates this exact regime; it is not a claimed classification of all smaller-prime fibers or of all characteristics. The result does not classify all genus-two curves over F23 or F529."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

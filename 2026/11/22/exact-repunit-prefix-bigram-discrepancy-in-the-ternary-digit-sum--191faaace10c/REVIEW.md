@@ -1,17 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Claim.** Exact \(01\)-occurrence discrepancy along \(N_r=(3^r-1)/2\) in the ternary base-three digit-sum word, with sharp \(2\)-letter balance and failure of factor balance.
+## correctness
 
-## Correctness — PASS
-The carry relation \(t(n+1)-t(n)\equiv1+c(n)\pmod3\) reduces the statement to an exhaustive digit partition indexed by the highest digit differing from the all-ones bound. Contributions for trailing-two lengths smaller than, equal to one below, and equal to the free-digit count yield the three residue classes. The primitive morphism establishes \(01\) frequency \(3/13\) and sharp letter balance. Standalone enumeration confirms all exact formulas through \(r=12\), but infinite truth depends on the written proof.
+PASS
 
-## Originality — PASS (best knowledge)
-The closest same-object reference is Balková's generalized Thue–Morse factor-frequency theorem (arXiv:1107.5033); it establishes limiting frequencies, not the finite all-one-prefix law. Espinoza–Popoli–Stipulanti (arXiv:2602.03746, first public February 3, 2026) establishes broader factor-balancedness criteria and the discrepancy/balance equivalence, but not this explicit counterexample computation. Spiegelhofer (arXiv:2102.01018) treats adjacent \(01\) discrepancy in the **binary base-two**, not ternary base-three, word. Relevant published exact dyadic single-letter and base-three Parikh results in published-finding corpus have different bases, invariants and quantifiers. No exact duplicate was identified. A broader unindexed digit-sum summation law remains an important priority risk.
+The count is over N_r starting positions in a prefix of length N_r+1. A carry through c trailing twos changes the ternary digit sum by 1-2c, so a 01 start requires c=0 modulo 3 and initial digit sum 0 modulo 3. Partitioning below the repunit by the highest first-different digit j (necessarily a zero), the bulk case with c<=j-2 leaves an unrestricted digit and gives 2·3^(j-c-2). When c=j-1 the lone stopping digit is 0 or 1 and exactly one choice works iff j=1 modulo 3 and r is not 0 modulo 3; when c=j there is only one candidate, admissible iff j=0 and r=1 modulo 3. The geometric bulk sum and the two boundary counts give the stated three discrepancies. Independently, exact c with c=0 modulo 3 gives density 2/3^(c+2): the stopping digit has two choices and the remaining higher digit sum modulo 3 is uniformly distributed, by the aligned three-letter blocks. Summing over c gives frequency 3/13; truncating the c sum has uniform tail density at most 3^(-K) plus one possible boundary start in a window for c>=K. Bounded factor balance would put every length-N+1 factor count within a fixed bound of N·3/13, by averaging over translates; the repunit deviations contradict this. Each aligned triple contains every letter once, so four prefix errors of magnitude at most 2/3 bound the integer difference of equal-length single-letter counts by 2. The length-two examples 00 at 44 and 11 at 8 show sharpness. A separate direct digit-sum recurrence test matched every cutoff r=1,…,12; the infinite claims follow from the carry count and frequency argument, not these finite checks.
 
-## Mathematical value — PASS
-This is an exact infinite family of naturally indexed factor-count discrepancies in a canonical automatic word. Its carry-layer derivation explains persistent oscillation and proves that the word is sharply letter-balanced while a fixed two-letter factor has unbounded discrepancy. The separate arithmetic formulas quantify the failure, rather than merely exhibiting one unbalanced factor.
+## originality
 
-## Scope and limitations
-The factor frequency and the general balance/discrepancy equivalence are inherited. No universal statement for other generalized Thue–Morse parameters, nor a global sharp discrepancy envelope, is claimed. Finite computation is supplemental. Full external priority assessment and independent mathematical validation have not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The distinct result is the exact signed 01 discrepancy at every ternary repunit cutoff for t_(3,3), including its three residue classes. The frequency 3/13 and the implication from unbounded discrepancy to failure of factor balance are credited to prior results; sharp single-letter balance is elementary context, not the basis for an originality pass. The nearest binary discrepancy transducer, generalized ternary Parikh-vector result, and binary rational-base transition result do not supply the ternary adjacent-pair profile. Bounded evidence does not settle historical priority.
+
+## value
+
+PASS
+
+The repunit cutoffs are natural repeated-digit, half-scale prefixes of this substitution word. The exact profile gives negative and positive deviations growing in magnitude on two interleaved logarithmic subsequences and a bounded deviation on the third. It quantifies a concrete separation between bounded single-letter fluctuations and unbounded adjacent-pair fluctuations that neither a limiting frequency nor a qualitative balance criterion resolves.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

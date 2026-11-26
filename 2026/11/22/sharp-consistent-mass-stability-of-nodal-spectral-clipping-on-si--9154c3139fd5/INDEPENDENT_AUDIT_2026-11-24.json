@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:13:10.867122Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The affine simplex mass matrix is proportional to G=I+11^T on the n=d+1 nodes and has metric ratio κ=n+1. A nodal input/output difference pair (u,v) of the convex projection satisfies ||v||²≤<u,v>, so vv^T/<u,v> (or zero) is a positive contraction taking u to v. Orthogonal projections have G-norm at most (κ+1)/(2√κ) by the Wielandt angle estimate; the spectral-layer integral transfers this to contractions and the sum of element norms gives the mesh estimate. For exact attainment, the stated identity/zero blocks (even n) or the three rank-one directions plus cancelling blocks (odd n) give sum D_i h=nh/2. For the normalized constant mode e, z=2De−e is a unit mean-zero mode; δ=e/κ+z gives Dδ=(1+1/κ)(e+z)/2 and ratio (κ+1)/(2√κ). The rank-one perturbations commute with their nodal bases, so a sufficiently small finite perturbation realizes these actions by actual clipping, including after fixed-coordinate embedding for m>2. For the scalar selector with 1≤k≤n active nodes, eliminating inactive inputs by a Schur complement gives denominator metric I+11^T/(n−k+1) on the active coordinates and numerator metric I+11^T; the constant active direction gives squared factor (k+1)(n−k+1)/(n+1). The empty selector has norm zero, not one as the unqualified selector expression in the proof would suggest; it is immaterial to the maximum, attained by the balanced nonempty selector and realizable by finite scalar clipping differences. Positive lumped weights preserve nodewise nonexpansivity, with equality on interval-interior fields. All sharpness claims are universal over meshes, not assertions of sharpness on every mesh. These are analytic checks of the arbitrary-dimension proof and exact witnesses; the supplied diagnostic code was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The classical metric estimate for arbitrary orthogonal projections already gives the numerical upper bound in the simplex metric.",
+          "The inspected PDE papers address stability or approximation of numerical schemes, not equality of this clipping-map norm across dimensions."
+        ],
+        "reasoning": "A sharp norm over arbitrary projections does not establish sharpness in the restricted block-diagonal family, let alone exact realization by finite spectral clipping differences. It does not give the sharper scalar parity formula.",
+        "searches": [
+          "Focused literature lookup on sharp consistent-mass clipping Lipschitz constants",
+          "arXiv:2601.04839 pp. 1–2",
+          "arXiv:2304.01067 pp. 1–3",
+          "Kantorovich/Wielandt projection estimate"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verification package",
+        "arXiv:2601.04839",
+        "arXiv:2304.01067",
+        "Local Resultary catalogue and indicated mirror findings",
+        "Classical Wielandt metric angle bound"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Firm nonexpansivity gives the sharp lumped estimate immediately; the classical projection estimate gives the consistent-mass upper bound. Neither supplies the balancing tensor frame, its finite realization or the balanced-selector scalar extremum.",
+          "Two-level matrix functional calculus bounds an operator-norm matrix difference, not a Frobenius norm coupled across nodes."
+        ],
+        "reasoning": "Credit the classical bounds as ingredients rather than new assertions. The exact consistent-mass modulus and parity separation require the additional sharpness and scalar analysis verified here.",
+        "searches": [
+          "Resultary records a7adca9df150 and 9cb1003d5874",
+          "Classical firm nonexpansivity and Kantorovich/Wielandt"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The tensor FE paper uses nodal spectral truncation and the scalar FE paper uses bound-preserving projections.",
+          "Record a7adca9df150 gives a scalar triangle Dirichlet-energy amplification factor depending on an obtuse angle, not a two-input consistent-mass modulus."
+        ],
+        "reasoning": "Writing the result as a Lipschitz constant for a nodal metric projection in the mass matrix makes the norm difference decisive: Dirichlet energy and the lumped product metric are not the physical consistent L² norm.",
+        "searches": [
+          "Local Resultary semantic search for sharp consistent-mass nodal spectral clipping",
+          "arXiv:2601.04839",
+          "arXiv:2304.01067",
+          "Resultary record a7adca9df150"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest exact match was the assigned record itself. Other matches concerned triangle energy, 2×2 operator-norm functional calculus, entrywise PSD projection or mass-matrix inverse signs."
+        ],
+        "reasoning": "No distinct entry in the inspected results indexed the same modulus, its attainability and scalar comparison. The same-day inverse-matrix record was excluded by its different mathematical statement, not by date.",
+        "searches": [
+          "Local Resultary catalogue: 9154c3139fd5, a7adca9df150, 9cb1003d5874, e19c93a79149, 4c1a571738ca"
+        ]
+      },
+      "rationale": "The relevant antecedents cover nodal truncation, other metrics or the general metric-change inequality. The supported distinct combination is sharp finite realization by clipping in the consistent mass metric, with the exact different scalar constant where d is even. No covering statement was found in the inspected evidence; this is not a priority certificate.",
+      "residual_risks": [
+        "A targeted literature lookup yielded no additional useful match; this does not establish absence of prior work.",
+        "Untested equivalences in wider projection or finite element literature remain possible; no full historical-priority claim is warranted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related operator in a PDE discretization; no covering modulus in material read",
+          "evidence": "The method uses nodal spectral truncation to enforce a range and analyzes the resulting finite element scheme.",
+          "identifier_or_url": "https://arxiv.org/pdf/2601.04839",
+          "material_read": "pp. 1–2, anchors at text offsets 975 and 5484",
+          "method": "OA paper bounded passages",
+          "title": "A finite element method preserving the eigenvalue range of symmetric tensor fields",
+          "trigger": "Same nodal symmetric-tensor clipping"
+        },
+        {
+          "assessment": "Does not supply the scalar consistent-mass active-set norm in the passages read",
+          "evidence": "The discussion treats scalar nodal bound-preservation and energy-norm approximation.",
+          "identifier_or_url": "https://arxiv.org/pdf/2304.01067",
+          "material_read": "pp. 1–3, anchors at text offsets 461 and 7230",
+          "method": "OA paper bounded passages",
+          "title": "A nodally bound-preserving finite element method",
+          "trigger": "Scalar nodal projection and finite element norms"
+        },
+        {
+          "assessment": "Different norm and sharpness question",
+          "evidence": "Scalar triangle Dirichlet-energy factor is 1 on nonobtuse triangles and csc²Θ in the obtuse transformed setting.",
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-obtuse-angle-amplification-law-for-nodal-finite-element-cl--a7adca9df150",
+          "material_read": "Finding, mirror offset 64",
+          "method": "Local mirror",
+          "title": "Sharp obtuse-angle amplification law for nodal finite-element clipping",
+          "trigger": "Strongest distinct FE clipping catalogue match"
+        },
+        {
+          "assessment": "Different metric and no spatial interpolation",
+          "evidence": "The constant is 2L/√3 in operator norm for Hermitian 2×2 matrices.",
+          "identifier_or_url": "2026/11/17/SCOPE-sharp-universal-two-level-spectral-stability-for-monotone-lipsch--9cb1003d5874",
+          "material_read": "Finding, mirror offset 223",
+          "method": "Local mirror",
+          "title": "Sharp universal two-level spectral stability for monotone Lipschitz functions",
+          "trigger": "Sharp matrix functional calculus stability"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives the exact worst-case L² sensitivity of a natural nodal postprocessing operation, with explicit pairs showing the amplification is real despite Frobenius nonexpansivity at each node. The scalar/tensor parity difference identifies an amplification mechanism available only to matrix data in even dimensions. This is useful for choosing or analyzing consistent versus lumped norms without claiming PDE stability beyond the stated setting.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

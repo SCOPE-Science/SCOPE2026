@@ -1,15 +1,21 @@
-# Scientific review: cold two-stream temporal peak
+# Independent mathematical audit
 
-## Correctness — PASS
-For all \(a,b,V>0\), the quartic's real-root count gives one smooth unstable conjugate pair exactly for \(0<kV<(a^{1/3}+b^{1/3})^{3/2}\). The implicit derivative is computed exactly; the only potential stationary points occur on two cubic-phase rays, one physically inadmissible because its implied \(K^2\) is negative. The other ray gives a strictly increasing density-ratio parametrization, proving the unique global maximum, not merely an extremum. A separate exact positive factorization proves the sharp fixed-total-density bound. The supplied checker reproduces six symbolic identities and 7,254 seeded numerical assertions; finite tests do not prove infinite parameter coverage, which follows analytically.
+## correctness
 
-## Originality — PASS within inspected sources, with explicit priority risk
-The baseline cold dispersion relation and special equal/dilute density growth rates were known. Full-text material inspected: Lapuerta–Ahedo (2002), equations (14)–(16) and discussion of cold-beam types; Bret–Gremillet–Dieckmann (2010), Table I and Section II B; Rightley–Uzdensky (2018), PDF pages 19–20. Their available displayed results contain the forward quartic or restricted-density regimes, not the arbitrary-positive-ratio global extremal classification plus sharp fixed-total bound. Bret–Firpo–Deutsch (2004) studies a physically broader electromagnetic model; its full article could not be read after source-access attempts, so priority uncertainty remains. A broad electromagnetic model may algebraically imply the restricted longitudinal equation, but coverage of the *specific maximization theorem* was not established by accessible material. Database keyword/synonym searches returned no directly equivalent statement; this alone is not a novelty proof. Any undiscovered textbook treatment of the all-ratio extremum remains a meaningful risk.
+PASS
 
-## Mathematical value — PASS
-The theorem answers a natural quantitative design question in classical beam-plasma growth that is not settled by its equal- and dilute-density limits: it finds the one fastest wavelength at every positive imbalance and proves an exact global strength bound under fixed total plasma-frequency weight. The uniqueness and inadmissible-ray exclusion are genuine structural steps; the balance inequality gives a sharp, physical optimum rather than a parameter-specific decimal. The result is limited to one-dimensional, cold, collisionless, longitudinal temporal growth and does not optimize general multidimensional kinetic instabilities.
+At fixed positive a,b and velocity separation V, put K=kV. The real dispersion function has one crossing outside each pole and a single minimum (a^(1/3)+b^(1/3))³/K² between them. Its quartic has just one simple root in the upper half-plane for 0<K<(a^(1/3)+b^(1/3))^(3/2), and growth vanishes at both endpoints by root continuity. Thus an interior maximum exists. Implicit differentiation at w=(z−K)/z gives z′=b/(aw³+b), so an extremum lies on the π/3 or 2π/3 ray. The first gives negative K² for all positive feasible ratios (the zero imaginary-equation denominator at r=1/2 cannot solve that equation); the second gives the claimed K and gamma. The ratio r³(r+2)/(2r+1) increases strictly from zero to infinity, so there is exactly one stationary candidate and hence precisely one peak. The sharp bound also follows independently from Re[(x+iy)^(-2)]≤1/(8y²) for y>0, with equality iff x²=3y². Equality for both streams forces x=K/2 and imaginary cancellation then forces a=b; the balanced solution attains the bound. A separate quartic optimizer spanning b/a=10^-4 to 10^4 corroborated the peak, without running the uploaded checker.
 
-## Most relevant literature and limitations
-Lapuerta and Ahedo, *Physics of Plasmas* 9 (2002), DOI `10.1063/1.1464893`; Bret, Firpo and Deutsch, *Phys. Rev. E* 70 (2004), DOI `10.1103/PhysRevE.70.046401`; Bret, Gremillet and Dieckmann, *Physics of Plasmas* 17 (2010), DOI `10.1063/1.3514586`; Rightley and Uzdensky, arXiv:`1807.01458` (2018). Historical priority and applicability outside the stated model are not independently established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The matching forward dispersion and several special-case peaks are classical. The inspected arbitrary-density treatment uses asymptotic or numerical results in the relevant passages; it does not establish the exact all-positive-ratio optimizing wavenumber and growth or their global uniqueness. The nearby indexed three-population result does not cover this two-population optimization. Credit is for the explicit global optimization for fixed a,b and the sharp fixed-total-weight statement, not for the dispersion, instability mechanism, or familiar balanced and dilute limits.
+
+## value
+
+PASS
+
+The all-ratio formula locates the one actual temporal optimum, rather than giving a cutoff, a root-finding prescription at a specified wavelength, or two asymptotic limits. A researcher can predict the peak and compare unequal weight allocations at fixed total weight without a numerical optimization. The sharp bound and its equality condition give a useful benchmark within the ideal model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

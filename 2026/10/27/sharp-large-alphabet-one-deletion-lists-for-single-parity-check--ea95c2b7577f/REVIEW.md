@@ -1,11 +1,21 @@
-# Review of the sharp large-alphabet deletion-list formula
+# Independent mathematical audit
 
-**Correctness (PASS).** The exact insertion-gap identity handles repeated insertion descriptions, including duplicates spanning multiple gaps. The inactive-zero exclusion uses \(q\ge n\), and the finite-union argument uses \(g\le n-1<q\); no enumeration assumption is used in the proof. Exhaustive finite-field checks include \(\mathbb F_4\), and the boundary example demonstrates that the alphabet restriction has content.
+## correctness
 
-**Originality (PASS, residual uncertainty).** Verma, Hollanti, and Tajeddine's 2026 Theorem 7, Corollary 8, and Remark 9 concern general rate restrictions and a special binary check, not this exact large-alphabet rank invariant. Cullina and Kiyavash's 2013 bounds count unstructured channel edges rather than syndrome-constrained inverse degrees. Searches using the coefficient-dependent, puncture-span, and merged-adjacency formulations did not identify a dominating statement. Equivalent older coding-theory coverage remains possible and absolute priority is not certified.
+PASS
 
-**Value (PASS).** An explicit all-parameter polynomial-time criterion for worst-case one-deletion ambiguity in a ubiquitous class of high-rate linear codes gives a structural invariant not determined by code length, dimension, or check support. The inequivalent ambiguity profiles \(10\) and \(9\) for two length-four quinary hyperplanes explain why the exact rank data are necessary. No rate or decoding-complexity improvements are asserted.
+For fixed y, put a vertex at each allowed insertion description. Equal-parent descriptions occupy consecutive gaps (deleting two different coordinates from the same parent gives the same y iff the intervening parent symbols are all equal). In each such class the adjacent-equality edges form a path, so counting vertices minus edges is exact. At y=0 the parents are the zero word and q−1 single-nonzero words at each zero-check coordinate. Losing even one free gap leaves at most q(z−1)+n−z descriptions, below this baseline by q+1−n≥1. Thus restrict to W perpendicular: an adjacent pair touching a zero-check coordinate always duplicates, since that gap permits every symbol and the resulting word also has the alternative description. For the other pairs the duplicate condition is exactly b_i·y=0. The nonzero restrictions b_i outside W have kernels of relative size 1/q, and at most n−1<q such kernels cannot cover W perpendicular (zero-dimensional case has no nonzero restrictions). This proves sharpness and the rank computation. In the F5 examples W is spanned by (1,1,0),(0,1,1) for h; (1,4,1) is perpendicular and its merged form evaluates nonzero. The other check's merged form is zero. For the stated binary all-ones boundary, the number of nonduplicates is the number of 1s of an even-parity received triple, or of 0s of an odd-parity triple; both are at most two and attainable. Frozen enumeration evidence was read, not used to infer the general result.
 
-The mathematical theorem is proved for all finite fields with \(q\ge n\), with finite computation as corroboration only. Independent novelty and mathematical assessment remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The coefficient-dependent formula for a fixed hyperplane is distinct on the evidence inspected. The closest same-code-class example is a binary list-size bound for a special check, outside the alphabet hypothesis. Neither ambient channel degrees nor stated general rate bounds determine the rank-sensitive extrema.
+
+## value
+
+PASS
+
+An exact nonenumerative worst-case list size for a natural code class supports comparison of actual check vectors, not just bounds depending on length and field size. It identifies a rank obstruction and shows why support alone cannot determine the list size, with a sharp all-length theorem on the stated regime.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

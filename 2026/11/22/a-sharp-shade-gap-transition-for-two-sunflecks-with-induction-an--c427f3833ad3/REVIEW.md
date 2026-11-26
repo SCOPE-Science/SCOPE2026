@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The two light-pulse trajectories are integrated exactly and the nonstandard product term is retained rather than linearized. For strictly positive rates with \(d>b\), a monotone derivative sign function gives the unique global optimum for every interval, including the threshold tie in derivative and any finite upper cap. The illustrative rate family has a directly factored polynomial transition and a strictly monotone implicit optimum; all numerical examples were reproduced by 12,050 deterministic checker assertions. Finite checks support, rather than prove, the universal result.
+PASS
 
-## Originality — PASS (provisional historical priority)
+For a light pulse beginning at (x₀,y₀), integration of x(1−y) gives (1−y₀)(C−D+Dx₀). Inserting the initially zero state and then (Xe^(−bg),Ye^(−dg)) yields the stated three-exponential gap objective. C>D>0 and X,Y>0, so P,Q,R>0. The derivative divided by e^(−bg) is −bP+dQe^(−(d−b)g)+(b+d)Re^(−dg), with strictly negative derivative for d>b and limit −bP. This proves uniqueness at zero even at Δ=0, or strict increase then decrease around the only positive root. A cap truncates that root, including the one-point case G=0. At the stated dimensionless rates, substitution gives Δ=(1−u)²(4−3u−3u²)/2; u decreases from 1 to 0 and the only relevant zero is (√57−3)/6. The normalized root equation has strictly positive z-derivative and its right side strictly increases with ℓ at fixed z>0, so the branch has decreasing z and increasing g. At threshold z=1 and the implicit derivative is the stated strictly positive value; at u=0 the positive root is 1/3. Independent evaluation of the quadratic at ℓ=1 gave g≈0.649546036 and gains ≈0.373822536 and 0.483248394. VERIFICATION.md and check_sunfleck.py were read, not executed. This is a fixed-light-time, shade-neutral objective, not an optimization of gain per unit elapsed time.
 
-Statement-level comparisons did not identify an equivalent or dominating proof of the two-state product-gated global shade-gap transition. Gross (1982) is the closest fully inspected early mathematical work, but uses a single activated-enzyme-pool response. Leakey, Press and Scholes (2003) and Leakey, Scholes and Press (2004) document the physiological motivation and different fixed illumination protocols, not the mathematical transition. Pearcy, Gross and He (1997) is materially relevant, but full text was inaccessible, leaving a historical-priority risk. Classical exponential-sum tools are applicable to part of the proof; they are not claimed as new. The comparison is based on implications and domain, not merely titles.
+## originality
 
-## Value — PASS
+PASS
 
-The result resolves an interpretable design question: when maintaining light-induced capacity is worth more than allowing photodamage to repair, and whether an intentionally nonzero dark gap is ever globally optimal at fixed two-fleck total exposure. It supplies a parameter-wide criterion, a complete special-family duration threshold, monotone gap evolution and a limiting optimal recovery interval, with a sizable idealized gain. This mathematical benchmark does not assert real-world plant yield or an optimal natural canopy configuration.
+Fluctuating-light induction and photosynthetic inhibition are known, as are first-order response models. The supported distinct result is the exact gap optimum with a sharp sign criterion for these two coupled contributions to assimilation, plus its specified duration bifurcation. The closest indexed optimization statements and the accessible historical evidence do not establish the result as a corollary; some historical full-text comparisons remain unresolved.
 
-## Limitations and audit state
+## value
 
-The model omits realistic light response pathways, respiration, postillumination gain, a finite-day cost of shade and species-specific parameter calibration. Priority is provisional against broader mathematical and the incompletely inspected 1997 physiology literature. Proof and reproduction are checked in this package, but independent validation has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Shade can simultaneously dissipate the beneficial induction memory and remove harmful photodamage. An exact solution showing when these opposing effects favor no recovery time versus a unique interior optimum is a useful benchmark for more detailed models; it is stronger than a sign-of-initial-slope calculation without global control. The illustrative rate slice locates the onset and branch shape but is not offered as physiological calibration, and its numerical gain is not the basis of the value judgment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof reduces binary 2-binomial equivalence at fixed length to the exact pair of invariants \((t,J)\). It establishes a complete even/odd factor decomposition for the period-doubling morphism and verifies both affine weighted-sum transformations. It then proves the two outer counts by parity separation and the middle arithmetic-progression count by a single-step overlap, with the full length-three base. This proves every exponent. The included verification independently enumerates complete factor profiles through \(k=13\) and checks a separate digit-valuation generator through \(k=10\); finite experiments are not substituted for induction.
+## correctness
 
-## Originality — PASS against inspected sources
-Rigo and Salimov introduced the invariant in 2013. The closest direct source is Lejeune's thesis (2021, §4.5, printed pp. 115–117), which considers the same period-doubling fixed point, gives a small-scale plot and qualitative power-of-two versus non-power comparison, but explicitly does not obtain a precise 2-binomial complexity computation. Rigo, Stipulanti, and Whiteland (2022, §7.1) concern related comparisons without the present non-dyadic formula. A matching shifted numerical sequence in OEIS A052968 comes from a different arithmetic interpretation and does not establish this word-specific theorem. Published nearby results on greedy attractors, cocycle ranks, and contiguous composition reconstruction are not covering statements. Earlier equivalent unindexed results remain possible.
+PASS
 
-## Value — PASS
-An infinite natural non-power-of-two family receives an exact formula, with separate class counts at every permitted weight and a complete weighted-position progression at the central weight. The additive \(k+3\) term is explained by the substitution overlap rather than numerical extrapolation. This supplies nontrivial structure for the refined factor complexity of a classical automatic word.
+At fixed length the scattered 01 count is J-binomial(t,2) and t determines the other pair counts given that count, so the signature is exact. Every even-length factor comes from exactly the even- or odd-start construction by the fixed-point equations (the two sets may intersect). Both maps send t to m-t, and their J maps are injective in each weight, differing by the new weight. Thus at m=3x the odd outer new weights force opposite parities of the two entire image sets and double both outer counts. At the central weight the two reversed progressions of step 2x translate by a single step; the new minimum is 3x(3x-1)-2(A_k+(k+2)x)=x(6x-k-4). Together with the five length-three signatures this proves all scales, with no inference from finite data. An independently written bounded enumeration checked k=0..5 using all length-3·2^k windows in the images of 00, 01 and 10 under sigma^(k+2), directly summing each window's signature; the group counts and central progressions matched, including at length 96 (32,8,32 and 1408..1632 in steps of 32).
 
-## Limitations
-The theorem gives no formula away from lengths \(3\cdot2^k\). The checker has a finite cutoff and does not certify the universal statement by enumeration. Independent audit and external validation have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The numerical expression is known under other interpretations; the specific period-doubling identification and refined signature counts are distinct on the literature and catalog evidence checked. The older same-word thesis does not give exact values across this infinite non-dyadic family.
+
+## value
+
+PASS
+
+Three is the first non-dyadic odd base, so its doubling orbit is a natural test of the gap left by dyadic rigidity. The result resolves both the exact count and the contrasting collision behavior of even central and odd outer weights. The central progression in particular gives more than a computed sequence and is exact data for comparisons with other dyadic orbits.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

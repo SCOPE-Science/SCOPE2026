@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof is analytic and covers all nondegenerate planar ellipses, all fully interior positive-length slits, every displacement, and (at fixed physical length \(0<\ell<2B\)) every orientation. The line-coordinate Jacobian \(|t-q|\) and ordered-straddling integral \(L_+L_-(L_++L_-)\) are explicitly reconstructed; affine invariance preserves normalized area and segment incidence. Strict concavity of \(\sqrt{1-t^2}\) forces perpendicular centering, while strict even unimodality of the weighted radial integral forces longitudinal centering. The singular-value bound proves the sharp direction. The proof directly justifies limiting coefficients, including the \(1/2\) diameter limit. Monte Carlo and adaptive quadrature separately corroborate, but are not being used as infinite proof. Potential interpretation hazard: the sampling uses area-uniform interior points, not invariant random lines or boundary-uniform endpoints; all normalizations are stated.
+PASS
 
-## Originality — PASS, with residual priority uncertainty
+The removed slit has zero area, so the affine map to the disk preserves the endpoint sampling and finite-segment event. In the line transform the endpoint-coordinate determinant is |t-q|; using the angle modulo pi retains both orders of endpoints without duplicating lines. Straddling a slit point integrates the Jacobian to L_+L_-(L_++L_-), with L_+L_-=1-s^2-h^2 and L_++L_-=2 sqrt(1-p^2). Pairing reflected angles yields strict Jensen improvement when h is moved to zero; the centered-height weight is even, and differentiating its angular integrand gives strictly negative derivative at every s in (0,1). The integral over a shifted interval of length 2a thus decreases strictly with |c|. This proves the global unique center. The half-length in disk coordinates is the Euclidean half-length times ||L^{-1}e||; equality in its singular-value bound identifies the minor axis and the circular tie, and the length restriction ensures admissibility. Integrating the centered weight gives the stated atanh formula; direct expansion gives 2-8s^2/3+O(s^4) at zero and weight ~2(1-s) at one. At a full diameter independent endpoints straddle its line with probability 1/2. An independent finite check using /tmp/opencode/frozen_1_2_3_checks.py integrated over endpoint heights with conditional horizontal coordinates uniform on chords; the two-uniform convolution gave 0.233550048 centered at a=0.3, 0.206012740 for axial displacement 0.3, and 0.189544838 for perpendicular displacement 0.4. This corroborates normalization and finite-segment crossing, not the universal optimization proof. Inspected the frozen checker without running it.
 
-The strongest identified foundational papers are Beer (1973) on general index theory and Balko–Jelínek–Valtr–Walczak (arXiv v1 2014-12-04) on inequalities relating Beer index and convexity ratio. These do not contain the disk-slit exact integral, strictly unique center, or ellipse spectral orientation optimizer. Other readily accessible work on random boundary chords, on line-section endpoints, on circular-hole Beer indices, or on spherical-shell visibility treats different probabilistic objects. Those statements do not dominate the new global all-ellipse claim. The most relevant primary material (Beer PDF; full open-access Balko et al. article) was examined. The explicit closest-record comparisons and search data appear in the structured assessment. An unindexed older integral-geometric result remains a genuine historical-priority risk; the negative search is not asserted to prove uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-The Beer index is a natural quantitative measure of nonconvexity. A zero-area obstacle is unusual because it changes no normalized point distribution yet decreases visibility for a positive fraction of point pairs. The theorem solves the exact global placement and orientation extremum over an infinite family of ellipses, with an aspect-ratio-independent sharp value, strict uniqueness, and a universal half-visibility barrier. These are motivated structural facts, not a named finite table or a routine reparameterization. The value is restricted to the explicitly stated single straight slit and area-uniform sampling model.
+The supported distinct result is the sharp finite-segment blocking probability and global placement/orientation optimum for an interior straight slit. Classical visibility definitions and the area-endpoint chord Jacobian are not new; the closest separate Beer record concerns only local displacement of a positive-area disk hole. No directly covering theorem was found in the inspected comparisons.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Zero removed area does not make visibility trivial because it is a condition on the whole connecting segment. The all-offset strict inequality and explicit length profile resolve a natural obstruction design problem and distinguish direction in the Euclidean metric from affine equivalence. The result gives both the sharp limiting half threshold and the exact finite-length design rather than only a small-slit approximation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:49:52.459195Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 6–92, VERIFICATION.md, and checker.py (inspected, not executed)",
+        "Independent replay: python3 /workspace/branches/independent_checks.py; directly ranks and enumerates ±1 observations and replacement draws for 15 (m,h) pairs and both input signs, confirming exact moments and the all-eligible flip law"
+      ],
+      "rationale": "The reference in Finding line 16 to squared error a_{m,h} is a mean-square statement (explicitly defined and proved at lines 52–56), not a pathwise constant. Conditional on the entire past, counting the observations with the same sign as the nonzero current iterate gives J ~ Bin(m,1/2): the squared residual difference between a mismatching and a matching sign is 4|x|. Among the h eligible observations, min(J,h) agree. Conditional on the screen, an average of s independent uniform cached-label draws has second moment (1−1/s)(2 min(J,h)/h−1)^2+1/s. Fresh per-occurrence noise, even for repeated labels, has zero conditional cross terms. Odd sample sizes prevent the residual tie at x=0. Averaging each eligible value once, a genuinely different update even for s=h, flips the sign iff J≤(h−1)/2. The conditional flip probability is constant over histories, so the flip indicators are iid and runs are geometric. The law of large numbers and boundedness give the stated piecewise floor including q=1/2; the tail is between the largest included binomial mass and (1+(h−1)/2) times that mass, giving the stated strictly positive entropy rate by Stirling when 0<q<1. The exact m=5,h=s=3 illustration checks out.",
+      "residual_risks": [
+        "The enumeration is corroboration, not the proof. In Finding line 16 and the accompanying shorthand about driving squared error to zero, read squared error as mean-square error; the realized squared error can fluctuate. No claims for nonunit steps, shared noise on repeated re-queries, or non-scalar systems are established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shvaiko–Rebrova Theorem 1 bounds conditional fresh-update MSE under sparse-corruption/separation hypotheses; Cheng et al. screen candidate rows without replacement and average cached corrections; Coria et al. study horizons under time-varying noise/corruption; Cai et al. bound a subsampling cost under fixed sparse corruption."
+        ],
+        "reasoning": "A convergence or risk upper bound neither identifies the conditional cached draw moments nor implies equality in the risk comparison or an iid sign-flip law. Changing noise/corruption or update rules changes the screening count and the transition.",
+        "searches": [
+          "arXiv:2611.21926v1 Theorem 1",
+          "arXiv:2206.12554v1 §4.2",
+          "arXiv:2403.19874 §1.4",
+          "arXiv:2507.15185v1 abstract"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.21926v1",
+        "arXiv:2206.12554v1",
+        "arXiv:2403.19874",
+        "arXiv:2507.15185v1",
+        "Resultary 2de8a4971907 (self-match), 42831cd177c3, 2639ecb81dd1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matched source specifies how to cache and re-query, but the checked theorem supplies a fresh-update bound, not the distribution of the retained cached signs. The other two results obtain biased equilibria or transitions from different observation/update mechanisms."
+        ],
+        "reasoning": "The gap is filled by identifying the sign-aligned count as binomial with deterministic truncation at h. It gives both the floor function in q and the exact separate sign transition, neither a parameter substitution into the checked bounds nor a consequence of knowing the bias is nonzero. The qualitative reuse-bias claim by itself does not survive as new.",
+        "searches": [
+          "arXiv:2611.21926v1 §1, §2.2 and Theorem 1",
+          "Local-mirror RESULT.md of 42831cd177c3 and 2639ecb81dd1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shvaiko–Rebrova §2.2 precisely matches the screened-label algorithms including replacement and has the separate full-eligible cache update; the abstract and §1 know the selection-bias benefit.",
+          "Same-day Resultary record 42831cd177c3 uses a single winning screened observation and a reuse coin, rather than h retained Rademacher observations averaged with or without replacement."
+        ],
+        "reasoning": "Relabeling screened rows as accepted equations does not change the algorithm and is not a novelty basis. The nearby mixed-reuse example does not identify the stated all-eligible transition or the range of retained fractions and exact comparative risks. The matched algorithms are not themselves the claimed laws.",
+        "searches": [
+          "Primary literature targeted on reused and re-queried averaged quantile Kaczmarz; arXiv:2611.21926v1 §2.2 and Eq. (6)",
+          "Resultary semantic checks on scalar reuse/fresh risk, noise selection floor, exact sign dynamics, and cached sign persistence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2de8a4971907 is the same finding, not independent coverage. In the two distinct matches, 42831cd177c3 gives mean equilibria and a variance floor for a reuse mixture; 2639ecb81dd1 gives a hypergeometric transition on a corrupted two-level system. Neither is the binomial transition on the stated fresh iid Rademacher screen."
+        ],
+        "reasoning": "The exact object is a law over integer parameters, not a tabulated constant. Matching terms such as floor and two-state are insufficient when the update and selection counts differ; the in-paper keyword misses are not evidence of exhaustive absence.",
+        "searches": [
+          "Local Resultary semantic lookups for the exact risk, sign probabilities and run-length exponent; published records 2de8a4971907, 42831cd177c3 and 2639ecb81dd1",
+          "Search within arXiv:2611.21926v1 for Rademacher, Markov chain, two-state, run length"
+        ]
+      },
+      "rationale": "The algorithms and qualitative benefit of re-querying are prior. The exact comparison and exponential sign-run law in this scalar iid-noise model survive comparison with the closest algorithmic primary source and with the published scalar SCOPE examples. This is a best-of-knowledge finding, not a priority claim over the same-day example.",
+      "residual_risks": [
+        "Search scope was bounded, with only the abstract relied on for Cai et al.; no absence inferred from keyword misses. Equivalent analyses of selection or majority dynamics under another algorithmic name may exist.",
+        "Priority or intellectual relationship to the distinct same-day 42831cd177c3 record is unresolved; the available statements differ mathematically."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior algorithms and qualitative bias benefit; no exact frozen laws in the compared results",
+          "evidence": [
+            "Screen then sample with replacement; re-query or use cache; separate all-retained update; fresh conditional MSE bound, not cached sign or risk identities."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.21926v1",
+          "material_read": "Abstract, §1, §2.2 including Eq. (6), Theorem 1; targeted literal searches in HTML",
+          "method": "Lawful OA text, offsets 700, 2100, 8000–17662 and 25800",
+          "title": "Beyond the error horizon: averaged quantile Kaczmarz methods for corrupted and noisy linear systems",
+          "trigger": "Exact algorithm overlap and explicit discussion of re-querying and bias"
+        },
+        {
+          "assessment": "Related update design, different sampling and corruption assumptions",
+          "evidence": [
+            "Samples candidate rows without replacement, screens and averages; the compared passage concerns fixed adversarial corruption."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2206.12554v1",
+          "material_read": "§4.2 SampledQABK",
+          "method": "OA text offset 71100",
+          "title": "On Block Accelerations of Quantile Randomized Kaczmarz for Corrupted Systems of Linear Equations",
+          "trigger": "Precursor for cached quantile-averaged updates"
+        },
+        {
+          "assessment": "Conceptual antecedent; no exact fresh-vs-cache or sign-run result in passages read",
+          "evidence": [
+            "Single QRK update setting and convergence horizons under corruption/noise."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2403.19874",
+          "material_read": "Abstract and §1.4",
+          "method": "OA text offsets 890 and 11000",
+          "title": "Quantile Randomized Kaczmarz for Linear Systems with Time-Varying Noise and Corruption",
+          "trigger": "Time-varying noise predecessor"
+        },
+        {
+          "assessment": "Contextual rather than exact match; no whole-document negative inference",
+          "evidence": [
+            "Finite-horizon high-probability convergence with sparse corruption, not an iid repeated-observation risk identity."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2507.15185v1",
+          "material_read": "Abstract",
+          "method": "OA text offset 0",
+          "title": "On the Subsample Size of Quantile-Based Randomized Kaczmarz",
+          "trigger": "Quantile screening efficiency comparison"
+        },
+        {
+          "assessment": "Substantive thematic overlap, different stochastic model and quantitative conclusions",
+          "evidence": [
+            "Uses one winner and a per-query reuse coin to get nonzero mean equilibria, a variance floor and a wrong-limit bound; no ordered priority inferred."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22, 42831cd177c3",
+          "material_read": "RESULT.md, offsets 0–6420",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Arbitrarily small measurement reuse creates false attractors",
+          "trigger": "Distinct same-day scalar screening-reuse result"
+        },
+        {
+          "assessment": "Different transition, no equivalence demonstrated",
+          "evidence": [
+            "Sampled-quantile equality rule with hypergeometric corruption count rather than a full Rademacher screen and eligible-observation average."
+          ],
+          "identifier_or_url": "Resultary 2026/10/25, 2639ecb81dd1",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact two-state dynamics and a sharp rare corruption horizon",
+          "trigger": "Exact two-state dynamics for another quantile update"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Limitations",
+        "Shvaiko–Rebrova arXiv:2611.21926v1 §1–2.2"
+      ],
+      "rationale": "A condition-one, exactly consistent example isolates measurement reuse as a source of nonvanishing risk, rather than rank deficiency or static corruption. The exact fixed-quantile floor and persistence exponent give benchmark magnitudes and a separation between the sampled average and the full retained average, beyond the known qualitative warning. The sign law quantifies a time scale not controlled by a mean-square bound alone.",
+      "residual_risks": [
+        "This is a diagnostic example, not a universal threshold, a model of arbitrary matrix iterates, or a query-cost optimality result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

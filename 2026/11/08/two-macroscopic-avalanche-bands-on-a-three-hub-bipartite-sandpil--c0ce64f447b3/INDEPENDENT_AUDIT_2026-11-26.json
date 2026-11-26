@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:28:50.272896Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–80, VERIFICATION.md and verify.py (inspected, not executed)",
+        "Fresh exhaustive burning and FIFO replay: /workspace/branches/88140de5-6cbb-4216-aa91-05e9ab4d42d3/record5_replay.py and record5_replay_output.txt. Recurrent counts 12,81,432,2025,8748,35721; coefficients at n+3 are 4,12,32,80,192,448."
+      ],
+      "rationale": "The fixed source a and sink lie on the same shore of K_{3,n}, hence are nonadjacent. The burning test first activates height-two leaves and requires the taller hub to reach n; after it topples the height-one leaves activate, so the shorter hub needs initial height at least z0. This gives max(A,B)≥z0+z1 and min(A,B)≥z0, with n²·3^(n−1) recurrent states after summing (n−z0)²−z1² over ordered leaf heights. Adding at a does nothing unless A=n−1, when recurrence ensures z2≥1. After a's first toppling only the height-two leaves topple. If B<n−z2, there are z1 admissible B heights and size 1+z2. Otherwise there are z2 choices for B and b topples, releasing the height-one leaves. When z0>0, the source gets back fewer than n grains and size is n−z0+2. When z0=0 all leaves return one grain to a, which legally topples twice, and the odometer (2,1,1,…,1) sums to n+3. The stated binomial sums reproduce H_n, including replacing the last exponent n+2 of the second binomial branch by n+3. Dividing the two positive branch masses and maximum coefficient by the recurrent count gives the stated probabilities. Conditioned on positivity, the branches have asymptotically equal weights; their binomial parameters 1/3 and 2/3 and a vanishing conditioning/exception correction give the two-atom weak limit. The fresh finite replay matched all coefficients for n=2,…,7.",
+      "residual_risks": [
+        "The finite replay does not prove the weak limit or classification for arbitrary n by itself. The formulas use a deterministic toppling rule, uniform recurrence, a fixed hub source and total (not distinct) topplings."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broader indexed K_{a,b} full-system theorem assumes drive adjacent to the sink. The inspected published abstract passages concern recurrent-state parametrizations/parking operators or avalanche polynomials on other graphs. The abstract of S0096300317304435 explicitly says it determines total topplings and calculates avalanche sizes on complete bipartite graphs; it does not identify the drive class or state whether a full distribution is obtained."
+        ],
+        "reasoning": "A general theorem covering nonadjacent sources and this size statistic could imply H_n by specialization. The adjacent-source statement cannot do this, and the plausible paper could not be resolved beyond its abstract. Recurrence parametrizations are input for the computation, not the source-size classification themselves.",
+        "searches": [
+          "Focused primary-literature lookup for exact complete-bipartite same-shore avalanche laws and source-resolved size distributions; S0096300317304435; exact-title search for a lawful manuscript",
+          "arXiv:1208.0024, 1307.7740, 1605.02713, 2409.11811 abstract passages; Resultary c0b51f8711c3 Finding"
+        ]
+      },
+      "checked_sources": [
+        "Resultary c0b51f8711c3, 36e2b4c11721, d57a43818096 and 2b4c8c3b6996",
+        "Scientific abstract of S0096300317304435 with bounded lawful-access attempts; p. 1 passages from arXiv:1208.0024, 1307.7740, 1605.02713 and 2409.11811"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-date full-system formula and sink-deletion result have an adjacent-source hypothesis; the latter obtains no repeated topplings there. The later two-hub law has a different number of nonsink hubs. The triangular-book result establishes rare binomial bursts in a different graph. No 1/3–2/3 conditional mixture follows from these statements."
+        ],
+        "reasoning": "The new second branch requires activation of the second nonsink hub, and the maximal repeated-source event relies on the absence of a sink edge at the source. The available prior statements do not imply the two branches with the given relative weight. Same-date records were compared mathematically, not ordered by date alone.",
+        "searches": [
+          "Resultary c0b51f8711c3 and 2b4c8c3b6996 full-system Finding passages, 36e2b4c11721 same-shore branch, d57a43818096 binomial law; asserted scope in the S0096300317304435 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In c0b51f8711c3 and 2b4c8c3b6996 the relevant blueprints drive a vertex adjacent to the sink. The later 36e2b4c11721 does treat a same-shore source and repeated-source maximum, but on K_{2,n}; its bibliography cites the frozen target.",
+          "d57a43818096 gives a principal-avalanche law on triangular books K_{1,1,n}, not the same complete-bipartite pair of source and sink."
+        ],
+        "reasoning": "Adjacency to the sink and the graph's shore sizes are invariant under relabelling; swapping labels does not convert the different source classes. A count of distinct toppled sites or full-system hits would not by itself capture the extra source toppling or the full distribution.",
+        "searches": [
+          "Resultary lookup for complete-bipartite fixed-source total-toppling, principal-avalanche and same-shore/adjacent-source formulae; c0b51f8711c3, 36e2b4c11721, 2b4c8c3b6996, d57a43818096"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A complete-bipartite recurrent-state count is known and agrees with H_n(1)=n²·3^(n−1). The matching nearby avalanche records report other graph or source situations and do not tabulate the two positive branches and the n+3 coefficient for this same fixed source."
+        ],
+        "reasoning": "Normalization, an adjacent-source full-system count or a two-hub law does not give the exact coefficient vector of the same-shore three-hub law. The fresh coefficient checks are correctness evidence, not proof that no table exists.",
+        "searches": [
+          "Resultary same-shore avalanche and maximum/coefficient comparisons, c0b51f8711c3, 36e2b4c11721, 2b4c8c3b6996, d57a43818096"
+        ]
+      },
+      "rationale": "In the actual comparisons the exact fixed same-shore source polynomial counting repeated topplings, its exceptional exponent and its two-component conditional limit remain distinct. An earlier complete-bipartite avalanche paper has a plausibly relevant abstract but inaccessible decisive details; the verdict is bounded to the evidence available, not a claim of priority over that paper.",
+      "residual_risks": [
+        "The original complete-bipartite calculation in S0096300317304435 may cover a stronger theorem that includes this source location, statistic and distribution. Its decisive conditions and results were not accessible. A lawful library or author copy is needed to resolve this specific priority risk; the access failures and empty exact-title lookup are not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Possible prior coverage unresolved, not claimed to be outside scope of the full paper",
+          "evidence": "Abstract says ‘we determine the total number of topplings in an avalanche’ and ‘calculate the sizes of avalanches … on … the complete bipartite graph’; it does not state the source shore or a full source-resolved law.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0096300317304435",
+          "material_read": "Search-result abstract passage; no theorem or drive assumptions retrieved",
+          "method": "Focused literature search; bounded OA article/PDF/abstract and ordinary public page attempts (timeout/403); exact-title lawful-copy lookup did not identify a copy",
+          "title": "Spanning trees and recurrent configurations of a graph",
+          "trigger": "Strongest plausible prior: explicitly calculates total topplings and studies complete bipartite graphs"
+        },
+        {
+          "assessment": "Different source class and statistic scope",
+          "evidence": "General K_{a,b} full-system event/maximum for drive adjacent to the sink.",
+          "identifier_or_url": "Resultary c0b51f8711c3",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Indexed local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Full-system Abelian sandpile avalanches on complete bipartite graphs",
+          "trigger": "Same graph family with exact avalanche result"
+        },
+        {
+          "assessment": "Different shore size and later-dated comparison that cites the target",
+          "evidence": "Both source classes on K_{2,n}; same-shore drive can repeat at the source.",
+          "identifier_or_url": "Resultary 36e2b4c11721",
+          "material_read": "RESULT.md Finding at offset 0 and reference to the target at offsets 12060–12314",
+          "method": "Indexed local mirror",
+          "title": "An all-or-none avalanche law with a rare binomial bridge on K_{2,n}",
+          "trigger": "Closest indexed same-shore fixed-source polynomial"
+        },
+        {
+          "assessment": "Different graph and source setup; no chronological priority inferred",
+          "evidence": "Principal avalanche law on K_{1,1,n}.",
+          "identifier_or_url": "Resultary d57a43818096",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Indexed local mirror",
+          "title": "Exact avalanche polynomial and rare binomial bursts in triangular books",
+          "trigger": "Same-date exact binomial avalanche law"
+        },
+        {
+          "assessment": "Adjacent-source theorem cannot cover the nonadjacent source here",
+          "evidence": "Its sink-adjacent drive condition entails no repeated topplings.",
+          "identifier_or_url": "Resultary 2b4c8c3b6996",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Indexed local mirror",
+          "title": "Sink-deletion bijection for full sandpile avalanches and a wheel application",
+          "trigger": "Broader full-system avalanche theorem"
+        },
+        {
+          "assessment": "Framework and nearby results; no whole-paper negative inference from abstracts",
+          "evidence": "The passages describe polyomino recurrence, recurrence/parking operators, deterministic and stochastic recurrence, or avalanche polynomials for trees, cycles, wheels and complete graphs.",
+          "identifier_or_url": "arXiv:1208.0024; arXiv:1307.7740; arXiv:2409.11811; arXiv:1605.02713",
+          "material_read": "p. 1 abstract passages",
+          "method": "Bounded primary OA reads",
+          "title": "Complete-bipartite recurrent-state results of Dukes–Le Borgne, Aval et al. and Selig–Zhu; The Avalanche Polynomial of a Graph by Austin et al.",
+          "trigger": "Published recurrence frameworks and general avalanche-polynomial precedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen H_n and its disjoint source-case proof, especially lines 49–76; indexed comparison to the two-hub same-shore and general adjacent-source laws"
+      ],
+      "rationale": "A hub on the sink's shore is the natural nonadjacent drive, and K_{3,n} is the first fixed-shore size along this hub family with a second nonsink hub available. Its activation controls a different macroscopic size band. A full source-specific law including the repeated-toppling tail is a useful benchmark for distinguishing wave mechanisms and conditional size scaling, not just a known recurrent-state count or a finite numerical example.",
+      "residual_risks": [
+        "The value is specific to this solvable sequence; it does not establish different-sink, mixed-source, stochastic or general large-graph avalanche scaling."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

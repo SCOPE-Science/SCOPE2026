@@ -1,72 +1,49 @@
 # Linear-size identifying codes for undirected two-letter de Bruijn networks
 
 ## Finding
-Let \(q\ge3\) be an integer. Write \(\mathcal B(q,2)\) for the undirected de Bruijn graph whose vertices are the ordered pairs in \(\{0,\ldots,q-1\}^2\), with an edge between \(ab\) and \(bc\) for any three symbols \(a,b,c\). Loops are immaterial because identifying signatures use closed neighborhoods. Let \(\gamma(q)\) be the minimum number of vertices in a radius-one identifying code: a selected set meeting each closed neighborhood in a nonempty, pairwise-distinct set.
 
-**Theorem.** For every integer \(q\ge3\),
+For an integer \(q\ge3\), let \(\mathcal B(q,2)\) be the undirected graph with vertices \((a,b)\in\{0,\ldots,q-1\}^2\) and overlap edges \(ab\)--\(bc\). A radius-one identifying code \(C\) is a set of vertices such that every closed neighborhood has a nonempty intersection with \(C\), and all these intersections are different. If \(\gamma(q)\) is the minimum size, then
 \[
-q\le\gamma(q)\le q+\left\lfloor\frac q3\right\rfloor.
+q\le\gamma(q)\le q+\lfloor q/3\rfloor.
 \]
-The upper bound is attained by an explicit code constructible in \(O(q)\) time; thus its cardinality is at most \(4/3\) times optimum. Moreover,
-\[
-\gamma(3)=4,\qquad\gamma(4)=5,\qquad\gamma(5)=6.
-\]
-No assertion that the upper bound is optimal for \(q\ge6\) is made.
+The upper bound is attained by the explicit code below. Listing the code uses \(O(q)\) operations on alphabet labels (in the word-RAM model); its size is at most \(4/3\) times optimum. The contribution is the uniform bound and construction, not the known small-alphabet optima.
 
 ## Assumptions and scope
-Symbols are labeled and the two coordinates are ordered. The graph is undirected, formed by forgetting orientations in the usual de Bruijn overlap digraph. For a candidate code \(C\) of ordered pairs, write
+
+Coordinates of words are ordered and adjacency is undirected. Loops are irrelevant for closed neighborhoods, and diagonal words \((a,a)\) are vertices. For any selected set \(C\) let \(R_b=\{(b,u)\in C\}\) and \(K_a=\{(u,a)\in C\}\). Then the signature is exactly
 \[
-R_b=\{(b,t)\in C\},\qquad K_a=\{(t,a)\in C\}.
+I_C(a,b)=R_b\cup K_a\cup(\{(a,b)\}\cap C).
 \]
-The identifying signature of vertex \((a,b)\) is exactly
-\[
-I_C(a,b)=R_b\cup K_a\cup (\{(a,b)\}\cap C).
-\]
-The unusual reversal of indices is essential: outgoing neighbors of \((a,b)\) start with \(b\), and incoming neighbors end with \(a\). All quantifiers include the diagonal vertices \((a,a)\) and all pairs of distinct vertices.
+Indeed the two possible overlaps start with \(b\) or end with \(a\), and the closed neighborhood also contains \((a,b)\).
 
 ## Proof
-**Lower bound.** Suppose \(|C|<q\). If two rows \(R_b,R_{b'}\) are empty, then for every \(a\), distinct vertices \((a,b),(a,b')\) can have different signatures only if at least one of \((a,b),(a,b')\) belongs to \(C\). These are distinct selected pairs as \(a\) varies, hence \(|C|\ge q\), contradiction. Thus at most one row is empty; the dual argument gives at most one empty column. Since \(|C|<q\), at least one row and one column are empty, so \(|C|=q-1\), with exactly one empty row \(r\) and one empty column \(c\). Every other row and column then contains exactly one code pair. To have \(I_C(c,r)\ne\varnothing\), the pair \((c,r)\) must belong to \(C\). Because \(q\ge3\), choose another code pair \((i,j)\). Necessarily \(i\ne r,c\) and \(j\ne r,c\). By uniqueness in occupied rows and columns,
+
+**Lower bound.** Suppose \(|C|<q\). If two rows \(R_b,R_{b'}\) are empty, then for every \(a\) the signatures of \((a,b)\) and \((a,b')\) differ only if at least one of those two vertices belongs to \(C\). These are disjoint pairs for distinct \(a\), forcing \(|C|\ge q\), a contradiction. By exchanging coordinates, at most one column is empty. Since \(|C|<q\), there is exactly one empty row \(r\) and one empty column \(c\); \(|C|=q-1\) and every other row and column contains one selected pair. Domination of \((c,r)\) requires \((c,r)\in C\); in particular \(c\ne r\). There is another codeword \((i,j)\) since \(q\ge3\), with \(i\notin\{r,c\}\) and \(j\notin\{r,c\}\). The distinct vertices \((j,r)\) and \((c,i)\) both have signature \(\{(i,j)\}\). Their own membership cannot add a codeword because row \(j\) cannot contain \((j,r)\) (column \(r\) is occupied solely by \((c,r)\)), and row \(c\) is occupied solely by \((c,r)\). This contradiction proves the lower bound.
+
+**Templates.** On blocks of \(s=3,4,5\) symbols use the indicated ordered lists:
 \[
-I_C(j,r)=\{(i,j)\}=I_C(c,i).
+T_3=(01,02,10,20),\quad T_4=(00,12,13,21,31),\quad T_5=(01,02,13,24,30,41).
 \]
-These are different vertices, contradiction. Therefore \(|C|\ge q\).
-
-**Three finite blocks.** On \(s\in\{3,4,5\}\) symbols, define the following sets of selected ordered pairs (using digits as symbols):
-
-* \(T_3=\{01,02,10,20\}\).
-* \(T_4=\{00,12,13,21,31\}\).
-* \(T_5=\{01,02,13,24,30,41\}\).
-
-Each block by itself is an identifying code. A self-contained finite certificate is the following table of signature masks. Assign bit \(2^h\) to the \((h+1)\)-st listed code pair and read each matrix in row-major order, with rows indexed by \(a\) and columns by \(b\). Every mask in each matrix is positive and occurs exactly once:
-
+Assign bit \(2^h\) to entry \(h+1\). Direct evaluation of the signature formula gives these masks (row \(a\), column \(b\)):
 \[
-M_3=\begin{pmatrix}15&13&14\\7&5&9\\11&6&10\end{pmatrix},
-\]
-\[
-M_4=\begin{pmatrix}1&7&9&17\\25&30&26&28\\3&14&10&18\\5&22&12&20\end{pmatrix},
-\]
-\[
+M_3=\begin{pmatrix}15&13&14\\7&5&9\\11&6&10\end{pmatrix},\quad
+M_4=\begin{pmatrix}1&7&9&17\\25&30&26&28\\3&14&10&18\\5&22&12&20\end{pmatrix},\quad
 M_5=\begin{pmatrix}19&21&26&16&48\\35&37&41&53&33\\3&6&10&18&42\\23&4&12&20&36\\11&44&8&24&40\end{pmatrix}.
 \]
-These masks are derived by the preceding explicit signature formula, so they can also be checked without trusting an optimization solver. Every row support and column support of every template is nonempty. In \(T_3\) no row support equals any column support: its row supports are \(\{01,02\},\{10\},\{20\}\) and its column supports are \(\{10,20\},\{01\},\{02\}\).
+Each matrix has distinct positive entries. Every row support and column support in all three templates is nonempty. The row supports in \(T_3\) are \(\{01,02\},\{10\},\{20\}\); its column supports are \(\{10,20\},\{01\},\{02\}\). Thus no \(T_3\) row support equals a \(T_3\) column support.
 
-**Combining blocks.** Partition the \(q\) symbols into blocks. For \(q=3k\) use \(k\) blocks of size three; for \(q=3k+1\) use one block of size four and \(k-1\) of size three; for \(q=3k+2\) use one block of size five and \(k-1\) of size three. Translate each block template to its assigned symbol labels and take their disjoint union \(C\). Code pairs never connect different blocks.
-
-For vertices whose two symbols belong to the same block, signatures are precisely the verified local signatures, supported only in that block. For vertices \((a,b)\) with \(a,b\) in two different blocks \(A,B\), their signature is \(K_a\cup R_b\), with nonempty supports in both blocks. Such a signature cannot equal a within-block signature. The two involved blocks are recoverable from its support. Within a fixed ordered pair of distinct blocks, two signatures can agree only if both the selected columns and selected rows agree, forcing the same \(a,b\), since different columns (respectively rows) are disjoint and nonempty. If the two blocks are exchanged, equality would require some selected row to equal a selected column **inside both blocks**. This is impossible because there is at most one block of size four or five, and every pair of distinct blocks includes a size-three block, for which no such equality occurs. Hence every signature is nonempty and unique.
-
-The code size is \(4k\), \(4k+1\), or \(4k+2\) respectively, exactly \(q+\lfloor q/3\rfloor\). The construction lists a constant number of pairs per block, giving linear construction time. Since \(\gamma(q)\ge q\), its size divided by optimum is at most \(1+\lfloor q/3\rfloor/q\le4/3\).
-
-**First sharp cases.** For \(q=3,4,5\), the construction has \(q+1\) codewords. There is no \(q\)-element identifying code: a complete enumeration of the \(\binom{q^2}{q}\) candidates tests respectively \(84,1820,53130\) subsets, all failing the signature test. A smaller code could be extended to a \(q\)-element code because the defining property is preserved by adding sensors; hence no smaller code exists. The standalone checker implements the entire finite enumeration. A second program builds undirected graph adjacency explicitly and independently verifies the construction.
+**Block composition.** For \(q=3m\), partition into \(m\) triples. For \(q=3m+1\) or \(q=3m+2\), use one block of size four or five respectively and \(m-1\) triples. Take the union of the relabeled templates; no selected pair joins two different blocks. A word with both symbols in one block has its checked local signature, supported only in that block. If \((a,b)\) uses distinct blocks \(A,B\), its signature is \(K_a\cup R_b\), supported nontrivially in both blocks; its unordered pair of blocks is therefore recoverable. For fixed ordered blocks \((A,B)\), equality of signatures forces equality of columns and of rows, since different columns are disjoint and nonempty, as are different rows. If the order of blocks is reversed, equality would require a row to equal a column inside *each* block, impossible because at least one of the two blocks is a triple. Thus domination and separation hold across the graph. The code size is \(4m,4m+1,4m+2\) respectively, giving \(q+\lfloor q/3\rfloor\), and the templates can be listed in one pass. The claimed approximation ratio follows from the lower bound.
 
 ## Verification
-Execute `python3 check_bounds.py` and `python3 check_adjacency.py` using Python 3 and the standard library. It verifies the three explicit signature matrices, exhaustively rejects all \(q\)-element code sets at \(q=3,4,5\), and independently reconstructs and checks the family at every \(3\le q\le100\). The universal statement for all larger \(q\) follows from the block-union proof, not from those numerical checks. The finite enumerator iterates every combination of the asserted size, without sampling or early cutoff.
 
-## Relationship to prior work
-Horan (2015, first arXiv version 3 August 2015) established identifiability for undirected \(\mathcal B(d,n)\) when \(d\ge3,n\ge2t\), including \(n=2,t=1\), and explicitly posed efficient and minimum-cardinality code construction as a future problem. That existence result does not give the present linear sensor bound or the small exact optima. Boutin, Horan Goliber and Pelto (2014) studied **directed** de Bruijn identifying codes: their neighborhood signatures and lower bounds do not transfer to undirected balls. This theorem uses the undirected graph and proves both a nontrivial scalable approximation guarantee and sharp first alphabet sizes.
+The masks and block argument prove the uniform claim. The supplementary programs `check_bounds.py` and `check_adjacency.py` are standard-library Python diagnostics of the signature and adjacency formulations; they check the construction for \(3\le q\le100\). The first program's exhaustive exclusions for \(q=3,4,5\) reproduce known values and are not needed for the uniform theorem.
 
-## Limitations
-The optimal value for \(q\ge6\) is not determined by this theorem; computations on additional alphabets would not prove an all-alphabet equality. The factor at most \(4/3\) is an upper bound against the proved elementary lower bound and may be improvable. No independent peer review has occurred. Historical priority under different graph or sensor terminology is not excluded.
+## Relationship to prior work and limitations
+
+Horan [1, Theorem 2.1 and §4] proves existence for the relevant undirected graph and poses efficient construction and minimum-cardinality questions. Horan, Adachi and Bak [2, Figures 8–9] give minimum sizes by finite computation. In particular, their tables already give \(\gamma(3)=4,\gamma(4)=5,\gamma(5)=6\); Figure 9 also reports exact \(\gamma(6)=8,\gamma(7)=9\) and a size-ten code for \(q=8\) without certifying it as minimum. Those entries are benchmarks, not claims of novelty here. They do not give the uniform approximation or block construction above. The directed problem studied by Boutin, Horan Goliber and Pelto [3] uses different neighborhoods. The lower bound is a baseline: there are at most \(|C|\) singleton signatures, and each selected word appears in at most \(2q\) signatures, giving \(2q^2-|C|\le 2q|C|\) and hence \(|C|\ge q\) by rounding. The bound here is not an exact all-alphabet formula; a smaller code can exist where the two bounds differ. This comparison does not exclude historical equivalences outside the sources inspected.
 
 ## References
-1. V. Horan, *On the Existence of \(t\)-Identifying Codes in Undirected De Bruijn Graphs*, arXiv:1508.00403v1, posted 2015-08-03. https://arxiv.org/abs/1508.00403
-2. D. Boutin, V. Horan Goliber, M. Pelto, *Identifying Codes on Directed De Bruijn Graphs*, arXiv:1412.5842v1, posted 2014-12-18. https://arxiv.org/abs/1412.5842
+
+1. V. Horan, *On the Existence of \(t\)-Identifying Codes in Undirected De Bruijn Graphs*, https://arxiv.org/abs/1508.00403.
+2. V. Horan, S. Adachi and M. Bak, *A Comparison of Approaches for Finding Minimum Identifying Codes on Graphs*, https://arxiv.org/abs/1504.08011v2, Figures 8–9.
+3. D. Boutin, V. Horan Goliber and M. Pelto, *Identifying Codes on Directed De Bruijn Graphs*, https://arxiv.org/abs/1412.5842.

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact exchange-energy change is derived from the Hamiltonian, including the staggered-field normalization. Its sign is constant throughout \(0<h<J\). The parity-sensitive forbidden four-spin words define a finite transfer graph whose closed walks bijectively encode labeled periodic configurations, with one up-spin weight per site. Its determinant is verified symbolically, yielding the rational generating function. A root-modulus argument proves the entropy and its strict discontinuity from the neutral-move zero-field chain. Two independently implemented counting methods agree for five even lengths and for two distinct field strengths. The proof, rather than those experiments, establishes the infinite family.
+## correctness
 
-**Originality — PASS, subject to bibliographic risk.** De Smedt–Godrèche–Luck (arXiv:cond-mat/0210477, sections 1–3) cover the unmodulated zero-field Kawasaki model with or without neutral exchange rates; the two extremal constraint sets are not equivalent to the parity-dependent weak-field constraint. Gómez Albarracín–Rosales–Grynberg (arXiv:1601.04375, sections I–III and Appendix A) cover metastable sectors from next-neighbor coupling, without an alternating on-site field. Their tabulated proliferation exponents do not imply the present bivariate quintic. The previously studied weak-staggered-field single-spin-flip blocking condition is also mathematically different, because Kawasaki dynamics preserves total magnetization. Targeted external and database searches did not find a covering claim. The remaining risk is an unlocated work on periodically biased lattice-gas hopping or parity-dependent exchange rules.
+PASS
 
-**Value — PASS.** This is a complete magnetization-resolved enumeration for a natural magnetization-conserving kinetic Ising model. The noncommuting zero-field and zero-temperature limits produce an exponential multiplicative change in the number of absorbing states, rather than a routine finite-size difference. The exact entropy and all composition coefficients provide mathematical benchmarks for quench simulations and kinetic-arrest studies. No assertion is made about which absorbing state is dynamically selected.
+With gauge spins r_i=(-1)^i s_i, the model is antiferromagnetic in a uniform field. A physical antiparallel exchange flips two equal gauge spins b, changing energy by −2Jb(a+d)+4hb, where a,d are the exterior gauge spins. For 0<h<J the sign is constant and nonzero for each local pattern. Two alternating weighted transitions count physical up-spins once each; closed walks based at the fixed even site are in bijection with labeled ring configurations for 2m≥4. An independent gauge construction and exact trace Newton identities recover det(I−tT)=1−(1+z²)t−(z+z²+z³)t²−z⁵t⁵. The negative logarithmic derivative gives the trace series, and subtracting the formal m=1 term gives the physical series. At z=1 the positive root is simple because 2/r+3/r²+1/r⁵ strictly decreases through 1; comparison of root moduli and equality of the phases of powers 3 and 4 make it strictly dominant. At h=0, a spin singleton admits a nonincreasing exchange, and with no singletons every antiparallel exchange increases energy. In the no-singleton two-spin transfer matrix the even/odd sectors under spin inversion have polynomials x²−x−1 and x²−x+1. Thus the golden mean is the baseline and the jump is strict because the positive two-step root exceeds 3. Independent bounded replay: /workspace/branches/independent_replay.py, kawasaki(), exact determinant and full Hamiltonian counts for N=4,6,8,10 at two weak fields and zero including neutral moves; no extrapolation from finite lengths.
 
-**Closest literature and limitations.** Both primary arXiv papers were inspected in accessible full-text HTML, including the passages where their model assumptions and blocked-state families are specified. The field endpoints, positive temperature, and absorption probabilities remain outside this theorem. The cited source comparison does not establish an absolute priority claim over all possible unpublished or unindexed variants.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Accept the weak alternating on-site-field census and its comparison to a known zero-field baseline, not the zero-field golden-mean result or the transfer-matrix method as new. The inspected nearest results use a different field/coupling, neutral-move constraint, or move rule.
+
+## value
+
+PASS
+
+The alternating bias selects which former neutral moves survive while leaving the signs of nonneutral ferromagnetic moves unchanged. The count shows that arbitrarily weak bias changes the exponential number of absorbing states, and its complete magnetization weighting matters because exchanges conserve magnetization. This is a benchmark for sector-resolved arrest, not a claim about the probabilities of the different absorbing states.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:14:59.996457Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–39; VERIFICATION.md lines 19–27; verify.py lines 8–116 (inspected, not executed)",
+        "Independent modular root count: roots modulo 7 are {4}, modulo 11 none, modulo 43 {14,32,38}; these checks corroborate splitting, not the weight proof."
+      ],
+      "rationale": "The proof establishes the claim about geometric points of W. In the Finding the phrase 'every geometric point' refers to W, whose support is described immediately afterward; it cannot refer to all of B, whose ordinary geometric points have sequence (0,1,2,3). The Jacobian rank argument excludes singularities because p divides none of 2, 3, 5 or m(5−m) for 1≤m≤4. Adjunction yields the genus-four canonical complete intersection. Newton identities give h, with discriminant −200 and h(1)=10, so every repeated-coordinate point has exactly one repeated pair. Each transposition fixes six points and no point on its negative projective eigenspace; tame Riemann–Hurwitz gives quotient genus one, hence one invariant and three anti-invariant canonical differentials. In an anti-invariant local uniformizer their orders are respectively odd and even; an adapted basis has three distinct even orders, forcing positive weight. The generic order sequence is classical since degree 6<p and the p-adic criterion forces downward closure of every order less than p. The local orders are also <p, so the Wronskian has the ordinary weights, and its degree 60 makes each of the 60 points simple with sequence (0,1,2,4). Normalization of the repeated pair to 1 makes Frobenius act freely as the permutation of all three ordered roots: a permutation of order d has 60/d cycles of length d and yields Z=(1−T^d)^(−60/d).",
+      "residual_risks": [
+        "The result only concerns the stated power-sum model, not arbitrary twists, the whole-curve zeta function, or p≤5. The Finding's point quantifier should explicitly say 'of W'."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Korchmáros–Lia–Timpanella cover m=5 and every p≥7. Lemmas 4.8 and 4.11 give exactly six transposition fixed points per equal-coordinate hyperplane, with only one equal pair, and Theorem 4.16 supplies smoothness."
+        ],
+        "reasoning": "This stronger geometric fixed-point statement at the very same characteristics supplies exactly the 60 candidate points, not just the coordinates over C. The canonical step follows directly from tame quotient/vanishing-order formulas and the weight budget; see the exact implication below.",
+        "searches": [
+          "Korchmáros–Lia–Timpanella arXiv:2112.10886, Lemmas 4.8 and 4.11 and Theorem 4.16",
+          "Stöhr–Voloch p-adic generic-order criterion cited in the frozen record"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2112.10886",
+        "Edge 1978 p. 541",
+        "arXiv:2208.13692 Prop. 3.3",
+        "Resultary 09f9eec44d62 and 1b90c8a3b779",
+        "Focused primary websearch"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For each known involution with six fixed points on the smooth canonical genus-four curve, tame Riemann–Hurwitz gives 6=2(2g'−2)+6, hence g'=1. The invariant canonical dimension is 1, the anti-invariant dimension 3. At a fixed point three distinct even orders force an order ≥4. Since the series has degree 6<p, its 60 total ordinary weights must be exhausted by these 60 distinct fixed points. Over finite fields the 60 points are the normalized orderings of the separable cubic roots, so every orbit has the order of Frobenius on those roots."
+        ],
+        "reasoning": "This exact deduction works at p=7 without any new fixed-point or ramification classification. On p≥11 even the explicit stall census in 09f9eec44d62 suffices for the weight-one conclusion by the same classical weight budget. The frozen claim supplies a valid self-contained derivation but does not isolate a substantive new remainder.",
+        "searches": [
+          "Korchmáros–Lia–Timpanella Lemmas 4.8, 4.11 for transposition fixed-point counts including p=7",
+          "Braden–Disney-Hogg Proposition 3.3 for the root coordinates",
+          "Resultary 09f9eec44d62 exact stall-scheme statement and definition of a stall"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Edge identifies the complex stalls with the Weierstrass points. Proposition 3.3 gives exactly the 60 ordered-root coordinates, split into sextets, in characteristic zero.",
+          "In a degree-six classical canonical system in characteristic p≥7, a stall (osculating contact at least four) is exactly a positive-weight Weierstrass point. The focused web lookup returned no new result; that alone proves nothing."
+        ],
+        "reasoning": "Changing the name from stalls or transposition fixed points to canonical Weierstrass support is not itself new; the field and the weight question still have to be matched.",
+        "searches": [
+          "Configured Resultary searches for Bring curve reduced Weierstrass support, Frobenius cycles, and tritangents/stalls",
+          "Edge (1978) p. 541",
+          "Braden–Disney-Hogg arXiv:2208.13692 Proposition 3.3",
+          "Focused primary websearch for finite-field Bring Weierstrass ramification"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Distinct record 09f9eec44d62 uses the identical model, cubic and ordered coordinates. Its W is the reduced scheme of 60 stalls, with all cycles of length d and explicit #W(F_(q^n))=60·1_(d|n) and Z=(1−U^d)^(−60/d), for p≥11.",
+          "Earlier record 1b90c8a3b779 gives root-label S3 on the characteristic-zero tritangent configuration, not the positive-characteristic canonical divisor."
+        ],
+        "reasoning": "09f9eec44d62 exactly covers the advertised arithmetic table on its stated range, independently of ordering between the same-day entries. It calls W the reduced support, not the full divisor with weights, and excludes p=7; those distinctions are addressed by the separate prior implication.",
+        "searches": [
+          "Configured Resultary search for Bring curve and Frobenius",
+          "Resultary 09f9eec44d62 Finding and Proof §§1–4",
+          "Resultary 1b90c8a3b779 Finding and Galois interpretation"
+        ]
+      },
+      "rationale": "There is exact, distinct indexed coverage of the stall scheme and its Frobenius, point-count and zeta data for p≥11. No priority inference is drawn from the two records sharing a date. The remaining canonical-weight assertion and characteristic-seven extension do not establish a distinct claim beyond the already known positive-characteristic fixed-point theorem and standard ramification formulas. This is an implication/coverage decision, not a claim that an earlier source explicitly printed every vanishing sequence or that the mathematics is false.",
+      "residual_risks": [
+        "Same-day priority is not established in either direction. The positive-characteristic implication is stronger evidence than this date ambiguity.",
+        "The inspected publications need not contain the literal gap sequence and characteristic-seven table. The judgment concerns their mathematical implication, not verbatim publication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the exact input to the standard ramification consequence",
+          "evidence": "Lemma 4.8 gives the equal-coordinate hyperplane and no other repetitions; Lemma 4.11 gives (m−2)! fixed points per transposition.",
+          "identifier_or_url": "https://arxiv.org/pdf/2112.10886",
+          "material_read": "Lemmas 4.8 and 4.11, PDF pp. 10–12 (offset 46100 onward); Theorem 4.16 p. 13 (offset 58170)",
+          "method": "Bounded OA PDF inspection with direct verification of fixed-point passages",
+          "title": "A generalization of Bring’s curve in any characteristic",
+          "trigger": "Nearest exact positive-characteristic geometry, including p=7"
+        },
+        {
+          "assessment": "Characteristic-zero baseline only",
+          "evidence": "The 60 equal-coordinate-plane intersections are stalls and the Weierstrass points of the canonical curve.",
+          "identifier_or_url": "https://webhomes.maths.ed.ac.uk/cheltsov/edge2014/pdf/1978a.pdf",
+          "material_read": "Printed p. 541, OA PDF p. 3, offset 7050",
+          "method": "Bounded OA PDF inspection",
+          "title": "Bring’s Curve",
+          "trigger": "Equivalence of complex stalls and canonical Weierstrass points"
+        },
+        {
+          "assessment": "Exact characteristic-zero formula",
+          "evidence": "W345=[1:1:α:β:γ] with roots of x³+2x²+3x+4; six fixed Weierstrass points per transposition.",
+          "identifier_or_url": "https://arxiv.org/pdf/2208.13692",
+          "material_read": "Proposition 3.3 and following paragraph, PDF p. 15, offset 52670 onward",
+          "method": "Bounded OA PDF inspection",
+          "title": "Bring’s curve: old and new",
+          "trigger": "Exact cubic and ordered-root coordinates"
+        },
+        {
+          "assessment": "Exact arithmetic overlap for p≥11, without an explicit weight-one divisor claim",
+          "evidence": "Degree 60, cycles of length d, count 60·1_(d|n), same zeta; stalls defined by osculating order at least four.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-frobenius-splitting-of-bring-s-120-tritangents-and-their-contact--09f9eec44d62/RESULT.md",
+          "material_read": "Finding, scope and Proof §§1–4, including mirror offsets 0–5675 and 5675 onward",
+          "method": "Bounded Resultary mirror inspection",
+          "title": "Frobenius splitting of Bring’s 120 tritangents and their contact points",
+          "trigger": "Exact same-day arithmetic overlap on the stall scheme"
+        },
+        {
+          "assessment": "Characteristic-zero incidence/root-label result only",
+          "evidence": "Identifies Gal(h/Q)=S3 acting on the root labels.",
+          "identifier_or_url": "2026/10/12/1b90c8a3b779",
+          "material_read": "Mirrored RESULT.md offset 0–3574, including scope and arithmetic interpretation",
+          "method": "Bounded Resultary mirror inspection",
+          "title": "The Weierstrass tritangent configuration of Bring’s curve is the clique geometry of A_(5,3)",
+          "trigger": "Prior cubic root-label action"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof §§2–5",
+        "Korchmáros–Lia–Timpanella Lemmas 4.8 and 4.11",
+        "Distinct Resultary 09f9eec44d62 stall-scheme counting theorem"
+      ],
+      "rationale": "The canonical divisor and its descent are naturally meaningful, but the main exact arithmetic invariant is already supplied for p≥11 by the distinct stall-scheme theorem. The same weight calculation applies to known fixed-point data at p=7, and the finite-field profile at p=7 reduces to the immediate factorization of the known cubic. No independently useful exact remainder beyond these existing or mechanically implied facts is isolated; there is no repair based solely on clarifying the point quantifier or restating the same table.",
+      "residual_risks": [
+        "This is a judgment on the submitted claims, not on the value of other positive-characteristic Bring curve questions, such as twists or exceptional small characteristics."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

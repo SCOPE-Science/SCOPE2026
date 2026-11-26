@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:06:18.061682Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–75; VERIFICATION.md lines 19–27",
+        "verification/cyclic_lattice_jordan.py and verification/quotient_orbit_chain.py (read; not executed)",
+        "Babson–Kozlov arXiv:math/0310056 Prop. 4.5; Evans, thesis §5.2",
+        "/workspace/reproductions/check_2.py and check_2.txt (independent modular ranks)"
+      ],
+      "rationale": "The Babson–Kozlov wedge theorem gives concentration in degree d=n-3, with reduced rank 2^n-3 by signed ordered-partition enumeration (including the six-point case n=3). No relative interior can be stabilized by rotating the three nonempty disjoint source sets, so oriented cells in each orbit supply a free group-ring summand by orienting one representative and transporting. The augmented cellular exact sequence ends in the trivial module and gives H_d stably the (d+1)-st syzygy by Schanuel; the alternating g-1 and norm resolution gives I for even d, Z for odd d. The integral C_3 lattice classification gives the three indecomposable types Z,I,R; mod three their blocks have sizes 1,2,3. Free stabilization changes only the size-three count, so this classification and the integral rank determine the given actual lattice. Independently built signed cellular matrices confirm the Jordan data for n=4–7. For n>=5, the free cover is universal; the classifying map has the (d-1)-connected fiber X_n. Its integral homology agrees with that of BC_3 below d; the quotient has free top homology because there are no higher cells, and its Euler characteristic is chi(X_n)/3. The mod-three classifying map is an isomorphism below d and injective in d, since there is no lower nonzero fiber row that could alter these degrees. UCT gives the claimed dimension of the top complement; products involving it in positive degree vanish. For the cup-length upper bound, use that H^1 is one-dimensional and its generator squares to zero: an L-fold nonzero product needs degree at least 2L-1. The stated polynomial and polynomial-exterior monomials attain the bound. These checks preserve the scope n>=3 for the lattice and n>=5 for the quotient.",
+      "residual_risks": [
+        "No canonical cycle basis or homotopy classification of the quotient is asserted. The modular calculation supports the signed action but is not a proof of the integral result or the cohomology ring."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prop. 4.5 gives the nonequivariant sphere wedge. The reviewed Hom index/coindex comparison is for Z/2 actions, not integral C_3 modules.",
+          "Evans treats stable syzygies and lists the three integral C_3 indecomposable types, not the Hom-action top module or orbit ring.",
+          "f8d3097763b9 gives prime target color quotients, for odd primes of size at least five."
+        ],
+        "reasoning": "These cover the algebraic tools and related families, not a theorem whose hypotheses specialize to the complete source-rotation conclusion. The distinction from coindex estimates also matters: survival under a classifying map is only part of the complete quotient algebra computed here.",
+        "searches": [
+          "Babson–Kozlov arXiv:math/0310056 §4.3 and source involution material; Kozlov §§8.3.1,19.2.1",
+          "Evans thesis Prop. 2.5.2 and §5.2; local f8d3097763b9"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary records listed above",
+        "Babson–Kozlov, Kozlov and Evans, passages listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The rational representations of R and Z plus I are isomorphic, yet they have different mod-three block profiles. Rational restriction does not settle integral splitting.",
+          "A general derivation using the free augmented chain sequence, the syzygy theorem, and integral C_3 classification does settle the lattice; the additional classifying-map and Euler/UCT arguments settle the ring and quotient homology. The classical inputs are credited and were not found to state those applied conclusions."
+        ],
+        "reasoning": "These are strong general ingredients and constrain the novelty to their source-action application and resulting exact invariants. The whole package is not a parameter substitution into the located wedge, character, or target quotient results.",
+        "searches": [
+          "Babson–Kozlov Prop. 4.5; Evans §5.2 and stable-syzygy discussion; ce942485ca98 Finding; target quotient comparators"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "ce942485ca98 states the joint S_m x S_n character over Q, allowing source restriction with the target permutation set to the identity.",
+          "65d8fc80f793, Finding offset 0, explicitly acts by adding one to the six target colors simultaneously in each block, retains fixed points in the ordinary quotient, and has H_2=Z/2. For the frozen source action at n=6 the action is free and H_2=0."
+        ],
+        "reasoning": "Restriction of a rational character is partial coverage only; the target-rotation quotient is not an alias for the free source quotient, even when the underlying graph-Hom complex is identical.",
+        "searches": [
+          "Local Resultary: complete-graph Hom rotation, source-coordinate cyclic quotient and integral representation",
+          "ce942485ca98; 50c1a3944425; 65d8fc80f793"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest rational table ce942485ca98 specifies the coefficient field explicitly and treats color quotients in its quotient assertion.",
+          "The same-day six-color catalogue entry computes target C_6 and different homology, including a two-primary class."
+        ],
+        "reasoning": "No inspected distinct source gives these integral multiplicities, quotient groups and ring for the indicated source action. Similar characters, common fundamental-group torsion or common n do not suffice.",
+        "searches": [
+          "Local Resultary: source C_3 Jordan lattice and mod-3 cohomology of the ordinary Hom(K_3,K_n) quotient",
+          "ce942485ca98; 50c1a3944425; f8d3097763b9; 65d8fc80f793"
+        ]
+      },
+      "rationale": "The nonequivariant wedge and two-sided rational character already cover the underlying wedge and rational restriction. Classical lattice classification, periodic resolutions and covering spectral sequences supply the methods; once the appropriate free source-action exact sequence is identified, these arguments determine the integral and modular invariants. No inspected existing result states or covers the full source-rotation classification, and the character does not by restriction alone specify an integral lattice. The close cyclic quotient results act on target labels, not the source positions.",
+      "residual_risks": [
+        "Focused public search was not productive and is not negative evidence. An equivalent earlier source action computation expressed through general free cyclic actions remains possible. The novelty assessment does not cover the classical tools or rational character."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Nonequivariant concentration and related Z/2 obstructions, not the claimed C_3 classification",
+          "evidence": "The complex Hom(K_m,K_n) is a wedge of spheres in dimension n-m.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0310056",
+          "material_read": "§4.3, Proposition 4.5, PDF pp. 15–16, offsets 47555 and 49778; Theorem 1.7 passage p. 17, offset 53923",
+          "method": "OA PDF passages",
+          "title": "Complexes of graph homomorphisms",
+          "trigger": "Classical complete-graph theorem and equivariant implications"
+        },
+        {
+          "assessment": "Background rank and Z/2 index theory",
+          "evidence": "The complete-graph wedge result and its multiplicity computation are nonequivariant; the examined index/coindex definitions are for Z/2-spaces.",
+          "identifier_or_url": "https://webhomes.maths.ed.ac.uk/~v1ranick/papers/kozlov.pdf",
+          "material_read": "Thm. 19.10 and Prop. 19.11 discussion (offsets 815705, 820273 and 822241); §8.3.1 pp. 122–123, offset 331088",
+          "method": "OA PDF passages",
+          "title": "Combinatorial Algebraic Topology",
+          "trigger": "Wedge count and coindex comparison"
+        },
+        {
+          "assessment": "Verifies classical algebraic ingredients, not a graph-Hom theorem",
+          "evidence": "The three integral C_3 indecomposables are listed as the trivial module, augmentation ideal and integral group ring. The stable-syzygy discussion compares free resolutions.",
+          "identifier_or_url": "https://discovery.ucl.ac.uk/id/eprint/10043870/1/Thesis.pdf",
+          "material_read": "Prop. 2.5.2 around offset 74179; §5.2, p. 85 of PDF, offset 225430",
+          "method": "OA PDF literal location and bounded read",
+          "title": "Group algebras of metacyclic type",
+          "trigger": "Integral lattice classification and stable-syzygy premise"
+        },
+        {
+          "assessment": "Direct rational overlap; no integral lattice or source orbit ring in its claim",
+          "evidence": "The complete joint rational character includes source restrictions; the separate quotient statements are for target color symmetries.",
+          "identifier_or_url": "ce942485ca98",
+          "material_read": "RESULT.md Finding, offsets 0–2200",
+          "method": "Local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Full two-sided symmetry character of complete-graph Hom complexes",
+          "trigger": "Prior result includes the source symmetric group"
+        },
+        {
+          "assessment": "Target action, not rotation of source blocks",
+          "evidence": "The prime cyclic target-color quotient result treats odd primes p>=5 and associated homology and cup-length.",
+          "identifier_or_url": "50c1a3944425; f8d3097763b9",
+          "material_read": "Mirrored RESULT.md Findings and action scopes",
+          "method": "Local mirror",
+          "title": "Color-permutation characters and prime cyclic color quotients of complete-graph Hom complexes",
+          "trigger": "Possible cyclic action aliases or parameter domination"
+        },
+        {
+          "assessment": "Material analogy but different action and quotient",
+          "evidence": "Target C_6 rotation, retaining fixed points, gives H_1=Z/3, H_2=Z/2 and H_3=Z^{10}.",
+          "identifier_or_url": "65d8fc80f793",
+          "material_read": "RESULT.md Finding and assumptions, offsets 0–1900",
+          "method": "Local mirror",
+          "title": "Mixed two- and three-primary torsion in a six-color cyclic graph-Hom quotient",
+          "trigger": "Closest same-day ordinary cyclic quotient on the same X_6"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 3–40 and 54–75",
+        "ce942485ca98; f8d3097763b9; 65d8fc80f793"
+      ],
+      "rationale": "Source rotation is a canonical action on the graph-Hom family. The result decides the nonfree summand of its integral lattice in every dimension, an obstruction invisible in the rational representation, and identifies all ordinary quotient products and the Bockstein rather than only a rank or a lower bound on cup-length. These exact equivariant and multiplicative invariants give usable comparisons with genuinely different target quotients and clarify the role of freeness. The value is this structural application, not a new general method of integral representation theory.",
+      "residual_risks": [
+        "No claim about larger source permutation groups or unstable quotient homotopy is supported."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

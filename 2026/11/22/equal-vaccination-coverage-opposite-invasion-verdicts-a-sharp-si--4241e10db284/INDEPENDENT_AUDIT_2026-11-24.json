@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:39:33.633738Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The strict majority gives signed pre-clipping excess epsilon times the majority margin divided by degree at I=0. Strictness keeps the opinion output constant locally, including with perception feedback. Solving the scalar vaccination balance gives the stated DFE. The infected Jacobian is (1-alpha) Id+lambda DA for the indicator D of negative opinions, with diagonal adjacency blocks A[G_-] and zero after reordering. Below threshold its smallest eigenvalue is greater than 1-2alpha>-1 and its largest is less than one; the other full-Jacobian multipliers are 0, 1-phi or -phi. Above threshold a nonnegative Perron direction supported in a negative component is physically feasible and expands linearly. Each endpoint of a cross-sign edge must have at least two distinct neighbors of its own sign, proving the six-vertex obstruction even for one mixed pattern. The bridge of a triangle to the middle of a three-vertex path realizes both strict patterns with radii 2 and sqrt(2), giving the exact opposing multipliers and common coverage 1/3. The same margins hold for the clique–path family. Its thresholds are both in (0,1) and the ratio diverges by the exact path sine spectrum. Roy's clipped deterministic equations were checked; neither the threshold equality nor stochastic outbreak probabilities are covered. The source checker uses just-updated opinion despite its comment about current opinion, but the two conventions have the same equilibria and linearization here, and the recorded finite tests are not the proof. The code was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xu–Ishii's polar-opinion model uses a different update on [0,1] and its sufficient reproduction-number condition concerns healthy consensus. The Salathé–Bonhoeffer abstract describes clustering of nonvaccinators and increased outbreak probability at a population coverage level."
+        ],
+        "reasoning": "The consensus theorem has different dynamics and does not contain two strict binary fixed points of the clipped map. The qualitative antecedent is credited; the available abstract is not full-text exclusion of every quantitative result. The target quantitative claim is a deterministic local comparison in one specific model, not that outbreak probability depends on clustering.",
+        "searches": [
+          "Xu–Ishii arXiv:2401.04556 Eq. (3) and §III-C",
+          "Salathé–Bonhoeffer DOI 10.1098/rsif.2008.0271"
+        ]
+      },
+      "checked_sources": [
+        "Roy et al. arXiv:2603.24403v1",
+        "Xu–Ishii arXiv:2401.04556",
+        "Preciado et al. arXiv:1303.3984",
+        "Salathé–Bonhoeffer DOI 10.1098/rsif.2008.0271 (abstract)",
+        "Resultary 4241e10db284, e2d46ce57b41, 17ebfb940d31, 929e1872b9de"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Roy's threshold traversal fixes an all-negative zero-vaccination state. The fixed-dose catalogue comparator fixes allocations rather than making them dynamical equilibria. The density comparator permits different contact graphs."
+        ],
+        "reasoning": "These assumptions do not produce strict mixed-sign saturation, the cross-edge obstruction for both sign classes, or the clique–path witnesses; the result does not claim the known general coverage-versus-placement insight.",
+        "searches": [
+          "Roy et al. Eqs. (1)–(2), (4)–(12)",
+          "Resultary e2d46ce57b41 and 17ebfb940d31"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ordering the susceptibility mask gives the induced-subgraph spectral radius. General prior results already use a susceptibility-weighted contact matrix; Roy gives the all-negative case of the same MMCA."
+        ],
+        "reasoning": "The spectral calculation is a specialization of that mechanism once the opinion state is fixed. Neither passage realizes such states in pairs with strict same-sign majorities, proves the minimum, or derives the equal-coverage ratio family.",
+        "searches": [
+          "Roy et al. arXiv:2603.24403v1, clipped MMCA and all-negative threshold",
+          "Preciado et al. arXiv:1303.3984, heterogeneous susceptibility spectral criteria"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "4241e10db284 is a self-match. e2d46ce57b41 optimizes residual transmission under fractional dosing on C5; 17ebfb940d31 compares density and spectral rankings across different graphs at the same cutoff; 929e1872b9de studies resident–traveller dynamics with status-dependent travel."
+        ],
+        "reasoning": "The distinct matches do not realize opposite disease-free local verdicts using two strict majority opinion equilibria of a single shared graph. Same numerical cutoff in the density–spectral comparison is not equivalent coverage.",
+        "searches": [
+          "Resultary comparison of strict mixed-saturation MMCA equilibria, equal coverage and sharp six-vertex threshold witness"
+        ]
+      },
+      "rationale": "The role of vaccination placement and spectral radius is prior knowledge; the claim supported here is the realizability of opposite local verdicts at equal coverage using two endogenous strictly saturated disease-free equilibria of the same clipped map, the sharp minimum graph size and an unbounded ratio within that class.",
+      "residual_risks": [
+        "Full Methods/Results of Salathé–Bonhoeffer were not accessible through the copies tried.",
+        "Bounded comparison cannot exclude older strict-majority network constructions or equivalent thresholds expressed under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms the transcription and an all-negative threshold, not the sharp mixed equilibria finding.",
+          "evidence": [
+            "Clipping to [-1,1], MMCA epidemic updates, and lambda_c=alpha/rho(A) at the all-negative disease-free state."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.24403v1",
+          "material_read": "§2 Eqs. (1)–(2), §2.2 Eqs. (4)–(8), and threshold Eqs. (9)–(12), offsets about 13500–18400 and 22000–27000",
+          "method": "OA HTML passage inspection",
+          "title": "Opinion-Driven Vaccination and Epidemic Dynamics on Heterogeneous Networks",
+          "trigger": "base model and possible covering threshold"
+        },
+        {
+          "assessment": "Credits the qualitative antecedent; no whole-document noncoverage claim.",
+          "evidence": [
+            "The abstract connects clustered nonvaccination to increased outbreak risk."
+          ],
+          "identifier_or_url": "https://doi.org/10.1098/rsif.2008.0271; PMC2607358",
+          "material_read": "Indexed abstract only; publisher, PMC OA full-text and Europe PMC alternate did not furnish full Methods/Results",
+          "method": "Indexed abstract and lawful OA retrieval attempts",
+          "title": "The effect of opinion clustering on disease outbreaks",
+          "trigger": "same epidemiological motivation and equal-coverage clustering antecedent"
+        },
+        {
+          "assessment": "Different opinion dynamics and consensus conclusion.",
+          "evidence": [
+            "A stubborn-positive update and sufficient R_o^V<=1 for healthy consensus, not mixed clipped fixed points."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2401.04556",
+          "material_read": "§II-B Eq. (3), §III-C Definition 2 and Theorem 1, offsets about 18000 and 30400–36600",
+          "method": "OA HTML passage inspection",
+          "title": "On a Discrete-Time Networked SIV Epidemic Model with Polar Opinion Dynamics",
+          "trigger": "related networked SIV and polar-opinion stability theorem"
+        },
+        {
+          "assessment": "General mechanism credited; does not realize endogenous strict saturation.",
+          "evidence": [
+            "Spectral constraint lambda_1(BA-D)<=-epsilon and vaccine allocation across nodes."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1303.3984",
+          "material_read": "§II-C Proposition 2 and §III-B–C, offsets about 9000 and 17000",
+          "method": "OA HTML passage inspection",
+          "title": "Optimal Vaccine Allocation to Control Epidemic Outbreaks in Arbitrary Networks",
+          "trigger": "broader susceptibility-weighted spectral criteria"
+        },
+        {
+          "assessment": "Partial overlaps only.",
+          "evidence": [
+            "Cycle C5 fractional allocation, ranking distinct graphs, and a resident–traveller compartmental model solve different problems."
+          ],
+          "identifier_or_url": "Resultary e2d46ce57b41, 17ebfb940d31, 929e1872b9de",
+          "material_read": "Local mirrored findings for the three distinct comparisons",
+          "method": "Resultary lookup and mirrored passages",
+          "title": "Closest fixed-dose, six-vertex and travel-based vaccine catalogue claims",
+          "trigger": "same spectral mechanism, same numerical cutoff, or sharp vaccination threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The common mean opinion and coverage are not sufficient to decide local stability even with the contact graph and parameters held fixed. The sharp cutoff and exact same-graph example make that failure a tractable test case; the diverging ratio shows it is not limited to a small finite comparison. This is a useful limitation of aggregate summaries in the specified coupled deterministic model, not a general claim about real-world vaccine policy or stochastic outbreaks.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

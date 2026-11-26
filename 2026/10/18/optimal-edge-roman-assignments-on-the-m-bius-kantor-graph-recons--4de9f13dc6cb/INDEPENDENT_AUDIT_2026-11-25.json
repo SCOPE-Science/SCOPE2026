@@ -1,0 +1,167 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:49:08.112307Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:3–49 and 55–59",
+        "VERIFICATION.md:19–25",
+        "CERTIFICATE.json",
+        "verify_gp.py:9–109 and verify_lcf.py:8–119",
+        "VERIFIER_GP_OUTPUT.txt and VERIFIER_LCF_OUTPUT.txt",
+        "/tmp/opencode/frozen_review_graphs.py roman (independent enumeration, incidence certificate, isomorphism and metrics)"
+      ],
+      "rationale": "For a fixed label-2 support T, edges with neither endpoint touched by T must have label 1, and any other edge outside T can have label 0. An extraneous 1 can be lowered; therefore every global minimum is its unique canonical completion, with cost 2|T|+|U(T)|. Supports of size at least 6 have cost at least 12. Independently generated GP(8,3) edges and enumerated all 55,455 smaller supports by their endpoint sets. By sizes 0 through 5 the minimum costs were 24,21,18,15,12,11, with respective multiplicities 1,24,132,184,54,72. All 72 global optima have exactly five 2s, one 1, and eighteen 0s. Pairwise intersection size four on the optimal supports gives exactly 96 exchanges, none preserving the single edge. The 24 degree-four and 48 degree-two vertices form the two parts; the branch-neighbor pairs of the degree-two vertices are distinct. I suppressed them and found a complete adjacency-preserving bijection to the line graph by independent backtracking, not relying on the certificate's proposed bijection. I separately verified the certificate's states, exchanges, GP-to-LCF and branch-to-line-graph maps. Independent flood distances gave eccentricity 8 for all vertices, confirmed connectedness, and put the endpoints of the certified length-eight path exactly eight apart. Thus the claim is of an abstract subdivision, not of a natural indexing by the single edge.",
+      "residual_risks": [
+        "Exact finite result for GP(8,3) under support replacement with canonical recompletion. It is not a result for all generalized Petersen graphs or ordinary coordinate swaps. The recorded output is supplementary to independent proof and enumeration."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The checked general edge-Roman paper gives bounds, not the 72-state classification in the inspected material. The Roman reconfiguration framework supplies multiple adjacency definitions, but not this instance. The triangular-graph record treats T_n=L(K_n) and gives exact Roman invariant data there."
+        ],
+        "reasoning": "A bound on the scalar optimum cannot force a census and exchange adjacency. K_n with n>=5 is not a specialization covering the cubic GP(8,3); its triangular line graph is of a different degree and size.",
+        "searches": [
+          "arXiv:1405.5622v2, abstract/introduction, edge Roman bounds for connected and subcubic graphs",
+          "arXiv:1709.05052v1, section 4",
+          "Resultary 66092f59608f, Roman-domination polynomial of triangular graphs"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md:3–27, 51–66",
+        "arXiv:1405.5622v2",
+        "arXiv:1709.05052v1",
+        "Deepak et al. (2023) atlas",
+        "Resultary 68d0d1e90545, 20a24343886d, 66092f59608f, 1c32026064e0, 0d18ffe9d675",
+        "Independent move comparison against the inspected P2 definition"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Pappus record identifies a two-edge replacement graph on maximum induced matchings with L(Pappus), not a subdivision for Roman optima; the Heawood record identifies a two-edge exchange graph for minimum ordinary edge domination with the Coxeter line graph. The prior line-graph identity expresses the input parameter as a vertex-label optimization."
+        ],
+        "reasoning": "Neither a similar reconstruction on another state space nor the use of L(G) as the domination input entails that the optimal configuration graph itself is a subdivision of that input. The exact degree-two suppression and verified bijection are additional content.",
+        "searches": [
+          "Resultary 1c32026064e0 (Pappus line-graph exchange analogue)",
+          "Resultary 0d18ffe9d675 (Heawood edge-domination exchange analogue)",
+          "arXiv:1405.5622v2, line-graph equivalence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chang–Chen–Liu explicitly give gamma'_R(G)=gamma_R(L(G)); edges of G correspond to vertices of L(G) and the labeling condition carries over. Samodivkin's P1 fixes the label-1 set and P2 swaps a 2 and a 1, leaving the label-0 set fixed. No reviewed exchange fixes the label-1 edge, and an independent comparison of all 96 exchanges finds no P2 coincidence either: not one has both its incoming 2 equal to its previous 1 and its outgoing 2 equal to its new 1. P3 and P4 require one endpoint state to have two 1s, which these minima do not have."
+        ],
+        "reasoning": "The vertex-Roman data for the line graph, if known, would count the same labelings. But a graph using the cited local swap rules is not an equivalent reconfiguration graph here; the support replacement plus recompletion allows transitions outside those rules.",
+        "searches": [
+          "Resultary and primary search: Möbius–Kantor / GP(8,3) edge Roman domination; Roman domination of L(GP(8,3)); optimal double-support exchange",
+          "arXiv:1405.5622v2, introduction",
+          "arXiv:1709.05052v1, section 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected atlas states that it covers connected graphs of order at most six, so neither GP(8,3) nor its line graph is tabulated there. The same-host matching census gives 176 size-six minimum maximal matchings and exchange graph 6C16 disjoint union 80 isolates (96 links but different states). The same-date Desargues entry gives 340 weight-12 ordinary Roman functions and a disconnected graph under P1/P2/P3."
+        ],
+        "reasoning": "A matching exchange count of 96 does not identify the state space or graph for the Roman objective. The exact ordinary Desargues catalogue data use a different host and different rules. The bounded searches did not uncover a matching table; this is not an exhaustive absence claim.",
+        "searches": [
+          "Resultary: GP(8,3) Roman optimum functions/exchange data and aliases",
+          "Deepak et al., An Atlas of Roman Domination Polynomials of Graphs of Order at Most Six (2023)",
+          "Resultary 68d0d1e90545 and 20a24343886d"
+        ]
+      },
+      "rationale": "The supported distinct result is the exact optimum-state census and the once-subdivided line-graph structure for this recomputing support-exchange rule. Ordinary Roman domination on the line graph is the known equivalent input optimization, not itself new. The closest ordinary Roman reconfiguration rules and several exact catalogue analogues were checked at the statement level.",
+      "residual_risks": [
+        "Pushpam–Mai full text was not extractable and unindexed tables may contain scalar or labeling data. Bounded search does not establish priority or exhaustive absence. No recognized literature theorem in the compared statements supplies the specified exchange structure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same input invariant; general bounds, no matching exact statement in inspected passages",
+          "evidence": "gamma'_R(G)=gamma_R(L(G)); focus on general edge-Roman bounds.",
+          "identifier_or_url": "arXiv:1405.5622v2",
+          "material_read": "Introduction pp. 1–2, PDF around offset 6000; abstract and named-case targets",
+          "method": "Primary OA PDF, bounded reading and literal lookup",
+          "title": "Edge Roman domination on graphs",
+          "trigger": "Same parameter and exact line-graph alias"
+        },
+        {
+          "assessment": "Different adjacency on these optima, with all four named operations giving no links there",
+          "evidence": "P1 preserves V1; P2 preserves V0 by swapping 2 and 1; P3/P4 need two 1s in one state. The independent comparisons exclude every such operation for these 72 states.",
+          "identifier_or_url": "https://arxiv.org/pdf/1709.05052v1",
+          "material_read": "Section 4, pp. 13–14, PDF offset 36200 onward",
+          "method": "Primary OA PDF, inspected P1 through P4 definitions and compared pairs from independent enumeration",
+          "title": "Roman domination: changing, unchanging, gamma_R-graphs",
+          "trigger": "Potentially equivalent adjacency on labelings of the line graph"
+        },
+        {
+          "assessment": "Order cutoff excludes both candidate input graphs",
+          "evidence": "Explicit connected-graph order cutoff of six; the candidate inputs have 16 or 24 vertices.",
+          "identifier_or_url": "Deepak et al. (2023), journal p. 87, abstract",
+          "material_read": "Abstract, PDF at about offset 257120",
+          "method": "Primary OA, bounded reading",
+          "title": "An Atlas of Roman Domination Polynomials of Graphs of Order at Most Six",
+          "trigger": "Possible exact graph table under ordinary Roman alias"
+        },
+        {
+          "assessment": "Distinct objective and graph",
+          "evidence": "176 states of size six, 6C16 disjoint union 80 isolated states, versus 72 connected Roman states.",
+          "identifier_or_url": "Resultary 68d0d1e90545",
+          "material_read": "RESULT.md Finding and state/adjacency definitions",
+          "method": "Configured Resultary and local mirror",
+          "title": "The minimum-maximal-matching exchange graph of the Möbius–Kantor graph",
+          "trigger": "Same host, one-edge replacements and same edge count"
+        },
+        {
+          "assessment": "Different host, parameter and moves",
+          "evidence": "340 weight-12 vertex-Roman functions on GP(10,3), with graph 5H48 disjoint union 100 isolates.",
+          "identifier_or_url": "Resultary 20a24343886d",
+          "material_read": "RESULT.md Finding and move rules",
+          "method": "Configured Resultary and local mirror",
+          "title": "Frozen and mobile minimum Roman functions of the Desargues graph",
+          "trigger": "Same-date exact Roman reconfiguration comparison"
+        },
+        {
+          "assessment": "Exact in different graph family",
+          "evidence": "T_n=L(K_n), rather than this line graph of a cubic generalized Petersen graph.",
+          "identifier_or_url": "Resultary 66092f59608f",
+          "material_read": "RESULT.md Finding, T_n definition and edge-Roman interpretation",
+          "method": "Configured Resultary and local mirror",
+          "title": "Roman-domination polynomial of triangular graphs, with minimum-function census",
+          "trigger": "Exact Roman results for a family of line graphs"
+        },
+        {
+          "assessment": "Structural analogues, not equivalent statements",
+          "evidence": "Different host graphs, different objective functions and two-edge rather than one-double-edge exchanges.",
+          "identifier_or_url": "Resultary 1c32026064e0; 0d18ffe9d675",
+          "material_read": "Both RESULT.md findings and adjacency definitions",
+          "method": "Configured Resultary and local mirror",
+          "title": "A sharp two-edge reserve for induced-matching reconfiguration in the Pappus graph; The Coxeter line graph of optimal edge dominators in the Heawood graph",
+          "trigger": "Plausible structural overlap with exchange line-graph reconstructions"
+        },
+        {
+          "assessment": "Unknown special-case content; no inference of noncoverage",
+          "evidence": "Cited original edge-Roman parameter source; accessible material does not resolve what special cases it treats.",
+          "identifier_or_url": "Pushpam and Mai, J. Combin. Math. Combin. Comput. 69 (2009), 175–182",
+          "material_read": "Bibliographic evidence and attributed definition; primary text not extractable",
+          "method": "Bounded primary PDF and alternate-route attempts",
+          "title": "Edge roman domination in graphs",
+          "trigger": "Earliest cited parameter paper and possible exact special cases"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:9–19, 39–43, 55–59",
+        "Samodivkin section 4 and independent finite comparison"
+      ],
+      "rationale": "A natural cubic symmetric benchmark supports more than a Roman domination number: the minimum labeling space recovers the original edge-incidence structure after suppressing forced degree-two states. The structure and metric data make it useful for comparing dynamics under different minimum-state exchange rules; here the support-recomputation rule even turns an edgeless local-swap graph on the same functions into a connected graph of diameter eight. The exact census alone would not imply these conclusions.",
+      "residual_risks": [
+        "No general reconstruction theorem or geometry-only canonical bijection is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The three graph-eigenspace decomposition is exact, cross-eigenvalue heat integrals equal \(\lambda\mu/(\lambda+\mu)^2\), and the fourth-power deficit identity is valid for every Hilbert-space input. Cancellation on two-vertex parts proves the contraction direction and equality classification. The explicit three-site witness yields a negative deficit for every larger part. The standalone checker replayed exact rational examples; the infinite claim rests on the algebraic proof, not enumeration.
+## correctness
 
-## Originality
-PASS relative to the inspected sources and searched records. Lai--Li--Li (arXiv:2611.10710, 2026-11-07) proves general semigroup \(L^p\) estimates and the \(L^2\) coefficient but not the sharp complete-bipartite \(L^4\) boundary. A previously recorded small-graph statement proves the benchmark for graphs of order at most three and fails it on the four-vertex path, but does not determine \(K_{m,n}\). Feneuil (arXiv:1404.1353) concerns discrete fractional graph functionals; only accessible abstract material was checked, leaving an older unindexed equivalence risk. published-finding corpus searches identified graph heat variation/Gini results, not this square-function classification. Similar subject matter is not logical implication, and absence from search is not proof of novelty.
+PASS
 
-## Value
-PASS. The work answers the sharp boundary question over the entire natural complete-bipartite family, distinguishes the four-cycle from stars with at least three leaves, and classifies equality for arbitrary Hilbert values. The exact deficit explains the cubic imbalance mechanism. The sharp amplified constants, general graphs, normalized-degree heat, and other exponents are not resolved.
+The frozen quantifier over any real or complex Hilbert space is false: for H={0}, e.g. K_{3,1} has the inequality for all inputs, and all part sizes have best nonnegative constant 0. The complete replacements in repairs/2 restrict to nonzero H and explicitly describe {0}; this closes the gap without changing any graph size or scalar result. Recheck: the Laplacian decomposes the centered input into two supported contrasts of eigenvalues n and m and the block-constant mode of eigenvalue m+n. Integration gives the normalized off-diagonal coefficient 4 lambda mu/(lambda+mu)^2, strictly in (0,1) for either contrast versus the block mode. On each part let X=||u_i||^2+||a||^2, beta_i=Re<u_i,a>. The pointwise fourth-power difference is 4(1-rho)X beta_i+4(1-rho^2)beta_i^2. The constant ||a||^2 contribution cancels in the sum; on parts of size two the opposite contrasts have equal norms so the remaining cubic term cancels, and on singleton parts there is no contrast. The squared terms give the exact equality characterization. The nonzero between-part mode along a unit vector proves sharpness even at K_{1,1}. On a size-at-least-three part the contrast (2,-1,-1,0,...) has both sum of cubes and sum of squares equal to 6. With block value -1/4 and opposite mean chosen to center the total, the deficit is -(3/2)(1-rho)(3-rho)<0, with no contrast on the other part. Relabeling and embedding along a unit vector handles all sizes and fields. Source code was inspected, not executed: the repaired verification notes distinguish exact rational witness/deficit arithmetic from complex floating-point samples and do not claim the checker independently verifies the integral. The original record, scripts and historical audit are unmodified.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+For the repaired nonzero-data scope, credit the established L^2 benchmark, the small-graph cases, and the cycle/cubic overlap; do not credit the abstract two-frequency obstruction or the C4 example as distinct. The supported distinct claim is the uniform biclique fourth-power deficit, giving the whole Hilbert-valued boundary with the full equality characterization and a quantitative explicit negative deficit. Available evidence does not establish that this package is covered; historical priority is not certified.
+
+## value
+
+PASS
+
+The nonzero-space repair preserves a natural sharp threshold over the entire complete-bipartite family, rather than an isolated numerical application. The exact two-part deficit identifies the cancellation and orthogonality governing equality, and its strict quantified witness works at every larger size. These finer statements remain useful even where bare contractivity or failure is supplied by related general or small-order results. No amplified optimum or general-graph classification is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

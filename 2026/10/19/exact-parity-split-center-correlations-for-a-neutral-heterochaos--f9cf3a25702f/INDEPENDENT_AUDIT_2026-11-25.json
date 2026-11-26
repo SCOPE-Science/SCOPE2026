@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:17:41.961674Z",
+  "axes": {
+    "correctness": {
+      "rationale": "This is the specified Lebesgue-stationary three-coordinate map and only the observable c-1/2. The four affine images have disjoint interiors covering the cube and unit Jacobian. The full-branch u-map supplies independent itinerary choices of weights (1/4,1/4,1/2) independently of the initial c; splitting the last branch by c simply gives doubling mod 1. This yields the stated central operator. The binary digits are independent fair bits under Lebesgue measure; doubling shifts the Rademacher index up, while the two half maps average to a down shift except at index 1 where they cancel. Thus the walk is killed, not reflected, at 0. Solving the resolvent recurrence with geometric forcing and zero boundary gives the difference of the (1/2)^j and eta^j modes, yielding the stated sum. Substituting z=2 eta/(1+eta^2) simplifies the sum to (1+eta^2)/(3(2-eta)^2), verifying cancellation at 4/5 and giving square-root coefficients -2 sqrt(2) and -2 sqrt(2)/81 at the two edges. Independently, the sine transform diagonalizes the killed half-line transition at cos(t) and gives C_n=(1/(8 pi)) times the integral on [0,pi] of cos(t)^n sin(t)^2/(5/4-cos(t))^2. Laplace expansion at the two ends gives the quoted leading coefficient: the endpoint denominators before squaring are 1/4 and 9/4, hence the ratio 1/81 with sign (-1)^n. The quadratic vanishing and next even Taylor terms give O(n^-5/2); the interior is exponentially small. Exact direct dyadic-cell integration of the branch dynamics (/workspace/review_work/baker.py) produced lags 0..7: 1/12, 1/24, 7/192, 5/192, 73/3072, 115/6144, 859/49152, 355/24576. This diagnostic does not substitute for the analytic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Takahasi–Tsujii prove the optimal n^-3/2 rate including center-only observables. Takahashi's exponential theorem excludes a=1/(2m). Later 2026/11/1 …--34e0287008bc covers all critical m>=2 and 2026/11/8 …--b6a965701cb7 covers generalized parameters, explicitly including the 3D extension."
+        ],
+        "reasoning": "The later laws specialize to the exact result here. The earlier rate theorem is broader in observable class but does not determine amplitudes or an algebraic resolvent, and exponential mixing off-neutral does not apply.",
+        "searches": [
+          "Takahasi–Tsujii arXiv:2408.16618v1 Main Theorem, §§2.1–2.6 and §3.5",
+          "Takahasi arXiv:2307.08119v1 Theorem B",
+          "Resultary general critical/near-critical center spectra"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2408.16618v1 Main Theorem, §§2.1–2.6, §3.5",
+        "arXiv:2307.08119v1 Theorem B",
+        "Resultary …--98c2bc77d377, …--34e0287008bc and …--b6a965701cb7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior operator and exact reflected-binomial expression imply a weighted walk sum for the covariance once the center observable is represented in the binary basis. The sharp evaluated law requires summing geometric forcing and extracting both edges; the earlier inspected proof uses kernel estimates for rate bounds. In the later generalized theorem the neutral substitution p=q=1/2, m=2 does give the exact algebraic series and constants."
+        ],
+        "reasoning": "Credit the computable kernel and earlier sharp order, not a closed evaluation or parity refinement that is not a parameter substitution in the earlier theorem. The later broader theorem is genuinely dominating, independently of questions of priority.",
+        "searches": [
+          "arXiv:2408.16618v1 Lemmas 2.5–2.6 and §3.5",
+          "Resultary …--98c2bc77d377, …--34e0287008bc and …--b6a965701cb7 Finding/Assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 2026/10/26 …--98c2bc77d377 gives r/[6z(1-r/2)^2] for the centered vertical coordinate in the critical 2D map and the identical parity constants. Substituting r=eta and z=2eta/(1+eta^2) gives (1+eta^2)/(3(2-eta)^2). Both systems induce the same 1D stationary center process."
+        ],
+        "reasoning": "This is actual equivalent coverage, not just a matched exponent or coincident parameter. The later date is not evidence of prior coverage of the frozen statement.",
+        "searches": [
+          "Resultary: neutral heterochaos baker, center autocorrelation, exact parity amplitudes and Green function",
+          "Primary literature: heterochaos neutral baker center coordinate exact autocorrelation leading coefficient parity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published exact binomial-difference kernel is a table/formula for killed walk transitions, not an already evaluated table of this observable's covariance. No separate materially matching 2026/10/19 hit surfaced in the bounded ranked search; the later records give exact all-lag formulas rather than mere numerical tables."
+        ],
+        "reasoning": "An earlier evaluated matching series would cover the frozen claim. The kernel allows computation after projecting and summing across the start/end levels but does not give this evaluation without those steps.",
+        "searches": [
+          "Resultary: exact neutral-baker center covariance sequence / parity amplitudes, including distinct 2026/10/19 hits",
+          "arXiv:2408.16618v1 Lemma 2.5 exact transition kernel"
+        ]
+      },
+      "rationale": "The known decay exponent, exact reduced operator, and killed-walk transition kernel are fully credited. The distinct earlier contribution assessed is the evaluated algebraic center covariance and its two sharp stationary constants. Later Resultary records demonstrably cover the same formula and stronger families; their overlap is recorded explicitly, not claimed to be new relative to those later statements. No earlier exact evaluation or parity constants were found in the strongest inspected sources.",
+      "residual_risks": [
+        "An earlier unindexed equivalent spectral or walk summation could yield the same covariance. The available earlier kernel gives a plausible route, not evidence that the leading amplitudes were evaluated there."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact operator, exact walk kernel and sharp decay order covered; no evaluated center covariance or parity constants in the inspected passages",
+          "evidence": "Physical center correlations equal reduced-operator pairings in §3.5; Lemma 2.5 is an exact killed-walk binomial difference, used with rate estimates in Lemma 2.6.",
+          "identifier_or_url": "https://arxiv.org/html/2408.16618v1",
+          "material_read": "§1 Main Theorem offsets 10600–11521; §§2.1,2.3 offsets 16420–23582; §§2.4–2.6 offsets 27300–36011, Lemmas 2.5–2.6; §3.5 offsets 77200–83582",
+          "method": "OA article passages",
+          "title": "Polynomial rate of mixing for the heterochaos baker maps with mostly neutral center",
+          "trigger": "Same system, exact reduced operator and candidate exact covariance kernel"
+        },
+        {
+          "assessment": "Off-neutral only",
+          "evidence": "Excludes a=1/(2m).",
+          "identifier_or_url": "https://arxiv.org/html/2307.08119v1",
+          "material_read": "Theorem B around offset 15890",
+          "method": "OA article passage",
+          "title": "Exponential mixing for heterochaos baker maps and the Dyck system",
+          "trigger": "Coverage of the baker family at neutral parameters"
+        },
+        {
+          "assessment": "Exact equivalent, later dated",
+          "evidence": "Same stationary center process; r/[6z(1-r/2)^2] and parity amplitudes proportional to 1±1/81.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-autocorrelation-and-parity-amplitudes-in-a-neutral-heteroc--98c2bc77d377",
+          "material_read": "RESULT.md Finding offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact autocorrelation and parity amplitudes in a neutral heterochaos baker map",
+          "trigger": "Exact same covariance under a planar description"
+        },
+        {
+          "assessment": "Later exact generalization",
+          "evidence": "All-lag expression and parity constants for m>=2, with the m=2 process equal to the audited one.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-exact-center-coordinate-correlations-and-parity-split-critical-a--34e0287008bc",
+          "material_read": "RESULT.md Finding offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact center-coordinate correlations and parity-split critical amplitudes",
+          "trigger": "Strong critical-family result"
+        },
+        {
+          "assessment": "Later stronger theorem covering the precise three-coordinate case",
+          "evidence": "At m=2,a=1/4, p=q=1/2 and r=eta; the generating functions coincide and the leading constants specialize to 82/81 and 80/81 times sqrt(2/pi).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-two-spectral-edge-transitions-in-stationary-correlations-of-gene--b6a965701cb7",
+          "material_read": "RESULT.md Finding and Assumptions offset 0; Proof offset 4680",
+          "method": "Local Resultary mirror",
+          "title": "Two spectral-edge transitions in stationary correlations of generalized baker maps",
+          "trigger": "Strongest dominating statement, explicitly including 3D extension"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The simplest nonconstant smooth central coordinate is a natural test observable for a neutral baker model. A closed all-lag covariance and unequal amplitudes resolve what the optimal order bound cannot: simultaneous contributions from two spectral edges with a measurable parity effect. The scope is a concrete benchmark, not a claim for arbitrary observables or parameters.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

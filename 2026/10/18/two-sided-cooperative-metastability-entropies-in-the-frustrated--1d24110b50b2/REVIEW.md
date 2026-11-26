@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
-The wall identity expresses the Hamiltonian exactly as a linear combination of domain-wall count and adjacent-wall pairs. The individual flip formula proves that weak one-stability is precisely the absence of isolated spin domains when \(0<\kappa<1\). Distance-two and noninteracting pairs are excluded as new energy-lowering moves by an explicit inequality; adjacent-pair flips have exactly two possible negative local patterns. The three domain languages and wall-rooted cyclic generating function therefore determine the exact counts and limiting entropies. The standalone program independently checks all finite spin/pair moves for several ring lengths and couplings. Risks: finite examples alone do not prove the local case classification or infinite-family asymptotics; those are established analytically in RESULT.md.
+## correctness
 
-## Originality — PASS with residual risk
-The most relevant full-text comparison is Dhar, Shastry, and Dasgupta, arXiv:cond-mat/0004207v1 (2000): it already proves the high ground-state degeneracy and golden-mean entropy at the multiphase point, and discusses two-spin moves and zero-temperature Kawasaki dynamics. The present result does not claim these facts as new. Its off-critical weak-local-minimum domain-length trichotomy and two distinct new cooperative entropy roots concern different statements and are not implied by the manuscript's equilibrium ground-state result or constrained conserved-magnetization dynamics. Ismail and Hassan (2002) analyze finite-chain minima in random fields, but the full article was inaccessible; it could contain stronger zero-field implications. The historical and research-record comparisons do not exclude every terminological alias or unindexed source. No uniqueness is claimed.
+PASS
 
-## Mathematical value — PASS
-The natural operational question is how the smallest cooperative update changes metastable complexity in the canonical ANNNI chain. The answer is a complete coupling-phase classification, not an arbitrary finite census: weak one-site minima always have golden-mean entropy, whereas two-site moves impose opposite geometric restrictions on the two sides of the frustration point. The resulting exact entropy gap away from the multiphase point, with an isolated entropy restoration at it, measures a qualitative change in local relaxation constraints. This distinguishes weak landscape stability from ground-state degeneracy and from strict absorbing-state kinetics.
+With wall indicators w, total walls W and adjacent wall pairs P, expand the nearest and next-nearest bonds to get H/J=−(1−κ)N+(2−4κ)W+4κP. The cyclic parity is even. A length-one domain admits a strictly lowering single flip for κ<1; with no adjacent walls, an interior single flip costs at least 4J(1−κ), and a boundary single flip is nonnegative. For a pair at distance ≥3 the single costs add. At distance two the only potentially negative correction is −4Jκ, when the pair spans exactly one wall. On the side with the equal-sign intervening bond, the end spin has single cost at least 4J if internal or exactly 4Jκ if it lies at the next wall, so the correction is harmless. For adjacent flips only the two exterior bonds are toggled. With both exterior bonds walls their removal costs 4J(2κ−1) (a length-two domain); with both exterior bonds wall-free the cost can be negative only when all five bonds in the affected stencil are wall-free, in which case it is 4J(1−2κ). With one exterior wall the wall count is unchanged and P cannot decrease. Five wall-free bonds mean a domain of length at least six or the uniform word. At κ=1/2 the energy depends only on P, so all one-stable words, including the uniform pair, are ground states. Rooting each nonuniform word at any of its 2r walls, then dividing by 2r, gives C(z)=−z(d/dz)log(1−F(z)²) for the allowed-length series F; the uniform contribution is inserted separately. The unique positive F=1 root gives a simple pole with coefficient asymptotic r^(−N), using consecutive allowed lengths to exclude any other equal-modulus pole. The three polynomials give the stated entropies and the smaller off-critical bases. Independently written exact spin-energy enumeration (branches/279b5cbe-624f-4d42-99b4-44d1f6e68306/independent_pair_check.py) tested all words and unordered pairs for N=8,9,10 at κ=1/4,1/2,3/4; counts in coupling order were (26,46,28), (38,74,36), (52,122,60), with no nonadjacent strictly lowering pair from a one-stable word. The source verifier was read, not executed. Finite enumeration corroborates but does not establish the all-N proof.
 
-## Limitations
-The proof covers labeled rings of length at least eight, homogeneous real couplings in the indicated open interval, and only simultaneous changes of at most two spins. Neutral moves, quench arrival probabilities, rate constants and larger moves are not studied. The historical citation on random-field metastability was abstract-inspected only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the off-critical cooperative-stability classification and both entropy roots only. The one-spin baseline materially overlaps a separate Resultary finding, and the multiphase-point golden-mean degeneracy is established prior work. The inspected overlaps do not cover the simultaneous-pair constraints away from the multiphase point; Ismail–Hassan remains an access risk, not a negative result.
+
+## value
+
+PASS
+
+This is a complete classification of a motivated cooperative stability test on a canonical frustrated chain, not merely a new way to count the known critical ground states. The change from eliminating short domains to eliminating long ones, and the two distinct exponential survival rates relative to single-spin minima, quantify how move-set enlargement changes metastability on either side of the multiphase point.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

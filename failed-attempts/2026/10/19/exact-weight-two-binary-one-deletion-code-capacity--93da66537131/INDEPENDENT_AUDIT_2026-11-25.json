@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:26:39.294179Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Put m=n−1 and label a word supported on i<j by (a,b)=(i,j−1). Its weight-one descendants have labels a,b, coinciding only for a loop. With t loops and e other words, disjointness gives t+2e≤m. Consecutive loops collide in the adjacent weight-two output, so t≤ceil(m/2), giving the upper bound including n=2. The odd loops and even pairs (4k+2,4k+4) attain it: their weight-one labels are disjoint; weight-two loop outputs have gap 1, while selected nonloops have gaps 2 or 3 and disjoint first-coordinate sets for different k. The code with n=2 is {11}. An independent finite check enumerated all weight-two words, deleted each of the n positions and deduplicated the results, then exactly maximized a clique in the graph with adjacency defined by disjoint deletion sets. The maxima for n=2 through 10 were 1,1,2,3,4,4,5,6,7. This is corroboration; the packing and construction prove the unbounded claim. The supplied script was inspected as text, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cullina–Kulkarni–Kiyavash compute the chromatic and clique numbers of fixed-weight deletion graphs. Kulkarni–Kiyavash formulate the constrained-source hypergraph problem and analyze a run-length-limited example. The inspected Chee–Ge–Ling passage concerns bounds for perfect deletion codes."
+        ],
+        "reasoning": "None of these passages evaluates the required independence number by its stated result. In particular, optimal coloring of the fixed-weight layer is not an optimal individual code. The decisive coverage is instead the exact Resultary theorem.",
+        "searches": [
+          "arXiv:1211.4056, Theorem 5",
+          "arXiv:1211.3128, Definition 5.1 and §V-A",
+          "Chee–Ge–Ling, DOI 10.1137/090751311"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py (text)",
+        "Resultary records 1370efa22dd5, f07c464a7d1d, cc9ec0df2283",
+        "arXiv:1211.4056",
+        "arXiv:1211.3128",
+        "DOI 10.1137/090751311"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior inspected proofs use the weight-one output budget for loops and nonloops, rule out consecutive loop labels using weight-two descendants, and construct odd-start adjacent supports together with (4k+2,4k+5) when valid."
+        ],
+        "reasoning": "The entire formula, boundary case and achieving construction are covered. No separate scientific remainder is established by changing the floor expression.",
+        "searches": [
+          "Record 1370efa22dd5, Finding, scope and proof",
+          "Record f07c464a7d1d, Finding and construction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Record 1370efa22dd5 states n−1−floor((n+1)/4) for n≥2, with the same loop/edge decomposition, odd loop labels and even-label pairs. Record f07c464a7d1d states floor((3n−2)/4) and the same support construction for n≥2."
+        ],
+        "reasoning": "The alternate floor expression is exactly the same by checking n mod 4. The codes have the same fixed weight, output length and unknown deletion position; this is not an analogous Hamming packing.",
+        "searches": [
+          "Resultary: binary weight-two single-deletion optimum and capacity",
+          "Resultary records 1370efa22dd5, f07c464a7d1d, cc9ec0df2283"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Two distinct inspected entries include every n≥2; cc9ec0df2283 gives the same value for n≥3. The independent small-n values agree. The attempted additional constant-weight database page was not retrieved in full."
+        ],
+        "reasoning": "The indexed exact statements are stronger evidence than a match of finite entries. Under conventional Hamming A(n,d,w) notation, A(n,2,1)=n concerns weight-one words and is a different problem.",
+        "searches": [
+          "Resultary exact-value and construction hits: 1370efa22dd5, f07c464a7d1d, cc9ec0df2283",
+          "Constant-weight code tables, with A(n,d,w) notation distinguished from deletion distance"
+        ]
+      },
+      "rationale": "Distinct available Resultary records already state this same theorem for all n≥2. The strongest inspected match also gives the same upper-bound argument and the same construction. This is demonstrable equivalent coverage, not an inference about priority or provenance from catalog dates.",
+      "residual_risks": [
+        "The verified overlap does not establish historical priority or lineage. An earlier derivation or exact table may exist; the unavailable table does not affect the exact coverage already established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of all n≥2 and attaining construction.",
+          "evidence": [
+            "Formula n−1−floor((n+1)/4); odd loops and edges (4k+2,4k+4) in survivor coordinates."
+          ],
+          "identifier_or_url": "1370efa22dd5",
+          "material_read": "RESULT.md, Finding, assumptions and proof, from offset 0",
+          "method": "Local published-record mirror",
+          "title": "Exact optimum for binary weight-two single-deletion-correcting codes",
+          "trigger": "Exact-object Resultary match"
+        },
+        {
+          "assessment": "Exact coverage, including n=2.",
+          "evidence": [
+            "States floor((3n−2)/4) for every n≥2 with the same support construction."
+          ],
+          "identifier_or_url": "f07c464a7d1d",
+          "material_read": "RESULT.md, Finding and construction",
+          "method": "Local published-record mirror",
+          "title": "Sharp binary weight-two deletion codes at every blocklength",
+          "trigger": "Exact formula and scope"
+        },
+        {
+          "assessment": "Covers n≥3.",
+          "evidence": [
+            "States the same value for n≥3."
+          ],
+          "identifier_or_url": "cc9ec0df2283",
+          "material_read": "RESULT.md, Finding",
+          "method": "Local published-record mirror",
+          "title": "Exact single-deletion code capacity at binary Hamming weight two",
+          "trigger": "Same channel and weight layer"
+        },
+        {
+          "assessment": "Coloring/clique theorem, not this independence number.",
+          "evidence": [
+            "Computes χ(L_{1,n,k})=ω(L_{1,n,k})=max(k,n−k)+1."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1211.4056",
+          "material_read": "p. 10, Theorem 5",
+          "method": "Open primary PDF passage",
+          "title": "Two Approaches to the Construction of Deletion Correcting Codes: Weight Partitioning and Optimal Colorings",
+          "trigger": "Fixed-weight single-deletion graphs"
+        },
+        {
+          "assessment": "General formulation; the inspected example is not the exact weight-two maximum.",
+          "evidence": [
+            "Constrained-source deletion hypergraph and a run-length-limited example."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1211.3128",
+          "material_read": "p. 12, Definition 5.1 and §V-A",
+          "method": "Open primary PDF passages",
+          "title": "Non-asymptotic Upper Bounds for Deletion Correcting Codes",
+          "trigger": "Constrained-source packing formulation"
+        },
+        {
+          "assessment": "The inspected passage concerns perfect codes, a different objective.",
+          "evidence": [
+            "Gives bounds on perfect-code sizes, not a fixed-weight independence number."
+          ],
+          "identifier_or_url": "10.1137/090751311",
+          "material_read": "p. 3 passage on bounds",
+          "method": "Open primary-text passage",
+          "title": "Spectrum of Sizes for Perfect Deletion-Correcting Codes",
+          "trigger": "Cited background for deletion correction"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A first exact optimum and explicit witnesses for this natural layer would be useful, but the submitted result supplies the same bound, packing argument and witnesses as the distinct exact records. It does not isolate an additional invariant or improvement that would justify the duplicate as a distinct contribution.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

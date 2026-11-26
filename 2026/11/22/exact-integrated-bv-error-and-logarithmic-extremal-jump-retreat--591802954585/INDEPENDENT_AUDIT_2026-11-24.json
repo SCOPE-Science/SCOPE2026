@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:15:51.432226Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the classical Poisson kernel on (0,1) and constant trace extension, a jump at s=(m+a)/n gives a Gamma(m,n)/Gamma(m+1,n) CDF mixture of mean s (shape zero is an atom). Integrating its signed step residual gives the mean absolute deviation minus right overshoot. The Gamma first moment and Gamma–Poisson identity yield 2s p_m(ns) and the stated affine interpolation of r_m. The cell derivative is strictly decreasing through any eligible root; the negative derivative at a cell's right boundary excludes grid knots and s=1, and s=0 gives zero. This includes n=1. Equality first requires the variation measure to be supported on the finite set of globally maximizing roots; distinct signed residuals cannot align both to the left of the two jumps and between them, so only one jump is possible. The leading constant follows by Stirling and a competitor with 1−s=c√(log n/n), c>1. More explicitly, 1−√s≥(1−s)/2 gives the upper exclusion of all c≥1+ε using the uniform Stirling error after s→1. For c≤1−ε the Gamma density on the stated overshoot window is bounded below by a constant times √n exp(−d²/2−O(1+d³/√n)); multiplying by the square of the window size gives an overshoot larger than √(log n)/n. This excludes every such maximizer even in a tie. The frozen files were read, not executed. Separate direct quadrature at n=1,2,3,10 reproduced 0.439539995635, 0.334482432795, 0.288945671583, 0.187336430786 to numerical precision; replay /workspace/branches/8e238f6a-8504-45ab-b674-a751237b42ea/check_record2_independent.py. Neither a finite sweep nor the supplied checks establish the limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Walczak gives weighted convergence/error modulus estimates, including a derivative-based b_n^−1/2 bound. Nowak–Sikorska-Nowak identifies the classical case but treats pointwise convergence rates."
+        ],
+        "reasoning": "Neither inspected setup yields the sharp unweighted finite-interval variation constant or its location; Totik remains an unresolved relevant text, not negative evidence.",
+        "searches": [
+          "Walczak 2002, Thms. 3.5–3.7",
+          "Nowak–Sikorska-Nowak 2009",
+          "Totik DOI 10.1007/BF01982010"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_szasz.py",
+        "Walczak primary theorem passages",
+        "Nowak–Sikorska-Nowak primary introduction",
+        "Totik bibliographic record",
+        "Baskakov and Bernstein–Kantorovich analogue Findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Rate and modulus upper bounds omit the sharp constant and the strict equality information; the Baskakov proof targets a different variance scale and candidate locations."
+        ],
+        "reasoning": "Kernel analogy does not give the overshoot comparison and its uniform exclusion of near-boundary maximizing jumps. The same-day dates do not establish precedence either way.",
+        "searches": [
+          "Walczak Theorems 3.5–3.7",
+          "Baskakov and Bernstein–Kantorovich catalogue Findings above"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Baskakov Finding treats point sampling and half-line BV, with leading norm constant 2/√π and location constant √2."
+        ],
+        "reasoning": "Although both have a logarithmic retreat, the negative-binomial kernel and nodal candidate reduction do not identify the Poisson integral kernel or its interior cell roots.",
+        "searches": [
+          "Resultary: sharp integrated Szász–Mirakjan–Kantorovich BV Poisson jump logarithmic retreat",
+          "2026/11/22/SCOPE-sharp-integrated-bv-error-and-a-logarithmic-boundary-layer-for-b--4c669fc77d05"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The close Bernstein–Kantorovich entry has a center or parity-dependent symmetric pair and limit 1/√(2π), not Poisson cell roots."
+        ],
+        "reasoning": "The comparable exact enumerations are for distinct kernels; no independent exact table/statement of these Poisson constants was identified.",
+        "searches": [
+          "Resultary Szász sharp integrated BV norm and extremizing cells",
+          "2026/11/22/SCOPE-sharp-integrated-bv-error-and-parity-locked-jump-locations-for-k--d70327ec81c9"
+        ]
+      },
+      "rationale": "The exact finite-interval Poisson-kernel norm, complete equality and universal retreat constant are not covered by the inspected weighted-rate or different-kernel theorems. The kernel and continuation convention are part of the claim; neither the classical operator nor Poisson/Gamma identities are new.",
+      "residual_risks": [
+        "Totik's full text was not accessible in the lawful attempts.",
+        "Historical equivalence in older Poissonized approximation literature remains possible; no general uniqueness claim is made for the globally winning cell."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Weighted rates, not matching sharp theorem",
+          "evidence": [
+            "Derivative/modulus estimate with b_n^−1/2"
+          ],
+          "identifier_or_url": "https://web.math.pmf.unizg.hr/glasnik/37.2/37%282%29-08.pdf",
+          "material_read": "pp. 317–319, Thms. 3.5–3.7, offsets 39305 and 42045",
+          "method": "Lawful primary PDF passage",
+          "title": "On approximation by modified Szasz-Mirakyan operators",
+          "trigger": "Classical approximation and L1 rates"
+        },
+        {
+          "assessment": "Pointwise rate objective differs",
+          "evidence": [
+            "Classical parameters a_n=b_n=n"
+          ],
+          "identifier_or_url": "https://doi.org/10.33993/jnaat381-903",
+          "material_read": "Full-text PDF p. 1, offset 305",
+          "method": "Lawful primary PDF passage",
+          "title": "Some approximation properties of modified Szasz-Mirakyan-Kantorovich operators",
+          "trigger": "Identifies the classical integral kernel"
+        },
+        {
+          "assessment": "Unresolved full text; no negative inference",
+          "evidence": [
+            "Totik, Analysis Math. 9 (1983)"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/BF01982010",
+          "material_read": "Bibliographic title only",
+          "method": "Lawful DOI/publisher access attempts",
+          "title": "Approximation by Szász–Mirakjan–Kantorovich operators in L^p",
+          "trigger": "Potential same operator and p=1"
+        },
+        {
+          "assessment": "Different sampling, constants and candidates",
+          "evidence": [
+            "Baskakov point sampling; √2 retreat constant"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-integrated-bv-error-and-a-logarithmic-boundary-layer-for-b--4c669fc77d05",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Configured catalogue and local mirror",
+          "title": "Sharp integrated BV error and a logarithmic boundary layer for Baskakov averaging",
+          "trigger": "Same target type and logarithmic location"
+        },
+        {
+          "assessment": "Binomial kernel, central jump locations",
+          "evidence": [
+            "Center/symmetric pair, limit 1/√(2π)"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-integrated-bv-error-and-parity-locked-jump-locations-for-k--d70327ec81c9",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Configured catalogue and local mirror",
+          "title": "Sharp integrated BV error and parity-locked jump locations for Bernstein–Kantorovich averaging",
+          "trigger": "Related sharp integrated Kantorovich norm"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact norm and equality criterion identify the most adverse discontinuities for a standard approximation operator. The √(log n) factor in their distance relative to the diffusive scale is a genuine boundary effect missed by a rate bound; the constant applies to every maximizer, not a fitted numerical sequence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

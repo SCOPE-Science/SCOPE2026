@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:08:42.957166Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Inclusion-maximal independence is independence plus domination. The first and last selected vertices lie within one step of the two ends and consecutive selected vertices differ by 2 or 3; this gives the forward DAG bijection for n≥1. Necessity of the pairwise test uses zero-, one- and two-positive labels. For sufficiency, concatenate the avoidant segments for adjacent positives in the requested label and the two end segments; each segment is forward and no negative queried vertex is traversed. The five-state DFA recognizes the same words. Taking unions at unqueried positions and splitting at queried positions, keeping the empty subset, inductively tracks all labelings. My independent `/tmp/opencode/frozen-review-repro.py path` verified all 28 supplied certificate nodes, their transitions, acceptance, reachability, all six quotient classes, and distinguishability of all 15 unordered pairs of classes; separate graph-bitmask traces agreed through n=12. I inspected rather than ran the frozen checker. With G=1+H_A the six-state transfer equations yield (1−t)G=1+t²z(2−t)(1+tG); coefficient extraction gives the stated binomial sum, correct n=0 normalization, first term 2^k t^(3k−1), and VC dimension. At n=5 the four shattered pairs omit vertex 3, which is itself shattered. The frozen SLOGAN.txt should not be read as a count of inclusion-maximal faces: it says 'maximal supports' where the correct Finding says 'maximum-size'; at n=5 there are five inclusion-maximal faces. The proof and correctness decision concern the exact Finding, not that imprecise synopsis.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier path record gives floor((n+1)/3) for the very same all-inclusion-maximal hypothesis family, together with online bounds.",
+          "The minimum-independent-dominating-set polynomial is for a generally proper subfamily. The SoCG 2024 induced-matching lemma is a general bound, not itself a face enumerator."
+        ],
+        "reasoning": "Neither the proper-subfamily polynomial nor the general upper bound gives the new polynomial; the stronger per-support coverage actually comes from the cyclic forbidden-gap theorem plus the explicit reduction. The exact VC law does not require that reduction to establish prior coverage.",
+        "searches": [
+          "Resultary ...1d3f970e51af, Finding and proof",
+          "Resultary ...ab94895bb7a2, Finding and assumptions",
+          "Liu–Shangguan–Skokan–Xu, SoCG 2024 Lemma 27, pp. 11–12"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ...4d0afc364bee, ...1d3f970e51af, ...ab94895bb7a2",
+        "arXiv:2101.06490, arXiv:1810.05317, DOI:10.4230/LIPIcs.SoCG.2024.71"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cyclic wrap gap between the fixed anchors has size 4. Its remaining k+1 ordered gaps thus form a linear gap word of total length n+3, with letters ≥2 and at most one 2 per block separated by gaps ≥4. Each such word places exactly one k-point path support.",
+          "With u marking gaps and t length, use the prior paper's same block inventory B=1/(1−ut³)+ut²/(1−ut³)², and the long gap series L=ut⁴/(1−t). The linear word series B/(1−LB) simplifies to (1+ut²(1−t))/(1−u t³(2−t)/(1−t)). For k≥1 extract u^(k+1) and shift by t^(−3) to get t^(3k−1)(2−t)^k/(1−t)^(k+1), exactly the frozen coefficient series. The k=0 term for n≥0 is 1."
+        ],
+        "reasoning": "This retrieves the entire rational series and its extremal counts via the earlier support-level law and its block count, not merely a same-parameter analogy. Pairwise reachability is a correct alternative proof/test; the cyclic law already supplies support decisions by a single gap scan.",
+        "searches": [
+          "Resultary ...4d0afc364bee, Finding offset 0 and Proof §4, offset 4623, rooted gap-block generating function"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier cycle theorem tests every support, not just aggregate counts: all gaps ≥2, with a gap ≥4 between successive gaps of size 2.",
+          "Exact reduction: embed vertices 1,…,n in a cycle of length n+7, labeling it −1,0,1,…,n,n+1,n+2,n+3,n+4,n+5 in order. Query S together with anchors −1 and n+2. When both anchors are positive, 0 and n+1 are absent and the interior restriction is a maximal independent set on the path. Conversely any path maximal independent set extends with either label on either anchor: select 0 iff both −1 and 1 are absent and select n+1 iff both n and n+2 are absent. On the remaining three-vertex segment n+3,n+4,n+5 select the endpoints not adjacent to selected anchors, or the middle vertex if both endpoints are blocked. This gives independence and domination including any absent anchor, and preserves the path trace."
+        ],
+        "reasoning": "Consequently S is shattered on P_n exactly when its anchored version is shattered in C_(n+7), for every S and n≥1. The positive-anchor fiber is enforced both ways, so cyclic and open-boundary concept families need not be identified on the same n vertices.",
+        "searches": [
+          "Resultary: path MIS all-length shattering, polynomial and forbidden-gap queries",
+          "Resultary mirror ...4d0afc364bee, Finding offset 0 and local neighbor construction offset 4623"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "At n=3k−1 the unconditioned cycle top coefficient is n (k≥2), not the path coefficient 2^k; the prior cycle record is not an exact table of raw path counts.",
+          "The other indexed exact path polynomial counts supports of minimum-cardinality independent dominating sets, not all inclusion-maximal sets."
+        ],
+        "reasoning": "No independent literal path coefficient table in these records is identified. This does not defeat the anchored implication; counting a specified link in a larger shattering complex is different from reading the same-index aggregate count.",
+        "searches": [
+          "Resultary: exact path face polynomial, maximal independent and independent domination aliases",
+          "Resultary snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4, ...4d0afc364bee offset 0 and ...ab94895bb7a2 offset 0"
+        ]
+      },
+      "rationale": "The main enumerator and exact path classification are covered as a boundary-anchored corollary of the earlier cycle support theorem. It is not enough to compare the aggregate cycle and path coefficients, which indeed differ. The relevant prior theorem resolves every cyclic support, including the links at a prescribed pair of anchors. The earlier path record also gives the VC dimension explicitly. The audited DAG proof is an alternative presentation, not an independently original full enumerator.",
+      "residual_risks": [
+        "This is a bounded historical comparison. The rejection rests on the displayed mathematical implication from an inspected earlier theorem, not negative search results or lack of access. No priority claim is made concerning the standalone DAG formulation outside this comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger relevant per-support theorem; anchored cycle reduction gives the primary claim",
+          "evidence": "Explicit forbidden gaps, rooted block inventory 1/(1−u)+v/(1−u)^2, and separate unconditioned cycle counts.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-shattering-polynomial-and-forbidden-gap-law-for-maximal--4d0afc364bee/RESULT.md",
+          "material_read": "Finding offset 0; Proof §§3–5 and Verification, offset 4623; prior-work discussion around 9000",
+          "method": "Resultary local mirror",
+          "title": "Complete shattering polynomial and forbidden-gap law for maximal independent sets of cycles",
+          "trigger": "Earlier support-level analogue with the same independence and domination constraints"
+        },
+        {
+          "assessment": "Exact prior dimension, not itself the full polynomial",
+          "evidence": "VC dimension floor((n+1)/3) for all inclusion-maximal independent sets.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-linear-static-online-shattering-separation-for-maximal-independe--1d3f970e51af",
+          "material_read": "RESULT.md Finding offset 0 and VC proof",
+          "method": "Resultary local mirror",
+          "title": "Linear static–online shattering separation for maximal independent sets of paths",
+          "trigger": "Same path concept class"
+        },
+        {
+          "assessment": "Different concept family",
+          "evidence": "Minimum-cardinality independent dominating sets only; degree at most two.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-periodic-shattering-law-for-minimum-independent-dominating-set--ab94895bb7a2",
+          "material_read": "RESULT.md Finding and assumptions, offset 0",
+          "method": "Resultary local mirror",
+          "title": "A periodic shattering law for minimum independent dominating sets",
+          "trigger": "Indexed path shattering polynomial under independent domination"
+        },
+        {
+          "assessment": "General dimension upper bound, not an enumerator",
+          "evidence": "VC dimension of the maximal-independent-set hypergraph is bounded above by the bipartite induced-matching number.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.SoCG.2024.71",
+          "material_read": "Lemma 27, PDF pp. 11–12, offset 42000",
+          "method": "OA proceedings PDF",
+          "title": "Beyond Chromatic Threshold via (p,q)-Theorem, and Blow-Up Phenomenon",
+          "trigger": "Cited primary VC theorem for MIS membership"
+        },
+        {
+          "assessment": "Different family of strings",
+          "evidence": "Studies relations P(x+y) associated with a binary sequence.",
+          "identifier_or_url": "https://arxiv.org/html/2101.06490v2",
+          "material_read": "Abstract and introduction, offset 0",
+          "method": "OA HTML",
+          "title": "Binary strings of finite VC dimension",
+          "trigger": "Cited binary shattering formulation"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Ordinary independence polynomial counts independent sets, not shattered query supports.",
+          "identifier_or_url": "https://arxiv.org/html/1810.05317",
+          "material_read": "Abstract and introduction, offsets 390–5092, and Theorem 2.6 at 9380",
+          "method": "OA HTML",
+          "title": "Independence Equivalence Classes of Paths and Cycles",
+          "trigger": "Cited polynomial on the same underlying graph types"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The face series is a naturally motivated invariant, but the older support-level gap theorem and its same block counting already yield the full result via a uniform boundary construction. The remaining path-only reachability restatement is an elementary forward concatenation test, not an improvement over the prior single gap scan for deciding these supports or a demonstrated new structural theorem beyond this family. No narrowing or repair to a separate, valuable new claim is validated.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

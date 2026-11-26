@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:44:26.699334Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–52",
+        "Frozen VERIFICATION.md and verify_rsa.py, inspected as evidence, not executed",
+        "Independent reproduction: /workspace/branches/01-rsa-reproduction.py (Python 3 standard library, executed)"
+      ],
+      "rationale": "An exponential first-event race selects vertex i proportionally to its rate; removing its closed neighborhood leaves independent fresh clocks on the remaining graph by memorylessness. On a path the residual splits into two alternating subpaths; summing the two sides by reflection gives the displayed E, A, B equations. A separate graph-mask race over truncated exact fractions reproduced all three path expansions at k=4,5,6,7 and the particular A_3 and B_3 truncations for C10. After clearing the linear denominators, the candidate residual for each coefficient is quadratic or less for k≥5: short indices contribute constants and the remainder consists of sums of affine terms. At k=5,6,7 only confirmed lower indices occur, so the three zeros certify the residual identically; induction then covers all k≥4. For a cycle the remaining 2m−3 vertices form the path with both endpoint rates equal to that of the first accepted vertex. The separate mask calculation gives cycle coefficients through degree three of (2,0,0,0), (3,−3/2,15/4,−63/8), (4,−2,10/3,−49/18), and (5,−5/2,25/6,−595/144) for C4 through C10. C4 is exactly 2 since any maximal independent set there has size 2. The rational finite recurrences are regular at epsilon=0 and justify the fixed-m remainder, not a size-uniform one.",
+      "residual_risks": [
+        "No assertion or verification of uniform error in m, higher coefficients, or fluctuations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General blocking-RSA forward equations and homogeneous infinite-tree formulas are available. The indexed Bessel/hypergeometric law is stronger for the infinite line (all positive rate pairs). No exact periodic finite-size classification appears in the pertinent statements inspected."
+        ],
+        "reasoning": "An all-rate infinite-volume law can determine the bulk coefficient but does not constrain when a finite closed cycle exactly attains it. General dynamics or priority recurrences are prior tools, not the required evaluation and sharp cutoff.",
+        "searches": [
+          "Penrose–Sudbury arXiv:math/0503519, Proposition 2 and tree formulas",
+          "Local Resultary 62e8a2fea2b8, Finding and Steps 3–4",
+          "Fan–Percus DOI:10.1103/PhysRevA.44.5099 and DOI:10.1017/S0963548300000250"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Resultary a0ad25cdc14a, 62e8a2fea2b8, f5f37a6bc0ec",
+        "arXiv:math/0503519, 1102.0532, 2306.09786",
+        "Fan–Percus DOI retrieval attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For epsilon=beta/alpha, the indexed Bessel prefactor h/(2+h) expands as epsilon/2−5epsilon²/4+21epsilon³/8, and the product of the two 0F1 factors as 1+5epsilon/6−109epsilon²/72 through degree two. Hence the previously given formula implies vacancy coefficient +119/144, or coverage coefficient −119/144. It is an infinite-chain formula and does not supply the C8 discrepancy or certify agreement from C10 onward."
+        ],
+        "reasoning": "Credit the bulk values to the prior exact law as mechanically implied. The claim that precisely the finite C4, C6, C8 differ through order three requires a finite-size proof and survives this comparison.",
+        "searches": [
+          "Compare frozen Finding against Resultary 62e8a2fea2b8, hypergeometric formula and Step 4",
+          "Compare f5f37a6bc0ec Finding against the frozen independent weights and exclusion assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "One dimer lands per accepted edge, and edges share an endpoint precisely when their sites in the line graph are adjacent. Rate parity is preserved. Thus dimer coverage on the even cycle equals J_m/m, and the analogous line law is coverage per two-site cell in the infinite model.",
+          "Checkerboard-rate RSA on the square lattice has the same clock rule but a different graph and a percolation observable; the two-species one-dimensional models exclude only opposite types and do not give fixed alternating-rate monomer adsorption."
+        ],
+        "reasoning": "The line graph is an actual equivalence, not merely an analogy, so it identifies which part of the claim is covered. Passage to the infinite line discards the finite short-cycle corrections.",
+        "searches": [
+          "Resultary search on alternating exponential RSA, strong contrast, terminal cycle coverage; records 62e8a2fea2b8 and f5f37a6bc0ec",
+          "Penrose–Rosoman arXiv:1102.0532",
+          "Do Amaral–dos Santos arXiv:2306.09786"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "a0ad25cdc14a is the identical frozen result, not separate evidence of coverage. 62e8a2fea2b8 is a distinct indexed exact line law. f5f37a6bc0ec is a finite-cycle factorial excess for balanced two-species antagonistic RSA, a different stochastic model."
+        ],
+        "reasoning": "No separate indexed table or result covering the evaluated finite-ring exceptions and stabilization was identified in these checked comparisons. This does not establish global priority.",
+        "searches": [
+          "Local Resultary results a0ad25cdc14a, 62e8a2fea2b8, f5f37a6bc0ec"
+        ]
+      },
+      "rationale": "Pass is for the exact finite-cycle stabilization cutoff and the short-cycle exceptions, not for discovery of the stabilized coefficient as an infinite-chain coefficient. The strongest indexed law, for alternating-rate dimers, is in fact equivalent to the infinite-line monomer model via the line graph. Its explicit jammed coverage implies the matching third-order per-cell coefficient by Taylor expansion, even though it states only two terms. It does not give exact coefficient agreement with the infinite law at every finite C_(2m) for m≥5 or the three exceptional finite cycles. Those are the distinct findings supported by the comparison.",
+      "residual_risks": [
+        "Fan–Percus primary texts were unavailable in the attempted lawful routes. An earlier unindexed formula for periodic finite graphs or an equivalent evaluated expansion is not excluded.",
+        "Catalogue path dates do not establish priority. The exact bulk coefficient must not be presented as distinct from the Bessel-law implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact bulk coefficient implied; finite cycle threshold not supplied",
+          "evidence": "Infinite-chain vacancy is h/(2+h) times 0F1(;2+nu;h)0F1(;2+mu;h). Its two explicit strong-bias terms and the implied third term agree. The verification description compares finite paths to the infinite result, not closed cycles.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-bessel-jamming-law-for-alternating-rate-dimers-on-the-inte--62e8a2fea2b8/RESULT.md",
+          "material_read": "Finding, assumptions, Steps 1–4 and verification description, extracted offsets 0–6941",
+          "method": "Local mirror inspection, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4; independent expansion of the displayed formula",
+          "title": "Exact Bessel jamming law for alternating-rate dimers on the integer chain",
+          "trigger": "Exact alternating-rate jamming law in the equivalent line-graph model"
+        },
+        {
+          "assessment": "Different exclusion rule and type assignment",
+          "evidence": "Balanced antagonistic random types, not independent attempts with fixed alternating rates and exclusion for all nearest neighbors.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-strict-factorial-finite-cycle-excess-in-balanced-one-attempt-ant--f5f37a6bc0ec/RESULT.md",
+          "material_read": "RESULT.md, Finding around offset 400",
+          "method": "Local mirror inspection",
+          "title": "Strict factorial finite-cycle excess in balanced one-attempt antagonistic adsorption",
+          "trigger": "Exact finite-cycle correction for nearby adsorption model"
+        },
+        {
+          "assessment": "General method and different explicit examples",
+          "evidence": "Homogeneous arrival definitions, forward hierarchy and explicit infinite-tree formulas do not evaluate the finite alternating-ring coefficients in the inspected passages.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0503519",
+          "material_read": "Blocking-RSA definitions pp. 2–3; Proposition 2 p. 7; occupation/correlation formulas p. 9",
+          "method": "Lawful OA primary text inspection",
+          "title": "Exact and approximate results for deposition and annihilation processes on graphs",
+          "trigger": "Potential broad exact graph formula"
+        },
+        {
+          "assessment": "Same rate mechanism, different geometry and theorem",
+          "evidence": "Percolation on the square lattice rather than finite-cycle terminal mean coverage.",
+          "identifier_or_url": "https://arxiv.org/abs/1102.0532",
+          "material_read": "pp. 1–3, offsets 711 and 2900",
+          "method": "Lawful OA primary text inspection",
+          "title": "Percolation of even sites for random sequential adsorption",
+          "trigger": "Same checkerboard exponential rate bias"
+        },
+        {
+          "assessment": "Different interaction",
+          "evidence": "Excludes adjacent opposite species, not every neighboring accepted monomer.",
+          "identifier_or_url": "https://arxiv.org/abs/2306.09786",
+          "material_read": "Conclusion p. 11, offset 28361",
+          "method": "Lawful OA primary text inspection",
+          "title": "One-dimensional AB random sequential adsorption with one deposition per site",
+          "trigger": "One-dimensional one-attempt variant"
+        },
+        {
+          "assessment": "Unresolved full-text access, not negative evidence",
+          "evidence": "The retrieval attempts did not permit comparison of the exact equations and scope.",
+          "identifier_or_url": "10.1103/PhysRevA.44.5099; 10.1017/S0963548300000250",
+          "material_read": "No primary full text retrieved",
+          "method": "DOI OA attempts and repository-copy check",
+          "title": "Asymptotic coverage in random sequential adsorption on a lattice; Duality for Random Sequential Adsorption on a Lattice",
+          "trigger": "Cited exact series and duality methods, plausible implication route"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and limitations",
+        "Independent short-cycle computation",
+        "Compared infinite-chain Bessel law"
+      ],
+      "rationale": "The sharp finite-size onset determines exactly when the known bulk strong-bias approximation is already correct through degree three for the natural periodic finite model. The C8 third-order defect, despite agreement in the first two terms there, makes the size threshold nontrivial. This gives finite-size information a researcher cannot read off from a bulk coefficient or a handful of finite tests.",
+      "residual_risks": [
+        "Value is assigned to the sharp finite-cycle classification at this order, not to a standalone recalculation of the infinite-line coefficient or a claim of uniform asymptotics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

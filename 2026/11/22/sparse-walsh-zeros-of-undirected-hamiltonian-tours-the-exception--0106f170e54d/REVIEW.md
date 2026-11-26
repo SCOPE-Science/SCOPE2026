@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The theorem is an exact, unnormalized Boolean Walsh-transform assertion about unoriented labelled Hamiltonian cycles on complete graphs. The contraction formula counts every Hamiltonian cycle containing a prescribed path forest with the factor \(2^{b-1}(n-j-1)!\); prescribed subgraphs with cycles or vertices of degree at least three have zero completions for the asserted range. Inclusion–exclusion produces the full low-degree multiplier. All graphs with at most four edges embed in the eight-vertex complete graph, and the 17 distinct forced-edge signatures have been verified by exhaustive integer enumeration. Exact integer evaluation for orders 6–17 leaves only the stated two exceptional signatures; the strict union bound proves positivity for every order at least 18. A second independent checker enumerates all unoriented Hamiltonian cycles on nine and ten labelled vertices and confirms both cancellation shapes and control cases. The class counts and Fourier-rank consequences follow by labelled-choice counts and character diagonalization.
+PASS
 
-## Originality: PASS under bounded comparison
+With the unnormalized transform, expanding the character into products of forced-edge indicators gives the factorial formula in the record. Every nonempty proper forced subset of at most four edges must be acyclic of maximum degree two. A path forest with j edges and b nontrivial components has 2^b orientations on its contracted blocks, (n-j-1)! orders of directed blocks modulo rotation, and division by two for reversal. This counts actual expanded cycles even in the two-block case, where one should not count simple graph cycles on the contracted vertices. The proof bounds all orders n≥18 by M_n minus twice |S|(n-2)!, which is strictly positive, without using a numerical extrapolation. Independently enumerated the at most four-edge masks on K8, testing admissibility by connected component edge counts and maximum degrees, and evaluated all 17 resulting signatures at all 12 orders 6–17. Exactly (9,(4,9,6,0)) and (10,(3,3,0,0)) canceled. Checking degree sequences within connected components gave precisely triangle or three-star, with one disjoint edge only for the n=9 support. Every support of size ≤4 has at most eight incident vertices, so this enumeration includes all realizable types at each tested order; both cancelling types fit at their indicated orders. Replay: python3 /workspace/independent_checks.py 3. Direct labelling gives 6300 and 960 zero characters, and diagonalization of counting convolution gives the verified band dimensions 66712 and 164221, with ranks 60412 and 163261. The proof concerns unoriented cycles and only the low-degree band, not global invertibility.
 
-The nearest pre-existing claim for this same Hamiltonian-cycle indicator is an all-frequency two-adic nonvanishing theorem at special vertex orders of the form \((2^k-1)2^j\); it already covers orders six through eight and must not be counted as newly established here. The exact complete order-nine Walsh magnitude census already contains stronger global information at that one vertex order; the isolated order-nine observation is likewise not independently novel. The new mathematical scope is the exhaustive graph-shape classification of every low-support cancellation across all orders, especially the exact three-edge exception at ten vertices and universal degree-four nonvanishing for all orders at least eleven. The literature examined includes the full text of Ferber–Krivelevich–Sudakov's counting-and-packing paper, Sierksma's Hamilton-cycle polytope work, Ejov–Filar–Lucas–Nelson's symbolic-determinant article, and Yan's signed-complete-graph theorem: none states an equivalent all-order, low-support signed Hamiltonian-cycle count. Existing edge-shattering and directed-tour sampling records answer different questions. Unindexed or inaccessible equivalent calculations remain a priority risk.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The result identifies all exact information-loss directions observable with at most four edge-sign queries for an important finite family: among infinitely many graph orders, only two exceptional orders carry low-degree vanishing modes, and those modes have explicit graph-theoretic types and multiplicities. This is a structural recovery criterion, not a one-off count, and the all-order obstruction list is usable in sparse Fourier sampling and signed-tour enumeration. Its statement explicitly separates genuinely new scope from prior full-frequency results at particular orders.
+The older all-frequency binary-order result already covers some orders and the K9 full-spectrum census anticipates the order-nine nullity problem. Neither available statement yields the complete degree-four support classification for all n, in particular the two exact order-ten motifs and the absence of every other low-degree zero at every nonexceptional order. The conclusion stands on that uniform motif classification, not on a stand-alone K9 histogram or on nonvanishing at already covered orders.
 
-## Limitations and closest literature
+## value
 
-No statement is made about Walsh degrees at least five, the full transform's nullity for general orders, spectral conditioning, or uniqueness beyond the searched and inspected literature. Full access and text inspection were obtained for the cited primary papers, but archival priority remains uncertain in unindexed sources. Self-review do not constitute an independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a motivated exact information-loss classification for low-degree observables on an infinite family of tour incidence cubes. The sign cancellation criterion identifies both the exceptional vertex orders and the precise edge motifs that cannot be recovered, not just a finite census or a one-mask zero. The counts identify the size of the resulting inverse problem. It says nothing about conditioning or higher-degree invertibility.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

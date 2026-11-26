@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:21:11.317906Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each reflected pair of arcs, integrating the Fourier coefficient of the indicator gives analytic derivative (4/π)Σ_{n≥1} sin(nδ)cos(nθ)z^(n−1). Summing the geometric series gives numerator Nθ=cosθ(1+z²)−2cz over Qθ, the product of the two quadratic endpoint factors, with the stated prefactor. Adding the pairs gives P=N_a Q_b+N_b Q_a. At an endpoint of the θ-pair, Nθ=−2z sinθ sin(θ±δ)≠0, while Q for the other pair is nonzero. At any non-endpoint boundary point with value 0, the Poisson integral divided by 1−r on the radial approach tends to a strictly positive integral of 2/|e^{iφ}−e^{iθ}|² over the arcs (with normalized angular measure); where the boundary value is 1 use 1−u and the complement instead. Thus there is no unit-circle root of P. The reciprocal identity z⁶P(1/z)=P(z) implies exactly three interior zeros with multiplicity, even when there is a zero at the origin: if its order is m, the degree is 6−m and the remaining 6−2m zeros pair by inversion. Substituting t=z+1/z reduces Qθ/z² to t²−4c cosθ t+4(cos²θ+c²−1) and Nθ/z to cosθ t−2c. The resulting cubic is exactly H. When A+B≠0 there is no zero at the origin and every t outside [−2,2] has a unique inverse strictly inside the disk with nonzero derivative of the forward map. A root in [−2,2] would produce a circle root. Therefore the ordinary real discriminant gives precisely the claimed real versus conjugate-pair alternatives and a real repeated root at zero discriminant. Independent exact integer discriminants: 500H has coefficients (25,360,83,−2961) and (25,−612,110,−1017) for the two witnesses. Dividing their discriminants by 500⁴ gives respectively 14626551073/2500000000 and −914716481579/62500000000. Along A=1/20−B, 3/5≤B≤4/5, the gap a−b increases with B, while b>δ and a<π−δ throughout. At its minimum cos(a−b)=−0.33+0.8√0.6975<0.62=cos(2δ). Hence the sign-changing segment remains admissible and nonantipodal. For a+b=π the boundary indicator is the pullback via w=z² of the two arcs centered at ±2b with half-width 2δ; uniqueness of the harmonic extension gives the same pullback inside. The two-arc derivative has one interior zero solving cos(2b)(1+w²)=2 cos(2δ)w, with |cos(2b)|<cos(2δ). The small root has the stated magnitude and sign; z²=w lifts it and differentiation adds a zero at 0. At b=π/4 that root is simple at w=0 and the pullback derivative has order three at z=0. Thus the imaginary-axis transition applies only to the antipodal subfamily. Replay: RESULT.md lines 29–75 and the scaled integral cubics above. check.py and check_output.txt were inspected, not executed; the Fourier tests use one interior location in two geometries, not two distinct points. Those checks illustrate the formulas rather than replace the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ortel sets up weighted sums of disjoint arc harmonic measures and solves an interior interpolation problem (pp. 250, 252). Walsh's 1947 paper concerns the same type of union-of-arcs harmonic measure according to its accessible indexed excerpt; the actual theorems of that paper and the 1948 linear-combination paper could not be read."
+        ],
+        "reasoning": "Ortel's general representation and interpolation problem do not evaluate repeated zeros of the complex gradient in this symmetric geometry or establish both phases. A theorem giving detailed critical-point locations could be closer: the Walsh material is the principal unresolved potential broader coverage, not assumed to be absent.",
+        "searches": [
+          "Walsh DOI 10.1073/pnas.33.1.18 and 10.1090/S0002-9904-1948-08984-4",
+          "Ortel DOI 10.4153/CMB-1975-048-2 linear combinations of harmonic measure"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.4153/CMB-1975-048-2",
+        "DOI 10.1073/pnas.33.1.18 / JSTOR 87461 (full text unavailable)",
+        "DOI 10.1090/S0002-9904-1948-08984-4 (full text unavailable)",
+        "Resultary:e16718e661ad",
+        "Resultary:f101e09ba9b4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The explicit collision test requires the geometric cubic coefficients, multiplicity-preserving disk-root correspondence, and admissible parameter examples of both discriminant signs. The inspected interpolation material supplies none of these steps. The same-object Walsh abstract/excerpt is not enough to decide what its theorems imply."
+        ],
+        "reasoning": "A formula for arbitrary arc sums would be a starting point; it only implies the decision rule once the reciprocal reduction, exceptional case and sign realization are established. The separate antipodal reduction uses much less structure and is not the main basis for novelty.",
+        "searches": [
+          "Ortel DOI 10.4153/CMB-1975-048-2 disjoint arcs and interpolation",
+          "Walsh p. 18–20 harmonic-measure critical-point location and 1948 linear-combination paper",
+          "Resultary: e16718e661ad; f101e09ba9b4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The analytic derivative's reciprocal sextic P and the geometric cubic H are equivalent via t=z+1/z away from the origin. The antipodal case is equivalent to pulling back a two-arc harmonic measure by z² and so must include the origin factor. Searches also used antipodal and finite Blaschke terminology."
+        ],
+        "reasoning": "An equivalent prior claim may describe zeros of the complex gradient, critical points of its symmetric harmonic representation, or the projected polynomial. An unrestricted critical-point count is weaker than a formula separating the axis phases; a two-arc comparison at most directly addresses the antipodal pullback, not the nonantipodal cubic.",
+        "searches": [
+          "Resultary: mirror-symmetric four-arc harmonic measure cubic phase diagram critical points discriminant",
+          "Resultary: harmonic measure four circular arcs critical points reciprocal sextic cubic discriminant",
+          "Walsh critical points harmonic measure circular arcs unit disk four arcs symmetric cubic critical points The Location of the Critical Points of Harmonic Measure 1947 1948 linear combinations harmonic functions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "e16718e661ad concerns optimizing a boundary set for simultaneous harmonic measures at two fixed points. f101e09ba9b4 treats angular stability and boundary-speed variance for finite Blaschke products. No matching exact indexed phase classifier surfaced among the compared hits."
+        ],
+        "reasoning": "These are related objects but optimize different observables; neither gives equations for this critical set or thresholds in a,b,δ. Matching the number of arcs or the presence of symmetry does not establish a table or theorem match.",
+        "searches": [
+          "Resultary: mirror-symmetric four-arc harmonic measure cubic phase diagram critical points discriminant",
+          "Resultary: harmonic measure four circular arcs critical points reciprocal sextic cubic discriminant",
+          "Resultary: Walsh antipodal collisions and finite Blaschke critical points"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the explicit equal-width reflected four-arc phase diagram: reduction to a cubic in the geometric parameters, discrimination of real and nonreal phases with a verified nonantipodal collision, and a separate exact antipodal formula. The ordinary Poisson derivative, reciprocal root counting and general critical-point location framework are not credited as new. The leading-coefficient exception must not be evaluated by the cubic test. The inaccessible Walsh texts leave a specific historical risk, not affirmative coverage or clearance.",
+      "residual_risks": [
+        "Walsh's 1947 and 1948 primary theorems and the related chapter of the 1950 monograph were not compared in full. They could contain related locations, a general count, or even more specialized geometry. The related Walsh note found through Project Euclid likewise did not yield full text. No access failure or keyword miss is counted as evidence that these results lack the cubic or its implications."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General framework and different observable",
+          "evidence": "Defines circle-arc harmonic measures, sums over disjoint arcs, and interpolation equations at prescribed z, not a critical-phase classification.",
+          "identifier_or_url": "https://doi.org/10.4153/CMB-1975-048-2",
+          "material_read": "Printed p. 250 (OA offsets 736, 993), p. 252 (8914), bibliography p. 253 (13825)",
+          "method": "Cambridge OA primary PDF passages",
+          "title": "Interpolation by Linear Sums of Harmonic Measures",
+          "trigger": "General primary source on linear sums for disjoint arcs"
+        },
+        {
+          "assessment": "Plausible historical overlap unresolved",
+          "evidence": "Excerpt describes boundary values one on the arcs and zero on complementary arcs. No statement-level comparison of Theorem 1 is warranted from that alone.",
+          "identifier_or_url": "https://doi.org/10.1073/pnas.33.1.18; https://www.jstor.org/stable/87461",
+          "material_read": "Bibliographic information and indexed opening excerpt defining the union-of-arcs harmonic measure; not the theorem text",
+          "method": "DOI/PNAS/PMC primary retrieval attempts and identified JSTOR alternate page/PDF; full text not recovered",
+          "title": "On the Location of the Critical Points of Harmonic Measure",
+          "trigger": "Same critical-point observable on unions of arcs"
+        },
+        {
+          "assessment": "Full-text comparison unresolved",
+          "evidence": "The title and citation establish relevance but not which hypotheses or conclusions apply. The frozen page range differs from Ortel's citation and was not resolved against the original.",
+          "identifier_or_url": "https://doi.org/10.1090/S0002-9904-1948-08984-4",
+          "material_read": "Bibliographic citations only, including Ortel's printed p. 253 citation",
+          "method": "DOI and official journal/PDF retrieval, repository recovery unsuccessful",
+          "title": "The critical points of linear combinations of harmonic functions",
+          "trigger": "Possible stronger general critical-point result"
+        },
+        {
+          "assessment": "Related mathematical setting, nonmatching findings",
+          "evidence": "First result's threshold concerns the optimizer at two fixed interior points; second concerns boundary-speed variance.",
+          "identifier_or_url": "Resultary:e16718e661ad; f101e09ba9b4",
+          "material_read": "Indexed finding summaries and observable descriptions",
+          "method": "Local Resultary catalogue",
+          "title": "Sharp boundary-arc splitting for simultaneous disk harmonic measures; Strict angular stability and universal soft-mode reversal for equiradial finite Blaschke products",
+          "trigger": "Potential phase-diagram matches under arc or Blaschke formulations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the natural equal-width symmetric family the exact classification identifies when all interior saddles remain on the reflection diameter, when a conjugate pair leaves it, and how collisions can occur. The discriminant has realizable strict phases with a collision in the nondegenerate admissible region, rather than merely giving a generic upper bound on the number of critical points. The antipodal formula gives an exact benchmark and isolates a width-independent triple collision. These are useful geometry and decision criteria, not a claim about all level sets or general nonsymmetric four-arc configurations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The mathematical argument proves an exact necessary-and-sufficient condition for simultaneous empirical convergence of any countable discrete Orlicz class, using weighted total-variation convergence for sufficiency and independent Borel–Cantelli plus uniform boundedness for necessity. The finite abelian group automorphism formula identifies the squared-column-size statistic, and the elementary square-partition generating product yields a \(1/3\) upper entropy exponent. An explicit disjoint family of \(2^{m-1}\) types gives the matching strict lower regime. The analytic inversion is valid for \(0<\beta<1\), with no assertion at equality. An independently executable finite exact-arithmetic script corroborates the structural automorphism and partition identities but is not used as an infinite proof.
+## correctness
 
-**Originality — PASS, subject to independent priority review.** The directly relevant 2026 primary article proves promisingness only for \(L^q\) and their positive-moment union, while the 2020 antecedent treats the unrestricted \(L^1\) obstruction and the notion of reasonable observables. A separate Orlicz-norm paper studies estimation of a fixed norm, not simultaneous Cohen–Lenstra sample averages. Neither inspected primary text states the one-third Orlicz threshold. Actual targeted semantic-record and bibliographic searches yielded no equivalent phase-boundary theorem. Risk remains from unindexed Orlicz empirical-process or weighted-partition literature; a search alone does not establish global priority.
+PASS
 
-**Mathematical value — PASS.** The motivating recent work expressly seeks a useful test class between all integrable observables and stronger moment assumptions. This theorem provides a genuinely larger class than the union of all positive-moment classes, an explicit sharp off-endpoint dividing exponent, a structural square-partition explanation, and a concrete negative sampling obstruction below it. The result is not just a reparameterization of the known \(L^q\) criterion, since the exhibited Orlicz function has no moment of order greater than one.
+On each atom x the norm of evaluation equals w_x=Φ⁻¹(1/p_x), since the one-coordinate modular bound is attained by w_x times the singleton indicator. Integrable w gives a common full-probability event via the scalar strong laws on all coordinates and on a countable finite-set exhaustion of the tails; it gives convergence even in empirical-functional norm. If E w=∞, independence and the tail-sum test imply w(X_n)/n is unbounded almost surely. Equivalently to the proof's uniform boundedness step, select increasing n_j with w(X_n_j)/n_j≥j2^j and sum the positive norm-one singleton witnesses with coefficients 2⁻ʲ. The series converges in the Luxemburg space (and evaluations converge), and its empirical means exceed j at n_j. Integrability follows from Φ≥identity. The logarithmic inverse asymptotic follows by bounding the integral on its last half and all of [0,t]. For the automorphism formula, Hom factor sizes give ℓ^S endomorphisms; reduction on G/ℓG is block triangular by cyclic-order size and invertibility requires each multiplicity block to be invertible. The correction to log |Aut| is O(√S), uniformly by the column bound. The Gaussian estimate on the square-partition product gives log N(s)=O(s^(1/3)); the disjoint binary-column families make the opposite strict side diverge. The cyclic-type witness has a summable Orlicz modular but each q-moment q>1 diverges. The endpoint is not decided.
 
-The investigation does not settle the critical endpoint, genuine arithmetic class-group equidistribution, or independent publication priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The simultaneous-law question, its L^q criterion, and the square-partition growth scale are prior. The supported distinct content is the exact countable-atom Luxemburg criterion and the resulting two-sided Orlicz threshold for Cohen–Lenstra sampling, not a new asymptotic for partitions into squares.
+
+## value
+
+PASS
+
+The exact atomic test converts a simultaneous convergence question into a checkable property of the mass distribution and controls the norm of the empirical functional when it holds. For the standard Cohen–Lenstra law this yields an explicit boundary within classes strictly beyond every positive extra power moment; the failure result is equally informative and does not contradict the scalar strong law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

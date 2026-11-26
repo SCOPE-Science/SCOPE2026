@@ -1,21 +1,21 @@
-# Scientific review: involution assignment shattering
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The central hypothesis class is **all** self-inverse permutations on \([n]\), queried by ordered position–image cells. All-positive consistency excludes conflicting cycles, while two opposite orientations of one transposition are duplicate Boolean coordinates and therefore cannot both be shattered. The only remaining obstruction is a support that covers the entire vertex set and contains a fixed-point query: negating just that loop while making every other query positive leaves one vertex with no possible partner. In all other valid cases, negative fixed-point queries can be paired internally, using a globally unused vertex if their number is odd; other unspecified vertices can be fixed. This independently reconstructs the sufficiency witness and proves every Boolean labeling is realized. Exact orientation-counting gives the bivariate exponential generating function; the facet formula and top integral class follow from the explicit face structure; the random threshold follows from a sequential product and a uniform \(m/n\) diagonal-error bound.
+PASS
 
-The actual full trace checker exhausts every ordered query support of size at most \(n\) through \(n=5\), reproducing all coefficients and facet counts. No empirical result substitutes for the uniform proofs. The finite checker and its exact output are enclosed as separate files.
+Frozen proof line 54 wrongly counts only n size-(n−1) faces for all n≥2. Direct trace enumeration of the identity and the transposition gives four singleton faces at n=2, consistent with the frozen polynomial and CHECK_OUTPUT.txt; the repair restricts the n-face count and top-class assertion to n≥3 and gives a separate size bound for VC dimension. The support criterion follows by respecting disjoint cycles under all positive answers, excluding identical opposite orientations, and negating one loop in a saturated support to strand its vertex. Conversely pair the negative-loop vertices, using one unqueried vertex if needed, and fix unused vertices; negative edges then have fixed endpoints. Orienting each chosen pair cancels the 2^e in unordered pair enumeration, and removing saturated loop cases gives the EGF. For Littlestone dimension a positive answer removes one or two vertices and the now forced coordinates cannot split any subsequent query; the base cases each contain one concept. Facets use n−1 vertices or are loop-free perfect matchings, with the stated cardinalities and counts. When n≥3 no perfect matching has n−1 cells; a size-(n−1) unsaturated face cannot have edges. The diagonal boundary therefore generates the integral top kernel (double omissions equate the signed coefficients) with no top boundaries. The disjoint-edge sampling product has log −2m(m−1)/n+O(m/n+m³/n²) in the critical range, where the chance of any diagonal is ≤m/n; the supercritical limit follows by monotone coupling. The frozen checker and captured output were read, not executed, and a separate bounded direct trace check at n=2 and n=3 corroborated the corrected boundary.
 
-## Originality (O): PASS with historical risk
+## originality
 
-The complete relevant primary manuscript of Fang–Hamaker–Troyka (2020) concerns involution pattern avoidance and enumeration, not Boolean assignment traces; Bucić–Devlin–Hendon–Horne–Lund (2019) compare perfect-matching/derangement counts, not these shattered supports; Johnson–Wickes (2021) shatter permutations in the relative-order sense, not as binary matrix cells. A separate published derangement trace theorem concerns nonsymmetric fixed-point-free permutations and gives a different criterion and limit. Direct published-finding corpus queries against involution assignments, monomer–dimer loop complexes, and random thresholds returned that derangement theorem and unrelated involution results, not the exact claim here. Comparison is by implications, not merely titles. Symmetric duplicates, diagonal saturation, all facet sizes, a top homology class and the exponent \(2\) cannot be obtained by simply replacing a derangement hypothesis with its self-inverse subfamily. Indexing under symmetric matchings or loop complexes could conceal an equivalent; independent priority confirmation remains outstanding.
+PASS
 
-## Value (V): PASS
+The correction changes no surviving large-order claim or closest-source comparison. The material distinction is the complete Boolean trace criterion for disjoint monomer and dimer queries with unrestricted involutions, including the saturated-loop obstruction, together with its quantitative and topological consequences. The nearest assignment-matrix and matching results use materially different hypothesis families.
 
-This is a natural, complete infinite-family classification for membership learning of symmetric permutation matrices. Fixed points and two-cycles form the canonical structural decomposition of involutions, and the obstruction arises precisely when every vertex is committed. The same one-line criterion determines all face counts, all facet cardinalities, the rank-one top integral homology and a sharp birthday-scale threshold. The factor-of-two difference from the unrestricted derangement sampling law isolates a concrete effect of symmetry on learning. None of these consequences is argued to follow from correctness or reproducibility alone.
+## value
 
-## Scientific limits
+PASS
 
-Lower homology and full homotopy type are not classified. Theorem assumes unrestricted fixed points and two-cycles and a complete matrix-query board; arbitrary restrictions are not covered. The threshold is for uniformly sampled distinct query cells. The full historical literature cannot be certified exhaustively and no independent audit has been performed.
+This is a natural all-order classification for query learning of symmetric permutation matrices. It identifies a precise effect of fixed points even after disjointness and symmetry have been accounted for. The same criterion determines all faces and facets, the top integral class and a sharp sampling threshold that differs measurably from the bipartite assignment model. The separate n=2 correction preserves these substantive consequences.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

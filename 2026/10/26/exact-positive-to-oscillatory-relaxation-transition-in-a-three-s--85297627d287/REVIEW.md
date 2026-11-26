@@ -1,19 +1,21 @@
-# Review of the spectral relaxation transition
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For all positive \(a,b,r,\beta\), the three roots of the displayed characteristic cubic are rigorously separated into \((-1,0)\), \((0,1)\), and \((1,\infty)\). The identity \(p(1+w)=w^2-s^2\), together with Vieta, proves the exact mode switch without asymptotic approximations. At equality the polynomial factors, giving the full spectrum. Explicit left/right Perron eigenvectors yield the claimed Markov stationary law, and a nondegenerate quadratic expansion proves the critical-window mixture and spectral coefficients. The standalone finite checker supplements but does not establish these universal facts.
+PASS
 
-## Originality
+The graph of W is primitive and its Perron normalization is similar to W/λ_+. Direct determinant expansion gives p(x)=(x−1)(x²−wx−1)−s². The signs at −1,0,1,+∞ bracket one simple root in each of (−1,0),(0,1),(1,∞). The sum of the non-Perron roots is 1+w−λ_+, with the sign of p(1+w)=w²−s², because both lower-root factors are positive at 1+w. This proves the exact modulus comparison, including which mode wins and the equality case. At w=s the factorization is (x−1−s)(x²−1+s); multiplying the corresponding positive left and right Perron coordinates gives the stated stationary law. In the window w=sτ, τ=e^(−ξ), the equation for x=1+sz is z(2z−τ+s(z²−τz))−1=0. The two near-one roots have first-order coefficients (τ±√(τ²+8))/4, with O(s²) errors in x by simplicity. Vieta gives the remaining root −1+sτ/2+O(s²). Normalization gives gap coefficients √(τ²+8)/2 and (3τ+√(τ²+8))/4; their minimum switches at τ=1. The stationary weight at state 0 tends to 1/(1+2z_+²), which is the claimed L(ξ); the remaining two weights become equal, and the transitions converge to 0→0 and 1↔2. This proves cylinder convergence to the mixture. The two maximizing components are the zero-energy fixed point and alternating orbit; the threshold concerns the selected relaxation mode, not a change in the set of maximizing measures.
 
-PASS under examined evidence for the **non-Perron spectral switch**. Garibaldi–Thieullen (2012), Section 6.1, already determines closely related zero-temperature fixed-versus-two-cycle equilibrium selection; this equilibrium-weight phenomenon is therefore identified as background, not claimed as new. Chazottes–Gambaudo–Ugalde (2009) and Jenkinson–Pollicott (2026) establish convergence or selection of equilibrium measures. None of the inspected relevant sections establishes the exact all-temperature switch of *which nonstationary eigenvalue has largest modulus* or the associated mixed-sign low-temperature relaxation scale. Searches for transfer-matrix equivalences and prior mathematical records found no decisive covering result. Residual historical-priority risk includes alternate Markov-mixing terminology.
+## originality
 
-## Value
+PASS
 
-PASS. A natural competition between two ground-state components with distinct temporal periods leads to a sharp and explicit distinction between monotone and alternating slow relaxation. The boundary holds for every positive temperature, has a closed-form tie spectrum, and coincides with a nontrivial critical crossover in the zero-temperature regime. This separates spectral relaxation from equilibrium-phase weights, which were analyzed in the earlier literature; the extra information is not implied by knowing the limiting equilibrium measure.
+The supported distinct contribution is the exact finite-temperature positive-versus-negative sub-Perron mode comparison, together with the associated normalized critical-window gap. The static ground-state competition, bridge-exponent comparison and fixed-potential selection overlap materially with prior work and are not credited as new.
 
-## Limitations
+## value
 
-The theorem addresses one specific primitive three-state graph and the spectral relaxation operator, not all observables or general multi-component shifts. The critical-window convergence fixes the scaled detuning. Earlier equivalent spectral classifications may exist under different terminology. No third-party independent validation has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This primitive Gibbs family contains the simplest competing fixed and alternating components. Equilibrium weights alone cannot identify whether the leading relaxation alternates, or on what scale the gap closes. The exact all-temperature switch together with its two different critical-window gap branches gives a motivated, useful spectral boundary. It is not merely an evaluation of stationary weights or a check of a single numerical parameter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

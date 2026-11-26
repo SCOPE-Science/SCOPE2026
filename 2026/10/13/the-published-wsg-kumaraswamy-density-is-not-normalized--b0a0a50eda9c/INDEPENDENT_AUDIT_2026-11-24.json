@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:00:07.961263Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The publisher PDF confirms Eq. (3), the cosine in Eq. (4) and in the hazard numerator, the raw-moment kernel, and the log-cosine likelihood term. For α,δ>0 the angle t=θ(y) decreases from π/2 to 0; if z=cos t, then d(ze^(1−z))/dz=e^(1−z)(1−z), and dz/dt=−sin t. This gives exactly the sine factor, with the claimed sign and prefactor. The endpoint CDF values are 0 and 1, and changing variables u=1−cos t gives unit mass ∫₀¹u e^u du. For the printed kernel use s=sin t: its mass is ∫₀¹x(s)e^x(s) ds with x(s)=1−√(1−s²). It is positive and strictly less than e(1−π/4)<1. Independent composite quadrature gives 0.3449927969472616 and 0.3449927969472641 on 4096 and 8192 panels (python /workspace/checks/independent_formula_checks.py); the non-normalization proof does not rely on numerical error estimates. The derivative-based correction does not change an inversion directly from the CDF. The supplied checker was inspected, not executed; reported software and numerical tables were not reconstructed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2026 primary article reproduces the attributed general PDF factor cos(πG/2). Substituting G(y)=1−(1−y^δ)^α gives sin θ(y).",
+          "Bounded lawful routes did not yield the 2024 generator paper's full text; the specialization comparison uses the generic formula as printed in the 2026 paper."
+        ],
+        "reasoning": "The broad generator covers the correct density formula as a special case. It does not assert that the later article printed a different factor in Eq. (4), compute the mass of that incorrect kernel, or identify the downstream displayed mismatches.",
+        "searches": [
+          "Genç–Özbilen Eqs. (2)–(4)",
+          "DOI 10.1155/2024/9593193, original weighted sine-G generator"
+        ]
+      },
+      "checked_sources": [
+        "10.3390/math14030510 publisher PDF",
+        "2026 article's citation and reproduction of the 10.1155/2024/9593193 generator",
+        "Resultary f15efc11c364, mirrored RESULT.md",
+        "Frozen RESULT.md, VERIFICATION.md and verify_density.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The correct factor follows from cos(πG/2)=sin θ, but the checked likelihood contains Σ log cos θ(y_i), and the printed hazard uses the CDF's survival with the wrong numerator.",
+          "The Weibull comparison uses a regularized incomplete gamma expression and proves mass (2/3)^m; it does not apply to this kernel."
+        ],
+        "reasoning": "The older generator implies the correct factor outright. Demonstrating the distinct inconsistency in the specialized printed expressions, including the quantitative missing mass and which procedures do and do not inherit it, is the part not covered by the checked sources.",
+        "searches": [
+          "10.3390/math14030510 Eqs. (2)–(4), (7)–(8) and (16)",
+          "Resultary f15efc11c364, mirrored finding and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Eqs. (2)–(4) specialize the same transform on the same support, but the specialized density disagrees with both the generic formula and the derivative.",
+          "The closest indexed mass-defect result, f15efc11c364, corrects a gamma-function argument in a Weibull upper-current-record density, not a trigonometric derivative in WSG-Kumaraswamy."
+        ],
+        "reasoning": "The derivative and generator-specialization checks are equivalent ways to expose this formula error. Neither the relevant literature lookup nor the inspected indexed analogue supplied a distinct correction of the same printed expressions. A query miss is not proof of absence.",
+        "searches": [
+          "Resultary: weighted sine generalized Kumaraswamy, WS-G/WSG-Kumaraswamy, Genç Özbilen, CDF–PDF derivative and cosine/sine normalization defect",
+          "Focused primary-literature lookup on 10.3390/math14030510 and the density correction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The checked original analytical formulas neither tabulate nor correct the parameter-free mass of their own cosine kernel. The indexed Weibull analogue reports (2/3)^m for its different kernel."
+        ],
+        "reasoning": "This is a normalization invariant of a misprinted continuous kernel, not a recomputation of an entry in a probability table. The integral and bound are tied to the article's actual formula; the decimal digits alone are not the novelty.",
+        "searches": [
+          "Local Resultary search for published density normalization and WSG-Kumaraswamy",
+          "10.3390/math14030510, printed PDF, moments and likelihood"
+        ]
+      },
+      "rationale": "The general weighted sine-G density mechanically implies the correct specialized factor; deriving a new generator or a new density for the same CDF is not credited as original. The supported distinct claim is the diagnosis of the published specialization and its consequences: the explicit mass of the erroneous formula and the resulting mismatches in the printed statistical procedures. No checked distinct source makes that diagnosis for this model.",
+      "residual_risks": [
+        "No separate lawful full text was recovered for the 2024 article; its exact full scope was not checked beyond the attributed formula.",
+        "A nonindexed correction or software using the correct derivative may exist; neither is ruled out by the audit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supports the formula-level correction and shows that it propagates beyond the standalone PDF.",
+          "evidence": [
+            "Eq. (3) is cos θ exp(1−cos θ), while Eq. (4) labels the cosine-prefactored kernel its density.",
+            "The hazard numerator, raw-moment integrand and Eq. (16) preserve the erroneous factor."
+          ],
+          "identifier_or_url": "10.3390/math14030510",
+          "material_read": "Publisher PDF pp. 4, 6, 8; offsets 14900–20184, 29150, 39200",
+          "method": "Publisher PDF, targeted passage reads",
+          "title": "A New Trigonometric-Inspired Probability Distribution: The Weighted Sine Generalized Kumaraswamy Model with Simulation and Applications in Epidemiology and Reliability Engineering",
+          "trigger": "Exact density, CDF, and downstream formulas"
+        },
+        {
+          "assessment": "The available general formula covers the derivative-correct factor. No assertion about uninspected portions of the 2024 paper.",
+          "evidence": [
+            "The attributed general formula contains cos(πG/2), which is sin θ for this baseline."
+          ],
+          "identifier_or_url": "10.1155/2024/9593193",
+          "material_read": "Generator as quoted and attributed in the 2026 primary article, Eq. (2); independent 2024 full text not recovered",
+          "method": "Lawful DOI and publisher access attempts; attribution and formula checked in 2026 PDF",
+          "title": "A New Sine-Based Probabilistic Approach: Theory and Monte Carlo Simulation with Reliability Application",
+          "trigger": "Prior generator invoked by the article"
+        },
+        {
+          "assessment": "Not equivalent: distinct probability object, generic formula and source-specific error.",
+          "evidence": [
+            "The Weibull record changes P(m,t/2) to P(m,t), with exact mass (2/3)^m before correction."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-the-published-weibull-upper-current-record-density-has-total-mas--f15efc11c364",
+          "material_read": "Mirrored RESULT.md offset 0, finding and start of proof",
+          "method": "Local Resultary lookup and mirror passage read",
+          "title": "The published Weibull upper-current-record density has total mass (2/3)^m, not one",
+          "trigger": "Closest indexed analogous mass-defect diagnosis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The printed mass deficit is about 65.5%, so this is not a harmless identity or an isolated typographical correction. Renormalizing the kernel by its constant mass would produce a different model: the ratio to the correct density is cot θ(y) before scaling, not a constant. Thus the CDF-based sampler and the printed likelihood/hazard need not describe the same law. The correction identifies which formulas a reproducing analyst needs to change without assuming how the published numerical results were computed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:39:53.220098Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A uniform permutation factors bijectively as a uniform word of child labels of the prescribed multiplicities and independent uniform permutations within the children. Union greedy decisions are independent in those child permutations, and every maximal independent set is a product of child maximal independent sets. At a join the first letter is i with probability n_i/n; the first accepted vertex blocks all other children, leaving the independent uniform order in child i. Every maximal independent set at a nonempty join belongs to a unique child and is maximal within it. The flat law selects these children with weights m_i/m; within each, the law is flat. Comparing conditional laws and those two child-weight vectors gives exactly the positive n_i/m_i balance condition. At unions flatness is equivalent to flat marginals, which are the independent child laws. The base case is a leaf (the stated construction starts from single vertices). Multiplication/summation of counts and cross-multiplication for balance take a constant number of arithmetic operations per child edge, not necessarily constant bit complexity. This also makes clear which output is given exactly without listing every set.",
+      "reproduction": "Read VERIFICATION.md, verification_output.txt and artifacts/verify.py; the frozen order-1 through order-6 exhaustive report is recorded evidence, not a fresh replay. Independent direct permutation counts on K2 joined to an independent pair gave 6,6,12 out of 24 orders, as predicted. The universal proof uses the shuffle bijection and induction, not finite enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fairfax-Ball gives only K1 and K2 among trees and explicitly points to the beyond-tree question. The local-limit abstract frames its results around limiting density rather than exact finite per-set laws. The classical recognition/cotree reference was identifiable, but its body was not accessible by the lawful routes tried."
+        ],
+        "reasoning": "Trees do not contain the cograph problem; the overlaps are compatible (a nontrivial connected tree cograph is a star, and the balance criterion gives uniformity only at K2). General limiting density is not the full finite law. Recognition structure alone does not assert the law, and no blanket claim about the unread recognition paper is made.",
+        "searches": [
+          "arXiv:2610.02276v1 Theorem 1.1 and §9; arXiv:1907.07216v6 scope; DOI 10.1137/0214065 cotree reference"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.07239v1",
+        "arXiv:2610.02276v1",
+        "arXiv:1907.07216v6 abstract",
+        "DOI 10.1137/0214065 access attempt",
+        "13703984bf2d",
+        "36fe61ce32de",
+        "9cd73ef8690f",
+        "c584f3577759",
+        "5d5ef8b9a7d1",
+        "7409a1c63395"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In multipartite graphs each part has m_i=1, so greedy join weights are the previously known size weights. For a clique bouquet the singleton hub competes with M vertices and P equally likely blade transversals, so join balance reduces to P=M, as its later record states."
+        ],
+        "reasoning": "The prior laws cover those restrictions; they do not give an iff condition for arbitrary alternating nested unions and joins. A general first-vertex recursion on arbitrary graphs does yield the join mixture once the blocked complement is identified, but it does not by itself give the cograph no-enumeration uniformity characterization.",
+        "searches": [
+          "arXiv:2608.07239v1 Prop. 3.8; arXiv:2610.02276v1 Theorem 1.1; Resultary threshold/multipartite and later bouquet RESULTS"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Choosing the next vertex uniformly from currently unblocked vertices has the same terminal law as random permutation greedy, by restriction of a uniform order to the allowed vertices. Proposition 3.8 of arXiv:2608.07239v1 gives a regular-independent-sets sufficient condition, not an iff theorem. At the flat law on a join the child weights are m_i/m, versus the greedy weights n_i/n."
+        ],
+        "reasoning": "The sampling formulations are equivalent, so the earlier sufficient condition is genuine overlap, not a different model. For K2 joined to two disjoint copies of K2 the exact probabilities are all 1/6 although the graph has degrees 5 and 3, violating the prior condition already at singleton sets.",
+        "searches": [
+          "Resultary: random greedy maximal independent set cograph cotree union join and fair MIS balance",
+          "arXiv:2608.07239v1 §3.2.1 and arXiv:2610.02276v1 §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Threshold 13703984bf2d gives a product law and creation recurrence; chain 36fe61ce32de gives Ferrers-corner probabilities; complete multipartite 9cd73ef8690f uses the size-biased earliest part. Same-date c584f3577759 treats clique coronas and 5d5ef8b9a7d1 treats cycles. Later 7409a1c63395 treats clique bouquets."
+        ],
+        "reasoning": "Threshold and complete multipartite cases are genuine exact-law subfamilies, not cograph-wide statements. Chain graphs use a different classification and can contain induced P4. Clique corona cographs require the core to be edgeless; the cycles that are cographs are only C3 and C4. The later bouquet balance is exactly this test with M=sum blade sizes and P=product blade sizes, for one specific cotree.",
+        "searches": [
+          "Resultary cograph cotree terminal-law and exact-uniformity comparison; opening results for threshold graphs, chain graphs, complete multipartite graphs and nearby uniformity records"
+        ]
+      },
+      "rationale": "The law coincides with independently stated exact laws on several subclasses and with a known sufficient criterion where that criterion applies, but the exact all-cograph cotree law and iff test are not covered by the compared statements. The probability recurrences are natural decomposition facts; their novel use here is a complete decision and probability rule on the whole hereditary class, including uniform graphs outside the older sufficient criterion.",
+      "residual_risks": [
+        "A modular-decomposition or folklore formulation may imply the full criterion; the recognized cotree primary source was not available for body inspection.",
+        "Same-date catalogue labels do not establish priority; limited earlier and later specializations are counted as overlaps to their actual scope."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent process, sufficient condition only",
+          "evidence": [
+            "Regular independent sets suffice for uniformity; irregular uniform cograph witness lies outside this condition."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2608.07239v1",
+          "material_read": "§3.2.1, Proposition 3.8, pp. 22–23, text offsets 69200–72133",
+          "method": "Bounded original OA passage",
+          "title": "Kryven, Versendaal and de Vries, iterative MIS and fair sampling",
+          "trigger": "Possible general fair-MIS theorem for the same random process"
+        },
+        {
+          "assessment": "Tree classification and recommendation beyond trees; not full cograph coverage",
+          "evidence": [
+            "Uniform trees iff K1 or K2; equivalence of uniform order and unblocked iterative choice."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.02276v1",
+          "material_read": "Theorem 1.1 p. 1, §3 p. 3, §9 p. 9; offsets 3510, 9620, 29470",
+          "method": "Bounded original OA passages",
+          "title": "Greedy Uniformity on Trees: Exact Obstruction and Near-Uniform Spiders",
+          "trigger": "Same law and exact uniformity"
+        },
+        {
+          "assessment": "Asymptotic-density focus; full-body coverage not adjudicated",
+          "evidence": [
+            "Focus on greedy density and local convergence."
+          ],
+          "identifier_or_url": "arXiv:1907.07216v6; DOI 10.1002/rsa.21200",
+          "material_read": "Abstract, p. 1 offset 0",
+          "method": "OA scope comparison only",
+          "title": "Greedy maximal independent sets via local limits",
+          "trigger": "Broad greedy MIS distribution precedent"
+        },
+        {
+          "assessment": "Unresolved body coverage, no inference from inaccessibility",
+          "evidence": [
+            "The title and citation locate the recognized cotree structural precedent."
+          ],
+          "identifier_or_url": "DOI 10.1137/0214065",
+          "material_read": "Citation identification only; article body unavailable",
+          "method": "Lawful SIAM page and PDF attempts returned 403; no identified OA repository copy",
+          "title": "A Linear Recognition Algorithm for Cographs",
+          "trigger": "Structural precedent and possible cotree law"
+        },
+        {
+          "assessment": "Genuine partial and adjacent coverage",
+          "evidence": [
+            "Creation product, Ferrers-corner law and size-biased earliest part respectively."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-exact-random-greedy-independent-set-law-on-threshold-graphs--13703984bf2d; 2026/10/4/SCOPE-exact-random-greedy-maximal-independent-set-law-on-chain-graphs--36fe61ce32de; 2026/9/19/SCOPE-random-greedy-mis-variance-complete-multipartite--9cd73ef8690f",
+          "material_read": "Each RESULT.md Finding, offset 0",
+          "method": "Resultary and bounded local mirror passages",
+          "title": "Threshold, chain, and complete multipartite exact greedy laws",
+          "trigger": "Potential catalogue overlap on subclasses"
+        },
+        {
+          "assessment": "Small cograph intersections in the first two, covering a restricted cotree in the later bouquet result",
+          "evidence": [
+            "Edgeless core iff clique-corona uniformity; cycle uniformity at n=3,4,5,7; bouquet balance P=M."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-random-greedy-thinning-and-exact-uniformity-obstruction-for-cliq--c584f3577759; 2026/10/13/SCOPE-exact-random-greedy-output-laws-and-uniformity-exceptions-for-cy--5d5ef8b9a7d1; 2026/10/18/SCOPE-exact-greedy-law-balance-and-infinite-non-equicardinal-uniform-c--7409a1c63395",
+          "material_read": "Finding passages for thinning, cycle gaps, and bouquet hub/transversal law",
+          "method": "Resultary and bounded local mirror passages",
+          "title": "Clique-corona and cycle greedy laws; clique-bouquet exact balance",
+          "trigger": "Same-date and later plausible exact classifiers"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives a complete iff decision and exact individual-output laws across a canonical hereditary class without enumerating maximal sets to test uniformity. Comparing counts and vertex masses gives structural insight not captured by the old sufficient condition or by output-size statistics: K2 joined to two disjoint K2s is irregular and uniform despite outputs of different cardinalities. The short decomposition proof yields an exact algorithm on an unrestricted class rather than a tabulated case.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

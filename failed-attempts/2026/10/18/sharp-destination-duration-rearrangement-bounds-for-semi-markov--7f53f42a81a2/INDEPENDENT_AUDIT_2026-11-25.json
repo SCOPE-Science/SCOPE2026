@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:08:45.210456Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:5–44",
+        "VERIFICATION.md:19–23",
+        "verify.py:26–84"
+      ],
+      "rationale": "At visit n the expected holding-time contribution is P^n μ, so Tonelli gives the coupling-independent finite mean Nμ. The second moments of passage sums truncated at n visits satisfy the displayed renewal recurrence with the truncated first moment on the right. They are bounded by N(ν+2||m||∞ μ); monotone convergence permits passing to the second-moment equation and solving it. At each row, write X=H_i, Y=m_{J_i}; integrating the joint survival function computes E[XY]. At fixed thresholds s,t with marginal tail probabilities p,q, the Fréchet bounds max(0,p+q−1) and min(p,q) hold, and quantile reversal or alignment attains them at every threshold simultaneously, also for atoms. If both laws are nonconstant, there are positive-length threshold intervals for each on which p,q are in (0,1), so the integrated gap is strictly positive. N_{ik}>0 exactly when k is reachable from i among transient states (including the start). Thus the condition at line 23 means the interval has positive width, not that no kernel attains the endpoints. Pooling equal destination means or splitting their quantile intervals gives the same extrema. Fresh rowwise kernel mixtures interpolate the variance because μ and ν are fixed. Independently recomputed the continuous example by conditioning on the two branches: sorted branches have variance 1/12, with conditional mean separation 0 or 2, giving 1/12 and 13/12; the independent kernel has within-branch variance 1/3 and separation 1, giving 7/12. The uploaded exact feedback script was inspected, not executed; its enumeration is not a continuum proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general comonotone maximum and bivariate countermonotone minimum apply to the supermodular product of two real variables, using generalized inverses and not requiring atom-free laws."
+        ],
+        "reasoning": "Specialize the second marginal to the finite distribution of m_{J_i}. The general theorem supplies exactly the local extremizers, including ties and atoms. Choosing the quantile cell determines the destination without any network-wide compatibility constraint.",
+        "searches": [
+          "Puccetti–Wang, arXiv:1512.03232v3, Theorems 2.1 and 3.1: extremal dependence and supermodular expectations"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.13505v1",
+        "arXiv:2603.26414v1",
+        "arXiv:1512.03232v3",
+        "Resultary 7880c43ebd00, 05227e9ada16, bbc2b636e783 (indexed summaries)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fixed row laws freeze both moment vectors and m. All variable dependence is the one product expectation per row in h=N(ν+2a).",
+          "An entrywise nonnegative linear map sends the componentwise local extrema to simultaneous network extrema; convex mixing gives intermediate values before or after applying that map.",
+          "The strict gap is the integral of the pointwise Fréchet gap at interior tail probabilities, propagated by a positive N_{ik}."
+        ],
+        "reasoning": "Once the prior moment recursion is expressed in its rowwise form, no path optimization is left. The rest is direct specialization of the classical coupling bounds and positive linearity. Allowing self-loops or a general finite transient matrix changes neither recurrence nor coupling step; the Neumann series makes the extension immediate. No new step in the stated strictness or attainability survives that reduction.",
+        "searches": [
+          "Voits Theorem 15 and Le et al. Theorem 2 vs. RESULT.md:31–42",
+          "Puccetti–Wang Theorems 2.1 and 3.1 vs. RESULT.md:9–23,40–42"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Voits gives joint next-state/holding-time measures Q_ij, with unconditional law the row sum, and hitting-time moment formulas.",
+          "Le et al. use W(i,j)=H(i,j), the holding time before the transition to j; their weighted first-passage second moment includes the edge-conditioned mean times the remaining mean."
+        ],
+        "reasoning": "In the alternative reward formulation, p_ij times the conditional reward mean is E[H_i 1_{J_i=j}]. Summing against the destination means gives precisely a_i, and the sum of edge-weighted conditional second moments is the fixed ν_i. These are the same inputs to the renewal moment formulas, even though the papers do not ask for the fixed-marginal optimization.",
+        "searches": [
+          "arXiv:2610.13505v1, Definition 1 and Theorem 15: semi-Markov kernel and moment representation",
+          "arXiv:2603.26414v1, Sections 2.1–2.2 and Theorem 2: random traversal rewards"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "7880c43ebd00 indexes a flux/mean lower bound for first-passage variance, not extrema over fixed row marginals.",
+          "05227e9ada16 indexes fixed-kernel versus horizon-dependent reachability; bbc2b636e783 indexes a restart/catastrophe envelope under a success constraint."
+        ],
+        "reasoning": "The indexed summaries concern different optimization parameters; no exact record match was established. Local mirror full texts were unavailable, and no order is inferred from a same-day match. A numerical table is not applicable to the all-network symbolic theorem.",
+        "searches": [
+          "Resultary semantic search for semi-Markov first-passage variance, fixed holding marginals and sharp dependence bounds"
+        ]
+      },
+      "rationale": "The claimed envelope, simultaneity, attainable interval, and width are direct consequences of the known semi-Markov reward moment formula and classical fixed-marginal rearrangement; no distinct remainder requiring an additional network theorem was established. This is evidence of prior implication, not a claim that an examined source prints the identical network formulation. Inaccessible papers do not drive the finding.",
+      "residual_risks": [
+        "No priority is assigned to the exact composite formulation. Related indexed full texts and two cited earlier publications were not readable in the attempted copies."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior semi-Markov moment layer; no self-loops in the graph definition, no fixed-marginal optimization claim read",
+          "evidence": [
+            "The measures Q_ij record duration jointly with the next state and sum to the unconditional holding law. Theorem 15 computes passage moments under the stated rooted-tree and moment assumptions."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.13505v1",
+          "material_read": "Definition 1, HTML offset 11286; Theorem 15, offset 68435",
+          "method": "OA primary HTML passages",
+          "title": "Graph-theoretic framework for semi-Markov networks: transient and stationary occupation probabilities, hitting times and weak ergodicity breaking",
+          "trigger": "Same joint transition/holding kernel and passage moments"
+        },
+        {
+          "assessment": "Prior edge-conditioned reward moments; irreducible model and a different optimization question",
+          "evidence": [
+            "It expressly includes transition-conditioned holding times as random traversal costs and gives a weighted passage second moment."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2603.26414v1",
+          "material_read": "PDF Sections 2.1 and 2.2, pp. 3–4; Theorem 2, p. 8",
+          "method": "OA paper passages at offsets 12500,18100,33779",
+          "title": "Random Walks with Traversal Costs: Variance-Aware Performance Analysis and Network Optimization",
+          "trigger": "Possibly equivalent reward-model second moment"
+        },
+        {
+          "assessment": "Directly covers the local quantile formulas after identifying the reward variable",
+          "evidence": [
+            "Comonotonicity maximizes supermodular expectation; countermonotonicity minimizes it in dimension two. Products are supermodular."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1512.03232v3",
+          "material_read": "Theorem 2.1, p. 8, offset 30800; Theorem 3.1, p. 11, offset 42550",
+          "method": "OA primary PDF passages",
+          "title": "Extremal Dependence Concepts",
+          "trigger": "General theorem covering the rowwise optimization"
+        },
+        {
+          "assessment": "No coverage finding based on these unavailable texts",
+          "evidence": [],
+          "identifier_or_url": "Glasserman–Yao (2004), J. Appl. Probab. 41, 321–332; Butler–Bronson, doi:10.1111/1467-9868.00323",
+          "material_read": "No readable OA text retrieved in the attempted copies",
+          "method": "Bounded lawful OA retrieval attempts",
+          "title": "Optimal couplings are totally positive and more; Bootstrapping Survival Times in Stochastic Systems by Using Saddlepoint Approximations",
+          "trigger": "Frozen citations to earlier coupling and semi-Markov passage theory"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:29–48",
+        "arXiv:2610.13505v1 Theorem 15",
+        "arXiv:1512.03232v3 Theorems 2.1 and 3.1"
+      ],
+      "rationale": "The fixed-marginal sensitivity question is useful and the example illustrates a real effect. As a standalone scientific finding, however, the envelope reduces directly to classical two-variable coupling applied to the existing linear moment formula. The extra exact statements use only positivity and mixture linearity, and the example is a two-branch substitution rather than an independent unresolved invariant. The package is useful exposition, but does not establish a separate valuable result beyond the direct deduction.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

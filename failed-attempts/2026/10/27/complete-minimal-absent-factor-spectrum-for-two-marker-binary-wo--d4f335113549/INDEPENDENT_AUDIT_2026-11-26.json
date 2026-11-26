@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:13:38.781827Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a missing word both one-letter end truncations must occur, which is sufficient for proper contiguous factors. A zero-only obstruction is one past the longest gap. One-one factors form the union of the rectangles [0,a]x[0,b] and [0,b]x[0,c]; the axial missing points need the zero-only truncation to occur and the only possible interior corner arises when the rectangles are incomparable. With two ones the bare-core obstructions are all gaps k<=max(b,min(a,c)) except b, and a flanked obstruction can only extend the unique two-one occurrence past one end by one zero, subject to its other truncation occurring. Three ones without wings force both gaps to be b and demand a,c>=b; four ones cannot pass either necessary end test. At b=0 the same reasoning includes the word 111 and works also when the alphabet letter zero is missing. Counting gives the stated three cases. Subtracting each count from n gives respectively a+c, q+b-1-1_{a!=c}, and m+q-1; their zero sets give precisely the stated equality cases. For the series one can sum b+2 over all triples and add corrections. The mixed chamber m<=b<q gives 2z/[(1-z)(1-z^2)(1-z^3)]. In b<m put a=b+1+i,c=b+1+j; the correction is 2+min(i,j)+1_{i!=j}. Its series is z^2/(1-z^3) times [3/(1-z)^2 + z^2/((1-z)^2(1-z^2)) - 1/(1-z^2)]. Together with the base term 2/(1-z)^3+z/(1-z)^4 this yields the stated rational numerator. Its pole at 1 has leading coefficient 7/6 and all other poles are simple; dividing the coefficient asymptotic by binom(n,2) gives (7/18)n+O(1). Independent /workspace/branches/audit_word_obstructions.py checks 2925 words of length 2–26 by actual substring membership, including all small extremizers and 25 series coefficients. The universal claims are established by the symbolic reasoning, not the finite replay.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "7e5197bef568 classifies the positive four-run family 0^A1^D0^B1^E with count D+B+(1+1_{A>B})(1+1_{E>D}); setting D=E=1 gives B+2+1_{A>B}, the frozen terminal-zero-gap boundary with A,B positive, also covering its reversal.",
+          "The RLE paper partitions and enumerates general contiguous MAWs; the suffix-array paper gives a linear-time algorithm for fixed alphabets."
+        ],
+        "reasoning": "The four-run theorem overlaps only on a boundary, not on the full family where both terminal gaps can be positive or where the ones are adjacent. The general algorithms alone supply computability, not exact symbolic coverage. The decisive indexed comparison treats the same two-marker host.",
+        "searches": [
+          "Resultary 7e5197bef568, four-run antidictionaries",
+          "Akagi et al., CPM 2022 paper 27, abstract and introduction",
+          "Barton et al., arXiv:1406.6341, abstract and MAW definition"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e744971e8c41 and 7e5197bef568",
+        "arXiv:1806.02718 §3",
+        "arXiv:1406.6341 abstract",
+        "Akagi et al., CPM 2022 paper 27, introduction",
+        "Frozen RESULT.md and VERIFY.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed Step 1 uses the longest zero run, Step 2 uses the two inclusive rectangles, Step 3 tests k!=b and the missing wings, and Step 4 tests a,c>=b for the three-one word. None of these tests requires b>0; at b=0 the core exclusion is just k=0 (11), and 111 always passes.",
+          "Having the exact count, n minus the count is an elementary expression in each chamber. The sum of b+2 plus the two chamber corrections reduces to geometric sums as shown in the correctness check."
+        ],
+        "reasoning": "Dropping the positive-gap restriction in that proof preserves every template, including all zero-gap degeneracies, with no new structural case. Equality is checked by the three explicit nonnegative gaps to n. The finite-size mean refinement is then straightforward generating-function arithmetic on that same counted family. The distinct record does not print those refinements, but their derivation does not go beyond the known structure.",
+        "searches": [
+          "Resultary e744971e8c41, Steps 1–5 and indicated hypotheses",
+          "Frozen RESULT.md three-case count, equality and rational generating series"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "e744971e8c41 defines U=max(a,b), V=max(b,c), L=max(a,b,c), and K=min(U,V). Its one-one axial indicators use L>U and L>V, its inner corner uses (a-b)(c-b)>0, and its two flanks and three-one term have exactly the frozen conditions. Its proof lists the actual templates under b>=1.",
+          "Charalampopoulos et al. identify the same witness a_2 a_1^(n-2) a_2, with at least n-2 absent words of the form a_2 a_1^k a_2."
+        ],
+        "reasoning": "Taking a_1=0,a_2=1 gives the known extremal candidate, not proof of its extremality. Replacing K by max(b,min(a,c)) and separating the indicated events into the three gap chambers collapses the indexed indicator formula to the frozen piecewise law. This is genuine formula-level overlap rather than just a common witness.",
+        "searches": [
+          "Resultary: two-marker binary minimal absent factors, exact count, extremizers and fixed-weight mean",
+          "Resultary e744971e8c41, Finding and Proof Steps 1–4",
+          "arXiv:1806.02718 §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "e744971e8c41 gives an exact count formula and full templates for every separated pair of markers, not a finite example table; its limiting distribution for M/n has mean 7/18.",
+          "The inspected sources do not state the exact rational first-moment series or the short-length equality lists as such. The published witness lower bound is not a table of exact maxima."
+        ],
+        "reasoning": "Complete parametric data for the separated regime count as exact coverage. The adjacent boundary and aggregate formulas need implication checks rather than conflating an asymptotic moment with a rational series or witness with a maximum.",
+        "searches": [
+          "Resultary: closed fixed-weight-two count, length mean series, and maximum exceptions; e744971e8c41 and 7e5197bef568",
+          "Charalampopoulos et al. arXiv:1806.02718 §3, PDF p. 6"
+        ]
+      },
+      "rationale": "Distinct indexed result e744971e8c41 already gives the exact two-marker antidictionary and equivalent cardinality on the entire separated-marker regime and a stronger limiting distribution there, including the same limiting slope. Its structural proof extends unchanged to b=0. The exact series and equality classification were not found as quoted statements, but follow by routine geometric sums and elementary inequalities from the same exact templates. The decision is about overlap and implication, not a priority assertion from catalogue dates.",
+      "residual_risks": [
+        "No priority inference between the two distinct indexed records; the mathematical comparison is statement- and proof-level.",
+        "The Almirantis et al. full-text lead was not resolved and broader unindexed coverage may exist. Neither is needed for the positive evidence of overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact separated-case coverage; the proof mechanically extends to the adjacent case",
+          "evidence": "States all eight contributions and identifies every template in the proof for a,c>=0,b>=1; gives the entire scaled limiting law with first moment 7/18.",
+          "identifier_or_url": "2026/11/8/SCOPE-minimal-absent-factors-of-two-marker-binary-words-exact-counts-a--e744971e8c41",
+          "material_read": "Mirrored RESULT.md from offset 0 through 5557, Finding, scope and Proof Steps 1–5, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary and primary mirror offsets",
+          "title": "Minimal absent factors of two-marker binary words: exact counts and a limit law",
+          "trigger": "Exact same-family indicator law and conditional mean"
+        },
+        {
+          "assessment": "Exact count on the positive four-run specialization, not the general two-marker result",
+          "evidence": "For positive run lengths the stated formula specializes to B+2+1_{A>B} at 0^A1 0^B1.",
+          "identifier_or_url": "2026/10/26/SCOPE-four-run-binary-antidictionaries-an-exact-classification-and-gen--7e5197bef568",
+          "material_read": "Mirrored RESULT.md Finding at offset 0",
+          "method": "Resultary and primary mirror",
+          "title": "Four-run binary antidictionaries: an exact classification and generating function",
+          "trigger": "Boundary subset of the two-marker formula"
+        },
+        {
+          "assessment": "Credits the witness and linear lower bound, not the exact fixed-weight classification",
+          "evidence": "For x=a_2 a_1^(n-2) a_2 lists a_2 a_1^k a_2 for 0<=k<=n-3 as minimal absent.",
+          "identifier_or_url": "https://arxiv.org/abs/1806.02718",
+          "material_read": "Section 3, PDF p. 6, near offset 25200",
+          "method": "OA original PDF",
+          "title": "Alignment-free sequence comparison using absent words",
+          "trigger": "Published use of the identical candidate maximizing word"
+        },
+        {
+          "assessment": "General algorithm rather than exact gap law",
+          "evidence": "Defines the same factor minimality and a linear-time/space suffix-array method.",
+          "identifier_or_url": "https://arxiv.org/abs/1406.6341",
+          "material_read": "Abstract p. 1, near offset 1400",
+          "method": "OA original PDF",
+          "title": "Linear-time Computation of Minimal Absent Words Using Suffix Array",
+          "trigger": "General characterization and computation"
+        },
+        {
+          "assessment": "RLE classes and reporting, not exact coverage relied upon here",
+          "evidence": "Partitions minimal absent words into RLE-based classes and presents reporting bounds and a data structure.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.CPM.2022.27",
+          "material_read": "Abstract and Introduction pp. 1–2",
+          "method": "OA original proceedings PDF",
+          "title": "Minimal Absent Words on Run-Length Encoded Strings",
+          "trigger": "Potential broader symbolic classification via RLE"
+        },
+        {
+          "assessment": "Unresolved, not used to infer coverage or its absence",
+          "evidence": "No specific theorem from this paper is credited as evidence in the decision.",
+          "identifier_or_url": "https://doi.org/10.1186/s13015-017-0094-z",
+          "material_read": "Bibliographic citation and description in comparator only; no readable decisive full-text passage retrieved",
+          "method": "Lawful DOI recovery and publisher-PDF retrieval attempt",
+          "title": "On avoided words, absent words, and their application to biological sequence analysis",
+          "trigger": "Cited as discussing extremal examples with outer markers"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The two-marker contiguous antidictionary is a natural structural problem, but its identified templates and count already explain the phenomenon. Extending the same tests to adjacent markers and applying geometric sums and elementary equality checks produces useful closed expressions, not an independently substantive uncovered finding under the value criterion. In particular the known limiting slope is not a new effect and the remaining exact-series arithmetic does not require any additional structural or computational discovery. No genuine repair is warranted on the evidenced remainder.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

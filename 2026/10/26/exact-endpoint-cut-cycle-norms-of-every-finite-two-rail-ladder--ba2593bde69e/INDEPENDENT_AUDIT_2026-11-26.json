@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:03:02.822954Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–124, VERIFICATION.md, check_ladder_endpoint.py inspected but not executed",
+        "python3 /workspace/branches/endpoint-audit.py — 209 exact grounded-Laplacian edge-column checks, including n=2 equality and n=3,4 comparisons"
+      ],
+      "rationale": "On a rung source only the antisymmetric mode survives. The path operator L+2I has endpoint diagonals 3 and interior diagonals 4; its reflected geometric Green function gives A and B, and the column sum is 1/2. Strict rise and fall about the diagonal make the two rail variations telescope. For a rail dipole g=R(e_j−e_{j+1}), the two monotone sign intervals give off-source rail variation u+v−ℓ−t; summing the defining equations over one side gives the rung total 1−u−v. At the driven interval the combined rail total is max(1,u+v)=1 because the shifted inverse is strictly smaller than the path inverse on the mean-zero subspace. Subtracting twice the source diagonal and adding one then gives the cycle column. The adjacent-rung differences have the asserted strict inward signs for n≥3; the cut beats rail columns via H_c>2 for n≥5, and the cycle beats them via u+v>1/3 and H'_c>5/3 for n≥4. The small graphs and equality sets were checked exactly. At a common maximizing rung the gap is 4A−1≥2/√3−1>0. B>0 makes the cycle bound strict, and the cut-bound numerator is at most (r²−1)(x+y)<0 by x²+y²,2x²y²≤x+y. The central boundary factors vanish as n increases, proving sharpness and nonattainment. Symmetry gives both endpoints; orientation only conjugates by signs.",
+      "residual_risks": [
+        "Finite corroboration through n=12 does not prove the arbitrary-length claims; those rest on the recurrence and strict inequalities above."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The weighted result states the rung-to-rung transfer-current block and rung-indicator probabilities, not all cycle edge-source column norms.",
+          "The graph-general routing estimates and the cited treatment of invariant/minimal projections do not give this exact paired classification in the material inspected."
+        ],
+        "reasoning": "Weighted Green data include an input at weight one; calculating the globally maximizing cycle column still requires absolute variations and comparison with rail sources.",
+        "searches": [
+          "Resultary 647fc3f7ee8c finite-volume weighted rung kernel",
+          "Dilworth–Kutzarova–Ostrovskii arXiv:2305.12582",
+          "Kelner–Maymounkov arXiv:0909.2859"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 78e4763146bb, 647fc3f7ee8c, 4b41a971d62b (summary only)",
+        "arXiv:0909.2859, arXiv:2305.12582",
+        "Frozen relationship-to-prior-work section"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For each edge the cycle column sum is q_e+1−2Q_ee, but Q_ee varies between rails and rungs and along a ladder.",
+          "The strongest matching Finding supplies the winning cut column and envelope, not the effect of that diagonal penalty on competing cycle columns."
+        ],
+        "reasoning": "Subtracting a nonconstant diagonal correction does not commute with maximization; the cycle rail bound, strict equality-set comparison, and consequent simultaneous sharp bounds establish the distinct part.",
+        "searches": [
+          "78e4763146bb mirrored RESULT.md",
+          "647fc3f7ee8c mirrored RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The later Finding uses edge-by-vertex incidence B and BL⁺Bᵀ, exactly Q with B=Dᵀ.",
+          "Symmetry equates maximum absolute row and column sums; the same cut extremizers are described.",
+          "The routing theorem bounds a competitive ratio by a weighted projection norm rather than evaluating these two norms."
+        ],
+        "reasoning": "Cut norm and electrical projection descriptions agree here, whereas an optimal arbitrary projection or a general routing bound is a different statement.",
+        "searches": [
+          "Resultary finite ladder endpoint norms and electrical projection norms",
+          "Resultary 78e4763146bb",
+          "arXiv:0909.2859 Theorem 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "78e4763146bb states the cut formula, central-rung equality case and unattained envelope 1+2/√3.",
+          "647fc3f7ee8c has exact rung kernel rather than a cut–cycle norm catalogue.",
+          "4b41a971d62b is about internally disjoint parallel-path networks; full text was not verified."
+        ],
+        "reasoning": "The direct family hit is real cut coverage; the full paired statement was not found in the inspected text.",
+        "searches": [
+          "Local Resultary searches on finite-ladder endpoint norms and electrical projection norms",
+          "78e4763146bb and 647fc3f7ee8c full-text findings",
+          "4b41a971d62b catalogue summary"
+        ]
+      },
+      "rationale": "The cut-norm half is demonstrably covered by the distinct November 2 Resultary entry, including its exact extremizers and sharp envelope. I credit that coverage rather than treating the cut formula as a distinct new fact; the entry date does not establish prior discovery. The supported distinct content of the paired finding is the exact cycle endpoint norm and its equality set, its sharp nonattained supremum, and the resulting strict all-length cut–cycle comparison. Neither the strongest matching cut theorem nor the earlier rung kernel settles the requisite cycle rail-column test by its statement.",
+      "residual_risks": [
+        "The cut overlap is verified, but provenance and priority are not inferred from catalogue dates.",
+        "A focused primary search did not yield a more relevant paper; requested full texts by Klenke and Tan timed out. This does not exclude an unlocated equivalent cycle classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material exact overlap for cut, not the cycle finding",
+          "evidence": "Same projection, central rungs except the four-cycle, and sharp unattained envelope.",
+          "identifier_or_url": "Resultary 2026/11/2/78e4763146bb",
+          "material_read": "Mirrored RESULT.md offsets 0–5942 and 5942–10871, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary and mirror passage comparison",
+          "title": "Central-rung dominance and exact edge projection constants on finite ladders",
+          "trigger": "Exact cut-norm and equality-set hit"
+        },
+        {
+          "assessment": "Related kernel, not global edge-projection norms",
+          "evidence": "The finding is stated for rung indicators and their transfer-current kernel.",
+          "identifier_or_url": "Resultary 2026/10/4/647fc3f7ee8c",
+          "material_read": "Mirrored Finding and scope, offset 0",
+          "method": "Local mirror passage comparison",
+          "title": "Exact finite-volume rung kernel and boundary-bulk split for weighted ladder spanning trees",
+          "trigger": "Potential stronger weighted coverage"
+        },
+        {
+          "assessment": "General bounds, not exact ladder classification",
+          "evidence": "Competitive-ratio bound involving a weighted edge projection.",
+          "identifier_or_url": "arXiv:0909.2859",
+          "material_read": "Theorems 1.1–1.2, pp. 2–3 offset 6501; Theorem 3.1, p. 7 offset 21655",
+          "method": "OA PDF passages",
+          "title": "Electric Routing and Concurrent Flow Cutting",
+          "trigger": "Equivalent electrical-routing formulations"
+        },
+        {
+          "assessment": "Related framework, no open-ladder statement in inspected material",
+          "evidence": "Minimal cycle projections and families such as discrete tori and Hamming graphs.",
+          "identifier_or_url": "arXiv:2305.12582",
+          "material_read": "Abstract p. 1 offset 447",
+          "method": "OA PDF abstract only",
+          "title": "Cycle spaces: invariant projections and applications to transportation cost",
+          "trigger": "Closest published projection setting"
+        },
+        {
+          "assessment": "Unresolved access risk",
+          "evidence": "No negative inference made.",
+          "identifier_or_url": "arXiv:1704.00182",
+          "material_read": "Targeted full-text retrieval timed out; no passage relied on",
+          "method": "Attempted OA retrieval",
+          "title": "The Random Spanning Tree on Ladder-like Graphs",
+          "trigger": "Possible transfer-current overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§2–6",
+        "Resultary 78e4763146bb and 647fc3f7ee8c"
+      ],
+      "rationale": "The ladder is the basic boundary-bearing two-rail network. The exact cycle maximum with a strict equality set and the uniform positive gap from the cut norm are useful benchmark invariants for absolute electrical localization. The two orbit calculations and the rail-versus-rung cycle inequality are not a routine consequence of the known rung resistance or cut envelope.",
+      "residual_risks": [
+        "No conclusion is supported about optimal nonorthogonal projections, arbitrary weights or wider strips."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

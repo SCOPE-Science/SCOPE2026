@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:32:47.233552Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md; VERIFICATION.md; verify.py, verify_family.py, verify_fast.cpp and verify_independent.cpp inspected",
+        "Independent replay with NumPy: python3 /workspace/reproductions/2.py 3 12 and python3 /workspace/reproductions/2.py family; output files 2-counts-3-10.txt, 2-counts-11.txt, 2-counts-12.txt, 2-family.txt in /workspace/reproductions/"
+      ],
+      "rationale": "I reimplemented the complete search by inserting positions into existing partition blocks or a new block, which represents every word up to renaming exactly once with no cap on the number of symbols beyond its length. The independent scorer enumerates every interval using vectorized lag-equality masks, takes the first matching period p<=length/2, tests both one-place extensions, and sums exact integer weights scaled by lcm(1,...,floor(n/2)); at n<=12 both masks and scores stay within their integer types. It discards an original word only if its score is zero or a merge has at least its original score, so short-circuiting cannot miss a witness. Counts for lengths 3–12 were 1, 7, 36, 171, 813, 4012, 20891, 115463, 677546 and 4211549; exactly one survivor at 12, 001101121122, and none earlier. Lengths below three cannot use three symbols. A separate literal slice-based scorer reproduced the four full run lists for each k=2–9. If all non-tail symbols are within positions 1 through T, each complete period block of a nonconstant run must have a non-tail symbol. The first two blocks give p<=T-1 and the final one gives an endpoint <=T+p-1<=2T-2. Here T<=10 in all four families. Thus the nonconstant runs stabilize in the common prefix ending at 18, without a maximality change beyond it; only the terminal constant run grows. This establishes the exact infinite-family scores and every strict inequality without extrapolation. Reversal was not used as an equivalence.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Czarkowski compares global maxima for binary and general alphabets and adapts bounding techniques using relative letter order.",
+          "Crochemore et al. give a global lower bound using a binary-word family."
+        ],
+        "reasoning": "Global statements quantify over an optimizing word or a witness family. They do not assert or characterize preservation of the score of a given word under a one-pair quotient; the alphabet comparison therefore does not give a broader theorem containing this obstruction.",
+        "searches": [
+          "Czarkowski CPM 2026 article 23, abstract, p. 3 and general-alphabet §3.5 p. 11; Crochemore et al. arXiv:1003.4866 pp. 1–2"
+        ]
+      },
+      "checked_sources": [
+        "Czarkowski CPM 2026 article 23; Crochemore et al. arXiv:1003.4866; Resultary 55435d4f9d79, 8616b2a98e55 and 64727c489f70"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known inclusion inequality sigma(n)>=sigma_2(n) follows from the host classes. It imposes no monotonicity on the run score of any fixed host under one pairwise identification.",
+          "The prior binary constructions start with two symbols; they cannot be specialized to a ternary all-pairs obstruction. Neither the global bounds nor the nearest catalogue coarsening result determines the exact length cutoff or uniqueness."
+        ],
+        "reasoning": "The frozen enumeration checks a new local statement and the suffix proof extends it. Its conclusions should not be promoted to a theorem about a score-maximizing unrestricted word.",
+        "searches": [
+          "Compare the all-pairs strict-decrease predicate to the primary papers' exact definitions of sigma(n), sigma_2(n) and binary witness scope; broad primary-literature lookup on runs, exponents and alphabet identification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest letter-coarsening record, 64727c489f70, uses moments of scattered occurrence counts in a random host, not the deterministic sum of exponents of contiguous least-period runs.",
+          "Here a one-pair quotient of the set of occurring letters is considered; renaming the quotient symbols changes neither the runs nor the score."
+        ],
+        "reasoning": "Relabeling the merged symbols gives an equivalent check, but switching from the run score to a random scattered-count statistic changes both the objects and the predicate.",
+        "searches": [
+          "Resultary: exact pattern 001101121122; alphabet identification/letter coarsening/merging symbols for maximal runs and sum of exponents"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed exact formulas concern binary words with exactly two or exactly three occurrences of 1, respectively. The latter maximization applies at n>=13.",
+          "No exact first-obstruction record was identified among the inspected ranked hits for the pattern; this does not establish catalogue absence."
+        ],
+        "reasoning": "The fixed-composition formulas cannot classify the original words on arbitrary occurring alphabets, nor compare all three merges of the displayed ternary family.",
+        "searches": [
+          "Resultary ranked exact-pattern and run-exponent searches; same-statistic records 55435d4f9d79 and 8616b2a98e55"
+        ]
+      },
+      "rationale": "No checked claim gives the first strict failure of every single-pair alphabet identification to preserve the run-exponent sum, the unique length-12 pattern, or the family for each larger length. Global exponent bounds, binary fixed-composition scores and coarsening effects for a different observable are relevant adjacent results but do not supply this wordwise obstruction. The finding implies neither a separation nor equality of the global binary and unrestricted maxima.",
+      "residual_risks": [
+        "Unindexed examples in word morphism literature remain possible; the average-value proceedings hit was inaccessible and is not negative evidence. No historical priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Global alphabet-sensitive bounds, not a demonstrated local classification",
+          "evidence": "Defines sigma and binary sigma_2 separately and discusses relative letter order in general alphabet upper bounds.",
+          "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol369-cpm2026/LIPIcs.CPM.2026.23/LIPIcs.CPM.2026.23.pdf",
+          "material_read": "Abstract p. 1, definitions p. 3, general-alphabet §3.5 p. 11",
+          "method": "OA primary PDF passages",
+          "title": "Improved Bounds on the Sum of Exponents of Runs in a String",
+          "trigger": "Same exponent objective and binary/general alphabet boundary"
+        },
+        {
+          "assessment": "Different global extremal question",
+          "evidence": "Gives a lower bound of 2.035n for the extremum from a binary family.",
+          "identifier_or_url": "https://arxiv.org/pdf/1003.4866",
+          "material_read": "Abstract and binary-family introduction, pp. 1–2",
+          "method": "OA primary PDF passages",
+          "title": "On the Maximal Sum of Exponents of Runs in a String",
+          "trigger": "Same run-exponent statistic and binary lower-bound constructions"
+        },
+        {
+          "assessment": "Same statistic, fixed binary composition",
+          "evidence": "Exact score and maximum for words with two occurrences of 1.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-run-exponent-bounds-and-a-two-atom-limit-law-for-binary-tw--55435d4f9d79",
+          "material_read": "Mirrored Finding at offset 0",
+          "method": "Local Resultary search and mirrored original",
+          "title": "Sharp run-exponent bounds and a two-atom limit law for binary two-marker words",
+          "trigger": "Exact run-exponent formula"
+        },
+        {
+          "assessment": "Three occurrences of one symbol, not a three-symbol alphabet",
+          "evidence": "Fixed-composition binary extremum with exactly three 1s for n>=13.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-sum-of-run-exponents-bound-for-binary-words-with-three-mar--8616b2a98e55",
+          "material_read": "Mirrored Finding at offset 0",
+          "method": "Local Resultary search and mirrored original",
+          "title": "Sharp sum-of-run-exponents bound for binary words with three marked letters",
+          "trigger": "Exact score with 'three' markers"
+        },
+        {
+          "assessment": "Different statistic and random-host problem",
+          "evidence": "Studies moments of the occurrence count of a scattered pattern in a uniformly random host.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-distributional-separation-under-letter-coarsening-of-scatt--64727c489f70",
+          "material_read": "Mirrored Finding at offset 0",
+          "method": "Local Resultary search and mirrored original",
+          "title": "Sharp distributional separation under letter coarsening of scattered occurrences",
+          "trigger": "One-pair letter coarsening and first separation length"
+        },
+        {
+          "assessment": "No coverage decision based on this hit",
+          "evidence": "No mathematical passage recovered.",
+          "identifier_or_url": "https://psc.fit.cvut.cz/event/2008/p17.html",
+          "material_read": "Title only",
+          "method": "Lawful OA retrieval attempt; certificate error",
+          "title": "Average Value of Sum of Exponents of Runs in Strings",
+          "trigger": "Broad search candidate for the same statistic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen local predicate/minimality/family; Czarkowski alphabet-sensitive results"
+      ],
+      "rationale": "The binary and general run-exponent problems motivate a specific plausible proof strategy: reduce the alphabet by a score-preserving or score-increasing pairwise merge at each step. The robust counterexample shows that this step is not always available. The statement identifies the first failure over all alphabets, its unique pattern, and persistence at every larger length. This exact boundary is useful independently of whether any global maximizing word exhibits the obstruction.",
+      "residual_risks": [
+        "No claim about the values of the unrestricted or binary global maxima, or their difference."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

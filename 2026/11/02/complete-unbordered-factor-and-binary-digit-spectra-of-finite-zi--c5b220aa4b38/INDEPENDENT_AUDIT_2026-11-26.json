@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:17:48.553547Z",
+  "axes": {
+    "correctness": {
+      "rationale": "This PASS applies to repairs/3/RESULT.md, not the literal unrestricted family sentence in frozen RESULT.md line 6. That sentence omitted 'unbordered': at n=r=2 the factor a1 a2 a1 has greatest letter a2 and i=j=1, so it contradicts the unrestricted assertion. The repair states the qualifier, distinguishes the all-factor family, and corrects the script's Python requirement to 3.10. In the repaired theorem a proper border cannot use the unique middle letter; hence only a left prefix and right suffix can match. If both top bits are one, the suffix-lower-block, top letter, prefix-lower-block word occurs at both ends, giving a proper border. If one top bit is one, a candidate reaching the top letter cannot match on the other side; the remaining tests are exactly the lower-bit tests, as they are when both top bits vanish. This proves the iff by induction down to the single marker. The marker position and length ensure uniqueness; factors avoiding higher letters lie in copies of Z_r. Disjoint bits add without carries, so length ℓ determines which bits to distribute between two sides and each of the s2(ℓ−1) bits gives two choices. The allowed ranks give n−ceil(log2 ℓ), including ℓ=1 and n=1, the length maximum has only the top rank, and independent three-way bit choices sum to (3^n−1)/2. Independent direct border checks in branches/d2d340da-216b-4b91-99e8-98649a997a14/literal_border_repro.py (literal_border_results.jsonl) matched full families and spectra at ranks 1–8 and all 21,845 marker tests at m=0,…,7; those checks are not the general proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Generalized period-doubling uses valuations modulo 2 as letters and has two unbordered factors of each length. Merging literal letters changes both border equality and the number of distinct strings.",
+          "Compressed membership and subset parametrization apply to all factors but do not decide unborderedness. The closed-factor theorem studies two occurrences of the same border rather than a complete absence of proper borders."
+        ],
+        "reasoning": "These are close in object or method, not stronger general unbordered-factor theorems that can be specialized to the literal count.",
+        "searches": [
+          "Goc–Mousavi–Shallit arXiv:1211.1301, §5 Theorem 6",
+          "Głowinski–Rytter arXiv:1307.1560, §2 Lemma 2",
+          "Wojcik CIRM slides 6–9 and 19",
+          "Resultary 37549fa1d106, closed-factor proof"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–10, 32–52; VERIFICATION.md and checker.py version-dependent popcount call",
+        "Corrected repairs/3/RESULT.md, all sections",
+        "Wojcik CIRM slides",
+        "arXiv:1307.1560 and arXiv:1211.1301",
+        "Resultary a2893b080372, b2ad7a1e59b9, 37549fa1d106, 6a29e54c5e07 and 70d4e934b1e1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The subset theorem allows every pair independently; it does not imply the disjointness requirement without a comparison of end words. The closed proof supplies an explicit border when both sides are in the same highest-bit shell and shows that in different shells a border, if present, occurs at least three times by dyadic translation.",
+          "The repaired proof establishes whether any border exists in different shells by descending through unmatched bits, a two-sided recursion rather than an occurrence-count conclusion. The bordered but nonclosed example with i=5, j=1 at rank 4 shows that subtraction of the closed spectrum does not give the unbordered spectrum."
+        ],
+        "reasoning": "Overlap extends to the highest equal-shell obstruction and dyadic structure, not the full equivalence. Neither the all-factor parametrization nor the closed classification settles the remaining lower-bit decisions and resulting spectrum without further proof. No order of discovery is inferred for the same-day records.",
+        "searches": [
+          "Wojcik slides 8–9: subset-index factor theorem",
+          "Resultary 37549fa1d106, proof steps 2–4, particularly offsets 4404–6590"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The infinite literal ruler word uses a_(1+v2(p)) at positive index p. Its factors of rank r are the same set as those of Z_r with greatest letter a_r. Wojcik's two subset indices are precisely the locations of one-bits in the two side lengths because his constituent blocks have power-of-two lengths.",
+          "The same-day automaton record gives arbitrary side lengths in range and occurrence endpoints; it does not assert the bit-disjoint filter."
+        ],
+        "reasoning": "Finite versus infinite presentation does not create a new all-factor structure. The repaired restriction is a different statement about which already-parametrized factors lack borders. Low-precision search results are not negative evidence.",
+        "searches": [
+          "Targeted web search on unbordered literal Zimin and dyadic ruler factors",
+          "Wojcik, CIRM slides 6–9",
+          "Resultary a2893b080372, all-factor lemma",
+          "Głowinski–Rytter arXiv:1307.1560, §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearby exact findings tabulate the unrestricted family/automata, Lyndon factors, closed factors, minimal absent factors, or binary period-doubling occurrence geometry, respectively.",
+          "Lyndon counts concern a selected unbordered class for the specified order, closed counts omit some bordered factors, and missing factors are not present factors."
+        ],
+        "reasoning": "None of these exact tables is an identified table of the same literal unbordered family by length and rank. The finite replay was not used as evidence of originality.",
+        "searches": [
+          "Resultary spectra of literal finite Zimin factors: a2893b080372, b2ad7a1e59b9, 37549fa1d106, 6a29e54c5e07",
+          "Resultary generalized period-doubling unbordered occurrence law 70d4e934b1e1"
+        ]
+      },
+      "rationale": "For the repaired claim, credit is limited to the bitwise border filter and the exact distinct-factor spectrum it yields. The unrestricted all-factor parametrization is already present in Wojcik's slides and a distinct Resultary record; the revision gives explicit credit. The dyadic closed-factor theorem is close in method, but its test is for an exactly-twice border, not for the existence of a border at any bit position.",
+      "residual_risks": [
+        "An exact border characterization may appear elsewhere under ruler words, hierarchical palindrome factors, or finite Lyndon-order theory; these comparisons do not establish historical uniqueness.",
+        "The Wojcik comparison is to the inspected subset theorem and definitions, not a whole-document exclusion. The date shared by the catalogue records does not settle priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the unrestricted factor family; inspected theorem does not give the border filter",
+          "evidence": "Every factor is U_A a_r V_B for two arbitrary subsets A,B of ranks below r; |U_i|=|V_i|=2^(i−1).",
+          "identifier_or_url": "https://www.cirm-math.fr/RepOrga/1991/Slides/Wojcik-Lyndon-CIRM.pdf",
+          "material_read": "CIRM slides 6–9 (PDF offsets 2957–6056) and definition on slide 19 near offset 13849",
+          "method": "OA PDF passage inspection; later offset retrieval attempts timed out",
+          "title": "The Zimin word and words with a Lyndon Orbit",
+          "trigger": "Strongest identified prior structural analogue"
+        },
+        {
+          "assessment": "Membership and unique compressed encoding, not a border enumeration in the inspected passages",
+          "evidence": "Interleaving gives membership in the literal factor family; the compressed form encodes the factor, not by itself its border status.",
+          "identifier_or_url": "https://arxiv.org/pdf/1307.1560",
+          "material_read": "§2, Lemma 2 and compression observation, pp. 2–3 (offsets 4300–8482)",
+          "method": "OA PDF passage inspection",
+          "title": "Compressed Pattern-Matching with Ranked Variables in Zimin Words",
+          "trigger": "Possible broader literal-factor encoding and classification"
+        },
+        {
+          "assessment": "Different letter equality relation",
+          "evidence": "The valuation-mod-2 coded generalized period-doubling sequence has two unbordered factors of each length, not a growing literal alphabet indexed by valuation.",
+          "identifier_or_url": "https://arxiv.org/pdf/1211.1301",
+          "material_read": "§5, Theorem 6, p. 11",
+          "method": "OA PDF passage inspection",
+          "title": "On the Number of Unbordered Factors",
+          "trigger": "Same invariant on a closely related ruler-derived word"
+        },
+        {
+          "assessment": "Exact unrestricted-parametrization overlap; does not select unbordered factors",
+          "evidence": "Every pair of in-range suffix/prefix lengths is allowed when parametrizing all factors of the stated maximal letter.",
+          "identifier_or_url": "2026/11/2/SCOPE-explicit-minimal-factor-and-suffix-automata-of-finite-zimin-word--a2893b080372",
+          "material_read": "RESULT.md all-factor lemma and occurrence statement",
+          "method": "Resultary local mirror",
+          "title": "Explicit minimal factor and suffix automata of finite Zimin words",
+          "trigger": "Same day, exact same literal factors"
+        },
+        {
+          "assessment": "Partial structural overlap; different border invariant",
+          "evidence": "Same-shell side lengths yield a border occurring exactly twice. In different shells any border has an additional occurrence; this does not say that every such factor is unbordered.",
+          "identifier_or_url": "2026/11/2/SCOPE-complete-closed-factor-and-length-spectra-of-finite-zimin-words--37549fa1d106",
+          "material_read": "RESULT.md classification and proof of dyadic-shell cases, including offsets 4404–6590",
+          "method": "Resultary local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Complete closed-factor and length spectra of finite Zimin words",
+          "trigger": "Same day, same factor axes and related border method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Unborderedness measures loss of prefix–suffix repetition in a recursively palindromic word. The exact iff converts that string property to a binary test; the spectrum reveals a sharp half-length cutoff and popcount multiplicities at every rank. It distinguishes a natural class from all factors and from the closed and fixed-order Lyndon subclasses, and is useful without enumerating substrings. This value survives the necessary wording correction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

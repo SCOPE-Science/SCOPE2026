@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:05:34.222453Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–71",
+        "Frozen VERIFICATION.md, verification_jordan.py and verification_jordan_output.txt (read, not executed)",
+        "Analytic replay: use the determinant lemma on the rank-one covariance feedback, the displayed impulse coefficients and Euler's terminating hypergeometric transformation; use the same feedback on the continuous covariance generator with return kernel G e^(−2t)t^(2n)/(n!)²."
+      ],
+      "rationale": "On symmetric second moments the update is Φ(C)=TCTᵀ+hσ²C₁₁e_me_mᵀ. Rank-one initial matrices span the symmetric space, so decay for every deterministic input is equivalent to spectral radius below one. For h≥2 Jensen on the mean with initial state e₁ rules out decay. For 0<h<2 the unforced spectral radius is (1−h)². The resolvent feedback series for real λ above this radius is strictly decreasing from infinity to zero; at h=1 it is a single nonzero inverse-power term. The unique feedback root is an eigenvalue and no larger modulus can satisfy the feedback equation, since the absolute value of the complex series is bounded by the positive series at its modulus. The response coefficient is binom(k,n)(1−h)^(k−n)(κh)^n for k≥n. Euler's identity for the binomial-square series and 1−(1−h)²=h(2−h) give the stated gain at λ=1 and show that equality is not asymptotically stable. For continuous time the rank-one resolvent feedback is G binom(2n,n)/(s+2)^(2n+1) in Re(s)>−2, so its positive-real-axis-side root s=−2+[G binom(2n,n)]^(1/(2n+1)) has maximal real part. With r=1−h, on r≤0 the numerator (1+r)^(2n+1) increases and P_n(r²) decreases. For r>0 the denominator after factoring (1+r)^(2n) is a binomial collision probability whose Fourier integral strictly decreases as r/(1+r) increases. These pieces join continuously and yield strict monotonicity on the whole interval, the stated endpoint limits, and precisely one crossing when G<G_c,n.",
+      "residual_risks": [
+        "The packaged spectral comparisons are finite numerical diagnostics (and do not test equality cases as spectral decisions); stability at arbitrary dimension and the strict critical exclusion follow from the analytic feedback argument. Assumes independent centered increments of variance h and one closing multiplicative noise."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The secondary description in the 2023 paper discusses earlier nonnormal stability inequalities in two dimensions. Its own Theorem 6 is continuous and three dimensional. The 2021 paper addresses exponential contractivity of stochastic multistep methods; inspected Euler passages concern error estimates.",
+          "Abstract nesting is a general Lyapunov consequence for explicit EM: [Φ_h*(P)−P]/h=AᵀP+PA+BᵀPB+hAᵀPA, so a strict witness at a large step also works at every smaller step."
+        ],
+        "reasoning": "Neither a generic stability test nor the abstract no-reentry implication evaluates the exact largest admissible step as a function of m and G. The all-length polynomial and central-binomial boundary, not the general nesting observation, carry the distinction.",
+        "searches": [
+          "Primary query for Buckwar–Kelly 2012 full text and same DOI OA copy",
+          "DOI:10.1007/s11075-022-01478-6, pp. 3 and 11–13",
+          "DOI:10.1007/s10444-021-09879-2, abstract and Euler–Maruyama passages"
+        ]
+      },
+      "checked_sources": [
+        "DOIs 10.1007/s11075-022-01478-6, 10.1016/j.camwa.2012.02.059, 10.1137/090771843 and 10.1007/s10444-021-09879-2",
+        "Resultary 0065d16d3909, 636d691f847b, 931e09a8c893 and 4727f9ddeb5d",
+        "Bounded general and same-paper primary queries; no favorable evidence inferred from their misses"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The planar continuous condition b²σ²+4λ³<0 in the single-lateral limit specializes at λ=−1 to G<4, precisely the n=1 continuous critical value. The three-dimensional multiple-noise theorem is continuous, not a formula for the explicit Euler step.",
+          "The 2012 and 2010 articles' full texts were not available in the configured routes and are not claimed not to cover special cases. The 2012 title and the 2023 discussion suggest at least a live planar-comparison risk."
+        ],
+        "reasoning": "An already known continuous planar specialization does not imply the discrete polynomial in arbitrary dimension. The all-length loop identity and resulting exact boundary survive the accessible comparisons; the elementary nesting property provides no separate claim of originality.",
+        "searches": [
+          "Primary Senosiain–Tocino p. 11, lateral limit and Eq. (24), and p. 13, Theorem 6",
+          "Resultary 636d691f847b exact method and noise at offset 0",
+          "Buckwar–Kelly 2012 and 2010 DOI access checks"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equivalent covariance lift is T⊗T+hB⊗B on second moments; its rank-one loop is from the last to the first coordinate. The 2023 review treats continuous covariance stability, including a single lateral noise in the planar limit and a three-coordinate chain with lateral plus other independent channels.",
+          "The closest indexed planar nilpotent-noise theta method uses B=σN, not B=σe₂e₁ᵀ; this changes whether the stochastic perturbation closes the drift chain."
+        ],
+        "reasoning": "A spectral-radius, Lyapunov or feedback formulation can characterize stability, but no matched source in those formulations was found with the exact evaluated gain for every chain length. Transposing or renaming the coordinates of the planar B=σN result cannot turn aligned drift/noise shifts into opposing shifts.",
+        "searches": [
+          "Resultary all-dimension stochastic Jordan chain, binomial-polynomial Euler step boundary, lateral-noise spectral threshold and no reentry",
+          "Primary query: Euler–Maruyama mean square stability Jordan chain arbitrary dimension rank one multiplicative noise binomial exact step size stability region nonnormal drift",
+          "Senosiain–Tocino DOI:10.1007/s11075-022-01478-6, lateral noise and Theorem 6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "0065d16d3909 is the frozen exact-match record itself. Same-day 636d691f847b treats θ-Maruyama with aligned nilpotent noise in dimension two. 931e09a8c893 treats planar damped rotation with coordinate noise and frequency optimization. 4727f9ddeb5d treats additive covariance quadrature, not multiplicative stability."
+        ],
+        "reasoning": "The nonidentical index hits do not give this polynomial, range, or exact continuous threshold for the single-noise chain. Same-day dates say nothing about publication order.",
+        "searches": [
+          "Four focused Resultary semantic comparisons and bounded original-text reads of the nearest distinct catalogue hits"
+        ]
+      },
+      "rationale": "General covariance spectral criteria and step nesting do not supply the exact family-specific polynomial. The closest accessible paper includes overlapping continuous two- and three-dimensional lateral-noise models, and the 2012 nonnormal numerical article may well cover the two-dimensional member. The inspected comparisons do not give the exact all-length discrete law for a single closing noise. No novelty is assigned to an isolated two-dimensional case or to no reentry alone.",
+      "residual_risks": [
+        "Full-text priority against the 2012 and 2010 Buckwar–Kelly papers remains unresolved, especially for m=2. A second planar numerical lead, Tocino–Senosiain (2012), J. Comput. Appl. Math. 236, 2660–2672, was identified in the 2023 references but not read. Other implicit formulas may be unindexed. The assessment concerns the uniform all-length explicit polynomial and does not certify priority for the special cases."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms overlap for the planar continuous case and related continuous three-coordinate system; not the all-length discrete condition.",
+          "evidence": "The single-lateral limit has b²σ²+4λ³<0. Equation (24) includes the closing channel in a 3D drift chain but has two other independent noise directions, and Theorem 6 concerns the SDE.",
+          "identifier_or_url": "https://doi.org/10.1007/s11075-022-01478-6",
+          "material_read": "PDF p. 3 prior comparison, p. 11 planar limit and Eq. (24), p. 13 Theorem 6; reference list for unresolved leads",
+          "method": "Bounded OA PDF reads at offsets 5267, 28223, 29250, 33829 and reference-list passages",
+          "title": "A survey of mean-square destabilization of multidimensional linear stochastic differential systems with non-normal drift",
+          "trigger": "Lateral noise closing similar nonnormal drift, including partial same-chain overlap"
+        },
+        {
+          "assessment": "Inaccessible original; not evidence of noncoverage. Plausible planar risk.",
+          "evidence": "The accessible 2023 p. 3 discussion describes a necessary-and-sufficient earlier two-dimensional nonnormal inequality and orthogonal or diagonal perturbations. It does not document an all-length evaluated discrete gain in the 2012 paper.",
+          "identifier_or_url": "https://doi.org/10.1016/j.camwa.2012.02.059",
+          "material_read": "DOI/landing identifier; no readable original abstract or theorem in the review. Secondary description in Senosiain–Tocino p. 3.",
+          "method": "Configured OA landing lookup; publisher full-text retrieval unavailable. A targeted primary search did not locate a lawful readable same-paper copy.",
+          "title": "Non-normal drift structures and linear stability analysis of numerical methods for systems of stochastic differential equations",
+          "trigger": "Potential numerical stability coverage in a nonnormal Jordan test system"
+        },
+        {
+          "assessment": "Inaccessible; no theorem-level noncoverage judgment.",
+          "evidence": "Identified at the 2023 review's reference-list offset 40745; does not provide evidence of an evaluated Jordan-chain polynomial.",
+          "identifier_or_url": "https://doi.org/10.1137/090771843",
+          "material_read": "Bibliographic entry in the 2023 review; no original theorem read.",
+          "method": "Configured OA PDF access attempts returned HTTP 403.",
+          "title": "Towards a systematic linear stability analysis of numerical methods for systems of stochastic differential equations",
+          "trigger": "Potentially stronger multivariate numerical stability framework"
+        },
+        {
+          "assessment": "Inspected material concerns multistep contractivity and error-estimate comparisons, not an exact chain-specific boundary.",
+          "evidence": "The Euler comparison passages do not evaluate the spectral feedback or give its step polynomial.",
+          "identifier_or_url": "https://doi.org/10.1007/s10444-021-09879-2",
+          "material_read": "PDF p. 1 abstract and Euler–Maruyama comparison passages on p. 7",
+          "method": "Bounded OA PDF read",
+          "title": "Exponential mean-square stability properties of stochastic linear multistep methods",
+          "trigger": "Potential general stability implication covering explicit Euler"
+        },
+        {
+          "assessment": "Nonidentical noise and contractivity question, including for its explicit method.",
+          "evidence": "Uses B=σN rather than B=σe₂e₁ᵀ and permits θ≠0. Its asymptotic stability is independent of noise amplitude, and h=1 at θ=0 gives extinction, not the frozen feedback threshold.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-sharp-contractivity-phase-diagram-and-two-step-extinction-for--636d691f847b/RESULT.md",
+          "material_read": "Original Finding and method definition at offset 0; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary semantic retrieval and bounded local-mirror read",
+          "title": "A sharp contractivity phase diagram and two-step extinction for nilpotent-noise stochastic theta integration",
+          "trigger": "Same-day planar Jordan drift and a sharp stochastic step diagram"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, gain evaluation and continuous boundary",
+        "Senosiain–Tocino treatment of nonnormal lateral-noise examples",
+        "Frozen m=3 example (direct substitution in the stated inequalities)"
+      ],
+      "rationale": "This is a natural feedback family: a nonnormal deterministic shift transfers the noise injection back to its sensing coordinate, and mean stability can coexist with mean-square numerical instability. The result replaces a dimension-growing covariance spectral test with an explicit one-parameter polynomial threshold that decides every step for any chain length, and supplies the exact continuous/discrete comparison. General Lyapunov step nesting is useful background but is not itself the contribution.",
+      "residual_risks": [
+        "Specific to one chain and one noise direction, with no assertion about other integrators or arbitrary nonnormal systems."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

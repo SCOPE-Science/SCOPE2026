@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:12:45.595616Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Yuan's Theorem 10, §3.2 and Remark 12 give a nowhere-vanishing factor generator, product isometry and differential basis, including d=1. Rotation gives orthogonality. The two sheets and the m-to-one power substitution give the prefactor 2/m in the complex beta integral (m=2d+1), and the beta evaluation gives the stated positive inverse norms. In a local trivialization the common factor is nonvanishing: dx/y extends nonvanishing at each finite branch point by the defining relation, and the other factor is base-point free. Taking the log removes the common factor. The variance of j with weights proportional to c_j t^j gives t g_d(t)>0 for t>0 when d>=2, and g_d(0)=c_1/c_0>0. Pullback by x causes precisely the branch rank drops; d=1 is constant. The curvature calculation at x=0 uses g_d'(0)=4c_2/c_0-2(c_1/c_0)^2 and agrees with the stated metric convention. The odd gamma-log series has strictly positive defect coefficients, with cubic coefficient 48 zeta(3). The rational truncation at d=3 exceeds 5/12>log(3/2), while the uniform odd-tail estimate for d>=4 gives 1148/6075<2/5<log(3/2). These signs do not rely on decimal gamma values. The supplied verify_curvature.py was inspected, not executed. Independent radial norm integrals and exact fractions in python /workspace/reproductions/reproduce.py reproduce the bounds and give normalized curvatures 2, .236342731544, -.606646810907 for d=2,3,4 respectively.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yuan gives the domains, base-point-free factor and basis for all d>=1. Huang treats the canonical curvature globally on compact curves, including the special role of hyperelliptic Weierstrass points."
+        ],
+        "reasoning": "Prior construction coverage includes d=1 (so rank-zero there is immediate), and the canonical-map rank result is classical. Neither inspected statement gives the gamma-normalized log-kernel sign formula at x=0.",
+        "searches": [
+          "Yuan arXiv:2610.21749v2 Theorem 10, §3.2, Remark 12",
+          "Huang arXiv:math/0604579"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.21749v2",
+        "arXiv:math/0604579",
+        "arXiv:math/0703075 (limited access)",
+        "Resultary 973f6bafeca1, 3801ebdfe4c3, 79f8a9bb2e02, f48e8da69028 (index comparisons)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The basis and universal log-kernel identity express curvature in terms of differential norms, but do not determine c_0 c_2/c_1^2 relative to 1/2. The explicit beta norms and bounds on the gamma-log defect supply that comparison for all genera."
+        ],
+        "reasoning": "The contribution is not a generic Bergman identity or recomputation of a known canonical sign. The inspected broader results do not already give the weighted coefficient inequality that sets the transition.",
+        "searches": [
+          "Yuan §3.2 and Remark 12",
+          "Huang pp. 2, 5",
+          "Frozen RESULT.md proof §§1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Yuan's biholomorphic product identifies the metric problem with the projectivized evaluation vector of the holomorphic differentials, since the factor has no zeros. Huang's canonical/Theta metric is instead the pullback from the flat Jacobian, expressed as an unlogged weighted sum of squared differentials."
+        ],
+        "reasoning": "The two metrics are inequivalent. Huang's canonical curvature is negative at the nonbranch points x=0, whereas the log-kernel curvature is positive there in d=2,3. A result labeled Bergman curvature need not concern the same metric.",
+        "searches": [
+          "Yuan arXiv:2610.21749v2 §3.2 and Remark 12",
+          "Huang arXiv:math/0604579 pp. 2, 5",
+          "Castorena arXiv:math/0703075"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest returned descriptions respectively concern a cyclic kernel approximation for (1-z zbar)^(-beta), a punctured-disk meromorphic kernel, canonical weights in a genus-17 family, and distance-weighted disks."
+        ],
+        "reasoning": "These index descriptions concern different kernels, geometric objects, or invariants. Bounded ranked comparisons did not yield an exact comparison on this family, and are not exhaustive.",
+        "searches": [
+          "Resultary searches on Yuan product/basis, hyperelliptic gamma norms, x=0 genus cutoff, and canonical/Theta curvature; 973f6bafeca1, 3801ebdfe4c3, 79f8a9bb2e02, f48e8da69028"
+        ]
+      },
+      "rationale": "Credit is for the explicit log-Bergman curvature and exact all-genus sign cutoff in Yuan's family. The pseudoconvex construction, basis, and canonical-map mechanism behind the rank observation are not original here.",
+      "residual_risks": [
+        "Castorena's full text was not obtained; the metric distinction rests on Huang's original passages.",
+        "A specialized prior weighted log-kernel evaluation could exist outside the bounded comparisons."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Construction and basis established prior; inspected passages do not give cutoff",
+          "evidence": "Uses X_d:y^2=x^(2d+1)-1, one-dimensional base-point-free factor, basis x^(j-1)dx/y and isometric product identification.",
+          "identifier_or_url": "https://arxiv.org/html/2610.21749v2",
+          "material_read": "Theorem 10, §3.2, Remark 12, offsets around 19200–25681 and from 25600",
+          "method": "OA original passages",
+          "title": "Pseudoconvex domains in complex Euclidean space with finite-dimensional Bergman spaces",
+          "trigger": "Exact underlying product examples and basis"
+        },
+        {
+          "assessment": "Different metric",
+          "evidence": "Flat-Jacobian pullback canonical curvature is nonpositive and strictly negative away from Weierstrass points in the hyperelliptic case.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0604579",
+          "material_read": "PDF pp. 2 and 5, offsets around 2200 and 11500",
+          "method": "OA original passages",
+          "title": "Asymptotics of the Gaussian Curvatures of the Canonical Metric on the Surface",
+          "trigger": "Potential broader Bergman/canonical sign theorem"
+        },
+        {
+          "assessment": "Unresolved at proof level",
+          "evidence": "No original full-text calculation relied on.",
+          "identifier_or_url": "arXiv:math/0703075",
+          "material_read": "Landing page/abstract only; full text unavailable in attempted routes",
+          "method": "Lawful OA PDF, HTML and alternate lookup",
+          "title": "Gaussian curvature at the hyperelliptic Weierstrass points",
+          "trigger": "Potential specialized hyperelliptic curvature overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sign of a natural transverse invariant at the distinguished nonbranch points changes at a sharp, finite genus cutoff. This records where a specific kernel-induced metric has positive curvature even though the canonical metric does not, and the exact coefficients make the comparison reproducible. It neither classifies all curvature on these domains nor gives examples of globally positive definite Bergman metrics.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

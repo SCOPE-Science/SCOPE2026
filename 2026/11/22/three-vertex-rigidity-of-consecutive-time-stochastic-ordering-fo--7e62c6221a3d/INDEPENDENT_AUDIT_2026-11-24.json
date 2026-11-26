@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:56:34.211178Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On a path with nonzero signed edge weights x,y, center mass alternates p,1-p,p. Equal edge signs make the center the unique extreme score; its upper or lower tail forces p=1/2. For opposite signs the two leaves are distinct extremes, and from times 1 to 2 both leaf masses scale from p to 1-p, so the upper and lower tails again force equality (their transition factors are strictly positive). This gives F(|x|+|y|,x+y)=F(|x|,x)+F(|y|,y) for arbitrary nonzero real weights. Each boundary-ray function is positive additive, hence increasing and determined by its values on the positive rationals. The opposite-sign equation extends the two slopes to the full interior as F(d,s)=cd+bs, with |b|<c. On the signed unit triangle with scores (0,2,0), the top-score mass satisfies p_next=(1-p)/2; successive inequalities then force p_0=1/3, hence b=0. This supplies necessity without any regularity assumption. Undirected conductances give detailed balance for F=cd, proving sufficiency for all times; two-vertex score laws are identical because both scores equal the single signed edge weight. In the finite score range, lower-tail probabilities at a unique minimum are complements of upper tails at the next attainable score, so the direction of each lower-tail inequality is justified. Independent rational witness replay: python3 /workspace/branches/independent_checks.py 2. The frozen checker was read, not run; the universal proof is analytical.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The signed-score primary theorem's sharp five-vertex bound belongs to its weaker fixed-time comparison with time zero.",
+          "The inspected multistep degree theorem compares expected unsigned degrees against a uniformly started reference, not full signed score distributions over all positive F."
+        ],
+        "reasoning": "More walk times do not supply the missing comparison between consecutive score laws. The expectation/baseline result differs both in observable and stochastic-order quantifier and does not contain a universal local-rule rigidity condition.",
+        "searches": [
+          "Louvaris–Trevezas Theorem 1 and Corollary 1",
+          "Berenhaut–Zhang multistep friendship paradox, DOI 10.1017/S026996482300013X, Theorem 1.3",
+          "Berenhaut–Zhang second-step degree effect, DOI 10.1017/jpr.2018.79"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.17118v1",
+        "DOI:10.1017/S026996482300013X",
+        "DOI:10.1017/jpr.2018.79 (bibliographic/access check only)",
+        "Local Resultary/SCOPE 7e62c6221a3d and 68842bb2599b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Corollary 1 admits F(d,s)=d g(s) with continuous positive nonincreasing g; use g(s)=2^(-s).",
+          "For the frozen signed unit triangle the top-score mass is 1/9, 4/9, 5/18 at times 0,1,2, so the consecutive order fails while the published from-start theorem applies."
+        ],
+        "reasoning": "The prior classification cannot be used as the needed classification of adjacent-time monotonicity, even with its stronger all-sizes and all-later-times quantifiers. One must separately derive necessity under the different three-vertex adjacent-time test.",
+        "searches": [
+          "arXiv:2611.17118v1 PDF pp. 2–4, exact condition (iv), continuous-class corollary and consecutive-time caveat"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 1(iv) compares the starting score law to each later law, not two adjacent later laws.",
+          "The frozen condition simultaneously compares time pairs (0,1) and (1,2), uniformly over all signed paths and triangles on three vertices."
+        ],
+        "reasoning": "The two orders are not equivalent even under universal quantification and with precisely the same graph and sampling-rule model. The explicit triangle witness for a decreasing tilt separates them.",
+        "searches": [
+          "Local Resultary: consecutive-time stochastic ordering of signed strength, sharp three-vertex stationary sampling rule",
+          "arXiv:2611.17118v1, Theorem 1(iv), Corollary 1 and p. 4 caveat"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Hit 7e62c6221a3d is the identical bound finding; same identity/content, not separate coverage.",
+          "Distinct hit 68842bb2599b studies random signed d-regular graph limits with exponential score tilt and equal-mean parity-separated convex order, not a finite sharp universal rigidity classification."
+        ],
+        "reasoning": "The exact hit is a catalogue mirror of the object being reviewed; the distinct same-day hit was compared on assumptions and result, not dismissed by date. No covering exact independent record or table was found in these bounded checks.",
+        "searches": [
+          "Local Resultary searches for consecutive signed-score Markov ordering and tilted signed walks",
+          "Local mirror Findings for SCOPE suffixes 7e62c6221a3d and 68842bb2599b"
+        ]
+      },
+      "rationale": "The closest primary result classifies time-zero-to-later domination, explicitly disavows consecutive-time monotonicity, and admits score tilts that fail that property on the exact three-vertex model. The signed-path functional equation and the triangle obstruction establish a distinct sharp necessity; stationary sufficiency is standard.",
+      "residual_risks": [
+        "Bounded primary and catalogue comparisons do not exclude an earlier unindexed universal-time criterion for reversible observables.",
+        "The 2018 second-step article body was not accessible; no whole-source negative claim is made.",
+        "A focused general web lookup returned irrelevant results and was not used as evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers time-zero comparisons, not consecutive time; the difference is witnessed by a rule in its continuous class",
+          "evidence": [
+            "p. 4: time-zero comparison 'does not assert monotonicity between successive times'.",
+            "Corollary 1 includes positive continuous nonincreasing score tilts."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.17118v1",
+          "material_read": "PDF pp. 2–4, Theorem 1(iv), Corollary 1, and caveat at extracted offset about 16255",
+          "method": "Lawful OA PDF statement and implication comparison",
+          "title": "Universal sampling rules for the signed friendship paradox",
+          "trigger": "Same signed-score model and universal positive local F"
+        },
+        {
+          "assessment": "Does not contain the signed-score distributional classification in the compared theorem",
+          "evidence": [
+            "Theorem 1.3 addresses expected unsigned degree at each walk time relative to a uniformly started baseline."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S026996482300013X",
+          "material_read": "OA PDF, Theorem 1.3, printed p. 291",
+          "method": "Theorem-level comparison of observable, baseline, and time quantifiers",
+          "title": "Disparity-persistence and the multistep friendship paradox",
+          "trigger": "Older multistep comparison"
+        },
+        {
+          "assessment": "No statement-level conclusion about the inaccessible body",
+          "evidence": [],
+          "identifier_or_url": "https://doi.org/10.1017/jpr.2018.79",
+          "material_read": "Bibliographic identification; no readable primary body in bounded retrieval",
+          "method": "Identified DOI and tried lawful OA/repository access",
+          "title": "The degree-wise effect of a second step for a random walk on a graph",
+          "trigger": "Potential prior second-step comparison"
+        },
+        {
+          "assessment": "Same assigned record, not distinct literature",
+          "evidence": [
+            "Exact three-vertex test, same temporal comparison and classification F=cd."
+          ],
+          "identifier_or_url": "SCOPE-three-vertex-rigidity-of-consecutive-time-stochastic-ordering-fo--7e62c6221a3d",
+          "material_read": "Local mirrored finding",
+          "method": "Match identity and hypotheses/conclusion to frozen record",
+          "title": "Three-vertex rigidity of consecutive-time stochastic ordering for signed-strength Markov walks",
+          "trigger": "Strongest exact Resultary match"
+        },
+        {
+          "assessment": "Related noncomparability in a random-regular limit, not the sharp finite classification",
+          "evidence": [
+            "Fixed-time random-regular limits use an exponential tilt and compare equal-mean odd/even laws in convex order."
+          ],
+          "identifier_or_url": "SCOPE-a-parity-resolved-convex-order-law-for-tilted-signed-walks-on-ra--68842bb2599b",
+          "material_read": "Local mirror RESULT.md Finding, offset 0",
+          "method": "Bounded source comparison of graph ensemble, sampling family and order",
+          "title": "A parity-resolved convex-order law for tilted signed walks",
+          "trigger": "Distinct catalogue match on time adjacency and score tilt"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp cutoff and arbitrary-positive-rule necessity answer a natural strengthening of an existing universal sampling theorem. The contrast is structural: signed paths reduce all local rules to a two-parameter linear family, and a single triangle eliminates the remaining nonstationary direction. The result is stronger than giving an isolated decreasing-tilt counterexample and identifies the unique rule without continuity or a large test graph.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

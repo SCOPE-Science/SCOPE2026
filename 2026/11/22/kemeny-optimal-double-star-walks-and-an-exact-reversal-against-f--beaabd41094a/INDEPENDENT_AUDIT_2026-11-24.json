@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:15:13.637479Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The tree series-resistance and trace identity gives K=N^(-1) sum_e s_e(N-s_e)/w_e. All edges are positive by connectivity. For fixed bridge z, apply Cauchy–Schwarz to each set of pendant weights and use each hub budget 1-z. Equality requires every pendant weight on each side to be equal and both budgets saturated, feasible here. The resulting strictly convex A/(1-z)+B/z has the stated unique root and value without an orbit assumption. For fixed total s, the derivative of sqrt((s+2)K_*) in u=pq is negative because 4(s+1)(u+s+1)-(s^2-2u)>0; fixed sum and product determine the unordered pair. Independently checked the SLEM comparator: the orthogonal Rayleigh vector with hub values +1,-1 and leaf values +(1+sqrt(2)),-(1+sqrt(2)) forces the lower bound 1-2/D_k since its Laplacian energy is at most 4. Equality forces saturation and the individual leaf eigenvector equations, fixing each weight. The candidate spectrum on the orthogonal subspace has Laplacian eigenvalues a_mix (leaf contrasts), (k+1)a_mix (symmetric quotient), and 2/D_k and (2+sqrt(2))z_mix (antisymmetric quotient); all lie in [2/D_k,2-2/D_k], so that bound is sharp. The two comparator Kemeny costs follow directly from the tree formula; the exact gap certificate was verified separately by rational-polynomial reduction modulo u^2-2 with u=sqrt(2), using `python3 -B /workspace/review_evidence/kemeny_checks.py`. Its positive factors give strict reversal for k>=2 and zero at k=1. Lastly A_k~2k^2 and B_k~k/2 give the bridge asymptotic and K_*~2k^2; the two comparator leading coefficients are 2+sqrt(2) and 5/2. The convention excludes the stationary eigenvalue; symmetry fixes uniform stationary mass, not uniform edge weights. Frozen script inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Patel–Agharkar–Bullo include fixed uniform stationary distribution as a specialization and give an SDP, not the double-star evaluated solution in the inspected passages.",
+          "Zeng fixes the weight multiset and uses row-normalized edge weights; the sparsification paper concerns spectral approximation in slightly regular networks."
+        ],
+        "reasoning": "Generic optimization or approximation with an overlapping objective is not a solution formula, nor does it yield the shape law and the comparison of two specific comparator walks. The weighted-tree theorem uses a materially different feasible set.",
+        "searches": [
+          "Patel–Agharkar–Bullo DOI 10.1109/TAC.2015.2426317, fixed-stationary design",
+          "arXiv:2109.09249v1, pp. 1–2",
+          "arXiv:2503.13382, first-page abstract"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: 12785a469e7f, b937fa7e415e, b9e32f6d72bf",
+        "DOI 10.1109/TAC.2015.2426317",
+        "arXiv:2109.09249v1",
+        "arXiv:2503.13382 (abstract)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The balanced SLEM statement gives exactly a_mix, z_mix and SLEM=1-2/D_k.",
+          "The design paper supplies the general spectral objective/feasible set, with a convention adding one to the unweighted Kemeny spectral sum."
+        ],
+        "reasoning": "Giving the minimizing SLEM weights does not show that their inverse-Laplacian cost exceeds that of maximum-degree weighting, which is a different feasible walk's score. Evaluating the resistance sum, proving the sign for every k, and optimizing with both row budgets are the extra substantive steps. Adding a constant to Kemeny changes none of these optimizer or gap comparisons.",
+        "searches": [
+          "Resultary: 12785a469e7f, Finding",
+          "Patel–Agharkar–Bullo, fixed-pi design formulation and convexity theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "12785a469e7f has the very same balanced graph, support and symmetric stochastic weights but optimizes SLEM.",
+          "Zeng optimizes across trees for edge-weight-proportional walks with a fixed multiset of weights.",
+          "The Kemeny/SLEM path and quadrilateral-book findings address other supports."
+        ],
+        "reasoning": "Neither SLEM nor a normalized conductance walk with degree-stationary mass is an equivalent optimization to minimizing the inverse Laplacian trace under independent stochastic row budgets. Same-object SLEM overlap is substantive precisely for the comparator.",
+        "searches": [
+          "Resultary double-star Kemeny design and reversal/gap checks: beaabd41094a, 12785a469e7f, b937fa7e415e, b9e32f6d72bf",
+          "arXiv:2109.09249v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "beaabd41094a is the assigned record, not independent coverage. The actual matching allocation in 12785a469e7f is the SLEM allocation, not the square-root Kemeny allocation. The same-day adjacent Kemeny designs use paths and quadrilateral books."
+        ],
+        "reasoning": "The exact existing SLEM data are a necessary input to the cross-objective comparison; no distinct inspected entry gives the double-star Kemeny formula and the maximum-degree gap. No inference from same-day ordering or noisy search results.",
+        "searches": [
+          "Resultary exact double-star Kemeny, SLEM antecedent, fixed-stationary design, and reversal/gap lookups; IDs beaabd41094a, 12785a469e7f, b937fa7e415e and b9e32f6d72bf"
+        ]
+      },
+      "rationale": "The supported distinction is the explicit unrestricted double-star Kemeny design, fixed-size shape comparison, and exact Kemeny reversal against the old SLEM optimum. The SLEM weights and uniqueness are credited outright to their prior statement, as are the general design and resistance machinery. The nearby cross-objective analyses and weighted-tree walk results do not cover the double-star Kemeny claim.",
+      "residual_risks": [
+        "An unindexed exact capacitated effective-resistance design theorem or another double-star specialization could cover more. The exact-family search was noisy; no publication-priority certification follows."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the SLEM antecedent only",
+          "evidence": [
+            "For k>=1, unique unrestricted symmetric SLEM optimizer with mu=1-2/D_k and the same leaf and bridge weights as the comparator."
+          ],
+          "identifier_or_url": "Resultary: 12785a469e7f",
+          "material_read": "RESULT.md Finding and scope, local mirror offset 0",
+          "method": "Ranked Resultary lookup and local mirror statement reading",
+          "title": "A sharp and unique fastest-mixing walk on balanced double stars",
+          "trigger": "Exact graph, feasible set and mixing comparator"
+        },
+        {
+          "assessment": "Different graph and spectral formulas",
+          "evidence": [
+            "Concerns finite paths and an even-order fastest-mixing comparison, not double stars with two branching hubs."
+          ],
+          "identifier_or_url": "Resultary: b937fa7e415e",
+          "material_read": "Local RESULT.md graph and comparison statement",
+          "method": "Ranked Resultary lookup and local mirror comparison",
+          "title": "Parity-optimal Kemeny design on finite symmetric stochastic paths",
+          "trigger": "Same-day symmetric Kemeny and fastest-mixing comparison"
+        },
+        {
+          "assessment": "Quadrilateral-book support is not the double-star support",
+          "evidence": [
+            "The Kemeny optimum and comparison are on quadrilateral-book graphs."
+          ],
+          "identifier_or_url": "Resultary: b9e32f6d72bf",
+          "material_read": "Local RESULT.md graph-specific statement",
+          "method": "Ranked Resultary lookup and local mirror comparison",
+          "title": "Quadrilateral-book Kemeny/SLEM design",
+          "trigger": "Same-day cross-objective Kemeny/SLEM neighbor"
+        },
+        {
+          "assessment": "General feasible-set framework, not evaluated family or reversal",
+          "evidence": [
+            "The formulation imposes prescribed pi, detailed balance, row sums, and support; inverse-trace convexity gives an SDP."
+          ],
+          "identifier_or_url": "https://motion.me.ucsb.edu/pdf/2014b-pab.pdf",
+          "material_read": "PDF pp. 4–5, OA offsets 16800 and 24205, formulation and convexity/SDP",
+          "method": "Targeted lawful OA primary text",
+          "title": "Robotic Surveillance and Markov Chains with Minimal Weighted Kemeny Constant",
+          "trigger": "General fixed-stationary Kemeny optimization might subsume design"
+        },
+        {
+          "assessment": "Different fixed-multiset and degree-stationary optimization",
+          "evidence": [
+            "Transition probabilities on weighted trees are proportional to the incident weights; the considered shape comparison fixes the weight multiset."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2109.09249v1",
+          "material_read": "PDF pp. 1–2, OA offset 500",
+          "method": "Targeted lawful OA primary text",
+          "title": "On average hitting time and Kemeny’s constant for weighted trees",
+          "trigger": "Closest tree-shape Kemeny optimization"
+        },
+        {
+          "assessment": "Abstract concerns approximation and does not evidence a matching exact design statement; no full-text scope inference",
+          "evidence": [
+            "Spectral sparsification in slightly regular networks is the scope stated in the inspected abstract."
+          ],
+          "identifier_or_url": "arXiv:2503.13382",
+          "material_read": "First-page abstract only",
+          "method": "External primary-literature lookup and abstract inspection",
+          "title": "Approximating Kemeny’s constant via spectral sparsification",
+          "trigger": "External Kemeny optimization lookup hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The unique optimal conductances and fixed-order shape comparison address an entire natural family under the actual vertex budgets. The SLEM-optimal walk being worse for Kemeny than a standard maximum-degree heuristic for every balanced size is a useful boundary between two design objectives, supported by precise bridge scales and limiting losses. This is materially stronger than stating merely that the two minimizers differ.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:53:33.087577Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof §§1–5",
+        "Frozen VERIFICATION.md and verification.py (inspected)"
+      ],
+      "rationale": "Substitution with a²=0 gives the inverse and the stated braid triple. The preservation identity first factors af through a, then forces the resulting map on W to be additive and injective by translation equivariance. On each W-coset the lift is affine with that same linear part and an arbitrary translation; βτ=φβ gives equal-sized fibers and the split action (on translation functions, b maps to φ∘b∘τ⁻¹). For a uniform lift over φ only the u fixed outer fibers matter. In each, a fixed inner coset contributes u points precisely when its independent translation lies in im(I−φ), an event of probability 1/u. The falling-factorial moments of the number of fixed symbols of S_s are one through order s, giving the exact conditional PGF. For fixed p,r, compact convergence of the PGFs gives convergence of finite coefficients, and the unit mean gives tightness and then total variation; averaging pushes forward to the stated mixture. At zero, the truncated exponential remainder is at most u⁻ˢ⁻¹/(s+1)!, and taking the u-th power costs at most u, yielding the stated uniform error including s=1. Arbitrary translations/inner permutations and the two GL orbits on W give exactly the two automorphism orbits. The supplied checker was inspected, not run; the decision rests on these exact arguments.",
+      "residual_risks": [
+        "The total-variation assertion in the record is for fixed p and r, unlike the finite error bound."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorems 3.9 and 3.11 give orbit groups and describe isomorphisms by orbit permutation and affine maps preserving all constants",
+          "The 2019 involutive classification is narrower and is not a basis for the odd-prime verdict"
+        ],
+        "reasoning": "Here the orbit groups are all copies of W, with c_{i,j}=d_{i,j}=β(i) under the canonical translation identification. Preservation gives ψ_j(β(i))=β(π(i)); surjectivity of β forces all ψ_j to be the same φ. Orbit translations remain unrestricted. The published theorem therefore gives the action, not just its abstract isomorphism type.",
+        "searches": [
+          "arXiv:2303.15154, Theorems 3.9 and 3.11 and proof",
+          "arXiv:1901.01471, abstract"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2303.15154",
+        "arXiv:1901.01471",
+        "arXiv:1410.3378",
+        "Local Resultary's assigned-record self-match and multiset-block comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The affine form is f(x)=ψ_i(x)+f(0_i) on orbit i",
+          "For S_s the normalized factorial count satisfies E[binom(C,j)]=1/j! by fixing j named symbols; uniform translations give a Bernoulli(1/u) normalized count on a fixed coset"
+        ],
+        "reasoning": "Substituting 1+(t−1)/u into the S_s fixed-point PGF and taking the u-th power gives exactly the frozen conditional polynomial. This deduction uses the permutation action available from the prior theorem, not just an abstract group or the unrelated limit for depth-growing iterated wreath products.",
+        "searches": [
+          "arXiv:2303.15154, condition (3.10) and necessity proof",
+          "arXiv:1410.3378, §2 and Lemma 6.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Example 3.2 uses the same operations on an abelian group with nonzero square-zero α",
+          "The conditional action is on u independent fixed outer blocks, each with S_s on inner cosets and independent affine translations; the wreath fixed-point substitution follows by conditioning on the fixed inner cosets"
+        ],
+        "reasoning": "The normalized statistic counts successful fixed cosets rather than unthinned fixed inner symbols. The affine-coset PGF supplies the only substitution; no new fixed-point analysis is needed after it.",
+        "searches": [
+          "Local Resultary: square-zero Yang–Baxter automorphisms and conditional fixed-point law",
+          "arXiv:2303.15154 Example 3.2",
+          "arXiv:1410.3378 §2, imprimitive wreath action"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/22/SCOPE-a-universal-e-1-derangement-law-for-square-zero-yang-baxter-solu--fd62ed4a214a is the assigned record itself",
+          "2026/10/18/SCOPE-sharp-poisson-approximation-for-one-square-root-multiset-block--b21e06270e4c, Finding and Proof Steps 1–2: counts multiset arrangement fixed points"
+        ],
+        "reasoning": "Neither is separate exact coverage of this action: the first is a self-match and the second counts a different random object. The novelty failure instead follows from the primary mathematical implication.",
+        "searches": [
+          "Local Resultary: square-zero Yang–Baxter fixed points, wreath action and e⁻¹ derangements"
+        ]
+      },
+      "rationale": "The construction and full permutation action are a direct instance of the published 2-reductive isomorphism theorem, not merely a resemblance of abstract groups. After inserting its orbit groups and constants, the exact PGF is the usual fixed-point substitution for independent inner permutations applied to the affine coset with linear part φ. Its input PGF for the normalized affine-coset count is 1+(t−1)/u. This derives the claimed finite law directly from the published action and elementary permutation moments, including the normalization, not just a qualitative Poisson analogy. The finite remainder and limit then follow by the ordinary exponential series. This is a mechanical consequence, not a claim that an older paper printed the displayed formula verbatim.",
+      "residual_risks": [
+        "Exact prior printed wording of the conditional PGF was not identified. The decision is prior implication, not a verbatim bibliographic priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers construction and, on substitution, exact permutation action",
+          "evidence": "Condition (3.10) preserves the orbit constants and the proof recovers ψ_i(x)=f(x)−f(0_i).",
+          "identifier_or_url": "https://arxiv.org/pdf/2303.15154",
+          "material_read": "Example 3.2 (p. 4, offset 15452); Theorems 3.9 and 3.11 and necessity proof (pp. 6–8, offsets 23647 and 26779)",
+          "method": "Open-access PDF, passage reading",
+          "title": "Skew left braces and 2-reductive solutions of the Yang–Baxter equation",
+          "trigger": "Exact square-zero example and broader action classification"
+        },
+        {
+          "assessment": "Narrower involutive regime",
+          "evidence": "It describes involutive level-2 solutions; odd-prime members of the frozen family are not involutive.",
+          "identifier_or_url": "https://arxiv.org/pdf/1901.01471",
+          "material_read": "Abstract, p. 1, offset 0",
+          "method": "Open-access PDF, bounded scope passage",
+          "title": "The construction of multipermutation solutions of the Yang-Baxter equation of level 2",
+          "trigger": "Earlier related classification"
+        },
+        {
+          "assessment": "Standard action matches the substitution mechanism; its depth limit is a different result",
+          "evidence": "The action is (i,j)↦(π(i),τ_i(j)); fixed points require both an outer and the corresponding inner fixed point. Lemma 6.1 concerns increasing iteration depth.",
+          "identifier_or_url": "https://arxiv.org/pdf/1410.3378",
+          "material_read": "§2, wreath action preceding Lemma 2.4; §6, Lemma 6.1",
+          "method": "Open-access PDF, bounded passages",
+          "title": "Wreath products and proportions of periodic points",
+          "trigger": "Mechanism for fixed-point counting in block actions"
+        },
+        {
+          "assessment": "Different statistic and random action",
+          "evidence": "Uniform arrangements of a multiset, not square-zero solution automorphisms.",
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-poisson-approximation-for-one-square-root-multiset-block--b21e06270e4c",
+          "material_read": "RESULT.md, Finding and Proof Steps 1–2",
+          "method": "Local Resultary mirror",
+          "title": "Sharp Poisson approximation for one square-root multiset block",
+          "trigger": "Related local catalogue hit for fixed-point laws"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§3–5",
+        "arXiv:2303.15154, Theorem 3.11"
+      ],
+      "rationale": "Fixed-point counts in this natural action are legitimate objects, and the formula makes a useful worked example. As an asserted independent finding, however, the exact formula and its error are mechanical consequences of the already-classified action, fixed-subset counting in S_s and the exponential remainder. No distinct structural or probabilistic ingredient remains beyond this calculation.",
+      "residual_risks": [
+        "No assessment is made of different solution families or other, non-mechanically-determined statistics."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

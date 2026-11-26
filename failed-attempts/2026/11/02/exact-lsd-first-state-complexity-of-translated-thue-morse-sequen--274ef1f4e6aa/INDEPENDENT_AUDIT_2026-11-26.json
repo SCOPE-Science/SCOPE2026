@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:48:52.783395Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–79; VERIFICATION.md; verify.py; verification_output.txt",
+        "/workspace/audit-evidence/replay.py, rec1"
+      ],
+      "rationale": "The carry/parity pair after a prefix of length L with value p is (floor((c+p)/2^L), t((c+p) mod 2^L)), so a continuation of value x sees precisely the claimed shifted/complemented residual. If distinct positive translations gave equal or complementary tails, Thue–Morse would have an eventual period; repeatedly halving an even period and applying the recursions to an odd period makes the tail constant, which is impossible. The reachability intervals at quotient q and overflow q+1 have exactly the stated parity counts. For c>=4 there are six low-quotient states including the exceptional split recovery of the quotient-two states at c=5. All high quotients from distinct positive lengths are disjoint since q_j >= 2q_{j+1} > q_{j+1}+1 whenever both layers can contribute high quotients. The initial state is distinct. The four small shifts give 2,3,5,6. Equality in the block bounds for k>=3 is forced at the top digit layer for the minimum, and at every layer from j=2 onward for the maximum. The latter conditions are equivalent to upper-half membership and c=2 mod 4; there are 2^(k-3) such shifts. The binary 2-kernel is exactly the collection of prefix residuals. Independent finite replay (`python3 /workspace/audit-evidence/replay.py 1`) obtained the expected residual signature counts for shifts 0–127 and the stated extremizer sets in blocks k=3–6; this corroborates the proof, not a substitute for it.",
+      "residual_risks": [
+        "No claim for MSD-first automata or for other bases; finite signature bounds alone do not prove the all-shift result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "e6401767e080 provides all shifts for s_2(n) mod m with m>=2; m=2 specializes to this sequence",
+          "arXiv:2512.10017v1 Theorem 10 assumes MSD-first, and the Thue–Morse exact-count question after Theorem 20 is in that regime",
+          "arXiv:1910.08543 treats the recognizer for mT+r with 0<=r<m, not t(n+c)"
+        ],
+        "reasoning": "The later mod-m theorem overlaps by specialization but does not establish earlier priority. The cited primary MSD-first problem and the dilation-plus-remainder recognizer have different hypotheses.",
+        "searches": [
+          "Resultary e6401767e080: shifted binary digit sums modulo m",
+          "Moradi–Rampersad–Shallit arXiv:2512.10017v1, linear subsequences",
+          "Charlier–Cisternino–Massuir arXiv:1910.08543, translated Thue–Morse sets"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 11fc25e0cd30, e6401767e080",
+        "arXiv:2512.10017v1, arXiv:1910.08543",
+        "Zantema–Bosma §7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed exact formula contributes at most 4 per residue term, subtracting at least 1 from the top two-unit bonus in the lower half; it assigns v_2=4 exactly at residue 2"
+        ],
+        "reasoning": "For k>=3, a maximum requires the upper half and v_2=4, which forces all other v_e=4. The minimum is attainable only in the lower half, where all v_e must equal 2 and the last-lower-shift bonus must vanish; v_{k-1}=2 forces c=2^k. These give the entire locus and its count by direct interval arithmetic, without an additional theorem. The primary MSD-first open problem neither supplies nor is solved by these facts.",
+        "searches": [
+          "11fc25e0cd30 Finding and Proof §§2–5",
+          "arXiv:2512.10017v1 Theorem 20 and Problem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "11fc25e0cd30 uses N=7+sum_{e=2}^{m-1}v_e+2[upper half]+[last shift of lower half], with v_e=2,3,4 by the stated residue classes and small counts (2,3,5,6)"
+        ],
+        "reasoning": "For k>=3, v_e=a_e+b_e; j=1 in the frozen formula contributes 2. The final layer contributes v_{k-1} in the upper half and v_{k-1}-2+[r_{k-1}=2^{k-1}-1] in the lower half. This gives the indexed formula exactly. For k=2 both give 7,8,9,9 at c=4,5,6,7. Kernel equality is just the prefix-residual correspondence used for the same automaton.",
+        "searches": [
+          "Resultary: least-significant-digit-first shifted Thue–Morse minimal automata; binary 2-kernel",
+          "11fc25e0cd30, Finding and Proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "11fc25e0cd30 supplies all exact values, including the exceptional cases",
+          "Zantema–Bosma explicitly compute the one-step tail reversed size as 3; their formulation uses reversed canonical representations",
+          "A382296 is identified as MSD-first, a different invariant"
+        ],
+        "reasoning": "A full exact indexed formula covers the finite and infinite values. The one-step primary example alone covers at most one shift, and the MSD-first sequence is not the same table.",
+        "searches": [
+          "Resultary 11fc25e0cd30 Finding",
+          "Zantema–Bosma, Complexity of automatic sequences, §7; OEIS A382296 as identified in the frozen prior-work section"
+        ]
+      },
+      "rationale": "Distinct Resultary record 11fc25e0cd30 gives the exact same function for every shift under the same empty-word and trailing-zero conventions, and the same dyadic bounds. Although that Finding gives only examples of extremizers, both complete equality loci follow directly from its explicit per-residue contributions; the claimed exact kernel cardinalities are the same invariant. This establishes coverage, not discovery priority or dependence.",
+      "residual_risks": [
+        "Catalog dates establish the displayed record order, not discovery priority, relationship or authorship."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage and mechanically implied attainment loci",
+          "evidence": "All finite binary words with LSD-first interpretation, same four small cases, exact residue formula and sharp dyadic bounds.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-binary-digit-formula-for-least-significant-digit-first-thu--11fc25e0cd30/RESULT.md",
+          "material_read": "Finding, assumptions and Proof §§1–5; explicit formula near offset 90",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact binary-digit formula for least-significant-digit-first Thue–Morse shift automata",
+          "trigger": "Strongest candidate for exact count and dyadic overlap"
+        },
+        {
+          "assessment": "Later broader exact formula",
+          "evidence": "All shifts for s_2(n) mod m, including m=2; power-of-two specialization 2k+3.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-least-significant-first-state-complexity-of-shifted-binary--e6401767e080/RESULT.md",
+          "material_read": "Finding and Proof",
+          "method": "Local Resultary mirror",
+          "title": "Exact least-significant-first state complexity of shifted binary digit sums",
+          "trigger": "General digit-sum modulus"
+        },
+        {
+          "assessment": "Different input direction",
+          "evidence": "MSD-first theorem, upper bound, and exact-count problem.",
+          "identifier_or_url": "https://arxiv.org/pdf/2512.10017v1",
+          "material_read": "Theorem 10 p. 12 and Theorem 20/Problem 1 p. 16",
+          "method": "OA primary PDF passages",
+          "title": "Complexity of Linear Subsequences of k-Automatic Sequences",
+          "trigger": "Cited Thue–Morse shift problem"
+        },
+        {
+          "assessment": "One-step overlap",
+          "evidence": "Thue–Morse tail reversed size 3, canonical representations.",
+          "identifier_or_url": "https://www.math.ru.nl/~bosma/pubs/Zantema_Bosma_Complexity_of_Automatic_Sequences.pdf",
+          "material_read": "Section 7, p. 9, around extracted offset 38300",
+          "method": "OA primary PDF passage",
+          "title": "Complexity of automatic sequences",
+          "trigger": "Earlier reversed-input tail computation"
+        },
+        {
+          "assessment": "Different operation",
+          "evidence": "Set mT+r, not inverse translation of T underlying t(n+c).",
+          "identifier_or_url": "https://arxiv.org/pdf/1910.08543",
+          "material_read": "p. 3 definition and theorem setup",
+          "method": "OA primary PDF passage",
+          "title": "Minimal automaton for multiplying and translating the Thue-Morse set",
+          "trigger": "Translation terminology and exact state complexity"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Findings and Proof §§1–5",
+        "Resultary 11fc25e0cd30 Finding and Proof"
+      ],
+      "rationale": "Exact shift complexity is a natural automata invariant, but the original record repeats the complete exact count and dyadic bounds, including the residual approach. Its extra extremizer and kernel wording consists of routine residue maximization and the defining residual correspondence. The frozen claim supplies no independently valuable remainder beyond the already indexed count.",
+      "residual_risks": [
+        "The assessment is for this result, not for state complexity of shifted automatic sequences generally."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

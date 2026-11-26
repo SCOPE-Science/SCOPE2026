@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:55:48.814939Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–68, VERIFICATION.md and verify_two_windows.py (read as evidence)",
+        "python3 /workspace/review-evidence/recompute.py 1; output /workspace/review-evidence/1.txt"
+      ],
+      "rationale": "The alternating positive positions of 10101 require three windows, giving the universal upper bound. On four points let a,b,c be the successive differences and L,R the outer zero-gap lengths. The two alternating traces force a+b,b+c>=r+1 and L+a,R+c>=r. Those spans exclude any three queries in one window, so 1111 must split 2+2 and a,c<=r-1. Now 0000 can use only the gaps L,b-1,R: two must have length at least r or one must have length at least 2r. The two-gap cases give n>=3r+3, and the single-gap cases give n>=4r+2>3r+3. At equality the outer-outer case forces (L,a,b,c,R)=(r,1,r,1,r). The outer-middle case forces (r,1,r+1,c,r-c), or its reflection. In 0110 the two positive queries cannot share a window (their distance is at least r), so the interval strictly between the two excluded exterior queries must fit both windows. Its length is r+1 in the first case and r+1+c in the second, eliminating the first and forcing c=r-1 in the second. The affine witness table realizes all 16 traces for the reflected candidate, including r=2 and placements with adjacent windows, and the same placements embed in any larger chain. Independently, enumerating slack compositions before, between and after the windows and projecting the resulting binary strings tested 184191 supports for 2<=r<=8 from n=2r+1 through n=3r+3 and recovered exactly the two critical supports at each onset.",
+      "residual_risks": [
+        "The bounded search is corroboration, not the all-r argument. The proof uses exactly two length-r intervals and permits adjacency; it claims no complete VC dimension below onset or online rank."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Eleftheriou–Papadopoulos–Westhead give VC dimension 2k for the k-fold union of all open intervals in R, shattering every set of 2k points. Indexed 3374b1fb8ebf gives VCdim=min(n,4) for at most two arbitrary-length intervals on an n-chain, including the empty set.",
+          "Indexed 8f87b8e9beef gives exact shattering polynomials for one fixed-width window, with an optional empty concept and no terms of degree three or more."
+        ],
+        "reasoning": "The two unrestricted results transfer only the upper bound. They permit witnesses that violate the fixed length and exact packing constraints. A single-window classification does not treat disjoint two-window traces.",
+        "searches": [
+          "arXiv:2501.09847v1 Example 3.5",
+          "Resultary 3374b1fb8ebf and 8f87b8e9beef"
+        ]
+      },
+      "checked_sources": [
+        "Johnson §2 and Theorem 5; Eleftheriou–Papadopoulos–Westhead Example 3.5; indexed 3374b1fb8ebf and 8f87b8e9beef Findings; target self-match fb6aafbf9ead"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The broad interval class can shatter four points on a chain of length four. Its empty and short intervals may realize isolated queries or the empty trace, where exactly two length-r windows must fit in unqueried gaps.",
+          "The independent bound derives 3r+3 from gap packing for the all-zero trace, then separates candidate critical supports by the required two disjoint windows for 0110."
+        ],
+        "reasoning": "The new finite-length obstruction and equality constraints depend on precisely the hypotheses absent from the compared statements. The unrestricted upper bound does not imply either the restricted threshold or its rigidity.",
+        "searches": [
+          "Eleftheriou–Papadopoulos–Westhead Example 3.5; Johnson Theorem 5; Resultary 3374b1fb8ebf and 8f87b8e9beef Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Johnson's objects are supports of 1s in substrings of one fixed binary sequence; Theorem 5 bounds VC dimension by twice the number of maximal 1-blocks.",
+          "The assigned membership family is the set of binary strings obtained by distributing slack among initial, internal and final zero gaps around two 1-blocks of length r, with zero internal gap allowed. Substring families and fixed-width window unions do not generally coincide."
+        ],
+        "reasoning": "The alternating-run obstruction has prior coverage, but translation of the parameters and gap restrictions does not reduce the sharp finite-chain question to a substring result.",
+        "searches": [
+          "Resultary: sharp four-query onset and critical four-point shattering for two rigid equal-width disjoint windows",
+          "\"VC dimension\" unions of two disjoint equal-length intervals fixed-width windows finite integer chain shattering",
+          "Johnson arXiv:2101.06490 §2 and Theorem 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact match is the target. The two-interval record's finite online table treats a different class and dimension, and the exact single-window shattering polynomial treats a different family.",
+          "Neither inspected indexed comparator supplies a table of four-point shattered supports for the equal-width disjoint two-window family."
+        ],
+        "reasoning": "An online-dimension table for unrestricted intervals or a static one-window polynomial cannot determine the two critical supports in the stated problem.",
+        "searches": [
+          "Resultary exact match fb6aafbf9ead and related finite-chain records 3374b1fb8ebf and 8f87b8e9beef"
+        ]
+      },
+      "rationale": "The strongest available comparators cover the VC upper bound of four for unrestricted unions of two intervals, or a single fixed-width window. They do not decide when exactly two disjoint copies of the same fixed-width integer interval can realize all four-point labelings, nor the equality classification for the smallest chain. The only exact indexed statement located is the assigned record itself. The pass is for the sharp restricted onset and rigidity, not the standard alternating-trace bound.",
+      "residual_risks": [
+        "The primary-literature search was bounded; equivalent formulations under equal-duration bursts or rigid segmentation could remain unexamined. The pass is not a global priority assertion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact unrestricted interval-union dimension, not a fixed-width finite-chain result",
+          "evidence": [
+            "VCdim of k-fold unions of the family of all open intervals in R is 2k; every 2k-point set is shattered."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2501.09847v1",
+          "material_read": "Example 3.5, p. 5, offset 15877",
+          "method": "Open-access original text",
+          "title": "Exact VC-Dimensions of Certain Geometric Set Systems",
+          "trigger": "Primary literature hit on exact VC dimension for interval unions"
+        },
+        {
+          "assessment": "Different substring family, overlapping general alternating-run obstruction",
+          "evidence": [
+            "Family uses supports of 1s in finite contiguous substrings; the dimension bound is twice the number of maximal 1-blocks."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2101.06490",
+          "material_read": "§2 p. 3 and Theorem 5 p. 15, offsets 7934 and 42204",
+          "method": "Open-access original PDF text",
+          "title": "Binary strings of finite VC dimension",
+          "trigger": "Run/alternation formulation of VC bounds"
+        },
+        {
+          "assessment": "Covers the unrestricted static upper bound, not the equal-width onset or critical supports",
+          "evidence": [
+            "Unions of at most two intervals of arbitrary length have VCdim=min(n,4), with the alternating obstruction on five queries."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-finite-online-shattering-thresholds-for-unions-of-two-intervals--3374b1fb8ebf",
+          "material_read": "RESULT.md Finding and static dimension proof",
+          "method": "Local mirror original text",
+          "title": "Finite online-shattering thresholds for unions of two intervals",
+          "trigger": "Closest indexed two-interval dimension result"
+        },
+        {
+          "assessment": "Single-window results do not classify exactly two equal-width windows",
+          "evidence": [
+            "The model is one interval of prescribed length, optionally adjoining the empty concept; the shattering polynomial has no terms of degree three or higher."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-online-ranks-and-shattering-polynomials-of-fixed-width-int--8f87b8e9beef",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror original text",
+          "title": "Exact online ranks and shattering polynomials of fixed-width intervals on finite chains",
+          "trigger": "Closest indexed fixed-width trace result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and extremal proof; comparison with unrestricted two-interval and one fixed-window models"
+      ],
+      "rationale": "On the natural fixed-width family, the general VC upper bound alone leaves open whether the length budget permits four fully independent responses. The exact threshold answers that question and the complete two-support rigidity identifies all optimally small query configurations, rather than one witness or an asymptotic estimate. The packing constraints distinguish the theorem from routine interval-class dimension bounds.",
+      "residual_risks": [
+        "No claim about adaptive queries, lower-dimensional supports, or required nonadjacency is made."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

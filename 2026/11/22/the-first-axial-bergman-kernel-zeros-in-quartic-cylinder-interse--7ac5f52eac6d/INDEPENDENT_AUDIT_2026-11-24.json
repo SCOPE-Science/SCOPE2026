@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:30:36.510846Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the stated unweighted Euclidean volume the fiber slice has volume π^m(1−|z|^4)^m. Monomial orthogonality on the complete Reinhardt domain and vanishing of transverse powers on the axis reduce the sum to the axial monomials. Substitution x=r^4 in the radial norm integral gives π^(m+1)2^m m!/A_m(n). In the numerator extraction, the degree-(m+1) coefficient vanishes because the full (m+2)-nd difference is zero and the missing term A_m(−1) is zero. Independently, from A_m(n)=(n+2m+1)A_(m−1)(n) I obtain Q_m=s(1−s)Q'_(m−1)+(2m+1−ms)Q_(m−1), starting at Q_0=1. This gives exactly the displayed Q_9. I checked the supplied Cayley and Routh construction and independently counted roots directly by exact integer Schur reductions. For ascending coefficients, if a is the leading coefficient, b the constant, and Q* the coefficient reversal, reduce to (aQ−bQ*)/s. Strict |a|≠|b| holds at every step, so boundary roots would propagate to the nonzero constant base (they do not exist). Rouché then gives the disk count as 1+the reduced count if |a|>|b|, and deg(Q)−1−the reduced count otherwise. Counts for m=1…9 are 0,0,0,0,0,0,0,0,2. Alternating coefficients exclude negative real roots; the positive generating series excludes nonnegative real roots in the disk. Thus the two roots are a simple conjugate pair, and any disk product is attainable. Independent numerical check gives upper root 0.574805680698193+0.812513725985981i, modulus 0.995278918433690. Replay: python3 /workspace/branches/check_1.py, output check_1.out beside it; mpmath is used only for the displayed approximation. Frozen verify.py and VERIFICATION.md were inspected but not executed. The physical range has nine cases, not ten: m=0 is solely an auxiliary disk. No off-axis zero-freeness or later census is verified.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Park result is identified at DOI 10.1016/j.jmaa.2021.125398. Frozen RESULT.md lines 65–69 credit general formulas including this geometry, and the frozen comparison reports a zero-free corollary in a different central exponent.",
+          "Frozen RESULT.md line 66 describes related Beberok geometry with different exponents; original OA attempts timed out."
+        ],
+        "reasoning": "A formula on a broader domain family entails the initial specialized series, but not the evaluated zero census: nontrivial localization of that series' roots is still needed. An actual stronger root-location theorem on the quartic slice would cover the result, but was not retrieved.",
+        "searches": [
+          "Primary literature: \"The Bergman kernel function for intersections of some cylindrical domains\" Park 2021 axial Bergman kernel zero Lu Qi-Keng threshold",
+          "OA exact Park title at DOI 10.1016/j.jmaa.2021.125398 and author page",
+          "OA literal query: intersection of complex ellipsoids Bergman kernel Lu Qi-Keng"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 7ac5f52eac6d and 4af434d8ad29 (catalogue)",
+        "Park DOI 10.1016/j.jmaa.2021.125398 (bibliography, frozen comparison, primary access attempted)",
+        "Perälä arXiv:1703.05976 and Beberok arXiv:1601.02989 (frozen comparisons, primary access attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Park is credited with the precise same geometric series as a specialization.",
+          "The distinct four-cylinder summary fixes complex dimension five and varies its central exponent; original passage not retrievable."
+        ],
+        "reasoning": "Even if the varying-exponent family contains the four-fiber case, that says nothing about the first nine-fiber zero or all lower fiber counts. A general coefficient generator needs an additional exact root test to yield the cutoff.",
+        "searches": [
+          "Frozen RESULT.md lines 65–69 and citation to Park 2021",
+          "4af434d8ad29, OA literal query: For the intersection of four equal transverse complex cylinders axial Bergman kernel threshold p"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Frozen RESULT.md lines 42–52 show the equivalent radial disk measure with density proportional to (1−r⁴)^m and moments A_m(n)^{-1} up to constant.",
+          "Perälä arXiv:1703.05976 is cited for zero-producing radial weights; the original was not retrieved in this review."
+        ],
+        "reasoning": "An exact disk-root classification for this density or the same rational series would cover the claim irrespective of geometric notation. The radial-motivation description does not itself specify that density's m-dependent counts.",
+        "searches": [
+          "Resultary: first axial Bergman-kernel zeros quartic cylinder intersections nine fibres m=9 exact threshold",
+          "Resultary: Bergman kernel quartic cylinder intersection central axis axial zero threshold nine fibres Park",
+          "OA literal query: Bergman kernel zero radial weights theorem"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit 7ac5f52eac6d is the frozen record itself.",
+          "Distinct result 4af434d8ad29 reports two axial transitions, at p=1/4 and p=√(2/3), on a four-cylinder parameter family."
+        ],
+        "reasoning": "The self-hit is not prior work. The distinct hit is not a table varying the number of fibers at fixed quartic exponent, and its shared date does not establish order.",
+        "searches": [
+          "Resultary: first axial Bergman-kernel zeros quartic cylinder intersections nine fibres m=9 exact threshold",
+          "Resultary: Bergman kernel quartic cylinder intersection central axis axial zero threshold nine fibres Park"
+        ]
+      },
+      "rationale": "Credit to prior work for the general cylindrical kernel formula and its axial specialization. The supported distinct claim is the exact zero-count cutoff and census in the quartic-axis, varying-fiber family, not the kernel expression itself. The nearest four-cylinder record varies an exponent at fixed fiber number, and no inspected statement supplies or entails the varying-fiber cutoff. The strongest primary full text was not available; this decision is not a historical-priority certification.",
+      "residual_risks": [
+        "No original Park passage was retrieved after DOI and author-page attempts; a quartic zero-location result in uninspected parts would be directly relevant.",
+        "The distinct same-day mirror and the earlier OA texts did not load; their summaries or frozen descriptions do not establish whole-text noncoverage.",
+        "Equivalent threshold results in unindexed radial-weight or rational-polynomial treatments are not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical record, not separate prior coverage",
+          "evidence": [
+            "Lines 8–16 give m=1…8 zero-free and two attainable axial zeros at m=9."
+          ],
+          "identifier_or_url": "Resultary record 7ac5f52eac6d; frozen RESULT.md",
+          "material_read": "Summary and frozen Finding/Proof",
+          "method": "Resultary and frozen original",
+          "title": "The first axial Bergman-kernel zeros in quartic-cylinder intersections occur with nine fibres",
+          "trigger": "Exact catalogue hit"
+        },
+        {
+          "assessment": "The stated thresholds use a different parameter; other passages not assessed",
+          "evidence": [
+            "Transitions at p=1/4 and p=√(2/3) in the reported fixed four-cylinder family."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-two-sharp-central-bergman-kernel-zero-transitions-for-a-four-cyl--4af434d8ad29",
+          "material_read": "Catalogue summary; original did not load",
+          "method": "Resultary and targeted OA mirror attempt",
+          "title": "Two sharp central Bergman-kernel zero transitions for a four-cylinder family",
+          "trigger": "Distinct same-day central-axis root classification"
+        },
+        {
+          "assessment": "General series credited; full-text zero-count coverage unresolved",
+          "evidence": [
+            "The frozen comparison explicitly identifies the axial series as a specialization of Park's general formulas."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jmaa.2021.125398",
+          "material_read": "Search bibliographic results and frozen RESULT.md lines 65–69; not primary full text",
+          "method": "Primary search and targeted DOI and author-page OA attempts",
+          "title": "The Bergman kernel function for intersections of some cylindrical domains and Lauricella's hypergeometric function",
+          "trigger": "Closest general theorem on the same geometry"
+        },
+        {
+          "assessment": "As described, related radial constructions, not evidence of the exact cutoff",
+          "evidence": [
+            "Frozen line 66 characterizes zero-producing radial weights and finite-zero perspective."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1703.05976",
+          "material_read": "Frozen comparison line 66 and reference 72; original not retrieved",
+          "method": "Targeted OA attempt",
+          "title": "Vanishing Bergman kernels on the disk",
+          "trigger": "Equivalent weighted-disk formulation"
+        },
+        {
+          "assessment": "As described, related exponent patterns; whole-text coverage unassessed",
+          "evidence": [
+            "Frozen line 66 distinguishes Beberok's intersection exponent patterns; the frozen audit describes the quadratic central variables."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1601.02989",
+          "material_read": "Frozen comparison line 66 and reference 73; original not retrieved",
+          "method": "Targeted OA attempt",
+          "title": "The Bergman kernel: explicit formulas, deflation, Lu Qi-Keng problem and Jacobi Polynomials",
+          "trigger": "Potentially broader intersection-domain Lu Qi-Keng results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The dimension parameter counts identical geometric fibers rather than arbitrary truncation coefficients, and the axial restriction gives a natural obstruction to Lu Qi-Keng zero-freeness. The exact first obstruction and complete first-pair count are useful benchmarks even without determining the off-axis behavior in lower dimensions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

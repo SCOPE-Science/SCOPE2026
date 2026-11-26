@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The transfer state records exact component connectivity and occupancy parity at the frontier, and the transition rule rejects a completed even component. The finite-board identity is forced by the trailing empty column. All 19 reachable states communicate with the empty state, and a zero self-loop makes the integer matrix primitive. Exact characteristic factorization, Sturm counting and a finite positive-return lower bound isolate the Perron root. The four-column completion proves that finite-board and infinite-strip word growth have the same exponential rate; the stripe embedding proves the planar area-normalized lower bound. Reproducible checker tests include exhaustive finite-board enumeration for one through five columns.
+## correctness
 
-**Originality — PASS within the inspected evidence.** Callard's thesis, Chapter 7 p. 54, describes the multidimensional odd shift and credits Cassaigne's unpublished soficity result; neither inspected passage claims this three-row entropy. Existing two-row results determine a degree-five eigenvalue and exact two-row zeta function, not the three-row degree-eleven root. Search comparisons considered equivalent formulations such as finite-width hard-constraint transfer matrices, odd polyomino connected-component count, and planar entropy strip lower bounds. A 2010 unpublished source could contain related calculations and remains a nonzero priority risk.
+PASS
 
-**Value — PASS.** At width three, additional frontier connectivity patterns beyond the two-row case make the exact spectral invariant nontrivial; this invariant controls the asymptotic census of odd-sized islands. It also yields a strict numerical improvement of a full two-dimensional entropy lower bound, from approximately \(0.41736\) to above \(0.48216\) per site. This does not claim to solve the planar entropy problem.
+The frontier transition preserves connectivity and parity by adding each old component once, and tests precisely the components that can no longer connect to the right. An extra empty mask tests closure. A new implementation using row-mask intersections reproduced 19 states, 119 transitions, the exact characteristic factorization, root isolation above 6, all eight listed counts, and a direct flood-fill census through n=5. A full column followed by one more full column if needed supplies an odd cap at width 3; every state thus returns to the empty state, whose loop proves primitivity. In an extendible strip word, an interior component already has odd size. Full columns at the occupied ends merge the boundary components, after which one added column on a suitable end toggles each even merged component, including the case of one component meeting both ends. Padding to two columns per end with zeros makes the map injective and proves the language bounds for all lengths, not just the tested boards. Independent strips with an empty spacer row give the claimed per-site lower bound. The replay verifies the strict width-two comparison with rational root enclosures and verifies 0.48216 by a rational exponential bound.
 
-**Scientific limitations.** The proof is for the three-row open strip and a planar lower bound only. Exhaustive checks of finite widths are supplementary, not proofs of infinite behavior. The broader literature and unpublished constructions may contain equivalent statements that were not accessible in full.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The inspected comparisons cover the underlying multidimensional shift and the exact two-row case, not the degree-eleven three-row entropy or the resulting numerical planar lower bound. The strict comparison with width two is mathematical; the catalogue dates alone do not show which result had historical priority.
+
+## value
+
+PASS
+
+Width three is a natural next strip after the two-row calculation and requires distinguishing connectivity across an empty middle row. The exact spectral invariant controls both finite-board and actual strip growth, and the independent-strip construction strictly improves a quantitative lower bound for the full planar entropy. It does not purport to determine that planar entropy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

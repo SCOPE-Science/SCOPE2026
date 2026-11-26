@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:20:27.579600Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–85",
+        "Frozen VERIFICATION.md",
+        "Frozen check_john.py",
+        "Torres arXiv:2306.11910v1, Theorem 3.1",
+        "Gruber–Schuster, An Arithmetic Proof of John's Ellipsoid Theorem, Theorem 2"
+      ],
+      "rationale": "In the incidence orientation of the finding, the positive feasible point c=1/d makes the affine tangent space T=ker B; connectivity gives rank 2n-1 and D=m-2n+1>0. Bipartite matching integrality supplies the full inequality description. The projector P=I-B^T(BB^T)^+B has P_ee=1-R_eff(e). Constancy forces P_ee=s^2=D/m. The intrinsic distances from c to every coordinate hyperplane are (ds)^(-1), and the nearest points c-r P e_e/s lie in the contained ball, hence in the polytope; they really are supporting contacts. The normalized outward unit normals u_e=-P e_e/s have zero weighted first moment because P1=0 and identity weighted second moment on T because sum_e (P e_e)(P e_e)^T=P^2=P. Both John conditions hold with weights D/m, with repeated contacts combined if needed. Any ball of radius rho implies a_e>=rho s for each center coordinate, and summing gives n>=m rho s; at equality every a_e=1/d. This also proves incenter uniqueness independently. Substitution verifies the crown and cube examples, including a cycle where D=1. The frozen exact rational checker was inspected but not executed; the general proof supplies the result directly.",
+      "residual_risks": [
+        "The proof requires constant leverage/edge resistance, not regularity alone. It neither promises distinct contact points nor requires every distinct hyperplane to define a distinct facet."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "443f302b065c treats degree upper inequalities in the full edge space; dbb208ea5834 treats complete-support transportation inradii.",
+          "cc3b7ab88324 explicitly covers the equal-projector-diagonal setting for the inner ball and John contact calculation, and additionally develops a separate enclosing-ball theorem."
+        ],
+        "reasoning": "The full-dimensional fractional design need not optimize a prescribed affine section. The exact matching-equality comparison, not those neighboring settings, supplies coverage.",
+        "searches": [
+          "Resultary: spectral John ellipsoids of fractional matchings and structural-zero transportation polytopes",
+          "Resultary cc3b7ab88324, Finding and proof"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, lines 87–102",
+        "Resultary cc3b7ab88324, 443f302b065c, dbb208ea5834, and cited 9a80040abd60 (attempted)",
+        "Torres arXiv:2306.11910v1",
+        "Gruber–Schuster Theorem 2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "cc3b7ab88324 computes the same three projector moment identities and applies the nonsymmetric John criterion with identical weights.",
+          "The flow record is credited by the frozen paper for scalar inradius/incenter; the mirror did not return that exact file. The generic John theorem alone is a criterion, not a graph-specific radius result."
+        ],
+        "reasoning": "The direct graph-specific comparison establishes the optimal shape under the exact hypothesis. Adding the standard projector/resistance identity or taking the volume of the known ball gives no independent theorem.",
+        "searches": [
+          "Resultary cc3b7ab88324 Proof §§2–4",
+          "Resultary 9a80040abd60 exact cited flow ID",
+          "Gruber–Schuster Theorem 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "cc3b7ab88324 expressly says the proof needs only equal diagonal entries of the projector onto T. Its innermost contact normals are -P e_e/s with weights D/m.",
+          "For unit edges, the complement projector's e-th diagonal is b_e^T(BB^T)^+b_e=R_eff(e)."
+        ],
+        "reasoning": "The two hypotheses are equivalent with the same Euclidean metric and affine tangent space; effective resistance renames the same equal-leverage condition. This is not a conjectural extension from edge transitivity.",
+        "searches": [
+          "Resultary: spherical John ellipsoid, intrinsic Euclidean radius, regular bipartite perfect matchings, equal cycle-projector diagonals",
+          "Resultary cc3b7ab88324, Assumptions and scope and Proof §§2–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "cc3b7ab88324 Finding gives r^2=n/(dD) and its explicit deleted-diagonal specialization and lists cube checks in Verification.",
+          "dbb208ea5834 gives the complete-support Birkhoff inradius 1/(n-1) and unique uniform center."
+        ],
+        "reasoning": "No table lookup is needed to infer the full family; an exact family theorem dominates the displayed example values. The transportation entry by itself covers only the scalar complete-support case.",
+        "searches": [
+          "Resultary: crown/deleted-diagonal, Birkhoff and cube Euclidean radii and contact weights"
+        ]
+      },
+      "rationale": "Resultary cc3b7ab88324 is a distinct source with demonstrable equivalent mathematical coverage. Its headline assumes edge transitivity, but its explicit scope says the proof needs only equal diagonals of the tangent projector, and steps 2–4 derive exactly the centered round John ellipsoid, the same inradius and unique incenter, all coordinate contacts, and the same weights D/m using only that hypothesis. The frozen resistance condition is precisely that hypothesis by the incidence projection identity. The stated radii for the crown and cube, and the ellipsoid volume, are substitutions. The closely matching source is listed on a later date; this comparison is a coverage judgment, not an inference of historical priority or direction of dependence. The inaccessible acyclic-flow source is not the basis of failure.",
+      "residual_risks": [
+        "Chronology and historical priority between close records are not determined. The exact flow source could not be read; its status does not affect the positive evidence of mathematical coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent coverage on the inner-ball and ellipsoid question",
+          "evidence": "Scope says only equality of projector diagonals is needed; proof uses s^2=D/m and weights c_e=D/m, gives r^2=n/(dD) and proves unique John and inball optimality.",
+          "identifier_or_url": "2026/11/8/SCOPE-spherical-john-ellipsoids-and-universal-euclidean-radii-of-edge--cc3b7ab88324",
+          "material_read": "Finding, Assumptions and scope, Proof §§2–4 and specialization, mirrored offsets 0 and 4700",
+          "method": "Targeted local mirrored RESULT.md inspection",
+          "title": "Spherical John ellipsoids and universal Euclidean radii of edge-transitive bipartite perfect-matching polytopes",
+          "trigger": "Same John body, dimension and contacts; possible weaker symmetry hypothesis"
+        },
+        {
+          "assessment": "Different full-dimensional polytope",
+          "evidence": "Nonnegative edge coordinates and degree at most one; spectral ellipsoid tangent to degree and coordinate facets, rather than optimum in the degree-equality slice.",
+          "identifier_or_url": "2026/10/11/SCOPE-spectral-john-ellipsoids-of-vertex-and-edge-transitive-fractiona--443f302b065c",
+          "material_read": "Finding and Assumptions and scope, offsets 0–3965",
+          "method": "Targeted local mirrored RESULT.md inspection",
+          "title": "Spectral John ellipsoids of vertex-and-edge-transitive fractional matching polytopes",
+          "trigger": "Possible implication from a larger matching polytope"
+        },
+        {
+          "assessment": "Scalar complete-support overlap only",
+          "evidence": "Birkhoff inradius 1/(n-1), center J/n; structural zeros excluded, no John theorem.",
+          "identifier_or_url": "2026/10/11/SCOPE-exact-intrinsic-euclidean-inradius-and-centers-of-transportation--dbb208ea5834",
+          "material_read": "Finding and Proof, offsets 0–4270",
+          "method": "Targeted local mirrored RESULT.md inspection",
+          "title": "Exact intrinsic Euclidean inradius and centers of transportation polytopes",
+          "trigger": "Exact scalar overlap and support restrictions"
+        },
+        {
+          "assessment": "Scalar overlap credited in the frozen finding but exact separate source unavailable",
+          "evidence": "Frozen author explicitly excludes scalar inradius and incenter from novelty; no stronger conclusion inferred from the retrieval miss.",
+          "identifier_or_url": "2026/10/11/SCOPE-euclidean-inradius-of-acyclic-flow-polytopes-as-effective-res--9a80040abd60",
+          "material_read": "Frozen RESULT.md line 90 attribution only; separate record not retrieved",
+          "method": "Exact-ID catalogue and mirror lookup",
+          "title": "Euclidean inradius of acyclic flow polytopes as an effective-resistance cut ratio",
+          "trigger": "Frozen citation for effective resistance and incenter"
+        },
+        {
+          "assessment": "Background integrality rather than ellipsoid",
+          "evidence": "Identification of fractional and integral bipartite matching polytopes supplies the inequality representation.",
+          "identifier_or_url": "arXiv:2306.11910v1",
+          "material_read": "§3, Theorem 3.1, PDF pp. 4–5",
+          "method": "Targeted primary PDF inspection",
+          "title": "Normality of k-Matching Polytopes of Bipartite Graphs",
+          "trigger": "Same matching polytope inequalities"
+        },
+        {
+          "assessment": "General nonsymmetric contact criterion",
+          "evidence": "Weighted normalized contacts must have first moment zero and identity second moment; supplies optimality once the explicit graph certificate is known.",
+          "identifier_or_url": "Gruber–Schuster, An Arithmetic Proof of John's Ellipsoid Theorem",
+          "material_read": "Introduction and Statement of Results, Theorem 2",
+          "method": "Targeted primary passage inspection",
+          "title": "An Arithmetic Proof of John's Ellipsoid Theorem",
+          "trigger": "General contact characterization"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 19–32 and 79–90",
+        "Resultary cc3b7ab88324, Finding, scope and Proof §§2–4"
+      ],
+      "rationale": "The geometry of perfect-matching equality faces and the round John ball are natural and scientifically useful, but the inspected equivalent theorem already establishes precisely the shape and full contact certificate in the stated graph class. The effective-resistance terminology, standard Euclidean volume formula, and parameter substitutions add no distinct substantive invariant at this scope.",
+      "residual_risks": [
+        "No judgment is made on the unresolved geometry for variable leverage or other edge metrics."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:03:20.915786Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two endpoint gaps and the half-interior gaps are the only candidate radii, with ties on a null set. A common gamma normalization of independent exponentials leaves the witness unchanged. If Z is the larger endpoint exponential, integrating the interior cutoff at 2Z gives 2∫₀¹(1-u)(1-u²)^(n−1)du = B(1/2,n)−1/n, including probability one at n=1. For T=n exp(−2Z), the conditional density tends to Gamma(1/2,1); an integrable envelope follows from (1−t/n)^(n−1)≤exp(−t/2) for n≥2. The gamma denominator differs relatively from n by o_P(1/log n) even after dividing the deviation bound by the order n^(−1/2) rare probability, so the limiting radius cdf is erfc(exp(−y/2)). Exchanging endpoints fixes the radius and witness event and flips the label. Independent rational expansion and factorial comparison for n=1,…,20 corroborates the exact probability (branches/426cb915-c17f-4719-aea2-02c0aa98a796/endpoint_probability_check.py). Frozen check.py was inspected, not executed; its finite quadrature and simulation logic cannot establish the conditional limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Corollary 3.6 of Reznikov–Saff gives expected covering-radius moment asymptotics for points on a rectifiable curve; Theorem 4.2 of Penrose includes the interval in an almost-sure leading-scale law for polytopes.",
+          "Hüsler's accessible abstract treats maximal nonuniform spacings with a zero density minimum and circle coverage, not an identified finite weighted boundary winner."
+        ],
+        "reasoning": "The expected scale or even an unmarked finite radius cdf does not identify the maximizing gap or its conditional radial distribution.",
+        "searches": [
+          "Reznikov–Saff arXiv:1504.03029 §3",
+          "Penrose arXiv:2101.06306 §4",
+          "Hüsler DOI 10.2307/3213981"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check.py",
+        "Reznikov–Saff arXiv:1504.03029",
+        "Penrose arXiv:2101.06306",
+        "Hüsler DOI 10.2307/3213981 (abstract)",
+        "Resultary 0aae33430d2b, a7482687ed1b, e1d92a439f4f, 1da914fe9baf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An unmarked exact cover cdf describes simultaneous constraints D₀,Dₙ≤r and Dᵢ≤2r internally, but there is no winner recorded in it.",
+          "The conditioned maximum uses a factor exp(−Z)(1−exp(−2Z))^(n−1) in its tail integration. Transforming under this tilt produces the half-shape gamma law rather than the unmarked Gumbel law."
+        ],
+        "reasoning": "The classical joint spacing model supplies inputs, not this conditioned limit. One needs both the rare-winner weighting and control of the common normalization on that conditioning scale.",
+        "searches": [
+          "Penrose §4 and strongest indexed unweighted extreme fields a7482687ed1b",
+          "Resultary: weighted spacings and exact interval coverage"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-model 2026/11/22 indexed record a7482687ed1b has a joint extreme point process for unweighted fixed-length k-spacings (Finding, offset 0), with Gumbel limits and asymptotically uniform maximizing locations.",
+          "The current race gives the two endpoint gaps twice the interior weight; the exact exponential cutoff for the interior terms is 2Z, not Z."
+        ],
+        "reasoning": "An unweighted maximum and its location do not give the endpoint victory mark after reweighting. In particular, changing two spacings changes the large-deviation conditioning despite leaving the leading unconditional Gumbel law intact.",
+        "searches": [
+          "Resultary: exact beta probability; weighted endpoint/max-spacing races"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact match 0aae33430d2b is the assigned record itself. Distinct 2026/11/2 e1d92a439f4f (Finding, offset 0) combines the maximum unweighted spacing with the Greenwood statistic, not the marked weighted maximum.",
+          "Distinct 2026/11/22 1da914fe9baf (Finding, offset 0) treats interior gaps for stratified, not iid, points."
+        ],
+        "reasoning": "The indexed exact identities for other gap models do not tabulate the same witness or give its conditional limit.",
+        "searches": [
+          "Resultary: conditional rare-event limit; exact interval-cover probabilities; exact weighted endpoint probability"
+        ]
+      },
+      "rationale": "The supported claim is the weighted endpoint-versus-interior witness probability and its conditional non-Gumbel radius law, not the exponential spacings representation, unmarked coverage threshold, or unweighted Gumbel limit.",
+      "residual_risks": [
+        "An earlier equivalent weighted-spacing race or conditional extreme-statistic result could exist. Full text of Hüsler was not available; only the abstract was used. The bounded search does not certify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related unmarked radius moments",
+          "evidence": [
+            "Rectifiable-curve radius asymptotics concern moments, not the identity of the farthest location."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1504.03029",
+          "material_read": "§3 Cor. 3.6, p. 7, offset 26720",
+          "method": "Lawful OA PDF",
+          "title": "The Covering Radius of Randomly Distributed Points on a Manifold",
+          "trigger": "One-dimensional covering-radius asymptotics"
+        },
+        {
+          "assessment": "Interval leading scale, not its rare mark",
+          "evidence": [
+            "A one-dimensional polytope is included; the theorem gives almost-sure coverage scale."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2101.06306",
+          "material_read": "§4 Theorem 4.2, p. 10, offset 30480",
+          "method": "Lawful OA PDF",
+          "title": "Random Euclidean coverage from within",
+          "trigger": "Boundary effects and interval coverage under the same base sampling"
+        },
+        {
+          "assessment": "Full scope unresolved; not evidence of noncoverage",
+          "evidence": [
+            "The abstract describes nonuniform densities with a zero minimum and circle coverage."
+          ],
+          "identifier_or_url": "https://doi.org/10.2307/3213981",
+          "material_read": "Accessible abstract; Cambridge and JSTOR full-text attempts unavailable",
+          "method": "Lawful publisher and alternate access attempts",
+          "title": "Maximal, non-uniform spacings and the coverage problem",
+          "trigger": "Potential older spacing-limit and coverage overlap"
+        },
+        {
+          "assessment": "Overlap in model and spacings, not weights or conditional witness",
+          "evidence": [
+            "Its unweighted k-spacings give Gumbel extreme fields and asymptotically uniform maximizing locations."
+          ],
+          "identifier_or_url": "Resultary:a7482687ed1b",
+          "material_read": "Local mirror RESULT.md, Finding offset 0",
+          "method": "Resultary plus local mirror",
+          "title": "Independent spatial extreme fields for finitely many maximal uniform spacings",
+          "trigger": "Closest distinct indexed use of uniform spacing extremes including endpoints"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The endpoint mark is geometrically canonical for interval coverage and cannot be read off a usual coverage statistic. Its exact rate quantifies how often boundary rather than interior gaps control the radius; the conditional law shows that keeping the rare mark changes the limiting fluctuation profile despite the familiar unconditional scale.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

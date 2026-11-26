@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:02:26.912743Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In each ordinary binary length group, the valid suffixes are tiled uniquely by 1 and 00. Sorting them splits them as 00L_(L−2) followed by 1L_(L−1), with one new gap G_L=2^(L−2)+1+1_{L even}. Inter-group gaps alternate between sizes 2 and 1 (in addition to the initial gap 1). An internal split at suffix length j appears once per legal prefix, so its multiplicity summed over suffix lengths L=j,…,K−1 is F_(K−j+2)−1. The collision G_2=G_3=3 yields the stated length-two count by the Fibonacci recurrence, also zero at K=2 where neither split appears. Gap size 2 gives floor(K/2) one-zero runs and the other nonempty runs come from G_j−1. All listed run counts diverge for fixed j or length, and every finite run occurs in a sufficiently long dyadic prefix ending with a one. Of F_(K+2)−1 total gaps, ceil(K/2) are size one; subtracting them gives the correct normalization. Binet asymptotics yield the stated masses, which sum to one via the geometric series. The scope is dyadic only. The recorded checks are finite; the uploaded verifier was not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Merta's §2 gives recurrence, unbounded runs and Fibonacci-word parity structure; Theorem 4.6 concerns differences of a formal-inverse variant, not this support. Indexed records 0653545412cc and 0753f1e5db42 give F_(K+2) total ones, and 0653545412cc also classifies adjacent-one pairs. Indexed records 34910b02e3eb, 138012f26e30 and 98bde352d9b4 give full support-gap results."
+        ],
+        "reasoning": "Counting all support points, proving unbounded gaps, or considering a formal inverse does not give the exact histogram. The return-gap histogram on this same support gives strictly the frozen information plus the number of empty intervals.",
+        "searches": [
+          "Merta arXiv:1803.00292v1 §2 and Theorems 2.5, 4.6",
+          "Resultary: exact dyadic complexity, Fibonacci support and return gaps"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "Resultary records 34910b02e3eb, 138012f26e30, 98bde352d9b4, 0653545412cc and 0753f1e5db42",
+        "Merta arXiv:1803.00292v1",
+        "OEIS A086747 and A060142"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed dyadic counts at gaps 2, 3 and G_j are floor(K/2), F_(K+1)−2 and F_(K−j+2)−1, respectively; the displayed masses at gap 3 and G_j are φ^(−1) and φ^(−j). The gap-1 count grows only linearly, versus F_(K+2)−1 total gaps."
+        ],
+        "reasoning": "Deleting gap 1 and normalizing by the remaining count leaves the same limiting masses because the deleted fraction tends to zero. The exact histogram also gives occurrence infinitely often. There is no unmatched spectrum, count or limiting assertion in the frozen scope.",
+        "searches": [
+          "Indexed complete return-gap law 34910b02e3eb, full Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Indexed record 34910b02e3eb states the Baum–Sweet support gaps G_j=2^(j−2)+1+1_{j even}, j≥4, plus gaps 1,2,3. Its exact histogram and law use consecutive one positions."
+        ],
+        "reasoning": "Consecutive ones distance g apart enclose exactly g−1 word zeros. Nonempty word runs discard g=1; g=2 and g=3 become length 1 and 2, and G_j becomes h_j. These are not runs of zero bits inside an individual integer's binary expansion.",
+        "searches": [
+          "Resultary: Baum–Sweet exact zero-run spectrum, dyadic Fibonacci frequencies, return gaps and support gaps",
+          "Merta arXiv:1803.00292v1 §§2,4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A086747 defines the word and A060142 describes its one-position set by closing 0 under x↦2x+1 and x↦4x; the exact term lookups returned no matches. The indexed full finding gives the Fibonacci count at each gap, not merely sample values."
+        ],
+        "reasoning": "A generator for the support alone is not the exact law, and no match to a finite term search does not establish absence. The exact indexed histogram matches every frozen count after shifting the labels and discarding gap 1.",
+        "searches": [
+          "OEIS A086747 and A060142",
+          "OEIS exact term searches: 1,2,5,8,17,32,65,128,257 and 1,2,3,6,9,18,33,66,129",
+          "Resultary record 34910b02e3eb"
+        ]
+      },
+      "rationale": "A distinct indexed full finding already gives the exact support-gap spectrum, dyadic Fibonacci histogram and limiting law on the same Baum–Sweet word with the same endpoints. The change of variable g↦g−1 and omission of gap 1 gives the frozen nonempty-run theorem. The later index date establishes catalogue coverage, not earlier priority over the frozen record.",
+      "residual_risks": [
+        "An earlier unindexed equivalent derivation remains possible. Neither the empty literature lookup nor the catalogue dates determine priority. The rejection rests on the verified full indexed coverage, not on the negative searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage under the gap-to-run shift; no priority inference",
+          "evidence": [
+            "Full spectrum, exact dyadic Fibonacci histogram, and limiting masses φ^(−1) at gap 3 and φ^(−j) at G_j"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-the-complete-return-gap-law-for-the-baum-sweet-sequence--34910b02e3eb",
+          "material_read": "RESULT.md full Finding, offsets 0–3568",
+          "method": "Local mirror statement inspection",
+          "title": "The complete return-gap law for the Baum–Sweet sequence",
+          "trigger": "Exact spectrum and frequency law for consecutive support positions"
+        },
+        {
+          "assessment": "Further overlaps, with later catalogue dates",
+          "evidence": [
+            "The checked findings give Fibonacci gap-spectrum and dyadic gap results for the Baum–Sweet support"
+          ],
+          "identifier_or_url": "Resultary records 138012f26e30 and 98bde352d9b4",
+          "material_read": "RESULT.md offsets 0–3535 and 0–2959 respectively",
+          "method": "Local mirror statement inspection",
+          "title": "Exact Fibonacci gap spectrum of Baum–Sweet support; Exact dyadic gap law for the Baum–Sweet support",
+          "trigger": "Additional published results on the exact same support gaps"
+        },
+        {
+          "assessment": "Related tools but no exact original-word gap law in the inspected statements",
+          "evidence": [
+            "Theorem 2.5 relates support parity to a Fibonacci word; Theorem 4.6 treats the first differences of u_n, not of the original word's support"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1803.00292v1",
+          "material_read": "§2 offsets 10800–21481 and §4 offsets 31800–35915, including Theorems 2.5 and 4.6",
+          "method": "OA primary text",
+          "title": "Composition inverses of the variations of the Baum–Sweet sequence",
+          "trigger": "Earlier parity and first-difference results"
+        },
+        {
+          "assessment": "Object and support definition, not the full theorem",
+          "evidence": [
+            "A060142 gives 0 and the two closure maps on the support"
+          ],
+          "identifier_or_url": "OEIS A086747 and A060142",
+          "material_read": "Entry definitions and generators, offset 0 of each",
+          "method": "Public database entry inspection",
+          "title": "Baum–Sweet sequence and its support",
+          "trigger": "Exact object and possible equivalent sequence entry"
+        },
+        {
+          "assessment": "Partial coverage of support size and adjacent ones only",
+          "evidence": [
+            "Dyadic support count F_(K+2); the first record also classifies adjacent-one pairs"
+          ],
+          "identifier_or_url": "Resultary records 0653545412cc and 0753f1e5db42",
+          "material_read": "RESULT.md offsets 0–2700 and 0–2935 respectively",
+          "method": "Local mirror statement inspection",
+          "title": "Exact scattered-subsequence universality and Fibonacci growth; Exact dyadic abelian complexity and Fibonacci growth of the Baum–Sweet word",
+          "trigger": "Earlier Fibonacci and adjacency results on the same word"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Exact multiscale run counts in this natural automatic word are a motivated invariant, but the full count and frequency law are already available for the equivalent support gaps. Renaming the labels and removing the empty intervals provides no distinct valuable remainder; an arbitrary-cutoff law was not claimed.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

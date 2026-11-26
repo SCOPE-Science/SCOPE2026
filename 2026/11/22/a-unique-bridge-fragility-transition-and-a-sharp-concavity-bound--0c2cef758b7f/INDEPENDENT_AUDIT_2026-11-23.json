@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:51:09.722376Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Any cycle must use both terminals and exactly two full paths, even when the retained spanning subgraph is disconnected. Thus the count by which M exceeds B is the completed-pair length sum minus m on the all-open event (where every edge was counted twice). Correcting the all-bridges PGF on the three disjoint exactly-two-path events and on the all-open event gives the stated polynomial. As a separate first-moment check, an edge in arm a has bridge probability p−p^{a+b}−p^{a+c}+p^m; summing and applying the Bernoulli likelihood derivative yields the covariance. Its bracket Q has exactly two coefficient sign changes after equal degrees are merged, Q(0)>0, Q(1)=m−a²−b²−c²<0, and positive leading coefficient. Descartes therefore forces one simple root in (0,1) and one simple root above 1, proving the physical signs. Conditioning on k open edges changes each pair event to a hypergeometric inclusion probability. Pascal's identity twice makes all preterminal curvature terms nonpositive; the final plus-m correction leaves numerator 6abc−sum a²(a−1), with the sum over arms. Independently, for m−2 open edges the two missing edges on the same arm of length a leave a−2 bridges, whereas missing edges on distinct arms leave all m−2 as bridges; this gives the same terminal curvature together with f(m)=0 and f(m−1)=sum a(a−1)/m. The equal-arm root equation bounds p_L^{2L−1} between (4L)^{-1} and L^{-1}, hence p_L^L=O(L^{-1/2}); taking logarithms and expanding proves the stated two-term order of the error. Independent replay: python /workspace/independent_checks.py (theta routine), using rank drops on edge deletion, confirmed full exact coefficient counts on (2,2,5), (2,2,6), and (3,4,5); their terminal curvatures are 1/6, −22/45, and 97/66. Read the submitted checker and verification notes without executing them. Enumeration does not certify the all-arm classification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Elçi et al. relate mean bridges to the component-count derivative and study the bridge-load condition for extrema on general graphs. Allard et al. give a component-size solver, not a joint edge/bridge-count classification.",
+          "The cactus theorem assumes edge-disjoint cycles and gives concavity at all edge budgets; theta cycles necessarily share entire paths."
+        ],
+        "reasoning": "Generic identities can recover first moments by graph-specific calculations; they do not state the all-arm one-root theorem, the joint polynomial, or the exact final-curvature inequality. The opposite cactus conclusion does not transfer across its structural hypothesis.",
+        "searches": [
+          "arXiv:1509.00668, Eq. (2.9) and (4.1)–(4.3)",
+          "arXiv:1201.4369, percolated component-size equations",
+          "Resultary cactus bridge-count result 165dfc9cb694"
+        ]
+      },
+      "checked_sources": [
+        "Elçi–Weigel–Fytas arXiv:1509.00668",
+        "Brown–DeGagné arXiv:2006.09908",
+        "Allard et al. arXiv:1201.4369",
+        "Resultary 165dfc9cb694, 09981045a7c4, 387b2112b1d3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The pair-cycle correction and restoration at the full budget are absent from the edge-disjoint cactus argument. The checked general identities do not furnish the sign-count certificate for the theta derivative polynomial."
+        ],
+        "reasoning": "Even if known percolation/reliability tools recover expected bridges on this graph, the overlap correction has to be tracked in the joint law and fixed-edge regression. The Descartes and endpoint signs and the exact terminal inequality establish a classification not given by reliability or a generic maximum-fragility condition; the equal-path logarithmic scale follows from this specific polynomial.",
+        "searches": [
+          "Cactus record 165dfc9cb694, Finding and Proof; theta reliability arXiv:2006.09908 Eq. (1); Elçi et al. arXiv:1509.00668 §4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cov(M,B)/(p(1−p)) is the derivative of mean B, so maximum fragility is a materially equivalent search formulation; Elçi et al. give a general derivative/loading characterization.",
+          "Brown–DeGagné's equal-path theta reliability is the probability that at least one path is complete; bridge removal from the PGF depends instead on at least two complete paths and their lengths."
+        ],
+        "reasoning": "The known response identity motivates the question but does not classify its roots. Terminal reliability, total component count and bridge count are distinct observables. A spanning-tree degree covariance on a theta host changes both the ensemble and the statistic.",
+        "searches": [
+          "Resultary: Bernoulli theta bridge-count PGF, fixed edge conditional curvature, covariance and fragility",
+          "Elçi–Weigel–Fytas arXiv:1509.00668, §4",
+          "Brown–DeGagné arXiv:2006.09908, §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The theta-topology record 387b2112b1d3 gives degree covariance under a uniform spanning tree; 09981045a7c4 studies covariance of bridge count with one edge on a cycle with a leaf. Neither tabulates this joint Bernoulli law.",
+          "The closest exact theta polynomial inspected is R_{s,t}=1−(1−p^L)^k for k equal terminal paths, a different marginal."
+        ],
+        "reasoning": "An exact reliability polynomial or bridge statistic for another ensemble can be useful input but is not an exact entry for this joint law or for the threshold/concavity boundary.",
+        "searches": [
+          "Resultary: theta-network bridge-count transition, conditional curvature; records 165dfc9cb694, 09981045a7c4, 387b2112b1d3",
+          "Brown–DeGagné arXiv:2006.09908, Eq. (1)"
+        ]
+      },
+      "rationale": "The prior bridge-response identities, cactus law, and theta reliability marginal are established material. The supported distinct result is the explicit joint statistic and sharp covariance/curvature classification for overlapping cycles in the three-arm family. No checked primary or catalog statement covers that theorem; theta reliability counts terminal connection alone, and the cactus result depends on edge-disjoint cycles.",
+      "residual_risks": [
+        "The frozen text refers to a potentially relevant lengthy network-reliability thesis without a title or ID. That comparison remains unresolved; a more general exact treatment of these statistics could exist outside the checked sources. Priority is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General bridge response, not the theta-specific sign/covariance/curvature classification",
+          "evidence": [
+            "The derivative and bridge-load conditions do not give the number of theta roots or a fixed-edge curvature criterion."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1509.00668",
+          "material_read": "Eq. (2.9), p. 5, and §4 Eqs. (4.1)–(4.3), pp. 16–17",
+          "method": "Lawful OA preprint passage comparison",
+          "title": "Bridges in the random-cluster model",
+          "trigger": "Bridge derivatives and maximum fragility for Bernoulli percolation"
+        },
+        {
+          "assessment": "Same path geometry in the equal-arm case, different polynomial",
+          "evidence": [
+            "For k equal-length arms of length L, R_{s,t}=1−(1−p^L)^k, the at-least-one-complete-path probability."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2006.09908",
+          "material_read": "p. 6, Eq. (1), theta equal-path reliability",
+          "method": "Lawful OA preprint passage comparison",
+          "title": "Roots of Two-Terminal Reliability",
+          "trigger": "Theta-specific exact known polynomial and roots"
+        },
+        {
+          "assessment": "Material qualitative overlap; inapplicable edge-disjoint cycle hypothesis",
+          "evidence": [
+            "Gives a joint PGF, a unique switch when the cycle-length-square sum exceeds m, and always-concave fixed-budget regression on cactus graphs."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-bridge-count-phase-transition-in-bernoulli-percolation-on-cactus--165dfc9cb694",
+          "material_read": "RESULT.md Finding offset 350 and Proof offset 3850",
+          "method": "Resultary and exact local mirror",
+          "title": "Bridge-count phase transition in Bernoulli percolation on cactus graphs",
+          "trigger": "Closest prior catalog theorem on joint law, sign switch, and conditional concavity"
+        },
+        {
+          "assessment": "Different target distribution",
+          "evidence": [
+            "Recursion gives component-size probabilities, not the edge/bridge joint count or its curvature."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1201.4369",
+          "material_read": "Component-size equations, p. 3, around offset 16600",
+          "method": "Lawful OA preprint passage comparison",
+          "title": "Exact solution of bond percolation on small arbitrary graphs",
+          "trigger": "Generic exact solution that could encompass theta quantities"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural minimally overlapping-cycle family for testing limits of cactus bridge results. It preserves a unique fragility maximum for all arm lengths but can violate fixed-edge concavity, with the violation pinned to one budget and decided by a sharp explicit inequality. That contrast and the equal-arm threshold scaling are more informative than isolated reliability or enumeration values.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

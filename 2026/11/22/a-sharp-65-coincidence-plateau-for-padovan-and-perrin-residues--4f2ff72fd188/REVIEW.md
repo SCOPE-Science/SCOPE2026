@@ -1,11 +1,21 @@
-# Scientific review of the 65-coincidence theorem
+# Independent mathematical audit
 
-**Correctness — PASS.** The explicit companion matrix and its binomial interpolation produce a 2-adic isometry of the normalized difference. The exact residue \(H(0)\equiv32\pmod{64}\) forces two distinct 2-adic zero branches. The branch-by-branch proof establishes the exact least period and counts for all exponents; the standalone finite checker independently tests the first 12 complete modulus levels. Finite checks alone are not the infinite proof.
+## correctness
 
-**Originality — PASS within inspected evidence.** Bravo (2023, DOI 10.1007/s00009-023-02467-2) solves integer common values, not modular matching-index multiplicities. Bravo–Irmak (2024, DOI 10.55730/1300-0098.3568, Lemmas 3.5–3.6) establishes individual first-order dyadic lifts; subtracting them cancels at the delicate branch and does not yield the second 2-adic root or the stabilized count. Comparable Padovan orbit results count zeros over varying initial states rather than the simultaneous difference here. The mathematical search comparisons are detailed in AUDIT.json.
+PASS
 
-**Value — PASS.** Determining how often two classical recurrence sequences coincide modulo growing prime powers is a natural arithmetic question. The persistent count of exactly 65 for every exponent at least 12, explained by one ordinary negative-index and one nonintegral 2-adic zero, is a precise structural invariant beyond a basic table or a marginal congruence.
+The stated initial state and companion matrix give M^7=I+2B. The parity word has least period seven, class 0 mod 7 is excluded mod 4, and the odd normalized increments in class 4 mod 7 give exactly v2(D_(7t+4))=1+v2(t) for t>0. This forces every period to contain the full dyadic factor in the exhibited matrix period, and gives one coincidence per period at k>=2 in this class. In class 5, put u=t+1 and factor the uniformly convergent binomial series as 2uH(u). The initial terms of H sum to -u; the degree-two and degree-three correction coefficients are even, and v2(j!)=j-s_2(j) proves integrality of all later polynomial coefficients. Each later product contains at least two even factors at every 2-adic integer, so both its value and derivative vanish mod 2; the polynomial secant is even for arguments congruent mod 2 by Taylor expansion, and for opposite parities because both values are even. This proves the exact isometry and supplies the unique compatible zero. The first eight terms give H(0)=32 mod 64 and the remaining terms vanish at that precision. The roots 0 and alpha are separated at valuation 5: below this valuation the two valuations agree, while on 32Z_2 exactly one is 5 and the other is at least 6. Counting the resulting residue classes, including the transition at k=12, gives the asserted sharp plateau. Bravo's nonnegative solution list and Theorem 2.3 also confirm that the only ordinary same-index equalities are at 4 and -2; the interpolation agrees with integer powers at negative integers by continuity, so the other root is not an ordinary integer. An independent bounded recurrence calculation reproduced the counts through k=16, using the given initial triples, reducing at each recurrence step modulo 2^k, and counting over 7*2^(k-1) indices. The source check.py was inspected, not executed; the all-k proof does not rely on finite sampling.
 
-**Residual priority risk.** An unindexed equivalent difference-sequence calculation cannot be excluded; the author-uploaded full text of the closest 2024 paper was inspected, but its publisher PDF endpoint denied retrieval. The proof does not claim independent validation or any result for different-index pairs.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The known integer equalities and individual-sequence period/lifting results are not credited as new. The surviving contribution is the evaluated dyadic zero statistic of the fixed difference recurrence, including its two-root valuation law. No inspected earlier statement or exact table yields it; there is a specific secondary risk from the incompletely accessible 2024 paper.
+
+## value
+
+PASS
+
+The sequences share a recurrence but have different natural initial conditions. The matching-index invariant separates the growth of the least period from a sharply bounded coincidence count. Identifying and separating the two nearby dyadic roots explains 64 hits in one residue branch and shows why exact integer equalities and marginal valuations miss the effect. This is a complete and reusable arithmetic description of the fixed difference, not just a numerical plateau or a general claim about unrelated sequences.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

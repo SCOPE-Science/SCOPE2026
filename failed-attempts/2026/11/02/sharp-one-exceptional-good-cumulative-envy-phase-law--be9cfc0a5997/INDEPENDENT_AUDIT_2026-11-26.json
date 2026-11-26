@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:16:34.988634Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With identical additive values the maximum envy equals the absolute signed load difference, and same-parity step edges have disjoint endpoints. For odd r the parity of the exceptional step gives the lower bound (r-1)/2+H; for even r an odd-position exceptional step gives r/2+H. At an even position the preceding k unit steps end at odd gap d; for the first k-d nodes the parity floor costs (k-d)/2 and for the last d nodes the forced terminal ramp costs 1+...+d. The sum is (k+d^2)/2. The exceptional step and next unit cost at least f(|H-d|), f(z)=max(1,2z-1); the untouched suffix is covered by disjoint unit edges. For d>=3, (d^2-1)/2>=d, recovering r/2+H. For d=1 the alternative is r/2+f(H-1). The last-position and penultimate-position alternating constructions attain these bounds, and subtraction proves the greedy profile, with coincident endpoint formulas at H=1,2,3. A separately written exact-integer DP matched 1856 rational cases (1<=r<=16, H in [1,4] with denominator at most 8); 35 small cases also matched full branch enumeration. These are corroboration only; the all-real claim follows from the proof. The source verifier was inspected, not executed. No conclusion is made for multiple exceptional goods in general, heterogeneous values, or online ordering.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The fixed-order formula covers all cuts, nonnegative a,b and every real H>=1, not just the optimal freely selected cut.",
+          "The cumulative-envy paper gives general hardness and a 3/2 ascending-greedy approximation; its explicit example is r=2,H=2, not the full phase law."
+        ],
+        "reasoning": "The published approximation alone does not fix exact values, whereas the stronger indexed family of exact cut values yields them by optimizing the cut.",
+        "searches": [
+          "Resultary --378a8bf267ff",
+          "Goldberg–Robinson–Teh arXiv:2610.09843v1, free sequencing and Appendix C.5",
+          "Resultary --2565adb33736, cumulative envy for unit and double goods"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary --378a8bf267ff and --2565adb33736",
+        "Goldberg–Robinson–Teh arXiv:2610.09843v1",
+        "Dobler–Nöllenburg WADS 2025 §3.2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Nearest reachable signed offsets defining delta_{b-1} and delta_b lie on opposite parity lattices, so their distances from the same starting magnitude sum to at least 1. Moving the last two units to the prefix raises (a+j^2)/2 by 1 and keeps j admissible, so E*(a+2,b-2,H)<=E*(a,b,H)."
+        ],
+        "reasoning": "Iterate to b=0 or b=1. With b=0 the smallest nonnegative parity representative j is optimal: increasing j by 2 costs at least 2 and saves at most 2 in |H-j|. With b=1 and r even, j=1 is optimal since each increase by 2 from j>=1 costs at least 4 and saves at most 4 in f(|H-j|). With b=1 and r odd, j=0 gives f(H)>=H and j>=2 pays at least j+|H-j|>=H beyond (r-1)/2. Negative j cannot improve any of these minima. This reproduces both optimum branches, and sorted greedy's alternating unit prefix gives the regret by subtraction.",
+        "searches": [
+          "Resultary --378a8bf267ff, Finding and fixed-order formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The precompensation record --378a8bf267ff states E*(a,b,H) as a minimum over signed pre-arrival imbalances j of (a+j^2)/2+|H-j|+sum_{t=1}^b delta_t(|H-j|).",
+          "The wiggle paper permutes a prescribed signed multiset instead."
+        ],
+        "reasoning": "Unit-good labels do not affect the cost. Each free-order schedule has a unique cut type a+b=r, and choosing recipients for that cut is exactly the precompensation objective. Prescribing all signs is not equivalent to choosing the agents as well as the order.",
+        "searches": [
+          "Resultary: cumulative envy, one exceptional good, fixed order, freely chosen sequencing",
+          "Dobler–Nöllenburg, WADS 2025, §3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The unit/double catalogue theorem gives exact free-order optima and greedy gap for arbitrary counts of both item types, including one double item and arbitrary r."
+        ],
+        "reasoning": "This analytic catalogue match directly covers H=2 for all r, including the extremal one-unit gap; a finite table would not decide the continuous-H claim. The arbitrary-H cut catalogue entry covers the latter by implication.",
+        "searches": [
+          "Resultary exact unit-and-double laws --2565adb33736",
+          "Resultary exact precompensation law --378a8bf267ff"
+        ]
+      },
+      "rationale": "A distinct indexed arbitrary-real-H fixed-order theorem gives the stronger family of exact costs for each 1^a,H,1^b. The closed free-order phase law follows by a simple two-step suffix deletion and parity minimization of that expression. A separate indexed unit/double theorem directly covers the complete H=2 slice. This establishes coverage, not relative priority among the same-day catalogue records.",
+      "residual_risks": [
+        "Same catalogue date does not determine order or historical priority.",
+        "A bounded web search was uninformative; uninspected signed-walk literature may contain further overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger cut-by-cut formulas imply the frozen optimum via a short parity argument",
+          "evidence": "The displayed formula includes all cuts a+b=r and both endpoint cuts, with no integrality restriction on H.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/11/2/SCOPE-exact-precompensation-law-for-one-exceptional-good-in-cumulative--378a8bf267ff/RESULT.md",
+          "material_read": "Finding, assumptions and initial proof, offsets 0–3940",
+          "method": "Targeted local mirror inspection; exact minimization compared algebraically",
+          "title": "Exact precompensation law for one exceptional good in cumulative envy",
+          "trigger": "Exact same values and cumulative objective with prescribed exceptional position"
+        },
+        {
+          "assessment": "Directly covers one double good for arbitrary unit multiplicity",
+          "evidence": "The number of double goods is arbitrary and can be set to one.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/11/2/SCOPE-exact-cumulative-envy-and-greedy-gap-laws-for-unit-and-double-go--2565adb33736/RESULT.md",
+          "material_read": "Finding and scope of optimum and greedy-gap formulas",
+          "method": "Targeted local mirror comparison",
+          "title": "Exact cumulative envy and greedy gap laws for unit and double goods",
+          "trigger": "Exact overlap at H=2"
+        },
+        {
+          "assessment": "Objective and known three-good witness, not the full law in the inspected passages",
+          "evidence": "For values 1,1,2 the example gives greedy cost 3 and optimum cost 2.",
+          "identifier_or_url": "https://arxiv.org/html/2610.09843v1",
+          "material_read": "Introduction (offset 417), Appendix C.5 Example 3 (offset 114700)",
+          "method": "Bounded OA statement inspection",
+          "title": "Minimizing Cumulative Envy in Allocating a Sequence of Items",
+          "trigger": "Same objective and ascending-greedy benchmark"
+        },
+        {
+          "assessment": "Different feasible sets",
+          "evidence": "Signs are part of the specified multiset, not freely selectable per good.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.WADS.2025.22",
+          "material_read": "§3.2, page 7, OA PDF offset 26800",
+          "method": "Targeted OA PDF inspection",
+          "title": "On Minimizing Wiggle in Stacked Area Charts",
+          "trigger": "Equivalent-looking absolute-prefix optimization"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Exact cumulative envy is a motivated benchmark, and the breakpoints are a useful presentation. Here the complete profile and greedy loss merely simplify an available exact family by the two-step suffix comparison and elementary parity checks; the extremal H=2 slice was already directly covered. No separate substantive mathematical advance survives that comparison.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

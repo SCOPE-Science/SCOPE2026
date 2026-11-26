@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and scope
+# Independent mathematical audit
 
-Run `python3 verify.py`. The standalone verifier uses only the Python standard library. It exhausts all \(2^{\binom n2}\) labeled edge sets on \(1\le n\le5\), checks connectivity, canonicalizes over all \(n!\) permutations, and computes exact polynomial coefficients by summing the squared component sizes over every open-edge subset. The connected unlabeled counts are \((1,1,2,6,21)\), matching the elementary enumeration. The only degree-matched nonisomorphic connected pairs through five vertices occur for profiles \((1,2,2,2,3)\) and \((2,2,2,3,3)\); both polynomial differences are verified as fixed-sign products.
+## correctness
 
-For the six-vertex pair, the program computes edge-state sums and separately computes pair connectivity by the exact two-arc formula for unicyclic graphs. The two methods agree coefficientwise. The unique interior root follows from a strictly decreasing quadratic, not floating-point root approximation. Its `certificate.json` contains the exact counts and polynomial coefficients.
+PASS
 
-This is an exact finite proof and reproducibility check for the stated graph class, not a certificate of generic SIR equivalence, infinite graph order, literature exhaustiveness, or independent review.
+Conditional on an open subgraph, the expected component order of a uniform root is the sum of squared component orders divided by n, equivalently one plus 2/n times the sum of unordered-pair connection probabilities. An independent bitset transitive-closure and isomorphism-orbit enumeration (python3 /workspace/branches/independent_checks.py 1) exhausted labeled connected graphs through order 5 and every open-edge state needed. Connected labeled/unlabeled counts were (1,1), (1,1), (4,2), (38,6), (728,21). Only degrees (1,2,2,2,3) and (2,2,2,3,3) have non-singleton groups, each of size two, and the n-times-mean differences up to sign factor as 2 p^3(1-p)(p+5) and 2 p^3(1-p)^2(p+5) respectively. The explicit C4 with a length-two tail and C5 with a leaf are connected, triangle-free and have the stipulated common multiset. Open-edge counts lead to coefficients (0,0,0,2,-18,14,2) for six times their difference, exactly 2 p^3(1-p)(1-8p-p^2). The last factor is strictly decreasing with the stated unique open-interval zero; the endpoints tie. This proves sharpness under homogeneous independent undirected edge percolation and a uniform single seed, not generic stochastic SIR or degree profiles fixed at named vertices.
+
+## originality
+
+PASS
+
+The established observable is not novel; the distinct claim supported here is the sharp order-six threshold, with degree and triangle matching in the witness and a unique explicitly determined crossing. No inspected primary statement or mathematically dominating Resultary entry gave that claim.
+
+## value
+
+PASS
+
+The mean component of a random seed is an intrinsic percolation observable and the degree multiset is a natural control for graph comparisons. The threshold says exactly when ordering can first depend on transmissibility even in equal-degree triangle-free examples, with two explicit graphs and crossing value usable as benchmarks. It does not claim epidemiological applicability outside the independent-edge model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

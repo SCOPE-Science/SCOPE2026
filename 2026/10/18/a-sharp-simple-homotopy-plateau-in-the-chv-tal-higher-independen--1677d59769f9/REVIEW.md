@@ -1,19 +1,21 @@
-# Scientific review: sharp Chvátal higher-independence plateau
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The graph is pinned down by 24 explicit undirected edges on twelve vertices. Exhaustive component tests and an independent induced-degree test give 424 second-independence faces, with a 211-pair matching verified acyclic along all 1428 face incidences and exactly one critical vertex and one critical three-cell. The integral homotopy type of this Morse CW model is \(S^3\). All 152 elementary collapses from the 728-face threshold-three complex onto the 424-face threshold-two subcomplex are each checked for a unique coface in the current complex, establishing the *actual* inclusion as a simple-homotopy equivalence. Exhaustive face enumeration gives Euler characteristics \(2,0,0,-63\) at four consecutive stages; the nonzero differences prove sharpness. Independent mod-two homology calculations corroborate but are not substituted for the integral proof.
+PASS
 
-## Originality — PASS, qualified
+On the stated 12-vertex edge list, an independent exhaustive enumeration of induced component sizes at r=1,2,3,4 obtained the frozen face vectors, nonempty counts 126, 424, 728, 1175 and Euler characteristics 2, 0, 0, −63. A fresh relative collapse removes 152 distinct elementary pairs in the full current Ind_3, with each proposed free simplex having its paired simplex as its only proper coface; it preserves all of Ind_2 and reaches exactly that 424-face target. The independent 211-pair Morse matching on Ind_2 has critical dimensions 0 and 3, with acyclicity checked on all 1428 cover incidences. The matched finite complex has the homotopy type of a CW complex with one 0-cell and one 3-cell attached to that point, hence S^3 without any field restriction. The Euler obstructions are to the two specified adjoining inclusions. The frozen source, verification note and code were inspected, not executed. Replay using branches/d9f64756-c4a1-4585-86e9-1090990070b5/record2_independent_recompute.py; record2_independent_recompute.out in that directory includes the 152 face-mask pairs. The integral conclusion rests on collapse and Morse theory, not on the frozen mod-two check.
 
-The complete publicly available mathematical result for the same graph's ordinary independence complex classifies threshold one and its vertex deletions; the published same-graph neighborhood-complex comparison constructs an ordinary-independence-to-neighborhood collapse. Both complete result texts were materially inspected. Neither considers the two-to-three higher-independence inclusion or gives a result implying its 152 exact collapses or the threshold-two sphere. The original higher-independence graph-family theorems in arXiv:2001.05448 and the chordal/tree results in arXiv:2106.10863 do not cover this four-regular triangle-free nonchordal graph. The exact query and alias comparisons are documented in the structured originality review. Unindexed equivalent work remains a residual possibility, not proof of uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-The Chvátal graph is the natural minimum-order four-regular triangle-free four-chromatic example. Its first two nonordinary higher-independence stages have identical *inclusion-level simple-homotopy type*, certified by an explicit large relative collapse, although they differ by 304 simplices. The neighboring Euler-characteristic obstructions show this is precisely a two-stage plateau; mere field homology or a separate sphere classification would not supply this inclusion-level information. This gives a concrete topological filtration boundary in a canonical extremal graph, not an arbitrary relabeling or a routine single-face count.
+The core relative simplicial collapse onto the fixed threshold-two subcomplex is distinct on inspected statements. Both the threshold-two sphere and, in a wider filtration catalogue, the stagewise types and Euler consequences have material exact overlap; they are not credited as independently novel here.
 
-## Relationship and limits
+## value
 
-The previously established ordinary independence and open-neighborhood equivalence concerns different complexes. The new finite theorem is nonequivariant and does not assert uniform results for all four-chromatic graphs. An independent mathematical audit remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The standard Chvátal graph is a natural finite benchmark outside the chordal or tree classes. The relative collapse describes the actual map in its higher-independence filtration, not just equal endpoint homotopy types; the exact adjacent Euler obstructions delimit that simple-homotopy plateau. The replayable certificate is usable for comparisons of concrete filtration maps.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

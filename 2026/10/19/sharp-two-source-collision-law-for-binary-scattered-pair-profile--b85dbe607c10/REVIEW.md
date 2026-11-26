@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The six-coordinate scattered-subsequence multiplicity profile is exactly determined by composition and the inversion count. The cross-source Hellinger tilt is an exact finite identity; the uniform two-letter regime of the published Mahonian local limit theorem gives conditional collision probability \(1/(2\sqrt\pi\,\sigma)\), and a separate binomial characteristic-function calculation gives the composition collision factor. Tail control shows their product has the stated constant, for each fixed interior source pair. Exhaustive full-deck and independent dynamic-program comparisons passed; the asymptotic proof does not infer infinity from numerical data.
+## correctness
 
-**Originality — PASS against inspected literature.** Rigo and Salimov define binomial equivalence, Lejeune–Rigo–Rosenfeld characterize the binary classes, Golafshan gives their entire Gaussian-binomial class-size distribution, and Canfield–Janson–Zeilberger give the inversion local limit theorem. These ingredients imply a path to the present calculation but none of the inspected source statements supplies the explicit two-source collision law, its sharp constant, or its Hellinger-affinity transfer. Searches covered stochastic collisions, inversions, exact class-size tables, broader deck descriptions and different neighboring collision notions. Residual risk: another derivation might be unindexed or buried in work on power sums of Gaussian-binomial coefficients.
+PASS
 
-**Value — PASS.** For a natural finite readout of subsequence multiplicities, the theorem distinguishes the number of *possible* profiles (cubic) from their Rényi-effective number under typical sources (quadratic), and gives the exact exponential source-separation rate with its polynomial penalty. The biased-source parameter has a direct information-reconstruction meaning, not an arbitrary restriction.
+The profile reduces exactly to one count and the number of 10 pairs. The two word weights in a common fiber depend only on its one count, giving the exact s^(2n) tilt to equal bias t=sqrt(pq)/s. The Canfield–Janson–Zeilberger local estimate applies with min(k,n-k) of order n, uniformly in the central binomial band. Replacing each inversion mass function by its lattice Gaussian changes its square-sum by at most the uniform error times the sum of the two masses, giving (2 sqrt(pi) sigma)^-1 to relative o(1), without summing errors over the full support. Off-band squared binomial masses are exponentially small. Parseval and expansion at the sole maximum give the composition factor (2 sqrt(pi n t(1-t)))^-1. Multiplying with sigma^2=k(n-k)(n+1)/12 gives sqrt(3)/(2 pi n^2 t(1-t)); t(1-t)=sqrt(pq(1-p)(1-q))/s². Direct enumeration through n=10 using (number of ones, sum of their positions) and rational exact weighting confirms the tilt at p=1/5, q=1/2, t=1/3, s²=9/10. The Gaussian binomial named in Step 3 is the unnormalized enumerator (the probability generating function divides by binomial(n,k)); the proof uses the correctly normalized mass throughout.
 
-**Limitations.** This is a derived sharp asymptotic built on the existing local limit theorem and class-size groundwork, not a new local central limit theorem. It applies for fixed parameters strictly between zero and one; there is no uniform boundary claim. A published full class-size law implicitly determines each finite collision sum, although not the displayed asymptotic evaluation. Literature searches do not logically establish uniqueness.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Predated sources inspected give exact combinatorial fiber descriptions or a fixed-composition inversion LLT, not the full two-source sharp limit. A distinct later Resultary record is materially equivalent in the fair case and uses the same asymptotic route there; it is not evidence of independent priority. The full claim includes fixed biased and unequal sources with an exact affinity transfer and remains distinct.
+
+## value
+
+PASS
+
+The sharp formula quantifies the collision risk of a standard finite subsequence profile, distinguishing quadratically many effective fair profiles from cubically many possible profiles. On unequal sources it gives both the exact exponential distinguishability rate and the polynomial correction, from the same statistic and without selecting special parameters. The exact tilted constant goes beyond a generic rate or repackaged fiber count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

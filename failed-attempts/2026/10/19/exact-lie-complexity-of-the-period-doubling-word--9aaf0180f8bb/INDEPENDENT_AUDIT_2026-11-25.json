@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:19:11.618521Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–44",
+        "Frozen VERIFICATION.md and verify.py, inspected but not executed"
+      ],
+      "rationale": "The two fixed-point identities put every 1 on an odd absolute index, forbid 11 and force any four consecutive zeros to come from consecutive parent 1s, likewise impossible. At odd length, two ones have an even separation in one representative and an odd separation after rotating across one of the two, so full orbit containment is impossible; at length at least five, zero or one 1 instead forces a rotation containing 0000. At length 2m≥4 every fully contained orbit has a 1. Rotate to put its ones in odd relative positions, then all even rotations occur only at aligned starts and desubstitute. Conversely even rotations of δ(u) occur by substitution and odd rotations by shifting one place and appending the next aligned zero. Starting parity also makes the map injective. The prefix 01000101 exhibits all candidates at lengths 1–3, and 11 rules out the rest; the resulting counts are 2,2,2. This gives the two support families by halving and the support count by counting powers separately. Independently generated δ^7(0100) covers the complete language up to length 128, since windows of length at most 128 meet at most two aligned blocks and 0100 contains each allowed adjacent pair (00,01,10). Direct orbit enumeration in that finite language verified the counts and 63 image-set equalities. The parity argument, not enumeration, establishes the arbitrary lengths.",
+      "residual_risks": [
+        "The result is specific to this fixed point and positive lengths. The finite independent reproduction is not an all-length certificate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bell–Shallit give the same definition, general bounds, and automaticity for automatic words. Currie supplies parity and unique factorization tools. Cassaigne et al. deal with cyclic rather than Lie complexity."
+        ],
+        "reasoning": "Automaticity does not compute the outputs; structural desubstitution of factors does not alone enumerate complete orbits; and an existential cyclic count does not establish the universal rotation predicate. The identified indexed theorem, not any of these weaker comparisons, establishes coverage.",
+        "searches": [
+          "arXiv:2102.03821v1 equation (1), Theorems 1.1–1.2 and 1.4",
+          "JIS 26 (2023) 23.8.2, Remark 9 and Lemma 10",
+          "arXiv:1402.5843, definition and §5.1 Example 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2678ea387347 and 8148ba3a1211",
+        "arXiv:2102.03821v1",
+        "arXiv:1402.5843",
+        "JIS 26 (2023) 23.8.2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed proof explicitly desubstitutes an aligned fully contained orbit, constructs the odd shifts with the next aligned zero, and proves injectivity by distinguishing even from odd rotations for m≥2. It also states the same odd exclusion."
+        ],
+        "reasoning": "This covers the structural claim, not just its numerical consequence. The support-density assertion is immediate from that earlier explicit support; it does not leave a distinct valuable repaired claim.",
+        "searches": [
+          "Resultary 2678ea387347, RESULT.md proof offsets 0–4992 and odd-length classification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 2678ea387347 defines the fixed point by 0↦01, 1↦00 and counts exactly the classes all of whose rotations occur.",
+          "The distinct dyadic-rigidity result 8148ba3a1211 instead counts classes with some factor representative and gives cyclic count 3 at lengths 3·2^k."
+        ],
+        "reasoning": "The first record has identical orbit quantifiers and language, without a complement or parameter transformation; the second is a genuinely different invariant. Upper bounds or equal numbers at dyadic lengths for the latter are not the equivalence evidence.",
+        "searches": [
+          "Resultary: period-doubling word Lie complexity exact conjugacy classes all cyclic rotations",
+          "Resultary: period-doubling cyclic complexity circular factors dyadic lengths primitive powers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed finding gives L(n)=2 precisely at 2^k and 3·2^k and 0 otherwise, with representatives δ^k(0),δ^k(1) and δ^k(000),δ^k(001), respectively.",
+          "The published cyclic-complexity example reports a dyadic cyclic count, not a table of this sequence."
+        ],
+        "reasoning": "The exact claim is matched for the entire sequence by a database theorem, not by matching a finite word of initial terms. No separate exact sequence-table entry was established.",
+        "searches": [
+          "Resultary 2026/10/12/SCOPE-exact-lie-complexity-of-the-period-doubling-word--2678ea387347, RESULT.md opening finding",
+          "arXiv:1402.5843 §5.1 Example 1, OA offset 50500"
+        ]
+      },
+      "rationale": "A distinct Resultary theorem explicitly covers the same fixed point, exact all-positive-length census, odd-length exclusion, and the same class-level substitution bijection for m≥2. It gives explicit representatives for both infinite families as well. This is an exact mathematical overlap in an earlier-dated catalogue path; it is not a certification of publication priority.",
+      "residual_risks": [
+        "The external comparison is bounded to the inspected sources, not a claim about all bibliographic priority.",
+        "The PDF text rendering of the cyclic example's morphism was not resolved; it is not needed for the fail decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact catalogue coverage of the count and class-level map",
+          "evidence": [
+            "Same two infinite support families, all other counts zero, odd exclusion and explicit bijective parity/desubstitution argument."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-exact-lie-complexity-of-the-period-doubling-word--2678ea387347/RESULT.md",
+          "material_read": "Finding, assumptions and doubling/injectivity proof, offsets 0–4992",
+          "method": "Local published-record mirror and direct mathematical comparison",
+          "title": "Exact Lie complexity of the period-doubling word",
+          "trigger": "Exact match to all-length Lie classification and substitution map"
+        },
+        {
+          "assessment": "Same invariant and general theory, not the explicit period-doubling enumeration in the inspected statements",
+          "evidence": [
+            "L_w(n)≤c_w(n); automaticity of L_w for automatic w."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2102.03821v1",
+          "material_read": "pp. 2–3, equation (1), Theorems 1.1–1.2 and 1.4, OA offsets 6385–6819 and 7300",
+          "method": "OA primary PDF passages",
+          "title": "Lie Complexity of Words",
+          "trigger": "Defines the invariant and treats automatic words"
+        },
+        {
+          "assessment": "Different predicate; inconsistent substitution rendering in the extracted example not used to certify its hypotheses",
+          "evidence": [
+            "Counts a class when a factor representative exists; Example 1 reports c_p(2^n)=2."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1402.5843",
+          "material_read": "p. 2 and §5.1 Example 1 p. 13, OA offsets 6500 and 50500",
+          "method": "OA primary PDF text",
+          "title": "Cyclic Complexity of Words",
+          "trigger": "Earlier dyadic conjugacy-class census"
+        },
+        {
+          "assessment": "Supplies factor normalization and desubstitution ingredients, not the orbit census in the inspected statements",
+          "evidence": [
+            "Remark 9 parity and Lemma 10 unique aδ(u)b factorization under forbidden-pattern hypotheses."
+          ],
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL26/Currie/currie16.pdf",
+          "material_read": "pp. 4–5, Remark 9, Lemma 10, OA offsets 8800–12566",
+          "method": "OA primary PDF passages",
+          "title": "The Analog of Overlap-Freeness for the Period-Doubling Sequence",
+          "trigger": "Same word and established parity/desubstitution reasoning"
+        },
+        {
+          "assessment": "Cyclic factor classes with an existing representative, not necessarily a complete orbit",
+          "evidence": [
+            "c_p(2^k)=2 and c_p(3·2^k)=3, with its own doubling bijection."
+          ],
+          "identifier_or_url": "Resultary 8148ba3a1211",
+          "material_read": "RESULT.md finding and invariant definition",
+          "method": "Local published-record mirror",
+          "title": "Dyadic rigidity of cyclic factor classes in the period-doubling word",
+          "trigger": "Another substitution bijection for conjugacy classes on the same word"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–44",
+        "Resultary 2678ea387347, Finding"
+      ],
+      "rationale": "As a mathematical result, the substitution bijection for complete orbits and the all-length sparse support classification are meaningful in a canonical non-Sturmian automatic word. The contribution as submitted is nevertheless not distinct from the matched classification; this utility is not a reason to accept a duplicate.",
+      "residual_risks": [
+        "No extension to other Toeplitz or automatic words is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

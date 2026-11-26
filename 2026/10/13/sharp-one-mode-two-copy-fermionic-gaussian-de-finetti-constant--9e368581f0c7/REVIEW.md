@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The one-mode covariance space is one-dimensional, so the source's exchangeability criterion becomes the exact box \(u,v\in[-1,1]\). The retained two-copy covariance is diagonalized by a physical copy rotation, reducing both states to commuting Bernoulli products. The four probability differences are computed explicitly, and their absolute values give \(2|h|+2h^2\) for \(|h|\le1/2\). The maximum and equality cases therefore follow without numerical extrapolation. The source's extremal covariance family proves attainability.
+## correctness
 
-Risk: the proof depends on the same Majorana sign and graded-copy convention as arXiv:2610.01860v1. Those conventions, Proposition IV.3, and Remark IV.5 were checked directly in the full text. The finite checker is corroborative only.
+PASS
 
-## Originality
-**PASS.** The closest source, arXiv:2610.01860v1, gives the general state bound \(4m_A(k-1)/n\) and separately proves sharpness of the covariance suppression constant, but does not state a sharp state-level one-mode two-copy value. arXiv:2409.17953v3 gives the generic mixed-Gaussian perturbation inequality used in that proof; it does not optimize the constrained exchangeable family. arXiv:2508.18532v2, arXiv:2607.25779v1, and arXiv:1708.01266v1 concern different extension symmetries or approximation targets.
+Graded copy invariance forces equal 2×2 diagonal blocks aJ_f and equal off-diagonal blocks yJ_f; antisymmetry gives this form even for the covariance of a physical non-Gaussian extension. The copy-space eigenvalues are u=a+(n−1)y and v=a−y. Covariance feasibility gives |u|,|v|≤1, and conversely every pair in this square gives an invariant Gaussian extension with the specified Gaussian marginal. Rotating the two retained copies on both Majorana coordinates has determinant +1 and leaves the product covariance invariant; it turns the correlated covariance into one-mode sectors a+y and a−y. The two operators are now diagonal in the same occupation basis. Writing h=(u−v)/(2n), differences of their probabilities are −h², −h², h+h², −h+h². Since |h|≤1/n≤1/2, their absolute sum is 2|h|+2h², increasing strictly in |h|. Thus only opposite endpoints u,v=±1 attain 2/n+2/n², including n=2. Equivalently, a uniform single-particle Slater state, or its particle-hole partner, realizes an equality extension. The value is the full Schatten norm, not half that norm.
 
-Residual risk: because the anchor is very recent, an independently derived equivalent formula may not yet be indexed. The searches and implication comparisons are recorded in `AUDIT.json`.
+## originality
 
-## Value
-**PASS.** The constant measures the exact state-level cost of finite exchangeability in the minimal nontrivial Gaussian setting. It exposes a genuine factor-of-two asymptotic loss in the anchor theorem's general covariance-to-state conversion and identifies exactly which extensions are extremal. This is a natural sharpness question for the new finite Gaussian de Finetti theorem, not a recomputation of a known table or an arbitrary small parameter slice.
+PASS
 
-## Closest literature and limitations
-The result is restricted to one mode per copy and \(k=2\); it does not settle the sharp constants for more retained copies, higher local mode number, non-Gaussian states, or alternative fermionic exchangeability notions. It also does not improve the already-sharp covariance suppression bound.
+Supported for the exact optimized density-operator distance and its equality condition, not for the symmetry reduction, the sharp covariance-block bound, or the exhibited extremal covariance family. The same-family overlap in Negari et al. is material, but their state-level norm conversion loses a factor tending to two. The exact formula needs the signed diagonal differences, not just substitution in that bound.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+One mode and two retained copies are the first nontrivial instance of this motivated de Finetti distance; one retained copy always has zero error. The exact result identifies which part of the general bound is slack even at a sharp covariance configuration, with an asymptotic factor-of-two gap and equality information for every extension length. It provides a useful benchmark for sharper state-level conversions rather than a numerical re-evaluation of the old covariance optimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

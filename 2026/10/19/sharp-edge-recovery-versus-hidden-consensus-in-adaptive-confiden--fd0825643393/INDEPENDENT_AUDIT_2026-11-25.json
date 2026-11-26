@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:28:06.093561Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–79; VERIFICATION.md and verify.py inspected. The proof and exact equality example above do not rely on the bundled trajectories."
+      ],
+      "rationale": "The underlying graph stays K_n. While its one ineffective edge is absent, the update is the self-looped averaging matrix for K_n minus that edge. If M is the maximum other-edge disagreement, opposite endpoints differ by at most 2M via a mediator. To compare an updated endpoint with an updated mediator, subtract the average over n opinions from that over n−1 opinions. The numerator over n(n−1) sums n−1 disagreements with the omitted endpoint: n−2 are at most M and one at most 2M, so the new ordinary-edge gap is at most M/(n−1). Mediators share the same updated opinion. Since receptive bounds do not decrease, this proves invariance until recovery. Meanwhile subtracting endpoint updates divides their positive gap by n−1 each step, and the absent bound scales by δ. Strict receptiveness requires ((n−1)δ)^t>d/c₀, giving no finite recovery at or below threshold (including δ=0) and the asserted first integer T above it, even when the logarithmic ratio is an integer. Endpoint gaps up to and including T remain nonzero, so consensus is first at T+1. Loop-inclusive degrees n−1 at the endpoints and n elsewhere give invariant L for the missing-edge update. Diameter goes to zero if the graph never completes. Endpoint and mediator mean difference contracts with signed eigenvalue λ=−(n−2)/[n(n−1)]; subtracting that degree-weighted mean from the ordinary mean gives coefficient 2(n−2)/[n(n²−2)] times this difference. Since the final consensus opinion is the ordinary mean at T, this proves the closed formula. An exact boundary example with x=(0,1/4,1/3,3/5), c₀=1/2, δ=2/5 has equal gap and confidence 1/5 at t=1 (still absent), recovery at t=2, and common value 17857/60480 at t=3. The divergence of T at the threshold requires d>c₀, as stated.",
+      "residual_risks": [
+        "Requires exactly one initially unreceptive dyad, common positive confidence, discrete synchronous updates including self, and a strict receptive test. The bundled finite tests do not prove the all-n result or by themselves verify every boundary case, and some runs use γ=0 outside the stated γ>0 regime."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorems 3.2 and 3.6 prove endpoint confidence limits of zero or one and eventual constancy of the effective graph. The twin-edge theorem gives 1/(d+1) and exact recovery time for a pair with d mediator neighbors, and explicitly recovers K_n with one latent edge as a specialization."
+        ],
+        "reasoning": "The general qualitative theorems cannot choose the surviving graph or give the time. The broader catalogue theorem does cover the frozen edge-specific boundary and time by specialization, but its agreement bound for perturbed clique profiles is T+2, not the exact nonsymmetric T+1 value calculated here.",
+        "searches": [
+          "Li–Luo–Porter journal Theorems 3.2 and 3.6",
+          "Resultary twin-edge threshold 599bd17e675a, local RESULT.md Finding"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1137/23M1558951, author-hosted full journal text",
+        "Resultary 69472cf06473",
+        "Resultary cdf435cb3bc6",
+        "Resultary 599bd17e675a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Li–Luo–Porter's discussion leaves parameter effects on unreceptive pairs with equal limiting opinions as a direction. The exact all-n catalogue comparison overlaps T, the limit and unanimity timing, while the twin theorem implies the sharp threshold in this network. Neither reports the arithmetic-mean correction from the signed symmetric mode λ^T."
+        ],
+        "reasoning": "A broader threshold theorem covers the cutoff even without the identical parameter name, and the K_n theorem covers the structural event-time conclusions outright. Those catalogue entries are dated later than the frozen submission and their relationship is not inferred from dates. The exact off-symmetry consensus value requires following the pre-switch averaging mode to T rather than merely knowing L or knowing when the graph completes.",
+        "searches": [
+          "Li–Luo–Porter journal §§2.2, 3.1.1–3.1.2 and discussion p. 1023",
+          "Local Resultary exact edge-repair and twin-edge theorem statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Li–Luo–Porter use the same strict synchronous dyadic rule. The local exact edge-repair theorem is for K_n with one unreceptive dyad, giving the same 1/(n−1), T, L and T+1 conclusions. Under no repair the frozen calculation is a self-looped fixed-graph consensus problem; the weighted mean is its standard degree invariant."
+        ],
+        "reasoning": "The complete-minus-one-edge walk is an equivalent description only while the dyad stays missing. The catalogue theorem covers that dichotomy and its limit, but does not give the frozen exact value after the switch for asymmetric means. Prior numerical same-limit unreceptiveness is not an exact crossing criterion.",
+        "searches": [
+          "DOI:10.1137/23M1558951, §2.2 and §5.1.2",
+          "Resultary local K_n edge-repair record cdf435cb3bc6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The three-agent catalogue record gives the n=3 parameter criterion 1/2 and exact first-recovery law. The edge-repair record contains the all-n match noted above. The originating paper's numerical study uses a 10^{−6} opinion tolerance and an operational major-cluster criterion; its large complete-graph example is not the one-unreceptive-dyad theorem."
+        ],
+        "reasoning": "The frozen result is symbolic in n and continuous confidence parameters, not a table lookup. Exact small-n and all-n catalogue matches cover the indicated threshold components; neither the approximate simulation outputs nor the compared exact statements give the full finite consensus-value formula.",
+        "searches": [
+          "Resultary local 69472cf06473, cdf435cb3bc6 and 599bd17e675a",
+          "Li–Luo–Porter §§4.2–4.3, §5.1.2 and Figure 1(a)"
+        ]
+      },
+      "rationale": "The exact same-model literature establishes qualitative stabilization and observes hidden consensus, not the exact stratification and consensus-value formula. Distinct catalogue results overlap the threshold substantially, including one nearly identical K_n theorem and a broader twin-pair threshold. They are documented as actual mathematical coverage of those components, not credited as distinctions and not treated as evidence of earlier priority. The submitted result also determines the exact nonsymmetric finite-time consensus opinion, which none of the compared statements supplies. That is a supported distinction rather than a claim that hidden consensus or even the cutoff is unique across the catalogue.",
+      "residual_risks": [
+        "There is substantial catalogue overlap; dates do not settle derivation, authorship or priority. Earlier specialized literature might contain the exact transition and finite-time value, and the bounded source comparison cannot certify global priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same rule and qualitative mechanism; does not give the exact criterion in the compared results",
+          "evidence": [
+            "Strict dyadic receptiveness, confidence limits in {0,1}, eventual constancy; examples with converging opinions on unreceptive dyads and W(T_f)<1 use approximate cluster definitions. Discussion calls for study of parameter effects on edges of same-limit pairs."
+          ],
+          "identifier_or_url": "https://www.math.ucla.edu/~mason/papers/BCM-dynamic-April2025.pdf (DOI:10.1137/23M1558951)",
+          "material_read": "Journal PDF §2.2 p. 6; Thm. 3.2 p. 9, Thm. 3.6 pp. 12–13; §§4.2–4.3 and §5.1.2 pp. 17–18 and 24; Fig. 1(a) p. 20; discussion printed p. 1023",
+          "method": "Lawful author-hosted journal full-text passages",
+          "title": "Bounded-Confidence Models of Opinion Dynamics with Adaptive Confidence Bounds",
+          "trigger": "Same complete-network synchronous adaptive-confidence law and closest earlier examples"
+        },
+        {
+          "assessment": "Exact n=3 overlap, not the all-n value law",
+          "evidence": [
+            "Threshold 1/2 with exact recovery time and finite-versus-asymptotic consensus."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-a-sharp-three-agent-decay-transition-for-consensus-with-an-unrec--69472cf06473",
+          "material_read": "Local RESULT.md theorem of the K_3 path sector",
+          "method": "Resultary and local mirror",
+          "title": "A sharp three-agent decay transition for consensus with an unreceptive pair",
+          "trigger": "Exact K_3 case of the frozen theorem"
+        },
+        {
+          "assessment": "Exact large overlap; the closed finite-time consensus value is not in its displayed theorem",
+          "evidence": [
+            "Same all-n cutoff, T, unrepaired common limit L and unanimity at T+1 after repair."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-edge-repair-threshold-and-finite-time-consensus-dichotomy--cdf435cb3bc6",
+          "material_read": "Local RESULT.md displayed one-unreceptive-dyad result",
+          "method": "Resultary and local mirror",
+          "title": "Exact edge-repair threshold and finite-time consensus dichotomy",
+          "trigger": "Most direct equivalent K_n theorem"
+        },
+        {
+          "assessment": "Edge cutoff/time covered by specialization; agreement statement and value scope differ",
+          "evidence": [
+            "Cutoff 1/(d+1) and exact recovery; perturbed clique profiles agree by T+2, with T+1 in the symmetric case."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-universal-twin-edge-threshold-for-latent-trust-and-recovered-c--599bd17e675a",
+          "material_read": "Local RESULT.md twin-edge theorem and clique specialization",
+          "method": "Resultary and local mirror",
+          "title": "A universal twin-edge threshold for latent trust and recovered consensus",
+          "trigger": "Broader theorem with explicit K_n specialization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof; qualitative numerical cases and parameter question in Li–Luo–Porter."
+      ],
+      "rationale": "The one-gap clique is the simplest complete-network family that isolates a mediator mechanism rather than merely observing that a simulation converges. Exact timing separates network recovery from opinion agreement. For nonsymmetric initial means the closed finite consensus value quantifies the effect of the switching time and the sign of the pre-switch mode, unlike an assertion of consensus alone. It also identifies the limiting agreement as recovery is delayed arbitrarily near the cutoff.",
+      "residual_risks": [
+        "Idealized mathematical result, not empirical trust dynamics; no extrapolation to multiple unreceptive pairs or stochastic/asynchronous rules."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem concerns all integer \(n\ge3\) and every unordered two-vertex pin set, not a restricted symmetric design. The graph automorphism group creates exactly five exhaustive pair types. The proof constructs the grounded inverse of the intact biclique, applies a rank-one edge-deletion identity, computes the five inverse-square traces, and supplies exact polynomial sign certificates. The crucial competing difference has \(Q(3)=-581\) and an all-positive expansion of \(Q(n)\) at \(n-4\); the other three classes are strictly dominated for \(n\ge3\). The packaged checker symbolically reconstructs these identities and independently compares all leader pairs on \(3\le n\le14\) by direct Laplacian eigenvalues. The finite sweep alone is not the infinite proof.
+PASS
 
-## Originality — PASS, subject to publication-priority risk
+All unordered choices are exhausted by DD, DS, DX, SS and SX under part swap and independent healthy-vertex permutations. The grounded matrix retains the full degrees of the defective graph and is positive definite. Before deletion the zero-sum directions within the two parts have eigenvalue n, and the two class-constant directions give the 2×2 block with diagonal n and off-diagonal -sqrt(rs). This yields the displayed inverse and its squared trace. Deleting the missing-link incidence vector restricted to followers gives a rank-one downdate, with denominator 1-z^T H z positive by positive definiteness; this still works when one or both endpoints are pinned. For the positive mode lambda the Lyapunov equations give zero position-velocity covariance, velocity variance 1/(2 lambda), and position variance 1/(2 lambda^2) for white acceleration noise and matched gains. Exact independent replay recovered all five rational costs, the shifted positive coefficient lists for DS, DX and SX relative to DD, and the sign of J_DD-J_SS: Q(3)=-581, while all coefficients of Q(t+4) are positive. Thus the five-class minimization is strict between classes at every allowed integer; SS gives 2 binom(n-1,2) pairs and DD one. Exact direct inversion matched 245 pairs at n=3,...,7 and confirmed the first-order disagreement at n=4 and 5. The all-size first-order switch is a cited comparison, not a consequence of the square trace. The all-size second-order result rests on the sign certificates, not the finite replay. Frozen verifier inspected, not executed; independent calculation details at /workspace/evidence/defective_biclique_exact.md.
 
-The closest indexed research record, *A six-per-part transition in fault-aware two-leader coherence* (2026/10/25), addresses the same defective \(K_{n,n}\) graph with first-order grounded inverse trace and proves its optimal switch at \(n=6\). A more general defective \(K_{p,q}\) indexed result also addresses first-order inverse trace. Their stated conclusions do not imply an inverse-square ordering, because a lower inverse trace need not have a lower inverse-square trace. The most relevant second-order indexed record addresses the *unmodified* graph \(K_{m,m+1}\), not a failed link. Earlier open-access full-text leader-selection papers address first-order coherence and general algorithms rather than this inverse-square defect classification. The complete manuscripts of three highly relevant indexed published results were inaccessible at the time of comparison, so equivalent unindexed statements remain a specific priority risk. Their abstracts were read; no claim of whole-document exclusion is made.
+## originality
 
-## Value — PASS
+PASS
 
-The fault model is a minimal, structurally motivated perturbation of a maximally connected two-community network. For a physically specified second-order, relative-damped consensus system the objective is exactly a covariance trace, and the theorem determines the full optimal two-leader set for every graph size. The abrupt switch at four vertices per side and the strict disagreement with the standard first-order objective at sizes four and five demonstrate that an intervention optimized for one noise response can be provably suboptimal for another. The exact five-class solution and all-integer inequalities are independently useful for robust leader-design baselines; this is not merely a re-expression of a previously known first-order table.
+No equivalent or dominating theorem found in the inspected material. The indexed results with the same single deletion optimize the first inverse moment; the indexed near-balanced inverse-square result does not have a missing link. The matched-damping interpretation and low-rank algebra are established methods, not claims of novelty.
 
-## Limitations and checks
+## value
 
-The result assumes one missing edge, unit weights, two perfectly pinned leaders, and identical relative velocity and position Laplacian gains. There is no assertion of a general theory for other graphs, control objectives, or failure patterns. Independence of verification is not claimed. The symbolic checker requires SymPy, and direct spectral diagnostics require NumPy. Full-text inspection of some related published records was unavailable, limiting the originality assessment; the supplied comparisons use their recoverable statements plus inspected primary open literature.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+One link deletion is a natural minimal fault, and the square trace models a specific white-noise position covariance rather than an arbitrary extra statistic. Exact strict comparison of all five pair classes changes the design recommendation at two actual network sizes, identifies every optimal intervention and gives its cost on the full family. This is an exact benchmark, not a claim about multiple faults, other damping laws or transients.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

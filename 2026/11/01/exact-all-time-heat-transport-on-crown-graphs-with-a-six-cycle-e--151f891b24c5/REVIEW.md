@@ -1,25 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement concerns every integer \(n\ge3\), all real times \(t\ge0\), and the original shortest-path Wasserstein-\(1\) metric for the **combinatorial** Laplacian heat kernel. The four spectral projections in `RESULT.md` are exhaustive, mutually orthogonal and have eigenvalues \(0\), \(n-2\), \(n\), and \(2(n-1)\). For each pair orbit, a graph-symmetry reduction of the Kantorovich dual gives an explicit finite-dimensional optimization. All sign and feasibility restrictions are justified, including the exceptional \(n=3\) case where the generic-to-generic edge is absent. Sharpness is realized by explicit feasible dual potentials, not inferred from the numerical checker.
+PASS
 
-The independently executable rational checker recomputes 24 finite heat-kernel matrices and their three orbit types, tests 72 explicit attaining potentials and exhausts 2359 anchored integer Lipschitz potentials for smaller sizes. Integer exhaustive search is sufficient for those test instances by incidence-matrix total unimodularity; the proof for all sizes and times is analytic. No claim about weighted or degree-normalized generators is made.
+For the combinatorial generator the four blocks give the rates 0, n−2, n, and 2(n−1). For adjacent points the signed row difference has coefficients α, β≥0 and γ≤0 after antisymmetrization. The bounds |a|,|b|≤1/2 and |c|≤1/2 are jointly saturated at (1/2,1/2,−1/2) when two generic indices exist. For n=3 they do not exist: c=−1−min(a,b) is the minimizing admissible generic value, and the objective is maximized at (1/2,1/2,−3/2). For same-side points the dual optimum is obtained at (1,−1); for deleted-matching points at (3/2,−1/2). All these witnesses satisfy every graph-edge constraint; the sign-based upper bounds match. Thus the three distances, the cancellation of e^(−nt), the exact adjacent Lip norm and its derivatives, and the gap 2(w−u)/3 for the six-cycle versus equality for n≥4 follow, including t=0. For n=4 all normalized pair classes tie. RESULT.md §§1–5 and the rational witness/finite enumeration code were inspected; the recorded checker output was not rerun or used as the all-time proof.
 
-## Originality — PASS, qualified
+## originality
 
-Ollivier (arXiv:math/0701886) establishes the transport curvature framework. Lin, Lu and Yau (DOI:10.2748/tmj/1325886283) analyze local graph curvature, including cycle/cube examples. Münch and Wojciechowski (arXiv:1712.00875) provide general graph heat semigroup curvature-gradient results. Klee and Stamps (arXiv:2008.01669, Proposition 8) give precisely the crown-graph Laplacian eigenvalues. **Those eigenvalues are previously known**; the new claim is the exact three-orbit Wasserstein transport optimization, not the spectral calculation. Inspected relevant primary statements do not give the *exact full-time* three-orbit transport profiles of the crown graph. The local first-order behavior of the six-cycle and cube is already part of the context and is **not** presented as new.
+PASS
 
-Searches also compared the aliases “crown graph”, “complete bipartite minus a perfect matching”, “heat-kernel Wasserstein”, “graph-Lipschitz semigroup”, and the characteristic two-exponential formula. Published crown-graph records located concerned a sequence spectrum and odd colorings, not transport. A previous exact profile on complete bipartite graphs does not cover deleted matching edges; a previous complete multipartite heat-transport result likewise does not cover crown graphs, whose complement is not a union of disjoint cliques. No dominating implication was found among the inspected results.
+The supported distinct scope is the complete crown-family classification with the small-size transition and heat-transport additivity comparison, not the crown spectrum, local curvature or the C6 contraction norm in isolation. The October cycle result already gives exactly the C6 norm and hence the adjacent-row value; Q3 values also follow by product coupling and the coordinate-sum dual. The distinct November 2 crown note is a material formula match for n≥5, and goes further there on acceleration, but omits the two boundary sizes and their comparisons. Its catalogue date follows that of the frozen record and is not independent evidence that those formulas were prior to it. The review establishes neither priority between the crown calculations nor distinction of the n≥5 formulas in isolation.
 
-**Residual priority risk:** Equivalent older derivations might appear in unindexed distance-regular graph calculations. Searches and materially read primary sections are not a proof of absolute publication priority; full exhaustive scrutiny of every potentially relevant publication was not possible.
+## value
 
-## Mathematical value — PASS
+PASS
 
-Crown graphs are a natural diameter-three, edge-transitive, distance-regular family, with the six-cycle and the three-cube as its first two members. Obtaining a sharp **all-time** transport value for all three distance orbits gives strictly finer information than a curvature lower bound or one-time contraction test. The vanishing contribution of the middle heat eigenmode in *all* Wasserstein maxima is a structural cancellation; the exact shortest-path additivity failure at precisely the six-cycle is a sharp graph-family boundary. These results provide explicit semigroup-gradient benchmark examples and potential input for transport comparison questions.
+The three-distance classification gives reusable exact positive-time transport values on a natural distance-regular family. Sharp dual saturation changes at the six-cycle because the generic constraint disappears, which explains the genuine loss of geodesic additivity rather than merely recomputing a local curvature derivative. This is also a concrete instance where a mode of the heat kernel is absent in all optimal transport profiles.
 
-## Scope and limitations
-
-The proof and package are confined to real graph-Lipschitz seminorms and Wasserstein-\(1\) on unweighted crown graphs under counting measure and the combinatorial Laplacian. They do not classify higher Wasserstein exponents or all finite graphs, nor do they guarantee exhaustive novelty. The numerical checks are supplementary. Independent scientific validation has not been performed.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

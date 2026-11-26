@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stationary binary-chain endpoint weights yield the exact finite affine likelihood ratio between joint occupancy and adjacent even/odd total-run events. Normalizing this ratio gives an exact total-variation identity in terms of the even-conditioned mean absolute deviation. The conditional even-run occupancy distribution is an explicitly tilted product of two binomial-composition counts; strict concavity and the explicit adjacent ratio prove a local Gaussian limit with uniform integrability, giving the claimed coefficient. All limits use the correct centered mean and allow arbitrary integer \(s_n\) with \(s_n/n\to\rho\) in the open interior. The two finite equality curves follow from factoring the affine slope. The accompanying executable reproduces 281 exact/numerical checks. The bounds are not asserted to be uniform at parameter boundaries.
+PASS
 
-## Originality — PASS, with substantial residual risk
+The claim concerns total runs, not 1-runs, at a stationary start with fixed interior a,b and s_n/n tending to an interior rho. For 2s runs the two endpoint orientations have equal weights since pi_0 a = pi_1 b. Adding one zero or one one block gives the two terms of the affine joint-weight ratio T. Both laws have the full interval [s,n-s] as support when n >= 2s+1; the tilt is strictly positive there. Normalizing the affine tilt gives the exact TV identity |slope| times the null law's mean absolute deviation divided by twice its mean tilt. For the even-run law the entropy derivative is the log of q u(1-u-rho)/((u-rho)(1-u)); it decreases from +infinity to -infinity and its negative derivative at the root is sigma^{-2}. Centering at the moving saddle x_n for rho_n=s_n/n is necessary (there is no assumed convergence rate). The log adjacent-weight ratio differs from the corresponding entropy derivative by O(1/n) on a fixed interior neighborhood, with decrement bounded above by -c/n there. Central Stirling expansion, a Gaussian bound in that neighborhood and exponential tails beyond it give the normalized Gaussian limit and uniform integrability of its centered fluctuations. Thus the absolute-deviation coefficient is sigma sqrt(2/pi) and the mean tilt tends to t>0. The slope numerator factors as (a-b)(1-a-b), so the finite laws coincide exactly on the two stated curves; there are at least two support points even at n=2s+1. Independent standard-library replays `python3 record3_exact_check.py` and `python3 record3_asymptotic_check.py` corroborated the proof: 600 exact comparisons for n=3 through 10 across four rational parameter pairs and, for (.2,.4,.2), a scaled TV of 0.136569648 at n=10000 against 0.136568554 predicted. These are finite spot checks, not a limit proof; the supplied checker was inspected rather than run.
 
-A published 2016 conditional Markov-run formula explicitly covers the **finite** starting identity, so that identity is not asserted to be new. The assessed result is the sharp scaled total-variation comparison across parity-adjacent *total-run* conditioning, including explicit Gaussian coefficient and exact two-curve degeneracy. Inspected sources on Markov-binomial approximation and conditional runs do not state this sharp comparison. A 2004 paper on the joint laws of ones and success runs gives Gaussian approximations and could implicitly contain it; only its abstract was accessible. This is a documented unresolved priority risk, not an independent novelty certification. The scientific value and priority claims are confined accordingly.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The two conditional occupancy laws are natural alternatives in exact binary-runs tests, and a leading-order total-variation distance directly quantifies statistical discriminability lost when neighboring even and odd run counts are pooled. The theorem identifies an exact degeneracy phase diagram with two distinct mechanisms (symbol symmetry and lack of temporal dependence) and a sharp nonzero separation coefficient everywhere else. It gives a complete natural fixed-density parameter classification; the new asymptotic requires a conditional local-limit argument beyond the established finite tables.
+Credit the prior exact bivariate law and its immediate affine-ratio and equality consequences. The distinct claim supported here is the sharp adjacent-total-run conditional TV asymptotic, with its explicit rate coefficient. The primary and indexed comparisons did not establish it or a dominating specialization. This is a best-of-knowledge conclusion, not a priority certificate.
 
-## Closest literature and limitations
+## value
 
-Corzo–Vergara (2016), equations (2.4)–(2.5), implies the finite likelihood ratio, and Savelyev–Balakin (2004) provides an earlier joint-distribution framework with unavailable full text. Xia–Zhang (2010) treats unconditioned Markov-binomial approximation. The present result does not treat transition probabilities or run densities tending to their boundaries. Full-source priority risk persists for the 2004 paper.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The adjacent parity classes have the same leading conditional Gaussian shape, so a CLT or TV convergence to zero does not quantify their distinguishability. The sharp coefficient measures that loss and separates exact finite indistinguishability (two distinct mechanisms) from nonzero n^{-1/2} separation. This is a natural conditional comparison across all fixed interior run densities, not just a selected parameter example. It does not assert uniformity toward boundary densities or transition probabilities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

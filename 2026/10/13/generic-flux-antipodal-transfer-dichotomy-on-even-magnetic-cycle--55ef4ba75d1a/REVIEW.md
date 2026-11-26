@@ -1,11 +1,21 @@
-# Scientific assessment: magnetic-cycle transfer dichotomy
+# Independent mathematical audit
 
-**Correctness — PASS.** The Fourier basis diagonalizes the Hermitian nearest-neighbor cycle at all real phases. Every possible transfer induces balanced integer eigenvalue relations. Opposite-eigenvalue pairs rule out nonantipodal transfer; odd-prime coset sums give a universally incompatible antipodal relation and a quantitative amplitude gap. For powers of two and transcendental tangent, algebraicity and the minimal cyclotomic polynomial determine the complete relation lattice, which satisfies the antipodal Kronecker criterion. Two eigenvalue pairs exclude exact transfer. The half-flux cancellation is exact. The finite verifier independently checks representative identities and amplitude bounds, not the infinite theorem.
+## correctness
 
-**Originality — PASS, with residual risk.** The unphased cycle classification in Pal--Bhattacharjya does not apply to arbitrary magnetic phases; its known power-of-two statement is explicitly credited. Cameron et al. treat complex Hermitian circulants with universal transfer and a prime-order oriented-cycle family, not the uniform-flux even-cycle classification. Acuaviva et al. supply a general Hermitian PGST test without this all-order parameter comparison. Coutinho et al. work with integral Hamiltonians, which the generic phased Hamiltonian is not. Sett et al. already supply phase-induced zero-transfer examples; that boundary phenomenon is not asserted new. No checked statement gives both generic-flux existence and phase-uniform odd-prime obstruction or the quantitative bound. Search limitations and possible unindexed equivalents remain.
+PASS
 
-**Value — PASS.** The uniform Peierls phase is a physically natural control on a tight-binding quantum ring. The theorem separates all even orders by their odd-prime divisors, establishes almost-everywhere robustness on the positive family, provides a nonzero transfer gap for all fluxes on the negative family, and exhibits a sharply exceptional half-flux configuration. This is a coherent infinite classification with an exact uniform obstruction, not a finite example or trivial reparameterization.
+The frozen proof assigns 2 cos(phi+2πk/n) to the positive-exponent mode, but the specified right shift acts on column-vector coordinates by (Tf)(j)=f(j-1). The frozen check_fourier_matrix instead evaluates the opposite shift, so its stated check does not catch this. The replacement files use the negative-exponent mode with the original eigenvalue and the target phase ζ^(jk), and the checker now exercises the stated right shift. For the corrected proof, the balanced relation criterion follows from continuous-time Kronecker on frequency differences, including possible degeneracy. The ± eigenpairs force n|2j. For every odd prime divisor p, the two disjoint length-p cosets based at 0 and 1 have zero eigenvalue sums and opposite target parities. Their rotated phase products differ by 2 in modulus; telescoping and Cauchy–Schwarz bound that difference by 2 sqrt(pn(1-|A|)), giving the stated gap. For power-of-two n and transcendental tangent, rational frequency relations split into two algebraic sums, so cyclotomic divisibility by x^(n/2)+1 forces equal coefficients on the paired indices. As n/2 is even, every balanced relation satisfies the antipodal parity test. At exact transfer two eigenvalue pairs would make 4t cos(phi) and 4t sin(phi) integer multiples of 2π, contrary to transcendental tangent. The parity-reversing index involution k↦n−1−k still cancels antipodal terms at phi=π/n. Algebraic tangent values and poles exclude at most countably many phases, also after projecting to total flux. No theorem hypothesis, conclusion, or quantitative constant changes in the repair.
 
-The result is limited to uniform nearest-neighbor Hermitian hopping, and the exceptional algebraic-tangent phases at power-of-two orders are not fully classified. The quantitative gap need not be optimal; unrelated or weakly indexed equivalent literature remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+For the corrected finding, the distinct contribution is the uniform magnetic-cycle dichotomy including the phase- and time-uniform p-dependent cap for every odd prime divisor. The unphased criterion, general Hermitian spectral principles and exact half-flux cancellation have verified antecedents and are not credited as distinct contributions. The strongest inspected statements do not establish the full magnetic classification and cap; no uncatalogued equivalent is ruled out.
+
+## value
+
+PASS
+
+Uniform flux is a natural perturbation of the familiar unphased cycle. The correction preserves a phase-uniform robust obstruction with an explicit numerical margin for every odd prime divisor, as well as the contrast with PGST at almost all fluxes on power-of-two cycles. A qualitative failure at selected fluxes is insufficient for this quantitative stability distinction. The already known half-flux cancellation serves only to show why almost-everywhere cannot be replaced by everywhere.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

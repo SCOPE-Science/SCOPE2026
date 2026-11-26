@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:43:53.290441Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Expanding the three sign factors per triangle and summing uses five facets per vertex and two per edge, giving 20−10|S|+8(e−t). Complementation reverses every facet sign; reducing modulo eight leaves only sizes 2, 6, 10. The size-two zeros are exactly the 36 nonedges, and size six requires e−t=5. An independent exact calculation from the cyclic coordinate families (0,±1,±φ), with φ²=φ+1, uses squared distance four for edges and 3-cliques for faces. Direct face signs, the structural formula and the integer Walsh transform agree on all modes. The calculation reproduces all bins of the signed spectrum, the 724 six-set zeros by (e,t), and all bins of the inverse Walsh transform of the nonzero-mode mask. Rank is 3300 and nullity 796; on the orthogonal complement of the kernel the multiplier moduli range from two to twenty, yielding the pseudoinverse norm and condition number. In the convolution matrix of the range projection, every row and column has the same absolute sum, 56232/4096, so this is both endpoint norms. For any projection onto W, its translation conjugates fix W pointwise and map into W. Their average still has those two properties and commutes with translations. The joint character spaces are one-dimensional over either scalar field, forcing the average to be identity on the surviving modes and zero on the others. Since translation is isometric, averaging cannot increase either endpoint norm. Thus the all-projections minimum follows analytically, not from checking a numerical kernel. Exact replay: independent_icosahedron.py with independent_run.txt; the frozen verifier was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The classical averaging theorem and unique commuting projection minimality principle apply. Available Zippin material relates to translation-invariant projections; a full-text attempt did not succeed."
+        ],
+        "reasoning": "General projection theory supplies the minimization step. It does not give the required absolute sum of the transform of this particular spectral support, which needs exact evaluation.",
+        "searches": [
+          "Web: minimal projection finite abelian group translation invariant range l1 l-infinity Rudin averaging exact projection onto Fourier subspace",
+          "arXiv:1007.2214 Theorem 2.1 and Corollary 2.2",
+          "Zippin (2004), DOI 10.1007/s00013-003-0582-x"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:1308.0955 and arXiv:1007.2214",
+        "Golay-HiS.pdf",
+        "Zippin (2004) bibliographic/abstract information",
+        "Resultary 3e6559fd96e0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior graph criterion classifies minimum zero-forcing masks by edge count. Abstract averaging identifies a minimal commuting projection, but does not specify the surviving Walsh mask for facet convolution."
+        ],
+        "reasoning": "A minimum zero-forcing census cannot supply all values of |S|, e(S), and t(S) on the Boolean group; even a signed eigenvalue histogram alone would not give the inverse-mask kernel because it loses the locations of the zeros. The full zero set and its exact transform are new inputs to the classical projection theorem.",
+        "searches": [
+          "Resultary 3e6559fd96e0 Finding",
+          "Aksoy–Lewicki, arXiv:1007.2214 p. 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The observable equals 20−2w where w counts faces meeting a vertex subset oddly. The relevant enumerator would be that of the image of the 12-by-20 face incidence matrix under binary transpose multiplication, with each vertex-mask preimage counted. The inspected Golay construction instead uses the adjacency matrix and has length 24; Nash §2 supplies geometry and symmetry."
+        ],
+        "reasoning": "This establishes the code-enumerator alias but distinguishes it from the matching Golay terminology and from mere icosahedral coordinates. None of those inspected statements computes this face-parity enumerator.",
+        "searches": [
+          "Web: icosahedral graph triangular facets Walsh transform XOR convolution Fourier spectrum subset face incidence",
+          "Web: icosahedron facet incidence binary code weight enumerator face incidence vector code",
+          "Nash, arXiv:1308.0955 §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected Golay weight table concerns another code. The indexed six-set criterion gives 200 sets with eight or nine edges. The independent census finds exactly 120 with (8,3) and 80 with (9,4), all Walsh zeros."
+        ],
+        "reasoning": "This is a verified intersection, not an equivalent table. In particular the other 524 six-set zeros have different edge counts and are not accounted for by that criterion.",
+        "searches": [
+          "Web: icosahedron facet incidence binary code weight enumerator face incidence vector code",
+          "Resultary 3e6559fd96e0 RESULT.md at offset 0"
+        ]
+      },
+      "rationale": "The distinct contribution is the exact facet-incidence zero set, complete signed spectrum, and sharp numerical range-projection norm for this specific graph, not the geometry or the projection averaging principle. The strongest inspected prior six-set statement describes a 200-element family contained in the new 724-element six-set zero family; it neither refers to the Walsh observable nor determines the other zeros or norm.",
+      "residual_risks": [
+        "An unindexed exact parity-code enumerator, facet Fourier table or projection calculation could affect historical priority.",
+        "The detailed content of Zippin’s paper was not accessible and is not ruled out by the abstract."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Geometry precedent, not Walsh analysis",
+          "evidence": "The fivefold geometric model and face symmetry furnish the graph realization, not parity counts or a projection constant.",
+          "identifier_or_url": "https://arxiv.org/abs/1308.0955",
+          "material_read": "§2, pp. 2–3, PDF offsets 4890–7356",
+          "method": "Bounded OA PDF passages",
+          "title": "On Klein’s Icosahedral Solution of the Quintic",
+          "trigger": "Same polyhedron and facet symmetry"
+        },
+        {
+          "assessment": "Different incidence object",
+          "evidence": "Uses the graph adjacency matrix to build the [24,12,8] code with its weight enumerator and Steiner design; the coordinates are not the 20 triangular facets.",
+          "identifier_or_url": "Golay-HiS.pdf, pp. 1 and 4",
+          "material_read": "OA PDF offsets 410 and 6200, construction and weight enumerator",
+          "method": "Bounded OA PDF passages",
+          "title": "Icosahedron construction of the extended binary Golay code",
+          "trigger": "Possible equivalent code weight enumerator"
+        },
+        {
+          "assessment": "Method established; no icosahedral numerical constant in these statements",
+          "evidence": "Rudin averaging gives a minimal invariant projection under uniqueness.",
+          "identifier_or_url": "https://arxiv.org/abs/1007.2214",
+          "material_read": "p. 4, OA PDF offset 7220, averaging and uniqueness principle",
+          "method": "Bounded OA PDF passages",
+          "title": "Minimal projections with respect to various norms",
+          "trigger": "Broader theorem for projection minimality"
+        },
+        {
+          "assessment": "General relation; detailed coverage unresolved",
+          "evidence": "The subject is translation-invariant projection inequalities. No exact facet-specific statement was available for comparison.",
+          "identifier_or_url": "https://doi.org/10.1007/s00013-003-0582-x",
+          "material_read": "Title and indexed abstract information; no confirmed full-text passage",
+          "method": "Bibliographic lookup and attempted lawful publisher retrieval",
+          "title": "A variant of Rudin’s inequality for translation invariant projections on group algebras and its generalization to finite dimensional Banach spaces",
+          "trigger": "Finite group projection inequalities potentially relevant to this constant"
+        },
+        {
+          "assessment": "Related 200-set criterion, not the Walsh classification",
+          "evidence": "Minimum zero forcing iff a six-set induces eight or nine edges; the census verifies that all 200 such sets occur among the 724 zero modes at size six.",
+          "identifier_or_url": "2026/10/25/SCOPE-icosahedral-six-set-edge-criterion-and-zero-forcing-exchange-geo--3e6559fd96e0",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Published-record mirror",
+          "title": "Icosahedral six-set edge criterion and zero-forcing exchange geometry",
+          "trigger": "Exact overlapping class on the same six-subsets"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Facet convolution is a natural symmetric operator on vertex-set functions. Its null modes identify precisely which character signals it erases, while the endpoint projection constant is the exact cost of extracting its attainable range in the two endpoint norms even with unrestricted choice of projection. Those invariants are not determined by the vertex-facet incidence counts or by the Hilbert condition number. The zero criterion and independent exhaustive census give structural and quantitative information for a fixed, natural object.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

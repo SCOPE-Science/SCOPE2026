@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof uses simultaneous unitary triangularization of commuting two-dimensional tuples and explicitly treats both distinct and coincident joint eigenvalues. In the distinct case, a single off-diagonal scalar controls the complete family; amplified Cartan-ball automorphisms give a sharp norm restriction and an actual analytic disk realizes the largest component pseudohyperbolic distance. Applying Schwarz–Pick proves the exact positivity criterion for the output \(2\times2\) matrix. In the coincident case, the differential of the same automorphism and the Schwarz–Pick derivative estimate give the repeated-eigenvalue limit, without relying on a density argument. The free matrix-ball defect identity and contractions are independently testable in the included checker. The sharp size-three failure is a direct, correctly identified consequence of Hartz–Richter–Shalit, Proposition 3.5.
+PASS
 
-## Originality — PASS, with residual priority risk
+Common unitary triangularization exists by joint commutativity. The two diagonal tuples are in the domain by compression of each strict rectangular block. For distinct tuples, commutativity makes every upper-right entry a fixed scalar c times the difference of the two corresponding diagonal entries, so the holomorphic calculus on joint data has the stated two-value form. For repeated tuples the square-zero parts give the first derivative instead. The lifted automorphism identity works without entry commutativity at the block level: with W=Z−B, one can rewrite Φ_B= D_{B*}(I−ZB*)⁻¹W D_B⁻¹ using B*D_{B*}⁻²=D_B⁻²B*. Factoring the defect, the middle block is (I−ZB*)D_{B*}⁻²(I−BZ*)−W D_B⁻² W*=I−ZZ*, by expansion. This supplies strictness after amplification. In the distinct case the transformed block has norm √(1+|c|²)||U_j||, and the path through wU_j/max_j||U_j|| is a common disk reaching both tuples after inverse automorphisms. Schwarz–Pick and the determinant of the triangular defect give exactly the needed contraction; the boundary-value case is constant by the maximum-modulus principle. In the repeated case the lifted strict norm bounds the derivative direction after centering; the same radial disk yields the Schwarz–Pick jet bound |df(v)|≤1−|f(λ)|², exactly the repeated-diagonal defect condition. Constants attain one. HRS Proposition 3.5 gives a scalar polynomial witness on a row ball of dimension two; shrinking preserves a strict violation, embedding into a row or the adjoint pair into a column preserves the strict block norm, and the scalar supremum on the larger ball remains one because the selected row or column is a contraction and its embedded two-ball is contained in the full ball. Direct sums with zero coordinates also propagate the violation to all larger operator sizes.
 
-Kiri, arXiv:2610.20355v1, Theorems A–C and Section 5, gives estimates depending on additional bounded-Gleason hypotheses, expressly conditional at higher Cartan rank, and a nonsharp unconditional estimate for row/column products. Hartz–Richter–Shalit, arXiv:2109.08550v3, Corollary 3.4, covers only single Euclidean row balls and its Proposition 3.5 is cited as prior coverage of the dimension-three boundary. Neither inspected work states the unconditional sharp conclusion for all finite products including higher-rank Cartan factors. published-finding corpus topical queries identified related operator-space and tetrablock findings but no stronger covering claim. A prior two-point interpolation theorem in older bounded-symmetric-domain literature could provide an equivalent formulation; this risk is not eliminated by negative searches.
+## originality
 
-## Value — PASS
+PASS
 
-The natural operator-ball functional calculus question in Kiri's work has an exact, rank-independent answer at its first nontrivial matrix size. It replaces a conditional estimate of unspecified optimality with an unconditional norm-one inequality over any finite product, including rank-two and higher Cartan factors where bounded Gleason division is not established in the cited work. The published three-dimensional counterexample shows that the sharp universal level-two statement is a real boundary, not an arbitrary parameter slice. The argument isolates a two-point automorphism/Schwarz–Pick mechanism that can be reused in other homogeneous matrix-ball settings.
+Credit the known single-row-ball theorem (and column case by transpose and adjunction), the imported size-three obstruction, the general jet criterion and the amplified automorphisms. The distinct supported claim is unconditional sharp scalar contractivity for arbitrary finite products of type-I factors, including genuine matrix balls, at operator size two under only the strict block norm hypotheses. The strongest checked exact one-factor result and broader conditional estimates do not supply this conclusion.
 
-## Closest literature and limitations
+## value
 
-Hartz–Richter–Shalit already give the row-ball two-dimensional constant and the size-three failure, neither of which is claimed independently novel. Kiri already proves the needed liftable automorphism facts. The present independent scientific contribution is the full rank-and-product extension with optimal constant. The argument does not address matrix-valued test functions, higher matrix dimensions, or boundary tuples. The older literature on two-point Carathéodory distances is a residual originality risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result answers a sharp contractivity question in a natural finite operator size for a whole domain class, not just a low-dimensional scalar parameter slice. Removing the bounded Gleason hypothesis for all genuine rectangular factors at size two and giving exact constant one sharpens general level estimates in a regime where the next size can already fail. The size-three counterexample is context and is not counted as a new contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

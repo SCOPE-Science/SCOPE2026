@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:06:03.051895Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–5",
+        "Frozen VERIFICATION.md, check.py and CHECK_LOG.txt"
+      ],
+      "rationale": "The hypergeometric count X of first-symbol sites in the first block gives W=b−a+2X. Its exact mean, variance and span are as stated. Set p=a/n, z=(X−a²/n)/√n. Stirling in the two numerator binomials uses proportions p+z/(p√n) and p−z/((1−p)√n). The entropy linear terms cancel, the quadratic term is −z²/[2p²(1−p)²], and the prefactor is 1/(√(2πn)p(1−p)); the error is uniform on bounded z because p stays away from 0 and 1. The resulting span-two local mass for W is 2φ_v/√n, while Stirling for Poisson at the exact centering gives φ_h/√n on both parities. Bounded rescaled variances control the tails; conditioning Poisson costs a bounded factor since the retained mass tends to 1/2. The retained-lattice and forbidden-lattice contributions give D=(1+∫|2φ_v−φ_h|)/4, and conditioning gives R=∫|φ_v−φ_h|/2. Solving the two density crossing equations gives t and s, and independent evaluation gives 0.5332306879600328 and 0.16606407498351272 in the balanced case. The strictly positive Gaussian transition kernel strictly contracts both signed differences (each has positive and negative mass), while v/h=4[c(1−c)]²/(1−2c(1−c)) is maximized uniquely at balance. The singular small-variance limit gives D→1; it is a limit of the profile, not a uniform endpoint limit for the discrete laws. Verification metadata, script and captured log were inspected without running the script; their finite checks are supplementary.",
+      "residual_risks": [
+        "No finite-size rate or joint limit with c approaching an endpoint is proved."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Stark's displayed Poisson-approximation estimate (21) does not yield a sharp limit when λ is proportional to n.",
+          "The square-root block result has bounded mean and vanishing Poisson error. The other lattice hits concern a multinomial modal mass and a discrete-Gaussian Markov-load limit, respectively.",
+          "The primary search returned no usable comparison on a general two-span TV theorem."
+        ],
+        "reasoning": "Neither the broader model nor the neighboring asymptotic regimes dominate the exact profile in this regime. A local limit alone does not sum the two different lattices or optimize the resulting signed-density norms.",
+        "searches": [
+          "arXiv:2608.00710, bounds and lower-bound discussion",
+          "Primary-literature lookup on total variation via lattice local limits for hypergeometric and Poisson multiset counts",
+          "Resultary 2026/10/18/…--b21e06270e4c; 2026/9/18/…--e6b134ac7b73; 2026/11/2/…--1c8969f25e57"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.00710",
+        "Resultary …--3698ed40fe98, …--b21e06270e4c, …--e6b134ac7b73, …--1c8969f25e57, and the exact self-entry …--171ff924a8ff"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known exact support and moments do not determine exact total variation.",
+          "Classical compact-uniform local estimates supply the two local masses; the additional span-dependent overlap calculation and strict optimization are needed for the claimed conclusions."
+        ],
+        "reasoning": "No inspected statement supplies both profiles or implies them with sharp balanced minima as an existing stronger result. The separation is quantitative rather than just a proof of non-Poisson behavior.",
+        "searches": [
+          "Stark pp. 4–5 and 9–11",
+          "Resultary 2026/11/2/…--3698ed40fe98, Finding and Proof step 3",
+          "Resultary 2026/10/18/…--b21e06270e4c, Finding and Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Stark studies uniform multiset permutations with indistinguishable repeated copies; his two-symbol specialization is the same model.",
+          "Resultary 2026/11/2/…--3698ed40fe98 gives the exact two-symbol attainable support, equivalent to W=b−a+2X on the feasible hypergeometric support."
+        ],
+        "reasoning": "The support yields only an asymptotic 1/2 obstruction for unconditioned Poisson and none after parity conditioning; it does not identify the probability weights or the exact gaps.",
+        "searches": [
+          "Resultary: two-colour/binary multiset fixed-point counts, hypergeometric matches, parity versus Poisson total variation",
+          "arXiv:2608.00710"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching hit 2026/11/22/…--171ff924a8ff is the record under review; the genuine support hit is 2026/11/2/…--3698ed40fe98."
+        ],
+        "reasoning": "The matching self-entry is not antecedent evidence. Standard tabulation of normal probabilities can evaluate the final constants but does not give the profile or prove the minimizers.",
+        "searches": [
+          "Resultary searches for exact two-colour multiset Poisson separation, parity-conditioned Gaussian variance gap and sharp balanced obstruction"
+        ]
+      },
+      "rationale": "The supported distinction is the exact lattice-sensitive whole-law separation in the two-macroscopic-colour regime, including the parity-conditioned profile and sharp composition minima, not the model, moments, parity constraint or local Gaussian approximation.",
+      "residual_risks": [
+        "The targeted literature lookup did not yield a usable primary result on general TV comparisons across lattice spans. Such an unlocated comparison, or a specialized historical computation, remains possible; this is not a global priority assertion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model and moments covered; profiles not covered by the inspected results",
+          "evidence": "Equation (21) and variance-based lower bounds do not resolve the macroscopic two-colour TV limit or conditioning on parity.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.00710",
+          "material_read": "Abstract, pp. 4–5 (moments), pp. 9–11 (Poisson estimates and lower bounds)",
+          "method": "Bounded original OA PDF passages",
+          "title": "Poisson approximations of the number of fixed points in random multiset permutations",
+          "trigger": "Same probability model; plausible sharp approximation or obstruction"
+        },
+        {
+          "assessment": "Support overlap, not exact probabilities or law distances",
+          "evidence": "Two-symbol support consists of the feasible n−2j counts.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-fixed-point-support-and-constructive-mismatch-spectrum-for--3698ed40fe98",
+          "material_read": "RESULT.md, Finding, Proof step 3 and limitations",
+          "method": "Local Resultary mirror",
+          "title": "Exact fixed-point support and constructive mismatch spectrum for multiset permutations",
+          "trigger": "Exact same two-colour parity obstruction"
+        },
+        {
+          "assessment": "Different multiplicity and mean regime",
+          "evidence": "One square-root block plus singleton symbols leads to O(n⁻¹ᐟ²) TV, not the two-macroscopic-block limit.",
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-poisson-approximation-for-one-square-root-multiset-block--b21e06270e4c",
+          "material_read": "RESULT.md, Finding and Proof",
+          "method": "Local Resultary mirror",
+          "title": "Sharp Poisson approximation for one square-root multiset block",
+          "trigger": "Closest sharp TV result for multiset matches"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof steps 3–5",
+        "Stark arXiv:2608.00710, Poisson bounds",
+        "Resultary …--3698ed40fe98, support theorem"
+      ],
+      "rationale": "The result resolves how far Poisson approximation fails for a natural macroscopic matching model, separates an exact parity obstruction from the surviving variance obstruction, and supplies attained sharp universal constants over all interior proportions. The conditioned limit is substantive even after the previously known support issue is removed.",
+      "residual_risks": [
+        "The minima do not optimize other Poisson surrogates, other word models, or cases of more than two colours."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

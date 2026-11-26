@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:33:53.211148Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, equations (1)–(8) and disconnected-triangle example",
+        "Frozen VERIFICATION.md and verify.py (read, not executed)",
+        "Independent max-flow cut reconstruction and star balance"
+      ],
+      "rationale": "With columns as senders, the arrival mass is the unique solution u=1+Q(I−D)u, because the induced column norm is less than one. For a target w set u=D⁻¹w; the induced edge flow must have receiver demands r_i=u_i−1 and sender supplies c_j=(1−τ_j)u_j. The total margin difference is Σw_i−n. If w satisfies the stated normalization and lower bounds then r_i≥0 and c_j>0. In the bipartite construction, a cut crossing an allowed internal arc already costs at least C=Σc_j; otherwise, if S denotes receivers on the sink side, all their neighboring senders must also lie there. The cut costs at least c(Γ⁻(S))+r(V∖S)≥C, with that lower bound attained by the minimal sender choice for each S. A C-flow thus exists and division by the positive c_j gives exactly the required stochastic columns and target resolvent, including exact rational witnesses by scaling capacities to integers. A missing outgoing arc at a sender violates the S=V cut. On a complete loopless graph every cut with |S|≥2 is automatic, yielding precisely the box intersected with the normalized hyperplane; singleton cuts give w_i−τ≤(1−τ)(n−w_i). When every other vertex sends only to the hub this inequality is an equality, whatever admissible split the hub uses; the recorded equal split is a valid witness. The bound equals n/2 only at n=2 for τ>0 and tends to n/2 as τ decreases to zero. The disconnected-triangle example has all singleton inequalities, but violates the first component cut by 18/5−33/10=3/10.",
+      "residual_risks": [
+        "The frozen rational test count corroborates implementation only. The unrestricted result follows from the exact cut proof. No assertion of uniqueness of the hub's equal split is made."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The transportation theorem applies once both margins are known; the inverse retention calculation identifies both as affine functions of the target and proves exact recoverability. In the inspected Bersetche model conservation includes vote weight lost in cycles; the splittable two-mode delegation comparison in Gölz et al. routes toward designated casters."
+        ],
+        "reasoning": "These ingredients explain the method but do not already state or provide a matching stronger model-specific inverse theorem. The supplemental PageRank web lookup gave no relevant stronger primary passage; this is not evidence of absence.",
+        "searches": [
+          "Berend, §5.3 sparse solvability",
+          "Bersetche, arXiv:2209.14128v5, Theorem 3.4",
+          "Gölz–Kahng–Mackenzie–Procaccia, arXiv:1808.01906, splittable variant",
+          "Maximum possible PageRank score vertex no self loops teleportation damping star upper bound weighted directed graph prescribed PageRank Hall transportation feasibility"
+        ]
+      },
+      "checked_sources": [
+        "Berend §5.3",
+        "Bersetche Theorem 3.4",
+        "Gölz et al. splittable-flow discussion",
+        "García–Romance introduction",
+        "Resultary aca8163d6565 and af9fc3ce9313"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Berend's exact full-support condition is the teleportation lower bound; with self-transitions it has no loopless singleton ceiling. His sparse examples do not imply sufficiency of every receiver-set condition. García–Romance design graphs for ordinal rankings, not a fixed graph for a prescribed cardinal vector."
+        ],
+        "reasoning": "A classical Hall theorem gives the flow feasibility part after the target-to-margins reduction; the recoverability in the fixed-retention model and its exact feasible mass region are the mathematical content. The ceiling is a short corollary of this result, not a separate general extremal claim.",
+        "searches": [
+          "Berend §5.3 exact feasibility discussion",
+          "García–Romance arXiv:2111.01473, introduction",
+          "Frozen RESULT.md, proof §§2–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With τ constant, π=w/n solves π=(1−τ)Qπ+(τ/n)1: exactly uniform-teleportation PageRank with tunable supported Q. With variable τ, normalize u to π and use transition matrix Q(I−D)+(1/n)1 τᵀ, where the latter term resets to a uniform vertex with sender-dependent probability. The reported cast masses are proportional to τ_iπ_i, not simply visit probabilities.",
+          "Berend's §5.3 exact all-row construction uses full support; inspected same-day two-guru delegation records use fixed designated absorbing casters rather than positive retention at every vertex."
+        ],
+        "reasoning": "Changing terminology does not make prescribed-vector feasibility new, but the inspected exact full-support case does not give the sparse heterogeneous cuts or loopless polytope.",
+        "searches": [
+          "Resultary: prescribed PageRank attainable cast weights inverse fixed directed graph Hall cut exact inverse feasibility loopless PageRank sharp star damping concentration fractional retention",
+          "Berend, inverse PageRank, Eq. (2) and §5.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest catalogue hits include a finite-parameter two-guru graph-size cutoff (aca8163d6565) and a random ranked delegation law with endpoint gurus (af9fc3ce9313); neither is a tabulation of target vectors here. Berend's sparse example is a finite obstruction, not an exhaustive classification."
+        ],
+        "reasoning": "This is an all-graphs theorem with continuously variable retentions, not a finite numerical census. The inspected examples and catalogue results do not list the claimed polytope.",
+        "searches": [
+          "Resultary fixed-retention, sharp concentration and inverse PageRank comparison",
+          "Berend §5.3 and Fig. 3"
+        ]
+      },
+      "rationale": "The strongest inspected comparison, Berend's inverse PageRank, asks a mathematically equivalent common-retention target question when teleportation is uniform, but its stated exact case uses full support with self-transitions and its sparse discussion provides limited obstructions rather than the exact cuts. The frozen result's supported distinct content is the explicit cut characterization and construction for fixed heterogeneous retention on a fixed graph, and the sharp complete-loopless attainable polytope as a consequence. The underlying max-flow criterion itself is classical, and this is not a claim to have originated prescribed PageRank or flow-based delegation.",
+      "residual_risks": [
+        "A matching exact support-constrained stationary-design theorem under another name remains possible; priority is bounded by the actual inspected statements.",
+        "The equivalence to common-retention PageRank removes novelty from the problem formulation itself."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent common-retention problem but materially different exact result",
+          "evidence": "Full-support target lower bound and identical-row construction; sparse necessary condition and further obstruction only.",
+          "identifier_or_url": "https://doi.org/10.1140/epjds/s13688-020-00240-z",
+          "material_read": "Abstract; Eq. (2), p.5 (offset 19465); §5.3, p.9 (offset 32611–35975)",
+          "method": "Open primary PDF passages",
+          "title": "Efficient algorithm to compute Markov transitional probabilities for a desired PageRank",
+          "trigger": "Closest inverse-vector formulation and exact special case"
+        },
+        {
+          "assessment": "Relevant forward framework, not this inverse theorem",
+          "evidence": "Retention, path penalties, and conservation accounting for cycle loss.",
+          "identifier_or_url": "https://arxiv.org/abs/2209.14128",
+          "material_read": "v5 introduction, pp.1–2 (offset 6142), and Theorem 3.4, p.12 (offset 44908)",
+          "method": "Open primary PDF passages",
+          "title": "Generalizing Liquid Democracy to multi-agent delegation",
+          "trigger": "Forward fractional delegation and conservation"
+        },
+        {
+          "assessment": "Flow analogy, different retention mechanism",
+          "evidence": "Confluent versus splittable flow in delegation to designated casters.",
+          "identifier_or_url": "https://arxiv.org/abs/1808.01906",
+          "material_read": "p.13, offsets 64674–65472",
+          "method": "Open primary PDF passage",
+          "title": "The Fluid Mechanics of Liquid Democracy",
+          "trigger": "Prior flow-based concentration theorem"
+        },
+        {
+          "assessment": "Different inverse target",
+          "evidence": "Design unweighted graphs for ordinal centrality rankings.",
+          "identifier_or_url": "https://arxiv.org/abs/2111.01473",
+          "material_read": "Abstract pp.1–2, offsets 2159–2411 and 8306",
+          "method": "Open primary PDF passages",
+          "title": "Controlling centrality: The Inverse ranking problem for spectral centralities of complex networks",
+          "trigger": "Inverse network-design comparator"
+        },
+        {
+          "assessment": "Different model and quantity",
+          "evidence": "Two absorbers, ranked costs, and sharp finite-parameter discrepancy rather than prescribed attainable weights.",
+          "identifier_or_url": "Resultary 2026/11/2/SCOPE-a-sharp-graph-size-cutoff-for-finite-parameter-two-guru-delegati--aca8163d6565",
+          "material_read": "Finding",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A sharp graph-size cutoff for finite-parameter two-guru delegation",
+          "trigger": "Distinct same-day fractional-concentration record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof §§2–4",
+        "Berend §5.3 for motivation of exact targets and sparse obstructions"
+      ],
+      "rationale": "An inverse target on a fixed trust graph is a natural design and obstruction question. The exact polytope replaces an apparent nonlinear inverse problem by one flow test that gives either a realizable delegation or a concrete obstructing group. The disconnected example makes the collective limitation real, and the sharp complete-network box quantifies the loss of concentration caused by forbidding self-arcs. The general solution and its witnesses, rather than the short cap derivation in isolation, justify the value.",
+      "residual_risks": [
+        "No prediction of strategic choice or pivotal voting power follows, and positivity on all permitted arcs is not required by this model."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

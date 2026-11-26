@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:03:06.274837Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–67; VERIFICATION.md; verify.py inspected without execution; independently checked one-step cylinder recursion, product distortion, stationarity and Lebesgue decomposition; Zheng–Porter arXiv:2606.28318 §3."
+      ],
+      "rationale": "A positive state-independent selection probability cancels in each stationary marginal equation; the finite chain is Feller on a compact cube. Positive lower bounds on branch probabilities give full support and an upper bound 2(1−q_0)^m on each point mass. The inverse branches induce doubling except at null endpoints. Both the branch kernel and doubling preserve the two Lebesgue decomposition types. Fourier invariance under doubling forces the absolutely continuous part, if any, to be proportional to Lebesgue, which is stationary for the logistic kernel only at β=0. For right endpoint cells I_m=F_+^m([-M,M]), stationarity and disjoint branches up to null boundaries give ν(I_m)=∫_{I_{m−1}}p_+(x)dν. Since |log p_+(x)−log q|≤2βM2^(−(m−1)) on I_{m−1}, the normalized ratios converge to one with summable geometric log errors. Equivalently the normalized branch product converges uniformly with omitted log tail bounded by 4βM2^(−m); this verifies the exact positive integral prefactor as well as its error. Reflection gives the left endpoint, and dyadic sandwiching gives the asserted logarithmic limits. At β=0 all dyadic masses are those of uniform measure.",
+      "residual_risks": [
+        "No claim about peer interactions, finite-population mixing rates, or an unrestricted asymptotic equivalent at arbitrary nondyadic radii is certified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Thiam's theorem states J_μσ=exp(P−φ) and the equivalent dual transfer condition. The pressure is zero for this normalized potential. Its Gibbs bounds give full support and μ([s^m]) comparable to q^m, already implying the endpoint exponent.",
+          "Jaroszewska–Rams supplies a Hausdorff-dimension upper bound, not this endpoint equivalent. Cao–Cortez treats fair signs/uniform Bernoulli convolution, not an own-opinion logistic law."
+        ],
+        "reasoning": "Ordinary Gibbs bounds alone do not establish a prefactor. The exact Jacobian part of the same broader characterization does give the needed recursion; with geometric variations this is enough for the prefactor and relative rate.",
+        "searches": [
+          "Thiam Main Theorem 2.1 and Eq. (2.9)",
+          "Jaroszewska–Rams arXiv:0707.3532v2 §1 Theorem 1",
+          "Cao–Cortez arXiv:2408.01624 §4.1"
+        ]
+      },
+      "checked_sources": [
+        "Thiam arXiv:2604.17528v2; Zheng–Porter arXiv:2606.28318; Cao–Cortez arXiv:2408.01624; Jaroszewska–Rams arXiv:0707.3532v2; Resultary cfba8772283c, 7a371e81cd3c, 559e8ce0b358 and identical record 69f57f7fe9a5."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For ANY normalized two-branch Lipschitz g-function in this dyadic setting, exact inverse-branch change of variables gives μ([+^(m+1)])/μ([+^m])=E_μ[p_+(π X) | X∈[+^m]]. This is q+O(2^(−m)) since the cell diameter is 2M2^(−m). Summing the log errors gives μ([+^m])/q^m=A(1+O(2^(−m))) with A>0; iterating the same Jacobian identity gives A as the frozen normalized-product integral. The minus branch is identical with its own fixed-point weight.",
+          "Putting the prior model's p_+(M)=(1+exp(−βM))^(−1) into this generic formula supplies the exact exponent. The biased g-measure is ergodic by uniqueness of the equilibrium state in this setting and differs from the fair Bernoulli invariant measure, hence is singular to it; the direct Fourier proof in the record also works."
+        ],
+        "reasoning": "The only logistic-specific step in the sharp tail proof is evaluating a known branch probability at its attracting endpoint. The quantitative remainder follows by geometric summation of a Lipschitz bound, with no extra model-specific threshold or estimate. This is coverage by implication, not an allegation of verbatim duplication.",
+        "searches": [
+          "Thiam Main Theorem 2.1(i), (iii) and (iv), arXiv:2604.17528v2 pp. 7–8",
+          "Zheng–Porter arXiv:2606.28318 §3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "On binary sequences let π be dyadic coding onto [−M,M], with π(sx)=F_s(π(x)), and φ(sx)=log p_s(π(x)). Then exp(φ(+x))+exp(φ(−x))=1; the frozen stationary kernel is the pushforward of the normalized dual transfer operator.",
+          "Agreement on n tail symbols bounds the variation of log p_s by 2βM2^(−n), making this a Lipschitz potential in the dyadic metric."
+        ],
+        "reasoning": "The endpoint cell is the cylinder s^m, the fixed point has normalized weight q, and the exact Jacobian/transfer relation applies directly. This reduction uses exactly the frozen logistic model, not an analogy to a different random process.",
+        "searches": [
+          "Resultary: logistic two-source opinion tail, singular full-support affine opinions, boundary local dimensions, exact zero cylinders",
+          "Zheng–Porter arXiv:2606.28318 §§3, 6",
+          "Thiam arXiv:2604.17528v2 Eq. (2.9), Main Theorem 2.1(i), (iii)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "cfba8772283c gives the same qualitative singular full-support phenomenon for affine endogenous sign selection; 7a371e81cd3c gives boundary dimensions for random interval homeomorphisms; 559e8ce0b358 gives geometric zero-cylinder equivalents for different doubling dynamics.",
+          "The exact catalogue hit 69f57f7fe9a5 is the identical frozen record, not a precedent. No distinct exact printed logistic rate was found in those results."
+        ],
+        "reasoning": "These indexed examples do not themselves match the logistic formula. The negative originality assessment instead rests on broader statement-level implication via the normalized Jacobian.",
+        "searches": [
+          "Resultary: full-support singular opinions at critical random-action learning, boundary dimensions of random affine maps, exact geometric zero cylinders, logistic media endpoint law"
+        ]
+      },
+      "rationale": "No identical printed logistic formula was located, but the complete quantitative endpoint assertion is a direct specialization of the inverse-branch Jacobian for a normalized Lipschitz g-function. This includes the prefactor and geometric error, not merely a Gibbs comparability estimate. The supporting full-support and singular-continuity conclusions are standard consequences in the same coding and have a close known structural precedent.",
+      "residual_risks": [
+        "No priority for an identical printed logistic formula is asserted or denied; known general Jacobian coverage and the explicit reduction, rather than database absence, determine the assessment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers by direct specialization of the exact Jacobian, not by comparability alone",
+          "evidence": "J_μσ=exp(P−φ) and L*φ μ=exp(P)μ; the full-shift normalized Lipschitz potential satisfies the relevant hypotheses. The conditional ratio and geometric-error summation are explicit in the review.",
+          "identifier_or_url": "https://arxiv.org/pdf/2604.17528v2",
+          "material_read": "Title/date (OA offset 0); pp. 7–8 Eq. (2.9) and Main Theorem 2.1(i), (iii), (iv), OA offsets 23900–27219",
+          "method": "Bounded OA original PDF text inspection",
+          "title": "Gibbs Measures on Subshifts of Finite Type: Five Equivalent Characterizations with Explicit Constants",
+          "trigger": "Broader exact transfer and Jacobian identities for periodic cylinders"
+        },
+        {
+          "assessment": "Supplies the exact model; surveyed drift passages do not state the tail asymptotic",
+          "evidence": "Two opposite sources, logistic preference and half compromise; p_M=1 is the boundary specialization rather than the default drift example.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.28318",
+          "material_read": "§3 OA offsets 12600–15564; §6 OA offsets 25100–28000",
+          "method": "Bounded OA original text inspection",
+          "title": "Drift Behavior in a Bounded-Confidence Opinion Model with Media Influence",
+          "trigger": "Same logistic kernel and possible stationary endpoint theorem"
+        },
+        {
+          "assessment": "Fair-sign baseline, not the biased kernel",
+          "evidence": "Uniform Bernoulli-convolution law for the fair sign half step.",
+          "identifier_or_url": "https://arxiv.org/abs/2408.01624",
+          "material_read": "§4.1 OA offsets 35900–39353",
+          "method": "Bounded OA original text inspection",
+          "title": "Fractal opinions among interacting agents",
+          "trigger": "Half-compromise invariant laws"
+        },
+        {
+          "assessment": "Different dimension claim",
+          "evidence": "Hausdorff-dimension upper bound, not a periodic endpoint local-dimension equivalent.",
+          "identifier_or_url": "https://arxiv.org/abs/0707.3532v2",
+          "material_read": "§1 Theorem 1, OA offsets 4000–6981",
+          "method": "Bounded OA original text inspection",
+          "title": "On the Hausdorff dimension of invariant measures of weakly contracting on average measurable IFS",
+          "trigger": "Broader place-dependent IFS dimension theorem"
+        },
+        {
+          "assessment": "Qualitative overlap, different weights",
+          "evidence": "Full-support singular continuity for the affine endogenous-action rule; no logistic prefactor.",
+          "identifier_or_url": "2026/11/8/SCOPE-full-support-singular-opinions-at-a-critical-random-action-learn--cfba8772283c",
+          "material_read": "Mirrored RESULT.md finding on the affine α=1/2 law and entropy bound",
+          "method": "Local catalogue and mirrored statement inspection",
+          "title": "Full-support singular opinions at a critical random-action learning rate",
+          "trigger": "Closest indexed structural singularity precedent"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and scope; exact Jacobian reduction above; Zheng–Porter §3 and affine singularity precedent."
+      ],
+      "rationale": "Extreme opinions motivate the observable, but the advertised exponent is the standard fixed-point branch weight expressed in units of dyadic scale. The rate and integral prefactor are the generic geometric-distortion correction for any Lipschitz branch; the prefactor is not separately evaluated or used to prove a new property of the logistic model. The result resolves no further opinion-dynamics question outside that direct specialization, so the claim does not meet the standard for a worthwhile new exact invariant.",
+      "residual_risks": [
+        "The model specialization can be pedagogically useful. This is not a claim that stationary tails with peer updates or other model-specific effects would be of low value."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

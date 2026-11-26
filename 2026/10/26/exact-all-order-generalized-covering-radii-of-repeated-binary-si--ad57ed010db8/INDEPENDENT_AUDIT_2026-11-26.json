@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:21:12.308915Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The binary generator has rank two, and every nonzero binary word has exactly two nonzero blocks, giving [3m,2,2m]_2. For t rows and alphabet V=F_2^t of size Q, any code array has constant block values u,v,u+v, and any three mass-m histograms are realizable as targets. Distance is 3m minus the maximum agreement A(u)+B(v)+D(u+v). Maximize A first, then average B(v)+D(u+v) over v; each of the two integer bounds gives its own ceiling. For m=sQ+r use s of each symbol in each block. At r=0 there are no extras; at 1<=r<=Q/2 place the first two extra sets in an index-two subgroup and the third in its complementary coset, so exactly two but not three extras can align. For r>Q/2 every extra multiplicity can be bounded by one, and the lower bound forces the resulting maximum to attain three extras. This gives the stated ceiling formula in all residue cases. Each ceiling is at least one, and both become one precisely when Q>=2m, so the claimed first order and the fixed-order normalized limit follow. The frozen checker includes exhaustive small histogram and raw-target loops and bounded random checks, not an all-parameter proof. python3 -B /workspace/reproduce_finite.py 5 independently exhausted 5,256 received arrays over six (t,m) pairs using bitwise unions of row disagreement supports, rather than histograms. All six radii matched; no frozen script was run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Elimelech–Firer–Schwartz Eq. (2) gives monotonicity and the general cap n-k at t=n-k and above.",
+          "Yu–Schwartz Theorem 10, p. 16, gives delta_t(C)<=R_t(C) when k/n<=3/5 and t<=min(k,n-k); here m>=2 meets the rate condition but k=2 limits that result to t<=2.",
+          "Alfarano et al. pp. 2–3 defines the (rho,t)-saturating-set formulation and relates it to strong blocking sets."
+        ],
+        "reasoning": "The cap, an inequality at restricted orders, and a general geometric equivalence do not fix the exact deficits or the first saturation order in this family. The reproduced exact law supplies both matching bounds rather than only an interpretation.",
+        "searches": [
+          "rank two codes generalized covering radii exact [n,2] finite field covering radius",
+          "The Generalized Covering Radii of Linear Codes extension code covering radius generalized covering radius theorem all t rank two",
+          "arXiv:2609.14477v1 Theorem 10, arXiv:2606.16669v1 pp. 2–3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2012.06467",
+        "arXiv:2609.14477v1",
+        "arXiv:2606.16669v1",
+        "Resultary 7af867b0d955 RESULT.md",
+        "Resultary 39959c302866 RESULT.md",
+        "How to Find the Covering Radius of Linear Codes over Finite Fields (landing page/abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At m=1 the answer is the single-parity-check radius 1 at every order; and once 2^t>=2m the answer equals the general redundancy upper bound. Neither fact fixes the transition order or intermediate integer values.",
+          "For 1<=m mod 2^t<=2^{t-1}, residual mass can be separated into two subgroup sets and a complementary coset; this eliminates three-way simultaneous alignment while meeting the averaging lower bound. The inspected general results do not give that equality.",
+          "The rank-two Resultary hit db2f9e82bdf9 concerns sampling coverage-depth rather than worst-case distance to the code."
+        ],
+        "reasoning": "Using the scalar-extension interpretation or terminal-cap theorem alone leaves the two-rounding agreement problem unresolved. The sharp subgroup/coset extremizers and all-residue integer law are the distinct content. No checked exact spectrum or stronger inequality mechanically gives them.",
+        "searches": [
+          "generalized covering radius repeated [3m,2] simplex code Resultary",
+          "arXiv:2012.06467 Eq. (2) and Definition 1",
+          "arXiv:2609.14477v1 Theorem 10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Elimelech–Firer–Schwartz, arXiv:2012.06467 pp. 2–3, gives parity-check and union-of-support formulations of generalized covering. With a binary basis of F_{2^t}, packing columns gives an ordinary Hamming isometry to the scalar extension of this particular generator.",
+          "The ordinary-radius searches surfaced frameworks and algorithmic sources, including How to Find the Covering Radius of Linear Codes over Finite Fields, not a retrieved family formula. The latter paper's full text could not be read."
+        ],
+        "reasoning": "The equivalent code over F_Q repeats each coordinate of the length-three single-parity-check code m times, with generator directions (1,0),(0,1),(1,1); it is not the dimension-(3m-1) length-3m parity-check code or the unrepeated simplex over the larger field. A hit for a generic parity-check algorithm or only the binary radius is not full all-order coverage.",
+        "searches": [
+          "generalized covering radius repeated simplex [3m,2,2m] over extension field ordinary covering radius",
+          "covering radius q-ary dimension two linear code generator (1,0) (0,1) (1,1) repeated columns [3m,2]",
+          "ordinary covering radius over F_Q of the [3m,2] linear code with m copies each of generator columns (1,0), (0,1), (1,1)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/10/26/...--7af867b0d955 Finding computes joint nearest-support multiplicities for extended Hamming codes RM(m-2,m), by syndrome rank and first row.",
+          "Resultary 2026/10/12/...--39959c302866 Finding gives the second radius 9 and the pair-distance spectrum specifically for RM_2(1,4). No exact all-repetition formula for the assigned family surfaced in the ranked searches."
+        ],
+        "reasoning": "These exact results concern meaningful overlapping invariants but different generator configurations. The same-day record was compared on substance, not excluded by date. Neither result supplies a table for the repeated rank-two three-direction code or a reduction applicable to all m and t. A bounded database miss cannot settle priority.",
+        "searches": [
+          "exact all-order generalized covering radius repeated binary simplex code [3m,2,2m] ceiling m/2^t and 2m/2^t",
+          "repeated binary simplex code generalized covering radius every order ceiling formula m Q",
+          "binary [3m,2,2m] generalized covering radius formula",
+          "\"3m\" \"ceil\" \"generalized covering radius\" repeated simplex code binary covering radius"
+        ]
+      },
+      "rationale": "The block metric and its scalar-extension and geometric interpretations are not new. The supported distinct result is the two-ceiling exact law for every equal repetition and order, including the first order reaching redundancy, not the existence of a terminal redundancy cap. The same-day and other exact covering records concern different code families. The strongest inspected general results and targeted ordinary-radius comparisons do not supply the family-specific sharp construction or evaluation.",
+      "residual_risks": [
+        "The identified finite-field radius algorithm article was not available in full text through the attempted OA routes. No absence inference was drawn from that restriction.",
+        "The result could occur in older q-ary repeated parity-check code literature or additive minimax language; targeted searches and passages do not establish global priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General formulation and terminal cap; no intermediate values for this code in the compared passages",
+          "evidence": [
+            "Common column support provides the generalized metric; the general terminal threshold n-k is sufficient."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2012.06467",
+          "material_read": "PDF pp. 2–3, Definition 1, equivalent formulations and Eq. (2), offsets roughly 13750–22400",
+          "method": "OA primary text passage inspection",
+          "title": "The Generalized Covering Radii of Linear Codes",
+          "trigger": "Foundational definition, equivalent ordinary metric, and possible general formula"
+        },
+        {
+          "assessment": "Packing-covering comparison, not exact evaluation in the low-dimensional repeated family",
+          "evidence": [
+            "The rate cutoff k/n<=3/5 and range t<=min(k,n-k) limit the implication."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.14477v1",
+          "material_read": "PDF Theorem 10 p. 16 around offset 34400",
+          "method": "OA primary text passage inspection",
+          "title": "On the Generalized Packing and Covering Radii of Codes",
+          "trigger": "Closest general packing/covering bounds at several orders"
+        },
+        {
+          "assessment": "General saturating-set correspondence rather than a numerical evaluation in the compared statements",
+          "evidence": [
+            "(rho,t)-saturation and its relation to strong blocking sets."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2606.16669v1",
+          "material_read": "PDF pp. 2–3 around offsets 6550–14200",
+          "method": "OA primary text passage inspection",
+          "title": "A geometric approach to generalized covering radii of linear codes",
+          "trigger": "Potential dominating geometric formulation"
+        },
+        {
+          "assessment": "Different extended-Hamming family, no implication to the assigned code shown",
+          "evidence": [
+            "Multiplicity counts for RM(m-2,m) classified by syndrome rank and first row."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-joint-nearest-cover-multiplicities-of-binary-extended-hamming-co--7af867b0d955/RESULT.md",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Published-record mirror passage inspection",
+          "title": "Joint nearest-cover multiplicities of binary extended Hamming codes",
+          "trigger": "Strong same-day generalized nearest-cover match"
+        },
+        {
+          "assessment": "Different code and order, special finite result",
+          "evidence": [
+            "RM_2(1,4) has second covering radius 9 in the record; no asserted all-length family."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-exact-two-query-coset-distance-spectrum-of-the-binary-four-varia--39959c302866/RESULT.md",
+          "material_read": "RESULT.md Finding and scope, offset 0",
+          "method": "Published-record mirror passage inspection",
+          "title": "Exact two-query coset-distance spectrum of the binary four-variable first-order Reed–Muller code",
+          "trigger": "Exact generalized radius and finer spectrum comparison"
+        },
+        {
+          "assessment": "Available description is a parallel parity-check algorithm; family-specific content in the unread body is unresolved, not ruled out",
+          "evidence": [
+            "The available description concerns computing covering radii over finite fields by an algorithm."
+          ],
+          "identifier_or_url": "MDPI article indexed under the full title How to Find the Covering Radius of Linear Codes over Finite Fields",
+          "material_read": "Article landing-page/abstract material only; no primary full-text theorem was inspected",
+          "method": "Lawful OA landing-page and identified PDF requests; the full-text route returned HTTP 403",
+          "title": "How to Find the Covering Radius of Linear Codes over Finite Fields",
+          "trigger": "Ordinary extension-field radius alias returned this candidate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Equal repeats of the three projective directions give a natural family interpolating between a tiny parity-check code and long low-rate codes. Knowing the exact joint covering hierarchy means knowing the worst number of columns needed for simultaneous correction and when extra order finally reaches redundancy. The residue-dependent exact law and additive extremizers convey more than the general redundancy cap or a finite table, without extrapolating to arbitrary repetitions, higher dimensions or other characteristics.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

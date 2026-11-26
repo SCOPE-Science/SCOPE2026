@@ -1,11 +1,21 @@
-# Research assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The fixed state condition follows from the complete closed neighborhoods and the fact that a threshold changes only on a bit switch. The exact double sum counts all labelled state–threshold assignments. Normalizing it gives the trace of a two-stage binomial Markov kernel; factorial moments prove its full triangular spectrum, including zero eigenvalues exactly when the polynomial space on the second part is larger. A Gaussian-dominated Riemann sum proves the asymptotic without a bounded-aspect-ratio assumption. A separate checker exhaustively verified small instances and 49 rational-integer identities. The finite checks supplement but do not replace the infinite proof.
+## correctness
 
-**Originality — PASS within the documented comparisons.** Chang et al. (arXiv:1305.4599v1, Definitions 2.2 and Section 4) introduce the model and give fixed-point formulae for paths, cycles, and trees, not a spectral closed formula or square-root law for \(K_{a,b}\). Kuhlman et al. (DMTCS, Sections 2–4) study fixed bi-threshold binary-state networks rather than this extended evolving-threshold state space. Cooper–Waldron's classical Bernstein-operator eigenstructure supplies related algebraic context but no verified implication to the threshold equilibrium census; only their abstract was available. Targeted database searches returned threshold conversion sets, parity automata and domination problems on multipartite graphs, none with an implication covering this formula. Negative searches do not prove global uniqueness.
+PASS
 
-**Mathematical value — PASS.** A dense, highly symmetric graph family is a natural unresolved counterpart of the path/cycle/tree enumeration in the motivating paper. The result replaces a double sum over population counts by an explicit factorized finite spectrum and exposes the square-root multiplicative enhancement of the number of equilibria. The sharp balanced fraction \((e^2\sqrt\pi/2)\sqrt n\,4^{-n}\) quantifies equilibrium rarity among all extended states. These are complete exact and asymptotic invariants for the natural full biclique family, not an arbitrary small finite slice.
+A parallel fixed extended state has every bit unchanged; for sequential permutations each vertex is updated only once, so return of the extended state likewise requires no bit switch and hence no threshold change. The local test with i and j active sites gives j+1 and b+1−j allowed thresholds on the A side, and i+1 and a+1−i on the B side. These sum to b+2 and a+2, which fixes the normalization. After dividing out (b+2)^a(a+2)^b the double sum is exactly the diagonal sum of the composed conditional binomials. On the polynomial functions of j of degree ≤b the operator preserves the degree filtration, and binomial factorial moments give its kth graded eigenvalue (a)_k(b)_k/[(a+2)(b+2)]^k, zero if a<k≤b. Thus the claimed zeros have algebraic multiplicity max(0,b−a) on the stated (b+1)-point space. For h=ab/(a+b), use a,b≥h and expand each log[1−(r+2)/(a+2)] and its b analogue at k=⌊t√h⌋ to obtain −t²/2+o(1) with no aspect-ratio assumption. The uniform bound exp(−k²/(4h)) follows from log(1−u)≤−u; the associated step functions are integrably dominated, giving √(πh/2) for the spectral sum. At a=b=n divide by [2(n+1)]^(2n) and use ((n+2)/(n+1))^(2n)→e² to get the stated fraction. The audit's own exact characteristic-polynomial checks on eight graphs and full extended-state updates on six graphs, including sequential orders in both directions and all three schemes, ran via python3 /workspace/branches/independent_reproduction.py bipartite. They gave counts 10, 42, 162, 324, 2128, 2128 in the enumerated cases and confirm asymmetric zero multiplicities in the finite matrix test. The uploaded script was read, not run; the proof establishes the full quantifiers.
 
-**Limitations and residual risk.** The result does not enumerate two-cycles or basins, does not extend to arbitrary interaction graphs, and does not identify the auxiliary Markov chain with the original dynamics. The classical Bernstein eigenstructure source was abstract-only and a related static-threshold paper was only inspected at the level of its abstract. Independent scientific validation is still needed before any stronger external priority claim.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass the specific spectral census of labelled adaptive-threshold fixed extended states on general K_{a,b}. Common fixed-point conditions and path, cycle and star cases are covered; neither the binomial diagonalization technique nor the joint Gaussian asymptotic mechanism warrants a standalone originality claim. In particular, the closely matching unshifted chip-firing asymptotic transfers to the shifted sum by an O(1) comparison once the new enumeration is known. The inspected chip-firing theorem does not enumerate the shifted adaptive fixed points themselves.
+
+## value
+
+PASS
+
+The exact number of extended-state equilibria is a motivated invariant of the specified adaptive system. The two-variable spectral sum replaces exponential enumeration and identifies the finite spectrum of the enumeration kernel. It also quantifies how rare fixed states are even when both shores grow at very different rates, rather than only for stars, cycles, or balanced sizes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

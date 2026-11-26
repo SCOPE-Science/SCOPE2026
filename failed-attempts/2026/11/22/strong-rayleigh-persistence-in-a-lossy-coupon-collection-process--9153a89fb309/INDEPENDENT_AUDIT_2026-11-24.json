@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:07:02.237858Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–66; VERIFICATION.md lines 19–25 and checker.py inspected, not executed.",
+        "Borcea–Brändén–Liggett arXiv:0707.2340, Theorem 3.8; independent analytic replay via the displayed Möbius transform and Rolle."
+      ],
+      "rationale": "With p_t the loss probability in the transition from the collection after t rounds to that after t+1, conditional on K_t=k the pre-loss size is k+1 with probability (n−k)/n and otherwise k. Independent post-loss survival yields the displayed x_t=p_t+(1−p_t)z recurrence including loss of the newly drawn label. The polar-derivative root argument is valid: for a PGF F of degree k the transformed polynomial P(y)=y^n F(1+1/y) has all zeros in [−1,0]. Its derivative is y^(n−1)[nF+(1−x)F'] at x=1+1/y. By Rolle, every finite zero of the bracket arises from a nonzero zero of P' in [−1,0), so is real nonpositive; P' is not identically zero. Multiplication by x and the affine thinning for p_t<1 keep the roots real nonpositive; p_t=1 gives F_{t+1}=1. This covers repeated zeros, n=1, time zero and both endpoint losses. Normalizing the factors gives a Poisson-binomial count, not independent coupon indicators. Permutation invariance and polarization give the full strongly Rayleigh law. Constant 0<p<1 makes the finite subset chain irreducible (it can clear and build any specified subset) and aperiodic (self-loop at empty); the normalized coefficientwise stationary limit is nonzero and remains real-rooted, hence strongly Rayleigh.",
+      "residual_risks": [
+        "The proof relies on exchangeability and independent common-probability thinning within each round. It does not cover label-dependent loss or nonuniform arrivals; finite checker results are only supporting evidence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exchangeable stability criterion identifies the full-vector property from the rank polynomial. Cruciani–Dudeja prove negative association for the matching fixed-loss model. The earlier group-draw lemma covers exchangeable input from any origin and every intersection size."
+        ],
+        "reasoning": "Negative association alone is not coverage; the genuinely broader coverage is at the level of the transition. The prior lemma accepts the thinned state as next input, so the omitted loss mechanism in its headline does not limit this implication.",
+        "searches": [
+          "Borcea–Brändén–Liggett arXiv:0707.2340, Theorem 3.8",
+          "Cruciani–Dudeja arXiv:2602.20705, Lemma 13",
+          "2026/10/13 Resultary group-draw record, hypergeometric update lemma"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary index and cited exact matching files",
+        "arXiv:2602.20705",
+        "arXiv:2605.14511",
+        "arXiv:0707.2340"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior proof explicitly says 'Consider any exchangeable random unseen subset' and proves that T_t maps its real-nonpositive-root PGF to another such PGF. The prior stationary record supplies the same fixed-loss subset chain and its irreducibility and aperiodicity."
+        ],
+        "reasoning": "Apply this prior T_{n−1} to the vacant law before each loss, take the complement, then use affine thinning on the occupied PGF. Both complements preserve exchangeability, as does thinning. Induction, BBL, and nonzero coefficientwise closure give all finite schedules and the stationary result, including the count factorization. The draft's interlacing presentation is correct but does not yield a distinct surviving theorem.",
+        "searches": [
+          "2026/10/13 Resultary group-draw vacancy law, Proof §§2–3; stationary-law Resultary Finding and assumptions; BBL Theorem 3.8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier hypergeometric update considers any exchangeable random A, and independently intersects it with a uniform t-subset B. It proves root preservation for the rank PGF of A∩B under the stated real-root hypothesis."
+        ],
+        "reasoning": "Before loss, the complement of the newly retained set is exactly A∩B with A the previous vacant set and B the complement of the uniform singleton draw, so t=n−1. For rank k the chance to lose one vacancy is k/n. The update in vacant-count coordinates is G(y)+(1−y)G'(y)/n, just the t=n−1 specialization. Reversal gives the frozen arrival operator; post-draw thinning is F(z)↦F(p+(1−p)z).",
+        "searches": [
+          "Local Resultary: Poisson-binomial vacancy law, uniform group coupon drawing and strongly Rayleigh retention",
+          "SCOPE-poisson-binomial-vacancy-law-for-heterogeneous-group-coupon-draw--6614ecd26c48, Proof §§2–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE-exact-stationary-law-and-critical-synchronization-exponent-for-t--870ace5234fa gives the entire exchangeable stationary law from all subset-inclusion probabilities and the rank PGF, without asserting strong Rayleigh. The distinct same-day two-nonidentical-draw threshold is for three labels with no loss."
+        ],
+        "reasoning": "The stationary formula by itself is not a root certificate. The two-draw thresholds are not persistence. The evidence of coverage comes from the earlier update lemma, rather than a database already labelling the stationary law strongly Rayleigh.",
+        "searches": [
+          "Local Resultary: exact stationary law of the careless coupon collector; strong Rayleigh two nonidentical draws; group-draw vacancy law"
+        ]
+      },
+      "rationale": "The finite-time property is a direct corollary of a verified earlier, more general update lemma for arbitrary exchangeable input, not just an analogue for a different coupon model. Take complements: a uniform arrival intersects the current vacant set with an independent uniform (n−1)-subset. The earlier hypergeometric lemma covers that exact step. Independent thinning on the occupied side is just an affine PGF substitution, and reversal of a rank polynomial across complements preserves nonpositive real zeros (zero roots may become constant factors). Thus alternate the known update with affine thinning, starting from the empty collection, for every deterministic p_t. The fixed-loss conclusion then follows by closure for the already-known stationary chain. The recurrence itself also follows immediately from the earlier kernel in the single-label case plus recomplementing and thinning. This is demonstrable prior implication, not a claim that an earlier article used the same wording or that the theorem is false.",
+      "residual_risks": [
+        "A direct previous statement of persistence in this particular model was not established; the verdict rests on the displayed mathematical implication from an inspected earlier theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive prior coverage after complementing, followed by elementary affine thinning",
+          "evidence": "For any exchangeable random A and independent uniform t-subset B, the updated unseen set is A∩B. Proof §3 concludes T_tF has only real nonpositive zeros whenever F does.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-poisson-binomial-vacancy-law-for-heterogeneous-group-coupon-draw--6614ecd26c48/RESULT.md",
+          "material_read": "Finding and Proof §§2–4, offset 0–5344",
+          "method": "Local mirror bounded read",
+          "title": "Poisson-binomial vacancy law for heterogeneous group coupon drawings",
+          "trigger": "Stronger arrival-update theorem may cover the complement process"
+        },
+        {
+          "assessment": "Exact coverage of the equilibrium law and chain facts; no strong-Rayleigh claim in the inspected passage",
+          "evidence": "Gives all subset-inclusion probabilities and E[(1+z)^K] from them, states exchangeability and ergodicity for the same post-loss process.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-exact-stationary-law-and-critical-synchronization-exponent-for-t--870ace5234fa/RESULT.md",
+          "material_read": "Finding, assumptions and opening stationary recursion, offset 0–3089",
+          "method": "Local mirror bounded read",
+          "title": "Exact stationary law and critical synchronization exponent for the careless coupon collector",
+          "trigger": "Same stationary chain and exact rank law"
+        },
+        {
+          "assessment": "Same model but different dependence conclusion in those passages",
+          "evidence": "Uniform arrival and independent end-of-round losses; the indicators are negatively associated at every fixed time.",
+          "identifier_or_url": "https://arxiv.org/pdf/2602.20705",
+          "material_read": "p. 1 offset 954; p. 9 offset 31265, Lemma 13",
+          "method": "OA PDF decisive passages",
+          "title": "The Careless Coupon Collector's Problem",
+          "trigger": "Same fixed-loss model and a weaker negative-dependence theorem"
+        },
+        {
+          "assessment": "Prior exchangeable criterion, not by itself a proof of preservation along this chain",
+          "evidence": "An exchangeable probability measure is strongly Rayleigh if and only if its rank-generating polynomial has only real zeros.",
+          "identifier_or_url": "https://arxiv.org/pdf/0707.2340",
+          "material_read": "p. 21, offset 70587, Theorem 3.8",
+          "method": "OA PDF decisive passage",
+          "title": "Negative Dependence and the Geometry of Polynomials",
+          "trigger": "General rank-polynomial criterion"
+        },
+        {
+          "assessment": "Parallel stationary application focused on entry flux and completion time",
+          "evidence": "Studies the post-loss fixed-p collector and stationary-entry asymptotics.",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.14511",
+          "material_read": "p. 1, offset 1960",
+          "method": "OA PDF bounded read",
+          "title": "Clumsy and Careless: Stationary-Entry Flux in Non-monotone Coupon Collectors",
+          "trigger": "Same static loss and equilibrium regime"
+        },
+        {
+          "assessment": "Different experiment and no repeated loss; date alone establishes no priority",
+          "evidence": "Exact threshold after two nonidentical draws over three types, with no deletion.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-sharp-strong-rayleigh-threshold-for-two-nonidentical-coupon-dr--0c825f613efd/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror bounded read",
+          "title": "A sharp strong Rayleigh threshold for two nonidentical coupon draws",
+          "trigger": "Distinct indexed occupancy stability claim"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof; earlier Resultary Proof §§2–3; BBL Theorem 3.8; earlier exact stationary record"
+      ],
+      "rationale": "Strong Rayleigh is meaningful for the careless collector, and the analytic proof is readable. But the asserted theorem and recurrence specialize a known hypergeometric transition at removal of one vacant label, then apply an elementary affine substitution, a known polarization criterion and a routine stationary limit. The record does not identify a new stability-preserving operation, quantitative consequence, or independent exact invariant beyond that mechanically implied corollary.",
+      "residual_risks": [
+        "This finding may be useful as an expository consequence; that is not a distinct scientific contribution under the stated review standard."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

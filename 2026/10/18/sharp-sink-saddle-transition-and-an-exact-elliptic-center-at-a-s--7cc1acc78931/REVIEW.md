@@ -1,17 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the explicitly defined symmetric sign-coupled map, the strict two-cycle follows from the coordinate-exchange symmetry and affine equations. The two branch Jacobians give \(M=K^2\), with \(\det(\lambda I-K)=\lambda^3+a^2\lambda-2ab\). The real root is always strictly inside the unit disk for \(0<b<1\). Its complex companion pair crosses the unit circle precisely at \(a^2(1+4b^2)=1\); the null case \(a=0\) is covered separately. The strict itinerary ensures an open affine neighborhood. At equality the exact quadratic form \(H(\xi,\eta)=\xi^2-s\xi\eta+\eta^2\) on the center plane proves the invariant ellipses rather than inferring them from an approximation. The standard-library `verify.py` replay confirms 320 independent exact rational parameter instances and the local neutral identity. The continuum theorem rests on algebra and the positive-definite quadratic-form argument, not finite sampling.
+PASS
 
-## Originality — PASS, subject to priority risk
+Let P swap x and z and let F=P∘T be extended affinely from Q₄. The branch return is F², since the Q₂ branch is the swap-conjugate of the Q₄ branch. Direct determinant expansion gives the linear part K of F the polynomial r³+a²r−2ab; det(I−K²)=(1+a²−2ab)(1+a²+2ab)>0 for 0<b<1. The fixed point of F is therefore the only possible fixed point of the formal return, even if it falls outside the itinerary. Its sum and difference coordinates satisfy y=b(x+z), x−z=(2b−a)(x+z), x+z=a(x−z)+2, giving exactly the stated points and strict condition a<2b−1. For a≠0 the real root s has the sign of a and 0<|s|<1. Polynomial division gives the remaining roots −s/2±i sqrt(a²+3s²/4), whose squares are the nonreal return pair and have modulus a²+s². For a²<1 compare the increasing function t³+a²t at t=|s| and at t=sqrt(1−a²), where it equals t; this gives the claimed crossing at a²(1+4b²)=1. If a²≥1 the pair is expanding; at a=0 the return linear part is nilpotent and the existing cycle is a sink. At equality, s=2ab≠0 and K restricted to the center plane in basis (v,Kv) acts by (ξ,η)↦(−η,ξ−sη). Substitution preserves H=ξ²−sξη+η², which is positive definite since |s|<1. The invariant ellipses are exact for the affine return, not an approximation. The two strict quadrant visits hold on a neighborhood of U; small invariant neighborhoods for the return are obtained from sublevels of H plus a squared stable coordinate, which contracts by s². The first iterate stays near V on its affine branch and maps the center ellipses to nondegenerate companion ellipses because det K=2ab≠0 there. This gives Lyapunov stability and excludes attraction. Above the boundary the expanding real subspace is two-dimensional, with one transverse stable dimension.
 
-Lozi [1], equations (34)–(45), already defines the map and gives the quadrant-changing two-cycle as an algebraic solution, including sample coordinates. That known orbit is explicitly excluded from the novelty assertion. The inspected primary manuscript discusses stability spectra of fixed points and the numerical role of the two-cycle in its attracting sheets, but does not state the sharp all-parameter Floquet trichotomy or the invariant-ellipse foliation. Bilal–Ramaswamy [2] is a distinct time-delay Lozi extension with different state equations. Targeted mathematical-record queries returned related planar Lozi fixed-point statistics and period-two spectra of other maps; none is implication-equivalent to the statement for this three-dimensional sign-coupled map. An equivalent unpublished or unindexed computation remains possible. The symbolic reduction is sufficiently short that an independent priority check is worthwhile.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The period-two orbit is a structural object identified in the originating study as a possible skeleton for its sheet attractors. Locating the exact sink-to-index-two-saddle boundary separates attractor-compatible and expanding transverse behavior, while ruling out an intermediate index-one saddle. At the boundary, affine dynamics force an entire nontrivial local continuum of invariant ellipses, not the isolated invariant circle expected from a generic nonlinear Neimark–Sacker picture. These are naturally motivated stability invariants of the published map rather than an arbitrary numerical parameter slice.
+The map, symmetry, cycle equations and example positions are prior work, and specializing the formal orbit coordinates is routine. The supported distinction is the sharp local Floquet trichotomy for the strict symmetric cycle and the resulting exact invariant ellipses with local stability at neutral parameters.
 
-The result is local to the strict quadrant itinerary and does not settle global basin boundaries, other cycles or hyperchaos. First-public-source evidence is the 11 May 2023 public preprint. No independent validation is claimed.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The stability of a previously identified cycle is a natural dynamical invariant. The exact parameter criterion distinguishes a two-dimensional unstable saddle from a sink, and resolves the neutral case with actual invariant ellipses rather than treating unit multipliers as inconclusive. This supplies a local dynamical statement beyond recomputing the orbit or fitting numerical bifurcation examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The signed moments define a bounded, positive-weight unilateral shift. For each fixed degree, the exact identity expressing the later moment Hankel form minus \(a^n\) times the first as a sum of two nonnegative integrals proves the one-block equivalence; infinite positive support makes the difference strict at positive indices. The generalized eigenvalue test gives the sharp mass, the orthonormal-polynomial representation gives its one-atom kernel formula, and Legendre asymptotics plus a uniformly dominated coefficient expansion establish the fixed-gap and Bessel hard-edge limits. Uniqueness of compactly supported moment measures excludes subnormality for separated negative charges. Exact-rational supplementary checks agree with the formulas; the proof does not rely on finite testing.
+PASS
 
-## Originality — PASS, qualified
+In RESULT.md lines 15–35 and 54–66, d_n≥(1−η)∫t^n dν>0 gives positive weights bounded by (1−η)^(−1/2). For n>0, the charge (t^n−a^n)(ν−σ) is positive and gives strictly positive energy to every nonzero polynomial: its ν contribution cannot be supported on the finite polynomial zero set plus {a}. This proves the Löwner inequality with strict difference, reducing the standard all-shift k-hyponormality test to H_{0,k}. A positive representing measure would have support in [0,1] by bounded moments; polynomial density there contradicts the negative part of the signed representative. At the touching endpoint of the uniform case the same domination works and the signed measure is negative on {a}, since the uniform component has no atom. Congruence by A_k^(−1/2) gives the inclusive top-eigenvalue threshold; in rank one the eigenvalue is the squared evaluation norm in the orthonormal polynomial basis. For the uniform model, Legendre parity and positivity outside [−1,1] make the kernel sums strictly increasing. The Laplace prefactor at the sole maximum q gives the stated geometric sum, including 1−q^(−2). For the moving edge, extend each j-series by zeros. For fixed ℓ, k^(−2ℓ) times the product of the two binomial coefficients converges uniformly for 0≤j≤k to (j/k)^(2ℓ)/(ℓ!)²: each of its fixed number of normalized factors differs from j/k by O(ℓ/k); the omitted j<ℓ coefficients cause no problem. The summable factorial majorant then controls tails uniformly. The Riemann sum and differentiated I0/I1 identity give the positive edge limit, and at c=0 the kernel is exactly (k+1)². These analytic arguments cover the full stated domain. Direct recurrence at X=2 gives P_0 through P_3 equal to 1, 2, 11/2, 17, hence the quoted kernel values and strict example. The supplementary rational code CHECKER.py was inspected, not executed; its finite calculations do not certify the infinite or asymptotic assertions.
 
-The original 2024 Berger-type charge paper (Benhida–Curto–Exner, arXiv:2405.15000) studies signs of countably atomic charges and identifies non-atomic behavior as open to study, without establishing that the initial Hankel test suffices for every later matrix. Its 2023 geometrically regular predecessor (arXiv:2309.05888) concerns a different special atomic family. Beckermann–Putinar–Saff–Stylianopoulos (arXiv:1812.06560) already provide Christoffel kernel perturbation methodology; the rank-one inverse-kernel identity alone is acknowledged as standard. The stated new synthesis is the separated-sign matrix domination theorem, its complete non-subnormal finite-order hierarchy, and the exact fixed-gap/Bessel threshold phase laws. The checked primary full texts and indexed comparison did not identify an equivalent complete claim, but general historical priority is not independently certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result turns the infinitely many \(k\)-hyponormality inequalities for a motivated, non-atomic Berger-charge family into one sharp finite certificate. Every non-subnormal finite-order rung occurs, and the two asymptotic regimes quantify the admissible negative charge as its support moves toward the continuous positive support. These are substantive structural and sharp asymptotic statements rather than a routine reformulation of the standard Christoffel point-mass test.
+The standard Gram-matrix evaluation norm, weighted-shift moment criterion, existence of finite-order rungs in other families and classical polynomial asymptotics are not new. The examined statements do not cover the transfer from an initial finite Gram condition to every tail for ordered signed supports, or its sharp continuous-interval operator thresholds. This is a best-of-knowledge result, not a historical-priority certification.
 
-## Limitations and closest antecedents
+## value
 
-The theorem assumes support separation and infinite positive support; at the touching endpoint only the particular non-atomic uniform model is asserted. The standard weighted-shift moment test and one-matrix Christoffel identity are credited. The Cambridge chapter on spectral characterizations of Christoffel functions was accessible in abstract only, and obscure priority overlaps cannot be excluded solely by search. Independent validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This gives a finite exact test for a natural non-atomic signed-charge class where the usual characterization involves infinitely many Gram matrices. Strict positivity of the tails even at an initial singularity makes the test useful at the sharp boundary. The same relation produces every exact finite-order non-subnormal rung in a concrete interval model and distinguishes exponential fixed-gap decay from the inverse-square crossover. These are operator-level consequences beyond evaluating a single standard special-function sum. Interlaced charges and general overlapping atoms remain outside the claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

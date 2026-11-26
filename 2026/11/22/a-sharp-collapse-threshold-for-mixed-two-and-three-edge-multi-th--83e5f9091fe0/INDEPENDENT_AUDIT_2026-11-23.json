@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:10:54.956031Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a matching, the terminal-edge set S has at most one x and one z; a same-arm pair is forbidden exactly for short arms. Its fiber is a Boolean poset on the unblocked middle edges. Toggling the least available middle edge matches every face in such a fiber except the vertex y₀ in the empty-outer-set fiber; fibers with no free middle edge give exactly the critical outer sets. Along the oriented face graph S never increases, and inside a fixed fiber every downward arrow deletes a nonpivot edge while an upward arrow adds only the pivot; there is no directed cycle. For b≥3 there is also a direct elementary-collapse ordering: remove fibers from larger outer sets to smaller ones, and within a fiber remove pivot pairs in descending size of the lower face. Every other strict coface of that lower face has already been removed, so the pair is free. Skip the empty face and retain y₀. For b=2 precisely the two long-arm cross pairs are critical edges and there is one critical vertex. For b=1, a≥1, there are three critical vertices and 2a+1 critical edges; the original complex is connected via the short-arm vertices, so the Morse graph has rank 2a−1. For b=0 the crown graph splits into two edges at a=2 and is connected with a(a−1) edges on 2a vertices at a≥3. These give integral homotopy types, not merely homology. The frozen script and its saved output were inspected, not rerun: 40 parameter pairs and 19,089 faces support only finite face/matching and mod-two checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general star-cluster lemma makes the cluster of the middle simplex collapsible for each b≥1. For b≥3 every matching is in this cluster because a matching blocks at most two middle edges. For b=2 its complement consists only of the two long-arm cross pairs, so quotienting it gives the two circles. For b=1 the lemma reduces the calculation to a quotient, but the short-arm complement and its exact incidence count must still be determined. The outerplanar theorem and the length-four contraction have hypotheses not met in the mixed family with at least three arms."
+        ],
+        "reasoning": "The strongest general lemma gives a direct collapse criterion and a short alternative proof once the mixed complement is known; it does not specify that complement, its rank, or the uniform outer-fiber matching. The general wedge-or-contractible theorem supplies no missing multiplicities, and the subdivision of K_{2,3} prevents applying the outerplanar statement to the infinite range.",
+        "searches": [
+          "Donovan and Scoville arXiv:2207.13780, Prop. 5 and Thm. 30",
+          "Bayer et al. arXiv:2411.04601, Thm. 2 and Prop. 7; arXiv:2211.12559, Thm. 13"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_mixed_theta.py, verification_output.txt",
+        "Resultary aa4a830c7ccd, be109e50d5f5, 6c30629962ff, bde2bc93e75e, 256da9cb9f64, 790ee52a5d2d",
+        "arXiv:2207.13780, arXiv:2411.04601, arXiv:2211.12559 (original passages)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A quadrilateral book is T_{0,b} with the shared terminal edge restored; the new matching-complex vertex adds a simplex glued along the contractible simplex of middle edges, so the homotopy type is unchanged for b≥2. The book proof's at-most-two-blocked-middle-edges argument extends unchanged to collapse existence in the mixed b≥3 sector; its two exceptional pairs persist unchanged for b=2. With one long arm the short endpoints instead contribute 2a additional outer-pair edges outside the middle-edge star, whose connected quotient has rank 2a−1."
+        ],
+        "reasoning": "The proof-level overlap with the book is stronger than coincidence of two small ranks, so the shared collapse mechanism is credited rather than treated as evidence of novelty. The book statements by themselves do not imply the short-arm-dependent rank; it needs a separate family-specific enumeration and connectivity argument. The exact fiber toggle is also a different constructive proof, not entailed by homotopy equivalence. Same-day proximity supplies no priority ordering.",
+        "searches": [
+          "aa4a830c7ccd, original Finding and Proof from offset 0",
+          "Donovan and Scoville arXiv:2207.13780, p. 3 Prop. 5 and p. 12 Thm. 30",
+          "Same-day mixed bouquet and multitheta Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bayer–Jelić Milutinović–Vega, arXiv:2411.04601, Prop. 4 gives the exact reformulation M(G)=Ind(L(G)). Direct catalogue hits on multitheta independence, 6c30629962ff and bde2bc93e75e, use vertices of theta graphs with distinct arm lengths or an extra terminal edge, not the line graph of the frozen family. be109e50d5f5 treats mixed-length cycles sharing a single hub."
+        ],
+        "reasoning": "The change from matching to independence is valid only after taking the line graph. Its two cliques of terminal edges and one vertex per long middle edge are not the indexed multitheta vertex complexes or the one-hub line-graph construction.",
+        "searches": [
+          "Resultary: two-terminal multi-theta matching complexes, quadrilateral books, cycle bouquets, vertex independence and crown complexes",
+          "Focused primary-literature lookup for mixed triangle/quadrilateral book and generalized theta matching complexes via line graphs and flag star clusters"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The book theorem includes the exact pure-long homotopy types; the four-edge-arm record concerns a distinct family, and the five-crown record concerns the matching complex of a crown graph, not the crown graph itself as a simplicial complex."
+        ],
+        "reasoning": "The frozen b=0 boundary is the usual crown graph calculation and the pure-long cases are not asserted as separate homotopy discoveries. A reproducing table or theorem for the significant b=1 mixed rank was not identified in the bounded searches.",
+        "searches": [
+          "Resultary: aa4a830c7ccd quadrilateral books, 256da9cb9f64 length-four-arm theta, 790ee52a5d2d five-crown matching complex, same-date multitheta and mixed bouquet records"
+        ]
+      },
+      "rationale": "The pure-long-arm homotopy types and boundary cases are credited. The earlier book argument plus the general flag star-cluster lemma also give an immediate route to the mixed b≥2 conclusions; the blocked-edge idea and collapse existence should not be read as independent new mechanisms. The substantive distinct result is the exact mixed-family classification, particularly the b=1, a≥1 rank law determined by a new complement count, together with an explicit uniform endpoint-fiber pairing. No inspected theorem already states that mixed enumeration or specifies this matching. This is a bounded statement-level assessment, not priority certification.",
+      "residual_risks": [
+        "A general result classifying the complement of these clusters or an unindexed equivalent formulation could cover the mixed ranks. The bounded lookup does not establish priority.",
+        "The two-circle and collapse phenomena follow very closely from known star-cluster arguments; originality is not assigned to those mechanisms in isolation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct pure-subfamily homotopy coverage; closely adaptable proof for mixed b≥2",
+          "evidence": [
+            "Common edge c and middle simplex Q; star cluster is whole complex when n≥3 because at most two middle edges are blocked. For n=2 only the two cross pairs lie outside the cluster."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-three-page-collapse-threshold-for-quadrilateral-book-matching--aa4a830c7ccd/RESULT.md",
+          "material_read": "Finding, assumptions, proof and relationship passages from offset 0",
+          "method": "Original published catalogue text",
+          "title": "A three-page collapse threshold for quadrilateral book matching complexes",
+          "trigger": "Exact pure-long homotopy and strongest collapse mechanism overlap"
+        },
+        {
+          "assessment": "General collapsibility tool, not stated mixed-rank census",
+          "evidence": [
+            "The star cluster of a simplex in a flag complex is collapsible; the later family theorem concerns equal-length cycles assembled at one hub."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2207.13780",
+          "material_read": "p. 3 Prop. 5, offset 9457; p. 12 Thm. 30",
+          "method": "Original open preprint",
+          "title": "Star clusters in the matching, Morse, and generalized Morse complex",
+          "trigger": "General theorem giving collapse without a mixed-theta Morse construction"
+        },
+        {
+          "assessment": "General line-graph reformulation applies; classifications and reduction do not specialize to the mixed family",
+          "evidence": [
+            "The main result assumes outerplanarity; the contraction uses a length-four path."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2411.04601",
+          "material_read": "§2 Thm. 2 and Prop. 4 p. 2, offset 4611; Prop. 7 p. 3, offset 6139",
+          "method": "Original open preprint",
+          "title": "Matching Complexes of Outerplanar Graphs",
+          "trigger": "Line-graph equivalence, general theorem and arm contraction"
+        },
+        {
+          "assessment": "Different gluing graph; no matching mixed-family rank statement",
+          "evidence": [
+            "Concerns polygonal line tilings, not many internally disjoint paths with the same pair of terminals."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2211.12559",
+          "material_read": "§3 Thm. 13, p. 6, offset 11769",
+          "method": "Original open preprint",
+          "title": "General polygonal line tilings and their matching complexes",
+          "trigger": "Related edge-glued cycle matching complexes"
+        },
+        {
+          "assessment": "One-hub matching complexes or vertex independence on different graphs",
+          "evidence": [
+            "A single common vertex cannot be substituted for two terminals. The nearby multitheta records' complexes are taken on graph vertices, with a different arm-length family or an extra terminal edge."
+          ],
+          "identifier_or_url": "be109e50d5f5; 6c30629962ff; bde2bc93e75e",
+          "material_read": "Original catalogue Findings and assumptions",
+          "method": "Published catalogue comparison",
+          "title": "Mixed-length cycle bouquets; explicit integral sphere collapse for mixed three- and four-edge arms; edge-spined multitheta graphs",
+          "trigger": "Same-date close vocabulary and topological regimes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural two-terminal family with an interpretable structural change: with one long arm the number of short alternatives contributes linearly to integral loop rank, while two long arms make the rank independent of the short-arm count and a third makes every fiber collapsible. The proof specifies actual free-face removals and separates connected and disconnected boundary cases. The exact mixed-family rank and collapse certificate are useful beyond sampled mod-two data, without implying new topology for the credited pure book or cycle instances.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

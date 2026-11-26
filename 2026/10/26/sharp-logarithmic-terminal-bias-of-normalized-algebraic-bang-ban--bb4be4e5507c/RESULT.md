@@ -1,7 +1,7 @@
 # Sharp logarithmic terminal bias of normalized-algebraic bang-bang smoothing
 
 ## Finding
-For a fixed smooth switching function with finitely many nondegenerate switching instants, the normalized-algebraic approximation to bang-bang control has a universal **logarithmic first-order weak bias**. In precise terms, define \(u_\delta(t)=S(t)/\sqrt{S(t)^2+\delta}\) and \(u_0(t)=\operatorname{sgn}S(t)\), and let \(t_1,\ldots,t_k\) be the interior simple zeros of \(S\). For any smooth scalar observation weight \(w\),
+For a fixed smooth switching function with finitely many nondegenerate switching instants, the normalized-algebraic approximation to bang-bang control has a **logarithmic term in its weak error expansion**, with a coefficient that can vanish. In precise terms, define \(u_\delta(t)=S(t)/\sqrt{S(t)^2+\delta}\) and \(u_0(t)=\operatorname{sgn}S(t)\), and let \(t_1,\ldots,t_k\) be the interior simple zeros of \(S\). For any smooth scalar observation weight \(w\),
 \[
 \boxed{\int_a^b w(t)(u_\delta(t)-u_0(t))\,dt
 =-\frac{\delta}{2}\log(1/\delta)\sum_{j=1}^k
@@ -25,7 +25,7 @@ for every interior switching time. Thus the position error is asymptotically lar
 ## Assumptions and scope
 Take a fixed real compact interval \([a,b]\), \(a<b\), a real \(C^3\) function \(S\), and a real \(C^2\) observation weight \(w\). Assume \(S(a)S(b)\ne0\), every zero of \(S\) lies in \((a,b)\), there are finitely many, and \(S'(t_j)\ne0\) at every zero. Set \(\operatorname{sgn}(0)=0\), which does not affect any integral. The limit is \(\delta\downarrow0\) through positive reals; implicit constants can depend on \(S,w,a,b\), never on \(\delta\). Empty zero sets are allowed: then the weak and strong differences are \(O(\delta)\). Controls are compared at the **same prescribed switching function**, not after reoptimization of costates, switching times, or boundary constraints.
 
-For bang-bang controls of the form \(c_0+c_1\operatorname{sgn}S\), multiply every error and every leading coefficient by \(c_1\). For the Pontryagin-minimizing convention \(u= -\operatorname{sgn}S\), reverse the sign of the weak error.
+For a control \(c_0+c_1\operatorname{sgn}S\) smoothed to \(c_0+c_1u_\delta\), multiply the signed weak error and its coefficient by \(c_1\), and the absolute \(L^1\) error and its coefficient by \(|c_1|\). In particular, the convention \(u_0=-\operatorname{sgn}S\) reverses the weak error and leaves the strong error unchanged.
 
 ## Proof
 Write \(g_\delta(s)=s/\sqrt{s^2+\delta}-\operatorname{sgn}s\). This is odd; for \(s>0\),

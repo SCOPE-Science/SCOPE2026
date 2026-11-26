@@ -1,0 +1,90 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:24:38.994490Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With fixed Q and stationary motile mass 1/(r+1), the Green–Kubo normalization for E|R_t-R_0|^2/(4t) is one half the integral of the propulsion dot-product correlation. Conditional on the switching path the Brownian first harmonic supplies exp(-D_R t), so the integral is absolutely convergent. To replay the resolvent independently, condition on the first switch: with Z_+=D_R+r lambda-i Omega and Z_-=D_R+lambda+i Omega, the integrals for an endpoint motile indicator obey I_+=1/Z_++r lambda I_-/Z_+ and I_-=lambda I_+/Z_-. Solving gives the frozen complex quotient and hence F. Any initial-state correction to the mean-square-displacement integral is bounded, by switching mixing in the earlier time times Brownian damping in the lag. The derivative numerator is r(a_0+a_1 x+a_2 x^2): a_0>0, and with K=(r+1)+(r-1)y^2, a_2=4y^2-K^2 changes sign exactly at K=2y. For r<=r_c the linear coefficient is strictly positive, including at threshold; above it the quadratic has one positive and one negative root since a_0>0>a_2. This gives strict monotonicity or a unique finite maximum over lambda>0 at fixed r. Using the positive root in the form (a_1+sqrt(a_1^2-4a_0 a_2))/(-2a_2) gives its divergence and leading coefficient y-1. Independent symbolic evaluation of the y=r=2 example gives x_*=5/3 and active values 1/20, 1/30, 1/26 in units v^2/D_R at the maximum, vanishing and rapid switching, respectively; supporting calculations are in /workspace/branches/9afb8076-b472-4f01-89b1-a1ea7d837b24/record2-check.md. The printed reciprocal root is exactly correct but can suffer subtraction cancellation near threshold when a_1>0; the expression above is preferable there in finite precision. This is a numerical-evaluation caveat, not a defect in the theorem. verify.py and VERIFICATION.md were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Weber et al. have a nonmonotone effective diffusivity and a time-scale maximum, which establish that these themes and methods are not new.",
+          "The finite-state speed/drift first-harmonic response is (1/2) Re[pi diag(s) (-Q+D_R I-i diag(omega))^(-1) s]; s=(v,0) gives the target active contribution, but the formula is not an optimizer classification."
+        ],
+        "reasoning": "A resolvent is a common computation, but the derivative changes structure when the velocity projection and the rest drift change. The specific all-y>1, r>=1 phase boundary and positive-root escape require an additional global sign and singular-balance argument.",
+        "searches": [
+          "Published constant-speed asymmetric dichotomous angular-drive diffusion and diffusion maxima; Weber et al. Eqs. (1), (3), (6) and Fig. 4",
+          "Indexed intermittent chiral swimmer with two independently optimized rates, Resultary 7e07c8355ec1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–95, VERIFICATION.md and verify.py",
+        "Weber et al. arXiv:1205.3419v1",
+        "Resultary 7e07c8355ec1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "No-rest-drift response lacks the opposite-drift imaginary coupling y(r-1)x appearing in the target form before the real part is taken.",
+          "Weber's resonance is for un-gated propulsion; its Eq. (1) has no indicator of motile state."
+        ],
+        "reasoning": "Neither comparator's parameters specialize to this coupled opposite-drift, fixed-occupancy optimization. The shared resolvent implies the raw form upon evaluation, not the derivative coefficient sign change at K=2y, uniqueness, or its asymptotic positive-root escape.",
+        "searches": [
+          "Compare indexed 7e07c8355ec1 Finding and derivation with frozen RESULT.md lines 7–38, 72–91; compare Weber Fig. 4 and angular-drive model"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Weber et al. Eqs. (1), (3), (6) use constant speed and an asymmetric angular drive. The target angular process alone can also be described by a mean torque plus centered dichotomous forcing.",
+          "Resultary 2026/11/2/SCOPE-sharp-two-rate-enhancement-threshold-for-intermittent-chiral-swi--7e07c8355ec1 instead uses drift only while motile, with rest drift zero and possibly different rotational diffusivities."
+        ],
+        "reasoning": "Equivalence of angular forcing does not imply equivalence of displacement; the endpoint speed indicators change Green–Kubo weights. Changing to a rotating frame to match rest angular drift likewise changes the relationship between the heading and the lab-frame displacement, and cannot identify the two diffusivity formulas.",
+        "searches": [
+          "Resultary: correlated on/off propulsion and opposite angular drifts, fixed-ratio switching diffusivity and enhancement threshold",
+          "Weber–Sokolov–Schimansky-Geier arXiv:1205.3419v1 asymmetric dichotomous angular forcing"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest similar indexed finding, 7e07c8355ec1, gives a joint enhancement criterion and an enhanced supremum attained only as rates go to infinity. Restricting its zero-rest-drift formula to equal D_R and the same ray gives a response proportional to z/(z^2+y^2), z=1+rx/(1+x). At y=r=2 it peaks at x=1 instead of x=5/3."
+        ],
+        "reasoning": "The exact formulas disagree at matched named common parameters after the different rest dynamics are accounted for. The nearby indexed result is retained as substantially related regardless of shared date; no matching threshold or replay value in the same physical model was located.",
+        "searches": [
+          "Local Resultary search for finite switching diffusion resonance, intermittency and chirality-reversing swimmers; exact overlap tested on y=r=2"
+        ]
+      },
+      "rationale": "The distinct contribution supported here is the exact fixed-rate-ratio threshold, uniqueness of the finite maximum, and its sharp escape coefficient for on/off propulsion coupled to equal opposite angular drifts. Neither a generic diffusion resonance nor computation by a first-harmonic resolvent is credited as new. Strong same-day indexed material uses a different rest drift and a different optimization domain; the formula and optimizer do not coincide even on a matched test ray.",
+      "residual_risks": [
+        "Bounded literature comparison is not a historical-priority certification. A broader coupled state-dependent speed/drift treatment could contain a related fixed-ray classification.",
+        "No ordering between the same-day frozen and indexed related records is inferred; their nonequivalence rests on the model and formulas."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant nonmonotone diffusivity, but distinct propulsion and threshold",
+          "evidence": "Motion has constant speed even when angular drive changes, and the reported optimum is for that dynamics.",
+          "identifier_or_url": "https://arxiv.org/abs/1205.3419v1",
+          "material_read": "PDF pp. 1–2, Eqs. (1), (3), (6), extracted offsets 400–12275; Fig. 4 and p. 4 discussion near offset 26600",
+          "method": "OA PDF passage inspection",
+          "title": "Active particles forced by an asymmetric dichotomous angle drive",
+          "trigger": "Strong primary antecedent for asymmetric angular drive and a diffusion optimum"
+        },
+        {
+          "assessment": "Different dynamics and optimization, not an implication or duplicate",
+          "evidence": "It assumes zero rest drift, allows different state angular diffusivities, and optimizes jointly over both rates; even its ray-restricted example differs from the frozen finite optimum.",
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-two-rate-enhancement-threshold-for-intermittent-chiral-swi--7e07c8355ec1",
+          "material_read": "Local-mirror RESULT.md Finding/proof at offsets 0–5907 and prior comparison at 5600–9706, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "Sharp two-rate enhancement threshold for intermittent chiral swimmers",
+          "trigger": "Closest indexed exact intermittent-swimmer enhancement and optimization result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Optimizing speed of long-time spreading while the motile fraction remains fixed separates kinetic effects from a change in average motile occupancy. The exact transition between a finite optimum and a monotone large-rate approach, with a sharp inverse-distance divergence, answers a natural global question not contained in computing the diffusivity alone. It is a single-particle long-time result, not a theorem on finite-time search or interacting swimmers.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

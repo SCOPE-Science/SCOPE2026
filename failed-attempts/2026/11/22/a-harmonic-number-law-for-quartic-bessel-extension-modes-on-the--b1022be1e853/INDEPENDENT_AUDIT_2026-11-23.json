@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T18:00:34.091176Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For positive integer n the small- and large-radius Bessel estimates give convergence. The product formula followed by Cauchy–Schwarz and the diagonal Weber–Schafheitlin formula bounds the radial absolute integral of the product in the angular representation by 1/(4n) for positive angular scales, which suffices for Fubini. The ratio formula gives the stated triangular kernel. After the tangent substitution the cancellation binom(n-1,j) B(j+1,n-j)=1/n leaves the sum of reciprocal odd integers, hence Q_n=(H_(2n)-H_n/2)/(pi^2 n^2). The positive sum also verifies the strict decrease on division by n^2; harmonic-number expansion gives the stated logarithm and 1/(48 pi^2 n^4) correction. Xu's normalization gives the coefficient (2pi)^4(sqrt(Q_1)-sqrt(Q_2)), yielding 16pi^3(1-1/sqrt(3)), not a new proof of the stability theorem. Independent exact-rational replay through n=120 and direct radius-4000 quadrature at n=1,2,3,4,7,12 are in /workspace/branches/fd7fe837-a144-4ee3-a5ad-0472f342a603/independent_findings.md and independent_check.py. The residual near 4.75e-9 is consistent with the asymptotic tail, not a certified numerical bound. The frozen checker was inspected without executing it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "In the quartic delta integral there are two paired sums. They are equal up to sign on the delta support, so the paired inner products agree. Both the absolute-value and Hölder inequalities leading to the Gegenbauer-square integral in (2.19) are therefore equalities (not the final pointwise maximum bound).",
+          "Xu already gives strict ordering and the exact structural stability coefficient, of which the numerical value here is a substitution."
+        ],
+        "reasoning": "Following the equality case of the published convolution computation covers every k at once. The broader Suzuki square-transform framework is related evidence, not required for the covering implication.",
+        "searches": [
+          "Carneiro–Oliveira e Silva–Sousa Eq. (2.19), specializing the even-exponent argument to q=4",
+          "Xu, arXiv:2610.19648v1, Eq. (1.9) and Thms. 1.2–1.3",
+          "Suzuki, arXiv:2511.00137v3, Thm. 1.4(I)"
+        ]
+      },
+      "checked_sources": [
+        "Carneiro–Oliveira e Silva–Sousa, arXiv:1710.10365v1",
+        "Xu, arXiv:2610.19648v1",
+        "NIST DLMF §§10.9, 10.22",
+        "Suzuki, arXiv:2511.00137v3",
+        "Resultary integer and half-integer quartic modal comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For t the paired dot product, the product of the sphere pair density and the d=4 two-fold convolution density at sqrt(2+2t) is proportional to (1-t). Squaring C_k^1 gives an even function of t, so the odd contribution integrates to zero. With t=cos theta and the base normalization this is Q_n=(2pi^2 n^2)^(-1) times the integral from 0 to pi of sin^2(n theta)/sin theta.",
+          "These unnormalized integrals start at 2 and successive differences are the integrals of sin((2n+1)theta), exactly 2/(2n+1). Thus the harmonic sum, its elementary asymptotic expansion and the first-mode constant follow directly. The preprint's Eq. (4.11) is a lower bound, not the cited standalone base evaluation; the covering argument does not depend on journal numbering."
+        ],
+        "reasoning": "Nothing new is needed beyond recognizing equality for two paired terms, inserting the standard Chebyshev formula and telescoping. This is more than a shared technique or known logarithmic order: it reduces the exact claimed values to an elementary recurrence for all positive integers.",
+        "searches": [
+          "arXiv:1710.10365v1, Eqs. (2.10), (2.14)–(2.15), (2.19), and §4.2; compare the equality case by convolution and normalize by the known base case"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lambda_(4,4)(k)^4 in Eq. (1.3) is exactly Q_(k+1), with ordinary, unnormalized surface measure. The Gegenbauer polynomial C_k^1 has C_k^1(1)=k+1 and C_k^1(cos theta)=sin((k+1)theta)/sin theta."
+        ],
+        "reasoning": "The quartic Bessel moment, the fourth power of the modal mixed norm after factoring out (2pi)^(d/2), and the zonal-kernel convolution specialization are the same quantity. The half-integer d=3 profile in the index is not equivalent; d=2 critical fourth-moment differences also use a different, divergent single-mode integral.",
+        "searches": [
+          "Resultary: integer order quartic Bessel integral J_n(r)^4 dr/r three sphere S3 Fourier extension Gegenbauer Chebyshev odd harmonic sum exact all modes sharp stability d=4 q=4 Weber Schafheitlin",
+          "Carneiro–Oliveira e Silva–Sousa, arXiv:1710.10365v1, Eq. (1.3) and §§2.3.1–2.3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact integer-order indexed hit is the frozen target. Nearby older indexed formulas concern half-integers or circular subtracted moments. DLMF supplies the proof's classical component identities, not an identified direct table entry for the displayed Q_n."
+        ],
+        "reasoning": "No independent exact table match is asserted. The rejection rests on the positive prior implication, not on deducing anything from an unreturned match.",
+        "searches": [
+          "Resultary all-mode search above",
+          "NIST DLMF 10.9.26 and 10.22.56–57, Bessel products and Weber–Schafheitlin integrals"
+        ]
+      },
+      "rationale": "The paper characterized in the record as primarily giving the base mode already supplies the decisive exact all-mode reduction in this case. The harmonic sum is a mechanical evaluation of that reduction, not a new modal theorem. This decision does not assert that the identical printed formula appears in that paper or in a table.",
+      "residual_risks": [
+        "The review does not identify the earliest appearance of the exact harmonic-number wording or claim exhaustive special-function-table coverage.",
+        "The indexed d=3 comparison is statement-level. The decisive d=4 implication is checked in the earlier primary full text, so that access limit does not change the decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive mechanical coverage even though the harmonic sum is not stated in this form",
+          "evidence": [
+            "(1.3), (2.10), (2.14)–(2.15), (2.19); Lemma 5 credits Stempak for the logarithmic order"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1710.10365v1",
+          "material_read": "Full-text §§1, 2.3.1–2.3.2 and relevant §4.2 formulas",
+          "method": "Checked equations and independently specialized the two-pair convolution and normalization",
+          "title": "Sharp mixed norm spherical restriction",
+          "trigger": "Same modes and quartic exponent with an exact convolution representation before the bounds"
+        },
+        {
+          "assessment": "Prior stability formula; the particular number is not a separate result",
+          "evidence": [
+            "Sharp coefficient is (2pi)^d times the difference of the first two modal q-moments raised to the 2/q power"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.19648v1",
+          "material_read": "Full-text Eq. (1.9) and Thm. 1.3, with normalization",
+          "method": "Compared the surface and Fourier conventions and substituted the two Q values",
+          "title": "Sharp radial–angular mixed norm Fourier extension and global stability on spheres",
+          "trigger": "The exact theorem invoked for the stability application"
+        },
+        {
+          "assessment": "Related prior transform framework; not used to claim exact printed duplication",
+          "evidence": [
+            "Square-Bessel Hankel transform rather than the article's two-angle beta cancellation"
+          ],
+          "identifier_or_url": "arXiv:2511.00137v3",
+          "material_read": "Theorem 1.4(I) and transform formulation",
+          "method": "Compared the theorem's Hankel transform setting to the fourth-moment reduction",
+          "title": "Identities and inequalities for integral transforms involving squares of the Bessel functions",
+          "trigger": "Broader square-Bessel transform identity at equal orders"
+        },
+        {
+          "assessment": "Half-integer modes, not the integer-order identity",
+          "evidence": [
+            "Legendre-square profile and log(k)/k rather than log(k)/k^2"
+          ],
+          "identifier_or_url": "5fb16fcd05c6",
+          "material_read": "Indexed mathematical statement only",
+          "method": "Resultary and order/weight comparison",
+          "title": "Exact quartic Bessel modal profile and logarithmic angular decay in dimension three",
+          "trigger": "Closely matching all-mode and logarithmic-tail claims"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The expression can be useful as a reference calculation, but the earlier all-mode integral reduces to it by one successive-difference identity. The sharper tail follows immediately from harmonic numbers, and the stability number is a two-mode substitution in Xu. The alternative, longer beta-integral proof is not shown to deliver a stronger invariant, a useful new range of parameters, or an independent structural advance. No distinct substantive remainder survives to repair as a research finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

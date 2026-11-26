@@ -8,68 +8,69 @@ Let \(q\geq2\) be a prime power, \(\Pi=\operatorname{PG}(2,q)\) its projective p
 \boxed{X_q/G\simeq\bigvee^{q} S^2.}
 \]
 
-More precisely, the underlying complex has \(X_q\simeq\bigvee^{1+N(q-1)} S^2\), and its entire integral deck representation is
+The unquotiented space satisfies \(X_q\simeq\bigvee^{1+N(q-1)} S^2\). The integral Singer action on its second homology is
 
 \[
 \boxed{\widetilde H_2(X_q;\mathbb Z)\cong
 \mathbb Z\oplus\mathbb Z[G]^{q-1}},
 \]
 
-where \(G\) acts trivially on the first summand and by left translation on each regular summand. All other reduced integral homology groups vanish. The orbit space is simply connected and has torsion-free second integral homology of rank \(q\).
+where \(G\) acts trivially on the first summand and by left translation on each regular summand. All other reduced integral homology groups of \(X_q\) vanish. The orbit space is simply connected and has torsion-free second integral homology of rank \(q\).
 
 ## Assumptions and scope
 
-The group action is the simultaneous Singer action on the two vertex shores, not point–line duality. Independence means no chosen point–line pair is *nonincident*. The quotient is the **topological** orbit space of the geometric realization, with all stabilizers retained; it is not a naive vertex-orbit simplicial quotient. No assertion is made for non-Desarguesian planes without a Singer group, nor for arbitrary subgroups of the collineation group. All equivalences are ordinary homotopy equivalences, with the equivariant equivalence used explicitly below.
+The group action is the simultaneous Singer action on the two vertex shores, not point–line duality. Independence means no chosen point–line pair is *nonincident*. The quotient is the **topological** orbit space of the geometric realization, with all stabilizers retained; it is not a naive vertex-orbit simplicial quotient. The quotient map of \(X_q\) is not assumed to be a covering: the Singer action fixes the shore barycenters. No assertion is made for non-Desarguesian planes without a Singer group, nor for arbitrary subgroups of the collineation group. Equivariant equivalences are indicated explicitly below.
 
-Write \(P\) and \(L\) for the point and line sets. A point-only face of \(\operatorname{Ind}(B_q)\) is any subset of \(P\). A mixed face with point part \(S\subseteq P\) and nonempty line part \(T\subseteq L\) exists exactly when every point of \(S\) lies on every line in \(T\).
+Write \(P\) and \(L\) for the point and line sets. A point-only face is any subset of \(P\). A mixed face with point part \(S\subseteq P\) and nonempty line part \(T\subseteq L\) exists exactly when every point of \(S\) lies on every line in \(T\).
 
 ## Proof
 
-**1. An equivariant suspension.** Let \(U=\Delta(P)\) be the full point simplex and let
-\(V=\bigcup_{\ell\in L}\operatorname{st}_{\operatorname{Ind}(B_q)}(\ell)\), where stars are closed simplicial stars. Every face containing a line belongs to the corresponding closed star, so \(\operatorname{Ind}(B_q)=U\cup V\). Both \(U\) and \(V\) are invariant under \(G\). The barycenter of \(U\) is \(G\)-fixed, so \(U\) is \(G\)-contractible. All finite intersections of stars of lines are nonempty, because the lines themselves form a simplex; specifically, the intersection indexed by nonempty \(T\subseteq L\) equals the closed star of the simplex \(T\), and its stabilizer fixes the barycenter of \(T\). The equivariant nerve lemma for a finite invariant cover by subcomplexes with stabilizer-contractible intersections therefore gives \(V\simeq_G\Delta(L)\simeq_G *\), the latter contraction ending at its fixed barycenter.
+**1. An equivariant suspension.** Let \(U=\Delta(P)\) and \(V=\bigcup_{\ell\in L}\operatorname{st}_{\operatorname{Ind}(B_q)}(\ell)\), with closed simplicial stars. Every face containing a line belongs to the corresponding closed star, so \(\operatorname{Ind}(B_q)=U\cup V\). Both pieces are invariant under \(G\); \(|U|\) contracts equivariantly to its barycenter. For a nonempty face \(\sigma\) of \(V\), let \(A(\sigma)\) be the set of all lines incident to all points of \(\sigma\) (all lines when \(\sigma\) has no points). This set is nonempty by the definition of \(V\). The union \(\sigma\cup A(\sigma)\) is itself a face of \(V\). Inclusions of faces reverse inclusions of the sets \(A(\sigma)\).
 
-The intersection \(K=U\cap V\) has precisely the point subsets lying on at least one projective line. Thus
+An explicit equivariant homotopy sends the barycenter of each \(\sigma\) in the barycentric subdivision of \(V\) to the barycenter of \(A(\sigma)\). For a chain \(\sigma_0\subset\cdots\subset\sigma_k\), triangulate its prism with each simplex having bottom vertices of indices \(0,\ldots,i\) and top vertices of indices \(i,\ldots,k\) for some \(i\). Map the bottom vertices to the original face barycenters and the top vertices to the line-set barycenters. All their supports lie in the single face \(\sigma_i\cup A(\sigma_i)\), so affine interpolation maps to \(|V|\). The constructions restrict to the faces of each prism and respect the action. At the top the image is in \(\Delta(L)\), which contracts equivariantly to its fixed barycenter. Thus \(|V|\) is equivariantly contractible.
+
+The intersection \(K=U\cap V\) is exactly the complex of point subsets lying on a projective line:
 \[
-K=\bigcup_{\ell\in L}\Delta(P_\ell),
+ K=\bigcup_{\ell\in L}\Delta(P_\ell),
 \]
-where \(P_\ell\) is the \(q+1\)-point set incident to \(\ell\). The subcomplex inclusions are cofibrations. Replacing both equivariantly contractible pieces in the homotopy pushout by fixed points gives a natural \(G\)-homotopy equivalence
+where \(P_\ell\) consists of the \(q+1\) points on \(\ell\). The invariant subcomplex inclusions are equivariant cofibrations. The union is modeled by the equivariant homotopy pushout of \(|U|\leftarrow |K|\to |V|\). Replacing the outer terms by points gives an equivariant homotopy equivalence
 \[
-X_q\simeq_G\Sigma |K|,
+ X_q\simeq_G\Sigma |K|,
 \]
-with \(G\) acting on the equator and fixing the two suspension poles. Hence \(X_q/G\simeq\Sigma(|K|/G)\).
+where the suspension is unreduced, with two fixed poles. Passing to ordinary orbit spaces gives \(X_q/G\simeq\Sigma(|K|/G)\).
 
-**2. An explicit equivariant graph spine.** Distinct projective lines meet in one point, so the line simplices \(\Delta(P_\ell)\) intersect only in vertices. Select an incident point \(c(\ell_0)\) of one line and transport this choice by the regular Singer action to each line. In each line simplex, match every face \(A\subseteq P_\ell\setminus\{c(\ell)\}\) with \(A\cup\{c(\ell)\}\) whenever \(|A|\ge2\). Remove matching pairs in decreasing order of \(|A|\). The first face is always free: its only possible unremoved coface is the paired face, since higher-dimensional cofaces have already been removed. No face of size at least two lies on two distinct projective lines. Thus these collapses are simultaneous and equivariant across all lines, and leave exactly the edges from \(c(\ell)\) to the other \(q\) points of each line. Call the resulting graph \(T\).
+**2. An explicit equivariant graph spine.** Distinct projective lines meet at one point, so the line simplices \(\Delta(P_\ell)\) intersect only in vertices. Select a center \(c(\ell_0)\) in one line and transport this choice to each line by the regular Singer action. In each line simplex, pair every face \(A\subseteq P_\ell\setminus\{c(\ell)\}\) of size at least two with \(A\cup\{c(\ell)\}\). Remove pairs in decreasing order of \(|A|\). At each stage the only remaining strict coface of \(A\) is its paired coface, since other cofaces are removed at larger sizes and no face with at least two vertices lies on two different lines. Thus these are relative simplicial collapses; the matching of free faces and cofaces is equivariant. Collapsing each orbit of free pairs simultaneously gives an equivariant deformation retraction onto the graph \(T\) consisting of the edges from each center \(c(\ell)\) to the other \(q\) points of its line.
 
-The graph \(T\) has \(N\) vertices and \(Nq\) edges. All point pairs lie on some line, whose chosen star contains a path joining them, so \(T\) is connected. The Singer group acts freely on its vertices and edges: a nonidentity element fixes neither a point nor a line, and every edge belongs to a unique line. Thus the quotient \(T/G\) has one vertex and exactly \(q\) edges, each a loop. Consequently
+The graph \(T\) has \(N\) vertices and \(Nq\) edges. Any two points lie on a line and are joined by a path through its center, so \(T\) is connected. The Singer action on vertices is free, and an element stabilizing an edge stabilizes its unique line, so the action on edges is free with no inversions. The quotient has one vertex and \(q\) loops. Therefore
 \[
 |K|/G\simeq T/G\cong\bigvee^{q}S^1,
 \qquad
 X_q/G\simeq\Sigma(T/G)\simeq\bigvee^{q}S^2.
 \]
-The unreduced suspension of a connected wedge of circles has the stated based homotopy type. Similarly \(T\) is a connected graph of first Betti number \(Nq-N+1=1+N(q-1)\), so \(X_q\simeq\bigvee^{1+N(q-1)}S^2\).
+Similarly, \(T\) has first Betti number \(Nq-N+1\) and \(X_q\simeq\bigvee^{1+N(q-1)}S^2\). In both cases the ordinary reduced suspension of a based connected graph is homotopy equivalent to its unreduced suspension.
 
-**3. The integral Singer lattice.** Let \(R=\mathbb Z[G]=\mathbb Z[t]/(t^N-1)\). The graph \(T\to T/G\) is a regular covering. The quotient is the rose of \(q\) loops, so its equivariant cellular chain complex is \(R^q\xrightarrow{(t^{d_1}-1,\dots,t^{d_q}-1)}R\), with the differences \(d_i\) determined by the chosen star in a base line. Singer regularity produces a cyclic planar difference set \(D\subseteq\mathbb Z/N\mathbb Z\), representing one line; every nonzero difference appears exactly once. In particular there are \(a,b\in D\) with \(b-a\equiv1\pmod N\). Choose the center of that base line to be \(a\). Then one displayed boundary entry is exactly \(t-1\), and each other entry \(t^{d_i}-1\) is a multiple of \(t-1\) in \(R\). Elementary column operations over \(R\) transform the differential to \((t-1,0,\dots,0)\). Its kernel is
+**3. The integral Singer lattice.** Let \(R=\mathbb Z[G]=\mathbb Z[t]/(t^N-1)\). It is the graph map \(T\to T/G\) that is a regular covering. With edges oriented away from their chosen line centers, the equivariant cellular boundary is \(R^q\to R\) with entries \(t^{d_i}-1\), where the \(d_i\) are the differences along star edges in the base line. There exists a point \(a\) in the base line with \(t a\) also in the base line: take a line through any point and its translate by \(t\), then translate that line to the base line. Equivalently, the Singer difference set has a pair of difference one. Choose \(a\) as the center. Then one boundary entry is \(t-1\), and each other entry is a multiple of \(t-1\) in \(R\). Elementary column operations over \(R\) transform the differential to \((t-1,0,\ldots,0)\). Its kernel is
 \[
-\ker(t-1:R\to R)\oplus R^{q-1}
-=\mathbb Z(1+t+\cdots+t^{N-1})\oplus R^{q-1}.
+ \ker(t-1:R\to R)\oplus R^{q-1}
+ =\mathbb Z(1+t+\cdots+t^{N-1})\oplus R^{q-1}.
 \]
-Suspension transports this module exactly to \(\widetilde H_2(X_q;\mathbb Z)\). Its first summand is the trivial \(G\)-lattice, proving the assertion.
+The first summand has trivial action. The equivariant unreduced suspension transports this lattice isomorphically from \(H_1(T;\mathbb Z)\) to \(\widetilde H_2(X_q;\mathbb Z)\).
 
 ## Verification
 
-The standalone Python 3 standard-library program `verify.py` exhaustively checks Singer cyclic difference sets and all pairs of line intersections for orders \(q=2,3,4\), and constructs equivariant line-star graphs. For \(q=2\), it separately constructs a stellar subdivision of the fourteen-vertex independence complex (subdividing the two full shore simplices to account for fixed barycenters), forms the **signed integral quotient cellular chain**, and checks all products of adjacent boundaries vanish. Its orbit-cell vector in dimensions zero through six is \((4,11,22,22,16,8,2)\). Exact unit-pivot cellular cancellations leave one zero-cell and two two-cells and no others, independently recovering \(S^2\vee S^2\) for the first case. These finite calculations test the model and algebra; the all-prime-power theorem follows from the geometric proof above, not extrapolation from computations. Reproduce using `python3 verify.py`.
+The Python 3 standard-library script `verify.py` checks all differences and point-pair incidences for specified cyclic models at \(q=2,3,4\) and constructs the corresponding equivariant line-star graphs. At \(q=2\), it separately constructs a stellar subdivision of the fourteen-vertex independence complex at the two full shore simplices and forms signed integral cellular boundary matrices of the geometric quotient. The orbit-cell vector in dimensions zero through six is \((4,11,22,22,16,8,2)\). The script checks that consecutive boundary products vanish. Integer unit-pivot **chain cancellations** reduce the chain complex to one copy of \(\mathbb Z\) in degree zero and two in degree two, with all other groups zero. This certifies the integral homology for that case, not a topological collapse, a fundamental-group computation, or a homotopy-type certificate. The wedge equivalences, including at \(q=2\), follow from the geometric proof. Reproduce the finite checks using `python3 verify.py` with the recorded checker.
 
 ## Relationship to prior work
 
-The older star-cluster and bipartite independence-complex methods of Barmak motivate the suspension viewpoint; Tsukuda's later general incidence-graph/Alexander-duality theorem likewise supplies a broad nonequivariant comparison. Neither inspected source identifies the **nonincidence** projective-plane family's Singer orbit homotopy or its integral deck lattice. Published computations of the Heawood **incidence** independence complex concern the complementary bipartite adjacency convention, whose homotopy type and order-seven character are different. Published Fano cap-complex Moore quotients, projective-plane *matroid* independence quotients, and Lovász neighborhood complexes of nonincidence graphs use different simplicial constructions; their conclusions do not imply the present quotient formula. The new input is the line-simplex graph spine together with its regular cyclic covering and explicit integral group-ring boundary.
+Barmak's star-cluster and bipartite independence-complex methods motivate the suspension viewpoint; Tsukuda's general incidence-graph/Alexander-duality theorem provides a broader nonequivariant comparison. An underlying suspension alone does not compute the cyclic geometric quotient or its integral Singer lattice. Published computations of the Heawood **incidence** independence complex use the complementary bipartite adjacency convention. Fano cap complexes, projective-plane matroid independence complexes, and Lovász neighborhood complexes of nonincidence graphs also use different simplicial constructions. The claim concerns the projective-plane line-simplex graph spine, its cyclic quotient, and the integral module determined by its regular graph covering.
 
 ## Limitations
 
-The theorem assumes a prime-power projective plane with a Singer cycle and does not address arbitrary finite projective planes. It determines homotopy types and the integral degree-two representation but not an equivariant simple-homotopy type under all collineations. Computational tests run only for orders two, three and four, with an additional exact quotient chain computation in order two. Mathematical review has been performed on the stated proof and checks, but no independent external audit has been performed. An equivalent theorem in differently indexed literature cannot be excluded solely by the searches recorded.
+The theorem assumes a prime-power Desarguesian projective plane with a Singer cycle and does not address arbitrary finite projective planes. It determines ordinary homotopy types and the integral degree-two representation, not an equivariant simple-homotopy type under all collineations. Computational tests use only orders two, three and four, with an additional exact quotient-chain calculation at order two. Equivalent results in differently indexed literature cannot be excluded by the comparisons above.
 
 ## References
 
 1. J. A. Barmak, *Star clusters in independence complexes of graphs*, arXiv:1007.0418v1, first public 2010-07-02, https://arxiv.org/abs/1007.0418.
 2. S. Tsukuda, *Independence complexes and incidence graphs*, *Contributions to Discrete Mathematics* 12 (2017), 28–46, https://doi.org/10.55016/ojs/cdm.v12i1.62277.
-3. J. W. P. Hirschfeld, *Projective Geometries over Finite Fields*, Oxford University Press, 1998, for finite projective planes and Singer cycles (background only).
+3. J. W. P. Hirschfeld, *Projective Geometries over Finite Fields*, Oxford University Press, 1998, for finite projective planes and Singer cycles.
 4. J. A. Barmak, *Algebraic Topology of Finite Topological Spaces and Applications*, Lecture Notes in Mathematics 2032, 2011, for simplicial collapses and finite-poset homotopy methods.

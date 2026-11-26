@@ -1,12 +1,21 @@
-# Scientific review of antiflag mobility and the two-sensor boundary
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof uses only the two-incidence axioms of a projective plane and separates all types of one- and two-sensor subsets. For orders at least three, every initially observed non-sensor vertex with any unobserved neighbor has at least two such neighbors, precluding the first propagation move. At order two the nonincident mixed pairs force all points and then all lines, and the alternative pair types stop. The exact move graph is the line graph of the nonincidence bipartite graph; cross-incidence conditions give a complete three-step metric and all shortest-path multiplicities. The two differently implemented Fano enumerations and their breadth-first shortest-path counts agree. The infinite assertion is proved from axioms, not extrapolated from computation.
+## correctness
 
-## Originality
-PASS under available evidence, with historical priority not certified. The original 2022 power-domination reconfiguration article treats general token jumping and specific complete/bipartite/path/cycle/wheel families but not the Heawood antiflag characterization or its relocation metric. The 2018 polynomial paper covers general enumeration and common graph operations rather than this incidence-plane boundary. Indexed mathematical comparisons and accessible prior claims about projective-plane incidence graphs address connected domination, geodetic sets, and other unrelated feasible-set predicates. None yields the claimed power-domination result via an identified implication. Unindexed papers, atypical names for point–line nonincidence, and source-coverage limitations remain risks.
+PASS
 
-## Value
-PASS. Incidence graphs of finite projective planes are canonical sparse network models with strong incidence uniformity. The theorem isolates the exact low-budget monitoring transition, classifies *all* optimal two-sensor placements, and supplies a full relocation metric plus shortest-route multiplicities on the extremal Fano plane. It exposes a sharp obstruction to physically local optimal relocation despite unrestricted optimum-to-optimum reachability. The assertion is deliberately restricted to the two-sensor threshold and does not claim a general exact power-domination number.
+The frozen theorem is mathematically correct. Its higher-order pair case analysis bounds the unobserved neighbor count by at least two at every eligible vertex. At order two, only antiflags power dominate. A fresh enumeration using binary triples and dual lines reproduced the 28 pairs and unordered path counts: 84 at distance one; 168 with one and 42 with two geodesics at distance two; 84 with four geodesics at distance three. Slides change the bipartition profile and hence cannot be optimal. The repair in repairs/2/RESULT.md replaces the materially covered Fano mobility claim with the exact all-order first-force threshold, equality configurations and count. For a nonsensor observed vertex x, each selected vertex contributes at most one observed neighbor of x, by incidence uniqueness; a sensor cannot force because all its neighbors are observed. With fewer than q sensors there is no force and fresh coverage is at most (q−1)(q+2)<2(q²+q+1), so γ_P≥q. At equality all q contributions must be present and distinct. For a point x they occupy q different lines in its pencil, and at least one contributor is a line sensor so x is observed. The remaining line is both unique and unobserved. The rule is sufficient by the same observation argument, and duality accounts for line sources. For each fixed point choose its omitted line, then choose independently its line vertex or one of q other points on each remaining line, subtracting the q^q selections with no line sensor. This bijection proves the reported pair count, not a count of distinct placements or target vertices. The repaired verification notes give a replay prescription: form the incidence graph by normalized triples and enumerate all subsets of size ≤q and eligible sources. A separate bitmask check at q=2,3 gave no earlier forces and pair counts 210 and 3,848. The uniform proof does not extrapolate from that test and makes no completion claim at size q for higher orders. Frozen scripts were inspected, not executed.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The frozen claim does not pass originality as presented: a distinct Resultary record gives a strictly stronger full Heawood feasibility characterization and the same 28 optima and jump graph with its distance criterion. Same-day dating does not settle priority, but the overlap is demonstrable; the Fano slide and geodesic refinements are short deductions from that characterization and the geometry. The all-order initial obstruction survives. The repaired finding states the sharp first-force budget and classifies and counts all placements with a specified eligible source at that budget, without reasserting Fano mobility as new. The compared sources do not cover the uniform equality and count, and the known order-two endpoint is credited in the repaired text.
+
+## value
+
+PASS
+
+The retained question is the precise boundary at which a small deployment can do anything beyond its initial closed neighborhood, a necessary filter for complete-observation studies. The repaired proof gives a uniform sharp threshold and explains exactly which point/line placements and sources attain it, including their exact profile counts, even without coordinates. This supplies a directly usable search reduction at the minimum starting budget and can distinguish initial activity from complete observation; value does not rest on recounting Fano optima or on an elementary degree bound alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

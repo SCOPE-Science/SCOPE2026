@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof establishes a four-round classwise back-and-forth reduction from every positive part-size triple to one of the twenty nondecreasing triples with sizes at most four. Full first-order rank-four Hintikka signatures are then computed for all twenty cases using the complete atomic diagram, set of all extension types, and their exact recursive semantics. Both independent implementations — direct full-vertex enumeration and orbit-compressed enumeration — return the same nine-type partition. The sharp nine-vertex bound follows from the smallest representative of the class containing the triple \(3,3,3\). There is no numerical extrapolation in the infinite step. All packaged computations were rerun from the actual script path.
+## correctness
 
-## Originality — PASS (qualified)
-Pikhurko, Veith and Verbitsky, arXiv:math/0311041, Section 9, treats general uniform-hypergraph EF definability bounds; Kiani and Saeedi Madani, arXiv:1402.2469, classifies edge-ideal properties of complete multipartite hypergraphs. Neither inspected full text gives the nine rank-four classes. Closely related published records on logical depth and width of complete multipartite **graphs** concern a binary adjacency signature, not the hyperedge-only reduct, and neither gives the required merger. Searches also covered the aliases "blow-up of a ternary edge" and "complete tripartite 3-graph". There remains a genuine risk of equivalent unindexed folklore or historical work; nonappearance in search results is not treated as uniqueness proof.
+PASS
 
-## Value — PASS
-The result determines a natural complete bounded-rank invariant for all finite complete three-partite three-uniform hypergraphs, not an arbitrary fixed-size instance. Its exceptional merger \(H(2,2,3)\equiv_4 H(2,3,3)\) identifies the loss of part-multiplicity information caused by the ternary-only language. The sharp nine-vertex bound makes the exact family classification finite and reproducible. Higher uniformity and arbitrary numbers of parts remain outside scope.
+For arbitrary part sizes, match the three actual parts to their size-four caps; through four EF rounds repeats can be matched and fewer than four earlier picks cannot exhaust a capped-large part. This preserves equality and all ternary edge atoms. For the 20 sorted capped profiles, a separate full-vertex, pairwise EF recursion checked all 190 distinct pairs, requiring both directions of the one-move extension condition. Its nine classes agree exactly with the stated truncation-and-merger rule, including (2,2,3) with (2,3,3). The representative minima follow by the table and monotone capping, and the class of (3,3,3) requires every part to have at least three vertices. The sharp nine-vertex bound is internal to the family only.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+No inspected independent source covers the nine classes or the key merger in the pure ternary signature. The related matching-defect census verifies only the intersection with all part sizes at most two; an unattributed cross-reference there is a residual risk, not an identified competing statement.
+
+## value
+
+PASS
+
+Rank four is a meaningful observability threshold in this ternary language: an edge uses three vertices and the additional move can probe multiplicity, but the rank cost of reconstructing the hidden binary partition leaves a genuine merger unseen in the binary model. The exact classification gives all distinguishable profiles and a sharp small-model bound for a natural family, not an arbitrary finite slice or mere table of vertex counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

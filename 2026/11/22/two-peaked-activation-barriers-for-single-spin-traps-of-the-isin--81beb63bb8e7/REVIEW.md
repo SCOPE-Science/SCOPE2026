@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The cuboctahedron is specified by two graph constructions that agree edge-for-edge. Spin-flip costs follow by direct subtraction. The exhaustive integer certificate covers all 4096 configurations and all local-flip conditions. The only stability-threshold fields are \(0,2J,4J\); the ground-state comparison holds throughout every real field interval by affine energy inequalities. Every proposed activation barrier has an endpoint-certified first-flip lower bound and an endpoint-certified three-flip path to a ground state, proving the minimax formula over all real fields in each stated interval. The verifier was executed successfully against the supplied artifact.
+## correctness
 
-## Originality: PASS on inspected evidence
-The direct cuboctahedron work of Karlová and Strečka (arXiv:1611.04301v1, full readable text, sections 1–4) treats equilibrium magnetization and thermodynamics, not finite one-spin trap activation barriers. Godrèche and Luck (arXiv:cond-mat/0412077v1, introduction, Sections 3, 5–6 and discussion) treat blocked states and relaxation on different mostly ferromagnetic geometries. Indexed relevant findings on the Ising icosahedron, crown graphs and antiferromagnetic wheels count local minima on *different graphs*; equilibrium spin-one cuboctahedron results do not establish the present minimax paths. Search failure alone is not proof of priority; an unlocated exact cuboctahedral kinetic study remains possible.
+PASS
 
-## Mathematical value: PASS
-The result is a natural, complete finite-cluster activation landscape for a geometrically frustrated magnetic molecule, not an arbitrary restriction of a large computation. It identifies two nonidentical trap families, their exact symmetry multiplicities and optimal escape barriers, and the unusual double-humped field dependence despite an unchanged equilibrium ground-state family. These barriers can be used as precise benchmarks for low-temperature single-spin-flip dynamics. No lifetime asymptotics or prefactors are inferred without proof.
+Independent exact replay: `python3 /workspace/reviews/check_5.py`. Using the midpoint-coordinate graph and down-spin subsets S of its twelve vertices, the normalized energy is 24-8|S|+4e(S)-x(12-2|S|), with e(S) the induced edge count. Exhaustion of all 4096 subsets gives the strict and weak counts at x=0,2,4, nine common ground states at the endpoint envelopes x=0 and x=4, exactly 108 ground states at x=4, and all-plus above x=4. The energy gaps are affine, and equality at an interior point of [0,4] requires equality at both ends; local stability changes only at 0,2,4. The replay gives 36 and eight excited strict minima in the two open field ranges and confirms the stated energy/magnetization census and 12,24 / 8 orbits. Every first-flip cost bounds the barrier from below at both ends of each affine branch. Independently enumerating ordered triples of distinct flips gives feasible three-flip routes at both ends of every branch: 4–6 routes per lower-field trap and six per upper-field trap. Both bounds extend to the full intervals by affinity, so this does not extrapolate from sampled barrier values. The proof's 'different magnetization parity' means different parity of down-spin counts, equivalently magnetization modulo four (ordinary parity is even in both cases). With a single flip ruled out by strict stability, this gives shortest length three. The frozen program was inspected but not executed.
 
-## Independent assessment and scope
-Finite classical equal-coupling Ising model only. The exact combinatorial barriers do not determine stochastic escape-time prefactors or extend to quantum exchange. Definitive historical priority remains unconfirmed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The one-third equilibrium plateau, the nine perfect matchings and the total of 108 cube matchings are not credited as new. The supported distinction is the excited strict-minimum classification, threshold stability census beyond the saturation matching count, and the complete minimax barrier and optimal-path profile to the ground-state set, with trap orbits. The consulted same-graph equilibrium results and general blocked-state work do not supply this dynamical extremum.
+
+## value
+
+PASS
+
+On a standard frustrated spin cluster, the equilibrium ground family is fixed in the whole interval 0<x<4, yet the excited strict traps change at x=2 and the minimax escape barrier has two distinct peaks. The exact census and field-uniform optimal paths make that equilibrium–dynamics distinction testable rather than a report of a single arbitrary finite value. This is a combinatorial energy barrier, not a physical lifetime or a kinetic prefactor.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

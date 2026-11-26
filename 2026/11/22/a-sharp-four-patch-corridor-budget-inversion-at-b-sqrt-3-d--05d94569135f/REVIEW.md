@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The main claim concerns two explicitly labeled four-node undirected graphs with a common total edge-conductance budget. The congruence reduction to \(-I+uww^\top\) is an exact inertia classification of the linearized invasion exponent; exact symbolic inversions yield the stated rational threshold difference and its one positive zero. Positivity of every denominator proves the sharp strict regimes. An exhaustive three-node graph classification proves minimality. Exact fractions on both sides demonstrate genuine opposite stability outcomes. For the logistic extension, cooperative comparison, a positive eigenvector, and a scaling contradiction establish global extinction or a unique attracting positive state, with no finite-enumeration extrapolation.
+## correctness
 
-## Originality — PASS (on inspected evidence)
-The graph Laplacian, rank-one resolvent reduction and principal-eigenvalue persistence criterion are established tools. The closest primary literature concerns four-patch drought experiments (Li et al. 2023), graph-resolvent metapopulation kernels (Nicoletti et al. 2023), and degree-normalized dispersal models (Karnatak and Wollrab 2020), none of whose inspected results states the budget-normalized path/diamond threshold or minimality. Publicly available related research records concerning stochastic corridor-placement reversals or directed degree-matched invasion are different models and do not logically imply this exact classification. Older continuous source-sink spectral comparisons remain a historical-priority risk, and full text of Cosner (1991) was not inspected.
+PASS
 
-## Value — PASS
-The result distinguishes two plausible restoration network architectures at a fixed total movement budget. The sharp \(B/d\) cutoff identifies when adding redundant links under budget dilution improves or worsens the *invasion feasibility* of one favorable refuge in a hostile matrix. The effect yields strict opposite deterministic persistence regimes, and the four-patch minimality shows this is not an arbitrary high-dimensional curiosity. It is a self-contained benchmark, not a management recommendation: the lossless equal-patch logistic model and fixed-budget normalization are strong assumptions, and practical effect sizes may be small.
+Independently reconstructed the threshold by sink elimination, rather than matrix inversion from the uploaded checker. With w=B/m, the sink block of −H is positive definite and its Schur complement on the refuge is the threshold minus r. Set the refuge coordinate to one. A single sink branch gives value w/(d+w); the branch of length two gives the first value w(d+w)/(d²+3dw+w²) by solving its two sink equations. Thus the interior-refuge path has threshold wd[1/(d+w)+(d+2w)/(d²+3dw+w²)], with w=B/3, yielding the stated r_P. In the diamond the refuge is linked to all three sinks; equal sink values w/(d+w) solve their equations (all sink–sink flows cancel). The threshold is 3wd/(d+w), w=B/5. On a common positive denominator their difference has numerator 3Bd²(3d²−B²), so gives a strict single crossing and opposite invasion decisions between the thresholds. The exact example inequalities 66/155<107/250<3/7 and 1/2<51/100<39/76 hold. For order three, write t=d/B. The path center, path endpoint and triangle thresholds divided by B are 2t/(2t+1), 2t(t+1)/(4t²+6t+1), and 2t/(3t+1). Center minus triangle is 2t²/[(2t+1)(3t+1)] and triangle minus endpoint is 2t²(t+2)/[(3t+1)(4t²+6t+1)], both positive. Order two has only one rooted type, so minimality holds at fixed order. General inertial sign and simplicity follow from the positive definite sink block (equivalently the rank-one congruence), with strict positivity of the principal eigenvector by connectivity. For the logistic corollary, v·x decays to zero when λ≤0 by weighted Cauchy–Schwarz. When λ>0 a small multiple of v and a large constant are lower and upper solutions; their monotone bounded trajectories converge, and the maximal-coordinate ratio test rules out distinct positive equilibria by strict quadratic loss. Positivity after any positive time and comparison give convergence from all nonzero nonnegative states. Inspected check.py and VERIFICATION.md without executing source code; numerical eigensamples corroborate the symbolic thresholds but are not the proof.
 
-## Closest literature and limitations
-Li et al., doi:10.1002/ece3.10166, report a four-patch drought-and-corridor experiment with a square layout, not this proposed counterfactual. Nicoletti et al., doi:10.1073/pnas.2311548120, establish a general dispersal-network resolvent in a distinct microscopic model. Karnatak and Wollrab, doi:10.1038/s41598-020-79162-9, use another dispersal normalization. Cosner (1991), doi:10.1007/BF00167155, is a potentially relevant older broad treatment whose accessible abstract does not settle the exact finite-graph statement. These references do not certify historical novelty beyond the inspected evidence. The result has no finite-population stochastic-extinction or empirical calibration claim.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct supported claim is the exact equal-total-conductance threshold crossing at B/d=√3 for the specified rooted path and diamond, with the fixed-order two/three-vertex obstruction. Spectral invasion tests, rank-one reductions, and topology-dependent examples in other ecological models are established and not part of the originality basis.
+
+## value
+
+PASS
+
+This is a sharp minimal benchmark showing that adding uniform corridors under a fixed total budget can favor either topology, depending on the ratio of total conductance to sink mortality. The exact threshold separation yields an explicit window in which the two graphs differ in deterministic invasion, not just in the value of an eigenvalue, and the rooted low-order obstruction explains why smaller examples cannot show this effect under the same normalization. The model does not identify realistic ecological parameters or stochastic extinction times.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

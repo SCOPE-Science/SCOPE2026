@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:38:59.065059Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–114; VERIFICATION.md lines 19–23; verify.py lines 12–76 (read, not executed)",
+        "Independent symbolic replay: python /workspace/branches/independent_replay.py 4 derives C and P from threshold-indicator matrices and checks the affine endpoints and n=3,4 values."
+      ],
+      "rationale": "On {0,t,1}, each extreme is t times its indicator of being at least t plus (1-t) times its indicator of being 1. With a=3^-n and b=(2/3)^n the two minimum-threshold probabilities are b,a and the maximum ones are 1-a,1-b. The cross-covariance matrix of the threshold indicators has diagonal ab, upper entry b^2-a and lower entry a^2. This gives C(z)=ab+[(b-a)^2-a]z, z=t(1-t). Reflection gives V_U(t)=V_L(1-t); their product P in z is quadratic and positive on [0,1/4] (including both-support-merge limits, where the extremes still vary). Thus the squared correlation has derivative C*H/P^2, with H=2hP-CP' affine and h=(b-a)^2-a. Set x=b-a and r=a/x^2. Consecutive ratios are (2+1/(2^n-1))/3 for x and 3/(2+1/(2^n-1))^2 for r, so the stated bounds by their n=3 values hold, and h>0. Independent expansion gives H(0)=2ab(1-b)(h+ab)>0 and H(1/4)=r*x^5*B(r,x) with the stated B. For x<1/3 the first bracket is positive, the second is between 0 and 4x, the third is negative, and 2r^4*x^5<=x/4 using r<3/5. These yield B>=1/10+(133/100)x-3x^2>0, proving positivity everywhere by affinity. The strict increase in z gives precisely t=1/2. Evaluating C and the variance there gives R_n, including R_4=104/625. Since a/b^2=(3/4)^n tends to 0, the numerator is asymptotic to b^2 and the denominator to b, giving the stated equivalence. The proof also works at n=3; that is not necessary for the asserted n>=4 theorem.",
+      "residual_risks": [
+        "The symbolic checks establish identities only; the positivity inequalities and sequence bounds are the all-n argument. No conclusion covers unequal weights, other support sizes or intermediate order statistics."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Papadatos proves the lattice result for two iid draws from any equiprobable finite support. Székely–Móri's distribution-free inequality specializes to 1/n, without the sharp three-state value or its equality geometry. Papadatos's general common-transform extension is posed as a question.",
+          "200fa86d60cb gives a derivative sign at uniform probabilities for all n>=3 on fixed lattice scores. 1482021161b5 optimizes over symmetric probabilities on that same lattice."
+        ],
+        "reasoning": "A broader number of parent atoms but only two draws does not cover n>=4. The distribution-free bound is not sharp here. The broader sample-size range of the probability-optimization results does not dominate the geometry parameter absent from those hypotheses.",
+        "searches": [
+          "Papadatos arXiv:2205.14360 Theorem 1.2 and §1 quotation of Székely–Móri; concluding question",
+          "Resultary 200fa86d60cb and 1482021161b5"
+        ]
+      },
+      "checked_sources": [
+        "Papadatos arXiv:2205.14360 selected passages",
+        "Resultary 1482021161b5, 72e2dab2ac87, 200fa86d60cb, 92f0f4188ee4, 584614ef8b99",
+        "Companion record 3 and frozen RESULT.md; DOI 10.1007/s00180-021-01103-5 with access limit above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The strongest formula gives the attained value but is derived with equal gaps. It gives no sign of the derivative with respect to a gap. The companion n=3 proof establishes that sign only for its own fixed sample size; the record under review uses a uniform endpoint sign certificate to handle all n>=4. That certificate also includes n=3, not conversely.",
+          "The published 2022 closing problem motivates exactly this change of variables; it does not assert the required implication as a theorem."
+        ],
+        "reasoning": "The exact attained value is a direct substitution. The necessary new statement is the strict inequality away from the midpoint simultaneously across the unbounded sample-size range. The inspected prior results and the n=3 companion do not establish it.",
+        "searches": [
+          "Compare Resultary 1482021161b5 Eq. (1) and scope, Papadatos Theorem 1.2 and closing problem, companion record 3 proof, and frozen RESULT.md lines 31–111"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Strictly increasing common transformations on a uniform three-point lattice are exactly the parent support geometries under study, up to positive affine normalization. Papadatos formulates lattice optimality under common monotone transformations as a wider question.",
+          "The 2021 article is indexed for maximal correlation of order statistics from discrete parents. The frozen account reports a computational method and examples from its abstract and first-page preview; no full-text theorem was obtained on review."
+        ],
+        "reasoning": "A result on optimal common monotone transforms with the same masses and ranks would be equivalent. Varying probabilities on a fixed lattice is not equivalent. Unrestricted maximal correlation over distinct scores is also not interchangeable with the optimal correlation over a single common score; an upper bound for the former needs to be sharp and attained by such a common score to imply the result.",
+        "searches": [
+          "Resultary: three-state extreme order correlation, common support geometry, uniform masses, all sample sizes",
+          "Papadatos arXiv:2205.14360 concluding discussion, text offsets 53000–60992",
+          "López-Blázquez–Salamanca-Miño DOI 10.1007/s00180-021-01103-5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "In Eq. (1) of 1482021161b5, setting the endpoint mass to 1/3 gives ell=b_n, e=a_n, and its b=a_n. The value is exactly R_n for every n. Taking a_n/b_n^2 to zero then gives the same asymptotic, and n=4 evaluates to 104/625.",
+          "The three-draw indexed counterexample notes 1/4 at the uniform midpoint; the companion three-draw geometry result proves that case. The two-draw weight and same-day four-point stability records operate in different settings."
+        ],
+        "reasoning": "The complete numerical sequence at the midpoint is already encoded in an exact formula, not a novelty inferred from absence of particular numbers. The noncovered part is maximizing over all real middle atom locations for all n>=4. Same-day records are assessed by scope, not excluded by date.",
+        "searches": [
+          "Resultary 1482021161b5, exact symmetric-mass formula (1); 72e2dab2ac87, 92f0f4188ee4 and 584614ef8b99",
+          "Frozen RESULT.md lines 10–17; companion record 3 RESULT.md Finding"
+        ]
+      },
+      "rationale": "The supported distinct result is the unique midpoint optimizer among all geometries of a uniform three-point parent for every n>=4. The exact correlation at the midpoint, and its asymptotic scale, already follow by substitution in the indexed symmetric-mass formula; do not count them independently as discoveries. The indexed mass comparisons fix the midpoint geometry, the published discrete Terrell theorem covers two draws, and the three-draw companion supplies no general-n implication in the reverse direction. The closest primary discrete-maximal-correlation full text remains inaccessible; no inspected statement implies the all-n common-geometry optimization.",
+      "residual_risks": [
+        "The 2021 article remains an unresolved specific comparison because only the frozen account of its preview and abstract was available. Older discrete rank-statistic work might formulate equivalent common-score optimization. Bounded searches and unread sources cannot establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Two draws only for the sharp geometry theorem; wider lattice-optimality raises a question. The quoted general bound is weaker for the audited claim.",
+          "evidence": [
+            "The two-draw theorem gives (1-N^-2)/(2+N^-2) for N equally probable states with equality precisely at a lattice. The general extreme-rank specialization is 1/n."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2205.14360",
+          "material_read": "§1 text offsets 0–5868 (general bound), 9300–14290 (Theorem 1.2); concluding discussion offsets 53000–60992",
+          "method": "Read bounded passages of open primary text; Székely–Móri comparison through the quoted inequality rather than the 1985 full paper",
+          "title": "A discrete analogue of Terrell's characterization of rectangular distributions",
+          "trigger": "Exact finite uniform-support geometry optimization for Pearson correlation"
+        },
+        {
+          "assessment": "Covers the midpoint value and its asymptotic by specialization; the geometry is stipulated, not optimized. No historical priority inferred from catalogue date.",
+          "evidence": [
+            "The finite-sample covariance formula has numerator (ell+e)^2-b and denominator ell+3e-(ell+e)^2, with ell=(1-t)^n, e=t^n, b=(1-2t)^n for the symmetric endpoint mass t. At t=1/3 it agrees with R_n exactly."
+          ],
+          "identifier_or_url": "Resultary 1482021161b5, RESULT.md, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "material_read": "Finding, scope and exact moment proof at text offsets 0–2733, including Eq. (1)",
+          "method": "Inspect decisive local mirror passage and substitute equal probabilities in the exact formula",
+          "title": "Rare-endpoint maximizers of three-state extreme-order correlation",
+          "trigger": "Three-state extreme correlation for every sample size and potential exact formula overlap"
+        },
+        {
+          "assessment": "Probability versus support-geometry comparisons, or unrelated sample and support sizes. Same-day four-point record evaluated on its statement.",
+          "evidence": [
+            "The counterexample and boundary concern variable masses on exactly equally spaced atoms; 92f0f4188ee4 addresses weights for two draws; 584614ef8b99 treats two draws on four points with symmetric weights."
+          ],
+          "identifier_or_url": "Resultary 72e2dab2ac87, 200fa86d60cb, 92f0f4188ee4, 584614ef8b99",
+          "material_read": "Each RESULT.md Finding at offset 0",
+          "method": "Inspect exact local mirror statements on variables and sample sizes",
+          "title": "Three-point probability extremality, sample-size boundary, and reflection-symmetric four-point stability",
+          "trigger": "Nearby exact min–max correlation results on finite supports"
+        },
+        {
+          "assessment": "No extension to n>=4 in this companion; its result is mathematically implied by the parameter-region argument in the record under review, without a priority conclusion.",
+          "evidence": [
+            "All moment counts and the derivative factorization in the companion concern the specific case n=3."
+          ],
+          "identifier_or_url": "Companion record 3, frozen RESULT.md",
+          "material_read": "Finding and proof lines 2–63",
+          "method": "Read exact proof and compare parameter validity domains",
+          "title": "Sharp three-point support geometry for three-draw extreme-order correlation",
+          "trigger": "Identical optimization variable and support cardinality on adjoining sample size"
+        },
+        {
+          "assessment": "A specific residual risk. The reported computational maximal-correlation method or examples are not themselves the uniform-n common-score geometry theorem; the unavailable full text cannot be ruled out.",
+          "evidence": [
+            "The record reports an automatic-differentiation method and examples; there is no accessible decisive passage establishing the three-state uniform-n geometry optimality."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00180-021-01103-5",
+          "material_read": "Frozen account of the publisher abstract and first page (RESULT.md lines 116–120); full article not read",
+          "method": "Compare cited scope; attempted lawful publisher and alternate author-copy retrieval without obtaining full text",
+          "title": "Automatic differentiation and maximal correlation of order statistics from discrete parents",
+          "trigger": "Discrete order-statistic correlation optimization with plausible exact overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 3–17 and 107–120; Papadatos arXiv:2205.14360 concluding discussion; Resultary 1482021161b5 Eq. (1)"
+      ],
+      "rationale": "Three atoms are the smallest support admitting a non-affine geometry change. The all-n result resolves the corresponding extreme-rank case of a stated lattice-optimality question and proves unique optimal geometry with no search over probabilities. The exact midpoint formula is useful because the geometry theorem identifies it as the true optimum. Its exponential decay is qualitatively sharper than the general 1/n bound, but is not a separate new asymptotic for the fixed lattice.",
+      "residual_risks": [
+        "Only the fixed uniform three-state parent and extreme ranks are covered, not the whole lattice-optimality question."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

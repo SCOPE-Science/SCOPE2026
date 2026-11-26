@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:22:31.156994Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For equal volumes and the stipulated symmetric exchange, the two-by-two balance matrix has positive determinant Δ=(r+m+B−y)(r+m+y)−m² and negative dynamical trace; the equilibrium is unique and attracting. Its concentrations are C₁=q(r+m+y)/Δ and C₂=qm/Δ. The numerator of Δ²C₁′/q is r(r+2m)+2(r+m)y+y²>0, while C₂ is minimized by maximizing the concave quadratic Δ, uniquely at B/2. To independently replay the whole-space result, set W=r+2m+y and T=B+2r+4m. With J=C₁+C₂, q/J=Δ/W=T−W−mT/W. This is strictly concave in W, with maximum at √(mT) if feasible. It is at the left endpoint W=r+2m when B≤2r+r²/m, including equality. In the other regime, (r+2m+B/2)²−mT=r(r+2m)+(r+m)B+B²/4>0, placing the maximizer strictly below the equal split and giving exactly the stated positive y. Thus y is asymptotic to √(mB) and J_opt=q/(T−2√(mT)) is asymptotic to q/B versus q(r+2m)/[(r+m)B] at y=0, confirming the fractional reduction. A separate solve of the stationary equations and direct scalar minimization for r=.5, m=1, B=6, q=40 gave remote y≈0.816625 and mean concentration ≈4.580065 versus 4.878049 at y=0 and 5.714286 at y=3. These are model checks, not measurements. RESULT.md lines 17–76 give the analytic replay; the supplied checker.py was inspected but not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Novoselac and Siegel simulate portable cleaner placement and alternative CADRs using experimentally validated airflow and particle tracking, and compare exposure outcomes. The Kikumoto–Ooka author page identifies the English translation but did not yield accessible text through the attempted Wiley routes. The attempted Du et al. routes did not provide readable primary text."
+        ],
+        "reasoning": "Simulation comparisons of single-device positions and cumulative exposure do not imply a continuous two-rate global optimum for steady sum. Neither inaccessible article is ruled out on the basis of metadata or access failure. A covering theorem would need to optimize simultaneous removal rates under a fixed sum for this matrix objective or a proven equivalent.",
+        "searches": [
+          "Novoselac and Siegel 2009 author-hosted paper, abstract and conclusions",
+          "Kikumoto and Ooka 10.1002/2475-8876.12318, author publication listing and full-text access attempts",
+          "Du et al. 10.3390/ijerph9124639, DOI and publisher access attempts"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, REVIEW.md, AUDIT.json, VERIFICATION.md and checker.py",
+        "Airgle source-only primary model and worked comparison",
+        "Novoselac and Siegel primary PDF",
+        "Local Resultary same and adjacent claims",
+        "Access attempts and author metadata for Du et al. and Kikumoto–Ooka"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact previous balance equations supply the rational objective family but the article evaluates designated designs. In the benchmark, the source-only design even beats an equal split for the mean, although it is strictly beaten by an interior allocation. The endpoint claim gives the equal split only for the remote concentration."
+        ],
+        "reasoning": "Comparing J(0) with J(B/2) says nothing decisive about the marginal sign at y=0. The activation law follows from a separate continuous optimization on [0,B] that identifies this sign, checks uniqueness, and yields a nonzero high-budget fractional reduction. Crediting the shared model and the separate objective overlap leaves a distinct whole-space result.",
+        "searches": [
+          "Airgle primary two-room equations and concentrated-versus-split comparisons, offsets 4340–8759 and 9556–11748",
+          "Resultary e2566768d1d9 endpoint case"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Airgle article uses the same two-room linear balance and gives the concentrated and equal-split source-only cases. The mirrored exact match was the reviewed record itself."
+        ],
+        "reasoning": "CADR divided by equal room volume is the same rate budget, and mean and sum concentrations have the same optimizer because they differ by a positive constant. Minimizing the source-free room alone is not equivalent to minimizing whole-space burden. The novelty is not in these unit conversions or in the model.",
+        "searches": [
+          "Airgle, One Larger Air Purifier or Two Smaller Units?, equations and source-only scenario",
+          "Local Resultary search on two-zone filtration, whole-space average and endpoint-concentration objectives"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Airgle reports whole-space means about 4.88 and 5.71 for allocations 300+0 and 150+150. Indexed e2566768d1d9 concerns end-to-end placement and gives equal splitting for a two-room endpoint objective. Indexed 7abc4e732c0e concerns a transient pulse rather than steady input. The exact indexed whole-space result is the identical frozen record."
+        ],
+        "reasoning": "The two tabulated designs are not a table of optimizing remote rates over all B. The endpoint comparison verifies part of the objective separation as known, while a transient allocation threshold is a different functional, with no immediate reduction to a constant-source steady sum. The independent statements matter regardless of same-day order.",
+        "searches": [
+          "Local Resultary: continuous budget split and two-room activation; claims e2566768d1d9 and 7abc4e732c0e",
+          "Airgle original source-only example, offsets 9556–11748"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the continuously variable, globally optimal whole-space allocation and exact threshold and asymptotics, together with the objective comparison. The model and the source-only versus equal-split numerical experiment already exist in Airgle; their two-point comparison does not optimize over a divisible budget. The equal-split law for the remote-only objective is also present in a distinct indexed endpoint-allocation result. No novelty is assigned to that overlap, a change from sum to equal-volume mean, or the benchmark's old endpoints. The historical result is not a priority certification.",
+      "residual_risks": [
+        "Some plausible primary studies could not be independently read in full. Earlier fixed-budget engineering optimization or a closed-form resource allocation result may cover this case; the bounded comparisons do not exhaust that literature.",
+        "Scientific scope is stationary passive-compartment concentration only; neither the illustrative numbers nor the comparison establish measured exposure or device performance."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model and exact two-candidate evidence, not the continuous optimizer in the inspected material",
+          "evidence": [
+            "Source-only placement gives about 5.85 and 3.90 in the two rooms; splitting 150/150 instead gives about 9.35 and 2.08. Calculations are hypothetical."
+          ],
+          "identifier_or_url": "https://www.airgle.com/research/one-large-or-two-small-air-purifiers",
+          "material_read": "Equations and design comparison offsets 4340–8759; source-only scenario offsets 9556–11748; example limitation near 16400",
+          "method": "Original public website text",
+          "title": "One Larger Air Purifier or Two Smaller Units? A Multiroom Comparison",
+          "trigger": "Identical two-room mass balance and benchmark"
+        },
+        {
+          "assessment": "Simulation of individual cleaner placement and exposure, not the continuous fixed-sum rate optimizer in material read",
+          "evidence": [
+            "Compares CADR values 50 or 500 m³/h and placement; reports the larger cleaner placed centrally nearest the source best for a cumulative exposure measure."
+          ],
+          "identifier_or_url": "https://caee.webhost.utexas.edu/prof/novoselac/Publications/Novoselac_B%26E_2009b.pdf",
+          "material_read": "Abstract, extracted offset 0, and conclusions, pp. 8–9, offsets 64768–71941",
+          "method": "Lawful author-hosted primary PDF",
+          "title": "Impact of placement of portable air cleaning devices in multizone residential environments",
+          "trigger": "Early cleaner placement study with multiple zones and source-dependent outcomes"
+        },
+        {
+          "assessment": "Relevance by topic; no exclusion of broader overlap from unread full text",
+          "evidence": [
+            "Author list identifies 2022 Japanese entry and 2023 English translation."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/2475-8876.12318",
+          "material_read": "Author bibliography at https://www.iis.u-tokyo.ac.jp/~kkmt/reports.html, offsets 4200–8116; no readable full text from Wiley routes",
+          "method": "Author publication-list check and lawful full-text access attempts",
+          "title": "Study on influence of air cleaner on room dispersion field and its optimal placement using adjoint concentration",
+          "trigger": "Plausible earlier analytical cleaner placement optimization"
+        },
+        {
+          "assessment": "Not used as independent evidence of noncoverage",
+          "evidence": [
+            "The frozen comparison cites it for empirical motivation for localized emissions, air flows and filtration."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/ijerph9124639",
+          "material_read": "Citation and frozen report only; attempted original routes did not provide readable full text",
+          "method": "Lawful DOI and publisher access attempts",
+          "title": "Air Change Rates and Interzonal Flows in Residences, and the Need for Multi-Zone Models for Exposure and Health Analyses",
+          "trigger": "Prior multizone pollutant exposure and removal study"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A divisible clean-air budget and different choices of whose concentration to minimize are motivated by actual model comparisons. The exact activation condition answers when moving filtration away from the emitter first helps total burden, even where the usual equal-split comparison suggests source-only placement. Above that condition the whole-space solution strictly improves on both discrete designs, and the gain over source-only has a positive fractional limit even though the remote share tends to zero. The value is this objective-specific analytic benchmark with a precise budget decision, not a recommendation for particular buildings, devices or health outcomes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

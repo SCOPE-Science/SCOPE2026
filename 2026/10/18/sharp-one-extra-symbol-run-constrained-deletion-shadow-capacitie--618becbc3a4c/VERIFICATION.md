@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification and scope
+# Independent mathematical audit
 
-Run `python3 verify.py` from the directory containing this file. The verifier constructs deletion-output sets directly and uses no third-party packages or proof logs. Expected terminal lines:
+## correctness
 
-`CANONICAL_OK 540`
+PASS
 
-`GLOBAL_EXHAUSTIVE_OK 40680`
+The last-occurrence recurrence subtracts exactly the subsequences ending in the appended symbol that one can already embed using its most recent old occurrence. For cyclic run labels, repeats of physical spacing q contribute one loss each at degree q, the adjacent duplicate contributes z(1+z)^(r-1) through that degree, and repeats spanning the insertion with spacing q+1 contribute nothing through degree q. The left and right counts are (j-q)_+ and (r-j-q+1)_+, and their sum is minimized precisely between q and r-q+1 inclusive, in either endpoint order. The cited cyclic-label reduction applies to fixed run lengths. Independently, a direct upper bound avoids this citation: count leftmost greedy embeddings by discarding all deletion sets that remove the first copy but retain the second copy of the doubled letter. This discards binom(r-1,t-1). At t=q, split the word into the prefix ending at the first copy and the suffix starting at the second. Every (q+1)-window in either stretch contains a repeated letter. Delete the whole window except the later occurrence of such a pair; that retention is not leftmost. Each set contains the window start as its least deleted index, so the sets from different windows are distinct. The only possible overlap with the baseline is the prefix window ending at the first copy when that copy is deleted. In this case swap its deletion to the second copy; the earlier repeat still witnesses non-greediness, the least deleted index is unchanged, and the new set is no longer a baseline deletion. This gives exactly the needed lower bound on losses for every j. The cyclic construction attains the bound by the recurrence. The supplied finite checker was inspected as corroboration only. The statement about positions classifies cyclic maximizers, not all maximizing words.
 
-It covers all canonical duplication positions in 540 cases for \(2\le q\le7\) and \(q\le r\le\min(q+9,16)\), and all 40,680 words of length \(r+1\) with \(r\) runs for \((q,r)\) in \(q=2,2\le r\le10\), \(q=3,3\le r\le9\), and \(q=4,4\le r\le7\), for \(0\le t\le q\). It asserts each exact coefficient and global extremum against the formulas.
+## originality
 
-The infinite theorem is proved from the distinct-subsequence recurrence, explicit modular-polynomial coefficient extraction and the already published cyclic-operation lemma; finite enumeration does **not** substitute for that general proof. The theorem covers only \(n=r+1\) and \(0\le t\le q\). An earlier indexed or unindexed equivalent theorem may exist; one relevant older article's full text was unavailable. This file does not assert independent certification.
+PASS
+
+The supported distinct contribution is the exact loss and position law at t=q. The t<q formula is a baseline, explicitly covered by a broader later Resultary theorem and not credited as a distinct contribution here. The closest inspected collision thresholds, general upper bounds and counting recurrences do not supply the t=q global maximum and position profile. This is a best-of-knowledge comparison, not a priority certificate.
+
+## value
+
+PASS
+
+The first nondivisible length and first alphabet-size deletion order form a natural boundary: the collision-free run-pattern bound ceases to describe the answer uniformly over positions. Resolving the exact loss for every alphabet and both end versus interior placements is useful beyond recomputing the known short-deletion baseline.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:27:58.487609Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, scope and two-order comparison; frozen VERIFICATION.md and verify.py inspected as supporting evidence."
+      ],
+      "rationale": "Orient the update normals to have inner product c>0 and write a=uᵀx, b=vᵀx and k=ω(2−ω). The mixed order u then v loses k[a²+(b−ωca)²] from the squared norm; the repeated u draw loses k[1+(1−ω)²]a². The analogous losses with u and v exchanged give, after averaging, E_iid−E_rr=(kω/4){[2−ω(1−c²)](a²+b²)−4cab}. In the orthonormal normalized sum and difference directions this gives the two advertised factors. The common perpendicular contributes zero. The minus factor is positive on the stipulated open domain, and the plus factor vanishes only at 2/(1+c), with the stated sign change. In the path graph, the two-dimensional span is precisely the disagreement plane, c=1/2, and the bisectors have the stated coordinates. Independent check at ω=3/2: the mixed risks are 103/256 and 61/256; the repeated-order averages are 19/64 and 49/64, giving the printed IID risks after averaging with the mixed risks.",
+      "residual_risks": [
+        "No uploaded code was executed. The exact classification is conditional on the deterministic start and concerns only two steps, not multiple epochs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier coordinate-descent claim covers all c in [0,1), including the target c in (0,1). Recht–Ré gives operator-norm comparisons for PSD factors; overrelaxed factors for ω>1 are not PSD. Resultary 241542a71cef uses aP,bQ with an imbalance criterion, while 9e0cabf84ca3 optimizes reshuffling alone."
+        ],
+        "reasoning": "An operator-norm bound or an optimum for a single sampling method does not give a pointwise risk order. Coverage comes from the exact isometric coordinate-descent statement, not these adjacent results. Increasing the ambient dimension only appends an unaffected perpendicular component.",
+        "searches": [
+          "Resultary: angular imbalance for pointwise random reshuffling, one-epoch optimal relaxation and general noncommutative comparisons",
+          "Recht–Ré 2012 §3.1; De Sa 2020 pp. 1–2; Haddock–Jarman–Yap arXiv:2110.14609"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic searches and mirrored SCOPE records 1370f23f939c, fb917dbc8054, 241542a71cef and 9e0cabf84ca3; primary full-text passages from Recht–Ré, De Sa and Haddock–Jarman–Yap."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The coordinate-descent identity gives strict dominance below the same threshold, equality in the same plus mode at the threshold, and opposite directional rankings above. Its assumptions admit H=[[1,c],[c,1]] for every allowed c."
+        ],
+        "reasoning": "The mapping preserves every ordered draw and maps every deterministic start in the affected plane bijectively. For gossip c=1/2, the plane is the complement of consensus. Every target comparison, equality and reversal follows by this coordinate change and the invariant perpendicular part. The later Kaczmarz match corroborates equivalence and is not needed to infer earlier coverage.",
+        "searches": [
+          "Resultary 1370f23f939c Finding, scope, exact one-epoch identity and proof opening; fb917dbc8054 Finding; 9e0cabf84ca3 Finding and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "1370f23f939c prints the two factors [2−ω(1±c)] with the identical common prefactor for the objective-gap modes. fb917dbc8054 independently prints the identical two Euclidean comparison eigenvalues for two-row Kaczmarz, under the same ranges and sampling laws."
+        ],
+        "reasoning": "Take H=[[1,c],[c,1]] and set z=H^(1/2)(x−x*). The two coordinate maps become I−ωq_i q_iᵀ with q_i=H^(1/2)e_i; q_i are unit with Gram matrix H. The objective gap is ||z||²/2 and its modal parts are half of the corresponding squared Euclidean components; the factors thus agree exactly after multiplying both risks by two. Any oriented pair u,v with inner product c has this same Gram matrix, so an isometry sends q_1,q_2 to u,v and sends their bisectors to the target bisectors.",
+        "searches": [
+          "Resultary: two-step IID-versus-permutation relaxed rank-one Loewner comparison, overrelaxed coordinate descent, relaxed two-row Kaczmarz and three-node gossip",
+          "Mirrored records 1370f23f939c and fb917dbc8054"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact angular law and cutoff are explicitly present in the Resultary mathematical catalog. No discrete numerical table is needed; the catalog formula itself gives the path cutoff by setting c=1/2."
+        ],
+        "reasoning": "The four rational illustrative values at ω=3/2 follow by fixed-size multiplication of the same two update maps. The absence of a matching table entry for the four individual risks would not create a distinct classification.",
+        "searches": [
+          "Resultary: ω=4/3, three-node path overrelaxed gossip, 2/(1+c) bisectors and exact two-step rank-one risk",
+          "Mirrored 1370f23f939c and fb917dbc8054 exact modal formulas"
+        ]
+      },
+      "rationale": "The mirrored two-coordinate overrelaxed descent record 1370f23f939c states the same modal coefficients and sign frontier for the same sampling laws. Its energy-coordinate isometry realizes every nonorthogonal unit-normal pair in the affected plane; outside that plane both methods preserve the same perpendicular component. The general angular claim is therefore covered, and the path threshold and directions are its c=1/2 specialization. This is verified mathematical coverage, not a verdict inferred from a date or a similar title.",
+      "residual_risks": [
+        "No exhaustive historical priority attribution is made. The originality failure rests on explicit matching published catalog mathematics and a direct reduction, not on unresolved access or exact wording."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent on the active plane, which contains the whole nontrivial comparison",
+          "evidence": "Uniform two-draw P/R laws, 0<ω<2, C=[[1,c],[c,1]], and gap difference with precisely ω²(1−c²)(2−ω)/4 times the two target angular factors.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/10/12/SCOPE-sharp-sampling-order-reversal-for-two-coordinate-overrelaxed-des--1370f23f939c/RESULT.md",
+          "material_read": "Finding, Assumptions and scope, boxed objective identity and proof opening, mirror offsets 0–3378",
+          "method": "Configured mirror exact bounded passage inspection and isometry check",
+          "title": "Sharp sampling-order reversal for two-coordinate overrelaxed descent",
+          "trigger": "Strongest equivalent angular claim with the same directions and relaxation frontier"
+        },
+        {
+          "assessment": "Identical nontrivial two-dimensional comparison; catalog dates not used to make a priority claim about this record",
+          "evidence": "It states the same bisector eigenvalues, all-start condition 0<α≤2/(1+ρ), equality mode and sign reversal, and additionally treats continued iteration.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/11/2/SCOPE-a-sharp-reshuffling-reversal-for-overrelaxed-two-row-kaczmarz--fb917dbc8054/RESULT.md",
+          "material_read": "Finding and scope opening, mirror offsets 0–2444",
+          "method": "Configured mirror exact bounded passage inspection",
+          "title": "A sharp reshuffling reversal for overrelaxed two-row Kaczmarz",
+          "trigger": "Exact two-row mathematical match"
+        },
+        {
+          "assessment": "Different update model",
+          "evidence": "Uses factors aP,bQ and a condition c≤min(a/b,b/a), not equal-relaxation complements.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-sharp-angular-imbalance-frontier-for-pointwise-random-reshufflin--241542a71cef/RESULT.md",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Configured local mirror, bounded read",
+          "title": "Sharp angular-imbalance frontier for pointwise random reshuffling",
+          "trigger": "Adjacent exact directional rank comparison"
+        },
+        {
+          "assessment": "Different objective",
+          "evidence": "Optimizes worst-start Euclidean risk under reshuffling, not the contrast with IID.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-a-sharp-relaxation-phase-transition-for-two-row-reshuffled-kaczm--9e0cabf84ca3/RESULT.md",
+          "material_read": "Finding, scope and proof, mirror offsets 0–3498 and 3400–6407",
+          "method": "Configured local mirror, bounded reads",
+          "title": "A sharp relaxation phase transition for two-row reshuffled Kaczmarz",
+          "trigger": "Same-day model and parameter match"
+        },
+        {
+          "assessment": "Adjacent operator-norm result, not the relevant Loewner law",
+          "evidence": "The two-matrix PSD comparison includes an operator-norm inequality. Its PSD hypothesis excludes the overrelaxed reversal regime.",
+          "identifier_or_url": "https://proceedings.mlr.press/v23/recht12/recht12.pdf",
+          "material_read": "§3.1 PDF p. 6, OA offset 20700",
+          "method": "Open PDF bounded passage",
+          "title": "Toward a Noncommutative Arithmetic-geometric Mean Inequality: Conjectures, Case-studies, and Consequences",
+          "trigger": "Potential broader two-matrix comparison with and without replacement"
+        },
+        {
+          "assessment": "Related counterexamples; inspected passages concern broader comparisons, not the exact angular law",
+          "evidence": "Explicit counterexamples in broader matrix models and cases of both signs of the performance ranking.",
+          "identifier_or_url": "https://proceedings.neurips.cc/paper/2020/file/42299f06ee419aa5d9d07798b56779e2-Paper.pdf",
+          "material_read": "PDF pp. 1–2, OA offsets 1600 and 6500",
+          "method": "Open PDF bounded passages",
+          "title": "Random Reshuffling is Not Always Better",
+          "trigger": "Established reshuffling reversals"
+        },
+        {
+          "assessment": "Establishes the connection and convergence setting, not the decisive directional comparison in inspected material",
+          "evidence": "The passages connect block gossip with randomized Kaczmarz and discuss convergence guarantees.",
+          "identifier_or_url": "https://arxiv.org/pdf/2110.14609",
+          "material_read": "PDF pp. 1 and 8, OA offsets 807 and 25500",
+          "method": "Open PDF bounded passages",
+          "title": "Paving the Way for Consensus: Convergence of Block Gossip Algorithms",
+          "trigger": "Gossip/Kaczmarz equivalence and possible graph comparison"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, angular formula and path specialization; mirrored 1370f23f939c exact modal comparison."
+      ],
+      "rationale": "The angular frontier itself is a meaningful structural fact, but its content is already supplied in isometric form. What the frozen record adds is a graph interpretation with fixed c=1/2 and a rational illustration; the exact cutoff, directions and comparison require no new graph argument beyond that substitution. The record does not establish a distinct useful mathematical invariant, boundary or classification beyond the covered comparison.",
+      "residual_risks": [
+        "The three-node example can be pedagogically useful, which does not make the unchanged frozen result a distinct scientific contribution."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

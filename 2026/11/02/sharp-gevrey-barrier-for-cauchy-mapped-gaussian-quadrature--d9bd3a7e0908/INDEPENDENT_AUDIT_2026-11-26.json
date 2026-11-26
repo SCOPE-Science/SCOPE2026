@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:58:09.406284Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–61",
+        "VERIFICATION.md",
+        "verify.py lines 33–82"
+      ],
+      "rationale": "The map x=−cot(πu) has Jacobian π csc²(πu); multiplication by the tilted Gaussian density yields exactly g_a and integral (2γ)^(−1/2). Near zero, cot²(πu)=(πu)^(−2)−2/3+O(u²), so g_a∼(√(π/2)e^(2γ/3)/π²)u^(−2)exp(−γ/(π²u²)), with the same behavior at one by reflection. On complex disks of radius κu about small positive u the real part of cot² is bounded below by b/u², and the csc² factor by C/u² in modulus. Cauchy's estimates give C r! κ^(−r) u^(−r−2) exp(−bγ/u²); for fixed r the bound tends to zero, justifying all flat endpoint derivatives, and maximization over u gives A B^r(r!)^(3/2) using Stirling. Uniform analytic disks handle the compact interior. Flatness and Taylor remainders for a putative order 1<s<3/2 give |g_a(u)|≤A(Bu)^r(r!)^(s−1) for every r, and optimizing forces exp(−b u^(−1/(s−1))), incompatible with the positive asymptotic. Monotonicity in s excludes orders ≤1 as well. Absolute Fourier convergence allows the n-point sum to retain only frequencies ℓn; Parseval in the one uniform U proves the exact variance and zero-frequency unbiasedness. Integration by parts with r proportional to |k|^(2/3) gives stretched-exponential coefficients; in the variance sum one can split the exponent using n^(2/3)|ℓ|^(2/3)≥(n^(2/3)+|ℓ|^(2/3))/2. Conversely RMS dominates |ĝ(n)| at each n. If a faster envelope held, reality would give it on both signs of k; splitting the exponent in half and maximizing x^r exp(−c x^β/2) proves a derivative bound of order 1/β (or use any smaller β still above 2/3). Finitely many possible exceptions could be absorbed by increasing the prefactor, so failure is infinite, not necessarily at every n. The finite floating-point verifier was inspected, not run, and cannot prove the rates.",
+      "residual_risks": [
+        "Exact arithmetic, fixed parameter a, one shared shift and RMS only. No matching every-n lower bound, absolute exponent constant, machine-stability claim, or uniformity approaching a=1/2."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Möbius rule supplies fixed-order algebraic Sobolev bounds and an algebraic randomized theorem with randomized count as well as shift. Ouyang–Wang–He use Student-t proposals and scrambled-net settings in their algebraic RMSE estimates. Trefethen–Weideman already obtain an exponent 2/3 in a Gaussian-decay example by balancing mesh and truncation errors on a real-line trapezoid."
+        ],
+        "reasoning": "Neither general fixed-order estimates nor an earlier exponent for another integrand and numerical rule give the fixed-n sharp uniform RMS envelope. Standard Gevrey–Fourier theory supplies the order-to-envelope implications, conditional on knowing the exact class.",
+        "searches": [
+          "arXiv:2407.13650v2 Theorems 3.1 and 4.2",
+          "arXiv:2310.00650v2 Theorems 5.10 and 5.12",
+          "Trefethen–Weideman doi:10.1137/130932132 Table 7.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2407.13650v2",
+        "arXiv:2604.27758",
+        "arXiv:2310.00650v2",
+        "doi:10.1137/130932132",
+        "Resultary records 4c38c0a9043c, 0ac19ee5a36d, 52dc39fb4435"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Algebraic bounds for every finite Sobolev order do not prescribe the growth of constants in the order, much less exclude all faster exponents. A Gaussian tail with a truncated real-line mesh gives no coefficient lower-envelope obstruction for cotangent-periodized data. Here the obstruction uses the precise nonzero flat asymptotic and the presence of ĝ(n) at count n."
+        ],
+        "reasoning": "The fixed-target exact classification needs a quantitative upper and lower regularity analysis, not just substitution into the prior quadrature theorems. Aliasing then transfers the obstruction to this specific fixed-count randomization.",
+        "searches": [
+          "Third-party Möbius weighted Sobolev argument and randomization in arXiv:2407.13650v2",
+          "Earlier 2/3 rate mechanism, Trefethen–Weideman §7 Table 7.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For φ_c(θ)=−c cot(θ/2), c=1 and θ=2πu, the weighted integral with density (2π)^(−1/2)e^(−γx²) gives precisely the frozen g_a after the angular normalization. The later Cauchy-weight result uses the same map for polynomial exactness."
+        ],
+        "reasoning": "The Cauchy inverse-CDF and Möbius names refer to the same transformation; one cannot use the name change as novelty. The previous rates and exactness results pertain to different regularity guarantees or different densities.",
+        "searches": [
+          "Möbius or cotangent transformed Gaussian trapezoidal quadrature, endpoint Fourier Gevrey saddle rates",
+          "arXiv:2407.13650v2 §2.2; arXiv:2604.27758 §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest indexed 4c38c0a9043c studies zero-phase Möbius trapezoids for centered Cauchy mixtures, parity exactness and scale tuning. Same-day 0ac19ee5a36d treats independent per-cell power-graded sampling with an algebraic variance transition. Fourier-exponent hit 52dc39fb4435 concerns a complex-strip pure-point Fourier measure and not quadrature."
+        ],
+        "reasoning": "Neither a common exponent nor an exactly shared deterministic transformation equates the original Gaussian one-shift RMS problem with those findings. No exact match was identified in the ranked results, which are not exhaustive.",
+        "searches": [
+          "Resultary: Cauchy or Möbius quadrature for Gaussian exponential moment; exact Gevrey 3/2 and sharp Fourier/RMS 2/3",
+          "Compare published 2/3 Gaussian trapezoid example in doi:10.1137/130932132 Table 7.1"
+        ]
+      },
+      "rationale": "The cotangent mapping and shifted trapezoid framework are established; applying the same map to the tilted Gaussian is exactly a Möbius trapezoid. The inspected sources do not establish or mechanically imply this integrand's exact Gevrey order and the sharp fixed-count RMS envelope. Value and novelty attach to that exact rate characterization, not the mapping, alias identity, or use of Gevrey theory itself.",
+      "residual_risks": [
+        "Specialized Fourier saddle asymptotics or rational spectral approximation results not surfaced could imply the same exponent. Priority is limited to inspected passages and to this exact claim, not its classical underlying tools."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent deterministic construction; no exact Gevrey order or fixed-n sharp RMS in inspected theorems",
+          "evidence": [
+            "φ_c(θ)=−c cot(θ/2). The deterministic error theorem is algebraic in weighted Sobolev spaces, and the randomized bound uses random count as well as shift."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2407.13650",
+          "material_read": "v2 §2.2 p. 6 (OA offset 20184), Theorem 3.1 p. 8 (30210), Theorem 4.2 p. 15 (51900)",
+          "method": "Primary open PDF passages",
+          "title": "Möbius-Transformed Trapezoidal Rule",
+          "trigger": "Equivalent map and close deterministic/randomized quadrature"
+        },
+        {
+          "assessment": "Different weight/target and exactness question",
+          "evidence": [
+            "Polynomial exactness with polynomially weighted integrals includes Cauchy normalization, not the tilted Gaussian."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2604.27758",
+          "material_read": "§4 Proposition 4.1 p. 14, OA offset 45000",
+          "method": "Primary open PDF passage",
+          "title": "Related Cauchy-weight extension by Hyvönen and Suzuki",
+          "trigger": "Same Cauchy cotangent map and potential exactness extension"
+        },
+        {
+          "assessment": "Same exponent for a different rule and mechanism",
+          "evidence": [
+            "For (1+x²)^(−1/2)e^(−x²), the truncated real-line trapezoid balances e^(−2π/h) against e^(−(nh)²)."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/130932132",
+          "material_read": "§7 Table 7.1 p. 23, OA offset 68000",
+          "method": "Primary open PDF passage",
+          "title": "The Exponentially Convergent Trapezoidal Rule",
+          "trigger": "Earlier 2/3 exponent with Gaussian decay"
+        },
+        {
+          "assessment": "Related setting, different proposals and algebraic rates",
+          "evidence": [
+            "Uses Student-t proposals of at least three degrees of freedom and scrambled net RMSE estimates, rather than this Cauchy proposal and common shift."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2310.00650",
+          "material_read": "v2 abstract and Theorems 5.10 and 5.12, pp. 18–21, OA offsets 70400 and 77800",
+          "method": "Primary open PDF passages",
+          "title": "Quasi-Monte Carlo for unbounded integrands with importance sampling",
+          "trigger": "Earlier unbounded Gaussian QMC importance sampling"
+        },
+        {
+          "assessment": "Method-level overlap, not claim coverage",
+          "evidence": [
+            "Finite centered Cauchy mixtures, zero-phase trapezoids, parity-dependent bias and exact scales, not Gaussian one-shift RMS."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-parity-sharp-exactness-and-scale-optimization-for-cauchy-mixture--4c38c0a9043c",
+          "material_read": "RESULT.md Finding",
+          "method": "Published record via local lookup",
+          "title": "Parity-sharp exactness and scale optimization for Cauchy-mixture quadrature",
+          "trigger": "Closest indexed match in cotangent quadrature"
+        },
+        {
+          "assessment": "Different stochastic rule and rate law",
+          "evidence": [
+            "Independent one-point-per-cell sampling on a power mesh for a power singularity; algebraic variance transition, not the common-shift rule."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-gaussian-heavy-tail-transition-for-power-graded-randomized-quadr--0ac19ee5a36d",
+          "material_read": "RESULT.md Finding",
+          "method": "Published record via local lookup",
+          "title": "Gaussian heavy-tail transition for power-graded randomized quadrature",
+          "trigger": "Same-day related randomized quadrature result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and Limitations",
+        "arXiv:2407.13650v2 Theorems 3.1 and 4.2"
+      ],
+      "rationale": "The result tells a user of the existing Möbius rule exactly what speed can be guaranteed, uniformly over sample sizes, for a natural unbounded Gaussian moment. It separates strict stretched-exponential behavior from both the weaker superalgebraic statement and an unattainable exponential envelope. Using exact flatness to rule out faster convergence avoids inferring a lower bound from finite samples or assuming that oscillatory Fourier terms have uniform pointwise size.",
+      "residual_risks": [
+        "The result neither compares optimal quadrature methods for a known Gaussian integral nor gives a finite-precision error guarantee."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

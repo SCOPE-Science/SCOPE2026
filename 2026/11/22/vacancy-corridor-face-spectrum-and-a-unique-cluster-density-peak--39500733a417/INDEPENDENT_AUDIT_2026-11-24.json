@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:17:47.612886Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the face classification in the dual of the full grid: absent primal edges identify neighboring cells (including the exterior), and the cells incident to each vacant site form one such class. A vacancy on the outer boundary can only contribute to the exterior. In a bounded nonsingleton class the generating vacancies must therefore be interior middle-row sites; their stars share a cell exactly for consecutive columns. A maximal run bounded at both ends, with its top and bottom and both middle-row endpoints occupied, produces exactly one two-row rectangle of span d. The remaining bounded cells are occupied unit squares. Euler's formula and independence give the stated finite mean even for n=1,2. The corridor series is geometric with ratio at most 4/27; its derivative series is uniformly summable by bounding the terms and their derivatives using that ratio. The variance is O(n) by the component change bound of 3 per vertex, giving L² convergence. The Bernoulli score identity gives the normalized covariance limit. Independently differentiated the rational density, verified the polynomial's strictly positive derivative using the split at 8/25, and confirmed the root 0.3286185980908836... and cubic coefficient 11. A bounded dual-cell check matched actual face cell sets for all 37,448 masks through n=5; the same reviewer-written program checks the derivative symbolically. The uploaded checker was read, not run; its indicated derivative test at lines 107–110 is algebraically tautological, and is not relied on.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The actual same-day c3b9290b590a statement proves uniqueness for finite connected cactus graphs, with a universal interval.",
+          "Newman–Ziff gives a general sampling/measurement algorithm and numerical percolation observables."
+        ],
+        "reasoning": "Adjacent squares share edges in P3 □ Pn for n≥2, so the cactus theorem cannot force the limiting strip peak. The finite-graph algorithm does not state the analytical infinite-strip or face law.",
+        "searches": [
+          "Resultary: cluster-count maxima in site percolation",
+          "arXiv:cond-mat/0005264v2",
+          "Resultary:c3b9290b590a"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "python3 /workspace/branches/independent_math_checks.py (review-authored dual, derivative and root checks)",
+        "Resultary:39500733a417 and Resultary:c3b9290b590a",
+        "arXiv:cond-mat/0005264v2, arXiv:cond-mat/0407070v2, arXiv:2204.01517v1",
+        "Monetti–Albano SEDICI PDF and repository page (attempted, not read)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matched sources give a general numerical measurement algorithm, exact bond-strip counts, a different exact site event, or a uniqueness theorem for cacti. None supplies the stated cell classification or an exact open P3 site-cluster transition law."
+        ],
+        "reasoning": "The exact prior results do not directly imply the span decomposition or limiting polynomial. The dual configuration classification and polynomial sign argument are additional steps, not a simple naming or parameter substitution.",
+        "searches": [
+          "arXiv:cond-mat/0005264v2",
+          "arXiv:0407070v2",
+          "arXiv:2204.01517v1",
+          "Resultary:c3b9290b590a"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chang–Shrock's exact strip cluster density is for independent bonds, not vertices.",
+          "Akhunzhanov–Eserkepov–Tarasevich enumerate exact site crossing/spanning/wrapping probabilities on square systems, not total components or bounded faces."
+        ],
+        "reasoning": "Neither observable/model change is an equivalence; in particular the edges of the occupied-site graph share dependent endpoint events.",
+        "searches": [
+          "Resultary: exact three-row site-strip cluster count and vacancy-corridor face spectrum",
+          "Bounded primary-literature search for open three-row site-percolation exact cluster/component counts",
+          "arXiv:0407070v2",
+          "arXiv:2204.01517v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest exact Resultary hit is indexed copy 39500733a417, identical to the frozen finding, not another source.",
+          "The inspected exact strip cluster-number results tabulate bond quantities, not the rational site density or its maximizer."
+        ],
+        "reasoning": "No independent table or exact entry covering the cluster-density root or span probabilities was identified in the material inspected.",
+        "searches": [
+          "Resultary: three-row site-strip component density, face intensities and peak",
+          "Resultary:39500733a417",
+          "arXiv:0407070v2"
+        ]
+      },
+      "rationale": "Best of current knowledge, the span-resolved bounded-face law and the resulting exact finite mean and unique limiting-density peak are distinct. Closest published comparisons change the occupation model, the observable, or the graph family. Euler's identity, concentration, and the product-measure score identity are standard ingredients, not originality claims.",
+      "residual_risks": [
+        "The bounded search does not exclude an unlocated exact site-strip transfer-matrix treatment.",
+        "The primary Monetti–Albano text was inaccessible; its overlap is not ruled out by primary inspection.",
+        "The peak and covariance sign are limiting fixed-p statements, not an all-finite-size sign or uniqueness theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical record",
+          "evidence": "Contains the same finite mean, face spectrum, c(p) and root; not independent prior coverage.",
+          "identifier_or_url": "Resultary:39500733a417",
+          "material_read": "Mirrored RESULT.md Finding at offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary search and mirror reading",
+          "title": "Vacancy-corridor face spectrum and a unique cluster-density peak in three-row site percolation",
+          "trigger": "Strongest exact catalogue match"
+        },
+        {
+          "assessment": "Distinct same-day result; no priority inferred",
+          "evidence": "Cactus uniqueness with ξ<p_G≤3/4; adjacent strip squares share an edge for n≥2.",
+          "identifier_or_url": "Resultary:c3b9290b590a",
+          "material_read": "Mirrored RESULT.md theorem statement on finite connected cacti",
+          "method": "Local Resultary search and mirror reading",
+          "title": "Sharp universal interval for the cluster-count maximum in site percolation",
+          "trigger": "Same observable and increased generality in catalogue hit"
+        },
+        {
+          "assessment": "Method and numerical context, not exact strip theorem",
+          "evidence": "Algorithm for measuring cluster-size distributions and spanning probabilities.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0005264v2",
+          "material_read": "PDF abstract and introduction, text offsets 0–4984",
+          "method": "OA PDF passage inspection",
+          "title": "Efficient Monte Carlo algorithm and high-precision results for percolation",
+          "trigger": "Cited general cluster counting method"
+        },
+        {
+          "assessment": "Different percolation model",
+          "evidence": "The exact average counts are expressly for bond percolation on infinite-length strips.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0407070v2",
+          "material_read": "PDF first page, offset 0",
+          "method": "OA PDF passage inspection",
+          "title": "Exact results for average cluster numbers in bond percolation on lattice strips",
+          "trigger": "Exact finite-width cluster-number results"
+        },
+        {
+          "assessment": "Different observable and geometry",
+          "evidence": "Crossing, spanning and wrapping probabilities on L×L systems rather than total strip components.",
+          "identifier_or_url": "https://arxiv.org/abs/2204.01517v1",
+          "material_read": "PDF pp. 1–2, offsets 0 and 5000",
+          "method": "OA PDF passage inspection",
+          "title": "Exact site-percolation probabilities on square lattices",
+          "trigger": "Exact site-percolation polynomial results"
+        },
+        {
+          "assessment": "Unresolved access; not negative evidence",
+          "evidence": "The frozen comparison describes width-spanning cluster simulations; this was not confirmed from the primary text.",
+          "identifier_or_url": "https://sedici.unlp.edu.ar/bitstream/handle/10915/146216/Documento_completo.pdf?sequence=1",
+          "material_read": "No primary passage obtained",
+          "method": "Tried the cited lawful OA PDF and repository page; access timed out or returned HTTP 403",
+          "title": "Percolation on the square lattice in an L×M geometry: Analysis of percolation clusters properties",
+          "trigger": "Rectangular site strips and cluster observables in cited work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Three rows are the first open width with a separate interior row capable of supporting nonunit vacancy corridors. The exact face spectrum explains the infinite geometric correction, yields component expectation for every strip length, and locates the occupation level separating the two signs of the limiting occupancy–component response. These are usable benchmarks beyond an isolated numerical optimum; no planar critical-threshold or wider-strip claim is inferred.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

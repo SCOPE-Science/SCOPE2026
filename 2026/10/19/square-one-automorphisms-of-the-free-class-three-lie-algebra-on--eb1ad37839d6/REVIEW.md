@@ -1,12 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness
-PASS. The universal two-generator presentation supplies an exhaustive six-parameter normal form for automorphisms. Squaring its explicit block matrix yields three nontrivial equations. Solving these separately for scalar, reflection, and unipotent linear parts proves the two characteristic-dependent formulas. Direct exhaustive matrix tests over \(\mathbb F_2\), \(\mathbb F_3\), and \(\mathbb F_4\) agree. The enumeration is supporting evidence, not a substitute for the proof.
+## correctness
 
-## Originality
-PASS, subject to normal scholarly-search limitations. The nearest structural works are Drensky–Fındık (2010), Benito–de-la-Concepción (2013), and Benito–Roldán-López (2019). They establish the automorphism framework or describe the algebra, but the inspected primary text gives neither the square-one element census nor its characteristic-two calculation. Published mathematical-record searches for order-two automorphisms of this exact algebra and its equivalent descriptions found only results on different Lie algebras, different invariants, or general structural parametrization. The residual risk is an obscure finite-group or algebraic-group involution census that already specializes to this formula.
+PASS
 
-## Value
-PASS. This is a complete exact group invariant for the first free two-generator nilpotent Lie algebra beyond class two. It quantifies the difference between semisimple lifts in odd characteristic and unipotent lifts in characteristic two, using all finite extensions of each characteristic rather than a single small-field table. The calculation does not purport to resolve the general finite-field automorphism problem.
+The alternating bracket model is free by the two-generator class-three universal property, and each invertible degree-one block A has all six lower-degree parameters available. With δ=det A, the diagonal blocks are A, δ, δA. Once A²=I and C(A+δI)=0, the alternating 2×2 identity gives E=−JCᵀ and AE=−E, so the only remaining constraint is DA+δAD+EC=0. Conjugating A by a change of generators preserves the fiber count. In odd characteristic the fibers over I, −I and a split reflection have sizes 1, q² and q³; the last type has q(q+1) linear blocks by choosing ordered distinct eigenlines. In characteristic two the identity block forces C=0 with arbitrary D, while a nontrivial unipotent gives C=(0,h) and the constraints e=0, j=d+h². Such unipotents correspond to an image=kernel line and a nonzero quotient-to-line map, giving q²−1 blocks. Thus both polynomials, including the identity, follow over every finite field. A separate direct 5×5 matrix enumeration over F₂, F₃ and F₄ gave 40, 334 and 1216, with the expected linear-block fiber sizes. This is corroboration, not the general proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The natural algebra and the generator-image parametrization preexist. The inspected structural treatments and nearby indexed involution results do not furnish this square-one element census. The new part supported by this comparison is the pair of finite-field counts, including the characteristic-two lift law, not the matrix model itself.
+
+## value
+
+PASS
+
+The algebra is the smallest natural two-generator free Lie example with a degree-three lift layer. Its square-one census gives an exact count of maps from C₂ into this automorphism group (and of elements of exact order two after subtracting one), relevant to finite automorphism-group and involution calculations. The modular lift obstruction shows why the answer is not obtained by simply transferring the odd-characteristic census or the abelianization count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

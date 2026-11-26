@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The normal-form induction at terminal worlds leaves only \(0,1,p,\sim p\) on each of the five fixed comparison strata. Retaining both extrema of each open stratum and each occupied singleton stratum preserves both modalities on all terminal subterms; structural induction covers all root formulas. The five crisp indicator expressions and the strict-spread test are algebraically evaluated in the proof, yielding seven indispensable leaves and six explicit separating formulas. The included executable checker passed 101 indicator evaluations, 1,715 bounded multisets for all separating formulas, 22,500 nested comparisons, and seven deletion witnesses. These computations corroborate, rather than replace, the infinite-domain argument.
+PASS
 
-## Originality — PASS, with residual risk
+At a terminal world, modal terms are constants (box=1, diamond=0). On either open comparison stratum, the order of 0,x,1-x,1 is constant. Minimum selects a fixed operand on that stratum; Gödel implication selects 1 or its consequent by the same fixed order; involution permutes the four choices. Induction thus proves the normal form for arbitrary terms, including arbitrary nesting. In each open stratum its extrema occur at one of the two retained extremal degrees, and the three occupied singletons need only one witness each. This preserves each root modal subterm for the same chosen subset, and preserving the root atom then preserves all root formulas. Checked the five indicators algebraically, including the midpoint equality test and exclusion of 0 and 1 from the open strata. The four masked diamonds uniquely expose the two extremes of each open stratum on the seven designated degrees, and three further diamonds expose the singletons. Spread compares the conditional maximum to the conditional minimum; on the empty stratum it compares 0 to 1 and is false, and with one distinct degree it compares a degree to itself and is false. In the displayed order the first k requirements therefore need k leaves, are jointly attainable with k, and their negated conjunction is valid at all leaves because the first diamond is false there. To transfer countervaluations, duplication leaves extrema unchanged; pruning and then duplication transfers any large-star root countervaluation to exactly seven leaves. A terminal countervaluation transfers independently of root and other leaf values. These checks establish both sharpness statements. The inspected check.py supplies recorded finite, exact-grid corroboration only; it was not executed or needed for the continuum induction.
 
-The 2025 article of Bílková, Ferguson and Kozhemiachenko supplies the exact standard \(\mathsf{KG}_{\mathrm{inv}}\) semantics and midpoint expressibility but not a fixed seven-leaf uniform pruning theorem or this finite-star validity ladder. Its 2024 precursor addresses the same language and semantic properties; the language itself is not novel, and complete precursor text could not be inspected. The full accessible Ferrari–Fiorentini–Rodriguez 2025 text concerns the non-involutive Gödel language and witnessed-model semantics, without a matching seven-point statement. The closest prior result on unary Gödel stars without involution has a three-leaf bound, which does not cover formulas using \(\sim\). The closest indexed Gödel-frame result on ordinal regrading of fuzzy relation weights classifies weights, not the number of independent terminal valuation strata. No equivalent result was found in the targeted searches; an unindexed or inaccessible equivalent remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The result gives a sharp uniform semantic compression and a complete exact one-variable branching expressivity hierarchy, rather than a formula-dependent countermodel bound or numerical experiment. The jump from three to seven reveals the additional observational power of involution: one-half becomes a definable singleton, and both open intervals contribute independent extrema. This supplies optimal bounded-model templates for one-variable star reasoning and explicit formulas for every expressivity transition.
+A materially close same-day indexed result gives exactly three leaves and a three-stage hierarchy without involution. It neither models the open upper and lower strata separately nor proves the degree-preserving bound and six separating formulas in the expanded language. The primary literature supplies the target semantics and finite-model/tableau methods; no equivalent seven-leaf statement was found in the decisive inspected material. The finding is distinct as an extension in expressivity, not as a new semantics or a novel general finite-model method.
 
-## Scope and uncertainty
+## value
 
-The proof is limited to finite crisp one-root stars with terminal successors. Source comparisons are strongest for the 2025 full-text articles and the accessible previous star theorem; complete 2024 precursor inspection was not available. No independent external validation is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is an optimal formula-independent compression bound and a complete branching-validity hierarchy, with explicit witnesses so each degree of branching can be tested. It measures exactly what the stronger unary signature can distinguish beyond the three-leaf reduct. Its utility is specific to one-variable finite crisp stars with terminal successors, not a decision bound for arbitrary Gödel models.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

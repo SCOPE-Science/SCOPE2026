@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible finite verification
+# Independent mathematical audit
 
-Run `python3 verify_johnson.py`; Python 3 standard library only. The program constructs the graph from lexicographic three-subsets, the ordinary open-neighborhood simplices and all consecutive-dimensional Hasse covers. In each of the two principal cases, it verifies the full acyclic matching by topological sorting of every oriented Hasse cover. It then recomputes the signed dimension-three cellular Morse boundary by integer unit-pivot elimination and verifies its greatest common divisor is two. The recorded critical-cell vectors leave no higher or lower attaching maps to inspect. Exact integer calculations are performed without floating-point arithmetic.
+## correctness
 
-Expected data: \(n=6\), \(8620\) faces, \(4238\) pairs, \(41940\) Hasse covers, critical profile \((1,0,1,142)\), Morse differential \(31(+2),23(-2),88(0)\); \(n=7\), \(136220\) faces, \(67723\) pairs, \(839580\) Hasse covers, critical profile \((1,0,1,772)\), Morse differential \(125(+2),131(-2),1(-4),515(0)\). The preceding \(n=5\) case has critical profile \((1,0,0,11)\) and is also acyclic. These complete certificates support the finite-scope homotopy claims; no unbounded family or external independent validation is asserted.
+PASS
+
+A fresh exact implementation generated the open-neighborhood faces from the common-witness condition and checked all oriented Hasse covers. For n=6 it found 8620 faces, 4238 matching pairs and 41940 covers; for n=7 it found 136220 faces, 67723 pairs and 839580 covers. Both directed graphs are acyclic. The critical profiles are (1,0,1,142) and (1,0,1,772) with no further cells. Exact oriented cancellation from degree three to degree two reproduced the respective rows with 31(+2), 23(−2), 88(0), and 125(+2), 131(−2), 1(−4), 515(0). Indeed the signed Morse differential uses alternating paths through the matched 2-to-3 incidences, all unit pivots; unrelated dimensions are not needed for this row. Each degree row has gcd 2. The Morse CW model has a single 0-cell, no 1-cells and one 2-cell, so its 2-skeleton is S² and the attaching maps of 3-cells are determined by their degrees. A unimodular change on the wedge of attaching 2-spheres is realized by a homology equivalence of simply connected CW complexes, hence a homotopy equivalence. Its cofiber gives the degree-two Moore space plus 141 or 771 free S³ summands. At n=5 the independently checked profile is one vertex and eleven 3-cells; at n=4 the graph is K4 and the complex the boundary of a tetrahedron. This establishes the asserted first two occurrences in the finite range, not a map between the two cases.
+
+## originality
+
+PASS
+
+The distinguishing contribution is the integral homotopy classification in the two first tetrahedral parameters, especially the n=7 Moore summand and its 771 three-spheres. A later catalogue record gives the identical n=6 answer only. Earlier rank-two triangular computations and same-day closed-neighborhood or rank-two models do not supply the n=7 result or a broader theorem covering both.
+
+## value
+
+PASS
+
+This is a natural graph family and the first torsion boundary is a meaningful finite cutoff. An integral homotopy type at both first tetrahedral parameters, rather than field Betti numbers, determines whether the attaching maps give an actual Moore-space summand and records the exact free sphere counts. The n=7 case remains distinct even accounting for the later n=6 overlap.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

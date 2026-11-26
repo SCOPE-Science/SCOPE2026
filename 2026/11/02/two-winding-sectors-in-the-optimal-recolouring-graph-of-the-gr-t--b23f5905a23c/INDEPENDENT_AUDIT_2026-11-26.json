@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:22:11.736103Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md and supplied verifier source (inspected, not executed)",
+        "/workspace/repairs/2/RESULT.md",
+        "Independent executable /workspace/branches/reproduce_2.py (Python 3 with NumPy/SciPy; full run, without --sample)"
+      ],
+      "rationale": "The reduction to the pentagon is proper because adjacent originals cannot both have apex colour and the replacement shadow sees both neighbours. The step sum is an odd multiple of three of magnitude at most five. The repaired apex proof compares projections in a common three-letter palette; summing over alternating blocks telescopes the internal changes, and the product of boundary factors is negative because the pentagon has odd length. The two sums are therefore opposite in that palette; the cofactor sign of the palette transposition gives exactly the stated normalization. Independently enumerated all 4^11 assignments and every one-coordinate neighbour with a state-membership index, verifying that both signs are nonempty and preserved on every edge, including all 2,280 apex edges. All-source unweighted shortest paths, without orbit pruning, confirm two sectors of 6,240 vertices and 22,620 edges each, with eccentricities 15/16/17 on 1,080/5,100/60 vertices per sector. The original degree census, fixed-apex connectivity and cross-edge counts agree. The 3-chromatic pentagon gives the standard obstruction to a 3-colouring of its Mycielskian, and the checked degeneracy order and spare-colour induction prove the stated five-colour threshold.",
+      "residual_risks": [
+        "This is a proof and an exhaustive computational reproduction for this named graph, not a formal verification or a general Mycielski-graph theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lemma 4 applies to single-position moves of a three-coloured cycle, and Theorem 3 gives k ≥ d+2 connectivity. Brewster–Moore's characterization has p/q strictly below four; the other inspected abstracts describe general mixing or chromatic restrictions."
+        ],
+        "reasoning": "The old winding lemma handles non-apex moves but not the palette change and simultaneous switches in the projection. The mixing and chromatic results do not supply that transition.",
+        "searches": [
+          "Cereceda–van den Heuvel–Johnson, Connectedness of the Graph of Vertex-Colourings, Theorem 3 and Lemma 4",
+          "arXiv:2008.12185",
+          "arXiv:1412.3493",
+          "arXiv:1010.0133"
+        ]
+      },
+      "checked_sources": [
+        "42ecfc11d759; 9eab978a928b; 4886232debf8; 4e006ae9def7; 0891cedf7f58",
+        "Cereceda–van den Heuvel–Johnson (2005)",
+        "arXiv:2008.12185, arXiv:1412.3493, arXiv:1010.0133"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier BFS gives distance and membership, and odd palette permutations exchange components. Neither establishes the equality of the proposed step sums for an apex transition. The repaired proof verifies that equality by cancellation and boundary parity."
+        ],
+        "reasoning": "Completeness of the label uses the known two-component result, but computing the label from a local formula and proving its invariance is a distinct structural statement, not the extraction of another BFS statistic.",
+        "searches": [
+          "42ecfc11d759, Proof, Enumeration lemma through Symmetry lemma",
+          "Cereceda–van den Heuvel–Johnson, Lemma 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "October 26 Finding and Symmetry lemma give the same partition by exhaustive exploration and its parity action, but not a formula to identify a given state. The same-day signed square obstruction is for Chvátal's graph. The November 17 Hom complex has source C5 and target the Grötzsch graph, not target K4."
+        ],
+        "reasoning": "An action on the two chambers is not the asserted per-colouring order-normalized winding formula. Neither a different graph nor a different Hom object is an equivalent formulation.",
+        "searches": [
+          "Resultary: SCOPE-two-recolouring-chambers-of-the-gr-tzsch-graph--42ecfc11d759",
+          "Resultary: SCOPE-a-signed-rainbow-square-obstruction-for-optimal-recolouring-of-t--4886232debf8",
+          "Resultary: SCOPE-forty-one-circles-in-the-pentagon-graph-hom-complex-of-the-gr-tz--0891cedf7f58"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 26 Finding matches the state, edge, degree, component and diameter census; the November 8 distinct record states the radius and exact eccentricity counts as well but is later. The same-day 4-cut complex concerns vertex cuts, not proper colourings."
+        ],
+        "reasoning": "The repaired finding expressly does not claim priority for these counts or for the component number. No compared numerical census states the explicit signed function.",
+        "searches": [
+          "Resultary: SCOPE-two-recolouring-chambers-of-the-gr-tzsch-graph--42ecfc11d759",
+          "Resultary: SCOPE-critical-palette-recolouring-of-the-gr-tzsch-graph-two-component--9eab978a928b",
+          "Resultary: SCOPE-the-gr-tzsch-4-cut-complex-is-a-mixed-dimensional-sphere-wedge--4e006ae9def7"
+        ]
+      },
+      "rationale": "For the repaired claim only. The October 26 Resultary result already proves the two chambers and most of the advertised census, and all-source distances make the remaining eccentricity summaries auxiliary rather than a substantive new claim. It does not supply the displayed per-state pentagon winding rule or its apex transition proof. No inspected source gives that lift or a stronger result that supplies it mechanically.",
+      "residual_risks": [
+        "An equivalent closed component label could occur under projective quadrangulation or graph-homomorphism terminology. The comparison establishes the inspected coverage, not absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the original census, not the repaired explicit label in the inspected proof",
+          "evidence": "It identifies the components by exhaustive BFS and gives their permutation action via a representative. Its examples of opposite chambers are not a formula for arbitrary vertices.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-two-recolouring-chambers-of-the-gr-tzsch-graph--42ecfc11d759/RESULT.md",
+          "material_read": "Finding and assumptions; enumeration and exchange lemmas, whole-source distance calculation, symmetry lemma and mixing corollary (offsets near 0–7074, bounded passages)",
+          "method": "Resultary search and local-mirror exact statement/proof read",
+          "title": "Two recolouring chambers of the Grötzsch graph",
+          "trigger": "Strong earlier overlap on the identical named graph"
+        },
+        {
+          "assessment": "Constrains fixed-palette winding and credits the mixing bound, not apex invariance",
+          "evidence": "The winding statement concerns proper 3-colourings and the degree-plus-two theorem yields five here.",
+          "identifier_or_url": "https://matthewjohnsondurham.github.io/papers/cdam-2005-11.pdf",
+          "material_read": "pp. 3–4, Theorem 3 and Lemma 4",
+          "method": "OA PDF passage read",
+          "title": "Connectedness of the Graph of Vertex-Colourings",
+          "trigger": "Primary theorem and winding antecedent"
+        },
+        {
+          "assessment": "Hypothesis excludes the ratio-four boundary",
+          "evidence": "Strict p/q < 4, not p/q ≤ 4.",
+          "identifier_or_url": "https://arxiv.org/abs/2008.12185",
+          "material_read": "p. 1, title and abstract",
+          "method": "OA PDF passage read",
+          "title": "Characterizing Circular Colouring Mixing for p/q < 4",
+          "trigger": "Possible broader winding characterization"
+        },
+        {
+          "assessment": "Later overlap in numerical census",
+          "evidence": "The statement gives radius 15, diameter 17 and identical eccentricity counts per component.",
+          "identifier_or_url": "SCOPE-critical-palette-recolouring-of-the-gr-tzsch-graph-two-component--9eab978a928b",
+          "material_read": "Finding, RESULT.md offset 0",
+          "method": "Local-mirror statement read",
+          "title": "Critical-palette recolouring of the Grötzsch graph",
+          "trigger": "Exact metrics match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired signed label and apex proof",
+        "42ecfc11d759, known census and symmetry lemma"
+      ],
+      "rationale": "The surviving finding replaces graph exploration with a structural obstruction and a complete direct test on an individual colouring. It explains why fixed-apex cycle winding can survive an apex recolouring and makes the colour-handedness of the known chambers usable without a precomputed state table. A repeat of the earlier enumeration alone would not pass.",
+      "residual_risks": [
+        "No wider application beyond this graph is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

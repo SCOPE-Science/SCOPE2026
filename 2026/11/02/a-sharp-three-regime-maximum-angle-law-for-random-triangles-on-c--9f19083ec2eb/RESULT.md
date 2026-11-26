@@ -4,7 +4,7 @@
 
 Fix an angular length \(L\in(0,2\pi]\). Independently choose three points uniformly by arclength on one circular arc of angular length \(L\). Let \(M_L\) denote the largest interior angle of their Euclidean triangle. The circle's radius and the arc's position do not affect this distribution.
 
-Put \(m_0(L)=\max\{\pi/3,\pi-L/2\}\), and, for a real \(z\), write \(z_+=\max\{z,0\}\). The support of \(M_L\) is exactly \([m_0(L),\pi]\), with endpoints attained only in the topological-support sense. For \(m<m_0(L)\), \(F_L(m)=0\); for \(m\ge\pi\), \(F_L(m)=1\). For \(m_0(L)\le m<\pi\), put \(h=2m\), \(a=2\pi-h\). Then the complete distribution function is
+Put \(m_0(L)=\max\{\pi/3,\pi-L/2\}\), and, for a real \(z\), write \(z_+=\max\{z,0\}\). The support of \(M_L\) is exactly \([m_0(L),\pi]\), with zero probability at either endpoint. For \(L\ge4\pi/3\), an equilateral triangle realizes the lower endpoint (using the ends of the arc when \(L=4\pi/3\)). The upper endpoint is not realized by any nondegenerate triangle. For \(m<m_0(L)\), \(F_L(m)=0\); for \(m\ge\pi\), \(F_L(m)=1\). For \(m_0(L)\le m<\pi\), put \(h=2m\), \(a=2\pi-h\). Then the complete distribution function is
 
 \[
 \boxed{F_L(m)=\frac{L^3-3La^2+2a^3-2(L-h)_+^3+(L-2h)_+^3+6(L-a)(a-h)_+^2+2(a-h)_+^3}{L^3}.}
@@ -51,7 +51,7 @@ Therefore, for \(m_0(L)\le m<\pi\),
 
 The interval is nonempty because \(a\le L\), and \(h\ge2\pi/3\), hence \(a\le2h\). Directly integrating the three linear-positive-part terms yields the displayed CDF. In particular, the contribution from \((r-h)_+\) truncated below at \(a\) is proportional to \((L-h)_+^3-3(L-a)(a-h)_+^2-(a-h)_+^3\), which accounts for the lower-bound corrections. No limiting or numerical approximation enters the identity.
 
-Any three nonnegative gaps totaling \(2\pi\) have maximum at least \(2\pi/3\); also \(w\ge2\pi-L\). Thus \(M_L\ge m_0(L)\). For \(L\le4\pi/3\), the triple \((u,v,w)=(L/2,L/2,2\pi-L)\) achieves this lower bound in the closure of the parameter domain. For \(L\ge4\pi/3\), the equal-gap triple \((2\pi/3,2\pi/3,2\pi/3)\) is feasible in that closure. Any nonempty open neighborhood of either feasible configuration has positive probability. Conversely, clustering all sampled points gives values of \(M_L\) arbitrarily close to \(\pi\). This proves the exact support.
+Any three nonnegative gaps totaling \(2\pi\) have maximum at least \(2\pi/3\); also \(w\ge2\pi-L\). Thus \(M_L\ge m_0(L)\). For \(L\le4\pi/3\), the triple \((u,v,w)=(L/2,L/2,2\pi-L)\) achieves this lower bound in the closure of the parameter domain. For \(L\ge4\pi/3\), the equal-gap triple \((2\pi/3,2\pi/3,2\pi/3)\) is feasible in that closure, and is in its interior for \(L>4\pi/3\). Clustering all sampled points gives values of \(M_L\) arbitrarily close to \(\pi\). The open gap triangle is connected and has strictly positive density, so the closure of its continuous image under the maximum map is the entire support interval. Any fixed level of the maximum lies in the union of the three lines on which one gap equals twice that level, so it has probability zero.
 
 For acute triangles, substitute \(h=\pi\), \(a=\pi\) into the CDF. When \(L\le\pi\) the support starts at or above \(\pi/2\); for \(\pi<L\le2\pi\), simplifying gives \((L-\pi)^2(4\pi-L)/L^3\). Its derivative is \(6\pi(L-\pi)(2\pi-L)/L^4>0\) in the stated interval. Substitution and expansion at the endpoints yield the claimed acute threshold and full-circle value.
 

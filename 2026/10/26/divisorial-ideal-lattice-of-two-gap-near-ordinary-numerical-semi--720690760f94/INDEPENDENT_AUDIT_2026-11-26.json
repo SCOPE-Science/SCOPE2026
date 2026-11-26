@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:19:15.042812Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–64",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)"
+      ],
+      "rationale": "The positive elements of S sum to at least 2m. A normalized ideal is obtained by adjoining gaps; adding a small gap forces precisely the high gaps it hits by adding the middle block. For a proper enlargement I of S, the colon omits 0, contains the entire tail, and omits a middle-block position precisely if a selected small gap forbids it. If U is the union of these forbidden-position sets, the bidual has both high gaps and the small gaps with F_m(g) contained in U. No negative x survives since x+(2m−1−x) is a gap and the second summand is in the colon tail. Directly intersecting {2m−2−g,2m−1−g} with the middle block gives endpoint singletons and exactly the adjacent pairs of the length-(m−2) path. Thus the fixed support sets are unions of endpoint singletons and adjacent pairs, equivalently 010-free; the union reconstructs the support from the ideal and preserves inclusion both ways. S is fixed separately; translating commutes with bidual, so normalization counts classes. As an independent count, track the longest suffix that is a proper prefix of 010 (empty, 0, or 01). The generating equations for continuation counts E,B,C are E=1+z(E+B), B=1+z(B+C), C=1+zE. Eliminating B,C yields E=(1+z²)/(1−2z+z²−z³), proving all stated coefficients and growth (the transfer matrix is primitive with Perron root alpha). All-ideal count: the empty small-gap set allows four choices of high gaps, each of the two endpoint singletons allows two, and every other set forces both. The meet deletes isolated interior points from an intersection, and the join is union. At L=2 this is a Boolean diamond above a new bottom; at L≥3 the claimed five sets are a pentagon because the only potentially nonempty cross-intersection is {2}, which is inadmissible. This verifies the sharp nonmodularity boundary, including m=4.",
+      "residual_risks": [
+        "The verifier's finite computation of colon fixed points does not certify the infinite lattice boundary; that conclusion follows from the uniform pentagon witness and the explicit m=4 lattice."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Campochiaro–D’Anna–García-Sánchez give a general intersection of shifted copies of S over generators of S−I and an Apéry formula",
+          "Bonzio–García-Sánchez treat all normalized ideals at multiplicity three; the frozen family has multiplicity at least four and concerns the reflexive sublattice"
+        ],
+        "reasoning": "General colon algorithms include these examples but do not by themselves give the uniform path-word family, its count or the lattice threshold. Results about all ideals at multiplicity three do not specialize to this sublattice.",
+        "searches": [
+          "arXiv:2610.06426v1 §3 Proposition 8 and §6 Corollary 47",
+          "arXiv:2407.21697 §5",
+          "arXiv:2302.09647 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 62b4b8c42504",
+        "arXiv:2610.06426v1",
+        "arXiv:2407.21697",
+        "arXiv:2302.09647"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The companion says 'The claim concerns r≥3, not the previously treated r=2 case' and gives inclusion and joins, not the two-gap lattice boundary",
+          "General intersection formulas yield finite-instance computations, without classifying all support words or supplying a pentagon witness"
+        ],
+        "reasoning": "A literal specialization of the companion theorem is not valid at r=2; its argument is closely related and adapts. The earlier general results still require analysis of the actual forbidden windows and lattice operations. The pertinent distinct output is the uniform two-gap description and lattice structure, not generic reflexive closure or a new transfer method.",
+        "searches": [
+          "Resultary 62b4b8c42504 explicit r≥3 scope and proof",
+          "Campochiaro–D’Anna–García-Sánchez arXiv:2610.06426v1 Propositon 8 and Corollary 47"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "62b4b8c42504 uses the same semigroup family indexed by block length r, with interior runs of ones at least r and unrestricted endpoints",
+          "At r=2 the support windows are exactly the two endpoint singletons and the adjacent pairs in the frozen claim"
+        ],
+        "reasoning": "The families and methods have exact mathematical overlap upon formally replacing r by 2, but that parameter is expressly excluded from the indexed theorem. The additional meet and nonmodularity result are not stated there. Same-day publication paths do not settle the provenance of the r=2 observation.",
+        "searches": [
+          "Resultary: divisorial ideals reflexive numerical semigroup normalized ideal lattice two-gap semigroup",
+          "Resultary: normalized divisorial ideals numerical semigroup nonmodular lattice recurrence 010-free words",
+          "Resultary: previously treated r=2 case of sliding-window reflexive ideals: exact two-terminal-gap semigroup m through 2m-3, 010-avoiding words and a pentagon N5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The companion record gives the length-generating series only for r≥3; formal substitution r=2 simplifies to (1+z²)/(1−2z+z²−z³)",
+          "The indexed search did not yield a separate exact table of two-gap reflexive ideals or of their lattice types"
+        ],
+        "reasoning": "A table of 010-avoiding words, even if already available, is not a table of divisorial ideals or their inclusion unless the correspondence is established. The companion's formal coefficient match is recorded, not misclassified as an in-domain enumeration for r=2.",
+        "searches": [
+          "Resultary: S_m = {0} union m through 2m-3 divisorial ideals path 010",
+          "Resultary 62b4b8c42504 Finding, generating function"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the two-gap ideal-lattice result, particularly the full lattice operations and nonmodularity threshold. The closest same-day catalogue finding uses the same window mechanism and would give the same support and counts if extended to block length two, but it explicitly excludes length two and calls it previously treated without identifying a source for that remark. No independently identified earlier r=2 statement was found in the compared sources. That relationship and priority uncertainty must be retained; neither the string-avoidance sequence alone nor the general bidual framework is a new claim.",
+      "residual_risks": [
+        "The same-day record's unexplained 'previously treated' wording leaves r=2 provenance unresolved; there is no global priority conclusion. Broader or unindexed accounts of exact two-gap classifications may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact formal overlap when extending scope to r=2; theorem explicitly excludes that case and supplies no earlier r=2 identifier",
+          "evidence": "Same terminal-block model, support classification and counting mechanism; states that r=2 was previously treated; does not provide the frozen meet/nonmodularity statement.",
+          "identifier_or_url": "2026/10/26/SCOPE-sliding-window-classification-and-growth-of-reflexive-ideals-in--62b4b8c42504",
+          "material_read": "RESULT.md Finding and scope, offsets 0–2670, proof opening near offset 2700 and references near offset 9000",
+          "method": "Resultary lookup, local mirror and literal passage inspection",
+          "title": "Sliding-window classification and growth of reflexive ideals in terminal-gap numerical semigroups",
+          "trigger": "Strongest same-day overlap and explicit reference to r=2"
+        },
+        {
+          "assessment": "General computational and structural machinery; no exact path-word or nonmodularity statement in inspected passages",
+          "evidence": "Describes the bidual via intersections over generators of the colon and via Apéry data.",
+          "identifier_or_url": "https://arxiv.org/html/2610.06426",
+          "material_read": "§3 Proposition 8 near offset 20600; §6 Corollary 47 near offset 71300",
+          "method": "Lawful OA HTML passage inspection",
+          "title": "Reflexive ideals of a numerical semigroup",
+          "trigger": "Most relevant general reflexive-ideal theorem"
+        },
+        {
+          "assessment": "Different multiplicity range and invariant",
+          "evidence": "Lattice results for all normalized ideals in multiplicity three.",
+          "identifier_or_url": "https://arxiv.org/html/2407.21697",
+          "material_read": "§5 near offset 33200",
+          "method": "Lawful OA HTML passage inspection",
+          "title": "The poset of normalized ideals of numerical semigroups with multiplicity three",
+          "trigger": "Possible normalized ideal lattice coverage"
+        },
+        {
+          "assessment": "Background only in inspected material; no whole-document exclusion inferred",
+          "evidence": "Concerns normalized ideals, Apéry/Kunz coordinates, and Hasse diagrams in the general class monoid.",
+          "identifier_or_url": "https://arxiv.org/html/2302.09647",
+          "material_read": "Abstract",
+          "method": "Lawful OA abstract inspection",
+          "title": "Apéry sets and the ideal class monoid of a numerical semigroup",
+          "trigger": "Broader ideal class enumeration and structure"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 17–34 and 51–64",
+        "Resultary 62b4b8c42504 lattice scope"
+      ],
+      "rationale": "This explicitly identifies a natural reflexive sublattice inside the relative ideals of a near-ordinary semigroup. The path description gives both the exponential difference between total and reflexive ideals and a minimal-size structural obstruction to modularity that persists uniformly. The exact transition at the first two multiplicities, and the order-sensitive witness, convey information not provided by a finite-instance bidual algorithm or a binary-word count alone.",
+      "residual_risks": [
+        "Value is confined to the normalized inclusion lattice and the stated family, not the ideal-addition monoid or all near-ordinary semigroups."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

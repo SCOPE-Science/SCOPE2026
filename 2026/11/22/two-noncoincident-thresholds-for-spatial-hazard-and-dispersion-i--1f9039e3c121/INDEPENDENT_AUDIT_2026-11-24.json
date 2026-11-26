@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:55:35.437561Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In dimensionless units let K be the reset kernel and R the exponential-time Neumann resolvent with kernel (exp(-|r-y|)+exp(-r-y))/2. The pre-alarm chain has kernel KR. On the event B≤1 the reset point r lies in [0,1] for every previous position; R(r,y)≥exp(-1)/2 on [0,1]. This gives a uniform minorization and a unique invariant probability μ. The identity μ=μKR also gives arbitrary-time stationarity by the last-alarm renewal equation: e^(-s)μU_s is the tail from s to infinity of the exponential-age mixture μKR, where U_s is the reflected Brownian semigroup. Conversely a stationary measure satisfies this mixture identity in the infinite-time limit. The law has a density, even though the reset law includes an atom. With w=E[Y exp(-tY)], the reset tail is exp(-ty)[(1+ty)v+tw], so the atom is 1-v-tw and the source density is t² exp(-ty)(yv+w). Re-solving normalization and the two affine-exponential coefficient equations gives the stated A,C,E and the atom flux; a polynomial-exponential solution at t=1 gives g_1=exp(-y)(30y²+68y+191)/319. For t≠1, in g'S+g² the pure exp(-2ty) coefficient is E²/t² and the cross coefficient is A(K0+K1 y). The sign is that of F_t; F'_t is positive from K1+(t-1)K0>0 and (t-1)K1≥0. Its far-tail limit is strictly positive (or +infinity), so its origin sign alone decides the bathtub/increasing alternatives, including strict increase for y>0 at the transition. At t=1 the derivative reduces to a positive factor times 450y²+1920y−689, with one positive zero. Exact moments give CV²−1=−8P_v/M² and the origin slope is 4P_h/Q². Each polynomial has one sign variation, starts negative and has positive leading coefficient; P_v(1)=4051 and P_h(1)=−689 separate the roots. Independent replay: python /workspace/review_reproduction.py (section 2, SymPy and mpmath) solved the density and bracketed 0.5241620843734732 and 1.17158604349906. The replay corroborates algebra and decimals, not the continuum monotonicity proof or other reset laws.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general reflected spectrally positive Lévy model and stationary transform relation allow a general reset functional F and include zero-drift reflected Brownian motion with this Erlang-2 reset law.",
+          "The inspected explicit finite-capacity example in §3.6 assumes exponential B."
+        ],
+        "reasoning": "The general stationary-transform framework covers the model and can be used to derive its density; the inspected results give no general one-minimum spatial-hazard criterion or two-threshold separation to specialize here.",
+        "searches": [
+          "arXiv:2611.14692v1, §§3.1 and 3.3, (36)–(44)",
+          "Primary search: \"reflected Lévy\" resetting \"(B-X)+\" exponential capacity Erlang phase-type Brownian hazard coefficient of variation"
+        ]
+      },
+      "checked_sources": [
+        "Resultary catalogue and matching local mirror",
+        "Palmowski–Vlasiou, arXiv:2611.14692v1",
+        "Boxma–Kella–Perry, arXiv:2501.09365"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general Laplace relation permits substitution of the Erlang reset kernel, but Erlang-2 self-consistency requires its own two-functional closure and the resonant t=1 case.",
+          "The two sharp signs also require a global monotonicity identity for the hazard derivative and a separate moment-polynomial identity."
+        ],
+        "reasoning": "No threshold theorem in those prior passages implies the supported classification by parameter substitution. Implicit determination of the law by the general transform is credited, and is distinct from proving the shape and separation for all parameters.",
+        "searches": [
+          "arXiv:2611.14692v1, §§3.3 and 3.6",
+          "Frozen RESULT.md, lines 21–65"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Palmowski–Vlasiou §3.6 uses the identical nonnegative subtraction map but a one-stage exponential capacity.",
+          "Boxma–Kella–Perry study multiplication by a random fraction of the current position, not subtraction from an independent capacity.",
+          "The Erlang-2 capacity tail carries a linear prefactor; the reset law requires v and w, whereas exponential memorylessness gives one transform evaluation."
+        ],
+        "reasoning": "Changing units or renaming β does not remove the linear prefactor. The reflected collapse paper has a different kernel; a temporal hazard is also not the stationary spatial hazard studied here.",
+        "searches": [
+          "Resultary: reflected Brownian motion Poisson resetting (B-X)^+ Erlang capacity spatial hazard coefficient of variation distinct thresholds",
+          "Primary search: \"reflected Lévy\" resetting \"(B-X)+\" exponential capacity Erlang phase-type Brownian hazard coefficient of variation",
+          "arXiv:2611.14692v1, §3.6, (64)–(67)",
+          "arXiv:2501.09365, p. 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact match in the catalogue and mirror has suffix 1f9039e3c121, the assigned record itself; its Finding reports the same two polynomials and thresholds. No separate exact threshold entry was identified in the inspected results."
+        ],
+        "reasoning": "This check concerns any earlier exact phase-diagram or threshold entry, not a general-purpose table of polynomial roots. The identical catalogue record is not separate prior coverage.",
+        "searches": [
+          "Resultary: reflected Brownian motion Poisson resetting (B-X)^+ Erlang capacity spatial hazard coefficient of variation distinct thresholds",
+          "Resultary: reflected Brownian reset with Gamma Erlang capacity bathtub hazard coefficient of variation"
+        ]
+      },
+      "rationale": "The strongest inspected prior work already treats the general reflected reset process and solves the same subtraction-and-truncation map for exponential capacity. Credit both. The supported distinct claim is the sharp spatial-hazard/CV phase diagram with two ordered thresholds for Erlang shape two, not the reset map, the general stationary transform, or the generic possibility that dispersion and hazard shape disagree.",
+      "residual_risks": [
+        "A phase-type-resetting source or supplement outside the inspected material may independently derive the same classification; no worldwide priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General framework and one-stage capacity covered; no Erlang-2 threshold dominance in inspected results",
+          "evidence": "(42)–(44) express the stationary LST via h_F; (64)–(67) specify exponential capacity and the corresponding stationary transform.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.14692",
+          "material_read": "v1 title page; §§3.1, 3.3 and 3.6, pp. 7–8, 11, (36)–(44), (64)–(67)",
+          "method": "Targeted open-access full-text passage inspection",
+          "title": "Steady-state of Lévy process with general resetting: unreflected and reflected cases",
+          "trigger": "Same reset map and possible stronger reflected Lévy theorem"
+        },
+        {
+          "assessment": "Different collapse kernel",
+          "evidence": "The jump is to a random fraction of the pre-collapse state.",
+          "identifier_or_url": "https://arxiv.org/abs/2501.09365",
+          "material_read": "p. 1, abstract and introduction",
+          "method": "Targeted open-access full-text passage inspection",
+          "title": "On reflected Lévy processes with collapse",
+          "trigger": "Related Poisson collapse and reflected Brownian specialization"
+        },
+        {
+          "assessment": "Identical assigned record, not another finding",
+          "evidence": "Same reset law, both threshold polynomials, and the same strict ordering.",
+          "identifier_or_url": "2026/11/22/SCOPE-two-noncoincident-thresholds-for-spatial-hazard-and-dispersion-i--1f9039e3c121",
+          "material_read": "Mirror RESULT.md, Finding/assumptions and relationship-to-prior-work passages",
+          "method": "Local Resultary lookup and mirror comparison",
+          "title": "Two noncoincident thresholds for spatial hazard and dispersion in an Erlang-two resetting diffusion",
+          "trigger": "Exact catalogue match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Erlang shape two is a natural first nonmemoryless capacity for this reset mechanism. The separate exact thresholds show precisely when stationary underdispersion coexists with locally decreasing exceedance hazard, and the result determines the entire hazard shape rather than just its slope at the origin or an example. The value is specific to this stationary spatial model, not a general statement about failure times, arbitrary capacity laws or transient diffusion.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

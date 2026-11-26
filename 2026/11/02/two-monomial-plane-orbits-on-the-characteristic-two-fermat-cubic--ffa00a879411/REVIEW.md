@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite exact checker enumerates \(376805\) reduced-row-echelon three-spaces in \(\mathbb F_4^6\), verifies the full polynomial-identity Hermitian isotropy conditions, and retains \(891\). Classical Hermitian geometry independently proves that all geometric planes are among the \(\mathbb F_4\)-spaces; the normal-syzygy calculation proves that the Fano scheme is reduced. Two exact symmetry closures of sizes \(405\) and \(486\) exhaust the set, and rank checks on both orbit representatives give all three uniform intersection quotient matrices. The \(15\) Frobenius-fixed planes and the zeta formula follow from unique reduced-row-echelon descent. The standalone verifier was executed and returned `VERIFY_OK`. No numerical extrapolation is used.
+PASS
 
-## Originality — PASS, qualified
+Vanishing of the cubic coefficients gives W^(2)=W^perp for the bilinear coordinate pairing, hence W^(4)=W and descent to F4. The restricted normal derivative sending a complementary vector n to sum_i (r_i^(2)·n)t_i² is an isomorphism onto the three-dimensional square span; the resulting products t_i²t_j are distinct, so the plane Hilbert tangent vanishes. Over F4, a weight-two vector splits off a self-dual two-coordinate summand, and a residual length-four self-dual space in systematic form has monomial 2×2 right block (each row has odd weight). Without weight two, the 3×3 right block in systematic form has three full rows. Normalize its first row and first column to one; orthogonality forces the other rows to be (1,α,α²) and (1,α²,α), in either order. Thus the two types are each one monomial orbit. Independent replay built systematic planes from all orthogonal norm-one triples, deduplicated by projective point sets and compared all ordered intersections by cardinality 0,1,5,21 instead of rank. It confirmed counts 405 and 486, both weight profiles, all three quotient matrices and the 15 Frobenius fixed planes, all in the pairing class. The remaining Frobenius cycles are pairs and give the stated zeta function. The quotient eigenvalues follow from each row sum and the trace.
 
-Shimada (2001) covers the \(891\) Hermitian planes and full unitary transitivity. Shimada (2017) covers their global incidence correspondence. The complex \(405\)-plane Fermat count is classical and also appears in Degtyarev–Itenberg–Ottem (2021). None of these inspected sources presents the full two-suborbit coordinate-monomial line/point/disjoint quotient matrices, and actual literature and prior-claim searches found no exact equivalent. Classical code theory may imply the two weight types; original significance is assessed for the precise restricted incidence partition, not for two code types alone. Historical priority remains qualified because global unitary association schemes and unindexed code/design tables may allow or contain these calculations.
+## originality
 
-## Value — PASS
+PASS
 
-The complete quotient incidence data describe exactly how the \(486\) exceptional characteristic-two planes intersect the \(405\) familiar coordinate-pairing planes. The nontrivial eigenvalue \(9\) of the line-incidence quotient and the distinct weight distributions are structural invariants of the natural monomial symmetry, providing more than an arbitrary count or a restatement of the global Hermitian plane census. Scheme reducedness and arithmetic descent complete the geometric Fano-fiber description.
+The supported distinct contribution is the coordinate-monomial equitable partition with its joint line/point/disjoint intersection profiles. The 891 planes, F4 descent, ambient unitary incidence and total valencies, pairing construction, and hexacode weights are classical or covered in the checked sources. The published full plane data allow reconstruction but do not give the relative incidence split in the inspected material. Frobenius data are already encoded in the published plane permutation and are not the basis for this pass.
 
-## Limits
+## value
 
-The full projective unitary group acts transitively, so the two cells are not invariant under all automorphisms. The abstract global Hermitian counting result is prior art. A separate independent priority or scientific audit remains necessary before claims of comprehensive historical novelty.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Coordinate structure gives a natural partition of the maximal isotropic spaces into the familiar pairing family and the characteristic-two hexacode family. The complete equitable quotient for each of the three intersection relations resolves where the global valencies go under this geometrically meaningful symmetry restriction. It supplies usable coordinate-sensitive incidence data rather than a recount of 891 or a list of code weights.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

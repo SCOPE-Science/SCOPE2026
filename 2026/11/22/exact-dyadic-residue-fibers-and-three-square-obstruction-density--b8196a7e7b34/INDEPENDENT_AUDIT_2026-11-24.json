@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:11:59.039197Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md proof §§1–4; VERIFICATION.md and verify.py (read only)",
+        "Reproduction: python3 /workspace/reproductions/4/sections_check.py"
+      ],
+      "rationale": "The generating product over the two distinguishable colors satisfies B(x)=(1−x)^(-2)B(x²). For each section, the B(x²) factor passes through as B(x); the indicated Vandermonde transformation computes coefficients of the remaining multiplier exactly. I independently rebuilt the full state space using rational multipliers P(x)/(1−x)^d rather than Newton coefficients: the next numerator is the even/odd section of P(x)(1+x)^(d+2), with denominator (1−x)^(d+2). The reproduced graph has 100 states; its histograms at depths 11 and 12 are (66,62,65,67,63,64,62,62) and (130,126,129,131,127,128,126,126), and all 800 consecutive recurrence residuals vanish in dimension 100. Taking predecessor closures of both labels gives 37 unstable states; exactly ten paths reach unstable states at depth seven and the next 100 differences vanish. Cayley–Hamilton applied to the integer transition matrix extends both identities to all later depths. The ten paths bound the change under any higher digits; together with the −2 offset they give error at most 12 per aligned dyadic block of length ≥2^11. Binary decomposition gives ordinary discrepancy O(1+log X), including real cutoffs by rounding. Positive values 112 mod 128 are 4²(8u+7), so the full obstruction lower density is at least 1/32, not necessarily exactly 1/32.",
+      "residual_risks": [
+        "Only eight residues are classified; the natural density of the entire obstruction set is not decided."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general-color automaticity theorem includes m=2, but the published exact obstruction densities are for m=2^k−1. The five-color record proves 1/32 for a different obstruction subset using Thue–Morse congruences."
+        ],
+        "reasoning": "Neither color family includes two. Automaticity permits computing the two-color histogram but does not give the eight offsets, the density constant, or an O(log X) bound for arbitrary prefixes.",
+        "searches": [
+          "arXiv:2211.16622 (abstract, Proposition 7.3, Problem 7.4)",
+          "2026/11/2/SCOPE-four-thue-morse-progressions-of-three-square-obstructions-for-fi--db0217659bdb"
+        ]
+      },
+      "checked_sources": [
+        "Two- and five-color Resultary comparisons",
+        "Sobolewski–Ulas arXiv:2211.16622",
+        "Gawron–Miska–Ulas DOI 10.1007/s00605-017-1041-2",
+        "OEIS A171238",
+        "Targeted literature search for colored binary partition residues and three squares"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier two-color record proves b₂(128t+36) and b₂(128t+62) always equal 112 modulo 128, giving lower density 1/64; its two classes are the entirely constant classes, not the entire fiber."
+        ],
+        "reasoning": "Those classes give guaranteed hits and leave other classes able to supply further hits. Automaticity alone neither resolves their contributions nor controls shift dependence; the recurrence and unstable-suffix certificate are new exact work relative to these statements.",
+        "searches": [
+          "2026/11/2/SCOPE-a-positive-density-three-square-obstruction-for-two-colored-bina--48027f9dc065, Finding",
+          "arXiv:2211.16622, Proposition 7.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A171238 counts binary partitions with two kinds of parts. Sobolewski–Ulas formulate modular coefficient automaticity and their residue question. Gawron–Miska–Ulas establish constant valuations on selected arithmetic progressions."
+        ],
+        "reasoning": "The color, generating-function coefficient, and fixed-output automaton descriptions refer to the same sequence. A valuation loses the odd-part information distinguishing 112 from 16,48,80, and only the exact residue output distribution gives the present counts.",
+        "searches": [
+          "OEIS A171238",
+          "arXiv:2211.16622, Proposition 7.3 and Problem 7.4",
+          "DOI 10.1007/s00605-017-1041-2, Theorem 5.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The OEIS entry gives the sequence and initial terms. The closest Resultary hit gives two constant-residue arithmetic progressions, not an exhaustive histogram or long-prefix discrepancy."
+        ],
+        "reasoning": "An exact coefficient table can test finite values but is not an exact table of fiber counts at unrestricted depth.",
+        "searches": [
+          "OEIS A171238",
+          "Resultary: two-colored binary partition residue 112 modulo 128 and obstruction density"
+        ]
+      },
+      "rationale": "The exact eight dyadic histogram cells and the ordinary 112-fiber logarithmic discrepancy are distinct from prior automaticity, scalar valuations, and even the earlier two-color obstruction progressions. The claim is not new for automaticity or for the existence of a positive-density obstructed subset.",
+      "residual_risks": [
+        "Uninspected calculations for binary automatic coefficient sequences might implicitly cover a residue statistic; the conclusion is limited to the comparisons made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "closest prior lower bound, not covering exact fiber",
+          "evidence": "Two entire classes 36,62 mod 128 give lower density 1/64; no exact natural density asserted.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-positive-density-three-square-obstruction-for-two-colored-bina--48027f9dc065",
+          "material_read": "RESULT.md Finding, offset 84",
+          "method": "local mirror",
+          "title": "A positive-density three-square obstruction for two-colored binary partitions",
+          "trigger": "same sequence, target residue and application"
+        },
+        {
+          "assessment": "automaticity covered, not exact two-color frequency",
+          "evidence": "Proposition 7.3 proves automaticity of fixed 2-power residues; Problem 7.4 asks for their characterization; exact densities in the abstract concern 2^k−1 colors.",
+          "identifier_or_url": "https://arxiv.org/pdf/2211.16622",
+          "material_read": "abstract and arXiv PDF pp. 20–21, offsets 60120–63610",
+          "method": "OA PDF",
+          "title": "Values of Binary Partition Function Represented by a Sum of Three Squares",
+          "trigger": "same representability problem and general colors"
+        },
+        {
+          "assessment": "selected scalar valuation progressions",
+          "evidence": "Exhibits progressions of prescribed valuations from 3 through 7, not the eight residue histograms.",
+          "identifier_or_url": "https://doi.org/10.1007/s00605-017-1041-2",
+          "material_read": "Theorem 5.4, OA text offset 150400",
+          "method": "OA PDF passage",
+          "title": "Arithmetic properties of coefficients of power series expansion of a certain infinite product",
+          "trigger": "valuations of the same two-color sequence"
+        },
+        {
+          "assessment": "different color and congruence theorem",
+          "evidence": "Four residue classes modulo 64 combined with Thue–Morse produce density 1/32 for an obstruction subset of b₅, not a b₂ fiber.",
+          "identifier_or_url": "2026/11/2/SCOPE-four-thue-morse-progressions-of-three-square-obstructions-for-fi--db0217659bdb",
+          "material_read": "RESULT.md Finding, offset 99",
+          "method": "local mirror",
+          "title": "Four Thue–Morse progressions of three-square obstructions for five-colored binary partitions",
+          "trigger": "similar coloring obstruction and same numerical density"
+        },
+        {
+          "assessment": "identifies object, not target statistics",
+          "evidence": "Interpretation and sample terms, no exact fixed-modulus histogram theorem in inspected passage.",
+          "identifier_or_url": "https://oeis.org/A171238",
+          "material_read": "entry description and comment, offset 646",
+          "method": "public page",
+          "title": "Binary partitions into two kinds of parts",
+          "trigger": "sequence alias and table check"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md proof §§2–4",
+        "Two-color progression theorem",
+        "Sobolewski–Ulas modular problem"
+      ],
+      "rationale": "This is a motivated modulus and fiber: a single congruence yields a three-square obstruction and directly improves the earlier bound from 1/64 to 1/32. The stabilization and bounded number of suffixes sensitive to high digits give a quantitative all-prefix answer rather than just a dyadic-limit census. The simultaneous eight-cell histogram gives further usable residue information.",
+      "residual_risks": [
+        "The larger three-square classification remains open on this evidence."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

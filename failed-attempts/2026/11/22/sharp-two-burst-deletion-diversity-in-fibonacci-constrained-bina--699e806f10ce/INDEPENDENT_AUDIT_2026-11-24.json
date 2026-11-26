@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:44:16.161010Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–76, VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent exact checks: gap formula algebra above; enumerate recursively by prepending 0 or 10 to the respective shorter Fibonacci languages with bases empty and {0,1}, and deduplicate w[:i]+w[i+2:] over all starts at lengths 2–18."
+      ],
+      "rationale": "For deletion starts i<j, the only potentially differing output coordinates are i through j−1, where one output reads w_s and the other w_(s+2). Equality classes are intervals in the ordered list of starts; the number of distinct outputs minus one thus counts lag-two mismatches. This includes n=2, where all three sources have a single empty output. Checked the 00,01,10 suffix automaton, characteristic recurrence and initial values. Independently, writing a source with r≥1 ones by its leading and trailing zero strings and its positive inter-one zero gaps, the lag-two mismatch score is 2r minus the two endpoint-pair one-counts and minus twice the number of one-zero gaps. For each end use A=1+z+uz²/(1−z); for each inter-one gap use B=z+u²z²/(1−z). Thus the series with z^n is 1/(1−z)+z A²/(1−zB)−1−2z; division by z² simplifies exactly to the displayed rational function. The recurrence gives the three claimed degrees and leading coefficients: only u²F_n contributes at top degree for n≡0,1, and F_(n+2) additionally contributes one for n≡2. Direct output deduplication on all 17,706 source words of lengths 2–18 independently reproduced the entire small spectra and the explicit lists of maximizing words. Differentiation at u=1 gives 2z(1+z)/(1−z−z²)²; comparison of its double pole with the total-count simple pole at ρ=(√5−1)/2 gives slope 2ρ²/√5=3/√5−1. Thus the mathematical claims as stated are correct.",
+      "residual_risks": [
+        "Counts are for linear indexed binary no-11 sources, exactly one length-two adjacent deletion, and unrestricted outputs. The finite rerun is supplementary to the all-length derivation, not a capacity or decoding result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general interleaved-run formula covers every binary length-two deletion ball, so its specialization supplies the required pointwise reduction. The distinct homopolymer-free result starts with q≥3 and forbids all equal neighbors, giving a shifted-binomial law for b=2 in a different language."
+        ],
+        "reasoning": "The earlier general formula alone does not give the no-11 spectrum. The exact no-11 enumerator in the tandem record supplies that missing step; the large-alphabet homogeneous constraint does not.",
+        "searches": [
+          "arXiv:1602.06820v2, §IV p. 4 Eq. (2)",
+          "Resultary e8004d1f1b13, Finding, exact burst-deletion fluctuations in homopolymer-free words"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e78ed24d338c and e8004d1f1b13",
+        "arXiv:1602.06820v2, §IV Eq. (2)",
+        "Frozen RESULT.md lines 4–28, 31–40, 54–73 and 78–79"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Run counts in the odd and even interleavings yield the lag-two mismatch formula for deletion. Composing with e78ed24d338c Eq. (1) gives F_n=A_n for each n and equality of the objective functions on their full source domain. The already-given derivative series yields the mean slope by elementary pole comparison."
+        ],
+        "reasoning": "No new distribution, extremal value, multiplicity or typical-source asymptotic is needed after the pointwise reduction. The explicit word list in the frozen proof is a short unpacking of the common extremum: verify listed words with the shared mismatch count and use the already exact multiplicity for completeness. It does not salvage a distinct substantive result.",
+        "searches": [
+          "Schoeny et al. Eq. (2); e78ed24d338c Eq. (1), Finding and Proof §§2–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For the same linear no-11 source domain, e78ed24d338c Eq. (1) proves B(w)=1+∑[w_i≠w_(i+2)] for exactly one length-two duplication. Schoeny et al. Eq. (2) gives the identical expression for burst deletion.",
+          "The two successor sets are different strings, but their cardinalities agree for each individual source word, not just in distribution."
+        ],
+        "reasoning": "Consequently all spectrum and maximization assertions transfer with no further constrained-source enumeration. The source-size equality is already an immediate consequence of the two channel identities.",
+        "searches": [
+          "Local Resultary search for no-11/Fibonacci binary sources, lag-two mismatch enumerators, length-two burst and tandem channels",
+          "Resultary e78ed24d338c, mirrored Finding and Proof §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The rational functions agree after renaming t to z. Its maximum 1+ceil(2(n−2)/3) equals 1+floor(2(n−1)/3), and its counts 2, 1, (n+7)/3 match the three residue classes. Its derivative series is exactly 2z(1+z)/(1−z−z²)² after renaming."
+        ],
+        "reasoning": "This is a substantive exact table match for the statistic, not the present record matching itself. Same-day indexing neither orders the two records nor removes the exact overlap.",
+        "searches": [
+          "Local Resultary; e78ed24d338c, mirrored original Finding and Proof §3"
+        ]
+      },
+      "rationale": "Demonstrable equivalent coverage, not just a similar channel: the distinct indexed tandem-duplication record e78ed24d338c proves that its exact length-two duplication count on precisely the same source words is 1+the same lag-two mismatch statistic, pointwise. The known burst-deletion formula gives the exact same count pointwise. Hence the whole claimed spectrum, the sharp maximum, the extremizing source set and its multiplicities, and the source mean are covered or mechanically transferred. The records have the same indexing date; no priority, authorship, or chronological claim is being made. The direct deletion-specific argument is correct, but distinct mathematical content sufficient for acceptance is not established.",
+      "residual_risks": [
+        "The relative chronological priority of the two same-day indexed findings was not established. Operation-specific results about output identities across sources, decoding or codebooks need not transfer; none is claimed here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact mathematical coverage of all headline statistics by the shared pointwise degree. Same indexing date, priority unresolved.",
+          "evidence": [
+            "Eq. (1): B(w)=1+∑[w_i≠w_(i+2)]. The rational series, sharp maximum, three leading coefficients and exact first-moment series coincide."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-length-two-tandem-duplication-spectrum-on-the-fibonacci-bi--e78ed24d338c/RESULT.md",
+          "material_read": "Mirrored RESULT.md Finding, scope and Proof §1 (offset 0), §3 (offset 3760), derivative discussion (offset 4770), snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary search and targeted passages of the original record",
+          "title": "Exact length-two tandem-duplication spectrum on the Fibonacci binary language",
+          "trigger": "Different channel but same source class, pointwise statistic and claimed exact spectrum"
+        },
+        {
+          "assessment": "Covers the deletion counting identity, not the constrained-source enumeration by itself.",
+          "evidence": [
+            "|D_b(x)|=1+∑ from i=1 to b of (r(A_b(x)_i)−1), with interleaved-array row run counts. For b=2 the summands count the lag-two mismatches on the odd and even indices."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1602.06820v2",
+          "material_read": "PDF §IV p. 4 Eq. (2), OA offset approximately 21665, surrounding passage starting 20400",
+          "method": "Targeted lawful OA PDF passage",
+          "title": "Codes Correcting a Burst of Deletions or Insertions",
+          "trigger": "General burst-deletion formula underlying the reduction"
+        },
+        {
+          "assessment": "General identity overlaps, but the sampled source language and distribution in this record do not subsume binary no-11.",
+          "evidence": [
+            "Assumes q≥3 and no equal adjacent symbols; for burst length two the law is shifted binomial."
+          ],
+          "identifier_or_url": "Resultary e8004d1f1b13",
+          "material_read": "Local mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary search and original passage",
+          "title": "Exact burst-deletion fluctuations in homopolymer-free words",
+          "trigger": "Distinct same-day burst-deletion spectrum under a word constraint"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, explicit word list at line 65, and limitations",
+        "Resultary e78ed24d338c, Finding and Proof §§1–3",
+        "arXiv:1602.06820v2, §IV Eq. (2)"
+      ],
+      "rationale": "The Fibonacci language and its degree distribution are well motivated, and the results are useful as a description of the channel. As a distinct contribution, however, this exact invariant and its optimization are already mechanically determined by the verified tandem count and the existing burst formula. The alternative deletion derivation and the elementary word list give no further structural separation of the channels, no new invariant, and no surviving substantive repair of the original claim.",
+      "residual_risks": [
+        "Scientific rejection is of the claimed standalone spectrum contribution, not of the correctness of the formulas or the usefulness of the broader constrained-channel question."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

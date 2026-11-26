@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain is precisely iid binary trials with head probability \(0<p<1\), distinct words of length three, and first completion-index waiting times (overlap allowed). The first-winner absorption method derives exact joint moments by invertible finite Markov matrices. The completely independent augmented-state method, tracking two occurrence flags, agrees symbolically on all sixteen complement-orbit representatives and at eighty-four rational pair/parameter checks. All displayed sign denominators reduce to explicitly positive factors; exact Sturm root counts and polynomial-derivative gcd checks establish the sixteen zero counts and simplicity. Complement symmetry covers all twenty-eight pairs. No probabilistic simulation, asymptotic approximation, or truncated time horizon is used as an infinite proof. The code replay confirms the critical finite algebra.
+## correctness
 
-## Originality — PASS, subject to historical priority risk
-The closest work is Aki and Hirano (2008), especially Theorem 1, which gives general joint probability-generating-function machinery for two pattern waiting times in Markov-dependent trials. That stronger *distributional construction* already implies that these finite covariances can be calculated: neither the Markov automaton nor generic moment recovery is claimed as new. Its full inspected article gives a second-order Markov example and a four-letter pair example; it does not contain the exact twenty-eight-pair length-three bias-dependent sign classification or the fact that exactly four pairs have two interior reversals. The assessed contribution is the completed qualitative algebraic phase diagram and exact root classification rather than a new distributional representation. Koutras and Milienos (2012) provide single-pattern marginal waiting-time recurrences and asymptotics; Chen and Zame (1979) address fair-coin ordering paradoxes. Available descriptions do not resolve an exact statement-level overlap with the phase diagram. Search failure is not asserted as a novelty proof; a broader uninspected formula or historical table remains possible.
+PASS
 
-## Value — PASS
-All three-letter binary patterns are the canonical first length supporting the usual nontransitive coin-pattern races. Whether two first-occurrence delays covary positively is not decided by either individual mean or the probability one word appears first. The full chart identifies seven universally positive pairs, three universally negative pairs, fourteen one-crossover pairs, and four two-crossover pairs, including explicit algebraic bias thresholds for HHT/HTT. A complete classification of this natural finite model—with double dependence reversals—is structurally informative rather than a relabeling or a marginal-moment calculation; no assertion of a downstream theorem or paper-scale advance is needed. Its sharp limits to iid, two symbols and length three are explicit.
+The same-stream first-hit indices are finite with geometric-tail domination by disjoint blocks of three tosses, and distinct equal-length words cannot tie. The race matrix is transient. Its first-step recurrences give m=N1, s=N(1+2Qm)=(2N−I)m, w_a=Nr_a and h_a=Nw_a; the tail search starts at the longest retained proper prefix of the losing word. On the event of an a-win, T_a=τ, T_b=τ+additional time and the conditional mean of the future time depends only on the winning word, so the displayed mixed-moment equations follow. Independently derived all 28 rational covariances via a four-state last-two-letter chain after the first two tosses (branches/reproduction/covariance.py): the mixed moment obeys M=1+P_a E_a+P_b E_b+P_ab M, where each masked transition matrix drops just the designated hits. Averaging over the initial two tosses and subtracting the product of means reproduced the factored representative formulas and the supplied signs. Exact polynomial gcd and Sturm counts after excluding endpoint poles gave no nonsimple interior roots and classes 7,3,14,4. Complementation acts by p↦1−p and gives the stated 16 orbits. The highlighted cubic and approximate roots 0.307978528369904 and 0.643104132107791 reproduce. The frozen verification script was inspected, not replayed.
 
-## Closest literature and residual risks
-Aki and Hirano, *Journal of the Japan Statistical Society* **38** (2008), 97–105, DOI 10.14490/jjss.38.97, full PDF read, is closest. Koutras and Milienos (2012), DOI 10.1016/j.jspi.2011.12.028, has publicly accessible abstract/introduction but an inaccessible full paper. Chen and Zame (1979) is established by citation and abstract only; the full primary text was not inspected. The generality of the Aki–Hirano theorem creates an implicit-specialization risk, not a contradiction to the claimed explicit sign classification. Independent mathematical and priority auditing remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct claim is the complete bias-dependent qualitative sign and root classification of the same-stream first-hit covariance, not the joint generating function or a new method for joint waiting times. The strongest prior joint-PGF result covers the distributions and permits exact moment extraction; its theorem and examples do not classify these root patterns. Related exact crossover analyses and indexed covariance results use different observables or sampling laws.
+
+## value
+
+PASS
+
+The eight words form a complete natural family within the first short length showing these double reversals, not an arbitrarily selected list of examples. The phase diagram answers a dependence question missed by both race-odds tables and fixed-bias covariances: even the sign need not vary monotonically with bias. Simple-root certification distinguishes genuine switches from zero contacts and makes the classification usable without generating or numerically scanning a separate covariance for each pair. No value is attributed to rediscovering the general finite-state method.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

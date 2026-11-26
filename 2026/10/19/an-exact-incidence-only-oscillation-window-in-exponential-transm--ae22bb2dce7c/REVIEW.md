@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem’s two logarithmic derivatives are exact, and the scaled population states solve a conservative Lotka–Volterra system with a strictly convex coercive first integral. The stationary-incidence ray has a unique constrained energy minimum. Two transverse crossings for energies above that minimum give one incidence peak and trough per scaled period; the separate prevalence threshold follows from a vertical-line minimization. The equality tangencies do not generate extrema. `verify.py` checks the algebra symbolically and supplies a physical numerical example, without treating finite numerics as an infinite proof.
+PASS
 
-## Originality — PASS, with risks
+For the repaired statement, direct scaling gives X'=X(r−Y), Y'=Y(X−a), and the two terms in the energy derivative cancel. Each positive level is a compact smooth convex oval without a rest point. The incidence and prevalence log derivatives are X−a−Y and X−γ; minimizing the energy on their respective zero sets gives the stated thresholds. Strict convexity gives zero, one tangent, or two transversal intersections by energy, with the center on the negative side. The tangent recurs once per period and does not impair strict decrease. The frozen proof's 'only when h exceeds' at the prevalence line omitted equality, and its Finding's isolated-tangent phrasing could be read as a single event globally; both are corrected, with interior-time and modulo-period counts specified. The exact witness follows by comparing the incidence-ray point (17/10,7/10) with (19/10,1): their energy gap is 1/2−log(190/119)>0, and the latter point has less energy than (2,1). Reviewed frozen VERIFICATION.md and verify.py as evidence; did not execute the script or use sample integrations to infer an infinite theorem.
 
-Rabajante (2026, arXiv:2610.05556v1) already gives the arbitrary-transmission peak criteria, including the incidence logarithmic derivative. Maheshwari et al. (2020/2021, doi:10.1101/2020.11.10.20211995) already derive a Lotka–Volterra system for a different, controlled transmission law. Those equations and classical LV periodicity are not claimed as new. The missing new fact is a global incidence-stationary energy minimum and its strict separation from the prevalence minimum for externally fixed exponential transmission. Prior high-energy prevalence-wave results do not imply incidence-only waves at intermediate energy. An uncatalogued matching specialization remains an originality risk; the control paper's publisher full text was inaccessible, but indexed relevant sections and theorem statements were compared.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result identifies an exact, nonempty region in which repeated reported new-infection incidence peaks coexist with monotonically declining infectious prevalence. It resolves a natural distinction between epidemic observables that matters when interpreting wave counts, and the boundary is an explicit sharp global invariant rather than a fitted threshold.
+Pass only the incidence-specific sharp threshold and its strict separation from prevalence as the distinct contribution of the October 19 claim. The earlier October 13 record substantially covers the original framing (including the exact prevalence threshold and damping); the replacement explicitly credits it. The November 8 indexed record is an exact equivalent on the core mathematics, not independent evidence of novelty, but has a later issue date and was not established to precede the assigned record.
 
-## Scope and limitations
+## value
 
-The forcing grows without bound, all strict peaks eventually fall below any fixed reporting threshold, and finite epidemic extinction or stochastic effects are not modeled. The claim does not endorse the forcing law as a realistic long-term contact policy or assert that all oscillations would be clinically detectable.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The new lower threshold closes a natural gap left by a criterion for prevalence waves: incidence can repeatedly change direction while prevalence never increases, even under one log-linear forcing segment. The result finds both sharp boundaries and yields an exact admissible witness. Its value is a precise observable distinction, not a claim of clinically detectable resurgence or a new LV reduction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

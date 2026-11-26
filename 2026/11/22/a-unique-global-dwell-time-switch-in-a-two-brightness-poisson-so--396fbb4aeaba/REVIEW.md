@@ -1,24 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every fraction \(p\in[11/50,7/25]\), three and only three critical points follow from two analytic facts: the gamma-mixture second derivative has at most three zeros, and four exact-rational sign evaluations alternate. The first and third critical points maximize locally; the middle minimizes. Exact rational Taylor enclosures establish that the long optimum wins at \(p=11/50\) and the short one at \(p=7/25\). The short branch's envelope derivative in \(p\) exceeds \(1/2\), whereas the long branch's derivative is below \(1/2\); this proves a unique equality of the two *global* maxima. All quantifiers, root intervals and boundaries are explicitly covered; at the equality exactly two optimal durations exist. The checker was run from the attached code and reported 61 rigorous rational assertions. Numerical transition values are diagnostic only. Risk: the theorem relies on the idealized detection and overhead assumptions, not on measured telescope data.
+PASS
 
-## Originality — PASS, with historical priority risk
+For the expected two-count detection fraction F, J'=D/(t+h)^2 with D=(t+h)F'−F, D(0)=0, D'=(t+h)F'', D(∞)=−1. The zeros of F'' lie strictly between 1/b and 1/a; their ratio equation has log derivative (b−a)[1/((bt−1)(1−at))−1]. The positive quadratic in the denominator has one maximum (b−a)^2/(4ab), so the ratio has at most two turns and at most three intersections with a positive level. At b/a≤3+2√2 the ratio is strictly increasing even at equality, which gives one positive critical point of J. Rolle from t=0 gives at most three positive zeros of D for arbitrary rates. For the fixed rate pair and unit overhead the two mixture endpoints give (+,−,+,−) at t=(1/20,1/10,1,3); affineness extends the signs to the entire closed interval. The three roots are simple, since a repeated one would add a fourth zero of D' to the three separate Rolle zeros. An independent rational enclosure using degrees 16 and 17 of alternating exp(−x/ceil x), propagated by positive powers, reproduced all eight signs and all decisive finite comparisons. Rounded enclosures for the short upper bound at p=0.22, J(2) lower bound there, J(0.07) lower bound at p=0.28, and the short envelope slope lower bound are respectively 0.2129995194, 0.2277718124, 0.2613469024, and 0.8680849799; the threshold comparisons were exact. The elementary e<49/18 bound handles the long branch at the upper endpoint. The envelope derivative is strictly positive for short minus long because the short contribution exceeds 1/2 and the long contribution is below 1/2. The opposite endpoint height preferences, vanishing boundary yields, and absence of other maxima establish a unique tie with exactly two global optima. Replay: frozen RESULT.md lines 23–77 and check.py lines 17–99 (read, not executed). The switch is unique only on [11/50,7/25]; the provided switch coordinates are diagnostic. No astronomical calibration is established.
 
-The contribution is not the gamma-density mixture modality count or the source-count detection power definition. Ahmed, Goria and Hussein (2008) analyze gamma density mixtures, and Došlá (2009) provides the gamma-mixture rate-separation criterion. Nemiroff (2003) and Macquart (2014) analyze survey timing and overhead using different detection and population models. Kashyap et al. (2010) explain Poisson photon-count detection power. Comparisons of their mathematical statements with the present throughput quotient do not yield the strict, unique **global short-vs-long dwell-time equality** as the bright fraction changes. A related indexed gamma-mixture log-concavity record states a density curvature result, not a global throughput comparison; its linked complete package could not be accessed. Broader unindexed reward-rate results and unexamined source-population models pose unresolved priority risks, so originality assessment is provisional, not an independence or novelty certification.
+## originality
 
-## Value — PASS
+PASS
 
-This is a mathematically substantive scheduling boundary rather than a sign check: the same detector, overhead, source rates and source-density normalization admit two far-separated optimal exposure durations, with an exact one-time global switch as source composition changes. The result warns that optimizing a telescope dwell time with a single local numerical search can be structurally unsound for heterogeneous photon-limited populations. The proof gives a two-peak upper bound for arbitrary brightness ratios, two strict endpoint certificates and a monotone relative-height mechanism; it does not assert a physical threshold or optimal policy for real instruments. The rational interval of fractions brackets the genuinely endogenous switching value and is not an arbitrary grid slice.
+The supported novelty is the unique mixture-driven global equality and jump of the two Erlang-2-CDF-per-clock-time optima at the stated rates and overhead. Known gamma-density modality and curvature, the count-detection probability, and the idea of survey dwell optimization are not new. The strongest same-day lookalikes were compared at the actual objective and claim level.
 
-## Relevant sources and limits
+## value
 
-- Nemiroff (2003), *Tile or Stare?*, https://arxiv.org/abs/astro-ph/0301583 : arXiv posted 2003-01-29, the earliest verified public date among motivating sources.
-- Ahmed et al. (2008), *Gamma Mixture: Bimodality, Inflexions and L-Moments*, https://doi.org/10.1080/03610920701713286 : full 16-page PDF inspected, density modality only.
-- Došlá (2009), *Conditions for bimodality and multimodality of a mixture of two unimodal densities*, https://dml.cz/bitstream/handle/10338.dmlcz/140075/Kybernetika_45-2009-2_6.pdf : full primary text, especially Proposition 6 inspected.
-- Kashyap et al. (2010), *On Computing Upper Limits to Source Intensities*, https://arxiv.org/abs/1006.4334 : source-count detection power, partial accessible text.
-- Macquart (2014), *Optimization of Survey Strategies for Detecting Slow Radio Transients*, https://arxiv.org/abs/1406.5790 : accessible full HTML read for objectives and conclusions.
-- Related indexed gamma-mixture log-concavity result: https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-a-sharp-log-concavity-threshold-for-equal-shape-gamma-rate-mixtu--e45ac4ab94e8 : summary examined; complete package inaccessible, which is retained as a priority limitation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural rate-versus-overhead design can have two widely separated global optima at one mixture fraction even though each pure class has one. The monotonic height comparison explains an actual discontinuity of the optimum and why a single local optimizer need not suffice. The chosen rational interval brackets a structurally meaningful switch rather than serving as an arbitrary numerical slice. This is an idealized survey-design benchmark, not a calibrated exposure policy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:28:29.707956Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For nontrivial finite abelian A of odd order N, every subgroup not in A has intersection C with A and one outside coset of C, so there are N/|C| such subgroups for each C. Their isomorphism type determines C because the derived subgroup is C (squaring on C is surjective), and they cannot coincide in type with inside subgroups of odd order. An outside subgroup has |C|*|Aut(C)| automorphisms by choosing its restriction on the characteristic odd-order subgroup and the image of a reflection, including C=1. Isomorphisms for each ordered domain/range pair are a torsor under the automorphism group of either. These give h_B^2 a_B(1+N^2/b) per type. Every endomorphism maps A to A by element orders. A reflection image leaves the restriction on A arbitrary; the only possibility when the reflection maps inside A is the trivial map. This yields N|End(A)|+1. Independently, the finite abelian duality identity follows by counting kernels of a given quotient type via their annihilators in the dual group, which is isomorphic to A. Thus the inside sum counts |End(A)|. Weighting by 1+N^2/b>=1+N and using |End(A)|>=2 gives strict inequality. For ordinary D_(2n), each d|n gives one cyclic rotation group of order d and n/d outside groups of size 2d. When n is even, the n reflecting subgroups and rotation C_2 must be combined into a single type, and the n/2 groups V_4 contribute 6(n/2)^2; for d>=3 a dihedral automorphism is determined by a primitive rotation and one reflection, giving d*phi(d). These counts and the totient divisor sum give the asserted all-parity formula. For End, a rotation r-image and a reflection s-image give n^2 maps; two rotation images give 1 or 4 by parity. A reflection r-image is permitted only for even n and then its centralizer contributes four possible s-images of order dividing two. The inequalities follow for n>=3 from d=1 and, for even n, d=2, and plugging in the divisors for p and 2^k gives the stated special cases and unbounded ratio. Algebraic spot checks give (PIso,End)=(18,10),(60,36),(144,64) for n=3,4,6 and (1458,730) for Dih(C_3^2). These evaluations are not new exhaustive counts; the supplied check scripts and expected terminal markers were inspected without executing the scripts. The excluded A=1 and n=2 give abelian equality, as expected.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cameron reports strict inequality for nonabelian groups of order at most 63 and asks the universal question.",
+          "Muliarchyk's Theorem 1.1 gives equality for a nonabelian group of order 512, class two, exponent four; the inspected corollary extends equality to its direct products with odd-order finite abelian groups."
+        ],
+        "reasoning": "Cameron's reported verified range already includes strictness for small members of these families, not the exact formulas or the infinite-family result. The order-512 group is not the ordinary dihedral group of that order, which has an element of order 256. The equality family is not the stated odd-kernel dihedral case. The broad conjecture is false, not still a viable universal extension; the stated family strictness survives.",
+        "searches": [
+          "Cameron, Semigroup Forum 111 (2025), pp. 538–539",
+          "Muliarchyk, A nonabelian group with equally many endomorphisms and partial isomorphisms, Theorem 1.1 and direct-product corollary"
+        ]
+      },
+      "checked_sources": [
+        "Cameron 2025, DOI 10.1007/s00233-025-10514-5",
+        "Muliarchyk public counterexample preprint, Theorem 1.1 and appendix",
+        "Symmetry DOI 10.3390/sym10070238, landing/abstract only",
+        "Four focused Resultary comparisons for PIso and End in both families; near hits on retractions, cyclic-order-preserving partial permutations, and permutability"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The abelian identity supplies the lower bound only after the generalized-dihedral types and their multiplicities have been counted. Classical ordinary dihedral subgroup and automorphism inventories are ingredients. The cited automorphism article's full proof passage was not recovered.",
+          "The inspected retraction result concerns only idempotent elements of End; subgroup commutativity counts permutable pairs, regardless of whether pairs share an isomorphism type."
+        ],
+        "reasoning": "The general abelian identity is not a parameter substitution for the semidirect product, and the ordinary even calculation must merge cyclic and reflection order-two types and treat V_4 separately. No inspected stronger statement yields the exact pair of formulas as a special case. Neither a retraction count nor a permutability ratio recovers the subgroup-isomorphism weights.",
+        "searches": [
+          "Cameron abelian subgroup–quotient duality against the Dih(A) type sum",
+          "Fixed Points of Automorphisms of Certain Non-Cyclic p-Groups and the Dihedral Group, DOI 10.3390/sym10070238",
+          "Resultary: even-dihedral retractions and generalized-dihedral subgroup commutativity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cameron uses the same notion of subgroup partial isomorphism and proves equality of the counts for finite abelian groups via subgroup/quotient duality.",
+          "Separate near hits use retractions (idempotent endomorphisms), partial cyclic-order-preserving permutations of a circle, or generalized-dihedral subgroup permutability."
+        ],
+        "reasoning": "Summing |Aut(B)| over ordered pairs of subgroups of the same type reproduces the Cameron invariant, not the other catalogue map counts. The duality directly gives the odd abelian inside term but does not weight the outside subgroup types.",
+        "searches": [
+          "Resultary: generalized dihedral PIso and End",
+          "Resultary: ordinary dihedral all-parity PIso and End",
+          "Cameron, DOI 10.1007/s00233-025-10514-5, PDF pp. 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit ending 886b05175d4a is this frozen record, not a separate source. No independent full family table was established by these queries.",
+          "Muliarchyk's appendix describes 151 subgroup/quotient types for its equality certificate; their table gives counts for that example, not the dihedral-family type-sum or sequence."
+        ],
+        "reasoning": "A finite verification of a strict comparison or a type table for a different group is not coverage of the two exact family counts. Known finite strict comparisons are credited rather than treated as discoveries of this finding.",
+        "searches": [
+          "Resultary: exact ordinary all-parity and generalized odd-kernel PIso and End counts",
+          "Cameron p. 2 finite-order range",
+          "Muliarchyk Appendix and Table 3, pp. 9 and 13"
+        ]
+      },
+      "rationale": "The supported contribution is the full weighted subgroup-isomorphism count for the odd-kernel generalized dihedral family, with exact all-parity ordinary formulas and comparison. The general finite abelian identity, classical subgroup and automorphism ingredients, and Cameron's finite-order strict verifications are not credited as new. The later counterexample to Cameron's universal conjecture is material context but does not cover or contradict these formulas. No equivalent family-level counts were established among the strongest inspected sources.",
+      "residual_risks": [
+        "A prior group-theoretic enumeration or equivalent table may be unindexed; the cited Symmetry primary result passage was not accessible in the bounded check.",
+        "The historical conjecture must not be represented as open after Muliarchyk's counterexample. The family theorem is independent of that global outcome."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact abelian ingredient; finite strictness and historic universal question",
+          "evidence": "Subgroup/quotient duality gives abelian equality; nonabelian strictness is reported through order 63 and asked universally.",
+          "identifier_or_url": "https://doi.org/10.1007/s00233-025-10514-5",
+          "material_read": "PDF p. 1 from OA offset 0 and p. 2 from offset 1500",
+          "method": "Lawful OA PDF result and question passages",
+          "title": "Endomorphisms and partial isomorphisms",
+          "trigger": "Same invariant and the motivating conjecture"
+        },
+        {
+          "assessment": "Negative answer to the universal claim; not a counterexample to either audited family",
+          "evidence": "Nonabelian class-two exponent-four example of order 512 with both counts 2164260864, and an odd abelian direct-product extension.",
+          "identifier_or_url": "https://kourovkanotebookorg.wordpress.com/wp-content/uploads/2026/09/kourovka_19.20_solution.pdf",
+          "material_read": "Theorem 1.1 (p. 1, offset 0), corollary (p. 8, offset 21500), appendix and Table 3 (pp. 9,13; offsets 24000,39000)",
+          "method": "Public preprint result and appendix passages",
+          "title": "A nonabelian group with equally many endomorphisms and partial isomorphisms",
+          "trigger": "Potential universal resolution and exact subgroup/quotient tables"
+        },
+        {
+          "assessment": "Classical ingredient comparison not confirmed from full text",
+          "evidence": "Title and abstract are not evidence excluding a complete count elsewhere in the article.",
+          "identifier_or_url": "https://doi.org/10.3390/sym10070238",
+          "material_read": "Landing page/abstract only; theorem passage not retrieved",
+          "method": "Lawful OA retrieval attempts",
+          "title": "Fixed Points of Automorphisms of Certain Non-Cyclic p-Groups and the Dihedral Group",
+          "trigger": "Cited prior result involving automorphisms of dihedral groups"
+        },
+        {
+          "assessment": "Identical record, not independent coverage",
+          "evidence": "Same generalized odd-kernel and ordinary all-parity count formulas.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-partial-isomorphism-and-endomorphism-counts-for-dihedral-g--886b05175d4a",
+          "material_read": "Finding, checked against the frozen statement",
+          "method": "Local publication mirror and frozen record comparison",
+          "title": "Exact partial-isomorphism and endomorphism counts for dihedral groups",
+          "trigger": "Strongest exact catalogue match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The comparison arises from a naturally posed group-counting question, now known not to have a universal positive answer. These formulas quantify how a substantial nonabelian family behaves: they convert the entire odd-kernel answer to intrinsic abelian subgroup-type data, resolve even-kernel type collisions in the ordinary case, and give an unbounded ratio on ordinary 2-power rotation groups. This supplies exact family information unavailable from a positive check at a few small orders or from standard automorphism counts alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

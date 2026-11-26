@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the Hardy coefficient basis, direct evaluation gives \(V_ce_n=(\log c/\log(cn))e_{cn}\). Applying the adjoints in the stated order yields a partial permutation with disjoint output columns and two exact weight branches indexed by \(\gcd(a,b)\). The cubic branch is positive after taking absolute values and strictly decreasing. Its inverse threshold has an expansion through the constant term, giving the full stretched-exponential prefactor. The quadratic branch has an exact lattice count. Both branches decay but none is in a finite Schatten class. The accompanying standalone checker passed 16,166 finite arithmetic, monotonicity and singular-list checks; infinite conclusions come from the proof, not the tests.
+PASS
 
-## Originality — PASS, qualified
+Integration gives V_c e_n=(log c/log(cn))e_{cn}, bounded with weights tending to zero. The adjoint removes the factor a only from indices divisible by a. Thus the terms of K are supported respectively on a|bn and a|n, with identical output e_{bn/a} when both are present. The former condition means n=a′m; the latter then means d|m. The output is injective, so K*K is diagonal with squared absolute coefficients. The one-term weights are inverse-square logs, and for n=ak the difference is −ABF(log k). The ratio (u+A)(u+B)/(u+A+B)² is below one and increases, so F is positive and strictly decreasing. The strict lattice threshold gives ceil(X)−ceil(X/d) even at integer X, with X=e^(√(AB/t))/(ba′). Expansion of the two fractions gives C=AB(A+B), D=−AB(2A²+5AB+2B²); taking the cube root in the reversed expansion gives U=(C/t)^(1/3)+D/(3C)+O(t^(1/3)). Cubic counting is ceil(e^U)−1 for small positive t. This checks both exact branch counts, the constant exponential prefactor, the scale comparison, and the separate signed populations when a=b. Logarithmic decay gives compact infinite rank but no summability to any finite power. The uploaded verify.py and VERIFICATION.md were inspected, not executed; finite column checks do not establish the asymptotic inversion.
 
-The closest published exact singular-spectrum record concerns the **unstarred** Dirichlet–Volterra commutator \([V_a,V_b]\). Its coefficient map goes from \(e_n\) to \(e_{abn}\), and vanishes when \(a=b\); this statement does not imply the present mixed-adjoint gcd splitting, nonzero self-commutator and two counting scales. Papers on individual Dirichlet–Volterra operators by Bommier-Hato (2020), Gómez-Cabello–Lefèvre–Queffélec (2024), and Brevig–Perfekt–Seip (2016) treat boundedness/compactness or Schatten nonmembership, not mixed-adjoint spectral branch counts. A prior sharp logarithmic law for polynomial-symbol Volterra operators is a single-operator result and does not imply the present two-operator commutator theorem. Residual priority risks are general weighted-partial-permutation formulas and unindexed specialized operator-commutator literature. Negative searches are not proof of uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The mixed adjoint commutator is a canonical test of relative nonnormality for Dirichlet–Volterra generators. Its singular spectrum changes decay order from inverse-cubic to inverse-quadratic logarithmic at precisely the arithmetic condition \(\gcd(a,b)>1\), while the cubic branch survives as a separable second spectral scale. The result provides exact all-rank singular data, sharp stretched-exponential counting constants, and a signed self-commutator spectral classification for every integer pair, rather than a routine fixed-parameter bound.
+The supported distinct result is exact mixed-adjoint monomial spectra with a gcd-dependent branch split, sharp counting at both scales, and opposite signed scales for the diagonal self-commutator. Known non-Schatten theorems for individual operators and the similar unstarred computation are credited, but neither determines these results.
 
-## Limitations
+## value
 
-The results apply only to individual integer monomial symbols on the unweighted Hardy coefficient Hilbert space. No claim is made about arbitrary Dirichlet-polynomial symbols, general Bergman weights or independent verification. The 2016 work is background only; the first motivating arXiv source for this classification is the 2020 paper.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Comparing two monomial Volterra operators with one adjoint tests natural relative nonnormality. The gcd decides whether the slower scale is present, while the finer scale can be recovered by exact subtraction or by a sign restriction in the self-commutator. These exact spectral and counting statements are more informative than routine compactness or ideal nonmembership, and their leading constants matter when comparing ranks at a fixed small tolerance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

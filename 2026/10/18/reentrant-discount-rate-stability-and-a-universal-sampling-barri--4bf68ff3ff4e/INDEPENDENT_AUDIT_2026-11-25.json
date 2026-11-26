@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:03:59.208806Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Strict convexity gives u/x=-I1/(I2+r I0), with Ij the discounted moments on [0,h]. The sample multiplier is always less than 1, and exceeds -1 exactly when r/h² exceeds the normalized moment (I1 h/2−I2)/(I0 h²). Setting z=ρh gives ψ. At zero discount the multiplier lies in (−1/2,1). For positive z the derivative has sign K: its factorial-scaled coefficients vanish through degree 4, are positive in degrees 5–15, and are strictly negative for degrees ≥16 by the closed coefficient formula. Hence K/z^15 strictly decreases, starting positive and becoming negative by z=8. The limits −1/12 and 0 from above give a single positive maximum and exactly two neutral rates above the sampling threshold. For fixed positive ρ, F=2(1−e^(−z))z²ψ has F''=z(z−1)e^(−z), hence one positive zero; beyond it the numerator of (F/(1−e^(−z)))' is positive and increasing. This gives the unique crossing of φ=rρ². Independently derived moment and series checks and recomputed the constants (z†=7.66360518354401985…, H*=5.63013461640019324…) and both rate roots for h=6, r=1 via /workspace/branches/replay_1.py. Decimals are approximations and not interval-arithmetic certificates. The result is for repeated exact one-hold optimizers without terminal terms; it makes no general MPC stability claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhang et al. provide a general cost equivalence, not a closed-loop root-count theorem. Schwenkel et al. give practical stability near an optimal periodic orbit under their economic MPC assumptions."
+        ],
+        "reasoning": "No inspected general theorem yields necessary and sufficient stability in both parameter slices for repeated terminal-free one-held-control minimization.",
+        "searches": [
+          "arXiv:2407.18769v1, Proposition 1",
+          "arXiv:2405.14361v1, Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2407.18769v1",
+        "arXiv:2405.14361v1",
+        "Resultary 3afadf71d5b5, 2edd05e49817, b8f714458c50"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known weight formulas give the quadratic coefficients; the factorial-series sign argument and the fixed-discount monotonicity past the positive zero are further inequalities specific to this problem.",
+          "A uniform multiplicative weight on an entire single discrete stage would cancel in its optimizer; a weight varying within the held interval changes the relative moments."
+        ],
+        "reasoning": "The phase diagram does not follow as an already settled special case of the inspected exact-discretization or economic-MPC statements.",
+        "searches": [
+          "Zhang–Hørsholt–Jørgensen arXiv:2407.18769v1, Proposition 1",
+          "Schwenkel et al. arXiv:2405.14361v1, Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact ZOH quadratic weights specialize to the moments in this record. The matched sampled-feedback record instead has a phase/gain transition in an inhibitory neural equation with no discounted quadratic optimization."
+        ],
+        "reasoning": "The known discretization recovers the starting multiplier; neither equivalence gives the maximum or the count of its -1 crossings as the within-hold weighting varies.",
+        "searches": [
+          "arXiv:2407.18769v1, equations (3)–(6) and Proposition 1",
+          "Resultary: discounted held control and sampled-feedback stability; 2026/11/8/SCOPE-gain-independent-advance-threshold-and-a-sharp-flip-transition-i--b8f714458c50"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected indexed claims concern positivity of a two-derivative step, cone preservation of a Riccati step, and sampled neural feedback; none tabulates or states the normalized cost-based sampling barrier or rate windows."
+        ],
+        "reasoning": "This checks the analytic threshold and the uniqueness claims rather than demanding a same rounded decimal. Unavailable search returned no usable evidence and is not a negative hit.",
+        "searches": [
+          "Resultary: exact discounted zero-order hold, sampling threshold and reentrant stability; records 3afadf71d5b5, 2edd05e49817, b8f714458c50",
+          "Primary literature query: discounted continuous-time zero-order hold one-step scalar integrator stability discount sampling threshold reentrant two crossings (unavailable)"
+        ]
+      },
+      "rationale": "The established exact stage-cost construction is not new. The distinct contribution supported by the inspected evidence is the globally unimodal scalar stability discriminant, sharp normalized barrier, and resulting exact discount and sampling slices. No comparison identified a matching or stronger theorem for that phase diagram. This is a bounded best-of-knowledge assessment, not a priority certificate.",
+      "residual_risks": [
+        "General literature search was unavailable and the cited Granzotto full text was inaccessible at its recorded link. An independent unindexed or differently phrased equivalent result is possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct setup overlap, not the threshold theorem",
+          "evidence": [
+            "Piecewise-constant inputs and exact discounted equivalent discrete stage-cost matrices."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2407.18769v1",
+          "material_read": "Equations (3)–(6), Proposition 1 (HTML offset near 6200)",
+          "method": "OA full-text passages",
+          "title": "Numerical Discretization Methods for the Discounted Linear Quadratic Control Problem",
+          "trigger": "Exact same within-hold cost-discretization machinery"
+        },
+        {
+          "assessment": "Different stability conclusion and hypotheses",
+          "evidence": [
+            "Practical stability near an optimal periodic orbit under Assumptions 1–5."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2405.14361v1",
+          "material_read": "Page 2 discount setup; page 6 Theorem 1 (offset near 17400)",
+          "method": "OA PDF passages",
+          "title": "On discount functions for economic model predictive control without terminal conditions",
+          "trigger": "Discount and terminal-free MPC stability"
+        },
+        {
+          "assessment": "Access limitation, not an exclusion",
+          "evidence": [
+            "Cited public link returned HTTP 403; no substantive comparison based on that document."
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/340573124_Finite-Horizon_Discounted_Optimal_Control_Stability_and_Performance",
+          "material_read": "No full text retrieved",
+          "method": "Lawful OA retrieval attempts",
+          "title": "Finite-Horizon Discounted Optimal Control: Stability and Performance",
+          "trigger": "Cited neighboring discounted finite-horizon treatment"
+        },
+        {
+          "assessment": "Different maps and hypotheses",
+          "evidence": [
+            "Fourth-order two-derivative positivity, exponential Rosenbrock Riccati cone preservation, and sampled neural phase/gain stability, respectively."
+          ],
+          "identifier_or_url": "Resultary 3afadf71d5b5; 2edd05e49817; b8f714458c50",
+          "material_read": "Each RESULT.md Finding, offset 0",
+          "method": "Local index and mirror",
+          "title": "Indexed near matches on positivity, Riccati steps, and sampled feedback",
+          "trigger": "Highest or closest thematic hits and a distinct same-day result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A minimal exact sampled optimal-control model isolates a real qualitative effect of within-hold discounting: stronger discounting can both destroy and restore stability even with no cost-integration error. The peak gives an exact all-discount design guarantee and explains why fixing the discount instead yields a single sampling frontier. This is a substantive sharp stability classification within the stated one-step scope.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

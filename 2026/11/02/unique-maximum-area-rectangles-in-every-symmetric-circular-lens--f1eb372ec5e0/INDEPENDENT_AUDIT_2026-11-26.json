@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:03:34.658175Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–75, VERIFICATION.md and verify_lens.py (inspected only)",
+        "Independent replay: python3 /workspace/branches/audit_replay.py 3 (SymPy)"
+      ],
+      "rationale": "Normalize R=1. Central symmetry and convexity let each pair of diagonally opposite vertices of a translated rectangle be averaged with their reflected counterparts to obtain a feasible centered copy. For c>0 the lens is strictly convex: if the original center is nonzero these midpoints are strictly interior to both disks, and the centered copy can be enlarged. For centered half-sides a,b each vertex has squared radius a²+b², and the largest |x| is a|cos θ|+b|sin θ|. The lens inequality is exactly x²+y²+2c|x|+c²≤1. Thus containment at fixed side lengths is least restrictive when the shorter side is horizontal; equality in the angular minimization requires axis alignment, and any other orientation permits a strict area improvement after realignment. On that axis the active constraint is a²+(b+c)²=1. The area derivative has the sign of 1−c²−3cb−2b², strictly decreasing from a positive value to −cb_square at the square boundary. Its sole zero gives the claimed sides and a²=b(b+c)>b². This proves uniqueness as a subset, not a unique labeling of the same rectangle. The square optimum follows by the same constraint, and substitution of c/b=r²−1 gives the inverse aspect relation. Independent symbolic expansions give unit-radius area 2−2√2 c+c²/2+O(c³) versus square area 2−2√2 c+O(c³). At tangency the rectangle, square and lens areas have leading terms (8√6/9)(1−c)^(3/2), 4(1−c)² and (8√2/3)(1−c)^(3/2), respectively. Scaling gives all R factors. At c=0 the radius constraint gives equality only for centered squares, with every orientation allowed.",
+      "residual_risks": [
+        "RESULT.md describes rotated/translated numerical parameterizations, but verify_lens.py scales centered rotated competitors and does not explicitly sample translations. The exact proof handles translations; the discrepancy does not affect the theorem.",
+        "The classification excludes unequal radii and the degenerate tangent case."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 7 supplies a centering result for centrally symmetric convex sets, but no lens-specific edge orientation or dimensions.",
+          "Basit–Lángi treat extremal polygon area/perimeter sequences for disk-polygons in normed planes; the inspected setup is not an exact inscribed Euclidean rectangle classification."
+        ],
+        "reasoning": "An extremal quadrilateral need not be a rectangle. Centering a rectangle in a symmetric lens still leaves its aspect ratio and orientation to optimize jointly; neither conclusion follows from centering alone.",
+        "searches": [
+          "Behroozi, §3.2 Theorem 7",
+          "Basit–Lángi arXiv:2307.04026, abstract and introduction"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary similarity search and the three named neighboring findings",
+        "Behroozi arXiv:1905.13246",
+        "Basit–Lángi arXiv:2307.04026",
+        "Focused web literature query for an unrestricted equal-circle-lens result"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Centering and the disk normalization are covered ingredients.",
+          "Segment contact transitions and their small-cap limit do not assert the shape of the unique rectangle in the two curved boundaries of a lens."
+        ],
+        "reasoning": "The exact angular equality case and unique aspect relation for every positive separation require a lens-specific analysis. The asymptotic refinements are consequences of that classification, not independent originality for Taylor expansion.",
+        "searches": [
+          "Behroozi general centering theorem and disk formula",
+          "Local Resultary circular-segment rectangle classification eb24804c1856"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Behroozi's circle example gives the square and area fraction 2/π, the c=0 case only.",
+          "No exact two-congruent-circle match was found in the focused search; circle-intersection area alone is not this optimization."
+        ],
+        "reasoning": "The circular lens can also be written as x²+y²+2c|x|+c²≤1; unlike the disk formula, its positive-c optimizer is strictly nonsquare. A disk cut by a line is not this domain.",
+        "searches": [
+          "Local Resultary search for unrestricted maximum-area rectangles in equal-circle lenses",
+          "Literature query for the largest rotated/translated rectangle in the intersection of congruent circles",
+          "Behroozi arXiv:1905.13246, circle example and §3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-lens findings give a Mahler product and an extremal triangle, respectively.",
+          "The circular-segment rectangle finding gives the same 1/√3 small-cap fraction for a different domain cut by a straight line, not the exact lens maximum."
+        ],
+        "reasoning": "The shared lens parameters or limiting fraction are not an exact entry for the present rectangle family. Indexed findings are distinguished by their statements, not by publication order inferred from a date.",
+        "searches": [
+          "Local Resultary lens and inscribed-rectangle search: b079d50aa217, c8fb931a71de, eb24804c1856"
+        ]
+      },
+      "rationale": "The central symmetry reduction and disk case have clear antecedents. The strongest inspected general rectangle and disk-polygon sources and the closest indexed results do not establish the precise positive-separation classification for the two-circle lens. Credit the known ingredients, not historical priority for the full statement.",
+      "residual_risks": [
+        "An older textbook or recreational equivalent remains possible; the unsuccessful lookup is not proof of absence.",
+        "Primary-source assessment is limited to the relevant passages identified above."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General centering precedent and the exact c=0 case; no lens classification in the decisive inspected passages.",
+          "evidence": [
+            "Theorem 7 relates an optimal rectangle's center to central symmetry; the circle example gives a square with area fraction 2/π."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1905.13246",
+          "material_read": "Introduction, §3.2 Theorem 7 (text offset 31500), and circle example (145500)",
+          "method": "OA primary HTML passages",
+          "title": "Largest Inscribed Rectangles in Geometric Convex Sets",
+          "trigger": "General unrestricted rectangle theorem, including symmetric convex domains"
+        },
+        {
+          "assessment": "Related extremal polygons, distinct constraint; a literal miss is not evidence about all possible special cases.",
+          "evidence": [
+            "Studies extremal area/perimeter sequences for inscribed or circumscribed polygons rather than a class required to have four right angles."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2307.04026",
+          "material_read": "Abstract and introduction (text offset 0)",
+          "method": "OA primary HTML passages and literal rectangle lookup",
+          "title": "Dowker-type theorems for disk-polygons in normed planes",
+          "trigger": "Potentially broader extremal inscribed-area coverage on disk intersections"
+        },
+        {
+          "assessment": "Triangle rather than rectangle optimizer.",
+          "evidence": [
+            "Optimizes three vertices with no four-right-angle constraint."
+          ],
+          "identifier_or_url": "Resultary c8fb931a71de",
+          "material_read": "Indexed finding statement",
+          "method": "Local Resultary search",
+          "title": "Exact maximal triangle area and equality configurations in every symmetric circular lens",
+          "trigger": "Identical domain and unrestricted placement"
+        },
+        {
+          "assessment": "Optimizes or compares a different invariant.",
+          "evidence": [
+            "Lens–polar area product, not maximal inscribed rectangle area."
+          ],
+          "identifier_or_url": "Resultary b079d50aa217",
+          "material_read": "Indexed finding statement",
+          "method": "Local Resultary search",
+          "title": "Sharp Mahler-product monotonicity of symmetric planar circular lenses",
+          "trigger": "Same indexed family of circular lenses"
+        },
+        {
+          "assessment": "The segment uses one circular and one straight boundary; no statement for a two-circle intersection.",
+          "evidence": [
+            "A vanishing cap has limiting fraction 1/√3, but the finite-parameter contact classification is for a circle cut by a half-plane."
+          ],
+          "identifier_or_url": "Resultary eb24804c1856",
+          "material_read": "Indexed finding statement",
+          "method": "Local Resultary search",
+          "title": "Two sharp contact transitions for unrestricted maximal rectangles in circular segments",
+          "trigger": "Same extremal rectangle objective and shared thin-domain packing fraction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof, especially angular minimization and equality cases",
+        "Behroozi general rectangle optimization context"
+      ],
+      "rationale": "The result gives the complete equality classification for a natural two-boundary convex family, removing both orientation and translation restrictions. It quantifies an immediate symmetry-breaking away from the disk, reconstructs the separation and scale from the optimal rectangle, and shows a divergent penalty from insisting on a square in a thin lens. The closed form and equality cases give a useful exact benchmark for general inscribed-rectangle methods; the contribution is not the single-variable derivative after restricting to aligned rectangles.",
+      "residual_risks": [
+        "The result is specific to congruent circular lenses; it does not establish a general orientation rule for intersections of disks."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

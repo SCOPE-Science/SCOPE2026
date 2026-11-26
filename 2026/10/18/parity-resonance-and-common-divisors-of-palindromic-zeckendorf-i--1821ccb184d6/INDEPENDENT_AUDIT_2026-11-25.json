@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:02:03.129813Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–99; VERIFICATION.md; verify.py (read only)",
+        "/workspace/branches/beb94a66-588a-4523-a3b4-263a2422dc58/zeckendorf_check.py (independent replay)"
+      ],
+      "rationale": "The allowed leading halves count as F_(h-1) for length 2h (last digit forced zero), and F_h+F_(h-1) for 2h+1 (the second count allows a central one). Fibonacci parity is symmetric under negation modulo 3, making all mirror pairs and the possible center even when 3 divides L. For the other two congruences the signed weights after the forced leading bit give the three-step matrix products diag(-1,1) and [[1,2],[0,-1]], respectively. Both square to identity, so six more half-positions give the same signed sum, with unchanged center sign; the L=1,2 seeds agree with L=13,14. For L>=13 the endpoint word and each individual extra mirror pair at index k=4,5,6,7 are admissible: the extra bits are at least two indices from each other and from the endpoints. Subtracting the endpoint value gives P_k=F_k+F_(L+3-k). The two consecutive reverse-Fibonacci cancellations give -10 and -16, so the common gcd divides 2. Off resonance an odd value is the endpoint value for L=2 mod 3, or the endpoint value plus P_4 for L=1 mod 3. The independent finite replay enumerated 28,655 words for L=1..40, including all exceptional gcds and the empty L=2 family, with the claimed counts and table. The recurrence and witnesses, not the enumeration, establish all lengths.",
+      "residual_risks": [
+        "Finite replay is bounded; this is a mathematical review, not a formal proof certificate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "SCOPE-exact-residue-counts-for-palindromes-modulo-divisors-of-the-base--bab47a6477c9, Finding: fixed-length ordinary base-b palindromes modulo q dividing b+1; SCOPE-exact-parity-sparsity-law-for-distinct-fibonacci-partitions--aa2651dbb66a, Finding: parity of a partition-counting function."
+        ],
+        "reasoning": "Ordinary positional weights and unrestricted ordinary base digits do not specialize to Fibonacci weights with adjacency constraints. Parity of representation counts is not parity of the integer represented. The same-day base-b record is distinct, irrespective of priority.",
+        "searches": [
+          "Resultary: palindromic canonical Fibonacci representation parity distribution",
+          "Resultary: canonical Fibonacci palindrome integer parity even odd by length"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic searches and local RESULT.md comparisons",
+        "OEIS A094202",
+        "OEIS A349238",
+        "Ron Knott, Number Palindromes"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knott explains the same no-consecutive-ones convention and gives palindromic examples; the ordinary-base residue result controls a prescribed modulus and does not bound the full Fibonacci-weight gcd."
+        ],
+        "reasoning": "Parity periodicity of the Fibonacci weights explains resonance, but neither the complete signed-imbalance table nor removal of every odd common divisor comes from the inspected catalogues without additional argument. The external keyword search was uninformative.",
+        "searches": [
+          "“palindromic Zeckendorf” parity fixed length gcd representation",
+          "Knott, Number Palindromes, Fibonacci Numbers section",
+          "Resultary: Zeckendorf palindrome fixed-length parity gcd"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A349238 COMMENTS identifies reversal fixed points with the A094202 palindromic set; the inspected tables and comments do not group by canonical length and integer parity."
+        ],
+        "reasoning": "Reversal fixed points are exactly the same objects, but the equivalence is at the set level, not a statement of either fixed-length invariant.",
+        "searches": [
+          "Resultary: palindromic Zeckendorf",
+          "Resultary: Zeckendorf palindrome fixed-length parity gcd",
+          "OEIS A094202 and A349238"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A094202 supplies numerical examples such as 12=10101 and 14=100001 in Zeckendorf notation, not an exact D_L table or G_L classification."
+        ],
+        "reasoning": "A finite catalogue permits checking initial cases; it cannot supply a uniform residue law or prove the eventual gcd.",
+        "searches": [
+          "Resultary: D_L Zeckendorf palindrome residue 12",
+          "Resultary: gcd palindromic Zeckendorf length divisible by 3",
+          "OEIS A094202 DATA and examples"
+        ]
+      },
+      "rationale": "The supported distinction is the joint fixed-length law for parity of the represented integer and the exact common divisor, not discovery of Zeckendorf palindromes. No inspected claim or stronger theorem covers those quantitative laws.",
+      "residual_risks": [
+        "Indexed and accessible source comparisons are bounded. The unrelated websearch returns do not establish absence of earlier equivalent derivations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the set, not the aggregate fixed-length laws in inspected material.",
+          "evidence": "Examples give individual Zeckendorf words and their values.",
+          "identifier_or_url": "https://oeis.org/A094202",
+          "material_read": "Entry definition and examples, offset 0",
+          "method": "OA page reading",
+          "title": "Integers whose Zeckendorf representation is palindromic",
+          "trigger": "Exact underlying set"
+        },
+        {
+          "assessment": "Equivalent underlying set, no stated parity or gcd law in the inspected comments.",
+          "evidence": "Fixed points are identified with A094202.",
+          "identifier_or_url": "https://oeis.org/A349238",
+          "material_read": "COMMENTS",
+          "method": "OA page reading",
+          "title": "Reverse the digits in the Zeckendorf representation",
+          "trigger": "Equivalent formulation"
+        },
+        {
+          "assessment": "Known convention and examples, not fixed-length laws in the inspected passage.",
+          "evidence": "Palindromes are formed from canonical Fibonacci representations with no consecutive ones.",
+          "identifier_or_url": "https://fibonacci-numbers.surrey.ac.uk/IntegerReps/palindromes.html",
+          "material_read": "Fibonacci Numbers section, offset 10897",
+          "method": "OA page reading",
+          "title": "Number Palindromes",
+          "trigger": "Prior Fibonacci-palindrome exposition"
+        },
+        {
+          "assessment": "Different positional weights and modulus; not equivalent or dominating.",
+          "evidence": "For q dividing b+1, even-length base-b palindromes are zero modulo q.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-residue-counts-for-palindromes-modulo-divisors-of-the-base--bab47a6477c9",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact residue counts for palindromes modulo divisors of the base plus one",
+          "trigger": "Closest indexed residue comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof; OEIS A094202 comparison"
+      ],
+      "rationale": "Length is the natural shell for canonical Fibonacci representations. The result distinguishes complete parity resonance from bounded even/odd discrepancies, and settles whether all values in each shell have any common divisor at all. Uniform gcd witnesses and the full exceptional range give exact usable information not supplied by a list of examples.",
+      "residual_risks": [
+        "No classification of individual residues beyond parity or claims for other numeration systems."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

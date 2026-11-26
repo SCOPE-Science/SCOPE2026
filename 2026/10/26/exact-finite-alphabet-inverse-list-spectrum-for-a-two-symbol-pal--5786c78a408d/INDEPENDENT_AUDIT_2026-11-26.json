@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:23:49.520416Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Two inverse windows starting at i<j delete positions i+2,i+3 and j+2,j+3 in zero-based coordinates. Identical resulting words force y_k=y_(k+2) for i+2≤k≤j+1, making y_(i+2)…y_(j+3) 2-periodic. The equal middle pair of the last palindrome lies within this segment and makes it constant. The first palindrome then forces the entire interval to be constant. Thus each long constant run contributes once, and each nonconstant window corresponds bijectively to an interior length-two run with matching flanks. With R=(z+(t−1)z^4)/(1−z), summing weights of runs gives qR plus q(q−1)R²/[1−(q−1)R−(t−1)z²]: only appending after an interior two-run offers one weighted return color and q−2 other choices. This yields the rational function including words with zero parents. The mean independently follows from N−3 nonconstant-window terms of probability (q−1)/q³, a possible first long-run start of probability 1/q³, and N−4 other long-run starts of probability (q−1)/q⁴. For the limit law, choose a fixed circle in z enclosing 1/q at t=1; by continuity and Rouché the denominator has exactly one simple zero ρ(t) inside for complex t near 1. Its analytic leading coefficient is nonzero, and removing its pole gives a uniformly exponentially smaller coefficient term. With D=z²−z³+(q−1)z⁴ evaluated at 1/q, the first two derivatives of log(ρ(1)/ρ(e^s)) at zero are D and D(1+D−2D′/q), giving the claimed μ_q and positive ν_q. The uniform analytic expansion yields linear variance and the Gaussian limit. Odd-coordinate complementation exchanges precisely the parity of each of the two reversed copies and commutes with the even shift of the suffix. Independent window-deletion enumeration deduplicated parents as tuples and matched the generating function coefficient recurrence and run weights at (q,N)=(2,6),(3,8),(4,8); replay with python3 replay/1.py. These finite checks do not establish the limit law. The supplied verification package was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zabokritskiy's even-length coordinate involution covers the transfer, while Lemma 6.1 gives N−3 as the length-two upper bound. The same-day 7eb6fe28da24 focuses the sharp theorem on k≥3 with 4 not dividing k; a generic start bound also applies at k=2. Later 47e8202dd4ba gives a sharp maximum for general k, specializing here to floor((N−2)/2)."
+        ],
+        "reasoning": "Transfer preserves the sought distribution but does not compute it. Neither a bound nor a sharp maximum counts receivers at each admissible list size.",
+        "searches": [
+          "arXiv:2609.00779, alternating-complement conjugacy and §6 Lemma 6.1",
+          "2026/10/26/SCOPE-sharp-inverse-ambiguity-and-period-four-rigidity-for-palindromic--7eb6fe28da24/RESULT.md",
+          "2026/11/2/SCOPE-sharp-inverse-list-maximum-for-a-single-palindromic-duplication--47e8202dd4ba/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verify_output.txt",
+        "arXiv:1707.00052, 2609.00779 and 2602.01151",
+        "Resultary records 890e7708ebeb, 47e8202dd4ba, 7eb6fe28da24 and 0aca79ccebc0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The binary census works because adjacent runs force the next run color. With q>2, returning to the preceding color is one of q−1 choices, not forced. Sun–Ge bound confusability graph degrees for code construction; they do not count the reverse-list histogram in the inspected argument. The later all-field run statistic and incidence do not sum the weights by list size."
+        ],
+        "reasoning": "The nonbinary result needs the weighted return-color enumeration; even the correct incidence gives no variance. The explicit rate and Gaussian law additionally need control of the dominant analytic pole, not an unqualified substitution into the binary count.",
+        "searches": [
+          "Primary-literature lookup: nonbinary length-two palindrome deduplication/inverse-sphere population generating function and central limit theorem",
+          "arXiv:1707.00052 §4.2",
+          "arXiv:2602.01151 §IV, Lemma IV.3",
+          "Resultary 890e7708ebeb Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lenz et al. give the binary deletion-sphere census: subtract one unchanged receiver from its sphere size to obtain the binary inverse-parent count. Resultary 890e7708ebeb gives the same run contribution rule for any alphabet and an aggregate incidence equal to q^N times the mean here, but not the full spectrum or its fluctuations."
+        ],
+        "reasoning": "Deletion of a reverse copy is the same inverse operation. Equality of a pointwise statistic definition and its first moment is material overlap but not equality of enumerated distributions across nonbinary receivers.",
+        "searches": [
+          "Resultary: exact one-step inverse lists, palindromic and reverse-complement duplication length two, nonbinary spectrum",
+          "arXiv:1707.00052 §§3.4,4.2",
+          "2026/11/2/SCOPE-exact-inverse-lists-for-a-single-length-two-palindromic-duplicat--890e7708ebeb/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Lemma 8 counts the entire binary size population; this exactly supplies the q=2 row family after shifting size by one. October 18 record 0aca79ccebc0 counts distinct descendants per source for fixed-point-free complements on even alphabets."
+        ],
+        "reasoning": "A forward-degree distribution does not determine the reverse-degree distribution; reversing the incidence relation only equates total edge counts. No checked tally supplies the arbitrary-alphabet inverse list distribution.",
+        "searches": [
+          "Resultary: inverse-list histogram, palindromic-deletion sphere sizes, one-step descendant distribution",
+          "arXiv:1707.00052 §4.2 Lemma 8",
+          "2026/10/18/SCOPE-exact-one-step-descendant-spectrum-for-length-two-reverse-comple--0aca79ccebc0/RESULT.md"
+        ]
+      },
+      "rationale": "The complete nonbinary receiver spectrum and explicit fixed-q fluctuation law are the supported distinct content. The binary census, cited conjugacy, extremal observations and incidence count do not receive new-result credit. Distinct same-day and later overlapping statements were compared on their actual counting direction and parameter ranges, not assumed to be the original or to establish priority.",
+      "residual_risks": [
+        "The search was bounded; it does not establish absolute priority for the nonbinary law.",
+        "The inspected older literature does not establish the sharp all-alphabet maximum and incidence attribution in full; these are not credited as new or used to support novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact binary equivalent, not the arbitrary-q census",
+          "evidence": "Sphere size r_(I,2)+r_(≥4)+1 and exact enumeration by sphere size.",
+          "identifier_or_url": "https://arxiv.org/pdf/1707.00052",
+          "material_read": "§3.4 Lemma 5 p. 6, offset about 18100; §4.2 Lemma 8 p. 9, offset about 26700",
+          "method": "Original OA PDF passages",
+          "title": "Bounds on Codes Correcting Tandem and Palindromic Duplications",
+          "trigger": "Exact prior deletion-sphere spectrum"
+        },
+        {
+          "assessment": "Covers conjugacy and an inverse bound, not the histogram",
+          "evidence": "Conjugates both channels for even duplication length; bound n−k+1 with receiver length n+k.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.00779",
+          "material_read": "Alternating-coordinate complement discussion pp. 2–3 and §6 Lemma 6.1 p. 17",
+          "method": "Original OA PDF passages",
+          "title": "Coding for Multiple Reverse-Complement and Palindromic Duplications",
+          "trigger": "Exact conjugacy and potential inverse-population predecessor"
+        },
+        {
+          "assessment": "Confusability degree bound and code redundancy, not the exact inverse spectrum",
+          "evidence": "Two source vertices are adjacent if they have intersecting forward descendants at some k; the lemma bounds the size of a source-neighbor set.",
+          "identifier_or_url": "https://arxiv.org/pdf/2602.01151",
+          "material_read": "Abstract p. 1; §IV p. 7, Definition IV.1 through Lemma IV.3 at text offset 34484",
+          "method": "Original OA PDF passages",
+          "title": "On the Palindromic/Reverse-Complement Duplication Correcting Codes",
+          "trigger": "Same error channel; possible incidence or population overlap"
+        },
+        {
+          "assessment": "Same pointwise rule and aggregate mean in a later record, no distribution formula observed",
+          "evidence": "One parent per long constant run or interior length-two run with equal neighboring colors; extremum floor((N−2)/2).",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-inverse-lists-for-a-single-length-two-palindromic-duplicat--890e7708ebeb/RESULT.md",
+          "material_read": "Finding on the run rule, sharp maximum and incidence",
+          "method": "Resultary index and local-mirror passage",
+          "title": "Exact inverse lists for a single length-two palindromic duplication",
+          "trigger": "Strongest all-alphabet catalog overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Receiver ambiguity is a natural error-channel statistic; its full-population spectrum answers questions that code-size bounds, worst cases and forward-degree censuses cannot. The nonbinary return-color effect is structurally different from the binary model, and the nondegenerate variance rate quantifies typical fluctuations as well as providing exact finite coefficients. The claim does not promise a new encoder or a law for source-sampled channel outputs.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

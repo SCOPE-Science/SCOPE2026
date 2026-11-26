@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:24:03.538405Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–39",
+        "Frozen VERIFICATION.md and check_z15.py, inspected without running",
+        "LSS arXiv:2611.17149v1 Definition 4.5, Lemma 4.6, Theorems 1.1 and 7.2"
+      ],
+      "rationale": "For the stated open abcd(ad-bc) != 0, any stabilizer point on the weighted complete intersection has tau=v=0: a nonzero tau has weight 1, and a nonzero v needs an even-weight nonzero coordinate on the surface, giving coprime weights. At alpha=0 the beta chart has u/beta=±sqrt(b), and nonzero derivatives in u and alpha leave (tau,v) with mu_4 weights (1,3). At alpha!=0 the alpha chart gives beta/alpha^2=-c/d and (u/alpha^2)^2=-c(ad-bc)/d^2, so both points are distinct and the u and beta derivatives leave (tau,v) with mu_2 weights (1,1). The restrictions have disjoint simple branch zeros in the weighted charts; at other points on the boundary the nonvanishing cover derivatives (or the simple branch derivative when one vanishes) give smoothness, and off tau=0 the stated quasismoothness applies. Near each A_(r-1) point, use x=tau^r, y=v^r, z=tau*v, xy=z^r. The first cone of the minimal resolution adjacent to the tau-axis divisor has coordinates y and s=z/y, with x=s^r y^(r-1), z=sy. Here the first exceptional component is y=0 and the strict transform is s=0, so the intersection is transverse with the end only. The adjacent rays of the usual subdivision are (1,0) and ((r-1)/r,1/r); they are a basis of the quotient lattice and the intermediate rays give the -2 chain. For each chain the sole unit endpoint intersection gives correction (r-1)/r by solving the Cartan system. Off the finite alpha=0 locus the curve is the conic u^2=beta(a+b beta) in the alpha=1 slice modulo sign on v, so it is rational and irreducible; the local calculation gives its smooth strict transform. Since tau vanishes once generically, T represents O_Y(1), with square 48/96=1/2; subtracting 5/2 yields -2. The generic-coefficient reading of the cited model is supported by the primary source's explicit four distinct branch points and generic linear systems, not by taking the displayed coefficient-one monomial list literally.",
+      "residual_risks": [
+        "The coefficient-one specialization printed as a monomial list in Definition 4.5 would have ad-bc=0 and is excluded by the frozen assumptions; the result makes no claim about that collision wall.",
+        "The coordinates choose the marking of a given degeneration pair, not a unique curve intrinsic to the unmarked K3 surface. The frozen citation to §4.5 should be read as Definition 4.5 in §4.2, supplemented by Lemma 4.6 and Theorem 7.2."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "LSS §7 explicitly treats the intermediate double-cover quotient P' separately from the biquadratic Y tail and uses the Kerr–Laza classification for P'",
+          "LSS §7 identifies X_(6,8) as family #19 and obtains rational gluing, not an exceptional incidence theorem"
+        ],
+        "reasoning": "Classification of possible weights or the intermediate double-cover tails is not a theorem on how the strict transform of the designated divisor meets each component on this biquadratic cover. Genus zero plus K3 adjunction explains the square when smoothness is known, but not the four local markings.",
+        "searches": [
+          "LSS arXiv:2611.17149v1 Theorem 1.1 and §7 Theorem 7.2, Case 2; compare the classification and cited Kerr–Laza tables",
+          "Web: Kerr Laza Hodge theory of degenerations II vanishing cohomology geometric applications Z15 table gluing"
+        ]
+      },
+      "checked_sources": [
+        "LSS arXiv:2611.17149v1 Definition 4.5, Lemma 4.6, Theorem 1.1 and §7",
+        "GRDB K3help",
+        "Resultary 08474f3adc5b (identical record, not independent coverage)",
+        "Kerr–Laza tables and Iano-Fletcher table only as identified in LSS"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Definition 4.5 lists four boundary branch intersection points in the generic case; Lemma 4.6 normalizes the chosen line and removes the alpha^4 monomial",
+          "Theorem 7.2 gives u^2=f_n(tau,alpha,beta), v^2=g_m(tau,alpha,beta), then identifies the generic family and rational gluing"
+        ],
+        "reasoning": "These are the input needed for the computation, not equivalent output. The stabilizers, smooth uniformizing parameters identifying the divisor axis, the endpoint rather than interior attachment, and the local fractional corrections are obtained from local geometry; the square alone has little independent novelty.",
+        "searches": [
+          "LSS Definition 4.5, Lemma 4.6, Theorem 7.2 Case 2",
+          "Resultary exact gluing/ADE marking comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary exact match 08474f3adc5b is the assigned record",
+          "LSS gives T=V(tau) in the base chart and the biquadratic model in the same coordinates; no explicit endpoint intersection vector in the inspected passages"
+        ],
+        "reasoning": "The equivalent data are the strict-transform intersections with each labelled ADE chain and the Weil-to-resolution pullback coefficients. A rational double curve or an unmarked basket does not specify those data.",
+        "searches": [
+          "Resultary: Kunev Z15 gluing curve, ADE marking, A3 endpoints and inverse-Cartan corrections",
+          "arXiv:2611.17149v1 Definition 4.5/Lemma 4.6 and Theorem 7.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "GRDB K3help offsets 553 and 902 describe genus/basket and associated Hilbert series data",
+          "The LSS family-number table cites Iano-Fletcher #19 for X_(6,8); LSS Table 4 concerns other candidate singularities, not a marked intersection table"
+        ],
+        "reasoning": "The standard basket and polarization are credited background. The database schema concerns quotient types and polarization, not the resolution marking of this chosen gluing divisor. No independent exact table of that marking was retrieved; no independent inspection of the original Iano-Fletcher table is claimed.",
+        "searches": [
+          "GRDB K3help, basket and stored-data passages",
+          "LSS §7 family-number table in the proof of Theorem 7.2; Table 4",
+          "Resultary Z15 marked ADE, gluing and local intersections"
+        ]
+      },
+      "rationale": "The supported contribution is the endpoint marking of the designated double curve on the generic biquadratic tail and its fractional intersection vector. The primary source already gives the normalized branch and gluing model, rationality and family identification; those are not new. Neither the inspected prior passages nor basket data give the marked map to the four exceptional chains, which requires identifying the axis in the actual cover and computing its minimal-resolution intersections. The index's exact hit was the assigned record itself.",
+      "residual_risks": [
+        "Bounded searches and a missing independent read of the historical tables do not establish priority. The exact bibliography for the frozen comparison should be corrected; in particular LSS Table 4 is not where #19 is identified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the model, rationality and weighted family; inspected passages do not give marked resolution intersections",
+          "evidence": "Generic degree-3 and degree-4 branch factors with no alpha^4 term in the latter; four generic points on T; (Z/2Z)^2 cover with tau fixed; #19. The coefficient-one list on p. 14, taken literally, collides the last two base branch points; the prose and genericity statement specify the intended open.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.17149",
+          "material_read": "v1 Theorem 1.1 pp. 2–3; Definition 4.5 pp. 13–15 (e.g. offset 42500); Lemma 4.6 pp. 15–16 (offset 49600); Theorem 7.2 Case 2 and family-number table pp. 26–28 (offsets 84300, 88100); Table 4 p. 29",
+          "method": "OA PDF passages by locator; comparison of equations and assumptions",
+          "title": "K3 tails in the KSBA moduli of Kunev surfaces",
+          "trigger": "Same tail and gluing construction; exact branch equation and possible earlier marking"
+        },
+        {
+          "assessment": "Unmarked singularity and polarization data, not the chosen-divisor intersection graph",
+          "evidence": "Genus/basket pairs and Hilbert series; basket consists of cyclic quotient types.",
+          "identifier_or_url": "https://www.grdb.co.uk/K3help",
+          "material_read": "Basket and stored-data descriptions, offsets 553 and 902",
+          "method": "Public page text",
+          "title": "K3 database help",
+          "trigger": "Possible precomputed resolution marking in exact K3 data"
+        },
+        {
+          "assessment": "The verified use concerns the intermediate double cover; further primary-source overlap not excluded",
+          "evidence": "LSS explicitly applies [KL25] to P', then compares with Iano-Fletcher to identify the possible biquadratic tails Y.",
+          "identifier_or_url": "Kerr–Laza, Current Developments in Hodge Theory (2025), pp. 299–348; LSS bibliography [KL25]",
+          "material_read": "LSS §7 case 2 description of how [KL25, Tables 1, 2] is used, and bibliography; no primary full text inspected",
+          "method": "OA citing-source passage and title search",
+          "title": "Hodge theory of degenerations (II): vanishing cohomology and geometric applications",
+          "trigger": "Source of the K3-tail classification tables for the intermediate quotient"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–36",
+        "LSS arXiv:2611.17149v1 Definition 4.5 and Theorem 7.2",
+        "GRDB K3help"
+      ],
+      "rationale": "The divisor is selected by an actual KSBA gluing construction. The marked local intersections determine how to augment the exceptional configuration by the double curve, and distinguish an end from a middle in an A3 chain, which the unmarked classification cannot do. The 3/4,3/4,1/2,1/2 correction vector supplies the local numerical data needed to use this divisor on the resolution. The value rests on this complete incidence calculation, not on repeating a K3 family number or applying adjunction in isolation.",
+      "residual_risks": [
+        "The result does not give the full Picard lattice, alternate degeneration markings, or the behavior on collision walls."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

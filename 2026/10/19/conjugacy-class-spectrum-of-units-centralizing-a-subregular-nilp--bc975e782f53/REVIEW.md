@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Every centralizing matrix is a \(k[t]\)-module endomorphism of \(k[t]/(t^m)\oplus k\). The four-block description is exhaustive, and the determinant is \(f(0)^m a\) for \(m\ge2\). Direct multiplication gives three and only three conditions for two units to commute. The rank-one proportionality classification, together with the exact counts of nonzero scalar pairs having prescribed difference, proves the three centralizer orders and class-size strata for arbitrary prime powers. The class-count identity and commuting-probability identity then follow from orbit-stabilizer and Burnside. A standalone enumerator corroborates seven small finite fields/lengths and checks literal matrix commutation in three cases. The finite checks are not used as an infinite proof.
+PASS
 
-## Originality — PASS with residual risk
+Work on k[t]/(t^m)⊕k. The cross maps are inclusion into the t^(m−1) socle and evaluation at 0. Their short-block composite is zero because m≥2; in the basis ordered as 1, the short-block basis, t,…,t^(m−1), the determinant is f₀^m a. In multiplying units the long-long commutator has only the socle coefficient uV−Uv, and the two cross-block commutators give the other two minors of the rows (f₀−a,u,v) and (g₀−b,U,V). Thus a nonzero first row requires the second row to be a scalar multiple, whereas a zero row commutes with all units. The equation g₀−b=h′ with g₀,b nonzero has q−1 solutions for h′=0 and q−2 otherwise. This yields stabilizers |G_m|, q^m(q−1), q^(m−1)(q−1)², respectively. Dividing gives the three class sizes; summing element counts divided by their class sizes gives (q−1)(q²+1)q^(m−2). The third stratum is empty at q=2 and the orbit-count identity gives cp=5/8 there and the displayed general cp. The frozen checker and its verification were inspected, not executed. A separately written direct-matrix enumeration (independent_matrix_check.py) matched all class-size multiplicities at (q,m)=(2,2),(3,2),(2,3),(3,3), with 40, 2160, 160 and 19440 ordered commuting pairs, respectively. It is a finite corroboration; the three-minor argument proves uniformity including over extension fields.
 
-Britnell–Wildon (arXiv:1001.0811), read in author-manuscript HTML, concerns ambient commuting similarity classes, centralizer determinant images, and two-part nilpotent class compatibility, not this fixed-unit-group spectrum. Sharma (arXiv:1409.2698), inspected in relevant full-text pages (especially Lemmas 4.2 and 5.10), gives all-matrix branches for \((2,1)\) and \((3,1)\): these are genuine small-rank antecedents. The claimed uniform all-length unit-class spectrum and constant commuting probability are not directly given by these low-dimensional branch tables. Related published record searches for subregular nilpotent centralizer units, commuting probabilities and conjugacy classes found no direct coverage. A general group-theoretic formulation or an unlocated extension of the branching calculation remains a priority risk. Neither a negative search nor the available history proves exhaustive novelty.
+## originality
 
-## Value — PASS
+PASS
 
-A matrix centralizer's invertible elements form a natural finite group; conjugacy-class sizes and commuting probability are intrinsic group invariants. The theorem completely determines the class-size census for the first nonregular nilpotent Jordan family, over every finite field and arbitrarily long blocks. It identifies a sharp disappearance of the \(q^2\)-class stratum over the binary field and a uniform commuting probability despite unbounded group size. Those phenomena distinguish this from simply counting commuting elements of the ambient matrix algebra. No downstream theorem or scheme-level assertion is claimed.
+The supported distinct claim is the all-length, unit-only internal class-size distribution, including the distinction between noncentral classes with equal and unequal diagonal residues. No priority is credited for the module description, the orbit-count identity or the individually known small cases. The strongest checked same-centralizer statements use different orbit domains or stop at low dimension.
 
-## Closest prior work and limitations
+## value
 
-The \(m=2,3\) matrix-branching cases are known in Sharma's broader orbit calculation; the universal \(m\)-statement is the assessed contribution. The result is for \((m,1)\) only. Bibliographic priority, especially under other centralizer-group terminology, has not been settled exhaustively. Computational checks do not constitute independent expert certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Internal conjugacy sizes are natural finer invariants than order or the number of ambient similarity classes. The full distribution shows exactly what changes as the long Jordan block lengthens and what does not, including the missing unequal-residue stratum at q=2. It supplies a uniform closed benchmark for a basic nonregular family of finite matrix centralizers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

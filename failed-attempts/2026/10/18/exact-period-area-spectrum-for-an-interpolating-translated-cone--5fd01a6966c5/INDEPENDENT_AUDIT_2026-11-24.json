@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:46:41.387359Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 47–83",
+        "Frozen VERIFICATION.md lines 19–21 and check_period_spectrum.py",
+        "/workspace/branches/independent_replay.py"
+      ],
+      "rationale": "With s=Cy, translating the left endpoint to zero leaves cuts at 1−s and 1; a circle rotation through λ first returns in one step on the outer branches and two on the central branch. For λ=p/q each coset has p+q equally spaced points, exactly floor(q(s+r)) of which are deleted for residue 0≤r<1/q. First return visits all surviving points before returning, so these periods are primitive. Size-weighting the residue lengths and integrating the piecewise-linear slice laws yields the two half-weight endpoints, the stated absolute areas, and the centered second trapezoidal sum for the mean. The normalized weights give the claimed density by Riemann sums. For irrational λ, dense circle orbits induce dense interval orbits, and lifting the invariant measures through the bounded return-time tower gives unique ergodicity. These are fiberwise results with the stated null boundary exceptions. Source verifier inspected but not executed; independent exact direct-cone enumeration checked 1,032 slices for reduced denominators 2–12 and two unequal cotangent pairs, and recovered area and mean. Replay: python3 /workspace/branches/independent_replay.py 2; output /workspace/branches/independent_replay.out.",
+      "residual_risks": [
+        "The finite replay supplements the proof and does not resolve exceptional orbit behavior under alternative boundary assignments."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cockram–Ashwin–Rodrigues Theorem 3.1 and (3.7) give the slice exchanges and top boundary as a Rauzy induction; Theorem 4.5 discusses different four-cone invariant curves. Peres–Rodrigues and the renormalization paper discuss periodic islands/disks, not the all-height area weights in the passages examined."
+        ],
+        "reasoning": "These sources provide the model and broader periodic geometry, not a directly stated area law for this family. This does not weaken exact coverage in the distinct catalogue record.",
+        "searches": [
+          "arXiv:2312.17412v2 §3 and §4",
+          "arXiv:1809.05496",
+          "arXiv:2312.17405",
+          "arXiv:1805.00245v1",
+          "Bas and López, New Results on the Computation of Periods of IETs"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5b1c8ed826f4 and 98e971ff7a6a",
+        "arXiv:2312.17412v2; 1809.05496; 2312.17405; 1805.00245v1",
+        "Bas and López (2025), landing only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The catalogue record states the staircase, absolute and normalized areas, and fiberwise irrational aperiodicity/equidistribution. Its normalized weights are u_m w_m/[q λ(1+λ/2)] for u_m=(p+q−m)/q."
+        ],
+        "reasoning": "The remaining mean is a weighted finite sum, and integrating bounded continuous tests against the displayed weights is immediately the claimed Riemann sum on [1,1+λ]. Thus neither addendum is a distinct substantive claim. The older motivating paper alone does not supply these exact masses.",
+        "searches": [
+          "Comparison with the exact masses and Proof steps 1–5 of Resultary 5b1c8ed826f4",
+          "Cockram–Ashwin–Rodrigues arXiv:2312.17412v2 §3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 5b1c8ed826f4, Finding and Proof steps 1–4, gives P(per=p+q−m)=2(p+q−m)w_m/[p(2q+p)]. It uses the same cotangents, height y*=λ/C, and slice domain. Its total area is p(2q+p)/(2Cq²)."
+        ],
+        "reasoning": "Multiplying these probabilities by precisely that area gives the frozen A_m (also directly integrated there); only the circle coordinate origin differs. The same primitive period and half-weight endpoint convention apply.",
+        "searches": [
+          "Resultary semantic lookup; matching record 5b1c8ed826f4",
+          "arXiv:2312.17412v2, §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "5b1c8ed826f4 gives an exact formula for every reduced p/q and also an example p/q=2/5, not just a sample table. 98e971ff7a6a's recorded object is a four-cone invariant-layer index rather than primitive orbit period."
+        ],
+        "reasoning": "The former is stronger evidence than matching finite values: it covers every bin and denominator of the claimed classification. The latter is not an equivalent census.",
+        "searches": [
+          "Resultary semantic lookup; 5b1c8ed826f4 (closest exact result), 98e971ff7a6a (adjacent)"
+        ]
+      },
+      "rationale": "A distinct indexed result supplies the same three-cone map on the same trapezoid, the same all-height induction and irrational dynamics, and the same entire rational staircase and absolute/normalized area spectrum. Its path is dated later; this establishes mathematical coverage in the reviewed catalogue, not earlier chronological priority or dependence. The frozen mean and high-denominator density add no nonmechanical remainder to those exact masses.",
+      "residual_risks": [
+        "Catalogue path dates cannot establish priority or independence.",
+        "Bas and López full text was not accessible; other earlier equivalent treatments remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact mathematical coverage of the central claim, not a priority judgment",
+          "evidence": "Same three translation branches, positive spectrum q through p+q, same half-weight endpoint law, and same horizontal coset counts and integrated areas.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-universal-planar-area-spectrum-of-rational-translated-cone-excha--5b1c8ed826f4/RESULT.md",
+          "material_read": "Finding, Assumptions, Proof steps 1–5 (offsets 0–6263)",
+          "method": "Local mirror bounded passage reads",
+          "title": "Universal planar area spectrum of rational translated-cone-exchange cycles",
+          "trigger": "Exact parameter family and quantitative claim"
+        },
+        {
+          "assessment": "Model and boundary induction precursor",
+          "evidence": "Interior slices are 3-IETs and the upper boundary is the first return of the baseline exchange to [−1,0]; the inspected section does not give the complete rational area spectrum.",
+          "identifier_or_url": "https://arxiv.org/abs/2312.17412",
+          "material_read": "v2 PDF pp. 5, 8–9 and pp. 18–19; Theorems 3.1, 4.5 and (3.7)",
+          "method": "OA PDF passage reads",
+          "title": "Construction of Invariant Curves for Some Piecewise Isometries",
+          "trigger": "Source of the family"
+        },
+        {
+          "assessment": "Related dynamics; not exact area evidence",
+          "evidence": "The passage reports infinitely many periodic islands accumulating on the real line.",
+          "identifier_or_url": "https://arxiv.org/abs/1809.05496",
+          "material_read": "p. 1, offset 600",
+          "method": "OA PDF passage read",
+          "title": "On the Dynamics of Translated Cone Exchange Transformations",
+          "trigger": "Periodic geometry for translated cone exchanges"
+        },
+        {
+          "assessment": "Related dynamics; not exact area evidence",
+          "evidence": "Describes disks of arbitrarily high period near the baseline.",
+          "identifier_or_url": "https://arxiv.org/abs/2312.17405",
+          "material_read": "pp. 30–31, offset 71300",
+          "method": "OA PDF passage read",
+          "title": "Renormalization of Translated Cone Exchange Transformations",
+          "trigger": "Broader periodic and renormalization mechanisms"
+        },
+        {
+          "assessment": "General embedding restrictions in inspected material",
+          "evidence": "Abstract is about embedding restrictions, not a specific trapezoid's exact period/area weights.",
+          "identifier_or_url": "https://arxiv.org/abs/1805.00245",
+          "material_read": "v1 abstract, offset 500",
+          "method": "OA passage read",
+          "title": "Embeddings of Interval Exchange Transformations into Planar Piecewise Isometries",
+          "trigger": "Broader IET/PWI comparison"
+        },
+        {
+          "assessment": "Unresolved as primary literature coverage, immaterial to demonstrated duplicate",
+          "evidence": "No full text read; do not infer noncoverage.",
+          "identifier_or_url": "Bas and López (2025)",
+          "material_read": "Landing only; no paper passages",
+          "method": "DOI and publisher OA HTML/PDF retrieval attempts",
+          "title": "New Results on the Computation of Periods of IETs",
+          "trigger": "Potentially relevant general computation of IET periods"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 18–39 and 77–91",
+        "Resultary 5b1c8ed826f4 Finding and Proof steps 1–5"
+      ],
+      "rationale": "The underlying angle-independent classification is well motivated and useful, but it is already supplied in full by the matching record. Beyond it the stated mean and weak limit are routine summation and Riemann-sum consequences of the exact mass function. No separately valuable surviving claim is established for repair.",
+      "residual_risks": [
+        "No judgment is made about value of different exchange families or finer asymptotic questions not addressed in this result."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

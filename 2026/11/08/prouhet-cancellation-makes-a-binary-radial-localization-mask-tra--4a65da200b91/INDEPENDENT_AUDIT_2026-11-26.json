@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T10:06:07.668778Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under the stipulated one-variable Fock norm, polar integration diagonalizes the indicator Toeplitz operator in the unit monomials, and the centered eigenvalues are q_n/2. For h=2^k, binary block multiplicativity reduces q_n to signed samples of the product of k forward differences of the unit-shell average of the Gamma density. Interval averaging bounds the sum of absolute samples by h^(-1)||H||_1+||H'||_1. Each difference integrates a derivative over an interval of its step length, giving the factor 2^(k(k−1)/2); the L1 bound for each Gamma derivative follows from the Rodrigues formula and the Laguerre squared norm n!/r!, for r=k,k+1<=n. This proves the factorial estimate for its full stated range. For k=floor(log(n)/(2 log 2)), both terms have log at most −(log n)^2/(8 log 2)+O(log n log log n), so all positive powers are summable. The Laplace product for the generating series tends to zero as real z increases to 1; absolute summability then gives the exact zero trace. At z=0 the product is strictly positive since the sum of its factor defects converges. This gives both signs for the centered operator, and its compactness fixes the essential spectrum of the uncentered operator. No sharpness or sign pattern is certified. The frozen checker and its documented 120-check success message were inspected as finite corroboration, not executed; the checker uses int.bit_count and therefore needs Python 3.10+ despite the 3.9 floor in the notes. No formal verification or expert attestation is asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Esmeral–Maximenko's abstract identifies the closure of radial Fock eigenvalue sequences via the square-root metric; this is not a quantitative eigenvalue estimate.",
+          "Rozenblum, §5, (5.1) and Theorem 5.1, studies cancellation for exp(−r^(2p)+r²)sin(r^(2q)), q>p>1, a decaying continuous signed symbol.",
+          "The indexed phase-speed result has all-Schatten convergence to the mean for positive trigonometric-polynomial profiles p(|z|^β), β>1."
+        ],
+        "reasoning": "None of these comparisons supplies the factorial bound and the zero trace for this binary, aperiodic, nondecaying shell sequence. In particular a finite trigonometric-polynomial profile does not include the mask.",
+        "searches": [
+          "arXiv:1505.07906, radial Fock sequence algebra",
+          "arXiv:1012.3528, radial sign-changing Bargmann symbols",
+          "2026/11/8/SCOPE-radial-fock-toeplitz-phase-speed-transition-filtered-spectra-and--3fa838eb35e3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, proof lines 63–136; VERIFICATION.md; checker.py read as evidence",
+        "arXiv:1907.00848",
+        "arXiv:1505.07906",
+        "arXiv:1012.3528",
+        "Resultary periodic annuli record 30369ad77fd7 and phase-speed record 3fa838eb35e3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing that each dyadic block cancels moments through degree k−1 does not itself control Gamma derivatives as k grows with n.",
+          "The trace argument needs absolute summability in addition to the Abel limit; convergence to the scalar or qualitative spectral algebra results do not give it. Periodic coloring has a different Laplace transform and a nonzero centered trace."
+        ],
+        "reasoning": "The sampling and growing-order derivative control plus the exact product limit establish consequences not forced by the statements inspected. The general Schatten and essential-spectrum criteria are not claimed to be new.",
+        "searches": [
+          "Knutsen Theorem 2.1; Esmeral–Maximenko abstract and §1; Rozenblum §5; two indexed radial homogenization records",
+          "Frozen Thue–Morse/Prouhet identity (5) and proof (6)–(10), compared to the classical identity attributed to Allouche–Shallit"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Knutsen, Theorem 2.1, pp. 4–5: radial Gaussian localization eigenvalues are normalized Gamma averages in the Hermite basis.",
+          "Esmeral–Maximenko, §1, p. 2: radial-symbol diagonalization in the monomial basis."
+        ],
+        "reasoning": "The two formulations are unitarily equivalent here; compare the signed symbol ε_floor(t) or equivalently the indicator of positive shells, with an exact factor of 1/2 on centering. The background diagonalization holds in either formulation, but it does not fix the cancellation rate or the centered trace.",
+        "searches": [
+          "Radial Fock Toeplitz and Gaussian localization comparisons: arXiv:1907.00848 and arXiv:1505.07906",
+          "Resultary: radial Toeplitz spectral homogenization and alternating Gaussian annuli"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The target's own catalogue hit is not independent corroboration.",
+          "The closest different indexed alternating-annuli record treats periodic coloring and gives a sharp geometric rate, both signs and centered trace 1/4, not the Thue–Morse trace 0.",
+          "The indexed phase-speed result covers a different class of symbols, even at parameters that yield all Schatten classes."
+        ],
+        "reasoning": "These records materially overlap the homogenization phenomenon but are not the same or a covering statement. No separate numerical table is expected to encode an infinite-operator norm estimate and trace; the indexed statements themselves were compared.",
+        "searches": [
+          "Resultary for Thue–Morse radial Fock masks and trace-class homogenization",
+          "2026/11/1/SCOPE-sharp-trace-class-spectral-homogenization-for-alternating-gaussi--30369ad77fd7",
+          "2026/11/8/SCOPE-radial-fock-toeplitz-phase-speed-transition-filtered-spectra-and--3fa838eb35e3"
+        ]
+      },
+      "rationale": "The radial eigenvalue formula, dyadic Thue–Morse identity and operator-ideal consequences of rapid diagonal decay are established tools. The inspected comparisons do not cover the specific nondecaying Thue–Morse mask's all-index factorial estimate, squared-log upper bound and zero trace. This is a bounded best-of-knowledge judgment for that conjunction, not priority for radial spectral homogenization or for Prouhet cancellation.",
+      "residual_risks": [
+        "A more general quantitative result for automatic shell sequences or equivalent Gamma averages may exist outside the inspected passages; no comprehensive historical-priority claim is made.",
+        "The estimate is one-sided; it gives no optimal decay constant and does not decide an exact rate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the Gamma eigenvalue framework; compared theorem does not prove the mask-specific bound or trace",
+          "evidence": [
+            "Eigenvalues integrate the normalized Gamma kernel over the radial set and the eigenvectors are Hermite functions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1907.00848",
+          "material_read": "Theorem 2.1, pp. 4–5; arXiv PDF text offset 12779",
+          "method": "OA primary PDF passage",
+          "title": "Daubechies’ Time-Frequency Localization Operator on Cantor Type Sets",
+          "trigger": "Same Gaussian radial eigenproblem and radial mask examples"
+        },
+        {
+          "assessment": "Supplies general radial spectral background, not the stated quantitative all-Schatten estimate",
+          "evidence": [
+            "Radial symbols are diagonal in monomials; square-root-metric uniform continuity describes the closure of the sequences."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1505.07906",
+          "material_read": "Abstract and §1, p. 2, PDF text offset 6033",
+          "method": "OA primary PDF passages",
+          "title": "Radial Toeplitz operators on the Fock space and square-root-slowly oscillating sequences",
+          "trigger": "General radial Toeplitz eigenvalue theory could imply convergence"
+        },
+        {
+          "assessment": "Different signed symbol and decay assumptions",
+          "evidence": [
+            "The displayed rapidly oscillating example has a decaying envelope with q>p>1; it is not a shell indicator."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1012.3528",
+          "material_read": "§5 (5.1), Theorem 5.1, HTML text offset 76500",
+          "method": "OA arXiv HTML passage",
+          "title": "On lower eigenvalue estimates for Toeplitz operators with radial symbols in Bergman spaces",
+          "trigger": "Potential stronger sign-cancellation example in Bargmann space"
+        },
+        {
+          "assessment": "Related exact invariant with nonmatching hypotheses and value",
+          "evidence": [
+            "Periodic unit-shell alternation, centered trace 1/4, essential spectrum {1/2}, both signs and a geometric rate."
+          ],
+          "identifier_or_url": "2026/11/1/SCOPE-sharp-trace-class-spectral-homogenization-for-alternating-gaussi--30369ad77fd7",
+          "material_read": "Mirror RESULT.md Finding, text offset 0",
+          "method": "Local catalogue and primary mirror passage",
+          "title": "Sharp trace-class spectral homogenization for alternating Gaussian annuli",
+          "trigger": "Closest distinct indexed trace assertion for a binary radial mask"
+        },
+        {
+          "assessment": "Different and not dominating profile class",
+          "evidence": [
+            "Positive trigonometric-polynomial p(|z|^β), β>1, has all-Schatten convergence to the mean."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-radial-fock-toeplitz-phase-speed-transition-filtered-spectra-and--3fa838eb35e3",
+          "material_read": "Mirror RESULT.md Finding, text offset 0",
+          "method": "Local catalogue and primary mirror passage",
+          "title": "Radial Fock Toeplitz phase-speed transition",
+          "trigger": "Possible broader all-Schatten mechanism for nondecaying radial symbols"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The canonical nonperiodic binary coloring tests whether complete included and excluded shells can coexist with strong spectral averaging for Gaussian localization. The explicit finite-order bound gives eigenvalue control for this fixed mask, and the exact trace separates it from the periodic unit-shell example, which has a different trace. Neither a compactly supported approximation nor an asymptotic density computation answers those questions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

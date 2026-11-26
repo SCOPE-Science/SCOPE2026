@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:17:04.013422Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–74",
+        "VERIFICATION.md and check.py, inspected without executing"
+      ],
+      "rationale": "Phase covariance reduces twice the numerical radius to the Jacobi spectral supremum. Translate the defect to 0,1; within each parity the half-lines are nested compressions with dense union. The periodic tail has essential upper edge S=u+v by Floquet theory (or the test vectors on long constant stretches at the band maximum and the row-sum bound). For c<=u, comparison on absolute values with the unperturbed Jacobi operator gives the matching upper bound at every finite depth. For c>u the larger root lambda of F_u(z)=c z^2-(u^2+c^2)z+c(u^2-v^2) lies above S because F_u(S)=-S(c-u)^2. It is reproduced by the reflected positive decaying mode with central value 1, adjacent value r=(lambda-c)/v and cell ratio rho=uv/(c lambda-u^2). Indeed (lambda-c)(c lambda-u^2)=c v^2 gives lambda r=v+u rho and lambda rho=(u+v rho)r. Both r>0 and 0<rho<1; the positive-eigenfunction quadratic-form identity rules out higher spectrum. The half-line truncation loses exactly one boundary term in the eigenvector Rayleigh relation, with size O(rho^m) and retained norm bounded below. If a<b<c, both larger roots are between S and 2c, and F_a(z)-F_b(z)=(b^2-a^2)(z-2c) makes the a-replacement root strictly larger. For a<c<=b the other phase sits at S, establishing the full dichotomy, including equality cases and a=b. The worked example recomputes to 1.563137556011 for the even limit.",
+      "residual_risks": [
+        "Finite sections are only diagnostics. The geometric constant is pointwise and need not remain bounded near threshold."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.5 tests whether a finite-prefix perturbation stays at the bulk edge. Proposition 3.3 gives the exact finite-m band-edge thresholds for the two phases. Proposition 3.6 gives the exact fixed-c limit for a constant background."
+        ],
+        "reasoning": "The broader threshold theorem is stronger on the plateau and gives the phase threshold as m tends to infinity, not the explicit outlier above it; it cannot determine the ordering between two supercritical radii or the rate. No inspected prior general result supplied both unequal limiting radii.",
+        "searches": [
+          "Marionnet arXiv:2611.21280v1, Theorem 2.5, §3 Propositions 3.3 and 3.6",
+          "Resultary: Marionnet 2611.21280 Proposition 3.3 finite-depth threshold Proposition 3.6 remote defect limit two-periodic unilateral shift"
+        ]
+      },
+      "checked_sources": [
+        "Marionnet, arXiv:2611.21280v1",
+        "Grizzi–Aligia–Roura-Bas, arXiv:2604.20561v1",
+        "Local Resultary hits including 63dc888a133a",
+        "Wang–Wu 2011 via Marionnet's precise citation, not directly verified from original full text"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The companion's secular equations (1)–(2) limit to the same fixed-c bilateral relation and their disappearing exponential reflections give the same rate scale by inversion at a fixed exterior root. Its Finding instead tunes c with depth and treats an m^-4 gap and m^2 eigenmode; its prior-work section, frozen RESULT.md line 100, credits the two-periodic fixed-c theorem.",
+          "The verified earlier primary propositions give the plateau threshold in general and the limiting value for a=b, not the unequal pair."
+        ],
+        "reasoning": "The same-day companion has substantive proof-level overlap and not just matching terminology, so it is not treated as independent corroboration. Its express treatment of the fixed-c theorem as an antecedent to its own fine-window analysis gives no basis to reject this fixed-c record as a rediscovery of the companion. The exact unequal-phase values, ordering and rate remain distinct from the inspected external antecedents.",
+        "searches": [
+          "Resultary 2026/11/22/SCOPE-parity-split-quartic-binding-at-a-critical-defect-in-alternating--63dc888a133a",
+          "Marionnet arXiv:2611.21280v1 Propositions 3.3 and 3.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The translated problem is the top of a bilateral dimerized Jacobi operator with one changed link. Reflection in the bond folds the even sector to an alternating half-line with boundary diagonal +c, with first hopping v. Grizzi–Aligia–Roura-Bas, arXiv:2604.20561v1 abstract and introduction, concern symmetry-protected boundary states of an extended model with further-neighbor bulk hoppings, not a formula in the folded boundary diagonal c. The homogeneous bilateral result of Wang–Wu is identified by Marionnet's Proposition 3.6 and commentary."
+        ],
+        "reasoning": "The highest-energy exterior eigenvalue for a changed bond is not the same as the bulk-topological gap-state criterion for the uniform open termination. The checked homogeneous spike formula is exactly the a=b case only. A prior equivalent impurity-parameter formula could still cover a substantial portion of the result.",
+        "searches": [
+          "Resultary: dimerized Jacobi or SSH single bond defect outlier eigenvalue threshold exact formula",
+          "Resultary: SSH dimerized chain altered single hopping bond bound state energy defect bond threshold alternating couplings",
+          "Web: Su-Schrieffer-Heeger boundary potential bound state energy exact analytical edge impurity hopping square root phase diagram"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact hit 1798bbf11d6b is the frozen finding itself. Marionnet's exact phase thresholds give even C_m=sqrt(1+4/(3m+2)) and odd C_m=2 sqrt(1+2/(3(m+1))) for (a,b)=(1,2). They confirm the phase placement of c=1.5 without determining the even limit's value."
+        ],
+        "reasoning": "The exact formula comparison distinguishes the threshold across finite depths from the spectral supremum as a function of c; there was no separate exact-value table in the checked examples.",
+        "searches": [
+          "Resultary: parity-resolved remote defect numerical radii two-periodic weighted shift alternating defect bond",
+          "Resultary: Wang Wu 2011 Theorem 4.9 one-spike bilateral weighted shift numerical radius homogeneous defect formula"
+        ]
+      },
+      "rationale": "The supported contribution is the fixed-c unequal-background pair of exact limiting radii, their strict ordering/dichotomy and the geometric estimate. The homogeneous case and a stronger statement about the finite-depth plateau are established. There is genuine mathematical overlap with the companion quartic-window proof; the companion expressly credits the fixed-c limit as existing work and does not present it as its new result. That overlap is not evidence of an independent earlier discovery, and the shared date does not determine priority.",
+      "residual_risks": [
+        "The direct Wang–Wu paper was unavailable and its broader context remains unchecked. An older dimerized-chain impurity result above the outer band edge could substantially overlap; the bounded actual comparisons do not guarantee historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact finite-depth threshold and homogeneous limit already known; does not supply the unequal-background values in the inspected results.",
+          "evidence": [
+            "Proposition 3.3 gives a sqrt(1+2b/((m+2)a+mb)) or b sqrt(1+2a/((m+1)(a+b))). Proposition 3.6 yields (1+c^2)/(2c) for unit background, c>1, and cites Wang–Wu Theorem 4.9 for the bilateral value."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.21280v1",
+          "material_read": "Theorem 2.5 near offset 26704; Proposition 3.3 near 45923; Proposition 3.6 and commentary near 57747",
+          "method": "Bounded OA primary HTML passages",
+          "title": "Numerical range of finite perturbations of a 2-periodic weighted shift",
+          "trigger": "Exactly the same one-bond finite perturbation, with a remote-defect section"
+        },
+        {
+          "assessment": "Proof-level shared math; explicitly credited fixed-c result, not an independent competing claim to it.",
+          "evidence": [
+            "Taking depth to infinity at positive fixed kappa removes reflection in the secular equations, giving the same bilateral outlier relation. The Finding itself is a different critical-window limit."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-parity-split-quartic-binding-at-a-critical-defect-in-alternating--63dc888a133a",
+          "material_read": "Finding and equations (1)–(2), mirrored offset 0–7245; frozen prior-work passage at line 100",
+          "method": "Local mirror and frozen full record",
+          "title": "Parity-split quartic binding at a critical defect in alternating weighted shifts",
+          "trigger": "Same moving defect and exact exterior equations"
+        },
+        {
+          "assessment": "The inspected claims concern bulk longer-range hopping, winding and low-energy boundary states, not an explicit variable boundary defect diagonal or the top exterior eigenvalue considered here. Not an assertion about every statement in the paper.",
+          "evidence": [
+            "The abstract relates decaying edge modes and the unit-cell decay factor to winding changes at bulk gap closings."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2604.20561v1",
+          "material_read": "Abstract and introduction, offset 0",
+          "method": "OA primary HTML passage",
+          "title": "Exact analytical edge states in the extended Su–Schrieffer–Heeger model",
+          "trigger": "Potential exact analytic result for dimerized edge modes"
+        },
+        {
+          "assessment": "Homogeneous case credited; no negative conclusion about unread parts of Wang–Wu.",
+          "evidence": [
+            "Marionnet identifies its Proposition 3.6 limit with the unit-background bilateral value in Theorem 4.9."
+          ],
+          "identifier_or_url": "https://ir.lib.nycu.edu.tw/bitstream/11536/19226/1/000290972700040.pdf",
+          "material_read": "Theorem 4.9 as cited in Marionnet after Proposition 3.6; primary DOI landing page only",
+          "method": "Identified OA PDF route attempted but unavailable; checked the theorem through the matching statement in an accessible later primary paper",
+          "title": "Numerical ranges of weighted shifts",
+          "trigger": "Potential primary precedent for the bilateral one-spike formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof lines 24–73",
+        "Marionnet's finite-position thresholds and homogeneous special case"
+      ],
+      "rationale": "A defect displaced to infinity converges locally back to the unperturbed coefficients, yet the numerical radius need not converge, because the translated spectral defect remembers the lattice phase. The exact criterion and ordering identify precisely when that failure happens, and the decay bound sets the finite-distance scale of the two limits. These are natural global spectral questions for the first nonconstant periodic background, not parameter-picked examples.",
+      "residual_risks": [
+        "No uniform rate in the critical window and no assertion for general periodicity or several defects."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

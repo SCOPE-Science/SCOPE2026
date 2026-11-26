@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-The analytical proof in `RESULT.md` applies to the infinite family. The two included scripts independently provide finite tests, not independent mathematical audit.
+## correctness
 
-The direct pair-spectrum verifier `verify/cycle_rank3.py` was run using Python 3. It checked radii 1 through 15, each stable threshold \(4r+3\), fifty consecutive lengths from each threshold, and the opposite-side boundary. Recorded output is `verify/cycle_rank3.out`, concluding `ALL_CHECKS_PASS`.
+PASS
 
-The full two-sided three-round game verifier `verify/ef3_independent.py` independently computed complete game states, checked that all 45 pairs among ten class representatives are distinguishable, and checked stable-tail equivalences at several pairs of lengths/radii. Recorded output is `verify/ef3_independent.out`, concluding `INDEPENDENT_EF3_CHECK_PASS`. It invokes neither the other program nor a pair-spectrum reduction.
+The two-sided three-round game on a vertex-transitive graph reduces to the set of adjacency-and-extension spectra over distinct ordered pairs; a missing third pattern can be played on either side. For cyclic separation d, a 00 witness exists exactly when the longer gap n-d exceeds 2r+1. For nonedges, 11 exists exactly when d≤2r, and the only pair missing both one-sided witnesses is the antipodal nonedge at n=2r+2: regularity equates one-sided counts, and a common-neighbor count over the two arcs attains 2r only there. Adjacent pairs have distinct closed neighborhoods and a common neighbor precisely for r≥2. Re-evaluating the ranges d≤r and r<d≤floor(n/2) gives the displayed ten distinct rows; the six genuine-power rows all occur at r=2. At n=4r+2 two antipodes dominate, while at n≥4r+3 at most 4r other vertices can be covered, proving strict fixed-radius sharpness including r=1.
 
-Both scripts rely only on the Python standard library. Run from the directory containing `RESULT.md`:
+## originality
 
-```
-python3 verify/cycle_rank3.py
-python3 verify/ef3_independent.py
-```
+PASS
 
-A finite sample is not a proof of stability for all radii/lengths; that follows from the pair-spectrum theorem, geometric arc analysis, and complete symbolic case table in `RESULT.md`. Historical-priority checking is incomplete. No independent external audit or certification has been performed.
+Supported novelty is the exact six genuine-power classes and their relationship to ordinary cycles, including the cross-radius tail; the ordinary-cycle slice is credited and the pair-extension principle is standard.
+
+## value
+
+PASS
+
+The classification exposes exactly which local phenomena—domination, common neighbors and antipodal twins—remain visible at rank three despite unbounded degree and order. The sharp tail and the complete cross-radius comparison are useful beyond isolated examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

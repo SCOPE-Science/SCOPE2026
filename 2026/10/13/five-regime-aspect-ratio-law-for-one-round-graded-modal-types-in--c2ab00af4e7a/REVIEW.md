@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem fixes both the Bernoulli parameter and polynomial aspect exponent, and distinguishes convergence in probability from identity for individual matrices. The exact depth-one signature is \((X_{ij},D_i,E_j)\); both degree counts can be tested by finite graded thresholds, and all depth-one formulas factor through that triple. Binomial degree-alphabet sizes are derived in three regimes: sparse samples, critical Gaussian occupancy, and polynomially dense occupation with a moderate-deviation boundary. For the saturation \(K_1\sim2RC\), the proof independently verifies that every row sees both colors at each degree in a central almost-complete column-degree interval when \(a<2\), and symmetrically when \(a\ge2\). The one-column exact distribution conditioned on a marked or unmarked entry is explicit; a polynomial-size union bound absorbs its exponentially small failure probability. The formulas at critical \(a=1/2\) and \(a=2\) correctly replace one dense-occupancy factor by the nontrivial Gaussian integral. Multiplying the two degree-alphabet limits yields all five constants. Direct graded-formula evaluation against the signature on 9,418 small matrices, nine exact critical occupancy expectations, and 32 random rectangular sanity checks corroborate the semantic and numerical steps. They do not prove the asymptotic theorem independently.
+PASS
 
-## Originality — PASS (preliminary, same-model)
+The exact type is (cell bit, row sum, column sum): interiors at depth zero have only two colors to distinguish and the named modal thresholds recover both sums. The finite algebra consists of all unions of these type classes. For a binomial sample of size t at length L, below square-root scale the expected number of coincident pairs is O(t²/√L)=o(t); at t/√L→1 the expected occupancy is the local-limit Riemann sum √L times L_v with tails bounded by the expected number of tail observations, and variance at most the mean by negative covariance. Above that scale, writing t/√L=n^(β+o(1)), the inner interval of radius (1−ε)√(2Lvβ log n) has t times each bin mass polynomially large. The expected number of samples outside the outer radius (1+ε)√(2Lvβ log n) is at most √L n^(−β(2ε+ε²)+o(1)) by Bernstein, and Markov bounds their distinct values too. The row and column samples need only be internally independent. For a<2 the column-degree interval is in the dense occupancy regime. For a fixed row, mark and degree, the success probability is the mark probability times the shifted Bin(m−1,p) mass, and trials over columns are independent before any row conditioning. The uniform polynomial lower bound on n times this probability defeats the union bound over all rows, marks and inner degrees. This establishes coverage on every row before choosing degree representatives, giving 2R|I|≤K1≤2RC. At a≥2 the row-degree sample is dense and the transposed argument gives the same result. The squeeze as ε→0 proves saturation without treating cross-axis degrees as independent. Multiplying the occupancy limits gives each frozen coefficient, including 8v at a=1, 4L_v√(3v/2) at a=1/2 and 4L_v√(3v) at a=2. The floor does not affect these limits.
 
-The complete inspected primary sources establish counting bisimulation, graded multimodal type equivalence, and bipartite degree-sequence enumeration, but do not state a quantitative first-round random-grid type count, the five fixed polynomial-aspect regimes, or the critical Gaussian occupancy constants. Closest existing findings concern qualitative depth-two random square-grid separation, worst-case sparse-marking separation, or ordinary rather than graded modal generation; none implies this limit. Dedicated equivalent-phrase, degree-pair-occupancy, aspect-ratio and counting-message-passing searches of mathematical research literature and records returned no equivalent claim. Both elementary binomial occupancy limits and modal graded types are prior tools and are **not** individually claimed as discoveries. There remains a genuine risk of an implicit earlier treatment in random bipartite color refinement or joint degree-pair histograms.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Quantifying the first-round expressivity capacity of counting-modal observations is a substantive refinement of qualitative early-versus-late separability. The saturation \(K_1/(2RC)\to1\) is a structural result about dependent row/column degree-pairs with both atomic colors. It yields five different growth laws, two sharp aspect-ratio transitions, and new critical Gaussian constants, with the square law \(8p(1-p)n\log n\) as a transparent example. It simultaneously determines the leading base-two logarithm of the definable Boolean algebra's size. These give natural complexity benchmarks for finite graded-modal type systems, rather than an arbitrary small finite census.
+The supported distinct claim is the explicit asymptotic and near-saturation of the two-mark degree-pair alphabet of iid rectangles. The available comparisons credit existing modal semantics, refinement, and degree sequence theory but do not establish this quantitative law or its critical constants.
 
-## Limits and review status
+## value
 
-The statement is restricted to fixed density and fixed exponent, an independent-entry model, and unrestricted finite counting thresholds at modal depth one. Other scalings and fluctuation laws are not addressed. Exhaustive finite tests supplement rather than certify analytic limits. A separate mathematical and historical originality audit has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a standard two-equivalence model, the one-round algebra size is a natural measure of the expressive gain from counting. A square-only estimate or a marginal-product upper bound would miss whether that upper bound is attained and both critical crossovers. The theorem resolves both questions over the full natural polynomial aspect family with explicit constants and a uniform coverage argument reusable in comparable occupancy problems.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

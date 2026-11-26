@@ -10,9 +10,9 @@ Write \(r=(1+\theta)^{-1}\). Let \(r_*\) be the unique root in \((0,1)\) of
 \[
  P(r)=3r^5+2r^4+6r^3-r-2=0,
 \]
-and set \(\theta_*=r_*^{-1}-1=0.482487738319200776\ldots\). Then **the SPL law is infinitely divisible under ordinary addition (as a distribution on the real line, equivalently here by compound-Poisson convolution on \(\mathbb Z\)) if and only if \(\theta\ge\theta_*\)**, or equivalently \(0<r\le r_*\).
+and set \(\theta_*=r_*^{-1}-1=0.482487738319200658\ldots\). Then **the SPL law is infinitely divisible under ordinary addition (as a distribution on the real line, equivalently here by compound-Poisson convolution on \(\mathbb Z\)) if and only if \(\theta\ge\theta_*\)**, or equivalently \(0<r\le r_*\).
 
-More precisely, for \(0<r<r_0\), the characteristic function has a negative numerator cosine coefficient; for the whole interval \(0<r<r_\mathrm{z}\) it is positive on the real line. Here \(r_0\) is the unique positive root of \(2r^3+r^2-1=0\), and \(r_\mathrm{z}=0.675130870566646112\ldots\) is the unique root in \((0,1)\) of \(r^3+3r^2-r-1=0\). In particular, \(r_*<r_\mathrm{z}\). For \(r_*<r<r_\mathrm{z}\), the characteristic function is everywhere **strictly positive**, yet the distribution is **not** infinitely divisible; at \(r=r_\mathrm{z}\) it vanishes at angle \(\pi\), and beyond that it is negative at angle \(\pi\).
+More precisely, for \(0<r<r_0\), the characteristic function has a negative numerator cosine coefficient; for the whole interval \(0<r<r_\mathrm{z}\) it is positive on the real line. Here \(r_0\) is the unique positive root of \(2r^3+r^2-1=0\), and \(r_\mathrm{z}=0.67513087056664607088\ldots\) is the unique root in \((0,1)\) of \(r^3+3r^2-r-1=0\). In particular, \(r_*<r_\mathrm{z}\). For \(r_*<r<r_\mathrm{z}\), the characteristic function is everywhere **strictly positive**, yet the distribution is **not** infinitely divisible; at \(r=r_\mathrm{z}\) it vanishes at angle \(\pi\), and beyond that it is negative at angle \(\pi\).
 
 On the infinitely divisible side, put
 \[
@@ -89,8 +89,8 @@ The monotonic transformation therefore gives \(s>t_0\), and \(c_4=(4r^4-2s^4)/4<
 
 The standalone `check_spl_divisibility.py` reproduces the Poisson-kernel rational identity, normalization, two boundary factorizations, the \(P\)-comparison identities, rational isolation brackets for both positive roots, the exact nondivisible witness, and independently summed characteristic-function samples. Exact symbolic algebra is used for structural identities and the rational witness; finite numerical samples are corroboration, not substitutes for the infinite Fourier-series proof. The root values are
 \[
- r_*=0.67454183542439916099\ldots,\qquad
- r_\mathrm{z}=0.67513087056664611296\ldots.
+ r_*=0.67454183542439917437\ldots,\qquad
+ r_\mathrm{z}=0.67513087056664607088\ldots.
 \]
 
 ## Relationship to prior work
@@ -99,7 +99,7 @@ Chesneau, Chakraborty, Bakouch and Karakaya (2023) introduce precisely this SPL 
 
 ## Limitations
 
-The result pertains only to the original, symmetric, non-zero-inflated SPL distribution; the zero-inflated regression and translated variants of the source are not classified. No simulation, estimation optimality, thinning self-decomposability, multivariate construction or separate probability-of-zero boundary is asserted. The identification of originality is a best-knowledge literature comparison, not a proof of global priority, and no independent mathematical audit has been performed.
+The result pertains only to the original, symmetric, non-zero-inflated SPL distribution; the zero-inflated regression and translated variants of the source are not classified. No simulation, estimation optimality, thinning self-decomposability, multivariate construction or separate probability-of-zero boundary is asserted. The literature comparison is limited to the sources discussed and does not establish global priority.
 
 ## References
 

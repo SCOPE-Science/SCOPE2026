@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:45:21.436748Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–68, VERIFICATION.md, verify.py and verify-output.txt (inspected, frozen script not executed)",
+        "Replay: python3 /workspace/branches/412da9bd-8de2-4717-8d4b-8ff74d6d4e73/independent_dimer_census.py",
+        "Independent replay log: /workspace/branches/412da9bd-8de2-4717-8d4b-8ff74d6d4e73/independent-full.txt"
+      ],
+      "rationale": "The four fixed words and six paired orbits give the stated ten classes. Chosen occurrences from different classes cannot have the same start. Ordering chosen occurrences yields feasible adjacent joins whose additional lengths are no greater than the original gaps, so the ordered-overlap optimum is exact; incidental occurrences need not be excluded. For greedy, a component and its reverse complement admit exactly the same choices of orientations, and a multiset preserves the distinction between different positions even for identical strings. The globally maximal proper overlap is recomputed from the full state, all tied legal successors are retained, and the number of components strictly falls. The independent replay found O by shortest paths on (seen orbit mask, final symbol), allowing all incidental coverage, and G by recursive fixed-size-domain enumeration with packed component words and an integer overlap test. It checked all 1023 subsets, using 2456 optimum states and 638579 greedy states. The maximum gap is 1; the gap-one counts by size are 0,0,16,55,78,69,40,17,6,1, totaling 282, with the other 741 at gap zero. All sharp ratios matched, including 5/4 for three classes. The explicit witness also checks directly: the first join has the largest possible overlap 1 and then no orientation or order has a positive overlap with the remaining class.",
+      "residual_risks": [
+        "This is a complete deterministic finite certificate for distinct length-two orbits, not a formal proof for any longer word length or an alphabet other than the specified four-symbol involution."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The direct variant has a 1/2 compression guarantee; MGREEDY-RC and TGREEDY-RC give other bounds through cycle-cover-based schemes."
+        ],
+        "reasoning": "Even granting the direct compression bound for all ties, with n dimers it only gives G-O <= n-O/2 <= (n-1)/2 when there is positive optimum compression. It permits an integer gap up to 4 for n=10. The cycle-cover guarantees concern different output rules. None yields the rank-by-size table.",
+        "searches": [
+          "arXiv:2601.15814 introductory algorithms and compression ratio",
+          "arXiv:2603.26176 introductory results and cycle-cover construction"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2601.15814",
+        "arXiv:2603.26176",
+        "arXiv:1511.08431",
+        "doi:10.1093/bioinformatics/btt230 (not retrieved)",
+        "Resultary 6caf817aa98c and indexed summary 4e4aebaf05de"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general bound constrains total overlap saved, while the nearby exhaustive theorem determines a different set of component transitions. The inspected reversal analysis is for a different equivalence and does not calculate the specified finite census."
+        ],
+        "reasoning": "Even the direct algorithm's general bound leaves room for more than one lost symbol, and exact binary length-four data do not transfer by specializing an alphabet or word-length parameter. No inspected broader theorem or equivalent overlap-preserving reduction forces this maximum gap and all sharp subset counts.",
+        "searches": [
+          "arXiv:2601.15814 pp. 2–3, compression definition",
+          "Resultary 6caf817aa98c Finding and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The former names direct GREEDY-RC and bounds its compression; the latter analyzes the analogous pairwise merger with reversal instead of reverse complement."
+        ],
+        "reasoning": "The prior direct algorithm matches the key operation and should be credited. Bare reversal is not the specified reverse-complement action on labeled dimers, and the inspected guarantees are not this exact classification. The empty focused search is not evidence of absence.",
+        "searches": [
+          "Focused literature search for direct GREEDY-RC on fixed dimers and the subset census",
+          "arXiv:2601.15814 pp. 1–3",
+          "arXiv:1511.08431 pp. 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "6caf817aa98c reports an exhaustive ten-orbit, 1023-input census and sharp 4/3 ratio for binary length-four words, attained by six inputs. Indexed summary 4e4aebaf05de describes shortest circular covers of all ten dinucleotide classes; full text was not available in the local mirror."
+        ],
+        "reasoning": "An orbit count is not an overlap-preserving equivalence. The binary length-four setting can have different overlap lengths and has a different maximum guarantee; it does not encode the same per-input census. The all-class circular objective also does not classify adversarial greedy for linear words over subsets.",
+        "searches": [
+          "Local Resultary/SCOPE search for exact reverse-complement greedy subset ratios and dinucleotide-covering problems"
+        ]
+      },
+      "rationale": "The direct reverse-complement greedy rule and general compression analysis are prior work. No inspected claim establishes the sharp additive gap or classified all-subset profile for the specified four-symbol length-two orbits. The strongest catalog analogue has the same number of orbits but a different overlap structure and different sharp ratios.",
+      "residual_risks": [
+        "The Orenstein–Shamir paper and the exact covering-cycle record could not be compared firsthand. No absolute priority or exhaustiveness across the literature is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material algorithmic overlap, weaker general bound",
+          "evidence": "The direct rule has a 1/2 compression guarantee; the general improved length ratios rely on other algorithms.",
+          "identifier_or_url": "https://arxiv.org/abs/2601.15814",
+          "material_read": "pp. 1–3, introductory algorithms, direct compression guarantee and ratio definition; text offsets 1080–4589, around 5000 and 10160",
+          "method": "Open full-text passages",
+          "title": "Improved Approximation Ratios for the Shortest Common Superstring Problem with Reverse Complements",
+          "trigger": "Same direct GREEDY-RC rule and a general guarantee"
+        },
+        {
+          "assessment": "Different algorithmic scope",
+          "evidence": "General approximation and hardness, including a constrained cycle-cover method selecting from each pair.",
+          "identifier_or_url": "https://arxiv.org/abs/2603.26176",
+          "material_read": "pp. 1 and 3, text near offsets 1100 and 7000",
+          "method": "Open full-text passages",
+          "title": "Improved Approximation Algorithms and Hardness Results for Shortest Common Superstring with Reverse Complements",
+          "trigger": "Potential broader approximation theorem"
+        },
+        {
+          "assessment": "Different equivalence and no stated dimer census in the inspected discussion",
+          "evidence": "Treats pairwise greedy with simple reversals.",
+          "identifier_or_url": "https://arxiv.org/abs/1511.08431",
+          "material_read": "pp. 1–2, text near offsets 2200 and 6500",
+          "method": "Open full-text passages",
+          "title": "On the Greedy Algorithm for the Shortest Common Superstring Problem with Reversals",
+          "trigger": "Related direct pair merger with an involution"
+        },
+        {
+          "assessment": "Not assessed firsthand beyond the covering problem attributed in the frozen citation",
+          "evidence": "The frozen record points to optimization of a cover of all classes; access failure is not evidence about the paper's complete results.",
+          "identifier_or_url": "doi:10.1093/bioinformatics/btt230",
+          "material_read": "Landing/access material only; scientific full text and abstract not retrieved",
+          "method": "Lawful DOI and identified open repository routes attempted",
+          "title": "Design of shortest double-stranded DNA sequences covering all k-mers with applications to protein-binding microarrays and synthetic enhancers",
+          "trigger": "Same sort of length-two orbits at k=2, possibly relevant covering optimum"
+        },
+        {
+          "assessment": "Closest distinct exact census, different input words and ratio",
+          "evidence": "Binary length-four classes give six sharp 4/3 instances; the alphabet, length and exact suprema differ from the frozen claim.",
+          "identifier_or_url": "Resultary 6caf817aa98c",
+          "material_read": "Finding and proof, text offsets 0–8671",
+          "method": "Local full-text mirror",
+          "title": "Sharp 4/3 maximum-overlap reverse-complement superstring ratio for binary length-four words",
+          "trigger": "Same algorithm, ten orbits and an exact subset census"
+        },
+        {
+          "assessment": "Summary gives a distinct circular full-set problem; residual full-text risk",
+          "evidence": "Described as enumeration of optimal circular covers of all ten orbits, not a statement-level match to direct greedy over subsets.",
+          "identifier_or_url": "Resultary 4e4aebaf05de",
+          "material_read": "Index summary only; local full text unavailable",
+          "method": "Local index and mirror retrieval attempt",
+          "title": "Exact enumeration of shortest reverse-complement dinucleotide covering cycles",
+          "trigger": "Identical dimer orbit universe"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–37 and 56–76",
+        "Yamano–Shibuya arXiv:2601.15814 pp. 2–3",
+        "Independent all-subset replay"
+      ],
+      "rationale": "Length two is the smallest length with nonzero proper overlaps, and the four-symbol involution is a natural fixed instance with both fixed and paired words. The census answers a concrete guarantee question left by the broad compression bound: across all class subsets and even adversarial ties, the direct rule loses at most one symbol. The frequency by size and sharp ratios give useful exact baseline data for studying how orientation and ties affect this heuristic, without extrapolating to longer words.",
+      "residual_risks": [
+        "The value is as an exact baseline for a natural finite model, not an assembly-performance claim for biological sequence data or an unbounded approximation theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

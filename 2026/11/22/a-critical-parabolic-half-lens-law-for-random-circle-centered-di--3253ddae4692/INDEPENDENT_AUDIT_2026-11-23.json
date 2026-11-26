@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T17:01:09.013077Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reassessed the corrected RESULT.md in repairs/4. At gamma=0 and q>0 the two boundary tangents at the origin have slopes +/-q/2, so 'cusp' in its usual zero-angle sense is incorrect: it is a corner with opening angle 2 arctan(q/2). The repair states this and clarifies the conditional spacing and the two directions of Hausdorff convergence without changing the exact limit. Independently, index the start of the short arc by the sample label immediately after the unique long gap. For a specified start the remaining displacements are independent uniform on the full circle before conditioning; demanding all are less than pi-s gives ((pi-s)/(2pi))^(n-1). The disjoint sum both gives n*2^(1-n) and the exact conditional gap survival, avoiding the ambiguity of a cyclic gap indexed at a fixed external origin. Given the maximum displacement and its label within the winning start event, the other displacements are iid uniform up to the maximum. The middle arc within angle pi/4 of the bisector has relative length at least 1/2, so the probability of no such interior center is at most 2^(-(n-2)). For x>=0 the smallest center dot product is attained at an arc end; the endpoint disk equations are exactly the frozen scaled quadratic with Y^2/n^2 and coefficients -2n sin(delta_n/2) and 2 cos(delta_n/2). On bounded n delta_n these inequalities bound both coordinates. Any full-set limit point satisfies the limiting endpoint inequality and X>=0 because a middle center forces X>=-C/n. Conversely all points of the candidate half-lens are approached by feasible points with positive X and strict inequality by mixing with one strict point, and the right-half portions are contained in the full sets. At q=gamma=0 the origin is feasible throughout and every cluster point is the origin. This proves the sequential Hausdorff assertion and, by compactness on bounded n delta_n and tightness, the conditional joint assertion. The area determinant is n^3; integrating gives gamma*r+r^3/6 for r=(q+sqrt(q^2+8gamma))/2, equal to the displayed transform. At gamma=0 the exact endpoint lens has area delta-sin(delta); on the complement origin-in-convex-hull makes a nonzero common point impossible. The supplementary supplied verify.py was read, not executed, and is neither a proof of the rare-event or geometric limits nor an area computation for arbitrary configurations beyond its inputs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The older circular-gap method covers every deterministic configuration at b>1 as a sum of gap scores, therefore also the finite values at b_n for gamma>0. Its indexed Gaussian/mean asymptotics are for fixed b.",
+          "Paouris–Pivovarov treat a broader family of intersections and intrinsic-volume comparisons, but with an ambient sampling law and an isoperimetric inequality, not a rare circle-supported joint shape limit.",
+          "The two-vertex window has the same order of radius change but concerns the ball-convex hull of points sampled within the unit disk and counts vertices; it does not give the claimed intersection limit."
+        ],
+        "reasoning": "Broader deterministic scalar coverage must be credited, but does not determine where the random shape lies under the rescaling. More general ambient-density comparisons do not give the required law at singular support or after semicircle conditioning.",
+        "searches": [
+          "Resultary: Exact circular-gap area laws and Gaussian fluctuations for intersecting congruent disks",
+          "arXiv:1510.07292",
+          "Resultary: a critical window law two vertex event random disc polygons Fodor Kevei Vigh radius square"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.7146/math.scand.a-10655",
+        "arXiv:1510.07292",
+        "Resultary: Exact circular-gap area laws and Gaussian fluctuations for intersecting congruent disks",
+        "Resultary: Anisotropic semicircle containment and the Gaussian–von Mises crossover for random enclosing disks",
+        "Resultary: A critical-window law for the two-vertex event in random disc-polygons",
+        "Resultary: Parabolic-lens law for crossings of random chords in nearly tangent circles"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The existing gap-score identity gives a real alternative derivation of the scalar limit. Conditionally the short-arc spacings have vanishing maximum in probability (uniform order statistics), so in the gap formula their total contribution is O((b_n^2-1)^2). In the large gap pi+delta_n put t=pi/2+w/n; the scaled score density tends to (sqrt(w^2+2gamma)+w)^2 and integrates to gamma*r+r^3/6. Thus the scalar limit is an accessible asymptotic extraction from known tools, not independent of them.",
+          "The older area comparison does not provide X>=0 for all subsequential full-set limits or the matching interior feasible points. Those require the extremal disk constraints and one interior disk with a positive horizontal center coordinate at the n-scaled horizontal scale."
+        ],
+        "reasoning": "A fixed-radius CLT cannot be specialized with b depending on n. Even the exact scalar representation plus the classical exponential mark does not imply the anisotropic compact-set law; the non-extreme disk truncation is a genuine extra mathematical step.",
+        "searches": [
+          "2026/10/11 SCOPE-exact-circular-gap-area-laws-and-gaussian-fluctuations-for-inter--1c25b18e16e8",
+          "2026/11/17 SCOPE-anisotropic-semicircle-containment-and-the-gaussian-von-mises-cr--3ac5a9371126",
+          "arXiv:1510.07292"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent descriptions include a circle-supported random ball-polyhedron, or intersection given by a pointwise smallest radial function. The previous enclosing-disk result conditions on the same geometric event at uniform density, but its mark concerns a minimal containing disk, not a common intersection of disks centered at the sample.",
+          "The untruncated endpoint limit becomes a classical parabolic lens after centering at X=q/2; in the present problem other disks cut off X<0. The indexed parabolic-lens law for chord crossings gives a conditional location in a two-circle geometry rather than this clipping by additional random circles."
+        ],
+        "reasoning": "Angle/radius transformations carry the exponential slack mark between equivalent event descriptions, and linear coordinate changes carry the two-disk shape to a known parabolic limit, but neither substitutes for the conditional full-intersection shape, in particular for gamma>0.",
+        "searches": [
+          "random intersection disks centers on circle conditional semicircle near critical radius 1 n^-2 parabolic lens Hausdorff circle spacings Wendel exact circular gap area",
+          "Resultary: circular centered congruent disk intersections parabolic half lens semicircle conditioning circular gap area laws",
+          "Resultary: critical random diameter crossover vanishing two disk lens parabolic affine shape nearly tangent disk intersection",
+          "Resultary: Anisotropic semicircle containment Gaussian von Mises crossover conditional exp slack smallest enclosing disk"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Wendel-style semicircle probability and the order-statistic gap survival are exact old inputs. An exact all-configuration scalar area formula also already exists.",
+          "The close indexed two-disk lens result models the diameter of points sampled inside a preassigned lens, not the marked area/shape of a random intersection whose parameters are sampled centers."
+        ],
+        "reasoning": "Exact finite-sample laws and shape/spacing aliases were compared; a database of finite area scores or standard two-circle lens areas does not give a conditional law of compact sets. No claim of exhaustive database coverage is made.",
+        "searches": [
+          "Resultary: circular centered congruent disk intersections parabolic half lens semicircle conditioning circular gap area laws",
+          "doi:10.7146/math.scand.a-10655",
+          "Resultary: critical random diameter crossover vanishing two disk lens parabolic affine shape nearly tangent disk intersection"
+        ]
+      },
+      "rationale": "On the repaired statement and best of inspected knowledge, the distinctive result is the conditioned joint anisotropic Hausdorff limit with half-plane clipping and critical area transform. The semicircle event, exponential gap mark, unit-radius scalar lens area, ordinary parabolic limit of a two-disk lens and deterministic all-radius area representation are not new claims. The scalar critical law is closely related to the existing area formula and is not the only basis for passing this axis.",
+      "residual_risks": [
+        "The exact circular-gap article's public body could not be independently retrieved. Its full scope was not excluded from snippets; priority for the scalar limit is especially vulnerable to an alternate derivation from that theory.",
+        "Historical novelty is best of inspected knowledge, not exhaustive; an earlier geometric analysis under another circle-supported formulation could also establish the half-plane clipping."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantive prior coverage of scalar finite-n area; no evidenced conditional anisotropic set law",
+          "evidence": [
+            "The indexed statement is an exact sum of circular-gap scores for fixed b>1 and a fixed-b Gaussian limit; the diagnostic expresses the gap score as the integral from zero to half the gap of the squared radial bound."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-circular-gap-area-laws-and-gaussian-fluctuations-for-inter--1c25b18e16e8",
+          "material_read": "Indexed exact finite-area and fixed-b asymptotic statement, frozen full-text comparison and gap-score formula encoded in the supplied diagnostic; public original full text not independently retrieved",
+          "method": "Resultary and unsuccessful direct public-page retrieval; compared the stated mathematical domain and tested its implication analytically",
+          "title": "Exact circular-gap area laws and Gaussian fluctuations for intersecting congruent disks",
+          "trigger": "Same deterministic disk-intersection family, spanning the finite critical radii"
+        },
+        {
+          "assessment": "Arc-gap mark is prior; minimal enclosing disk and many-disk intersection are different random bodies",
+          "evidence": [
+            "Indexed result studies center direction of the minimal enclosing disk, with marked exponential arc-gap and anisotropy window."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-anisotropic-semicircle-containment-and-the-gaussian-von-mises-cr--3ac5a9371126",
+          "material_read": "Indexed result summary with explicit marks and frozen comparison, not a full independent reading",
+          "method": "Targeted Resultary lookup and comparison of geometric definitions",
+          "title": "Anisotropic semicircle containment and the Gaussian–von Mises crossover for random enclosing disks",
+          "trigger": "Earlier theorem for the same semicircle conditioning and arc-gap marks"
+        },
+        {
+          "assessment": "Related random intersection family, but ambient-density isoperimetric comparison does not establish the stated conditional shape/area window",
+          "evidence": [
+            "Abstract specifies random centers sampled from a bounded continuous distribution and inequalities for intrinsic volumes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1510.07292",
+          "material_read": "arXiv abstract and model scope; stronger technical detail only from frozen inspection",
+          "method": "Source abstract and inference check for the sampling law",
+          "title": "Random ball-polyhedra and inequalities for intrinsic volumes",
+          "trigger": "Primary geometric comparison for intersections of random balls"
+        },
+        {
+          "assessment": "Two-circle lens geometry is closely related and not independently new; the conditioned point law is not the full random half-lens set here",
+          "evidence": [
+            "Reported limit is a uniform crossing point on y^2+2|x|<1 after rescaling two nearly tangent circles."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-parabolic-lens-law-for-crossings-of-random-chords-in-nearly-tang--5e20ff99e78b",
+          "material_read": "Published index summary with conditioning event, scaling and limiting point law",
+          "method": "Targeted semantic lookup and mathematical comparison",
+          "title": "Parabolic-lens law for crossings of random chords in nearly tangent circles",
+          "trigger": "Potential exact overlap with near-tangent parabolic shape"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A naturally rare near-semicircle event produces squared slack of order n^{-2}; competing with the disk excess on exactly that scale gives different horizontal and vertical scales and a new geometric truncation relative to the two-disk lens. The joint shape description retains more information than an exact scalar area or a single conditional quantile. The corrected distinction is a positive-angle corner at gamma=0 versus a vertical segment and a positive lower endpoint of the area support at gamma>0. No unconditioned, nonuniform, larger-gamma or rate claim is inferred.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

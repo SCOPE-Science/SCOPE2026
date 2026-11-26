@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:09:56.112877Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every m-plane is the common kernel and image of exactly |GL_m| possible factors. Nontransverse kernels give a nonzero common annihilated vector; for complementary kernels the two restrictions are independent uniform isomorphisms A,B and C=diag(AB,-BA). Complements are graphs of q^(m^2) maps; AB is uniform and BA conjugate to it. The signed direct sum is cyclic exactly when T is cyclic and its opposite characteristic polynomial is coprime to its own. In characteristic two the doubled module is never cyclic. For odd q, the primary centralizer of a single phi^k block has q^(d(k-1))(q^d-1) units, giving the local orbit factors and formal coefficient law. An independent analytic simplification avoids the full cycle index: multiply H by the polynomial zeta product over phi!=t of [1-(z/q)^deg(phi)] = (1-z)/(1-z/q). This yields (1-z)H as (1-z/q) times the paired factors with [1-(z/q)^d]^2 and the self-opposite factors [1-(z/q)^d]. The paired factors have first-order residual coefficient 2/[q^d(q^d-1)] in z^d and quadratic remainder O((|z|/q)^(2d)); self-opposites are g(t^2) with count at most q^(d/2). Normal convergence on every closed disk of radius smaller than sqrt(q) gives the exponential coefficient tail. At z=1 the normalized paired factors are 1+q^(-2d). Writing A,B for the paired and self-opposite half-degree Euler products, even-polynomial factorization gives AB=Z=(1-v)/(1-qv); irreducible g(t^2) is equivalent to the norm of a root of g being nonsquare. The quadratic-character Euler product is 1 because each positive degree has equal signed constant-term counts; its nonsquare factors give B(v)^2/B(v^2)=Z(v). Thus A(v)/(A(v^2)B(v))=1/Z(v^2). At v=q^-2 this gives the stated kappa after the prefactor 1-q^-1; the Gaussian-binomial complement fraction tends to Phi_q. Independent bounded GF(9) enumeration (arithmetic in F_3[i]/(i^2+1)) gave 5104/5760=319/360 at m=2, using the equivalent invertible 2x2 test of nonscalar and nonzero trace. Inspected the frozen checker and recorded output, not executing it; its finite prime-field tests do not prove the asymptotic or the extension-field result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The GL cycle index covers the raw primary-class probabilities, and the sum-of-square-zero and trace-zero commutator papers address existence/decomposition, not this sampling.",
+          "Resultary 9c148c4c1298 counts fixed-target brackets over finite chain rings in sl_2 with a regular-semisimple operand."
+        ],
+        "reasoning": "The cycle index is prior machinery; it enables the restriction to opposite orbits but does not furnish the signed rational limit without the extra factorization and character argument. The other settings change the ensemble, invariant or ring and do not dominate the claimed probability.",
+        "searches": [
+          "Fulman cycle index and inverse-centralizer weights",
+          "de Seguins Pazzis arXiv:2210.03955",
+          "Suwama arXiv:2111.04884",
+          "Resultary 9c148c4c1298"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, checker.py and checker_output.txt",
+        "Resultary 7f172624c719 and 9c148c4c1298",
+        "Fulman §§2.1–2.2",
+        "arXiv:2210.03955 §1",
+        "arXiv:2111.04884 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Normal form and transverse counts imply the block-law component.",
+          "Ordinary primary-module weights are classical; extracting the signed event and evaluating the limit require excluding self-opposites, pairing distinct opposite irreducibles, and a separate quadratic-character Euler identity."
+        ],
+        "reasoning": "The normal form itself is covered, and the even-characteristic observation is immediate once that form is known. The substantive odd-field count and closed limit do not follow from the antecedent's coarser generation statistic by rephrasing or parameter substitution.",
+        "searches": [
+          "Resultary 7f172624c719, Finding offsets 0–3878",
+          "Fulman §§2.1–2.2, pp. 54–56"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 7f172624c719 supplies the transverse pair normal form (X_0,Y_C) with C in GL_m; the corresponding bracket is diag(C,-C).",
+          "Fulman treats ordinary cyclic and separable matrices as different random GL models."
+        ],
+        "reasoning": "Neither ordinary cyclicity of C in the antecedent's notation nor separability equals cyclicity of the signed sum. In odd characteristic diag(a,-a) is cyclic as a 2x2 input but fails signed coprimality, whereas one nontrivial primary block at a nonzero a can satisfy signed coprimality without separability.",
+        "searches": [
+          "Resultary: transverse square-zero pairs, cyclic commutator and signed characteristic polynomial",
+          "Fulman, Random matrix theory over finite fields, §§2.1–2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed exact frequencies are for generated-algebra dimensions 4d from transverse pairs, with maximal dimension counting cyclic invertible C.",
+          "Fulman's inspected GL cyclic example counts ordinary primary selections; it does not identify positive-exponent choices subject to exclusion of both partners of a signed orbit."
+        ],
+        "reasoning": "These exact counts cover a related, strictly weaker test in odd characteristic, not the claimed paired Euler factors or rational constant. The frozen finite examples are corroboration, not novelty evidence.",
+        "searches": [
+          "Resultary 7f172624c719 Finding and generation spectrum",
+          "Fulman §2.2 examples and classical GL cyclic probability"
+        ]
+      },
+      "rationale": "The transverse normal form and counting theorem in Resultary already supply the invertible-commutator block law as a corollary; do not credit this reduction or the classical GL cycle index as novel in isolation. The supported distinct contribution is the signed cyclicity law, especially the explicit rational limiting constant for that event. The closest earlier generation statistic detects cyclic T without testing signed coprimality, and ordinary cyclic or regular semisimple GL results do not give this law.",
+      "residual_risks": [
+        "An unindexed signed coprimality probability or opposite-polynomial cycle-index calculation may exist under different terminology.",
+        "The literature comparison is bounded and does not certify priority; the transverse block reduction has direct prior coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Block pushforward covered by implication, signed cyclicity and limit not supplied",
+          "evidence": "Normal form (X_0,Y_C) with invertible C and dimension 4d spectrum governed by the minimal polynomial degree of C.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-exact-algebra-generation-spectra-of-transverse-square-zero-pairs--7f172624c719/RESULT.md",
+          "material_read": "Finding offsets 0–3878",
+          "method": "Local Resultary mirror text, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact algebra-generation spectra of transverse square-zero pairs",
+          "trigger": "Same transverse ensemble and cyclicity statistic"
+        },
+        {
+          "assessment": "Prior framework and ordinary cyclic/separable events, not the signed law",
+          "evidence": "Independent irreducible primary variables and inverse centralizer weights; ordinary cyclicity is equality of minimal and characteristic polynomial.",
+          "identifier_or_url": "https://ocw.mit.edu/courses/18.996-random-matrix-theory-and-its-applications-spring-2004/8b95d016309930598ececb496e983f2c_s_0273.pdf",
+          "material_read": "§2.1 pp.54–55 and §2.2 Example 1 pp.55–56",
+          "method": "Bounded OA primary text",
+          "title": "Random matrix theory over finite fields",
+          "trigger": "Classical probabilistic GL classification and exact cyclicity probabilities"
+        },
+        {
+          "assessment": "Decomposition theorem, not a probability law",
+          "evidence": "Invariant-factor criterion for a sum; similar-to-opposite statement for a form-specific class.",
+          "identifier_or_url": "https://arxiv.org/html/2210.03955",
+          "material_read": "Abstract, introduction and §1 Theorem 1.1",
+          "method": "Bounded OA primary text",
+          "title": "Sums of two square-zero selfadjoint or skew-selfadjoint endomorphisms",
+          "trigger": "Opposite symmetry and square-zero factors"
+        },
+        {
+          "assessment": "States a different existence problem; no whole-document exclusion claimed",
+          "evidence": "Asks for a converse to the trace-zero property of commutators over rings.",
+          "identifier_or_url": "https://arxiv.org/html/2111.04884",
+          "material_read": "Abstract",
+          "method": "OA scope inspection only",
+          "title": "On trace zero matrices and commutators",
+          "trigger": "Commutator representability"
+        },
+        {
+          "assessment": "Different fixed-target chain-ring problem",
+          "evidence": "Counts sl_2 witnesses with a regular-semisimple first operand, not independent square-zero operands.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-split-and-nonsplit-regular-semisimple-witness-fibers-for-trace-z--9c148c4c1298/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Local Resultary mirror text",
+          "title": "Split and nonsplit regular semisimple witness fibers for trace-zero brackets",
+          "trigger": "Indexed exact bracket count involving regular semisimplicity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This computes a natural, finer random-matrix invariant of a structured bracket ensemble. The signed exclusion is essential, and the closed constant shows exactly how characteristic and opposite primary collisions modify ordinary GL cyclicity; exponentially fast convergence makes the fixed-field distinction quantitative. This value rests on the odd-field signed law, not on reproducing the already available transverse normal form.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

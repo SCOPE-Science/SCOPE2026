@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:10:22.641279Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 6–28; VERIFICATION.md; CHECK.py inspected without execution",
+        "Independent replay: python3 /workspace/audit-evidence/replay_3.py"
+      ],
+      "evidence": [
+        "98,300 exact state/time checks with all shifts, for every word on n=2..12 and t=0..n; 10 and 48 asymmetric words have nonuniform births at n=10 and 12; none at other tested lengths. The replay is corroboration; the analytic proof covers all lengths and times."
+      ],
+      "rationale": "E^t examines the forward window of t+1 bits. A one-run therefore loses t sites at its end, retaining its start exactly when its original length exceeds t; zeros cannot disappear. The truncated profile reconstructs the entire output as a union of indexed runs even at extinction, and the all-one word is separately fixed. Two unequal lengths have equal truncated values exactly once both are zero, proving the maximum-discrepancy clock, including t=0. If the surviving profile has a proper period d and no run disappeared, adding t back on its support gives a d-periodic input. Otherwise consecutive surviving starts straddle a vanished run and are at most d apart. They need t+1 or more sites of the preceding run, at least one vanished one and two separating zeros, so d>=t+4>=5. Conversely, runs 11 starting at phase 0 of each d-block and the single isolated one at index 3 give an asymmetric predecessor; one step leaves exactly the phase-0 sites, of least period d. Composite n with maximum proper divisor <=4 is at most 9 (n/p>=p for its least prime p); n>=10 with a proper divisor >=5 is composite. The proof has no finite horizon restriction.",
+      "residual_risks": [
+        "Independent finite enumeration did not repeat source onset counts at n=13..16; those counts are not used to prove the theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 8.1 gives Stab(Phi(s)) containing Stab(s) for translation-equivariant Phi; it does not say when a given new shift appears.",
+          "Run-length evaluation of morphology is a credited technique; the cited Kim full text was not obtained."
+        ],
+        "reasoning": "Generic stabilizer inclusion ensures thresholds exist when the state eventually becomes constant, but it has no rule-specific time or nonuniform proper-divisor restriction.",
+        "searches": [
+          "arXiv:2611.15751v1 §8 Thm. 8.1",
+          "Kim–Kim–Kim DOI 10.4218/etrij.05.0205.0013"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.15751v1 §8",
+        "Resultary bd85c7ad95d4, b0f5a0a0f05e, 38f646d25ed3",
+        "DOI 10.4218/etrij.05.0205.0013 (frozen citation only; primary retrieval unsuccessful)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Run shortening yields the profile operation, but identifying full translation comparisons needs the indexed starts and reconstruction, including extinction. The existence threshold additionally needs the lower gap bound and isolated-run construction.",
+          "General equivariance applies to both AND and majority, which differ already on n=10."
+        ],
+        "reasoning": "The pure irreversibility theorem does not force a numerically specified clock or birth before the orbit becomes constant; the nonuniform existence classification is not mechanical substitution in the prior implications inspected.",
+        "searches": [
+          "Banda–Caughman–Lehman §8 compared with run-profile and gap arguments in frozen RESULT.md, lines 22–28; local Resultary majority and additive records"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Closest same-day clock record b0f5a0a0f05e concerns the first time any shift symmetry appears and its count for the additive finite-field map I-S, not all per-shift times of the binary AND map.",
+          "Same-day majority record bd85c7ad95d4 concerns a different map and criterion; the present AND rule allows n=10 while majority does not."
+        ],
+        "reasoning": "Reversing the erosion direction is a coordinate convention; changing to additive difference or majority is not. The local corpus search also identified the assigned record itself, which is not independent coverage. No priority ordering is inferred from same-day dates.",
+        "searches": [
+          "Local Resultary: one-sided Boolean erosion, exact first rotational symmetry clocks, sharp cyclic onset",
+          "Web: \"binary erosion\" \"rotational symmetry\" cyclic cellular automaton run-length symmetry acquisition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The additive record counts configurations by first-symmetry time for I-S; the two-jump Boolean OR record tabulates entry to a temporal periodic orbit. Neither counts or determines the indexed AND clocks or transient onset criterion."
+        ],
+        "reasoning": "A table of temporal entry times or aggregate first-symmetry times under another rule cannot be read as the per-state, per-shift AND clock. No absence-of-coverage inference rests on the query miss.",
+        "searches": [
+          "Local Resultary: cyclic binary AND first symmetry, maximal mismatch, ring threshold; exact-clock and exact-entrance records b0f5a0a0f05e and 38f646d25ed3"
+        ]
+      },
+      "rationale": "The general persistence of stabilizers and classical binary run erosion are prior inputs. The combination of exact indexed per-shift birth times and the vanished-run obstruction with a sharp proper-divisor witness is distinct in the checked evidence. The known local run update makes the clock elementary, not a claim to originality of the erosion operation.",
+      "residual_risks": [
+        "Possible older/unindexed cyclic morphology or CA work; Kim primary text was unavailable. No global priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Qualitative prior input, not quantitative clock or arithmetic onset",
+          "evidence": [
+            "Stab(Phi(s)) contains Stab(s)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.15751",
+          "material_read": "§8, Theorem 8.1, p.14; text offset 51431",
+          "method": "Open primary PDF, targeted theorem reading",
+          "title": "Shift-Symmetric Configurations in d-Dimensional Cellular Automata: Enumeration, Bounds, Irreversibility, and Detection",
+          "trigger": "Unrestricted translation-equivariant CA and rotational symmetry persistence"
+        },
+        {
+          "assessment": "Credited technique; unresolved coverage of cyclic symmetry applications",
+          "evidence": [
+            "Frozen source credits run-length evaluation to prior work; no conclusion about unseen sections."
+          ],
+          "identifier_or_url": "https://doi.org/10.4218/etrij.05.0205.0013",
+          "material_read": "Citation and its description in frozen RESULT.md, lines 34 and 41; no primary text successfully retrieved",
+          "method": "Lawful DOI lookup attempts and frozen citation comparison",
+          "title": "Fast algorithms for binary dilation and erosion using run-length encoding",
+          "trigger": "Prior run-length morphology could contain a related one-dimensional erosion identity"
+        },
+        {
+          "assessment": "Distinct dynamics and sharp threshold, no priority inference from date",
+          "evidence": [
+            "Rule 232 requires proper divisor >=6 rather than >=5."
+          ],
+          "identifier_or_url": "Resultary bd85c7ad95d4",
+          "material_read": "Mirrored Finding at offset 0; independently assigned frozen full RESULT.md, lines 3–61",
+          "method": "Local corpus and bound-source reading",
+          "title": "Sharp arithmetic threshold for nonuniform symmetry creation in cyclic majority dynamics",
+          "trigger": "Same-day result on the same arithmetic symmetry-birth question"
+        },
+        {
+          "assessment": "Different rule and observable",
+          "evidence": [
+            "Finite-field I-S; counts by first occurrence of any symmetry."
+          ],
+          "identifier_or_url": "Resultary b0f5a0a0f05e",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local corpus and targeted mirror reading",
+          "title": "Exact first-symmetry clocks for additive cellular automata on cyclic rings",
+          "trigger": "Same-day exact cyclic first-symmetry clock"
+        },
+        {
+          "assessment": "Different rule and temporal target",
+          "evidence": [
+            "Two-jump OR and entry into a periodic orbit, not AND rotational symmetry."
+          ],
+          "identifier_or_url": "Resultary 38f646d25ed3",
+          "material_read": "Mirrored RESULT.md starting at offset 0",
+          "method": "Local corpus and targeted mirror reading",
+          "title": "Exact entrance shells and a discrete extreme-value cutoff for two-jump Boolean dynamics",
+          "trigger": "Exact first-entry invariant for another Boolean rule on rings"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 15–28 and 33–37; arXiv:2611.15751v1 §8; Resultary bd85c7ad95d4 and b0f5a0a0f05e for comparison"
+      ],
+      "rationale": "The theorem concerns a standard local erosion operation and the natural spatial stabilizer along its orbit. It distinguishes exact entry of each shift, birth of genuine nonuniform symmetry, and symmetry due merely to extinction. The sharp all-length boundary and one-step witnesses can be used to compare dynamics of different rules even on rings of the same size; they are not an arbitrary census.",
+      "residual_risks": [
+        "Value is rule-specific; there is no count distribution or general CA classification here."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:03:43.684769Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, §§Finding, Assumptions, Proof and Verification",
+        "Frozen VERIFICATION.md, both verify/*.py files and recorded outputs (inspected)",
+        "/workspace/reviews/evidence/sk5.py (executed with standard Python 3)"
+      ],
+      "rationale": "A subdivider has degree two and forces its two root-neighbor colors to differ. The five roots therefore use all five colors in any optimum, giving one unique fixed-root normalization per color partition; an independently found valid square assignment supplies the upper bound of five. In the normalized edge model each color class avoids the root of that color. If no positive degree is three on the remaining four vertices, such a class is a matching. If a vertex has degree three, its three neighbors must have even degree within their triple, hence induce either no edges or a triangle. This proves the list of fifteen possible classes and validates the disjoint exact-cover recurrence. Independently, /workspace/reviews/evidence/sk5.py joins compatible local star assignments, enumerating each valid normalized coloring once. It found 201, including 6 with no repeated star colors, with profile histogram (0,6),(2,90),(4,45),(5,60) and respective orbit-size lists [6], [30,60], [15,30], [60]. Degree partitions the roots from the subdividers; every root permutation extends uniquely, acting on the root-normalized color names by the same permutation. Independent fixed-point calculation over all 120 permutations, grouped by cycle type, agrees with the seven displayed counts and gives Burnside sum 720. All five palette names occur, giving 24120 named optima and 195 nonsquare partitions.",
+      "residual_risks": [
+        "RESULT.md line 50 says 'six conjugacy types' but displays all seven types of S5 and the sum uses all seven; this is a wording error, not a missing class or an incorrect numerical claim. Only S(K5) is enumerated."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Caro et al. show chi_so(S(K_n))=n except n=2,4, so the n=5 minimum is covered.",
+          "Resultary 06007ca808cb counts optima for the bipartite subdivision family S(K_{2,q}); c7089565d41d concerns KG(n,2), not S(K_n)."
+        ],
+        "reasoning": "The general complete-subdivision theorem establishes minimum palette size and a construction, not a list of feasible optimal assignments. Neither restricted graph family reduces to S(K5) for the claimed census.",
+        "searches": [
+          "arXiv:2509.20763v1 §3.4 Proposition 17(i) and proof; v2 Proposition 18(i)",
+          "Resultary strong odd coloring of fully subdivided bicliques and two-subset Kneser graphs"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2401.11653, 2410.02336, 2509.20763v1, 0801.0202",
+        "OEIS A000438, A000474",
+        "Resultary 3cb287a8b1fa, c7089565d41d, 06007ca808cb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing the minimum and square count leaves the number of compatible color classes with degree three undetermined.",
+          "The unrelated value 6 in the Kneser entry is a chromatic number, not a count of partitions."
+        ],
+        "reasoning": "The full enumeration and profile/orbit comparison for optimal strong odd colorings survive the exact known subclaims. The inspection does not establish first publication worldwide.",
+        "searches": [
+          "Caro et al. Proposition 17(i), compare to normalized odd-degree exact cover and root action",
+          "OEIS A000438 compare via dummy-vertex extension; Resultary 06007ca808cb and c7089565d41d Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior definitions require both properness and odd positive neighbor multiplicities and show square implies strong odd.",
+          "Five-color square colorings of S(K5) are total colorings of K5. With root i colored i, each color is a near-perfect matching on the other four roots; adding the edge from a fixed dummy vertex to its missing root turns the five classes into a one-factorization of the labelled K6, and is invertible without naming the classes."
+        ],
+        "reasoning": "The one-factorization equivalence covers the square subset exactly. The 195 nonsquare solutions need not be matchings, so the reduction does not enumerate them.",
+        "searches": [
+          "Resultary strong odd optimal color partitions of S(K5), subdivisions of complete graphs and their square colorings",
+          "Kwon–Park arXiv:2401.11653 p.1; Caro et al. arXiv:2410.02336 pp.2–3",
+          "Total coloring and the round-robin one-factorization formulation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A000438 at index 3 is 6, the total labelled-ground-set factorization count; A000474 and Kaski–Östergård give one isomorphism type for K6.",
+          "Resultary 3cb287a8b1fa is the identical frozen result, not prior evidence. The 201-count did not appear in a separate inspected table. A385919's conflicting 'non-isomorphic' reading at index 3 is not used."
+        ],
+        "reasoning": "The six square partitions are not a newly found table value; quotienting factorization classes by an S6 ground-set action is also not the same as the strong odd S5 root action. No such square table incorporates the other 195 partitions.",
+        "searches": [
+          "OEIS A000438 and A000474, one-factorizations of a labelled/unlabelled complete graph on 2n vertices",
+          "Kaski–Östergård arXiv:0801.0202 p.1",
+          "Resultary full S(K5) strong odd and square partition census"
+        ]
+      },
+      "rationale": "The full strong odd census, nonsquare excess, profiles and strong odd orbit classification are distinct from inspected prior results. The five-color minimum and the six square color partitions are already covered (the latter through the exact labelled one-factorization count for K6); neither is independent novelty.",
+      "residual_risks": [
+        "Historical priority remains bounded by accessed material; the underlying Lindner–Mendelsohn–Rosa paper (DOI 10.1016/0095-8956(76)90017-4) was not read in full. The square count is already credited on accessible table evidence; the limitation is not evidence against the remaining census."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the minimum, not classification of the optimal colorings",
+          "evidence": [
+            "chi_so(S(K_n))=n except n=2,4; explicit constructions and lower bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2509.20763v1",
+          "material_read": "§3.4 Proposition 17(i) and proof, pp.15–16 (OA offsets 34480–37679)",
+          "method": "OA primary-text inspection",
+          "title": "The odd independence number of graphs, I: Foundations and classical classes",
+          "trigger": "Exact general chromatic result for subdivisions of complete graphs"
+        },
+        {
+          "assessment": "Definition and sparse-graph results",
+          "evidence": [
+            "Proper colors and odd multiplicities in open neighborhoods."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2401.11653",
+          "material_read": "p.1, OA offset 780",
+          "method": "OA primary-text inspection",
+          "title": "Strong odd coloring of sparse graphs",
+          "trigger": "Matching definition"
+        },
+        {
+          "assessment": "General implication, not a partition census",
+          "evidence": [
+            "Square coloring forces singleton multiplicities."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2410.02336",
+          "material_read": "pp.2–3, OA offsets 4451 and 7900",
+          "method": "OA primary-text inspection",
+          "title": "On strong odd colorings of graphs",
+          "trigger": "Square comparison"
+        },
+        {
+          "assessment": "Directly covers the six square color partitions",
+          "evidence": [
+            "Offset 1 and initial sequence 1,1,6."
+          ],
+          "identifier_or_url": "https://oeis.org/A000438",
+          "material_read": "Offset 0, definition, initial entries and index offset",
+          "method": "OA public table inspection and explicit bijection",
+          "title": "Number of 1-factorizations of K_(2n)",
+          "trigger": "Equivalent square-coloring table"
+        },
+        {
+          "assessment": "Confirms one K6 isomorphism class, not a census of strong odd colorings",
+          "evidence": [
+            "K6 has a unique one-factorization up to isomorphism."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0801.0202",
+          "material_read": "p.1, OA offset 1900",
+          "method": "OA primary-text inspection",
+          "title": "Classification of One-Factorizations of 14-Vertex Regular Graphs",
+          "trigger": "Distinguish labelled factorization counts from isomorphism classes"
+        },
+        {
+          "assessment": "Different base family",
+          "evidence": [
+            "Counts for S(K_{2,q}), not a subdivided K5."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-parity-classification-and-exact-optimal-strong-odd-coloring-cens--06007ca808cb",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Parity classification and exact optimal strong odd coloring census for subdivisions of complete bipartite graphs",
+          "trigger": "Nearby prior enumeration of a complete-subdivision family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof",
+        "Independent root-star census and orbit check",
+        "Caro et al. Proposition 17(i) and OEIS A000438 for comparison"
+      ],
+      "rationale": "This determines how far parity-optimal coloring can depart from square coloring at the first odd complete subdivision after K3 where a root can have a triple of equally colored neighbors. The precise nonsquare count, profile split and symmetry spectrum give a canonical counterpoint to square rigidity and a reproducible enumeration benchmark; simply recovering five colors or the six known square partitions would not suffice.",
+      "residual_risks": [
+        "No general census at larger orders follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is derived from exact nonzero-coordinate sum counts via additive-character orthogonality. The homogeneous Gram splits into explicit character-parity permutation blocks; the nonzero-level Gram splits into reflection-sign blocks, coordinate contrasts, and one explicit symmetric two-dimensional block. The residual rank classification is proved by positivity of the enumerated eigenvalues and direct nonconstant-coordinate-count witnesses. The independent finite-enumeration checker assembled and diagonalized 44 Gram matrices and verified 44 exact cardinalities with discrepancies below \(7\cdot10^{-15}\). Such finite tests support but do not establish the infinite family; the proof is algebraic.
+## correctness
 
-## Originality — PASS (best knowledge)
-The standard Jacobi-sum count and character orthogonality are prior knowledge, not novel claims. Inspection of Rojas-León's generalized Jacobi-sum work and Koh's flat-disk restriction article found neither the complete constant-plus-single-character toric-hyperplane Gram spectrum nor the affine-level change in all linear independence exceptions. Overlap searches of related Hamming-shell Fourier frames, finite-field matrix and paraboloid frames, and the accessible preexisting findings concern different function domains or character families; they do not imply this precise result. Residual originality risk: an older, unindexed equivalent Jacobi-matrix or association-scheme diagonalization could subsume the formulas. This risk is disclosed, and no global novelty certification is claimed.
+PASS
 
-## Value — PASS
-The zero-sum and nonzero-sum hypersurfaces are natural finite-field toric sections. The theorem classifies an entire first-order multiplicative Fourier interaction band over all finite fields, quantifies all nonzero singular values (hence best linear reconstruction constants), isolates the exact small-field rank failures, and proves that a nonzero affine level repairs two of the three exceptional parameter pairs. This supplies a nontrivial sampling design and stability law beyond point-count or routine character-orthogonality identities.
+Reconstructed the Gram operator in the uniform ambient inner product. Rescaling coordinates and a nonzero level preserves its spectrum. Counting remaining nonzero summands gives (m^r+m(-1)^r)/q at sum zero and (m^r-(-1)^r)/q otherwise. At level zero the two-coordinate exceptional term is supported on v=-u; character orthogonality yields same-character off-diagonal entries cχ(-1), with identity on-coordinate blocks and the constant decoupled. The symmetric and contrast directions give the claimed multiplicities. In d=3, |c|=1/(m-1); in d=4, |c|=1/(m²-m+1); in d≥5, (d-1)|c|<1. Applying the available character parities gives nullities 2, 1 and 2 at (3,3), (3,4) and (4,3), respectively. Both parities occur for odd q≥5, giving exactly the claimed ratio of Gram extremes (the squared synthesis condition number). At nonzero level, the one-coordinate mass changes only at u=1 and the pair exceptional term is supported on v=1-u. Splitting each mean-zero coordinate space into the evaluation direction η at 1 and the vanishing-at-1 subspace gives the two reflection parities (one fixed point in odd characteristic and none in even characteristic). On η the projected reflection has eigenvalue 1/m, giving off-diagonal e/N; the constant coupling is -e√(m-1)/N per coordinate. This recovers B and the coordinate contrasts. The vanishing-at-1 space is absent at q=3, and the plus reflection parity is absent at (4,3), excluding the possible small-case zeros outside B. In B the determinant reduces to m[mC²+eC(d-m-1)-(d-1)]/N². At d=3 the bracket is (m-1)(m²-2)-2, zero exactly at m=2. For d≥4, C≥d-1 and mC-|d-m-1|>1, so the determinant is strictly positive. The displayed eigenvalues exhaust the dimension; their shifts from 1 are uniformly O_q(d/m^{d-1}), including those of B by its operator norm after subtracting I. The proof covers all admissible fields and dimensions without any finite computation assumption.
 
-## Scope and unresolved questions
-The result does not treat higher interaction bands, quantitative non-Hilbertian restriction estimates, or phase retrieval, and does not claim a uniform fixed-dimension estimate as \(q\) varies. An independent audit remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the full normalized constant-plus-one-coordinate multiplicative Gram spectrum at both levels, including multiplicities and exceptional nullities. The inspected sources supply scalar character-sum machinery or different restriction operators, not this decomposition or a demonstrated stronger theorem implying it.
+
+## value
+
+PASS
+
+For a natural coordinate-additive space on a toric sample, the full exact spectrum tells whether each coefficient is identifiable and gives sharp lower and upper sampling bounds. The two levels can differ in rank even at fixed field and dimension; the characteristic-two cases and complete exceptional list sharpen that distinction. This is useful structural information not supplied by an entrywise bound or by a few small examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

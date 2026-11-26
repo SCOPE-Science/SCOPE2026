@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:05:44.646744Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the scaled variable y=x√(κ/D), the stationary law is the OU kernel at an independent rate-α exponential age, mixed with weights p at +a and 1−p at −a. Regeneration gives uniqueness. Integration by parts in the defining integral gives the homogeneous ODE Ψ″+yΨ′+(1−α)Ψ=0. The two opposite decaying solutions give the Green density by continuity and derivative jumps −αp and −α(1−p); the Wronskian of Ψ(−y), Ψ(y) equals its negative value at 0 times e^(−y²/2), confirming the positive normalization in RESULT.md. The exterior slopes are strictly inward. At any interior critical point f″=(α−1)f, so all interior critical points are simple and of one type, and at most one exists. The inner endpoint slopes divided by K are pH(a)−(1−p)H(−a) and pH(−a)−(1−p)H(a). At an endpoint with zero inner slope the same ODE gives the deciding one-sided curvature, yielding the stated strict versus non-strict thresholds. For α>1 integration by parts makes H a positive Gaussian factor times the integral with t^(α−2); the log derivative of H(−a)/H(a) is a sum of positive tilted means. For α<1 the proof's informal notation Ψ′(−∞)>0 is not a positive derivative-limit assertion: the needed positive derivative at some negative argument follows by the mean value theorem from Ψ(−a)→0 and Ψ(0)>0. Indeed splitting the integral with Gaussian centered at a at t=a/2 bounds the two parts by e^(−a²/8)(a/2)^α/α and √(2π)(a/2)^(α−1). Since Ψ′(0)<0 and every zero of Ψ′ is a strict maximum, there is a unique sign crossing; the same critical-point argument on Ψ(y)+Ψ(−y) gives H(a)>H(−a) for a>0. At α=1, H=e^(−y²/2), so f′ on the gap has sign 2p−1 and is identically zero only at p=1/2. These analytic checks include both threshold equalities and a=a_c. CHECK.py and VERIFICATION.md were inspected, not run; the reported 516 assertions are numerical diagnostics, not proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "a6b2a5417eeb extends a gap result to general symmetric reset laws",
+          "Olsen treats arbitrary reset measures, but the inspected OU result concerns stationary moments"
+        ],
+        "reasoning": "The broader reset-law hypotheses in the moment results do not establish the modal partition. The ODE on the gap supplies the possible type of a critical point, not the location relative to the reset sites or which sites remain modes.",
+        "searches": [
+          "a6b2a5417eeb proof and extension to symmetric reset laws",
+          "Olsen, Steady-state moments under resetting to a distribution, OU section"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and CHECK.py",
+        "Resultary a6b2a5417eeb and attempted f8cae881c577",
+        "arXiv:2310.04840 and arXiv:2301.12304 bounded PDF passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For p=1/2 the known theorem gives the mode count on either side of r=κ and a flat interval at equality. The inspected symmetric proof and moments do not give the two unequal-bias slope thresholds or the strict a-dependence of q_*"
+        ],
+        "reasoning": "The prior gap argument is an ingredient. Bias changes the two independent one-sided slopes, and resolving the modes requires the comparison and sign crossing of H(±a) and treating vanishing endpoint slopes. Even a single-site critical separation would not give the full p-dependent partition.",
+        "searches": [
+          "a6b2a5417eeb Finding and proof",
+          "Olsen arXiv:2310.04840 OU discussion",
+          "Trajanovski et al. arXiv:2301.12304 introduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "a6b2a5417eeb uses the same scaled OU equation and exactly two opposite targets, but the two-site theorem requires equal weights",
+          "The OU steady-state moment passages of Olsen do not classify derivative signs of the density"
+        ],
+        "reasoning": "Reparameterizing r/κ or b√(κ/D) does not turn an unequal two-atom measure into a symmetric one in the same centered harmonic potential. Reflection only swaps p and 1−p.",
+        "searches": [
+          "Resultary: unequal two-site Ornstein–Uhlenbeck resetting and stationary modes",
+          "Resultary: separation-independent harmonic resetting transition",
+          "Olsen arXiv:2310.04840; Trajanovski et al. arXiv:2301.12304"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The readable exact catalogue theorem gives the p=1/2 slice and plateau. No passage was recovered from the second cited result."
+        ],
+        "reasoning": "An exact table of sampled parameters could not cover this continuous-parameter mode diagram. The relevant analogue is to check indexed exact thresholds, not treat an inaccessible entry as a nonmatch.",
+        "searches": [
+          "Resultary matches a6b2a5417eeb and cited f8cae881c577"
+        ]
+      },
+      "rationale": "The distinct result supported by the inspected comparisons is the full unequal-weight phase diagram, with exact bias boundaries and the separation at which the interior mode persists for every positive two-site weighting. The equal-weight transition and plateau and the renewal framework are prior results. Priority is not asserted beyond the bounded comparisons.",
+      "residual_risks": [
+        "The second symmetric result cited in the frozen record could not be inspected",
+        "Primary literature coverage was limited; search misses and passage-level scope are not full-text exclusions",
+        "Unindexed equivalent unequal-weight classifications are possible"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers symmetric two-site theorem and general symmetric gap result, not unequal weights",
+          "evidence": "One mode for r<κ, two at the sites for r>κ, and exactly flat gap for r=κ, for equally likely resets.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-separation-independent-modal-transition-for-harmonically-confine--a6b2a5417eeb",
+          "material_read": "Mirrored RESULT.md offsets 0–3885 and 3885–6870, Finding and proof",
+          "method": "Resultary mirror passages",
+          "title": "Separation-independent modal transition for harmonically confined diffusion under symmetric resetting",
+          "trigger": "Same process, opposite reset sites, and exact modality transition"
+        },
+        {
+          "assessment": "Unresolved source scope; frozen reference describes symmetric weights",
+          "evidence": "No verified passage with which to compare a weighted statement.",
+          "identifier_or_url": "f8cae881c577",
+          "material_read": "No body passage recovered",
+          "method": "Local mirror retrieval and Resultary lookup",
+          "title": "A separation-independent modality transition for two-site Ornstein–Uhlenbeck resetting",
+          "trigger": "Frozen citation with the same process and number of sites"
+        },
+        {
+          "assessment": "Relevant moment framework, no mode thresholds in material read",
+          "evidence": "Derives steady-state moment identities for reset distributions and harmonic dynamics.",
+          "identifier_or_url": "https://arxiv.org/abs/2310.04840",
+          "material_read": "PDF abstract and OU moment discussion, page 2 near offset 10100",
+          "method": "OA PDF passages",
+          "title": "Steady-state moments under resetting to a distribution",
+          "trigger": "Arbitrary reset laws including the harmonic case"
+        },
+        {
+          "assessment": "Related dynamics and comb geometry; no unequal two-atom threshold in material read",
+          "evidence": "Article scope includes OU dynamics with resetting and geometrical generalizations.",
+          "identifier_or_url": "https://arxiv.org/abs/2301.12304",
+          "material_read": "PDF abstract and introduction, offsets 0 and about 3500",
+          "method": "OA PDF passages",
+          "title": "Ornstein–Uhlenbeck process and generalizations: particle dynamics under stochastic resetting",
+          "trigger": "Closely related OU resetting dynamics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A full moving-mode versus pinned-mode classification for a natural minimal biased reset law exposes a qualitative feature absent from the equal-weight case. Exact, sharp thresholds and their behavior at equality distinguish when changing the reset bias actually destroys a peak or merely moves the unique peak.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

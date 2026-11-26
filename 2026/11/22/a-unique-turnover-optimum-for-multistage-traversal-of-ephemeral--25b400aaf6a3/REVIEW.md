@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement is restricted to an initially closed, independently switching single corridor with all exponential progress clocks refreshed at each opening. The renewal equation uses the exact one-interval success probability \(q=\prod_i\mu_i/(\mu_i+\beta\lambda)\) and the exact expected truncated interval \((1-q)/(\beta\lambda)\). Expanding the reciprocal product yields a strictly positive polynomial coefficient structure. Direct differentiation verifies strict convexity for every \(n\geq2\), while \(n=1\) is strictly decreasing. An appended stage adds a strictly increasing positive polynomial to mean crossing time, shifting the unique optimum left. The equal-rate stationary equation and its Lambert-function limit follow by elementary asymptotics. An independently formulated exact-rational Markov-chain checker passed 2,006 supplementary assertions. Numerical checks alone do not establish the infinite quantified results; the analytical proof does.
+## correctness
 
-## Originality — PASS (qualified by stated historical risk)
-Matlack and Monde (2004), read through their Methods, Results and Discussion, document temporary habitat bridges and intermediate turnover effects in a lattice simulation; they do not analyze this exact closed-start Markov resetting corridor with arbitrary positive stage rates. Doering and Gadoua (1992) precede this work on resonance under switching, and Gaver (1962) precedes it on preemptive interrupted service; neither concept is presented as novel. Scher and Reuveni (2021) supply a different gate-decoupled first-passage renewal framework, and Baykal-Gürsoy et al. (2025) derive broad service-interruption transforms. Those methods may permit related specializations, but the inspected accessible materials do not state the sharp one-stage boundary, strict multistage optimal-rate ordering or universal equal-stage scaling as a theorem for this ecological model. Full text of some historical works remained inaccessible; priority is provisional and independent assessment is required.
+PASS
 
-## Value — PASS
-The model isolates a scientifically motivated interaction between temporary connectivity, route length measured in required migration stages, and demographic traversal delay. It gives a complete all-parameter distinction between one and multiple stages, a strictly ordered response to additional stages without rate homogeneity, and an explicit large-path-length scaling. These facts tell a reader why equal stationary corridor availability can lead to markedly different colonization delays depending on turnover speed; they cannot be inferred from static network connectivity. The result is an exact tractable benchmark, not a field forecast or a solution to the motivating lattice simulation.
+Fresh attempts start from the same closed state; the stage-sum Laplace transform gives success probability q=P_n⁻¹. An open attempt consumes mean (1−q)/(βλ) before success or closure and is preceded by mean 1/(αλ) closed delay. Dividing expected trial duration by q gives M_n=(P_n−p)/(pβλ), p=α/(α+β). The positive coefficients of P_n give strict convexity from the reciprocal term plus nonnegative second derivatives of the powers. The derivative is negative near zero; for n≥2 the positive quadratic coefficient in P_n makes it positive at sufficiently high turnover, whereas for n=1 only the decreasing reciprocal term varies. Appending rate ν increases the mean by (α+β)P_n/(αν); the positive derivative of this increment shifts the unique minimum left whenever the old finite minimum exists. With equal stage rates, P_n−λP_n′=p gives the stated strictly decreasing root equation on 0<βλ/μ<1/(n−1). The rescaled roots are bounded by n/(n−1), and every subsequential limit solves (1−y)e^y=p, whose sole root on [0,1] is on the principal Lambert branch. The unit-rate samples and c(1/2)=0.768039047013465… agree. This is an analytic result; the frozen rational diagnostics were inspected, not executed.
 
-## Closest literature and limitations
-The most direct ecological reference is Matlack and Monde (2004), https://doi.org/10.1111/j.0022-0477.2004.00908.x. Resonant activation is an older established phenomenon (Doering and Gadoua 1992, https://doi.org/10.1103/PhysRevLett.69.2318). General earlier interrupted-service theory (Gaver 1962, https://doi.org/10.1111/j.2517-6161.1962.tb00438.x) and subsequent gated-reaction and preemptive-task literature remain potential sources of related or implied formulas. The conclusion requires complete progress loss on closure, independent exponential clocks, a persistent origin and destination, and an initially closed gate. No claim about biodiversity preservation or empirically optimal habitat turnover is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The mean formula is directly covered by general interrupted-service/refractory renewal theory, and an intermediate fluctuation-rate optimum is not itself a new phenomenon. Originality is supported for the fixed-availability optimizer classification in this serial-stage model, in particular the strict arbitrary-rate stage-extension ordering and equal-stage optimizer convergence. The strongest inspected overlapping general formulas do not state those optimizing results; the distinct temporary-habitat record optimizes a deterministic window offset for one journey. No priority is inferred from dates shared by indexed records.
+
+## value
+
+PASS
+
+The modeled turnover decision fixes the usable fraction of time, so the competing mechanisms are waiting for a fresh opportunity and losing accumulated progress. The sharp one-stage versus multistage boundary and ordering under an arbitrary additional bottleneck isolate which feature generates a finite optimum and predict its shift without assuming stage homogeneity. The Erlang sequence further answers how the optimal clock changes for many comparable stages. These are substantive decisions about a motivated model beyond the routine mean transform or a single resonant example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

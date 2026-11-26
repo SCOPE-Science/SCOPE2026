@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The increment-relaxation quadratic has a unique nonzero positive root because each active \(0<x_j^2<12\) gives \(q_j>0\), \(g_j>0\). Direct expansion of the RK4 polynomial proves the exact energy map, global norm invariance, and the strict weighted-energy Lyapunov identity. The bounded monotone energy of minimum-\(g\) modes forces \(\gamma_n\to g_*\), which in turn forces all other energies to zero. The two-mode threshold follows from an explicit quadratic whose endpoint signs are opposite and whose leading coefficient is positive. A separate direct RK4-stage implementation and rational tests corroborate the algebra; finite tests do not replace the analytic argument. Risks: none identified within exact-arithmetic hypotheses; nonlinear, adaptive-step and inexact-solve cases are outside scope.
+PASS
 
-## Originality — PASS (qualified)
+With u_j=R(ix_j)-1, direct expansion gives q_j=|u_j|^2>0 and g_j=-2Re(u_j)/q_j>0 on the excited interval. The unique nonzero root gamma is the E_j q_j weighted mean of g_j; the squared modal multiplier is 1+q_j gamma(gamma-g_j). Summing proves conservation; multiplying by g_j before summing gives the negative weighted variance. Energy of the initial minimizing set increases by at least g_* min_M(q_j) E_M(0)(gamma-g_*). Bounded monotonicity therefore forces gamma->g_*, and the mean formula with bounded denominator forces each loser to zero. The limiting squared multiplier yields the claimed ratio on surviving losers. Exactly, g(rt)-g(t)=48(r-1)t^2 P_r(t)/(D(t)D(rt)); the proof's removal wording omits one harmless positive factor t. Endpoint signs +96(r+1), -48r and positive leading coefficient give the unique admissible root. At r=4, P_4(197/100)=-931/500 and Q(197/100)>Q(197/25), with 197/25<8, so the two corrections really select opposite winners within RK4 stability. Recorded VERIFY_OK 127 was inspected, not freshly run; independent bounded rational replay is /workspace/branches/957ea9b8-9f45-40d6-a345-3836be29f3a9/independent-check.py. The infinite-time conclusion is analytic; no assertion on allocation within tied winners or on rounding.
 
-Compared against the accessible full text of Doehring–Ranocha–Torrilhon (arXiv:2507.04991), Ranocha et al. (2020), prior relaxation methods, and the full claim and proof of the closely related 2026 published projected-RK4 modal-reversal result. Ketcheson (2019), §4.1, already specifically studies this RK4 relaxation on Fourier modes and explicitly reports finite-time modal amplification and attenuation; those are **not** new. His analysis does not give the complete infinite-time selection, strict frequency Lyapunov law, or the sharp two-frequency reversal. The projected-RK4 work instead establishes a **different** radial-endpoint modal ratio; neither published statement implies the new increment-relaxation winner law or its sharp root. The exact opposite-winner benchmark exhibits non-equivalence. Semantic searches checked aliases such as global energy correction, relaxation RK4 modal transfer, frequency selection and quadratic entropy, including published published-finding corpus findings and this topic's accessible historical records. Residual risk: older equivalent special-case formulas or global-conservation modal analysis may exist under other terminology, and this is not a claim of independently verified historical priority.
+## originality
 
-## Value — PASS
+PASS
 
-Conserving a global invariant can conceal severe false internal dynamics: independently conserved physical modal actions can be driven asymptotically to zero except for selected frequencies. The precise frequency selection, sharp step boundary, and opposing outcomes between two energy-conserving methods offer a diagnostic for reliable conservative time integration. The result holds for any finite collection of independent linear modes, not just an isolated scalar counterexample. It does not establish a runtime improvement, a general error bound, or a theorem about optimized multirate tableaux.
+The known relaxation and the existence of modal transfer are not new. The finite-mode winner law, its explicit Lyapunov identity and exact increment-relaxation switch are distinct on the located evidence.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Exact global energy conservation masks the loss of all nonwinning independent physical actions. The finite-mode law and sharp frequency-step diagnostic distinguish two widely relevant correction geometries at an identical stable base step; this is stronger than one observed transient or one isolated numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

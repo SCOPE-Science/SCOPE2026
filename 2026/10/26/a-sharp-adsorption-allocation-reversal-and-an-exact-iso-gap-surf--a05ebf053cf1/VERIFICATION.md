@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The claimed quantity is the first positive eigenvalue of the negative generator of an irreducible reversible five-state chain. The proof establishes both the exact balanced eigenvalue and the full phase trichotomy by a surface Schur reduction, Sturm sign counting, and implicit differentiation of a simple root. The candidate domain is \(B>0\), \(d>0\), \(M>0\), with \(0<a<B\) and \(b=B-a\).
+## correctness
 
-An independently implemented numerical checker, `gap_phase_checker.py`, was executed on its supplied source with NumPy, SciPy, and SymPy. It checked the exact generalized determinant factorization symbolically and constructed the original five-state generalized eigenproblem rather than evaluating the derived scalar root formula. The run passed 4,106 comparisons, testing randomized parameters on both sides of the transition and at the critical threshold, the spectral secular identity, and critical-plateau instances. The program prints a PASS line or raises an assertion on failure.
+PASS
 
-These numerical checks are finite and do not establish the infinite theorem. The proof does not address boundary allocations with exactly zero adsorption, extensions to arbitrary compartment chains, sampling uncertainty, or historical priority.
+Detailed balance gives W=diag(a/d,1,M,1,b/d) and successive conductances (a,1,1,b). A weighted-mean-zero function supported on the two ends has Rayleigh quotient d and is not an eigenvector (the adjacent bulk equations would not hold); connectedness then gives 0<λ_gap<d. Eliminating the ends for λ<d leaves the symmetric tridiagonal with diagonal (1−λ−γa,2−Mλ,1−λ−γb), γ=λ/(d−λ), and off-diagonal −1. Its determinant is the claimed F; F(0)=0 and F_λ(0)=−(M+2+B/d). Its first positive root is simple by the irreducible symmetric path and the nonsingular Schur factors; hence F_λ there is positive. At balance the antisymmetric eigenfunction at ℓ has central coordinate zero; at M_c the same eigenvalue persists with central coordinate 1−ℓ−γa and outer bulk coordinates ±1. Here ℓ is the unique root on (0,d), since any root there must also satisfy λ<1 and (1−λ)(d−λ) decreases on (0,min(1,d)) while Bλ/2 increases. To identify the gap independently, write W^(-1/2)KW^(-1/2)=AᵀA with A=C^(1/2) D W^(-1/2) for the oriented path differences D and diagonal edge conductances C. The constructed eigenfunction strictly decreases from left to right (at criticality its central coordinate has modulus at most 1−ℓ). Thus C^(1/2)Df is strictly positive and is an eigenvector of AAᵀ, whose negative off-diagonals and irreducibility identify it with the lowest eigenvalue by Perron–Frobenius on a shifted negative matrix. This is the first positive eigenvalue of AᵀA. Implicit differentiation gives dλ/dP=−(2−Mλ)γ²/F_λ for P=ab. For M≠M_c the factor 2−Mλ cannot vanish: F=0 would then force 2(1−λ)=γB and λ=ℓ, implying M=M_c. Continuity fixes its sign from balance, while P strictly decreases with |a−b|. All strict inequalities and the exact plateau follow. The open domain excludes zero adsorption; below M_c the statement is a unique balanced minimum, not an attained fastest split at a prohibited endpoint. Independent replay `python3 /workspace/independent_reproduction.py 3` constructs the generator in the original coordinates. At B=3,d=2 it verifies the eigenvector at M=4,λ=1/2 symbolically for the entire split and checks orientations numerically for M=1 and 16.
+
+## originality
+
+PASS
+
+The supported distinct claim is the fixed-total, positive endpoint-split first-gap reversal and entire critical iso-gap surface in this specific five-state reversible chain. Neither established adsorption modeling nor general Jacobi spectral tools are claimed new. The historically closest wall-diffusion article was accessible and its relevant analytical passages were compared; no earlier directly covering claim was identified in the bounded comparisons.
+
+## value
+
+PASS
+
+The allocation problem fixes a natural physical budget and changes only one central storage parameter; it distinguishes a unique balanced fastest split from a unique balanced slowest split. At the critical capacity, different equilibrium surface weights cannot be distinguished by the first relaxation rate because the whole allocation curve is exactly flat. This is a useful identifiability and control benchmark for a motivated reversible compartment model, independent of whether the same effect persists in continua.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

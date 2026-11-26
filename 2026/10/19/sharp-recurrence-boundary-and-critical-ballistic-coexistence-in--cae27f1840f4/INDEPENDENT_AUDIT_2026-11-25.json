@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:46:51.627400Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–91",
+        "Frozen VERIFICATION.md lines 3–21 and checks.py, inspected only",
+        "van den Berg–Hetebrij–Rink arXiv:1905.00264, Theorem 2.1 pp. 5–6 and cutoff discussion",
+        "Complete corrected files under /workspace/repairs/1/"
+      ],
+      "rationale": "For the repaired claim, expanding U after one update cancels both old transverse coordinates, and from n=2 the current transverse values are two past sines, so |U_n−z_n|≤|β|+|β+γ|. Outside the threshold, each signed increment is at least |α|−|κ|; inside or at the threshold solving x=y=sin z and α+κ sin z=0 gives the stated fixed points (and invariant point masses), including α=κ=0. Compactly supported invariant probability would have forward-invariant support for a continuous map. At nonzero equality the signed drift is |α|(1−cos(z−ζ)), so signed U either diverges or has finite limit. In the latter case its increments vanish, giving sin z_n→s, then x_n,y_n→s, and the exact relation with U gives convergence of z_n on the real lift. Integrating the drift forces an invariant compact probability onto sin z=s and invariance of the shifts forces x=y=s; compactness allows only finitely many lattice atoms. The derivative has simple center eigenvalue 1 and nilpotent stable block. Theorem 2.1 of van den Berg–Hetebrij–Rink applies for any specified finite k≥3 via cutoff and a stable-block norm smaller than one, without invertibility of the stable block. Local graph invariance at r'=r+O(r²) forces both graph jets to be −s r²/2+O(r³). Hence r'=r+αr²/2+O(r³). On αr<0 sufficiently small, sign is preserved, |r| decreases to zero, and the reciprocal variable −2/(αr) has increments tending to one, giving the exact limit. For the coexistence replay the two choices x=y=sin z=−1 or +1 give third-coordinate increments 0 or 2π at α=β=γ=δ=π. No frozen code was executed or needed for these exact checks.",
+      "residual_risks": [
+        "No C^∞ existence or uniqueness is asserted. The branch limit does not assert the rate of all convergent starts, and coexistence does not assert a positive velocity for all escaping starts."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary article defines the parent map and investigates bifurcations and networks. The same-family global escape result assumes μ>1+|β|+|γ|+|δ|. The center-manifold theorem supplies finite-order local existence."
+        ],
+        "reasoning": "The strict large-feedback condition excludes μ=1. The general center theorem has no global orbit classification and neither identifies the drift nor computes this quadratic coefficient.",
+        "searches": [
+          "Rajagopal et al., DOI 10.3390/sym15040780",
+          "SCOPE 7cdce67989b6",
+          "arXiv:1905.00264, Theorem 2.1"
+        ]
+      },
+      "checked_sources": [
+        "Targeted Resultary searches and three substantive matched local-mirror findings",
+        "Rajagopal et al. DOI 10.3390/sym15040780",
+        "arXiv:1905.00264 Theorem 2.1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The parent map immediately gives a fixed-point equation. The indexed translation identity applies on κ=0; the large-feedback collapse theorem is on a disjoint parameter regime."
+        ],
+        "reasoning": "A fixed-point calculation alone cannot exclude compact forward orbits when no fixed points exist. The sign of the real-lift drift, bounded transverse coordinates and its equality case supply the implication; these also connect the stationary measure and critical dynamics. Not awarded novelty for deriving the parent map or applying the general center theorem.",
+        "searches": [
+          "Rajagopal et al. Eq. (1) and §3",
+          "SCOPE hidden-translation and large-feedback Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The hidden-translation result uses exactly W=z+βx+δy after δ=β+γ, and W shifts by α."
+        ],
+        "reasoning": "On κ=0 this is U itself and directly covers the linear drift/first-integral mechanism. Off that slice the increment involves sin z, and that inspected theorem does not imply a threshold or the nonzero equality classification.",
+        "searches": [
+          "Resultary: unit-feedback sinusoidal map, compact recurrence and ballistic coexistence",
+          "SCOPE 49e78d8ca38c"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest different-map recurrence classification concerns a planar cosine-memristor update with threshold r=|bc|=1. Ranked results inspected did not identify a distinct exact nondegenerate-threshold match."
+        ],
+        "reasoning": "This is a continuum phase theorem rather than a finite table; the closest exact indexed classification has a different phase space, drift variable and parameter boundary, not an alternative tabulation of this result.",
+        "searches": [
+          "Resultary: sharp compact recurrence boundary and ballistic drift/coexistence",
+          "SCOPE c930f6114c9c"
+        ]
+      },
+      "rationale": "The supported distinct result is the full real-lift compact existence boundary and dynamics at its nondegenerate equality, including the complete orbit dichotomy, center coefficient and sharp approach on the indicated branch. The parent map and general center reduction are known, and the degenerate κ=0 identity is materially covered by a same-map indexed record; do not count that slice as a distinct contribution.",
+      "residual_risks": [
+        "Ranked searches and inspected sections are not exhaustive. A differently formulated recurrence classification may exist. Same-family indexed overlap on κ=0 is credited without inferring priority from catalog dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same map at μ=1; inspected material discusses bifurcation and network behavior, not the compact-recurrence theorem",
+          "evidence": "Eq. (1) has the self-feedback parameter μ; the frozen map is its unit-feedback specialization.",
+          "identifier_or_url": "https://mdpi-res.com/d_attachment/symmetry/symmetry-15-00780/article_deploy/symmetry-15-00780.pdf",
+          "material_read": "p. 1 abstract, p. 3 Eq. (1) and start of §3",
+          "method": "Publisher OA PDF",
+          "title": "Influence of Parametric Symmetry on the Dynamics of 3D Sinusoidal Discrete Systems",
+          "trigger": "Primary origin of identical sine map"
+        },
+        {
+          "assessment": "Substantive degenerate-slice overlap, no implication for κ≠0; catalog date alone does not decide priority",
+          "evidence": "μ=1, δ=β+γ, W∘F=W+α, linear drift or zero-drift leaf structure.",
+          "identifier_or_url": "2026/11/22/SCOPE-hidden-translation-and-sharp-leafwise-pitchfork-in-a-three-dimen--49e78d8ca38c",
+          "material_read": "Finding and assumptions, offset 260",
+          "method": "Local mirror",
+          "title": "Hidden translation and sharp leafwise pitchfork in a three-dimensional sine system",
+          "trigger": "Strongest exact same-map overlap"
+        },
+        {
+          "assessment": "Disjoint feedback regime",
+          "evidence": "μ>1+|β|+|γ|+|δ|, exponential escape off a zero graph.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-global-escape-coordinate-and-sharp-large-feedback-collapse-in--7cdce67989b6",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "Local mirror",
+          "title": "A global escape coordinate and sharp large-feedback collapse",
+          "trigger": "Same family and global escape coordinate"
+        },
+        {
+          "assessment": "Not equivalent",
+          "evidence": "F(x,y)=(a+bc cos(dy)x,y+ex), threshold |bc|=1.",
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-compact-recurrence-boundary-and-ballistic-drift-corridor-f--c930f6114c9c",
+          "material_read": "Finding, offset 80",
+          "method": "Local mirror",
+          "title": "Sharp compact-recurrence boundary and ballistic drift corridor",
+          "trigger": "Closest indexed recurrence/ballistic theme on a different map"
+        },
+        {
+          "assessment": "General finite-order local existence; no map-specific coefficient or global implications",
+          "evidence": "Requires invertibility of center/unstable blocks, not the stable block, and gives C^k regularity for specified finite k under the gap estimates.",
+          "identifier_or_url": "https://arxiv.org/pdf/1905.00264",
+          "material_read": "Cutoff discussion p. 2 and Theorem 2.1 pp. 5–6, offset 18810",
+          "method": "OA primary PDF",
+          "title": "The parameterization method for center manifolds",
+          "trigger": "Exact local existence theorem for noninvertible stable block"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md: Finding and proofs of drift, boundary dichotomy, center law and exact coexistence"
+      ],
+      "rationale": "Unit feedback is the natural slice where affine drift can balance periodic kicks and where local observations cannot distinguish compact motion from translation of the real lift. The global dichotomy, exact coexistence at the same positive parameters, and center-branch rate resolve different aspects of that ambiguity. This is more than a fixed-point census or a trajectory simulation.",
+      "residual_risks": [
+        "The conclusions do not characterize interior bounded dynamics or cover general self-feedback."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:30:01.167268Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For 0≤θ<π/2 the projection is the hull of two homothetic ellipses; dividing the compressed coordinate by cos θ makes disks with center distance D=H tan θ. Containment holds exactly for D≤δ=R−r. Above it, the small rim contributes a genuine exposed arc between two exterior tangent segments; at π/2 the exposed small rim projects to the shorter parallel segment of the trapezoid. With γ=arccos(δ/D), Green's integral gives (π−γ)R² from the large arc, r²γ+Dr sinγ from the small arc, and DR sinγ from the two tangent segments combined. Multiplying by cos θ gives the claimed area. For perimeter the support difference is the positive part of g=H sinθ cos t−δ sqrt(1−sin²θ cos²t); the boundary of its positive interval is β=arccos(δ/(L sinθ)). At contact g has angular derivative L and quadratic normal-angle term −δL t²/(2H). Rescaling t=√η z integrates the parabolic cap to the asserted C_P. For area, the derivative of sqrt(D²−δ²)−δ arccos(δ/D) is sqrt(D²−δ²)/D, so its integral from δ yields (2√2/(3√δ))(D−δ)^(3/2) at leading order; D'(θ_c)=L²/H and cos θ_c=H/L give C_A. In both cases the rescaled excess is η^(3/2) times a function analytic from the right at zero, positive there, which justifies differentiating the asymptotics and proves C¹ but not C². The axial disk and side-on trapezoid give the stated perimeters; the inversion using C_P follows from δ/L=sin θ_c, and the side inverse has the strictly positive denominator 2(1−sin θ_c). Uniform unoriented viewing gives a uniform absolute axial cosine, hence H/L. I inspected, but did not run, checks/frustum_checker.py; the frozen 156 finite checks do not prove these continuum statements.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "October cone RESULT.md, proof §1 (offset 0 passage): Cauchy projection integral with integrand |k sqrt(1−z²) cosφ+z|, and its exact active and inactive area branches.",
+          "For the frustum the lateral oriented area density is (R+r)/2 times (H cosφ,H sinφ,δ), with base area contributions proportional to R²+r²; for the cone replace R+r by δ and the cap sum by δ²."
+        ],
+        "reasoning": "After subtracting the respective large-disk baselines in Cauchy's formula, the absolute-normal integral and the remaining axial term are both multiplied by (R+r)/δ. Thus A_frustum−πR² cosθ=(R+r)/δ (A_cone(δ,H)−πδ² cosθ). Expanding the known cone area profile at its containment branch yields the record's C_A with this multiplier. The publisher's Vickers–Brown full text was unavailable, but the explicit catalogue profile suffices for the comparison.",
+        "searches": [
+          "2026/10/25/SCOPE-a-sharp-global-brightness-direction-switch-for-right-circular-co--19c34891a8b8",
+          "10.1098/rspa.2000.0667"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact self-hit, cone perimeter, cone brightness and double-cone brightness comparisons",
+        "R. Israel 2011 and Vickers–Brown 2001 access checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Frozen RESULT.md lines 111–113 concede the qualitative ellipse/arc/common-tangent classification to R. Israel (2011); the linked answer itself returned 403.",
+          "The exact cone support onset and area integral imply the local cap expansion; with R known axially, θ_c fixes H/δ and the nonzero cone coefficient supplies the remaining scale. The side trapezoid alone supplies the same scale linearly."
+        ],
+        "reasoning": "I do not attribute the explicit simultaneous coefficient or inverse wording to the 2011 answer. Their substance is nevertheless a direct implication of the inspected exact profiles and the geometric identities, and the inverse entails no independent identifiability theorem beyond solving for scale.",
+        "searches": [
+          "https://math.stackexchange.com/questions/30154/cylinder-silhouette/30169",
+          "Exact cone area and perimeter profiles identified above"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cone RESULT.md, exact normalized perimeter in Assumptions and proof §1 (local mirror offset 550 onward), gives the support max(sqrt(cos²t+c²sin²t), hs sin t) and the full piecewise elliptic profile.",
+          "The solid frustum is exactly the Minkowski sum of the radius-δ cone and the horizontal radius-r disk; this follows by taking a horizontal section at each height or adding the disk to both generating sets."
+        ],
+        "reasoning": "Projection commutes with Minkowski addition and planar perimeter is additive by integration of support. Therefore P_frustum−4R E(s)=P_cone(δ,H)−4δ E(s) identically. The cone branch hs>c with h=H/δ is exactly θ>arctan(δ/H); expansion of the known active support cap gives precisely C_P, without a new independent perimeter law.",
+        "searches": [
+          "Resultary: projected circular frustum two-rim contact and sharp area/perimeter onset",
+          "2026/11/22/SCOPE-a-first-order-minimum-shadow-perimeter-transition-for-solid-circ--8202aacb7c96"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed coefficient/inverse hit is this assigned record itself, not an independent duplicate; its mirror Finding gives the same two positive unequal radii and data.",
+          "The other brightness transition concerns a symmetric double cone, rather than the asymmetric disk-to-disk frustum or its inverse."
+        ],
+        "reasoning": "No distinct numerical table of the inverse was identified, nor is one decisive for a continuous all-parameter formula. The distinct exact cone profiles stand in for such a table after the demonstrated reductions.",
+        "searches": [
+          "Resultary: circular frustum contact coefficient and inverse geometry",
+          "2026/11/22/SCOPE-two-sharp-silhouette-contact-laws-and-local-inverse-geometry-for--f28ff9f55b4f",
+          "2026/11/22/SCOPE-two-independent-brightness-transitions-and-a-quartic-rare-view-l--64d9916daa55"
+        ]
+      },
+      "rationale": "The principal mathematical content is covered by a reduction to exact cone profiles, not merely by a shared silhouette analogy. Fix δ=R−r and H, and let A_cone and P_cone be the known orthographic profiles of that radius-δ right cone. The frustum perimeter excess over the larger ellipse is identically the cone perimeter excess over its base ellipse; the frustum area excess is identically (R+r)/δ times the cone area excess. These identities hold for the full angle domain and carry the branches and leading contact coefficients over by elementary expansion. The inverse is then an algebraic consequence of those coefficients or of the already-conceded contact geometry and trapezoid perimeter. The October cone area record and the distinct indexed November cone perimeter record supply the exact profiles, not just angle extrema. The November records have the same catalogue date; equivalent coverage is established, order or historical priority is not. The decision is based on substantive coverage, not on a failed source retrieval.",
+      "residual_risks": [
+        "No priority inference from the two November records' shared date.",
+        "An earlier two-disk formula or the Vickers–Brown full text could provide still more direct coverage; those unavailable passages were not read."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "exact equivalent perimeter excess by Minkowski addition; distinct extrema theorem not needed",
+          "evidence": [
+            "Support max(sqrt(cos²t+c²sin²t),hs sin t); branch hs≤c versus hs>c; exact active elliptic profile and endpoint values."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-first-order-minimum-shadow-perimeter-transition-for-solid-circ--8202aacb7c96",
+          "material_read": "RESULT.md, exact normalized perimeter and proof §1 in offset 550–4668 passage",
+          "method": "Resultary and lawful local-mirror reading",
+          "title": "A first-order minimum-shadow-perimeter transition for solid circular cones",
+          "trigger": "strongest exact perimeter overlap"
+        },
+        {
+          "assessment": "exact frustum excess follows from the cone area branches by lateral area weighting",
+          "evidence": [
+            "B_k(z)=πz/2+one-quarter integral |k sqrt(1−z²) cosφ+z|; explicit evaluation on both branches."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-a-sharp-global-brightness-direction-switch-for-right-circular-co--19c34891a8b8",
+          "material_read": "RESULT.md proof §1, offset 0–4012 passage",
+          "method": "Resultary/local-mirror reading of proof",
+          "title": "A sharp global brightness-direction switch for right circular cones",
+          "trigger": "exact cone area overlap"
+        },
+        {
+          "assessment": "the assigned record itself",
+          "evidence": [
+            "Two unequal positive radii and the identical statistics and coefficients."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-two-sharp-silhouette-contact-laws-and-local-inverse-geometry-for--f28ff9f55b4f",
+          "material_read": "Finding and assumptions, mirror offsets 900–3035",
+          "method": "Resultary and local mirror",
+          "title": "Two sharp silhouette-contact laws and local inverse geometry for circular frusta",
+          "trigger": "exact catalogue match"
+        },
+        {
+          "assessment": "qualitative precedent is conceded; not used alone to reject originality",
+          "evidence": [
+            "Frozen lines 111–113 describe containment versus exposed arcs and common tangents."
+          ],
+          "identifier_or_url": "https://math.stackexchange.com/questions/30154/cylinder-silhouette/30169",
+          "material_read": "frozen citation and account only; web page not read",
+          "method": "publisher page via lawful OA and web retrieval, HTTP 403",
+          "title": "Cylinder silhouette, answer by R. Israel",
+          "trigger": "closest qualitative frustum geometry"
+        },
+        {
+          "assessment": "priority beyond inspected sources unresolved",
+          "evidence": [
+            "Frozen lines 111–113 report area and perimeter statistics including cone ellipse-plus-point area."
+          ],
+          "identifier_or_url": "https://doi.org/10.1098/rspa.2000.0667",
+          "material_read": "frozen description only; full text not retrieved",
+          "method": "publisher access and lawful OA lookup; publisher 403 and no repository copy surfaced",
+          "title": "The distribution of projected area and perimeter of convex, solid particles",
+          "trigger": "plausible earlier cone projection formulas"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Contact behavior and reconstruction from projections are useful questions. Here both excess functions are inherited exactly from radius-difference cone profiles, and extracting the leading terms and solving for one positive scale is routine once those profiles are given. No separate noise-stability result, nontrivial inverse obstacle, or independently needed previously unknown invariant remains to justify this formulation as a new mathematical finding. This does not detract from its usefulness as an explanatory exercise.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

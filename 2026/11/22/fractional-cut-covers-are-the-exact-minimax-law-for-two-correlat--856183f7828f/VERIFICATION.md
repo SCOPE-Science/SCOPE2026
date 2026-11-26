@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and exact domain
+# Independent mathematical audit
 
-**Claim domain.** Every finite simple nonempty undirected graph; each probe marginal independently uniform across all \(2^n\) sign vectors, with arbitrary dependence between probes; a matrix-adversarial real symmetric off-diagonal coefficient vector of squared Euclidean norm one on the known graph; worst-case variance of the equal-weight two-quadratic-form trace estimator.
+## correctness
 
-**Analytic checks.** (1) Each probe marginal is uniform, so individual edge monomials have mean zero. (2) For arbitrary dependence between probes, testing a single edge produces error variance \(4\Pr(D_i=D_j)\), giving the universal lower bound. (3) An independent uniform base signing and graph-optimal random cut makes all distinct edge monomials orthogonal, producing a diagonal covariance and the matching upper bound for every matrix. (4) Scaling probability distributions and fractional cut covers in both directions gives \(\alpha_G=1/\operatorname{fcc}(G)\), with finite attainment. (5) Automorphism averaging gives the edge-transitive reduction, while exact maximum-cut counts prove odd-cycle and complete-graph values. (6) A triangle with a pendant edge demonstrates why the formula using an unweighted maximum cut is not valid on every graph. These steps give the full infinite-family proof without extrapolating numerical evidence.
+PASS
 
-**Reproduction.** Install `requirements.txt`, then run `python verify.py` in the same directory. A completed invocation passed 594 checks: independent primal/dual LP formulations on listed graph families and 60 sampled further graph instances, exact-rational sign covariance enumeration of chosen cut mixtures, 240 randomized nonlinear coupling tests, and exact complete-graph combinatorics. The script prints the count and fails on any assertion. Its floating-point LP tolerances are specified in code. The LP experiments cannot certify a general optimization theorem or historical novelty; they only independently stress-test the formula. The proof does not depend on numeric solvers.
+The quantifiers are graph-informed but matrix-blind: G has at least one edge, the edge coefficients have unit unordered squared energy, and each probe has the uniform full-cube marginal. For an arbitrary coupling put D_i=Z_iW_i and H_{ij}=(Z_iZ_j+W_iW_j)/2. Then E H_{ij}=0 and H_{ij}²=1_{D_i=D_j}. Concentrating the adversarial coefficient on any single edge gives a variance lower bound of 4 times the largest uncut probability for the induced cut law, irrespective of dependence between D and Z. Conversely, sample any cut independently of Z and multiply Z by its signing D to obtain W: both marginals are uniform, and for distinct unordered edges the sign monomials are orthogonal even if the edges meet at a vertex. The covariance is diagonal with exactly those uncut probabilities on the diagonal, so the edgewise lower bound is attained after optimizing over cut laws. Normalizing and de-normalizing a fractional cover gives the reciprocal max-min crossing probability; it is positive because independent uniform vertex signs cross each edge with probability 1/2. The graph is bipartite exactly when one cut can cross all edges, and fixed signings on a nonbipartite graph leave an edge with variance 4. Automorphism averaging gives the MaxCut ratio for edge-transitive graphs. The odd-cycle and complete-graph counts agree with the formulas; for the pendant triangle, uniform choice of the uncut triangle edge with the pendant always crossed gives exactly 4/3, not the uniform-edge average 1. A diagonal shift preserves the variance and permits positive definiteness. For the cited unscaled K₄ example, the single-probe error takes −4,0,12 with multiplicities 6,8,2 over 16 cube points; opposite quantile pairing attains 6, whereas the robust optimal cut law gives 8. These checks do not assert a lower bound for different marginals, weights, or adaptive schemes. The frozen finite verifier was inspected but not run; the variational identity has an analytical proof.
 
-**Unproved and excluded.** No finite-polynomial-time construction of optimal cut laws is claimed; exact cut enumeration can be exponential. No comparisons of finite-sample tails, adaptive algorithms, more than two probes, nonuniform probe marginals, or unknown graph structure are established. Independent audit has not been performed.
+## originality
+
+PASS
+
+The supported distinct theorem identifies the graph-informed, matrix-blind minimax variance over all two-probe couplings with the known fractional cut-cover invariant. The cut LP and duality, shared-sign construction, and some dyadic complete-graph coefficients are already known. The inspected fixed-matrix, class-supported, and Hadamard results do not provide the all-couplings robust lower bound and matching unrestricted optimum for arbitrary known graphs.
+
+## value
+
+PASS
+
+The theorem resolves a natural robust numerical-linear-algebra design problem exactly and gives a universally attaining sampler, even though arbitrary nonlinear probe couplings are allowed. It explains a sharp bipartiteness obstruction, a sizable improvement over fixed sign flips, and why ordinary MaxCut is insufficient in general. This is an optimization equivalence and structural lower bound, not merely an evaluation of the known LP or a computational-speedup claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

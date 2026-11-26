@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:51:35.396168Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The trace pairing gives bijective point and line labels modulo N; a chosen difference t in D labels an edge, independently of its point index. Intersecting H with C_N gives <r^m>; a noncyclic H has image C_3 and can be generated over that intersection by r^aF, whose cube is the identity. The first quotient has 2m vertices and m(q+1) edges; in it the remaining generator sends vertex index i to a+qi modulo m and edge (i,t) to (a+qi,qt), with t still modulo N. If f is the number of fixed indices and delta the number of multiplier-fixed differences, Burnside gives vertices (2m+4f)/3 and edges [m(q+1)+2f delta]/3. Hence the connected graph rank is 1+[m(q-1)+2f(delta-2)]/3. The gcd(N,q-1) is gcd(3,q-1); if q is 0 or 2 mod 3 there is one fixed index for any m,a, and the only candidate difference t=0 is respectively in or out of D according to Tr(1). If q=1 mod 3 there are three candidate t, of which the two nonzero ones represent nontrivial Frobenius eigenlines and have trace zero. Thus delta=2 and f cancels. Nonnegativity and integrality follow from connected graph cell counts, including q=2,m=1 giving zero. A nonidentity Singer rotation has no fixed vertices or inverted edges, excluding any fixed realization points when d>1. For a pure order-three subgroup use m=N to count fixed vertices and edges directly: one point and one line when q=0,2 mod 3, with one edge only when q=0; for q=1 mod 3, there are none when 3 does not divide a, and otherwise each of the three fixed vertices on each shore has two fixed neighbours, a simple bipartite 2-regular graph on six vertices, necessarily one six-cycle. The identity rank is 1+N(q-1)=q^3. The geometric quotient retains edge orbits even if parallel, because the shores are preserved. Inspected verify_singer.py, checks.txt and VERIFICATION.md without executing the script. Their ten-field checks are corroboration only; the representative-lift loop at a=0,1,2 covers the possible residue classes, and all fields and subgroup indices are accounted for by the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Drudge's retrieved abstract determines possible Singer subgroup orbit sizes and counts on (d-1)-flats. Sarti's indexed description concerns when Frobenius induces an automorphism of a Wada dessin on points and hyperplanes. The stated scope of 321e74dc927b begins at vector dimension four and concerns subgroups of a cyclic Singer group."
+        ],
+        "reasoning": "A count of flats need not count flag orbits and does not treat these semilinear lifts. Dessin compatibility is not a count of abstract graph orbit edges for every H. PG(2,q) here has vector dimension three and includes noncyclic H, so the broader-looking building classification does not dominate it.",
+        "searches": [
+          "Drudge, doi:10.37236/1632",
+          "Sarti, arXiv:1008.4317 §§3–3.2",
+          "2026/11/17/SCOPE-cyclotomic-stabilizers-and-rational-homology-of-all-singer-subgr--321e74dc927b"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, REVIEW.md, VERIFICATION.md, verify_singer.py, checks.txt",
+        "Resultary e51643eb7bce (self), 9f7c515182e7, 321e74dc927b, 27f2ef6bf5d1",
+        "Primary-literature comparison: indexed Drudge abstract and Sarti description, with the Streit–Wolfart special case credited from the frozen comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The comparison with Sarti available via indexed description is about compatible Frobenius action on embedded dessins; the frozen source credits some free edge actions but not an all-subgroup statement. Frozen RESULT.md lines 48–59 derives the f(delta-2) term and the fixed loci for every lift and for characteristic three."
+        ],
+        "reasoning": "Even a full Singer quotient graph plus free edge action for a compatible automorphism does not determine f and delta for all m and a. For example, the characteristic-three case has fixed edges and the q=1 mod 3 case has cancellation in the graph rank despite different fixed loci. Normalizer group structure or individual flat counts alone do not produce those edge/fixed incidence facts.",
+        "searches": [
+          "Sarti arXiv:1008.4317 Frobenius-compatible Wada dessins; Streit–Wolfart full Singer quotient",
+          "Cossidente–de Resmini normalizer-focused work (2004), bibliographic lead in frozen REVIEW.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact catalogue hit e51643eb7bce is the assigned record itself. Frozen RESULT.md line 65 credits Streit–Wolfart with two vertices and q+1 edges in the full cyclic Singer quotient."
+        ],
+        "reasoning": "That quotient graph has rank q, exactly the assignment's m=1, epsilon=0 case. It does not give ranks and fixed spaces for lifts r^aF. Quotienting the supporting Riemann surface of an embedding is not quotienting the graph realization. No independent full-text exclusion is claimed for the dessin paper.",
+        "searches": [
+          "Resultary: Singer–Frobenius plane incidence graph quotients, fixed graphs, modular fixed cycles",
+          "Streit–Wolfart, Cyclic Projective Planes and Wada Dessins, Doc. Math. 6 (2001), 39–68"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct indexed records 9f7c515182e7 and 27f2ef6bf5d1 discuss a matroid independence complex and the nonincidence graph's independence complex, respectively, rather than graph-orbit ranks. The frozen checks.txt is a finite table for q=2,3,4,5,7,8,9,11,13,16."
+        ],
+        "reasoning": "These distinct tables or formula records use other cell structures, and the current finite table is not evidence of older coverage or exhaustion. An exact all-H classification would need the same one-dimensional geometric quotient retaining parallel flags in every prime power. A lack of such a retrieved table is not a novelty proof.",
+        "searches": [
+          "Resultary: all Singer normalizer projective-plane incidence graph Betti numbers and order-three fixed graphs",
+          "Published literature search on Singer–Frobenius projective-plane incidence graph quotient and fixed graph"
+        ]
+      },
+      "rationale": "Pass relative to the inspected statements, for the complete all-subgroup graph and geometric fixed-space classification. The full cyclic Singer graph with two vertices and q+1 parallel edges is already credited to the dessin literature in the frozen record and is not a new component. Related flat, embedded-dessin and higher-rank results do not supply the combined all-lift modular formulas on evidence read; full-text gaps remain explicit.",
+      "residual_risks": [
+        "Decisive full text was not available for Streit–Wolfart and Sarti; the audited verdict does not exclude additional overlap in either complete work.",
+        "The Cossidente–de Resmini normalizer lead is only bibliographic here; a differently indexed normalizer result could contain equivalent fixed-graph or orbit counts. No absolute historical priority is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credit the known full cyclic case; exact scope of the other paper's quotient passages remains unchecked",
+          "evidence": "Two vertices with q+1 edges imply rank q for the graph.",
+          "identifier_or_url": "https://ems.press/journals/dm/articles/8965030",
+          "material_read": "Exact overlap attributed in frozen RESULT.md line 65; primary article passage not retrieved",
+          "method": "Matched the reported two-vertex graph to m=1, epsilon=0 and distinguished embedded surface and graph",
+          "title": "Cyclic Projective Planes and Wada Dessins",
+          "trigger": "Known full cyclic Singer quotient of the same graph"
+        },
+        {
+          "assessment": "Genuine adjacent method, no all-H fixed-graph theorem verified in material read",
+          "evidence": "Studies when Frobenius on points and hyperplanes induces a Wada-dessin automorphism.",
+          "identifier_or_url": "https://arxiv.org/abs/1008.4317",
+          "material_read": "Indexed description and Sections 3, 3.1 and 3.2 locators; lawful full-text attempt unavailable",
+          "method": "Compared the object and the stated action question",
+          "title": "Wada Dessins associated with Finite Projective Spaces and Frobenius Compatibility",
+          "trigger": "Same Frobenius on projective incidence data"
+        },
+        {
+          "assessment": "Related flat orbit classification, not enough on its stated scope",
+          "evidence": "The abstract determines possible Singer orbits on (d-1)-flats and counts the orbits of each size.",
+          "identifier_or_url": "https://doi.org/10.37236/1632",
+          "material_read": "Article's indexed abstract; original full text not retrieved",
+          "method": "Compared flat orbit data with semilinear flag/edge data",
+          "title": "On the Orbits of Singer Groups and Their Subgroups",
+          "trigger": "Prior arbitrary Singer subgroup orbit counts"
+        },
+        {
+          "assessment": "Do not identify either quotient with this incidence graph normalizer quotient",
+          "evidence": "The former starts at vector dimension four and is cyclic-subgroup based; the latter concerns the rank-three matroid independence complex.",
+          "identifier_or_url": "2026/11/17/SCOPE-cyclotomic-stabilizers-and-rational-homology-of-all-singer-subgr--321e74dc927b; 2026/11/17/SCOPE-singer-cycle-orbit-spaces-of-projective-plane-matroid-complexes--9f7c515182e7",
+          "material_read": "Catalogue statements",
+          "method": "Compared building dimensions, acting groups and definitions of cells",
+          "title": "Cyclotomic stabilizers and rational homology of all Singer-subgroup quotients of finite spherical buildings; Singer-cycle orbit spaces of projective-plane matroid complexes",
+          "trigger": "Close indexed analogues by group and finite geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This classifies natural symmetry quotients and fixed loci of a standard finite building, beyond the familiar full cyclic quotient. In one formula it resolves all subgroup indices and distinguishes how the Frobenius arithmetic affects fixed geometry; notably the exceptional threefold fixed-vertex counts can change the fixed locus without changing the quotient's rank. The exact connected graph type is useful without assumptions about a chosen embedding or a field-size cutoff.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

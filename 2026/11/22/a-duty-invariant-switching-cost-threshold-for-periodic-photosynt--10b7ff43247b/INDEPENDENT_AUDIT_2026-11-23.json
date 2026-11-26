@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T16:56:54.452517Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let a=u/(u+d), E=exp(-pT), F=exp(-qT). Composing the two affine flows gives multiplier EF strictly between zero and one; the periodic light-start excess over a is (1-a)(1-F)/(1-EF). Its integrated illuminated contribution is that excess times (1-E)/(u+d), giving the stated J_c after dividing by T and charging c once per cycle. For an independent concavity check put R=g_p+g_q, g_s=coth(sT/2), so Phi=2/R. For each s>0, g_s'<0 and g_s g_s''-2(g_s')^2=2(s/2)^2 csch^2(sT/2)>0. Weighted Cauchy–Schwarz gives RR''>2R sum((g_s')²/g_s)>=2(R')², hence Phi'>0 and Phi''<0. The analytic expansion R=2(1/p+1/q)/T+(p+q)T/6+O(T³) gives Phi=pq T/(p+q)-p²q² T³/[12(p+q)]+O(T⁵). Consequently H=Phi-T Phi' starts at zero with cubic coefficient p²q²/[6(p+q)], and H tends to one at infinity because Phi tends to one and T Phi' decays exponentially. Since H'=-T Phi''>0 and J_c'=(c-KH)/T², c=0 and c>=K give the claimed strictly monotone unattained boundary suprema, including the equality c=K. For 0<c<K the derivative switches sign once and gives the unique finite optimum. Substitution gives the strictly positive improvement K Phi'(T_c), monotonicity follows by inversion, and the cubic coefficient gives the reported small-cost law. The fast zero-cost limit fa+Kpq/(p+q) simplifies to the fraction in the statement. The result requires two phases of positive share and a positive dark repair rate; no interchange with a boundary limit in f or v is claimed. Inspected checker.py as text. Its finite diagnostics are not needed for the analytic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Grognard–Akhmetzhanov–Bernard optimize dilution controls under a prescribed daily illumination period and periodic biomass constraint, not the period itself.",
+          "The charged problem is an average surplus objective (S(T)-c)/T with S=K Phi bounded. Generic average reward calculus gives its slope test if S is known. Here the exact bound S(infinity)=K, strict concavity and the cubic term require the actual repeated-phase response.",
+          "The frequency/mixing and renewal-cost searches surfaced applied frequency studies and general average-cycle formulations but no verified stronger primary theorem that supplies this charged threshold and cubic-root regime for the model."
+        ],
+        "reasoning": "Neither continuous manipulation of dilution nor operating energy accumulated with time is equivalent to a fixed cost per event. The proof uses generic derivative calculus but the key global inequality and exact asymptotics are model-specific.",
+        "searches": [
+          "arXiv:1204.2906, control and periodically imposed daylight model",
+          "Web: optimal cycle period fixed cost per cycle periodic first order exponential relaxation switching operating policy concave renewal reward switching charge optimal frequency bang bang",
+          "Web: algal photobioreactor flashing light fixed mixing cost switching cost photosynthesis optimal period pulse frequency energy cost per pulse Fernandez Sevilla"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1007/s00285-023-01871-2 (public Appendix A and abstract)",
+        "arXiv:1204.2906",
+        "DOI 10.1371/journal.pone.0038975",
+        "DOI 10.18174/221726 (repository synopsis)",
+        "DOI 10.1016/j.jtbi.2012.01.040 (indexed abstract)",
+        "Resultary related square-wave, sunfleck and fixed-overhead outputs"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substitution into the scalar high/low analysis recovers the uncharged yield in the u=v case, so invoking a different full Han model alone would not distinguish the formula. The published abstract's threshold is instead about duty or gain relative to steady irradiance, and the inspected appendix contains no per-cycle fee in the optimization.",
+          "The reported c threshold depends on the long-cycle transient surplus (1-a)/(u+d), independent of duty and dark repair so long as both exposure times diverge as T grows. Add a new fee c, differentiate with respect to the previously ordinary period parameter, and prove strict concavity of Phi to obtain unique maximizing cycles, rather than comparing gross outputs at preassigned intensities.",
+          "Papadakis et al.'s available abstract concerns photon absorption, energy partition and photoinactivation/repair, not an explicitly stated fixed-fee regime. Publisher access did not furnish the article text; no whole-document finding is inferred."
+        ],
+        "reasoning": "The closest published scalar integration covers important input to the proof, but it leaves a distinct cost-dependent objective and a separate global argument. Gross rate comparisons or a minimum duty for light response do not follow the quantifiers of the c-dependent period result.",
+        "searches": [
+          "Fierro Ulloa–Lu–Bernard (2023), publisher abstract and analytical Appendix A",
+          "Vejrazka (2012), thesis repository abstract and public PDF link",
+          "Papadakis–Kotzabasis–Lika DOI 10.1016/j.jtbi.2012.01.040, indexed abstract and publisher access"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With the complement variable x=1-C in the scalar Han reduction, light deactivation is alpha_H and both phases have the one rate k_r for repair. Set the low irradiance to zero (alpha_L=gamma_L=0) and normalize output by gamma_H. The two scalar flows then have u=v=k_r, d=alpha_H and the periodic integrated gross output has the same Phi(T)/T term.",
+          "The identical dimensionless factor is also printed explicitly in Appendix A.2 in a separate high/low-light reduction. Related Resultary hits on sunfleck order, induction gaps and static illumination allocation refer to other objectives or controls."
+        ],
+        "reasoning": "Square-wave period and frequency are reciprocal parametrizations; affine recovery and the complement of damaged fraction describe the same kinetics under the stated substitution. Comparison at the level of the charged payoff matters: an uncharged mean response, even with the same gross formula in a special case, does not include a single fee per completed cycle.",
+        "searches": [
+          "Resultary: fixed switching cost optimal square wave period duty invariant photosynthetic repair light dark deactivation hyperbolic harmonic mean",
+          "Web: flashing light photosynthesis photoinhibition first order Han model periodic closed form light dark frequency cost mixing energy optimum switching threshold per cycle",
+          "Fierro Ulloa–Lu–Bernard DOI 10.1007/s00285-023-01871-2, Appendix A.1–A.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed hit is the assigned record. Among nearby hits the overhead-smearing study has a fixed per-exposure charge and cube-root scaling for sinusoidal photometry, but not the active-fraction dynamics or the long-period threshold.",
+          "Sforza et al. tabulate specific square-wave irradiances and frequencies. Vejrazka's synopsis reports duty and frequency experiments and a nonlinear electron-storage model; it does not establish the threshold for a charge c."
+        ],
+        "reasoning": "A frequency table, biological optimum, or equal scaling exponent from a different objective is not equivalent to a charged continuum optimum. The exact items being screened are the closed response, critical charge and limit laws rather than a finite numerical table.",
+        "searches": [
+          "Resultary fixed-cost square-wave threshold and harmonic-mean query",
+          "Web: photosynthetic flashing light photoinhibition linear light dark first order damage repair switching cost optimal period fixed cost cycle Papadakis Vejrazka frequency optimum",
+          "Sforza et al. DOI 10.1371/journal.pone.0038975, Table 1 and pulsed-light Results; Vejrazka DOI 10.18174/221726, repository chapter synopsis"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the exact fixed-per-cycle-cost optimum and its sharp qualitative and small-cost regimes. An important closer antecedent omitted in the frozen bibliography is Fierro Ulloa–Lu–Bernard (2023), whose scalar Han reduction already gives the same periodic integration and exponential interpolation factor in an equal-repair special case. The uncharged light/dark average and the affine matching method are not credited as stand-alone novelty. The inspected work does not solve the charged period problem; its gross-rate formula does not establish the uniqueness and onset law for the charged objective.",
+      "residual_risks": [
+        "Full relevant portions of the Papadakis article and the Vejrazka thesis were not accessible in readable form; no search result certifies absence of a direct antecedent.",
+        "A differently named cycle-cost result in process control or renewal optimization might provide equivalent coverage. The 2023 published equal-repair gross formula should be acknowledged in future presentation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material overlap: scalar Han calculation recovers the same uncharged integration at equal repair under zero low light. The inspected conclusions and appendix do not give the charged optimization.",
+          "evidence": [
+            "Appendix A.1 gives affine exponential flows, matching C(0)=C(T) and mean output as phased steady contribution plus a transient term divided by T.",
+            "Appendix A.2 displays (1-e^{-aT})(1-e^{-bT})/(1-e^{-(a+b)T}) in its rate expression after relabelling phase exponents."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00285-023-01871-2",
+          "material_read": "Publisher abstract, accessible Appendix A.1–A.2 equations and complementary exact vector formulas A.3–A.11; HAL record abstract",
+          "method": "Open publisher appendix and repository metadata; repository PDF extraction did not return readable text",
+          "title": "Theoretical growth rate of microalgae under high/low-flashing light",
+          "trigger": "Primary analytic work on periodic two-phase Han kinetics and growth-rate limits"
+        },
+        {
+          "assessment": "Different optimization variable and imposed period",
+          "evidence": [
+            "The text fixes the day period and optimizes the dilution rate, with the same biomass at the beginning and end of the day."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1204.2906",
+          "material_read": "Open report abstract, introduction and §2, including square-wave daylight approximation and period constraint",
+          "method": "ArXiv PDF text inspection",
+          "title": "Periodic optimal control for biomass productivity maximization in a photobioreactor using natural light",
+          "trigger": "Potential broader periodic photobioreactor control theorem"
+        },
+        {
+          "assessment": "Experimental precedent and motivation, not an exact scalar fixed-charge theorem",
+          "evidence": [
+            "The pulsed-light trials compare specific frequencies at fixed mean photon delivery; the advantageous settings have a similar short illuminated duration."
+          ],
+          "identifier_or_url": "https://doi.org/10.1371/journal.pone.0038975",
+          "material_read": "Introduction, abstract, square-wave Results, Table 1 discussion and Discussion",
+          "method": "Open PLOS full article HTML",
+          "title": "Adjusted Light and Dark Cycles Can Optimize Photosynthetic Efficiency in Algae Growing in Photobioreactors",
+          "trigger": "Square-wave photoefficiency and period data"
+        },
+        {
+          "assessment": "Abstract-level distinction; not a whole-thesis noncoverage finding",
+          "evidence": [
+            "Chapter 5's disclosed mechanism is an electron pool with Monod-type consumption/dissipation; Chapters 3–4 report distinct measured frequency/duty responses."
+          ],
+          "identifier_or_url": "https://doi.org/10.18174/221726",
+          "material_read": "Wageningen repository's chapter-by-chapter abstract; full-text link attempted but extraction unavailable",
+          "method": "Open university repository page and document-access attempt",
+          "title": "Microalgal photosynthesis under flashing light",
+          "trigger": "Thesis on exact same frequencies, duty effects and bioenergetic optimization"
+        },
+        {
+          "assessment": "Entire-paper coverage unresolved; the inspected abstract does not state the claimed optimization",
+          "evidence": [
+            "The abstract describes dynamic joint photon absorption, partition of excitation energy and repair/inactivation under varying light and inorganic carbon."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jtbi.2012.01.040",
+          "material_read": "Bibliographic information and accessible indexed abstract passage only",
+          "method": "Lawful web lookup, DOI and attempted publisher access; usable full text was not returned",
+          "title": "Modeling the dynamic modulation of light energy in photosynthetic algae",
+          "trigger": "Plausible prior affine photoinactivation and repair reduction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This idealized model isolates a meaningful decision: whether paying a setup charge at each switch makes rapid cycling too costly and whether any best finite period remains. The threshold equals the total excess light-phase output available after complete dark repair in the long-cycle limit, which explains its invariance with fixed positive duty and dark repair. The uniqueness, endpoint behavior and singular cube-root onset give a precise benchmark for charged two-phase models. The cost is stipulated rather than physically estimated, so no claimed empirical, energetic or general control prescription is warranted.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

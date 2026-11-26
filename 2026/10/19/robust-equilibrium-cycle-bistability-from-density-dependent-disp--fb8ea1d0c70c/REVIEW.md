@@ -1,15 +1,21 @@
-# Scientific review: equilibrium–cycle bistability from costly density-dependent dispersal
+# Independent mathematical audit
 
-## Correctness — PASS
-Exact-substitution identities give the two positive cycle points and their exchange. The positive synchronized fixed point and both Jacobians are calculated from the stated map with exact rational derivatives. At the synchronized point the eigenvalues are \(2/5\) and \(-438/455\). The two-step return matrix has trace \(7953997/7452900\), determinant \(3837681/20702500\), and all three strict quadratic Schur inequalities. Both attracting sets are hyperbolic, therefore persist under small admissible parameter perturbations. The constant-dispersal convergence claim follows from an order-preserving scalar comparison, not numerical iteration. `verify_exact.py` recomputes all exact certificates from the formulas.
+## correctness
 
-## Originality — PASS, qualified
-Grumbach et al. (2023; doi:10.1007/s00285-023-01984-8; primary MSC 92D25) prove global equilibrium convergence for Beverton–Holt patches with constant, costless movement. Their full accessible text, including model (1), Lemma 1, Section 3 and appendices, does not contain density-dependent costly emigration or equilibrium–cycle bistability. McGrane-Corrigan et al. (2024; arXiv:2405.04505) introduce nonlinear and costly dispersal and display oscillations in a nonidentical source–sink setting. Their inspected preprint's model, theoretical propositions, and numerical sections do not state this exact coexistence theorem for identical, individually globally stable Beverton–Holt patches, nor the contrasting global fixed-dispersal result. Huang and Chen (2023; arXiv:2302.01814) analyze delayed continuous-time loss-bearing patch dynamics and Hopf onset, not this discrete delay-free coexistence. Additional comparison included published-finding corpus indexed titles and summaries, older density-dependent dispersal research, and 2018 two-patch results. The 2001 Silva–de Castro–Justo and 2018 Chow–Jang–Yeh full texts were inaccessible, leaving a genuine specialist-priority risk. The 2025 journal version of McGrane-Corrigan et al. is subscription-only; its accessible abstract shows numerical cycles but is insufficient to certify whole-document noncoverage.
+PASS
 
-## Value — PASS
-A proof of *simultaneous* stability of an equilibrium and antiphase period-two orbit, with open basins in two otherwise identical, compensatory patches, gives a concrete biological and mathematical boundary to constant-dispersal stability. The counterexample distinguishes a mechanism due to the state-dependence of connectivity from intrinsic local overcompensation, heterogeneity, delayed recruitment, or Allee thresholds. Its rational return-map certificate and robustness make the phenomenon reproducible rather than a small numeric threshold gain.
+Independent exact replay: python3 /workspace/branches/independent_replay.py 2. Writing the first coordinate as a(x)+g(y)-a(y) with g(z)=5z/[2(1+z)] and a(z)=65z/[28(1+z)(1+z²)] gives a quotient-rule derivative independent of the frozen checker. The replay recovers the three states, both equilibrium multipliers (2/5 and −438/455), the stated return derivative, and positive margins (423302/3583125, 209855777/93161250, 16864819/20702500). These strict Jury margins imply both return multipliers have modulus less than one. The positivity and column-sum conditions follow directly from h and p for every finite nonnegative density. Monotonicity and the sign of f(z)−z give isolated-patch global attraction to 4. Strict sinks persist under small C¹ perturbations on neighborhoods of these interior states; choose disjoint neighborhoods of E, A and B, so continuation of the F² fixed point is still prime-period-two and distinct from the continued equilibrium. Under maintained symmetry, reflecting the continued A and applying F to it give the same continued point near B by local uniqueness. For each constant symmetric exchange fraction q∈[0,1], each update is between g(x) and g(y); monotone scalar iterates from the positive initial minimum and maximum converge to 3/2. This proves the stated comparison, not a comparison for arbitrary asymmetric origin-dependent constants. No global basin classification for the density-dependent system is proved or needed.
 
-## Limitations
-This is a constructive, local-attractor result, not a complete global attractor or basin classification. Its exact fractions were selected to permit rational proof and are not an empirical calibration. Inaccessible specialist full texts and any unpublished equivalences remain possible originality risks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The verified distinction is an exact, robust coexistence of a positive synchronized sink and a separate positive antiphase prime two-cycle sink in one model with identical compensatory recruitment and constant subunit total retention. Density-dependent dispersal, stable oscillation alone and global convergence in constant-dispersal models are not claimed as discoveries. Two plausible inaccessible primary comparisons leave residual risk, not established overlap.
+
+## value
+
+PASS
+
+A robust explicit counterexample separates compensatory isolated recruitment from simple coupled dynamics. In contrast to a cycle created at a loss of stability of the synchronized equilibrium, here neither attractor excludes the other and both have open basins at the same parameters. Exact rational margins and the constant-dispersal control make this a useful reproducible mechanism witness without requiring a full bifurcation classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:10:02.432020Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under skew forcing, the white set on A evolves using just the neighborhoods of B in A, independently of the colors on B. For a≥3,b≥2 and missing uv, those neighborhoods are A minus {u} for v and A for all other B vertices. With white A-set {u,w1,w2}, both types see at least two whites and u stays white. Pre-filling w1 lets v force w2, then another B vertex forces u. Instead pre-filling u leaves w1,w2 white with two neighbors counted by each B vertex, so w1 stays white. This verifies the claimed exchange obstruction including b=2, and shore swapping handles the other ordering. In the b=2 discussion of the original, the sole B vertex other than v is the unique neighbor of u, not conversely; the stated force and exchange conclusion are valid. For a star plus an isolated vertex the center is always forced, a missing leaf is forced exactly when it is the sole white leaf, and the isolated vertex never changes. This gives the stated direct sum, including the single-leaf case. Empty-set closure fills P4 and is the identity on the two isolated vertices of K1,1-e. Undeleted bicliques have independent corank-one uniform closure on each shore. Inspected the uploaded verifier and its accompanying text without executing it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hall–Pfeil–Taylor prove nonclosure of the whole class under edge deletion with a particular three-vertex example.",
+          "Cooper–Fickes cover the undeleted biclique; DeAlba gives a matching-based matroid statement about minimum forcing sets and multipartite forcing-number results."
+        ],
+        "reasoning": "A graph-specific deletion example proves nonclosure, not that every one-edge deletion within the specified size range breaks exchange. The undeleted graphs and matroids of minimum sets do not give exchange for skew closure after deletion.",
+        "searches": [
+          "arXiv:2611.15741, Theorem 3.4 and Fig. 5",
+          "arXiv:2303.17419, §3 and Proposition 3.16",
+          "arXiv:1404.1618, Theorems 3.3 and 4.6"
+        ]
+      },
+      "checked_sources": [
+        "Resultary index/local mirror: 5d988d49cad1, 846c41a18abb, af943c518354",
+        "arXiv:2611.15741",
+        "arXiv:2303.17419",
+        "arXiv:1404.1618"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Generic deletion nonclosure is an existential assertion; positive intact-biclique results leave perturbations undecided.",
+          "For a≥3,b≥2, white sets {u,w1,w2} and {w1,w2} have no singleton intersection with a B-neighborhood, but {u,w2} first has a singleton intersection with A minus {u} and then with A."
+        ],
+        "reasoning": "The specific one-way exchange obstruction comes from the simultaneous occurrence of the two different B-neighborhood types. It is not supplied by a forcing-number classification, matroid bases under a matching hypothesis, or the particular previous deletion example. The elementary exceptional matroids alone are not the novelty claim.",
+        "searches": [
+          "Hall–Pfeil–Taylor Theorem 3.4 and the cited Fig. 5",
+          "Cooper–Fickes Proposition 3.16",
+          "DeAlba Theorem 4.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hall–Pfeil–Taylor, arXiv:2611.15741, defines skew-closure exchange and treats deletion in Theorem 3.4.",
+          "Crown graph record 846c41a18abb counts whole-graph forcing sets under perfect matching deletion.",
+          "In matrix language the two B-neighborhoods used in the obstruction are the all-ones row and the all-ones row with a single zero."
+        ],
+        "reasoning": "Invariance under shore relabeling identifies any single deleted matrix entry with the same graph. Enumerating spanning skew forcing sets or finding the minimum number of seeds is not equivalent to exchange for the induced closure on every set.",
+        "searches": [
+          "Resultary: skew zero forcing matroid complete bipartite one edge deletion K_{a,b} minus edge",
+          "Primary: \"skew zero forcing\" matroid \"edge deletion\" complete bipartite graph one edge"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The index top hit 5d988d49cad1 is the assigned record itself, read in the local mirror; it is not an independent match.",
+          "The crown and same-day one-bipartite-edge-deletion records concern a different deletion pattern and a different edge invariant, respectively.",
+          "The multipartite stopping/forcing-number results concern a number rather than the exchange relation."
+        ],
+        "reasoning": "No checked database entry or table classifies full closure exchange for the same one-edge-deleted family; neither marked size data nor facet data encode the closure.",
+        "searches": [
+          "Resultary: 5d988d49cad1, 846c41a18abb, af943c518354",
+          "arXiv:1404.1618, complete multipartite forcing-number result"
+        ]
+      },
+      "rationale": "The checked literature contains generic exchange, an example of nonclosure under edge deletion, positive results for undeleted bicliques, and related minimum-size/enumerator results. It does not supply the supported exact one-edge-deletion boundary for exchange of the full closure.",
+      "residual_risks": [
+        "A bounded search cannot exclude an unindexed equivalent classification or a general near-twin-neighborhood obstruction not identified in the passages checked."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant prior negative example, not a family classification",
+          "evidence": "Refers to the specific G2/G3 pair in Fig. 5 with three vertex labels, not to arbitrary deleted bicliques.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.15741",
+          "material_read": "Theorem 3.4, p. 9, OA PDF offset about 29100; HTML offsets 29470 and 33100 onward for Fig. 5 and deletion proof",
+          "method": "OA original PDF/HTML bounded passages",
+          "title": "Skew Zero Forcing Matroids",
+          "trigger": "Same closure, direct edge-deletion nonclosure theorem"
+        },
+        {
+          "assessment": "Covers comparison to intact bicliques",
+          "evidence": "Complete bipartite graphs are SZF-complete; the closure-matroid link is standard, but the proposition does not cover the deleted graph.",
+          "identifier_or_url": "https://arxiv.org/abs/2303.17419",
+          "material_read": "§3, p. 14, offset 39750; Proposition 3.16, p. 20, offset 56600",
+          "method": "OA original bounded PDF passages",
+          "title": "Zero loci of nullvectors and skew zero forcing in graphs and hypergraphs",
+          "trigger": "Positive result for complete bipartite graphs"
+        },
+        {
+          "assessment": "Related but not a full closure exchange test",
+          "evidence": "Theorems concern forcing-number conditions and bases of minimum skew forcing sets under a uniquely restricted maximum-matching hypothesis.",
+          "identifier_or_url": "https://arxiv.org/abs/1404.1618",
+          "material_read": "Theorems 3.3 and 4.6, pp. 5 and 10, offsets 10300 and 21270",
+          "method": "OA original bounded PDF passages",
+          "title": "Some results on minimum skew zero forcing sets, and skew zero forcing number",
+          "trigger": "Matching framework and complete multipartite forcing results"
+        },
+        {
+          "assessment": "Different question and deletion pattern",
+          "evidence": "Deletes a perfect matching from a balanced biclique and enumerates seeds that fill the full graph.",
+          "identifier_or_url": "2026/10/13/SCOPE-skew-zero-forcing-enumerator-of-crown-graphs--846c41a18abb",
+          "material_read": "RESULT.md Finding and scope",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Skew zero forcing enumerator of crown graphs",
+          "trigger": "Closest indexed deleted-biclique skew forcing overlap"
+        },
+        {
+          "assessment": "Different invariant; no date-based priority inference",
+          "evidence": "Treats edge-general-position sets and facets of K_{m,n}-e; no skew-closure exchange assertion.",
+          "identifier_or_url": "2026/11/22/SCOPE-full-edge-general-position-and-facet-polynomials-after-one-bipar--af943c518354",
+          "material_read": "RESULT.md Finding and scope",
+          "method": "Local mirror",
+          "title": "Full-edge general position and facet polynomials after one bipartite edge deletion",
+          "trigger": "Same underlying family in a distinct same-day record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Single-edge sensitivity of a matroidal closure is a focused perturbation question for a standard positive family. The exact all-size classification and reusable three-vertex obstruction turn a general nonclosure phenomenon into a sharp instability statement with fully identified exceptions; this is stronger than one finite counterexample or a computation of ranks.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

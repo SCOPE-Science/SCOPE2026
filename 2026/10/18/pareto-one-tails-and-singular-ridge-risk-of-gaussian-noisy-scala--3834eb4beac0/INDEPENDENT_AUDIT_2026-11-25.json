@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:39:49.011027Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Since the second input is Y0, Y1-Y0=F1=F0+D. Substituting into both least-squares updates gives X=x-F0^2/D and X_lambda=x-F0^2D/(D^2+lambda)+lambda(2F0+D)/(D^2+lambda). With c=a-2, D has mean d0=(a-1)^2x and Gaussian noise sigma(c Z0+Z1), and F0 has noise sigma Z0. Gaussian regression gives E[F0|D=d]=(a-1)x+c(d-d0)/h and variance sigma^2/h; at d=0 the mean simplifies to the printed m using h-c(a-1)=3-a. Given F0=u and t>|x|, the absolute-tail event is exactly the two intervals just below and above zero of respective widths u^2/(t-x) and u^2/(t+x). The conditional D density is continuous and uniformly bounded by 1/(sigma sqrt(2pi)), so dominated convergence gives the claimed C=2p_D(0)E[F0^2|D=0]. Integrating the tail gives the threshold for positive moment orders; the zeroth moment is not part of this threshold. At fixed lambda, the ridge update is bounded by a polynomial in the two Gaussians, and its additive remainder after extracting -F0^2D/(D^2+lambda) is uniformly bounded in L^2. For the square of the extracted term, set d=sqrt(lambda)s in the conditional integral; the bounded continuous product p_D(d)E[F0^4|D=d] is tested against the integrable kernel s^2/(1+s^2)^2 of integral pi/2. The remainder's square and cross term vanish after multiplying by sqrt(lambda), by the uniform bound and Cauchy–Schwarz. Substituting the Gaussian second and fourth moments recovers C and K, both positive, including h=5,m=0,v=1/5 for the printed example. Frozen quadrature and finite identity checks were inspected, not executed, and are not needed to justify the limits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Toth et al., Section 2.2 Theorem 3, studies a local finite-horizon high-probability result for inaccurate evaluations, including stochastic error.",
+          "Lupo Pasini–Laiu, Sections 3.1–3.2, bounds errors in approximate least-squares calculations and convergence; section 5.1.1 uses normal perturbations of a least-squares matrix.",
+          "Resultary 6e96c99497d7 yields p<d-m+1 and fixed-Tikhonov finite moments for fixed sites, expressly not adaptive iterates."
+        ],
+        "reasoning": "None of those results supplies the output tail constant or vanishing-ridge second-moment law at a random second oracle input. Even when the fixed-site threshold equals 1 at d=m=1, the hypotheses differ and neither constant is determined by the threshold.",
+        "searches": [
+          "DOI 10.1137/16M1080677",
+          "DOI 10.1002/nla.2562",
+          "Resultary 6e96c99497d7"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1137/16M1080677 via OSTI 1408509",
+        "DOI 10.1002/nla.2562 via arXiv:2206.03915v6",
+        "Resultary 8d6f25ce24ea, 87e38a3327b5, 2a3edc5dee7a, 30f28a658eb2, 6e96c99497d7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The strongest matching Gaussian two-point ridge statement gives the same exponents in a fixed-design setting, whereas the Aitken correlation statement gives the same moment threshold in an equal-variance design. The inaccurate-evaluation theorem concerns local stochastic iteration behavior, not output-law coefficients."
+        ],
+        "reasoning": "The common mechanism is a smooth density at a nearly zero residual difference. This does not imply the needed conditional Gaussian moments for the successive trace, or establish the exact ridge coefficient under the frozen objective. The closest matching catalog results have later record dates and different assumptions; the comparison does not infer historical priority from dates alone.",
+        "searches": [
+          "Resultary 2a3edc5dee7a, 8d6f25ce24ea, 6e96c99497d7",
+          "Toth et al. Section 2.2 Theorem 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Aitken delta-squared denominator on the observed trace (x,Y0,Y1) is D; its numerator is F0^2, so the unregularized method is algebraically identical.",
+          "Resultary 8d6f25ce24ea considers three equal-variance jointly Gaussian observations of a geometric signal. Resultary 87e38a3327b5 uses the successive noisy Picard trace but with uniform errors."
+        ],
+        "reasoning": "Here the first trace entry is deterministic and the third depends on the second, with unequal variances in general. The equal-variance observation theorem does not specialize to this trace by substituting its covariance; the uniform-error result has different local density and supports at the cancellation denominator. These are material analogues, not coverage of this Gaussian pair of constants.",
+        "searches": [
+          "scalar Gaussian noisy Aitken/Steffensen, Anderson acceleration, exact ratio tail and ridge risk",
+          "Resultary 8d6f25ce24ea and 87e38a3327b5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2a3edc5dee7a gives exact Pareto-one and inverse-square-root ridge constants at two deterministic sites with a centered-weight penalty; 30f28a658eb2 calculates exact Gaussian-coupling tails at fixed sites."
+        ],
+        "reasoning": "These are exact law comparisons rather than a finite parameter table: changing the sites' dependence on the first oracle error changes the joint numerator and denominator at their cancellation, and the ridge objective is different. The nearby constants cannot simply be looked up or substituted into the recursive model.",
+        "searches": [
+          "Resultary 2a3edc5dee7a and 30f28a658eb2, Gaussian two-point/dimension-one Anderson exact tail and regularization coefficients"
+        ]
+      },
+      "rationale": "The distinct supported contribution is the joint pair of explicit limiting constants and absolute-moment conclusions for the successive noisy scalar oracle calls and the stated ridge objective. The scalar update is already exactly the Aitken transform of the observed trace, and stochastic Anderson, Gaussian small-denominator tails, and ridge regularization are not new as general ideas.",
+      "residual_risks": [
+        "Aitken's original text was not inspected; the equivalence is algebraic and is not credited as new.",
+        "An earlier general Gaussian-ratio theorem with a regularized version, or a sequential Aitken/Steffensen formulation giving the same laws, may be indexed differently. Bounded searches did not rule that out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant broader setting, different conclusion",
+          "evidence": "Stochastic errors of unbounded support are allowed; the inspected result is a local high-probability bound for a finite horizon, not an exact one-step law.",
+          "identifier_or_url": "https://www.osti.gov/servlets/purl/1408509; DOI 10.1137/16M1080677",
+          "material_read": "Abstract p. 1; Section 1.1 pp. 3–4; Section 2.2 Theorem 3 p. 8",
+          "method": "Lawful alternate OA copy of submitted paper, bounded passages",
+          "title": "Local Improvement Results for Anderson Acceleration with Inaccurate Function Evaluations",
+          "trigger": "Direct prior stochastic Anderson analysis"
+        },
+        {
+          "assessment": "Approximate solve analysis, not the sequential oracle law",
+          "evidence": "Perturbed least-squares calculations and numerical normal matrix perturbations are not independent fresh oracle errors at a data-dependent second input.",
+          "identifier_or_url": "https://arxiv.org/pdf/2206.03915v6; DOI 10.1002/nla.2562",
+          "material_read": "Abstract p. 1; Sections 3.1–3.2 p. 6; Section 5.1.1 p. 12",
+          "method": "Lawful OA version, bounded PDF passages",
+          "title": "Anderson acceleration with approximate calculations",
+          "trigger": "Possible Gaussian perturbation coverage"
+        },
+        {
+          "assessment": "Same method with materially different data models",
+          "evidence": "The first uses equal-variance Gaussian observations; the second uses successive uniform errors and obtains bounded, t^-2 and t^-1 regimes. Neither supplies the Gaussian ridge constant here.",
+          "identifier_or_url": "Resultary 8d6f25ce24ea and 87e38a3327b5",
+          "material_read": "Both displayed findings and observation/noise assumptions",
+          "method": "Local mirror, bounded passages",
+          "title": "Complete Gaussian correlation rigidity for noisy Aitken extrapolation; Sharp bounded-noise moment transition for scalar Aitken extrapolation",
+          "trigger": "Exact Aitken alias and strongest neighboring noise regimes"
+        },
+        {
+          "assessment": "Material fixed-site overlap but no direct specialization",
+          "evidence": "Fixed-site Gaussian tail and centered ridge law in the first; fixed-site coupling tail in the second; fixed-site rank-gap moment threshold with Tikhonov in the third.",
+          "identifier_or_url": "Resultary 2a3edc5dee7a, 30f28a658eb2 and 6e96c99497d7",
+          "material_read": "Displayed findings, site assumptions and ridge/moment formulations",
+          "method": "Local mirror, bounded passages",
+          "title": "Sharp Gaussian ridge risk law for two-point Anderson mixing; Gaussian coupling phase diagram for depth-one Anderson extrapolation; Sharp Gaussian moment threshold for noisy Anderson extrapolation",
+          "trigger": "Strongest exact Gaussian tail/ridge and higher-dimensional coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The scalar strict contraction with fresh nondegenerate noise isolates a practical failure mode without deterministic instability or high-dimensional rank issues. It exhibits failure of even a first absolute moment and quantifies the second-moment cost of removing a specific ridge safeguard. The exact coefficient depends on the residuals conditioned on cancellation at the random second site; neither a generic warning about small denominators nor a fixed-site Gaussian computation answers that question. No claim about long-run performance is needed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:31:55.757393Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_prism.cpp and verify_prism.py (supplied code inspected, not executed)",
+        "Independent direct replay: python3 /workspace/review-evidence/prism_direct.py"
+      ],
+      "rationale": "For vertex a_i the closed sum is A+y_i, and for b_i it is B+x_i, with no constraint at labels >=2. If a layer contains a low label its total is at most 4, while an all-high layer has total at least 2n. In the two-light case total 0 or 1 forces the opposite layer above 4. At total 2, if all entries are low the opposite entries must all be positive; the only remaining boundary is n=4 with four ones, which forces the first layer identically zero. If one entry is 2, the opposite layer has at least n−1 ones or higher; its total is then at least 3, forcing a high entry opposite that 2 and thus a total greater than 4. Therefore both totals are 3 or 4. At (3,3) every column is either low-low or high-high, with at most one high-high column: zero such columns gives binom(n,3)^2, one gives n[(n−1)+1]^2=n^3. At (4,3) every positive entry on the total-3 side must be high and opposite a high digit, hence the lone 3 is matched to 2 or 3 and the other layer's remaining ones are chosen in binom(n−1,2) or n−1 ways. Including the orientation gives n²(n−1). At (4,4) the only nonzero columns are two (2,2) pairs, giving binom(n,2). If exactly one layer is all-high, the light total is 0, 1 or 2. At total 0 the high layer is all 3; at total 1 every high label is free; at total 2 two ones force all high labels to be 2, or a lone 2 frees just its partner. Doubling for the orientations yields the four mixed terms with the stated coefficients. All-high/all-high gives z^(4n)(1+z)^(2n). These cases are disjoint, exhaustive and count labeled functions. The binomial terms fill the two upper intervals, with no other weights; for n>=5 both asserted gaps are nonempty. Independent direct closed-neighborhood enumeration for n=2,3,4,5 returned (min,count,total)=(4,3,71),(5,6,193),(6,80,548),(6,225,1721), matching the full polynomial coefficient by coefficient for n=4,5 and the two small endpoints. The analytic classification is the proof for all n>=4.",
+      "residual_risks": [
+        "Counting uses the closed-neighborhood interval predicate only at labels 0 and 1. Results for the exact-sum and lower-only conventions cannot be substituted. The three separated bands begin at n=5, not n=4."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same graph is covered for a broader set of labelings under the lower-only predicate; that result reports minima rather than the interval generating function.",
+          "The same interval convention is treated for square rook and crown graphs, different families. The foundational 2023 abstract reports standard graph results, but the full text could not be read in this review."
+        ],
+        "reasoning": "Broad coverage of ordinary domination or exact results on other graph families are not a theorem on rectangular two-row interval labelings. Unread foundational-paper coverage remains a risk rather than evidence of absence.",
+        "searches": [
+          "Resultary records 4f59f40e97e0, c485a3808fa6 and 879e297963d2",
+          "Web: perfect double Italian domination complete prism Cartesian product rook Hao Jalilolghadr Mojdeh 2218457 pdf"
+        ]
+      },
+      "checked_sources": [
+        "Resultary catalogue and exact lower-only prism, square-rook, and crown primary mirror records",
+        "Hao et al. DOI 10.1080/09728600.2023.2218457 abstract and lawful access attempts",
+        "Almulhim DOI 10.1155/2024/1900923 access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The lower-only minimum gives a lower bound of 6 for n>=5; a matched (3,3) pair makes that bound tight even under exact sums. The minimum alone in that range is therefore not the contribution.",
+          "Lower-only minima use a different label constraint and do not count weights away from the minimum. Square rook minima (2n at K_n square K_n for n>=3) cannot be specialized to unequal factors."
+        ],
+        "reasoning": "Even where prior results determine the minimum or help bound it, no inspected source supplies the full interval-polynomial counts or the low/heavy separation. A lower-only minimum count does not select the admissible subclass, and it cannot give the two global support gaps.",
+        "searches": [
+          "Complete-prism lower-only RESULT.md Finding, assumptions and proof; square rook and crown interval Findings",
+          "Hao et al. DOI 10.1080/09728600.2023.2218457 and Almulhim DOI 10.1155/2024/1900923 access attempts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Complete prisms, the n-by-2 rook graph and two matched n-cliques specify the same graph. At low sites the interval convention is equivalent to the two layer-total/partner-digit constraints.",
+          "Ordinary Roman {3} drops the upper bound; exact-sum perfect Roman {3} as described in the accessible comparison requires a closed sum of 3 exactly. Neither is equivalent to [3,4]."
+        ],
+        "reasoning": "Under the interval model a pair of ones may be matched in a weight-6 assignment with three ones in each layer, giving closed sum 4 and failing exact-sum feasibility. The lower-only model even has weight-5 assignments at n=4. Identical graph aliases were checked without conflating these predicates.",
+        "searches": [
+          "Perfect double Italian domination: complete prism, rectangular rook graph K_n square K_2, weight spectrum/polynomial",
+          "Resultary complete-prism Roman {3} and square-rook perfect double Italian records; DOI 10.1155/2024/1900923"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed prism interval polynomial is the assigned record itself. The distinct complete-prism table concerns lower-only minima: 8 at weight 5 for n=4, 1235 at weight 6 for n=5, and binom(n+2,3)^2 at weight 6 for n>=6.",
+          "The crown record gives an exact count at weight 6 on a different graph, not the labeled prism polynomial."
+        ],
+        "reasoning": "An indexed exact spectrum or complete coefficient formula under the same interval conditions would dominate this claim. No distinct such hit was found; the exact self-match and different-predicate minimum table do not count as prior coverage.",
+        "searches": [
+          "Resultary: interval-convention perfect double Italian polynomial, complete/click prism, matched cliques, weight bands and optimizer enumeration",
+          "Indexed record 2026/11/22/SCOPE-three-separated-weight-bands-for-perfect-double-italian-dominati--53deb773367e and exact-count comparisons"
+        ]
+      },
+      "rationale": "The supported distinct claim is the complete interval-convention weight polynomial, optimizer census and support gaps on the matched two-clique family. Equal minimum weights under neighboring conventions or for another graph are not claimed as new in isolation. The inspected same-graph lower-only solution and same-convention square-rook and crown results do not give the polynomial or imply the separated spectrum.",
+      "residual_risks": [
+        "The 2023 and 2024 primary full texts remained unavailable after lawful routes. The frozen paper's account of their graph-family coverage was not independently confirmed. A differently indexed or unindexed complete interval enumeration might exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Foundational coverage credited, exact prism coverage not verified; abstract cannot exclude it",
+          "evidence": [
+            "The abstract says it introduces perfect double Italian dominating functions, treats some standard graphs and compares related invariants; it does not itemize the prism question."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/09728600.2023.2218457",
+          "material_read": "Abstract in primary-page indexed listing; no primary full text",
+          "method": "Primary web discovery, lawful publisher DOI/PDF and identified ResearchGate attempt; HTTP 403, no repository copy recovered",
+          "title": "Perfect double Italian domination of a graph",
+          "trigger": "Foundational source for the interval convention; could cover standard product graphs"
+        },
+        {
+          "assessment": "Same graph, inequivalent lower-only convention; partially implies the minimum, not the interval weight polynomial",
+          "evidence": [
+            "Low labels 0 and 1 require open sums at least 3 and 2 respectively, without the upper bound.",
+            "Minimum 5 for n=4, minimum 6 for n>=5; exact counts of lower-only minimizers differ."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-roman-3-domination-of-complete-prisms--879e297963d2",
+          "material_read": "Mirror RESULT.md Finding, Assumptions and scope, Proof",
+          "method": "Resultary local discovery and primary mirror text",
+          "title": "Roman {3}-domination of complete prisms",
+          "trigger": "Same graph, potentially equivalent Roman terminology and exact minimum counts"
+        },
+        {
+          "assessment": "Square factors n>=3, not the n-by-2 family; secondary source on the exact-sum comparison",
+          "evidence": [
+            "Minimum 2n on square K_n square K_n with row/column sums 2 at minimizers, not the two-layer polynomial."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-perfect-double-italian-domination-of-square-rook-graphs--4f59f40e97e0",
+          "material_read": "Mirror RESULT.md Finding, Assumptions and scope, Relationship to prior work",
+          "method": "Resultary local discovery and primary mirror text",
+          "title": "Perfect double Italian domination of square rook graphs",
+          "trigger": "Same interval definition on a Cartesian product of cliques"
+        },
+        {
+          "assessment": "Different graph and minimum-count objective",
+          "evidence": [
+            "Crown graph K_{n,n} minus a matching has minimum 6 and binom(n+2,3) minimum functions; it is not two cliques plus a matching."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-perfect-double-italian-domination-of-crown-graphs--c485a3808fa6",
+          "material_read": "Mirror RESULT.md Finding and Assumptions and scope, offset 0",
+          "method": "Resultary local discovery and primary mirror text",
+          "title": "Perfect double Italian domination of crown graphs",
+          "trigger": "Same invariant, a graph involving a matching, and an exact minimum census"
+        },
+        {
+          "assessment": "Accessible comparison describes a stricter exact-sum rule; primary coverage not independently assessed",
+          "evidence": [
+            "The accessible related record describes exact open sums of 3 and 2 at labels 0 and 1, respectively, not the interval requirement."
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/2024/1900923",
+          "material_read": "Title/identification and secondary discussion in the square-rook record; no primary full text",
+          "method": "Lawful Wiley/Hindawi DOI/article/PDF attempts gave HTTP 403; no repository copy recovered",
+          "title": "Perfect Roman {3}-Domination",
+          "trigger": "Potential alias for the interval convention"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, local constraints and four-case exact classification",
+        "Prior lower-only complete-prism and same-convention square-rook Findings"
+      ],
+      "rationale": "The prism is the natural two-layer case of a Cartesian product of cliques. The upper bound at low sites forces an all-or-nothing layer separation: a constrained layer weighs at most four but an unconstrained layer weighs at least 2n. The exact polynomial converts that structural fact into two forbidden ranges and counts all weight classes, including the distinct structures at the optimum. This supplies information absent from a minimum-weight result and is directly useful for comparison with strict and lower-only domination conventions.",
+      "residual_risks": [
+        "Value is in the natural complete labeled invariant and the gap mechanism. No theorem on arbitrary rectangular rook graphs or other neighborhood conventions is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

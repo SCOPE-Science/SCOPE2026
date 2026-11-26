@@ -1,15 +1,21 @@
-# Scientific review: exact quadratic coefficient heights and extremizers
+# Independent mathematical audit
 
-## Correctness — PASS
-The discriminant-index identity gives a universal coefficient-height lower bound; the consecutive-coefficient polynomial attains it. At that minimum height the index multiplier must be one, and the product constraint restricts the two outer coefficients to two adjacent integers, yielding a complete enumeration including the symmetric exceptional case. The integral basis and positive norm of imaginary quadratic integers give the exact monic minimum. The classical quadratic squarefree-value theorem supplies the stated infinitude. The direct finite checker corroborates 75 squarefree parameters; infinity is proved symbolically plus the classical theorem, not inferred from enumeration.
+## correctness
 
-## Originality — PASS, subject to the risks below
-Arango-Piñeros et al. (arXiv:2602.06943v1, Lemma 2.4) already prove the essential discriminant lower bound, and Bhargava–Vemulapalli (arXiv:2610.20600v1, Theorem 1) give a much more general existence theorem. Neither inspected statement gives the exact coefficient height, the literal complete set of all minimizers, or the exact monic comparison for this discriminant family. The present result does not claim the universal bound or the classical squarefree-values theorem as original. Related statements about binary quadratic forms or explicit extremizers may exist in older literature without matching terminology.
+PASS
 
-## Value — PASS
-The natural projective coefficient-height invariant is central in recent number-field counting. This is an exact, infinite-family benchmark on the sharp integer boundary of the discriminant lower bound, with rigidity of all optimal defining polynomials and an arithmetic criterion for extra symmetric extremizers. It also gives the exact price of restricting to monic defining polynomials. The classification is more specific than a renamed universal bound; it resolves the optimum and its complete optimizer set for the stated family, without claiming an additional global theorem.
+For squarefree d=4m(m+1)−1 and m≥1, the field discriminant is −d. Scaling a root by A yields an integral generator with discriminant −dt², for a nonzero integral index t. Thus 4AC≥d>4m² and the displayed polynomial attains m+1. At that cap d>(m+1)² forces |t|=1, B is odd, and AC≥m(m+1) forces each positive coefficient A,C to be at least m. The three remaining pairs give B²=1 or 4m+5; the latter also requires |B|≤m+1. Changing overall sign covers negative leading coefficients. For monic polynomials the norm of u+vω is ((2u+v)²+dv²)/4: when |v|=1 the odd trace has magnitude at least one, and |v|≥2 gives a strictly larger norm. The element ω attains the monic minimum, giving the ratio m. The quadratic has nonzero discriminant and no fixed square divisor (already f(0)=−1), so the classical quadratic squarefree-value theorem applies.
 
-## Scope and residual risks
-The result concerns only squarefree values of a particular quadratic discriminant polynomial, and the proof uses elementary identities. The literature comparison is not exhaustive; an equivalent classification could be implicit in classical reduced-form theory or studies of algebraic-number height. Finite verification does not establish mathematical independence. No independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The invariant, universal lower bound and quadratic squarefree theorem are prior. The nonmonic height alone is an elementary sharpness example and the monic formula follows from the standard norm identity; the supported distinction is the complete literal minimizing-polynomial classification for the family together with its exact monic comparison, not the lower bound or infinitude in isolation.
+
+## value
+
+PASS
+
+The family lies just above the previous integral discriminant-height cap and realizes the sharp next cap. Classifying all ways to attain it identifies precisely when the generic four positive-leading optimizers gain two symmetric exceptions, information a height bound cannot give. The exact comparison with monic coefficients isolates the cost of requiring integral generators on the same family. Value rests on this complete equality classification, not on another proof of discriminant bounds, density or unboundedness alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

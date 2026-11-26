@@ -1,15 +1,21 @@
-# Self-review: even-cycle outer ellipsoids
+# Independent mathematical audit
 
-## Correctness — PASS
-The affine dimension is \(2m-2\), because the unsigned cyclic incidence operator has only one zero Fourier frequency for even order; centering deletes the constant mode. The covariance eigenvalues are exactly \(4\cos^2(\pi k/(2m))/(2m)\) for the remaining modes. Vertex-transitive isotropy makes each Mahalanobis squared length equal to dimension, and a trace–determinant argument proves *global* minimum volume and unique center, including competitors not preserving symmetry. The classical sine-product identity then proves the exact volume fraction. Directly executed numerical checks covered every integer \(m\) from 2 through 20. No step infers an infinite theorem from those checks.
+## correctness
 
-## Originality — PASS (provisional priority)
-The first public version of Kálmán–Tóthmérész (2021-05-03, arXiv:2105.00960) was inspected for geometric scope; its treatment centers on shellable dissections and Ehrhart data. The closest published *same family* result establishes incenter radius, support-plane distances and an incenter parity law, not the **minimum-volume enclosing ellipsoid**. Full-text comparisons to the published odd-prism and wheel edge-polytope Löwner results show distinct graph families, dimensions and orbit structure; their exact scalar optimizations do not imply the even-cycle determinant product. General graph Lewis-weight work supplies the classical ellipsoid optimal-design mechanism, credited rather than claimed. The trigonometric volume ratio may occur in unidentified older literature, and full historical priority remains provisional.
+PASS
 
-## Mathematical value — PASS
-This is a naturally defined Euclidean metric invariant of an infinite canonical lattice-polytope family with an exact semiaxis profile. The sharp ratio \(m/2^{m-1}\) shows exponential failure of the smallest circumball as a volume-efficient outer model, while the ratio of ellipsoid semiaxes grows linearly; all vertices are still contacts with both objects. These facts distinguish Euclidean ellipsoidal geometry from merely combinatorial affine equivalence and can serve as a quantitative benchmark for graph-polytope approximation and optimal-design questions. The contribution is not the general isotropic-design theorem but its exact evaluated consequences in this family.
+With n=2m the incidence matrix I+S has alternating kernel. Centering also removes the constant mode, giving the stated tangent space and eigenvalues 4 cos^2(pi k/n)/n for its covariance C. Cyclic vertex transitivity makes all squared C-Mahalanobis norms equal to their mean d. Any containing ellipsoid of squared shape Q and center z has tr(Q^-1 C)+||z-c||^2_(Q^-1)<=1. Hence AM-GM gives det Q >= d^d det C with equality only at z=c and Q=dC. The ball similarly minimizes the maximum radius by the mean squared distance identity. Strict convexity excludes nonvertex contacts for both. As an independent determinant check, switch one color class to turn (I+S)(I+S)^T into the ordinary cycle Laplacian. Its nonzero eigenvalues multiply to n times the number n of spanning trees, and restricting to the stated tangent space removes the additional eigenvalue 4. Thus det_H(C)=m^2/n^d. The round-ball ratio is m/2^(m-1), decays strictly from 1 at m=2, and the largest/smallest axes are in the ratio cot(pi/(2m)).
 
-## Limits and risk
-No claim is made for other edge weights, odd cycles, other orientations or arbitrary affine normalizations. Closely related papers may contain the same trigonometric product under alternate language or as an unstated special case. The claimed priority is best knowledge after the documented searches, not a uniqueness certificate.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The covered material is the ordinary even-cycle root polytope, its prior inner geometry, and the general enclosing-ellipsoid/design principle. The supported distinct claim is the explicit outer spectrum and its enclosing-ball-normalized exponential law for this metric realization. Neither same-body inner data nor exact outer ellipsoid results for other edge polytopes give that comparison; the general design result requires the cycle's intrinsic covariance calculation and determinant evaluation.
+
+## value
+
+PASS
+
+The even cycle is a canonical one-parameter test case for intrinsic Euclidean root-polytope geometry. The exact normalized volume loss quantifies, at every size, the failure of the round-ball surrogate even though all vertices are contact points for both outer fits and the axis ratio grows only linearly. This gives explicit outer geometry complementary to the known inner geometry. The value is in that dimension-dependent comparison and exact spectrum, not in recertifying the standard optimal design principle or merely measuring the four-cycle.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

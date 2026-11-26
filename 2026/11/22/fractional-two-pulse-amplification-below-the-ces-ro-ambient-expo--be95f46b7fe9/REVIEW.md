@@ -1,15 +1,21 @@
-# Review of the two-pulse Cesàro amplification theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof is reconstructed from the weighted \(\ell^p\) norm: (i) one-coordinate averages have exact sharp supremum \(1/(1-\alpha q)\); (ii) Tonelli and Jensen show the full best constant is finite; (iii) normalized two-coordinate orbit averages converge to an explicit two-singularity integral; (iv) differentiation at zero and a beta-integral yield a strictly positive fractional boundary layer. Uniform tail bounds at both singularities, with \(\alpha q<1\), justify the limiting steps. Numerical checks in `verify.py` independently test the finite identities, a strict witness, and the beta asymptotics; they are not proofs of universal quantification.
+## correctness
 
-## Originality — PASS, literature-qualified
-The closest primary source is Abbar–Arnold–Coine, arXiv:2609.24601v1, Theorem 3.4 and Example 3.10. The former obtains an exact basis test for \(q\ge p\), and the latter obtains the power-weight boundedness range for all \(q\). Neither gives the strict best-constant inequality below \(p\). Arnold, arXiv:2610.00271v1, addresses universal exponent self-improvement. The closest published regularly varying shift finding, identifier `e438690c71d4`, classifies strong and weak exponent endpoints; its full result was inspected and does not compute these sharp subambient constants. Older equivalent mixed-norm Hardy estimates remain a priority risk. A search's failure alone is not treated as novelty proof.
+PASS
 
-## Mathematical value — PASS
-The q-versus-p boundary controls whether normalized basis vectors suffice to determine optimal Cesàro bounds. Showing that they *never* suffice for nontrivial admissible polynomial weights when \(q<p\) is a qualitative structural separation valid throughout an open parameter domain. The exact beta coefficient supplies a quantitative and reproducible mechanism for that separation. The full optimal constant and global optimizer remain unknown.
+For 1≤p<∞, 0<q<p and 0<α<1/p, write r=αp, d=αq, b=r−d, θ=q/p. For j≥N the single-coordinate average is maximal at j=N and is N^(d−1)Σ h^(−d), bounded above by the corresponding integral and converging to 1/(1−d). For the p-orbit average, interchange the sum over time and the nonnegative coordinate sum; a coordinate j<N contributes at most j/[N(1−r)], and j≥N contributes at most 1/(1−r). Jensen gives the stated upper bound for C, which is not defined with a q-th root. Weighted p-masses ε and 1−ε at floor(sN) and N yield the stated Riemann limit: split at the two singularities and use subadditivity of the θ-power and summable h^(−d) tail bounds. The right derivative is dominated by a multiple of (A_s+A_1)A_1^(θ−1) and is θ[I(s)−1/(1−d)]. With η=(1−s)/s the substitution t=s(1−u) gives I(s)=s^(1+b)[1/(1−d)+J(η)]; by the fundamental theorem of calculus, Tonelli, and u=vw, J(η)=b∫_0^η v^(−d)∫_0^(1/v)w^(−r)(1+w)^(b−1)dw dv. The inner integral tends to B(1−r,d), and the prefactor correction is O(1−s)=o((1−s)^(1−d)). The positive derivative first fixes s, then ε, then gives a genuinely finite two-coordinate witness at large N. Independently summing the orbit norms for (p,q,α)=(2,1,0.4), N=200000, j=190000 and p-masses 1/4,3/4 gave 1.68995648807005 against 1.66666666666667. This is a diagnostic, not the universal proof; no exact unrestricted optimum is asserted.
 
-## Limitations
-Scope is \(1\le p<\infty\), \(0<q<p\), \(0<\alpha<1/p\), and pure power weights. The derivation of the strict inequality does not characterize all maximizing vectors. No independent mathematical or bibliographic audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is universal strict amplification over the one-coordinate test below p, with a two-coordinate mechanism and quantitative first-variation law. The power-weight regime, boundedness results, and rigidity of the basis test for q≥p are prior, not credited as new.
+
+## value
+
+PASS
+
+Basis testing is an exact norm-constant principle above and at the ambient exponent. Establishing its universal strict failure below that exponent in the canonical power-weight family, with a minimal-support witness and an explicit positive coalescence scale even for q<1, resolves a natural extremal question rather than just giving a numerical improvement in a single example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

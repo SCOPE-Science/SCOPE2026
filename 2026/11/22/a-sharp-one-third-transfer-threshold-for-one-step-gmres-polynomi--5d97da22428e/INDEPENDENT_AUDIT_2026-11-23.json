@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:00:31.973658Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For invertible T, change variables y=Tb to obtain the training step as a Rayleigh quotient of H=(T^{-1}+T^{-T})/2. The deployment quotient has the same range [m,M] and is independent of training. The exact squared-residual increment is alpha(alpha-2 beta)||Tc||²; extremizers give necessity of M≤2m since tr H=n, and this inequality also gives sufficiency, including equality. The finite Poisson-kernel bounds are strict because the support of a nonzero finite Fourier polynomial has positive measure. The constant and alternating Rayleigh quotients attain the two symbol bounds in the n→∞ limit, giving the sharp uniform cutoff 1/3 (strict reduction in each finite dimension at the uniform endpoint). Independently summing these trial quotients at n=25,t=2/5 gives H quotients 1.622222222227 and 0.722448979593, already witnessing M>2m. The n=2 endpoints are 1±t/2; for n=3 reflection splits off the antisymmetric eigenvalue 1-t²/2, and comparing it with the two symmetric eigenvalues gives the quartic test t⁴+8t²-2≤0 for 0≤t≤1. Principal-submatrix interlacing handles t>1. Checked the exact two-site ratio 45/34. Positive definiteness of the symmetric part of T for t<1 gives strict own-RHS improvement. Inspected verify_transfer.py and VERIFICATION.md without running the supplied code. The result is exact arithmetic for a single frozen scalar application, not a claim about repeated iteration or higher-degree polynomials.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Embree et al.'s second-RHS bound uses a diagonalizing eigenvector matrix, RHS-component ratios and the first residual.",
+          "Dargaville–Pain compare approximate triangular solves, using reused polynomials, in a broader engineering setting."
+        ],
+        "reasoning": "The first result does not apply as stated to I-tS_n for t>0, which has one eigenvalue and is defective. The second does not supply a necessary-and-sufficient operator-norm test uniform over training vectors. Theorem 5 is the transfer theorem in the linked Embree et al. arXiv version, not the numbering given in the frozen prose.",
+        "searches": [
+          "arXiv:2502.18317, Theorem 5, pp. 16–17",
+          "arXiv:2611.00552v1, §5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local index and mirror: 5d97da22428e, 20723474f61a, a391a81e13d2",
+        "arXiv:2611.00552v1",
+        "arXiv:2502.18317",
+        "arXiv:2408.05513v2",
+        "Classical Kac–Murdock–Szegő matrix, with symbol rederived from geometric series"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source's criterion is M≤2m for extremal quotients of the symmetric inverse, not a ratio of eigenvalues of the defective triangular matrix.",
+          "Same-RHS two-step stagnation and exact unrestarted e1 residuals place no independent extreme-eigendirection constraints on a transferred scalar."
+        ],
+        "reasoning": "Once the cross-residual reduction is supplied, classical spectral estimates are enough. The inspected prior statements do not supply that reduction or mechanically imply the claimed sharp threshold by substitution.",
+        "searches": [
+          "arXiv:2502.18317, Theorem 5",
+          "Resultary 2026/10/25 ...20723474f61a and 2026/11/22 ...a391a81e13d2",
+          "Classical Kac–Murdock–Szegő Toeplitz symbol"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dargaville–Pain, arXiv:2611.00552v1, §5 explicitly freezes a polynomial fitted on one random RHS.",
+          "Sukmanyuk–Zheltkov–Valiakhmetov, arXiv:2408.05513v2, instead expands search spaces across a sequence of RHSs."
+        ],
+        "reasoning": "The former is a direct procedural precedent but does not state the all-vector nonexpansion regime; the latter changes the polynomial/search-space problem. Same-RHS residual formulas cannot substitute for independent training and deployment.",
+        "searches": [
+          "Resultary: frozen one-step GMRES polynomial transfer, triangular path sharp threshold",
+          "Primary literature: GMRES fixed polynomial reuse different right-hand sides residual transfer one-step triangular Jordan matrix"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The mirror records give a three-site same-RHS two-step stagnation frontier and a fixed-e1 unrestarted residual/ordering formula, respectively.",
+          "The classical Toeplitz matrix is exactly C=2H-I; its spectrum is not claimed as new."
+        ],
+        "reasoning": "No table of frozen-scalar, worst-case cross-RHS transfer cutoffs was identified. Toeplitz spectral data alone are not such a table: the threshold requires identifying H and the independent-extrema transfer condition. The self hit is not independent evidence.",
+        "searches": [
+          "Resultary triangular-chain GMRES hits including 20723474f61a, a391a81e13d2 and the identical assigned record 5d97da22428e",
+          "Kac–Murdock–Szegő spectral formulas for (t^{|i-j|})"
+        ]
+      },
+      "rationale": "The training-and-reuse procedure, general residual transfer estimates, and the Kac–Murdock–Szegő spectrum are established. The supported distinction is the exact all-training/all-deployment residual criterion and its sharp dimension-uniform threshold for this defective family. The strongest inspected overlaps do not cover it.",
+      "residual_risks": [
+        "Bounded comparison cannot exclude an unindexed exact line-search transfer criterion or equivalent threshold.",
+        "The general one-step transfer identity is elementary; no priority claim is made for expanding the norm or the Toeplitz spectral ingredients."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct methodological precedent, not coverage of criterion",
+          "evidence": "Constructs the degree-(m-1) polynomial from a single random RHS and reuses that fixed polynomial; no matching sharp all-vector assertion in the inspected section.",
+          "identifier_or_url": "https://arxiv.org/html/2611.00552v1",
+          "material_read": "§5, OA offsets 11800–15563",
+          "method": "OA original, bounded section read",
+          "title": "A comparison of parallel iterative methods for ILU triangular solves",
+          "trigger": "Exact procedural match: freeze GMRES polynomial for triangular solves"
+        },
+        {
+          "assessment": "Relevant transfer estimate, not applicable to positive-t path",
+          "evidence": "Second-RHS estimate assumes diagonalizable A and depends on the eigenvector basis and ratios of RHS coefficients.",
+          "identifier_or_url": "https://arxiv.org/pdf/2502.18317",
+          "material_read": "Theorem 5, pp. 16–17, offsets 60425–65374",
+          "method": "OA original, theorem and hypotheses",
+          "title": "Polynomial Approximation to the Inverse of a Large Matrix",
+          "trigger": "General transfer residual estimate could imply claim"
+        },
+        {
+          "assessment": "Different algorithm",
+          "evidence": "Expands a search space sequentially across RHSs rather than transferring a single frozen scalar.",
+          "identifier_or_url": "https://arxiv.org/abs/2408.05513v2",
+          "material_read": "Abstract and introduction, OA offsets 612–1266 and 2000–5539",
+          "method": "OA bounded passage comparison",
+          "title": "Generalized minimal residual method for systems with multiple right-hand sides",
+          "trigger": "Primary search hit for multi-RHS GMRES"
+        },
+        {
+          "assessment": "Nearby problem, not equivalent",
+          "evidence": "Existential two-step same-RHS stagnation with two weight parameters; not universal cross-RHS safety of a frozen one-step fit.",
+          "identifier_or_url": "2026/10/25/SCOPE-sharp-anisotropic-two-step-gmres-stagnation-frontier-for-a-three--20723474f61a",
+          "material_read": "RESULT.md Finding and scope at offset 0",
+          "method": "Local mirror",
+          "title": "Sharp anisotropic two-step GMRES stagnation frontier for a three-site weighted triangular path",
+          "trigger": "Three-site weighted bidiagonal GMRES and sharp frontier"
+        },
+        {
+          "assessment": "Different quantifiers and algorithm; date does not decide priority",
+          "evidence": "Fixed-e1 unrestarted residual and weight-ordering theorem, not frozen polynomial transfer.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-gmres-ordering-law-and-an-isosingular-exponential-gap-on-w--a391a81e13d2",
+          "material_read": "RESULT.md Finding and scope at offset 0",
+          "method": "Local mirror",
+          "title": "Exact GMRES ordering law and an isosingular exponential gap on weighted triangular chains",
+          "trigger": "Same-date record on GMRES and triangular paths"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Reusing a fitted approximate inverse across right-hand sides is an established procedure. This result separates guaranteed reuse safety from strict success on every training problem even for a basic triangular factor. The sharp uniform cutoff and larger exact finite-size cutoffs explain why low-dimensional checks can give a materially optimistic safety bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

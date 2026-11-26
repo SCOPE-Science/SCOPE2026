@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:04:55.104231Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:4–48; VERIFICATION.md; verify.py (inspected, not executed). Independent bounded replay: Prüfer sequences for every labelled tree of orders 1–5, enumeration of proper colorings and legal one-coordinate moves, and breadth-first search from (c,even) to (c,odd) in the parity double cover for each c. All 1,1,3,16,125 cases agree with the predicted odd girth. The all-order proof is the height/sweep derivation above."
+      ],
+      "rationale": "A proper named coloring lifts to integer heights on a tree once a root lift is fixed, since every edge color difference has a unique representative in {-1,1}. A legal recoloring at a nonisolated vertex means its neighbors all have the third color, hence the height there can and must move by 2 in absolute value, with the sign preserving unit slopes. The one-vertex case allows either sign. A closed walk restores all edge differences, so all coordinates shift by a common multiple of 3, which is a multiple of 6 by parity. If the shift is 6q, summing the coordinate changes yields L>=3n*|q| and L congruent to 3n*q modulo 2. This forbids odd walks for even n and gives the lower bound for odd n. In a sweep ordered by descending height, each neighbor currently has height one less at the time of the move; lowering every height by 2 in that order is legal. Three sweeps give the necessary 3n-step closed walk, whose minimal odd length implies simplicity for odd n. A leaf can always be moved to the color different from both the old and pending neighbor colors, proving connectedness by induction. Sum of colors modulo 3 is a proper coloring; combined with the parity result and existence of edges this proves the claimed chromatic numbers. The one- and two-vertex graphs are a triangle and a hexagon. For n>=3 there are two nonadjacent leaves yielding independent moves and a square; a triangle would need to vary only a single unconstrained coordinate, impossible with a neighbor. Maximum-independent-set moves exactly coincide with recolorings because a second token in any triangle is illegal. The count follows from independent choices away from a rooted vertex and the probability 2^(1-d) that its neighbors all agree; dividing directed moves by two gives the edge formula (the singleton is direct). Connectedness gives the stated graph cycle rank.",
+      "residual_risks": [
+        "The independent finite check concerns only orders 1–5; it is not an all-order certificate. Frozen verify.py:90–96 has four larger inputs per order, not four distinct isomorphism types: its first and third are both paths. The supplementary script's claimed output was not independently rerun."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Asgarli et al. Lemma 2.1 describes compatible labelings up to uniform shifts by 3. Lemma 2.5 realizes every compatible labeling as a walk of length its L1 norm, with each vertex toggled monotonically as specified. Classical 3-recolorability reachability abstracts do not supply a cycle theorem."
+        ],
+        "reasoning": "The known realization lemma is stronger than existence of a shortest path; the endpoint choices f=g are permitted and give exactly the closed witness for the first nonzero uniform label. General algorithmic reachability is not the basis of the negative judgment.",
+        "searches": [
+          "arXiv:2512.03789v1, Lemmas 2.1 and 2.5 and Theorem 2.6",
+          "DOI:10.1002/jgt.20514 and LSE repository"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2512.03789v1 Sec. 2; DOI:10.1007/s00373-025-02938-1; LSE 36005 abstract; Resultary 7187d34b8852"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For an arbitrary walk, sum the prior signed toggle labels to get h. On an edge uv let d be the representative in {-1,1} of c(u)-c(v). Each toggle at an endpoint changes d by -2 times the signed differential toggle at u minus v; all other toggles leave d unchanged. Thus 2(h(u)-h(v))=d_initial-d_final. For a closed walk, h is therefore constant, and its entries are multiples of 3 by endpoint congruence. Conversely the constant label 3 is (f,f)-compatible, so Lemma 2.5 realizes it in 3n moves."
+        ],
+        "reasoning": "For h=3q the number of moves is at least ||h||_1=3n*|q| and is congruent to sum h=3n*q modulo 2 because every toggle contributes +1 or -1. The prior lemmas thus give both parity and the sharp length by direct specialization and counting. The new sweep is an elementary alternative witness proof, not a distinct invariant beyond this implication.",
+        "searches": [
+          "arXiv:2512.03789v1, Sec. 2, Lemma 2.1, signed-toggle definition, Lemma 2.5 and Theorem 2.6 proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior graph uses named colors and exactly the same legal single-vertex toggles. Its compatible signed label counts encode the same height displacement: on a legal move with color residue change epsilon in {-1,1}, the integer height changes by -2*epsilon."
+        ],
+        "reasoning": "A move in a maximum-independent-set triangle is the same recoloring, and an odd cycle exists iff an odd closed walk does. Translating from height differences to signed counts does not create a new graph invariant or a new walk mechanism.",
+        "searches": [
+          "Resultary: odd girth, parity and bipartiteness of 3-coloring reconfiguration graphs of trees",
+          "arXiv:2512.03789v1, Sec. 2, signed toggles and compatible labelings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest distinct catalogue result studies recoloring graphs of cycles as base graphs and gives degree and edge counts, not odd girth for tree base graphs. Table 1 of Counting Subgraphs of Coloring Graphs gives the exact tree edge expression binom(k,2)*sum_v (k-2)^d(v)*(k-1)^(n-d(v)-1); k=3 gives the frozen edge count exactly."
+        ],
+        "reasoning": "Neither the same-day record's date nor its cyclic sign strings establish tree-girth coverage. The vertex count is the standard tree chromatic polynomial at three; the edge count and hence connected graph cycle rank are already covered, separately from the main claim.",
+        "searches": [
+          "Resultary local index and mirror record 7187d34b8852",
+          "DOI:10.1007/s00373-025-02938-1, Table 1"
+        ]
+      },
+      "rationale": "The all-tree diameter theorem by itself does not determine odd girth. But its primary source supplies the stronger walk-realization lemma for every compatible signed labeling, including nonzero constant labels from a coloring to itself, as well as the uniform-shift description and signed toggles. The odd-girth/parity statement is a direct corollary of those actual lemmas and the elementary parity of signed counts, not just an analogy with a prior lifting method. This does not assert that the odd-girth formula is printed in the prior work.",
+      "residual_risks": [
+        "The classical reachability article was accessible only at abstract level. The negative judgment rests on verified all-tree walk realization and explicit implication, not unavailable text, same-day chronology or a novelty search miss."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Main odd-girth theorem is mechanically implied",
+          "evidence": "Lemma 2.5 explicitly realizes every h in D(f_1,f_2) as a walk, including f_1=f_2 and h identically 3, with exactly |h(v)| toggles at each v all in the given sign. Lemma 2.1 identifies the uniform shifts; each move contributes one signed unit.",
+          "identifier_or_url": "https://arxiv.org/html/2512.03789v1",
+          "material_read": "Sec. 2, OA offsets 7900–14400 for compatibility and signed toggles, 15900–19220 for Lemma 2.5, 19300–24571 for its conclusion and Theorem 2.6",
+          "method": "Lawful bounded OA HTML reads",
+          "title": "Extremal diameters of 3-coloring graphs of trees",
+          "trigger": "Identical graph and possible stronger compatible-labeling theorem"
+        },
+        {
+          "assessment": "Exact ancillary-count coverage",
+          "evidence": "The tree chromatic-pairs polynomial at k=3 gives precisely 3*2^(n-1)*sum_v 2^-d(v); the tree chromatic polynomial gives the vertex count.",
+          "identifier_or_url": "https://doi.org/10.1007/s00373-025-02938-1",
+          "material_read": "PDF introduction and Table 1, OA offsets 850, 883 and 5491",
+          "method": "Lawful OA PDF passages",
+          "title": "Counting Subgraphs of Coloring Graphs",
+          "trigger": "Exact pre-existing edge and vertex counts"
+        },
+        {
+          "assessment": "Abstract-level reachability comparison only",
+          "evidence": "Reachability is decided in polynomial time and a path when one exists has O(n^2) recolorings; not enough to exclude other full-text coverage.",
+          "identifier_or_url": "https://researchonline.lse.ac.uk/id/eprint/36005/",
+          "material_read": "Repository abstract at offset 276; full text not read",
+          "method": "Lawful repository page; DOI/publisher and alternate copy attempts unsuccessful",
+          "title": "Finding Paths Between 3-Colorings",
+          "trigger": "Classical coloring-graph reachability and height precedent"
+        },
+        {
+          "assessment": "Nearby family, no same invariant",
+          "evidence": "The base is a cycle and the measured quantities are the distribution of recoloring degrees and edge counts, not tree-base odd girth.",
+          "identifier_or_url": "2026/11/22/SCOPE-complete-recolouring-degree-spectrum-of-proper-ternary-cycle-col--7187d34b8852",
+          "material_read": "Local mirror RESULT.md, opening statement",
+          "method": "Resultary lookup and local mirror reading",
+          "title": "Complete recolouring degree spectrum of proper ternary cycle colorings",
+          "trigger": "Closest distinct same-date indexed overlap"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen parity, ordinary girth and chromatic assertions; arXiv:2512.03789v1 Sec. 2; prior chromatic-pairs formula"
+      ],
+      "rationale": "The coexistence of squares and large odd girth is a natural feature worth recording, but the exact odd-girth and bipartiteness classification are immediate walk-label corollaries of the already stronger all-tree realization result. The ordinary-girth cases use independent leaf moves and the elementary triangle obstruction; the remaining chromatic and graph counts either follow directly or are known. No distinct nonmechanically implied structural invariant survives in this record as a finding.",
+      "residual_risks": [
+        "The result is mathematically sound and could be useful as an explicit corollary or alternate proof; the value decision addresses the submitted independent finding."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:36:20.293817Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n=0,1 modulo four with n>=5, D=(n-2)(n-3)/2 is odd, so open-neighbor strict majority is unambiguous and commutes with bitwise complement. Regard the active pairs as the edges of an ordinary labelled graph with T edges and degrees d_i. Inclusion-exclusion on the active pairs incident to i or j gives N_ij=T-d_i-d_j+[ij active]. Put k=(D-1)/2=(n-1)(n-4)/4. At an active fixed pair one must have d_i+d_j<=T-k. Summing over active pairs gives sum d_i^2<=T(T-k); since sum d_i=2T, Cauchy–Schwarz and T>0,n>4 give T>=n(n-1)/4=m/2. For a nonunanimous state its complement is nonempty and also fixed, so the opposite bound is identical and there is equality. Equality in Cauchy–Schwarz forces d_i=(n-1)/2 for every i. This excludes even n and, for n=1 modulo 4, every simple graph of the requisite degree gives N_ij=(D-1)/2+[ij active], proving the converse and strict local majorities on both colors. Distances 1 through (n-1)/4 in a cycliclabelling construct such a graph at every admissible odd n; expansion of the labelled edge product counts the regular graphs without dividing by automorphisms. At n=5 the only 2-regular simple graphs are five-cycles, numbering 4!/2=12. A separate direct disjointness-mask replay (python3 /workspace/branches/3e0fb83d-c3b3-40b9-95fe-84cfa80e1f12/enumerate_fixed_numpy.py) exhausts 1,024 states at n=5 and 268,435,456 at n=8, with fixed-state active-count distributions 0:1,5:12,10:1 and 0:1,28:1 respectively. The deposited code is exhaustive only at n=5, with 7,500 direct-vs-degree random tests over five sizes and explicit circulants at n=5,9,13. Nothing about primitive two-cycles or even Kneser degrees follows from these tests or the theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 8 of Defensive k-alliances in graphs gives a_k(G)>=ceil(m(mu-floor((Delta-k)/2))/mu) for connected G of order m and maximum degree Delta. At k=1, Delta=D and mu=D-1 it gives exactly m/2, unlike their weaker Theorem 7. The same proof supplies the key equality chain: Eq. (7) states c(S,S^c)>=mu*|S|*|S^c|/m, and Eq. (9) states each vertex of an alliance meets its complement in at most floor((Delta-k)/2) neighbors.",
+          "With B the unsigned vertex-edge incidence of K_n, A(KG(n,2))=J+I-B^T B. On the orthogonal complement of constants the largest adjacency eigenvalue is 1, since B^T B is positive semidefinite and ker B is nonzero (m>n) and orthogonal to constants. Hence the graph is connected (D>1) and mu=D-1 as required.",
+          "Ban–Linial Props. 2–3 only relate already exact-size internal partitions to external partitions in complements; Resultary 61b3de3ad47a treats majority on intersection line graphs. Neither is the decisive broader theorem."
+        ],
+        "reasoning": "Every nontrivial majority fixed point gives two defensive 1-alliances. Theorem 8 for each makes the split balanced; then Eqs. (7), (9) become equalities, as both bounds on the crossing cut are m(D-1)/4. Consequently every vertex on both sides has the same crossing degree (D-1)/2. This supplies the pointwise regularity of the cut, not merely balance or an existence test, for every admissible n.",
+        "searches": [
+          "Web: Ban Linial Internal Partitions of Regular Graphs arxiv complement second eigenvalue odd degree Petersen exact internal partition",
+          "Web: defensive alliance regular graphs algebraic connectivity bound k alliance Fiedler minimum bisection equality",
+          "Rodríguez-Velázquez–Yero–Sigarreta arXiv:math/0611180 §3, Theorem 8 and Eqs. (7), (9); Gerber–Kobler 2004 §§3–4; Resultary 61b3de3ad47a Finding and proof"
+        ]
+      },
+      "checked_sources": [
+        "Ban–Linial arXiv:1307.5246",
+        "Defensive k-alliances in graphs arXiv:math/0611180, survey arXiv:1308.2096v1 §3",
+        "Shafique–Dutton, On Satisfactory Partitioning of Graphs",
+        "Gerber–Kobler, Australas. J. Combin. 29 (2004) 201–214, Theorems 3–5",
+        "Benjamini et al. arXiv:1405.2486",
+        "Resultary b8bcbb0b4dff and 61b3de3ad47a exact results; 43ead5e098c9, e75c8d277ab3 and ea8bd5beb089 indexed claims"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From the exact equality chain of the prior bounds, the active count at every pair is (D-1)/2+[ij active], and T=m/2. By the identity N_ij=T-d_i-d_j+[ij active], this gives d_i+d_j=(m-D+1)/2=n-1 for every pair, so each d_i=(n-1)/2. No further graph extremum, equality search or dynamical argument is needed.",
+          "Conversely at d_i=(n-1)/2, T=m/2 and that same identity supplies precisely the required strict majorities. Nonintegrality excludes n=0 modulo four; in n=1 modulo four the ordinary even-degree circulant supplies existence, and the standard edge product counts such graphs. The n=5 count itself is also explicitly prior."
+        ],
+        "reasoning": "This is a mechanical specialization of the stronger bound and its displayed proof with exact saturation, not a claim that the prior source wrote the pair-degree formula or used the same proof. The Kneser spectrum and elementary disjoint-neighbor identity turn the forced balanced cut and crossing degrees into the entire regular-graph equivalence. Other reviewed majority or line-graph sources alone would not be decisive.",
+        "searches": [
+          "Rodríguez-Velázquez–Yero–Sigarreta arXiv:math/0611180 §3, Theorem 8 and its complete proof",
+          "Ban–Linial arXiv:1307.5246 §§4–6",
+          "Shafique–Dutton, On Satisfactory Partitioning of Graphs, Theorems 1, 5–8; Resultary b8bcbb0b4dff and 61b3de3ad47a exact result files"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ban–Linial arXiv:1307.5246 introduction and §4; Shafique–Dutton introduction and Theorem 1: in odd degree, a nontrivial internal (satisfactory) bipartition is exactly a nontrivial fixed two-coloring. The same object is a partition into two defensive 1-alliances.",
+          "The earlier Resultary NOR and XOR records e75c8d277ab3 and ea8bd5beb089 use disjoint adjacency but distinct Boolean rules; for example, a unanimous zero state is a majority fixed point but not a NOR fixed point."
+        ],
+        "reasoning": "Equivalent static formulations were compared, not only the term majority dynamics. The incidence representation is a bijection between pairs and labelled edges; conversely changing to NOR, linear parity, or intersection adjacency changes the classification problem.",
+        "searches": [
+          "Web: Kneser graphs internal partitions graph Petersen internal bisection majority consensus complement triangular graph stable cut alliance defensive partitions",
+          "Web: satisfactory partition line graphs complement Shafique Dutton Kneser",
+          "Resultary: two-subset Kneser disjointness majority alternative internal partitions local minimum cut class 1 eigenvalue half regular Petersen fixed points NOR XOR"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The November 17 Petersen record exactly classifies the same n=5 fixed states as the two unanimous masks plus the 12-element S_5 orbit of mask 0dc, whose active-pair graph is a five-cycle. This is direct prior coverage of the first example, not just agreement on the count.",
+          "The separate November 17 record 43ead5e098c9 addresses KG(6,2) with ties and 502 fixed states; this is outside the theorem. Standard labelled regular-graph enumeration by the edge-product coefficient adds no priority claim for counting regular graphs."
+        ],
+        "reasoning": "Previously certified examples are not claimed new. The exact reduction to regular-graph coefficients uniformly in n and the no-diverse-state regime are not consequences of the tabulated examples.",
+        "searches": [
+          "Resultary: Petersen graph majority dynamics basin exact synchronous binary 14 fixed points 55 two-cycles",
+          "Resultary b8bcbb0b4dff Proof §§1–2 and class table",
+          "Resultary: two-subset Kneser graph KG(n,2) strict majority fixed configurations internal partition regular graphs Petersen"
+        ]
+      },
+      "rationale": "The complete classification is a direct equality-case specialization of the published spectral bound for defensive k-alliances, not a known claim merely at Petersen size. Theorem 8 and its inequalities (7), (9) in Rodríguez-Velázquez–Yero–Sigarreta, applied to both colors with k=1 and Laplacian connectivity D-1, force equal sizes and identical minimum crossing degree pointwise. Substitution of the ordinary edge incidence identity makes the regular-graph correspondence and modulo-four split immediate. The source does not itself phrase the corollary in Kneser majority language. The frozen proof is a correct elementary alternative to this spectral derivation.",
+      "residual_risks": [
+        "This is an implication finding, not a claim that the precise wording, the Kneser specialization or its elementary proof previously appeared. Cannings DOI 10.1109/GAMENETS.2009.5137464 could not be inspected in lawful open full text; that does not affect the checked implication from arXiv:math/0611180."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent framework; does not give the rank-two Kneser classification",
+          "evidence": [
+            "Props. 2 and 3 concern already exact-size partitions; the salient near-complete cases have complement degree at most three rather than 2(n-2)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1307.5246",
+          "material_read": "Introduction and §§4–6, particularly propositions on complementary partitions and theorems on near-complete regular graphs",
+          "method": "Read open PDF sections and compared degree, exact-size and partition hypotheses",
+          "title": "Internal Partitions of Regular Graphs",
+          "trigger": "Exactly the equivalent static question on regular graphs, with complement-graph results"
+        },
+        {
+          "assessment": "Decisive coverage by general theorem and its proof; the whole claim is its saturated Kneser specialization",
+          "evidence": [
+            "Theorem 8 lower bound is ceil(m(mu-floor((D-k)/2))/mu), equal to m/2 here. Its Eq. (7) and Eq. (9) pin the cut between equal bounds and force each crossing degree to equal (D-1)/2, from which ordinary degree-regularity follows by the pair-neighbor identity."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0611180",
+          "material_read": "Definition and §3, especially Theorem 8, the Fiedler cut inequality (7) and pointwise inequality (9) on PDF pp. 6–7; line-graph sections",
+          "method": "Read the actual statement and proof of Theorem 8; substituted m, D, mu=D-1 and k=1, then traced equality for both colors",
+          "title": "Defensive k-alliances in graphs",
+          "trigger": "The equivalent 1-alliance formulation and a potentially sharp general spectral bound"
+        },
+        {
+          "assessment": "Covers the equivalent partition definition and distinct graph regimes; no all-size cover",
+          "evidence": [
+            "Theorem 5 is about degrees three and four; Theorems 7–8 treat the intersection line graph rather than its complement."
+          ],
+          "identifier_or_url": "https://www.cs.ucf.edu/courses/cap6411/cap5415/spring03/papers/SatisfactoryGraph.pdf",
+          "material_read": "Introduction, critical cut statement and §4 regular/line-graph Theorems 5–8",
+          "method": "Read open PDF sections and compared the degree/adjacency and existence versus classification",
+          "title": "On Satisfactory Partitioning of Graphs",
+          "trigger": "Equivalent static condition, including results on regular and line graphs"
+        },
+        {
+          "assessment": "Direct coverage of n=5 only",
+          "evidence": [
+            "Section 2 identifies two unanimous states and exactly 12 other fixed states in the orbit of 0dc; the theorem is finite and gives no size-uniform classification."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-a-four-step-petersen-majority-projection-and-the-desargues-doubl--b8bcbb0b4dff/RESULT.md",
+          "material_read": "Finding, assumptions, and Proof §§1–2 including the recurrent-class table",
+          "method": "Read exact local mirror and compare labelled edge masks and symmetry action",
+          "title": "A four-step Petersen majority projection and the Desargues double-cover basin spectrum",
+          "trigger": "Exact same updating rule at the first admissible size"
+        },
+        {
+          "assessment": "General period-at-most-two framework, not the classification of fixed states",
+          "evidence": [
+            "The introduction recalls period two for finite graphs and §2 studies its unimodular extension; neither conclusion identifies which initial configurations are fixed."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1405.2486",
+          "material_read": "Open PDF introduction, contents and §2 theorem passages",
+          "method": "Compared hypotheses and temporal conclusion to the fixed-state graph structure",
+          "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+          "trigger": "General same-rule convergence theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The family is natural, and the active-degree proof is a neat self-contained exposition. However, the exact cutoff and labelled structural classification both follow by substitution and saturated equality in a published broader cut bound; the ordinary edge-product coefficient and circulant example do not give an additional exact invariant. The distinct finite replay at n=8 is corroboration of the same corollary, not a surviving new phenomenon. No scientific novelty or new value is established by recasting the result as a dynamics theorem.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

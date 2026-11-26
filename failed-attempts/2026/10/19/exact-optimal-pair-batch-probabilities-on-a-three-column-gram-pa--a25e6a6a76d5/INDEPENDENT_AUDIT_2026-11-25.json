@@ -1,0 +1,174 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:16:03.231769Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–118",
+        "Frozen VERIFICATION.md and verify.py",
+        "Independent positive-eigenvector and equality argument"
+      ],
+      "rationale": "Normal equations remove the component of b−Ax_* perpendicular to col(A). For batch missing i, exact block minimization leaves in col(A) the rank-one projector onto the normalized ith dual column. Scaling and sign choices do not change the block spaces. Let W be the matrix of these unit normals after flipping the middle sign. Its Gram M is the sign-conjugated normalized inverse Gram and has all entries positive. With S=diag(1,−1,1) and D=diag(a,1,c)/sqrt(Δ), M^{-1}=SDGDS. The row sums r=M^{-1}1 are (a(a−u),1−ua−vc,c(c−v))/Δ, all positive since a>u, c>v and ua+vc≤sqrt((u²+v²)(2−u²−v²))<1. With τ=1ᵀr=Z/Δ, the unit vector W r/sqrt(τ) gives the same Rayleigh value 1/τ for every probability law. At p=r/τ the matrix diag(sqrt(p)) M diag(sqrt(p)) has sqrt(p) as a positive eigenvector at 1/τ; positivity implies this is its top eigenvalue, hence the top eigenvalue of the mean residual operator. Equality in the common Rayleigh bound forces the mean operator to have the witness as eigenvector; column independence gives p=r/τ uniquely, including against boundary laws. In the rational example symmetry splits the uniform normal Gram into an odd eigenvalue 7/16 and an even block of trace 41/16 and discriminant 9·137/16²; division by 3 gives the stated top uniform factor. Repeated conditional expectation proves the k-step upper bound, not an exact asymptotic exponent. The supplied finite checker was read, not executed; its simplex loops are 101×101, not the 10,552 grid trials named in the print text, which does not affect the theorem.",
+      "residual_risks": [
+        "Strict nonzero adjacency is the stated domain; no limits at rank deficiency or guarantees for adaptive sampling are inferred. The recorded trial breakdown is not a correctness certificate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "--e118fcf8fe26 proves the unique optimal omission probabilities r/(1ᵀr) and retention 1/(1ᵀr) whenever sign-conjugating the normalized inverse Hessian makes it entrywise nonnegative and its inverse has strictly positive row sums r.",
+          "The September --82c9d23eb995 record optimizes single-coordinate updates via a smallest-eigenvalue objective. The general primary references give a projection framework or formulate an optimization, not the specialized closed form in the passages read."
+        ],
+        "reasoning": "The stronger omission theorem is explicit coverage, while single-coordinate and generic sketch-and-project formulations do not by themselves solve this two-coordinate problem. The broader theorem need not print the path's radicals to cover them.",
+        "searches": [
+          "Resultary --e118fcf8fe26 Finding and sign-balanced inverse-Gram theorem",
+          "Resultary --82c9d23eb995 inverse-positive coordinate sampling",
+          "arXiv:1506.03296 pp. 3–4 and arXiv:1802.03703 p. 2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary --e118fcf8fe26, --aa6191d1adb5, --fc51ccf74dc5 and --82c9d23eb995",
+        "arXiv:2610.04685v1",
+        "arXiv:1402.2863v1",
+        "arXiv:1506.03296",
+        "arXiv:1802.03703",
+        "DOI 10.1214/aos/1176348265 (abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Put H=D^{-1}G^{-1}D^{-1}, S=diag(1,−1,1). Then SHS is entrywise positive and (SHS)^{-1}1=Δ^{-1}(a(a−u),1−ua−vc,c(c−v)); strict positivity holds by the path hypotheses. Summing gives Z/Δ.",
+          "The broader theorem's proof/relationship section acknowledges path calculations without identifying which archived result it refers to. The Pukelsheim–Torsney full text was not readable in this check."
+        ],
+        "reasoning": "Applying the stated theorem immediately yields the frozen unique law, sharp factor, and domain, independently of the inaccessible design paper. The rational example and tower-property bound are consequences or checks, not a separately motivated distinct theorem. Exact existing coverage and historical priority are different questions.",
+        "searches": [
+          "Resultary --e118fcf8fe26 sign-balanced omission theorem, proof and relationship to prior work",
+          "Pukelsheim–Torsney DOI 10.1214/aos/1176348265 identified alternative OA attempts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The batch is precisely a choice of which coordinate to omit. Least-squares objective excess is squared prediction error, so a quadratic Hessian G and exact block solves give the same objective.",
+          "Minimizing the largest eigenvalue of the mean residual operator is equivalent to maximizing the smallest eigenvalue of its complement, but the Kaczmarz formulation uses rank-one update projectors, not the rank-two update projectors used here."
+        ],
+        "reasoning": "The omission theorem matches under the least-squares to quadratic reduction. Generic E-optimal and one-row designs require comparison of the actual projectors and eigenvalue objective; superficial inverse-row-sum or spectral resemblance is not equivalent by itself.",
+        "searches": [
+          "Resultary: exact all-but-one or two-coordinate minimax omission sampling, sign-balanced inverse Gram and related one-step spectral designs",
+          "arXiv:2610.04685v1 Theorem 4.1 and Remark 4.2",
+          "arXiv:1402.2863v1 Theorem 2 and Eqs. (15)–(18)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "This is a continuum theorem rather than a finite census. The strongest indexed closed-form comparator --e118fcf8fe26 generates the whole formula including the rational benchmark by substitution. --aa6191d1adb5 solves a frustrated family, and --fc51ccf74dc5 treats a different Kaczmarz row objective."
+        ],
+        "reasoning": "An exact parametric formula dominates lookup of individual path cases. Neither of the latter two records is a matching table; Xie–Yang's general bounds are not a table of exact optimal probabilities.",
+        "searches": [
+          "Resultary indexed closed-form minimax three-coordinate omissions and three-row sampling: --e118fcf8fe26, --aa6191d1adb5, --fc51ccf74dc5",
+          "arXiv:2610.04685v1 pp. 10–13"
+        ]
+      },
+      "rationale": "A distinct extant Resultary record, --e118fcf8fe26, proves an all-but-one-coordinate minimax theorem with precisely the same one-step objective and a sign-balanced normalized inverse Gram hypothesis. That hypothesis holds throughout the frozen Gram-path domain, and direct substitution gives both the unique law and the exact retention stated here. The indexed proof explicitly notes related path calculations; it does not identify a source by record ID. Its later catalogue date does not establish priority in either direction. The finding is correct but no longer distinct from the stronger published coverage as examined in this audit; this is not a conclusion that the earlier primary literature contained the formula.",
+      "residual_risks": [
+        "The record cited indirectly by the broader indexed theorem cannot be identified from its inspected text. Catalogue dates do not establish priority. The relationship to more general E-optimal design literature is not exhaustively assessed and is not the reason for failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exactly implies the frozen Gram-path optimizer and retained factor on the full path domain",
+          "evidence": "A sign conjugation producing a nonnegative normalized inverse Gram M with M^{-1}1>0 gives unique weights proportional to M^{-1}1 and retention 1/(1ᵀM^{-1}1). The relationship passage acknowledges a related path calculation without its ID.",
+          "identifier_or_url": "2026/11/8/SCOPE-a-sharp-volume-versus-uniform-reversal-for-two-coordinate-sampli--e118fcf8fe26",
+          "material_read": "Mirrored RESULT.md Finding offsets 0–3861, proof offsets 3800–9245 and relationship passage near 8416; mirror commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary search and mirror passage reading",
+          "title": "A sharp volume-versus-uniform reversal for two-coordinate sampling on SPD stars",
+          "trigger": "Strongest broader result for sign-balanced all-but-one sampling"
+        },
+        {
+          "assessment": "Different sign-frustrated family, not the exact path claim",
+          "evidence": "The sign conjugation used in the broader path-covering theorem is unavailable in its family.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-minimax-omission-sampling-for-a-frustrated-three-coordinat--aa6191d1adb5",
+          "material_read": "Mirrored RESULT.md Finding and proof offsets 0–3438 and 3300–8340",
+          "method": "Local Resultary search and mirror passage reading",
+          "title": "Exact minimax omission sampling for a frustrated three-coordinate quadratic",
+          "trigger": "Same dimension, block size and criterion"
+        },
+        {
+          "assessment": "Analogy, not equivalent block problem",
+          "evidence": "It concerns the least eigenvalue of weighted row projectors, not the top eigenvalue of their rank-one analogues as residual operators.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-signed-triangle-formula-for-minimax-three-row-randomized-kaczm--fc51ccf74dc5",
+          "material_read": "Mirrored RESULT.md offsets 0–4346 and 4300–8027",
+          "method": "Local Resultary search and mirror passage reading",
+          "title": "A signed-triangle formula for minimax three-row randomized Kaczmarz sampling",
+          "trigger": "Three-way spectral probability optimization"
+        },
+        {
+          "assessment": "Related formulas, different update and eigenvalue objective",
+          "evidence": "Optimizes one-coordinate updates with a smallest-eigenvalue criterion, not the all-but-one omission problem.",
+          "identifier_or_url": "2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995",
+          "material_read": "Mirrored RESULT.md offsets 700–4221",
+          "method": "Local Resultary search and mirror passage reading",
+          "title": "Closed-form optimal coordinate sampling for inverse-positive SPD quadratics",
+          "trigger": "Earlier inverse row-sum optimizer"
+        },
+        {
+          "assessment": "General convergence bounds; inspected optimization remarks do not establish this exact law",
+          "evidence": "Theorems bound convergence using fixed joint distribution and auxiliary scaling. Remark 4.2 describes optimizing parameters with the scaling fixed rather than giving the Gram-path solution.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.04685v1",
+          "material_read": "Original PDF pp. 3–4 near offset 11900, p. 10 Theorem 4.1 near offset 46400 and pp. 12–13 Remark 4.2 near offset 57800",
+          "method": "OA PDF retrieval and bounded passage reading",
+          "title": "On randomized batch-sampling coordinate descent methods for solving linear least-squares problems",
+          "trigger": "Cited same class of joint batch sampling algorithms"
+        },
+        {
+          "assessment": "Relevant spectral SDP but not the same one-step objective on the specified block family",
+          "evidence": "Optimizes a smallest-eigenvalue SDP for weighted Kaczmarz row updates and relates it to a row-norm design.",
+          "identifier_or_url": "https://arxiv.org/abs/1402.2863v1",
+          "material_read": "Original PDF pp. 5–7, Theorem 2 and Eqs. (15)–(18), offsets 10800–18417",
+          "method": "OA PDF bounded passage reading",
+          "title": "On the Randomized Kaczmarz Algorithm",
+          "trigger": "General optimized probabilities and spectral-design reduction"
+        },
+        {
+          "assessment": "General framework, not closed form in inspected passage",
+          "evidence": "Provides a projection-based analysis of spectral convergence.",
+          "identifier_or_url": "https://arxiv.org/abs/1506.03296",
+          "material_read": "Original PDF pp. 3–4 near offset 8600",
+          "method": "OA PDF bounded passage reading",
+          "title": "Randomized Iterative Methods for Linear Systems",
+          "trigger": "Potential umbrella sketch-and-project spectral theorem"
+        },
+        {
+          "assessment": "Optimization formulation, not explicit path solution in the inspected passage",
+          "evidence": "Notes the SDP approach to optimally choosing coordinate probabilities.",
+          "identifier_or_url": "https://arxiv.org/abs/1802.03703",
+          "material_read": "Original PDF p. 2 near offset 13700",
+          "method": "OA PDF bounded passage reading",
+          "title": "Stochastic Spectral and Conjugate Descent Methods",
+          "trigger": "Optimization of coordinate probabilities"
+        },
+        {
+          "assessment": "Unresolved scope and not evidence for either verdict",
+          "evidence": "No statement-level inference drawn from the unavailable text.",
+          "identifier_or_url": "https://doi.org/10.1214/aos/1176348265",
+          "material_read": "Bibliographic and abstract evidence only; full text not retrieved",
+          "method": "Lawful OA lookup via Project Euclid and identified author-hosted PDF; publisher returned landing/abstract and alternate timed out",
+          "title": "Optimal weights for experimental designs on linearly independent support points",
+          "trigger": "Possible broader exact E-optimal design result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and scope",
+        "Resultary --e118fcf8fe26 general omission theorem and matching specialization"
+      ],
+      "rationale": "An unknown exact minimax batch design in this smallest correlated path is a meaningful benchmark, and the formula makes the effect of correlation rather than column scaling explicit. But the actual frozen probabilities, sharp factor and uniqueness all follow by direct row sums from a verified existing general omission theorem. The remaining rational illustration and repeated-step inequality do not supply an independently valuable unknown result. The result remains useful as a worked example, not a distinct scientific contribution under this review.",
+      "residual_risks": [
+        "No decision about a separate new class of batch designs or an exact long-run optimization claim; neither is proved in the frozen record. No repaired claim is asserted."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,17 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each odd integer \(m\ge3\), exactly \(m\) full monotone sine laps give \(m^n\) iterated laps. Captured endpoint distances satisfy an explicit quadratic contraction. Points never entering the endpoint neighborhood expand by at least \(\sqrt{2-k^{-2}}>1\) per step. The standard zero-measure theorem for uniformly expanding closed interval repellers without interior is applicable because all critical values lie inside the trapping neighborhood. It gives the full-measure physical basin and the exact atomic measures. The derivative exponent estimate is obtained directly from the doubly exponential contraction. The standalone finite checker corroborates identities but does not prove infinite claims.
+PASS
 
-## Originality — PASS within inspected evidence
+For odd m≥3 the consecutive turning points and endpoints bound exactly m full monotone laps with alternating values ±1. Refinement by inverse branches multiplies the lap count by m at every iteration: adjacent refined laps meet at genuine turns, including prior lap boundaries because the new outer map is strictly monotone near each endpoint on the appropriate one-sided interval. Lap growth gives log m. For d=1−|x|<k⁻², the identity d′=1−cos(kd) gives d′≤k²d²/2, so the endpoint bands are forward invariant, contracting doubly exponentially, with endpoint signs determined by the residue of m modulo four. The derivative k|sin(kd)| along the captured tail is at most k²d there, so logarithmic derivative averages tend to −∞, also when a derivative vanishes exactly. For x in the survivor, |f′(x)|²=k²(1−f(x)²)≥2−k⁻². Nullity can be verified directly: put a=1−k⁻², J=[−a,a], and restrict the m inverse branches g_i to J. They map into J by forward invariance of the bands, have contraction 1/√(2−k⁻²), and log|g_i′(y)|=−log k−(1/2)log(1−y²) is Lipschitz on J. Summing along compositions bounds the derivative distortion of every depth-n inverse branch, uniformly in n by a geometric series. The first-level survivor misses a fixed positive-length hole in J near an interior turn. Pulling that hole back inside every depth-n cylinder removes a uniformly positive fraction of its length, so survivor lengths decay geometrically. Thus almost all points enter a band, reflection equates the two fixed-endpoint basin masses in the first parity, and alternating capture gives the uniform two-cycle empirical measure in the second. The empirical limits on this full-measure set exclude any other physical measure.
 
-The source's complete HTML article, including the single-sine definition and numerical analysis, was examined; no odd-frequency, full-measure basin/entropy dichotomy theorem was found. The Misiurewicz–Szlenk entropy characterization and standard expanding repeller arguments imply the conclusion once the specific exact critical orbit and expansion calculations here are supplied; they do not expressly give that resonance classification. published-finding corpus searches of the source title, sine aliases, entropy, physical basin and endpoint-cycle variants returned nearest entries for two-frequency fixed-point density, modified tent-map entropy collapse and M-map entropy anchors, none with the same recurrence and hypotheses. Available own claims were checked for the same source and equivalent statement. Limit: unindexed papers or a prior theorem stated directly for all full-branch sine maps could subsume the family; this remains a publication-priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The source motivates multistability and chaos through single-frequency parameter variations. At exact natural frequencies, the sharp infinite sequence of global dynamical classifications clarifies a nontrivial ambiguity: arbitrarily large topological entropy and a uniformly expanding survivor coexist with pure endpoint physical behavior and \(-\infty\) almost-sure derivative exponent. The parity switch identifies two genuinely different physical-statistics regimes, not just an isolated arithmetic computation. This classification concerns initial conditions globally, not one numerical trajectory.
+The single-sine formula, entropy tool, and distortion method are prior work. The supported distinct result is their use with the exact odd resonance to classify the full-measure physical statistics simultaneously with unbounded entropy, explicit expansion of the survivor and an almost-sure derivative exponent of −∞. The compared primary model passage and distinct indexed inverse-level result do not give this joint classification. This is not a claim of priority for the general possibility of large entropy with simple physical statistics.
 
-## Scope and verification limits
+## value
 
-Only exact parameter resonance is classified. Positive topological entropy does not mean physical chaos. Standard distortion lemmas are cited in their required scope; formal independent proof review remains outstanding. Self-review: passed. Independent audit: not yet performed.
+PASS
+
+For a published sine family used to study chaotic dynamics this supplies an exact diagnostic: the computably increasing topological entropy and the entirely atomic physical statistics give opposite pictures of this same natural parameter family. It identifies where the noncaptured dynamics must lie, with an explicit expansion floor, and makes the physical outcome determinate even down to the two half-measure basins versus a single full-measure two-cycle. Its value is that concrete classification and a caution against reading typical chaos from entropy, not a new general entropy theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

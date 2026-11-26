@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:17:12.166217Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, equations (1)–(7) and attainment",
+        "Frozen VERIFICATION.md and verify.py",
+        "/workspace/audit_work/matrix_trace.txt (independent derivation)"
+      ],
+      "rationale": "Independently reconstructed (1)–(4). For X=A^(1/2) S A^(-1/2), XX* is the endpoint and X² is similar to B. The squared Frobenius norm of X−X* is twice the trace defect; entrywise evaluation gives the claimed positive weights and exact commuting equality. For two levels this is (a−b)²/(ab) times ||PS(I−P)||_F². The top partial sums of S−(2P−I)S(2P−I) are bounded by the sums of the paired spectral spreads by the variational principle; these are the partial sums of twice the off-block singular values. Squaring under weak majorization gives the upper bound. Rotating all disjoint extreme pairs through angle θ gives the maximum times sin²(2θ), so the whole interval is attained, including when spread terms vanish. In dimension two the projection onto the larger B eigenvector has off-diagonal square modulus q(1−q); the corresponding entries of B and S differ by the factor sqrt(c)+sqrt(d). The determinant and quadratic-formula consequences follow. The bundled rational tests corroborate examples, not the universal proof, and were inspected, not executed.",
+      "residual_risks": [
+        "The sharp optimization was checked only for the stated two-level first factor; nothing here establishes a multilevel orbit optimum."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2 bounds the whole singular-value vector for every Hermitian block split by half the extreme spectral spreads, and explicitly permits the sum of squares.",
+          "The paper's sharpness construction puts half spectral differences in off-diagonal entries of extreme-pair blocks.",
+          "Ibrahim–Huang provides the qualitative log-majorization for the isospectral near-spectral endpoint, not the trace interval on its own."
+        ],
+        "reasoning": "The stronger block theorem and sharpness apply to S=B^(1/2) with precisely the proposed spectrum and rank split.",
+        "searches": [
+          "Li–Mathias DOI 10.1155/S1025583499000090, Theorem 2 and concluding sharpness remarks",
+          "Ibrahim–Huang arXiv:2610.23736v1 §2 (2.5), Theorem 4.3"
+        ]
+      },
+      "checked_sources": [
+        "Configured Resultary searches and records d3be6eb33649, b21dd527116f",
+        "Li–Mathias (1999), Theorems 1–2 and sharpness remarks",
+        "Ibrahim–Huang arXiv:2610.23736v1",
+        "Franco–Gan–Kim DOI record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The compression variance is precisely Δ times ab/(a−b)² after the standard trace expansion; both its exact extremum and its optimizer construction are already known.",
+          "The matrix endpoint and determinant are prior; switching between X*X and XX* is isospectrality, not a new order result."
+        ],
+        "reasoning": "The trace-defect presentation and qubit specialization do not add an independent nonroutine theorem to the known sharp block optimum.",
+        "searches": [
+          "Li–Mathias, Theorem 1, immediately following equivalence on p. 138, Theorem 2 and concluding sharpness remarks",
+          "Ibrahim–Huang (2.5), Theorem 4.3 and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Li–Mathias explicitly equates the trace variance of a Hermitian compression with the squared norm of the off-diagonal block.",
+          "Related crossed-Heinz and near-spectral outlier catalogue results optimize other quantities."
+        ],
+        "reasoning": "The actual equivalent invariant is squared off-diagonal Frobenius energy, not a crossed Heinz norm gap or a near-spectral norm outlier. The weighted skew-Hermitian difference is the elementary Frobenius expansion for X.",
+        "searches": [
+          "Configured Resultary fixed-spectrum near-geometric trace and commutator searches",
+          "Li–Mathias (1999), pp. 137–138, Theorems 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No directly matching catalogue item beyond the assigned subject was identified in targeted searches. Compared records d3be6eb33649 (crossed Heinz) and b21dd527116f (near-spectral spike outliers) concern different operators or observables."
+        ],
+        "reasoning": "This is a symbolic orbit formula, not a finite table. Negative catalogue search does not defeat the positive theorem-level coverage.",
+        "searches": [
+          "Configured Resultary semantic lookup for trace dilation, near-geometric endpoint and fixed spectrum"
+        ]
+      },
+      "rationale": "The sharp orbit conclusion, not merely its upper bound, is covered as a direct consequence of known results. The endpoint's XX* form and the standard Frobenius expansion expose the defect in one step. With two levels the objective then becomes exactly the sharp off-diagonal energy in Li–Mathias (already the variance objective of their Theorem 1), multiplied by a scalar. Their Theorem 2 includes its bound and the concluding remark includes the same extremal two-by-two blocks. Interpolation of the block rotation or connectedness gives the interval without another optimization. The dimension-two formulas are the same reduction applied to a rank-one spectral projector and the determinant. This is coverage by implication, not a claim that prior authors printed equations (1)–(4) in this notation.",
+      "residual_risks": [
+        "The full Franco–Gan–Kim paper was unavailable, so whether it already writes the exact trace-defect identity is unresolved. The failure rests on positive implication evidence independent of that access limit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of reduced sharp optimization",
+          "evidence": "Theorems 1–2 and text between them give trace-variance equivalence, majorization and squared-norm bound; the concluding remark constructs extremizing two-by-two blocks.",
+          "identifier_or_url": "https://docslib.org/doc/12584813/inequalities-on-the-singular-values-of-an-off-diagonal-block-of-a-hermitian-matrix",
+          "material_read": "pp. 137–138 and concluding remarks, OA extraction offsets 850 and 5630",
+          "method": "Targeted OA text inspection and statement substitution",
+          "title": "Inequalities on the singular values of an off-diagonal block of a Hermitian matrix",
+          "trigger": "Exact sharp off-block invariant"
+        },
+        {
+          "assessment": "Known endpoint and qualitative comparison",
+          "evidence": "Theorem 4.3 concerns the near-spectral endpoint D=X*X; (2.5) identifies D with the near-geometric endpoint evaluated at A^(-1), and D is isospectral with XX*.",
+          "identifier_or_url": "https://arxiv.org/html/2610.23736v1",
+          "material_read": "(2.5), Theorem 4.3 and proof, offsets 15465 and 31696",
+          "method": "Targeted primary text inspection",
+          "title": "Order Relations for the Near Geometric and Near Spectral Geometric Curves",
+          "trigger": "Same mean and its endpoint"
+        },
+        {
+          "assessment": "Access-limited; not used as evidence for or against priority",
+          "evidence": "Publisher redirected, no repository copy identified and the surfaced alternate text denied access.",
+          "identifier_or_url": "https://doi.org/10.1007/s11117-025-01147-7",
+          "material_read": "Bibliographic record, not full text",
+          "method": "Publisher and alternate accessible-copy retrieval attempted",
+          "title": "Near-geometric mean of positive definite operators",
+          "trigger": "Introduction of the operator mean"
+        },
+        {
+          "assessment": "Different objective/operator",
+          "evidence": "Crossed-versus-ordinary Heinz norm gap and near-spectral spike norm outliers, respectively; neither is the near-geometric orbit trace excess.",
+          "identifier_or_url": "Resultary records d3be6eb33649 and b21dd527116f",
+          "material_read": "Indexed claim statements",
+          "method": "Configured semantic search and statement comparison",
+          "title": "Two-spectral crossed Heinz majorization and exact commutator stability; Two-outlier rigidity and sharp Kantorovich amplification",
+          "trigger": "Closely ranked commutator and endpoint results"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md (1)–(4)",
+        "Li–Mathias (1999), Theorems 1–2 and sharpness remarks"
+      ],
+      "rationale": "The endpoint and trace are natural, and the commutator formula is a useful presentation. But the proposed quantitative advance is exhausted by a standard norm expansion, the known sharp block invariant with the same optimizer, and elementary interpolation and two-dimensional specialization. No independent sharp phenomenon remains after the exact reduction. This is not a rejection for small scope or unavailable literature.",
+      "residual_risks": [
+        "This judgment is limited to the claimed orbit and trace formulas, not possible future multilevel extremal results."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

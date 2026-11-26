@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness: PASS.** The possible high-degree peripheral neighborhoods are classified exhaustively by the fact that at most two independent hub mergers can occur. An exact four-marked-neighborhood sum over \(8^4\) possibilities and the seven nonempty unmarked branching cases yields the displayed partition and connectivity polynomials; the covariance numerator factors as \(12v^5R\) with nonnegative coefficients and positive constant term. The standalone checker reproduced these symbolic identities and independently enumerated all forests of \(K_{3,4}\), \(K_{3,5}\), and \(K_{3,6}\). The all-size conclusion follows from the combinatorial classification and polynomial identity, not from a finite numerical test.
+## correctness
 
-**Originality: PASS on inspected evidence, with priority risk.** Grimmett–Winkler [1] addresses edge occupation rather than correlations of disjoint terminal-pair connectivity events. Çiçeksiz–Ravichandran [2, Sections 6 and 8] explicitly formulate positive four-terminal connectivity as a conjecture for arbitrary finite graphs. Known cactus-graph connectivity results [3] do not imply the theorem for noncactus \(K_{3,n}\), and the specific available \(K_{3,n}\) edge-anticorrelation result [4] does not imply a connectivity-correlation statement. Comparisons used the actual assertions and graph domains, not title matching. Independent full priority review remains needed, particularly for unpublished formulas under a different terminology.
+PASS
 
-**Value: PASS.** The claim supplies an explicit all-activity and all-size positive certificate on an infinite, cycle-overlapping noncactus family for a naturally formulated open connectivity-correlation problem. It is not a small finite graph computation, a relabeling of edge negative association, or a corollary of known cactus results. Its precisely scoped assumptions avoid suggesting the full conjecture is solved.
+Classified forests by final hub partition: three separate hubs admit no branching peripheral; a pair block has one degree-two branch; the full block needs either one triple or two different pair masks. Each branch consumes one or two of the only two available hub mergers. In the pair-block case each ordinary peripheral has component attachment weights 2v and v, so two ordinary marked terminals have connected weight 5v²; in the full-block case every nonisolated terminal is connected to its partner if that partner is also nonisolated. Unmarked nonbranching vertices have factor A=1+3v. These checks confirm the census mechanism, and a fresh exact symbolic census reproduced Z=A^(m+2)P, Z_X=3v²A^m Q and Z_XY=3v⁴A^(m−2)S, including m=0,1 where impossible exceptions have zero multiplicity. Terminal exchangeability gives Z_Y=Z_X. Expansion verifies SP−3Q²=4vR with R coefficientwise nonnegative and R(0,0)=4. The denominator is positive at every allowed parameter. Full independent edge-subset checks give 1,856, 9,984 and 51,712 forests at v=1 for n=4,5,6, respectively; the all-n conclusion rests on the symbolic classification, not those finite checks.
 
-**Residual limitations.** Uniform activity only; four different terminals in the larger shore only; three hubs only; no independent external audit or definitive historical novelty proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass for the exact correlation and strict all-fugacity three-hub theorem. Credit known high-fugacity arboreal-gas connectivity results and the general conjectural framework. The closest indexed all-fugacity peripheral-pair result is on two hubs; the known three-hub edge correlations concern a different observable.
+
+## value
+
+PASS
+
+This proves an all-size all-fugacity case of a natural four-terminal question on a family with overlapping cycles, where edge correlation results do not settle connectivity. The nonnegative coefficient certificate demonstrates strictness in the full parameter range, including regimes inaccessible to a high-fugacity argument. The fixed hub count makes it tractable without reducing it to an isolated numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

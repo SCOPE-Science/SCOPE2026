@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T15:19:59.924913Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and the six supporting files, supplied script read but not run",
+        "Own exact weighted weak-composition enumeration plus inclusion–exclusion surjection count and rational lower bound on Poisson probabilities from odd Taylor truncation: all 66 pairs 3≤n≤13, 1≤N≤6 agreed for saturation, U mean, coupling bound and the stated TV inequality. Replay: python /workspace/checks/cyclic_occupancy.py"
+      ],
+      "rationale": "Summing |a−b|=a+b−2min(a,b) over the simple cycle gives the deficit. Its zero event is independent support; counting a marked occupied vertex with positive cyclic gaps gives n/k times binom(n−k−1,k−1), and labelled surjections give k! S(N,k). In the common-sample coupling, U counts adjacent sample-index pairs. A mismatch T<U requires a specific doubled pair and a third observation at either cycle neighbor, with probability 2/n² per choice, and a union bound gives (N)_3/n². For a given pair, the dependency neighborhood contains itself and 2(N−2) other pairs; the latter each have joint success (2/n)^2 by conditioning on the common draw. All outside indicators collectively use disjoint draws, so b3=0. The local-dependence Chen–Stein bound in the sup-over-events convention is at most b1+b2; together the bound is N(N−1)(9N−16)/n². N=1 has zero deficit and mean; N=2 reduces to one adjacency indicator. This also holds for the triangle, where each vertex still has two distinct neighbors. The growing-mean Poisson normal limit is carried by TV under centering and scaling; the all-supercritical zero-event result follows by truncation at floor(n^(7/12)) and monotonicity, not by applying the bound outside its vanishing-error range.",
+      "residual_risks": [
+        "Finite checks do not certify the limiting laws or Chen–Stein theorem. The TV error is not optimal. The sentence about orientation in Step 3 refers to either of the two cycle neighbors; the doubled sample pair is already fixed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Standard local-dependence Chen–Stein controls the Bernoulli sum of sampled pairs U, including adjacency as the pair-success condition. The histogram T is not that sum: at counts 2 and 1 on adjacent bins their respective edge contributions are 2 and 1.",
+          "The cyclic moment paper keeps n fixed for its leading variance theorem; its traveling mode pertains to linear variance at n of order sqrt(N), not N of order sqrt(n)."
+        ],
+        "reasoning": "The proxy bound is covered as a direct use of the general theorem. Transferring it to T needs control of triple occupancy and the exact numerator needs support counting. Neither fixed-bin moments nor the proxy theorem supplies those two steps.",
+        "searches": [
+          "Arratia–Goldstein–Gordon 1990 Theorem 1 and §4.1 (cited primary PDF access attempted)",
+          "arXiv:2611.14735v1 §§2–4",
+          "arXiv:2610.13366v1 introduction and conclusions"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.14735v1",
+        "arXiv:2610.13366v1",
+        "arXiv:2606.01465v2",
+        "Resultary e29f4fd136bb and 27e1ac5a78fb indexed statements",
+        "Arratia–Goldstein–Gordon standard local-dependence bound; primary links tried but not independently read in this review"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cyclic transfer theorem transfers variances, not laws. Part 1 describes separate fixed-N sparse work and a companion distributional program, without giving here a growing-N saturation or deficit theorem.",
+          "The indexed positive-load variance statement assumes N/n→λ>0 and gives an iterated small-load coefficient."
+        ],
+        "reasoning": "A moment or sequential sparse-load asymptotic does not force a triangular-array Poisson law or the finite exact coefficient. A hypothetical exact near-birthday law for allowing same-day repeats could cover the zero event; that would not by itself control the positive values of T.",
+        "searches": [
+          "arXiv:2611.14735v1 Proposition 2.7 and Theorem 3.1",
+          "arXiv:2610.13366v1 §1",
+          "Resultary Conditioning removes a leading variance term from multinomial histogram roughness e29f4fd136bb"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zero deficit is absence of a pair on neighboring (not equal) cycle vertices; repeated categories are permitted. This is distinct from the classic all-distinct birthday event.",
+          "Comb Test §II recognizes the open-chain maximum and computes its exact distribution by dynamic programming; §V explicitly leaves circular DTV to future work."
+        ],
+        "reasoning": "Tracking the first bin can extend a linear DP to a cyclic computation, but the stated algorithm does not express the cyclic extremal event as the closed independent-support sum or give a sparse Poisson error for the deficit.",
+        "searches": [
+          "Resultary: cyclic discrete total variation multinomial histogram roughness deficit sparse Poisson saturation independent sets",
+          "Web: Banić Elezović discrete total variation multinomial cyclic sparse asymptotics maximum Poisson saturation independent support generalized birthday adjacency",
+          "arXiv:2606.01465v2 §II and §V"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The corpus returned the frozen result, an adjacent-roughness variance result and fixed-bin open-chain large deviations, but no separate exact same-event table among the returned records.",
+          "The cycle independent-set triangle and Stirling table are known components; neither table alone tabulates the wrapped multinomial mass at maximum DTV with replacement."
+        ],
+        "reasoning": "An open-chain null distribution has different endpoint contributions, and an all-distinct occupancy table discards allowable repetitions. The saturation expression is a direct combination of standard enumerators, not a claim to have discovered either enumerator.",
+        "searches": [
+          "Resultary cyclic roughness query above",
+          "Comb Test open-chain finite exact null, §II–III",
+          "Web generalized birthday/independent support query above"
+        ]
+      },
+      "rationale": "Best of current knowledge: the statistic, gap and surjection counts, and pair-proxy Poisson method are prior or standard. The increment is an explicit transfer to the nonlinear cyclic occupancy deficit with a quantitative whole-law error, together with the exact wrapped saturation coefficient. The accessible histogram work covers moments or the open-chain distribution, not that increment.",
+      "residual_risks": [
+        "The Part 1 separate sparse and distributional studies are not identified and resolved here; an older near-birthday or compatible-colouring equivalent may exist.",
+        "No full-text claim about the indexed positive-load variance study or the cited Connett article."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Cyclic variance and transfer, not the nonlinear deficit law under joint sparsity",
+          "evidence": [
+            "Lemma 2.5 groups covariance blocks; Prop. 2.7 compares variances; Thm. 3.1 assumes fixed n."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.14735v1",
+          "material_read": "Abstract, introduction, §§2.3–2.5, operative variance statements in §3 and concluding scope",
+          "method": "Read assumptions and compare limit regimes and observables",
+          "title": "Discrete total variation under the multinomial, Part 5: cyclic total variation",
+          "trigger": "Exact same cyclic statistic"
+        },
+        {
+          "assessment": "Cyclic expectation included; separate sparse study mentioned, not inspected",
+          "evidence": [
+            "The paragraph at the end of §1 expressly distinguishes fixed-N sparsity and distributional theory from the first moment results."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.13366v1",
+          "material_read": "Abstract, §1, §3.1 and expectation statements",
+          "method": "Read moment statements and the companion-work discussion",
+          "title": "Discrete total variation under the multinomial, Part 1",
+          "trigger": "Potential earlier sparse calibration"
+        },
+        {
+          "assessment": "Exact law for the linear statistic; not the cyclic result reviewed",
+          "evidence": [
+            "Eq. (2) has no wrap edge; §II tracks last-bin counts; §V lists circular DTV as future work."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2606.01465v2",
+          "material_read": "Equation (2), §§II–III and §V",
+          "method": "Compare DP boundary conditions, support and concluding scope",
+          "title": "Comb Test: Histogram Uniformity Testing Based on Discrete Total Variation",
+          "trigger": "Earlier exact DTV law, cited by Parts 1 and 5"
+        },
+        {
+          "assessment": "Summary does not imply a whole-law result at joint birthday scaling",
+          "evidence": [
+            "N/n→λ>0, small-λ coefficient 4λ²+O(λ³)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-conditioning-removes-a-leading-variance-term-from-multinomial-hi--e29f4fd136bb",
+          "material_read": "Indexed scientific summary only",
+          "method": "Compare variance claim, positive-load hypothesis and iterated limit",
+          "title": "Conditioning removes a leading variance term from multinomial histogram roughness",
+          "trigger": "Closest distinct corpus synopsis for adjacent histogram roughness"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md findings and range restrictions",
+        "Comb Test §II and Part 5 moment framework"
+      ],
+      "rationale": "The event of attaining maximal irregularity has a natural role in null calibration of an order-sensitive histogram statistic. The whole deficit law, explicit finite zero-event formula and change from a Poisson birthday law to Gaussian fluctuations give substantially more information than moments, and the closed coefficient can be used without simulating labelled samples. The novelty and value lie in the finite-to-sparse calibration, not in a new general approximation theorem.",
+      "residual_risks": [
+        "No full-distribution assertion beyond the stated sparse range, no test-power claim, and no optimality claim for the error constant or window."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

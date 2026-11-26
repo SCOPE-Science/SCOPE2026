@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The accompanying `verify.py` enumerates the exact support, the ordered twofold convolution at every target, and the resulting additive energy for fourteen prime fields and four quadratic extension fields. For all extension fields of prime characteristic greater than three, it also checks the elliptic trace relation for the quadratic extension. Run `python3 verify.py`; the observed output is:
+## correctness
 
-```
-VERIFY_OK prime_cases=14 quadratic_extension_cases=4 exact_fibers=yes max_order=121
-```
+PASS
 
-All checks use exact finite-field integer arithmetic, not floating-point approximations. No enumeration can certify the theorem for arbitrarily large field orders; this follows from the discriminant calculation, character sums and characteristic-three subgroup argument in `RESULT.md`. The stated source dates are earliest public preprint dates rather than journal or revision dates. An external independent mathematical audit has not been performed.
+The frozen Fourier statement omitted nontriviality of the character: for the trivial character and q=3 its left side is 625/9 and its asserted right side is 77/9. The complete repaired RESULT.md specifies nontriviality and proves the correct orthogonality; it also accurately limits the frozen script to fiber/energy/trace checks. In both versions the energy calculation holds: inclusion–exclusion of the origin, the cubic pair discriminant (4y−x³)/(3x), and the mixed cube-root count give the stated fibers. Summing their squares uses the mixed term Σ_{z≠0}ν(z)χ((4z−1)/3)=T_q−χ(−3). The character vanishes in the bijective-cube case upon summation over all arguments, and T_q=−a_q in the split case from the smooth projective point count; the genus-one characteristic polynomial gives the recurrence. In characteristic three the two disjoint summand subgroups give exactly the three levels 2q−1, q, and 2, whose squares sum to the stated cubic polynomial. This verifies the repaired scope over finite fields, not only prime fields.
+
+## originality
+
+PASS
+
+The repaired finding claims the exact all-odd-field energy and its regime-specific trace correction. It no longer presents the union fiber law as a separate novelty: the prior graph self-convolution plus elementary mixed and line terms yields it by substitution. The standard energy/Fourier correspondence is not novel. The reviewed structurally close union and trace-energy results do not evaluate the mixed collision sum for this planar tangent arrangement.
+
+## value
+
+PASS
+
+The high-contact tangent is geometrically natural, and the energy is a standard exact measure of additive collisions. The formula reveals precisely where the mixed collisions retain a nonconstant elliptic trace, where they become purely polynomial, and where the additive-subgroup regime changes the leading term. The value is in this exact arithmetic invariant for the arrangement, not in the normalization fix or in the already available self-convolution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

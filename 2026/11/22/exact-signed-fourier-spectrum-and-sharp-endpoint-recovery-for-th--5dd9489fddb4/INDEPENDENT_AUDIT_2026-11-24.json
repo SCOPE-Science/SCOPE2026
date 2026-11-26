@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:25:32.888785Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof §§1–5; VERIFICATION.md; verify.py (inspected, not executed)",
+        "/workspace/branches/bed7d4ec-3a0a-4973-a59e-f0b89a95f411/independent_check.py and independent_check.log (independently executed finite replay; log lines 1–11)"
+      ],
+      "rationale": "A connected 24-vertex graph has a 23-dimensional cut space. Switching by a vertex set multiplies every matching character by the parity sign of that set, so the 8,192 cut cosets determine the magnitude histogram and each nonzero coset splits equally by sign. An independent DFS-tree quotient and integer Walsh transform gave absolute counts 4781,2536,647,136,66,16,9,1 at magnitudes 0,8,16,24,32,40,48,64, reproducing the entire ambient signed table, rank, nullity and condition number. The reduced signed split is section-dependent and was not compared across different trees. The inverse transform of the quotient support indicator gives absolute numerator sum 164610 and normalization 8192: the full kernel vanishes off the cut annihilator, with the same absolute sum 82305/4096 after normalization. A real or complex projection conjugated by translations continues to map into, and act identically on, the range; averaging is contractive and gives the unique diagonal projection. Its endpoint norms are exactly the kernel's absolute sum. Singleton multipliers equal 64 minus twice edge occupancy. All eight 32-occupancy edges were identified, specifically the two inward incident edges at each of the four cells (±3/2,±3/2).",
+      "residual_risks": [
+        "Finite exact enumeration for order three only; no all-order claim or formal verification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-family prior result gives gcd 2^n across independent edge signings, while Barkley–Liu p. 41 gives a divisibility bound on ordinary counts."
+        ],
+        "reasoning": "The signed gcd forces multiples of eight at order three but specifies neither their frequencies nor the Walsh norm of the support indicator; even attainment of eight does not determine either invariant.",
+        "searches": [
+          "Resultary: SCOPE-sharp-walsh-divisibility-for-aztec-diamond-domino-tilings--c4f40564fd16",
+          "arXiv:1911.08102"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary index and the two exact mirror passages above",
+        "Elkies–Kuperberg–Larsen–Propp; Chhita–Young; Barkley–Liu primary passages",
+        "Frozen RESULT.md, Relationship to prior work"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Elkies–Kuperberg–Larsen–Propp count 2^(n(n+1)/2) tilings and refine by other statistics; the earlier indexed records establish a square-grid exact calculation and Aztec divisibility respectively."
+        ],
+        "reasoning": "The unsigned count fixes the multiplier at zero and the second spectral moment; it does not force nullity, the signed histogram or exact endpoint norm. The shared singleton phenomenon is prior precedent, not same-graph coverage.",
+        "searches": [
+          "arXiv:math/9201305",
+          "Resultary: SCOPE-exact-walsh-cancellation-and-sharp-range-projection-norm-for-the--b335d715a888",
+          "Resultary: SCOPE-sharp-walsh-divisibility-for-aztec-diamond-domino-tilings--c4f40564fd16"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The independent-sign multipliers are evaluations of the multivariate matching polynomial, equivalently a fixed Kasteleyn determinant. Chhita–Young p. 8 uses periodic or specialized edge weights; it does not evaluate the signed distribution for all independent edge signs."
+        ],
+        "reasoning": "An evaluation formula for each signing is a method for computing the distribution, not an evaluated histogram or an evaluated absolute sum for the support kernel.",
+        "searches": [
+          "Resultary semantic search on Aztec diamond independent-edge Walsh spectrum and range projection",
+          "arXiv:1302.0615"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching frozen record is the identical record, not another result. The earlier square-grid computation gives norm 1849/256 and eight singleton zeros (18 of 36 tilings per edge), for a 24-edge 4×4 grid, not the 36-edge Aztec graph. No verified prior table for the latter was located."
+        ],
+        "reasoning": "The square-grid census does not transfer to the diamond; object, matching set, frequency dimension and exact norm differ.",
+        "searches": [
+          "Resultary semantic search for an order-three Aztec signed spectrum, singleton cancellations and projection norm",
+          "Primary literature search on signed Aztec matching counts and spectrum"
+        ]
+      },
+      "rationale": "The full independent-edge signed spectrum and exact endpoint projection constant on this graph are supported as distinct to the best of current knowledge. The tiling count, Kasteleyn encoding, general averaging method, Aztec divisibility and the analogous corner cancellation for another graph are not claimed as new.",
+      "residual_risks": [
+        "A bounded priority search cannot exclude a separately tabulated but unindexed order-three distribution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same methodology and motif; different graph",
+          "evidence": "36 matchings on 24 edges, singleton zeros at eight corner edges, projection norm 1849/256.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-exact-walsh-cancellation-and-sharp-range-projection-norm-for-the--b335d715a888/RESULT.md",
+          "material_read": "RESULT.md offsets 0–3566, statement and comparison",
+          "method": "Local Resultary mirror, bounded passage inspection",
+          "title": "Exact Walsh cancellation and sharp range-projection norm for the 4×4 domino square",
+          "trigger": "Strongest indexed exact projection and corner-cancellation overlap"
+        },
+        {
+          "assessment": "Covers divisibility, not the exact distribution or projection",
+          "evidence": "Across independently signed edges the all-order gcd is 2^n.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-sharp-walsh-divisibility-for-aztec-diamond-domino-tilings--c4f40564fd16/RESULT.md",
+          "material_read": "RESULT.md offsets 0–3775, gcd and sharpness statement",
+          "method": "Local Resultary mirror, bounded passage inspection",
+          "title": "Sharp Walsh divisibility for Aztec-diamond domino tilings",
+          "trigger": "Broader same-family signed theorem"
+        },
+        {
+          "assessment": "Tilings counted, not the independent-sign census",
+          "evidence": "Order n has 2^(n(n+1)/2) tilings; refinements concern tiling statistics.",
+          "identifier_or_url": "arXiv:math/9201305",
+          "material_read": "Page 1, around text offset 2745",
+          "method": "OA primary text",
+          "title": "Alternating Sign Matrices and Domino Tilings",
+          "trigger": "Classical same-family enumeration"
+        },
+        {
+          "assessment": "Specialized weights do not cover an independently signed spectrum",
+          "evidence": "Periodic/weighted Aztec models and Kasteleyn representation.",
+          "identifier_or_url": "arXiv:1302.0615",
+          "material_read": "Page 8, around text offset 21817",
+          "method": "OA primary text",
+          "title": "Coupling Functions for Domino Tilings of Aztec Diamonds",
+          "trigger": "Weighted Kasteleyn formulation"
+        },
+        {
+          "assessment": "Ordinary matching-count divisibility, not a signed histogram",
+          "evidence": "Channel argument yields an Aztec-diamond 2^n divisor.",
+          "identifier_or_url": "arXiv:1911.08102",
+          "material_read": "Page 41, around text offset 95743",
+          "method": "OA primary text",
+          "title": "Channels, Billiards, and Perfect Matching 2-Divisibility",
+          "trigger": "Potential general divisibility implication"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding; independent quotient spectrum and projection calculation; same-family and square-grid comparison sources"
+      ],
+      "rationale": "The Aztec diamond is a standard planar matching family and independent signs on all its edges are a natural perturbation, not a selected list of test signings. The full low-order spectrum supplies exact cancellation and stable-recovery data unavailable from the tiling count or divisibility, and the evaluated minimal endpoint norm quantifies the cost of extracting the recoverable subspace. It is an exact benchmark for comparing matching families and future higher-order calculations. The norm is for a projection, not for inverse convolution.",
+      "residual_risks": [
+        "Value is as an exact finite benchmark, not a new general projection theorem or a scaling law."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

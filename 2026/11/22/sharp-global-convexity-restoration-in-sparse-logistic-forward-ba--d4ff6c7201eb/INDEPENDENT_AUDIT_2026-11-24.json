@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:27:02.388275Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With p=sigmoid(x), a=p(1-p), b=a(1-2p), set y=x-gamma*(p-q). The central Moreau branch is f-x*f'+x^2/(2*gamma), with curvature 1/gamma-a-x*b; x*b<=0. On each active branch of sign s, the envelope is f+s*lambda*x-gamma*(p-q+s*lambda)^2/2, with curvature a*[1-gamma*(a+(1-2p)*(p-q+s*lambda))]. For gamma<=4 the map y is increasing and reflection reduces to q<=1/2. The positive active branch then lies in x>0 and has nonnegative curvature. On the negative active branch, r=q+lambda; for r>=1/2 the branch lies in x<0 where the curvature factor uses D_r<=1/4. For r<1/2, D_r=-3p^2+2(1+r)p-r peaks at p0=(1+r)/3 between r and 1/2. The resulting x0 is negative and y(x0)<-gamma*lambda for every gamma>0, so the same point proves necessity above the predicted cutoff. If r>=1/2 and gamma>4, curvature is negative in the central branch near zero; in the boundary case r=1/2, one side is central and both limiting branch curvatures are negative. At the cutoff the derivative matches at branch transitions, so isolated vanishing curvature does not obstruct convexity. The exact range in the open parameter domain is (3,4], with 3 an unattained infimum. For gamma<4 the factor 1-gamma*a in the residual gradient is positive, so stationarity is exactly the composite subgradient condition; strict convexity and coercivity of the composite and coercivity of the envelope give the stated unique minimizers. The separable scaling is gamma_i=gamma*w_i and lambda_i^eff=lambda_i/w_i. The symbolic and grid checks in the uploaded script were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Patrinos et al. cover stationary-point and minimizer equivalence for gamma<1/L_f, which here is gamma<4, and address convexity for quadratic smooth terms.",
+          "Zhang et al. provide sufficient general FBE bounds and regularized-logistic applications; Giselsson–Fält give an envelope convexity condition in an affine-operator setting."
+        ],
+        "reasoning": "General exactness covers the frozen exactness conclusion once the scalar subgradient is solved. The inspected convexity hypotheses or bounds do not imply the sharp nonlinear logistic cutoff or its converse.",
+        "searches": [
+          "Patrinos–Stella–Bemporad open 4254.pdf, Definition 2.1 and Theorems 2.2–2.3",
+          "arXiv:2609.10732 §4.1.1 and §5.1",
+          "DOI 10.1007/s10957-018-1328-z, Proposition 3.3 and Theorem 3.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2fee720f095b and d4ff6c7201eb",
+        "arXiv:2609.10732",
+        "Patrinos–Stella–Bemporad open PDF 4254",
+        "DOI 10.1007/s10957-018-1328-z"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At q=lambda=0.1 and gamma=3.5 the cutoff rises from 300/91 to 25/7, so the same gamma changes geometry. A theorem keeping minimizers fixed does not constrain that change, and the unregularized formula only controls the shifted active branch, not the full regularized envelope."
+        ],
+        "reasoning": "The restoration and phase boundary follow from the new active-region geometry and necessity check. Coordinate scaling is an immediate corollary of that criterion and is not a separate novelty claim.",
+        "searches": [
+          "Patrinos–Stella–Bemporad, Theorem 2.2",
+          "Resultary 2fee720f095b",
+          "arXiv:2609.10732, Theorem 4.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-day Bernoulli record assumes g=0 and gives exactly 3/(1-q+q^2), obtained by setting lambda=0 in the present formula. Its statement does not extend to positive penalty.",
+          "Each active penalized branch equals a smooth unpenalized envelope with shifted label q-s*lambda there, but the two labels differ and neither describes the central branch."
+        ],
+        "reasoning": "A branchwise identity is not an equivalence of convexity problems on the full real line. One must control the central and opposite branches and place the sharp negative-curvature witness in the relevant active region; the same-day record does not supply these implications.",
+        "searches": [
+          "Resultary sharp Bernoulli logistic forward–backward envelope: 2fee720f095b",
+          "arXiv:2609.10732 Theorem 4.6 and Example 4.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct same-day hit gives only the unregularized threshold, strict convexity at that boundary and the unregularized exact-minimizer regime; the positive-penalty exact hit is the original record. The indexed exact-phrase search yielded no on-point primary source."
+        ],
+        "reasoning": "No independent positive-penalty exact entry was found. Neither a same-day date nor a failed search establishes publication order or historical priority.",
+        "searches": [
+          "Resultary logistic sharp convexity frontier d4ff6c7201eb and 2fee720f095b",
+          "Indexed exact unregularized logistic threshold search"
+        ]
+      },
+      "rationale": "Best of current knowledge: the strictly positive-penalty scalar all-stepsize criterion and the resulting convexity-restoration window are distinct. The general minimizer/stationary-point equivalence below 4 is already covered, and neither that equivalence nor the zero-penalty frontier or routine separable scaling is counted as an independent new result.",
+      "residual_risks": [
+        "The cited Bonettini–Prato–Rebegoldi paper was not available in full text through the attempted access paths.",
+        "The same-day unregularized result establishes exact partial overlap but not priority order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap at lambda=0 only",
+          "evidence": "Assumes g=0; sharp 3/(1-q+q^2), strict convexity at the boundary, and unique minimizer for gamma<4; explicitly not regularized.",
+          "identifier_or_url": "Resultary 2fee720f095b",
+          "material_read": "RESULT.md offsets 0–4762 and 4762–6771",
+          "method": "Local mirrored exact record",
+          "title": "Sharp convexity and exact-minimizer phase boundary for the Bernoulli logistic envelope",
+          "trigger": "Distinct same-day exact threshold match"
+        },
+        {
+          "assessment": "Applications and sufficient bounds, not the exact positive-penalty scalar frontier",
+          "evidence": "General theorem with stated hypotheses; regularized-logistic example and benchmark using gamma=0.9/L.",
+          "identifier_or_url": "arXiv:2609.10732",
+          "material_read": "§4.1.1, Example 4.4 and Theorem 4.6, p. 10, offsets 41600 and 43776; §5.1, p. 21, offset 86841",
+          "method": "Primary OA PDF passages",
+          "title": "Operator Splitting Methods with Online Scaling",
+          "trigger": "General FBE convexity bounds including sparse logistic regression"
+        },
+        {
+          "assessment": "Covers general exactness, not the sharp convexity cutoff",
+          "evidence": "Stationarity and minimizers agree for gamma<1/L_f. Convexity result for quadratic smooth parts; sparse logistic as an algorithmic example.",
+          "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2014/02/4254.pdf",
+          "material_read": "Definition 2.1, Theorems 2.2–2.3 and §6.4, offsets 10374, 14500, 87693",
+          "method": "Authors' open PDF primary passages",
+          "title": "Forward–backward truncated Newton methods for convex composite optimization",
+          "trigger": "Original envelope theory and sparse logistic application"
+        },
+        {
+          "assessment": "Different affine-operator assumptions",
+          "evidence": "Envelope convexity when P is positive semidefinite in the affine S_1 setting; not the nonlinear logistic curvature frontier.",
+          "identifier_or_url": "https://doi.org/10.1007/s10957-018-1328-z",
+          "material_read": "Assumption 3.2, Proposition 3.3 and Theorem 3.1, printed pp. 679–680, offsets 15342 and 16103",
+          "method": "Springer OA PDF passages",
+          "title": "Envelope Functions: Unifications and Further Properties",
+          "trigger": "Possible broader convex envelope theory"
+        },
+        {
+          "assessment": "Not adjudicated by full text",
+          "evidence": "No coverage inference drawn from the access failure.",
+          "identifier_or_url": "https://doi.org/10.1137/19M1254155",
+          "material_read": "No full-text passage available",
+          "method": "OA DOI retrieval and SIAM page attempted; returned 403",
+          "title": "Convergence of Inexact Forward–Backward Algorithms Using the Forward–Backward Envelope",
+          "trigger": "Cited general FBE algorithm context"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The cutoff quantifies how much sparsity can enlarge a global convex stepsize interval for an established merit function, separately from the known minimizer-exactness interval. Depending on lambda, the cutoff rises to 4, and the exact witness exhibits a genuine change from nonconvex to convex at fixed gamma. Accounting for all proximal regions and curvature witnesses makes this more than a mere reparameterization. The usable scope is scalar and diagonal/separable, not coupled regression or an algorithmic convergence guarantee.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

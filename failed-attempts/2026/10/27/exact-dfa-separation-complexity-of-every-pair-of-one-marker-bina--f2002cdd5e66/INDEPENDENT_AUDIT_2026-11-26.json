@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:47:41.113107Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let f and g be the zero and one maps and r=n−1−j. The final states are f^(r+d)g(f^i(q)) and f^r g(f^(i+d)(q)). A zero-cycle of length p(d) with marker reset separates; a chain through the earlier marker position with two fixed terminals uses i+3 states; a suffix-counting saturated chain after a reset uses r+2. Conversely, a k below all three terms has L_k|d, i≥k−2 and r≥k−1. If the start's zero-orbit has entered any cycle after i steps, both marker positions coincide as states, and f^r=f^(r+d) everywhere. Otherwise its transient has exactly k−1 states, consuming the whole state space except for a single fixed point. Then both final zero maps are constant. This also excludes a one-state separator. For fixed d, balancing the prefix and suffix budgets yields floor((n−d+4)/2), including the endpoint n−d=1. To require at least k≥3 states the smallest eligible gap is L_(k−1), with n−d≥2k−4; the listed thresholds follow. Inverting the increasing thresholds using log L_m∼m proves the natural-log asymptotic. The frozen checker and verification notes were inspected, not executed. Their recorded exhaustive small-budget checks are finite only; the argument handles all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The EJC result gives exact universal transformation identities and general necessary prefix and suffix tests. Demaine–Eisenstat–Shallit–Wilson give the same boundary budgets for arbitrary words, and a padded LCM lower bound for a different two-block family. Nicol's cyclic-shift theorem concerns worst-case tradeoffs for general rotated words."
+        ],
+        "reasoning": "The general cyclic-shift bounds and the Demaine bounds alone would not decide all indexed instances. The full transformation semigroup result is stronger evidence because its identities can be multiplied by arbitrary contexts and composed to decide these exact pairs.",
+        "searches": [
+          "EJC 24(3) #P3.35, (1), Fact 3 and Proposition 4",
+          "arXiv:1103.4513, Theorem 1 and Propositions 4–5",
+          "arXiv:2608.30928, Theorem 2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and one_marker_separation_checker.py",
+        "EJC 24(3) #P3.35",
+        "arXiv:1103.4513, arXiv:2608.30928 and arXiv:1605.04835 (definition and introductory scope)",
+        "Resultary entries 3b97e714d02d, deadb20253e7 and 539b7b3c53df"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Identity (1) is X^(k−1)≡_k X^(k−1+L_k); Proposition 4 gives X^(k−2)Y X^(k−1)≡_k X^(k−2+L_k)Y X^(k−1). Fact 3 requires a shared prefix of length k−2 and suffix of length k−1."
+        ],
+        "reasoning": "For k≥2, Fact 3 gives necessity of i≥k−2 and r≥k−1. Resetting the marker on an m-cycle for each 2≤m≤k gives necessity of L_k|d. Conversely if those conditions hold, write d=hL_k. Identity (1) with a left context removes h copies of L_k from the suffix of the first word, giving X^iY X^r. Apply Proposition 4 with outer contexts X^(i−k+2) (and additional copies of X^L_k at successive steps) and X^(r−k+1) to insert h copies of L_k in the prefix, reaching the second word. Thus sep>k holds exactly under the three stated conditions. Taking the first budget for which a condition fails is precisely the frozen minimum; minimizing the witness length gives the stated thresholds immediately. Crucially the older paper already proves the nonuniform identity with the same exceptional single-chain case.",
+        "searches": [
+          "EJC 24(3) #P3.35, identity (1) p. 3, Fact 3 p. 4, Proposition 4 p. 5, PDF offsets 4700–15094"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fact 1 states that sep(u,v)>k is exactly the word identity u≡_k v in the full transformation semigroup T_k. Failure of the identity gives a start state and a choice of final states separating the words."
+        ],
+        "reasoning": "The invariant is equivalently an exact identity criterion for X^i Y X^(r+d) and X^(i+d) Y X^r. No loss or change of automaton model occurs under this equivalence.",
+        "searches": [
+          "Full transformation semigroup identities for one occurrence of a letter, word separation and LCM tails",
+          "Lower Bounds on Words Separation: Are There Short Identities in Transformation Semigroups?, Fact 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two permutation records use bijective transitions and two-block conjugate pairs. In the single-one endpoint subcase their minimization still excludes the nonbijective reset and chain constructions. The exact two-step-rotation record concerns the restricted shift by two, not unrestricted marker gaps."
+        ],
+        "reasoning": "No all-gap unrestricted table is asserted from the ranked matches. The rejection instead rests on exact implication from the inspected full transformation semigroup identities.",
+        "searches": [
+          "Resultary: exact one-marker DFA separation, least nondivisors, cyclic rotations and two-block conjugates; IDs 3b97e714d02d, deadb20253e7 and 539b7b3c53df"
+        ]
+      },
+      "rationale": "The exact statement is mechanically implied by already published identities and necessary conditions for the full transformation semigroup. Most decisively, Electronic Journal of Combinatorics 24(3) (2017), #P3.35, Proposition 4 gives the same sharp maximal-transient identity and proof in a nonuniform-length pair. Composing it with the explicit unary identity and applying Fact 3 recovers the entire equal-length one-marker classification, not just the logarithmic order or padded examples.",
+      "residual_risks": [
+        "The 1986 Goralčík–Koubek full text was not retrieved; earlier explicit indexed coverage remains possible. The demonstrated implication from the 2017 primary source does not depend on this unavailable text.",
+        "No exhaustive exact-table or historical-priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive mathematical implication for the full frozen claim",
+          "evidence": "Proposition 4 gives the exact one-marker nonuniform identity at prefix k−2 and suffix k−1; its proof uses the dichotomy between being on a cycle and having a length-(k−1) chain. Fact 3 and identity (1) supply the boundaries and suffix shift used to prove the implication.",
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v24i3p35/pdf/",
+          "material_read": "EJC 24(3) (2017) #P3.35, Fact 1 p. 2, unary identity (1) p. 3, Fact 3 p. 4 and Proposition 4 with proof p. 5; offsets 4700–15094",
+          "method": "Lawful OA primary PDF, locate and bounded passage reading",
+          "title": "Lower Bounds on Words Separation: Are There Short Identities in Transformation Semigroups?",
+          "trigger": "Exact reformulation of one-marker separation as a two-variable transformation identity"
+        },
+        {
+          "assessment": "Related upper-bound mechanisms and LCM lower-bound argument, not an exact one-marker theorem",
+          "evidence": "Theorem 1 compares 0^(k−1)1^(k−1+L_k) with 0^(k−1+L_k)1^(k−1), a two-block pair of unequal letter counts, not a pair with one marker each. Propositions 4 and 5 give d+2 and d+1 states for a distinguishing position d from the start or end, respectively, in their indexing.",
+          "identifier_or_url": "https://arxiv.org/pdf/1103.4513",
+          "material_read": "Theorem 1, p. 4 offset 8100; Propositions 4–5, pp. 5–6 offset 9730 onward",
+          "method": "Lawful OA primary PDF, exact passage reading",
+          "title": "Remarks on Separating Words",
+          "trigger": "Known LCM padding and explicit prefix and suffix state budgets"
+        },
+        {
+          "assessment": "Relevant general shift bounds, not the precise indexed pairwise identity",
+          "evidence": "The theorem bounds R(n,k), the worst-case separation over rotations by a prescribed shift, in terms of gcd and shift sizes; it is not a formula in the two boundary paddings.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.30928",
+          "material_read": "§3, p. 2, definitions and located Theorem 2 statement at offset 13650",
+          "method": "Lawful OA primary PDF, bounded passage and location context",
+          "title": "Further Remarks on Separating Words",
+          "trigger": "A one-marker pair is a cyclic rotation pair"
+        },
+        {
+          "assessment": "Permutation-only minimization has different hypotheses",
+          "evidence": "The opening statements require permutation letter maps and two-block swapped pairs; they do not assert the same unrestricted invariant.",
+          "identifier_or_url": "Resultary 3b97e714d02d and deadb20253e7",
+          "material_read": "Opening statements, with longer extract unavailable",
+          "method": "Local Resultary mirror",
+          "title": "Prime-power state spectrum for separating two-block reversals; prime-power separation spectrum for two-block conjugates",
+          "trigger": "Exact indexed least-nondivisor matches in a variant automaton model"
+        },
+        {
+          "assessment": "Narrower fixed-shift question; not a full-text exclusion",
+          "evidence": "Its identified target is the three-state boundary for two-place rotations, not arbitrary marker gaps and all budgets.",
+          "identifier_or_url": "Resultary 539b7b3c53df",
+          "material_read": "Indexed scope statement",
+          "method": "Resultary search",
+          "title": "Sharp three-state separation and an exact census for two-step binary rotations",
+          "trigger": "Fixed-shift intersection with one-marker pairs"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The minimum state count is a natural and useful invariant. But every term, including the one-state gain at the sharp prefix boundary, follows by elementary composition of explicit older identities and boundary tests. The optimized length thresholds and asymptotic then follow by balancing the same two inequalities. There is no remaining independent structural contribution in the frozen claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

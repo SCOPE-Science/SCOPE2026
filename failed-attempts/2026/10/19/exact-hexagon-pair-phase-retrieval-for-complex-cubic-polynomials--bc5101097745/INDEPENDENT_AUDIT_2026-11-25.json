@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:02:07.810756Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Use the conjugate of the polynomial coefficient vector in the Hermitian lift v(z)*Hv(z). The six-point DFT separates modes 0, ±1 and ±2 and combines ±3 into one real Nyquist equation per ring. When sin(3(ψ−φ))≠0 the two Nyquist equations kill h03. At distinct a=r² and b=s² the second-superdiagonal linear coefficient polynomial vanishes identically; the first-superdiagonal quadratic is c(t−a)(t−b), and the diagonal cubic is (t−a)(t−b)(u+vt). This characterizes the entire kernel and gives real dimension four. If c≠0 the three adjacent entries are nonzero and the tridiagonal recurrence shows nullity at most one. If c=0, a nonzero diagonal polynomial cannot have at most two monomials and two distinct positive roots. Hence no nonzero difference of two rank-one lifts can lie in the kernel. For equal radii, 1 and (z/r)^3 have equal sampled moduli; for angular resonance e^(−3iφ)z³ is real at every node and 1±i e^(−3iφ)z³ are an ambiguity. These witnesses are inequivalent, and the lift covers zero and lower degrees. VERIFY.py was read, not run: its rank and generator checks are finite floating-point tests, and the random-signal conditional comparison is not a universal collision check.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed theorem applies to every degree and includes both failure surfaces. Huang gives the unrestricted eleven-measurement minimum in C^4. Pohl–Li–Boche give a 2d+1 and 2d−1 split on two circles."
+        ],
+        "reasoning": "The all-degree theorem strictly contains the frozen family. A global minimum does not prescribe the geometry of the twelve vectors; the earlier unbalanced circle allocation is not the six-plus-six design.",
+        "searches": [
+          "Resultary 0026bf390afd Finding, d≥1 and arbitrary positive radii",
+          "arXiv:2607.27719 Theorem 1.2/Corollary 1.3",
+          "Pohl–Li–Boche SampTA slides 18–19"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0026bf390afd, 12ae1d0f43de, 084df1c756b5, 0abfc08196ce, da0758db93a1, c47681d1b8e5 and 59f817ea151b",
+        "arXiv:2607.27719",
+        "Pohl–Li–Boche author slides via TUM; DOI 10.1109/SAMPTA.2017.8024411 (article access attempted)",
+        "arXiv:1302.5487",
+        "arXiv:1403.4769"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Fourier demixing in the broader result separates modes −d<k<d and solves the two real equations for the shared highest-mode coefficient. Those linear equations apply to arbitrary Hermitian lifts as well as differences of polynomial intensities. The Philipp theorem uses polynomial and derivative magnitudes."
+        ],
+        "reasoning": "At d=3 each lower harmonic divided by its radius power must vanish at the two squared radii. Degree one then vanishes, degree two has one complex free multiplier and degree three on the real diagonal has two real free coefficients, yielding exactly the displayed kernel by factorization. Injectivity already rules out indefinite rank-two lifts, and a nonzero semidefinite lift cannot vanish on the spanning evaluation vectors. Thus the rank exclusion follows without a new theorem. Derivative measurements do not imply this geometry.",
+        "searches": [
+          "0026bf390afd RESULT.md Step 1, offset 2020; Finding on full intensity recovery",
+          "12ae1d0f43de proof offset 3200",
+          "arXiv:1403.4769 Theorem 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "0026bf390afd uses labeled samples on two regular 2d-gons and the exact sin(d(ψ−φ)) condition. 12ae1d0f43de also recovers the full circle intensity profiles with the same Nyquist criterion over its distinct-radius range. The scholarly Bodmann–Hammen construction uses intersecting circles."
+        ],
+        "reasoning": "Balanced concentric d=3 sampling is literally two regular hexagons. Two intersecting circles are a different design; it is the indexed balanced-polygon theorem that gives equivalence.",
+        "searches": [
+          "Resultary 0026bf390afd, Finding and proof Step 1",
+          "Resultary 12ae1d0f43de, Finding and proof",
+          "arXiv:1302.5487 §2.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first two distinct records on 2026/10/18 give the exact criterion (the first without a radius restriction). The later 084df1c756b5 proves a four-dimensional rank-at-least-three Hermitian kernel for three square orbits, not two hexagons."
+        ],
+        "reasoning": "The exact criterion is confirmed from the publications' statements, not a title match. The square-orbit kernel is only a separate analogue; matching a dimension does not identify a kernel.",
+        "searches": [
+          "Resultary 0026bf390afd, 12ae1d0f43de and 084df1c756b5 RESULTS; balanced phase retrieval two polygons and Hermitian kernel"
+        ]
+      },
+      "rationale": "A distinct indexed all-degree theorem states the same all-signals if-and-only-if for the same two labeled regular 2d-gons, with arbitrary positive radii. Substituting d=3 gives the frozen criterion. Its angular demixing also supplies the full linear Fourier constraints; the particular four-parameter kernel, while not explicitly located as a statement in that theorem, is their direct cubic radial interpolation. This establishes existing coverage, not authorship or provenance. No independently substantive remainder is proposed.",
+      "residual_risks": [
+        "The exact published 2017 Pohl–Li–Boche article text was not retrieved; its author slides were inspected. Other unindexed formulations are possible. Neither limitation is the basis of the FAIL, and the catalogue dates alone do not decide provenance or priority between the compared records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the frozen criterion and gives the linear constraints implying the kernel description",
+          "evidence": [
+            "Any d≥1, arbitrary positive radii, two labeled regular 2d-gons, iff radii differ and sin(d(ψ−φ))≠0; DFT and highest-mode real system explicitly given."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-complete-two-polygon-phase-retrieval-criterion-for-polynomials-o--0026bf390afd/RESULT.md",
+          "material_read": "Finding, scope and proof Step 1 (offset 2020)",
+          "method": "Read indexed record text and the decisive Fourier equations",
+          "title": "Complete two-polygon phase-retrieval criterion for polynomials of every degree",
+          "trigger": "Exact all-degree generalization"
+        },
+        {
+          "assessment": "Exact angular overlap on its stated distinct-radius range",
+          "evidence": [
+            "2d points per ring; sin(d(θ₂−θ₁)) criterion; optimal conditioning of the Nyquist subsystem."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-angular-criterion-for-balanced-two-circle-phaseless-polyno--12ae1d0f43de",
+          "material_read": "RESULT.md Finding and proof around offset 3200",
+          "method": "Read indexed record passages",
+          "title": "Sharp angular criterion for balanced two-circle phaseless polynomial sampling",
+          "trigger": "Exact angular condition with full-profile reconstruction"
+        },
+        {
+          "assessment": "Kernel analogue, different sampling nodes",
+          "evidence": [
+            "Three square orbits at radii 1, √2 and √3."
+          ],
+          "identifier_or_url": "Resultary 2026/11/8, 084df1c756b5",
+          "material_read": "RESULT.md Finding and proof around offset 3300",
+          "method": "Read indexed record passages",
+          "title": "Twelve symmetric phaseless samples determine every complex cubic polynomial",
+          "trigger": "Explicit four-dimensional Hermitian kernel for twelve cubic measurements"
+        },
+        {
+          "assessment": "Global count, not a hexagon-pair theorem",
+          "evidence": [
+            "Ten vectors are impossible; eleven is the unrestricted minimum."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.27719",
+          "material_read": "PDF abstract and p. 4 Theorem 1.2/Corollary 1.3, offset 12100",
+          "method": "Read open PDF passages",
+          "title": "Phase Retrieval in C^4 Requires Exactly Eleven Measurements",
+          "trigger": "Sharp unrestricted dimension-four measurement count"
+        },
+        {
+          "assessment": "The inspected author theorem concerns an unbalanced allocation",
+          "evidence": [
+            "2d+1 unit-circle and 2d−1 inner-circle samples; 7+5 at d=3, not two regular hexagons."
+          ],
+          "identifier_or_url": "https://doi.org/10.1109/SAMPTA.2017.8024411",
+          "material_read": "Author SampTA slide deck, slides 18–19, offset 28200; journal/conference text not obtained",
+          "method": "Read the openly accessible TUM author slides; tried the DOI route and an identified alternate article copy",
+          "title": "Phase retrieval in spaces of analytic functions on the unit disk",
+          "trigger": "Earlier two-circle polynomial result"
+        },
+        {
+          "assessment": "Different circle configuration",
+          "evidence": [
+            "2d−1 and 2d−3 samples on intersecting circles for coefficient dimension d."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1302.5487",
+          "material_read": "§2.3 Theorem 2.3 PDF p. 3, offset 9400",
+          "method": "Read open PDF passage",
+          "title": "Stable phase retrieval with low-redundancy frames",
+          "trigger": "Earlier twelve-point polynomial construction for dimension four"
+        },
+        {
+          "assessment": "Different type of measurement",
+          "evidence": [
+            "Polynomial magnitudes plus derivative magnitudes on the unit circle, not two rings of polynomial evaluations."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1403.4769",
+          "material_read": "Theorem 1.1 PDF p. 2, offset 3900",
+          "method": "Read open PDF passage",
+          "title": "Phase Retrieval from 4N-4 Measurements",
+          "trigger": "Earlier 4N−4 Fourier-type measurement theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The complete injectivity and degeneracy criterion for a naturally balanced sampling design is useful, and the tridiagonal proof provides a concise algebraic explanation. This does not make the covered special case novel, nor does merely writing out the direct four-parameter kernel warrant a separate repair.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

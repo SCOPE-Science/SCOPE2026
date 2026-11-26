@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-All partial injections decompose into vertex-disjoint directed paths and cycles. Existing cycles cannot change; on the original set any completion corresponds bijectively to a permutation of path labels. A completed cycle has odd vertex length exactly when an odd number of its path labels represent odd-size paths. The count with only odd-size paths is the classical odd-cycle count \(c_a\). Reversible insertion of \(b\) labelled even-size paths into the \(a,a+1,\ldots,a+b-1\) slots proves the full formula and generating function. If no odd-size path exists, one fresh vertex supplies exactly one odd-size component, forcing all paths into a single cycle and giving \(b!\) labelled solutions. The checker exhaustively verifies labelled partial injections through size five and one-point minima through size four. No finite computation is used as a replacement for this argument.
+## correctness
 
-## Originality — PASS within inspected evidence
-Etedadialiabad--Gao (2026), Lemma 3.12, proves existence of a one-generator completion by closing paths individually after adding vertices. It does not state the one-vertex optimality boundary or counts of all labelled completions. Adin--Hegedűs--Roichman (2025), Section 1, gives the classical all-odd-cycle count \(c_a\), accepted as prior. The new theorem uses that established base but counts completions of *arbitrary prescribed partial maps* and identifies a complete parity-profile reduction. Published mathematical finding searches for path-block insertion, parity-profile completions, and odd-order partial-permutation extensions did not reveal an equivalent statement; the closest retrieved records concern different objects. A more obscure cycle-index restatement could cover the result and remains a declared priority risk.
+PASS
 
-## Value — PASS
-The 2026 motivating problem is explicitly about possible extensions of partial permutations. The theorem answers a quantitatively different and naturally specified question: minimum additional universe size and the exact number of optimal completions. It classifies every finite one-generator instance, proves that a single new vertex always suffices when any extension is possible, and identifies a non-obvious compression of all path lengths to their two parity counts. It thereby strengthens an existence-only construction with exact, reproducible fibres and a generating function; it makes no claim about the unresolved multi-generator extension problem.
+A prescribed directed cycle is immutable, so any even one prevents every completion. Otherwise, on the original carrier the only free arrows send path ends bijectively to path starts. A component cycle is admissible exactly when it contains an odd number of odd-size paths, including an unassigned singleton as one such path. If a>=1, delete even-size paths from their cycles to get an odd-cycle permutation of the a labelled odd-size paths. Reinsertion in fixed label order has exactly a,a+1,...,a+b-1 choices and is reversible. The classical EGF C(x)=sqrt((1+x)/(1-x)) gives the stated double factorials; the mixed EGF follows by substituting x/(1-y), or by exponentiating the cycle sum 1/2 times log((1-y+x)/(1-y-x)). For a=b=0 the empty component permutation is unique, including for an empty carrier. For a=0<b, all cycles on the original carrier would be even; a fixed new vertex is the sole odd component and forces one cycle containing every path. Ordering the b paths after that vertex gives exactly b! possibilities. The notes and supplied checker were inspected but not run. Separate bounded enumeration of component permutations with a+b<=7 and fixed-label repair cases b=1..6 corroborates the counts; the bijection proves the theorem.
 
-## Scope and limitations
-Single injective partial self-map, odd-order permutations, labelled ground sets, and first-order extension of the map only. The unrestricted all-odd-cycle count is classical. Exact equivalents in unindexed earlier literature have not been ruled out, and independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of current knowledge for the joint sharp carrier-size and mixed labelled completion classification. The all-odd-cycle counts are explicitly classical. The closest inspected extension result gives existence but not a shared single-vertex optimum or exact mixed multiplicities, and the closest inspected indexed exponent result fixes the carrier and restricts to powers of 3.
+
+## value
+
+PASS
+
+Optimal carrier enlargement is a natural question for the cited extension problem. The result explains when a single new point repairs arbitrarily many even-sized paths, and exactly which component orders and how many labelled completions occur. This provides a usable sharp parity-profile invariant beyond mere existence or recomputing the all-odd baseline.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

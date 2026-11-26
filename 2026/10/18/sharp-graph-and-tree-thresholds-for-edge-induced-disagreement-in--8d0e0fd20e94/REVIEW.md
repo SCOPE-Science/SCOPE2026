@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The precise domain is undirected connected unweighted simple graphs with two fixed leaders, all others harmonic, and one new edge strictly between followers. The grounded Laplacian is positive definite, and the rank-one edge identity follows from Sherman–Morrison. The displayed six- and seven-vertex opinion vectors satisfy their actual local equations and give exact rational positive increases \(\(\frac{43}{36504}\)\) and \(\(\frac{137}{6776}\)\). Two distinct standard-library exact-arithmetic implementations establish all nonincrease comparisons on every connected graph through five vertices and every tree through six vertices, with every pinned-pair choice represented by relabeling. They use different solving algorithms (Gauss–Jordan rational elimination versus integer determinant/Cramer's rule). All stated finite counts agree. The proof is not an inference from numerical samples; it relies on fully exhausted enumerations and explicit witnesses.
+## correctness
 
-## Originality — PASS (self-review)
-The exact sharp six-vertex graph and seven-vertex initial-tree bounds for **interior-only** edge addition and **full-population quadratic variance** were not found in direct queries for harmonic opinions, two opposing zealots, graph-edge insertion, variance and related formulations. Search among published research records returned no statement implying the two cutoff facts. The closest primary literature was inspected: Dandekar et al. define the equivalent full-population pairwise disagreement and study updates on a fixed graph, but not comparative equilibria under graph modification; Mackin–Patterson use the identical opposing-leader equilibrium equations but alter leaders and optimize discrete histogram diversity; Zhou–Zhang insert edges incident to one leader and optimize opinion total; Xu–Zhang's identical-leader white-noise grounded-resistance problem differs both in stochastic model and objective. The 2021 adaptive-link Friedkin–Johnsen study is related but no theorem covering these exact restrictions was established from its available abstract. A full-text access gap for that last plausible paper and the ordinary possibility of overlooked equivalent work remain explicit risks, not evidence of novelty. See structured audit for actual scientific searches, inspections, and implication comparisons.
+PASS
 
-## Value — PASS
-A common qualitative expectation is that an added friendship tends to align opinions; the exact restriction to initially connected graphs and two permanent opposite influences is natural, and global pairwise quadratic disagreement is a published observable. The result separates the graph-edit effect from dynamics on a fixed graph, and finds two **sharp**, distinct structural minima, showing that an initial tree imposes a nontrivial one-vertex delay relative to graphs with cycles. Both minimalities include every unweighted graph/tree and permissible edge at their cutoffs, so the fact is a complete natural finite threshold, not a selected small example or a slight numerical gain. The perturbation identity explains why global variance need not be monotone, while the minimality provides interpretable topology constraints.
+Connectedness makes the follower Dirichlet Laplacian positive definite. The grounds do not move or change their incident edges, so edge insertion is an exact rank-one Laplacian update with the same right-hand side. Applying the full n-vertex centering matrix after extending the update by zero on the pins gives the stated variance change (not an electrical-energy change). Independently reproduced the finite universal lower bounds in branches/29d0165f-3ac8-4e8c-a229-42a7c1c12741/replay_exact.py, with output replay_full.out in that directory, using rational forward elimination and back substitution and connected edge subsets instead of Prüfer words for trees. Pin relabeling is bijective and the connected edge masks and connected (n−1)-edge subsets are exhaustive in the respective ranges. There are 956 connected comparisons through order 5 and 5417 initial-tree comparisons through order 6, all nonincreasing, with the decrease/tie counts agreeing by order. For the two larger witnesses the same exact replay gives changes 43/36504 and 137/6776; each insertion is a genuine follower nonedge. Trees are restricted only before insertion. The supplied scripts were inspected, not executed.
 
-## Closest literature and limitations
-The nearest comparison is Mackin–Patterson's identical equilibrium model, with distinct interventions and functionals. Dandekar–Goel–Lee supply the exact equivalent disagreement observable. The evidence establishes the specified restrictions only: no claim for weighted graphs, arbitrary edge locations, followers-only variance or transient states. Potential unlocated treatments of comparable edge-perturbation problems, including one incompletely accessed adaptive-network paper, are residual literature risks. No independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The variance metric, harmonic equations and rank-one update are known ingredients; the assessed result is the pair of exact minimal graph orders under the fixed two-pin and follower-edge hypotheses. No inspected source states or entails both thresholds in this model, or supplies the individual thresholds as an existing census.
+
+## value
+
+PASS
+
+Settles the first orders at which a natural monotonicity intuition fails, with a separate sharp answer for tree initial conditions. The minimal witnesses distinguish all-vertex opinion variance from energy on the links and give concrete small regression cases for a standard two-boundary model. The cutoff is the first possible counterexample in each class, not an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:32:36.478690Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With N=q^2+q+1, the retained graph must have >=2N-1 edges, whereas at most 2q selected vertices supply <=2q(q+1). At size 2q+1 both shores are nonempty. All selected points are joined through their connecting lines, and dually all selected lines are joined; the two cores are disjoint unless there is a selected point–line incidence. Thus connectivity is exactly domination plus at least one selected incidence. With a selected points the number of lines met is <=1+aq, so b>=q(q+1-a). If a<=q-1 this exceeds 2q+1-a by at least q-2. The boundary q=2,a=1 forces all four selected lines to avoid that point, violating the incidence condition. Duality forces shore sizes (q+1,q) or (q,q+1). For (q+1,q), at most q points are outside the union of selected lines, since all such points are selected and at least one selected point is covered. The union of q lines has <=q^2+1 points, with equality only for a pencil (automatic for q=2); equality is forced here. The uncovered points are the q points on the omitted line other than the center. Choosing these and any one point of the pencil union dominates both shores and supplies a selected incidence. The pencil determines its center and omitted line uniquely. There are N(q+1)(q^2+1) choices per dual type. Precisely the extra-center choices yield q selected incidence edges (not q independent pairs) and cycle rank zero; off-center choices yield one selected incidence and cycle rank q-1. This checks the exact total and refined counts for all existing planes using only incidence axioms. Both frozen census programs were inspected, not run; COUNTS.txt reports 210 (42 tree) and 1040 (104 tree), matching the formulas for q=2 and 3.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Héger–Nagy determine ordinary domination and classify the primal small minimal sets for q>=5. Their non-primal size bound in Theorem 1.5(vi) assumes q>81.",
+          "The weak domination inequality gamma_w<=n/2 quoted by Samodivkin is only gamma_w<=N here; the surface theorem supplies bounds, not the optimizer families."
+        ],
+        "reasoning": "The ordinary-domination theorem covers substantial structure and, for q>81, implies the requisite pencil nucleus as in the implication check below. It does not give that reduction in every order. The all-order weak connectivity constraint forces balance and concurrency without assuming an ordinary minimum nucleus or using the large-order bound.",
+        "searches": [
+          "Héger–Nagy arXiv:1603.02933 Theorems 1.1, 1.5 (i) and (vi)",
+          "arXiv:1310.1610 Theorem G and Theorem 2"
+        ]
+      },
+      "checked_sources": [
+        "Héger–Nagy arXiv:1603.02933",
+        "Goldberg–Rajendraprasad–Mathew arXiv:1405.3436",
+        "Samodivkin arXiv:1310.1610",
+        "Grossman 10.1016/0012-365X(95)00334-S and 10.1007/BF03353013 (abstracts)",
+        "Resultary 62b86adfe63f and 77de8dd1bee5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For q>81 the inspected ordinary-domination theorem leaves only size 2q among inclusion-minimal ordinary dominating subsets of a set of size 2q+1. The classified size-2q sets are a punctured line and punctured pencil with no selected incidence.",
+          "At q=2, one point with the four lines avoiding it is an inclusion-minimal ordinary dominating set of size 5. It has no selected incidence and no ordinary size-4 dominating subset. It illustrates why an all-order argument must use weak connectivity or another condition."
+        ],
+        "reasoning": "In the large-order regime, a weak optimum therefore extends a known ordinary nucleus by one vertex. Weak connectivity forces that vertex to introduce a selected incidence, giving the same two families and counts by elementary counting there. The frozen theorem adds a uniform classification including orders where that ordinary-minimal theorem does not apply. The Grossman abstract does not establish coverage of this uniform result.",
+        "searches": [
+          "arXiv:1603.02933 Theorem 1.5 pp. 3–4",
+          "Resultary 77de8dd1bee5 RESULT.md Finding; search for weakly connected terminology",
+          "Grossman DOI 10.1016/0012-365X(95)00334-S abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The weakly induced spanning graph and the union of the selected closed stars retain exactly the same edges here. Grossman's spanning-star trees restrict this graph further to be acyclic.",
+          "77de8dd1bee5 uses connectivity of the selected induced graph and obtains flag double stars at size 2(q+1)."
+        ],
+        "reasoning": "Induced connectivity, ordinary domination and weak-star connectivity are distinct. The spanning-star-tree property matches just the e_D=q subclass at this cardinality and cannot capture the e_D=1 cyclic optimizers.",
+        "searches": [
+          "Samodivkin arXiv:1310.1610 weakly connected domination definition",
+          "Grossman DOI 10.1016/0012-365X(95)00334-S and 10.1007/BF03353013",
+          "Resultary 77de8dd1bee5 flag rigidity and connected domination"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit 62b86adfe63f is the assigned record itself; the distinct flag result 77de8dd1bee5 counts a different family.",
+          "The exact ordinary minimum in arXiv:1405.3436 is 2q, not the weakly connected parameter."
+        ],
+        "reasoning": "Neither the self-match nor the exact ordinary or induced-connected invariants supply both weak-star counts. The frozen low-order census is internal corroboration, not independent priority evidence.",
+        "searches": [
+          "Resultary 62b86adfe63f and 77de8dd1bee5",
+          "Goldberg–Rajendraprasad–Mathew arXiv:1405.3436, projective-plane ordinary domination"
+        ]
+      },
+      "rationale": "The prior ordinary-domination minima and pencil structures are real overlap, and a stronger small-minimal-domination result recovers the weak classification with an extra incidence argument for q>81. The distinct result supported here is the single weak-connectivity characterization and both exact counts for every finite projective plane, including small orders and without restrictions on coordinatization. The regular edge-count lower bound and the spanning-star-tree concept are not new.",
+      "residual_risks": [
+        "The full Grossman papers and the 1997 Dunbar et al. paper were not independently retrieved on attempted lawful routes. A specialized earlier enumeration, particularly of the tree subclass, remains possible.",
+        "Ordinary-domination results already give a reduction for large q; no absolute priority is asserted for the pencil construction or tree concept."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the ordinary pencil nucleus and gives partial implication at large q, not the all-order weak claim",
+          "evidence": [
+            "Héger and Nagy call a dominating set primal if it contains q concurrent lines or q collinear points. Theorem 1.5(i) gives the size-2q punctured line/pencil construction; part (vi) excludes small non-primal minima for q>81."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1603.02933",
+          "material_read": "Author page; Sec. 1, Theorem 1.1 p. 2 and Definitions 1.3–1.4, Theorem 1.5 and discussion pp. 3–4 (PDF offset 7350 onward)",
+          "method": "Read primary PDF theorem and compare all hypotheses on q and inclusion-minimal ordinary domination",
+          "title": "Dominating sets in projective planes",
+          "trigger": "Strong earlier classifications on the same incidence graphs"
+        },
+        {
+          "assessment": "Exact ordinary, not weakly connected domination",
+          "evidence": [
+            "The ordinary domination number of a projective plane of order q is 2q."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1405.3436",
+          "material_read": "Abstract, p. 1",
+          "method": "Read scoped primary abstract statement, not full-text noncoverage inference",
+          "title": "Domination in Designs",
+          "trigger": "Exact parameter on same planes"
+        },
+        {
+          "assessment": "General and surface bounds rather than this equality or census",
+          "evidence": [
+            "Theorem G quotes the upper bound gamma_w(G)<=n/2; the surface bound depends on order and Euler characteristic."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1310.1610",
+          "material_read": "Definition p. 2, quoted Theorem G p. 3, Theorem 2 p. 5",
+          "method": "Read primary PDF passages and specialize graph order",
+          "title": "Upper bounds for domination related parameters in graphs on surfaces",
+          "trigger": "Potential general weak domination coverage"
+        },
+        {
+          "assessment": "Real overlap with the tree property; extent of incidence-plane specialization unresolved",
+          "evidence": [
+            "The paper studies dominating sets whose closed stars give a spanning tree, not the full cyclic/acyclic census in the material read."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0012-365X(95)00334-S",
+          "material_read": "Bibliographic and abstract evidence only; full text not obtained",
+          "method": "Tried identified lawful access routes; inspected available abstract",
+          "title": "Dominating sets whose closed stars form spanning trees",
+          "trigger": "Equivalent retained-star graph and tree subclass"
+        },
+        {
+          "assessment": "Existence/nonexistence and complexity are known; possible specialized overlap cannot be excluded from abstract",
+          "evidence": [
+            "Abstract describes the existence question in regular graphs and its computational complexity."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/BF03353013",
+          "material_read": "Available abstract, not full text",
+          "method": "Tried identified lawful access routes and compared accessible statement",
+          "title": "Spanning Star Trees in Regular Graphs",
+          "trigger": "Regular incidence graphs and spanning-star-tree existence"
+        },
+        {
+          "assessment": "Induced-connected minima, not weak-star minima",
+          "evidence": [
+            "Induced connected domination has flag double stars at size 2(q+1)."
+          ],
+          "identifier_or_url": "77de8dd1bee5",
+          "material_read": "Local mirrored RESULT.md Finding at offset 0",
+          "method": "Read indexed full-result claim and compare exact connectedness conditions",
+          "title": "Flag rigidity and sharp exchange threshold for connected domination in projective-plane incidence graphs",
+          "trigger": "Closest distinct local incidence-graph classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The all-order geometric rigidity and exact optimizer census settle a natural connectivity-constrained covering problem, without coordinatization or a small-plane exception table. The split into tree and cyclic optimizers explains the retained graph structure, not just its count. The value is in the uniform classification and dichotomy, not the elementary edge lower bound or the already-known ordinary pencil sets.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

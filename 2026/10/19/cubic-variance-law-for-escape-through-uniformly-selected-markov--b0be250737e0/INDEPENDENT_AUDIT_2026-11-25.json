@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:50:26.003833Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed b and a uniformly sampled fixed cylinder, the avoider generating function gives the dominant root equation a*D_w(a)=h, with a=1-lambda_w and D_w(a)=sum_p chi_p b^-p(1-a)^(n-p-1). Near a=0 and up to 2h the derivative is positive for large n, uniformly in w; the equation brackets the first positive a between h/2 and 2h. The corresponding root is a pole, since the autocorrelation numerator is nonzero there, and there is no larger admissible Perron root. Thus Gamma_n/h=1/(1+S_w)+O_b(nh), where S_w=sum_{p>0}chi_p b^-p and E S_w=(n-1)h, proving the absolute-mean claim. For least period q<=n/2, Fine–Wilf gives exactly a_b(q) words and excludes all nonmultiples p<=n-q. For Z=(1+S_w)^-1-1 this gives Z=-b^-q+O_b(b^(q-n)); multiplying the squared-error difference by a_b(q) and summing costs O_b(sqrt(h)). The omitted tail of C_b has the same bound. For q>n/2, |Z|<=S_w=O_b(sqrt(h)), so E[Z^2; q>n/2]/h=O_b(n sqrt(h)). The root-approximation cross term and the centering term cost O_b(n^2 h) after dividing the standardized variance by h. This proves the positive cubic variance constant and stated error. The exact interpretation is domination by short symbolic periods: the all-(b-1) cylinder comes from the left side of the endpoint 1, not a period-one point inside that half-open cylinder. Its symbolic contribution b^-2 to C_b is already counted. The variance scale is an RMS scale, not a typical-hole fluctuation scale.",
+      "reproduction": "An independent checker enumerated all words, detected periods by direct digit comparisons, bisected the dominant autocorrelation root, and took the population variance over the words. It reproduced Var(Gamma_n)/h^3 of 0.812843666 and 0.819618026 for b=2 at n=12,14 and 0.449418289 and 0.453430257 for b=3 at n=7,8. Independent explicit forbidden-word matrices for the complete cases (2,5) and (3,4) agreed with root-derived escape rates to 2.81e-15 and 2.00e-15, respectively. Primitive counts matched direct enumeration for b=2 through p=8 and b=3 through p=6. Replay evidence: /workspace/branches/5db16859-8938-4638-a6ac-60400c4b5021/independent_check.py, small_check.json and large_check.json. The larger sweeps use the equation tested by the small matrix cases. The frozen verify.py was not executed; none of the finite calculations proves the uniform asymptotic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General subshift tools compare escape rates for holes by autocorrelation or minimal period; the average escape inequality uses convexity, not an asymptotic variance formula.",
+          "The strict fixed-base full-shift population and correlation tools allow the needed uniform estimates, but the inspected prior statements do not supply them at the second-moment scale."
+        ],
+        "reasoning": "An implicit algorithm for each hole or a Jensen-type average bound is not an encompassing second-moment theorem.",
+        "searches": [
+          "arXiv:1905.11767v5 introduction and cylinder-hole correlation comparisons",
+          "arXiv:2008.05405 section 1 on average escape",
+          "arXiv:1207.7000v2 section III.3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py as text",
+        "arXiv:1207.7000v2",
+        "arXiv:2008.05405",
+        "arXiv:1905.11767v5",
+        "Resultary bounded semantic comparisons and nearest record IDs listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known fixed-period binary deficits and counts suggest the summands of the claimed coefficient but give no limit interchange at the required variance scale; the inspected mean passage itself does not rigorously control its remainders.",
+          "The decisive new comparison controls the all-word root error and the tail of the least-period distribution after squaring, then bounds the centering term."
+        ],
+        "reasoning": "Pointwise expansions and an ensemble first moment do not imply the uniform tail estimate for a second moment. Credit the pointwise mechanism without attributing the variance conclusion to it alone.",
+        "searches": [
+          "arXiv:1207.7000v2 short-period equation (21), primitive count (23), and mean passage (28)",
+          "arXiv:2008.05405 average-escape discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same binary sample space has known per-hole short-period deficits and an average gamma expansion; the source distinguishes fixed choice from choosing again at each step.",
+          "The closest returned Resultary results optimize time-dependent schedules between two holes, not the second moment over b^n possible fixed holes."
+        ],
+        "reasoning": "The normalized mean, escape under resampling and the ensemble variance of the logarithmic Perron escape rate are distinct observables. Raw second moments near the mean scale would need centering and remainder estimates to yield this variance.",
+        "searches": [
+          "Resultary ensemble variance and escape-rate second moment over fixed Markov hole placements",
+          "arXiv:1207.7000v2 sections I and III.2–III.3, equations (21), (23), (28)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest indexed hits: 2026/11/1/SCOPE-fair-switching-maximizes-annealed-escape-through-complementary-b--664f1ab42552 and 2026/11/8/SCOPE-optimal-alternating-markov-hole-escape-in-integer-expanding-maps--962cd78c291c; neither concerns the claimed fixed-hole variance.",
+          "Primitive counts are known; the prior averaged escape expansion computes a different statistic."
+        ],
+        "reasoning": "The target is an all-length asymptotic and a specific weighted sum, not novelty for its underlying count sequence or for a table of escape rates. A finite table does not provide the limiting coefficient or rate of convergence.",
+        "searches": [
+          "Resultary exact H^3 variance scaling and primitive-period series for uniform cylinder holes",
+          "arXiv:1207.7000v2 equations (23) and (28)"
+        ]
+      },
+      "rationale": "The exact escape equation, short-period asymptotics, primitive counts and ensemble mean are established tools/results. The distinct supported claim is the second central moment across uniformly sampled fixed cylinders, with explicit nonzero primitive-period constant and a uniform remainder at fixed b. No equivalent coverage of that asymptotic was identified in the inspected material.",
+      "residual_risks": [
+        "An equivalent ensemble-variance derivation, possibly in broader random-hole literature, may not be captured by the bounded searches. No claim of absolute historical priority is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact model and underlying binary tools are prior; no full variance law in those passages",
+          "evidence": "Short-period type-A expansion, Möbius primitive count and a first-moment expansion with a remainder caveat; explicitly distinguishes a fixed hole from resampling.",
+          "identifier_or_url": "https://arxiv.org/html/1207.7000v2",
+          "material_read": "Section I near offset 1878; III.2.3 and III.3 equations (21), (23), (28), near offsets 26600, 30200, 33700",
+          "method": "Lawful OA HTML, targeted full-text passages",
+          "title": "Faster than expected escape for a class of fully chaotic maps",
+          "trigger": "Same binary cylinder-hole ensemble, strong potential second-moment precursor"
+        },
+        {
+          "assessment": "Average/convexity result, not the variance",
+          "evidence": "Averages over partition elements and explains the mean escape inequality by convexity.",
+          "identifier_or_url": "https://arxiv.org/abs/2008.05405",
+          "material_read": "OA text section 1 near offset 5500",
+          "method": "Lawful OA full-text passage",
+          "title": "Why Escape Is Faster Than Expected",
+          "trigger": "Population averaging of escape rates"
+        },
+        {
+          "assessment": "Correlation machinery and period comparisons rather than the ensemble asymptotic",
+          "evidence": "Treats cylinder holes in subshifts of finite type and discusses comparisons by minimal period.",
+          "identifier_or_url": "https://arxiv.org/html/1905.11767v5",
+          "material_read": "Introduction, offsets 2380–5610",
+          "method": "Lawful OA HTML, targeted full-text passage",
+          "title": "Subshifts of Finite Type with a Hole",
+          "trigger": "Plausibly encompassing full-shift correlation theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result distinguishes fixed-placement uncertainty from the already studied mean escape and explains how a population with Gamma_n/h converging to 1 in L1 still has an RMS scale h^(3/2). The explicit nonzero coefficient resolves how much short symbolic periods contribute and the uniform tail estimate rules out a competing contribution from the many typical holes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

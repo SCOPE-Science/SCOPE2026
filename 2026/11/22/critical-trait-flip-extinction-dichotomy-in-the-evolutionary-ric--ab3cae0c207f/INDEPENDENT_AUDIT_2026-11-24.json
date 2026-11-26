@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:22:24.519143Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reassessed the complete repaired claim. Strict positivity and monotone decrease follow from η_n=x_n+βy_n²>0; (exp(η_n)-1)/x_n≥1 gives a trait-independent O(1/n) bound. For 0<s<2, q=1-s contracts; y_n tends to zero and x_{n+1}/x_n tends to one. For each fixed lag, its ratio to x_n tends to one, and the weighted sum is justified by a geometric bound |q| exp(ε)<1 for late x-values and relative exponential decay for the finitely many early terms. The same argument with x_n² and 2ε applies to d_{n+1}=q d_n+x_n-x_{n+1}. It gives y_n/x_n→1 and then d_n/x_n²→1/s. First w_{n+1}-w_n=1+O(x_n) gives w_n=n+O(log n); the next increment is 1+(β+1/2)x_n+O(x_n²), whose difference from 1+(β+1/2)/(n+1) is summable. At s=2 the exact telescoping signed trait identity gives a uniformly convergent alternating tail with remainder at most x_N, so A is continuous in the initial trait. Strict alternating-tail inequalities give opposite signs at traits 0 and 2x_0, proving at least one zero, not uniqueness. For A≠0 one has y_n=(-1)^n A+O(x_n) and limiting geometric ratio exp(-βA²) below one. Consequently x_n and η_n-βA² are absolutely summable, verifying the positive finite exponential prefactor and absolute convergence of the amplitude series. For A=0 the strict tail bound gives 0<y_n<2x_n. The two-step normalized trait identity is correctly inverted by multiplying by x_{n+2} and telescoping with vanishing terminal term. Initially b_n=O(x_n²), yielding p_n=O(1/n); after this bootstrap, η_{n+1}-η_n=-x_n²+O(x_n³) and the quadratic exponential terms contribute another -x_n², so b_n=-2x_n²+O(x_n³). The step-two cubic tail is asymptotic to 1/(4n²), giving np_n→1/2, and the reciprocal clock follows as before. Since x_n∼1/n in that branch, the amplitude series is conditional exactly there, as now stated. CAS cross-check of the two-step and reciprocal coefficients: python3 /workspace/branches/replay_3_5/expansion_checks.py; it checks expansions, not the asymptotic theorem. The archived diagnostic was inspected, not run. The repair's verification notes now distinguish finite diagnostic coverage from the proof and explicitly disclaim uniqueness. The verification JSON front matter is retained verbatim. No assertion is made about biological generality, precision-limited simulations or either side of the allowed parameter domain.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1 in the 2024 paper assumes 0<α<1 and 1<σ²<2. The paper's study on the smaller speed side concerns 0<σ²<1 and still α>0. The 2020 framework paper is cited in its references, but its full text was not retrieved."
+        ],
+        "reasoning": "The simultaneous boundary α=0 and σ²=2 is outside both inspected regimes, and the stable-speed zero-growth estimates are outside the positive-growth hypotheses as well. A family definition alone does not imply the rates or the critical set. The unavailable 2020 paper cannot be counted as negative evidence.",
+        "searches": [
+          "Luís–Ryals Theorem 1 and p. 3 opening scope",
+          "Mokni et al., DOI 10.1080/17513758.2020.1772997"
+        ]
+      },
+      "checked_sources": [
+        "Luís–Ryals 2024, DOI 10.3390/sym16091139, pp. 2–3 and 25",
+        "Resultary ab3cae0c207f, 2e7a51efdb8a, 196d57cbc210 and 52b2f0dd58e8",
+        "Mokni et al. 2020 bibliographic reference and OA attempts only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The sine record is local and assigns exponential convergence to a strong-stable manifold while admitting generic alternating algebraic decay. The Ricker competition record concerns approach to coexistence, and the predator–prey record concerns a restricted local wedge with an alternating power. None has the telescoping signed trait identity that yields a global continuous amplitude in the frozen map."
+        ],
+        "reasoning": "An analogous clock or flip multiplier cannot transfer the arbitrary-initial-trait branch split, zero-amplitude existence or the positive exponential prefactor without equivalence of dynamics; none of the checked formulations supplies that equivalence. A same-day date is not a priority ordering.",
+        "searches": [
+          "2026/11/22 Resultary 2e7a51efdb8a RESULT.md Finding and assumptions",
+          "2026/11/1 Resultary 196d57cbc210 and 2026/11/17 Resultary 52b2f0dd58e8, RESULT.md findings",
+          "Luís–Ryals Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the cited model set α=0, c_0=1, σ²=s, write y=-u/c_1 and β=c_1²/2. This yields precisely the exponential population update and linear trait recurrence of the repair. The alternate notation changes neither the endpoint nor the quantifier over real traits."
+        ],
+        "reasoning": "The model and parameter substitution are known; compare the actual dynamics at this parameter set, not a rename.",
+        "searches": [
+          "Luís–Ryals, DOI 10.3390/sym16091139, p. 2 equation (1)",
+          "Resultary: zero-intrinsic-growth evolutionary Ricker, σ²=2, signed trait amplitude"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit ab3cae0c207f is the assigned finding, not distinct prior evidence. The nearest separate entries concern a three-dimensional sine map, a positive Ricker competition map and a Ricker–Kolmogorov predator–prey system."
+        ],
+        "reasoning": "There is no finite table to certify the infinite-time asymptotics; the exact catalogue check is for a known theorem in equivalent coordinates. The same record and the related but distinct models do not provide one.",
+        "searches": [
+          "Resultary: evolutionary Ricker log clock, critical trait flip, zero-growth and amplitude",
+          "Resultary ab3cae0c207f, 2e7a51efdb8a, 196d57cbc210, 52b2f0dd58e8"
+        ]
+      },
+      "rationale": "Reassessed after the qualifier repair. The coordinates recast the published evolutionary Ricker model, not a new model. The sharp arbitrary-trait branch partition at the simultaneous zero-growth and trait-flip boundary and the distinction between its two rate laws are not covered by the inspected statements. The absolute/conditional distinction follows immediately from those two rates; no independent originality is assigned to that correction or to standard reciprocal and filter arguments.",
+      "residual_risks": [
+        "The 2020 primary text was not available for examining possible boundary examples. An older or unindexed equivalent specialization cannot be excluded. No historical priority or same-day order is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact model after scaling but distinct positive-growth and strictly interior adaptation regime",
+          "evidence": "Equation (1) gives the two updates; Theorem 1 uses 0<α<1 and 1<σ²<2, while p. 3 studies 0<σ²<1 with α positive.",
+          "identifier_or_url": "https://mdpi-res.com/d_attachment/symmetry/symmetry-16-01139/article_deploy/symmetry-16-01139-v2.pdf",
+          "material_read": "pp. 2–3 equation (1), model parameters, Theorem 1 and scope, offsets 6500–14714; bibliography p. 25 from offset 115778",
+          "method": "OA primary PDF passage read",
+          "title": "Invariant Sets, Global Dynamics, and the Neimark–Sacker Bifurcation in the Evolutionary Ricker Model",
+          "trigger": "Primary definition and potentially covering population-trait theorems"
+        },
+        {
+          "assessment": "Same bound record, not an independent antecedent",
+          "evidence": "The same s=2 signed amplitude partition and interior reciprocal clock.",
+          "identifier_or_url": "2026/11/22/SCOPE-critical-trait-flip-extinction-dichotomy-in-the-evolutionary-ric--ab3cae0c207f",
+          "material_read": "RESULT.md Finding, assumptions and branch proof, offsets 0–4465 and 3600–6282",
+          "method": "Local Resultary mirror passage read",
+          "title": "Critical trait-flip extinction dichotomy in the evolutionary Ricker map",
+          "trigger": "Exact catalogue match"
+        },
+        {
+          "assessment": "Analogous but different model, parameter scope and branches",
+          "evidence": "Local neutral-flip algebraic approach and exponential strong-stable branch in a three-coordinate sine system.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-logarithmic-critical-flip-clock-in-a-three-dimensional-sinusoi--2e7a51efdb8a",
+          "material_read": "RESULT.md Finding and assumptions, offset 0–3598",
+          "method": "Local Resultary mirror passage read",
+          "title": "A logarithmic critical flip clock in a three-dimensional sinusoidal map",
+          "trigger": "Closest same-day clock at a flip"
+        },
+        {
+          "assessment": "Competition-to-coexistence dynamics, not a trait-coupled extinction map",
+          "evidence": "Exceptional exponential convergence and a log clock at a positive coexistence equilibrium.",
+          "identifier_or_url": "2026/11/1/SCOPE-global-critical-relaxation-and-a-logarithmic-clock-in-symmetric--196d57cbc210",
+          "material_read": "RESULT.md Finding, offset 0–3505",
+          "method": "Local Resultary mirror passage read",
+          "title": "Global critical relaxation and a logarithmic clock in symmetric Ricker competition",
+          "trigger": "Potential equivalent Ricker asymptotic regime"
+        },
+        {
+          "assessment": "Distinct predator-prey dynamics on a local wedge",
+          "evidence": "Predator 1/n decay and noninteger alternating exponent, not a signed-amplitude partition on all real initial traits.",
+          "identifier_or_url": "2026/11/17/SCOPE-a-double-neutral-extinction-clock-and-noninteger-flip-exponent-i--52b2f0dd58e8",
+          "material_read": "RESULT.md Finding, offset 0–3598",
+          "method": "Local Resultary mirror passage read",
+          "title": "A double-neutral extinction clock and noninteger flip exponent",
+          "trigger": "Potential analogous double-neutral Ricker boundary"
+        },
+        {
+          "assessment": "Coverage unresolved, not negative evidence",
+          "evidence": "Requests returned HTTP 403.",
+          "identifier_or_url": "https://doi.org/10.1080/17513758.2020.1772997",
+          "material_read": "Bibliographic identification through Luís–Ryals p. 25 only; no direct primary passage",
+          "method": "Lawful DOI, publisher text and PDF requests",
+          "title": "Discrete evolutionary population models: A new approach",
+          "trigger": "Earlier evolutionary population framework may contain a boundary case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Reassessed on the surviving corrected theorem. Setting growth exactly to zero makes population decline algebraically when the trait can relax; setting adaptation to the neutral flip potentially leaves a persistent oscillation, producing a genuinely different exponential clock. Proving that both rates occur for every fixed positive initial population and competition coefficient, and obtaining a finite log-renormalized limit or a nonzero exponential prefactor as appropriate, gives more than the linearization or a numerical phase plot. The result does not require or claim uniqueness of the separator.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

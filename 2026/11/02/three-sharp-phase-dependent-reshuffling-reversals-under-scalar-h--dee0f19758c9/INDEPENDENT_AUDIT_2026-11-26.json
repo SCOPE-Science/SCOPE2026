@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:59:30.238854Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The companion polynomial r²-(1+beta-t)r+beta is strictly Schur stable on the stated open interval. In the normalized recursion, independent sampling has innovation g=(t,0); reshuffling has end-of-epoch innovation (Ag-g) times the fresh sign, not two independent innovations. The odd covariance uses A S_E A^T+gg^T and its first diagonal entry equals the second diagonal entry of S_E. For an analytic check, set c=1+beta-t, let u and v be normalized even and odd variances, and let z and w be the corresponding lag-one covariances. Then w=c u-beta z and z=c v-beta w-t², with the last term coming from the sign reversal. Adding and subtracting the resulting two variance equations gives u+v=2t²/D and u-v=-2ct²/((1+beta)G); with independent signs the one-step equation gives t(1+beta)/D. Rescaling by U gives the frozen formulas. The independent symbolic replay at /workspace/branches/d4dcdb01-fed6-445e-9eb6-4b86d281b243/independent_phase_covariance.py returned EXACT_REPLAY_OK for all three variances, both comparison factorizations, the phase average and the rational witness (1/3,3/2,5/3) in E,I,O order. D and G are positive, so the even comparison changes sign only at t0, and the odd comparison changes sign at t_-, t0 and t_+; these are distinct and inside the stable interval for positive beta. In particular, the two opposite-phase comparison intervals are (t_-,t0) and (t0,t_+). The stability endpoints are excluded. The supplied checker was inspected, not executed; the replay is exact algebra, not evidence for cases with other losses or sampling schemes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kühn–Rosenow describe momentum with epoch anti-correlation, but Appendix A defines the studied variance as a time average and explicitly distinguishes fixed-step covariance.",
+          "The closest Resultary heavy-ball record uses stationary AR(1) forcing and optimizes momentum by its correlation sign."
+        ],
+        "reasoning": "Stationary AR(1) forcing does not specialize to the fixed parity-dependent paired signs. The epoch-noise literature supplies a relevant averaged comparison, not the stationary pair with both phases observed separately.",
+        "searches": [
+          "arXiv:2306.05300, Theorem 4.3 and Appendices A and B.2",
+          "SCOPE-sign-reversed-optimal-momentum-and-the-one-ninth-antipersistent--6f3da69dd7fc"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–85 and VERIFICATION.md lines 19–23",
+        "verify_phase.py lines 7–53",
+        "arXiv:2306.05300, Theorem 4.3 and Appendices A and B.2",
+        "Resultary SCOPE-0dcf8057d8e5, SCOPE-f9ad6695f6df, SCOPE-0365743eee2e and SCOPE-6f3da69dd7fc"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The normalized sign process has lag-one covariance -1/2 relative to lag-zero variance only after averaging positions. Pointwise, that covariance is zero at the first step and -1 at the second.",
+          "The frozen phase average Ut²/D loses the term ±Ut²(1+beta-t)/((1+beta)G). The sign of the first-phase comparison depends on precisely that term."
+        ],
+        "reasoning": "The average alone cannot imply the reversals. A phase-resolved covariance calculation with the fresh-sign/paired-sign distinction is needed; the fact that the broader model admits that calculation is not the same as supplying its outcome.",
+        "searches": [
+          "arXiv:2306.05300, Appendix A, PDF pp. 18–19, and Appendix B.2",
+          "Frozen RESULT.md, lines 54–85"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-day scalar ordering record optimizes the distribution of orders and measures epoch-end stationary risk, without positive momentum or an IID comparator.",
+          "The earlier risk-envelope record changes persistence of epoch orders; its 'phase' concerns dependence across epochs, not the within-epoch sampling position."
+        ],
+        "reasoning": "An epoch-end ordering optimization is not the odd/even comparison with replacement for independently shuffled epochs. Neither prior variance observable can be identified with the two phase-resolved comparisons by changing notation.",
+        "searches": [
+          "Resultary: two-sample scalar random reshuffling, stationary phase variance, heavy-ball and IID risk comparison",
+          "SCOPE-sharp-randomized-to-deterministic-ordering-transition-for-two-co--0dcf8057d8e5",
+          "SCOPE-sharp-stationary-risk-envelope-and-order-phase-switches-for-two--0365743eee2e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact two-root frontier compares end-of-epoch risk in a model without momentum.",
+          "The primary variance theorem reports an average and not a table or formula of parity-resolved sign regions."
+        ],
+        "reasoning": "The target is a symbolic continuum classification, not the value at the sampled rational witness. Exact thresholds for a different variance observable or a zero-momentum model do not cover it.",
+        "searches": [
+          "Resultary exact stationary-risk boundaries under two-component reshuffling",
+          "SCOPE-sharp-reentrant-stationary-risk-frontier-for-two-component-rando--f9ad6695f6df",
+          "arXiv:2306.05300, Theorem 4.3"
+        ]
+      },
+      "rationale": "Credit is limited to the positive-momentum, within-epoch stationary pair and its exact comparison thresholds against IID. Phase-averaged heavy-ball variance, related scalar reshuffling reversals at epoch ends, and the general fact that reshuffling is not always better are antecedents, not separate novelty claims. The inspected prior statements do not give or determine the phase-resolved result.",
+      "residual_risks": [
+        "An older phase-resolved treatment of cyclostationary forcing or a stronger exact comparison may exist outside the inspected statements; historical priority is not certified.",
+        "The corrected comparison is scoped to two samples of equal curvature and IID epochs, not arbitrary component losses or all momentum recursions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers a phase-averaged variance framework, not the parity-resolved threshold result",
+          "evidence": "Appendix A defines a long-run average over update positions and explicitly separates fixed-update covariance; the theorem and appendix give the anti-correlation correction for the averaged quantity.",
+          "identifier_or_url": "https://arxiv.org/abs/2306.05300",
+          "material_read": "Theorem 4.3, PDF pp. 10–11 (offset 32446); Appendix A, pp. 18–19 (58606); Appendix B.2, pp. 20–22 (66810 and 74721)",
+          "method": "Targeted lawful OA PDF text",
+          "title": "Anti-Correlated Noise in Epoch-Based Stochastic Gradient Descent: Implications for Weight Variances in Flat Directions",
+          "trigger": "Closest primary heavy-ball variance result for epoch anti-correlation"
+        },
+        {
+          "assessment": "Same model ingredients but different algorithm and comparison; same date does not establish priority",
+          "evidence": "Exact epoch-end risk and optimal per-epoch ordering probability, without positive momentum or IID phase comparisons.",
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-randomized-to-deterministic-ordering-transition-for-two-co--0dcf8057d8e5",
+          "material_read": "Mirrored RESULT.md, Finding and Assumptions",
+          "method": "Resultary catalogue and local OA mirror",
+          "title": "Sharp randomized-to-deterministic ordering transition for two-component quadratic reshuffling",
+          "trigger": "Same-day scalar opposite-offset reshuffling result"
+        },
+        {
+          "assessment": "Different positive-momentum and observed-phase requirements",
+          "evidence": "A two-root disadvantage interval for non-momentum scalar SGD at completed epochs.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-reentrant-stationary-risk-frontier-for-two-component-rando--f9ad6695f6df",
+          "material_read": "Mirrored RESULT.md, Finding and Assumptions",
+          "method": "Resultary catalogue and local OA mirror",
+          "title": "Sharp reentrant stationary-risk frontier for two-component random reshuffling",
+          "trigger": "Closest exact stationary threshold classification comparing reshuffling and IID"
+        },
+        {
+          "assessment": "Different phase observable",
+          "evidence": "Stationary couplings of successive epoch orders alter epoch-end risk; within-epoch odd/even tests are not the object.",
+          "identifier_or_url": "2026/10/12/SCOPE-sharp-stationary-risk-envelope-and-order-phase-switches-for-two--0365743eee2e",
+          "material_read": "Mirrored RESULT.md, Finding and Assumptions",
+          "method": "Resultary catalogue and local OA mirror",
+          "title": "Sharp stationary-risk envelope and order-phase switches for two-sample reshuffling",
+          "trigger": "Similar phase-switch terminology for scalar reshuffling"
+        },
+        {
+          "assessment": "Different noise law and optimization objective",
+          "evidence": "Optimizes momentum for stationary AR(1) forcing, not independently reshuffled sign pairs.",
+          "identifier_or_url": "2026/11/8/SCOPE-sign-reversed-optimal-momentum-and-the-one-ninth-antipersistent--6f3da69dd7fc",
+          "material_read": "Mirrored RESULT.md, Finding and Assumptions",
+          "method": "Resultary catalogue and local OA mirror",
+          "title": "Sign-reversed optimal momentum and the one-ninth antipersistent noise floor",
+          "trigger": "Close scalar momentum and correlated-noise variance classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact comparison shows that the recommendation about which sampling rule to use can reverse solely by changing the observation position within the same epoch. The stable scalar model isolates that effect, the open reversal intervals and exact witnesses make it robust, and the average cannot reveal which phase wins. This is a useful boundary case for phase-sensitive stationary-risk analysis, not a general algorithmic recommendation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

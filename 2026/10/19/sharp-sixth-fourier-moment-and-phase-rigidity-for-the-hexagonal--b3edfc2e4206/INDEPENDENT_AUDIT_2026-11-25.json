@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:50:42.534659Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Normalized orthogonality gives the squared norm of the triple convolution. The triangle inequality reduces the maximum to magnitudes. The antipodal RMS operation increases each nonnegative autocorrelation by Cauchy–Schwarz and preserves R₀=M. If it changes an unequal pair, the sum of magnitudes strictly increases, so some nonzero R_h increases and the (h,−h,0) term in the autocorrelation cube increases strictly. For balanced magnitudes, independently expand the three antipodal Laurent binomials. Since v₂=v₁+v₃, surviving signed exponents are (k,−k,k), so all three pair degrees have the same parity, hence are all even in degree six. Up to permutation the patterns (6,0,0),(4,2,0),(2,2,2) contribute respectively 20, 15·6·2=180 and 90·(8+1+1)=900. This yields 20s³+120s e₂+420e₃, with M=2s; the two sharp symmetric-polynomial bounds force X=Y=Z, and give moment ratio 85/9. With all magnitudes equal, alignment in each fiber v_j makes the antipodal products common. Factoring their square root λ, the zero-sum triangles force (η₁η₃/η₂)²=1, and the sign choice of λ removes the minus branch. The basis v₁,v₃ therefore gives exactly the scalar character family, which attains equality. Differences of root vertices generate the lattice, so the projective character parameters are unique. At N≥7 there is no aliasing between triple sums in [−3,3]²; no Nth-root restriction on phases is needed. At N=6 the only distinct collisions are the three opposite-vertex pairs at the six extreme triple sums (each a singleton), adding 6 to 2040 and giving the strict lower witness 341/36. No optimal norm at smaller grids is inferred. The independent enumeration in /workspace/branches/30df5558-c964-4978-ade3-1ca8f5928351/record3-independent-check.txt agrees on all 37 fibers, the polynomial, and the residue counts. Frozen checker.py and checker_output.txt were inspected, not executed; python3 checker.py is the packaged replay. The global inequalities, not the finite test arrays, establish optimality.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The RMS majorization theorem works on all finite reflection-stable supports, and justifies equal magnitude within each antipodal pair.",
+          "The circle-extension theorem requires a P(3)-set spectrum on S¹ and estimates extension on ℝ², not the compact dual of this lattice aperture."
+        ],
+        "reasoning": "A general one-reflection majorant still leaves three independent pair magnitudes; it does not state the sharp optimum here. The arithmetic Euclidean circle result does not dominate this periodic norm problem.",
+        "searches": [
+          "Resultary ce42dcffc673",
+          "arXiv:2208.09441v2 Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 1a27a9f4b8a6",
+        "Resultary ce42dcffc673",
+        "Resultary 87579358e169",
+        "doi:10.46298/dmtcs.2937",
+        "OEIS A002898",
+        "arXiv:2208.09441v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known RMS comparison leaves pair magnitudes x,y,z arbitrary subject to x²+y²+z²=s; it does not by itself put the coefficients in the prior phase theorem's equal-magnitude class.",
+          "The weighted pair objective has nonconstant terms 120s e₂+420e₃, which must be optimized to force equality of the pair masses.",
+          "The grid transfer at ≥7 is nonaliasing, and does not settle the value at 6."
+        ],
+        "reasoning": "The known phase orbit applies once equal magnitudes are established. An extra global magnitude inequality (or an equivalent argument) and the boundary collision analysis are required; the compared results alone do not supply them.",
+        "searches": [
+          "Resultary 1a27a9f4b8a6 and ce42dcffc673 statements and proof excerpts",
+          "Resultary 87579358e169 statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Reflection of one lattice coordinate identifies the earlier unimodular A₂ aperture with this support; the previous top moment is 2040 at M=6 and the same character orbit.",
+          "The closed-hexagonal-walk formulation matches the constant term for flat coefficients exactly.",
+          "The later transverse stability result uses the same 85/9 ratio and aperture but is local."
+        ],
+        "reasoning": "After matching supports, normalization and orbit, the earlier sharp phase result covers equal magnitudes, not the global ℓ² sphere with varying magnitudes. A local maximum likewise does not imply global optimality.",
+        "searches": [
+          "Resultary 1a27a9f4b8a6",
+          "Resultary 87579358e169",
+          "OEIS A002898"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The length-six item in A002898 and U₆(6) on p. 609 both give exactly 2040.",
+          "The prior unimodular result gives [546,2040] and grid transfer when both dimensions are at least seven; it does not show failure at N=6."
+        ],
+        "reasoning": "The exact scalar count and the sharp unimodular constant are covered. Neither supplies the weighted pair polynomial optimization or the modulo-six collision obstruction.",
+        "searches": [
+          "OEIS A002898",
+          "Labelle–Lacasse doi:10.46298/dmtcs.2937 formula (1.2) and U_n(N) table",
+          "Resultary 1a27a9f4b8a6"
+        ]
+      },
+      "rationale": "Credit the existing flat walk count, the previously proved unimodular maximum and phase classification, and the general RMS reflection inequality. The supported distinct contribution is global optimization over arbitrary coefficient magnitudes (which forces flatness and thus extends the equality classification globally), together with the explicit N=6 obstruction at the stable-grid boundary. The prior unimodular theorem already covers the maximizing phase orbit and grid transfer on that slice; those pieces are not independently novel here.",
+      "residual_risks": [
+        "Priority is not exhaustive. An unindexed weighted triangular-lattice inequality or general flattening result combined with the known unimodular norm could alter coverage; the already verified flat count and phase overlap are not residual risks but established coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material earlier coverage of the unimodular slice",
+          "evidence": "On unit-modulus inputs the upper endpoint is 2040, achieved by a single character-modulation orbit up to scalar, with both grid dimensions at least 7; no amplitude optimization or N=6 witness.",
+          "identifier_or_url": "1a27a9f4b8a6",
+          "material_read": "Finding and scope in mirror RESULT.md offsets 0–1951 and 470–1951",
+          "method": "Resultary and local mirror",
+          "title": "Sharp sixth-moment range and sixth-root phase rigidity on the A₂ aperture",
+          "trigger": "Exact aperture, sixth-power maximum, phase orbit and stable grids"
+        },
+        {
+          "assessment": "General antecedent of the reflection step",
+          "evidence": "Preserves mass and increases even moments, but does not equate the three different antipodal pair masses.",
+          "identifier_or_url": "ce42dcffc673",
+          "material_read": "Finding and proof, offsets 0–3233",
+          "method": "Resultary and local mirror",
+          "title": "Reflection root-mean-square majorization of every even Fourier moment",
+          "trigger": "Generality of the main balancing step"
+        },
+        {
+          "assessment": "Later local-only result, not earlier global coverage",
+          "evidence": "Strict local maximizing orbit at ratio 85/9; no global optimality claim.",
+          "identifier_or_url": "87579358e169",
+          "material_read": "Finding and scope, offsets 0–2095",
+          "method": "Resultary and local mirror",
+          "title": "Exact transverse sixth-moment stability for the hexagonal Fourier aperture",
+          "trigger": "Same support and constant"
+        },
+        {
+          "assessment": "Exact old flat count",
+          "evidence": "U₆(6)=2040 for six-step walks using sixth roots of unity.",
+          "identifier_or_url": "https://doi.org/10.46298/dmtcs.2937",
+          "material_read": "Abstract, formula (1.2), n=6 formula p. 601 and U_n(N) table p. 609",
+          "method": "Bounded OA full-text passages",
+          "title": "Closed paths whose steps are roots of unity",
+          "trigger": "Plausible table of the exact unweighted invariant"
+        },
+        {
+          "assessment": "Exact unweighted match, not a weighted norm theorem",
+          "evidence": "The displayed Laurent support is exactly the six roots, and the n=6 entry is 2040.",
+          "identifier_or_url": "https://oeis.org/A002898",
+          "material_read": "Sequence and Laurent constant-term formula",
+          "method": "Bounded OA public page",
+          "title": "Number of closed walks of length n on the triangular lattice",
+          "trigger": "Exact database match for the flat sixth moment"
+        },
+        {
+          "assessment": "Different support assumptions and ambient extension space",
+          "evidence": "L² data on S¹ with P(3)-set spectrum and an extension norm on ℝ².",
+          "identifier_or_url": "https://arxiv.org/abs/2208.09441",
+          "material_read": "Theorem 1, p. 3, OA text near offset 8700",
+          "method": "Bounded OA full-text passage",
+          "title": "Sharp Fourier Extension on the Circle Under Arithmetic Constraints",
+          "trigger": "Possible broader arithmetic Fourier synthesis bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The motivated object is the smallest planar hexagonal root aperture, and the exact ℓ²-to-L⁶ operator norm is a weighted invariant, not just an enumerated return count. The theorem identifies which complex weightings actually attain that norm, while the first aliasing witness explains why the limiting norm fails at the adjacent grid boundary. These are useful for periodic Fourier synthesis on the support even after crediting the known flat slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:28:10.206957Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, combinatorial decomposition and saddle-point proof",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "/workspace/repairs/5/RESULT.md"
+      ],
+      "rationale": "The induced-P3 criterion in a diameter-two graph makes selected root edges form vertex-disjoint clique components in the line graph. Two-edge stars can be completed; an uncovered vertex is insertable at a star centre, and two uncovered vertices can be joined. Conversely a new edge joining blocks gives an induced P3, an extra edge inside a large star misses a third spoke, and an edge from an isolate to a triangle misses the opposite triangle edge. This proves the precisely labeled block model, including one star center per possible root on blocks of size at least four and the exceptional singleton. In the independent-Poisson model the means grow as E J ~ n/r, Var(J)=O(n/r), Var(N)~nr, with r~log n. For the conditioning estimate, the middle block sizes [r/2,2r] carry asymptotically all the variance and give Gaussian domination for |t|≤δ/r; outside it the exponential term gives a gap Ω(n/r²), dominating the O(r³) polynomial subtraction. The cubic moment bound O(nr²) is negligible at the central scale. Thus P(N=n)~(2πnr)^(-1/2), and conditioned Chebyshev costs only O(r^(3/2)/sqrt(n)). The log count of the exceptional class is smaller by order n log n, so the same limit holds for the uniform maximal-set distribution.",
+      "residual_risks": [
+        "The verifier checks finite enumeration, not the limit. The result is first-order convergence in probability, not a fluctuation law."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general analytic theorem presupposes a uniform bivariate approximation and derivative bounds; the accompanying Bell discussion is for ordinary partitions. The earlier exact all-set EGF allows a different assembly, and its stated results concern exact coefficients and maximum size, not a typical law for the maximal subfamily."
+        ],
+        "reasoning": "Neither a generic method with unchecked hypotheses for this class nor an EGF for a differently sampled population already establishes the first-order constant for the stated law. The repaired proof verifies the needed scale and conditioning rather than appealing to unconditioned Poisson concentration alone.",
+        "searches": [
+          "Flajolet–Sedgewick, Analytic Combinatorics, IX.8, generalized quasi-powers",
+          "SCOPE-full-general-position-polynomial-of-triangular-graphs-by-star-tr--9b9fdc66bc5e"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2306.09965, 1903.04286, 2401.05696",
+        "Resultary 9b9fdc66bc5e, 68bb3fc9b806, 4acb8f5dae33",
+        "Flajolet–Sedgewick, Analytic Combinatorics, §IX.8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The lower GP theorem's proof specifies permitted star sizes, full coverage in the presence of stars, the all-triangle exception, and |S|=n-r for r stars. The maximum GP theorem identifies the extremal size. The generic analytic scheme does not supply the local conditioning estimate for this perturbed star/triangle assembly."
+        ],
+        "reasoning": "Enumeration mechanically follows from the known structure, and the extremal results do not control a uniform random maximal set. The surviving law needs coefficient asymptotics or concentration with conditioning and control of the exceptional class.",
+        "searches": [
+          "arXiv:2306.09965, Theorem 5.2 proof",
+          "arXiv:1903.04286, Theorem 4.4",
+          "Analytic Combinatorics, §IX.8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The maximal induced-cluster-subgraph enumerator is exactly equivalent because diameter two identifies general position with cluster-inducing vertex sets. The same-day dual GP result changes the property. The Kneser paper's theorem counts all GP sets of K(n,2) with adjacency by disjointness, not of its complement T_n."
+        ],
+        "reasoning": "The cluster formulation covers the same enumerator, not the surviving typical-size law. Dual general position and complementation of the graph do not give this maximal-set distribution.",
+        "searches": [
+          "SCOPE-maximal-cluster-subgraphs-of-triangular-graphs-a-partition-polyn--68bb3fc9b806",
+          "SCOPE-rigidity-and-exact-dual-general-position-polynomial-of-triangula--4acb8f5dae33",
+          "Iršič et al., arXiv:2401.05696, Theorem 4.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "October 13 gives the all-set polynomial. November 8 gives the exact maximal EGF in the equivalent cluster terminology. The distinct November 2 dual result is not a match. No compared finding gives the typical maximal-set deficit."
+        ],
+        "reasoning": "The overlap in exact counts is credited independently of its later catalog date. Exact size coefficients and asymptotic typical-size statements are compared separately.",
+        "searches": [
+          "Resultary: 9b9fdc66bc5e, 68bb3fc9b806, 4acb8f5dae33; triangular graph maximal GP and typical deficit"
+        ]
+      },
+      "rationale": "For the narrowed asymptotic claim. The known maximal block description, including the exceptional configurations and the deficit as the number of stars in the covered class, makes its labeled enumerator a direct exponential-formula consequence. An exactly equivalent later catalogued enumerator is noted. The inspected work does not give the uniform asymptotic deficit on this restricted assembly, and the standard general saddle theorems have analytic hypotheses requiring proof for it.",
+      "residual_risks": [
+        "A sharper earlier result for the specific weighted assembly, or an equivalent result under another graph or partition terminology, was not ruled out. Search limitations do not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the classification and deficit identity, sufficient for the auxiliary EGF",
+          "evidence": "The proof separates all-triangle configurations, permits at most one uncovered vertex there, and otherwise gives full coverage with |S|=n-r.",
+          "identifier_or_url": "https://arxiv.org/pdf/2306.09965",
+          "material_read": "§5, Theorem 5.2 and proof, p. 12, offsets 34400–38192",
+          "method": "OA PDF passage read",
+          "title": "Lower General Position Sets in Graphs",
+          "trigger": "Closest primary source for maximal configurations and possible derivation of enumerator"
+        },
+        {
+          "assessment": "Extremal rather than probabilistic",
+          "evidence": "The theorem gives gp(L(K_n))=n for 3 dividing n and n-1 otherwise.",
+          "identifier_or_url": "https://arxiv.org/abs/1903.04286",
+          "material_read": "§4.2, Theorem 4.4, printed pp. 10–11, offset 27345",
+          "method": "OA PDF passage read",
+          "title": "The general position problem on Kneser graphs and on some graph operations",
+          "trigger": "Earlier size result for the same triangular graph"
+        },
+        {
+          "assessment": "Different graph and all subsets rather than maximal ones",
+          "evidence": "The theorem concerns K(n,2), with adjacency by disjointness; T_n is its complement.",
+          "identifier_or_url": "https://arxiv.org/abs/2401.05696",
+          "material_read": "§4, Theorem 4.2, printed p. 10, offset 29221",
+          "method": "OA PDF passage read",
+          "title": "General position polynomials",
+          "trigger": "Plausible exact polynomial overlap and ambiguous citation in frozen text"
+        },
+        {
+          "assessment": "Equivalent EGF; later catalogue entry; no typical-size assertion in the inspected finding",
+          "evidence": "The partition polynomial has the same star, triangle and edge weights and the same one-isolate correction.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-maximal-cluster-subgraphs-of-triangular-graphs-a-partition-polyn--68bb3fc9b806",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local-mirror exact statement read",
+          "title": "Maximal cluster subgraphs of triangular graphs: a partition polynomial",
+          "trigger": "Matching exact EGF under different terminology"
+        },
+        {
+          "assessment": "All-set counts, not the maximal-set law",
+          "evidence": "The result describes the full all-GP polynomial, its coefficient recurrence and a maximum-set count.",
+          "identifier_or_url": "SCOPE-full-general-position-polynomial-of-triangular-graphs-by-star-tr--9b9fdc66bc5e",
+          "material_read": "RESULT.md Finding and prior-work comparison, offsets 0 and 5200–7563",
+          "method": "Local-mirror exact statement and scope read",
+          "title": "Full general position polynomial of triangular graphs by star–triangle decomposition",
+          "trigger": "Earlier polynomial on the same graphs"
+        },
+        {
+          "assessment": "Standard methodology and a theorem with substantive uniform-asymptotic hypotheses, not this application",
+          "evidence": "The generalized quasi-powers theorem assumes a uniform perturbation representation of the PGF and derivative control; the motivating example discusses ordinary set partitions.",
+          "identifier_or_url": "https://ac.cs.princeton.edu/home/AC.pdf",
+          "material_read": "§IX.8 opening and Theorem IX.13, printed p. 690, offsets 2562510–2565497",
+          "method": "OA PDF literal locate and bounded offset read",
+          "title": "Analytic Combinatorics",
+          "trigger": "Possible stronger labeled-set asymptotic through a standard theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired deficit theorem and proof",
+        "Ghorbani et al., Theorem 4.4; Di Stefano et al., Theorem 5.2"
+      ],
+      "rationale": "The asymptotic distinguishes what is typically sampled from both size extrema of a natural graph family: most maximal sets are short of n by asymptotically n/log n, although optimum size is within one of n and minimal maximal size is on a different linear scale. The normalization and leading constant answer that concrete distributional question; the routine EGF alone is not the value claim.",
+      "residual_risks": [
+        "First-order law only; no quantitative sampling algorithm or variance under conditioning is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

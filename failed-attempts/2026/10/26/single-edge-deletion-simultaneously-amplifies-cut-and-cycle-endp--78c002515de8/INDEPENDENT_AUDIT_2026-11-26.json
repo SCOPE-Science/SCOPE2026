@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:50:43.809925Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the intact projector from the product cube heat kernel: the source direction contributes absolute mass 1, and each transverse direction 1/2. For the two source columns at opposite parallel sides of one square, only the square's transverse direction has opposite signs, there with identical magnitudes. The deletion update on the mean-zero subspace adds the positive multiple a_n/(1-r_n) of the removed column, omits its row, and shifts the witness diagonal by a_n^2/(1-r_n). Subtracting twice that diagonal shift gives the cycle gain from the cut gain. The multiplier is at most one, and 2a_n<(n-3)/2 for n≥4, giving strict amplification of both norms. The formulas yield the stated asymptotics and do not maximize over all columns. Independent exact grounded solves with current-divergence checks, python3 /workspace/audit_replay/cube.py, verified 124 damaged columns in dimensions 2–5, including the entire n=3 multiplicity census and maxima 2 and 71/40; n=2 reduces to a tree. This finite solve does not prove the all-n sign argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first paper gives exactly the two intact baselines. General localization results bound different/global flow quantities without the sharp deletion increments. Same-day results concern nondeleted weighted cubes or different graph families. The indexed November gradient theorem gives also the exact max 133/51 at n=4, which the frozen record does not claim."
+        ],
+        "reasoning": "The indexed gradient result is stronger on the cut side; the other sources do not directly address the claimed deletion.",
+        "searches": [
+          "Dilworth–Kutzarova–Ostrovskii arXiv:2305.12582 Theorem 45 and Corollary 60",
+          "Schild–Rao–Srivastava arXiv:1708.01632 and Gurel-Gurevich–Nachmias–Sachdeva arXiv:2605.24130",
+          "Resultary same-day line graphs, weighted cubes, and biclique edge erasure"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2026/11/1 record 23860e5fa3d2",
+        "Resultary same-day records 5aedd2613976, 5764e0b49084, 430cc80014f3, c77b6badd075, 939a0609f523",
+        "arXiv:2305.12582, 1708.01632, 2605.24130",
+        "Frozen RESULT.md, VERIFICATION.md, verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source explicitly gives C'fg=Cfg+CfhChg/(1-r_n) and the exact parallel coefficient a_n. Thus the witness has C'ff=r_n+a_n²/(1-r_n). For any orthogonal projector C' the complement's absolute column sum differs by 1−2C'ff."
+        ],
+        "reasoning": "Combining the already known cut witness with this identity yields z_n directly, and a_n<2/[n(n−1)] makes its sign immediate for n≥4. There is no distinct nonmechanical cycle-side claim left by this comparison.",
+        "searches": [
+          "Resultary gradient-reconstruction record, proof steps 2–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Its gradient projection is exactly the canonical cut projection with the incidence transposed; matrix symmetry equates its induced infinity norm to the induced 1 norm. Its alpha_d is a_d/(1-r_d)."
+        ],
+        "reasoning": "The cut gain and the adjacent-parallel witness coincide, not just the threshold.",
+        "searches": [
+          "Resultary: one-edge-deleted Boolean-cube canonical cut and cycle endpoint norms",
+          "Resultary 2026/11/1 gradient-reconstruction record 23860e5fa3d2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The gradient paper gives the identical n=3 cut row-sum histogram and a full exact matrix recipe for the n=3 and n=4 damaged graphs; it does not print the 71/40 cycle maximum."
+        ],
+        "reasoning": "A missing cycle-norm table is not the absence of coverage: subtract the known projector from the identity entrywise and take the column sums on this 11-edge graph.",
+        "searches": [
+          "Resultary gradient-reconstruction record, Proof step 4, local mirror offsets 4395–7413",
+          "Resultary focused searches for 71/40 and the cycle witness increment"
+        ]
+      },
+      "rationale": "An indexed gradient-projection record gives the identical cut-side theorem (including the exact all-dimension witness, threshold and boundary), a complete entrywise deleted projector formula, and the needed witness diagonal inputs. The cycle increment is mechanically obtained by the complement's single diagonal correction; the small-dimension cycle maxima are a finite evaluation of the same explicit matrix. This is coverage, not a historical priority determination: the overlapping record carries a later catalogue date.",
+      "residual_risks": [
+        "The comparison settles coverage in the inspected indexed material, not which proof was first.",
+        "Bounded literature coverage does not exclude other independent published derivations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same cut result; cycle results are direct consequences of given data",
+          "evidence": "Exact R_d, q_d, a_d, full rational Walsh/current and deletion formulas, sharp n=2,3 cut threshold and n=3 row-sum histogram.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-a-single-deleted-hypercube-edge-increases-sharp-gradient-reconst--23860e5fa3d2/RESULT.md",
+          "material_read": "Finding, assumptions and proof steps 1–4",
+          "method": "Resultary search and local mirror passage inspection",
+          "title": "A single deleted hypercube edge increases sharp gradient-reconstruction sensitivity from dimension four",
+          "trigger": "Exact same deleted graph, witness and threshold"
+        },
+        {
+          "assessment": "Exact intact overlap, not edge deletion",
+          "evidence": "(n+1)/2 and (n+3)/2−4/n+1/(n2^(n−2)).",
+          "identifier_or_url": "https://arxiv.org/abs/2305.12582",
+          "material_read": "PDF pp. 23 and 32, Theorem 45 and Corollary 60",
+          "method": "OA PDF passage inspection",
+          "title": "Cycle spaces: invariant projections and applications to transportation cost",
+          "trigger": "Intact projection norm baselines"
+        },
+        {
+          "assessment": "General localization, not exact edge-deletion response",
+          "evidence": "O(log²(number of vertices)) norm bound for an absolute transfer-current operator.",
+          "identifier_or_url": "https://arxiv.org/abs/1708.01632",
+          "material_read": "§1 and Theorem 1.5",
+          "method": "OA PDF passage inspection",
+          "title": "Localization of Electrical Flows",
+          "trigger": "Transfer-current matrix norms"
+        },
+        {
+          "assessment": "Average flow bound, not the exact endpoint norms",
+          "evidence": "A bound over neighboring pairs does not fix the exact neighboring parallel witness.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.24130",
+          "material_read": "PDF p. 1, Theorem 1.1",
+          "method": "OA PDF passage inspection",
+          "title": "A Tight Bound on Localization of Electrical Flows",
+          "trigger": "Neighboring-pair flow magnitudes"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The overall sharp simultaneous amplification is a motivated and quantitative perturbation question about natural complementary projections; the novelty failure does not negate that mathematical phenomenon's interest. The mechanical complement calculation does not provide a standalone surviving contribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

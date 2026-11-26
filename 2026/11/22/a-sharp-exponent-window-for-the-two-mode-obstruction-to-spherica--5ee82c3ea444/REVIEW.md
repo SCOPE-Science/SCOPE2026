@@ -1,15 +1,21 @@
-# Review of the sharp two-mode spherical Poisson exponent window
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement specifies the subordinated spectral multiplier, normalized sphere, all quantifiers, an explicit positive real witness family, and the exact asymptotic sign criterion. Exact beta-moment identities yield the fourth-order coefficients. The maximizing second-harmonic amplitude is unique because its quadratic coefficient is strictly negative. The derivative of the scalar logarithmic sign function has one sign change, giving the unique nontrivial exponent threshold; a sandwich argument yields its large-dimension law. The local expansion yields actual finite-\(\varepsilon\) counterexamples whenever its leading coefficient is positive. The standalone symbolic and quadrature tests passed, though the general theorem depends on the written proof rather than those samples.
+## correctness
 
-## Originality — PASS (best knowledge, historical priority provisional)
-Frank and Ivanisvili (2021) establish the small-sphere theorem and failure in sufficiently high dimensions using pure Gegenbauer eigenfunctions, but do not present the unique exact target-exponent boundary of the mixed two-mode quartic obstruction. A public 2026 dimension-four \(L^2\to L^4\) demonstration explicitly supplies one previously known point of the obstruction, not the full variable-\(q\) threshold or asymptotic. Hormozi and Zhu (2026) study finite-time boundedness of subordinated Jacobi and related semigroups, not the norm-one Nelson-time boundary. Other indexed harmonic-analysis results on *classical ball Poisson* contractions concern different multipliers. Searches and implication checks did not locate the general formula. This is a best-knowledge novelty assessment; independent review and exhaustive priority determination have not occurred.
+PASS
 
-## Mathematical value — PASS
-The sharp exponent window answers which \(L^q\) targets are disproved by the smallest natural nonlinear zonal perturbation, in every sphere dimension where the spectral-gap rule is problematic. Its unique critical exponent, explicit optimizing correction, and nontrivial \(d^{1+\sqrt2}\) scaling distinguish it from an isolated numerical counterexample or a routine special case. It neither purports to settle the true full hypercontractive boundary nor relies on an arbitrary parameter slice.
+With M=d+1 and t=q−1, eigenvalues d and 2(d+1) give multipliers t^(−1/2) and b=t^(−R_d/2). The sphere moments give w=E[Y²]=E[X²Y]=2(M−1)/(M²(M+2)). Direct binomial expansion gives quartic coefficients −qw(1−tb²)/2, q(q−2)bw/2, and −q(q−2)(M+t)/(4tM²(M+2)). Completing the square gives the sign of t^(1−R_d)(Mt+1)−(M+t). For its log ratio F, tF' is strictly decreasing on t>1, starts positive exactly when M²−4M−1>0, and tends to 1−R_d<0. Since F(1)=0 and F tends to minus infinity, there is exactly one further zero. Independent bisection gives q_c(4)≈6.803512021179. Bracketing the root at (1±δ)M^(1/(R_d−1)) gives the stated multiplicative asymptotic since 1/(R_d−1)=1+sqrt(2)+O(1/d). The analytic even expansion with positive inputs gives actual witnesses below q_c; at q_c only the quartic maximum is zero and above it the quartic test is negative, not a global contraction result.
 
-## Limitations
-Only fourth-order effects in the constant/degree-one/degree-two zonal ansatz are classified; higher orders or general functions may violate the inequality even when this test does not. The preexisting \(d=4,q=4\) result is credited. The 2026 online counterexample is a public technical result readout rather than peer review, and possible unindexed prior work remains a priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The low-degree test and S^4 to L^4 counterexample are already public. What survives is the sharp boundary over real q and all d≥4 for this perturbation, including the unique crossing and its large-d growth. The strongest inspected prior statements do not supply that boundary.
+
+## value
+
+PASS
+
+This settles for which exponents a concrete low-degree mechanism witnesses failure at a natural candidate time, including dimensions where high-degree counterexamples by themselves give little information. The sharp window and its growth separate the strength of this simple test from the unknown unrestricted optimal time. It is not merely a recomputation of the known (d,q)=(4,4) witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

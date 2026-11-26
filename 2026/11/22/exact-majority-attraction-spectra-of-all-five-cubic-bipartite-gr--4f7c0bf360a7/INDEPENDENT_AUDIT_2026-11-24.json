@@ -1,0 +1,181 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:30:17.315718Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, GRAPH_DATA.json, check_classification.py and check_dynamics.py",
+        "/workspace/independent-evidence/5.py and 5.log (executed independent exhaustive replay)"
+      ],
+      "rationale": "Equal shore degree sums force a 6-by-6 biadjacency matrix. I independently enumerated matrices by adding one column of weight three at a time, keeping high-bit row prefixes sorted and only pruning when residual row sums are impossible. This represents every graph up to left relabelling. It yields 550 sorted-row matrices, 540 connected, 147 with a row mask 7. The five listed representatives produce disjoint complete orbits of sizes 90,180,60,180,30 under permutations of both shores and transpose, exhausting the 540. Connectedness makes the bipartition unique up to reversal. The minimal tuples and the independent prism and Franklin constructions match. For dynamics I formed all 4096 outputs per graph by expanding winning neighbor pairs to supersets, then traversed the reverse graph from exact fixed and 2-periodic states. Every initial state is reached and the largest depth is two in each case, proving F^4=F^2 and excluding longer periods; in order B1–B5, masks 5,5,6,6,5 give depth two. Independent counts match every first-entry/period cell, all individual-attractor basin size multiplicities in GRAPH_DATA.json, and all stated extrema and square counts. The 3516 states eventually oscillating on the prism give 879/1024; its 231 primitive two-cycles and Franklin's basin maximum 722 are the claimed unique extrema. The held-fixed graph labels and temporal orbit quotient were used exactly as defined. The authored programs were inspected, not executed.",
+      "residual_risks": [
+        "The completeness and sharpness checks cover only connected simple cubic bipartite graphs of order twelve with the specified open-neighbor majority rule."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kaaser et al. bound voting time by 1+|E|−|V_odd|/2, which is 13 here. Classical symmetric threshold recurrence allows only periods one and two. e1d2b1ea8d39 proves a general recurrent trace census for the step-two generalized Petersen family and gives prism recurrent results, but explicitly excludes attraction basins and transient entry times. GP(6,2) itself contains inner triangles, so its further tabulated order-twelve values are outside the bipartite class."
+        ],
+        "reasoning": "The broader stabilization bounds do not specialize to the sharp two-update clock or give basin multiplicities. Prism recurrent theory covers one graph's recurring configurations, not the five-graph dynamics from arbitrary initial states.",
+        "searches": [
+          "arXiv:1508.03519v1 Definition 3, Corollary 3.4",
+          "DOI 10.1016/0012-365X(80)90121-1",
+          "Resultary: Franklin graph largest basin 722 and hexagonal prism largest oscillating fraction 879/1024 231 primitive majority two-cycles among connected cubic bipartite graphs"
+        ]
+      },
+      "checked_sources": [
+        "Resultary",
+        "f490f3f3f842",
+        "e1d2b1ea8d39",
+        "0a383da6731a",
+        "4082d59101e2",
+        "a364b0d2169d",
+        "b7e089db1d02",
+        "fb9765d5d984",
+        "arXiv:1508.03519v1",
+        "Goles–Olivos DOI landing",
+        "House of Graphs catalogue attempts (no table text)",
+        "4f7c0bf360a7 (identical target)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prism report explicitly excludes transient entry times and eventual attraction basins. The same-day CCA/GHM report mentions a majority-property study for the five-class count but supplies no exact citation or majority dynamical table in that passage. The same-day Bidiakis census uses binary majority but its LCF chord of offset −6 joins equal cycle parities, so it cannot be bipartite. The same-day Archimedean examples are outside this class: cuboctahedron has degree four; truncated tetrahedron has triangles. The decagonal prism and Desargues basin study works on twenty vertices, not twelve."
+        ],
+        "reasoning": "A transition map's recurrent counts do not specify transient edges or basin populations. The old counts and graph representatives alone do not force the new results by regrouping known data. Classifying whole majority dynamics at order twelve requires the specific arbitrary-initial-state calculation; programs or exact spectra for different graph objects or update rules do not supply it.",
+        "searches": [
+          "Resultary: Franklin graph hexagonal prism majority dynamics attractor basin exact census",
+          "Resultary: twelve-vertex cubic bipartite graph classification five types Franklin graph paired domination",
+          "e1d2b1ea8d39 limitations (near offset 9904)",
+          "4082d59101e2 relationship to prior work (offset 7780)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kaaser et al. Definition 3 defines voting time by simultaneous equality at times t and t+2, equivalent to first periodic entry once the eventual period is at most two. e1d2b1ea8d39 uses the same majority and labelled orbit conventions and explicitly lists the prism as GP(6,1) with 22 fixed states and 231 primitive two-cycles. Same-day 4082d59101e2 uses the same graph universe but different three-state rules CCA and GHM."
+        ],
+        "reasoning": "Changing between prism and GP(6,1) graph names does not change the invariant, so the old prism values are real overlap. Period-halving of paired three-color dynamics is not a relabelling of binary majority's entry or basin map.",
+        "searches": [
+          "Resultary: synchronous majority dynamics F^4 equals F^2 finite time voting bound cubic bipartite",
+          "Resultary: five connected cubic bipartite graphs twelve vertices synchronous majority F^4 F^2 per-graph basin spectrum",
+          "External literature: (\"cubic bipartite\" OR \"Franklin graph\" OR \"hexagonal prism\") \"majority dynamics\" synchronous \"basin\" \"twelve\" 12 five exact classification"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "f490f3f3f842 gives exactly the same five connected graph classes and 550 sorted-row regular matrices, then paired-domination values. It credits the House of Graphs count; the primary catalogue page was not readable as a table through the bounded OA routes. e1d2b1ea8d39 lists B3's t=0 population directly through 22 fixed and 231 primitive two-cycles. 0a383da6731a specializes to 22 labelled fully flipping states for the hexagonal prism, a subset of the t=0 period-two cell. The exact whole-class spectrum search recovered the target itself, not a distinct prior exact table."
+        ],
+        "reasoning": "Do not claim originality for the list of graphs, the prism t=0 row or the fully flipping subpopulation. Those data do not determine the two later entry rows for that graph or the complete majority data for the four others.",
+        "searches": [
+          "Resultary: all five connected cubic bipartite graphs on twelve vertices majority dynamics exact basin spectra",
+          "Resultary: complete per-graph labelled basin census first periodic entry time all five cubic bipartite order twelve",
+          "Resultary: cubic bipartite graphs order twelve graph domination five isomorphism classes catalogue",
+          "External literature: House of Graphs connected cubic bipartite graphs 12 vertices five graph catalogue GENREG"
+        ]
+      },
+      "rationale": "The complete order-twelve graph classification and the prism's own recurrent population were already known; the fully flipping prism subpopulation was also separately known. Pass for the distinct sharp two-update bound on all five, the complete entry and basin spectra, and the resulting dynamical comparisons across the entire class. Those are not obtained from known recurrent populations, graph-class counts or generic voting-time bounds.",
+      "residual_risks": [
+        "A reference to a previously published majority-related study in 4082d59101e2 was not tied to a distinct earlier complete dynamics source; the apparent search match was the target itself and no same-day ordering is inferred. Primary House of Graphs tabulation and Goles–Olivos full text were not obtained. Historical priority remains bounded by inspected sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit partial overlap, not a basin classification",
+          "evidence": "The n=6 prism row gives 22 fixed states and 231 primitive two-cycle orbits under the same update; the limitations explicitly exclude attraction basins and transient entrance times.",
+          "identifier_or_url": "e1d2b1ea8d39",
+          "material_read": "Published RESULT.md Finding/assumptions offsets 0–3248; Limitations excerpt around offset 9904",
+          "method": "Local mirror exact published passages",
+          "title": "An equilibrium–oscillation entropy reversal on generalized Petersen graphs",
+          "trigger": "Exact potentially broader prism recurrence theorem"
+        },
+        {
+          "assessment": "Includes a specific subpopulation of recurring prism states, not the full entry or basin spectra",
+          "evidence": "Q_(n,0)=L_n+2cos(2πn/3)+2·1_even counts labelled states with next state equal to the complement; n=6 gives 22 such states.",
+          "identifier_or_url": "0a383da6731a",
+          "material_read": "Published RESULT.md Finding and initial proof offsets 0–3174",
+          "method": "Local mirror exact published passages",
+          "title": "Fully flipping majority two-cycles on cyclic prisms and Möbius ladders",
+          "trigger": "Earlier precise prism majority dynamics across all circumferences"
+        },
+        {
+          "assessment": "Same graph census and Franklin identification, different parameter",
+          "evidence": "The 550 semi-labelled regular matrices leave five connected classes with paired-domination numbers 4,4,4,4,6, not dynamical data.",
+          "identifier_or_url": "f490f3f3f842",
+          "material_read": "Published RESULT.md offsets 1889, 3805–end; verification results and reference to House of Graphs",
+          "method": "Local mirror original result; separate public catalogue retrieval attempts did not expose its table",
+          "title": "The Franklin graph is the unique twelve-vertex cubic bipartite equality graph for paired domination",
+          "trigger": "Earlier complete classification on the same graph class"
+        },
+        {
+          "assessment": "Same entry-time convention, weaker general upper bound",
+          "evidence": "Corollary specializes to 1+18−12/2=13, and gives no exact orbit-basin distribution.",
+          "identifier_or_url": "https://arxiv.org/pdf/1508.03519v1",
+          "material_read": "Definition 3 p.4 offset 11785; Corollary 3.4 p.13 offset 41408",
+          "method": "OA original PDF passages",
+          "title": "On the Voting Time of the Deterministic Majority Process",
+          "trigger": "Strong general comparison for deterministic synchronous majority entry time"
+        },
+        {
+          "assessment": "Period-at-most-two precedent; original full text not read",
+          "evidence": "The classical period result does not give an exact time bound or any quantitative basin information. No whole-document exclusion relied on the landing page.",
+          "identifier_or_url": "https://doi.org/10.1016/0012-365X(80)90121-1",
+          "material_read": "Publisher landing/abstract only",
+          "method": "DOI retrieval; general theorem also compared through Kaaser et al. and the later original threshold-network proof in arXiv:1108.2974 Theorem 3.1",
+          "title": "Periodic behaviour of generalized threshold functions",
+          "trigger": "Classical eventual period result"
+        },
+        {
+          "assessment": "Different dynamics, with an unresolved reference to prior majority-related class counting",
+          "evidence": "The record studies joint two-model ternary period pairs (8,4) and (10,5), not binary-majority basin spectra; it mentions the already available count of five without an exact source for the majority-related study in that paragraph.",
+          "identifier_or_url": "4082d59101e2",
+          "material_read": "Published RESULT.md Finding offset 0 and prior work offsets 7780–10080",
+          "method": "Local mirror original result passages",
+          "title": "A unique twelve-vertex cubic bipartite network with two excitation-period halving channels",
+          "trigger": "Same-day exact finite dynamics on exactly the same graph universe"
+        },
+        {
+          "assessment": "Same finite invariant on a graph outside the bipartite class",
+          "evidence": "F^8=F^6 and sharp six-step entrance on the Bidiakis cube; [−6,4,−4]^4 contains a same-parity chord of its Hamiltonian 12-cycle.",
+          "identifier_or_url": "a364b0d2169d",
+          "material_read": "Published RESULT.md Finding and LCF description from offset 0",
+          "method": "Local mirror published result",
+          "title": "A sharp six-update majority clock and complete basin census on the Bidiakis cube",
+          "trigger": "Same-day exact binary majority at the same order and degree"
+        },
+        {
+          "assessment": "Distinct graph universe and in the degree-four case a tie-retaining rule",
+          "evidence": "Truncated tetrahedron has triangles; cuboctahedron is degree four. Neither is one of the five graphs under review.",
+          "identifier_or_url": "b7e089db1d02",
+          "material_read": "Published RESULT.md Finding and assumptions offsets 0–2989",
+          "method": "Local mirror original result passages",
+          "title": "Isolated oscillators versus broad two-cycle basins in two twelve-vertex Archimedean majority networks",
+          "trigger": "Same-day majority basin spectra at order twelve"
+        },
+        {
+          "assessment": "Distinct order and named graphs",
+          "evidence": "Prior entry-time census is for GP(10,1) and GP(10,3) on twenty vertices, with sharp four-update clocks; it gives no hexagonal-prism basin spectrum.",
+          "identifier_or_url": "fb9765d5d984",
+          "material_read": "Published RESULT.md Finding and assumptions offsets 0–3023",
+          "method": "Local mirror original result passages",
+          "title": "Equal attractor counts but unequal basins for majority on the prism and Desargues graphs",
+          "trigger": "Exact labelled majority entry and basin comparison of bipartite prisms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen exact spectra and GRAPH_DATA.json",
+        "Independent classification and basin replay",
+        "Prior recurrence-only prism and paired-domination analyses"
+      ],
+      "rationale": "A complete isomorphism class at a fixed small cubic bipartite order is a natural controlled comparison. All classes share the same sharp entry clock while actual oscillation probabilities and largest basins differ; the graph with the most oscillatory orbits is not the graph with the largest basin. Two graphs even share the square count but not these spectra. The exact tables are useful for checking stronger convergence or attractor predictions and add information beyond the prior classification and B3's recurrent count.",
+      "residual_risks": [
+        "A benchmark of five graphs, not a graph-family theorem or a general predictor of attraction spectra."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

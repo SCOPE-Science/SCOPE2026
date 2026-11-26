@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:54:30.765246Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Only prime support matters. An odd prime with a root of −1 is 1 mod 4, so except for 5 it exceeds 7. For two hits at displacement d=1,…,7, subtraction gives 2(a+i)≡−d, hence p divides d²+4; factoring 5,8,13,20,29,40,53 leaves only separations 3,5,7 for p≠2,5. Such a prime hits at most one slot of a fixed parity and at most two slots in the whole block (p>7, and at most two roots). With 2 present, it covers four slots, and 5 covers at most two of the opposite parity while the third prime covers at most one. With 2 absent, eight hits require 5 covering exactly four and two disjoint admissible pairs. I enumerated a mod 5 independently: the five masks are {2,3,7}, {1,2,6,7}, {0,1,5,6}, {0,4,5}, {3,4}. In the complements of the two size-four masks the only admissible edges share vertex 0 or vertex 7, respectively; no matching. For sharpness, a≡7 mod 10 covers offsets 0,2,4,6 by 2 and 1,5 by 5; CRT with a+3 congruent to a root of −1 mod r covers the final offset for every specified r, with a nonnegative representative. The a=7 example has the missing value 101. The proof covers all prime powers and is not mediated by a finite prime cutoff. VERIFICATION.md and verify.py were read, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1 in arXiv:2302.00459v2 gives lower bounds in a primorial regime, not an upper bound at fixed prime-support size.",
+          "Resultary …-9bcb3a55d0fe gives exact run-count laws with at most two primes for x+i², expressly not the three-prime translated problem."
+        ],
+        "reasoning": "Broader polynomial choice or a large-support lower bound does not dominate the quantifiers, direction of inequality, and prime count of the frozen theorem.",
+        "searches": [
+          "arXiv:2302.00459v2, Theorem 1",
+          "doi:10.1093/imrn/rnac130",
+          "Resultary: sharp seven-position quadratic non-coprimality run bound, translated argument versus additive polynomial Jacobsthal"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2302.00459v2",
+        "arXiv:1706.03668v1",
+        "doi:10.1093/imrn/rnac130 (access attempt)",
+        "Resultary IDs ending 29d844172410, 9bcb3a55d0fe, 90cf4b3dd6c6, and 469e9a38c454"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Resultary …-90cf4b3dd6c6 uses (a+i)(a+i+1) and characterizes a length-14 obstruction for odd N, with rad(N)=105 at equality.",
+          "The pair-hit condition for the frozen theorem is p|(d²+4), which relies on opposite roots of −1 and not adjacent roots 0 and −1 of X(X+1)."
+        ],
+        "reasoning": "Similar root-mask methods or run questions do not supply the needed geometric restriction on distances or the seven-position covering family.",
+        "searches": [
+          "Resultary: three-prime obstruction for adjacent coprime pairs",
+          "Resultary: exact coprime run laws for the quadratic cyclotomic sequences",
+          "arXiv:2302.00459v2",
+          "arXiv:1706.03668v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kalmynin–Konyagin use x+f(i); (a+i)²+1 contains the slope 2a in i, not a freely chosen additive constant for a fixed quadratic.",
+          "Resultary …-469e9a38c454 uses Φ₄ but asks that the values be pairwise coprime to each other, rather than each meeting a fixed prime support."
+        ],
+        "reasoning": "The actual equivalent formulation is coverage of each offset by one of three modular root sets for the translated argument. Neither additive translation of the range nor pairwise coprimality is that coverage problem.",
+        "searches": [
+          "(a+i)^2+1 Jacobsthal non-coprime run exactly three primes translated argument",
+          "Resultary: consecutive translated values n^2+1 exactly three primes",
+          "Resultary: quadratic cyclotomic Phi_4 n^2+1 runs Jacobsthal",
+          "arXiv:2302.00459v2, definition and Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Ziller–Morack table at PDF text offset 4874 concerns paired progressions, not the modular roots of (a+i)²+1.",
+          "Resultary …-29d844172410 matches the frozen identity and is the same theorem, not another publication. The retrieved spectrum …-9bcb3a55d0fe has a different input and up to two primes."
+        ],
+        "reasoning": "No read exact table exhausts the translated X²+1 configurations with three arbitrary distinct primes. A numerical run of length seven for one modulus would not prove the universal eight-position obstruction.",
+        "searches": [
+          "arXiv:1706.03668v1, computed primorial table",
+          "Resultary: seven-position quadratic non-coprimality sharp bound and exact quadratic Jacobsthal spectrum"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact maximum seven for the translated argument of X²+1 with three distinct fixed modulus primes, with an infinite extremal family. The closest accessible polynomial and run results compare different modular conditions or scopes, not stronger results implying this sharp bound.",
+      "residual_risks": [
+        "The Dietmann et al. paper was not available on the checked routes; an equivalent translated-root covering result in other indexed or unindexed literature cannot be excluded. The external keyword lookup did not provide relevant sources and is not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Additive-shift and large-support theorem, not covering the translated three-prime cutoff",
+          "evidence": [
+            "PDF text offsets 4552 and 7147"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2302.00459",
+          "material_read": "v2, p. 2 definition and Theorem 1, continuing theorem passage",
+          "method": "Lawful primary PDF passages",
+          "title": "A polynomial analogue of Jacobsthal function",
+          "trigger": "Closest polynomial-Jacobsthal definition and possible general theorem"
+        },
+        {
+          "assessment": "Different paired linear progressions",
+          "evidence": [
+            "PDF text offsets 441 and 4874"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1706.03668",
+          "material_read": "v1 abstract and exact primorial table",
+          "method": "Lawful primary PDF passages",
+          "title": "A short note on the computation of the generalised Jacobsthal function for paired progressions",
+          "trigger": "Exact run computations might give this finite cutoff"
+        },
+        {
+          "assessment": "No full-text noncoverage judgment",
+          "evidence": [
+            "Primary routes returned HTTP 403"
+          ],
+          "identifier_or_url": "https://doi.org/10.1093/imrn/rnac130",
+          "material_read": "Identified citation; full text not retrieved on these routes",
+          "method": "DOI and primary PDF/HTML access attempts",
+          "title": "Longer gaps between values of binary quadratic forms",
+          "trigger": "Potential related polynomial-shift reduction"
+        },
+        {
+          "assessment": "Distinct records, none compares the same condition on three primes",
+          "evidence": [
+            "x+i², at most two primes; X(X+1), odd moduli; pairwise coprimality for Φ₄, respectively"
+          ],
+          "identifier_or_url": "Resultary 2026/11/22 …-9bcb3a55d0fe and …-90cf4b3dd6c6; 2026/11/8 …-469e9a38c454",
+          "material_read": "Mirrored RESULT.md Finding and scope passages, offsets 290, 0 and 0 respectively",
+          "method": "Local index search and bounded Resultary mirror reads",
+          "title": "Exact quadratic Jacobsthal spectrum; three-prime obstruction for adjacent coprime pairs; exact coprime-run laws for quadratic cyclotomic sequences",
+          "trigger": "Distinct records sharing exact run or congruence structure"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the first kind of nontrivial covering obstruction one needs when studying a fixed quadratic with a small prime support: parity and possible pair distances rule out simultaneous coverage even though counting individual hit capacities can allow eight. The exact upper bound settles the entire three-prime class, including arbitrarily large primes and prime powers, with an infinite supply of extremizers. It is not a numerical check on one modulus.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

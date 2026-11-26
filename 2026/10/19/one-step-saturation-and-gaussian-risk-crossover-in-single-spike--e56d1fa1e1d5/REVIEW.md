@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact projector law uses an independent Gaussian inverse-Wishart quadratic form with residual \(n-\ell\) degrees of freedom, proved by a column-rotation Schur complement. For fixed width the Gram matrix converges to an identity-plus-rank-one matrix; its top mode dominates the initial coordinate coefficient at every positive power, uniformly in the power index. Bounded singular-value conditioning transmits that fact to the original rangefinder and proves the joint chi-square limit. The continuous no-ties joint law gives the sharp improvement probability, and a rank-one Loewner sandwich gives spectral-error and expectation claims. The included checker passed direct projector, iterate, and spectral-error checks. Simulations do not substitute for the convergence proof.
+## correctness
 
-## Originality — PASS, with residual risk
-The closest method is Chang and Yang's 2026 sketch-power algorithm, which defines exactly the powered operator and establishes general error bounds; the inspected full text does not establish the present fixed-width spike joint law or uniform-in-positive-iteration saturation. Chenakkod and Dereziński (2026) use sketched-power iteration with initialization inside the auxiliary sketch range rather than the independent initial sketch used here; their norm inequalities do not imply this chance-of-regression formula. Classic Wishart and beta results already imply the exact projector ceiling, which is credited and not separately presented as novel. The prior one-spike ellipsoid section-radius calculation has a related beta transform but a different object and no power recurrence. Unindexed or terminologically different prior literature could overlap.
+PASS
 
-## Value — PASS
-For a critically scaled spike, more independent sketch-power iterations cost computation but offer no further asymptotic leading-vector capture after the first. The exact event probability \(1-1/\sqrt2\) that a two-column auxiliary sketch reduces capture relative to the raw independent initialization distinguishes expectation from per-instance performance and helps determine whether to spend resources on additional powers or sketch width. This natural finite-width threshold is a motivated algorithmic accuracy/risk result, not a routine numerical recomputation.
+For n>ℓ the Gaussian background block has full column rank almost surely. Rotating its columns conditional on the independent spike row g gives gᵀW⁻¹g=||g||²/V in law, where Gaussian orthogonal residual degrees of freedom are (n−1)−(ℓ−1)=n−ℓ, and the law of V given g is constant. Sherman–Morrison then gives the exact ceiling, for all cn>0. Conditional on the auxiliary sketch the independent start is nondegenerate Gaussian, so its range component is nonzero almost surely; no positive integer power can kill it. In a common-row coupling the strong law applies to the Gram entries and the products of background entries from the two independent sketches. Thus K_n→I+cggᵀ and w_n→cgh almost surely. The top eigengap is c||g||²>0, and the projection coefficient of w_n onto the top eigenvector tends to c||g||h≠0 almost surely. The ratio of off-axis to top coefficients before applying Z_n is bounded by ||b_n||/|α_n| uniformly in q≥1, because (λ_2/λ_1)^(q−1)≤1. Passing through Z_n has bounded distortion under the coupling; its condition number tends to √(1+c||g||²). Both the image top vector's capture and the ceiling tend to c||g||²/(1+c||g||²), proving the uniform result and allowing any adaptive q_n. The unpowered alignment instead depends on the independent h² in the limit. Continuity outside the probability-zero tie yields the gain probabilities, and the beta ratio and ℓ=2 Laplace transform give the stated tail and 1/√2. Compression of A_n A_nᵀ by the orthogonal residual projector sandwiches the spectral norm squared between the compressed spike's norm and that norm plus 1, also if cn≤1. Bounded normalized errors and χ² stochastic domination give the expected risks and strict limiting improvement.
 
-## Scope and outstanding limits
-The claim assumes real standard Gaussians, a single scaled spike, fixed auxiliary width and exact arithmetic; it neither gives finite-dimensional monotonic improvement nor covers the two-sided oblique approximation estimator. Independent scientific audit remains unperformed. Literature coverage cannot prove global uniqueness.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The algorithm and the exact projector law are not the distinct contribution. A catalogue result independently covers the usual-spike projector sublaw, and the Wishart derivation is classical even beyond that regime. In the inspected works, no known theorem gives one-step saturation uniformly over all iterations for the independent-start, fixed-auxiliary-width critical model, together with the coupled baseline comparison and its nonzero probability of loss under strictly improved limiting mean risk. This is the supported distinction, not priority for generic sketch-power iteration or Gaussian inverse forms.
+
+## value
+
+PASS
+
+The exact randomized algorithm comparison identifies a natural critical regime where a single iteration attains all asymptotic gains available within the auxiliary range, even under adaptive iteration choices. It also exposes a persistent, quantified chance of individual loss despite a strict expected spectral-risk improvement. This supplies decision-relevant information not contained in the classical projector law or in a generic mean bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

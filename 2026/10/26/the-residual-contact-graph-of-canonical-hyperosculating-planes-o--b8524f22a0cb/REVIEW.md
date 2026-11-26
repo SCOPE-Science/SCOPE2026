@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The canonical series is established by adjunction on the smooth \((3,3)\) curve in \(\mathbb P^1\times\mathbb P^1\). Characteristic-three Hasse jets give an exact rational Wronskian, and substitution of the unique hyperosculating plane into the defining equation factors as \(-As^4(As^2-s+A)\) for all four nonzero fourth roots of unity. The residual quadratic gives double versus simple contacts and explicit translations; these prove the six directed triangles and three undirected hexagons. Boundary jets account for the Plücker degree exactly. The enclosed checker independently verifies finite-field polynomial identities and the complete finite graphs. No unproved infinite extrapolation from tested fields is used.
+## correctness
 
-## Originality — PASS (qualified)
-Arakelian–Korchmáros (2015) establishes the underlying Artin–Mumford curve. Korchmáros–Montanucci (2016-12) gives the general space model and local osculating order sequences, which significantly overlap with identifying special contact points. The new assertion is stronger and different: the scheme-theoretic residual degree-two divisor of **each** order-four osculating plane and the complete directed/undirected contact graph. Neither inspected text states this residual factorization or its exact cycle decomposition. Published-source/abstract and mathematical-record searches found no identical or dominating theorem; these searches cannot rule out unindexed prior derivations. A local order sequence specifies contact at \(P\), not the two residual intersection points.
+PASS
 
-## Mathematical value — PASS
-Hyperosculating hyperplanes and their residual contact divisors are intrinsic to the canonical embedding. The partition into a double-contact triangle system and a simple-contact hexagon system reveals a non-obvious geometric incidence dichotomy on a maximally symmetric ordinary genus-four curve. This is a complete, natural finite-configuration classification, not a randomly chosen numerical slice. The Wronskian and Frobenius data provide compatible geometric and arithmetic context.
+The affine partials are nonzero on UV=1, and at x=∞ the equation is (1−t²)(v³−v)=t³ at each y in F_3, giving three distinct smooth branches; the other side is symmetric and the corner is absent. The Artin–Schreier right side has simple poles, so it is not an additive coboundary; the completion is geometrically irreducible. Adjunction gives genus four and K=O_M(1,1). With s=x−x(P), inverse-series comparison gives y coefficients −A^{−2}, −A^{−3}, −A^{−6}−A^{−4}+A^{−2}. In the basis 1,s,z,sz the order-(0,1,2,3) determinant is a_2²−a_1a_3=(A⁴−1)/A⁸, not identically zero. Its affine zeros are simple since dA/ds=−1 and A⁴−1 is separable; each of four A has 3×3 preimages. The first three jet rows have rank three because a_1≠0, giving uniqueness of z+A^{−2}s−A^{−1}sz=0. Independently expanding with d=1−s/A and n=−s/A² gives A^{−1}d³+n³−nd²=A^{−1}+A²s+As²−A²s³ at A⁴=1. Multiplying by A+s³−s and subtracting d³ gives −As⁴(As²−s+A). It is nonzero at d=0; the root lengths 4+2 account for the full canonical degree. Factoring gives s=−A twice if A²=1, and s=A±1 simply otherwise; evaluation of z=n/d verifies the specified points. Coordinate Frobenius F sends P to P+(A,A^{−1}). In the first stratum the residual map is F inverse and has order three without fixed points, hence six directed triangles. In the second stratum the neighbors are τ^{±1}F(P), with τ simultaneous translation by (1,1). F swaps the two values of A, F²=1 there, and τ has free order three and commutes with F, so τF has six-element orbits and its inverse is τ^{−1}F: three hexagons. At infinity the local canonical basis is 1,t,v,tv with v=−t³−t⁵+O(t⁷); its D1 and D3 begin t⁴ and −1 and D2 has order three, so the Wronskian starts at t⁴. The six boundary points are F_3-rational. Thus Frobenius cycle type on the reduced support is 1^6 2^9 3^6, yielding the displayed orbit-factor zeta function. These checks are symbolic; the frozen exact finite checker was inspected, not executed.
 
-## Limitations
-The claim does not classify osculating contacts at the six special boundary points, twists of the curve, or higher-dimensional osculating families. Later published work contains strong partial coverage of local order sequences. Independent validation and exhaustive historical novelty certification are outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the complete two-regime residual divisors and their incidence graph, not the Artin–Mumford model, its translations, or the general osculating-conic template. The closest primary paper in fact gives an explicit equation and more than local order sequences. Its stated order theorem assumes q≥5, and it neither states nor proves the characteristic-three residual divisors or graph. At q=3 the equation specializes to the frozen plane in centered coordinates, but the relevant jet verification, residual multiplicities, and incidence classification are separate. The assessed novelty is bounded, not a priority claim.
+
+## value
+
+PASS
+
+Genus four is the degree-six canonical case where an order-four osculating section naturally leaves degree two. The theorem tells exactly when that residual scheme is nonreduced, identifies all residual points, and classifies the incidence on the entire affine high-contact locus. This distinguishes geometrically meaningful regimes not determined by the local order at the contact point or by Frobenius orbit counts. It is a reusable exact characteristic-three test case, not an arbitrary finite sample or a recount of the known local orders.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:02:04.552626Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "Frozen artifacts/verify_majorant_gap.py (inspection only)",
+        "Independent rational enclosure and analytic aliasing proof"
+      ],
+      "rationale": "Direct substitution of the fifth-root cosine values on the tenth-order grid yields contributions at indices 0–5 of −26, 0, 11+3√5, 0, 7−5√5, 0; reflection gives exactly 1−2/√5. For F(w)=|w|³ the derivative of the Hessian is the sum of four terms of norm at most 3 in unit directions, yielding the stated weak third-derivative bound; the Hessian extends Lipschitz through zero. The chain rule gives 3684 for each polynomial's cubed modulus, hence Fourier coefficient bound 7368/|k|³ for the difference. Absolute convergence and root-grid orthogonality give |Δ_N−I|<18420/N³. Independently certified all 124 required orders and the order-1000 proxy using Machin intervals, a degree-24 rational cosine polynomial and exact lower/upper endpoint propagation through integer square roots. The smallest resulting lower bound among 5–129 excluding ten was 648213509486681/6000000000000000 at N=6. The proxy exceeded 11554/100000, giving a bound 11769045563/109850000000 > 107/1000 for every N≥130. Both ranges therefore strictly exceed Δ_10. Replay: python3 /workspace/branches/reproduce_majorant.py, with outputs in /workspace/branches/majorant_reproduction.txt. The theorem concerns cubed norms of one fixed pair on complete uniform grids only.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Krenedits and Pan et al. address continuous norms, with k=1,p=3 among the already covered cases; the later Krenedits paper extends the continuous frequency range."
+        ],
+        "reasoning": "A continuous inequality, even for many trinomials, does not determine a minimum over discrete root-of-unity aliases.",
+        "searches": [
+          "arXiv:2609.09740v1 Theorem 1.1 and Corollary 1.2",
+          "arXiv:1006.0409v3 abstract",
+          "arXiv:1203.2378v1 abstract"
+        ]
+      },
+      "checked_sources": [
+        "60a27acbb9f3",
+        "a763d062382b",
+        "arXiv:1006.0409v3",
+        "arXiv:1203.2378v1",
+        "arXiv:2609.09740v1",
+        "Krenedits' report of Mockenhaupt (1996)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The predecessor's 372π²/L² bound and its stated proxy only give the displayed weaker uniform tail starting at L=200.",
+          "Krenedits' account of the 1996 thesis describes numerical support for a lower bound but does not identify this exact optimal constant or unique minimizer."
+        ],
+        "reasoning": "Neither stated finite bounds nor the continuous theorem imply the unique algebraic minimum without a sharper tail and exact evaluation.",
+        "searches": [
+          "60a27acbb9f3 Proof near offset 2835",
+          "arXiv:1006.0409v3 pp. 2 and 19"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "60a27acbb9f3 treats the identical pair and average over complete root grids.",
+          "Taking a finite character of given order gives the same grid average because every image point has the same fiber cardinality.",
+          "Krenedits cites an earlier 'discrete and uniform' treatment of this same pair by Mockenhaupt."
+        ],
+        "reasoning": "Compare the exact normalized finite-grid quantity, not the unnormalized norm or the continuous sign.",
+        "searches": [
+          "Resultary: finite cyclic three-term majorant reversal order ten exact universal margin 1-2/sqrt(5) predecessor",
+          "arXiv:1006.0409v3, introduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest finite certificate reports its least lower endpoint at L=10 on 5≤L≤199; it gives a separate lower bound just above 0.0237 for L≥200.",
+          "a763d062382b is a finite L1 result for 1+χ±χ², not an L3 table for this pair."
+        ],
+        "reasoning": "The reported exact-grid candidate and decimal interval endpoint are not a sharp all-order entry or uniqueness certificate.",
+        "searches": [
+          "Local mirror record 60a27acbb9f3, Finding and Proof",
+          "Local mirror record a763d062382b, Finding"
+        ]
+      },
+      "rationale": "The reversal, an order-independent positive bound, and order ten as candidate were already published in the exact same finite-grid setting. The supported distinct result is the sharp all-order value and its unique attainment, not the sign or the candidate. The predecessor's stated lower endpoint at order ten and weaker bound for L≥200 do not establish either the algebraic equality or a global sharp minimum. Inspectable continuous-circle results likewise do not give finite-grid extremality.",
+      "residual_risks": [
+        "Mockenhaupt's thesis primary text was not obtained; its exact discrete-uniform claims remain unverified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial prior overlap, weaker margin only",
+          "evidence": [
+            "Δ_L>0.0237 for L≥5; L=10 has least certified lower endpoint over 5≤L≤199; stated tail lower bound at L≥200 is 0.0237169437…"
+          ],
+          "identifier_or_url": "60a27acbb9f3",
+          "material_read": "Finding and Proof, including offsets 2835–3450",
+          "method": "Resultary local mirror",
+          "title": "A finite-cyclic three-term majorant reversal exactly from order five onward",
+          "trigger": "Same polynomial pair, moment, grids and candidate minimizer"
+        },
+        {
+          "assessment": "Different pair and exponent",
+          "evidence": [
+            "L1 and 1+χ±χ²."
+          ],
+          "identifier_or_url": "a763d062382b",
+          "material_read": "Finding",
+          "method": "Resultary local mirror",
+          "title": "Uniform finite-cyclic ell-one majorant reversal for a three-term pair",
+          "trigger": "Nearby exact finite-grid uniform majorant bound"
+        },
+        {
+          "assessment": "Priority risk, exact scope unresolved",
+          "evidence": [
+            "'Discrete and uniform' treatment for 2<p<4 and the same pair; reported numerically supported lower bound."
+          ],
+          "identifier_or_url": "G. Mockenhaupt, Siegen habilitation thesis, 1996",
+          "material_read": "No primary copy retrieved; Krenedits intro and bibliography pp. 2, 19",
+          "method": "Primary literature search and OA secondary passage",
+          "title": "Bounds in Lebesgue spaces of oscillatory integral operators",
+          "trigger": "Potential earlier discrete-uniform treatment"
+        },
+        {
+          "assessment": "Continuous comparison plus historical report",
+          "evidence": [
+            "Continuous result includes p=3. The discrete account is attributed to Mockenhaupt."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1006.0409",
+          "material_read": "v3 abstract, introduction and bibliography, pp. 1–2, 19",
+          "method": "OA original passages",
+          "title": "Three-term idempotent counterexamples in the Hardy–Littlewood majorant problem",
+          "trigger": "Classical result on the same trinomial"
+        },
+        {
+          "assessment": "Continuous result, not an exact grid margin",
+          "evidence": [
+            "Combines new k≥4 cases and known smaller cases on the circle."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.09740",
+          "material_read": "v1 Theorem 1.1 and Corollary 1.2, pp. 2–3",
+          "method": "OA original passages",
+          "title": "Mockenhaupt's Three-Term Hardy-Littlewood Majorant Conjecture",
+          "trigger": "Broader three-term comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "60a27acbb9f3 weaker bound and candidate"
+      ],
+      "rationale": "The uniform margin is a quantitative stability threshold for the classical signed trinomial tested over all cyclic orders where reversal occurs. The result replaces a much smaller safe bound with the largest admissible one and identifies its sole bottleneck order; neither is interchangeable with observing positivity or a likely minimum on a finite grid.",
+      "residual_risks": [
+        "No optimization over supports or exponents follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

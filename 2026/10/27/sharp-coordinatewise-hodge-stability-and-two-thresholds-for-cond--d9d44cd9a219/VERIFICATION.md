@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,6 @@
 }
 ---
 
-# Reproducibility and limits
+# Reproduction and verification
 
-Run `python3 check_weighted_wheel.py` in a Python installation with SymPy. The checker reconstructs the reduced incidence matrix and the full projection using exact rational arithmetic, checks symmetry, idempotence, every row sum for the selected input weights, sign-vector attainment, and exact polynomial and derivative identities. It reports `ALL EXACT CHECKS PASSED: 486 assertions`.
-
-The tested range is \(3\le n\le12\) and \(\sqrt t\in\{1/4,1/2,1,2\}\). Finiteness of that test set is not an exhaustive proof over other dimensions or all real weights; general claims are established analytically in `RESULT.md`. The positive polynomial identity and finite rational witness are part of the proof and also checked exactly. Independent review is not performed.
+Run `python3 verify.py` in this directory. The standard-library script checks the coefficients of both polynomial identities for five rim vertices, and verifies the exact rational Green column and row-sum witness for six rim vertices. The analytic proof in `RESULT.md` establishes the strict bounds for every weight and the extension from the two decisive sizes to all sizes.

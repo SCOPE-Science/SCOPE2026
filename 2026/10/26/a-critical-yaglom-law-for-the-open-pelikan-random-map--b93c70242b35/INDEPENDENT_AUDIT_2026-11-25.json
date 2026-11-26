@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:41:14.362429Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The repaired finding is the critical conditioned-time TV limit from the uniform top cell. The reduction is exact: affine surviving branches preserve within-cell uniformity and the top reset has mass p(1-ε) with cell weights 2^{-k-1}. The top-cell initial law δ₀ satisfies the cited critical survival theorem's moment hypothesis, giving S_{n+1}/S_n→λ=ap. The only mass loss is pε times the top-cell mass, hence the conditioned top-cell mass tends to (1-λ)/(pε)=ε/4. Solving the transition recursion backwards in the cell index gives the limit of each next cell from the preceding two, using the actual time-shifted conditioned masses and the survival ratio. Since q/p=a²/4, the limiting generating function obeys (1-aw+a²w²/4)U=(ε/4)(2-aw)/(2-w), which yields U=ε/[(2-w)(2-aw)]. It has nonnegative coefficients and U(1)=1 for 1<a<2. Finite-set truncation then proves TV convergence; on the disjoint uniform cells the interval and cell TV distances agree. The supplied original survival formula is mathematically consistent: 1-f(z) is a/[2(a-1)] times the leading square root, f has positive coefficients in degrees 1 and 2 excluding another return pole on the leading circle, and h(1)=1 gives removable cancellation in the survival transform. The repair no longer claims the amplitude separately. Independent finite corroboration at ε=1/2 propagated exact rational masses by the stated cell recursion and compared the top-cell masses with coefficients of 1/(1-f) through step 24 and Mu=λu at k=0,…,20; those checks do not prove the limit. Frozen checker and output were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exponential-moment theorem dominates the original initial-law scope for survival, but not the conditional distribution: it states no fixed-time Yaglom law.",
+          "Brevitt–Klages' exponential-rate passage for infinite chains addresses the R-positive case, whereas this collision is R-null. Duvall's deterministic induced-map results concern the number of completed survivor returns and additive observables, not this interval marginal. Vega Coso's reset-to-start gambler's-ruin chain is not geometric reinjection at zero."
+        ],
+        "reasoning": "The broader survival comparison is positive for coverage; no broader TV marginal convergence theorem covering this model and regime was located in the passages inspected.",
+        "searches": [
+          "Resultary e1c961378cda, finding, scope and limitations",
+          "Duvall arXiv:2606.27488v1 abstract",
+          "Vega Coso arXiv:2603.24803v1 abstract/opening",
+          "Brevitt–Klages §2.3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check.py and CHECK_OUTPUT.txt",
+        "Brevitt–Klages arXiv:2607.19084v1",
+        "Resultary e1c961378cda",
+        "Duvall arXiv:2606.27488v1 and Vega Coso arXiv:2603.24803v1 opening summaries",
+        "Brevitt thesis citation and public lookup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General renewal and QSD results in the checked passages supply the collision and stationary candidates. The survival asymptotic supplies a scalar ratio. The repaired proof propagates that ratio to the normalized state-by-state balance equations and shows the limiting coefficients sum to one; the marginal convergence is not a parameter specialization of either cited statement."
+        ],
+        "reasoning": "The remaining claim answers the distinct null-critical conditioned-time question, including tightness, with a model-specific use of the survival result rather than independent novelty for its prefactor.",
+        "searches": [
+          "Brevitt–Klages §2.2–2.3 and §3",
+          "Resultary e1c961378cda finding and limitations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In Brevitt–Klages, their QSD parameter α_c=(1-√(4pq))/(pε) specializes to ε/4 and their generating function gives the same probability vector U.",
+          "Resultary e1c961378cda gives a survival coefficient proportional to Φ(2/a); the same top-cell start has Φ=1, giving precisely the frozen amplitude.",
+          "The same QSD as a conditional fixed point is not equivalent to convergence of the survivor distribution from the top cell. The broader amplitude record explicitly distinguishes the latter in its limitations."
+        ],
+        "reasoning": "The two exact overlaps are credited and removed as separate contributions; the convergence property survives these identifications.",
+        "searches": [
+          "Resultary: open Pelikan critical survival amplitude, critical conditioned-time/Yaglom limit",
+          "Brevitt–Klages arXiv:2607.19084v1, §2.2 and §3.1–3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed survival value and exact QSD weights are present in the sources above; the inspected indexed finding excludes the exact conditioned-time distribution."
+        ],
+        "reasoning": "The formulas for weights and amplitude are existing exact data; an index or formula for either does not tabulate convergence in TV.",
+        "searches": [
+          "Local Resultary finding index for critical open Pelikan laws",
+          "Brevitt–Klages critical QSD formulas, Eqs. (32), (39), (41), (46)"
+        ]
+      },
+      "rationale": "This PASS is for the repaired total-variation Yaglom limit, not for the original presentation of the sharp amplitude as part of the distinct contribution. A separate Resultary record gives the exact amplitude for a broader initial-law class, including this case, and expressly excludes the full conditional Yaglom distribution. Catalogue dates do not establish priority or provenance. Brevitt–Klages already give the critical quasi-stationary law itself. The new content retained is convergence to that law in TV from the given top-cell start, which requires conditioning, the transition recursion and control of total mass beyond knowledge of the survival probability or fixed point.",
+      "residual_risks": [
+        "The thesis may contain an independently derived Yaglom limit; its full text was not available from the bounded lookup.",
+        "A more general null-recurrent Yaglom theorem not located in the comparison may imply conditioned convergence for this kernel. No chronology is inferred from the catalogue paths."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same renewal kernel, boundary and QSD; the inspected material does not prove the repaired critical Yaglom convergence",
+          "evidence": "Eq. (27) labels the pole/branch collision R-null; the QSD generating function specializes to U. The infinite-state statement in §2.3 is for R-positive chains.",
+          "identifier_or_url": "https://arxiv.org/html/2607.19084v1",
+          "material_read": "§2.2–2.3 Eqs. (24)–(28), offsets 18500–23998; §3.1–3.2 Eqs. (32), (39), (41), (46), offsets 25600–33566; thesis citation near offset 72275",
+          "method": "Open primary text, targeted reading of formulas and scope",
+          "title": "Quasi-stationary and quasi-ergodic distributions in the Pelikan random map",
+          "trigger": "Same map, collision line, and quasi-stationary measures"
+        },
+        {
+          "assessment": "Original amplitude covered by its broader result; repaired convergence not included",
+          "evidence": "The survival theorem multiplies the top-cell amplitude by Φ(2/a), equal to 1 for δ₀. The limitations explicitly exclude the complete conditional Yaglom distribution.",
+          "identifier_or_url": "2026/11/8/SCOPE-critical-survival-amplitudes-for-the-open-pelikan-random-map--e1c961378cda",
+          "material_read": "RESULT.md finding, scope and proof; exact overlap at offsets 0–3154 and explicit limitation at 7395–8572",
+          "method": "Resultary lookup and local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Critical survival amplitudes for the open Pelikan random map",
+          "trigger": "Exact quantitative survival overlap for the same collision"
+        },
+        {
+          "assessment": "Different objects and limits in the stated claims",
+          "evidence": "Deterministic induced-map survivor return count and observable/reward laws, not a conditional cell marginal for the random model.",
+          "identifier_or_url": "https://arxiv.org/pdf/2606.27488v1",
+          "material_read": "Abstract and introduction opening, offsets 0–3637",
+          "method": "Targeted open PDF reading",
+          "title": "Survivor-conditioned renewal laws and observable bounds for open intermittent maps",
+          "trigger": "Potentially broader survivor-conditioned renewal result cited in the matching catalogue record"
+        },
+        {
+          "assessment": "Different resetting rule and target statistic",
+          "evidence": "Resets to the starting location with probability γ at each step; gambler's ruin and absorption probabilities.",
+          "identifier_or_url": "https://arxiv.org/pdf/2603.24803v1",
+          "material_read": "Opening description, offsets 0–2330",
+          "method": "Targeted open PDF reading",
+          "title": "Critical Spectral Invariants in Random Walks with Geometric Resetting",
+          "trigger": "Related resetting and absorption work cited in the matching catalogue record"
+        },
+        {
+          "assessment": "Thesis overlap unresolved; not treated as noncoverage",
+          "evidence": "The bibliography identifies the thesis; complete text was not located in the search.",
+          "identifier_or_url": "S. Brevitt, 2026 doctoral thesis, Queen Mary University of London",
+          "material_read": "Only citation in Brevitt–Klages; no thesis theorem inspected",
+          "method": "Primary bibliography and bounded public literature lookup",
+          "title": "Weak chaos in open systems",
+          "trigger": "Same model author's plausible thesis coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At a specifically identified critical line where the usual R-positive asymptotic is inapplicable, the repaired result determines the eventual survivor distribution, not just the total surviving mass or a stationary candidate. In an infinite countable model the normalized masses could drift to infinity; their explicit probability normalization is substantive. The TV limit also determines the full conditioned interval law, a measurable prediction strictly stronger than the known survival asymptotic.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

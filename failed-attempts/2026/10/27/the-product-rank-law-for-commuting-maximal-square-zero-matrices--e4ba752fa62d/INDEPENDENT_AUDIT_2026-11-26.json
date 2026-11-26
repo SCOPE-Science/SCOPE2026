@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:31:48.311136Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fix E in the unique maximal square-zero class. A commuting F has blocks (A,B;0,A), with A^2=0 and AB+BA=0. For r=rank A and h=m-2r, use the decomposition of the m-space into the image I of A, a complement of I in ker A, and a space J mapped isomorphically to I. Anticommutation leaves free blocks B_II,B_IH,B_IJ,B_HH,B_HJ, with B_JJ=-B_II and the other blocks zero, also in characteristic two. Solving Av=0 and Au=-Bv shows nullity F=m+nullity B_HH, so precisely q^((m-r)^2+r^2) Phi_h choices of B have maximal rank. The image/kernel flag and quotient isomorphism count for A is q^(2r(m-r)) Phi_m/(Phi_r Phi_h); the full class has size q^(2m^2) Phi_(2m)/Phi_m. These give the stated normalized law, including r=0 and h=0. For the asymptotics put a_r=Phi_infty/Phi_r. The tail product gives 0<=1-a_r=O_q(q^-r) and the prefactor after extracting Phi_infty differs from 1 by O_q(q^-m). Summing over r<=floor(m/2) gives the stated constant and remainder. Normalizing the summable deviations of a_r from 1 gives the stated total-variation bound and hence the rescaled limit. Frozen checker and output were inspected, not rerun; they cover nine small prime-field cases, not the all-field or limit claims.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Levy treats commuting square-zero varieties over algebraically closed characteristic two and addresses their geometry. Huang's nodal count concerns zero products; the inspected later module-count passage treats other quotient rings without giving this refined law. The October 26 anticommutant record covers the fixed-E maximal-F stratum in characteristic two, and the October 12 mutually annihilating record overlaps at r=0."
+        ],
+        "reasoning": "Neither the geometry statement nor the boundary cases establish the entire law. The October 13 exact count does, without restricting characteristic or r.",
+        "searches": [
+          "Levy arXiv:math/0609180 p. 1",
+          "Huang arXiv:2110.15566 section 3.1 and arXiv:2404.19483 p. 3",
+          "Local Resultary anticommuting and annihilating joint-rank records"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, checker.py and check_output.txt",
+        "Mirrored Resultary records ce965cde261e, 7d219233bfbd, 2db661bafe6d and 442e4aaba275",
+        "OA passages from Levy, Huang, Bogdanić et al. arXiv:2212.08425, Britnell–Wildon arXiv:1001.0811, Basili–Iarrobino arXiv:0709.2304, and the Ngai thesis"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior factor multiplying the class size simplifies to q^(m^2) Phi_m/Phi_r. Normalization therefore gives the frozen exact weights. After scaling, these weights are a common factor 1+O_q(q^-m) times Phi_infty/Phi_r, whose deviations from 1 sum absolutely and have geometric tails."
+        ],
+        "reasoning": "The fixed-q constant, remainder, and total-variation statement are routine consequences of the exact prior count and the product-tail estimate, not a new rank enumeration or independent asymptotic phenomenon.",
+        "searches": [
+          "October 13 mirrored RESULT.md, labeled-pair formula, compared to frozen Finding and proof steps 5–6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior Finding counts ordered X,Y in dimension 2m, both square-zero of rank m, with XY=YX and rank(XY)=r. Its count is the class size times [m choose r]_q [m-r choose r]_q |GL_r| q^(2r(m-r)) |GL_(m-2r)|."
+        ],
+        "reasoning": "Independent uniform sampling on the class divides this labeled count by the class size squared. The quotient is exactly the frozen joint distribution.",
+        "searches": [
+          "Local Resultary search for finite-field commuting maximal square-zero pairs and product rank",
+          "2026/10/13/SCOPE-product-rank-strata-of-commuting-full-rank-square-zero-matrix-pa--ce965cde261e, mirrored RESULT.md offsets 0–4764"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "ce965cde261e is an exact symbolic enumeration by r, not merely a small-instance table. The October 18 bidirectional-product-rank record does not impose commutation."
+        ],
+        "reasoning": "The exact enumeration decides overlap for the whole rank range. Equal ranks of EF and FE alone would not have been an equivalent counting condition.",
+        "searches": [
+          "Local Resultary exact rank-stratum search; ce965cde261e and 442e4aaba275 mirrored findings"
+        ]
+      },
+      "rationale": "The October 13 Resultary record gives exactly the labeled-pair count for the same scope, all finite fields and each product rank. Switching to probability and simplifying Gaussian factors do not change the result. The extra fixed-field statement and its error follow from summing geometrically decaying defects in those same exact weights; the predecessor need not state the limit verbatim.",
+      "residual_risks": [
+        "Earliest published occurrence was not determined. Kokol Bukovšek et al. full text could not be verified and the thesis comparison was limited; neither limitation affects the demonstrable earlier exact catalogue coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive prior exact coverage.",
+          "evidence": [
+            "Formula for labeled pairs in every r stratum, with ambient dimension 2m and both ranks m."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-product-rank-strata-of-commuting-full-rank-square-zero-matrix-pa--ce965cde261e",
+          "material_read": "RESULT.md offsets 0–4764, including Finding and count.",
+          "method": "Local index and mirrored text, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4.",
+          "title": "Product-rank strata of commuting full-rank square-zero matrix pairs",
+          "trigger": "Same matrix class, commutation constraint, and rank statistic."
+        },
+        {
+          "assessment": "Characteristic-two or r=0 overlap, or different relation.",
+          "evidence": [
+            "Anticommutation reduces to commutation in characteristic two; mutually annihilating pairs have zero product; the bidirectional formula does not impose commutation."
+          ],
+          "identifier_or_url": "2026/10/26/7d219233bfbd; 2026/10/12/2db661bafe6d; 2026/10/18/442e4aaba275",
+          "material_read": "Mirrored Finding and nearby text, offsets 0–4667, 0–3993 and 0–4396 respectively.",
+          "method": "Local mirror.",
+          "title": "Related Resultary square-zero rank strata",
+          "trigger": "Potential stronger joint-rank enumerations."
+        },
+        {
+          "assessment": "No matching all-rank consequence established from these passages.",
+          "evidence": [
+            "First passage requires AB=BA=0, counting q^(nullity A)^2 choices in the sense of q raised to the squared nullity. Second lists module counts for rings including F_q[x,y]/(x^b) and F_q[x,y]/(x^b y)."
+          ],
+          "identifier_or_url": "arXiv:2110.15566; arXiv:2404.19483",
+          "material_read": "First paper section 3.1 p. 8; second paper p. 3 on module counts.",
+          "method": "Bounded OA PDF passages.",
+          "title": "Mutually annihilating matrices, and a Cohen–Lenstra series for the nodal singularity; Commuting matrices via commuting endomorphisms",
+          "trigger": "Finite-field enumerations could imply the full rank law."
+        },
+        {
+          "assessment": "Abstract does not settle coverage of the target count.",
+          "evidence": [
+            "The abstract discusses combined-image-rank and prescribed-kernel geometric strata."
+          ],
+          "identifier_or_url": "https://summit.sfu.ca/_flysystem/fedora/2025-01/etd23246.pdf",
+          "material_read": "Title page and abstract, p. 3, offset 1280.",
+          "method": "OA PDF.",
+          "title": "Ngai thesis on commuting matrix varieties",
+          "trigger": "Plausible rank-sensitive predecessor noted in the frozen package."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Product rank in this natural ensemble is a meaningful invariant, but the exact invariant is already known in labeled-count form. The new presentation and routine summable-weight limit do not establish an independently substantive remainder to repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

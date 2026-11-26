@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:47:25.838195Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Connectivity makes the direction space 1⊥, and the support-function difference sums |u_i−u_j| once per edge. Writing a normal as a positive sum of distinct centered nested level indicators makes graph variation additive over these cuts and its Euclidean norm subadditive. The Euclidean triangle inequality is strict for more than one of these nonpositively-collinear indicators, so all minimizing directions are two-level; the squared norm of a centered cut indicator is |S|(N−|S|)/N. An independent way to check the cut classification: if the hub-excluding side is disconnected, its cut sizes add over its components and its centered indicator is their sum, with strict Euclidean triangle inequality. Its ratio is then strictly worse than the best component ratio. A connected side avoiding the hub is exactly one leaf or one nonhub path interval; hub exclusion also picks a unique representative up to reversal of the normal. The leaf gives N/(N−1); maximizing s(N−s) over 1≤s≤m−1 gives h and, just when N is odd and the cap allows it, h+1. The ratio h(N−h)/(N−1) is strictly increasing: the balanced values at 2j and 2j+1 are j²/(2j−1) and (j+1)/2, and the cap branch (m−1)[1−(m−2)/(N−1)] joins at N=2(m−1). The ratio is less than m−1 if m≤5, equals 4 at t=15 and 9 for m=6 and 7 respectively by the cap formula, and equals 4 at N=15 for m=8,…,14 by balance. For m≥15 it is already greater than 4 at t=1 by the balanced branch and its N=16 bound. This covers all strict and tie cases. The frozen checker and its reported 63 exact cut enumerations and larger phase sweep were inspected, not rerun or used to extrapolate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The fixed-cycle-length surface-area result singles out the identical leaf-bunched cycle graph. The other unicyclic result gives Euclidean surface area using bridge/cycle edges. The primary deformed-zonotope paper gives combinatorial and deformation-cone structure."
+        ],
+        "reasoning": "Boundary area on the same polytope and deformation data do not compare individual support distances to its center and therefore do not give this metric phase diagram. The general weighted inradius theorem is the broader relevant formula, but leaves cut optimization open.",
+        "searches": [
+          "Resultary: same-hub leaves and unicyclic graphical zonotopes, width versus Euclidean surface area",
+          "Padrol–Pilaud–Poullot DOI:10.1007/s00454-023-00586-x",
+          "RESULTs fa812a991423 and ac23a8023ac7"
+        ]
+      },
+      "checked_sources": [
+        "Resultary catalog and mirrored RESULTs cb1eceb082ab, fa812a991423, ac23a8023ac7, 773d782a1bb3, cb31d741c454, 1a1aa8bee4b6",
+        "Padrol–Pilaud–Poullot DOI:10.1007/s00454-023-00586-x"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general cut contrast leaves 2^(N−1)−1 hub-excluding choices. Specialization of the statement still needs classification of optimal cuts and the finite-cap versus balance calculation."
+        ],
+        "reasoning": "Connectivity of the selected side reduces the optimization to two cut families; strictness in the Euclidean level-set inequality, the integer cap and its parity, and the crossing of the two costs produce the all-normal and tie laws. These are not merely changes of labels in the inspected statements.",
+        "searches": [
+          "Specialize cb1eceb082ab weighted cut identity to G_{m,t}; compare simplex-sum cut laws and same-graph surface-area findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior weighted theorem states r=½ min w(∂S)√(N/(|S|(N−|S|))). A centrally symmetric zonotope has width twice its centered inradius."
+        ],
+        "reasoning": "This is the same variational invariant, not a different problem under the name inradius. It already supplies the minimum-over-cuts characterization, but not the analytic evaluation for this family.",
+        "searches": [
+          "Resultary: weighted graphical zonotope inradius as cut expansion",
+          "Primary query: \"Euclidean inradius\" \"weighted graphical zonotopes\" cut expansion",
+          "RESULT cb1eceb082ab Finding and proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearby exact fifteen-vertex transition is for a simplex-sum complete-bipartite graph associahedron. The standard cyclohedron has its own singleton/arc-type transitions. The same-day wheel result works with spanning trees in edge coordinates and has an eight-rim transition."
+        ],
+        "reasoning": "Matching N=15, cycle terminology or type of extremum does not match the polytope, cut costs or direction classification. None of these exact laws gives the leaf/arc table for edge segments of the bunched cycle.",
+        "searches": [
+          "Resultary: exact leaf-to-arc width transition, fifteen-vertex ties",
+          "RESULTs 773d782a1bb3, cb31d741c454 and 1a1aa8bee4b6"
+        ]
+      },
+      "rationale": "The distinct result is the evaluated bunched-cycle Euclidean width, exact leaf/arc switches and exhaustive minimizing directions. The graph form and general inradius/cut identity are prior, not claimed here as new.",
+      "residual_risks": [
+        "An unlocated exact graph cut-optimization result or graph-family treatment could reduce the distinct scope; the targeted searches are not exhaustive.",
+        "No priority order is inferred between same-day records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of the cut reduction, not the evaluated bunched-cycle law",
+          "evidence": [
+            "The minimum over cuts has denominator √(|S|(N−|S|)/N) and the inradius has a factor 1/2."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-euclidean-inradius-of-weighted-graphical-zonotopes-is-a-cut-expa--cb1eceb082ab",
+          "material_read": "Mirrored RESULT.md offsets 0–1617 and 2350–3454",
+          "method": "Used symmetry to translate inradius into width and compared remaining optimization",
+          "title": "Euclidean inradius of weighted graphical zonotopes is a cut expansion constant",
+          "trigger": "Exact general variational characterization of the same metric"
+        },
+        {
+          "assessment": "Relevant structural context, not exact width evidence",
+          "evidence": [
+            "Abstract and introduction discuss graphical fans, deformation cones and combinatorics."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00454-023-00586-x",
+          "material_read": "Springer PDF abstract and introduction, pp. 1–2",
+          "method": "Compared stated subjects and structural metrics against the Euclidean width claim",
+          "title": "Deformed Graphical Zonotopes",
+          "trigger": "Primary structural treatment of the same polytopes"
+        },
+        {
+          "assessment": "Same graph shape, different invariant",
+          "evidence": [
+            "Fixed order and cycle length: the unique surface-area minimizer puts every off-cycle leaf at one hub."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-sharp-minimum-and-stability-of-surface-area-for-unicyclic-graphi--fa812a991423",
+          "material_read": "Mirrored RESULT.md offset 0–2876",
+          "method": "Compared graph, metric and minimization variable",
+          "title": "Sharp minimum and stability of surface area for unicyclic graphical zonotopes",
+          "trigger": "Same leaf-bunched cycle appears as an extremizer"
+        },
+        {
+          "assessment": "The area stratification does not give the directional minimum",
+          "evidence": [
+            "An exact bridge/cycle-edge formula computes Euclidean boundary area."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-first-and-second-euclidean-surface-area-levels-of-unicycli--ac23a8023ac7",
+          "material_read": "Mirrored RESULT.md offsets 0–2473 and 4000–5021",
+          "method": "Compared surface-area formula with the width ratio",
+          "title": "Sharp first and second Euclidean surface-area levels of unicyclic graphical zonotopes",
+          "trigger": "Bridge vs cycle-edge metric accounting on unicyclic graphs"
+        },
+        {
+          "assessment": "General simplex-sum method and a transition analogue; not this graph-zonotope evaluation",
+          "evidence": [
+            "Sums simplices on connected cycle subsets rather than just edges."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-euclidean-thickness-and-a-cut-balance-transition-in-the-st--773d782a1bb3",
+          "material_read": "Mirrored RESULT.md offset 0–2359",
+          "method": "Compared summands and cut costs",
+          "title": "Sharp Euclidean thickness and a cut-balance transition in the standard cyclohedron",
+          "trigger": "Exact singleton vs balanced cyclic-block minimizing normals"
+        },
+        {
+          "assessment": "Matching scale of transition but different theorem",
+          "evidence": [
+            "The transition is in the simplex-sum graph associahedron of a complete bipartite graph."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-universal-fifteen-vertex-width-transition-for-complete-biparti--cb31d741c454",
+          "material_read": "Mirrored RESULT.md offset 0–1934",
+          "method": "Compared bodies, costs and optimizing subsets",
+          "title": "A universal fifteen-vertex width transition for complete-bipartite graph associahedra",
+          "trigger": "The same fifteen-vertex transition parameter"
+        },
+        {
+          "assessment": "Different natural invariant and object",
+          "evidence": [
+            "The wheel spanning-tree polytope lives in edge coordinates and switches at rim size eight."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-an-eight-rim-transition-in-the-euclidean-thickness-of-wheel-span--1a1aa8bee4b6",
+          "material_read": "Mirrored RESULT.md offset 0–1830",
+          "method": "Compared coordinate spaces and polytopes",
+          "title": "An eight-rim transition in the Euclidean thickness of wheel spanning-tree polytopes",
+          "trigger": "Same-day exact graph-polytope thickness transition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A cycle plus bunched pendants is a natural structured unicyclic family; the exact result distinguishes the bridge bottleneck from Euclidean balance. It shows precisely when a two-edge cycle cut beats every bridge cut, including three regimes of exact ties with distinct optimal directions and parity-dependent arc sizes. This is an all-parameter benchmark for the general variational problem, not a numerical table or the cut formula alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

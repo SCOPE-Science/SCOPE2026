@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:13:35.551776Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–30 and 32–91; VERIFICATION.md, verify.py, requirements.txt",
+        "Independent rational grounded-matrix enumeration, check 5"
+      ],
+      "rationale": "Independently reconstructed RESULT.md lines 32–88. Eliminating the ungrounded leaves at a free hub with a grounded opposite hub and a grounded leaf gives residual diagonal t+1; the inverse has N−2 unit eigenvalues and the two stated roots. For the same-side hub–leaf placement the free-hub inverse is diag(0,I_a)+(1/t)11ᵀ. The largest special eigenvalue exceeds that of the cross-side placement by principal-submatrix comparison and strict increase in the rank-one coefficient; its special-pair sum is strictly larger too. These strict weak-majorization comparisons imply strictly larger power sums for r≥1. For cross-side placements increasing a increases the pair sum at fixed product, hence increases the larger root and the power sum. With both hubs unpinned, the two-hub inverse has diagonal (1/2,1/2+1/t) for two same-side pinned leaves (pinned side first) or ((t+1)/(2t+1),(t+1)/(2t+1)) for oppositely pinned leaves. The trace is N−2 plus each diagonal weighted by one plus its number of unpinned leaves. Both yield strictly more than N, so Jensen excludes every leaf–leaf pair at all r≥1. The hub–hub cost is N. These comparisons give all equality cases, including either cross orientation when p=q. The trace derivative in t is strictly negative; the power sum starts above 2 at t=0+ and tends to 1. As a function of r its strict convexity and value 2 at r=0 put every positive-order root on the increasing branch, yielding strictly increasing t_r. The root sum/product give the stated t_1,t_2. As r→∞ the threshold must diverge because the larger root exceeds 1 at any finite t. Then the smaller-root power vanishes and r log α_+ tends to log 2, while (t+1)log α_+ tends to m−1, proving the slope. A fresh exact check enumerated 63 pairs at p=2,q=3 and t=3/4,1,5/4 at r=1, confirming both the asymmetric winners and the exact tie. Replay in the review workspace with `OPENBLAS_NUM_THREADS=1 python /tmp/opencode/frozen-review-diagnostics.py` (check 5). The frozen checker and verification notes were inspected, not executed; the exact check is supplementary, not a proof of arbitrary order or the asymptotic.",
+      "residual_risks": [
+        "The proof is for two perfect leaders, unit leaf conductances, fixed positive bridge conductance and r≥1; the high-order limit fixes the branch size. It does not use or validate a general dynamical normalization."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The resistance-distance search excerpt concerns steady-state variance with a general number of noise-free leaders, not real inverse spectral orders.",
+          "The real-order split-graph catalog hit is for unweighted complete split graphs; the same-day coherence penalty hit allocates edge conductance on balanced double stars rather than choosing a pinned pair in a given Laplacian."
+        ],
+        "reasoning": "Generality in leader count or use of other graph families and decision variables does not give a dominating result on weighted double stars with two perfect leaders.",
+        "searches": [
+          "arXiv:1708.06873",
+          "Resultary: spectral-order rigidity and a unique fractional-order leader switch",
+          "Resultary: a 25 percent second-order coherence penalty on optimally weighted networks"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records 21774459d1f0, 873cf0393183, c17a6e4db53a, 2f9df522cdce",
+        "arXiv:1708.06873 (search excerpt)",
+        "Frozen RESULT.md §Relationship to prior work and references (not treated as independent primary-text access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At p=q=2,t=2, first order strictly prefers the cross pair by 11/3<4 while the same cross pair costs 37/9>4 at second order. The known r=1 winner therefore cannot simply be carried over to higher order.",
+          "The same-day arbitrary-order hit reports a switch on K_2 joined to three independent vertices, with no varying bridge parameter in that claim."
+        ],
+        "reasoning": "The order comparison uses both nonunit eigenvalues and the slope uses their large-bridge expansion. Neither an r=1 cost table nor a switch on the unweighted split graph gives these quantities on weighted double stars.",
+        "searches": [
+          "Resultary records 21774459d1f0, 873cf0393183 and c17a6e4db53a",
+          "Frozen RESULT.md lines 21–27, 73–88 and 93–108"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-family catalog statement uses a bridge resistance cutoff 1/(m−1); reciprocal conductance gives exactly t_1=m−1 and swaps inequality directions.",
+          "The full-Laplacian pseudoinverse squared in the joint-centrality comparison is not the square of the grounded inverse defining the new r=2 optimization."
+        ],
+        "reasoning": "Writing positive powers of the inverse as Schatten moments, or changing resistance to conductance, does not make an ordinary first-moment classification an all-order one. The older r=1 decision is credited fully.",
+        "searches": [
+          "Resultary: 2026/10/25 same-family perfect-leader result",
+          "arXiv:1708.06873 (resistance-distance interpretation)",
+          "arXiv:1407.1569 (joint centrality and full Laplacian pseudoinverse), identified in frozen RESULT.md §Relationship to prior work"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact same-graph first-order threshold in the catalog matches after inversion. The other same-topology catalog statement describes finite-gain noisy leaders and reentrance, not exact grounding."
+        ],
+        "reasoning": "The known exact boundary accounts for r=1 only in the available statement. The finite-gain parameter is not the exponent in the frozen theorem.",
+        "searches": [
+          "Resultary: 2026/10/25/SCOPE-exact-two-leader-coherence-transition-on-weighted-double-stars--21774459d1f0",
+          "Resultary: 2026/10/18/SCOPE-reentrant-two-leader-placement-on-weighted-double-star-consensus--2f9df522cdce"
+        ]
+      },
+      "rationale": "The first-inverse-moment placement and its exact threshold are established endpoint coverage, not a novel part of the finding. The distinct real-order optimum, strict migration, explicit r=2 disagreement and high-order slope survive the checked comparisons; same-day related records were compared without assuming priority among them. This is a best-of-evidence decision.",
+      "residual_risks": [
+        "The closest highlighted Resultary full texts and attempted arXiv PDFs were not independently retrieved; scope comparisons for those sources are limited to available statements. An unindexed or inaccessible arbitrary inverse-order classification may exist.",
+        "No chronological priority is inferred from the common publication day of the two related but distinct records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the first-order theorem, not visible coverage of the real-order extension",
+          "evidence": [
+            "Bridge resistance cutoff 1/(m−1) gives bridge conductance cutoff m−1."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-exact-two-leader-coherence-transition-on-weighted-double-stars--21774459d1f0",
+          "material_read": "Resultary catalog theorem summary and comparison at frozen RESULT.md lines 93–106; original full text was not independently retrieved",
+          "method": "Local Resultary semantic search, then attempted lawful OA retrieval; compared variables and regimes from the available statement",
+          "title": "Exact two-leader coherence transition on weighted double stars",
+          "trigger": "Identical graph and perfect leaders; strongest exact predecessor"
+        },
+        {
+          "assessment": "Shares the objective order, but differs in topology and varied parameter",
+          "evidence": [
+            "Unweighted complete split graphs; fractional-order switch on K_2 joined to three independent vertices."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-spectral-order-rigidity-and-a-unique-fractional-order-leader-swi--873cf0393183",
+          "material_read": "Resultary catalog theorem summary",
+          "method": "Local Resultary semantic search and statement comparison",
+          "title": "Spectral-order rigidity and a unique fractional-order leader switch",
+          "trigger": "Distinct same-day all-real-order grounded leader-placement result"
+        },
+        {
+          "assessment": "Edge design, not leader placement at a given conductance",
+          "evidence": [
+            "Balanced double stars with an edge-conductance budget and a 25% asymptotic penalty."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-25-percent-second-order-coherence-penalty-on-optimally-weighte--c17a6e4db53a",
+          "material_read": "Resultary catalog summary",
+          "method": "Local Resultary semantic search and statement comparison",
+          "title": "A 25 percent second-order coherence penalty on optimally weighted double stars",
+          "trigger": "Distinct same-day double-star first-/second-order comparison"
+        },
+        {
+          "assessment": "Finite-gain noisy leaders, not the perfect-leader inverse-power assertion",
+          "evidence": [
+            "Catalog describes hub–hub and hub/opposite-leaf placements in a reentrant finite-gain regime."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-reentrant-two-leader-placement-on-weighted-double-star-consensus--2f9df522cdce",
+          "material_read": "Resultary catalog summary",
+          "method": "Local Resultary semantic search and comparison of objective and grounding",
+          "title": "Reentrant two-leader placement on weighted double-star consensus networks",
+          "trigger": "Identical topology and close placement types"
+        },
+        {
+          "assessment": "The visible scope is resistance-distance steady-state variance, not the stated all-order phase diagram",
+          "evidence": [
+            "Noise-free leaders and a resistance-distance formulation for steady-state variance."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1708.06873",
+          "material_read": "Primary-literature search excerpt only",
+          "method": "Literature search; scope comparison is restricted to the returned statement",
+          "title": "A Resistance Distance-Based Approach for Optimal Leader Selection",
+          "trigger": "Plausible broader noise-free leader-set theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 15–27 and 73–88",
+        "Resultary 21774459d1f0 (first-order endpoint summary)"
+      ],
+      "rationale": "Choosing which vertices to pin on this bridged two-community tree is a meaningful discrete decision. The theorem shows that different penalties on slow modes make strictly different choices on an explicit nonempty interval, classifies all ties, and quantifies how the bridge scale moves at large order. This goes beyond recomputing the known first-order endpoint or substituting a new objective at one placement.",
+      "residual_risks": [
+        "The conclusion is structural and family-specific; it is not a performance guarantee for noisy finite-gain leaders or more general networks."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:58:44.811389Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Proof and Verification; VERIFICATION.md; verify_entropy.py; requirements.txt",
+        "repairs/3/RESULT.md; repairs/3/SLOGAN.txt",
+        "Resultary Greenwood–exceedance record 178c0a43180a, Finding"
+      ],
+      "rationale": "For the repaired result and the frozen analytic claims: conditioning on X1=x leaves an independent uniform simplex of mass 1−x. Its entropy expectation and the beta marginal give q_m(x) and μ_m=Harmonic(m)−1 as stated. The centered g_m has both endpoints negative, strictly negative second derivative and zero beta mean. It has exactly two sign transitions; the covariance tail integral has derivative −m times the beta density times g_m, begins and ends at zero, and has exactly one interior root. At m=2 the count at 1/2 is constant. On the scale x=u/m I checked m g_m(u/m)→φ(u)=u(2−γ−log u)−1 and the domination by a polynomial-log factor times exp(−u/2), using −(m−u)log(1−u/m)≤u. The change of variables gives F(c)=integral_c^infinity exp(−u)φ(u)du. Integration by parts yields the E1 expression. Strict concavity, the three signs of φ, zero total mean and the vanishing far tail give a unique interior sign switch of F. Two fixed bracketing points with opposite signs and the finite uniqueness then give mt_m→c_*. An independent computation via conditioning on the event X1>t and translating the entire simplex, not the frozen beta-tail implementation, gave scaled roots 1, 1.16549626046383, 1.45609977024377 and 1.69139877837763 at m=2,3,8,250; quadrature of exp(−u)φ gave c_*=1.70032102613268934 (/tmp/opencode/scope-review-analytic.py 3). At t=1.8/m and large m the concentration form log m−H_m has positive covariance and the quadratic score has negative covariance because its finite threshold is 2/(m+2). I checked the narrowed Finding, lemma, comparisons and slogan in repairs/3; frozen scripts were inspected, not executed.",
+      "residual_risks": [
+        "Approximate constants and finite reproductions do not establish the all-m or scaling conclusions. Zero covariance is not independence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The universal catalogue proof is general at finite m, but its large-m correlation result is only for Q.",
+          "Slud §2 analyzes entropy asymptotic normality and marginal moments; Mirakhmedov–Jammalamadaka Thm 2.1 gives a cdf approximation for a general asymmetric spacing statistic, not a mixed covariance limit as stated."
+        ],
+        "reasoning": "A multivariate/empirical-process limit for spacings could lead to the same curve after applying it to both summands and justifying convergence of second mixed moments. The inspected results do not state or by themselves supply the evaluated F and root convergence; the repaired proof obtains them directly.",
+        "searches": [
+          "Resultary 8cec2684e10a",
+          "Slud 1978 §2 and Le Cam references",
+          "uniform sample spacings asymptotic covariance entropy Shannon large spacings count additive statistics Holst Jammalamadaka Wells covariance threshold 1.700321 exponential integral",
+          "Mirakhmedov–Jammalamadaka 2013 Theorem 2.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 8cec2684e10a, 178c0a43180a, 061e4bb9211c",
+        "10.1007/BF00533604 §2; Bieniek–Szynal pp.82,88; Mirakhmedov–Jammalamadaka Thm 2.1",
+        "Shorack–Wellner chapter 21 (lawful access attempt unsuccessful)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The affine conditional-simplex representation and strict chord inequality give the finite one-switch statement once the log derivative is dominated, so that coverage is credited explicitly in the replacement.",
+          "The known entropy moments and complete convergence are marginal; the known exact quadratic covariance uses a different summand. The surviving calculation identifies the limiting mixed beta integrand u(2−γ−log u)−1 and the unique positive zero of its exponentially weighted tail."
+        ],
+        "reasoning": "The part mechanically following from the stronger finite argument is removed from the novelty claim. The surviving limit needs an entropy-specific mixed calculation and a nonzero root argument not supplied by the inspected claims.",
+        "searches": [
+          "Resultary 8cec2684e10a equations (1)–(3) and quadratic asymptotics",
+          "Slud §2 pp.343–345",
+          "Bieniek–Szynal §3 Proposition 1 and §4 Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "KL divergence to equal spacings is log m−H_m, so it gives the same zero and reversed signs.",
+          "With f(x)=x log x the general conditional-simplex proof gives the KL/negative-entropy switch by log-integrable differentiation, even though f is not C¹ at zero."
+        ],
+        "reasoning": "The finite switch is covered by an elementary extension of the published proof and is not retained as a contribution. The normalization and sign change do not produce the repaired entropy-specific limit from a quadratic limit.",
+        "searches": [
+          "Resultary: Shannon uniform spacing entropy covariance with exceedance count unique crossover; KL to uniform",
+          "Resultary 8cec2684e10a Finding and Proof",
+          "Bieniek–Szynal §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "178c0a43180a gives the exact quadratic–count threshold 2/(m+2) and a joint Gaussian limit; its scaled threshold is 2.",
+          "061e4bb9211c gives exact entropy–Greenwood covariance and correlation, without the threshold count."
+        ],
+        "reasoning": "Neither exact record evaluates the same mixed limiting function or the entropy-specific sign threshold. Search bounds are not proof of catalogue-wide absence.",
+        "searches": [
+          "Resultary: Shannon entropy exceedance count scaled crossover 1.700321026",
+          "Resultary 178c0a43180a; 061e4bb9211c"
+        ]
+      },
+      "rationale": "PASS is for the repaired explicit entropy-specific covariance limit and scaling constant, not for the frozen presentation of the finite switch as the distinguishing finding. The distinct universal convex-statistic record has a conditional-simplex identity and a strict-convexity proof that transfer directly to f(x)=x log x, notwithstanding the endpoint C¹ assumption in its theorem statement: near t=0 the transformed coordinates are at least Y_j/2, and |log Y_j| is integrable under the beta marginal, so its derivative proof still works. Negating the statistic gives exactly the finite entropy sign law. The repair credits that coverage and uses the finite law only as a lemma. Neither that record nor the related exact Greenwood law gives the entropy-specific scaled mixed covariance and its zero, the focus of the surviving result. No priority conclusion is drawn from catalogue dates.",
+      "residual_risks": [
+        "Book chapter not recovered; older specialist work or wider spacing-process results could implicitly cover the entropy-specific limiting curve. Bounded evidence does not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Finite switch already covered by the method; large-m stated theorem is quadratic",
+          "evidence": [
+            "C¹ strictly convex summand, universal finite negative-to-positive switch",
+            "Conditional simplex slice and initial derivative −m Cov(Y1,f′(Y1)); log-integrability gives same formula here"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-universal-one-switch-covariance-law-for-large-spacings-and-con--8cec2684e10a/RESULT.md",
+          "material_read": "Finding, Assumptions, Proof eqs. (1)–(5), text offsets 0–4156",
+          "method": "Local-mirror text and checked log-endpoint extension",
+          "title": "A universal one-switch covariance law for large spacings and convex spacing tests",
+          "trigger": "Same finite one-switch claim in broader separable formulation"
+        },
+        {
+          "assessment": "Same counts but quadratic statistic; threshold and limit are different",
+          "evidence": [
+            "Uniform threshold 2/(m+2); joint Gaussian limit"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-sharp-greenwood-exceedance-covariance-crossover-for-dirichlet--178c0a43180a/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local-mirror text",
+          "title": "A sharp Greenwood–exceedance covariance crossover for Dirichlet spacings",
+          "trigger": "Closest exact count threshold for another natural concentration statistic"
+        },
+        {
+          "assessment": "Entropy–quadratic covariance, not entropy–exceedance covariance",
+          "evidence": [
+            "Mixed covariance and correlation with Greenwood, no count threshold"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-greenwood-dispersion-and-spacing-entropy-remain-strongly-anticor--061e4bb9211c/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local-mirror text",
+          "title": "Greenwood dispersion and spacing entropy remain strongly anticorrelated",
+          "trigger": "Exact same Shannon entropy with another spacing statistic"
+        },
+        {
+          "assessment": "Marginal entropy and maximum-spacing asymptotics, not the evaluated limiting mixed covariance with a prescribed count",
+          "evidence": [
+            "Le Cam spacing-sum asymptotic normality cited; entropy distribution and moment computations"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/BF00533604",
+          "material_read": "Section 2, pp.343–345, OA offsets 5712 and 7948",
+          "method": "OA Springer PDF passages",
+          "title": "Entropy and Maximal Spacings for Random Partitions",
+          "trigger": "Primary entropy and large-spacings limit paper"
+        },
+        {
+          "assessment": "Marginal Shannon moments and convergence, not count covariance",
+          "evidence": [
+            "Proposition 1 gives expectation and variance; Theorem 1 establishes complete convergence"
+          ],
+          "identifier_or_url": "https://www.kybernetika.cz/content/2008/1/75/paper.pdf",
+          "material_read": "Abstract; §3 Proposition 1, PDF p.8, offset 24464; §4 Theorem 1, printed p.88, offset 44871",
+          "method": "OA PDF passages",
+          "title": "On Entropies for Random Partitions of the Unit Segment",
+          "trigger": "Exact entropy moment and limit results"
+        },
+        {
+          "assessment": "A distributional approximation; the inspected theorem does not state the entropy–count covariance limit or crossover",
+          "evidence": [
+            "Theorem 2.1 bounds cdf approximation error for the asymmetric T_N(D)"
+          ],
+          "identifier_or_url": "https://jammalam.faculty.pstat.ucsb.edu/html/Some%20Publications/2013_Higher%20Order%20Expansions%20Spacings_JNPS.pdf",
+          "material_read": "Theorem 2.1 and Corollary 2.1, PDF p.9, offset 64450",
+          "method": "OA author-hosted PDF passages",
+          "title": "Higher-order expansions for statistics based on spacings",
+          "trigger": "Broader distributional approximation for general spacing sums"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "repairs/3/RESULT.md Finding and Proof; Resultary 178c0a43180a"
+      ],
+      "rationale": "The repaired result measures where two natural spacing diagnostics change their dependence on the mean-gap scale, not merely a specialization of the finite crossover. It gives a full limiting curve and a strict, mathematically interpretable separation from the Greenwood threshold. For instance the two concentration scores give opposite covariance signs with the same exceedance count for limiting thresholds in (c_*,2), so the distinction can matter to the interpretation of diagnostics.",
+      "residual_risks": [
+        "No claim of test-power improvement, independence, or extension to other spacing laws."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

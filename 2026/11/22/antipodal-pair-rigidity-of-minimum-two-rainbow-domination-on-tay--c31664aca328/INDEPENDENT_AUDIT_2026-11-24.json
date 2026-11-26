@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:12:42.973951Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact intersection array gives distance shells (1,k,k,1); disjoint neighborhoods of antipodes exhaust all other vertices. Two chosen antipodal pairs, one per named color and allowed to coincide, therefore give weight four. For weight ≤4 a support of size ≤1 cannot reach the at least 2k−2 empty vertices, since 2k−2>k. At equality both supports have size two. For an adjacent support its external union has 2k−2−a₁ vertices with a₁=k−μ−1>0, and for a distance-two support it has 2k−μ<2k−2 when μ≥3. Only distance three works, giving (k+1)² optima. For the icosahedron a distance-two support would instead exhaust exactly eight external neighbors, forcing the other color onto precisely the two vertices outside that union and the original support. By vertex transitivity take the first support vertex to be the upper pole and the other to be v_i on the lower 5-cycle; the two residual vertices are v_{i−2} and v_{i+2}, which are adjacent. An adjacent second support cannot cover eight empties. This gives exactly 36 minima even at μ=2. For J(6,3), distance is 3 minus intersection size, there are nine neighbors and a unique complementary antipode, and a distance-two pair has four common neighbors (the shared element plus one from each two-element difference). Together with four common neighbors for adjacent pairs and b₂=1, this gives the stated array and 100 optima. Frozen check.py and check.cpp are replay paths for the examples; they were inspected but not executed. The family conclusion follows from the symbolic argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The product counting lower bound is 2|V|/(Δ+2); at n=2k+2 with k≥5 it rounds to four, but is strictly below four before rounding.",
+          "The upper-bound equality theorem at 3n/4 classifies a different extremal regime, not the Taylor optimum four."
+        ],
+        "reasoning": "The lower bound does not impose equality of neighborhood cover at integer weight four. Rigidity is obtained by comparing external coverage for supports at every possible distance and resolving the icosahedral equality boundary separately.",
+        "searches": [
+          "doi:10.1007/s10878-012-9582-8 §1",
+          "Wu–Jafari Rad arXiv:1005.0988v1 Corollary 1"
+        ]
+      },
+      "checked_sources": [
+        "Stępień–Zwierzchowski §1",
+        "Wu–Jafari Rad arXiv:1005.0988v1 Cor. 1",
+        "MathWorld Taylor Graph",
+        "November 8 Petersen rainbow and icosahedral paired-domination Resultary records",
+        "DistanceRegular.org Taylor Graphs retrieval attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The product formulation translates the optimization problem but does not describe its equality cases on these products. The Petersen record gives 60 weight-five minima on a different, diameter-two graph."
+        ],
+        "reasoning": "Neither result forces both named supports to be antipodal in a Taylor graph. In particular the icosahedral residual edge is a structural exclusion not implied by knowing that the minimum weight is four.",
+        "searches": [
+          "Stępień–Zwierzchowski §1 bound and product equivalence",
+          "2026/11/8/SCOPE-antineighborhood-duality-and-exchange-rigidity-of-minimum-2-rain--ed86e1999f07"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Stępień–Zwierzchowski §1 relates 2-rainbow domination to dominating sets of G□K₂ by placing the color in the selected fiber layer.",
+          "The paired-domination entry counts 135 minimum four-sets on the icosahedron under the perfect-matching condition."
+        ],
+        "reasoning": "A labelled vertex can be selected in one or both layers of the Cartesian-product reformulation. Ordinary paired domination instead constrains a single dominating set by a matching, and neither its 135-set census nor its antipodal language identifies the two supports here.",
+        "searches": [
+          "Taylor graph minimum 2-rainbow domination antipodal supports and minimum domination of G square K₂",
+          "2026/11/8/SCOPE-antipodal-pair-classification-and-sharp-relocation-metrics-for-p--7775b781dc4f"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "MathWorld lists the two graph examples and supplies terminology, not a minimum-label table in the inspected passage. DistanceRegular.org was not available for review. Resultary returned the frozen record itself and a distinct Petersen classification."
+        ],
+        "reasoning": "An intersection-array table is input, not an existing table of optimal rainbow labels. The self match provides no independent priority evidence; the Petersen weight-five total is not one of the reviewed cases.",
+        "searches": [
+          "MathWorld Taylor Graph",
+          "DistanceRegular.org Taylor Graphs",
+          "Resultary: Taylor graph, icosahedron and J(6,3), minimum named two-rainbow labelings"
+        ]
+      },
+      "rationale": "The minimum weight four follows from the published numerical lower bound and the elementary antipodal construction, so it is not credited as new. The supported distinct statement identifies both supports in every optimum for the stated Taylor array, including coincident pairs, and proves the analogous boundary classification for the icosahedron. The inspected product-domination formulation and existing equality characterizations do not yield that weight-four structure by substitution. The closest distinct local label classification is for the Petersen graph at weight five; the closest same-icosahedron antipodal catalogue entry is ordinary paired domination, not rainbow domination.",
+      "residual_risks": [
+        "No priority is claimed for weight four or the graph arrays. An unindexed Taylor or Cartesian-product equality result could classify some of these cases. The DistanceRegular.org page could not be inspected, and the bounded search is not a proof of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the numerical lower bound; scoped cycle-product result does not classify Taylor minimizers",
+          "evidence": "γᵣ₂(G)=γ(G□K₂) and γᵣ₂(G)≥2|V(G)|/(Δ(G)+2).",
+          "identifier_or_url": "https://doi.org/10.1007/s10878-012-9582-8",
+          "material_read": "Section 1, printed p. 749, offset 3291 and bound at 3511",
+          "method": "Primary OA passage",
+          "title": "2-Rainbow domination number of Cartesian products: Cₙ□C₃ and Cₙ□C₅",
+          "trigger": "Equivalent product formulation and known numerical lower bound"
+        },
+        {
+          "assessment": "Different equality regime",
+          "evidence": "Equality at 3n/4 involves P₄-based families, whereas four is strictly less than 3n/4 here.",
+          "identifier_or_url": "https://arxiv.org/abs/1005.0988v1",
+          "material_read": "Corollary 1, printed p. 5, around offset 16117",
+          "method": "Primary OA text",
+          "title": "Bounds on the 2-rainbow domination number of graphs",
+          "trigger": "Plausible general equality characterization"
+        },
+        {
+          "assessment": "Graph examples and terminology, not optimal labels in inspected material",
+          "evidence": "Lists the icosahedron and the twenty-vertex 6-tetrahedral Johnson graph.",
+          "identifier_or_url": "https://mathworld.wolfram.com/TaylorGraph.html",
+          "material_read": "Retrieved opening passage; array formula not legible in extraction",
+          "method": "Public page inspection",
+          "title": "Taylor Graph",
+          "trigger": "Same graph class and two finite examples"
+        },
+        {
+          "assessment": "Different graph and optimal weight",
+          "evidence": "Sixty minimum weight-five labelings on the Petersen graph.",
+          "identifier_or_url": "2026/11/8/SCOPE-antineighborhood-duality-and-exchange-rigidity-of-minimum-2-rain--ed86e1999f07",
+          "material_read": "Local mirror Finding",
+          "method": "Resultary lookup and local mirror comparison",
+          "title": "Antineighborhood duality and exchange rigidity of minimum 2-rainbow domination",
+          "trigger": "Complete optimal labels on a small symmetric graph"
+        },
+        {
+          "assessment": "Different domination notion",
+          "evidence": "Paired domination has 135 minimum four-sets, not the 36 named rainbow functions.",
+          "identifier_or_url": "2026/11/8/SCOPE-antipodal-pair-classification-and-sharp-relocation-metrics-for-p--7775b781dc4f",
+          "material_read": "Local mirror Finding",
+          "method": "Resultary lookup and local mirror comparison",
+          "title": "Antipodal pair classification and sharp relocation metrics for paired domination",
+          "trigger": "Exact icosahedron and antipodal optimal sets"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A known scalar bound does not reveal whether adjacent, distance-two, and antipodal supports can all appear in optimal solutions. This theorem makes the entire optimum set explicit over a distance-regular class and gives the exact named count, including overlap of supports; the icosahedron resolves a genuine boundary where the general distance-two inequality ceases to be strict. That rigidity is useful in the equivalent product-domination problem and for comparing extremal labelings across symmetric graphs.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

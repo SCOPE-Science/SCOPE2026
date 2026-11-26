@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-Every nonzero symmetric rank-one matrix is of the form \(c uu^{\mathsf T}\). Its square vanishes exactly for an isotropic vector, and two such matrices commute exactly when their image lines are orthogonal. The proof gives an exact finite-field tuple partition by image span, evaluates every polar-space coefficient including the alternating radical in characteristic two, establishes the polynomial average by a Gaussian identity, and applies irreducible isotropic-Grassmannian incidences to every geometric stratum. The incidence dimensions, boundary values \(n=2\) and \(t=1\), and eleven direct finite-field matrix-product checks agree. The proof, not the computations, supports arbitrary fields and tuple lengths.
+PASS
 
-## Originality (O): PASS, with identified risk
+For a nonzero symmetric rank-one matrix, A=c uu^T over the ground field, and A^2=0 exactly when u is isotropic. Independent image vectors give independent opposite rank-one tensors, so commutation forces their pairing to be zero; dependent isotropic vectors already pair to zero. The allowed entries in a fixed b-plane number q^b, including zero; subspace inversion is therefore identical to the surjective-map count. Orthogonal line counting follows by splitting off a hyperbolic plane: the number of quadratic zeros in dimension d is (q-1)q^(d-2) plus q times the zero count in the residual space; isotropic flags give the stated products. In characteristic two the sum-zero hyperplane is symplectic for odd n, and in even n its radical is the all-ones line. The graph and inverse-image strata give the two terms q^b S_(m-1)(b) and S_(m-1)(b-1). For b<m the two odd-type ratios to S_(m-1)(b) average to (q^(2m-b)-1)/(q^(2(m-b))-1), agreeing with the characteristic-two ratio by Gaussian cancellation; the maximal b=m case is verified separately. Geometrically the full-span incidence is locally a nonempty open in a product of rank-one cones of total fiber dimension rt, and the concatenated column matrix recovers its isotropic plane on the constant-rank locus. Lower-rank points lie in its closure in any containing isotropic r-plane. In characteristic two with even n and r<m, choose the radical-deformation vector inside H intersect U-perp but outside U (the intersection has dimension 2m-r); this ensures the moving plane stays totally isotropic. Radical-containing planes are then limits of the irreducible radical-free stratum. At r=m the base is the Lagrangian Grassmannian of H/R. In odd characteristic the maximal even-dimensional orthogonal case has two base components by the determinant criterion for the orthogonal stabilizer; lower spans extend into both. These checks give the component dimensions and count on the reduced variety, with no claim about the defining scheme. Source checker inspected, not executed.
 
-The classical polar-space counts, frame product formula, and maximal orthogonal Grassmannian split are prior mathematics. Earlier isotropic-tuple and unrestricted rank-one commuting results explain several algebraic pieces but not the components of the transpose-fixed rank-one nilpotent tuple variety. Britnell–Wildon (arXiv:1001.0811), Ngo (arXiv:1209.1659), De Beule et al. (arXiv:1202.4143), and Panyushev's commuting-variety slides were examined at their relevant full-text statements. They do not assert the constrained characteristic-two component collapse. Brennan's 1994 symmetric commuting-variety paper could not be inspected beyond abstract and metadata; no whole-document noncoverage is claimed for it. An equivalent result in an uninspected source remains possible. See AUDIT.json for actual searches, implication comparisons and inspection scopes.
+## originality
 
-## Value (V): PASS
+PASS
 
-The theorem completely determines a natural reduced commuting variety's components and dimensions, identifies the exceptional two-component boundary, and explains its characteristic-two disappearance through an alternating radical. The exact rational-point hierarchy and the parity-average law are an arithmetic counterpart, not the sole basis of value. This is a structural classification of an established matrix-geometric object rather than a routine finite calculation.
+Credit the classical polar counts, standard maximal orthogonal component split, and the odd-field tuple enumeration already subsumed by the distinct indexed arbitrary-rank result. The supported distinct claim is the characteristic-two transition of the reduced standard-transpose, rank-at-most-one tuple variety together with its exact point-count comparison to the two formal odd orthogonal types. Neither the odd-field specialization nor the adjacent symplectic result covers that combined statement. This decision does not establish historical priority or count every ingredient as novel.
 
-## Scope and limitations
+## value
 
-No result for nonreduced scheme structure, orbit classification, or higher-rank nilpotents. Some numeric expressions follow from known polar counting and are not individually claimed original. Literature-priority risks remain; independent review has not taken place.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The characteristic-two comparison is useful because equal geometric dimensions conceal a genuine merger of components, while the actual point counts pick out the mean of two formal orthogonal types. Identifying the radical geometry explains both features and supplies an explicit all-tuple-length boundary and counting formula. This value is in the joint cross-characteristic result, not in rederiving individual classical polar counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:56:06.047447Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Integrating the held input gives A(h)=I+hC_1+h^2C_2 with C_2=-e_1(k_p,k_d)/2. Independence gives the homogeneous PSD-positive covariance recursion on real symmetric matrices. A power bound of the covariance map gives the required second-moment bound, while a uniform trace bound on rank-one inputs bounds powers on the whole symmetric space by positivity and signed spectral decomposition. At matching raw moments through degree three, the difference of the maps is exactly Delta m_4 times C_2 X C_2^T, PSD-positive for nonnegative Delta m_4. By composition the powers are ordered, and the spectral operator norm induced by the order unit I for a positive map is its norm on I; Gelfand's formula gives the universal weak spectral ordering without a strictness assertion. My independent exact coefficient-matrix calculation (python /workspace/checks/4.py with SymPy, output /workspace/checks/4.txt) gives the entire S(m), both moment lists and det(I-S)=24/25*(642421/270000-m), and solves the adjoint Lyapunov equation at the smaller feasible m to obtain the printed positive definite P with identity residual. Ordering proves stability below the smaller example. Mixtures of the positive endpoint laws realize every m between them, so the continuous cone-Perron spectral radius stays below 1 until the unique determinant root and equals 1 there. Above it, the monic real characteristic polynomial is negative at 1 and positive for large arguments, forcing an eigenvalue >1 (also for feasible moments beyond the two examples). For that case the PSD dual Perron eigenmatrix W has x^T W x>0 for some deterministic starting state x, and its expectation grows by rho^j, so the second moment has an exponential lower bound. This is a sampled-index result only. The included script was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Available indexed titles/citation summaries concern model-based networked control, random sampling stabilization, and almost-sure boundedness; the decisive older texts could not be retrieved in the bounded checks.",
+          "Resultary 18a80c1bcb0a Finding treats periodic alternation and the associated deterministic map product, rather than iid laws."
+        ],
+        "reasoning": "A broad stability test can accept a specified law without establishing comparison across laws of matched lower moments. Periodic-product stability is not a dominating version of iid covariance stability. The underlying theses of inaccessible papers are not inferred from their titles.",
+        "searches": [
+          "10.1155/2013/252679",
+          "10.1109/TAC.2004.834107",
+          "10.1137/0309027",
+          "Resultary: alternating sampled double integrator exact stability"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0c79a784fff4, 18a80c1bcb0a, 7b89a581da28",
+        "Limited access: 10.1109/ACC.2003.1240481, 10.1109/TAC.2004.834107, 10.1155/2013/252679, 10.1137/0309027"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At fixed lower moments the order-four coefficient is PSD-positive because it is C_2 X C_2^T, a feature of the quadratic-in-h hold map.",
+          "The generic stability criterion rho(T)<1, while a computational starting point, neither orders two random maps on the cone nor provides the feasible moment segment and anchor needed for the asserted boundary."
+        ],
+        "reasoning": "The decision is for the rank-one moment mechanism and exhibited separated same-support laws with a universal threshold, not the known lifting or Lyapunov theory. No implication of this complete claim was established from an inspected source.",
+        "searches": [
+          "Resultary 0c79a784fff4, 18a80c1bcb0a, 7b89a581da28 Finding and assumptions",
+          "Montestruque–Antsaklis 2003 author-copy identification and DOI 10.1109/ACC.2003.1240481"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact operator on symmetric covariances is the symmetric restriction of the Kronecker lift E[A tensor A]; adjoint stochastic Lyapunov feasibility checks the same sampled-index stability.",
+          "Resultary 0c79a784fff4 works on the same plant class and iid sampling, but its Finding fixes equiprobable two-point jitter and a particular deadbeat controller."
+        ],
+        "reasoning": "Changing from covariance coordinates to a Lyapunov or Kronecker formulation does not change the stability notion. The two-point analogue varies several moments together and does not prove order within a fixed first-three-moment class.",
+        "searches": [
+          "Resultary: fourth-moment ordering rank-one covariance frontier iid sampled double integrator",
+          "DOI 10.1109/ACC.2003.1240481 and 10.1109/TAC.2004.834107"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest inspected same-day result 7b89a581da28 is a fourth-moment finiteness barrier for a stochastic-delay Euler recurrence with multiplicative Gaussian noise.",
+          "Inspected 0c79a784fff4 has a sharp two-point timing-jitter margin, not a sharp fourth raw moment with 0.9, 1.13, 1.593 held fixed."
+        ],
+        "reasoning": "The same-day title overlap is not equivalent: a fourth moment of the evolving state is not the fourth moment of iid sampling times, and the delayed stochastic recursion differs from the held control map. The accessible comparisons are not a historical census.",
+        "searches": [
+          "Resultary: 642421/270000 sampled double integrator matched four moments",
+          "Resultary: sharp fourth-moment frontier and stability random sample-and-hold"
+        ]
+      },
+      "rationale": "The supported distinct content is the fixed-lower-moment fourth-moment order from the double-integrator hold architecture, plus a sharp threshold witnessed on two strictly positive laws with matched lower moments and identical support. The generic covariance/mean-square criterion is not new. Direct local comparisons did not cover the ordering or boundary. The historical control-paper comparison is access-limited; it contributes residual risk, not negative full-text evidence. The verdict is bounded to actual available statements and their implications.",
+      "residual_risks": [
+        "The early random-sampling literature and the original model-based networked-control papers could contain a stronger equivalent calculation; the publisher and open-copy retrieval attempts did not permit whole-paper conclusions.",
+        "The new claim is conditional on all three lower raw moments, not a universal one-moment criterion for arbitrary double-integrator sampling laws or plants."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "same application class, different parameter and law",
+          "evidence": "Two-point equiprobable jitter around unit spacing for a specific deadbeat controller.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-mean-square-timing-jitter-margin-of-a-two-step-deadbeat-do--0c79a784fff4/RESULT.md",
+          "material_read": "Finding and scope, offset 0",
+          "method": "local catalogue and mirrored original text",
+          "title": "Sharp mean-square timing-jitter margin of a two-step-deadbeat double-integrator controller",
+          "trigger": "closest plant and stochastic stability match"
+        },
+        {
+          "assessment": "deterministic period-two alternation, not iid",
+          "evidence": "Conditions over bounded periodically alternating intervals, not a covariance moment lift for iid sampling.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-sharp-gain-ratio-dichotomy-for-alternating-sampled-double-inte--18a80c1bcb0a/RESULT.md",
+          "material_read": "Finding and scope, offset 0",
+          "method": "local catalogue and mirrored original text",
+          "title": "A sharp gain-ratio dichotomy for alternating sampled double-integrator feedback",
+          "trigger": "same plant and sharp sampling classification"
+        },
+        {
+          "assessment": "different recursion and different moment object",
+          "evidence": "Fourth moment of a delayed Euler system with multiplicative Gaussian noise.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-sharp-fourth-moment-barrier-for-a-balanced-stochastic-delay-eu--7b89a581da28/RESULT.md",
+          "material_read": "Finding and scope, offset 0",
+          "method": "local catalogue and mirrored original text",
+          "title": "A sharp fourth-moment barrier for a balanced stochastic-delay Euler recurrence",
+          "trigger": "same-day fourth-moment threshold hit"
+        },
+        {
+          "assessment": "unresolved full-text comparison; no exclusion",
+          "evidence": "The frozen source describes a model-based networked-control example; this description was not independently checked against a paper passage.",
+          "identifier_or_url": "https://doi.org/10.1109/ACC.2003.1240481",
+          "material_read": "bibliographic information only; no decisive text obtained",
+          "method": "DOI open retrieval and author-copy search",
+          "title": "Stochastic Stability for Model-Based Networked Control Systems",
+          "trigger": "potential same-plant double-integrator example"
+        },
+        {
+          "assessment": "unresolved full-text comparison; no exclusion",
+          "evidence": "The frozen source describes iid/Markov transmission models; no independently read theorem can be credited here.",
+          "identifier_or_url": "https://doi.org/10.1109/TAC.2004.834107",
+          "material_read": "bibliographic information only; no decisive text obtained",
+          "method": "DOI and lawful open-copy retrieval attempts",
+          "title": "Stability of Model-Based Networked Control Systems With Time-Varying Transmission Times",
+          "trigger": "potential general independent-sampling stability criterion"
+        },
+        {
+          "assessment": "unresolved full-text comparison; no exclusion",
+          "evidence": "The frozen source describes Markovian mode-dependent LMIs; that description is not independently verified here.",
+          "identifier_or_url": "https://doi.org/10.1155/2013/252679",
+          "material_read": "bibliographic and citation information only",
+          "method": "publisher and lawful repository attempt",
+          "title": "Stabilization for Networked Control Systems with Random Sampling Periods",
+          "trigger": "random sampling stabilization and possible moment criterion"
+        },
+        {
+          "assessment": "unresolved early full-text priority risk",
+          "evidence": "Almost-sure boundedness is the title's stated subject; other conclusions cannot be excluded from the title.",
+          "identifier_or_url": "https://doi.org/10.1137/0309027",
+          "material_read": "bibliographic information only; full text unavailable",
+          "method": "publisher/DOI lawful retrieval",
+          "title": "Almost Sure Boundedness of Randomly Sampled Systems",
+          "trigger": "early mathematical antecedent on random sampling"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This answers a natural robustness question for the standard held double integrator: how much of a sampling law must be known to certify mean-square stability? The monotone PSD order at fixed lower moments is structural for all positive gains, and the single realizable class witnesses a sharp failure of lower-moment summaries even on identical support. The particular fraction is useful as a certified matched-moment benchmark, not a general gain-independent performance limit.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

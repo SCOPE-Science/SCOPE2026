@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3 and its standard library. The program enumerates direct circular words, groups them by their complete adjacent-pair profiles, tests each word's primitive period without any graph-theoretic assumption, and separately constructs an Euler tour followed by sorted first-return excursions for each profile. The constructed output is checked for exact profile equality and predicted primitive status. Finally, the number of exceptional profiles at every tested parameter is matched against the closed divisor sum.
+## correctness
 
-Exhaustive ranges: \(q=1\) to length \(8\), \(q=2\) to length \(11\), \(q=3\) to length \(10\), and \(q=4\) to length \(8\). The strongest individual profile counts include \(95\) ternary profiles of length \(6\), of which \(8\) are exceptional, and \(3317\) quaternary profiles of length \(8\), of which \(16\) are exceptional. The program checks all source words in each specified range; it does not infer statements at untested lengths.
+PASS
 
-The theorem for all positive alphabet sizes and lengths is established by the separately written mathematical proof. No computational assumption, randomized test, external database, specialized solver, or unprovided dependency is needed. Independent mathematical audit has not been performed.
+Balance and weak connectivity of the active support give strong connectivity (a nontrivial condensation source would have an unbalanced cut) and hence an Euler tour. For branching at at least one vertex v, cut a tour at every visit to v. Permuting the resulting first returns preserves all arc multiplicities, and two distinct successor symbols guarantee two distinct vertex-sequence types. Group equal types in one block each. Any ordered boundary between adjacent distinct types occurs exactly once in the cyclic list. A symbol rotation fixing the word must carry all v-occurrences to v-occurrences and preserve their excursion types and boundaries. It therefore fixes the unique occurrence of such a boundary, hence is the identity rotation. Without branching, the strongly connected functional support is a simple directed cycle whose arc multiplicities agree by balance. The least word period is the number d of active vertices, and the obstruction is exactly repetitions r=n/d>=2. Choosing d active labels and a directed cycle gives binom(q,d)(d-1)! distinct matrices per proper divisor d<=q; this includes loops, n=1, and the prime-length consequence. No finite census or external certificate is needed for the exact proof; the supplied script was inspected but not executed.
+
+## originality
+
+PASS
+
+Pass the existence classification by active support and resulting divisor-sum obstruction count for a fixed adjacent-pair profile, not the Euler criterion, the general primitive-necklace census or the total count of Markov types.
+
+## value
+
+PASS
+
+The result resolves exactly which prescribed finite cyclic transition counts force periodicity, a natural realizability question about type classes. Its support-only criterion works even if all multiplicities have a large common divisor, and yields a constructive witness plus a clean exact census of exceptions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

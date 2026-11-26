@@ -5,26 +5,26 @@ For every odd integer \(N\ge3\) and every integer \(m\ge1\), let \(G_N=\mathbb Z
 \[
 \mu_{m,N}=2^{-m}(\delta_0+\delta_1)^{*m},\qquad T_{m,N}f=\mu_{m,N}*f.
 \]
-Then \(T_{m,N}\) is invertible and its **exact worst-case reconstruction-error amplification** in \(\ell^\infty(G_N)\) is the \(\ell^1\)-norm of its inverse convolution kernel. Writing \(A_m\) for the positive Euler zigzag numbers defined by
+The one-step case has inverse norm \(\|T_{1,N}^{-1}\|_{\infty\to\infty}=N\), as also follows from midpoint sampling of periodic linear splines [4]. The result here concerns **repeated** smoothing (\(m\ge2\)). Its exact worst-case reconstruction-error amplification in \(\ell^\infty(G_N)\) is the \(\ell^1\)-norm of the inverse convolution kernel. Writing \(A_m\) for the positive Euler zigzag numbers defined by
 \[
 \sec z+\tan z=\sum_{m=0}^\infty A_m z^m/m!,
 \]
-for each fixed \(m\), as odd \(N\to\infty\),
+for each fixed \(m\ge2\), as odd \(N\to\infty\),
 \[
 \boxed{\|T_{m,N}^{-1}\|_{\ell^\infty\to\ell^\infty}=\frac{A_m}{m!}N^m+O_m(N^{m-1}).}
 \]
-At the first four smoothing depths, the exact values for **every** odd \(N\ge3\) are
+At smoothing depths \(m=2,3,4\), the exact values for **every** odd \(N\ge3\) are
 \[
-\boxed{N,\quad (N^2+1)/2,\quad N(N^2+2)/3,\quad (5N^4+10N^2+9)/24.}
+\boxed{(N^2+1)/2,\quad N(N^2+2)/3,\quad (5N^4+10N^2+9)/24.}
 \]
-The exact \(\ell^2\)-inverse norm is \(\sin^{-m}(\pi/(2N))\); consequently,
+Fourier diagonalization gives the comparison norm \(\|T_{m,N}^{-1}\|_{2\to2}=\sin^{-m}(\pi/(2N))\). Consequently,
 \[
 \lim_{\substack{N\to\infty\\N\ \mathrm{odd}}}\frac{\|T_{m,N}^{-1}\|_{\infty\to\infty}}{\|T_{m,N}^{-1}\|_{2\to2}}
 =\frac{A_m}{m!}\left(\frac{\pi}{2}\right)^m,
 \qquad
 \lim_{m\to\infty}\frac{A_m}{m!}\left(\frac{\pi}{2}\right)^m=\frac4\pi.
 \]
-For even \(N\), the smoothing operator is singular, so the odd-order restriction is essential.
+The fixed-depth comparison constant on the right is the classical Favard constant. The assertion is that it arises as the large-cycle norm ratio, not that the constant or its large-\(m\) limit is new. For even \(N\), the smoothing operator is singular already for one step, so the odd-order restriction is essential.
 
 ## Assumptions and scope
 The cyclic group has odd cardinality \(N\ge3\). Functions may be real- or complex-valued. Convolution is unnormalized counting convolution, and \(\delta_j\) is unit mass at \(j\); the kernel itself is a probability measure. The smoothing depth \(m\) is any fixed positive integer for the first asymptotic; the two limits are sequential (first \(N\), then \(m\)), not a joint-limit claim. The error term permits a constant depending on \(m\).
@@ -64,7 +64,7 @@ The standard Euler-polynomial sign property also follows inductively from their 
 \]
 This proves the stated asymptotic, including its sharp leading constant.
 
-**5. Exact low-depth evaluations.** For the first three antiperiodic polynomials:
+**5. Exact low-depth evaluations.** The first four antiperiodic polynomials are:
 \[
 \begin{aligned}
 p_{0,N}(j)&=1,\\
@@ -73,7 +73,7 @@ p_{2,N}(j)&=2j^2-2(N-3)j+4-3N,\\
 p_{3,N}(j)&=\frac43j^3-2(N-4)j^2-\frac{4(6N-11)}3j+\frac{(N-4)(N^2+4N-6)}3.
 \end{aligned}
 \]
-For odd \(N\ge3\), \(p_{2,N}(j)<0\) on \(0\le j\le N-2\), with \(p_{2,N}(N-1)=N>0\). For odd \(N\ge5\), \(p_{3,N}(j)>0\) on \(0\le j\le(N-5)/2\) and \(p_{3,N}(j)<0\) thereafter (the \(N=3\) case is checked directly). The first two signs follow from the displayed quadratics and the step relation; the third follows because \(p_{3,N}(j)-p_{3,N}(j-1)=2p_{2,N}(j)<0\) for \(1\le j\le N-2\), with the two central values of opposite sign. Summing the corresponding polynomial pieces gives, successively,
+For odd \(N\ge3\), \(p_{2,N}(j)<0\) on \(0\le j\le N-2\), with \(p_{2,N}(N-1)=N>0\); the quadratic is convex and is negative at both endpoints of the first range. For \(N=2k+1\ge5\), \(p_{3,N}(j)\) decreases strictly up to \(j=N-2\). The values at \(j=k-2,k-1\) are respectively \(2k^2+2k+1\) and its negative. The final value \(p_{3,N}(N-1)=2p_{2,N}(0)-p_{3,N}(0)\) is negative, since \(p_{3,N}(0)>0\). Thus the positive range is \(0\le j\le k-2\) and all remaining values are negative. For \(N=3\), the fourth-depth kernel has norm \(21\) by direct substitution. Summing the corresponding polynomial pieces gives, successively,
 \[
 \sum_j|p_{0,N}(j)|=N,\quad
 \sum_j|p_{1,N}(j)|=(N^2+1)/2,\quad
@@ -83,12 +83,14 @@ For odd \(N\ge3\), \(p_{2,N}(j)<0\) on \(0\le j\le N-2\), with \(p_{2,N}(N-1)=N>
 \sum_j|p_{3,N}(j)|=(5N^4+10N^2+9)/24.
 \]
 
-**6. Fourier comparison and the second limit.** The character multiplier of \(T_{m,N}\) at frequency \(k\) is \(((1+e^{-2\pi ik/N})/2)^m\), with modulus \(|\cos(\pi k/N)|^m\). Its minimum over odd \(N\) is \(\sin^m(\pi/(2N))\). Finally, \(\sec z+\tan z=(1+\sin z)/\cos z\) has a nearest simple pole at \(z=\pi/2\), with principal part \(2/(\pi/2-z)\); the next pole is at \(-3\pi/2\). Coefficient extraction gives \(A_m/m!\sim(4/\pi)(2/\pi)^m\), proving the last limit.
+**6. Fourier comparison and the second limit.** The character multiplier of \(T_{m,N}\) at frequency \(k\) is \(((1+e^{-2\pi ik/N})/2)^m\), with modulus \(|\cos(\pi k/N)|^m\). For fixed odd \(N\), its minimum over \(k\) is \(\sin^m(\pi/(2N))\). The ratio in the finding thus tends, at fixed \(m\), to \(A_m(\pi/2)^m/m!\). This equals the Favard series \(K_m=(4/\pi)\sum_{\nu\ge0}(-1)^{\nu(m+1)}(2\nu+1)^{-m-1}\): use \(\sec z+\tan z=\tan(\pi/4+z/2)\) and the standard tangent partial fractions. Extraction of the \(m\)-th coefficient gives \(A_m/m!=2\sum_{k\in\mathbb Z}(\pi/2+2\pi k)^{-m-1}\), absolutely convergent for \(m\ge1\); pairing the positive and negative arguments of the sum gives the displayed series after rescaling. The leading term gives \(K_m\to4/\pi\). This is a sequential limit, not a joint-limit assertion.
 
 ## Verification
 The independent executable `check.py` uses standard Python integer arithmetic to reconstruct the cyclic inverse by convolution and the antiperiodic recurrence, confirm that convolving back by the smoothing kernel yields the identity, and test the four exact norm formulas for every odd \(N\) from 3 through 101. It also checks the Euler zigzag recurrence and supplementary numerical Fourier gap and large-order approximations. Passing finite tests is corroboration, not proof for all \(N,m\); the polynomial recurrence and analysis above establish the infinite statements.
 
 ## Relationship to prior work
+The midpoint rule in [4] already gives the exact one-step endpoint. The map from knot coefficients to one sample per cell midpoint takes adjacent averages, up to a cyclic index shift; continuous piecewise-linear interpolation preserves the supremum of the absolute knot data. Thus its odd-cycle norm \(N\) and singularity on even cycles apply to one step here. Powers with \(m\ge2\) are not part of that endpoint norm calculation. The classical Favard series describes a continuous sharp comparison constant and its limiting value \(4/\pi\); the repeated discrete inverse supplies its own fixed-depth convergence law, error order, and finite-cycle exact formulas.
+
 Przemysław Ohrysko's 2026 work on norm-controlled inversion in measure algebras studies universal bounds above a spectral threshold, rather than the sharp finite-cycle growth at a multiplier whose minimum tends to zero. Zhu, Hu and Kim (2025) develop Euler-polynomial identities for a continuous alternating convolution; their abstract does not supply the discrete cyclic inverse-operator norms, finite formulas or the two norm-comparison limits here. These classical Euler-polynomial identities are used as background, not asserted as new discoveries.
 
 ## Limitations
@@ -98,3 +100,4 @@ The result is for the **fair, directed, adjacent two-tap** kernel, positive inte
 1. P. Ohrysko, *Norm-Controlled Inversion in Measure Algebras*, arXiv:2609.27714 (first public 2026-09-23), https://arxiv.org/abs/2609.27714.
 2. H. Zhu, S. Hu and M.-S. Kim, *On the properties of alternating invariant functions*, arXiv:2505.10985 (first public 2025-05-16), https://arxiv.org/abs/2505.10985.
 3. Classical Euler-polynomial generating functions \(2e^{xt}/(e^t+1)\) and Euler zigzag exponential generating function \(\sec t+\tan t\); definitions used explicitly above.
+4. *Sharp parity law for two-point discrete projection onto periodic linear splines* (8 November 2026), midpoint endpoint. https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-parity-law-for-two-point-discrete-projection-onto-periodic--56b851fd8a2b

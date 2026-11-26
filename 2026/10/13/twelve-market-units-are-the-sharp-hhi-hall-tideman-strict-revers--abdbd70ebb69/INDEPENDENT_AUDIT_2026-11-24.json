@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:55:28.105798Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For descending sizes define D=Σ_{i<j}|d_i−d_j|=(k+1)N−2R. Then HTI=N/(kN−D), with positive denominator, so at fixed k,N it increases strictly with D, while HHI increases strictly with Q=Σ d_i². I ran an independent exact enumeration using multiplicities: starting at part size s=N and remainder N, take a=0,…,floor(remainder/s) copies of s and recurse at s−1 with remainder reduced by as; at s=0 keep exactly remainder-zero profiles of length at least two. This visits each admissible multiset exactly once. Bucket by length and compare every unordered pair by integer differences ΔQ,ΔD. There were 762 pairs, with counts for N=2,…,12 equal to 0,0,1,2,7,13,30,56,109,190,354. The tie-split counts were zero through 9, then 1,5,8; reversal counts were zero through 11 and one at 12. At N=10 the unique tie split has profiles (1,4,5), (2,2,6) with (Q,D)=(42,8),(44,8), giving HHI 21/50,11/25 and common HTI 5/11. At N=12 the unique strict reversal is (1,2,4,5),(2,2,2,6), with (Q,D)=(46,14),(48,12), giving HHI 23/72,1/3 and HTI 6/17,1/3. This exhausts the asserted finite domain; N<2 has no admissible profile. The frozen Python verifier, inspected but not executed, uses partition and ordered-composition generators and direct rational HTI. The multiplicity recursion and integer comparisons above give a separate replay without relying on that verifier. These are lattice cutoffs, not invariant market-size thresholds for continuous shares.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 3 controls the direction of partition Gini and e₂ when the profiles are comparable by dominance. The N=12 first reversal has descending partial sums (5,9,11,12) and (6,8,10,12), which cross. The generating function starts with marginal Gini data, not the paired order test within each fixed length."
+        ],
+        "reasoning": "Majorization explains agreement when it applies, but cannot decide the exact cutoffs or classify the incomparable pairs. General index axioms do not cover that enumeration.",
+        "searches": [
+          "Kopitzke §3, Proposition 3, and §4 generating functions",
+          "DOI 10.1371/journal.pone.0264613, replication discussion and Table 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ab675e6a278a",
+        "Kopitzke, JIS 23 (2020), article 20.9.7",
+        "DOI 10.1371/journal.pone.0264613",
+        "Hall–Tideman DOI 10.1080/01621459.1967.10482897 (bibliographic only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The entropy boundary makes the N=10 witness order strictly oppositely; the frozen HTI calculation makes it tie. The partition-Gini paper explicitly states that the converse of its dominance implication does not hold in general."
+        ],
+        "reasoning": "Replacing entropy by a rank-based index is not an equivalence. The inspected general dominance and index results are insufficient to prove no strict reversal through N=11 and exactly one at N=12; that needs the joint comparisons in the two statistics.",
+        "searches": [
+          "Resultary ab675e6a278a, RESULT.md offsets 350 and 900",
+          "Kopitzke Proposition 3 and following converse discussion",
+          "Hall–Tideman 1967 DOI 10.1080/01621459.1967.10482897"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The standard finite-population Gini is D/(kN); HTI=1/[k(1−Gini)]. The PLOS ONE table explicitly pairs HHI with the Rosenbluth/Hall–Tideman formula. Kopitzke's fixed-N partition score is binom(N+1,2)−R=e₂(λ′), while HHI decreases with e₂(λ)."
+        ],
+        "reasoning": "At fixed k the Gini and HTI weak orders coincide exactly, so any published first HHI–Gini reversal on that domain would cover this claim. The partition literature gives the equivalent statistics but not the extremal comparison or uniqueness.",
+        "searches": [
+          "Herfindahl Gini integer partitions ranking reversal counterexample Hall–Tideman Rosenbluth fixed sum",
+          "Kopitzke, The Gini Index of an Integer Partition, §3 Propositions 2–3",
+          "DOI 10.1371/journal.pone.0264613, Table 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest inspected catalogue match gives the first HHI–entropy reversal at N−k=7, including the pair (1,4,5),(2,2,6) at k=3. Its statement does not evaluate Hall–Tideman or the N=12 HHI–HTI pair. The bounded exact-profile query did not locate a matching published table."
+        ],
+        "reasoning": "An exact match of the N=10 profile pair is real overlap, but the index and outcome differ. No precedence is inferred between distinct records dated the same day.",
+        "searches": [
+          "Resultary: fixed integer profile HHI versus Hall–Tideman sharp first reversal",
+          "Resultary ab675e6a278a, Finding",
+          "HHI Gini / Rosenbluth exact profile query: (1,2,4,5), (2,2,2,6)"
+        ]
+      },
+      "rationale": "Hall–Tideman is order-equivalent to Gini on these fixed-(k,N) layers, and known partition-index results control both rankings on comparable majorization pairs. Those results do not determine the first discordant incomparable profiles. A distinct same-day HHI–entropy record uses the same N=10 witness but gives a strict HHI–entropy reversal there, not an HTI tie, and its boundary is for N−k. Credit the exact first HHI–HTI weak disagreement and first strict reversal with uniqueness, not the relationship between indices or discovery of the N=10 profiles.",
+      "residual_risks": [
+        "A bounded query cannot exclude a differently named HHI–Gini or variance–Gini table with the same domain. The original Hall–Tideman full text, Bikker–Haaf review and Anbarci–Katzman full text were not recovered; no whole-document noncoverage is claimed. The shared HHI–entropy witness cannot establish either priority or equivalent results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material overlap in witness, different index and boundary",
+          "evidence": "First strict reversal at N−k=7 uses (1,…,1,4,5) and (1,…,1,2,2,6); the finding concerns entropy, not HTI.",
+          "identifier_or_url": "2026/10/13/Resultary ab675e6a278a",
+          "material_read": "RESULT.md Finding, offsets 350 and 900",
+          "method": "Catalogue mirror text",
+          "title": "Seven excess market units are the sharp HHI–entropy reversal boundary",
+          "trigger": "Same-day sharp integer boundary and identical small witness"
+        },
+        {
+          "assessment": "Gives exact expression in conjugate elementary symmetric function and monotonicity on comparable partitions, not reversal cutoffs",
+          "evidence": "Its integer score is binom(N+1,2)−Σ_i iλ_i, and Proposition 2 identifies it as e₂ of the conjugate; Proposition 3 is one-way under dominance.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL23/Kopitzke/kop2.pdf",
+          "material_read": "§2.2 Lemma 1, §3 Propositions 2–3 and beginning of §4, pp. 4–6; OA offsets 7508–15902",
+          "method": "OA journal PDF text passages",
+          "title": "The Gini Index of an Integer Partition",
+          "trigger": "Equivalent Gini statistic on the exact class of integer partitions"
+        },
+        {
+          "assessment": "Verifies the alias and both formulas, not the stated cutoffs",
+          "evidence": "Table 1 lists HHI as Σp_i² and Rosenbluth/Hall–Tideman as reciprocal of 2Σ ip_i−1.",
+          "identifier_or_url": "https://doi.org/10.1371/journal.pone.0264613",
+          "material_read": "PDF pp. 3 and 7; replication passage and Table 1 C3–C4, OA offsets around 16396 and 39000–41043",
+          "method": "OA journal PDF text passages",
+          "title": "Measurement of market (industry) concentration based on value validity",
+          "trigger": "Direct literature comparison of the exact indices and Rosenbluth alias"
+        },
+        {
+          "assessment": "No noncoverage conclusion from unavailable text",
+          "evidence": "The exact index formula was checked in the accessible PLOS ONE paper instead.",
+          "identifier_or_url": "https://doi.org/10.1080/01621459.1967.10482897",
+          "material_read": "Bibliographic identity only; no full primary passages recovered",
+          "method": "Lawful OA lookup; publisher unavailable and no alternate copy identified",
+          "title": "Measures of Concentration",
+          "trigger": "Original Hall–Tideman source, plausible comparison with HHI"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A tie split and a strict reversal are substantively different failures for commonly used concentration rankings. Fixing both the number of firms and total, the result gives minimal reproducible examples of each and proves the strict witness unique at the first grid size. This is useful when testing or explaining the rankings without a change in total or firm count. It is not a welfare result or a policy threshold.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

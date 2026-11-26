@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:26:40.299905Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–81",
+        "VERIFICATION.md and check_hazard.py inspected, not executed",
+        "Independent replay: python3 /workspace/reviews/replay_2_3.py"
+      ],
+      "rationale": "The proper survival is indexed by X>=n, and the hazard-difference sign is the sign of the second difference D_n of Phi, independent of q. Coefficients of t^m in D_n have the sign of m beta-1 (the multiplier (2^m-2)/m! is positive for m>=2). At beta>=1/2 there is always a strictly positive term, including at equality. Below 1/2 the ratio of the positive series to the absolute negative polynomial is strictly increasing, by the separated powers, goes to zero at zero and diverges by any one positive monomial of greater degree. This gives the unique positive age threshold. The triangular-kernel integral holds even at n=0, since K(x)Phi'(x)=O(x^(2 beta)) and K(x)Phi''(x)=O(x^(2 beta-1)) near zero. For fixed t, the normalized adjacent tent weights times the common positive curvature factor have a single strict crossing from left to right (their ratio is strictly increasing on the overlap), so integration of the strictly increasing curvature multiplier beta f(t x^beta)+beta-1 is strictly larger for the next age. Here f'(z)-1=e^z(e^z-1-z)/(e^z-1)^2>0. At t_n this proves t_(n+1)<t_n. Centering at n+1 gives the scaled second difference H_c''(1)+O((n+1)^(-2)), after multiplication by (n+1)^2; testing fixed c on both sides of its unique zero proves the threshold asymptotic and eventual increase. The age-zero formula follows by taking positive square roots. A bounded independent rational replay certifies the particular signs (-,-,+) at beta=1/4, t=1; strict threshold order supplies the subsequent signs.",
+      "residual_risks": [
+        "The exact example certificate is bounded; the continuum of parameters and infinite ages are covered by the analytic argument, not a grid or formal verification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The accessible generalized Rayleigh and Weibull generators give hazard formulas and graphical shape discussions. The Springer hit describes a broader family but its full text was not recovered."
+        ],
+        "reasoning": "A parameter-containing generator is not a covering hazard-shape theorem. From the verified source passages, evaluating a prescribed hazard pair is possible but unique roots, strict age ordering and the asymptotic law still need proof.",
+        "searches": [
+          "Emam et al. 10.3390/math11051125, Eqs. (1)–(4), §2.5",
+          "Yousof et al. 10.18187/pjsor.v20i4.4616, PDF pp. 4–6 and 25",
+          "The Discrete Analogue of the Weibull G Family, 10.1007/s40745-021-00327-y"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "Aboraya 2020, Emam 2023, Yousof 2024 accessible passages",
+        "Exact and related Resultary Finding comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original DRW discussion attributes shape labels to selected figures; it includes an upside-down label, whereas the frozen theorem excludes an increasing-to-decreasing reversal for the precise survival on the full age support."
+        ],
+        "reasoning": "A figure or shape label is neither a global classification nor a counterexample to the exact comparisons without verifying its normalization, parameter convention, and age signs. The established result is the quantifier over all ages and parameters in this fixed subfamily.",
+        "searches": [
+          "Aboraya et al., DRW discussion, PDF pp. 5–6",
+          "Yousof et al., hazard plots and labels, PDF pp. 5–6 and 25"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the Yousof et al. generator [exp(beta_2 y^theta)-1]^beta_1, the choice (beta_1,beta_2,theta)=(2,t,beta) gives the exact frozen exponent."
+        ],
+        "reasoning": "No model novelty is credited. A shift between P(X>=n) and P(X>n-1), or use of failure odds in place of conditional failure, does not alter the ordered adjacent comparisons.",
+        "searches": [
+          "Discrete Rayleigh-G Weibull baseline / squared Weibull odds / discrete Weibull-generated-G",
+          "Aboraya et al. 10.3390/math8101648, Eqs. (3)–(4) and Table 1",
+          "Yousof et al. 10.18187/pjsor.v20i4.4616, Weibull-baseline generator"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit 646ecb6220e4 is the assigned statement. The DMOLBE and DGBH entries address sharp hazard cutoffs but involve other survival laws with different threshold shapes."
+        ],
+        "reasoning": "The same-day analogues were compared on formula and age behavior; their two-turn regimes do not tabulate or imply this one-turn staircase.",
+        "searches": [
+          "Local Resultary: global exact reversal thresholds and asymptotic scaling for squared Weibull odds",
+          "Records 646ecb6220e4, c56eaf093042 and d75bb3879263; Finding comparisons"
+        ]
+      },
+      "rationale": "The squared-odds model and qualitative hazard plots are prior art, including the exact nested Weibull model in Yousof et al. The supported distinct claim is the unique, strictly ordered staircase of discrete age thresholds, the sharp all-age cutoff and asymptotic constant; the inspected prior results did not give or imply that full classification.",
+      "residual_risks": [
+        "The 2021 Springer and 2022 Ma–Yan full texts were not verified; earlier equivalent analysis in them or unindexed sources remains possible. No worldwide priority is certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model and qualitative overlap; no sharp ordering theorem in inspected passages",
+          "evidence": "Squared odds and Weibull baseline in the formulas; selected plots supply the described shapes.",
+          "identifier_or_url": "https://doi.org/10.3390/math8101648",
+          "material_read": "Publisher PDF pp. 2–3: Eqs. (3)–(4), Table 1; pp. 5–6: DRW hazard discussion",
+          "method": "Bounded OA full-text passages",
+          "title": "A New Family of Discrete Distributions with Mathematical Properties, Characterizations, Bayesian and Non-Bayesian Estimation Methods",
+          "trigger": "Original Rayleigh-G family with a DRW special case"
+        },
+        {
+          "assessment": "Exact survival special case, not the full threshold theorem in inspected passages",
+          "evidence": "The outer generator power can be set to two, and the scale and inner Weibull power to t and beta.",
+          "identifier_or_url": "https://doi.org/10.18187/pjsor.v20i4.4616",
+          "material_read": "Open PDF pp. 4–6 and 25, Weibull-baseline exponent and hazard discussion",
+          "method": "Bounded OA full-text passages",
+          "title": "A New Discrete Generator with Mathematical Characterization, Properties, Count Statistical Modeling and Inference with Applications to Reliability, Medicine, Agriculture, and Biology Data",
+          "trigger": "Strongest exact formula overlap in a broader generator"
+        },
+        {
+          "assessment": "Related generator and selected hazard plots; exact parameter reduction not certified from garbled equations",
+          "evidence": "The inspected text gives generated odds and discusses selected Weibull-based hazards.",
+          "identifier_or_url": "https://doi.org/10.3390/math11051125",
+          "material_read": "Open PDF pp. 3–4 and §2.5 pp. 8–11",
+          "method": "Bounded OA PDF extracts",
+          "title": "A Novel Discrete Generator with Modeling Engineering, Agricultural and Medical Count and Zero-Inflated Real Data with Bayesian, and Non-Bayesian Inference",
+          "trigger": "Related odds generator; possible stronger special-case classification"
+        },
+        {
+          "assessment": "Full-text comparison unresolved",
+          "evidence": "The frozen record describes a quadratic baseline; that distinction was not independently established from original text.",
+          "identifier_or_url": "https://doi.org/10.2298/TSCI2203627M",
+          "material_read": "Bibliographic identification only",
+          "method": "DOI and identified alternate retrieval attempts",
+          "title": "Discrete Weibull-Rayleigh distribution: Properties and parameter estimations",
+          "trigger": "Potentially equivalent model despite swapped name order"
+        },
+        {
+          "assessment": "Unresolved scope; no negative evidence from access failure",
+          "evidence": "The description mentions graphical/numerical hazard analysis, not enough to assess the theorem.",
+          "identifier_or_url": "https://doi.org/10.1007/s40745-021-00327-y",
+          "material_read": "Search-result description only",
+          "method": "Targeted search and lawful OA retrieval attempt",
+          "title": "The Discrete Analogue of the Weibull G Family",
+          "trigger": "Potential stronger earlier Weibull-G generator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and threshold proof",
+        "Aboraya et al. DRW hazard discussion"
+      ],
+      "rationale": "This replaces qualitative plots for a named discrete lifetime model by a precise cutoff, eliminates invisible late reversals, and quantifies how the reversal ages move as the scale parameter becomes small. The global ordering and endpoint of the staircase, rather than the elementary hazard formula, give its structural value.",
+      "residual_risks": [
+        "Applies to the fixed squared-odds subfamily, not all generated Weibull or Rayleigh distributions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

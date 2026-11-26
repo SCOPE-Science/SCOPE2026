@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:42:39.539692Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Assumptions and scope, Proof",
+        "Frozen VERIFICATION.md and verify_e8.py (inspected, not executed)",
+        "/workspace/branches/f4c9235b-871b-4668-991f-2190102a589c/replay_e8_snf.py and replay_output.txt",
+        "Winter–van Luijk, The Action of the Weyl Group on the E8 Root System, pp. 1, 5–6"
+      ],
+      "rationale": "For exceptional classes E,F on a degree-one del Pezzo surface, K_S²=1 and E·K_S=F·K_S=−1, so (E+K_S)·(F+K_S)=E·F−1. Under the classical positive-definite E8 model this makes the intersection-one relation precisely orthogonality on all 240 roots. An independent integer replay generated the 240 signed roots, matched antipodal fibres, and counted common neighbors on the 120-fibre quotient: parameters (120,63,30,36). The full graph replaces each fibre vertex with an independent pair, so it is connected, is 126-regular and has 15120 edges. The quotient adjacency eigenvalues 63,3,−9 give full nonzero Laplacian eigenvalues 120^84,126^120,144^35 by doubling on the fibre-constant space and adding 126 on the difference space. The matrix-tree product is 2^508·3^393·5^83·7^120. The separately built reduced 239-square matrix gave exact prime-local valuation multiplicities at 2: (0:120,2:9,3:26,4:50,6:26,7:8); at 3: (0:36,1:48,2:120,3:35); at 5: (0:156,1:83); at 7: (0:119,1:120). Their sums give the determinant valuations, excluding missed torsion; putting the prime lists in increasing order reproduces every stated factor, including 36 units and exponent 120960. Vanishing row and column sums split off one zero from a full Laplacian by integral operations, which also explains the equivalence between the reduced cokernel and full torsion cokernel.",
+      "residual_risks": [
+        "The independent local replay used one deleted-root reduced matrix, not all sinks; their groups agree by the integral full-to-reduced equivalence. The surface statement uses the classical geometric root correspondence in the stated characteristic-zero setting."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pantangi–Sin compute adjacency and Laplacian elementary divisors for graphs of isotropic one-dimensional subspaces. Vince's exact graph lists concern trees, cycles, complete and complete bipartite graphs, and wheels."
+        ],
+        "reasoning": "The projective E8 vertices reduce to quadratic value r²/2=1, not zero. Orthogonality for distinct antipodal classes agrees with the associated bilinear pairing modulo 2 because different nonopposite roots have inner products 0 or ±1, and distinct classes are distinct modulo 2E8 by minimum-norm comparison. Thus the isotropic orthogonal cases are not a stronger theorem for this quotient. The general elementary-divisor framework is not itself a table or formula for the E8 graph.",
+        "searches": [
+          "Primary literature: Smith normal form for polar graphs and the nonsingular-point graph O+(8,2)",
+          "Pantangi–Sin arXiv:1706.08175v3, abstract and §1",
+          "Vince, Elementary Divisors of Graphs and Matroids, Theorem 7"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact and adjacent records above",
+        "Winter–van Luijk 2021",
+        "Schmidt arXiv:2209.14906",
+        "Pantangi–Sin arXiv:1706.08175",
+        "Vince 1991",
+        "Desjardins–Winter arXiv:2210.11659"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Schmidt provides Q's strongly regular structure, not its Smith form. The earlier weighted invariant corresponds to an adjacency containing further intersection colors, and the polar-graph theorem's orthogonal cases have isotropic vertices."
+        ],
+        "reasoning": "Writing A for quotient adjacency, odd-local full Laplacian equivalence is 2L_Q ⊕ 126I by fibre sum/difference. At 2, elementary fibre operations give the block matrix with rows [2L_Q, −A] and [0,126I]; A²=−6A+27I+36J makes A invertible modulo 2, so eliminating it leaves the residual equivalent to 252L_Q over Z_(2). A complete quotient group would therefore mechanically imply the full group, but the inspected prior quotient work supplies only structural and spectral data, and the weighted group is not such a quotient computation. The exact positive valuations at 2 and 3 require additional local information.",
+        "searches": [
+          "Schmidt, projective root graph parameters, arXiv:2209.14906",
+          "Resultary full weighted 240-curve critical group, record ending 35ef369bd2fe",
+          "Polar-graph elementary divisors, arXiv:1706.08175"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Winter–van Luijk define the colored graph on the 240 roots and count 126 perpendicular to each. Schmidt identifies x with −x and obtains a (120,63,30,36) strongly regular graph."
+        ],
+        "reasoning": "The signed graph is exactly the independent-pair blow-up of the projective one; their Laplacians are not identical, but a complete quotient Smith computation would be strong coverage under the local reductions given below. The compared projective result specifies the graph and its parameters, not the quotient Smith form.",
+        "searches": [
+          "Resultary: all-240-root orthogonality Laplacian and intersection-one degree-one del Pezzo graph",
+          "Focused web search: E8 orthogonality-graph Laplacian Smith form and antipodal projective graph",
+          "Schmidt arXiv:2209.14906, p. 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit was the frozen record itself. Related records are 2026/11/22/SCOPE-integral-critical-group-of-the-full-weighted-240-curve-degree-on--35ef369bd2fe and 2026/10/26/SCOPE-reentrant-harmonic-sampling-obstruction-on-the-e-8-projective-ro--4f766bf494a3."
+        ],
+        "reasoning": "The weighted entry is for a different integral Laplacian, and the projective harmonic sampling result uses a different matrix and invariant. Their exact entries are not the Smith factors at issue. Same-day placement does not settle priority.",
+        "searches": [
+          "Resultary: exact intersection-one Smith form, reduced E8 Laplacian, full weighted exceptional-curve graph",
+          "Focused exact-phrase Smith-form literature query"
+        ]
+      },
+      "rationale": "The all-root graph, the 126 orthogonality degree and the projective quotient are known. The strongest nearby exact group uses all intersection multiplicities, not adjacency for intersection one. The strongest broader Laplacian Smith theorem inspected applies to isotropic projective points, not the norm-one mod-2 classes of E8 roots. The quotient reduction would make a known full quotient Smith form relevant, but none was found in the read comparisons; neither the quotient parameters nor the prior weighted graph gives the claimed integral factors.",
+      "residual_risks": [
+        "Targeted comparisons do not exclude an older exact signed-root or projective graph table under another name. The strongest located general polar-graph source was read in its lawful author preprint, not through the publisher page."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same geometric graph as one color; not its Smith calculation",
+          "evidence": "All 240 roots are vertices, and each has 126 orthogonal roots; analyzes root geometry and cliques/orbits.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00373-021-02315-8",
+          "material_read": "PDF pp. 1 and 5–6, offsets 424 and 16133–17464",
+          "method": "OA primary PDF passages",
+          "title": "The Action of the Weyl Group on the E8 Root System",
+          "trigger": "Same signed-root colored graph and curve pairing"
+        },
+        {
+          "assessment": "Provides quotient graph and parameters, no Smith form in the inspected result",
+          "evidence": "Identifies x and −x to obtain parameters (120,63,30,36).",
+          "identifier_or_url": "https://arxiv.org/abs/2209.14906",
+          "material_read": "PDF p. 4, offsets 14167 and 14717",
+          "method": "OA primary PDF passages",
+          "title": "Quantum isomorphic strongly regular graphs from the E8 root system",
+          "trigger": "Projective graph strongly related via antipodal pairs"
+        },
+        {
+          "assessment": "Different projective vertex set",
+          "evidence": "Vertices are isotropic one-dimensional subspaces and edges are orthogonality; projective E8 root classes instead have quadratic value one.",
+          "identifier_or_url": "https://arxiv.org/abs/1706.08175",
+          "material_read": "arXiv v3 abstract and introduction, first 2927 characters",
+          "method": "OA copy of same paper; publisher 403, author preprint read",
+          "title": "Smith and Critical Groups of Polar Graphs",
+          "trigger": "Plausibly stronger orthogonality graph Smith theorem"
+        },
+        {
+          "assessment": "General framework and unrelated exact evaluations",
+          "evidence": "Theorem 7 evaluates trees, cycles, complete and complete bipartite graphs, and wheels.",
+          "identifier_or_url": "https://people.clas.ufl.edu/avince/files/Elementary.pdf",
+          "material_read": "Introduction, offset 0; Theorem 7 and surrounding example discussion, offset 16100",
+          "method": "OA primary PDF passages",
+          "title": "Elementary Divisors of Graphs and Matroids",
+          "trigger": "Search hit for possible broader elementary divisor calculation"
+        },
+        {
+          "assessment": "Different graph and group; date does not settle priority",
+          "evidence": "Uses E·F parallel edges, with group C240^222 plus C72000^8.",
+          "identifier_or_url": "2026/11/22/SCOPE-integral-critical-group-of-the-full-weighted-240-curve-degree-on--35ef369bd2fe",
+          "material_read": "RESULT.md offset 98, definition and finding",
+          "method": "Local published-record mirror",
+          "title": "Integral critical group of the full weighted 240-curve degree-one graph",
+          "trigger": "Exact group on the same 240 exceptional curves"
+        },
+        {
+          "assessment": "Different matrix and invariant",
+          "evidence": "Studies ranks and singular values of harmonic Gram matrices on the 120 projective lines.",
+          "identifier_or_url": "2026/10/26/SCOPE-reentrant-harmonic-sampling-obstruction-on-the-e-8-projective-ro--4f766bf494a3",
+          "material_read": "RESULT.md finding at offset 80",
+          "method": "Local published-record mirror",
+          "title": "Reentrant harmonic sampling obstruction on the E8 projective root lines",
+          "trigger": "Same projective roots, possible equivalent matrix claim"
+        },
+        {
+          "assessment": "Concerns concurrence and torsion points rather than Laplacian torsion",
+          "evidence": "The results inspected are about concurrence of exceptional curves and torsion on fibres.",
+          "identifier_or_url": "https://arxiv.org/abs/2210.11659",
+          "material_read": "PDF pp. 1–2 at offsets 1003 and 7315",
+          "method": "OA primary PDF passages",
+          "title": "Torsion points and concurrent exceptional curves on del Pezzo surfaces of degree one",
+          "trigger": "Related study of intersection configurations of the same curves"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Assumptions and scope",
+        "Independent E8 replay",
+        "Schmidt's projective graph result and the distinct weighted group record"
+      ],
+      "rationale": "Intersection one is a natural distinguished relation on the entire uniform exceptional-curve configuration; its root interpretation makes the graph useful independently of surface moduli. The full integral invariant refines the known strongly regular quotient parameters and spectrum, including substantial 2- and 3-power structure not recoverable from their tree order alone. It is not an arbitrary subgraph or a replacement of an already evaluated weighted group by new terminology.",
+      "residual_risks": [
+        "The value is the exact graph invariant of this fixed geometry; no full weighted-graph classification or Picard-theoretic consequence is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

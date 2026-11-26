@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:08:21.067292Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Proof, VERIFICATION.md, INVOLUTION_CERT.json, verify_involution_standalone.py (inspected, not executed)",
+        "Independent replay: `python3 /workspace/branches/389a0a49-1e8a-4307-ac67-0df20b40e6cf/check_frozen_involution_certificate.py /workspace/source/2026/10/18/sharp-involutory-inverse-matchings-on-chains-of-size-at-most-eig--8193f93692d0/INVOLUTION_CERT.json`"
+      ],
+      "rationale": "A rank-r map is exactly determined by its rank−1 consecutive fiber cuts and increasing image, giving the stated class size. Idempotents select one fixed image point per fiber, giving the coefficient of (x/(1−x)^2)^r. Each fixed point of the involution must satisfy f³=f and hence f²=f, since an isotone chain map has no nontrivial cycles. Thus the nonidempotents and displaced idempotents together have even cardinality in each rank; their parities agree. Direct independent exhaustive replay of INVOLUTION_CERT.json reconstructed all maps and checked partner ranges, ranks, involution, and both inverse identities by actual composition across all 36 blocks. Counts were 1, 3, 10, 35, 126, 462, 1716, 6435. The only odd nonidempotent counts were 39 at (5,3) and 399 at (7,3), and in those two blocks the certificate moves exactly one idempotent; all other blocks move none. This attains the necessary minima, not just existence.",
+      "residual_risks": [
+        "The exhaustive optimization establishes only n≤8; it does not establish a general construction or imply optimality at a larger size."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "8e73af163646 gives exact existence through n=10. Theorem B gives permutation matchings for every n. The 2024 proposition has a divisibility hypothesis and is classwise. The cyclic transformation monoid is a different family."
+        ],
+        "reasoning": "Existence permits moved idempotents in excess of parity and does not imply the exact minima; the certificate in the stronger-range existence result fails to attain them. A matching on a larger cyclic family does not by itself preserve the chain subfamily.",
+        "searches": [
+          "Resultary 8e73af163646 Finding, Proof and Verification; Higgins 2026 Theorem B and 2024 Prop. 2.3; arXiv:1811.04472 on cyclic orientation-preserving maps"
+        ]
+      },
+      "checked_sources": [
+        "Higgins arXiv:2610.01912, DOI 10.1007/s00233-024-10430-0, arXiv:1811.04472",
+        "Resultary 5cd29258f395, 3808605db638 and 8e73af163646 including TSV"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Rankwise evenness yields a lower bound, not a certificate attaining it. For example, rank three at n=7 has 15 cut sets and 35 image sets, for which neither cardinality is an integer multiple of the other; the divisibility condition does not settle that block."
+        ],
+        "reasoning": "Combining general permutation existence, extremal-rank involutions, and parity does not produce rankwise optimal matchings in the uncovered middle ranks. The verified optimum witnesses are substantive extra content.",
+        "searches": [
+          "Resultary 5cd29258f395, 3808605db638, 8e73af163646; Higgins arXiv:2610.01912 Theorem B, 2024 Proposition 2.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 5cd29258f395 gives extreme-rank idempotent-fixing involutions; 3808605db638 gives the same sharp whole-chain result through n=5, including the rank-three obstruction."
+        ],
+        "reasoning": "Order-preserving and isotone are the same objects. Rank classes combine independently, but pairings in the extremal strata alone do not establish the intermediate-rank minima. A permutation inverse matching can have cycles longer than two.",
+        "searches": [
+          "Resultary searches for inverse involutions on isotone/order-preserving chains and idempotent-fixing Green strata; Higgins 2610.01912 Theorem B and DOI 10.1007/s00233-024-10430-0 Prop. 2.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Aggregate counts of 4,371 through-eight two-cycles in that published existence certificate give 56, 125, 252 displaced rank-three idempotents for n=6,7,8 respectively, by twice the block cycle count minus the nonidempotent count. The earlier catalogue overlap stops at n=5 for whole-chain minima. The cited GAP check is of permutations through n=4."
+        ],
+        "reasoning": "The available larger certificate is an exact existence table, but its entries cannot serve as the optimum witnesses in the new sizes. No inspected table supplies those sharp minima.",
+        "searches": [
+          "Resultary 8e73af163646 INVOLUTION_MATCHINGS.tsv, prefix through offset 53498 (first n=9 row); 3808605db638 Finding; Higgins 2024 p.144 footnote"
+        ]
+      },
+      "rationale": "Pass is for the sharp displacement classification, particularly n=6,7,8, not for the unqualified existence assertion. Distinct catalogue results cover extreme ranks, the sharp claims through five, and even mere existence through ten. The through-ten certificate is not displacement-optimal: its actual two-cycle counts force many more than the minima, including in each of n=6,7,8. The conditional rectangular-band criterion and whole-monoid permutation result do not fill that gap. Catalogue dates are not used to decide priority.",
+      "residual_risks": [
+        "The broad literature lookup did not yield further pertinent results; an equivalent finite computation elsewhere remains possible. There is no priority inference from index dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers permutations only",
+          "evidence": "Theorem B asserts a permutation matching, not an involution with displacement control.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.01912",
+          "material_read": "PDF p.2 Theorem B and nearby comparison with the cycle monoid, OA offsets 4800–7023",
+          "method": "Bounded OA original passages",
+          "title": "Balanced weightings and permutation matchings applied to the monoid of order-preserving mappings",
+          "trigger": "Whole-monoid result for all n"
+        },
+        {
+          "assessment": "Classwise conditional coverage, not full sharp minima",
+          "evidence": "The proposition is for a 0-rectangular band with m rows and am columns; the GAP footnote concerns permutation matchings through four.",
+          "identifier_or_url": "https://doi.org/10.1007/s00233-024-10430-0",
+          "material_read": "Journal pp.144–145, GAP footnote and Proposition 2.3",
+          "method": "Bounded OA original passages",
+          "title": "Finite regular semigroups with permutations that map elements to inverses",
+          "trigger": "General sufficient involution criterion and earlier finite computation"
+        },
+        {
+          "assessment": "Different family",
+          "evidence": "The cyclic orientation-preserving/reversing cases are distinguished from the then unresolved order-preserving chain case.",
+          "identifier_or_url": "https://arxiv.org/pdf/1811.04472",
+          "material_read": "PDF p.2, OA offset near 2800",
+          "method": "Bounded OA original passage",
+          "title": "Involution matchings, the semigroup of orientation-preserving and orientation-reversing mappings, and inverse covers of the full transformation semigroup",
+          "trigger": "Nearby class of order-related transformations"
+        },
+        {
+          "assessment": "Covers extreme ranks",
+          "evidence": "Rank two and rank n−1 have idempotent-fixing matchings for n≥4.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-idempotent-fixing-inverse-involutions-on-the-extreme-green-strat--5cd29258f395/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Idempotent-fixing inverse involutions on the extreme Green strata",
+          "trigger": "Strong all-n result on some of the same rank classes"
+        },
+        {
+          "assessment": "Covers the claim through n=5",
+          "evidence": "Idempotent-fixing through four and sharp n=5 obstruction with one moved idempotent in rank three; no whole-chain minima at n=6,7,8 in the inspected statement.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-idempotent-fixing-inverse-involutions-at-extremal-ranks-and-a-sh--3808605db638/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Idempotent-fixing inverse involutions at extremal ranks and a sharp obstruction",
+          "trigger": "Direct exact-minimum overlap"
+        },
+        {
+          "assessment": "Covers existence, not displacement optimum",
+          "evidence": "Unused vertices are idempotents but numerous listed vertices are also idempotents; rank-three moved counts are 56, 125, 252 at n=6,7,8, strictly exceeding the frozen minima of 0, 1, 0.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-involution-inverse-matchings-through-n-10-for-order-preserving-t--8e73af163646/RESULT.md",
+          "material_read": "Finding, Proof and Verification; accompanying INVOLUTION_MATCHINGS.tsv prefix through the last n=8 block, aggregated by rank",
+          "method": "Bounded local Resultary mirror reads and count of relevant two-cycles",
+          "title": "Involution inverse matchings through n=10 for order-preserving transformations",
+          "trigger": "Strongest whole-chain existence result, potentially with implicit optimum in the accompanying table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md proof and frozen matching certificate",
+        "Resultary 3808605db638 and 8e73af163646 incl. certificate"
+      ],
+      "rationale": "Fixing idempotents where possible is a natural constraint for inverse involutions, because each can be left as its own inverse. Same-rank parity identifies a genuine obstacle, but attaining it everywhere is nontrivial; an arbitrary or larger existence certificate can move many unnecessary idempotents. The n=6–8 results give exact answers on both sides of feasibility of fixing all idempotents in a natural finite-chain family, beyond the smaller sharp cutoff and without claiming universal attainability.",
+      "residual_risks": [
+        "Optimization for larger chains and a uniform construction remain open within the scope of this review."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

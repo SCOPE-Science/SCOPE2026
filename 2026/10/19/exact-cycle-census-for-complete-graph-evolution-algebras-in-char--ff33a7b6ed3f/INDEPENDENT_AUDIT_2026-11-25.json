@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:46:18.909952Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The graph multiplication gives T=A∘F, with coordinate Frobenius F and A=I+J, Jx=(Σx_i)1. Since F commutes with the binary matrix A and J²=nJ, odd n gives projection onto the sum-zero hyperplane H; on H the map is F and every other point reaches H in exactly one step. Fixed points on H for F^k have dimension n−1 over the fixed field of size 2^g. For even n, A²=I; for even k all vectors over the fixed field are fixed by T^k. For odd k the trace argument in RESULT.md is sound: pairwise coordinate differences are fixed by F^k, and the common equation σ(y)+y=c with c in the fixed field is soluble iff tc=0, with 2^g lifts. Equivalently, a normal basis over F_2 makes F^k act as g shifts of length t on n-component blocks; on each cycle the fixed equation forces its initial block into ker(A^t−I), of dimension n when t is even and n−1 otherwise. This verifies the exceptional even-n branch without trace. F^f=I implies the stated period divisibility, and inversion of P_k=Σ_{d|k}dC_d gives the exact least-period orbit counts. The finite verifier was inspected, not run; its odd-branch assertion verify.py:34 is tautological and does not independently check the sum-zero image. The algebraic proof does.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published semilinear normal form concerns invertible semilinear maps and a change of basis over an algebraic closure. The later catalog result gives fixed-point ranks, transient depth, and cycle counts for all binary graph adjacency matrices over finite extensions, with a closed multipartite case."
+        ],
+        "reasoning": "The algebraic-closure normal form does not determine counts of points rational over the original finite field, and excludes singular odd n. The later general graph theorem directly covers this exact claim after specialization, but no earlier availability is evidenced.",
+        "searches": [
+          "Dempwolff–Fisher–Herman DOI 10.1017/S0017089500020164",
+          "Resultary 2026/11/2 SCOPE-exact-finite-extension-orbit-census-for-graphical-evolution-alge--57cba8b84ace"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Giacomelli; Sriwongsa–Zou; Dempwolff–Fisher–Herman",
+        "Resultary 10/11, 10/13 and 11/02 records",
+        "Ceballos (access attempt only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For K_n the base-field update is the stated projection or involution. The later rank method on Frobenius cycles implies the fixed count by evaluating A^t for even n and the rank of the projection for odd n."
+        ],
+        "reasoning": "Normal bases and Möbius inversion are standard and make the calculation short once the factorization is set up. The earlier base-field counts alone do not provide the finite-field lift. The later stronger finite-field statement does imply the entire claim, so no distinct incremental content over that theorem is asserted.",
+        "searches": [
+          "10/11 complete-multipartite parity census Finding and Proof §§3–4",
+          "11/02 finite-extension graphical evolution algebra census Finding and Proof §§1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same K_n algebra occurs in Giacomelli, and in Sriwongsa–Zou in an automorphism setting. At f=1 the squaring map is exactly the binary adjacency automaton, included in the earlier complete-multipartite catalog result."
+        ],
+        "reasoning": "Frobenius is the identity only over the base field; the binary update cannot distinguish the extension parity of f/g or reproduce the field-degree dependence of fixed counts.",
+        "searches": [
+          "Resultary complete-graph evolution algebra squaring, characteristic-two orbit/period census",
+          "arXiv:2605.12672v1 Example 10.2; arXiv:2202.01333 Example 3.1",
+          "Resultary 2026/10/11 SCOPE-sharp-period-four-census-for-complete-multipartite-parity-automa--acea41c73be7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 10/13 record counts x²=x and its point-counting zeta function in odd characteristic. The 10/11 record gives explicit base-field counts. The 11/02 record gives the exact extension-field formula in its multipartite theorem."
+        ],
+        "reasoning": "Individual fixed points in odd characteristic or base-field adjacency orbits are different counting domains. There is demonstrable full formula overlap with the later catalog record.",
+        "searches": [
+          "Resultary finite-extension graphical evolution algebra cycle counts",
+          "Resultary 2026/10/13 SCOPE-idempotent-point-counts-for-complete-graph-evolution-algebras--4a075844285b",
+          "Giacomelli Example 10.2 and §11"
+        ]
+      },
+      "rationale": "The complete-graph algebra and its binary adjacency dynamics predates the record. The contribution is the explicit extension-field iterate census and classification, not Möbius inversion, the adjacency calculation, or general finite-field normal form. A substantially broader catalog result does imply the entire theorem, including the exceptional branch, but its shown catalog date is later; no evidence establishes that theorem as earlier prior art. It is recorded as exact coverage rather than treated as a different subject. The earlier graph/dynamics sources inspected do not state the extension-field theorem.",
+      "residual_risks": [
+        "Exact overlap with a stronger later catalog theorem; relationship and priority beyond the evidence given are unresolved.",
+        "Ceballos full text unavailable; a separate earlier semilinear-dynamics application may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines same algebra, other invariant",
+          "evidence": "Computes expansion and discusses open problems rather than extension-field squaring orbits.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.12672v1",
+          "material_read": "Example 10.2, PDF p.22; §11, p.23",
+          "method": "OA PDF excerpts",
+          "title": "Expander Evolution Algebras",
+          "trigger": "Same K_n algebra"
+        },
+        {
+          "assessment": "Same graph, automorphisms under nonsingularity",
+          "evidence": "Automorphism group in the displayed example, not the dynamics of x↦x².",
+          "identifier_or_url": "https://arxiv.org/abs/2202.01333",
+          "material_read": "Example 3.1, PDF pp.6–7",
+          "method": "OA PDF excerpt",
+          "title": "On Automorphism Groups of Idempotent Evolution Algebras",
+          "trigger": "Complete-graph evolution algebra"
+        },
+        {
+          "assessment": "Related semilinear normal form, not rational fixed-point counts; singular case excluded",
+          "evidence": "Conjugacy over an algebraic closure for invertible semilinear maps.",
+          "identifier_or_url": "https://doi.org/10.1017/S0017089500020164",
+          "material_read": "Abstract and proof, PDF pp.1 and 5, offsets 0 and 17800",
+          "method": "OA PDF excerpts",
+          "title": "Semilinear Transformations over Finite Fields Are Frobenius Maps",
+          "trigger": "Potential general implication for A∘F"
+        },
+        {
+          "assessment": "Covers f=1, outside claim",
+          "evidence": "K_n has base-field periods dividing two and its odd case reaches a fixed image.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-period-four-census-for-complete-multipartite-parity-automa--acea41c73be7",
+          "material_read": "RESULT.md Finding and Proof §§3–4",
+          "method": "Local Resultary mirror",
+          "title": "Sharp period-four census for complete multipartite parity automata",
+          "trigger": "Earlier exact graph-dynamics specialization"
+        },
+        {
+          "assessment": "Counts idempotents in odd characteristic",
+          "evidence": "The extension-field zeta function described counts x²=x, with different characteristic.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-idempotent-point-counts-for-complete-graph-evolution-algebras--4a075844285b",
+          "material_read": "RESULT.md Finding and stated characteristic hypothesis",
+          "method": "Local Resultary mirror",
+          "title": "Idempotent point counts for complete-graph evolution algebras",
+          "trigger": "Same graph over extension fields"
+        },
+        {
+          "assessment": "Exact broader coverage; later dated, not evidence of earlier priority",
+          "evidence": "General fixed-point rank, preperiod and cycle formulas, with a complete-multipartite specialization that gives precisely the three K_n branches.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-finite-extension-orbit-census-for-graphical-evolution-alge--57cba8b84ace",
+          "material_read": "RESULT.md Finding and Proof §§1–4, offsets within 0–6640",
+          "method": "Local Resultary mirror",
+          "title": "Exact finite-extension orbit census for graphical evolution algebras",
+          "trigger": "Strongest broader coverage"
+        },
+        {
+          "assessment": "Unresolved exact scope",
+          "evidence": "HTTP 403 and no identified readable alternate; not evidence against coverage.",
+          "identifier_or_url": "https://doi.org/10.1002/mma.70534",
+          "material_read": "No readable full text; attribution from frozen record only",
+          "method": "Lawful OA attempt and repository lookup",
+          "title": "S-Graphicable Algebras and Specific Graph Families",
+          "trigger": "Earlier idempotent-related graph family paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The complete graph is a standard test family for evolution algebras. This calculation resolves every finite-extension periodic orbit and all transient depths uniformly, not just idempotents or a small prime-field example. The interaction between graph parity and relative Frobenius orbit length has a concrete effect on orbit counts, useful as a benchmark for broader graphical dynamics. The method is elementary and does not purport to be a new linear-algebra tool.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

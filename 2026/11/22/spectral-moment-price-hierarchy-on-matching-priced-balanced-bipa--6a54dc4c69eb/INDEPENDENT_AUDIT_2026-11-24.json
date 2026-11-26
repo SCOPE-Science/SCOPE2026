@@ -1,0 +1,177 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:19:28.281474Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–51, 53–124; VERIFICATION.md and verify.py",
+        "Independent edge-vector marginal diagnostic, check 3"
+      ],
+      "rationale": "Reconstructed RESULT.md §§1–5 for arbitrary nonnegative individual allocations. On 1⊥ the Laplacian map is injective in edge weights, and the trace Hessian has strictly positive divided differences of f′, including at repeated eigenvalues (f=x^(−p) or −log x). The fixed cost simplex bounds all eigenvalues above, so approaching disconnection makes either objective diverge upward. Uniqueness forces invariance under simultaneous index permutations of the two parts. Their two edge orbits have conductances a,b; b=0 is disconnected and a=0 gives the connected crown graph for m≥3. The symmetric and antisymmetric constant and zero-sum vectors give positive classes 2(a+(m−1)b), mb, and 2a+(m−2)b, with multiplicities 1,m−1,m−1. On the budget line b′=−c/(m−1), the derivative at a=0 has sign opposite to A+TC−c(A+D+C), including for −logdet. Strict convexity gives the exact deletion criterion including equality and a unique interior stationary point otherwise. In the order derivative the sole negative term has magnitude AD log(2(m−1)/m); the positive DCT log(m/(m−2)) dominates since C/A≥m−1 and log(m/(m−2))>2/m. Dividing by C, the term D/C=(1−2/m)^p tends to e^(−2α) for p/m→α, also for α=∞, and A/C≤1/(m−1); expansion at fixed p gives 1+(p+1)/m+O_p(m^−2). Independently expanding the signed stationarity function after multiplying by m^(p+1) gives 2[(p+1)(1−r)−γ] at every fixed r=a/b; bracketing the unique derivative root proves the positive-part limit, including equality γ=p+1. A fresh full crown-Laplacian calculation verified 15 marked/unmarked edge marginal ratios for m=3,4,7 and five orders including 0 and 0.37. Replay with `OPENBLAS_NUM_THREADS=1 python /tmp/opencode/frozen-review-diagnostics.py` (check 3). The supplied checker was inspected but not executed; its deletion test partly branches on the formula itself, so the independent derivative check and analytic argument are the evidence for the exact boundary.",
+      "residual_risks": [
+        "Correctness uses the unnormalized Laplacian and excludes disconnected allocations. The ratio limit fixes p; no uniqueness or optimal-ratio formula is claimed in the nonsmooth spectral-gap limit."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The resistance-design abstract gives convex allocation of edge weights for total resistance, a p=1 framework. The coherence abstract treats first and second orders on fractal networks.",
+          "Distinct same-day record f68559459078 gives a real-order deletion threshold on Möbius ladders with priced antipodal rungs; record 8a4a15cc3c55 gives an order-dependent allocation transition on cyclic prisms."
+        ],
+        "reasoning": "General objective frameworks and explicit theorems on different graph spectra do not give the priced-biclique frontier. The Möbius-ladder statement is the closest shared all-order support mechanism, but the dated summaries do not furnish a stronger theorem covering both families.",
+        "searches": [
+          "Ghosh, Boyd and Saberi, Minimizing Effective Resistance of a Graph",
+          "Patterson and Bamieh, Consensus and Coherence in Fractal Networks",
+          "Resultary: real inverse spectral order edge deletion, priced matching/rungs and half-order allocation"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records c30f76e2bede, 1ae0e33a18ed, b65b2ff40797, efaad5dd81d4, f68559459078, 8a4a15cc3c55",
+        "Ghosh–Boyd–Saberi abstract p. 37; Patterson–Bamieh arXiv:1310.2592v1 abstract",
+        "Frozen RESULT.md §§5 and Relationship to prior work"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The continuum comparison uses all three spectral scales and a sign bound in the derivative in p. In the joint limit D/C=(1−2/m)^p retains the nontrivial factor e^(−2α), which is lost by holding either variable fixed first.",
+          "The same-day Möbius-ladder catalog result concerns order-dependent scaling on a different spectrum, not the logistic p/m law on K_{m,m}."
+        ],
+        "reasoning": "The exact endpoint values and separate order/design contexts do not determine the derivative, the stationarity expansion, or a two-variable transition law. The value of the new claim does not rely on novelty of the endpoint thresholds.",
+        "searches": [
+          "Resultary b65b2ff40797, efaad5dd81d4, f68559459078",
+          "Frozen RESULT.md lines 96–121 (continuum and scaling claims)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For p>0 the objective is the Schatten p-power of the inverse on 1⊥, with quasi-norm terminology for 0<p<1. Pairwise total resistance is a fixed positive factor times the p=1 trace. The separately defined p=0 objective is D-optimal and the limiting inverse spectral norm is E-optimal.",
+          "The A-versus-D catalog statement gives different thresholds and the 2/m versus 1/m leading surcharges, corresponding to p=1 and p=0."
+        ],
+        "reasoning": "Alternate normalizations or design names do not make these endpoint results novel. They also do not yield the continuum or the joint-order scaling.",
+        "searches": [
+          "Resultary b65b2ff40797 and c30f76e2bede (A-optimal, D-optimal; resistance and determinant)",
+          "arXiv:1310.2592v1 (first/second-order coherence)",
+          "SIAM Review 50, 37–66, DOI 10.1137/050645452 (total effective resistance and edge weighting)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The determinant catalog records cover the p=0 threshold, with c30f76e2bede also covering a/b→max(0,1−γ). The A-versus-D comparison covers p=0 and p=1 support. The spectral-gap record gives T_m=2(m−1)/(m−2), with a continuum of maximizers at equality in that different objective."
+        ],
+        "reasoning": "These are exact established special cases, not exact coverage of the finite-real-order curve. The limiting endpoint's nonuniqueness does not contradict the strict finite-order trace convexity.",
+        "searches": [
+          "Resultary records c30f76e2bede, 1ae0e33a18ed, b65b2ff40797, efaad5dd81d4 (identical priced bipartite graph)"
+        ]
+      },
+      "rationale": "Credit p=0, p=1 and spectral-gap support results and the determinant critical-window ratio as earlier coverage. The exact real-order frontier, strict order hierarchy, fixed-order ratio extension and joint logistic law pass on the inspected evidence; no inspected stronger result was shown to imply that package. Closest full-text access limitations are retained.",
+      "residual_risks": [
+        "Local catalog statements establish endpoint overlaps but are not whole-document exclusions; mirrored prior full-text attempts timed out. The compared primary passages were limited to available front matter.",
+        "An unindexed general priced-network hierarchy could cover this specialization. No priority ordering is asserted between same-day distinct records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct p=0 overlap, including the ratio limit",
+          "evidence": [
+            "At 1+γ/m the limiting ratio is max(0,1−γ)."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-sharp-price-surcharge-transition-for-determinant-optimal-bipar--c30f76e2bede",
+          "material_read": "Resultary catalog summary",
+          "method": "Local search, statement comparison and attempted OA retrieval",
+          "title": "A sharp price surcharge transition for determinant-optimal bipartite networks",
+          "trigger": "Same determinant deletion threshold and near-unit price window"
+        },
+        {
+          "assessment": "Additional p=0 coverage",
+          "evidence": [
+            "D-optimal matching deletion on the balanced priced bipartite family."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-price-threshold-deletion-of-a-perfect-matching-in-determinant-op--1ae0e33a18ed",
+          "material_read": "Resultary catalog summary",
+          "method": "Local Resultary lookup and formulation comparison",
+          "title": "Price-threshold deletion of a perfect matching in determinant optimization",
+          "trigger": "Earlier identical determinant support endpoint"
+        },
+        {
+          "assessment": "Direct p=0 vs p=1 coverage, no continuum stated in material read",
+          "evidence": [
+            "Reports distinct determinant and resistance thresholds and leading surcharges 1/m and 2/m, respectively."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-an-a-versus-d-support-gap-for-a-priced-perfect-matching-in-compl--b65b2ff40797",
+          "material_read": "Resultary catalog summary; original full text not recovered",
+          "method": "Local search and attempted lawful OA passage retrieval",
+          "title": "An A-versus-D support gap for a priced perfect matching in complete bipartite networks",
+          "trigger": "Same graph and two finite objective orders"
+        },
+        {
+          "assessment": "Establishes the spectral-gap endpoint, not the finite-order uniqueness claims",
+          "evidence": [
+            "Cutoff 2(m−1)/(m−2) and degeneracy at the equality price."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-spectral-gap-price-transition-and-all-optimal-allocations--efaad5dd81d4",
+          "material_read": "Resultary catalog summary; original full text not recovered",
+          "method": "Local search and attempted lawful OA passage retrieval",
+          "title": "Exact spectral-gap price transition and all optimal allocations for matching-priced complete bipartite networks",
+          "trigger": "Identical network at infinite spectral order"
+        },
+        {
+          "assessment": "Related mechanism, different graph family and scaling",
+          "evidence": [
+            "Real p>0 deletion threshold for antipodal rungs, not matching deletion in K_{m,m}."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-half-order-price-scaling-for-antipodal-rung-deletion-on-m-bius-l--f68559459078",
+          "material_read": "Resultary catalog summary",
+          "method": "Local semantic search and statement comparison",
+          "title": "Half-order price scaling for antipodal rung deletion on Möbius ladders",
+          "trigger": "Strongest distinct same-day exact all-order priced support result"
+        },
+        {
+          "assessment": "Different allocation and graph family",
+          "evidence": [
+            "Conductance allocation on cyclic prisms."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-half-order-allocation-transition-for-inverse-laplacian-spectra--8a4a15cc3c55",
+          "material_read": "Resultary catalog summary",
+          "method": "Local semantic search and statement comparison",
+          "title": "A half-order allocation transition for inverse Laplacian spectra",
+          "trigger": "Same-day real-order spectral network design"
+        },
+        {
+          "assessment": "The visible objective is p=1 total resistance, not the real-order matching-price theorem",
+          "evidence": [
+            "The abstract formulates minimizing the sum of pairwise effective resistances over edge-weight allocations as a convex program."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+          "material_read": "p. 37 abstract; further primary passages not retrieved in this review",
+          "method": "Lawful OA front matter and attempted targeted OA passage retrieval",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "General convex resistance design"
+        },
+        {
+          "assessment": "Visible scope is coherence on fractal networks, not priced matching support",
+          "evidence": [
+            "Abstract concerns first- and second-order coherence quantities and their scaling in fractal networks."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1310.2592v1",
+          "material_read": "First-page abstract; cited §II Eq. (6) was not independently retrieved",
+          "method": "Lawful OA front matter and attempted targeted retrieval",
+          "title": "Consensus and Coherence in Fractal Networks",
+          "trigger": "First/second-order coherence interpretation of trace objectives"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 19–46 and 96–121",
+        "Resultary A-versus-D and spectral-gap endpoint statements"
+      ],
+      "rationale": "The exact threshold predicts whether every marked edge is purchased or removed under an interpretable family of objectives. Strict nesting answers a discrete support question that separate endpoint results leave open. The logistic law identifies the joint scaling at which the large-size and high-order limits diverge; the fixed-order window additionally resolves the relative conductance near deletion.",
+      "residual_risks": [
+        "This is a two-orbit graph-family support and scaling result, not a general topology or price-design algorithm."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

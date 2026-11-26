@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:16:16.704102Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–53 and operator implementations verify_local.py, verify_rotations.py; VERIFICATION.md, local_output.txt, rotation_output.txt"
+      ],
+      "rationale": "Prefix sums of the mechanical factor are floor(β+jα); their n distinct internal jumps give n+1 different phase cells, all realized by density and with the endpoints assigned to the right cell. For an interior jump at j<n the two changed letters are 01→10, and immediately before the jump the moving one has rank floor(jα)+1. Deleting the first k ones and appending them either erases this change or gives a strict lexicographic increase. At j=n the increase is strict even if both images are sorted: their one-counts differ; when the common prefix contains k ones the final bit changes after identical prefix deletions. Hence no nonlocal collision goes undetected by the adjacent erased cuts. Exactly min(n−1,floor(k/α)) are erased; jα=k is impossible. This includes n=1 and large k. Both mechanical one-counts occur, so Abelian complexity is 2 and equality ends at floor(k/α)+1.",
+      "residual_risks": [
+        "Finite and rational checks were inspected, not rerun; the proof establishes the irrational case independently of them."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Campbell–Rampersad's §3 theorem is a one-step bounded deficit for linear factor complexity and bounded gaps of ones; §7 asks about Sturmian variants. The earlier Resultary proof solves precisely the deficit and Abelian threshold."
+        ],
+        "reasoning": "The general literature bound does not force the formula, but the earlier full Sturmian result does.",
+        "searches": [
+          "arXiv:2604.25811v2 Theorem 1 and §7; Resultary 0fc96ab6c467"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0fc96ab6c467, 5975361d473d, 068034d6a525",
+        "arXiv:2604.25811v2 §§2–3, 7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier Finding: max{2,n+1−floor(k/α)}, cutoff floor(k/α)+1, with explicit statement that the proof also works for k=1. Proof §3 counts exactly the same merges jα<k."
+        ],
+        "reasoning": "All earlier proof steps (positive integer iteration and rank test, erasing adjacent jumps) apply at k=1 as well. The frozen result does not classify individual fibers or another independent structural invariant.",
+        "searches": [
+          "0fc96ab6c467 RESULT.md Finding and Proof §3, offsets 0 and 3920"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Counting equivalence classes by iterated outputs is precisely counting distinct images; both records move the leftmost 1 on each iteration and take the slope to be the frequency of 1."
+        ],
+        "reasoning": "No complementary-slope, alphabet-order, or k-Abelian convention distinguishes the two formulas.",
+        "searches": [
+          "Resultary all-iterate tortoise complexity Sturmian words 0fc96ab6c467; arXiv:2604.25811v2 definitions 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "0fc96ab6c467 is a direct earlier formula covering all irrational α. Same-day 5975361d473d gives the k=1, 1/3<α<2/5 slice and additionally two doubleton fibers. Same-day 068034d6a525 concerns rational periodic words with a modular correction."
+        ],
+        "reasoning": "The indexed identity, not a finite table or a same-day ordering inference, establishes coverage. The rational theorem is not substituted for the irrational one.",
+        "searches": [
+          "Resultary all-iterate tortoise complexity of Sturmian words; exact one-step tortoise complexity throughout a Sturmian slope interval; exact iterated tortoise complexity of periodic Christoffel words"
+        ]
+      },
+      "rationale": "An earlier indexed record gives the same profile and threshold for all k≥2 and explicitly includes k=1 by the same proof. The hypothesis sets and binary operation coincide; changing the nominal starting iteration from 2 to 1 adds no unsupported or new case. The adjacent-phase proof in the earlier record already treats k=1.",
+      "residual_risks": [
+        "No conclusion about relationships of authorship or external publication priority; the earlier indexed scientific text is sufficient to establish coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage including the explicit k=1 extension",
+          "evidence": [
+            "Same max expression and first discrepancy; same erased boundary criterion jα<k."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-all-iterate-tortoise-complexity-of-sturmian-words--0fc96ab6c467/RESULT.md",
+          "material_read": "Finding and Assumptions at offset 0; proof §3 at offset 3920",
+          "method": "Local Resultary comparison and mirrored statement/proof passages",
+          "title": "All-iterate tortoise complexity of Sturmian words",
+          "trigger": "Earlier matching irrational all-iterate formula"
+        },
+        {
+          "assessment": "Defines the problem and proves a bound, not the exact Sturmian profile",
+          "evidence": [
+            "Campbell–Rampersad ask about generalizations or variants based on tortoise complexity of Sturmian sequences; not a formula-specific conjecture."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2604.25811v2",
+          "material_read": "Article header, Definitions 1–2 around offset 14500, Theorem 1 around 20100, §7 around 50350",
+          "method": "Primary HTML passages",
+          "title": "Subword enumeration up to stack-sorting equivalence",
+          "trigger": "Original definition and motivating Sturmian question"
+        },
+        {
+          "assessment": "Restricted case plus additional fiber data, not evidence of publication order",
+          "evidence": [
+            "Complexity 2 through length 3 and n−1 thereafter for irrational 1/3<α<2/5."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-one-step-tortoise-complexity-throughout-a-sturmian-slope-i--5975361d473d",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror",
+          "title": "Exact one-step tortoise complexity throughout a Sturmian slope interval",
+          "trigger": "Same-day possible one-step overlap"
+        },
+        {
+          "assessment": "Rational periodic setting, not a stronger irrational theorem",
+          "evidence": [
+            "Modular-period correction absent in the frozen irrational result."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-iterated-tortoise-complexity-of-periodic-christoffel-words--068034d6a525",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror",
+          "title": "Exact iterated tortoise complexity of periodic Christoffel words",
+          "trigger": "Potential mechanical-word analogue"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof; 0fc96ab6c467 Finding and phase-boundary proof; Campbell–Rampersad conclusion"
+      ],
+      "rationale": "The exact profile of a natural language answers a motivated question and would be useful if new. But the profile and the cutoff are both already available; k=1 is only an explicitly stated specialization and the proof does not supply an additional classification or useful new remainder. The finite checks are corroborations of the covered result, not an independent contribution.",
+      "residual_risks": [
+        "No assessment of unclaimed fiber cardinalities or non-Sturmian behavior."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

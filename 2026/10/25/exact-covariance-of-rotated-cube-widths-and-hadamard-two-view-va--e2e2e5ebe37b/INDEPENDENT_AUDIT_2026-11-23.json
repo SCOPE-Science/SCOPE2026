@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T15:19:43.855663Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, REVIEW.md, AUDIT.json, METADATA.json, VERIFICATION.md, SLOGAN.txt and source of check_width_covariance.py; independent angular derivation and finite-dimensional evaluation",
+        "Kabluchko–Litvak–Zaporozhets arXiv:1511.08479v3 Example 3.3"
+      ],
+      "rationale": "For c=|a·b| and φ=arccos(c), represent the two Gaussian coordinates as T₂ cos u and T₂ cos(u−φ) in their plane. On one angular period [0,π], the signed product of the cosines has integral πc/2 and is negative on (π/2,π/2+φ), where its integral is (φc−sin φ)/2. Multiplying the resulting absolute angular mean by E T₂²=2 yields (2/π)(sqrt(1−c²)+c arcsin c); the endpoints follow by continuity. Dividing by the full Gaussian radius second moment d gives the spherical pair law. Summing the segment contributions and subtracting the common mean square gives exactly the stated covariance. The binomial expansion under the integral for g′ gives g=1+s/2+s²/24+… with all higher coefficients positive, hence g−s²/24 is strictly convex away from s=0 and the bound extends to s=1 by continuity. The quadratic gap is (sum R_ij^4−1)/(12πd), and strictness holds unless every squared entry is 1/d. Haar averaging gives covariance mean zero; since Cov(I)=Var(W₀)>0 on an open neighborhood by continuity, the flat lower bound must be strictly negative. The gamma ratio with z=d/2 is Γ(z)/Γ(z+1/2)=z^(−1/2)(1+1/(8z)+1/(128z²)+O(z^−3)), giving the stated asymptotic. Direct evaluation with three squared entries 1/9 and six 4/9 gives −0.009244693496 in dimension 3; with sixteen entries 1/4 it gives −0.010042530806 and paired/single variance 0.319603062451 in dimension 4. The variance comparison is with two independent directions at the same number of width evaluations. Numerical checks supplement rather than replace the analytic argument.",
+      "residual_risks": [
+        "No optimization in non-Hadamard orders. The literal reference to the 'first inequality' is understood as the quantitative covariance bound; g″ is used below 1 and the bound extends by continuity, without asserting a finite g″ at 1."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kabluchko et al. give Gaussianization for a general convex body and the known one-cube marginal moments. Banica et al. give extremality for entrywise p-norms. Banica–Nechita also use the same squared-entry deviation as an orthostochastic flatness measure."
+        ],
+        "reasoning": "General Gaussianization plus the standard bivariate kernel yields the covariance by summation; and positive power coefficients make the qualitative matrix minimizer a consequence of the existing p-norm inequalities. Neither cited theorem is an all-orientation cube estimator theorem or gives its signed flat covariance, rate, and numerical scale.",
+        "searches": [
+          "arXiv:1511.08479v3 Theorem 3.1 and Example 3.3",
+          "arXiv:0901.2923v1 Propositions 1.1 and 7.1, Theorem 2.1",
+          "arXiv:1211.2669v1 Proposition 2.1 and Lemma 2.3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1511.08479v3",
+        "arXiv:0901.2923v1",
+        "arXiv:1211.2669v1",
+        "arXiv:2403.19089v1",
+        "Resultary's October 18 tree graphical-zonotope covariance record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The standard Gaussian absolute-moment machinery already extends to pairs of segment sums. The present quantitative estimate isolates the positive quartic contribution and controls the cube autocorrelation relative to the flat baseline. The tree minimization uses a different admissible set, with a strictly negative nonzero limit, not the flat orthogonal baseline tending to zero."
+        ],
+        "reasoning": "Allowing arbitrary relative orthogonal frames, evaluating the baseline after cancellation of the marginal square, and proving sign and the covariance defect give an orientation-optimized antithetic sampling result. No novelty is credited for the generic matrix minimum or the pair kernel once the objective is identified.",
+        "searches": [
+          "Resultary tree graphical-zonotope pair record, proof §§1–4",
+          "arXiv:1211.2669v1 Proposition 2.1 and the introductory Hilbert–Schmidt identity",
+          "arXiv:1511.08479v3 Theorem 3.1 and Example 3.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-direction product is ||U||₁||RᵀU||₁, an autocorrelation on orientations. It is also recovered by polarizing the variance of the width of Q+RQ, since widths add under Minkowski sums.",
+          "Bobkov–Duggal Theorems 1.1–1.2 concern an unevaluated general spherical covariance representation via gradients, not the explicit cube rotation extremum."
+        ],
+        "reasoning": "A one-body formula for Q alone is not an equivalent formulation; computing the second moment for the whole orientation-dependent Minkowski sum would be. The checked general radial representation supplies a method but not that evaluation.",
+        "searches": [
+          "rotated cube widths covariance shared direction absolute Gaussian Hadamard two rotation variance mean-width Finch Kabluchko",
+          "sphere l1 norm covariance orthogonal matrix rotated absolute values Hadamard antithetic variates mean width cube support function"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 12 returned records included the earlier tree graphical-zonotope pair calculation, read in full, as well as polar cube/octahedron and perpendicular random direction results. The tree record is an exact mixed covariance calculation with a different admissible cross-Gram matrix and objective. None of these inspected comparisons is an exact Euclidean-cube Hadamard covariance theorem."
+        ],
+        "reasoning": "The tree record concerns root directions from labelled spanning trees, with correlation magnitudes only 0, 1/2 and 1, and uses an incident-edge count; it cannot specialize to two mutually rotated Euclidean cube generator frames. Polar pairs and Haar perpendicular directions are distinct couplings. Ranked retrieval does not establish an exhaustive absence.",
+        "searches": [
+          "Resultary: mixed same-direction rotated cube width covariance Hadamard orientation antithetic variance estimator"
+        ]
+      },
+      "rationale": "The classical absolute-Gaussian kernel, marginal width moments, Hadamard flattening principle and even the chosen three-dimensional reflection matrix are prior ingredients. The non-covered contribution is the quantified all-orientation optimization of the shared-direction two-Euclidean-cube covariance, with its negative minimum, dimension dependence and paired-estimator consequence. This is a bounded best-of-knowledge finding, not a priority guarantee.",
+      "residual_risks": [
+        "Unindexed mixed-zonotope width formulas or antithetic integration literature could contain an equivalent direct cube result. The search does not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms exact marginal moments and the Gaussian reduction. Does not evaluate the two-cube orientation problem in the inspected results",
+          "evidence": [
+            "(21)–(23) radial identity",
+            "(25) and following marginal second moment"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1511.08479v3",
+          "material_read": "§3.1 Theorem 3.1 and proof; §3.2 Example 3.3",
+          "method": "Read full-text statements and their computation",
+          "title": "Mean width of regular polytopes and expected maxima of correlated Gaussian variables",
+          "trigger": "Same cube width and a broader moment formula"
+        },
+        {
+          "assessment": "Same flattened equality phenomenon for p-norms, and a 3×3 matrix of the same absolute-entry form; different objective",
+          "evidence": [
+            "Theorem 2.1 matrix with absolute entries 1/3 and 2/3",
+            "Proposition 7.1"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/0901.2923v1",
+          "material_read": "§1 Proposition 1.1, §2 Theorem 2.1 and final matrix, §7 Proposition 7.1",
+          "method": "Read the theorem statements and formulas",
+          "title": "On orthogonal matrices maximizing the 1-norm",
+          "trigger": "Hadamard equality and the dimension-three frame already known"
+        },
+        {
+          "assessment": "The introductory squared-entry defect and flat-frame optimality are established tools; no evaluated signed cube covariance in these results",
+          "evidence": [
+            "Introductory identity d_HS²=||U||₄⁴−1",
+            "Proposition 1.6 matrix 2J−I, equivalent by sign to the witness",
+            "Proposition 2.1 and Lemma 2.3"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1211.2669v1",
+          "material_read": "Introduction, §1 Proposition 1.6, §2 Proposition 2.1 and Lemma 2.3",
+          "method": "Read full-text mathematical sections",
+          "title": "Almost Hadamard matrices: the case of arbitrary exponents",
+          "trigger": "Flatness defect, Householder frame and generic entrywise objectives"
+        },
+        {
+          "assessment": "Overlaps in kernel and sampling concept, but not the Euclidean-cube optimization or limiting law",
+          "evidence": [
+            "(1)–(3), standard bivariate identity in proof §1, edge bookkeeping in §2"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-negative-cross-width-covariance-for-pairs-of-tree-graphica--c96152aa3139/RESULT.md",
+          "material_read": "Finding, scope, proof §§1–4 and prior-work discussion",
+          "method": "Read full text and compare generator geometry and equality cases",
+          "title": "Sharp negative cross-width covariance for pairs of tree graphical zonotopes",
+          "trigger": "Earlier exact mixed-width covariance and optimization on combinatorially cubical zonotopes"
+        },
+        {
+          "assessment": "General smooth-function gradient representation, not an evaluated convexity/optimization result for cube widths",
+          "evidence": [
+            "(1.4), (1.6) and (2.3)"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2403.19089v1",
+          "material_read": "Introduction including Theorems 1.1–1.2, and §2 Theorem 2.1",
+          "method": "Read PDF text extraction and compare the type and scope of the representations",
+          "title": "Spherical covariance representations",
+          "trigger": "Potential general result for same-direction spherical covariances"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md findings and variance interpretation",
+        "Kabluchko–Litvak–Zaporozhets Example 3.3",
+        "Related Resultary tree graphical-zonotope coupling result"
+      ],
+      "rationale": "The distinguishing useful fact is that shared directions can outperform independent directions, even with identical width marginals, and that there is an exact optimum over relative orientations in every Hadamard order. The quantitative fourth-power defect measures the penalty for perturbing that orientation, and the baseline asymptotic shows the dimension scale of the advantage. These are usable estimator-design facts beyond a one-body second moment or an entrywise-norm equality criterion.",
+      "residual_risks": [
+        "No claim about cost beyond counting width evaluations, multiple views beyond two, noncube bodies, or the true non-Hadamard optimum."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

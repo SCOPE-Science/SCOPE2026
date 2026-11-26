@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:16:45.127334Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–100",
+        "VERIFICATION.md and checker.py inspected, not executed",
+        "Independent replay: python3 /tmp/opencode/frozen_review_finite.py lines"
+      ],
+      "rationale": "Completing the square by the affine parabola-preserving shear sends a nonvertical line to height Delta/4, and parabolic translation sends a vertical line to x=0; affine bijections preserve equality of two-term sums. Reconstructed the horizontal convolution by subtracting the shared points: it is N-2C+D, where C is the sum of translates of the parabola by the intersection points and D is supported on v=2c. The key mixed character sum over (u,v) equals q chi(c), by the two-root character identity after comparing v=c and v=u^2/2. At secant height 1, the C curves meet once, and the D weights at u=0, +2, -2 are q-2, q-3, q-3; these points remain distinct even in characteristic three. For a vertical line the mixed parabola/line convolution is identically one, and both intersection corrections at the origin give the listed vertical tuple. Expanding the six terms recovers the four polynomials. Orthogonality with the stated unitary normalization gives q^-2 E. For extension with output counting measure, the fourth-power expansion is bounded by q^2 E/|S|^4 on the unit input ball and input 1 attains equality. Separate exact difference-multiplicity counts for 342 configurations reproduced all polynomial evaluations (all lines for q=3,5,7,9 and samples in eleven larger fields, including q=27 and 81).",
+      "residual_risks": [
+        "The finite samples corroborate computations only; the character-sum proof covers all odd prime powers. No arbitrary-weight ell^2-to-ell^4 extension constant is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The retrieved primary statements concern complete quadratic supports, restriction on a prime-field paraboloid, or estimates for subsets of high-dimensional paraboloids."
+        ],
+        "reasoning": "A full affine line added to a parabola is not a complete paraboloid or a subset of the underlying planar parabola; energy bounds in other dimensions do not yield these exact polynomials.",
+        "searches": [
+          "arXiv:2405.16647",
+          "arXiv:2606.22882",
+          "arXiv:1712.05549"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.25404v2",
+        "arXiv:2405.16647",
+        "arXiv:2606.22882",
+        "arXiv:1712.05549",
+        "Resultary targets ea1b104655f4 (same record), fe4c593172ae, 13e9a7104876 and index 5f05227f9c9b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The distinct parabolas theorem requires both branch curvatures nonzero; the vertical line is not a graph over x, and horizontal lines of nonzero height are not a second parabola through the common origin."
+        ],
+        "reasoning": "The adjacent exact theorem's admissible parameters do not include even the horizontal tangent substitution of zero curvature; its centered quadratic-fiber calculation degenerates. The general extension principle determines the norm only once the new energy has been evaluated.",
+        "searches": [
+          "Resultary fe4c593172ae, exact two finite-field parabolas Finding",
+          "arXiv:2609.25404v2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Iosevich–Li–Yu give the equivalence between fourth Fourier moment and energy, and the constant-input even-moment extension principle."
+        ],
+        "reasoning": "These are equivalent routes to expressing a known value of the mixture's energy, not evaluations of the vertical/exterior/tangent/secant cases.",
+        "searches": [
+          "Focused primary query for exact additive energy of a finite-field parabola joined to a line",
+          "Resultary: parabola-plus-affine-line energy and fourth Fourier moment",
+          "arXiv:2609.25404v2, Section 8.2 and Theorem 9.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact four-case index hit is the frozen record itself. A distinct Resultary Finding on the twisted cubic plus its tangent evaluates a sum histogram in F_q^3; a cubic-graph tangent record was only available at index level."
+        ],
+        "reasoning": "Neither is a table for the specified support in F_q^2, and different or missing tables cannot establish priority.",
+        "searches": [
+          "Resultary: four cases of exact conic-line energy, and analogous curve-plus-line tables"
+        ]
+      },
+      "rationale": "The supported distinct result is the exact four-case ordered-energy evaluation for a full parabola and an arbitrary affine line. The generic Fourier and extension identities are prior; neither those identities nor a parabola-only bound supplies the mixed terms, especially the dependence on intersection correction and chi(-1).",
+      "residual_risks": [
+        "The cubic-graph tangent match 5f05227f9c9b was not available as full text from the mirror; a prior unindexed mixed-conic energy evaluation remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General identities are prior; checked statements do not evaluate this mixed support",
+          "evidence": "Section 8.2 identifies the fourth moment with N^-d times ordered energy, and Theorem 9.1 gives the constant-input even-moment reduction.",
+          "identifier_or_url": "https://arxiv.org/html/2609.25404v2",
+          "material_read": "Section 8.2 offset 102500 and Theorem 9.1 offset 113650",
+          "method": "OA HTML passages",
+          "title": "Spectral synthesis, Fourier extension, and arithmetic in Z_N^d",
+          "trigger": "Exact energy/moment equivalence and sharp extension normalization"
+        },
+        {
+          "assessment": "Different support and norm setting in the inspected statement",
+          "evidence": "Complete parabola and paraboloid, not their union with a line.",
+          "identifier_or_url": "arXiv:2405.16647",
+          "material_read": "Abstract, offset 500",
+          "method": "OA HTML passage",
+          "title": "Sharp extension inequalities on finite fields",
+          "trigger": "Sharp parabola extension and constant maximizers"
+        },
+        {
+          "assessment": "Different support and scope in inspected statement",
+          "evidence": "Paraboloid restriction in three dimensions over prime fields.",
+          "identifier_or_url": "arXiv:2606.22882",
+          "material_read": "Abstract, offset 0",
+          "method": "OA HTML passage",
+          "title": "A bilinear approach to the finite field restriction problem, II",
+          "trigger": "Finite-field paraboloid restriction"
+        },
+        {
+          "assessment": "Bounds for other supports in the inspected statement",
+          "evidence": "Improved energy estimates for subsets of high-dimensional paraboloids.",
+          "identifier_or_url": "arXiv:1712.05549",
+          "material_read": "Abstract, offset 550",
+          "method": "OA HTML passage",
+          "title": "Finite field restriction estimates for the paraboloid in high even dimensions",
+          "trigger": "Additive energy of quadratic supports"
+        },
+        {
+          "assessment": "No direct specialization to the mixed curve-line support",
+          "evidence": "The second component P_lambda is a quadratic graph with lambda not in {0,1}.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-fourth-fourier-moments-and-a-cube-root-resonance-for-pairs--fe4c593172ae/RESULT.md",
+          "material_read": "Finding, offset 0 and curvature hypotheses",
+          "method": "Resultary local mirror",
+          "title": "Exact fourth Fourier moments and a cube-root resonance for pairs of finite-field parabolas",
+          "trigger": "Distinct exact same-field two-component energy Finding"
+        },
+        {
+          "assessment": "Exact analogue, not the same object",
+          "evidence": "A twisted cubic in F_q^3 and its tangent, giving a two-sum histogram and energy.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-two-sum-spectral-strata-of-a-finite-field-twisted-cubic-and-its--13e9a7104876/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Two-sum spectral strata of a finite-field twisted cubic and its tangent",
+          "trigger": "Plausible more detailed curve-plus-line table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md four line types, energy table and extension normalization"
+      ],
+      "rationale": "The full parabola plus one line is a natural mixed support, and its fourth moment gives an exact baseline across all affine placements. In particular, vertical and tangent lines contribute differently despite equal intersection size, and the tangent, secant and exterior expressions retain quadratic-character dependence. The explicit evaluations determine a sharp extension norm rather than merely reasserting its known reduction.",
+      "residual_risks": [
+        "Restricted to one whole line and odd characteristic; it does not solve the ell^2 extension problem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

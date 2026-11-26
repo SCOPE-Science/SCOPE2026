@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,38 +19,24 @@
 }
 ---
 
-The standalone `verify.py` artifact was read from its packaged path before replay.
+# Independent mathematical audit
 
-It constructs the vertex set of
-\[
-\Gamma(\mathbb Z/(p^2q))
-\]
-directly as the nonzero residues with nontrivial gcd with \(p^2q\), and tests every edge by residue multiplication modulo \(p^2q\).
+## correctness
 
-The tested small cases
-\[
-(p,q)=(2,3),(3,2),(2,5)
-\]
-are exhaustively enumerated over all vertex subsets; the resulting complete zero forcing polynomials agree exactly with the closed formula.
+PASS
 
-The larger cases
-\[
-(3,5),(5,2)
-\]
-check the direct four-class structure, every one of the \(16\) profiles that leaves at most one white representative per class, the predicted polynomial, and the rank witness.
+Totients of p²q/d give the four class sizes for d=p,pq,p²,q and sum to N. Adding truncated p- and q-valuations gives exactly the path of joins A–B–C–D, with only B internally complete. Two whites in any class form a fort. Conversely distinct primes ensure |A|,|D|≥2, so a blue A and D can remove a lone white B and C respectively, even if B or C is a singleton. The fully blue B and C then remove possible whites in A and D. Each class of size w therefore contributes u^(w−1)(u+w); multiplying gives the full polynomial and the product of the four class sizes as the minimum-set count. For real rank, the stated 4-by-4 class matrix has determinant 1 by expansion along the end rows, and its block lift has rank at most four and a nonsingular representative principal submatrix of order four. The lift has precisely the required off-diagonal pattern. Conversely a vector in the kernel of any graph-pattern matrix that is zero on a forcing set must be zero at the unique uncolored neighbor along each forcing step, so M≤Z gives rank at least four. This holds without assuming B or C has a blue mate. Independently checked all white sets by fort containment on directly multiplied residues at (p,q)=(2,3),(3,2),(2,5), agreeing with the full coefficients and omission criterion in each case. Replay: python3 /workspace/branches/independent_exact_checks.py, check_ring(). The packaged checker was inspected, not executed; the general result follows from the structural proof, not these samples.
 
-The block witness is checked edge by edge and its rank is computed exactly over the rationals.
+## originality
 
-Exact replay output:
+PASS
 
-```text
-p=2, q=3: N=7, polynomial={3: 8, 4: 20, 5: 18, 6: 7, 7: 1}, witness_rank=4
-p=3, q=2: N=11, polynomial={7: 24, 8: 52, 9: 38, 10: 11, 11: 1}, witness_rank=4
-p=2, q=5: N=11, polynomial={7: 32, 8: 64, 9: 42, 10: 11, 11: 1}, witness_rank=4
-p=3, q=5: N=20, predicted_polynomial={20: 1, 19: 20, 18: 140, 17: 400, 16: 384}, witness_rank=4
-p=5, q=2: N=29, predicted_polynomial={29: 1, 28: 29, 27: 204, 26: 496, 25: 320}, witness_rank=4
-ALL_16_TYPE_PROFILES_FORCE_OK
-VERIFY_OK
-```
+The known zero-divisor graph framework, prior study of this graph family, twin obstructions, and general forcing-polynomial methods are not the distinct claims. The supported claims are the evaluation of every coefficient, every minimum set, and the matching real minimum rank for this nonlocal family including singleton middle classes. The compared statements do not settle the sufficient four-class forcing criterion or tight rank witness. The reported published gcd decomposition is credited as prior input rather than offered as an original result.
 
-These finite calculations corroborate but do not replace the arbitrary-prime proof in `RESULT.md`.
+## value
+
+PASS
+
+The first nonsquarefree two-prime residue rings are a natural test family beyond local chain rings. The result gives explicit optimal seed choices and the entire forcing distribution from a simple arithmetic product, uniform in the singleton boundaries where twin-only reasoning cannot settle sufficiency. Independently it shows that the zero forcing lower bound for real rank is attained and that rank stays exactly four as the order grows. This is a concrete exact invariant and structural classification, not a new general compression method.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

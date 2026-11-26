@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** For fixed positive caps, feasibility follows from maximizing one linear functional over the box, and strict convexity gives uniqueness. At strict feasibility, feasible-point interpolation and compactness prove continuity. At a boundary point, the attainable optimizer limits are shown to equal the entire maximizing face: outer inclusion follows by passing constraints to the limit; every face point is reached by an explicitly given perturbed input with an exact clipped-dual certificate. This yields a complete if-and-only-if continuity locus and the sharp maximum jump. The positive-threshold two-coordinate example additionally demonstrates discontinuity along strictly feasible perturbed inputs. The included exact-rational checker verifies 3,512 assertions but is not a substitute for the infinite proof.
+## correctness
 
-**Originality: PASS, qualified.** The principal source (Christner and Chan, arXiv:2507.14488, §3.2, Eq. (3.9), especially the continuity statement following the equation) treats the same minimum-norm box/halfspace problem but does not give this boundary limit-set classification. The public solver README gives the same clipped formulation without sensitivity analysis. General parametric quadratic-program sensitivity is a known subject, and the accessible Lee–Tam–Yen (2006) abstract concerns variation in the linear part rather than this varying constraint normal. The classical projection formula is not claimed as novel. Searches of mathematical research records and web literature found no statement implying this complete exact limiter classification, but an accessible abstract cannot exclude a specialized equivalent full-text theorem.
+PASS
 
-**Value: PASS.** The source uses solution-map continuity to motivate improved temporal regularity of a numerical entropy limiter. The theorem identifies precisely when that continuity argument is justified, quantifies the maximal possible input-induced jump, and gives a strict-feasibility route that precludes the failure. The result is a complete boundary classification of a natural implemented quadratic subproblem, not merely a single negative numerical test. It does not establish that a particular PDE trajectory encounters the degenerate inputs or that specific experimental convergence results are incorrect.
+The maximum of the linear form on the fixed compact box gives exactly the stated feasible domain; strict convexity gives uniqueness. At strict slack, interpolate the base minimizer toward a maximizing box vertex to obtain comparison points feasible for all nearby data, then take subsequential limits and let the interpolation weight vanish. At equality the feasible set is the maximizing face, and any nearby feasible optimizer limit lies in it. For an arbitrary target on that face, assigning epsilon times its free coordinates to the originally zero coefficients and subtracting epsilon times their squared norm divided by a positive coordinate's cap from its coefficient preserves the positive threshold exactly. The target then minimizes the separable Lagrangian with multiplier 1/epsilon: positive base coefficients clip to their caps, negative ones to zero, and the new coefficients give the target's free coordinates. If the maximum is zero, shifting the threshold by epsilon times that squared norm instead gives the same certificate; at a fixed zero threshold the optimizer is always zero. These constructions give all and only the claimed cluster points and attain the jump using all free caps. For the strict-slack example the first coordinate clips to one iff epsilon <= 2/5, the second equals 1/2, and the maximum exceeds the threshold by epsilon/2. The one-dimensional positive-threshold boundary has no zero coefficient.
 
-**Limitations and closest literature.** The theory fixes strictly positive caps and treats arbitrary feasible quadratic-knapsack inputs. Only the original preprint's specified assertions, the directly relevant public software description, the accessible classical sensitivity abstract, and the standard box/halfspace projection account were materially compared. Specialist sensitivity theory could include an abstract general theorem of which this explicit classification is a corollary. The relevance to concrete DG trajectories remains conditional.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct contribution is the exact feasible-domain discontinuity locus, full attainable face, sharp jump and fixed-positive-threshold strengthening for the particular fixed-box projection. Neither the clipped solver nor general loss of constraint regularity is claimed as new. The result qualifies a continuity assertion made for the abstract limiter optimization; it does not establish a discontinuity along any DG trajectory.
+
+## value
+
+PASS
+
+The result corrects a useful continuity heuristic for an existing limiter and quantifies its exact failure under feasible perturbations. The full face and norm-sharp jump give actionable distinctions between strict feasibility, a nondegenerate boundary and a singular boundary. The fixed-threshold two-coordinate witness shows that positive right-hand side and unique minimizers do not prevent jumps, even when the approaching data have strict slack.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

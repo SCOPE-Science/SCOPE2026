@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:04:35.640851Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 13–81",
+        "Frozen VERIFICATION.md, lines 19–27; verify.py, lines 7–78 (read, not executed)"
+      ],
+      "rationale": "For Q=u v^T with u=(-1,1)^T and v=(a,-b)^T, v^Tu=-s. Every affine combination C of the two given generators therefore satisfies C^2=-sC, and the left and right exponent matrices L,R satisfy LR=-sR. With r=exp(-hs/2), their product is I+(1-r)(L+rR)/s, in the specified order. The off-diagonal sum is 1-r², so their nonnegativity is necessary and sufficient for the column-conservative product to be stochastic and implies strictly positive diagonals. The coefficient of Q1 is positive; that of Q2 changes sign exactly at r=7-4√3. The opposite one-way pair attains the failure beyond this boundary, and perturbing its zero rates gives strictly positive-rate counterexamples at each fixed supercritical step. The same one-way pair has a negative entry in each factor for every positive step. At equality the Q2 coefficient vanishes; above it division by the positive Q1 coefficient gives precisely both stated rate inequalities. No conclusion about realization by the other stages is needed.",
+      "residual_risks": [
+        "The supplied finite numerical diagnostics were not replayed and are not used in the universal proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published method guarantees positivity when both final exponent matrices are graph Laplacians and identifies precise almost-positivity as a challenge.",
+          "The closest two-state exponential split reallocates time in three factors for exp(h(Q_A+Q_B)); a Magnus recovery record exponentiates a truncated logarithm for a four-state reverse pure-birth cascade."
+        ],
+        "reasoning": "Neither general stage-wise sufficiency nor the different exponential maps dominate the arbitrary equal-exit generator pairs for the product under review.",
+        "searches": [
+          "Blanes–Iserles–Macnamara, arXiv:2102.08242v2, (3.18)–(3.19) and conclusion",
+          "Resultary 9b0eeef7eade, 7b7614ca94fa"
+        ]
+      },
+      "checked_sources": [
+        "Blanes–Iserles–Macnamara, arXiv:2102.08242v2",
+        "Resultary 9b0eeef7eade, 7b7614ca94fa and 68517f1e3738"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The stage-wise sufficient condition does not apply to the verified pair with each factor signed. The common-exit cancellation LR=-sR, the off-diagonal budget, and the opposite-rate extremum give an endpoint characterization instead."
+        ],
+        "reasoning": "The formula defining the method does not supply its sharp uniform endpoint positivity bound or necessity; the latter require optimizing over pairs after the ordered product is taken.",
+        "searches": [
+          "arXiv:2102.08242v2, (3.18) and positivity discussion",
+          "Resultary 9b0eeef7eade, 7b7614ca94fa, 68517f1e3738"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Blanes–Iserles–Macnamara (3.18) is the same ordered endpoint, embedded in a larger method.",
+          "Resultary 68517f1e3738 uses a two-stage Radau IIA rational map for a single two-state chain, not this exponential product."
+        ],
+        "reasoning": "Transposing stochastic conventions or interpreting the endpoint as an affine update of one probability leaves the same pair problem; changing the rational map or requiring positivity of each stage is not an equivalent formulation.",
+        "searches": [
+          "Resultary: exact title and two-state equal-exit commutator-free Magnus threshold formulas",
+          "Focused literature lookup: two-state positivity of the ordered (3.18) endpoint"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The compared matches concern different maps; the four-state recovery value near 5.2023 is not this bound. No exact same-product threshold record surfaced in the inspected matches."
+        ],
+        "reasoning": "An exact catalogue match would count even without the same notation; inspection of the closest maps distinguishes them. The bounded search is not proof of absence.",
+        "searches": [
+          "Resultary exact-title/formula searches; comparisons to 68517f1e3738, 9b0eeef7eade and 7b7614ca94fa"
+        ]
+      },
+      "rationale": "On inspected evidence, the distinct result is the sharp interval and full rate test for the product, including cases where both factors are signed, not the two-exponential construction or the sufficient test that both exponent matrices are generators.",
+      "residual_risks": [
+        "The focused exact literature lookup returned no matches; coverage under alternate time-discretization terminology remains possible. No claim of absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines the product and a sufficient stage condition; does not cover the inspected endpoint theorem",
+          "evidence": "The factors are the last two of seven. Positivity there is guaranteed if both linear combinations are graph Laplacians; precise almost preservation is identified as a challenge.",
+          "identifier_or_url": "https://arxiv.org/pdf/2102.08242v2",
+          "material_read": "PDF p. 16, (3.18)–(3.19), and p. 27 conclusion",
+          "method": "Open primary PDF, bounded equation and conclusion comparison",
+          "title": "Positivity-preserving methods for ordinary differential equations",
+          "trigger": "Original method and closest direct primary coverage"
+        },
+        {
+          "assessment": "Different splitting problem",
+          "evidence": "Exact representation of exp(h(Q_A+Q_B)) by a step-dependent three-factor positive split.",
+          "identifier_or_url": "Resultary 2026/11/8, 9b0eeef7eade",
+          "material_read": "RESULT.md, finding",
+          "method": "Local catalogue and mirrored statement",
+          "title": "Exact positive three-factor split for two-state Markov generators",
+          "trigger": "Same generator dimension and positive exponential factors"
+        },
+        {
+          "assessment": "Different dimension and map",
+          "evidence": "Reverse pure-birth cascade and exponential of a truncated Magnus logarithm.",
+          "identifier_or_url": "Resultary 2026/11/8, 7b7614ca94fa",
+          "material_read": "RESULT.md, finding",
+          "method": "Local catalogue and mirrored statement",
+          "title": "Sharp four-state positivity recovery threshold for a two-term Magnus construction",
+          "trigger": "Exact Magnus positivity threshold"
+        },
+        {
+          "assessment": "Different update rule",
+          "evidence": "Rates of one chain determine positivity windows for the two-stage Radau IIA map.",
+          "identifier_or_url": "Resultary 2026/10/26, 68517f1e3738",
+          "material_read": "RESULT.md, finding",
+          "method": "Local catalogue and mirrored statement",
+          "title": "Reentrant Markov positivity and the sharp rate-imbalance threshold",
+          "trigger": "Two-state sharp positivity comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Blanes–Iserles–Macnamara, (3.18) and conclusion"
+      ],
+      "rationale": "The published method's negative coefficient makes stage-wise positivity an incomplete test. A sharp scaled time horizon with an exact test beyond it and cancellation even for two signed factors answers a natural endpoint question in the minimal nontrivial Markov dimension. The common-relaxation hypothesis is substantive; the result is not sold as a bound for arbitrary generators or for the full nonlinear scheme.",
+      "residual_risks": [
+        "No practical guarantee for the realizability of arbitrary rate pairs in the full method is inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

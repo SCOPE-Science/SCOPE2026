@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:22:18.564456Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For nonempty input, a value-two integral min-cost flow on the sorted endpoint DAG decomposes into two paths, and exactly encodes feasible schedules, including meetings at half-open endpoints and parallel job arcs. Empty input is trivial. In a selected optimum, order the equal-length jobs by start time (ties arbitrary). An overlapping pair with another start between them would place all three jobs at the later start, contradicting depth at most two. Hence conflict edges occur only between consecutive vertices and components are paths. Deleting a minimum-weight index class modulo three in each component costs at most one third and leaves only edges and singletons. Orient a component against the signed load difference D: if the old heavier side remains heavier, its witness item is still present and the gap decreases or stays fixed; if the side changes or the old gap was zero, the new heavier side gets the larger edge item or the singleton, whose weight is at least the increment and thus the new gap. A zero gap is EF1. This proves the ordinary EF1 inequalities for common nonnegative values. The three-job construction forces both outer jobs onto one machine if all are scheduled; the middle weight is less than either outer weight, and the fair optimum is exactly two. The factor is approached as epsilon tends to zero. Sorting, flow, and the remaining steps are polynomial for rational data. The bundled finite script was inspected, not executed or used as a universal certificate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1 allows more machines but requires unweighted jobs; the known weighted algorithm guarantees 3k/2 for k distinct weights.",
+          "Equbal et al. consider maximal allocations on general conflict graphs, including interval graphs."
+        ],
+        "reasoning": "More machines under uniform weights is not broader in the decisive weight parameter. Inclusion-wise maximal EF1 is not an approximation to unconstrained optimal welfare.",
+        "searches": [
+          "arXiv:2608.15159v1, Theorem 1 and weighted §3.1",
+          "Equbal et al., arXiv:2605.09930, p. 3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.15159v1",
+        "arXiv:2605.09930",
+        "2026/10/26/SCOPE-all-prefix-optimal-efx-for-equal-duration-jobs-and-its-four-job--76ad4f7ee4e3",
+        "Frozen RESULT.md, VERIFICATION.md and check.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The weighted approach partitions into k uniform-weight classes and selects the best individual schedule.",
+          "A lower bound on the price and a bound for k=1 do not imply an upper bound independent of k."
+        ],
+        "reasoning": "Combining schedules from classes does not preserve feasibility or guarantee EF1. The weighted matching orientation after loss-bounded deletion supplies a separate argument.",
+        "searches": [
+          "arXiv:2608.15159v1, Theorems 1 and 3 and weighted §3.1",
+          "arXiv:2605.09930, maximal EF1 statement",
+          "Resultary 2026/10/26/SCOPE-all-prefix-optimal-efx-for-equal-duration-jobs-and-its-four-job--76ad4f7ee4e3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior EF1 test is removal of one interval from the higher-valued schedule. Common feasibility means that this is the same ordinary additive EF1 comparison here.",
+          "The 10/26 finding achieves prefix-optimal cardinality subject to EFX for unit-value equal-duration jobs arriving by start time."
+        ],
+        "reasoning": "Neither the machine-to-agent translation nor replacing welfare by cardinality yields the arbitrary per-item common-weight claim.",
+        "searches": [
+          "Borst–Shahkarami–Vaish arXiv:2608.15159v1, definition p. 3 and Theorem 1",
+          "Resultary equal-duration/unit-interval EF1/EFX scheduling; 2026/10/26/SCOPE-all-prefix-optimal-efx-for-equal-duration-jobs-and-its-four-job--76ad4f7ee4e3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The overlapping indexed 10/26 exact prefix schedule concerns only unit values, not this universal ratio.",
+          "Theorem 3 explicitly contains the same weighted three-job extremal example for two machines."
+        ],
+        "reasoning": "The obstruction is known. The claim is not a numerical table entry or a finite classification; the nearest exact records and theorem cover the obstruction or unweighted domain only.",
+        "searches": [
+          "Resultary equal-duration EF1/EFX and weighted interval scheduling ranked records",
+          "arXiv:2608.15159v1, Theorem 3"
+        ]
+      },
+      "rationale": "The distinguishable contribution is the uniform weighted upper bound for two machines. The exact lower-bound construction and the prior unweighted guarantee are credited, not judged novel. The strongest retrieved results do not supply the claimed guarantee for arbitrary common weights.",
+      "residual_risks": [
+        "The targeted primary keyword search did not return a useful match; the known closest primary PDFs were inspected directly. Ranked Resultary search and the retrieved primary comparisons cannot exclude unindexed equivalent work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the unweighted upper bound and the weighted lower bound, not this weighted upper bound",
+          "evidence": "Offsets 9110, 35187, 49802, 54838: identical model, unweighted 3/2, weighted 3k/2, and the limiting three-job instance.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.15159",
+          "material_read": "Primary PDF v1 p. 3, Theorem 1 p. 10, weighted §3.1 p. 14, Theorem 3 p. 16",
+          "method": "Lawful OA PDF, located passages and read by offset",
+          "title": "Fair Division Meets Scheduling: Approximately Envy-Free Interval Scheduling",
+          "trigger": "Directly matching scheduling model and cited sharpness"
+        },
+        {
+          "assessment": "Related via conflict graphs, different objective",
+          "evidence": "Offset 9449: maximal EF1 rather than an optimal-welfare guarantee.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.09930",
+          "material_read": "p. 3, maximal EF1 claim and scope",
+          "method": "Lawful OA PDF, material statement inspection",
+          "title": "Fair Allocation under Conflict Constraints",
+          "trigger": "Potential theorem on a larger conflict-graph class"
+        },
+        {
+          "assessment": "Related but distinct weight and objective hypotheses",
+          "evidence": "Prefix-optimal cardinality under EFX is for unit-value jobs; the four-job result changes durations, not weights.",
+          "identifier_or_url": "2026/10/26/SCOPE-all-prefix-optimal-efx-for-equal-duration-jobs-and-its-four-job--76ad4f7ee4e3",
+          "material_read": "Finding on unit values/start-time arrival and four-job near-equal-duration boundary",
+          "method": "Configured Resultary search and local mirror",
+          "title": "All-prefix optimal EFX for equal-duration jobs and its four-job boundary",
+          "trigger": "Strongest retrieved Resultary scheduling overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Closes the gap between the explicit weighted obstruction and a weight-class-dependent bound for the natural two-machine case. The optimal approximation factor is independent of the weight spread and number of distinct values, and the construction is algorithmic.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

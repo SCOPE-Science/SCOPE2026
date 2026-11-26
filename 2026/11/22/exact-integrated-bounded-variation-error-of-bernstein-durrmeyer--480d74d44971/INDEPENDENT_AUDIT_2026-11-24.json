@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:03:34.835103Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The nonnegative symmetric kernel is normalized in each variable. On either side of a unit jump its error has a definite sign, so integration gives twice the cross-cut mass. Integration of the Bernstein basis gives binomial tails with m=n+1, and the tail-sum formula for two independent Bin(m,s) variables yields E_n(s)=E|X-Y|/m. Each of the m Bernoulli differences is symmetric on ±1 with probability u=s(1-s) each and is otherwise zero. Differentiating the product law leaves m times the expected integer second difference of |.|, giving 2m Pr(S_(m-1)=0)>0 for the unnormalized expectation. This includes m=1, and the strictly largest response is at s=1/2. There X-Y has law Bin(2m,1/2)-m; summing positive deviations with (j-m)binom(2m,j)=m[binom(2m-1,j-1)-binom(2m-1,j)] telescopes to m binom(2m,m)/4^m. The signed derivative representation and Fubini bound the error by the integral of jump responses against |Df|. Equality forces |Df| to be supported exclusively at the midpoint, hence exactly the stated nonzero centered jumps plus constants modulo null sets. Stirling gives the stated correction and n=0 gives 1/2. An independently written standard-library calculation (`/workspace/reproductions/bernstein.py`) checked 375 degree/location pairs through n=24, comparing Bernstein antiderivatives with the random walk conditional on its number of nonzero moves and checking the strict midpoint maximum on the test mesh. The universal assertions are analytic, not an inference from that mesh.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The fixed-iterate theorem specializes to the same leading constant 1/sqrt(pi) after multiplication by sqrt(n), and asymptotic midpoint localization; it explicitly does not classify every finite-degree maximizing location.",
+          "The variation paper proves variation diminution and variation-seminorm convergence; the set-valued paper gives rate bounds; Liu uses moduli of smoothness for a different operator type."
+        ],
+        "reasoning": "Neither a broader asymptotic theorem nor a variation bound yields the exact finite-degree L1 coefficient, its second-order term, or the full finite-degree equality family.",
+        "searches": [
+          "Resultary 238426d643b3, Finding and Limitations",
+          "Öksüzer–Karsli–Taşdelen Yeşildal arXiv:1605.03976, Theorems 3.1 and 4.1",
+          "Berdysheva–Dyn–Farkhi–Mokhov arXiv:2212.00439, integrated bounds",
+          "Liu DOI 10.1186/1029-242X-2014-106"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 238426d643b3, d33d314eaa59, 9f55314ca99c, 6c03f534e376 and identical 480d74d44971",
+        "Öksüzer et al. arXiv:1605.03976",
+        "Berdysheva et al. arXiv:2212.00439",
+        "Liu (2014)",
+        "Hoeffding (1971) and Zeng–Chen (2000) bibliographic comparisons and retrieval attempts",
+        "Frozen RESULT.md and supporting files"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fixed-iterate record explicitly attributes the one-step p=1 case to earlier sharp-error literature and cites Hoeffding. Its own theorem at these parameters evaluates a limit rather than demonstrating finite central-binomial values or uniqueness.",
+          "The exact finite evaluation uses the strict derivative 2m Pr(S_(m-1)=0) as a function of s(1-s), followed by an exact centered deviation computation and concentration of |Df|. This is additional mathematics beyond the general jump reduction and the limiting localization."
+        ],
+        "reasoning": "The exact one-step prior-work attribution is a material lead, not an actual theorem passage identifying the classical kernel, coefficient and hypotheses. It does not negate the distinct finite content supported by the available statements. The comparison makes no claim that Hoeffding or older inaccessible papers are noncovering.",
+        "searches": [
+          "Resultary 238426d643b3, Finding, Proof §1, Relationship to prior work and Limitations",
+          "Hoeffding (1971) DOI 10.1016/0021-9045(71)90001-3 and identified lawful alternate PDF",
+          "Zeng–Chen (2000) DOI 10.1006/jath.1999.3367"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At r=1, p=1, T=D the fixed-iterate record has exactly the same kernel, input distributional variation and L1 residual norm. It reduces the same norm to max_t ||(I-D_n)H_t||_1.",
+          "Resultary d33d314eaa59 instead uses the genuine Goodman–Sharma operator with endpoint traces; 9f55314ca99c concerns TV(D_n^r f)/TV(f), and 6c03f534e376 uses point sampling."
+        ],
+        "reasoning": "Only the fixed-iterate D case uses the very same norm. Its variational characterization of that norm is covered content, not a distinct finite evaluation or equality characterization. The other matches change the operator or the seminorm being estimated.",
+        "searches": [
+          "Local Resultary: sharp integrated L1 approximation error for classical Bernstein–Durrmeyer BV, centered step and binomial coefficient",
+          "Resultary 238426d643b3, Finding and Proof §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact 480d74d44971 hit is the identical frozen record. The fixed-iterate article supplies a finite maximization characterization, not a table or evaluated finite formula for this case. The primary exact-form search surfaced the variation and set-valued approximation lines, not an inspected exact formula."
+        ],
+        "reasoning": "The central-binomial sequence is not independently new. Equating it with the error norm and identifying the entire finite norming family are the tested claims. An incomplete search does not establish priority.",
+        "searches": [
+          "Local Resultary exact coefficient, centered jump and norm searches",
+          "Primary search: Bernstein–Durrmeyer sharp L1 error bounded variation central binomial binomial difference step centered exact constant"
+        ]
+      },
+      "rationale": "The supported distinct content is the explicit coefficient at every finite degree and the exact equality family. Same-operator coverage exists for the reduction to a maximum over jump responses and for the asymptotic coefficient/localization. These overlapping claims and the underlying positive-kernel reduction are not credited as new. The strongest historical lead reports earlier sharp one-step work but the available statement comparisons do not establish that the central-binomial coefficient and unique finite-degree extremizer are covered for this kernel.",
+      "residual_risks": [
+        "The explicit earlier one-step attribution makes Hoeffding (1971) a material unresolved priority lead; neither the publisher PDF nor the identified open mirror yielded theorem text.",
+        "Full comparisons with Zeng–Chen, Wang–Zhou, and older Guo work remain incomplete. PASS is for the distinct finite coefficient and equality classification on current evidence, not for the already covered asymptotic constant or a proof of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap for finite jump reduction, and for the asymptotic leading norm and localization. No evaluated coefficient or complete finite equality classification in the examined statement.",
+          "evidence": [
+            "At D,r=1,p=1 the limiting coefficient is (sqrt(2)/2)I_1=1/sqrt(pi).",
+            "Limitations disclaim classification of every finite-degree maximizing jump and state earlier coverage of the exact p=1,r=1 special case; references identify Hoeffding."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-fixed-iterate-bernstein-smoothing-of-bounded-variation-gau--238426d643b3",
+          "material_read": "Finding, Assumptions and scope and Proof §1 (mirror offsets 0–4941); Relationship to prior work, Limitations and Hoeffding citation (offsets 10140–13016).",
+          "method": "Local Resultary retrieval and direct comparison of mirrored statements.",
+          "title": "Sharp fixed-iterate Bernstein smoothing of bounded variation: Gaussian constants and median rigidity",
+          "trigger": "Contains the identical one-step Durrmeyer L1 functional as a special case and explicitly credits earlier one-step literature."
+        },
+        {
+          "assessment": "Unresolved historical coverage; the publisher PDF and alternate were unavailable. No negative inference from access failure.",
+          "evidence": [
+            "Journal of Approximation Theory 4 (1971), 347–356. The available attribution does not identify a finite-degree formula for the specified kernel."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0021-9045(71)90001-3",
+          "material_read": "Bibliographic identification and third-party citation only; no theorem passage obtained.",
+          "method": "Lawful DOI and publisher routes, plus the identified alternate at https://oerior.uniud.it/wp-content/uploads/2018/12/Hoeffding1971.pdf via both configured OA routes.",
+          "title": "The L1 norm of the approximation error for Bernstein-type polynomials",
+          "trigger": "Indexed fixed-iterate record's attribution of earlier one-step sharp L1 theory."
+        },
+        {
+          "assessment": "Variation of the image or error, not the integrated sharp residual norm.",
+          "evidence": [
+            "Theorem 3.1 bounds V(D_n f) by V(f); Theorem 4.1 bounds V(D_n f-f) for smooth input."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1605.03976",
+          "material_read": "PDF p. 2; Theorem 3.1 on p. 4 (offset about 7378) and Theorem 4.1 on p. 7 (offset about 15700).",
+          "method": "Lawful open PDF passage inspection.",
+          "title": "Convergence of the Bernstein–Durrmeyer operators in variation seminorm",
+          "trigger": "Same classical operator and BV data."
+        },
+        {
+          "assessment": "Set-valued pointwise estimates and Hausdorff-L1 rates, rather than the finite exact scalar norm and its equality family.",
+          "evidence": [
+            "The examined integrated error statements are rate bounds, not the central-binomial identity."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2212.00439",
+          "material_read": "PDF pp. 1 and 17, OA offsets about 847 and 76150.",
+          "method": "Lawful open PDF passage reading.",
+          "title": "Metric approximation of set-valued functions of bounded variation by integral operators",
+          "trigger": "Integrated approximation for related integral operators and BV."
+        },
+        {
+          "assessment": "Different operator type and direct/inverse modulus estimates.",
+          "evidence": [
+            "The stated problem is pointwise modulus-of-smoothness approximation, not an L1 norm with equality rigidity."
+          ],
+          "identifier_or_url": "https://doi.org/10.1186/1029-242X-2014-106",
+          "material_read": "Open PDF pp. 1–2, offsets about 287 and 2300.",
+          "method": "Lawful open full-text passage read.",
+          "title": "Pointwise approximation for a type of Bernstein–Durrmeyer operators",
+          "trigger": "Related positive Bernstein–Durrmeyer approximation rates."
+        },
+        {
+          "assessment": "Historical coverage not determined by the accessible material.",
+          "evidence": [
+            "Titles and citations alone do not determine whether a comparable integrated sharp result appears elsewhere in these papers."
+          ],
+          "identifier_or_url": "https://doi.org/10.1006/jath.1999.3367",
+          "material_read": "Bibliographic/DOI information only; no full text obtained. The Wang–Zhou follow-up, DOI 10.1155/2009/702680, also was unavailable in full text on the attempted route.",
+          "method": "Lawful DOI/full-text retrieval attempts.",
+          "title": "On the Rate of Convergence of the Generalized Durrmeyer Type Operators for Functions of Bounded Variation",
+          "trigger": "Older Durrmeyer BV work flagged by the frozen result."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact coefficient calibrates the intrinsic integrated smoothing error of a canonical positive Markov kernel for every degree, not just the leading rate. The norm is actually attained, and rigidity says that only a centered discontinuity can realize it at any finite degree. Those two finite assertions furnish information that a rate or convergence of maximizing locations cannot supply.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

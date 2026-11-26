@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:39:14.445623Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md: Finding, assumptions and proof, lines 4–68",
+        "Frozen VERIFICATION.md and check_weighted_cycle.py (inspected, not executed)",
+        "/workspace/branches/8218d2a0-454a-4c57-9820-b964a925b261/independent_replay.py (executed): 5,448 exact radius/contact cases, 2,339 exact fixed-budget composition cases, 1,842 floating-point stability spot checks"
+      ],
+      "rationale": "Central symmetry and the squared-distance identity force the unique center to be zero. Expanding the squared norm of a signed cube corner reduces the radius to minimizing the sum of the positive bond products w_i w_(i+1) among equal-sign neighbors. The sign constraint forces no such bond in even length and permits exactly one in odd length. Strict positivity rules out additional bonds at an optimum. Each maximizing sign pattern is nonconstant and can be uniquely exposed: prescribe nonzero signed cyclic differences with total zero, then integrate to an exposing functional. Strict convexity precludes nonvertex contacts. Cauchy–Schwarz gives precisely the even alternating equality family. For odd length the mean of the single-defect quadratics agrees with the radius squared at uniform weights, and on perturbations the least cyclic-neighbor eigenvalue is -cos(pi/n), giving exactly the stated positive stability coefficient. No optimality is claimed for that coefficient.",
+      "residual_risks": [
+        "Finite replay is corroboration only; the uniform conclusion and stability constant follow from the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Triangle-free deformation theory describes edge-rescaled deformations modulo translation. Winter's homogeneous/vertex-transitive classification has cosphericity and edge equality or transitivity hypotheses. The graph-associahedron comparison is combinatorial."
+        ],
+        "reasoning": "None of these classifications solves radius minimization over the entire open fixed-budget slice, including nonuniform minimizers.",
+        "searches": [
+          "Padrol–Pilaud–Poullot arXiv:2111.12422, Example 2.9 and Corollary 2.11",
+          "Winter arXiv:1912.10469, Definition 4.4, Corollary 4.6 and Theorems 4.11–4.12",
+          "Pešović–Stojadinović arXiv:2209.12053, introduction"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ae7e706cbf12 and 0a56a72bf196",
+        "Padrol–Pilaud–Poullot arXiv:2111.12422",
+        "Winter arXiv:1912.10469",
+        "Pešović–Stojadinović arXiv:2209.12053"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The unweighted enumerator implies the equal-weight contact and radius special case. The edge-rescaling description and symmetry results do not compare the radii of distinct points of a fixed-budget slice."
+        ],
+        "reasoning": "General cyclic averaging could suggest that uniform weights minimize a convex objective, but that observation alone gives neither the even equality family nor the positive quantitative gap in the odd case. The demonstrated distinct claim is the weighted metric/equality classification and stability.",
+        "searches": [
+          "ae7e706cbf12, cycle specialization of the unicyclic radius polynomial",
+          "arXiv:2111.12422, Corollary 2.11; arXiv:1912.10469, Corollary 4.6 and Theorems 4.11–4.12"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Eulerian cycle correction and degree-data rigidity gives the unweighted centered graphical-zonotope radius polynomial. A separate in-in enclosing-sphere result includes coordinate segments and yields 4n, not 2n, contacts on an odd unit-weight cycle."
+        ],
+        "reasoning": "The signed-cycle optimization is a weighted bond problem with exactly one minimum-cost defect in odd length. The in-in body is different, and the radius polynomial treats only unit weights; neither identifies the continuously varying budget equality sets. A search hit for this same frozen record is not separate prior coverage.",
+        "searches": [
+          "Resultary semantic comparison for weighted cycle zonotope outer spheres, parity, and fixed total generator length",
+          "Resultary unicyclic vertex-radius polynomial and parity enclosing-sphere findings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The enumerator specializes to R²=n with two contacts in even length and R²=n−1 with 2n contacts in odd length for unit weights."
+        ],
+        "reasoning": "Those exact values are covered and not credited as new. A table of those values does not determine the minimizer set or stability over arbitrary positive real weights; those are not discrete database targets.",
+        "searches": [
+          "Resultary unweighted unicyclic vertex-radius polynomial, ae7e706cbf12"
+        ]
+      },
+      "rationale": "The unweighted radius and contact count are covered by an existing radius enumerator. No inspected statement covers the positive-weight contact law together with the fixed-budget equality sets and odd stability; the deformation theorem supplies the domain, not the metric extremum. This is a bounded comparison, not a priority certification.",
+      "residual_risks": [
+        "A bounded search does not rule out unindexed weighted bond or graphical-zonotope metric analyses. The unit-weight special case is established prior coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers unit weights only",
+          "evidence": "Its cycle specialization recovers both radii and outer-contact multiplicities at unit weights.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-eulerian-cycle-correction-and-degree-data-rigidity-of-unicyclic--ae7e706cbf12/RESULT.md",
+          "material_read": "Finding, complete unweighted vertex-radius polynomial",
+          "method": "Local Resultary discovery and matched statement inspection",
+          "title": "Eulerian cycle correction and degree-data rigidity of unicyclic graphical zonotopes",
+          "trigger": "Closest unweighted radius enumerator"
+        },
+        {
+          "assessment": "Different geometric body",
+          "evidence": "The coordinate generators are present, and the pure odd unit cycle has 4n, not 2n, contacts.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-parity-and-minimum-cycle-degree-law-for-enclosing-spheres-of-u--0a56a72bf196/RESULT.md",
+          "material_read": "Finding and in-in zonotope specification",
+          "method": "Local Resultary discovery and matched statement inspection",
+          "title": "A parity and minimum cycle degree law for enclosing spheres of unicyclic zonotopes",
+          "trigger": "Same parity/contact terminology"
+        },
+        {
+          "assessment": "Supplies deformation family, not objective/equality classification",
+          "evidence": "Triangle-free graphical zonotopes have the edge-rescaling deformation description.",
+          "identifier_or_url": "https://arxiv.org/abs/2111.12422",
+          "material_read": "Example 2.9, PDF pp. 10–11, around offset 44,100; Corollary 2.11, p. 12, around 49,400",
+          "method": "Open primary full-text passages",
+          "title": "Deformed graphical zonotopes",
+          "trigger": "Could classify all deformations or imply the optimum"
+        },
+        {
+          "assessment": "Different, stronger structural hypotheses; not a fixed-budget radius theorem",
+          "evidence": "Homogeneity demands all vertices cospherical and all edges of equal length; the stated classifications identify Gamma-permutahedra under the relevant hypotheses.",
+          "identifier_or_url": "https://arxiv.org/abs/1912.10469",
+          "material_read": "Definition 4.4, PDF p. 8 around offset 19,800; Corollary 4.6 and Theorems 4.11–4.12, pp. 8–10 around offsets 23,700–25,500",
+          "method": "Open primary full-text passages",
+          "title": "Classification of vertex-transitive zonotopes",
+          "trigger": "Broader metric and symmetry classification"
+        },
+        {
+          "assessment": "Combinatorial comparison; no metric bound in the inspected material",
+          "evidence": "Investigates a combinatorial/enumerative interpolation, not Euclidean radius minimization.",
+          "identifier_or_url": "https://arxiv.org/abs/2209.12053",
+          "material_read": "Abstract and introduction, offset 0",
+          "method": "Open primary-text introduction",
+          "title": "Between graphical zonotope and graph-associahedron",
+          "trigger": "Related graphical-zonotope family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–29, 49–68; unweighted prior comparator ae7e706cbf12"
+      ],
+      "rationale": "Fixed total generator length is a natural scale constraint on the full positive weighted cycle family. The equality sets distinguish a one-parameter parity degeneracy from genuine metric rigidity; a quantitative gap and an exact law for which contacts survive make the classification more informative than symmetry averaging or unit weights alone.",
+      "residual_risks": [
+        "No best-constant or general-graph optimization conclusion is supported or required."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

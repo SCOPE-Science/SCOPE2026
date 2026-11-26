@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:08:07.352682Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 24–82: formal-series identities and witness cases",
+        "VERIFICATION.md and checker.py: inspected diagnostic coverage",
+        "Independent theta-product proof of the needed dissection and separate marked-part truncation through q⁷"
+      ],
+      "rationale": "The marked-part factor 1+Σ_{m≥1}m x^m gives the eta quotient. The critical odd two-dissection can be reconstructed independently: put θ₃(q)=Σ_{a∈ℤ}q^{a²}, θ₄(q)=Σ_{a∈ℤ}(−1)^a q^{a²}, ψ(q)=Σ_{j≥0}q^{j(j+1)/2}. Jacobi products give θ₄(q)=f₁²/f₂, θ₃(q)θ₄(q)=θ₄(q²)², and ψ(q)=f₂²/f₁. Thus F² equals f₄²f₁₂²/(f₂⁷f₆³) times θ₃(q)θ₃(q³), with the prefactor even in q. The odd part of the theta product is the sum over pairs (a,b) of opposite parity. The change (u,v)=(a+3b,a−b) is a bijection onto odd pairs congruent modulo 4 with exponent (u²+3v²)/4. Flipping v exchanges the congruent and noncongruent pairs at the same exponent, so the odd part is 2qψ(q²)ψ(q⁶). Multiplying gives exactly 2qW(q²) as in the frozen proof. The elementary binomial reduction f₁⁸≡f₂⁴ mod 4 and f₃⁴≡f₆² mod 4 makes W even in its argument mod 4, so A₂(4n+3) is 8-divisible. For general H, H(q)²−H(q²) is 2-divisible; each squaring increases the modulus by at least one power of two. Iteration yields the two stated lifts. Powers of F⁴ (resp. F⁸) inherit divisibility by 4 (resp. 8) on odd exponents and by 2 (resp. 4) on exponents 2 mod 4. Convolving with F² against the residue classes proves the required progression-wide lower bounds. At degree three direct extraction gives k(k+1)(k+14)/6 and the stated exact valuations outside k≡2 mod 16. Independent truncation gave F² coefficients (1,2,7,16,39,80,171,328) and F¹⁶=(1,0,8,0,4,0,8,0) mod (16,q⁸). The nonconstant truncation of F¹⁶ squares to zero in that quotient and its contribution to [q⁷]F²(F¹⁶)^m vanishes modulo 16 for every m. Thus A_{16m+2}(7)≡8 mod 16 exactly. Together with divisibility, the two fixed-degree witnesses prove the exact ν₂ of the positive infinite gcd. No frozen checker was executed.",
+      "residual_risks": [
+        "Only the positive even orders and the 2-adic part of this gcd are proved; no termwise or odd-prime valuation claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frozen RESULT.md identifies the earlier odd two-dissection and credits the earlier work for lower bounds and k≡6 mod 8 exactness. Earlier Andrews–Lewis–Lovejoy is the source for the marked-part object and generating function."
+        ],
+        "reasoning": "The classical generating function and lower bounds do not imply that the bounds are met. In particular, in k≡2 mod 16 the first progression coefficient is too 2-divisible, and obtaining a valuation-three coefficient uniformly is the missing comparison.",
+        "searches": [
+          "arXiv:2611.05623v1 Lemma 3.11, Theorem 3.12, Proposition 3.13, Conjecture 6.1",
+          "Andrews–Lewis–Lovejoy, Acta Arith. 105 (2002), 51–66, as cited in RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "Yaqubi–Mirzavaziri listing, cited comparisons, and bounded targeted OA attempts",
+        "Resultary exact even self-hit and distinct odd branch"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The frozen proof expressly imports the base dissection; only the k≡6 mod 8 sharpness is attributed to the earlier verified even result. A_{16m+2}(3) is 16-divisible but A_{16m+2}(7) is 8 modulo 16."
+        ],
+        "reasoning": "The latter is new proof evidence beyond congruence lower bounds and conjecture tests. A simple Frobenius lift and first witness handle some classes routinely; the novelty assessment is of the completion and uniform two-witness theorem, not of those general tools or known branches.",
+        "searches": [
+          "arXiv:2611.05623v1 Proposition 3.13 and Conjecture 6.1; Resultary odd-branch entry 32a92659e62e"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Under the marked-part generating function, the progression-wide exact common power of two equals the minimum valuation, not a statement about every individual coefficient having that valuation.",
+          "The odd-order catalogue entry concerns the same progression but assumes k odd and uses ν₂(k+1)−1 with a degree-three witness."
+        ],
+        "reasoning": "Rephrasing the theorem as a gcd exponent is equivalent; the odd formula cannot be applied by renaming an even tuple order. A conjectured equivalence does not furnish a proof of it.",
+        "searches": [
+          "Resultary: exact dyadic gcd exponent of A_k(4n+3), designated summand tuple orders, A_k(3) and A_k(7)",
+          "Yaqubi–Mirzavaziri arXiv:2611.05623v1, Conjecture 6.1 (targeted passage)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact even-record index hit is the assigned finding itself. The separately located same-date hit is the odd theorem, ID ending 32a92659e62e. RESULT.md credits finite tests already done in the preprint; no exhaustive table of proven identities for all even k was retrieved."
+        ],
+        "reasoning": "Finite tests do not prove a universal exact gcd law. The exact computation here is a fixed degree identity in every exceptional parameter, not extrapolation from a finite list of parameters. The same-day date supplies no ordering.",
+        "searches": [
+          "Resultary: designated multipartition progression exact minima and witnesses",
+          "Yaqubi–Mirzavaziri preprint listing and targeted Conjecture 6.1/odd-dissection lookups"
+        ]
+      },
+      "rationale": "Credit the known marked-part series and cited dissection, previous divisibility and the sharp k≡6 mod 8 class as prior, and the prediction as a published conjecture, not a new conjecture. The supported distinct contribution is the proof of exactness uniformly for the remaining even classes, with a uniform low-degree witness in the exceptional residue class, hence a two-coefficient determination. The most related separately indexed result is the odd-parameter branch, not a covering theorem for even k.",
+      "residual_risks": [
+        "The literal full Conjecture 6.1 passage and tables/later versions were not retrieved; exact attributions above are bounded to the available cited descriptions, not a full-document priority exclusion.",
+        "Priority against unindexed or unretrieved resolutions remains provisional."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credit stated existing congruences, exact branch and conjectural formulation; no whole-paper exclusion",
+          "evidence": [
+            "Lemma 3.11 is cited for the explicit W; Theorem 3.12 for bounds; Proposition 3.13 for the sharp 6 mod 8 branch; Conjecture 6.1 for the broader prediction."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.05623v1",
+          "material_read": "ArXiv listing and exact lemma/theorem/conjecture descriptions in frozen RESULT.md lines 33–42, 84–92; targeted HTML and alternate same-version PDF passages not retrieved",
+          "method": "Primary lookup, targeted OA passages, and independent verification of the mathematical dissection",
+          "title": "Partitions with designated summands: k-tuples and their congruences",
+          "trigger": "Same family and progression; possible original resolution or exact coefficient table"
+        },
+        {
+          "assessment": "Complementary even/odd scopes; no priority inference from date",
+          "evidence": [
+            "Odd k, exponent ν₂(k+1)−1, sharp at n=0; frozen theorem assumes even k."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-dyadic-gcd-exponent-for-odd-designated-partition-tuple-ord--32a92659e62e",
+          "material_read": "Indexed scientific statement, not full text",
+          "method": "Resultary and assumption-level comparison",
+          "title": "Sharp dyadic gcd exponent for odd designated partition tuple orders",
+          "trigger": "Same progression and exact dyadic exponent in catalogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Conjecture 6.1 comparison and two-witness statement",
+        "Independent low-degree and infinite-series checks"
+      ],
+      "rationale": "The invariant is motivated by a specific published progression conjecture for a standard partition-generating function. A constructive sharpness theorem for every even tuple order replaces finite evidence with an exact minimum; in the exceptional class where the first coefficient overstates the divisibility, a universally valid second witness makes this precise. The first two coefficients thus determine an invariant of an infinite progression, not just a test sample.",
+      "residual_risks": [
+        "No separate value is assigned to the previously covered branch or to the standard lifting identity."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

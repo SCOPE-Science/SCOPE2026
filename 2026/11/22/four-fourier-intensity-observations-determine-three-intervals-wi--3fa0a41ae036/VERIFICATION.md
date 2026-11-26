@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and reproducibility
 
-With Python 3.10+ and SymPy installed, run `python checker.py`. The checker verifies exactly that the second coefficient of the complementary-spacing expression is the claimed quadratic and, after eliminating the competing reflection parameter, its fourth coefficient factors into the positive-product obstruction. It then performs 1,500 independent numerical comparisons between interval-by-interval integration and the subtracted-hole formula, with deterministic parameters.
+# Independent mathematical audit
 
-The formal proof, including the two spacing possibilities and strict positivity of the four excluded factors, is in `RESULT.md`. A finite sample is not evidence for an infinite-domain theorem; the symbolic calculations check algebra rather than analytic assumptions, which are reconstructed in the proof. The actual final claim is limited to exact noiseless observations, known span, positive interval and gap lengths, equal gaps, and uniqueness only within that family.
+## correctness
 
-Self-review passed; independent mathematical audit and validation not performed.
+PASS
+
+The complement transform is a single common sinc factor times the sum of the two hole-center phases. The center midpoint offset is h=(a−c)/2, and separation D=b+g, giving the stated intensity identity. DC and known span determine g. The occupied-span transform vanishes at 2π/L, so the sample gives cos²(πD/L) with a nonzero prefactor, hence just D and L−D. For each fixed candidate D, the second derivative determines h² with coefficient 4Lg. For the complementary candidate, set v=a+c and H=h²; the second-order comparison forces H'=H+(b²−v²)/4. Expanding the even analytic difference after factoring out the sinc terms, the fourth coefficient is (b−v)(b+v+3g)(H−v²/4)/24. Here H−v²/4=−ac<0; the prefactor at zero is nonzero, and the lower coefficient has already vanished. Thus the fourth derivative eliminates any genuinely different complementary candidate, including all admissible symmetric and D=L/2 cases. The remaining sign of h is exactly reflection; the phase-magnitude data are translation invariant.
+
+## originality
+
+PASS
+
+The supported distinct claim is global injectivity in the known-span equal-gap three-interval family from these specific four measurements. Neither general full-spectrum phase retrieval, full-spectrum nonuniqueness for unequal gaps, nor the inspected equal-occupied-width or two-interval finite-jet results give that injectivity.
+
+## value
+
+PASS
+
+The natural equal-gap restriction salvages recovery in a component count where even full magnitudes can fail generically as a uniqueness guarantee on the unrestricted class. The proof gives a two-candidate inversion rather than merely establishing abstract uniqueness. The final derivative actually resolves a live ambiguity: at L=9 and g=1, (a,b,c)=(3/2,4,3/2) and ((4+√7)/2,3,(4−√7)/2) match DC, the fundamental intensity and the second derivative but differ in the fourth derivative. This is not a claim of optimal measurement count over all possible designs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

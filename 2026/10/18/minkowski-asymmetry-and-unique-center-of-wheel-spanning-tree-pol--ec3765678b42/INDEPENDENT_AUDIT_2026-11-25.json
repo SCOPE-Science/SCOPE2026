@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:08:42.318834Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the affine hull x(E)=n, reflection at dilation s is equivalent to (s+1)c−1_T belonging to sP for every tree T. The minimum count is zero for both the rim and each hub triangle: the spoke star avoids the former, and deleting one triangle leaves both its rim endpoints attached through the complementary rim vertices and their spokes. The rim and the summed triangle inequalities give 2n ≤ (s+1)c(R) ≤ s(n−1). At s=2n/(n−1), the proposed scaled center has spoke weight (n+1)/(n−1) and rim weight 2. Against any tree, the reflected vector has the correct total and is nonnegative. For a hub-containing proper vertex set with k selected rim vertices in q runs, deleting its induced edges isolates L=sum max(run length−2,0) interior vertices; the remaining vertices are all connected through the hub. Every spanning tree uses at least L deleted edges, and k≤2q+L supplies the induced-set rank inequality. For hub-free proper rim subsets the edge count is at most k−1, and the whole rim gives the binding bound. The spanning-tree description thus proves attainment for all n≥4. At equality every triangle inequality is tight. For the hub plus three consecutive rim vertices, the minimum tree count is one (exactly one isolated vertex upon deletion), and the summed inequalities are also tight. Subtracting a triangle equality gives c(p_{i+2})+c(r_{i+1})=1, forcing the claimed coordinates individually, without assuming symmetry. These connectivity arguments apply at n=4 as well. The frozen verification records 3,532 trees and 1,390,868 induced-set checks at n=4–8. The accompanying checker was inspected, not executed; those counts are corroboration, not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chaourar supplies the minimal inequality description in terms of parallel-closure, coparallel-closure and locked sets, not optimal reflection",
+          "Backman–Liu establish regular unimodular triangulation, not reflection parameters",
+          "Rank-two matroid result a659b650d983, offset 340, uses parallel-class sizes; wheel rank is n≥4"
+        ],
+        "reasoning": "General membership inequalities enable setting up the optimization but do not determine which bounds bind nor imply uniqueness in this infinite family. The explicit matroid asymmetry hits have hypotheses not met by these wheels.",
+        "searches": [
+          "Resultary: general matroid base-polytope asymmetry",
+          "arXiv:1903.07292, Theorem 2.1",
+          "arXiv:2309.10229, p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and wheel_asymmetry_verify.py",
+        "Resultary dd8588f15b8f, d8f52c73c4c4, a659b650d983, 3dc4fabc4271 and d2c508399793",
+        "arXiv:1903.07292 and arXiv:2309.10229"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Complete-bipartite result d8f52c73c4c4, offset 364, evaluates a different three-way maximum and gives a uniform minimizing center without classifying them all",
+          "Steiner design result 3dc4fabc4271, offset 587, and panhandle result d2c508399793, offset 393, calculate exact reflection asymmetry for different matroid classes"
+        ],
+        "reasoning": "The wheel has coupled rim and hub-triangle bounds and a nonuniform center. Neither the nearby graph-family formulas nor the inequality-description theorem substitutes into the claimed wheel theorem. Same-day hits were compared for scope without assuming order or priority.",
+        "searches": [
+          "Resultary: graph spanning-tree centers and general matroid asymmetry",
+          "Chaourar, arXiv:1903.07292, Theorem 2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Complete-graph spanning-tree centers, dd8588f15b8f, RESULT.md offset 311, has s=n−1 and a generally non-singleton center locus",
+          "The wheel exchange-graph radius/diameter and vertex-covariance hits are different invariants from affine reflected containment"
+        ],
+        "reasoning": "The stronger interpretation of the frozen claim is uniqueness among all feasible centers, not merely among orbit-invariant points. Graph diameter, vertex covariance and uniform-center assertions are not equivalent. The K4 wheel convention corresponds to excluded n=3 and supplies no overlap on n≥4.",
+        "searches": [
+          "Resultary: exact wheel Minkowski asymmetry formula; wheel spanning-tree centers; graph spanning-tree centers",
+          "Primary-literature search on wheel spanning-tree polytopes and Minkowski asymmetry / center"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Catalogue exact-family comparators give complete-graph and complete-bipartite, not wheel, asymmetry formulas",
+          "Frozen VERIFICATION.md reports finite wheel spanning-tree and inequality counts, not a prior source of asymmetry or center values"
+        ],
+        "reasoning": "No exact wheel table was identified. Even a list of tree counts or a small set of candidate centers would not cover both the all-size formula and uniqueness.",
+        "searches": [
+          "Resultary: exact wheel asymmetry formula and wheel spanning-tree centers",
+          "Comparison with the verification table for n=4–8"
+        ]
+      },
+      "rationale": "Within the inspected results and literature, no prior statement or specializable stronger formula covers the exact simple-wheel asymmetry together with global center rigidity. The standard tree-polytope inequality description is prior; the two binding support families, run estimate and equality analysis are the wheel-specific content.",
+      "residual_risks": [
+        "Bounded primary and catalogue searches do not exclude a prior wheel theorem under a coefficient-of-symmetry, dual, or rank-inequality formulation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Background, not asymmetry coverage",
+          "evidence": "Minimal base-polytope inequality description in terms of parallel-closure, coparallel-closure, locked sets and ranks.",
+          "identifier_or_url": "https://arxiv.org/abs/1903.07292",
+          "material_read": "p. 4, Theorem 2.1",
+          "method": "Primary text passage",
+          "title": "The facets of the spanning trees polytope",
+          "trigger": "Strongest surfaced primary comparison for the tree-polytope constraints"
+        },
+        {
+          "assessment": "Different result in inspected passage",
+          "evidence": "The principal assertion is regular unimodular triangulation, not a reflection bound or center characterization.",
+          "identifier_or_url": "https://arxiv.org/abs/2309.10229",
+          "material_read": "p. 1, abstract",
+          "method": "Primary text passage",
+          "title": "A Regular Unimodular Triangulation of the Matroid Base Polytope",
+          "trigger": "Cited general base-polytope theorem"
+        },
+        {
+          "assessment": "Does not cover the assigned family",
+          "evidence": "Complete-graph formula n−1 and locus c_e=(1+z_e)/n with degree and exceptional cut constraints; complete and wheel families do not coincide in the assigned range.",
+          "identifier_or_url": "Resultary dd8588f15b8f",
+          "material_read": "RESULT.md offset 311, formula and center locus",
+          "method": "Local mirror",
+          "title": "Minkowski centers of complete-graph spanning-tree polytopes",
+          "trigger": "Closest matching invariant and object type"
+        },
+        {
+          "assessment": "Distinct family",
+          "evidence": "A maximum of three expressions in the two part sizes and a uniform center; simple wheels contain triangles.",
+          "identifier_or_url": "Resultary d8f52c73c4c4",
+          "material_read": "RESULT.md offset 364, formula and center claim",
+          "method": "Local mirror",
+          "title": "Balanced anomaly in the Minkowski asymmetry of complete-bipartite spanning-tree polytopes",
+          "trigger": "Other exact graphic-family result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Wheels are a natural infinite family of simple graphic matroids with both a cycle orbit and a cut-adjacent spoke orbit. The exact affine invariant and the unique nonuniform center are useful comparison data for base polytope geometry. The result exhibits a strictly decreasing approach to 2 and proves why symmetry averaging alone is insufficient: it neither determines the relative orbit weights nor excludes nonsymmetric minimizers.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

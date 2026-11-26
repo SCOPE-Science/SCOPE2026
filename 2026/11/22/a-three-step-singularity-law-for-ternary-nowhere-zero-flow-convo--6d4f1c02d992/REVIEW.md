@@ -1,12 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-For every length \(n\ge2\), the checksum character filter produces three integer powers of \(-2\) indexed by exact frequency-symbol counts. The factorization is derived directly in RESULT.md, without an unproved analytic lemma. The zero classification is exhaustive: the minimum exponent cannot occur once by parity or three times by nonvanishing, and two minima force the remaining exponent to exceed them by exactly one. Multinomial counting gives the exact nullity; Stirling gives the claimed density. The independent phase-enumeration checker directly confirms every Fourier coefficient and zero count through length nine (29,520 frequencies), but this is corroboration rather than proof for unbounded lengths.
+## correctness
 
-## Originality — PASS under bounded comparison
-Beck and Zaslavsky (arXiv:math/0309331, 2003, Sections 1, 3, 4.1, including Example 3.4) provide classical modular-flow counts and the relevant graph object. Their unsigned flow counts specify the zero-frequency transform but not the complete signed spectrum or which nontrivial frequencies cancel. A published exact alias-spectrum theorem for parity-check Fourier sampling restricts low-degree characters to the entire checksum hyperplane, not counting convolution by its nowhere-zero portion. An inspected harmonic spectrum for fixed-weight slices has a distinct Johnson-matrix object. General MacWilliams/complete-weight-enumerator transforms provide a standard method for the multiplier formula, and no priority is claimed for this reduction. The distinct claim is the exact cancellation criterion and all-length ambient rank and density. Search and coverage were bounded: an unindexed equivalent code-theoretic specialization is a residual risk and no globally definitive priority statement is made.
+PASS
 
-## Value — PASS
-The full-group inverse problem of recovering arbitrary ternary signals after convolution with a natural nowhere-zero graph-flow support has a genuine and unexpectedly periodic exact answer: infinitely many singular dimensions but asymptotically vanishing lost-mode density, with a closed integer nullity. This is a complete structural classification of a canonical flow family, not a small isolated numerical table or a gain from an arbitrary parameter slice. The theorem deliberately stops short of optimal conditioning in the recoverable subspace or arbitrary graph generalization.
+On the whole ambient group, each Fourier character is one eigenvector of counting convolution. The ternary zero-sum filter gives the average of three products with local factors 2 at a frequency-symbol match and -1 otherwise, i.e. (-1)^n times the sum of three signed powers (-2)^(c_j) divided by 3. This is integer-valued because each power is 1 modulo 3; negation symmetry also gives real eigenvalues, whose moduli are the singular values. Divide a putative vanishing sum by the smallest signed power. A unique minimum leaves an odd integer; three minima leave 3; two minima force the remaining exponent to exceed the minimum by one. For n>=2 this gives exactly (m,m,m+1) up to permutation with m>=1 and n=3m+1. Counting ambient words gives the factor of three and the stated multinomial nullity. The normalized probability for one ordered count triple differs from the central equal-count probability at length 3m by (3m+1)/(3(m+1)); Stirling then gives the claimed constant and relative O(1/n) along the singular progression only. A separate phase-count check on dual coset representatives at n=2 through 7 gave nonzero ambient nullities only at 4 and 7, namely 36 and 630. RESULT.md lines 35–61 give the all-length replay; check.py was inspected, not executed.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The supported distinct result is the full-length exact cancellation and ambient-rank law for the full-weight part of the ternary single-check code, including its multiplicities and asymptotic nullity density. Character diagonalization and modular flow counts are established. The closest inspected graph spectra use different generators or supports and do not give the claimed cancellation criterion. This comparison does not certify historical priority.
+
+## value
+
+PASS
+
+The dipole is a canonical nowhere-zero flow family, and ambient counting convolution asks a natural recoverability question not answered by counting its flows. The exact singular progression, description of every invisible mode, and quantitative rate of loss give a usable rank classification across all lengths. The value is the cancellation and rank law, not the standard character filter; no claim is made about stable inversion away from zero or arbitrary graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

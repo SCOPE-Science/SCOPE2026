@@ -1,11 +1,21 @@
-# Scientific assessment: prime-denominator resonance islands
+# Independent mathematical audit
 
-**Correctness — PASS.** The claimed return identity follows from composing the stated affine branches. The irreducible minimal polynomial \(\Phi_q\) forces all signs equal for odd prime \(q\). Averaging branch-rotation coordinates rules out both constant signs in the upper-orientation regime. For the opposite orientation, the intersection of the exact \(q\) branch half-planes is a regular polygon, with strict lower-branch and weak upper-branch boundaries; the polygon area and maximizing numerator follow directly. The standalone checker passed 4236 checks; all infinite claims are proved analytically.
+## correctness
 
-**Originality — PASS (best-knowledge, not independent priority certification).** The general regular-component theorem, polygon-side bounds and one exhibited pentagon in Cima et al. [1] are prior work. Goetz–Quas [2, Lemma 11] gives islands for two-sided periodic itineraries, so its geometric statement does not directly classify these one-sided resonance islands or eliminate mixed words. Cima et al. [3] treats several special low-denominator angles and is expressly acknowledged. The new global prime-denominator period-\(q\) census and total area are not stated or implied by the inspected results. A broader unindexed classification or an easy unpublished derivation remains a genuine historical-priority risk.
+PASS
 
-**Value — PASS.** The exact fixed-set/primitive-period dichotomy distinguishes two rotation orientations despite global boundedness, and the prime condition exposes a cyclotomic obstruction to short mixed-sign cycles. The polygon area is a canonical dynamical statistic (Lebesgue mass of a precisely specified return period) across all prime denominators and rotation numerators, not an arbitrary slice. The explicit maximizing numerator and quadratic growth quantify how the first resonance island changes across the family. The finding does not classify composite orders, long periods, or the critical set.
+Expanding the qth iterate gives the vanishing of the sign polynomial at a primitive qth root. Since q is prime, the minimal polynomial is 1+X+...+X^(q−1), of the same degree as the sign polynomial; hence the signs are constant, including for points whose orbits touch the axis. The affine-rotation formula and zero mean of the roots give the obstruction for p<q/2. Otherwise the rotated half-plane normals are equally spaced, and the h-offset constraints give exactly the closed upper and open lower regular q-gons. Their centers lie strictly inside, and any noncenter has least period q since the branch rotation has order q. The map is a bijection because z↦z−H(z) translates each half-plane onto itself before the rotation. The perimeter–inradius formula gives the total area, whose strict increase over q/2<p<q gives the claimed maximum and its asymptotic. Independent tests use exact finite sign-word checks and numerical intersections of adjacent supporting lines, areas and interior orbits.
 
-Closest literature: Cima–Gasull–Mañosa–Mañosas (2023/2024), *On some rational piecewise linear rotations*; Goetz–Quas (2009), *Global properties of a family of piecewise isometries*; Cima et al. (2020/2022), *Pointwise periodic maps with quantized first integrals*. Only same-manuscript checking is recorded, not independent review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct contribution is the exhaustive prime-denominator return-fixed set, including the empty orientation and exact boundary convention, and its global area and maximizing numerator. Periodic tiles and the single fixed-pentagon example are prior overlap, and the later catalogue area law concerns alternating rather than constant itineraries.
+
+## value
+
+PASS
+
+This is a natural full return-time classification for an established discontinuous dynamical system. The result determines the global area without sampling or ignoring the discontinuity, and quantifies how reversal and numerator choice affect resonance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

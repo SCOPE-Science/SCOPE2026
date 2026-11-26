@@ -1,43 +1,41 @@
-#!/usr/bin/env python3
-"""Independent finite diagnostics for an analytic first-passage result.
+"""Bounded diagnostics for the capture bound; requires only Python 3."""
+from fractions import Fraction as Q
+from math import erfc, exp, sqrt
 
-Requires Python 3, NumPy, SciPy, SymPy. No external data or network.
-Numerical checks DO NOT certify any infinite-time conclusion.
-"""
-from math import sqrt, erfc, exp, erf, pi
-import numpy as np
-from scipy.integrate import quad
-import sympy as sp
 
-u=sp.symbols('u',positive=True)
-assert sp.simplify(sp.Rational(4,3)*(1-1/sp.sqrt(7))+(4/sp.sqrt(7)-1)/3-1)==0
-delta=float((4/sp.sqrt(7)-1)/3)
-assert 0 < delta < 1
+def contraction_delta(s):
+    a = s * (sqrt(2 - s*s) - s)
+    return a / (2 + a)
 
-cases=[(1.,1.,0.5),(2.4,0.7,0.3),(0.6,3.0,0.21),(5.1,0.8,0.65)]
-for r,D,fraction in cases:
-    k=fraction*sqrt(r/D)
-    algebraic=r/(r-D*k*k)*(1-k*sqrt(D/2)/sqrt(r-D*k*k/2))
-    integ=quad(lambda t: r*exp(-(r-D*k*k)*t)*erfc(k*sqrt(D*t/2)),
-               0,np.inf,epsabs=2e-11,epsrel=2e-11,limit=200)[0]
-    assert abs(algebraic-integ)<2e-10,(r,D,k,algebraic,integ)
 
-# For all x>0 and N>=2, N exp(-lambda x) + N/delta exp(-kappa x) A2
-# <= N/delta exp(-kappa x); check broad finite samples as a diagnostic.
-for N in (2,3,5,15):
-    for x in np.linspace(0.01,60,151):
-        A2=1-delta
-        lhs=N*exp(-x)+(N/delta)*exp(-x/2)*A2
-        rhs=(N/delta)*exp(-x/2)
-        assert lhs <= rhs*(1+1e-14)
+def quadrature(s):
+    # Integrate over the square root of dimensionless alarm time.
+    a, b = 1 - s*s, s/sqrt(2)
+    def f(z):
+        return 2*z*exp(-a*z*z)*erfc(b*z)
+    n, h = 20000, 0.001
+    return h*(f(0) + f(n*h) + sum((4 if j % 2 else 2)*f(j*h)
+                                  for j in range(1, n)))/3
 
-# Independent time-tail check against reflection principle asymptotics.
-for N in (1,2,3,7):
-    x=1.3; D=0.8; t=1e8
-    survival=erf(x/sqrt(4*D*t))**N
-    leading=(x/sqrt(pi*D))**N*t**(-N/2)
-    assert abs(survival/leading-1)<1e-7
 
-print('PASS: four independent transform quadratures, super-solution grid,')
-print('       exact critical constant, and no-reset tail checks')
-print('Analytic proof required for all-time, all-parameter conclusions.')
+for s in (0.0625, 0.25, 0.5, 0.875, 0.98, 0.999):
+    assert abs(quadrature(s) - (1-contraction_delta(s))) < 1e-9
+
+for k in range(1, 200):
+    s = Q(k, 200)
+    # Certify rational bounds on the square root by comparing squares.
+    assert 1 <= 2-s*s
+    assert s*s*(2-s*s) <= 1
+    assert s*s < 2-s*s
+    # The analytical inequalities imply delta(s) >= s(1-s)/3.
+    assert contraction_delta(float(s)) >= float(s*(1-s)/3)
+
+for k in range(0, 1001):
+    y = Q(k, 10)
+    s = 1-1/(y+2)
+    assert s >= Q(1, 2) and (1-s)*y < 1
+    assert s*(1-s)/3 >= 1/(6*(y+2))
+
+assert abs(contraction_delta(0.5) - (4/sqrt(7)-1)/3) < 1e-15
+print('PASS: six transform quadratures, sampled contraction bounds, and rational prefactor checks.')
+print('The exact logarithmic asymptotic is proved analytically, not by these diagnostics.')

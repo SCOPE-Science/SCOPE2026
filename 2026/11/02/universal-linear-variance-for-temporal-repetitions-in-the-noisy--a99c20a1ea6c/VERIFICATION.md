@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-From the extracted directory containing `verify.py`, execute `python3 verify.py` using Python 3 and only its standard library. The verifier computes exact finite-chain distributions on two-vertex and triangle graphs, checks the bound with rational arithmetic at several fixed lengths and lags, checks the complete-refresh equality, and independently enumerates 2,048 artificial genealogical configurations for the exact conditional Walsh variance formula. Recorded outcome: `PASS: 2084 exact checks (Walsh identities and finite voter distributions)`.
+## correctness
 
-These exhaustive **bounded** tests neither establish the result on all graphs nor prove a central limit theorem. For that, inspect the source-sign representation, orthogonal degree-two character formula, distinct time-pair double-refresh witness, and conditional total-variance argument in `RESULT.md`. The CLT additionally invokes Lemma 2.3 and Theorem 2.7(1) in Benjamini, Helman Tov and Zhukovskii, DOI 10.1214/23-AOP1637, under the verified variance growth hypothesis. The underlying references and their limitations are explicitly stated in `RESULT.md`.
+PASS
+
+Conditional on copy/refresh randomness, the nonconstant part of the count is half a sum of degree-two Rademacher characters with nonnegative multiplicities. Different unordered pairs are orthogonal, while double-refresh witnesses have unique pairs indexed by the smaller time and occur with probability epsilon^2. Total variance gives the claim; no infinite sum or stationarity is involved. At complete refresh the time-edge forest gives independent fair edge products, hence equality and the Bernoulli CLT. For 0<epsilon<1 the cited graph and time-zero initialization agree, and with T=L+d the cited sample mean is R_L/L. The bound excludes the O(log L) alternative and gives (log T)/T^2=o(Var(S_T)), exactly the unthinned theorem's premise. It also supplies the stated limiting variance floor. The corrected RESULT retains this proof; the frozen checker and recorded tests are corroboration only and were inspected, not executed.
+
+## originality
+
+PASS
+
+The repaired claim credits the known qualitative results and claims only the stronger quantitative finite-time bound and its quantitative consequence. The strongest matching result has a factor epsilon^(Delta+4) and a length restriction and weakens as degree or lag grows; it does not imply epsilon^2 L/4 uniformly. The repaired proof conditions on the entire ancestry instead of protecting a sparse set of isolated refreshes.
+
+## value
+
+PASS
+
+There is a natural need for a variance floor that is not exponentially small in the observation degree and does not deteriorate with lag. The new lower bound remains informative at every length, gives an explicit floor on limiting variance, and is attained at complete refresh. Its significance is quantitative, not priority for the qualitative CLT.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

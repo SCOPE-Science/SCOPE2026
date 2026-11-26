@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:05:56.549356Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The main proper-game classification checks out. An independent exact truth-table replay using veto and dual least-core certificates (/workspace/branches/public-good-nucleolus-census.py) confirmed proper counts 1,3,11,80 and orbit counts 1,2,5,14, divergences 0,0,0,18 with the stated two vectors and weighted representatives, and null-free divergence 6/50. The frozen finding's unrestricted comparison (RESULT.md lines 90–100) does not hold under standard imputations x_i≥v({i}): the winning singleton in {A,BC} forces ν=(1,0,0), not (1/2,1/4,1/4). Four of the 18 normalized three-player games have at least two winning singletons and hence no imputation at all. The verifier instead imposes only x_i≥0 (lines 127–130) and evaluates all 18 (lines 275–285). Independently, the unrestricted domain with nonempty imputations has 14 games; exactly the three relabelings of {A,BC} diverge. The numerical vector in the frozen finding is consistent with the alternative simplex convention used by Elkind–Pasechnik, but the original does not state that convention or distinguish it from ordinary individual rationality. The proper part is invariant under this distinction: a winning singleton there implies dictatorship, and otherwise the singleton lower bounds are zero. Frozen scripts were read, not run.",
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Weighted-game nucleolus computation does not itself classify the two weak orders. The full Resultary table covers all proper canonical games, including the four-player no-dummy subset by the union of its key coalitions."
+        ],
+        "reasoning": "Computational tractability is not coverage, but a complete table of the individual labeled coordinates for every canonical class is enough; the null-player and weight checks are direct on the keys.",
+        "searches": [
+          "Elkind–Pasechnik arXiv:0808.0298, PDF pp. 2–3",
+          "3c6698c60d5f verifier, NUC and ORBIT_COUNTS"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_pg_nucleolus_proper_first_layer.py",
+        "Resultary 3c6698c60d5f and 4832e61b3523",
+        "Elkind–Pasechnik arXiv:0808.0298, pp. 2–3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Direct application of PG to NUC's keys reproduces the whole proper boundary. Removing null-player matches requires only checking whether the key union covers all players. The nonproper family has its allocation forced by standard individual rationality; its equal PG counts are immediate."
+        ],
+        "reasoning": "No new excess optimization or structural inference beyond counting table-key incidences and relabeling is needed for the proper result. The Deegan–Packel comparison is not used to infer the nucleolus result. The corrected unrestricted-three calculation is elementary and does not turn the covered proper theorem into a distinct substantial finding.",
+        "searches": [
+          "Public Good/Holler and nucleolus literature lookup",
+          "3c6698c60d5f NUC table, all entries n=1–4",
+          "4832e61b3523 improper three-player comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The adjacent article compares Shapley–Shubik and has a different 36/80 divergence set, but its table keys are minimal winning antichains. Public Good weak order is exactly the ordering of column sums of the incidence matrix of each such key."
+        ],
+        "reasoning": "The article's headline does not match; its complete encoded data are in a sufficient formulation for this claim because they specify both the game and its nucleolus up to the very same labels.",
+        "searches": [
+          "Resultary: Public Good/Holler versus nucleolus, ordinal divergence first layer, 18/80",
+          "3c6698c60d5f RESULT.md and accompanying canonical NUC table"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "NUC includes all 1,2,5,14 representative rows, with exact rational coordinates. ORBIT_COUNTS checks exact equality of its keys to the enumerated canonical families. In the rows (3,5) and (3,13,14), the counts are (2,1,1,0) and (2,2,2,2); nucleolus coordinates are proportional to (1,0,0,0) and (2,2,1,1). No other rows give a different weak order."
+        ],
+        "reasoning": "This is a complete exact prior data source, not a table of summary counts or a different quantity for the same n. Applying the definition of Public Good to each key settles every rank comparison, and relabeling the two exceptional keys gives 12 and 6.",
+        "searches": [
+          "3c6698c60d5f/verify_shapley_nucleolus_proper_simple_games.py, literal NUC =, offset 4000–7433"
+        ]
+      },
+      "rationale": "The exact proper-game boundary is a mechanical consequence of a previously available full canonical minimal-winner/nucleolus table through four players, even though the associated article compares a different index. I read the table, not just that article's finding, and recalculated Public Good rankings by counting set incidences in every row. The only differences are the two reported families, yielding the same 12+6 split. Neither correction of the nonproper imputation nor re-verification supplies a distinct valuable remainder.",
+      "residual_risks": [
+        "Exact public posting timestamps were not independently determined; the substantive coverage comes from a distinct catalogue record, not an inference from a date.",
+        "Alonso-Meijide et al. hdl:2445/66937 could not be retrieved from the handle or attempted lawful PDF copy. The available table already demonstrates coverage independently of that work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING via complete exact table and direct incidence counts",
+          "evidence": [
+            "Same domain and all 14 four-player canonical antichains, with their nucleoli; table-key population is exhaustively checked; text headline compares a different index"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-sharp-four-player-ordinal-divergence-boundary-for-shapley-shubik--3c6698c60d5f/verify_shapley_nucleolus_proper_simple_games.py",
+          "material_read": "Accompanying verifier offsets 4000–7433: NUC table, coverage assertions and certificate loop; RESULT.md Finding near 660 and Verification at 5700–7371",
+          "method": "Published local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4; directly compared table rows, did not run source",
+          "title": "Sharp four-player ordinal divergence boundary for Shapley–Shubik and the nucleolus",
+          "trigger": "Adjacent census on the same full domain with potential exact nucleolus data"
+        },
+        {
+          "assessment": "Explains concept and alternative simplex convention; does not supply the assigned ordinal census in the passages read",
+          "evidence": [
+            "Works with efficient nonnegative allocations, not extra singleton lower bounds; defines core via coalition deficits"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0808.0298",
+          "material_read": "PDF p. 2 near offset 7391; p. 3 offsets 10345–12644",
+          "method": "OA full-text passages",
+          "title": "Computing the nucleolus of weighted voting games",
+          "trigger": "Nucleolus computation and payoff-domain convention"
+        },
+        {
+          "assessment": "Different comparator; not relied on for the nucleolus",
+          "evidence": [
+            "30/80 against Deegan–Packel; records the minimal family {1,23} in its improper contrast"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-sharp-proper-game-ranking-boundary-for-deegan-packel-versus-publ--4832e61b3523/RESULT.md",
+          "material_read": "Finding and Verification through offset 6414",
+          "method": "Published local mirror",
+          "title": "Sharp proper-game ranking boundary for Deegan–Packel versus Public Good",
+          "trigger": "Public Good first-layer catalogue hit"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The natural comparison is influence via minimal winning participation versus lexicographic stability. However, for the stated parameter range the entire proper classification is obtainable by direct column counts on a complete existing table, and the feasible improper contrast is forced by one individual-rationality inequality. A repeat census and a corrected convention note do not establish a distinct useful mathematical result here. No repair is submitted.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

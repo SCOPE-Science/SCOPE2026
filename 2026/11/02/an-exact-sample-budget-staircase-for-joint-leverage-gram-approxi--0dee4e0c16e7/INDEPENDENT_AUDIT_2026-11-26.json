@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:28:40.650260Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Normalizing the orthogonal columns gives entries 1/sqrt(d) on disjoint blocks and row leverage 1/d. Identical-input joint sampling is uniform across rows, so each group has sampling probability 1/d. A sampled row from group j adds d*s_j^2/r in diagonal coordinate j. Normalizing by d^2, the weak-coordinate errors are at most (d-1)/d^2, including equality, because 0<=C_j<=r. The leading error is exactly |d*C_1/r-1| with C_1 binomial(r,1/d), giving the tail sum. Its integer acceptance set excludes 0, and the upper endpoint is below r since 1+epsilon<d. The kth and (k+1)st closed bands have a strict open gap exactly when (2k+1)*epsilon<1; actual budgets must lie on the grid r/d. For d=5 and epsilon=1/4, r=5,7,10 admit respectively {1}, the empty set, and {2}. For fixed epsilon and r_d/d approaching positive alpha, the admissible integer endpoints stabilize off the two stated boundaries and the binomial point masses converge to the Poisson masses. Under row-norm sampling the one-draw rescaled coordinate is d^2+d-1. Its error meets tolerance exactly for the leading group, whose sampling mass is d^2/(d^2+d-1). This also checks the d=2 boundary of the weak-error condition. The frozen verifier was read; these conclusions rely on the proof and exact witness, not a script execution.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "CPH Theorem 11 gives sufficient sample complexity for an embedding. Cohen–Nelson–Woodruff Theorem 1 concerns moment conditions for spectral approximate matrix multiplication. Drineas–Kannan–Mahoney gives the norm-proportional importance sampler."
+        ],
+        "reasoning": "These results supply standard methods and upper bounds, not an exact probability or obstruction for every small sample budget of this prescribed distribution.",
+        "searches": [
+          "arXiv:2610.29466 Theorem 11",
+          "arXiv:1507.02268 Theorem 1",
+          "Drineas–Kannan–Mahoney, Fast Monte Carlo Algorithms for Matrices I, product sampling"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2610.29466",
+        "arXiv:1507.02268",
+        "Drineas–Kannan–Mahoney 2006",
+        "Resultary 300a3a84107a and 6a0f8dc079de"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Remark 6 mechanically implies uniform draws once the frozen family is specified, but does not identify a family with the reentrant obstruction. The one-norm-sample probability is a direct calculation on this family, not a new algorithm.",
+          "The same-day indexed comparator changes sparsity in a distinct single-probe experiment, not the number of independent leverage draws."
+        ],
+        "reasoning": "The mathematical contribution lives in the witness and its exact feasibility mechanism: a highly relevant spectral direction has group probability 1/d even though it dominates the Gram norm. General upper bounds and sampler definitions do not state or subsume that sharp separation.",
+        "searches": [
+          "CPH Remark 6 and Theorem 11; Cohen–Nelson–Woodruff Theorem 1; Resultary 300a3a84107a"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Identical inputs turn normalized joint scores into ordinary leverage probabilities; the conclusion applies to either name for this same sampler.",
+          "The same-day 300a3a84107a uses sparse-Rademacher range probing and residual error, not rescaled row draws and Gram spectral error. 6a0f8dc079de estimates a covariance diagonal for a flat projector."
+        ],
+        "reasoning": "A spiked spectrum or a binomial count does not make the experiments equivalent. The distribution, matrix estimator and success event here must all match.",
+        "searches": [
+          "arXiv:2610.29466, §2.2 Algorithm 1 and Remark 6",
+          "Resultary 300a3a84107a, one-probe spiked example",
+          "Resultary 6a0f8dc079de, exact Rademacher probing frontier"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed symbolic binomial laws were for one-probe range approximation and projector covariance-diagonal estimation. Neither gives the asserted bands or the d,7d/5,2d with-replacement witness."
+        ],
+        "reasoning": "The symbolic law and witness, rather than coinciding sample-size or probability entries in a numerical table, are the relevant comparison. No matching exact law was found in the bounded check.",
+        "searches": [
+          "Resultary 300a3a84107a and 6a0f8dc079de, exact binomial success laws"
+        ]
+      },
+      "rationale": "The sampler and the binomial algebra are standard; the supported distinct claim is the explicit equal-leverage, stable-rank-to-one Gram example with reentrant zero-success sample budgets and its comparison to a one-draw norm sampler. The inspected related results use different estimators or targets, or give sufficient high-probability bounds rather than this exact phenomenon.",
+      "residual_risks": [
+        "First-publication priority for this explicit witness or an equivalent weighted diagonal construction is not established by a bounded search.",
+        "The sampler, equal-leverage reduction, importance weighting and convergence to Poisson are not independently novel."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical-input sampler matches; embedding theorem is not the exact law",
+          "evidence": [
+            "J_ii=sqrt(ell_i*elltilde_i); Remark 6 gives normalized ordinary leverage for identical inputs. Theorem 11 gives a sufficient embedding budget."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.29466",
+          "material_read": "PDF pp. 4–6, §2.2 Algorithm 1 and Remark 6; p. 10, Theorem 11",
+          "method": "OA passage inspection",
+          "title": "Approximate Matrix Multiplication through Joint Leverage Score Sampling",
+          "trigger": "Definition of the frozen sampler and possible coverage by its guarantee"
+        },
+        {
+          "assessment": "Broader guarantees with different assumptions, not the prescribed exact sampling distribution",
+          "evidence": [
+            "Theorem 1 gives approximate-product guarantees via OSE moment assumptions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1507.02268",
+          "material_read": "Abstract and PDF p. 8, Theorem 1",
+          "method": "OA passage inspection",
+          "title": "Optimal Approximate Matrix Product in Terms of Stable Rank",
+          "trigger": "Potential broader stable-rank result"
+        },
+        {
+          "assessment": "Established method; not an exact comparison on this family",
+          "evidence": [
+            "Product terms are sampled with replacement, rescaled for unbiasedness, with probabilities proportional to products of factor norms."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/S0097539704442684",
+          "material_read": "Author-hosted PDF pp. 3, 7–8, sampling and probabilities",
+          "method": "OA passage inspection",
+          "title": "Fast Monte Carlo Algorithms for Matrices I: Approximating Matrix Multiplication",
+          "trigger": "Classical product-norm alternative"
+        },
+        {
+          "assessment": "Different probe, estimator, quantity and control parameter",
+          "evidence": [
+            "Single sparse-Rademacher range probe on diagonal spiked input; optimized variable is probe sparsity."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-success-laws-and-sharp-sparsity-choice-for-a-one-probe-spi--300a3a84107a",
+          "material_read": "Original finding on exact binomial residual-error laws and sparsity optimization",
+          "method": "Local Resultary lookup and mirrored statement inspection",
+          "title": "Exact success laws and sharp sparsity choice for a one-probe spiked problem",
+          "trigger": "Strongest same-day plausible exact-law match"
+        },
+        {
+          "assessment": "Different target and randomization",
+          "evidence": [
+            "The binomial law is for Rademacher covariance-diagonal probing, not Gram products from leverage-sampled rows."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-an-exact-all-iteration-rademacher-probing-frontier-for-two-spect--6a0f8dc079de",
+          "material_read": "Indexed finding on a flat rank-one projector",
+          "method": "Local Resultary lookup and statement comparison",
+          "title": "An exact all-iteration Rademacher probing frontier for two spectra",
+          "trigger": "Exact binomial law in a themed matrix-approximation result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The explicit all-nonzero-row family is a controlled counterexample to monotonic attainability in sample budget and to expecting uniformly good prescribed leverage sampling solely from near-one stable rank. Exact reentrant failure and the improving one-draw norm baseline diagnose different sensitivities of the two distributions. This is a finite-budget spectral Gram statement on the exhibited family, not a failure of general subspace embedding guarantees.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

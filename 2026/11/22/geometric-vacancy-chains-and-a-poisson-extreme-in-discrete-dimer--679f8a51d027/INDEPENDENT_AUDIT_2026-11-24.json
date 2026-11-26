@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:37:56.397853Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In a jammed matching vacancies cannot occur at distance one or two: at distance two the middle site has no available partner, contradicting maximality. Vacancies at distance three force the middle dimer, which must have the earliest of its three neighboring clocks (otherwise a required vacancy would be occupied). Each three-clock test is independent of the other tests and the clocks outside the chain. After those tests, the two outer subpaths have independent endpoint conditions. For k=0 the edge sets of the two subpaths are independent and share only the designated site; it stays vacant in the joined process iff it stays vacant in both isolated processes, by chronological coupling. Conditioning on the first edge (i,i+1) gives residual left path size i-1, hence the displayed endpoint recurrence and alternating sum. Extending the chain one step to the left and subtracting gives the canonical probability; the factorial endpoint errors are summable, giving the claimed mean up to O(3^{-k}). For Poisson convergence, window disagreement at either end requires a decreasing-clock path through the fixed boundary buffer, with probability O(1/w!) for w=ceil(log^2 n). For start differences at most 3k+3, differences divisible by three force the later predecessor to be an earlier vacancy, and other differences force a pair of vacancies at distance one or two. More distant starts require independent disjoint sets of k three-clock tests. Thus b1+b2=O(n(k+w)(3^{-2k}+1/w!))=o(1) on the asserted subsequences; replacing the windowed by the exact count costs O(n/w!) in coupling. Starts omitted at sites 1, 2, 3 have total probability at most 3*3^{-k}. For the logarithmic lower bound, one can use the central edges at left indices s+1,s+4,...,s+3k-2 and the two protecting edges at s-2 and s+3k+1; their three-clock tests use disjoint clocks and fit inside a block of 3k+8 sites. Independent such blocks give the required lower tail, and the chain law plus a union bound gives the upper tail. The infinite line is justified by the same finite-radius stabilization and a_m tending to e^{-1}. The subsequence qualification rules out interpreting (4) as convergence for all n with a continuously centered threshold. The bundled small-n checker was inspected read-only, not used to establish any asymptotic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gerin presents the endpoint/density calculation and stabilization. Penrose–Sudbury treats the general RSA setting, with exact one-site and pair-correlation results and a table at several distances. The DOI and OUP routes for Page returned HTTP 403."
+        ],
+        "reasoning": "The general model and stabilization mechanism supply ingredients, while a pair-correlation theorem alone gives neither arbitrary-order finite joint laws nor dependence bounds for rare canonical starts. Page's uninspected full text is not assessed as noncovering.",
+        "searches": [
+          "arXiv:1411.8002, full-text density and stabilization passages",
+          "arXiv:math/0503519, exact tree correlations and finite-graph approximation",
+          "Page DOI:10.1111/j.2517-6161.1959.tb00343.x"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1411.8002",
+        "arXiv:math/0503519",
+        "Page DOI:10.1111/j.2517-6161.1959.tb00343.x (retrieval attempted)",
+        "Resultary 472861c917c3, 5ddc40587134 and assigned-record match"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gerin supplies the building block: a middle local-minimum dimer and two side vacancies. The general Poisson method needs model-specific control of close rare-event pairs and of the stationary tail. The Resultary Poisson statement is indexed by centered times of successful arrivals."
+        ],
+        "reasoning": "Concatenating independent clock triples explains the all-order exact law as an extension of the known mechanism, and subtracting one-link extensions gives canonical intensities. No inspected earlier result gives the crucial exclusion/pair bound for long terminal chains or the resulting effective intensity (2/3)e^{-2} times the lattice scale. Neither generic Poisson approximation nor later-time arrival counts imply it without those arguments.",
+        "searches": [
+          "Gerin arXiv:1411.8002 pp. 5–6, actual distance-three calculation",
+          "Resultary 472861c917c3, actual arrival-time limit statement",
+          "Arratia–Goldstein–Gordon dependency-graph methodology, as cited in RESULT"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Penrose–Sudbury's independent uniform edge arrival times induce the same homogeneous priority matching law. Gerin p. 6 computes exactly e^{-2}/3 for two terminal vacant sites three apart. The Resultary late-arrival analogue uses successful edge arrival times, not terminal vacancy locations."
+        ],
+        "reasoning": "The two-point Gerin value is exactly the frozen k=1 infinite-volume special case, not a distinct claim of novelty. A large arrival time is not equivalent to a chain of final terminal vacancies; changing to the arrival-time variable does not produce the canonical-start events.",
+        "searches": [
+          "arXiv:1411.8002, Page–Rényi distance-three joint vacancies",
+          "arXiv:math/0503519, dimer RSA nearest-neighbor priority model",
+          "Resultary: terminal vacancy chains and Poisson extremes in dimer parking"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned record is the exact self-match. Resultary 472861c917c3 gives a spatial Poisson limit for late accepted edge times. Resultary 5ddc40587134 concerns transient three-site Palm dependence for monomers. The inspected published table lists pair correlations, not chain or canonical-start counts."
+        ],
+        "reasoning": "The relevant exact results do not tabulate the joint distribution of the frozen family of terminal chains, and do not give its longest-chain extremal index.",
+        "searches": [
+          "Resultary: geometric vacancy chains, Page–Rényi dimer extreme, 472861c917c3 and 5ddc40587134",
+          "Penrose–Sudbury arXiv:math/0503519 pair-correlation table, pp. 9–10"
+        ]
+      },
+      "rationale": "Gerin's exact infinite-line distance-three pair law, the endpoint framework and the local-minimum mechanism are prior, and the chain factorization extends that mechanism. The distinct material result is the finite all-order factorization together with the terminal canonical-start Poisson extreme, including the specific factor 2/3 and the lattice threshold. Closely related published and corpus results have different observables or are at pair order. The oldest directly relevant full text, Page (1959), was unavailable on the attempted lawful routes; this is a priority risk, not evidence of noncoverage.",
+      "residual_risks": [
+        "Page's 1959 primary full text and wider multisite vacancy literature could contain an equivalent finite-chain law. The bounded comparison is not exhaustive; the distinct Poisson canonical-start result should be kept separate from any historical finite-factorization credit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior endpoint and two-point special case, not the compared finite arbitrary-order or terminal-maximal-chain law.",
+          "evidence": "p. 6 gives the two final vacancies at sites 1 and 4 with probability e^{-2}/3; p. 2 attributes the density result to Page.",
+          "identifier_or_url": "https://arxiv.org/pdf/1411.8002",
+          "material_read": "PDF pp. 2, 5–6, 13, offsets 3800, 11869, 14450 and 31880",
+          "method": "Original OA PDF with relevant passages located and read",
+          "title": "The Page–Rényi parking process",
+          "trigger": "Same path model and exact terminal two-point probability"
+        },
+        {
+          "assessment": "Relevant general setting and pair-level results; no implication of the long terminal-chain extreme from material inspected.",
+          "evidence": "Independent uniform edge times realize the same path process; table concerns distance-indexed pairs.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0503519",
+          "material_read": "PDF abstract, model definition p. 3, pair table pp. 9–10, offsets 0, 5443 and 24900",
+          "method": "Original OA PDF passages",
+          "title": "Exact and approximate results for deposition and annihilation processes on graphs",
+          "trigger": "Same terminal process in graph-RSA formulation and exact correlations"
+        },
+        {
+          "assessment": "Unresolved historical risk, not a negative literature finding.",
+          "evidence": "Gerin attributes the terminal density law to Page (1959).",
+          "identifier_or_url": "https://doi.org/10.1111/j.2517-6161.1959.tb00343.x",
+          "material_read": "Bibliographic citation and density attribution in Gerin; no primary full text secured",
+          "method": "DOI and OUP, direct and VPN retrieval attempted; HTTP 403",
+          "title": "The distribution of vacancies on a line",
+          "trigger": "Plausible historical exact finite-vacancy overlap"
+        },
+        {
+          "assessment": "Different observable despite the exact model match.",
+          "evidence": "Successful edges marked by centered arrival times, not terminal chains.",
+          "identifier_or_url": "Resultary 2026/10/18 SCOPE-472861c917c3",
+          "material_read": "RESULT.md statement of point-process and count limits",
+          "method": "Configured local mirror",
+          "title": "Spatial Poisson limits for late dimer arrivals in Page–Rényi parking",
+          "trigger": "Same model and Poisson rare events"
+        },
+        {
+          "assessment": "Different particle rule and transient rather than terminal object.",
+          "evidence": "Three-site Palm dependence and saturated gap matrix in monomer adsorption.",
+          "identifier_or_url": "Resultary 2026/10/26 SCOPE-5ddc40587134",
+          "material_read": "RESULT.md finding",
+          "method": "Configured local mirror",
+          "title": "Strict positive transient three-site Palm dependence in nearest-neighbor adsorption",
+          "trigger": "Multipoint nearest-neighbor adsorption dependence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact spacing-three chain encodes clustered local augmenting paths for a natural jammed matching. The chain law and exact canonical-start intensity explain why counting raw chain occurrences would give the wrong extreme-value constant. The result gives both the logarithmic scale and a sharp lattice-window limit for the largest cluster.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

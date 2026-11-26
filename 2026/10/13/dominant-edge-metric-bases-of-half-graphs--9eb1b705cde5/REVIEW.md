@@ -1,12 +1,21 @@
-# Review of Dominant edge metric bases of half graphs
+# Independent mathematical audit
 
-## Correctness
-PASS. The diagonal matching gives the sharp vertex-cover lower bound \(n\). Every size-\(n\) cover is classified by complementing a maximum independent set, and the nested neighborhoods force exactly the \(n+1\) canonical cut covers. For each cut, edge-distance coordinates recover an edge in three exhaustive cases: two selected endpoints, a selected \(A\)-endpoint plus an \(A\)-side threshold, or a selected \(B\)-endpoint plus a \(B\)-side threshold. The included checker independently tests \(125{,}472\) candidate subsets through \(n=9\) and agrees with every cover and basis.
+## correctness
 
-## Originality
-PASS. The 2023 introducing paper defines dominant edge metric dimension, supplies the general lower bound and several standard exact families, and its inspected full text contains no half-graph or chain-graph occurrence. A published ordinary edge-metric result on half graphs gives size-\(n-1\) edge bases, but those sets cannot be dominant because the half graph has vertex-cover number \(n\). Targeted exact and semantic searches under dominant edge metric, half graph, and chain graph terminology found no equivalent theorem. The accepted claim is the equality with the cover bound plus the complete \(n+1\)-basis classification.
+PASS
 
-## Value
-PASS. Dominant edge metric dimension was introduced specifically to combine edge identification with vertex-cover monitoring. Half graphs are the canonical twin-free chain graphs, and here the interaction is exact: every minimum cover is automatically edge-resolving. The result cleanly quantifies the one-vertex gap from ordinary edge metric dimension and completely identifies all optimal sensor/cover configurations, which is structural information beyond either constituent invariant alone.
+The diagonal matching gives a lower bound n on vertex-cover and dominant-generator sizes. A size-n cover chooses exactly one endpoint of each diagonal edge. Choosing b_i and a_j at i<j would leave a_i b_j uncovered, so the choices must be an A-prefix and B-suffix. Conversely each such cut covers all edges. Independently, any vertex cover of a bipartite graph with pairwise distinct open neighborhoods within each part edge-resolves: equal signatures would have equal, nonempty zero-coordinate sets, so distinct edges would share exactly one selected endpoint and have unselected other endpoints x,y on the same side. A vertex in the symmetric difference of N(x),N(y) lies in the cover (as x,y are unselected) on the opposite side, differs from the shared endpoint, and has distance 1 to one edge but at least 2 to the other. In H_n the within-side neighborhoods are strictly nested, hence distinct. This proves resolution for all the cuts including the whole-side endpoints, with n+1 distinct optima. It agrees with the separate threshold decoding in the frozen proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The strongest same-object result classifies ordinary edge bases in the half graph; its statement is strictly different and does not imply the dominant basis classification by taking supersets. The general dominant lower bound yields n but no matching upper bound or all-optima statement for this family. Neither the other indexed half-graph record nor the inspected Ferrers work gives the same combined cover-and-resolution classification. The frozen reference to a published ordinary classification is best read as the public catalogue finding; an external journal identification for that exact classification was not verified.
+
+## value
+
+PASS
+
+For a canonical infinite family of nested-neighborhood graphs, the result determines the effect of the cover requirement on both the optimum and the entire family of optima. In particular the interior cut bases cannot be constructed by simply augmenting the earlier ordinary minimum bases. The all-minimum-covers resolution property and exact optimum family are useful beyond merely exhibiting an n-vertex set or evaluating a lower bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

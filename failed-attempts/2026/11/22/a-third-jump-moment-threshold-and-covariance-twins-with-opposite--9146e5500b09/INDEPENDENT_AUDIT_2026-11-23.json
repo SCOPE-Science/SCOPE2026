@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:34:16.674574Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The stationary backward Poisson reset intervals give the compound-Poisson perpetuity; finite third moment suffices by summing its L3 norms. Its cumulants through degree three are those of one interval divided by 1-c^k at order k. Centering the generator gives L y=-q(1-c)y and L(y^2-V)=-q(1-c^2)(y^2-V)+2λm1(1-c)y. Thus the contrast is (T-2rm1V/c) times the difference of the two relaxation exponentials. At c=0 the triangular system instead yields -2λm1V t exp(-qt), as claimed. For c>0 the exponential difference is strictly positive and the remaining sign polynomial H increases from -2r(u+r) to 2(v-r^2). Equality at r^2=v occurs only at the excluded c=1. Independently checked the witness moments with exact rational arithmetic: H_A=-87921/50000 and H_B=279/1000; the shared mean is 225/2 and the shared variance is 10625/44. The first polynomial mode then gives identical covariance at every lag. The frozen checker was read rather than run; the proof is not a finite test. Zero contrast at the root is not a reversibility claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Palmowski–Vlasiou give the stationary transform, moment recursion and perpetuity in (7)–(14) and finite-activity specialization in (17)–(21).",
+          "Assefa–Keller-Ressel–Palmowski (32) evaluates E_x[q(X_t)p(X_{t+h})] by exp(tB_{n+k}) M_q exp(hB_n), with B_j=A_j+λ(R_j-I)."
+        ],
+        "reasoning": "Take A_j from the compound-Poisson jump generator, R_j from x↦cx and the reset rate q in place of the paper's λ. Integrate in the stationary law and take the pair of degree choices (1,2) and (2,1); the generator is polynomial through degree three under exactly the moment assumption needed here. This covers the statistic, not just a neighboring model.",
+        "searches": [
+          "Resultary: stationary perpetuities with Lévy input; polynomial-reset cross moments",
+          "arXiv:2611.14692v1 §§2.4–2.5 and 2.7",
+          "arXiv:2610.01363v1 Corollary 3.12"
+        ]
+      },
+      "checked_sources": [
+        "Palmowski–Vlasiou arXiv:2611.14692v1",
+        "Assefa–Keller-Ressel–Palmowski arXiv:2610.01363v1",
+        "Resultary mirror: c69dc0d762a5, 248b082bc822, 2158555bdbfa, and the identical record 9146e5500b09"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the centered basis (y,y^2−V) the degree-two matrix in (32) has diagonal rates −q(1−c),−q(1−c^2) and coupling 2λm1(1−c). Subtracting the two prescribed cross moments leaves T−2rm1V/c times the difference of exponentials. Substituting the invariant moments gives H(c), with H(1)=2(v−r²).",
+          "At mean 1 and second moment 2, take two support points a∈(0,1) and b=1+1/(1−a) with weights chosen for mean 1. Variance is 1 and the third moment is a+b+2, ranging from 4 to infinity. The two frozen witnesses are members of this family straddling the sign zero at the common rates."
+        ],
+        "reasoning": "The implication is explicit and short; no additional structural lemma is needed beyond evaluating the established moment formulas and ordinary quadratic and two-point algebra.",
+        "searches": [
+          "arXiv:2610.01363v1 (32) and arXiv:2611.14692v1 (7)–(14), (17)–(21), specialized to positive compound-Poisson input"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With identical stationary one-time laws at the two time slots, expanding the centering cancels all lower-order terms in the antisymmetric contrast: E[Y0^2 Yt]-E[Y0 Yt^2]=E[X0^2 Xt]-E[X0 Xt^2]. These are two instances of (32).",
+          "SCOPE-four-time-sign-fingerprints-of-covariance-matched-resetting-gaus--c69dc0d762a5 concerns fourth-order Gaussian-bath reset fingerprints. SCOPE-a-strict-three-time-energy-arrow-and-a-unique-lag-reversal-under--248b082bc822 concerns shared-clock OU particles and a reversal in a lag, not a contraction threshold of jump transport."
+        ],
+        "reasoning": "The nearby Resultary examples are conceptually related, not duplicates. The equivalence with the uncentered polynomial contrast makes the broader published formula directly applicable.",
+        "searches": [
+          "Resultary: third-jump-moment threshold and covariance twins; covariance-matched opposite time asymmetries",
+          "arXiv:2610.01363v1 §3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed match SCOPE-a-third-jump-moment-threshold-and-covariance-twins-with-opposite--9146e5500b09 is the frozen record itself. SCOPE-exact-third-order-correlations-distinguish-full-branch-interval--2158555bdbfa concerns interval maps, not these jump laws."
+        ],
+        "reasoning": "This is a symbolic theorem over continuous parameters and arbitrary jump laws, not a numerical table invariant. The meaningful exact-record and witness comparisons did not identify a distinct indexed equivalent; this does not remove broader coverage.",
+        "searches": [
+          "Resultary: exact third-jump-moment threshold and covariance twins; exact covariance-matched opposite time asymmetry"
+        ]
+      },
+      "rationale": "The exact contrast and its qualitative refinement are direct corollaries of the prior stationary moment and Poisson affine-reset cross-moment formulas. Applying the latter in polynomial degrees one and two and integrating the initial state against the established invariant law gives the displayed two-rate contrast. The sign classification then requires only evaluating one increasing quadratic at its endpoints. The explicit laws are valid, independently useful illustrations, but their existence and matching conditions are direct two-point moment interpolation once the prior formulas are specialized. No assertion is made that the older papers print this particular threshold or these numerical examples. The reason for failure is demonstrated mathematical coverage, not lack of an exact-title hit.",
+      "residual_risks": [
+        "The comparison is not an exhaustive historical search for the formula in its simplified form. Failure is based on demonstrated implication, not on a claim about the earliest printed examples."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers stationary cumulant inputs; does not alone address the chronology contrast.",
+          "evidence": [
+            "Moment recursion from stationary transform, affine-reset perpetuity, and finite-activity specialization with its first two moments."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.14692v1",
+          "material_read": "§§2.4–2.5 and 2.7, equations (7)–(14) and (17)–(21)",
+          "method": "Bounded open HTML full-text passages",
+          "title": "Steady-state of Lévy process with general resetting: unreflected and reflected cases",
+          "trigger": "Exact stationary model generalized to affine resetting of Lévy input"
+        },
+        {
+          "assessment": "Directly covers computing the disputed contrast; sign and witness conclusions follow by the algebra documented above.",
+          "evidence": [
+            "Corollary 3.12 gives the two-time polynomial product for all degrees in scope and every lag under Poisson resetting."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.01363v1",
+          "material_read": "§3.3, Theorem 3.11 and Corollary 3.12, especially (32)",
+          "method": "Bounded open HTML full-text passages; explicit model specialization",
+          "title": "Moments of polynomial processes under affine resetting",
+          "trigger": "General cross-moment results for the same reset mechanism"
+        },
+        {
+          "assessment": "Conceptual overlap, but no equivalent compound-Poisson second-degree contrast formula in these distinct records.",
+          "evidence": [
+            "They treat fourth-order reset fingerprints, a three-time OU energy statistic, and cubic correlations of interval maps, respectively."
+          ],
+          "identifier_or_url": "SCOPE-four-time-sign-fingerprints-of-covariance-matched-resetting-gaus--c69dc0d762a5; SCOPE-a-strict-three-time-energy-arrow-and-a-unique-lag-reversal-under--248b082bc822; SCOPE-exact-third-order-correlations-distinguish-full-branch-interval--2158555bdbfa",
+          "material_read": "Matching findings and assumptions",
+          "method": "Local Resultary discovery and published record mirror",
+          "title": "Resultary comparisons: reset fingerprints, shared-clock OU energy arrow, and interval-map third-order correlations",
+          "trigger": "Covariance-matched asymmetry or reversal of a chronological statistic"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The statistic is a motivated diagnostic of temporal asymmetry that cannot be inferred from the complete covariance function. The positive jump-law witnesses give a transparent illustration, and the sharp all-lag sign criterion identifies which moment makes a reversal possible. That explanatory usefulness does not overcome the prior-coverage failure or imply an entropy-production interpretation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:29:01.855303Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–57",
+        "Frozen VERIFICATION.md and verify_mub9.py, inspected but not executed",
+        "/workspace/branches/audit_mub9_exact.py (independent finite replay using phase counts)"
+      ],
+      "rationale": "The trace pairing of F_9 is nondegenerate. Character orthogonality gives orthonormal finite bases; in the squared Gauss sum, summing over one coordinate after the difference substitution leaves only the zero difference for distinct quadratic coefficients, giving squared overlap 1/9. Diagonal traceless subspaces for the ten bases are pairwise orthogonal and have combined real dimension 80, so the squared norm of rho-I/9 is the sum of the squared probability deviations from 1/9. For pure states this gives sum p^2=2. Cauchy–Schwarz on all positive probabilities then gives 2 times total support >= (sum p)^2=100. For the unit five-coordinate witness, the unnormalized finite-basis sum is 1-zeta^A H(U)-zeta^(-A) H(V), with (U,V) running bijectively over F_3^2 and H=2 at zero, -1 otherwise. When A=0 exactly the four pairs with one zero give zero; when A is nonzero exactly the four pairs with neither zero give zero. All remaining sums have squared norm 9 and hence probability 1/5. The coordinate basis also has five equal nonzero probabilities, so equality holds. An independent integer character count reproduces both the overlap norms and all 81 witness norms.",
+      "residual_risks": [
+        "Attainment is proved for the stated finite-field bases, not every complete MUB set. No characterization of all minimizers is given."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The complete-support results in Li and Fiorentino–Weigert address prime dimensions.",
+          "The balanced constructions at d=3 mod 4 do not include the odd composite prime power 9=1 mod 4."
+        ],
+        "reasoning": "The generic complete-set second moment applies at nine but supplies only the lower bound. The inspected prime formulas and cycler constructions cannot specialize to this order to prove equality.",
+        "searches": [
+          "arXiv:2609.16030v2 Section 1",
+          "arXiv:2209.09817v2 abstract and Table 1",
+          "arXiv:1407.4074v3 Introduction and p. 20",
+          "arXiv:1409.7987v2 Abstract and p. 3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.16030v2",
+        "arXiv:2209.09817v2",
+        "arXiv:1407.4074v3",
+        "arXiv:1409.7987v2",
+        "Local Resultary record 283dc0ecaa24"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The moment identity yields the bound 50, with equality requiring every positive probability to be 1/5 in every basis.",
+          "Prior odd-prime-power minimum-uncertainty constructions do not guarantee the required balanced distribution at d=9."
+        ],
+        "reasoning": "To cover this theorem via a prior existence result, it would suffice to obtain the flat-on-five spectrum for the standard equivalent complete set. No such implication was established from the inspected prior results.",
+        "searches": [
+          "Complete-MUB moment identity and saturation test in frozen RESULT.md, lines 29–54; arXiv:1407.4074v3 p. 20; arXiv:1409.7987v2 p. 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Amburg et al. distinguish equal collision probabilities from identical distributions; their discussion explicitly leaves d=1 mod 4 open.",
+          "Appleby et al.'s cycler-eigenvector balance result is restricted to d=3 mod 4, and their cited SIC-to-minimum-uncertainty inclusion is prime-dimensional."
+        ],
+        "reasoning": "Balance only requires identical spectra, and minimum uncertainty here only fixes a second moment. Neither property without the flat five-point spectrum ensures support 50; there is no established equivalent state in these sources.",
+        "searches": [
+          "Dimension-nine MUB-balanced, minimum uncertainty, SIC-related and tensor/Clifford formulations",
+          "arXiv:1407.4074v3 and arXiv:1409.7987v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest Resultary support analog 283dc0ecaa24 has five bases in dimension four, with different spectrum and minimizers.",
+          "The inspected tables give small prime p=5,7 results; no d=9 row or five-point witness there."
+        ],
+        "reasoning": "Neither the same support statistic at a different field order nor the small-prime tables cover the claimed exact value and witness at F_9.",
+        "searches": [
+          "Resultary complete-MUB support and dimension-nine balanced witness search",
+          "Li Remark 6.8 small-prime enumeration",
+          "Fiorentino–Weigert Table 1"
+        ]
+      },
+      "rationale": "The distinct contribution supported by the inspected evidence is exact saturation at dimension nine by the specified flat-on-five state, not the known moment identity or its universal Cauchy–Schwarz bound. Neither the closest complete-MUB support theorems nor the balanced-state constructions checked give this witness, an equivalent one, or an implication of the flat-on-five equality.",
+      "residual_risks": [
+        "A separately formulated, unindexed or Clifford-equivalent dimension-nine witness is not ruled out; no full orbit classification was attempted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prime-only, no coverage at nine",
+          "evidence": "p^2-p+2 for prime p>=5; enumerated cases p=5 and 7.",
+          "identifier_or_url": "arXiv:2609.16030v2",
+          "material_read": "Section 1 p. 1, offset 823; Remark 6.8 p. 33, offset 87200",
+          "method": "Lawful OA full-text passages",
+          "title": "Sharp Total-Support Uncertainty for the Standard Complete Set of Mutually Unbiased Bases",
+          "trigger": "Exact support theorem for standard complete MUBs"
+        },
+        {
+          "assessment": "Small-prime results do not give the F_9 equality",
+          "evidence": "Table 1 explicitly treats small prime dimensions, with entries 22 at 5 and (44) at 7.",
+          "identifier_or_url": "arXiv:2209.09817v2",
+          "material_read": "Abstract offset 1266; Table 1 p. 15 offset 58780",
+          "method": "Lawful OA full-text passages",
+          "title": "Uncertainty relations for the support of quantum states",
+          "trigger": "Earlier complete-MUB support bounds and exact entries"
+        },
+        {
+          "assessment": "Construction does not cover nine",
+          "evidence": "Odd prime powers d=3 mod 4, with d=1 mod 4 discussed as open; minimum uncertainty is not enough for balance.",
+          "identifier_or_url": "arXiv:1407.4074v3",
+          "material_read": "Abstract offset 1409; Introduction p. 4 offsets 8643–10364; p. 20 offset 60152",
+          "method": "Lawful OA full-text passages",
+          "title": "States that look the same with respect to every basis in a mutually unbiased set",
+          "trigger": "Closest balanced-state construction"
+        },
+        {
+          "assessment": "No implication of this witness or its distribution",
+          "evidence": "MUB-cycler balanced eigenvectors only in d=3 mod 4; cited SIC inclusion pertains to prime dimension and minimum uncertainty.",
+          "identifier_or_url": "arXiv:1409.7987v2",
+          "material_read": "Abstract offset 2069 and p. 3 offset 8823",
+          "method": "Lawful OA full-text passages",
+          "title": "Galois Unitaries, Mutually Unbiased Bases, and MUB-balanced states",
+          "trigger": "Potential cycler or SIC equivalence"
+        },
+        {
+          "assessment": "Distinct dimension and finite-field geometry",
+          "evidence": "Dimension four support spectrum {14,17,18,19,20}, with forty Pauli-stabilizer minimizing rays.",
+          "identifier_or_url": "2026/10/18/SCOPE-complete-total-support-spectrum-and-six-zero-rigidity-for-five-f--283dc0ecaa24",
+          "material_read": "RESULT.md Finding and assumptions",
+          "method": "Local Resultary mirror",
+          "title": "Complete total support spectrum and six-zero rigidity for five four-dimensional MUBs",
+          "trigger": "Closest indexed complete-MUB support theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–17 and 29–54",
+        "Amburg et al., arXiv:1407.4074v3, Introduction"
+      ],
+      "rationale": "The explicit exact witness closes the gap between a universal moment bound and actual attainment for a natural first odd composite square dimension; it supplies a balanced state in the congruence class excluded by the standard constructions. The small calculation is not the value: the sharp extremal statement and simple reproducible witness are.",
+      "residual_risks": [
+        "No claim to a general saturation construction at other prime powers."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

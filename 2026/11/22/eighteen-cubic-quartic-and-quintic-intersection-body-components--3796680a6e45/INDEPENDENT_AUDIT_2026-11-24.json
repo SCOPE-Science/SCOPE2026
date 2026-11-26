@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:15:46.000129Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 7–66; VERIFICATION.md; checker.py, requirements.txt and CERTIFICATE.json (read as evidence)",
+        "Exact independent edge-area replay: python3 /workspace/branches/pyramid_edges.py <frozen CERTIFICATE.json>; /workspace/branches/pyramid_run.txt"
+      ],
+      "rationale": "The vertex mean is the interior origin, the base heights are p-z, -q-z, -p-z, q-z, and the apex height is 4z. Thus the two open half-spaces each have nine sign chambers. I reconstructed all eighteen homogeneous radial functions by a different exact method: intersect the crossed original edges with u-perp, order them by face adjacency, and divide the signed z component of the polygon's vector area by z. Its absolute value is area/||u||, with orientation fixed on each chamber. Exact symbolic reduction matches all 18 certificate profiles and witness signs, verifies coprimality and all 153 pairwise distinctions, and gives denominator degrees 3/4/5 with multiplicities 8/2/8 respectively; the horizontal section has area 64/25. The proof's coarea normalization and tetrahedron volumes 10/3 give the factor 10 independently. Coprimality over Q gives coprimality over C (the common-factor locus also descends); the homogenization D-10wN is primitive linear in w and irreducible, and dehomogenizing preserves irreducibility here. Comparing the two homogeneous pieces rules out coincident components. On z=+/-1 the rational radial map of a sector into its hypersurface has the projection from the origin as a rational inverse on the patch. The sector is open in the real chart and hence Zariski dense in the complex chart, so the patch is dense in its irreducible hypersurface. Continuity makes all wall directions limits of these patches, so the closed union gains no component. This proves total degree 72 and absence of linear components. For an invertible A, coarea or the planar area Jacobian gives rho_{AP}(u)=|det A| rho_P(A^T u), so the linear-image assertion follows by the invertible map |det A| A^(-T) on the boundaries.",
+      "residual_risks": [
+        "Applies to the specified centering and invertible linear images only. Exceptional sign walls are handled by closure; no scheme structure of component intersections is determined. No reliance on the frozen script's floating-point tests."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lemma 2.4 and Algorithms 1–2 give chamber structure and a rational-function procedure. Theorem 5.6 bounds degrees by f_1(P)-(d-1)=6 here. Example 5.8 treats the four-vertex tetrahedron with cubic and quartic pieces. The translation theorem describes polynomial dependence on translation parameters on arrangement regions."
+        ],
+        "reasoning": "None is an exact degree formula for this input. The reduction and distinction of chamber functions beyond the bound require the specific section geometry; translation dependence is not degree multiplicity.",
+        "searches": [
+          "arXiv:2110.05996 Lemma 2.4, Algorithms 1–2, Proposition 5.5, Theorem 5.6 and Example 5.8; arXiv:2302.11764 Theorem 3.5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2110.05996 and arXiv:2302.11764 passages listed above",
+        "Resultary 3796680a6e45, e28f8658e364, 12c6c3062fae, b50c728bd854, 27eb6be26fa6 and cdbba821c592 Findings",
+        "MathRepo landing page"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "On this pyramid there are both quadrilateral-section sectors that yield cubics and quadrilateral-section sectors that yield quartics, by the exact independent reconstruction. Knowing section vertex counts and a universal degree upper bound cannot distinguish those cases."
+        ],
+        "reasoning": "A general procedure for producing rational profiles from an input predicts none of the cancellations or coincidences without evaluating them. The claimed multiset is a particular exact invariant, not the specialization of an exact degree theorem in the checked sources.",
+        "searches": [
+          "arXiv:2110.05996 Algorithm 2, Proposition 5.5, Theorem 5.6 and Example 5.8; Resultary e28f8658e364 and 12c6c3062fae Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 3796680a6e45 is this same claim; e28f8658e364 uses right square pyramids but studies random affine section types. 12c6c3062fae uses a volume-centroid probability question."
+        ],
+        "reasoning": "The invertible linear-image covariance includes right square pyramid aspect ratios with vertex mean fixed at the origin; it does not take the vertex mean to the volume centroid or convert a section-side probability into a boundary equation.",
+        "searches": [
+          "Resultary: vertex-mean-centered right square pyramid, algebraic boundary of its intersection body, degree multiset and affine aliases; arXiv:2302.11764 Theorem 3.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact target 3796680a6e45 is the bound record. b50c728bd854 gives eight Cayley cubics for the octahedron; 27eb6be26fa6 gives higher-dimensional cross-polytope degrees; cdbba821c592 treats cubes/parallelotopes. MathRepo was accessible only as a landing page on the route tried."
+        ],
+        "reasoning": "The distinct exact tables are for bodies not invertibly equivalent to the five-vertex pyramid. The MathRepo landing page establishes neither inclusion nor exclusion of a precomputed equivalent.",
+        "searches": [
+          "Resultary exact target, square-pyramid/centroid section aliases, and same-day intersection-body algebraic-boundary records; MathRepo companion page"
+        ]
+      },
+      "rationale": "The prior general chamber and rational radial-function algorithm applies, and the novelty is not the method, affine covariance, or existence of a degree bound. For this five-vertex pyramid the published bound is six; it gives neither the actual top degree five, the lower-degree components, nor the distinctions of branches after reduction. The exact distribution requires the pyramid-specific symbolic cancellation and chamber comparison. The strongest related same-pyramid findings read concern section probabilities or a different center rather than algebraic boundary. The identical indexed hit is the target itself.",
+      "residual_risks": [
+        "The companion worked examples were unavailable beyond the landing page; an unindexed exact computation or a precomputed example could exist. The single focused primary-literature search added no relevant source, which is not evidence of absence. No within-day priority conclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Applicable algorithms and upper bound, but not the exact pyramid distribution",
+          "evidence": [
+            "f_1(P)-(d-1) gives 6; Example 5.8 is a tetrahedron with cubic/quartic regions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2110.05996",
+          "material_read": "Lemma 2.4 (p. 3), Algorithms 1–2 (pp. 8–9), Proposition 5.5 (p. 10), Theorem 5.6 (p. 11), Example 5.8 (p. 13)",
+          "method": "Open primary PDF bounded passages at offsets 8200, 25450, 32500, 37552, 41465",
+          "title": "Intersection Bodies of Polytopes",
+          "trigger": "General chamber computation and degree theory, likely to cover the invariant"
+        },
+        {
+          "assessment": "Different invariant of the translation family",
+          "evidence": [
+            "Polynomial dependence on translation parameters within arrangement regions does not give the pyramid's boundary component degrees."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2302.11764",
+          "material_read": "Theorem 3.5, p. 6, offset 19400",
+          "method": "Open primary PDF bounded passage",
+          "title": "Intersection Bodies of Polytopes: Translations and Convexity",
+          "trigger": "Centering and general dependence of radial formulas"
+        },
+        {
+          "assessment": "Not algebraic boundary and not fixed central sections",
+          "evidence": [
+            "Counts side types of random affine plane sections, not polynomial degrees."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-affine-plane-section-type-probabilities-for-right-square-p--e28f8658e364",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local archive bounded passage",
+          "title": "Exact affine-plane section-type probabilities for right square pyramids",
+          "trigger": "Same pyramid family and section geometry"
+        },
+        {
+          "assessment": "Different centering and probability invariant",
+          "evidence": [
+            "The center is the volume centroid and the statistic concerns pentagonal sections."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-sharp-pentagonal-section-probability-and-aspect-ratio-rigidity-f--12c6c3062fae",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local archive bounded passage",
+          "title": "Sharp pentagonal section probability and aspect ratio rigidity",
+          "trigger": "Similar plane sections and a centering convention"
+        },
+        {
+          "assessment": "Examples/software not inspected beyond landing page; unresolved",
+          "evidence": [
+            "No claim about the contents of unretrieved notebooks."
+          ],
+          "identifier_or_url": "https://mathrepo.mis.mpg.de/intersection-bodies/",
+          "material_read": "Landing page only",
+          "method": "Open website retrieval",
+          "title": "Intersection Bodies of Polytopes companion software",
+          "trigger": "Possible precomputed pyramid example"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding; independent degree and polygon-size outputs; arXiv:2110.05996 Theorem 5.6 and Example 5.8"
+      ],
+      "rationale": "The vertex-centered square pyramid is a canonical minimal non-tetrahedral three-dimensional polytope; exact algebraic boundary degrees are a natural test of the gap between chamber combinatorics and boundary algebra. This case exhibits three different nonlinear degrees rather than the two in the known tetrahedral example, improves the attainable maximum for this body from the general upper bound six to five, and shows explicitly that equal quadrilateral section size need not give equal algebraic component degree. The precise degree multiset and chart rule are useful benchmarks for intersection-body algorithms, not just a renormalization of a known example.",
+      "residual_risks": [
+        "Example-specific; no claim about arbitrary source polytopes, translations, or general degree bounds beyond the cited theory."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

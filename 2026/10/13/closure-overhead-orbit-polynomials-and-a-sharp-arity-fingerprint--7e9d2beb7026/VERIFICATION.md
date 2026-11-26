@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,28 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the meet-tree orbit-polynomial theorem
 
-Run the embedded standard-library Python program `verify.py` with `python3 verify.py`.
+# Independent mathematical audit
 
-## Exact replay result
+## correctness
 
-```
-Direct canonical enumeration: 421 shapes on <=11 vertices
-GF and direct n,w,k census: VERIFIED for k<=6, n<=6
-k=1 totals=[1, 1, 1, 1, 1, 1]
-k=2 totals=[1, 2, 5, 15, 48, 166]
-k=3 totals=[1, 2, 6, 20, 72, 282]
-k=infinity totals=[1, 2, 6, 21, 78, 313]
-unrestricted n=1: [1]
-unrestricted n=2: [1, 1]
-unrestricted n=3: [2, 3, 1]
-unrestricted n=4: [4, 9, 6, 2]
-unrestricted n=5: [9, 25, 27, 14, 3]
-unrestricted n=6: [20, 72, 103, 80, 32, 6]
-VERIFY_OK 740 exact coefficient and combinatorial assertions; 421 independent rooted shapes; 6 arities
-```
+PASS
 
-The cycle-index engine expands the bivariate ordinary generating-function equation by exact rational arithmetic and total degree. The separate direct engine recursively enumerates unordered rooted trees with black and white vertices, rejects white unary vertices, checks canonical uniqueness, and computes each tree's multiset of pairwise meets of black vertices using explicit pathwise lowest common ancestors. For all six tested degree caps, it compares individual bivariate coefficients with the independent generating-series engine. Further assertions verify the first arity-discrepancy polynomial, the full range of overheads, unrestricted OEIS A052300 totals and the ordinary rooted-tree/full-binary-tree endpoint counts.
+For a nonempty finite set in a meet-tree, fix one element s. All meets s∧x lie on the same lower chain; their minimum is the meet of the full set. Therefore every finitely generated point is a pairwise meet (allowing x=s), a fact that uses semilinearity and not just associativity. In the finite closure, unselected vertices must have two child branches containing selected points. Conversely each such vertex is the meet of marked leaves in two of its branches. The age property realizes every permitted shape, and meet-language ultrahomogeneity identifies exactly the isomorphic colored closures. The ordinary multiset cycle index applies to the unordered children; each term is rooted at a marked point or at an unmarked point with two or more children, and root weights determine a unique solution by total degree. If a vertex has k+1 children at n=k+1, each branch consumes its only marked point as a leaf, and neither the vertex nor an ancestor can be marked or carry any additional branch with a leaf. Thus the only excluded type is the unmarked star. The excess-child count over internal vertices is L-1 for L leaves, so w≤L−1≤n−1, equality forces full binary branching with only leaves marked, and binary trees with an extra unary marked chain realize the full range. The chain case k=1 gives z/(1-z). Own replay: python3 /workspace/review_replay.py 3 decorates initially uncolored rooted shapes of up to 11 vertices, checks exact pairwise-meet coverage, all available thresholds, and the n=6 unrestricted vector [20,72,103,80,32,6]. This is finite corroboration; the recorded source checker was inspected, not executed.
 
-The enumeration is exhaustive over the finite domain of at most six selected vertices, corresponding to at most eleven generated vertices, and degree caps one through six. It is not an exhaustive verification for larger subsets or infinitely many arities. The structural proof, not this program, establishes the unrestricted theorem. The program has no external dependencies and does not access a network.
+## originality
+
+PASS
+
+The unrestricted colored shape model and its grading are already implicit in the earlier ordered-tuple orbit result: quotienting injective tuple orbits by coordinate permutations forgets precisely the marked labels and preserves overhead. No standalone originality is credited to that implication, the OEIS totals, the classical multiset equation, or the Fraïssé construction. The finding's distinct arity-sensitive assertion is the sharp first-difference law with its exact one-orbit witness, together with the overhead endpoint characterization uniform across all caps k≥2. No inspected source states these threshold and rank results for finite subset orbits.
+
+## value
+
+PASS
+
+The arity bound is a structural parameter of the homogeneous limit; a precise smallest rank of unordered subset data that recovers it is useful in comparing those limits through their orbit profiles. The first extra orbit has an explicit geometric witness and exact overhead, and the other endpoint identifies a rank whose counts cannot detect any arity ≥2. This is a quantified result for every k and n, not value ascribed to computing another entry of the classical Greg-tree table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

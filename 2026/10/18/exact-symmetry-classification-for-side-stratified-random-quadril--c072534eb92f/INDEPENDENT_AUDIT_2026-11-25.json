@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:24:01.437393Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Affine normalization preserves independent uniform edge fractions and the area ratio. In cyclic order the sampled shoelace sum on the normalized quadrilateral is the ratio, since the host area is 1/2. Independently checked the moments by conditioning: set c=p+q-1, d=p-q, S=X+Z, D=X-Z, with X,Y,Z,T the independent centered Uniform[-1,1] side coordinates. The shoelace expression gives F=4(R-1/2)=C+(W+H)T+(W-H)Y with C=-dD, W=(S+cD)/2, H=dS/2+c. The joint law of (S,D) allows either sign to be flipped separately. Thus E[F]=0; in the conditional cube only C^3+2C(W^2+H^2) survives averaging over T,Y, and both terms average to zero. In the conditional fifth power, C^5 and (20/3)C^3(W^2+H^2) likewise average to zero. The remaining term is (16/3)C(W^4+W^2H^2+H^4); the only contribution after taking the (S,D) expectation is -(8/3)c^2d^2 E[S^2D^2], with E[S^2D^2]=2/5-2/9=8/45. Dividing by 4^5 gives the stated negative fifth moment. If d=0, flipping T,Y reverses F; if c=0, flipping X,Z reverses F. These transformations preserve the joint law. Off those lines the nonzero fifth moment excludes reflection symmetry. The frozen checker was inspected, not executed; the conditional-moment calculation supplies an independent exact check. Scope excludes degenerate hosts, pooled boundary sampling, and claims about a density everywhere.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Reitzner–Schütt–Werner, pp. 453–455: N iid samples from pooled polytope boundary; asymptotic expected face counts and volume difference.",
+          "Besau–Rosen–Thäle, abstract/introduction: asymptotic CLTs, with the Euclidean boundary case for smooth convex bodies and positive continuous density."
+        ],
+        "reasoning": "Neither general model yields an exact finite conditional area-reflection law for a quadrilateral with one sample on every side; conditioning and an asymptotic mean or CLT are not such a law.",
+        "searches": [
+          "Resultary: stronger all-moment or full-distribution laws for four-side sampling",
+          "DOI:10.1007/s00454-022-00460-2",
+          "arXiv:2005.10502"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 28cb15669f56",
+        "Resultary 3df53cbd2686",
+        "DOI:10.1007/s00454-022-00460-2",
+        "arXiv:2005.10502",
+        "Frozen RESULT.md, AUDIT.json, VERIFICATION.md and checker.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The frozen comparison reports E[R]=1/2, a general variance, and a parallelogram-only law for e537f7a0-1fda-4526-bc9d-e316f5b9ae4f; that particular original was not independently located.",
+          "The inspected 28cb15669f56 full-law statement is likewise restricted to parallelograms."
+        ],
+        "reasoning": "Mean and variance alone cannot imply higher odd moments or reflection symmetry; even an exact parallelogram law does not determine where the distribution is symmetric on the two-parameter space of hosts.",
+        "searches": [
+          "Frozen AUDIT.json: e537f7a0-1fda-4526-bc9d-e316f5b9ae4f",
+          "Local Resultary comparison: 28cb15669f56"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "AB parallel CD iff p=q; BC parallel DA iff p+q=1 (determinants of normalized sides). Thus the locus is precisely trapezoids, including parallelograms.",
+          "Resultary 3df53cbd2686, RESULT.md: the trapezoid characterization uses a perimeter-halving pair and cut area, not four independent side points and hull area."
+        ],
+        "reasoning": "The trapezoid wording is exactly equivalent here, but the located trapezoid area result does not have the same random input or statistic. Kites are not the claimed locus.",
+        "searches": [
+          "Resultary: trapezoid/kite aliases for four-side area symmetry",
+          "Primary literature search: one point per side and quadrilateral/trapezoid area-law symmetry"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 28cb15669f56, RESULT.md at offset 0: full density and centered moments in the same sampling model, only for parallelograms; indexed 2026-11-17 UTC.",
+          "The exact-moment/general-quadrilateral queries did not surface a table or equivalent record for arbitrary hosts."
+        ],
+        "reasoning": "The parallelogram match is real and stronger on that subfamily (p=q=1/2), but its odd moments do not specify the polynomial off it or detect asymmetry there. The later catalog date does not demonstrate prior publication.",
+        "searches": [
+          "Resultary: exact third and fifth central moments and reflection of normalized quadrilateral area",
+          "Resultary: side-stratified parallelogram area density and moments"
+        ]
+      },
+      "rationale": "Pass for the all-quadrilateral third/fifth moment result and exact full-law symmetry classification, not for the mean or parallelogram special case in isolation. The strongest same-model overlap located is confined to parallelograms; nearby boundary-sampling literature differs in model or limit and does not give the claimed obstruction or its zero locus.",
+      "residual_risks": [
+        "No additional useful primary source surfaced from the targeted web lookup; this is not evidence of global absence.",
+        "The earlier mean/variance and parallelogram comparison mentioned in the frozen record was not independently recovered by its historical identifier. Earlier unindexed exact treatments remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact density covers a proper subfamily only",
+          "evidence": [
+            "One independent uniform arclength point per specified side of a parallelogram; all odd centered moments vanish there."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-universal-area-density-and-marked-extreme-area-law-for-four-side--28cb15669f56",
+          "material_read": "RESULT.md, opening finding and scope, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Universal area density and marked extreme-area law for four-side sampling",
+          "trigger": "Strongest same-model full-distribution match"
+        },
+        {
+          "assessment": "Different observable and sampling scheme",
+          "evidence": [
+            "A single boundary point is paired with its half-perimeter counterpart; the law is for smaller cut area."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-perimeter-halving-area-atoms-characterize-trapezoids--3df53cbd2686",
+          "material_read": "RESULT.md, opening finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Perimeter-halving area atoms characterize trapezoids",
+          "trigger": "Equivalent shape-class wording"
+        },
+        {
+          "assessment": "Does not imply the finite separate-side symmetry theorem",
+          "evidence": [
+            "N independent boundary samples; asymptotic face counts and volume difference, with explicit fixed-N results not expected in the general setting."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00454-022-00460-2",
+          "material_read": "Abstract and introduction, journal pp. 453–455",
+          "method": "Lawful OA PDF, opening pages",
+          "title": "The Convex Hull of Random Points on the Boundary of a Simple Polytope",
+          "trigger": "General boundary-sampled convex hulls"
+        },
+        {
+          "assessment": "Asymptotic smooth-boundary regime differs from the frozen model",
+          "evidence": [
+            "The Euclidean boundary case uses a smooth convex body and positive continuous density."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2005.10502",
+          "material_read": "Abstract and opening introduction, PDF p. 1",
+          "method": "Lawful OA PDF",
+          "title": "Random inscribed polytopes in projective geometries",
+          "trigger": "Boundary models and distributional limit results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This solves a natural finite-distribution question on the full affine shape family: area complementation in law singles out exactly hosts with parallel opposite sides, even though usual skewness vanishes for every host. The fifth moment provides a sharp exact obstruction and the involutions explain why full symmetry, not merely a moment cancellation, holds on the two lines. The result neither assumes nor proves Euclidean reflection symmetry of the host.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

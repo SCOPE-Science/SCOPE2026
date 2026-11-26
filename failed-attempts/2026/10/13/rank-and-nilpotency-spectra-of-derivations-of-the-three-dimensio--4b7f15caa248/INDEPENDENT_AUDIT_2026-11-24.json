@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:04:26.280230Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The derivation identity on the alternating bracket forces D=(A,0;w,tr A) in block notation, with all six entries of A,w free, including in characteristic two. The frozen proof's explanation at lines 73–76 is imprecise: the last column need not be independent of the first two as written (take A=diag(1,0) and w=(0,1) over F₂). However, for nonzero τ=tr A, each v in ker A extends to a unique kernel vector (v,−wv/τ), proving the stated rank formula rank D=rank A+1. At τ=0 the rank rises by one exactly for w outside row(A). Counting rank-one A=uvᵗ modulo rescaling gives q²−1 of trace zero and q(q²−1) of nonzero trace. Among the q³ trace-zero matrices, q²(q−1) are nonsingular. These counts and the free row give the four stated rank coefficients. Nilpotence holds exactly when A is nilpotent, with q² choices for A and q² for w. Then D² has only the lower-left block wA. For A≠0 nilpotent the left kernel of A equals its one-dimensional row space; this gives the stated index counts and identifies the nonzero square-zero maps with the rank-one maps. Independent parameter enumerations over F₂,F₃,F₄,F₅,F₇ agreed with all coefficients; direct checks of all 512 and 19,683 linear maps over F₂ and F₃ found 64 and 729 derivations, respectively. Methods, outputs and scope: /workspace/branches/ec3a9923-cc39-4502-9dd1-2c95db36d314/independent-check-record4.md, lines 10–30. The supplied verify.py was inspected, not executed. The finite checks corroborate but do not prove the field-uniform formulas. The finding is correct with the indicated proof justification; the frozen file remains unchanged.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The orbit theorem covers every field and every A, and splits the central rows into membership and nonmembership in row(A−(tr A)I) when both strata occur. It gives their individual sizes over every finite field. The general square-zero theorem covers the index-one/two locus when its Heisenberg dimension parameter is one."
+        ],
+        "reasoning": "Rank and nilpotency index are invariant under conjugation. The orbit theorem records the similarity parameters and row membership needed to read both invariants, with sizes for all such parts. There is no characteristic or parameter in the submitted census outside its scope.",
+        "searches": [
+          "Resultary 0888705cfbec, theorem, field scope and proof of individual orbit sizes",
+          "Resultary 21c4a89e2fcd, general Heisenberg square-zero theorem"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 0888705cfbec, afcaae70dd75, c77f6ea4e079 and 21c4a89e2fcd",
+        "Alemi–Saeedi and Yang–Hu DOI/publisher evidence and bounded access attempts",
+        "Calderón–Draper–Martín–Sánchez arXiv:1405.4093v1 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "When A is nilpotent, the theorem's row space is row(A), which is the left kernel for the nonzero nilpotent 2×2 block. When A is invertible, D is invertible exactly for tr A≠0. For tr A=0 and A invertible, rank D is two."
+        ],
+        "reasoning": "Explicit aggregation: for odd q, trace-zero invertible A come from (q−1)/2 split distinct opposite-eigenvalue classes and (q−1)/2 irreducible trace-zero quadratic classes. Their class sizes q(q+1) and q(q−1) sum with those multiplicities to q²(q−1). For even q, trace zero instead selects the q−1 nonzero scalar and q−1 nonzero Jordan classes, of sizes 1 and q²−1, again q²(q−1) matrices. Thus R₃=q²(|GL₂(q)|−q²(q−1))=q³(q−1)(q²−q−1), R₁=(q²−1)(q+1), R₀=1 and R₂=q⁶−R₀−R₁−R₃. The index coefficients are the already tabulated nilpotent strata; their sum is q⁴. This proves actual coverage of both enumerators even though the prior display does not use these polynomial variables.",
+        "searches": [
+          "Resultary 0888705cfbec, Finding and Proof §§1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Record 0888705cfbec uses exactly the same alternating bracket, arbitrary finite fields and ordinary derivation condition. The idempotent and square-zero records restrict to smaller loci; the Rota–Baxter record imposes a different identity, even where one numerical coefficient matches."
+        ],
+        "reasoning": "The full orbit result is not merely an equivalent title for the rank census, but it partitions exactly the same set of linear maps. The related idempotent, square-zero and Rota–Baxter formulations are not equivalent to the full claim.",
+        "searches": [
+          "Resultary: ordinary H3 derivations, automorphism-conjugacy, finite-field rank and nilpotency-index spectra",
+          "Resultary 0888705cfbec, afcaae70dd75, c77f6ea4e079 and 21c4a89e2fcd, actual findings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The table already counts, for the zero quotient block, orbits of sizes 1 and q²−1; for the nonzero nilpotent block its two sizes are q(q²−1) and q(q−1)(q²−1). The table also specifies per-class sizes for every invertible block type."
+        ],
+        "reasoning": "The first two table rows immediately give index counts (1,(q²−1)+q(q²−1),q(q−1)(q²−1)). They give the rank-one count from the same two index-two parts. The rank-three part is the trace-nonzero portion of the invertible quotient rows; with this and the total q⁶, all four rank coefficients are determined.",
+        "searches": [
+          "Resultary 0888705cfbec, seven-row rational-canonical-type table and individual sizes"
+        ]
+      },
+      "rationale": "A distinct indexed result gives a complete, strictly finer census of the very same ordinary H₃ derivations over every finite field, tabulated by similarity class of the quotient block and central-row stratum. The rank and nilpotency enumerators follow by coarsening that census, including the characteristic-two case. This is a mathematical implication of the inspected result, not merely a matching title or a chronological priority inference.",
+      "residual_risks": [
+        "The cited Alemi–Saeedi matrix example and Yang–Hu text were not recoverable in lawful bounded retrieval. That limits statements about those papers but does not affect the explicit implication of the indexed orbit theorem.",
+        "The conclusion is coverage of the mathematics, not a separate finding about historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Complete orbit data imply the submitted rank and nilpotency polynomials by explicit aggregation",
+          "evidence": "The two row strata for each singular A are given individually, and every nonsingular block type has a specified size and class multiplicity.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-complete-automorphism-conjugacy-orbits-of-derivations-of-the-thr--0888705cfbec/RESULT.md",
+          "material_read": "Finding, table, field scope and proof of conjugation and sizes at offsets 0, 3000, 5350; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary search and bounded local-mirror text inspection",
+          "title": "Complete automorphism-conjugacy orbits of derivations of the three-dimensional Heisenberg Lie algebra",
+          "trigger": "Stronger census of exactly the same maps"
+        },
+        {
+          "assessment": "Unresolved primary comparison, not a basis for failure",
+          "evidence": "Frozen RESULT.md line 171 identifies its arbitrary-field six-parameter derivation matrix; this does not stand in for independent inspection of the text.",
+          "identifier_or_url": "https://doi.org/10.1080/25742558.2019.1624244",
+          "material_read": "No underlying example passage recovered independently",
+          "method": "Lawful OA attempts through DOI, publisher full text and PDF; no alternate copy recovered",
+          "title": "Derivation algebra of direct sum of lie algebras",
+          "trigger": "Cited direct structural example for the same ordinary H₃"
+        },
+        {
+          "assessment": "Unresolved as a literature comparison, not evidence against or for exact coverage",
+          "evidence": "The cited scope is color derivation structure; no exact ordinary finite-field census was established from accessed material.",
+          "identifier_or_url": "https://doi.org/10.1080/00927872.2010.480950",
+          "material_read": "Bibliographic and scope evidence only",
+          "method": "Lawful DOI/OA retrieval attempts, without full text",
+          "title": "Heisenberg Lie Color Algebras",
+          "trigger": "Cited characteristic-sensitive Heisenberg structural predecessor"
+        },
+        {
+          "assessment": "Inspected passage concerns gradings and Weyl groups, not the exact rank/index law; no whole-document exclusion inferred",
+          "evidence": "The abstract specifies fine group gradings and associated Weyl groups for several Heisenberg-type structures.",
+          "identifier_or_url": "https://arxiv.org/abs/1405.4093v1",
+          "material_read": "PDF abstract p. 1, OA text around offset 400",
+          "method": "Bounded OA original passage",
+          "title": "Gradings and symmetries on Heisenberg type algebras",
+          "trigger": "Same-object Heisenberg structural comparison"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The rank and index are natural invariants, and the census is correct. But the exact counts and structural observations here are obtained by summing a fully specified existing orbit table and applying elementary rank and square-zero tests to its representatives. The submission does not isolate a new invariant, regime or boundary needing further mathematics; recomputing this known coarsening is not an independent research-level contribution.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

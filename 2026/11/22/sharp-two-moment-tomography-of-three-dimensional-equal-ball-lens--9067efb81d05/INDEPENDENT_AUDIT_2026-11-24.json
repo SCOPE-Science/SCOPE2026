@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:13:31.870112Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a>0 each supporting sphere contributes the cap on the opposite side of the midplane, and both have area 2πR²(1−a). Sphere area in axial coordinate and azimuth is constant; the seam has measure zero and at a=0 the construction partitions a sphere into hemispheres. Independently integrated the two-point fourth power by averaging over the azimuth difference, treating same-cap and opposite-cap pairs separately. For b=1−a and R=1 this gives μ=2b and ν=4b²(b²−2b+5)/3; scaling restores the stated R factors. The dimensionless ratio (4+a²)/3 is strictly increasing on [0,1), so a and then R are uniquely recovered; the ball is included and a=1 excluded. The bound follows from |a₁²−a₂²|≥|a₁−a₂|², with equality against a=0 setting the constant and exponent. One positive even moment can be held fixed over varying a by scaling R. The independently integrated one-cap case also gives the claimed shared wedge, with distinct surfaces off the full-sphere endpoint. Replay: python3 /workspace/reproductions/review_04_lens.py (SymPy, exact integrals). The frozen symbolic/simulation checker was inspected, not run. No volume-sampling, unequal-ball, noisy-estimation or uniform radius-stability claim is verified; collapse as a→1 refers to fixed R. The two moments recover absolute scale as well as shape.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The located volume-lens summary treats the covariance of a volume-uniform point, not the area-uniform boundary moments.",
+          "The frozen comparison cites Drach–Tatarko's reverse isoperimetric statement involving volume and surface area; primary full-text retrieval timed out, so this description is not an exhaustive paper comparison."
+        ],
+        "reasoning": "A theorem about an extremal area-volume relation does not itself prescribe the pair-distance moments; a volume covariance theorem uses the wrong measure and only second-order information. These available statements do not dominate the audited claim.",
+        "searches": [
+          "arXiv:2303.02294v1 (lens)",
+          "Resultary dbb6d001c487 (same lens, volume covariance)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 589d8e6fc2c0, dbb6d001c487, bdea9ec9027d (summaries)",
+        "arXiv:2303.02294v1 (retrieval attempted; scope description from frozen citation)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cap wedge plus the verified lens wedge yields cross-family ambiguity, not priority for the lens law itself. At the shared sphere endpoint the cap and lens agree.",
+          "An area-weighted mixture requires chord cross terms not supplied by a within-cap pair law."
+        ],
+        "reasoning": "Credit the earlier cap statement for that family; proving the lens moments requires a new specialization including chords spanning the two patches.",
+        "searches": [
+          "Resultary 589d8e6fc2c0, dbb6d001c487, bdea9ec9027d; frozen RESULT.md §§5 and Relationship to prior work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest Resultary single-cap summary (589d8e6fc2c0) has the same [4/3,5/3) ratio range, but its law is for one sphere and one axial cutoff; the lens has an additional opposite-cap pair term verified by direct integration.",
+          "bdea9ec9027d treats a spherical lune on a single sphere with angular opening as its parameter."
+        ],
+        "reasoning": "Equality of the two moment images does not identify sampling measures or transfer the particular inverse law. Rescaling or changing the cap parameter cannot account for the pair contribution between two distinct supporting spheres.",
+        "searches": [
+          "Resultary: equal-ball lens entire boundary chord moments, surface-pair distances and radius/center separation recovery",
+          "Primary literature: full boundary equal-ball lens chord moments"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The directly matching search hit was the audited record itself. The nearby cap, lune, and volume-lens records have distinct objects or measures; the cap image coincides."
+        ],
+        "reasoning": "Comparison concerns closed moment laws rather than a single numerical entry. No distinct matching law was established by these bounded searches; this does not establish absence.",
+        "searches": [
+          "Resultary full-boundary equal-ball lens moment searches (exact ratio, two-moment inverse, and families comparison)"
+        ]
+      },
+      "rationale": "The exact moment law and sharp separation inverse are supported as distinct for the entire equal-ball lens boundary. The single-cap wedge is verified overlap, not an originality claim; the lens realization of the same wedge gives the ambiguity. The generic iid-pair expansion and the geometry of spherical zones are not claimed as new.",
+      "residual_risks": [
+        "No independent primary full text for Drach–Tatarko or full prior Resultary files was recovered.",
+        "An older or unindexed area-pair calculation or stronger surface-distance theorem could cover the law."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Overlapping wedge, different geometry and law",
+          "evidence": [
+            "One cap with height b in unit-radius coordinates gives κ=4(1+((2−b)/(4−b))²)/3."
+          ],
+          "identifier_or_url": "Resultary 589d8e6fc2c0",
+          "material_read": "Resultary theorem summary, frozen RESULT.md lines 76 and 86; mirror full text not retrieved",
+          "method": "Local relevance search and independent exact cap integration",
+          "title": "Two even Euclidean chord moments identify spherical caps, with optimal inverse exponents",
+          "trigger": "Identical feasible moment wedge"
+        },
+        {
+          "assessment": "Volume law not boundary law",
+          "evidence": [
+            "Uniform point in full-dimensional volume and covariance anisotropy."
+          ],
+          "identifier_or_url": "Resultary dbb6d001c487",
+          "material_read": "Resultary summary and frozen RESULT.md line 88",
+          "method": "Local search and measure comparison; mirror timed out",
+          "title": "Sharp covariance anisotropy law for symmetric Euclidean ball lenses",
+          "trigger": "Same solid geometry"
+        },
+        {
+          "assessment": "Related moment inverse for different supports",
+          "evidence": [
+            "A spherical lune is a one-sphere patch, not a boundary supported on two spheres."
+          ],
+          "identifier_or_url": "Resultary bdea9ec9027d",
+          "material_read": "Resultary summary and frozen RESULT.md line 88",
+          "method": "Local search and support comparison; mirror timed out",
+          "title": "Two even chord moments identify spherical lunes, with sharp square-root angle stability",
+          "trigger": "Related surface moment inverse"
+        },
+        {
+          "assessment": "Available description supports background geometry; full-paper coverage not decided",
+          "evidence": [
+            "Frozen comparison identifies an extremal volume result at fixed surface area, not a chord moment statement."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2303.02294",
+          "material_read": "Frozen RESULT.md lines 84 and 96 describe its scope; no independent primary passage retrieved",
+          "method": "Lawful OA retrieval timed out, including request for v1",
+          "title": "Reverse isoperimetric problems under curvature constraints",
+          "trigger": "Primary study of same lens geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a complete inverse law for two natural rigid-motion invariant statistics on a geometrically motivated family. It specifies what can be recovered from two moments, the sharp loss of resolution near a ball, and a concrete ambiguity if the family is unknown. These are not consequences of a general distance expansion alone, and they are exact population statements, not statistical guarantees.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

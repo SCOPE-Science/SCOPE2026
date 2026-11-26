@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:13:01.992109Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–62",
+        "Frozen VERIFICATION.md, check_graphical.py and check_group_orbits.py (inspected, not executed)",
+        "Independent replay: python3 /workspace/branches/cf2c4813-31b5-4702-9660-ecec2abaa35f/orbit_witness.py"
+      ],
+      "rationale": "The bilinear edge cocycle gives commutator x_u x'_v-x'_u x_v, valid also in characteristic two. On support U, all nonzero vertex columns on an induced connected component must have a common projective line, and this condition is sufficient. For a fixed tuple, the kernel of conjugation consists of one free scalar per active component plus a free coordinate at every vertex outside N[U]. At each outside neighbor of U the coordinate is forced to zero. Thus the rank is |N[U]|-c(U), and central coordinates for a fixed column array split into cosets of size q^rank. This includes isolates and empty support and gives the frozen polynomial. Independently, putting L=(q^k-1)/(q-1), the star contributes q^(3k)+q^(3k-1)(q^(3k)-1)t+q^(3k)(q^k-1)t^3 by splitting on center membership. The triangle-plus-isolate contributes q^(4k)+q^(4k-2)L(q^3-1)t^2 by splitting on whether the triangle has any active vertex. These give the stated symbolic totals and factorization. An independent direct multiplication-and-all-conjugators replay at q=2 found 5632 commuting pairs in each group and size histograms {1:64, 2:2016, 8:192} and {1:256, 4:1344}, totaling 2272 and 1600. Its finite verification is separate from the universal proof.",
+      "residual_risks": [
+        "The direct replay is only for q=2 and the two stated graphs; the algebra covers every finite field and positive tuple arity. The examples match ordinary totals, not ordinary class-size spectra."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed rank theorem treats arbitrary tuples, and gives a factor P+(P^{|C|}-P)T for each support component, distinguishing constant from nonconstant assignments.",
+          "Kaur–Prajapati–Prasad give an all-arity generating function of total commuting-tuple orbit counts for arbitrary finite groups. Sharma–Singh use centralizer branching for commuting probabilities; neither inspected passage gives the frozen graphical profile."
+        ],
+        "reasoning": "General recursions do not by themselves produce this closed support formula. The stronger indexed result, unlike those recursions, explicitly supplies its per-component enumeration and common centralizer ranks.",
+        "searches": [
+          "Resultary 2026/10/13/SCOPE-joint-centralizer-rank-spectra-of-graphical-lie-algebras--81ba4ac87b5b",
+          "arXiv:1905.07957 Theorem 2.1 and arXiv:2002.01253 §3 Theorem 3.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 81ba4ac87b5b and related indexed 857ae871be86, 11a1e3f1ac18, 38b9edb44d0d",
+        "arXiv:2107.05564, 1905.07957 and 2002.01253"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With h constant-projective components the source proves rank r=|N[U]|-h. The P term counts exactly the constant assignments; P^{|C|}-P counts the nonconstant assignments.",
+          "Pairwise tuple commutation is the vanishing condition for edge-wise 2 by 2 minors; equivalently h=c(U). The index theorem explains division by q^r to pass to group orbits."
+        ],
+        "reasoning": "Keep only the P term before summing over supports. The rank weight and central-coordinate factor become exactly (q-1)^{|U|}P^{c(U)}q^{k|E|-r(U)}t^{r(U)}. Substituting the star and triangle-plus-isolate is ordinary finite evaluation, not a new rank or counting theorem.",
+        "searches": [
+          "81ba4ac87b5b, RESULT.md Proof Steps 1–3, offsets 0–6345"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Indexed 81ba4ac87b5b defines the same vertex/edge commutator over every finite field, explicitly including characteristic two; the common-centralizer equations are exactly the equations for the stabilizer of simultaneous conjugation in the graphical group.",
+          "Rossmann's F_Gamma(q,Y) is coefficientwise B_{Gamma,1}(q;Y), not just an evaluation at Y=1."
+        ],
+        "reasoning": "The Lie bracket is used only for commutation and the common centralizer, so no logarithm or restriction on characteristic is needed to transfer this count to the group. The published single-element specialization is fully inherited.",
+        "searches": [
+          "Resultary: graphical groups or graphical Lie algebras, common centralizer ranks of tuples, simultaneous conjugation and component projective lines",
+          "arXiv:2107.05564 Eq. (1.3) and Theorem A"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Rossmann's exact single-element size polynomial is the full k=1 check. At q=2 the witness graphs have different ordinary size profiles, 8+28t+8t^3 and 16+28t^2, in spite of both totals being 44.",
+          "Example 5.3 has order-128 groups with matching full class equations and different higher profiles; it does not identify these graphs. The indexed formula gives the exact count inputs for these graphs without a table of finite group names."
+        ],
+        "reasoning": "Neither an order/count match nor the generic known separation proves exact witness identity. The exact symbolic support enumeration instead yields the two listed profiles and their difference directly.",
+        "searches": [
+          "Indexed 81ba4ac87b5b exact polynomial, Finding and Proof §§2–3",
+          "Rossmann arXiv:2107.05564 §1.3 polynomial and §1.4 Theorem A",
+          "Kaur–Prajapati–Prasad arXiv:1905.07957 Example 5.3"
+        ]
+      },
+      "rationale": "The earlier indexed joint-centralizer rank theorem for arbitrary tuples is formulated in the same coordinates and explicitly resolves the constant-projective component branch. Its proof-level rank and tuple count specialize mechanically to the commuting locus: retain the constant branch P on every component, then divide size-q^r counts by q^r. This is not an inference from the aggregated rank histogram alone. It is an exact restriction of the explicit assignment-level decomposition. Rossmann already supplies the full k=1 size distribution independently. The witness follows by evaluating the specialized formula on two four-vertex graphs; the empty-graph boundary is the trivial group and adds no separate result.",
+      "residual_risks": [
+        "Coverage refers to the mathematical implication, not attribution or derivation history. Related quiver-unit-group formulas and one-element graphic-matroid adjoint spectra concern different objects or invariants."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically implies the commuting-restricted rank and orbit-size polynomial",
+          "evidence": [
+            "Equations u_v b_w-u_w b_v=0, classification by constant-projective components, branch factor P+(P^{|C|}-P)T, and coefficient conversion by orbit size."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-joint-centralizer-rank-spectra-of-graphical-lie-algebras--81ba4ac87b5b",
+          "material_read": "RESULT.md Finding, Assumptions and Proof Steps 1–3, offsets 0–6345",
+          "method": "Targeted local mirror reading, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Joint centralizer rank spectra of graphical Lie algebras",
+          "trigger": "Strongest indexed match: simultaneous ranks for arbitrary graphical tuples"
+        },
+        {
+          "assessment": "Covers the full k=1 polynomial",
+          "evidence": [
+            "Same exponents |N[U]|-c(U) and support multiplicity (q-1)^{|U|}."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2107.05564",
+          "material_read": "§1.3 Eq. (1.3), p. 3, OA offset 6760; §1.4 Theorem A, p. 4, offset 10686",
+          "method": "Targeted OA PDF passages",
+          "title": "Enumerating conjugacy classes of graphical groups over finite fields",
+          "trigger": "Exact single-element graphical class-size enumerator"
+        },
+        {
+          "assessment": "Generic higher class counts and a stronger ordinary-spectrum-equality example, not the same graphical formula or pair",
+          "evidence": [
+            "One total per arity; example groups of order 128 with the same class equation have different higher commuting-tuple generating functions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1905.07957",
+          "material_read": "pp. 1–3 Theorem 2.1 and p. 9 Example 5.3 (OA offsets 0, 4800, 9782, 27680)",
+          "method": "Targeted OA PDF passages",
+          "title": "Simultaneous Conjugacy Classes as Combinatorial Invariants of Finite Groups",
+          "trigger": "General all-arity orbit counts and separation examples"
+        },
+        {
+          "assessment": "Related centralizer machinery but not this closed orbit-size profile",
+          "evidence": [
+            "Branching formula for commuting probabilities."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2002.01253",
+          "material_read": "§3 Theorem 3.1, p. 6, offsets 18591–21184",
+          "method": "Targeted OA PDF passages",
+          "title": "Commuting probability and simultaneous conjugacy classes of commuting tuples in a group",
+          "trigger": "Branching matrix methods for higher simultaneous conjugacy"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof Steps 1–4",
+        "Indexed 81ba4ac87b5b Proof Steps 2–3",
+        "Kaur–Prajapati–Prasad Example 5.3"
+      ],
+      "rationale": "The full graphical orbit-size distribution is a natural object, but the proposed advance over the available all-tuple classification is precisely the routine choice of its constant-projective component branch. The illustrative four-vertex pair evaluates that branch. It requires only equality of the ordinary class totals, not equality of the full ordinary size profiles, which already distinguish the pair. No separate structural result or independently needed exact witness beyond the immediate specialization was established.",
+      "residual_risks": [
+        "This does not deny usefulness of graphical orbit-size enumerators as formulas; it assesses the contribution of this specific restriction and witness."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:20:46.010424Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS applies to the repaired text, not to the frozen scalar claim. The frozen formula says γ_cs(K_{5,5})=5, but a set with two vertices on each shore is co-secure: every selected vertex can be swapped with an omitted vertex across the bipartition, leaving both shores occupied. In any two-shore co-secure set, a shore with one selected vertex forces exactly one omission on the opposite shore and hence total size equal to that opposite shore size. If both selected counts are at least two, the total is at least four. This proves min{a,b,4}, attained by a whole smaller part when its size is at most four and otherwise by a 2+2 selection. The star and K_{1,1} values follow from the one-part test. The independent repair script artifacts/check_biclique_minimum.py confirmed the corrected minimum on all 28 profiles 1≤a≤b≤7, including K_{5,5} with minimum 4. For the remaining classification: a set dominates iff it meets two parts or fills one part. A full part of size at least two can swap into another part; a singleton full part can swap only into another singleton. For r≥3 and two occupied parts an unoccupied third part supplies every swap; with at least three occupied parts, the only obstruction is an empty complement or one confined to a single occupied part. With r=2 and both parts occupied, a swap after deleting the last selection from one shore must complete the opposite shore, yielding exactly the frozen mixed-set test. Counting the disjoint exclusions and adding the admissible one-part sets gives the stated polynomials. The frozen verifier checks the criterion and coefficients, not the asserted scalar minimum; its reported replay does not contradict the counterexample. The corrected proof and reproducibility notes are in /workspace/repairs/2/; frozen evidence is unchanged.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lemma 1 gives |Y| for |X|=1, 2 for |X|=2, 3 for |X|=3, 4 otherwise, for |X|≤|Y|, and expressly attributes the result to [2]. Lemma 2 forces the leaves into every co-secure dominating set at any vertex with at least two adjacent leaves."
+        ],
+        "reasoning": "Coverage includes the star subclass at the set level and the scalar biclique corollary, but the inspected statements neither classify all biclique sets nor decide the support/complement obstructions for arbitrary multipartite graphs.",
+        "searches": [
+          "Web: \"Co-secure and secure domination in graphs\" \"Arumugam\" \"complete bipartite\" PDF",
+          "Kusum–Pandey arXiv:2302.13031v1, Lemmas 1–2 and reference [2]",
+          "Cui et al. DOI 10.3390/axioms14010010, OA access attempt"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2302.13031v1, Lemmas 1–2 and reference [2]",
+        "2026/10/4/SCOPE-secure-domination-polynomial-of-complete-multipartite-graphs--0ae94d81bd3c",
+        "Utilitas Mathematica 94 (2014), 167–182 (attribution and access attempt)",
+        "10.3390/axioms14010010 (landing/abstract access only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary text supplies the minimum for all K_{a,b}; it does not provide the audited conditions t_1,t_2≥1 and (s_1≥2 or t_2=1), (s_2≥2 or t_1=1) for arbitrary two-part selections."
+        ],
+        "reasoning": "The additional conditions arise from whether deleting the only selected vertex in one part forces a one-part dominating set; they do not follow from the minimum or a leaf-forcing condition. Nor does the secure classification imply them, as the quantifier counterexample shows.",
+        "searches": [
+          "Kusum–Pandey, p. 4, Lemmas 1–2",
+          "Local mirror secure-polynomial RESULT.md Finding and definition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The local secure multipartite parallel quantifies over outside vertices seeking a selected defender. The audited co-secure theorem instead quantifies over selected vertices seeking an outside replacement.",
+          "Kusum–Pandey, Lemma 1, explicitly gives the scalar complete-bipartite value."
+        ],
+        "reasoning": "Reversing quantifiers in the swap relation is not renaming the same set system. For example, take one selected vertex from the three-vertex part of K_{3,1,1} and one selected singleton. This set is co-secure using the unoccupied singleton, but an omitted vertex of the large part cannot replace its only selected neighbor while retaining domination. The scalar bipartite result is equivalent to the corrected corollary, not the all-set theorem.",
+        "searches": [
+          "Resultary: co-secure domination complete multipartite",
+          "Resultary: co-secure domination polynomial",
+          "Web: \"co-secure domination\" \"complete bipartite\" K_{m,n} classification"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest catalogue match: 2026/10/4/SCOPE-secure-domination-polynomial-of-complete-multipartite-graphs--0ae94d81bd3c. The returned results did not identify a same-variant all-set or coefficient formula; Lemma 1 gives the exact scalar biclique values in the literature."
+        ],
+        "reasoning": "The known minimum identifies the first nonzero degree only; the exact counts at that and higher degrees are not determined by it. The symbolic secure-domination table/formula counts a different family.",
+        "searches": [
+          "Resultary: complete bipartite co-secure domination number",
+          "Resultary: gamma_cs K_{a,b} co-secure domination",
+          "Resultary: co-secure domination polynomial"
+        ]
+      },
+      "rationale": "PASS is for the repaired complete classification and enumerators. The corrected scalar biclique result is prior work and is explicitly credited in the repair. The closest exact-family catalogue result uses secure, not co-secure, domination, and does not cover the repaired feasible-set system. The inspected evidence did not establish prior coverage of the all-set co-secure statement or its polynomials.",
+      "residual_risks": [
+        "The 2014 foundational paper was not independently readable in full; it could contain stronger standard-family results than the cited biclique minimum.",
+        "The Cui et al. OA attempt yielded a landing page/abstract or 403, not a full-text comparison; bounded catalogue and web queries do not rule out unindexed equivalences."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact scalar prior coverage and set forcing for stars, not the full repaired classification.",
+          "evidence": "Lemma 1 is labeled known and states the four size cases; Lemma 2 forces leaf membership when there are at least two leaves adjacent to a vertex.",
+          "identifier_or_url": "https://arxiv.org/pdf/2302.13031v1",
+          "material_read": "PDF p. 4, Lemmas 1–2 around offsets 11700–13335; reference [2], p. 18 near offset 57950.",
+          "method": "OA PDF passage inspection and direct comparison.",
+          "title": "Cosecure Domination: Hardness Results and Algorithm",
+          "trigger": "Exact complete-bipartite co-secure minimum."
+        },
+        {
+          "assessment": "Scalar attribution is supported by the 2023 primary text; scope of the 2014 original beyond this attribution remains uncertain.",
+          "evidence": "Kusum–Pandey list this paper as [2] and attribute Lemma 1 to it. The located PDF returned HTTP 403.",
+          "identifier_or_url": "Utilitas Mathematica 94 (2014), 167–182, Arumugam–Ebadi–Manrique",
+          "material_read": "Bibliographic details and attribution in arXiv:2302.13031v1; attempted PDF was inaccessible.",
+          "method": "Checked reference and attempted identified alternate PDF.",
+          "title": "Co-secure and Secure Domination in Graphs",
+          "trigger": "Source cited for the biclique lemma."
+        },
+        {
+          "assessment": "Not equivalent to the repaired co-secure problem.",
+          "evidence": "The definition requires a valid swap for every outside vertex, not for every selected vertex.",
+          "identifier_or_url": "2026/10/4/SCOPE-secure-domination-polynomial-of-complete-multipartite-graphs--0ae94d81bd3c",
+          "material_read": "Local mirror RESULT.md Finding and definition near offset 2011.",
+          "method": "Local-mirror passage comparison and a quantifier witness.",
+          "title": "Secure domination polynomial of complete multipartite graphs",
+          "trigger": "Exact graph family and adjacent enumerator."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired result specifies the actual family of co-secure sets in a natural dense graph class, showing why the two-part case differs and giving exact counts by size for arbitrary part sizes. This is more than the known minimum, and the proof gives the replacement obstruction directly from the part occupancies.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

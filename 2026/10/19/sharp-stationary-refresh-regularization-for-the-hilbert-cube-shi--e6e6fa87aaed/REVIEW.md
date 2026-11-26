@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The output is a shift-equivariant factor of the stationary base process times iid refresh noise. The sharp coordinate-window inequality follows from independence *conditional on the entire base process*, not from a false assertion that the output is a product law. All-length decay implies measure expansivity at every radius below one half. The stationary joining has cost bounded by \(\varepsilon/2\), and its extremal deterministic base forces equality under *every* joining. Full support, preservation of ergodicity and the coarse-partition entropy lower bound follow by direct arguments. The 1,848 exact-rational checks and 15 numerical entropy diagnostics in `check.py` are supplementary, not a replacement for the analytic argument.
+## correctness
 
-**Originality (O): PASS under the inspected literature, with a concrete residual risk.** Lacerda (2026) proves product-law expansivity and density among unrestricted Borel measures; the conditioning argument of its Theorem B does not preserve invariance. Arbieto--Morales (2011) proves positive-entropy ergodic laws are expansive but neither uniformly quantifies a common radius nor approximates a prescribed stationary process with sharp stationary joining cost. The closest published record on Hilbert-cube product small-ball criteria assumes coordinate independence, unlike the present dependent stationary input/output. Searches for refresh channels, shift-invariant expansive-law density, sharp window constants, aliases and stationary \(\bar d\) perturbations returned no equal or stronger claim. A prior construction in general stationary-channel or ergodic-theory literature may still exist; negative database searches alone are not a proof of priority.
+PASS
 
-**Value (V): PASS.** A motivating recent density theorem leaves shift invariance uncontrolled, a substantive constraint in dynamical applications. The joint result supplies an explicit invariant/ergodic-preserving regularization in the stronger \(\bar d_1\) topology, with optimal distortion and anti-concentration constants and a quantified infinite-entropy tradeoff. It gives a reusable quantitative approximation law for arbitrarily dependent stationary data, rather than a recomputation for product measures.
+The product of the stationary input with the iid pair of noises is stationary, and the coordinate replacement map is equivariant. A mixing noise system preserves ergodicity on taking a product with an ergodic input; weak mixing and mixing are respectively closed under these products and factors. This is inheritance, not an assertion that a general dependent input becomes iid. Any nonempty basic open cylinder has positive probability by refreshing all of its finitely many specified sites. Conditional on X, each window constraint has probability (1−epsilon) times its input indicator plus epsilon times the admissible length, bounded by 1−epsilon+2epsilon r. Conditional independence gives the sharp power bound, attained at the all-half input and center. At radius zero this gives nonatomicity; at radius r the coordinate of weight one at each shift time gives the Bowen-ball inclusion and makes its mass zero. The stationary joining has cost epsilon times E[(X_0²+(1−X_0)²)/2], at most epsilon/2. For the all-zero input all joinings have this cost, proving sharpness even after the infimum. This coupling also has E rho at most 3epsilon/2, hence gives weak convergence as well. Given a full input block, the binned outputs have independent laws each of entropy H_epsilon(M), including bin endpoints under the stated convention. The unconditional block entropy is at least the conditional one, and the stationary entropy rate is at least H_epsilon(M)=epsilon log M+O_epsilon(1). The statements include epsilon=1, where the output is iid uniform. Exact replay of the sharp estimates uses the lengths 2r at 1/2 and integral from 0 to 1 of u du at 0; the argument establishes all block sizes, unlike the frozen finite rational checks. The bundled script was not executed.
 
-No independent mathematical review has been performed. The bibliographic limitation does not affect the self-contained correctness proof. The theorem does not state an entropy-preserving approximation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported contribution is the explicit stationary approximation for every invariant input, even dependent and nonergodic, with optimal stationary joining cost and sharp finite-window anti-concentration simultaneously. Neither product-measure criteria nor weak-topology density of arbitrary expansive measures yields this. The qualitative expansivity of positive-entropy ergodic outputs, and of the product-Lebesgue endpoint, is already covered; the entropy and mixing statements here use standard tools.
+
+## value
+
+PASS
+
+The approximation keeps the dynamics and stationarity fixed and controls an invariant coupling rather than only weak convergence. At any prescribed error it supplies full support and explicit uniform anti-concentration at all window sizes, even for singular or dependent input, and identifies the entropy cost of this particular channel. The optimal constants concern natural constraints with different extremizers; the result is not merely the known existence of weakly nearby expansive probabilities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

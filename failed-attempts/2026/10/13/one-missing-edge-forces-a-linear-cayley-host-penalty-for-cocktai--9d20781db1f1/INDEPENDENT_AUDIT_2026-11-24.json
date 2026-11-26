@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:16:43.964061Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–31",
+        "Frozen VERIFICATION.md, verify.py, verification_output.txt (inspected, not executed)"
+      ],
+      "rationale": "Deleting a cross-part edge from the cocktail-party graph adds an edge between two matching components in the complement, giving P₄ disjoint union (r−2)K₂, with n=2r vertices and m=r+1 edges. In a d-regular complementary induced host, d≥2. If t vertices lie outside the copy, the selected vertices send exactly nd−2m edges across the cut and the outside vertices can receive at most td. Thus t≥n−2m/d≥n−m=r−1. This works for all regular hosts, whether connected or not. The cycle of length 3r−1 realizes the complement pattern by arranging the required path blocks cyclically with one skipped vertex per block, including the wraparound; for r=2 this is P₄ in C₅. Complementing gives a circulant host with steps other than 0 and ±1, so the lower bound is attained in both classes. The undeleted graph needs exactly 2r vertices because it is already Cayley by excluding steps 0 and r modulo 2r and every induced embedding is injective.",
+      "residual_risks": [
+        "The saved range 2≤r≤100 corroborates the construction and lower-bound arithmetic, not exhaustiveness over host groups. The all-r conclusion comes from the proof. The regularity hypothesis cannot be dropped."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact minimum order of a maximum-degree regular induced extension follows from four numerical tests for its added vertex count t. Here Δ=2, δ=1, and total deficiency s=2(r−1). The condition tΔ≥s forces t≥r−1, and at t=r−1 the second expression is (r−1)(r−2)≥0; the other two conditions are automatic.",
+          "Souop–Bitjoka's path theorem covers r=2. Their general abelian Cayley lower bound yields only 2r here, and their multipartite results do not apply to the deleted-edge graph."
+        ],
+        "reasoning": "The earlier general theorem already solves the exact minimum degree-two regular extension on this input. Its necessary deficiency inequality, counting across the selected set, also prevents improvement at higher ambient degree. This is not an inference from the undeleted Cayley characterization.",
+        "searches": [
+          "Górska–Skupień, Opuscula Math. 39 (2019), §1, Definition 1.1 and Theorem 1.2 (Erdős–Kelly)",
+          "Souop–Bitjoka arXiv:2609.01486v2, Theorems 6, 10, 11 and Remark 12"
+        ]
+      },
+      "checked_sources": [
+        "Frozen package",
+        "Local Resultary ranking",
+        "Górska–Skupień published §1 (Erdős–Kelly theorem)",
+        "Souop–Bitjoka arXiv:2609.01486v2",
+        "Distance-regular Cayley graphs, Proposition 4.4",
+        "Original Erdős–Kelly archival PDF attempt only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For degree two, the optimum extension contributes precisely one new vertex per path component; the equality in the deficiency count means those new vertices are independent.",
+          "Ordering the components around a circle and using each new vertex as a gap between successive path ends realizes the same optimum as one cycle. The single-block cyclic construction is already in the earlier path result.",
+          "For any d≥2, t≥n−2m/d≥n−2m/2, so allowing higher regular degree cannot reduce the computed order."
+        ],
+        "reasoning": "The specialization gives the regular optimum and its connected degree-two Cayley representative by the elementary cycle construction. Complementing preserves the class and the number of vertices; subtracting the undeleted graph's own order gives exactly the proposed penalty.",
+        "searches": [
+          "Górska–Skupień 2019, §§1–2, especially Theorem 1.2",
+          "Souop–Bitjoka arXiv:2609.01486v2, path-as-cycle construction in Theorem 10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Complement turns the deletion family into the linear forest P₄ disjoint union (r−2)K₂. Complement preserves abelian Cayley, vertex-transitive, and regular hosts.",
+          "Erdős–Kelly's exact intrinsic regularization theorem applies to the complementary forest. The closest same-invariant Resultary summary concerns K₁,₁,ₙ and uses a different lower bound."
+        ],
+        "reasoning": "The prescribed host problem has the same minimum in the complement. In that form the input is a union of paths, with maximum degree two and total degree deficiency twice its number of path blocks.",
+        "searches": [
+          "Local Resultary on one-edge-deleted cocktail-party graphs, η and minimum induced host order",
+          "Web literature lookup on induced regularization, Erdős–Kelly, degree two and linear forests",
+          "Web literature lookup on disjoint path components as induced subgraphs of cycles"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected invariant paper prints η(P₄)=5 as part of its path formula and reports computations for connected graphs on four to six vertices; no specific six-vertex entry is relied on.",
+          "No exact catalogue item for the deletion family was found in the inspected ranking. The four earlier numerical conditions determine the exact extension order on the complement uniformly in r."
+        ],
+        "reasoning": "A separately published table of this deletion family's values is not needed to decide coverage. The prior exact criterion already prescribes the extension number, and the cyclic realization is routine in degree two.",
+        "searches": [
+          "Local Resultary ranking on η and cocktail-party induced host order",
+          "Souop–Bitjoka arXiv:2609.01486v2, §5, Theorem 10 and Remark 12; literal cocktail lookup",
+          "Erdős–Kelly numerical characterization as restated in Górska–Skupień 2019, Theorem 1.2"
+        ]
+      },
+      "rationale": "After complementation the graph is a nonregular linear forest, and the exact vertex budget is a routine specialization of the Erdős–Kelly induced regularization theorem and its deficiency bound. In degree two the optimal regularization can simply be made one cycle by linking the path ends through one outside vertex per component. Regular hosts of larger degree cannot improve the deficiency bound, as n−2m/d increases in d. Thus passing from the exact minimum degree-two regularization to a cyclic Cayley host needs no new obstruction or realization theorem. This is prior implication plus an elementary cycle specialization; no verbatim prior cocktail-party deletion theorem is asserted.",
+      "residual_risks": [
+        "No earlier verbatim deletion-family formula was established. The originality decision rests on the verified general regularization criterion and the immediate cyclic realization, not on an inaccessible file or a failed lookup."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact general numerical criterion for induced extensions at the original maximum degree. Specializes to r−1 added vertices here.",
+          "evidence": [
+            "Defines s as the sum of Δ−deg(v); the minimum t is exactly the least positive integer satisfying tΔ≥s, t²−(Δ+1)t+s≥0, t≥Δ−δ and (t+n)Δ even. Earlier Erdős–Kelly works are credited."
+          ],
+          "identifier_or_url": "DOI 10.7494/OpMath.2019.39.3.355; https://repo.agh.edu.pl/bitstreams/46df01b2-d7c1-4d5d-8b76-9e241d2c009e/download",
+          "material_read": "pp. 355–356, §1, Definition 1.1, Theorem 1.2 and notes (OA offsets 0–4200 in bounded passages); bibliography near offset 12400",
+          "method": "Primary published PDF via institutional repository; located theorem then read it with definitions",
+          "title": "A partial refining of the Erdős–Kelly regulation",
+          "trigger": "Exact earlier induced regularization criterion"
+        },
+        {
+          "assessment": "No separate claim about the original wording or arbitrary-host scope.",
+          "evidence": [
+            "HTTPS certificate check failed; the accessible 2019 paper explicitly attributes the exact criterion to Erdős and Kelly."
+          ],
+          "identifier_or_url": "https://combinatorica.hu/~p_erdos/1967-26.pdf",
+          "material_read": "No original full-text passage recovered in this route.",
+          "method": "Lawful OA retrieval attempted; relied on the bounded published theorem statement in Górska–Skupień instead",
+          "title": "The minimal regular graph containing a given graph",
+          "trigger": "Original Erdős–Kelly source"
+        },
+        {
+          "assessment": "Path result covers r=2; neither general floor nor multipartite upper bound alone solves r≥3.",
+          "evidence": [
+            "Theorem 10 uses consecutive residues 0,…,n−1 in Z_(n+1); its lower bound uses nonregularity of a path. Remark 12 gives only an upper bound for general complete multipartite graphs and recognizes balanced parts as circulant."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.01486v2",
+          "material_read": "Theorem 6 (general lower bound), §5 Theorems 10–11 and Remarks/Proposition 12–13; directly checked bounded text from approximately OA offsets 22050 and 22700",
+          "method": "Primary OA PDF, by theorem and bounded offsets",
+          "title": "Induced Embeddings of Graphs into Abelian Cayley Graphs",
+          "trigger": "Defines η and explicitly computes paths and related families"
+        },
+        {
+          "assessment": "Covers the undeleted Cayley characterization, not an order calculation after deletion.",
+          "evidence": [
+            "The proposition treats cocktail-party graphs as Cayley graphs by removing the order-two connection."
+          ],
+          "identifier_or_url": "DOI 10.1007/s10623-016-0209-4",
+          "material_read": "§4.2, Proposition 4.4, pp. 7–8, OA offsets 23159–23820",
+          "method": "Bounded primary OA PDF passage",
+          "title": "Distance-regular Cayley graphs with least eigenvalue −2",
+          "trigger": "Same cocktail-party family before deletion"
+        },
+        {
+          "assessment": "No exact match at summary level; no full-text noncoverage conclusion.",
+          "evidence": [
+            "The summary gives η(K₁,₁,ₙ)=3n by a difference-set lower bound, a different input family."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-exact-abelian-cayley-host-order-for-the-unbalanced-family-k-1-1--ef2188721b72",
+          "material_read": "Resultary statement summary only; local full file was unavailable.",
+          "method": "Configured local ranking and local-file attempt",
+          "title": "Exact abelian Cayley host order for the unbalanced family K₁,₁,ₙ",
+          "trigger": "Nearest same-invariant local ranking"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, complement and crossing-degree argument",
+        "Górska–Skupień, Theorem 1.2",
+        "Souop–Bitjoka, Theorem 10"
+      ],
+      "rationale": "Sensitivity of minimum induced Cayley order to edge deletion is a natural theme. In this particular family, however, the operation just joins two matching components into a path in the complement, turning the cost into the known degree-two deficiency calculation with one cyclic gap per component. This does not supply an independently difficult or previously undetermined host constraint beyond that routine specialization.",
+      "residual_risks": [
+        "No conclusion is drawn about the cost for other perturbations or about characterizing all minimum hosts."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

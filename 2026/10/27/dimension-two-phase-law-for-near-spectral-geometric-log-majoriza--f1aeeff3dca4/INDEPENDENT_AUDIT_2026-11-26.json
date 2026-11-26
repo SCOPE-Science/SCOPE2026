@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:28:24.455714Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–27 and 31–108",
+        "Frozen check_near_spectral.py, inspected without execution",
+        "Frozen VERIFICATION.md, recorded 896 exact rational checks and not_performed external verification fields"
+      ],
+      "rationale": "Both curves scale by a^(1−t)b^t, so separate determinant-one normalization preserves the ordering. Cayley–Hamilton yields M=(A⁻¹+B)/K and N=(A⁻¹+D)/K, with determinants one and tr(AM)=tr(AN)=K>0. In a unitary eigenbasis of A, pairing the ij and ji terms in tr(D)−tr(B) yields the squared commutator sum; it vanishes exactly when A commutes with B^(1/2), equivalently with B. Thus the rapidities satisfy v≥u, strictly when AB≠BA. The two-point interpolation of T^(2t) on e^(±w) gives the displayed two-term trace difference, valid by continuity also at w=0. Strict increase of x coth x gives decreasing sinh(pw)/sinh(w) for 0<p<1 and increasing for p>1. The two coefficients of the trace difference thus have the same sign in the open intervals. At t=1 the first term is zero, not strictly increasing as stated for the combined range in Step 4; the F_2 term alone gives strictness. Both terms yield zero difference at t=0 and t=1/2. Equal positive determinants make largest eigenvalue strictly increasing with trace, giving the claimed spectral comparisons, not a Löwner-order claim.",
+      "residual_risks": [
+        "The finite rational checks do not certify arbitrary complex inputs or all t; those are covered by the proof. The Step 4 wording about both terms being strictly increasing needs the endpoint qualification above. No assertion in higher dimensions follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorems 4.3 and 4.4 give all-dimension weak t=1 order and t=1/2 isospectrality; Proposition 4.13 gives the near-curve determinant-one normal form.",
+          "The inspected Gan–Kim passages concern the ordinary spectral mean and comparison with geometric or Wasserstein means, not this pair of curves. The older foundational near-geometric article's full text could not be verified."
+        ],
+        "reasoning": "The broader results cover particular parameters and supply useful ingredients, not the interior range comparison for this curve pair.",
+        "searches": [
+          "arXiv:2610.23736v1, Theorems 4.3–4.4 and Proposition 4.13",
+          "DOI 10.1007/s11117-025-01147-7",
+          "arXiv:2208.12407v1 and 2301.07934v4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, lines 16–23 and 120–137",
+        "arXiv:2610.23736v1, 2208.12407v1 and 2301.07934v4",
+        "DOI 10.1007/s11117-025-01147-7",
+        "Resultary d3be6eb33649"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proposition 4.13 supplies N in determinant-one form but does not compare the traces of both powered curves. The endpoint/midpoint results fix signs or equality at individual parameters; the conjecture explicitly asks for the remaining interval order."
+        ],
+        "reasoning": "The comparison in the interior uses both equal tr(AT) at T=M,N and the ordering of their rapidities to combine the signs of two interpolation coefficients. Endpoint inequalities and midpoint equality do not give those signs by interpolation alone.",
+        "searches": [
+          "arXiv:2610.23736v1, Theorems 4.3–4.4, Proposition 4.13 and Conjecture 5.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Conjecture 5.6 writes the same near/ordinary spectral comparisons for general dimension, as a conjecture rather than a proved theorem.",
+          "Same-day distinct indexed d3be6eb33649 compares crossed and ordinary Heinz matrices by weak singular-value majorization, with a Frobenius commutator defect. Those are not the positive spectral-curve powers here."
+        ],
+        "reasoning": "Similar words and equality-at-commutation conditions do not identify the means or imply their order. The matched conjecture is an exact statement-level comparison but not solved there for the open intervals.",
+        "searches": [
+          "Resultary: near and ordinary spectral geometric curves, two-dimensional midpoint phase law and commutator strictness",
+          "arXiv:2610.23736v1, Conjecture 5.6",
+          "Resultary d3be6eb33649, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest returned same-day matrix-majorization record explicitly concerns crossed and ordinary Heinz expressions; it does not tabulate or prove the near/spectral phase law."
+        ],
+        "reasoning": "The pertinent exact database is the theorem index. A finite matrix or parameter table cannot decide the all-input continuous-parameter statement.",
+        "searches": [
+          "Resultary: near/spectral geometric log-majorization and commutator defect; Resultary d3be6eb33649"
+        ]
+      },
+      "rationale": "The supported distinct claim is the uniform sign on the open intervals on both sides of the midpoint for arbitrary complex positive-definite 2×2 inputs, together with the trace defect and strictness in the noncommuting case. Ibrahim–Huang state this range comparison as a conjecture, supply the near-curve normal form, and establish weak endpoint ordering and midpoint isospectrality; the latter facts are not new here. No inspected source establishes the dimension-two interval sign comparison or a result implying it without the new trace sign analysis.",
+      "residual_risks": [
+        "The older Franco–Gan–Kim article could not be inspected in full. This decision does not certify historical priority or exclude unindexed equivalent formulations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct partial prior coverage, not an interior dimension-two proof",
+          "evidence": [
+            "B≺log Q_1; midpoint spectra equal; explicit det-one near-curve normal form; two interval inequalities formulated as conjecture"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.23736v1",
+          "material_read": "Theorems 4.3–4.4, HTML offset 31696; Proposition 4.13, offset 44608; Conjecture 5.6, offset 61152",
+          "method": "Primary OA HTML, statement and proof passages",
+          "title": "Order relations for the near geometric and near spectral geometric curves",
+          "trigger": "Defines the same curves and poses the exact conjecture"
+        },
+        {
+          "assessment": "Unresolved historical-priority risk, not a finding of absence",
+          "evidence": [
+            "Cited by the primary paper as foundational for the near-geometric mean"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11117-025-01147-7",
+          "material_read": "Bibliographic identification; full article unavailable",
+          "method": "OA attempts via DOI and publisher PDF",
+          "title": "Near-geometric mean of positive definite operators",
+          "trigger": "Earlier foundational near-geometric source"
+        },
+        {
+          "assessment": "Related ordinary spectral means, no matching claim in inspected passage",
+          "evidence": [
+            "Geodesic and tolerance features of the spectral geometric mean"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2208.12407v1",
+          "material_read": "Abstract, offset 460",
+          "method": "Primary OA HTML",
+          "title": "Revisit on spectral geometric mean",
+          "trigger": "Related ordinary spectral curves"
+        },
+        {
+          "assessment": "Different means in compared passages",
+          "evidence": [
+            "Comparisons involving Wasserstein, metric geometric and spectral geometric means"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2301.07934v4",
+          "material_read": "Abstract and discussion, offsets 902 and 7222",
+          "method": "Primary OA HTML",
+          "title": "Weak log-majorization between the geometric and Wasserstein means",
+          "trigger": "Possible comparisons among geometric means"
+        },
+        {
+          "assessment": "Thematic, not equivalent",
+          "evidence": [
+            "Weak singular-value inequalities for crossed and ordinary Heinz matrices, not the near/ordinary spectral geometric curves"
+          ],
+          "identifier_or_url": "Resultary d3be6eb33649",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary index and local mirror",
+          "title": "Two-spectral crossed Heinz majorization and exact commutator stability",
+          "trigger": "Same-day indexed commutator-defect and matrix majorization theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, trace identity (5) and sign analysis",
+        "Ibrahim–Huang, Conjecture 5.6 and Theorems 4.3–4.4"
+      ],
+      "rationale": "Dimension two is the first matrix dimension with a nontrivial log-majorization condition. Resolving the proposed comparison there for every positive-definite pair, and identifying strictness through a commutator defect, explains exactly how the two curves separate across their known isospectral midpoint. This is more than recovery of the known endpoint or of special finite examples.",
+      "residual_risks": [
+        "The reduction to one trace inequality is specific to dimension two; no higher-dimensional proof or Löwner-order statement is implied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

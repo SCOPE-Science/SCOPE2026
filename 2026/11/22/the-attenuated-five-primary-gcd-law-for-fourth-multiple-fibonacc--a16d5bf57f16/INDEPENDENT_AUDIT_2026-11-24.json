@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:51:19.898806Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–61, VERIFICATION.md and artifacts/verify.py",
+        "Independent replay: python3 /workspace/branches/independent-05.py"
+      ],
+      "rationale": "The ordered state (Fₙ,Fₙ₊₁) evolves by A with rows (0,1),(1,1); direct multiplication gives A⁵ with rows (3,5),(5,8). The integral substitution on all d+1 monomials has B_d⁵≡3ᵈI=I mod 5 for 4|d, and Cayley–Hamilton gives a monic integral order-at-most-(d+1) recurrence shared by all translates and by their window sums. Hence the stated finite gcd reduction is valid. If Q≡I mod 5ᵗ, the binomial expansion of Q⁵ shows Q⁵≡I mod 5ᵗ⁺¹; no diagonalization or denominators are needed. For r≥2, write B_d^(5^(r−1))=I+5^(r−1)D. Its powers indexed by j=0,…,4 sum to 5I modulo 5ʳ: the linear coefficient is 10·5^(r−1) and terms of degree ≥2 are divisible by 5^(2r−2). Apply this to each of the 5^(r−1) initial offsets, proving S_r(n)≡5 S_(r−1)(n) mod 5ʳ for every start. Modulo five, Fₙ₊₅≡3Fₙ and the only zero residue among the first five occurs at index 0; the fourth-multiple power is therefore the five-periodic unit indicator with sum 4. Induction gives the stronger block congruence with the negative sign, and grouping u such blocks gives exact valuation r−1 in every window for k=5ʳu with u a unit. For a 5-coprime k the first two windows differ by the unit F_kᵈ modulo five, giving gcd valuation zero, even when an initial window is zero. The bundled evidence script was inspected, not executed. The independent bounded replay passed 175 modular block checks and 75 exact finite gcds, including d=60,100 and starts beyond the first block. Finite checks are corroborative only.",
+      "residual_risks": [
+        "No all-primes formula, general initial values, or exponents outside positive multiples of four are claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The window-gcd paper explicitly treats squares in the inspected abstract, not fourth-multiple powers. Lengyel studies limits and rates for indices apⁿ+b and cites the rank of apparition and periods. Bihani et al. describe continuous 5-adic interpolation of 2ⁿFₙ in §1; neither inspected statement asserts the translated fourth-multiple power sum across a whole block."
+        ],
+        "reasoning": "A period or continuous interpolation on its own guarantees neither the first-order cancellation in the five translates nor a specific nonzero leading residue for their block sum. A suitable stronger distribution/analytic congruence could be relevant, but is not established by these inspected passages.",
+        "searches": [
+          "Mbirika–Spilker arXiv:2204.12626, higher powers at cited §6, Question 6.1",
+          "Lengyel, On p-Adic Properties of Some Fibonacci and Lucas Numbers",
+          "Bihani–Sheppard–Young p-Adic Interpolation of the Fibonacci Sequence via Hypergeometric Functions, Theorem 2.3 as described in §1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 63–73 and AUDIT.json",
+        "Original-source passages and Resultary IDs in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The quartic order-test statement uses a different unramified-prime domain. The odd-coprime formula does cover overlap in absence of five but says nothing for k=25, where the target yields a first nontrivial valuation. The cubic transfer changes exponent, the Lucas-balancing recurrence changes the sequence, and the tame power-index entry changes indices to nᵈ, rather than raising the values Fₙ to powers in contiguous windows."
+        ],
+        "reasoning": "These restrictions cannot be removed by plugging in p=5 or by replacing the index power with a value power. The arbitrary-exponent first-order block lifting with a nonzero base residue supplies the extra statement. The quartic sum identities can be inputs to a separate quartic proof; they are not an all-d corollary in the inspected evidence.",
+        "searches": [
+          "Resultary d68afecbf84e, 45586db4c178, 15fb03885e39, fe3115d40daa, 4e75c4769de8; Adegoke arXiv:1706.00407; primary p-adic moment comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The stronger formulation is a congruence for every translate of each prime-power block. It forces individual window valuations for lengths divisible by five, not just the valuation of a gcd. Adegoke supplies quartic prefix/step sums; subtracting prefixes gives a translated-window formula for d=4 only."
+        ],
+        "reasoning": "A formula for a sum at a fixed exponent, a sequence of term valuations, and a uniform block moment for every exponent in one residue class are not interchangeable. In the nondivisible-length case a gcd bound does not assert all individual windows are units.",
+        "searches": [
+          "Resultary: Fibonacci consecutive powers window gcd quartic d multiple of four prime five 5-adic universal block sums valuation 5^r attenuated",
+          "Primary search on Fibonacci p-adic distribution/interpolation and all-d power moments"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed formula a16d5bf57f16 is the assigned record itself. The d=4 p≥7 entry excludes 2,3,5; the odd-quartic Fibonacci–Lucas entry requires 5∤k. The Lucas-balancing comparator has a different five-primary law and recurrence."
+        ],
+        "reasoning": "The strongest parallel matches do not give the exact valuation or translated block formula in the regime k divisible by five for this Fibonacci sequence. A same-day hit for a different recurrence is not a priority finding.",
+        "searches": [
+          "Resultary meaning search on p=5 fourth-multiple window gcd and uniform block sums; a16d5bf57f16, d68afecbf84e, 45586db4c178, 15fb03885e39"
+        ]
+      },
+      "rationale": "The distinct supported statement is the simultaneous fourth-multiple-exponent, all-start block congruence and resulting exact five-primary window-gcd law at the ramified prime. The special cases of other primes, odd/coprime lengths and different powers or recurrences are credited without generalizing their conclusions beyond their domains.",
+      "residual_risks": [
+        "Inspection of primary texts was bounded to stated passages; a stronger full-text 5-adic distribution or moment theorem or implicit earlier quartic result is not excluded. Catalogue comparisons do not constitute full-record inspection."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same gcd observable for d=2; no claim about whole document beyond inspected passage and credited locator",
+          "evidence": "Gives a triple-gcd formula for consecutive squares of generalized Fibonacci numbers and identifies higher work as open questions at the end.",
+          "identifier_or_url": "https://arxiv.org/pdf/2204.12626",
+          "material_read": "v2 PDF abstract, lines 10–19, and opening introduction; cited §6 Question 6.1 locator from frozen text",
+          "method": "Original PDF preview",
+          "title": "GCD of sums of k consecutive squares of generalized Fibonacci numbers",
+          "trigger": "Same gcd of all translated windows, prior powers"
+        },
+        {
+          "assessment": "A quartic summation identity; not an all-fourth-multiple theorem",
+          "evidence": "Closed forms are for sums of F_{mk}^4 and L_{mk}^4 and alternating versions, with m≠0 in the main result. m=1 prefix differences give quartic translates only.",
+          "identifier_or_url": "https://arxiv.org/pdf/1706.00407",
+          "material_read": "v1 abstract and opening main-result display, lines 15–21 and 45–59",
+          "method": "Original PDF preview",
+          "title": "Sums of fourth powers of Fibonacci and Lucas numbers",
+          "trigger": "Same d=4 summands and potential translated sum implication"
+        },
+        {
+          "assessment": "Related term subsequences and congruence prerequisites, not a verified block-sum implication",
+          "evidence": "Studies p-adic convergence of F(apⁿ+b) and L(apⁿ+b); §1 recalls the rank of apparition of 5 is 5.",
+          "identifier_or_url": "https://math.colgate.edu/~integers/t63/t63.pdf",
+          "material_read": "Integers 19 A63, abstract and early §1, lines 16–50",
+          "method": "Original PDF preview after bounded OA attempt",
+          "title": "On p-Adic Properties of Some Fibonacci and Lucas Numbers",
+          "trigger": "Potential broader five-adic moment result"
+        },
+        {
+          "assessment": "Continuous interpolation of a normalized term sequence does not itself state the block moment",
+          "evidence": "At p=5 the hypergeometric right side interpolates 2ⁿFₙ p-adically; the introduction relates this to Theorem 2.3.",
+          "identifier_or_url": "https://www.fq.math.ca/Papers1/43-3/paper43-3-4.pdf",
+          "material_read": "Introduction around equations (1.1)–(1.2), lines 23–47",
+          "method": "Original PDF preview after bounded OA attempt",
+          "title": "p-Adic Interpolation of the Fibonacci Sequence via Hypergeometric Functions",
+          "trigger": "Potential stronger analytic formulation at the same prime"
+        },
+        {
+          "assessment": "Only the assigned record gives the shared all-d ramified-window claim; distinct comparators have the restrictions stated in the assessment",
+          "evidence": "One quartic comparator omits p=5 explicitly; another permits only odd 5-coprime lengths; the balancing and power-index claims use different recurrences or observables.",
+          "identifier_or_url": "Resultary d68afecbf84e, 45586db4c178, fe3115d40daa, 15fb03885e39, 4e75c4769de8, a16d5bf57f16",
+          "material_read": "Local catalogue summaries; two quartic comparison locators in frozen RESULT.md lines 64,72–73",
+          "method": "Local Resultary meaning search and statement comparison",
+          "title": "Resultary quartic prime order, odd-quartic, cubic transfer, Lucas-balancing, power-index spectra and exact self-record",
+          "trigger": "Direct exact and parameter-shifted overlaps"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof; exact quartic prime-domain comparators"
+      ],
+      "rationale": "This determines a missing exceptional prime in the natural higher-power window-gcd problem. The exact one-level loss and nonzero leading residue hold uniformly in start, block order and a full exponent class, supplying a stronger arithmetic benchmark than a gcd table. In particular it handles the ramified prime where the quartic order criterion has no stated coverage.",
+      "residual_risks": [
+        "Local prime-five contribution, not a full factorization or a claim about every higher exponent."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

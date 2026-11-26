@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement concerns every fixed positive annulus width and all distinct nonnegative Hermite indices. The radial Hermite diagonalization gives incomplete-gamma interval probabilities in the specified \(\pi(x^2+\xi^2)\) normalization. The conditional power-moment quotient has strictly positive endpoint derivative, proving a unique transverse crossing. The geometric-mean bracket has strict endpoints because the weight is positive inside the interval. The adjacent-difference identity proves strict unimodality and excludes triple equality. Stirling/Riemann-sum convergence, an explicit bounded identric-mean planar domain with negligible boundary, and exact pair-count sandwiches prove the quadratic constant. Actual standalone numerical checks reproduce crossing brackets and limiting integral. Computations are corroborative only and are not used as infinite proofs.
+PASS
 
-## Originality — PASS, with residual risk
+The radial Hermite formula uses the area coordinate t=π(x²+ξ²). The ratio q_n/q_m is a positive constant times the conditional mean of t^(n−m). Differentiating both moving endpoints expresses its derivative as the sum of two nonnegative terms, the upper-end term strictly positive. At a=0 this is a right derivative, and the ordered Poisson tails give q_n<q_m; the ratio diverges as a→∞. The strict endpoint bounds on the conditional mean give a<B<a+w. The adjacent differences change sign at most once, with at most one zero, excluding a triple equality; a nonadjacent crossing has larger intervening values. For the limit, M(R)≤N_w(R)≤M(R+w) exactly and B≥n/e. To justify the lattice count, use step indicators formed by m=floor(Tx), n=floor(Ty): their integrals are M(T)/T², they are supported in a fixed bounded region, and Stirling gives convergence off the axes, diagonal and the curve I(x,y)=1. This curve has zero area by the parametrization y=e·t^(t/(1−t)), x=ty. Dominated convergence and the Jacobian y yield precisely the stated integral. The width is fixed in area coordinates, and different pairs at one radius are counted separately.
 
-Daubechies (1988) explicitly derives Hermite eigenvalues and spectral concentration for radial Gaussian localization. Abreu–Doerfler (arXiv:1202.5841v1) prove inverse-shape assertions for Hermite eigenfunctions. Knutsen (2020) gives radial localization eigenvalues and annular norm estimates. The inspected relevant portions do not identify a unique transverse crossing for every nonadjacent Hermite pair or an index-pair crossing count with the universal quadratic constant \(\frac{e^2}{2}\int_0^1t^{2t/(1-t)}\,dt\). A previous accessible result addressed only the *largest* Hermite eigenmode and adjacent transition radii, which do not determine the distribution of all nonadjacent pair crossings. The general monotone-likelihood-ratio method is not asserted novel. Publication-record comparisons showed different Hermite half-line concentration and Fourier-projection problems, not the present annulus pair-incidence theorem. Residual risk remains from older Gaussian/Toeplitz total-positivity and spectral-degeneracy literature, including unindexed equivalent formulations.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-For concentric Gaussian annular localization, eigenvalue coincidences describe spectral multiplicities and parameter-dependent mode ordering. A complete infinite-family classification of pairwise resonances, a no-triple-collision theorem, and a universal quadratic pair-incidence density go substantively beyond top-eigenvalue optimization. The latter captures a natural infinite-dimensional spectral invariant with an explicit, width-independent constant; it cannot be read off from the classical annulus eigenvalue formula without solving the global pair count. It is not a table recomputation, an arbitrary finite slice, or a relabeling of previously established top-mode crossings.
+The radial formula is established, and the same-date Resultary source contains the adjacent switches and a rising/falling structure that already implies no triple equality. This review does not credit those pieces as distinct. The contribution that survives comparison is the fixed-area-width census of crossings of all Hermite pairs and its common quadratic coefficient; even the entire adjacent staircase supplies only an O(R) subcount. The conditional-moment transversality argument is elementary, but the all-pair census exploits strict area brackets and a two-variable limit not found in the compared statements.
 
-## Nearest literature and limitations
+## value
 
-The closest primary material is Daubechies (1988), Section IV-B; Abreu–Doerfler (2012), Proposition 1; and Knutsen (2020), radial operator formulas and annular concentration discussion. Their documented scopes are distinguished from the precise incidence asymptotic. Counts are by index pairs, so distinct resonance radii and rates of convergence remain open here. No independent audit or priority certification is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The incidence count is an exact leading spectral invariant of a natural one-parameter deformation. It measures all mode-pair resonances, including non-maximal ones invisible to the top eigenvalue, and quantifies their growth and independence of fixed width. Width independence and the leading constant are not obtainable from the adjacent-switch census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

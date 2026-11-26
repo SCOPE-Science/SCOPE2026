@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The critical reduction is an explicit first-return map of the irrational circle rotation on the eligibility interval \([\alpha,1)\). The word's absence of adjacent short gaps is a necessary hypothesis and is proved from \(\alpha<1/2\). Projected physical times then match either one or two event gaps; telescoping mechanical-symbol counts give exact rates and strict discrepancies for all spike horizons. The included independent exact-rational trials and high-precision diagnostic confirm many finite cases; the written phase induction, not the tests, establishes the infinite assertions. The output is confined to \(0<c\le b\) and the post-first-spike recurrence.
+PASS
 
-## Originality (O): PASS within inspected literature
+With r_i={iα+θ}, short gaps are exactly the phases in [1−α,1) and their successors lie in [0,α), so short gaps never touch. For c≤a every gap is used, including c=a by the ≥ convention. For a<c≤b the recursion takes one index step across a long gap and two across the isolated short-plus-long pair. The landing phases are exactly eligible in the sense r_i≥α; if the initial phase is below α, its next gap is long and its next phase is in [α,2α)⊂[α,1). For eligible phases [α,1−α) the next phase is r+α, and for [1−α,1) it is r+2α−1. Under y=(r−α)/(1−α) these are rotation by the irrational β=α/(1−α), with the two-gap interval chosen exactly for y≥1−β. This verifies half-open boundary and threshold conventions, including c=b. In either mechanical code, the sum of N symbols differs from N times the slope by a difference of two fractional parts, strictly less than one in absolute value. Multiplying by the two physical step-length differences gives the two discrepancy constants; dividing by N gives rates 1/ḡ and 1/(b+aβ)=(1−α)/ḡ. The one-interval transient does not affect the rate. A mechanical length-n factor is determined by the vector of cumulative sums floor(y+kγ), k=1,…,n, constant on each of the n+1 half-open intervals cut by distinct backward rotations of zero. Each cut increases one entry of this vector; all intervals have distinct codes and irrational forward orbits visit all interiors. This also gives exact factor complexity; telescoping implies balance and irrational frequency implies aperiodicity.
 
-The general recurrence of Kaymakçalan and Selçuk (2026) is preexisting. Classical Sturmian induced rotations and complexity are preexisting. Neither inspected statement supplies the exact two-regime opportunity-clock firing law, synchronization, slope change, and physical jump size; those comparisons are documented in AUDIT.json with actual published-finding corpus queries. Related 2011 almost-periodic forcing treats a different continuous-time input mechanism. Priority risks: historic symbolic-return-word literature and 2002 work on quasiperiodically driven neurons may include analogous results. Failure to retrieve an equivalent is not an exhaustive priority proof.
+## originality
 
-## Mathematical value (V): PASS
+PASS
 
-The exact physical-rate jump at the short-gap duration and the exact aperiodic output-language renormalization quantify a natural time-scale firing phenomenon across all irrational slopes below one-half. This provides precise bounds beyond the regular-grid firing quantization example, not merely a finite check or a rephrasing of general dynamics. The claim does not extend to travel times above the long gap, which may have more phases.
+Credit the general physical projection recurrence and classical Sturmian rotation induction, factors, and discrepancy. The supported distinct claim is their physical combination: the exact two-regime rates and threshold drop, with synchronized output length and word laws on the same irregular clock. No independently identified result with this combination or a directly dominating statement was evidenced by the bounded comparison.
 
-## Limits of the review
+## value
 
-Reproduction from standalone code tests finitely many rational slopes and one high-precision irrational approximation. All infinite claims use the written proof. Independent mathematical review and independent validation were not performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The gap lengths themselves define the regime boundaries, so the window is not an arbitrary parameter slice. The result explains and quantifies a discontinuity in a physical firing rate on a nonperiodic clock, despite Sturmian output on both sides, and gives strict deterministic timing bounds rather than just average frequencies. That joint classification is more informative than a stand-alone exercise in rotating a shorter interval.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review — finite-alphabet palindromic-duplication inverse spectrum
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The formal channel is exact-one \(ab\mapsto abba\), so a parent of a receiver is obtained only by deleting the latter pair of an \(abba\) window. The run classification gives one distinct parent from every constant run of length at least four and one from each strictly interior run of length exactly two whose two neighboring colors coincide. Collisions between deletion locations occur only within one constant run (the length-two specialization of the published collision identities); the standalone verifier independently confirms this classification over 222,456 words. Summing weighted run words with the displayed rank-one transition matrix proves the entire bivariate rational series by formal power-series algebra. Dominant-root implicit differentiation proves the mean slope, strictly positive variance slope and Gaussian limit for every fixed alphabet size \(q\ge2\). The finite enumeration is not used as proof for infinitely many blocklengths.
+## correctness
 
-## Originality (O): PASS, subject to residual risk
-Lenz, Wachter-Zeh and Yaakobi (arXiv:1707.00052, Sections 3.3–3.4, 4.2 and Appendix 0.A) already prove the exact binary palindromic-deletion formula, enumerate the corresponding binary populations and provide collision identities. An earlier exact inverse-list extremal and incidence result also covers the maximum and aggregate mean for general alphabets. Those statements are excluded from the original contribution. Zabokritskiy (arXiv:2609.00779, Sections 4–6) proves an even-length reverse-complement conjugacy and investigates sequential duplications; Sun and Ge (arXiv:2602.01151, Sections III–V) analyze correcting codes. The new claim is the exact q-ary (especially \(q\ge3\)) population generating function whose run-color-return weights are absent from the binary specialization, and the consequent asymptotic fluctuation law. Searches for q-ary run-weight distributions, inverse sphere histograms, palindromic-deletion enumerations and analogous moment laws found no stronger covering theorem. This absence is not proof of uniqueness: an unindexed transfer-matrix formulation or a derivation omitted in the accessible literature remains the residual originality risk.
+PASS
 
-## Value (V): PASS
-A receiver's inverse-list size is its exact list-decoding ambiguity after a prescribed strand-duplication error. Worst-case and first-moment bounds leave open the frequencies of intermediate lists and the typical fluctuations. The rational generating function gives every finite-length ambiguity class for every alphabet size and identifies the extra dependence on repeated *nonadjacent* run colors, a phenomenon invisible in the binary run statistic. The Gaussian law gives quantitative typical-case dispersion not implied by a worst-case bound or a mean. A separate coding-capacity improvement is neither assumed nor claimed.
+Two inverse windows starting at i<j delete positions i+2,i+3 and j+2,j+3 in zero-based coordinates. Identical resulting words force y_k=y_(k+2) for i+2≤k≤j+1, making y_(i+2)…y_(j+3) 2-periodic. The equal middle pair of the last palindrome lies within this segment and makes it constant. The first palindrome then forces the entire interval to be constant. Thus each long constant run contributes once, and each nonconstant window corresponds bijectively to an interior length-two run with matching flanks. With R=(z+(t−1)z^4)/(1−z), summing weights of runs gives qR plus q(q−1)R²/[1−(q−1)R−(t−1)z²]: only appending after an interior two-run offers one weighted return color and q−2 other choices. This yields the rational function including words with zero parents. The mean independently follows from N−3 nonconstant-window terms of probability (q−1)/q³, a possible first long-run start of probability 1/q³, and N−4 other long-run starts of probability (q−1)/q⁴. For the limit law, choose a fixed circle in z enclosing 1/q at t=1; by continuity and Rouché the denominator has exactly one simple zero ρ(t) inside for complex t near 1. Its analytic leading coefficient is nonzero, and removing its pole gives a uniformly exponentially smaller coefficient term. With D=z²−z³+(q−1)z⁴ evaluated at 1/q, the first two derivatives of log(ρ(1)/ρ(e^s)) at zero are D and D(1+D−2D′/q), giving the claimed μ_q and positive ν_q. The uniform analytic expansion yields linear variance and the Gaussian limit. Odd-coordinate complementation exchanges precisely the parity of each of the two reversed copies and commutes with the even shift of the suffix. Independent window-deletion enumeration deduplicated parents as tuples and matched the generating function coefficient recurrence and run weights at (q,N)=(2,6),(3,8),(4,8); replay with python3 replay/1.py. These finite checks do not establish the limit law. The supplied verification package was inspected, not executed.
 
-## Limits and source comparison
-The result is for exactly one fixed length-two duplication and the uniform measure on all potential received words. The listed binary and extremal predecessors are not counted as new. The conjugacy is a cited transfer, not an original equivalence. No independent external audit has been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The complete nonbinary receiver spectrum and explicit fixed-q fluctuation law are the supported distinct content. The binary census, cited conjugacy, extremal observations and incidence count do not receive new-result credit. Distinct same-day and later overlapping statements were compared on their actual counting direction and parameter ranges, not assumed to be the original or to establish priority.
+
+## value
+
+PASS
+
+Receiver ambiguity is a natural error-channel statistic; its full-population spectrum answers questions that code-size bounds, worst cases and forward-degree censuses cannot. The nonbinary return-color effect is structurally different from the binary model, and the nondegenerate variance rate quantifies typical fluctuations as well as providing exact finite coefficients. The claim does not promise a new encoder or a law for source-sampled channel outputs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:04:33.995461Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–66",
+        "Frozen VERIFICATION.md, verify_rectfib.py and verification_output.txt (inspected, not executed)",
+        "Independent replay: python3 /workspace/branches/471c5ebe-5bd4-4eb1-93b5-ec4a7dbc6bed/independent_check.py; captured independent_check_output.json in that directory"
+      ],
+      "rationale": "The formulas and exhaustive conditions are correct. The band product is the outer product of the first input's row sums and the second input's column sums, and balanced sum data have q^h lifts (choose the interior entries, then solve for the bordering row/column). For fixed first sum pair, the kernel in the reduced space W has sizes q^{m+n-1}, q^{n-1}, q^{m-1}, q in the four cases (both zero, only column sums nonzero, only row sums nonzero, both nonzero). Line 43's nonzero-case exponents include h and so describe the lifted matrix-Y kernels, not the stated W kernels; the subsequent fiber arithmetic uses the correct lift exactly once. Summing the reduced kernel sizes over first sum pairs yields K. For rank one, Z=zw^T with at least one factor of zero sum. If both first sum vectors are nonzero, a rank-one output forces either the first column factor parallel to z with sum(w)=0, or the first row factor parallel to w with sum(z)=0. This follows by passing to the quotients by the column and row lines and imposing the common-total condition in the remaining equation. If one sum vector vanishes, the sole nonzero vector has zero total and must span the corresponding target line. Counting the admissible first sum data with these kernels gives the three stated rank-one fibers. In rank two, factorizations of Z=UV^T form one GL2 orbit; the sum rows a,b obey b=aJ after change of bases. If both vanish every basis works, if just one vanishes none works, and if both are nonzero and a b^T=0 then b is a nonzero scalar multiple of aJ. The restriction fixes the determinant and gives one SL2 coset, including in characteristic two. Higher rank or nonzero total is impossible. The kernel and determinant proof also handles empty strata when a dimension is one. An independent reduced-space enumeration matched every target at (m,n,q)=(1,3,3),(3,1,2),(2,2,3),(3,3,3), including zero-fiber sizes 153,28,945,6987465.",
+      "residual_risks": [
+        "Enumeration covers only small prime fields and the stated dimension cases. The theorem relies on the reconstructed counting proof, not on the finite checks.",
+        "Line 43 should explicitly distinguish the reduced W-kernel from its lifted matrix kernel; this does not change any formula in the Finding."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Choi–Gourdeau–White §2.2 defines the rectangular band; §7 gives cohomology results for its Banach-algebra context. Livshits et al. Theorem 4.6 describes commutators in the operator-band setting over C, not the requested finite-field fiber numbers.",
+          "Dolinka–East define the sandwich operation and treat structural semigroup invariants. The distinct contemporary rank-one sandwich finding is the broader-presentation exact overlap, not these primary papers."
+        ],
+        "reasoning": "These primary statements give relevant background, but neither operator-band commutator sets nor cohomological/structural invariants give the prescribed counts. The web-search miss does not exclude other exact sources.",
+        "searches": [
+          "Web search: (\"rectangular-band semigroup algebra\" OR \"rectangular band algebra\") commutator fibers prescribed target matrix rank finite field",
+          "arXiv:1004.2301v2 locators rectangular band and 7.1",
+          "On band algebras PDF locators operator bands and Theorem 4.6",
+          "arXiv:1503.03139 definition and structural results"
+        ]
+      },
+      "checked_sources": [
+        "Frozen records 2 and 3",
+        "Resultary 8f6dca19a4da and 6f0f9b3726a9, local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+        "Choi–Gourdeau–White §§2.2 and 7; Livshits et al. Theorem 4.6; Dolinka–East introductory and structural passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The all-ones sandwich matrix is rank one over every finite field, even if a dimension is zero modulo the characteristic. The two zero-fiber expressions agree on expanding K. In dimension m=1 the common normalized rank-one model yields commutator row (0,a y'-b x'); n=1 is its transpose."
+        ],
+        "reasoning": "A nonzero scalar pair (a,b) gives q^{n-1} lifts for every row target with first coordinate zero; the zero scalar pair contributes only to the zero target. The m=n=1 case is commutative. This boundary involves only an entrywise linear equation, not an additional meaningful classification. Equivalence in the shared domain and this immediate boundary specialization establish overlap without establishing which version appeared first.",
+        "searches": [
+          "Frozen record 3 Proof, lines 37–70; indexed 8f6dca19a4da",
+          "Resultary 6f0f9b3726a9, local RESULT.md offsets 0 and 6500"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Frozen record 3 / indexed 8f6dca19a4da, Finding lines 11–26 (mirror offset 0), gives precisely the same five target classes, including the GL2 versus SL2 split, and zero fiber.",
+          "Record 2 uses r(Z)=Z1_n, c(Z)=1_m^T Z; with J=1_n 1_m^T, JZ=1_n c(Z), ZJ=r(Z)1_m^T, and JZJ=(1_m^T Z1_n)J."
+        ],
+        "reasoning": "XJY=(X1_n)(1_m^T Y) is exactly the band product in the original labeled coefficient array. Thus the target predicates, ranks and witness counts are identical, not just related by a rank total. The matching indexed copy of record 2 itself was not used as overlap evidence.",
+        "searches": [
+          "Resultary: Prescribed-commutator fibers of finite rectangular-band algebras",
+          "Resultary: Prescribed commutator fibers rank-one matrix sandwich semigroups"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "6f0f9b3726a9, Finding and Limitations, gives N0,N1,N2 and centralizer distributions and expressly does not derive prescribed nonzero matrix fibers.",
+          "8f6dca19a4da's exact table includes the common formulas and a target-count column; it is a distinct record, not the identical indexed submission."
+        ],
+        "reasoning": "Aggregate row sums of the pair census cannot recover all fixed-target values. The function-level exact comparison is instead with the actual five-cell table in the distinct sandwich record.",
+        "searches": [
+          "Resultary: Commutator-rank census finite rectangular-band semigroup algebras",
+          "Resultary: finite rectangular band semigroup algebra commutator rank prescribed target fiber",
+          "Resultary: Prescribed commutator fibers rank-one matrix sandwich semigroups"
+        ]
+      },
+      "rationale": "Independent originality of the prescribed-target classification is not established: the distinct indexed rank-one sandwich record 8f6dca19a4da gives exactly the same five classes, all fiber sizes, and the same image criterion in every nondegenerate dimension, under an exact algebra identification. The one-dimensional boundary is an immediate specialization of this common reduction, not a distinct advance. The earlier rank census alone is not the reason for failure: it gives aggregates and the zero fiber, but not the five prescribed classes. No relative priority of the two same-date originals is asserted.",
+      "residual_risks": [
+        "The two equivalent records share a date; relative priority and historical originality beyond the documented overlap are not certified.",
+        "A bounded literature search cannot exclude other implicit or explicit prior coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact equivalent five-cell result in shared dimensions; precedence unresolved",
+          "evidence": [
+            "All five normalized formulas agree after interchanging row/column predicate order; total sum zero corresponds to JZJ=0."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-prescribed-commutator-fibers-of-rank-one-matrix-sandwich-semigro--8f6dca19a4da",
+          "material_read": "Frozen RESULT.md Finding and Proof; mirror Finding offset 0",
+          "method": "Exact Resultary match, local mirror passage and frozen-source comparison",
+          "title": "Prescribed commutator fibers of rank-one matrix sandwich semigroups",
+          "trigger": "Same finite-field fixed-target theorem via all-ones sandwich"
+        },
+        {
+          "assessment": "Prior zero-fiber and aggregate rank coverage only",
+          "evidence": [
+            "Gives counts by ranks zero, one, two and centralizer-size data; disclaims prescribed nonzero-target fibers."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-commutator-rank-census-of-finite-rectangular-band-semigroup-alge--6f0f9b3726a9",
+          "material_read": "Finding and Limitations, mirror offsets 0 and 6500",
+          "method": "Resultary search and local mirror reading",
+          "title": "Commutator-rank census of finite rectangular-band semigroup algebras",
+          "trigger": "Earlier exact counts on identical algebra"
+        },
+        {
+          "assessment": "Same band multiplication, different results",
+          "evidence": [
+            "The product of (a1,b1),(a2,b2) is (a1,b2); the cited theorems concern cyclic and simplicial cohomology of l^1(S)."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1004.2301v2",
+          "material_read": "§2.2 offset 14900 and §7 offset 112350 (Theorems 7.1, 7.2, 7.4)",
+          "method": "OA literal locators and bounded passage reads",
+          "title": "Simplicial cohomology of band semigroup algebras",
+          "trigger": "Primary literature on rectangular-band algebras"
+        },
+        {
+          "assessment": "Operator-band commutator set; not the finite-field fiber law",
+          "evidence": [
+            "Theorem 4.6 describes operator commutators as C-D for related elements; the setup is operator bands over C."
+          ],
+          "identifier_or_url": "https://jot.theta.ro/jot/archive/2001-046-003/2001-046-003-005.pdf",
+          "material_read": "Introduction PDF p. 1 offset 1822 and Theorem 4.6 offset 27000",
+          "method": "Lawful OA PDF and bounded theorem reading",
+          "title": "On band algebras",
+          "trigger": "Apparent primary band commutator result"
+        },
+        {
+          "assessment": "Same operation, different invariants",
+          "evidence": [
+            "Defines X⋆Y=XAY and studies regularity, Green's relations and idempotent-generated structure."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1503.03139",
+          "material_read": "Definition at offset 0 and structural summaries at offsets 11700–14364",
+          "method": "OA passage inspection",
+          "title": "Semigroups of rectangular matrices under a sandwich operation",
+          "trigger": "Primary source for alternate exact algebra presentation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen records 2 and 3, Findings and proof reductions",
+        "Resultary 6f0f9b3726a9, prior rank-aggregated census"
+      ],
+      "rationale": "An exact prescribed fiber classification on this algebra would be useful relative to a rank-only count. Here the exact classification in the nondegenerate regime already appears under the equivalent sandwich presentation. The only wider parameter regime is a one-row or one-column algebra, whose census follows immediately from one linear equation per free entry. As a separate finding this does not add a nonmechanical exact invariant or a substantive boundary to the common result.",
+      "residual_risks": [
+        "This judgment concerns distinct scientific value as a separate record, not the usefulness of the shared classification as an exposition."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

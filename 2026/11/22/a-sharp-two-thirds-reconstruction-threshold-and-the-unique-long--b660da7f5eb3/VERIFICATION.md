@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,11 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The universal proof is in `RESULT.md`. The following two files independently compute complete profiles and periodic witnesses using only the Python standard library:
+## correctness
 
-- `verify_spectrum.py` compares the full list of every non-singleton fiber against the formula for \(n=5,\ldots,56\) and every integer \(k>(n+1)/2\), for 780 parameter pairs, and checks the smallest injective read length for \(n=5,\ldots,34\).
-- `verify_witness.py` checks every admissible periodic witness in each of 4,601 length/read pairs with \(n=5,\ldots,120\) and \(3\le k\le\lfloor(2n+1)/3\rfloor\).
+PASS
 
-Both programs were executed on the included source files. The exact captured standard outputs are in `verify_spectrum.out` and `verify_witness.out`. Their finite scope cannot independently prove an infinite theorem; that requires the five-step interval/period argument. No independent external audit or formal proof assistant was used.
+The frozen interval argument recovers the two positions directly if their separation is at least k. Otherwise two-one reads give the separation d and force a unique position except on the stated plateau; within that plateau the sum of offsets of single-one reads changes by r−d per unit shift, and at d=r the offset multisets themselves are constant. An independent replay uses the sum over reads of the unit vectors for their (k−1)-prefixes minus those for their (k−1)-suffixes. It telescopes to the prefix-minus-suffix of the whole word. If nonzero, it gives both ordered ends, which cover the word because k>r implies 2(k−1)≥n. If zero, the word has period r. Here n≥2r, so a period-r word of weight two has one nonzero residue containing exactly two positions; those phases are precisely n−2r≤a≤r−1, and changing the phase permutes the r read starts. Thus the potential fiber has size max(0,3r−n), with a collision only when size is at least two. The injectivity cutoff is k≥ceil((2n+2)/3), within the long regime for n≥5. For all shorter k≥3, valid two-copy phases are max(0,n−2r)≤a≤min(r−1,n−r−1). There are at least two phases: if n<2r the upper endpoint is at least one, and otherwise the count is 3r−n≥2. At k=1 all words collide, and at k=2 the stated pairs (0,2),(0,3) have equal bigram counts. No monotonicity of single-length reconstruction is assumed. Replay: RESULT.md lines 31–73; inspected scripts and captured outputs corroborate only their finite test domains. The conclusion is in-class, linear, ordered within reads, and multiplicity-sensitive.
+
+## originality
+
+PASS
+
+The distinct supported contribution is the exact weight-two long-read fiber and spectrum count, plus the first length that is identifying with a witness at every shorter length. Periodic phase collisions, degree balance, and the column-marginal rigidity method are not new. A closely related same-day result gives a general residue-chain observation and its application to weight three; it is strong method-level overlap but does not supply a full fiber classification or an all-shorter-length result for weight two. No containing exact theorem was established in the sources inspected.
+
+## value
+
+PASS
+
+The exact fiber tells not only when length alone permits reconstruction, but precisely which two-marker placements fail and how many indistinguishable source words each ambiguous observation represents. Separately certifying every earlier length is important for one-length observations, where longer read spectra need not directly encode the shorter multiset including its end effects. The two-thirds cutoff and recurrence of the same phase mechanism in all short ranges are structurally useful beyond a small enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

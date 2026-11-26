@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:15:12.111112Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the one-window update, normalize the sole residual secant or equivalently use its unnormalized least-squares coefficient t_j. Since AᵀA=SI and ⟨f,Af⟩=μ‖f‖², after an actual scalar step α_j the coefficient is 1−μ/(Sα_j). When α_j=β the correction vector Δx+βΔf equals βf_j, so the next step uses μ/S; after that step t_j=0 and the next step uses β. The initialization starts the induction. Both error-step matrices are nonsingular scaled rotations, so a nonzero initial error never vanishes and each secant is nonzero. They have norm factors z and r, giving the exact parity laws. Solving r²z²<1 gives the stated unique positive critical step; equality yields two fixed positive norm subsequences, and greater values give divergence. The unaccelerated norm factor z crosses 1 at 2μ/S; the threshold ratio and κ₂(A)=1 follow. At β=β_MR both steps coincide and every coefficient vanishes; the parity formulas still hold. In the cited Tang arXiv v1 the proper references are Algorithm 2.1 and limited-depth Proposition 2.7 (also Lemma 2.1), not the numbering in the frozen bibliography. Its window-one normalization matches the stated algorithm. The uploaded verifier and its recorded 486 and 605 checks were inspected, not executed. Its explicit threshold assertion compares β_crit with 2β_MR, rather than testing equality dynamics; the boundary conclusion follows from the algebra above.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Smith presents the alternating-zero law for the two displayed maps, and its proof uses MᵀM=λ²I and the generic AA(1) least-squares orthogonality; the proof does not use zero trace, symmetry or skew symmetry of M.",
+          "Krzysik–De Sterck–Smith equations (2.4)–(2.5) derive the two-step residual iteration R(v)=M[I−α(v)(I−M)]v with α(v)=⟨(I−M)v,v⟩/‖(I−M)v‖² for affine rAA(1). Their later asymptotic analysis is explicitly restricted to symmetric or skew-symmetric M; the algebraic residual propagation precedes and does not depend on that restriction."
+        ],
+        "reasoning": "Restarted AA(1) is not generally unrestarted AA(1); the earlier alternating-zero proof verifies equality of their iterates in this family. Tang's residual-minimization theorem and Potra–Engler full-history equivalence alone would not establish this. The specific coverage comes from combining the scaled-orthogonality proof with the exact two-step propagator.",
+        "searches": [
+          "Adam Smith, Some Results on the Convergence of Anderson Acceleration, §3.2, Lemma 3.2.1 and Propositions 3.2.1–3.2.2",
+          "Krzysik–De Sterck–Smith arXiv:2312.04776v4 §2.2 and §5",
+          "Tang arXiv:2403.14961v1 §2.4; Potra–Engler arXiv:1102.0796 §3–4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–57, VERIFICATION.md, verify.py and verification_output.txt",
+        "Smith 2024 thesis §3.2",
+        "Krzysik–De Sterck–Smith arXiv:2312.04776v4",
+        "Tang arXiv:2403.14961v1",
+        "De Sterck–He arXiv:2109.14176",
+        "Potra–Engler arXiv:1102.0796",
+        "Resultary 5b097239b6a3 and 68e676d9b585",
+        "DOI 10.1016/j.cam.2025.116925 indexed abstract only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For r_k=x_k−q(x_k), put Δr=r_k−r_(k−1) and w=r_k+γ_kΔr; least squares gives w⊥Δr. Smith's identity follows verbatim: r_(k+1)=Mw and MᵀM=z²I give ⟨r_(k+1),MΔr⟩=0 and ‖r_(k+1)‖²=⟨r_(k+1),Mr_(k−1)⟩. Hence whenever r_k=Mr_(k−1), r_(k+1) is orthogonal to r_(k+1)−r_k, making the next acceleration weight zero. This repeats from the ordinary first step.",
+          "In (2.5b), put I−M=βA. Then α(v)=μ/(βS) is independent of v. At odd k, γ_k=α−1; as q(x_(k−1))=x_k, the accelerated update is x_k+βα f_k. The two-step propagator is M[I−(μ/S)A], with norm factor zr; r_k=−βf_k has norm proportional to the error. Thus the full threshold, equality/divergence cases, and comparison with Richardson follow directly by solving zr<1 and z<1."
+        ],
+        "reasoning": "This is not an inference from a nearby skew theorem alone: the actual earlier proof applies with identical equations over the full frozen parameter range, and the exact propagator then evaluates the law by substitution. The frozen result does not require a new dynamics theorem or a new equality case. The threshold ratio diverging at ω/μ→0 is a direct limit of that quadratic root.",
+        "searches": [
+          "Smith thesis pp. 23–27, especially proof of Lemma 3.2.1 and Proposition 3.2.1",
+          "Krzysik–De Sterck–Smith arXiv:2312.04776v4 p. 4, (2.5a)–(2.5b)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tang Algorithm 2.1 for m=1 and a constant input β is the ordinary AA(1) least-squares update on q(x)=Mx+βb, M=I−βA. De Sterck–He (1.8)–(1.9) give that update directly; their Anderson weight is −t_j, not the frozen prescribed β.",
+          "Resultary 5b097239b6a3 concerns positive diagonal contractions and a scalar affine case, not the target rotation. Same-day 68e676d9b585 concerns a seventh-degree planar ODE, not Anderson iteration.",
+          "If βμ=1, M=−(ω/μ)J and is the thesis's skew block W_λ with λ=ω/μ. More generally MᵀM=z²I for every allowed fixed β."
+        ],
+        "reasoning": "A change from AATGS terminology to unrestarted AA(1) does not change the single-window mathematical map. This exposes an exactly covered skew-map subfamily and the more general common hypothesis of the earlier proof. The indexed findings cited here are not the basis of the FAIL.",
+        "searches": [
+          "Resultary lookup for window-one / depth-one Anderson, AATGS, exact cycles and stabilization",
+          "Tang et al. arXiv:2403.14961v1, De Sterck–He arXiv:2109.14176, Smith thesis Chapter 3",
+          "Primary-literature queries for depth-one Anderson and rAA(1) on linear normal or skew-symmetric maps"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest exact matches are formula statements rather than a numerical table. Smith gives β_(2j)=0, β_(2j+1)=−λ²/(1+λ²), and norm ratios λ, λ/√(1+λ²), with convergence for λ<√((1+√5)/2), while the base map needs λ<1. The later journal-preprint version gives the skew-case worst root-convergence factor in Corollary 5.4."
+        ],
+        "reasoning": "At prescribed β=1/μ, λ=ω/μ, these are exactly the frozen coefficients with opposite Anderson sign, both parity factors, and the same stability boundary in the common parameters. The thesis covers this exact infinite subfamily, not merely a few matching numerical examples.",
+        "searches": [
+          "Resultary exact AATGS/AA(1) threshold and coefficient patterns",
+          "Smith thesis Eq. (3.12), (3.15) and the explicit stability inequality following them",
+          "Krzysik–De Sterck–Smith Corollary 5.4"
+        ]
+      },
+      "rationale": "The exact full-parameter formula is not printed in the inspected earlier sources, but it is mechanically implied by their combination. In exact arithmetic window-one AATGS is ordinary AA(1) on q(x)=(I−βA)x+βb. Adam Smith's 2024 thesis already proves the alternating-zero mechanism using only the scaled-orthogonality identity that this q satisfies. Once that mechanism is applied, the previously published two-step rAA(1) propagator of Krzysik–De Sterck–Smith applies with α(v)=μ/(βS) identically, yielding the other scalar step and norm multiplier by direct substitution. Smith also states the alternating coefficients, individual norm factors and rescued divergence window in the βμ=1 subfamily. The unrestricted positive-β critical value and advantage then use only the norm of a scaled rotation and a quadratic inequality. This is documented prior implication, not a negative verdict from an unavailable source or a claim that the frozen formulas are false.",
+      "residual_risks": [
+        "The precise all-β threshold may also have been printed earlier, but the logical prior implication is enough without such a match.",
+        "Limited-window finite-convergence paper full text was unresolved. This is not a basis for failing or deferring originality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact skew-map special case and a proof of natural every-other-step restart that applies unchanged to all scaled-orthogonal M in the frozen family.",
+          "evidence": [
+            "The proof of (3.9) uses MᵀM=λ²I and (3.10); (3.11) forces the next coefficient zero. Equation (3.15) gives the alternating norm factors; p. 26 derives the strict cutoff beyond base-map stability."
+          ],
+          "identifier_or_url": "https://uwspace.uwaterloo.ca/items/47efb38c-2e0e-4595-ae3e-dbdbd2ab6865",
+          "material_read": "Thesis title page; §3.2 and §3.2.1, printed pp. 23–26, Lemma 3.2.1, Propositions 3.2.1–3.2.2, equations (3.12)–(3.15), PDF offsets 60400–71352",
+          "method": "Lawful University of Waterloo repository PDF, decisive proof passages",
+          "title": "Some Results on the Convergence of Anderson Acceleration",
+          "trigger": "Earlier exact AA(1) alternating coefficients and stability of a planar skew fixed-point map"
+        },
+        {
+          "assessment": "General algebraic propagator applies as soon as equality with unrestarted AA(1) is recognized; the paper's asymptotic theorem for skew M alone is not asserted for shifted M.",
+          "evidence": [
+            "R(v)=M[I−α(v)(I−M)]v with α the scalar minimum-residual step for I−M. With the frozen substitution α(v)=μ/(βS)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2312.04776",
+          "material_read": "v4 §2.2 (2.4)–(2.5), pp. 3–4, PDF offsets 12200–17363; §5.2 Corollary 5.4 locator near offset 55830",
+          "method": "Lawful OA primary PDF, relevant equations and assumptions",
+          "title": "Asymptotic Convergence of Restarted Anderson Acceleration for Certain Normal Linear Systems",
+          "trigger": "Exact general affine rAA(1) two-step law and related skew-case convergence theorem"
+        },
+        {
+          "assessment": "Window one is the claimed single-secant update; no exact all-β threshold in the inspected passages.",
+          "evidence": [
+            "At m=1 no previous columns are orthogonalized against; the algebra is identical to ordinary AA(1) after undoing normalization."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2403.14961v1",
+          "material_read": "§2.1 Algorithm 2.1, p. 3, and §2.4 Proposition 2.7, pp. 7–8; §2.3 skew-symmetry remark",
+          "method": "Lawful OA primary PDF",
+          "title": "Anderson Acceleration with Truncated Gram–Schmidt",
+          "trigger": "Actual cited algorithm and limited-depth hypotheses"
+        },
+        {
+          "assessment": "Confirms exact window-one equivalence; its worked planar example has two real eigenvalues, not this scaled rotation.",
+          "evidence": [
+            "(1.9) is the negative of the frozen unnormalized least-squares coefficient; (1.15) uses an upper triangular M with eigenvalues 2/3 and 1/3."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2109.14176",
+          "material_read": "(1.8)–(1.10), pp. 2–3, offsets 7160–8710; (1.15) and Fig. 1, offsets 13050–15787",
+          "method": "Lawful OA author version, DOI 10.1137/21M1449579",
+          "title": "Linear Asymptotic Convergence of Anderson Acceleration: Fixed-Point Analysis",
+          "trigger": "Prior unrestarted AA(1) coefficient formula and planar example"
+        },
+        {
+          "assessment": "Supplies one-step GMRES minimization and full-history conclusions, not by itself the frozen unrestarted parity pattern.",
+          "evidence": [
+            "The single minimal-residual step in the frozen convention is μ/S; GMRES(1) takes it every time, not alternately with the input β."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1102.0796",
+          "material_read": "§3 equation (3.3); §4 Proposition 4.2 and Theorem 4.4",
+          "method": "Lawful OA primary PDF",
+          "title": "A Characterization of the Behavior of the Anderson Acceleration on Linear Problems",
+          "trigger": "Earlier GMRES and Anderson minimal-residual formulas"
+        },
+        {
+          "assessment": "Abstract concerns finite convergence and temporary stalling; not sufficient to establish coverage or noncoverage.",
+          "evidence": [
+            "Indexed abstract treats conditions for a zero residual from m+1 initial guesses. The verdict does not depend on this source."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.cam.2025.116925",
+          "material_read": "Indexed abstract and bibliographic descriptions only; primary full text unresolved",
+          "method": "Lawful publisher and DOI OA recovery attempts",
+          "title": "Some theoretical results on the finite convergence property and the temporary stalling behavior of Anderson acceleration on linear systems",
+          "trigger": "Potentially relevant limited-window linear theory"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The stability question on a natural planar test family is motivated, and the explicit inequality is pedagogically useful. But alternating zero weights and rescue of divergent base iterations were already obtained in the skew fixed-point case; over the stated shifted family the remaining scalar formula and stability interval are mechanical evaluations of the earlier proof and propagator. The threshold-ratio limit does not supply a separate nonroutine invariant or extension. No genuinely distinct valuable remainder is established for a repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

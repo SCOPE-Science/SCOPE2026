@@ -1,115 +1,41 @@
 # The top coherent Frobenius divisor is an \(n\)-fold thickening
+
 ## Finding
-Let \(k\) be a perfect field of characteristic \(p>0\), and let
-\[
-f:\mathcal X\longrightarrow S
-\]
-be smooth and proper with geometrically connected fibres of dimension \(2n\ge4\), with
-\[
-\omega_{\mathcal X/S}\simeq\mathcal O_{\mathcal X},
-\]
-and assume every geometric fibre is Hodge-good in the sense of Zou. Put
-\[
-E_i=R^{2i}f_*\mathcal O_{\mathcal X}\qquad(1\le i\le n).
-\]
-For each \(i\), relative Frobenius induces an \(\mathcal O_S\)-linear map
-\[
-h_i:F_S^*E_i\longrightarrow E_i.
-\]
-Cup product identifies \(E_i\) with \(E_1^{\otimes i}\), and under this identification
-\[
-\boxed{h_i=h_1^{\otimes i}.}
-\]
+Let \(k\) be a perfect field of characteristic \(p>0\). Let \(f:\mathcal X\to S\) be a smooth proper morphism of \(k\)-schemes with geometrically connected fibres of dimension \(2n\ge4\), with \(\omega_{\mathcal X/S}\simeq\mathcal O_{\mathcal X}\). Assume every geometric fibre is Hodge-good: its coherent cohomology algebra is \(\kappa(\bar s)[\eta]/(\eta^{n+1})\) with \(\deg\eta=2\). The base need not be reduced or noetherian.
 
-Equivalently, if \(s_i\) denotes the corresponding section of
+For \(1\le i\le n\), put \(E_i=R^{2i}f_*\mathcal O_{\mathcal X}\). These are line bundles with formation commuting with arbitrary base change. Cup power identifies \(E_1^{\otimes i}\simeq E_i\), and relative Frobenius induces an \(\mathcal O_S\)-linear map \(h_i:F_S^*E_i\to E_i\). Under the cup-power identifications,
 \[
-\mathcal H_i=E_i\otimes(F_S^*E_i)^{-1},
+h_i=h_1^{\otimes i}.
 \]
-then \(\mathcal H_i\simeq\mathcal H_1^{\otimes i}\) and
+Equivalently, for the associated sections \(s_i\) of \(\mathcal H_i=E_i\otimes(F_S^*E_i)^{-1}\), one has \(\mathcal H_i\simeq\mathcal H_1^{\otimes i}\) and \(s_i=s_1^{\otimes i}\). If \(S\) is integral and at least one geometric fibre is Frobenius split, their zero schemes are effective Cartier divisors with
 \[
-s_i=s_1^{\otimes i}.
+D_i=iD_1,\qquad D_n=nD_1.
 \]
-Hence, if \(S\) is integral and the Frobenius-split locus is nonempty, the zero schemes define effective Cartier divisors satisfying
-\[
-\boxed{D_i=iD_1\qquad(1\le i\le n).}
-\]
-In particular the top coherent Frobenius divisor is the \(n\)-fold Cartier thickening of the degree-two divisor:
-\[
-D_n=nD_1.
-\]
-Their common support is the non-Frobenius-split locus. On the Hodge-good locus, Zou's Theorem 6.7 identifies this support also with the locus of infinite quasi-F-split height.
-
-## Assumptions and scope
-The hypothesis that every geometric fibre is Hodge-good means that for each fibre \(X_s\), cup product gives
-\[
-H^\bullet(X_s,\mathcal O_{X_s})\simeq \kappa(\overline s)[\eta]/(\eta^{n+1}),
-\qquad \deg\eta=2.
-\]
-Zou's Lemma 6.1 then makes each \(E_i\) an invertible sheaf, with formation commuting with arbitrary base change. The divisor statement additionally assumes that \(S\) is integral and that at least one fibre is Frobenius split; this ensures that the relevant Frobenius sections are not identically zero.
-
-The assertion is about coherent structure-sheaf cohomology. It does not identify the complete Ekedahl--Oort or Newton stratification, and it does not claim reducedness of \(D_1\).
+Their common support is the locus of geometric fibres that are not Frobenius split, equivalently the locus of infinite quasi-\(F\)-split height.
 
 ## Proof
-For \(1\le i\le n\), cup product gives a morphism
-\[
-c_i:E_1^{\otimes i}\longrightarrow E_i.
-\]
-Both sides are line bundles. On every geometric fibre, Hodge-goodness says that a nonzero generator \(\eta\in H^2(\mathcal O)\) has nonzero power \(\eta^i\), and that this power generates \(H^{2i}(\mathcal O)\). Thus every fibre of \(c_i\) is nonzero. A morphism between line bundles that is nonzero at every point is an isomorphism, so
-\[
-c_i:E_1^{\otimes i}\xrightarrow{\sim}E_i.
-\]
+**Cohomology and base change.** Properness and smoothness imply that \(K=Rf_*\mathcal O_{\mathcal X}\) is perfect and commutes with arbitrary derived base change: apply Stacks Project Lemma 36.30.1 with the perfect object and the flat, finitely presented sheaf both equal to \(\mathcal O_{\mathcal X}\). The derived fibre of \(K\) at any point has a one-dimensional cohomology group in each degree \(0,2,\ldots,2n\) and zero cohomology otherwise, as can be checked after the faithfully flat extension to a geometric point.
 
-Let \(F_{\mathcal X/S}:\mathcal X\to\mathcal X^{(p)}\) be relative Frobenius. Since each \(E_i\) is locally free and satisfies base change, the induced map on coherent cohomology is
-\[
-h_i:F_S^*E_i\longrightarrow E_i.
-\]
-The Frobenius homomorphism on structure sheaves is multiplicative. Therefore the cup-product square commutes:
-\[
-\begin{array}{ccc}
-F_S^*(E_1^{\otimes i}) & \xrightarrow{F_S^*c_i} & F_S^*E_i\\
-\downarrow h_1^{\otimes i} && \downarrow h_i\\
-E_1^{\otimes i} & \xrightarrow{c_i} & E_i.
-\end{array}
-\]
-Conjugating by the cup-product isomorphisms proves
-\[
-h_i=c_i\circ h_1^{\otimes i}\circ(F_S^*c_i)^{-1}.
-\]
-This is precisely the asserted identity after identifying \(E_i\) with \(E_1^{\otimes i}\).
+Fix a point of \(S\) and work locally with a bounded finite free complex representing \(K\). Over the local ring at the point, whenever an entry of a differential is a unit, elementary changes of bases split off a contractible two-term subcomplex with differential \(1\). The complex identities make the neighboring maps zero on the split pair. Repeat until every remaining differential has entries in the maximal ideal. This finite procedure is valid on an open neighborhood after inverting the finitely many required unit entries. Over the residue field the remaining differentials are zero, so the ranks of its terms are the dimensions of the fibre cohomology. In particular only even terms remain and all differentials are therefore zero on the neighborhood itself. It follows that the even cohomology sheaves are line bundles and their formation commutes with arbitrary base change. This uses the absence of odd terms, not just constancy of ranks on the reduction of \(S\).
 
-Under the induced identification
+**Cup powers and Frobenius.** The map \(c_i:E_1^{\otimes i}\to E_i\) given by cup power is an isomorphism since, on every geometric fibre, a generator \(\eta\) of degree two has \(\eta^i\) generating degree \(2i\). For \(\mathcal X^{(p)}=\mathcal X\times_{S,F_S}S\), base change identifies the coherent cohomology of \(\mathcal X^{(p)}\) over \(S\) with the corresponding \(F_S^*E_i\). The pullback by \(F_{\mathcal X/S}:\mathcal X\to\mathcal X^{(p)}\) preserves cup products because the morphism on structure sheaves is multiplicative. As a result,
 \[
-\mathcal H_i=E_i\otimes(F_S^*E_i)^{-1}\simeq
-\bigl(E_1\otimes(F_S^*E_1)^{-1}\bigr)^{\otimes i},
+h_i\circ F_S^*c_i=c_i\circ h_1^{\otimes i}.
 \]
-the section \(s_i\) is \(s_1^{\otimes i}\). Locally trivializing \(\mathcal H_1\), write \(s_1=a\). Then \(s_i=a^i\). On an integral base with \(a\) not identically zero, \(a\) is a non-zero-divisor, so
-\[
-\operatorname{div}(s_i)=i\operatorname{div}(s_1).
-\]
-This gives \(D_i=iD_1\).
+This is an equality of morphisms over \(S\), not a comparison only at geometric points. It gives the stated identity of sections upon tensoring with the corresponding dual lines.
 
-For \(i=n\), Zou's Lemma 6.2 says that nonvanishing of \(h_n\) on a fibre is equivalent to Frobenius splitting. Since \(h_n=h_1^{\otimes n}\), all \(h_i\) have the same set-theoretic nonvanishing locus. Zou's Theorem 6.7 then identifies that locus, on Hodge-good fibres of dimension at least four, with the quasi-F-split and finite-height loci.
+**Divisors and support.** In a local trivialization of \(\mathcal H_1\) with \(s_1=a\), the zero ideals of the higher sections are \((a^i)\). Over a geometric fibre, the top coherent map is the linearization of Frobenius on \(H^{2n}(\mathcal O)\). By the fibre criterion used in Zou's Lemma 6.2, it is nonzero if and only if that fibre is Frobenius split. This is equivalently nonvanishing of any of the \(s_i\) at that point. If \(S\) is integral and this locus is nonempty, \(s_1\) is nonzero at the generic point and each \(a\) in a nonempty trivializing open is a non-zero-divisor. Thus \((a^i)=(a)^i\) gives \(D_i=iD_1\) as effective Cartier divisors. For each geometric fibre, Zou's Corollary 4.16 (applied to the Hodge-good fibre of dimension at least four with trivial canonical bundle) identifies Frobenius splitting with quasi-\(F\)-split height one, and gives infinite height otherwise. This is the fibrewise dichotomy used in Zou's Theorem 6.7.
 
 ## Verification
-The initiating source was checked in full text at Definition 4.10, Proposition 4.14, Lemmas 6.1 and 6.2, and Theorem 6.7. Lemma 6.1 supplies invertibility and base change for all even coherent cohomology sheaves on the Hodge-good locus and explicitly uses the top cup-power map. Lemma 6.2 constructs the top relative Frobenius section and identifies its nonvanishing with Frobenius splitting. Theorem 6.7 identifies Frobenius splitting, quasi-F-splitting, and finite top Artin--Mazur height on the Hodge-good locus.
-
-The new step is a functoriality calculation: the same relative Frobenius construction applies to every invertible \(E_i\), and multiplicativity of Frobenius forces the entire family of coherent Frobenius sections to be tensor powers of the degree-two section. This calculation is formal but scheme-theoretic: it records multiplicity, not merely equality of supports.
-
-As a boundary check, if the Frobenius-split locus is empty then every \(h_i\) is identically zero and the Cartier-divisor statement is not made. If the base is not integral, the tensor-power identity still holds, but an identically vanishing or zero-divisor section need not define an effective Cartier divisor.
+The argument needs no finite computation. The parity of the nonzero degrees in the perfect complex proves local freeness and base change on the given base, including at nilpotent thickenings. The cup-product commutative square is defined over the base, giving the local ideal-power statement before any Cartier hypothesis is imposed. Testing geometric fibres is used for the cup-power isomorphisms and for the set-theoretic criterion, not for the equality of the sections.
 
 ## Relationship to prior work
-Zou proves the Hodge-good cup-product algebra and the Frobenius-splitting dichotomy in families, but the paper uses the top coherent Frobenius map to detect the open Frobenius-split locus and does not state the tensor-power relation among the degree-\(2i\) coherent Frobenius sections or the resulting divisor multiplicities.
-
-Goldring--Reppen study vanishing orders of Hasse invariants for Calabi--Yau-type \(F\)-zips and apply their Ogus principle to K3 moduli. Their framework demonstrates that scheme-theoretic vanishing order is significant information beyond the support of a Hasse divisor. The inspected K3 result concerns the Hasse invariant of \(H^2_{\mathrm{dR}}\) for K3 surfaces; it does not compare coherent Frobenius sections in degrees \(2,4,\ldots,2n\) for higher-dimensional primitive-symplectic families and does not imply \(D_i=iD_1\).
-
-Targeted searches for the tensor-power formulation, the exact divisor identity, and equivalent Hasse-Witt wording found no covering statement.
+Zou's Definition 4.10 supplies the fibre cohomology algebra. Lemma 6.1 constructs the Hodge-good open locus and uses the top cup power over a reduced base in its proof; Lemma 6.2 uses the top coherent Frobenius section to detect splitting. Corollary 4.16 and Theorem 6.7 give the height dichotomy. Those support and height statements do not make an equality of the vanishing ideals across degrees. The cup-product comparison above relates those ideals exactly. Goldring–Reppen's Hasse-vanishing-order results for Calabi–Yau-type \(F\)-zips, including the K3 application, concern the vanishing order of an invariant in a given zip representation, not this comparison between different coherent cohomological degrees.
 
 ## Limitations
-The divisor equality is conditional on an integral base and a nonempty Frobenius-split locus. The theorem does not determine whether \(D_1\) is reduced, smooth, irreducible, or nonempty. It does not compute local vanishing orders of \(D_1\); it only proves that every higher even-degree coherent Frobenius section has exactly the corresponding multiple of those local orders.
-
-The statement concerns the Hodge-good locus. It gives no assertion across fibres where Hodge-goodness fails, because there the line-bundle and cup-power identifications used in the proof can break down.
+The tensor-power identity and the equality of zero ideals with the corresponding ideal powers do not require an integral base. The Cartier conclusion requires the local equation to be a non-zero-divisor, guaranteed here by integrality and a nonempty Frobenius-split locus. If that locus is empty, every section vanishes at every geometric point; this implies zero sections on a reduced base, but on a nonreduced base only nilpotence of their local coefficients follows from pointwise vanishing. The theorem neither asserts that \(D_1\) is reduced or nonempty nor describes the full Ekedahl–Oort or Newton stratification. It does not apply across fibres where Hodge-goodness fails.
 
 ## References
-H. Zou, “Quasi-\(F\)-split primitive symplectic varieties in positive characteristic,” arXiv:2609.35467, first submitted 2026-09-28; especially Definition 4.10, Proposition 4.14, Lemmas 6.1--6.2, and Theorem 6.7.
-
-W. Goldring and S. Reppen, “An Ogus Principle for Zip period maps: The Hasse invariant's vanishing order via `Frobenius and the Hodge filtration',” arXiv:2404.05707v1, 2024; especially Sections 1.2.2--1.2.3, 1.4, and 4.7.
+1. H. Zou, *Quasi-\(F\)-split primitive symplectic varieties in positive characteristic*, [arXiv:2609.35467v1](https://arxiv.org/abs/2609.35467v1), Definition 4.10, Corollary 4.16, Lemmas 6.1–6.2 and Theorem 6.7.
+2. The Stacks Project, Lemma 36.30.1 and Remark 36.30.2, [Cohomology and base change, VI](https://stacks.math.columbia.edu/tag/0A1G).
+3. W. Goldring and S. Reppen, *An Ogus Principle for Zip period maps: The Hasse invariant's vanishing order via Frobenius and the Hodge filtration*, [arXiv:2404.05707](https://arxiv.org/abs/2404.05707), especially the Ogus principle and K3 application.

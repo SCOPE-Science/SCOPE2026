@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:42:25.301307Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the ordered normals with correlations a,b,c, trace(M^T M)=a^2+c^2+(b-ac)^2 by inserting the last rank-one loss after the first two projections. The exterior square of each plane projection is the rank-one projection on its normal, so the exterior-square product is ac u_k u_i^T. Its squared Frobenius norm yields the product p=a^2 c^2 of the two possibly nonzero squared singular values (zero ranks included). Thus the sum is Q+p and the product p. The sweep is strictly contractive by norm equality for orthogonal projections and independence of the three normals. With 0<Q<1 the feasible p range is contained in [0,(1-sqrt(1-Q))^2]; implicit differentiation shows the larger root decreases strictly since its derivative is (lambda_+-1)/sqrt((Q+p)^2-4p), with the endpoint handled by continuity. Ordering by the largest adjacent product covers zeros and ties; all-orthogonal sweeps vanish. Trace(M)=a^2+b^2+c^2-abc and trace of the exterior square is abc; cyclic shifts and transpose reversal also independently show the six spectra agree. The quadratic identity yields lambda_+<=Q, and lambda_+>= (Q+p)/2>Q/2 for p>0; for p=0 and Q>0 one has lambda_+=Q. For the independent star family in the record the endpoints have 2t^2 and the middle order has t^2+O(t^3), which proves the sharp nonattained sqrt(2) supremum. Inspected check.py without executing it: its invariants are rational, but its separate numerical ordering tests use approximations and do not establish strict monotonicity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yu–Diakonikolas give an exact fixed-order matrix and the exact norm-loss operator for arbitrary consistent systems. Their example of an exact norm on p. 14 is a special planar family with even m>=8. Hansen–Hochstenbach discuss order dependence, including an example with changed spectral radius. Dax discusses the heuristic of maximizing adjacent orthogonality; the survey discusses slow convergence with highly coherent consecutive rows."
+        ],
+        "reasoning": "An exact operator for each order gives the input for a fixed-order evaluation, but does not select the minimizing order or quantify the maximal within-instance ordering penalty. The other comparisons use different regimes or convergence objectives.",
+        "searches": [
+          "Yu–Diakonikolas arXiv:2609.32034 Lemma 1, equation (13), and p. 14",
+          "Hansen–Hochstenbach arXiv:2601.07498 pp. 6–7",
+          "Dax section 4 and Ferreira–Acebrón–Monteiro arXiv:2401.02842 pp. 5–6"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "Local Resultary and the four mirrored findings specified above",
+        "Yu–Diakonikolas, Hansen–Hochstenbach, Ferreira–Acebrón–Monteiro, Dax and Kopecká–Müller passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior norm-loss formula and Gram identity give the squared sweep norm as the squared norm of L^(-1)(L-I) in the nonsingular square case, with L the normalized unit lower Gram part. For three rows its strict lower-triangular entries are a,c,b-ac, so the standalone scalar formula is a direct evaluation of the prior operator. All six spectra agree by cyclic shifts and transpose reversal regardless of that evaluation."
+        ],
+        "reasoning": "The distinguishing work is comparing the resulting roots for the same Q and different adjacent products, proving the precise strict and tie behavior, and identifying the sharp uniform ratio and a full-rank approaching family. Those are not provided by the evaluated fixed-order representation or the spectral invariance alone.",
+        "searches": [
+          "Yu–Diakonikolas Lemma 1 and Claim 1 (PDF pp. 5–7, offsets 28026 and 34300), equation (13)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Oblique-Kaczmarz record 497a092eb56b has an exact fixed-order three-row partial-correlation norm, for a different projection update. Planar record e045af1db347 uses equally spaced rows, not three independent rows in dimension three. Record 3dc9a9e651a4 concerns isotropic expectation for randomized schedules on a Gram-path family, and record 5fbc8bed4454 concerns expected error with missed updates in dimension two. Kopecká–Müller's A product of three projections concerns nonconvergence of sequences in infinite-dimensional Hilbert space."
+        ],
+        "reasoning": "Rewriting the claim as a product of plane projections, a fixed-order Gram formula, or a spectral problem does not equate it with the other hypotheses or objectives. In particular a worst-direction norm is not an isotropic average.",
+        "searches": [
+          "Local Resultary search for three-row cyclic Kaczmarz exact norm and optimal permutation",
+          "Product of three orthogonal projections onto planes in R^3: exact operator norm, order and worst-to-best ratio"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact indexed formulas either change the projection, restrict to planar equally spaced configurations, or use expectation. The exact example in the primary paper considers a different family."
+        ],
+        "reasoning": "No literal parameter table can certify this continuous all-positive-definite-Grams ordering claim and sharp supremum; the exact symbolic catalogue formulas are the meaningful database comparison and do not supply that claim.",
+        "searches": [
+          "Local Resultary exact-result matches 497a092eb56b, e045af1db347, 3dc9a9e651a4 and 5fbc8bed4454",
+          "Yu–Diakonikolas p. 14 exact examples"
+        ]
+      },
+      "rationale": "Credit the exact Gram-based sweep operator to prior work and the order-invariant spectrum to elementary cyclic-permutation and transpose identities. The supported distinct claim is the exact one-sweep minimizer for arbitrary independent triples, including ties, together with the sharp global comparison of best and worst orders on the same instance. The literature and catalogue statements inspected do not give that comparison or a stronger order-selection theorem that yields it as a special case.",
+      "residual_risks": [
+        "Bounded searches cannot rule out an older equivalent projection-product ordering theorem or a sharp comparison under different notation; no general priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior fixed-order operator and a directly evaluable norm; no reported three-row optimizer or within-instance sharp penalty in these passages.",
+          "evidence": [
+            "M=I-(Ahat V)^T L^(-1) Ahat V; Ahat Ahat^T=L+L^T-I; exact loss is ||L^(-1) Ahat e||^2."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.32034",
+          "material_read": "Lemma 1, Claim 1 and (13), pp. 5–7, plus the planar example on p. 14.",
+          "method": "Bounded OA PDF passages.",
+          "title": "Tight Convergence Bounds for the Classical Kaczmarz Method",
+          "trigger": "Closest exact general sweep operator; may subsume the order result."
+        },
+        {
+          "assessment": "Relevant contexts, not the same exact objective, proof or conclusion.",
+          "evidence": [
+            "Tomography example with changed spectral radius, dependence on consecutive coherence, and a heuristic favoring adjacent orthogonality, respectively."
+          ],
+          "identifier_or_url": "arXiv:2601.07498; arXiv:2401.02842; doi:10.3390/appliedmath2020012",
+          "material_read": "Hansen–Hochstenbach pp. 6–7; Ferreira–Acebrón–Monteiro pp. 5–6; Dax section 4, journal pp. 205–206.",
+          "method": "Bounded OA PDF passages.",
+          "title": "On spectral properties and fast initial convergence of the Kaczmarz method; Survey of a class of iterative row-action methods; Kaczmarz Anomaly in Tomography Problems",
+          "trigger": "Prior discussions of row order, spectral versus initial effects, and common heuristics."
+        },
+        {
+          "assessment": "The principal problem is different.",
+          "evidence": [
+            "Three subspaces of an infinite-dimensional Hilbert space with a non-norm-convergent projection iteration."
+          ],
+          "identifier_or_url": "https://www.impan.pl/shop/publication/transaction/download/product/90962",
+          "material_read": "PDF pp. 1–2, abstract and introduction offsets 0–4166.",
+          "method": "OA PDF passages.",
+          "title": "A product of three projections",
+          "trigger": "Direct title match to the projection-product formulation."
+        },
+        {
+          "assessment": "Material neighbors with different operators, dimensions or objectives.",
+          "evidence": [
+            "Oblique fixed-order partial-correlation formula; planar equally spaced ordering; randomized expected error for Gram-path schedules; two-dimensional unreliable updates."
+          ],
+          "identifier_or_url": "Resultary 497a092eb56b, e045af1db347, 3dc9a9e651a4, 5fbc8bed4454",
+          "material_read": "Mirrored Findings for the four records, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4.",
+          "method": "Local semantic index and mirrored records.",
+          "title": "Closest indexed three-row Kaczmarz findings",
+          "trigger": "Exact sweep norm and ordering in similar small systems."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The least-sized nonsingular setting in which a sweep has genuinely different ordering choices has an exact worst-direction optimizer that need not follow conventional low-coherence heuristics. The equality of eigenvalues explains why spectral-radius analysis misses this initial effect, and the sharp ratio quantifies the maximum benefit of changing the order on one instance. This has value for the explicitly motivated one-sweep objective, not as a general recommendation for asymptotic convergence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T15:04:54.664133Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The fixed-reset process has an invariant renewal mixture over exponentially distributed age; coupling with common resets and common driving noises gives uniqueness. Finite stationary moments follow from exponential age, bounded speed and the Brownian moment bounds. An independent check uses ordered times s≤t in a reset-free interval. For the sum of angles, the Fourier factor is exp[−(4D_r−2iΩ)s]exp[−(D_r−iΩ)(t−s)]; for their difference it is just the second factor. Weighting by the survival probability exp(−rt) and integrating the two ordered-time integrals yields E Z²=2v²/[(A−iΩ)(B−2iΩ)] and E|Z|²=4D_t/r+(2v²/r)Re[1/(A−iΩ)]. The mean is v/(A−iΩ). Subtracting the squared mean in each case gives the stated centered tensor, with the factor 2A−B=r−2D_r in Q. The denominators cannot vanish and v>0, so both traceless components vanish precisely at that rate. The eigenvalue gap is |Q|; reversing Ω conjugates Q, and at Ω=0 its real sign determines the principal-axis exchange. Even centered full-law symmetry need not follow: the ordered third-moment integral gives E Z³=6v³/(L₁L₂L₃) with L_j=r+j²D_r−ijΩ; at isotropy L₂=2L₁ and the centered third complex moment is −2D_r v³/(L₁³L₃)≠0. The scope requires independent noises, isotropic translational noise and Poisson resetting of both position and heading. Frozen RESULT.md lines 27–66 provide the generator proof. The uploaded quadrature code was inspected, not executed; the independent integral calculation is analytical, not a rerun of the reported 84 finite checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ghosh–Mandal–Chaki allow unequal mobilities but their angular equation has no constant drift",
+          "The inertial entry has a reset rate given by a cubic with root strictly between zero and 2d in its own achiral positive-inertia regime"
+        ],
+        "reasoning": "More general mobility or inertia does not compensate for lack of nonzero angular drift. An overdamped achiral limit of these results cannot establish invariance under arbitrary chirality.",
+        "searches": [
+          "arXiv:2501.05149, §II and §III.1, Eqs. (4), (21)–(22)",
+          "Resultary ...--7f7ce85bb9c9, complete resetting with inertia"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2508.12223v2",
+        "arXiv:2501.05149",
+        "Resultary ...--7f7ce85bb9c9 and ...--34dd977d5789"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The achiral variance difference becomes v₀²(r−2D_θ)/[(r+D_θ)²(r+4D_θ)] at reset heading zero",
+          "The chiral scalar MSD plus the known mean gives the centered trace, not the centered traceless tensor"
+        ],
+        "reasoning": "The Ω=0 crossing is already implied by the earlier component variances. Establishing the chiral result requires the separate angular-sum correlation or its equivalent mixed Fourier moment and subtraction of the complex squared mean; it does not follow from the previously reported radial moments.",
+        "searches": [
+          "Compare arXiv:2508.12223v2 §III and Appendices A–B with the complex traceless moment",
+          "Take t→∞ and ΔD=0 in arXiv:2501.05149 Eqs. (21)–(22)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shee reports E|Z|² and orientation correlations; the position–orientation perpendicular dot product is not Cov(X,Y)",
+          "Local match ...--34dd977d5789 is a long-time diffusion tensor with orientation-only resets"
+        ],
+        "reasoning": "Covariance isotropy is equivalent to E[(Z−E Z)²]=0, not a scalar radial condition or isotropy of the asymptotic diffusive growth rate.",
+        "searches": [
+          "Local Resultary search for centered covariance isotropy and chiral joint resets",
+          "arXiv:2508.12223v2, §III Eq. (10), Appendices A–B"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/2/SCOPE-a-unique-inertial-resetting-rate-for-isotropic-centered-spatial--7f7ce85bb9c9",
+          "2026/11/2/SCOPE-chirality-avoids-the-diffusion-isotropy-crossing-of-an-orientati--34dd977d5789",
+          "Both Findings inspected at mirror offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4"
+        ],
+        "reasoning": "The first record modifies the state and resetting (velocity, inertia, achiral); the second is chiral but leaves the position unreset. Their same-day indexing does not determine priority; their statements do not match.",
+        "searches": [
+          "Configured local Resultary mathematical catalogue, chiral ABP, joint resetting, centered tensor and isotropy rate"
+        ]
+      },
+      "rationale": "The supported distinct claim is the complete centered tensor and universal exact crossing for nonzero angular drift in the overdamped model with fixed position–orientation Poisson resetting. The match on scalar radial moments in the identical chiral model and the known achiral variance specialization are not new here. Neither determines the two independent traceless entries as functions of nonzero chirality. The strongest indexed matches alter the dynamics or the resetting protocol and observable; no equivalent or stronger covering statement was established in the bounded comparison.",
+      "residual_risks": [
+        "The search was bounded; an unindexed derivation of the chiral tensor, for example from directional moments not in the inspected passages, could overlap. This is not an exhaustive priority finding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model, trace rather than traceless tensor",
+          "evidence": "The moment probe ψ=|position|² gives the scalar radial moment; the transverse position–orientation correlation is a different observable from centered XY.",
+          "identifier_or_url": "https://arxiv.org/html/2508.12223v2",
+          "material_read": "§II Eqs. (1)–(3), §III Eq. (10), Appendices A–B Eqs. (34)–(36); offsets 7900, 17200, 69000, 71400",
+          "method": "Open primary HTML passages",
+          "title": "Steering chiral active Brownian motion via stochastic position–orientation resetting",
+          "trigger": "Identical dynamics and reset rule"
+        },
+        {
+          "assessment": "Achiral isotropy covered, chiral regime absent",
+          "evidence": "At isotropic mobility and reset heading zero the stationary variances imply the same achiral crossing, but angular drift vanishes in the model.",
+          "identifier_or_url": "https://arxiv.org/html/2501.05149",
+          "material_read": "§II Eq. (4), offset 11200, and §III.1 joint resets and Eqs. (21)–(22), offset 24200",
+          "method": "Open primary HTML passages and analytical stationary specialization",
+          "title": "Anisotropic active Brownian particle in two dimensions under stochastic resetting",
+          "trigger": "Potentially equivalent directional variances"
+        },
+        {
+          "assessment": "Achiral inertial model only",
+          "evidence": "Velocity is reset too; a cubic gives r_*<2d for the stated positive-inertia regime.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-unique-inertial-resetting-rate-for-isotropic-centered-spatial--7f7ce85bb9c9",
+          "material_read": "Finding and scope, mirror offset 0",
+          "method": "Local mirror primary text",
+          "title": "A unique inertial resetting rate for isotropic centered spatial covariance",
+          "trigger": "Same centered observable and reset-isotropy theme"
+        },
+        {
+          "assessment": "Different resetting and observable",
+          "evidence": "Only heading is reset; the tensor measures long-time diffusion, not stationary positional covariance.",
+          "identifier_or_url": "2026/11/2/SCOPE-chirality-avoids-the-diffusion-isotropy-crossing-of-an-orientati--34dd977d5789",
+          "material_read": "Finding and scope, mirror offset 0",
+          "method": "Local mirror primary text",
+          "title": "Chirality avoids the diffusion isotropy crossing of an orientation-reset active particle",
+          "trigger": "Chiral isotropy comparison with apparently opposite conclusion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The fixed reset heading selects an axis and chirality permits off-diagonal covariance. The complete centered tensor therefore tests whether both forms of anisotropy can vanish together at an exact, useful calibration point. The chirality-independent rate identifies that degeneracy despite the generally nonisotropic stationary distribution and is not a restatement of a scalar spread or the known achiral crossing.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

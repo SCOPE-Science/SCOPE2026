@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The derivation formula follows from the generating space \(V\) and its commutator ideal \(\bigwedge^2V\). For a local operator, noncentral evaluation imposes no restriction beyond preservation of the center, while central evaluation is equivalent to a pointwise tangent-space problem. The proof solves this problem by first eliminating off-diagonal wedge entries and then imposing four-index diagonal relations, over arbitrary fields. Sufficiency is explicit via Darboux decomposition of alternating bivectors, including characteristic two. The dimension and finite-field count are consequences of the complete block parametrization. A deterministic checker computes tangent-reflexivity dimensions and directly verifies representative local maps across every point in three finite Lie algebras. No infinite theorem is inferred solely from experiments.
+## correctness
 
-## Originality — PASS (best-knowledge, residual risk)
-The 2015/2016 Ayupov–Kudaybergenov work provides examples, not this free class-two classification. Benito–Roldán-López provides ordinary derivations, already antecedent. Khudoyberdiyev–Jumaniyozov establishes pure-local existence in characteristic other than two and a special modular counterexample; these do not imply the exact reflexive hull or unrestricted finite-field count. A center-line Heisenberg local-derivation classification does not cover a free rank-\(n\ge3\) Lie algebra, whose center has dimension at least three. Targeted available mathematical records and bibliographic searches did not locate an equivalent complete result. Limited access to a potentially relevant general 2026 reflexivity discussion is a residual publication-priority risk, not proof of novelty.
+PASS
 
-## Value — PASS
-A complete classification of local derivations of an unbounded natural free-Lie family resolves the pointwise derivation-matching problem, not just existence of examples. The exterior-square tangent-space lemma distinguishes the characteristic-two additional scalar direction while explaining why the overall dimension stays characteristic-independent. Exact dimensions and finite-field counts quantify the failure of local-to-global rigidity in every rank and field, and give an explicit reproducible algebraic description.
+Derivations are exactly (Av,Bv+ρ(A)w), since the commutator ideal is W and the bracket is the exterior product. At any point with v≠0 prescribe Av=Pv and use the free Bv to match the entire central component; the only constraint is Rw∈ρ(End V)w for every w∈W. Applying that to e_i∧e_j forbids entries involving neither index. Evaluation on e_i∧(e_j+e_l) equates the coefficients replacing i by h for each pair of partners j,l (at n=3 there is only one). Subtracting that off-diagonal induced action leaves d_ij. In the four coordinates of (e_i+e_h)∧(e_j+e_l), the tangent entries are sums of row and column scalars, hence d_ij+d_hl=d_il+d_hj in any characteristic. Using anchors 1 and 2 the differences s=d_1i−d_2i are constant for i≥3; setting c=d_12+s, a_1=0, a_j=d_1j−c gives d_ij=a_i+a_j+c, also for n=3 where s=d_13−d_23. No division or density over an infinite field is needed. For sufficiency, split the alternating form on V* associated to w into nondegenerate two-dimensional blocks and a radical (valid also in characteristic two); acting by 1 on one vector and 0 on the other in each dual bivector pair realizes I_W pointwise. The kernel of ρ is zero outside characteristic two and the scalars in characteristic two; there three pairwise equations a_i+a_j=1 rule out I_W in the image. The central-block dimension is therefore n² in both cases, giving the stated dimensions and finite-field ratio. The finite checker was inspected, not run; the all-field argument is algebraic.
 
-## Limits and provenance
-Independent mathematical audit and comprehensive historical publication-priority certification were not performed. The full field-general result depends on the written algebraic proof; finite checks are corroborative. The theorem is restricted to linear local derivations of this free class-two family.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct contribution is the characteristic-two reflexive-hull defect, the division-free all-field computation, and the resulting invariant census that includes the modular case. The characteristic-not-two classification has an explicit matching indexed statement; it is credited as overlap, not claimed separately here. The inspected Lie-closure or existence theorems do not compute the required hull, and the odd-characteristic matching proof cannot be specialized to characteristic two by substituting parameters.
+
+## value
+
+PASS
+
+The derived action loses rank in characteristic two, yet its pointwise reflexive hull regains exactly that rank in a direction that is not induced by any fixed generator endomorphism. This structural classification explains why the local census remains uniform even over F₂ and goes beyond finding a proper local derivation or recording a dimension alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

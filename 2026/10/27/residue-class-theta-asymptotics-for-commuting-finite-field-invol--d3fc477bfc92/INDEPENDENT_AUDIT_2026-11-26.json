@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:41:35.679677Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–45",
+        "Frozen VERIFICATION.md, verification_output.txt and verify_commuting_involutions.py (inspection only)"
+      ],
+      "rationale": "In odd characteristic the minimal polynomial divides a separable (X−1)(X+1); every involutory matrix, including I, corresponds to a unique labeled two-block decomposition. Commuting ordered pairs correspond to four labeled blocks from (I±U)(I±V)/4. Orbit–stabilizer gives G_n times the respective sum of reciprocal G_d products. For p=2 or p=4, write d_i=n/p+x_i, so ∑x_i=0 and ∑d_i²=n²/p+∑x_i². The resulting offsets are the parity lattice for p=2 and a translate of A_3 for p=4. Where every d_i≥n/(2p), the product of reciprocal Φ factors differs from Φ_∞^(−p) by relative O_q(q^(−n/(2p))), since its Euler-product tail begins at d_i+1. All remaining and missing terms have at least one |x_i|≥n/(2p). Bound the omitted hyperplane sum by a union over coordinates and relax the hyperplane constraint for each one-coordinate Gaussian tail; the other coordinate sums are uniformly bounded, giving O_q(q^(−n²/(4p²))) and avoiding any unjustified radial-tail count. For p=2, ∑x_i²=2t² gives the slightly sharper two-block tail in the record by the one-dimensional parametrization. On the retained region the full theta weight is uniformly bounded over the finitely many residues. Positivity converts the errors to multiplicative errors. In C_n/I_n² the two Euler factors from the sums cancel, leaving 1/Φ_n, and the quadratic powers leave q^(−n²/4); replacing Φ_n by Φ_∞ costs only O_q(q^(−n)). The involution k↦1−k in all four coordinates identifies residues 1 and 3. This proves the stated probability with its relative O_q(q^(−n/8)) remainder.",
+      "residual_risks": [
+        "Recorded prime-field finite checks were not rerun and do not prove the asymptotic or the extension to all odd prime powers. The proof uses only odd characteristic and fixes q; it does not cover characteristic two or a changing field."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bate–Gullon §3 Prop. 3.8 gives leading degree and coefficient in the field-size polynomial for representation counts, including the Klein four-group regime. Fulman–Guralnick–Stanton Prop. 3.1 and Thm. 3.3 give the denominator's finite sum and fixed-field parity limits."
+        ],
+        "reasoning": "The general representation formula covers the simultaneous-eigenspace numerator exactly, but the inspected theorem on the leading field degree/term is not a fixed-q dimension limit. The parity theorem only supplies the denominator.",
+        "searches": [
+          "Bate–Gullon, DOI:10.1017/S0017089516000562",
+          "Fulman–Guralnick–Stanton arXiv:1602.03611"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1017/S0017089516000562",
+        "arXiv:1602.03611",
+        "Resultary fcdcbdd062c0 and 4d34796731e5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older formulas determine the finite count. Large q isolates maximal polynomial degree, while balanced ranks only see offsets subject to two fixed marginal constraints."
+        ],
+        "reasoning": "Neither prior asymptotic implies the all-rank numerator in the required regime. To extract it from the count one must sum fixed-q Gaussian weights on the full rank-three coset, include the missing tails, and control the finite Euler products. The asymptotic statement, not the exact-count source or Gaussian method, receives credit.",
+        "searches": [
+          "Bate–Gullon §3 Prop. 3.8",
+          "Resultary fcdcbdd062c0, Finding and Assumptions",
+          "Resultary 4d34796731e5, Finding and Balanced specialization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The first gives the same finite probability for all-rank uniform idempotents and a fixed-dimension large-field limit. The second gives a fixed-field discrete theta for the product rank of balanced commuting idempotents in dimension 4m."
+        ],
+        "reasoning": "U↦(I+U)/2 is a uniform-sample bijection preserving commutation; the first finite probability is exactly equivalent, and gets no new credit. Its limit regime is different. The second result fixes the two ranks, reducing the admissible four-block offsets to a one-dimensional lattice.",
+        "searches": [
+          "Resultary 2026/10/12/SCOPE-exact-enumeration-of-commuting-idempotent-tuples-in-finite-matri--fcdcbdd062c0",
+          "Resultary 2026/10/26/SCOPE-a-discrete-theta-law-for-product-ranks-of-commuting-finite-field--4d34796731e5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed finite counts are exact and match after the idempotent substitution. The indexed fixed-field theta expression is balanced-rank; the single-involution product limits are exact for the parity factors of the denominator."
+        ],
+        "reasoning": "A finite table of counts cannot establish the limiting all-rank theta constant or remainder. The comparable exact data are the indexed formulas and limiting product identities; the prior exact finite probability and single-element limits are credited.",
+        "searches": [
+          "Resultary fcdcbdd062c0 and 4d34796731e5",
+          "arXiv:1602.03611, Thm. 3.3"
+        ]
+      },
+      "rationale": "Credit the exact two- and four-block finite counts, including the idempotent-equivalent count/probability, and the prior single-involution parity limits. The supported distinction is the full fixed-field, increasing-dimension commuting-pair probability with all residue-coset constants and a relative error estimate. A field-leading polynomial term retains only minimizers at large q; it cannot be exchanged with the fixed-field growing-dimension limit in which every bounded lattice offset contributes. Balanced-rank results condition on both ranks and sample only a lower-dimensional subset of the offset lattice. The known exact finite sum is the starting point, but the new asymptotic comparison needs the surviving contributions from all offsets and uniform error control, not merely re-labeling that sum.",
+      "residual_risks": [
+        "A general fixed-q homomorphism asymptotic or earlier equivalent lattice expansion not found in the bounded primary comparison could subsume the result. The known orbit count itself and parity limit are not novel."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers general count and field-leading behavior, not the fixed-q result in the inspected statements",
+          "evidence": [
+            "Leading degree and coefficient of the polynomial depend on n mod |A|; this is field-size behavior."
+          ],
+          "identifier_or_url": "https://eprints.whiterose.ac.uk/id/eprint/113941/1/Asymptotic_Bounds_for_the_Size_of_Hom_A_GL_n_q.pdf",
+          "material_read": "Abstract, introduction, and §3 Prop. 3.8, printed pp. 1, 4–5",
+          "method": "Lawful OA accepted-manuscript passage comparison",
+          "title": "Asymptotic Bounds for the Size of Hom(A,GL_n(q))",
+          "trigger": "General representation-orbit count and residue-sensitive asymptotics"
+        },
+        {
+          "assessment": "Exact denominator sum and fixed-q parity limits already known",
+          "evidence": [
+            "The sum includes I; the even/odd product limits are the one-dimensional theta antecedent, not a commuting-pair asymptotic."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1602.03611",
+          "material_read": "Prop. 3.1 p. 12 and Thm. 3.3 pp. 14–15",
+          "method": "Lawful OA PDF passage comparison",
+          "title": "Asymptotics of the number of involutions in finite classical groups",
+          "trigger": "Known parity limit in the denominator"
+        },
+        {
+          "assessment": "Exact finite probability equivalent; different asymptotic parameter",
+          "evidence": [
+            "The exact pair formula counts the same four labeled eigenspaces. The reported asymptotic fixes dimension and varies q."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-exact-enumeration-of-commuting-idempotent-tuples-in-finite-matri--fcdcbdd062c0",
+          "material_read": "Mirrored RESULT.md Finding and Assumptions and scope",
+          "method": "Resultary and local mirror, primary passages",
+          "title": "Exact enumeration of commuting idempotent tuples in finite matrix algebras",
+          "trigger": "Equivalent sample space and finite probability"
+        },
+        {
+          "assessment": "Restricted ranks and different limiting law",
+          "evidence": [
+            "Rank-2m idempotents in dimension 4m produce a one-dimensional theta, not the all-rank shifted A_3 numerator."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-a-discrete-theta-law-for-product-ranks-of-commuting-finite-field--4d34796731e5",
+          "material_read": "Mirrored RESULT.md Finding and Balanced specialization",
+          "method": "Resultary and local mirror, primary passages",
+          "title": "A discrete theta law for product ranks of commuting finite-field idempotents",
+          "trigger": "Closest indexed fixed-field theta result for commuting idempotents"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof",
+        "Bate–Gullon §3 Prop. 3.8",
+        "Resultary 4d34796731e5, Balanced specialization"
+      ],
+      "rationale": "Commutation of natural finite classical-group samples is a meaningful statistic, and the fixed-field regime is materially different from a field-leading estimate. A coarse decay rate does not resolve the persistent residue effects; this result computes the full leading factor from the distribution of all near-balanced four-block dimensions and controls its relative error. The choice of residue class is forced by integrality of four blocks, not by an arbitrary dimension slice. The value judgment concerns the sharp growing-dimension probability, not recomputation of known finite counts.",
+      "residual_risks": [
+        "The remainder is quantitative, not claimed optimal; four residue formulas do not assert four distinct numerical constants."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

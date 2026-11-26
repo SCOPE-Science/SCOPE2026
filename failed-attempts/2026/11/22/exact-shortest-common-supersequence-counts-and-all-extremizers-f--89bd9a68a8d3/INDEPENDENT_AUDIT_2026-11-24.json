@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:49:38.271162Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With positive runs, all common subsequences are monochromatic. Their maximum length is s=max(min(a,d),min(b,c)), and any pair of embeddings into a shortest output covers all letters, so it shares exactly s equal letters. If the shared letters are zeros and a≤d, every output zero is required by the second input. This forces its c ones before the first zero, and the first input's b ones after the a-th zero. The prefix is therefore 1^c0^a and the suffix a shuffle of d−a zeros and b ones. If a>d use the last d zeros and the symmetric suffix argument; exchange letters and inputs for one-sharing. The classes are disjoint by inventory. With s≥2 the general upper bound has binomial top at most N−4 and is strictly below the proposed maximum. With s=1 the four cases forced by the two minimum constraints reduce to Pascal's identity for the two displayed families, or to N−2 for the two opposite unit pairs when the other two lengths exceed 1. Here N≥6, giving strict inequality in the latter cases; the cases N=4,5 are included in the two main families. This establishes all equality cases, and Stirling gives the asymptotic. The proof's statement that the central binomial coefficient is strictly increasing needs m≥1 (it takes the value 1 at m=0 and m=1); all uses of strict increase are in the valid range. Independently checked the exact count, shortest length and every optimizer on all 35,960 positive quadruples of total length 4 through 32 by a deterministic next-letter dynamic program. The finite check does not prove the unbounded range.",
+      "replay": [
+        "python3 /tmp/opencode/audit_scs.py",
+        "RESULT.md lines 47–82; independent proof comparisons with the original theorems below",
+        "frozen verification/check_literal.py, verification/check_dp.py and recorded outputs inspected rather than executed"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Alon et al. bound distinct SCS multiplicities by binom(α+β,α) when inputs are α and β shorter than an SCS. They exhibit general sharpness, not the restricted optimizer list. Sopp et al. enumerate all minimal common supersequences; Fraser's thesis gives dynamic programming and traceback for longest minimal outputs."
+        ],
+        "reasoning": "The general bound gives binom(N−2s,a+b−s), strictly below the proposed fixed-N central coefficient when s≥2. General enumeration algorithms alone would not be an evaluated four-run theorem. The exact longest-minimal record supplies the additional short-layer coverage via the bijection.",
+        "searches": [
+          "arXiv:2209.11882v3 Theorem 3 and Appendix",
+          "arXiv:2603.22591v1 Theorem 5.4",
+          "Fraser Glasgow thesis Chapter 6"
+        ]
+      },
+      "checked_sources": [
+        "Alon et al. arXiv:2209.11882v3",
+        "Sopp et al. arXiv:2603.22591v1",
+        "Fraser Glasgow thesis Ch. 6",
+        "DOI:10.1006/inco.1996.0011 (full text unavailable)",
+        "Resultary 298375de5b88, d41f14eae316, 5df86cdf4ed9, 10a0d52c68a3 and 980cf845dba3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "When s=1, N−1 is both the shortest common-supersequence length and the longest deletion-minimal length, so the counts coincide without transformation. The general multiplicity bound excludes s≥2 from equality. At s=1 the H formulas give binom(b+d,b) or binom(a+c,a) on the two main unit-run families by Pascal, and N−2 in the remaining positive-length boundary cases. The central binomial coefficient condition is precisely the stated balance condition."
+        ],
+        "reasoning": "The equality classification is a direct binomial consequence of the other exact count together with the general bound. For s>1, the separate contraction yields the queried exact counts, so simply dropping the equality classification would not leave an uncovered four-run count.",
+        "searches": [
+          "Resultary 298375de5b88 exact H formula and structural proof",
+          "arXiv:2209.11882v3 Theorem 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-day record counts longest deletion-minimal outputs with one shared zero or one shared one, using the central gap between the c-th and (c+1)-st ones in the zero-sharing case. For a shortest zero-sharing word let h be the size of that gap and let x,y be the zero counts on either side. Then x+h+y=a+d−s, x+h≥a and h+y≥d, whence h≥s. Delete s−1 zeros of this consecutive gap and decrease both a,d by s−1. The two inequalities are unchanged in form, so the result contains the reduced inputs. One of the two reduced zero lengths is 1. If a'=1≤d', every zero belongs to the second input, which requires c ones before the first zero; the first input needs b ones after that zero. All letters are therefore essential, since there are exactly b+c ones; the case d'=1 is symmetric at the last zero. The reduced word has total input length minus one, hence belongs to the exact longest-minimal zero-sharing class H(a',b,c,d'). Conversely increase the unique central zero gap by s−1; this restores both inequalities and the original shortest length. Complement and exchange the inputs for one-sharing."
+        ],
+        "reasoning": "This is a bijection including the ties, not an assumption equating minimal and shortest. It reduces both branches exactly to explicit branches of the other record. In particular a'=1 gives binom(b+d−a,b) and d'=1 gives binom(c+a−d,c), the two F_0 branches; the one-sharing formulas follow by symmetry.",
+        "searches": [
+          "Resultary: exact distinct shortest common supersequences of independent opposing binary runs",
+          "Resultary 298375de5b88 RESULT.md Finding and Steps 3–5",
+          "arXiv:2603.22591v1 Definition 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest distinct entry gives M=H(a,b,c,d)+H(c,d,a,b) at length N−1 for these same four free run lengths. Other inspected records give smaller mirrored/equal families (including a full length spectrum for a=b=c=d), or exact counts for binary permutation powers with alternating runs."
+        ],
+        "reasoning": "The older narrow specializations alone do not give the arbitrary four-run count; the same-date exact formula is the relevant stronger coverage after contracting the shared gap. No publication order is assigned on date information.",
+        "searches": [
+          "Resultary 298375de5b88, d41f14eae316, 10a0d52c68a3, 5df86cdf4ed9, 980cf845dba3",
+          "Resultary: all extremizers for exact SCS counts of opposite binary runs"
+        ]
+      },
+      "rationale": "The inspected distinct same-day longest-minimal record gives an exact zero-sharing count H for all four independent runs when the overlap is one letter. The overlap is not confined to s=1: every shortest zero-sharing class at s=min(a,d) contracts bijectively onto exactly that record's one-shared-zero class for (a−s+1,b,c,d−s+1); exchange the symbols and inputs for the other branch. The resulting H evaluations are exactly the asserted formula. The complete fixed-N equality classification then follows from the general bound for s≥2 and the exact longest-minimal result without any contraction for s=1, by Pascal's identity and the four unit-run boundary cases. This is demonstrated coverage by mathematical reduction, not a claim that the same-day record predates this one, nor that its global longest-minimal objective is literally the same as shortest.",
+      "residual_risks": [
+        "Relative priority between the two records dated 2026-11-22 is not established. The decision concerns demonstrable coverage by another available statement, not alleged precedence or dependence.",
+        "The 1996 journal article was not readable in full, and further historical coverage is possible; this is not the basis of the decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different optimum, directly coinciding at s=1 and supplying each shortest branch after contraction to one shared letter",
+          "evidence": [
+            "M=H(a,b,c,d)+H(c,d,a,b) at N−1; its zero-sharing class has a canonical central zero gap bounded by the c-th and (c+1)-st ones; the H boundary cases are explicit binomial coefficients."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-longest-minimal-common-supersequence-counts-for-four-indep--298375de5b88/RESULT.md",
+          "material_read": "Finding and assumptions; proof Steps 3–5 near offsets 3800–6837; literature and limitations near offset 7500",
+          "method": "Local published-record mirror",
+          "title": "Sharp longest minimal common-supersequence counts for four independent binary run lengths",
+          "trigger": "Closest distinct same-date entry on identical input family and exact word counts"
+        },
+        {
+          "assessment": "Supplies upper bound and excludes all s≥2 from extremizers; does not alone compute the four-run count",
+          "evidence": [
+            "Counts distinct outputs, with upper bound binom(α+β,α); Appendix sharpness contains disjoint constant-letter examples."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2209.11882v3",
+          "material_read": "Multiplicity definition near 7670; Theorem 3 at 8119–8950; Appendix near 37900",
+          "method": "Lawful OA primary HTML",
+          "title": "Logarithmically larger deletion codes of all distances",
+          "trigger": "General exact upper bound and possible equality implications"
+        },
+        {
+          "assessment": "General minimal-output enumeration, not a stated closed count",
+          "evidence": [
+            "Theorem 5.4 enumerates all minimal outputs, including shortest, with polynomial preprocessing and linear delay."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.22591v1",
+          "material_read": "Definition 2.1 near 10380; Theorem 5.4 near 51588",
+          "method": "Lawful OA primary HTML",
+          "title": "Computing and Enumerating Minimal Common Supersequences Between Two Strings",
+          "trigger": "Possible general structural theorem evaluating these counts"
+        },
+        {
+          "assessment": "Older definitions and algorithmic precedent; not a substitute for the exact journal article",
+          "evidence": [
+            "Distinguishes shortest from longest deletion-minimal outputs and develops prefix dynamic programming and traceback."
+          ],
+          "identifier_or_url": "https://theses.gla.ac.uk/74575/1/10992195.pdf",
+          "material_read": "Chapter 6 pp. 112–113 and §6.3.2 pp. 119–122",
+          "method": "Lawful OA thesis PDF",
+          "title": "Subsequences and Supersequences of Strings",
+          "trigger": "Accessible related primary work for the inaccessible Fraser–Irving–Middendorf article"
+        },
+        {
+          "assessment": "Unresolved full-text comparison; not grounds for FAIL",
+          "evidence": [
+            "Direct PDF returned 403 and the identified alternate was inaccessible. Chapter 6 of the author's thesis was read separately."
+          ],
+          "identifier_or_url": "https://doi.org/10.1006/inco.1996.0011",
+          "material_read": "Bibliographic identification; original full text inaccessible",
+          "method": "Lawful DOI/PDF and identified alternate copy attempts",
+          "title": "Maximal Common Subsequences and Minimal Common Supersequences",
+          "trigger": "Potential earlier structural implication"
+        },
+        {
+          "assessment": "Mirrored two-run or equal-block special cases, or a distinct alternating family",
+          "evidence": [
+            "d41f14eae316 sets c=b,d=a; 5df86cdf4ed9 sets all four lengths equal and gives two shortest words; 980cf845dba3 considers powers of reversed permutations."
+          ],
+          "identifier_or_url": "Resultary d41f14eae316, 5df86cdf4ed9 and 980cf845dba3",
+          "material_read": "Finding and input scope, with checked shorter-layer counts",
+          "method": "Local published-record mirror",
+          "title": "Exact minimal-supersequence spectra for unequal opposite binary runs; Complete length spectrum of minimal common supersequences for opposite binary blocks; A binomial law for shortest common supersequences of opposite permutation powers",
+          "trigger": "Exact counts in neighboring opposing-run families"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Distinct shortest-output ambiguity for two opposing runs and its extremizers are meaningful invariants, and the frozen argument is correct. But against the inspected exact longest-minimal result the evaluated counts require only contracting the mandatory consecutive gap, while the optimizer list reduces to the s=1 table by the known general bound and elementary binomial comparisons. No further structural result or useful independent exact remainder is claimed in the frozen record beyond these consequences. A reference correction or a new certificate would not create such a remainder.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

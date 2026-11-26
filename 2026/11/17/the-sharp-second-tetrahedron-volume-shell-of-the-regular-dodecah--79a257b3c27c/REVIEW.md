@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement concerns precisely 4,845 four-element subsets of an explicit twenty-point regular dodecahedron. Every determinant is computed with integer pairs in \(\mathbb Z[\varphi]\), exact sign comparisons and a second Gram-polynomial check. The complete eleven-level histogram, 120 runners-up, ten maxima and their two edge-length biconditionals are exhaustively checked. The proof uses no sampled extrapolation and distinguishes the vertex-supported second shell from the continuous optimization problem. Remaining risk: software or enumeration mistakes despite complete small-domain exact arithmetic and separate identities.
+PASS
 
-## Originality — PASS, priority provisional
+For each unordered four-vertex selection, the squared absolute edge-vector determinant is the determinant of its three-by-three Gram matrix; polarization obtains every entry from the six squared distances. Independent exact enumeration in Q(phi), phi²=phi+1, over all 4,845 selections reproduces the eleven magnitudes d=6V, in order, with counts 495, 320, 900, 1110, 120, 900, 400, 150, 320, 120, 10. All algebraic ordering comparisons are exact, and squaring is injective on nonnegative magnitudes. The maximum 16 and runner-up 8phi occur 10 and 120 times; both squared-edge biconditionals were tested on every selection. The volume gap is 4(2−phi)/3. Allowing arbitrary points in the solid preserves the absolute maximum because the signed affine determinant is separately affine in its four points, hence a convex combination of signed vertex-supported values; that reasoning does not give a continuous runner-up.
 
-The 2019 Leppmeier full paper calculates volumes for sphere-center/icosahedron tetrahedra, not these twenty-vertex tetrahedra. The known ten dodecahedral regular tetrahedra are expressly prior art. The published complete icosahedron four-vertex spectrum has only twelve underlying vertices, so its five levels do not entail this eleven-level dodecahedron histogram. The dodecahedral graph Rips homology theorem concerns ten graph-metric special tetrahedra rather than all Euclidean volumes. No inspected result states the strict runner-up \(4\varphi/3\), its 120 equality cases, and six-edge shape characterization. The central residual risk is a historical classical-polyhedra table not located in these searches; lack of a hit is not proof of priority.
+## originality
 
-## Value — PASS
+PASS
 
-The pre-existing compound of ten regular tetrahedra gives a natural extremal benchmark, and the first strict lower volume level quantifies the rigidity of that extreme among all vertex-supported tetrahedra. The exact 120-tetrahedron runner-up shell and its intrinsic edge-length characterization provide a complete and reproducible near-maximal classification, supported by the full finite volume distribution. This is an exact natural invariant of a named regular solid, not an arbitrary coordinate sample or re-computation of the already-known ten maxima. Its importance is bounded: no continuously variable second optimum is asserted.
+The classical ten regular maximal tetrahedra are not the contribution. The geometric and database comparisons support distinctness of the complete Euclidean volume census, the next distinct shell, its multiplicity, and its squared-edge signature, subject to historical search limits.
 
-## Relation to literature and limitations
+## value
 
-Relevant inspected texts are Max Leppmeier (2019), *The Dodecahedron as a Voronoi Cell*, full seven-page text; the complete vertex-tetrahedron spectrum for the regular icosahedron, and the dodecahedral Rips homology calculation, both inspected in their full published result descriptions; and Simon–Timofeyev (2021), consulted for related geometric context. The explicit result is finite and independently checkable but historical priority and independent mathematical audit remain open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural comparison begins with the classical regular tetrahedral compound: the second volume and its gap quantify how much volume is lost outside the maximum orbit family. The biconditional lets one recognize all near-maximal tetrahedra directly from metric data, and the complete volume distribution is reusable for exact random vertex-simplex statistics or census comparisons on Platonic vertex sets. This is more than recomputing the known top shell or reporting an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:44:38.540751Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the strictly positive cone the effort equation forces E=2y for every rho>0. The predator equation then gives x/(x+y)=25/26, and the prey equation fixes x=31/52; the reductions are reversible. Independently differentiating the per-capita rates and multiplying by the equilibrium coordinates gives the stated Jacobian and all three positive cubic coefficients. The quadratic A B-C has positive leading coefficient and distinct positive roots 0.04806452072803434 and 0.2208472716438506, agreeing with the exact radical expressions. Strict Routh–Hurwitz gives stability outside and two right-half-plane roots inside; positive coefficients preclude positive real roots. At a critical rate the factorization is (lambda+A)(lambda^2+B) with distinct imaginary pair and negative root. Differentiating P=(lambda+A)(lambda^2+B)-(AB-C) gives Re(lambda')=-(AB-C)'/[2(A^2+B)], positive at the first root and negative at the second. Exact replay: python3 /workspace/reproductions/independent_checks.py 5. Neither this crossing nor the robustness argument establishes nonlinear Hopf nondegeneracy, periodic orbits or nonlinear endpoint stability.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Thm. 3.9 assumes m2<rho p m1, so it cannot certify the low-speed interval here. Thm. 4.1 uses m. The claimed global result Thm. 5.1 is not a reliable stronger covering theorem in the frozen family as printed.",
+          "Both printed Eq. (25) inequalities are strict at the frozen equilibrium (21/52<31/50 and 3/26<4/25). Yet for rho=1/10 the exact Jacobian is unstable. For the printed separable logarithmic Lyapunov candidate, putting x=x*, E=E* and varying y gives a positive quadratic term because J22=29/156>0. Thus the derivative sign asserted by the proof does not hold in that neighborhood.",
+          "Resultary 88d50ee6e538 treats a delayed Holling-II window staircase; the Bergland and Kar–Chakraborty full texts were not obtained."
+        ],
+        "reasoning": "The verified exact model-specific instability rules out using the printed global claim as an established stronger implication. Retarded-system or differently harvested model results cannot be applied by identifying the number of crossings alone.",
+        "searches": [
+          "arXiv:2203.11986v1 Thms. 3.9, 4.1, 5.1",
+          "DOI 10.1111/nrm.12363",
+          "Kar and Chakraborty, Int. J. Inf. Syst. Sci. 6(3), 318–332 (2010)",
+          "Resultary 88d50ee6e538"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2203.11986v1",
+        "10.1111/nrm.12363 (bibliography and access attempts)",
+        "Kar–Chakraborty (bibliography)",
+        "Resultary 4b0e26b86978, 7c9d9417b683, 88d50ee6e538, 45c090e742f3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original stability theorem's sign restriction would require rho>1 in the frozen example, whereas both roots of AB-C lie below 1/4. Its cubic and the standard Routh–Hurwitz test give an algebraic method, not a conclusion that there is a parameter setting having two positive simple crossings in this sweep."
+        ],
+        "reasoning": "The distinct part is an exact witness that the unchanged coexistence state can be stable for both slow and fast effort and unstable in between, with certified transverse thresholds. No credit is taken for re-deriving the equilibrium formula, Routh–Hurwitz or the generic spectral crossing mechanism.",
+        "searches": [
+          "arXiv:2203.11986v1 Eq. (22), Thm. 3.9 and Thm. 4.1",
+          "Resultary 4b0e26b86978 and 7c9d9417b683"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Yadav–Gakkhar use the very same three equations and call rho effort-adjustment stiffness. Their equilibrium formula does not depend on rho. Their crossing theorem is in m, the harvested fraction.",
+          "Resultary 4b0e26b86978 has two crossings with varied predator conversion in a three-species Lotka–Volterra system. Record 7c9d9417b683 varies a delay in a different predator–prey system."
+        ],
+        "reasoning": "These are pattern analogues, not rescalings or reparametrizations of the same equilibrium branch. Rescaling time would rescale all three equations; varying rho scales only the effort row, so it is not a clock change. Varying m changes the equilibrium constraints.",
+        "searches": [
+          "arXiv:2203.11986v1 Eq. (2), Eq. (8), Secs. 3.4 and 4",
+          "Resultary: effort responsiveness / speed and reentrant coexistence",
+          "Resultary 4b0e26b86978",
+          "Resultary 7c9d9417b683"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The examined source's crossing calculation and parameter examples are for harvested fraction, not the two rho values. The same-day Resultary record 45c090e742f3 treats cooperation thresholds and coexistence–extinction bistability under different equations."
+        ],
+        "reasoning": "There is no exhaustive database or constant table posed by the claim: the thresholds are roots of the Hurwitz determinant for a specified dynamical system. The relevant exact checks were against the source model's reported boundaries and analogous indexed claims; a search miss does not establish priority.",
+        "searches": [
+          "arXiv:2203.11986v1 Secs. 3.4 and 4",
+          "Resultary 45c090e742f3",
+          "Resultary 4b0e26b86978"
+        ]
+      },
+      "rationale": "The specific two crossings under an effort-speed-only sweep, including the stable low-speed interval outside the source's local theorem, survive the model and broader literature comparisons. The model, equilibrium formula independent of rho, cubic criterion and generic idea of reentrance are prior or standard.",
+      "residual_risks": [
+        "No verified full-text comparison of Kar–Chakraborty (2010) or Bergland et al.; earlier exact effort-stiffness analysis elsewhere is not excluded.",
+        "Best-knowledge comparison is not exhaustive historical priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model, equilibrium branch and cubic setup already known; no established coverage of the new sweep",
+          "evidence": "Same effort stiffness, m2<rho p m1 in the local theorem, m as the varying Hopf parameter, and printed Eq. (25)/Lyapunov proof do not substantiate global stability in the independently unstable witness.",
+          "identifier_or_url": "https://arxiv.org/html/2203.11986v1",
+          "material_read": "Sec. 2 Eq. (2), Sec. 3 Eq. (8), Sec. 3.4 Eq. (22) and Thm. 3.9, Sec. 4 Thm. 4.1, Sec. 5 Thm. 5.1 including offset 35586 onward, and relevant reference",
+          "method": "OA article passages and independent substitution",
+          "title": "Effort Dynamics with Selective Predator Harvesting of a Ratio-dependent Predator-Prey System",
+          "trigger": "Identical model and possible stronger stability claims"
+        },
+        {
+          "assessment": "Possible model-level overlap unresolved",
+          "evidence": "Reference identifies Kar and Chakraborty; the title does not establish matching dynamics or an effort-speed sweep.",
+          "identifier_or_url": "Int. J. Inf. Syst. Sci. 6(3) (2010), 318–332",
+          "material_read": "Bibliographic reference in arXiv:2203.11986v1 near offset 54380",
+          "method": "OA reference inspection; full text not obtained",
+          "title": "Effort dynamics in a prey–predator model with harvesting",
+          "trigger": "Possible earlier effort-dynamics model"
+        },
+        {
+          "assessment": "No definitive model-level comparison",
+          "evidence": "The title specifies delays and pollution; no read theorem was available to infer coverage or noncoverage.",
+          "identifier_or_url": "https://doi.org/10.1111/nrm.12363",
+          "material_read": "Bibliographic title only; DOI and Wiley full-text routes denied access",
+          "method": "Lawful OA retrieval attempts",
+          "title": "Time delays and pollution in an open-access fishery",
+          "trigger": "Responsive fishery effort and potential stability comparison"
+        },
+        {
+          "assessment": "Different ODE, parameter and equilibrium branch",
+          "evidence": "Three-species Lotka–Volterra, common conversion rather than multiplying the effort equation.",
+          "identifier_or_url": "Resultary:4b0e26b86978",
+          "material_read": "Indexed RESULT finding and model",
+          "method": "Resultary search and local mirror",
+          "title": "Two transverse stability reversals under a common predator conversion parameter",
+          "trigger": "Closest two-crossing qualitative analogue"
+        },
+        {
+          "assessment": "Different equations and delay sweep",
+          "evidence": "Delayed two-species system with a further destabilization.",
+          "identifier_or_url": "Resultary:7c9d9417b683",
+          "material_read": "Indexed RESULT finding",
+          "method": "Resultary search and local mirror",
+          "title": "Exact reentrant coexistence stability with delayed predator self-interaction",
+          "trigger": "Earlier reentrant stability in a predator model"
+        },
+        {
+          "assessment": "Different mechanism",
+          "evidence": "Exact window staircase for a delayed Holling-II model.",
+          "identifier_or_url": "Resultary:88d50ee6e538",
+          "material_read": "Indexed RESULT finding",
+          "method": "Resultary search and local mirror",
+          "title": "Exact stability-window staircase and unbounded reentrance in a delayed model",
+          "trigger": "Potential broader reentrant stability coverage"
+        },
+        {
+          "assessment": "Different threshold and model",
+          "evidence": "Cooperation, fear and coexistence–extinction bistability, not a stiffness sweep.",
+          "identifier_or_url": "Resultary:45c090e742f3",
+          "material_read": "Indexed RESULT finding",
+          "method": "Resultary search and local mirror",
+          "title": "A sharp cooperation threshold for predator rescue",
+          "trigger": "Same-day coexistence threshold comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Changing the responsiveness of harvesting effort without moving the coexistence state is a natural stability question. The two exact, transverse crossings give a robust counterexample to monotone stabilization or destabilization in that parameter and reveal stable behavior outside a commonly quoted sufficient condition. This is useful independently of possible later nonlinear Hopf or empirical work; no such claim is implied.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

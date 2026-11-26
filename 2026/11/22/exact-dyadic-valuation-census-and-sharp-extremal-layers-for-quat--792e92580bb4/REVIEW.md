@@ -1,15 +1,21 @@
-# Review of the quaternary Fuss–Catalan valuation census
+# Independent mathematical audit
 
-## Correctness — PASS
-Legendre's identity gives the integer valuation exactly: \(\nu_2(F_n)=s_2(3n)-\nu_2(3n+1)\). The six-state carry matrix is explicitly defined, and the terminal carry vector completes all bits of \(3n\), yielding a polynomial at every finite binary index depth without boundary assumptions. Inverting the matrix produces the stated rational function; its polynomial recurrence and coefficient extractions establish the complete histogram, exact extremal multiplicities and first two moments. A unique simple dominant pole near \(t=1\) yields the Gaussian limit. A standalone standard-library checker passed 623 exact assertions on fourteen consecutive depths and additionally compared direct binomial integers through depth eight. The proof, not these finite observations, supplies universal quantifiers. Risk: independent verification of symbolic matrix inversion and the distributional asymptotic remains outstanding.
+## correctness
 
-## Originality — PASS, with bounded historical risk
-The originating Fuss–Catalan tree objects are classical (Aval, arXiv:0711.0906). Kauers–Krattenthaler–Müller (arXiv:1107.2015, Sections 6 and 13) evaluates algorithms and parity conditions for related Fuss–Catalan sequences modulo powers of two, not this complete quaternary depth-by-depth valuation distribution. Krattenthaler–Müller (arXiv:1508.02580, Section 7) covers general coefficient congruences when arity is a power of the modulus prime but does not evaluate the claimed finite-block histogram. Closely indexed work on ternary Fuss–Catalan binary valuation polynomials concerns a distinct sequence: no implication of its formula for the four-ary case is available from the cited statement. A stronger general published formula might cover this as a specialization, and its absence cannot be proven by searches.
+PASS
 
-## Mathematical value — PASS
-The four-ary Fuss–Catalan sequence is a standard enumeration of ordered full quaternary trees. The theorem gives a complete family of nontrivial exact finite-block valuation counts for all binary depths. It further identifies a unique maximizer for every even depth, an odd-depth edge multiplicity linear in depth, a logarithmically sparse parity support, exact variance scaling \(L/4\), and a limiting Gaussian law. These are structural changes relative to the known ternary arity and are not equivalent to a mere valuation identity or a single numerical experiment. This value claim makes no assertion of a downstream application or a general theorem for every arity.
+Legendre gives V=s₂(3n)−ν₂(3n+1)=s₂(3n+1)−1. For an independent all-depth derivation write 3n+1=a·2^L+b with 0≤b<2^L and a∈{0,1,2}. For each b exactly one a makes a·2^L+b≡1 mod 3, giving a bijection, including at L=0; a=0 iff b≡1 mod 3. Thus V=K−I with K=s₂(b), I=1_{b≡1 mod 3}. If R_L(t) sums t^K over b≡1, the cubic root-of-unity filter and alternating residues of binary places give Σ_L R_L(t)z^L=(1/3)[1/(1−(1+t)z)+(−1+(2t−1)z)/(1−(1−t+t²)z²)]. In each two-bit factor the two nontrivial character terms have paired product 1−t+t². Substituting P_L=(1+t)^L+(t^−1−1)R_L gives the advertised rational function (R_L has no constant term in t). V=0 is exactly b=0 or b=2^i with even i, giving 1+ceil(L/2). At even L the all-ones b has residue 0 and is the sole maximizer, with a=1 and n=(2^{L+1}−2)/3. At odd L it has residue 1 and loses one; each single-bit deletion has residue 0 or 2 and joins it at the maximum L−1. Uniform b gives K binomial(L,1/2) and p=E I=(1−(−1)^L/2^L)/3. The same character filter gives Cov(K,I)=0 at even L and 2^{−L−1} at odd L: differentiation at t=1 of the paired factor contributes exactly L/2 for even L, while for odd L the unpaired digit contributes 1/2 to the covariance numerator before dividing by 2^L. The variance L/4+p(1−p)−2 Cov(K,I) is exactly the displayed formula. The bounded difference |V−K|≤1 proves the stated Gaussian limit from the binomial limit. Separately, exact binomial quotients were checked against the recurrence for all 8,191 index instances in L=0,…,12, including the edges and exact moments; this corroborates the unrestricted proof.
 
-## Closest literature and limitations
-Aval (2007) supplies the standard object. Kauers–Krattenthaler–Müller (2011/2012) and Krattenthaler–Müller (2015) provide stronger general modular computational frameworks, but not the particular evaluated distribution in the passages inspected. The closest indexed 2026 ternary valuation results do not cover quaternary input. Older/unindexed digit-sum distribution results and stronger universal transducer theorems remain a possible priority risk. No independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct result is the evaluated all-depth binary valuation census of the fixed quaternary sequence and the exact edge and moment formulas. Earlier general modular representations directly cover the same coefficients at fixed precision; classical enumeration, Legendre arithmetic, digit filters and finite-state methods are not claimed new. The passages examined do not supply the evaluated full census or a stronger evaluated distribution that specializes to it.
+
+## value
+
+PASS
+
+The quaternary sequence is classical; its complete valuation histogram over exact dyadic blocks is a natural divisibility invariant. The all-depth enumeration distinguishes an isolated even-depth maximizer from L+1 odd-depth maximizers and quantifies the exact bias and variance corrections to a binomial law. The binomial-scale limit is elementary once the counting reduction is made, but it is not the basis of value on its own. The evaluated census and sharp edges are usable without recomputing individual modular tree counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

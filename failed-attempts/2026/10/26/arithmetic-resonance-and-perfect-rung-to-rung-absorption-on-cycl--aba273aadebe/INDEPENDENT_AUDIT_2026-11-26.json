@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:15:44.774965Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions and scope, Proof; VERIFICATION.md; verify.py (inspected)",
+        "Independent replay: python /workspace/review_checks/exact_replay.py prism; exact collisions for 3≤n≤36 and exact projected survival for n=3,4,6,12"
+      ],
+      "rationale": "The cyclic subspace has one bright direction P_E v per distinct eigenvalue with nonzero sink projection. Its orthogonal complement reduces both the adjacency and the dissipative generator; on the bright block there is no eigenvector of zero loss, hence that finite block decays. Ring eigenvalues are strictly decreasing on the chosen half range and every ring spectral weight at 0 is m_k/n. I checked the collision lemma: the Ramanujan trace and squared trace give φ(m)+c_m(2)≤2μ(m). Odd m>1 is impossible; if 4 divides m, all nonnegative conjugates sum to zero and m=4. For m=2q with q odd, φ(q)≤−3μ(q) forces q=3 (q=1 fails, and φ(q)≥4 for odd q≥5). m=1 gives 2. Applying the lemma to a_j and −a_k gives exactly the three listed pairs and three distinct collision energies. At a collision, the v,w projections have squared norms (q+q′)/2 and inner product (q−q′)/2, with the signs from the two transverse sectors; their dark component has weight 2qq′/(q+q′). The noncollision terms are zero. Applying the exact endpoint/interior ring multiplicities gives 4/(3n) twice for 4|n and 2/n once for 6|n, and the bright rank follows by counting distinct levels. The dark dimension is positive even at n=3, and the mixed-state absorption is the normalized bright trace. Independent exact cyclotomic and rational Krylov replays verify finite instances, including S(w)=7/18 at n=12.",
+      "residual_risks": [
+        "The analytic proof, not the finite replay, covers all sizes. Requires a loss rate strictly greater than zero and the exact unweighted cyclic prism."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prism record gives all opposing-sector indexed coincidences. Dalfó–Fiol define the local/crossed projector entry m_uv(θ)=(E_θ)_uv. Agliari et al. treat traps on a single ring; Conway–Jones full text not inspected."
+        ],
+        "reasoning": "The combination of known energy groupings and ordinary spectral-projection identities covers the target computation. It is not necessary to conflate average-mixing and sink rank, invoke the broader trigonometric classification, or infer anything from an inaccessible copy.",
+        "searches": [
+          "Published prism average-mixing RESULT.md §§3–5",
+          "Dalfó–Fiol DOI:10.13001/ela.2020.5225, local and crossed multiplicities",
+          "Agliari–Mülken–Blumen arXiv:0903.3288",
+          "Conway–Jones DOI:10.4064/aa-30-3-229-240, OA lookup"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ranked and exact-record lookup; earlier cyclic-prism record, same-day open-ladder comparison, and published projection/trapping sources above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Starting from two branches of floor(n/2)+1 distinct levels each, the exact earlier list subtracts 2·1_(4|n)+1_(6|n) repeats. At v and w each Fourier mode has squared weight 1/(2n) and its crossed weight is ±1/(2n) by layer sign. Thus a collision of sector counts m,m′ has dark contribution [(m+m′)−(m−m′)²/(m+m′)]/(2n). The published index counts are (1,2),(2,1),(2,2) for precisely the three relevant collisions; off collisions all signs agree."
+        ],
+        "reasoning": "Substituting the earlier counts into the single-block projection directly gives 8·1_(4|n)/(3n)+2·1_(6|n)/n. The only arithmetic exclusion is already resolved. The alternative cyclotomic proof does not change what is covered and a separately motivated new proof result is not claimed.",
+        "searches": [
+          "Published prism average-mixing RESULT.md §§3–4, offset 4750",
+          "Dalfó–Fiol printed pp. 448–449, crossed spectral projector definitions; Frozen Proof §§2,4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier §3 equation (2) gives exactly (x_k,x_l)=(0,−2),(1,−1),(2,0), the only differences by the rung split 2. Its §4 gives the same Fourier index pairs ±n/4 and ±n/6,±n/3 including the n/2 case and identical divisibility conditions."
+        ],
+        "reasoning": "Equating the two shifted cycle energies x_k±1 is exactly the earlier equality. Replacing Fourier indices ±k by a distinct cycle level and its multiplicity is a change of indexing, not a new classification.",
+        "searches": [
+          "Resultary: prism product cycle rung split two, local spectral multiplicities, 4 and 6 resonance, opposite-rung trapping",
+          "Published prism average-mixing RESULT.md §§3–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier prism record has an exact list of every resonant index with its multiplicity. The closest same-day corner-absorption theorem is for P_n × P₂ with one dark mode iff 3|(n+1). No separate exact absorber table was located."
+        ],
+        "reasoning": "The open-ladder result is a different boundary problem, not prior coverage. The exact published indexed collision list on the same closed graph is material coverage even without a table headed by sink probabilities.",
+        "searches": [
+          "Resultary: closed prism, natural sink and rung source, modulo twelve resonance, opening/closing quantum ladder"
+        ]
+      },
+      "rationale": "The stronger spectral input for the exact same prism, including the complete 4- and 6-divisibility collision census with Fourier indices, is in an earlier published record. Both advertised single-sink invariants are routine projection consequences of those data. The earlier paper's average-mixing rank is not the absorber's bright rank, and the survival formula need not be printed there for this implication to hold. This is demonstrated prior coverage of the arithmetic core, not a conclusion from an inaccessible paper.",
+      "residual_risks": [
+        "Possible still earlier coverage under other terminology is not needed for the finding. No same-day priority inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive equivalent collision classification; distinct advertised observable but mechanically implies both target formulas with standard local projections",
+          "evidence": "Equation (2) states the three pairs are the only ways to differ by the fixed rung splitting 2, and §4 explicitly lists all Fourier indices and divisibility conditions.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-modulo-twelve-resonance-in-quantum-average-mixing-on-prisms--1bbfec294157/RESULT.md",
+          "material_read": "Finding around offset 1227; §§3–5, independently reread from offset 4750",
+          "method": "Local published-record mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Modulo-twelve resonance in quantum average mixing on prisms",
+          "trigger": "Same unweighted prism, same transverse spectral collisions, earlier exact theorem"
+        },
+        {
+          "assessment": "Distinct open boundary and different law, not the basis of failure",
+          "evidence": "Graph is P_n × P₂; unique possible dark mode iff 3|(n+1).",
+          "identifier_or_url": "2026/10/26/SCOPE-an-arithmetic-on-off-law-for-corner-absorption-on-quantum-ladder--53ce33b00b4f",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "An arithmetic on/off law for corner absorption on quantum ladders",
+          "trigger": "Same-day single-sink quantum ladder arithmetic"
+        },
+        {
+          "assessment": "Prior projection framework; no independent claim that it prints the prism absorption law",
+          "evidence": "Crossed local multiplicity explicitly defined as (E_i)_uv.",
+          "identifier_or_url": "https://doi.org/10.13001/ela.2020.5225",
+          "material_read": "Intro p. 1, offset 2488; printed pp. 448–449, offsets 11290–13217",
+          "method": "OA PDF passages",
+          "title": "A general method to obtain the spectrum and local spectra of a graph from its regular partitions",
+          "trigger": "General crossed spectral observables for trap/source projections"
+        },
+        {
+          "assessment": "Relevant trapping framework, not the same graph or arithmetic theorem",
+          "evidence": "Finite-ring trapping in several arrangements and associated mean survival.",
+          "identifier_or_url": "https://arxiv.org/pdf/0903.3288",
+          "material_read": "pp. 1–2, offsets about 2271 and 7600",
+          "method": "OA PDF passages",
+          "title": "Continuous-Time Quantum Walks and Trapping",
+          "trigger": "Primary literature on coherent trapping on cycles"
+        },
+        {
+          "assessment": "Not used to establish coverage",
+          "evidence": "No theorem-level inspection; the exact earlier prism statement suffices independently.",
+          "identifier_or_url": "https://doi.org/10.4064/aa-30-3-229-240",
+          "material_read": "Citation and topic only",
+          "method": "Lawful OA lookup did not locate readable full text",
+          "title": "Trigonometric diophantine equations (On vanishing sums of roots of unity)",
+          "trigger": "Potential broader prior trigonometric classification"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof §§2–4; published 2026/10/12 prism average-mixing RESULT.md §§3–4; explicit projection comparison above"
+      ],
+      "rationale": "The prism and opposite-rung capture are natural, and the correct formulas can be useful illustrations. However, the exact arithmetic information is already known for the same graph. Bright rank is a count of the listed levels, and survival is one routine two-sector projection with the already indexed mode multiplicities. There is no independently resolved obstruction or newly established threshold beyond those mechanically implied by the prior data, nor a surviving separately motivated result in the frozen claim that meets the value standard.",
+      "residual_risks": [
+        "Does not dismiss the value of a different sink-placement classification, a new finite-time law, or other claims not established here."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

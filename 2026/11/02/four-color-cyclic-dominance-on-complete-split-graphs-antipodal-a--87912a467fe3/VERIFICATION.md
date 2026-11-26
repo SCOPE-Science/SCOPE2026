@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The finite quotient is exact because every original color cohort in each vertex class has a common future state. `support_certificate.py` exhaustively checks all 225 initially occupied palette pairs, including their full tagged cohort states, validates the six support-cardinality coefficient matrices, and checks the resulting surjection formulas for 144 pairs of graph sizes. The independent vertex-level C++ implementation directly simulates 463,760 labeled configurations, checking periods, first-entry times, four-cycle support criteria, fixed-point counts, fourth-period basins, and third-entry counts. Outputs are embedded as `support_certificate.log` and `direct_check.log`.
+# Independent mathematical audit
 
-The universal graph-size theorem follows from the exact cohort reduction plus exhaustive finite table and integer surjection identities. The finite direct simulations corroborate rather than prove the claim for untested sizes. The limiting probabilities follow algebraically from the exact closed forms. Neither a separate mathematical audit nor historical completeness certification has been performed.
+## correctness
+
+PASS
+
+The update preserves identical colors among vertices in the same initial class and color cohort. For clique clones the only exceptional adjacency is to vertices of the same current color, which cannot be a successor. Thus a trajectory on the induced graph of one representative per cohort lifts exactly, and equality of entire representative vectors is equivalent to equality of the actual labelled states. A fresh direct adjacency replay evolved all 225 nonempty palette pairs, found the first repeated full color vector, matched the stated activation criterion in every case and recovered all six coefficient matrices. Substitution of W_i(m)W_j(n) was checked as a formal polynomial identity in the powers of 2, 3 and 4, not only for sampled sizes; the total is 4^{m+n}. The four-cycle states have disjoint sets of four along each orbit and hence N_{0,4}/4 orbits. For n>=2 a singleton clique palette 0 with independent palette {1,2} takes exactly three steps, and clones give all larger admissible sizes. For n=1,m>=2 clique palette {0,1} and independent color 2 take two steps, and the coefficient table excludes third entry. A consecutive-color edge at m=n=1 takes one step and the table excludes more. Finally B_4/4^{m+n} tends at fixed m to [W_4(m)+4W_3(m)+2W_2(m)]/4^m. Both the fixed basin and N_{3,1} have leading term 4(2^m-1)4^n for fixed m, giving the conditional limit; a full clique palette has probability tending to one as m grows, irrespective of n.
+
+## originality
+
+PASS
+
+Credit exact recurrent-state and period coverage on the m=2 tripartite slice, as well as known CCA dynamics. The closest same-day Resultary record does not cover arbitrary clique size or the all-size first-entry distribution, basin criterion and fixed-core limits. The frozen finding does not claim the m=2 coarse period phenomenon as separately new. The full content is not covered by the matching specialization or the primary sources that could be checked.
+
+## value
+
+PASS
+
+The complete split family has a natural clique–independent asymmetry. Classifying activity by antipodal exposure and quantifying both recurrent and transient classes give more than a three-step bound or a periodic-orbit count. In particular the persistent activity probability depends on the core, while conditional on freezing almost every initial coloring takes the full three updates for large independent sets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

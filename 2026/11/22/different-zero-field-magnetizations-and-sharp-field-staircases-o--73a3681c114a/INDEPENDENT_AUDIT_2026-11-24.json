@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:17:57.848031Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, exact edge lists and sector table; VERIFICATION.md and verify.py inspected, not executed",
+        "Independent replay: python3 -B /workspace/branches/replay_blanusa.py (complete Gray histograms, rational envelope and graph relabelings)",
+        "Orbanić et al., Blanuša double, Theorem 1 and facial walks pp. 95–96; SageMath generator documentation; MathWorld Blanuša Snarks"
+      ],
+      "rationale": "For a size-r down-spin set, cut=3r−2e(S), M=18−2r and H/J=27−2 cut−(h/J)M. Independently reproduced the complete cut-size by magnetization histograms by traversing all 262144 spin assignments per graph in Gray order, updating the cut from the three neighbors of each flipped vertex. The resulting minima and multiplicities match all 20 displayed entries; checking every rational line intersection and every intervening interval (including the unbounded tail) gives exposed (M, intercept) pairs (2,−21),(18,27) and (0,−19),(4,−15),(18,27). The only positive changes are h/J=3 and h/J=1,3 respectively. At zero the first has one state at each of M=−2 and 2, and the second four at M=0. At 1 the second has counts 4,42,36 at M=0,2,4. At 3 the histograms give every listed sector and totals 2495 and 2473. Cubicity also gives H/J=−27+4e(S) at h/J=3 for every spin assignment, so these are precisely the independent-set totals. Graph identities independently checked via edge-preserving relabelings to the 2004 primary facial walks and agreement of automorphism group orders 8 and 4 with Sage's documented convention. Sage's first is the genus-two graph called the 'Blanuša double' by Orbanić et al.; Sage's second is their genus-one 'Blanuša snark'. This naming distinction does not change the frozen result, which specifies Sage order and exact edges.",
+      "residual_risks": [
+        "Exact finite, labeled, classical zero-temperature configurations for the two specified graphs; no thermodynamic-limit or nonzero-temperature implication."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Strečka et al. Eq. (5) gives the down-spin/edge-count energy formula. Their evaluated objects are the regular polyhedra, not either named snark.",
+          "The 2004 primary graph paper provides the actual pair and their different genera; its relevant theorem and face data are not a cut histogram.",
+          "The earlier Shrikhande/rook result treats different 16-vertex degree-six graphs, with critical h/J=1,3,6 versus 2,6."
+        ],
+        "reasoning": "These sources establish method, input graphs, and an analogous phenomenon, but none of the inspected statements assigns the sector minima and multiplicities to the 18-vertex cubic pair.",
+        "searches": [
+          "arXiv:1502.04449, Eqs. (4)–(5) and the regular polyhedra tables",
+          "Orbanić et al. Blanuša double, pp. 91–96, Theorem 1",
+          "Resultary 0784a5def8e3, antiferromagnetic field separation on Shrikhande and rook graphs"
+        ]
+      },
+      "checked_sources": [
+        "Orbanić et al. (2004) primary relevant theorem and facial walks",
+        "Strečka et al. arXiv:1502.04449 Eq. (5)",
+        "SageMath documentation; MathWorld",
+        "Resultary local searches, target self-hit and 0784a5def8e3",
+        "House of Graphs application shell only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Independent-set coexistence at 3J is forced by the cubic energy identity, but the coefficients 2495 and 2473 require the evaluated polynomials. The second snark's M=2 tie at h=J also needs the count of 8-sets inducing exactly one edge, not an independent-set coefficient.",
+          "The distinct magnetic plateaux at infinitesimal positive field depend on the magnetization distribution among maximum cuts, not just the graph orders or maximum-cut values."
+        ],
+        "reasoning": "The old general method plus a graph edge list permits fresh exhaustive computation. That is not prior evaluated coverage; it is precisely which exact numerical classification was checked here.",
+        "searches": [
+          "Strečka et al. Eq. (5); Orbanić et al. Theorem 1; Resultary 0784a5def8e3",
+          "Cardinality-resolved cut and independence-polynomial searches"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At fixed down-spin cardinality, minimum induced edges and maximum cut size correspond by cut=3r−2e(S) with identical multiplicities. A two-variable cut-size/cardinality histogram would supply the entire sector profile; max-cut partition sizes and counts alone would supply zero field, and the independence polynomial supplies the h=3J strata.",
+          "The exact Resultary hit 73a3681c114a is the frozen finding itself, not an independent source."
+        ],
+        "reasoning": "The prior energy identity is an exact reduction, but the graph-specific coefficients are not populated by that identity. Equivalent tables were sought under spin and graph formulations rather than title alone.",
+        "searches": [
+          "Resultary: Blanuša first/second snarks antiferromagnetic Ising ground magnetization, max cut, induced edges by cardinality, independence polynomial and plateau degeneracy",
+          "Strečka–Karľová–Madaras arXiv:1502.04449, Eqs. (4)–(5)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Catalogue searches matched the target itself but no separate sector/independence-count table. Sage docs tabulate graph size, girth and automorphism orders 8,4, not labelled magnetic states; the MathWorld table inspected is for crossing numbers and genera.",
+          "House of Graphs retrieval exposed only the JavaScript shell; relevant database fields were not inspectable by that route."
+        ],
+        "reasoning": "Named-graph input data and coarse invariants are distinct from a bivariate Ising/cut polynomial; the unavailable application content supplies no negative evidence about its database.",
+        "searches": [
+          "Resultary: Blanuša independence polynomial, cut by cardinality and Ising field degeneracies",
+          "House of Graphs Blanuša search and graphs/19706, graphs/19731",
+          "SageMath and MathWorld named-graph entries"
+        ]
+      },
+      "rationale": "The induced-subgraph energy method and the regular-degree saturation mechanism are not new. The supported distinct claim is the evaluated exact two-graph contrast: the zero-field minimizers, positive-field envelopes and sector degeneracies for these two original Blanuša snarks. Actual primary and catalogue comparisons found no distinct source that supplies those data, with the limitations below.",
+      "residual_risks": [
+        "An uninspected or unindexed independence-polynomial, max-cut or bivariate Ising table could overlap a component or more; House of Graphs data were not exposed.",
+        "The bounded comparison does not certify absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies graph identification, not the inspected statistical-mechanics counts",
+          "evidence": [
+            "Theorem 1 states genera 1 and 2; face lists identify the named pair and its naming reversal relative to Sage's order."
+          ],
+          "identifier_or_url": "https://hrcak.srce.hr/file/1435",
+          "material_read": "Abstract/introduction, journal pp. 91–92; Theorem 1 and face walks for both graphs, pp. 95–96 (PDF text near offset 8350); bounded cut-context passages",
+          "method": "Primary OA PDF and exact edge-set reconstruction from both face lists",
+          "title": "Blanuša double",
+          "trigger": "Primary construction and possible exact graph-specific coverage"
+        },
+        {
+          "assessment": "Established energy reduction; different graphs in the tabulations",
+          "evidence": [
+            "Eq. (5) gives E=J(N_b−2d̃_t)−h(N−2n_t), the cut form used here; the tabulated examples are Platonic solids."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1502.04449",
+          "material_read": "Eqs. (4)–(5), PDF p. 3 near offset 16500, and beginning of the example tables on p. 4",
+          "method": "Opened decisive primary PDF passages",
+          "title": "Giant magnetocaloric effect, magnetization plateaux and jumps of the regular Ising polyhedra",
+          "trigger": "Same Hamiltonian, direct induced-subgraph method and comparable numerical tables"
+        },
+        {
+          "assessment": "Verifies convention; inspected tables omit the target Ising profile",
+          "evidence": [
+            "Sage documents the automorphism orders 8,4 respectively; MathWorld confirms that Orbanić et al. call the first the double and the second the Blanuša snark."
+          ],
+          "identifier_or_url": "https://doc.sagemath.org/html/en/reference/graphs/sage/graphs/generators/smallgraphs.html#sage.graphs.generators.smallgraphs.BlanusaFirstSnarkGraph ; https://mathworld.wolfram.com/BlanusaSnarks.html",
+          "material_read": "Sage generator documentation/examples for both graphs, and MathWorld opening and invariant-table discussion",
+          "method": "Open public documentation and comparison to reconstructed graph automorphism orders",
+          "title": "SageMath small graph generators and MathWorld Blanuša Snarks",
+          "trigger": "Naming, exact graph identities and possibly tabulated invariants"
+        },
+        {
+          "assessment": "Analogous invariant on a nonoverlapping pair",
+          "evidence": [
+            "16 vertices, degree six, critical fields {1,3,6} and {2,6} in units of J; no cubic-snark sector data."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2, 0784a5def8e3",
+          "material_read": "Local-mirror Finding and sector/coexistence tables, offset 86 onwards",
+          "method": "Exact statement comparison",
+          "title": "Field-dependent Ising ground-state separation of the Shrikhande and rook graphs",
+          "trigger": "Closest distinct same-Hamiltonian two-graph comparison"
+        },
+        {
+          "assessment": "Database coverage unresolved; not negative evidence",
+          "evidence": [
+            "Retrieved text requested enabling JavaScript and exposed no graph-invariant table."
+          ],
+          "identifier_or_url": "https://houseofgraphs.org/",
+          "material_read": "Public application shell on named search and graph entry URLs; individual database data unread",
+          "method": "Bounded open webpage retrieval",
+          "title": "House of Graphs",
+          "trigger": "Potential equivalent precomputed graph invariants for the named pair"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and independently reproduced envelope and multiplicity counts",
+        "Orbanić et al. Theorem 1 and SageMath graph documentation",
+        "Strečka et al. Eq. (5) and example scope"
+      ],
+      "rationale": "The original 18-vertex cubic snark pair is a canonical same-order comparison with common degree, girth and edge-coloring obstruction. Their qualitatively different zero-field magnetization and finite-field onset give a specific separation on frustrated finite graphs, and the full magnetization-resolved degeneracy census is an exact benchmark beyond just identifying the last critical field. This value is graph-specific, not a claim to have invented the method or found a thermodynamic phase transition.",
+      "residual_risks": [
+        "Finite pair result, not a general characterization of snarks."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

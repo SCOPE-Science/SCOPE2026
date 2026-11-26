@@ -1,19 +1,21 @@
-# Review of palindromic three-subsequence covers
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The all-constant targets \(aaa\) give a sharp \(3q\) lower bound. The three repeated permutation blocks realize all \(aba\). Each shortest candidate has exactly three occurrences of each letter, and the six excluded two-letter projections are precisely the arrangements failing at least one required nonconstant palindrome. The recurrence records exactly those letters between the first and third occurrence; induction on unfinished positions proves its count. Exact integer evaluation agrees with an independently structured exhaustive multiset enumeration for all sizes through the DNA-size alphabet of four letters (369600 length-12 words). The five-letter value is established by the proved recurrence and exact implementation, without claiming independent exhaustive brute enumeration.
+PASS
 
-## Originality
+The aaa targets force at least three copies of each letter, and three successive permutations suffice for all aba. For distinct a,b, failure of aba forces all three b's into the two exterior gaps of the a-span, giving four projections. Exchanging a and b gives four more, with precisely the two disjoint-span arrangements in both sets; the union is the six listed projections. In the recurrence, the transition for the third occurrence of b checks exactly what has been seen strictly between its first and third occurrences, and no later transition can alter that interval. Every legal word gives exactly one path, and appending a distinct letter at any state gives a disjoint class of completions. Independently generated every first-appearance-canonical three-of-each word for q=1 through 5 and greedily matched each target subsequence directly, without a mask recurrence or pair-projection filter. At q=4 the 15400 representatives yielded 3334 covers, or 80016 labeled; at q=5 the 1401400 representatives yielded 148543 covers, or 17825160 labeled. The action is free since every label appears. For full universality the greedy alphabet blocks are necessary: their terminal letters can only be matched at their block endpoints or later, and appending a letter missing from the residual suffix gives a missing subsequence if there are fewer than three blocks. At minimum length these blocks are permutations. Thus 24^3=13824 and the ratio is 1667/288. Replay: python3 /workspace/evidence/5.py; output /workspace/evidence/5.out. This is abstract word combinatorics and supplies no biological validation.
 
-PASS on the inspected evidence; residual overlap risk remains. Adamson (2023, arXiv:2304.04583) counts words containing every pattern, while the present forbidden-projection class includes many words that fail full universality. Adamson et al. (2023, arXiv:2311.10658), especially its counting section, addresses full subsequence-universal words accepted by regular automata, not the palindromic-only 3-uniform class or these numeric counts. The binary shortest-cover census establishes the two-letter case, which is not claimed as new. OEIS A330022 counts contiguous-palindrome superstrings and is a different observation. The exact DNA-size value and general projection criterion were not found as a reported theorem in the checked material. Possible hidden overlap with enumeration of three-occurrence pairwise-interleaving words is expressly unresolved.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The four-symbol alphabet is the canonical DNA motif alphabet, and length 12 is forced by covering four constant trigrams. The exact count of admissible shortest indexed hosts is a natural finite design-space invariant: \(80016\), not merely a computer-sampled estimate. The theorem provides a complete local forbidden-projection characterization, a general exact recurrence, and a substantive comparison with all-pattern shortest coverage (\(80016\) versus \(13824\)). These facts are reusable for checking enumeration methods and constraining palindrome-only sequence-cover designs. No unproved coding-rate or experimental biotechnology implication is claimed.
+Exact binary overlap is established and excluded from the distinct contribution. On the compared evidence, the all-alphabet classification and higher-alphabet census are not covered by the binary arch-refined enumeration, the all-pattern universality algorithms, or contiguous palindrome problems. The exact all-pattern count is acknowledged as a comparison, not a separate novelty claim.
 
-## Closest literature and limits
+## value
 
-The 2023 universal-language and ranking works provide the nearest algorithms, but address a stronger coverage requirement, while a binary finite census is a lower-alphabet specialization. The numerical result is not a general closed form and is vulnerable to previously unlocated combinatorial enumeration under different terminology. Values above alphabet size five are not computed or claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The alphabet size and the length 3q are intrinsic to the target family, not arbitrary enumeration parameters. The local obstruction characterization and reproducible exact counts answer how much the set of shortest hosts expands when only palindromic length-three targets are required rather than all patterns; the exact four-symbol ratio measures that distinction. The all-alphabet recurrence is useful even though there is no asymptotic or closed form, and no practical or biological effectiveness is inferred.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

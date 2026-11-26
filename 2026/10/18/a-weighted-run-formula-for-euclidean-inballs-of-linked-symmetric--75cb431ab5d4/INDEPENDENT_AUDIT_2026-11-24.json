@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:22:41.782182Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–101",
+        "Frozen VERIFICATION.md and verify.py, lines 59–122",
+        "Chen et al., arXiv:2311.15441v1, Theorem A, Proposition 5.3 and Corollary 5.4"
+      ],
+      "rationale": "The inverse suffix transform is x_i=s_i+t_i−t_(i+1), x_n=t_n. In the t-cube this removes exactly the redundant side of each coordinate bound and leaves a single comparison across each edge. Ball containment is therefore equivalent to shifting the suffix halfspaces by r√(n−i+1) and the retained comparisons by r, since those are the normal lengths in x, not in t. Summing along any directed path i→j gives the obstruction r(a_i+a_j+d)≤1. A one-edge extension of a path strictly increases this denominator because adjacent weights differ by less than 1; the first-edge denominator even exceeds every zero-edge denominator. Conversely, the maximum of a_j+d over all downstream paths from i gives a potential L_i with L_i≥L_j+1 on edges and a_i≤L_i≤H−a_i. The center t_i=L_i/H thus attains the bound; the exact shifted halfspaces describe all centers, and telescoping equality forces all contacts on maximizing paths. The upper denominator n+√n is attained only by a full directed path; alternating words attain the smallest denominator. Reversal followed by complement in t preserves the reversed edge word and has an integer affine unimodular inverse. For S={1} the length-(n−2) run dominates the first edge for n≥4, with a tie at n=4; for S′={n−1} the longer run dominates strictly. Their denominators differ by √2−1+√n−√(n−1)>0. The n=1 segment and n=2 single edge agree with their separate stated cases. The supplied LP checker was inspected, not run; the analytic argument establishes the universal statement.",
+      "residual_risks": [
+        "The all-center description does not classify its dimension or combinatorics; no extension to unlinked intervals is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen et al. provide the relevant suffix and coordinate halfspaces and characterize the linked toric family.",
+          "Resultary 0be6f970c0cc and bd0fdb1bb195 give weighted-path inradius formulas for lecture-hall and signed order polytopes; the signed and marked order definitions use coordinate comparisons rather than suffix normals."
+        ],
+        "reasoning": "A generic potential-feasibility method is established background, but the stated broader formulas impose different norm weights. For instance, matching endpoint weights in a diagonal rescaling of order coordinates would give an edge norm √(a_i²+a_j²), not the unit edge norm here. The max-run collapse, extremal analysis and comparison use the actual suffix metric.",
+        "searches": [
+          "Resultary: longest-path/order-polytope inradius analogues",
+          "arXiv:2311.15441v1, Theorem A, Proposition 5.3 and Corollary 5.4",
+          "arXiv:2311.04409, p. 13; arXiv:1610.01393, p. 3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2311.15441v1",
+        "arXiv:2102.11306",
+        "arXiv:2311.04409",
+        "arXiv:1610.01393",
+        "Resultary 0be6f970c0cc, bd0fdb1bb195, d1d7269402d0 and 04e5ecb8aad2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The lecture-hall and signed formulas use the weights of their own realizations. The linked family volume and triangulation results do not address Euclidean ball containment.",
+          "Surface area is a different invariant; equality of volume and affine unimodular equivalence do not decide inradius, nor does inequality of surface area force inequality of inradius."
+        ],
+        "reasoning": "The comparison hinges on the independent suffix-normal and run calculations, not a relabeling of the metric result for another domain. The later surface-area record is relevant statement-level overlap, not earlier priority evidence.",
+        "searches": [
+          "Resultary 0be6f970c0cc, bd0fdb1bb195 and d1d7269402d0, RESULT.md at offset 0",
+          "arXiv:2311.15441v1, Theorem A and Theorem B"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Generalized snake order polytopes are defined in standard order coordinates rather than the incidence coordinates of the frozen record.",
+          "The all-zero word gives the standard simplex, and coordinate complement for the all-one word gives the same simplex; Resultary 04e5ecb8aad2 gives the chain-polytope formula 1/(h+√h)."
+        ],
+        "reasoning": "The constant-word radius is a genuinely overlapping special case. For mixed words the suffix map to an oriented-path order polytope is not orthogonal; Euclidean inradius theorems in the target's standard metric do not transfer.",
+        "searches": [
+          "Resultary: exact linked-snake inradius and weighted runs",
+          "Resultary: reversal and unimodular equivalence",
+          "arXiv:2102.11306, p. 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary d1d7269402d0 treats exactly the same family and S={1}, S′={n−1} pair, retaining lattice equivalence but showing unequal Euclidean surface area.",
+          "Resultary 04e5ecb8aad2 gives the constant-word simplex value through its chain-polytope specialization."
+        ],
+        "reasoning": "The overlapping pair and special numerical value were credited; the inspected records do not give the mixed-word inradius census or incenter barriers.",
+        "searches": [
+          "Resultary: linked lattice-path delta-matroid inradius",
+          "Resultary: exact run denominator and family reversal"
+        ]
+      },
+      "rationale": "The complete weighted-run formula, forced incenter contacts, and reversal-pair metric distinction survive comparison with earlier path-potential methods and the source definition. The constant-word simplex subcase is covered, as is the general difference-constraint idea; neither is credited as new. A distinct same-family record proves a surface-area separation, not this inradius separation.",
+      "residual_risks": [
+        "Broader literature searches returned weak relevance and one query was unavailable; that is not negative evidence. A prior equivalent metric formulation outside the checked sources remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies defining geometry, not the Euclidean radius law",
+          "evidence": "Theorem A gives coordinate bounds and suffix sums; linked intervals are T=S∪{n}, making every suffix bound have width one.",
+          "identifier_or_url": "https://arxiv.org/html/2311.15441v1",
+          "material_read": "Theorem A, offset 4945; Proposition 5.3 and Corollary 5.4, offset 70550; nearby volume/triangulation context",
+          "method": "Lawful OA primary text, targeted passages",
+          "title": "Lattice Path Delta Matroids",
+          "trigger": "Exact family and its halfspace description"
+        },
+        {
+          "assessment": "Strong methodological overlap, different normal system",
+          "evidence": "The comparisons are rescaled poset inequalities; the weighted denominator is not the suffix endpoint barrier.",
+          "identifier_or_url": "Resultary 0be6f970c0cc",
+          "material_read": "RESULT.md, Finding and scope, offset 0",
+          "method": "Published record mirror, bounded text inspection",
+          "title": "Euclidean inradius of every lecture-hall order polytope is a weighted longest-path formula",
+          "trigger": "Closest metric formula and proof technique"
+        },
+        {
+          "assessment": "Method overlap",
+          "evidence": "It uses a weighted antipodal graph and a denominator of the form 2+H for signed order normals.",
+          "identifier_or_url": "Resultary bd0fdb1bb195",
+          "material_read": "RESULT.md, Finding and scope, offset 0",
+          "method": "Published record mirror, bounded text inspection",
+          "title": "A longest signed path gives the exact Euclidean inradius of every signed order polytope",
+          "trigger": "Another weighted-path incenter result"
+        },
+        {
+          "assessment": "Shares the lattice equivalence, not the metric invariant",
+          "evidence": "Equal volume and unequal Euclidean surface area are proved for the pair; this does not give a ball radius comparison.",
+          "identifier_or_url": "Resultary d1d7269402d0",
+          "material_read": "RESULT.md, Finding and scope, offset 0",
+          "method": "Published record mirror, bounded text inspection",
+          "title": "Facet-area laws and reversal asymmetry of linked symmetric snake polytopes",
+          "trigger": "Same family and same reversal pair"
+        },
+        {
+          "assessment": "Covers the standard-simplex subcase",
+          "evidence": "For a total chain of n elements the stated height formula gives 1/(n+√n).",
+          "identifier_or_url": "Resultary 04e5ecb8aad2",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Published record mirror, bounded text inspection",
+          "title": "The Euclidean inradius of a chain polytope depends only on its poset height",
+          "trigger": "Same denominator as constant word"
+        },
+        {
+          "assessment": "Different Euclidean realization",
+          "evidence": "The objects are order polytopes in order coordinates, not original delta-matroid incidence coordinates.",
+          "identifier_or_url": "https://arxiv.org/pdf/2102.11306",
+          "material_read": "p. 5, offset 17000, generalized snake posets and order polytopes",
+          "method": "Lawful OA PDF, targeted passage",
+          "title": "Triangulations, Order Polytopes, and Generalized Snake Posets",
+          "trigger": "Snake/order-polytope alias"
+        },
+        {
+          "assessment": "Comparable methods but different defining constraints",
+          "evidence": "The comparison normals are signed one- or two-coordinate vectors or comparable-coordinate differences with marked variables fixed.",
+          "identifier_or_url": "arXiv:2311.04409 and arXiv:1610.01393",
+          "material_read": "Signed paper p. 13, offset 46300; marked paper p. 3, offset 11712, definitions",
+          "method": "Lawful OA PDFs, targeted passages",
+          "title": "Signed Poset Polytopes; The Face Structure and Geometry of Marked Order Polyhedra",
+          "trigger": "Potential signed or marked path generalization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 11–52 and 67–101",
+        "Chen et al., Theorem A and linked-family characterization"
+      ],
+      "rationale": "This is an exact original-coordinate invariant for a natural infinite family, not just a difference-constraint algorithm. It replaces Euclidean LPs by a linear scan, pinpoints necessary contacts, and proves both order-n⁻¹ and order-n⁻¹ᐟ² extremal scales in the same family. The explicit reversal family shows what the usual lattice invariants fail to detect.",
+      "residual_risks": [
+        "No claim for arbitrary lattice-path delta matroids or a classification of all extremizers of the upper radius bound."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

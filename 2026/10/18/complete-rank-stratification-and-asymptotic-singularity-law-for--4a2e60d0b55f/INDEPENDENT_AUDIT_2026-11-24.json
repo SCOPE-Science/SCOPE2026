@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:59:11.305783Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§Finding, scope and Proof",
+        "VERIFICATION.md and verify_dyadic_minors.py (inspected, not run)",
+        "Independent replay: python3 /workspace/audit_checks.py 5"
+      ],
+      "rationale": "At the minimum valuation u there are two parity classes inside the common mod-2^u class; exactly two points are in one class. They are the unique closest pair. Dephase at the outsiders to obtain the four entries A=omega^(ac), B=omega^(ad), C=omega^(bc), D=omega^(bd). Rank one occurs iff all four equal 1, i.e. u+s>=m. Otherwise all four differ from 1; conjugating the chord-product equality forces AD=BC, and expansion under that condition gives the stated two factors. One factor vanishes exactly at u+t>=m or v+s>=m, and either inequality also forces AD=BC. This checks necessity, sufficiency and equality boundaries. Count N^2/2^(v+2) closest pairs and N/2^(u+1) outsiders per pair to get B_m; product counts enumerate the ordered row/column roles exactly once. For the event v+s>=m put v=m-h: the contribution to N times the normalized weighted sum tends to (8/3)2^-h and is bounded by that same summable sequence. In the intersection with u+t>=m, summing v and t for fixed u,s gives at most 4/N^2 after multiplying by 2^(-u-s). The intersection therefore contributes o(1/N) and contains all rank-one cases. The two one-sided events give (16/3)/64=1/12 at N^5 scale and hence probability ~3/N. All ranks occur for m>=4, e.g. types (m-2,m-1) on both sides for rank one, (0,m-1) against (1,2) for rank two, and (0,1) on both sides for rank three. Independent exact reduction checks all 316752 pairs at N=4,8,16 plus 18000 seeded pairs each at N=32,64,128, and independently enumerates dyadic type frequencies through N=128.",
+      "residual_risks": [
+        "Finite cyclotomic checks and the evaluated probability sequence do not prove the all-m rule or limit. Those follow from the analytic argument.",
+        "Only independently varying three-element sets at dyadic orders are certified in this record."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The November prime-power result gives both type counts and the full rank law, and has p^(k+1) times the singular proportion tending to 6; at p=2 this is exactly N times the singular proportion tending to 3.",
+          "Caragea–Lee treat principal minors. Gu–Zhou–Wang treat principal nonsingularity at 70 and 143 and identify the Delvaux–Van Barel structural antecedent. Lawful routes tried for Delvaux–Van Barel yielded restricted/abstract routes, not readable primary theorem text."
+        ],
+        "reasoning": "The November result is a genuine later broader covering theorem, not an earlier source established by this review. Results with R=C do not imply independent-pair incidences. The unresolved older structural lead is explicitly retained.",
+        "searches": [
+          "Delvaux Van Barel Rank-deficient submatrices of Fourier matrices TW 470 full text pdf prime powers rank deficient third order minors proportional rows Leuven",
+          "Caragea–Lee Theorems 1.1 and 1.2",
+          "Gu–Zhou–Wang arXiv:2608.17746 §1",
+          "Resultary 0fc41b9fd0d2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2409.09793, arXiv:2608.17746",
+        "Delvaux–Van Barel report TW 470 and published identifier S0024379508002164 (access attempts)",
+        "Resultary 0290eba11adf, 0fc41b9fd0d2, 1482c28703d6, feb52ea6712b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General three-by-three rigidity supplies the structural obstruction, but neither it nor a principal conditional yields the type multiplicities for independent triples or the overlap bound needed for the leading density. The later all-prime-power theorem directly supplies both the counts and the leading constant; its exact rank-one count also gives negligibility by a geometric bound."
+        ],
+        "reasoning": "Compare the quantitative counting theorem as well as the individual-minor criterion. The additional exact dyadic incidence data and asymptotic are the supported distinct contribution relative to examined earlier/same-day sources.",
+        "searches": [
+          "Resultary 0290eba11adf Proof §§1–2",
+          "Resultary 0fc41b9fd0d2 Finding and Proof",
+          "Caragea–Lee §§3–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-day 3p record explicitly proves the modulus-independent unimodular rigidity lemma, and does not claim it as new. Applied to a Fourier minor, proportional rows mean their index difference annihilates every selected column difference, or conversely for a column pair.",
+          "The dyadic tests for those pairs are exactly v+s>=m and u+t>=m; the strongest candidate row difference has valuation v and the least restrictive check is not enough: every column difference must be annihilated, so its minimum valuation s controls. The transposed argument gives u+t."
+        ],
+        "reasoning": "This is genuine equivalent structural coverage under the stated arithmetic specialization, not just thematic similarity. The same-day 3p paper counts its own semiprime family, not dyadic incidences or their probability limit. Relative priority of its general proof technique is not inferred from the date.",
+        "searches": [
+          "Resultary 0290eba11adf §Proof 1; general unimodular 3-by-3 proportional-pair lemma",
+          "Resultary 0fc41b9fd0d2 §Finding; prime-power min/max valuation rank rule"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct records feb52ea6712b and 1482c28703d6 concern odd prime squares and principal triples, respectively; 0290eba11adf counts order 3p. The later 0fc41b9fd0d2 count specializes exactly: at p=2 no equal min/max types occur and its two-level type count becomes N^3/2^(u+v+3)."
+        ],
+        "reasoning": "Exact later coverage is recorded, not ignored; no inspected earlier exact table supplies the dyadic arbitrary-pair census and limit. Ranked search is not an exhaustive absence certificate.",
+        "searches": [
+          "Resultary dyadic three-by-three Fourier singular-minor rank census",
+          "Resultary feb52ea6712b, 1482c28703d6, 0290eba11adf and 0fc41b9fd0d2"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the integrated dyadic census and singularity asymptotic. The collision mechanism is a specialization of general proportional-pair rigidity; do not credit standalone novelty to that mechanism. A later prime-power record genuinely covers the rank law, exact census and leading asymptotic by specialization; its date does not establish earlier coverage. The Delvaux–Van Barel antecedent remains a real access risk for the structural part, not evidence of noncoverage or grounds by itself to fail.",
+      "residual_risks": [
+        "The precise extent of older Delvaux–Van Barel structural results was not independently verified.",
+        "Do not infer date order for same-day records, and do not claim standalone novelty for proportional-pair rigidity.",
+        "Unindexed equivalent counting results are not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Principal setting, not the unrestricted pair census",
+          "evidence": "Squarefree principal 3-by-3 nonvanishing; statements for nonsquarefree principal minors concern existence.",
+          "identifier_or_url": "https://arxiv.org/abs/2409.09793",
+          "material_read": "§1, Theorems 1.1–1.2, pp. 2–3; proof §§3–4, pp. 4–6",
+          "method": "OA PDF, bounded passages",
+          "title": "On the principal minors of Fourier matrices",
+          "trigger": "Same minor size and vanishing structure"
+        },
+        {
+          "assessment": "Different moduli and principal property; secondary source for rank-deficiency antecedent",
+          "evidence": "Principal conclusions at orders 70 and 143; cites Delvaux–Van Barel on structural Fourier rank deficiency.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.17746",
+          "material_read": "Abstract, §1, pp. 1–3 and bibliography, p. 10",
+          "method": "OA PDF, bounded passages",
+          "title": "Principal nonsingularity of the Fourier matrices of orders 70 and 143",
+          "trigger": "Named comparison and Delvaux–Van Barel bibliography"
+        },
+        {
+          "assessment": "Unresolved structural antecedent, not used to infer noncoverage",
+          "evidence": "Report route did not return open full text; listing led to a login page and publisher returned HTTP 403. Secondary description only establishes that broad structure was studied.",
+          "identifier_or_url": "TW 470; https://www.cs.kuleuven.be/publicaties/rapporten/tw/TW470.pdf; https://www.sciencedirect.com/science/article/pii/S0024379508002164",
+          "material_read": "No primary theorem text obtained. Bibliographic discussion in Gu–Zhou–Wang §1 and identified report/publisher routes checked.",
+          "method": "Lawful OA direct/VPN, targeted literature lookup, report listing and publisher attempt; no login",
+          "title": "Rank-deficient submatrices of Fourier matrices",
+          "trigger": "Strong plausible older prime-power rank-deficiency work"
+        },
+        {
+          "assessment": "Shared general criterion, different modulus and incidence count",
+          "evidence": "Unimodular 3-by-3 singular iff there is a proportional row or column pair; exact count there is for 3p.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-rank-spectrum-of-three-by-three-fourier-minors-on-mathbb-z--0290eba11adf/RESULT.md",
+          "material_read": "Finding and Proof §§1–2 at offset 0–3982",
+          "method": "Resultary lookup and primary local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact rank spectrum of three-by-three Fourier minors on Z_{3p}",
+          "trigger": "General proportional-pair rigidity and same-day census"
+        },
+        {
+          "assessment": "Exact later specialization, not evidence of earlier priority",
+          "evidence": "At p=2 its rank, type and singular-incidence formulas match; p^(k+1) times probability tending to 6 is 3 at the target N scaling.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-valuation-stratified-rank-census-for-three-point-fourier-samplin--0fc41b9fd0d2/RESULT.md",
+          "material_read": "Finding, type counts and rank rule at offset 0–4352; proof of counts/limit in the subsequent sections",
+          "method": "Resultary lookup and primary local mirror, same snapshot",
+          "title": "Valuation-stratified rank census for three-point Fourier sampling on prime-power cycles",
+          "trigger": "Strongest exact broader overlap"
+        },
+        {
+          "assessment": "Covers a principal restriction only",
+          "evidence": "Criterion requires a single triple K and a pair whose difference satisfies a squared-difference and a mixed divisibility condition; excludes nonprincipal minors.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-singularity-criterion-for-three-point-principal-fourier-mi--1482c28703d6/RESULT.md",
+          "material_read": "Finding and scope, offset 0–2600",
+          "method": "Primary local mirror, same snapshot",
+          "title": "Exact singularity criterion for three-point principal Fourier minors",
+          "trigger": "Earlier general-order three-point criterion including powers of two"
+        },
+        {
+          "assessment": "Close analogue, excludes dyadic powers",
+          "evidence": "Exact rank classification and census at odd p squared, not at 2^m.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-all-singular-three-by-three-minors-of-prime-square-fourier-matri--feb52ea6712b/RESULT.md",
+          "material_read": "Finding and Relationship to prior work",
+          "method": "Resultary lookup and primary local mirror, same snapshot",
+          "title": "All singular three-by-three minors of prime-square Fourier matrices",
+          "trigger": "Earlier exact rank census on a prime-power family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and Proof §§4–5",
+        "Independent exact case and type census; Resultary general criterion in 0290eba11adf"
+      ],
+      "rationale": "A natural structured-matrix sampling question asks how often an independently chosen minor is singular and of which rank. The valuation stratification enables a complete count, identifies a concrete leading 3/N probability, and shows rank one is negligible. These quantitative consequences are not supplied by checking a principal or proportional-pair criterion alone.",
+      "residual_risks": [
+        "No conclusion about conditioning, higher-order minors, or random matrices with independent entries."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:06:56.412383Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–53, VERIFICATION.md and check.py inspected"
+      ],
+      "rationale": "Independently parameterize a cell polynomial by its four corner values, interpolated bilinearly, plus free coefficients c_x,c_y of x^2-1 and y^2-1. This is exactly the six-dimensional total-degree P2 space. In a Fourier character (z,w), continuous vertex values come from one common amplitude V. The two slopes of the bilinear part at the center are a_x=V(z-1)(1+w)/4 and a_y=V(w-1)(1+z)/4. The edge-average derivatives are a_x±2c_x and a_y±2c_y in reference coordinates; physical scales are constant within each direction and cancel. Matching yields 2(1+z)c_x=(z-1)a_x and 2(1+w)c_y=(w-1)a_y. With neither character -1 the two bubbles are determined by V. With just one -1 its equation forces V=0 and leaves precisely its one directional bubble free. With both -1 neither equation restricts V or the two bubbles; bilinear interpolation of the alternating corner values is Vxy. Hence the three listed checkerboard modes are independent and exhaustive in that character. The sum of complex dimensions equals the real dimension on complexification. This derivation also works with two cells in either direction: interfaces are indexed modulo the mesh, with each physical edge and its identification imposed. It supplies the all-size rank proof without running the frozen finite checker.",
+      "residual_risks": [
+        "Only uniform rectangular tori with the stated physical edge-averaged derivatives and local total degree are covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ma–Xing–Zhang prove a homogeneous bounded-domain basis indexed by interior elements; Zeng–Zhang–Zhang prove an mn+1 dimension with boundary vertex values forced to zero and give bounded compatibility equations.",
+          "The identified Yim–Sheen title explicitly treats a periodic P1 space; relevant full text was not retrieved because the publisher returned 403 and a lawful alternate was not verified."
+        ],
+        "reasoning": "The first two theorems do not span or count the periodic kernel, while the existence of parity phenomena for a different degree does not give the P2 dimension or its fiber. Unavailable passages are not treated as negative evidence.",
+        "searches": [
+          "Ma–Xing–Zhang Theorem 2.1 and §3.3; Zeng–Zhang–Zhang Theorem 4.1 and Appendix B; identified Yim–Sheen periodic comparison DOI 10.1002/num.23023"
+        ]
+      },
+      "checked_sources": [
+        "Ma–Xing–Zhang, arXiv:2610.32048v1",
+        "Zeng–Zhang–Zhang, arXiv:1903.00938v2",
+        "Yim–Sheen DOI 10.1002/num.23023, limited bibliographic comparison",
+        "Resultary local-mirror comparisons a5383f1b22d7 and fd625e87f1aa"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The mn+1 comparison is on a bounded rectangular subdivision with zero boundary vertex values; the interior-element dimension comparison also has zero boundary normal-derivative averages. Neither theorem analyzes periodic wraparound or states a periodic symbol/basis."
+        ],
+        "reasoning": "These results provide local tools, but inserting periodic shifts changes solvability of the equations for the two bubble coefficients. The simultaneous vanishing of 1+z and 1+w needs a new global argument; it does not follow by substituting a mesh size into the bounded count.",
+        "searches": [
+          "Inspected full-text theorem and compatibility passages in arXiv:2610.32048v1 and arXiv:1903.00938v2; bounded Resultary comparisons above"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zeng–Zhang–Zhang arXiv:1903.00938v2, §4.1, uses the same local P2 continuity but imposes zero boundary vertex values in the dimension theorem. Ma–Xing–Zhang arXiv:2610.32048v1, §2, identifies its homogeneous two-dimensional space with the reduced quadrilateral Morley space.",
+          "Neither inspected statement imposes the two periodic identifications."
+        ],
+        "reasoning": "The local spaces match; the global systems do not. The determinant defect is a property of the simultaneous character (-1,-1), not of the local label Morley.",
+        "searches": [
+          "Targeted literature lookup for periodic total-degree-two reduced rectangular Morley dimension, symbol and basis",
+          "Resultary semantic searches for periodic P2 Morley and parity-dependent spline/torus kernels"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The returned four-neighbor torus record a5383f1b22d7 concerns a binary update and Jordan blocks, not this interface matrix. Record fd625e87f1aa concerns an L-infinity projection norm for 1D periodic linear splines, not a P2 rectangular dimension. No returned actual finding gave a relevant exact symbol kernel or dimension table."
+        ],
+        "reasoning": "The periodic domain or parity words can match even when the algebraic system is unrelated. An exact table for some small sizes would in any event not by itself imply the all-size formula.",
+        "searches": [
+          "Resultary searches for exact periodic P2 dimension and double-Nyquist checkerboard basis; comparison with records a5383f1b22d7 and fd625e87f1aa"
+        ]
+      },
+      "rationale": "The continuity conditions themselves are established reduced rectangular Morley conditions. The distinct claim is the exact periodic dimension and kernel fiber: bounded rectangular Morley results use different global constraints, and the cited periodic parity comparison concerns P1. No inspected matching source states or directly implies the P2 torus result.",
+      "residual_risks": [
+        "The specific Yim–Sheen theorem was not inspected. An equivalent older periodic quadratic spline or reduced Morley result under another name was not excluded by bounded searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Basis and dimension for a different global space.",
+          "evidence": "Homogeneous vertex and normal-derivative boundary conditions; dimension indexed by interior elements.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.32048v1",
+          "material_read": "v1 §§2.1–2.2 pp. 3–5, including Theorem 2.1, and §3.3 p. 11",
+          "method": "Bounded OA full-text passages; periodic keyword location check",
+          "title": "Piecewise P2 Finite Element Space on Rectangular Meshes in Arbitrary Dimensions for the Biharmonic Equation",
+          "trigger": "Same weak continuities and local degree; possible general basis theorem"
+        },
+        {
+          "assessment": "Same continuity internally, but boundary-restricted result does not give a periodic basis or count.",
+          "evidence": "Theorem 4.1 gives mn+1 for zero boundary vertex values; Appendix B gives bounded compatibility and support patterns.",
+          "identifier_or_url": "https://arxiv.org/abs/1903.00938v2",
+          "material_read": "v2 §4.1 p. 12 and Appendix B pp. 34–36",
+          "method": "Bounded OA full-text passages; periodic/Fourier keyword location check",
+          "title": "Optimal quadratic element on rectangular grids for H1 problems",
+          "trigger": "Closest reduced rectangular Morley dimension and compatibility formulas"
+        },
+        {
+          "assessment": "The exact theorem comparison remains limited by access; the identified space is P1, not the subject P2 space.",
+          "evidence": "Title specifies P1 periodic quadrilaterals. The publisher blocked full-text retrieval; no verified lawful alternate passage was obtained.",
+          "identifier_or_url": "https://doi.org/10.1002/num.23023",
+          "material_read": "Bibliographic identification and P1 scope; theorem passage not accessible",
+          "method": "Publisher retrieval attempted, with an alternate-copy check",
+          "title": "P1-Nonconforming Quadrilateral Finite Element Space with Periodic Boundary Conditions: Part I",
+          "trigger": "Closest cited mesh-parity comparison on a periodic rectangular mesh"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Fourier proof; prior bounded RRM basis and dimension passages"
+      ],
+      "rationale": "This is a natural periodic trial space for a physically motivated continuity condition. Exact parity and explicit shapes tell a basis builder when two additional degrees of freedom are required and which local components carry them; the bounded-domain dimension cannot provide this information. This is a dimension mechanism, not a claim of defective Hessian energy or solver instability.",
+      "residual_risks": [
+        "No assertion about nonuniform meshes, higher-dimensional periodic spaces or convergence rates is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

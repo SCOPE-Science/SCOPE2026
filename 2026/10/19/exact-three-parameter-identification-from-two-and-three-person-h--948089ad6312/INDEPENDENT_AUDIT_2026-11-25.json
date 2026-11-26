@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:20:24.267251Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 9–81 and 85–91",
+        "Frozen VERIFICATION.md and verify.py (read, not run)",
+        "Independent derivative, Jacobian and rational bracket in this review"
+      ],
+      "rationale": "Conditioning on the index duration, no contact to either susceptible has expectation q=L_a(2λ), and contact to one specified susceptible but not the other has probability p−q for p=L_a(λ). The newly infected person's independent no-contact event contributes p, giving r=2p(p−q). Thus r>0 selects the unique positive quadratic root for p. The nondegenerate Gamma law gives p²<q<p, so the log ratio is in (1,2). Multiplying its derivative by (1+2u)(1+u)log²(1+u)>0 gives 2(1+u)log(1+u)−(1+2u)log(1+2u), negative by strict convexity with H(0)=0. The endpoint limits of the ratio are 2 and 1. Therefore u=λ/a, then a, λ, β from h, and η from β/λ are unique, including both admissible η endpoints. At fixed shape, the m₂ derivative in λ is (q−2p)p′−(1−p)q′>0; the two-mean Jacobian in (β,η) is triangular with diagonal entries nonzero because m₁ grows with β and λ falls with η. This gives exact local fibers at all interior points by the implicit-function theorem. The variance signal has coefficient Var(I)=1/a at second order. I independently checked the rational example and an exact second-shape bracket: at a=2 and β=2(√2−1), m₂(λ=1/2)=269/625 < 82/175 < m₂(λ=3/5)=896379/1827904. Both trial intensities are interior to (β/2,β), so continuity and strict monotonicity give an exact distinct-shape match with h=1/2 and m₂=82/175.",
+      "residual_risks": [
+        "Exact model-image probabilities, known mean duration, single introduction, full follow-up and the stated Gamma and size-scaling families only. The mean-only fiber result is interior; it is not a finite-sample or boundary conditioning theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Miller gives general finite-population final-size calculations and describes distinct plausible parameter sets of similar R₀, not a household Gamma/size inverse.",
+          "Resultary 519b72c30ab7 and 2ecb47b86d60 recover respectively a large-population rank-one kernel and a group-size law with fixed rates; a7133ccbb70c uses longitudinal prevalence."
+        ],
+        "reasoning": "A forward final-size recursion yields p,q,r but supplies neither injectivity of the two Gamma evaluations nor an exact mean-map fiber. The indexed inverse problems have different observations and parameter spaces, not broader hypotheses that specialize to the frozen set-up.",
+        "searches": [
+          "arXiv:1907.05138, Introduction and §7",
+          "Resultary: identifiability from final attack profiles, group-size normalization, exact epidemic rate recovery"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2603.25235",
+        "arXiv:1907.05138",
+        "Resultary 519b72c30ab7, 2ecb47b86d60 and a7133ccbb70c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Brooks explicitly suggests freeing shape could cause identifiability difficulties for medium information that ‘could be remedied by the high information dataset.’",
+          "Miller's discussion includes similar finite-population inference fits with comparable R₀, not an exact degeneracy in this household mean map."
+        ],
+        "reasoning": "The qualitative insight is prior and not itself credited. The frozen proof determines the specific probabilities needed, proves uniqueness globally including both mixing endpoints, and proves a local constant-mean family at every interior point. Neither the qualitative suggestion nor the forward recursion establishes those conclusions without the additional shape inversion and Jacobian arguments.",
+        "searches": [
+          "arXiv:2603.25235 Discussion, OA chars. 47,600–50,885",
+          "arXiv:1907.05138 §7, OA chars. about 49,225 onward"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Brooks uses the same mean-one Gamma duration and β/n^η with n susceptible contacts; its main estimation assumes fixed shape.",
+          "Brooks contrasts medium- and high-information campaign data, the latter holding more household outcomes than h,q,r."
+        ],
+        "reasoning": "The frozen h,q,r are a minimal outcome-count representation of both complete size-specific laws by normalization. The known likelihood is a forward formulation and the fixed-shape fitting problem is not the inverse with all three parameters free.",
+        "searches": [
+          "arXiv:2603.25235, Transmission model, equations (1)–(2), and Discussion",
+          "Resultary: household final-size exact recovery, Gamma shape and size-dependent rates"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest matching records inspected have IDs 519b72c30ab7, 2ecb47b86d60, a7133ccbb70c and concern distinct inverse maps; they postdate the frozen item.",
+          "The same-model published likelihood is fitted for fixed shape."
+        ],
+        "reasoning": "An exact theorem/parameter-recovery record is the relevant table analogue. No matched result inspected gives this symbolic two-size inverse or the two-mean level sets. A numerical fit or an example of a final-size law would not certify either statement.",
+        "searches": [
+          "Resultary: finite household final-size inverse and exact three-parameter epidemic identification",
+          "Brooks et al., Transmission model and Discussion"
+        ]
+      },
+      "rationale": "Brooks et al. already specify the same forward model and explicitly anticipate that freeing the Gamma shape may make medium-information estimation ambiguous but that high-information outcomes may resolve it. The supported new claim is the exact global inverse from just h,q,r for these two sizes and the exact interior nonidentifiability from the two means, not the model or the qualitative proposal.",
+      "residual_risks": [
+        "Direct primary-source and indexed comparisons are bounded; an earlier specialized free-shape inverse not inspected could overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct forward-model and qualitative overlap; no stated free-shape global inverse from these three probabilities in the inspected argument",
+          "evidence": [
+            "Uses mean-one Gamma(a,a), β/n^η and η in [0,1]; fixes a in the fitting analysis.",
+            "Suggests high-information data could remedy free-shape identifiability issues."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.25235",
+          "material_read": "Methods, Transmission model Eqs. (1)–(2), OA chars. 8,800–13,891; Discussion, 47,600–50,885",
+          "method": "Lawful arXiv HTML inspection",
+          "title": "Bayesian Inference for Epidemic Final Size Datasets with Hidden Underlying Household Structure",
+          "trigger": "Same model and medium/high data-resolution distinction"
+        },
+        {
+          "assessment": "General forward calculations and inference discussion; different inverse question",
+          "evidence": [
+            "Finite-population calculations use a specified offspring distribution; §7 discusses plausible fits with similar R₀."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1907.05138",
+          "material_read": "Introduction, OA chars. 0–5,000; §7, about 49,225 onward",
+          "method": "Lawful arXiv HTML inspection",
+          "title": "Distribution of outbreak sizes for SIR disease in finite populations",
+          "trigger": "General final-size methods and identifiability"
+        },
+        {
+          "assessment": "Later comparator, not equivalent coverage",
+          "evidence": [
+            "Large-population multitype Markovian SEIR and joint final-attack/major-outbreak seeding profiles, not finite-household outcome counts."
+          ],
+          "identifier_or_url": "519b72c30ab7",
+          "material_read": "Finding and Assumptions",
+          "method": "Local Resultary mirror read",
+          "title": "Joint epidemic attack and seeding profiles: a unique rank-one kernel",
+          "trigger": "Exact inverse using final attack data"
+        },
+        {
+          "assessment": "Later comparator with different unknowns and data",
+          "evidence": [
+            "Recovers a known-support group-size law from aggregate generator rates with the rate parameters and exponent fixed."
+          ],
+          "identifier_or_url": "2ecb47b86d60",
+          "material_read": "Finding and Assumptions",
+          "method": "Local Resultary mirror read",
+          "title": "Two exceptional normalization exponents and exact recovery of group-size laws",
+          "trigger": "Exact inverse and group-size scaling"
+        },
+        {
+          "assessment": "Later comparator, not a final-size result",
+          "evidence": [
+            "Uses four consecutive prevalence observations for a discrete three-agent SIS system."
+          ],
+          "identifier_or_url": "a7133ccbb70c",
+          "material_read": "Finding and Assumptions",
+          "method": "Local Resultary mirror read",
+          "title": "A universal sixth-power loss of three-rate identifiability",
+          "trigger": "Small-system exact recovery of three epidemic parameters"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 39–81",
+        "arXiv:2603.25235 Discussion"
+      ],
+      "rationale": "This answers a concrete data-resolution question raised by the motivating likelihood study. In the smallest two nontrivial sizes the two exact means erase information even with perfect estimation, while the household outcome counts allow a unique monotone inverse. The positive variance signal of order λ² explains why population-level uniqueness need not translate into dependable estimation at weak transmission.",
+      "residual_risks": [
+        "Does not classify other sampling designs or the information in mean outcomes at additional household sizes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

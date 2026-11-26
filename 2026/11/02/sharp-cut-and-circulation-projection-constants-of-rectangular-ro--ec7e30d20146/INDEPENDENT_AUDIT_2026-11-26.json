@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:16:54.373985Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Averaging signed-isometric conjugates preserves the fixed range and identity on it. The endpoint-swap stabilizer forces any intertwiner from a complete-graph oriented edge module to the vertex module to be a multiple of incidence; tensoring with the two-dimensional commutant on the other vertex module gives precisely the four potential coefficients, and identity on gradients leaves one free parameter. For the circulation projection, the complement factors through divergence, and the dual intertwiner argument restricts its right inverse to the two gradient copies of the mixed block and the single copies of the pure blocks. I rederived the horizontal absolute column sums: the gradient of an endpoint difference has norm 2(m−1), its diagonal entry is 2w_c, and the other edges in that fiber contribute 2(m−2)|w_c|. This gives the displayed cut and circulation expressions; swapping factors gives the other columns. Replacing each absolute value by its interior sign gives affine lower bounds globally, with opposite strictly signed slopes and their unique crossings in [0,1]. This proves the minima and equivariant uniqueness, not unrestricted uniqueness. The orthogonal parameter m/(m+n) and factorizations give exactly the stated exceptions; complementarity would prescribe the orthogonal pair since C and Z are orthogonal complements. The four-cycle gives cut 3/2 and circulation 1, and (2,3) gives 7/4 and 64/39. RESULT.md §§1–4 suffice for replay. The supplied check.py and VERIFICATION.md were inspected, not executed: the recorded exact calculations check finite columns and selected generators, not universal optimality.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 43 gives unique invariant orthogonal circulation projection for a single alphabet on all axes; Theorem 45 gives the binary cube cut case. The indexed Hamming result covers higher dimension and other p, but still one alphabet size on every axis."
+        ],
+        "reasoning": "Increasing dimension or the range of norms does not remove the equal-alphabet hypothesis. Product averaging alone leaves a free parameter when the coordinate directions are not interchangeable.",
+        "searches": [
+          "arXiv:2305.12582 Theorems 43 and 45",
+          "Resultary nonbinary Hamming projection theorem 05695b9bae19"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2305.12582 §§2.6–2.7",
+        "Resultary 05695b9bae19",
+        "Resultary 6666bba3a821"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Those statements do not compute cut and circulation columns with two unequal alphabet sizes or show how their two edge-orbit contributions balance. The clique-prism exception transports to its swapped version, but does not exclude exceptions when both factors exceed two."
+        ],
+        "reasoning": "Known symmetry machinery enables the reduction, but neither its homogeneous result nor the exact one-thin-factor result implies the general parameter minimizers or no additional orthogonal exceptions.",
+        "searches": [
+          "arXiv:2305.12582 §2.6",
+          "Resultary 05695b9bae19 and 6666bba3a821"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rook edge spaces are oriented Cartesian clique products; circulation is the real cycle space. H(2,q) is K_q × K_q, not K_m × K_n for unequal alphabet sizes. Clique prisms are K_m × K_2."
+        ],
+        "reasoning": "The alternate names lead to two exactly matching proper slices, not an equivalent full family.",
+        "searches": [
+          "arXiv:2305.12582 §§2.6–2.7",
+          "Resultary 05695b9bae19 and 6666bba3a821"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Hamming d=2: 3(q−1)/q and 4−5/q−2/q². Clique prisms: 2(m²−m+1)/(m²−m+2) and 16(m−1)²/[m(5m−2)], with the orthogonal cycle exception at m=4 and no orthogonal cut optimum for m≥3."
+        ],
+        "reasoning": "Direct substitution into the frozen formulas reproduces both indexed entries exactly; neither supplies values for unequal m,n≥3.",
+        "searches": [
+          "Local Resultary projection-constant lookup: 05695b9bae19 and 6666bba3a821"
+        ]
+      },
+      "rationale": "Pass is for the complete rectangular classification, principally the unequal two-factor case with both factors at least 3. The equal-factor results, the two-vertex-factor results, and the (2,4) exception on its own are already covered and are not credited as distinct findings. No compared source establishes the full unequal-factor optima or the exclusion of further orthogonal exceptions.",
+      "residual_risks": [
+        "A broader exact norm calculation under transportation-cost, electrical projection, or rectangular product terminology could exist outside the compared statements; historical priority is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Framework and homogeneous overlap, not general unequal-factor coverage",
+          "evidence": [
+            "Theorem 43 fixes the orthogonal projection as unique invariant projection for words over one common alphabet."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2305.12582",
+          "material_read": "§2.6 definition, PDF p. 19 and Theorem 43, p. 23; §2.7 Theorem 45",
+          "method": "OA PDF targeted passages; extraction offsets around 57500 and 73000",
+          "title": "Cycle spaces: invariant projections and applications to transportation cost",
+          "trigger": "Same norm minimization method and Hamming cycle projections"
+        },
+        {
+          "assessment": "Exact square overlap",
+          "evidence": [
+            "H(d,q), d≥2 and q≥3, orthogonal cut and circulation projections minimize, with the stated square constants at d=2."
+          ],
+          "identifier_or_url": "05695b9bae19",
+          "material_read": "Finding, parameters and d=2 specialization, offsets 0–5759",
+          "method": "Local indexed record and mirror",
+          "title": "Exact minimal cut and cycle projections for nonbinary Hamming graphs",
+          "trigger": "Exact projection constants on Cartesian clique powers"
+        },
+        {
+          "assessment": "Exact overlap for either factor equal to two, including the isolated orthogonal-cycle exception",
+          "evidence": [
+            "K_m × K_2 for m≥3; orthogonal cycle projection optimal iff m=4 and cut projection never orthogonally optimal."
+          ],
+          "identifier_or_url": "6666bba3a821",
+          "material_read": "Finding and scope, offsets 0–3481",
+          "method": "Local indexed record and mirror",
+          "title": "Exact minimal cycle and cut projections on clique-prism graphs",
+          "trigger": "Exact projection constants on an unequal-factor rectangular subfamily"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The real edge cut and circulation spaces are natural fixed subspaces with intrinsic projection constants in the graph ℓ1 model. Distinct edge orbits expose two different optimal balances and show that no complementary pair simultaneously attains the two separate minima off the diagonal. The full classification closes the gap between previously analyzed symmetric and thin rectangles; its value does not rely on the already-known (2,4) case.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

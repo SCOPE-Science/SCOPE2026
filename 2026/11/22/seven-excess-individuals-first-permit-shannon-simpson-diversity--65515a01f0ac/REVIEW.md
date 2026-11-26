@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The order-one and order-two Hill numbers reduce exactly to inverse-monotone functions of integer invariants \(P(a)=\prod_i a_i^{a_i}\) and \(C(a)=\sum_i a_i^2\), respectively, at fixed census. By majorization and strict convexity, all comparable excess partitions rank consistently. The finite complete list of incomparable partitions through seven extra individuals contains six pairs, only one of which has opposite strict order of \(P\) and \(C\). Integer computations and the independent direct-count enumeration are checked using `verify_diversity.py`. The universal species-count quantifier uses analytical zero-padding, not sample-based extrapolation.
+PASS
 
-## Originality — PASS (historical priority qualified)
+At fixed census, D₁=N/P^(1/N) and D₂=N²/C where P=∏aᵃ and C=∑a², so strict discordance is exactly the opposite strict sign test on the two integer keys. For excess t≤7 every partition fits seven slots; comparing partitions with aligned lengths is equivalent to looking at that fixed seven-slot list and restricting to partitions of length ≤k. Explicitly zero-pad both excess vectors to equal length before adding ones, or equivalently use C−k=∑((e+1)²−1) over the positive parts. Common further singleton padding leaves differences unchanged. Convexity orders the two keys in the same direction on comparable partitions. An independent enumeration by sorted seven-tuples checked all pairs directly, including all six incomparable pairs in the stated table. The only reversed pair is excess (3,4) versus (1,1,5), admissible for each k≥3. Its first profile A has C=k+39 and P=800000, the other has C=k+41 and P=746496; both signs are strict and give the stated Hill rankings.
 
-The relevant original Hill-number definitions, majorization and diversity-profile articles were materially inspected, as were related published mathematical claims. A 1995 published Shannon/Simpson reversal uses differing species richness, while the closest later mathematically indexed results impose three-index constraints or compare other diversity indices. None of their verified statements implies this precise first same-richness, same-census, two-index cutoff. The residual risk is a differently labeled historical small-partition enumeration not found by these searches.
+## originality
 
-## Value — PASS
+PASS
 
-At fixed observed richness and census, conflicting signs from two standard effective-diversity measures may affect descriptive comparisons. The theorem gives an exact universal threshold and all first-boundary witnesses for arbitrary richness, with one irreducible three-species type. It is a finite but structural classification with a clear invariant motivation; it does not claim empirical statistical inference or conservation prescriptions.
+The supported distinct contribution is the fixed-richness, equal-census sharp integer threshold and its unique first pair, not that Shannon and Simpson can disagree or that majorization orders both. An inspected earlier primary example has equal census and reverses, but changes richness; the nearest indexed exact-cutoff statements change the indices or add a third-index constraint.
 
-## Closest literature and limitations
+## value
 
-Hill (1973) defines the two effective species numbers. Tóthmérész (1995) exhibits a distinct-richness reversal. Jost (2006) explains index transformations, and Liu et al. (2007; publicly available online in 2006) study majorization and ordering methods. Additional published claims concern a twenty-individual three-index reversal, an eight-excess inverse-Simpson-versus-dominance reversal and different sampling indices. An unindexed equivalent finite-count table cannot be excluded. No independent scientific audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Fixed richness and census remove two ordinary sources of changing rankings, making the first possible discordance of two common indices a natural discrete boundary. The uniform first obstruction and unique irreducible three-species pattern say more than finding an example or running a small-k survey; they clarify when a strict descriptive conflict can first occur and when ties must not be counted as reversals.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

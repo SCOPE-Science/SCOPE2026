@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Genus and the four-differential basis follow from ramification valuations; the Cartier coefficient expansion yields the exact semilinear matrix. Its square has single coefficient \((A+B V^7)^{1/49}\), and its cube vanishes identically. The degree-nine factorization, three pairwise distinct linear factors and three separable irreducible quadratics prove all nine geometric roots. The two cross-ratio identities imply the two branch-configuration orbits. An extracted standalone exact finite-field verifier independently recomputes coefficients, ranks and branch invariants over all smooth parameters in \(\mathbb F_{49}\).
+## correctness
 
-**Originality — PASS (provisional historical priority).** Elkin (2007) gives the general Cartier machinery, Moonen (2010) the one-dimensional special family, Li–Mantovan–Pries–Tang (2018) the associated generic Dieudonné module and Newton-polygon possibilities, Cavalieri–Pries (2023) mass formulas subject to a different prime congruence, and Streng (2025) explicit supersingular curves for other special families. The explicit nine-point characteristic-seven Cartier-square-zero locus and exact \(j\)-invariant values are not stated or logically forced by those inspected statements. Published characteristic-three and characteristic-nineteen computations for the same cover equation do not imply characteristic-seven coefficients. Search-based priority may miss older local tables.
+PASS
 
-**Value — PASS.** This completely determines a natural jump locus in the one-dimensional genus-four cyclic-cover moduli family: all \(7\)-ranks and \(a\)-numbers are constant, but the next Cartier iterate separates two geometric classes from the rest. The exact nine marked parameters and two branch invariants are mathematically meaningful for studying special reduction and the interaction of ramification type with arithmetic geometry; the classification is not merely a chosen numerical sample.
+Tame full ramification at four points gives genus 4. At infinity the orders of x,y,dx are -5,-3,-6; at a finite branch point the orders of y,dx are 1,4. The four independent forms in RESULT.md are thus regular and span. Inverse Frobenius sends the denominator characters 3→4→2→1; the last image is zero because f has degree 3 and contributes no degree 6 term. In the 4→2 step, the leading coefficient of f² is 1. In the 3→4 step the two coefficients A and B have no common zero on the smooth base. Hence the constant rank is 2. On composing, (B^(1/7))^(1/7) multiplies V^(1/7), producing B V^7 inside the 49th root, not B V. The scalar of C² factors as three distinct linear and three distinct irreducible quadratic factors (each discriminant 5), with neither 0 nor 1 a root. The displayed j-fiber identities are exact. Nonidentity anharmonic stabilizers fix either a harmonic parameter (2,-1,1/2, j=6 here) or a root of t²-t+1 (j=0), so the fibers at 6 and 4 are respectively single orbits of sizes 3 and 6. The stable rank is zero and the kernel dimension is two. The distinguished exponent at infinity is 2; the ramification index is 5 there as at the other branch points.
 
-**Limits.** The result does not establish the entire Newton polygon or Dieudonné module of exceptional Jacobians. No independent mathematical audit was conducted. The priority claim is provisional because unindexed special-family computations could contain the same root equation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the known family, Cartier machinery, and generic invariants. The supported distinction is the complete characteristic-seven Cartier-power jump locus in branch coordinates: an explicitly factored nine-root divisor with exactly the two j-fibers 4 and 6. No inspected source establishes this classification or a stronger statement fixing these parameters.
+
+## value
+
+PASS
+
+The rank of the second Cartier power separates fibers even though both p-rank and a-number stay fixed. In a natural special genus-four family, the exact reduced jump divisor and its two marked branch configurations make the rank condition directly usable without recomputing a semilinear operator at each parameter. This is not a claim to classify Newton polygons or arbitrary isomorphisms of the curves.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

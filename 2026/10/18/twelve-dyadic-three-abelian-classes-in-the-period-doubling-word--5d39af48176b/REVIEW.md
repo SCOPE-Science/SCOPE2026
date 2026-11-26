@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The defining substitution has no adjacent ones and no four consecutive zeros. For each even factor length, one-gap/three-gap accounting and both substitution alignments yield the exact 101 count from the number of ones and two boundary pairs. Transition-flow identities recover the remaining three-gram counts, and the converse recovers both boundaries from the full 3-Abelian signature. Six length-eight endpoint witnesses support a complete two-alignment induction for every dyadic scale. The standalone verifier used independent word constructions and sliding three-gram counters, and returned VERIFY_OK; the universal claim rests on proof, not enumeration.
+## correctness
 
-**Originality — PASS against inspected sources.** Karhumäki–Saarela–Zamboni establish the general notion, while Parreau–Rigo–Rowland–Vandomme resolve 2-Abelian rather than 3-Abelian complexity of this word. Vandomme's defense presentation plots 3-Abelian values and suggests a recurrence for 3-block-coding Abelian complexity; it does not furnish a proof of the exact 12 dyadic classes or their six boundary types. Targeted mathematical-record comparisons and accessible own-claim checks did not identify stronger prior coverage. Risk: an unindexed later specialization could overlap, and numerical dyadic plateaus were visually accessible in historical graphs.
+PASS
 
-**Mathematical value — PASS.** The lemma reconstructs all local three-pattern counts of every even-length factor from a three-part small signature, and the theorem gives an infinite exact class spectrum for a classical automatic word at powers of two. The value is the structural reduction and all-scale classification, not the finite test values. It leaves other lengths and broader regularity open.
+The repaired theorem is for even n at least four only. Ones are on odd positions and there are no runs 0000, so internal gaps of zeros have lengths one or three. The opposite endpoint parities give L+R=1+2[a=00]+2[b=00], whence the 101 count from the two gap equations. Pair counts and the other allowed triples follow by extending pairs and subtracting the correct one-sided boundary indicator. Conversely failure to extend a pair at each end recovers that end, and one-letter multiplicity recovers K. The independent complete-language factor enumeration covers 65 even lengths and confirms both directions; the gap proof is what establishes all lengths.
 
-**Closest literature and limitations.** See the three primary sources and exact statement comparisons in AUDIT.json and RESULT.md. The 2015 defense deck's tentative 3-block-coding relation is not the theorem, while it raises a documented prior-investigation overlap risk. Computational tests are finite; no outside scientific review has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Distinct only for the repaired all-even, including nondyadic, exact equivalence theorem. The strongest distinct indexed match fully covers the frozen dyadic classification but its two-block rotation and bridge argument requires a dyadic length. The inspected two-Abelian and tentative three-block results do not determine the three-letter counts from just weight and two-letter ends at general even length.
+
+## value
+
+PASS
+
+This is a structural compression for an established complexity invariant on a standard automatic word, applicable across all even lengths. It gives sufficiency of a single one-letter count plus ordered ends, removing all interior triple counters even for nondyadic enumeration. The gain relies on the word's gap geometry and is not the generic fact that equivalence preserves ends.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness: PASS
-The stationary convolution gives bounded moments and a rotationally invariant law. The generator applied to \(z^p\overline z^{\,q} e^{i(q-p)\theta}\sigma^s\) produces a triangular pair of linear equations with determinant \(c(c+2g)+(q-p)^2w^2>0\). The explicitly attached checker verifies the resulting second- and fourth-order moments and the quartic-moment-to-kurtosis reduction by exact symbolic cancellation. The root sign classification uses positive denominators, positive constant term, quadratic-root algebra, and leading coefficient asymptotics. A separate event-driven simulation agrees with the predicted sign and magnitude but is not used as a proof.
+## correctness
 
-## Originality: PASS, with residual risk
-Das–Basu's original 2023 chirality-reversal model treats the free particle. Non-chiral trapped moment formulas (Chaudhuri–Dhar, 2020) and fixed-chirality trapped moment formulas (Pattanayak and coauthors, 2025–2026) apply to different generators; the latter already contains reentrant kurtosis, which is therefore **not** claimed as intrinsically new. The nonzero switching-rate polynomial and its sharp \(g=1/4\) high-frequency threshold are not consequences of those constant-drift formulas without a new calculation. The 2025 paper's full text was not available for direct inspection, so a possible unreported switching extension is a specific residual risk. Search comparisons of relevant public mathematical records found no claim covering this switched-drift statement; a search miss cannot prove global uniqueness.
+PASS
 
-## Mathematical value: PASS
-The rate \(\gamma\) for flipping angular handedness competes directly with confinement \(\kappa\), making their exact quarter-rate comparison a natural and experimentally interpretable threshold. The theorem determines the full sign diagram for a standard fourth-moment observable, proves uniqueness where it occurs, and gives two distinct scaling windows where positivity reenters under strong rotational diffusion. It does more than evaluate isolated parameter values or rename fixed-chirality results.
+The rotating-frame generator preserves a triangular moment recursion with positive determinants through degree four. An independent bounded SymPy calculation, not a run of the frozen script, reproduced both exact radial moments and the indicated signs. Rotational projection gives the stated factor 3/2 and positive variance. For the replacement, with c=1−4g>0, the sign classification reduces to Q−2√(cS): the constant term is positive and a negative interval on positive u requires a positive vertex and positive discriminant. Above the unique positive zero of Q, dQ_d>2Q and dS_d<3S, so Q/√S increases strictly from zero to infinity and the onset root is simple. At d≥1, S_g/S≤5/6; the lower bound (19/6)√S(d,0)>7d+27 follows at d=1 and from the positive derivative of S(d,0)/(7d+27)². Along with (1−4g)^{-1/2}≥1+2g this shows Φ_g>0 and hence d_c'(g)<0. Implicit differentiation in √(1−4g) at the simple positive Q zero gives the endpoint correction; the double-root formula gives the angular-speed divergence. The discriminant has strictly positive diffusivity derivative at onset, so the roots split on a square-root scale. The original checker covers the moment identity and finite sign cases, not these onset statements; the reported simulation has no supplied replay.
 
-## Limits
-The theorem concerns a stationary, translational-noise-free, linearly confined, isotropic process with angular drift that switches sign. It gives a kurtosis sign, not a global density classification or universal model-independent criterion. The close 2025 paper remains a residual originality risk, and independent mathematical audit is unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The central frozen polynomial and quarter-rate sign classification have demonstrable equivalent coverage in a distinct indexed article, dated later than the frozen record. This is not a priority determination. The replacement credits that coverage and instead resolves the unique global onset in rotational diffusivity, the strict direction of motion of its boundary over the entire subcritical switching interval, and its singular endpoint laws. Those statements are not the earlier pointwise test with different notation.
+
+## value
+
+PASS
+
+The repaired result identifies exactly how much rotational diffusion is necessary for a positive intermediate-kurtosis interval at a given subcritical switching rate. It distinguishes a single fold from multiple disconnected diffusivity windows and quantifies how onset escapes to infinite angular speed even though the critical diffusivity stays finite. Those statements answer phase-diagram questions not settled by evaluating the pointwise sign criterion at a few parameters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Assessment of the commuting-pair distribution theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The identity \((u*v)*u=v\) is equivalent, by comparison of its three independent affine coefficients, to \(B=A^{-1}\), \(A^3=-I\), and \((A+I)c=0\). The commuting difference is \(A(A+I)(u-v)\), giving exactly \(q^{-r}\) for \(r=\operatorname{rank}(A+I)\). The three cases of the centralizer calculation are split separable, nonsplit separable, and nilpotent Jordan, respectively. In the last case the conjugate partition is \((a+b+c,a+b,a)\), yielding the advertised centralizer. The fixed-field Gaussian-weight comparison gives dimension-independent tail bounds and the two-thirds exponent. All hypotheses and positive-dimensional boundaries are stated. The supplied checker independently exhausts fourteen finite-field matrix configurations and seven direct quasigroup configurations, but the infinite statement is proved algebraically, not inferred from enumeration.
+PASS
 
-## Originality — PASS, with residual risk
+The frozen proof uses r=rank(A+I), not rank(A-I). Coefficient comparison gives AB=I, A²+B=0 and (A+I)c=0. Hence B=A^(-1), A³=-I and A-A^(-1)=A(A+I); for each first input there are q^(n-r) commuting second inputs. The translation multiplicity is independently q^(n-r), and distinct coefficient triples are distinct labelled operations. Off characteristic three the cube polynomial is squarefree with either three linear factors or one linear and one irreducible quadratic factor. In characteristic three, Jordan columns are n-r,c2,c3; c2+c3=r and balancing them is feasible precisely when ceil(r/2)≤n-r. Invertible centralizer weights give the three strata including r=0 and the smallest dimensions. In all regimes the uniform bounded product factors and summable Gaussian imbalance factor yield H(r) comparable to q^(S_n-3(r-r_n)^2/2), including near the characteristic-three rank ceiling. An admissible rank within one of r_n gives the matching normalization lower bound. On |r-r_n|≥t one can factor out q^(-t²) and retain a summable q^(-(r-r_n)^2/2). Completing the square for the extra weight q^(-r) gives the mean order q^(-2n/3), at fixed q. A separate bounded replay matched 13 exhaustive matrix-stratum cases over q=2,3,4,5,7,9, and directly tested every allowed translation and ordered input pair in seven small cases. The replay is finite; the general proof uses the centralizer formula and estimates above.
 
-Allsop–Wanless's 2024 preprint/2025 article establishes the **unrestricted** possible number of commuting ordered pairs in finite quasigroups and explicitly suggests studying structured families; it does not enumerate labelled affine semisymmetric quasigroups, give their conditioned distribution, or quantify its dimension dependence. Smith–Wang already establishes the linear semisymmetry criterion \(A^3=-I\), and Fulman's matrix cycle-index survey includes the centralizer identities from which the matrix enumeration is a specialization. These precursor statements are credited and are not presented as new. The contribution that survives them is the combined commuting statistic, affine-translation weighting, all-characteristic exact conditioned distribution and the fixed-field two-thirds concentration estimate. Related quadratic-quasigroup and nucleus results address different invariants or restricted families. Relevant database, alias, direct-literature, and implication checks did not locate an equivalent conditioned distribution. It remains possible that another source derives the same specialized asymptotic from the known cycle-index framework; the motivating 2026 nucleus preprint's full text was not available for inspection. An independent novelty determination has not been made.
+## originality
 
-## Value — PASS
+PASS
 
-A complete statistic on a natural algebraic subclass answers precisely the structured-family question highlighted in the quasigroup commuting-pairs literature. It distinguishes three finite-field factorization regimes, including the truncated rank spectrum in characteristic three, while showing that the same quantitative commuting rarity and bounded fluctuations persist in all three. It gives a reproducible dimension-parametric answer rather than a one-off example or an arbitrary selection of small parameters. The theorem does not count isomorphism classes, does not cover non-affine quasigroups, and does not determine sharp constants for the mean.
+Credit is limited to the commuting-rank distribution of uniformly sampled labelled affine semisymmetric operations and its fixed-field mean and concentration across all three regimes. The semisymmetric linear coefficient identity and matrix-class counts are prior tools. The inspected quasigroup and affine Lie-algebra results do not give this conditioned distribution or the two-thirds law.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The labelled distribution answers a different question from which commuting counts are possible. Identity constraints and the translation weights give distinct finite-dimensional strata across the three field regimes, yet the mean and typical rank obey the same exponent law, even where characteristic three truncates the upper tail. This is a quantitative description of a natural structured ensemble rather than an unweighted list of matrix classes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

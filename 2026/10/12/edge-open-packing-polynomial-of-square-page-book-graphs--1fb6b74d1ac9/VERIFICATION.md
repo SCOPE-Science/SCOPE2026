@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,33 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The checker constructs each square-page book \(B_m\) from the spine and page triples
-\[
-L_i=xu_i,\qquad M_i=u_iv_i,\qquad R_i=v_i y.
-\]
+# Independent mathematical audit
 
-For each edge subset it tests the original definition directly: every selected pair \(e_1,e_2\) is rejected exactly when some third graph edge joins an endpoint of \(e_1\) to an endpoint of \(e_2\).
+## correctness
 
-Independently, the checker tests the theorem's structural classification. It then compares the full cardinality distribution against
-\[
-3(1+z)^m-2+2mz^2+z\bigl(2(1+z)^m-1\bigr),
-\]
-and verifies \(\rho_e^o(B_m)=m+1\) together with the maximum-set count.
+PASS
 
-Recorded output:
+Use the bipartition {x,v_i} and {y,u_i}. Incident edges are automatically compatible; disjoint edges are compatible exactly when neither of their two crossed edges is present. This gives internal compatibility of each of the three page families. The spine forbids every middle edge, the spine is a witness against every left–right pair, and a side edge can occur with a middle edge only on the same page (a different middle edge has its corresponding side edge as a witness). Thus with the spine the contribution is z[2(1+z)^m−1]. Without it, the three single-family subsets contribute 3(1+z)^m−2 and the only additional sets are the 2m same-page middle/side pairs. For m≥2 all terms except the spine contribution have degree at most m, giving exactly its two full-star maxima. At m=1 the polynomial is 1+4z+4z² and the same-page pairs furnish the other two maxima.
 
-```text
-VERIFY_OK
-m=1: rho_e^o=2, edge_open_packings=9, maximum_sets=4
-m=2: rho_e^o=3, edge_open_packings=21, maximum_sets=2
-m=3: rho_e^o=4, edge_open_packings=43, maximum_sets=2
-m=4: rho_e^o=5, edge_open_packings=85, maximum_sets=2
-m=5: rho_e^o=6, edge_open_packings=167, maximum_sets=2
-m=6: rho_e^o=7, edge_open_packings=329, maximum_sets=2
-edge_subsets_checked = 599184
-all sets matched the structural classification and polynomial
-```
+## originality
 
-The computation exhausts every edge subset for \(1\le m\le6\), a total of \(599{,}184\) subsets. It is exhaustive for those instances and corroborative only for the arbitrary-page theorem, whose proof is symbolic.
+PASS
+
+The strongest inspected statements cover a different parameter on exactly these books, an identical kind of packing enumerator on a different graph family, or isolated small book cases. No inspected statement or direct specialization covers the arbitrary-page polynomial or maximum-set classification. This finding does not claim priority for the packing definition, its conflict-graph encoding, or the single-page cycle.
+
+## value
+
+PASS
+
+The shared-edge square-page book is a standard cyclic family; its allowable individual injective-color classes do not factor independently across pages. The theorem resolves every size coefficient and shows exactly how the spine enforces the two optimizing stars, while middle transversals and the exceptional same-page pairs survive without it. This gives a reusable full profile and optimizer description rather than just a small evaluation or a scalar family bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

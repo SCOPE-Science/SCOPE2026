@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:33:09.103187Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The birth rate is bounded by a linear function of total population, so comparison with a linear pure-birth process and locally bounded jump rates give nonexplosion; birth and death make the chain irreducible. The coordinate generator is Bn+ℓ. Applying the jump increments to n_i(n_i−1) and n_i n_j gives HF+g with g_ii=4ℓ_i n_i and g_ij=ℓ_i n_j+ℓ_j n_i. In particular, an i→j hop contributes β/(K−1) times F_ii−F_ij to the ij equation; a reset removes diagonal factorial mass at rate r_i, not 2r_i, and mixed mass at rate r_i+r_j. Migration links all pair states through shared indices, so both Metzler matrices are irreducible. Positive inverse-resolvent weights when s(B)<0 give a linear Foster function with drift constant minus total population, yielding the unique invariant law with finite means. When s(H)<0, the positive quadratic weights give drift −∑F plus a linear source, controlled by a sufficiently large multiple of that first Foster function, which yields finite second moments. Conversely, under the corresponding integrability assumption, the stationary generator identities are justified by the integrability of total jump rate times absolute coordinate or polynomial increment (bounded by C(1+|n|) or C(1+|n|²)); the positive left Perron vector makes either moment identity impossible at nonnegative spectral abscissa, including equality. This does not exclude infinite-mean invariant laws. For the witness, B has trace −6/5 and determinant 1/10 and B(56/5,6/5)^T+ℓ=0. Its H_11=3/5 is positive. To force divergence at the first site itself, pair particles with the one-site process that treats migration out as death and ignores arrivals. Its reset-free growth is 7/10 and its factorial second moment at age t is twice the square of (exp(7t/10)−1)/(7/10), by the two scalar drift equations. Integrating over the exponential reset age of rate 4/5 gives finite mean and infinite second moment. The shared-reset coupling and stationary convergence preserve domination; both stability and the witness's inequalities are strict and open. Frozen exact checker and output were inspected, not executed or substituted for the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Grange 2311.12414 models fitness-dependent local resets in a large complete network and derives occupations and stationary averages; 1904.05604 lacks local resets and 1910.05991 uses collective clearing.",
+          "16b63514c061 proves a sharp second-moment frontier with independent site resets in a real-valued model with deterministic inter-reset flow and reset to x₀.",
+          "Vatutin Theorem 6 under log-integrability and negative growth exponent gives convergence in law; Theorem 7 treats an accumulated final product, not this stationary population's second-moment criterion."
+        ],
+        "reasoning": "The large-network occupation analysis, global resets, and deterministic linear-flow model are not a dominating theorem for the full heterogeneous count-valued chain. General environment convergence in law does not ensure any finite stationary moments.",
+        "searches": [
+          "Grange arXiv:2311.12414, 1904.05604 and 1910.05991",
+          "Vatutin arXiv:1004.4973 Theorems 6–7",
+          "Resultary 16b63514c061 finite-size local-reset variance frontier"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check.py and CHECK_OUTPUT.txt",
+        "arXiv:2311.12414, 1904.05604, 1910.05991, and 1004.4973",
+        "Kapodistria–Phung-Duc–Resing Eurandom Report 2015-006",
+        "Resultary/SCOPE 16b63514c061 and 0b940b65e050"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exponential-age scalar calculation is prior theory, applicable after constructing the one-site lower process.",
+          "The coupled generator damps a diagonal ordered pair only once at rate r_i but a mixed pair at r_i+r_j. This, the positive immigration source, and migration through unordered pairs are needed for the necessity and sufficiency argument.",
+          "The embedded random-environment framework would require a separate theorem on stationary first and second moments, and a translation back to continuous time; the inspected convergence theorem does not supply them."
+        ],
+        "reasoning": "Credit the scalar catastrophe criterion and the existing phenomenon of separate moment frontiers. The full explicit heterogeneous network test and first-site witness are not substitutions into those inspected theorems.",
+        "searches": [
+          "Vatutin Theorems 6–7 compared to the generator including the type-specific reset projection",
+          "Resultary 16b63514c061 and 0b940b65e050 compared with the K-site generator",
+          "Kapodistria–Phung-Duc–Resing single-population moment equations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Vatutin arXiv:1004.4973 pp. 3–4: conditional branching independence with a shared environment and environment-dependent immigration; the continuous process embeds at reset epochs using iid exponential inter-event times and iid reset marks independent of those times.",
+          "Kapodistria–Phung-Duc–Resing derive equilibrium factorial moments for a one-population birth/immigration/death process with binomial catastrophes."
+        ],
+        "reasoning": "Conditional on the reset interval and common type mark, descendants from different ancestors are independent; the terminal projection kills the whole marked type, not particles independently under the unconditional law. This gives a meaningful embedded formulation, but the one-population model does not represent coupled migration among K≥2 independently reset sites.",
+        "searches": [
+          "Resultary: local-reset growth mean/variance frontier and hopping sites with local catastrophes",
+          "multitype branching process with immigration type-specific whole-population catastrophes reset shared random environment exact stationary first and second moment criteria spectral matrix"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue gives an exact threshold for a different real-valued process and exact finite variances/covariance for two hopping sites with constant immigration, not with per-particle births. The catastrophe paper gives exact scalar factorial moments."
+        ],
+        "reasoning": "Neither the exact thresholds nor the two-site moments tabulate the frozen network's spectral boundary or its witness with s(B)<0 and first-site infinite variance.",
+        "searches": [
+          "Resultary 16b63514c061 and 0b940b65e050, exact Finding passages",
+          "Kapodistria–Phung-Duc–Resing report pp. 2–3"
+        ]
+      },
+      "rationale": "The finite count-valued network's sharp coupled second-moment criterion and open interacting witness are distinct on the evidence inspected. Grange supplies the closely related resetting mechanism and mean analysis; single-site catastrophe results supply the scalar comparison but not the coupled criterion. A plausible general multitype random-environment framework does not have the needed moment conclusions in the inspected results.",
+      "residual_risks": [
+        "A less directly indexed general moment theorem for affine or multitype branching dynamics in a shared catastrophe environment might subsume some of the matrix criteria. The bounded comparison did not find one that states the required moment equivalences under the model's assumptions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closely related large-network mean result, not the finite-network second-moment test",
+          "evidence": "Fitness-dependent creation, annihilation, migration and local resetting with stationary average occupations.",
+          "identifier_or_url": "https://arxiv.org/abs/2311.12414",
+          "material_read": "PDF pp. 1 and 4 near offsets 1000 and 11990",
+          "method": "OA primary PDF text",
+          "title": "Local resetting in non-conserving zero-range processes with extensive rates",
+          "trigger": "Closest primary mechanism and stationary moments"
+        },
+        {
+          "assessment": "Different reset hypotheses",
+          "evidence": "No local clearing in the first comparison; global annihilation of all particles at a reset in the second.",
+          "identifier_or_url": "arXiv:1904.05604 and arXiv:1910.05991",
+          "material_read": "First paper p. 1 near offset 1771; second paper p. 4 near 11237",
+          "method": "OA primary PDF text",
+          "title": "Steady states in a non-conserving zero-range process with extensive rates as a model for the balance of selection and mutation; Non-conserving zero-range processes with extensive rates under resetting",
+          "trigger": "Predecessor birth–death–migration model and resetting variant"
+        },
+        {
+          "assessment": "Covers the single-site comparison, not the coupled migrating network",
+          "evidence": "Equilibrium and transient factorial moments for one population; mention of potential extensions is not a multidimensional theorem.",
+          "identifier_or_url": "https://www.eurandom.tue.nl/reports/2015/006-report.pdf",
+          "material_read": "Report pp. 2–3 near offsets 514 and 7430",
+          "method": "OA primary PDF text",
+          "title": "Linear birth/immigration-death process with binomial catastrophes",
+          "trigger": "Exact factorial-moment theory for catastrophes"
+        },
+        {
+          "assessment": "Material overlap but differing models",
+          "evidence": "A deterministic-flow model has separate sharp moment boundaries; a two-site chain has constant immigration and no linear reproduction term driving the claimed instability.",
+          "identifier_or_url": "Resultary 16b63514c061 and 0b940b65e050",
+          "material_read": "Both RESULT.md Findings, offset 0",
+          "method": "Local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Critical covariance locking and the finite-size variance frontier in local-reset growth; A unique synchronization optimum from independent local catastrophes on two hopping sites",
+          "trigger": "Closest catalogue moment-frontier and hopping-network results"
+        },
+        {
+          "assessment": "Structurally relevant, no covering population-moment conclusion in these passages",
+          "evidence": "The discrete-generation model has common environment and conditional particle independence. Theorem 6 is subcritical log-growth convergence, and Theorem 7 addresses accumulated product tails.",
+          "identifier_or_url": "https://arxiv.org/abs/1004.4973",
+          "material_read": "Definitions pp. 3–4 around offsets 6837 and 10000; Theorem 6 pp. 8–9 at 21400; Theorem 7 pp. 9–10 at 24772",
+          "method": "OA primary PDF text",
+          "title": "Multitype branching processes with immigration in random environment and polling systems",
+          "trigger": "Potential general theorem for the process embedded at catastrophe times"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact thresholds distinguish when stationary average occupancies are well-defined from when their fluctuations have a finite variance. The explicit open two-site witness makes that distinction meaningful even in a coupled finite system, and the factorial-pair matrix gives a practical stability test without assuming moment closure or treating the entire population as reset at each event.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

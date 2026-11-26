@@ -1,0 +1,89 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:10:35.293269Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At fixed finite t, bounded mark reach gives a graphical construction: for heads in a bounded window, the expected number of time-ordered backward chains of k+1 proposals is at most the window length times Λ(2ℓ₊)^k Λ^k/(k+1)!. Thus there are no infinite ancestry chains, locally the relevant Poisson graph is finite, and chronological acceptance is well defined. Survival of a fixed interval requires no interior proposal, since any head there would be accepted until the first hit. Until the first contact with the test interval, connected intervals from opposite sides cannot influence each other's decisions; the two killed half-line processes and the absent interior proposals are independent. Applying the same split at one point gives F=S₋S₊, so the interval survival probability is F exp(-Λx). Fixed endpoints have probability zero of being deposition endpoints by spatial diffuseness. All proposal heads are covered by time t, including rejected heads, so the spatial Poisson heads of positive intensity bound every vacant component on both sides. Bounded reach also gives locally finite boundary intensity and F≥exp(-2ℓ₊Λ)>0. The length-g gap contributes (g−x)₊ to the measure of possible test origins; the stationary Campbell identity and its second distributional derivative give q_t(dx)=FΛ² exp(-Λx)dx and its claimed normalization. The proof does not infer independence of gaps or a temporal stationary law. The supplied Monte Carlo script is diagnostic, not needed for the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Araújo–Cadilhe consider multiple sizes but explicitly reject an attempted segment if it overlaps a previously adsorbed segment."
+        ],
+        "reasoning": "Whole-segment exclusion is not a theorem covering pointwise-head acceptance. The unsuccessful focused search is not evidence that no more general theorem exists.",
+        "searches": [
+          "focused primary literature search for head-only mixed-length void factorization",
+          "arXiv:cond-mat/0404422 §II"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and supporting verification files",
+        "Resultary targeted title and semantic searches",
+        "arXiv:0712.3567",
+        "arXiv:cond-mat/0404422"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The crack-deposition calculation closes a fixed-length equation; its proof does not state a marked half-line split. The ordinary polydisperse model uses a different rejection event."
+        ],
+        "reasoning": "A deterministic rate change alone is a Poisson time change, so it is not the substantive extension. Mixing arbitrary time-dependent mark laws or allowing orientation asymmetry does not follow by averaging fixed-length solutions, as acceptance depends on earlier marks. The two one-sided survival factors establish the broader statement without that closure.",
+        "searches": [
+          "arXiv:0712.3567 Eqs. (4)–(7)",
+          "arXiv:cond-mat/0404422 §II"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gromenko–Privman–Glasser Eq. (5) gives P=e^(−Rxt)F; Eqs. (17)–(18) give exactly the normalized exponential count law in their model."
+        ],
+        "reasoning": "Head-only crack deposition is the same acceptance model but their equally likely orientations and deterministic length cover only a strict subcase. The examined local searches produced no matching broader statement.",
+        "searches": [
+          "Resultary exact title and head-only void-factorization queries",
+          "arXiv:0712.3567 §§II–IV"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact earlier formulas specialize to the frozen formulas at Λ=Rt, fixed length and equal orientation rates."
+        ],
+        "reasoning": "This is a continuum law over an infinite class of mark laws, not a finite table lookup. The exact special-case formula is credited as earlier coverage.",
+        "searches": [
+          "Resultary head-only and void-factorization comparisons",
+          "arXiv:0712.3567 Eqs. (5), (17)–(18)"
+        ]
+      },
+      "rationale": "Only the generality is credited: the fixed-length, orientation-symmetric constant-rate head-only void law and the normalized gap law are already known. The inspected sources do not cover the full marked head-only claim or its factorization argument.",
+      "residual_risks": [
+        "Bounded searches do not establish historical priority; a broader one-dimensional graphical factorization may be described under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact strict subcase",
+          "evidence": "Fixed length ℓ, rates R/2 in each orientation; Eqs. (5), (17) and (18), combined with Eq. (7), give P and q for that subcase.",
+          "identifier_or_url": "https://arxiv.org/pdf/0712.3567",
+          "material_read": "§II p. 3 (offset 3800), §III p. 5 (10100), §IV p. 7 (13950)",
+          "method": "OA original PDF passage inspection",
+          "title": "Random sequential adsorption model of damage and crack accumulation: Exact one-dimensional results",
+          "trigger": "Exact head-only predecessor"
+        },
+        {
+          "assessment": "Different exclusion rule",
+          "evidence": "An incoming segment must not overlap a prior segment; the accepted lengths may differ.",
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0404422",
+          "material_read": "§II p. 2 (offset 9800)",
+          "method": "OA original PDF passage inspection",
+          "title": "Gap-Size Distribution Functions of a Random Sequential Adsorption Model of Segments on the Line",
+          "trigger": "Polydisperse gap laws"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact universality of the count-sampled law when the mark-dependent coverage fraction and kinetics can change is useful. The proof explains which acceptance mechanism, rather than any closure specific to fixed lengths, controls the gap law. It separates the length distribution from both coverage and correlations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

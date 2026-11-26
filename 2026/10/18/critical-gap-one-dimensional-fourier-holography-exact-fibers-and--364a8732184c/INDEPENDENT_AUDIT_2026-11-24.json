@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:49:54.749601Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–75",
+        "Frozen VERIFICATION.md and verification/check.py (inspected, not executed)"
+      ],
+      "rationale": "With C_k the coefficient of e^(ikt) in the intensity, each k=2n−j>n has only the term b·conj(a_j), recovering the head even if it contains zeros. At smaller positive lags, subtract the fixed head products; the data for z=a_n are conj(a_(n−k))z for k<n and conj(a_0)z+b·conj(z) at k=n. The squared change on a perturbation h is S|h|²+|conj(a_0)h+b·conj(h)|². On the unit circle the cross term ranges over its full phase, so the claimed squared extremes are attained, including when a_0=0 or the middle is empty. At rank loss, S=0 and |a_0|=|b|. Rotate z by a unit square root of b/conj(a_0); the remaining positive lag fixes the rotated real part and C_0 fixes the modulus. Exactly the stated reflected pair results, possibly coincident. On the full sequence this is conjugate reversal times the unique phase preserving b and a_0. A 4n+1 grid separates the Fourier modes −2n through 2n. With m≥2n+1 every reference-to-unknown lag exceeds n and separates. All arguments include n=1.",
+      "residual_risks": [
+        "The Lipschitz constants are for the forward nonzero positive-lag map with fixed head. On its injective stratum the inverse's constants are reciprocal and reversed; this is not an end-to-end noise bound. The grid count is sufficient only. The checker exercises finite cases, and its expected terminal line is not evidence of independent replay."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Referenced deconvolution isolates a 2D cross-correlation quadrant and includes a pinhole case. General one-dimensional zero flipping includes conjugate reflection, but the inspected known-entry results are mostly almost-everywhere or require sufficiently many known left endpoint entries.",
+          "Crimmins–Fienup is cited for disconnected supports. Full text was not available through the DOI OA or visible publisher route, and a targeted lawful-copy search returned no identified copy."
+        ],
+        "reasoning": "An isolated linear system or generic uniqueness does not classify this collision at the support diameter. General zero flipping does not identify which flips satisfy the known coefficient and fixed support, or determine the head-conditioned operator's norm. The inaccessible paper is a named access risk, not evidence of noncoverage.",
+        "searches": [
+          "Barmherzig et al. arXiv:1901.06453, §§2.2–2.4",
+          "Bendory–Beinert–Eldar arXiv:1705.09590, Theorem 3.1 and §§3.1–3.2",
+          "Crimmins–Fienup DOI 10.1364/JOSA.73.000218; focused lawful-copy search"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2604.25662",
+        "arXiv:1901.06453",
+        "DOI 10.1364/JOSA.73.000218 (access attempt only)",
+        "arXiv:1705.09590",
+        "SCOPE-5eacb0f56b82",
+        "SCOPE-12ae1d0f43de"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Strict reference separation recovers the whole vector by isolated lags, whereas at equality lag n has both z and conj(z). The interior coefficients provide additional complex-linear rows unless they vanish. The only noninjective stratum of that combined map must still use C_0 to reduce an affine real line to at most two tails."
+        ],
+        "reasoning": "The new statement is a boundary analysis of this collision and the exact real singular values. It is not strict separation under renamed parameters or the general fact that a reversal partner exists.",
+        "searches": [
+          "Novikov–Xu arXiv:2604.25662, Introduction and Theorems 3–4",
+          "Barmherzig et al. arXiv:1901.06453, §§2.2–2.4",
+          "Bendory–Beinert–Eldar arXiv:1705.09590, Theorem 3.1 and §3.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE-5eacb0f56b82 studies |P|² together with |zP′−αP|² and an exceptional reciprocal-conjugate two-point fiber. SCOPE-12ae1d0f43de derives exact singular values for a two-circle Nyquist alias subsystem.",
+          "Novikov–Xu compares strict > diameter uniqueness against strict < diameter counterexamples. Neither regime is equality for the finite interval-plus-spike support."
+        ],
+        "reasoning": "The two same-day records were compared on their statements, without inferring priority. Neither has the same measurement operator, known reference constraint, or singular spectrum. Reversal as a symmetry does not itself classify the complete fiber.",
+        "searches": [
+          "Resultary targeted searches for critical-gap known-reference phase retrieval and exact exceptional fibers/singular values",
+          "SCOPE-5eacb0f56b82 and SCOPE-12ae1d0f43de mirrored statements",
+          "Novikov–Xu arXiv:2604.25662"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed exact spectrum is for a different two-circle sampling operator. No table lookup is asserted by the frozen result, which concerns all n and arbitrary complex coefficients."
+        ],
+        "reasoning": "A finite numerical spectrum table would not establish either the parameter-dependent formula or its rank-zero exceptions for this operator. The relevant exact-coverage check is the indexed formula comparison, not the reported number of checker cases.",
+        "searches": [
+          "Resultary: exact exceptional fiber and singular-value formulas for known-reference phaseless Fourier intensities",
+          "SCOPE-12ae1d0f43de exact spectrum statement"
+        ]
+      },
+      "rationale": "Pass is for the all-signal classification at exact support-distance equality and the residual singular values there. Strictly separated reconstruction, finite inverse Fourier inversion, and conjugate reversal itself are known and not credited. The inspected plausible matches use strict geometric separation, different measured data, or generic uniqueness rather than this single reference and touching lag.",
+      "residual_risks": [
+        "The Crimmins–Fienup primary full text was inaccessible by lawful checked routes. No absolute priority claim follows from the bounded searches or from catalogue dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant strict regimes, not the finite equality classification",
+          "evidence": "The referenced uniqueness condition is strict greater-than; the nonuniqueness construction is strict less-than. The examples with open convex domains do not give the finite support-plus-spike equality result.",
+          "identifier_or_url": "https://arxiv.org/abs/2604.25662",
+          "material_read": "PDF p. 2, Introduction; pp. 4–6, examples and Theorems 3–4",
+          "method": "Lawful open-access primary PDF",
+          "title": "On Phase Retrieval for Continuous and Discrete Fourier Transforms",
+          "trigger": "Known-background diameter comparison"
+        },
+        {
+          "assessment": "Different reference geometry and isolated linear system",
+          "evidence": "A selected cross-correlation quadrant yields a system, invertible when the reference corner is nonzero; it does not give the touching 1D lag formula.",
+          "identifier_or_url": "https://arxiv.org/abs/1901.06453",
+          "material_read": "PDF pp. 6–9, §§2.2–2.4",
+          "method": "Lawful open-access primary PDF",
+          "title": "Holographic Phase Retrieval and Reference Design",
+          "trigger": "Known-reference and pinhole reconstruction"
+        },
+        {
+          "assessment": "Primary text unavailable in checked routes; boundary-case content not independently assessed",
+          "evidence": "The frozen citation characterizes it as generic strict-separation uniqueness. This attribution is not used as evidence that the entire article lacks an equality result.",
+          "identifier_or_url": "https://doi.org/10.1364/JOSA.73.000218",
+          "material_read": "Citation and characterization in frozen RESULT.md, not the primary full text",
+          "method": "DOI OA/publisher access attempt and targeted lawful-copy web lookup",
+          "title": "Uniqueness of Phase Retrieval for Functions with Sufficiently Disconnected Support",
+          "trigger": "Plausible older disconnected-support coverage"
+        },
+        {
+          "assessment": "Classical reflection and related prior uniqueness results",
+          "evidence": "The ambiguity classification includes conjugate reflection. The all-signal result with known left entries needs at least ⌈N/2⌉ of them; it does not directly apply here.",
+          "identifier_or_url": "https://arxiv.org/abs/1705.09590",
+          "material_read": "PDF p. 7, Theorem 3.1; p. 8, §3.2",
+          "method": "Lawful open-access primary PDF",
+          "title": "Fourier Phase Retrieval: Uniqueness and Algorithms",
+          "trigger": "General zero-flipping and partially known coefficients"
+        },
+        {
+          "assessment": "Different phaseless measurements",
+          "evidence": "Uses a second derivative-based modulus and a resonance condition, not the known-reference lag data.",
+          "identifier_or_url": "SCOPE-5eacb0f56b82",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Resonance walls and two-point fibers in shifted Euler derivative measurements",
+          "trigger": "Same-day exact exceptional fiber analogue"
+        },
+        {
+          "assessment": "Different operator",
+          "evidence": "The exact singular values describe a 2×2 Nyquist alias block, not this fixed-head last-coefficient autocorrelation map.",
+          "identifier_or_url": "SCOPE-12ae1d0f43de",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Sharp angular criterion for balanced two-circle phaseless polynomial sampling",
+          "trigger": "Same-day exact singular-value analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and lines 38–75",
+        "Novikov–Xu arXiv:2604.25662, Introduction"
+      ],
+      "rationale": "The neighboring outer-lag method ceases to isolate one coefficient at exactly the critical spacing. A complete classification there for arbitrary complex data, including zero coefficients and singleton fibers on the reflection axis, is a natural inverse-problem boundary result. The exact conditional spectrum quantifies ill-conditioning near the exceptional stratum, which the mere symmetry or generic uniqueness would not show.",
+      "residual_risks": [
+        "Scope is a single known spike and the stated exact sampling model; the theorem does not solve multispike recovery or give full nonlinear inverse stability."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

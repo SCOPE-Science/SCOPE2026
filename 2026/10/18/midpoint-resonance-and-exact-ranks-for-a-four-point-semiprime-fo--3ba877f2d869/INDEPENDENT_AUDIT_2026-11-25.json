@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:17:26.325707Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Normalize c and ε by row translation, which multiplies each column by a nonzero phase, and put z_y=ζ_p^(ay). For homogeneous parity the two center rows are proportional, while any three projected columns have a nonsingular three-row minor with rows 1,z_y,z_y^(−1), by a column-scaled Vandermonde. For 3+1 the sum/difference of the center rows isolates the singleton, leaving the same Vandermonde on the other three columns. For 2+2, block differences reduce rank to 2+rank K: the two first coordinates of K are nonzero z-differences, and its second coordinate in each column is its first multiplied by −1/(z_u z_v) for that pair. Thus rank is exactly three iff the pair sums agree modulo p, otherwise four. In a balanced partner two columns of opposite parity are distinguished by the center-row ratio and two same-parity columns by the 0-to-a phase ratio; similarly the two center rows differ across parity, and rows at distinct projected coordinates have different ratios on the two columns of either parity. Homogeneous partners always have proportional center rows. The pair counts are ((p−1)/2)² per common sum, with p choices of sum and 2 binom(p,4) additional homogeneous partners; p=3 is included with none of the latter. The repeated projected residue and majority parity recover c and ε, and the remaining unordered offsets give (p−1)/2 choices. Analytic replay: frozen RESULT.md lines 32–59. The checker was inspected but not executed: it certifies determinants at finitely many primes via cyclotomic arithmetic and tests proportionality, not the all-prime theorem nor exact lower ranks by itself.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Loukaki's matching-count rule covers 3+1 after an allowable parity translation, but not the 2+2 mismatch. Caragea–Lee's square-free results are for principal minors of sizes 2,3,N−3,N−2.",
+          "The later paired-anchor theorem allows arbitrary off-anchor offsets, but only balanced pairs on the other side. The Delvaux–Van Barel abstract addresses constructions of maximal rank-deficient Fourier Kronecker blocks, not a claim seen to decide the exact centered slice; its full text was unavailable in this review."
+        ],
+        "reasoning": "Prior principal-minor and matched-count theorems cannot resolve the balanced resonance for these apertures. The later theorem genuinely generalizes that component, though it does not quantify over all parity strata of frozen partners.",
+        "searches": [
+          "Loukaki, Theorem A, DOI:10.1112/blms.70192",
+          "Caragea–Lee arXiv:2409.09793v4 Theorem 1.1",
+          "Delvaux–Van Barel TW477 / DOI:10.1016/j.laa.2007.05.009",
+          "Resultary dbc9560ea5e8"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2409.09793v4",
+        "10.1112/blms.70192",
+        "10.1016/j.laa.2007.05.009 (abstract)",
+        "Resultary dbc9560ea5e8",
+        "Resultary 590958c70885 and b51ecb1779fe",
+        "Resultary bb8a5601ae6d and 04538f9363bb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Under the transpose specialization the second disjunct in the paired-anchor theorem is automatic, leaving rank three iff pair sums agree. Its statement is confined to 2+2 on that side and does not assert the frozen full partner enumeration.",
+          "Once the balanced rule is known, its count follows immediately from p sums with (p−1)/2 pairs each; parity-homogeneous rank three and matched 3+1 are straightforward. Thus the balanced rule is the essential mathematical overlap, not a cosmetic one."
+        ],
+        "reasoning": "The full census is not new independently of its structural balanced criterion. The meaningful later overlap is explicit; it is not evidence of a covering earlier result. The earlier inspected documents provide only portions or different invariants.",
+        "searches": [
+          "Loukaki Theorem A versus 3+1/2+2",
+          "Resultary paired-anchor theorem, offsets 0–4644, transpose and specialize y₁+y₂=2y₀",
+          "Resultary 590958c70885, b51ecb1779fe"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "CRT identifies Z_(2p) and Z₂×F_p up to invertible indexing. Transposition takes the later paired-anchor frequency set to the frozen row aperture when the off-anchor locations are c±a, and the later two row pairs to the two balanced frequency pairs.",
+          "The two Oct. 4 semiprime/rectangle Resultary results impose coefficient-one or equal-magnitude signal hypotheses, not arbitrary nullvectors of an interpolation matrix."
+        ],
+        "reasoning": "The transpose is a genuine exact rank equivalence for the later balanced slice. The coefficient-constrained results, by contrast, test only restricted possible witnesses and cannot give the full arbitrary-minor rank dichotomy.",
+        "searches": [
+          "Resultary: even semiprime paired-anchor, centered aperture, equal frequency-pair sums",
+          "Loukaki: Fourier minors on cyclic 2p",
+          "Delvaux–Van Barel DOI:10.1016/j.laa.2007.05.009"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The later paired-anchor record's aggregate incidence sums over off-anchor pairs, whether centered or not; it is not the stated fixed-centered-aperture full census, although its balanced criterion implies the balanced summand by counting pair sums.",
+          "The Oct. 4 near-consecutive frame {0,1,2,4} has the two-antipodal-pair singular pattern, corresponding to B₀=B₁; this tests a related subpattern, not all equal-sum pairs. The same-day odd-semiprime Resultary hit treats order 3p and frame {0,1,2,5} instead."
+        ],
+        "reasoning": "No inspected earlier catalogue result supplies the fixed-aperture count, including the nonproportional rank-three partners. The later balanced theorem and different near-consecutive or odd-semiprime families are tracked rather than discarded as search noise.",
+        "searches": [
+          "Resultary: rank-three partner census, four-row harmonic frames, paired-anchor sampling",
+          "Resultary bb8a5601ae6d, 04538f9363bb and dbc9560ea5e8"
+        ]
+      },
+      "rationale": "For the frozen result, the distinct part supported by the comparison is the balanced parity midpoint obstruction, its exact rank (without proportional pairs), and the resulting complete partner census for the centered aperture. The 3+1 nonvanishing and Vandermonde pieces are not claimed separately as new. A later indexed theorem does give exactly the balanced rank criterion by transposition and specialization; this is direct mathematical coverage of that stratum, not evidence that an earlier source supplied the frozen classification.",
+      "residual_risks": [
+        "Delvaux–Van Barel full text was not independently available; an earlier equivalent alias/interpolation criterion remains possible.",
+        "The later balanced result is an exact mathematical match in that stratum, not a claim of historical priority either way."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Principal, not all four-column partners",
+          "evidence": [
+            "Sizes 2,3,N−3,N−2."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2409.09793v4",
+          "material_read": "Theorem 1.1, PDF p.2, offset 6157",
+          "method": "Lawful OA full-text passage",
+          "title": "On the principal minors of Fourier matrices",
+          "trigger": "Square-free Fourier nonvanishing near size four"
+        },
+        {
+          "assessment": "Covers matching 3+1 counts; not mismatched balanced column partners",
+          "evidence": [
+            "Nonzero determinant when parity-class cardinalities of row and column sets match."
+          ],
+          "identifier_or_url": "10.1112/blms.70192",
+          "material_read": "Public manuscript v5, Theorem A, PDF p.3 offset 9515",
+          "method": "Lawful OA PDF passage",
+          "title": "Chebotarev’s theorem for cyclic groups of order pq and an uncertainty principle",
+          "trigger": "Same cyclic 2p Fourier matrix"
+        },
+        {
+          "assessment": "Full-text coverage unresolved, no verified exact match",
+          "evidence": [
+            "Abstract describes maximal rank-deficient Kronecker submatrices via tilings of rank-one blocks."
+          ],
+          "identifier_or_url": "10.1016/j.laa.2007.05.009; TW477",
+          "material_read": "Publisher abstract; full report/article not retrieved",
+          "method": "Lawful publisher, report and identified repository routes attempted",
+          "title": "Rank-deficient submatrices of Kronecker products of Fourier matrices",
+          "trigger": "Potential general construction/classification"
+        },
+        {
+          "assessment": "Directly subsumes the balanced criterion, later dated, not the complete all-partner claim",
+          "evidence": [
+            "Equal pair sums and either coincident pairs or centered off-anchor points; the latter is automatic after transposition for the frozen aperture."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-rank-and-failure-incidence-for-paired-anchor-fourier-sampl--dbc9560ea5e8/RESULT.md",
+          "material_read": "Finding, assumptions, Theorem and proof steps 1–3, offsets 0–4644",
+          "method": "Resultary search and local-mirror exact passage",
+          "title": "Exact rank and failure incidence for paired-anchor Fourier sampling on even semiprime cycles",
+          "trigger": "Genuinely covering rank dichotomy for the transposed balanced case"
+        },
+        {
+          "assessment": "Not equivalent to arbitrary rank",
+          "evidence": [
+            "All coefficients fixed to one."
+          ],
+          "identifier_or_url": "Resultary 2026/10/4, 590958c70885",
+          "material_read": "Indexed RESULT.md claim on fixed indicator coefficients",
+          "method": "Resultary search and local-mirror passage",
+          "title": "Four-point indicator Fourier-support trichotomy on cyclic semiprime groups",
+          "trigger": "Same group and four-point supports"
+        },
+        {
+          "assessment": "Different aperture and coefficient restrictions",
+          "evidence": [
+            "Counts zeros for phase-only vectors, not arbitrary nullvectors."
+          ],
+          "identifier_or_url": "Resultary 2026/10/4, b51ecb1779fe",
+          "material_read": "Indexed RESULT.md claim on equal-magnitude rectangle coefficients",
+          "method": "Resultary search and local-mirror passage",
+          "title": "Phase-only Fourier-zero spectrum of a four-point rectangle on cyclic product groups",
+          "trigger": "Four-point Fourier zero patterns"
+        },
+        {
+          "assessment": "Different frame or modulus, neither is the frozen claim",
+          "evidence": [
+            "Rows {0,1,2,4} and antipodal pairs in even order; rows {0,1,2,5} in order 3p with an N=15 exception."
+          ],
+          "identifier_or_url": "Resultary bb8a5601ae6d and 04538f9363bb",
+          "material_read": "Both Findings at offset 0",
+          "method": "Resultary search and local-mirror passages",
+          "title": "Exact singular minors for the near-consecutive four-row harmonic frame; an odd-semiprime full-spark rigidity theorem",
+          "trigger": "Exact four-by-four Fourier classifications"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The support consists of an antipodal pair together with two symmetric displaced samples in one channel, giving a motivated geometry for four-frequency interpolation. The all-prime rule specifies when interpolation fails and quantifies the failure for every partner; the balanced failures are not explained by any proportional pair. The exact resonance and census are useful structural information in the frozen setting, rather than a small-prime table or a routine matched-parity nonvanishing application.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

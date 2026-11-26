@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:57:45.139424Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The tree has N=3+2m+2mℓ vertices. On connected support inverse trace of L+11ᵀ/N minus one is the stated spectral sum, and its second variation is a positively weighted sum of nonzero Laplacian-perturbation squares. A missing edge disconnects a tree and makes the extended objective infinite; compactness of the feasible closure gives existence and strict convexity gives uniqueness. Hence automorphisms force the three orbits for the original unrestricted problem. The three cut sizes are (N−1)/2, 1+ℓ and 1, with multiplicities 2, 2m and 2mℓ. Their products with the complementary sizes give exactly A,B,C. At fixed middle weight y, decreasing cost in the other two weights gives x=min(1/2,1−my), z=(1−y)/ℓ, on 0<y<1/m. The strictly convex resulting function has left and right derivatives at 1/(2m) equal to −4m²T and 4m²(A/m−T). This gives the cases including equality, both stationary formulas, and all holding signs (in particular z<1). Independently checked the integer certificates by forward differences: define D=m(Cℓ−(2m−1)²B), E=D+(2m−1)²A from the cut counts. To replay, use four evaluations in ℓ=0,1,2,3 to recover each cubic by Newton interpolation and recover its coefficients as polynomials of m using m=2,...,8. In the binomial basis in m−2 the leading coefficients of the two ℓ-cubics have positive sign, and all other coefficients have negative sign, with zero trailing terms. Descartes plus the endpoint signs gives one positive root each. For E at ℓ=4m²−8m+5 and +6, and for D at ℓ=4m²−6m+4 and +5, respectively, form the forward-difference rows of the substituted polynomials at m=3,...,12 (degree at most nine). The first entries of successive difference rows are sign-uniform after zeros: (−,7 degree), (+,6), (−,5), (+,7). Thus the signs hold for all integral m≥3 because the binomial basis in m−3 is nonnegative. At m=2, (D,E) at ℓ=5,6,7,8 are (−3872,−596), (−3456,864), (−2224,3284), (16,6856). This proves both cutoffs, the exceptional case and the 2m−1 window, without promoting numerical eigenvalue checks to universal evidence. The supplied script was inspected, not executed. Scope: symmetric uniform-stationary walks on the exact tree, using the inverse spectral normalization specified.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general papers address formulation/algorithms or graph-determined walk formulas. They do not give the relevant capacity signs for three internal levels."
+        ],
+        "reasoning": "The general optimization encodes this instance but offers no explicit all-parameter phase theorem. A formula for a degree-determined random walk does not optimize over all symmetric assignments.",
+        "searches": [
+          "Patel–Agharkar–Bullo Problem 1 and Theorem 4",
+          "Kirkland–Zeng Corollary 2.4",
+          "Durastante–Gnazzo–Meini DOI 10.1007/s10543-026-01152-6 abstract and introduction"
+        ]
+      },
+      "checked_sources": [
+        "Resultary and the local mirrors of the four exact tree-design records above",
+        "Patel–Agharkar–Bullo (2015)",
+        "Kirkland–Zeng (2016)",
+        "Durastante–Gnazzo–Meini (2026)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The shorter branching proof handles a single active-set change, and the broom result concerns one junction on a path."
+        ],
+        "reasoning": "Collapsing a terminal generation would remove its budget and its cut coefficient; the resulting threshold implies neither derivative sign at the three-generation kink nor the two uniform cubic-root brackets. These require separate algebraic certificates.",
+        "searches": [
+          "SCOPE-a-quadratic-branching-threshold-for-kemeny-optimal-walks-on-two--6867cf99200d, Finding and proof",
+          "SCOPE-a-single-free-junction-in-kemeny-optimal-walks-on-broom-trees--abc2f4b96dab, Finding and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two-level rooted tree has just one root-holding transition at terminal branching m≥k²−3k+4; its children never hold. The spider has unbranched arms and positive depth-one holding throughout its regime."
+        ],
+        "reasoning": "The Kirchhoff index divided by N is the same objective, but neither tree is this graph under reindexing; an additional branching depth and its capacity constraint change the marginal trade-off.",
+        "searches": [
+          "Resultary: Kemeny-optimal two-bough/tree holding and branching thresholds",
+          "SCOPE-a-quadratic-branching-threshold-for-kemeny-optimal-walks-on-two--6867cf99200d",
+          "SCOPE-exact-kemeny-optimal-walks-on-equal-arm-spiders-one-interior-hol--b4c3fba85e31"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact entries give one cutoff or fixed holding patterns on other trees; the double-star has two adjacent hubs and no positive hub holding."
+        ],
+        "reasoning": "These catalogued formulas are not tables of either cutoff on the assigned tree; computing sample optima would not establish the two infinite integer sequences.",
+        "searches": [
+          "Resultary exact Kemeny optima on trees: two-level branching, broom, equal-arm spider, double-star"
+        ]
+      },
+      "rationale": "Bounded to the exact three-generation three-phase holding law, including both integer boundaries. Effective resistance and convex Kemeny design are established methods. The closest inspected branching threshold is on a distinct, shorter tree and does not establish where holding transfers between two internal levels in this tree.",
+      "residual_risks": [
+        "The web search did not yield useful scholarly evidence and was not counted as negative evidence.",
+        "No within-day ordering of the related 2026-11-22 UTC catalogue records was established; comparison rests on mathematical scope. Unindexed equivalent classifications or a stronger analytic theorem remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related method and threshold, different depth and phase statement",
+          "evidence": "Root with k children, each with m leaves; positive root holding iff m≥k²−3k+4 and no child holding.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-quadratic-branching-threshold-for-kemeny-optimal-walks-on-two--6867cf99200d",
+          "material_read": "RESULT.md Finding and Proof §§1–2, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "A quadratic branching threshold for Kemeny-optimal walks on two-level trees",
+          "trigger": "Closest exact quadratic holding threshold"
+        },
+        {
+          "assessment": "Different support pattern and topology",
+          "evidence": "Positive holding at one path junction, with pendant leaves only at the root.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-single-free-junction-in-kemeny-optimal-walks-on-broom-trees--abc2f4b96dab",
+          "material_read": "RESULT.md Finding and Proof §§1–2, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "A single free junction in Kemeny-optimal walks on broom trees",
+          "trigger": "Exact classification on a different branched tree"
+        },
+        {
+          "assessment": "No branching along an arm",
+          "evidence": "Depth-one vertices on equal unbranched arms hold throughout the stated regime.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-kemeny-optimal-walks-on-equal-arm-spiders-one-interior-hol--b4c3fba85e31",
+          "material_read": "RESULT.md Finding and Assumptions and scope, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Exact Kemeny-optimal walks on equal-arm spiders",
+          "trigger": "Holding by depth on symmetric trees"
+        },
+        {
+          "assessment": "Shallower support; two adjacent hubs rather than three branching depths",
+          "evidence": "Both hubs have zero holding in its optimum.",
+          "identifier_or_url": "2026/11/22/SCOPE-kemeny-optimal-double-star-walks-and-an-exact-reversal-against-f--beaabd41094a",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Kemeny-optimal double-star walks and an exact reversal",
+          "trigger": "Exact two-bough analogue"
+        },
+        {
+          "assessment": "General fixed-topology and fixed-stationary optimization, not analytic cutoffs",
+          "evidence": "Graph-supported optimization and convexity, without integer support transitions for this tree.",
+          "identifier_or_url": "https://motion.me.ucsb.edu/pdf/2014b-pab.pdf",
+          "material_read": "PDF p. 1 abstract; p. 4 Problem 1 and Theorem 4",
+          "method": "Lawful open original manuscript",
+          "title": "Robotic Surveillance and Markov Chains with Minimal Weighted Kemeny Constant",
+          "trigger": "General reversible-chain design possibly implying exact law"
+        },
+        {
+          "assessment": "Graph-determined random walk, not the unrestricted stochastic design comparison",
+          "evidence": "Forest formulas and their tree special case, with no allocation in arbitrary symmetric stochastic edge weights in the inspected statement.",
+          "identifier_or_url": "https://emis.de/ft/34491",
+          "material_read": "Printed pp. 444 and 449, abstract and Corollary 2.4",
+          "method": "Lawful open journal article",
+          "title": "Kemeny's Constant and an Analogue of Braess' Paradox for Trees",
+          "trigger": "Tree Kemeny formulas and nearby problem"
+        },
+        {
+          "assessment": "No exact phase classification in inspected scope",
+          "evidence": "Structure-preserving algorithms with fixed stationary distribution and sparsity constraints.",
+          "identifier_or_url": "https://doi.org/10.1007/s10543-026-01152-6",
+          "material_read": "PDF pp. 1 and 3, abstract and introduction",
+          "method": "Lawful open publisher text",
+          "title": "Kemeny's constant minimization for reversible Markov chains via structure-preserving perturbations",
+          "trigger": "General reversible optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The explicit switches identify when unused transition mass moves from the root to the first branching vertices and when neither level holds. The two cutoffs have the same leading quadratic scale but leave a provably distinct linear-width intermediate phase. This is a full active-constraint classification for a natural infinite tree family and supplies the optimizer without solving an edge-sized optimization or relying on a finite sample.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

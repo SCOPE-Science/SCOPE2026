@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:13:44.170379Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For named colours on the complete r-uniform hypergraph, weak properness is exactly the capacity q=r−1 condition, including the vacuous constraint when r>n. In RESULT.md lines 22–46, make all available direct moves to target. At a stall every colour with an incoming arc of the unsettled-current-to-target digraph is full. A singleton sink cannot occur: it would be full of settled vertices yet have an unmet target occupant. In a nontrivial sink SCC each colour is full, so target capacity bounds indegree by outdegree after subtracting settled occupants. Summing the inequalities leaves no entering arcs and forces degree balance. Buffer the first labelled vertex of an Euler tour in an unused colour (available since k≥n+1), process the remaining arcs backwards into the vacancy, and finish the buffered vertex. This costs one non-target move and permanently settles at least 2q vertices, so there are at most floor(n/(2q)) such episodes. For the lower bound (lines 48–50), swap two full private classes in each disjoint 2q block. Before the first move of a block, no vertex can move directly to its still-full target class; hence each block forces its own extra move even on paths using arbitrary other colours. Private singleton colours or a cyclic renaming handle the remainder so every vertex differs between endpoints. This proves the bound, attainability and connectedness, covers q=1 and n=1, and does not infer that n+1 is the least stability threshold. The supplied verification code was inspected, not executed; its finite BFS and routing claims are reported evidence only and do not prove the all-parameter result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "RESULT.md lines 56–60 identifies the first as a general n to 2n−1 bound in its palette regime and an open question about stable diameters, the second as renaming on a common vertex partition. Available discovery snippets on the first do not state this capacity-specific formula."
+        ],
+        "reasoning": "Bounds uniform across loopless hypergraphs do not pin down the dependence on r for the complete uniform family. A renaming bound limited to a common endpoint partition does not cover pairs with different partitions. Additional stronger results in unavailable full text have not been excluded.",
+        "searches": [
+          "arXiv:2611.17022v1 §7, Lemma 15 and Question 18; public arXiv text retrieval attempted",
+          "arXiv:2412.19695v1 §2; public arXiv text retrieval attempted"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–64 and supporting verification files",
+        "Local Resultary 273b080e4e42; available discovery material for arXiv:2611.17022v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The target result charges each blocked Euler episode to at least 2(r−1) permanently settled vertices; the broader bounds and common-partition renaming as described do not contain that charge."
+        ],
+        "reasoning": "Applying a bound for class renaming to the full-class swap lower examples says nothing about non-renaming pairs in the maximum. The saturation/isolation/Euler routing argument adds the all-pairs matching bound, rather than substituting the degrees of a complete uniform hypergraph in a general bound.",
+        "searches": [
+          "arXiv:2611.17022v1 §7 and arXiv:2412.19695v1 §2 as compared in RESULT.md lines 56–60",
+          "Resultary capacity-constrained recolouring comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Indexed entry 273b080e4e42 is the frozen theorem itself, including the occupancy/Euler-tour proof and two-full-class swap."
+        ],
+        "reasoning": "Equal-capacity labelled bins with individually labelled tokens and any legal one-token move are exactly the problem. An injective assignment to labelled slots followed by forgetting slot labels does not preserve shortest-path distances: several slots give the same colour, and vacancies can be routed differently in the quotient. The q=1 complete-graph problem is only a specialization.",
+        "searches": [
+          "Resultary searches for complete uniform hypergraph stable recolouring and labelled capacity-constrained assignment/reconfiguration",
+          "Primary lookup for Large diameter for (Δ+2)-colouring reconfiguration"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact formula in catalog entry 273b080e4e42 is the source under review, not a distinct known table or theorem. No distinct matching entry surfaced in the ranked comparison."
+        ],
+        "reasoning": "The claim is a formula for all n,r,k in a palette regime, not an enumeration of a finite set of hypergraphs. The author-reported small BFS cases do not reproduce or replace a prior universal exact value.",
+        "searches": [
+          "Resultary stable hypergraph recolouring diameter and capacity-routing entries"
+        ]
+      },
+      "rationale": "The exact all-pairs upper bound and matching capacity-dependent lower construction for r≥3 are distinct from the known complete-graph value and not supplied by the general hypergraph diameter bounds or common-partition renaming as characterized in the accessible evidence. No evidence of an exact matching capacity theorem was found apart from the identical indexed record. This is not a priority certification.",
+      "residual_risks": [
+        "The full texts of arXiv:2611.17022v1 and arXiv:2412.19695v1 were not independently retrieved after lawful attempts; an applicable further result cannot be excluded.",
+        "Unindexed equal-capacity assignment or token-routing literature may contain an equivalent statement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical record, not independent coverage",
+          "evidence": "Same n+floor(n/[2(r−1)]) formula and Euler-tour/full-class-swap construction.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-stable-recolouring-diameter-of-complete-uniform-hypergraph--273b080e4e42",
+          "material_read": "Indexed statement and bound full finding/proof",
+          "method": "Local Resultary and frozen record",
+          "title": "Sharp stable recolouring diameter of complete uniform hypergraphs",
+          "trigger": "Exact title and formula match"
+        },
+        {
+          "assessment": "The available generalized bounds do not give the exact capacity formula; unavailable text remains a priority risk",
+          "evidence": "RESULT.md line 58: general n≤diam≤2n−1 for k≥Δ*+2 and a question on stable diameter/threshold.",
+          "identifier_or_url": "https://arxiv.org/html/2611.17022v1",
+          "material_read": "Search description and frozen comparison identifying §7 Lemma 15 and Question 18, not retrieved primary passage",
+          "method": "Primary search and lawful arXiv retrieval attempted",
+          "title": "Large diameter for (Δ+2)-colouring reconfiguration",
+          "trigger": "Direct stable hypergraph diameter problem and general bounds"
+        },
+        {
+          "assessment": "Described renaming lemma is restricted to common partitions; no whole-document noncoverage conclusion",
+          "evidence": "RESULT.md line 60 distinguishes renaming from the capacity-constrained all-pairs bound.",
+          "identifier_or_url": "https://arxiv.org/html/2412.19695v1",
+          "material_read": "Frozen comparison identifying §2; no retrieved primary passage",
+          "method": "Lawful arXiv retrieval attempted",
+          "title": "Sharp Bounds on Lengths of Linear Recolouring Sequences",
+          "trigger": "Related whole-class cycle/renaming mechanism"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This determines the exact stable diameter asked for in hypergraph recolouring on a natural family. It identifies and quantifies the sole extra cost needed by the routing proof: one buffer move per isolated stalled group, each consuming at least two saturated classes' worth of vertices. The swap construction shows the cost remains necessary even with arbitrarily many spare colours. This explains the capacity dependence and the transition to diameter n, not just a numerical improvement of the general bounds.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

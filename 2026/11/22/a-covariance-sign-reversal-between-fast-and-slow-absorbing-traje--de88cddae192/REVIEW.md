@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The first-renewal bivariate generating-function identity is exact for the stated iid marked exponential process. Differentiating yields three rational Laplace transforms; expanding at infinity proves the cubic small-budget coefficient and expanding their poles at zero proves the linear large-budget coefficient. The nonzero coefficients have opposite signs on the stated strict open region, and continuity proves a crossing. The symbolic checker reproduces both exact coefficients and finite-parameter signs. The argument makes no false inference of uniqueness from a sign change.
+PASS
 
-## Originality: PASS, qualified
+Start each trial by drawing its eventual mark and duration jointly; record the mark only on completion. First-renewal conditioning gives the displayed PGF. With x=lambda_0, y=lambda_1, a=1-b, c=bx+ay, u=ax, v=by, the transforms are u(s+y)/(s²(s+c)), v(s+x)/(s²(s+c)), and 2uv(s+x)(s+y)/(s³(s+c)²). For the first means the t² terms are u(y-c)/2 and v(x-c)/2; the mixed moment starts at uv t² and its t³ term is uv(x+y-2c)/3. Subtracting yields the stated cubic coefficient. At infinity the mean rates are uy/c and vx/c and the constant terms are u(c-y)/c² and v(c-x)/c². The mixed moment's linear term is 2uv[(x+y)/c²-2xy/c³], so the covariance slope is uv[(x+y)c-2xy]/c³=uv(y-x)(ay-bx)/c³. Negative poles give decaying remainders and continuity; the strict cubic-negative/linear-positive region is exactly the displayed open wedge, establishing existence but not uniqueness. At b=1/2 the cubic vanishes; an independent series gives the positive quartic xy(x-y)²/96. At the upper endpoint the slope vanishes; the wedge claim concerns nonzero leading coefficients, not a classification of crossings at or beyond that endpoint. Independent bounded rational-transform inversion at b=7/10, x=1, y=5 gives covariance -0.0000297696852314 at t=1/20, 0.0201057054623 at t=1 and 2.71805204843 at t=10. The supplied verifier was inspected, not run: it asserts signs at 1/20 and 10 and prints, but does not assert, the t=1 value. Independent worker additivity is immediate; no conditional-on-count assertion is needed.
 
-The primary paper arXiv:2611.12692v1 computes marginal mean completion counts (its equations 16–18) and explicitly identifies joint count fluctuations as an unresolved precision consideration (page 9), but does not provide a cross-count covariance or a covariance-sign window. Searches of existing indexed findings for marked renewal count covariances, sign reversals, competing fast/slow absorption and completion counts found no equivalent or stronger covering assertion. General renewal-reward counting theory supplies the transforms used here and could potentially contain an implicit equivalent. There is no claim of inventing these transforms.
+## originality
 
-## Value: PASS
+PASS
 
-The open threshold window establishes a genuine, counterintuitive change in the statistical dependence of mutually exclusive outcome counts under one finite-budget sampling protocol. It is directly relevant to interpreting sample variability in asynchronous absorbing-process simulations where shorter trials are preferentially recorded. The result is a structural correlation phenomenon, not merely a recomputation of means or a parameter-free formula.
+The exact early-versus-late sign regime for this specific observed cross-count statistic survives the inspected comparisons. The model, the marginals, the general two-mark covariance construction and the large-budget slope as a renewal-reward specialization are prior machinery/results, not independent originality claims.
 
-## Residual limits
+## value
 
-The asymptotic regime does not classify the number of zero crossings or the covariance sign outside the stated window. The model assumes iid marks and conditional exponential durations and is not automatically a model of correlated trajectories in spatial interacting systems.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sign of a joint fluctuation matters for uncertainty in mixtures assembled from time-censored absorbing simulations. Within the motivating model the theorem identifies a nonempty open regime where mutual exclusivity of a trial's mark gives the wrong intuition about joint counts after a long budget. It is a structural horizon-dependent effect, not merely computation of already-known expected counts or a chosen numerical witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

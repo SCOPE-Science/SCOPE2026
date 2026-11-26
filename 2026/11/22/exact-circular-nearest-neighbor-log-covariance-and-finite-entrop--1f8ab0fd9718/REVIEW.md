@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The exact Dirichlet–Gamma decomposition gives every normalized gap and explicitly separates the common denominator. A shared-exponential minimum produces a single nonstandard covariance constant, verified through a convergent double-survival integral and evaluated independently using the dilogarithm identity. The covariance matrix, Fourier spectrum, sign bounds, finite unbiased estimator variance, and Gaussian limit follow by explicit matrix algebra and a one-dependent central limit theorem. The \(n=2\) degeneracy is handled separately. The reproducible standard-library numerical checker passed direct quadrature comparisons, deterministic constant checks, and seeded simulation checks across several sample sizes and cyclic lags. These checks do not substitute for the analytical proof.
+PASS
 
-## Originality (O): PASS, qualified
+The unqualified arbitrary sampled anchor in the frozen text cannot include geometry-dependent choices. For example, if the shortest gap goes clockwise from positions 1 to 2, then L_1=L_2 almost surely, whereas (1) gives Var(L_1-L_2)=2(pi^2/6-C)>0. The complete corrected RESULT.md and SLOGAN.txt in /workspace/repairs/1 impose a preassigned sampling label for the covariance and spectrum and distinguish the invariant sample average. Under the corrected scope, conditioning on the anchor makes the sorted relative offsets uniform order statistics; the gap law is Dirichlet(1,...,1). Independent rate-one exponentials divided by their gamma total realize this law; the normalized gaps are independent of that total. Each adjacent-gap minimum before normalization is rate two. Nonneighboring minima have disjoint inputs, and neighboring minima have joint survival exp(-u-v-max(u,v)); clipped indicator-log integrals pass to the limit in L^2 and give the stated positive shared covariance. Substituting v=xu on the half-plane v<=u and integrating in u gives 2 times the integral of [log(1+x)-log(1+x/2)]/x on [0,1], hence C. Normalizing subtracts precisely trigamma(n) from every matrix entry. Fourier diagonalization gives the spectrum including the triangle; the alternating-series bounds on Li_2(-1/2) and n trigamma(n)<=n/(n-1) verify strict positivity and the stated signs. The mean is -H_(n-1) and the average variance is the constant-mode eigenvalue divided by n. For the CLT, linearize log of the total at n, use H_(n-1)-gamma-log(n)=O(1/n), and remove one cyclic term from the stationary one-dependent sum. The covariance of log of the exponential minimum with the sum of its two inputs is one, since the sum equals twice the minimum plus an independent exponential excess. The resulting long-run variance is pi^2/6+2C-1. For n=2 both positions have 2 rho uniform on [0,1] and yield variance one. The frozen verification and script were inspected, not executed; neither Monte Carlo nor numerical quadrature is used as a universal proof.
 
-The nearest-neighbor estimator itself, circular distance, asymptotic central limit methodology, and the previously reported dimension-one fixed-neighbor variance inflation around \(2.14\) are prior art. Delattre–Fournier (2016, Theorem 1 and Remark 2) and Berrett–Samworth–Yuan (2019, Section 3.4, Table 1) are the closest broader asymptotic coverage. Their general result does not imply the finite-sample circle covariance matrix, its sign pattern, or the exact variance at each integer sample size without additional analysis. Misra–Singh–Hnizdo (2010, Sections 2–3) establish a circular estimator and consistency but not that finite matrix; Jiao–Gao–Han (2017) prove nonasymptotic error-rate bounds rather than exact null second moments. A targeted semantic database search and accessible comparable claims did not reveal the same finite statement. Historical priority remains a risk and independent verification is outstanding.
+## originality
 
-## Value (V): PASS
+PASS
 
-The exact finite-null variance is a usable centering and standard-error benchmark for circular nearest-neighbor entropy statistics, whereas a generic \(O(1/n)\) bound or limiting variance does not give a finite-sample variance. The unexpected positive local versus negative nonlocal log-distance dependence and fully explicit covariance eigenspectrum diagnose where the estimator's sampling error originates. This is a natural invariant of a previously studied inferential procedure, not an arbitrary parameter slice. It does not supply exact tail probabilities or a new universal entropy estimator.
+The corrected contribution is the finite-circle matrix for a fixed sampling-label anchor and its exact variance specialization. The nearest-neighbor entropy estimator, arclength convention, generic CLT and numerical asymptotic variance near 2.14 are credited as prior. No inspected claim gives the finite log-distance matrix or finite trigamma correction, and changing the anchor convention does not hide an established result.
 
-## Scope and residual risks
+## value
 
-Only i.i.d. uniform circular arclength sampling with first-nearest neighbors is proved. Known numeric \(2.14\) asymptotics and general normality are acknowledged and excluded from originality claims. A relevant but unlocated earlier explicit finite-circle covariance could change the priority assessment. Numerical validation is not an independent mathematical audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The corrected matrix diagnoses positive adjacent and negative nonadjacent dependence while providing an exact finite-null standard error for the circular entropy statistic. The fixed-label convention is natural and leaves the practically relevant sample average unchanged. This is a usable exact benchmark beyond an asymptotic constant; it supplies neither finite quantiles nor a nonuniform or higher-neighbor inference theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:24:51.569013Z",
+  "axes": {
+    "correctness": {
+      "rationale": "If t=p−m is coprime to P_m and L_m(t)≤2m, each positive local factor q^(b−1)(q−m) is at most 2m. Therefore every q is at most 3m, each exponent is bounded by e_q, and t divides T_m. When t>B_m this is impossible. For a prime p>m, gcd(p,t)=1; the first iterate is p^(a−1)t and the second is L_m(t) for a=1 or p^(a−2)tL_m(t) for a≥2. A prime q≤m dividing t kills the next iterate and proves strict deficiency. Otherwise t>m and L_m(t)>2m give strict two-iterate abundance: t+L_m(t)>p at a=1, and tL_m(t)>mp for a≥2. Among reduced p modulo P_m, a q dividing m imposes no exclusion and each other q excludes one of q−1 options; CRT and the prime number theorem in fixed progressions therefore give both asserted asymptotics uniformly in the sense of a single finite set of exceptional base primes. At m=4, with t>4 and avoiding 2 and 3, the only t with L_4(t)≤8 are 5,7,11,25,35,55, by enumerating the products of local factors 1,5,3,7 from the permitted prime powers. Only 25 and 55 give primes p≥13. Their chains are 25→5→1 and 55→7→3→0, yielding D_4(29)=31 and D_4(59)=65; at a≥2 their products tL_4(t) are 125>116 and 385>236. Bases 2 and 3 vanish, 5 gives a geometric sum strictly below 5^a, 7 gives 3·7^(a−1), and 11 gives 10 at a=1 and 98·11^(a−2) at a≥2. All remaining p≡1 mod 3 have a vanishing second iterate. Frozen verify.py and VERIFICATION.md were inspected; the reported exact finite comparisons were not rerun and are not a substitute for the analytic uniform proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Defant proves for each even m and positive A,η infinitely many p with first-two-iterate surplus exceeding A p^(a−η) for every a≥1, by selecting a CRT class. The indexed theorem instead covers all large classes and both signs, and determines m=2 as well as m=4 exactly."
+        ],
+        "reasoning": "Defant's published theorem is stronger in surplus for selected bases, not itself the general sign converse. The indexed result is decisive because it covers the same all-class and all-exponent claims; it is not merely the prior existence theorem.",
+        "searches": [
+          "Defant, JIS 18 (2015), Article 15.2.1, Theorem 18 and proof",
+          "Resultary f611bc4e0ee8, Finding and proof §§1–3, 5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary f611bc4e0ee8, actual Finding and proof (local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+        "Defant, JIS 18 (2015), Theorem 18 and proof",
+        "OEIS A241668 and A241663 (sequence entries)",
+        "Frozen RESULT.md §§Finding, Proof, References"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "f611bc4e0ee8 proves L_m(t)≥c_m√t for rough t, with c_m=∏_(m<q≤2m, q prime)(1−m/q), and uses the same first-two-iterate comparison. Its proof explicitly requires t≥m and c_m√t>2m, hence already gives the effective sufficient bound p>m+max(m,(2m/c_m)²). For m=6 this is p>34157.04, whereas the new T_6=49·11·13·17=119119 gives p>119125. Its m=4 proof already handles the full finite boundary. Defant's chosen class at m=4 is 5 mod 6 and alone does not settle the complete finite cases."
+        ],
+        "reasoning": "The new product-divisibility obstruction is a valid elementary alternative for ensuring L_m(p−m)>2m; it does not produce a new classification, a first effective bound, or a demonstrated meaningful quantitative gain. The matched indexed claims are explicit or direct consequences, not guesses from terminology or search scores.",
+        "searches": [
+          "Resultary f611bc4e0ee8 Proof §§1–3, 5",
+          "Defant Theorem 18 proof, pp. 9–10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "f611bc4e0ee8 defines the same L_m and terminal-once D_m, and states that outside a finite set the gcd criterion simultaneously decides all exponents. Its m=4 clause reads p≥17 and p≡2 mod 3, with strict deficiency otherwise."
+        ],
+        "reasoning": "The only prime in [13,17) is 13, of residue 1 mod 3, so this m=4 clause is equivalent to the target, including all deficient cases. The same relative natural density among primes and the prime number theorem give the displayed Li(X) asymptotics; the complementary count loses at most finitely many bases.",
+        "searches": [
+          "Resultary: iterated Schemmel totient prime-power abundance, exact base-prime density and m=4 sign classification",
+          "Resultary f611bc4e0ee8, Finding and Assumptions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A241668 identifies D_4, lists D_4(11)=10 and links a finite table up to 65537, while A241663 gives the one-step function and a finite table. The exact unbounded match is the actual indexed f611bc4e0ee8 theorem, not these finite data."
+        ],
+        "reasoning": "Numerical values are calibration; they cannot decide every exponent or a prime density. The complete linked tables were not inspected, and no negative full-table claim is made. The Resultary statement is a full-domain exact comparison.",
+        "searches": [
+          "OEIS A241668 and A241663",
+          "Resultary f611bc4e0ee8, exact signs and density"
+        ]
+      },
+      "rationale": "The distinct indexed finding f611bc4e0ee8 states the same uniform eventual sign criterion, the same prime-density product, and the same complete m=4 classification (it also classifies m=2). The different cutoff is real, but the other proof already gives an explicit sufficient cutoff in terms of its displayed rational constant c_m. The frozen replacement bound is neither sharp nor a demonstrated overall improvement and does not salvage the principal claims. The coverage is established by matching passages, not by inferring priority from dates.",
+      "residual_risks": [
+        "The generalized Euler-totient article linked from A241663 was not accessible for passage inspection.",
+        "The comparison is not an exhaustive literature census or a chronological attribution; neither uncertainty affects the demonstrated indexed coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the principal claims; supplies a different but already effective bound",
+          "evidence": [
+            "Displays the same gcd criterion/density and no-exception m=4 classification, and gives c_m√t as the lower bound used to obtain an explicit sufficient threshold."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-prime-residue-density-and-sharp-low-index-classifications-for-sc--f611bc4e0ee8/RESULT.md",
+          "material_read": "Finding and Assumptions offsets 0–2350, proof §§1–3 offsets 2330–4823, and §5 offsets 5280–6826",
+          "method": "Local mirror passage inspection",
+          "title": "Prime-residue density and sharp low-index classifications for Schemmel iterate sums",
+          "trigger": "Exact indexed match for sign, densities and low-index cutoff"
+        },
+        {
+          "assessment": "Abundance on selected bases with surplus, not the all-class dichotomy or exact density",
+          "evidence": [
+            "For fixed positive even m and A,η>0, infinitely many primes satisfy L_m(p^a)+L_m^(2)(p^a)>p^a+A p^(a−η) for every a≥1."
+          ],
+          "identifier_or_url": "https://www.maths.tcd.ie/EMIS/journals/JIS/VOL18/Defant/defant5.pdf",
+          "material_read": "Theorem 18 p. 8 and proof pp. 9–10, extracted offsets about 25500–32627",
+          "method": "Lawful OA journal PDF passage inspection",
+          "title": "On Arithmetic Functions Related to Iterates of the Schemmel Totient Functions",
+          "trigger": "Closest journal theorem uniform in exponent"
+        },
+        {
+          "assessment": "Documents D_4 and finite numerical examples, not the full sign classification",
+          "evidence": [
+            "D_4(11)=10; the linked numerical table covers 1 through 65537."
+          ],
+          "identifier_or_url": "https://oeis.org/A241668",
+          "material_read": "Public sequence entry at offset 0 including formula, examples and table link",
+          "method": "Lawful public-page passage inspection",
+          "title": "OEIS A241668, sum of iterates of A241663",
+          "trigger": "Exact iterated-sum database check"
+        },
+        {
+          "assessment": "Unresolved access risk, not used as decisive evidence",
+          "evidence": [
+            "The inspected entry gives the one-step local formula; no claim about the unread article's coverage is made."
+          ],
+          "identifier_or_url": "https://oeis.org/A241663",
+          "material_read": "OEIS description and bibliography; no article full-text passage",
+          "method": "Lawful DOI and identified PDF retrieval attempts did not return full text",
+          "title": "Generalized Euler totient article linked by OEIS A241663",
+          "trigger": "Plausible related source for the one-step function"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A complete classification and exact density for these arithmetic functions are naturally motivated, but in this submission those results are already covered. The remaining cutoff is only a sufficient, unoptimized replacement for a prior explicit threshold; it is weaker already at m=6 and no different useful regime, optimality, or systematic quantitative improvement is established. No independently valuable surviving claim is established for repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:13:21.429232Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the rail-swap decomposition: the symmetric and antisymmetric Laplacians are L_C and L_C+2I, and the cyclic geometric kernel satisfies the normalized recurrence and sums to 1/2. Applying incidence again gives the two rail blocks I−J/(2n)−G and G−J/(2n), mixed blocks ±DG and rung block 2G. At zero offset 1/(2n)<g_0≤3/10 makes both rail coefficients nonnegative. Away from zero their absolute sum is max(1/n,2g_j), and cyclic variation gives 2(g_0−g_m). The rung norm is 1+4(g_0−g_m). Independent grounded-incidence arithmetic gave (H,V)=(26/15,9/5),(2,2),(202/95,39/19) at n=3,4,5 by forming U(UᵀU)⁻¹Uᵀ after deleting one vertex column. The symbolic inequality H−V≥1−2/n−2(g_0−g_m)>0 holds for every n≥5 and the sign row test attains the operator norm. Rechecked the corrected all-size positive defect 2/n+2g_m+Σ_{j>0} min(1/n,2g_j), then summed its geometric tail beyond the cutoff. The cutoff is floor(β_n) or one larger, and the latter implies phase approaching 1; the phase function matches at the endpoints and gives uniform o(1) error through that rounding. Convexity and the density of logarithmic phases on the circle give the two limits; independent formula evaluation returned 1.89784624322142 and 1.57624426657283. The submitted Python file was inspected but not executed; independent small-size arithmetic is corroboration only. The repaired proof supplies the previously implicit finite-size bound and states the subsequence argument on the circle, so it does not assume convergence of fractional parts to 0 for every choice of nearest integer.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "833010be3478 gives the same leading logarithmic defect with O(1/n) error and a positive-part formula on the twisted ladder.",
+          "58fa50f7a7be explicitly assumes m≥3 for K_m×C_n. 945ba412fd4d treats K_{p,q}×K_2. 78e4763146bb treats open ladders and central rungs.",
+          "Jiang et al., Theorems 4.7–4.8, gives general Hodge/least-squares decomposition."
+        ],
+        "reasoning": "The broader theory directly gives the projection framework, and related graph families give comparable endpoint formulas. In particular the Möbius statement dominates the leading asymptotic up to exponentially small comparison, but its stated remainder does not resolve the phase. The other results do not give the small-order transition for the periodic two-rail case.",
+        "searches": [
+          "Resultary: endpoint projection logarithmic deficit on ladder graph families",
+          "Resultary 833010be3478, 58fa50f7a7be, 945ba412fd4d and 78e4763146bb",
+          "arXiv:0811.1067, §4.3–4.4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_prism.py",
+        "Corrected RESULT.md and SLOGAN.txt",
+        "arXiv:1704.03429, arXiv:0811.1067 and arXiv:1312.2946",
+        "Resultary 833010be3478, 58fa50f7a7be, 78e4763146bb, 945ba412fd4d and 58e400c99cce",
+        "DOI 10.1007/s10910-016-0597-8 (retrieval attempt only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With e=(a,b), f=(c,d), P_ef=(R(a,d)+R(b,c)−R(a,c)−R(b,d))/2. The row sums are mechanically obtainable from the full resistance data.",
+          "The exact prism rail and Möbius rim sums have the same positive-part threshold; the kernel signs differ only in the exponentially small image term for distances up to n/2. Summing the resulting Lipschitz estimate gives an exponentially small norm difference for large n.",
+          "The prior Möbius leading law is therefore already sufficient for the leading prism deficit, but does not evaluate the cutoff rounding term. The Möbius rim-dominance assertion also differs from the prism's rung win at n=3 and tie at n=4."
+        ],
+        "reasoning": "The two graph-family formulas are not independent evidence for novelty of the leading deficit. Extracting the remaining phase uniformly requires comparing the exact cutoff with the logarithmic lattice, including near a phase endpoint, and establishing the nontrivial extreme limits. The corrected result isolates this phase statement and the exact comparison of rail and rung rows rather than claiming no prior route to the finite norms.",
+        "searches": [
+          "Cinkir arXiv:1704.03429 §2 Eqs. (10)–(11), OA HTML offsets 15100–20100",
+          "Resultary 833010be3478 Finding and electrical row derivation, offsets 0–4200"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cinkir gives all same-rail and opposite-rail pair resistances up to symmetry; polarization recovers every projector entry.",
+          "Kassel–Wu §1 gives the electrical transfer-current/Green-function formulation. The cut projector is symmetric, so its ℓ¹ endpoint norm agrees with its ℓ∞ norm.",
+          "Resultary 58e400c99cce concerns the minimum ℓ¹ projection norm onto the cycle space, different from the canonical cut projector here."
+        ],
+        "reasoning": "Equivalent formulations were matched at the level of entries and operator norm, not just graph parameters. Cinkir covers the electrical data and thereby the recoverable finite invariant; an optimized norm for the complementary subspace is not the same invariant.",
+        "searches": [
+          "Resultary: endpoint Hodge/gradient/cut projection norm on prism or circular ladder graphs, and logarithmic defect",
+          "arXiv:1704.03429 §2 Eqs. (10)–(11)",
+          "arXiv:1312.2946 §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Cinkir's exact resistance kernel is effectively complete finite input to the projected row norms.",
+          "833010be3478 gives a complete twisted-ladder row formula and uniform rim dominance on its stated n≥4 range; it reports only an O(1/n) remainder.",
+          "No verified matching exact table or phase function for the prism projector was returned by the bounded comparisons."
+        ],
+        "reasoning": "The finite input formulas are recognized as equivalent finite data; no novelty is inferred from recomputing those data or from not finding a table. The continuous phase function and exact subsequential extrema are sharper than a table of small graph orders or a leading asymptotic.",
+        "searches": [
+          "Resultary: exact prism Hodge cut projection constants and maximizing orbit, log-periodic correction",
+          "arXiv:1704.03429 §2 Eqs. (10)–(11)",
+          "Resultary 833010be3478 exact Finding"
+        ]
+      },
+      "rationale": "For the narrowed explicit phase correction and rail/rung transition. Exact projector entries and finite norms can be recovered from Cinkir's earlier resistance formulas; the repaired result credits this instead of presenting the finite reconstruction as independent novelty. An earlier exact Möbius-ladder rim formula is exponentially close to the prism rail sum and already gives the leading logarithmic term. The corrected full text states the strong overlap and supplies the uniform cutoff analysis, nonconstant phase and its extrema and the specific small-order change of edge orbit. These are the supported distinct parts, not the leading defect or the underlying transfer-current data.",
+      "residual_risks": [
+        "Open-ladder resistance paper not fully retrieved; unindexed equivalent sharp cutoff evaluations are possible.",
+        "The exponentially close Möbius formula is a strong implicit precursor, so priority is not claimed for the exact finite input or the leading defect."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong implicit finite coverage; not an explicit optimizing-orbit or phase evaluation in the inspected formulas",
+          "evidence": [
+            "At distance j, the same- and opposite-rail formulas differ in the sign on the two geometric image terms; polarization yields projector entries from them."
+          ],
+          "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/1704.03429",
+          "material_read": "§2, Eqs. (10)–(11), OA HTML offsets 15100–20100 and locator PDF p. 6",
+          "method": "Targeted lawful alternate primary full-text reading",
+          "title": "Effective Resistances and Kirchhoff Index of Prism Graphs",
+          "trigger": "Same graph with complete effective-resistance data"
+        },
+        {
+          "assessment": "Strong leading-order implication by exponential comparison; the stated asymptotic stops at O(1/n)",
+          "evidence": [
+            "Norm 2−2/n+2g_0+4Σ(g_j−1/(2n))_+ uses the antiperiodic image term and has strict rim dominance for n≥4."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sharp-logarithmic-endpoint-projection-deficit-on-m-bius-ladders--833010be3478/RESULT.md",
+          "material_read": "Finding, Assumptions and rim-source derivation, offsets 0–4200",
+          "method": "Resultary search and direct local mirror reading",
+          "title": "Sharp logarithmic endpoint-projection deficit on Möbius ladders",
+          "trigger": "Same logarithmic leading deficit with a precise neighboring row-sum formula"
+        },
+        {
+          "assessment": "Standard decomposition and Green data framework, not finite prism row comparisons or log phase",
+          "evidence": [
+            "Least-squares gradient flow is an orthogonal component; the transfer current has a Green-function expression."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0811.1067; https://arxiv.org/abs/1312.2946",
+          "material_read": "First §4.3–4.4, Theorems 4.7–4.8, offsets 67500–71431; second §1, offsets 0–6474",
+          "method": "Targeted lawful OA HTML",
+          "title": "Statistical ranking and combinatorial Hodge theory; Transfer current and pattern fields in spanning trees",
+          "trigger": "Canonical gradient projection and electrical formulation"
+        },
+        {
+          "assessment": "No stated prism phase result in the compared claims",
+          "evidence": [
+            "Clique-cycle result requires m≥3; the open graph has nontwisted path boundaries; the same prism graph in 58e400c99cce is paired with a different projection target and choice of minimum."
+          ],
+          "identifier_or_url": "Resultary 58fa50f7a7be, 78e4763146bb, 945ba412fd4d, 58e400c99cce",
+          "material_read": "Matched Finding and scope statements in the local mirror",
+          "method": "Focused Resultary search and local mirror source comparison",
+          "title": "Neighboring endpoint-projection records for clique cycles, open ladders, bipartite prisms and circular ladder cycle spaces",
+          "trigger": "Different graph parameter or alternative projection invariant could dominate"
+        },
+        {
+          "assessment": "Detailed coverage unresolved, with no negative conclusion from access failure",
+          "evidence": [],
+          "identifier_or_url": "https://doi.org/10.1007/s10910-016-0597-8",
+          "material_read": "Identifier and retrieval attempts only; no full body obtained",
+          "method": "Lawful DOI and direct publisher PDF attempts; no repository copy returned and publisher redirects failed",
+          "title": "Effective Resistances and Kirchhoff Index of Ladder Graphs",
+          "trigger": "Related resistance work with possible endpoint consequences"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The contribution identifies which edge types set the worst amplification and resolves the full 1/n scale of its convergence, where just quoting an O(1/n) error hides a genuine oscillation. The sharp limsup and liminf show that no constant second coefficient can replace the phase. This is exact size-sensitive information for a natural graph projection, beyond recovering known resistance entries or reporting the leading logarithmic coefficient.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

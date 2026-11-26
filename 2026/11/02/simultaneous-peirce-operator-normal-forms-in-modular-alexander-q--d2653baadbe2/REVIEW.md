@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** In the ordinary group algebra, the defining multiplication is exactly \(a\star b=T_\alpha(a)T_{I-\alpha}(b)\). Nilpotence of the modular augmentation ideal excludes all nonzero augmentation-zero idempotents, so every nonzero idempotent is a unit. The idempotency equation gives one explicit invertible operator conjugating both multiplication operators simultaneously. The functional-map decomposition and rank differences then reconstruct all zero and nonzero Jordan blocks, even in modular characteristic. Seven exhaustively enumerated prime-field tests independently verify the intertwining identities; these tests do not substitute for the universal proof.
+## correctness
 
-**Originality — PASS, qualified.** The nearest fully inspected 2022 article establishes trace formulas and selected small complex Peirce spectra, not simultaneous conjugation or modular Jordan-block classifications. Zhang's 2026 abstract reports complex right Peirce eigenvalue sets for odd-order core quandles and general group-ring methods, but does not state the modular two-sided normal form; its full text was inaccessible here and remains a meaningful priority risk. Existing classification of modular idempotents alone gives no operator-similarity theorem. Actual specialized mathematical-record searches for simultaneous Peirce similarity, Alexander idempotent spectra and right multiplication normal forms returned no dominating theorem; absence of a result is not proof of uniqueness.
+PASS
 
-**Mathematical value — PASS.** A single natural structural theorem determines the complete simultaneous similarity type of two nonassociative Peirce actions at every nonzero idempotent, including a potentially large family of non-basis modular idempotents. The rank filtration of \(I-\alpha\) exactly controls nilpotent left blocks, while finite permutation cycles control the remaining modular Jordan blocks. This is stronger than an eigenvalue-set calculation and covers singular and nonsemisimple parameter regimes not addressed by the elementary scalar, complex, basis-idempotent examples.
+On the group basis, a⋆b=Tα(a)Tβ(b) with both factors ordinary ring endomorphisms, including singular β. If an idempotent has augmentation zero then u∈J and u=Tα(u)Tβ(u) repeatedly doubles the ideal power containing it. The presentation K[s₁,…,s_d]/(s₁ᵖ,…,s_dᵖ) with s_i=[e_i]−1 shows nilpotence of J; hence u=0. Otherwise augmentation is one and u is an ordinary unit. Multiplying the idempotency equation out shows L_u M_u=M_u Tβ and R_u M_u=M_u Tα on the entire space, so these are simultaneous similarities and the operators commute. The images of Tβʲ have bases indexed by βʲV, and the stabilized span at step d supports the invertible permutation part. This proves the rank and zero-block formulas by second differences. The fixed-point counts p^dim ker(γˢ−I) give the periodic cycle counts by Möbius inversion. A permutation cycle is cyclic as a K[z]-module with annihilator z^ℓ−1; splitting it for ℓ=pʰe gives precisely the claimed Jordan blocks, also in the wild case. Independently checked the example count: writing u=Σ f_j(S)Tʲ in the F₃ group algebra for the transvection, augmentation one ensures some f_i(1)≠0. The idempotency equation at that i forces Σ f_j(1)S^(−j)=S^(−i), so only f_i has augmentation one. It has 9 choices, and for j≠i the condition (1−S^(j−i))f_j=0 gives 3 choices per f_j in the line spanned by (S−1)². Hence 3·9·3²=243. The rank sequence and cycle lengths in that example also agree.
 
-**Limits and risks.** The result concerns elementary abelian underlying quandles over fields of matching characteristic. The 2026 arXiv full text was unavailable in this run, older isotope theory may contain implicit conjugacy principles, and independent specialist review has not occurred. The proofs and code establish no priority certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the shared operator conjugator uniformly at all nonzero idempotents in the modular elementary-abelian setting, with its two-sided Jordan analysis. The group-ring transport identity is established prior work; the cycle and second-difference formulas are standard once the common reduction is established. Related complex eigenvalue results or modular rank and idempotent censuses do not cover the claimed pair of operators up to joint similarity.
+
+## value
+
+PASS
+
+The common change of basis removes all dependence on the idempotent at once and gives a computable normal form for the pair. This is useful precisely in modular parameters where a Peirce eigenvalue list loses information or one side is singular: both the nonsemisimple cyclic blocks and the nilpotent blocks are accounted for without enumerating idempotents. The result links an established Peirce problem to explicit data for a natural broad class of quandles, not an isolated small example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

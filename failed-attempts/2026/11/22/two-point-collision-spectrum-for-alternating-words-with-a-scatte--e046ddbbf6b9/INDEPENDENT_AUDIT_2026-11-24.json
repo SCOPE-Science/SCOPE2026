@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:36:49.377295Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The positional embedding triples are exactly 1≤i≤j<k≤n. When i=j the output is v_(k−1); when i<j and k=j+1 it is v_i. These disjoint types give t and n−1−t realizations of v_t. The v_t have no 00, and are distinguished by their initial 1 or the position of their unique 11. In the separated case the unique 00 at output position 2j−2 identifies j; the following 11 at 2k−4 identifies k; and the preceding 11 at 2i−2, or its absence when i=1, identifies i. These defects remain distinct at the smallest gaps. Thus choosing i,j,k−1 gives exactly binom(n−1,3) singletons and no further case. The n=3 edge case has two double fibers, and reverse-complement preserves the host and swaps the patterns. I independently enumerated literal three-position combinations for both patterns for n=3..25 and recovered the spectrum and mirror bijection; the universal proof does not depend on that finite check.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "762092a60cc7 gives M_(N,d)(v)=binom(l+(d−T)/2,l) and binom(l+1,T) residuals of transition index T. At N=2n and d=3 this gives n−1 outputs of multiplicity n−1 and binom(n−1,3) outputs of multiplicity 1. The pattern-agnostic paper of Adamson–Fleischmann–Huch gives a residual-set algorithm, not this multiplicity theorem."
+        ],
+        "reasoning": "The exact broader catalogue theorem dominates the assigned theorem; the more general set algorithm alone does not.",
+        "searches": [
+          "Resultary 762092a60cc7 per-residual theorem for arbitrary alternating prefix lengths",
+          "arXiv:2603.20790v1 Sections 1, 3–5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verification_output.txt",
+        "Resultary 762092a60cc7",
+        "Resultary 1e7ccb67347b",
+        "Resultary d7ef6cdd9c92",
+        "Resultary 4b7dc91ebfc9",
+        "Resultary bcaf0c227997",
+        "arXiv:2603.20790v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For T=1 there is one odd gap and one extra pair of deleted letters, so all embeddings have an adjacent deleted pair; choosing the extra pair's gap gives l+1=n−1 choices. For T=3, all three odd gaps have exactly one deletion and are separated by at least one retained pair, matching i<j<k−1. The even-pattern, weight-aggregated and surviving-word records change the conditioning or invariant."
+        ],
+        "reasoning": "The phase-gap theorem implies the explicit embeddings as well as the histogram. The older neighboring references alone would not imply this, but they do not remove the strong directly inspected exact overlap.",
+        "searches": [
+          "Resultary 762092a60cc7 phase-gap bijection",
+          "Resultary d7ef6cdd9c92, 4b7dc91ebfc9 and bcaf0c227997 Findings; arXiv:2603.20790v1 Theorems 3.1 and 4.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "H_(2n)=(01)^n and H_3=010. In 762092a60cc7 let l=n−2 and p=1. Transition index T=1 means that the pair types are first 01 then 10 with exactly one phase switch, so the word is (01)^(t−1)(10)^(n−1−t)1=v_t. T=3 forces three separate odd gaps of length one and no other deletions. Reverse-complement covers 101."
+        ],
+        "reasoning": "The alternate paired encoding describes the same residuals and positional choices, not a different embedding count. The phase-gap bijection recovers the same exceptional families and singleton triples.",
+        "searches": [
+          "Resultary: conditional positional deletion fiber multiplicity spectrum scattered 010 101 alternating words (01)^n",
+          "Resultary 762092a60cc7 RESULT.md Finding, assumptions and phase-gap proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct catalogue entry 1e7ccb67347b states the exact aggregate cardinality binom(n−1,3)+n−1 but counts identical residuals once. The distinct entry 762092a60cc7 gives the exact multiplicities by specialization, even if the special parameter pair is not shown as a standalone table row."
+        ],
+        "reasoning": "Credit the former for aggregate count and the latter for full exact mathematical coverage. Same displayed date is not evidence that one came before the other.",
+        "searches": [
+          "Focused Resultary search for the 010 and 101 positional multiplicity spectrum",
+          "Resultary 1e7ccb67347b Finding and counting assumptions"
+        ]
+      },
+      "rationale": "The distinct indexed parity-unified theorem 762092a60cc7 explicitly gives every positional fiber for alternating prefixes and the histogram and parametrization specialize to the entire frozen result. The same-day catalogue dates do not decide priority, but the mathematical coverage is demonstrated and there is no distinct surviving frozen claim. This is not a claim that the frozen proof is wrong or that its authors copied the general result.",
+      "residual_risks": [
+        "Within-day priority between the distinct exact covering entry and the frozen record is not established.",
+        "There could also be an older equivalent shuffle identity; this uncertainty does not alter the demonstrated coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Complete mathematical coverage by specialization; relative priority undetermined",
+          "evidence": "The paired phase encoding, binomial fiber count and gap-parity bijection apply to arbitrary H_N and H_d, including N=2n,d=3.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-parity-unified-exact-deletion-fiber-multiplicities-of-alternatin--762092a60cc7/RESULT.md",
+          "material_read": "Finding, scope and proof steps 1–3, mirror offsets 0–5616; compared the ensuing histogram proof",
+          "method": "Local Resultary search and targeted mirror full-text inspection",
+          "title": "Parity-unified exact deletion-fiber multiplicities of alternating binary prefixes",
+          "trigger": "Strongest material exact overlap in the conditional positional-fiber search"
+        },
+        {
+          "assessment": "Aggregate-only overlap",
+          "evidence": "It counts distinct residuals once and gives the frozen support cardinality.",
+          "identifier_or_url": "Resultary 1e7ccb67347b",
+          "material_read": "Finding and assumptions, mirror offsets 0–5427",
+          "method": "Local Resultary and targeted mirror read",
+          "title": "Exact three-symbol complement deletion spectra of finite alternating words",
+          "trigger": "Exact formula with the same host and three deleted symbols"
+        },
+        {
+          "assessment": "General set computation and singleton criterion, no exact conditional fiber statement in the inspected passages",
+          "evidence": "Theorem 3.1 computes the residual set; Theorem 4.5 treats the singleton/perfect-shuffle case.",
+          "identifier_or_url": "https://arxiv.org/html/2603.20790v1",
+          "material_read": "Section 1 definition, Theorem 3.1, Theorem 4.5 and Section 5 conclusion",
+          "method": "Targeted primary OA HTML passages",
+          "title": "(Sets of) Complement Scattered Factors",
+          "trigger": "Primary general framework for conditional complement deletion"
+        },
+        {
+          "assessment": "Does not cover the odd deleted pattern and its multiplicities",
+          "evidence": "Counts distinct outputs for deleted patterns (01)^k.",
+          "identifier_or_url": "Resultary d7ef6cdd9c92",
+          "material_read": "Finding, offsets 0–5380",
+          "method": "Local mirror",
+          "title": "Binomial-tail law for complements of alternating words",
+          "trigger": "Same alternating deletion family"
+        },
+        {
+          "assessment": "Different conditioning",
+          "evidence": "Counts distinct outputs by weight, with no prescribed order on the deleted symbols.",
+          "identifier_or_url": "Resultary 4b7dc91ebfc9",
+          "material_read": "Finding, offsets 0–5399",
+          "method": "Local mirror",
+          "title": "Fixed-composition deletion spectra and parity bias for alternating binary words",
+          "trigger": "Alternate signed or weighted deletion spectrum formulation"
+        },
+        {
+          "assessment": "Different fiber count",
+          "evidence": "Counts embeddings of a surviving target without fixing the content of the complementary positions.",
+          "identifier_or_url": "Resultary bcaf0c227997",
+          "material_read": "Finding, offsets 0–5477",
+          "method": "Local mirror",
+          "title": "Exact embedding-multiplicity spectrum of cyclic permutation powers",
+          "trigger": "Possible embedding spectrum via reversing the surviving/deleted roles"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Conditional collision multiplicities are intrinsically useful and the local-defect proof is clear, but as a separate scientific finding this exact datum and its collision classification are direct specializations of the stronger explicit indexed theorem and its gap bijection. There is no independently needed unknown invariant or substantive new method in the frozen specialization to repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

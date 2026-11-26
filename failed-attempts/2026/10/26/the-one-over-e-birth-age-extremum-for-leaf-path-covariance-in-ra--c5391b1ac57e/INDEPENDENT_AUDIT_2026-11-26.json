@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:08:36.618245Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditioning on label i having no children imposes the separate restrictions U_j≠i for j>i, so the conditioned choices remain independent and uniform on their allowed sets. The probability telescopes to (i−1)/(n−1). Compression makes each allowed set the whole set of smaller surviving labels and leaves the original attachment U_i independent of the reduced tree. Reinsertion adds exactly one plus the chosen parent's depth. The expected path-length recursion gives E P_m=m(H_m−1); averaging the parent depth in the initial i−1 tree gives H_{i−1}−1. The conditional mean shift is H_{i−1}−H_{n−1}; multiplying by the leaf probability gives the exact covariance, including zero at i=n and the degenerate n=2 boundary. For N=n−1 and k=i−1 the adjacent difference of k(H_k−H_N) is 1−(H_N−H_k). It is strictly increasing and cannot vanish: a multi-term consecutive reciprocal sum has a unique denominator of maximal 2-adic valuation, making the numerator after LCM clearing odd with an even common denominator; a single term is less than 1. The first positive difference gives the unique minimum. Evaluating the threshold at k near xN for fixed x just below and above 1/e sandwiches its location, then the harmonic difference tends to one, giving both limits. The audit checked the unrestricted proof and read the finite checker, rather than running the frozen code.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "4e2828958fad conditions any fixed set of birth labels to be leaves and proves uniformity after erasure. d273b750167c conditions a two-vertex fringe instead. Saunders arXiv:1906.02720 studies dynamic deletion preserving size-conditioned uniformity, a different mechanism."
+        ],
+        "reasoning": "Fixed-set erasure strictly contains singleton erasure. The constraints do not involve the chosen parent of that singleton; reinsertion then yields the conditional law in the frozen finding. Dynamic or fringe deletion alone does not give the same hypothesis.",
+        "searches": [
+          "Resultary: fixed-set conditional leaf erasure and parent-law reinsertion",
+          "Resultary 4e2828958fad and d273b750167c",
+          "Primary literature search for specified-leaf deletion in recursive trees"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 622c8793c9c4, 4e2828958fad, 57e8450fa564, d273b750167c and 852c774af483",
+        "Lundblad–Wagner DOI 10.4230/LIPIcs.AofA.2026.2",
+        "Saunders arXiv:1906.02720",
+        "Eslava arXiv:1611.07466 and Grübel–Michailow arXiv:1406.7614 (abstracts for their different scopes)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equation (13) counts leaves and path lengths in aggregate and has no birth marker. The exact marked difference in 622c8793c9c4 is, up to sign convention and positive scale, 1−(H_N−H_k). The uniform reduced-tree statement in 4e2828958fad directly applies to a one-element mark set."
+        ],
+        "reasoning": "The aggregate generating function does not cover the finding. The exact marked difference and elementary no-tie lemma do give the finite threshold; the broader erasure with the unaffected parent coordinate gives the conditional path-length representation. The two catalogue records are distinct from the frozen one; this comparison does not assign priority.",
+        "searches": [
+          "Lundblad–Wagner DOI 10.4230/LIPIcs.AofA.2026.2 §5 Eq. (13)",
+          "622c8793c9c4 Finding and adjacent difference",
+          "4e2828958fad Finding and proof of erasure"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Record 622c8793c9c4 states the same marked covariance and conditional mean shift. The earlier 57e8450fa564 only states the summed covariance −(n−2)/4. The same-day 852c774af483 concerns child count at a marked vertex against total leaf count, not the target covariance."
+        ],
+        "reasoning": "Multiplying the same fixed-label conditional mean shift by the positive leaf probability gives the same marked result. In contrast, summing over labels destroys label information.",
+        "searches": [
+          "Resultary: birth-label leaf indicator total path length covariance and conditional mean shift",
+          "Resultary 622c8793c9c4, 57e8450fa564 and 852c774af483"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue directly indexes the closed form, adjacent difference, and asymptotic location; the separate exact first-index threshold is not stated there. No numerical tree count table could establish these unrestricted formulas."
+        ],
+        "reasoning": "The relevant database check is for exact symbolic invariants indexed for the same model and birth mark, not numerical agreement on a few n.",
+        "searches": [
+          "Resultary: exact marked covariance profile and finite harmonic threshold",
+          "622c8793c9c4 Finding, offsets 0 and 1650"
+        ]
+      },
+      "rationale": "The comparison with aggregate earlier literature is sound, but two distinct inspected catalogue records supply material coverage. Record 622c8793c9c4 gives the exact same fixed-birth-label covariance and conditional mean, the adjacent difference, and the 1/e extremum asymptotics. Record 4e2828958fad gives stronger fixed-set conditional erasure; at a singleton, the untouched independent attachment choice and deterministic depth increment immediately give the path-length law. The exact finite minimizer is the sign change of the already stated difference, with the classical consecutive-reciprocal nonintegrality excluding a tie. No distinct substantive remainder of the frozen claim is established against this combined coverage. These records carry later displayed dates: this is a statement-level coverage decision in the available catalogue, not a finding that either preceded the frozen work, nor a conclusion about priority or independent discovery.",
+      "residual_risks": [
+        "No earlier direct match surfaced in the bounded primary literature search. The material matches are distinct records with later displayed dates; neither chronology of derivation nor priority is adjudicated."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap on the marked profile, mean shift and 1/e asymptotics; ready implication for the threshold",
+          "evidence": "The displayed assertions are for the same specified insertion-age vertex and total path length, not merely summed leaves.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-an-exact-leaf-path-length-covariance-profile-in-random-recursive--622c8793c9c4",
+          "material_read": "RESULT.md Finding and adjacent-difference discussion (offsets 0 and 1650); relationship to prior work (4532)",
+          "method": "Bounded local mirror passages",
+          "title": "An exact leaf–path length covariance profile in random recursive trees",
+          "trigger": "Same labelled observable and harmonic formula"
+        },
+        {
+          "assessment": "Singleton erasure plus independent attachment implies the target law",
+          "evidence": "It proves the full reduced-tree law after conditioning a predetermined set; its listed covariances with depth and total leaf count are different.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-conditional-leaf-erasure-and-the-depth-leaf-covariance-profile-o--4e2828958fad",
+          "material_read": "RESULT.md Finding and proof (offsets 0 and 2500); relationship to prior work (6147)",
+          "method": "Bounded local mirror passages",
+          "title": "Conditional leaf erasure and the depth–leaf covariance profile",
+          "trigger": "Stronger deletion result for a prescribed leaf set"
+        },
+        {
+          "assessment": "Aggregate, not fixed-label coverage",
+          "evidence": "The variables track size, total leaves, external path length and total path length, without individual birth marks.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.AofA.2026.2",
+          "material_read": "§5, p. 2:12, Eq. (13), PDF extraction offset 37610",
+          "method": "Bounded OA PDF passage",
+          "title": "Path Length and External Path Length in Random Trees",
+          "trigger": "Closest primary aggregate joint result"
+        },
+        {
+          "assessment": "Different deletion hypothesis",
+          "evidence": "The dynamic addition/deletion rule preserves size-conditioned uniformity; it does not condition a specified original birth label to have zero children.",
+          "identifier_or_url": "https://arxiv.org/abs/1906.02720",
+          "material_read": "pp. 1–2, mechanism and model",
+          "method": "Bounded OA PDF passages",
+          "title": "Evolving Recursive Trees",
+          "trigger": "Recursive-tree deletion preserving uniformity"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The fixed-label conditional tree law is a meaningful structural object and the marked path covariance answers a question hidden by the aggregate: which birth age most strongly modifies total path length and by how much. This is scientific utility of the results, not additional independent contribution beyond the equivalent and broader results documented under originality. The threshold alone is not a substantial remaining contribution once the exact profile is known.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,186 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:42:50.511842Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–57; VERIFICATION.md; artifacts/verify.py inspected as text",
+        "Independent replay: python3 /workspace/branches/reproduce_frozen.py 5",
+        "Repaired RESULT.md, VERIFICATION.md and SLOGAN.txt, semantically inspected"
+      ],
+      "rationale": "The original formulas are correct. Boolean rectangular products are either zero or the rectangle of the outer supports; if distinct rectangles have both products nonzero and equal, uniqueness of supports would force equality, a contradiction. Thus distinct commuting vertices mutually annihilate. In an ordered k-clique a coordinate is absent, unilateral (one of two nonempty-label subsets), or private double membership at one label, giving 2^(k+1)+k−1 types. Inclusion–exclusion requires each private type; maximality is precisely no absent coordinate, since any new idempotent must have its overlap on an unused coordinate, and a singleton diagonal extends there. This proves both original formulas and bounds, with the exact sizes attained by partitions. The repaired result is narrower: for a fixed vertex, simultaneous membership of a neighbor is allowed only at one of s unused coordinates; u unilateral coordinates each allow two choices, so the degree is 2^u(4^s−3^s). Choosing the unused/unilateral sets and orientation yields every enumerator term, with s+u≤n−1 due to idempotence. The live vertices all attach to the diagonal clique. For n=2 that clique is the only live edge; for n≥3 the two indicated co-singleton diagonals are nonadjacent leaves attached to distinct singleton diagonals and have distance three. A separately written bounded check confirmed degrees, both original count vectors, isolates, edge counts, live connectivity and diameters for n=2..5, testing literal Boolean matrix products at n=2..4. The repaired text's three-coordinate metric witness is correct: the cross-intersections for its square-zero common neighbor vanish, but because the unused sets of the idempotents are disjoint no common idempotent neighbor exists.",
+      "residual_risks": [
+        "The finite checks only corroborate the dimension-uniform proofs. Rank-one idempotents must be kept distinct from square-zero or general-rank relation vertices."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2026/11/22/SCOPE-full-clique-and-maximal-clique-spectra-of-rank-one-boolean-relat--a62e32d5a371 gives the idempotent/square-zero refined full clique polynomial; its square-zero-count-zero coefficients cover the original ordinary cliques, not idempotent-stratum degree distributions.",
+          "2026/11/22/SCOPE-exact-rank-one-centralizer-spectra-in-finite-boolean-relation-mo--94c0c7748dc5 gives numerical centralizer-size formulas counting all relations including zero, with no rank-one-idempotent neighbor filter in its count.",
+          "Paulista Theorem 4.20 uses zero-closure submatrices for component diameters of the full Rees 0-matrix commuting graph. Dolžan–Kokol Bukovšek–Oblak uses the noncentral graph of full matrix-semiring elements."
+        ],
+        "reasoning": "Neither larger graph is the induced idempotent graph. Centralizer totals aggregate forbidden neighbors and do not give their rank/overlap distribution. Distances need not restrict: the explicit example in the repair has distance two with a square-zero intermediary and distance three in the idempotent graph.",
+        "searches": [
+          "Resultary: rank-one Boolean idempotent graph degree distribution edges isolates diameter connected components",
+          "Resultary: matrix units commuting graph idempotents maximal cliques full semiring centralizer graph",
+          "DOI 10.1016/j.laa.2010.04.014",
+          "arXiv:1012.5505 graph definition; arXiv:2510.23871 Theorem 4.20"
+        ]
+      },
+      "checked_sources": [
+        "Distinct Resultary records a2f16599b2ee, a62e32d5a371, 94c0c7748dc5 and 03a914912fd2",
+        "OEIS A363232; Paulista arXiv:2510.23871; Dolžan–Kokol Bukovšek–Oblak arXiv:1012.5505; Dolžan–Oblak DOI landing only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact clique record has the same two alphabet sizes 2^(k+1)+k−1 and 2^(k+1)+k−2 and the same root requirements, so the original counts are plainly equivalent.",
+          "The all-relation zero-product count is 2^((n−|V|)(n−|U|)) and includes arbitrary subrelations, unlike the repaired vertex degrees which enforce rectangularity and a nonempty common coordinate.",
+          "The repaired degree calculation fixes one rectangle and counts choices of its permitted neighbors coordinate by coordinate; the sharp diameter calculation also needs the diagonal hub and leaf witnesses."
+        ],
+        "reasoning": "Repeated use of a known adjacency predicate is not a new criterion, but resolving the exact degree multiset and sharp metric in this stratum requires separate structure/counting not supplied by the competing graph totals or theorem for different vertices. The new scope does not relabel the old coefficients.",
+        "searches": [
+          "a2f16599b2ee RESULT.md coordinate normal form and maximality, local mirror offsets 0 and 5139",
+          "94c0c7748dc5 RESULT.md exact centralizer theorem and proof, local mirror offset 0",
+          "Paulista arXiv:2510.23871 Theorem 4.20, PDF p.32 offset 114000"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/11/2/SCOPE-clique-and-maximal-clique-enumerators-for-rank-one-idempotent-bo--a2f16599b2ee, Finding and proof: identical Boolean rectangles and both exact spectra, with the same unordered-clique normalization and support-union maximality.",
+          "arXiv:2510.23871, §§2.2 and 4: full commuting graphs of Rees 0-matrix semigroups. Taking a trivial group and the intersection sandwich on nonempty supports encodes the rectangle multiplication, but the reviewed graph keeps only the idempotent vertices."
+        ],
+        "reasoning": "Mutual annihilation versus commutation is not a distinction on pairs of distinct rank-one rectangles. The exact same-clique finding is covered and removed; restricting all nonzero rectangles to the idempotent stratum changes the graph metrics and the admissible neighbor counts.",
+        "searches": [
+          "Resultary: Boolean rank-one idempotent matrices commuting graph clique counts maximal cliques",
+          "Resultary: Boolean relation semigroup rank-one idempotents pairwise annihilating rectangles clique complex",
+          "Resultary: matrix semiring commuting graphs rank-one band rectangular idempotents cliques facets",
+          "Resultary: commuting graph rank-one Boolean relations idempotent clique facet spectrum rank-one bands matrix units rectangular idempotents"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A363232 column one lists 1,7,37,175,781, agreeing exactly with the vertex sequence but furnishing no adjacency statistics.",
+          "a2f16599b2ee explicitly gives the two same formula families, including n=4 nonempty clique vector (175,385,66,1) and facet vector (65,295,62,1). Its read result does not tabulate per-vertex degrees or establish the live-component diameter.",
+          "2026/10/25/SCOPE-degree-spectrum-and-diameter-three-core-of-orthogonal-partial-id--03a914912fd2 gives spectra and diameter for partial transformation idempotents, not Boolean rectangles."
+        ],
+        "reasoning": "Exact matched global coefficients cover vertex, edge and isolate totals (C(n,1), C(n,2) and M(n,1)); they are not the full degree frequency table or the component metric. A diameter-three result in another semigroup is not an exact graph match.",
+        "searches": [
+          "OEIS: A363232 rank 1 Boolean relation matrices 4^n-3^n",
+          "Resultary: rank-one Boolean idempotent graph degree distribution edges isolates diameter connected components",
+          "a2f16599b2ee RESULT.md Finding and n=1..4 table"
+        ]
+      },
+      "rationale": "The original central clique/facet finding fails the distinct-coverage test: a different Resultary record gives exactly both formulas, the same maximality criterion and all sizes. Its later catalogue date does not establish attribution or priority. The repaired finding expressly removes the duplicate spectra and treats the vertex, edge and isolate totals as known or derived background. It retains only the structurally determined full degree distribution and live-component geometry. Exact graph-size and clique coefficients, full centralizer sizes, and diameters in a larger graph are not these invariants. Bounded evidence supports this narrowed claim, with the unresolved source risks below.",
+      "residual_risks": [
+        "Historical priority and relationships among catalogue records are not adjudicated.",
+        "Equivalent local formulas for idempotent strata could occur under Rees-semigroup, Boolean rank-one band or orthogonality terminology; the older Butler–Markowsky and Dolžan–Oblak full texts were not inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap for the original primary claims; different catalogue date does not determine priority",
+          "evidence": [
+            "Identical formulas and maximality by support coverage; explicitly also includes n=1, empty clique and chromatic number."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-clique-and-maximal-clique-enumerators-for-rank-one-idempotent-bo--a2f16599b2ee",
+          "material_read": "Mirrored RESULT.md Finding, proof, verification table and comparison sections, offsets 0, 5139 and 8364",
+          "method": "Resultary and local mirror",
+          "title": "Clique and maximal-clique enumerators for rank-one idempotent Boolean relations",
+          "trigger": "Exact same graph and two formula match"
+        },
+        {
+          "assessment": "Original clique counts are a specialization; full-graph facets and metric are not induced-idempotent data",
+          "evidence": [
+            "c_n(k,j) is refined by idempotent and square-zero counts; j=0 selects original ordinary cliques."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-full-clique-and-maximal-clique-spectra-of-rank-one-boolean-relat--a62e32d5a371",
+          "material_read": "Mirrored Finding and product/coordinate proof passages at offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Full clique and maximal-clique spectra of rank-one Boolean relation semigroups",
+          "trigger": "Broader rank-one semigroup covers idempotents and square-zero rectangles"
+        },
+        {
+          "assessment": "Full-universe count, not the restricted degree statistic",
+          "evidence": [
+            "Scope expressly includes all ranks and zero, not the rank-one principal factor or idempotent subgraph."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-rank-one-centralizer-spectra-in-finite-boolean-relation-mo--94c0c7748dc5",
+          "material_read": "Mirrored Finding, assumptions and proof support regimes at offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Exact rank-one centralizer spectra in finite Boolean relation monoids",
+          "trigger": "Potentially broader exact degree result"
+        },
+        {
+          "assessment": "Different semigroup and vertex universe",
+          "evidence": [
+            "Mutual zero products of nonzero partial-transformation idempotents, not rank-one Boolean rectangles."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-degree-spectrum-and-diameter-three-core-of-orthogonal-partial-id--03a914912fd2",
+          "material_read": "Mirrored Finding offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Degree spectrum and diameter-three core of orthogonal partial idempotents",
+          "trigger": "Identical types of graph statistics in a nearby semigroup"
+        },
+        {
+          "assessment": "Strongly related but has larger vertex set; the diameter theorem is not for paths within the idempotent stratum",
+          "evidence": [
+            "Theorem 4.20 takes a component of the full Rees semigroup graph determined by a 0-closure submatrix."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2510.23871",
+          "material_read": "Abstract/scope and graph definition pp.1,5; Theorem 4.20 p.32 offset 114000; Theorem 5.4 locator p.43",
+          "method": "OA PDF locators and bounded theorem passage",
+          "title": "Commuting graphs of completely 0-simple semigroups",
+          "trigger": "General Rees graph result with connectivity and diameter theorems"
+        },
+        {
+          "assessment": "Full matrix-semiring centralizer-exclusion scope, not induced rank-one idempotent stratum",
+          "evidence": [
+            "The vertex set is T minus its centralizer in S."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1012.5505",
+          "material_read": "Abstract p.1, graph definition p.2 offset about 4822, citation p.8",
+          "method": "OA PDF passages",
+          "title": "Diameters of commuting graphs of matrices over semirings",
+          "trigger": "Nearby sharp diameter literature"
+        },
+        {
+          "assessment": "Unresolved full-text coverage; access failure does not determine verdict",
+          "evidence": [
+            "Only bibliographic/landing information was independently available."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.laa.2010.04.014",
+          "material_read": "Landing page, no readable full text",
+          "method": "Lawful direct and VPN retrieval attempts and alternate repository lookup",
+          "title": "Commuting graphs of matrices over semirings",
+          "trigger": "Earlier Boolean graph structure paper"
+        },
+        {
+          "assessment": "Vertex count already covered; different table from degree data",
+          "evidence": [
+            "Rank-one column agrees; entry attributes the low-rank formulas to Butler–Markowsky. Their original 1972 article was not retrieved."
+          ],
+          "identifier_or_url": "https://oeis.org/A363232",
+          "material_read": "Entry definition and table/comment on rank columns",
+          "method": "Readable exact sequence entry",
+          "title": "Idempotent Boolean relation matrices by rank",
+          "trigger": "Exact vertex sequence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired Finding and proof, including the explicit induced/full-graph distance contrast",
+        "Exact clique-coefficient and full-centralizer comparators described above"
+      ],
+      "rationale": "The repaired invariants explain different phenomena that global clique counts lose: how each of the two free-coordinate types controls the degree across the entire natural rank-one idempotent stratum, and why almost all vertices in the live graph are connected via a canonical diagonal clique but the worst pair still requires three edges. The proof identifies every isolated vertex and supplies sharp witnesses, not just a connectivity upper bound or a selected small case. The published larger-graph results are not substitutes, as the metric witness concretely shows. No value is assigned to reissuing the covered clique and facet formulas.",
+      "residual_risks": [
+        "Exact local/metric classification for the canonical idempotent stratum only, not a claim about all higher rank or arbitrary semigroup commuting graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

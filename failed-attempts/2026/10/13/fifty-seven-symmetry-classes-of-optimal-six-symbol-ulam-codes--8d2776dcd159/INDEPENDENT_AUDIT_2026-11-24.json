@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:14:13.359669Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A pair of distinct six-symbol permutations is compatible exactly when it shares no ordered length-three subsequence. Symbol relabeling takes any chosen anchor to 012345, uniquely; double counting designated words then gives 4N=720*298. The same argument applied in a single orbit counts 180 times the identity-containing multiplicity. The canonicalization minimizes sorted anchored codes over the four anchors and the two choices of global reversal, so equality of keys is exactly equivalence under the specified action. Independent direct dynamic-programming LCS replay at /workspace/branches/a59351b5-95f9-482c-b881-59513f3ae5d1/independent_check.py found 720 words, 132 anchor neighbors, 298 anchored maxima, no extension to five words, 53,640 labeled optima, and 57 canonical classes with orbit sizes 360 (7), 720 (29) and 1440 (21). All 57 CLASS_REPRESENTATIVES.tsv rows match, with correct sizes and canonical keys. Each optimum pair had LCS length two. Independently, LCS length one would force a reversed pair, and a third compatible word would then lack both increasing and decreasing triples relative to the first order, contradicting Erdos–Szekeres. Exhaustion is specific to length six, and the bound four is credited to prior work.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed exact equality census additionally says no optimum is a subgroup left coset. The older Ulam bounds table gives A_U(6,4)=4 only. The full text of the 1999 general directed-design work was not lawfully retrieved."
+        ],
+        "reasoning": "The stronger indexed result includes the whole frozen claim; the earlier maximum-size table does not determine the equality cases. No whole-document inference is made about the inaccessible paper.",
+        "searches": [
+          "Resultary cdcceb92349c Finding",
+          "Göloğlu–Lember–Riet–Skachek arXiv:1504.05100v1 Table I",
+          "Mathon–van Trung doi:10.1023/A:1008353723204"
+        ]
+      },
+      "checked_sources": [
+        "Resultary cdcceb92349c",
+        "arXiv:1504.05100v1 Table I",
+        "Gentle–Wanless doi:10.1007/s00026-022-00610-3",
+        "Mathon–van Trung doi:10.1023/A:1008353723204 (bibliographic/access check only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Both state that all maximum codes are equidistant and make identical assertions for the same distance, alphabet, code size and group action. The indexed record imposes no extra hypothesis on the optimum codebooks."
+        ],
+        "reasoning": "The reviewed classification is directly contained in that statement. A separate enumeration or a different representative encoding is not a surviving distinct mathematical claim.",
+        "searches": [
+          "Resultary cdcceb92349c RESULT.md Finding versus frozen RESULT.md Finding, Assumptions and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The SCOPE result uses Ulam distance at least four, simultaneous symbol relabeling and global position reversal, exactly as the frozen result.",
+          "The directed-triple packing formulation is equivalent by the common-subsequence criterion. The perfect sequence covering array formulation instead requires that every ordered triple occur equally often; an optimum in this review covers only 80 of 120 triples."
+        ],
+        "reasoning": "Partial directed triple packing is the same problem, but perfect covering is not. The exact indexed Ulam formulation matches without needing the reduction.",
+        "searches": [
+          "Resultary SCOPE-complete-equality-case-census-for-a-u-6-4-4--cdcceb92349c, RESULT.md Finding",
+          "Gentle and Wanless, On Perfect Sequence Covering Arrays, PDF p.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed finding and recorded output give 132 anchor neighbors, 298 anchored maxima, 53,640 labeled optima, 57 classes, and orbit sizes 360^7, 720^29, 1440^21. The older Table I records only the largest cardinality."
+        ],
+        "reasoning": "A complete census under the same equivalence already gives the requested counts, not merely information on a nearby parameter pair.",
+        "searches": [
+          "Local Resultary lookup: cdcceb92349c RESULT.md and verification_output.txt",
+          "arXiv:1504.05100v1 Table I, PDF p.5"
+        ]
+      },
+      "rationale": "A distinct indexed result gives the exact assigned equality census, under the same action and hypotheses, including the histogram and equidistance. Exact coverage is verified; priority or the relationship between the two packages is not inferred from their same displayed date. The unresolved older directed-design comparison is not the basis of failure.",
+      "residual_risks": [
+        "Priority or relationship between the same-date records is not established. Older exact coverage in the unavailable 1999 directed-design article remains unresolved. Neither uncertainty changes the demonstrated statement-level duplication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Demonstrable exact coverage, plus an additional claim; chronology unresolved",
+          "evidence": "53,640 equality cases, all equidistant; 57 orbits of sizes 360^7, 720^29, 1440^21 for symbol relabeling and position reversal; additionally not left cosets.",
+          "identifier_or_url": "2026/10/13/SCOPE-complete-equality-case-census-for-a-u-6-4-4--cdcceb92349c",
+          "material_read": "RESULT.md Finding and verification_output.txt, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Targeted local mirror inspection",
+          "title": "Complete equality-case census for A_U(6,4)=4",
+          "trigger": "Exact object, distance, equality cases, and orbit action"
+        },
+        {
+          "assessment": "Known optimum only in the inspected table",
+          "evidence": "A_U(6,4)=4, without counts or orbit classification there.",
+          "identifier_or_url": "https://arxiv.org/abs/1504.05100v1",
+          "material_read": "Table I, PDF p.5, text offsets about 33500–36000",
+          "method": "Targeted OA PDF inspection",
+          "title": "New Bounds for Permutation Codes in Ulam Metric",
+          "trigger": "Known optimum and possible equality table"
+        },
+        {
+          "assessment": "Different problem",
+          "evidence": "Perfect covering uses each ordered t-sequence exactly lambda times; g(6,3)=2 is a covering result.",
+          "identifier_or_url": "doi:10.1007/s00026-022-00610-3",
+          "material_read": "PDF p.1 abstract and definition, offsets about 527 and 1200",
+          "method": "Targeted OA PDF inspection",
+          "title": "On Perfect Sequence Covering Arrays",
+          "trigger": "Exact n=6,t=3 table under adjacent formulation"
+        },
+        {
+          "assessment": "Residual risk only; no negative coverage inference",
+          "evidence": "Title covers directed packings and Steiner systems; whether the text classifies these partial n=6,t=3 packings was not established.",
+          "identifier_or_url": "doi:10.1023/A:1008353723204",
+          "material_read": "Bibliographic material and the frozen report of its abstract; no full text",
+          "method": "DOI and lawful publisher/repository retrieval checked; full text not obtained",
+          "title": "Directed t-packings and directed t-Steiner systems",
+          "trigger": "Equivalent partial directed-triple formulation could occur in a broader classification"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A complete census of equality cases of a natural bound is scientifically useful in principle; the exact count, distance pattern, and classes are natural invariants. For this submitted finding they are already fully represented in the identified census, and no independently valuable mathematical remainder is asserted. Reproducing that classification verifies it but does not add a distinct result.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

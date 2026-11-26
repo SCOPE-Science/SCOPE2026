@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:46:55.288190Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the zero-sum vertex space, the Laplacian is N I−ddᵀ for d=e₀−e₁. Its inverse there is I/N+ddᵀ/[N(N−2)] since dᵀd=2. For an incident edge 0x the potential has values (N−1)/[N(N−2)], −1/[N(N−2)], −1/N at 0,1,x respectively, and zero elsewhere. Summing the absolute differences along surviving edges gives q_A=2−1/(N−2) with diagonal r_A=(2N−3)/[N(N−2)]. For a remote edge, the rank-one term vanishes and the omitted edge would have had zero drop; q_B=2−2/N and r_B=2/N. Since 0≤r_e≤1 for an orthogonal projector, complementary absolute column sums are 1+q_e−2r_e. The two orbit differences are therefore (N−4)/[N(N−2)] and (N−6)/[N(N−2)]. Both orbits exist only for N≥4; their maxima give the signs and ties stated. For N=3 the surviving graph is a tree with Q=I and P=0. For the full clique, every cut column has diagonal 2/N and 2(N−2) entries of magnitude 1/N, so the full clique values are 2−2/N and 3−6/N. Symmetry of the projections identifies the two endpoint norms, and orientation only changes row and column signs.",
+      "status": "PASS",
+      "verification": "Independent replay: /workspace/branches/7f0b5b35-7936-487c-97e6-657d37616825/independent_deleted_clique_check.py. Grounded-Laplacian exact-rational inversion verified every column on N=3–12, 275 columns, including maxima, orbit sums and thresholds. The frozen checker.py was inspected, not run. The finite comparison corroborates, but does not replace, the rank-one all-N proof."
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The complete multipartite Finding maximizes scores F_N(s)+F_N(t) and 1+H_N(s)+H_N(t), and Steps 2–3 give exactly those scores for each column orbit. The scope includes singleton parts and the tree boundary."
+        ],
+        "reasoning": "This is full coverage by direct part-size substitution. Resistance data alone can be polarized into transfer-current entries but do not state the norm maximization; the stronger catalogue theorem already carries out the absolute sums and maximization.",
+        "searches": [
+          "Resultary 745e7b0c399e, Finding and Proof Steps 1–4",
+          "Bapat–Karimi–Liu arXiv:1611.09457 complete multipartite resistance"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "Resultary 745e7b0c399e, e8116e45ee96 and cb1eceb082ab; 0f6b407e194c summary only",
+        "Dilworth–Kutzarova–Ostrovskii arXiv:2305.12582 and arXiv:2007.07949",
+        "Bapat–Karimi–Liu arXiv:1611.09457"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "F_N(1)=1−1/N and H_N(1)=1−3/N; the earlier difference formulas give F_N(2)−F_N(1)=(N−4)/[N(N−2)] and H_N(2)−H_N(1)=(N−6)/[N(N−2)]."
+        ],
+        "reasoning": "The (1,1) scores are the intact clique values. Changing one part of the edge pair to size 2 changes only one summand, by the two differences above; taking maxima adds their positive parts. Their signs give exactly the maximizing class transitions. For N=3 only the (2,1) type exists, and the older theorem evaluates to (1,0). The frozen rank-one argument is an alternative derivation of a mechanical specialization.",
+        "searches": [
+          "745e7b0c399e, Finding and Proof Steps 2–4, offsets 0–5569"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "745e7b0c399e explicitly defines Q=DᵀL⁺D on unweighted edges and C=I−Q. Its part-size orbits (2,1) and (1,1) are exactly the incident and remote edge orbits in the deleted clique."
+        ],
+        "reasoning": "The deleted clique is K_(2,1,…,1), with the removed endpoints in the same two-element part. The full clique has all singleton parts. Electrical gradient projection is the same canonical cut projector, but a least-norm projection or a graphical zonotope inradius is a different invariant.",
+        "searches": [
+          "Resultary exact endpoint Hodge norms complete multipartite",
+          "canonical electrical gradient projection and transfer-current comparisons",
+          "Dilworth–Kutzarova–Ostrovskii arXiv:2305.12582"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first record gives a symbolic all-size table of column scores, not just one finite size. The balanced-tripartite record deletes a cross-part edge of K_(m,m,m) and gives its own different formulas; it is not the deleted-clique comparison on which the decision rests."
+        ],
+        "reasoning": "The symbolic table determines all entries needed for the frozen result, including the absent remote orbit at N=3. There is no need to infer equivalence from a finite graph table or to rely on the uninspected later summary.",
+        "searches": [
+          "Resultary 745e7b0c399e exact part-size score formulas",
+          "Resultary e8116e45ee96 one-edge deletion in balanced tripartite graphs",
+          "Resultary 0f6b407e194c multipartite electrical gradient projection (summary)"
+        ]
+      },
+      "rationale": "The inspected complete multipartite theorem (Resultary 745e7b0c399e) gives the same cut and complementary cycle projections, the exact absolute column sums for each pair of part sizes, and the maxima. Both the intact clique and the once-deleted clique lie in that class. Substituting their part sizes gives all displayed norms, thresholds and extremizers, including the N=3 star. This is positive statement-level subsumption by a stronger result, not a decision based on matching titles, scope words or an unavailable source.",
+      "residual_risks": [
+        "The later 0f6b407e194c hit was not recoverable as an exact mirrored file; only the summary was available, and it was not needed for the verdict.",
+        "The literature comparison is bounded; the mathematical implication from the fully inspected multipartite record is sufficient, without settling all historical priority or nearby weighted variants."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive stronger coverage",
+          "evidence": "Exact per-column scores F_N(s)+F_N(t) and 1+H_N(s)+H_N(t), difference formulas and inclusion of singleton parts and trees.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-endpoint-hodge-norms-and-an-edge-orbit-reversal-for-comple--745e7b0c399e/RESULT.md",
+          "material_read": "Finding, scope and Proof Steps 1–4, offsets 0–5569",
+          "method": "Local mirror source text",
+          "title": "Exact endpoint Hodge norms and an edge-orbit reversal for complete multipartite graphs",
+          "trigger": "Broader exact norm and orbit formula containing both graph families"
+        },
+        {
+          "assessment": "Related but different graph family",
+          "evidence": "Its graph is a balanced complete tripartite graph with one cross-part edge removed.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/27/SCOPE-one-edge-deletion-reverses-endpoint-hodge-norm-monotonicity-on-b--e8116e45ee96/RESULT.md",
+          "material_read": "Finding from offset 0",
+          "method": "Local mirror source text",
+          "title": "One-edge deletion reverses endpoint Hodge-norm monotonicity on balanced tripartite graphs",
+          "trigger": "Same deletion operation, endpoint norms and orbit changes"
+        },
+        {
+          "assessment": "Prior framework, not the decisive exact comparison",
+          "evidence": "Proposition 8 treats minimal cycle projection norms; §2.1 discusses tori and Hamming graphs.",
+          "identifier_or_url": "https://arxiv.org/pdf/2305.12582",
+          "material_read": "PDF pp. 2–4; Proposition 8, p. 9; §2.1, pp. 9–10",
+          "method": "OA PDF passages",
+          "title": "Cycle spaces: invariant projections and applications to transportation cost",
+          "trigger": "Canonical versus minimal projections and earthmover connection"
+        },
+        {
+          "assessment": "Relevant exact pairwise data; not itself a column-score theorem in the inspected passage",
+          "evidence": "The pairwise effective-resistance formulas can be polarized to get entries, but do not in that passage sum absolute values or maximize columns.",
+          "identifier_or_url": "https://arxiv.org/pdf/1611.09457",
+          "material_read": "PDF p. 1, offset 1947",
+          "method": "OA PDF passage",
+          "title": "Bapat, Karimi and Liu, resistance distances of complete multipartite graphs",
+          "trigger": "Resistance data for the broader exact graph family"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The deletion thresholds are informative as examples of a broader phenomenon, but the precise values, sharp ties, and boundary case are already mechanically determined by the two known multipartite score functions. The frozen record supplies no independent new example outside that theorem, new invariant, or nonmechanical consequence beyond ordering these two scores.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

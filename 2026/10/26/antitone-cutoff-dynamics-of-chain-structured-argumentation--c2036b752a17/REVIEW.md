@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Liao's structural defense quantifies over direct attacks to the prefixes of subarguments. Every prefix \(E_k\) counterattacks precisely the suffix beyond \(h(k)\), so defense yields \(E_{h(h(k))}\); the complete and stable criteria follow from conflict-freeness. Cycles of the antitone scalar map give the sharp upper bound, realized by the antidiagonal attack relation. Stars-and-bars and Vandermonde give the exact stable-profile census. The checked implementation compares the theorem with direct quantified semantics and enumerates all small attack matrices, but this is corroboration rather than an infinite proof.
+## correctness
 
-## Originality — PASS within inspected evidence
-The motivating arXiv:2601.12038v3 provides general SAF semantics and the forgetful projection; its inspected theorem/appendix statements do not deliver this restricted-chain antitone normal form or exact profile counts. Prakken (2010) develops structured-argument closure; Reilly--Scheinerman--Zhang (2014) study nested/Ferrers adjacency graphs. Focused searches of result databases and relevant literature did not reveal a claim with an implication covering the complete semantics, sharp maximum and half-stable profile census together. The ordinary fixed-point theorem, Ferrers characterization and binomial identities are explicitly prior work, not individually claimed novel. Priority risk remains from alternative Ferrers-kernel terminology.
+PASS
 
-## Value — PASS
-A natural syntactic restriction (a total chain of structural dependencies) collapses arbitrary cyclic attack configurations to a one-dimensional, antitone dynamical system. Besides a qualitative uniqueness theorem, the result gives a sharp worst-case complete-extension bound and an exact prevalence distribution for stable extensions over all possible effective attack profiles. These are checkable, meaningful structure-sensitive semantic invariants that go beyond simply restating Dung's fixed-point principle.
+In the stated SAF semantics, an attacker in row i hits the subarguments of j exactly when its first target is <=j. Thus attacks by E_k form the suffix starting after h(k), conflict-freeness is h(k)>=k, and undefended arguments are those hit by a row not counterattacked by E_k, namely a row through h(k). Their complement is E_{h(h(k))}. Closure forces all admissible sets to be prefixes, and stability combines coverage of the outside suffix with conflict-freeness, so h(k)=k. A nonincreasing map of n+1 states has at most one fixed point, and its square's fixed points are just fixed points and two-cycle pairs. Only the lower index of a nontrivial pair passes conflict-freeness. Iterating the nondecreasing h^2 from 0 gives a fixed point k; taking min(k,h(k)) establishes existence of a complete prefix. The disjoint cycles give the bound and the ordered prefixes give a unique largest complete extension. The antidiagonal attack realizes h(k)=n-k, attaining the bound also at n=1. Every weakly decreasing n-tuple in [0,n] is realized by the one-target/empty-row construction. For a stable profile at k, choose the k-1 preceding values from [k,n] and the n-k trailing values from [0,k] as multisets; this gives the stated binomial product. The unique fixed-point property makes the summation disjoint, and Vandermonde gives the half count.
 
-## Scientific scope and risks
-Arbitrary direct attack cycles are allowed, but branching subargument structures and non-SAF defense rules are excluded. The census concerns cutoff profiles and not raw labelled attack graphs or extension-equivalence classes. The full 2026 primary preprint was inspected; potentially synonymous older Ferrers/threshold-argumentation classifications cannot be ruled out by literature search alone. Finite checks do not prove the all-size theorem; the symbolic argument supplies that proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The SAF semantics, general defense fixed-point theorem, Ferrers row nesting, and binomial identities are not new. The supported distinct result is their chain-specific reduction to an antitone state variable with an exact sharp extension census and position-refined profile census. The strongest inspected SAF and nested-neighborhood literature supplies ingredients but no equivalent combined law or directly covering result. This conclusion is limited by incompletely accessible older Ferrers literature.
+
+## value
+
+PASS
+
+A total subargument chain is a natural test case for how closure and attack projection constrain extensions. One cutoff gives all three semantics, makes the largest complete extension unique despite potentially many complete extensions, and quantifies exactly how stable existence varies across realizable profiles. This replaces reasoning over arbitrary attack matrices by a complete, sharp classification. The elementary binomial evaluation is not the sole contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

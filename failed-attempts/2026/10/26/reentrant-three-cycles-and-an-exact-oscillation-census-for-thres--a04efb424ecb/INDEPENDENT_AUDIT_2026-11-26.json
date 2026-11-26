@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:21:40.083972Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Saturation at two commutes with adding whole color classes, so simultaneous moves depend exactly on the 26×26 nonempty capped pairs. Following each occupied initial shore-color class lifts the quotient to the labelled dynamics: its members never split, and equality of all those colors is equivalent to equality of the entire labelled assignment. Independent bounded reproduction at /workspace/branches/a94a865e-ba3e-4d7e-951a-09501c3ce91b/independent_census.py (run with python3) exhausts the 676 pairs and 2808 admissible tags. Tag entry is at most three; the pair-level LCM distribution is 613, 15 and 48 for periods 1, 3 and 4 respectively, ruling out a mixed period 12. The simultaneous return of all tags then gives F^15=F^3. The reproduced periodic-minus-fixed signature polynomial for k=3 is E(x)^3E(y)^3+E(x)^3((1+y)^3−1)+E(y)^3((1+x)^3−1), and for k=4 it is 6E(x)^2E(y)^2, with E(z)=exp(z)−1−z. Weighting capped counts 0,1,2 by 1,z,E(z) and extracting labelled coefficients gives the claimed primitive-point counts and size cutoffs. The independent literal vertex check of ((1,2),(0,0,2,2)) enters at update three. The fixed-point formula follows by checking each occupied color's opposite successor count, and a union bound shows that both shores have all colors repeated with proportion tending to one, giving the recurrent proportion claim. The frozen verifier and recorded output were inspected, not executed; their quotient totals agree with the fresh certificate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "b3abd8d3ada1 treats every m,n≥1 and the whole attraction basin of each period, with the very same T≤3, sharp K_(2,4) case, F^15=F^3 and cutoffs. fd4efc95a2d1 gives entry-time layers at period four as well as the periodic count. Bello–Sivakoff study threshold at least two on infinite regular trees; Gravner–Lyu–Sivakoff use threshold-one CCA."
+        ],
+        "reasoning": "The decisive broader results are the distinct indexed basin theorems, not general literature on random initial states or other update rules. Basin counts are not automatically periodic-point counts; the explicit time-zero statements and the type comparison supply the link.",
+        "searches": [
+          "Resultary b3abd8d3ada1 and fd4efc95a2d1, exact basin results",
+          "arXiv:2108.06404v1 and arXiv:1610.07320, introductory rule statements"
+        ]
+      },
+      "checked_sources": [
+        "Resultary b3abd8d3ada1 and fd4efc95a2d1, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+        "Resultary GHM near-matches 80bbc6695856, 5bef754e247f and 3a7e2d671cfb",
+        "Bello–Sivakoff arXiv:2108.06404v1",
+        "Gravner–Lyu–Sivakoff arXiv:1610.07320"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a one-vertex shore, the opposite shore never advances, and the one vertex either stays or, if all three colors on the fixed opposite shore have counts ≥2, cycles through every color; no nontrivial transient three-basin occurs. Thus the indexed all-size N_3 also counts exactly the period-three points there. The all-size theorem excludes primitive fours for one-vertex shores. The fixed-point multinomial sum is the direct translate of the no-move condition and the density follows because all colors are repeated on both shores with probability approaching one."
+        ],
+        "reasoning": "The distinct statements together cover the substantive claims, including the small-domain difference; the residual restatements do not form a new result of independent value. This establishes coverage, not a dated priority claim.",
+        "searches": [
+          "Resultary fd4efc95a2d1, time-zero clauses",
+          "Resultary b3abd8d3ada1, all-size theorem and period-size cutoffs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both passages use the identical synchronous successor-color rule on labelled bipartite shores. fd4efc95a2d1 explicitly says every eventual period-three configuration is already periodic at time zero and exactly 6J_aJ_b are of least period four at time zero."
+        ],
+        "reasoning": "For the shared domain H_n=B_n, U_n=I_n and J_n=C_n after relabelling. Hence these are the same periodic-point counts, not merely matching terminology. Threshold-one CCA and the indexed same-day tripartite Greenberg–Hastings finding 80bbc6695856 do use different rules or graphs and are not the basis of rejection.",
+        "searches": [
+          "Resultary: three-color threshold-two complete bipartite cyclic automaton, reentrant cycles and primitive-point census",
+          "Resultary b3abd8d3ada1 and fd4efc95a2d1, Finding and Assumptions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed fd4efc95a2d1 theorem explicitly gives the exact 6J_aJ_b point count and its quarter as orbit count. Its table has 15 capped time-zero period-three signatures and 6 period-four signatures. b3abd8d3ada1 gives 15 eventual three and 48 eventual four signatures, with exactly the all-size period-three census after relabelling."
+        ],
+        "reasoning": "This is an exact indexed classification on the target family, not a table of small cases or a search hit without a statement comparison. The period-four basin count itself is larger and is not mistaken for R_4.",
+        "searches": [
+          "Resultary fd4efc95a2d1, Finding and proof's capped-pair table",
+          "Resultary b3abd8d3ada1, Finding and finite lemma"
+        ]
+      },
+      "rationale": "The mathematical classification is substantially covered by two distinct indexed findings with the same threshold-two CCA on labelled complete bipartite graphs. b3abd8d3ada1 states the full all-size period set, sharp transient, identity, and exact reentrant three-cycle cutoffs. fd4efc95a2d1 gives the identical time-zero primitive three- and four-period counts when both shores have size at least two; the one-vertex cases are covered by the first record for period three and have no four-cycles. This is established statement-level overlap, not a conclusion about who obtained or disclosed the mathematics first. The indexed paths have later directory dates, which are not a basis for assigning priority or independent provenance.",
+      "residual_risks": [
+        "The relative chronology and provenance of the substantially overlapping records were not established. The finding of equivalent coverage does not assert that those records historically preceded the frozen record or that any one was derived from another.",
+        "Primary literature inspection was bounded and cannot rule out additional equivalent work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same dynamics, sharp three-step result and all-size reentrant period-three census; period-four basin is not the target periodic count",
+          "evidence": [
+            "T≤3, periods {1,3,4}, F^15=F^3, K_(2,4) sharpness and N_3=U_mU_n+U_mL_n+L_mU_n."
+          ],
+          "identifier_or_url": "b3abd8d3ada1",
+          "material_read": "RESULT.md Finding, Assumptions and opening finite quotient/lemma, mirror offsets 0–4939",
+          "method": "Local mirror passage inspection",
+          "title": "Exact period basins and a nonmonotone oscillation window for threshold-two cyclic competition on complete bipartite graphs",
+          "trigger": "Strongest all-size indexed match"
+        },
+        {
+          "assessment": "Exact same periodic-point counts for both shores at least two, with additional basin information",
+          "evidence": [
+            "All eventual period-three states are initially periodic. Exactly 6J_aJ_b points are initially periodic of least period four. Three-cycle basin formula matches R_3 term by term."
+          ],
+          "identifier_or_url": "fd4efc95a2d1",
+          "material_read": "RESULT.md Finding, Assumptions and opening capped-pair proof/table, mirror offsets 0–4863",
+          "method": "Local mirror passage inspection",
+          "title": "Exact attractor basins and a nonmonotone three-cycle window in threshold-two cyclic automata on bicliques",
+          "trigger": "Potential exact periodic-point coverage"
+        },
+        {
+          "assessment": "Related threshold rule, not the graph or census at issue",
+          "evidence": [
+            "Threshold θ≥2, infinite regular trees and stochastic fixation/fluctuation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2108.06404v1",
+          "material_read": "PDF p. 1, abstract and introduction, offset 0",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Cyclic Cellular Automata and Greenberg–Hastings Models on Regular Trees",
+          "trigger": "Primary threshold-two CCA match"
+        },
+        {
+          "assessment": "Different contact threshold",
+          "evidence": [
+            "Advancement uses a single successor-colored neighbor; GHM additionally differs from CCA in which states automatically advance."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1610.07320",
+          "material_read": "PDF p. 1, abstract, offset 0",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+          "trigger": "Primary arbitrary-graph three-color CCA comparison"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As mathematics, the sharp size-independent transient and nonmonotone disappearance and reappearance of three-cycles are meaningful structural facts for threshold dynamics, and the labelled counts quantify them exactly. This assessment of the content does not resolve the originality failure. No distinct valuable remainder of the frozen claim was established for repair.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

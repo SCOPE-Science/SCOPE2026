@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The scalar recurrence and complex sine sum follow exactly from the affine branch. At a fixed \(r>1\), the half-turn root equations are locally strictly monotone, and the implicit root displacements have the required exponentially small size. Subtracting them yields the sharp coefficient \(2\pi^2(r-1)/r^2\); separating consecutive half-turns yields \(2r\pi^2\). The two-step reset is an exact, noninvertible return and its derivative vanishes. Included high-precision checks verify the required inequalities for multiple parameter choices; the proof, not the samples, supplies the infinite claim.
+## correctness
 
-**Originality: PASS, with stated priority risk.** The original 2024 paper develops the map and exact formulas, plus fixed-\(D=2\) numerical tables and general finite-parameter root regions. Those formulas imply computability but neither state nor directly supply the two fixed-\(D\) asymptotic constants and exponential/polynomial gap contrast. The closest indexed special result studies \(T=D\to4\), a moving-determinant parameter direction. The new theorem treats all fixed \(D>1\), and its coefficients are not obtained by substituting \(r=2\) into the older moving-determinant parameter calculation. The publicly indexed closest result's full proof was not available; a more general unindexed derivative calculation remains a residual risk.
+PASS
 
-**Value: PASS.** A fixed physical determinant is a natural one-parameter experimental slice, already numerically tabulated in the originating paper. The theorem shows that for each fixed determinant *every* sufficiently high primitive period occurs in a nonzero-width, superattracting interval; the width is \(n^{-3}\) but the distinct intervening gap has the sharper, nonuniform \(r^{-n}n^{-3}\) scale. Both exact constants and their ratio quantify why near-critical parameter scans can miss the interleaved regions and distinguish trace tuning from simultaneous trace-determinant tuning.
+Summing the finite Green sequence ∑_{j=0}^n r^j sin((j+1)θ)/sin θ gives the claimed phase and amplitude, with A(0)=(r−1)^2. The zero of Φ_n−π is at π/(n+1−1/(r−1))+O_r(n^−4), and the growing amplitude means each target root is an angular displacement O_r(r^−n/n²) above it. For either target the crossing equation is strictly monotone in a phase band of size O(1/n) around π: the phase derivative is n+O_r(1) and the arcsine derivative is O_r(r^−n). Subtracting the equations for the two target levels gives an angular separation asymptotic to (r−1)π/(r^{n+3}n²); multiplication by 2r sin θ gives 2π²(r−1)r^−n/(r²n³). Consecutive phase roots have angular separation asymptotic to π/n², giving 2rπ²/n³ and then the stated ratio. In the open window, the two threshold signs give X_n<0 and X_{n−1}>r^−2. For an explicit check of the earlier signs, at the upper angular endpoint the (n−1)st phase is at most π+O_r(r^{−n+1}/n). Hence for j≤n−2 the phase is below π by subtracting at least θ of order 1/n; fixed sufficiently large j also have positive phase, and the finitely many smaller j have positive limits from the finite Green sequence. The proof's alternative wording about being below π at the last positive iterate need not hold for j=n−1; that sign is supplied separately by the threshold, as above. The actual orbit therefore first reaches two negative coordinates at step n and resets in the next two steps. Nothing before then is (1,1), since the second coordinate is less than 1 after every preceding strictly positive first coordinate, and the first coordinate at step n+1 is negative. Strict signs give a neighborhood with the same itinerary, and the two negative branch maps compose to a constant reset, stronger than just zero derivative.
 
-Closest literature: Ohmori–Yamazaki (2024) arXiv:2402.06230, complete arXiv HTML, §§3–5; *Exponentially thin parameter gaps in a max-plus reset oscillator* (2026-10-11) public indexed summary; and *Sharp extinction and persistence at the homogeneous max-plus border collision* (2026-10-11), which has zero input and addresses extinction rather than unit-input reset windows. The prior source proves finite-root existence in its parameter diagrams; the asymptotic coefficients here are a refinement, not a conflicting classification. Limitations: no global cycle or gap census; pointwise fixed-\(r\) asymptotics; independently audited validation unavailable.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified to the fixed-D all-large-n staircase and its sharp window and gap constants. The reset map, two-step reset, crossing equations, and conditional n+2 return are prior. The exponential-gap mechanism is also prior on a different path; the matching ratio at the shared limiting point is not by itself distinctive.
+
+## value
+
+PASS
+
+Fixed determinant is a natural experimental and theoretical slice already present in the numerical literature. Certifying every sufficiently high primitive period with nonzero width and extracting the exponential separation from its polynomial-width neighbor gives information that finite threshold diagrams can miss. The constants separate trace-only tuning from simultaneous trace/determinant tuning.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:52:05.785873Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At m=N-1 row i of the unshuffled integer incidence matrix omits exactly N-1-i. Shuffling columns consequently gives J-Q, with q=sigma composed with the reversal and hence all q equally represented. Constants contribute m and on the invariant zero-sum subspace the action is -Q, giving the displayed cycle polynomial after removing one t+1. Thus for d>=2 occurrence of a fixed primitive phase is equivalent to the presence of a cycle of length divisible by d. The exponential generating function for avoidance is (1-z^d)^(1/d)/(1-z), whose binomial partial sum at floor(N/d) gives the product. Order 1 is separate because one constant eigenvector was removed: exactly the single-cycle permutations lack -1/m. The coarse finite Markov eigenvalues are genuine piecewise constant BV eigenvalues (changing the row/column convention transposes without changing spectrum). The source's proven upper bound equals the essential radius 1/m in this family. A cycle of length N-1 gives a phase on the mixing-rate circle, not among the listed conjectural vertices; for even N the additional sign is itself an N-th root and for odd N the common sign cancels in the comparison. Strict convexity of the disk excludes this phase from their hull. This refutes the literal v3 hull statement and its maximal-radius consequence, not the proven rate bound or a modified statement about isolated eigenvalues outside the essential disk. The result describes the finite matrix, not the entire BV spectrum.",
+      "reproduction": "In the 0-based N=4 case take sigma=(3,0,2,1). Multiplying the incidence and permutation matrices gives rows (1,0,1,1), (1,1,0,1), (0,1,1,1), (1,1,1,0); the omitted-column permutation is (1,2,0,3), type (3,1). The characteristic polynomial is (t-3)(t+1)(t^2-t+1) and (1-i*sqrt(3))/6 lies outside the predicted diamond. As a bounded exact check, the five N=4 cycle types 1^4, 2 1^2, 2^2, 3 1, 4 have sizes 1,6,3,8,6; orders 1,2,3,4 then have incidence counts 18,15,8,6, agreeing with the formula. The frozen permutation-enumeration script was inspected, not run; the argument for general N is algebraic and does not depend on finite enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The original sharp bound yields baseline mixing at m=N-1. Proposition 4.2.4 already gives the roots-of-unity criterion for that rate and the primary work gives the transition-matrix construction.",
+          "The sequel's introduction extends to sign patterns of the slope; the counterexample discussed there is to the distinct Badii et al. conjecture. The indexed orientation-family rate result 2026/11/17/SCOPE-sharp-uniform-parry-mixing-in-all-orientation-high-entropy-inter--f035502a5c10 has different matrices and no phase census."
+        ],
+        "reasoning": "The cited prior results cover the rate assertion as an ingredient, not the location and counts of phases on that rate circle or the complementary-slope violation of the displayed hull.",
+        "searches": [
+          "arXiv:1203.5145v3 sections 2.3–2.4, Lemma 4.2.1, Proposition 4.2.4",
+          "arXiv:1405.0481 PDF introduction, offset 5820",
+          "Resultary rate and orientation comparisons"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py as text",
+        "arXiv:1203.5145v3",
+        "arXiv:1405.0481",
+        "Two indexed Resultary records enumerated above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary AP construction makes the rank-one-plus-permutation mechanism implicit, but its rate theorem and roots-of-unity criterion do not determine which phases occur for a particular shuffle.",
+          "For the cycle type (N-1,1) the new specialization yields a primitive order N-1 phase of modulus tau_max, outside all permitted vertices and therefore their hull. The frequency of this obstruction is N!/(N-1) for any fixed primitive such phase."
+        ],
+        "reasoning": "The contribution is a short explicit use of prior machinery that produces a statement not supplied by those general theorems and answers the conjecture negatively in an infinite natural family.",
+        "searches": [
+          "arXiv:1203.5145v3 Conjecture 2.4.1, Lemma 4.2.1 and Proposition 4.2.4",
+          "arXiv:1405.0481 sequel introduction",
+          "Resultary modular-cycle eigenvalue comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary text defines Lambda_sigma via the full BV spectrum at modulus tau_sigma, not by isolation. The outer-circle sentence is a consequence of the hull assertion, not a separate conjecture.",
+          "The nearest indexed cycle-controlled spectrum, 2026/11/8/SCOPE-arithmetic-spectral-and-exact-memory-laws-for-coarse-integer-bas--f150481bc4c2, concerns unshuffled modular-multiplication cycles and does not index arbitrary shuffle spectra."
+        ],
+        "reasoning": "The relevant condition is possession of a genuine Markov eigenvalue at the specified modulus, including at the essential radius. A statement restricted to isolated eigenvalues would not be equivalent; unshuffled modular-multiplication kernels also are not a reformulation of the full J-Q shuffle family.",
+        "searches": [
+          "Resultary phase spectra and cycle frequencies for shuffled expanding Markov maps",
+          "arXiv:1203.5145v3 sections 2.3–2.4 and 4.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The product is a classical permutation avoidance count, recovered by the cycle-index exponential generating function. The less direct d=1 application removes a constant eigenvector rather than applying that avoidance count.",
+          "The closest indexed phase comparison describes roots of unity governed by modular cycles, not exact incidence totals over the symmetric group of shuffles for this model."
+        ],
+        "reasoning": "No novelty is assigned to the bare count of constrained permutations. The exact identification of the event being counted as a BV-realized phase in the specified shuffle ensemble is the part not supplied by an ordinary permutation census.",
+        "searches": [
+          "Resultary for exact occurrence frequencies and the complementary-branch cycle spectrum",
+          "arXiv:1203.5145v3 sections 2.4 and 4.2",
+          "Cycle-index specialization to permutations with no cycle of length divisible by d"
+        ]
+      },
+      "rationale": "Credit the existing Markov reduction, the rate bound and the standard cycle-index counting formula rather than claiming them as independent discoveries. The supported contribution is the complementary-branch identification and its phase census for shuffles, especially the resulting witness against the literal hull statement in the identified primary version. No equivalent spectral census or antecedent witness for this conjecture was found in the checked sources.",
+      "residual_risks": [
+        "Priority for the simple complementary-slope calculation is not absolute. The general literature lookup was deferred; the reviewed statement is specifically v3, and no separate erratum or later resolution was established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior transition and rate theory; direct target of the witness",
+          "evidence": "Lambda_sigma uses the full spectrum at modulus tau_sigma. The conjecture states hull inclusion and gives maximal-radius exclusivity in particular. Baseline-rate criterion permits roots-of-unity Markov phases but does not enumerate them.",
+          "identifier_or_url": "https://arxiv.org/html/1203.5145v3",
+          "material_read": "Sections 2.3–2.4, offsets 19600–24587; section 4.2 including Lemma 4.2.1 and Proposition 4.2.4, offsets 63600–71200 and 84300–88274",
+          "method": "Lawful OA HTML targeted passages",
+          "title": "On the mixing properties of piecewise expanding maps under composition with permutations",
+          "trigger": "Exact conjecture, hypotheses and Markov spectral theory"
+        },
+        {
+          "assessment": "Related scope extension; counterexample mentioned in inspected passage is not the conjecture at issue",
+          "evidence": "Extends the stretch-and-fold map to branch sign patterns and identifies a different counterexample to Badii et al. based on mixing rate versus a Lyapunov exponent.",
+          "identifier_or_url": "https://arxiv.org/pdf/1405.0481",
+          "material_read": "Introductory PDF pp. 2–3, offsets 5820–8216",
+          "method": "Lawful OA PDF, locate and inspect bounded passage",
+          "title": "On the mixing properties of piecewise expanding maps under composition with permutations, II",
+          "trigger": "Continuation by the same research group, possible nearby counterexample or scope revision"
+        },
+        {
+          "assessment": "Analogous arithmetic phase mechanism, not equivalent; later catalog date",
+          "evidence": "Unshuffled coarse kernels have modular-multiplication cycle phases, potentially including zero eigenvalues; they do not furnish frequencies over arbitrary shuffles.",
+          "identifier_or_url": "2026/11/8/SCOPE-arithmetic-spectral-and-exact-memory-laws-for-coarse-integer-bas--f150481bc4c2",
+          "material_read": "RESULT.md offsets 0–5660",
+          "method": "Local Resultary mirror, targeted full-text passages",
+          "title": "Arithmetic spectral and exact memory laws for coarse integer-base kernels",
+          "trigger": "Closest indexed modular-cycle spectrum"
+        },
+        {
+          "assessment": "A different orientation-word family",
+          "evidence": "Provides a mixing-rate bound, not the complementary-branch shuffle phases or a resolution of the conjectural hull.",
+          "identifier_or_url": "2026/11/17/SCOPE-sharp-uniform-parry-mixing-in-all-orientation-high-entropy-inter--f035502a5c10",
+          "material_read": "RESULT.md offsets 0–4474",
+          "method": "Local Resultary mirror, targeted full-text passages",
+          "title": "Sharp uniform Parry mixing in all-orientation high-entropy interval systems",
+          "trigger": "Indexed interval-Markov mixing comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A falsifiable hull conjecture is resolved literally for a whole family rather than by a numerical anomaly. The example isolates the distinction between rate information and the positions of poles or eigenvalues at the essential-radius boundary. The exact counts quantify how often the counterexample phases occur and clarify what survives the constant-direction projection.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

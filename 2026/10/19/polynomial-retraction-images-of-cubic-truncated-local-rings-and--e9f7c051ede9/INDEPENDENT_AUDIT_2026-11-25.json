@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:08:13.140115Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, assumptions and proof",
+        "Frozen VERIFICATION.md and verify_cubic_retracts.py (read only)",
+        "review_checks/finite_checks.py, case 4"
+      ],
+      "rationale": "For X=a+ts+t²r, Hasse–Taylor expansion gives output residue b and coordinates (u+αs,w+vs+βs²+αr). Jets of degrees 0, 1, 2 modulo (X−a)³ can be specified independently at each residue by CRT, since a−a′ is a unit. For q>2, 1,s,s² are independent as functions; for q=2 exactly the sum v+β remains after identifying s²=s. This gives q⁵ and 16 distinct local maps for a fixed b, respectively. The residue of an idempotent is a set retraction. On a fixed source residue α²=α. If α=1, u=0 and idempotence of translation of r forces the translation to vanish as a function. If α=0, idempotence forces the entire quadratic output g(s) to equal g(u), even in the binary case. So every occupied fiber is fixed fully or contributes one point; unused fibers choose independently among one map to each singleton and H_q to each full target. Choosing the active and full residues and their singleton values gives the rank polynomial and image-subset count; k+s(q²−1) gives the stated extrema and their coefficients. Independent direct ring multiplication and the span of monomial evaluation tables (`python3 review_checks/finite_checks.py 4`) give 1024 distinct binary functions, 35 images, and rank counts 8,16,32,8,1 at 1,2,4,5,8, verifying each fixed-image multiplicity without using the jet template as enumeration input.",
+      "residual_risks": [
+        "The proof here is only for the specified equal-characteristic chain ring. The independent direct census was binary; it supplements, not replaces, the all-q proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.1 of Aichinger concerns N-subgroup ranges in the tame near-ring setting under chain hypotheses and contains no such counts. The Kempner-type formula for suitable rings gives total polynomial-function cardinality with q in place of p and nilpotence length in place of n. The cubic chain ring is suitable: orders in t add until truncated at 3."
+        ],
+        "reasoning": "The former does not characterize arbitrary subsets in this problem (even a constant image may omit zero). The latter counts all functions, not their fixed sets or composition-idempotents. The numerical jet exception is covered via the total count and CRT, but the retraction-specific invariant requires a separate analysis of composition.",
+        "searches": [
+          "doi:10.1017/S0013091599001418, §1, Theorem 1.1",
+          "arXiv:1910.00238, equation (1) and suitable-ring discussion, pp. 1 and 4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1910.00238",
+        "arXiv:2002.01304",
+        "doi:10.1017/S0013091599001418",
+        "Resultary 2c6a841831cf, d0314edd48d9 and 4d39f7ca58cd",
+        "Assigned record 3, distinct split square-zero ring"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The split square-zero normal form loses the quadratic term entirely. For the cubic suitable ring, the Kempner threshold minima for k=1,2,3 are q,2q,3q when q>2 and 2,4,4 when q=2. Thus the known total is q^(6q) or 2^10 respectively; using CRT and q possible output residues per source recovers H_q=q⁵ or 16."
+        ],
+        "reasoning": "The exact local-map count is consequently not a separate originality basis. To obtain the rank enumerator still requires resolving whether an idempotent can fix a proper nonsingleton subset of one fiber despite a nonlinear second coordinate, then counting how unused fibers contribute to specified images. Neither published count nor the earlier square-zero jet statement supplies this idempotent analysis for the cubic chain ring.",
+        "searches": [
+          "arXiv:2002.01304, Theorem 3.4, Corollary 3.6, Proposition 3.7",
+          "arXiv:1910.00238, equation (1) and discussion following Proposition 2.9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The one-generator case in each indexed algebra-endomorphism result can be the same ring, but an algebra retraction fixes 1 and preserves operations. The present retractions can have any singleton image; rank here is cardinality, not vector-space dimension."
+        ],
+        "reasoning": "Even converting linear rank to a cardinality would enumerate only the endomorphism subclass. A polynomial retraction onto a singleton different from 1 is already outside it.",
+        "searches": [
+          "Resultary semantic search for unary polynomial self-map composition-idempotents and rank spectra of F_q[t]/(t³)",
+          "Resultary 2c6a841831cf and d0314edd48d9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest indexed hits count algebra-retraction vector-space ranks or classify order-preserving weak-order retracts. The split square-zero result uses affine fiber maps. At q=2,d=2 it gives 16 rank-4 maps, whereas the cubic ring on eight elements gives 32."
+        ],
+        "reasoning": "The rank enumerator cannot be transferred even between rings of equal cardinality. No indexed exact table for this composition-idempotent count was identified; the separate same-day result is compared by hypotheses and outcomes, not used to infer priority.",
+        "searches": [
+          "Resultary semantic search for the exact cubic-chain polynomial retraction image/rank polynomial and binary exceptional count",
+          "Resultary 2c6a841831cf, d0314edd48d9 and 4d39f7ca58cd",
+          "Assigned record 3, split square-zero comparison"
+        ]
+      },
+      "rationale": "The supported distinct result is the composition-idempotent image and rank enumeration and its binary multiplicity effect. Total polynomial-function counts on suitable rings already encode the numerical local-count exception; that local count alone is not new. The strongest inspected same-ring indexed results count unital algebra endomorphisms, and the broader near-ring theorem does not cover the arbitrary image subsets and multiplicities here.",
+      "residual_risks": [
+        "A stronger older unary polynomial transformation-monoid enumeration could subsume these idempotent counts. The bounded comparisons do not certify priority and do not credit novelty to the local function count in isolation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the total count used to recover the local-map exception, not the retraction enumeration",
+          "evidence": "Kempner thresholds use the sum of floor(j/q^i), and the cited suitable-ring extension replaces the prime and exponent by residue-field order and nilpotence length.",
+          "identifier_or_url": "https://arxiv.org/pdf/1910.00238",
+          "material_read": "PDF p. 1, equation (1) and threshold definition; p. 4 around Proposition 2.9; Lemma 2.7",
+          "method": "Primary PDF bounded passages",
+          "title": "Polynomial functions on rings of dual numbers over residue class rings of the integers",
+          "trigger": "Finite local rings with exact polynomial-function counts"
+        },
+        {
+          "assessment": "Square-zero hypotheses exclude t²≠0",
+          "evidence": "Its derivative/equality parametrization is for pairwise-annihilating nilpotent directions, not the nonlinear cubic fiber maps.",
+          "identifier_or_url": "https://arxiv.org/pdf/2002.01304",
+          "material_read": "PDF pp. 5–6, Theorem 3.4, Corollary 3.6, Proposition 3.7",
+          "method": "Primary PDF bounded statements",
+          "title": "Polynomial functions over dual numbers of several variables",
+          "trigger": "Closest earlier jet class for comparison"
+        },
+        {
+          "assessment": "Not covering arbitrary image subsets or counts",
+          "evidence": "States a criterion for N-subgroups of a tame N-group to be idempotent ranges under the stated conditions.",
+          "identifier_or_url": "https://doi.org/10.1017/S0013091599001418",
+          "material_read": "PDF p. 2, §1, Theorem 1.1",
+          "method": "Primary full-text theorem passage",
+          "title": "On near-ring idempotents and polynomials on direct products of Omega-groups",
+          "trigger": "Broader possible idempotent range theorem"
+        },
+        {
+          "assessment": "Same ring specialization, different transformations and rank",
+          "evidence": "Counts algebra endomorphisms under linear rank rather than all unary polynomial retractions.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-rank-spectra-of-algebra-retractions-of-cubic-coordinate-cross-ri--2c6a841831cf",
+          "material_read": "RESULT.md finding, beginning of file",
+          "method": "Bounded mirrored article passage after semantic lookup",
+          "title": "Rank spectra of algebra retractions of cubic coordinate-cross rings",
+          "trigger": "Same ring in one-generator case"
+        },
+        {
+          "assessment": "Restricted endomorphism class, not covering",
+          "evidence": "Counts embedded retract subalgebras and algebra retractions, not arbitrary subsets and the functions onto them.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-retracts-and-idempotent-endomorphisms-of-cube-zero-truncated-sym--d0314edd48d9",
+          "material_read": "RESULT.md finding, beginning of file",
+          "method": "Bounded mirrored article passage after semantic lookup",
+          "title": "Retracts and idempotent endomorphisms of cube-zero truncated symmetric algebras",
+          "trigger": "Cube-zero algebra retracts including one variable"
+        },
+        {
+          "assessment": "Distinct poset problem",
+          "evidence": "Order preservation constrains gaps in a chain of antichains, not polynomial functions on a chain ring.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-singleton-gap-criterion-for-retracts-and-eventual-images-of-fini--4d39f7ca58cd/RESULT.md",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "Bounded mirrored article passage",
+          "title": "Singleton-gap criterion for retracts and eventual images of finite weak orders",
+          "trigger": "Singleton/fiber terminology in the frozen comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Steps 1–4",
+        "Assigned record 3, affine comparison",
+        "arXiv:1910.00238, known total function counts"
+      ],
+      "rationale": "This is the first nilpotence length with a genuinely nonlinear local Hasse jet. An idempotent could superficially seem able to keep an intermediate-sized part of a residue fiber through the quadratic term when the linear coordinate collapses; the composition constraint rules it out. At the same time the nonlinear jet changes the retraction multiplicities, with a binary collision that affects the coefficients while leaving the admissible image sets unchanged. The complete exact image census for this natural chain-ring stage resolves both issues, not just the already-known count of all maps or an isolated binary example.",
+      "residual_risks": [
+        "No claim is made of new counts for all polynomial functions or of a retraction census at higher length."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

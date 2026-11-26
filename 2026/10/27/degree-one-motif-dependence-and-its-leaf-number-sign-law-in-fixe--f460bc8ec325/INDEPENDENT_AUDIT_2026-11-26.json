@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:45:31.611574Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently conditioned in the reverse order from RESULT.md: fix an injection and condition on all h motif edges being present. The remaining m−h edges are uniform on N−h choices. For a test vertex outside the image, the degree-one probability is (n−1) C(U−h,m−h−1)/C(N−h,m−h); at a motif leaf it is C(U−h+1,m−h)/C(N−h,m−h); at an image of a motif vertex of degree at least two it is zero. Weight by (n−k)/n and ℓ/n, and divide by the positive marginal (n−1)C(U,m−1)/C(N,m). Cancellation gives the stated normalized mixed moment and the covariance factor. The zero binomial convention covers m=h, including k=n; h≤m≤U also keeps all claimed denominators nonzero. The slope in ℓ is positive and the function of 1/m is affine, proving the stated strict sign comparisons. The sign parameters are n,m,k,h,ℓ, not a list omitting m. Exact integer replay: multiply (N)_h/(U)_h by [(n−k)(m−h)(n−1)+ℓ(U−h+1)]/[n(n−1)m], cancelling by gcd before multiplication; n=12,m=10,k=6,h=5 gives 41664/49555 and 11284/9911 for ℓ=2,5. For H=P3 at n=5 the ratios at m=2 and 6 are 3/4 and 21/20. Read the frozen verification notes and verifier source; did not run it. Its selected finite checks are corroboration, not a full-order proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Janson's Theorem 4.1(ii) gives asymptotic degree-frequency covariances with 2m/n tending to a positive limit. Resultary 6c2dd1be4f3b gives a finite degree-histogram covariance spectrum. Neither identifies the other observable as an arbitrary motif count. The 1990 primary text was unavailable for inspection."
+        ],
+        "reasoning": "An asymptotic limit or a finite collection of histogram covariances does not supply this finite degree-one/embedding mixed moment.",
+        "searches": [
+          "arXiv:math/0605642, fixed-edge degree counts",
+          "DOI:10.1002/rsa.3240010103 and Wiley OA access",
+          "Local Resultary: fixed-edge degree histogram covariance"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_degree_one_motifs.py",
+        "Local Resultary 81c56545debd, b49fbe58c486, and 6c2dd1be4f3b",
+        "arXiv:math/0605642",
+        "DOI:10.1002/rsa.3240010103 (access attempt only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With ℓ=0 the earlier Resultary formula implies both the ratio and the affine dependence on 1/m. With ℓ>0 the event that the test vertex is a leaf image has positive conditional probability and changes the sign in the frozen witness."
+        ],
+        "reasoning": "The proof mechanism is elementary hypergeometric conditioning, but the earlier assertion restricted to ℓ=0 does not imply the discrimination by leaf count at fixed n,m,k,h.",
+        "searches": [
+          "81c56545debd, Finding and assumptions",
+          "arXiv:math/0605642, Theorem 4.1(ii)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 81c56545debd has exactly the same outside-image formula for minimum-degree-two motifs. Injective versus automorphism-normalized copies have identical normalized mixed moment; this is real overlap, not just a title match."
+        ],
+        "reasoning": "The normalization does not distinguish the no-leaf case. The positive leaf-image term and the path/star comparison distinguish the extension.",
+        "searches": [
+          "Local Resultary: fixed-edge leaf covariance with motif counts and sign transition",
+          "arXiv:math/0605642, Theorem 4.1(ii)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "81c56545debd and b49fbe58c486 state exact expressions on the no-leaf domain, with the latter also treating the triangle. Neither includes the equal-size path/star sign pair."
+        ],
+        "reasoning": "Comparison is against indexed exact formulas, not only numerical examples. Their admissible-motif condition excludes both witness motifs.",
+        "searches": [
+          "Local Resultary: leaf/cycle exact sign and fixed-edge motif covariance"
+        ]
+      },
+      "rationale": "Credit is for the extension to leaf-bearing motifs, the exact ℓ term and the matched-size opposite-sign witness, not for the already stated minimum-degree-two formula or its single-crossing consequence. The earlier no-leaf law excludes the additional overlap case v=an image of a leaf, and does not give its contribution. No inspected source establishes the full leaf-bearing statement.",
+      "residual_risks": [
+        "Janson's 1990 full text remains unchecked; a more general exact finite joint moment elsewhere might imply the leaf term.",
+        "Retain explicit attribution for the earlier indexed no-leaf subcase when describing the contribution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior coverage of ℓ=0 subdomain only",
+          "evidence": "Normalized ratio is (N)_h/(U)_h times (n−k)(m−h)/(nm), with motif minimum degree at least two.",
+          "identifier_or_url": "2026/10/13/SCOPE-a-motif-universal-sign-transition-for-leaf-covariance-in-fixed-e--81c56545debd",
+          "material_read": "RESULT.md Finding and assumptions",
+          "method": "Local Resultary mirror",
+          "title": "A motif-universal sign transition for leaf covariance in fixed-edge random graphs",
+          "trigger": "Strongest exact indexed match"
+        },
+        {
+          "assessment": "Later overlapping no-leaf statement, not leaf-bearing coverage",
+          "evidence": "Same normalized outside-image term and additional triangle analysis, with no motifs with leaves in scope.",
+          "identifier_or_url": "2026/11/2/SCOPE-an-exact-leaf-cycle-covariance-sign-transition-in-fixed-edge-ran--b49fbe58c486",
+          "material_read": "Finding and motif scope",
+          "method": "Local Resultary mirror",
+          "title": "An exact leaf-cycle covariance sign transition in fixed-edge random graphs",
+          "trigger": "Exact sign-law overlap"
+        },
+        {
+          "assessment": "Related different observables",
+          "evidence": "The covariance is of degree histogram entries, not degree-one count and noninduced embeddings.",
+          "identifier_or_url": "2026/10/18/SCOPE-edge-count-invariant-covariance-spectrum-of-fixed-edge-random-gr--6c2dd1be4f3b",
+          "material_read": "Finding",
+          "method": "Local Resultary mirror",
+          "title": "Edge-count invariant covariance spectrum of fixed-edge random graph degree counts",
+          "trigger": "Possible finite general covariance formula"
+        },
+        {
+          "assessment": "Asymptotic degree-frequency covariance, not the finite mixed moment",
+          "evidence": "Part (ii) treats G(n,m) degree-count limit statistics under 2m/n→λ>0.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0605642",
+          "material_read": "Abstract and Theorem 4.1(ii), printed pp. 959–961, OA offset around 25700",
+          "method": "Lawful OA PDF text",
+          "title": "Monotonicity, asymptotic normality and vertex degrees in random graphs",
+          "trigger": "Primary cited fixed-edge degree covariance work"
+        },
+        {
+          "assessment": "Unresolved, no evidence of coverage from access failure",
+          "evidence": "Full text not retrievable in the bounded comparison; no inference about the contents.",
+          "identifier_or_url": "https://doi.org/10.1002/rsa.3240010103",
+          "material_read": "Bibliographic identification only; no primary text inspected",
+          "method": "Lawful DOI and Wiley access attempted; no accessible copy identified",
+          "title": "A functional limit theorem for random graphs with applications to subgraph count statistics",
+          "trigger": "Plausible earlier joint random-graph statistics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The extension identifies precisely which motif feature enters a natural mixed observable after size and edge count have been fixed. The path and star show that ignoring that feature can reverse the prediction at the same graph and motif sizes. This is stronger than repeating the no-leaf formula or recomputing one isolated example, while still restricted to noninduced embeddings with no isolated motif vertices and the stated edge range.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

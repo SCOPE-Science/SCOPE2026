@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:33:55.449212Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md proof §§1–5",
+        "VERIFICATION.md; verify.py; verify_output.txt",
+        "Independent review_checks.py, case 3"
+      ],
+      "rationale": "On Z=1 and the torus, t=-x^{n-1}y gives x^N=f(t)=(-1)^{n+1}t^n/(1-t) with the stated inverse y. The reciprocal polynomial is Eisenstein at t=1, so this dense torus part is integral geometrically, and no missing coordinate axis is a component. The three boundary coordinate vertices have nonzero linear terms. In the torus the change to x,t is étale, x^N has zero derivative, and f' has a unique simple zero at n/(n-1) since p∤n(n-1). The equation at that t has precisely M geometric roots. There p is odd, u=x^M-x_0^M is a transverse ambient coordinate and f-f(t_0) is a square of a formal change of parameter over the algebraic closure; the completed germ is v²=u^{p^e}. Its normalization k[[s]] via u=s², v=s^{p^e} has quotient dimension (p^e-1)/2 by the missing odd exponents below p^e (the delta invariant). In K=F_p(x,t), set w=x^{p^e}; in L=F_p(t,w) the valuation of w above t=1 is -1. Therefore K/L has degree p^e, and L=K^{p^e} since that Frobenius subfield has the same index and is contained in L. Frobenius identifies the two smooth models over F_p, not necessarily the coordinate projections identically. The valuations n,-1,1-n are all prime to M; tame Riemann–Hurwitz gives (M-1)/2, including M=1. The normalization is Frobenius-equivariant and bijective on geometric points by the computed single branches, so each extension point set and the zeta functions agree. Independent replay: python3 /workspace/branches/review_checks.py 3, seven prime-field direct plane-gradient checks and counts against the tame model, with cases e>1 and M>1. Frozen code and its recorded output were inspected, not executed.",
+      "residual_risks": [
+        "Sample direct gradient and point counts check only rational loci in the tested fields; the formal local and ramification arguments prove the geometric assertions and all-extension comparison. No general zeta numerator was claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cited a-number treatment assumes p∤n²-n+1. The generalized Hurwitz paper describes smoothness for p∤m, a Fermat monomial covering, and the explicit Kummer transformation.",
+          "Earlier 027b54346512 is broader on the geometry: it adds good-characteristic cases and the Jacobian length at each bad singular point."
+        ],
+        "reasoning": "The smooth Fermat cover or a-number conclusions do not extend directly to p|N; their smoothness/separability setting differs. The explicit rational Kummer change has no denominators involving p or N and is a usable algebraic reduction on the torus even in bad characteristic.",
+        "searches": [
+          "Montanucci–Speziali arXiv:1603.03604 p. 1",
+          "Bisogno et al. arXiv:1810.01582 §§2.1,3.2–3.3: generalized Hurwitz and Fermat/Kummer descriptions"
+        ]
+      },
+      "checked_sources": [
+        "Actual Resultary Findings 027b54346512 and 7fbac230b14a",
+        "Bisogno et al. arXiv:1810.01582 §§2.1,3.2–3.3",
+        "Montanucci–Speziali arXiv:1603.03604 p. 1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At ell=1, the reproduced Kummer formula has θ=1,δ=n-1, m=N, λ=(n-1)²=N-n. Set t=x', z=y'^{p^e}; then z^M=t^{N-n}(t-1). The simple zero at t=1 gives a valuation of z equal to one and K/F_p(t,z) has degree p^e. Thus F_p(t,z)=K^{p^e}; with w=(-1)^n t^{p^e}/z one obtains exactly w^M=(-1)^{n+1}t^n/(1-t), using M odd.",
+          "The prior completed local rings are geometrically unibranch. The normalization of the given F_p-curve is defined over F_p and induces an equivariant bijection of geometric points; taking Frobenius fixed sets gives equality of point counts and zeta functions."
+        ],
+        "reasoning": "These consequences do not require rediscovering the cusp classification or a new finite-field descent theorem. The exact tame presentation is a routine Frobenius/valuation and monomial calculation from the earlier explicit Kummer transform; the arithmetic equality is forced by the earlier general cusp result.",
+        "searches": [
+          "arXiv:1810.01582 §3.3 equation (6), p. 7 offset 15046; 027b54346512 actual Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "027b54346512 uses m for n, p^a for p^e, h for M. Its Finding gives exactly h torus points with completed germ k[[X,Y]]/(X²+Y^{p^a}), the same delta and genus.",
+          "Bisogno et al. §3.3 formula (6) reproduces y'^m=x'^λ(x'-1), with explicit monomial coordinate changes."
+        ],
+        "reasoning": "Klein and Hurwitz are aliases for the same displayed plane equation here, not just the same genus. Over the algebraic closure the plus-sign germ is equivalent to the minus-sign germ by multiplying the square variable by a scalar; it is literally the same classification.",
+        "searches": [
+          "Resultary: wild bad-prime cusp types and normalization genus of Hurwitz/Klein plane curves",
+          "Bisogno et al., arXiv:1810.01582 §3.3, Bennama–Carbonne transform"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/25/…027b54346512 states the exact uniform theorem with higher wild exponents, not just sample cases.",
+          "2026/10/26/…7fbac230b14a also treats n=3,p=7,M=1, gives a rational normalization and 7^r+1 points in every extension."
+        ],
+        "reasoning": "The first actual Finding establishes exact general indexed coverage; the second verifies arithmetic overlap in one boundary case and is not being extrapolated to all n.",
+        "searches": [
+          "Resultary local search: bad-characteristic wild cusps Klein/Hurwitz, (2,7) characteristic-seven quartic"
+        ]
+      },
+      "rationale": "The earlier exact Klein/Hurwitz record 027b54346512 treats the same equation for all degrees and bad primes, with the full completed cusp types, count, delta and normalization genus, even adding the total Jacobian length. The passage of the classical explicit Kummer model to the tame model follows by the standard power-subfield operation and a monomial change, while the all-extension zeta equality follows immediately from the prior geometrically unibranch classification. These are genuine known coverage and direct implications, not negative evidence from an inaccessible paper.",
+      "residual_risks": [
+        "Original full text of Bennama–Carbonne not inspected. The failure does not depend on whether that paper states the bad-prime theorem in words; the directly earlier geometric finding and printed explicit transform suffice for the actual comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct earlier general coverage of the central geometry",
+          "evidence": "Counts all h singularities and identifies each completed germ and delta; states geometric genus (h-1)/2 plus a Jacobian length result. Does not assert a descent model over F_p.",
+          "identifier_or_url": "2026/10/25/SCOPE-wild-cusps-and-normalization-genera-of-klein-plane-curves--027b54346512",
+          "material_read": "Actual mirrored Finding, offsets 208–4144; limitations, offset 7511",
+          "method": "Resultary and targeted local mirror text",
+          "title": "Wild cusps and normalization genera of Klein plane curves",
+          "trigger": "Same curve, all bad primes and cusp exponents"
+        },
+        {
+          "assessment": "Direct algebraic input yielding the tame model, not a written bad-prime classification",
+          "evidence": "The explicit birational substitution reproduced from Bennama–Carbonne puts the curve into y'^m=x'^λ(x'-1); at ell=1 the exponents give the tame model by the power-subfield reduction above.",
+          "identifier_or_url": "https://arxiv.org/pdf/1810.01582",
+          "material_read": "§2.1 p. 2 offset 4141; §3.2 p. 6 offset 14264; §3.3 p. 7 offset 15046, actual transformation and equation (6)",
+          "method": "Targeted OA primary text and decisive displayed equation",
+          "title": "The Supersingularity of Hurwitz Curves",
+          "trigger": "Generalized Hurwitz models and possible stronger explicit reductions"
+        },
+        {
+          "assessment": "Good-characteristic setting",
+          "evidence": "Defines nonsingular H_n under p∤n²-n+1 in the inspected passage.",
+          "identifier_or_url": "https://arxiv.org/abs/1603.03604",
+          "material_read": "p. 1, OA offset 2964",
+          "method": "OA primary passage",
+          "title": "The a-numbers of Fermat and Hurwitz curves",
+          "trigger": "Potential full same-family characteristic coverage"
+        },
+        {
+          "assessment": "Exact overlap for (n,p,M)=(3,7,1)",
+          "evidence": "The rational normalization and 7^r+1 points over each extension are explicitly stated.",
+          "identifier_or_url": "2026/10/26/SCOPE-a-unibranch-2-7-cusp-on-the-characteristic-seven-klein-quartic-a--7fbac230b14a",
+          "material_read": "Actual Finding, mirror offset 0",
+          "method": "Resultary and targeted local mirror text",
+          "title": "A unibranch (2,7) cusp on the characteristic-seven Klein quartic",
+          "trigger": "Special case of the arithmetic consequence"
+        },
+        {
+          "assessment": "The reproduced formula suffices for the demonstrated implication; direct scope of the original paper otherwise unresolved",
+          "evidence": "Bisogno et al. explicitly attribute the rational monomial transform and equation (6) to this source.",
+          "identifier_or_url": "Bennama–Carbonne, J. Algebra 188 (1997), 409–417",
+          "material_read": "Bibliography and reproduced transform in arXiv:1810.01582 §3.3; original full text not inspected",
+          "method": "Targeted inspection of the identified later reproduction",
+          "title": "Courbes X^mY^n+Y^mZ^n+Z^mX^n=0 et décomposition de la jacobienne",
+          "trigger": "Original source of the explicit Kummer transform"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and §§3–5",
+        "027b54346512 Finding",
+        "arXiv:1810.01582 §3.3"
+      ],
+      "rationale": "A first classification of these singularities through arbitrary wild exponents would be mathematically useful; that classification already exists with even more local data. Applying standard Frobenius to the known Kummer equation and deducing point-count invariance from the known single branches adds no independent substantial invariant here. No new zeta numerator for M>1, arithmetic structure beyond the immediate bijection, or other substantively different theorem is proved in this frozen record, so no repair is identified.",
+      "residual_risks": [
+        "This assessment concerns additional value over established implications, not whether the verified normal form and point counts are useful exposition."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

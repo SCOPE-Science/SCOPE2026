@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:20:05.461139Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the overlap graph by shifting each word and appending ternary digits before forgetting direction, obtaining 38 distinct simple edges. Under technical labels 1 through 17 in the displayed order, all 38 edges agree with the union of cycle/shortcut edges in Petyuk v2, Appendix proof line 1, p. 7 (and 1=102 and 2=210 agree with p. 4). This cross-check uses the published proof text, not a direct visual reading of all Figure-2 word labels. Theorem 5 formally states non-word-representability of S(3,k); its Appendix proves the Figure-2 obstruction itself is non-word-representable. I checked the precise graph against that premise rather than independently re-proving the negative result. An independent replay (branches/independent_small_replays.py petyuk, with the frozen certificate.json as data) checked all 17 distinct omissions and verified each order was a permutation. Orienting all edges forward gives acyclicity. Across all deletions the replay visited 2391 nontrivial directed paths; none of length at least three edges had adjacent endpoints, so there is no shortcut. Paths of length one or two with adjacent endpoints already form a clique in a forward orientation. The semi-transitive characterization then gives word-representability of every deletion. For any proper induced subgraph first remove an omitted vertex and restrict the word or orientation. No inference to ambient minimum order is made.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Problem 1 asks if Figure 2 is minimum by number of vertices among induced obstructions in the 27-vertex S(3,3). The follow-up proves positive word-representability for structured S_m(n,k) families in the inspected passages, not arbitrary smaller subsets of S(3,3) or the 17 specific deletions."
+        ],
+        "reasoning": "An actual affirmative ambient minimum-order theorem would dominate the frozen claim. The question is not such a theorem, and the inspected structured positive theorems do not place the requested deletion graphs in their scope.",
+        "searches": [
+          "Petyuk §4 Problem 1",
+          "Huang–Kitaev–Pyatkin arXiv:2312.10377 / DOI 10.1016/j.dam.2023.12.017 §§1.1, 1.4 and Theorem 5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2210.14762v2",
+        "arXiv:2312.10377 / 10.1016/j.dam.2023.12.017",
+        "Resultary 07b786127dd8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary paper proves S is an obstruction. Its stronger question includes other vertex sets. The follow-up and the S(4,3) finding do not supply a positive result for each S-v."
+        ],
+        "reasoning": "Heredity only passes forward from a positive induced host to its induced subgraphs. Non-word-representability of a host is compatible with either sign for its deletions. The new positive orientations are the missing evidence for the precise deletion-criticality claim.",
+        "searches": [
+          "Compare arXiv:2210.14762v2 Theorem 5 proof, Appendix and Problem 1 with arXiv:2312.10377 Theorem 5 and Resultary 07b786127dd8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Petyuk Theorem 1 (citing Halldórsson–Kitaev–Pyatkin) gives equivalence of word-representability and admitting a semi-transitive orientation. Theorem 5 proof and appendix give the non-word-representable Figure-2 graph, matching the overlap edges."
+        ],
+        "reasoning": "Induced-subgraph-minimal non-word-representability is precisely nonexistence of a semi-transitive orientation for the whole graph and existence of one for every single deletion. The published negative half by itself does not show that any deletion is positive.",
+        "searches": [
+          "Petyuk arXiv:2210.14762v2 §§1.1–1.2 and §3",
+          "Resultary: Figure-2 obstruction, vertex-critical non-word-representability, minimal non-semi-transitive graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record 07b786127dd8 reports 3-colourability of S(4,3), addressing the n>=4 conjecture. Petyuk's appendix is an orientation contradiction for the undeleted graph, not a deletion-orientation table."
+        ],
+        "reasoning": "The 3-colourability fact refers to a different ambient graph; Petyuk's negative proof provides neither this deletion census nor positive certificates for arbitrary subgraphs. Bounded catalogue results cannot exclude an unindexed deletion experiment.",
+        "searches": [
+          "Resultary: Petyuk Figure 2, 17 vertices, deletion-minimal obstruction in simplified de Bruijn S(3,3)",
+          "Inspect indexed simplified de Bruijn finding 07b786127dd8 and the explicit source appendix"
+        ]
+      },
+      "rationale": "The paper explicitly poses the stronger ambient vertex-count question but supplies the negative witness only for the full obstruction, not positive witnesses for the deletions. The closest accessible follow-up treats other structured subgraphs; the strongest catalogue match concerns S(4,3), not this obstruction. No equivalent or stronger established statement was identified in the inspected sources.",
+      "residual_risks": [
+        "Bounded literature and catalogue comparisons cannot exclude unindexed solver checks or an independently obtained minimum-order result. No statement of priority or resolution of the ambient problem is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves the full graph negative; asks, rather than proves, ambient minimum order. The proof line 1 edge set exactly matches the reconstructed named graph under its technical numbering",
+          "evidence": [
+            "Theorem 5 concerns S(3,k); Fig. 2 obstruction negative proof is in the Appendix",
+            "All 38 edges reconstructed by closing the stated proof line 1 cycles/shortcut"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2210.14762v2",
+          "material_read": "Theorem 1 and §1.2 (OA offsets ~1980–5228); Theorem 5 proof p. 4, Figure 2 caption / §4 Problem 1 p. 5 (offsets ~6750–11897); Appendix pp. 6–7, proof line 1 (offsets 11897–16292)",
+          "method": "Open primary PDF bounded passages; cross-check of all edges from proof line 1 against the frozen list",
+          "title": "On word-representability of simplified de Bruijn graphs",
+          "trigger": "Same graph, negative premise and explicit minimality problem"
+        },
+        {
+          "assessment": "Structured positive subfamilies, not a deletion analysis of the obstruction",
+          "evidence": [
+            "Studies parameterized S_m(n,k) subgraphs"
+          ],
+          "identifier_or_url": "arXiv:2312.10377; DOI 10.1016/j.dam.2023.12.017",
+          "material_read": "§§1.1, 1.4 and Theorem 5, OA offsets near 800 and 6600",
+          "method": "Open primary arXiv passages",
+          "title": "An embedding technique in the study of word-representability of graphs",
+          "trigger": "Follow-up on induced subgraphs of simplified de Bruijn graphs"
+        },
+        {
+          "assessment": "Addresses Conjecture 1 for S(4,3), not Problem 1 or the 17 deletions",
+          "evidence": [
+            "An explicit 3-colourability statement for S(4,3)"
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-the-first-conjectured-non-word-representable-simplified-de-bruij--07b786127dd8",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary statement comparison",
+          "title": "The first conjectured non-word-representable simplified de Bruijn graph is word-representable",
+          "trigger": "Closest indexed result targeting Petyuk's questions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The object is the obstruction used to prove a published theorem, not an arbitrary slice. The exact positive deletion certificates settle a natural way of trying to shorten it and prove that any smaller ambient obstruction must use vertices outside this set. This is a useful partial advance on the expressly posed minimum-order question, without claiming to solve it.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

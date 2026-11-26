@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:35:13.766335Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For S>0, Parseval gives mean one for u=|F|²/S and coefficient Cauchy–Schwarz gives 0<=u<=k. Applying orthogonality again to |F|² gives E u²=1+sum_{d≠1}|R_d|²/S². Summing the difference-fiber Cauchy deficits counts each ordered off-diagonal pair once, yielding C4=1+λ(1−1/k) and the claimed exact amplitude/fiber decomposition. With s=p/2 and f(t)=t^s, the tangent remainder divided by (t−a)² is the integral of (1−r)f''(a+r(t−a)) over r in [0,1]. For s>2 this integral is strictly increasing in t on [0,k], including at 0 because 0<a<k; its value at k is A_s. This gives the quadratic majorant with contact exactly at a,k, and s=2 is exact everywhere. The proposed two-level law has mean one and second moment C4 by k(k−1)=λ(v−1), proving the normalized moment constant. A character-phase vector attains it since its squared character sum is k² at the peak and k−λ elsewhere. For s>2, contact and mean force exactly one peak, and Cauchy–Schwarz at the peak forces the character-phase vector. Distinct peaks produce distinct projective rays; no rigidity at s=2 is implied. For s=3 the quadratic remainder is (t−a)²(k−t), with quadratic coefficient k+2a, so the sixth deficit has exactly the three stated nonnegative terms. Zero coefficients contribute trivial equality. Replaying C6=(k³+(v−1)a³)/v with a=2/3,3/4,3/5 yields 37/9,85/16,289/25 for the three cited cyclic sets. VERIFICATION.md and checker.py were inspected and the script not executed; the arithmetic examples do not prove the general law.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5.2 gives an upper 3-convex distribution for every law on a bounded interval with prescribed first two moments: its two atoms are the right endpoint b and μ1−(μ2−μ1²)/(b−μ1). The subgroup-hole theorem includes the k=v−1 sixth-power case but is not the reason for the all-p coverage."
+        ],
+        "reasoning": "For mean 1 and any actual second moment m of u, the upper two-atom law has support {x_m,k}, x_m=1−(m−1)/(k−1). The convex-function expectation of that fixed-mean law increases as x_m moves left: it is the chord interpolant evaluated at 1 and the enlarged chord dominates the narrower one by convexity. Thus m<=C4 allows using m=C4, when x_m=a and mean one gives mass exactly 1/v at k. The p=4 bound is directly prior. This applies the prior theorem even though it is formulated with a fixed, rather than capped, second moment.",
+        "searches": [
+          "Primary web search: Denuit Lefèvre The s-convex orders among real random variables with applications pdf Mathematics Inequalities Applications bounded extremal theorem",
+          "Primary web search: site:mia.ele-math.com Denuit Shaked s-convex orders among real random variables 585 613 1998",
+          "Denuit–Lefèvre–Shaked, Theorem 5.2 and §2",
+          "Resultary: Sharp sixth-moment constant finite subgroup-hole spectra complement singleton difference set"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "Denuit–Lefèvre–Shaked, Math. Inequal. Appl. 1 (1998), 585–613, Theorem 5.2",
+        "Resultary f000b50fe5d9, 1b6345819859, 5260cc41f9aa and 2e650054cfdd",
+        "arXiv:1703.05353v1 and arXiv:1903.09177v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Record f000b50fe5d9 gives exactly C4 and the amplitude/fiber-phase deficit after matching dual-group normalization. The classical 3-convex upper support is a,k with the stated weights at this C4, not just an estimate with comparable order. For the cubic, (t−a)²(k−t)=−t³+(k+2a)t²−(2ak+a²)t+ka²."
+        ],
+        "reasoning": "Strict quadratic contact for t^(p/2) implies the maximizing scalar law must be supported at a,k; its mean gives exactly one peak on the uniform v-point space. Peak Cauchy–Schwarz and the known flat off-peak character profile give the advertised rays directly. For cubes, taking expectation of the displayed polynomial and subtracting the expectation under the upper two-point law leaves C6−E u³=(k+2a)(C4−E u²)+E[(u−a)²(k−u)]. Inserting the prior exact fourth deficit gives all three asserted terms with no additional Fourier inequality. The result is not inferred from ordinary Hölder interpolation, which would be nonsharp here.",
+        "searches": [
+          "Resultary: Sharp fourth-moment extension exact deficit finite abelian difference sets",
+          "Denuit–Lefèvre–Shaked, Theorem 5.2(2), printed p. 601",
+          "Fickus–Jasper–Mixon–Peterson, arXiv:1703.05353v1, p. 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fickus et al. describe harmonic ETFs as character restrictions to difference sets, but their inspected passages concern frame constructions and line packing. Denuit–Lefèvre–Shaked use stochastic 3-convex order for the bounded-moment comparison, an exact mathematical formulation of the key all-p step."
+        ],
+        "reasoning": "Writing a synthesis moment as an ETF analysis moment is a normalization/duality change, not by itself a prior bound. The decisive equivalent formulation is maximization over the scalar law of u on [0,k] with first two moments constrained; t↦t^(p/2) is 3-convex on that interval for p>4, with continuous extension at zero.",
+        "searches": [
+          "Resultary: All-p sharp Fourier synthesis moment inequality harmonic ETF frame potential two-point quadratic majorization",
+          "Primary web search: equiangular tight frame higher moments Lp norm of linear combinations harmonic ETF fourth sixth moment inequality",
+          "Primary web search: s convex extremal distributions continuous bounded interval prescribed first two moments upper two points right endpoint Denuit Lefevre Shaked theorem 3-convex Gauss Radau"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record 5260cc41f9aa has exact sixth constant 37/9 and seven equality rays for (7,3,1). Distinct same-day record 2e650054cfdd has 85/16 and thirteen rays for (13,4,1). Record 1b6345819859 agrees in the co-singleton case, including the character-phase extremizers. The exact all-p catalogue hit is the assigned record itself."
+        ],
+        "reasoning": "The explicit overlapping numbers are true specializations, not evidence on the entire parameter family by themselves. The order-three Singer result's date is not used to infer priority. The general claim is decided by the statement-level implication with the moment-order theorem.",
+        "searches": [
+          "Resultary: Sharp sixth moment complete extremizers Fano Singer spectrum",
+          "Resultary: Sharp sixth-moment constant finite subgroup-hole spectra complement singleton difference set",
+          "Resultary: All-p sharp Fourier synthesis moment inequality harmonic ETF frame potential two-point quadratic majorization"
+        ]
+      },
+      "rationale": "Demonstrable prior implication, not merely a plausible overlap: the known sharp difference-set fourth-moment bound combined with the 1998 bounded-interval upper 3-convex extremum theorem yields the entire sharp p>4 bound with this very two-atom law. Character-phase attainment and rigidity follow from the known character profile, the strict two-node quadratic contact, and Cauchy–Schwarz. The sixth-deficit identity adds the universal cubic residual to the already published fourth-deficit identity by direct expansion; it does not leave a distinct new theorem of the asserted scope. The assessment credits mathematical coverage, not dating of same-day examples.",
+      "residual_risks": [
+        "The publisher page for the 1999 extremal-generator article returned HTTP 403; it is not needed for the implication, which follows from the open 1998 theorem. The review does not claim the exact all-p Fourier formula previously appeared verbatim, nor infer ordering among same-day records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The theorem supplies the sharp scalar extremal law used by the claimed main bound",
+          "evidence": [
+            "It gives X≤_3-cx X_max for fixed moments, with X_max supported at b and μ1−(μ2−μ1²)/(b−μ1). The higher-convex class contains powers t^s for s>2 on the nonnegative interval."
+          ],
+          "identifier_or_url": "https://files.ele-math.com/articles/mia-01-56.pdf",
+          "material_read": "§2 characterization near offset 14033 and §5 Theorem 5.2(2), printed p. 601 within extraction offsets 52320–59519",
+          "method": "Open publisher PDF located via article page; targeted passage reading",
+          "title": "The s-convex orders among real random variables, with applications",
+          "trigger": "General upper two-point extremum for bounded laws with two moments"
+        },
+        {
+          "assessment": "Covers the fourth bound and amplitude/fiber identity exactly",
+          "evidence": [
+            "Same sharp C4 and decomposition on the dual group after normalized Fourier synthesis convention is matched."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-sharp-fourth-moment-extension-and-exact-deficit-for-finite-abeli--f000b50fe5d9",
+          "material_read": "RESULT.md Finding and Proof, offset 0",
+          "method": "Local Resultary mirror passages",
+          "title": "Sharp fourth-moment extension and exact deficit for finite abelian difference sets",
+          "trigger": "Exactly the input for the moment constraint and cubic splitting"
+        },
+        {
+          "assessment": "Exact p=6 overlap when the removed subgroup is a singleton",
+          "evidence": [
+            "Subgroup order one gives (v⁴−5v³+10v²−10v+5)/(v−1)²=((v−1)³+(v−1)⁻²)/v, and the character-phase vectors agree."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-sharp-sixth-moment-constant-for-finite-subgroup-hole-spectra--1b6345819859",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Local Resultary mirror passage",
+          "title": "Sharp sixth-moment constant for finite subgroup-hole spectra",
+          "trigger": "Co-singleton difference-set instance"
+        },
+        {
+          "assessment": "Exact p=6 and (7,3,1) overlap",
+          "evidence": [
+            "37/9 and seven projective equality lines."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-sharp-sixth-moment-and-complete-extremizers-for-the-fano-singer--5260cc41f9aa",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Local Resultary mirror passage",
+          "title": "Sharp sixth moment and complete extremizers for the Fano Singer spectrum",
+          "trigger": "Exact Singer sixth specialization"
+        },
+        {
+          "assessment": "Exact p=6 and (13,4,1) overlap; no inference from same-day date",
+          "evidence": [
+            "85/16 and thirteen projective equality lines."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-sixth-fourier-moment-and-thirteen-rigid-extremizers-for-th--2e650054cfdd",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Local Resultary mirror passage",
+          "title": "Sharp sixth Fourier moment and thirteen rigid extremizers for the thirteen-site Singer spectrum",
+          "trigger": "Second exact Singer sixth specialization"
+        },
+        {
+          "assessment": "Provides character-restriction structure, not the decisive sharp moment bound",
+          "evidence": [
+            "Harmonic ETFs constructed by restricting characters to difference sets; frame and line-packing context."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1703.05353v1",
+          "material_read": "PDF p. 2, extraction offset 4905",
+          "method": "Open primary PDF passage",
+          "title": "Hadamard Equiangular Tight Frames",
+          "trigger": "Harmonic ETF reformulation"
+        },
+        {
+          "assessment": "Inspected structural frame material, not a direct match to the moment claim",
+          "evidence": [
+            "Discussion of frame constructions, EITFFs and conference matrices."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1903.09177v1",
+          "material_read": "PDF p. 1, extraction offset 812",
+          "method": "Open primary PDF passage",
+          "title": "Harmonic equiangular tight frames comprised of regular simplices",
+          "trigger": "Plausible broad harmonic-frame coverage"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Sharp synthesis norms are natural, and the calculations are useful as an exposition of a classical moment extremum. As a new finding, however, the exact all-p law is mechanically supplied by that extremum and the prior fourth moment, and peak rigidity is immediate from its equality profile. The only proposed extra sixth-order structure is the expansion of one cubic polynomial added to the known fourth deficit. No further quantitative stability conclusion, new inequality, or independently useful nonmechanical remainder is proved. No repair is justified.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:11:49.486228Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–73, 81–82; VERIFICATION.md lines 19–25 and verify.py (inspected, not executed)",
+        "Independent replay: /workspace/branches/53664611-2d71-4141-8bb6-d73f2e5d588a/independent_check.py and independent_check_output.txt in same directory. At μ/τ=0.60 the exact two-level A values for ε/τ of 0.10, 0.03, 0.01 are approximately 1.04938, 1.01375, 1.00449; at r/Ω=0.8 the benchmark 1.478162951519 compares with 1.478146951919 from |k|≤20,000."
+      ],
+      "rationale": "At equilibrium the renewal-reward formula gives age density P(T>a)/μ even for atomic T. Two independent age draws yield the Hilbert–Schmidt kernel cos^(2N)(Ω(A−A′)); expanding it gives nonnegative binomial weights on |m_k|² with the asserted normalization. The exponential integral up to T is Fubini-integrable because E T is finite; |m_k|≤1/(|k|Ωμ). Ratios of central binomial coefficients are bounded by one and tend to one at each fixed k, giving the limit by dominated convergence. Parseval on the period τ with normalized Fourier coefficients τ⁻¹m_k gives τ∫g². For any N≥1 the k=1 term is present; E exp(2iΩT)=1 forces phase one almost surely, so equality in either bound requires positive multiples of τ. Bracketing a mean μ≥τ by neighboring positive multiples realizes equality. For μ<τ, putting mass p=(μ−ε)/(τ−ε) at τ and the remaining mass at ε gives the mean, with A−1=ε(τ−μ)²/[μ²(τ−ε)] by the two-level density, tending to zero. The finite-purity excess divided by the central binomial bound is at most A−1. The wrapped exponential density r exp(−ra)/(1−exp(−rτ)) gives rτ coth(rτ/2)/2 upon integration of its square, confirming the benchmark. None of the argument requires convergence from a synchronized start.",
+      "residual_risks": [
+        "Finite diagnostics do not establish the all-clock limit or extremal condition. The proof is specific to global resets, common iid interarrivals, the stated initial state and stationary equilibrium-renewal ages. No pointwise lattice-clock aging limit or entanglement is implied."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sevilla–Valdés-Hernández Eqs. (36), (42)–(43) include general equilibrium spectral purity. Magoni et al. analyze the many-body model but the inspected unconditional protocol is Poisson and discusses induced correlations. The discrete-time Resultary result 64a931ca3a9a uses integer waiting times and a quarter-turn gate."
+        ],
+        "reasoning": "General state/spectral coverage makes the exact purity sum a corollary but does not supply an N-dependent family limit or range at fixed mean. The discrete-time result is a restricted different feasible class, not a stronger result covering arbitrary positive T.",
+        "searches": [
+          "arXiv:2209.05643v1 §3.3; arXiv:2202.12655 Protocol I; Resultary continuous and clocked fixed-mean stationary purity"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2209.05643v1 §3.3; arXiv:2202.12655 Protocol I",
+        "Resultary d0c1369493e2 and 64a931ca3a9a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known spectral identity plus the energy weights yields the exact purity. The first harmonic controls equality at every N, so the same full-turn support that minimizes N=1 also minimizes the whole family. The inspected prior statements do not give the universal scaled limit for those weights."
+        ],
+        "reasoning": "The finite-N optimizer overlaps substantially beyond notation. The infinite family needs control of the age coefficients uniformly in harmonic index and the large-N binomial weights, producing an exact continuous clock-dependent invariant and its sharp infimum; the inspected spectral result is a starting identity, not that conclusion.",
+        "searches": [
+          "arXiv:2209.05643v1 Eqs. (42)–(43); Resultary d0c1369493e2 full-turn equality; primary search on common-clock purity asymptotics and optimization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Magoni et al. Protocol I resets the same product-spin model at resonance, with exponential clocks. Sevilla–Valdés-Hernández Eq. (42) gives stationary purity via energy gaps. Resultary d0c1369493e2 gives the single-qubit threshold in gap-frequency units."
+        ],
+        "reasoning": "The gaps are multiples of 2Ω; summing the basis weights for each gap produces the binomial formula. Replacing the single-qubit gap frequency by 2Ω makes its 2π threshold exactly μ≥τ. Neither equivalence identifies the many-qubit limit with an inspected earlier result.",
+        "searches": [
+          "Common-clock/global Rabi-spin resetting and stationary purity spectra; arXiv:2202.12655 and 2209.05643v1; Resultary d0c1369493e2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "d0c1369493e2 provides the exact N=1 stationary range and full-turn optimizer; 64a931ca3a9a gives exact threshold four ticks for a quarter-turn clocked qubit."
+        ],
+        "reasoning": "The first range matches an exact slice after frequency conversion, and the second illustrates the analogous discrete dephasing boundary; neither records the large-N continuous-time coefficient as a function of the whole interarrival law.",
+        "searches": [
+          "Resultary d0c1369493e2 and 64a931ca3a9a, exact purity ranges and attainment"
+        ]
+      },
+      "rationale": "The finite-N purity formula is an explicit specialization of known stationary spectral-purity machinery, not a new general identity. A distinct same-day Resultary finding has exactly the N=1 fixed-mean threshold, and the first-harmonic equality argument makes the finite-N extension natural. Credit the distinct many-qubit limit and clock-dependent coefficient across all finite-mean interarrival laws in conjunction with the simultaneous sharp optimization, not the single-qubit threshold alone. Inspected primary passages and the strongest indexed overlap do not establish an earlier result with that content.",
+      "residual_risks": [
+        "Same-date priority for the single-qubit overlap is unresolved. The bounded primary search did not locate a more specific Toeplitz or collective-reset asymptotic antecedent; irrelevant returns and access timeouts are not evidence of absence. Results on discrete-time resonance are not exhaustively compared."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact general coverage of the spectral identity; no many-qubit asymptotic or fixed-mean extreme in the inspected passages",
+          "evidence": [
+            "Purity is expressed as a sum of energy-basis weights times squared resetting-dependent mode factors."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2209.05643v1",
+          "material_read": "§3.3, Eqs. (36), (42)–(43), offsets 32600 and 37600–41199",
+          "method": "OA HTML passage inspection; separate look at decisive Eq. (42) passage timed out on follow-up",
+          "title": "Dynamics of closed quantum systems under stochastic resetting",
+          "trigger": "General arbitrary-reset spectral-purity formula for the same observable"
+        },
+        {
+          "assessment": "Same model structure under Poisson resetting; inspected material on correlations rather than the stated purity theorem",
+          "evidence": [
+            "Protocol I globally resets to the all-up product state."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2202.12655",
+          "material_read": "Abstract p. 1 and Protocol I p. 2, offsets 0 and 12500",
+          "method": "OA PDF passage inspection",
+          "title": "Emergent quantum correlations and collective behavior in non-interacting quantum systems subject to stochastic resetting",
+          "trigger": "Same unconditional globally reset Rabi-spin model at resonance"
+        },
+        {
+          "assessment": "Same-date exact one-qubit overlap, not coverage of the thermodynamic law; no within-date ordering inferred",
+          "evidence": [
+            "Minimum attainment iff gap frequency × μ≥2π, with full-turn support; gap frequency is 2Ω in the frozen Hamiltonian."
+          ],
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-sharp-fixed-mean-stationary-purity-range-for-a-renewal-reset-qub--d0c1369493e2/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Resultary search and local-mirror reading; a separate follow-up timed out",
+          "title": "Sharp fixed-mean stationary purity range for a renewal-reset qubit",
+          "trigger": "Exact N=1 fixed-mean overlap"
+        },
+        {
+          "assessment": "Related exact discrete model, not continuous all-N coverage",
+          "evidence": [
+            "Positive-integer intervals, quarter-turn phase, complete dephasing first attainable at mean four ticks."
+          ],
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-three-sharp-reset-budget-thresholds-for-stationary-purity-of-a-c--64a931ca3a9a/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Resultary search and local-mirror reading",
+          "title": "Three sharp reset budget thresholds for stationary purity of a clocked qubit",
+          "trigger": "Purity minimization and resonance with a mean budget"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 12–37, 59–73; arXiv:2209.05643v1 Eq. (42); Resultary d0c1369493e2"
+      ],
+      "rationale": "The invariant is the loss of global purity under one common random age, not entanglement or a sum of individual-spin entropies. The exact leading constant separates arbitrary clock laws at the same mean, and the one-period cutoff explains when a physically natural strict-positive-interval constraint allows the most mixed stationary phase distribution. The many-qubit constant and the attained-versus-unattained boundary, rather than the binomial specialization alone, are the substantive contributions.",
+      "residual_risks": [
+        "The threshold depends on the admissible class, especially allowing arbitrarily short positive intervals when μ<τ. It gives no indication of optimal hardware-constrained clocks or interacting-spin dynamics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

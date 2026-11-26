@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:16:03.550084Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions, Proof, Verification",
+        "Frozen VERIFICATION.md and brownian_gyrator_optimal_checker.py"
+      ],
+      "rationale": "The drift eigenvalues −1±u are negative, and the stationary Lyapunov equations give a−b=Tₓ−Tᵧ and c=u(Tₓ+Tᵧ)/(2(1−u²)), hence the stated positive determinant d. With C=Σ exp(Aᵀt), the cross-entry difference is (Tₓ−Tᵧ)e⁻ᵗsinh(ut) and det C=d e⁻²ᵗ. Pairing the four variables in the two squared wedge terms and their product, then subtracting the mean square, leaves 2d−2C₁₁C₂₂+C₁₂²+C₂₁²=2(d−det C)+(C₁₂−C₂₁)². This makes the squared SNR a strictly increasing function of sinh²(vt)/(e²ᵗ−1), independently of temperatures for the argmax. The sign of its derivative is that of G_v−1 with G_v=v coth(vt)(1−e⁻²ᵗ). The derivative of G_v has the sign of sinh(2vt)−v(e²ᵗ−1)<0 by convexity and sinh(2t)<e²ᵗ−1; endpoints give 2 and v<1. Its partial derivative in v is positive because sinh(2vt)>2vt. The v→0 limit follows by bracketing the level-one root of (1−e⁻²ᵗ)/t; independently evaluating the positive root gives 0.79681213002002004616. The v→1 roots diverge since G₁=1+e⁻²ᵗ; for ε=1−v and q=e⁻²ᵗ*, the exact equation ε=(1+v)qᵛ−vq−vqᵛ⁺¹ bounds q above by 2ε and below by (ε/(1+v))^(1/v) eventually. Thus ε|log q|→0 and the equation divided by q yields q/ε→1. The unnormalized absolute expected Q_t peaks at artanh(v)/v; strict monotonicity of v coth(vt) and the optimum equation give the strict ordering and the two nonzero limiting gaps. Mean L_t=Q_t/t is not the unnormalized signal comparison. When u=0 or the temperatures agree the informative maximum disappears; |u|=1 is not stationary. Analytic replay with a bounded scalar root check; frozen checker read but not executed.",
+      "residual_risks": [
+        "Applies only to exact stationary continuous-time positions in the stated model. No claim for noisy samples, normalized angular displacements, or trajectories of multiple dependent pairs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The linear-diffusion area is ½∫(X dY−Y dX), a full-path quantity illustrated by closing with a chord. The broader linear-diffusion framework studies long-time integrated observable statistics. Viot et al. give finite-discretization laws and suggest there may be an optimal discretization."
+        ],
+        "reasoning": "Changing the observable from a path integral or Euler-step moment ratio to the exact endpoint wedge changes fluctuation laws. General OU/Gaussian formulas supply the stationary moments, but not the global-in-lag comparison or critical asymptotic.",
+        "searches": [
+          "du Buisson–Mnyulwa–Touchette arXiv:2307.06245 pp. 1, 11",
+          "du Buisson–Touchette arXiv:2212.12022 pp. 1, 23–24",
+          "Viot et al. arXiv:2307.05248 pp. 2, 5, 8, (S11)–(S12)"
+        ]
+      },
+      "checked_sources": [
+        "Four primary PDFs in source_inspections",
+        "Two materially related Resultary findings in source_inspections",
+        "The listed catalogue aliases and targeted primary-literature query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A possible optimal discretization was suggested in Viot et al.; the exact Gaussian transition has det(exp(At))=e⁻²ᵗ and generates a different finite-lag variance. The published comparisons optimize other objectives or parameters."
+        ],
+        "reasoning": "Neither the suggestion of an intermediate interval nor a general Gaussian moment law yields the strict inequality establishing unique optimality or the coupling-dependent limits. The distinction from speculative or alternate-objective optimizers is mathematical, not terminological.",
+        "searches": [
+          "Viot et al. suggested optimum and Eqs. (S11)–(S12) vs. the exact-lag equation and boundary laws",
+          "Resultary KL and sampled-turn findings vs. the exact wedge objective"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact chord, oriented wedge and finite-difference angular momentum Q_t/t have the same lag objective under the same two-time law. In Viot et al., (S11)–(S12) use an Euler noise step, not the exact exp(At) law. The web hits were links to the same effective-temperature paper (arXiv:2011.03124v1), which considers a one-time positional density ratio."
+        ],
+        "reasoning": "An algebraically identical chord functional paired with Euler transition statistics does not give the exact stationary Gaussian cross-covariance. One-time asymmetry and principal turn angle are not equivalent to the wedge's moment ratio.",
+        "searches": [
+          "Resultary: exact frozen title, v coth(vt), temperature-independent Brownian-gyrator chord SNR lag and Euler angular-observable aliases",
+          "Web: \"Brownian gyrator\" (\"two-time\" OR \"two-position\" OR \"finite lag\" OR \"sampling lag\") (\"cross product\" OR \"signed area\" OR \"chord\" OR \"angular momentum\") (\"signal-to-noise\" OR \"signal to noise\" OR precision OR \"optimal lag\") (OU OR Ornstein-Uhlenbeck); exact and equivalent variants"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The sampled-turn record uses the principal angle and an SNR-like short-lag prefactor optimized over coupling, not over lag. The high-precision sampling record optimizes lag for a time-reversal KL rate with readout noise, and also gives a noiseless two-time KL formula."
+        ],
+        "reasoning": "The target is a continuous optimum, not a tabulated finite classification. These are substantive catalogue overlaps in the exact two-observation model, but neither a coupling optimizer for an angle nor a lag optimizer for noisy KL information supplies the exact noiseless chord SNR optimum.",
+        "searches": [
+          "Resultary: temperature-independent Brownian gyrator chord SNR optimum; v coth(vt); Euler angular momentum sampling aliases",
+          "Resultary findings ending fb0bee8c12b6 and 4957f0ce1935"
+        ]
+      },
+      "rationale": "The supported distinct result is the unique lag maximizing the single-chord SNR for exact observations, including temperature independence of the argmax, strict coupling monotonicity, and asymptotic laws. The Gaussian moment method and finite-step angular-momentum observable are antecedents; an optimal discretization idea was already raised by Viot et al. Neither that regime nor the inspected nearby exact two-observation quantities gives the asserted optimal lag.",
+      "residual_risks": [
+        "An equivalent unindexed finite-time Gaussian-chord optimization may exist; no global priority claim is made.",
+        "The related KL and angle results were compared by their stated observable and objective, not merely their dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same functional form under an Euler update, not the exact stationary lag law",
+          "evidence": [
+            "The one-step angular momentum is the wedge divided by δt; its update has Euler drift and independent Gaussian noises. The main text suggests, but does not solve, an optimal discretization question."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2307.05248",
+          "material_read": "PDF p. 2 offsets 16428–18902; p. 5 offset 43702; p. 8 offset 57102, supplementary (S11)–(S12)",
+          "method": "OA primary PDF passages",
+          "title": "Destructive effect of fluctuations on the performance of a Brownian gyrator",
+          "trigger": "Closest finite-step angular-momentum law and explicit optimization suggestion"
+        },
+        {
+          "assessment": "Path-integrated rather than endpoint observable",
+          "evidence": [
+            "Defines a stochastic integral over the path, with a drawing of area closed by the endpoint chord; discusses applying area results to the gyrator."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2307.06245",
+          "material_read": "PDF p. 1 offsets 1420 and 4583; p. 11 offset 75077",
+          "method": "OA primary PDF passages",
+          "title": "Large deviations of the stochastic area for linear diffusions",
+          "trigger": "Same process class and signed area language"
+        },
+        {
+          "assessment": "Time-integrated framework, not exact single-pair chord SNR",
+          "evidence": [
+            "Long-time statistics of integrated observables; gyrator discussion concerns integrated nonequilibrium work."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2212.12022",
+          "material_read": "PDF p. 1 offset 1078; pp. 23–24 offsets 89019 and 92623",
+          "method": "OA primary PDF passages",
+          "title": "Dynamical large deviations of linear diffusions",
+          "trigger": "Broader linear-diffusion statistics including gyrators"
+        },
+        {
+          "assessment": "One-time density asymmetry and stationary rotation, no corresponding lag criterion in inspected passages",
+          "evidence": [
+            "Studies Tₓ→0, transient effective temperatures via ln[P_t(x,y)/P_t(−x,−y)], and average angular velocity via the stationary positional density."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2011.03124v1",
+          "material_read": "PDF pp. 1, 3, 4; offsets 0, 9603, 11540",
+          "method": "OA primary PDF passages",
+          "title": "Time-dependence of the effective temperatures of a two-dimensional Brownian gyrator with cold and hot components",
+          "trigger": "Targeted web lookup returned potentially related temperature and angular-velocity analysis"
+        },
+        {
+          "assessment": "Different angular observable and optimization parameter",
+          "evidence": [
+            "Principal angle between the two vectors; short-lag angular moment asymptotics and an optimum over coupling."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-sampled-turn-tails-and-a-unique-signal-to-noise-optimum-in--fb0bee8c12b6",
+          "material_read": "RESULT.md offsets 0 and 2470, finding and moment comparison",
+          "method": "Published local mirror at commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp sampled turn tails and a unique signal-to-noise optimum",
+          "trigger": "Same stationary two-position gyrator and SNR language"
+        },
+        {
+          "assessment": "Different objective and readout-noise regime",
+          "evidence": [
+            "The time-reversal KL rate yields a vanishing noise-scale optimum; the noiseless two-time KL statistic is not the chord moment ratio."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-universal-high-precision-sampling-scale-for-observed-brownian-gy--4957f0ce1935",
+          "material_read": "RESULT.md offsets 0 and 2449, finding and exact two-time comparisons",
+          "method": "Published local mirror at commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Universal high-precision sampling scale for observed Brownian gyrators",
+          "trigger": "Same two-observation gyrator model and optimization over lag"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen finding and comparison with the mean wedge",
+        "Viot et al., optimal-discretization discussion"
+      ],
+      "rationale": "Prior gyrator fluctuation work raises an intermediate sampling-interval question. For the experimentally interpretable design of one exact stationary position pair, the result supplies the unique best lag, independent of the unknown or varying bath-temperature pair, and a coupling-dependent slowdown near the stability boundary. The nonvanishing gap from the lag maximizing mean wedge explains why larger mean signal need not give better standardized signal. The value is this exact design benchmark, not a claim about the most efficient use of a full experimental time series.",
+      "residual_risks": [
+        "Standardized first two moments are not a detection probability, precision per unit time, or Fisher information. Measurement noise and inter-pair dependence can change the design question."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

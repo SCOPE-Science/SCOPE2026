@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:38:47.955004Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The synchronous threshold-four rule on either six-regular graph deletes precisely the inactive vertices of residual degree at most two. A nonempty induced minimum-degree-three subset can never peel; if peeling stalls, its nonempty residual is such a subset. Successful seeds are an up-set, so all single deletions failing is necessary and sufficient for inclusion-minimality. An independent exact reproduction enumerated all 65,536 masks on each graph, finding nonpercolation by enumerating minimum-degree-three subsets and propagating containment, and cross-checking every mask by a FIFO activation-time recurrence. Shrikhande yields (6,3):96, (6,4):336, (6,5):1152, (6,6):576, (7,3):64, total 2224; the rook graph yields (6,3):288, (6,5):576, total 864. No others occur. Exact degree-signature and seven-set comparisons reproduce both claims, including the witness activation layers. Independent adjacency-preserving permutation enumeration returns 192 Shrikhande automorphisms and the same 64-set orbit. The twelve linear maps in the frozen certificate are invertible because their images contain the generating difference set; their translations therefore give 192 distinct automorphisms, so the reproduced orbit is also their affine orbit. Degree six and common-neighbor count two give the same adjacency spectrum (6, 2, -2 with multiplicities 1, 6, 9); rook neighborhoods are two disjoint triangles, whereas Shrikhande neighborhoods are cycles of length six. Replay: python3 /workspace/reproductions/graph_census.py. Both frozen checkers were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Hamming graph theorem gives minimum seed size floor((r+1)^2/4) when n >= ceil(r/2)+1. Contagious Sets in Expanders defines contagiousness and generations, not the fixed pair's spectrum of inclusion-minimal sets."
+        ],
+        "reasoning": "The broad Hamming theorem covers the rook minimum of six at n=r=4, not Shrikhande (which is not K4 square K4) or the size/time distribution above the minimum.",
+        "searches": [
+          "arXiv:1905.01942, Theorem 2.1",
+          "arXiv:1306.2465v2, Section 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and both finite certificates",
+        "arXiv:1905.01942",
+        "arXiv:1306.2465v2",
+        "arXiv:1407.7361",
+        "Resultary and web query attempts above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Hamming minimum theorem directly implies the rook size-six minimum. A three-core criterion gives a test for each complement, not counts or equivalence with the seven-vertex signature."
+        ],
+        "reasoning": "The minimum is credited as prior coverage. The exact exception, timing difference and orbit require solving the additional enumeration; they are not numerical restatements of the two theorems.",
+        "searches": [
+          "arXiv:1905.01942, Theorem 2.1",
+          "arXiv:1407.7361, core-deletion formulation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Under complementation the inclusion-minimal seeds are maximal induced two-degenerate subsets. Guggiola–Semerjian connect threshold four on degree six to deleting a three-core, but analyze large random graphs."
+        ],
+        "reasoning": "The translation identifies exactly the same enumeration problem but does not supply an enumeration or orbit classification for the designated graphs.",
+        "searches": [
+          "Resultary: Shrikhande four-neighbor bootstrap percolation inclusion-minimal contagious sets exact census completion time seven-set orbit induced degrees",
+          "arXiv:1407.7361 abstract and core-deletion formulation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The web lookup was unavailable; both index queries were temporarily rate-limited, so no matching mirror record was established. The primary paper gives a minimum cardinality, not a tabulation of all inclusion-minimal sets."
+        ],
+        "reasoning": "The sought table includes exact counts at each pair of size and synchronous time and a specified orbit. Knowing a minimum cardinality does not recover those entries. The incomplete table search is a limitation, not evidence of absence.",
+        "searches": [
+          "Web: Shrikhande rook graph bootstrap percolation inclusion minimal percolating sets threshold 4 3-core 7 seeds census induced degree table",
+          "Resultary: four-by-four rook graph threshold 4 bootstrap percolation minimum seed size inclusion-minimal sets",
+          "arXiv:1905.01942, Section 2"
+        ]
+      },
+      "rationale": "Best of current knowledge: pass the complete inclusion-minimal size/time separation and the exact 64-set orbit and induced-degree characterization. Neither the definition, the three-core reduction nor the rook minimum of six is new. The verified prior theorem proves the rook minimum but does not count minimal seeds or constrain their full geometry or timing. No exact prior census is established; search gaps remain.",
+      "residual_risks": [
+        "Index and web lookup interruptions restrict exact prior table coverage; unindexed calculations and equivalent maximal-two-degenerate censuses could exist.",
+        "No general priority or generalization to other cospectral pairs is certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of the rook minimum; no exact census in the inspected theorem",
+          "evidence": "The Cartesian-square minimum formula specializes to floor(25/4)=6; its output is a minimum, not a census.",
+          "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/1905.01942",
+          "material_read": "Definitions and Section 2 around Theorem 2.1 (OA offsets 0 and 5200)",
+          "method": "Lawful OA original, literal Theorem 2.1 lookup and bounded reading",
+          "title": "Percolating sets in bootstrap percolation on the Hamming graphs",
+          "trigger": "Identical rook graph and threshold in a broader theorem"
+        },
+        {
+          "assessment": "Background for dynamics and time, not evidence of exact overlap",
+          "evidence": "Defines m(G,r) and generations in an expander setting.",
+          "identifier_or_url": "https://arxiv.org/html/1306.2465v2",
+          "material_read": "Section 1 definitions, OA offset about 5000",
+          "method": "OA literal query and bounded reading",
+          "title": "Contagious Sets in Expanders",
+          "trigger": "Same dynamics and generation-count terminology"
+        },
+        {
+          "assessment": "Related formulation and asymptotic problem, not this fixed pair census",
+          "evidence": "Analyzes asymptotic random-regular seed sizes, including a degree-six threshold-four case, via destruction of a core.",
+          "identifier_or_url": "https://arxiv.org/html/1407.7361",
+          "material_read": "Abstract at OA offset about 1150; scope and problem formulation",
+          "method": "OA literal query and bounded reading",
+          "title": "Minimal contagious sets in random regular graphs",
+          "trigger": "Degree-six threshold-four setting and three-core alternative"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This natural strongly regular graph pair has matching parameters and spectrum, and even matches on minimum contagious cardinality at this threshold. The upper size of an inclusion-minimal contagious set is nevertheless different; the exact completion-time census and a complete affine-orbit characterization identify precisely how. This gives a concrete invariant and a reusable benchmark for finite bootstrap or core-deletion arguments, not merely another computation of the known rook minimum.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

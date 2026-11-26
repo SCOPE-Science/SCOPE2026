@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:47:39.527994Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every unital coefficient-field-fixing map preserves the nilpotent maximal ideal. On that ideal the commuting linear idempotents have mutually orthogonal simultaneous Boolean projectors given by products of E_i or 1−E_i. Applying the matching projectors to an arbitrary section of each cotangent weight space produces an equivariant section of the cotangent quotient; no multiplicativity of 1−E_i is needed. Send each linear generator to its value under this section. The full ideal-power truncation makes this an algebra map, and its invertible degree-one part implies invertibility on the finite associated graded and hence on the algebra. It intertwines the original tuple with the linear extensions. Ordered tuples therefore have precisely the simultaneous cotangent multiplicities as conjugacy data. The automorphism group has |GL_n(q)| q^(nH) elements. The stabilizer has block general linear group at degree one, and each generator's higher coefficients must lie in its own Boolean weight, since the homogeneous retractions evaluate each monomial by the bitwise meet of its input colors. The number of such coefficients is the stated symmetric monomial count (including the empty-color conventions); multiplying by the number of generators of each weight gives exactly the displayed exponent by orbit–stabilizer. Products retain r_I variables and have linear image dimension binom(r_I+d,d), including the unit when r_I=0. For n=t=2 there are four singleton orbits; the six two-color cases have a common linear factor q(q+1). Only the incomparable pair loses all mixed terms from the stabilizer's permitted coefficients, adding sum_{j=2}^d(j−1)=binom(d,2) to the orbit exponent. Independent substitution enumeration at n=2,d=3,q=2 reproduced 770 maps and 9,988 ordered commuting pairs, and extended the check to 69,896 ordered commuting triples with all 36 joint cotangent-rank profiles matching for the seven nonempty products. Replay: /workspace/review-evidence/5/check_binary_triples.py. That bounded test uses actual map commutation and compares cotangent ranks (equivalent to the asserted image-rank exponents here by the proved rank formula); it is not an all-field proof. The frozen verifier was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chakraborty–Dasgupta–Dutta–Gupta discuss retractions of polynomial rings and descent of a single retraction; Gupta–Nagamine treat Laurent polynomial-ring retracts.",
+          "Grunenfelder–Omladič study ascent, descent, and Fitting decompositions for commuting module endomorphisms, not equivariant algebra coordinates or stabilizer enumeration.",
+          "Mikhalev–Yu is an older candidate in retract and automorphism literature; only bibliographic material was available in this check."
+        ],
+        "reasoning": "Splitting the underlying linear projections is standard, and a more general semisimple action theorem might supply the coordinate straightening. Neither a module splitting nor an individual polynomial-ring retract statement yields the finite-field symmetric stabilizer census.",
+        "searches": [
+          "Simultaneous linearization of commuting idempotent algebra endomorphisms; semilattice action on a truncated symmetric or formal local algebra",
+          "arXiv:1910.11023, Section 5",
+          "arXiv:2301.12681, Theorem 1.2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and commuting_verify.py",
+        "Resultary 5df169bbe08e and d0314edd48d9",
+        "arXiv:1910.11023 and arXiv:2301.12681",
+        "Grunenfelder–Omladič, Pacific Journal of Mathematics 191(1)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior orbit formula weights the tensor powers by ordered words. Its hypotheses start with an already commuting family upstairs; a family of commuting retractions downstairs is not supplied with compatible lifts by the theorem.",
+          "The conjugacy proof here uses equivariant lifts of cotangent generators in the commutative algebra itself. Its count tests equivariance on unordered monomials. For the incomparable colors precisely the cross-monomials have a third color, changing the stabilizer order even relative to other linearly equivalent rank cases."
+        ],
+        "reasoning": "The counting strategy transfers, but the theorem upstairs is not a specialization proof: both the existence of a downstairs conjugation and the symmetric centralizer sizes need to be established. The product ranks are elementary consequences once the new commutative orbit sizes are known, not an independent novelty claim about Boolean intersections.",
+        "searches": [
+          "Resultary 5df169bbe08e, Finding and limitations",
+          "Commutative quotient of a truncated free associative algebra"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 5df169bbe08e gives Boolean color multiplicities, simultaneous linearization and ordered tuple counts for the nonunital tensor-word truncation; this is the closest structural analogue.",
+          "The target is equivalently a labelled action of the finite meet semilattice generated by t commuting idempotents on a commutative local jet. This records product images as well as the individual generator projections. The identical indexed target is not a second source."
+        ],
+        "reasoning": "Abelianization with units added relates the objects, but the nonlinear coordinates and actions of the stabilizers are not identified by this relation. The comparison concerns the actual generators, their products, and corresponding ranks rather than a match of the Boolean weight labels alone.",
+        "searches": [
+          "Resultary simultaneous linearization and exact census of commuting retractions of truncated free associative algebras",
+          "Resultary exact count of single-map retractions and idempotent endomorphisms of truncated symmetric powers commutative maximal ideal arbitrary nilpotence finite fields"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier cube-zero symmetric-algebra record gives finite-field spectra for individual retractions and their images in degree-two truncation. The target itself credits commutative single-map counts; these are not an exact commuting-tuple table.",
+          "The associative record's two-color mixed-word enhancement in its length-two example is q², not the commutative monomial enhancement q^binom(d,2). The frozen 9,988 count is one internal example rather than an independent earlier entry."
+        ],
+        "reasoning": "A count for one map leaves compatibility and product ranks undetermined. A fixed-order example, even if recorded earlier, would not decide the joint all-arity symmetric count.",
+        "searches": [
+          "Resultary 5df169bbe08e and d0314edd48d9",
+          "Resultary single-map retraction counts for truncated symmetric powers",
+          "Frozen VERIFICATION.md"
+        ]
+      },
+      "rationale": "The overlapping Boolean-weight method and all-arity orbit classification in the earlier associative setting, and the prior commutative single-map work, are credited. The independently supported distinct claim is the ordered commuting-tuple orbit size and joint product image-rank census in the symmetric jet algebra, with its commutative mixed-monomial enhancement. The closest associative theorem counts ordered tensor words and does not state or directly imply these orbit sizes on the commutative quotient. No historical priority beyond the checked statements is asserted.",
+      "residual_risks": [
+        "An older covering result on simultaneous formal linearization or the structure of semilattice actions might account for the conjugacy step; the checked proof uses the familiar semisimple lifting mechanism.",
+        "The 1998 related article was not available at statement level. The bounded inspection cannot rule out an unindexed commutative stabilizer census."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial method overlap, distinct tensor-word census; not direct implication for symmetric jets.",
+          "evidence": "Nonunital direct sum of truncated tensor powers; color classes and all-arity count with ordered words. Its discussion cautions that extra relations may obstruct equivariant lifts.",
+          "identifier_or_url": "2026/11/2/SCOPE-simultaneous-linearization-and-an-exact-census-of-commuting-retr--5df169bbe08e",
+          "material_read": "Finding at offset 0; relationship and limitations near offset 8295",
+          "method": "Resultary local mirror",
+          "title": "Simultaneous linearization and an exact census of commuting retractions of truncated free associative algebras",
+          "trigger": "Exact all-arity method and finite-field orbits in a closely related algebra"
+        },
+        {
+          "assessment": "Single-map and embedded-image results for the degree-two truncation.",
+          "evidence": "Exact Gaussian-binomial retraction and image counts; no simultaneous commuting orbit census in the inspected statement.",
+          "identifier_or_url": "2026/10/13/SCOPE-retracts-and-idempotent-endomorphisms-of-cube-zero-truncated-sym--d0314edd48d9",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Retracts and idempotent endomorphisms of cube-zero truncated symmetric algebras",
+          "trigger": "Closest commutative individual-map spectra"
+        },
+        {
+          "assessment": "Different input and single-map scope.",
+          "evidence": "Adjacent result concerns graded retracts preserving the irrelevant ideal, not finite-field commuting orbits on the full truncation.",
+          "identifier_or_url": "https://arxiv.org/abs/1910.11023",
+          "material_read": "Section 5, pp. 15–16, around extraction offset 39000",
+          "method": "Primary OA PDF, bounded passage",
+          "title": "Some results on retracts of polynomial rings",
+          "trigger": "Prior polynomial retracts and descent to quotients"
+        },
+        {
+          "assessment": "Different ring hypotheses and invariant.",
+          "evidence": "Concerns Laurent polynomial-ring retracts rather than simultaneous projections in a nilpotent local algebra.",
+          "identifier_or_url": "https://arxiv.org/abs/2301.12681",
+          "material_read": "Theorem 1.2, p. 2, around offset 6059",
+          "method": "Primary OA PDF, bounded passage",
+          "title": "Retracts of Laurent polynomial rings",
+          "trigger": "Earlier commutative algebra retract classification"
+        },
+        {
+          "assessment": "Linear/module decomposition tools, not multiplicative conjugacy or symmetric jet counts.",
+          "evidence": "A-endomorphisms of the module M; Koszul and Fitting arguments for kernels and images.",
+          "identifier_or_url": "https://msp.org/pjm/1999/191-1/pjm-v191-n1-p06-p.pdf",
+          "material_read": "Abstract and start of Section 1, PDF p. 3, offsets 440–1934",
+          "method": "Primary OA PDF, bounded passage",
+          "title": "Ascent and descent for finite sequences of commuting endomorphisms",
+          "trigger": "Potential broad theorem for commuting endomorphisms"
+        },
+        {
+          "assessment": "No statement-level comparison possible on the retrieved material.",
+          "evidence": "Mikhalev and Yu (1998), International Journal of Algebra and Computation. No lawful open paper copy was identified by the check.",
+          "identifier_or_url": "https://doi.org/10.1142/S0218196798000144",
+          "material_read": "Bibliographic metadata only, no primary paper text",
+          "method": "MaRDI public bibliographic page; OA direct/VPN DOI attempts (403)",
+          "title": "Test Elements, Retracts and Automorphic Orbits of Free Algebras",
+          "trigger": "Older free-algebra retract and automorphic orbit literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Full maximal-ideal-power jets are canonical finite local algebras. Exact counts of the compatible substitutions and their product images answer a natural question left open by marginal retraction counts: homogeneous tangent data alone do not tell how much larger a nonlinear orbit is. The computed stabilizer shows a specific symmetric mixed-monomial effect, producing the incomparable-color enhancement at every truncation depth and giving a joint-rank enumeration for arbitrary arity. This is more than a change of variables in the tensor-word formula.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

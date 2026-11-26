@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:43:49.331862Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, artifacts/verify.py and artifacts/certificate.json (read, not executed)",
+        "/workspace/independent/census.py (run with argument 2)",
+        "/workspace/independent/census-2.json"
+      ],
+      "rationale": "Polynomial long division verified that g divides x^15+1 with quotient 1+x²+x³+x⁴+x⁶. Its six shifts have distinct leading degrees and rank six. Independent hyperplane/coset enumeration generated all 2,824 message spaces and computed support from the sum of all word weights on each divided by 2^(r−1), rather than the frozen script's basis-support union. Every bin, the hierarchy (6,9,11,13,14,15) and all six minimizer counts agree. The ordinary distribution also agrees by independently comparing all 64 words to arrays a_i+b_j with a and b even, in CRT order.",
+      "residual_risks": [
+        "The cited Example 2 attribution was not reverified in the inaccessible original; numerical claims are for the expressly fixed polynomial, independently of its attribution."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pan et al. give exact spectra for specified constructions with general support-distribution dual relations. The graph-code article concerns ordinary distributions and minimality for full cut spaces and is later than the frozen record date. The Shi–Li–Helleseth source on optimal codes built from down-sets was inaccessible beyond snippets."
+        ],
+        "reasoning": "An exact table for C or C-perp under a proved equivalence would matter, but neither the general relation nor the graph ordinary weight formula identifies that table. The scope of the inaccessible article remains a risk, not contrary evidence.",
+        "searches": [
+          "arXiv:2408.10005v1 p. 1 and §1.3",
+          "arXiv:2610.35372v1 §V.A",
+          "DOI:10.1109/TIT.2022.3217078"
+        ]
+      },
+      "checked_sources": [
+        "Frozen evidence; Zhang–Zhu access attempts; Resultary comparisons; published graph-code, Griesmer and down-set leads; independently verified CRT alias"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The frozen text credits Example 2 with the fixed polynomial and parameters. The full-graph cut formula describes a single support by its cut; for r-space supports in the even subcode one must count equal r-bit labels across the two sides simultaneously, with both parity constraints and total label rank r. Neither inspected formula computes that distribution."
+        ],
+        "reasoning": "The exact generator, ordinary enumerator or a distance/duality framework does not mechanically give this joint distribution without a new evaluation. The primary access failure does not establish the absence of prior coverage.",
+        "searches": [
+          "Zhang–Zhu DOI:10.3934/amc.2025058 and publisher Example 2 retrieval",
+          "Pan et al. §1.3; graph-code §V.A direct passages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The check polynomial factors as (x²+x+1)(1+x+x²+x³+x⁴). The period-3 and period-5 repeats of their even codes are annihilated by the respective factors under shift. Their intersection is zero (the only common constant even repeat is zero), and the dimensions sum to six. CRT makes these words a_i+b_j on edges of K_{3,5}; the total parity of a cut is the sum of vertex label parities, and the global flip puts both separately even exactly for even cuts. Exhaustive comparison verified this alias. The frozen parameter-matching comparator has a different ordinary weight enumerator and thus cannot be equivalent if its quoted enumerator is correct."
+        ],
+        "reasoning": "The even-weight cut space has dimension six, whereas the full cut space has dimension seven; a table for the latter or its ordinary cycle-space dual is not an identified table for this subcode.",
+        "searches": [
+          "Binary cut space of K_{3,5}, even-weight subcode, arrays a_i+b_j, binary code support-size distribution, GHW and rank/Tutte table, exact cyclic generator",
+          "arXiv:2610.35372v1 §V.A"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest inspected local comparisons are [24,6,10] and [37,7,16] trace/subfield codes; neither is the claimed object. The graph alias search identified general papers, not an evaluated table of support unions or a rank-by-size table for the exact parity-cut generator."
+        ],
+        "reasoning": "The first general web query was uninformative and cannot count as negative evidence; the positive comparison establishes only that these inspected spectra are different objects.",
+        "searches": [
+          "Resultary for exact generator, [15,6,6], hierarchy (6,9,11,13,14,15) and spectra",
+          "Web query combining exact generator and classic length-15 cyclic generalized Hamming support enumerators",
+          "Second-wave even-cut alias query",
+          "2026/10/13/SCOPE-complete-higher-support-profile-of-a-projective-minimal-binary-2--ba9b8d34c0ab",
+          "2026/10/13/SCOPE-complete-higher-support-profile-of-the-37-7-16-2-subfield-code--9489313f0f7c"
+        ]
+      },
+      "rationale": "The cyclic construction and classical parameters are not claimed as new. The full support counts of its exact parity-cut presentation are not supplied by the inspected cyclic or graph-code comparisons. The pass concerns the verified distribution of this fixed code, not its presentation or all length-15 optimal codes.",
+      "residual_risks": [
+        "Original and Shi–Li–Helleseth full text inaccessible; an unindexed code or dual matroid rank table may encode the same data."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Purported provenance not directly reverified",
+          "evidence": [
+            "Frozen RESULT.md lines 4–11 and 146–148 specify C(4,1,1,1) and g; no direct original-paper passage was obtainable."
+          ],
+          "identifier_or_url": "DOI:10.3934/amc.2025058",
+          "material_read": "Frozen attribution; DOI and publisher retrieval unavailable, no lawful alternate copy identified",
+          "method": "OA and targeted search attempts",
+          "title": "Several infinite families of binary cyclic codes with optimal parameters",
+          "trigger": "Exact generator and Example 2 provenance"
+        },
+        {
+          "assessment": "Framework and specified Griesmer families, no established exact match",
+          "evidence": [
+            "Defines the r-subcode distributions and notes general relations to dual distributions."
+          ],
+          "identifier_or_url": "arXiv:2408.10005v1",
+          "material_read": "p. 1 and §1.3 p. 3 around offset 9478",
+          "method": "OA PDF",
+          "title": "Optimal Few-GHW Linear Codes and Their Subcode Support Weight Distributions",
+          "trigger": "Potential exact spectrum/dual table"
+        },
+        {
+          "assessment": "Full cut-space ordinary formula and minimality, not this even subcode spectrum",
+          "evidence": [
+            "Support of aB is the cut of the support of vertex labels a; dual is ordinary cycle space."
+          ],
+          "identifier_or_url": "arXiv:2610.35372v1",
+          "material_read": "p. 1 version date; §V.A p. 23 around offset 109472",
+          "method": "OA PDF",
+          "title": "Minimality of Binary Codes From Weight Layers and Graph Cut Spaces",
+          "trigger": "Equivalent K_{3,5} parity-cut description"
+        },
+        {
+          "assessment": "Unresolved scope",
+          "evidence": [
+            "Snippet mentions determining distributions for some down-set constructions, without identifying this exact code."
+          ],
+          "identifier_or_url": "DOI:10.1109/TIT.2022.3217078",
+          "material_read": "Search description only; DOI timeout and publisher/repository attempts did not yield readable text",
+          "method": "Literature search and lawful OA attempts",
+          "title": "On the Subcode-Support-Weight Distributions of Some Classes of Optimal Codes",
+          "trigger": "Plausible wider optimal-code spectrum"
+        },
+        {
+          "assessment": "Tables are for different codes",
+          "evidence": [
+            "[24,6,10] trace code and [37,7,16] subfield code cannot be coordinate-equivalent to length 15."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-complete-higher-support-profile-of-a-projective-minimal-binary-2--ba9b8d34c0ab; 2026/10/13/SCOPE-complete-higher-support-profile-of-the-37-7-16-2-subfield-code--9489313f0f7c",
+          "material_read": "Their RESULT.md Findings at offsets 264 and 178, and exact-scope limits at 5095 and 5576",
+          "method": "Resultary and local mirror",
+          "title": "Complete higher-support profiles of a projective minimal binary trace code and a [37,7,16] subfield code",
+          "trigger": "Strongest local exact-table analogues"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and exact scope",
+        "Independent code and census",
+        "Cyclic-to-even-cut equivalence"
+      ],
+      "rationale": "The fixed natural cyclic code also describes even cuts of a small complete bipartite graph. Its table counts all simultaneous cut supports, including 40 extremal two-spaces and 11 two-spaces meeting every coordinate. These incidence-sensitive counts distinguish it from alternatives with the same parameters and are useful beyond confirming its already-known minimum distance.",
+      "residual_risks": [
+        "Not a family-level formula, orbit classification or claim about every optimal length-15 code."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,11 +1,10 @@
 """Exact-rational checks for scalar momentum augmented-Lagrangian feasibility risk.
 
-Run with `python verify_malm.py`; Python standard library only.
+Run with `python verify.py`; Python standard library only.
 Finite checks corroborate but do not replace the analytical proof.
 """
 from fractions import Fraction as Q
 from random import Random
-from math import sqrt
 
 count=0
 

@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:28:51.905049Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For nonempty parts and r≥2 the two distinct-vertex distances are 1 across parts and 2 within each part (only 1 occurs when all parts are singletons). Thus p=0 leaves all sets, p=1 permits only sets in one part, and p≥2 restricts to at most one vertex. Independently d=0 requires V, d=1 permits exactly the sets meeting multiple parts or equal to a whole part, and d≥2 permits all nonempty sets. The generating function for sets meeting multiple parts is (1+x)^N−1−Σ_i((1+x)^{n_i}−1), disjoint from the whole-part contributions. Intersecting with the three packing filters gives all eight cases; the empty set is never feasible and V is invalid for d=0,p≥1 because an across-part pair exists. The smallest nonzero exponents match the second table, including no universal vertex when q=0 and all the infinite cases. A separate BFS and subset replay (python /workspace/branches/independent_reproduction.py 2) matched all cardinality coefficients on seven profiles, including cliques, singleton parts and profiles with none, for all 36 parameter pairs 0≤d,p≤5; the general result follows from the distance argument. The frozen verifier and recorded output were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1 gives the ordinary domination polynomial of a join of arbitrary graphs. Theorem 2(ii) specializes to a join of any number of edgeless graphs; its scope includes all of the frozen ordinary-domination cell.",
+          "The parameter paper gives same-invariant results on paths, cycles, and trees; this is not in itself general multipartite coverage."
+        ],
+        "reasoning": "At p=0,d=1 replacing the join summands by the binomial expansions gives the frozen exact formula, not just a bound. No new conditions are needed when r or part sizes vary.",
+        "searches": [
+          "Alikhani–Torabi (2010), Theorems 1 and 2",
+          "arXiv:2507.18272, abstract and §1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, artifacts/verify.py and recorded output",
+        "Alikhani–Torabi (2010), Theorems 1–2",
+        "arXiv:2507.18272",
+        "Resultary 483fcd9cfba1, 9d27733f8417, 04ebf7f4faa4, 0f19715c7567"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier formula is Σ_i x^{n_i} + Σ_{i≥2} (A_i−1)(∏_{j<i}A_j−1), A_i=(1+x)^{n_i}; the second sum telescopes to ∏_i A_i−Σ_i A_i+r−1.",
+          "The published packing definition means independent sets at p=1 and singletons or empty at p≥2 on a graph with no distance above 2."
+        ],
+        "reasoning": "For d=1 the known polynomial's two types simply reduce to whole parts or universal singletons under packing. For d≥2 no additional domination restriction remains except nonemptiness, and d=0 leaves only V. Thus the new presentation combines mechanically determined cells; the minimum table contains no further theorem.",
+        "searches": [
+          "Alikhani–Torabi, Theorem 2(ii), complete n-partite formula",
+          "arXiv:2507.18272 §1 and frozen RESULT.md lines 69–184"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The parameter paper uses precisely the separation d_G(u,v)≥p+1 and domination radius d, identifies ordinary domination and independent domination, and cites the older (p,d) terminology.",
+          "The earlier complete-partite polynomial counts all dominating sets by cardinality, not only minima."
+        ],
+        "reasoning": "At (1,0) the polynomials agree identically after telescoping the earlier join sum. At (1,1), independent domination on this graph consists of the whole partite classes, so its polynomial follows by retaining exactly the whole-part summands. Lower packing occurs on the diagonal at d=p=2; it is the singleton case in this family.",
+        "searches": [
+          "arXiv:2507.18272, §1, (p,d)-domination, d-distance p-packing domination, lower packing",
+          "Complete multipartite ordinary and independent domination polynomials",
+          "Alikhani–Torabi, Theorem 2(ii)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact combined table among the compared Resultary entries. The near entries concern vertex-disjoint maximal geodesics, closed-neighborhood k-limited domination/packing, or independent semitotal domination on a central graph.",
+          "The exact all-part-size ordinary domination polynomial is in the 2010 primary paper."
+        ],
+        "reasoning": "None of the distinct catalogue invariants is equivalent merely because its title contains packing, domination or complete multipartite; the earlier ordinary domination formula matches the actual quantity in the nontrivial (1,0) cell.",
+        "searches": [
+          "Configured Resultary: complete multipartite distance-packing domination full cardinality polynomial, (p,d)-domination and independence variants",
+          "Local mirror Findings 483fcd9cfba1, 9d27733f8417, 04ebf7f4faa4, 0f19715c7567",
+          "Alikhani–Torabi PDF, Theorem 2(ii), p. 23"
+        ]
+      },
+      "rationale": "The combined table was not found verbatim. But its main counting cell, the full ordinary domination polynomial for arbitrary complete multipartite graphs, is already Theorem 2(ii) of Alikhani–Torabi. The combined table is that known polynomial and its immediate consequences or filters from the published definitions on a metric of diameter at most two, rather than a distinct exact counting result beyond them.",
+      "residual_risks": [
+        "The Beineke–Henning 1994 historical source was not read in full; older terminology could conceal the literal combined table.",
+        "The negative local catalogue comparison is bounded. The decision rests on positive exact coverage of the principal cell and explicit implication for the rest, not on the lack of a search hit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_ORDINARY_DOMINATION_CELL",
+          "evidence": "Theorem 2(ii) gives the whole-part monomials and a join-sum term that telescopes to the frozen cardinality polynomial.",
+          "identifier_or_url": "https://www.idosi.org/wasj/wasj9(1)/3.pdf",
+          "material_read": "p. 23, definition, Theorems 1 and 2, and Theorem 2 proof; PDF offsets 0–2542 and relevant continuation from 2550",
+          "method": "Lawful publisher PDF; bounded theorem and proof inspection",
+          "title": "On the Domination Polynomials of Complete Partite Graphs",
+          "trigger": "Exact ordinary domination enumerator, including arbitrary complete multipartite graphs"
+        },
+        {
+          "assessment": "SAME_PARAMETER; DIFFERENT_FAMILY_RESULTS_IN_READ_PASSAGES",
+          "evidence": "The paper identifies the two constraints, ordinary and independent domination cases, lower packing, and earlier (p,d)-domination usage.",
+          "identifier_or_url": "https://arxiv.org/pdf/2507.18272",
+          "material_read": "Abstract p. 1; §1 p. 2 definition and special cases",
+          "method": "OA paper, targeted abstract and definition",
+          "title": "The d-distance p-packing domination number: complexity, cycles, and trees",
+          "trigger": "Same parameter and historical notation"
+        },
+        {
+          "assessment": "DIFFERENT_OBJECTS_OR_CONSTRAINTS",
+          "evidence": "Geodesic packing packs paths; limited packing and domination use closed-neighborhood cardinalities; the semitotal domination polynomial concerns a different graph and a different condition.",
+          "identifier_or_url": "Resultary 483fcd9cfba1; 9d27733f8417; 04ebf7f4faa4; 0f19715c7567",
+          "material_read": "Each local-mirror Finding",
+          "method": "Configured catalogue search and bounded statement comparison",
+          "title": "Nearby complete multipartite Resultary entries",
+          "trigger": "Shared graph family and similar packing and domination terminology"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The table is a convenient summary, but its apparent extra scope is entirely an immediate diameter-two case split. Once the known ordinary domination polynomial is credited, no unknown exact invariant, nonobvious boundary, or stronger structural lemma survives. The two remaining packing filters amount to taking whole classes or singletons, or counting all their subsets when domination becomes automatic.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

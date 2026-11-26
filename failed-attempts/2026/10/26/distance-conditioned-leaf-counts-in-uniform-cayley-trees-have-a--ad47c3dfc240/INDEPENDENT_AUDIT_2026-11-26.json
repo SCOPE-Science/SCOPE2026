@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:16:53.428502Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–110",
+        "Frozen VERIFICATION.md and verify_cayley_leaf_distance.py (inspected, not executed)"
+      ],
+      "rationale": "Contract the prescribed ordered k-edge path to a vertex of weight k+1, with unit weights elsewhere. Weighted Prüfer enumeration gives (k+1)n^(n−k−2) completions, with each incident edge on the contracted vertex specifying its own attachment choice. Excluding a given path endpoint from all attachments replaces the weight and total weight by k and n−1, respectively. An off-path unit-weight vertex is a leaf iff absent from the contracted Prüfer code, yielding probability r_n^(n−k−2). Internal vertices cannot be leaves; the full spanning path case separately has two leaves, agreeing with the formula. Summing gives F_n(k); the Prüfer unconditional mean matches F_n(1). The sign of the exact difference is the sign of 2(n−1)−k(k+1)^2=2(n−N_k). N_1=3<n and N_(n−2)>n, so there is precisely the proposed peak or adjacent tie, and solving the cubic to bounded error gives the stated n^(1/3) scale. The distance tail is the product of (1−j/n) for j=2,...,k+1 from telescoping the path count, hence typical distances are of order sqrt(n). Uniformly for k=O(sqrt(n)), expanding r_n^(−k) to second order in 1/n in the exact centered mean yields e^(−1)[1−2/(k+1)−k²/(2n)+O((k+1)/n+(k³+1)/n²)]. Substitution at the maximum gives the −3·2^(−1/3) coefficient; substitution at k/sqrt(n)→x gives the claimed limit.",
+      "residual_risks": [
+        "Finite recorded checks are corroboration only. The limiting sign profile does not supply an exact finite-n crossing or a conditional stochastic order."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "4740ad229d71 derives conditional factorial moments and the full endpoint/off-path joint leaf law and explicitly calls its mean already known",
+          "The leaf-marked primary paper, §8, leaf-biases the tree and roots at a uniformly chosen leaf"
+        ],
+        "reasoning": "The joint law dominates the mean on this domain, but its same-day date supplies no ordering. The primary leaf-rooted model differs; neither distinction removes the earlier direct coverage.",
+        "searches": [
+          "Resultary 4740ad229d71 and 318a0003cfc3",
+          "arXiv:2009.00572 §§6–8"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 51666dfb40bf, 840398b1b878, d9ddfb06a9ae, 4740ad229d71",
+        "Berzunza Ojeda–Janson, arXiv:2009.00572, §§6–8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier exact F_n(k), cubic peak and uplift e^(−1)+O(n^(−1/3))",
+          "Expanding the prior exact formula for k=O(sqrt(n)) gives the centered first terms e^(−1)[1−2/(k+1)−k²/(2n)]; the error vanishes in the square-root regime and is O(n^(−2/3)) at the previously known peak"
+        ],
+        "reasoning": "The sharpened peak coefficient and square-root profile, even if not written verbatim in the earlier passages, require no independent enumeration, structure or nonroutine estimate beyond expansion of their same exact mean and substitution of known scales.",
+        "searches": [
+          "Resultary 51666dfb40bf Finding offsets 0–2518",
+          "Resultary 840398b1b878 Finding from offset 283"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier 51666dfb40bf and 840398b1b878 use two fixed labels, the same uniform labeled tree and total degree-one leaf count",
+          "The prior tie equation n=1+k(k+1)^2/2 is identical to (k+2)(k²+1)/2",
+          "The endpoint-only degree regression and a leaf-biased rooted profile do not by themselves give the total-leaf conditional mean"
+        ],
+        "reasoning": "The strongest matches are not merely analogous statistics: they give the identical conditioning, random variable, and turning-point criterion.",
+        "searches": [
+          "Resultary 51666dfb40bf, 840398b1b878, d9ddfb06a9ae",
+          "arXiv:2009.00572 §§6–8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both indexed results give the same F_n(k) and its exact difference across the full parameter domain; 840398b1b878 also explicitly states all maximizing distances"
+        ],
+        "reasoning": "These formulas supply the entire table of means and maximizers for every admissible integer pair, not just matching small instances.",
+        "searches": [
+          "Resultary exact mean and maximizer comparison: 51666dfb40bf and 840398b1b878"
+        ]
+      },
+      "rationale": "Direct prior coverage. Two earlier Resultary records have the same exact total-leaf conditional mean and forward difference, all maximizing distances including the ties, the cubic-root peak scale and leading uplift. Earlier exact formulas also determine both highlighted additional asymptotics by routine uniform expansion. The relationship-to-prior-work account misses the earlier total-leaf results; the issue is not an inaccessible source or the same-day priority ambiguity.",
+      "residual_risks": [
+        "No assertion of ultimate publication priority; the two visibly earlier exact Resultary matches suffice. The two sharpened asymptotics were not found verbatim in the inspected earlier passages, but are direct expansions of their exact formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct earlier coverage of central claim",
+          "evidence": "Same conditional mean, difference, peak/tie classification and rate e^(−1)+O(n^(−1/3)) for the uplift.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-a-cubic-root-modal-distance-for-the-expected-leaf-count-in-cayle--51666dfb40bf/RESULT.md",
+          "material_read": "RESULT.md Finding, offsets 0–2518",
+          "method": "Resultary search and local mirror passage",
+          "title": "A cubic-root modal distance for the expected leaf count in Cayley trees",
+          "trigger": "Earlier exact total-leaf and cubic-modal-distance hit"
+        },
+        {
+          "assessment": "Direct earlier coverage",
+          "evidence": "Same F_n(k), finite difference, tie equation 2(n−1)=k(k+1)^2, cubic scale, and limiting e^(−1) uplift.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-cubic-optimal-marked-distance-for-expected-leaves-in-uniform-l--840398b1b878/RESULT.md",
+          "material_read": "RESULT.md formula passage offsets 283–686 and following maximizing-distance passage",
+          "method": "Resultary search and local mirror passage",
+          "title": "A cubic optimal marked distance for expected leaves in uniform labeled trees",
+          "trigger": "Second exact earlier match"
+        },
+        {
+          "assessment": "Endpoint component only",
+          "evidence": "Binomial plus independent Bernoulli law implies the endpoint-leaf probability, not the contribution of the other vertices.",
+          "identifier_or_url": "2026/10/4/d9ddfb06a9ae",
+          "material_read": "RESULT.md Finding and path-count proof, offsets 0–3560",
+          "method": "Resultary local mirror passage",
+          "title": "Exact negative regression between endpoint degree and distance in a uniform Cayley tree",
+          "trigger": "Endpoint antecedent cited by the frozen record"
+        },
+        {
+          "assessment": "Related but different conditioning in the inspected sections",
+          "evidence": "Leaf-size-biasing and rooting at a uniformly picked leaf, including an asymptotic total-variation comparison.",
+          "identifier_or_url": "https://arxiv.org/pdf/2009.00572",
+          "material_read": "PDF pp. 16–20, especially §8 and Lemma 8.2",
+          "method": "Lawful OA PDF passage",
+          "title": "The distance profile of rooted and unrooted simply generated trees",
+          "trigger": "Primary literature on leaf marking and tree distances"
+        },
+        {
+          "assessment": "Stronger coverage of the mean; same-day priority unresolved and not needed",
+          "evidence": "The full joint conditional law includes the exact mean (m+2d/(d+1))A_1 with m=n−d−1.",
+          "identifier_or_url": "2026/10/26/4740ad229d71",
+          "material_read": "RESULT.md Finding offsets 0–3171",
+          "method": "Resultary local mirror passage",
+          "title": "Conditional joint leaf law along a marked path in a uniform Cayley tree",
+          "trigger": "Stronger overlapping conditional law"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 24–43 and 85–110",
+        "Earlier Resultary 51666dfb40bf and 840398b1b878"
+      ],
+      "rationale": "The exact regression, exceptional peaks and separation of the maximizing and typical scales form a meaningful mathematical observation, but the central discovery is already available. The residual sharpened coefficient and limiting sign description are routine Taylor consequences of an already exact formula, not a distinct useful finite crossing, conditional law or structural theorem. There is no worthwhile supported remainder that can justify a repair.",
+      "residual_risks": [
+        "A separate finite-size crossing theorem or a substantively new conditional distribution would require a different finding; neither is claimed here."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

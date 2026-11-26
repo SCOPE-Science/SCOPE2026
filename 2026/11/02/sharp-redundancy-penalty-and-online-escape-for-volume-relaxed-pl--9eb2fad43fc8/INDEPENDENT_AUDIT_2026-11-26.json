@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:23:42.167339Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each invertible two-row block the block projector is I, so the exact error multiplier is -sqrt(1-v_ij/v_star). Squaring and using independent uniform draws proves the product mean-square law; q is nonnegative since every v_ij<=v_star. The doubled angles turn 4v_ij into squared chord distances. For a diameter pair of squared length d², the sum of the two squared distances from any third point equals d²/2 plus twice its squared distance from the midpoint. The midpoint is strictly inside the unit circle, so retaining just these terms and the diameter gives sum(v_ij)>Mv_star/2 for M>=3 and hence q<(M-2)/(M-1). With row angles -t,t and distinct c_j t², the unique largest angle difference is 2t in the monotonic range of sin²; the volume ratios tend to 1 for that pair, 1/4 for the 2(M-2) incident pairs, and 0 for the rest, proving the nonattained supremum. A separate rational check on M=3..6 and t=1/8,1/32,1/128 corroborated the unique maximizer, chord identity, and strict bound; the limit argument, not the checks, proves sharpness. From nonzero initial error, the first exact hit is the first draw of one of the r maximizing pairs, giving an independent geometric law and largest mean binom(M,2) on the same sharpness family. Unrelaxed projection and normalization from the first draw before its update both solve in one step. These statements are for exact arithmetic, consistent planar systems, and the stated initialization, not arbitrary online maxima. The supplied verifier was inspected, not executed; its recorded output is supplementary.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2 gives a general expected-progress bound without the row-count envelope.",
+          "Copher's Theorem 2.1 gives a general squared-distance centroid identity, not the inspected sharp diameter constraint.",
+          "The identified Academia page did not yield lawful accessible full text through the available direct and alternate routes."
+        ],
+        "reasoning": "A general Euclidean diameter theorem can cover the non-strict geometric step; the circle restriction, sharp admissible construction, and randomized termination comparison must then be checked separately. Nothing is inferred about an unread theorem from the title.",
+        "searches": [
+          "arXiv:2610.12346v1, Theorem 2",
+          "arXiv:2001.02745, Theorem 2.1",
+          "The sum of squared distances under a diameter constraint, in arbitrary dimension"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.12346v1 §3.3",
+        "arXiv:2001.02745 §2",
+        "Resultary d0ced93fd424",
+        "Resultary ad4d5ccaddd9",
+        "Resultary e045af1db347",
+        "Resultary 412c0b7b12d1",
+        "Academia 121135562, title only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inherited bound specializing to square blocks gives the same factor; the scalar recurrence shows it is exact. The inherited online rule implies the one-step observation when initialized with the current block.",
+          "The closest comparison studies two successive rank-one updates rather than scalar errors from full-rank blocks."
+        ],
+        "reasoning": "These implications are credited. The distinct claim identifies the sharp deterioration with M and a family simultaneously approaching the supremum and attaining the maximal expected exact termination time; neither follows merely by specializing the known expected-progress bound.",
+        "searches": [
+          "arXiv:2610.12346v1 §3.3 Theorem 2 and running-maximum paragraph",
+          "Resultary d0ced93fd424 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 2 describes the same determinant-based relaxation and its running-maximum implementation.",
+          "Under doubled angles the envelope is equivalent to a strict lower bound for sum of squared chords divided by squared diameter on distinct circle points; the sharp family collapses along the tangent direction."
+        ],
+        "reasoning": "The proof uses an established Euclidean identity, but that identity does not itself assert the sharp circle-constrained result with nonattainment and a unique maximizing pair. A potentially equivalent diameter paper was not accessible.",
+        "searches": [
+          "Entezari–Banerjee–Kalantari arXiv:2610.12346v1 §3.3, square full-rank specialization",
+          "Squared chord distances under a diameter constraint and planar angle embedding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary d0ced93fd424 examines singleton-row sampling in a two-row system; ad4d5ccaddd9 optimizes two unrelaxed updates; e045af1db347 treats unrelaxed frame sweeps; 412c0b7b12d1 compares GMRES and alternating projections."
+        ],
+        "reasoning": "Matching words 'sharp', 'two-row' and 'termination' refer to different selected blocks, update horizons or methods. These inspected records do not give the stated M-row envelope or maximum-pair mean hitting time.",
+        "searches": [
+          "Resultary volume-normalized relaxed Kaczmarz planar sharp row count and full-rank block hitting",
+          "Resultary exact Kaczmarz termination and sharp two-step crossovers"
+        ]
+      },
+      "rationale": "Credit the relaxation and square-block convergence factor to the inherited scheme; the one-step online fact alone is also immediate from its known rule and full rank. The distinct assessed result is the nonattained sharp planar row-count envelope and its near-extremizers exhibiting maximal quadratic mean waiting time under fixed normalization versus the one-step online behavior. The strongest inspected statements do not supply this joint sharp classification. Priority is not certified.",
+      "residual_risks": [
+        "The inaccessible diameter-constraint paper or unindexed work on planar block methods could cover more of the sharpness or equality analysis. No priority conclusion is inferred from search misses or dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS the relaxation, convergence factor specialization, and online rule; not the sharp envelope",
+          "evidence": [
+            "Uses omega=1+sqrt(1-v/v_max) and gives a general expected-progress bound; it discusses a running maximum updated before each step."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.12346v1",
+          "material_read": "§3.3 Theorem 2 and running-maximum discussion, OA HTML offset 17450",
+          "method": "Read bounded full-text passage",
+          "title": "Volume Sampling and Spectral Equalization in Randomized Alternating Projections",
+          "trigger": "Identical algorithm and implementation conventions"
+        },
+        {
+          "assessment": "RELATED identity, not the sharp result under the diameter constraint",
+          "evidence": [
+            "Total squared chord distance is expressed via the centroid."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2001.02745",
+          "material_read": "§2 Theorem 2.1, p. 2, OA offset 3439",
+          "method": "Read bounded PDF passage",
+          "title": "Sums of Squared Distances between Points on a Unit n-Sphere",
+          "trigger": "Candidate broader theorem on the doubled-angle reformulation"
+        },
+        {
+          "assessment": "NOT COVERING; another block size and horizon",
+          "evidence": [
+            "Singleton rows, two-row system, two successive steps; not one draw of an invertible two-row block in an M-row system."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-sharp-two-step-crossover-for-volume-normalized-relaxed-random--d0ced93fd424",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Read the indexed local mirror",
+          "title": "A sharp two-step crossover for volume-normalized relaxed randomized Kaczmarz",
+          "trigger": "Closest matching relaxation and planar setting"
+        },
+        {
+          "assessment": "UNRESOLVED ACCESS RISK, not a noncoverage finding",
+          "evidence": [
+            "Title suggests a relevant diameter constraint but does not establish the actual bound, equality conditions, or point class."
+          ],
+          "identifier_or_url": "https://www.academia.edu/121135562/The_sum_of_squared_distances_under_a_diameter_constraint_in_arbitrary_dimension",
+          "material_read": "Search-result title only; full text not retrieved",
+          "method": "Tried lawful OA direct and alternate routes; HTTP 403",
+          "title": "The sum of squared distances under a diameter constraint, in arbitrary dimension",
+          "trigger": "Could contain the diameter inequality and general sharpness statement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The diagnostic is sharp in a setting where every unrelaxed block would be an exact solver. It quantifies a concrete loss from global relaxation as redundant rows are added and distinguishes two quantities that could otherwise be confused: worst mean-square contraction and the first exact hit. The same family approaching the contraction bound exhibits the longest expected exact-hit time, while the online initialization removes this delay. No extrapolation to noisy problems, smaller blocks or empirical runtime is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

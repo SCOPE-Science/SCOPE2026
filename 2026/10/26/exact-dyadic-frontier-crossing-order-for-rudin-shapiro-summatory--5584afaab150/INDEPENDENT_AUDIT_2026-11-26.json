@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:35:38.332747Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The binary sign rule gives a(2m)=a(m), a(2m+1)=(−1)^m a(m), so Q_(2m)=(S(m),T(m−1)) and Q_(2m+1)=(S(m),T(m)); the intervening odd-to-even steps are horizontal. The four-adic S recurrences make the 0 and 2 branches odd and halve the target after removing a trailing 1 or 3; since only m=0 gives S(m)=1, the entire S=2^k index set consists of exactly k digits in {1,3}, in the order B_k(p). In the two-bit blocks 01 and 11 the nonleading 3 digits contribute two adjacent-11 counts each, so the leading digit alone fixes orientation. The T recurrences T(4r+1)=2T(r−1), T(4r+3)=2T(r) give child lower heights (2h+2,2h) for downward edges and (2h−1,2h+1) for upward edges. Starting from heights 0 and 1, this yields precisely the descending-even and ascending-odd lists. The disjoint time pairs exhaust all visits, so the endpoints of the one or two incident height intervals give the claimed indices and multiplicities, with no visits outside 0≤v≤2^k. Inverting the two height formulas and interleaving binary digits takes O(k) digit operations. The supplied verifier was read, not executed; a separate bounded direct sign-and-walk replay passed for k=1–5. No finite horizon is used in the proof of completeness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rampersad–Shallit determine the visited region and at-most-two visits for (S,T) and rule out segment retracing. The linear coordinate transform relates their curve to Q. Ryde documents boundary/interior multiplicities and broad inversion. The historical paper treats coverage and dimension."
+        ],
+        "reasoning": "Coverage, multiplicities and no retracing give the geometric setting but do not attach a chronological time to each vertical unit interval; the general algorithms/data used to derive such times are credited.",
+        "searches": [
+          "arXiv:2302.00405v3, §10 Theorems 31–32",
+          "Mendès France–Tenenbaum (1981), p. 211",
+          "MetaCPAN Math::PlanePath::AlternatePaper, coverage and coordinate inverse"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2302.00405v3",
+        "Math::PlanePath::AlternatePaper release 102 POD",
+        "Numdam bsmf.1937",
+        "OEIS A020986 and A093573",
+        "Local Resultary ranked searches under dyadic frontier and alternate-paperfolding terminology"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older recurrences fix the admissible base-four branches and the transformations of signed sums. They yield the frozen theorem after restricting to S=2^k, recognizing the sign of the leading digit, and inducting simultaneously on oriented endpoint heights."
+        ],
+        "reasoning": "The time anchors by themselves follow readily from the parity recurrence. The part accepted here is the additional ordered height analysis: the two orientation-dependent child rules give a specific permutation and permit direct inversion. The prior range/count and recurrence results are ingredients, not an exact or stronger pre-existing chronological formula in the inspected passages.",
+        "searches": [
+          "arXiv:2302.00405v3, Lemmas 6 and 8, equations (7)–(13), and Theorem 9",
+          "arXiv:2302.00405v3, §10 Theorems 31–32"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ryde’s alternate-paperfolding documentation describes the same type of lattice curve, its covered sector and the routine xy_to_n_list, as well as ordered anti-diagonal data."
+        ],
+        "reasoning": "A generic coordinate inverse can compute the individual visits; the inspected documentation does not state the joint ordering on the fixed first-coordinate lines x=2^k or the explicit affine height and bit-dilation association. Anti-diagonal data are not that vertical-line observable.",
+        "searches": [
+          "MetaCPAN Math::PlanePath::AlternatePaper release 102, point-to-index documentation",
+          "Resultary: alternate paperfolding plane path Golay Rudin Shapiro ordered vertical edge visits coordinate to index dyadic power-of-two frontier crossing bit dilation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Row u of A093573 enumerates the m with S(m)=u; row u=4 gives 5,7,13,15, precisely the B_2 indices. The returned Resultary results on regular paperfolding or other dyadic systems did not supply the joint claim."
+        ],
+        "reasoning": "The position table covers the time anchors through the paired-walk identity, but for row u it does not associate those anchors with heights on x=u or give the bit-dilation inverse. Thus merely recomputing the anchor list would not be distinct; the coupled time/height formula is. Ranked search misses are not negative proof.",
+        "searches": [
+          "OEIS A020986 and A093573 (comment, example and flattened position table links)",
+          "Local Resultary searches for dyadic frontier and alternate-paperfolding coordinate inversion"
+        ]
+      },
+      "rationale": "The supported distinction is the closed chronological pairing of the selected times with vertical edge heights on every dyadic line, and the explicit bit-dilation inverse obtained from it. The range, multiplicities, general coordinate inversion and recurrences are known; the horizontal-coordinate hit indices are also represented in OEIS. The joint height/time law is a short specialized derivation from the known recurrences but was not found as a prior exact theorem, nor as a direct substitution into an inspected global inverse or range formula. Neither priority nor a complexity improvement over general inversion is asserted.",
+      "residual_risks": [
+        "The full Brillhart–Morton 1978 paper and 1996 follow-up were not inspected. The extended Ryde write-up was not accessible at its linked PDF, and implementation-level equivalence of the generic inverse was not established. These are bounded risks, not evidence of noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The recurrences and broad geometry are established; exact joint dyadic chronology not located in these passages",
+          "evidence": "Lemmas 6 and 8 give the four-adic recurrences; Theorem 31 characterizes the visited lattice points of (S,T) and gives at most two visits, and Theorem 32 rules out tracing a segment twice.",
+          "identifier_or_url": "https://arxiv.org/html/2302.00405v3",
+          "material_read": "Definitions §1 (offsets 0–3226), Lemmas 6 and 8 and Theorem 9 passage (offsets 16219–19910), §10 Theorems 31–32 (offsets 51280 onward)",
+          "method": "Original OA text, targeted passages",
+          "title": "Rudin–Shapiro Sums Via Automata Theory and Logic",
+          "trigger": "Same sums, recurrence identities and spatial curve"
+        },
+        {
+          "assessment": "Known multiplicities and general inverse, but no stated matching dyadic height-order law in the inspected documentation",
+          "evidence": "xy_to_n_list returns zero, one or two indices for one-arm coordinates; the ordered anti-diagonal data are not indexed by fixed first coordinate.",
+          "identifier_or_url": "https://fastapi.metacpan.org/v1/pod/Math::PlanePath::AlternatePaper?release=KRYDE/Math-PlanePath-102",
+          "material_read": "POD offsets 0–2569 (coverage), 6300–8270 (inverse), 11200–15860 (GRS increments and anti-diagonal data)",
+          "method": "Release-specific public documentation; source implementation lookup did not yield readable code through the attempted reader",
+          "title": "Math::PlanePath::AlternatePaper, release 102 documentation",
+          "trigger": "Alternate formulation of the curve and known generic inverse"
+        },
+        {
+          "assessment": "Geometric coverage and dimension context",
+          "evidence": "The alternating-fold curve is decomposed into covering curves, with the sector 0≤y≤x readable; no chronology follows from that coverage statement.",
+          "identifier_or_url": "https://www.numdam.org/item/10.24033/bsmf.1937.pdf",
+          "material_read": "p. 211, near OA offset 8393",
+          "method": "Original OA PDF passage, cautious use of OCR",
+          "title": "Dimension des courbes planes, papiers pliés et suites de Rudin–Shapiro",
+          "trigger": "Historical alternating-fold/Rudin–Shapiro curve geometry"
+        },
+        {
+          "assessment": "Exact same anchor-index row by row; does not give associated vertical heights",
+          "evidence": "Rows u=1,2,4 start respectively 0; 1,3; and 5,7,13,15. The entry identifies u occurrences of each positive u and links flattened rows.",
+          "identifier_or_url": "https://oeis.org/A093573",
+          "material_read": "Description, comment and examples (offsets 450–1841), cross-reference to A020986",
+          "method": "Original public sequence entry",
+          "title": "OEIS A093573, positions of values in the Golay–Rudin–Shapiro summatory sequence",
+          "trigger": "Exact positional data for S(m)=u"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Powers-of-two lines are natural boundaries of the four-adic recursion. The law gives their entire chronological edge permutation, including orientation, and an exact, no-scan map from height to the one or two visit times. It allows direct analysis of traversal order at arbitrarily large scales rather than recomputing positions or using the known multiplicity alone. The oriented height recursion, not a fresh table of S-hits or a new global coverage theorem, supplies that added usefulness.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

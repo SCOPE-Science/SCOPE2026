@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T15:14:31.575699Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, and check_tree_approximations.py"
+      ],
+      "rationale": "The root value is observed without loss at the output root, and on the copied output vertices the root term is absent. The full level averages are convex combinations of the p-th powers of the respective input level norm and root value; this proves contractivity and the constant function gives equality. With each level rescaled to a standard ℓ_p block, each copy is δ_j times an isometric coordinate embedding. Keeping the root term plus k−1 coordinates gives rank at most k, and deleting arbitrary coordinates within an ℓ_p block has norm at most one. Conversely on the span of the root input unit and k copied coordinates of weights ≥w_k, the norm of the output dominates w_k times the full input norm, by testing separately the root and each copied piece. Every rank ≤k map has a kernel vector there. This works even when some input and output depths coincide, since a single application does not compose those copies. Exact tails and unit vectors on distinct input levels give both directions of compactness; no weak convergence hypothesis on the ℓ∞ sum is needed. In the arithmetic case the a-index endpoints are J_{j−1}+2 and J_j+1, giving exactly the printed liminf and limsup. For arbitrary ρ the ceilings are nondecreasing and each weight is between q^(−1/p)q^(−j/ρ) and q^(−j/ρ); the cumulative block count is comparable to q^j even when weights tie. The proof, not the diagnostic, establishes these claims. The frozen checker was statically inspected: its normpower function divides two integers using `/`, so some input averages are floating-point despite the advertised exact-rational scope. This does not enter the proof; do not cite those comparisons as an exact certificate.",
+      "residual_risks": [
+        "The frozen finite diagnostics do not prove optimality over arbitrary competing finite-rank maps; the kernel estimate does."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Corollary 3.4 gives the vanishing tail of sup_n c_n^−1 Σ_{m>R} c_m N_{m,n}. For this symbol each selected row has just one nonzero positive-depth entry, equal to 1, so this tail is exactly sup_{m_j>R} δ_j^p. Input injectivity makes ordering by R equivalent to the stated sequence limit."
+        ],
+        "reasoning": "The general criterion fully covers compactness here but says nothing about how many coordinate directions occur at each approximation-error scale.",
+        "searches": [
+          "arXiv:2610.33717v1, Theorem 3.3 and Corollary 3.4",
+          "Literature query: approximation numbers block diagonal finite dimensional identical norm ell infinity direct sum level discrete Hardy space homogeneous rooted trees approximation numbers weighted identities (unavailable)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.33717v1 §§2–4",
+        "arXiv:2004.03171v1 preliminaries and norm discussion",
+        "Resultary ranked hits with scope distinguished above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The single-symbol norm expression with all input depths retained is one in this model: row masses give (c_n−c_m)/c_n+c_m/c_n, or one for a root-only level. Removing the bounded initial input depths gives the previous tail criterion."
+        ],
+        "reasoning": "These specializations account for the norm and compactness assertions, not the all-ranks result, arithmetic endpoints, or arbitrary positive threshold realization.",
+        "searches": [
+          "arXiv:2004.03171v1 §3.1",
+          "arXiv:2610.33717v1 Corollary 3.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Renormalizing level norms produces an ℓ∞ sum of finite-dimensional ℓ_p blocks; the extra root column is rank one but has output on many levels. This is not the scalar ℓ_p diagonal model for a composition on a sequence space."
+        ],
+        "reasoning": "The identification motivates the rank proof, but dropping a rank-one term generally yields only shifted inequalities; the separate root observation is what gives the exact shifted equality here. No identified earlier theorem for this combined structure was found in the inspected evidence.",
+        "searches": [
+          "Resultary: exact approximation numbers sparse level copies rooted trees discrete Hardy space compact unweighted composition operator",
+          "arXiv:2004.03171v1 §3.1; arXiv:2610.33717v1 §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact title hit is the frozen record itself. Ranked neighbors concern automorphisms with constant approximation numbers, or essential norms of finite sums on tree Hardy spaces (2026/11/8, suffix d387124a6acb), rather than an ordered compact-operator profile."
+        ],
+        "reasoning": "A limsup tail norm, even if exactly known, cannot recover the finite-rank errors of compact operators; the nondecaying automorphism profile is likewise a different domain of symbols.",
+        "searches": [
+          "Resultary: exact approximation numbers sparse level copies rooted trees discrete Hardy space compact unweighted composition operator"
+        ]
+      },
+      "rationale": "Best-of-knowledge for the complete approximation-number profile and its threshold realization; the norm and qualitative compactness are prior consequences, and the general proof technique is standard.",
+      "residual_risks": [
+        "External literature search was unavailable; no negative evidence inferred from this.",
+        "An older general block-operator theorem with the extra root component may imply the same result. The Resultary comparison of neighboring records is at summary scope only. Priority is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers compactness criterion, not finite-rank approximation profile",
+          "evidence": [
+            "Theorem 3.3; Corollary 3.4; §4 cancellation examples"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.33717v1",
+          "material_read": "Public HTML §§2–3, in particular definitions of N_{m,n}, main theorem and single-symbol corollary; checked scope of §4 examples",
+          "method": "Primary full-text comparison and direct substitution",
+          "title": "Compactness of composition operators on Hardy spaces of homogeneous rooted trees",
+          "trigger": "Same space and single-symbol compactness"
+        },
+        {
+          "assessment": "Norm is a known specialization; no all-rank claim established by the compared statements",
+          "evidence": [
+            "§2 defines the same normalized block norm and N_{m,n}; paper's §3.1 concerns operator norm, §6 compactness"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2004.03171v1",
+          "material_read": "Public PDF text opening, preliminaries, start of §3.1; norm formulation and compactness scope compared with frozen citation and Liu–Ma",
+          "method": "Primary text and fiber-count substitution",
+          "title": "Composition operators on Hardy spaces of the homogenous rooted trees",
+          "trigger": "Single-symbol norm and compactness on the same spaces"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md; Liu–Ma Corollary 3.4"
+      ],
+      "rationale": "This gives all optimal rank errors for a simple family of unweighted symbols in a setting where the general criterion is qualitative. In particular it exhibits every positive strong/weak approximation summability transition on one fixed tree Hardy space and computes the distinct endpoint constants instead of just a decay exponent. The calculation is useful independently of generalizations to other symbols; no Schatten conclusion is claimed.",
+      "residual_risks": [
+        "Only the stated sparse, noninteracting-copy family and the Banach finite-rank convention are covered."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

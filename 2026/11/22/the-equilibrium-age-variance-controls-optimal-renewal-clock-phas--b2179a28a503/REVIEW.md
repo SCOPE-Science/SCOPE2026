@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The exact equilibrium age density \(f_V(v)=\Pr(S>v)\) is obtained by the renewal occupation identity for \(\mathbb E S=1\). The square-wave Fourier coefficient gives the exact harmonic formula. The finite third moment gives the finite stationary-age variance and the rigorously controlled characteristic-function expansion. Global optimizer localization uses the strict modulus inequality for an absolutely continuous equilibrium age, the Riemann--Lebesgue lemma, and a sharp two-term coercive bound. The rescaled loss is strictly convex and gives the limit of every global maximizer; Cauchy--Schwarz proves the unique deterministic clock bound. The included independent numerical and symbolic moment checks agree, but those checks alone would not establish the infinite-family theorem.
+## correctness
 
-## Originality: PASS, qualified
-The primary paper arXiv:2611.01991v1 (2026-11-01), whose main and supplemental mathematical sections were inspected, uses Poisson resetting and derives the standard \(\omega^{2/3}\) signal optimum. The present theorem varies the renewal waiting-time distribution and identifies a distinct equilibrium-age variance prefactor, a global optimizer localization theorem for all finite-third-moment laws, and an attainable sharp clock-law bound. A related publicly indexed result with gamma maturation also retains Poisson resets, hence does not imply a theorem about non-Poisson reset waiting distributions. General non-Markovian stochastic resonance and renewal theory provide transform-level background, but no inspected work states the combined optimization theorem. Exact global coverage of inaccessible or unindexed literature cannot be ruled out.
+PASS
 
-## Value: PASS
-At fixed mean reset spacing, physically distinct clock regularities have quantitatively different optimized signal-response limits. The exact Erlang interpolation, the sharp \(12^{1/3}\) Poisson-to-periodic ratio, and unique deterministic equality case give a model-specific control and design result, rather than a trivial rewrite of the Poisson rate law. It applies to a meaningful and explicitly limited phase-selected step-response model. No generalization to full nonlinear dynamics is claimed.
+In stationary renewal occupation, a cycle of dimensionless length S contributes one unit of age density at each v<S; division by E S=1 gives f_V(v)=Pr(S>v), including for a deterministic clock with equilibrium random phase. The selected square wave has first-harmonic amplitude 4B/pi; at observation the phase is shifted by the age, and visibility restricts v to at least d=r tau. Thus H is the magnitude of the truncated age transform at z=omega/r. Integration of the tail gives E V=E S^2/2 and E V^2=E S^3/3. The omitted integral equals d+o(d), with imaginary or phase error bounded by |z|d^2/2; expanding the full transform and its modulus gives the joint loss d+Var(V) z^2/2+o(d+z^2). For each fixed positive omega the transform is continuous in r, vanishes at infinity by the age tail and at zero by Riemann–Lebesgue plus the vanishing omitted mass. A rate proportional to omega^(2/3) achieves loss O(omega^(2/3)). Any optimizer then has omitted mass O(omega^(2/3)), hence r=O(omega^(2/3)) since f_V tends to one at zero. The full transform has magnitude within O(omega^(2/3)) of one by the triangle inequality. Its absolute continuity, strict modulus below one away from zero and decay at infinity force z to zero, then its positive quadratic modulus deficit gives z^2=O(omega^(2/3)). This puts every optimizer on a common compact interval after rescaling r by omega^(2/3). The uniform joint expansion there reduces the limit to the unique minimum of tau y+Var(V)/(2 y^2), with the stated optimizer and loss coefficients. Cauchy–Schwarz gives E S^3 >= (E S^2)^2 and E S^2 >= 1 with equality of the latter only for S=1; thus Var(V) >= 1/12 with precisely that equality case. The exponential and Erlang moments give the stated benchmarks. Read the numerical checker without executing it; its finite grid/local optimization is not a certificate for the all-global-optimizers assertion.
 
-## Sources and limitations
-Wang et al. (arXiv:2611.01991v1), full main and supplement text; Goychuk and Hänggi (arXiv:cond-mat/0303413), abstract; Goychuk et al. (arXiv:physics/0601070), abstract; Bodrova and Sokolov (Phys. Rev. E 101, 052130), accessible abstract; publicly indexed gamma-maturation result, summary only. The closest external published result's full text was not accessible; this is a residual priority risk. The claim is conditioned on positive finite-third-moment waiting distributions, constant delay, and a fixed family of clock shapes.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The equilibrium-age identity and Poisson balance are known, and the prior gamma-maturation result covers the fixed-delay Poisson special case exactly. The inspected sources do not give the sharp arbitrary fixed renewal law optimization, its all-maximizers localization, or the exact comparison of inter-reset laws by the age-variance coefficient. The decision is about the stated step-response model, not a broader claim for nonlinear trajectories or frequency-dependent clock selection.
+
+## value
+
+PASS
+
+The result identifies one interpretable clock statistic that controls both the optimal rate and amplitude loss, and gives a sharp deterministic bound across fixed clocks. It improves on guessing the rate from a Poisson expansion by establishing that no competing global maxima occur on other scales for an arbitrary fixed law under a finite third moment. This is useful for comparing renewal protocols within the stated, reproducible response model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:29:41.235503Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:16–37",
+        "VERIFICATION.md",
+        "verify_primary.py:22–115",
+        "verify_alt.cpp:15–99"
+      ],
+      "rationale": "A rung fixes both vertices of its column; along a rung-free interval rail counts on the interfaces then alternate between zero and two, giving disjoint dimers. The only rung-free matchings are the two rim pairings, regular for even n and exceptional for odd n. For n≥4 a square is necessarily two neighboring rungs and the two connecting rails: zero rungs would require the whole rim, odd rung count would require at least n rails, and two rungs force the two connecting rails. Toggling one dimer gives the Lucas-cube edges, and deleting then inserting differing dimers realizes Hamming distance. The count is L_n plus the odd exceptions; for each possible dimer, its containing independent sets correspond to the F_(n−1) independent sets of the remaining path, giving nF_(n−1) edges. For odd n the symmetric difference with a regular matching contains an odd number of rungs. Numbering rim vertices modulo 2n, these rungs contribute n mod 2n, so the signed rim displacement needs at least n unit steps. A single such flip costs at least n+1, and flipping directly between the exceptions costs 2n. The unique rim-path matchings after removing both endpoints of one rung, together with that rung, give one alternating arc-plus-rung of length n+1 from either exception. The cutoff is inclusive. The analytic proof covers all n≥4; the frozen Python and C++ checks were read, not executed.",
+      "residual_risks": [
+        "Hamming distance is a square-flip statement, not a claim about distances after all longer cycles are allowed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bonamy et al. treat reachability by four-cycle flips across graph classes; Ito et al. allow single alternating cycles without this length constraint; Tratnik–Ye discuss face-resonance graphs.",
+          "The exact parity threshold and additional count of first-threshold neighbors both appear in 693129e033ce."
+        ],
+        "reasoning": "The inspected general frameworks do not themselves imply this threshold, but the distinct catalogue theorem directly covers it.",
+        "searches": [
+          "arXiv:1904.06184",
+          "arXiv:1907.01700",
+          "arXiv:1710.00761",
+          "Resultary 693129e033ce"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6d718ae5e302, 693129e033ce, and later extension 8e7090802d17",
+        "arXiv:1410.4080v2",
+        "arXiv:1306.3611v1",
+        "arXiv:1904.06184v1",
+        "arXiv:1907.01700v1",
+        "arXiv:1710.00761v1",
+        "arXiv:2003.09602 (retrieval unsuccessful)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The former gives all square distances; the latter gives odd isolation up to the same length via a winding obstruction and witnesses at n+1."
+        ],
+        "reasoning": "The square-flip statement alone would not imply the odd threshold, but the distinct second record states and proves that remaining result outright.",
+        "searches": [
+          "6d718ae5e302 Finding and proof",
+          "693129e033ce Finding and sharpness proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "6d718ae5e302 identifies exactly the Lucas cube, with two odd exceptions and Hamming distances.",
+          "693129e033ce states the same single-cycle length allowance on the identical ladder family."
+        ],
+        "reasoning": "Column dimers index the identical perfect matchings and square moves. The distinct threshold record has the identical move definition and parity boundary.",
+        "searches": [
+          "Resultary semantic searches on Möbius-ladder square flips, domino tilings, and the sharp threshold",
+          "Resultary/2026 records 6d718ae5e302 and 693129e033ce"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed 693129e033ce record gives the exact cutoff 4 and n+1; the indexed 6d718ae5e302 record gives the earlier identification of the square-flip sector.",
+          "The Lucas counts are known; the Lekshmi–West source was not accessible."
+        ],
+        "reasoning": "No computed table is needed as evidence of the overlap: the catalogue contains uniform proofs, and the frozen counts are consequences of the earlier square-flip description.",
+        "searches": [
+          "Resultary semantic searches for Möbius-ladder matching counts and the parity cutoff",
+          "arXiv:1410.4080v2",
+          "arXiv:2003.09602"
+        ]
+      },
+      "rationale": "There is direct equivalent published catalogue coverage, not merely a plausible match. The earlier October 26 record proves the same square-flip decomposition and distances. A distinct November 2 record proves the same even/odd cutoff for a single simple alternating cycle, including isolation below n+1 and attainment at n+1. The catalogue establishes overlap, not which same-day record came first or any independent authorship inference.",
+      "residual_risks": [
+        "Order of discovery for the two November 2 records is unknown; no priority inference is made.",
+        "Lekshmi–West full text was unavailable, so its exact scope remains unverified. This is not the basis of the failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct earlier coverage of the structural square-flip claim",
+          "evidence": "Same Lucas component, odd isolates, and distance formula.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-lucas-cube-flip-geometry-of-perfect-matchings-on-m-bius-ladders--6d718ae5e302/RESULT.md",
+          "material_read": "Finding and proof, offsets 0–7280",
+          "method": "Configured local mirror",
+          "title": "Lucas-cube flip geometry of perfect matchings on Möbius ladders",
+          "trigger": "Identical square-flip object"
+        },
+        {
+          "assessment": "Direct equivalent coverage in a distinct same-day record; priority unresolved",
+          "evidence": "Same cutoff 4 for even n and n+1 for odd n, with the same lower bound and attaining flips.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-the-sharp-alternating-cycle-flip-threshold-for-m-bius-ladder-per--693129e033ce/RESULT.md",
+          "material_read": "Finding and sharpness discussion, offsets 0–8784",
+          "method": "Configured local mirror",
+          "title": "The sharp alternating-cycle flip threshold for Möbius ladder perfect matchings",
+          "trigger": "Exact parity-cutoff hit"
+        },
+        {
+          "assessment": "Related framework, not evidence of the exact threshold",
+          "evidence": "Four-cycle reachability across graph classes rather than a variable length cutoff on Möbius ladders.",
+          "identifier_or_url": "https://arxiv.org/pdf/1904.06184",
+          "material_read": "Abstract p. 1 and pp. 4–5",
+          "method": "OA PDF passage inspection",
+          "title": "Perfect Matching Reconfiguration Problem",
+          "trigger": "General four-cycle matching moves"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The parity obstruction and its sharp length are mathematically useful, but the frozen package adds no distinct invariant beyond the equivalent catalogue results. The distance and count restate known square-flip geometry; rerunning bounded checks on the covered theorem does not supply a surviving new contribution.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

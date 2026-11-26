@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:28:56.985503Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "/workspace/repairs/4/RESULT.md, Finding, Assumptions and Proof",
+        "Frozen verify.py, direct constraint generation and finite tests; frozen VERIFICATION.md"
+      ],
+      "rationale": "Rechecked the even-only repair from basis multiplication, including n=2. The left identity amounts to reversal and translation by two, fixing exactly the parity-constant sequences. In the middle identity the coefficient of t^(2j) in P(t²) is s_j=a_j+a_(j+m), and translation by two acts transitively there. In the right identity the same constancy is necessary, but P(t²)=P(t⁴) is additionally required; multiplication by two permutes the even exponents if m is odd, while when m is even reduction modulo n preserves divisibility by four and the coefficient at exponent two forces s_j=0. The pair-sum map is onto in all characteristics, so these conditions give the dimensions. The commutation test implies period gcd(n,3) together with zero coefficients on odd indices; all period classes meet those indices. Intersecting with the parity-constant sequences yields pair sums c₀+c₁ for odd m and 2c₀ or 2c₁ for even m, giving exactly the stated characteristic switch. Reflections preserve each parity orbit, so each parity sum right-multiplies by e_j to itself and the stated product follows. In n=2 the full nucleus equals A although C=0, consistent with the left-zero basis multiplication. The proof uses no division by 2 or by the order. The supplied modular verifier was inspected, not executed, and the finite range is not used to justify arbitrary fields.",
+      "residual_risks": [
+        "The repaired theorem is even-order only and uses the specified right-argument quandle convention; reversing the product changes nucleus labels."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General connected/Latin and Latin Alexander statements cover all three nuclei for odd dihedral orders. The latter works in modular coefficient characteristic as well.",
+          "The even-order module results impose real or complex coefficients and analyze right modules, not the three associator kernels together; they cannot supply the characteristic-two restoration."
+        ],
+        "reasoning": "Even dihedral orders are outside the two general nucleus hypotheses. A one-sided module decomposition over nonmodular fields does not state an all-field associator and commutant classification.",
+        "searches": [
+          "Resultary 84e5c5bb458f and 2cc2877d146f, Findings and Assumptions",
+          "Kaur–Singh arXiv:2206.03162 and Elhamdadi–Fernando–Tsvelikhovskiy arXiv:1805.05908 Proposition 4.18"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2cc2877d146f, 84e5c5bb458f and 41d844a58011",
+        "arXiv:2608.01550v1 Proposition 4.7",
+        "arXiv:2206.03162, abstract/introduction",
+        "arXiv:1805.05908 Proposition 4.18"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Odd specialization mechanically gives the old odd nuclei; the central sum Ω together with equality of the nuclei gives the old odd center. In even order the condition Q(t²)=Q(t) after collapsing opposite-index pairs must instead be solved on a noninjective doubling map when 4 divides n; the characteristic switch then comes from the independent intersection test 2c₀=2c₁=0."
+        ],
+        "reasoning": "The even theorem and its characteristic switch are not a parameter substitution in the inspected prior classification; the parity/translation argument for the even commutant and the collapse of even associator constraints are new steps relative to those sources.",
+        "searches": [
+          "Compare Resultary 2cc2877d146f and 41d844a58011 to repaired pair-sum proof",
+          "Compare Kaur–Singh arXiv:2206.03162 even module statements to the repaired right-nucleus and characteristic-two assertions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In x*y=Tx+(1−T)y the substitution T=−1 gives the frozen multiplication, with Latin condition invertibility of 2 on the index group. This identifies an exact odd-order specialization but excludes the repaired orders.",
+          "The split Fourier formula |ker(1−2φ)| becomes gcd(n,3) at φ=−1 under its applicable hypotheses and gives the same odd periodic subspace, not the even zero commutant."
+        ],
+        "reasoning": "Match the handedness, the Latin condition and whether the statement concerns C or N∩C. The equivalent prior odd results are expressly excluded from the repair.",
+        "searches": [
+          "Local Resultary on nuclei and commutants of dihedral and Alexander quandle rings",
+          "Resultary 2cc2877d146f and 41d844a58011, Findings; Sangaré–Ta arXiv:2608.01550v1 Proposition 4.7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior statements yield all the odd nucleus dimensions and part of the odd commutant regime, but the inspected statements give no even-order tuple table or pair-sum classification. The n mod 4 distinction in Kaur–Singh concerns indecomposable right modules over R or C, a different invariant."
+        ],
+        "reasoning": "A matching modulus or an already computed tuple for odd orders is not a table of the even invariant. No earlier matching even classification was located in the inspected statements.",
+        "searches": [
+          "Local Resultary exact source 41d844a58011 proof §3 and nucleus results 2cc2877d146f, 84e5c5bb458f",
+          "Sangaré–Ta Proposition 4.7 and Kaur–Singh abstract"
+        ]
+      },
+      "rationale": "Pass is solely for the repaired even-order classification. The repaired finding removes the entire odd-order row, including the partially prior-covered commutant, rather than passing the frozen novelty claim with a disclaimer. The checked general results cover Latin or connected cases, or work in a split Fourier regime; the even dihedral algebra has a noninvertible doubling on indices and is not Latin or connected. Prior direct work on the same even family distinguishes mod-four regimes for right modules, not the joint associator kernels, their intersection in all characteristics, and the zero commutant.",
+      "residual_risks": [
+        "Related work under other terminology could include a stronger theorem on non-Latin Alexander quandles; the reviewed sources do not establish exhaustive priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct earlier coverage of all odd nuclei and odd center via applicability and central orbit sum, not even orders",
+          "evidence": "N_l=N_m=N_r=RΩ and Ωa=aΩ=ε(a)Ω whenever 1−T is invertible on the index group.",
+          "identifier_or_url": "Resultary 2cc2877d146f",
+          "material_read": "RESULT.md Finding and Assumptions",
+          "method": "Bounded local-mirror comparison",
+          "title": "Associator quotients and the three nuclei of finite Latin Alexander quandle rings",
+          "trigger": "Stronger Alexander nucleus result"
+        },
+        {
+          "assessment": "Independent earlier overlap on the odd-order nuclei",
+          "evidence": "The connected case gives the left orbit-sum line; the Latin case also gives the middle and right lines over any field.",
+          "identifier_or_url": "Resultary 84e5c5bb458f",
+          "material_read": "RESULT.md Finding and Assumptions",
+          "method": "Bounded local-mirror comparison",
+          "title": "Associator span and nuclei of connected and Latin quandle algebras",
+          "trigger": "Broader non-Alexander nucleus statement"
+        },
+        {
+          "assessment": "Prior overlap on the odd commutant under splitting/nonmodular hypotheses only",
+          "evidence": "Fixed-character Fourier support with dimension |ker(1−2φ)|, specializing to period dividing three when φ=−1 and n is odd.",
+          "identifier_or_url": "Resultary 41d844a58011",
+          "material_read": "Finding and proof §3, offsets 0 and 4443",
+          "method": "Bounded local-mirror comparison",
+          "title": "Exact commuting-pair counts and commutants of split finite Alexander quandle algebras",
+          "trigger": "Possible exact commuting-subspace coverage"
+        },
+        {
+          "assessment": "Prior odd left nucleus, not an even-order statement",
+          "evidence": "N_l(k[R_n])=k e for odd n over a unital commutative ring.",
+          "identifier_or_url": "https://arxiv.org/html/2608.01550v1",
+          "material_read": "Proposition 4.7, text offset 32145",
+          "method": "Primary paper passage inspection",
+          "title": "Idempotents, automorphism groups, and commutator widths of quandle algebras",
+          "trigger": "Direct dihedral nucleus theorem"
+        },
+        {
+          "assessment": "Even-order mod-four results for a different invariant",
+          "evidence": "Indecomposable right-module decompositions over the reals or complexes, distinguishing 4 | n.",
+          "identifier_or_url": "https://arxiv.org/abs/2206.03162",
+          "material_read": "Abstract and introduction p. 1",
+          "method": "Primary paper passage inspection",
+          "title": "Decomposition of quandle rings of dihedral quandles",
+          "trigger": "Direct even-order quandle-algebra work"
+        },
+        {
+          "assessment": "Related right-module structure, not associator classification",
+          "evidence": "Proposition concerns decompositions over C and R; the later Kaur–Singh account notes an issue in the 4 | n case.",
+          "identifier_or_url": "https://arxiv.org/abs/1805.05908",
+          "material_read": "Proposition 4.18, PDF p. 9, text offset 28817",
+          "method": "Primary paper passage inspection",
+          "title": "Ring Theoretic Aspects of Quandles",
+          "trigger": "Potential earlier covering structural theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "/workspace/repairs/4/RESULT.md, exact subspaces and multiplication",
+        "Mod-four comparison to the prior even-order module literature"
+      ],
+      "rationale": "Even-order dihedral algebras are the canonical non-Latin branch of the family. Their three failure-of-associativity kernels can be sizable while their common intersection vanishes, and in the same orders a change of coefficient characteristic restores a two-dimensional zero-product nucleus. The coefficient classification, explicit multiplication and separation of nucleus from commutant make the exact even-order result useful without any mathematical contribution from the prior odd row.",
+      "residual_risks": [
+        "No assertion about automorphisms, ideals, or a classification beyond the dihedral family."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. With the stated Lebesgue normalization, the Bessel series converges in trace norm; its exterior powers separate the unique minimum-index wedge, yielding each singular-value asymptotic by successive ratios. The Jacobi monic Gram norm gives the positive exact coefficient. The conversion from singular values to the nonnegative eigenvalues of the concentration operator has the correct extra factor of bandwidth. High-precision finite test instances agree with the limiting constants.
+## correctness
 
-## Originality
-PASS within the inspected literature and indexed public comparisons. Boulsane–Karoui (arXiv:1701.04622v1), Boulsane (arXiv:2002.00170v1), and Boulsane (arXiv:2206.04319v1) address eigenfunction estimates, eigenvalue bounds, large-index decay, and spectral distributions; their inspected statements do not yield exact small-bandwidth constants for every fixed index. Published comparisons on prolate concentration, Jacobi determinants, Bessel Turánian minima, and Hermite spectral gaps use different regimes or objects. Slepian's original 1964 circular-prolate study could contain an uninspected related formula; this is an explicit residual priority risk, not an assertion of global uniqueness.
+PASS
 
-## Value
-PASS. All fixed radial modes of the classical circular-prolate spectral concentration problem acquire explicit sharp leading constants and exactly quantified successive-mode costs. This is a natural spectral-conditioning invariant relevant to low-bandwidth inversion and modal truncation rather than an arbitrary parameter slice; index-dependent upper/lower estimates do not provide this precise spectral scale.
+For fixed α>−1/2 and c>0 the Bessel series gives a self-adjoint trace-norm sum of rank-one terms with coefficients c^(α+1/2+2j)(−1)^j/[2^(α+2j) j! Γ(j+α+1)]. For a fixed wedge degree m the trace norms are bounded by products of the individual trace norms, giving a summable bound after removing the leading c-power on 0<c≤1. The unique minimal sum of indices is 0+…+(m−1); the remaining scaled exterior-power sum vanishes in trace norm. Its leading operator norm gives the product of the largest m singular values without any assumption about the signs of Hankel eigenvalues; division by the preceding positive product isolates the n-th singular value. I independently evaluated the Gram determinant quotient by the Cauchy determinant with entries 1/[2(α+i+j+1)]: it is (n!)²/[2(α+2n+1) times the square of product_(j=1)^n(α+n+j)], agreeing with the monic shifted-Jacobi value including the Lebesgue factor 1/2. Q=cH² multiplies each squared singular value by c, giving exponent 4n+2α+2 and the claimed Gamma/binomial coefficient; the adjacent-mode ratio follows from strict positivity of both leading coefficients. Replay: python /workspace/checks/2.py (mpmath), an independent 16-node Gauss–Jacobi Nyström calculation evaluating the Bessel kernel directly, checks concentration-eigenvalue ratios at c=0.01 for n=0,…,3 and α=−0.49,0,0.5,1.75 (all ratios within 0.000013 of one). That computation is corroboration, not the proof. The frozen supporting notes and check.py were inspected, not executed. No uniformity in order, index or bandwidth is asserted.
 
-## Sources and limits
-Primary literature: arXiv:1701.04622v1 (2017-01-17), arXiv:2002.00170v1 (2020-02-01), arXiv:2206.04319v1 (2022-06-09). Historical comparison: Slepian (1964), DOI 10.1002/j.1538-7305.1964.tb01037.x, full text unavailable. The theorem is fixed-order/fixed-index as bandwidth tends to zero, not uniform in index and not externally audited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+On the inspected primary and indexed evidence, the supported distinct claim is the exact fixed-order, fixed-index small-bandwidth concentration coefficient in the stated normalization, not the classical finite Hankel operator, Jacobi identities, or general index-decay estimates. Slepian IV remains a material unresolved historical-priority comparison after reasonable open-copy attempts. This is a best-of-current-knowledge verdict, not clearance against that text or a proof of absence.
+
+## value
+
+PASS
+
+For a classical concentration operator, the normalization-dependent leading coefficient for every fixed mode supplies precise relative suppression and conditioning information near zero bandwidth. The nth exponent and coefficient distinguish consecutive modes and quantify the low-bandwidth cost of retaining them. The all-fixed-index result requires controlling mode separation in a compact-operator limit, not just substituting a Bessel Taylor term or reporting a small numeric case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

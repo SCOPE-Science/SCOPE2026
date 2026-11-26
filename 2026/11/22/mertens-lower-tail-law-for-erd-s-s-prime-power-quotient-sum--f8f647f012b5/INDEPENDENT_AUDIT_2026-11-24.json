@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:31:45.032363Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed prime sets the Chinese remainder theorem gives independent geometric exact valuations (first truncate the allowed exponents); the omitted-prime mean is uniformly bounded by ∑_{p>P}p⁻² for integers up to X and for the independent-prime model. E Z_p=1/[p(p+1)], so the model sum is finite almost surely and the same tail bound gives weak convergence. Atomlessness also follows directly: distinct assignments of reciprocal powers or zero at a finite prime set have distinct sums, since multiplying their difference by the common denominator and reducing modulo a prime where the valuations differ leaves a nonzero residue. The largest possible mass of that finite sum is therefore ∏_{p≤P}(1−1/p)→0, an upper bound on the largest mass after adding the independent tail. Full support follows by greedily selecting reciprocals of sufficiently large primes to approximate any u≥0, imposing finitely many valuations (positive probability), then using Markov's inequality for the unassigned tail. In particular the CDF limit exists also at 0. For y→∞ the no-prime-through-y cylinder has mass M(y). Its independent tail has mean O(1/(y log y)) by the prime-counting upper bound and partial summation, giving relative loss O(1/log y). Conversely each p≤y must be absent or have valuation at least the first a with p^a≥y, a constraint of probability 1−1/p+p⁻ᵃ. Summing the exception terms contributes O(y⁻¹ᐟ²), by bounding each by 1/y through √y, each by p⁻² for √y<p<y, and treating prime y separately. Dividing their product by M(y) proves the matching relative bound. Mertens supplies e^(−γ); the CDF ratio is exactly the conditional logarithmic survival probability for fixed α≥1 and 0<t<1. This is an iterated endpoint limit after natural density, not a joint cutoff claim. The supplied finite checker was inspected but not run; the analytic proof covers the limits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Erdős–Wintner criterion applies with prime terms 1/p and gives a continuous limiting distribution; it does not quantify this lower endpoint or establish full support.",
+          "Mertens evaluates the prime-avoidance product, not the CDF; the record supplies a lower bound on CDF mass within the avoidance cylinder and an upper bound allowing rare positive exact valuations."
+        ],
+        "reasoning": "The standard theorems cover ingredients and the already credited existence/continuity assertions, not the sharp comparison of this endpoint event with the avoidance product. The bounded small-deviation searches produced no decisive covering theorem, not evidence of universal absence.",
+        "searches": [
+          "Bergelson et al. arXiv:1705.07322v2 Theorem 2.11",
+          "Mertens 1874 prime product",
+          "Small deviations for additive arithmetic functions and Erdős–Wintner lower endpoints (literature)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and supporting audit, verification, metadata and checker",
+        "Erdős 1980; Campbell arXiv:2611.07617v1; Erdős–Wintner theorem via arXiv:1705.07322v2; classical Mertens prime product",
+        "Resultary f8f647f012b5 (self-match), 753557532da1 and d48a796ff9f4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Campbell's positive lower linear growth for V(x)=#{w(n):n≤x} cannot recover CDF frequencies for w(n)/n. Equidistribution or bias of the integer w(n) modulo a fixed modulus does not compare w(n)/n with a moving real threshold.",
+          "The endpoint asymptotic gives the Pareto law by an immediate CDF ratio; this law is not counted as an independent advance. A prior Pareto law in the least-prime factor of nice integers has neither this conditioning nor the limiting normalized sum as the variable whose logarithm is scaled."
+        ],
+        "reasoning": "The exact endpoint squeeze has no counterpart in the inspected stronger-looking results. The adjacent residue record refers to an unidentified stronger conditional distribution in a residue-density discussion, but its available passage does not make a claim about the normalized endpoint.",
+        "searches": [
+          "arXiv:2611.07617v1 abstract and introduction",
+          "arXiv:1705.07322v2 Thm. 2.11",
+          "Resultary 753557532da1 Finding and Relationship to prior work",
+          "Resultary d48a796ff9f4 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Erdős and Campbell study the same unnormalized w_1(n), but their question is the number of distinct image values rather than frequencies of w_1(n)/n.",
+          "The superficially related strongly additive sum ∑_{p|n}1/p drops the exponent. For the frozen problem a small prime can be present at a high power and still give a small contribution. The necessary upper cylinder therefore differs from simply requiring no small primes."
+        ],
+        "reasoning": "Changing from set cardinality to a natural-density CDF changes the data; replacing exact valuations by prime divisibility changes the endpoint event. A rough-number comparison requires the extra error estimate, not a change of notation.",
+        "searches": [
+          "Resultary exact record title, exact prime-power quotient sums and small-value laws",
+          "Erdős w_1(n), Campbell arXiv:2611.07617v1",
+          "Reciprocal prime-divisor sums and totient endpoint densities (literature)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "f8f647f012b5 is the frozen self-match. The adjacent same-day 753557532da1 finding has the same w(n), but studies its residues modulo 3 and a secondary bias. The distinct d48a796ff9f4 result gives a least-prime-factor law on a different conditional sample."
+        ],
+        "reasoning": "No inspected exact record or table gives the endpoint CDF of this real-valued normalized statistic. Residue counts encode different observations; the same Pareto shape does not supply the same asymptotic or conditioning law.",
+        "searches": [
+          "Resultary exact title, prime-power quotient residue laws and least-prime Pareto laws",
+          "Resultary 753557532da1 and d48a796ff9f4"
+        ]
+      },
+      "rationale": "The exact sharp lower endpoint for the normalized exact-prime-power statistic is distinct on the inspected evidence. Existence and atomlessness are classical, the Mertens product is classical, and the Pareto ratio law adds no independent novelty. The supported increment is the arithmetic-to-prime-cylinder comparison for this specific lower endpoint, including the exact-valuation exceptions.",
+      "residual_risks": [
+        "A general small-deviation theorem or another formulation for exact-valuation additive laws may cover this endpoint; the bounded literature comparison does not eliminate that possibility.",
+        "The original Erdős–Wintner full text was not available from the consulted JSTOR link; the relevant exact theorem was read in a stated published-paper restatement.",
+        "The previous conditional-distribution result mentioned without identification in 753557532da1 could not be compared directly. The available discussion concerns residue densities; it is not negative evidence of broader overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same w_1, different observable",
+          "evidence": "Defines the sum of n/p^a for exact prime factors and asks about the distinct-value counting function.",
+          "identifier_or_url": "https://users.renyi.hu/~p_erdos/1980-30.pdf",
+          "material_read": "Opening page of the article, OA offset 0",
+          "method": "OA PDF passage",
+          "title": "Problems and results in number theory and graph theory",
+          "trigger": "Original same-function question"
+        },
+        {
+          "assessment": "Prior image-set growth, not normalized endpoint",
+          "evidence": "Gives liminf V(x)/x>0 with V(x)=#{w(n):n≤x}.",
+          "identifier_or_url": "https://arxiv.org/html/2611.07617",
+          "material_read": "Abstract and introduction, offsets 248–approximately 1600",
+          "method": "OA arXiv passage",
+          "title": "On a problem due to Erdős concerning w_1(n)",
+          "trigger": "Modern work on the identical numerator"
+        },
+        {
+          "assessment": "Covers existence and atomlessness, not the endpoint",
+          "evidence": "The additive-function convergence conditions and divergence of ∑_{p:a(p)≠0}1/p give continuity; no endpoint equivalent follows from the theorem's statement.",
+          "identifier_or_url": "https://arxiv.org/pdf/1705.07322v2",
+          "material_read": "§2, Theorem 2.11, p. 9, OA offset 33350",
+          "method": "OA PDF theorem restatement; original JSTOR 2371717 yielded a landing page rather than the paper",
+          "title": "A generalization of Kátai's orthogonality criterion with applications",
+          "trigger": "Exact classical distribution and continuity theorem"
+        },
+        {
+          "assessment": "Different statistic; further cited work not identified",
+          "evidence": "Studies the secondary residue difference mod 3 after equal leading densities 7/18. The discussion mentions an earlier fixed-modulus density and stronger conditional distribution without an identification of a normalized endpoint theorem.",
+          "identifier_or_url": "Resultary 753557532da1",
+          "material_read": "RESULT.md Finding at offset 0; Relationship to prior work at offset 5900",
+          "method": "Local mirror passages",
+          "title": "A sharp oscillating secondary residue bias for the Erdős prime-power quotient sum",
+          "trigger": "Same-day result on exactly the same unnormalized function"
+        },
+        {
+          "assessment": "Same probability shape, different variable and population",
+          "evidence": "The Pareto variable is a scaled log of a least prime factor on a class of nice integers, not conditional log-depth of w(n)/n.",
+          "identifier_or_url": "Resultary d48a796ff9f4",
+          "material_read": "RESULT.md Finding and scope, offsets 0–2633",
+          "method": "Local mirror passage",
+          "title": "A Pareto least-prime-factor law for nice integers",
+          "trigger": "Plausible overlap through logarithmic Pareto scaling"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The normalized Erdős statistic is a natural arithmetic observable with a known general distribution-existence mechanism but no tail constant in that mechanism. Identifying the small-value frequency to sharp relative order explains quantitatively why rough-number avoidance dominates despite the possibility of small prime powers with high valuation. The conclusion is useful beyond finite examples and gives precise conditional thresholds as a consequence, without treating the Pareto rephrasing as a second contribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

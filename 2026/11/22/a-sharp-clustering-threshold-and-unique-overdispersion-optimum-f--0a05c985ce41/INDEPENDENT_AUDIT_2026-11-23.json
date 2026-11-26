@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:24:14.463171Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Differentiating the fixed-mean negative-binomial PGF at q gives R_k/μ=(1+z/k)^(-k-1); no conditional independence of recruitments is needed. At fixed z>0 the endpoint values k→0 and k→∞ are 0 and e^{-z}. With t=z/k and g(t)=(1+t)log(1+t)-t, the log derivative has the sign of H(t)-z. Independently, integration twice using g''(t)=1/(1+t) gives 1/H(t)=∫₀¹(1-u)/(1+tu) du, strictly decreasing from 1/2 to 0. Its expansion gives H(t)=2+2t/3+O(t²), and g(t)~t log t at infinity. These establish the exactly unique optimum, including strict increase at z=2 and nonattainment at every finite shape there. At the interior optimum, t/z~log t~log z, so k_* log z→1 and (1+t)^(-k_*)→e^{-1}, with (1+t)~z log z. For two finite shapes the log ratio derivative is (k₂-k₁)(z-1)/[(k₁+z)(k₂+z)]; for k₂=∞ it is (z-1)/(k₁+z). With log ratio initially zero and tending to positive infinity, there is exactly one positive crossing. The all-shape ordering through z=2 in fact implies the stated crossing is above 2, stronger than the claimed >1. Independently obtained k_*≈0.971897376815 and normalized recruitment ≈0.040005389824 at z=4 by bisection and evaluation. Read the source verification notes and checker without executing it. Conclusions are one-episode expectations under the specified law, not population dynamics or intervention prescriptions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The accessible Anazawa derivation classifies mechanistic limits and treats λ as aggregation; the inspected derivation and conclusion do not present a global λ-maximization theorem.",
+          "The nearby Resultary negative-multinomial theorem optimizes a fixed cell mass at fixed cell probabilities and uses a reciprocal sum in its first-order condition, not the expected-recruitment derivative at fixed mean."
+        ],
+        "reasoning": "Fixing cell probabilities while changing NB shape changes mean, whereas the frozen problem changes the success probability with shape to fix mean. A population map and its dynamical stability can use this curve without ordering it over all positive shapes. The potential overlap with other ecological model analyses remains bounded by primary-text access.",
+        "searches": [
+          "10.1098/rspb.2005.3185, cited Eqs. (2.3), (3.3), (3.4)",
+          "Anazawa 2009, Table 1 and conclusion",
+          "10.1016/j.tpb.2010.02.005",
+          "Resultary f93c5b21e396"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Anazawa 2009 printed pp. 176–181 at the cited locators",
+        "Resultary f93c5b21e396 and identical frozen hit 0a05c985ce41",
+        "Brännström–Sumpter 10.1098/rspb.2005.3185 (access limitation above)",
+        "Anazawa 2010 10.1016/j.tpb.2010.02.005 (access limitation above)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The equal normalized Hassell function is the starting point, but its formula alone does not assert strict global monotonicity of H, the z=2 boundary, behavior of its inverse at both endpoints, or the number of positive crossings.",
+          "The derivative for the fixed-cell-probability mode involves a finite sum of reciprocal shifted shapes, not H or its inverse."
+        ],
+        "reasoning": "Deriving the fixed-input optimizer from the known curve requires a shape-sign argument valid on the entire unbounded domain and endpoint analysis; neither is inherited by direct parameter substitution into the inspected results. In particular knowing the response is Hassell does not establish that finite clustering never helps at all z≤2 or characterize its benefit for every larger z.",
+        "searches": [
+          "Anazawa (2009), Eq. (12) and conclusion",
+          "Resultary f93c5b21e396, opening result"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Anazawa's NB count has mean x_t/n and shape λ, with 1/λ measuring aggregation. His Hassell limit is b x̂_t(1+x̂_t/(λ n))^{-λ-1}.",
+          "After dividing by b x̂_t and setting z=x̂_t/n, λ=k, the algebraic shape curve is precisely (1+z/k)^{-k-1}; q=0 is only the mechanistic boundary case, not a mathematical difference in the normalized curve."
+        ],
+        "reasoning": "The response identity is existing content in a different biological derivation and must not be called new. The optimization, asymptotics and global rankings concern the whole family at fixed dimensionless input, not the derivation of the curve.",
+        "searches": [
+          "Resultary fixed-mean negative-binomial scramble recruitment and shape optimization",
+          "Anazawa (2009), printed pp. 177 and 179, Eqs. (2) and (12)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-record match is not an antecedent. Anazawa's table maps NB scramble to the Hassell form but tabulates model families, not exact fixed-mean maximizing shapes or pairwise crossing levels."
+        ],
+        "reasoning": "A numerical shape grid or a table of map names does not preempt an exact statement over all positive real shapes. The close indexed exact mode solves a genuinely different optimization.",
+        "searches": [
+          "Resultary exact frozen hit 0a05c985ce41 and related f93c5b21e396",
+          "Anazawa (2009), Table 1, printed p. 176"
+        ]
+      },
+      "rationale": "The Hassell shape-response curve is already known and receives no originality credit. The checked closest primary text displays that exact normalized shape curve but does not supply the fixed-input, global real-shape phase diagram in the passages inspected. No examined source preempts the aggregate of optimizer classification, its endpoint asymptotics, and the full pairwise reversal statement. Closely related inaccessible papers leave priority provisional.",
+      "residual_risks": [
+        "The accessible older primary text already contains the exact normalized response. Further differentiation or optimization could appear in inaccessible ecological papers or under other names in gamma-mixture or Hassell literature.",
+        "No claim is made about priority for the PGF identity, the response function, or ecological effects outside this normalized fixed-mean optimization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact normalized response overlap, without the optimizer classification in the inspected passages",
+          "evidence": [
+            "Eq. (2) specifies λ as shape; Eq. (12) has the exponent -λ-1 with denominator 1+x̂_t/(λn). Table 1 distinguishes the Hassell and Brännström–Sumpter dispersal/competition cases."
+          ],
+          "identifier_or_url": "https://www.kurims.kyoto-u.ac.jp/~kyodo/kokyuroku/contents/pdf/1663-31.pdf",
+          "material_read": "Printed pp. 176–177 Table 1/Eq. (2), p. 179 Eq. (12), p. 181 conclusion, offsets approximately 0, 5600, 16500 and 19900",
+          "method": "Original open PDF, targeted passage and equation inspection",
+          "title": "The mechanistic basis of population models with various types of competition",
+          "trigger": "Exact form and aggregation parameter appear in a primary antecedent"
+        },
+        {
+          "assessment": "Different objective and constraints",
+          "evidence": [
+            "Optimizes fixed-cell mass at fixed cell probabilities; mode solves ∑_{j=0}^{m-1}(r+j)^{-1}=-log q."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-shape-parameter-obstruction-and-exact-mode-for-negative-multinom--f93c5b21e396",
+          "material_read": "Mirrored opening finding and mode condition",
+          "method": "Local Resultary and mirror inspection",
+          "title": "Shape-parameter obstruction and exact mode for negative-multinomial mass",
+          "trigger": "Closest distinct exact shape-optimization result in the local catalogue"
+        },
+        {
+          "assessment": "Do not infer absence of shape optimization or confirm the frozen equation attribution on this evidence",
+          "evidence": [
+            "Frozen RESULT.md references Eqs. (2.3), (3.3), (3.4); Anazawa Table 1 alone does not resolve the specific attribution."
+          ],
+          "identifier_or_url": "https://doi.org/10.1098/rspb.2005.3185",
+          "material_read": "No usable original equation-level passage on attempted author/PDF and repository routes; only the frozen citation and the separate Anazawa comparison",
+          "method": "Lawful full-text attempts, including journal PDF and author-hosted copy",
+          "title": "The role of competition and clustering in population dynamics",
+          "trigger": "Frozen record attributes the averaged scramble expression to this work; plausible stronger aggregation analysis"
+        },
+        {
+          "assessment": "Residual potential overlap; no whole-document assessment",
+          "evidence": [
+            "The stated scope concerns mechanistic population models, spatial aggregation and stability; this alone does not establish a fixed-input recruitment maximum theorem."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.tpb.2010.02.005",
+          "material_read": "Bibliographic/abstract description in the frozen comparison, not the primary full text",
+          "method": "DOI/full-text access attempt; landing page did not yield a usable primary passage",
+          "title": "The mechanistic basis of discrete-time population models: The role of resource partitioning and spatial aggregation",
+          "trigger": "Potential encompassing analysis of resource partition and aggregation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At fixed mean the direction of the effect of excess variation is not constant: the result sharply distinguishes when aggregation can never improve mean recruitment from when there is a single finite optimum. The near-critical divergence and strong-crowding optimum quantify the transition, and the pairwise single-crossing theorem describes comparisons of preset shapes that cannot be freely tuned. These are usable predictions of a specified baseline, not a general recommendation to increase clustering.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

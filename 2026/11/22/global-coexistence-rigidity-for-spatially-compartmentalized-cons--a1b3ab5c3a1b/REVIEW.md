@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The hypothesis is a positive equilibrium of the specified fixed-isolation ODE, not a universal existence claim. The steady local-transfer equation establishes \(0<t_{ij}<1\). Differentiating the displayed weighted relative entropy gives the precise negative-sum identity (symbolically verified for a scalar block and checked exactly at 700 full multi-species states). The polynomial is a sum of squares with positive coefficients after introducing \(\sqrt v\). Entropy coercivity guarantees compact forward invariant positive levels. The zero-dissipation invariant set consists of the single positive equilibrium because strictly positive local uptake detects each consumer. LaSalle yields global convergence and uniqueness; a quadratic eigenmode argument yields local exponential attraction. The finite tests are explicitly not treated as universal proof.
+PASS
 
-## Originality — PASS (literature-bounded)
+I reconstructed the entropy derivative for arbitrary s,m rather than extrapolating the finite checker. In normalized shared and local concentrations u,v and stationary ratio t=T*/R*, the local consumer growth term cancels the current-biomass part of local uptake. Combining the remaining terms with the equilibrium supply offset leaves, per exchange pair after division by beta R*, the expression (1-1/u)(1-t-u+tv)+(1-1/v)(u-tv)-(1-t)(v-1). It is affine in t: at t=1 it is -(u-v)^2/(uv), and at t=0 it is 3-1/u-u/v-v=-P/(uv). The three positive terms 1/u,u/v,v have product one and are all one only at u=v=1. Direct consumption and the shared loss produce the stated shared square. Strict positive isolation (including theta_i=1) gives 0<t<1; the zero-dissipation set thus fixes all nutrients, and requiring invariance fixes every biomass from the local balance. Entropy sublevels are compact in the positive orthant, so continuation and LaSalle prove convergence and the equality set proves uniqueness. For hyperbolicity, the quadratic part of P is (du)^2-du dv+(dv)^2, and the positive entropy Hessian gives a nonpositive quadratic dissipation with kernel exactly the biomass subspace. In the Hermitian form, any eigenvector with nonnegative real part must be in that kernel, but the biomass-to-local-nutrient Jacobian is injective there. This proves strictly negative real parts and local exponential attraction, not a uniform global rate. The proof assumes a positive equilibrium exists, not that one always does. RESULT.md, VERIFICATION.md and verify_global.py were inspected without executing the supplied code; its rational 3-by-2 example does not prove the all-size identity or hyperbolicity.
 
-The originating 2026 preprint describes the exact local/global system but analyzes coexistence mainly through fixed-point relations and selected numerical regimes. The directly comparable earlier classification for a single nutrient and a common isolation coefficient establishes local stability and entry thresholds but **not** global attraction and **not** arbitrary multisubstrate and heterogeneous-isolation dynamics. Classical global stability results for single-resource chemostats and distinct spatial-diffusion or memory PDE models have different transfer equations, interaction assumptions, or parameter limitations. No retrieved published-finding corpus record or compared published source provides the same all-positive conditional global convergence theorem, though a general unindexed theorem for monotone consumption with linear transport remains a meaningful priority risk. The claim is not that relative-entropy methods were invented here.
+## originality
 
-## Value — PASS
+PASS
 
-The source model is expressly motivated by how localization and multiple nutrients support coexistence and resilience. Numerical existence and local stability do not preclude other positive attractors, oscillations, or basin boundaries. The theorem proves that, whenever positive coexistence is feasible, no strictly positive initial composition can approach an alternative positive attractor; this is a global ecological prediction for arbitrary finite consumer and nutrient counts, arbitrary fixed unequal isolation, and arbitrary positive exchange strength. This is a substantive strengthening across the very network structure of interest, beyond a routine local or one-point numerical calculation.
+The uptake mechanism and certain stationary and dynamical special cases are prior coverage. The supported distinction is the conditional global rigidity and strict hyperbolicity for arbitrary species and nutrients with genuinely species-specific positive isolation allowed, using the compartment entropy identity. No inspected stronger theorem was shown to apply with all these hypotheses.
 
-## Closest literature and limitations
+## value
 
-ElGamel and Mugler (2026) supplies the model and observed ecological regimes. Abdellatif–Fekih-Salem–Sari (2016) proves a global result for single-resource chemostats with explicit self-competition. Yu–Song–Wang (2023) treats patchy consumer movements and resource/toxicant fields. Alvarez-Latuz–Bayen–Coville (2025) establishes global stability for sufficiently small species-exchange perturbations on invariant slices; this does not imply arbitrary-strength nutrient exchange. Zhang–An–Wang (2026) proves global stability for a spatial nonlocal-memory PDE under parameter constraints, also a different object. No independent literature-wide novelty certification is claimed. The statement is conditional on an interior equilibrium and does not cover adaptive or stochastic variants.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Existence by itself frequently gives little global dynamical information in multiresource competition. Here a model-specific entropy decomposition makes coexistence uniquely attracting despite simultaneous exchange and unequal isolation, and the local compartments remove invisible biomass modes even if shared uptake vectors are dependent. This gives a substantive all-size structural prediction and separates coexistence rigidity from the unaddressed boundary and existence problems.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

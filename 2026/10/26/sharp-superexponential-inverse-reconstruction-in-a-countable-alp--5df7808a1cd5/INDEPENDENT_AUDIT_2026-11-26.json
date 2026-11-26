@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:46:06.151268Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof §§1–5",
+        "Frozen VERIFICATION.md; CHECK.py lines 8–65; CHECK_OUTPUT.txt lines 17–20"
+      ],
+      "rationale": "The active edge lowers the rank by one, so the run length L_i is at most r_i for every configuration. Taking the xor of output bits through i+L_i inverts by cancellation in both directions, with a finite rank/data neighborhood at each point. For any R a descent from R+1 to 0 makes a flip of the output bit at R+1 change the inverse at 0 without changing the observation; this rules out a finite memory set (every finite set fits in some such window). Conditional on the ranks, the data map is a continuous automorphism of the compact fair-bit group, preserving product Haar measure. Equivalently its restrictions to any finite set of output coordinates are triangular in those input bits once outside input bits are fixed. The xor through min(L_0,R) is observable, since only ranks 0 through R are needed to decide whether a break occurs before R. On L_0≤R it is exact; on L_0≥R+1 the missed xor contains an unseen independent fair bit even after conditioning on all ranks and observed bits. Thus the error of this decision conditional on observations is P(L_0≥R+1 | observations)/2≤1/2, which proves optimality among all measurable decisions, including at R=0 and for rank laws with zeros. Summing disjoint descending cylinders yields the stated product sum; writing their starting rank as R+1+h gives geometric factor q^{(R+2)h} and initial exponent (R+1)(R+2)/2. The quadratic logarithmic limit and strict positivity follow for fixed 0<q<1. The canonical disagreement is a bounded observable of the shift-ergodic output, giving the spatial frequency. The frozen checker and recorded output were inspected, not executed. The three posterior masses in the recorded finite test also agree by substituting (8,4,2,1)/15 into the exact cylinder formula.",
+      "residual_risks": [
+        "The proof needs independent fair data, and the quoted quadratic rate assumes fixed geometric iid ranks. It does not give whole-configuration recovery or a transport distance."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yang allows active directed edges on more general groups; Ceccherini-Silberstein–Coornaert use growing nilpotent blocks; Castillo-Ramirez uses infinite-dimensional linear rules.",
+          "Harvey et al. give exponential-tail finitary homomorphisms under a finite-alphabet entropy gap."
+        ],
+        "reasoning": "None of these broader results about existence, nonreversibility or tail bounds establishes the exact local Bayesian risk or its geometric-rank quadratic exponent.",
+        "searches": [
+          "\"A Reversibility Characterization of Locally Finite Groups by Cellular Automata\" inverse rank construction finite pointwise inverse plus finitary coding optimal local reconstruction error Bayes prediction tail",
+          "arXiv:0910.0863 §5; arXiv:2608.20600v2 §4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.29958 §4",
+        "arXiv:0910.0863 §5",
+        "arXiv:2106.09808 pp. 3–5",
+        "arXiv:2608.20600v2 §4",
+        "arXiv:math/0502484 §1",
+        "6a92d67fc135 RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Yang's finite inverse supplies a candidate truncation but says nothing about the iid ranks or the conditional distribution of the omitted data.",
+          "The other same-day Bayesian decoder has a different inverse problem, loss, input and exponent."
+        ],
+        "reasoning": "A coding-radius tail alone yields an error upper bound by guessing on unresolved windows; the exact optimum here requires proving that the unobserved parity makes the conditional target unbiased on continuation. The geometric series and Birkhoff consequence are not independent novelty claims.",
+        "searches": [
+          "Yang arXiv:2606.29958 §4 (passage query 'rank track')",
+          "Harvey et al. arXiv:math/0502484 §1 (passages 'finitary' and 'exponential tails')",
+          "6a92d67fc135, Finding and Proof §§1–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Yang, arXiv:2606.29958 §4, equations (4.1)–(4.6), Lemmas 4.1–4.3.",
+          "Harvey–Holroyd–Peres–Romik, arXiv:math/0502484 §1, coding length and exponential tails."
+        ],
+        "reasoning": "The right coding radius is the descending length; the new probabilistic claim identifies half its tail as the optimal observational risk, which uses conditional parity, not merely finitary continuity. The deterministic inverse mechanism by itself is already covered.",
+        "searches": [
+          "Bayes-optimal local inverse reconstruction error cellular automaton descending rank iid geometric superexponential",
+          "finitary coding radius inverse cellular automaton optimal local Bayes prediction error"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "6a92d67fc135, RESULT.md Finding and Proof §§1–3, mirror offsets 0–8359."
+        ],
+        "reasoning": "This substantial same-day match analyzes an optimal decoder of an entire finite seed for a noninjective binary additive rule, with an exponent from kernel density for biased bits and constant error for fair input. It neither tabulates nor gives an exact formula for the single-bit radius-risk of this bijective countable-alphabet CA. No priority is inferred from its date.",
+        "searches": [
+          "Bayes-optimal local inverse reconstruction error cellular automaton descending rank iid geometric superexponential",
+          "finitary coding radius inverse cellular automaton optimal local Bayes prediction error"
+        ]
+      },
+      "rationale": "Pass the fixed-window Bayes risk and its exact rank-product and geometric consequences, not the deterministic automaton or nonreversibility. Yang's rank-direction construction already supplies the same descending-chain inverse mechanism by freezing the direction to the right. The closest indexed Bayesian reconstruction result uses a noninjective binary additive map and biased finite-seed decoding rather than prediction of one inverse bit for a bijective ranked map. The inspected coding-radius literature concerns other codes and does not yield the posterior parity argument or this rank law.",
+      "residual_risks": [
+        "An equivalent probability calculation under different finitary-code or prediction terminology may be unindexed; the search is not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct deterministic antecedent; no risk law",
+          "evidence": "Rank, direction and bit tracks give pointwise terminating inverse and no uniform finite memory.",
+          "identifier_or_url": "https://arxiv.org/pdf/2606.29958",
+          "material_read": "§4 pp. 4–7, (4.1)–(4.6), Lemmas 4.1–4.3",
+          "method": "OA PDF passage inspection, offsets 11500 and 16400",
+          "title": "A Reversibility Characterization of Locally Finite Groups by Cellular Automata",
+          "trigger": "Same deterministic rank-decreasing inverse"
+        },
+        {
+          "assessment": "Different class, bound and loss",
+          "evidence": "Exponential-tail finite-alphabet homomorphisms with an entropy gap, not single-bit optimal fixed-window risk.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0502484",
+          "material_read": "§1 pp. 1–3",
+          "method": "OA PDF passage inspection",
+          "title": "Universal finitary codes with exponential tails",
+          "trigger": "Coding-radius/tail reformulation"
+        },
+        {
+          "assessment": "Related deterministic mechanism, not probabilistic coverage",
+          "evidence": "Growing nilpotent blocks give the failure of finite memory.",
+          "identifier_or_url": "https://arxiv.org/pdf/0910.0863",
+          "material_read": "§5 pp. 8–10",
+          "method": "OA PDF passage inspection",
+          "title": "On the reversibility and the closed image property of linear cellular automata",
+          "trigger": "Earlier invertible automata without finite inverse memory"
+        },
+        {
+          "assessment": "Different nonreversible linear construction",
+          "evidence": "Coefficient recurrences on an infinite-dimensional alphabet, no rank-product or Bayes formula.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.20600",
+          "material_read": "§4, Theorem 4.1, Corollary 4.2",
+          "method": "OA PDF passage inspection",
+          "title": "Castillo-Ramirez, arXiv:2608.20600v2",
+          "trigger": "Close web-search match on nonreversibility"
+        },
+        {
+          "assessment": "Material conceptual match, not mathematical coverage",
+          "evidence": "Noninjective binary additive rule, finite iid biased seed and kernel-density exponential rate, not the geometric descending-chain quadratic rate.",
+          "identifier_or_url": "2026/10/26/SCOPE-sharp-bayesian-reconstruction-exponents-and-kernel-density-extre--6a92d67fc135",
+          "material_read": "RESULT.md Finding, assumptions and Proof §§1–3, offsets 0–8359",
+          "method": "Read-only local mirror",
+          "title": "Sharp Bayesian reconstruction exponents and kernel density extremizers",
+          "trigger": "Strongest indexed Bayes reconstruction overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§3–5",
+        "Yang, arXiv:2606.29958 §4"
+      ],
+      "rationale": "For a natural example of an inverse that has no uniform memory, the risk is an operationally meaningful comparison between exact symbolic memory and typical fixed-window reconstruction. Strict positivity at each radius together with an exact superexponential rate quantifies this distinction. The lower bound rules out improvements by nonlinear decisions and by using the opposite side of the window; a truncation upper bound or the topological example alone would not establish that.",
+      "residual_risks": [
+        "The simple construction is not a universal rate claim; biased or correlated data can change the optimal posterior."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

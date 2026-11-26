@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:50:02.848061Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the given vertices, signs determine the edge intersections. In a 2+2 chamber the normal can be written (1,y,z) with |y|+|z|<1 after symmetry and sign reversal. The two opposite-side chords have the stated squared lengths by solving the plane equation on the four edges. They are both >=2 in length, with simultaneous equality only on the axis; the axis section has the four cross vertices with shorter sides. For 1+3, the intersection fractions have sum of reciprocals 4, so some pair averages >=3/4 by Cauchy–Schwarz. The 60-degree edge angle makes its side at least 3 sqrt(2)/2. To justify the equality classification at chamber boundaries, one zero vertex dot product permits perturbation into a 1+3 chamber (move the zero sign to the majority side), and two zeros mean the section contains an edge. The section diameter is continuous: compactness gives the upper limit, and points can first be contracted toward the interior origin then rotated into nearby planes to give the lower limit. Strict convexity of squared distance forces any globally diametral pair to be two original vertices. The six edge planes are distinct, and continuity and full spherical support give the whole support interval. Near an axis the two long chords dominate and L-2=max(y^2,z^2)+O((y^2+z^2)^2). Near a maximizing normal the new points at A,B move along their incident edges with fractions alpha=|a|/sqrt(2)+O(x^2+y^2), beta=|b|/sqrt(2)+O(x^2+y^2). Their chord has deficit |a|+|b|+O(x^2+y^2). The CD point remains separated by a strict distance gap; in opposite-sign chambers the extra AB point at fraction lambda=|a|/(|a|+|b|) loses to the long pair, with squared-distance difference divided by 8 equal to lambda(2-lambda-beta)-alpha(1-alpha), positive since alpha=O(|a|) and the first term is at least lambda/2. The symmetric comparison and continuity cover sign boundaries. Both leading local increments are coercive, so the bounded scaled sublevel indicators converge almost everywhere to the square and the stated rectangle. Chart Jacobians tend to 1 and the boundaries of both limiting sets have area zero. Their areas 4 and 1/sqrt(2), with 6 and 12 oriented charts respectively, give 6/pi and 3/(pi sqrt(2)), and normalized local measure gives the conditional limits. Independent replay: python3 /workspace/reproduction/frozen_checks.py 4, computing all pair distances among actual edge intersections on a deterministic spherical-chart grid. At eps=0.004 the ratios are about 1.87724 and 0.68160 (limited by finite threshold and grid); they are checks, not limit proofs. The source checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Guédon–Litvak–Tatarko–Vritsiou give general high-probability random-section bounds and p-ellipsoid applications. Unlike at frozen self-review, the full text was retrieved and theorem passages read.",
+          "c4ca67d9d128 gives the sharp vertex-near-hit endpoint law in general dimension for the origin-centered outer radius; the cross-polytope law instead applies to centrally symmetric l1 sections."
+        ],
+        "reasoning": "High-probability upper and lower order bounds do not fix small-threshold constants or local direction profiles in dimension three. The stronger dimensional scope of the simplex-radius result is for a different observable; an l1-ball is not a simplex up to normalization.",
+        "searches": [
+          "Resultary: random diameters of convex bodies random section diameter regular simplex tetrahedron",
+          "arXiv:2609.24131v1, Theorem 1.1; tetrahedron; simplex",
+          "Resultary: sections of regular simplex central section diameter Haar random plane geometric diameter"
+        ]
+      },
+      "checked_sources": [
+        "Guédon–Litvak–Tatarko–Vritsiou arXiv:2609.24131v1",
+        "Dirksen arXiv:1509.06408 / DOI 10.1002/mana.201600109",
+        "Published Resultary records 8cd059295f01, 4948185eba2f, c4ca67d9d128 and the cross-polytope law",
+        "Frozen result and supporting materials"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Volume formulas in Dirksen measure area in dimension three, not the extreme chord pair. Random-diameter bounds do not identify optimizing plane orbits or exact local tangent shapes. The octahedral computation uses antipodal pairs."
+        ],
+        "reasoning": "The sharp tails require finding the actual longest pair near both orbits when triangle and quadrilateral chambers meet and proving uniform error terms; these do not follow from a centered radius, a volume law, or a high-probability comparison.",
+        "searches": [
+          "arXiv:2609.24131v1, Theorem 1.1",
+          "arXiv:1509.06408, abstract and opening",
+          "Resultary: exact Haar diameter law central sections regular octahedron endpoint tail probability"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "8cd059295f01 is an exact Haar law for the centered outer radius of the same central tetrahedral sections, explicitly distinct from their diameter.",
+          "4948185eba2f gives exact Haar central-section diameter for the regular octahedron. The same-body shadow and centroidal chord matches in the ranked results measure a projection or a line, not the plane section."
+        ],
+        "reasoning": "Octahedral sections are centrally symmetric so diameter equals twice centered radius there; this reduction fails for tetrahedral sections. A tetrahedral plane through a single vertex can have maximal centered radius sqrt(3) without attaining diameter 2 sqrt(2). Thus a radius marginal or even its extremal events cannot simply be rescaled to this diameter law.",
+        "searches": [
+          "Resultary: sharp two endpoint diameter laws random central tetrahedral sections regular tetrahedron Haar",
+          "Resultary: exact Haar diameter law central sections regular octahedron endpoint tail probability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact indexed laws give tetrahedral centered radius or octahedral section diameter, including 8cd059295f01 and 4948185eba2f, not the pair of central tetrahedral diameter-tail constants."
+        ],
+        "reasoning": "There is no pertinent standard sequence/table parameter to identify; the exact-law catalogue results are the meaningful lookup. Matching the body, Haar convention or a leading dimension alone does not transfer constants across observables.",
+        "searches": [
+          "Resultary: sharp two endpoint diameter laws random central tetrahedral sections regular tetrahedron Haar",
+          "Resultary: sections of regular simplex central section diameter Haar random plane geometric diameter"
+        ]
+      },
+      "rationale": "Closest coverage includes exact random tetrahedral outer-radius laws, exact central-section diameters for cross-polytopes, and high-probability random-section diameter theory. None of those statements give the two sharp planar tetrahedral diameter tails or their conditional direction laws. Credit is confined to the stated sharp fixed-solid endpoints and local laws, not a general random-diameter framework.",
+      "residual_risks": [
+        "Unindexed geometric-probability results can contain an equivalent low-dimensional computation; Ciccariello's The intersect distribution of the regular tetrahedron (2005) was not inspected.",
+        "The targeted literature search yielded irrelevant hits; it is not evidence of absence. Conclusions rest on the inspected primary and indexed statements."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General probability bounds, not an evaluated fixed-tetrahedron tail law",
+          "evidence": "Random-section bounds are stated for general convex bodies; applications identified in the abstract are to p-ellipsoids. Literal misses do not certify whole-document absence.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.24131v1",
+          "material_read": "PDF p. 1 offset 0, abstract; p. 4 near offset 14121, Theorem 1.1; tetrahedron and simplex lookups",
+          "method": "OA full-text retrieval and targeted PDF passage reading",
+          "title": "On random diameters of convex bodies",
+          "trigger": "Direct primary overlap on the diameter of random sections"
+        },
+        {
+          "assessment": "Volume-specific result, no implication for this diameter pair",
+          "evidence": "The abstract and introductory passage concern section volumes and extremal-volume configurations.",
+          "identifier_or_url": "https://arxiv.org/abs/1509.06408",
+          "material_read": "PDF p. 1 offset 0",
+          "method": "Publisher DOI returned 403; lawful OA arXiv copy located and introductory passage read",
+          "title": "Sections of the regular simplex: Volume formulas and estimates",
+          "trigger": "Same simplex sections, different observable"
+        },
+        {
+          "assessment": "Different random variable; mathematical nonequivalence, not inferred from dates",
+          "evidence": "R(U)=max(||p||:p in section) is explicitly not the Euclidean diameter.",
+          "identifier_or_url": "2026/11/1/SCOPE-exact-haar-law-of-the-centered-outer-radius-of-tetrahedral-plane--8cd059295f01",
+          "material_read": "Mirror RESULT.md offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary search and local mirror read",
+          "title": "Exact Haar law of the centered outer radius of tetrahedral plane sections",
+          "trigger": "Strongest same-body, same-section indexed law"
+        },
+        {
+          "assessment": "Exact prior analogue, not coverage of tetrahedral sections",
+          "evidence": "Support [sqrt(2),2] for the centrally symmetric octahedron; antipodal argument is unavailable for general tetrahedral sections.",
+          "identifier_or_url": "2026/10/11/SCOPE-exact-haar-diameter-law-for-central-sections-of-the-regular-octa--4948185eba2f",
+          "material_read": "Mirror RESULT.md offset 0",
+          "method": "Resultary search and local mirror read",
+          "title": "Exact Haar diameter law for central sections of the regular octahedron",
+          "trigger": "Exact law for the same statistic on another canonical solid"
+        },
+        {
+          "assessment": "Radius endpoint, not diameter",
+          "evidence": "Origin-centered outer radius has an upper-tail law including dimension three, where its coefficient is 3 sqrt(6)/(2 pi) in the record's normalization.",
+          "identifier_or_url": "2026/11/1/SCOPE-sharp-vertex-near-hit-law-for-random-central-sections-of-regular--c4ca67d9d128",
+          "material_read": "Mirror RESULT.md offset 0",
+          "method": "Resultary search and local mirror read",
+          "title": "Sharp vertex-near-hit law for random central sections of regular simplices",
+          "trigger": "Broader dimensional theorem for a nearby sharp endpoint problem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Euclidean diameter of a central section is a natural shape statistic for the canonical noncentrally symmetric Platonic solid. The quantitative contrast between lower quadratic local stability and upper piecewise-linear deficit gives different probability powers, with explicit equality configurations, weights and conditional direction profiles. These are useful sharp benchmarks beyond general high-probability estimates and cannot be read off from a centered radius distribution. The result does not claim a global CDF or higher-dimensional extension.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

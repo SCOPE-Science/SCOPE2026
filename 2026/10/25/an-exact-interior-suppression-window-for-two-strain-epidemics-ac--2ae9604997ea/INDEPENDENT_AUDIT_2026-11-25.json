@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:42:20.709013Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Poisson thinning gives the stated type-indexed mean offspring matrix; for Poisson layers the excess-degree means coincide with the respective original means. The larger quadratic eigenvalue is the Perron root, including the reducible diagonal and periodic off-diagonal endpoints. The claimed second derivative is positive when h>0, and the endpoint derivatives are −max(c,d) and q−s. Equality q=s gives a unique endpoint, while h=0 gives the stated affine exception. To fix the sign of the interior minimum, put A=h²+q² and u=t−h²/A. The normalized root is sq²/A−su+sqrt(Au²+h²q²/A). A stationary point requires u>0 and gives u=shq/[A sqrt(q²−cd)]; substituting yields the positive-sign L*, with t* also obtained from characteristic-polynomial tangency. Strict convexity puts L* strictly below both endpoint values, giving precisely the open total-degree range for strict suppression and supercritical pure endpoints. In the example the smaller determinant root is greater than 1/11, so I−M is positive definite between the two roots and has largest M eigenvalue exactly 1 on their boundary. Outside, its determinant is negative. The example's seed can reach the supercritical class in both pure cases; no claim about arbitrary seeds at the reducible endpoint, or about finite-epidemic outbreak size, is required. The strict subcritical interval does not say that critical boundary points survive.",
+      "replay": {
+        "command": "python3 /workspace/branches/b0df1fdf-5735-423b-97ad-80b1ec3e41da/rational_replay.py",
+        "result": "Independent exact Fraction replay confirms determinant (−29+308t−363t²)/400, both radical roots, pure-layer thresholds 11/10, and the strict midpoint inequality. The supplied verify.py was inspected, not executed. This replay addresses the example, not the general theorem."
+      },
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general branching-process threshold is a spectral-radius crossing; no optimization in the fixed total-degree slice is provided by that threshold theorem.",
+          "The Karlin theorem uses a stochastic interpolation times a fixed growth diagonal; in the stated separated subcase q=√(cd)≤s, which excludes strict interior suppression.",
+          "Temporal SIS alternation can render a pair of individually supercritical networks subcritical in a Floquet model."
+        ],
+        "reasoning": "The Karlin result supplies contrasting monotone behavior under stronger separation assumptions. The temporal result establishes a related phenomenon but not this simultaneous allocation result. The general threshold framework still requires a separate minimization, endpoint comparison and admissibility argument.",
+        "searches": [
+          "arXiv:2210.05051, Theorem 2",
+          "Altenberg, arXiv:1006.3147, Theorem 5.2",
+          "arXiv:2406.16787, p. 1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2210.05051",
+        "DOI:10.1038/srep21392",
+        "arXiv:1006.3147",
+        "arXiv:2406.16787",
+        "Resultary mirror ca1611fc9a12, 93114c418fa5, 1a08debbdb6b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One can obtain M by specializing the prior Jacobian, but obtaining the sharp criterion requires proving strict convexity on the budget slice and using the endpoint derivatives.",
+          "Threshold equivalence does not compare all mixtures to both pure endpoints. The commuter, layer-history, and temporal examples use different admissible matrices or operators."
+        ],
+        "reasoning": "The prior threshold theorem proves which operator to test; it does not give a general result determining the admissible slice minimum or the explicit suppression interval. The distinction is narrow and model-specific. No broader novelty is claimed for 2×2 Perron roots, nonmonotone thresholds, or Parrondo suppression.",
+        "searches": [
+          "Sood et al., arXiv:2210.05051, pp. 2, 4–5",
+          "DOI:10.1038/srep21392",
+          "arXiv:1006.3147 and arXiv:2406.16787",
+          "Resultary exact reentrant windows"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sood et al. allow distinct layer mutation matrices and give a four-type Jacobian; the Poisson specialization pairs its rows by strain, reducing to the two-type threshold.",
+          "Min et al. use the incoming/outgoing layer to encode transmission dependence rather than strain under a fixed Poisson contact allocation."
+        ],
+        "reasoning": "The four-type reformulation covers the reproduction threshold itself and is not new. It does not identify when fixed-budget allocations minimize it strictly in the interior. The layer-history process yields a different constraint and cannot be identified with the frozen allocation theorem just because both reduce to a two-dimensional spectral problem.",
+        "searches": [
+          "Sood et al., arXiv:2210.05051, layer-indexed mutation matrices and Theorem 2",
+          "Min et al., DOI:10.1038/srep21392, threshold section",
+          "Resultary: fixed-budget interior epidemic suppression and reentrant subcritical windows"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Commuter SIR ca1611fc9a12 and two-city SIS 93114c418fa5 give exact reentrant windows in two-patch commuting models.",
+          "The same-day star vaccination record 1a08debbdb6b has a fixed-budget optimizer switch, not this window or the preserve/switch two-type mean matrix."
+        ],
+        "reasoning": "These records support prior art for analogous mechanisms or invariants, not an exact result on the same model under equivalent assumptions. No matching exact suppression interval or allocation criterion was identified in the queried material. Dates are not used to decide coverage.",
+        "searches": [
+          "Resultary fixed-budget epidemic thresholds, interior allocation, and reentrant windows",
+          "Local mirror Findings ca1611fc9a12, 93114c418fa5, 1a08debbdb6b"
+        ]
+      },
+      "rationale": "The prior two-layer branching model and the qualitative phenomenon of suppression between supercritical pure regimes receive no novelty credit. The distinctive result on the inspected evidence is the sharp fixed-budget suppression classification and concrete interval for the particular Poisson model. The framework is prior; the exact allocation theorem is not a threshold formula stated in different notation.",
+      "residual_risks": [
+        "The comparison is bounded to the inspected primary passages and local matches. A stronger result on two-state spectral interpolation or strain-structured models under equivalent constraints could supply the allocation result; absolute priority is not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact threshold framework, not the fixed-budget optimization",
+          "evidence": [
+            "Four-type Jacobian at threshold; layer dependence is allowed, with a shared mutation matrix discussed for ordinary within-host mutation."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2210.05051",
+          "material_read": "Layer-indexed mutation matrices p. 2 and Theorem 2 pp. 4–5, extraction offsets 19107, 39800 and 45000",
+          "method": "Primary OA PDF passages",
+          "title": "Spreading Processes with Mutations over Multi-layer Networks",
+          "trigger": "Closest exact threshold framework"
+        },
+        {
+          "assessment": "Qualitative overlap; different transmission model and varying quantity",
+          "evidence": [
+            "Transmissibility depends on previously used and next layer. The paper uses a two-by-two eigenvalue expression."
+          ],
+          "identifier_or_url": "https://doi.org/10.1038/srep21392",
+          "material_read": "Abstract and threshold passage, pp. 1 and 4, offsets 1261 and 23900",
+          "method": "Primary OA passages",
+          "title": "Layer-switching cost and optimality in information spreading on multiplex networks",
+          "trigger": "Nonmonotone multiplex thresholds and a two-dimensional Jacobian"
+        },
+        {
+          "assessment": "Fixed diagonal growth separation; not the unrestricted slice",
+          "evidence": [
+            "Reduction law for the spectral radius of a mixing interpolation times a fixed positive diagonal."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1006.3147",
+          "material_read": "Theorem 5.2, p. 2, offset 4070",
+          "method": "Primary OA PDF passage",
+          "title": "Extended Karlin Theory On Growth and Mixing",
+          "trigger": "General matrix interpolations that could cover or exclude interior effects"
+        },
+        {
+          "assessment": "Qualitative overlap; temporal alternation and SIS, not this branching allocation",
+          "evidence": [
+            "Alternating two static supercritical contact networks can give subcritical dynamics."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2406.16787",
+          "material_read": "Abstract, p. 1, offset 1600",
+          "method": "Primary OA PDF passage",
+          "title": "A Parrondo paradox in susceptible-infectious-susceptible dynamics over periodic temporal networks",
+          "trigger": "Two supercritical pure regimes yielding suppression"
+        },
+        {
+          "assessment": "Different commuter SIR model",
+          "evidence": [
+            "Two commuting patches admit an exact subcritical interval despite supercritical endpoints."
+          ],
+          "identifier_or_url": "ca1611fc9a12",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary search and mirror reading",
+          "title": "Exact all-rate commuter optimization and a two-threshold outbreak window",
+          "trigger": "Strong local analogue of a two-threshold window"
+        },
+        {
+          "assessment": "Different two-city SIS model",
+          "evidence": [
+            "The window and minimizing allocation refer to commuter rates, not the strain-preserve/switch contact budget."
+          ],
+          "identifier_or_url": "93114c418fa5",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary search and mirror reading",
+          "title": "A convex commuting invasion barrier and an exact reentrant window",
+          "trigger": "Strong local analogue of convex suppression with an interior optimum"
+        },
+        {
+          "assessment": "Adjacent optimizer-switch problem, not equivalent",
+          "evidence": [
+            "Allocation of vaccination on a star gives an optimizer switch rather than the two-strain suppression classification."
+          ],
+          "identifier_or_url": "1a08debbdb6b",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local Resultary search and mirror reading",
+          "title": "Sharp allocation switching on a star under heterogeneous vaccination",
+          "trigger": "Same-day local fixed-budget spectral optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A fixed total budget is a natural control constraint for prevention; increasing the number of contacts would be a different question. The iff criterion separates the endpoint regime from strict interior suppression, and the witness identifies a regime in which neither pure allocation suffices. This is a usable decision boundary for the stated early-emergence model, rather than the routine act of diagonalizing a 2×2 matrix or claiming a general effect of layered interventions. The deterministic preserve/switch and Poisson assumptions sharply limit interpretation; no finite-outbreak or agent-specific conclusion is supported.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

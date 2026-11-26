@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:50:21.113483Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two perpendicular supporting equations give Q=e^(iθ)(h(θ)+i h(θ+π/2)) and constant modulus R by summing squared supports. The support phase stays in a quadrant, so winding is one, and |ψ′−1|≤c<1 makes the angle map one-to-one. Squaring the valid supporting equation R cos(ψ−θ)=h(θ) yields cos(2ψ−2θ)=c cos(2θ). Equivalently the phase of e^(2iψ)−c gives 2θ up to an additive constant locally; invertibility makes the positive derivative the actual inverse Jacobian, not a sum over branches. Its real part decomposes as (1+P_c)/2. Fourier orthogonality proves both parities and rotation covariance; radius plus the second moment gives the two semiaxes and (only for c>0) the axis modulo π. For 0<c<1 the positive part of f−uniform lies at cos(2ψ)>c. With v=arccos c, the tangent half-angle formula is 4 arctan(((1+c)/(1−c))tan(v/2))=π+2arcsin c for the Poisson-kernel integral; the arc length is π−2arcsin c, giving TV arcsin(c)/π after the mixture factor. At c=0 the difference is identically zero (the strict positive-region description is only for c>0). The thin limit follows from the disk kernel concentrating at 0 in doubled angle, and the conditional local density δ P_c(δx)/(2π) tends pointwise to 1/[π(1+x²)] with integral one on each side of the limit, proving TV by Scheffé. The conditioning is on the Poisson component, not the entire mixture.",
+      "reproduction": {
+        "command": "python3 /workspace/branches/87a3d998-722f-4e30-a596-8c9719eac82c/independent_numerical_check.py",
+        "evidence": "Five axis examples and a rotated case; coordinate intersections, Jacobian, moments and ellipse inversion, plus TV quadrature (max error 1.02e-11). 200,000 simulated draws per case pass familywise 99% Hoeffding tolerance .00904914. The frozen verifier was inspected, not executed. This finite test, including c≈.995012469 but no degeneracy, is separate from the analytic limit.",
+        "output": "/workspace/branches/87a3d998-722f-4e30-a596-8c9719eac82c/independent_checks.txt"
+      },
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general support-function map works for convex curves, and the cited later classification studies existence of a circular isoptic; neither the general forward map passage nor the characterization fixes its induced angular law by circle radius alone.",
+          "The primary 2010 text obtains the radius by specializing the locus equation to a right angle, with no sampling in the compared derivation."
+        ],
+        "reasoning": "The forward map is a starting point, not a broader probabilistic theorem. In particular the same orthoptic radius occurs for a continuum of ellipses whose second moments differ; the new calculation requires a monotone lift and the inverse-angle identity.",
+        "searches": [
+          "Cieślak–Mozgawa DOI 10.1007/s00010-021-00828-4, §1 eq. (1.2), §§3,5",
+          "Odehnal, conic isoptics §§1–2"
+        ]
+      },
+      "checked_sources": [
+        "Odehnal 2010 journal PDF and dated author report",
+        "Cieślak–Mozgawa DOI 10.1007/s00010-021-00828-4",
+        "Resultary indexed related ellipse-normal and orthoptic matches",
+        "Primary search for director-circle probability law"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Odehnal gives the same circle for fixed a²+b². The circular-isoptic theory parametrizes location or characterizes a circular locus, not the inverse-angle branch and its anisotropy statistic."
+        ],
+        "reasoning": "The prior map permits a change of variables, but extracting a half-uniform/half-kernel law requires the conic-specific inverse identity. Once that law is known the Fourier and Cauchy consequences use standard kernel tools; they are not new results about the kernel itself.",
+        "searches": [
+          "Odehnal 2010 §2 and Fig. 1",
+          "Cieślak–Mozgawa 2021, (1.2), (3.9), Theorem 5.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Odehnal treats orthoptics as the right-angle case of isoptic loci. Cieślak–Mozgawa eq. (1.2) is the normal-angle forward map, reducing to h(t)e^(it)+i h(t+π/2)e^(it).",
+          "In the stated observable, the law on the circle is equivalent after doubling the angle to an equal mixture of uniform and wrapped Cauchy (the Poisson kernel); lifting the latter uses two equal sheets."
+        ],
+        "reasoning": "The wrapped Cauchy family is already standard; the substantive identification is that its half-mixture, not pure wrapped Cauchy or uniform measure, arises from uniformly oriented paired supports. Results about normals sampled by arclength or perpendicular lines with no orientation do not give this pushforward.",
+        "searches": [
+          "Resultary: ellipse director circle orthoptic sampled normal angle Poisson kernel angular density inverse eccentricity",
+          "Primary literature: ellipse director circle orthoptic probability distribution uniform normal angle intersection perpendicular tangents angular Jacobian Poisson kernel eccentricity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The most closely matching exact geometry found is the radius sqrt(a²+b²), explicitly prior. The assigned record is a self hit; the ranked average ellipse normal-multiplicity record uses area-uniform interior points, not tangent pairs (indexed summary)."
+        ],
+        "reasoning": "There is no tabled numerical constant at issue. A pre-existing explicit law or inverse angular parametrization for paired supports would be relevant; neither the locus formula nor a boundary-normal table matches that object.",
+        "searches": [
+          "Resultary sampling/eccentricity query above",
+          "Web search on director-circle/orthoptic angular Jacobian and Poisson kernel",
+          "Odehnal, §2; Cieślak–Mozgawa, eq. (1.2)"
+        ]
+      },
+      "rationale": "The director circle and the support-angle parametrization are classical; the standard Poisson kernel, its Fourier series and approximate-identity behavior are not contributions here. The inspected precedents establish the geometric forward locus and angle parametrization; they do not state or already encode the specific inverse Jacobian and the normal-angle sampling measure. The contribution is the exact mixture and identifiability of anisotropy under this observation model, with TV and singular/local consequences. Historical priority remains provisional.",
+      "residual_risks": [
+        "An older inverse tangent-direction parametrization or angular-density computation might encode the same Jacobian. The inspected portions and searches do not establish absence from the literature.",
+        "No claim of priority for the director circle, support-function forward map, or wrapped Cauchy distribution and its standard identities."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Director locus covered, inspected text gives no probabilistic observation law",
+          "evidence": "Right angle yields the ellipse's concentric director circle of radius sqrt(a²+b²). The paper treats it as the locus of intersections of perpendicular tangents.",
+          "identifier_or_url": "https://www.heldermann-verlag.de/jgg/jgg14/j14h1odeh.pdf",
+          "material_read": "Opening §§1–2, locus equations and paragraph after Fig. 1, OA offsets 0–7970; corresponding paragraph also read in dated author report",
+          "method": "OA journal PDF and author PDF, bounded passages",
+          "title": "Equioptic curves of conic sections",
+          "trigger": "Classical direct match to ellipse orthoptic"
+        },
+        {
+          "assessment": "Forward parametrization is prior; exact weighted angular invariant not covered in the compared results",
+          "evidence": "Eq. (1.2) specializes at α=π/2 to the two perpendicular support terms. The accompanying characterization concerns Fourier support modes and allowed angles for circular isoptics, not their angular probability pushforward.",
+          "identifier_or_url": "https://doi.org/10.1007/s00010-021-00828-4",
+          "material_read": "§1 eqs. (1.1)–(1.2), pp.657–659 eq. (3.9) and Lemmas 3.1–3.3, pp.663–664 eqs. (5.2)–(5.5) and Theorem 5.1",
+          "method": "OA full text, bounded passages",
+          "title": "On curves with circles as their isoptics",
+          "trigger": "General normal-angle support parametrization and circle-isoptic characterization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "There is a natural inverse problem when only intersection angle and radius are observable: radius alone cannot separate ellipses, while the second harmonic does at fixed radius. The exact mixture says how much orientation information survives and gives a quantitative measure of departure from uniformity and the angular resolution scale for very slender ellipses. These are exact properties of a distinct sampling protocol, not a reparametrization of a known locus invariant.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

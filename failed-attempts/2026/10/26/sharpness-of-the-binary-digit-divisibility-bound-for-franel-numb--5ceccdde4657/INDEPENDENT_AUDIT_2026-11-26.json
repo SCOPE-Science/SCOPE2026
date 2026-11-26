@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:59:28.947114Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–45",
+        "Frozen verify_franels.py and VERIFICATION.md",
+        "Schulte–VanSchalkwyk–Yang 2014, Theorem 2.9 as identified in the prior Resultary proof"
+      ],
+      "rationale": "Reindex the Strehl expansion by j=n-k and cancel factorials to obtain the product of binomial(n,2j) and the two central binomial coefficients at j and n-j. Legendre gives central-binomial valuation s_2, and the digit-sum inequality bounds each summand's valuation below by s_2(n). Equality needs carry-free addition j+(n-j) and an odd binomial(n,2j). The first condition says the support of j is a submask of n; Lucas gives the corresponding condition for 2j. Thus the set of allowable bits of j is exactly the set of starts of adjacent 11s. Every submask of that set is allowed, including with overlapping pairs: doubling shifts all bits without collision, and the condition 2j<=n follows automatically. Therefore exactly 2^a_2(n) terms are odd after division and the quotient parity follows. The zero index is included, and the length-L binary avoidance count gives Fib(L+2) with zero or Fib(L+2)-1 without it. Dyadic bounds extend to ordinary density zero. The frozen finite checker was read, not executed.",
+      "residual_risks": [
+        "The result does not give the valuation excess on words containing 11; that is not required for the congruence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Calkin proves divisibility for general binomial powers, not cubic equality. The earlier Resultary proof gives the stronger exact minimum-term count and an additional density-one result for each fixed power of 2 dividing F_n. The 2014 report has valuation recurrences and conjectures, not the inspected all-index equality theorem."
+        ],
+        "reasoning": "Calkin alone would not settle sharpness; the prior Resultary theorem gives the equality criterion and the actual summand count sufficient for the complete congruence.",
+        "searches": [
+          "Calkin, Factors of sums of powers of binomial coefficients, Lemma 12",
+          "Earlier Resultary Franel record, Finding and Proof",
+          "2014 Schulte–VanSchalkwyk–Yang report, §3 and Proposition 4.1"
+        ]
+      },
+      "checked_sources": [
+        "Earlier 2026/10/18 Resultary record",
+        "Calkin Lemma 12",
+        "2014 MSRI-UP report §3 and Proposition 4.1",
+        "OEIS A003714 and A000172",
+        "Frozen RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior result counts the same 2^t(n) odd terms in the normalized Strehl expansion, giving exactly the frozen modulus. Its two carry-free conditions for a=n-k are the frozen submask conditions on j=a and 2j. Fibonacci growth then gives the frozen density statement."
+        ],
+        "reasoning": "All claimed conclusions follow with the same assumptions and parameter range. The factorization of each term into central binomial coefficients is a proof reformulation and does not add a new mathematical conclusion.",
+        "searches": [
+          "Earlier Resultary Franel RESULT.md, Finding and carry-proof passage",
+          "Frozen RESULT.md Steps 1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier Finding uses t(n) for precisely the same overlapping adjacent-11 count a_2(n). The oddness of 2^t(n) is equivalent to t(n)=0, i.e. exactly the Fibbinary condition in A003714."
+        ],
+        "reasoning": "Recasting the same statement as quotient parity, a run condition, or a named binary index set does not produce a distinct theorem.",
+        "searches": [
+          "Local Resultary search: Franel valuation sharpness, binary adjacency and Fibbinary indices",
+          "OEIS A003714 and A000172"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS entries separately identify Fibbinary and Franel numbers; neither inspected OEIS passage asserts the valuation connection. The report's exception tables are finite checks of other patterns. The earlier Resultary entry proves the exact equality census Fib(L+2) with zero."
+        ],
+        "reasoning": "The exact indexing difference with the frozen census is only exclusion of zero. Prior coverage is a theorem, not extrapolation from a numerical match.",
+        "searches": [
+          "OEIS A003714 offsets near 429 and A000172 near 930 and 14448",
+          "2014 report §3, Table 1 and Conjectures 3.2–3.6",
+          "Earlier Resultary Finding, dyadic census"
+        ]
+      },
+      "rationale": "The earlier 2026/10/18 Resultary record concerns the identical cubic Franel numbers for all n>=0 and proves the identical sharpness criterion, quotient parity and exact count of minimum-valuation Strehl summands. Its census includes zero, so subtracting one yields the frozen positive-index census. This is verified prior coverage, not failure due to inaccessible literature.",
+      "residual_risks": [
+        "Global priority predating the earlier exact Resultary record is not determined; this does not affect the verified coverage of the frozen claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior coverage, plus stronger counting and density statements",
+          "evidence": "For every n>=0, equality holds iff t(n)=0; precisely 2^t(n) nonzero Strehl summands attain s_2(n), and the all-index census below 2^L is Fib(L+2).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-binary-adjacency-criterion-for-minimal-2-adic-valuations-of-fran--b8d076e12405/RESULT.md",
+          "material_read": "Finding, Assumptions and Proof, including offsets 0–2838 in mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror full-text passages and statement comparison",
+          "title": "Binary-adjacency criterion for minimal 2-adic valuations of Franel numbers",
+          "trigger": "Plausible exact indexed antecedent"
+        },
+        {
+          "assessment": "Lower bound only in the checked lemma",
+          "evidence": "General powers satisfy divisibility by 2^s_2(n).",
+          "identifier_or_url": "https://doi.org/10.4064/aa-86-1-17-26",
+          "material_read": "Lemma 12, printed pp. 24–25, PDF text offset near 20482",
+          "method": "Lawful OA primary PDF passage",
+          "title": "Factors of sums of powers of binomial coefficients",
+          "trigger": "Cited general divisibility theorem"
+        },
+        {
+          "assessment": "Discusses the valuation in detail, but inspected theorems and tables do not give the frozen criterion",
+          "evidence": "Table 1 and Conjectures 3.2–3.6 address recurrence patterns, exceptions and affine valuation relations; Proposition 4.1 proves evenness for positive n.",
+          "identifier_or_url": "2014 MSRI-UP Research Reports; Schulte, VanSchalkwyk and Yang",
+          "material_read": "§3, pp. 153–156, offsets 388481–396129; Proposition 4.1, p. 157",
+          "method": "Lawful full-text PDF via redirect; bounded passage inspection",
+          "title": "On the divisibility and valuations of the Franel numbers",
+          "trigger": "Cited but previously uninspected exact-topic report"
+        },
+        {
+          "assessment": "Names sequence and supplies identity, not decisive prior equality theorem",
+          "evidence": "A003714 avoids consecutive ones; A000172 records Strehl's identity and other congruences, not the sharpness criterion.",
+          "identifier_or_url": "OEIS A003714 and A000172",
+          "material_read": "A003714 definition near offset 429; A000172 identity near offset 930 and valuation-related passage near 14448",
+          "method": "OA public-entry passages",
+          "title": "Fibbinary numbers and third-order Franel numbers",
+          "trigger": "Exact sequence and equivalent binary-word formulation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Earlier 2026/10/18 Resultary Finding",
+        "Frozen RESULT.md lines 5–17 and 21–45"
+      ],
+      "rationale": "The sharpness classification is a meaningful invariant in itself, but this frozen finding adds no new exact fact, case, or consequence beyond the earlier exact theorem. Naming the equality class Fibbinary and subtracting zero from the existing census do not supply incremental scientific value.",
+      "residual_risks": [
+        "A result on the actual valuation excess at non-Fibbinary indices would be a different claim and is neither proved nor assessed here."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,12 +1,21 @@
-# Scientific review: Isolation-variance tomography of regular habitat graphs
+# Independent mathematical audit
 
-## Correctness (PASS)
-The paper gives an exact site-isolation covariance calculation, an algebraic polynomial-coefficient inversion, an independent wedge-counting identity for triangle multiplicity, and a low-density expansion. All degrees, normalizations, nonadjacency restrictions, and quantifiers are explicit. The standalone exact-rational checker verifies 27 first-and-second-moment comparisons (10,968 weighted configurations) across nine graphs and three probabilities each; nine independently expanded cubic coefficients agree with the analytic formula. This finite experiment does not establish the infinite theorem; the proof is combinatorial and symbolic.
+## correctness
 
-## Originality (PASS with stated search limits)
-The relevant ecological literature includes With (1995) (metadata/abstract only) and the fully inspected paper by Neel, McGarigal and Cushman (2004), whose metric-versus-landscape investigations do not give the inverse variance theorem. Diskin and Krivelevich (2023) study asymptotic site-percolation components and isolated vertices on pseudorandom graphs, not recovery of nonedge-codegree statistics from the regular graph's isolation variance polynomial. Semantic searches of published mathematical records identified a bond-percolation component/triangle covariance theorem and separate co-degree reconstruction for complete multipartite graphs; neither statement covers the present all-regular-graph inverse result. General graph-polynomial and reliability-equivalence risk remains; this is not independent bibliographic certification.
+PASS
 
-## Value (PASS)
-For an independent vertex-retention model, the expected count of isolated surviving habitat patches is simply \(np(1-p)^r\) and erases network structure in a fixed-degree family. The variance instead recovers the full positive nonedge shared-neighborhood histogram and triangle count, at only finitely many retention levels, providing an exact boundary of what an interpretable ecological sampling statistic detects. The decagon-versus-two-pentagons construction shows that graph topology is not fully recoverable. Theorem scope excludes estimation noise, heterogeneous survival, and correlated ecological losses.
+A retained isolated indicator has mean pq^r. For adjacent endpoints the joint event is impossible, while nonadjacent endpoints with s common neighbors impose absence on a union of 2r−s sites disjoint from the endpoints. Summing diagonal, nr/2 adjacent and nonadjacent pair terms produces the stated factors, with codegree zero canceling. The normalized variance residual divides by 2p³q^r, nonzero at every permitted sample, and the geometric series gives triangular coefficients b_j=∑_{s≥r−j}N_s. Adjacent coefficient differences and exact interpolation at r distinct points prove inversion, including r=1 and the complete graph. The wedge count partitions into ∑sN_s open and 3T closed wedges. At cubic order the variance coefficient before substitution is n binom(r,2)+2nr(r+1)+2∑sN_s, which simplifies as claimed. The two cycle examples have ten distance-two pairs of codegree one and none of codegree two; disconnectedness is permitted. The uploaded certificate and checker were inspected, not executed. A separate exact retained-set enumeration and three-point interpolation for K3,3 and the triangular prism gave triangle counts 0 and 2 and the expected distinct normalized curves (python /workspace/review-evidence/independent_checks.py). The independent check is finite and numerical stability is not asserted.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The supported distinct claim is the exact equivalence between the scalar site-isolation variance curve and the nonedge-codegree histogram for known regular parameters, with uniform exact sample sufficiency and derived triangle census. Pair probabilities and interpolation are not claimed as new techniques. No earlier exact recovery or stronger same-observable inversion was established by the inspected sources.
+
+## value
+
+PASS
+
+This identifies exactly which overlap invariant is retained by an accessible idealized aggregate, turns it into a finite exact reconstruction, and distinguishes triangle identifiability from graph or connectivity identifiability. The interpretation is mathematical, not a claim of robust ecological inference from noisy observations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

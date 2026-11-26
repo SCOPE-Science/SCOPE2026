@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:41:22.218713Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 21–60 and its printed table",
+        "Frozen VERIFICATION.md, verification/check.py and verification/check_output.txt (read only)",
+        "Independent replay: python /workspace/anti_niven_audit.py 2 3 4 5 6 7 8 9 10 11 12 (531471 terms); python /workspace/anti_niven_audit.py 13 (1062885 terms)"
+      ],
+      "rationale": "Even terms require odd digit sums of their base-b quotients. Adding one without changing digit-sum parity requires an odd number of trailing b−1 digits, so the next quotient ends in zero and the following increment flips parity. With b≥6, successive even progression terms are spaced six apart and their quotients cannot skip a block. Hence they occupy at most two adjacent blocks, containing at most ceil(b/3) such even terms, proving the stated bound. For the listed seeds the carry in the low digit starts at one at j=1, runs through two, and reaches three only at the last term, with final remainder one. Subtraction of the digit sum gives (b−1) times U, U+2 and U+3 on these three cases. The factor b−1=3^k is harmless because every term is K modulo 3. Independently parsed the twelve rows from RESULT.md, checked the two endpoint gcds and prime-factor tests by trial division, and checked all 1,594,356 terms with exact gcd and base-b digit sums. The largest row has 1,062,885 terms. The low block stays below b^3 throughout; a common multiple of the multiplicative orders for primes dividing the finitely many digit sums and not dividing b preserves all relevant residues when shifting the leading one to b^m. Primes dividing b see both powers as zero. Arbitrarily large m preserve all gcds and give distinct starts.",
+      "residual_risks": [
+        "Only twelve bases are certified attainments. The computation establishes witness terms and certificate conditions, not the universal bound or infinitude, which follow from the separate arguments."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frozen lines 65–72 identify Theorem 3.4 as an even-base odd-stride upper bound and describe a sharpness question. Theorem 3.4 full text was sought but not recovered during this review."
+        ],
+        "reasoning": "A general upper bound, even if it matches exactly after substitution, does not supply any maximizing seed. A general even-base attainment theorem or convincing matching table would cover the claim; none was found in material actually inspected.",
+        "searches": [
+          "Blau et al., arXiv:2308.05228v1, Theorem 3.4; targeted OA retrieval including HTML query for Theorem 3.4"
+        ]
+      },
+      "checked_sources": [
+        "Exact and related Resultary IDs listed above (indexed statements)",
+        "Frozen RESULT.md §§Proof, Relationship to prior work"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "What is needed beyond a length obstruction is coprimality along every witness term. The frozen proof supplies p≠3 factor exclusions for two integers and two endpoint gcds and then invokes residue-preserving digit padding."
+        ],
+        "reasoning": "Even giving full credit to earlier bounds and generic modular extensions would leave construction and certification of twelve attaining seeds; upper bounds and constructions in different parity regimes do not imply that step.",
+        "searches": [
+          "arXiv:2308.05228v1, Theorem 3.4 and frozen lines 65–72",
+          "Resultary related odd-base and ternary progression records"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier related indexed hits cover short even strides in odd bases, ternary step two, and odd-base step b−1. The exact even-base stride-three match is the assigned record itself."
+        ],
+        "reasoning": "An odd base or even step changes the parity and carry argument; reindexing these progressions cannot turn their anti-Niven digit-sum condition into the twelve even-radix conditions.",
+        "searches": [
+          "Resultary: anti-Niven progressions / integers relatively prime to their digital sums, even radix and difference three",
+          "arXiv:2308.05228v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed result reproduces the twelve equalities, parity bound and infinite starts, and is the frozen record, not distinct prior evidence. The three distinct matches below concern other parameters."
+        ],
+        "reasoning": "A distinct table proving these same maxima would be material irrespective of seed choice. The certificate table in the frozen record itself is establishment of its lower bound, not priority evidence.",
+        "searches": [
+          "Resultary: stride-three maxima for b=3^k+1; 2026/11/22/SCOPE-sharp-stride-three-anti-niven-progressions-in-twelve-exponential--ab799887eb32"
+        ]
+      },
+      "rationale": "Credit prior work on anti-Niven progressions and even-base odd-stride upper bounds; the pass concerns matching attainment certified for the twelve specified even bases, and the exact lifting of those witnesses. No available distinct statement implied these attainments. The modular lifting principle and parity obstruction are not assessed as independently new.",
+      "residual_risks": [
+        "The precise Theorem 3.4 passage could not be inspected directly; a broader construction or unindexed exact table remains a possible source of prior coverage. No priority claim rests on a retrieval failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Overlap in problem and upper-bound regime is credited; exact strength and priority comparison remain qualified",
+          "evidence": [
+            "Frozen RESULT.md lines 65–72 describe the theorem and sharpness motivation."
+          ],
+          "identifier_or_url": "arXiv:2308.05228v1",
+          "material_read": "Frozen relationship discussion and Theorem 3.4 locator; targeted primary retrieval timed out, no theorem text claimed read",
+          "method": "OA attempts and statement-level comparison with the attributed result",
+          "title": "Arithmetic Progressions of Integers that Are Relatively Prime to Their Digital Sums",
+          "trigger": "Prior general treatment of odd stride in even base"
+        },
+        {
+          "assessment": "Same record, not a distinct earlier result",
+          "evidence": [
+            "Matches all twelve bases, the uniform parity bound and the infinite starts."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-stride-three-anti-niven-progressions-in-twelve-exponential--ab799887eb32",
+          "material_read": "Resultary summary and frozen theorem/table",
+          "method": "Local catalogue search and statement comparison",
+          "title": "Sharp stride-three anti-Niven progressions in twelve exponential even bases",
+          "trigger": "Exact database match"
+        },
+        {
+          "assessment": "The indexed claims do not encompass the twelve even-base stride-three maxima",
+          "evidence": [
+            "Odd base with even stride, b=3 with step two, and odd base with step b−1, respectively."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-anti-niven-progressions-for-short-even-strides-in-odd-base--f890edbf6d9b; 2026/11/8/SCOPE-sharp-length-38-for-difference-two-ternary-anti-niven-progressio--0d529a702409; 2026/11/8/SCOPE-long-fixed-step-anti-niven-progressions-in-every-odd-base--1e0d4a4b2e61",
+          "material_read": "Resultary indexed statements",
+          "method": "Local catalogue search and parameter/hypothesis comparison",
+          "title": "Sharp anti-Niven progressions for short even strides in odd bases; Sharp length 38 for difference-two ternary anti-Niven progressions; Long fixed-step anti-Niven progressions in every odd base",
+          "trigger": "Closest distinct indexed anti-Niven extremal and lifting claims"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md proof, witness table and lifting argument",
+        "Independent exact replay at /workspace/anti_niven_audit.py"
+      ],
+      "rationale": "The stride and base family are motivated by the even-base extremal problem and the identity b−1=3^k, which isolates one forced carry prime. This is a meaningful finite cutoff: the same small certificate shape works for twelve exponentially growing bases, including a maximal progression of over one million terms. The extension from a seed to infinitely many maximal starts shows more than existence of isolated computer hits.",
+      "residual_risks": [
+        "No assertion of sharpness beyond k=13 or enumeration of all maximizing starts; the certificate search does not prove such seeds must continue to exist."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

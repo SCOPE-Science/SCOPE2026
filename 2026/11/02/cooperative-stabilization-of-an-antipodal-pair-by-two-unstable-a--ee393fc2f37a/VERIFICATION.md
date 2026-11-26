@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 check.py` using Python's standard library from the directory containing the script. The saved terminal output is `checker_output.txt`.
+## correctness
 
-The program evaluates the exact-softmax two-head map, tests the exact rational attention weights and radial gain, uses centered differences in six tangent directions to compare the full Jacobian against the derived block matrix, and confirms the isolated-head growing symmetric modes. Twenty-four seeded nearby nonlinear configurations decay numerically. The exact asymptotic theorem does not rest on those finite trajectories: the proof is the analytic differentiation and contraction argument in `RESULT.md`.
+PASS
 
-Numerical centered differences have discretization and rounding error. The rational identities in code use `fractions.Fraction`; they are cross-checks, not a general symbolic proof. Only local attraction near the displayed fixed point is claimed. Independent audit: not performed.
+In each head, the weight matrix at the pair has eigenvalues 1 and q_h on the symmetric and antisymmetric token directions, with (q_1,q_2)=(1/2,3/4). The joint unnormalized radial gain is 9/4. Score derivatives vanish on the tangent because all perturbations have zero first coordinate and the base second coordinates vanish. Thus in coordinate two the pre-normalization multipliers are 1+4-4=1 and 1+4q_1-4q_2=0. Both token directions in each of coordinates three and four have pre-normalization multiplier 1. Spherical normalization scales all six by 4/9. The isolated radial gains are 3/2 and 7/4, giving symmetric transverse multipliers 10/3 and -12/7, and antisymmetric multipliers 2 and -8/7. The joint derivative has Euclidean norm 4/9 in a tangent chart, hence a small invariant contracting neighborhood exists. The derivative minus the identity is invertible, so the implicit function theorem and continuity of the derivative give a unique nearby attracting fixed point under small smooth parameter changes. Within the bias-free architecture, the swap-and-negate symmetry actually forces the nearby fixed point to remain antipodal; that symmetry need not hold for general perturbations. check.py lines 41–74 and checker_output.txt were inspected, not executed: the rational identities, six finite-difference columns and finite trajectory tests are corroboration, not the proof or a formal certification.
+
+## originality
+
+PASS
+
+The supported distinct claim is an explicit stable antipodal fixed point of the cited discrete two-head architecture with both specified isolated ablations expanding, not a new general stability theorem or the first instance of antipodal behavior in attention. No inspected statement supplies or implies this conjunction.
+
+## value
+
+PASS
+
+The exact example answers an existence question explicitly left open in the same architecture and tests the substantive inference that head-wise expansion rules out joint attraction. It isolates cancellation of the antisymmetric transverse update independently of radial gain, and shows the joint attraction is not conditional on exact tuning of the full Jacobian. This is a useful local counterexample, not a claim about practical transformer behavior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

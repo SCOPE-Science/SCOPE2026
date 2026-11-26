@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:52:36.591709Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–70; VERIFICATION.md, both verifier sources and recorded output inspected, not executed.",
+        "Independent bounded replay: python3 /tmp/opencode/review-kneser-3.py computes raw disjointness and color-neighborhood coverage by union-mask DP, not star grouping or inclusion–exclusion. Full n=5,6 profiles match, and n=7 starts at weight 15 with coefficient 226968."
+      ],
+      "rationale": "A pairwise-intersecting two-set collection is either contained in a star, or exactly a triangle: edges ab and ac together with an edge not using a force bc, after which no fourth edge is possible. This yields the disjoint zero-support counts, taking care that the empty and singleton cases do not have a unique center. For a fixed zero support, inclusion–exclusion imposes absence of each named color in each specified open neighborhood; an outside edge can carry a color exactly when it intersects every zero edge in that color's failure set. A double label has the conjunction and weight 2, so each factor and the weighted sum agree. A minimum can have weight N−(n−1) only with a full zero star and singletons outside. It is attained even at n=5 by using distinct disjoint perfect matchings on four noncentral points, one per color. In any singleton split, a star zero {c,i} sees a color precisely when some edge of that color avoids i. For a fixed bad color the allowed subsets of a single star count as one empty, binom(m,2) singles and m times the at-least-two subsets of m−1 edges, m=n−1. Both colors cannot fail because two star centers leave at least two vertices outside their union of centers. This proves the minimum formula, classifier, counts and full polynomial under the named-color convention.",
+      "residual_risks": [
+        "Full coefficient checks are finite; all-n validity is supplied by the support classification and event identity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mansouri–Mojdeh Proposition 5.1 is the upper bound 2(|V|−alpha) with an equality family; their K_(1,r)-free lower bound is not this census.",
+          "The claw-free result does not apply: {1,2} together with {3,4}, {3,5}, {4,5} forms an induced claw, already at n=5."
+        ],
+        "reasoning": "The elementary general lower bound |V|−alpha fixes the target lower bound with alpha=n−1. It neither gives attainment nor proves the colored edge-family criterion and the optimizer count.",
+        "searches": [
+          "Mansouri–Mojdeh Definition 1.1, Proposition 5.1 and Theorem 5.2",
+          "Samadi–Soltankhah arXiv:2208.02340 Theorem 2.1",
+          "Cabrera-Martínez DOI 10.3390/math10132287; Kang et al. DOI 10.1080/16583655.2019.1655255"
+        ]
+      },
+      "checked_sources": [
+        "Three Resultary records above; primary passages of Mansouri–Mojdeh and Samadi–Soltankhah; attempted OA Cabrera-Martínez and Kang et al."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equality in the alpha lower bound only forces a maximum independent zero set and singleton labels; coverage imposes a separate common-center avoidance property on both edge families. Their mutually exclusive failure counts give the new minimum coefficient.",
+          "Neither fixing k in the ordinary Kneser theorem nor graph complementation preserves these constraints."
+        ],
+        "reasoning": "The inclusion–exclusion identity specializes general counting methods, but the complete support classes and exact optimizer census are not a stated or mechanical consequence of the inspected domination results.",
+        "searches": [
+          "Same-graph ordinary k-rainbow and independent color-class domination, same-invariant triangular-graph census, general outer-independent rainbow bounds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2026-10-26 triangular-graph record uses intersection adjacency, matching zero sets and least weight N−floor(n/2), not disjointness adjacency and intersecting zero sets.",
+          "The same-day Petersen census asks for independent color classes, not independent zeros; it gives 30z^6+80z^7, compared with 90z^6+2120z^7+… here."
+        ],
+        "reasoning": "Complementation changes both the independence condition and which nonempty vertices cover a zero; moving independence from zeros to the color classes is also not an equivalence, even when both minima at n=5 equal six.",
+        "searches": [
+          "Resultary: two-subset Kneser, outer-independent two-rainbow enumerator, triangular graph, Petersen independent rainbow census"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest exact Petersen table differs in coefficients and constraint; triangular-graph polynomial is for the complement. The ordinary Kneser result states gamma_rk=2k for k≥3, n≥k+1, not an outer-independent census.",
+          "The direct independent coverage replay gives the full Petersen profile and confirms the coefficient 90 under the frozen constraints."
+        ],
+        "reasoning": "None of the inspected tables supplies the named outer-independent counts. Recomputing a small graph tests definitions, not literature priority.",
+        "searches": [
+          "Resultary Petersen rainbow census, triangular-graph enumerator, exact multi-rainbow domination of two-subset Kneser graphs"
+        ]
+      },
+      "rationale": "Credit the exact named-color count and classification of all optimum labelings and the explicit all-weight census for the disjointness graph, not the standard cardinality lower bound or inclusion–exclusion as methods. Closest same-statistic and same-graph records describe significantly different constraint sets and yield different coefficients.",
+      "residual_risks": [
+        "An exact specialization in inaccessible material or under alternate domination terminology remains possible; neither access failure nor same-day dates resolve priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Not equivalent under complementation",
+          "evidence": [
+            "Its zero families are matchings and its least weight is N−floor(n/2)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-outer-independent-two-rainbow-weight-enumerator-of-triangular-gr--5892cf5f68ec",
+          "material_read": "RESULT.md Finding and Relationship to prior work, offsets 0 and 6000",
+          "method": "Local Resultary mirror",
+          "title": "Outer-independent two-rainbow weight enumerator of triangular graphs",
+          "trigger": "Same invariant on the complement"
+        },
+        {
+          "assessment": "Different independence condition and polynomial",
+          "evidence": [
+            "Independent color classes, 30z^6+80z^7, rather than independent zero set."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-complete-two-rainbow-independent-domination-census-of-the-peters--dde53fd50c0f",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Complete two-rainbow independent domination census of the Petersen graph",
+          "trigger": "Same-day identical graph at n=5 and very similar terminology"
+        },
+        {
+          "assessment": "Different palette and no outer independence",
+          "evidence": [
+            "Ordinary rainbow domination with k≥3 and n≥k+1, minimum 2k."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-exact-multi-rainbow-domination-of-two-subset-kneser-graphs--8baf309aa150",
+          "material_read": "RESULT.md Finding and scope, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact multi-rainbow domination of two-subset Kneser graphs",
+          "trigger": "Exact Kneser domination finding"
+        },
+        {
+          "assessment": "Known parameter and general bounds; no matching implication from those results",
+          "evidence": [
+            "Upper bound 2(|V|−alpha); separate K_(1,r)-free lower bound."
+          ],
+          "identifier_or_url": "https://opuscula.agh.edu.pl/vol40/5/art/opuscula_math_4033.pdf",
+          "material_read": "Definition 1.1 p. 600; Proposition 5.1 and Theorem 5.2 pp. 607–609, OA offset 22600 for Proposition 5.1",
+          "method": "OA primary-text passages",
+          "title": "Outer independent rainbow dominating functions in graphs",
+          "trigger": "Foundational definitions and possible general implication"
+        },
+        {
+          "assessment": "Claw-free hypotheses fail on KG(n,2)",
+          "evidence": [
+            "Connected claw-free n/2 lower bound and equality theorem."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2208.02340",
+          "material_read": "Abstract p. 1 and §2 Theorem 2.1",
+          "method": "OA primary-text passages",
+          "title": "Further results on outer independent 2-rainbow dominating functions of graphs",
+          "trigger": "Lower bound and equality characterization"
+        },
+        {
+          "assessment": "No passage-level verdict on coverage",
+          "evidence": [
+            "Full-text access was not established."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/math10132287",
+          "material_read": "Landing information only, no usable full text in attempted routes",
+          "method": "Lawful OA attempt",
+          "title": "A Note on Outer-Independent 2-Rainbow Domination in Graphs",
+          "trigger": "Potential broader bound or graph-family specialization"
+        },
+        {
+          "assessment": "No passage-level verdict on coverage",
+          "evidence": [
+            "Access returned 403."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/16583655.2019.1655255",
+          "material_read": "DOI and citation only; no usable full text",
+          "method": "Lawful OA attempt",
+          "title": "Outer-independent k-rainbow domination",
+          "trigger": "Possible general-palette implication"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof §§1–4; compared complementary and same-Petersen censuses."
+      ],
+      "rationale": "The Kneser family is a natural test of the interaction between a maximum independent zero set and two-color coverage. The classification and exact counts tell considerably more than the immediate lower bound; the complete weight polynomial captures valid suboptimal supports and both-color labels as well.",
+      "residual_risks": [
+        "The sum is explicit but not asserted to be a fast general-purpose algorithm or a formula for larger uniformities."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

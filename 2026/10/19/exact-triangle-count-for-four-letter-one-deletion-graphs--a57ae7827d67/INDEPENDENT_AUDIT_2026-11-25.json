@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:27:34.861784Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, automaton semantics, transfer formulas and repeated-vertex correction",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent original-dimension certificate: python3 /workspace/branches/a405e89d-81aa-4dd2-b442-327298b96f17/independent_certificate.py",
+        "Independent smaller certificate and direct output-graph check: python3 /tmp/opencode/four_letter_triangle_audit.py"
+      ],
+      "rationale": "Between the first and second deleted positions in a pair of words, there is exactly one pending letter in the other word; when the alignment closes, only equality is allowed. This verifies the frozen recognizer and product semantics. Equality is intentionally accepted when calculating P_n and A_n. Each of the three pair-equality events contains P_n ordered triples, and every intersection of two or three events contains 4^n all-equal triples. Inclusion–exclusion and division by six give T_4(n)=(A_n−3P_n+2·4^n)/6, and substitution gives the asserted polynomial and leading coefficient 405/288=45/32. Independently reconstructed the original 27- and 1549-state dimensions and verified exactly the corresponding annihilator checks through lengths 31 and 1556 without running the frozen script. A separate check used a different recognizer: discard the common equal prefix (an equal first symbol can be retained in a longest common subsequence), start the three possible deletion paths at the first mismatch, then quotient pair and triple machines by simultaneous alphabet relabeling. This gave dimensions 6 and 159 and reproduced the formulas and all required consecutive zeros for those dimensions using exact arithmetic. In either computation Cayley–Hamilton applied to uM^nQ(M)f extends d consecutive zeros from n=1 to every positive n; matching the initial positive indices uniquely identifies the two closed forms. In particular the formula need not hold at n=0. Independent direct deletion-set enumeration gives T_4(n)=4,172,2484,23968,187648 at n=1,…,5.",
+      "residual_risks": [
+        "This is an exact computer-assisted finite-dimensional certificate, not proof-assistant verification; the small direct graphs by themselves do not establish an infinite identity.",
+        "The theorem is for four symbols and radius one, counting triangles of distinct words, not common reads of all three words."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Taking a=b=c=k=1 in the relevant bound yields O_q(q^n n³ log n); for q=4 the constant and lower-order terms are undetermined. The paper's main code-size theorem is stated for k≥2; this comparison uses Lemma 7, not that theorem."
+        ],
+        "reasoning": "The broader result bounds the count, not an exact expression or even the sharp leading coefficient at these parameters.",
+        "searches": [
+          "Alon et al., arXiv:2209.11882v3 Lemma 7 and following triangle-count specialization"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2209.11882v3",
+        "Indexed Resultary records a53aac659908, 267ddbf7ac14 and e753c7b5bfd6",
+        "Targeted primary-literature search and claim-directed indexed search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact binary record uses the same finite-state counting strategy but fixes alphabet size two; letter possibilities change transition multiplicities and reachable states. The general upper bound does not supply the four-letter transfer annihilators or their initial terms."
+        ],
+        "reasoning": "Adapting the method requires an actual exact count and an infinite certificate at q=4, not substitution into a two-letter formula. The independent quotient certificate demonstrates that the exact polynomial survives the required reconstruction.",
+        "searches": [
+          "Exact binary Resultary Finding and transfer proof at offsets 0 and 2936",
+          "Alon et al. general triangle-bound proof around Lemma 7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The condition is longest common subsequence length at least n−1 for each pair of distinct length-n words, or insertion/deletion distance two when both words have length n. The separate ordered-pair and ordered-triple transfer counts include equality and are normalized back to the simple graph."
+        ],
+        "reasoning": "The equivalent distance and confusability formulations locate the same graph, but a common read for all three or a requirement of two shared reads would change the counted configurations.",
+        "searches": [
+          "Alon–Bourla–Graham–He–Kravitz, arXiv:2209.11882v3, graph definition and Lemma 7",
+          "Resultary searches for single deletion, deletion-confusability triangles, and exact polygonal counts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact earlier record gives a different binary polynomial. The other exact records count Ulam triangles on permutations of distinct labels, and cliques with at least two shared reads, respectively. No exact q=4 table was found in the inspected material. The targeted primary search returned unrelated results, which were not used as evidence of absence."
+        ],
+        "reasoning": "None of these formulas or tables evaluates the asserted four-symbol, one-common-read graph for all n.",
+        "searches": [
+          "Resultary exact binary graph enumeration a53aac659908 and closest exact related hits 267ddbf7ac14 and e753c7b5bfd6",
+          "Primary query: \"deletion graph\" triangle count exact single deletion four-letter q-ary 405 2344 confusability graph Alon Bourla Graham He Kravitz formula"
+        ]
+      },
+      "rationale": "The supported distinct assertion is the exact radius-one triangle count and leading constant for the four-letter deletion graph. The general deletion graph and triangle-bound program are prior, as is the finite-state method and exact count for two symbols. The inspected stronger-domain bound does not fix this exact invariant, and the inspected exact indexed formulas count different objects.",
+      "residual_risks": [
+        "The exact match search is bounded and the primary query was uninformative; an unindexed or otherwise missed general-alphabet enumeration is possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broader alphabet/radius upper bound, not exact at q=4 and radius one",
+          "evidence": "The lemma's radius-one equality of distance parameters gives O_q(q^n n³ log n), not the displayed exact polynomial or coefficient.",
+          "identifier_or_url": "https://arxiv.org/abs/2209.11882",
+          "material_read": "v3 PDF p. 2 definition, p. 4 Lemma 7 (OA offsets 17677–21866), and p. 5 specialization (offsets 21252–25352)",
+          "method": "Lawful OA bounded PDF passages",
+          "title": "Logarithmically larger deletion codes of all distances",
+          "trigger": "Same deletion graph and primary general triangle bound"
+        },
+        {
+          "assessment": "Exact count for the two-symbol graph only",
+          "evidence": "The binary formula is [2^n(n³+n²−6n−28)+16(n²+n+2)]/8; the transfer states and alphabet multiplicities are for q=2.",
+          "identifier_or_url": "2026/10/4/SCOPE-exact-triangle-count-in-the-binary-single-deletion-graph--a53aac659908",
+          "material_read": "RESULT.md Finding and transfer proof, offsets 0 and 2936",
+          "method": "Local indexed mirror at commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact triangle count in the binary single-deletion graph",
+          "trigger": "Closest exact invariant, same combinatorial counting strategy"
+        },
+        {
+          "assessment": "Different vertex set",
+          "evidence": "Vertices are permutations of distinct labels, not all words over a fixed four-letter alphabet.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-triangle-count-and-the-three-rotation-obstruction-in-ulam--267ddbf7ac14",
+          "material_read": "RESULT.md offsets 0 and 2500",
+          "method": "Local indexed mirror",
+          "title": "Exact triangle count and the three-rotation obstruction in Ulam graphs",
+          "trigger": "Close indexed triangle enumeration under deletion-derived distance"
+        },
+        {
+          "assessment": "Different edge condition",
+          "evidence": "An edge requires two distinct common deletion outputs, whereas this record requires only one.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-triangle-spectrum-of-the-two-read-deletion-confusability-g--e753c7b5bfd6",
+          "material_read": "RESULT.md offsets 0 and 2450",
+          "method": "Local indexed mirror",
+          "title": "Exact triangle spectrum of the two-read deletion confusability graph",
+          "trigger": "Close indexed exact q-ary deletion triangle invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen exact formula and computed certificate",
+        "Alon et al., deletion-graph triangle bound",
+        "Exact binary comparator a53aac659908"
+      ],
+      "rationale": "Triangles are an established invariant for assessing sparsity in deletion-confusability graphs. Four letters are a natural fixed nonbinary alphabet, and radius one is the first deletion regime. The exact count supplies a reusable reference, removes the logarithmic loss of the relevant broad upper bound for this fixed graph, and gives an explicit leading constant and finite-size corrections rather than an unproved extrapolation. No new coding-rate implication is claimed.",
+      "residual_risks": [
+        "Does not supply a general-alphabet count, a larger deletion radius count, or an optimal deletion code size."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

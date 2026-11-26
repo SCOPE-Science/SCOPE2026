@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The completed stochastic update is exactly \(M=rI+(u+\sigma\Delta W/d)N\), so the expected squared-norm matrix \(G\) is explicit. The principal-minor determinant factor \(h^2(c^2-\sigma^2c-\gamma^2)/d^4\), the separate \(c=0\) case, and the sign of \(c\) prove the if-and-only-if contractivity condition at every stated boundary. The exact product identity based on \(N^2=0\), together with the invariant vector \(e_1\), proves the asymptotic stability equivalence; at the zero of \(r\), two updates are identically zero, not merely small in expectation. The Itô energy generator proves the continuous comparison. Five symbolic identities, four nilpotent product identities and 600 exact-rational comparisons passed in `verify.py`. No finite experiment is used as an infinite proof.
+## correctness
 
-## Originality — PASS, provisional historical priority
-The main 2020 primary precursor gives sufficient nonlinear contractivity criteria under dissipativity assumptions, and its section 4 does not identify this defective matrix's exact large-step recovery when the continuous system is not contractive. The 2009 scalar-with-multiple-noises primary text establishes a different stability test and does not provide the matrix one-step Gramian classification. The accessible 2025 broader contractivity article's linear-drift subsection assumes a symmetric positive-definite drift, not this nonnormal Jordan matrix. The closest indexed public findings concern randomized shear splitting, other stochastic theta moment laws, and Jordan Runge–Kutta contractivity, with no implication of the stated mixed nilpotent-noise theta phase diagram. A 2000 scalar precursor was accessible only through its scholarly abstract; its full text and all historical priority remain an explicit risk.
+PASS
 
-## Value — PASS
-A fully sharp, analytically checkable classification separates three notions often conflated in stiff stochastic simulation: continuous prefactor-one contractivity, one-step numerical mean-square contraction, and asymptotic numerical mean-square stability. It proves that changing implicitness across \(\theta=1/2\) creates an all-large-step **recovery** region even when infinitesimal mean-square dissipation fails, and that a resonant numerical step can amplify the first update by an arbitrarily large factor and still annihilate every path after two steps. This is an exact limit on interpretation of large-step stability and a test case for method selection, not a claim about approximation accuracy or arbitrary systems.
+For d=1+θh, drift inversion gives M=rI+(u+σΔW/d)N with r=(1−(1−θ)h)/d and u=γh/d². For v=σ²h/d² the Gram matrix has entries G₁₁=r², G₁₂=ru, G₂₂=r²+u²+v. Writing α=1−r²=hc/d², det(I−G)=α²−αv−u², because α+r²=1. If c>0, positivity is equivalent to the determinant test and hence c≥c*. If c<0 it is impossible, and if c=0 it requires γ=σ=0 (both the off-diagonal entry and v must vanish). Solving the affine inequality in h gives all three stated step sets. The continuous energy matrix is [−2,γ;γ,−2+σ²], so derivative at zero proves necessity and integrating the Itô energy identity proves sufficiency of γ²+2σ²≤4. In the discrete product any term with two N factors vanishes. For r≠0 its second moment is bounded by the stated geometric factor times a quadratic in n; testing e₁ gives necessity of |r|<1. When r=0 every product of two updates is zero for every realization. At the displayed explicit-Euler example E[(10+4ΔW)²]=116. These establish the claimed distinctions without any sampled tests.
 
-## Closest literature and residual limitations
-The nearest scientific sources are D'Ambrosio–Di Giovacchino (arXiv:2009.04941), Buckwar–Sickenberger (arXiv:0912.1968), Higham (2000, doi:10.1137/S003614299834736X), and Biščević–D'Ambrosio–Di Giovacchino (2025, doi:10.1016/j.amc.2025.129527). The proof uses the special commuting nilpotent structure; noncommuting or higher-dimensional diffusion is not addressed. Historical priority and independent mathematical review have not been established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact Gram and covariance form, scalar test equation and energy identity are standard. The assessment is for the joint resolved phase diagram in the fixed Euclidean norm, including the large-step-only nonexpansion regime where the continuous dynamics initially expand, and its contrast with a pathwise zero product at the resonant step. The strongest inspected indexed comparison changes the noise operator and concerns asymptotic stability. No equivalent or dominating resolved diagram for the common nilpotent drift and noise was identified in the bounded material inspected.
+
+## value
+
+PASS
+
+The common nilpotent shear isolates one-step Euclidean amplification from modal asymptotic stability. Its precise comparison distinguishes regimes where larger steps actually restore weak nonexpansion despite initial expansion in continuous time, and identifies an exact resonant step with arbitrarily large transient amplification and guaranteed annihilation in two steps. These are informative diagnostics for interpreting results on stochastic time integrators; the value is not the elementary scalar stability test alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

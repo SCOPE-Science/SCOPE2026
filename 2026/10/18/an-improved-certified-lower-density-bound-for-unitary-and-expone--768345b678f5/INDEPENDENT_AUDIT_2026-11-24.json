@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:34:15.598806Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Assumptions and scope, Proof, Verification; VERIFICATION.md; verify_unitary_density.py; requirements.txt",
+        "Independent replay: python /workspace/replay_math.py 5"
+      ],
+      "rationale": "For a prime power the unitary divisors are 1 and p^e, and the exponential-divisor exponents are the positive divisors of e; multiplicativity gives exactly the specified positive local ratios. The residual atanh series starts at power 33 and its absolute value is bounded by the given geometric majorant. Flooring the resulting lower shifts and flooring each individual nonnegative CRT mass transition both preserve the lower-bound direction. Summed shift >= 0 certifies a finite product >= 1, including possible equality. Enforcing exponents <= 1 for p > 997 preserves the inequality and makes it strict unless n is 997-smooth (a density-zero exception). The infinite CRT limit is uniform: for any Q the fraction of n <= X divisible by some p^2 with p > Q is at most sum_{p>Q}p^-2, independent of X. This gives the Euler-product multiplier; comparison over odd integers gives 1-1/(2*997). An independently written replay computed lower mass 772112456436, total retained rounded mass 999878226389, and shift span [-167406,201533], giving exactly 384705031419237/498500000000000 > 7717/10000. Signed integer capacity follows from mass <= 10^12 at each lower transition, factors <= 996 and at most 16 retained terms for each prime; denominators also fit, and quantities summed are nonnegative. No sampled integer counts enter the proof.",
+      "residual_risks": [
+        "The exact density is not evaluated. The auxiliary upper diagnostic is outside the Finding and was not independently audited."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Oct. 4 and Oct. 13 yield 0.753659844064288... and approximately 0.7701852775863, respectively; Nov. 2 yields 0.770667314486686... . The distinct Nov. 8 later bound is (502/503)(771520086457799875/10^18 + (13/180) product_{p<=503}(1-1/p)) > 0.7764."
+        ],
+        "reasoning": "Only the later stronger lower endpoint dominates this bound. No examined exact evaluation or earlier higher lower bound implies the assigned numerical certificate.",
+        "searches": [
+          "Resultary: rigorous unitary–exponential divisor comparison density brackets and exact density",
+          "Resultary 831dd476bf82, 699fb1397b24, af1c27cd6d00, e2d1644c7bf9, e95b7b96d28d"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1312.4615",
+        "OEIS:A322446",
+        "Resultary: 831dd476bf82, 699fb1397b24, af1c27cd6d00, e2d1644c7bf9, e95b7b96d28d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier six-prime cylinder inequality delta >= 6097572635664749695003/(819750822146736480000*pi^2) and Oct. 13 bracket both have lower endpoints below 0.771725238554..., while the same-day upper certificate is complementary."
+        ],
+        "reasoning": "Earlier weaker lower endpoints leave values inconsistent with this stronger inequality possible. The independent finite-prime convolution plus tail control supplies the additional lower mass. The Nov. 8 distinct result is a subsequently stronger inequality, not a candidate earlier implication based on these dates.",
+        "searches": [
+          "arXiv:1312.4615 §4",
+          "Resultary 831dd476bf82 and 699fb1397b24 Findings; af1c27cd6d00 and e95b7b96d28d Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The product-of-local-ratios > 1 and usigma(n) > esigma(n) are the same comparison. Trudgian gives 6/pi^2 and a finite-range proportion about 0.778307, not a certified endpoint at that proportion.",
+          "The matched Oct. 18 record af1c27cd6d00 asserts delta < 0.779672276; the inequality is in the opposite direction."
+        ],
+        "reasoning": "Equivalent notation yields the same event, not the same certificate. An upper endpoint restricting the event's possible density cannot imply the stated positive lower endpoint. No second matching certificate with the exact fraction was found among the ranked hits.",
+        "searches": [
+          "Resultary: unitary versus exponential divisor-sum comparison natural density; exact fraction 384705031419237/498500000000000",
+          "arXiv:1312.4615 §4; OEIS A322446"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A322446 lists counts below powers of ten and reports a limiting decimal only as 0.778... without a rigorous enclosure. The original literature reports a count through 10^9."
+        ],
+        "reasoning": "Finite counts and an approximate limiting comment do not certify an asymptotic lower inequality; no exact-density table was identified.",
+        "searches": [
+          "https://oeis.org/A322446",
+          "Resultary: 384705031419237/498500000000000 and exact comparison density"
+        ]
+      },
+      "rationale": "This specific lower certificate strictly improves the earlier directly compared lower bounds. The same-day different record supplies an upper bound, not an implication of the lower bound. A later stronger lower result supersedes the numerical endpoint today without establishing prior coverage of the dated finding.",
+      "residual_risks": [
+        "Targeted Resultary and direct-source comparison is not an exhaustive literature search. Unindexed earlier rigorous bounds could change the historical comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes existence and weaker lower bound, not coverage",
+          "evidence": [
+            "Erdős–Wintner is cited for existence; squarefrees yield 6/pi^2; approximately 0.778307 refers to n <= 10^9."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1312.4615",
+          "material_read": "Concluding questions, PDF p. 6 (text offset 14180)",
+          "method": "Read primary PDF passage",
+          "title": "The sum of the unitary divisor function",
+          "trigger": "Original question, density existence, and competing estimate"
+        },
+        {
+          "assessment": "Finite tabulation, not a rigorous bound",
+          "evidence": [
+            "a(n) counts the predicate below 10^n; stated limit only as 0.778... ."
+          ],
+          "identifier_or_url": "https://oeis.org/A322446",
+          "material_read": "Definition, count sequence and limit comment, offset 0",
+          "method": "Direct public HTML",
+          "title": "OEIS A322446",
+          "trigger": "Exact counting table for the same predicate"
+        },
+        {
+          "assessment": "Weaker lower bound",
+          "evidence": [
+            "Exact lower endpoint 6097572635664749695003/(819750822146736480000*pi^2)."
+          ],
+          "identifier_or_url": "Resultary 831dd476bf82",
+          "material_read": "Finding and six-prime construction, offset 0; relationship to prior work, around offset 2900",
+          "method": "Read local mirror RESULT.md passages",
+          "title": "An explicit 0.753659844... lower bound for the unitary–exponential divisor-sum comparison density",
+          "trigger": "Earlier lower certificate for precisely this statistic"
+        },
+        {
+          "assessment": "Earlier lower endpoint below the assigned one",
+          "evidence": [
+            "Lower bound about 0.7701852775863."
+          ],
+          "identifier_or_url": "Resultary 699fb1397b24",
+          "material_read": "Finding, offset 0",
+          "method": "Read local mirror RESULT.md passage",
+          "title": "A certified 77–80 bracket for the unitary–exponential divisor-sum comparison density",
+          "trigger": "Earlier rigorous bracket"
+        },
+        {
+          "assessment": "Complementary direction, not equivalent",
+          "evidence": [
+            "delta < 0.779672276, also for upper asymptotic density."
+          ],
+          "identifier_or_url": "Resultary af1c27cd6d00",
+          "material_read": "Finding, offset 0",
+          "method": "Read local mirror RESULT.md passage",
+          "title": "An explicit 0.779672276 upper bound for the unitary–exponential divisor-sum comparison density",
+          "trigger": "Distinct same-day record for identical density"
+        },
+        {
+          "assessment": "Later and weaker numerical bound",
+          "evidence": [
+            "Lower bound 0.770667314486686... ."
+          ],
+          "identifier_or_url": "Resultary e2d1644c7bf9",
+          "material_read": "Finding, offset 0",
+          "method": "Read local mirror RESULT.md passage",
+          "title": "A certified 77% lower bound for the unitary–exponential divisor-sum comparison density",
+          "trigger": "Nearby lower-certificate match"
+        },
+        {
+          "assessment": "Subsequent stronger lower bound, no exact density",
+          "evidence": [
+            "An explicitly different prime-product and integer-mass certificate yields > 0.7764 on Nov. 8."
+          ],
+          "identifier_or_url": "Resultary e95b7b96d28d",
+          "material_read": "Finding, offsets 0–1165",
+          "method": "Read local mirror RESULT.md passage",
+          "title": "A certified 0.7764 lower bound for the unitary–exponential divisor-sum comparison density",
+          "trigger": "Strongest matching lower certificate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Trudgian §4; prior Resultary bounds; independent integer replay"
+      ],
+      "rationale": "The density was explicitly posed in prior work. A certified large-prime convolution with a uniform infinite-tail sieve substantially strengthens the six-prime certificate and moves beyond the earlier 77% bracket without relying on numerical counts up to a finite cutoff. The certificate gives a useful reproducible method and an advance at its date, although a subsequent bound further tightens it.",
+      "residual_risks": [
+        "Not an exact solution of the comparison-density question or the strongest later bound."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,28 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. For \(N=(a,c)_b\), the condition
-\[
-ac\mid ab+c
-\]
-forces \(a\mid c\). Writing \(c=ak\) reduces the condition exactly to
-\[
-ak\mid b+k.
-\]
-This forces \(k\mid b\); with \(d=b/k\), the remaining condition is precisely
-\[
-a\mid d+1.
-\]
-The digit inequality is \(a<d\), which is automatic for every proper divisor of \(d+1\). The reconstruction \(k=c/a\), \(d=b/k\) proves injectivity, so the divisor sum counts every two-digit Zuckerman number exactly once.
+## correctness
 
-The lower bound follows termwise. Equality means every \(d+1\) for nontrivial \(d\mid b\) is prime; parity first forces \(b\) to be a power of \(2\), and the divisor \(8\) excludes all powers beyond \(4\). Exhaustive replay through base \(500\) matches the proof.
+PASS
 
-## Originality
-PASS. The closest primary source, He--Sanna, studies the same base-\(b\) Zuckerman predicate and gives asymptotic bounds plus general counting/enumeration algorithms. Its searchable full text defines the exact-\(N\)-digit layer, but targeted searches for the two-digit layer and \(N=2\) locate no closed formula. The standard decimal sequence and its digit-count companion give only the base-\(10\) specialization.
+Independently reconstructed the bijection. For two nonzero digits (a,c), ac divides ab+c only if a divides c. Writing c=ak gives the equivalent condition ak | b+k, which forces k | b and then a | (b/k+1). Conversely these conditions imply divisibility. With d=b/k, c<b is equivalent to a<d, and for d>=2 the proper divisors of d+1 are all at most (d+1)/2<d. Recovery of k=c/a and d=b/k makes the correspondence injective. The bound is equality exactly when every nontrivial d|b has d+1 prime. An odd divisor d>=3 rules that out, as does 8|b; among b>=3 only b=4 remains and works. At b=2 the formula gives the sole pair (1,1); at a prime base the only summand is d=b. The all-base proof supplies correctness; the supplied finite checker was inspected, not executed.
 
-Semantic database queries and direct literature searches for arbitrary-base two-digit Zuckerman counts, digit-product divisibility, and divisor formulas returned no equivalent or stronger theorem. The main residual risk is an unindexed elementary observation.
+## originality
 
-## Value
-PASS. Exact counts by digit length are an explicit computational object in the modern Zuckerman literature. The theorem closes the first nontrivial digit length for every base in a symbolic form, exposing a divisor-lattice dependence on the base rather than merely producing a finite table. The sharp lower-bound criterion adds structural content: among bases \(b\ge3\), only base \(4\) has the minimum possible contribution from every nontrivial base divisor.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The closest inspected primary work gives the digit-product condition, exact-length enumeration algorithms, and small-base counts, but not the explicit divisor-lattice classification. The classification follows by a short reduction from the definition itself, not by specializing an identified theorem that already classifies the layer or gives the divisor formula. Pass is restricted to the explicit all-base bijection/formula and its consequences, not the predicate, general enumeration or tabulated values.
+
+## value
+
+PASS
+
+The full first nontrivial digit-length stratum of an existing enumeration problem is natural, with no arbitrary cutoff. The explicit correspondence both generates every valid digit pair from divisors of the base and explains variation of the counts with shifted divisors, including exactly when the universal lower bound is tight. The usefulness is in the complete structural classification, not in the difficulty of the cancellation or recomputation of known table entries.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

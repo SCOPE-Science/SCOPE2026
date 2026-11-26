@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:05:10.713113Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The entrance-law normalization agrees with the symmetric Itô convention in Kou. Mapping the excursion process gives the stated time-position intensity; at x>0 the joint density of the winning point is that intensity multiplied by the void probability above x. The void factor cancels in the regular conditional mark law, and integrating in birth time yields the erfc ratio exactly. The centering exists uniquely for t>pi/2 since A(0)=1/sqrt(pi) and A decreases to zero. With q=u+z/(2u) the density Jacobian has prefactor rho sqrt(2t) q/(2 sqrt(pi) u^3); A(u) is asymptotic to exp(-u^2)/(2 sqrt(pi) u^2), and the excess exponent is z+r+o(1) on bounded sets. The side r=0 has zero intensity and does not affect vague convergence. The integrated intensity above z0 with r>R tends to rho exp(-z0-R); with R=0 this controls high positions and supplies the Poisson count bound for every fixed rank. These bounds, not vague convergence alone, justify ranking. Product intensity gives independent marks and u^2/log t tends to 1/2. Finite diagnostic output (104 checks) and checker were inspected, not rerun; the analytic proof establishes the limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kou's process and entrance measure provide the exact model input. General mapping and marking results supply the method, not this tail calculation or the non-escape of birth times.",
+          "Somnatha–Herbei's title concerns the maximum and its location for constrained Brownian processes; no full text was available for evaluating any broader claim."
+        ],
+        "reasoning": "No inspected broader theorem establishes the scaled joint tail of this excursion entrance law. This comparison does not exclude an implicit result in uninspected literature.",
+        "searches": [
+          "Kou, arXiv:2611.19362v1, §1 eqs. (4)–(5)",
+          "Last–Penrose, Lectures on the Poisson Process, Ch. 5",
+          "Somnatha–Herbei, DOI 10.1080/00949655.2026.2641543"
+        ]
+      },
+      "checked_sources": [
+        "Kou 2611.19362v1 §§1–2 and Theorem 1.6",
+        "Resultary 710036798089 and c03a80e1262c",
+        "Somnatha–Herbei DOI 10.1080/00949655.2026.2641543 (bibliographic only)",
+        "Frozen RESULT.md, VERIFICATION.md, checker.py and verification_output.txt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The unmarked law is the projection of the two-variable intensity. Its maximum law is unchanged if one attaches a different conditional mark distribution to every height.",
+          "The actual marked limit needs the birth-time dependence of the entrance law and uniform controls beyond compact sets."
+        ],
+        "reasoning": "The known inputs permit the new calculation, but the unmarked conclusions do not determine the kernel, the founder scale, or independence of the limiting rank marks.",
+        "searches": [
+          "Kou Proposition 2.5 and Theorem 1.6; Last–Penrose Ch. 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kou gives the marginal intensity and maximum in the identical model.",
+          "The discrete-clan result gives a joint Gumbel/founder law, but for clan sizes and with Gamma(alpha+1,1) marks. The reset-gas record marks inverse elapsed reset age in a finite stationary system with Pareto spatial tails."
+        ],
+        "reasoning": "Birth time since immigration began is neither the excursion's age nor the time of an internal path maximum. The clan analogue uses similar logarithmic localization but is not an equivalent theorem for Brownian spatial extremes.",
+        "searches": [
+          "Kou, arXiv:2611.19362v1, Proposition 2.5 and Theorem 1.6",
+          "Resultary 710036798089",
+          "Resultary c03a80e1262c"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed exact formulas are for discrete clan founders and stationary reset ages; the exact same-model formula at Proposition 2.5 has already integrated out the birth-time coordinate."
+        ],
+        "reasoning": "A finite enumerative table is not applicable to a continuously parameterized law. The relevant exact-kernel comparison does not give the conditional birth-time law of the winning particle.",
+        "searches": [
+          "Resultary marked immigration findings: 710036798089 and c03a80e1262c",
+          "Kou Proposition 2.5"
+        ]
+      },
+      "rationale": "The distinct result is the exact maximizing founder-time kernel and the Brownian-excursion marked limit with its rate-one exponential law. Neither the already-known unmarked Gumbel law nor structurally similar joint laws in different models are credited as new here.",
+      "residual_risks": [
+        "Full text of Somnatha–Herbei was unavailable; the title alone does not settle wider scope.",
+        "General marked-excursion literature may contain an unexamined equivalent; priority is assessed only against checked evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers model, normalization and unmarked law; the inspected results do not give the founder-time theorem",
+          "evidence": "Entrance density |x| exp(-x^2/(2s))/sqrt(2 pi s^3); unmarked density rho erfc(|x|/sqrt(2t)).",
+          "identifier_or_url": "https://arxiv.org/html/2611.19362v1",
+          "material_read": "Section 1 eqs. (4)–(5), OA offset 13872; Proposition 2.5, offset 38473; Theorem 1.6, offset 20145",
+          "method": "Open-access original text, passage comparison",
+          "title": "Singular Birth-Death model",
+          "trigger": "Identical stochastic model and Gumbel centering"
+        },
+        {
+          "assessment": "Structural overlap, different model and kernel",
+          "evidence": "Independent Gamma(alpha+1,1) founder-generation marks at scale n/lambda_n for extremes of discrete geometric clan sizes.",
+          "identifier_or_url": "Resultary 710036798089 (2026/11/2)",
+          "material_read": "RESULT.md offsets 0 and 5194",
+          "method": "Local mirror, statement and comparison passages",
+          "title": "Gumbel extremes and Gamma founder-time localization for polynomially immigrating critical branching clans",
+          "trigger": "Closest joint Gumbel/founder result"
+        },
+        {
+          "assessment": "Different ensemble, observable, and limit law",
+          "evidence": "Joint stationary first-passage resetting, Pareto spatial tails and a gamma inverse reset-age law.",
+          "identifier_or_url": "Resultary c03a80e1262c (2026/11/2)",
+          "material_read": "RESULT.md offsets 0 and 5154",
+          "method": "Local mirror, statement and comparison passages",
+          "title": "Multivariate Pareto excursions and a Gamma reset-age law in a first-passage-resetting Brownian gas",
+          "trigger": "Brownian extremes with an exact temporal mark"
+        },
+        {
+          "assessment": "Unresolved access; not used as noncoverage evidence",
+          "evidence": "Title identifies a maximum and its location, which does not establish coverage of the time of immigration of the winner.",
+          "identifier_or_url": "https://doi.org/10.1080/00949655.2026.2641543",
+          "material_read": "Bibliographic identification only; publisher HTML and PDF unavailable",
+          "method": "Lawful open-access retrieval attempts",
+          "title": "Joint exact simulation of the maximum and its location for some constrained Brownian processes",
+          "trigger": "Possible overlap with Brownian extreme-time observables"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The marginal extreme height cannot answer which founding excursions produced those extremes. The finite conditional kernel and logarithmically small founding-time scale, with independent rank marks, resolve this for the natural excursion model; in particular the winners are nearly as old as the entire process. This is a joint localization result rather than a recomputation of the known Gumbel marginal.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

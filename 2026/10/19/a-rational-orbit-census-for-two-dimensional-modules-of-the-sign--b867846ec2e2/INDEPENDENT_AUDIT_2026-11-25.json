@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:37:00.488610Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The module-isomorphism relation is simultaneous GL₂(k)-conjugacy, so fixing a representative X leaves precisely its invertible centralizer acting on Y. For X=0, rational similarity gives q scalars, q nontrivial Jordan classes, q(q−1)/2 split regular classes and (q²−q)/2 irreducible classes. For a nonzero scalar only Y=0 is possible in odd characteristic. For the nonzero nilpotent block the compatible Y has diagonal (a,−a), lower-left zero, and free upper-right b; conjugation fixes a and shifts b by an arbitrary amount if a≠0, giving q+(q−1) orbits. For split nonzero trace zero, X has eigenvalues ±a and diagonal centralizer, with compatible off-diagonals (b,c) classified by the two nonzero axes, the origin and nonzero bc. For nonsplit trace zero, X=mθ on F_{q²}, θ^q=−θ; each linear map is uniquely z↦Az+Bz^q (evaluate at 1 and θ for uniqueness). Anticommutation sets A=0; the image of s↦s^(1−q) is the norm-one group (order q+1), giving one orbit per nonzero norm and the zero orbit. For nonzero trace and singular X, use diag(t,0) giving the q fixed Y=diag(0,b). For simultaneous nonzero trace and determinant the spectra of X and −X are disjoint, so the Sylvester map is invertible even for nonscalar Jordan X. Each allowable characteristic polynomial has exactly one nonscalar class, including the Jordan class when its roots repeat. These disjoint cases yield 4q²+q−2 for every odd prime power. A fresh enumeration using all of GL₂ in each tested field yielded 417 labeled pairs in 37 orbits for q=3 and 4705 in 103 for q=5 (replay: /workspace/branches/2c2c50d7-c13d-405a-ac11-d7ca67201f77/independent_orbit_bruteforce.py). The supplied verify.py was inspected, not run; both finite checks are restricted to prime fields and the general conclusion rests on the algebraic argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen–Wang and Chen–Lu describe geometric components and closed orbits in the GIT quotients. The Lopes–Lourenço representation hypotheses exclude roots of unity."
+        ],
+        "reasoning": "The geometric quotient forgets nonclosed orbits, for example (nonzero nilpotent Jordan X,0) and (0,0) have the same closed orbit in their closures' quotient. It is not a classification of all orbits over finite fields. A representation theorem excluding roots of unity cannot be specialized to −1.",
+        "searches": [
+          "arXiv:1805.00378v2 §5.2 and arXiv:1910.02198v1 §8: components and geometric GIT quotients",
+          "arXiv:1407.6646v2: representations of quantum planes"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2110.15570v1, 1805.00378v2, 1910.02198v1 and 1407.6646v2",
+        "Resultary 5a4123fce03b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The normalization used by Huang is a weighted class sum, while the two GIT results identify only closed geometric orbits."
+        ],
+        "reasoning": "A Burnside computation based on the known labeled count would still require fixed-pair counts in the commutants of nonscalar conjugators; stabilizers vary. Neither the weighted sum nor closed-orbit geometry gives the nilpotent orbits or the distinction by quadratic field norm for fixed nonsplit X. The competing broader results do not imply the stated census as a specialization.",
+        "searches": [
+          "arXiv:2110.15570v1 §§1.1–1.2 versus the unweighted census",
+          "arXiv:1805.00378v2 §5.2 and arXiv:1910.02198v1 §8 versus rational orbit classification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Huang counts ordered solutions to AB=ζBA and explicitly distinguishes the inverse-automorphism-weighted statistic |K|/|GL_n|."
+        ],
+        "reasoning": "Unital left modules correspond to ordered matrices, but simultaneously changing basis quotients by one GL₂(k) action. Counting ordered matrices, or dividing by GL₂(k), does not count each module once.",
+        "searches": [
+          "Resultary: sign quantum plane / anticommuting matrix pairs / unweighted simultaneous similarity",
+          "arXiv:2110.15570v1 §§1.1–1.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The all-arity record gives N₂(q)=q⁵+3q⁴−2q³−2q²+q for labeled pairs; Huang gives labeled and inverse-automorphism-weighted counts."
+        ],
+        "reasoning": "The observed 417 and 4705 are compatible with those known point counts. They are not the unweighted counts 37 and 103, nor does an all-arity point count table supply the per-X rational orbit classification.",
+        "searches": [
+          "Resultary 5a4123fce03b, original RESULT.md offsets 0–1731 and 10650–13650",
+          "arXiv:2110.15570v1 exact finite-field statistics"
+        ]
+      },
+      "rationale": "The supported distinct result is an explicit unweighted rational orbit census and its split/nonsplit classification in dimension two at deformation parameter −1. The known labeled count, complex geometric components and GIT-closed orbits are not credited as new. No inspected source supplies the full rational classification or unweighted invariant, and the assessment is bounded.",
+      "residual_risks": [
+        "An uninspected specialized classification of root-of-unity quantum-plane modules over non-algebraically-closed fields could imply the rational census.",
+        "Catalog dates were not used to settle priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers labeled and inverse-automorphism-weighted counts, not the compared unweighted statistic",
+          "evidence": [
+            "The paper defines K_{ζ,n}(F_q) as ordered matrix pairs and identifies division by |GL_n| with inverse-automorphism weighting."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2110.15570v1",
+          "material_read": "v1 §§1.1–1.2, pp. 1–3, PDF text offsets 0, 3439, 6853, 10334",
+          "method": "Original OA PDF, bounded section reads",
+          "title": "Counting on the variety of modules over the quantum plane",
+          "trigger": "Same relation over finite fields including ζ=−1"
+        },
+        {
+          "assessment": "Geometric components and GIT quotient, not all rational orbits",
+          "evidence": [
+            "§5.2 identifies the quotient via closed orbits."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1805.00378v2",
+          "material_read": "Abstract and §1.3, pp. 1–2; §5.2, pp. 17–18, PDF offset 63442",
+          "method": "Original OA PDF, targeted passages",
+          "title": "Anti-commuting varieties",
+          "trigger": "Same anticommutation equation and simultaneous conjugacy quotient"
+        },
+        {
+          "assessment": "Geometric component and closed-orbit statements over an algebraically closed field of characteristic zero",
+          "evidence": [
+            "The quotient description in §8 is about closed orbits and does not count finite-field module isomorphism classes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1910.02198v1",
+          "material_read": "§§1.1–1.3, pp. 1–3; §8, pp. 26–27, PDF offset 91744",
+          "method": "Original OA PDF, targeted passages",
+          "title": "Varieties of modules over the quantum plane",
+          "trigger": "Broader geometric statement including the root-of-unity case"
+        },
+        {
+          "assessment": "The inspected family explicitly excludes ζ=−1",
+          "evidence": [
+            "The deformation parameter is assumed not to be a root of unity."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1407.6646v2",
+          "material_read": "Abstract and §1, p. 1",
+          "method": "Original OA PDF, hypothesis check",
+          "title": "A multiparameter family of irreducible representations of the quantum plane and of the quantum Weyl algebra",
+          "trigger": "Plausible broader representation classification"
+        },
+        {
+          "assessment": "Exact labeled tuple counts and geometric components, not the orbit invariant",
+          "evidence": [
+            "At arity two its polynomial is the labeled count. The prior-work comparison credits Chen–Wang for geometric pair components."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-all-arity-anticommuting-two-by-two-matrix-varieties-and-their-fi--5a4123fce03b",
+          "material_read": "Original RESULT.md offsets 0–1731 and 10650–13650",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "All-arity anticommuting two-by-two matrix varieties and their finite-field counts",
+          "trigger": "Same matrix size, relation and finite fields; strongest catalog match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Dimension two is the first where nonzero anticommuting operators and nonsplit rational similarity occur; it is a natural base case for unweighted module enumeration at the sign parameter. An exact orbit count answers a different question from a weighted or point count and is accompanied by class invariants, in particular the norm rather than a split eigenbasis for nonsplit X. It provides an exact benchmark for rational classifications and distinguishes nonsemisimple classes that a GIT quotient loses. Neither an extension to larger dimensions nor a novel method of rational canonical forms is asserted.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

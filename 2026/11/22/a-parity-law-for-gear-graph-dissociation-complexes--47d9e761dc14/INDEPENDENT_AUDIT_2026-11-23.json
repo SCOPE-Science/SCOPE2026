@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:49:26.634049Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The selected-degree≤1 condition exactly characterizes the faces. The projection onto hub and original rim vertices is monotone, and every matched incidence toggles one subdivision vertex and is an actual face-poset cover. In a hub fiber at most one original rim vertex is selected; at least n−2 subdivision vertices can be toggled freely. Without the hub, a subdivision vertex joining two selected rim vertices is forbidden. The only pair exclusions left come from the two subdivision neighbors of an isolated selected rim vertex, so the pairs are disjoint. If any allowed subdivision vertex lies in no pair, its toggle matches the whole fiber. Otherwise all rim vertices are selected, or the proper cyclic word has no 00 (which leaves an isolated allowed vertex) and no 11 (a boundary of that run leaves one). This forces exactly the two alternating words for even n, and none for odd n. In each alternating fiber choose one endpoint of each forbidden pair in an ordered list and apply sequential element matching. Equivalently, toggle the chosen endpoint of the first pair whose other endpoint is absent. Only the face containing every other endpoint survives, of size n. The all-selected rim fiber also contributes one size-n face. Patchwork gives acyclicity; restriction to the ordinary nonempty face poset makes the singleton formerly paired with the empty face critical and retains the other pairs. Thus the Morse CW complex has one vertex and one or three (n−1)-cells, attached to a point, proving the sphere wedge without any coefficient assumption. The frozen self-review uses ‘critical facets’ loosely: for n=4 a legitimate alternating unmatched face {u₀,u₂,w₂,w₃} can be extended by u₁. The primary proof correctly says critical faces and needs no facet claim.",
+      "reproduction": {
+        "command": "python3 /workspace/reproduction/3.py",
+        "result": "Checked all faces, pair involutions, exceptional fibers and every directed Hasse incidence for 3≤n≤9; reduced Euler characteristics in order are +1,−3,+1,−3,+1,−3,+1. For 3≤n≤7 independent signed rational and mod-two boundary ranks give β₀=1 and the predicted β_(n−1), with no other Betti numbers. This is not integral Smith reduction or an all-n proof; the CW argument supplies integral homotopy. The frozen verifier was inspected, not run."
+      },
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sawant treats vertex decomposability on trees. Deshpande–Singh treat complete multipartite, fully whiskered, path, cycle and perfect-tree families; their cycle theorem takes the ordinary cycle as input.",
+          "The literature search returned subdivision/Alexander-dual results for ordinary independence complexes, not the Ind₂ statement needed here."
+        ],
+        "reasoning": "The induced 2n-cycle in the gear rim excludes trees, while the hub and degree-three rim vertices distinguish the gear from a cycle. There are no leaves, and this bipartite graph is not complete bipartite. Neither those graph scopes nor ordinary independence results imply this Ind₂ wedge count.",
+        "searches": [
+          "arXiv:2605.25150, Theorem 1.1",
+          "arXiv:2001.05448, Introduction and §4 Theorem 4.6",
+          "Web literature: higher independence complexes subdivision graph dissociation hub subdivided rim cone homotopy general classification"
+        ]
+      },
+      "checked_sources": [
+        "Deshpande–Singh arXiv:2001.05448v2",
+        "Sawant arXiv:2605.25150v1",
+        "Xie–Xu arXiv:2503.17160v1",
+        "Resultary and primary literature hits described above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Deshpande–Singh supply the CW conclusion from an acyclic matching, and the matching and patchwork rules. The simplex-graph paper supplies graph-structural and clique/ordinary-independence representability results."
+        ],
+        "reasoning": "What remains to prove is the actual acyclic matching and exhaustive alternating-fiber exception. Neither source supplies that certificate or evaluates the relevant complex on the gear family.",
+        "searches": [
+          "arXiv:2001.05448 §2, Theorem 2.4, Proposition 2.10 and Theorem 2.11",
+          "arXiv:2503.17160, Theorems 1.2 and 1.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gear graph means the bipartite wheel, or J(2,n) in the Jahangir convention. When n≥4 it is the cycle simplex graph; S(C₃) has 8 vertices rather than 7. Ind₂ here is also the dissociation/3-path-free complex."
+        ],
+        "reasoning": "These aliases were checked for matching the same graph and the same complex. A structural characterization of simplex graphs is not a classification of Ind₂ on them.",
+        "searches": [
+          "Web literature: gear graph Jahangir simplex graph cycle 2 independence dissociation complex homotopy type Ind2 wheel subdivided sphere",
+          "Resultary: gear graph Jahangir dissociation second independence homotopy wedge alternating sphere",
+          "Xie–Xu arXiv:2503.17160, Introduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact gear-complex index match was the review target. Nearby indexed Ind₂ classifications concern crown or named cubic graphs; a wheel-related hit instead concerned the directed-linear-forest complex. MathWorld search results give graph nomenclature rather than the needed homotopy data."
+        ],
+        "reasoning": "Those are not exact tables for Ind₂(G_n). In particular, a face-count or ordinary independence table would not determine integral homotopy.",
+        "searches": [
+          "Resultary: gear graph Jahangir dissociation second independence homotopy wedge alternating sphere",
+          "Web literature: gear graph Jahangir simplex graph cycle 2 independence dissociation complex homotopy type Ind2 wheel subdivided sphere"
+        ]
+      },
+      "rationale": "The discrete-Morse tools and graph construction are established. The identification of precisely two extra alternating fibers and the resulting full gear-graph homotopy formula are not supplied by the examined prior results. This assessment is bounded by the sources inspected.",
+      "residual_risks": [
+        "An unindexed equivalent under a Jahangir or simplex-graph formulation, or an uninspected stronger class theorem for higher independence, could affect priority. The comparison is not an exhaustive literature exclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides the tools and classifies the ordinary cycle as input, not the gear graph.",
+          "evidence": [
+            "Thm. 2.11 patches matches over a monotone map; Thm. 4.6 concerns Ind_(d−2)(C_n)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2001.05448",
+          "material_read": "v2 Introduction pp. 1–2; §2 pp. 3–4 (Theorem 2.4, Proposition 2.10, Theorem 2.11); §4 pp. 9–10, Theorem 4.6",
+          "method": "Lawful open PDF, targeted passages",
+          "title": "Higher independence complexes of graphs and their homotopy types",
+          "trigger": "Same complex with existing graph-family classifications and tools."
+        },
+        {
+          "assessment": "Applies to trees, not graphs with an induced long rim cycle.",
+          "evidence": [
+            "Theorem 1.1: Ind_r(T) is vertex decomposable for every tree T and r≥1."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2605.25150",
+          "material_read": "v1 abstract and Introduction, Theorem 1.1, p. 1",
+          "method": "Lawful open PDF, targeted passages",
+          "title": "On the Vertex Decomposability of r-Independence Complexes of Trees",
+          "trigger": "Higher-independence theorem whose scope might include the target family."
+        },
+        {
+          "assessment": "Same gear family under the simplex-graph alias in the triangle-free case, but the results concern graph structure and representability rather than higher-independence homotopy.",
+          "evidence": [
+            "Vertices of S(G) are cliques of G including the empty clique, with edges given by changing one vertex; S(C_n) for n≥4 therefore has exactly the gear hub, original rim vertices and rim subdivisions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2503.17160v1",
+          "material_read": "Introduction pp. 1–2 and Theorems 1.2 and 1.5, p. 3",
+          "method": "Lawful open PDF, targeted passages",
+          "title": "Characterizing simplex graphs",
+          "trigger": "Alternative description of gear graphs and possible general topology coverage."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the homotopy type of a natural cyclic hub-and-rim family at its first higher-independence threshold, in unbounded dimension. A complete family classification with parity changing the number of spheres from one to three is stronger than Euler data or field homology; the proof identifies the exact cyclic-word obstruction using a short uniform matching. It neither promises higher-threshold results nor depends on such promises for value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

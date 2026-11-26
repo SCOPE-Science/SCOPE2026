@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:27:07.611395Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions, Proof; VERIFICATION.md; e8_weighted_component_group_checker.py (inspected, not executed)",
+        "Serganova–Skorobogatov arXiv:1005.1272 §5; Desjardins–Winter arXiv:2210.11659 §2.1",
+        "Independent replay: cd /workspace && python independent_exact.py 5 (python-flint), with output in /workspace/independent_exact_5.txt; proof uses the integral block splitting above, not a dense 239-by-239 Smith replay"
+      ],
+      "rationale": "The 240 exceptional curves correspond to E8 roots by E↦E+K_S with the negative intersection form; distinct curves have intersection 1−⟨α,β⟩. Summing the weights gives degree 241 and yields L=240I−J+RR^T. Root symmetry gives R^TR=60I and R^T1=0, so the spectrum is 0 once, 240 with multiplicity 231, and 300 with multiplicity 8. This certifies connectedness and tree determinant 240^230·300^8; only 2,3,5 occur. I checked the full integral classification by a different block reduction, not by trusting the submitted modular pivots. In an integral E8 basis let U be the 240-by-9 matrix of rows (1,α), G the E8 Gram matrix and V=diag(−1,G)U^T. Then L=240I+UV and VU=diag(−240,60I_8). The rows of U span Z⊕E8: every root is the difference of two roots (choose a root of inner product −1 and add it), and the roots span E8. Thus U is a split injection, and V is surjective by unimodularity. For p=2,3,5, extend U to a local basis. In that basis V=[VU,W], with W of rank 9 modulo p because VU vanishes modulo p. Changing basis in the complementary 231 coordinates makes W=[I_9,0]. The nine unit pivots in that block leave 222 factors 240 and the remaining block 240(240I_9+VU), with eight factors 72000 and one zero. Removing the single free factor gives the reduced Smith result and exponent exactly. Independent code checked the integral coordinates and primitivity, the two matrix identities, and the pair histogram 6720,15120,6720,120 at weights 0,1,2,3. In particular there are 28920 weighted edges and no seven-primary torsion.",
+      "residual_risks": [
+        "Graph critical group only; the full curve union is not assumed nodal, nor does this verify a geometric component-group comparison."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Serganova–Skorobogatov give the complete intersection formula. Desjardins–Winter cover weighted cliques, concurrence, and elliptic-fiber torsion, not the weighted Laplacian Smith form in those passages."
+        ],
+        "reasoning": "The formula constructs L, but the exact group requires the integral primitivity and local block analysis or a full Smith certificate. The inspected stronger geometric results do not provide such a group theorem.",
+        "searches": [
+          "Serganova–Skorobogatov arXiv:1005.1272 §5",
+          "Desjardins–Winter arXiv:2210.11659 §§1,2.1,5",
+          "Focused Resultary comparisons under E8 multilayer and integral low-rank Laplacian formulations"
+        ]
+      },
+      "checked_sources": [
+        "Resultary c32f35e0b4d5 and exact self-hit 35ef369bd2fe",
+        "arXiv:2210.11659, arXiv:1005.1272 and arXiv:0801.2430 (bounded passages above)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The simple graph keeps only E·F=1, has degree 126 and order 2^508·3^393·5^83·7^120. The weighted graph has degree 241, tree order 240^230·300^8, and no 7-primary torsion.",
+          "Torsion in Desjardins–Winter Proposition 5.3 is elliptic-fiber point torsion, not graph critical-group torsion."
+        ],
+        "reasoning": "The simple-graph Smith data cannot be substituted for Smith data of the different weighted operator, and neither the geometric torsion statement nor the root-pair formula alone mechanically delivers the integer invariant factors.",
+        "searches": [
+          "Resultary c32f35e0b4d5 RESULT.md, offsets 0 and 7000",
+          "Desjardins–Winter arXiv:2210.11659 §§2.1,5; Serganova–Skorobogatov arXiv:1005.1272 §5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The full weighted curve graph is equivalent to E8 with positive edge multiplicities 1−⟨α,β⟩, half the squared inter-root distance minus one; omit zero-weight pairs. The primary source explicitly identifies all four layers via the geometric pairing."
+        ],
+        "reasoning": "Using the root or Euclidean-distance model changes the notation rather than the weighted Laplacian; selecting only the unit-weight layer changes the Laplacian.",
+        "searches": [
+          "Desjardins–Winter arXiv:2210.11659 §2.1, Definition 2.6 and Remark 2.7",
+          "E8 240-root full weighted graph Laplacian Smith normal form critical group sandpile 240 72000; aliases Euclidean root-distance graph association scheme"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed hit 35ef369bd2fe is the same record. The distinct intersection-one record c32f35e0b4d5 has the same vertex set but 15120 edges and an exponent of 120960. The web lookup yielded general E8 references and visualizations, not a relevant exact Smith table."
+        ],
+        "reasoning": "The exact self-hit does not independently verify originality. The closest distinct calculation changes weights; uninformative search results are not evidence of absence.",
+        "searches": [
+          "Resultary: full weighted 240 exceptional curves degree-one del Pezzo critical group and E8-weighted group comparison",
+          "E8 240-root full weighted graph Laplacian Smith normal form critical group sandpile 240 72000; aliases Euclidean root-distance graph association scheme"
+        ]
+      },
+      "rationale": "The strongest primary source explicitly defines the weighted curve graph and identifies its E8 weight layers. The strongest separate indexed Smith computation concerns only the intersection-one graph. Neither supplies the frozen full-multiplicity group; the integral rank-eight extension requires additional structure beyond the rational spectrum or the prior clique results. This is a bounded best-of-knowledge judgment, not a publication-priority certificate.",
+      "residual_risks": [
+        "An older exact calculation under alternative distance-matrix or association-scheme terminology may exist. The uninformative discovery lookup does not settle historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers full geometry and weight layers; torsion studied in inspected results is different",
+          "evidence": "Weights 0,1,2,3 on curve pairs map to 1,0,−1,−2 on root pairs. Propositions 5.1 and 5.3 concern clique orbits and elliptic-fiber torsion from concurrence.",
+          "identifier_or_url": "arXiv:2210.11659",
+          "material_read": "§2.1 Definition 2.6 and Remark 2.7, PDF pp. 3–5, offsets 13600–20096; §5, pp. 9–11, offsets 40100–47197; scope theorems in §1",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Torsion points and concurrent exceptional curves on del Pezzo surfaces of degree one",
+          "trigger": "Direct prior definition of the weighted graph and plausible use of torsion terminology"
+        },
+        {
+          "assessment": "Geometric identification and all pairwise weights, not a Smith calculation in the passage",
+          "evidence": "Curve classes −K_X+β for the E8 roots have intersections 1−(β,γ).",
+          "identifier_or_url": "arXiv:1005.1272; doi:10.5802/aif.2676",
+          "material_read": "§5, PDF p. 18 around offset 51900",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Adjoint representation of E8 and del Pezzo surfaces of degree 1",
+          "trigger": "Primary intersection identity underlying the exact Laplacian"
+        },
+        {
+          "assessment": "Genuine overlap on E8 vertices, not equivalent coverage",
+          "evidence": "Keeps intersection-one pairs only; degree 126, 15120 edges, nonzero seven-primary part, and explicitly distinguishes full multiplicities.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-integral-critical-group-of-the-240-exceptional-curve-intersectio--c32f35e0b4d5",
+          "material_read": "RESULT.md statement at offset 0 and limitations around offset 7000",
+          "method": "Local Resultary mirror passage read",
+          "title": "Integral critical group of the 240 exceptional-curve intersection-one graph",
+          "trigger": "Strongest distinct indexed graph-Jacobian match"
+        },
+        {
+          "assessment": "Curve enumeration/Picard data, not a graph critical-group computation in inspected passages",
+          "evidence": "The 240 exceptional classes generate the geometric Picard group; Picard-cohomology groups are different invariants.",
+          "identifier_or_url": "arXiv:0801.2430",
+          "material_read": "Theorem 1.2 and §2.1, PDF pp. 2,4, around offsets 5400 and 10700",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Weak approximation on del Pezzo surfaces of degree 1",
+          "trigger": "Other candidate exact integral invariant of all 240 curves"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen graph definition and exact group",
+        "Independent primitive rank-nine reduction (including the constant direction)",
+        "Desjardins–Winter §2.1 and the intersection-one result for scope comparisons"
+      ],
+      "rationale": "The object is the complete geometric intersection-multiplicity configuration, not a selected collection of E8 layers. Its graph Jacobian is a natural integral divisor-class invariant. The eight factors enlarged from 240 to 72000 exhibit exactly the root-lattice contribution, information absent from a tree count and from the simple intersection-one group's torsion. The result gives precise integral data for future calculations with the weighted exceptional configuration without claiming a degeneration theorem or an arithmetic application.",
+      "residual_risks": [
+        "Single canonical graph; no claimed downstream geometric component-group identification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

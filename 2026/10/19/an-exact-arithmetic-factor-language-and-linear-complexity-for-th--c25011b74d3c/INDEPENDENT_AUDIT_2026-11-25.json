@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:18:14.742022Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For two hits at a<b with exponent difference t, the identity h d=2^u(2^t-1) and n>=0 give exactly the odd-divisibility and inequality conditions; all such progressions give the same word after power-of-two normalization. Conversely the frozen n,d are integral and attain the word, allowing n=0. For three hits the odd first Mersenne factor is coprime to 2^t, forcing 2^t to divide the spacing after b. Above the cutoff t=floor(log_2 k), this excludes a third hit and the start constraint forces a=0. Each exceptional pair {0,b} is realizable by an arbitrarily large t divisible by the order of 2 modulo odd(b) (with modulus 1 separate). The printed divisibility argument is read precisely as: q/gcd(q,2^s-1) divides b for an intermediate exponent s; that actual divisor is at least (2^t-1)/(2^(t/2)-1)>b, not that the lower bound itself divides b. This establishes the claimed contradiction without changing the theorem or construction. Zero and singleton words come from unbounded gaps. The divisor estimates for a=0 and a>=1 each cost at most 4k/(1-1/sqrt(2)); first three families contribute precisely 2k distinct words, including the k=1 case. In the first estimate, 1+log_2 k<=2sqrt(k) follows by applying the tangent bound for log to sqrt(k) at 2. The all-length proof is analytic; the uploaded finite checker was inspected, not executed, and is not used as exhaustion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Konieczny–Müllner give r^k exp(o(k)) for effective alphabet size r; here the leading digit automaton has a synchronizing dead-zero output via 11, so effective r=1. The structural low-complexity result inspected has a uniform-recurrence scope."
+        ],
+        "reasoning": "Subexponential does not imply linear; unbounded zero gaps exclude this word from the uniformly recurrent class.",
+        "searches": [
+          "arXiv:2309.03180, Theorem A",
+          "DOI 10.1051/ita:2006041, Introduction"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 14fc80b3d779",
+        "arXiv:2309.03180 Theorem A",
+        "DOI 10.1051/ita:2006041",
+        "DOI 10.1051/ita:2006021"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The previous bound O_b(k^2) implies neither O(k) in base two nor the word-by-word classification. The broad automatic bound exp(o(k)) is also weaker here."
+        ],
+        "reasoning": "Neither statement supplies the essential pair-gap rigidity, high-gap exceptional family and summable Mersenne-divisor count together; translating the indexing does not produce them.",
+        "searches": [
+          "Resultary 14fc80b3d779, statements for c_b",
+          "arXiv:2309.03180, Theorem A"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The corpus comparator uses c_b(t)=1 iff t+1=b^a. At b=2, it equals s(t+1). Its positive-step, nonnegative-start windows coincide with the submitted ones restricted to original start >=1."
+        ],
+        "reasoning": "The start-zero convention contributes at most one extra nonzero mask (ones at indices 1,2,4,...); it is indeed additional for k>=3 because the values at indices 1 and 2 have ratio strictly between 1 and 2 at any positive start. The shift therefore shows near identity of the objects, not identity of the submitted and prior claims.",
+        "searches": [
+          "Resultary: progression factors and powers of two, exact language and arithmetical complexity",
+          "Resultary 14fc80b3d779, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "14fc80b3d779 gives exact maximum occupancy and a quadratic upper bound, not a table or generator of all masks. Frid's abstract describes Toeplitz constructions of growth rates, not exact data for this word."
+        ],
+        "reasoning": "Occupancy gives the largest Hamming weight, not the language of all positions and multiplicities. No exact matching database or table was identified in this bounded comparison.",
+        "searches": [
+          "Resultary: exact progression occupancy, factor counts and the binary powers indicator",
+          "Resultary 14fc80b3d779 Finding",
+          "DOI 10.1051/ita:2006021 Abstract"
+        ]
+      },
+      "rationale": "The strongest corpus overlap studies the same support up to an index shift and gives sharp occupancy and a quadratic upper bound, but not the exact full factor language or the linear bound in base two. The primary general automatic-sequence theorem gives a subexponential bound here, not a linear one. The exact language prescription and linear bound are distinct on the inspected evidence; no priority claim is made beyond that comparison.",
+      "residual_risks": [
+        "The searches do not exclude an unindexed treatment of the base-two sparse automatic indicator or a different exact description of the same language.",
+        "The check concerns base two; it does not establish novelty or an analogous linear bound for arbitrary bases."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Shift-equivalent support with boundary difference; different theorem",
+          "evidence": "States an exact maximum occupancy and O_b(k²) distinct factors for t+1 a power of b.",
+          "identifier_or_url": "Resultary 14fc80b3d779",
+          "material_read": "RESULT.md Finding",
+          "method": "Local-mirror paper reader, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp arithmetic progression occupancy and quadratic complexity",
+          "trigger": "Essentially the same support and progression-factor question"
+        },
+        {
+          "assessment": "Applies, with a weaker upper bound",
+          "evidence": "Upper bound r^k exp(o(k)) in effective alphabet size r.",
+          "identifier_or_url": "https://arxiv.org/abs/2309.03180",
+          "material_read": "Theorem A, PDF p. 4",
+          "method": "OA full text at about offset 10942",
+          "title": "Arithmetical subword complexity of automatic sequences",
+          "trigger": "General theorem includes the 2-automatic powers indicator"
+        },
+        {
+          "assessment": "Different recurrence assumptions",
+          "evidence": "Structural setting uses uniformly recurrent words, unlike the unbounded gaps here.",
+          "identifier_or_url": "https://doi.org/10.1051/ita:2006041",
+          "material_read": "Introduction, p. 570",
+          "method": "OA full text at about offset 4000",
+          "title": "Sequences of low arithmetical complexity",
+          "trigger": "Potential classification of low-complexity progression languages"
+        },
+        {
+          "assessment": "Related examples, no exact coverage in inspected text",
+          "evidence": "Constructs Toeplitz words with a range of complexity growth rates.",
+          "identifier_or_url": "https://doi.org/10.1051/ita:2006021",
+          "material_read": "Abstract, p. 443",
+          "method": "OA text at offset 0",
+          "title": "On possible growths of arithmetical complexity",
+          "trigger": "Known low growth examples"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Powers of two form a canonical sparse automatic support. The finite generator replaces an unbounded progression search with explicit bounded parameters, handles arbitrary factor length and can certify attainable masks and exact counts at a chosen length. Linear growth is a significant refinement of the general subexponential or specific quadratic estimates and follows from structural constraints on several hits, not from a table of small instances.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

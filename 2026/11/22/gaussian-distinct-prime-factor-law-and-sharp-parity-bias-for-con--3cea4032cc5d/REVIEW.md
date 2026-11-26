@@ -1,21 +1,21 @@
-# Review of the distinct-prime-factor law for consecutive LCM quotients
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact finite-period law follows from an integer prime-valuation identity: a prime divides the product-to-LCM quotient if and only if at least two window terms are divisible by that prime. The boundary primes have explicit Bernoulli probabilities and independent residues by CRT; nonconstant prime-local indicators establish the least period. Differentiation of the finite generating polynomial gives the exact moments. Prime-number-theorem integrals give the growing-window constants, the bounded independent-summand Berry--Esseen inequality gives the normal approximation, and a carefully truncated logarithmic prime sum gives the sharp sign-decay exponent. The only possible zero is correctly isolated at \(k=2\). The packaged exact-integer checker separately replayed 543 quotient instances, exact probability laws, and finite least-period checks. The infinite conclusions are proved rather than inferred from this computation.
+## correctness
 
-## Originality — PASS, qualified
-The 2026 Huang--Yang paper supplies a general least-period theorem, while Tian--Yang analyzes additive unitary-Möbius patterns; neither inspected work states the large-window distribution of \(\omega\) on the quotient. Publicly indexed published-finding corpus findings on Liouville signs of consecutive LCM quotients address \(\Omega\), not \(\omega\). A 2026 published-finding corpus general finite value-frequency theorem for consecutive arithmetic-progression LCM quotients is stronger than the finite generating polynomial and is acknowledged as such; the new claim rests on the Gaussian constants and sharp parity-bias exponent as the window grows. No searched record stated these asymptotics. The entire full text of the generic finite value-frequency result was not accessible; an implicit earlier extraction remains a genuine risk. Searches do not establish absolute uniqueness.
+PASS
 
-## Mathematical value — PASS
-The problem joins the classical Farhi LCM quotient with the distinct-prime-factor sign studied in recent unitary-Möbius literature. It identifies a direct prime-window mechanism, gives all finite factor-count probabilities in a simpler model, determines a sharply smaller invariant period, and quantifies both typical Gaussian fluctuations and exceptionally small sign imbalance with explicit constants. This is a uniform asymptotic theorem in a growing arithmetic family rather than a finite numerical example, arbitrary special slice, or rephrasing of the known period result.
+A prime divides the product/LCM quotient exactly when at least two entries are multiples. For L=k+1, this holds always for p<=L/2, never for p>=L, and on L-p residues for the intermediate primes. CRT gives independent Bernoullis. Shifting by any candidate period times T_k/p isolates the p-indicator, forcing divisibility by p; the empty product case has period 1. The parity product vanishes iff 3p=2L, hence iff p=2 and k=2. The PNT integrals of t^(-1)-1 and (t^(-1)-1)(2-t^(-1)) give log 2-1/2 and 3 log 2-2, and the constant small-prime count adds 1/2 to the mean coefficient. Bernoulli third absolute moments are bounded by the variances, so Berry–Esseen divides the total third moment by sigma^3 and gives O(1/sigma). For parity, g(t)=log|3-2/t|=log 3+log|t-2/3|-log t integrates to -(2/3)log 2. With x=L and eta=exp(-c sqrt(log x)/3), truncation to log eta makes total variation O(sqrt(log x)); Stieltjes summation with the quoted PNT error makes its weighted prime-sum error o(x/log x). The truncated integral converges in L^1 and 1<=|3p-2x| for integers x>=4, so the O(eta x+1) affected integers contribute an error at most O((eta x+1)log x)=o(x/log x). This proves the magnitude asymptotic without an unsupported uniform-prime approximation at the singularity.
 
-## Closest literature and limitations
-- Huang--Yang, arXiv:2611.15379v1: multiplicative quotient's least periods, not a growing-window distinct-prime-factor distribution.
-- Tian--Yang, arXiv:2611.10499v1: additive sign patterns of \((-1)^{\omega}\), not the quotient.
-- Hong--Qian, arXiv:0903.0530v3: periods of product-to-LCM quotients.
-- published-finding corpus indexed finite value-frequency theorem dated 26 October 2026: may subsume the exact finite generating polynomial; accessible description does not report growing-window Gaussian or parity-bias constants. Full public source was inaccessible in this inspection.
-- Older published and internal results on Liouville signs and max-value frequencies are adjacent but do not give these \(\omega\)-asymptotics.
+## originality
 
-Limits: no short-interval-in-\(n\) normal law, no effective uniform sampling threshold, and no asymptotic determination of the sign rather than magnitude of the parity bias. Unindexed or unpublished equivalent results remain possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete finite law is available by compressing prior joint valuation data. This is credited as coverage, not a novel law. The distinct content assessed here is the claimed growing-window law and sharp logarithmic parity-bias asymptotic: the prior finite census supplies inputs but gives neither the uniform asymptotic estimates nor the constants for these observables. The strongest other quotient limits found treat log size, maximality, or the Liouville sign, not the statistics under audit.
+
+## value
+
+PASS
+
+A natural arithmetic statistic has both ordinary Gaussian fluctuations and a substantially smaller alternating bias, with explicit constants. The Gaussian part is a routine distributional mechanism once the prime support is identified, but the log bias measures arithmetic cancellation not captured by the Gaussian law or the finite census alone; the singular prime sum is a worthwhile additional estimate for this established quotient family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

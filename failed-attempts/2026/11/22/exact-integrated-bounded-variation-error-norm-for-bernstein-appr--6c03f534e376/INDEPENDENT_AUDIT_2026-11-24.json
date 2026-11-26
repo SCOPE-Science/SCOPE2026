@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:59:30.866908Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For pointwise Jordan BV the two monotone parts from the variation function have increments summing to Var(f). Their level sets are half-lines with either convention, so the layer integral controls the error including exceptional grid and endpoint values; each nonconstant indicator has variation one. The binomial tail is the specified beta CDF, and split integration gives the mean absolute deviation at a step. Convexity and reflection give the finite maximum; truncated first moments give the rational formula. Independently checked 528 grid cases through degree 32 and their reflections with exact Bernstein antiderivatives (`/workspace/reproductions/bernstein.py`). The beta CLT on every interior subsequence and uniform integrability from the rescaled second moments give sqrt(2p(1-p)/pi); the same moment bounds give zero at p=0,1. The midpoint lower bound forces all maximizing grid indices to approach the midpoint. Convexity extends this to any asymptotically norming jumps by moving to an endpoint of the containing cell with no loss. In particular the proof handles n=1 and permits incompatible-with-trace pointwise values that are charged to the Jordan variation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Stancu theorem gives the full b-dependent transition; its subcritical branch includes b=0 with limit 1/sqrt(2pi) and midpoint localization. It uses canonical right-continuous representatives and matching endpoint traces. The Kantorovich, King-modified and Durrmeyer records instead change the operator."
+        ],
+        "reasoning": "Scope differences in the latter operators do not establish coverage. The Stancu theorem is broader in operator parameter, not in data representatives; the exact overlap and routine representative extension are the decisive comparison.",
+        "searches": [
+          "Resultary b2f50bc0f568, Finding and Assumptions and scope",
+          "Local Resultary matches d70327ec81c9, 134e8ee058fa, 480d74d44971"
+        ]
+      },
+      "checked_sources": [
+        "Resultary b2f50bc0f568 and nearby operator records d70327ec81c9, 134e8ee058fa, 480d74d44971",
+        "Cheng (1983) and Bustamante–García-Muñoz–Quesada (2014) bibliographic routes",
+        "Frozen RESULT.md and both supporting files"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the pointwise class the canonical step and its alternative convention have the same a.e. function and possess the two beta responses computed as one-sided limits in §2. The Jordan layer decomposition then extends the bound, and selecting an attaining grid step gives sharpness. At b=0 the asymptotic and localization specialize directly; norming grid responses can also be approximated within o(n^-1/2) by canonical steps in the same cell."
+        ],
+        "reasoning": "Attainment for the enlarged class is true and distinguishes representatives, but follows directly from realizing an already evaluated limit. It is not a separate new exact norm or localization theorem. No historical theorem content was inferred from metadata.",
+        "searches": [
+          "b2f50bc0f568, Proof §§1–2 and Finding",
+          "Primary literature search on Bernstein BV error; Cheng (1983) and Bustamante et al. (2014) publisher/DOI routes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For b=0 the symmetric Stancu nodes are exactly j/n. Its U_(n,j+1) has law Beta(j+1,n-j), giving the frozen left-endpoint candidates; U_(n,j) gives the right-endpoint candidates, which reflection identifies with the same list. The two degenerate endpoint terms at b=0 are zero."
+        ],
+        "reasoning": "These are exactly the same scalar finite norm formula after reindexing. Canonical traces exclude some extremal endpoint conventions, but those step responses are already present as limits from the open grid cells.",
+        "searches": [
+          "Local Resultary searches for classical Bernstein pointwise Jordan BV, beta deviations, and maximizing jump localization",
+          "SCOPE-a-sharp-drift-noise-transition-for-integrated-bv-error-of-symmet--b2f50bc0f568, Finding and Proof §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "6c03f534e376 is the identical self-hit. Distinct b2f50bc0f568 contains an explicit beta maximum for every degree including b=0 and an incomplete-beta evaluation."
+        ],
+        "reasoning": "Coverage is an exact indexed theorem, not just coincident numerical constants or the identical frozen entry.",
+        "searches": [
+          "Local Resultary searches for exact integrated Bernstein BV norm and finite-degree beta maximum"
+        ]
+      },
+      "rationale": "The main exact formula, leading constant, and localization have demonstrable coverage at b=0 of distinct indexed Resultary record b2f50bc0f568. Same-day dates do not establish priority. The representative classes genuinely differ, but allowing either one-sided value realizes the two limits already calculated there, without changing the supremum or localization. The rational rewrite is the integer-parameter evaluation of the other record's incomplete-beta formula. This is a coverage decision, not a deduction from inaccessible historical papers.",
+      "residual_risks": [
+        "The dates do not decide priority between the overlapping indexed records.",
+        "The historical full-text comparisons with Cheng and Bustamante et al. remain incomplete; the FAIL rests on the demonstrated indexed overlap instead."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of scalar norm and localization at b=0; canonical trace convention differs from pointwise Jordan BV.",
+          "evidence": [
+            "Formula with two adjacent beta laws at each node; explicit b>=0 in the finding and midpoint localization below the critical b.",
+            "Section 2 explicitly takes both one-sided threshold limits and supplies the incomplete-beta evaluation."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-drift-noise-transition-for-integrated-bv-error-of-symmet--b2f50bc0f568",
+          "material_read": "Finding, Assumptions and scope, Proof §§1–2, mirror text offsets 0–4182.",
+          "method": "Local Resultary record search and bounded mirror passage read.",
+          "title": "A sharp drift–noise transition for integrated BV error of symmetric Bernstein–Stancu sampling",
+          "trigger": "Exact beta norm and localization for a family containing ordinary Bernstein sampling."
+        },
+        {
+          "assessment": "Full theorem not available; coverage undetermined.",
+          "evidence": [
+            "J. Approx. Theory 39 (1983), 259–274; no decisive theorem passage obtained."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0021-9045(83)90098-9",
+          "material_read": "Bibliographic and publisher landing information only.",
+          "method": "Primary search and lawful DOI/publisher retrieval attempt.",
+          "title": "On the Rate of Convergence of Bernstein Polynomials of Functions of Bounded Variation",
+          "trigger": "Classical Bernstein and BV, potentially close historical source."
+        },
+        {
+          "assessment": "Full theorem not available; coverage undetermined.",
+          "evidence": [
+            "J. Math. Anal. Appl. 411 (2014), 829–837; no decisive theorem passage obtained."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jmaa.2013.10.024",
+          "material_read": "Bibliographic and publisher landing information only.",
+          "method": "Primary search and lawful DOI retrieval attempt.",
+          "title": "Bernstein Polynomials and Discontinuous Functions",
+          "trigger": "Potential overlap for optimal error on jumps."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A sharp norm at all degrees is a meaningful target, but its informative values and localization already occur as the classical member of the Stancu result. What remains here is choosing actual grid representatives for limiting step responses and rewriting an incomplete beta expression as a rational sum; without a further substantive result this is a routine extension of that exact invariant.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

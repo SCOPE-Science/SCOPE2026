@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:23:47.820921Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–57; VERIFICATION.md; verify_petersen_rowmotion.py (inspected, not run)",
+        "Independent replay: python3 /workspace/review_evidence/replay_5.py"
+      ],
+      "rationale": "The pair description (U,F), F a subset of the edges induced by U, is equivalent to ideal closure. Omitted vertices are always minimal in the complement; an omitted edge is minimal there exactly when both endpoints are in U. Downward closing these generators is precisely the stated update. Independently, I encoded ideals by their maximal antichains, recursively enumerated antichains by deletion of comparable elements, and computed inverse rowmotion as A -> max(Q minus the upset of A). Indeed the preimage ideal has minimal complement A. Traversing the inverse permutation gives exactly the same orbit lengths as forward rowmotion. The replay checks closure, bijectivity and full orbit coverage, and matches all 39 multiplicities, 133,958 states, 6,207 cycles, maximum length 192 with multiplicity 30, and order 356800176532800 with the stated factorization. No fixed ideal is also immediate for a nonempty poset: a proper ideal lacks the minimal complement elements contained in its image, and the full ideal maps to the empty one.",
+      "residual_risks": [
+        "This is exhaustive for the specified labeled poset and establishes no census for a larger graph family or a quotient by automorphisms."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The skeletal-poset construction uses disjoint unions and adjoining an extremal element comparable with all elements of an existing poset. The fence class has a path as its Hasse graph."
+        ],
+        "reasoning": "The Petersen incidence poset is connected and neither rank has a member comparable to all members of the other rank, excluding the final nontrivial skeletal graft. Its subdivision Hasse graph has cycles and vertices of degree three, so the fence results do not specialize to it.",
+        "searches": [
+          "arXiv:1402.6178, sections 9–10; arXiv:2108.12443, fence definition and Theorem 4.3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1402.6178",
+        "arXiv:2108.12443",
+        "The five Resultary Finding passages cited above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The skeletal statement relates orders within its class, the fence theorem is restricted to fences, and the closest graph-incidence computations use stars or K2,n rather than cubic Petersen connectivity."
+        ],
+        "reasoning": "A generic permutation-generation procedure is not a known evaluation of its cycle histogram. The family-specific period or orbit results do not give this exact fact through a substitution, duality or matching graph structure.",
+        "searches": [
+          "arXiv:1402.6178, section 10, Proposition 10.27; arXiv:2108.12443, Theorem 4.3; closest Resultary incidence-poset Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ideal rowmotion can be transported to antichains by taking maximal elements. In this height-two poset antichains are independent sets in the subdivision of the Petersen graph, and the two rank-toggle blocks describe the same dynamics on ideals."
+        ],
+        "reasoning": "These are genuine aliases of the dynamics under the appropriate conjugacy, but the inspected generic toggle and antichain results give no Petersen-specific list of cycle lengths or multiplicities. Counting independent sets alone would give only the number of states.",
+        "searches": [
+          "Resultary: Petersen incidence-poset rowmotion, subdivision toggles, independent-set toggles",
+          "arXiv:2108.12443, p. 3; arXiv:1402.6178, section 10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-date distinct K2,n and star records enumerate cycles on their respective graph-incidence posets (both order 24); the separate later K2,n record also concerns that graph family. The Fano point–line record gives symmetry classes on 458 ideals; the PG(2,3) record gives 38,730 ideals and 6,202 cycles."
+        ],
+        "reasoning": "These are nearby exact tables or classifications but not the same poset, ideal state space or histogram. The search comparison does not rule out an unindexed census.",
+        "searches": [
+          "Resultary: exact Petersen title, 133958, 6207, 356800176532800, and incidence-poset rowmotion cycle census",
+          "Resultary records 59671d53d950, 6803de11ff95, 1838b18ae038, 1c4b87cdd918, bf8f95bb5e4d"
+        ]
+      },
+      "rationale": "The distinct result is the complete classical rowmotion cycle table and exact permutation order for the Petersen incidence poset, not rowmotion's generic bijectivity, toggle representation or lack of fixed points. Compared period formulas and neighboring exact censuses do not cover that poset.",
+      "residual_risks": [
+        "Bounded comparison of relevant articles and local indexes does not exclude an unindexed table under the independent-set or toggle reformulation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Generic toggles and restricted skeletal order results",
+          "evidence": "The construction is based on union and graft operations. The toggle description applies generally, but the skeletal order comparison does not give the Petersen census. The relevant sections are 9–10; section 11 is about rectangles.",
+          "identifier_or_url": "https://arxiv.org/abs/1402.6178",
+          "material_read": "Section 9, pp. 49–50; section 10, p. 59 and Proposition 10.27, p. 64",
+          "method": "Open-access primary PDF passage comparison",
+          "title": "Iterative properties of birational rowmotion I: generalities and skeletal posets",
+          "trigger": "Plausible general order theorem"
+        },
+        {
+          "assessment": "Path-shaped Hasse graph only for the compared orbit result",
+          "evidence": "Fences are zigzag paths, unlike the Petersen subdivision.",
+          "identifier_or_url": "https://arxiv.org/abs/2108.12443",
+          "material_read": "Definition p. 1, antichain correspondence p. 3, Theorem 4.3 p. 13",
+          "method": "Open-access primary PDF passage comparison",
+          "title": "Rowmotion on fences",
+          "trigger": "Exact orbit results on a potentially related height-two class"
+        },
+        {
+          "assessment": "Different graph family",
+          "evidence": "For K2,n the listed lengths are 2, 3, 4, 6, 8, 24, not the Petersen list.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-uniform-order-24-and-exact-cycle-census-for-rowmotion-on-complet--59671d53d950",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary full-text mirror",
+          "title": "Uniform order 24 and exact cycle census for rowmotion on complete bipartite incidence posets",
+          "trigger": "Same-date analogous complete incidence-poset census"
+        },
+        {
+          "assessment": "Different graph family",
+          "evidence": "Star incidence posets have cycle lengths 2, 3, 8 and order 24 in the statement.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-complete-rowmotion-cycle-profile-for-star-incidence-posets--6803de11ff95",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary full-text mirror",
+          "title": "Complete rowmotion cycle profile for star incidence posets",
+          "trigger": "Same-date graph-incidence cycle profile"
+        },
+        {
+          "assessment": "Different point–line poset",
+          "evidence": "The 14-element Fano incidence poset has 458 ideals and lengths 3, 5, 7 in the compared result.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-seven-symmetry-classes-of-rowmotion-cycles-on-the-fano-incidence--1838b18ae038",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary full-text mirror",
+          "title": "Seven symmetry classes of rowmotion cycles on the Fano incidence poset",
+          "trigger": "Earlier exact census of a symmetric incidence poset"
+        },
+        {
+          "assessment": "Different point–line poset",
+          "evidence": "PG(2,3) has 38,730 ideals, 6,202 cycles, and lengths 2, 3, 5, 6, 7, 9, 11 there.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-rowmotion-on-the-ternary-projective-plane-incidence-poset-6-202--1c4b87cdd918",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary full-text mirror",
+          "title": "Rowmotion on the ternary projective plane incidence poset",
+          "trigger": "Close indexed cycle count and incidence terminology"
+        },
+        {
+          "assessment": "Also K2,n, not Petersen",
+          "evidence": "The later statement concerns K2,n for n at least one.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-order-twenty-four-rowmotion-on-complete-bipartite-incidence-pose--bf8f95bb5e4d",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary full-text mirror",
+          "title": "Order-twenty-four rowmotion on complete bipartite incidence posets",
+          "trigger": "Second matched incidence-poset family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen cycle profile and limitations",
+        "Structural scope of the compared skeletal and fence theorems",
+        "Independent replay_5.py"
+      ],
+      "rationale": "The vertex–edge incidence poset of the Petersen graph is a distinguished connected, highly symmetric height-two example outside the skeletal and fence formulas. The whole cycle census is a useful precise benchmark for proposed period bounds and structural descriptions of graph-incidence rowmotion: even with two ranks it exhibits 39 different lengths and an order divisible by eleven distinct primes. Merely computing one long orbit or counting ideals would not establish that behavior.",
+      "residual_risks": [
+        "This single example supplies no general period formula or symbolic description of the orbit classes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

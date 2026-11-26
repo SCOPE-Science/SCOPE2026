@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:00:34.256133Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Averaging over S_r times the cycle dihedral group cannot increase the centered operator norm. Hubs and rim are distinguished by degree, including n=4, so this gives the three edge orbits of the full automorphism group. The hub contrasts, class contrast, and nonconstant cycle Fourier modes give 1-na-rc, 1-(n+r)a, and 1-ra-b*lambda_j, respectively, where lambda_j is the jth cycle Laplacian eigenvalue. At any feasible a the hub mode can be set to zero by c=(1-na)/r. Balancing the two extreme rim modes uniquely gives b=2(1-ra)/(ell+nu) with value q(1-ra); ell+nu>4 ensures row feasibility. The scalar max decreases strictly until its increasing class-contrast branch meets the decreasing rim bound, unless the hub budget binds earlier. The intersection lies strictly below 1/r, so at the unique optimum the rim bound is active and forces b, including at saturation. Intersecting the hub spectral band with c>=0 and the hub row budget gives exactly the stated interval. Saturation is n-2r >= n*ell/nu; ell/nu is sin²(pi/n) for even n and 4sin²(pi/(2n)) for odd n. The upper bound pi²/n² covers n>=2r+2 and odd n>=11 at n=2r+1. For odd n=5,7,9 I checked the strict rational lower bound in RESULT.md lines 79–82 by integer cross-multiplication. The frozen numerical output is supplemental, not the proof. The characterization is of invariant optimizers only, not all symmetric optimal matrices.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The complete-split result has an edgeless rim. The later double-cone result allows a cycle but has two nonadjacent hubs: it overlaps the r=2 numerical regimes but does not model a freely variable clique edge. General FMMC papers give an optimization framework."
+        ],
+        "reasoning": "The inspected results specialize along different graph families or supply a method, not a dominating all-r theorem on this feasible set.",
+        "searches": [
+          "Resultary: fastest mixing on general joins, complete split graphs, and double cones",
+          "General FMMC SDP and symmetry-reduction papers"
+        ]
+      },
+      "checked_sources": [
+        "Boyd–Diaconis–Xiao (2004)",
+        "Boyd–Diaconis–Parrilo–Xiao arXiv:0709.0955",
+        "Resultary projection-norm, complete-split, and double-cone records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Edge-orbit averaging and Fourier analysis are available generally, but one must eliminate the hub mode under the budget constraint, establish feasible rim balancing, and distinguish n=2r+1 at n=5,7,9 and n>=11."
+        ],
+        "reasoning": "The value, optimizer interval, and boundary are not direct parameter substitutions into the prior wheel/split formulas; citing the existence of an SDP or an orbit reduction does not answer the analytic minimax problem.",
+        "searches": [
+          "Boyd–Diaconis–Xiao §2.3; Boyd–Diaconis–Parrilo–Xiao §§2,4,5.4.3",
+          "Resultary complete-split and double-cone Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The wheel section treats a single hub, with spoke probability 1/n and no hub contrast. The same-date result on K_h join C_n treats projection norms on edge space."
+        ],
+        "reasoning": "Neither graph nomenclature nor shared Fourier modes turn a single-hub or edge-space result into the stated multihub stochastic-matrix theorem.",
+        "searches": [
+          "Resultary: K_r join C_n, multi-hub wheels and fastest mixing SLEM",
+          "Boyd–Diaconis–Parrilo–Xiao arXiv:0709.0955 §5.4.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The local catalogue gave graph-family and neighboring-join hits; the published explicit wheel values are for r=1."
+        ],
+        "reasoning": "There is no evidenced exact table covering the r>=2 parameter family. The frozen bounded numerical output is corroboration, not a prior independent table.",
+        "searches": [
+          "Resultary searches for exact SLEM, optimizer interval, and hub saturation on clique-cycle joins",
+          "Published wheel example §5.4.3"
+        ]
+      },
+      "rationale": "The SDP, symmetry reduction, and wheel Fourier method are established. The inspected works do not cover the full r>=2 clique-cycle result: the unique invariant spoke/rim weights, the complete invariant hub interval, and the sharp r-dependent integral boundary together. The claim is distinct within the limits of the evidence.",
+      "residual_risks": [
+        "The focused literature lookup was unavailable, not a negative search result. Earlier technical reports under different graph names may contain related formulas.",
+        "Catalogue dates are not used to infer priority for a same-day record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Framework, not the exact join solution",
+          "evidence": "States the centered-norm SDP on a general graph.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+          "material_read": "§2.3, p. 673, text offset 20700",
+          "method": "OA full-text passage inspection",
+          "title": "Fastest Mixing Markov Chain on a Graph",
+          "trigger": "General optimization result potentially covering all graphs"
+        },
+        {
+          "assessment": "Prior methods and r=1 special case",
+          "evidence": "Automorphism-fixed optimizer; explicit wheel Fourier solution with spoke weight 1/n.",
+          "identifier_or_url": "https://arxiv.org/pdf/0709.0955",
+          "material_read": "§§2 and 4 (text offsets 13600 and 46200), §5.4.3 (offset 79600)",
+          "method": "OA PDF passage inspection",
+          "title": "Fastest Mixing Markov Chains on Graphs with Symmetries",
+          "trigger": "Explicit wheel solution and general orbit methods"
+        },
+        {
+          "assessment": "Does not cover the mixing objective",
+          "evidence": "Studies endpoint norms of cut/cycle projections on edge space.",
+          "identifier_or_url": "2026/10/26/SCOPE-a-hub-multiplicity-transition-and-logarithmic-endpoint-norm-defi--86ea2d2ffebb",
+          "material_read": "Finding, offset 0",
+          "method": "Local catalogue mirror passage inspection",
+          "title": "A hub multiplicity transition and logarithmic endpoint norm deficit",
+          "trigger": "Same graph and similar threshold wording"
+        },
+        {
+          "assessment": "Different periphery",
+          "evidence": "Independent-set periphery; the unsaturated spoke value is 2/(s+2r), and a rim Fourier spectrum is absent.",
+          "identifier_or_url": "2026/10/18/SCOPE-every-fastest-mixing-kernel-on-complete-split-graphs--0fb2efaf041d",
+          "material_read": "Finding, offset 0",
+          "method": "Local catalogue mirror passage inspection",
+          "title": "Every fastest-mixing kernel on complete split graphs",
+          "trigger": "Optimizer interval and hub threshold on a related join"
+        },
+        {
+          "assessment": "Related r=2 value calculation, not the same feasible set or optimizer theorem",
+          "evidence": "Uses nonadjacent apex vertices and a two-orbit kernel; no invariant c-interval for a hub clique.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-three-phase-fastest-mixing-law-for-double-cones-over-transitiv--7fd543281a6a",
+          "material_read": "Finding, offsets 0–1990",
+          "method": "Local catalogue mirror passage inspection",
+          "title": "A three-phase fastest-mixing law for double cones over transitive graphs",
+          "trigger": "Closest multi-apex cycle formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The family is a natural extension of the classical wheel. The exact boundary determines when the optimal symmetric chain must give up all hub-clique edge weight, and its split at r=5 is not visible from the generic SDP. The full invariant optimizer interval also answers a genuine nonuniqueness question left open by merely constructing an optimal kernel.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

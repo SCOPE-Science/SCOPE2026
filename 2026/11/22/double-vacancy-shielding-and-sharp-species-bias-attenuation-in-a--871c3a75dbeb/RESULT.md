@@ -21,7 +21,7 @@ Thus the left and right flanking colors are independent given \(E\), with \(\pi_
  \kappa(p)=\frac{\sinh\gamma/\gamma-1}{2\cosh\gamma-1-\sinh\gamma/\gamma},\qquad
  0<\kappa(p)<\frac15.}
 \]
-The bound is **sharp** as \(p\downarrow0\) or \(p\uparrow1\): \(\kappa(p)\to1/5\). Consequently the species imbalance among particles flanking an observed double-vacancy gap is less than one fifth of the original proposal imbalance. As \(p\uparrow1\), the conditional flank distribution tends to \((\pi_A,\pi_B)=(3/5,2/5)\), even though \(A\)-proposals become overwhelming. At the balanced point, \(\Pr(E)=(2\cosh(1/2)-1-2\sinh(1/2))^2\approx0.045395125835236\), and all four flanking-color pairs have probability \(\Pr(E)/4\).
+The bound is **sharp** as \(p\downarrow0\) or \(p\uparrow1\): \(\kappa(p)\to1/5\). For \(p\ne 1/2\), the absolute species imbalance among particles flanking an observed double-vacancy gap is strictly less than one fifth of the absolute proposal imbalance. At \(p=1/2\), both imbalances are zero. As \(p\uparrow1\), the conditional flank distribution tends to \((\pi_A,\pi_B)=(3/5,2/5)\), even though \(A\)-proposals become overwhelming. At the balanced point, \(\Pr(E)=(2\cosh(1/2)-1-2\sinh(1/2))^2\approx0.045395125835236\), and the joint probability of \(E\) with each flanking-color pair is \(\Pr(E)/4\).
 
 The two-site cut is nontrivial: a *single* terminal vacancy is not an independence separator even when \(p=q=1/2\). For the occupancy indicators of species \(A\) at sites \(-1\) and \(1\), their covariance conditioned on a vacancy at \(0\) equals approximately \(-0.0433870456804\), which is strictly nonzero. An exact expression is given in the proof.
 
@@ -102,9 +102,9 @@ The separation law concerns the final jammed configuration, not intermediate tim
 
 [1] C. S. do Amaral and D. C. dos Santos, *One-dimensional AB random sequential adsorption with one deposition per site*, first public 2023-06-16, arXiv:2306.09786v1. https://arxiv.org/abs/2306.09786
 
-[2] *Exact geometric tails for same-species clusters in one-shot antagonistic adsorption*, published 2026-11-01, https://github.com/published-finding corpus/2026/tree/main/2026/11/1/SCOPE-exact-geometric-tails-for-same-species-clusters-in-one-shot-anta--04ec1f49bc46
+[2] *Exact geometric tails for same-species clusters in one-shot antagonistic adsorption*, published 2026-11-01, https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-exact-geometric-tails-for-same-species-clusters-in-one-shot-anta--04ec1f49bc46
 
-[3] *Exact second-neighbor correlation in one-shot antagonistic adsorption*, published 2026-11-02, https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-second-neighbor-correlation-in-one-shot-antagonistic-adsor--b16701b2c768
+[3] *Exact second-neighbor correlation in one-shot antagonistic adsorption*, published 2026-11-02, https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-second-neighbor-correlation-in-one-shot-antagonistic-adsor--b16701b2c768
 
 [4] P. H. L. Martins, R. Dickman, and R. M. Ziff, *Percolation in two-species antagonistic random sequential adsorption in two dimensions*, arXiv:2211.04622v1, first public 2022-11-09. https://arxiv.org/abs/2211.04622
 

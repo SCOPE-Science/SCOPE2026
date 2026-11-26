@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:35:48.141155Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently used the sum and divided difference of the swap equations. For a distinct pair with sum s and product p the difference gives p=(s-1)^2+1/eta; substituting into the sum equation gives -2(s-1)[eta(s-1)(s-2)+2]=0. The sum and difference equations together suffice for swapping. At s=1 the roots are real distinct iff eta>4. The other branch forces 1<s<2 and p=s(s-1)/2, giving discriminant s(2-s)>0 and (1-x)(1-y)<0, with positive roots and one root above 1. This gives 0/1/2/3 orbits on the four stated regimes, including one distinct external pair at the fold eta=8 and none from the repeated inner root at eta=4. The derivative product eta^2(1-s+p)(1-3s+9p) yields the stated inner and both external multipliers, including +1 at the fold. The minus multiplier exceeds 1 for eta>8; the plus decreases strictly from 1, reaching -1 at the only admissible root of 2 eta^2-13 eta-25=0, obtained by squaring with 8<eta<10. The inner multiplier has modulus <1 exactly for 4<eta<5. Maximizing x(1-x)^2 on [0,1] gives 4/27, consistent with the claimed phase-space limitation. Inspected the frozen symbolic checker and independently derived the identities; no reliance on samples or nonlinear attraction at neutral endpoints.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general parametric polynomial paper explains canonical cubic and fixed-point stability and explicitly does not give general values for points of period at least two.",
+          "The Allee theorem assumes c,m>=0 and treats cycles in (0,1)."
+        ],
+        "reasoning": "Neither the general analysis nor the in-interval Allee theorem controls the positive-leading-coefficient cubic's mixed-interval cycles on the entire real line.",
+        "searches": [
+          "Franco-Medrano and Solis arXiv:1502.00288v1 §2.2",
+          "Nandi DOI 10.28919/afpt/8562 §4.2",
+          "Resultary 924a32e82e64 mirrored RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 48f5bb870abc, 924a32e82e64, 461fe599fdfa",
+        "Nandi 10.28919/afpt/8562",
+        "Franco-Medrano and Solis arXiv:1502.00288v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known local fixed-point stability does not determine the real solutions of the mixed-interval swap equations or their multiplier crossing.",
+          "The second window is outside the parameter range of forward invariance of [0,1]."
+        ],
+        "reasoning": "An exact real-orbit classification and parameter-dependent multiplier analysis are additional to the cited numerical and fixed-point accounts; no demonstrated prior implication was found.",
+        "searches": [
+          "Nandi §4.2",
+          "Franco-Medrano and Solis §2.2",
+          "Resultary 924a32e82e64"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact indexed hit 48f5bb870abc is this frozen record itself.",
+          "Nandi really studies the same n=2 family; the generalized Allee cubic in 924a32e82e64 has the opposite leading-coefficient sign whenever it is cubic.",
+          "The same-day cusp entry 461fe599fdfa treats a planar map and not this real scalar cubic."
+        ],
+        "reasoning": "The sign of the leading cubic coefficient is preserved by real affine conjugacy (it is multiplied by a positive square). Translating and scaling the target to a monic depressed cubic is possible, but no checked conjugacy statement then asserts the stated external branches or attraction interval.",
+        "searches": [
+          "Resultary: generalized logistic eta*x*(1-x)^2 whole-real-line period-two census and external attracting fold/window",
+          "DOI 10.28919/afpt/8562 §4.2",
+          "Resultary 924a32e82e64 and 461fe599fdfa"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The sole exact matching entry examined is the mirror of the assigned record.",
+          "Nandi gives numerical examples and a reported eta about 4.1 onset, not the whole-line 0/1/2/3 table, fold at 8, or second stability window."
+        ],
+        "reasoning": "Neither the self-match nor the inspected examples provide independent exact tabulation.",
+        "searches": [
+          "Resultary exact census and exact external-window search, including 48f5bb870abc",
+          "Nandi §4.2 period-two examples"
+        ]
+      },
+      "rationale": "The bounded comparisons support the distinct exact whole-line census and external hyperbolic window. Credit the prior generalized-logistic family, its numerical inner period-two behavior, and standard polynomial stability tests. Neither a name match, a different cubic with a domain restriction, nor abstract period-doubling implies the external result.",
+      "residual_risks": [
+        "A bounded comparison cannot exclude unindexed results for equivalent depressed cubics or a stronger global exact cubic period-two classification not located here.",
+        "No claim about publication priority against all literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_FAMILY_PARTIAL_NUMERICAL_COVERAGE",
+          "evidence": [
+            "Abstract states the real-domain family and numerical periodic-point analysis; §4.2 reports about 4.1 and examples, without the stated exact external characterization."
+          ],
+          "identifier_or_url": "https://scik.org/index.php/afpt/article/download/8562/3988",
+          "material_read": "PDF p. 1 abstract; §4.2 p. 9 period-two discussion (text offsets 23656–24139)",
+          "method": "Bounded primary full-text passage lookup",
+          "title": "Bifurcation and chaotic behavior of two parameter family of generalized logistic maps",
+          "trigger": "Same family at n=2"
+        },
+        {
+          "assessment": "DOES_NOT_SUPPLY_THE_CENSUS_IN_INSPECTED_ANALYSIS",
+          "evidence": [
+            "States that in general it cannot calculate period-two-or-higher point values and discusses fixed-point stability and period-doubling."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1502.00288v1",
+          "material_read": "§2.2, PDF p. 7, text offset near 17128",
+          "method": "Bounded primary full-text passage lookup",
+          "title": "Stability of Real Parametric Polynomial Discrete Dynamical Systems",
+          "trigger": "Potential general cubic theorem"
+        },
+        {
+          "assessment": "DISTINCT_CUBIC_FAMILY_AND_STATE_SPACE",
+          "evidence": [
+            "Uses r x(1-x)(c+mx), c,m>=0, with the pair in (0,1)."
+          ],
+          "identifier_or_url": "Resultary 924a32e82e64 (2026-11-08)",
+          "material_read": "Mirrored RESULT.md theorem and parameter/domain assumptions",
+          "method": "Local Resultary mirror",
+          "title": "Global uniqueness and two boundary scales of prime two-orbits",
+          "trigger": "Nearby cubic two-cycle census"
+        },
+        {
+          "assessment": "DIFFERENT_MAP",
+          "evidence": [
+            "The map is F(x,y)=(y,(c+x)y^2+bx+m) on a plane."
+          ],
+          "identifier_or_url": "Resultary 461fe599fdfa (2026-11-22)",
+          "material_read": "Indexed result statement defining the map",
+          "method": "Local Resultary index comparison",
+          "title": "A semicubical period-two cusp, a resonant continuum, and an exact boundary",
+          "trigger": "Same-day period-two cusp hit"
+        },
+        {
+          "assessment": "IDENTICAL_ASSIGNED_RECORD",
+          "evidence": [
+            "Matching record ID, census and window."
+          ],
+          "identifier_or_url": "Resultary 48f5bb870abc",
+          "material_read": "Mirrored RESULT.md beginning, offset 0",
+          "method": "Local mirror",
+          "title": "An external attracting two-cycle window in a cubic generalized logistic map",
+          "trigger": "Exact matching census and window"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete exact classification in a previously studied polynomial family identifies a second attracting two-cycle window, created at a distinct external fold after the inner branch has lost attraction. This is a useful whole-line versus population-interval distinction, not just a restatement of first period-doubling or an approximate bifurcation plot.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

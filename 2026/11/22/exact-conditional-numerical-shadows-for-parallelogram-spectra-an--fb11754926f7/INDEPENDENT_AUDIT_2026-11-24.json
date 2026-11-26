@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:38:54.350534Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a complex Haar vector the four squared amplitudes are independent exponential variables normalized by their sum, hence Dirichlet(1,1,1,1). Distinct eigenvalues force a commuting target to be diagonal. Under the Walsh coordinates of the finding put a=p_(++)+p_(--), V=(X+Y)/2 and W=(X−Y)/2. Dirichlet aggregation gives a~Beta(2,2); conditionally on a, V and W are independent uniforms on [−a,a] and [−(1−a),1−a]. Their conditional density times 6a(1−a) is the constant 3/2 on |V|≤a≤1−|W|, so Q=2a−1 is uniform between the stated endpoints. Its midpoint gives the unique a.e. optimal predictor, with a continuous point-mass version at interval collapse. The density of (|V|,|W|) is 6(1−v−w) on v,w≥0, v+w≤1. The conditional variance of Q is (1−v−w)^2/3, whose expectation is 2∫∫(1−v−w)^3 dv dw=1/10. Sign symmetry of V,W conditional on a makes Q orthogonal to the observed linear coordinates, and E Q²=1/5 from a's beta law. The real-affine projection removes precisely the constant and the X,Y components, since the real-linear parallelogram map is invertible. Multiplication by |c_3|² gives the two risks, and only c_3=0 gives loss zero. A fresh exact test checked the triangle/beta integrals and 560 simplex grid points; replay: python /workspace/replay_frozen.py 3. The grid is an algebraic check, not a proof of the conditional distribution.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dunkl et al. give general normal marginal densities; Zhang gives Dirichlet pushforward densities for moments of powers of simple-spectrum Hermitian observables.",
+          "Johnson's numerical-information criterion concerns measurability, not positive minimum squared-error constants.",
+          "The earlier Resultary criterion gives the best affine error dist_HS²/[N(N+1)] and existence of a strict nonlinear gain for some directions in affinely dependent spectra."
+        ],
+        "reasoning": "The prior geometry and affine projection apply, but the inspected regression result doesn't evaluate the amount of nonlinear gain for the parallelogram. The wider marginal formulas are not themselves regression-error formulas for a second coordinate.",
+        "searches": [
+          "arXiv:1010.4189, §IV Proposition 4.3",
+          "arXiv:2610.25196v1, §3.3 Theorem 3.5",
+          "arXiv:2610.29826v1, abstract",
+          "Resultary exact Haar regression criterion 56cf8c2fea12, Finding and proof"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:1010.4189",
+        "arXiv:2610.25196v1",
+        "arXiv:2610.29826v1",
+        "Resultary 56cf8c2fea12 and 8f78f56cee13"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In this case span{I,A,A*}=span{I,S,T}, and the squared HS norm of the hidden residual is 4|c_3|². The earlier affine formula therefore gives |c_3|²/5 exactly.",
+          "The geometry-specific calculation determines the movement of the fiber midpoint with the two margins and the variance averaged under the projected observation law. The checked general simplex-volume result evaluates the marginal in terms of a fiber measure and not that barycenter or conditional-error integral."
+        ],
+        "reasoning": "The proof is elementary, but the exact nonlinear predictor and the 1/10 residual evaluation for every hidden commuting direction are not obtained just by substituting the eigenvalues into the earlier regression formula. The new quantitative comparison concerns the nonlinear coefficient, not the already covered 1/5 benchmark or the generic fact of fiber uniformity.",
+        "searches": [
+          "Resultary 56cf8c2fea12, affine benchmark and nonlinear criterion; 8f78f56cee13, collinear proof",
+          "arXiv:1010.4189, Proposition 4.3, compared against frozen proof §§1–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For row and column margins a=(1+x)/2, b=(1+y)/2, the free cell c=p_(++) lies in [max(0,a+b−1),min(a,b)], and Q=4c−1−x−y. A flat simplex prior implies a uniform free cell on this interval, exactly the same posterior as the Walsh formula.",
+          "Dunkl et al.'s B-spline is the projected simplex-fiber volume, one dimensional in size four; constant density on the fiber already gives conditional uniformity by disintegration."
+        ],
+        "reasoning": "The table is an equivalent formulation, not an independent discovery or proof of priority. Conditional uniformity is covered as a direct geometric consequence; the quantitative claim under evaluation also evaluates the projected target's posterior mean and average residual error.",
+        "searches": [
+          "Resultary and primary literature: four-point square/parallelogram numerical-shadow conditional regression, continuous fixed margins in a Dirichlet 2×2 table",
+          "arXiv:1010.4189, §IV, Lemma 4.1 and Proposition 4.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Figure 3 illustrates marginal shadows of small normal matrices (including dimension four), not a table of conditional variances or risk ratios.",
+          "Resultary 8f78f56cee13 treats collinear and triangular three-level cases. In the collinear case there is a uniform segment and an explicit residual |D|²/24; its symmetric affine and nonlinear examples have losses 1/2 and 3/8, not the four-level ratio."
+        ],
+        "reasoning": "Neither a marginal plot nor an exact lower-dimensional conditional classification gives the 1/10 coefficient under the four-corner Haar law. No distinct exact matched four-corner table or continuous fixed-margin risk calculation was identified by the bounded comparisons.",
+        "searches": [
+          "Resultary: exact conditional numerical shadows for four corners, general Haar regression, and three-level conditional loss",
+          "arXiv:1010.4189, §IV Figure 3 and marginal volume formula"
+        ]
+      },
+      "rationale": "Pass is for the geometry-specific explicit optimal predictor and quantitative residual risk, yielding a universal one-half ratio for the nonzero hidden direction. The uniform simplex law, marginal fiber-volume formula, inherited conditional uniformity, and optimal affine benchmark are not counted as new. Neither the inspected general marginal theorems nor the earlier quantitative regression criterion supplies the conditional-mean/error evaluation for this four-level geometry. The available earlier explicit three-level calculation has a genuinely different loss ratio.",
+      "residual_risks": [
+        "An earlier continuous contingency-table result or a calculation for conditional Dirichlet projections could provide the exact same error evaluation. Failure to locate one in the bounded checks is not historical proof.",
+        "The conditional uniformity and affine benchmark are direct consequences of prior work and cannot support a priority claim in their own right."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers uniform simplex and marginal geometry; also implies uniformity along a segment, not an evaluated conditional regression loss in passages read",
+          "evidence": "The normal shadow density is the bivariate B-spline equal to a simplex-fiber volume.",
+          "identifier_or_url": "https://arxiv.org/pdf/1010.4189",
+          "material_read": "§IV, Lemma 4.1, Figure 3 caption and Proposition 4.3; PDF offset 28419 for the B-spline statement",
+          "method": "Lawful OA full-text passages",
+          "title": "Numerical shadows: measures and densities on the numerical range",
+          "trigger": "Earlier explicit square shadows and projected simplex formula"
+        },
+        {
+          "assessment": "Exactly covers the affine benchmark and some strict gain, not the nonlinear amount",
+          "evidence": "The affine loss is HS distance squared divided by N(N+1); all-target equality holds exactly for affinely independent distinct spectra.",
+          "identifier_or_url": "Resultary 2026/11/1 ID 56cf8c2fea12",
+          "material_read": "Mirrored Finding and proof, offset 0; limitations offset 7457",
+          "method": "Local catalog and mirror",
+          "title": "An exact Haar-regression criterion for numerical information of normal matrices",
+          "trigger": "General theorem potentially giving both risks"
+        },
+        {
+          "assessment": "Analogous simplex disintegration, different dimension and losses",
+          "evidence": "Three collinear levels yield a uniform conditional segment, with symmetric nonlinear-to-affine ratio 3/4, not 1/2.",
+          "identifier_or_url": "Resultary 2026/10/26 ID 8f78f56cee13",
+          "material_read": "Finding and collinear-case proof, offset 0",
+          "method": "Local catalog and mirror",
+          "title": "Exact conditional numerical-shadow loss for normal three-level matrices",
+          "trigger": "Nearest prior explicit conditional-loss calculation"
+        },
+        {
+          "assessment": "Different moment pushforward, no two-margin regression constants in the cited statement",
+          "evidence": "The vector of expectations of powers of a simple-spectrum Hermitian observable has a Dirichlet pushforward distribution.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.25196",
+          "material_read": "§3.3 p. 19, Theorem 3.5",
+          "method": "Lawful OA PDF text",
+          "title": "Zhang, arXiv:2610.25196v1",
+          "trigger": "Dirichlet shadow joint-density generalization"
+        },
+        {
+          "assessment": "Qualitative zero-loss context",
+          "evidence": "Characterizes numerical-information dependence through the real and imaginary operator parts, not positive mean-square risk.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.29826",
+          "material_read": "Johnson v1 abstract and stated qualitative criterion",
+          "method": "Lawful OA text",
+          "title": "Numerical Information of Hilbert Space Operators",
+          "trigger": "Best predictor and exact information precedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The four-level parallelogram is a natural first planar spectrum with one unobserved commuting coordinate. The explicit predictor and nonzero optimum determine the attainable recovery accuracy and quantify what is lost by insisting on an affine predictor for any target in that geometry. The factor compares two precisely motivated risks independently of the parallelogram embedding; it captures a different phenomenon than the known qualitative strict-improvement criterion or the marginal shadow density.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:08:42.001300Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 57–77",
+        "Frozen VERIFICATION.md and cycle_square_zero_checker.py (read, not executed)",
+        "Fernandes–Paulista, Lemma 1.1 and Theorem 1.4",
+        "Repaired /workspace/repairs/5/RESULT.md and /workspace/repairs/5/VERIFICATION.md, final files inspected",
+        "Private replay: /workspace/branches/52d3b612-514a-4a83-9f91-4aa70baba3e8/independent_squarezero_enum.py; independent_squarezero_enum.txt in the same directory"
+      ],
+      "rationale": "The frozen formula is mathematically correct, although not original. In particular, for any partial isometry f:A→B the composition has empty domain iff A∩B is empty; on extending f to a dihedral permutation the admissible domains select independent vertices along each orbit. Checking the multiplicities gives the empty correction 2n−1, rank-one correction n(n−1), and even antipodal rank-two correction 2(n/2)(n/2−1). For the repaired statement the dominant polynomial M is the sum over reflections and the even half-turn, with t=n/2 giving (t+1)(1+2z)^t+t(1+2z)^(t−1) in even size and n(1+2z)^((n−1)/2) in odd size. Normalizing these polynomials gives precisely the stated binomial laws and weights. The two-state trace shows that the independent-set count of a d-cycle is λ^d+(−1/λ)^d; odd d are bounded by λ^d, and even d≥4 have d-th root at most 7^(1/4). Summing over at most n rotations and adding O(n²) extra representations bounds the coefficient ℓ¹ discrepancy E. Since |s_n−M(1)|≤E, renormalization has coefficient ℓ¹ discrepancy at most 2E/M(1); polynomial correction terms are exponentially smaller than the stated errors. This proves the quantitative total-variation claim. Evaluating M at one and dividing by the cited monoid size gives both rarity constants, and the means and variances of all the binomials agree with n/3 and n/9 up to O(1), proving the CLT and LLN. The n=3 boundary has the empty map and six rank-one maps; the extensions and the proof still apply.",
+      "residual_risks": [
+        "The separate direct metric enumeration reproduced all exact coefficients for 3≤n≤8, including (1,56,264,288,96) at n=8. Finite experiments are not evidence of the claimed error rates by themselves; the repaired proof supplies the rates.",
+        "The total-variation estimate is absolute, not a per-rank relative error bound."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier general index bound applies to h=2 and covers the frozen exact answer. The later binomial-law record conditions on all nilpotents and approximates Bin(n,1/2), rather than conditioning on square-zero maps. The indexed product-rank result treats two independent uniform maps. The cited symmetric inverse semigroup theorem is about a broader transformation class and a different assertion."
+        ],
+        "reasoning": "Exact enumeration in a broader index family does dominate the original enumerative theorem. A conditional law for all indices or products of independent maps, however, does not imply the law for the square-zero condition on one map; the latter is an exponentially rare subpopulation.",
+        "searches": [
+          "Resultary bounded-nilpotency enumerator Finding",
+          "Resultary 2026/11/8/SCOPE-nilpotent-rank-spectra-and-a-binomial-law-for-cycle-partial-isom--6fca557893ec",
+          "Resultary exact product-rank law 40009d5572c2",
+          "Gomes–Howie §2 and Fernandes–Paulista Lemma 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Exact earlier Resultary bounded-nilpotency polynomial 32e0cfa664d8",
+        "Later unrestricted-nilpotent law 6fca557893ec",
+        "Fernandes–Paulista Lemma 1.1 and Theorem 1.4",
+        "Gomes–Howie §2",
+        "Dimitrova et al. arXiv:2301.01519",
+        "Repaired RESULT.md prior-work and proof passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior enumerator gives the full rank polynomial as a sum over rotations, reflections and corrections. The monoid theorem supplies the denominator of the rarity probability. The repaired proof extracts all reflections and the even half-turn, proves that the total mass of everything else is exponentially smaller, then normalizes the coefficient-level error for the law of distinct maps."
+        ],
+        "reasoning": "Substituting h=2 mechanically gives the frozen exact rank polynomial and thus covers the original even though the formula is written using traces rather than independence polynomials. The repaired claim asks for a uniform approximation to the normalized mass at all ranks. It requires an estimate simultaneously for all divisors and a signed-to-probability comparison, rather than specializing a prior law or simply evaluating the earlier polynomial at a fixed z. The binomial CLT is standard and is not claimed as new.",
+        "searches": [
+          "Bounded-nilpotency enumerator at h=2",
+          "Fernandes–Paulista Theorem 1.4",
+          "Later Resultary unrestricted nilpotent Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier bounded-index result counts α^h=0 by rank, including the empty map. For h=2 this is the same as disjoint domain/image. The self-inverse records instead impose α²=id on its domain; a nonempty such map does not square to zero."
+        ],
+        "reasoning": "The h=2 specialization gives genuine equivalence for the frozen combinatorial claim, not just similarly named nilpotence. Involutions in the ambient partial-map sense are different. The involutions used to obtain the repaired approximation are global extensions of restrictions, not self-inverse restrictions.",
+        "searches": [
+          "Resultary 2026/10/12/SCOPE-rank-and-nilpotency-index-enumerators-for-partial-isometries-of--32e0cfa664d8",
+          "Resultary self-inverse and domain-rank involution records 6984d732ffaa and 8670f30aedd1",
+          "Fernandes–Paulista arXiv:2205.02196 Lemma 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier index polynomial has the same divisor term at h=2 because tr(T₂^d)=J_d, including d=1,2, and has the same parity reflection term and all three low-rank subtractions. This is exact earlier coverage for n≥4. Its inspected Finding and Limitations are enumerative. The closest subsequent indexed binomial-law result gives a law for all nilpotents, not the repaired mixture."
+        ],
+        "reasoning": "The original is covered even without finding a table displaying the exact coefficients. The search for the narrower probability-law statement returned adjacent populations but not a matching statement in the passages inspected; retrieval or uninformative search results are not evidence of universal absence.",
+        "searches": [
+          "Exact earlier Resultary rank/index record 32e0cfa664d8, Finding offsets 0–3553 and Limitations around offset 8515",
+          "Resultary search: cycle partial isometries square-zero f^2=0 conditional rank Gaussian central limit theorem parity square zero probability rarity reflection binomial 2/3 total variation",
+          "Primary literature search: partial isometries cycle square-zero semigroup conditional rank Gaussian binomial reflection asymptotic nilpotent"
+        ]
+      },
+      "rationale": "Original finding: FAIL for originality of its advertised exact rank polynomial. The earlier bounded-nilpotency enumerator states a stronger theorem; setting h=2 produces the exact same polynomial for every n≥4, including all correction terms. The trivial n=3 addition does not rescue that assertion. Repaired finding: PASS for the asymptotic rarity and conditional rank law, quantified by an exponentially accurate global approximation with an explicit even-cycle mixture. The repair expressly credits the exact polynomial instead of claiming it. Neither the earlier indexed enumeration nor the inspected foundational monoid theorems states or directly specializes to the quantitative dominance estimate. This narrower result uses uniform spectral bounds on longer rotation orbits and control of duplicate representations; a Gaussian theorem alone would not give the repaired total-variation result.",
+      "residual_risks": [
+        "The dissertation Partial Isometries of Some Simple Connected Graphs was not inspected. A previously unstated or unindexed asymptotic analysis of the earlier exact formula is not excluded.",
+        "No originality credit is given to the exact polynomial, the small n=3 extension, the Lucas numbers, or the binomial CLT."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive earlier coverage of frozen exact enumeration; no matching probabilistic approximation in inspected passages",
+          "evidence": "N_{n,h} has divisor terms tr(T_h^d)^(n/d), the given reflection term, and matching empty, rank-one and antipodal corrections. At h=2 the cyclic trace is exactly J_d.",
+          "identifier_or_url": "2026/10/12/SCOPE-rank-and-nilpotency-index-enumerators-for-partial-isometries-of--32e0cfa664d8",
+          "material_read": "Finding offsets 0–3553; limitations and context offsets 8150–9618",
+          "method": "Bounded exact local mirror reads",
+          "title": "Rank and nilpotency-index enumerators for partial isometries of a cycle",
+          "trigger": "Earlier general theorem with the same rank/index population"
+        },
+        {
+          "assessment": "Extension and multiplicity results and total cardinality, not the repaired rank law",
+          "evidence": "All maps are dihedral restrictions with the stated low-rank ambiguities; monoid size is n·2^(n+1)−(((-1)^n+5)/4)n²−2n+1.",
+          "identifier_or_url": "https://arxiv.org/abs/2205.02196",
+          "material_read": "Lemma 1.1, p. 4, offsets 15949–18527; Theorem 1.4, p. 6, offsets 21739–23671",
+          "method": "Bounded OA PDF passage with formula checked against rendered text",
+          "title": "On the monoid of partial isometries of a cycle graph",
+          "trigger": "Foundational theory on exactly the target monoid"
+        },
+        {
+          "assessment": "Different event, different law; later dated",
+          "evidence": "Exponent unrestricted, nilpotent population asymptotically half the monoid, reference Bin(n,1/2); repaired square-zero probability tends to zero exponentially and rank density is 1/3.",
+          "identifier_or_url": "2026/11/8/SCOPE-nilpotent-rank-spectra-and-a-binomial-law-for-cycle-partial-isom--6fca557893ec",
+          "material_read": "Finding, offsets 0–3000",
+          "method": "Bounded local mirror read",
+          "title": "Nilpotent rank spectra and a binomial law for cycle partial isometries",
+          "trigger": "Apparent overlap with conditional binomial-law repair"
+        },
+        {
+          "assessment": "Related structural result; not the restricted conditional rank census",
+          "evidence": "Nilpotency characterized by absence of a nonempty invariant subset in the full symmetric inverse semigroup.",
+          "identifier_or_url": "https://doi.org/10.1017/S0013091500026788",
+          "material_read": "§2, Lemma 2.1, pp. 384–385, offsets 4372–6925",
+          "method": "Bounded OA PDF passage",
+          "title": "Nilpotents in finite symmetric inverse semigroups",
+          "trigger": "General nilpotent partial injection results"
+        },
+        {
+          "assessment": "Different constraints and statistics in inspected material",
+          "evidence": "Studies order/orientation-constrained submonoids, their cardinalities, Green's relations, ranks and presentations.",
+          "identifier_or_url": "https://arxiv.org/abs/2301.01519",
+          "material_read": "p. 1, offsets 561–1163",
+          "method": "Bounded OA PDF passage",
+          "title": "On three submonoids of the dihedral inverse monoid on a finite set",
+          "trigger": "Related enumerations of dihedral restrictions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md, Finding and proof of ℓ¹ normalization",
+        "Earlier exact enumerator and later all-nilpotent law, as compared above"
+      ],
+      "rationale": "The repaired conditional law resolves more than a routine finite specialization or a limit for one moment. It explains the parity effects in the rare-event probability and gives an explicit approximation valid uniformly over rank events with exponential error. Counting the half-turn in the even reference law retains a class of extension pairs of only algebraically smaller relative mass than the reflections, rather than dropping it for a weak Gaussian limit. The useful result is this quantitative conditional law and its interpretation for sampling distinct partial maps.",
+      "residual_risks": [
+        "No relative tail estimate or rate for the Gaussian approximation itself is claimed; the exponential error concerns the binomial reference laws."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:37:41.754288Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 4–29",
+        "VERIFICATION.md and the stored finite-suite output",
+        "cyclic_arcs_witness_n128_k64.json, checked directly as data without running cyclic_arcs_verify.py"
+      ],
+      "rationale": "Complementation reduces to s≤n/2 without changing either dimension. Every root query has exactly s positive centers, so complete depth d requires 2^(d−1)≤s. On m≤s consecutive centers, query u+t−1 to split the first t from the rest: the two involved integer blocks fit in an interval of at most s+m≤n points, so cyclic reduction creates no extra positive centers. After the initial split both branches contain a block of 2^floor(log₂ s) centers, each bisected recursively; this also handles s=1 with depth-zero children. Adjacent points yield all four traces if s≥2, but a triple inside an s-arc cannot realize the two outer positives without its middle point, since the opposite circular path needs at least n−s+1 edges. For s=1 the singleton class shatters a point but not a pair. Taking s=floor(n/2) gives the claimed maximum with the stated attainment threshold. Independently validated every path of the supplied data-only n=128,k=64 witness: 128 leaves of depth seven, all distinct centers, each satisfying its entire path.",
+      "residual_risks": [
+        "The single independently replayed certificate establishes only the finite witness, not the general formula. The other reported finite recurrence runs were not independently repeated."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-date four-point theorem covers all four-element cyclic supports but not varying k. The later linear-domain formula uses prefix queries without wrap-around. General stability and closure results, and the disjoint real-interval example, do not give this fixed-width cyclic formula."
+        ],
+        "reasoning": "The four-point theorem overlaps at k=4, n≥8 (and complements by label reversal) rather than dominating all widths. Neither a theorem for intervals in a chain nor disjoint real intervals resolves overlaps across the cyclic seam.",
+        "searches": [
+          "Resultary translate supports, linear fixed-width intervals and arbitrary four-point cyclic subsets; 65f0c259cf22 and 8f87b8e9beef",
+          "Malliaris–Moran arXiv:2108.05569 and 2212.05050; Chase–Freitag–Reyzin arXiv:2310.04812 §3; Ghazi et al. arXiv:2007.03668"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 276e78f2c8f8, 65f0c259cf22, 8f87b8e9beef",
+        "arXiv:2108.05569, 2212.05050, 2310.04812 and 2007.03668"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The global cardinality bound only gives floor(log₂ n), and can be unbounded when s=1, for which the actual rank is one. A matching lower bound needs queries that realize balanced cuts on each of the two root blocks. The same-date four-point result and general real-interval example do not give that criterion across widths."
+        ],
+        "reasoning": "The sharp short-branch upper bound and cyclic block splitting establish the parameter dependence not implied by the earlier compared facts; the later cyclic rank theorem does imply it but does not establish earlier priority.",
+        "searches": [
+          "Chase–Freitag–Reyzin §3 and standard finite leaf bound",
+          "Resultary 65f0c259cf22, 8f87b8e9beef and 276e78f2c8f8 proof comparisons"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The later theorem gives exactly 1+floor(log₂ w) with w=min(ℓ,n−ℓ), and a shattering polynomial whose highest nonzero degree is one for w=1 and two for w≥2. Its proof also uses consecutive-block splits."
+        ],
+        "reasoning": "Taking ℓ=k identifies both finite dimension results; swapping rows and columns of the incidence matrix also gives the same translate class up to reflection or relabeling. This later match is explicit, not merely method resemblance.",
+        "searches": [
+          "Resultary fixed-width cyclic intervals, sliding windows, Littlestone/Shelah 2-rank, dual cyclic translates",
+          "2026/11/8 Resultary 276e78f2c8f8, Finding and proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact symbolic catalogue match is 276e78f2c8f8 (indexed 2026/11/8); the exact four-point case is 65f0c259cf22 (indexed 2026/10/26). No distinct exact tabular match emerged from the targeted lookup."
+        ],
+        "reasoning": "An isolated width census cannot establish the full n,k family or VC formula. The later symbolic entry, unlike that census, is complete coverage of the finite mathematical claim and is explicitly credited as such.",
+        "searches": [
+          "Resultary exact cyclic ranks and shattering polynomials; dual class and indexed table searches"
+        ]
+      },
+      "rationale": "The complete parameter-dependent formula is distinct from the earlier literature and the same-date four-point census inspected. The audit found and credits an exact full duplicate of these finite dimensions in a later-dated Resultary record; that is genuine equivalent coverage in the current catalogue, but not evidence of prior coverage against this frozen October 26 finding. No claim of unique discovery or exhaustive priority is made.",
+      "residual_risks": [
+        "The literature lookup is bounded. A differently indexed earlier circular-window calculation is not ruled out. The exact later entry and same-date four-point overlap do not settle historical provenance."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical finite dimensions, additional claims, later dated",
+          "evidence": "States identical rank and Φ(z)=1+nz+n(w−1)z², with the same root and block arguments.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-shelah-2-rank-and-stability-threshold-for-fixed-width-cycl--276e78f2c8f8",
+          "material_read": "Finding and proof at offsets 0 and 1800",
+          "method": "Paged Resultary mirror",
+          "title": "Exact Shelah 2-rank and stability threshold for fixed-width cyclic intervals",
+          "trigger": "Strongest exact match, alternative rank terminology"
+        },
+        {
+          "assessment": "Exact partial range overlap; same-day order unresolved",
+          "evidence": "Covers all four-point supports for n≥8; the consecutive support yields rank 3.",
+          "identifier_or_url": "2026/10/26/SCOPE-four-point-cyclic-translate-classes-an-exact-autocorrelation-cri--65f0c259cf22",
+          "material_read": "Finding and limitations, offsets 0 and 6000",
+          "method": "Paged Resultary mirror",
+          "title": "Four-point cyclic translate classes: an exact autocorrelation criterion",
+          "trigger": "Same-date support-translation classification"
+        },
+        {
+          "assessment": "Linear, not cyclic, and later dated",
+          "evidence": "Has prefix queries and exact ranks for fixed-width intervals on a finite chain, with an option for the empty concept.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-online-ranks-and-shattering-polynomials-of-fixed-width-int--8f87b8e9beef",
+          "material_read": "Finding and proof from offset 0",
+          "method": "Paged Resultary mirror",
+          "title": "Exact online ranks and shattering polynomials of fixed-width intervals",
+          "trigger": "Similar exact theorem and bisection proof"
+        },
+        {
+          "assessment": "Different and disjoint interval class",
+          "evidence": "The example has pairwise disjoint real intervals of Littlestone dimension one.",
+          "identifier_or_url": "https://arxiv.org/abs/2310.04812",
+          "material_read": "§3, p. 6 around offset 17800",
+          "method": "Bounded OA PDF reading",
+          "title": "Applications of Littlestone Dimension to Query Learning and to Compression",
+          "trigger": "Published interval example in learning theory"
+        },
+        {
+          "assessment": "General background and bounds, no exact cyclic specialization in inspected passages",
+          "evidence": "These passages concern stable classes and characterization or closure, rather than an exact fixed-width cyclic rank.",
+          "identifier_or_url": "arXiv:2108.05569; arXiv:2212.05050; arXiv:2007.03668",
+          "material_read": "PDF passages around offsets 5100, 5000 and 574 respectively",
+          "method": "Bounded OA PDF reading",
+          "title": "Agnostic Online Learning and Excellent Sets; The Unstable Formula Theorem Revisited via Algorithms; Closure Properties for Private Classification and Online Prediction",
+          "trigger": "General rank, stability and closure theorems as possible routes to the claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof steps 2–5",
+        "Exact partial four-point Resultary comparison and general leaf bound"
+      ],
+      "rationale": "The exact width-dependent online dimension is a useful calibration for a natural translate class: despite VC dimension at most two, it ranges from one to the whole-class information bound. The theorem says exactly when that bound is attained and provides a constructive witness; its contribution is not just computing the largest certificate or exhibiting some VC/Littlestone separation already available from other classes.",
+      "residual_risks": [
+        "The result is for uniform lengths with all translates; no general claim about disconnected supports or online randomized performance follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

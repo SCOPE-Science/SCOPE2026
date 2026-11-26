@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:57:02.474140Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A positive Apéry member is either a minimal generator other than m or the unique decomposable member w. In any two-positive-summand decomposition of w both summands must lie in Ap(S,m) (subtracting m from a non-Apéry summand would put w−m in S). The smaller summand u satisfies 2u≤w≤c+m−1 and u<c. The progression from u contributes h≥1 left elements disjoint from q=ceil(c/m) multiples of m. Its first term not below c is u+hm, giving c≤(2h+1)m−1. Thus if q≤2h then W≥(m−1)h−q≥h(m−3); if q=2h+1 the offset −1 gives the same bound. Equality requires h=1 and c≥m+3, so q=2 or 3. For q=2 the left set has size 3, c=2m, and the tail elements of potential generating size 2m+s, 1≤s<m, decompose exactly at s=r and, when available, s=2r; this gives e=m−1 precisely for 2r<m. For q=3 equality gives N=4, c=3m−1, and u=2m−1 by the two inequalities for u. In the resulting Apéry set only 4m−2 decomposes: for 3m+r with 1≤r≤m−3 any possible summands are drawn from m, 2m−1, 2m, and their pair sums miss it. Both families are closed, have the claimed conductor and give W=m−3. Inspected the frozen bounded Kunz verifier but did not execute it. Independently enumerated direct closed left sets for 4≤m≤8 and c≤3m−1 with /workspace/branches/independent_replay.py, obtaining equality counts 2,3,3,4,4 exactly as classified. This bounded check is not the proof for unbounded c or m.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sammartano's 2e≥m theorem directly yields W≥0 throughout the stratum. Marashdeh Theorem 1.3 classifies W=0 for e≥t+1; here t≤m−2 since the smaller summand of the unique decomposable Apéry element is a nonmaximal positive member.",
+          "Marashdeh's type-bound and Wilf-defect formulas, Theorem 1.2 and adjacent discussion, bound type and express W through defects rather than stating a positive minimum in terms of the multiplicity."
+        ],
+        "reasoning": "The type-range equality theorem excludes both listed zero-W cases here and hence already forces integer W≥1. This agrees with m−3 at m=4 only, without giving the positive equality classification even there. No examined bound establishes m−3 for the whole stratum.",
+        "searches": [
+          "Sammartano Theorem 18, arXiv:1111.1863v3",
+          "Marashdeh arXiv:2608.12531v1, main type, defect and equality theorems"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1111.1863v3",
+        "arXiv:1408.5331v3",
+        "arXiv:2608.12531v1",
+        "Resultary 2026/9/13/SCOPE037"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The broader results give nonnegativity or zero-case exclusions. The new count makes conductor bounded by (2h+1)m−1 and yields an attained uniform gap growing linearly in m with a positive equality classification."
+        ],
+        "reasoning": "Specializing known nonnegativity or the type-based exclusion of zero cannot mechanically turn the lower limit 0 or 1 into m−3 for m≥5. The new positive equality cases also are not equality cases of the earlier results about W=0.",
+        "searches": [
+          "Sammartano Theorem 18; Moscariello–Sammartano Theorem 1 and Question 8; Marashdeh Theorems 1.2–1.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With F=c−1 the earlier notation n(S)=|S∩[0,F]| equals N, and ν(S) or d denotes the embedding dimension. Almost-maximal embedding dimension means one positive nonprimitive Apéry member."
+        ],
+        "reasoning": "After translating notation and hypotheses, the prior nonnegativity and zero-equality problems are closely related but do not state the positive exact minimum and the two attaining forms.",
+        "searches": [
+          "Resultary: sharp Wilf-number gap at embedding dimension m−1, Apéry formulation and equality",
+          "arXiv:1111.1863v3 and arXiv:1408.5331v3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary SCOPE037 gives W≥2 with m=5,e=3 and sharpness at ⟨5,6,7⟩, not m=5,e=4. The earlier GAP range through genus 35 accompanies the question of W=0, and the newer explicit c≤2m list is again for W=0."
+        ],
+        "reasoning": "The fixed-stratum hit changes embedding dimension, not just notation. Neither a finite genus check about zero nor a complete zero-W list decides these positive minima or classifies all extremizers.",
+        "searches": [
+          "Resultary exact Wilf gap and equality at maximal minus one embedding dimension",
+          "arXiv:1408.5331v3, Question 8 and bounded GAP check; arXiv:2608.12531v1, Theorem 1.4"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the sharp gap together with all positive-gap extremizers in the canonical almost-maximal embedding-dimension stratum. Qualitative positivity can already be obtained from a general type-based equality theorem; it is not the contribution.",
+      "residual_risks": [
+        "Bounded investigation is not exhaustive; an equivalent result under one-defect Apéry or Wilf-stability terminology could remain unindexed.",
+        "Full text of the previously inaccessible type paper was consulted at decisive passages, not every possible specialization of its defect functions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers Wilf nonnegativity, not the quantitative gap",
+          "evidence": "If 2ν(S)≥m(S), then S satisfies Wilf’s conjecture.",
+          "identifier_or_url": "https://arxiv.org/pdf/1111.1863v3",
+          "material_read": "Theorem 18, PDF p. 10, text offset near 18241",
+          "method": "Lawful OA PDF passage",
+          "title": "Numerical semigroups with large embedding dimension satisfy Wilf’s conjecture",
+          "trigger": "Direct theorem covering the entire embedding-dimension stratum"
+        },
+        {
+          "assessment": "Nonnegativity and a zero-equality question, not the positive-gap problem",
+          "evidence": "Theorem 1 gives eventual nonnegativity under the ratio/prime-factor hypotheses; Question 8 concerns W=0 and a genus-35 computational check.",
+          "identifier_or_url": "https://arxiv.org/pdf/1408.5331v3",
+          "material_read": "Theorem 1, p. 1; Question 8, p. 5, offset near 20872",
+          "method": "Lawful OA PDF passages",
+          "title": "On a conjecture by Wilf about the Frobenius number",
+          "trigger": "Wilf equality and large-multiplicity theorem"
+        },
+        {
+          "assessment": "Type-range W=0 theorem covers positivity here, but inspected bounds do not give the claimed m-dependent minimum with extremizers",
+          "evidence": "Theorem 1.3 classifies W=0 when e≥t+1, and Theorem 1.4 treats W=0 and c≤2m (T_{m,1}, T_{m,2}, or ⟨3,4⟩).",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.12531v1",
+          "material_read": "PDF pp. 3–4, Theorems 1.2–1.4 and adjacent defect inequalities (text around offsets 8200–13255); Theorem 7.3 pp. 14–15, offset near 48000",
+          "method": "Lawful OA primary PDF; relevant full-text passages were accessible",
+          "title": "An upper bound for the type of a numerical semigroup, and a reduction of Wilf’s conjecture",
+          "trigger": "Potentially stronger recent type and Wilf-number defect estimates"
+        },
+        {
+          "assessment": "Different embedding-dimension stratum",
+          "evidence": "W≥2 is sharp for m=5,e=3; the current m=5 specialization requires e=4.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/13/SCOPE037",
+          "material_read": "RESULT.md theorem and example, offset 1250",
+          "method": "Local published-record mirror",
+          "title": "Uniform Wilf gap 2 for multiplicity-5 embedding-dimension-3 semigroups",
+          "trigger": "Concrete exact Wilf-gap result close to the m=5 specialization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural first stratum below maximal embedding dimension is solved exactly for every m, with complete and explicitly different attaining families at conductors 2m and 3m−1. This gives usable quantitative separation from Wilf equality beyond existing positivity and shows why the exact optimum is attained rather than only a nonsharp lower estimate.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

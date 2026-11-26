@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:53:17.582926Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 12–42, including adjacency, independence and cylinder disjointness arguments",
+        "Frozen verify_direct.py lines 11–46 and verify_affine.cpp lines 21–64, read but not executed",
+        "Bounded independent enumeration: all nonempty even-word masks, then least-vertex partition recurrence and support classification for full covers"
+      ],
+      "rationale": "Translate an admissible block to contain zero. Its remaining vertices are an intersecting family of 2-subsets, since disjoint pairs differ in four positions. The weight-four neighbor of zero missing coordinate i sees 1+deg(i) members, so every degree is even. An intersecting nonempty family is a star or the full triangle: once edges ab and ac are present, a member missing a must be bc, after which no other member can occur. A nonempty star has a leaf. The triangle with zero is exactly the two-fixed-coordinate cylinder after translation. The five generator steps restrict to the two fixed coordinates as the three nonzero profiles with multiplicities 3,1,1, proving sufficiency with open neighborhoods. Compatible fixed bits on at most four positions always extend; hence disjoint cylinders either conflict on the same pair or have opposite bits on a shared coordinate. This yields 60+240 disjoint pairs and 40+240+80 disjoint triples (one support, a doubled support, or a triangle of supports). Four cylinders with one support give ten covers; two distinct supports must each supply both cylinders in their opposite shared-coordinate halves, giving sixty. Three triangle supports leave two complementary patterns on the three active coordinates, and both values occur also on each outside coordinate by parity, so the four remaining vertices cannot form a cylinder. Four distinct pairwise-intersecting supports would give a star with impossible mutually opposite bits. Each q-cylinder family has 16-3q blocks, so the complete spectrum is 70z^4+360z^7+300z^10+40z^13+z^16, and the four fixed named colors give 70 times 4! assignments. An independent scan of 65,535 nonempty subsets and least-vertex partition counting reproduced the block sizes, spectrum and optimal split.",
+      "residual_risks": [
+        "Counts distinguish vertices and forget color names; they do not count automorphism orbits. The independent enumeration is only for this graph and does not establish a general folded-cube claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The strong-odd-coloring paper abstracts describe general sparse, planar and product results; the odd-independence paper passage addresses maximum size and the neighborhood construction.",
+          "The parity-split record, RESULT.md offset 0, concerns counts of optima of Q_d; Q_4 has sixteen vertices but degree four."
+        ],
+        "reasoning": "A bound or even an equality for the maximum odd-independent-set size would not classify all blocks or their disjoint arrangements. No covering general formula yielding the typed Clebsch partitions was found in the inspected statements.",
+        "searches": [
+          "arXiv:2509.20763, Problem 37",
+          "arXiv:2410.02336",
+          "arXiv:2401.11653",
+          "2026/11/22/SCOPE-parity-split-strong-odd-colorings-of-even-boolean-cubes-q-d--3dbef98168c9"
+        ]
+      },
+      "checked_sources": [
+        "Resultary assigned self-hit 539d2b4d25c8 and distinct records c7089565d41d, 8979f0047aa2, 3dbef98168c9",
+        "arXiv:2509.20763, 2410.02336, 2401.11653"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior neighborhood-size question and the other graph classifications contain no pairwise disjointness count for Clebsch admissible blocks.",
+          "The current result needs both the parity restriction at the five neighbors of an anchor and the obstruction to completing three triangle-support cylinders."
+        ],
+        "reasoning": "Neither maximum block size nor identifying local intersecting-pair geometry mechanically recovers the partition polynomial or the 10+60 support split.",
+        "searches": [
+          "arXiv:2509.20763, Problem 37",
+          "Resultary Kneser record c7089565d41d, RESULT.md Finding",
+          "Resultary parity-split Boolean-cube record 3dbef98168c9, RESULT.md Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two Resultary searches retrieve the assigned record itself, not a second copy of this theorem.",
+          "Kneser record, RESULT.md Finding, offset 0: color-class description involving triangles and singletons in KG(n,2).",
+          "Caro et al., odd independence paper, Problem 37, PDF pp. 30–31: Clebsch listed among triangle-free strongly regular graphs in the discussion of maximum odd independent sets."
+        ],
+        "reasoning": "The Clebsch anchoring reduction does use intersecting edges on five positions, but KG(5,2) has ten vertices rather than sixteen and does not include the anchor and weight-four neighborhood constraints that force even degrees. Its color classes are not Clebsch cylinders and its partitions do not enumerate the assigned graph.",
+        "searches": [
+          "Clebsch graph odd independent sets strong odd coloring cylinder partition spectrum",
+          "Clebsch graph odd independent set enumerator finite geometry coloring partition",
+          "arXiv:2509.20763, literal Clebsch",
+          "2026/11/22/SCOPE-strong-odd-colorings-of-two-subset-kneser-graphs-through-triangl--c7089565d41d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The affine-plane record, RESULT.md offset 0, counts 120 proper bicolorings of the line hypergraph on sixteen points, not partitions of the Clebsch graph.",
+          "The primary search returned unrelated results and supplies no negative evidence."
+        ],
+        "reasoning": "Equal ground-set size does not identify an incidence hypergraph or its two-color partitions with the Clebsch neighborhood parity invariant. No separate exact Clebsch coefficient table supplying the stated sequence was inspected.",
+        "searches": [
+          "Resultary: Clebsch graph odd independent set enumerator finite geometry coloring partition",
+          "2026/11/22/SCOPE-sharp-six-point-recolouring-of-affine-plane-bicolorings--8979f0047aa2",
+          "Primary search: \"Clebsch graph\" \"odd independent\" strong odd coloring census cylinders finite geometry"
+        ]
+      },
+      "rationale": "The strongest objective-specific earlier material inspected mentions the Clebsch graph but does not supply the cylinder-block classification or the polynomial. The strongest indexed structural analogue uses triangles in the two-subset Kneser graph, whose vertices and neighborhood constraints differ. The geometrically related sixteen-point examples do not give an equivalent census. This is a best-of-knowledge decision, not a claim of priority.",
+      "residual_risks": [
+        "Older finite-geometry or affine-partition literature could encode an equivalent census under different terminology; the broad primary query was uninformative.",
+        "Same-day indexing does not establish priority of either triangle-based result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact object discussed; no matched block or partition census in that passage",
+          "evidence": "Clebsch appears in the triangle-free strongly regular graph discussion of the neighborhood and maximum-size question.",
+          "identifier_or_url": "https://arxiv.org/abs/2509.20763",
+          "material_read": "Problem 37, PDF pp. 30–31, extracted offsets 66400–69354",
+          "method": "Open primary PDF, Clebsch passage",
+          "title": "The odd independence number of graphs, I: Foundations and classical classes",
+          "trigger": "Exact graph mentioned in closest work on odd independent sets"
+        },
+        {
+          "assessment": "Different graph and classification, with shared local triangle structure",
+          "evidence": "Kneser color classes are described by triangle packings and singletons, and a star case for even n.",
+          "identifier_or_url": "2026/11/22/SCOPE-strong-odd-colorings-of-two-subset-kneser-graphs-through-triangl--c7089565d41d",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Strong odd colorings of two-subset Kneser graphs",
+          "trigger": "Strongest indexed structural analogue"
+        },
+        {
+          "assessment": "General background; limited inspection, not a whole-document exclusion",
+          "evidence": "Discusses planar, tree, unicyclic and product results; literal lookup did not locate a Clebsch passage.",
+          "identifier_or_url": "https://arxiv.org/abs/2410.02336",
+          "material_read": "Abstract, p. 1, offset about 590; literal Clebsch lookup",
+          "method": "Open PDF bounded passage",
+          "title": "On strong odd colorings of graphs",
+          "trigger": "Potential general class or graph product covering the claim"
+        },
+        {
+          "assessment": "General background; limited inspection, not a whole-document exclusion",
+          "evidence": "Sparse graph upper bounds do not calculate the Clebsch invariant in the passage read.",
+          "identifier_or_url": "https://arxiv.org/abs/2401.11653",
+          "material_read": "Abstract, p. 1, offset about 800; literal Clebsch lookup",
+          "method": "Open PDF bounded passage",
+          "title": "Strong odd coloring of sparse graphs",
+          "trigger": "Original parameter and generic bounds"
+        },
+        {
+          "assessment": "Different invariant and incidence structure",
+          "evidence": "120 proper bicolorings of the lines of AG(2,4), organized by a balanced parallel direction.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-six-point-recolouring-of-affine-plane-bicolorings--8979f0047aa2",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp six-point recolouring of affine-plane bicolorings",
+          "trigger": "Plausible sixteen-point finite-geometry census"
+        },
+        {
+          "assessment": "Different graph and scope",
+          "evidence": "Optima of Q_d do not yield the open-neighborhood strong odd spectrum for the degree-five Clebsch graph.",
+          "identifier_or_url": "2026/11/22/SCOPE-parity-split-strong-odd-colorings-of-even-boolean-cubes-q-d--3dbef98168c9",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Parity-split strong odd colorings of even Boolean cubes",
+          "trigger": "Potential binary graph equivalent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and lines 17–42; prior Clebsch odd-independence discussion in arXiv:2509.20763"
+      ],
+      "rationale": "The Clebsch graph is a canonical triangle-free graph and the strong odd condition is motivated independently of this computation. The exact classification is stronger than the optimal chromatic number: it gives all allowable blocks, the complete spectrum, and the possible coordinate geometry of extremizers. These supply exact test data for graph-coloring bounds and distinguish optimal colorings that the minimum alone cannot distinguish.",
+      "residual_risks": [
+        "The value is as a structural result on one natural graph, not as a general theorem on strongly regular graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

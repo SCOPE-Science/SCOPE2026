@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:38:19.494189Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the torus the derivative equations in (X³,Y³,Z³) have eigenvalues 2−t (multiplicity two) and 2+2t; witnesses are (1,1,−2) for t=2 and (1,1,1) for t=−1 before taking cube roots. On a coordinate line with both remaining entries nonzero the determinant is 4−t², and coordinate vertices are not critical. Euler's identity puts these critical points on the sextic; the smooth locus is exactly the complement of {2,−2,−1} and the plane degree gives genus ten. In the connecting-isomorphism basis for H²(O(−6)), a reciprocal monomial with exponent β first becomes exponent 23β under Frobenius and is multiplied by F_t²² to restore the degree −6. Projection onto exponent α gives the coefficient of 23β−α; the frozen index convention places the multiplied-by-23 index in the row. Transposing produces the same block-rank conclusions here. As an exact reproduction I raised u²+v²+1+t(uv+u+v) to power 22 modulo 23 by 22 symbolic convolution steps in (u,v,t), with u=X³,v=Y³ and Z³ specialized to 1 (homogeneity determines the omitted exponent). Extracted all 100 matrix polynomials by the exponent rule, assigning zero to nonmultiples of three. Verified precisely 12 nonzero entries with the displayed positions and exact A=5t(t+2)^4 Q, B=5t(t−2)^12 Q, U=−t(t+2)^4(t−2)^11 R. An independent multinomial reconstruction also gives gcd(A,B,U)=t(t+10) and gcd(Q,R)=t+10. For replay, use case 3 of review_frozen_repro.py, or the equivalent recurrence: start D[(0,0,0)]=1 and add each coefficient to the six translated indices (2,0,0),(0,2,0),(0,0,0),(1,1,1),(1,0,1),(0,1,1) modulo 23 per step. In the six swap coordinates the scalar U blocks are all invertible or all zero. The four star coordinates split into a two-dimensional kernel and an invariant two-dimensional block on the common vector and the center; its off-diagonal coefficients A and 3B vanish together on the smooth locus. These subspaces are defined over F₂₃ and invertible blocks remain invertible after coefficient twists. Thus the geometric stable rank and the ordinary rank both equal 2·1[tQ≠0]+6·1[tR≠0], and a=10−rank. The factors are squarefree, the quadratic discriminants are 22,22,19 (nonsquares), and no root of tQR is singular. Root-set sizes 10 and 7 intersect in {0,13}; hence ranks 0,2,6 occur on 2,5,8 smooth geometric parameters. Direct finite-field elimination of H and H¹⁰ recovered ranks 0 on [0,13], 2 on [4,12,15], 6 on [5,9,11,19], and 8 on the remaining eleven rational values; the geometric statement comes from the factorizations and invariant blocks, not from this census. The smooth members at 0 and 13 have Cartier zero, hence are superspecial, and Badr–Bars Theorem 2.1 and Table 1 distinguish their automorphism groups in characteristic >21. The frozen verifier was inspected, not executed. No general-prime result, complete isomorphism classification, or Newton polygon stratification was tested or claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kudo–Harashita §7 states that their algorithm combined with Stöhr–Voloch can symbolically compute the Cartier–Manin matrix of an arbitrary plane curve. The inspected passage gives a method, not these factored polynomials or their stable-rank specialization analysis.",
+          "Badr–Bars already classify the automorphism groups of the special equations for a range including characteristic 23, so that part is credited to them."
+        ],
+        "reasoning": "General availability of a matrix algorithm does not settle polynomial factor collisions or stability under twists; a classification of automorphisms has a different conclusion altogether.",
+        "searches": [
+          "arXiv:2203.11801, literal match 'arbitrary plane curve', §7",
+          "arXiv:2208.12749 Theorem 2.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary/local mirror 2ab4759fb510",
+        "arXiv:2208.12749",
+        "arXiv:2211.16033",
+        "arXiv:2203.11801"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The closest cited arithmetic result changes the prime and thereby the Frobenius exponent, the coefficient polynomials and which marked parameters coincide. The usual Fermat superspecial case supplies at most one of the rank-zero examples. The focused search gave no additional primary passage."
+        ],
+        "reasoning": "The extra characteristic-23 roots and the split 2,6,8 ranks are not obtainable by substituting parameters into the characteristic-five statement. The group table and general algorithm do not give those conclusions without new symbolic and semilinear analysis.",
+        "searches": [
+          "Resultary 2ab4759fb510 local Finding",
+          "arXiv:2203.11801 §7",
+          "arXiv:2208.12749 Theorem 2.1/Table 1",
+          "focused primary-literature search for characteristic-23 Hasse–Witt strata of the symmetric sextics"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The defining sextics at t=0,−10 appear in the automorphism-group stratification in characteristic 0 or >21. The quasi-Galois point classification studies the same Hessian equation at −10 in characteristic zero.",
+          "For this pencil the a-number is the corank of Cartier, but p-rank is stable Frobenius rank; their equality relation here follows from invariant blocks, not the definition."
+        ],
+        "reasoning": "Recognizing the automorphism types, their named equations, or the dual Cartier description does not classify present stable ranks on the pencil. The characteristic-23 factor and block computation gives those ranks.",
+        "searches": [
+          "Resultary/local mirror: symmetric plane sextic p-rank, Hasse–Witt/Cartier–Manin rank, superspecial Fermat and Hessian sextics",
+          "arXiv:2208.12749 Table 1 and Theorem 2.1",
+          "arXiv:2211.16033 Theorem 4.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2ab4759fb510 has the identical marked equation in characteristic five and states rank 0, a=10 at t=0 and rank 8, a=2 at all other smooth t. There are no rank-2 or rank-6 strata there; 0=−10 in that field.",
+          "The same-pencil table in Badr–Bars for distinguished automorphism classes does not give any p-rank strata."
+        ],
+        "reasoning": "Neither table exhibits the exceptional polynomials, parameters or stable ranks for characteristic 23.",
+        "searches": [
+          "Resultary/local mirror: genus-ten symmetric plane sextic stable p-rank for X^6+Y^6+Z^6+t(X^3Y^3+Y^3Z^3+Z^3X^3)",
+          "Resultary 2ab4759fb510 Finding",
+          "Badr–Bars Table 1"
+        ]
+      },
+      "rationale": "The supported distinct finding is the complete characteristic-23 geometric Frobenius/Cartier rank classification for the marked pencil, not the known two plane equations or their automorphism classifications, the Fermat member's superspeciality, or the generic Cartier algorithm. The same-pencil characteristic-five calculation is substantial prior overlap, not a theorem covering characteristic 23.",
+      "residual_risks": [
+        "An unindexed characteristic-23 family calculation or a historical Cartier-zero result about the Hessian member might exist. No equivalent complete geometric profile was identified in the bounded comparisons."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong overlap for the marked family, different characteristic and rank strata",
+          "evidence": "In char 5 only t=0 has rank zero, and all other smooth marked members have stable rank eight.",
+          "identifier_or_url": "Resultary 2ab4759fb510",
+          "material_read": "Local mirror RESULT.md Finding, offset 0",
+          "method": "Statement comparison",
+          "title": "The 5-rank-eight stratum of a symmetric genus-ten plane-sextic family",
+          "trigger": "Same equation and same invariants"
+        },
+        {
+          "assessment": "Verifies the group assertion in the frozen theorem's characteristic, not Cartier arithmetic",
+          "evidence": "In characteristic zero or p>21 it associates the Fermat and t=−10 equations with (Z/6Z)²⋊S₃ and Hess₍₂₁₆₎ respectively.",
+          "identifier_or_url": "https://arxiv.org/abs/2208.12749",
+          "material_read": "PDF p. 3, Theorem 2.1 and Table 1, text offset about 10100",
+          "method": "Bounded primary-text/table inspection",
+          "title": "The stratification by automorphism groups of smooth plane sextic curves",
+          "trigger": "Exact distinguished sextics and possible broader classification"
+        },
+        {
+          "assessment": "Automorphism/quasi-Galois point overlap in characteristic zero",
+          "evidence": "Includes the t=−10 sextic in the characteristic-zero setting; no characteristic-23 Cartier conclusion in those results.",
+          "identifier_or_url": "https://arxiv.org/abs/2211.16033",
+          "material_read": "PDF setup p. 1 offset 1547, Theorem 4.3 and Remark 4.4 pp. 21–22 offset 52606",
+          "method": "Bounded primary-text inspection",
+          "title": "Quasi-Galois points, II: Arrangements",
+          "trigger": "Same Hessian sextic equation"
+        },
+        {
+          "assessment": "Supplies a general calculation method, not the factor or stable-rank census",
+          "evidence": "Symbolic computation for arbitrary plane curves using a basis of regular differentials and Stöhr–Voloch's formula.",
+          "identifier_or_url": "https://arxiv.org/abs/2203.11801",
+          "material_read": "PDF p. 26, §7, text offsets 100200–101888",
+          "method": "Located and opened conclusion",
+          "title": "Computing the space of differential forms of a plane curve and its Cartier-Manin matrix",
+          "trigger": "General Cartier algorithm might subsume the calculation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The pencil has geometrically distinguished smooth members and large inherited symmetry; its marking is natural and already used in the characteristic-five comparison. The exact Cartier-zero locus tests whether the two distinct highly symmetric members account for all superspecial parameters, and the nonzero split locates and counts every intermediate geometric rank, including the strata invisible over the prime field. Giving both invariants and a stable symbolic block calculation is useful for recognizing the special Jacobians or comparing prime characteristics. The contribution is not the known group labels or a finite point census alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

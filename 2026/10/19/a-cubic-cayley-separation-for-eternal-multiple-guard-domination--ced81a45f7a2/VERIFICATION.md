@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-Run the two self-contained scripts with Python 3:
+## correctness
 
-```
-python3 verify_incidence.py
-python3 verify_lcf.py
-```
+PASS
 
-Compare their entire output against `verify_incidence.out` and `verify_lcf.out`. The first algorithm enumerates each \(k\)-subset in affine point–line incidence coordinates, tests closed-neighborhood domination, then enumerates each injective old-to-new guard assignment via recursive bitmask search. It checks the explicit automorphisms and the single orbit of eighteen five-sets. The second builds the graph from the independent LCF representation `[5,7,-7,7,-7,-5]` repeated three times, represents candidates as sorted combinations, and tests movement with destination-subset dynamic programming. Exact assertions force both to reproduce the same finite counts.
+The bipartition cover inequalities exclude four guards and hence fewer by monotonicity. Two selected points in a five-set must share their vertical fiber, in which case the selected lines are the pencil through the omitted point; incidence duality gives the other five-sets. The displayed affine maps preserve edges; F and G generate an order-nine subgroup regular on each class, D interchanges classes and normalizes it, and DGD=G^-1 shows the extending group is nonabelian. Independent exhaustive enumeration using the affine adjacency and collision-free guard assignments found dominating-subset counts 0,18,423 for sizes 4,5,6, with 234 ordered legal five-state shifts and exactly one undefendable unoccupied vertex per five-set, all distinct. It reproduced 72,891 ordered six-state shifts and all 5,076 state/attack pairs, each with 25–81 distinct dominating destinations containing the attack target. Each source of a response can be reused indefinitely because the class of all dominating six-sets is closed under existence of a response to every attack. The 25–81 bounds are per source and attack, not per source alone. In the explicit five-set form the omitted point is fatal: a point-minority target containing it would need three entirely new lines but there are only two old point guards; a point-majority target would put its three points on a line through the attack, and both old point guards would be needed for the two new lines, leaving at most one other point of that target line reachable from the original pencil. Duality handles the other class.
 
-The checked domain is **all** \(\binom{18}{4}\), \(\binom{18}{5}\), and \(\binom{18}{6}\) vertex subsets, respectively. For every surviving five-/six-vertex dominating placement, the checker examines every unattacked/unoccupied vertex and all possible legal one-step guard movements to another dominating placement of the same size. In particular, 5,076 six-placement/attack pairs have valid responses, and their response counts range from 25 to 81. Once every such state has the property, induction gives the infinite-horizon game bound. The scripts do not establish novelty, universal statements for other graphs, or independent external certification.
+## originality
+
+PASS
+
+The supported distinct contribution is the exact configuration-level classification in the multiple-guard eternal game on Pappus, in particular universal winning across all dominating six-sets and the per-attack response counts. Neither the general existence of nonabelian Cayley gaps nor the ordinary Pappus domination census can be credited as distinctive. Whether Pappus's basic scalar pair was already included in the earlier computational survey remains an explicit risk.
+
+## value
+
+PASS
+
+The degree-three Cayley structure is a motivated boundary for the failed Cayley equality. Beyond computing two invariants, the exact winning-state and response classification distinguishes existence of a strategy from robustness to every minimum-size winning-class placement, with a sharp obstruction at the immediately lower size. These are independently useful features of a natural symmetric graph, not a tiny unmotivated sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

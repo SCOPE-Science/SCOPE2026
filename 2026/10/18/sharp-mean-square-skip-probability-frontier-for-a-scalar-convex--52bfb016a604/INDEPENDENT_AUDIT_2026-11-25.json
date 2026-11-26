@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:22:38.166976Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 17–116, VERIFICATION.md and verify.py",
+        "Condat–Richtárik arXiv:2207.12891, Algorithm 5, Appendix A.1"
+      ],
+      "rationale": "Substituting the two quadratic prox maps into Algorithm 5 gives the frozen M0 and M1, including the 1/p correction. Independently checked the claim's drift and W determinant with exact integer arithmetic: put A=pW and U_i=4p M_i. Each entry of 16p²(A−2pD I)−(1−p)U0^T A U0−p U1^T A U1 has degree at most six and vanishes at p=1,…,7. The determinant identity for A has degree at most five and likewise vanishes at those nodes after subtracting 4p²(3p+1)(15p²+10p+23). Evaluation outside the probability domain is only polynomial identity checking. This verifies the all-p algebra, not a finite-horizon extrapolation. The first principal minor and determinant give W positive definite. The unique positive root of D is the stated p*. Independence gives the conditional drift of z^T W z exactly as −2D E||z||² in expectation. Eigenvalue comparability gives an upper geometric bound above p*, a strictly growing geometric lower bound for every nonzero start below p*, and exact conservation with two-sided positive bounds at equality. At p=1 the argument still applies; p=0 is not defined. Also reconstructed the symmetric second-moment lift from (x²,xu,u²); with the same U_i, the cleared determinant of I−B is a polynomial of degree at most nine and gives 256p^6D at ten distinct positive integer nodes, verifying the supplementary D/16 determinant formula. The frozen verifier was inspected, not executed.",
+      "residual_risks": [
+        "Expectation results for the exact iid scalar iteration only; neither almost-sure instability nor another sampling schedule is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The RandProx sufficient condition in the unit K setting is gamma tau/p≤1.",
+          "The ProxSkip correspondence at gamma=1 uses tau=p; Theorem 3.6 in the original ProxSkip work analyzes its own probability-scaled iteration."
+        ],
+        "reasoning": "With both steps fixed to one the broader sufficient condition applies only at p=1. The probability-scaled version is a different update map for p<1.",
+        "searches": [
+          "Condat–Richtárik arXiv:2207.12891, Theorem 1 and Appendix A.1",
+          "Mishchenko et al. arXiv:2202.09357, Algorithm 1 and Theorem 3.6"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2207.12891",
+        "arXiv:2202.09357",
+        "Resultary 81fc4c4ccce8, 456450ab447a, 1201ae31b393 and 2cb0562d976d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general result neither places the exact frontier below one nor proves divergence on the side where its sufficient hypothesis fails.",
+          "The standard moment lift gives a method for computing a boundary, not the positive quadratic comparison and all-start divergence for these exact matrices without further analysis."
+        ],
+        "reasoning": "Specializing the algorithm identifies the test problem but specializing the known guarantee does not obtain the finding. The computed root and sign-definite drift settle nontrivial regimes on both sides and at equality.",
+        "searches": [
+          "arXiv:2207.12891 Algorithm 5, Theorem 1, Appendix A.1",
+          "arXiv:2202.09357 Theorem 3.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Algorithm 5 in arXiv:2207.12891 is exactly the parent iteration.",
+          "Resultary 81fc4c4ccce8 studies scalar equality-constrained RandProx-LC and its cumulative feasibility cost; Resultary 456450ab447a studies permanent finite identification in standard ProxSkip on affine quadratics."
+        ],
+        "reasoning": "An exact second-moment phase diagram for the two frozen update matrices would cover the claim under other coordinates, but neither related scalar formulation uses those matrices and that stability objective.",
+        "searches": [
+          "Resultary: exact threshold constant, same scalar RandProx-Skip model, fixed versus probability-scaled step sizes, and mean-square stability",
+          "Primary literature: fixed-step scalar RandProx-Skip exact mean-square stability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The returned exact thresholds refer to feasibility tuning, ProxSkip identification resonances, deterministic Schur stability, or one-step quantile Kaczmarz risk, respectively."
+        ],
+        "reasoning": "No exact boundary for this moment map is supplied by those records; a matching decimal alone would not establish coverage of the optimization dynamics and quantifiers.",
+        "searches": [
+          "Resultary exact threshold (sqrt(73)−7)/12 and second-moment stability searches",
+          "Resultary 81fc4c4ccce8, 456450ab447a, 1201ae31b393 and 2cb0562d976d"
+        ]
+      },
+      "rationale": "The algorithm and standard second-moment/Lyapunov tools are prior work. The inspected convergence theory and catalogue records do not give this fixed-unit scalar stability boundary, its geometric lower bound for every nonzero initial condition, or its critical conserved energy.",
+      "residual_risks": [
+        "Bounded literature and catalogue comparison cannot rule out an equivalent earlier random-matrix calculation under another formulation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers update rule and p=1 convergence in this fixed-step case, not exact frontier",
+          "evidence": "Appendix A.1 gives omega=1/p−1 and the ProxSkip correspondence with tau=p when gamma=1; the sufficient step bound becomes gamma tau/p≤1.",
+          "identifier_or_url": "https://arxiv.org/pdf/2207.12891",
+          "material_read": "PDF pp. 6 and 15, Theorem 1, Algorithm 5, Appendix A.1; extracted offsets 26340 and 60297",
+          "method": "Lawful OA PDF, targeted passage reading",
+          "title": "RandProx: Primal–Dual Optimization Algorithms with Randomized Proximal Updates",
+          "trigger": "Exact parent algorithm and strongest prior general guarantee"
+        },
+        {
+          "assessment": "Distinct probability-scaled iteration",
+          "evidence": "The proximal coefficient scales with the update probability, and the convergence theorem is for that update with a control variate.",
+          "identifier_or_url": "https://arxiv.org/pdf/2202.09357",
+          "material_read": "Algorithm 1, Theorem 3.6, targeted full-text offsets 24963 and 36753",
+          "method": "Lawful OA PDF, targeted passage reading",
+          "title": "ProxSkip: Yes! Local Gradient Steps Provably Lead to Communication Acceleration! Finally!",
+          "trigger": "Potential equivalent Bernoulli proximal iteration"
+        },
+        {
+          "assessment": "Different dynamics and objective",
+          "evidence": "It obtains 0<gamma tau<2 for a scalar equality-constrained RandProx-LC model and studies cumulative feasibility.",
+          "identifier_or_url": "Resultary 81fc4c4ccce8",
+          "material_read": "Local mirror RESULT.md Finding, offset 0",
+          "method": "Resultary search and local mirror statement reading",
+          "title": "Sharp cumulative feasibility tuning beyond the Bernoulli RandProx-LC step bound",
+          "trigger": "Exact scalar Bernoulli RandProx tuning"
+        },
+        {
+          "assessment": "Different event and algorithm",
+          "evidence": "The probabilities characterize permanent finite identification for standard ProxSkip, not second-moment stability for fixed unit dual and primal steps.",
+          "identifier_or_url": "Resultary 456450ab447a",
+          "material_read": "Local mirror RESULT.md, offsets 1974 and 6731",
+          "method": "Resultary search and local mirror passage reading",
+          "title": "Exact finite-identification resonances and optimal waiting time for Bernoulli ProxSkip on affine quadratics",
+          "trigger": "Exact Bernoulli probabilities for a quadratic ProxSkip model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof",
+        "arXiv:2207.12891, Algorithm 5 and Theorem 1"
+      ],
+      "rationale": "Fixing the steps as the frequency of a costly proximal update varies is a concrete tuning question. This canonical scalar case isolates the 1/p correction and supplies a sharp test of the gap between the known sufficient bound and actual stability, including a rigorously unstable region and a genuinely bounded nondecaying critical case. It is a useful benchmark and counterexample to unconditional fixed-step skipping rather than a general convergence theorem.",
+      "residual_risks": [
+        "The result does not predict performance or a safe threshold for other objectives, stepsizes, or sampling rules."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

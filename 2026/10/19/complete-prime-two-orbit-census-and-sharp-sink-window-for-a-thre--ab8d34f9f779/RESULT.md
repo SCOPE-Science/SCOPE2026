@@ -1,118 +1,55 @@
-# Complete prime-two orbit census and sharp sink window for a three-dimensional parabolic map
+# Floquet spectra of the asymmetric two-cycles of the three-dimensional parabolic map
 
 ## Finding
 
 For the real map
 \[
-F(x,y,z)=\bigl(a y^2,\;b y(1-z),\;c(1-x)\bigr),\qquad a,b,c>0,
+F(x,y,z)=(ay^2,\;by(1-z),\;c(1-x)),\qquad a,b,c>0,
 \]
-put \(B=b(c-1)\) and \(v=abc\). The number of distinct primitive two-cycles in the **entire real phase space**, counting cyclic interchange as the same orbit, is
+put \(B=b(c-1)\). For \(B>2\), each asymmetric primitive two-cycle (the two successive \(y\)-coordinates are neither equal nor negatives of each other) has two-step characteristic polynomial
 \[
-N_2=\begin{cases}0,&B\leq1,\\1,&1<B\leq2,\\3,&B>2.\end{cases}
+P_B(\lambda)=\lambda^3-\lambda^2+2(B^2-2)\lambda-4.
 \]
-For \(B>1\), the sole symmetric cycle has successive \(y\)-coordinates \(r,-r\), where \(r=\sqrt{(B-1)/v}\). Its two-step Floquet characteristic polynomial is
-\[
-P_{\rm sym}(\lambda)=\lambda^3-\lambda^2+4(B-1)\lambda-4(B-1)^2.
-\]
-It is a locally exponentially attracting two-cycle if and only if
-\[
-1<B<\frac{3+\sqrt5}{4}.
-\]
-At the upper endpoint a nonreal conjugate pair of Floquet multipliers lies on the unit circle, while the third lies strictly inside. For \(B>2\), two additional nonsymmetric primitive two-cycles exist. For **each** additional cycle,
-\[
-P_{\rm asym}(\lambda)=\lambda^3-\lambda^2+2(B^2-2)\lambda-4,
-\]
-with exactly one real multiplier in \((0,1)\) and a nonreal pair of modulus greater than \(2\). Thus neither additional cycle is locally attracting.
+The unique real multiplier \(\rho\) lies in \((0,1)\). The other two multipliers are nonreal conjugates of modulus \(2/\sqrt{\rho}>2\). In particular, each of these period-two orbits is a hyperbolic saddle with a one-dimensional local stable manifold and a two-dimensional local unstable manifold. The stable dimension and the complex expanding pair are not determined by the previously known determinant-four obstruction to attraction.
 
 ## Assumptions and scope
 
-The parameters \(a,b,c\) are strictly positive. No boundedness, positivity, or initial-condition restriction is imposed on the state \((x,y,z)\in\mathbb R^3\). A primitive two-cycle comprises two distinct points interchanged by \(F\). Its two-step multipliers are the eigenvalues of \(DF\) at the second point times \(DF\) at the first point. An exponentially attracting cycle means all these multipliers have modulus strictly less than one.
-
-For \(B>1\), define \(r^2=(B-1)/v\). The symmetric cycle is
-\[
-(a r^2,r,c(1-a r^2))\longleftrightarrow
-(a r^2,-r,c(1-a r^2)).
-\]
-When \(B>2\), let, independently for \(\varepsilon\in\{-1,1\}\),
-\[
-S_\varepsilon=\varepsilon\sqrt{(B-2)/v},\quad
-D=\sqrt{(B+2)/v},\quad
-s_\varepsilon=(S_\varepsilon+D)/2,\quad
- t_\varepsilon=(S_\varepsilon-D)/2.
-\]
-The two extra cycles are
-\[
-(a t_\varepsilon^2,s_\varepsilon,c(1-a s_\varepsilon^2))
-\longleftrightarrow
-(a s_\varepsilon^2,t_\varepsilon,c(1-a t_\varepsilon^2)),
-\qquad\varepsilon\in\{-1,1\}.
-\]
+The dynamics is on all of \(\mathbb R^3\). Multipliers refer to the derivative of the two-step return at a cycle point. The earlier full period-two census and the symmetric sink boundary are not claimed here. No assertion is made about higher periods or global invariant manifolds.
 
 ## Proof
 
-**Exact reduction.** Write \(s=y_0\), \(t=y_1\) on a two-periodic trajectory. The other coordinates are forced by the update equations:
+Set \(v=abc\). The invertible affine coordinate change \(X=bcx,\ U=\sqrt v\,y,\ Z=b(1-z)\) puts the map in the form
 \[
-x_0=a t^2,\quad x_1=a s^2,\quad
-z_0=c(1-a s^2),\quad z_1=c(1-a t^2).
+G(X,U,Z)=(U^2,\ UZ,\ X-B).
 \]
-The two remaining equations are exactly \(t=g(s)\) and \(s=g(t)\), where
+If \(U,V\) are successive values of the middle coordinate along a period-two orbit, its two points must be \((V^2,U,U^2-B)\) and \((U^2,V,V^2-B)\). Hence \(V=U(U^2-B)\), \(U=V(V^2-B)\), and both \(U,V\) are nonzero on a primitive orbit. For the asymmetric case \(U\ne V\) and \(U\ne -V\), subtraction and addition of the equations give
 \[
-g(u)=-B u+v u^3.
+U^2+UV+V^2=B-1,\qquad U^2-UV+V^2=B+1.
 \]
-Conversely, any solution of these two scalar equations lifts uniquely to a two-periodic point of \(F\) by the displayed coordinates. If \(s=t\), all three coordinates are fixed, so primitive two-cycles require \(s\ne t\).
+In particular \(UV=-1\) and \(U^2+V^2=B\). For \(B>2\), choosing \(U+V=\pm\sqrt{B-2}\) and \(U-V=\sqrt{B+2}\) gives such pairs: the two quadratic equations imply the original scalar equations by multiplying them by \(U-V\) and \(U+V\) and reversing the sum and difference. These identities specify the orbits to which the calculation applies.
 
-**Complete count.** Subtracting the equations \(g(s)=t\) and \(g(t)=s\), then factoring by \(s-t\), gives
+At the point with middle coordinate \(U\), the derivative is
 \[
-v(s^2+st+t^2)=B-1.
+J_U=\begin{pmatrix}0&2U&0\\0&V/U&U\\1&0&0\end{pmatrix};
 \]
-The left side is positive for distinct real \(s,t\), proving impossibility when \(B\leq1\). If \(s+t=0\), the equation becomes \(v s^2=B-1\), yielding exactly one symmetric orbit for each \(B>1\). If \(s+t\ne0\), adding the two equations and factoring by \(s+t\) yields
+the other derivative \(J_V\) is obtained by interchanging \(U,V\). Their product is
 \[
-v(s^2-st+t^2)=B+1.
+J_VJ_U=\begin{pmatrix}0&2V^2/U&2UV\\V&1&U^2/V\\0&2U&0\end{pmatrix}.
 \]
-Subtracting the two quadratic relations gives \(st=-1/v\), and therefore
+The trace is \(1\), the determinant is \(4U^2V^2=4\), and the sum of the principal two-by-two minors is
 \[
-(s+t)^2=(B-2)/v,\qquad (s-t)^2=(B+2)/v.
+-2(V^3/U+U^3/V)=2(U^4+V^4)=2(B^2-2),
 \]
-Nonsymmetric real solutions exist precisely when \(B>2\). For each of the two possible signs of \(s+t\), the sign of \(s-t\) merely interchanges the two points. Thus there are exactly two extra cycles, proving the count at all parameter values, including \(B=2\).
-
-**Floquet spectra.** At a state \((x,y,z)\), the Jacobian is
+using \(UV=-1\). This gives \(P_B\), and the same polynomial applies at the other point since both derivatives are invertible there. For real \(\lambda\),
 \[
-J(y,z)=\begin{pmatrix}0&2ay&0\\0&b(1-z)&-by\\-c&0&0\end{pmatrix}.
+P_B'(\lambda)=3(\lambda-1/3)^2+2(B^2-2)-1/3>0
 \]
-Substitution of the forced periodic coordinates into \(J(t,z_1)J(s,z_0)\) gives, using \(v s^2=B-1\) and \(t=-s\), the symmetric polynomial stated above. For nonsymmetric cycles use \(v st=-1\) and \(v(s^2+t^2)=B\) to obtain the second stated polynomial. These are identities in the original three-dimensional Jacobian, not merely the derivative of the one-dimensional cubic factor. In either case the trace of the two-step Jacobian is \(1\).
-
-**Sharp attraction boundary.** Set \(d=B-1>0\). For the symmetric characteristic polynomial \(\lambda^3+a_1\lambda^2+a_2\lambda+a_3\), the coefficients are \(a_1=-1\), \(a_2=4d\), \(a_3=-4d^2\). The strict degree-three Schur/Jury conditions are
-\[
-|a_3|<1,\qquad 1+a_1+a_2+a_3>0,\qquad
-1-a_1+a_2-a_3>0,\qquad
-1-a_2+a_1a_3-a_3^2>0.
-\]
-The first gives \(d<1/2\); on this interval the second is \(4d(1-d)>0\) and the third is \(2+4d+4d^2>0\). The fourth is
-\[
-1-4d+4d^2-16d^4
-=-(4d^2-2d+1)(4d^2+2d-1),
-\]
-strictly positive exactly when \(0<d<(\sqrt5-1)/4\). The intersection is precisely \(1<B<(3+\sqrt5)/4\). Smoothness of \(F\) and strict spectral contraction imply local exponential attraction. At the endpoint \(4d^2+2d=1\), factorization gives
-\[
-P_{\rm sym}(\lambda)=(\lambda-4d^2)(\lambda^2-2d\lambda+1).
-\]
-The quadratic has a nonreal unit-modulus pair because \(0<d<1\), and \(0<4d^2<1\). No nonlinear attraction claim is made at equality.
-
-For \(B>2\), the derivative of \(P_{\rm asym}\) is \(3\lambda^2-2\lambda+2(B^2-2)>0\) on the entire real line. Since \(P_{\rm asym}(0)=-4\) and \(P_{\rm asym}(1)=2(B^2-4)>0\), there is a unique real root \(\rho\in(0,1)\). The other two roots are nonreal conjugates whose product is \(4/\rho>4\); each consequently has modulus \(2/\sqrt\rho>2\). The additional cycles are unstable.
+when \(B>2\). Also \(P_B(0)=-4<0\) and \(P_B(1)=2(B^2-4)>0\). Thus the only real root is in \((0,1)\), and the product of the conjugate pair is \(4/\rho\). The return is a smooth local diffeomorphism at the orbit points because the determinant is nonzero. The local stable-manifold theorem for a hyperbolic fixed point of this return gives the stated dimensions.
 
 ## Verification
 
-The accompanying `verify.py` independently recomputes both difference/sum factorizations, the symbolic \(3\times3\) Floquet polynomials modulo the respective cycle equations, the Schur-factor identity, and exact state-update and Jacobian identities at five rational choices \(B=6/5,3/2,2,5/2,4\). Run `python verify.py` with SymPy installed. Finite checks are corroboration, not a substitute for the complete symbolic argument above.
+Run `python3 verify.py` with SymPy installed. The companion script works in the normalized coordinates, checks the symbolic characteristic polynomial of the full return derivative under \(UV=-1\), and verifies both asymmetric cycles at \(B=3\) with exact radicals. The run printed `ASYMMETRIC_FLOQUET_CHECK_OK`. These checks supplement the proof; root locations for all \(B>2\) follow from the monotonicity and product argument above.
 
 ## Relationship to prior work
 
-Wang, Tong, Li, Zhang, Iu and Li introduce the three-dimensional polynomial map as a precursor to a four-dimensional memristive extension. Their 2023 article gives fixed-point analysis and numerical parameter-dependent Lyapunov/bifurcation plots; the inspected article sections do not present the exact primitive-two census and three-dimensional Floquet stability boundary here. General one-dimensional odd-cubic period-two algebra contributes the scalar reduction, while the additional three-dimensional Floquet and Schur analysis is necessary to determine attraction. Published descriptions of complete two-cycle classifications for the Duffing and Bogdanov maps concern different planar systems and do not imply the present three-dimensional spectrum.
-
-## Limitations
-
-The classification covers primitive period two only, not higher periods, global basins, or the four-dimensional memristive extension. The characteristic polynomials determine linear stability; the possible nonlinear bifurcation type precisely at the unit-circle threshold is not established. The source-comparison claim is limited to the accessible full-text HTML representation, targeted searches and mathematical-record summaries; it does not certify absolute historical priority. The normalized threshold does not depend separately on \(a\), but individual orbit coordinates do.
-
-## References
-
-- M. Wang, L. Tong, C. Li, X. Zhang, H. H.-C. Iu and Z. Li, “A Novel Four-Dimensional Memristive Hyperchaotic Map Based on a Three-Dimensional Parabolic Chaotic Map with a Discrete Memristor,” *Symmetry* **15** (2023), 1879; first published 2023-10-06. DOI: https://doi.org/10.3390/sym15101879.
-- E. Iqbal, “Stability of Sampled-Data Systems,” *Introduction to Control Systems*, §7.4 (Jury stability test), https://eng.libretexts.org/Bookshelves/Industrial_and_Systems_Engineering/Introduction_to_Control_Systems_%28Iqbal%29/07%3A_Design_of_Sampled-Data_Systems/7.03%3A_Stability_of_Sampled-Data_Systems.
+Wang, Tong, Li, Zhang, Iu and Li, *Symmetry* **15** (2023), 1879, [DOI 10.3390/sym15101879](https://doi.org/10.3390/sym15101879), §2.1 Eq. (3), give the map. Their fixed-point analysis and numerical bifurcation plots are distinct from a two-step multiplier calculation. [The earlier golden-ratio sink-boundary and primitive-two-cycle census](https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-golden-ratio-sink-boundary-and-complete-primitive-two-cycle-ce--37fa6309f5c1/RESULT.md) gives the same asymmetric orbit equations and proves that their determinant is four, so the cycles are not sinks. The claim here is the exact asymmetric characteristic polynomial and the resulting hyperbolic type and multiplier gap, not the census or nonattraction alone. The statement-level comparison does not establish absolute historical priority.

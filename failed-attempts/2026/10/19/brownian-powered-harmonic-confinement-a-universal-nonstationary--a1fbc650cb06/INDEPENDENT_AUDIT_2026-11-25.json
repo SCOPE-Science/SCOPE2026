@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:58:02.243990Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, §§1–4, lines 54–128",
+        "Frozen VERIFICATION.md, lines 19–25 and check.py, lines 21–96"
+      ],
+      "rationale": "Condition on the independent stiffness path, using the adapted integrating-factor form e^(-A_t) times the integral of e^(A_s) against the thermal Brownian motion. The conditional mean is bounded by |x0| and the variance by 2Dt. In a common unit-time Brownian coupling put H=t^(1+p/2). Almost surely the endpoint b(1) is nonzero: on the last fixed fraction of the unit path the backward rescaled integral admits an integrable exponential majorant, and the contribution from before that fraction is O(H exp(-cH)) for path-dependent c>0. The scaled conditional variance therefore tends to D/(kappa sigma^p |b(1)|^p); the fixed baseline term in the new integrand tends to zero and the scaled initial term vanishes. This establishes the joint mixture, and continuous multiplication establishes the independent self-normalized limit. The half-normal small-ball density and E|Z|^(2/p) give the stated constant; symmetry gives the Cauchy law at p=2. Bounded moment truncations prove divergence at and above the threshold without assuming convergence of unbounded moments. The packaged numerical checker was inspected, not executed; its samples are not evidence of uniform integrability or an infinite-time proof.",
+      "residual_risks": [
+        "The stochastic convolution is interpreted using the adapted integrating factor, not an anticipative integrand in the original joint filtration.",
+        "No below-threshold prelimit moment convergence, rates, or correlated-noise extension is certified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gupta–Klapp (2026) §2, Eqs. (1a–c) and (2a–c), uses the quadratic stiffness with independent noise and fixed baseline. Its inspected long-time sections derive moment asymptotics, not the joint weak law.",
+          "The 2025 study instead uses a stationary Ornstein–Uhlenbeck stiffness."
+        ],
+        "reasoning": "The model overlap at p=2 and its moment results do not themselves imply the frozen limit, and stationary OU results have different hypotheses. The coverage finding rests on the exact all-p Resultary theorem.",
+        "searches": [
+          "arXiv:2609.33751v1 §§2, 5.2, 5.4",
+          "DOI:10.1088/1742-5468/ae09a5",
+          "Primary-literature search for a Brownian-powered confinement distributional scaling limit"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0700df2bd162",
+        "arXiv:2609.33751v1",
+        "DOI:10.1088/1742-5468/ae09a5",
+        "Resultary ac0f8defa0e9 (summary only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Resultary joint limit retains G; multiplying the second component by sigma^(p/2)|G|^(p/2) gives the independent self-normalized Gaussian component. The published infinite limiting moments force the prelimit divergence by bounded continuous truncation.",
+          "The t^(-1/2) second- and fourth-moment asymptotics for p=2 are compatible with the Cauchy law but do not determine it."
+        ],
+        "reasoning": "The extra formulations do not constitute a distinct result not already implied by the published theorem. Finite-time existence of moments likewise follows from the conditional Gaussian representation with bounded mean and variance.",
+        "searches": [
+          "0700df2bd162, Finding and Proof §§2–4",
+          "arXiv:2609.33751v1 §5.2 Eqs. (44)–(46), §5.4 Eq. (68)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "0700df2bd162, RESULT.md, Finding and Assumptions, offsets 75–2671 at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4: all p>0, independent Brownian motions, arbitrary nonnegative baseline, deterministic initial position, joint limit, Cauchy specialization and exact tail constant."
+        ],
+        "reasoning": "Set the published standard environment to B_t/sigma, lambda=kappa sigma^p and a=k0. The law of the full pair and its tail/moment threshold coincide, not merely the tail exponent. The publication is a separate indexed entry with a later catalogue date; priority is not inferred.",
+        "searches": [
+          "Resultary: Brownian-powered stochastic trap, Brownian stiffness, Cauchy limit and Gaussian-ratio heavy tails; exact hit 0700df2bd162"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed Resultary entry has the same constant, Gamma(1/2+1/p) times 2^(1/2+1/p)(D/lambda)^(1/p)/pi. The related excursion entry was not accessible beyond its search summary."
+        ],
+        "reasoning": "This is a continuum of distributional limits rather than a discrete table question. The exact theorem catalogue entry, not a matching moment or numerical value, supplies the matching dataset of statements.",
+        "searches": [
+          "Resultary source 0700df2bd162, exact Finding",
+          "Resultary related entry ac0f8defa0e9 (fixed-threshold excursion asymptotics)",
+          "Gupta–Klapp (2026) §5 asymptotics"
+        ]
+      },
+      "rationale": "A distinct published Resultary record, Brownian-powered stochastic traps have sharp heavy-tailed scaling laws (0700df2bd162), establishes the same principal theorem under a change of units. The remaining self-normalized display and divergence of renormalized moments follow immediately from the published joint convergence. This is a finding of verified equivalent coverage, not an assertion that the distinct record predates the frozen record or a claim about who proved the theorem first.",
+      "residual_risks": [
+        "No historical priority or exhaustive literature claim. An excursion-related catalogue hit was unavailable at statement level and is not used to support this verdict."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent coverage",
+          "evidence": [
+            "Same law with lambda=kappa sigma^p and environmental Brownian motion standardized; exact tail coefficient and moment threshold match."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/11/8/SCOPE-brownian-powered-stochastic-traps-have-sharp-heavy-tailed-scalin--0700df2bd162/RESULT.md",
+          "material_read": "Finding, Assumptions, and endpoint/tail proof; exact Finding at offsets 75–2671",
+          "method": "Statement and scaling comparison using local source mirror",
+          "title": "Brownian-powered stochastic traps have sharp heavy-tailed scaling laws",
+          "trigger": "Distinct exact-looking Resultary hit"
+        },
+        {
+          "assessment": "Model and long-time moments are covered; inspected passages do not give the joint first scaling limit",
+          "evidence": [
+            "Eqs. (1a–c),(2a–c) specify independent noises; §5 gives t^(-1/2) unscaled moment decay at quadratic stiffness."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.33751v1",
+          "material_read": "Abstract; §2 pp. 3–4; §5.2 Eqs. (44)–(46) and §5.4 Eq. (68)",
+          "method": "Lawful primary PDF, targeted mathematical passages",
+          "title": "Non-stationary Statistics and Energetics of Brownian Motion under Stochastic Harmonic Confinement",
+          "trigger": "Same quadratic stochastic stiffness model"
+        },
+        {
+          "assessment": "Different environmental dynamics",
+          "evidence": [
+            "Stiffness driven by a stationary Ornstein–Uhlenbeck process, not the stated Brownian power."
+          ],
+          "identifier_or_url": "https://doi.org/10.1088/1742-5468/ae09a5",
+          "material_read": "Abstract and model description",
+          "method": "Targeted OA reading",
+          "title": "Non-equilibrium fluctuations in a harmonic trap with annealed stochastic stiffness",
+          "trigger": "Related random stiffness model"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof",
+        "Gupta–Klapp (2026) §5.2 and §5.4",
+        "Resultary 0700df2bd162, Finding"
+      ],
+      "rationale": "As mathematics, the limit identifies the typical fluctuation scale in a nonstationary model where raw moments are influenced by rare small stiffness, and the independent self-normalization explains the source of the heavy tails. The endpoint concentration, not the textbook normal-ratio identity, is the substantive content. This assessment of scientific interest does not credit the frozen package with a separate contribution beyond the matched published theorem.",
+      "residual_risks": [
+        "This is a one-time law for a fixed independent Brownian environment model, not a pathwise or stationary limit."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

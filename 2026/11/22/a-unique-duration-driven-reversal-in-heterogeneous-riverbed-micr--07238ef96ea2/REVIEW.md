@@ -1,15 +1,21 @@
-# Assessment of the two-class phase-order crossover
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact affine solution of the reversible two-state mass equation gives an initial-state-independent difference between two protocols. Weighting two classes with opposed equilibrium rankings reduces the whole sign comparison to a ratio of two products of exponential relaxation factors. Each of the two logarithmic-derivative contributions to this ratio is strictly positive under the stipulated classwise speed order. The limiting values are exactly the positive ratio of relaxation-rate products and one, so the crossing classification, all equality boundaries, and weight window follow for all positive durations. The small- and large-duration asymptotics were derived from elementary series, and the example's claimed bracket is independently enclosed by exact rational arithmetic in `check.py`. Risk: the hypotheses impose a closed, well-mixed, two-class system with fixed phase-rate profiles; they do not represent general river dynamics.
+PASS
 
-## Originality — PASS on inspected evidence, priority provisional
+Each phase's map on the water fraction is p+s(x-p) with s=exp(-lambda t). Subtraction of the two compositions cancels the common coefficient of x, leaving (p_B-p_A)(1-s_A)(1-s_B) in each class. Thus the total difference has the sign of R(h)-q, where R=F_1/F_2 and F_j is the product of the two positive relaxation deficits. For each phase, a slower deficit divided by a faster one has positive logarithmic derivative: it is f(z_slow)-f(z_fast), where f(z)=z/(exp(zh)-1) is strictly decreasing in z for each h>0. The product is therefore strictly increasing. Its limits are q_0 and 1, neither reached at finite h, so even at q=q_0 or 1 the indicated strict signs follow. The algebra q=(1-w_1)d_2/(w_1 d_1) gives the claimed open weight interval. The product expansion R=q_0[1+((a_2-a_1)+(b_2-b_1))h/2+O(h^2)] gives the linear lower-boundary law; at infinity the slowest numerator relaxation sets 1-R, with multiplicity 2 exactly when a_1=b_1 and no denominator contribution of that order. This yields the logarithmic upper-boundary law with the stated constant. Independent bisection of the explicit difference for a=(1,3), b=(2,5), C=21/50, D=9/50 gives h_*=0.664242444373057 and opposite signs at the printed bracket endpoints. In the supplied rational bracket procedure the remainder of each exponential Taylor series has decreasing alternating terms beyond the cut, and monotone factor products and outward subtraction preserve enclosure. The uploaded script was inspected, not executed; the finite examples are not the proof.
 
-Mancini et al. (2023) measured particle-specific sedimentation rather than phase chronology; the paper was inspected through its introduction, model theory, experimental results, and discussion. Drummond et al. (2022) established the importance of water–sediment exchange with spatial transport and memory-based residence times; its actual equations and results were examined. Published neighboring stormwater and nutrient-removal ordering results concern different mass-balance or reaction structures. An earlier single-class hydrological mobile/bed protocol comparison proves duration-independent preference for one class, but does not give the unique mixture-induced reversal or its sharp composition window. Specific equivalence, broader-coverage, numerical-table and implication searches did not reveal this theorem. Limit: Akdogan and Guven (2024) is closely relevant but only its abstract was accessible; classic two-state matrix composition is existing mathematics and historical priority is not independently certified.
+## originality
 
-## Value — PASS
+PASS
 
-The object is motivated by measured differences in microplastic settling by particle type and the known importance of reversible bed–water transfer. The new calculation identifies a concrete interpretive pitfall: evaluating one polymer or only one timescale need not predict the phase-order preference for a heterogeneous pollutant load, and the preferred order can reverse exactly once with exposure duration. The exact weight bounds are useful when fractions and exchange rates can be measured and make a transparent benchmark for higher-fidelity models. Value is mathematical, not a claim of river-wide applicability or a calibrated management effect.
+Bounded pass for the two-class composition/duration phase diagram, not for the single-class swap identity, exponential-ratio monotonicity, or the observation that two materials may settle differently. The inspected indexed neighbors have timing or order effects, but not this conserved mixture and terminal objective with its exact open weight interval and unique scaled-duration root. Original primary microplastic full text retrieval was limited; that access limit is not negative evidence.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The exact boundary separates two physically interpretable explanations of a phase-order signal: different initial bed fractions cannot cause the sign under this model, but class composition and a change of common duration can. The sharp weight interval and its independence of the phase-duration ratio let one diagnose whether a reversal is possible without solving for the crossing. The endpoint formulas distinguish rapid emergence at one edge of the window from a log-diverging required duration at the other. This is a complete classification of a simple, motivated batch model, not a claimed field intervention.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

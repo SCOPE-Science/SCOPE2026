@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:16:32.174821Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–36 and 40–81",
+        "Frozen VERIFICATION.md and inspected verify.py (not executed); independent algebra and asymptotic proof check"
+      ],
+      "rationale": "The fixed-point residual is 4V_k. Independence gives U_{k+1}=(1+cβ_k²)U_k and V_{k+1}=(1−2β_k)²V_k+cβ_k²U_k. With y_k=V_k/(U_kβ_k) the coefficient of y_k is 1−4β_k+o(β_k) and the forcing is cβ_k+o(β_k), since β_k/β_{k+1}=1+o(β_k). The tail recursion is a weighted average with weights asymptotic to 4β_k and targets tending to c/4; the weights sum to infinity, proving convergence. The exact gamma product for U_k at b=1/2 then gives the critical p=1/2, including the positive constant there. Below b=1/2, summing log(1+cβ_k²) gives the stated leading logarithmic constant. For the path law put a_j=σβ_j/sqrt(2) and S_k=Σ_{j<k}a_j². Nonresonant u_k is a nonzero product whose tail log increments have mean −a_j²/2+O(a_j⁴) and variance O(a_j²). The series of centered increments divided by S_{j+1} converges almost surely by squared summability (compare Σ a_j²/S_{j+1}² with the integral of 1/s² away from zero); Kronecker's lemma yields log|u_k|/S_k→−1/2. Since a_k²=o(β_k), an envelope C exp[−(1/2−2δ)S_k] for |v_k| is eventually a supersolution: forcing from u_k is O(β_k exp[−δ S_k]) relative to this envelope and the homogeneous contraction is 1−2β_k. Letting δ decrease to zero and bounding the norm below by |u_k| gives the rate. A resonance is unique under strict step decrease; on survival the tail argument works, and on killing u stays zero and v contracts since Σβ_k diverges. This covers the stated boundary and resonance cases without relying on finite trajectory evidence.",
+      "residual_risks": [
+        "Mean-square classification is of the fixed-point residual, not of E||x_k||². The universal sharp norm rate excludes resonance, while the almost-sure convergence conclusion includes it. Results concern the frozen schedule and sign law in exact arithmetic."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bravo–Cominetti Theorem 2.5 requires (h2)(b), the finite sum of squared steps times unconditional noise second moments.",
+          "Cortild–Cartis's setup assumes the sampled operators are nonexpansive for almost every sample."
+        ],
+        "reasoning": "Here Σβ_j² E||M_{j+1}||²=2Σ(U_{j+1}−U_j)=∞. The sampled oracle F plus the frozen noise has first-coordinate multiplier 1+σ/sqrt(2)>1 when its first sign is positive, so it is not samplewise nonexpansive. These inspected convergence results do not subsume the pathwise statement in this regime, and do not give the exact residual asymptotics.",
+        "searches": [
+          "Bravo–Cominetti arXiv:2208.04193, Theorem 2.5",
+          "Cortild–Cartis arXiv:2604.22581, setup of Algorithm SKM",
+          "Tamizholi–Chandak–Singh arXiv:2611.13846v1, Proposition 3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–36 and 87–99",
+        "Tamizholi–Chandak–Singh arXiv:2611.13846v1 §4.3 and App. B.3",
+        "Bravo–Cominetti §2.2; Cortild–Cartis algorithm setup",
+        "Resultary 240e3393377a, 3b7d076b14fa and 518462160bee"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equation (23) bounds r_k below by 2σ²β_{k−1}²U_{k−1}. At b=1/2 the proof consequently obtains a lower bound of order k^(p−1), not the full k^(p−1/2) equivalent.",
+          "The end of the primary §4.3 explicitly distinguishes residual divergence from path divergence and says the iterates 'may still converge almost surely'."
+        ],
+        "reasoning": "That lower bound cannot establish the sharp boundary or equality limit. The stable-ratio analysis supplies the missing effective accumulation and the separate log-product/supersolution argument proves the path statement rather than inferring it from moments. The catalog hitting example concerns a different update and does not imply these facts.",
+        "searches": [
+          "Primary arXiv:2611.13846v1, Proposition 3 and equation (23) of App. B.3",
+          "Resultary 3b7d076b14fa; Bravo–Cominetti and Cortild–Cartis setups"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Primary §4.3 Example 3 (p. 10) uses the same F, x_0 and conditional two-sign noise; App. B.3 (pp. 20–21) contains the same U,V recursions.",
+          "Primary Proposition 3(b) imposes σB>sqrt(2), or p>1, rather than σB=1 as the exact transition."
+        ],
+        "reasoning": "The source's β and K_0 correspond to B and K on the overlapping schedules; this is not a new model under different notation. However, keeping all recent forcing rather than just the most recent summand changes the order from β_k²U_k to β_kU_k and cannot be recovered by renaming parameters.",
+        "searches": [
+          "Tamizholi–Chandak–Singh, arXiv:2611.13846v1, reflection and B.3",
+          "Resultary: stochastic reflection, mean-square divergence with almost-sure convergence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "240e3393377a is the assignment itself. Distinct 3b7d076b14fa describes a scalar stochastic reflected-gradient iteration with finite almost-sure hitting and exponential expected squared-error growth. Same-day 518462160bee concerns a stochastic Neumann inversion variance optimum."
+        ],
+        "reasoning": "The available indexed statements contain no counterpart of the exact limiting constants or pathwise rate for the specified diminishing-step reflection. The self-match is not evidence of independent coverage, and date is not used to rule out a distinct result.",
+        "searches": [
+          "Resultary: exact reflection mean-square noise boundary and almost-sure collapse; sharp reflected-gradient frontier"
+        ]
+      },
+      "rationale": "The original published reflection example and both second-moment recursions are prior, and so is qualitative residual divergence for b<1/2. The primary proof drops all but the most recent transverse forcing, giving sufficient divergence at b=1/2 only when p>1; its discussion says that the iterates may still converge almost surely. The distinct credit is the full variance-transfer equivalent, exact phase boundary and constant, precise subcritical-schedule log-growth constant, and a proven pathwise collapse with its norm rate. Neither the inspected generic convergence hypotheses nor the distinct indexed related phenomenon implies those exact results.",
+      "residual_risks": [
+        "The closest distinct indexed reflected-gradient example was compared at summary level. The inspected primary sections resolve the main overlapping model and general hypotheses, but do not establish global historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified shared model, recurrence and qualitative divergence results; sharp threshold and rate not supplied by the decisive passages",
+          "evidence": "App. B.3 drops the homogeneous term of the V recurrence to get Eq. (23), then proves p>1 divergence at b=1/2; §4.3 does not assert pathwise convergence.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.13846v1",
+          "material_read": "§4.3 Example 3 and Proposition 3 on p. 10 (offsets 40500–44283); App. B.3 and Eq. (23), pp. 20–21 (91909–97118)",
+          "method": "Versioned arXiv PDF via OA paper, locating and opening exact passages",
+          "title": "Optimal Last-Iterate Bounds for Nonexpansive Stochastic Approximation",
+          "trigger": "Identical earlier construction and possible boundary or rate coverage"
+        },
+        {
+          "assessment": "Inspected convergence criterion is not applicable to the frozen schedules",
+          "evidence": "(h2)(b) asks Σα_k²θ_k²<∞; the frozen weighted noise moment telescopes to a divergent product.",
+          "identifier_or_url": "https://arxiv.org/pdf/2208.04193",
+          "material_read": "Noise notation and §2.2, in particular (h2) and Theorem 2.5 (offsets 20037–22073)",
+          "method": "Lawful OA arXiv PDF passage inspection",
+          "title": "Stochastic fixed-point iterations for nonexpansive maps: Convergence and error bounds",
+          "trigger": "General almost-sure theorem with possibly growing martingale noise variance"
+        },
+        {
+          "assessment": "Samplewise nonexpansiveness distinguishes the inspected model from the frozen sign oracle",
+          "evidence": "The text assumes T_ξ nonexpansive for almost all ξ; the frozen sampled oracle expands along the u direction on a positive-probability sign event.",
+          "identifier_or_url": "https://arxiv.org/pdf/2604.22581",
+          "material_read": "Algorithm SKM and following nonexpansiveness and variance-at-solution setup (offsets 6500–9041)",
+          "method": "Lawful OA arXiv PDF passage inspection",
+          "title": "Stochastic Krasnoselskii–Mann Iterations: Convergence without Uniformly Bounded Variance",
+          "trigger": "Potential general convergence theorem despite unbounded oracle variance"
+        },
+        {
+          "assessment": "Conceptually related but not statement-level coverage on the accessible text",
+          "evidence": "The summary describes scalar reflected gradients with finite-time hitting and exponential expectation growth, not the diminishing-step multiplicative u and forced v recursions.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-mean-square-frontier-and-finite-hit-divergence-for-stochas--3b7d076b14fa",
+          "material_read": "Resultary indexed statement; matching full text not retrieved",
+          "method": "Resultary and targeted local-mirror retrieval",
+          "title": "Sharp mean-square frontier and finite-hit divergence for stochastic reflected gradients",
+          "trigger": "Closest distinct indexed pathwise versus mean-square example"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 15–32 and 55–81",
+        "Tamizholi–Chandak–Singh §4.3 Proposition 3 and App. B.3"
+      ],
+      "rationale": "Resolving the exact boundary in a published counterexample identifies the regime 1/2<p≤1 in which the prior sufficient test did not show divergence. It also explains how accumulated transverse noise changes the threshold and demonstrates almost-sure collapse at a quantitative rate despite a diverging expected squared residual. This is a meaningful sharp counterexample, not an arbitrary special schedule with a numerical constant alone.",
+      "residual_risks": [
+        "No universal phase transition for nonexpansive maps or other noise laws is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

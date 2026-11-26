@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:47:25.591661Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With the stated energy ordering, the aged coherence is c exp(iΩa). Integrating it over an equilibrium renewal interval gives χ=(E exp(iX)-1)/(im), X=ΩT>0 with E X=m. Purity is P0+2|c|²|χ|²; this is purity of the averaged state, not average trajectory purity. The chord function 2|sin(X/2)| is bounded by its concave majorant (2 sin(X/2) up to π; 2 thereafter). For m<π a supporting tangent contacts that majorant only at m, and at m≥π unit-circle equality forces odd multiples of π, with m=π forcing a point mass. All means ≥π can be represented by adjacent odd multiples. At the lower edge E(1-cos X)=0 is equivalent to full-turn support, which is feasible exactly for m≥2π because zero is excluded. Below 2π, the epsilon/2π law shows the limiting infimum. Convex mixtures at fixed mean and continuity give the entire displayed interval. Independent numerical age integrals at m/π=1/2, 1, 2, 3 confirmed the upper endpoints and exact full-turn cancellation to numerical precision (private replay: python3 /workspace/branches/independent_checks.py, qubit_check). No uploaded checker executed; finite checks alone do not prove the theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sevilla–Valdés-Hernández give a general reset-state representation and a purity expression with bounds by energy-basis variances, but do not optimize the chord at prescribed mean wait. Their equilibrate condition should not be used to infer pointwise convergence from a synchronized deterministic clock.",
+          "Wald et al. work with discrete-time reset gates and age ensembles; Rose et al. impose Poisson resetting. Neither clock restriction covers arbitrary positive continuous waiting lengths."
+        ],
+        "reasoning": "The general representation is background; the nontrivial fixed-mean upper envelope and its equality constraints do not follow from a purity bound by variances or from the restricted resetting classes.",
+        "searches": [
+          "arXiv:2209.05643 Eqs. (27), (42)–(43)",
+          "arXiv:2410.11497 §2",
+          "arXiv:1806.01298 §III"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d0c1369493e2 (self), 85f38297aeaf, 64a931ca3a9a",
+        "arXiv:2209.05643",
+        "arXiv:2410.11497",
+        "arXiv:1806.01298"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "N=1 in the shared-clock formula gives the same scalar factor |χ|², with T restricted to positive full periods precisely for cancellation. The same mean threshold follows by the gap conversion 2Ωμ, and the same infimum by the already given zero-wait limit.",
+          "Neither the discrete gate purity interval nor the general continuous-time reset formulas give the continuous concave chord majorant with its supporting-line contact sets."
+        ],
+        "reasoning": "The lower endpoint, including equality and nonattainment, is a prior-coverage component irrespective of priority. The half-turn upper classification and hence the joint exact interval remain distinct.",
+        "searches": [
+          "85f38297aeaf, Finding and Proof Step 1",
+          "arXiv:2209.05643, Eq. (42) and purity bound Eq. (43)",
+          "64a931ca3a9a, Finding and proof offsets 5500–8966"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The optimization is the exact range of |1-φ_X(1)| for positive X with prescribed E X, transformed by an increasing affine function of its square. General characteristic-function reference hits supplied definitions, not this sharp range.",
+          "For N=1 in 85f38297aeaf, diagonalizing the Rabi Hamiltonian gives an equatorial reset and the gap is twice its symbol Ω. Its purity is 1/2+|m_1|²/2, exactly the same positive affine function of the normalized chord square used here, up to the coefficient and baseline."
+        ],
+        "reasoning": "The equivalence transfers the known lower optimization to any fixed coherent reset matrix, since c only rescales the nonconstant term. It does not transfer a sharp upper result absent from that record.",
+        "searches": [
+          "Resultary lookup for fixed-mean renewal qubit stationary purity; 85f38297aeaf and 64a931ca3a9a",
+          "sharp bound distance characteristic function from 1 absolute first moment positive random variable 2 sin mean quantum speed limit state vector displacement"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "d0c1369493e2 is the same record, excluded as independent evidence.",
+          "85f38297aeaf states an exact Fourier formula for shared-clock Rabi qubits and its full-turn lower-endpoint attainment criterion, but no upper classification.",
+          "64a931ca3a9a classifies the full interval of a quarter-turn gate with integer waits. Its fixed-mean law has discrete allowed phase residues, unlike the continuously valued X here."
+        ],
+        "reasoning": "There is exact partial catalogue coverage, not coverage of the full interval. Sampling a continuous time law on integer gate steps is not an equivalence of the admissible laws or extremizers.",
+        "searches": [
+          "Resultary semantic search, d0c1369493e2, 85f38297aeaf, 64a931ca3a9a; local-mirror Findings"
+        ]
+      },
+      "rationale": "Pass for the sharp upper frontier and the resulting complete attainable interval. Neither the renewal-Fourier representation nor the full-turn lower edge is independently new. The latter has demonstrable equivalent coverage in a same-day indexed record, with timing/priority between the records unresolved. The strongest available comparisons do not supply the sharp all-law upper bound, its π transition or equality support as an ensemble-purity result.",
+      "residual_risks": [
+        "Priority between the overlapping same-day records is unresolved. The lower endpoint is not credited as new.",
+        "A specialist first-moment characteristic-function inequality may go beyond the references located by the targeted search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent lower endpoint, not full interval; chronological priority not established",
+          "evidence": "P_N is a sum of squared equilibrium Fourier coefficients; equality at the central term iff T is supported on multiples of π/Ω. For N=1 and energy gap 2Ω this is the reviewed lower edge.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-subextensive-r-nyi-entropy-and-a-sharp-attainment-threshold-for--85f38297aeaf/RESULT.md",
+          "material_read": "Finding, assumptions and Proof Step 1, offsets 350–3807",
+          "method": "Local mirror primary text",
+          "title": "Subextensive Rényi entropy and a sharp attainment threshold for shared-clock reset qubits",
+          "trigger": "Exact same-day lower bound and support threshold"
+        },
+        {
+          "assessment": "Structural analogue, not a controlling specialization",
+          "evidence": "Positive integer step lengths and a specific quarter-turn gate.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-three-sharp-reset-budget-thresholds-for-stationary-purity-of-a-c--64a931ca3a9a/RESULT.md",
+          "material_read": "Finding offsets 0–3675; proof offsets 5500–8966",
+          "method": "Local mirror primary text",
+          "title": "Three sharp reset-budget thresholds for stationary purity",
+          "trigger": "Exact purity interval and support classifications"
+        },
+        {
+          "assessment": "Known physical reduction, not a fixed-mean upper optimization",
+          "evidence": "Stationary density, purity functional and general energy-basis-variance bound.",
+          "identifier_or_url": "https://arxiv.org/abs/2209.05643",
+          "material_read": "PDF p. 7 Eq. (27) and p. 11 Eqs. (42)–(43)",
+          "method": "OA primary passages",
+          "title": "Dynamics of closed quantum systems under stochastic resetting",
+          "trigger": "Continuous-time resetting formulas for density matrix and purity"
+        },
+        {
+          "assessment": "Different time and reset model",
+          "evidence": "Discrete last-renewal ensemble; synchronized resetting need not reach a steady state.",
+          "identifier_or_url": "https://arxiv.org/abs/2410.11497",
+          "material_read": "§2, p. 3, offset 18456",
+          "method": "OA primary passage",
+          "title": "Stochastic resetting in discrete-time quantum dynamics",
+          "trigger": "Deterministic and stochastic reset resonances"
+        },
+        {
+          "assessment": "Poisson-only comparison",
+          "evidence": "Resets occur at constant rate Γ.",
+          "identifier_or_url": "https://arxiv.org/abs/1806.01298",
+          "material_read": "§III, p. 2, offset 13950",
+          "method": "OA arXiv copy after DOI access failure",
+          "title": "Spectral properties of simple classical and quantum reset processes",
+          "trigger": "State-independent quantum reset framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The physically prescribed mean imposes an attainable coherence budget, not just an age-average expression. The upper extremizer switches from a unique regular schedule to all mean-matched odd-half-turn laws; combining this with the known full-turn cancellation constraint decides exactly which purities a stationary clock can produce. The comparison includes broad and deterministic clocks and does not confuse time-phase convergence with the stationary ensemble.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

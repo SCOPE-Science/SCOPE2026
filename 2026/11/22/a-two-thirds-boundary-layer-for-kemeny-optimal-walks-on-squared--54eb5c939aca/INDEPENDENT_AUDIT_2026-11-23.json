@@ -1,0 +1,176 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:33:42.549381Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–91",
+        "Frozen VERIFICATION.md, lines 19–23",
+        "Frozen verify.py, lines 9–113"
+      ],
+      "rationale": "On the mean-zero space, L=I−P is positive definite exactly for connected support; inverse trace tends to infinity on approach to disconnected support. The feasible closed polytope with that extension gives attainment. The Hessian along a nonzero perturbation is positive by the inverse-trace square identity, and the mean-zero restriction is injective on the row-sum-zero perturbations, giving uniqueness. Rotation invariance forces orbit weights a,b. If 2a+2b<1, rescale both by 1/(2a+2b), preserving support and multiplying L by a factor greater than one, so the optimizer has no holding. Fourier modes give the displayed D_k; not all A_k and B_k agree. At ε=1, B_k/A_k=4−2A_k and ∑1/A_k=(n²−1)/6 give F′_n(1)=(n−1)(n−3)/2. At ε=0 there is disconnection for even n, and for odd n multiplication by two shows the two endpoint values coincide, so strict convexity excludes both. For n=5, the complete graph has ε=1/2 and K=16/5; independently for n=6 the modes give F_6(ε)=2/(3/2−ε)+4/3+1/(2ε), minimized at ε=1/2, K=13/3. The stated finite resolvent follows by partial fractions and sampling the reciprocal-cosine Fourier series, retaining multiples of n with sign (−r)^n and removing k=0. The comparison ε=n^(−2/3) bounds optimal excess by O(n^(4/3)), so the first positive term gives ε_n=O(n^(−2/3)). If n√ε_n stayed bounded on a subsequence, the near-π mode in the nonnegative second sum would alone add order n² above that first term, a contradiction for either parity. Thus (−r)^n→0 and the second term is asymptotic to n/(4√ε_n), forcing ε_n bounded below on the n^(−2/3) scale. The uniform scaled correction is x/32+1/(4√x), whose unique minimum is at x=4^(2/3) with value 3/(8·4^(1/3)); compactness gives both asymptotics. Substituting ε=1/2 gives the equal-edge comparison n²/15, and the pure one-hop sum is (n²−1)/6.",
+      "residual_risks": [
+        "The companion floating-point tests were inspected, not executed. They do not prove the global optimum or the infinite scaling law. K excludes the stationary mode and the extra return term of another convention; negative eigenvalues of periodic walks do not affect the positivity argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General reversible Kemeny design is a convex problem admitting an SDP; the resistance-design theorem identifies structural properties of its optimizer in the transitive case. Neither checked statement specifies the optimized orbit balance and sharp asymptotics on the squared cycle."
+        ],
+        "reasoning": "A general optimizer characterization or numerical procedure is not the evaluated singular solution. Generic uniqueness and symmetry do specialize mechanically and are credited to existing coverage.",
+        "searches": [
+          "Resultary: Robotic Surveillance Markov Chains Minimal Weighted Kemeny Constant general reversible Kemeny design convex semidefinite",
+          "Patel–Agharkar–Bullo, Section II, Theorem 4 and Problem 2",
+          "Ghosh–Boyd–Saberi, §5.2 and Eq. (2)"
+        ]
+      },
+      "checked_sources": [
+        "Ghosh–Boyd–Saberi SIAM Review 50 (2008); Patel–Agharkar–Bullo author manuscript; arXiv:2110.12614",
+        "Resultary 68c871d2f31e, 1e4c2afd1cba, 48efb02c97a3 and self-match 54eb5c939aca",
+        "Circulant index entries at DOIs 10.1134/S0037446624060107 and 10.1134/S106456242005035X (search descriptions only, access limitations above)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Doi et al. fix each transition weight at 1/4. The two same-graph SLEM records optimize a max-modulus objective and give designs on a different scale. The Möbius ladder has ring and antipodal rung edges with b_m∼(3/(2m))^(2/3), not two cyclic jump lengths 1 and 2."
+        ],
+        "reasoning": "A fixed equal-edge trace supplies one comparison value, and a max-modulus optimizer does not minimize the sum of all reciprocal Laplacian eigenvalues. The same-day 2/3 example is conceptually overlapping but does not fix the spectrum, stationarity equation or constants for C_n². No priority order is inferred from dates.",
+        "searches": [
+          "Doi et al., arXiv:2110.12614, Theorem 1.2 proof",
+          "Resultary: Exact Fastest Symmetric Mixing on Two-Hop Cyclic Networks SLEM second power every finite cycle",
+          "Resultary 48efb02c97a3, Möbius-ladder Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Kirchhoff/effective-resistance sum is n times the zero-target inverse trace. The relaxed total-conductance budget is n/2: all admissible stochastic edge weights obey sum w≤n/2. The resistance minimizer uses the full budget and is rotation invariant, so its weighted degree is exactly 1 and it is feasible with no holding. Ghosh–Boyd–Saberi give strict convexity, existence/uniqueness and orbit invariance in this formulation."
+        ],
+        "reasoning": "This is an exact alternative optimization formulation, not just an analogy. It covers existence, uniqueness, orbit reduction and saturation on the transitive graph. It does not evaluate the optimal proportion, weighted spectral sum, or boundary-layer coefficient. Published circulant-index hits are tracked separately as a risk for finite-resolvent priority.",
+        "searches": [
+          "Web: weighted circulant graph C_n(1,2) nearest and next-nearest neighbor arbitrary conductance Kirchhoff index resistance trace Laplacian optimal weights Kemeny cycle square asymptotic",
+          "Ghosh–Boyd–Saberi, Eq. (2), strict convexity passage and §5.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary match is the assigned record 54eb5c939aca. The distinct same-day boundary-layer record 48efb02c97a3 studies Möbius ladders. Doi et al. give exact values for the fixed equal-edge squared-cycle walk. Circulant-index search entries discuss closed expressions and fixed-graph asymptotics; original full text was not obtained for the two Springer entries."
+        ],
+        "reasoning": "No distinct matching optimized squared-cycle result appeared in the bounded checks. An exact fixed-weight entry is not a design minimum; the inaccessible papers remain a risk for the scope and priority of the resolvent itself, not negative evidence.",
+        "searches": [
+          "Resultary: two-thirds boundary layer Kemeny optimal walks squared cycles unique zero-hold trace inverse optimizer",
+          "Resultary: squared cycle C_n^2 Kemeny trace inverse optimization two orbit first hop second hop same day",
+          "Web: papers on the Kirchhoff indices for circulant graphs (DOIs 10.1134/S106456242005035X and 10.1134/S0037446624060107), full-text lookup"
+        ]
+      },
+      "rationale": "Pass is for the evaluated squared-cycle design: interior edge balance, parity-resolved response and optimized n^(−2/3) boundary layer with its correction constant. In particular, existence, uniqueness, symmetry and zero holding after budget normalization are already consequences of the effective-resistance framework and are not credited as independent novelties. The same-day Möbius-ladder result establishes a genuine analogous boundary layer, not this theorem for C_n². No inspected prior statement supplies the evaluated optimum or its asymptotics for C_n².",
+      "residual_risks": [
+        "Earlier general weighted-circulant formulas might cover the displayed finite resolvent under a Kirchhoff-index normalization. The verdict is grounded especially in the graph-specific optimized balance and sharp boundary layer, not priority of the resolvent as a stand-alone formula. Bounded searches do not certify historical uniqueness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broader coverage of unique, symmetry-preserving resistance optimization; does not evaluate the squared-cycle boundary layer in the passages checked",
+          "evidence": [
+            "Minimize R_tot subject to a fixed nonnegative conductance budget; R_tot=n tr(G+11ᵀ/n)^(−1)−n is strictly convex in edge weights. Uniqueness makes every graph automorphism preserve the optimal weights."
+          ],
+          "identifier_or_url": "https://www.stat.berkeley.edu/~aldous/206-RWG/RWGpapers/ghosh_boyd.pdf",
+          "material_read": "§1 Eq. (2), offsets 2550–5874; p. 7 strict convexity offsets 26300–28286; §5.2 p. 19 offsets 75500–77590",
+          "method": "OA original PDF, located and read bounded passages",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "Exact Kirchhoff index equivalence and broader uniqueness/edge symmetry"
+        },
+        {
+          "assessment": "General convex/SDP foundation, not the specialized spectral optimum",
+          "evidence": [
+            "Setup fixes stationary distribution and minimizes weighted Kemeny time over reversible chains on the supplied graph."
+          ],
+          "identifier_or_url": "https://motion.me.ucsb.edu/pdf/2014b-pab.pdf",
+          "material_read": "p. 1 abstract and §II Theorem 4 / Problem 2, p. 4, offset near 26000",
+          "method": "OA original author manuscript passages",
+          "title": "Robotic Surveillance and Markov Chains With Minimal Weighted Kemeny Constant",
+          "trigger": "Same objective for general reversible Markov-chain design"
+        },
+        {
+          "assessment": "Fixed equal-edge specialization; no design conclusion",
+          "evidence": [
+            "Gives exact h_N(0,l) for probability 1/4 per neighbor, not independently variable weights."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2110.12614",
+          "material_read": "p. 1 abstract; p. 2 Theorem 1.2 and its derivation, offset 6500",
+          "method": "OA original PDF passages",
+          "title": "On the Average Hitting Times of the Squares of Cycles",
+          "trigger": "Identical graphs and an exact hitting-time formula"
+        },
+        {
+          "assessment": "Different objective and different optimal weights",
+          "evidence": [
+            "Minimizes ||P−J||₂ and has positive holding; its uniqueness statement is limited to the edge-class-uniform family."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-exact-fastest-symmetric-mixing-on-two-hop-cyclic-networks--68c871d2f31e",
+          "material_read": "RESULT.md offsets 0 and 6117",
+          "method": "Local Resultary mirror",
+          "title": "Exact Fastest Symmetric Mixing on Two-Hop Cyclic Networks",
+          "trigger": "Identical support and optimized orbit weights"
+        },
+        {
+          "assessment": "Global SLEM optimization, not inverse-trace optimization",
+          "evidence": [
+            "Optimal one-hop probabilities for its objective are of order n^(−2), with different even and odd limiting constants."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-fastest-mixing-on-the-second-power-of-every-finite-cycle--1e4c2afd1cba",
+          "material_read": "RESULT.md offsets 0 and 6428",
+          "method": "Local Resultary mirror",
+          "title": "Exact Fastest Mixing on the Second Power of Every Finite Cycle",
+          "trigger": "Same graph family and asymptotic one-hop probabilities"
+        },
+        {
+          "assessment": "Comparable mechanism on a different graph; does not subsume C_n²",
+          "evidence": [
+            "Unique zero-hold Kemeny design and exact scalar formula; the Möbius-ladder rung weight is asymptotic to (3/(2m))^(2/3)."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-kemeny-optimal-stochastic-walks-on-m-bius-ladders-a-two-thirds-r--48efb02c97a3",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Kemeny-optimal stochastic walks on Möbius ladders: a two-thirds rule",
+          "trigger": "Distinct same-day exact design and same scaling exponent"
+        },
+        {
+          "assessment": "Unresolved coverage of the finite resolvent; not evidence against or for it",
+          "evidence": [
+            "The visible description mentions closed analytical formulas and cubic-polynomial plus exponentially vanishing behavior for circulant families; scope over continuously varying weights was not verified."
+          ],
+          "identifier_or_url": "https://doi.org/10.1134/S0037446624060107",
+          "material_read": "Search-result description only; no original full text read",
+          "method": "OA direct and VPN retrieval attempted on the Springer article; both failed with redirects. A targeted full-text lookup did not identify a lawful alternate.",
+          "title": "The Kirchhoff Indices for Circulant Graphs",
+          "trigger": "Potential prior closed formula for weighted circulant index, equivalent to nK"
+        },
+        {
+          "assessment": "Unresolved as to finite-resolvent coverage; no scientific verdict from access status",
+          "evidence": [
+            "The visible description mentions a cubic polynomial in n plus exponentially vanishing term; the weighted hypotheses and any design comparison were not established from the original."
+          ],
+          "identifier_or_url": "https://doi.org/10.1134/S106456242005035X",
+          "material_read": "Search-result description only; no original full text read",
+          "method": "OA direct and VPN retrieval attempted on the Springer article; both failed with redirects. Targeted full-text lookup did not identify a lawful alternate.",
+          "title": "Kirchhoff Index for Circulant Graphs and Its Asymptotics",
+          "trigger": "Alternative finite-index and asymptotic formulation for circulant graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, §§2–4 and objective comparisons",
+        "Doi et al., Theorem 1.2; same-graph SLEM records 68c871d2f31e and 1e4c2afd1cba"
+      ],
+      "rationale": "The graph remains a natural sparse test case for optimizing average travel times, and the singular optimum distinguishes this objective from equal weighting, removing a channel, or minimizing worst spectral contraction. The fractional exponent and correction follow from competing low-frequency costs near 0 and π and quantify how a nearly dominant jump type must be regularized even when it stays connected. These are useful precise design laws beyond the known general convex formulation.",
+      "residual_risks": [
+        "The proof concerns symmetric walks with the uniform stationary law and two jump lengths; it does not transfer unchanged to asymmetric walks, different edge budgets, or other supports."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

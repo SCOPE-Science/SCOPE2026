@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,25 +19,24 @@
 }
 ---
 
-# Verification of the universal Italian-corona transform
+# Independent mathematical audit
 
-## Proof-level checks
-The partition by positive core support \(P\) is unique. The five valid states at a positive core are \((1,1),(1,2),(2,0),(2,1),(2,2)\), producing \(z^2(2+2z+z^2)\). A zero core with a positive base neighbor allows leaf labels one and two, producing \(z(1+z)\); a zero core without a positive base neighbor forces leaf label two, producing \(z^2\). This is necessary and sufficient locally, with no interactions after \(P\) is fixed. Their product over the three disjoint core classes is the claimed polynomial summand.
+## correctness
 
-For the minimum-weight consequence, the set \(P\cup(V\setminus(P\cup B_G(P)))\) dominates the base and has \(n-b_G(P)\) vertices, showing \(b_G(P)\le n-\gamma(G)\). A minimum dominating set attains equality. Every maximizing subset contributes exactly \(2^{|P|}\) to the leading coefficient. The scalar part was proved by earlier literature, not newly discovered here.
+PASS
 
-## Independent code paths
-The file `verify.py` uses standard-library `itertools.product` to enumerate valid Italian labels directly and a separate subset convolution to compute the claimed formula. It checks every labeled simple graph with one through four base vertices, plus four distinct five-vertex graph families. It also checks \(\gamma(G)\) and the explicit minimum multiplicity. It reports `VERIFY_OK`.
+Fix the support P of positive base labels. On P the valid root/leaf pairs are (1,1),(1,2),(2,0),(2,1),(2,2). Outside P the leaf cannot be zero, and it may be 1 exactly when a positive base neighbor is present; label 2 is always sufficient. This establishes independence of the local choices, all three weight factors, and unique decomposition by P. No connectivity assumption was used. Adjoining to P all vertices outside P and its boundary gives a dominating set of size n−b(P); any minimum dominating set attains the bound, so the least exponent is n+γ(G). Exactly the maximizing supports contribute there, with local constant term 2 per positive root. Evaluation at one is direct. Independent exhaustive base-3 enumeration for all 75 labeled bases of orders 1–4 compared 1,215 coefficient positions with the product; it reproduced the stated two-vertex-edge polynomial and the K3 leading coefficient 6. This was separate from the inspected, unexecuted supplied checkers; their larger counts are package-reported, and neither computation substitutes for the general proof.
 
-The file `verify_all_small.cpp` is an independent C++17 implementation: it enumerates all \(3^{2n}\) full root/leaf labelings for each of all 1,099 labeled simple base graphs with \(1\le n\le5\), compares 22,719 exact coefficient positions with the boundary transform, and separately checks minimum weight and minimum coefficient. Its final report is `VERIFY_OK graphs=1099 coefficient_comparisons=22719`.
+## originality
 
-Reproduction commands from the package directory:
+PASS
 
-```sh
-python3 verify.py
-c++ -O3 -std=c++17 verify_all_small.cpp -o verify_all_small
-./verify_all_small
-```
+Pass for the all-base all-weight Italian transform and general minimum multiplicity formula, not the scalar minimum or any priority claim on cycle bases. In addition to already known sunlet minima, an earlier record gives the entire polynomial for sunlets. No inspected broader statement effects this substitution for unrestricted Italian labelings of arbitrary one-leaf coronas.
 
-## Scope and limits
-All numerical comparisons are finite tests rather than all-order proof or historical priority evidence. The proof covers every finite simple graph with one leaf per base vertex. The unrestricted enumeration is potentially exponential in the base order; the code does not assert a polynomial-time algorithm. There has not been an independent mathematical audit.
+## value
+
+PASS
+
+This identifies sufficient base-graph information for every coefficient of a natural enumerator, for arbitrary cyclic or disconnected bases as well as trees. It also gives an explicit census of all optimizers, not just the already known minimum. Replacing enumeration of labelings on 2n vertices by a structural subset sum is useful without implying polynomial-time complexity. The all-base reduction, not repetition of the known sunlet counts, is the contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

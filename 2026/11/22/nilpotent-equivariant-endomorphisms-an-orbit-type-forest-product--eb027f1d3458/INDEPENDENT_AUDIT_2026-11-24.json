@@ -1,0 +1,172 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:26:33.745499Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–56",
+        "Frozen VERIFICATION.md and check_nilpotent.py, read only",
+        "/workspace/review-evidence/reproduce.py 2; /workspace/review-evidence/reproduce-2.txt"
+      ],
+      "rationale": "An equivariant map out of G/H_i is uniquely determined by an H_i-fixed image of H_i, and onto its chosen destination orbit. There are w_i=|N_G(H_i):H_i| choices on each same-type target. Between distinct types a map strictly decreases the finite orbit cardinality; equal-sized nonisomorphic orbits admit no maps. A finite orbit path eventually reaches the basepoint if and only if it avoids nonbase cycles, and such cycles can only lie within a single block. Thus independent type blocks have R_i external choices at each forest root and w_i labels on each internal arrow. As an independent check of the determinant, adjoin the sink and orient a labeled tree toward it. In a Prüfer sequence of length m−1 the sink appears d−1 times for degree d, so the weighted count sums binom(m−1,d−1)m^(m−d)R^d w^(m−d) over d=1,...,m, giving R(R+mw)^(m−1), including m=1. With no nonbase copies there is exactly the zero map. Two identical types give 1+2w; distinct ones give 1+h_ij+h_ji, as at most one cross-arrow can be used. Known orbit sizes orient the only possible nonzero entry, and ties give two zero entries. Under the GAP convention the resulting matrix is transposed; the fixed-point data are the same. The sharp index is the maximal number of available copies along a chain of admissible type quotients: follow all copies of these types in order, send remaining orbits to the basepoint, and count the arrows until absorption. A singleton pointed space has index one. The strict-size argument specifically uses finiteness of the orbits; the proof need not assert that a finite acting group is independently necessary for that step.",
+      "residual_risks": [
+        "The independent point-map check covers a C2 mixture with other fixed points (63 nilpotents of 441 equivariant maps) and two equal-sized incomparable V4 orbits (one of nine). The arbitrary mixture and inverse statements rest on the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The relative-rank paper gives orbit/block and wreath-product structure; its counting problem is not the pointed nilpotent subfamily.",
+          "The cardinality paper counts all equivariant maps and units, without the acyclicity constraint. The Green-relations paper studies classes and elementary collapsings; those results do not count nilpotent maps or reconstruct the marks from them.",
+          "The focused external query returned unrelated nilpotent orbit topics, not a passage bearing on the finite-action census."
+        ],
+        "reasoning": "The block structure and generic directed matrix-tree result are established tools. To get this mixed-type product it remains to identify the independent cycle constraints and the correct external-exit weights from strict size descent. An unrestricted enumeration gives no automatic count of that constrained subfamily.",
+        "searches": [
+          "arXiv:2203.12158v3, §2.1 Proposition 9 and §3",
+          "arXiv:2503.03772, §2 Theorems 5 and 7",
+          "arXiv:2503.14511, abstract and §§3–4",
+          "Focused primary-literature query on nilpotent equivariant finite G-set maps and mixed-orbit forest enumeration"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary/mirror 3aa290484152, 5c12e7f8630c",
+        "Al-Aadhami thesis, White Rose eTheses 19494",
+        "Castillo-Ramírez–Ruiz-Medina 2203.12158v3",
+        "Ruiz-Medina 2503.03772",
+        "Ruiz-Medina–Lara-Gómez 2503.14511",
+        "GAP Reference Manual §70.1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Combining the known partial wreath total with the isotypic phase group gives the homogeneous product exactly. The classical forest theorem then supplies each determinant once R_i is known; it is not a new tree-counting method.",
+          "The mixed result relies on an orbit graph with strictly decreasing type sizes on cross-type arrows. Its inverse uses a diagonal two-copy probe and the size-oriented off-diagonal probe, rather than requiring the whole endomorphism monoid or computing fixed points directly. The regular-map record works in the opposite direction with a different input statistic."
+        ],
+        "reasoning": "The prior exact count and forest method should be credited. The additional content is why a nilpotence-constrained count decomposes for arbitrary mixed actions and why even a minimal two-orbit measurement family contains the entire directed marks table. The checked stronger structural statements do not themselves give this comparison between the two invariants.",
+        "searches": [
+          "Al-Aadhami §5.3.3 with Castillo-Ramírez–Ruiz-Medina Proposition 9",
+          "Ruiz-Medina Theorems 5 and 7",
+          "GAP §70.1",
+          "Resultary 3aa290484152 and 5c12e7f8630c, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Deleting the sink from a homogeneous pointed map converts it to a partial equivariant map: undefined values correspond to the sink. The thesis formula gives (1+n|G|)^(n−1) for free orbits.",
+          "Proposition 9 gives the isotypic wreath action of N_G(H)/H, so replacing the phase group by the Weyl group reduces the homogeneous specialization for any H to the same known count. This remains true if the phase group is trivial.",
+          "GAP's row-coset/column-subgroup indexing transposes h_ij; it does not change which marks are being recovered."
+        ],
+        "reasoning": "Under these identifications the complete homogeneous specialization is already covered, not only the free-orbit case. The mixed-type counts and nilpotent-probe inverse are not alternate notation for that specialization or for the definition of a mark.",
+        "searches": [
+          "Local Resultary: pointed nilpotent G-set endomorphisms, mixed orbit forests and reconstruction of marks",
+          "Al-Aadhami thesis, White Rose eTheses 19494, Corollaries 5.3.13 and 5.3.20",
+          "arXiv:2203.12158v3, Proposition 9",
+          "GAP Reference Manual §70.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record 3aa290484152 treats free regular orbits and a finer commutant spectrum in that case; it explicitly checks the known homogeneous total. Record 5c12e7f8630c uses marks to obtain rank counts of von Neumann-regular maps, not the nilpotent counts or their inverse.",
+          "The GAP marks tables are the invariant to be recovered, not a table indexed by these nilpotent counts. The thesis gives the exact homogeneous count, not a census by mixed stabilizer types."
+        ],
+        "reasoning": "The exact homogeneous match is real coverage regardless of notation. The checked neighboring results and marks tables do not tabulate the mixed nilpotent statistic or recover marks from the probes. A shared catalogue date establishes no priority order.",
+        "searches": [
+          "Local Resultary/mirror records 3aa290484152 and 5c12e7f8630c",
+          "GAP Reference Manual §70.1",
+          "White Rose eTheses 19494, Corollary 5.3.20"
+        ]
+      },
+      "rationale": "Credit the homogeneous nilpotent count, the isotypic wreath structure, the standard weighted forest enumeration and the table of marks itself. The supported distinct content is the arbitrary-mixture factorization in which the weights of exits are the cross-type marks, and its inverse giving all marks from the very restricted two-nonbase-orbit nilpotent probes. No inspected exact or stronger statement provided this forward-and-inverse relation for mixed types.",
+      "residual_risks": [
+        "A prior equivalent general weighted-forest theorem for finite group-action or category endomorphisms may exist outside the checked material; the focused query was not exhaustive.",
+        "The homogeneous count is not part of the originality judgment even for nontrivial stabilizers. The separate maximal-index bound is a consequence of the orbit-path description, not a priority claim here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent homogeneous count, also after reduction to a Weyl phase group",
+          "evidence": [
+            "The nilpotent sum has summands binom(n,s)·s n^(n−s−1)·|G|^(n−s), with the trivial group treated separately."
+          ],
+          "identifier_or_url": "https://etheses.whiterose.ac.uk/id/eprint/19494/1/asawer-thesis-v2.pdf",
+          "material_read": "Chapter 5, §5.3.3, Corollary 5.3.20 and the reference there to Corollary 5.3.13 (text offset 218900 onward)",
+          "method": "Official OA thesis PDF, bounded passage",
+          "title": "Combinatorial Questions for S wr T_n for a semigroup",
+          "trigger": "Prior exact nilpotent enumeration in a partial wreath monoid"
+        },
+        {
+          "assessment": "Prior structure and implication for homogeneous counts; different main invariant",
+          "evidence": [
+            "The isotypic endomorphism monoid is the transformation wreath product with N_G(H)/H under the stated subgroup assumption, automatic for finite G."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2203.12158v3",
+          "material_read": "§2.1, Proposition 9 (offsets 24100–28599); §3 setup",
+          "method": "OA primary HTML, bounded passages",
+          "title": "The relative rank of the endomorphism monoid of a finite G-set",
+          "trigger": "General orbit and homogeneous wreath structure"
+        },
+        {
+          "assessment": "All maps and units, not the nilpotence-restricted count",
+          "evidence": [
+            "The theorems count unrestricted equivariant endomorphisms and equivariant units."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2503.03772",
+          "material_read": "§2, Theorems 5 and 7 (offsets 9300–19298)",
+          "method": "OA primary HTML, bounded passages",
+          "title": "Cardinalities in finite monoids of G-equivariant functions",
+          "trigger": "Likely general enumeration on the same finite actions"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": [
+            "Studies Green relations via elementary collapsings; no target count in the inspected claims."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2503.14511",
+          "material_read": "Abstract and relevant §§3–4 passages",
+          "method": "OA primary HTML, bounded passages",
+          "title": "Green relations over finite monoids of G-equivariant functions",
+          "trigger": "Same transformation monoids; possible structural implications"
+        },
+        {
+          "assessment": "Same output invariant, not same means of recovery",
+          "evidence": [
+            "Marks are fixed-coset counts, with row the coset action and column the acting subgroup."
+          ],
+          "identifier_or_url": "https://gap-system.github.io/gap/doc/ref/chap70.html",
+          "material_read": "§70.1 (offsets 2200–4384)",
+          "method": "Public manual in website mode",
+          "title": "GAP Reference Manual: Tables of Marks",
+          "trigger": "Standard definition and possible exact identification of the inverse output"
+        },
+        {
+          "assessment": "Same homogeneous free-orbit total; different main spectrum",
+          "evidence": [
+            "Works only with free nonbase regular orbits, treats (1+bq)^(b−1) as known, and counts full commutant sizes by forest shape."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-nilpotent-equivariant-map-centralizers-a-rooted-forest-orbit-and--3aa290484152",
+          "material_read": "RESULT.md, Finding, Verification, Relationship to prior work and Limitations",
+          "method": "Local mirror and frozen ordinal 3",
+          "title": "Nilpotent equivariant-map centralizers: a rooted-forest orbit and full commutant spectrum",
+          "trigger": "Distinct exact overlap in forest-based nilpotent counts"
+        },
+        {
+          "assessment": "Different subfamily and implication direction",
+          "evidence": [
+            "Uses marks to count von Neumann-regular endomorphisms by rank; it does not count these nilpotent probes or recover the marks from them."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-regular-equivariant-endomorphisms-of-finite-g-sets-exact-rank-ce--5c12e7f8630c",
+          "material_read": "RESULT.md, Finding",
+          "method": "Local Resultary mirror",
+          "title": "Regular equivariant endomorphisms of finite G-sets: exact rank census",
+          "trigger": "Distinct marks-dependent rank-refined equivariant enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The acyclicity statistic gives a closed product across all stabilizer types rather than requiring exhaustive iteration of the full point maps. More importantly, the inverse shows exactly how a very restricted family of small probes determines a standard finite-group invariant once the transitive types and sizes are known. This is a usable information-recovery result for arbitrary actions, not a claim to recover the group or to recompute an already tabulated homogeneous count.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

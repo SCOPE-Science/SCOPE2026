@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:49:40.936135Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions and scope, Proof",
+        "Frozen VERIFICATION.md",
+        "/workspace/branches/2e008976-bfd0-44e9-b9fa-8036141eefb8/record4_repro.py"
+      ],
+      "rationale": "The odd subset-sum requirements at 3, 5 and 7 force those primes. At the stated multiplicities the only shapes are 105p, 315p, 525p, 735p and 105p². The two-hole extension step works because the old hole s-2 is reached from the translate and the translated interior hole d+2 is reached from the old interval when d≤s-2 and d≠s-4. For 315 the proper divisors total 309 and yield the two-hole interval; adding 315 gives the exact symmetric set A with nine missing values. For 1≤t≤103 the translates of the two long intervals in A bridge inside each employed run of coefficients, using t≤304 and t(v-u)≥11, and bridge runs by 12t≤120 for small t or 6t≤618 thereafter. The explicit low-end witnesses at 102 and 103 and symmetry close the ends. For every t≥104 the gap 309t+622 has no feasible coefficient: b≤308 leaves more than 624, b=309 leaves the missing 622, 310 through 314 are absent, and b≥315 leaves a negative number. For 105p the distinct gap 87p+190 is uniform; for 525p, 735p and 105p² the missing 14 excludes p≥17, and 17389 excludes the squared case p=13. The remaining positive cases were independently checked by exact subset-sum reachability, together with all shifts 1...103, the gap at 104, the 23 primes, and the 28 integers (minimum 3465, maximum 32445).",
+      "residual_risks": [
+        "Finite checks certify the stated finite premises and positives; the interval and missing-target arguments, not enumeration, prove the unbounded exclusions. No formal verification is inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 3.6 states Stewart's iff criterion for strictly increasing divisors of an odd n: after 1,3,5, the next divisor is at most σ_i-2 and differs from σ_i-4, or it equals σ_i-4 and the next after it equals σ_i-2.",
+          "Theorem 3.8 and Proposition 3.10 extend already almost practical odd integers; 315 is not almost practical. Resultary 4d74b378e55d classifies exactly three prime factors, not the four-prime layer."
+        ],
+        "reasoning": "Credit the general necessary-and-sufficient criterion even when the specific list is not printed. Its hypotheses are strictly increasing divisors of an odd integer, not an arbitrary two-block multiset of weights; its closure conditions do not apply to 315. The all-integer dilation theorem therefore needs a separate argument.",
+        "searches": [
+          "Jokar arXiv:2207.09053, §3, Proposition 3.6, Theorem 3.8, Proposition 3.10; Stewart DOI 10.2307/2372651",
+          "Resultary three-prime-support classification 4d74b378e55d"
+        ]
+      },
+      "checked_sources": [
+        "Jokar arXiv:2207.09053 §3",
+        "Stewart DOI 10.2307/2372651 via the Jokar restatement",
+        "OEIS A174535 and A174533",
+        "PhysicsForums 282657",
+        "Resultary 4d74b378e55d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The largest divisor must satisfy n≤σ(n)-n-2. For 105p this gives 18p≤190 (no prime p≥11); for 315p it gives 6p≤622 (thus p≤103), matching the bound from the abundance calculation on primes. For 525p and 735p it gives 58p≤990 and 102p≤1366, respectively; for 105p² it gives 18p²≤192p+190. Stewart's iff test decides the remaining finite candidates."
+        ],
+        "reasoning": "The known criterion plus these bounds gives an elementary decision route for the arithmetic classification; its routine implications are not treated as new. But neither the upper bound nor finite prime checks establish coverage by A+tA for all integers 1≤t≤103 or exhibit its uniform failure at all integers t≥104. The directly asserted dilation theorem survives the stronger-prior comparison.",
+        "searches": [
+          "Stewart's criterion as quoted in Jokar Proposition 3.6, PDF p. 4, offset 12170 onward; forum abundance computation; Resultary 4d74b378e55d"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Definition 3.4 gives 2<j<σ(n)-2, the same integer interval; A174535 identifies the odd members with Stewart's O*.",
+          "For prime p>7 the divisors of 315p split into D and pD with D the divisors of 315, so the achievable sums are exactly A+pA."
+        ],
+        "reasoning": "Almost practicality for 315p is exactly the prime specialization, not a reformulation holding for general t. For example t=3 makes the two divisor blocks overlap and t=2 introduces even weights. The inspected sources confirm the term almost practical; synonymy with near-practical was not established.",
+        "searches": [
+          "Jokar, arXiv:2207.09053, §3 Definition 3.4 and Remark 3.7; OEIS A174533 and A174535",
+          "Primary-literature terms almost practical, odd Stewart O*, and near-practical"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A174535 displays known individual odd almost practical integers; A174533 documents the general sequence and the two exceptional sums for its odd members.",
+          "The forum hit has the exact family and cutoff, by the proper-divisor sum 309p+624, but its assertion is about abundance and sums of abundant numbers, not complete subset-sum coverage."
+        ],
+        "reasoning": "Term membership and the same inequality for abundance do not establish the stronger covering property. The forum calculation is relevant credit for the cutoff as a necessary restriction, not evidence for positive coverage or for a theorem at composite or even t.",
+        "searches": [
+          "OEIS A174533 and A174535; local Resultary almost-practical support classification 4d74b378e55d",
+          "Exact-family search match 'Cases for 315p when p ≤ 103'"
+        ]
+      },
+      "rationale": "The distinct claim is the frozen Finding's explicit all-positive-integer dilation theorem for A+tA. The odd four-prime result is a correct arithmetic application; no independent priority credit is given for computing its list from a known odd-number decision criterion, for the prime-family upper cutoff, or for individual listed terms. Stewart's actual classification criterion has materially broader coverage of odd divisor sets than a closure theorem alone, but does not cover arbitrary integer dilations with repeated values or even weights.",
+      "residual_risks": [
+        "Stewart's original full text was not retrieved. The checked restatement and exact-family hit establish real prior coverage for the decision criterion and upper restriction, without settling all historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same definition and general iff divisor criterion, which covers the arithmetic decision problem; not a theorem on arbitrary dilations.",
+          "evidence": "Proposition 3.6 gives both successor alternatives; Theorem 3.8 and Proposition 3.10 assume an already almost practical odd base.",
+          "identifier_or_url": "https://arxiv.org/pdf/2207.09053",
+          "material_read": "§3 p. 4, Definition 3.4 through Example 3.11, PDF offset 12170 onward",
+          "method": "Literal locator followed by bounded original OA PDF passage",
+          "title": "On k-layered numbers",
+          "trigger": "Definition, exact Stewart decision theorem, and closure may dominate the arithmetic claim"
+        },
+        {
+          "assessment": "Credit the exact criterion as restated; unresolved risk of original examples or related consequences.",
+          "evidence": "Jokar labels Proposition 3.6 as Stewart Theorem 3 and Theorem 3.8 as Stewart Theorem 4.",
+          "identifier_or_url": "https://doi.org/10.2307/2372651",
+          "material_read": "Landing/abstract route only; statements compared in Jokar's §3 restatement, not the original theorem text",
+          "method": "Lawful OA route and repository-copy lookup; original full text not retrieved",
+          "title": "Sums of Distinct Divisors",
+          "trigger": "Stewart 1954 is the primary source of the odd-number criterion and could have related worked families"
+        },
+        {
+          "assessment": "Known terms and definitions, not the dilation classification.",
+          "evidence": "A174535 identifies Stewart's O*; A174533 discusses the excluded odd-case sums 2 and σ(n)-2.",
+          "identifier_or_url": "https://oeis.org/A174535 ; https://oeis.org/A174533",
+          "material_read": "A174535 offset 0; A174533 offset ~209",
+          "method": "Read bounded OEIS public entries",
+          "title": "Odd almost practical numbers; Almost practical numbers",
+          "trigger": "Potential exact sequence/table and terminology match"
+        },
+        {
+          "assessment": "Real overlap in a necessary restriction, but abundance is not almost practicality.",
+          "evidence": "Computes proper-divisor sum 309p+624 for prime p>7 and obtains abundance up to 103; does not assert subset-sum coverage.",
+          "identifier_or_url": "https://www.physicsforums.com/threads/cases-for-315p-when-p-103.282657/",
+          "material_read": "Problem and answer with proper-divisor sum",
+          "method": "Read targeted public discussion passage",
+          "title": "Cases for 315p when p ≤ 103",
+          "trigger": "Exact numerical family and boundary"
+        },
+        {
+          "assessment": "Same predicate, different number of distinct primes; explicitly excludes four-or-more-prime support.",
+          "evidence": "Exactly-three cases are 3^a 5^b 7^c with a≥2 and a+b+c≥5.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-three-prime-support-classification-of-odd-almost-practical-numbe--4d74b378e55d",
+          "material_read": "RESULT.md Finding and scope, mirror commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirrored original record",
+          "title": "Three-prime-support classification of odd almost practical numbers",
+          "trigger": "Nearest exact structural catalogue record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, sharp 315-extension interval lemma",
+        "Jokar Proposition 3.6",
+        "Independent bounded subset-sum replay"
+      ],
+      "rationale": "The useful result is the exact interval coverage threshold for a two-block dilation of the divisor subset sums of 315, with a uniform gap beyond the threshold even at parameters not representing a new prime extension. It shows how the nine base holes can all be bridged until the gap next to the last coefficient block becomes unavoidable. This explains the prime-family phenomenon rather than recomputing known sequence terms or certifying a finite list by a known algorithm.",
+      "residual_risks": [
+        "No general classification for larger exponent layers, or theorem for dilation of arbitrary divisor subset-sum sets, is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

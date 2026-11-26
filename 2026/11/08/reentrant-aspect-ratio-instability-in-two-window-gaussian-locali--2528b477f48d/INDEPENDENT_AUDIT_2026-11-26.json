@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T14:52:18.838707Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With the specified 2π modulation and L² normalization, completing the square gives overlap squared 2√(rt)/(r+t) times exp[−2π(rtx²+ξ²)/(r+t)]. The trace of the product of two rank-one projectors is the squared overlap; after expanding the incoherent mixture and using shift covariance, the two self terms are swapped anisotropic kernels and each cross term is κ_s exp(−πκ_s|z|²). The double integral on the rectangle factors, giving the stated weighted sum of J-products and evenness in u. For D=t∂_t, Q=DJ=t erf(√(πc)t)/√c and R=D²J=Q+2t²exp(−πct²), so a product contributes R_cJ_d+J_cR_d−2Q_cQ_d at the square. At small t use J_c(t)=t²−πct⁴/6+O_c(t⁶) with the corresponding derivatives from its convergent Gaussian power series, giving the claimed −π(s+s⁻¹+2κ_s²)A³/3 coefficient. At fixed s and large t, J_c(t)=t/√c−1/(πc) plus exponentially small error, including its fixed logarithmic derivatives. The leading terms of order A cancel from the Hessian, leaving −√A(√s+s⁻¹ᐟ²+2κ_s⁻¹ᐟ²)/(2π). At A=1 the large-c triple for c=s is (1,1,1)/√s+O(s⁻¹), the small-c triple for c=1/s is (1,2,4)+O(s⁻¹), and the cross term is O(κ_s²) because J R−Q² vanishes at c=0. Thus the intermediate Hessian is +1/(2√s)+O(s⁻¹). Analyticity in A>0 and the signs on both sides of A=1 give at least two distinct sign changes. For fixed s,A, the objective is positive and continuous and decays for |u|→∞ by J_small=O(width²) and J_large=O(width); it attains a maximum, and at A=1 strict local minimality excludes the square for sufficiently large s. Evenness gives a distinct reciprocal maximizer. No exact crossing count, uniqueness, or small/large-area global square optimum follows. Independent bounded replay: with mpmath at 40 decimal digits evaluate M_j(q)=∫_0^1(1−x)(qx²)^j exp(−qx²) dx for j=0,1,2, splitting at k/√q inside (0,1) for k=1,2,4,8,16. For q=πAc, w=πAd the product Hessian is 16A²[(M_2(q)−M_1(q))M_0(w)+M_0(q)(M_2(w)−M_1(w))−2M_1(q)M_1(w)]; combine the product terms with the weights in RESULT.md. For s=100 and A=0.001,1,10000 this gave −8.146393835963×10⁻⁸, 0.04065310698743, and −385.8368252347. These diagnostics are separate from the asymptotic proof. The uploaded checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Luef–Skrettingland allow any positive trace-one trace-class state in the operator convolution, which includes this mixture. Nicola–Riccardi optimize over a larger domain class for the radial kernel. Nicola–Tilli concern an operator norm rather than the squared Schatten-two norm."
+        ],
+        "reasoning": "The broad operator definition does not optimize aspect or give a Hessian. Optimization among all shapes for a different, radial kernel does not give the Hessian for this nonradial kernel among rectangles; the difference of norms also prevents the other bound from implying the claim.",
+        "searches": [
+          "Luef–Skrettingland arXiv:1802.02435, mixed-state localization",
+          "Nicola–Riccardi arXiv:2401.04659, radial rearrangement and unique optimizer",
+          "Nicola–Tilli arXiv:2207.08624, operator norm"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2401.04659",
+        "arXiv:1802.02435",
+        "arXiv:2207.08624",
+        "Resultary 2528b477f48d (self-match)",
+        "Resultary 3b58451d9d78",
+        "Resultary 2630c2d36d59",
+        "Resultary 8f05ef698573"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The mixed-state convolution and Gaussian overlap give the expression once expanded. The single-window radial optimizer uses a radial rearrangement. The indexed disk Hessian is at a different domain and the thin-rectangle law is for logarithmic probability mass, not the double integral."
+        ],
+        "reasoning": "General framework could produce an integral expression but does not force or predict a positive Hessian at area one amid two negative regimes. Evenness would give a reciprocal pair only after establishing global attainment and excluding the square; neither follows from radial rearrangement for another kernel.",
+        "searches": [
+          "arXiv:2401.04659 §3 single-window Hilbert–Schmidt radial double integral",
+          "arXiv:1802.02435 p. 3 operator convolution",
+          "Resultary 3b58451d9d78 and 8f05ef698573"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The underlying equivalent shape functional is an integral of the rectangle covariogram against the sum of two swapped anisotropic Gaussian kernels plus a radial cross term. The inspected Nicola–Riccardi analogue is the same type of double integral but with kernel exp(−π|z−w|²). The focused web lookup surfaced Gaussian fields and clustering statements, not competing shape theorems."
+        ],
+        "reasoning": "The single radial window is not equivalent for s>1: at equal radius the anisotropic sum is strictly larger on an axis than on a diagonal by strict arithmetic–geometric mean. One common rescaling cannot radialize the two reciprocal quadratic forms. No claim about priority relies on an irrelevant search result.",
+        "searches": [
+          "anisotropic Gaussian mixture covariogram rectangular domain fixed area aspect ratio shape optimization square reentrant Hessian localization operator reciprocal squeezed windows",
+          "Nicola–Riccardi arXiv:2401.04659, equation (3.5), Proposition 3.4 and Corollary 3.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed match 2528b477f48d is the assigned record itself. Distinct hits 3b58451d9d78 and 2630c2d36d59 treat single-window disk or ellipse perturbations, and 8f05ef698573 treats Gaussian probability mass of thin rectangles."
+        ],
+        "reasoning": "These are statement-level near hits but not prior exact formulas or tables for this continuous two-parameter observable. The exact self-match supplies no independent comparison.",
+        "searches": [
+          "Resultary reciprocal squeezed two-window Gaussian localization rectangle reentrant aspect-ratio Hessian",
+          "Resultary Gaussian localization Hilbert–Schmidt shape spectrum; anisotropic Gaussian thin-rectangle curvature"
+        ]
+      },
+      "rationale": "Pass the reentrant square-aspect stability and resulting reciprocal nonsquare maximizers for the balanced reciprocal-squeeze mixed-state squared Hilbert–Schmidt functional on rectangles. The general mixed-state convolution formalism, single-window localization isoperimetry, and other shape-curvature invariants are not credited as original. The most closely matching inspected primary energy uses a radial single-window kernel; the closest distinct indexed claims differ in kernel, shape class, or observable. No inspected match covers the three-regime statement.",
+      "residual_risks": [
+        "Equivalent fixed-area optimization for a sum of anisotropic kernels under other terminology may exist beyond the bounded covariogram/localization comparison. An unsuccessful focused web query does not settle historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same type of energy, different kernel",
+          "evidence": "For one isotropic Gaussian the integral kernel is e^{−π|z−w|²} and the area-constrained optimum is a ball; this argument requires the radial kernel.",
+          "identifier_or_url": "https://arxiv.org/abs/2401.04659",
+          "material_read": "Radial rearrangement discussion pp. 4–5; p. 9 equation (3.5), Proposition 3.4 and Corollary 3.5",
+          "method": "OA bounded reads at approximately offsets 7000 and 22500",
+          "title": "The quantitative isoperimetric inequality for the Hilbert–Schmidt norm of localization operators",
+          "trigger": "Closest primary covariogram formulation and shape-optimization theorem"
+        },
+        {
+          "assessment": "Operator framework, not the shape theorem",
+          "evidence": "H_Ω=χ_Ω⋆S, with positive trace-one trace-class S; the cited definition gives no fixed-area rectangle stability or maximization conclusion.",
+          "identifier_or_url": "https://arxiv.org/abs/1802.02435",
+          "material_read": "p. 3, definition of mixed-state localization",
+          "method": "OA bounded passage at approximately offset 9800",
+          "title": "Mixed-state localization operators: Cohen's class and trace class operators",
+          "trigger": "Broader theory containing the assigned operator"
+        },
+        {
+          "assessment": "Different norm/optimization",
+          "evidence": "The target is operator-norm bounds for symbols with Lᵖ constraints, not this mixed-state squared Hilbert–Schmidt aspect problem.",
+          "identifier_or_url": "https://arxiv.org/abs/2207.08624",
+          "material_read": "p. 1 abstract/scope",
+          "method": "OA bounded read at offset 0",
+          "title": "The norm of time-frequency and wavelet localization operators",
+          "trigger": "Related sharp optimization for Gaussian localization"
+        },
+        {
+          "assessment": "Different kernel and shape family",
+          "evidence": "Single isotropic Gaussian around a disk under smooth area-preserving perturbations.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-fourier-bessel-shape-spectrum-of-gaussian-localization-hil--3b58451d9d78",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary and mirror, offset 0",
+          "title": "Exact Fourier–Bessel shape spectrum of Gaussian localization Hilbert–Schmidt energy",
+          "trigger": "Closest distinct indexed shape Hessian of the same norm"
+        },
+        {
+          "assessment": "Different spectral functional and windows",
+          "evidence": "Top eigenvalue for one isotropic Gaussian on area-preserving ellipses.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-elliptic-shape-curvature-and-optimal-hermite-response-in-g--2630c2d36d59",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary and mirror",
+          "title": "Sharp elliptic shape curvature and optimal Hermite response in Gaussian localization",
+          "trigger": "Indexed Gaussian aspect variation near round shapes"
+        },
+        {
+          "assessment": "Different curvature and invariant",
+          "evidence": "Logarithmic curvature of probability mass under affine transformation of increasingly thin rectangles, not a covariogram-weighted mixed-state energy.",
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-commutator-law-for-gaussian-thin-rectangle-curvature--8f05ef698573",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary and mirror, offset 0",
+          "title": "Sharp commutator law for Gaussian thin-rectangle curvature",
+          "trigger": "Closest indexed anisotropic Gaussian rectangle curvature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The minimal reciprocal-squeeze mixture tests whether area and coordinate-swap symmetry enforce square stability for the natural Hilbert–Schmidt shape objective. They do not: the square is destabilized in a whole asymptotic squeezing regime, yet regains strict local stability at large area even at that squeezing. Three controlled asymptotics and existence of nonsquare global witnesses distinguish this from a single numerical symmetry-breaking instance. The conclusion is meaningful without determining the complete phase diagram.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

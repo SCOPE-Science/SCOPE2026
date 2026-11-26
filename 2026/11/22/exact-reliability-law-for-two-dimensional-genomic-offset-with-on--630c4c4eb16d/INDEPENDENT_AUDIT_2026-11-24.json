@@ -1,0 +1,173 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:09:13.695956Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–61 and 63–113",
+        "Frozen VERIFICATION.md and verification/check.py inspected without running uploaded code",
+        "Repaired RESULT.md, exact angular integral, derivative checks and rescaling argument; independent direct substitution for κ=4"
+      ],
+      "rationale": "The original formulas are mathematically correct, and the narrowed result in /workspace/repairs/3/RESULT.md was rechecked. For fixed architecture the Gaussian fourth-moment identity gives X=Q²/tr(A²), where Q=wᵀAw/(wᵀw) and w has covariance proportional to the positive definite environment-whitened GEA metric A. Normalizing and diagonalizing A gives Q=(κ²+T)/(κ+T) with T=(V/U)² for independent standard normals. Strict decrease for κ>1 gives the law, its nonattained endpoints, and the unique median at T=1; κ=1 is degenerate at 1/2. Averaging the squared quotient over the uniform angle of (U,V) yields the closed mean, and the derivative factorization proves strict monotonicity of the mean and median. Substitution at κ=4 confirms mean 10/17, median 17/25 and probability below 1/2 of about 0.37337399348. For the repaired centerpiece, at each fixed T the scaled deficit κ(1-X) tends to 2T, but T has infinite mean. Replacing T by κu² gives X=(1+u²)^(-2)+O(κ^-1) uniformly. The rescaled half-Cauchy density factor is bounded by 2/(πu²); multiplied by 1-(1+u²)^(-2) it is integrable and gives an integral of (2+u²)/(1+u²)² equal to 3π/4 before the factor 2/π. This proves the mean scale and constant, while the Cauchy tail at u tending to √(x^(-1/2)-1) proves the fixed-threshold constant. This is for the conditional mean loss, with probabilities over allelic effects, not a realized-fitness correlation.",
+      "residual_risks": [
+        "The proofs use Gaussian architecture and environmental laws, two positive eigenvalues, one trait and no direct environmental mismatch. No numerical sampling is used to justify a limit."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Forchini permits central Gaussian vectors and symmetric numerator and positive-definite denominator, applies to the exact converted spectral interval (1,κ) with one positive and one negative direction, and gives the CDF there. Squaring the positive quotient preserves the exact CDF after threshold transformation.",
+          "François provides the genomic model, fixed-realization correlation formula and deterministic spectral bounds; these are already covered. A conditional orientation example does not quantify probabilities of architectures.",
+          "Forchini determines finite-κ quantiles as well, so the median is not credited as an independent contribution. The checked exact CDF theorem does not alone perform the cross-κ integration needed to show the ensemble deficit scale versus a typical architecture's scale."
+        ],
+        "reasoning": "The original CDF contribution is covered by a stronger result after direct substitution, even though Forchini does not print the arctangent form verbatim. In the repaired statement the CDF is an explicitly credited ingredient; the quantitative comparison uses its nonuniform limiting behavior.",
+        "searches": [
+          "Forchini York Discussion Paper 01/02, Eqs. (3)–(6), Theorem 3",
+          "François arXiv:2611.09748v1 §§3.3 and 4.4, Eqs. (4.19)–(4.20)",
+          "Primary literature: \"genomic offset\" \"squared correlation\" Gaussian architecture exact distribution eigenvalue bounds Rayleigh quotient",
+          "Tyler DOI 10.1214/aos/1176350494"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 121–135",
+        "Repaired RESULT.md lines 3–61 and 67–72",
+        "Forchini York Discussion Paper 01/02",
+        "François arXiv:2611.09748v1",
+        "Gain et al. bioRxiv preprint and indexed matches listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Forchini Eq. (3) with the two diagonal matrices, via the Gaussian cone identity and Cauchy inversion, gives the original full CDF. The same finite-κ law gives the median by setting T=1. The fixed-x tail is consistent with direct expansion of that law and is used here to explain the rate separation, not claimed alone as a novel distribution theorem.",
+          "Pointwise in T the standard expansion gives κ(1-X)→2T, but the mean of T diverges. The finite spectral bounds, the median, and this pointwise expansion do not yield the ensemble constant. Integrating the rescaled deficit on T of order κ gives 3/2 and κ^(-1/2); the median constant is 2 at scale κ^(-1). The exact ensemble mean and its strict dependence require an additional angular integration and sign analysis."
+        ],
+        "reasoning": "The repair removes the already-covered law from the novelty claim and supports an asymptotic ensemble-versus-typical distinction with a separate uniform error bound and convergent scaled integral. This is a substantive surviving comparison, not a disclaimer added to the same exact-CDF claim.",
+        "searches": [
+          "Forchini working paper PDF offsets 19550–22673 and 25100–28372",
+          "François arXiv:2611.09748v1 §4.4 Eqs. (4.19)–(4.20)",
+          "Repaired RESULT.md, Deficit scales"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "After whitening, Q is a commuting ratio of two quadratic forms with numerator diag(κ²,1) and positive definite denominator diag(κ,1) on independent standard normals (U,V). The event Q<=r is the Gaussian cone κ(κ-r)U²<=(r-1)V² and reduces to a squared-Cauchy tail. X is the positive-square transform of Q divided by 1+κ².",
+          "Equivalently the Gaussian architecture direction has an angular-central-Gaussian law and Q is its quadratic pushforward; this mathematical equivalence does not depend on a passage from Tyler's inaccessible full text.",
+          "The alternate indexed Gaussian-sketch and complex Rayleigh–Ritz laws are for perturbed/sketched eigensolvers, not this commuting quotient model."
+        ],
+        "reasoning": "The Gaussian quotient equivalence proves strong prior coverage, not just an analogy between applications. The repaired claim concerns the parameter limit and integrated comparison, not a new name or parametrization of the finite-parameter law.",
+        "searches": [
+          "Resultary: two-dimensional genomic offset squared predictive correlation reliability architecture distribution eigenvalue ratio Gaussian allelic effects",
+          "Resultary: distribution of Gaussian Rayleigh quotient angular central Gaussian ratio exact law eigenvalue ratio reliability",
+          "Primary literature: Forchini \"The Exact Cumulative Distribution Function of a Ratio of Quadratic Forms in Normal Variables\" angular central Gaussian Tyler Gaussian Rayleigh quotient quadratic forms"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "630c4c4eb16d is the exact same frozen record (mirror RESULT.md offsets 0–9981), not an independent antecedent.",
+          "629c63caaa73 and 78ac65592bb6 give related distributions for complex randomized Rayleigh–Ritz or complex sketched eigensolvers; 797c5afe2e63 treats Gaussian-sketch spectral-envelope escape.",
+          "The closest explicit distribution source is the verified general exact CDF in Forchini, not a separate indexed genomic architecture table."
+        ],
+        "reasoning": "These distinct indexed statements do not determine the repaired anisotropy comparison. The checked mathematical prior, rather than absence of an identical separate catalogue row, controls the originality decision about the old headline.",
+        "searches": [
+          "Resultary: two-dimensional genomic offset squared predictive correlation reliability architecture distribution eigenvalue ratio Gaussian allelic effects",
+          "Resultary: distribution of Gaussian Rayleigh quotient angular central Gaussian ratio exact law eigenvalue ratio reliability",
+          "Resultary IDs with suffixes 630c4c4eb16d, 629c63caaa73, 78ac65592bb6 and 797c5afe2e63"
+        ]
+      },
+      "rationale": "Originality of the original headline exact law fails: the CDF is an exact special case of Forchini's stronger result once the pre-existing genomic-offset covariance identity is used. An elementary arctangent simplification, median substitution or an application-specific name does not rescue that claim. The complete replacement in /workspace/repairs/3/RESULT.md makes the finite-κ law and median prior inputs and restricts the contribution to the anisotropy comparison of the ensemble mean versus typical reliability, with exact deficit rates and an explicit rescaled integral explaining the mean. The original correctness is preserved; originality passes only for this repaired claim. The compared sources do not furnish that integrated comparison; priority is not certified beyond the material examined.",
+      "residual_risks": [
+        "The checked generic exact-ratio source fully covers the original CDF. An earlier independent asymptotic ensemble-mean calculation for this parameterized quotient could affect the repaired originality judgment.",
+        "Tyler and Capblancq et al. full texts were not retrieved; no negative coverage inference is drawn from this limitation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct exact prior coverage of the CDF; not a calculation of the repaired mean-versus-typical anisotropy comparison",
+          "evidence": [
+            "General Q=YᵀAY/(YᵀBY), its CDF as a Gaussian indefinite-form probability, and the exact CDF on intervals with both signs."
+          ],
+          "identifier_or_url": "https://www.york.ac.uk/media/economics/documents/discussionpapers/2001/0102.pdf",
+          "material_read": "Working-paper Eqs. (3)–(6) and Theorem 3; decisive source passages at offsets 19550–22673 and 25100–28372 (Theorem 3 on printed p. 12)",
+          "method": "Read bounded passages from the lawful York working-paper PDF and match the diagonal matrices",
+          "title": "The Exact Cumulative Distribution Function of a Ratio of Quadratic Forms in Normal Variables, with Application to the AR(1) Model",
+          "trigger": "Precisely covers Gaussian quadratic-form ratios with a positive denominator"
+        },
+        {
+          "assessment": "Covers the fixed-realization formula and deterministic bounds, not the architecture-ensemble comparison",
+          "evidence": [
+            "Covariance formula for squared quenched correlation and spectral bounds; example is conditional on orientation rather than an ensemble law."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.09748v1",
+          "material_read": "§3.3 Eq. (3.8) and conditional orientation example, offsets 27420–30399; §4.4 Eqs. (4.19)–(4.20), offsets about 51600–55799",
+          "method": "Read bounded primary HTML passages",
+          "title": "Predicting fitness from genomic offset: a multivariate latent-trait framework",
+          "trigger": "Same genomic-offset and quenched correlation definitions"
+        },
+        {
+          "assessment": "Related application and predictive comparisons, not the repaired comparison in the passages read",
+          "evidence": [
+            "Geometric GO definition and simulation-based squared correlations under its fitness framework."
+          ],
+          "identifier_or_url": "https://doi.org/10.1093/molbev/msad140",
+          "material_read": "Lawful bioRxiv version pp. 5–7 and 10: GO definition, selection framework and simulation summaries; offsets about 10896, 14800 and 25274–25575",
+          "method": "Read corresponding primary preprint passages",
+          "title": "A Quantitative Theory for Genomic Offset Statistics",
+          "trigger": "Prior genomic-offset reliability framework and squared correlations"
+        },
+        {
+          "assessment": "Specific full-text coverage remains unresolved; the direction equivalence was checked independently",
+          "evidence": [],
+          "identifier_or_url": "https://doi.org/10.1214/aos/1176350494",
+          "material_read": "Landing or abstract only, no full primary passage obtained",
+          "method": "Tried lawful Project Euclid full-page, PDF and download routes",
+          "title": "Statistical Analysis for the Angular Central Gaussian Distribution on the Sphere",
+          "trigger": "Equivalent angular-Gaussian direction formulation"
+        },
+        {
+          "assessment": "Full-text overlap remains unresolved",
+          "evidence": [],
+          "identifier_or_url": "https://doi.org/10.1086/739079",
+          "material_read": "No full text obtained; abstract-level scope is not a coverage test",
+          "method": "Lawful OA retrieval attempted, HTTP 403 on available routes",
+          "title": "Linking Genomic Offset Statistics to the Shape of Selection Gradients",
+          "trigger": "Closely related selection-gradient/offset study"
+        },
+        {
+          "assessment": "Identical frozen evidence, not prior independent coverage",
+          "evidence": [
+            "Same model and CDF, mean, median and rare-low-reliability asymptotics."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-reliability-law-for-two-dimensional-genomic-offset-with-on--630c4c4eb16d",
+          "material_read": "Mirror RESULT.md offsets 0–3403, 3403–7198 and 7198–9981",
+          "method": "Read local mirror passages",
+          "title": "Exact reliability law for two-dimensional genomic offset with one latent trait",
+          "trigger": "Exact indexed match"
+        },
+        {
+          "assessment": "Different random estimators and loss/event, neither a prior statement of the repaired genomic result",
+          "evidence": [
+            "Complex first-order randomized Rayleigh–Ritz errors, complex finite-angle sketched quotient, and real Gaussian-sketch envelope overshoot, respectively, not the real architecture-direction quotient."
+          ],
+          "identifier_or_url": "Resultary IDs 2026/11/2/SCOPE-sharp-joint-complex-cauchy-error-law-for-two-dimensional-randomi--629c63caaa73; 2026/11/8/SCOPE-an-exact-finite-angle-law-and-logarithmic-mean-risk-penalty-for--78ac65592bb6; 2026/11/2/SCOPE-multiplicity-controls-spectral-envelope-escape-for-gaussian-sket--797c5afe2e63",
+          "material_read": "Each local mirror RESULT.md, offset 0",
+          "method": "Read indexed statements",
+          "title": "Sharp joint complex Cauchy error law for two-dimensional randomized Rayleigh–Ritz; exact finite-angle law and logarithmic mean-risk penalty; multiplicity controls spectral-envelope escape for Gaussian-sketch Rayleigh–Ritz",
+          "trigger": "Closest distinct indexed quotient, Cauchy and mean-risk comparisons"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md Finding and Deficit scales proof",
+        "François deterministic spectral bounds compared with the ensemble result"
+      ],
+      "rationale": "The adjusted claim answers a concrete reliability question: the usual architecture improves much faster than the ensemble average because an order-κ^(-1/2) fraction of directions still produces appreciably low correlation. Neither a deterministic bound nor recomputing the known CDF alone explains why the mean and a fixed quantile should be treated differently. The distinct rates, constants, and integrable rescaling give an interpretable calibration result; no value credit is assigned for a routine distribution substitution alone.",
+      "residual_risks": [
+        "The comparison quantifies model-based architecture uncertainty, not empirical fitness prediction accuracy or a recommendation to change a biological system."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:42:15.763208Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 18–77",
+        "VERIFICATION.md lines 18–22; checks/cartans_two_level.py lines 9–44, inspected without executing",
+        "Hartz–Richter–Shalit arXiv:2109.08550v3, Proposition 3.5"
+      ],
+      "rationale": "Common unitary triangularization exists by joint commutativity. The two diagonal tuples are in the domain by compression of each strict rectangular block. For distinct tuples, commutativity makes every upper-right entry a fixed scalar c times the difference of the two corresponding diagonal entries, so the holomorphic calculus on joint data has the stated two-value form. For repeated tuples the square-zero parts give the first derivative instead. The lifted automorphism identity works without entry commutativity at the block level: with W=Z−B, one can rewrite Φ_B= D_{B*}(I−ZB*)⁻¹W D_B⁻¹ using B*D_{B*}⁻²=D_B⁻²B*. Factoring the defect, the middle block is (I−ZB*)D_{B*}⁻²(I−BZ*)−W D_B⁻² W*=I−ZZ*, by expansion. This supplies strictness after amplification. In the distinct case the transformed block has norm √(1+|c|²)||U_j||, and the path through wU_j/max_j||U_j|| is a common disk reaching both tuples after inverse automorphisms. Schwarz–Pick and the determinant of the triangular defect give exactly the needed contraction; the boundary-value case is constant by the maximum-modulus principle. In the repeated case the lifted strict norm bounds the derivative direction after centering; the same radial disk yields the Schwarz–Pick jet bound |df(v)|≤1−|f(λ)|², exactly the repeated-diagonal defect condition. Constants attain one. HRS Proposition 3.5 gives a scalar polynomial witness on a row ball of dimension two; shrinking preserves a strict violation, embedding into a row or the adjoint pair into a column preserves the strict block norm, and the scalar supremum on the larger ball remains one because the selected row or column is a contraction and its embedded two-ball is contained in the full ball. Direct sums with zero coordinates also propagate the violation to all larger operator sizes.",
+      "residual_risks": [
+        "The claim reviewed uses strict block norms and scalar holomorphic functions. The frozen numerical script only tests finite identities and examples. The asserted failure at size three is for individual non-disc factors, not a blanket claim about every product."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kiri's product bound applies to row/column factors with a dimension-dependent constant. Its single higher-rank type-I ball estimate is under a bounded Gleason hypothesis. Proposition 1.13 supplies the liftable automorphisms. Bagchi–Misra give the general derivative criterion and results for restricted Jordan-type homomorphisms."
+        ],
+        "reasoning": "A bound with a larger constant under stronger analytic assumptions, or a characterization for a single-point jet, does not prove the size-two sharp inequality for all of these jointly commuting tuples.",
+        "searches": [
+          "Kiri arXiv:2610.20355v1, Theorems A–C, Propositions 1.13–1.14 and Theorem 2.4",
+          "Bagchi–Misra Theorems 1.1 and 1.9"
+        ]
+      },
+      "checked_sources": [
+        "Hartz–Richter–Shalit arXiv:2109.08550v3, pp. 6–7",
+        "Kiri arXiv:2610.20355v1, Theorems A–C and Propositions 1.13–1.14",
+        "Bagchi–Misra Theorems 1.1 and 1.9",
+        "Resultary a9d34c42618c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "HRS centers a pair of points on a row-ball diameter and uses disk restriction and projection. Its obstruction immediately transfers by row/column embeddings and is not the novel part. The checked broader ingredients do not state the joint-factor block norm reduction √(1+|c|²) max_j||Φ_{μ_j}(λ_j)||<1 for arbitrary two-point spectral data."
+        ],
+        "reasoning": "The common disk must simultaneously interpolate all factor data and couple its scalar Schwarz–Pick bound to the same off-diagonal coefficient in every amplified block. This is the key step beyond either the imported obstruction or the known single-ball estimates. The older two-point operator-distance literature remains a named priority risk.",
+        "searches": [
+          "HRS arXiv:2109.08550v3, Lemma 3.3 and Proposition 3.5 (PDF text offsets about 18100–22155)",
+          "Kiri arXiv:2610.20355v1, Theorems B–C and Proposition 1.13",
+          "Agler, Operator theory and the Carathéodory metric (OA retrieval attempted)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bagchi–Misra identify the repeated-point Jordan homomorphism's norm test as the infinitesimal Carathéodory bound. HRS handle two interpolation nodes on the Euclidean row ball and derive the single-factor 2×2 von Neumann inequality."
+        ],
+        "reasoning": "The strict row-ball polynomial inequality also yields the holomorphic version by dilation and approximation on compact subballs, so scope should not be claimed there. A jet-only characterization or two points in a Euclidean ball does not give the product rectangular block test for distinct joint eigenvalues.",
+        "searches": [
+          "Resultary: size-two contractive homomorphisms, two-point Carathéodory contractivity and products of type-I Cartan balls",
+          "Bagchi–Misra, Contractive Homomorphisms and Tensor Product Norms, Theorem 1.1 and (1.1)–(1.2)",
+          "Hartz–Richter–Shalit arXiv:2109.08550v3, Lemma 3.3 and Corollary 3.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest inspected catalogue result, a9d34c42618c, gives a factor two for a numerical-radius relaxation of matrix-valued disk Pick interpolation. HRS gives the exact level-two constant for one row ball and the exact level-three noncontractivity boundary in that case."
+        ],
+        "reasoning": "Numerical-radius relaxation for matrix-valued data has different hypotheses and target norm; the verified exact constant-one row subclasses do not cover arbitrary rectangular product factors.",
+        "searches": [
+          "Resultary: level-two von Neumann, rectangular operator ball and constant one",
+          "Published a9d34c42618c; HRS Corollary 3.4 and Proposition 3.5"
+        ]
+      },
+      "rationale": "Credit the known single-row-ball theorem (and column case by transpose and adjunction), the imported size-three obstruction, the general jet criterion and the amplified automorphisms. The distinct supported claim is unconditional sharp scalar contractivity for arbitrary finite products of type-I factors, including genuine matrix balls, at operator size two under only the strict block norm hypotheses. The strongest checked exact one-factor result and broader conditional estimates do not supply this conclusion.",
+      "residual_risks": [
+        "Agler's 1990 primary text was not accessible in the attempted routes, and older equivalent two-point operator distance formulations remain possible. No priority claim beyond the inspected statements is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent jet criterion, not a full two-distinct-point block test",
+          "evidence": [
+            "The norm criterion for φ_ω(A,f) is a derivative bound, exactly the repeated-point 2×2 assertion when there is one off-diagonal entry."
+          ],
+          "identifier_or_url": "https://math.iisc.ac.in/~gm/gmhomefiles/papers/MINR.pdf",
+          "material_read": "Theorem 1.1 and (1.1)–(1.2), pp. 3–4; Theorem 1.9, p. 8",
+          "method": "Lawful OA primary PDF passages",
+          "title": "Contractive Homomorphisms and Tensor Product Norms",
+          "trigger": "General Carathéodory tests for low-dimensional homomorphisms"
+        },
+        {
+          "assessment": "Liftability is covered; estimates have narrower domain or stronger hypotheses and different constants",
+          "evidence": [
+            "Theorem B treats row/column products with bound (2dK_Ω)^(n−1). Theorem C requires bounded Gleason for a single R_pq. Proposition 1.13 gives the liftable automorphisms."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.20355v1",
+          "material_read": "Theorems A–C, Propositions 1.13–1.14 and Theorem 2.4 (text offsets 4782–11777, 22582–26080, 41784–45784)",
+          "method": "Lawful OA primary full text",
+          "title": "Von Neumann Type Inequalities for NC Operator Balls",
+          "trigger": "Same type-I domains and product operator-ball norms"
+        },
+        {
+          "assessment": "Identical one-row special case and prior size-three obstruction; not an arbitrary-product rectangular assertion",
+          "evidence": [
+            "Corollary 3.4 proves polynomial contractivity for commuting 2×2 row contractions. Proposition 3.5 uses p(z)=z₁²+z₂² with unit supremum and a strict operator-norm violation."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2109.08550v3",
+          "material_read": "Lemma 3.3, Corollary 3.4 and Proposition 3.5, pp. 6–7",
+          "method": "Lawful OA primary PDF passages",
+          "title": "von Neumann’s inequality for row contractive matrix tuples",
+          "trigger": "Level-two sharp constant and size-three scalar witness"
+        },
+        {
+          "assessment": "Different domain, data, and constraint",
+          "evidence": [
+            "Matrix-valued disk interpolation with a numerical-radius relaxation, not scalar functional calculus on rectangular operator balls."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-the-optimal-factor-two-guarantee-for-numerical-radius-pick-inter--a9d34c42618c",
+          "material_read": "Finding from offset 0",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "The optimal factor two guarantee for numerical-radius Pick interpolation",
+          "trigger": "Nearest indexed sharp low-level interpolation bound"
+        },
+        {
+          "assessment": "Scope unresolved, not negative evidence",
+          "evidence": [
+            "No accessible copy was recovered; the accessible Bagchi–Misra paper supplies only the stated jet comparison."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/BF01231512",
+          "material_read": "No lawful full-text passage obtained",
+          "method": "DOI retrieval via configured routes and alternate-copy check",
+          "title": "Operator theory and the Carathéodory metric",
+          "trigger": "Plausible historical two-point result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 3–16 and 34–77",
+        "Kiri Theorems A–C",
+        "Hartz–Richter–Shalit Corollary 3.4 and Proposition 3.5"
+      ],
+      "rationale": "The result answers a sharp contractivity question in a natural finite operator size for a whole domain class, not just a low-dimensional scalar parameter slice. Removing the bounded Gleason hypothesis for all genuine rectangular factors at size two and giving exact constant one sharpens general level estimates in a regime where the next size can already fail. The size-three counterexample is context and is not counted as a new contribution.",
+      "residual_risks": [
+        "Does not give optimal bounds above size two or assert matrix-valued contractivity."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:54:23.354627Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Finding is unchanged; the repaired proof corrects the direction of approach in frozen Step 4. At a finite endpoint, t2(d) approaches d_end from below, not from above. For t>=d the weighted slope is G(d,t)=exp(cd)[f(d)-cU(d)]+integral_d^t exp(cs)f'(s)ds. It decreases strictly in t, and at fixed t its d derivative is c(b-c)exp(cd)U(d)>0. Thus G(d,d_end)<0<G(d,d) in the two-peak regime with finite endpoint and d<t2(d)<d_end; the limiting height is f(d_end)/c=U(d_end)<U(t0). On constant-rate reaches the weighted derivative crosses zero at most once and f, U and the downstream solution vanish at infinity. The lag integral for U/f has a positive expanding domain and nondecreasing integrand by nondecreasing hazard, giving strict monotonicity, all right-derivative regimes, and no extra extremum at either boundary. Moving the interface later strictly lowers the profile after the later interface, hence strictly lowers the downstream peak. At t0 the peak is higher than the reference; at an infinite endpoint the upper bound U(d)+f(d)/c tends to zero. Continuity then proves the unique tie and full global-maximizer comparison. The explicit example and exact bracket were independently checked with rational Simpson error bounds for log(3) and range-reduced alternating bounds for exp(-2d); the residual is negative at 1.091575 and positive at 1.091576, and strictly increasing there. Replay: python3 /workspace/branches/b4bc7ca9-790d-426b-8018-e800fe183a83/independent_bracket.py. Frozen verification code was inspected but not executed; its sampled checks are not the theorem's proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Accessible baseline review passage describes classical constant-hydrology/geometry reaches; the constant-rate ODE admits only one peak under the hypotheses. The closest more general modeling/differential-inequality papers were targeted but their primary statements could not be read through the attempted lawful routes."
+        ],
+        "reasoning": "General equations allowing variable coefficients do not by themselves establish the interval criterion or unique tie. No broader theorem with those conclusions was verified; limited access is not evidence against such a theorem.",
+        "searches": [
+          "Primary literature lookup: Streeter–Phelps, piecewise reaeration, one-outfall multiple oxygen sags",
+          "DOIs 10.1155/2021/6663696, 10.1002/lno.12079, 10.1137/23M1616406"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Resultary records 92e4f7efeacb, a0058dc70eec, 0af40980b939",
+        "Classical-model review search result https://www.sciencedirect.com/science/article/pii/S0048969703000627 (baseline only)",
+        "Three pertinent primary DOIs attempted as recorded above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fractional aerator instantaneously resets the deficit and studies finite-reach minimax placement; the two-load model changes demand and even permits reentrant peak-count behavior. The phase here depends on strict monotonicity of f/U and a separate downstream peak comparison."
+        ],
+        "reasoning": "The classical integrating factor and scalar comparison are standard inputs, but neither their constant-rate application nor the published reset or second-load analysis covers the continuous coefficient interface and global-maximizer switch.",
+        "searches": [
+          "Classical constant-rate balance; Resultary 0af40980b939 and 92e4f7efeacb, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2026-10-26 reentrant double-sag Finding superposes two BOD inputs at constant rates; the distinct 2026-11-22 minimax load-split Finding optimizes two outfalls under constant reaeration. Both address two peaks or a tie but change loading, not future reaeration kinetics."
+        ],
+        "reasoning": "Neither state/input superposition is equivalent to a continuous deficit with one unchanged demand and a single coefficient drop. The assigned record's identical search hit is not independent evidence; the same-day distinct hit was compared on mathematics, not date.",
+        "searches": [
+          "Resultary: one-outfall oxygen sag, two maxima, reach interface, worst-reach switch",
+          "Resultary records 92e4f7efeacb and a0058dc70eec"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matched exact formulae concern two loads or a reset, not the root of d+(1+exp(-2d))/2=(3/2)log(3) for the given three rates."
+        ],
+        "reasoning": "An exact numerical example is a checkable illustration, not an independent priority claim; there is no parameter-table lookup that could establish the whole quantified interface classification.",
+        "searches": [
+          "Resultary comparisons 92e4f7efeacb, 0af40980b939, a0058dc70eec"
+        ]
+      },
+      "rationale": "The supported claim is the joint hazard-general one-interface phase diagram and unique worst-site switch, not the Streeter–Phelps equation, multi-reach modeling, or the existence of double sags by other mechanisms. The repaired finite-endpoint proof does not change this comparison. No inspected distinct result gives equivalent coverage; priority remains qualified.",
+      "residual_risks": [
+        "Older reach-by-reach engineering work or unavailable variable-reaeration full texts could contain an equivalent special case or stronger theorem. No unconditional priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial conceptual overlap, not equivalent",
+          "evidence": "D(t)=A[g(t)+k 1_{t>=s}g(t-s)] superposes two loads with fixed rates.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-reentrant-double-sag-regimes-for-two-separated-biochemical-oxyge--92e4f7efeacb",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Reentrant double-sag regimes for two separated biochemical oxygen-demand sources",
+          "trigger": "Exact double-sag classification"
+        },
+        {
+          "assessment": "Distinct same-day match, no mathematical coverage",
+          "evidence": "Load-split optimization changes the two inputs with constant reaeration 2k.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-sharp-nonmonotone-minimax-load-split-for-two-river-pollution-o--a0058dc70eec",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "A sharp nonmonotone minimax load split for two river pollution outfalls",
+          "trigger": "Two global-worst locations and a tie"
+        },
+        {
+          "assessment": "Different state transformation and finite domain",
+          "evidence": "Fractional instantaneous deficit reset, not continuous solution across a coefficient jump.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-finite-reach-saturation-and-a-quadratic-placement-law-for-one-fr--0af40980b939",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Finite-reach saturation and a quadratic placement law for one fractional river aerator",
+          "trigger": "One reach intervention and minimax placement"
+        },
+        {
+          "assessment": "Unresolved access risk",
+          "evidence": "HTTP 403; no alternate full text identified in the lookup.",
+          "identifier_or_url": "https://doi.org/10.1155/2021/6663696",
+          "material_read": "No primary full-text passage available",
+          "method": "Lawful OA attempt and alternate lookup",
+          "title": "Numerical Investigation of Dissolved Oxygen Transportation through a Coupled SWE and Streeter–Phelps Model",
+          "trigger": "Spatially varying reaeration"
+        },
+        {
+          "assessment": "Unresolved access risk",
+          "evidence": "HTTP 403; no alternate full text identified in the lookup.",
+          "identifier_or_url": "https://doi.org/10.1002/lno.12079",
+          "material_read": "No primary full-text passage available",
+          "method": "Lawful OA attempt and alternate lookup",
+          "title": "High-resolution water-quality and ecosystem-metabolism modeling in lowland rivers",
+          "trigger": "Reach-specific oxygen metabolism and reaeration"
+        },
+        {
+          "assessment": "Unresolved access risk",
+          "evidence": "HTTP 403; no alternate full text identified in the lookup.",
+          "identifier_or_url": "https://doi.org/10.1137/23M1616406",
+          "material_read": "No primary full-text passage available",
+          "method": "Lawful OA attempt and alternate lookup",
+          "title": "Uncertainty Analysis of a Simple River Quality Model Using Differential Inequalities",
+          "trigger": "Variable reaeration and analytic inequalities"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Separates the existence of a second oxygen minimum from its becoming the global worst location in a natural continuous one-outfall model. The result identifies both thresholds and distinguishes finite from persistent two-sag regimes; the exponential example shows the latter can still have a unique global switch. This is an exact idealized model result, not a prediction for a field river.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

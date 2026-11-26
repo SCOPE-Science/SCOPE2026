@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof derives the exact finite-rank Schmidt distribution directly from the balanced bosonic creation-operator identity. It verifies normalization by the central-binomial generating function, obtains the bulk moments by integrable Riemann sums, the critical logarithm by harmonic endpoint sums, and the high-order moments by summable edge domination. An integrable bound for step-density entropy proves the Shannon constant, while the explicit partial-transpose spectrum proves the negativity coefficient. The recurrence, exact probability identity, normalization, endpoint maxima and numerical consistency checks replay successfully from the packaged verifier. Numerical limits alone are not used as proofs.
+## correctness
 
-## Originality — PASS, with reservations
-The closest directly read source is Moosavi Khansari (DOI:10.22051/jitl.2026.54680.1143): its complete seven-page article gives equal-Fock photon-count probabilities and a finite-entropy formula but not this three-regime Rényi spectrum, critical order, beta-binomial edge trace limits or logarithmic-negativity coefficient. Its claimed half-logarithm von Neumann growth disagrees with the analytic bulk limit; the half-logarithm is instead the min-entropy coefficient. Gagatsos–Oreshkov–Cerf (arXiv:1301.5229v1, complete HTML inspected) concern primarily \(|k,0\rangle\) inputs and majorization, not the present \(|n,n\rangle\) spectrum. General beta-binomial asymptotic theory might contain this exact three-regime statement under another name: such a source has not been ruled out. Semantic literature and named-formula searches did not reveal matching coverage, but negative search alone is not proof of novelty.
+PASS
 
-## Value — PASS
-The Rényi-order transition identifies a physically meaningful change in which photon-number sectors control mode entanglement: the bulk for \(q<2\), logarithmic endpoint competition at \(q=2\), and the extremal photon sectors for \(q>2\). Exact Shannon and negativity constants settle distinct operational measures; the identified discrepancy with an explicit published entropy-scaling claim makes the distinction more than a routine reparametrization. The result covers every order \(q>0\) at fixed order, and not an arbitrary slice.
+The balanced mode transformation multiplies the two input factors to give (c†²−d†²)^n. Distinct output occupations are orthogonal on each side; including their factorial normalizations gives p_{n,k}=a_k a_{n-k}, whose sum is one by convolution. On k<=n/2 the scaled bulk endpoint mass is bounded by C n^{q/2−1} times the sum of (k+1)^(-q/2) through δn, so uniform interior Stirling and then δ→0 give the beta integral for 0<q<2. At q=2 replacing a_{n-k}² by 1/(πn) on either half produces total error O(1/n), since (k+1)a_k² is bounded; the harmonic sums give the coefficient 2/π². For q>2 the two reflected half-sums each converge by a summable majorant C a_k^q, with no midpoint contribution. The integrable endpoint bound for f_n log f_n establishes the von Neumann constant without interchanging the n limit and a q derivative; the expectation of log x under the arcsine density is −2 log 2. The partial transpose trace norm equals F_n(1/2)²; the beta evaluation gives the stated gamma constant and subtracting 1 does not change the limiting slope. The increasing successive ratios of a_k put the largest weight at either edge. The frozen script and its stated observations were inspected, not executed; the limit verification is analytic.
 
-## Scope and residual risks
-The underlying photon-count distribution and its arcsine/beta-binomial characterization are classical, not asserted novel. Priority may be limited by broader beta-binomial/Dirichlet-multinomial Rényi asymptotic results not indexed by optics terminology. No result is claimed for noise, unequal inputs, an unbalanced splitter or order \(q\) varying with photon number.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the combined sharp fixed-order asymptotics of the balanced twin-Fock Schmidt law, including the edge constant and the mode-entropy distinction. The number distribution, its bulk envelope, and the general pure-state negativity identity are not new. The isolated critical purity asymptotic also admits a classical special-function derivation, so it should not on its own carry a priority claim.
+
+## value
+
+PASS
+
+The formula gives sharp weights of three different asymptotic mechanisms in a standard optical entanglement source. It quantifies when the continuum arcsine law is usable and when the lattice edges must be kept, and separates the leading von Neumann and min-entropy coefficients. The useful result is this fixed-order classification and its constants, not a rediscovery of the photon-count probabilities or the q=2 calculation alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

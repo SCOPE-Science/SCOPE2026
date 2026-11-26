@@ -5,19 +5,26 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
     "status": "not_performed"
   },
-  "schema_version": 1
+  "schema_version": 1,
+  "record_status": "passed"
 }
 ---
+# Verification
 
-# Reproducibility and verification
+Run `python3 verify_thresholds.py` from this directory. The stand-alone standard-library script uses rational arithmetic to replay the exact example and check the peak solution, derivative sign at equalization, and stationary equations on 180 rational parameter and budget cases with 21 grid allocations each. Its output is:
 
-The full proof and the exact example are in `RESULT.md`. The standalone file `checks/verify.py` uses only Python's standard library and prints a `PASS` line when its checks succeed. Run from the package root with `python3 checks/verify.py`.
+```text
+180 exact rational budget cases and the strict objective comparison passed
+```
 
-The checker verifies thousands of exact-rational instances of the stationary derivative identity, rational comparison inequalities at a fixed physically interpretable boundary case, rational bracketing of the optimal allocation, and seeded numerical tests for the general optimizer, activation threshold, positivity, and the peak objective. The universal result is proved analytically by positivity of the determinant, strict increase of the derivative numerator, and a unique crossing of its boundary sign. Finite checking alone is not a proof for real-valued parameters. No independent external verification has been performed. The mathematical model has not been experimentally calibrated to real cities.
+The continuous parameter ranges, the exact aggregate optimizer, the strict ordering of thresholds, and uniqueness are established by the analytic proof in `RESULT.md`. A finite set of examples or grid points alone does not prove any of those universal assertions.

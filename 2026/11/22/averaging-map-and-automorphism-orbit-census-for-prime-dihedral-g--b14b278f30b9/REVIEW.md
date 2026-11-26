@@ -1,19 +1,21 @@
-# Review of the prime-dihedral averaging-map census
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof establishes a necessary and sufficient equivariance characterization, identifies every generated-image subgroup for odd prime rotation order, counts each stratum, and computes full automorphism orbits with explicit Burnside fixed-point counts. It states the pointed condition and excludes composite rotation order. The executable independently checks every constructed case and all automorphism orbits for \(p=3\) and \(p=5\). These finite tests are not used to prove the all-prime assertion.
+PASS
 
-## Originality
+Reconstructed the four image-generated subgroup strata from equivariance under the images. A rotation-valued map has p individual rotation inputs and one common reflection input; a fixed reflection target subgroup has two fixed inputs and two families of opposite pairs. Full equivariance sends exactly all reflections to themselves if the image is to generate G, and leaves an arbitrary odd function on rotation exponents. For the reflection stratum normalize by Aut to <s>; the same cyclic multiplier permutes the two sets of pairs, giving four colors, with two independent singleton bits or one if pointed. For the rotation stratum a nonidentity multiplier of order d forces the 0 input and the common reflection output to be zero and leaves (p-1)/d free values on cycles. In the full stratum the coordinates f(j)/j descend to opposite pairs and are permuted regularly by the effective multiplier quotient. This proves all four formulas, including each deletion of the constant identity map and addition of the trivial stratum. Independently enumerated every 6^6 set map for p=3 by testing the identity on all pairs and computing affine automorphism orbits: (129,51,60,25). Also evaluated the formulas at p=5: (15965,3305,3969,824). The supplied artifacts/verify.py was inspected, not executed; it is a finite consistency replay and not the reason the proof holds at all odd primes.
 
-PASS relative to examined sources. The previously published \(S_3\) result gives the structural equivariance criterion and the four numbers in the first prime case, and is credited. Its complete RESULT.md does not claim all-prime dihedral counts or the necklace-polynomial orbit laws. The primary Das source defines the operation and discusses examples rather than the asserted census. Zhang–Gao uses a different stronger identity. Searches for aliases, prime-dihedral parameters, pointed orbit counts, and broader group results disclosed no dominating formula. Potential prior generic orbit-enumeration theorems not found in the search remain the main priority risk.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The all-prime count and automorphism-orbit enumeration classify natural operator sets on an infinite nonabelian group family. The orbit formulas add divisor-dependent stabilizer data not present in the one-group census, and provide explicit new values at \(p=5\).
+Pass for the general odd-prime formulas only. The equivariance lemma and all four p=3 counts are credited existing results. The checked sources do not give the resulting necklace and totient-sum laws for varying p.
 
-## Limits
+## value
 
-No general composite-dihedral census, no proof of exhaustiveness of all historical literature, and no independent audit is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Gives exact symmetry-reduced as well as raw counts of a natural class of set maps across an infinite family. The two distinct cyclic necklace actions and the nontrivial multiplier stabilizers quantify the orbit collapse, which neither a raw count nor the single S3 example supplies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

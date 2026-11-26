@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Theorem is proved for every countably infinite connected locally finite simple undirected graph. Deleting finite edge sets creates only finitely many finite connected components; this supplies escaping rays with finite use-count for each edge. The assigned resistances satisfy an exact global bound \(\sum_e m_e r_e\le1\). Telescoping, weighted Cauchy–Schwarz with the **full energy** as the common factor, and summation over all starting vertices give the lower Poincaré bound. The graph gradient's closedness and local finiteness justify the associated selfadjoint form operator. The two-sided frame classification follows from indicator-function cut tests and a complete coarea argument. Infinite-energy functions are handled explicitly; no finite experiment is used as proof.
+PASS
 
-## Originality — PASS, with residual priority risks
+Deleting the first n edges leaves at most n+1 components, so the union of their finite components is finite. Every vertex outside that union has a simple ray in its infinite component by local finiteness. Choosing for v_j the largest admissible deletion prefix among lengths at most j ensures that for fixed n, only the finite exceptional union and indices j<n can have rays using e_n. With multiplicity m_n, resistance r_n=2^(−n)/(1+m_n) is positive and has total load Σ_n m_n r_n≤1. Along each simple ray an ℓ² function tends to zero, and telescoping plus Cauchy–Schwarz bounds |f(v)|² by that ray's resistance sum times the common *total* energy; summing over starts gives the stated bound without treating the rays as edge-disjoint. The maximal weighted gradient is closed by coordinate convergence and dense by local finiteness; its form gives a selfadjoint operator bounded below by I. For a bounded above form, delta functions give c_e≤B, and finite-set indicators force |∂F|/|F|≥A/B. Conversely with maximum degree d, coarea on |f|² and Cauchy–Schwarz give the unweighted lower bound h²/(2d) and the upper bound 2d, extending by density. The signs of orientations do not affect coefficient squares and the semi-frame weights are √c_e. The argument uses counting measure and an edge sum counted once.
 
-A statement-level check against Balazs–Corso–Stoeva (2023, full online text, Sections 3–4), Exner–Kostenko–Malamud–Neidhardt (2017, full online text), and graph Cheeger literature found no direct assertion that *arbitrary* locally finite connected graphs admit positive edge conductances making the counting-measure form uniformly coercive. In the 2023 paper, general weightability is posed as Conjecture 3.1 and established for other classes; its general statement cannot be assumed. The frame/nonamenability equivalence uses known coarea ideas and is not presented as wholly novel in isolation. Older work on unbounded conductances, weighted resistance metrics and spectral-gap design could contain a stronger implication. The 2023 graph-Laplacian memoir was not checked exhaustively; this is a genuine priority risk, not a novelty guarantee.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A published general weighted-lower-semi-frame question motivates this concrete, high-coverage class. The ray construction is an explicit existence mechanism on every connected infinite locally finite graph, including highly amenable ones, and yields a positive selfadjoint spectral gap where uniformly bounded conductances cannot. The sharp bounded-degree two-sided criterion clarifies the operator-theoretic distinction, rather than merely repackaging a finite example.
+The bounded-degree Cheeger implications are standard; they are not a distinct originality claim. The supported contribution is unrestricted existence of finite positive edge-by-edge conductances yielding a positive counting-measure gap on every graph in scope, hence the graph-incidence case of a general lower-semi-frame question. The strongest inspected results give conditional gap bounds or propose general rescalability, not this existence statement.
 
-## Scope and limitations
+## value
 
-Global, possibly very large conductances; no efficient optimization or claim for all complete Hilbert sequences. Unbounded-degree two-sided classification and priority against every older graph-Laplacian source are not settled. The associated selfadjoint operator is defined by the closed form, not by asserted essential selfadjointness of a minimal difference expression.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This resolves a natural existence question for a graph-incidence family and separates lower stability from bounded invertible frame behavior. The escaping-ray construction removes any degree bound or unweighted expansion requirement for the one-sided result; the obstruction explains exactly why the same strategy cannot produce a two-sided bound on amenable bounded-degree hosts. That distinction is useful independently of how optimal the weights are.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

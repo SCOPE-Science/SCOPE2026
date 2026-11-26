@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:38:26.073672Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The affine fixed points have x=1/(1-tau+delta); the domain puts the left one strictly left and the right one strictly right. The characteristic polynomial signs at 0 and 1 (left), or at -1, 0 and 1 (right), give multipliers respectively in (0,1),(1,infinity) and (-infinity,-1),(0,1). Thus neither branch derivative cubed has eigenvalue 1, and a word using only that branch gives only the original affine fixed point. The only remaining primitive length-three necklaces are LLR and LRR. Independent elimination uses x_(i+1)=tau_i*x_i-delta_(i-1)*x_(i-1)+1 with indices mod 3; the coefficient matrices for (x_0,x_1,x_2) have rows (-a,1,d),(b,-a,1),(1,b,-c) for LLR and (-a,1,d),(b,-c,1),(1,d,-c) for LRR. Their determinants and the three column replacement determinants with RHS (1,1,1) are, respectively, (D_L;K,J,Q_L) and (D_R;Q_R,J,K), by expansion. The multiplied Cramer identities also hold for every solution of a singular system, so positivity of the appropriate Q excludes a solution when D=0. Q_L>0 by a>1+b>1 and b^2-b+1>0; Q_R=(c+(d+1)/2)^2+3(d-1)^2/4>0. The strict signs and uniqueness follow from the coordinate ratios, and y_i=-delta_(i-1)*x_(i-1). For LLR the return has determinant b^2*d<0 and characteristic polynomial positive at 1, yielding one positive multiplier below one and one negative multiplier; the sign at -1 is S_L and gives the three stated alternatives. For LRR the polynomial is positive at 0 and negative at 1, with leading coefficient +1, so both roots are positive with one on each side of 1. Substitution along (5/4,1/5,-5,d) gives the two factored denominators and S_L=-(484d+2425)/400. The exact threshold lies within (-6,0), and at d=-11/2 both cycles are strict and the LLR return is Schur-stable, proving open coexistence by continuity. Neutrality is only a simple multiplier statement, not a flip theorem. Read frozen verify.py and VERIFICATION.md; no source script executed. Its bounded rational checks do not establish the strict sign and singular-case claims, which follow from the proof. No switching-line, global basin or higher-period claim is accepted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed source assumes the two saddle inequalities without the two specified determinant signs; its exact attraction theorem includes the frozen sector. Simpson §4.2 and Simpson–Avrutin p. 7 describe linear word returns generally, but the former specializes to a zero determinant and the latter's parameter exploration uses grids and numerical contour fits."
+        ],
+        "reasoning": "A generic method for a fixed word is not itself a census. The indexed source is different: it gives the actual symbolic coordinate formulas and return invariants as algebraic identities before sign restrictions, sufficient for the frozen-sector count and stability tests by direct specialization.",
+        "searches": [
+          "2026/10/18/SCOPE-a-sharp-strict-period-three-criterion-in-the-two-saddle-border-c--497970af35b3",
+          "arXiv:2408.04790v1",
+          "arXiv:2512.02291"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–117 and verification package",
+        "arXiv:2402.05393v1",
+        "arXiv:2210.14445v1",
+        "arXiv:2408.04790v1",
+        "arXiv:2512.02291",
+        "Three distinct Resultary findings itemized in source_inspections, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed proof explicitly says its three LLR coordinates hold algebraically before admissibility and writes D'=1-T'+det(P_R) and x'_0=Q_R/D' for LRR. It gives an exact attracting witness (a,b,c,d)=(7/5,1/3,-16/5,-4) after aliasing. The two inspected classical applications do not state the all-parameter target."
+        ],
+        "reasoning": "Apply the indexed LLR algebra with (a,b) exchanged with (c,d) in frozen notation, not its saddle hypothesis. This computes the RRL coordinates as (J,K,Q_R)/D_R, which rotate to the frozen LRR coordinates. Multiplying by the determinant extends the necessary identities even on the singular set, so Q>0 excludes singular solutions. Positivity and the three branch signs then give the exact count, and the polynomial at 0, 1 and -1 gives saddle/neutral/attracting from the indexed traces/determinants. The saddle branch eigenvalues exclude a single-branch primitive orbit. At the already given LLR witness, K,J<0 and direct substitution gives D_R=-701/375, hence a second, saddle LRR cycle at the same point and on a neighbourhood. Crossing the multiplier boundary in a particular additional rational slice just evaluates the same polynomial, and no independent bifurcation claim was made.",
+        "searches": [
+          "2026/10/18/SCOPE-a-sharp-strict-period-three-criterion-in-the-two-saddle-border-c--497970af35b3, Proof",
+          "arXiv:2402.05393v1",
+          "arXiv:2210.14445v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the indexed sharp criterion, source parameters (a,d,b,e) equal frozen (a,b,c,d), so D,N_0,N_1,N_2 and 1+T+det(P_L) become D_L,K,J,Q_L and S_L. Ghosh–McLachlan–Simpson uses (tau_L,delta_L,tau_R,delta_R) for the same normal form. Fatoyinbo–Simpson has period-three examples in a different parameter regime and with negative forcing."
+        ],
+        "reasoning": "Under the alias and determinant restrictions, the indexed hypothesis a>|1+d_source| and b_source<-|1+e| is the exact frozen saddle domain. The attracting criterion agrees: D_L>0 forces the positive multiplier below 1, and S_L>0 then implies the negative multiplier lies above -1, making the source's additional absolute determinant condition redundant here. Flipping the forcing sign by reversing both spatial coordinates exchanges branches and complements the word; the older examples are not counterexamples or direct coverage of the present sector.",
+        "searches": [
+          "2026/10/18/SCOPE-a-sharp-strict-period-three-criterion-in-the-two-saddle-border-c--497970af35b3",
+          "arXiv:2402.05393v1",
+          "arXiv:2210.14445v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact analytic sharp-criterion record, not a numerical table, indexes the relevant degree-three symbolic calculation. In aliases (L,d_source,B,u)=(a,b,-c,-d), the Oct 26 finding gives an existential onset threshold for attracting LLR at fixed u. In aliases (ell,d_0,s,q)=(a,b,-c,-d), the Nov 2 finding gives a paired strict-saddle census on 0<b<1, 0<-d<1 and includes the border case."
+        ],
+        "reasoning": "The threshold and small-determinant records alone do not imply a census on the entire four-parameter sector; they give different or more specialized classifications. The symbolic identity record supplies the exact indexed data that settle the comparison instead. The dates of these records do not decide precedence.",
+        "searches": [
+          "2026/10/18/SCOPE-a-sharp-strict-period-three-criterion-in-the-two-saddle-border-c--497970af35b3",
+          "2026/10/26/SCOPE-sharp-odd-cycle-onset-in-a-two-saddle-border-collision-normal-fo--471f33c613a5",
+          "2026/11/2/SCOPE-paired-saddle-three-cycles-across-a-sharp-border-collision-in-th--d218deb0ecec"
+        ]
+      },
+      "rationale": "A distinct same-date Resultary theorem already gives the attracting criterion in a broader two-saddle parameter region. More decisively, its proof gives the unrestricted algebraic LLR coordinates and both products' trace/determinant data. The remaining strict census and multiplier classifications follow directly by swapping the matrices in those pre-admissibility formulas, using the determinant signs, and applying the strict branch signs. Even the established attracting example of that source is in the same mixed-sign sector and mechanically gives coexistence. The particular new rational slice does not supply an independent nonroutine contribution. This is a coverage finding, not an inference about chronology or attribution from the shared date.",
+      "residual_risks": [
+        "Chronology between the same-date records and possible earlier equivalent parameter classifications remain unestablished. The verdict uses explicit algebraic coverage rather than the date or a failed search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broader attraction result and actual identities mechanically giving remaining frozen census; no chronology inferred",
+          "evidence": [
+            "The stated two-saddle region does not specify determinant signs. The proof gives unrestricted algebraic LLR coordinates before admissibility, LRR trace/determinant and initial coordinate, and an exact rational witness in the mixed-sign sector."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-a-sharp-strict-period-three-criterion-in-the-two-saddle-border-c--497970af35b3",
+          "material_read": "Finding and scope at RESULT.md offsets 0–1476; scope, proof and witness at offsets 1300–5055",
+          "method": "Configured Resultary lookup and statement-level local-mirror inspection",
+          "title": "A sharp strict period-three criterion in the two-saddle border-collision map",
+          "trigger": "Same strict words, exact attraction criterion, and closely matching polynomials"
+        },
+        {
+          "assessment": "Relevant parameter setting, not coverage of the exact strict three-cycle count in the inspected passages",
+          "evidence": [
+            "Sign taxonomy and robust-chaos regimes, including period-two and period-four complications."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2402.05393v1",
+          "material_read": "Abstract and §1 offsets 1400–5161 and 7000–9092",
+          "method": "OA arXiv HTML passage inspection",
+          "title": "The bifurcation structure within robust chaos for two-dimensional piecewise-linear maps",
+          "trigger": "Same normal form with mixed determinants and saddle branches"
+        },
+        {
+          "assessment": "Examples do not lie in the frozen sector",
+          "evidence": [
+            "Stable LRR and attracting LLR plus saddle LRR examples use negative forcing and fail the specified left-saddle inequality, with branch exchange under sign conjugacy."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2210.14445",
+          "material_read": "p. 2 Eq. (1), §2.3 p. 5 near offset 15000, §3 p. 7 near offset 19428, Fig. 7 p. 13 near offset 35500",
+          "method": "OA PDF passage inspection",
+          "title": "A synopsis of the non-invertible, two-dimensional, border-collision normal form with applications to power converters",
+          "trigger": "Stable LRR and LLR–LRR coexistence examples"
+        },
+        {
+          "assessment": "General word method, zero-determinant specialization separate",
+          "evidence": [
+            "The return matrix is the ordered product for any word; specialized dynamics fixes delta_L=0."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2408.04790",
+          "material_read": "§1.1 p. 4 near offset 10453 and §4.2 p. 9 offsets 24200–27249",
+          "method": "OA PDF passage inspection",
+          "title": "The two-dimensional border-collision normal form with a zero determinant",
+          "trigger": "Exact symbolic products and cycle stability conditions"
+        },
+        {
+          "assessment": "General computation, not the target all-parameter theorem",
+          "evidence": [
+            "Affine word solves and multipliers; exploratory candidate search and 1200 by 1200 grid for region characterization."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2512.02291",
+          "material_read": "p. 7 offsets 17000–19084",
+          "method": "OA PDF passage inspection",
+          "title": "From two-dimensional continuous maps to one-dimensional discontinuous maps",
+          "trigger": "Arbitrary finite itineraries in related maps"
+        },
+        {
+          "assessment": "An existential threshold, not complete four-parameter census",
+          "evidence": [
+            "Minimum right-determinant magnitude for an attracting LLR for some remaining parameters; no required LRR coexistence."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-sharp-odd-cycle-onset-in-a-two-saddle-border-collision-normal-fo--471f33c613a5",
+          "material_read": "Finding and Proof opening offsets 0–3693",
+          "method": "Configured Resultary lookup and local-mirror passage inspection",
+          "title": "Sharp odd-cycle onset in a two-saddle border-collision normal form",
+          "trigger": "Exact onset of attracting LLR in the mixed-sign sector"
+        },
+        {
+          "assessment": "Specialized overlap with additional switching-line result",
+          "evidence": [
+            "Exact zero/one-border/two-saddle count on the subdomain of determinant magnitudes strictly less than 1."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-paired-saddle-three-cycles-across-a-sharp-border-collision-in-th--d218deb0ecec",
+          "material_read": "Finding and scope offsets 0–2991",
+          "method": "Configured Resultary lookup and local-mirror passage inspection",
+          "title": "Paired saddle three-cycles across a sharp border collision in the two-saddle border-collision normal form",
+          "trigger": "Exact two-word count and geometry in mixed signs"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A full strict-cycle count and stability classification on a natural noninvertible saddle sector would be useful for understanding coexistence and reading parameter diagrams, even without a global-attractor theorem. After the coverage comparison, neither an alternative rational witness nor specializing the already available stability polynomial to its slice is a valuable standalone remainder.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

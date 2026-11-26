@@ -1,20 +1,21 @@
-# Scientific review: first cyclic binary substring-composition collision
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim precisely fixes binary cyclic indexing, all \(n\) window starts for every length, multiplicity, and equivalence under rotation or reversal. The complementary-window identity reconstructs the entire observation from the reduced histograms and total weight. The two witness strings are explicitly checked for distinct bracelet representatives and equal length-one-to-six histograms. The finite uniqueness threshold is established by a complete loop over every \(n\)-bit word, with two distinct exact implementations of canonicalization and window-weight histograms cross-checked on every enumerated word, and by an explicit unique nontrivial equivalence class at length twelve. An algebraic second-moment expansion proves the implication to homometry. The periodic-extension proof handles arbitrary positive powers, independently of finite computer tests. The self-contained checker and its external CSV produce `VERIFY_OK` and enforce the quoted counts, sizes, pair list, and moment identities. No unproved general assertion for arbitrary larger lengths is implicit.
+## correctness
 
-## Originality — PASS, subject to residual priority risk
-Mandereau et al. (2011) and Jedrzejewski--Johnson (2013) analyze the cyclic two-point interval vector (Z-relation), not all consecutive cyclic window-weight histograms. The latter's length-twelve homometric-pair tables are reproduced as a *weaker-observation* baseline and do not select the unique pair surviving all histogram lengths. The \(k\)-deck of Mandereau et al.'s second paper concerns patterns of selected positions rather than the distribution of each consecutive cyclic window's population. Acharya et al. (2014) use linear contiguous substrings; their linear-spectrum ambiguity examples cannot be treated as circular-spectrum classifications. Searches for circular/cyclic Parikh spectra, sliding-window-sum histograms, homometric refinement, and an exact length-twelve collision, including mathematical research records for related linear multispectra, identified no prior statement implying this exact result. The absence of a match is not a proof of priority, and a differently named or unindexed earlier cyclic result remains possible.
+PASS
 
-## Value — PASS
-A complete first-failure classification for an information-reconstruction measurement is a natural finite exact invariant: \(224\) bracelets, \(223\) distinct data outputs, and one precisely located collision. The autocorrelation comparison is mathematically motivated by the established Z-relation and quantitatively shows that these measurements detect information beyond pairwise correlations (\(23\) homometric pairs versus one surviving collision). The periodic construction makes the phenomenon persist on infinitely many blocklengths. This is not a numerical increment of a known linear-word table or an arbitrary parameter slice; the boundary measures a qualitatively different *cyclic* experiment and is sharp for that experiment.
+The measurement counts all starts including wraparound and repeated windows. Rotation/reversal preserve it; complementation is not factored out. Complementary windows pair weight a at length k with R−a at length n−k, where R is total weight. My exhaustive replay marked rotations and reversals from each first unvisited binary string and grouped the resulting bracelets by separately sorted full-length window-weight lists, computed by prefix sums on the doubled word. Through n=11 there was no collision. At n=12 there were 224 bracelets and 223 observations, with sole nonsingleton class {001011001101, 001011010011}. Separately grouping by the complete ordered-lag two-point vector reproduced all 23 pairs in the CSV and the (length, count) breakdown (0,1),(3,17),(4,3),(5,2). Expansion of each squared window sum gives F_k=kR+2Σ_{d=1}^{k−1}(k−d)C_d, so second differences recover each C_d; there is no converse. A window of length 12q+s in either r-fold power adds 6q to the corresponding remainder weight and each base start occurs r times. A dihedral equivalence of the powers would restrict on twelve consecutive letters to one between the bases. This proves repetition for all r, not other lengths. Replay: python3 /workspace/review-replay.py 3 with the original homometric_pairs_n12.csv path as its argument.
 
-## Closest sources and remaining risks
-- Mandereau et al., *Z-relation and homometry in musical distributions*, DOI `10.1080/17459737.2011.608819`: two-point correlation and complements, not the full cyclic window-composition histogram.
-- Mandereau et al., *Discrete phase retrieval in musical structures*, DOI `10.1080/17459737.2011.608820`: k-decks, interval vectors, and the first homometric lengths, with no exact count of length-twelve cyclic window multispectra.
-- Jedrzejewski--Johnson, *The Structure of Z-Related Sets*, `arXiv:1304.6608`, especially Section 3: enumeration of homometry classes, not the stronger histogram quotient.
-- Acharya et al., *String Reconstruction from Substring Compositions*, `arXiv:1403.2439`: linear, rather than cyclic, substrings.
+## originality
 
-The finite search certificate is entirely inspectable, but its proof of the census relies on successful execution of the exhaustive program; the publication-priority comparison cannot exclude unindexed special-case enumerations. The reported scientific assessment is not an independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The known homometry census accounts for the 23-pair baseline, not the reconstruction threshold or the unique collision for full cyclic window weights. Linear equicomposability and cyclic profiles at fixed short widths are different measurements. The expanded Resultary record 8e493cc5d8d2 uses the same full measurement and contains the same finite threshold, census and pair, plus new lengths. It is indexed under 2026-11-02, after the frozen 2026-10-26 entry. This establishes substantial catalogue overlap, but not a covering predecessor or the provenance of either derivation. The pass credits the finite full-histogram classification against established earlier work, not the baseline or an absolute priority claim.
+
+## value
+
+PASS
+
+The first loss of reconstruction for the complete cyclic measurement is a natural cutoff, with meaningful distinction from the older two-point measurement. Identifying the sole failure at that cutoff makes the refinement quantitative and exposes exactly which ambiguity remains; the all-multiples construction shows it persists. The known 23-pair baseline alone would not justify value, and no all-length classification is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

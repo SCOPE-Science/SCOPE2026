@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:55:36.272334Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–29",
+        "Frozen VERIFICATION.md and checker.py"
+      ],
+      "rationale": "The one-vector orthogonal projection has squared residual ab(X+Y)/(aX+bY), with a=σ1²>b=σ2²>0 and X,Y the positive squared coordinates. Put U=X/(X+Y); exchangeability gives E U=1/2. The strictly convex function ab/(b+(a-b)u) gives the lower bound 2ab/(a+b), with equality only if U=1/2 almost surely. Independent, identically distributed X and Y equal almost surely must be constant (every measurable threshold event has probability equal to its square); unit variance and centering then force iid fair signs. Gaussian polar coordinates make the angle uniform; quadrant substitution t=tan θ gives expected residual (2ab/π) times the integral from 0 to infinity of 1/(a+bt²), hence √(ab). Division yields (κ+κ⁻¹)/2, and κ→infinity proves noncomparability in the stated mean-squared sense. If a=b there is no strict optimizer, as the source notes. The singular-basis alignment, no oversampling, and squared norm are essential to the stated comparison. The supplied spot-check script and its reported 5316 cases were inspected as evidence, not executed; the audit uses exact derivations.",
+      "residual_risks": [
+        "No numerical replay or formal verification is claimed; the theorem concerns only the aligned one-vector, two-mode model."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "33674298e324 permits exchangeable positive squared probes and arbitrary positive diagonal spectral filters and gives a pairwise gap. 26fbd7d571af also treats aligned exchangeable squared probes in higher dimension. The distinct 163212af3a0e theorem has d>=3 and does not establish the two-mode case on its own. The Gaussian bound in Corollary 24 has width p>2 and an unsquared expected residual excess; Theorem 3.17 is a high-probability spectral-norm bound."
+        ],
+        "reasoning": "The first broader exact theorem includes all the squared probe laws, objective and diagonal matrix in the frozen statement. The primary-literature bounds cited by the source have different quantifiers or loss and are not the basis of the failure.",
+        "searches": [
+          "Resultary 33674298e324 and 26fbd7d571af; compare 163212af3a0e",
+          "arXiv:2206.08793 Corollary 24; arXiv:2610.31333v1 Theorem 3.17"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, lines 25–34",
+        "Resultary 33674298e324, 26fbd7d571af, 163212af3a0e, 24d8f4bb643c",
+        "arXiv:2206.08793; arXiv:2610.31333v1; DOI 10.1093/biomet/74.3.579"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Restrict the pairwise gap of 33674298e324 to two unequal singular values and the identity filter: the underlying strict gap vanishes precisely when the squared magnitudes agree. Independence, variance one and mean zero then give the unique iid sign law. The two exact formulas from 24d8f4bb643c divide to (κ+κ⁻¹)/2."
+        ],
+        "reasoning": "The specialization preserves the matrix, error metric, rank and independence conditions. The iid equality step and divergence of the quotient require no new theorem.",
+        "searches": [
+          "Compare 33674298e324 Finding/Assumptions and 24d8f4bb643c Finding/Proof with frozen RESULT.md lines 4–20"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Identity filtering in 33674298e324 gives the identical aligned one-vector projection. For Gaussian input its direction is angular central Gaussian with shape diag(a,b); the projector moment diag(σ1/(σ1+σ2),σ2/(σ1+σ2)) is another formulation of the same Gaussian calculation."
+        ],
+        "reasoning": "An exact expected projector determines the mean squared residual by one trace. The moment was verified directly and is not attributed to the inaccessible Tyler full text. The projector reformulation is not an additional distinct theorem of the frozen result.",
+        "searches": [
+          "Resultary: one-vector sketch spectral filter / squared Frobenius error (33674298e324)",
+          "Tyler ACG, DOI 10.1093/biomet/74.3.579"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Finding and Proof of 24d8f4bb643c give mean squared Gaussian error σ1σ2 for any real full-column-rank two-column matrix and aligned Rademacher error 2σ1²σ2²/(σ1²+σ2²). It compares orientations, not uniqueness among iid laws. Its date matches this record's UTC date."
+        ],
+        "reasoning": "This distinct record covers both benchmark formulas and hence their quotient, regardless of undetermined same-day ordering. The earlier 33674298e324 separately covers minimization.",
+        "searches": [
+          "Local Resultary: 33674298e324, 26fbd7d571af, 163212af3a0e, 24d8f4bb643c"
+        ]
+      },
+      "rationale": "The central extremality and equality claim is a direct dimension-two, identity-filter specialization of the earlier Resultary exchangeability theorem. The exact two means also occur in a distinct indexed comparison on the same UTC date; the quotient and its unboundedness are immediate. The evidence establishes prior or equivalent coverage, not falsity or priority between same-date records.",
+      "residual_risks": [
+        "Historical priority outside the checked records is unresolved; same-date catalogue entries do not determine priority.",
+        "The Tyler full text was not inspected. No conclusion about its exact moments is needed for this verdict."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Controls the frozen optimum and equality",
+          "evidence": "Exact pairwise gap; flat magnitudes minimize for exchangeable positive squared magnitudes and positive diagonal filters",
+          "identifier_or_url": "Resultary 33674298e324 (2026-10-25 UTC catalogue date)",
+          "material_read": "Finding and Assumptions and scope, offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Sharp distribution ordering and spectral-filter reversal for one-vector sketches",
+          "trigger": "Earlier exact optimization under broader filters and laws"
+        },
+        {
+          "assessment": "Material same-date broader coverage",
+          "evidence": "Exchangeable positive squared probes and exact nonnegative residual gap",
+          "identifier_or_url": "Resultary 26fbd7d571af",
+          "material_read": "Finding and Proof, offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Spectral-share majorization for one-column randomized SVD in finite and infinite dimension",
+          "trigger": "Possible all-dimensional theorem"
+        },
+        {
+          "assessment": "Dimension restriction does not cover this case",
+          "evidence": "Fair signs uniquely minimize in dimension d>=3",
+          "identifier_or_url": "Resultary 163212af3a0e",
+          "material_read": "Finding and boxed gap, offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Fixed-modulus optimality and a sharp Gaussian tail penalty in one-column sketches",
+          "trigger": "Potential exact minimizer overlap"
+        },
+        {
+          "assessment": "Same-date coverage of both benchmark formulas, not the whole iid optimizer class",
+          "evidence": "Gaussian σ1σ2; aligned Rademacher 2σ1²σ2²/(σ1²+σ2²)",
+          "identifier_or_url": "Resultary 24d8f4bb643c",
+          "material_read": "Finding and Proof, offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "A sharp orientation reversal between Gaussian and Rademacher one-vector sketches",
+          "trigger": "Exact two-mode expected errors"
+        },
+        {
+          "assessment": "Inspected bound has different width and loss",
+          "evidence": "p>2, expected unsquared residual excess",
+          "identifier_or_url": "https://arxiv.org/abs/2206.08793",
+          "material_read": "Section 4.1, Corollary 24, OA text offset 87300",
+          "method": "OA source passage",
+          "title": "A general error analysis for randomized low-rank approximation methods",
+          "trigger": "Prior exact expected Gaussian error candidate"
+        },
+        {
+          "assessment": "Inspected results are not the claimed exact two-mode mean comparison",
+          "evidence": "Rademacher mentioned as an alternative; theorem gives a high-probability spectral-norm bound",
+          "identifier_or_url": "https://arxiv.org/html/2610.31333v1",
+          "material_read": "Abstract/Introduction, offsets 0 and 5200; Theorem 3.17, offset 76000",
+          "method": "OA source passages",
+          "title": "Sketching Outside the Hilbert Space for the Infinite-Dimensional Randomised SVD",
+          "trigger": "Prior Gaussian–Rademacher analysis"
+        },
+        {
+          "assessment": "Known distribution family; no full-text judgement",
+          "evidence": "Studies the angular central Gaussian distribution",
+          "identifier_or_url": "https://doi.org/10.1093/biomet/74.3.579",
+          "material_read": "Publisher bibliographic result only; full-text request blocked",
+          "method": "Catalogue and attempted OA access",
+          "title": "Statistical analysis for the angular central Gaussian distribution on the sphere",
+          "trigger": "Potential known Gaussian projector moment"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–9 and 25–29",
+        "Resultary 33674298e324 and 24d8f4bb643c"
+      ],
+      "rationale": "The aligned two-mode example is a useful illustration of why sketch laws need not be interchangeable. As a standalone scientific contribution, however, the optimizer and equality case are directly obtained from the existing exchangeability theorem and the penalty is a one-line consequence of the available exact means. There is no further quantitative or structural claim left after subtracting this coverage.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:34:50.901852Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–26 and 30–72, including the exact B_j formulas and pole argument",
+        "Frozen VERIFICATION.md and VERIFIER.py (read, not executed)",
+        "Independent check via falling factorial moments and factorization of 4B₃²−3B₂B₄"
+      ],
+      "rationale": "For N complete circuits the pgf is (1−p)z/(1−pz). In x=p/(1−p), its falling factorial moments are k!x^(k−1)(1+x) for k≥1, with the continuous value at x=0. Conditional on N the jth scaled moment λ^j μ_j is the mean of the rising product (sN)(sN+1)…(sN+j−1). Converting ordinary powers of N to falling factorials through degree four gives the listed B_j and the lower-order ratio μ₂/μ₁². Independently, multiplication gives 4B₃²−3B₂B₄=(s²−1)[(s+1)(s+2)+6sx]. Thus 4/3−R is this affine numerator divided by 3B₃². For B₃=A+Bx+Cx² and the reduced numerator L=A+6sx, the coefficients of 2B₃′L−6sB₃ are (2B−6s)A, 6sB+4CA, and 18sC, all positive. This proves strict monotonicity and yields the endpoint (s+3)/(s+2) at x=0 and limit 4/3 as x diverges. The leading term is K_s x⁻³, K_s=(s²−1)/(18s³); analyticity in 1−p at zero gives dr/dp∼3K_s(1−p)² and the stated inverse derivative, not merely an inversion of a big-O statement. The given mean then fixes λ; arbitrary quadruples still require the other moment equations. For 0<p<1 the transform numerator is a nonzero constant and there is a nonreal root of the denominator for s≥3, ruling out any finite acyclic representation with a real triangular transient generator. At p=0 the law is Erlang and acyclic.",
+      "residual_risks": [
+        "The inversion is for known s and the specified statistic. The frozen rational tests are finite spot checks; the factorization and sign proof hold without those tests."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Weng et al. use exactly H_3=μ₂μ₄/μ₃². Their Theorem 4.4 gives H_k≥(s+k)/(s+k−1) for acyclic PH and Erlang equality; their adjacent cyclic discussion says the proof is open in general for k≥3.",
+          "Sherzer et al. develop broad numerical moment fitting, without the specialized exact inverse or asymptotic."
+        ],
+        "reasoning": "The acyclic theorem supplies the Erlang endpoint but not the p>0 monotonic map; numerical fitting on a larger family is not a dominating exact theorem.",
+        "searches": [
+          "Weng–Yu–Zhu arXiv:2610.37425v1, §§4.1 and 4.3",
+          "Sherzer–Resheff–Telek arXiv:2505.20379, pp.2–4"
+        ]
+      },
+      "checked_sources": [
+        "Weng–Yu–Zhu §§4.1, 4.3",
+        "Sherzer–Resheff–Telek pp.2–4",
+        "Resultary 1ad4ea43835b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An acyclic lower bound for this statistic only yields the single p=0 boundary here. The s=3 benchmark could be expanded to recover the cubic term at s=3, not at arbitrary s. The broad PH fitter provides no monotonicity or conditioning formula."
+        ],
+        "reasoning": "The combination of the full target interval, uniqueness for all fixed s≥3, and the cubic inverse-conditioning law is not a corollary of the inspected results. Non-acyclicity by pole structure is standard supporting context.",
+        "searches": [
+          "Resultary 1ad4ea43835b, Finding, benchmark and Relationship to prior work",
+          "Weng et al., Eq. (4.24), Erlang equality and following cyclic discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinct three-phase result uses the same statistic and its equal-mean benchmark is the s=3 subfamily, but its main conclusions concern heterogeneous means, local optimality of the homogeneous design and a counter-comparison. Its cubic comparison term is between designs, not 4/3−R."
+        ],
+        "reasoning": "There is real subfamily overlap, but a benchmark at one s does not imply strict calibration and the explicit coefficient as a function of s for every s≥3.",
+        "searches": [
+          "Erlang feedback, cyclic Erlang, monocyclic phase-type moment ratio inverse conditioning",
+          "Resultary 1ad4ea43835b, equal-holding-time benchmark"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed three-phase record gives an exact s=3 benchmark formula, rather than just samples. Weng et al.'s cyclic tests show no violations in their experiments but are not an exact feedback table."
+        ],
+        "reasoning": "A finite table does not supply this continuous family and endpoint expansion. The exact s=3 formula is credited as partial coverage rather than treated as missing evidence.",
+        "searches": [
+          "Resultary cubic cyclic phase-type and equal-mean Erlang-feedback terms",
+          "Weng et al., §4.3, tests for k=3,4,5"
+        ]
+      },
+      "rationale": "The substantiated distinct claim is the exact all-s homogeneous-feedback monotonic inverse range and the cubic terminal law with its constant and inverse conditioning. The moment-generating function, general moment-ratio formalism, Erlang endpoint and complex-pole criterion are not claimed as new. A distinct indexed three-phase result does contain the equal-mean benchmark at s=3; it does not give the all-s inverse and cubic law. The strongest broader moment-ratio theorem inspected covers an acyclic lower bound, not the feedback calibration.",
+      "residual_risks": [
+        "The three-phase indexed record mentions earlier homogeneous-feedback calculations without identifying a specific primary source for that benchmark. A prior all-s formula under other terminology remains possible; neither catalogue date labels nor a low-yield lookup settle historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Acyclic lower bound, not the feedback inverse",
+          "evidence": "The exact statistic is H_3. Erlang realizes the acyclic lower bound; the general cyclic higher-ratio bound is not proved there. The PDF author order is Weng, Yu, Zhu, rather than the frozen bibliography order.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.37425",
+          "material_read": "v1 §4.1, Eqs. (4.1), (4.3), p.10 (offset about 32020); §4.3, Theorem 4.4/Eq. (4.24) and cyclic discussion, p.16 (offsets about 51400–52200)",
+          "method": "Open primary PDF passages",
+          "title": "Phase-type representations for Strong Stability Preserving Runge–Kutta methods",
+          "trigger": "Potential stronger identical moment-ratio result"
+        },
+        {
+          "assessment": "Exact overlap of s=3 benchmark; different wider conclusion",
+          "evidence": "For three possibly unequal holding means R≥6/5, with equality only for no feedback and equal means; the equal-mean formula is explicit. The cubic-factor expression compares two designs.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-cyclic-three-phase-moment-barrier-with-a-locally-stable-but-glob--1ad4ea43835b/RESULT.md",
+          "material_read": "Finding, equal-mean comparison, and Relationship to prior work",
+          "method": "Local mirror",
+          "title": "Cyclic three-phase moment barrier with a locally stable but globally suboptimal symmetric design",
+          "trigger": "Actual same-statistic cyclic-family overlap"
+        },
+        {
+          "assessment": "Numerical fitting framework; not exact inversion for this family",
+          "evidence": "Optimizes moment fit over broad PH models rather than analyzing the homogeneous one-parameter feedback ratio to its limiting endpoint.",
+          "identifier_or_url": "https://arxiv.org/abs/2505.20379",
+          "material_read": "pp.2–4, model and optimization formulation",
+          "method": "Open primary PDF passages",
+          "title": "An Unconstrained Optimization Approach to Moment Fitting with Phase Type Distributions",
+          "trigger": "Prior broad multi-moment fitting approach"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Limitations",
+        "Weng–Yu–Zhu §4, standard H_k ratios"
+      ],
+      "rationale": "The ratio is a standard adjacent moment diagnostic (H_3), not an arbitrary polynomial chosen to have a singular endpoint. The result gives an exact compatibility interval and quantifies the specific loss of conditioning near an exponential-like endpoint, including the rate and constant. The contrast with affine identification from the first two moments is useful because it prevents incorrectly attributing that instability to the whole two-parameter model. The distinct contribution is the diagnostic's complete behavior within this motivated cyclic family, not a universal fitting method.",
+      "residual_risks": [
+        "No finite-sample error guarantee or new method for optimally estimating the family from all moments is implied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The object is unambiguously the variance of total **rooted** phylogenetic diversity under a shared IID leaf-survival probability. Independent disjoint clades have variance \(\sum_j L_j^2[(1-p)^{k_j}-(1-p)^{2k_j}]\). For a clade of size \(k\), derivatives at \(1/(4k)\) and \(1/k\) have opposite strict signs. The scale-separated induction with length \(k^{-1/4}\) is sound: the new derivative grows like \(\sqrt{k}\) at its own scale and decays exponentially at every old fixed endpoint. Continuity after binary refinement and positive-edge perturbation preserves every sign. This proves any prescribed finite number of distinct strict maxima. The explicit positive-edge example has a checked uniform derivative error bound below its smallest strict witness margin. The attached checker reproduces finite arithmetic, not the general proof. Critical qualifications are finite trees, positive but possibly tiny lengths, and homogeneous independent survival.
+## correctness
 
-## Originality — PASS, with residual risk
-The original independent-extinction moments and variance representation are established in Faller–Pardi–Steel, "Distribution of phylogenetic diversity under random extinction" (arXiv:0708.0425, Section 2), and are not claimed as new. The full-text source also addresses distributional convergence and algorithms, not the arbitrarily-large number of interior modes of the variance curve under a variable common survival parameter. Nipperess–Matsen, "The mean and variance of phylogenetic diversity under rarefaction", derives mean/variance for fixed-size sampling, not IID extinction. A recent biodiversity-index source treats other index risks. The claim about unbounded variance modality is neither a direct restatement of those results nor implied by merely having a general variance expression; the multiscale construction and positive-edge preservation establish the new phenomenon. Nonetheless an overlooked equivalent result in stochastic biodiversity, Bernoulli activation mixtures or phylogenetic risk literature remains possible.
+PASS
 
-## Mathematical value — PASS
-Extinction-risk studies use dispersion of future phylogenetic diversity to assess conservation uncertainty. One might expect a single variability peak as independent survival moves from almost zero to almost one, especially because the mean diversity is concave. The theorem proves there is no universal modal-complexity limit even for binary trees with strictly positive edges and IID survival. The constructive mechanism identifies distinct clade-size scales generating distinct uncertainty peaks and supplies a fully specified three-peak witness. The finding is a qualitative structural boundary, not an arbitrary small numerical gain.
+The selected stems depend on disjoint independent sets of tips. Their Bernoulli variances add and differentiation gives k(1-p)^(k-1)[2(1-p)^k-1] for each unit squared-length coefficient. A new stem of length k^(-1/4) contributes order sqrt(k) at p=c/k with limiting signed coefficient e^(-c)(2e^(-c)-1), positive at c=1/4 and negative at c=1, while old terms are bounded there. At old positive endpoints the new derivative tends to zero exponentially, so induction preserves disjoint strict sign brackets. A binary scaffold has the clades as pendant subtrees; for one clade one may put a spare tip across the root so that the clade has an incoming stem. Assigning small positive lengths to all remaining edges preserves the derivative brackets by finite polynomial dependence. In each bracket an interior maximizer exists and is strict, since the variance polynomial is nonconstant and any fixed level has only finitely many preimages. The mean formula is an edge sum of nondecreasing concave functions. For the 100,514-tip example, integer interval multiplication and squaring (outward rounding at scale 10^32, independent of the supplied Decimal verifier) reproduce derivative pairs approximately (+0.9296875,-0.5), (+15.89502604,-1.14168436), (+203.51060288,-4.46131721), with certified margins at least 1/2. Differentiating the Bernoulli product law gives a sum of n conditional-expectation differences, each bounded by the range width. Applied to 2XZ+Z^2 and 2 EX EZ+(EZ)^2 this gives 6nLη+3nη², independently checked to be less than 1.60e-7. The original six signs therefore persist.
 
-## Closest literature and limitations
-The relevant earlier objects and moment identities are credited; the comparison does not assert a universal uniqueness certification. The construction uses strongly separated clade sizes and very short binary-refinement edges. It is not a theorem about ultrametric trees, practical conservation outcomes, fixed-size rarefaction, or correlated extinctions. Independent inspection of a potentially equivalent unindexed result has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The classical variance identity and the existence of two peaks are prior. The surviving distinct claim is unbounded peak count in the strictly positive full binary class, with a certified three-peak witness. Neither the prior two-peak construction nor the exact moment framework itself supplies this conclusion.
+
+## value
+
+PASS
+
+The prior two-peak examples rule out unimodality only; this construction rules out every universal finite modal bound while retaining binary topology, positive lengths and homogeneous survival. It distinguishes the complexity of variance from the simple concave mean, and supplies finite parameters with a sign margin rather than relying on plotted peaks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

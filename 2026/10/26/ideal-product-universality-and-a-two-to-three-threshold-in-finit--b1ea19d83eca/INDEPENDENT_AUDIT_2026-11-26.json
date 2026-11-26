@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:15:07.643440Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–43",
+        "Frozen VERIFICATION.md lines 19–25",
+        "Frozen artifacts/verify.py lines 7–85",
+        "Independent closure-enumeration replay: node /workspace/review-evidence/5-ring-check.js"
+      ],
+      "rationale": "The quotient V and socle layer are residue-field modules without a coefficient-field assumption. Nondegeneracy makes any proper ideal containing a nonzero vector modulo m² also contain m² (multiply by a partner giving a nonzero socle element); the only other proper ideals are 0 and m² itself. Thus the proper nonzero ideals are exactly the J_U including J_{0 subspace}=m². For a d-space U, its perfect-pairing annihilator has dimension r−d, so precisely T_{r−d} partners W give zero; this applies even in characteristic two, and counts ordered pairs including equality. For any k, count zero-free tuples with zero, one or two proper factors; three proper factors vanish. The two-proper nonzero outcomes are all m², giving the stated distribution and total complement, also at k=1. For fixed r, deg T_r=⌊r²/4⌋, and deg C_r≤max_t(rt−3t²/4)≤r²/3<2⌊r²/4⌋. Consequently the pair zero probability tends to zero and for fixed k≥3 the complement is O(T_r^(2−k)). Rank two gives T₂=q+3, C₂=3q+6 and the displayed probability. An initially suspected rank-three discrepancy is resolved: T₁(2)=2, not 3, so C₃(2)=16+7·5+7·2+1=66, and the frozen counts (18 ideals, 101 zero pairs, 5213 zero triples) are correct. Separate exhaustive generation by repeatedly adjoining one element and taking ideal closure reproduced these counts; in the characteristic-four example with additive group Z/4⊕(F₂)², x²=y²=2 and xy=2x=2y=0, the same check gave 7 ideals, 25 zero pairs and 288 zero triples. The supplied checker was inspected, not executed.",
+      "residual_risks": [
+        "The two exhaustive reproductions are finite checks only. Scope in general residue fields and in mixed characteristic follows from the proof; the threshold fixes r and k."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary chain theorem gives ζ₂=5/8 at length three; r≥2 excludes chain rings. Its extension question asks about non-chain rings.",
+          "The square-zero entry assumes m²=0; the element-product matrix entry is equicharacteristic with r=2 and a different observable."
+        ],
+        "reasoning": "Neither finite products of chain rings nor square-zero local rings cover the specified non-chain local Gorenstein family with nonzero m². The checked element-product results do not supply its all-ideal law even for r=2.",
+        "searches": [
+          "arXiv:2608.14618 Theorem 4.6 and §10",
+          "Resultary 3a0a9232371d and 3219b3540ac0"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.14618 Theorem 4.6 and §10 Problem 1",
+        "Resultary 3219b3540ac0 and 3a0a9232371d",
+        "Frozen RESULT.md lines 5–39 and 45–51"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The chain valuation-counting law does not contain the orthogonal-subspace pair count. The socle-product matrix measures congruence-sensitive data, whereas the frozen ordered-pair law uses only the dimension of U^⊥ and also covers rings without a coefficient field."
+        ],
+        "reasoning": "Even given familiar annihilator and Gaussian incidence facts, the prior probability formulas do not specialize to the advertised full distribution: one needs the ideal classification and ordered factor decomposition. The fixed-r degree gap, not any chain-length formula or element-product spectrum, yields the two-to-three threshold.",
+        "searches": [
+          "arXiv:2608.14618 Theorem 4.6 and §10 Problem 1 versus frozen RESULT.md lines 31–39",
+          "Resultary 3219b3540ac0 Finding versus frozen ordered ideal-pair test"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The socle-product matrix entry concerns element products in dimension four and can detect isotropic lines; its determinant/spectral observable is not an ideal-product law.",
+          "Counting orthogonal ordered U,W is dual to counting pairs W≤U^⊥, equivalently incidence pairs W≤D since U↦U^⊥ bijects the subspaces. This explains form independence without identifying it with any checked alternative probability theorem."
+        ],
+        "reasoning": "An incidence count need not classify self-orthogonal subspaces. In the present sampling U and W are separate uniform choices, and the zero and unit ideals and the three-factor cutoff are indispensable to convert incidence counts into the complete product distribution.",
+        "searches": [
+          "arXiv:2608.14618 Theorem 4.6 and §10 Problem 1",
+          "Resultary 3219b3540ac0 and 3a0a9232371d, socle product matrices and square-zero ideal probabilities"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact probability catalog entries checked describe chain or square-zero cases, not the parametric C_r(q) law and k-factor distribution here."
+        ],
+        "reasoning": "The object of the exact check is an entire family of distributions, not a table entry; equality of any single small probability would not establish the law. No matching exact formula was found in the inspected sources.",
+        "searches": [
+          "Local Resultary query for finite Loewy-three local rings, Gorenstein socle and ideal zero-product probability: 3219b3540ac0, 3a0a9232371d",
+          "arXiv:2608.14618 Theorem 4.6, known exact probability family"
+        ]
+      },
+      "rationale": "The checked primary source defines the same invariant, solves the chain case, and raises extension beyond chain rings. The closest Resultary statements concern different Loewy lengths or products of elements, not this ideal-product distribution. The underlying lattice and annihilator dimension facts are classical; what survives the comparisons is their use for the complete non-chain ideal-product law, its form and ring-characteristic universality at fixed q,r, and the field-size threshold.",
+      "residual_risks": [
+        "Bounded source comparisons are not exhaustive. An earlier equivalent law could be phrased as a statistic of annihilator lattices rather than as ideal zero-product probability."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same sampling and exact chain case; non-chain extension remains a different question.",
+          "evidence": [
+            "For length three in the chain formula ζ₂=5/8; §10 Problem 1 poses universality beyond chains."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2608.14618",
+          "material_read": "Theorem 4.6, PDF p. 11, near offset 30369; §10 Problem 1, PDF p. 32, near offset 89918",
+          "method": "Lawful OA PDF bounded passage inspection",
+          "title": "Ideal Zero-Product Probability in Finite Commutative Rings",
+          "trigger": "Introduces the invariant and has exact local ring probability results."
+        },
+        {
+          "assessment": "Same pairing perspective, different statistic and scope.",
+          "evidence": [
+            "Spectra count information about isotropic lines from element products; no ideal-product distribution is stated."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-socle-product-matrix-spectra-detect-witt-type-in-four-dimensiona--3219b3540ac0",
+          "material_read": "RESULT.md Finding and stated four-dimensional local algebra assumptions",
+          "method": "Local Resultary mirrored passage inspection",
+          "title": "Socle-product matrix spectra detect Witt type in four-dimensional local algebras",
+          "trigger": "Closest published pairing-based exact invariant in the r=2 Gorenstein case."
+        },
+        {
+          "assessment": "Different Loewy class.",
+          "evidence": [
+            "The radical squares to zero, precluding a nonzero m² and the perfect nonzero-target pairing here."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-square-zero-local-rings-exhibit-a-unique-nonfield-collision-with--3a0a9232371d",
+          "material_read": "RESULT.md Finding and square-zero assumptions",
+          "method": "Local Resultary mirrored passage inspection",
+          "title": "Square-zero local rings exhibit a unique nonfield collision with field probabilities",
+          "trigger": "Closest indexed exact ideal-product probability for a short non-chain local ring."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–25 and 39–51",
+        "arXiv:2608.14618 §10 Problem 1"
+      ],
+      "rationale": "The ideal-product distribution is a motivated exact invariant from an existing non-chain universality question. This class is rich enough to vary the field size, form and ring characteristic, and the result identifies which of those data the invariant retains. The large-field transition sharply separates two from three factors even though the Loewy length stays fixed. Both the exact law and the contrasting limit are useful for assessing which universality claims from chains extend to other local rings.",
+      "residual_risks": [
+        "No law is claimed for degenerate pairings, higher-dimensional socles, or growing r or k. Independence concerns ring data beyond the fixed q,r, not independence of residue-field order."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

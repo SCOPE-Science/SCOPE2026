@@ -1,0 +1,90 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:37:13.646572Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the synchronous product on Q×Q, advance along any pair S⊆T; a reachable state in F×(Q\\F) is precisely a failure, since only equal-length words are compared. Reachability in this implicit product is in NL: store two states and a counter bounded by |Q|², and scan the explicit table for successors. NL=coNL gives membership also for monotonicity. DFA nonemptiness with a nonaccepting start is NL-hard by reachability from a fresh start: use edge choices as transition labels, other moves to a sink, and the target as final. Complementation gives source emptiness NL-completeness. In the stated reduction every valid block has length m>=2 and precisely one occurring predicate. The parser needs only the simulated state, the position in the block, and the seen predicate position (or none), so its explicit transitions are streamed in logspace and there are O(|Q|m²) states. A nonempty accepted source word has a coded block in which flipping one bottom letter to top makes a rejected block; the empty source language maps to the empty language. The nonaccepting start is essential to this proof because the empty word has no upward perturbation. Larger fixed powerset alphabets can reject unused letters; k=0 gives equality of all equal-length words. No finite sampling was needed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 32 states DFA monotonicity is NL-complete. Appendix B.3 builds the same upward-closure NFA/product upper bound and proves hardness with a new greatest letter."
+        ],
+        "reasoning": "A hard variable-alphabet class need not be hard on its fixed binary restriction; inclusion of inputs directly transfers only the upper bound.",
+        "searches": [
+          "arXiv:2406.17693v1 §4.2 Proposition 32 and Appendix B.3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md (symbolic)",
+        "arXiv:2406.17693v1",
+        "Resultary 4bebc4817274 and 654adf45f820"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Taking a binary DFA emptiness source in the earlier reduction still produces three letters, because the top is fresh. The unary source has deterministic orbit reachability in logspace and is not a known NL-hard starting point. The new construction arranges valid blocks to admit a proper letterwise increase without adding a letter."
+        ],
+        "reasoning": "This is not a substitution into the old construction: the minimally nontrivial alphabet needs a way to encode a nontrivial emptiness source while retaining an upward rejection witness. The one-hot coding does both with two letters.",
+        "searches": [
+          "Kuperberg–Moreau Appendix B.3 exact fresh-top reduction and possible fixed-binary specialization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published upper bound uses equality with the upward closure on equal-length words.",
+          "On the binary chain 0<1, for every reachable q the right language at δ(q,0) must be included in that at δ(q,1). Necessity follows from prefixing a word reaching q; sufficiency follows by changing one coordinate at a time."
+        ],
+        "reasoning": "Right-language inclusion here is the same closure property, not under arbitrary deletion or scattered subwords. Monotone synchronizing transitions refer to a different order and task.",
+        "searches": [
+          "Resultary binary DFA language monotonicity, simulation/right-language inclusion, and fixed alphabets",
+          "Kuperberg–Moreau arXiv:2406.17693v1 §4.2 and Appendix B.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The neutral-letter record concerns alphabeticity/constant-circuit membership over {0,1,#}, with an identity letter. The subset-synchronization record concerns synchronizing lengths."
+        ],
+        "reasoning": "Neither is a theorem or table for upward-closed explicit DFA languages over the fixed chain. A finite automaton census would not certify complexity of the unbounded transition tables. The scoped indexing check found no matched theorem.",
+        "searches": [
+          "Resultary fixed-alphabet DFA NL-completeness/monotonicity; 2026/9/19/SCOPE-neutral-letter-dfa-constant-circuit-membership--4bebc4817274; 2026/10/13/SCOPE-the-first-binary-monotonic-subset-synchronization-excess-occurs--654adf45f820"
+        ]
+      },
+      "rationale": "The published unrestricted-alphabet NL-completeness result and the upper-bound mechanism are known. The supported increment is hardness in the fixed two-letter chain, and thus the exact least nontrivial predicate count, rather than the general classification. The closest checked published proof uses an extra alphabet letter and does not establish the binary threshold by specialization.",
+      "residual_risks": [
+        "Bounded searches do not establish priority; an exact binary statement or an equally small prefix or encoding argument may occur under ordered-language or right-language terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the unrestricted theorem and upper bound, but its fresh-top reduction does not prove the fixed two-chain result. The retrieved version labels the statement Proposition 32.",
+          "evidence": [
+            "Appendix B.3 adds a fresh greatest letter with no accepting transition; the construction enlarges the source alphabet."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2406.17693v1",
+          "material_read": "§4.2 Proposition 32 (PDF p. 11), Appendix B.3 (PDF p. 19, OA passage near 66732)",
+          "method": "Lawful OA PDF, theorem and exact construction",
+          "title": "Positive and monotone fragments of FO and LTL",
+          "trigger": "Direct same-problem NL-completeness theorem"
+        },
+        {
+          "assessment": "Different DFA language property and alphabet structure.",
+          "evidence": [
+            "Fixed ternary alphabet with an identity letter, and an alphabeticity/constant-circuit question."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/19/SCOPE-neutral-letter-dfa-constant-circuit-membership--4bebc4817274/RESULT.md",
+          "material_read": "Mirrored RESULT.md opening theorem",
+          "method": "Configured local mirror",
+          "title": "Neutral-letter DFA constant-circuit membership",
+          "trigger": "Nearest fixed-alphabet DFA complexity match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "One predicate is the smallest nontrivial ordered vocabulary. Resolving it distinguishes hardness due to the state reachability structure from hardness due to a growing alphabet and makes the dichotomy with zero predicates exact. This is a meaningful restriction of the complexity theorem, not a repetition of the known product upper bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

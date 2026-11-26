@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:45:16.624467Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With Haar probability normalization, the Fourier multipliers are 1,a,a,b,b and otherwise 0. For t>0 the powered operator is convolution by 1+2a^t cos θ+2b^t cos 2θ; a nonnegative approximate identity detects any continuous negative part. Minimizing in x=cos θ gives the vertex branch A(t)=1−2b^t−(a²/b)^t/4 up to t_0, then F(t)=1−2a^t+2b^t. A is strictly concave, starts at −5/4 and ends positive for ρ<1: with x=−log ρ, the comparison for b^t_0 in RESULT.md line 55 has positive slope at least 4/3−log 6/log 4>0 by 6³<4⁴. For the equality case ρ=1, the endpoint slope, which concavity alone does not supply, is A'(1)=F'_1(1)=(log(27/32))/3<0. Thus there is one earlier zero and positivity through t_0, also at ρ=1. In the late branch F=1−2q^c+2q, q=b^t, its unique unconstrained minimum is at q=c^{1/(1−c)}. The minimum increases strictly with c, and c decreases strictly with ρ: the numerator of dc/dx in line 65 starts at (log 4)/3−log(3/2)>0 and increases. As ρ→0, c→1/2 and the minimum tends to 1/2; at ρ=1, F(1)=0 and the negative derivative gives a negative minimum. This proves one critical ρ. To see rigorously that the minimum is in the late branch for ρ≥ρ_c, note t_*(1)>1 and Fρ(1)≥0. Continuity prevents a crossing of t_*=1 on the negative-minimum interval, and at ρ_c<1 one has Fρ_c(1)>0, so t_*(ρ_c)>1 as well. Since t_0≤1, the two late roots bound exactly the stated hole, with u=1 only at ρ=1. At criticality the minimum touches zero without a hole; F_tt>0 and F_ρ<0 follow from stationarity and b'/a'≤1, b<a, t_c>1. Scaling t−t_c by √(ρ−ρ_c) gives simple roots ±K in the rescaled leading quadratic and the stated errors. No statement about order positivity at time zero on the full space is needed.",
+      "replay": "Independent high-precision replay at /tmp/opencode/frozen_1_to_5_math_replay.py, section 4, reproduces c_*≈0.227092195219348187, ρ_c≈0.966626615582544742, t_c≈1.043768636269559367, K≈0.441923691391585512 and the two nontrivial endpoints at ρ=1. It corroborates the numerical constants only; branch and fold claims are analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Guillot–Khare–Rajaratnam treat entrywise nonnegativity of conventional powers of finite doubly nonnegative matrices, including critical exponents uniform over matrix classes, rather than the exact gap of this kernel.",
+          "Mui's semigroup results concern local eventual positivity in strongly continuous semigroups; the powered finite-rank family tends to the projection onto the Fourier range rather than the identity as t↓0 on full L²."
+        ],
+        "reasoning": "Neither uniform eventual positivity nor eventual positivity after a rescaling of time would locate the intermediate interval(s) or imply a fold. Even approximating convolution by circulants would not obtain the sharp roots from a dimension-based critical exponent.",
+        "searches": [
+          "arXiv:1303.4701v2, HTML offsets 1756 and 5200",
+          "doi:10.1007/s00233-023-10347-0, p. 460",
+          "Resultary comparison for Bernstein–Durrmeyer spectral powers"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 71ae2b5c6d47, theorem and model",
+        "Resultary 1b550f80c451 (self-match)",
+        "arXiv:1303.4701v2 §§1–2",
+        "doi:10.1007/s00233-023-10347-0 p. 460",
+        "doi:10.33205/cma.491601 (cited, text not obtained)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A single disconnected example says nothing about which squared-cosine parameters have a gap. Standard smooth tangency analysis gives a square-root law only after verifying one interior nondegenerate double root and the signs of both relevant derivatives.",
+          "Matrix critical-exponent results can bound the onset of eventual positivity for their classes but do not determine all finite positivity times along this continuous circle multiplier family."
+        ],
+        "reasoning": "Credit generic sign minimization and fold machinery; what remains is the exact simultaneous classification for every ρ, including the endpoint t=1 at ρ=1 and the interior collapse with an explicit constant.",
+        "searches": [
+          "Resultary 71ae2b5c6d47 theorem",
+          "Mui doi:10.1007/s00233-023-10347-0",
+          "Guillot–Khare–Rajaratnam arXiv:1303.4701v2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The circle problem is equivalent to nonnegativity of a two-harmonic Fourier polynomial along the curve (a(ρ)^t,b(ρ)^t), not to nonnegativity of pointwise powers of a density or to PSD of the operator.",
+          "The fixed degree-two Bernstein–Durrmeyer operator on L²(0,1) has a disconnected positivity set with the ordinary step t=1 as an endpoint, but it has a different kernel and spectral range and no ρ-dependent family."
+        ],
+        "reasoning": "A general criterion in two Fourier coefficients can decide the sign at a point and is elementary. The checked contribution follows the entire spectral-power curve using the constrained vertex and boundary tests, and classifies the continuous transition. Moving between the two operators or between spatial and spectral powers does not give that classification.",
+        "searches": [
+          "Resultary semantic lookup for squared-cosine circle convolution spectral powers, disconnected positivity times and critical parameter",
+          "Resultary 71ae2b5c6d47 mirrored RESULT.md offsets 0–1392",
+          "arXiv:1303.4701v2 §§1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Local 2026/11/22/SCOPE-a-sharp-positivity-bifurcation-for-spectral-powers-of-squared-co--1b550f80c451 is the record under audit.",
+          "Distinct Resultary entry 71ae2b5c6d47 has τ_-≈0.89128981 and τ_+≈1.13094626 for a fixed operator; these are not the ρ=1 squared-cosine values or an indexed parameter transition."
+        ],
+        "reasoning": "The self-match is not independent evidence. The distinct record was compared as a theorem despite the shared date, and its operators and endpoints do not match. No exact independent match emerged in the bounded check.",
+        "searches": [
+          "Local Resultary semantic lookup for the squared-cosine kernel, two positivity windows and square-root merger",
+          "Mirrored RESULT.md passages for IDs 1b550f80c451 and 71ae2b5c6d47"
+        ]
+      },
+      "rationale": "The positivity-hole phenomenon in spectral powers is not specific to this result. Credit the same-date Bernstein–Durrmeyer classification as material qualitative overlap without inferring their order. The distinct contribution is the exact positivity diagram for the parameterized squared-cosine convolution family, in particular the unique transition in ρ and nondegenerate fold of the two endpoints. No equivalent or stronger effective classification was found in the inspected statements.",
+      "residual_risks": [
+        "Equivalent two-harmonic multiplier classifications may be indexed under convolution divisibility, Fourier polynomials, or finite-rank semigroups; the check is not comprehensive.",
+        "The same-date interval-operator analogue does not establish within-day priority; its Altomare citation was not compared in full."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Qualitative overlap; a fixed interval operator rather than the circle family and no parameter bifurcation. Same date does not establish priority.",
+          "evidence": [
+            "Positivity exactly on [τ_-,1] ∪ [τ_+,∞), τ_-≈0.89128981 and τ_+≈1.13094626, for the degree-two Bernstein–Durrmeyer operator."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-disconnected-positivity-times-of-quadratic-bernstein-durrmeyer-s--71ae2b5c6d47",
+          "material_read": "Mirrored RESULT.md offsets 0–1392, theorem and operator",
+          "method": "Local Resultary search and bounded mirrored-text inspection",
+          "title": "Disconnected positivity times of quadratic Bernstein–Durrmeyer spectral powers",
+          "trigger": "Closest distinct Resultary match; disconnected positivity times of spectral powers"
+        },
+        {
+          "assessment": "Scope is finite symmetric PSD entrywise nonnegative matrices; inspected results do not give the Fourier curve classification.",
+          "evidence": [
+            "Critical exponents concern functions preserving the doubly nonnegative cone and eventual conventional matrix powers."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1303.4701v2",
+          "material_read": "§§1–2, HTML offsets 1756 and 5200",
+          "method": "Open-access primary-text passage inspection",
+          "title": "Critical exponents of doubly nonnegative matrices",
+          "trigger": "Broader spectral-power positivity theorems"
+        },
+        {
+          "assessment": "Related asymptotic question with a different continuity assumption and no exact intermediate windows in the cited material.",
+          "evidence": [
+            "The setting is local eventual positivity of strongly continuous semigroups on Banach lattices."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00233-023-10347-0",
+          "material_read": "Primary PDF p. 460, statement of semigroup framework",
+          "method": "Open-access primary-text passage inspection",
+          "title": "Spectral properties of locally eventually positive operator semigroups",
+          "trigger": "Could eventual positivity theory already settle all large powers?"
+        },
+        {
+          "assessment": "No whole-document conclusion. Residual risk for interval-operator context, not affirmative coverage of the circle classification.",
+          "evidence": [
+            "The inspected analogue cites §6 Theorems 6.9–6.10; this is a bibliographic lead rather than an independently read theorem."
+          ],
+          "identifier_or_url": "https://doi.org/10.33205/cma.491601",
+          "material_read": "Reference and section locators in the analogue; primary PDF not obtained",
+          "method": "Lawful open-access lookup returned a retrieval timeout",
+          "title": "Altomare (2019), Bernstein–Durrmeyer approximation and semigroup comparison",
+          "trigger": "Reference cited by the closest analogue, in particular §6 Theorems 6.9–6.10"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This elementary normalized positive kernel is a natural Fourier model distinguishing order positivity from spectral positivity. The contribution is a complete two-parameter picture: onset, re-entrant loss, recovery and the sharp transition between one and two intervals, including the isolated touching case. The exact constants and uniform fold are useful for testing when positive time evolution is not preserved by spectral interpolation. A single example of disconnection would add substantially less in light of the Bernstein–Durrmeyer comparison.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

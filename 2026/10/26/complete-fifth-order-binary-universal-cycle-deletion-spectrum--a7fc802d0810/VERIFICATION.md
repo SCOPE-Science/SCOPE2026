@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-From the directory holding the two Python programs, run `python3 verify_parity.py` and `python3 verify_mitm.py`. Both are standard-library-only and operate on the explicit 16-vertex/32-edge directed graph whose arcs are the five-bit words. The first computes an exhaustive basis for the rank-15 GF(2) incidence constraints and checks all 131072 parity-feasible subsets. It then requires exact integer degree balance, weak connectivity among active vertices, and at least five remaining edges. The second creates every one of the 65536 choices for each half-edge set, matches opposite 16-component signed divergence vectors, and uses disjoint-set connectivity. Both recompute the full 33 coefficients; neither reads a stored result table as its data source.
+## correctness
 
-Observed script completions:
+PASS
 
-`PARITY_ORDER5_UNIVERSAL_CYCLE_PASS basis=17 balanced=6600`
+A surviving five-bit word is a distinct arc from its four-bit prefix to its four-bit suffix. Cyclic factor overlap is exactly a closed edge traversal; conversely reading the appended bits of an Euler circuit recovers the retained factors. Degree balance plus weak connectivity on active vertices is the Euler criterion, with the length ≥5 requirement imposed separately. The full graph is balanced, so deletion and retention balance are equivalent, including the two loops. An independent enumerator joins on consistent vertex-local assignments of 0/1 retention variables, with one occurrence per globally balanced mask, then constructs a Hierholzer tour and checks the actual cyclic five-factors whenever the tour uses every eligible edge. It matches every b_s and c_s in the frozen table; the balanced total is 6600. At s=27, the prime length five leaves precisely the six nonconstant primitive rotation classes (32−2)/5; no candidate of smaller length qualifies. Uniform labeled deletion sets give the binomial denominator.
 
-`MITM_ORDER5_UNIVERSAL_CYCLE_PASS 6600 balanced`
+## originality
 
-The complete resulting coefficients are given in `RESULT.md`. Exact finite enumeration establishes this single fixed-order claim; it does not certify a general parameter theorem, uniqueness of the literature result, or independent validation. All integers are exact and no numerical tolerance is involved.
+PASS
+
+The full fifth-order profile for circular universality and the balanced comparison are distinct on the evidence inspected. Existing results cover the shared graph criterion, smaller orders' exact profiles, some individual s values, and the minimum-length zeros, not the full order-five profile.
+
+## value
+
+PASS
+
+This is the next order after a published sequence of complete binary tables in a stated universal-word/cycle probability problem. Reporting all deletion sizes and the balanced counts isolates the extra connectivity obstruction and gives exact comparisons to lower bounds. The result counts a natural, fixed labeled population without an arbitrary slice or requiring further applications.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

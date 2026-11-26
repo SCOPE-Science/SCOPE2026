@@ -1,15 +1,21 @@
-# Scientific review: weighted perimeter deviation of a disk
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The two boundary-measure differences are derived explicitly from the circle arcs cut by each regular-polygon edge and the lengths of its interior and exterior segments. The one-variable derivative has a single minimum with a sharp \(1+\sec(\pi/n)\) threshold; substituting that stationary point gives the exact two-branch formula. The strict-convexity calculation is reduced to a polynomial whose boundary value is \(2s(2-s)(s+1)^2\ge0\) for \(1<s\le2\) and which increases strictly with the weight beyond the threshold. The classical best-nested regular-polygon perimeter inequalities establish the stated unrestricted nonnesting obstruction. The included independent boundary-sampling program passed its tests. Risks: sampling is numerical and cannot replace the universal analytic proof; the endpoint infinite-weight convention must be applied as defined.
+## correctness
 
-## Originality
-**PASS, provisional historical priority.** The closest primary source [1] formulates weighted perimeter deviation as an open Dowker-type approximation problem and does not supply a centered regular-polygon profile or crossing phase boundary. Fodor [2] restates Eggleston's nested optimality for the unweighted deviation, corresponding to the already-known \(p=q=2\) subcase, not all weights. Related published geometric findings on projection-shadow distance [3] and weighted area approximation by disk intersections [4] use distinct functionals and do not imply the result. A full mathematical comparison of object, weight, optimizer, and implication was made; older unindexed weighted geometric approximation work remains a priority risk.
+PASS
 
-## Mathematical value
-**PASS.** The theorem provides a complete exact optimization over a natural symmetry family directly motivated by a published open weighted-perimeter question, a sharp parameter-dependent transition, strict convexity for every polygon order, asymptotic constants, and a rigorous implication for the *unrestricted* approximating family: for an explicit range of finite weights no nested polygon can be globally best. Neither an all-polygon optimization nor the unrestricted convexity conjecture is asserted.
+Reconstructed the geometry: in one normal sector the omitted circle length is 2β and the interior edge chord is 2sinβ. Per 2n the other bracket is sin(α−β)/cosα−(α−β), positive for β<α since cos t>cosα for 0≤t<α. This also justifies the infinite weights: p=1 selects the largest inscribed radius and p=∞ the smallest circumscribed radius. In β the derivative has the sign of tan(β/2)−tanα/p for β>0; clipping the sole interior critical point to β≤α gives exactly 1+secα, and substitution gives the recorded values. Re-differentiation of the crossing branch gives the stated curvature numerator H; at p=1+s it factors as 2s(2−s)(1+s)^2, and H increases strictly on p≥1+s. The first derivatives match by Fβ=0 at contact. The perspective x↦2x f(π/x) has positive second derivative on both pieces and negative first derivative by f(0)=0 and strict convexity. Inscribed chord Jensen and tangential support-gap Jensen give the two nested extrema, and the strict interior radial minimum beats both. The cubic coefficient on the crossing branch is (p²−2)/(3p(p−1)); the two remaining Taylor coefficients are p/6 and 1/3. Replay: RESULT.md steps 1–5 and the algebra above. Inspected the verification notes and finite checker; the latter tests selected geometry and parameters, is not the strictness proof, and was not executed. The exact optimizer and convexity are for centered regular polygons only; no against-all-shapes threshold is inferred.
 
-## Closest literature and scope
-See [1] Basit–Lángi (arXiv:2307.04026, 2023), especially Section 5 Problem 1; [2] Fodor (DOI 10.1007/s00454-021-00291-7, 2021), Introduction and Theorem 1.1; [3] published disk projection-shadow metric result, distinct deviation; [4] published rotational disk-polygon area approximation result, distinct bodies and deviation. Historical priority is best-knowledge rather than independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The functional, motivating convexity question, and Euclidean unweighted inscribed regime are prior. Within the compared material, the finite-weight transition, strict convexity of the full regular-family profile and nonnesting comparison are distinct. The assessment is bounded, not proof of historical priority.
+
+## value
+
+PASS
+
+This is a sharp parameter boundary on a natural canonical family for an existing weighted approximation problem. The finite-weight crossing optimizer reverses the familiar inscribed behavior and certifiably beats both whole nested classes without requiring a global optimizer classification. Strict Dowker convexity through the branch switch and sharp order asymptotics add exact, useful information beyond a single example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

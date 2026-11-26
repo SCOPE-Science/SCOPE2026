@@ -1,0 +1,173 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:06:24.091822Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–55 and VERIFICATION.md",
+        "Frozen verify.py (read, not run)",
+        "/workspace/checks/3-cube.py and 3-cube.txt; replay python3 /workspace/checks/3-cube.py"
+      ],
+      "rationale": "A B-before-A geodesic exists, so puncturing the cube leaves distance n between endpoints. All shortest routes flip each label once and changing one intermediate vertex exchanges adjacent flips. A route is forbidden exactly when all A labels precede all B labels. Every valid ordering can bubble all B labels left without losing its cross inversion, then sort within blocks, proving connectivity. The k!(n−k)! forbidden permutations each have exactly one edge to a valid neighbor, by swapping across the block boundary; the neighbor uniquely recovers its forbidden predecessor. The degree and edge counts follow, including the single degree-zero vertex at n=2. For a singleton A, inserting the non-A first target label never places A first; the rest of adjacent insertion realizes Kendall distance. Reversal handles singleton B. In the interior four-label witness the two fixed A-before-B orders make the initial and final opposite cross inversions mutually exclusive. A four-swap path could change only discordant pairs and would have to lose one cross inversion before obtaining the other; all external labels retain their orders, so the intervening state is forbidden. Parity rules out length five, and the six displayed adjacent swaps retain at least one cross inversion at every step. Independent direct enumeration of cube vertex sequences corroborated counts, both extreme-layer isometries, and the existence of distance-4-versus-6 pairs through n=6; the proof establishes all n.",
+      "residual_risks": [
+        "The proof does not upper-bound the excess for arbitrary pairs at interior layers."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The available abstracts and frozen citations concern ordinary shortest-path reconfiguration and its unrestricted cube metric",
+          "The two-failure cube catalogue statement concerns connectivity for n≥4; the rectangular mesh catalogue statement has two components after one failure",
+          "Gu–Peng concerns fault-tolerant node-to-node routes"
+        ],
+        "reasoning": "The two-failure connectivity claim, if applied to arbitrary two distinct internal failures as indexed, also implies one-failure connectivity for n≥4: choose the second missing vertex off the two routes being connected. It supplies no exact Kendall comparison or detour size. Routing a single path in the cube and counting the minimum adjacent moves between two paths are different objectives.",
+        "searches": [
+          "Resultary 2026/11/22/de11f17d6b33; 2026/11/22/03f044bfa48d",
+          "Asplund et al. arXiv:1705.09385v1 Prop. 27",
+          "Gajjar et al. arXiv:2112.07499 and published PMC11442531 §5.4 Thm. 5",
+          "Gu–Peng DOI 10.1093/comjnl/39.7.626"
+        ]
+      },
+      "checked_sources": [
+        "Resultary closest matches and exact-source attempts",
+        "Asplund and Gajjar PDF previews",
+        "Published Gajjar alternate-copy passage attempt",
+        "Williams and Gu–Peng DOI metadata",
+        "Frozen prior-work and reference sections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The frozen comparison credits the unrestricted graph identification and Kendall metric",
+          "The frozen proof's 4→6 witness follows from incompatibility of cross inversions while the agreeing pairs retain their order"
+        ],
+        "reasoning": "Paths achieving the unrestricted distance can pass through the removed states; the 4→6 example shows that the unrestricted equality cannot simply be inherited. The cited non-leaving-face viewpoint, even when proved for a face, is a statement about endpoints in that face, not about endpoints in its deleted complement.",
+        "searches": [
+          "Asplund et al. Prop. 27; Gajjar et al. §5.4/Theorem 5",
+          "Williams DOI 10.1016/j.ejc.2017.01.006",
+          "Resultary 7910cdad70d2 and 26333db55de7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact alias is the induced adjacent-transposition graph after excluding the coset of S_k×S_(n−k) consisting of orderings with the given first-k set",
+          "Resultary 7910cdad70d2 instead treats geodesic rigidity of the retained facet of partial permutohedra under a Euclidean edge-length metric",
+          "Resultary 26333db55de7 has the same detour lengths in prefix-normal word-chain generators"
+        ],
+        "reasoning": "Unrestricted Cayley geometry, distances inside a face, and distances in the complement of that face have different admissible routes. A witness with identical lengths in a different state space is not an equivalent problem without a reduction preserving the feasible swaps; none is exhibited in the available statements.",
+        "searches": [
+          "Resultary one-failure antipodal hypercube rerouting, deleted permutohedral facet, Kendall isometry and 4-versus-6 obstruction",
+          "Literature: shortest path rerouting antipodal hypercube deleted vertex Kendall tau permutahedron facet deletion isometric subgraph adjacent transpositions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The only exact direct catalogue hit f6361fb0e267 is the assigned record itself",
+          "The distinct prefix-normal entry reports 4 versus 6; the distinct two-failure cube entry reports an n=3 connectivity obstruction"
+        ],
+        "reasoning": "Neither indexed fact is an exact instance table or extremal classification for deletion of this cube facet. Coincident detour numbers do not establish overlap of the underlying metric problem, and same-day dating gives no priority evidence.",
+        "searches": [
+          "Resultary searches for exact cube-failure metric thresholds and first detours",
+          "Resultary 26333db55de7 and de11f17d6b33"
+        ]
+      },
+      "rationale": "The distinct supported claim is the single-vertex-deletion metric classification, with the explicit exact detour. The unrestricted permutation model and Kendall formula are credited to prior work; deleting a facet can change the induced metric. Indexed adjacent results help delimit the contribution but do not establish this classification. Primary theorem passages and some comparator bodies were not accessible; exact priority is not guaranteed.",
+      "residual_risks": [
+        "Exact primary passages for Prop. 27 and Thm. 5 and full text of closest catalogue neighbors were not obtained. The reviewed evidence does not rule out an unindexed theorem on this facet complement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Shortest-path graph framework is prior; available comparison gives unrestricted, not punctured, cube result",
+          "evidence": [
+            "P. 1 lines 51–52 describe defining the reconfiguration graph on shortest paths; frozen RESULT.md lines 59, 69 identify Prop. 27. Exact passage timed out."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1705.09385",
+          "material_read": "Retrieved PDF preview p. 1; Prop. 27 described by frozen comparison but not retrieved",
+          "method": "OA passage requests and lawful PDF preview",
+          "title": "Reconfiguration graphs of shortest paths",
+          "trigger": "Exact unrestricted cube-permutation reduction"
+        },
+        {
+          "assessment": "The abstract addresses shortest-path rerouting, not exact punctured-cube distances; frozen comparison credits the unrestricted theorem",
+          "evidence": [
+            "P. 1 lines 12–26 describe replacing a single vertex while retaining shortestness; frozen RESULT.md lines 59 and 70 cite §5.4/Thm. 5."
+          ],
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11442531/",
+          "material_read": "arXiv:2112.07499 p. 1 abstract; published theorem passage not retrieved",
+          "method": "OA arXiv requests and bounded PDF preview; primary literature lookup found the identified PMC copy, where a Kendall passage request also timed out",
+          "title": "Reconfiguring Shortest Paths in Graphs",
+          "trigger": "Exact unrestricted adjacent-swap distance formula"
+        },
+        {
+          "assessment": "Does not evidence a facet-complement theorem; the frozen author attribution at line 71 conflicts with the DOI metadata",
+          "evidence": [
+            "Metadata identifies N. Williams (2017), European Journal of Combinatorics 62, 272–285; frozen citation attributes it to Ceballos, Pilaud and collaborators. This is a reference error, not a dependency of the proof."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.ejc.2017.01.006",
+          "material_read": "DOI metadata, not theorem text",
+          "method": "DOI landing-page inspection",
+          "title": "W-associahedra have the non-leaving-face property",
+          "trigger": "Potential face-convexity transfer and bibliographic verification"
+        },
+        {
+          "assessment": "Bibliography confirms a related but different routing objective",
+          "evidence": [
+            "Gu and Peng, Computer Journal 39 (1996), 626–629; stated topic is fault-tolerant node-to-node routing."
+          ],
+          "identifier_or_url": "https://doi.org/10.1093/comjnl/39.7.626",
+          "material_read": "DOI metadata, not theorem text",
+          "method": "DOI landing-page inspection",
+          "title": "Optimal Algorithms for Node-to-Node Fault Tolerant Routing in Hypercubes",
+          "trigger": "Potentially broader hypercube failure theorem"
+        },
+        {
+          "assessment": "Potentially subsumes the connectivity subclaim in n≥4, not the metric classification",
+          "evidence": [
+            "Summary: two internal failures preserve connectivity for n≥4, with a Q_3 disconnection example."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22/de11f17d6b33",
+          "material_read": "Catalogue summary; body unavailable",
+          "method": "Local Resultary lookup and exact-source retrieval attempt",
+          "title": "Two-vertex fault tolerance of antipodal hypercube geodesic rerouting",
+          "trigger": "Strongest same-object overlap"
+        },
+        {
+          "assessment": "Matching 4-versus-6 obstruction motif, different stated state space; full-text equivalence not excluded",
+          "evidence": [
+            "Summary reports an adjacent-swap detour among prefix-normal word-chain generators, not fixed-prefix-set deletion in antipodal cube routes; Finding request timed out."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22/26333db55de7",
+          "material_read": "Catalogue statement; primary Finding not retrieved",
+          "method": "Local Resultary lookup and targeted mirror passage request",
+          "title": "The sharp first geodesic detour in prefix-normal word-chain generators",
+          "trigger": "Exact witness-length match"
+        },
+        {
+          "assessment": "Concerns the facet, not deletion of it, and a Euclidean edge-length metric",
+          "evidence": [
+            "Indexed result studies geodesic rigidity in partial permutohedra."
+          ],
+          "identifier_or_url": "Resultary 2026/11/17/7910cdad70d2",
+          "material_read": "Catalogue summary",
+          "method": "Local Resultary lookup",
+          "title": "Geodesic rigidity of the permutohedral facet in partial permutohedra",
+          "trigger": "Nearest facet-geodesic formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and interior witness",
+        "Independent direct cube-route enumeration"
+      ],
+      "rationale": "The natural first fault in a standard shortest-path reconfiguration model can preserve the length and connectivity of routes while changing the metric between them. The exact extreme-versus-interior classification and smallest parity-allowed detour witness are structural information not supplied by the simple counts or unrestricted metric. They pinpoint the first dimension and layers where the distinction matters.",
+      "residual_risks": [
+        "Does not provide the entire constrained distance function or classify arbitrary fault sets."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

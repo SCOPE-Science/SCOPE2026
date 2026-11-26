@@ -1,23 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-The profile is checked by substituting it into the traveling-wave ODE. The residual reduces to a quadratic polynomial in the profile value; its three coefficient equations give the wave speed and the necessary-and-sufficient parameter relation. The interface fluxes match, so the piecewise profile is a weak solution. The symbolic verification script independently checks the algebraic identities. The proof does not claim more than the exponential-front ansatz.
+PASS
 
-## Originality
+For lambda>0 the proposed profile is continuous, has U'=−lambda(1−U) behind the interface, and takes every value in (0,1) there. Dividing the traveling-wave equation by 1−U gives a polynomial with coefficients lambda²−c lambda, (2 beta−2)lambda²+lambda+1, and −3 beta lambda²+k lambda. Vanishing identically is equivalent to c=lambda, 2(1−beta)lambda²=lambda+1 and k=3 beta lambda. The positive root is unique for 0<beta<1, with the stated formula, and impossible at beta=1 or above. On the zero side the equation is satisfied; the profile and the flux D(U)U'−h(U) have matching traces across the interface because D(0)=0 and h is continuous. Thus no delta mass appears and the matching is sufficient distributionally. For example beta=5/8 yields c=2 and k=15/4 by the same coefficient equations. This proves the iff only within the specified profile family; it does not establish an all-profile minimal speed or stability theorem. The frozen algebra script was inspected rather than executed.
 
-The closest primary source studies the same degenerate reaction–diffusion–advection family and presents numerical sharp-wave-speed exploration. The exact curve \(k=3eta\lambda_eta\) and profile derived here were not found in the sections inspected. General Abel-based exact-wave methods are relevant, but their explicit cases inspected do not state this curve. This is a bounded novelty assessment, not a claim of exhaustive novelty.
+## originality
 
-## Value
+PASS
 
-The curve supplies an exact benchmark for checking phase-plane and numerical computations of sharp fronts in a model where the cited study emphasizes numerical wave-speed exploration. The complete if-and-only-if statement is limited to the natural exponential-front ansatz; it is not a general classification of all traveling waves.
+The same-model primary paper already develops the phase-plane existence and sharp-wave theory and illustrates the dependence of sharp speed on k. In its actual §4.3 passages it uses an implicit/numerical treatment of the quadratic-advection example, not the frozen closed curve and exponential profile. The examined exact Abel precedent does not cover these coefficients via its Chiellini criterion. The distinct result is the exact jointly tuned coefficient locus, profile and speed, not existence of sharp waves in this model family.
 
-## Closest literature and limitations
+## value
 
-- Sánchez-Garduño and Pérez-Velázquez (2016), DOI 10.1155/2016/5620839: same model family; numerical speed exploration for nonlinear degenerate advection.
-- Harko and Mak (2015), arXiv:1510.08163v1: general Abel-equation approach with exact solutions under specified integrability conditions.
-- Sherratt (2010), DOI 10.1051/mmnp/20105505: smooth-front asymptotics for the boundary case with diffusion \(D(u)=u\) and no nonlinear advection.
+PASS
 
-The main residual risk is that a broader exact-wave method may implicitly encode the same parameter curve. No claim is made about wave stability, attraction, or exclusion of other profiles.
+Although coefficient matching is routine once the ansatz is chosen, the curve provides an exact, nontrivial weak sharp-front benchmark in the positive two-parameter model for which prior work investigates the speed and profile numerically. It links deformation of the diffusion and nonlinear convection to an explicit profile and propagation speed and determines exactly when the canonical exponential ansatz works, rather than exhibiting a fortuitous numerical parameter. This is useful for comparison with phase-plane or numerical wave predictions; it is not a general wave-speed classification.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

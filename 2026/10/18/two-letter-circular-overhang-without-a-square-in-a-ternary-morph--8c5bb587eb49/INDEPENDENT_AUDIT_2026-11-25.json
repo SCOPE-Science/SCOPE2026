@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:51:20.978404Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently regenerated h^6(0) and verified all twelve listed phase windows of the two third iterates by cyclic indexing (python3 /workspace/review_evidence/check_morphic_seed.py). The overhang induction starts at any offset s=0 or 1 inside an image block. The two appended preimage letters are not 22, so their two image lengths total at least 3≥s+2. The image thus contains the requisite translated window, and occurs in p since h(p)=p. The image has no cyclic 22 because each 2 lies at the start of 21. In the fixed-point parsing every 1 ends an image block; 2 is always followed by 1, ruling out 20 and 22. This rules out 00 at a block boundary by descending to 20 or 22, and 11 is excluded because no image starts with 1. A square h^k(a)^2 would end in 1 at a true block boundary. The suffix-free code {01,21,0} forces each successively decoded block to coincide with the actual block, until the entire square descends to h^{k−1}(a)^2. Iteration gives the forbidden aa. Lengths strictly increase since the images of 0 and 1 have length two and both families retain a final 1. This proves the two quantified statements and the Lie-complexity consequence; there is no claim about the squares of other rotations or the entirety of the factor set. The bound script was inspected, not executed; its longer finite run is source-reported.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The critical-exponent proof computes lengths for maximal repetitions at admissible periods; the forbidden-factor result singles out p among cube-free words avoiding F.",
+          "The Lie-complexity bounds concern general word/Rauzy graph structure, and the exact Sturmian formulas have a different hypothesis."
+        ],
+        "reasoning": "These ingredients constrain periods, factors or complexity counts, not the existence of both specified complete phase sets. In particular a critical exponent larger than two does not rule out a prescribed square, and a maximum repetition length does not tell which rotations attain a given length.",
+        "searches": [
+          "Currie–Ochem–Rampersad–Shallit arXiv:2206.01776, PDF pp. 7–9 and Theorem 14",
+          "De Luca–Fici arXiv:2206.00995",
+          "Li arXiv:2207.05859"
+        ]
+      },
+      "checked_sources": [
+        "Bound RESULT.md, VERIFICATION.md and verify_cyclic_overhang.py (inspection)",
+        "Resultary 19ea4a6cc4c2",
+        "arXiv:2206.01776, 2102.03821, 2206.00995, 1402.5843, 2207.05859"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 14 already supplies the four forbidden pairs used in desubstitution.",
+          "Prior Lie-complexity results concern entire conjugacy classes of factors, without the two-letter extension guarantee; the same-day Rudin–Shapiro witnesses concern different roots in a different word."
+        ],
+        "reasoning": "The forbidden pairs plus direct suffix decoding yield the prescribed-square part; the defensibly distinguishable content is the joint theorem with the all-iterate circular extension. The word characterization by forbidden patterns/cube-freeness is not an assertion about arbitrary finite words satisfying local constraints. It does not certify the overhangs without an occurrence/propagation argument.",
+        "searches": [
+          "arXiv:2206.01776 Theorem 14 and §4",
+          "arXiv:2102.03821 Example 7.2",
+          "19ea4a6cc4c2 RESULT.md Finding and proof §1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Currie et al. study the identical morphism 0↦01, 1↦21, 2↦0 and give formulas for overlap periods.",
+          "Bell–Shallit give all rotations of certain roots in a different square-free ternary word, at the level of Lie complexity.",
+          "The best same-day mirror comparison gives four complete primitive rotation orbits in the binary Rudin–Shapiro word."
+        ],
+        "reasoning": "A complete cyclic phase set of period m at length m+2 is stronger than a complete set of rotations at length m. A period class of an overlap likewise does not identify every required window with the prescribed root. Renaming letters cannot turn the ternary word into binary Rudin–Shapiro.",
+        "searches": [
+          "Resultary: ternary fixed point, complete cyclic rotations, periodic overhang and absent square",
+          "arXiv:2206.01776 §4 Theorem 2 and §8 Theorem 14",
+          "arXiv:2102.03821 Example 7.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest indexed statement is the binary Rudin–Shapiro four-class record 19ea4a6cc4c2, not a table of phases of this ternary word.",
+          "The figures in the exact-word paper recognize overlap periods and maximum-power length data, not the identities of all length-(m+2) windows for the two specified roots."
+        ],
+        "reasoning": "An exact prefix lookup verifies the base cases only. Neither the finite seed table nor the period-length automata alone supply the all-iterate, all-phase membership and designated-root exclusion as stated.",
+        "searches": [
+          "Resultary: exact complete rotation phases, primitive cyclic classes, fixed point of 01/21/0",
+          "Currie et al., Figure 4 and Figure 5"
+        ]
+      },
+      "rationale": "The supported distinct claim is universal occurrence of two extra letters at every cyclic phase of each of the two image-root families in this particular fixed point, together with exclusion of the canonical square. Earlier work on this fixed point gives exact forbidden factors and occurrence of periods of longer overlaps, but these statements do not give the all-phase test with the specified roots. Results on full rotations without squares in other words, including the same-day catalogue comparison, do not cover this assertion. This is a best-of-knowledge statement, not a priority guarantee for general Lie-complexity positivity or for the forbidden pairs.",
+      "residual_risks": [
+        "The broad literature query returned no exact theorem evidence; this does not exclude unindexed or differently formulated results.",
+        "The comparison to the same-word paper is at the inspected repetition and factor statements. It does not rule out resolving these questions by a separate computation on the paper's word automaton."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same fixed point and forbidden-pair facts; no direct all-phase containment in inspected results",
+          "evidence": "Overlap-period and maximum-power length automata, critical exponent about 2.48086, and cube-free forbidden-factor characterization including 00, 11, 22 and 20.",
+          "identifier_or_url": "https://arxiv.org/abs/2206.01776",
+          "material_read": "Abstract; §4 Theorem 2 and proof, PDF pp. 7–9 including Figures 4–5 (offsets 21800–27275); Theorem 14 at PDF p. 19 / offset 48457",
+          "method": "Open primary PDF, targeted passages",
+          "title": "Properties of a Ternary Infinite Word",
+          "trigger": "Exact same morphism with repetition and factor theorems"
+        },
+        {
+          "assessment": "Conceptual prior result in another fixed point",
+          "evidence": "Example 7.2 has exact Lie complexity in a different ternary square-free morphic word.",
+          "identifier_or_url": "https://arxiv.org/abs/2102.03821",
+          "material_read": "Definition in abstract/introduction, pp. 1–2; Example 7.2, p. 11 / offset 34828",
+          "method": "Open primary PDF, bounded passages",
+          "title": "Lie Complexity of Words",
+          "trigger": "Direct all-rotation notion and a prior square-free example"
+        },
+        {
+          "assessment": "Related complete-phase geometry in a different word; not claim coverage",
+          "evidence": "Binary Rudin–Shapiro has four distinct complete primitive length-2^k rotation classes for k≥3, which gives Lie complexity at least four. It does not state the present ternary containment or same-root square exclusion.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-four-complete-primitive-rotation-orbits-at-every-dyadic-rudin-sh--19ea4a6cc4c2/RESULT.md",
+          "material_read": "RESULT.md finding and proof §1, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Bounded local mirror passages",
+          "title": "Four complete primitive rotation orbits at every dyadic Rudin–Shapiro length",
+          "trigger": "Closest same-day local catalogue hit"
+        },
+        {
+          "assessment": "Different hypothesis or an upper bound",
+          "evidence": "General complexity-difference upper bound, with exact results for Sturmian words, not these ternary roots.",
+          "identifier_or_url": "https://arxiv.org/abs/2206.00995",
+          "material_read": "PDF p. 2 / offset 4472, bound and Sturmian formula",
+          "method": "Open primary PDF, bounded passage",
+          "title": "On the Lie Complexity of Sturmian Words",
+          "trigger": "Potential general Lie-complexity implication"
+        },
+        {
+          "assessment": "Different cyclic statistic",
+          "evidence": "Counts conjugacy classes represented by occurring factors; it does not require every rotation, much less every two-letter circular continuation.",
+          "identifier_or_url": "https://arxiv.org/abs/1402.5843",
+          "material_read": "Definition on PDF p. 2 / offset 4865",
+          "method": "Open primary PDF, bounded passage",
+          "title": "Cyclic Complexity of Words",
+          "trigger": "Potential equivalent cyclic terminology"
+        },
+        {
+          "assessment": "General bounds, not the stated occurrence construction",
+          "evidence": "Rauzy-graph bounds do not assert containment for the two specified roots of this morphism.",
+          "identifier_or_url": "https://arxiv.org/abs/2207.05859",
+          "material_read": "PDF p. 1, introductory result statements",
+          "method": "Open primary PDF, bounded passage",
+          "title": "A note on the Lie complexity and beyond",
+          "trigger": "Potential general Rauzy graph coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result distinguishes two natural notions of periodicity in a well-studied non-square-free fixed point: every phase of a period can survive two more letters without the canonical two-fold concatenation occurring. It does so uniformly along two unbounded morphic scales. The all-phase propagation and complementary desubstitution give useful structural information beyond a short factor table or positivity of Lie complexity alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

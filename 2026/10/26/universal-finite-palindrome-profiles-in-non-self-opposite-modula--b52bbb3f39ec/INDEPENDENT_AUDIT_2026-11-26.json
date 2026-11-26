@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:21:28.818318Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–42",
+        "Frozen VERIFICATION.md and verify.py, inspected without executing",
+        "Kang–Jäger, arXiv:2609.01140v1, p. 4, Theorem 1.6"
+      ],
+      "rationale": "For any fixed base sequence, each of the m residue chains can be solved in both directions from an arbitrary initial symbol. Hence every prefix through length m occurs and the unrestricted palindrome count applies there. For n>m the difference block of a reflected word is the negative of the reflected difference block: v_(n-m-1-i)=-v_i for a palindrome. Both signs lie in B, hence every v_i is zero. Conversely any finite m-periodic palindrome extends using an occurrence of 0^(n-m) and its first m letters as the lift seed. Thus all such words occur exactly through length m+L. For n>m every residue occurs and the congruence 2r=n-1 mod m gives the fixed points of the reflection on residues; fixed points and transposed pairs account for all (m+f_m(n-1))/2 choices of independent symbols. The parity laws and the count after subtracting the q constant words at m+1 follow. The Fibonacci substitution has 00 but no 000 (substituted isolated 1's can contribute at most one extra 0 to a run), so L=2. The lag m in the stated code is block length m+1 in Kang–Jäger, whose theorem covers all these Fibonacci lifts.",
+      "residual_risks": [
+        "The zero-run criterion does not apply to alphabets admitting a nonzero opposite pair, including the usual binary modulus-two difference lift. Recorded finite checks do not prove the full profile."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The lift theorem proves strict ergodicity and supplies a lift structure; it does not count reversal-fixed words in the inspected result.",
+          "General reflection-complexity identities count orbits once reversible pairs and palindromes are known, not those fixed counts for this family.",
+          "The separate transfer theorem gives more reversal information for binary bases; its sign-obstruction proof extends algebraically if the inverse-free condition replaces the binary alphabet hypothesis."
+        ],
+        "reasoning": "The closest mathematical overlap is the actual binary transfer proof, not strict ergodicity or general orbit counting. A prior version of that proof covering the requisite lag would be material, since its alphabet generalization is direct. The retrieved record does not establish such prior coverage.",
+        "searches": [
+          "arXiv:2609.01140v1, Theorem 1.6 and surrounding lift setup",
+          "arXiv:2406.09302v4, pp. 22–23",
+          "Resultary 9a53bb9265f8 proof, offsets 3700–5750"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.01140v1",
+        "arXiv:2406.09302v4",
+        "Resultary 9a53bb9265f8",
+        "Frozen citation and comparison of the first-difference note"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The stated first-difference precedent matches m=1, yielding only constants up to L+1. The cited strict ergodicity theorem already applies to every Fibonacci parameter here.",
+          "The distinct binary transfer record actually derives periodicity from reversal and then counts the same residue involution; it would give the binary special case in full."
+        ],
+        "reasoning": "First-difference palindromic collapse alone does not count the paired residue chains at higher lag. Strict ergodicity gives no such count either. The full comparator proof shares the key mechanism, but its established binary overlap has not been shown to be prior coverage of this frozen result.",
+        "searches": [
+          "Frozen RESULT.md lines 47–56, citation of the earlier first-difference note",
+          "Kang–Jäger arXiv:2609.01140v1 Theorem 1.6",
+          "Resultary 9a53bb9265f8 proof steps 2–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Kang–Jäger block-length index is m+1 for lag m, so the Fibonacci lift itself is identical.",
+          "Rote reflection classes at modulus two are not ordinary palindromic factors at modulus q>=3.",
+          "Resultary 9a53bb9265f8 defines f_h(n) by 2j=n-1 mod h; in the frozen notation this is f_m(n-1) for h=m."
+        ],
+        "reasoning": "Normalize the code length and fixed-point notation before comparison. The binary-base fixed-point count in the catalogue record is genuinely equivalent, whereas the full reflection-class count and modulus-two Rote setting are not.",
+        "searches": [
+          "Kang–Jäger arXiv:2609.01140v1, p. 4 code definition and Theorem 1.6",
+          "Allouche et al. arXiv:2406.09302v4, Theorems 48 and 51",
+          "Resultary 9a53bb9265f8, reversal-fixed factors"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct indexed transfer record contains the short-length count and the same reflection-fixed formula in the binary long-length case, including zero count when the all-zero difference block is forbidden.",
+          "No separate matching higher-lag same-date record surfaced in the bounded lookup. The cited first-difference note could not be independently retrieved under its title."
+        ],
+        "reasoning": "The matching indexed formula is explicitly credited as an overlap; its catalogue date alone is not trusted to establish intellectual priority. A negative semantic search result is not a claim of no other entry.",
+        "searches": [
+          "Resultary higher-lag modular-difference ordinary-palindrome profile",
+          "Resultary 9a53bb9265f8",
+          "Automorphism rigidity and palindromic collapse in cyclic Sturmian lifts, exact title"
+        ]
+      },
+      "rationale": "The supported increment is the complete ordinary-palindrome profile at arbitrary lag for inverse-free alphabets with bounded zero runs. Neither Fibonacci strict ergodicity nor the first-difference profile is credited as new. A separate indexed record prints the same palindrome count for all lags on the binary base alphabet, as an intermediate step in a reflection-class count. That is genuine binary-subcase overlap, not merely similar terminology. The checked evidence does not establish that it is a prior statement relative to this frozen finding, and its stated scope is binary rather than the full inverse-free alphabet claim. The checked established antecedents do not imply the residue-reflection profile at arbitrary lag by substituting their stated results.",
+      "residual_risks": [
+        "The first-difference note could not be independently read. The exact binary overlap in the separate transfer record is substantive and the catalogue dates do not certify priority. An independently established prior higher-lag binary transfer proof would materially affect this assessment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior ergodicity coverage; the cited theorem does not give palindrome counts",
+          "evidence": [
+            "Difference code x_(ell-1)-x_0 modulo kappa",
+            "Fibonacci lifts are strictly ergodic for kappa,ell>=2"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.01140v1",
+          "material_read": "PDF p. 4, Theorem 1.6 and the code on blocks of length ell, OA offsets approximately 12900–19849",
+          "method": "Targeted primary OA PDF reading",
+          "title": "On lifts of strictly ergodic subshifts by permutative sliding block codes",
+          "trigger": "Exact Fibonacci difference code and prior ergodicity theorem"
+        },
+        {
+          "assessment": "Relevant difference-lift and reflection-complexity precedent with different modulus and invariant",
+          "evidence": [
+            "Binary Rote first differences modulo two",
+            "Reflection-class count n+1"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2406.09302v4",
+          "material_read": "PDF pp. 22–23, Theorems 48 and 51, OA offsets approximately 49900–54832",
+          "method": "Targeted primary OA PDF reading",
+          "title": "Reflection complexity of sequences",
+          "trigger": "Rote–Sturmian difference-lift equivalences and reflection counts"
+        },
+        {
+          "assessment": "Exact ordinary-palindrome profile as an intermediate result for binary bases; no established earlier priority over the frozen result",
+          "evidence": [
+            "Reversal sends the lag difference to the negative reversed word, so both factors are legal exactly on zero difference for the binary base.",
+            "Proof step 3, Count the reversal-fixed factors, uses 2j=n-1 modulo h and yields the same fixed count."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-universal-reflection-transfer-law-for-modular-difference-lifts--9a53bb9265f8/RESULT.md",
+          "material_read": "RESULT.md Finding; proof steps 2–4, offsets 3700–5750; prior-work passage from offset 6593",
+          "method": "Resultary lookup and bounded local-mirror reading",
+          "title": "A universal reflection transfer law for modular difference lifts",
+          "trigger": "Closest all-lag statement on the same lifts"
+        },
+        {
+          "assessment": "Credit the reported first-difference overlap without attributing uninspected broader statements",
+          "evidence": [
+            "The described constant-palindrome profile agrees algebraically with setting m=1."
+          ],
+          "identifier_or_url": "Exact title as cited in frozen RESULT.md, lines 47–56; independent identifier not located",
+          "material_read": "Frozen record's description; independent text unavailable",
+          "method": "Bounded exact-title and Resultary lookup",
+          "title": "Automorphism rigidity and palindromic collapse in cyclic Sturmian lifts",
+          "trigger": "Reported earlier m=1 result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 8–20 and 26–42",
+        "Kang–Jäger, Theorem 1.6, for the example's ergodic setting"
+      ],
+      "rationale": "This supplies the complete ordinary-palindrome invariant, not just an example of a forbidden length. The finite longest length and exact parity-sensitive tail are uniform in all base statistics except the single zero-run bound. Higher lag changes the qualitative behavior from constant palindromes only to explicit nonconstant words, including in the strictly ergodic Fibonacci family. The result is small but answers a natural exact language-complexity question.",
+      "residual_risks": [
+        "The calculation is a finite-word invariant, not a new ergodic theorem or general classification of permutative lifts."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

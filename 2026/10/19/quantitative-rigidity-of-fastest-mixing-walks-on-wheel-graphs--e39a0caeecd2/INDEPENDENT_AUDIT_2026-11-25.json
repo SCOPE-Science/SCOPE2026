@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:01:29.490819Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a nonconstant unit rim Fourier vector (zero at the hub), the Laplacian quadratic form depends only on the mean spoke and rim weights. The first and highest-frequency tests give affine bounds with slopes -u and v; minimizing their maximum and using the hub budget gives μ(P) ≥ (1−p̄)r ≥ μ*. At the proposed invariant chain u+v>4, so the hold constraints are feasible. The hub–rim contrast eigenvalue is −1/m, bounded in modulus by μ* (including equality at m=4); the rim modes attain both ±μ*. The same two affine tests give p*−p̄≤ε/r and |q̄−q*|≤H. The first-mode Rayleigh quotient is at least μ*−(u/v)ε. For M=μ(P)I−(P−J) one has 0≤M≤2μ(P)I, so ||Mf||²≤2μ(P)⟨f,Mf⟩ and ||(P−P*)f||≤B. Dividing by f_j on the rim gives imaginary part sin(2π/m)(δq_j−δq_{j−1}); the cycle spectral gap is 4 sin²(π/m), yielding (1). The real part gives the spoke bound (2) by the triangle inequality, with coefficient 2(1−cos(2π/m))=u. Both bounds vanish at ε=0, and the row sums fix the holding weights. No symmetry of the competitors beyond matrix symmetry is used. Replay: RESULT.md lines 39–98. Read the supplied verify.py and VERIFICATION.md; the reported floating-point checks are finite and were not rerun or used to infer the theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The averaging theorem yields existence of an invariant optimizer. The general fastest-mixing formulation explicitly exhibits graphs with nonunique optimizers."
+        ],
+        "reasoning": "Neither general result implies unrestricted uniqueness on wheels. An SDP formulation alone does not provide the stated global edge-wise modulus.",
+        "searches": [
+          "arXiv:0709.0955v1 Theorem 2.1",
+          "Boyd–Diaconis–Xiao, SIAM Review 46 (2004), p. 675"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and support files",
+        "BDPX arXiv:0709.0955v1",
+        "BDX SIAM Review 46 (2004)",
+        "Resultary 5eef16ab8cf4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The wheel section uses only common p and q; the crown bound uses crossing-block weights and has no spokes or rim. In the frozen proof, the imaginary part of a nearly extremizing rim mode controls first differences of every rim edge."
+        ],
+        "reasoning": "The known value and symmetric matrix do not encode this residual recovery; a separate equality and quantitative argument is needed even though its matrix and cycle inequalities are standard.",
+        "searches": [
+          "arXiv:0709.0955v1 §2.2 and §5.3.3",
+          "Resultary 5eef16ab8cf4, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The invariant matrix with common spoke/rim probabilities p,q has the same optimal SLEM and probabilities as the frozen result."
+        ],
+        "reasoning": "This exact overlap is acknowledged. Optimizing the two-parameter reduction is not equivalent to equality-case identification for arbitrary labeled edge weights.",
+        "searches": [
+          "Wheel fastest-mixing rigidity and edge stability literature lookup",
+          "Boyd–Diaconis–Parrilo–Xiao arXiv:0709.0955v1 §5.3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest distinct indexed record 5eef16ab8cf4, Finding, proves unique unrestricted optimality and explicit individual-edge square-root stability on K_{n,n} minus a perfect matching."
+        ],
+        "reasoning": "The crown graph is bipartite and regular, unlike the wheel with hub and rim triangles. The indexed bounds and feasible spectral geometry are different; no reduction or matching wheel estimate was found.",
+        "searches": [
+          "Local Resultary semantic lookup for unique wheel FMMC and quantitative near-optimality"
+        ]
+      },
+      "rationale": "Passes only for unrestricted uniqueness and explicit global wheel-edge stability. The minimum and invariant optimizer are known and correctly excluded from the originality claim. Neither the closest wheel source nor the closest indexed analogue establishes the claimed wheel rigidity estimates.",
+      "residual_risks": [
+        "A specialized uniqueness proof or equivalent wheel error bound could exist elsewhere; finite focused retrieval does not certify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior coverage of symmetric optimizer and optimal value, not shown for unrestricted rigidity",
+          "evidence": "Averaging of conjugates yields one invariant optimum; wheel section diagonalizes the common-p,q kernel.",
+          "identifier_or_url": "https://arxiv.org/html/0709.0955v1",
+          "material_read": "Theorem 2.1 (§2.2, OA offsets 20647–23210) and §5.3.3 (91710–94673)",
+          "method": "Lawful primary OA passage inspection",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "Exact wheel precursor and possible broader symmetry theorem"
+        },
+        {
+          "assessment": "No unconditional uniqueness hypothesis to specialize",
+          "evidence": "Explicit nonuniqueness example for a different graph.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+          "material_read": "p. 675, OA offsets 28620–31619",
+          "method": "Lawful primary PDF passage inspection",
+          "title": "Fastest Mixing Markov Chain on a Graph",
+          "trigger": "Possible general FMMC uniqueness"
+        },
+        {
+          "assessment": "Close analogue, not a wheel or a graph-family theorem covering wheels",
+          "evidence": "Exact claim on K_{n,n} minus a perfect matching, with one orbit of allowed crossing edges and a pointwise bound.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-rigidity-and-quantitative-near-optimality-for-fastest-mixing-on--5eef16ab8cf4/RESULT.md",
+          "material_read": "Finding and assumptions, offsets 0–2721",
+          "method": "Local mirror",
+          "title": "Rigidity and quantitative near-optimality for fastest mixing on crown graphs",
+          "trigger": "Strongest distinct indexed rigidity/stability match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The established minimum alone would not tell whether noisy, asymmetric edge assignments can remain optimal. The theorem rules out that ambiguity and provides explicit bounds on individual edge families from observable spectral suboptimality. That is useful on a natural two-orbit graph beyond simply recomputing the symmetric chain; no claim of sharpness or uniform-in-m constants is needed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

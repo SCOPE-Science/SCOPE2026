@@ -1,15 +1,21 @@
-# Review of Sharp hyperbolic displacement for radial quasiconformal twists
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof computes the differential as an area-one shear, derives the exact singular-value ratio, then combines the exact Poincare same-radius formula with \(|\phi(r)|\le S\log(1/r)\) and \(2r\log(1/r)\le1-r^2\). The logarithmic twist family gives equality by a boundary limit. The verifier checks only algebraic and numerical sanity conditions; the theorem rests on the analytic proof.
+## correctness
 
-## Originality
-PASS. The closest recent source, arXiv:2609.32891v1, gives the identity-boundary Carleson-preserver kernel and a different radial extension formula. The closest classical source, arXiv:1203.0427v3, treats the general identity-boundary Teichmuller problem with different unit-disk bounds. Dedicated searches did not locate the variable radial-twist \(\sup d_{\mathbb D}\le\log K\) theorem. Classical logarithmic spiral dilatation is not claimed as new. Residual risk: an older equivalent formulation may exist under spiral-mapping terminology.
+PASS
 
-## Value
-PASS. The claim exactly optimizes a natural displacement invariant over a full infinite-dimensional class of radial angular shears and places the equality family inside a recently characterized Carleson-interpolation-preserver kernel. It gives a sharp structural benchmark for how the kernel's qualitative bounded-displacement property interacts with quasiconformal distortion.
+The shear matrix in RESULT.md:24–37 is the a.e. differential in orthonormal polar frames up to a rotation. The regularity step holds even at the origin: for |z|=r≥s=|w|>0, splitting off the change of rotation gives |T(z)−T(w)|≤|z−w|+Ss log(r/s)≤(1+S)|z−w|; the same argument applies to the inverse and the zero-radius case is immediate. Thus the a.e. singular-value ratio of the determinant-one shear gives the exact maximal dilatation, with log K=2 asinh(S/2). In curvature −1, putting u=log(1/r)>0 in the exact equal-radius distance formula gives sinh(d/2)=|sin(φ(r)/2)|/sinh u≤Su/(2 sinh u)≤S/2 by absolute continuity and φ(1)=0. For φ(r)=c log r the ratio tends to c/2 at the boundary, including the trivial c=0 case. For positive S the bound is strict at each interior point, so the finding correctly asserts equality of suprema rather than interior attainment. The bundled checker and its recorded output only sample scalar identities and boundary approach; no fresh execution or formal verification is claimed.
 
-## Closest literature and limitations
-Wu (2026) supplies the current preservation framework; Vuorinen--Zhang (2012/2014) supplies the classical identity-boundary displacement context. The result is restricted to radius-preserving angular shears and does not claim a log-K bound for arbitrary boundary-fixing quasiconformal maps.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The matched catalogue entry is the assigned record itself. The strongest inspected primary comparisons establish qualitative bounded displacement or solve a different, larger-class optimization. Neither provides the sharp subclass law or its equivalent pseudohyperbolic bound (K−1)/(K+1) under the radius-preserving twist hypothesis.
+
+## value
+
+PASS
+
+The displacement is the same invariant used to characterize the identity-boundary preservation kernel and is central to the classical disk distortion problem. For each specified K the result gives the exact optimum over all admissible radial angular profiles, not merely the distortion of a familiar spiral. It provides a sharp benchmark, approached at the boundary, without claiming improvement for the unrestricted class.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

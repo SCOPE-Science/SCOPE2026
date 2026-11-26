@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:54:43.273270Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–66, VERIFICATION.md, check.py, checker_output.txt (read as evidence)",
+        "python3 /workspace/review-evidence/recompute.py 4; output /workspace/review-evidence/4.txt"
+      ],
+      "rationale": "For a static maximal set containing j the two residual paths have lengths max(0,j-2) and max(0,n-j-1); the Padovan decomposition at the left endpoint has the stated initial values. Conditional on the priority t at j the arms are independent, each endpoint survival function obeys E_l'=-E_(l-1), with E_0=1 and E_l(0)=1. This yields the product integral. In the reflected half for n>=23 the static ratio involves two normalized path counts S_m/p^m at m>=10. The positive convex recurrence propagates their interval from indices 10,11,12 and propagates the upper envelope B_7 from B_6,B_7,B_8. For j>=6 both truncated exponentials have degree at least five, are in [0,1], and give integrated product error at most 2/7!. For j<=5 the long arm contributes at most 1/20!, with the five limiting integrals verified by exact integration by parts. The independently checked rational comparisons have positive absolute margins (interior lower gap about 0.00128922). First-arrival recursion and direct enumeration of occupied gaps 2 or 3 separately reproduce all signs for n=13..25, including Q_13(7)-U_13(7)=-195887/2399997600.",
+      "residual_risks": [
+        "The finite independent recursion and enumeration are not extrapolated; the rational envelopes and recurrence prove the tail. No conclusion about joint site-indicator laws beyond the stated one-point marginals is needed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.1 is stochastic dominance of the total occupied count. The indexed comparison of expected total cardinalities in 6b5d27178261 has equality only at path sizes 1,2,4.",
+          "The possibly related 2026 article's publisher landing/metadata were available but not the relevant article text; an identified SSRN copy could not be read."
+        ],
+        "reasoning": "Ordering the total random count, even stochastically, does not order individual site expectations. No stronger available theorem was identified that compares these two entire marginal arrays.",
+        "searches": [
+          "arXiv:2611.14718v1 Theorem 3.1",
+          "Resultary record 6b5d27178261, Finding",
+          "DOI 10.1016/j.spl.2026.110682 and SSRN 10.2139/ssrn.5586833"
+        ]
+      },
+      "checked_sources": [
+        "Shneer–van de Ven §2; arXiv:2611.14718v1 §§3 and 3.2; Resultary 6b5d27178261 and exact target match",
+        "10.1016/j.spl.2026.110682 landing and SSRN alternate identification"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One text gives the greedy probabilities, the other gives the static probabilities and total-count order; neither compares signed differences site by site.",
+          "The audited result needs a uniform quantitative interior and boundary argument, plus an exact failure at the central site of the path of length 13."
+        ],
+        "reasoning": "The finite laws are inputs, but the sharp all-n classification does not follow directly from them; the required exact comparisons across n and distance to the endpoint are the distinct content.",
+        "searches": [
+          "Shneer–van de Ven §2 Theorem 1; arXiv:2611.14718v1 §§3 and 3.2; 6b5d27178261 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The greedy random-priority path law is the finite sequential per-site law of Shneer–van de Ven, §2 Theorem 1 and Eqs. (1)–(2).",
+          "The static factors P_(j-1)P_(n-j)/P_(n+1) of arXiv:2611.14718v1 §3.2 are exactly the same marginal after reindexing S_m=P_(m+1)."
+        ],
+        "reasoning": "Parking, random-priority independent-set acceptance, and jammed sets give equivalent objects with the stated laws. The novelty is the sign of their difference, not the equivalent marginal formulas.",
+        "searches": [
+          "Resultary: greedy discrete parking vs uniform jammed or maximal independent sets on paths, one-site occupation signs",
+          "Shneer–van de Ven §2 Thm. 1; Higuita-Diaz–López–Roldán-Correa arXiv:2611.14718v1 §3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-index match ea807a955df3 is the assigned record itself. The closest distinct match is about means of total counts, not a sign table.",
+          "The exact formulas in the primary texts allow evaluation of finite sizes, but no located passage tabulates the two-law sign differences or identifies the all-length stabilization threshold."
+        ],
+        "reasoning": "Pointwise evaluability does not certify a universal sign pattern, and a self-match is not independent prior coverage.",
+        "searches": [
+          "Resultary records ea807a955df3 and 6b5d27178261",
+          "arXiv:2611.14718v1 §3.2; Shneer–van de Ven §2"
+        ]
+      },
+      "rationale": "The sequential per-site formula and uniform-maximal-set per-site formula are established separately in inspected primary literature, and stochastic order for the total size is already proved. Neither source yields the strict all-site sign classification, including the sharp exceptional n=13 center, without a new uniform finite-size comparison. The strongest distinct Resultary path result compares only expected totals. Pass applies to the exact sign comparison, not to either marginal formula or total-count order.",
+      "residual_risks": [
+        "The closely related article Combinatorial aspects of a discrete parking process could not be read in full via the lawful publisher and SSRN routes; any precise overlap remains unresolved. The pass rests on the actual comparisons made, not on this source's unavailability.",
+        "The focused web search that produced no usable further source provides no negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Sequential law covered; not the static comparison",
+          "evidence": [
+            "Exact probability of occupying a prescribed site under uniform random processing order."
+          ],
+          "identifier_or_url": "https://sites.math.rutgers.edu/~zeilberg/akherim/parking/shneer2017.pdf",
+          "material_read": "§2, Theorem 1, Eqs. (1)–(2), printed pp. 142–143",
+          "method": "Public original PDF",
+          "title": "Per-site occupancy in the discrete parking problem",
+          "trigger": "Same discrete parking law with an exact site formula"
+        },
+        {
+          "assessment": "Covers total-count dominance and static one-site law, not strict marginal differences",
+          "evidence": [
+            "The site formula is pi_(n,j)=P_(j-1)P_(n-j)/P_(n+1); the theorem orders the total sizes."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.14718v1",
+          "material_read": "§3 Theorem 3.1 and §3.2, offsets about 13587 and 16850–20333",
+          "method": "Open-access original HTML",
+          "title": "Stochastic Dominance in Discrete Parking Processes on Graphs",
+          "trigger": "Same two path distributions and static marginal formula"
+        },
+        {
+          "assessment": "Comparison of expected totals, not of particular sites",
+          "evidence": [
+            "Greedy mean count exceeds uniform-maximal-set mean except on paths of lengths 1,2,4; the result gives an extensive gap."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-greedy-adsorption-strictly-out-occupies-uniform-jammed-sets-on-f--6b5d27178261",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror original text",
+          "title": "Greedy adsorption strictly out-occupies uniform jammed sets on finite paths",
+          "trigger": "Strongest distinct indexed path comparison"
+        },
+        {
+          "assessment": "Scope of any sitewise comparison unresolved",
+          "evidence": [
+            "Metadata includes occupancy probability and stochastic dominance; no statement-level judgment is made from those terms."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.spl.2026.110682; https://doi.org/10.2139/ssrn.5586833",
+          "material_read": "Publisher landing/abstract route and bibliographic metadata only",
+          "method": "Public publisher and identified SSRN alternate; article text not obtained",
+          "title": "Combinatorial aspects of a discrete parking process",
+          "trigger": "Closely related 2026 paper with occupancy and dominance keywords"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding; prior total-count results and exact marginal laws compared under originality"
+      ],
+      "rationale": "The same two natural laws already differ in total count; locating every reversal in the marginals and its exact stabilization length shows precisely why that total order is not sitewise order. Strict signs, four persistent exceptions, and the last failing center go beyond an asymptotic density difference or isolated counterexample.",
+      "residual_risks": [
+        "The result concerns paths and one-site occupations, not arbitrary graphs or estimates of full joint laws."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

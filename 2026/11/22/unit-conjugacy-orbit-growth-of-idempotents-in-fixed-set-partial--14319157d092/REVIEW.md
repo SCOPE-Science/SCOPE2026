@@ -1,19 +1,21 @@
-# Scientific review: unit-conjugacy orbit growth of fixed-set partial idempotents
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-An idempotent partial map has each image point fixed and hence decomposes into rooted stars plus undefined vertices. The prescribed set can contain only fixed roots or undefined points. The unit group fixes that set pointwise and acts as every permutation on the remaining points. The proof classifies precisely the permissible decorated star multisets, derives the orbit stabilizer by explicit block permutations, and obtains both rank enumerators by independent choices of roots and labeled species. The asymptotic reduction to the Hardy–Ramanujan partition estimate is supplied in the proof, including treatment of the convolution tails. The standalone checker enumerates all parameter pairs with \(0\le a\le3\), \(0\le b\le4\), and verifies actual conjugacy orbits, ranks, stabilizers, and generating-function coefficients. These tests are supportive, not an infinite proof.
+PASS
 
-## Originality — PASS relative to inspected sources
+Equality of partial maps in f²=f forces every image point into the domain and fixes it; conversely these conditions suffice. Thus Y∩dom(f)=Y∩im(f)=J, and each fixed y in J is a named root. On Z the undefined points, the free leaves over each named root and the stars with free roots partition Z. Units permute Z only, so the stated profile is necessary and sufficient, and the stabilizer consists of the indicated permutations of undefined points, leaves and equal-size free stars. The independent ordinary-series factors follow directly. Choosing the labeled image set gives r+1 choices, including undefined, per remaining free point; the labeled components also give the stated exponential series. For fixed s≥1, the coefficient of P(z)/(1−z)^s is the convolution with binomial(j+s−1,s−1). With lambda=pi/sqrt(6b), Hardy–Ramanujan gives p(b−j)/p(b)=(1+o(1))exp(−lambda j) uniformly for bounded lambda j. For j≤b/2 use a uniform exponential majorant in lambda j; for j>b/2 bound by p(floor(b/2))/p(b) times a polynomial. The normalized Riemann sum has integral Gamma(s)/(s−1)!=1, giving the claimed pole transfer. The unrefined total has leading pole correction s=a+1, whereas exactly k omissions give (a choose k) times the correction s=a−k+1. Their ratio gives the stated law and the first nonzero omission term dominates for a≥1. The edge cases a=0, b=0 and the empty map fit the profile. The nested finite checker was inspected, not rerun.
 
-The 2022 paper of Wijarajak and Chaiya establishes Green's relations and regularity for this precise partial fixed-point-set monoid, and its abstract does not state an orbit census. Their 2023 follow-up was inspected across its text, including its results about abundance, unit regularity, and coregularity; its unit group observation is credited. A 2016 full-transformation predecessor treats a different monoid and natural orders. Araújo and collaborators' general digraph-isomorphism criterion already yields the qualitative uncolored permutation-conjugacy framework; no novelty is claimed for that criterion. The present claim concerns the exact fixed-set decorated orbit sizes, rank-refined series, and fixed-distinguished-set partition asymptotic, which are not implied as explicit enumerative identities by the cited published results. Searches for these exact objects, aliases, and quantitative equivalences found no duplicate. The earlier 2022 article's full text was not obtained, and broad prior functional-digraph enumeration may hide an equivalent formulation; these remain genuine priority risks.
+## originality
 
-## Value — PASS
+PASS
 
-The complete classification is for every cardinality of each of two natural kinds of points and every idempotent, not a chosen slice. It makes the distinction between counting labeled elements and counting symmetry classes explicit, determines all orbit and stabilizer sizes, and shows a nontrivial partition-growth enhancement. The vanishing fraction of orbit types with any missing distinguished point is a further quantitative behavior of the symmetry quotient. This supplies a usable invariant and enumeration tool for a natural transformation-monoid family studied for regularity and structure.
+The supported distinct result is the combined rank and stabilizer enumeration under units fixing named points individually, together with the exact fixed-a orbit-growth and omission law. Rooted-star graph isomorphism and the partition asymptotic are known inputs, and the unrefined a=0 sequence is an exact known slice. None of the inspected sources supplies the named-root partial-map census and its omission asymptotics together.
 
-## Limitations
+## value
 
-This is a unit-conjugacy result for idempotents, not all semigroup conjugacies or all endomorphisms. The limiting assertion is for fixed \(a\); the 2022 paper was accessible at abstract level only. The partial map and unit-group cases \(a=0\) or \(b=0\) are included. Independent validation has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a natural partial transformation monoid, the theorem enumerates orbits and determines each stabilizer rather than only counting labeled maps. It identifies the fixed-set effect on partition-scale growth and quantifies that almost every class defines all its distinguished points, a feature lost by forgetting the named roots. The value is in these combined enumerative and asymptotic consequences, not in rediscovering ordinary partitions or graph isomorphism.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

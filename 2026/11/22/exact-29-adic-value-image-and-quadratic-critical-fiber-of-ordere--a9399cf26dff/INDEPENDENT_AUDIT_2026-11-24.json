@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:18:35.636123Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Steps 1–5, VERIFICATION.md, and check_fubini29.py (inspected)",
+        "python3 /workspace/evidence/2.py; output /workspace/evidence/2.txt"
+      ],
+      "rationale": "The cylinder weights are compatible by summing a finite geometric progression and are units. Grouping the rational geometric moments by residues modulo 29^e gives the same weights; terms involving the difference between an integer and its residue contain 29^e with only unit denominators at 1/2. On the unit branches, the Taylor coefficient of degree j contains log(x^28)^j/j!, so coefficients of degrees j≥2 are divisible by 29^2, and for j≥3 by 29^3. The 28 finite differences and all fibers through k=3 were replayed by inclusion–exclusion power sums, independently of the frozen Stirling recurrence. The 27 normalized regular branches reduce to affine maps with unit slope and restricted analytic coefficients, so the error in a difference gains another digit and every output digit lifts uniquely. The unique critical branch has (G(t)−G(0))/29^2 congruent to 4t+9 binomial(t,2), so its derivative has the one simple root 21 mod 29. Expanding about its Hensel lift factors out (t−xi)^2; the residual unit after dividing by H''(xi)/2 is 1 modulo 29 as a restricted power series. Its analytic square root gives a congruence-preserving bijection after multiplication by t−xi. The replay confirms center 20672 mod 29^3 and leading quadratic unit 9/2=19 mod 29. For n≥k the nonunit integral vanishes modulo 29^k; every branch contributes one full set of t mod 29^(k−1) in an index period. This yields the stated square-root factor 29 at k≥2, including k=2, and a single preimage in residue 24 at k=1. Counting unit squares after removing even valuations yields the sum S_m and the stated Haar measure.",
+      "residual_risks": [
+        "Read the square-root formula as k≥2; the lone residue 24 has one preimage in the mod-29 period. The tail image closure is the closure of arbitrarily late values, not a claim about extra early values.",
+        "The frozen script checks singular support and regular multiplicities through k=3, not every singular multiplicity individually; the independent replay compares every multiplicity at those levels."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General prime-power periodicity and a weighted power-sum congruence were accessible. The work on r-Fubini periodicity concerns index periods, and the Diagana–Maïga method is described in §11 but their full paper was inaccessible."
+        ],
+        "reasoning": "The more general period result covers the period at 29 but provides no criterion for vanishing normalized derivatives by branch, and hence no 29-adic range/fiber classification.",
+        "searches": [
+          "Caicedo et al. §11 Theorems 46–47 and Corollary 52",
+          "Diagana–Maïga JNT 173 (2017) 547–569",
+          "arXiv:1701.07276v1 Theorem 3.3"
+        ]
+      },
+      "checked_sources": [
+        "Caicedo et al. 2019 §11",
+        "Mező arXiv:1308.1637",
+        "Asgari–Jahangangiri arXiv:1701.07276",
+        "Resultary 98a454e5e604, 91974cd107ef, 9065fee25bef",
+        "Diagana–Maïga, limited access"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The weighted congruence makes a finite branch computation possible, and the 3-adic record supplies analogous unit branches. The 19-adic Fibonacci record is a true quadratic-square-branch analogue for a different sequence."
+        ],
+        "reasoning": "The congruence alone does not identify the 27 regular rows or the singular slope and curvature. Even after computation, the all-level law needs a Morse-coordinate argument; it is not a specialization of the law at 3 or the Fibonacci case.",
+        "searches": [
+          "Caicedo et al. Corollary 52 and Theorem 47",
+          "Resultary records 91974cd107ef and 9065fee25bef"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior literature gives the identical index period, indeed its minimality, not the image or complete fiber law. The distinct same-day Resultary ternary residue records concern p=3."
+        ],
+        "reasoning": "The comparison treats 'ordered Bell', 'Fubini', and 'ordered set partitions' as the same sequence; equality of shift period is not equality of output support or fibers. Changing p changes the residue and derivative table, not just notation.",
+        "searches": [
+          "Resultary ordered Bell/Fubini prime-power periods, 29-adic image, p-adic critical branches and multiplicities",
+          "Caicedo–Moll–Ramírez–Villamizar §11"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching 29-adic hit is the frozen work itself. Actual neighboring entries 98a454e5e604 and 91974cd107ef are exact at 3 only. Prior Corollary 48 gives individual special residues F_(p−1)=0 and F_p=1 mod p."
+        ],
+        "reasoning": "Single residues, the exact table at a different prime, and the identical record are not a 29-adic branch or multiplicity table. Shared publication dates are not a priority order.",
+        "searches": [
+          "Resultary 29-adic image and exact ordered-Bell value-set multiplicity lookup",
+          "Caicedo et al. §11 and Corollary 48"
+        ]
+      },
+      "rationale": "Neither periodicity nor the weighted-moment method is new. The distinct result is the exact eventual 29-adic value set, including the one singular quadratic branch, Haar measure and multiplicities at every depth.",
+      "residual_risks": [
+        "The Diagana–Maïga full text was unavailable and may have stronger interpolation results. Unindexed prime-specific calculations cannot be excluded. No priority is asserted for the period or the general p-adic methods."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers period and computation method, not found to cover branch classification",
+          "evidence": [
+            "Theorem 47 proves least eventual period p^(s−1)(p−1). Corollary 52 gives the weighted power-sum congruence; p. 25 describes prior use of p-adic measures."
+          ],
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v26i2p20/pdf/",
+          "material_read": "§11, PDF pp. 23–25 and 29; offsets 69000, 73507, 73878, 86849",
+          "method": "OA original journal PDF",
+          "title": "Extensions of set partitions and permutations",
+          "trigger": "Exact prior period and weighted power sums"
+        },
+        {
+          "assessment": "Last-digit period, different invariant and modulus",
+          "evidence": [
+            "The displayed Fubini relation is F_(n+4)=F_n mod 10."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1308.1637",
+          "material_read": "PDF p. 2, offset 3573",
+          "method": "OA preprint PDF",
+          "title": "Periodicity of the Last Digits of Some Combinatorial Sequences",
+          "trigger": "Early ordered-Bell periodicity"
+        },
+        {
+          "assessment": "Generalized index periodicity, not a 29-adic output classification",
+          "evidence": [
+            "The paper credits ordinary Fubini period work and gives a prime-power period for the r>0 family."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1701.07276v1",
+          "material_read": "HTML offsets 2681 and 10209; attribution and Theorem 3.3",
+          "method": "OA preprint HTML",
+          "title": "On the periodicity problem of residual r-Fubini sequences",
+          "trigger": "Potential dominating family"
+        },
+        {
+          "assessment": "Materially overlapping with each other, not coverage at 29",
+          "evidence": [
+            "Both classify 3-adic values and fibers; 91974cd107ef includes a moment-measure approach."
+          ],
+          "identifier_or_url": "Resultary 98a454e5e604 and 91974cd107ef",
+          "material_read": "Original findings and branch scope",
+          "method": "Resultary local mirror",
+          "title": "Complete ternary residue fibers of ordered Bell numbers; The complete ternary residue image and fibers of the ordered Bell numbers",
+          "trigger": "Closest exact same-sequence fiber classifications"
+        },
+        {
+          "assessment": "Analogue, not Fubini coverage",
+          "evidence": [
+            "Its regular and singular square branches are for Fibonacci numbers at prime 19."
+          ],
+          "identifier_or_url": "Resultary 9065fee25bef",
+          "material_read": "Original finding and prime/sequence scope",
+          "method": "Resultary local mirror",
+          "title": "Exact 19-adic Fibonacci residue fibers and a singular square branch",
+          "trigger": "Same square-branch structure"
+        },
+        {
+          "assessment": "Unresolved original text, no inference of noncoverage from access failure",
+          "evidence": [
+            "Caicedo et al. describe a measure Laplace transform proof of recurrences."
+          ],
+          "identifier_or_url": "J. Number Theory 173 (2017), 547–569, Diagana–Maïga",
+          "material_read": "Bibliographic record and description in Caicedo et al. p. 25, not original full text",
+          "method": "Lawful full-text attempts; direct and alternate access modes returned 403",
+          "title": "Some new identities and congruences for Fubini numbers",
+          "trigger": "Relevant p-adic measure method might extend to branch results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof Steps 3–5",
+        "Caicedo et al. §11",
+        "Replay branch table and fiber counts"
+      ],
+      "rationale": "The actual output distribution at a prime with both regular and quadratic lifting is a natural invariant of a classical sequence. The classification explains incomplete lifting in exactly one residue and gives both the limiting size and per-level occupancies, beyond finite modular data or a new proof of an old period.",
+      "residual_risks": [
+        "The result makes no all-primes classification or claim of priority for being the smallest odd prime with a singular branch."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

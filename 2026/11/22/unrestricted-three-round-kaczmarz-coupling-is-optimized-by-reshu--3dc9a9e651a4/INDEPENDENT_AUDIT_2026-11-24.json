@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:16:20.176280Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independence and E[e₀e₀ᵀ]=I give the squared Frobenius cost for each triple, with no centering assumption. With s_ab=⟨u_a,u_b⟩, trace cyclicity and P_j²=P_j give C_ijk=s_ij²+s_jk²+(s_ik−s_ij s_jk)². Row signs can be chosen so the two adjacent inner products are √q. Reflection and reversal reduce the 27 triples to the stated ten classes. Subtracting the dual bound gives zero on permutations, and the distinct repeat slacks are 2−3q/2, 1−q, 1−3q/2, 1−2q, (q+2)(1−2q)/2, (2−q)(1−2q)/2 and 2−3q−q², all strictly positive for 0<q<1/2. Thus arbitrary dependent schedules are covered, not just a non-exhaustive list of samplers. The uniform marginals give expectation 2q+q²/3 of the certificate, and equality forces zero mass on all repeat triples. The permutation marginal system has rank five; the kernel direction is (−1,1,1,−1,−1,1), so positivity yields precisely the indicated closed segment (endpoints have only three positive masses). For the unit path the normalized adjacent overlaps have squared value 1/4 on the contrast space. The IID average is 8/9+20q/27+2q²/9, yielding 235/216 versus 25/48 and relative improvement 49/94. Independent replay: python /workspace/replay/checks.py 5 computes every cost in nonorthogonal row coordinates, independently verifies all repeat slacks on the open interval by positive polynomial coefficients after q=t/[2(1+t)], and checks the nullspace and fractions. No guarantee is asserted for deterministic or anisotropic errors, relaxed rows, arbitrary frames, or other horizons.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Han–Xie cover general systems but analyze fresh random permutations each epoch with rate bounds. Jeong–Needell introduce sparse-constraint reshuffling algorithms for different objectives.",
+          "Indexed 98f608901237 does permit repeats and fixed marginals but for two relaxed steps and worst-direction risk. ad4d5ccaddd9 uses planar geometry, two steps and a worst-direction objective. d3fdb18b3ec4 has independent 3D rows but compares one-step and asymptotic IID objectives."
+        ],
+        "reasoning": "System or solver generality does not extend the feasible set or supply the same risk functional; these statements do not include this all-coupling three-step optimum.",
+        "searches": [
+          "arXiv:2410.01140 pp. 4–7, reshuffling setup and Thm. 3.2/Cor. 3.3",
+          "arXiv:2304.10123 p. 1",
+          "Resultary ad4d5ccaddd9, d3fdb18b3ec4, and 98f608901237 Findings"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 91c25b1a740a, b4e17f3ba20b, ad4d5ccaddd9, d3fdb18b3ec4, 98f608901237, 9dbaf46096e3",
+        "arXiv:2410.01140",
+        "arXiv:2304.10123",
+        "arXiv:2401.02842v2 abstract for sampling context"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "On the permutation-only subset, uniform middle marginal gives total mass 1/3 to the two monotone sweeps, yielding (1/3)(9/16)+(2/3)(1/2)=25/48. The permutation marginal equations give the same family there; that restricted statement is covered by the known costs and elementary marginals.",
+          "The repeat sites have no cost supplied by that restriction; ruling them out requires the pointwise strict dual certificate on every repeat pattern. The general reshuffling convergence bounds constrain one particular schedule distribution and do not compare it to all such repeats."
+        ],
+        "reasoning": "Only the restricted permutation conclusion for the unit path is a direct consequence. The global lower bound, equality characterization among all couplings, and continuum of q are a distinct comparison.",
+        "searches": [
+          "91c25b1a740a and b4e17f3ba20b mirrored Finding, restrict to the four-vertex ordinary average and uniform time marginals",
+          "arXiv:2410.01140 Thm. 3.2 and Cor. 3.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "91c25b1a740a evaluates Frobenius/isotropic error for one-sweep orderings on the path; b4e17f3ba20b treats weighted four-site pairwise averaging, separately distinguishing isotropic and worst-direction objectives.",
+          "At q=1/4 both give the exact ordinary-averaging permutation costs: 1/2 for four of the schedules and 9/16 for the two monotone ones."
+        ],
+        "reasoning": "On the path, gossip averaging and these normalized edge Kaczmarz projections are exactly the same maps, and isotropic squared error is the Frobenius cost. But a sweep uses every row once; arbitrary uniform time marginals need not do so.",
+        "searches": [
+          "Resultary: three-round Kaczmarz path Gram, Frobenius/isotropic averaging and repeat-allowing fixed-marginal schedules",
+          "91c25b1a740a Finding and assumptions, b4e17f3ba20b Finding and assumptions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact semantic self-hit is the assigned record and not an independent source. Distinct same-date 91c25b1a740a and b4e17f3ba20b give exact q=1/4 permutation costs, not the 27-cost arbitrary-schedule certificate or its exact unrestricted optimum.",
+          "The focused web lookup did not return a primary theorem on this exact coupling; absence of such a returned result is not evidence of novelty."
+        ],
+        "reasoning": "Credit the exact indexed costs for the schedules they cover. No publication ordering is inferred from shared catalogue dates.",
+        "searches": [
+          "Resultary: exact path one-sweep orderings, exact three-marginal reshape/reshuffle optimizers, and repeats versus permutations",
+          "Web: short path Kaczmarz/gossip fixed marginals arbitrary coupling, repeats, Frobenius cost and noncommutative AGM"
+        ]
+      },
+      "rationale": "The strongest indexed exact overlaps cover one-sweep permutation costs, notably the four-site path, and thereby cover the restricted marginal optimum at q=1/4. The supported distinct claim is the exact repeat-allowing three-marginal optimum for all q in the independent symmetric path frame, together with proof that repeats are strictly excluded from every optimum. Neither permutation costs nor bounds comparing selected samplers imply this assertion.",
+      "residual_risks": [
+        "Shared catalogue dates do not settle priority for the path specialization.",
+        "Equivalences in finite-time gossip or matrix-product comparison literature were not comprehensively excluded. The focused external query did not reveal an exact primary competitor; this is not proof of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the q=1/4 permutation-only costs and thus the restricted comparison, not the unrestricted theorem.",
+          "evidence": [
+            "The exact error formula assumes a permutation using each path edge once. It gives 1/2 for four schedules and 9/16 for the two monotone sweeps on the four-site path."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-one-sweep-ordering-law-for-path-kaczmarz-and-pairwise-aver--91c25b1a740a/RESULT.md",
+          "material_read": "Finding and assumptions, mirror offset 0, one-sweep cost formula",
+          "method": "Local Resultary source mirror and four-site/marginal specialization",
+          "title": "Exact one-sweep ordering law for path Kaczmarz and pairwise averaging",
+          "trigger": "Strongest exact overlap with isotropic path projection costs"
+        },
+        {
+          "assessment": "Exact ordinary-averaging permutation overlap, no repeated-contact comparison.",
+          "evidence": [
+            "There are six one-use-per-contact schedules; for ordinary averaging the isotropic comparison is 1/2 versus 9/16."
+          ],
+          "identifier_or_url": "Resultary b4e17f3ba20b",
+          "material_read": "Finding and assumptions, mirror offset 0",
+          "method": "Local mirror and metric and schedule-domain comparison",
+          "title": "Opposite one-sweep orderings for weighted four-site path gossip",
+          "trigger": "Same four-site projections and finite-horizon isotropic loss"
+        },
+        {
+          "assessment": "Per-epoch convergence for random permutations, not an exact optimum over time-marginal couplings.",
+          "evidence": [
+            "The schedule is drawn as a fresh permutation per epoch; inspected results impose rather than derive this support restriction."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2410.01140",
+          "material_read": "pp. 4–5 algorithm (offset 9919), pp. 6–7 Thm. 3.2/Cor. 3.3 (offset 17583)",
+          "method": "OA primary PDF passage comparison",
+          "title": "A simple linear convergence analysis of the reshuffling Kaczmarz method",
+          "trigger": "Closest general reshuffling theorem that might imply the optimum"
+        },
+        {
+          "assessment": "Sparse-constrained KZIHT/KZPT convergence is not the exact unconstrained three-stage coupling problem.",
+          "evidence": [
+            "The stated results concern reshuffling convergence under sparse constraints, not classification of repeat-allowing joint laws."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2304.10123",
+          "material_read": "p. 1, abstract and algorithm scope, offset 0",
+          "method": "OA primary scope comparison, not a full-document exclusion",
+          "title": "Linear Convergence of Reshuffling Kaczmarz Methods with Sparse Constraints",
+          "trigger": "Potential competing reshuffling assertion for structured constraint sets"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A short-horizon schedule obeying fairness at each time could exploit temporal correlation or repeats. The theorem decides the full comparison by an exact dual bound, proves every optimal law avoids repeats, and quantifies the freedom among optimal schedulers. That is useful beyond evaluating known permutations or comparing reshuffling to IID; the contrast-space path example gives a natural and sharply delimited benchmark.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

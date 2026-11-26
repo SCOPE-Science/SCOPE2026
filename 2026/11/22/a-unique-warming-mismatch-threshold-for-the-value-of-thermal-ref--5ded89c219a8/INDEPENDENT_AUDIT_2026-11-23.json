@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:48:05.518529Z",
+  "axes": {
+    "correctness": {
+      "rationale": "After shifting by the homogeneous eigenvalue, let G=R exp(-x^2/2), p=exp(-a^2/2), h=1-p cosh(ax). For x<=a/2 both heterogeneous diagonals before movement are at most the homogeneous one, with one strict, so irreducible Perron comparison is strict. For x>=x2 the mean equals or exceeds the homogeneous gross rate and the nonzero contrast raises the eigenvalue strictly above that mean for finite positive movement. On the intervening interval the shifted matrix has trace -2(Gh+m)<0. Its determinant is G^2(1-2p cosh(ax)+p^2)+2mGh, so the top eigenvalue has the opposite sign and crosses at the exact M_a(x). Differentiating M_a=G[(1-p^2)/(2h)-1] shows M_a'/G=x+(1-p^2)[ap sinh(ax)-xh]/(2h^2)>0: ap sinh(ax)/x increases from 1-p^2 at x=a/2, while h decreases from (1-p^2)/2 there. The derivative in m of the determinant is positive; the negative trace at equality makes the crossing transversal. The lower endpoint derivative Ra exp(-a^2/8) and the upper simple pole from -h'(x2)=a sqrt(1-p^2) reproduce the stated inverse expansions. The loss cancels exactly. Read checker.py and its notes without executing them. Independent 55-digit root computation on the shifted determinant at a=R=1, m=0.1 gives 0.5964895360394114 with negative trace, and x2=1.085038501948388. Only fixed finite positive movement, symmetric Gaussian growth, equal patch sizes and low-density linear dynamics are proved.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Grumbach et al. compare asymptotic population size to the sum of isolated carrying capacities; §2 has Beverton–Holt density dependence and a continuous-time exchange model.",
+          "The earlier cyclic-habitat theorem compares two distinct binary nine-cell profiles at a common dispersal ratio."
+        ],
+        "reasoning": "A symmetric exchange operator or a comparison of two Perron exponents is common background, but the nonlinear equilibrium baseline and the periodic binary pair are not broader theorems giving the temperature-homogenization result. A threshold for one dispersal comparison does not control the movement threshold as a varying Gaussian climate mismatch changes both rates.",
+        "searches": [
+          "Grumbach et al., DOI 10.1007/s00285-023-01984-8, §2 equations (1)–(3)",
+          "Resultary: exact dispersal crossover in equally fragmented cyclic habitats fb683c234f08"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1002/ecy.4257 (institutional abstract)",
+        "DOI:10.1007/s00285-023-01984-8",
+        "Resultary:fb683c234f08",
+        "Resultary:5ded89c219a8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing movement comparisons can motivate effects at fixed growth rates. Here the Gaussian contrast and its mean both vary with x; the determinant condition reduces to M_a(x) and requires the separate strict derivative inequality involving sinh(ax)/x.",
+          "The prior climate abstract, two-patch asymptotic-size model and binary-profile theorem each change at least the response, comparison baseline or parameterized family."
+        ],
+        "reasoning": "Classical spectral methods explain the outer comparison and monotonicity in m at a fixed mismatch. They do not imply strict monotonicity of the equality curve in x or its two sharp coefficients; these use model-specific differentiation and endpoint inversion.",
+        "searches": [
+          "Backus et al. Ecology 105:e4257 via institutional publication record",
+          "Grumbach et al. primary model equations and stated comparator",
+          "Resultary fb683c234f08 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matching indexed RESULT.md has the identical threshold and derivative; it is the frozen result itself.",
+          "The Bristol institutional abstract for Backus et al. describes simulations of temperature tracking in space and time and the effect of restoring variability on persistence and population sizes."
+        ],
+        "reasoning": "A monotone critical-movement curve across the intermediate mismatches is an equivalent formulation of the frozen single crossing. Neither a simulation finding that heterogeneity benefits poor dispersers nor an observed mild-climate insensitivity implies a uniform unique root under a Gaussian stationary mean comparator.",
+        "searches": [
+          "Resultary: exact Gaussian thermal niche mean temperature symmetric dispersal homogenization critical mismatch warming",
+          "Primary search: exact Backus–Clements–Baskett title, author-copy alternatives and DOI e4257"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Hit 5ded89c219a8 reproduces the frozen result; distinct hit fb683c234f08 is quantified over repetitions of two specific binary profiles, with another exact level."
+        ],
+        "reasoning": "No finite table is applicable to the continuous parameter classification; the indexed exact-claim search distinguishes the identical record from a different mathematical crossing. The single numerical illustration is not a priority claim.",
+        "searches": [
+          "Resultary: Gaussian mismatch crossing, exact dispersal crossover and thermal refugia"
+        ]
+      },
+      "rationale": "The distinct supported result is the global single crossing in mean mismatch against the homogeneous-mean control, with its migration monotonicity and sharp endpoint scales. Ordinary Perron comparison, the two-by-two eigenvalue formula and decreasing growth with mixing at fixed local rates are not novel. Related ecological simulations and nonlinear equilibrium classifications do not support credit for those methods, nor do their inspected results establish this Gaussian sign boundary.",
+      "residual_risks": [
+        "Matching Backus et al. full text and appendices were not accessible at the attempted publisher paths; only the institutional article abstract was verified here.",
+        "Other analytical climate-envelope work and unindexed two-patch reductions were not exhaustively compared; the pass concerns the checked distinguishable claim, not historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MOTIVATING_SIMULATION_IN_ABSTRACT_FULL_TEXT_UNCONFIRMED",
+          "evidence": "The abstract describes spatial and temporal variability simulations, tracking, extinction/persistence and population sizes; little effect under mild change and stronger benefit with limited dispersal. It does not establish the analytic model or global threshold; no conclusion about the whole full text is inferred.",
+          "identifier_or_url": "https://research-information.bris.ac.uk/en/publications/restoring-spatiotemporal-variability-to-enhance-the-capacity-for-/",
+          "material_read": "Institutional primary article abstract under Abstract; DOI/Wiley full-text attempts returned 403",
+          "method": "Targeted bibliographic search and lawful OA inspection of the institutional public page",
+          "title": "Restoring spatiotemporal variability to enhance the capacity for dispersal-limited species to track climate change",
+          "trigger": "Closest biological question and homogenization/restoration comparison; DOI 10.1002/ecy.4257"
+        },
+        {
+          "assessment": "DIFFERENT_COMPARATOR_AND_OBJECTIVE",
+          "evidence": "Asymptotic total abundance under density dependence, relative to isolated carrying capacities, is not the low-density Perron exponent versus a homogeneous Gaussian mean-temperature control.",
+          "identifier_or_url": "https://doi.org/10.1007/s00285-023-01984-8",
+          "material_read": "Primary PDF pp. 1–5, abstract, stated objective and §2 model equations (1)–(3); decisive model passage OA offset 11050–12700",
+          "method": "Open-access PDF passages",
+          "title": "The effect of dispersal on asymptotic total population size in discrete- and continuous-time two-patch models",
+          "trigger": "Symmetric two-patch threshold classifications"
+        },
+        {
+          "assessment": "DIFFERENT_PERRON_COMPARISON_AND_DOMAIN",
+          "evidence": "The top eigenvalues of two different periodic binary profiles cross in d/g; neither is the present fixed two-patch Gaussian climate comparator.",
+          "identifier_or_url": "Resultary:2026/10/12/fb683c234f08",
+          "material_read": "Mirrored RESULT.md Finding, offset 0–1789",
+          "method": "Local mirror passage",
+          "title": "Unique dispersal crossover in equally fragmented cyclic habitats",
+          "trigger": "Prior exact eigenvalue-ranking crossover with dispersal"
+        },
+        {
+          "assessment": "IDENTICAL_RECORD_NOT_SEPARATE_PRIOR",
+          "evidence": "Same model, root, monotone threshold and endpoint laws as the frozen result.",
+          "identifier_or_url": "Resultary:2026/11/22/5ded89c219a8",
+          "material_read": "Indexed finding and mirrored proof around offset 3364",
+          "method": "Local index and mirror",
+          "title": "A unique warming-mismatch threshold for the value of thermal refugia under symmetric dispersal",
+          "trigger": "Exact search match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem gives a usable three-region sign diagram under a precise homogenization control, not just the diagonalization of an example. It separates near-optimum harm from far-mismatch benefit and quantifies how increasing movement shifts the boundary and at what rates the two limiting boundaries are approached. This is an analytical benchmark for spatial thermal comparisons, not a calibrated field prescription; relative benefit does not imply either growth exponent is positive.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

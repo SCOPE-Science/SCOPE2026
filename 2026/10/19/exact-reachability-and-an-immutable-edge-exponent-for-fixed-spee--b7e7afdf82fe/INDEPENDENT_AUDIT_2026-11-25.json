@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:15:41.606577Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The normalized stationary position density follows by zero aggregate flux and the orientation equation (polarization (x/R)ρ); the orientation factors then give a leading cumulative edge layer of power β+1 for the plus state and an extra power for the minus state. The pathwise deficit is the sum of the compressed initial deficit and a nonnegative weighted negative-orientation occupation time; the weight is at least s>0. The plus/no-switch event exactly provides the stated coefficient. A switched plus trajectory in the edge layer needs its first switch near T or a close pair; the Poisson intensity and second factorial moment give an O(ε) bound independent of initial position conditional on orientation. Initial minus states are already subleading. This proves the sharp relative O(ε) remainder as well as conservation, including −1<β<0. The frontier is attained as a support supremum by the no-switch trajectories, satisfies R'=v−κR<v, and therefore enforces a strict expansion bound. Under the strict bound a smooth monotone radius path can use a normalized almost-flat derivative on the interior with endpoint values zero; the controls are strictly positive and match the prescribed values. Differentiating X=R(t)Y(q(t)) with q'=v/R, and transforming the independent flips, proves equality of the whole joint law for the constructed path. As a separate algebraic check, `python /workspace/independent_checks_1_4.py 4` verifies the full even-position/odd-polarization moment recurrence for the scaled stationary shape; it is not used in place of the exact path and time-change arguments.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The RTP speed-control result varies propulsion and has different endpoint stiffness constraints and a displayed thermal model. The two other exact/shortcut analyses use active Brownian or active Ornstein–Uhlenbeck propulsion."
+        ],
+        "reasoning": "A constructive shortcut with different actuators or a different generator does not state or logically imply the necessary condition or sharp positive-stiffness expansion time for this class. Related scale methods should be credited as prior.",
+        "searches": [
+          "arXiv:2304.06023v1, explicit protocols; arXiv:2212.06651v2, swift transformations; arXiv:2604.05585, model and shortcut scheme"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2602.04560v2",
+        "arXiv:2304.06023v1",
+        "arXiv:2212.06651v2",
+        "arXiv:2604.05585",
+        "Resultary 918a353be34f",
+        "Resultary 49ef86730472"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Appendix B proposes a recursive design with arbitrary formal stationary endpoint exponents but leaves convergence/implementation open, and establishes no positive controls for such endpoints. The varying-propulsion protocol gives explicit exact transitions in its own actuator class."
+        ],
+        "reasoning": "An unproved recursion does not imply a contradictory exact transfer at differing exponents; the sharp pathwise invariant instead shows that an attempt cannot yield such a transfer within the admissible class. Neither earlier construction establishes both necessity and sufficiency here.",
+        "searches": [
+          "arXiv:2602.04560v2 conclusion and Appendix B, Eqs. 40–41",
+          "arXiv:2304.06023v1 Eq. 8 and explicit protocol discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Baldovin–Manacorda use the same athermal fixed-speed generator and stationary beta law, with long-duration approximate protocols. Frim–DeWeese use a closely related exact scale mechanism with changing propulsion and different endpoint controls."
+        ],
+        "reasoning": "Knowing the equilibrium edge exponent is not knowing a finite-time invariant. Scale engineering addresses explicit reachable transfers, not why other fixed-speed admissible protocols cannot reach different exponents.",
+        "searches": [
+          "Same one-dimensional harmonic telegraph/RTP with fixed propulsion speed and time-dependent positive stiffness/flip rate",
+          "arXiv:2602.04560v2 §§II–IV, Appendix B; arXiv:2304.06023v1 Eq. 8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 918a353be34f gives stationary edge mass with heavy-tailed residence times; 49ef86730472 gives stationary near-wall behavior for a three-velocity model. The same-model paper gives approximate finite-duration examples, not an exact boundary or list of reachable pairs."
+        ],
+        "reasoning": "Stationary or different-velocity edge results do not cover the time-dependent, independent Poisson-flip tail. No exact tabulation was found in the bounded checks; this is not inferred from a search miss alone.",
+        "searches": [
+          "Resultary: exact finite-time fixed-speed harmonic RTP controllability; stationary edge exponent invariance; athermal positive stiffness/tumbling transfer",
+          "arXiv:2602.04560v2 numerical examples and Appendix B"
+        ]
+      },
+      "rationale": "The distinct claim is the sharp arbitrary-protocol finite-time edge invariant and complete reachable-state criterion under the stated regular athermal fixed-speed actuators. The stationary beta density, moment equations, and scale-control idea have precedents and are not new here.",
+      "residual_risks": [
+        "An equivalent pathwise support or transport theorem in specialist telegraph-process literature may not have been indexed or retrieved; the focused primary search was not exhaustive.",
+        "The formal same-model recursion is substantive overlap as a proposed methodology, not a verified reachability result. The conclusion does not cover controls outside the stated class."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closest same-model work; exact class not established there",
+          "evidence": "The hierarchy uses a long-duration closure in the implemented examples. Appendix B defers convergence/implementation of a cutoff-dependent recursion; there is no admissible exact different-exponent protocol in the inspected material.",
+          "identifier_or_url": "https://arxiv.org/html/2602.04560v2",
+          "material_read": "Introduction, model and stationary law, hierarchy and long-duration protocols, Appendix B Eqs. 40–41 (OA offsets 250, 6200, 13450, 23000, 57200)",
+          "method": "OA full-text passages",
+          "title": "Control protocols for harmonically confined run-and-tumble particles",
+          "trigger": "Same fixed-speed process and actuators; plausible exact arbitrary-endpoint construction"
+        },
+        {
+          "assessment": "Related construction, different actuator and endpoint class",
+          "evidence": "Transitions in propulsion speed; displayed thermal model and common endpoint stiffness.",
+          "identifier_or_url": "https://arxiv.org/html/2304.06023v1",
+          "material_read": "Ansatz, control equations including Eq. 8, endpoint assumptions and explicit protocols (OA offsets 6200–19999)",
+          "method": "OA full-text passages",
+          "title": "Shortcut engineering of active matter: run-and-tumble particles",
+          "trigger": "Exact harmonic RTP shortcut"
+        },
+        {
+          "assessment": "Different dynamics; antecedent for construction idea",
+          "evidence": "Two-dimensional active Brownian model with varied activity and a held auxiliary shape parameter.",
+          "identifier_or_url": "https://arxiv.org/pdf/2212.06651",
+          "material_read": "Model and controls; Swift state-to-state transformations, Eqs. 4–6",
+          "method": "OA PDF passages",
+          "title": "Control of Active Brownian Particles: An exact solution",
+          "trigger": "Exact scale-based shortcut precedent"
+        },
+        {
+          "assessment": "Not a telegraph-process reachability theorem",
+          "evidence": "Uses weakly active Ornstein–Uhlenbeck propulsion, auxiliary potentials and thermodynamic geometry.",
+          "identifier_or_url": "https://arxiv.org/html/2604.05585",
+          "material_read": "Abstract, introduction and model/shortcut scheme",
+          "method": "OA full-text passages",
+          "title": "Shortcuts to state transitions for active matter",
+          "trigger": "Broader active-matter shortcut"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The primary model explicitly motivates shortcuts between states with different edge shapes. Determining what is exactly impossible, not just how to match a few moments approximately, resolves a concrete control question. The allowed transfers are constructive and the strict time bound is sharp with no imposed common control-amplitude cap; the tail invariant also applies away from the final stationary family. No claims about thermal, impulsive, or amplitude-constrained controls are needed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

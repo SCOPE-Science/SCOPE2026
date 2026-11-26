@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:32:20.986845Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Threshold-two tests depend only on caps at two, and capped addition respects merging into destination colours. Each occupied initial part–colour class moves as a unit; tagging one vertex from each class preserves its labelled trajectory, even when two actual class sizes share a cap. All labelled colours return exactly when all tags return, giving the max entry time and lcm period. An independent bounded reconstruction checked all 17,576 nonempty profiles and 109,512 occupied tags, found max entry nine and periods {1,3,4,6,12}, and verified T^21=T^9 on every tag. It found recurrent profile counts 174, 1826, 18, 6 and 126 in that order, and separately reproduced the K_{5,3,2} time-nine witness by direct labelled updates. The exceptional profiles yield 2, 1 and 7 symmetry classes; per chosen large shore period four has 6 orientations with 2×2 small-shore labellings, period six has 6 orientations with 2³ labellings, and per chosen small shore period twelve has 18,18,6 orientations with 1,2,6 labellings at sizes 1,2,3. Each specified two-large-colour shore has B(n)=2^n−2n−2 assignments. These give the claimed R formulas (states, not cycles), while multinomial weights of all profiles give the transient/period census. Independent replay: /workspace/branches/401e679c-cf1e-4b34-b176-a4f92f9a5b3d/independent_check.py and independent_output.log. The frozen checker sources and output are supporting evidence; small labelled examples alone do not prove the all-size result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gravner–Lyu–Sivakoff and the multipartite catalogue 4f2e81b79545 use one successor neighbour; the same threshold-two catalogue b3abd8d3ada1 treats only two shores and has periods {1,3,4}.",
+          "The accessible 1997 abstract reports general bounds in terms of underlying graph structure; full texts of the two older Matamala–Goles papers were not recovered and there is no statement-level comparison for them."
+        ],
+        "reasoning": "Those comparisons do not establish a broader published implication. The exact-family catalogue suffices to settle material coverage independently of the unresolved historical leads.",
+        "searches": [
+          "arXiv:1610.07320, p. 1",
+          "Matamala–Goles 1995 and 1997 finite cyclic automata networks",
+          "Resultary 4f2e81b79545 and b3abd8d3ada1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verification package",
+        "Resultary 51f1d9876496 and its certificate",
+        "Resultary b3abd8d3ada1, 4f2e81b79545 and 80bbc6695856",
+        "arXiv:1610.07320",
+        "Matamala–Goles (bibliography/abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Each recurrent capped profile is a member of a computed quotient cycle: the return permutation in the earlier comparison code guarantees physical recurrence and gives the same p for any realization of its caps. Sum the independent per-shore multinomial weights over the profiles of each such p, with each profile counted once. For the exceptional patterns, one/two/three singleton occupied colours and two specified large colour classes yield factorial weights and the binomial-sum factor B(n).",
+          "For all initial profiles, using the same lifted_trace already supplied, first entry is the first t≤9 for which the occupied traces agree at t and t+12; the identity at times 9 and 21 and the period set justify the test. The period is the least divisor of 12 returning all occupied buckets at time 9. Applying the same multinomial weights gives D_{t,p} directly, although the matching entry explicitly does not tabulate labelled basins."
+        ],
+        "reasoning": "Thus failure is not a claim that the published comparison prints the same R or D formulas. They are obtained from its exact finite quotient data and elementary labelling multiplicities, rather than a new mathematical classification of orbits or basins.",
+        "searches": [
+          "Resultary 51f1d9876496, RESULT.md offset 3144 through Limitations and code around offsets 2151–3532",
+          "Frozen RESULT.md, exact census, lines 62–70"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same labelled K_{a,b,c} with three nonempty shores, parallel advancement only on two successor-coloured neighbours; the capped populations plus occupied-bucket trajectories carry precisely the same labelled dynamics as cap-plus-tags.",
+          "The other record explicitly proves F^21=F^9 and sharp entry nine, periods {1,3,4,6,12}, and the same exceptional existence conditions."
+        ],
+        "reasoning": "The equivalent tracked-colour descriptions preserve the same graph/rule hypotheses and return times, not just matching numerals.",
+        "searches": [
+          "Local Resultary threshold-two CCA on complete tripartite graphs, F^21=F^9 and finite quotient",
+          "Resultary 51f1d9876496, Finding and proof steps 1–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "51f1d9876496 reports 826 quotient cycles with counts 174,614,9,2,27 by labelled period. These are counts of quotient cycles, not labelled configurations. Its code enumerates the actual profile cycles and computes len(cyc) times the permutation order to label each cycle, before reducing to minimum-size and freedom-flag existence patterns.",
+          "80bbc6695856 gives a related census on K_{a,b,c} but uses Greenberg–Hastings: both refractory colours advance automatically. Its period spectrum, sharp transient and R12 coefficients differ."
+        ],
+        "reasoning": "Do not equate the raw quotient counts with R_p. The profile-level certificate for precisely the same rule contains the needed inputs to recover R_p, unlike the Greenberg–Hastings tables.",
+        "searches": [
+          "Resultary 51f1d9876496, verify_capped.out and verify_capped.py",
+          "Resultary 80bbc6695856, Finding"
+        ]
+      },
+      "rationale": "A distinct indexed result has the identical update, graph family, sharp identity and entry bound, exceptional period spectrum and three phase regimes, plus a period-three existence criterion. The same result supplies the exact recurrent capped profiles via its executable cycle enumeration and computes the labelled least period on each capped cycle. The frozen explicit labelled multiplicities are not printed there, but they are a mechanical multinomial weighting of those profiles; the transient census likewise weights profiles after a finite comparison of the supplied bucket traces. The strongest overlap was indexed later; this comparison concerns scientific coverage and mechanical implication, not who discovered it first or whether the records are independent. No distinct surviving dynamical or non-mechanical counting claim is established here.",
+      "residual_risks": [
+        "Indexed dates do not settle priority or relationship between the two same-rule records.",
+        "Application of the older finite-network theorems could not be settled from their accessible material."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact dynamical coverage; labelled census not printed",
+          "evidence": "Identical sharp entry bound and eventual-period conditions; explicitly tracks the bucket permutation upon return to each quotient cycle.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-sharp-nine-step-entry-and-fragile-period-four-and-period-six-wav--51f1d9876496/RESULT.md",
+          "material_read": "Finding at offset 259; proof offset 3144 onward; Limitations offset 8434",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp nine-step entry and fragile period-four and period-six waves",
+          "trigger": "Identical graph, rule and dynamical conclusions"
+        },
+        {
+          "assessment": "Gives exact profile and period data before projecting to existence regimes",
+          "evidence": "Capped cycle list, bucket-period calculation and computed period labels are sufficient to weight profile multiplicities, unlike the printed quotient-cycle totals alone.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-sharp-nine-step-entry-and-fragile-period-four-and-period-six-wav--51f1d9876496/verify_capped.py",
+          "material_read": "Cycle construction and period computation around offsets 2151–3532; verify_capped.out",
+          "method": "Local mirror source and recorded output, inspected not executed",
+          "title": "Capped-period certificate accompanying 51f1d9876496",
+          "trigger": "Determine whether labelled counts need new classification"
+        },
+        {
+          "assessment": "Bipartite analogue only",
+          "evidence": "F^15=F^3, periods {1,3,4}, and exact basin counts on two shores.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-exact-period-basins-and-a-nonmonotone-oscillation-window-for-thr--b3abd8d3ada1/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact period basins and a nonmonotone oscillation window for threshold-two competition",
+          "trigger": "Same rule, nearby graph family"
+        },
+        {
+          "assessment": "Uses threshold one",
+          "evidence": "F^5=F^2 and periods 1 and 3 do not apply to threshold two.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-a-tripartite-period-collapse-and-exact-basins-in-three-color-cyc--4f2e81b79545/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A tripartite period collapse and exact basins in three-color cyclic competition",
+          "trigger": "Same graph family and catalogue format"
+        },
+        {
+          "assessment": "Different update rule",
+          "evidence": "Greenberg–Hastings refractory advancement, entry bound eleven, no period six and different J and coefficient in R12.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sharp-twelve-cycle-resonance-and-an-eleven-step-transient-bound--80bbc6695856/RESULT.md",
+          "material_read": "Finding and census statement, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp twelve-cycle resonance and an eleven-step transient bound",
+          "trigger": "Same graph and threshold, apparently similar R12 enumeration"
+        },
+        {
+          "assessment": "Threshold-one universal-cover analysis does not give this threshold-two census",
+          "evidence": "A single successor neighbour triggers CCA, and Greenberg–Hastings is separately defined.",
+          "identifier_or_url": "https://arxiv.org/pdf/1610.07320",
+          "material_read": "p. 1, offsets 0 and 836",
+          "method": "OA primary PDF text",
+          "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+          "trigger": "Broad graph-theoretic reduction"
+        },
+        {
+          "assessment": "Full primary texts inaccessible; no noncoverage inference",
+          "evidence": "Abstract reports graph-structure-dependent bounds; attempted full-text routes returned 403 or redirects.",
+          "identifier_or_url": "https://pure.uai.cl/en/publications/dynamic-behavior-of-cyclic-automata-networks/",
+          "material_read": "1997 public abstract, offset 357; 1995 bibliographic identification",
+          "method": "Public abstract and attempted Springer/CORE primary access",
+          "title": "Matamala–Goles: Cyclic Automata Networks on Finite Graphs and Dynamic Behavior of Cyclic Automata Networks",
+          "trigger": "Older general finite-network bounds"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "On a natural dense graph family, the sharp uniform cutoff, exceptional primitive-period regimes, and all-size counts separate genuine vertex-level waves from artefacts of merging or capping. In particular the eight six-cycles isolated on K_{2,2,2} illustrate why physical period rather than population period is meaningful. The intrinsic usefulness of this classification is distinct from the finding that a matching catalogue already provides the dynamics and a sufficient certificate to recover the counts.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

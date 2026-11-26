@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:12:10.908484Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For θ=π/(n+1), the real symmetric part H has eigenvalues −a+a cos(jθ)/cosθ and a simple zero eigenspace spanned by the normalized sine vector v. Put R=−H. Then (Gv)_j=a tanθ sqrt(2/(n+1)) cos(jθ), and the cosine square and adjacent cosine product sums give ||Gv||²=q_n and ⟨RGv,Gv⟩=h_n>0, with Gv orthogonal to v. The exponential energy identity makes equality impossible: an equality orbit would start in ker R and have a derivative remaining in ker R. The positive subordination probability law, with positive random times, then gives strict contraction for α<1 as well. On scaling the Gram matrix as (Eα(sG)*Eα(sG)−I)/s, its simple top branch starts at 2H/Γ(1+α); the first correction on v is −q_n Vα because G*v=−Gv. Taking the norm rather than the squared norm divides by two. At α=1, inserting x(s)=v+sw+O(s²) in the energy loss gives the cubic coefficient of the squared norm deficit as 2[||R^(1/2)(w+Gv/2)||²+h_n/12]. The trial vector with w=−Gv/2 attains the lower bound, giving h_n/12 for the norm deficit. Gamma-series bounds and the uniform simple eigenvalue gap on [α0,1] give a uniformly bounded fourth-order remainder and a differentiable cubic coefficient there. Its endpoint value yields the stated additional O((1−α)s³); the gamma ratio and ψ(3)−ψ(2)=1/2 give Vα>0 below 1 and Vα=1−α+O((1−α)²). The two normalizations follow in joint limits α→1, s→0; no uniformity in n or a is claimed. The frozen checker is floating-point evidence only. Independently, an equal-diagonal 2×2 triangular norm formula applied to E_(1/2)(−s) and 2s E'_(1/2)(−s) at a=1 gave a normalized quadratic deficit 0.36367249 at s=0.01, consistent with 1−2/π≈0.36338023. At α=1 its norm is exp(−s+asinh(s)), checking h_2/12=1/6. No numerical diagnostic is needed for the general proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The fractional Kreiss paper supplies the general dissipative bound and first-order behavior. Classical hypocoercivity results supply the exponent and coefficient at α=1."
+        ],
+        "reasoning": "At the critical chain the first-order slope is zero, so the known first-order fractional theorem leaves the leading order open. The classical result has no fractional parameter or uniform s/α transition.",
+        "searches": [
+          "arXiv:2611.19352v1 Appendix B.3 and Proposition 9.1",
+          "arXiv:2109.10784v1 Theorem 2.6",
+          "arXiv:2601.09656v2 Theorem 3.8 and Corollary 3.9"
+        ]
+      },
+      "checked_sources": [
+        "Resultary index and assigned theorem mirror",
+        "arXiv:2611.19352v1",
+        "arXiv:2109.10784v1",
+        "arXiv:2601.09656v2",
+        "arXiv:2108.09620v3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The dissipative/subordination mechanism is prior; substituting the chain into the m_HC=1 classical coefficient theorem gives h_n/12. The published fractional initial slope vanishes here."
+        ],
+        "reasoning": "Integrating scalar semigroup norm bounds under subordination does not recover the quadratic loss of the norm of the averaged operator: the norm is outside the average. The second-order perturbation at the simple critical eigenspace and the uniform control of its cubic correction are needed.",
+        "searches": [
+          "arXiv:2611.19352v1 Appendix B.3",
+          "arXiv:2601.09656v2 Corollary 3.9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary match 3e2fbbcc6a52 is the assigned finding itself, confirmed in its mirrored theorem at offset 447. The distinct same-day Jordan contraction metrics finding 667886489945 optimizes over diagonal norm metrics under a condition budget.",
+          "Kostić–Mangi–Uzelac Bujišić, Proposition 9.1 and Appendix B.3: time supremum/Kreiss ratio and initial slope, not a higher-order deficit in the specified Euclidean norm."
+        ],
+        "reasoning": "One cannot equate an optimized logarithmic norm, a resolvent/time-supremum ratio, or the long-time stability of a discretization with the local Euclidean singular-value expansion at critical coupling.",
+        "searches": [
+          "Resultary: fractional Mittag–Leffler short-time norm, hypocoercive cubic contact, critical Jordan chains and diagonal contraction metrics",
+          "Primary literature: fractional Jordan norm and hypocoercivity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The classical coefficient is indeed available via the general coefficient theorem. No distinct exact Resultary match for the combined expansion was identified; the same record is not independent corroboration."
+        ],
+        "reasoning": "A finite database or fixed-dimension coefficient table is inapplicable to the distinct claim, which is an all-finite-dimension analytic statement with a uniform fractional-order limit.",
+        "searches": [
+          "Resultary: critical-chain coefficients, variance-controlled deficit and fractional-to-classical crossover",
+          "arXiv:2601.09656v2, equations (3.20)–(3.23)"
+        ]
+      },
+      "rationale": "The distinct contribution is the sharp fractional variance coefficient at a critical Jordan chain and its uniform matching to the classical contact law, not the classical coefficient, fractional subordination, or existence of dissipative semigroup bounds.",
+      "residual_risks": [
+        "A broader theorem on subordination and higher-order norm contact may subsume the fractional expansion; the inspected results do not demonstrate that implication. The AUDIT.json referenced by the original is not among the bound evidence and is not relied on. No global priority or formal-verification claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantive partial coverage, not the critical second-order or joint expansion",
+          "evidence": "General contractivity and initial slope ν(L)/Γ(1+α); Proposition 9.1 treats a large-nonnormality time-supremum/Kreiss ratio.",
+          "identifier_or_url": "https://arxiv.org/html/2611.19352v1",
+          "material_read": "Abstract, Proposition 9.1, Appendix B.3 (OA offsets 0, 159849, 219549)",
+          "method": "Primary OA text",
+          "title": "A Kreiss theorem for fractional Cauchy problems with a finite slow component",
+          "trigger": "Same fractional propagators and Jordan blocks"
+        },
+        {
+          "assessment": "Covers cubic exponent at index one",
+          "evidence": "Exponent 2m_HC+1 for the classical semigroup norm.",
+          "identifier_or_url": "https://arxiv.org/pdf/2109.10784v1",
+          "material_read": "Theorem 2.6, equation (2.6), PDF p. 8 (OA offset 25764)",
+          "method": "Primary OA PDF",
+          "title": "The hypocoercivity index for the short time behavior of linear time-invariant ODE systems",
+          "trigger": "Classical short-time exponent"
+        },
+        {
+          "assessment": "Covers h_n/12 by specialization; not the fractional crossover",
+          "evidence": "Provides sharp finite-dimensional classical leading coefficients and Cayley-transform analogues.",
+          "identifier_or_url": "https://arxiv.org/html/2601.09656v2",
+          "material_read": "Theorem 3.8 and Corollary 3.9, equations (3.20)–(3.23) (OA offsets 45438, 48132)",
+          "method": "Primary OA text",
+          "title": "Connection of hypocoercivity and hypocontractivity via the Cayley transform",
+          "trigger": "Classical leading coefficient and discrete analogues"
+        },
+        {
+          "assessment": "Different invariant and optimization; no claimed equivalence",
+          "evidence": "Optimizes a diagonal contraction metric under a condition budget, rather than the time contact of the fixed Euclidean spectral norm.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-diagonal-contraction-metrics-for-jordan-cascades-of-arbitr--667886489945",
+          "material_read": "Resultary claim summary",
+          "method": "Local Resultary index",
+          "title": "Sharp diagonal contraction metrics for Jordan cascades",
+          "trigger": "Distinct same-day Resultary comparison"
+        },
+        {
+          "assessment": "Scope comparator only",
+          "evidence": "Studies long-time decay of numerical time-fractional ODE solutions.",
+          "identifier_or_url": "https://arxiv.org/pdf/2108.09620v3",
+          "material_read": "Abstract, PDF p. 1 (OA offset 0)",
+          "method": "Primary OA PDF",
+          "title": "Mittag–Leffler stability of numerical solutions to time fractional ODEs",
+          "trigger": "Literature hit for fractional Mittag–Leffler stability"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The critical coupling eliminates the first-order norm slope, so knowing mere contractivity is quantitatively inconclusive. The result identifies the leading fractional loss as a time variance effect and resolves the singular approach to the established cubic semigroup law, giving both coefficients and the scale at which their contributions are comparable. This is a useful sharp boundary phenomenon, not a rederivation of the classical exponent alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

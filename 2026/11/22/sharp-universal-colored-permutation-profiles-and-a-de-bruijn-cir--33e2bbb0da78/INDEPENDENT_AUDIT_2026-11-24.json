@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:07:34.218208Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–49",
+        "Frozen VERIFICATION.md, lines 19–23",
+        "Frozen VERIFY.py, lines 10–167 (inspected, not executed)",
+        "Independent bounded DFS and inclusion–exclusion: branch on each simple cycle of length ≤d, skipping an include branch if it conflicts in arcs; at each leaf use sign times 2^(number of unconstrained states) for q=2"
+      ],
+      "rationale": "A rooted c-cycle with c≤d has equality pattern exactly congruence mod c and an arbitrary c-letter color word; all iterates are distinct when c>d. This gives T and forces one short cycle per necklace, even for imprimitive colorings, because visible cycle length and rooted word are independent data. Every long vertex realizes just one new type, so at least q^(d+1) long vertices are needed. The balanced de Bruijn graph is strongly connected (append the destination word), so an Euler circuit supplies exactly that budget and is longer than d. At equality, each long vertex is canonically labeled by its window, and the successor map in those labels is precisely a matching of incoming to outgoing arcs at every state. Conversely color an arc by its first letter: overlap recovers all d+1 letters, and excluding permutation cycles of length at most d ensures distinct iterates. On a forbidden arc cycle of length ℓ≤d, two coincident states would give the same length-ℓ rotations of the periodic word and hence identical arc labels, a contradiction. Thus all forbidden events are simple state cycles; distinct ones sharing an arc cannot simultaneously be cycles of a permutation, and arc-disjoint ones prescribe disjoint matching pairs. This gives the factorial weights. Unique window labels fix the long part pointwise, and each short necklace permits exactly c/π rotations; orbit–stabilizer proves the labeled census. An independent small calculation enumerated simple graph cycles by DFS from the least state in each cycle, giving 2,3,5,8 forbidden cycles at binary depths 1–4 and weighted totals 1,3,40,7749. For q=3,d=1, forbidding the one loop-to-itself pair leaves 3!−2!=4 choices at each of three states. The two cyclic color words 0001 and 0111 exhaust the eight binary triples exactly once between them, confirming the depth-two multi-cycle example.",
+      "residual_risks": [
+        "The finite census confirms only the listed cases; the all-parameter equality uses the structural proof. No efficient growth-rate bound or quantified-logic extension is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Distinct Resultary record 0d6eb2eaa895 counts 84 minimum 11-vertex decycling sets in B(3,3); 7460f2fe70d1 studies uncolored ordered-pair equality types with a unique optimal cycle multiset; 0ce88ef7d6f6 considers a fixed nonzero-weight word family.",
+          "Fixed-length partitions do not enumerate all allowed mixtures of lengths; distance constraints on consecutive window repetitions and sampling an Euler tour are different from the all-cover constraint."
+        ],
+        "reasoning": "Vertex deletion, uncolored pair types and restricted word families are materially different problems. The same-day pair-type record was compared on its statement, not discarded by date.",
+        "searches": [
+          "Local Resultary: de Bruijn decycling, profiles of finite permutations, minimum cyclic word covers",
+          "Grubman et al. §2 on fixed-length partitions; Chee et al. §II.A on constrained windows; Sawada–Gabrić p. 1 on universal cycles"
+        ]
+      },
+      "checked_sources": [
+        "Frozen proof and census",
+        "Local Resultary entries 33e2bbb0da78, 7460f2fe70d1, 0d6eb2eaa895, 0ce88ef7d6f6",
+        "arXiv:2608.30580v2, 1502.02199, 2005.03102, 2510.16545"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A classical universal cycle gives one attaining long part, but binary depth two has an additional admissible pair of four-cycles.",
+          "The required IE relies on showing every forbidden short circuit projects to a simple state cycle—this is not a statement about general partitions of arbitrary circuit lengths."
+        ],
+        "reasoning": "The prior ingredients imply pieces such as the existence of a single optimal long cycle, not the complete profile optimum, short-cycle exclusion expression, and labeled census together.",
+        "searches": [
+          "Kuželka §8.1.2; Grubman et al. Proposition 1; Sawada–Gabrić p. 1; Resultary 7460f2fe70d1 and 0ce88ef7d6f6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Local exact match 33e2bbb0da78 is the assigned record itself.",
+          "Kuželka defines the matching forward term, unary-color and equality data; Grubman et al. connect vertex cycle partitions in one de Bruijn order to edge circuit partitions at the preceding order."
+        ],
+        "reasoning": "The all-optima long part can equivalently be written as cycle covers of the directed line graph with a girth constraint. Neither the profile formalism nor the cycle/circuit graph equivalence, by itself, determines the forced short sector or counts the admissible covers.",
+        "searches": [
+          "Local Resultary: colored-permutation forward profiles and minimum universal realizers; short-cycle-free de Bruijn arc transitions",
+          "Kuželka §8.1.2; Grubman–Šekercioglu–Wood §2 Proposition 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent matching table surfaced in the bounded lookup. The frozen table and checker agree with the independently calculated values; that is correctness evidence only.",
+          "The adjacent graph census reports 84 vertex-deletion solutions, not E for arc transitions, and has a different constraint and domain."
+        ],
+        "reasoning": "A matching integer detached from its underlying count would not suffice; the literal table at the exact-match entry is from this same finding.",
+        "searches": [
+          "Local Resultary target and related census entries",
+          "Exact-number literature lookup for binary circuit-cover counts 1,3,40,7749 and ternary depth-one 64"
+        ]
+      },
+      "rationale": "Forward profiles, de Bruijn Euler tours, circuit partitions and Burnside counting are prior ingredients. The distinct result is the forced short-cycle budget together with the characterization and exact exclusion census of all optimal long parts; the sources inspected do not give that result or a dominating case.",
+      "residual_risks": [
+        "An earlier equivalent constrained circuit-partition enumeration could exist under different terminology; bounded lookup does not settle historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers profile machinery, not minimization or the optimizer census",
+          "evidence": "Defines satisfiable profiles using predicates and equalities on x,f(x),…,f^d(x) in a model-counting analysis.",
+          "identifier_or_url": "https://arxiv.org/html/2608.30580v2",
+          "material_read": "Abstract and §8.1.2, HTML offset 80,476",
+          "method": "Lawful open full-text passage comparison",
+          "title": "Unary Functions, Automorphisms, and Unlabeled First-Order Model Counting",
+          "trigger": "Same bounded-depth forward profiles"
+        },
+        {
+          "assessment": "Prior graph equivalence, not unrestricted admissible-length census",
+          "evidence": "Vertex partitions into cycles correspond to edge partitions into circuits in the graph one order lower, for the specified fixed-length construction.",
+          "identifier_or_url": "https://arxiv.org/pdf/1502.02199",
+          "material_read": "§2, pp. 3–4, including Proposition 1 (offsets 10,050 and 13,095)",
+          "method": "Lawful open PDF passage comparison",
+          "title": "Partitioning de Bruijn Graphs into Fixed-Length Cycles",
+          "trigger": "Closest circuit-partition formulation of long part"
+        },
+        {
+          "assessment": "Different combinatorial constraint",
+          "evidence": "Nearby windows in a sequence must not repeat a k-tuple, rather than requiring no short component in a permutation of all arcs.",
+          "identifier_or_url": "https://arxiv.org/abs/2005.03102",
+          "material_read": "Open PDF §II.A, p. 6, offset 20,350",
+          "method": "Lawful open PDF passage comparison",
+          "title": "Constrained de Bruijn Codes",
+          "trigger": "Enumeration of constrained window sequences"
+        },
+        {
+          "assessment": "Supports one-cycle construction only for this comparison",
+          "evidence": "Algorithms generate a universal cycle via Eulerian de Bruijn graphs, not the multiple-component optimum census.",
+          "identifier_or_url": "https://arxiv.org/abs/2510.16545",
+          "material_read": "Open v3 PDF p. 1",
+          "method": "Lawful open PDF passage comparison",
+          "title": "Las Vegas Algorithms to Generate Universal Cycles and de Bruijn Sequences Uniformly at Random",
+          "trigger": "Eulerian universal-cycle construction"
+        },
+        {
+          "assessment": "Distinct profile space and optimizer class",
+          "evidence": "Uncolored ordered pairs have T_d=2d²+5d+2 and minimum (d+1)(5d+2)/2 with a unique cycle multiset.",
+          "identifier_or_url": "Resultary 7460f2fe70d1",
+          "material_read": "Original stated result",
+          "method": "Local Resultary statement comparison",
+          "title": "Sharp universal realizers for two-point bounded-depth types",
+          "trigger": "Universal finite permutation minimum"
+        },
+        {
+          "assessment": "Counts minimum vertex deletions, not transitions",
+          "evidence": "84 size-11 decycling sets in B(3,3), with short directed cycle hitting conditions.",
+          "identifier_or_url": "Resultary 0d6eb2eaa895",
+          "material_read": "Original RESULT.md finding",
+          "method": "Local Resultary statement comparison",
+          "title": "Complete ternary three-mer minimum decycling set census",
+          "trigger": "De Bruijn census with short-cycle exclusions"
+        },
+        {
+          "assessment": "Different word set and objective",
+          "evidence": "Minimum tracks cover fixed-nonzero-weight words and are counted via restricted de Bruijn components.",
+          "identifier_or_url": "Resultary 0ce88ef7d6f6",
+          "material_read": "Indexed statement of the restricted-word cover result",
+          "method": "Local Resultary statement comparison",
+          "title": "Exact minimum cyclic covers and their enumeration for every fixed weight",
+          "trigger": "Minimum cyclic words covering a word family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–33 and 41–49",
+        "Kuželka §8.1.2 and Grubman et al. §2"
+      ],
+      "rationale": "The minimum-size universal test structure is a natural question once forward profiles are fixed. The count of profiles alone does not solve it, since short colored necklaces can consume multiple vertices for repeated rooted words. The forced partition, complete optimizer parametrization and effective isomorphism/labeled census add structural information that a single de Bruijn example cannot supply.",
+      "residual_risks": [
+        "Restricted to one bijection and distinguished unary colors at bounded quantifier-free depth; the census is exact but not asserted efficient."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:49:49.691513Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 7–50 and 54–148 (independent Poisson, saddle and geometric-series checks)",
+        "Frozen VERIFICATION.md and CHECKER.py (inspected, not executed). The recorded 248 matches the assertion count in the current checker; the same-package self-review prose says 242, not the current checker count."
+      ],
+      "rationale": "Each shifted layer has uniformly bounded atom count on a unit horizontal window, and the weights are summable. The heights converge to ±1 without attaining either endpoint. Poisson summation for the half-period shift gives the factor (−1)^k and spacing 2^(−q), and the absolute layer masses sum on each compact frequency interval, justifying measure identity and regrouping shared atoms. For large positive t the triangle inequality and point count give a sum with phase a q^β+2πb(t−1)q^(−γ). For the lower bound the nearest integer to t lies strictly in the window and every layer has positive phase there; its sum has an extra (log 2)q penalty. The phase's continuous minimizer has size t^(1/(β+γ)); integer rounding and the linear penalty are o(t^s) since β>1. A polynomial-size index cutoff contributes only a logarithmic factor, and the remaining tail is dominated by exp(−a q^β). The bounds thus give the displayed coefficient L and exponent s, with negative t following by evenness. In the quadratic case f''≥2 yields a uniformly bounded lattice Gaussian sum after factoring out the continuous minimum; rounding costs O(1). On [m,m+1), the character test with frequency 2^(N_m−1) leaves exactly q=N_m in the frozen sum: the normalized geometric sum is nonzero only when 2^q divides 2^(q−1)+2^(N_m−1), exactly when q=N_m. The freeze error is bounded by a q^(−1)-weighted sum, which is o(main) by splitting at half the saddle location and using strong convexity below it. The decaying branch after e^(−2πx) normalization is exponentially negligible. Variation dominates the resulting character integral and [floor(t),floor(t)+1) lies in the required open window even for integer t. This gives the bounded error uniformly in real t.",
+      "residual_risks": [
+        "The O(1) estimate is only for the stated quadratic specialization; the general family establishes an o(|t|^s) remainder. No limiting multiplicative prefactor is asserted. Finite assertion counts do not prove these asymptotics."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The accessible tube-paper abstract concerns exponential-scale local mass tied to a support function, and available theorem material concerns translation boundedness and squared-coefficient estimates. The strip-paper abstract concerns exponential growth of squared-coefficient mass. The other growth paper's title was retrieved, not its theorem text."
+        ],
+        "reasoning": "The boundary support function is fixed in this family even as a,b,β,γ change; exponential type or a qualitative little-o relative to exp(2π|t|) cannot determine a sharp deficit for those choices. A general theorem giving this variation at the finer scale would be material, but was not located in read passages.",
+        "searches": [
+          "arXiv:2611.16506v1, HTML offsets 5259 and 12926 and targeted §3 attempts; arXiv:2605.10766v1, offsets 642–762 and 4014",
+          "arXiv:2503.19567, Growth of masses of crystalline measures (websearch hit; targeted OA attempted)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.16506v1 available abstract/theorem passages",
+        "arXiv:2605.10766v1 abstract/introduction",
+        "Resultary entries listed above",
+        "Frozen RESULT.md proof and novelty scope"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The frozen record attributes the exact layer formula and a qualitative o(exp(2π|t|)) observation to §3. With that formula credited, the asymptotic still uses a discrete saddle and constructive addition at integer frequencies; the quadratic O(1) needs a separate cell lower bound. The integer-frequency bound loses the factor 2^(−q), which is negligible at the general stretched-exponential scale but not for bounded error in the logarithm."
+        ],
+        "reasoning": "Even granting the prior formula, the weighted character projection and global error bound are needed for the sharp uniform claim; it is not a restatement of the support bound or qualitative deficit. Lack of §3 access limits comparison to available statements and frozen attribution.",
+        "searches": [
+          "Değer–Favorov arXiv:2611.16506v1 §3, frozen comparison lines 154–160 and attempted targeted primary lookup",
+          "Frozen RESULT.md Eqs. (1)–(7)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen attribution credits the same weighted dyadic construction and its transform. The inspected passages of the strip paper include squared-coefficient mass, not the raw total variation V(t). The exact Resultary mirror hit is the assigned record."
+        ],
+        "reasoning": "The equivalent envelope statement concerns variation of the sum after combining shared dyadic atoms; a bound on the sum of layer variations or on a different power of the coefficients is not by itself a matching lower estimate for this object.",
+        "searches": [
+          "Resultary: dyadic shifted-lattice tube Fourier transform, stretched-exponential local variation growth",
+          "Websearch: Fourier transform crystalline measures dyadic shifted lattices Değer Favorov tube sets stretched exponential growth deficit local total variation sharp asymptotic",
+          "arXiv:2611.16506v1; arXiv:2605.10766v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue record states the same fractional-exponent family and quadratic O(1) refinement, and is the assigned finding. The distinct catalogue hit measures powers of Fourier coefficients for translation boundedness, not the stated asymptotic."
+        ],
+        "reasoning": "A finite table is not relevant to a limit uniform in the location parameter, but an indexed identical asymptotic from a distinct source would be relevant. The closest distinct catalogue statement concerns a different quantity.",
+        "searches": [
+          "2026/11/22/SCOPE-sharp-stretched-exponential-fourier-deficits-at-unattained-tube--52dc39fb4435; 2026/10/4/SCOPE-sharpness-of-the-square-mass-exponent-for-pure-point-fourier-tra--f90a673fb30a"
+        ]
+      },
+      "rationale": "The shifted-lattice measure architecture and Poisson expression are credited to Değer–Favorov. The qualified pass is for the explicit asymptotic deficit with tunable exponent and coefficient and, in the quadratic model, the uniform two-sided sharpened envelope despite cancellations. Existing growth-type estimates and the available indexed claims do not directly imply this quantitative statement. The closest example section could not be read directly, so this is not an exclusion of full-text overlap there.",
+      "residual_risks": [
+        "Decisive §3 comparison could not be made directly despite targeted retrieval; an earlier finer estimate remains possible. The related growth paper arXiv:2503.19567 was not accessible beyond its title.",
+        "Catalogue searches are not exhaustive and do not settle priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Construction, transform and qualitative result are credited; no independent whole-document exclusion of the finer result",
+          "evidence": [
+            "Abstract addresses exponential lower growth under conditions via a support function.",
+            "Frozen lines 154–160 attribute the dyadic example and qualitative little-o to §3."
+          ],
+          "identifier_or_url": "arXiv:2611.16506v1",
+          "material_read": "OA HTML abstract near offset 5259 and Theorem 2–3 material near offset 12926; targeted §3 and direct alternate PDF/HTML requests did not recover the passage",
+          "method": "Bounded OA reads and lawful targeted requests for §3",
+          "title": "Analogs of crystalline measures in tube sets",
+          "trigger": "Exact construction and possible previously established sharp deficit"
+        },
+        {
+          "assessment": "Inspected growth statements concern a different squared-coefficient measure and not the claimed variation deficit",
+          "evidence": [
+            "The passages describe growth of the measure with coefficients |b_γ|²."
+          ],
+          "identifier_or_url": "arXiv:2605.10766v1",
+          "material_read": "OA abstract offsets 642–762 and related introduction at offset 4014",
+          "method": "Bounded OA reads",
+          "title": "Some properties of Fourier quasicrystals and measures on a strip",
+          "trigger": "Prior strip growth estimates for complex Fourier transforms"
+        },
+        {
+          "assessment": "Possible broader overlap not excluded from title alone",
+          "evidence": [
+            "No theorem passage obtained, so no negative overlap inference is drawn."
+          ],
+          "identifier_or_url": "arXiv:2503.19567",
+          "material_read": "Title and identifier only; targeted OA and abstract request did not recover a readable statement",
+          "method": "Literature search result and lawful targeted retrieval attempt",
+          "title": "Growth of masses of crystalline measures",
+          "trigger": "Related growth theorem surfaced by targeted literature search"
+        },
+        {
+          "assessment": "First match is identical record; second indexed claim treats powered masses rather than this local variation law",
+          "evidence": [
+            "Indexed square-mass threshold is not the exponent of the deficit of log V relative to 2π|t|."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-stretched-exponential-fourier-deficits-at-unattained-tube--52dc39fb4435; 2026/10/4/SCOPE-sharpness-of-the-square-mass-exponent-for-pure-point-fourier-tra--f90a673fb30a",
+          "material_read": "Resultary indexed statements and frozen result; no full text of earlier distinct entry recovered",
+          "method": "Local Resultary and comparison of objects and conclusions",
+          "title": "Exact indexed Fourier deficit and earlier square-mass result",
+          "trigger": "Exact and related catalogue matches"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Eqs. (2)–(7)",
+        "Değer–Favorov arXiv:2611.16506v1 abstract for the support-function growth context"
+      ],
+      "rationale": "The natural exponential-scale bound loses information when support approaches but does not meet its boundary. Keeping the same limiting tube, the construction realizes every fractional logarithmic deficit scale and gives matching constants in the leading exponent. The quadratic projection resolves the obstruction that signed overlapping layers need not sum in variation; it yields a uniform two-sided envelope, not just values along a sequence or a bound before cancellation.",
+      "residual_risks": [
+        "This concerns a prescribed family, not a classification of all tube measures; neither the ultimate prefactor nor its oscillations are determined."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

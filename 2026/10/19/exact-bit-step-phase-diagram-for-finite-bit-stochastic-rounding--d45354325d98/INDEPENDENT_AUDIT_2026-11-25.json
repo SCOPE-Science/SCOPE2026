@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:33:03.237275Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The original counts and adjacent-pair formulas are correct for the specified b=2^r, exact affine proposal and single truncating rounding. For nonpositive j, the absorbing inequality is strictly T(j)<j+1/b; at equality the up move has probability 1/b. The absorbing interval is [a,0] with a=1−N when N>0. The repaired theorem checks all starts: monotonicity of T forces T(j)<T(a)<a+1/b below a, so rounding cannot overshoot a even for multigrid moves. Above 0 no move can jump below 0. Outside the interval, monotonic moves on a finite start-dependent set and positive exit probabilities give eventual absorption at the clipped initial state. For N=0 the analogous argument gives entry into the closed pair; its nonunit eigenvalue 1−u−d has modulus <1, and bounded convergence gives global uniqueness and the stationary simplex in the respective regimes. The exact-rational checker and its recorded PASS 6089 were inspected, not rerun; finite tests of ingredients do not certify the strengthened all-start result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "El Arar et al. give a kernel whose constant-spacing form agrees with the model and give one-step bias, not global absorbing basins; their gradient experiment is finite and on Rosenbrock.",
+          "Xia et al. round computational operations in gradient descent; their PL error framework is not an exact terminal-kernel chain classification."
+        ],
+        "reasoning": "Kernel and error bounds are antecedents, not a dominating theorem specifying the limit from arbitrary lattice starts.",
+        "searches": [
+          "arXiv:2408.03069 Definition 4 and Eq. (6)–(7)",
+          "arXiv:2301.09511 rounding model",
+          "arXiv:2504.20634 few-bit schemes"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, checker.py, check_output.txt",
+        "51e52c9814bf mirrored RESULT.md",
+        "arXiv:2408.03069",
+        "arXiv:2301.09511",
+        "arXiv:2504.20634",
+        "Focused Resultary clipping search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two-state formula implies floor(m tau)/m when c=m. The repaired claim additionally uses T(j)<T(a)<a+1/b for every j<a to rule out jumps past the first trap."
+        ],
+        "reasoning": "Credit the explicit formula and its exact specializations; neither the local formula nor a one-operation bias bound is a classification of the global stationary laws and deterministic basin map.",
+        "searches": [
+          "Two-level RESULT.md, 51e52c9814bf",
+          "arXiv:2408.03069, Def. 4 and displayed rounding probabilities"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/10/26/SCOPE-a-sharp-random-bit-threshold-for-invariant-bias-in-two-level-qua--51e52c9814bf, RESULT.md Finding: two-level stationary upper mass exactly matches under K=b and target tau.",
+          "The indexed three-state affine contraction result eff25e390ccd uses ideal unbiased rounding and an overshooting step, unlike the positive-slope truncated kernel here."
+        ],
+        "reasoning": "The stationary expression and its same-kernel reparameterizations are treated as known coverage; clipping to the lower endpoint from starts below the entire two-level grid is not equivalent to that expression.",
+        "searches": [
+          "Resultary search for finite-bit scalar quadratic gradient descent and invariant bias",
+          "Resultary: finite-bit stochastic rounding scalar quadratic gradient descent full integer grid deterministic absorption clipping initial state to leftmost trap interval no overshoot and all stationary measures"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two-level RESULT.md explicitly tabulates the exact analytic upper mass in its Finding; the full-grid search returned two-state, overrelaxed ideal, and calibrated-kernel absorption results rather than an identified table of this absorption map."
+        ],
+        "reasoning": "The pertinent overlap is a formula, not a parameter table. A rational-grid checker is not a database of the all-start clipping result.",
+        "searches": [
+          "Resultary exact invariant-bias match 51e52c9814bf",
+          "Resultary search for full-grid deterministic absorption and stationary measures"
+        ]
+      },
+      "rationale": "The frozen adjacent-pair law is expressly covered by a distinct indexed record under K=b, including the integer-resonance law as a corollary; the catalog dates do not establish priority. The repaired result credits this overlap and adds the global deterministic absorption location and complete stationary-law classification. The two-state theorem cannot classify starts below zero, and the checked primary-source kernel and error results do not provide the finite-state no-overshoot and arbitrary-start conclusion.",
+      "residual_risks": [
+        "The general web search produced no pertinent statement-level comparison and is not negative evidence.",
+        "Older fixed-point or quantized-chain analyses may contain the same global clipping result under different terminology.",
+        "No chronology beyond catalog dates was determined for the overlapping adjacent-pair result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact partial coverage",
+          "evidence": "The upper mass coincides under K=b; model is confined to {0,1}.",
+          "identifier_or_url": "2026/10/26/SCOPE-a-sharp-random-bit-threshold-for-invariant-bias-in-two-level-qua--51e52c9814bf",
+          "material_read": "RESULT.md Finding and scope, offset 0",
+          "method": "Local indexed record and mirrored text",
+          "title": "A sharp random-bit threshold for invariant bias in two-level quantized gradient descent",
+          "trigger": "Exact same stochastic rounding and adjacent pair"
+        },
+        {
+          "assessment": "Kernel and bias covered, not global limiting law",
+          "evidence": "Probability truncation and one-step error analysis; finite Rosenbrock experiment.",
+          "identifier_or_url": "https://arxiv.org/pdf/2408.03069",
+          "material_read": "Definition 4 and Eqs. (6)–(7), pp. 6–7; GD experiment p. 18",
+          "method": "OA full-text passages",
+          "title": "Probabilistic error analysis of limited-precision stochastic rounding",
+          "trigger": "Source of the limited-bit rounding model"
+        },
+        {
+          "assessment": "Different model and conclusion",
+          "evidence": "Accounts for rounding in gradient computation and multiplication under PL assumptions.",
+          "identifier_or_url": "https://arxiv.org/pdf/2301.09511",
+          "material_read": "Rounding-error model p. 5",
+          "method": "OA full-text passage",
+          "title": "On the Convergence of the Gradient Descent Method with Stochastic Fixed-Point Rounding Errors under the Polyak–Łojasiewicz Inequality",
+          "trigger": "Fixed-point stochastic GD convergence"
+        },
+        {
+          "assessment": "Relevant mechanism, not the exact scalar limit",
+          "evidence": "Hardware-oriented bias discussion and mitigation experiments.",
+          "identifier_or_url": "https://arxiv.org/pdf/2504.20634",
+          "material_read": "Introduction p. 1 and bias/QAT p. 5",
+          "method": "OA full-text passages",
+          "title": "On Stochastic Rounding with Few Random Bits",
+          "trigger": "Few random bits and bias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete phase diagram for this elementary low-bit model distinguishes a single limiting law from an initial-state-dependent family of nonoptimal traps. The clipping calculation identifies the exact outcome of any initialization, not just the number of absorbing states, and determines the entire space of stationary measures. This is useful when comparing updates with identical adjacent-cell behavior but very different global trapping, without claiming general hardware or SGD convergence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

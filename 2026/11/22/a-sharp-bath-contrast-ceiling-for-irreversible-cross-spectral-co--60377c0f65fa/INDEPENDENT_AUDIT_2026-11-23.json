@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:50:32.159572Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Direct multiplication in the declared two-sided Fourier convention gives Im S_xy=−2kω(T_x−T_y)/Δ_ω and the two positive diagonal spectra in RESULT.md. With τ=T_y/T_x, v=(k/a)^2 and z=(ω/a)^2, the objective is [v(τ−1)^2/τ]z/[(z+A)(z+B)], where A=1+vτ and B=1+v/τ. For distinct baths and z>0, the reciprocal frequency factor is z+A+B+AB/z, uniquely minimized at √(AB). The coupling derivative at fixed z has the sign of (1+z)^2−v², so the frequency-optimized value is strictly increasing and its greatest limit is at v=1. Substitution there gives (√τ−1)²/(1+τ); e.g., τ=4 gives z=5/2 and value 1/5. Any maximizing sequence must have v→1; the z→0 and z→∞ tails vanish uniformly for 0≤v≤1, so every accumulation point of z is the unique boundary maximizer. At v=1 the drift has a zero mode driven by nonzero noise, so the limit is not a stationary trap. At equal bath strengths the statistic is identically zero and no frequency is unique, as explicitly stated in the proof. Replay: RESULT.md §§ Exact cross-spectrum through Sharp contrast ceiling, with the reciprocal minimization above. checker.py was inspected but not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Gaussian spectral irreversibility framework is general. Its explicit driven-field Fourier mode uses equal noise and an antisymmetric coupling, unlike the reciprocal trap with real relaxation eigenvalues and unequal noise.",
+          "Cerasoli et al. already solve the linear dynamics of the gyrator."
+        ],
+        "reasoning": "The general spectral representations supply ingredients, not a bound uniform in all stable reciprocal couplings. The equal-noise rotational example has complex drift eigenvalues at nonzero drive and cannot simply be converted to the real relaxation eigenvalues of this trap by a coordinate similarity.",
+        "searches": [
+          "Seara–Machta–Murrell, DOI 10.1038/s41467-020-20281-2, Eqs. (2)–(7)",
+          "Cerasoli et al., arXiv:2201.04903v2, Appendix A, Eqs. (A1)–(A9)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic results for two-bath imaginary coherence",
+        "Cerasoli et al., DOI 10.1103/PhysRevE.106.014137 / arXiv:2201.04903v2",
+        "Seara–Machta–Murrell, DOI 10.1038/s41467-020-20281-2",
+        "Frozen RESULT.md, AUDIT.json, REVIEW.md, VERIFICATION.md, SLOGAN.txt, METADATA.json and checker.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the frozen model the prior determinant-normalized factor is 2k²ω²(T_x−T_y)²/(T_x T_y Δ_ω). Its unequal-bath positive optimizer is ω²=a²−k², not the submitted coherence optimum.",
+          "Ordinary spectral positive semidefiniteness bounds imaginary coherency squared by 1, not the sharper contrast-dependent function.",
+          "Cerasoli et al. report low-frequency behavior of the Pearson spectral statistic, not an optimum over frequency and stable coupling for the imaginary component."
+        ],
+        "reasoning": "Even specializing the broader entropy-production formula to exactly this process produces a different optimization. The normalization in the frozen claim makes the linear spectral solution an input; the sharp frequency and coupling calculation and stability-edge nonattainment remain distinct.",
+        "searches": [
+          "Cerasoli et al. §III and Appendix C",
+          "Seara–Machta–Murrell pp. 2–3, Eqs. (2)–(7)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cerasoli et al. §III Eqs. (16)–(17), (20), and Appendix C Eqs. (C12)–(C15) concern Pearson correlation of random single-trajectory auto-spectral powers, with both quadrature terms entering.",
+          "Seara–Machta–Murrell Eqs. (2)–(4) yield the Gaussian spectral entropy-production factor 2𝓘/(1−|S_xy|²/(S_xx S_yy)) in two variables."
+        ],
+        "reasoning": "Neither the finite-trajectory Pearson fingerprint nor the determinant-normalized entropy-production factor is the submitted imaginary part of the population coherency squared. The multiplier relating the latter two is frequency- and coupling-dependent, so their maximizers are not interchangeable.",
+        "searches": [
+          "Primary search: Brownian gyrator imaginary cross spectrum normalized coherence frequency two temperature Power spectral densities Brownian gyrator Squarcini cross spectral matrix time reversal frequency optimum bound",
+          "Primary search: Nolte imaginary part coherency 2004 time antisymmetric Brownian gyrator frequency resolved irreversibility imaginary cross spectrum Seara Machta entropy production factor 2021"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The direct hit is the assigned finding. Other hits concern one-coordinate OU path laws, periodically exchanged baths and squared-energy correlations, sampled angular turns, or fractional-bath time asymmetry."
+        ],
+        "reasoning": "These neighbors constrain different observables or dynamics, not the envelope of normalized imaginary cross-coherence. This indexed check is not a proof that no unindexed equivalent exists.",
+        "searches": [
+          "Resultary: two-dimensional nonequilibrium Ornstein Uhlenbeck two bath irreversible antisymmetric cross spectrum coherence temperature contrast sharp spectral maximum Brownian gyrator"
+        ]
+      },
+      "rationale": "The contribution is the explicit optimizer and sharp nonattained bath-only bound for the squared imaginary coherency of the stated reciprocal two-bath model. The spectral framework, the time-reversal use of the imaginary cross-spectrum, and the Gaussian spectral entropy-production calculation are prior; none of the inspected results gives the ceiling or its equality/limit characterization.",
+      "residual_risks": [
+        "An unindexed optimization in linear response or stochastic thermodynamics, or a more general sharp bound not located in these searches, could subsume the result.",
+        "No novelty is credited for the general spectral formula or imaginary-coherency concept; the population ceiling does not certify finite-window detection."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior model and spectral solution, but a different statistic and no covering optimization in the relevant passages.",
+          "evidence": [
+            "§III defines Pearson correlation of the two individual-trajectory powers; Appendix C contains the combined quadrature contributions."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2201.04903v2",
+          "material_read": "§III Eqs. (16)–(17), (20), Appendix A Eqs. (A1)–(A9), Appendix C Eqs. (C12)–(C15).",
+          "method": "Open primary full text; inspected the statistic definitions, solution and covariance passages.",
+          "title": "Spectral fingerprints of nonequilibrium dynamics: The case of a Brownian gyrator",
+          "trigger": "Same gyrator and a frequency-domain diagnostic of nonequilibrium."
+        },
+        {
+          "assessment": "Related but differently normalized invariant and differently driven example; does not imply the stated stable-coupling ceiling.",
+          "evidence": [
+            "The inverse spectrum introduces its determinant in the denominator; the example has equal noise and antisymmetric cross-drive."
+          ],
+          "identifier_or_url": "https://www.nature.com/articles/s41467-020-20281-2",
+          "material_read": "pp. 2–3, Eqs. (2)–(7), including the Gaussian inverse-spectrum formula and driven-field example.",
+          "method": "Open primary full text, relevant equation passages.",
+          "title": "Irreversibility in dynamical phases and transitions",
+          "trigger": "Closely related Gaussian spectral irreversibility invariant and an explicit two-component mode."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result gives a quantitative population benchmark for the part of coordinate coherence that changes sign under time reversal before squaring. Temperature contrast sets a stricter maximum than generic spectral positivity, there is an explicit frequency for any stable design, and strong values require approaching a nonstationary limit. This is useful without claiming an optimum for entropy production or practical detection.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

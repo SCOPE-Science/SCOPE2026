@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:25:46.442511Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 15–83",
+        "Frozen VERIFICATION.md and check.py, inspected as text",
+        "Fresh exhaustive m=2 enumeration; replay by iterating a=1,…,15 and b=0,1 and counting membership of each subset of size 1–3 by bitwise parity"
+      ],
+      "rationale": "For t≤3 distinct points the t−1 differences from the first point are independent over F₂. Counting nonzero normals in their annihilator with one forced intercept gives (N/2^(t−1)−1)/(2(N−1)), equal to the simple-random-sampling ratio at each stated order. The pairwise-coordinate Walsh sum factors into m four-term sums; each coefficient is ±√N, with coefficient +√N at frequency zero. The two intercepts give totals 0 and √N with equal probability. The population variance with divisor N−1 is 1, giving SRSWOR total variance N/4 and mean √N/2. The positive count in SRSWOR is hypergeometric (not Gaussian at finite N); the sampling and positive fractions tend to 1/2 and the bounded centered values meet the finite-population CLT condition. The closed set {−1,1} has Gaussian mass zero, so its SRSWOR mass tends to zero and tests total variation up to a vanishing error. Independent finite corroboration at m=2 counted all 30 hyperplanes, 696 subsets of sizes 1–3 and 16 Walsh coefficients, with 15 totals at 0 and 15 at 4. This was a separate enumeration, not execution of the supplied checker; universality follows from the proof.",
+      "residual_risks": [
+        "The construction addresses only t≤3 and population sizes N=2^(2m); no local limit rate or higher-order extension is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen's theorem on strength-t designs gives inclusion matching, not a sample law; the proved counterexample uses projective planes at t=2 and a centered-exponential limit."
+        ],
+        "reasoning": "The stronger general design-to-inclusion implication covers the inclusion step, but not the order-three counterexample with this distribution.",
+        "searches": [
+          "arXiv:2610.09168v1, introduction, Theorems 2.1 and 4.1",
+          "Primary search for the order-three affine/Hadamard sampling counterexample (unavailable)"
+        ]
+      },
+      "checked_sources": [
+        "Chen arXiv:2610.09168v1",
+        "Beaulieu–Lafaye de Micheaux–Ouimet arXiv:2104.02292",
+        "Bent Boolean Functions, opening passage",
+        "Local published Resultary/SCOPE search and mirror"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chen's projective-plane experiment is only matched through order two; triplewise independence of summands is not strength-three SRSWOR matching.",
+          "A classical flat spectrum alone has no statement about sample laws under two plans; the proof connects the indicator of each hyperplane to a single Walsh coefficient."
+        ],
+        "reasoning": "Credit the inclusion and Walsh mechanisms and the elementary TV implication once the two laws are proved. The distinct supported claim is the explicit order-three construction and exact design law.",
+        "searches": [
+          "Chen arXiv:2610.09168v1 §4.4 and introduction",
+          "arXiv:2104.02292 abstract",
+          "Quadratic bent-function Walsh formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The hyperplanes are a 3-(N,N/2,N/4−1) design; the quadratic bent spectrum is classical.",
+          "Beaulieu–Lafaye de Micheaux–Ouimet arXiv:2104.02292 supplies triplewise-independent summands, not a matched fixed-size sampling design."
+        ],
+        "reasoning": "Neither ingredient alone identifies a bounded assignment of outcomes with the stated sample-total law; the summand-independence formulation lacks the fixed-size inclusion constraints.",
+        "searches": [
+          "Resultary: fixed-size order-three inclusion, affine hyperplane/bent and Hadamard design formulations",
+          "Bent Boolean Functions",
+          "Encyclopedia of Mathematics: Affine design"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/18/SCOPE-three-shell-parseval-sampling-for-the-quadratic-walsh-band-arith--255a3e981ff6 concerns Walsh-band Parseval on weighted Hamming shells, not the SRSWOR-matched law.",
+          "2026/11/16/SCOPE-cubic-walsh-recovery-and-the-exact-incidence-sampling-spectrum-o--9b7d5d07cce1 concerns recovery on Steiner triple systems; 2026/11/22/SCOPE-the-fano-matroid-base-support-is-a-cubic-bent-difference-set--cd9c61e17f90 concerns a bent difference set."
+        ],
+        "reasoning": "Known design parameters and the ranked adjacent records do not tabulate the joint inclusion and sample-law construction. The same-day date is not used to decide priority.",
+        "searches": [
+          "Resultary semantic searches using the exact title and affine-hyperplane, bent and fixed-size inclusion aliases"
+        ]
+      },
+      "rationale": "Pass for the combined fixed-size order-three counterexample with an exact two-point law and maximal asymptotic separation, not for the ingredients or the earlier order-two phenomenon. Chen explicitly proves the order-two case, and the closest inspected design and triplewise-independence statements do not supply this combined claim.",
+      "residual_risks": [
+        "Primary search was unavailable and the cited Encyclopedia of Mathematics affine-design page returned HTTP 502; neither is negative evidence.",
+        "Equivalent earlier Hadamard-design/bent-vector combinations are not excluded by a non-exhaustive catalog search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers order two and the general design implication, not the stated order-three sample-law example",
+          "evidence": "The introduction expressly restricts the demonstrated case to r=2; the projective-plane example gives a centered-exponential rather than Rademacher limit.",
+          "identifier_or_url": "https://arxiv.org/html/2610.09168v1",
+          "material_read": "Introduction, Theorem 2.1 and §4.4 Theorem 4.1 (HTML offsets 9400, 13267, 37593)",
+          "method": "OA full-text passage inspection",
+          "title": "Low-Order Inclusion Probabilities Do Not Determine Asymptotic Normality",
+          "trigger": "Closest fixed-size inclusion-matching counterexample"
+        },
+        {
+          "assessment": "Related CLT failure, different assumptions",
+          "evidence": "States a result about common margins and triplewise independent variables, without the two fixed-size sampling plans.",
+          "identifier_or_url": "https://arxiv.org/abs/2104.02292",
+          "material_read": "Opening HTML passage at offset 0",
+          "method": "OA passage inspection",
+          "title": "Counterexamples to the classical central limit theorem for triplewise independent random variables having a common arbitrary margin",
+          "trigger": "Equivalent-phenomenon candidate at order three"
+        },
+        {
+          "assessment": "Distinct observable and sampling prescription",
+          "evidence": "Positive weights on three full Hamming shells give a Parseval identity for degree ≤2; no sampling-total separation is stated.",
+          "identifier_or_url": "2026/10/18/SCOPE-three-shell-parseval-sampling-for-the-quadratic-walsh-band-arith--255a3e981ff6",
+          "material_read": "Mirrored RESULT.md Finding at offset 0",
+          "method": "Local published-record passage inspection",
+          "title": "Three-shell Parseval sampling for the quadratic Walsh band",
+          "trigger": "Strongest same-day catalog overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof",
+        "Chen arXiv:2610.09168v1 introduction and §4.4"
+      ],
+      "rationale": "Resolves the first additional inclusion order beyond the cited order-two counterexample under bounded deterministic outcomes, a fixed sampling fraction, and identical finite-size variances. The exact two-point law and asymptotically maximal separation give a usable benchmark for design-based CLT criteria, rather than just a change in higher moments.",
+      "residual_risks": [
+        "Does not settle the conjecture for all fixed inclusion orders."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

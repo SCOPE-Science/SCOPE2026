@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:59:34.451916Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Choosing the s-1 nonroots in the marked tree, its Cayley tree, and the residual forest on n-s vertices with k-1 fixed roots gives the displayed classical mass formula, including the upper endpoint where the residual factor is 1. Cancellation gives the adjacent ratio C(n,k)*(1+(k-1)/(n-k-s+1)), strictly increasing on common support. The added upper endpoint and the k=1,n point-mass laws give the full cross-product order; transitivity gives all pairs. At each claimed threshold there is a strictly positive cross-product difference between size 1 of the law with more roots and the upper endpoint of the law with fewer roots; summing cross-products across the threshold gives strict tail dominance. Exchangeability gives mean n/k and ordered quantile coupling gives the exact W1 difference. Size bias multiplies each ratio by the positive constant k/(k+1), so it preserves the order. In the unrooted case, the conditioning formula uses the residual counts F(n-s,k-1). The labeled EGF and Lagrange coefficient give the claimed F(m,2), with m=2,3 checked separately. Normalizations cancel at s=1,2; the obstruction reduces to comparing 2(n-1)^2/((n-2)(n+5)) and 2(n-2)^2/((n-3)(n+4)). Their quotient is the displayed 1+positive term for n>=5, and is 1 for n=4, where the rest of the relevant support comparisons are valid. All other adjacent cases at n<=4 have a degenerate endpoint. Own exact set-partition enumeration with Cayley weights (branches/audit3.py, audit3.out) corroborates all rooted pairs and the unrooted boundary on n=2..9; at n=5 the unrooted size-1 and size-2 counts are (16,12) vs (15,12), before normalization. The original script is not relied on for exhaustiveness; its finite tail check is non-strict, while strictness follows analytically as above. No claim of unrooted stochastic-order failure is present.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pitman's coupling adds one edge to the uniform randomly rooted forest at each merger, implying stochastic monotonicity for the component of a fixed or independent uniform vertex under that ensemble.",
+          "Sokal's rooted forest matrix indexed by total vertex count and component count is totally positive; there is no tagged-component-size index in that matrix. The Łuczak–Pittel article's full text was not available through lawful OA retrieval."
+        ],
+        "reasoning": "Pathwise monotonicity under a coupling does not imply likelihood-ratio order. The Sokal inequalities apply to different minors, not to the conditional tagged laws across k; neither inspected result distinguishes the likelihood-ratio behavior after unrooting.",
+        "searches": [
+          "Pitman Coalescent Random Forests Technical Report 457",
+          "Sokal arXiv:2105.05583 Theorem 1.1 and forest matrix definition",
+          "Łuczak–Pittel DOI:10.1017/S0963548300000067"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Pitman Technical Report 457 and Pitman 2001 Proposition 15",
+        "arXiv:2105.05583",
+        "Resultary ab8e34d0c60c and 7b55eb17213d",
+        "DOI:10.1017/S0963548300000067 (retrieval attempted, full text not checked)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The rooted adjacent monotone ratio follows by cancellation of exact known masses; the W1 identity is the classical mean difference for ordered laws, and size bias preserves the ratio up to a constant.",
+          "The reversal uses an additional ensemble change and comparison across k=2,3; the obstruction cancels the unknown normalizations and reduces to the adjacent ratio of two explicit residual forest-count sequences."
+        ],
+        "reasoning": "The older stronger rooted distribution covers individual rooted sizes and makes the rooted comparison accessible; even together with the coupling it does not cover a sharp unrooted obstruction. The classical unrooted one- and two-component counts are inputs, not a statement of the normalized two-versus-three comparison. The independently assessed gap is the all-n order separation with sign direction and sharp first failure, not republishing either order's component counts.",
+        "searches": [
+          "Pitman 2001 Proposition 15 fixed-root masses",
+          "Pitman 1996/1999 coalescent",
+          "Resultary ab8e34d0c60c unrooted k=2 marginal"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pitman's Proposition 15(i)–(ii) gives the joint allocation of nonroots and unions of marked rooted components in p-forests, covering the uniform marked-root marginal used here.",
+          "Rooted forests with unrestricted roots, when projected to unrooted forests, weight an unrooted forest by the product of its component sizes (the number of ways to root it), unlike the uniform unrooted law."
+        ],
+        "reasoning": "The symmetric-root formulas are not new under another labeling. Marking a uniform vertex in the randomly rooted ensemble size-biases the selected-root size, but does not undo the rooting weight. The two laws contrasted in the finding are not alternate formulations of one probability measure.",
+        "searches": [
+          "Pitman 2001 Proposition 15, equation (64), uniform p-forest specialization",
+          "Resultary tagged Cayley component size and likelihood-ratio order"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day ab8e34d0c60c gives the exact tagged-size marginal in the uniform unrooted two-component model, plus conditional degree and covariance; no k=3 comparison appears in the inspected result.",
+          "7b55eb17213d orders the number of rooted components across complete bipartite shapes, not the size of the tagged component."
+        ],
+        "reasoning": "A match to the k=2 marginal is substantive partial overlap, not a match to the sign of the comparison with k=3. Same-day dating has no bearing on this distinction. Ranked searches not finding a matched ordering are not proof of historical priority.",
+        "searches": [
+          "Resultary exact tagged-component likelihood ratio for rooted/unrooted Cayley forests",
+          "Resultary ab8e34d0c60c and 7b55eb17213d"
+        ]
+      },
+      "rationale": "The underlying joint rooted distribution, one-root mass and resulting moment are classical. The rooted likelihood-ratio strengthening is a short calculation from them, and its size-biased form is immediate once proved, so these should not be treated as new forest enumeration or independently substantial results. The surviving contribution is the sharp comparison of the two uniform sampling conventions: the strict rooted order together with the exact, persistent reverse step for unrooted forests, starting at n=5. The inspected joint law, stochastic coupling, enumerator total positivity and same-day unrooted two-component result do not give that comparison. This is a bounded originality judgment, strongest for the ensemble contrast and all-order obstruction.",
+      "residual_risks": [
+        "The rooted ratio is elementary from a classical law and may have appeared elsewhere. An unindexed older finite-size reversal is also possible. The full text of Łuczak–Pittel was not accessible and has not been assigned a noncoverage verdict."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers full rooted component allocation; not the cross-ensemble boundary",
+          "evidence": "Joint allocation among all roots for general p, and distribution of a union over a subset of roots.",
+          "identifier_or_url": "https://www.mat.univie.ac.at/~slc/wpapers/s46pitman.pdf",
+          "material_read": "Proposition 15(i)–(ii), pp. 25–26, especially Eq. (64), OA offset 56800",
+          "method": "OA PDF statement and specialization comparison",
+          "title": "Random mappings, forests, and subsets associated with Abel-Cayley-Hurwitz multinomial expansions",
+          "trigger": "Potential dominating rooted law"
+        },
+        {
+          "assessment": "Coupling gives stochastic order, not the likelihood-ratio comparison",
+          "evidence": "Uniform rooted R_k to R_(k-1) by one edge addition, preserving containment of tagged-vertex components.",
+          "identifier_or_url": "https://statistics.berkeley.edu/tech-reports/457",
+          "material_read": "Abstract, p. 2, PDF offsets 500–2853",
+          "method": "Open report statement comparison",
+          "title": "Coalescent Random Forests",
+          "trigger": "Potential stronger ordering theorem"
+        },
+        {
+          "assessment": "Different index set and ensembles",
+          "evidence": "Matrix of forest enumerators by n,k, refined by improper-edge count, rather than conditional tagged-size laws.",
+          "identifier_or_url": "arXiv:2105.05583",
+          "material_read": "Theorem 1.1 p. 4 offsets 9300–14250 and enumerator definition p. 6 offsets 19500–22087",
+          "method": "OA PDF comparison of theorem and indices",
+          "title": "Total positivity of some polynomial matrices that enumerate labeled trees and forests I",
+          "trigger": "Potential general cross-product result"
+        },
+        {
+          "assessment": "Shares the k=2 unrooted marginal; no k=3 order in the examined result",
+          "evidence": "Conditional degree and covariance are studied jointly with the unrooted two-component size law.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-nonvanishing-local-global-covariance-in-uniform-two-component--ab8e34d0c60c/RESULT.md",
+          "material_read": "Finding and exact fixed-vertex size marginal",
+          "method": "Local-mirror source comparison",
+          "title": "A nonvanishing local-global covariance in uniform two-component Cayley forests",
+          "trigger": "Closest same-day exact unrooted law"
+        },
+        {
+          "assessment": "Different variable and ordering parameter",
+          "evidence": "Component count under changes to the bipartition of the host graph, not tagged size under a fixed complete graph.",
+          "identifier_or_url": "Resultary 7b55eb17213d",
+          "material_read": "Finding identifying ensemble and target statistic",
+          "method": "Local-mirror source comparison",
+          "title": "Bipartition balancing orders rooted forest component counts",
+          "trigger": "Nearby forest ordering result"
+        },
+        {
+          "assessment": "Unresolved access limitation, not negative originality evidence",
+          "evidence": "No readable linked or repository OA copy returned; no identified open copy of the same paper available for comparison.",
+          "identifier_or_url": "DOI:10.1017/S0963548300000067",
+          "material_read": "No primary full text available through the attempted lawful OA routes",
+          "method": "Direct, configured VPN, and DOI repository recovery",
+          "title": "Components of random forests",
+          "trigger": "Plausible related uniform unrooted forest literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Rooting is an intrinsic modeling choice for labeled forests, and likelihood-ratio order is substantially stronger than ordinary tail ordering. The exact reversal in the first nondegenerate unrooted comparison provides a reusable sharp boundary: it occurs for every n>=5, at the same two smallest sizes, yet never for n<=4. This excludes a general monotone-likelihood-ratio argument for the unrooted model without pretending to refute unrooted stochastic monotonicity. The valued contribution is the structural rooted/unrooted contrast, not the routine size-bias or transport corollaries in isolation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:45:35.730424Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–81; VERIFICATION.md and verify.py inspected, not executed",
+        "Smith et al., arXiv:2207.10445, Section III and Eq. (23)",
+        "Independent Simpson quadrature of K=∫φ²/Φ(−z) on [-10,10], 800/3200 panels, with Gaussian survival integrated backwards from 12 with meshes 1/100 and 1/400; fine K≈0.90319728556862. Same method for ℋ(0) gives 0.90319728556863, consistent with ℋ(0)=K by integration by parts."
+      ],
+      "rationale": "At per-transition quarter-turn rate γ=μ the diagonal telegraph signs are independent and the stationary beta exponent is zero; independent OU responses have variance h=D/μ. Here v₀ is the diagonal forcing amplitude specified by the SDE. Rotation preserves joint entropy and the marginal entropies agree. Integrating the trapezoid gives log(2a cos θ)+tan θ/2, yielding the stated information, derivative, and linear and cubic endpoints. At h>0 the second angular density derivative at zero is (xf)' + Var(U) f'', by differentiating smooth test-function expectations, and the first derivative vanishes. The densities and angular derivatives admit Gaussian envelopes after rotating the bounded uniforms and then adding the unchanged isotropic Gaussian. Entropy differentiation and integration by parts give the stated coefficient Var(U)J_h−1, strictly positive since the fourth cumulant excludes Gaussianity. The mixed fourth cumulant is −a⁴ sin²(2θ)/15 despite zero covariance, and strictness of Gaussian data processing follows from conditional Jensen on the likelihood ratio, since the positive kernel preserves access to every input set of positive product mass. For the entropy layer put L=A/√h and ρ(z)=G_b(z)−G_b(z+2L) on z≥−L. This is the normalized density on the right half; symmetry supplies the other half. For −L≤z≤0, −ρ log ρ≤1−ρ≤2G_b(−z); for z≥0, −ρ log ρ≤C√G_b(z). These envelopes are integrable uniformly for b in a bounded set. Thus the normalized entropy correction converges by dominated convergence and the cos θ prefactor contributes only O(ε²). Strict concavity gives positivity of the layer by averaging shifts. Differentiation at t=0 is dominated by shifted Gaussian bounds and Mills ratios; ∂²_tG_t at zero is G₀''/3 and integrating by parts gives K/3 for F(t)/t². Scaling z=tu gives the linear ramp, with Gaussian tail majorants outside |u|≤1 for t≥1, and hence F(t)/t→1. For the Fisher limit on the same half-axis at b=0, ρ≥cG₀(z) for L≥1 (separate z≤0 from z≥0 using the Gaussian tail ratio); |φ(z)−φ(z+2L)|≤φ(z). This gives the majorant φ²/G₀ and the two-edge coefficient K/a.",
+      "residual_risks": [
+        "The limit is for fixed scaled angle t, not uniform over growing t. The numerical check of K is not an interval certificate. No finite-noise maximizer or trajectory statement was verified or claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Smith et al. give the independent rotated-coordinate densities and Eq. (23) yields uniform coordinates at β=1. Frydel gives the independent thermal convolution mechanism for one-dimensional confined active motion."
+        ],
+        "reasoning": "The older and broader model results give the input law directly. They do not evaluate the entropy contrast after rotation or its nonuniform angular response as thermal variance vanishes.",
+        "searches": [
+          "Smith et al. arXiv:2207.10445, exact 2D position distribution including thermal diffusion",
+          "Frydel arXiv:2207.08695, beta law and Gaussian convolution"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2207.10445 and arXiv:2207.08695",
+        "Miller–Fisher 2003 entropy contrast",
+        "Local Resultary records d2b78a5896b4, 6545f70803ac and 3508d72b8cdb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The input smooth-uniform law and rotation-entropy identity imply the density representation. The collective mean record has Gaussian-survival smoothing at a different sampling limit; the balanced filter case yields a specific unblurred triangular density."
+        ],
+        "reasoning": "These ingredients cover the reduction and make the zero-noise special projection elementary. They do not directly give the scaled two-parameter entropy increment at θ=εt, which requires subtracting the base edge correction and controlling both edges, nor its full small- and large-t matching.",
+        "searches": [
+          "Smith et al. arXiv:2207.10445 §III",
+          "Miller–Fisher, Eqs. (4)–(5)",
+          "Resultary 3508d72b8cdb, collective boundary layers; 6545f70803ac, harmonic-filter convolution"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The ICA entropy contrast is the same sum of marginal entropies minus joint entropy. In the harmonic-filter record the equal-weight sum of uniform diagonal coordinates is the triangular π/4 projection at the balanced rate."
+        ],
+        "reasoning": "The alternative entropy-contrast and projection formulations agree with parts of the calculation, but the inspected records give neither the angular information as a function of arbitrary angle across the fold nor the noise-angle crossover.",
+        "searches": [
+          "Miller–Fisher, ICA Using Spacings Estimates of Entropy, pp. 1–2",
+          "Resultary 6545f70803ac, independent telegraph harmonic-filter convolution"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical frozen result is not an independent antecedent. The strongest distinct same-model record d2b78a5896b4 gives directional cumulant tomography up through order six, and the other entries concern a shape threshold and collective-mean tails respectively."
+        ],
+        "reasoning": "Matching model and date are not equivalence. No inspected independent entry gives the fixed-t entropy function or its matching coefficients.",
+        "searches": [
+          "Local Resultary search for four-direction trapped swimmer, angular mutual information, and telegraph noise boundary layers; compared d2b78a5896b4, 6545f70803ac and 3508d72b8cdb"
+        ]
+      },
+      "rationale": "The supportable distinction is the explicit angular-information benchmark together with its fixed-scaled-angle weak-noise law and matching limiting regimes. The stationary product law, angular entropy reduction, and edge-smoothing method themselves are not new. The basic athermal formula follows by integrating an elementary trapezoid; the main distinct claim is the quantitative noise crossover, not this integration alone.",
+      "residual_risks": [
+        "Other entropy or heat-smoothing literature could cover the elementary projection formula or the one-edge Fisher coefficient. No historical-priority certification for the specific crossover is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known model factorization and stationary law",
+          "evidence": "Two outgoing turns each occur at rate γ, the diagonal signs flip at rate γ, and β=γ/μ gives uniform diagonal coordinates at one.",
+          "identifier_or_url": "https://arxiv.org/abs/2207.10445",
+          "material_read": "Section III, pp. 3–5, Eq. (23); OA offsets 20650–28745 and 32800–36891",
+          "method": "Targeted OA PDF passages",
+          "title": "Exact position distribution of a harmonically-confined run-and-tumble particle in two dimensions",
+          "trigger": "Identical four-direction model and balanced rate"
+        },
+        {
+          "assessment": "Known thermal convolution, not the crossover",
+          "evidence": "One-dimensional stationary beta active law convolves with the independent Gaussian thermal contribution.",
+          "identifier_or_url": "https://arxiv.org/abs/2207.08695",
+          "material_read": "Section II.A, Eqs. (10)–(15), offsets 17400–24871",
+          "method": "Targeted OA PDF passages",
+          "title": "Positing the problem of stationary distributions of active particles as third-order differential equation",
+          "trigger": "Gaussian smoothing of confined active position"
+        },
+        {
+          "assessment": "Known contrast, no specialized evaluation",
+          "evidence": "KL from independence equals the sum of marginal differential entropies minus joint differential entropy.",
+          "identifier_or_url": "https://people.cs.umass.edu/~elm/papers/ICA_CONF.pdf",
+          "material_read": "p. 2, Eqs. (4)–(5), OA offset 3600",
+          "method": "Targeted OA PDF passage",
+          "title": "ICA Using Spacings Estimates of Entropy",
+          "trigger": "Mutual information as an entropy contrast under rotations"
+        },
+        {
+          "assessment": "Distinct directional observable",
+          "evidence": "Uses directional cumulants of orders 2, 4, and 6 for parameter reconstruction, rather than entropy of rotated coordinates.",
+          "identifier_or_url": "Resultary d2b78a5896b4",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Configured local Resultary mirror",
+          "title": "Sharp sixth-cumulant tomography and hidden dissipation of a four-direction trapped swimmer",
+          "trigger": "Strongest distinct same-model match"
+        },
+        {
+          "assessment": "Marginal overlap at the balanced equal-weight projection",
+          "evidence": "The sum becomes triangular for uniform filters at balanced rates; the stated result is a shape threshold.",
+          "identifier_or_url": "Resultary 6545f70803ac",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Configured local Resultary mirror",
+          "title": "Sharp three-peak to single-peak threshold for independent telegraph-driven harmonic filters",
+          "trigger": "Overlap with convolutions of two stationary telegraph coordinates"
+        },
+        {
+          "assessment": "Different random variable, limit and observable",
+          "evidence": "The boundary layers concern many-particle mean overshoots, not a marginal entropy or its Fisher derivative.",
+          "identifier_or_url": "Resultary 3508d72b8cdb",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Configured local Resultary mirror",
+          "title": "Sharp collective-mean boundary layers for a telegraph-driven harmonic gas",
+          "trigger": "Similar Gaussian-survival edge language in confined telegraph motion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Limitations",
+        "Smith et al., arXiv:2207.10445, stationary product model"
+      ],
+      "rationale": "For a natural exactly solvable active-particle model the result quantifies dependence that covariance misses. The resolved angular layer gives both a sharp scale for the change from an athermal cusp to a quadratic response and a function describing intermediate noise-angle ratios, which neither endpoint expansion can supply. This is a useful benchmark for static position information, independent of possible uses in trajectory inference.",
+      "residual_risks": [
+        "Restricted to the balanced rate, isotropic confinement and thermal noise model; no claim about signal inference, other turning dynamics or entropy production follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

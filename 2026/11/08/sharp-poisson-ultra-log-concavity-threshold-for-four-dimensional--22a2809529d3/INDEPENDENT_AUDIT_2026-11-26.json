@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:08:35.317291Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the closed nondegenerate circular cone the polar half-angle is β=π/2−α. On S³ the polar-angle density is (2/π)sin²θ, so the two cap integrals give v₀ and v₄ in the record. The published circular-cone interior formula gives v₁=cos²α/2, v₂=2sinαcosα/π, v₃=sin²α/2. These are positive and sum with the caps to 1. Substitution yields R(β),16/π²,R(α) for the three quotients. For R, x−sin x cos x is strictly positive by its derivative 2sin²x. The numerator of its log derivative with the stated positive denominator is x(1+2cos²x)−3sin x cos x. It vanishes at zero and its derivative is 4sin x(sin x−x cos x)>0 since sin x−x cos x=∫₀ˣu sin u du. Thus R strictly increases from 3π²/16 to infinity; 4/3<3π²/16<2 and 3/2<16/π²<9/4. Since β decreases with α, only k=1 crosses, with equality just at the unique interior threshold, and k=2 obstructs binomial ULC throughout. The excluded endpoints have changing support. The exact threshold and numerical values agree with independent 75-digit bisection on the cross-multiplied equation (/workspace/cone_replay.py): β≈0.5861771479686967924, α≈0.9846191788261998268 radians ≈56.41452337437811814°. This decimal check is not a root-uniqueness proof. The frozen checker was inspected, not run. Bibliographic clarification: ALMT arXiv v2 locates the interior formula in App. D.1, Eq. (D.2); the difference from the frozen locator is not a mathematical error.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "ALMT gives all interior entries in general dimension; the notes include incomplete-beta endpoint formulas and discuss ordinary log-concavity.",
+          "Fu–Wang show a specific Poisson failure, also stable under close polyhedral approximation."
+        ],
+        "reasoning": "General entry formulas are prior inputs. Ordinary or refined log-concavity does not give the exact Poisson threshold for the family, and the approximating-cone statement extends the counterexample rather than classifying apertures.",
+        "searches": [
+          "ALMT arXiv:1303.6672v2 circular cones",
+          "Amelunxen 2018 computational notes, Examples: circular cones and Log-concavity conjecture",
+          "Fu–Wang §4 limitations"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.17278v1",
+        "arXiv:1303.6672v2",
+        "https://damelunx.github.io/conivol/articles/conic-intrinsic-volumes.html",
+        "2026/11/8/SCOPE-sharp-poisson-ultra-log-concavity-threshold-for-four-dimensional--22a2809529d3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eq. (D.2) specialized to d=4 immediately yields the central quotient 16/π², hence rules out binomial ULC at k=2.",
+          "Fu–Wang establish the isolated α=π/3 Poisson violation at k=1; the inspected statements do not certify a unique full-family equality aperture."
+        ],
+        "reasoning": "The central obstruction is a direct corollary and is not originality credit. To go from known inputs to the Poisson phase theorem one must establish monotonicity, opposite endpoint signs relative to 2, and strict margin at the other Poisson indices.",
+        "searches": [
+          "Fu–Wang arXiv:2607.17278v1 pp. 4–5",
+          "ALMT arXiv:1303.6672v2 Eq. (D.2)",
+          "Amelunxen 2018 vignette circular-cone passages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Resultary exact match is 2026/11/8/SCOPE-sharp-poisson-ultra-log-concavity-threshold-for-four-dimensional--22a2809529d3, the assigned publication.",
+          "Fu–Wang's witness uses the same cone family and Poisson normalization at α=π/3. Polar duality sends α to π/2−α and exchanges the outer quotients, but the two Poisson inequalities have different constants, 2 versus 4/3."
+        ],
+        "reasoning": "The exact catalogue self-match is not an independent antecedent. Neither the witness nor changing to the complementary aperture resolves the quantified threshold and the strict inequalities at the other indices.",
+        "searches": [
+          "Resultary: four-dimensional circular conic intrinsic volumes, Poisson ultra-log-concavity aperture threshold",
+          "Fu–Wang arXiv:2607.17278v1 §4",
+          "ALMT arXiv:1303.6672v2 §3.4 and App. D.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue exact match is the assigned item. Known exact formulas encode entries at all apertures, not a precomputed table or theorem of the ULC transition."
+        ],
+        "reasoning": "A table of sampled volumes or ratios could not settle the continuous-aperture uniqueness and strictness. The prior general formulas were checked for direct coverage rather than relying on a keyword absence.",
+        "searches": [
+          "Published Resultary exact threshold/numerical aperture match",
+          "ALMT App. D.1 and Amelunxen circular-cone formulas"
+        ]
+      },
+      "rationale": "Pass for the complete sharp Poisson-ULC aperture classification, not the known intrinsic-volume formulas, specific π/3 violation, or the immediate all-aperture central binomial obstruction. The closest earlier limitation gives one counterexample and not the threshold. The known formulas reduce the problem to a scalar inequality but a global monotonicity and endpoint proof are needed to establish the unique transition and the index classification.",
+      "residual_risks": [
+        "Historical priority remains bounded to these comparisons; an earlier unindexed phase classification is possible. The central binomial obstruction is mechanically implied by the known interior entries and is not a standalone novel result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model, Poisson condition and witness, not full aperture classification",
+          "evidence": [
+            "Four-dimensional α=π/3 witness violates k=1; failure persists under sufficiently close polyhedral approximation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.17278v1",
+          "material_read": "§4 Limits of ultra-log-concavity, pp. 4–5, OA PDF offset 14934",
+          "method": "Targeted primary OA PDF passage",
+          "title": "Log-Concavity of Conic Intrinsic Volumes",
+          "trigger": "Direct counterexample in the identical family"
+        },
+        {
+          "assessment": "Known formula and immediate central obstruction, not the sharp Poisson interval",
+          "evidence": [
+            "v_k is half the generalized binomial coefficient ((d−2)/2 choose (k−1)/2) times sin^(k−1)α cos^(d−k−1)α for 1≤k≤d−1."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1303.6672v2",
+          "material_read": "§3.4 p. 15 and App. D.1 Eq. (D.2) p. 42, OA offset 195809",
+          "method": "Targeted primary OA PDF passage",
+          "title": "Living on the edge: Phase transitions in convex programs with random data",
+          "trigger": "Formula dominates the interior entries"
+        },
+        {
+          "assessment": "General gamma/incomplete-beta formulas and ordinary log-concavity; no sharp aperture assertion in inspected sections",
+          "evidence": [
+            "Circular-cone entries include endpoints; the log-concavity passage addresses ordinary log-concavity."
+          ],
+          "identifier_or_url": "https://damelunx.github.io/conivol/articles/conic-intrinsic-volumes.html",
+          "material_read": "Examples: circular cones, OA offset 28600; Log-concavity conjecture, offset 40014",
+          "method": "Targeted public HTML passages",
+          "title": "Conic intrinsic volumes and the (bivariate) chi-bar-squared distribution",
+          "trigger": "All-index formulas and prior log-concavity discussion"
+        },
+        {
+          "assessment": "Same underlying scientific record, not independent coverage",
+          "evidence": [
+            "Same equation R(β)=2 and all-aperture central failure."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-poisson-ultra-log-concavity-threshold-for-four-dimensional--22a2809529d3",
+          "material_read": "Mirrored RESULT.md Finding and Proof §§2–4",
+          "method": "Local Resultary search and original mirror comparison",
+          "title": "Sharp Poisson ultra-log-concavity threshold for four-dimensional circular cones",
+          "trigger": "Exact matching catalogue entry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "In the very family used to disprove general Poisson ULC, a sharp classification answers which apertures still satisfy it, identifies the only failing index, and distinguishes the two normalizations. The exact boundary and equality case are meaningful benchmarks for questions about conic intrinsic volumes; value is not assigned merely to the numerical cutoff or to the easy central quotient.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

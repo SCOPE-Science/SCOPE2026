@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:18:09.476246Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–67",
+        "VERIFICATION.md and checker.py, inspected; 37 finite checks recorded, not rerun",
+        "DLMF 10.32.10 as an independent standard transform comparison"
+      ],
+      "rationale": "With u=−log|z|² the density is Γ(a)⁻¹u^{a−1}e^{−u}du times Haar. Angular orthogonality and the Γ integral give the complete normalized monomials, and symbol-square integrability reduces to Γ(1−a)/Γ(a). Thus compression on polynomials is defined. Its N=n+1 diagonal moment is N^a/Γ(a) times the transform of u⁻¹ᐟ² exp(−Nu+ic/u). For positive real β=b², substitute u=x²: differentiation and inversion x↦b/(√N x) give the Gaussian integral differential equation F′=−2√N F. Holomorphy for Re β>0 and dominated convergence to −ic justify the principal-root expression, with positive phase +√(2cN). The eigenvalue list tends to zero and is p-summable in modulus for every p>0, proving a unique compact normal extension and all Schatten statements. Zero is in the full spectrum as a limit, not an omitted monomial eigenvalue. The rescaled sums are ordinary Riemann sums on finite intervals with a uniformly negligible tail by eventual monotonicity and integrability; the change y=p√(2x) gives the stated Γ constant. The continuous maximizer is x=2γ², and grid points cN approach it, giving the stated norm limit. Removing the phase gives precisely A_a N^γ, so no bounded modulus or zero-chirp extension exists.",
+      "residual_risks": [
+        "Limits are for fixed a and fixed p>0. Monomial ordering is not singular-value ordering; the sums use their multiset. No bounded limit operator at c=0."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hagger et al. construct radial examples with fast-growing modulus and bounded or compact Toeplitz compression; the 2010 paper includes oscillatory symbols and average conditions. The Helda reprint of the 2022 paper uses an auxiliary standard weighted Bergman projection and gives sufficient average conditions for operator boundedness on general analytic spaces."
+        ],
+        "reasoning": "These are meaningful qualitative coverage and frameworks, but their inspected theorems do not specialize to the exact complex spectrum and sharp c→0 asymptotics for this logarithmic orthogonal compression.",
+        "searches": [
+          "Hagger–Liu–Taskinen–Virtanen arXiv:2011.04699 Thms. 2.3, 2.5 and §6",
+          "Taskinen–Virtanen 2010 Thms. 2.1, 2.3 and Rem. 2.4(1)",
+          "Karapetyants–Taskinen DOI 10.1007/s11785-022-01294-9, Helda reprint Thm. 6.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 93321ac0937d, 4ea1a2420c38, a65b3df4d0e1, 4b9793ab6160",
+        "DLMF §10.32, arXiv:2011.04699, Taskinen–Virtanen 2010, Karapetyants–Taskinen 2022 OA reprint"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exact half-order evaluation directly supplies each moment once the log-weight model is fixed. The strongest distinct chirp record instead has a cutoff, a harmonic Bergman space and a Tricomi-U formula. The signed Weyl-law result has bounded cosine symbols on standard weighted spaces."
+        ],
+        "reasoning": "Per-mode exact evaluation and compactness examples do not by themselves establish the endpoint sharp limits: one must take a justified infinite-sum limit on the mode scale N∼1/c or find the continuous maximum approximated by the discrete grid. No inspected prior theorem gives these quantitative limits by mere specialization.",
+        "searches": [
+          "DLMF 10.32.10; Resultary 4ea1a2420c38 and 4b9793ab6160 Findings; Helda Theorem 6.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Scaling t=Nu and taking Bessel order −1/2 identifies the diagonal transform with a special case of DLMF 10.32.10; take its boundary value by dominated convergence. The radial log weight makes the monomial moments (n+1)⁻ᵃ."
+        ],
+        "reasoning": "This explicitly credits the exact integral already available by substitution. It does not treat a new integral notation or the diagonal-moment representation as a separate discovery. The sharp parameter-dependent operator result depends on exploiting the resulting spectrum across the whole moving mode range.",
+        "searches": [
+          "Radial Toeplitz logarithmic Bergman exact eigenvalues and oscillatory boundary-chirp Schatten search",
+          "DLMF §10.32 Eq. 10.32.10",
+          "Resultary exact chirp spectral and moment comparisons"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact Resultary hit 93321ac0937d is the same record. The distinct 4ea1a2420c38, a65b3df4d0e1, 4b9793ab6160 hit related chirps and/or Schatten phenomena; DLMF provides the transform, not an operator asymptotic table."
+        ],
+        "reasoning": "No distinct inspected record gives the log-weight analytic compression with these constants. A numerical table is not an applicable substitute for this continuum-parameter family.",
+        "searches": [
+          "Resultary exact spectral collapse, boundary chirp moments, weak-chirp constants",
+          "DLMF exact standard integral"
+        ]
+      },
+      "rationale": "Neither radial monomial diagonalization, the half-order Gaussian–Laplace integral nor the qualitative bounded/compact cancellation phenomenon is new. The supported distinct content is the exact quantified collapse and sharp weak-chirp norm and quasi-norm blow-up for this family. The inspected analytic-space and radial-symbol results give qualitative criteria or different models; the transform itself does not give a weak-parameter spectral sum or lattice maximum.",
+      "residual_risks": [
+        "The 2003 Grudsky–Karapetyants–Vasilevski radial-symbol work was identified but not read. The search does not certify priority over specialized radial-symbol examples or equivalent transform-based norm estimates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact standard integral covers the moment transform, not the operator limits",
+          "evidence": [
+            "K_ν(z)=½(z/2)^ν∫ exp(−t−z²/(4t))dt/t^{ν+1} for |ph z|<π/4; set ν=−1/2 and approach the boundary."
+          ],
+          "identifier_or_url": "https://dlmf.nist.gov/10.32.E10",
+          "material_read": "Eq. 10.32.10, §10.32 text offsets 5950–7195",
+          "method": "OA website passage",
+          "title": "NIST DLMF §10.32 Integral Representations",
+          "trigger": "Equivalent Gaussian–Laplace transform"
+        },
+        {
+          "assessment": "Qualitative cancellation is established prior art",
+          "evidence": [
+            "Local averages suffice for boundedness/compactness; radial examples allow arbitrarily large modulus."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2011.04699",
+          "material_read": "Theorems 2.3, 2.5, Cor. 2.6, pp. 5–6 (offset near 13800); §6, pp. 22–23 (offset near 58300)",
+          "method": "OA PDF passages",
+          "title": "Toeplitz operators on the unit ball with locally integrable symbols",
+          "trigger": "Known compact oscillatory symbols with unbounded modulus"
+        },
+        {
+          "assessment": "Average-symbol criteria, not the target's sharp family",
+          "evidence": [
+            "Boundedness criterion and oscillatory non-L¹ example."
+          ],
+          "identifier_or_url": "https://doi.org/10.4171/RMI/614",
+          "material_read": "Theorems 2.1, 2.3 and Remark 2.4(1), pp. 695–696, offsets 2400–8657",
+          "method": "EMS OA PDF passages",
+          "title": "Toeplitz operators on Bergman spaces with locally integrable symbols",
+          "trigger": "Earlier oscillatory radial symbols"
+        },
+        {
+          "assessment": "The inspected general result concerns average-based boundedness, not a uniform exact spectral formula or weak-chirp constants",
+          "evidence": [
+            "If B_a,λ^(m)(r)=O((1−r)^{m+λ}) under the space and maximal-projection hypotheses, T_a^λ and the Berezin transform are bounded."
+          ],
+          "identifier_or_url": "https://helda.helsinki.fi/server/api/core/bitstreams/25185856-d2da-4f60-a90d-d521910fe26e/content",
+          "material_read": "Identified 2022 reprint cover/abstract; Theorem 6.1, PDF p. 11, offsets 25980–28267",
+          "method": "Lawful institutional OA PDF",
+          "title": "Toeplitz Operators with Radial Symbols on General Analytic Function Spaces",
+          "trigger": "Closest general analytic-space result; alternative for inaccessible publisher route"
+        },
+        {
+          "assessment": "Related but different operator and limit",
+          "evidence": [
+            "Harmonic Bergman spaces, cutoff chirp, Tricomi-U representation and large-index behavior; not the weak-c norms here."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-oscillatory-boundary-concentration-and-a-sharp-cutoff-trichotomy--4ea1a2420c38",
+          "material_read": "Published Finding",
+          "method": "Local mirror",
+          "title": "Oscillatory boundary concentration and a sharp cutoff trichotomy",
+          "trigger": "Closest distinct exact chirp-moment result"
+        },
+        {
+          "assessment": "Different standard weighted Bergman model and counting regime",
+          "evidence": [
+            "Bounded cosine chirp and signed counting laws rather than sharp norms at vanishing chirp strength."
+          ],
+          "identifier_or_url": "2026/11/1/SCOPE-balanced-signed-logarithmic-weyl-law-for-boundary-chirp-bergman--4b9793ab6160",
+          "material_read": "Published Finding",
+          "method": "Local mirror",
+          "title": "Balanced signed logarithmic Weyl law for boundary-chirp Bergman operators",
+          "trigger": "Plausible exact boundary-chirp spectral overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 13–25 and 45–67; inspected qualitative Toeplitz results"
+      ],
+      "rationale": "A logarithmic radial moment model gives a quantitative benchmark for cancellation that qualitative boundedness criteria leave open. The half-order balance selects an explicitly solvable chirp with an unbounded comparison operator. The calculation separates the single dominant-mode scale from the cumulative contribution of order 1/c modes, gives sharp constants even for quasi-Schatten classes, and identifies how the regularization is lost at zero chirp.",
+      "residual_risks": [
+        "No classification or universality beyond the specified weight and linked exponent is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

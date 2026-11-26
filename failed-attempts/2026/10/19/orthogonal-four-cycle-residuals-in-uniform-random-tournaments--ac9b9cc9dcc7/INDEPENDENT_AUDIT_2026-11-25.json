@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:56:23.393610Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, assumptions and proof, lines 5–62",
+        "VERIFICATION.md and verify_tournament.py lines 44–82, inspected without executing"
+      ],
+      "rationale": "For each of the three unoriented Hamilton cycles per four-set, summing the two directed indicator products gives (1+sum of the six sign pairs+the full product)/8. A given wedge belongs to exactly one cycle on the four-set; a given pair of opposite edges appears in two cycles with opposite relative signs. Thus wedge quadratics contribute half the centered local cyclic-triangle count, and the degree-four sum is exactly the displayed residual after summation over four-sets. Two distinct such products have different edge supports, so under independent fair signs the residual is orthogonal to all shorter Walsh products and has variance 3 binom(n,4)/64. Distinct triangle indicators have disjoint edge supports or share only one edge; in the latter case their conditional means given that sign are both 1/4 and their remaining edges are independent. The variance of T_n is 3 binom(n,3)/16. Projecting gives exactly the displayed affine predictor because it has degree ≤2; expanding its variance and covariance yields the finite formulas, correlation, and residual fraction. This proof includes n=4 and makes no claim of conditional expectation given T_n.",
+      "residual_risks": [
+        "The checker docstring spells the filename incorrectly; the package command python3 verify_tournament.py uses the actual name. The proof does not rely on the finite checks."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The accessible Andersson abstracts address general asymptotic distributions and variance-degree behavior, respectively; the 2000 abstract gives generic variance degree 2v−3 and smaller exceptions.",
+          "Chan et al.'s inspected abstract concerns extremal four-cycle densities conditional on three-cycle density."
+        ],
+        "reasoning": "Those accessible passages do not themselves imply exact low-degree projection for this ensemble. The decisive implication is instead from the indexed same-object theorem and basic Walsh symmetries.",
+        "searches": [
+          "Andersson, 1998, On the asymptotic distributions of subgraph counts in a random tournament",
+          "Andersson, 2000, Small variance of subgraph counts in a random tournament",
+          "Chan–Grzesik–Král’–Noel arXiv:1902.00572"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local mirror 3b4b1b16fef5",
+        "arXiv:1405.1576 Observation 1.2; arXiv:1902.00572 abstract",
+        "Andersson 1998 and 2000 accessible abstracts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed proof conditions on each induced oriented triple U, with E[Z_S|T[U]]=0, and computes the local value on the transitive tournament as 1/8.",
+          "This kills every coefficient supported on a triple. Edge reversal kills odd degrees; the disjoint quadratic and triangle-with-pendant quartic coefficients vanish under vertex transpositions. Cycle coefficients follow from symmetry and the transitive value."
+        ],
+        "reasoning": "Triple degeneracy alone would not cover all low-degree edge sets. With these elementary symmetries and degree bound of the cycle indicators, however, the full asserted Walsh form and projection follow from the indexed theorem and table.",
+        "searches": [
+          "3b4b1b16fef5 local proof, especially offsets 1850–4381",
+          "Compare conditional degeneracy on three vertices to edge-degree≤3 Walsh orthogonality"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed R_n=Q_n−(n−3)T_n/2+binom(n,4)/8. Simplifying the centering constants in Z_n gives exactly R_n.",
+          "Its local summands B_S−A_S/2+1/8 use exactly the same counts, orientation law and n≥4 regime."
+        ],
+        "reasoning": "The models, normalization and residuals are identical, not merely similar correlations or equivalent large-n rates.",
+        "searches": [
+          "Resultary: exact orthogonal decomposition of three- and four-cycle counts, fair random tournament, four-vertex degenerate residual",
+          "Compare frozen Z_n with 3b4b1b16fef5 R_n"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed formula already reports all the moment constants, the variance of the residual, the best affine slope, the correlation and the unexplained fraction 1/(4n−11); its four-vertex table explicitly gives local residual values 1/8 and −3/8.",
+          "Linial–Morgenstern count by four-vertex tournament types and give t_4−c_4=1−4c_3."
+        ],
+        "reasoning": "A tournament type table alone would not be the all-n projection. The inspected index entry provides both the local data and the all-n exact statistics for the same definitions.",
+        "searches": [
+          "Resultary: uniform random tournament cyclic triangles, four-cycle exact moments, orthogonal residual; exact local record 3b4b1b16fef5",
+          "Linial–Morgenstern arXiv:1405.1576 Observation 1.2"
+        ]
+      },
+      "rationale": "The distinct Resultary theorem 3b4b1b16fef5 has exactly the same local and global residual, moments, variance, affine predictor and correlation. Its local degeneracy and four-vertex table also mechanically imply the apparent Walsh refinement: the known cycle indicators have sign-degree at most four, their sum and the triangle count are invariant under full edge reversal, and the indexed conditional degeneracy eliminates all constant and wedge coefficients. A disjoint-edge quadratic coefficient vanishes by swapping the endpoints of one edge. A degree-four support on K4 is a cycle or a triangle with a pendant edge. Swapping the two triangle vertices away from the pendant attachment preserves that support and changes its sign, killing the second type. Vertex relabeling fixes a common coefficient in cyclic sign convention for the three surviving cycle products. In the transitive orientation 1→2→3→4 with all edges forward the three cyclic products are −1,+1,+1, and the indexed table gives the local residual 1/8; hence the common cyclic coefficient is 1/8. The full projection, support count and signs therefore require no independent assumption or additional invariant beyond the indexed result and elementary sign symmetries. This is statement coverage, not an attribution or priority decision.",
+      "residual_risks": [
+        "Andersson full text was unavailable, a residual risk for wider precedence, not the failure reason.",
+        "Indexed path dates alone do not establish first publication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicitly covers the statistics and global residual; elementary extension gives full Walsh formulation",
+          "evidence": "Local Z_S=B_S−A_S/2+1/8, zero conditional mean on induced triples, transitive value 1/8, and stated affine/correlation formulas.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/10/18/SCOPE-exact-orthogonal-decomposition-of-three-and-four-cycle-counts-in--3b4b1b16fef5/RESULT.md",
+          "material_read": "Finding, assumptions and local table/conditional degeneracy proof; relevant later statistics passages",
+          "method": "Local mirror passage inspection, including offset 1850",
+          "title": "Exact orthogonal decomposition of three- and four-cycle counts in random tournaments",
+          "trigger": "Strong exact indexed hit on the same residual and projection idea"
+        },
+        {
+          "assessment": "Earlier deterministic counting input, not the stochastic verdict",
+          "evidence": "The relation t_4−c_4=1−4c_3 comes from counting cyclic triples by four-vertex type.",
+          "identifier_or_url": "https://arxiv.org/pdf/1405.1576",
+          "material_read": "Observation 1.2, p. 3, around offset 4874",
+          "method": "OA PDF passage inspection",
+          "title": "On the number of 4-cycles in a tournament",
+          "trigger": "Same deterministic cycle counts and four-vertex type identity"
+        },
+        {
+          "assessment": "Accessible passage covers extremal densities",
+          "evidence": "It asks to minimize four-cycle density at a prescribed three-cycle density, not to regress the random counts.",
+          "identifier_or_url": "https://arxiv.org/pdf/1902.00572",
+          "material_read": "Abstract at offset 0",
+          "method": "OA PDF passage inspection",
+          "title": "Cycles of length three and four in tournaments",
+          "trigger": "Same cycle sizes, potential density/statistic comparison"
+        },
+        {
+          "assessment": "Possible independent coverage unresolved",
+          "evidence": "The abstract treats asymptotic subgraph count distributions; it does not state the exact cycle projection.",
+          "identifier_or_url": "10.1002/(SICI)1098-2418(199810/12)13:3/4<249::AID-RSA4>3.0.CO;2-V",
+          "material_read": "Accessible abstract only",
+          "method": "Bibliographic abstract, publisher and lawful repository checks; full text not retrieved",
+          "title": "On the asymptotic distributions of subgraph counts in a random tournament",
+          "trigger": "Plausible general orthogonal decomposition covering the assigned specialization"
+        },
+        {
+          "assessment": "Possible independent coverage unresolved",
+          "evidence": "The abstract states generic variance degree 2v−3 and exceptional examples of degree v, without the assigned explicit identities.",
+          "identifier_or_url": "10.1016/S0167-7152(00)00041-9",
+          "material_read": "Accessible abstract only",
+          "method": "Bibliographic abstract and lawful copy checks; full text not retrieved",
+          "title": "Small variance of subgraph counts in a random tournament",
+          "trigger": "Plausible variance decomposition and exceptional near-cancellation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 9–30 and 55–62",
+        "Resultary local mirror 3b4b1b16fef5"
+      ],
+      "rationale": "The exact representation identifies the low-degree fluctuations of four-cycles and the size and structure of the remainder, giving a meaningful distinction between affine forecasting and orthogonality to the whole low-degree space. The formulas give exact finite error, rather than just observing large correlation. This values the mathematical content, not a claim of a new contribution over the indexed result.",
+      "residual_risks": [
+        "No independence, conditional mean or joint limit law is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

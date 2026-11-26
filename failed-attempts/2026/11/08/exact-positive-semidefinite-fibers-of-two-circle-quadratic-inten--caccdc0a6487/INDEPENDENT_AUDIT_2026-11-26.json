@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:30:49.780074Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–83",
+        "Frozen VERIFICATION.md and CHECK.py (inspected, not executed)"
+      ],
+      "rationale": "Five distinct fifth-root evaluations resolve the five modes −2,…,2. At the two positive radii the second mode kills H20, and invertibility of the first-mode 2×2 system kills H10 and H21. On the diagonal the polynomial in the squared radius must be a real multiple of (x−r²)(x−s²). Thus the kernel is exactly the stated full-rank K. Negative t leaves a negative direction in the intersection of q-perp with the two outer coordinate directions. For positive t, the outer block t diag(r²s²,1)+vv* is positive definite; the complementary scalar is t[|q1|²/(t+|q0|²/(r²s²)+|q2|²)−(r²+s²)]. Its sign and nullity give the closed segment and ranks, including the singleton cases. A difference of two matrices of rank at most one has rank at most two, so the rank-three kernel yields uniqueness there. Any off-circle sample evaluates K to (u²−r²)(u²−s²) and removes the only obstruction. The trace-one example has disjoint supports and the stated intensities; the Gaussian transform identity follows from the Fourier integral of a translated Gaussian.",
+      "residual_risks": [
+        "Rank transitions refer to a nontrivial fiber; q=0 gives a singleton of rank zero. This is exact noiseless injectivity, not a stability result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Baldwin–Deutsch–Kalev distinguish bounded-rank completeness from uniqueness among all PSD states. Jaming–Rathmair use PSD matrix lifting for Gabor reconstruction. Chen et al. use two windows and a different sampling geometry for periodic STFT phase retrieval."
+        ],
+        "reasoning": "These papers frame the question, but the inspected passages do not explicitly give this fiber. The strongest coverage instead comes from the finite-dimensional equivalent kernel, not from a broad analogy.",
+        "searches": [
+          "Baldwin–Deutsch–Kalev arXiv:1605.02109v1",
+          "Jaming–Rathmair DOI 10.1007/s10208-024-09683-6",
+          "Chen et al. arXiv:2602.05210v1 Theorem 4.1"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary index and mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+        "Rotated-square record 52ff35f3bc92",
+        "Chalendar–Partington; Chen et al.; Baldwin–Deutsch–Kalev; Jaming–Rathmair"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a common nonzero-fiber direction K, det(qq*+tK)=det(K)t²(t−τ), since q*K⁻¹q=−τ. The two outer coordinates make a positive block for t>0 and rule out t<0 by intersecting with q-perp. Evaluating K at u gives the same known quadratic in u² for either sampling scheme."
+        ],
+        "reasoning": "The exact segment, ranks, trace-one example and one-sample completion follow by short algebra from the identical known kernel. The fifth-root calculation applies to a different input grid but rediscovers that kernel; it does not alter the target invariant.",
+        "searches": [
+          "Rotated-square record 52ff35f3bc92, Finding and proof",
+          "Frozen RESULT.md, proof Steps 2–5",
+          "Primary sources on sampled STFT and strict completeness"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The rotated-square record gives the identical span of diag(r²s²,−r²−s²,1) in the same space of Hermitian matrices. Chalendar–Partington give continuous two-circle rank-one phase retrieval in the concentric case."
+        ],
+        "reasoning": "Writing both measurement operators through the common quotient by K gives an invertible linear change between their data images. Hence for each source qq*, both operators give literally the same feasible Hermitian set and thus the same PSD intersection. Continuous rank-one uniqueness alone would not imply this.",
+        "searches": [
+          "Local Resultary: two-circle Hermitian kernel, finite-grid quadratic phase retrieval, PSD fiber",
+          "Rotated-square record 52ff35f3bc92, Finding and proofs",
+          "Chalendar–Partington arXiv:2403.16255v1 §2.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct same-day record contains the exact kernel formula and rank-eight claim for two rotated square orbits. It does not list τ as a PSD endpoint."
+        ],
+        "reasoning": "An exact table of intervals is not needed for coverage: the exact kernel in the indexed record already fixes every interval through rank-one PSD intersection. Same-day indexing does not show which result came first.",
+        "searches": [
+          "Local Resultary queries for exact quadratic Hermitian kernel and two circles",
+          "Resultary mirror 52ff35f3bc92, RESULT.md offsets 0 and 4312–8492"
+        ]
+      },
+      "rationale": "There is substantial demonstrable coverage independent of the order of publication. For the same arbitrary two radii, the distinct rotated-square record proves exactly the same one-dimensional Hermitian kernel using eight samples rather than ten. Equality of the kernels makes the two measurement maps equivalent for every Hermitian fiber, not just for vectors. The stated PSD segment and its ranks are the elementary rank-one update of that same kernel, and the extra-radius statement is its direct scalar evaluation. The differing grids and fixed-Gaussian interpretation do not supply a materially distinct PSD finding. This is a scientific overlap decision, not priority attribution from a shared date.",
+      "residual_risks": [
+        "No priority order is inferred for the same-day records. The general web search did not provide additional useful evidence; the decision rests on the exact inspected match and its algebraic implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical common quotient and therefore PSD fibers, despite different sample locations",
+          "evidence": "Two rotated four-point orbits give the rank-eight map with generator diag(r₁²r₂²,−r₁²−r₂²,1). It derives rank-one uniqueness and analyzes the spectrum; it does not explicitly display the PSD endpoint.",
+          "identifier_or_url": "2026/11/8/SCOPE-minimal-quadratic-phase-retrieval-from-two-rotated-square-orbits--52ff35f3bc92",
+          "material_read": "RESULT.md Finding (offset 0), proof (offsets 4312–8492)",
+          "method": "Local Resultary mirror",
+          "title": "Minimal quadratic phase retrieval from two rotated square orbits",
+          "trigger": "Exact two-radius Hermitian kernel and rank-one uniqueness match"
+        },
+        {
+          "assessment": "Covers continuous-circle rank-one uniqueness, not the finite PSD fiber",
+          "evidence": "Modulus equality on the nested concentric circles gives equality up to global phase.",
+          "identifier_or_url": "https://arxiv.org/pdf/2403.16255v1",
+          "material_read": "§2.4, Theorem 2.16, p. 11 (PDF offset 21610)",
+          "method": "Lawful OA PDF passages",
+          "title": "Phase Retrieval on Circles and Lines",
+          "trigger": "Two-circle phase retrieval"
+        },
+        {
+          "assessment": "Different sampled data and no corresponding PSD fiber in the inspected theorem",
+          "evidence": "Uses two time locations, two windows and sampled frequencies with an irrational-separation hypothesis.",
+          "identifier_or_url": "https://arxiv.org/pdf/2602.05210v1",
+          "material_read": "Theorem 4.1, pp. 13–14 (offset 37476)",
+          "method": "Lawful OA PDF passages",
+          "title": "STFT Phase Retrieval with Two Window Functions",
+          "trigger": "Periodic signals and sampled STFT"
+        },
+        {
+          "assessment": "Prior distinction between the two uniqueness notions",
+          "evidence": "It explicitly distinguishes identifying states within a rank constraint from distinguishing them among all physical states.",
+          "identifier_or_url": "https://arxiv.org/pdf/1605.02109v1",
+          "material_read": "Abstract, p. 1 (offset 0)",
+          "method": "Lawful OA PDF passage",
+          "title": "Strictly-complete measurements for bounded-rank quantum-state tomography",
+          "trigger": "Rank-one uniqueness versus unrestricted PSD uniqueness"
+        },
+        {
+          "assessment": "Related lifting method, not the same finite fiber in the inspected material",
+          "evidence": "Uses semidefinite lifting and rank-one structure in Gabor matrix reconstruction.",
+          "identifier_or_url": "https://doi.org/10.1007/s10208-024-09683-6",
+          "material_read": "Abstract and §1.3.4 (offset 18288)",
+          "method": "Lawful OA text passages",
+          "title": "Gabor Phase Retrieval via Semidefinite Programming",
+          "trigger": "SDP approach and exact PSD ambiguity"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Rotated-square record 52ff35f3bc92, Finding and proof"
+      ],
+      "rationale": "The distinction between vector retrieval and PSD recovery is meaningful, and the formula is a useful explanation of it. As a separate exact mathematical contribution here, however, it is a one-variable PSD intersection mechanically determined by the already matched kernel. The five-angle grid adds a simpler way to derive that kernel but neither a different feasibility invariant nor better sample count, and there is no separate noise or stability result.",
+      "residual_risks": [
+        "A different sampling or stability theorem could have separate value, but is not established by this record."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:25:36.256119Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md (law, probability rules and proof), VERIFICATION.md and checker.py (inspected, not executed)",
+        "/workspace/review-replays/3.py and 3.out"
+      ],
+      "rationale": "For each labeled graph through order five, I counted static sets by excluding subsets of larger independent sets and sequential masses by all arrival permutations. All 832 positive-support pair cross-products pass (772 adjacent checks); the empty graph is trivial. The six-vertex witness gives static counts (1,2,2) and sequential permutation counts (120,200,400). For every m>=2 a first universal vertex gives size one; otherwise exactly one edge endpoint parks and the star center is earliest within its star with conditional probability 1/(m+1), since relabeling star priorities preserves the conditioning event. This gives the two analytic laws; the size-two to size-one LR ratio falls by (m+3)/(2(m+1))<1, while both CDF inequalities hold. The infinite family follows analytically, not from the finite census.",
+      "residual_risks": [
+        "Uses uniform inclusion-maximal sets, not maximum sets. The universal bound ends at five vertices; it does not classify every six-vertex failure."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The preprint reports first-order dominance on paths, cycles and all 31 connected simple graphs of order below six, as well as counterexamples beginning at six.",
+          "735eb3ff5569 treats likelihood-ratio dominance on connected subcubic graphs through ten vertices. 2e934e112112 treats first-order comparability on wheels."
+        ],
+        "reasoning": "The positive subcubic census has overlapping strength and range on connected graphs but omits degree four at order five, disconnected cases as stated, and the witness family of hub degree at least five. First-order comparisons on all small connected graphs, or on wheels, do not give the stronger ratio order.",
+        "searches": [
+          "arXiv:2611.14718v1 abstract; Resultary 735eb3ff5569 and 2e934e112112"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.14718v1",
+        "Resultary 735eb3ff5569, 9a6d94e819c5 and 2e934e112112",
+        "Frozen relationship-to-prior-work section"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The preprint reports failures of first-order sequential-over-static dominance starting at six vertices, contrasting with the frozen witness's two valid CDF inequalities.",
+          "The frozen comparison identifies a path proof comparing an auxiliary model and static parking in likelihood-ratio order, not a direct sequential-to-static size comparison; the underlying passage was not accessible."
+        ],
+        "reasoning": "LR dominance implies first-order dominance, so those prior six-vertex counterexamples already imply LR failure at six. They cannot be examples of first-order-but-not-LR in the target direction. They also do not imply that all graphs through five satisfy the stronger order. Same-date catalog results were compared by claim, not ordered by date.",
+        "searches": [
+          "arXiv:2611.14718v1, abstract; frozen related-work comparison; Resultary 735eb3ff5569"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 9a6d94e819c5 gives a local likelihood-ratio obstruction for probabilities of individual greedy maximal sets on cycles.",
+          "Higuita-Diaz, López and Roldán-Correa, arXiv:2611.14718v1, abstract, explicitly compares counts of occupied sites in sequential and static parking."
+        ],
+        "reasoning": "The preprint uses the same occupancy statistic, but the accessible claim uses first-order dominance. A pointwise probability comparison on maximal sets is not equivalent to the order on their size distributions: summing probabilities over a size class loses the pointwise discrepancies.",
+        "searches": [
+          "Resultary: parking likelihood-ratio order and greedy maximal independent sets",
+          "Primary search: sequential versus static discrete parking and likelihood-ratio counterexamples"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The subcubic entry reports an exact census over 2571 connected graph types and the preprint abstract reports the 31 connected graphs below order six. Their stated outputs are respectively subcubic LR and small connected first-order dominance.",
+          "The index includes the exact assigned entry, which supplies no independent prior comparison."
+        ],
+        "reasoning": "No accessible table or catalogued assertion gives the universal LR lower bound and this separating family. The preprint's full graph data were not inspected; its numerical computations may overlap beyond the claims in the abstract.",
+        "searches": [
+          "Resultary: exact parking cardinality law census and small connected counterexamples; 735eb3ff5569",
+          "Higuita-Diaz et al. small-graph computation, stated in arXiv:2611.14718v1 abstract"
+        ]
+      },
+      "rationale": "The distinct contribution is likelihood-ratio dominance on all orders through five and its separation from first-order dominance on the explicit join family. First-order dominance through five on connected graphs and the existence of a six-vertex counterexample to universal sequential-over-static first-order dominance are prior, and the latter already implies some likelihood-ratio failure at six. Do not credit order-six existence in isolation as new.",
+      "residual_risks": [
+        "The preprint's full small-order tables and LR proof passage, and full local mirror bodies, were not obtained. A prior table may contain the individual order-six witness's laws; inspectable statements do not supply the combined threshold and first-order-but-not-LR family. Priority is not established exhaustively."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the first-order comparison and implication of some LR failure at six, not the stronger positive bound or the separating family on available evidence",
+          "evidence": "Abstract states first-order dominance below six for 31 connected graphs and counterexamples starting at six where static dominates sequential.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.14718v1",
+          "material_read": "PDF page 1, abstract; exact likelihood-ratio proof passage and connected graph tables unavailable after primary and alternate retrieval attempts",
+          "method": "OA PDF text preview and bounded passage retrieval attempts",
+          "title": "Stochastic Dominance in Discrete Parking Processes on Graphs",
+          "trigger": "Same sequential and static models, same six-vertex scale"
+        },
+        {
+          "assessment": "Partial positive overlap, not the same parameters or witness",
+          "evidence": "Connected, maximum degree three, order through ten; hub of the frozen family has degree m+3.",
+          "identifier_or_url": "Resultary 735eb3ff5569",
+          "material_read": "Catalog statement; full mirror body unavailable",
+          "method": "Local Resultary search and mirror passage attempt",
+          "title": "Likelihood-ratio domination through ten vertices in subcubic parking graphs",
+          "trigger": "Same stochastic order and cardinality laws"
+        },
+        {
+          "assessment": "Different statistic",
+          "evidence": "The obstruction compares individual outputs, not cardinality laws.",
+          "identifier_or_url": "Resultary 9a6d94e819c5",
+          "material_read": "Catalog statement",
+          "method": "Local Resultary search",
+          "title": "Exact uniformity and a local likelihood-ratio obstruction for greedy independent sets on cycles",
+          "trigger": "Likelihood-ratio terminology applied to greedy parking"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen model definitions and analytic CDF and LR comparison",
+        "Independent exact witness check"
+      ],
+      "rationale": "The result answers a natural strengthening question for two model laws. A minimum-order witness with three support points isolates a difference between stochastic orders without merely refuting dominance, and the join family shows the separation persists at every subsequent order.",
+      "residual_risks": [
+        "No characterization of all separating graphs or solution of the subcubic first-order conjecture."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

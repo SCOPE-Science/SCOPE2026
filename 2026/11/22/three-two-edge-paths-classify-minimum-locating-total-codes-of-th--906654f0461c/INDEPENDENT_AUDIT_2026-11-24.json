@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:30:41.749666Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Assumptions and Proof; VERIFICATION.md; verify_subset.py and verify_petersen_gp.cpp",
+        "Independent replay: python /tmp/opencode/frozen_5_check.py"
+      ],
+      "rationale": "The open-neighborhood total requirement applies to selected edges as well; separation is tested only on the complement. There is also a direct proof of the structural necessity. Vertices incident to no selected edge form an independent set (an edge between two would have empty signature). Two such vertices in the Petersen graph would have a common neighbor, since two intersecting Kneser 2-subsets have a disjoint 2-subset in the complement of their union. The common neighbor has at most one selected incident edge by cubicity, and has at least one since the uncovered set is independent. The two edges to it would thus have identical singleton signatures. At least nine original vertices must therefore be covered. Each nontrivial selected component has at least two edges by total domination; with k edges it covers at most k+floor(k/2) vertices. This rules out k≤5 and forces equality for k=6: three two-edge trees and one isolated vertex. Conversely, component labels distinguish centers and leaves of the selected paths. The Petersen graph is triangle-free, so any unselected edge meets two different components and its nonempty signature reconstructs its endpoints (including the single possible isolated vertex). A fresh exact enumeration of all labeled subsets, direct automorphisms preserving adjacency and nonadjacency, symmetric one-edge exchanges, and BFS from each optimum verified the ten enumerator coefficients, all 5005 size-six equivalences, 110 optima with eleven per isolated vertex, orbit sizes (10,40,60), 210 exchange edges and all three stated profiles, including radius 6 and diameter 7.",
+      "residual_risks": [
+        "The polynomial and exchange geometry are exact finite results for this graph and fixed-cardinality single exchange, not statements about other replacement rules or other cubic graphs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Corollary 9 gives the same-predicate upper bound 2n/3 on isolate-free twin-free line graphs. The later progress article's introduction explicitly credits that class case to Foucaud–Henning."
+        ],
+        "reasoning": "Even applying the line-graph theorem at n=15 only yields an upper bound of 10, not equality at 6, the structural classification, or the enumerator and exchange graph.",
+        "searches": [
+          "Foucaud–Henning, arXiv:1506.02623, Theorem 8 and Corollary 9",
+          "arXiv:2211.14178v2, Introduction and line-graph reference"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1506.02623, arXiv:1107.0207, arXiv:2211.14178v2; Resultary 5291df073dcf and 3fd2d5f3ef12"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior five-edge matching has no selected neighbors on any selected edge. The ordinary optimum family is only a relaxation, while the known general same-predicate bound lies strictly above 6."
+        ],
+        "reasoning": "A relaxation and a loose upper bound do not force the optimal total codes' three-path structure, their precise number or exchange geometry. That structure follows from the graph-specific common-neighbor obstruction and total condition.",
+        "searches": [
+          "arXiv:1506.02623, definition and Corollary 9; arXiv:1107.0207, Petersen example; Resultary 5291df073dcf and 3fd2d5f3ef12"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Edge-locating-total domination is precisely the line-graph predicate here. Ordinary locating-domination imposes no domination on selected edges; closed edge identification compares all edges with closed signatures. The related two-edge-path motif in 3fd2d5f3ef12 is for open-independent open-locating-dominating codes on complete-multipartite line graphs."
+        ],
+        "reasoning": "The closest look-alike definitions are mathematically different. In particular the earlier closed edge-identifying perfect matching fails the total condition, and the complete-multipartite hypothesis does not cover the Petersen graph.",
+        "searches": [
+          "Literature: \"Petersen\" \"locating-total\" line graph edge code minimum dominating set exact polynomial reconfiguration 110",
+          "Resultary 5291df073dcf and 3fd2d5f3ef12, Findings and Assumptions",
+          "arXiv:1506.02623, p. 4; arXiv:1107.0207, p. 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest distinct Resultary exact line-graph comparison gives 246 minima of size 5, 1470 exchange edges, and radius/diameter 5, all for ordinary locating domination. The identical 110-code catalogue hit is the frozen target, not independent coverage."
+        ],
+        "reasoning": "Neither the ordinary optimum table nor its optimum exchange graph gives the exact total-code census. They enumerate different states and moves.",
+        "searches": [
+          "Resultary 5291df073dcf, Finding and Assumptions",
+          "Literature: \"Petersen\" \"locating-total\" line graph edge code minimum dominating set exact polynomial reconfiguration 110"
+        ]
+      },
+      "rationale": "The closest same-graph exact work addresses ordinary edge-location-domination or closed edge identification. The same-predicate general primary work provides upper bounds, not the optimum and complete structural and exchange classification on this graph. No distinct matching exact result was established by the bounded comparison.",
+      "residual_risks": [
+        "Earlier unindexed finite code tables, or equivalent special graph results outside the inspected passages, remain possible; a focused negative search is not proof of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact predicate and general bound, not the exact Petersen optimum or census.",
+          "evidence": [
+            "All edges must be totally dominated and only unselected edges separated; upper bound 2n/3."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1506.02623",
+          "material_read": "PDF abstract, pp. 3–4, definition around offset 12750, Corollary 9 at p. 21 (offset 87115)",
+          "method": "OA PDF excerpts",
+          "title": "Location-domination in line graphs",
+          "trigger": "Same locating-total predicate on line graphs"
+        },
+        {
+          "assessment": "Different predicate.",
+          "evidence": [
+            "Closed-neighborhood identification of every edge; the example matching does not satisfy open total domination."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1107.0207",
+          "material_read": "PDF p. 2, offsets approx. 7000 and 8850",
+          "method": "OA PDF excerpt comparison",
+          "title": "Identifying codes in line graphs",
+          "trigger": "Petersen example is a five-edge matching"
+        },
+        {
+          "assessment": "Strong analogue, but ordinary locating domination only.",
+          "evidence": [
+            "246 minimum five-sets and 1470 exchanges with radius and diameter 5."
+          ],
+          "identifier_or_url": "Resultary 5291df073dcf",
+          "material_read": "Finding and Assumptions, offset 0",
+          "method": "Local Resultary mirror statement, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Petersen edge-location-domination: ten complete-bipartite obstructions to geodesic exchanges",
+          "trigger": "Same graph and exact exchange analysis"
+        },
+        {
+          "assessment": "Structural motif overlaps; graph family and predicate do not give the target.",
+          "evidence": [
+            "Complete-multipartite base graphs, open-independent open-location domination."
+          ],
+          "identifier_or_url": "Resultary 3fd2d5f3ef12",
+          "material_read": "Finding and Assumptions, offset 0",
+          "method": "Local Resultary mirror statement",
+          "title": "Open-independent open-locating-dominating codes of complete-multipartite line graphs",
+          "trigger": "Two-edge paths and at most one unused vertex"
+        },
+        {
+          "assessment": "Context and a reference to the existing line-graph class bound, not a Petersen classification in the inspected passages.",
+          "evidence": [
+            "The introduction defines the locating and total conditions and cites Foucaud–Henning for the line-graph case."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2211.14178v2",
+          "material_read": "Introduction, offsets 1700–3483 and paragraph near 6679",
+          "method": "OA HTML passage comparison",
+          "title": "Progress towards the two-thirds conjecture on locating-total domination",
+          "trigger": "Same-predicate broader bound returned by focused literature search"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof; independent structural argument and enumeration above; ordinary comparison 5291df073dcf"
+      ],
+      "rationale": "This is a natural complete finite classification on a canonical graph, not just an upper bound or a numerical optimum. The total condition forces a three-path factor, and the census and orbitwise exchange profiles resolve different questions about how many solutions exist and how they can be changed. The common-neighbor proof explains the effect of the total constraint independently of the enumeration.",
+      "residual_risks": [
+        "No general exchange theorem or cubic-graph classification is implied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

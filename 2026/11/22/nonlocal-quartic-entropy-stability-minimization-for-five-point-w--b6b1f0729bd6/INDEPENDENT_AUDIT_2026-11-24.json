@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:47:43.144110Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–93",
+        "VERIFICATION.md",
+        "verify_wordlength_c5.py (read only)",
+        "/workspace/reproduction/entropy.py and entropy.txt; replay python3 /workspace/reproduction/entropy.py"
+      ],
+      "rationale": "With Fourier multipliers (0,1,2,2,1), Parseval gives energy S+z² for u=a+x+y, where a=sqrt(1-S), S=||x||²+||y||², and z=||y|| for the second harmonic. Expansion of u² log(u²) gives deficit 2z²-2<x²y>-2<xy²>+< (x+y)^4 >/6+S²/2+O(S^(5/2)); the separate third moments vanish. In this real five-point Fourier decomposition ||P₂(x²)||=||x||²/sqrt(2) and <x⁴>=3||x||⁴/2. If z/S tends to infinity, the quadratic term dominates the numerator on the S² denominator scale. Consequently finite liminf sequences can be restricted to z=O(S), on which the pure first-harmonic quartic term gives 3S²/4 together with the normalization correction. The estimate reduces to 2z²-sqrt(2)Sz+3S²/4=2(z-S/(2sqrt(2)))²+S²/2. The displayed cosine path saturates the inequality because its second harmonic has the optimal norm and phase. Thus the exact local limit is 1/2. I independently computed the witness using integer cyclic correlations combined with Parseval, and exact rational enclosures of the entropy using the range-reduced -log(1-t) series. Its ratio is in (0.472467667182636,0.472467667182637), with exact rational comparison to 19/40. A neighborhood of 1 has quotient exceeding the witness; its compact admissible complement contains a global minimizer by continuity, even if some entries are zero.",
+      "residual_risks": [
+        "The witness is not asserted to be optimal; the precise infimum and the form and uniqueness of minimizers remain unknown."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen–Lam–Lu bound C_w,5 between 503/1500 and 1/2 using near-constant vectors for the upper bound; Xie–Zhang give a general lower coefficient 1/12 for the word-length energy."
+        ],
+        "reasoning": "None of these bounds excludes equality with the local threshold, so they do not imply nonconstant attainment or the explicit strict competitor.",
+        "searches": [
+          "Chen–Lam–Lu arXiv:2610.05347 Theorem 1.2 and Appendix A",
+          "Xie–Zhang arXiv:2606.02847 Theorem 5"
+        ]
+      },
+      "checked_sources": [
+        "Chen–Lam–Lu arXiv:2610.05347",
+        "Xie–Zhang arXiv:2606.02847",
+        "Resultary b6b1f0729bd6 (self), 6b296b470c31, 3ea04e5fdc28"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Appendix A gives a lower estimate, while the local Fourier family provides only an upper estimate equal to 1/2. For the same u the nearest-neighbor and word-length numerators differ by 2(((3+sqrt(5))/2)-2)||P₂u||²."
+        ],
+        "reasoning": "Neither a limiting upper bound nor the mere ordering of pointwise energies yields the claimed strict upper bound below the smaller word-length local threshold. The independent witness supplies that missing step.",
+        "searches": [
+          "Chen–Lam–Lu arXiv:2610.05347 §6.4, Theorem 1.2 and Appendix A",
+          "Nearest-neighbor counterpart 6b296b470c31, Finding and Assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "6b296b470c31 gives a strict comparison to (7-sqrt(5))/8 for the spectral-gap-normalized nearest-neighbor multiplier, with second harmonic (3+sqrt(5))/2 instead of 2."
+        ],
+        "reasoning": "The first harmonic is already normalized identically, so scaling the different second-harmonic eigenvalue cannot preserve the stated quotient, threshold, and witness. Same-day proximity is not a substitute for this mathematical comparison.",
+        "searches": [
+          "Resultary local search for strict below-local word-length quartic entropy quotient on the five-point cyclic group",
+          "6b296b470c31 same-day nearest-neighbor RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact hit b6b1f0729bd6 is the assigned record, not independent. The earlier 3ea04e5fdc28 gives the exact local coefficient 1/2 but explicitly does not determine a global value; the closest distinct global entry treats nearest-neighbor energy."
+        ],
+        "reasoning": "There is exact prior coverage of the local coefficient, not of the distinct global claim in the inspected records.",
+        "searches": [
+          "Resultary b6b1f0729bd6, 6b296b470c31 and 3ea04e5fdc28"
+        ]
+      },
+      "rationale": "The contribution supported as distinct is the strict global comparison for this word-length form and resulting nonconstant attainment. The earlier exact local constant and global lower estimates are credited separately.",
+      "residual_risks": [
+        "An equivalent earlier word-length witness outside the material inspected here cannot be ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related non-sharp bounds, no stated strict below-local comparison",
+          "evidence": "503/1500 <= C_w,5 <= 1/2; the appendix proves the lower bound, strict for nonconstant inputs, and the upper bound is from a near-constant family.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.05347",
+          "material_read": "Theorem 1.2 PDF pp. 4–5, OA offset 16835; Appendix A p. 43, offset 200275",
+          "method": "OA PDF passages",
+          "title": "Sharp uniform stability of the logarithmic Sobolev inequality on finite cycles and stability of the cubic Sobolev inequality",
+          "trigger": "Same five-point word-length stability constants"
+        },
+        {
+          "assessment": "Non-sharp lower estimate, not a competing upper bound",
+          "evidence": "Defines psi_n(k)=min(k,n-k), proves quartic lower coefficient 1/12, and does not claim that coefficient optimal.",
+          "identifier_or_url": "https://arxiv.org/pdf/2606.02847",
+          "material_read": "PDF p. 1 offset 4389, Theorem 5 p. 5 offset 17600, discussion p. 12 offset 44034",
+          "method": "OA PDF passages",
+          "title": "Sharp log-Sobolev inequalities and quartic stability on finite cyclic groups",
+          "trigger": "General word-length stability estimates with matching multiplier"
+        },
+        {
+          "assessment": "Prior coverage of the local constant only",
+          "evidence": "Word-length local coefficient 1/2; no global sharp-constant claim.",
+          "identifier_or_url": "3ea04e5fdc28",
+          "material_read": "Mirrored RESULT.md Finding and scope",
+          "method": "Resultary and local mirror",
+          "title": "Exact local quartic stability constants at the constant extremizer on cycles",
+          "trigger": "Exact match to the word-length local coefficient"
+        },
+        {
+          "assessment": "Not equivalent because of different energy and local threshold",
+          "evidence": "Nearest-neighbor strict upper bound 119/200 below its own local limit; explicitly excludes word-length energy.",
+          "identifier_or_url": "6b296b470c31",
+          "material_read": "Mirrored RESULT.md offset 0 and strict comparison around offset 792; frozen counterpart Finding and Assumptions",
+          "method": "Resultary, local mirror and frozen source",
+          "title": "Nonlocal attainment below the local quartic entropy stability threshold on the five-cycle",
+          "trigger": "Same-day nonlocal attainment on the same finite domain"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and Proof",
+        "Chen–Lam–Lu Theorem 1.2"
+      ],
+      "rationale": "For a canonical cyclic-group word-length energy, this resolves a concrete question left by the near-constant upper bound: the minimizing regime is genuinely nonlocal. The strict witness gives both a better certified bound and attainment rather than just a minor numerical improvement. Its second-mode cost and threshold distinguish it from the nearest-neighbor example.",
+      "residual_risks": [
+        "Attainment does not determine the exact value or all optimizers."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

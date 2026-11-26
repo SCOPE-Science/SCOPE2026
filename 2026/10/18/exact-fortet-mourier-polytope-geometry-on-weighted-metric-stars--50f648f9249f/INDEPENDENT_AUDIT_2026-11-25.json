@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:02:19.767711Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The star triangle bound makes all leaf-pair constraints redundant. The residual description has interior at zero and each of the fibers at fixed center t has two distinct endpoints per leaf because ρ_i>0. Arm strips with ρ_i≥2 follow from the cube; for the remaining facet inequalities I checked the strict witnesses in the proof: near a center cap choose leaves slightly toward the interior, for a leaf cap use t=1−ρ_i/2 when ρ_i<2 and t=0 otherwise, and for a tight strip use t=−ρ_i/2 with the distinguished leaf at ρ_i/2. Negation handles opposite signs. Every vertex must use one endpoint per coordinate; at an endpoint t=±1 the center is pinned and all fiber corners have full active rank. At an interior corner without a doubly active chosen endpoint, all chosen endpoints are affine near t and admit a two-sided perturbation. At a doubly active endpoint its cap and strip determine t, and the other endpoint equations determine all leaves, so the point is extreme. If one leaf can pin t using either endpoint, every corner qualifies; otherwise precisely 2^(m−s(t)) corners avoid all pins. Counting at most 2m events of 2^(m−1) corners each proves the sharp maximum, and the claimed generic conditions separate those events. In a signed objective, use the upper endpoint for a positive coefficient and the lower endpoint for a negative coefficient. This produces a continuous concave piecewise-affine function; its slopes and all interior breakpoints give the stated exact formula and O(m log m) sweep, with ρ_i=2 contributing no interior event. The frozen support was inspected, not executed; the dimension-uniform conclusions follow analytically.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gordon–Petrov’s universal face-vector theorem requires generic strict metrics. Hille–Theewis discuss general extremality and norming sets, including Farmer’s extremality results.",
+          "Hille–Theewis’s exact optimization for positive atomic ν versus positive μ already covers arbitrary signed atomic input by Jordan decomposition, and their finite-support formulation is an LP. Their scalar threshold formulas concern a single Dirac against a positive measure."
+        ],
+        "reasoning": "The face-vector theorem does not cover the augmented star family for m≥2. The general descriptions supply machinery but do not give this collision enumeration, sharp count, or the particular one-variable formula for signed measures with multiple atoms on both sides. The latter should not be presented as the first exact algorithm for arbitrary signed FM norms.",
+        "searches": [
+          "arXiv:1608.06848, §2 Theorem 1",
+          "arXiv:2305.08500, p. 2 and §§5–6",
+          "arXiv:2206.12234v2, Theorems 2.1 and 3.1 and equations (36)–(38)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check_fm_star.py (inspection only)",
+        "Resultary c1fad2fa9990",
+        "arXiv:1608.06848",
+        "arXiv:2206.12234v2",
+        "arXiv:2305.08500",
+        "Farmer DOI 10.1090/S0002-9939-1994-1195718-7 (no primary passage)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The generic-strict face formula covers a three-point strict metric (including the compatible one-arm case 0<ρ<2), not the forced equalities in larger stars.",
+          "The retrieved general extreme-point and atomic optimization statements do not spell out star-specific counts or their behavior at collisions; the LP is a representation from which some elementary specializations can be made.",
+          "The reviewed breakpoint objective can also be maximized by weighted selection of its nonnegative slope drops at cumulative weight equal to the initial slope. This yields a linear-time option in the same model, without contradicting the asserted upper bound."
+        ],
+        "reasoning": "What survives these reductions is the explicit all-parameter enumeration and treatment of degeneracies, not the abstract existence of an optimization or a sorting-based algorithm. The hard hypothesis mismatch for m≥2 prevents obtaining the claimed vertex counts by substitution in the generic strict theorem.",
+        "searches": [
+          "arXiv:1608.06848, Theorem 1 and metric hypotheses",
+          "arXiv:2305.08500, discussion of Farmer; DOI 10.1090/S0002-9939-1994-1195718-7",
+          "arXiv:2206.12234v2, equations (5) and (36)–(38), Theorem 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary c1fad2fa9990 uses the same type of star and signed measures, but imposes ‖f‖∞+Lip(f)≤1 and optimizes over two scalar parameters.",
+          "The max-type constraint is equivalent to a pointed Lipschitz polytope with a new point at distance 1 from every existing point and original distances capped at 2."
+        ],
+        "reasoning": "The sum and max constraints give different norms even for one arm: with ρ≥2, the max constraint allows endpoint difference 2, while minimizing the sum-norm cost for difference Δ gives |Δ|/2+|Δ|/ρ, hence maximal difference 2ρ/(ρ+2). The apex reformulation is equivalent, but for two or more leaves it forces a triangle equality, through the hub if the two arm lengths sum to at most 2 and through the apex otherwise.",
+        "searches": [
+          "Resultary: weighted-star Fortet–Mourier and Dudley dual norms, arbitrary signed measures on heterogeneous stars",
+          "arXiv:1608.06848, pointed Lipschitz polytope and generic strict metric"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest matched record has an exact two-parameter formula and sweep algorithm for the sum-normalized Dudley norm, but it does not give the facet and vertex classification here.",
+          "No matching catalogue count across coincident, complementary and transition arm lengths for the max-type norm was identified."
+        ],
+        "reasoning": "An exact result for the sum norm cannot be imported as an exact entry for the max norm; coincidence of object and input parameters does not identify the unit ball. The checks do not exhaust all combinatorial tabulations.",
+        "searches": [
+          "Resultary: weighted metric star max-type Fortet–Mourier polytope vertex counts, breakpoints and facets",
+          "Resultary closest exact record c1fad2fa9990"
+        ]
+      },
+      "rationale": "The supported increment is the all-length weighted-star face/vertex classification, including a collision count and exact attainable maximum, together with a one-coordinate breakpoint formula for the maximum-type norm on this geometry. General extreme-point and FM optimization theory are antecedents. The strongest same-day weighted-star result found treats the sum norm, not an equivalent copy of this polytope or norm formula. The sweep bound is valid but is not a claim of optimality or the source of the main structural novelty.",
+      "residual_risks": [
+        "Farmer’s full text could not be retrieved; the precise strength of its characterization relative to the weighted-star rule was not established from the primary source.",
+        "An equivalent polytope treatment under a different name could have escaped these checks; no historical priority is certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial topical overlap, different norm and formula; same-day date not used to infer order.",
+          "evidence": [
+            "The norm is the sum of sup and Lipschitz terms; the support-function expression has two parameters and the record gives an O(m log m) algorithm."
+          ],
+          "identifier_or_url": "Resultary c1fad2fa9990",
+          "material_read": "RESULT.md, Finding and assumptions, local mirror from offset 0",
+          "method": "Local mirror original statement",
+          "title": "Exact Dudley dual norms on heterogeneous metric stars",
+          "trigger": "Strongest matched catalogue result; same star geometry and signed measures"
+        },
+        {
+          "assessment": "Strong exact count in a generic strict regime not attained by the augmented multi-leaf stars.",
+          "evidence": [
+            "Theorem 1’s universal face vector assumes a generic strict metric; the augmented star has compulsory triangle equalities."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1608.06848",
+          "material_read": "§2 p. 3, Theorem 1 and its metric hypotheses (OA offset about 5000)",
+          "method": "OA bounded paper passage",
+          "title": "Combinatorics of the Lipschitz polytope",
+          "trigger": "Potential universal face-count coverage via apex augmentation"
+        },
+        {
+          "assessment": "Broader optimization coverage and a special scalar rule, but not the full signed-star breakpoint formula or collision classification.",
+          "evidence": [
+            "The general optimization permits positive atomic ν and positive μ, sufficient for signed measures by decomposition; the more explicit threshold expression is for a single Dirac."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2206.12234",
+          "material_read": "v2 pp. 2–3, 5–6, 8–9, 14–15: equation (5), Theorems 2.1 and 3.1, equations (36)–(38)",
+          "method": "OA bounded primary passages",
+          "title": "Explicit expressions and computational methods for the Fortet–Mourier distance to finite weighted sums of Dirac measures",
+          "trigger": "Prior exact atomic formulas and algorithms"
+        },
+        {
+          "assessment": "Relevant structural background; inspected statements do not give the weighted-star collision counts.",
+          "evidence": [
+            "Discusses general norming and extreme-point descriptions including Farmer, and finite-space norm evaluation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2305.08500",
+          "material_read": "p. 2 and §§5–6 (around OA offsets 5400 and 66000)",
+          "method": "OA bounded paper passages",
+          "title": "Norming and dense sets of extreme points of the unit ball in spaces of bounded Lipschitz functions",
+          "trigger": "General extreme-point results and treatment of max versus sum norms"
+        },
+        {
+          "assessment": "Primary full text unavailable in these checks; no whole-paper noncoverage assessment.",
+          "evidence": [
+            "The accessible secondary discussion attributes a qualitative general extremality criterion to Farmer; it does not provide the star count."
+          ],
+          "identifier_or_url": "10.1090/S0002-9939-1994-1195718-7",
+          "material_read": "No primary full-text passage; secondary discussion in arXiv:2305.08500",
+          "method": "Identified DOI access attempt and lawful copy lookup",
+          "title": "Extreme points of the unit ball of the space of Lipschitz functions",
+          "trigger": "General extremality characterization that may inform the vertex rule"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "These stars are a natural nongeneric family of pointed Lipschitz polytopes. Knowing exactly which fiber corners remain extreme when lengths coincide, become complementary, hit one or two, or exceed two gives useful all-parameter information that a generic face vector or general LP does not deliver. It also yields a short evaluation rule for arbitrary signed data with no equal-mass condition. The main value is the exact classification and degeneracy analysis, not a claim of an optimal sweep or of a new general FM solver.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

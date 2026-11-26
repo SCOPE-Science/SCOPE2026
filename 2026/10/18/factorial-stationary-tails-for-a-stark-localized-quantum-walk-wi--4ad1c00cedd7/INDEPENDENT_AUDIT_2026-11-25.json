@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:04:56.395856Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditioning on the last reset gives the stationary exponential-age mixture; the initial-state term decays exactly as e^(−rt) in trace norm on equal-trace differences. This proves existence and uniqueness among normal states and hence the unique limiting position law. In Fourier coordinates the time-integrated hopping phase along k−F(t−s) is (4h/F) sin(Ft/2) cos(k−Ft/2); its Bessel Fourier coefficients give the exact diagonal and evenness, for either sign of h or F. The Bessel remainder relative to the leading monomial is bounded uniformly on the fixed argument range by exp(A²/[4(n+1)])−1, with zeros handled by factoring out the monomial. Independently of the frozen product proof, letting a=r/|F|, the remaining age moment is 2a/(1−e^(−2πa)) times the integral of e^(−2au)sin^(2n)(u) on [0,π]. Laplace scaling u=π/2+v/√n gives e^(−πa)√(π/n), yielding exactly a√π/sinh(πa). The stated finite product also follows from the integration-by-parts ratio K_n/K_(n−1)=n(2n−1)/(2(n²+a²)). The parameter limit is at fixed h,F,r. The supplied code was inspected, not run: its finite Hamiltonians and pointwise quadratures would corroborate only their stated test cases.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rose et al. give a reset stationary spectral construction, with a coherent finite-periodic-chain example. Wald–Böttcher give coherent reset stationary states in terms of unreset network spectral data. Acharya–Gupta select reset sites based on the measured state."
+        ],
+        "reasoning": "The general stationary constructions provide background, not an exact high-site tail on the infinite Stark lattice. Conditional measurement-dependent resetting and periodic forcing are not the fixed-destination static model without further specializations and a new large-site estimate.",
+        "searches": [
+          "arXiv:1806.01298, Eqs. (70)–(75)",
+          "arXiv:2008.00510, Eqs. (28)–(32)",
+          "arXiv:2308.14040 pp. 2–3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2209.14117v2",
+        "arXiv:1806.01298",
+        "arXiv:2008.00510",
+        "arXiv:2308.14040",
+        "Local Resultary mirror: lab-clock Floquet, conditional Pareto tails, shared-reset correlations, and free-walk purity records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the DDG formula, first pass to ω=0 at fixed age and fixed site, then use |J_n|≤1 to integrate; this yields the exact frozen integral. The Floquet record instead considers a drive phase and a weak-reset crossover near a J_0 zero."
+        ],
+        "reasoning": "A fixed-site dominated-convergence limit cannot determine the large-index prefactor. That prefactor requires a relative estimate uniform in reset age and a second asymptotic evaluation: the first maximum of the coherent excursion and all its periodic repeats contribute with exponentially differing reset weights. None of the inspected prior statements gives this quantitative conclusion.",
+        "searches": [
+          "arXiv:2209.14117v2 Eqs. (20), (26), (53)",
+          "Closest mirrored laboratory-clock Floquet Resultary Finding and assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dattagupta–Das–Gupta write the unreset Bessel law in terms of the phase integral w(t) and the full same-site reset mixture. Their fixed-age limit ω→0 gives |w(t)|=2|sin(Ft/2)|/|F|. The nearest indexed Floquet record gives a phase-resolved law under laboratory-clock sinusoidal forcing and a different weak-reset detuning asymptotic."
+        ],
+        "reasoning": "Identifying the hopping parameters and taking zero frequency first recovers the frozen exact probability by bounded convergence in exponential age. This is verified overlap, not a novelty claim. The equivalent formula does not itself supply asymptotic control as the site index grows.",
+        "searches": [
+          "Local Resultary: stationary static-field Stark tight-binding origin Poisson resetting factorial tails",
+          "arXiv:2209.14117v2, Eqs. (20), (26), (53)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact driven-model Bessel mixture overlaps the probability integral via the static specialization. The standard special-function ingredients concern the Bessel kernel, and the supplied record evaluates a separate exponentially weighted sine moment. The DLMF retrieval did not return the relevant passage."
+        ],
+        "reasoning": "A fixed-argument Bessel identity or a sine-moment product alone would not tabulate this parameter-dependent reset tail. Neither is being claimed as a new special-function formula; the scientific comparison is for the stationary distribution and its asymptotic constant.",
+        "searches": [
+          "Local Resultary exact site-tail and constant-field formula comparison",
+          "NIST DLMF §10.19 large-order Bessel formula retrieval attempt",
+          "arXiv:2209.14117v2 Eqs. (20), (26), (53) and reference list"
+        ]
+      },
+      "rationale": "The renewal principle and the unreset propagator are prior inputs. The exact position integral is also already implicit in the zero-frequency specialization of Dattagupta–Das–Gupta, as made explicit below; the frozen record does not claim the renewal integral as new. The distinct supported claim is the sharp fixed-field factorial tail with its rate-dependent prefactor.",
+      "residual_risks": [
+        "DLMF §10.19 and the Dunlap–Kenkre primary text were not retrieved; neither access failure is evidence of absence.",
+        "An uninspected source could contain the same integrated large-site asymptotic. No priority is claimed for the weighted sine product or for the exact renewal formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact probability covered implicitly; factorial asymptotic not found in the inspected statements",
+          "evidence": "Unreset law J indexed by displacement, driven phase integral, and the exponential renewal expression; bounded fixed-age specialization gives the static exponential mixture.",
+          "identifier_or_url": "https://arxiv.org/pdf/2209.14117v2",
+          "material_read": "Eqs. (20), (26), (53), pp. 7–8, 14; reference list p. 23",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Stochastic resets in the context of a tight-binding chain driven by an oscillating field",
+          "trigger": "Same hopping/reset model with a drive admitting a static limit"
+        },
+        {
+          "assessment": "General stationary-reset background",
+          "evidence": "Spectral reset construction with coherent hopping illustrated on a finite periodic chain, not the static infinite-lattice tail.",
+          "identifier_or_url": "https://arxiv.org/abs/1806.01298",
+          "material_read": "Eqs. (70)–(75), pp. 8–9",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Spectral properties of simple classical and quantum reset processes",
+          "trigger": "General quantum reset stationary state"
+        },
+        {
+          "assessment": "General reset mixture, not the stated fixed-field tail",
+          "evidence": "Stationary formulas expressed through the unreset network spectrum.",
+          "identifier_or_url": "https://arxiv.org/abs/2008.00510",
+          "material_read": "Eqs. (28)–(32), p. 6",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "From classical to quantum walks with stochastic resetting on networks",
+          "trigger": "Reset quantum walks and exact stationary formulas"
+        },
+        {
+          "assessment": "Different choice of reset site and time-dependent model",
+          "evidence": "Reset destinations selected according to a position measurement, in explicit contrast to unconditional resetting.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.14040",
+          "material_read": "pp. 2–3 on the protocol and forcing",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Tight-binding model subject to conditional resets at random times",
+          "trigger": "Resets in a related driven tight-binding model"
+        },
+        {
+          "assessment": "Potential exact-law specialization, no corresponding fixed-static-field tail in the finding",
+          "evidence": "Phase-resolved site law under sinusoidal forcing with the laboratory clock continuing through resets; weak-reset scaling near a Bessel zero.",
+          "identifier_or_url": "2026/11/8/SCOPE-laboratory-clock-floquet-memory-and-a-sharp-reset-detuning-windo--aeb8a5a9016e",
+          "material_read": "Local-mirror RESULT.md, text offset 0–5893",
+          "method": "Local semantic search and mirrored Finding/assumptions inspection",
+          "title": "Laboratory-clock Floquet memory and a sharp reset detuning window",
+          "trigger": "Nearest Resultary exact position-law result"
+        },
+        {
+          "assessment": "Access limitation and possible additional propagator overlap, not negative evidence",
+          "evidence": "DDG cite Dunlap–Kenkre as a source for charged-particle lattice propagation.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevB.34.3625",
+          "material_read": "Identification from DDG references; no full-text passage accessible",
+          "method": "Lawful DOI retrieval attempted; no OA copy located",
+          "title": "Dynamic localization of a charged particle moving under the influence of an electric field",
+          "trigger": "Classical source for coherent static-field dynamics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A qualitative localization bound, the exact renewal integral, or a logarithmic factorial estimate leaves the leading stationary mass undetermined. The result isolates a factorial rather than exponential profile, the n^(-1/2) integration factor, and the explicit dependence on reset rate through the weights of recurrent excursion maxima. It gives a useful benchmark for distinguishing static-field coherent transport with resets from field-free or driven reset laws without extrapolating to singular parameter limits.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:11:06.948939Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Writing z=φ/h and u=hα≥0, the exact effective step is hv=φ/(1+φα), and the multiplier (1+κhv)⁻¹ is in (0,1). The identity v−(1+u)⁻¹=(z−1)/[(1+zu)(1+u)] bounds the error uniformly in u, with v≤2 for small h. By 0≤y−log(1+y)≤y²/2, the numerical and shadow exponents differ at all mesh times by at most Tκ|z−1|+2Tκ²h. Exponentiation on nonpositive arguments and bounded-rate left-cell interpolation preserve O(h). Compactness gives both inclusions of the cluster-set identity. Terminal evaluation at T>0 is injective in q for a,κ>0, proving necessity of q→1 and thus hα→0. The prescriptions (1−θ)/(hθ) for θ>0 and h⁻² for θ=0 work independently in all coordinates and include the two scalar examples. The choice of sufficiently small h does not depend on the offsets.",
+      "reproduction": "python /tmp/opencode/frozen_independent_reproduction.py 2: checked 50 exact rational cases with φ=h±h²/3 and hα through 10⁷⁰ and 200 shadow comparisons using 110-digit Decimal arithmetic; max |X−shadow|/h≈0.463743 in the selected finite cases. Alternating hα=1 and hα=h⁻¹ gave endpoints 0.1299279222 and 0.9910890030 at N=1001 and 1002 versus branch limits 0.1296577305 and 1. Frozen checker.py inspected but not executed. Finite tests do not establish the uniform theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen record's cited-source account identifies Zinihi et al.'s equation (3) as the same gain–loss step and characterizes their consistency result as fixed-representation; the primary passage was not independently retrievable.",
+          "Resultary 5248b4dc450c describes a fixed-floor Patankar modification with an altered continuum reversible-exchange flow."
+        ],
+        "reasoning": "If the source consistency statement has the recorded fixed-representation hypotheses, it gives a correct physical limit for each fixed offset but does not justify substituting unbounded α_h uniformly. Nominal first-order consistency for a fixed denominator also does not imply that φ/(1+φα_h)=h+O(h²). The distinct content is the all-offset estimate, accumulation-set identity, and sharp iff at physical time, not representability by implicit Euler per se.",
+        "searches": [
+          "arXiv:2607.10858v1, positive gain–loss equation (3) and Proposition 1",
+          "doi:10.1080/1023619021000000807",
+          "Resultary 5248b4dc450c"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.10858v1 (reported source account; independent primary retrieval unsuccessful)",
+        "doi:10.1080/1023619021000000807 (citation and context only)",
+        "Resultary 8a1bf48149cb (self-hit), 8a12fdc5c04c, 5248b4dc450c, 39aa75b6b4f4, 723be3ffe5ad"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The stalling summary supplies a qualitative precedent for the θ=0 phenomenon in a different fixed-step method; the same-day graph summary supplies a consistency/order obstruction in another recurrence.",
+          "The known gain–loss update is the starting point, and a fixed nonnegative offset necessarily has hα→0."
+        ],
+        "reasoning": "These statements do not supply the required uniform comparison v=1/(1+hα)+O(h) across all resolutions and offsets or the converse and complete continuum cluster cube on one unchanged ODE. The clock identity makes the proof elementary, but the supported contribution is the exact failure boundary when varying the representation, rather than a differently named standard scalar stability theorem.",
+        "searches": [
+          "8a12fdc5c04c (Resultary catalogue statement)",
+          "39aa75b6b4f4 (Resultary catalogue statement)",
+          "arXiv:2607.10858v1, equation (3)/Proposition 1 retrieval"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The flux-offset gauge-stalling record 8a12fdc5c04c describes unchanged two-cell dynamics but a finite-correction Patankar step tending to the identity at large fixed-step face-flux offset.",
+          "The split exponential–Euler record 723be3ffe5ad compares decompositions with equal maps at two directly evaluated step sizes and differing maps at a third, not repeated short-step refinement."
+        ],
+        "reasoning": "The exact alternate formulation of the frozen problem is ordinary scalar implicit decay run on a mesh-dependent clock hv=φ/(1+φα); the relevant comparison is its resulting limits in the original time variable, including arbitrary oscillating hα. The common idea of an unchanged vector field with altered propagation is not equality of the recurrence or its limit classification.",
+        "searches": [
+          "Resultary: positive gain loss offset gauge NSFD representation invariance wrong shadow same ODE",
+          "Resultary: same ODE multiple gain loss decompositions positive nonstandard finite difference time steps resolution dependent"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned 8a1bf48149cb (the identical assigned finding, not an antecedent) and comparators 8a12fdc5c04c, 5248b4dc450c, 723be3ffe5ad and same-day 39aa75b6b4f4."
+        ],
+        "reasoning": "The distinct same-day record was considered: its summary addresses order barriers for an old-state residual rescaling on killed graph diffusion, not the positive rational gain–loss step or the set of shadow limits of that step. There is no numerical table parameter to match; the indexed claims are compared by update, quantifiers and limiting procedure.",
+        "searches": [
+          "Resultary: resolution-dependent positive gain loss NSFD exact same ODE gauge classification h alpha cluster trajectories uniform O(h)",
+          "Resultary: positive gain loss offset gauge NSFD representation invariance wrong shadow same ODE"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the resolution-dependent uniform classification and sharp physical-limit criterion, not for the positive update or scalar implicit-Euler solution. Comparable offset stalling and shadow dynamics are known in other maps. Implications were assessed from available statements; several primary passages were not accessible, so no broad priority claim follows.",
+      "residual_risks": [
+        "The exact integrator paper and closest archived analogue were not independently readable at their decisive primary passages in this review. This is not negative search evidence.",
+        "An earlier NSFD result stated in effective-clock or time-step-renormalization language could cover more than the successfully compared statements; the primary-literature query attempts yielded no returned evidence for this record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Primary access limited; no whole-document conclusion",
+          "evidence": "Fixed smooth gain and loss are described as the consistency setting, unlike arbitrary unbounded resolution-dependent offsets.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.10858",
+          "material_read": "Frozen RESULT.md lines 65–75 and frozen same-model account of equation (3) and Proposition 1; no independent primary passage obtained",
+          "method": "Primary PDF/HTML passage retrieval attempted; comparison limited to the cited-source account",
+          "title": "Structure-Preserving Neural ODEs via Nonstandard Finite Difference Discretization",
+          "trigger": "Exact integrator and plausible consistency coverage"
+        },
+        {
+          "assessment": "Classical context; unresolved detailed coverage",
+          "evidence": "No exact offset-dependent theorem was verified from this source.",
+          "identifier_or_url": "https://doi.org/10.1080/1023619021000000807",
+          "material_read": "Frozen citation and contextual description only",
+          "method": "Citation inspection; no independent primary passage obtained",
+          "title": "Nonstandard finite difference schemes for differential equations",
+          "trigger": "Potential general consistency theory"
+        },
+        {
+          "assessment": "Direct analogy, not equivalence on available statement",
+          "evidence": "Additive face-flux offset; two-cell periodic conservation law; fixed number of Gauss–Lobatto mPDeC corrections and fixed step in the large-offset limit.",
+          "identifier_or_url": "2026/10/26/SCOPE-a-flux-offset-gauge-stalling-law-for-finite-correction-modified--8a12fdc5c04c",
+          "material_read": "Indexed mathematical summary; decisive full source passage unavailable",
+          "method": "Local Resultary search; attempted local primary passage retrieval",
+          "title": "A flux-offset gauge-stalling law for finite-correction modified Patankar deferred correction",
+          "trigger": "Closest same-vector-field offset-stalling overlap"
+        },
+        {
+          "assessment": "Related mechanism in a different update",
+          "evidence": "An imposed floor in a Patankar correction changes the refinement limit of a reversible exchange, rather than ranging over the positive gain–loss offset gauges.",
+          "identifier_or_url": "2026/10/26/SCOPE-fixed-floor-patankar-correction-exact-shadow-dynamics-and-a-thre--5248b4dc450c",
+          "material_read": "Indexed summary",
+          "method": "Local Resultary search",
+          "title": "Fixed-floor Patankar correction: exact shadow dynamics and a threshold",
+          "trigger": "Altered shadow-flow limit under refinement"
+        },
+        {
+          "assessment": "Different recurrence and theorem on available statement; priority not inferred from the date",
+          "evidence": "Second-order accuracy obstruction for killed graph diffusion with an exception without killing.",
+          "identifier_or_url": "2026/11/22/SCOPE-frozen-coordinate-order-barriers-for-graph-diffusion-a-sharp-spe--39aa75b6b4f4",
+          "material_read": "Indexed summary",
+          "method": "Local Resultary search",
+          "title": "Frozen-coordinate order barriers for graph diffusion",
+          "trigger": "Distinct same-day hit on coordinate rescaling and discretization"
+        },
+        {
+          "assessment": "Direct-time map identification, not a refinement theorem for repeated positive steps",
+          "evidence": "Two directly evaluated maps can hide distinct decompositions and the third can separate them.",
+          "identifier_or_url": "2026/11/2/SCOPE-two-time-aliases-a-cubic-third-time-cusp-and-opposite-long-horiz--723be3ffe5ad",
+          "material_read": "Indexed mathematical summary; decisive full source passage unavailable",
+          "method": "Local Resultary search and attempted passage read",
+          "title": "Two-time aliases, a cubic third-time cusp, and opposite long-horizon signs for split exponential–Euler maps",
+          "trigger": "Same decomposition ambiguity phrased as an inverse problem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact positivity and equality of the vector field do not guarantee invariance under a representation refit as resolution changes. The sharp threshold and the full cluster set, including oscillating offset sequences, locate where fixed-representation consistency ceases to be uniform. That is an interpretable diagnostic for this positive layer, not a claim about general nonlinear flows or a new scalar integration formula.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

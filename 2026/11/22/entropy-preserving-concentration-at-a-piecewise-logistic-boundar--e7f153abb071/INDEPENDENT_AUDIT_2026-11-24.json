@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:03:29.374721Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–66",
+        "VERIFICATION.md and checker.py, inspected, not executed"
+      ],
+      "rationale": "At c=1/r both branch values are 1; 0 and 1 map to 0. The right branch is decreasing on the stated range, with derivative magnitude bounded below by r(2−r)/(r−1)>1 exactly up to φ on the monotone range. Both inverses contract. Their nested cylinders partition the interval up to endpoints, generating the dynamics; the full two-shift codes them. The only multiple codes belong to preimages of c, which are countable transient points eventually sent to 0, and thus null for any invariant law. The fair Bernoulli pushforward has entropy log 2, and uniqueness follows by lifting other invariant laws via the itinerary (defined off those null ambiguities) and using the unique full-shift maximal-entropy law. The all-left cylinders are precisely [0,r^(−n)], of mass 2^(−n); floor-bracketing gives log μ_r([0,t])=(log 2)log(t)/log(r)+O(1) with bounded rounding error. This proves both the fixed-t limit as r↓1 and the local dimension at 0 as t↓0 for fixed r. For typical dimension, each branch has half the measure. The derivative bounds give χ_r=(1/2)log(1/(r−1))+O(r−1). For each fixed r, summable distortion of inverse cylinders follows from expansion and Lipschitz log derivative on each branch; Birkhoff gives cylinder length exp(−nχ_r+o(n)). To verify the ball comparison independently, the left endpoint mass is bounded by a power of the radius; the right endpoint also has such a bound by mapping its small neighborhood via the right branch into a left endpoint neighborhood of radius at most a times as large. Invariance and Borel–Cantelli then put typical f_r^n(x) at distance at least exp(−εn) from both endpoints eventually. Distortion transfers this to the cylinder about x, so both a containing ball of cylinder size and an inscribed ball of radius at least a constant times exp(−εn) times that size give the local dimension log 2/χ_r as ε↓0. This is measure dimension, not support dimension. It tends to zero while the exceptional dimension at x=0 diverges, and the endpoint mass bounds give weak convergence to δ_1.",
+      "residual_risks": [
+        "Distortion is needed only for a fixed parameter, not uniformly as r↓1. No formal proof or expert attestation. The finite checker is not used to justify uniqueness, exact dimensionality or the limit."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-map primary text establishes the crisis curve via forward trapping geometry.",
+          "The inspected planar quadratic catalogue result constructs symbolic subsystems for a different map.",
+          "The exact-dimensionality principle h/χ supplies a formula at each parameter, with χ still requiring metric derivative estimates along the crisis curve."
+        ],
+        "reasoning": "General full-branch theorems give entropy and fair weights but not the spatial degeneration without using the inverse geometry and derivative scale. The cited 2024 article was not accessible in full, so its coverage is not excluded by assertion.",
+        "searches": [
+          "Sushko–Agliari–Gardini DOI 10.1016/j.chaos.2005.08.107",
+          "Duan et al. DOI 10.3934/dcdss.2024042 and exact-title full-text lookup",
+          "Ledrappier DOI 10.1007/BF01941717",
+          "Resultary 8c9b71eb2d78 and 6361762d8fbd"
+        ]
+      },
+      "checked_sources": [
+        "Sushko–Agliari–Gardini (2006), pp. 757–758",
+        "Resultary 6361762d8fbd and 8c9b71eb2d78",
+        "Frozen RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact cylinder mass is a direct application of fair full-shift coding to g_L^n([0,1]).",
+          "The geometric fixed-t rate requires identifying which cylinder depths bracket t as r varies; the typical dimension asymptotic instead uses χ_r=(1/2)log(1/(r−1))+O(r−1).",
+          "Knowing entropy alone from a conjugacy does not fix pointwise or typical dimensions."
+        ],
+        "reasoning": "The coding and dimension methods are prior, and the cylinder mass is an elementary specialization. Their separate geometric consequences along this singular same-map curve are the contribution; the compared theorems do not already give both parameter limits.",
+        "searches": [
+          "Sushko–Agliari–Gardini (2006) p. 758",
+          "Resultary 6361762d8fbd Finding",
+          "RESULT.md Proof §§2–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The accessible 2006 article gives the same map with break point 1−r/a and the same crisis a=r²/(r−1), making c=1/r.",
+          "The closest cusp result studies full-branch maximal-entropy measures and exact pointwise dimensions on a different map.",
+          "Under increasing conjugacy to the full tent map the maximal-entropy distribution function is the conjugacy; in this language the finding measures its collapse near a parameter endpoint."
+        ],
+        "reasoning": "The matching map and crisis geometry are established background. The cusp result and the same-map bifurcation analysis do not identify the frozen joint asymptotic for the fair symbolic law in physical space in the passages inspected.",
+        "searches": [
+          "Resultary: piecewise-linear logistic crisis maximal-entropy endpoint concentration local dimensions",
+          "Resultary 6361762d8fbd",
+          "Sushko–Agliari–Gardini (2006) Eq. (1) and crisis passage pp. 757–758"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "e7f153abb071 is the exact self-match; the two distinct matches concern a planar entropy bound and a different cusp map.",
+          "The exact curve is given in the primary bifurcation literature; the inspected passages do not compute the fixed-threshold fair-law tail or the associated dimension asymptotic."
+        ],
+        "reasoning": "The target is an analytic family of laws, not a finite table. The matching crisis equation does not establish the associated law's two different scales; no exact prior match was verified.",
+        "searches": [
+          "Resultary: endpoint concentration on piecewise logistic boundary crisis and exact local dimensions",
+          "Resultary e7f153abb071, 8c9b71eb2d78, 6361762d8fbd",
+          "Sushko–Agliari–Gardini (2006) crisis section"
+        ]
+      },
+      "rationale": "The piecewise linear/logistic family, the exact boundary-crisis curve and its trapping interpretation are prior. Full-branch coding and entropy-over-Lyapunov dimension are also standard. The qualified distinct claim is the explicit joint parameter degeneration for the maximal-entropy (not physical) law on the expanding portion of this specific curve, with sharp spatial-threshold concentration and opposite typical and exceptional dimension limits.",
+      "residual_risks": [
+        "Cited 2005 and 2024 primary texts were not accessible in full via the attempted lawful routes; exact prior specialization remains possible.",
+        "The bounded catalogue and primary comparison is not an absolute priority determination."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicitly covers the map and crisis/trapping setting, not the fair law's metric asymptotics in the inspected passages",
+          "evidence": [
+            "The piecewise formulas and break point appear in Eq. (1); p. 758 identifies equality in a≤r²/(r−1) as the boundary crisis."
+          ],
+          "identifier_or_url": "https://www.mdef.it/public/fileadmin/whoiswho/gardini/Publications/Journals/SAG-CSF-06.pdf",
+          "material_read": "Printed pp. 757–758, Eq. (1) and crisis paragraph (OA offset about 8688, opened from 7000)",
+          "method": "Lawful author-hosted full-text PDF passage inspection",
+          "title": "Bifurcation structure of parameter plane for a family of unimodal piecewise smooth maps: Border-collision bifurcation curves",
+          "trigger": "Same family and crisis parameter"
+        },
+        {
+          "assessment": "Unresolved detailed coverage; not conflated with the accessible 2006 paper",
+          "evidence": [
+            "The frozen finding attributes the crisis curve to this source; independent curve coverage was verified instead in the distinct 2006 paper."
+          ],
+          "identifier_or_url": "https://doi.org/10.3934/dcdsb.2005.5.881",
+          "material_read": "No primary full text read",
+          "method": "DOI/publisher and cited alternate copy attempted",
+          "title": "Bistability and border-collision bifurcations for a family of unimodal piecewise smooth maps",
+          "trigger": "Frozen citation on exact curve"
+        },
+        {
+          "assessment": "Plausible relevance remains; period-three golden-mean scope reported in the frozen source was not independently verified",
+          "evidence": [
+            "AIMS identification gives the same article; lawful full-text attempts did not furnish decisive passages."
+          ],
+          "identifier_or_url": "https://doi.org/10.3934/dcdss.2024042",
+          "material_read": "Indexed publisher identification only; no full text read",
+          "method": "Publisher/DOI, the identified alternate copy and exact-title lookup",
+          "title": "Symbolic dynamics for a kinds of piecewise smooth maps",
+          "trigger": "Same-map symbolic analysis could establish all-left or geometric conclusions"
+        },
+        {
+          "assessment": "Related concepts, neither the same model nor the same parameter limit",
+          "evidence": [
+            "One treats a critical-cusp map with pointwise dimension splitting; the other a planar quadratic map with expanding symbolic subsystems."
+          ],
+          "identifier_or_url": "Resultary 6361762d8fbd and 8c9b71eb2d78",
+          "material_read": "Finding passages in RESULT.md at offset 0 for both",
+          "method": "Local Resultary mirror",
+          "title": "Exact local-dimension splitting and dense infinite slopes; Near-maximal robust symbolic entropy in a two-parameter quadratic map",
+          "trigger": "Closest related full-branch geometry and high-entropy records"
+        },
+        {
+          "assessment": "General method is credited, and the needed expanding-map instance is checked independently rather than relying on uninspected passages",
+          "evidence": [
+            "The route did not produce usable full text; the ball/cylinder comparison gives the relevant conclusion under the verified hypotheses."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/BF01941717",
+          "material_read": "No decisive primary text read",
+          "method": "Attempted lawful publisher and Project Euclid routes",
+          "title": "Some relations between dimension and Lyapunov exponents",
+          "trigger": "General dimension theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Proof §§2–4",
+        "Sushko–Agliari–Gardini (2006) same-map crisis passage"
+      ],
+      "rationale": "This is a natural boundary of a known crisis family rather than a sample parameter. The canonical invariant law has unchanged full entropy, yet its mass outside any fixed neighborhood of 1 has a computable exponential rate, and the typical and exceptional dimension limits go in opposite directions. The two different geometric mechanisms (many weak left iterates versus the rapidly expanding right branch) give a useful quantitative example of what full symbolic entropy does not control.",
+      "residual_risks": [
+        "The physical invariant measure, parameters beyond the verified expanding range, and any limit map at r=1 are not covered."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

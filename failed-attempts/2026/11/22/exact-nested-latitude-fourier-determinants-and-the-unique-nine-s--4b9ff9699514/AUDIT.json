@@ -1,0 +1,161 @@
+{
+  "correctness": {
+    "rationale": "Unitary per-ring DFT and descending Fourier-order elimination block-triangularize the square collocation matrix. Each order block equals associated Legendre leading coefficient product times row sin-powers and latitude Vandermonde. Multiplicity counts yield 2i+1 in each separation and k(k+1)/2 in each (1-x_k²). Strict log concavity and boundary decay give a unique interior extremum per latitude-order chamber. At L=3, exact elimination of two polynomial stationary equations gives exactly two admissible radical solutions, and a positive exact rational comparison selects the global maximum. Standard-library reproduction directly evaluates spherical harmonic matrices and exact quadratic-field identities. Infinite bandwidth is proved by analytic factorization, not sampled experiments.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Khalid (2026) establishes exact interpolation for arbitrary distinct rings and selects a numerical-error amplification objective, not a sharp global determinant optimum.",
+        "2014 and 2017 ring sampling papers select latitudes to mitigate sequential interpolation conditioning, a quantity which does not algebraically fix the product determinant maximum.",
+        "Nearest published single-ring pure quartic result 2026/11/1/SCOPE-a-sharp-latitude-for-exact-quartic-spherical-harmonic-recovery-f--03efae1b3f93 optimizes condition number of one degree-four harmonic subspace."
+      ],
+      "reasoning": "A stronger recovery or conditioning theorem does not imply a sharp nine-point D-optimal determinant value. The full determinant is a different multiplicative spectral invariant; explicit comparison of the claims reveals no implication.",
+      "searches": [
+        "published-finding corpus: optimal determinant spherical harmonic interpolation L squared samples iso latitude 1 3 5 equiangular rings determinant Vandermonde D-optimal Fekete placements",
+        "published-finding corpus: sharp determinant factorization spherical harmonic sampling nested odd ring counts Legendre Vandermonde",
+        "web: \"optimal-dimensionality\" \"determinant\" \"spherical\" sampling rings"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2611.16441",
+      "https://arxiv.org/abs/1403.4661",
+      "https://arxiv.org/abs/1709.02497",
+      "https://ntrs.nasa.gov/api/citations/19730008792/downloads/19730008792.pdf?attachment=true",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/1/SCOPE-sharp-angular-offset-determinant-and-conditioning-for-two-spheri--35d45a63d3a2",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/1/SCOPE-a-sharp-latitude-for-exact-quartic-spherical-harmonic-recovery-f--03efae1b3f93",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/1/SCOPE-sharp-quadrupole-conditioning-on-paired-spherical-latitude-rings--38d9014ee346"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "New claim: |det E_L| = K_L ∏(1-x_k²)^{k(k+1)/2}∏|x_j-x_i|^{2i+1} and exact globally best nine-point latitudes.",
+        "Source paper (2026): exact bandlimited sampling with sampling-function interpolation and an amplification constant; no determinant objective optimized in inspected source.",
+        "Classical leading-coefficient/Vandermonde reductions are reused, not claimed independently."
+      ],
+      "reasoning": "The source sampling theorem entails nonvanishing of the determinant when nodes are distinct but does not determine its magnitude or optimizer. Its error-amplification minimizer is not equivalent to maximizing this determinant. The exact all-L expression and cross-chamber radical comparison are not corollaries of the sourced statements.",
+      "searches": [
+        "arxiv:2611.16441, relevant interpolation and error-amplification sections",
+        "arxiv:1403.4661, ring placement discussion",
+        "arxiv:1709.02497, condition-number selection",
+        "published-finding corpus: bandlimit three spherical harmonic sampling one pole one triangle one pentagon maximize determinant all free latitudes"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Khalid arXiv:2611.16441, Section III sampling functions are Lagrange-type exact interpolation, with no determinant maximum for nine points in material examined.",
+        "The objective is an orthonormal-column collocation determinant and equivalently a square-root Gram determinant, invariant under any unitary harmonic basis change.",
+        "Near published-finding corpus ID 2026/11/1/SCOPE-sharp-angular-offset-determinant-and-conditioning-for-two-spheri--35d45a63d3a2 treats equal-population latitude rings and their relative azimuthal offset, not pole+3+5 latitude design."
+      ],
+      "reasoning": "Compared determinant and log-volume (D-optimal information) formulations, not merely matching words. Known Vandermonde determinant is an ingredient, while the weighted multiring power law and explicit cross-chamber optimum are further statements.",
+      "searches": [
+        "optimal determinant spherical harmonic interpolation L squared samples iso latitude 1 3 5 equiangular rings determinant Vandermonde D-optimal Fekete placements",
+        "sharp determinant factorization spherical harmonic sampling nested odd ring counts Legendre Vandermonde",
+        "nested latitude rings 2k+1 spherical harmonic Fekete unique D optimal configuration",
+        "exact nine-sample 1-3-5 spherical harmonic collocation determinant optimal co-latitude radical sqrt 2305",
+        "web: \"spherical harmonics\" \"1-3-5\" maximal determinant",
+        "web: \"spherical harmonic\" \"9\" \"D-optimal\" rings polar"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Search results did not locate the pair (11+sqrt(2305))/78, (15-sqrt(2305))/130, nor its D-optimal determinant statement.",
+        "NASA report 19730008792 constructs an older one/three/five sampling geometry, but the inspected sections contain no unrestricted D-optimal latitude table."
+      ],
+      "reasoning": "No matching archived table is evidenced by searches and the inspected historical source; this is not asserted as a proof of absence.",
+      "searches": [
+        "published-finding corpus: exact nine-sample 1-3-5 spherical harmonic collocation determinant optimal co-latitude radical sqrt 2305",
+        "published-finding corpus: factorized determinant L squared spherical harmonic samples nested odd iso-latitude rings optimal D design Fekete",
+        "web: \"2305\" \"latitude\" \"spherical\" harmonics optimal",
+        "web: \"1 3 5\" rings \"spherical harmonics\" determinant 9 samples optimum latitude"
+      ]
+    },
+    "rationale": "The source explicitly proves interpolation and optimizes an amplification constant rather than the full determinant. In the exact nested-ring family, explicit leading Legendre constants, all ring-pair exponents, chamber-wise strict concavity and the first nine-point exact global radical are different mathematical statements not implied by those results. Related optimized spherical sampling works concern other designs or condition numbers; bibliographic priority is not certified.",
+    "residual_risks": [
+      "An older Fekete-point or weighted Vandermonde design calculation might already imply the general formula or radical optimizer; searched coverage is not a formal priority certificate.",
+      "Two near published mathematical-result entries were available only as indexed summaries; their full theorem texts could not be checked, though their described hypotheses and objectives differ.",
+      "No optimization beyond nested ring geometry or of numerical stability is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Proves interpolation and O(L³) algorithm; no global D-optimal nine-point latitude or evaluated collocation determinant in inspected material",
+        "evidence": [
+          "arXiv abstract states optimization of error amplification rather than determinant",
+          "arXiv full text details interpolation and ring selection in Sections III and VI"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2611.16441",
+        "material_read": "arXiv full text through HTML, Sections II-D/III-B/VI-A-C, order-by-order sampling and numerical amplification discussion, and conclusions",
+        "method": "Opened arxiv HTML and read relevant mathematical material",
+        "title": "An O(L^3) Spherical Harmonic Transform on L^2 Samples",
+        "trigger": "Exact nested odd-ring sample geometry, same samples and first-public date 2026-11-12"
+      },
+      {
+        "assessment": "Minimizes sequential interpolation condition numbers, not the complete determinant",
+        "evidence": [
+          "arXiv:1403.4661 latitude placement strategy uses condition-number criteria"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1403.4661",
+        "material_read": "Full-text placement/condition-number discussion and sample geometry",
+        "method": "arXiv open-access HTML",
+        "title": "An Optimal-Dimensionality Sampling Scheme on the Sphere with Fast Spherical Harmonic Transforms",
+        "trigger": "Foundational scheme and latitude conditioning"
+      },
+      {
+        "assessment": "Discrete latitude ordering and conditioning improvements; no closed determinant D-optimal result in inspected material",
+        "evidence": [
+          "arXiv:1709.02497 Section on ring placement uses matrix condition numbers"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1709.02497",
+        "material_read": "Full-text discussion of improved placement and conditioning on rings",
+        "method": "arXiv open-access HTML",
+        "title": "Optimal-Dimensionality Sampling on the Sphere: Improvements and Variations",
+        "trigger": "Related latitude placement and previous optimization"
+      },
+      {
+        "assessment": "Historical sampling framework, but not an unrestricted global determinant optimization in the examined relevant sections",
+        "evidence": [
+          "NASA Technical Report 19730008792, three- and five-ring illustrations and sampling functions"
+        ],
+        "identifier_or_url": "https://ntrs.nasa.gov/api/citations/19730008792/downloads/19730008792.pdf?attachment=true",
+        "material_read": "PDF discussion of the nine-point one/three/five geometry and sampling-function derivation, pages in the 30s and 40s, including image inspection",
+        "method": "NASA publicly accessible PDF text and page screenshots",
+        "title": "Sampling Functions for Geophysics",
+        "trigger": "Historical pole/three/five spherical data scheme, possible exact equivalent"
+      },
+      {
+        "assessment": "Different two equal-population rings and optimized angular staggering, not same latitude determinant objective",
+        "evidence": [
+          "Published summary describes sin²(L δ) stagger optimum for two symmetric 2L-point rings"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/1/SCOPE-sharp-angular-offset-determinant-and-conditioning-for-two-spheri--35d45a63d3a2",
+        "material_read": "Published search abstract/summary, not full article",
+        "method": "Semantic search result; full text not retrieved",
+        "title": "Sharp angular-offset determinant and conditioning for two spherical latitude rings",
+        "trigger": "Potentially overlapping determinant optimization"
+      },
+      {
+        "assessment": "Degree-four pure harmonic subspace on one polygon, different bandwidth and objective",
+        "evidence": [
+          "Summary quotes quartic nine-point optimal condition number, not full degree≤2 determinant"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/1/SCOPE-a-sharp-latitude-for-exact-quartic-spherical-harmonic-recovery-f--03efae1b3f93",
+        "material_read": "Published search abstract/summary, not full article",
+        "method": "Semantic search result; full text not retrieved",
+        "title": "A sharp latitude for exact quartic spherical-harmonic recovery from one regular polygon",
+        "trigger": "Single-ring harmonic latitude optimization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "previously_published_pending_reaudit": false,
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4b9ff969-9514-41d6-8ee9-4062a5d4f113",
+  "value": {
+    "rationale": "Information-volume/D-optimal design is a motivated exact invariant for the critical L²-sample spherical Fourier acquisition. The finding gives an all-bandwidth factorization and structural per-chamber uniqueness, and a sharp nine-sample design addressing the first nontrivial three/five latitude allocation beyond the classical one/three pole case. The resulting approximately six-percent absolute determinant improvement relative to equiangular sampling is interpretable for this precise objective; no unrelated downstream stability claim is made.",
+    "status": "PASS"
+  }
+}

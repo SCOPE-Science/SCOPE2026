@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:45:38.306350Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The all-zero and alternating targets force at least 2m+1 zeros and m+1 ones. At the resulting length bound, a one at zero-rank c supplies exactly the eligible marker indices in {c−1,c}. Covering 2m+1 positions with m+1 such intervals leaves at most one excess membership, so repeated ranks are impossible, including at clipped endpoints. The first and last ranks are in {0,1} and {2m,2m+1}; jumps are one or two. For m≥1 this permits exactly two all-two sequences and m sequences with one jump of size one, giving the displayed distinct words and automatic avoidance of 11. The two m=0 words are immediate. To show attainability and sufficiency, pair up target positions consecutively on either side of the odd-index singleton assigned to 10 or 01. Each pair lies in {00,01,10}, all contained in 010; either singleton fits in the remaining block. Independently, enumerating explicit subsequence sets for target lengths 1,3,5,7 checked the optimal-content hosts and all shorter hosts of feasible length (python /workspace/reproductions/golden.py). The proof has no cutoff.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior one-marker theorem gives an interval criterion for arbitrary zero and marker counts, and classifies optimizers with each prescribed number of markers. Other general subsequence-universality papers require all k-letter words over the alphabet; the regular restriction in Adamson et al. is on the candidate host. Lagoutte–Tavenas study complexity for finite input sets in a different restricted-input problem."
+        ],
+        "reasoning": "It is the stronger fixed-marker interval and slack result, not a general all-target universality/complexity result, that dominates the required equality-case analysis.",
+        "searches": [
+          "Resultary 522f2396053e, interval characterization and fixed-marker count for arbitrary k,r",
+          "arXiv:2003.04629 abstract and arXiv:2311.10658 p. 2",
+          "arXiv:1309.0422 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 522f2396053e, b87cc26c6be8, 3a8f24d1254e, 19bfcecdc328 and identical a999d7db7c66",
+        "arXiv:2003.04629, 2311.10658 and 1309.0422",
+        "Frozen RESULT.md lines 58 and 68 for the unidentified unpublished length reference"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For m≥1 put k=2m+1 and r=m+1. The prior result gives s=ceil(k/r)=2, L_k(r)=k+r=3m+2 and δ=rs−k=1. The prior formula immediately gives [y](1+y)^2(1+y+y²)^m=m+2.",
+          "The prior slack bijection puts the one unit into α, β or one γ_j. This gives respectively the starting 10, terminal 01, or unique short zero gap of an interior 10 insertion, and all ranks are strictly increasing. For m=0 the general interval criterion at z=r=1 gives just 01 and 10.",
+          "Every resulting word is a concatenation of m copies of 010 and one two-letter singleton host (10 or final 01). Splitting a no-11 target into adjacent pairs and a singleton proves full coverage with no additional classification or counting needed."
+        ],
+        "reasoning": "The earlier exact fixed-marker theorem plus this immediate block check recovers all material claims, including the one-marker reduction at optimal content. There is no independent optimizer classification left beyond the specialization. The unpublished cited length-only source is not needed for this determination.",
+        "searches": [
+          "Resultary 522f2396053e, Finding L_k(r), C_(k,r) and Proof §4 slack bijection",
+          "Frozen RESULT.md proof §4 (block embeddings) and references lines 58, 68"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier one-marker family T_k is exactly the frozen theorem's v_i subfamily. Its cumulative-zero coordinate x_j is the frozen zero-rank c_j. At z=k the earlier interval formula has s=z−k+2=2 and gives exactly {x_j−1,x_j} clipped to [0,k−1].",
+          "At forced letter content the one-marker optimizers are exactly the golden-mean optimizers: necessity is immediate and admissible binary pairs plus a singleton embed into the prior optimizer list."
+        ],
+        "reasoning": "This equivalence is conditional on extremal content, not an assertion that unrestricted covers of the two target families are identical. It exposes how the previous fixed-marker equality-case theorem directly determines the allegedly new extremal objects.",
+        "searches": [
+          "Resultary: earlier exact minimum master length 2k-floor(k/(r+1)) binary run-capped target words avoiding 1^(r+1) scattered-subsequence common supersequence divisibility unique master; unrestricted host",
+          "Resultary 522f2396053e, Finding, scope and Proof §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact phrasing hit is the frozen record a999d7db7c66 itself. Distinct earlier record 522f2396053e supplies the fixed-k,r enumeration and slack parametrization, including the precise coefficients needed here.",
+          "Record b87cc26c6be8 gives counts and a (10)^j(01)^(k−j) list for run-limited hosts with all binary targets, not a golden-mean target theorem. The other inspected run-limited records likewise restrict hosts, not targets."
+        ],
+        "reasoning": "The identical hit gives no priority evidence. The earlier fixed-marker record is the decisive source even though its title and displayed formula are more general and the exact case is not tabulated as golden-mean.",
+        "searches": [
+          "Resultary: odd golden-mean scattered-subsequence covers, one-marker shortest hosts and equivalent run-language problems",
+          "Resultary 522f2396053e, b87cc26c6be8, 3a8f24d1254e and 19bfcecdc328"
+        ]
+      },
+      "rationale": "The list and count, not just the minimum length, are a direct implication of the earlier exact fixed-marker classification, Resultary record 522f2396053e. At k=2m+1 and r=m+1, extremal full coverage forces exactly the length that minimizes cover length for the one-marker family at fixed r. The earlier theorem determines every such host by a one-unit slack vector, hence gives the exact same list, count and rigidity. The only remaining check is that each of these already determined words contains every golden-mean target, which follows by the direct two-letter/singleton block test. This is verified prior implication, not a finding that the earlier source literally states the golden-mean theorem verbatim, nor a failure based on the inaccessible unpublished length reference.",
+      "residual_risks": [
+        "The cited unpublished run-capped exact-length record has no usable identifier; a focused catalog search did not identify it. Its exact scope remains unverified, but the separate prior fixed-marker implication is sufficient for the originality decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong prior implication: exact fixed-marker optimizer description and count specialize to the frozen claim",
+          "evidence": "L_k(r)=k−2+r+ceil(k/r); C_(k,r) is the bounded slack coefficient at δ=rs−k. Proof step 4 is a bijection from each slack vector to a unique host via cumulative-zero ranks, not just an existence result.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-shortest-supersequences-for-all-one-marker-binary-words--522f2396053e/RESULT.md",
+          "material_read": "Finding, Assumptions and scope, and Proof steps 1–4; local mirror offsets 0–5535",
+          "method": "Targeted Resultary mirror reading of the theorem and decisive proof",
+          "title": "Exact shortest supersequences for all one-marker binary words",
+          "trigger": "Exact optimizer count and host classification for the marker subfamily used by the frozen proof"
+        },
+        {
+          "assessment": "Different placement of the avoidance requirement",
+          "evidence": "The host avoids 1^(r+1), and targets are every binary word of length k; the cited a_1(2k,k)=k+1 is for that ensemble.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-subsequence-universality-distribution-of-binary-run-limite--b87cc26c6be8/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Targeted local Resultary mirror read",
+          "title": "Exact subsequence-universality distribution of binary run-limited languages",
+          "trigger": "Close catalog structural overlap in run-limited universality and exact optimizer lists"
+        },
+        {
+          "assessment": "Host-side caps on both symbols, all targets",
+          "evidence": "Gives a sharp host-length forcing threshold for all binary targets.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-run-limited-binary-words-exact-subsequence-universality-spectrum--3a8f24d1254e/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Targeted local Resultary mirror read",
+          "title": "Run-limited binary words: exact subsequence-universality spectrum and sharp forcing thresholds",
+          "trigger": "Related forcing thresholds in run-limited languages"
+        },
+        {
+          "assessment": "Host-side restriction, different target family",
+          "evidence": "Studies the all-binary-target universality index of run-capped hosts.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-run-capped-binary-words-have-an-exact-subsequence-universality-s--19bfcecdc328/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Targeted local Resultary mirror read",
+          "title": "Run-capped binary words have an exact subsequence-universality spectrum",
+          "trigger": "Related run-capped host theorem"
+        },
+        {
+          "assessment": "All-target universality definition differs",
+          "evidence": "A k-universal word has a k-spectrum containing all length-k words over its alphabet.",
+          "identifier_or_url": "https://arxiv.org/pdf/2003.04629",
+          "material_read": "Abstract, p. 1, offset 0",
+          "method": "Targeted OA primary PDF passage",
+          "title": "Scattered Factor-Universality of Words",
+          "trigger": "Broader structural universality literature"
+        },
+        {
+          "assessment": "Regular candidate language with all targets",
+          "evidence": "A k-subsequence-universal candidate contains every length-k word as a subsequence.",
+          "identifier_or_url": "https://arxiv.org/pdf/2311.10658",
+          "material_read": "p. 2, offset 5000",
+          "method": "Targeted OA primary PDF passage",
+          "title": "k-Universality of Regular Languages",
+          "trigger": "Regular-language subsequence universality comparison"
+        },
+        {
+          "assessment": "Restricted-input complexity, not the exact target-family equality case",
+          "evidence": "Studies complexity of shortest common supersequence for finite input sets under restrictions on consecutive letters.",
+          "identifier_or_url": "https://arxiv.org/pdf/1309.0422",
+          "material_read": "Abstract p. 1, offset 0",
+          "method": "Targeted OA primary PDF passage",
+          "title": "The complexity of Shortest Common Supersequence for inputs with no identical consecutive letters",
+          "trigger": "Primary restricted shortest-supersequence literature cited by the record"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The equality-case question is natural, but the fixed-marker result already yields all candidate optima, the count and rigidity by the one-unit slack specialization. Beyond that known structure the frozen finding adds only the immediate embedding of admissible two-letter blocks and a singleton. It does not establish a substantive new classification, boundary, or extension requiring an independent exact fact; no separate valuable repair is identified.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

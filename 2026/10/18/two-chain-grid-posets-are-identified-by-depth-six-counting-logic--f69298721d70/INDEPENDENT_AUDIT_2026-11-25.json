@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:18:01.401656Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–48 (all-size proof independently reconstructed)",
+        "Frozen VERIFICATION.md and CHECKS.txt (recorded evidence only)",
+        "Frozen grid_refinement_check.py, square_competitor_check.py and sharp_boundary_check.py (inspected without execution)"
+      ],
+      "rationale": "The first-round predecessor count identifies the two atoms when both factors have size at least two; unequal sides distinguish them by successor count. In the square the points incomparable to exactly one atom give the two axes without the least point at round two. A point at axis position k has k−2 strict predecessors in that union, so round three isolates the axis level pairs. Round-four weak predecessor counts to those pairs give the unordered coordinates, and symmetry prevents a finer split. For unequal sides one tracks the separate axes the same way, giving ordered coordinates; a chain is discrete at round one. In any candidate poset with these profiles, the two axis elements at each level match bijectively to the two at each higher level. Align all levels from the atom pair; transitivity forbids a crossed higher-level matching. Each vertex has an initial segment on each aligned axis below it; counts recover the unordered coordinates and column degrees at the larger axis level force opposite assignments for the two vertices of an off-diagonal class. Transitivity implies every actual comparison is coordinatewise allowed, and the prescribed successor counts exhaust all such allowable successors class by class. Rank-four color formulas plus one inner exact count and one outer quantifier give the rank-six sentence. The unrestricted cases are also correct: all relation blocks are forced except one-regular matches between doubletons. For sides one and two none can vary up to isomorphism; for side three the two matching blocks form a path and relabeling its successive classes removes every choice. For every side at least four crossing T2→T4 leaves the relation asymmetric and irreflexive, and preserves all atomic-pair counts into the equitable orbit classes. A two-variable induction on formulas (a counted fresh vertex is categorized by its class and relation to the retained vertex) therefore proves C² equivalence, while the unchanged T2→T3→T4 chain witnesses nontransitivity. Loops or symmetric pairs cannot alter the positive unrestricted cases because the prescribed same-class strict counts vanish and between two classes at most one comparison direction is allowed.",
+      "residual_risks": [
+        "The square block checker uses reflexive order internally with a fixed diagonal; the switch and transitivity checks concern the off-diagonal comparisons, so this does not affect the claim. The finite scripts are not the basis of the all-size verdict."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broader chain-product theorem gives a bound 1+∑(m_i−1) and disclaims the relative identification result. The broader relational structure theorem is about all competitors, and in fact rules out unrestricted identification for the large squares. The forest-order record bounds depth in height for a different poset class."
+        ],
+        "reasoning": "The bound from the broader product theorem grows with both side lengths and does not imply the uniform four-round statement. The positive cases of the general relational theorem cover those cases even among posets, but its negative cases leave exactly the large squares to be settled by reconstruction using transitivity.",
+        "searches": [
+          "arXiv:1503.08792 Theorems 24, 27",
+          "arXiv:1502.01255 graph amenability; Resultary 66ed9eade869 and 15f31fa75c06"
+        ]
+      },
+      "checked_sources": [
+        "Kiefer–Schweitzer–Selman arXiv:1503.08792 §2.1 and §5",
+        "Arvind et al. arXiv:1502.01255 abstract and introduction",
+        "Local Resultary mirrors: 66ed9eade869, 513e568fed76, 15f31fa75c06, 6735f2bcf75a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the edge-colored strict-order encoding, every stable class is monochromatic internally, and every non-monochromatic interclass block is two equal-sized classes of size two with a perfect matching in one direction and incomparable complementary pairs. Thus the exception conditions of Theorem 27 are vacuous; its forest condition is decisive. The matching skeleton is discrete for unequal sides, a forest for square side ≤3, and contains the triangle T2,T3,T4 for square side ≥4."
+        ],
+        "reasoning": "The unrestricted threshold follows from Kiefer–Schweitzer–Selman once the grid classes are known and is not a wholly independent discovery. The general theorem neither controls the uniform refinement rate nor tells whether every alternative matching assignment is nontransitive. The relative uniqueness proof using transitivity in every square is the supported additional result.",
+        "searches": [
+          "arXiv:1503.08792 §5, Theorem 27, exact skeleton criterion; compare with all orbit blocks of P_{m,n}",
+          "Local Resultary product-order orbit theorem and Boolean-grid comparisons"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kiefer–Schweitzer–Selman §2.1 encodes binary atomic types by the colors and orientations of the edges; Theorem 27 classifies unrestricted identification from the resulting stable partition.",
+          "Local record 66ed9eade869 recovers orbits in the same full strict-order signature but explicitly does not claim identification among finite posets."
+        ],
+        "reasoning": "This translation is exact for unrestricted equivalence, not for the competitor restriction: replacing a matching can make the encoded relation nontransitive. A stable orbit partition alone cannot prove identification when its classes have size two.",
+        "searches": [
+          "Local Resultary: C² identification, color refinement and finite products of chains",
+          "arXiv:1503.08792, strict order as an edge-colored partially oriented graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "66ed9eade869 same-day finding and scope use all products and a parameter-dependent orbit bound. 513e568fed76 has a sharp C² boundary for Boolean products with nonlattice POSSET competitors at n≥4. 6735f2bcf75a treats 21 rank-three ordinary FO theories inside the two-chain family, not counting-logic identification against finite posets."
+        ],
+        "reasoning": "These are close indexed statements, not a table of the same relative rank-six characteristic sentences. The Boolean counterexamples have a different number of factors and competitor class. The same-day overlap on orbit recovery is real; priority is not inferred from date.",
+        "searches": [
+          "Local Resultary for two-chain grid posets, counting depth and boundaries; strongest results 66ed9eade869, 513e568fed76, 15f31fa75c06, 6735f2bcf75a"
+        ]
+      },
+      "rationale": "The distinct contribution is uniform bounded-depth reconstruction within the class of strict finite posets, including arbitrarily large squares with nondiscrete colors. The unrestricted boundary is credited to an application of the existing general colored-relation criterion; qualitative orbit recovery already overlaps a broader same-day chain-product result. Neither comparison supplies the transitivity-based identification theorem or a uniform four-round separation proof for the whole two-factor family.",
+      "residual_risks": [
+        "The chronological relationship within the same-day records remains unestablished; the comparison here is at statement level. Full text of the cited Grädel–Otto–Rosen reference was not obtained in the attempted route. No optimal quantifier-rank claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers unrestricted boundary via direct specialization, not relative identification in the negative cases",
+          "evidence": [
+            "Theorem 27 identifies finite vertex-colored ec-POGs precisely under the allowed blocks, forest skeleton and exception conditions; the grid matching skeleton meets the other conditions, with triangle exactly from square side four."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1503.08792",
+          "material_read": "§2.1 p. 5 offset 15180; §5 Theorems 24, 27, especially pp. 25–26 offsets 78870–81349",
+          "method": "Bounded OA PDF passage reads",
+          "title": "Graphs Identified by Logics with Counting",
+          "trigger": "General precise criterion for the same logic on binary relations"
+        },
+        {
+          "assessment": "Identification analogue in undirected graphs",
+          "evidence": [
+            "Amenability asks for separation from all nonisomorphic graphs; tree examples are not full strict-order grids."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1502.01255",
+          "material_read": "Abstract and introduction, pp. 1–2 offsets 0 and 6780",
+          "method": "Bounded OA passage reads",
+          "title": "Graph Isomorphism, Color Refinement, and Compactness",
+          "trigger": "Amenability and color refinement"
+        },
+        {
+          "assessment": "Overlapping orbit conclusion, weaker depth guarantee and no relative identification",
+          "evidence": [
+            "Bound 1+∑(m_i−1); explicit scope exclusion of identification among finite posets."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-colour-refinement-recovers-every-orbit-of-a-finite-product-of-ch--66ed9eade869",
+          "material_read": "Mirrored RESULT.md Finding/Scope offset 0; relationship/limitations offset 4709",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "Colour refinement recovers every orbit of a finite product of chains",
+          "trigger": "Same order signature and stronger product family"
+        },
+        {
+          "assessment": "Different family and failure even within posets",
+          "evidence": [
+            "B_n identifiable among posets iff n≤3; witness above this range is a nonlattice poset, not a nontransitive binary structure."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-a-sharp-two-variable-counting-logic-boundary-for-boolean-posets--513e568fed76",
+          "material_read": "Mirrored RESULT.md Finding offset 0 and construction at offset 4624",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "A sharp two-variable counting-logic boundary for Boolean posets",
+          "trigger": "Closest sharp boundary in a product of chains"
+        },
+        {
+          "assessment": "Methodological analogue, not the grid family",
+          "evidence": [
+            "Relative identification of forest orders with a height-dependent bound; nontrivial two-chain products have elements with incomparable predecessors."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-height-bounded-counting-logic-identification-of-finite-forest-or--15f31fa75c06",
+          "material_read": "Mirrored RESULT.md Finding and Scope, offset 0",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "Height-bounded counting-logic identification of finite forest orders, and its sharp acyclic boundary",
+          "trigger": "Relative identification theorem with an ambient boundary"
+        },
+        {
+          "assessment": "Later, ordinary FO within-family comparison, not relative C² identification",
+          "evidence": [
+            "The classified 21 theories are ordinary FO quantifier-rank-three theories, with no claim of counting-logic characterization against all posets."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-twenty-one-three-round-theories-of-two-chain-product-lattices--6735f2bcf75a",
+          "material_read": "Mirrored RESULT.md Finding offset 0, classification discussion offset 3542",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "Twenty-one three-round theories of two-chain product lattices",
+          "trigger": "Exact same product family and bounded logical depth"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen reconstruction and sentence construction, lines 36–48",
+        "Kiefer–Schweitzer–Selman Theorem 27 and the grid comparison in this review"
+      ],
+      "rationale": "The proof determines how transitivity restores unique identification for an infinite natural family on which standard unrestricted identification fails. It furnishes a uniform depth guarantee without parameters in the nesting bound and a concrete reconstruction from axis comparison data, rather than just computing finite examples or quoting graph identification machinery. No value judgment relies on treating the unrestricted boundary as new in isolation.",
+      "residual_risks": [
+        "The proof is for two factors and does not by itself provide a corresponding theorem for higher-dimensional products."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:31:46.882084Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–82",
+        "Frozen VERIFICATION.md lines 19–27; verify.py lines 11–98 (inspected, not executed)"
+      ],
+      "rationale": "Every directed cycle uses all layers; any color in all layers furnishes an r-cycle. Inclusion-exclusion over named colors has only singleton and pair terms, counted by (2q-1)^r and 2^r respectively. Interpolation gives the polynomial; valid two-colorings exist by assigning opposite monochromatic colors to two layers. For F_r=P/q, F_r(0) is nonzero and F'_r(1)=2^(r-1)-1>0, giving simplicity at 0 and 1. Below x=1/2, elementary bounds by x and 1-2x give F_r<0 for both parities; on [1/2,1), the difference x^(2r)-(2x-1)^r is at most r*x^(2r-2)*(1-x)^2, yielding a strict upper bound below zero. For x=1+y>1, the linear, quadratic and cubic coefficients are 2^(r-1)-1, -(r-1) and r-1. The higher coefficients are nonnegative: the binomial ratio starts strictly above 2^3 at degree 3 and its successive ratios exceed 2 through degree r. The phrase 'equality at j=3' in the proof is imprecise; evaluating that coefficient gives r-1, not equality of the two binomial terms. The positive lower bound follows by completing the square in y^2-y. For negative q=-t, all terms of P(-t)/t are positive when r is even. When r is odd, its signs at 0, 1/2 and infinity are +,-,+, and the descending coefficient signs have exactly two changes (the linear coefficient does not affect the count). Descartes' bound including multiplicity proves exactly two simple roots, one on each side of t=1/2.",
+      "residual_risks": [
+        "Finite enumeration in the supplied checker confirms only its tested palettes and parameters. All-order completeness rests on the interval inequalities and Descartes' rule."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Crew et al. prove density of real roots across digraphs, including the digon-free class. Their adjacent proof uses an undirected path blow-up for independence roots and a separate digraph construction adding a hub and triangles. Akbari et al. control leading coefficients in terms of digirth."
+        ],
+        "reasoning": "Density across digraphs is neither a density theorem nor a census for each fixed family. Digirth coefficients do not settle the sign of this entire polynomial on positive real intervals or determine the count and simplicity of negative roots.",
+        "searches": [
+          "Crew et al. arXiv:2611.13273v1 §5, Corollary 8 and Theorem 3",
+          "Akbari et al. arXiv:1711.06293 Thm. 8",
+          "González-Moreno et al. DOI 10.1007/s00373-022-02484-0"
+        ]
+      },
+      "checked_sources": [
+        "Resultary f197eecc1b6c (self), 4459b4b951bb, bdc17603a163",
+        "arXiv:2611.13273v1; arXiv:1911.09547v3; arXiv:1711.06293",
+        "Named DOI retrieval attempts and Crew et al.'s account of Jackson's ordinary chromatic interval"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ordinary chromatic zero-free intervals concern proper undirected colorings. For D_r the obstruction is a color meeting every layer, not a same-color adjacent pair. The return-path comparator proves normalized polynomial monotonicity and conditions for a positive root below 1, not for the cyclic-doublet family."
+        ],
+        "reasoning": "Neither applying ordinary root-free regions nor applying general directed-subgraph representations mechanically yields the sharp parity outcome. The inclusions and exact signs must be evaluated for the cyclic family.",
+        "searches": [
+          "arXiv:2611.13273v1 introduction and §5",
+          "arXiv:1911.09547v3 abstract/introduction",
+          "Resultary 4459b4b951bb, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "This family is the lexicographic blow-up of a directed cycle by an edgeless doublet. The chromatic-polynomial equivalence discussed by Hochstättler and Wiehe is for symmetric digraphs, not this one-way adjacency. Majority-stable subsets of cyclic blow-ups use a different predicate."
+        ],
+        "reasoning": "Naming the product or forgetting orientation does not preserve proper colorings in the dichromatic sense. The focused primary query was unavailable, not negative source evidence.",
+        "searches": [
+          "Resultary directed cyclic blow-up and dichromatic roots",
+          "Primary query: dichromatic polynomial, directed cycle, independent layers, blow-up real roots and lexicographic product",
+          "arXiv:1911.09547v3 introductory definitions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact catalogue hit f197eecc1b6c is the assigned record itself. The separate same-day exact root study uses one return path and internally disjoint forward paths and has a parity criterion for a subunit positive root. The October cyclic-blow-up result is a majority-stable-set polynomial."
+        ],
+        "reasoning": "No separate matching polynomial and all-order census were found. The counterpart families/stats were compared by their exact models, without inferring order from a shared date.",
+        "searches": [
+          "Resultary cyclic doublet dichromatic polynomial and parity of real roots",
+          "2026/11/22/SCOPE-dichromatic-polynomial-rigidity-subunit-roots-and-monotonicity-f--4459b4b951bb",
+          "2026/10/18/SCOPE-majority-stable-set-polynomial-and-colouring-phases-for-directed--bdc17603a163"
+        ]
+      },
+      "rationale": "The inspected prior statements concern general dichromatic polynomial structure, density over digraph classes, or exact results for different families. They do not give the oriented cyclic-doublet polynomial together with its complete, parity-controlled real-root classification.",
+      "residual_risks": [
+        "Primary search provider was unavailable; comparison uses the actual cited source texts where accessible. González-Moreno et al. and Jackson's original full text could not be retrieved. No blanket historical priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broad structural and root-density work, no matching family theorem in inspected text",
+          "evidence": "Corollary 8 and Theorem 3 give density across families of digraphs. The path blow-up concerns independence roots; hub and triangle additions construct different digraphs.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.13273v1",
+          "material_read": "PDF p. 2 and §5 pp. 7–11, including offsets 25900, 28300, 32732, 37757",
+          "method": "OA PDF source passages",
+          "title": "Properties of the Dichromatic Polynomial",
+          "trigger": "General real-root results and blow-up constructions"
+        },
+        {
+          "assessment": "No transfer by symmetry; structural representation is broader",
+          "evidence": "Totally cyclic subdigraph representation and symmetric-digraph condition for equality with the underlying graph's chromatic polynomial.",
+          "identifier_or_url": "https://arxiv.org/abs/1911.09547v3",
+          "material_read": "PDF p. 3 abstract/introduction around offset 800",
+          "method": "OA PDF source passage",
+          "title": "The Chromatic Polynomial of a Digraph",
+          "trigger": "Possible reduction to ordinary chromatic theory or spanning-subgraph representation"
+        },
+        {
+          "assessment": "Coefficient overlap, not root classification",
+          "evidence": "Leading coefficients governed by digirth and counts of shortest directed cycles.",
+          "identifier_or_url": "https://arxiv.org/abs/1711.06293",
+          "material_read": "PDF p. 8 Thm. 8, text near offset 24700",
+          "method": "OA PDF source passage",
+          "title": "Chromatic Number and Dichromatic Polynomial of Digraphs",
+          "trigger": "General coefficient and polynomial constraints"
+        },
+        {
+          "assessment": "Different oriented family",
+          "evidence": "Return path and internally disjoint forward paths; parity criterion for a root in (0,1), unlike cyclic doublets.",
+          "identifier_or_url": "2026/11/22/SCOPE-dichromatic-polynomial-rigidity-subunit-roots-and-monotonicity-f--4459b4b951bb",
+          "material_read": "Local RESULT.md Finding starting at offset 0",
+          "method": "Resultary and original GitHub mirror text",
+          "title": "Dichromatic polynomial rigidity, subunit roots and monotonicity",
+          "trigger": "Strongest distinct matching exact real-root record"
+        },
+        {
+          "assessment": "Different coloring restriction and invariant",
+          "evidence": "Counts majority-stable subsets and studies majority coloring, not monochromatic directed cycles.",
+          "identifier_or_url": "2026/10/18/SCOPE-majority-stable-set-polynomial-and-colouring-phases-for-directed--bdc17603a163",
+          "material_read": "Local RESULT.md starting at offset 0, model and Finding",
+          "method": "Resultary and original GitHub mirror text",
+          "title": "Majority-stable-set polynomial and colouring phases for directed cyclic blow-ups",
+          "trigger": "Matching topology terminology"
+        },
+        {
+          "assessment": "Scope overlap unresolved",
+          "evidence": "No family-level inference without text.",
+          "identifier_or_url": "https://doi.org/10.1007/s00373-022-02484-0",
+          "material_read": "Bibliographic identification; no decisive original passage available",
+          "method": "DOI, publisher and PDF retrieval attempts timed out",
+          "title": "The Dichromatic Polynomial of a Digraph (González-Moreno et al.)",
+          "trigger": "Potential earlier directed-polynomial family result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, RESULT.md lines 5–15 and proof lines 28–82",
+        "Crew et al. arXiv:2611.13273v1 §5"
+      ],
+      "rationale": "This is an explicit natural oriented family with all real roots located and their multiplicities controlled uniformly in its size. It gives a test case for general directed root theory: the odd sizes have two negative roots despite ordinary chromatic-polynomial intuition, whereas the even sizes and all positive-root regimes are completely resolved. The enumerator alone, without the sign census, would not provide this comparison.",
+      "residual_risks": [
+        "This classification is only for width two with r>=3, not arbitrary layer sizes or all digon-free digraphs. No complex-root census is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

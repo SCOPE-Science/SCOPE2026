@@ -1,0 +1,87 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T15:07:13.338165Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For truncation x^(p+2), differentiating the relation forces f(0)=0 because 2 is a unit. The coefficient of degree j+s−1 in fg'−gf' has diagonal (s−j)a_j multiplying b_s. For 2≤j≤p the only allowed resonance is s=j, which is in range precisely when j≤(p+1)/2. Subtracting a multiple of f at that entry leaves only the free tail s>p+2−j, of dimension j−1. At j=1 the last diagonal coefficient is p=0, and f and x^(p+1) account for both degrees of freedom; order p+1 is central. The x^(p+1) quotient truncates the same triangular system one step earlier and removes only the j=1 top resonance from that range; its cutoff for the s=j resonance stays the same because p is odd. Counting zero and each order with its q^dim centralizer gives both polynomials and the fixed-p limiting ratio. The classes of e_2 and e_p commute downstairs but all lifts have the same bracket (p−2)e_(p+1)≠0, including p=3. A fresh exhaustive calculation gives (C(L), C(L'))=(945,153), (589761,13041), (540625,45625) for (p,q)=(3,3),(3,9),(5,5), and direct ordered-pair enumeration independently gives 945 for L over F_3. Replay with Python 3: /workspace/branches/636bdfe2-4000-4b40-8423-fc87000f8064/independent_reproduction.py. The proof, not exhaustion in these fields, covers all extension degrees and odd primes; the uploaded verifier was read only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The second web lookup was unavailable; Yao–Chang's primary manuscript gives the full simple-Witt and nilpotent Borel setup in characteristic p>3 over an algebraically closed field.",
+          "Premet's regular-derivation problem concerns multivariate truncation with each exponent p, not successive exponents p+1, p+2 in one variable."
+        ],
+        "reasoning": "These results do not give a theorem about arbitrary one-variable truncation lengths. Even a geometric component statement for the nilpotent locus, without more information, would not give all ordered F_q-pairs or the number of lifts of a commuting pair.",
+        "searches": [
+          "Web: truncated Witt Lie algebra one variable k[x]/(x^n) derivation solvable central extension p+2 commuting pairs centralizers Yao Chang",
+          "arXiv:1301.5667 Lemma 2.3, Remark 2.4, Theorems 3.6 and 4.3",
+          "arXiv:1405.2426 (domain in the abstract and frozen bibliography)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1301.5667v1",
+        "arXiv:1405.2426 (abstract scope only)",
+        "Resultary transport attempt and indicated published comparisons in frozen AUDIT.json"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Yao–Chang compute the centralizer by a span of the element and a high-order filtration tail (or the tail alone) at their truncation. Their last basis degree cannot see either the modular j=1, s=p+1 zero or the bracket (p−2)e_(p+1)."
+        ],
+        "reasoning": "Both facts are needed: the former affects the centralizer of order one, the latter prevents all commuting pairs in the quotient from lifting to commuting pairs. A simple-Witt or Borel census does not determine those additional brackets.",
+        "searches": [
+          "arXiv:1301.5667 Lemma 2.3 and Remark 2.4",
+          "arXiv:1301.5667 Theorem 3.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Yao–Chang's W_1 is Der(k[x]/x^p), with basis starting at degree zero; its Borel g_0 starts at degree one and stops at p−1.",
+          "Here L/L_top is Der(k[x]/x^(p+1)), with a further noncentral degree-p basis element; L has another, central degree p+1."
+        ],
+        "reasoning": "Solvable positive truncations versus simple or Borel Witt are not simply different names: dimensions, top brackets and centers differ. Reindexing the Witt-degree convention does not turn the two truncations into the cited algebra.",
+        "searches": [
+          "Web: centralizers commuting pairs derivation Lie algebra truncated polynomial ring k[x]/(x^n) positive characteristic solvable filiform truncated Witt x^(p+2) census",
+          "arXiv:1301.5667 §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No Resultary hit data were returned for that request; no negative inference is drawn.",
+          "The explicit known stratification in Lemma 2.3 and §3 is for W_1 and its nilpotent locus, not a table of F_q-pair populations at consecutive higher truncations."
+        ],
+        "reasoning": "An exact centralizer-rank table for L or a formula for its commuting probability would count as coverage. The available exact comparison gives neither, and the inaccessible search is a limitation, not evidence of absence.",
+        "searches": [
+          "Resultary: commuting pairs derivations truncated polynomial algebra positive characteristic Witt centralizer central extension x^(p+2) (transport failure)",
+          "arXiv:1301.5667 Lemma 2.3 and §3 centralizer/dimension stratification"
+        ]
+      },
+      "rationale": "The elementary triangular method is closely related to known Witt-algebra centralizer calculations, but the compared theorem does not give centralizers at the two higher truncations, their finite-field censuses, or the effect of this specific nonsplit extension. Qualified to this canonical pair of truncations and the modular resonance, not to Witt centralizers in general.",
+      "residual_risks": [
+        "A general one-variable truncated vector-field centralizer theorem could specialize to this census; the search for it was limited.",
+        "The later Yao–Chang journal paper was not independently examined in full, and no negative inference is drawn from the unavailable lookups."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same coefficient/filtration method, different truncated algebra and counted locus; not a stronger theorem specializing to the stated extension.",
+          "evidence": [
+            "§2 defines A=k[X]/(X^p) and W_1=span{X^iD:0≤i≤p−1}; Lemma 2.3 gives centralizers there.",
+            "Theorem 3.6 concerns irreducible components and dimension of C(N) over an algebraically closed field."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1301.5667",
+          "material_read": "Introduction and §2 including basis, Lemma 2.3 and Remark 2.4; §3 through statement of Theorem 3.6; introductory statement of Borel theorem",
+          "method": "Primary arXiv PDF text",
+          "title": "Nilpotent commuting varieties of the Witt algebra",
+          "trigger": "Explicit centralizers and commuting strata for the closest classical Witt and Borel algebras"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a complete centralizer and commuting-pair census for a natural modular truncation, not selected small fields. The quantitative comparison distinguishes the actual central extension from a split stabilization: their leading commuting counts differ by a factor tending to 2/(p+1), and the deficient lift is explained by the surviving degree-p+1 commutator. The exact order strata make the result reusable for finite fields.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

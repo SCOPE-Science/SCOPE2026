@@ -1,19 +1,21 @@
-# Scientific assessment of the characteristic-two Pascal-line fiber theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The conic normalization, noncoincidence of the two defining intersections, exact Pascal-line coefficient formula, and group-action normalization all follow from explicit projective geometry. The point-incidence count has four mutually exclusive exclusions, and each exclusion is counted directly; the two subtle corrections reduce to explicit rational parametrizations, with the same factor \(k^2+k+1\). Undoing the normalized counts yields the three stated per-line formulas. An independently written direct hexagon census over \(\mathbb F_8\) and \(\mathbb F_{16}\), and normalized counts through \(\mathbb F_{256}\), reproduced the predictions.
+PASS
 
-## Originality — PASS, with residual priority risk
+Reconstructed the general proof. With the first three vertices infinity, 0, 1, the first two cross-intersections are [1:0:de] and [1+e+f:ef:ef]; they give the stated quadratic on the conic. The tangent condition excludes precisely the q-2 distinct inverse pairs. For a proposed finite root t other than 0 or 1, N=td(1+e) is nonzero, so the four forbidden denominators/values for f=N/P are disjoint. P=N gives t=de and dP=N gives t=d,e. P=0 and eP=N each exclude two sets of size q-2 and a disjoint set parametrized by nonzero k other than 1 and the roots of k^2+k+1. This gives the two stated subfield corrections. An exterior pair comprises conjugate nonrational parameters; the affine subgroup is already transitive on those individual parameters, and the conic group is transitive on rational points and rational pairs. The sharp triple normalization, free 12-element dihedral action, and the three line class sizes give the asserted per-line counts. The secant factor is positive even with the maximum correction 4 for q>=8; all other factors are positive, and q=2,4 have too few vertices. Independent exact replay: python3 /tmp/opencode/frozen_nov24_pascal.py, using different binary field presentations and counting normalized triples by the absolute trace of de/B^2 (or B=0 for tangency), not by the dossier's point-incidence exclusions. This matched all three multiplicities at q=8,16,32,64,128, including (112,21,117) and (3360,1920,3536). The finite replay corroborates the symbolic proof; it is not an all-fields verification on its own. The frozen script was inspected, not run.
 
-The 2016 Pascal-reconstruction paper addresses recovering a sextuple from four lines; the 2022 degeneration paper studies collisions of vertices; and the 2023 triple-Pascal enumerative paper works over the complex numbers with three prescribed lines. Their inspected mathematical statements do not entail a binary finite-field fiber classification. An existing separate finite-field classification explicitly assumes characteristic at least five, so the present characteristic-two formulas and inseparable tangent behavior are outside its scope. Database searches for characteristic-two Pascal-fiber aliases and finite-geometry equivalents found no matching theorem. This does not rule out unindexed classical finite-geometry results.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The construction is canonical for any smooth rational conic. Characteristic two is a genuine excluded boundary of the odd-characteristic classification because every tangent passes through the conic nucleus. The theorem gives a complete arithmetic classification of all Pascal-line fibers over every binary field, a sharp all-line-surjectivity threshold at the first possible field, and a concrete singular-cubic explanation for a subfield-dependent correction. It is not a mere recomputation of one finite example.
+Best-of-knowledge pass for the complete binary-field multiplicity theorem, including its parity-of-m correction. The strongest identified catalogue statements have the same question but disjoint characteristic ranges; classical reconstruction, degeneration and complex three-line enumeration do not cover rational binary one-line fibers. The conclusion is not a claim of first discovery of Pascal's construction or of the general line-counting setup.
 
-## Closest literature and scope
+## value
 
-Abdesselam–Chipalkatti (2016, arXiv:1608.05056), Chipalkatti–Da Silva (2022, arXiv:2202.12975), and Chipalkatti (2023, arXiv:2303.10319) provide the nearest classical Pascal frameworks; none of their inspected main results provides the displayed arithmetic theorem. The conclusion is about multiplicity of rational cyclic hexagons, not pairwise distinct Pascals or isomorphism classes of hexagons. The leading unexcluded risk is an equivalent result in unindexed older finite-projective-geometry literature.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural finite-geometry incidence invariant is fully determined in an exceptional characteristic where all tangents are concurrent and quadratic splitting works differently. The theorem gives the first possible binary field for all-line coverage and distinguishes fibers across every extension by a precise order-three subfield correction; it is more than a six-set experiment or a re-normalized complex count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

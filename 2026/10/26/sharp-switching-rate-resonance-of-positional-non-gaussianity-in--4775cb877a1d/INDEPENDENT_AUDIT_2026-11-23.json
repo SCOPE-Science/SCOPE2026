@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T15:21:28.331282Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS for the repaired claim, not for the frozen wording. Frozen SLOGAN.txt says the raw moments always fall for two positive stiffnesses and otherwise Q decreases strictly below the contrast threshold. The frozen Finding also states strict decrease at or below the threshold without directly restricting that clause to unequal stiffnesses, and the proof's sign sentence likewise needs the nonzero factor (a−b)². Taking a=b makes the stationary law N(0,D/a) independent of k, so Q=0, M_2=D/a and M_4=3(D/a)² are all constant. The complete corrected RESULT.md, SLOGAN.txt and updated bibliographic METADATA.json are under /workspace/repairs/1/. In the repaired proof, the chain's stationary marginal is unique and the exponential past integral is conditionally Gaussian; finiteness of all moments and same-chain contraction give existence and uniqueness and justify the generator calculation. The diffusion parts at degrees two and four are 2D times the state mass and 12D times the corresponding second moment. Solving the two linear systems gives the displayed moments and rational Q. For a≠b both raw moment derivatives have strictly negative factors, while Q' has the sign of P(k). The derivative P' is strictly negative for k≥0; P(0)=4ab[(a+b)²−8ab] and P→−∞. Thus there is exactly one strict interior global maximum precisely above contrast 3+2√2; at equality of the contrast threshold the derivative vanishes at the continuous endpoint k=0, not inside the domain. Independently reproduced exactly with Python 3/SymPy: /workspace/branches/b41d6aad-c467-480d-8b3d-e61327d08f94/ordinal1_recheck.py. The frozen checker was inspected, not executed. The final repair also correctly states that conventional excess kurtosis is 3Q and shares the same monotonicity. The new prior identity with [4, Eq. (5)] was checked by exact rational simplification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Biroli–Kulkarni–Majumdar–Schehr treat arbitrary positive transition rates with the full conditionally i.i.d. Gaussian mixture, a stronger forward result. The symmetric model is its direct specialization.",
+          "The 2016 two-state Markov-switching OU article surfaced as a same-object distributional comparison; the publisher full-text route was inaccessible. The 2022 Kac–OU publisher abstract describes conditional means with telegraph dynamics and stationary distributions; this is not a full-text exclusion."
+        ],
+        "reasoning": "The stationary law and forward moment identities are already subsumed. None of the examined stronger forward statements classifies extrema of this normalized response as the two tied rates change at fixed stiffnesses. Older distributional literature remains a residual priority risk, not evidence of absence.",
+        "searches": [
+          "arXiv:2312.02570v1 Eqs. (2), (10)–(14)",
+          "Web: Markov switching Ornstein-Uhlenbeck stationary positional distribution rate dependence fourth moment maximum two stable drift rates slow switching nonmonotonic normalized kurtosis threshold",
+          "doi:10.1080/03610918.2015.1132321",
+          "doi:10.1007/s11009-022-09956-z"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2312.02570v1",
+        "arXiv:2508.07199v2, doi:10.1103/jkn8-h939",
+        "arXiv:2202.02630 (related model and frozen §4 pointer)",
+        "doi:10.1080/03610918.2015.1132321 (indexed fragment/access attempt)",
+        "doi:10.1007/s11009-022-09956-z (publisher abstract)",
+        "Resultary nearby published switching-trap and covariance records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the same SDE the earlier mixture gives the forward moments; the newer Eq. (5) gives the same normalized Q outright. Those parts follow directly and are credited as prior.",
+          "The additional assertion is global: P'(k)<0 for k≥0, and P(0) changes sign exactly at the stiffness contrast threshold. The raw fourth-moment derivative must separately be proved negative. Fig. 2 at fixed rates assesses a different parameter direction."
+        ],
+        "reasoning": "The rate theorem is a specific mathematical analysis of a known response, not a new expression for it. The inspected comparisons provide no stronger monotonicity/extremum statement whose specialization would already give this result. A reparameterization, differentiating at a single example, or citing the complete law alone would not establish the all-contrast rate classification.",
+        "searches": [
+          "arXiv:2312.02570v1 Eqs. (12)–(14)",
+          "arXiv:2508.07199v2 Eqs. (3)–(5), Fig. 2 and accompanying discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Given the common variance V of the stationary mixture, E[X_i²X_j²]=E[V²]=M_4/3 for two conditionally independent coordinates, while E[X_i²]E[X_j²]=(E[V])²=M_2². So C_2 of Eq. (4) is exactly Q for the noninteracting theory, not just a related mixed moment.",
+          "The 2026 normalized response of the experimental paper is an exact forward match; the published Resultary covariance-camouflage and harmonic temporal-mode comparisons concern covariance or time-lag decay, not the global rate optimum of the positional fourth-moment ratio."
+        ],
+        "reasoning": "Searching just for kurtosis misses the exact forward identity under the aliases 'normalized squared-position covariance' and relative variance of the common Gaussian variance. Conventional excess kurtosis differs by a positive factor of three, hence has the same extrema. The decisive remaining question is whether the rate dependence, not just its explicit rational graph, was previously classified.",
+        "searches": [
+          "Resultary: Markov switching Ornstein Uhlenbeck harmonic trap two stiffness equal switching rate kurtosis nonmonotonic stationary maximum threshold",
+          "Web: two positive stiffness switching harmonic trap fourth moment stationary kurtosis nonmonotonic rate Biroli Majumdar kurtosis maximum stiffness ratio 3+2 sqrt 2",
+          "arXiv:2508.07199v2 Eqs. (1)–(5)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Eq. (5) is an exact rational formula, not just plotted data. Set k_1=a, k_2=b, r=k, R_i=r/(2k_i). Then R_1+R_2=k(a+b)/(2ab), 4R_1R_2=k²/(ab), and cancellation gives exactly the frozen rational Q for every allowed a,b,k.",
+          "Fig. 2 varies the weaker stiffness at two fixed switching rates; it is not a scan of the rate at fixed stiffnesses, nor a table of optimal rates or the sharp contrast boundary."
+        ],
+        "reasoning": "An exact prior formula counts as already-covered forward content even if not indexed as single-particle kurtosis. No exact rate-optimum table or classification was established in the inspected sources. The indexed law for switched traps with one stiffness nonpositive is not a dominating result on this strictly positive contrast domain.",
+        "searches": [
+          "Resultary: Markov switching Ornstein Uhlenbeck harmonic trap two stiffness equal switching rate kurtosis nonmonotonic stationary maximum threshold",
+          "Web: Experimental Evidence for Strong Emergent Correlations switching rate optimum peak normalized squared position correlation harmonic trap Biroli Ciliberto 2508.07199",
+          "arXiv:2508.07199v2 Eqs. (3)–(5) and Fig. 2"
+        ]
+      },
+      "rationale": "PASS only for the repaired, expressly forward-prior-covered result: the global derivative classification in the switching rate at fixed positive stiffnesses, including the unique optimum and strictly decreasing raw moments in the unequal model. The strongest positive prior-coverage finding is that the exact full forward Q already appears, in a different label, in Biroli et al. arXiv:2508.07199v2 Eq. (5). It is not an original component. Neither that equality nor the earlier distributional theorem is a statement about global monotonicity or optimizing the rate. The derivative factorization and single-root proof, not an algebraic parameter identification, establish the additional claim. The repair credits both forward sources explicitly and limits the claim accordingly.",
+      "residual_risks": [
+        "Forward priority is established positively and excluded, not merely flagged as a risk. Rate-classification priority remains qualified; a paper mining the exact correlator or Gaussian mixture could have analyzed the same optimization under another name.",
+        "The 2016 same-family distribution paper did not yield full text on the attempted route, and the 2022 Kac–OU comparison was limited to its abstract. Search incompleteness is not novelty evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Dominating distributional theorem; forward Q follows and is not new. No rate-optimum classification in the examined statements.",
+          "evidence": [
+            "Eq. (12) is a product of Gaussians conditional on a common variance, integrated against Eq. (13).",
+            "Eq. (14) evaluates the mixed fourth covariance under equal switching rates."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2312.02570v1",
+          "material_read": "Model Eqs. (2)–(9), Gaussian mixture Eqs. (10)–(13), equal-rate squared-position covariance Eq. (14) and surrounding discussion",
+          "method": "Primary arXiv HTML",
+          "title": "Dynamically emergent correlations between particles in a switching harmonic trap",
+          "trigger": "Exact same model, full stationary law including unequal switching rates"
+        },
+        {
+          "assessment": "Exact forward Q already displayed as C_2; sample comparison varies stiffness at two fixed rates and is not evidence that the rate-optimum theorem was already stated or empirically confirmed.",
+          "evidence": [
+            "Eqs. (4)–(5) give E[z_i²z_j²]/(E[z_i²]E[z_j²])−1 and its closed form with R_i=r/(2k_i).",
+            "Fig. 2 plots quantities against k_2 at fixed k_1=1.44 and rates 0.47 and 1.88.",
+            "arXiv v2 was posted on 2026-08-06; journal citation Phys. Rev. Lett. 137, 037102 (2026)."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2508.07199v2; https://doi.org/10.1103/jkn8-h939",
+          "material_read": "Primary manuscript model and noninteracting mixture, Eqs. (1)–(5), paired variance and correlation measurements, Fig. 2 and discussion; supplementary variance/correlation passages; arXiv version and journal citation metadata",
+          "method": "Primary PDF text and arXiv HTML passages",
+          "title": "Experimental Evidence for Strong Emergent Correlations between Particles in a Switching Trap",
+          "trigger": "Same symmetric switched-trap theory and experimental parameter comparison predating the frozen record"
+        },
+        {
+          "assessment": "A plausible antecedent; no whole-document noncoverage finding.",
+          "evidence": [
+            "The accessible fragment describes stationary-distribution characterizations of a two-state Markov-switching OU process."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/03610918.2015.1132321",
+          "material_read": "Indexed bibliographic record and abstract fragment; full publisher page returned no readable text",
+          "method": "Literature search and lawful publisher-page access attempt",
+          "title": "The stationary distribution of Ornstein–Uhlenbeck process with a two-state Markov switching",
+          "trigger": "Earlier potentially overlapping OU distribution theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired value is the physically motivated switching-rate classification, not recovering a known formula. For modest contrast faster switching reduces both raw moments and normalized departure from Gaussianity; at strong contrast it initially increases relative non-Gaussianity while suppressing both moments, and there is an exact unique best rate. This sharp distinction for all positive stiffness pairs is useful for selecting or interpreting moment diagnostics in a standard stochastic-trap model. It does not claim new forward statistics or that the optimum was experimentally resolved.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

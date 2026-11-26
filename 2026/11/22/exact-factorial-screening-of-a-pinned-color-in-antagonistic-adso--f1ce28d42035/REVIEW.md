@@ -1,17 +1,21 @@
-# Review: Exact factorial screening of a pinned color in antagonistic adsorption
+# Independent mathematical audit
 
-## Correctness — PASS
-The result concerns the difference between two otherwise identically coupled, preseeded \(A\)-root and \(B\)-root evolutions. It has one exact infinite-volume theorem: the causal response formula at every positive distance and time, with strict sign, a sharp factorial constant, and an entire generating function. The proof establishes the half-line cavity ODE by conditioning on a single attempt, shows why only a strictly increasing, alternating-color path conveys the root discrepancy, integrates the independent endpoint obstruction, and sums the resulting absolutely convergent series. A finite-path checker independently verified 252 exact-rational equalities over 1,146,655 complete marked-order cases. Its finite experiments are corroborative, not an infinite proof. No uncovered boundary cases are claimed: bias is strictly between zero and one, time at most one, and the strict sign/tail require positive time.
+## correctness
 
-## Originality — PASS (best knowledge)
-The closest published source, do Amaral–dos Santos (2023, arXiv:2306.09786), develops the same one-attempt model and its unseeded single-site density. The unseeded geometric cluster theorem and second-neighbor covariance theorem also reuse the same cavity function but do not give an intervention response to two distinct forced initial root colors. The dimer impurity note has a different physical process and alternating defect-rate response. The published finite-cycle theorem compares unseeded ring means. The new claim is the all-distance pinned-color causal response, sharp coefficient and \(t/2\) balanced half-line sum. The single-neighbor cavity itself is credited, not claimed new.
+PASS
 
-A previously unindexed influence theorem remains a priority risk; generic graphical constructions, and the available abstract of Penrose–Sudbury (2005), do not prove historical uniqueness. The complete relevant original 2023 text and the closest published same-model records were inspected; the 2005 work was not read in full.
+Earlier-arrival dependence stops almost surely: a chain of length m avoiding the pinned site must use distinct sites and have strictly ordered continuous times; the union bound decays factorially. In the vacant-boundary cavity, conditioning on the endpoint's one attempt gives a′=α(1−b), b′=β(1−a), with zero initial data. Solving gives h_A=1−b as stated, and h_A(u)≥1−βu>0. An independent reconstruction avoids assuming independence along a conditioned disagreement path: in a segment of n unpinned sites with a seed on the left and a free right endpoint, the endpoint marginal differences satisfy D′_(n,A)=−αD_(n−1,B), D′_(n,B)=−βD_(n−1,A), with D_(0,A)=1 and D_(0,B)=−1 and zero initial differences for n>0. The endpoint is vacant until its own attempt, proving the recurrence. On the infinite half-line, conditioning on the attempt at site d separates that finite left segment from the independent right cavity, so R′_(d,A)=−α h_A D_(d−1,B). The recurrence gives precisely the alternating-mark factor times u^(d−1)/(d−1)! and yields (1), including d=1 and t=0. The normalized Beta(d,1) time integral concentrates at t, giving (2). Splitting into odd and even d gives (3), justified locally uniformly by factorial domination. For α=β, h_A=e^(−u/2), the formula gives the removable value t/2 at z=1; reflection gives two copies and the seed contributes one, so the full-line A change is 1+t and the B change is its negative by color symmetry. A separate exact finite replay, not the supplied script, found agreement for all 63 endpoint-time finite-path cases it tested.
 
-## Mathematical value — PASS
-A single preadsorbed species nucleus is a natural perturbation in irreversible two-species competition. Exact response at every distance determines whether spatial memory is finite range or only factorially screened and how far one nucleus biases deposition. The balanced \(t/2\) sum rule gives an exactly conserved *integrated susceptibility* across the infinite half-line even though the individual response changes with distance. This is not an arbitrary finite enumeration or an unmotivated special parameter slice.
+## originality
 
-## Limitations and evidence
-The theorem is specific to nearest-neighbor opposite-color blocking with one independent attempt per nonseeded site. It excludes multiple seeds, altered arrival clocks, spatial heterogeneity and repeated proposals. Independent mathematical audit and priority verification have not been performed. Primary literature: arXiv:2306.09786, arXiv:2210.05627, arXiv:2211.04622; published self-review records and the different dimer-rate defect are cited in RESULT.md. The accompanying checker reproduces finite-state calculations in exact rational arithmetic.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact same-model cavity function, arrival-order method, and the one-neighbor implication are prior ingredients. Actual comparison supports a distinct all-distance pinned-color response and its sharp normalization and balanced sum, not novelty of cavity shielding or of factorial screening in general.
+
+## value
+
+PASS
+
+A forced color swap is a natural distinction from observing unperturbed cluster or correlation statistics. The exact spatial profile and positive sharp factorial prefactor quantify how strongly the rule screens that local intervention. Summing the complete profile at balance gives a simple susceptibility unavailable from a bound on influence alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

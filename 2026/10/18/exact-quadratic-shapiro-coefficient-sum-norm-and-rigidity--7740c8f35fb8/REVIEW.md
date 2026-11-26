@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (C): PASS
-For the entire complex quadratic unit ball the three exact evaluation coefficients reproduce precisely the functional \(a_0+a_1\); this gives an unconditional upper bound. The displayed extremal polynomial attains the bound exactly because its modulus squared equals \(27-8(\cos t-1/2)^2\), before normalization. For equality, two saturated evaluation values fix the candidate up to \(c(z^2-z+1)\); the two first-derivative conditions at distinct boundary contacts form a nonsingular real linear system and force \(c=0\). The independently replayable symbolic checks match each needed nonstandard identity, but the written analytic proof is decisive. No extrapolation from finite computation is used.
+## correctness
 
-## Originality (O): PASS, with recorded residual risks
-The closest same-parameter literature is Technau's 2026 full primary preprint and journal article. Its Example 2.10 gives only \(\mathscr M_{1,3}\le1/2+1/\sqrt2\), not the exact \(2/\sqrt3\); its other exact coefficient functionals do not have the same vector \((1,1,0)\), and the Newman even-length solution does not apply for \(d=3\). Searches of indexed mathematical findings under Shapiro notation, dual polynomial-functional norms, two-node boundary quadrature and the explicit optimizer did not find a prior identical or stronger claim; their closest records address distinct norms and constraints. The abstract 1952 node existence theorem alone does not specify the sharp value or equality family. Residual risk: full text of Shapiro's 1952 thesis and Rogosinski's 1962 related paper could not be assessed, so hidden classical coverage cannot be categorically excluded.
+PASS
 
-## Value (V): PASS
-The exact \((1,3)\) constant is a canonical low-dimensional case in a longstanding named extremal problem explicitly singled out with a nonsharp numerical upper bound in the newest primary article. A tight value plus full rigidity and computed optimal boundary nodes is a complete natural classification rather than a routine repackaging or a contrived finite slice. The finding does not purport to settle higher-degree cases.
+On the complex degree-at-most-two space let ζ=e^{iπ/3}. Using ζ²=ζ−1 and λ=(2−ζ)/3, the real-conjugate pair of weights on ζ,ζ̄ has moments (1,1,0), with each absolute weight 1/√3. This certifies the upper bound on the full complex ball. Independently, expanding the modulus square of the numerator gives 21+8 cos t−4 cos(2t)=27−8(cos t−1/2)², with exactly the two stated contacts. Equality after fixing the scalar phase makes both evaluations match p_*. Their difference is c(z²−z+1); subtracting the boundary stationarity equations at the contacts gives the coefficients −(1+ζ) and 1+ζ̄ acting by real part on c, with determinant −3√3/2 in real coordinates. This forces c=0, including when lower-degree polynomials are allowed. The frozen SymPy verifier was inspected, not executed; these exact reductions independently check its decisive identities and uniqueness argument.
 
-## Literature and limitations
-Primary evidence: Marc Technau, arXiv:2603.24405v1 (2026-03-25), subsequently *Forum of Mathematics, Sigma* 14 (2026), e69, especially Example 2.10, Theorems 1.3, 2.5, 2.6. The original Shapiro thesis and Rogosinski article were not materially read, and independent scientific validation remains pending. The precise novelty judgment is qualified by that historical coverage risk; no independence or exhaustive priority guarantee is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Technau discusses exactly M_{1,3} but supplies only a strictly larger upper bound. The evidence supports the exact constant and phase rigidity as distinct from the inspected earlier statements. A later indexed stronger bidisk theorem materially overlaps both claims and is not counted as earlier coverage based on its later date.
+
+## value
+
+PASS
+
+The invariant is a singled-out odd-cutoff case of a named partial-sums problem with a published nonsharp bound at precisely this parameter. The sharp value, explicit extremizer and complete complex rigidity are independently usable; the contribution is not a numerical improvement alone and does not purport to solve other cutoffs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

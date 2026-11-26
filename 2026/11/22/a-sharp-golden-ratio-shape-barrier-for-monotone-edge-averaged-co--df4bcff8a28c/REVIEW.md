@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Finding:** A sharp golden-ratio shape barrier for monotone edge-averaged convection–diffusion on parallelogram meshes
+## correctness
 
-## Correctness — PASS
+PASS
 
-Six signed edge weights are computed by exact reference-square integration with the physical metric. Each off-diagonal edge entry has sign opposite to its weight for any positive edge diffusion and real Péclet label; a violating pair survives assembly in the 3-by-3 Dirichlet tiling. At equality, positive-edge connectivity yields a nonsingular column-diagonally-dominant M-matrix. Maximization of the exact 2-by-2 metric eigenvalue ratio yields the sharp Jacobian barrier, realized by a stated affine cell. A standalone symbolic/numeric script passed 2,233 supplementary finite checks; the general result is supported by the analytical proof, not the checks alone.
+Using the one-dimensional mass, derivative and stiffness matrices in tensor products gives opposite off-diagonals equal to a/3−b/6, b/3−a/6, and (a+b)/6±c/2, where a=||v||²/|det J|, b=||u||²/|det J|, c=−u·v/|det J|. Positivity of both Bernoulli factors preserves each sign for every admissible edge label. A negative weight creates a positive reduced off-diagonal: the corresponding central-cell vertices are interior, and either the pair is a diagonal with a unique contributor or every contributor shares the same side-orientation weight. Conversely a nonnegative set of weights yields a Z-matrix with zero column sums before Dirichlet elimination. At least one of the two side families is strictly positive, giving a straight positive-edge path from each interior node to the boundary even at all endpoint combinations. After elimination every component has a strictly dominant column, and the bidirectional edges give irreducibility on each component, so the reduced matrix is a nonsingular M-matrix. With z=(a−b)/(a+b) and q=2c/(a+b), the admissible closed rectangle has |z|≤1/3, |q|≤2/3. Maximizing z²+q² gives 5/9, hence κ₂(J)≤(3+sqrt(5))/2 with the stated Gram-matrix extremizer. Replay q1_tensor_stiffness() in /workspace/branches/independent_replay.py for the coefficients and exact witness. The proof concerns the nonsingular M-matrix condition, not arbitrary inverse positivity, consistency for arbitrary edge data, or general quadrilaterals.
 
-## Originality — PASS, qualified
+## originality
 
-Adler–Hu–Lee–O'Keefe (arXiv:2611.01175, 2026), the motivating complete-graph IBEAM source, **owns the edge-weight definition and strict-positive-weight sufficient M-matrix result**. The novelty claim is limited to the exact affine-parallelogram if-and-only-if geometric domain, including zero-weight boundaries and sharp Jacobian conditioning. Cao–Chen–Lee (arXiv:2402.13347, 2024) addresses different virtual-element operators and Voronoi/Delaunay conditions. Li–Zhang (arXiv:2310.16274; 2025 publication) handles a modified-quadrature Q1 scheme and explicitly documents existing Q1 aspect-ratio obstructions. Xu–Zikatanov (1999) originates simplex edge averaging. Searches of these materials and mathematical records did not identify this combined claim. Unindexed prior Q1 geometry analysis may still cover it; the 1999 full paper was not verified read. No search establishes absolute novelty.
+PASS
 
-## Value — PASS
+The supported distinct claim is the exact closed geometric iff for the specified complete-graph IBEAM tiling and its attained sharp Jacobian distortion. The method, weight formula, strict-positive-weight sufficiency, standard Q1 stiffness algebra and Bernoulli sign mechanism are not new. The initiating theorem alone is not the closed shape iff; the strongest retrievable anisotropic Q1 comparator uses modified quadrature. The exact classical-geometry priority risk, especially the rectangle specialization, remains open and is not counted as a separately novel claim.
 
-The result is a complete and sharp practical geometry screening condition for the smallest nonsimplicial element class in the newly introduced polytopal IBEAM method, independent of convection intensity. It identifies when skew and aspect ratio make the sufficient M-matrix framework valid or invalid and proves the sharp admissible affine-condition-number ceiling of \( (3+\sqrt5)/2\), with a realizable extremizer and an example showing that the ceiling is not sufficient. This is more informative than a finite illustrative calculation and gives a precise meshing constraint.
+## value
 
-## Scope and outstanding risks
+PASS
 
-Only uniform affine parallelogram tilings with the six-edge complete-graph operator and Dirichlet boundary are classified. Arbitrary real edgewise Péclet labels are allowed at the matrix level; no PDE-consistency claim is made for arbitrary edge data. Failure of the M-matrix property does not prove failure of all inverse-positivity or maximum-principle notions. Full scholarly priority and independent audit remain unresolved.
+The full closed mesh screening rule answers a practical and mathematical question left by strict sufficiency: whether every drift preserves the M-matrix property at a given aspect and shear, and exactly where it must fail. The attaining geometric ceiling and an orthogonal inadmissible element below it show why conditioning alone does not decide admissibility. This is a motivated exact boundary for a specified discretization, not a convergence theorem or a generic claim that bad shapes cause oscillations.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

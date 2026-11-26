@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:37:37.127066Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–39 and 43–83",
+        "Frozen VERIFICATION.md, verify.py and verification_output.txt (inspected, not executed; exact quartic identity reconstructed)"
+      ],
+      "rationale": "With R=1+B_a, scale theta=epsilon*t. The limit 2/(1-it) and the bound by C/(1+|t|) give the displayed gamma constant by integration. The identity R times conjugate(B_a)=conjugate(R), evenness under conjugation, and Re R=|R|²/2 give the exact total mass of the linear variation. Its absolute density is bounded by |R|^(p-1), with mass O(epsilon) and o(epsilon) outside each fixed arc of 1; this gives the indicated evaluation functional uniformly on bounded polynomial sets. Uniform convexity bounds the unscaled perturbation by O(delta). On the delta scale, Taylor remainders divided by delta^p are bounded by constants times delta^(2-p) integral|R|^(p-2) and delta^(-1) integral|R|. The first tends to zero: for 2<p<3 use (epsilon/delta)^(p-2), at p=3 use delta log(1/epsilon), and for p>3 use delta. The second is O(epsilon log(1/epsilon)/delta). This proves bounded-set convergence of the normalized objectives and hence convergence of minimizers and minima by strict convexity and compactness in fixed degree, including n=0. Conjugation and reversal give equal real coefficients in degree one; optimizing its scalar objective gives c_p and the stated decrement. Point evaluation and its explicit extremizer give the exact unrestricted optimum; the log derivative of C_0 vanishes at 2 and is strictly positive thereafter by strict decrease of trigamma. The even-power baseline follows by the inner function mean-value identity and the already verified linear coefficient. As a check on the supplied quartic code, direct expansion with g=B_a(u+vz) gives integral|1-g|⁴=1+4 integral|g|²+integral|g|⁴−4 Re integral(g+g|g|²)+2 Re integral g². Here integral(g|g|²)=−a(u³+2uv²)+(1−a²)u²v for real u,v, confirming the quartic formula and its baseline 6−8a+2a².",
+      "residual_risks": [
+        "The theorem fixes p>2 and n before the limit; the estimates do not justify uniformity as p→2 or n→infinity.",
+        "The exact-baseline formulation is correct, but the suggestion that a non-even p requires it to avoid intervening powers at the displayed order is unnecessary. Push forward circle measure by B_a to the Poisson kernel of −a, so with r=|1+w| the baseline is (1−a²) times integral r^p/(epsilon²+a r²). Subtracting (1−a²)/a times integral r^(p−2) leaves O(epsilon^p) for 2<p<3, O(epsilon³ log(1/epsilon)) at p=3, and O(epsilon³) for p>3. The baseline therefore is C_0(p)epsilon+O(epsilon²) throughout p>2. This strengthens rather than contradicts the Finding; the caution in the limitations should not be read as claiming an intervening power before the displayed correction."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Low-degree root bounds apply to inner generators including B_a, but bound the position of roots rather than resolving the near-constant minimizer. General continuity gives an o(1) difference, not its leading power or nonzero coefficient. The exact ideal distance has no polynomial degree restriction."
+        ],
+        "reasoning": "Even the broadest identified result in each of these directions does not quantify the concentration-driven first variation and fixed-space minimization needed here.",
+        "searches": [
+          "arXiv:2305.16068, §4 and Theorem 5.13",
+          "arXiv:2310.16010, §§3–4",
+          "arXiv:2511.08000, Theorem 3.3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2305.16068, 2310.16010 and 2511.08000, passages above",
+        "Resultary entry 3911c0a6fb2a and bounded focused index searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Continuity can prove q→−1, and the earlier analytic distance gives 1−a². Root bounds or the fixed-generator p→infinity theorem do not give the scale delta=epsilon^(1/(p−1)), the finite-degree objective correction or C_0(p)/2."
+        ],
+        "reasoning": "To obtain the frozen asymptotic one still needs the localized derivative, coercive scaling bound, and uniform remainder analysis. It is not a change of variables in an inspected theorem.",
+        "searches": [
+          "arXiv:2310.16010, Theorem 3.1.4 and §4",
+          "arXiv:2511.08000, Theorem 3.3",
+          "Resultary 3911c0a6fb2a, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For the invariant-subspace result put J=B_a and take the p-th power: (1−|J(0)|²)^(1/p) gives 1−a². The OPA continuity theorem applies because B_a→−1 in H^p and the limit does not vanish at zero."
+        ],
+        "reasoning": "These transformations recover genuine components of the record but not the epsilon-dependent scaled correction or the finite-degree gap. The benchmark and unscaled coefficient limit are credited as known or implied.",
+        "searches": [
+          "arXiv:2511.08000, Theorem 3.3 and p. 15",
+          "arXiv:2310.16010, Theorem 3.1.4",
+          "Resultary searches for fixed-degree H^p moving Blaschke zero and finite/unrestricted error ratios"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The ranked indexed match 3911c0a6fb2a uses fixed generator 1−z and lets p tend to infinity in degree one. It gives a logarithmic root scaling and E_p^p∼(2πp)^(-1/2), not a moving-zero coefficient or its error constant at fixed p."
+        ],
+        "reasoning": "It is a same-day result inspected on content, not excluded by date. Neither its generator nor asymptotic parameter can be specialized to the frozen regime, and the bounded lookups surfaced no exact counterpart.",
+        "searches": [
+          "Resultary lookups for linear optimal polynomial approximation and Hardy boundary layers; strongest returned comparison 3911c0a6fb2a",
+          "arXiv:2305.16068, low-degree coefficient results"
+        ]
+      },
+      "rationale": "The unrestricted benchmark and unscaled convergence are already supplied by prior results and are not counted as novel. The fixed-degree singular scale with its limiting optimization problem, the minimum-error correction, and the resulting strict asymptotic gap are not stated or implied by the closest inspected results. The strongest indexed boundary-layer analogue uses a different generator and a different limit.",
+      "residual_risks": [
+        "Bounded comparison is not a priority certificate. Related singular perturbations with different terminology, or extensions elsewhere in the literature, are not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Applicable root and coefficient bounds, not a moving-zero limit",
+          "evidence": [
+            "Theorem 5.13 bounds the modulus of a root of a linear OPA for an inner function away from zero in terms of p."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2305.16068",
+          "material_read": "PDF §4 p. 8 and Theorem 5.13 p. 13 (offsets 19791, 31554)",
+          "method": "Open primary PDF passages",
+          "title": "Optimal Polynomial Approximants in H^p",
+          "trigger": "Low-degree optimal approximants for inner generators"
+        },
+        {
+          "assessment": "Implies unscaled convergence, not scaled profile",
+          "evidence": [
+            "Continuity at a function with nonzero constant coefficient applies to the H^p limit −1 of B_a."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2310.16010",
+          "material_read": "PDF Theorem 3.1.4 p. 11 and §4 p. 18 (offsets 29200, 48801)",
+          "method": "Open primary PDF passages",
+          "title": "More Properties of Optimal Polynomial Approximants in Hardy Spaces",
+          "trigger": "Stability and errors for the same fixed-degree optimization"
+        },
+        {
+          "assessment": "Covers the unrestricted benchmark exactly",
+          "evidence": [
+            "The distance from 1 to the H^p invariant subspace [J]_p generated by J is (1−|J(0)|²)^(1/p)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2511.08000",
+          "material_read": "PDF Theorem 3.3 p. 8 and Blaschke-zero product discussion p. 15 (offsets 33578, 61500)",
+          "method": "Open primary PDF passages",
+          "title": "Metric projections, zeros of optimal polynomial approximants, and some extremal problems in Hardy spaces",
+          "trigger": "Exact unrestricted comparison distance"
+        },
+        {
+          "assessment": "Different asymptotic regime, not a coverage match",
+          "evidence": [
+            "Fixed 1−z, degree one, p→infinity; logarithmic root scale and (2πp)^(-1/2) error-power law."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-a-logarithmic-boundary-layer-for-linear-optimal-polynomial-appro--3911c0a6fb2a",
+          "material_read": "RESULT.md Finding and generator/limit specification",
+          "method": "Configured Resultary lookup and local-mirror source comparison",
+          "title": "A logarithmic boundary layer for linear optimal polynomial approximation",
+          "trigger": "Strongest surfaced indexed OPA boundary-layer analogy"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and the competing finite-degree and unrestricted asymptotics",
+        "arXiv:2310.16010 and 2511.08000 for the distinct unscaled and unrestricted results"
+      ],
+      "rationale": "Continuity alone hides how strongly a fixed polynomial degree constrains approximation as the Blaschke zero approaches the boundary. The theorem identifies the singular response and a nonvanishing relative gap from the exact unrestricted optimum for every fixed degree, then makes the first polynomial correction quantitative. That is a substantive asymptotic obstruction in a standard extremal problem, not a recomputation of an analytic distance.",
+      "residual_risks": [
+        "No uniform cutoff for a growing degree, or joint p and a limit, is supplied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

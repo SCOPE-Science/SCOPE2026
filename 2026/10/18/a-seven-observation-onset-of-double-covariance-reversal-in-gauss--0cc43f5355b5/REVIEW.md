@@ -1,19 +1,21 @@
-# Scientific assessment: Gaussian AR(1) crossings and centered energy
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The probabilistic premise is precisely a centered Gaussian vector with stationary AR(1) covariance \(\rho^{|i-j|}\), \(0\le\rho<1\), and integer \(n\ge2\). The mixed Gaussian sign/quadratic identity follows from twice-iterated Gaussian integration by parts, with derivative coefficients verified directly from \(\arccos(c/\sqrt{st})/\pi\). Substitution of the centering matrix produces the exact finite-polynomial covariance. The geometric-series calculation gives the negative value at \(\rho=1/2\) for all \(n\ge7\); Bernstein representations prove positive values for \(2\le n\le6\); the distance-column expansion proves positivity near \(\rho=1\). The independent verifier reconstructs the matrix, geometric-sum, and symbolic small-window expressions and passed 204 exact assertions. The proof does not infer a universal statement from finite tests. No uniqueness of the two large-window zeros is asserted.
+PASS
 
-## Originality — PASS, with priority risk
+For the repaired short-window claim, Gaussian regression gives the conditional quadratic residual (b^T M^-1 W)^2-b^T M^-1 b. This times the pair density is twice its first covariance derivative along M+tbb^T. Differentiating the arccos crossing probability gives the stated covariance with sign, factor of two, and denominator; dominated differentiation is valid for 0<=rho<1. Summing over coordinates of HX centers at the sample mean, and rewriting the numerator using the difference of adjacent centered columns gives the polynomial expression. I independently built nHa_i coefficientwise by distance counts and verified the five full polynomial factorizations and exact Bernstein minima (1, 1, 5/2, 23/20, 11/56) using integer convolution and rational arithmetic. The new standard-library /workspace/repairs/5/verify_gaussian.py was inspected and successfully run; it proves the coefficient certificates only, not anything about infinitely many n. Positivity of each Bernstein polynomial on [0,1], and of the remaining factors and denominator on [0,1), establishes the repaired claim including rho=0 and excluding the degenerate endpoint. The already documented n>=7 signs are explicitly cited rather than presented as new. The original proof is mathematically sound: expanding the centered correction at 1/2 gives the stated half-parameter numerator; the endpoint coefficient is the sum of 4i(n-i)/n, and the large-window limit follows from the geometric raw-energy sum and the bounded column sums. The delivered repair is a narrowed claim, not a correctness reversal.
 
-The closest examined full scientific sources are Kratz–León (2006, arXiv:math/0609682) on smooth continuous-time Gaussian crossing-count moments and Nyberg–Lizana–Ambjörnsson (2017, arXiv:1711.02926) on crossing-count cumulants and AR examples. Neither material read supplies the joint covariance between a finite-window crossing count and the sample-mean-centered quadratic energy. Sinn–Keller (2011, DOI:10.1137/S0040585X97984991) studies *crossing–crossing* covariance and therefore is a particularly plausible near neighbor, but the full text was inaccessible. Direct searches also covered the Gaussian quadratic/sign-moment aliases and published mathematical research records. General Gaussian integration by parts and the arcsine crossing law are classical; the asserted distinction is the exact seven-sample threshold with two sign reversals. General methods may imply the result after nontrivial calculation, so residual historical-priority risk remains and independent priority determination has not occurred.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Sign-crossing frequency and centered quadratic energy are two basic summaries of correlated Gaussian measurements, respectively recording oscillation and dispersion. A sign assumption based on independent measurements does not extrapolate monotonically to positively correlated samples: the same covariance is positive for every correlation through sample size six, but for every size at least seven it is positive at zero and near one while negative at one-half. The sharp onset is an interpretable structural finite-window phenomenon, not a choice of an arbitrary isolated sample size. The associated all-window asymptotic quantifies how a fixed positive autoregressive correlation eventually enforces negative covariance.
+This PASS concerns the repaired claim only. The frozen finding in its bundled form fails originality: the exact same centered-energy covariance identity, n>=7 sign pattern, and fixed-correlation limit are already given by the earlier-path Resultary record e0f4a1d0a49b. The precise surviving result is strict positivity throughout the parameter interval for 2<=n<=6, which makes the previously established onset sharp. The revised finding attributes all larger-window results and uses only the genuinely distinct small-window exclusion to infer sharpness.
 
-## Boundaries and closest prior work
+## value
 
-The result is restricted to nonnegative AR(1) correlations, joint Gaussianity, and unnormalized centered quadratic energy. No root uniqueness, distributional ordering, non-Gaussian extension, or causal conclusion is claimed. The inaccessible Sinn–Keller full text is an unresolved but not independently decisive priority risk. This is a self-review only, not external historical verification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The cutoff is not an arbitrary collection of dimensions: the known sign theorem starts at seven, and its sharpness requires ruling out every smaller n over a continuous range of correlations. In particular the six-observation case has mixed power coefficients and a much smaller positive minimum Bernstein coefficient, so selected evaluations would not settle it. The repaired exact exclusion answers the natural minimum-window question for a joint statistic that differs in sign from the corresponding raw-energy statistic. No additional significance is assigned to recomputing the covered large-window identity or signs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

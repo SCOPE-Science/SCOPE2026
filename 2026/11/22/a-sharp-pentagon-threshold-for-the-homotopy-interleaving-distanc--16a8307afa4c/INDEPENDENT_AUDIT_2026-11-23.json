@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:39:53.515327Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–61; VERIFICATION.md and check_cactus_nerve.py (inspected, not executed)",
+        "Kuribayashi, arXiv:2611.22433v1, Definition 3.3 and Theorem 3.9"
+      ],
+      "rationale": "Prune the cactus block tree toward a root vertex. Every local map fixes the attachment and preserves edges or collapses them, hence is nonexpansive in the path metric. Edges and triangles collapse in one move of length at most one. For a square, the map (a,b,c,d)↦(a,b,b,a) moves vertices at most one, and the remaining edge then collapses in one move. A pentagon collapses to its attachment within two. Composing on the current retract preserves these bounds on consecutive maps of the original graph. Kuribayashi's theorem is stated for 2r-homotopy equivalence and yields an r-interleaving, giving the claimed upper bounds. Independently, nonexpansive maps displaced by at most ρ yield a simplicial homotopy after shift ρ: apply the first map on the initial part of a tuple and the second on the final part, with at most one crossing adding at most ρ to the length. This is natural in scale and identifies the shifted identity and constant in the localized category; the point interleaving has parameter ρ/2. Below scale one, H0 has rank |V|, so the map from 0 to 2δ cannot factor through a point for δ<1/2. Each cactus cycle is an isometric retract since no exterior component attaches at two vertices. On a cycle of length n≥5 the signed distance in [-2,2] at scale two is unique; on each length-two triangle the sum of its first two displacements is again in [-2,2], so the edge displacements form a cocycle. Its evaluation on the scale-one oriented loop is n, proving nonzero persistence through scale two on the cycle and on the cactus by retraction. Integrality of the metric then rules out δ<1 using the map from 1 to 1+2δ<3. These arguments include the endpoints under the inclusive convention and give only a lower bound for cycles longer than five.",
+      "residual_risks": [
+        "Exact value 1 is asserted only with a pentagon and no longer cycles. Neither unordered Rips complexes nor strict diagram interleavings are being computed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kuribayashi gives the general factor-half bound from metric homotopy and the exact complete-graph value. The girth-five sphere-wedge result gives survival for graphs without triangles or squares, a broader statement for the individual cycle ingredient, but no IHC computation."
+        ],
+        "reasoning": "The radius bound can be sharp for a lone pentagon but scales with radius on a long chain of blocks. It does not imply a diameter-independent upper bound or the square versus pentagon dichotomy. The girth-five result may be applied to an isometrically retracted long cycle, even if the surrounding cactus has small cycles, but this only supplies the lower-bound ingredient.",
+        "searches": [
+          "Resultary: filtered magnitude homology cycle cactus interleaving homotopy category",
+          "Kuribayashi, arXiv:2611.22433v1, Theorem 3.9 and Corollaries 3.11–3.13"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.22433v1, Definition 3.3, Theorem 3.9 and Corollaries 3.11–3.13",
+        "arXiv:2411.01857v2, §1.1",
+        "Resultary record suffixes 0b4ce5b4173d and 38333a852fbc; nearby cutoff records 1370e294b1e8 and fa60285fb412"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The girth-five result gives a surjective scale-one-to-two H1 map with e−v+1 graph-loop classes surviving; on C_n, n≥5, one such class survives. Kuribayashi converts bounded metric homotopies to upper bounds rather than constructing those homotopies."
+        ],
+        "reasoning": "The former result and standard cactus retraction can replace the winding argument, so survival should not be counted as the distinct contribution. A uniform upper bound, in particular reducing a radius-two square using moves of size one while fixing the attachment, and the exact classification obtained by combining bounds do not follow by inserting parameters in those statements.",
+        "searches": [
+          "Resultary girth-five sphere-wedge result, suffix 0b4ce5b4173d, Finding",
+          "Kuribayashi, Theorem 3.9 and Corollary 3.11"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ordered ℓ1-Vietoris–Rips uses the same consecutive-distance filtration; its homology is blurred magnitude homology. The same-day girth-five result uses exactly this inclusive ordered filtration. The indexed cactus graph-square result concerns chordality instead."
+        ],
+        "reasoning": "The ordered length nerve is a real alias, so the other ordered-nerve results are material comparisons. Neither homology alone nor chordality of a graph square is the distance in the homotopy category. For instance, ordinary unordered Rips at scale two on a pentagon is already a full simplex and cannot supply this scale-two winding obstruction.",
+        "searches": [
+          "Resultary: cactus enriched nerve homotopy interleaving pentagon threshold",
+          "Resultary: ordered enriched nerve cycle homotopy interleaving distance",
+          "Ivanov–Xu, arXiv:2411.01857v2, §1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearby short-cycle-window result gives cutoff homotopy and maps, not an exact table of cactus-to-point distances. Kuribayashi gives exact distance for complete graphs; the girth-five result includes Z-homology and small-cycle Betti-number computations, not cactus-distance data."
+        ],
+        "reasoning": "These exact calculations are relevant to some instances or stages but do not tabulate or imply the metric-category invariant on the stated cactus family.",
+        "searches": [
+          "Resultary: ordered enriched nerve cycle homotopy interleaving distance",
+          "Resultary: five-cycle threshold cactus graph chordal square versus enriched nerve"
+        ]
+      },
+      "rationale": "The exact cactus-to-point distance classification remains distinct in the compared material. The scale-one-to-two cycle-survival ingredient is already covered by a materially overlapping same-day record and is not credited here as an independent invariant absent from the corpus. That record does not compare the homotopy-category interleaving distance or supply attachment-preserving short contractions; the metric homotopy framework gives bounds, not the sharp dichotomy.",
+      "residual_risks": [
+        "The checked homology overlap is substantive but same-day priority or dependence is not established. No exhaustive prior-art claim is made for ordered length persistence or metric homotopies of cycles."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Framework and special cases; confirms factor, not cactus computation",
+          "evidence": [
+            "Pointwise displacement defines elementary homotopy; 2r-homotopy equivalence implies r-interleaving; includes radius bound and exact complete-graph case."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.22433v1",
+          "material_read": "Definition 3.3 near OA offset 25283, Theorem 3.9 near 33202, Corollaries 3.11 and 3.13 near 35055",
+          "method": "OA primary HTML passages",
+          "title": "Enriched nerves, interleaving distances and the multiplicative magnitude-path spectral sequence",
+          "trigger": "Exact quantitative homotopy-to-IHC implication and existing exact point distances"
+        },
+        {
+          "assessment": "Identifies the ordered filtered object and homology, not the asserted distance",
+          "evidence": [
+            "For p=1 the tuple weight is the sum of consecutive distances, with the blurred magnitude interpretation."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2411.01857v2",
+          "material_read": "Abstract and §1.1, eqs. (1.1)–(1.2), OA offset 3889",
+          "method": "OA primary HTML passages",
+          "title": "On ℓ_p-Vietoris–Rips complexes",
+          "trigger": "Equivalent name for ordered length filtration and possible homological coverage"
+        },
+        {
+          "assessment": "Covers the cycle-survival ingredient, not the full classification; no priority inference",
+          "evidence": [
+            "For graphs with no 3- or 4-cycles, X2 is homotopy equivalent to |G| wedged with one 2-sphere per edge. The stated integral sequence for H1(X1)→H1(X2) shows graph-cycle classes survive."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-girth-five-sphere-wedge-theorem-for-ordered-graph-length--0b4ce5b4173d",
+          "material_read": "Finding, original local mirror offset 0–2442",
+          "method": "Resultary local mirror original RESULT.md",
+          "title": "A sharp girth-five sphere-wedge theorem for ordered graph length nerves",
+          "trigger": "Exact same-day overlap in the homological obstruction"
+        },
+        {
+          "assessment": "Different property",
+          "evidence": [
+            "The threshold concerns chordality of cactus graph squares, not simplicial nerves or distance from a point."
+          ],
+          "identifier_or_url": "2026/9/18/SCOPE-chordal-squares-block-cactus-cycle-threshold--38333a852fbc",
+          "material_read": "Finding at original local mirror offset 0",
+          "method": "Resultary local mirror original RESULT.md",
+          "title": "Sharp five-cycle threshold for chordal squares of cactus-block graphs",
+          "trigger": "Same combinatorial family and cycle threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof §§1–3",
+        "Kuribayashi, Theorem 3.9 and Corollary 3.11",
+        "Resultary girth-five record suffix 0b4ce5b4173d"
+      ],
+      "rationale": "The ordered nerve retains geometric information that ordinary connectivity or a universal radius bound does not detect. The exact distance has a first change at a pentagon, independent of how far blocks extend from one another. Attachment-preserving contractions explain why arbitrarily large chains of small blocks do not raise the distance, whereas a surviving unit cycle does; this is a useful sharp calculation for the specified homotopy-category distance, beyond the fixed-scale homology ingredient.",
+      "residual_risks": [
+        "No claim of an exact classification for all cycle lengths or noncactus graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

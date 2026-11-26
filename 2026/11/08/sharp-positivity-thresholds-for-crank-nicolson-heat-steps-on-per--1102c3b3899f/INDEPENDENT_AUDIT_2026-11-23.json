@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T15:16:21.869478Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Writing the resolvent as (1+dc)^(-1) times the positive adjacency Neumann series proves off-diagonal strict positivity for c>0 by connectedness. C=2R-I and translation invariance reduce nonnegativity to the common diagonal; the Fourier diagonal strictly falls from 1 to n^(-d)<1/2. Adding a coordinate strictly reduces the mean resolvent for c>0. The Laplace integrand factorizes; A_n(z)=I_0(z)+2 sum_{l>=1} I_{ln}(z). The Bessel ratio tends to zero at z=0 and obeys r'_m=1-r_m^2-(2m+1)r_m/z, preventing any first crossing of 1 by the negative derivative there. Termwise comparison gives the strict n ordering, and Riemann-sum convergence brackets the limiting root at every fixed d. Strict Jensen uses E Y=1 and Var(Y)=1/2 for n>=3 and for continuous angles. The one-dimensional kernel has q=e^-omega, cosh(omega)=1+1/c and diagonal (1+q^n)/[(1-q^n)sqrt(1+2c)]; at c=3/2, q=1/3 and the excess over 1/2 is epsilon/(1-epsilon) for epsilon=3^-n. Uniform derivative convergence on a compact root neighborhood first gives displacement O(epsilon); then q(c)^n=epsilon(1+O(n epsilon)) there, yielding coefficient 8. The finite 3-by-3 multiplicities for sum frequencies 0,3/2,3 are 1,4,4, giving 7c^2-c-2=0. The continuous square-lattice Haar change of variables gives the squared central-binomial moments and K in modulus convention. Independent AGM evaluation reproduced 0.5881972836856281148591326751..., and finite frequency calculations checked the radicals. For the dimension law, on compact t=dc intervals the cubic Taylor expansion and fourth moment control give Phi=1/(1+t)+t^2/[2d(1+t)^3]+O(d^-2), uniformly in n; bounded centered summands with variance 1/2 give signed third and fourth moments O(d^-2). Evaluating at fixed points around 1 first traps the root; then the derivative -1/4 at 1 and correction 1/(16d) imply t=1+1/(4d)+O(d^-2). The package's artifacts/verify.py and recorded output are corroborative finite evidence, including some floating-point checks; all strict inequalities for unbounded n,d rest on the analytic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary d475df91cd2a and 6b800a293f32 cover the fixed-chain diagonal criterion and one initial positivity interval, the latter even without reversibility.",
+          "The published discrete-torus heat kernel already gives Bessel periodization and its product for different side lengths."
+        ],
+        "reasoning": "Neither the single-generator positivity criterion, a one-way directed cycle, nor the heat-kernel representation is by itself a comparison of the sharp CN thresholds across all n,d or a uniform second-order large-d expansion. The Bessel inequality and product formula together explain why the strict period comparison is accessible; the formulas and standard Bessel facts are not new.",
+        "searches": [
+          "Resultary: Crank Nicolson resolvent return law reversible Markov chains periodic tori Bessel dimension cutoff",
+          "Chinta–Jorgenson–Karlsson arXiv:0806.2014 eq. (3) and following product formula",
+          "Web: Crank Nicolson positivity nonnegativity periodic boundary heat finite differences optimal timestep torus lattice Green function period monotonicity cutoff"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, AUDIT.json, METADATA.json, REVIEW.md, VERIFICATION.md, SLOGAN.txt and artifacts",
+        "arXiv:2301.01066",
+        "arXiv:0806.2014",
+        "arXiv:1004.1435",
+        "Resultary d475df91cd2a, 6b800a293f32, 1f6f56bd0eac; adjacent honeycomb and periodic finite-element entries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fixed-chain criterion plus Fourier responses gives the finite threshold equation; the known 1D equation also gives the finite-size correction by expansion, and the classical square-lattice Green function gives the elliptic root.",
+          "The multidimensional comparison varies the generator; high-d uniformity requires centered-moment estimates and a root inversion across all periods. None of the inspected prior statements asserts that uniform law."
+        ],
+        "reasoning": "The strongest comparisons substantially limit the credited increment; in particular do not treat the base criterion, low-dimensional analytic special functions or the 1D sequence as new. The dimension correction uniform from n=3 to infinity, and its integration with strict multidimensional size laws, survive these precedents.",
+        "searches": [
+          "arXiv:2301.01066 Theorem 2 and Table 2",
+          "arXiv:0806.2014 eq. (3)",
+          "arXiv:1004.1435 eq. (4)",
+          "Resultary d475df91cd2a, 6b800a293f32 and 1f6f56bd0eac"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Phi_{d,infinity}(c)=(1+dc)^(-1) P_sc(0;dc/(1+dc)), with P the simple hypercubic lattice Green function.",
+          "For odd m>=5 the Dirichlet contractivity threshold of Higueras–Roldán has *the same exact equation* as one-dimensional cycle positivity for n=(m+1)/2. Substitute this n in eq. (21) and divide by 2sinh(n omega/2); the result is tanh(n omega/2)=2tanh(omega/2). Since c=1/(cosh omega-1), the periodic expression is Phi=tanh(omega/2)coth(n omega/2)."
+        ],
+        "reasoning": "Despite different properties and boundary conditions, the odd-grid contractivity values and their monotone limit are prior coverage of the scalar 1D threshold sequence. The square-lattice elliptic representation is also exactly the classical Green formula, with only a spectral rescaling before taking a CN root.",
+        "searches": [
+          "Resultary: Crank Nicolson resolvent return law reversible Markov chains periodic tori Bessel dimension cutoff",
+          "Higueras–Roldán arXiv:2301.01066 Theorem 2 eq. (21)",
+          "Guttmann arXiv:1004.1435 eqs. (2),(4),(6)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact first 1D constants appear in Higueras–Roldán Table 2 under n=(m+1)/2, and the square-lattice elliptic function is already tabulated in Guttmann eq. (4). The exact full torus match in Resultary is the frozen entry; nearest other results have different generator or geometry (directed rings, honeycomb, or periodic finite elements)."
+        ],
+        "reasoning": "Numerically coincident 1D values are substantively prior by the equation-level equivalence, not by coincidence. The known infinite square-lattice formula determines the frozen cutoff after the general return reduction, so independent value is not based on finding an unknown elliptic identity or merely recalculating a decimal.",
+        "searches": [
+          "Resultary: Crank Nicolson periodic heat positivity threshold discrete torus lattice Green function elliptic integral",
+          "Higueras–Roldán arXiv:2301.01066 Table 2",
+          "Web: Guttmann lattice Green functions all dimensions torus square Carlson complete elliptic K lattice Green function square lattice Guttmann arXiv"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the all-dimensional periodic threshold analysis, notably the strict period comparison in every dimension and the explicit correction uniform over finite and infinite periods. The general return-diagonal test, the Bessel product heat kernel, the elliptic Green function and the entire one-dimensional threshold sequence have direct antecedents; combining the return criterion with classical lattice Green functions in low dimension is not itself a novelty claim.",
+      "residual_risks": [
+        "The targeted periodic finite-difference literature search was unavailable; it is not negative evidence. Some older specialized numerical-positivity work was not read in full.",
+        "An earlier sharp multidimensional threshold or high-dimensional asymptotic may exist in specialized literature. The positive originality assessment is expressly limited to the surviving refinements and is not historical certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different operator and property but exact one-dimensional scalar overlap via equation (21)",
+          "evidence": [
+            "Odd m yields the same threshold as cycle length (m+1)/2; Table 2 lists the two featured finite constants and 3/2 as limiting value."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2301.01066",
+          "material_read": "Sections 1–3, Theorems 1 and 2, equations (17)–(22), Tables 1–3",
+          "method": "arXiv HTML",
+          "title": "A new insight on positivity and contractivity of the Crank-Nicolson scheme for the heat equation",
+          "trigger": "Sharp discrete heat bounds and exactly coincident 1D scalars"
+        },
+        {
+          "assessment": "Provides torus spectral and kernel formulas, not a CN dimension correction in the inspected results",
+          "evidence": [
+            "At x=0 equation (3) gives the periodized I-Bessel sum for the finite cycle; the d-dimensional kernel is the product."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0806.2014",
+          "material_read": "Introduction §§1.1–1.3 and equation (3) with the product formula",
+          "method": "Primary PDF text",
+          "title": "Zeta functions, heat kernels and spectral asymptotics on degenerating families of discrete tori",
+          "trigger": "Same product of cycles and exact Bessel heat-kernel alias identity"
+        },
+        {
+          "assessment": "Direct square-lattice elliptic identity, not itself a positivity analysis",
+          "evidence": [
+            "Equation (4) gives P(0;z)=2K(z)/pi and (6),(10) supply the matching product-cosine and binomial formulas."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1004.1435",
+          "material_read": "Section 1, equations (1)–(10)",
+          "method": "Primary PDF text; normalization cross-checked by the central-binomial moment expansion",
+          "title": "Lattice Green functions in all dimensions",
+          "trigger": "Classical elliptic square-lattice resolvent"
+        },
+        {
+          "assessment": "Already covers the fixed-torus criterion and existence of one threshold; does not assert varying the torus parameters in its indexed claim",
+          "evidence": [
+            "All resolvent diagonals must be at least 1/2, with a unique sharp threshold on irreducible reversible chains other than the balanced two-state exception."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a",
+          "material_read": "Published indexed theorem statement",
+          "method": "Resultary",
+          "title": "A resolvent-return law for Crank–Nicolson positivity on reversible Markov chains",
+          "trigger": "Exact broader covering claim for the base criterion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "On a canonical family, a strict dimension-and-period comparison and uniform quantitative correction distinguish the actual all-data positivity frontier from conservative time-step rules. The uniform coefficient 1/4 quantifies how close the sharp threshold is to 1/d simultaneously even on the smallest allowed periodic grids. This is useful independently of the known fixed-chain criterion and the classical low-dimensional Green formulas.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

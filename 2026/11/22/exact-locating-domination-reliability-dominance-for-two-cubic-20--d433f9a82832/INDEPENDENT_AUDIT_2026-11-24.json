@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:11:50.475282Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md: graph models, exact predicate, vectors and probability proof",
+        "Frozen VERIFICATION.md and both authored checks: inspection",
+        "/workspace/independent-evidence/1.py: executed independent exhaustive replay"
+      ],
+      "rationale": "For ordinary locating domination it is necessary and sufficient that the selected set hit each closed neighborhood N[x] and each set {x,y} ∪ (N(x) △ N(y)). The pair condition is automatic if either vertex is selected, and otherwise says that their selected-neighbor signatures differ. I independently formed these hitting constraints and computed the upward closure of their complements' failure indicators via a Boolean subset transform: a detector mask fails exactly when its complement contains a required hitting set. The replay /workspace/independent-evidence/1.py exhausts all 2^20 masks and matches all 21 coefficients in both graphs and both models of Desargues. Totals D=362841 and P=384459; P−D has exactly (220,2460,6660,7228,3880,1050,120) at degrees 7–13. The supplied Python isomorphism certificate is a bijection with the stated adjacency test. A uniform k-set divides the coefficient by binomial(20,k); the independent deployment difference has a positive sum of Bernoulli weights for 0<p<1. At p=0 both fail; at p=1 both succeed. No authored script was executed.",
+      "residual_risks": [
+        "Exact finite computation for these two graphs and labelled subsets; no assertion about other cubic graphs or the identifying-code condition."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lemma 4 gives a criterion based on vertices with a single code neighbor in girth at least five. Theorem 3 bounds the minimum locating-domination size of a twin-free cubic graph by half its order."
+        ],
+        "reasoning": "These apply to the underlying parameter, but a criterion still needs exact graph-specific counts, and an existence bound contains no count or reliability inequality.",
+        "searches": [
+          "arXiv:1407.7263, Abstract and Lemma 4",
+          "arXiv:1412.2865, Theorem 3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary",
+        "d433f9a82832 (identical target)",
+        "d4faf2202a7f",
+        "c7294558cbe4",
+        "6f3a77d808c6",
+        "arXiv:1407.7263",
+        "arXiv:1412.2865"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Neither minimum-only statement counts larger sets; the Roman-defense statement counts a different class of configurations."
+        ],
+        "reasoning": "Even monotonicity under adding detectors does not identify the overlaps among successful supersets or all larger successful sets. Summation over independent detector assignments is routine once coefficients are known, but the known minima alone do not imply the strict ordering for all p.",
+        "searches": [
+          "d4faf2202a7f and c7294558cbe4, sections Finding and Assumptions and scope",
+          "6f3a77d808c6, sections Finding and Assumptions and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The canonical graph aliases recover the target record itself. Same-day 6f3a77d808c6 compares weight enumerators on the same pair, but for Roman dominating functions with three labels, not detector subsets."
+        ],
+        "reasoning": "Roman defense does not identify unselected vertices by distinct selected-neighbor sets; its opposite ordering is under another probability law and does not determine the target ordering.",
+        "searches": [
+          "Resultary: locating-domination reliability coefficientwise dominance GP(10,2) GP(10,3)",
+          "External literature: \"locating-dominating\" Desargues graph dodecahedral graph polynomial reliability exact enumeration"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "d4faf2202a7f gives minimum size eight and 1475 minimizers. c7294558cbe4 gives minimum size seven and 220 minimizers; it explicitly excludes larger sets. The full-vector search located the frozen record itself, not an independent matching table."
+        ],
+        "reasoning": "The known data give precisely the first nonzero entry of each vector and the lower zeros, not the remaining exact coefficients.",
+        "searches": [
+          "Resultary: locating domination full cardinality polynomial reliability Desargues graph",
+          "Resultary: Desargues graph 1475 minimum locating-dominating sets orbit classification exact result",
+          "Resultary: dodecahedral graph GP(10,2) 220 minimum locating-dominating sets token jumps slides"
+        ]
+      },
+      "rationale": "Credit the known minimum sizes and minimum counts, and the same-day analogue on the same graph pair. The inspected earlier statements do not supply the complete ordinary locating-domination vectors or their strict Bernoulli ordering. Pass for those exact statements, not for first counting the minima or introducing a general reliability transformation.",
+      "residual_risks": [
+        "Bounded search; older unindexed enumeration or alternate reliability terminology could conceal an equivalent result. No priority conclusion is drawn from the same-day dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact partial coverage",
+          "evidence": "Minimum size eight and 1475 labelled minimizers under the same ordinary locating condition; orbit classification restricted to minimizers.",
+          "identifier_or_url": "d4faf2202a7f",
+          "material_read": "RESULT.md, Finding and Assumptions and scope (offset 0)",
+          "method": "Public result, local mirror",
+          "title": "All 1,475 minimum locating-dominating sets of the Desargues graph",
+          "trigger": "Closest Desargues count"
+        },
+        {
+          "assessment": "Exact partial coverage",
+          "evidence": "Minimum size seven and 220 labelled sets; larger sets excluded.",
+          "identifier_or_url": "c7294558cbe4",
+          "material_read": "RESULT.md, Finding and Assumptions and scope (offset 0)",
+          "method": "Public result, local mirror",
+          "title": "Location-dominating code reconfiguration on the dodecahedral graph: token jumps are already slides",
+          "trigger": "Closest dodecahedral count"
+        },
+        {
+          "assessment": "Material analogue, distinct statistic; no same-day priority inferred",
+          "evidence": "Positive Desargues-minus-dodecahedral coefficient comparison for Roman dominating functions, with labels 0,1,2 and a different weight model.",
+          "identifier_or_url": "6f3a77d808c6",
+          "material_read": "RESULT.md, Finding and Assumptions and scope (offset 0)",
+          "method": "Public result, local mirror",
+          "title": "Coefficientwise Roman defense dominance of the Desargues graph",
+          "trigger": "Same graph pair and coefficient comparison"
+        },
+        {
+          "assessment": "Relevant criterion, not a graph-specific spectrum",
+          "evidence": "Lemma 4 tests separation of the vertices with exactly one code neighbor.",
+          "identifier_or_url": "https://arxiv.org/abs/1407.7263",
+          "material_read": "Abstract p. 1 and Lemma 4 p. 4 (text offset 12750)",
+          "method": "Open PDF passage inspection",
+          "title": "Locating-dominating sets and identifying codes in graphs of girth at least 5",
+          "trigger": "Potential general characterization"
+        },
+        {
+          "assessment": "Bound, not a cardinality distribution",
+          "evidence": "A twin-free cubic graph has a locating-dominating set of size at most n/2.",
+          "identifier_or_url": "https://arxiv.org/abs/1412.2865",
+          "material_read": "Theorem 3 p. 3 (text offset 8350)",
+          "method": "Open PDF passage inspection",
+          "title": "Location-Domination and Matching in Cubic Graphs",
+          "trigger": "Same invariant on cubic graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Independent coefficient replay",
+        "Prior minimum-only findings d4faf2202a7f and c7294558cbe4"
+      ],
+      "rationale": "Locating domination is a natural detection invariant, and the full labelled cardinality distribution is the sufficient precise data for uniform and iid detector deployment. The two canonical cubic graphs have equal order but different geometry; the exact dominance at every interior probability, and its limited support in budget, are nontrivial information beyond the known difference of minima.",
+      "residual_risks": [
+        "A finite benchmark, not a general extremal theorem or empirical reliability claim for physical networks."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

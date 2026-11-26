@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T18:01:39.541836Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A spanning tree must have one incidence at each peripheral and q+1 edges total, so exactly one double-incidence peripheral connects the hubs. Fixing it and optimizing the others proves the support identity for all weights, ties included. Any two edges lie on a common 4-cycle (q>=2), so tree exchanges span the sum-zero edge-coordinate directions and the dimension is 2q-1. The joint marked density follows by selecting the winning pair, ordering its two entries and requiring all other minima to lie below t; integrating the mark gives the derivative of (1-Q(t)^2)^q, with Q the normal survival. The mark tail given the bottleneck is Q(t+z)/Q(t). Mills ratios give a_q~1/(2b_q), a squared-survival exponent -x for t=b_q+a_q x and the mark exponent -u for z=u/b_q, uniformly on compact bottleneck windows. For any fixed such window L>t entails both weights exceed t; the truncated |U|^k moment removed is at most twice Q(t) times the corresponding truncated normal moment, O(b_q^k/q). Given the chosen pair and value, the q-1 nonwinners are independent conditioned on L<=t. Their aggregate normalized mean error is O(b_q/sqrt(q)), variance tends to one and their third moments are bounded uniformly; the winner contributes o_P(1). Uniform conditional characteristic-function convergence on compact mark windows and tightness give three-way independence. For uniform integrability of the normalized bottleneck, the right tail is at most exp(-2b_q a_q x) using the normal hazard >=t for t>=b_q; for 0<=t=b_q-a_q x<=b_q, the squared survival ratio is at least exp(b_q a_q x), yielding a double-exponential left bound. Below t=0, the remaining integrated left tail is bounded by (3/4)^(q-1) times the finite integral of F(t)=1-Q(t)^2 over t<=0, divided by a_q. These estimates justify E B_q=b_q+gamma a_q+o(a_q); solving Q(b_q)=q^(-1/2) gives the stated log log and log(2pi) factors. The width is Gaussian opposing support, not normalized spherical width.",
+      "replay_path": "/workspace/reviews/bridge_replay.py",
+      "status": "PASS",
+      "verification": "Fresh edge-subset/union-find enumeration for q=2 through 7 found 4,12,32,80,192,448 trees and reproduced the support on 300 Gaussian and six tied objectives. Marked-density checks passed at nine settings and total density at five q values agreed with unity within 1.3e-13. Replay with python3 and NumPy/SciPy; the frozen checker was inspected, not run. Numerical tail diagnostics are not proofs of independence or mean-width asymptotics. The supplied checker uses the bridge characterization to construct trees; the connectivity-based reproduction does not assume it."
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Aprile et al. bound extension complexity of the spanning-tree polytope.",
+          "The indexed classical random-MST work uses uniform edges in complete graphs or growing balanced bipartite settings; the Euclidean bipartite MST paper uses geometric distances, not independent Gaussian coefficient weights."
+        ],
+        "reasoning": "More general optimization algorithms or compact formulations do not evaluate this random support. Results with Euclidean point-to-point edge distances and balanced graph sizes cannot simply be specialized to this mark law at a fixed two-vertex shore. General Mills-ratio/Gumbel and CLT inputs do apply but do not supply the graph decomposition, expansion and independence together.",
+        "searches": [
+          "Web: random edge weights complete bipartite spanning trees mean minimum spanning tree unbalanced Frieze McDiarmid K_{m,n} expected weight exact distribution K_{2,n}",
+          "arXiv:2106.11945v2 Abstract and Introduction",
+          "arXiv:2107.08452 indexed abstract"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2106.11945v2",
+        "arXiv:2107.08452 (abstract)",
+        "doi:10.1007/BF02125348 (indexed description)",
+        "Resultary 40615d09964e, e4d200a95186, 558a912ed933, 7bf106914c88 (indexed statements)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Inball phases study deterministic facet distances for the same spanning-tree polytope. The two-hub birthday bridge concerns random growth and root degrees. The symmetric-edge polytope width result uses projected coordinate ranges, not a Gaussian maximum tree."
+        ],
+        "reasoning": "Neither uniform/growth bridge laws, the inradius nor a different polytope's support determine a Gaussian optimizing bridge. Selection by the maximum of pair minima, the concomitant gap and negligible influence of that selection on the bulk sum are separate arguments.",
+        "searches": [
+          "arXiv:2106.11945v2",
+          "Resultary 40615d09964e, e4d200a95186, 558a912ed933 and 7bf106914c88"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Negating the weights turns maximizing support into the equivalent minimum-weight tree distribution by Gaussian symmetry. The maximizing bridge is the maximum of pair minima; no analysis of uniform tree vertices alone finds it.",
+          "Standard maximum spanning tree references supply algorithms but not the evaluated marked law."
+        ],
+        "reasoning": "Changing max to min, or recasting the objective as a maximum over fixed-bridge subcubes, is not itself new. These are checked aliases of the support question; the exact law and marked decorrelation are the additional claims.",
+        "searches": [
+          "Web: maximum spanning tree K(2,n) random weights expected weight Gaussian complete bipartite two vertices minimum total weight K2n formula",
+          "Resultary: Gaussian support maximum weight spanning tree K2q bipartite inball exact variance geometry cube bridge max of minima"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary match is the assigned record. Other indexed records tabulate inball phases, uniform tree overlap, and uniform vertex covariance of a graphical zonotope."
+        ],
+        "reasoning": "Enumeration of unweighted tree vertices yields the input domain and tree count, not an existing table of the distribution of the exposed bridge mark or of the width constant. The nearby records use different sampling or a different polytope.",
+        "searches": [
+          "Resultary: Gaussian support maximum weight spanning tree K2q bipartite inball exact variance geometry cube bridge max of minima",
+          "Web: two hub spanning trees complete bipartite graph K_2 n random weighted minimum spanning tree exponential maximum Gumbel cost central limit difference bridge"
+        ]
+      },
+      "rationale": "The exact support can be viewed as a maximum-weight tree identity or a union of fixed-bridge cubes. Standard optimization and order-statistic theorems supply ingredients, not a previously evaluated two-hub marked law plus width expansion in the material inspected. This does not claim novelty for finding a maximum spanning tree, for the unmarked Gumbel theorem, or for the tree count in isolation.",
+      "residual_risks": [
+        "Unindexed iid weighted-network work on K(2,q), including a minimum-tree formulation, could contain the marked statistic or the width expansion.",
+        "The Resultary related records were compared by indexed statements; corroboration of their complete proofs is not claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies formulations of the feasible set, not the Gaussian statistic in the passages inspected",
+          "evidence": [
+            "The main bound concerns the minimum size of a linear extended formulation in graph classes with balanced separators."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2106.11945v2",
+          "material_read": "Abstract and Introduction including the definition and main extension-complexity scope",
+          "method": "Open arXiv HTML",
+          "title": "Smaller extended formulations for spanning tree polytopes in minor-closed classes and beyond",
+          "trigger": "Same polytope and potentially stronger generic description"
+        },
+        {
+          "assessment": "Inradius and center set are not the law of the Gaussian support or the bridge mark",
+          "evidence": [
+            "The statement evaluates the inradius by absent-edge and compulsory-incidence facets."
+          ],
+          "identifier_or_url": "Resultary 2026/11/8, suffix 40615d09964e",
+          "material_read": "Indexed finding statement",
+          "method": "Configured Resultary search",
+          "title": "Sharp Euclidean inball phases of complete-bipartite spanning-tree polytopes",
+          "trigger": "Same family with Euclidean metrics"
+        },
+        {
+          "assessment": "Inspected model uses geometric distance weights, not the independent Gaussian support law",
+          "evidence": [
+            "Vertices are iid in a unit cube and weights are powers of Euclidean distances."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2107.08452",
+          "material_read": "Indexed abstract",
+          "method": "Primary-paper abstract visible in literature search",
+          "title": "On Minimum Spanning Trees for Random Euclidean Bipartite Graphs",
+          "trigger": "Random optimal bipartite trees with weighted edges"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The simplest complete bipartite graphs beyond stars separate the extensive contribution of leaf choices from a mandatory inter-hub bridge. The explicit width correction measures the price of that bridge under Gaussian support, and the joint independent limit quantifies three distinct fluctuations for the same optimizing tree. This is more informative than the standard tree count or applying a scalar Gaussian-maxima approximation alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

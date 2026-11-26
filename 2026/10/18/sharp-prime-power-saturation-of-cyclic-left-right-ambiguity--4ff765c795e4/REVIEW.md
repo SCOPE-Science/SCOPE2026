@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof gives a bijection between labeled cycles and normalized cyclic phase orders. The modified \(i\)-th signature row is a translate of the preceding phase prefix's indicator, so its possible shifts are a coset of a subgroup of order at most \(\gcd(n,i-1)\). For prime powers, digit reversal achieves each maximal prefix stabilizer. Independent suffix shifts preserve every comparison row and remain legal because the relevant subgroups form a chain. The resulting product count attains the upper bound. For a length with two distinct prime divisors, full equality would force two nonnested prime-order subgroups to occur as nested prefixes, a contradiction. The executable checks completed at the listed finite lengths; the general proof does not rely on those finite cases.
+## correctness
 
-**Originality — PASS, with residual bibliographic risk.** The closest primary paper, Fuhrmann–Gröger–Passeggi (arXiv:2610.07435v1), proves prime-cycle uniqueness and states composite-cycle nonuniqueness but does not supply maximal fibre cardinalities or the prime-power/mixed-prime dichotomy. The closest online record, *Quadratic-time reconstruction of prime cycles from left-right orbit signatures*, also addresses prime-order input and a reconstruction complexity improvement, not the present extremal multiplicity problem. Related signed-shift periodic ordinal-pattern counts concern a different invariant. An equivalent older combinatorial formulation may exist outside the inspected sources.
+PASS
 
-**Value — PASS.** The central ordered-orbit reconstruction problem now has an exact extremal ambiguity law for every prime-power period and a sharp arithmetic characterization of when a natural uniform upper bound can be saturated. The values grow quickly, showing that prime-length identifiability and composite-length ambiguity differ quantitatively, not merely in existence. The strict mixed-prime obstruction is structural rather than a special enumeration. The claim stops short of solving all mixed-prime maxima and does not assert a new interval-map rigidity theorem.
+Fix the phase at the smallest point to zero. With the time-zero bit removed, each next row is a translate of the previous prefix, so the candidate phases are either empty or a coset of the prefix stabilizer, of order at most gcd(n,i) for a prefix of size i. In prime-power length, digit reversal makes each aligned block of p^r indices a coset of the subgroup of size p^r, giving exactly the maximal stabilizer at each prefix. Translating the suffix by a stabilizer element preserves distinctness and every signature row. Each later required subgroup either lies inside the current subgroup, so both pieces of the later prefix remain invariant, or contains it, so the later prefix itself is unchanged. Successive phase differences recover the chosen shifts; the product is attained. At mixed-prime length, attaining the product forces every branching bound to be met, in particular at prefix sizes p<q for two distinct prime divisors. Those prefixes would be the corresponding subgroups because they contain zero; the required inclusion is impossible. Summing valuations gives the stated exponent and the numerical examples, including the prime boundary k=1.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Prime rigidity, composite nonuniqueness, and prime-case cyclic shift reconstruction have clear predecessors. The checked evidence did not cover the universal extremal product together with its exact prime-power saturation classification. A later exact composite-fiber family counts particular fibers, not the worst case.
+
+## value
+
+PASS
+
+Prior work made the extent of ambiguity a natural continuation of prime rigidity. A sharp universal bound and an arithmetic criterion for attaining it quantify how much reconstruction can fail, rather than giving another ambiguous pair. The distinction between simultaneously attainable prime-power stabilizers and incompatible mixed-prime stabilizers explains the phenomenon.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

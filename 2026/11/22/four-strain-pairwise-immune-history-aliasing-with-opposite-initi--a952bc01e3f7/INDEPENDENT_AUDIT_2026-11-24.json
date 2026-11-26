@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:04:00.149271Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Assumptions, Proof; VERIFICATION.md; inspected verify.py without execution",
+        "Independent finite-distribution arithmetic: /workspace/branches/audit-replay/history_identifiability.py",
+        "Ilahi–Hall–House arXiv:2610.15796v1, model equations"
+      ],
+      "rationale": "The normalized derivative of the positive pooled target compartment follows by summing the frozen linear-in-target equations: it depends on the susceptible history distribution only through its response mean. Inclusion–exclusion with the triple mass t yields exactly four odd cells of mass t and four even cells of mass 1/4−t; no other constraints besides 0≤t≤1/4 remain. The product response has slope −(1−c)^3, hence its range endpoints and width are sharp. An independent rational check verified the full pair tables, eligibility with strictly positive cells in both interior distributions, and the two opposite signed normalized derivatives in the frozen example. The comparison keeps the model parameters, susceptible total, and seeded compartment identical. With at most two prior labels all cells are fixed by the given moments, so no smaller case can exhibit this ambiguity. The general moment test is also correct: lower-order observed moments span the corresponding monomials, and uniform even/odd laws on any higher-order support with a nonzero Möbius coefficient agree on all strictly lower inclusion moments while differing on the top moment. This proves the iff for all distributions, not for every individual feasible fiber.",
+      "residual_risks": [
+        "The witness concerns instantaneous growth at admissible mathematical states, not historical reachability, equilibrium invasion, or later outcomes. Strict positivity is for the susceptible cells, not every model compartment."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior model literature has the full history-indexed equations and motivates reducing the 2^n combinations. Prior table geometry classifies a broader family of fibers."
+        ],
+        "reasoning": "The inspected ODE results do not analyze identifiability from complete order-two margins, while the broader fiber result covers distributional ambiguity but not a growth-sign constraint or witness in the specified ODE.",
+        "searches": [
+          "arXiv:2610.15796v1, history-based model equations",
+          "Kucharski et al. DOI 10.1007/s00285-015-0873-4 §§2.2.1, 2.3",
+          "arXiv:2601.07369v1 §§2.2–3"
+        ]
+      },
+      "checked_sources": [
+        "Fontana–Perrone arXiv:2601.07369v1",
+        "Ilahi–Hall–House arXiv:2610.15796v1",
+        "Kucharski–Andreasen–Gog DOI 10.1007/s00285-015-0873-4",
+        "Local Resultary records 1cb8a2f94b3e, 4a1a9464601d, 365a6e47d6bf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "On a known segment the extremal expectations of a fixed response are endpoint values. A prior environmental finding already shows an allocation decision can depend on an unobserved third moment. In the frozen application the sign threshold refers instead to a positive pooled target compartment."
+        ],
+        "reasoning": "Distributional nonidentification alone does not imply nonidentification of the specified product expectation or opposite initial signs at identical demographic and seed values. The application requires the nonzero product contrast and a strict crossing between positive feasible points, along with the lower-dimension no-alias proof. This is a bounded model-specific distinction, not a new general theory of margins or growth.",
+        "searches": [
+          "Fontana–Perrone Example 1",
+          "Ilahi–Hall–House model equations",
+          "Resultary environmental threshold 1cb8a2f94b3e and mixed-moment cutoff 4a1a9464601d"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fontana–Perrone §2.2 gives joint-law nonidentification for at least three bits; Example 1 gives the three-bit segment. Moment-span linear algebra gives the abstract response-identification criterion."
+        ],
+        "reasoning": "The table ambiguity and linear scalar-range construction are covered at the general level. Credit only the joint model-specific threshold and strict sign witness, not the equivalent moment algebra or endpoint method.",
+        "searches": [
+          "Focused literature lookup for multiway binary tables with fixed pairwise marginals and moment identifiability; arXiv:2601.07369v1",
+          "Frozen Boolean Möbius formulation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier environmental threshold uses fair pairwise-independent bits with varying triple dependence. Related epidemic records compare final size under moment constraints, not the same derivative. The three-bit endpoint geometry has existing coverage."
+        ],
+        "reasoning": "The catalogue includes very close mathematical analogues and the primary text supplies the underlying table geometry, but neither records the exact same ODE comparison and target-plus-history minimum.",
+        "searches": [
+          "Local Resultary semantic search for third-order moment or history aliasing: 1cb8a2f94b3e, 4a1a9464601d, 365a6e47d6bf",
+          "Fontana–Perrone Example 1 fixed-margin endpoints"
+        ]
+      },
+      "rationale": "The fair three-bit fiber and moment-span test are not independent novelty: the former is a specialization of known fixed-margin table geometry, and the latter is classical linear algebra. The supported distinct claim is the sharp model-specific minimum for a hidden sign reversal at matched admissible states, including positivity and the specified product response. The strongest inspected analogues do not establish that model-specific conclusion.",
+      "residual_risks": [
+        "Bounded comparison only. Cited Gog–Grenfell and McLeod–Bank–Gandon primary texts could not be inspected via identified PNAS/DOI routes or the latter's preprint PDF; their full treatment was not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers distributional ambiguity and segment geometry, not ODE interpretation",
+          "evidence": "With uniform margins and fixed pairwise correlations, three or more bits need not have a unique joint law; the three-way set is a segment between endpoint laws.",
+          "identifier_or_url": "https://arxiv.org/html/2601.07369v1",
+          "material_read": "§2.2 offsets 17600–21488 and §3 Example 1 offsets 40800–42995",
+          "method": "OA HTML, bounded passages",
+          "title": "Characterization of multi-way binary tables with uniform margins and fixed correlations",
+          "trigger": "Stronger theorem on precisely the fixed pairwise binary-table geometry"
+        },
+        {
+          "assessment": "Confirms prior model equations, not stated fixed-margin sign threshold",
+          "evidence": "Contains the force-of-infection and infected-compartment equations used in the frozen calculation.",
+          "identifier_or_url": "https://arxiv.org/html/2610.15796v1",
+          "material_read": "Numerical framework of history-based multi-strain transmission, offsets 12570–15370",
+          "method": "OA HTML, bounded passages",
+          "title": "A Robust Numerical Framework for Multi-Strain Epidemics",
+          "trigger": "Same history-based ODE"
+        },
+        {
+          "assessment": "Relevant model reduction context",
+          "evidence": "Prior infection combinations index compartments; the 2^n count motivates reductions rather than the exact order-two-data identifiability theorem.",
+          "identifier_or_url": "https://doi.org/10.1007/s00285-015-0873-4",
+          "material_read": "§2.2.1 p.3 and §2.3 p.7 of PDF, offsets 7400–10495 and 18350–20896",
+          "method": "OA PDF text",
+          "title": "Capturing the dynamics of pathogens with many strains",
+          "trigger": "Reduction and information loss for the same type of history-indexed compartmental models"
+        },
+        {
+          "assessment": "Close abstract overlap, different response and claim",
+          "evidence": "Triple dependence changes whether a lower-productivity habitat enters a growth-optimal allocation, not the sign of an initial derivative for a fixed state-based ODE.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-sharp-third-order-environmental-threshold-for-allocating-offsp--1cb8a2f94b3e",
+          "material_read": "RESULT.md finding, offsets 0–3586",
+          "method": "Local Resultary mirror",
+          "title": "A sharp third-order environmental threshold for allocating offspring",
+          "trigger": "Same fair pairwise-independent triple mechanism and a growth-related threshold"
+        },
+        {
+          "assessment": "Different endpoint and data, regardless of date ordering",
+          "evidence": "A mixed-moment cutoff for heterogeneous SIR final-size ordering with a minimum susceptibility-class count, not an initial-growth-history threshold.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-mixed-moment-cutoff-and-alternating-final-size-order-in--4a1a9464601d",
+          "material_read": "RESULT.md finding, offsets 0–3537",
+          "method": "Local Resultary mirror",
+          "title": "A sharp mixed-moment cutoff and alternating final-size order",
+          "trigger": "Epidemic outcomes under matching lower moments"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Limitations; model reduction discussion of Kucharski et al. §2.3"
+      ],
+      "rationale": "The model-specific result shows that pairwise data cannot in general even certify the direction of initial change, despite a separable per-history response and absence of zero susceptible cells. The small sharp boundary identifies when complete pairwise observation does and does not suffice. It is an identifiability warning for interpreting model summaries, not a claim about actual spread or a recommendation to change it.",
+      "residual_risks": [
+        "No validated inference for named pathogens, longitudinal dynamics, or reachable population histories."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

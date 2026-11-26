@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:35:01.129979Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two open-neighborhood constraints at each rung are the stated binary not-all-equal constraints. Closed walks in the 16-state transfer with fixed starting position are in bijection with labelled colourings, including n=3; there is no cyclic or graph-symmetry quotient. Independent exact determinant and trace checks reproduced the stated characteristic polynomial and all counts for 3<=n<=30; direct vertex-colouring enumeration gave 20,36,122,400,842,2116,5780 for n=3..9. The frozen script and saved output were inspected and not used as a fresh run. The spectral formula follows regardless of diagonalizability; the two-colour exchange is free. A second, unbounded derivation is given in the prior-implication assessment below.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier prism record proves the label-preserving neighbourhood correspondence globally. The bipartite prism theorem in Azarija et al. gives a minimum size, not a two-class count; the two other full texts were not retrieved."
+        ],
+        "reasoning": "It is the stronger structural result in the inspected earlier record, not the existence or minimum-size literature or any inaccessible source, that covers the counting claim.",
+        "searches": [
+          "Azarija–Henning–Klavžar DOI 10.37236/6288",
+          "Resultary c74f62af476e",
+          "Asadzadeh–Alikhani DOI 10.13140/RG.2.2.25496.25607",
+          "Desormeaux–Haynes–Henning DOI 10.1016/j.dam.2017.01.032"
+        ]
+      },
+      "checked_sources": [
+        "Resultary c74f62af476e",
+        "Resultary 43beb49dfa00",
+        "DOI 10.37236/6288",
+        "DOI 10.13140/RG.2.2.25496.25607",
+        "DOI 10.1016/j.dam.2017.01.032"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "After the earlier reindexing, let B_m count indexed binary cycles of length m with neither 000 nor 111. The four pair states (00,01,10,11) have successor sets (01), (10,11), (00,01), (10). Splitting the transfer into even and odd subspaces for bit complement yields the two blocks [[0,1],[1,1]] and [[0,1],[-1,-1]]. Therefore B_m=L_m+2 cos(2 pi m/3). The reindexing gives A_n=B_(2n) for odd n and A_n=B_n^2 for even n."
+        ],
+        "reasoning": "For even n, L_n squared equals L_(2n)+2, and 2 cos(2 pi n/3) is 2 if 3 divides n and -1 otherwise. For odd n, applying the same cosine rule to 2n yields the two odd cases. This gives all four frozen formulas and the free-swap division from the known reindexing plus an elementary transfer. No new cyclic structure is required.",
+        "searches": [
+          "c74f62af476e RESULT.md proof, local mirror offsets 1980–4374"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For odd n, the earlier record takes y_j=x_(j mod n,j mod 2); for even n it takes y_i^(s)=x_(i,(i+s) mod 2). It identifies each prism open neighbourhood with exactly one consecutive triple in one length-2n cycle or two independent length-n cycles respectively."
+        ],
+        "reasoning": "The reindexing is independent of whether colours 0 or 1 are selected, so requiring both colours merely forbids 000 and 111 in each of those cycles. This transfers the actual local constraint, not merely an equality of counts for a different invariant.",
+        "searches": [
+          "Resultary: total-domatic colouring counts, binary NAE open neighbourhoods, counts for cycle prisms and generalized Petersen graphs",
+          "c74f62af476e proof, odd/even reindexings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first has complete ordinary domination polynomials and a decisive underlying reindexing; its scalar totals 39,121 for n=3,4 are not 20,36. The second uses GP(n,2), with inner edges v_i v_(i+2), not the prism rails, and gives 12 rather than 122 at n=5."
+        ],
+        "reasoning": "No direct exact table match was identified in this bounded check. The numerical mismatch for individual sets does not negate structural coverage from the proof of the first record.",
+        "searches": [
+          "Resultary labelled prism counts and exact two-total-domatic partitions; nearest matches c74f62af476e and 43beb49dfa00"
+        ]
+      },
+      "rationale": "The exact count is a routine corollary of the explicit parity reindexing of every prism neighborhood in the distinct earlier Resultary record c74f62af476e. It is not enough to compare the populations of individual total dominating sets and two-colour partitions: the earlier reindexing simultaneously identifies both colour-class constraints.",
+      "residual_risks": [
+        "Additional earlier coverage in the unavailable enumeration and cubic graph papers remains possible. The decision uses the inspected earlier neighborhood correspondence and does not rely on those access limits or on a search miss."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive stronger structural coverage",
+          "evidence": "The bijections map each individual open-neighborhood triple exactly to a consecutive cyclic triple, covering all triples once. Thus the correspondence works simultaneously for colour 0 and its complement.",
+          "identifier_or_url": "2026/10/13/SCOPE-parity-twisted-cycle-domination-enumerates-all-total-dominating--c74f62af476e",
+          "material_read": "Finding and proof of odd/even word bijections; RESULT.md offsets 1980–4374",
+          "method": "Resultary local mirror",
+          "title": "Parity-twisted cycle domination enumerates all total dominating sets of prisms",
+          "trigger": "Same prism with bipartite colour-class constraints tested on exact neighborhoods"
+        },
+        {
+          "assessment": "Different graph, not the source of rejection",
+          "evidence": "Inner v_i v_(i+2) edges and count 12 at n=5.",
+          "identifier_or_url": "2026/10/26/SCOPE-complete-total-domatic-partition-counts-for-operatorname-gp-n-2--43beb49dfa00",
+          "material_read": "RESULT.md offset 0, graph and counts",
+          "method": "Resultary local mirror",
+          "title": "Complete total-domatic partition counts for GP(n,2)",
+          "trigger": "Same-day labelled two-class enumeration"
+        },
+        {
+          "assessment": "Distinct minimum-size statement",
+          "evidence": "For bipartite G, gamma_t(G square K2)=2 gamma(G), with open neighborhoods.",
+          "identifier_or_url": "https://doi.org/10.37236/6288",
+          "material_read": "PDF pp. 2–3, offsets 4684 and 6725",
+          "method": "OA journal PDF",
+          "title": "(Total) Domination in Prisms",
+          "trigger": "Primary source on same graph family"
+        },
+        {
+          "assessment": "Unresolved overlap, not needed for verdict",
+          "evidence": "No quantitative count credited from the unavailable paper.",
+          "identifier_or_url": "https://doi.org/10.13140/RG.2.2.25496.25607",
+          "material_read": "No full text retrieved",
+          "method": "Lawful ResearchGate and DOI retrieval attempts",
+          "title": "Enumeration of total domatic partitions",
+          "trigger": "Exact enumeration on related graph families"
+        },
+        {
+          "assessment": "Unresolved overlap, not needed for verdict",
+          "evidence": "No quantitative count credited from the unavailable paper.",
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2017.01.032",
+          "material_read": "No full text retrieved",
+          "method": "Lawful DOI and repository attempts",
+          "title": "Partitioning the vertices of a cubic graph into two total dominating sets",
+          "trigger": "Cubic graphs and exactly two total dominating classes"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Counting two-class partitions on prisms is a natural question, but this specific arithmetic enumeration is mechanically implied by the known label-preserving reduction and the four-state cyclic-word count. The larger 16-state calculation reproduces that consequence without adding a new boundary, count outside the reduced family, or other surviving claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

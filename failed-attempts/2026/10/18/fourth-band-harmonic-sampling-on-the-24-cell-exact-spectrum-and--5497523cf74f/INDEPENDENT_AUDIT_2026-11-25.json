@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:58:38.993237Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The probability-measure addition kernel for exact degree j on S^3 is (j+1)U_j, since U_j(1)=j+1 and the degree dimension is (j+1)^2. For cumulative cutoff L and positive W the sample Gram is W^(1/2)K_L W^(1/2). The two signed-axis and corner sectors give the proposed adjacency diagonalization: the corner cube is diagonal in Walsh degrees, with values 4-2k, the rectangular incidence block only couples degrees zero and one, and the constant and linear coupled blocks give eigenvalues (8,-4) and (4,-2) respectively. The other even modes contribute nine zeros and one further -4, while the other odd modes give four further copies of -2. Thus the common sectors of antipodal parity and 1/2-adjacency, in order (constant, even -4, even 0, odd 4, odd -2), have dimensions (1,2,9,4,8). Substituting the five possible inner products in the normalized kernels gives exact-degree sample eigenvalue rows (1,0,0,0,0), (0,0,0,1,0), (0,0,1,0,0), (0,0,0,0,2), (0,5,5/3,0,0); adding the rows up to each cutoff gives exactly the claimed cumulative ranks and L=4 spectrum. Positive weights preserve ranks by congruence. The cube-root coloring is flat, even, sum zero and has adjacency eigenvalue -4 by neighbor counts. Testing W^(-1/2) times this vector and the all-ones vector gives the two Rayleigh bounds with common denominator sum_x 1/w_x and eigenvalue ratio five. Equality forces the constant-vector test to be a minimum eigenvector, giving constant weights entrywise. The reciprocal polynomial takes values 1/lambda at all four eigenvalues; the kernel-based interpolation formula is the unique minimum-norm solution by orthogonality to the restriction kernel. The arguments apply to all strictly positive weights and count the two points of each antipodal pair separately. The frozen finite matrix checker was read but not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Qu, Gao, Hinder, Ye and Zhou give the optimization of the condition number by positive right diagonal preconditioning as feasibility D <= M <= kappa D in the semidefinite order, for the positive full-rank Gram M.",
+          "The design sources establish 24-cell strength five or its harmonic-strength set, and Haines discusses spherical harmonic regression on S^2."
+        ],
+        "reasoning": "The design results alone do not determine all the degree-four band eigenvalues or a unique weight choice. The diagonal-preconditioning formulation applies directly with M the real symmetric positive definite unweighted sample Gram, and the exact spectral information permits the full optimality and equality test below.",
+        "searches": [
+          "Optimal diagonal scaling condition number symmetric positive definite extreme eigenspaces",
+          "arXiv:2209.00809v1, Section 4, right diagonal preconditioning",
+          "arXiv:math/0607447, §4; arXiv:2303.09000, Theorem 1.1; arXiv:2507.01358, Theorem 1.2",
+          "DOI:10.1007/s00362-024-01630-5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_24cell.py",
+        "Resultary 2b17ab9c73cb, 2b55835ab263 and 4fdcf93793d3",
+        "arXiv:2209.00809v1",
+        "arXiv:math/0607447",
+        "arXiv:2303.09000",
+        "arXiv:2507.01358",
+        "DOI:10.1007/s00362-024-01630-5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known one-sided diagonal-scaling criterion is the existence of a positive diagonal D with D <= G <= kappa D; the scale of W is immaterial and kappa here is the squared condition number of harmonic evaluation.",
+          "The exact spectral table gives lambda_min(G)=1, lambda_max(G)=5, G times the all-ones vector equal to itself, and signed coordinate permutations of the normalized D4 realization act transitively on vertices and preserve G."
+        ],
+        "reasoning": "For fixed kappa the feasibility inequalities are convex in D and invariant under the transitive vertex permutations. Averaging D therefore yields dI, so d<=1 and kappa*d>=5. At kappa=5 these inequalities force d=1, and hence the original D has mean diagonal one. The all-ones vector then has zero quadratic form for the positive semidefinite G-D; it must be in the kernel of G-D, which forces every diagonal entry of D to be one. Since D is a positive scalar multiple of W inverse, normalized weights are uniquely uniform. Thus even uniqueness follows by direct application of the published scaling criterion and the exact-degree table; no optimal reweighting result was inferred merely from design strength or from a title.",
+        "searches": [
+          "arXiv:2209.00809v1, p. 17 right preconditioning formulation and equation (6)",
+          "Resultary 2b17ab9c73cb, Finding and identification of constant sector"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2b17ab9c73cb uses exactly the probability normalization and 1/sqrt(24) rescaling on the normalized D4 roots; it identifies five fixed common sectors and gives each exact-degree eigenvalue in them.",
+          "The other full exact-degree indexed entry gives the same decomposition and a twelve-step recurrence. The distinct same-day cubic D_n record gives the pure-degree-three rank-eight result when n=4, not the cumulative rank."
+        ],
+        "reasoning": "The orthogonal map sending the first two axes to (e1+e2)/sqrt(2), (e1-e2)/sqrt(2) and the last two to (e3+e4)/sqrt(2), (e3-e4)/sqrt(2) sends the corners to the remaining cross-block D4 roots. Thus the theorem applies without changing evaluation singular values. Cumulative Gram matrices are sums of the exact-degree sample Gram matrices, which share the stated basis sectors; adding exact-degree ranks by themselves would not suffice.",
+        "searches": [
+          "Resultary: exact degree and band harmonic sampling spectrum 24-cell D4",
+          "Resultary 2b17ab9c73cb, Finding and common eigenspace proof",
+          "Resultary 2b55835ab263 and 4fdcf93793d3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2b17ab9c73cb orders the fixed sector multiplicities as 1,2,9,4,8 and gives the entries in terms of U_j(1/2) and U_j(0), with the constant line as the first sector.",
+          "There was no theorem-level access to the identified classical codes/designs article or the mutually unbiased bases/association-scheme paper through the DOI routes inspected."
+        ],
+        "reasoning": "The actual indexed table already suffices: at degrees 0 to 4 the corresponding rows are (1,0,0,0,0), (0,0,0,1,0), (0,0,1,0,0), (0,0,0,0,2), (0,5,5/3,0,0). The sum (1,5,8/3,1,2) with those multiplicities gives the submitted spectrum and shows that the constant sector belongs to the minimum eigenspace. Inaccessible classical tables do not add evidence in either direction.",
+        "searches": [
+          "24-cell association scheme first eigenmatrix D4 antipodal spectral projectors",
+          "Resultary 2b17ab9c73cb and 2b55835ab263, exact-degree spectra",
+          "DOI:10.1007/BF00152473; DOI:10.1016/j.ejc.2009.11.014"
+        ]
+      },
+      "rationale": "The exact ranks and band spectrum are mechanical sums of the normalized exact-degree spectra on common eigenspaces stated in a distinct indexed theorem on the same 24-cell. The weighted optimum and uniqueness, although not stated in that record, then follow from the published diagonal-preconditioning feasibility formulation by transitive averaging and its positive-semidefinite equality case at the constant minimum eigenvector. No independent spectral or conditioning invariant remains beyond these implications. This is verified mathematical coverage in the inspected sources, not a historical claim of priority based on catalogue dates.",
+      "residual_risks": [
+        "The strongest exact-degree indexed records have later catalogue dates; disclosure order was not established. The disposition credits verified current mathematical coverage without assigning priority or asserting dependence.",
+        "The classical association-scheme candidate articles at DOI:10.1007/BF00152473 and DOI:10.1016/j.ejc.2009.11.014 were not available at theorem level through the inspected routes. Their unavailability is not grounds for the decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Table mechanically implies the cumulative ranks and spectrum and provides the constant minimum sector",
+          "evidence": [
+            "For n=j+1 and a=U_j(1/2), b=U_j(0), the even spectral entries are n/24 times (2n+16a+6b,2n-8a+6b,2n-2b) with multiplicities 1,2,9; the odd entries are n/24 times (2n+8a,2n-4a) with multiplicities 4,8. The first sector is constant."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-spherical-harmonic-sampling-spectrum-of-the-regular-24-cel--2b17ab9c73cb/RESULT.md",
+          "material_read": "Finding and joint-eigenspace proof, offsets 0–3849",
+          "method": "Local Resultary mirror",
+          "title": "Exact spherical-harmonic sampling spectrum of the regular 24-cell",
+          "trigger": "Same object and a full exact spectral table"
+        },
+        {
+          "assessment": "General exact feasibility formulation; applying the symmetries and the known constant minimum sector proves the specific unique optimizer",
+          "evidence": [
+            "The quantity optimized is kappa with diagonal D2 nonnegative and A^T A >= D2 and kappa D2 >= A^T A; full column rank implies positivity for a feasible D2."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2209.00809v1",
+          "material_read": "Section 4, p. 17, right preconditioning and equation (6), offsets 56800–60730",
+          "method": "Lawful OA PDF passage",
+          "title": "Optimal Diagonal Preconditioning: Theory and Practice",
+          "trigger": "Potential dominating general theorem on positive diagonal scaling"
+        },
+        {
+          "assessment": "Design-strength context only",
+          "evidence": [
+            "The 24-point D4 root system is a spherical 5-design."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0607447",
+          "material_read": "§4 p. 5, offset 17443",
+          "method": "Lawful OA PDF passage",
+          "title": "The D4 root system is not universally optimal",
+          "trigger": "Classical design strength and dimension coverage"
+        },
+        {
+          "assessment": "Harmonic vanishing strengths, not sampling condition-number optimization",
+          "evidence": [
+            "The order-24 binary tetrahedral group has harmonic strengths 2,4,10 and all positive odd degrees."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2507.01358",
+          "material_read": "Theorem 1.2 p. 3, offset 10894",
+          "method": "Lawful OA PDF passage",
+          "title": "Spherical designs for finite quaternionic unit groups and their applications to modular forms",
+          "trigger": "Potential prior exact harmonic relation on this node set"
+        },
+        {
+          "assessment": "Scope differs from fixed-node condition-number optimization on S^3",
+          "evidence": [
+            "The stated setting is spherical harmonic regression and designs on S^2."
+          ],
+          "identifier_or_url": "DOI:10.1007/s00362-024-01630-5",
+          "material_read": "p. 1, opening passage",
+          "method": "Lawful OA passage",
+          "title": "Optimal designs for spherical harmonic regression",
+          "trigger": "Potential earlier general optimal harmonic weights"
+        },
+        {
+          "assessment": "Potential relation-level coverage not determined from this source",
+          "evidence": [
+            "No eigenmatrix or relevant theorem was available for comparison."
+          ],
+          "identifier_or_url": "DOI:10.1016/j.ejc.2009.11.014",
+          "material_read": "Landing/abstract only; no main text available through identified routes",
+          "method": "Lawful DOI and repository lookup",
+          "title": "On the equivalence between real mutually unbiased bases and a certain class of association schemes",
+          "trigger": "Possible earlier tabulation via the mutually unbiased bases realization"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Both the cumulative interpolation slot and optimal weighting are meaningful questions for these standard nodes. Here the exact ranks and spectrum are a sum of already specified common spectral blocks, the exact inverse is ordinary interpolation of 1/t on those eigenvalues, and the weight characterization follows directly from the known feasibility formulation and symmetry, with the constant-vector equality condition. The frozen work does not establish a distinct valuable mathematical invariant beyond these deductions.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

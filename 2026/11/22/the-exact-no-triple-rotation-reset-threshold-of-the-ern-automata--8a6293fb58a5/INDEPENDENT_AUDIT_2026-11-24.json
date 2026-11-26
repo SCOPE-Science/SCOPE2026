@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:47:12.763325Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Read RESULT.md:5–93 against the right-rotation action, left-to-right words and contiguous `aaa`. Initial rotations fix the full set, terminal rotations preserve rank, and adjacent `b`s collapse without creating `aaa`. The final rank-reducing `b` gives image 0. After the initial `b`, the domain is S of size N=n-1, and A=ab and B=aab are the stated block maps of costs 2 and 3. B acts as a two-step cyclic shift followed by identification of target 1 with 0; its full inverse on an interval duplicates the fiber over 0 and omits the fiber over 1. Exactly one of 0 and 1 is present only at r=0 (growth) or r=w (shrink), which gives the three endpoint cases, including the empty shrink at w=1. Independently, among nonwrapping width-preserving descents of distance r, a path with x one-steps and y two-steps costs (3r+x)/2. If r is odd one one-step suffices: put it first for odd w and last for even w. If r is even, zero one-steps suffices unless w is even and 2<=w<=r, when all two-steps must hit the forbidden shrinking edge. In that case two one-steps suffice, at the start and end. This gives exactly g_w(r). It is nondecreasing, so wrapping steps cannot improve the potential; at r=w>=2 the source potential is at most H_w and the shrink destination at least 3+H_w. Growth has equality by the H recurrence. Telescoping gives the global lower bound even on paths that wrap or shrink, and the descending path with growth only at endpoint 0 attains it. Adding the initial b and evaluating the parity sum gives the claimed floor; the n=3 witness `baab` has length four. Both included checkers were read, not run. Their previously recorded finite ranges are corroboration only; the all-order result does not depend on a numerical computation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "As characterized in frozen RESULT.md:104–108, the cited primary constrained-synchronization papers concern decidability/complexity or structural existence. The inspected all-order two-rotation-run record gives a constructive no-aaa length 2n^2-5n+1 and impossibility of avoiding aa. The inspected inverse-extension record optimizes a single extension without the forbidden-factor constraint."
+        ],
+        "reasoning": "Neither a feasibility threshold nor an arbitrary constructive upper bound supplies the optimal constrained word length. For n>=4 the constructive bound is larger than the assigned length. Individual extension optima need not give a global path optimum with length and adjacency constraints, since the destination subset carries information for future steps.",
+        "searches": [
+          "DOI:10.4230/LIPIcs.MFCS.2019.63",
+          "arXiv:2109.02743v1",
+          "Resultary: constrained synchronization and full path versus individual inverse extension"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact self-match and the three distinct RESULTS above",
+        "Frozen RESULT.md, VERIFICATION.md and both supplied Python checkers (read-only)",
+        "Cited regular-constraint primary literature at the level of the accessible frozen comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The even-order Finding explicitly does not claim odd n. The two-rotation-run Finding explicitly supplies a bound rather than a minimum. The inverse-extension Finding optimizes a different problem. Frozen RESULT.md:108 reports unrestricted length and weighted and early-rank comparisons."
+        ],
+        "reasoning": "At endpoint N-1 the cost adjustments differ with parity, and the optimality argument must still control shrinking and wrapping paths at odd orders. Neither renaming n nor applying the even theorem to a numerical neighbour transfers the result across this transition geometry. The unified potential proves the missing sharp lower bound and provides an attaining construction.",
+        "searches": [
+          "Even-order exact bounded-rotation RESULT.md Finding",
+          "Two-rotation-run RESULT.md Finding and proof §§1–4",
+          "2026/11/8/SCOPE-exact-inverse-extension-lengths-and-their-distribution-in-the-er--784204d15f86 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The even-order Finding solves this same admissible language and unit literal-word cost on n=2m. The two-rotation-run record presents the same automaton after a cyclic shift of labels. After normalization, optimizing weighted blocks A=ab and B=aab means exactly the same reset problem with one leading b charged separately."
+        ],
+        "reasoning": "The graph relabeling does not change cost or the forbidden factor, and a one- or two-rotation gap corresponds to a block of weight 2 or 3, not an unweighted block letter. The block automaton has one cycle and a defect-one letter but the latter is a two-step rotation followed by identification, not in general the Černý idempotent. The even overlap is genuine, not a title match.",
+        "searches": [
+          "Resultary: exact no-aaa constrained Černý reset threshold, bounded rotations and ab/aab block automata",
+          "2026/11/22/SCOPE-exact-bounded-rotation-reset-threshold-for-even-ern-automata--303d4a010712",
+          "2026/11/22/SCOPE-sharp-two-rotation-run-synchronization-threshold-in-the-ern-auto--5cfabeb3b337"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact 6m^2-8m+3 branch of the even-order Finding equals the assigned formula when n=2m; this accounts for the values 11,33,67,113 in the first eight entries. The assigned odd branch is 6m^2-2m at n=2m+1, with first values 4,20,48,88; no exact odd formula/table was established by the available separate records."
+        ],
+        "reasoning": "A prior exact parity subfamily counts as real coverage even without a table. Same-day dating supplies no order. Finite frozen BFS and Dijkstra evidence do not establish priority or the all-odd statement.",
+        "searches": [
+          "Resultary: exact bounded-rotation threshold and parity, values 4,11,20,33,48,67,88,113",
+          "2026/11/22/SCOPE-exact-bounded-rotation-reset-threshold-for-even-ern-automata--303d4a010712 Finding"
+        ]
+      },
+      "rationale": "The exact even-order formula is materially covered by a distinct same-day record and is not credited as distinct content. All-order feasibility with rotation runs of two is also covered. The supported distinct contribution is exact optimal length at all odd orders plus a unified all-order inverse-interval optimality certificate and matching construction. The even theorem and the feasibility bound do not imply the odd optimum; intra-day priority and exhaustive historical priority are not certified.",
+      "residual_risks": [
+        "Exact primary arXiv and LIPIcs passages remained inaccessible after bounded attempts; an uninspected equivalent constrained optimization result remains possible.",
+        "The same-day even and all-order records' publication order is not established. The even coverage is credited independently of that uncertainty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers all even orders of the claim; not the odd orders; no established date priority",
+          "evidence": [
+            "Finding states 6m^2-8m+3 for no-aaa resets at n=2m, using the same ab/aab blocks in the construction, and makes no odd-n claim."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-bounded-rotation-reset-threshold-for-even-ern-automata--303d4a010712/RESULT.md",
+          "material_read": "Finding and relevant construction scope",
+          "method": "Substitute n=2m and compare admissibility and costs",
+          "title": "Exact bounded-rotation reset threshold for even Černý automata",
+          "trigger": "Exact same constraint and optimal objective on even orders"
+        },
+        {
+          "assessment": "Feasibility and larger constructive bound, not exact shortest length",
+          "evidence": [
+            "No-aa reset impossible and no-aaa reset length at most 2n^2-5n+1; expressly not a shortest-length formula."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-two-rotation-run-synchronization-threshold-in-the-ern-auto--5cfabeb3b337/RESULT.md",
+          "material_read": "Finding and Proof §§1–4",
+          "method": "Compare constructive cost and lower bound on permitted run length to sharp reset length",
+          "title": "Sharp two-rotation-run synchronization threshold in the Černý automata",
+          "trigger": "Exact same rotation constraint after relabeling"
+        },
+        {
+          "assessment": "Exact one-step optimum for a different objective",
+          "evidence": [
+            "Finding concerns single-step inverse-extension length and subset distribution without the no-aaa constraint."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-inverse-extension-lengths-and-their-distribution-in-the-er--784204d15f86/RESULT.md",
+          "material_read": "Finding",
+          "method": "Compare single-subset extension and cost to complete weighted constrained path",
+          "title": "Exact inverse-extension lengths and their distribution in the Černý automata",
+          "trigger": "Possible stronger inverse-extension result on the same automaton"
+        },
+        {
+          "assessment": "Reported results do not imply the odd-order lengths; full-document noncoverage unverified",
+          "evidence": [
+            "Frozen RESULT.md reports decidability/complexity and allowed reset language structure, distinct from exact length for no-aaa."
+          ],
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.MFCS.2019.63; https://arxiv.org/abs/2109.02743",
+          "material_read": "Frozen RESULT.md:104–117 comparisons; bounded OA retrieval attempts did not supply the exact primary passages",
+          "method": "Compare reported complexity/structure/existence questions to this exact constrained optimum",
+          "title": "Computational Complexity of Synchronization under Regular Constraints; Constrained Synchronization for Commutative Automata and Automata with Simple Idempotents",
+          "trigger": "Regular-language synchronization and binary simple-idempotent family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Forbidden consecutive rotations are a natural regular constraint in the canonical slow synchronization family. The result computes the optimum, and not merely a feasible schedule, at the previously unaccounted-for odd orders. The sharp potential converts the problem to a small interval geometry while proving global optimality against detours and shrink steps. This completes the natural parity classification and supplies an explicit optimal construction; it is not valued as a recomputation of the known even-only expression.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

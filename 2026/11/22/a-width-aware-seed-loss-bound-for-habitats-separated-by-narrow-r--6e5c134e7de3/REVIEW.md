@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain, uniform-source hypothesis, and independent rotation-invariant displacement are explicit. For every fixed translation, the one-dimensional horizontal outflow is bounded by the outer-hull loss plus the capped width of each roadway, while vertical loss is capped by translation length. The exact conditional product formula has a nonnegative intersection correction. Angular averaging and Jensen's inequality produce the mean-only bound; no hidden moment assumptions beyond finite mean radius are used. For fixed-radius movement shorter than all occupied interval widths and the habitat height, the horizontal outflow decomposition becomes equality and direct quadrant integration supplies the exact order-two error. The standalone reproducibility checks passed on randomly sampled configurations and on direct angular integrations; these finite tests supplement, rather than replace, the proof.
+PASS
 
-## Originality — PASS on inspected evidence
+For a fixed displacement the source coordinates are independently uniform on S and [0,H], so the two loss fractions add minus their product. The preimage of a road can contribute at most the part of its translated interval outside that road itself, of length min(|u|,w); at most |u| is lost beyond the hull. Discarding the nonnegative product term and applying Jensen to the angular average of min(r cos(theta),w), which is concave in r, gives the stated mean-only result. If w<mu the integrand clips on a positive-measure set and the comparison to the perimeter bound is strict. For fixed distance mu with every viable strip and H longer than mu, the displaced road preimage outside its own road is all viable and the hull bound is exact. The product term integrates over one quadrant via x=cos(theta), giving integral of min(x,t) from 0 to 1 equal to t-t^2/2, and the claimed correction including the outer term. This proves exactness in the separated small-displacement regime and first-order sharpness as the widths scale. The numerical SciPy checker and VERIFICATION.md were read, not executed; the approximations are supplementary and not the proof.
 
-Hafner–Meyer (2024), Section 6.2, expressly identifies narrow roadways as a cause of serious overcounting by their global perimeter estimate; it does not derive a width-dependent mean-only correction or a simultaneous road-width/dispersal scaling. Chisholm–Lichstein (2009) obtains a perimeter approximation and connected-domain Gaussian examples. Cygan–Grzywny (2023) develops the general nonlocal-perimeter and fixed-set limiting framework. Mazón–Rossi–Toledo (2017) establishes the general nonlocal heat-content expansion. Their kernel-overlap formulas underlie the problem but are not themselves the stated universal capped-road inequality, explicit Jensen response, or exact second-order moving-gap law. Broad searches did not locate equivalent full statements. Literature priority remains provisional: older geometric-probability treatments of perforated domains may contain special cases, and the 2009 supplementary appendices were not verified in full.
+## originality
 
-## Value — PASS
+PASS
 
-The quantity is an ecologically motivated loss probability, not an arbitrary numerical invariant. It solves the concrete narrow-road failure mode identified in the motivating seed-dispersal paper, requires only dimensions, road widths, and one observable dispersal moment, works for all radial laws, and exhibits a tight joint-limit transition. A Gaussian benchmark reduces the perimeter estimate by about 31.42% while staying within about 1.06% of exact loss. The theorem is a meaningful controlled-geometry benchmark, not a field-calibrated prediction and not a general theory of fragmented landscapes.
+The inspected prior work identifies the narrow-road weakness and supplies general overlap machinery. It does not give the road-resolved mean-only cap and fixed-radius second-order coefficient for this geometry.
 
-## Scope and limitations
+## value
 
-Assumes full-height parallel roadways, uniform habitat occupancy, independent isotropic displacement, and an all-strips-viable landing rule. Joint-limit sharpness is shown only for fixed-radius dispersal families. Numerical checks are auxiliary, and a search of published sources cannot conclusively establish priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Resolves a specific stated deficiency of a widely applicable perimeter bound in a natural geometry without assuming a known radial kernel. Captures the first-order improvement at every positive width-to-dispersal ratio and quantifies the exact second-order loss product for fixed radius, rather than merely observing that old bounds can overcount.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

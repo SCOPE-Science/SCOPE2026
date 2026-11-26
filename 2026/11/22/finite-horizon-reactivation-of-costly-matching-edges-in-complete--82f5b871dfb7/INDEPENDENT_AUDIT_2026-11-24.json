@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:39:23.364170Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–30 and 33–68",
+        "Frozen VERIFICATION.md, lines 19–23",
+        "Frozen verify_thermal_matching.py, lines 18–50 (spectrum), 52–91 (finite objective checks), 93–102 (scaling samples)"
+      ],
+      "rationale": "The budget slice is compact, and w -> -tL(w) is injective for t>0 by reading off the off-diagonal entries. The trace-exponential Hessian on symmetric matrices has positive exponential divided differences, including at repeated eigenvalues, so along every nonzero conductance direction it is strictly positive. Uniqueness forces invariance under pair permutations and flips, which are transitive within each class. The resulting budget is da+rb=c and the spectrum is 0, da+2b with multiplicity m, and na with multiplicity m-1 (pair-constant vectors of total sum zero). On 0<=b<=c/r, the strictly increasing derivative is mt[r exp(-t na)-(2-r) exp(-t(da+2b))]. It is positive when r>=2, including r=2. Otherwise its sign at zero gives precisely the stated threshold; if negative, its zero satisfies 2t(a-b)=log(r/(2-r)), yielding the stated positive b<c/(d+r)<c/r, so a>b>0. At equality of times the zero-conductance boundary is still the unique optimum. Under t=theta n^2/B the positive-part argument tends to 1-log(r/(2-r))/(4 theta); n^2 a/(2B) tends to one and the spending share is bounded by r/(d+r), including at the limiting boundary. These deductions are independent of sampled numerical trials.",
+      "residual_risks": [
+        "Finite positive t, unnormalized Laplacian, exact linear budget and a perfect matching are essential scope conditions. The scaling statement fixes theta and r in (1,2), not varying prices near two.",
+        "The attached script was inspected, not executed. Its exact characteristic-polynomial checks concern finite graph orders; its nonsymmetric tests are samples and its floating-point comparisons do not certify uniqueness or bounds for arbitrary parameters."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boyd's abstract formulates constrained convex Laplacian spectral design as a framework; Sun et al. specify max lambda_2 under a linear constraint",
+          "The inspected prism finding is graph-specific; catalogue summary for 7c290a97f9fe names a balanced bipartite graph and a different price ceiling, but its full result was not retrieved."
+        ],
+        "reasoning": "Substituting the heat trace into a spectral design framework defines the optimization problem but gives neither the exact conductances nor its transition law. The prism theorem does not contain the complete graph as a member for m>=2; the bipartite snippet is evidence only of a related setup, not proof about its full scope.",
+        "searches": [
+          "Boyd, Convex Optimization of Graph Laplacian Eigenvalues, p. 1311",
+          "Sun–Boyd–Xiao–Diaconis, The Fastest Mixing Markov Process on a Graph, p. 681",
+          "Resultary 2c0941455571 and 7c290a97f9fe"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2c0941455571, c0a7ce2499f8, 2e1277c4e435, 6a54dc4c69eb and partial comparison with 7c290a97f9fe",
+        "Sun et al. (2006), p. 681; Boyd (2006), p. 1311"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier complete-graph gap result gives the price-two boundary and multiple gap maximizers at equality; the frozen finite-time criterion has a unique optimizer even at equality.",
+          "The prism analysis establishes a different activation time even within the same exponential criterion."
+        ],
+        "reasoning": "Knowing the gap and its optimizer faces does not determine the second nonzero eigenvalue class in the heat objective along a design perturbation. The threshold arises from the derivative balance between both eigenvalue classes with their multiplicities; it cannot be read from a gap ordering or from the prism threshold.",
+        "searches": [
+          "Resultary c0a7ce2499f8 and 2e1277c4e435, Findings at offset 0",
+          "Resultary 2c0941455571, Finding at offset 0",
+          "Sun et al. p. 681"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 2c0941455571 Finding: identical heat objective on K_m square K_2; for r>1 activation is at (m-1) log(1+m(r-1))/B with boundary still zero",
+          "Resultary 6a54dc4c69eb Finding: inverse spectral moments and log determinant of a balanced bipartite graph"
+        ],
+        "reasoning": "The trace minus the constant mode is precisely the sum of exponentials of the other eigenvalues; the prism is an exact objective match but has no edges between the two layers except the matching, and its law has no r>=2 deletion regime. Inverse spectral powers and the log-determinant endpoint give different fixed-time objectives. The web query was not decisive and is not evidence of absence.",
+        "searches": [
+          "Resultary: finite-time heat-trace Laplacian design priced matching complete graph activation threshold exponential spectral objective",
+          "Resultary: finite horizon heat trace priced perfect matching edge activation complete network",
+          "Web: \"trace exp(-tL)\" graph Laplacian optimization conductance design heat trace fastest mixing"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned record 82f5b871dfb7 itself appears in the exact-object search",
+          "Inspected exact formulas include a heat-trace formula on the prism and gap-optimal formula/face results on complete graphs."
+        ],
+        "reasoning": "There is no canonical census table of solutions of this continuous conductance problem. Its exact catalogue analogues were checked: none is an exact finite-time formula on the identical graph and price family; the self-match is not additional coverage.",
+        "searches": [
+          "Resultary: finite horizon heat trace priced perfect matching edge activation complete network",
+          "Resultary 2c0941455571, c0a7ce2499f8, 2e1277c4e435"
+        ]
+      },
+      "rationale": "Finite-time exponential spectral design and activation are not distinct on their own: closely related indexed families have the same setup on other graphs. Credit here is the exact finite-time complete-graph solution, including the strict boundary convention, all-finite-time deletion at price two, and the explicit diffusive crossover. Spectral-gap antecedents for the identical geometry already establish the price-two threshold for their criterion, not the finite-time optimizer.",
+      "residual_risks": [
+        "An equivalent heat-kernel design formula may be indexed under exponential spectral optimization; the bounded web query did not resolve that risk.",
+        "The exact text of the bipartite activation analogue and the full texts of other same-day graph analogues were not read; no inference of priority follows from same-day dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MATERIAL OVERLAP, DIFFERENT GRAPH AND FORMULA",
+          "evidence": "Unrestricted heat-trace optimizer on K_m square K_2 activates after a different threshold, finite for each r>1.",
+          "identifier_or_url": "Resultary 2c0941455571",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Two-sided finite-horizon edge activation in priced complete prisms",
+          "trigger": "Same-day exact heat-trace activation and matched costs"
+        },
+        {
+          "assessment": "PRICE BOUNDARY PRECEDENT FOR DIFFERENT OBJECTIVE",
+          "evidence": "Maximizes lambda_2; deletion threshold r=2 for at least two marked edges, with nonuniqueness at equality.",
+          "identifier_or_url": "Resultary c0a7ce2499f8",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local mirror",
+          "title": "A single-pair versus multi-pair price threshold for spectral-gap design of complete graphs",
+          "trigger": "Identical complete-graph matching geometry and price two"
+        },
+        {
+          "assessment": "DIFFERENT OBJECTIVE",
+          "evidence": "Spectral-gap optimizer faces can be nonunique at higher prices, unlike the strict finite-time optimizer.",
+          "identifier_or_url": "Resultary 2e1277c4e435",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror",
+          "title": "The price-two rigidity transition and full optimizer faces for matched complete networks",
+          "trigger": "Earlier exact objective faces on same paired geometry"
+        },
+        {
+          "assessment": "PARTIAL COMPARISON",
+          "evidence": "Summary names the balanced complete bipartite graph and ceiling 2(m-1)/(m-2); full hypotheses could not be checked.",
+          "identifier_or_url": "Resultary 7c290a97f9fe",
+          "material_read": "Catalogue summary only; exact mirror text unavailable",
+          "method": "Local Resultary and mirror lookup",
+          "title": "A hard price ceiling and three activation time scales for matched bipartite diffusion",
+          "trigger": "Very close activation and price-ceiling claims"
+        },
+        {
+          "assessment": "DIFFERENT SPECTRAL FUNCTIONS AND GRAPH",
+          "evidence": "Inverse powers of nonzero eigenvalues and a log-determinant endpoint on K_(m,m).",
+          "identifier_or_url": "Resultary 6a54dc4c69eb",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror",
+          "title": "Spectral moment price hierarchy on matching-priced balanced bipartite graphs",
+          "trigger": "Possible equivalent spectral objectives"
+        },
+        {
+          "assessment": "SPECTRAL GAP, NOT HEAT TRACE",
+          "evidence": "Objective is the second-smallest Laplacian eigenvalue subject to a linear constraint.",
+          "identifier_or_url": "https://doi.org/10.1137/S0036144504443821",
+          "material_read": "Abstract p. 681",
+          "method": "OA Stanford PDF passage, offset 0",
+          "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+          "trigger": "Foundational same budget design framework"
+        },
+        {
+          "assessment": "GENERAL FRAMEWORK, NOT EXPLICIT OPTIMUM",
+          "evidence": "Optimization of functions of Laplacian eigenvalues under constraints on edge weights.",
+          "identifier_or_url": "https://www-leland.stanford.edu/~boyd/papers/pdf/cvx_opt_graph_lapl_eigs.pdf",
+          "material_read": "Abstract p. 1311",
+          "method": "OA paper passage, offset 0",
+          "title": "Convex Optimization of Graph Laplacian Eigenvalues",
+          "trigger": "General convex spectral design framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 10–27 and 50–68",
+        "Resultary c0a7ce2499f8 and 2c0941455571"
+      ],
+      "rationale": "The matched complete graph gives an exactly solvable test of how a whole-spectrum diffusion design differs from slowest-mode design. The explicit positive-time transition and diffusive ratio law identify when an individually costly edge class matters, even when its spending share vanishes. The price-two equality case in particular separates a unique finite-time design from a set of gap optima. These are useful boundaries of a natural design problem, not a new general convexity theorem.",
+      "residual_risks": [
+        "The value is in the complete-graph benchmark; no transfer to partially marked, normalized, heterogeneous, or discrete-time designs is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The strict-kernel condition gives positive determinants on every oriented edge; hence every successive angular increment is uniquely recovered in \((0,\pi)\). The simple positively oriented polygon winds once around its kernel point. Cumulative angles reconstruct the entire pairwise Gram matrix, which proves orthogonal equivalence and symmetry capture. The finite checker passed 792 geometries and 22,932 dihedral tests. It is supplementary rather than an infinite proof.
+## correctness
 
-**Originality — PASS, provisional.** Winter (arXiv:2108.13483), Questions 6.4 and 6.6, treats metric coloring and identifies the general nonconvex extension as open. Winter (arXiv:2302.14194), Theorem 4.7 and Corollary 4.10, proves a *stronger result for convex polytopes*: this already includes every convex-polygon corollary, which is expressly not counted as a contribution here. The distinct surviving claim concerns all nonconvex star-shaped polygons with a strict kernel point, for which a direct Gram-completion formula is proved. Local database and prior-finding comparisons found no equivalent nonconvex statement. Historical risk remains from unindexed star-shaped framework rigidity results.
+PASS
 
-**Mathematical value — PASS.** This is a full exact local-to-global metric reconstruction theorem for a natural and strictly larger-than-convex family of planar boundary embeddings. It answers the nonconvex extension issue positively under a sharp geometric branch-selection hypothesis and provides an explicit quadratic-time Gram completion, rather than simply testing individual symmetries or making a generic-position claim. The accompanying alternating-radius concave hexagon verifies the extension is nonvacuous.
+Strict leftness gives det(v_i,v_{i+1})>0, so the signed principal increment is the unique arccos branch in (0,pi). A segment between the two rays stays within their positive cone, so this is also its continuous lifted change of argument. The origin is interior, and simplicity and counterclockwise orientation give winding one; the increments really sum to 2pi. The radii and cumulative angles give the full Gram entry by the cosine of their difference. An adjacent pair is a basis and equality of its Gram matrix defines an orthogonal map; inner products with that basis then identify all remaining vertices. A color-preserving cyclic shift retains the orientation, while a color-preserving reversal can be composed with a reflection to restore counterclockwise orientation before applying the same completion. Conversely a polygon symmetry preserves the boundary's cyclic adjacency (vertices are genuine corners) and the local scalars. The alternating-radius hexagon has positive consecutive determinants and alternating turn signs, and its consecutive angular sectors show simplicity. The proof covers all stated n, including n=3, and is not uniqueness among unconstrained rank-two completions. The supplied NumPy checker was inspected, not executed; its reported 792 configurations and 22,932 candidate permutations are diagnostics and do not establish the exact theorem.
 
-No independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The metric coloring and the convex congruence and symmetry subcases are covered by Winter's work and receive no novelty credit. The supported distinct part is the explicit branch-fixed completion and corresponding symmetry theorem for all strict-kernel cycles, including nonconvex and nongeneric ones, with competitors restricted to the same class.
+
+## value
+
+PASS
+
+A specific ambiguity in reconstructing a centered cycle from local metric data is resolved uniformly under a natural strict visibility hypothesis. The formula recovers all missing entries and certifies the entire origin-fixing symmetry group in a genuinely larger-than-convex class, without genericity. The nonconvex extension is the value; convex reconstruction alone would not qualify.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

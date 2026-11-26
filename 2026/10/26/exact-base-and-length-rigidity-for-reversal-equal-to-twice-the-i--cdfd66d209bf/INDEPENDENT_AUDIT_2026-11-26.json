@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:11:23.032102Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–62",
+        "Frozen VERIFICATION.md and verify.py"
+      ],
+      "rationale": "With units digit t and leading digit s, the carry recurrence starts at -4 and ends at 0; c_i is in {-1,0,1} for i>=1, and once nonnegative stays so. The outside equations give 3s=4+b c_1-2c_(L-1). A negative c_1 forces t=1, s=b-2, incompatible with the final equation; c_1=0 forces 3s=2 or 4. If c_1=1 and c_(L-1)=0, length two is already impossible and otherwise b=2 mod 3; the next mirrored equations give 3a_1=2b c_2-2-c_(L-2), either negative or nonzero modulo 3. These equations remain valid when the two mirrored positions coincide (length three). Thus both outer carries are 1, giving s=(b+2)/3 and t=(2b+7)/3; the digit bound on t imposes b>=10. At each inward pair integrality forces 2x-1-y=0 mod 3 for x,y in {0,1}, hence x=y=1, and both digits are b-1; a central digit satisfies u+1=b. Direct reversal of the resulting expansion proves existence, including the empty middle block. For primes the equality reduces to q=p-2; odd admissible bases give even digit sum and an even candidate, and the even length-two expansion gives the displayed quadratic pair. Independently enumerated every eligible integer in bases 4 through 17 at lengths 2 through 4 (303,765 inputs), with agreement; replay python3 /workspace/reproductions/independent_finite_checks.py. The frozen verification script was inspected, not executed.",
+      "residual_risks": [
+        "No claim for b<4, length one, zero units digit, other reversal factorizations, or infinitude of prime pairs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 63e2cb041f68 gives an obstruction in even bases when the leading digit d is odd and 2d>=b; d=(b+2)/3 is even in these candidate bases.",
+          "Bispels et al. pose the broader prime-existence problem and give examples with other reversal factorizations, including 467 in base 276, not a twin prime."
+        ],
+        "reasoning": "The broader framework motivates the problem but is not a dominating classification; the digit obstruction does not choose or exclude these candidates.",
+        "searches": [
+          "Resultary local comparison: prime v-palindromes in arbitrary or even bases, affine reverse multiples",
+          "arXiv:2405.05267v1 §6.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 63e2cb041f68",
+        "arXiv:2307.00770v1",
+        "arXiv:2405.05267v1",
+        "arXiv:2609.22290v1",
+        "arXiv:1410.2356v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In base ten this record gives 5*10^(L-1)-1; the earlier decimal characterization gives the same prime pair 5*10^m-3 and 5*10^m-1 (with the small cases already addressed).",
+          "The arbitrary-base shifted equation changes both inputs instead of identifying the output with the reversal of the same input."
+        ],
+        "reasoning": "The base-ten prime consequence is covered. One fixed-base carry proof neither forces b=1 mod 3 nor excludes all smaller bases or determines the general digit threshold; the broader-looking affine title does not supply that implication either.",
+        "searches": [
+          "Boran et al. arXiv:2307.00770v1, Theorem 1.1 and decimal digit derivation",
+          "Panraksa arXiv:2609.22290v1, equal-length Theorem 2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Panraksa equations (2)–(3) and Theorem 2.1: R_B(hx+1)=hR_B(x)+1 relates reversals of two inputs; equal-length solutions have alternating carries and odd length.",
+          "Holt's palintiple equation has zero additive offset; shifted symmetry describes carries."
+        ],
+        "reasoning": "Neither formulation has this mirrored equation with initial carry -4 and terminal carry 0. The Panraksa equal-length theorem even excludes even lengths, while this record has a valid solution at L=2 in each admissible base. This is a difference in equations, not an inconsistency.",
+        "searches": [
+          "Web query: Peng digit reversal shifted reversal equation r_b(N)=2N-4 affine palintiple",
+          "arXiv:2609.22290v1",
+          "arXiv:1410.2356v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Bispels et al. explicitly give 109=(6,13)_16 reversing to 214=2*107, the exact length-two candidate.",
+          "The relevant Resultary hit is a digit obstruction rather than a table or formula for the exact affine equation."
+        ],
+        "reasoning": "Credit the instance as known; a matching example is not an all-base and all-length law. No covering exact table or record emerged in the checked sources.",
+        "searches": [
+          "Resultary local comparison: r_b(N)=2N-4 with exact forced digits, arbitrary base and length",
+          "arXiv:2405.05267v1, base-16 examples"
+        ]
+      },
+      "rationale": "Pass for the arbitrary-base and arbitrary-length affine classification and the resulting restrictions for the specified prime subcase, not for the decimal specialization or the already-published base-16 example. The strongest shifted-reversal paper studies commutation with an affine map, not affine reversal of a single input. No inspected covering theorem gives the forced digits and congruence across bases.",
+      "residual_risks": [
+        "A more general single-input affine reverse-multiple theorem could exist under different terminology. A possible Peng comparator could not be identified by the checked searches; that non-hit is not proof of absence. No priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related obstruction, not covering",
+          "evidence": [
+            "Requires odd leading digit with twice that digit at least the base; the candidate leading digit is even."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-a-leading-digit-obstruction-for-prime-v-palindromes-in-even-base--63e2cb041f68",
+          "material_read": "Local-mirror RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "A leading-digit obstruction for prime v-palindromes in even bases",
+          "trigger": "Closest Resultary hit concerning even-base prime v-palindromes"
+        },
+        {
+          "assessment": "Covers decimal prime specialization",
+          "evidence": [
+            "p=5*10^m-1 and p-2=5*10^m-3 prime."
+          ],
+          "identifier_or_url": "arXiv:2307.00770v1",
+          "material_read": "Theorem 1.1, HTML offset about 8220",
+          "method": "OA paper HTML",
+          "title": "A characterization of prime v-palindromes",
+          "trigger": "Exact decimal specialization"
+        },
+        {
+          "assessment": "Known example and broader question",
+          "evidence": [
+            "109 reverses to 214 in base 16; the prime-existence question is not restricted to the 2q case."
+          ],
+          "identifier_or_url": "arXiv:2405.05267v1",
+          "material_read": "Example around offset 8300 and §6.1 around offset 47900",
+          "method": "OA full-text passages",
+          "title": "v-Palindromes: An Analogy to the Palindromes",
+          "trigger": "General-base framework and exact base-16 instance"
+        },
+        {
+          "assessment": "Different affine reversal problem",
+          "evidence": [
+            "Equal-length theorem solves R_B(hx+1)=hR_B(x)+1 with alternating carries, not r_b(N)=2N-4."
+          ],
+          "identifier_or_url": "arXiv:2609.22290v1",
+          "material_read": "Introduction and equations, offsets 3400–5817; PDF p. 3, Theorem 2.1 and proof, offsets 10550–13070",
+          "method": "OA PDF text",
+          "title": "1729 in the Mirror: Reversal and Affine Multiplication",
+          "trigger": "Plausible earlier general shifted-reversal classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and prime consequence",
+        "arXiv:2405.05267v1 §6.1",
+        "arXiv:2307.00770v1 Theorem 1.1"
+      ],
+      "rationale": "The offset -4 is forced by the arithmetic function for a reversal equal to twice an odd prime, rather than picked from a parameter table. The rigidity theorem replaces a search over every integer of each base and length by one explicit pair of primality tests in eligible bases and none elsewhere. It separates digit rigidity from prime occurrence and yields the odd-base obstruction, without claiming infinitude or solving the general-base prime question.",
+      "residual_risks": [
+        "The eligible-base condition is necessary, not a guarantee of prime occurrences at arbitrary lengths."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

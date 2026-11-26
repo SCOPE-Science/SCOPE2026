@@ -1,15 +1,21 @@
-# Review of the Wilton resonance scaling theorem
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The precise object is a linear gravity–capillary phase-speed matching relation for \(0<B<1/3\), with integer harmonic order \(n\ge2\). Existence and uniqueness of the positive resonance root and the one-minimum dispersion shape are independently stated and proved in Martin (2012 preprint, Lemma 3) and cited by Hur–Johnson (2015, Section 2). The new analytical derivation begins with these established facts, proves monotone boundedness of \(n x_n\), and uses a nonzero derivative on the increasing dispersion branch to justify the cubic correction. At the critical boundary, an explicit positive power series proves \(f_{1/3}(x)>1\) for positive \(x\), and the divided-difference Taylor remainder is uniform in the integer harmonic order. The global weak-tension supremum is proved by the three exhaustive subsequential regimes for \(nB\); its proof does not swap limits without justification. `verify.py` returned `VERIFICATION_OK 329`. Finite numerical tests do not prove the uniform statements; those rely on the proof.
+## correctness
 
-## Originality
-**PASS, subject to historical-priority risk.** Martin, Lemma 3, already proves uniqueness and monotone decrease of the resonance roots, and Hur–Johnson Section 2 explicitly repeats this: these assertions are **not** claimed as contributions. Trichtchenko–Deconinck–Wilkening investigate nonlinear Wilton-ripple instability; Langer–Trichtchenko–Akers analyze high-order Fourier perturbation coefficients and modal emergence in model equations. The closest inspected texts do not state the jointly uniform \(nB\) crossover or critical all-order constant and do not imply them as one of their recorded conclusions. These exact scaling results require the additional multiregime proof. Scholarly priority can never be certified by search alone, and more specialized discussions may have derived equivalent limits; that uncertainty remains explicit.
+PASS
 
-## Mathematical value
-**PASS.** Fixed-order small surface tension and fixed-tension large harmonic order probe distinct limits of the same physical resonance problem. The uniform crossover resolves the otherwise noncommuting regimes and gives one parameter, \(nB\), that selects the asymptotic fundamental wavenumber across *every* harmonic order. The critical law identifies a sharp leading coefficient valid uniformly even when the harmonic order varies with the distance to critical tension. The fixed-tension result additionally locates the limiting short-wave resonance and its first nontrivial shift. These consequences matter when selecting or interpreting high-order resonant wave parameters, while remaining strictly statements about linear matching.
+The resonance straddles the single minimum, so 0 < nx_n < y_B. Comparing f_B(y/(n+1)) with f_B(y/n) at y=nx_n brackets the next short-wave wavenumber strictly between nx_n and y_B; taking the increasing limit gives y_B. For the Taylor inversion, f_B(t)-1=t tanh(t)(B-g(t)) with g(t)=(t coth(t)-1)/t². The sign of t³ sinh²(t)g'(t) is that of cosh(2t)-1-(t/2)sinh(2t)-t², whose series starts in degree six and has strictly negative coefficients thereafter. Thus f'_B(y_B)>0 and Taylor inversion first for nx_n and then division by n gives the stated n^-3 correction and O_B(n^-5). At criticality y_B→0 and y_B²=45δ(1+O(δ)) from its root equation. Dividing the difference of the two even Taylor series by (nx_n)²-x_n² leaves an O((nx_n)^4)=O(δ²) remainder with an n-independent bound, giving the uniform critical claim. For the weak-tension limit write α=nB and use the sign of the exact matching residual at test x: the limits of F/(n-1) at x=c/√α for α→0, F/n at x=c for α→α₀∈(0,∞), and BF at x=c/α for α→∞ are respectively 1-c², tanh(c)-α₀c² and c-c². Each gives two-sided bracketing, and the monotone profile tanh(x)/x² has the required two edges. Compactifying α covers every possible sequence that could violate the supremum claim. This is an analytic audit; verify.py was inspected, not run, and its reported 329 floating-point tests are not used as evidence of uniform convergence. Only linear phase-speed matching is certified by this reasoning.
 
-## Literature, scope and limitations
-Primary material inspected: Martin (2012 preprint, Lemma 3 and proof, pp. 18–20); Hur and Johnson (arXiv:1506.07560, Section 2 resonance sequence and relevant dispersion discussion); Trichtchenko et al. (arXiv:1512.01562, abstract, Sections 1–2); Langer et al. (2024, full accessible text, Sections 1–2 and 5, conclusion and Appendix B). The nonlinear problems are not solved here. Mathematical limits are proved in ideal inviscid and exact-dispersion assumptions only, with no measurement-noise, nonlinearity, vorticity or variable-depth claims. A historical-priority gap remains possible despite the inspected sources.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The matched-root branch, existence and uniqueness, and decrease of the fundamental root were already known. The supported distinction is the joint quantitative description of the short and fundamental wavelengths, in particular the relative weak-tension limit across all n with nB variable. Bounded statement-level comparisons support that distinction, not an absolute priority claim.
+
+## value
+
+PASS
+
+The short-wave limit and approach identify a physical wavelength that persists as the fundamental wavelength diverges. More importantly, uniformity across harmonic orders resolves how the dispersion matching switches between two different weak-tension scalings and makes the critical coefficient useful without fixing n first. This is a meaningful distinction for selecting resonant linear wave modes, not a claim about nonlinear existence or stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

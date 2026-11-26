@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The induced-three-path closure criterion is exactly the absence of an excluded middle vertex with two nonadjacent selected neighbors. For a complete join, any nonclique selection in one operand forces the whole opposite operand to be selected; this yields four disjoint cases and the stated polynomial recursion. A cotree induction proves correctness for all cographs. The star polynomial follows by separating sets according to whether the center belongs to them. The unimodality boundary is proved using the nine isomorphism types on four vertices and a factorization argument for disconnected cases. Independent direct enumeration versus the recursion confirms 6,039 labelled cographs through six vertices, and the finite convex-geometric boundary is also enumerated. The executable tests do not replace the general proof.
+## correctness
 
-## Originality — PASS with priority qualification
-The Gutierrez–Protti–Tondato 2022 work defines the induced-path closure and identifies its convex-geometric graph class; its inspected full text establishes that structural characterization, not the rank-polynomial cotree recurrence or first nonunimodal member. Dourado–Penso–Rautenbach 2022 studies the hull number under the induced convention; its accessible abstract does not establish a rank-polynomial theorem, but unavailable full text leaves residual priority uncertainty. Dourado–Grippo–Lin–Protti 2026 treats all three-vertex paths, a genuinely different closure on graphs with triangles; it counts convex sets but does not imply the claimed induced-convexity polynomial on cographs. The closest public indexed mathematical findings concerned other graph-set polynomials, not this closure family. Equivalent earlier closure-system polynomial formulas cannot be conclusively excluded.
+PASS
 
-## Mathematical value — PASS
-The rank polynomial is a natural invariant of the lattice of closed sets, refining both the total closed-set count and the distribution of attainable closure ranks. For the graph-induced finite convex geometries classified in 2022, the five-vertex nonunimodality cutoff identifies the first obstruction to an important enumerative regularity. A full quadratic-arithmetic recursion on all cographs supplies this invariant over an infinite structurally characterized class, rather than a single small exceptional example.
+For disjoint union the closure test is componentwise; for a join, a selected nonclique on either side forces the other side to be selected in full. The four possibilities by clique status are disjoint, and every mixed induced path has both nonadjacent endpoints in one side. This proves the two-polynomial recursion in both directions, with the empty and singleton cases explicit. On a supplied binary cotree convolution and all coefficient work at child sizes a,b cost O(ab), since a+b≤2ab and completeness is propagated by flags. The sum of ab counts each pair at its lowest common ancestor. For the coefficient claim, universal extension is K_H+zF_H; the connected cases at order five therefore come from exactly the nine admissible four-vertex types with the listed degree keys. For disconnected graphs of order at most five at most one component can be noncomplete, and binomial factors preserve its known smaller-order unimodality by the two-step difference test. Anti-exchange extends from connected components because an obstruction cannot use two different components. Independent replay `python3 /workspace/review_evidence/reproduce.py 1` compared direct forbidden triples with cotree polynomial calculations on all 535 labelled cographs through order five, counted 462 labelled trivially perfect graphs, verified the nine table rows, and found only the five labellings of the star nonunimodal. The direct star coefficient and cutoff calculations are correct as background.
 
-## Scope and evidence limits
-The theorem does not claim a polynomial-time method on arbitrary graphs, bit-complexity control, or a general unimodality classification for all convex geometries. The comparable 2022 hull-number source was not fully inspected. Publication priority is not independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS for the narrowed induced-path cotree recurrence and smallest-order uniqueness claim. A standalone novelty reading of the frozen Finding's full star formula and star cutoff assertions fails: an earlier weighted block-graph recurrence gives the polynomial immediately via bridge blocks, and the shape thresholds are routine comparisons of its first few coefficients. The repaired document credits the specialization explicitly, keeping those facts only as background. No earlier inspected statement or mechanical implication subsumes the full cograph recurrence under the induced convention or the comparison across all five-vertex trivially perfect types.
+
+## value
+
+PASS
+
+The recurrence evaluates the full distribution of a natural graph closure, including both coefficients and shape rather than merely the total. It supplies exact polynomial arithmetic in a standard graph decomposition. The smallest-order uniqueness result is a structurally meaningful obstruction to unimodality in the associated convex-geometric class and excludes alternative minimal examples. The elementary star calculation by itself is not counted as a valuable new contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

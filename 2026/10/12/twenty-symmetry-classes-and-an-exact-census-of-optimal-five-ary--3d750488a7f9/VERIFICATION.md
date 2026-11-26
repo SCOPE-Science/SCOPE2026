@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The source archive is entirely standalone. From the directory with these files, run `sh run_checks.sh` with a C++17 compiler and Python 3. The scripts enumerate all normalized proper four-edge-colorings of the unique order-three projective plane and calculate their equivalence orbits. Intermediate files (`colorings.bin`, `gmap.txt`, `conjugacy_reps.txt`) are regenerated, not imported as prior evidence.
+# Independent mathematical audit
 
-The exhaustive normalized line-coloring traversal tests every permutation of the four symbols on each line, rejecting a partial state only when it duplicates a color at a point. It yields `normalized_coloring_count=80640`. A separate cyclic difference-set implementation verifies the same normalized number, and a different method enumerates all perfect matchings and residual even-cycle completions, yielding `perfect_matchings 3852` and `total_labeled_edge_colorings 1935360`.
+## correctness
 
-The group generators produce exactly 5616 collineations. Exhaustive orbit closure yields classes of sizes 5616 (12), 1872 (7), and 144 (1). Independent conjugacy enumeration finds twelve group conjugacy classes and a Burnside fixed-point sum of 112320, giving twenty orbits. The twenty representative codebooks pass direct Hamming-distance and constant-composition checks in `verify_codes.py`.
+PASS
 
-The finite computations establish the stated exactly finite domain only. They invoke known uniqueness of the order-three projective plane and standard projective-group results. The established optimal size of thirteen is literature, not re-proved by the enumerator. This verification is not an independent external audit.
+A shared support position costs one from distance eight, or two if symbols agree. Thus support pairs meet at most once and each point has each nonzero symbol at most once. Equality at 13 words saturates 52 symbol slots; the 13 column degrees of four account for all 78 row pairs. For the incidence matrix, BB^T=3I+J and both row and column sums are four, giving B^TB=3I+J. This is the unique projective plane of order three, and proper four-edge-colorings give the converse. The color permutation acts freely; coordinate permutations fixing the plane are precisely its point collineations, not dualities. The labeling multiplier is 13!/5616; word order is never counted. A new finite reproduction /tmp/opencode/pg3_review.py enumerated perfect matchings with each of the four fixed-line edges (963 each), paired the matchings with fixed-line slots 0 and 1, and exhausted the alternating phases on the residual cycles subject to the fixed-line normalization. This gave 80640 colorings. It constructed all 5616 projective transformations independently by invertible ternary matrices modulo scalars, used their full actions, and verified that the twenty frozen representatives have disjoint orbits exhausting the independently enumerated domain with sizes 144 once, 1872 seven times, 5616 twelve times. This confirms 1935360 labeled colorings and 2145927168000 labeled codes. The independent check did not execute any source code or depend on the source compiler pipeline.
+
+## originality
+
+PASS
+
+Pass only the exact census and orbit classification, not optimum size, projective-plane uniqueness, or the coloring correspondence. None of the compared statements implies the counts or classification for this equivalence action.
+
+## value
+
+PASS
+
+The minimum length attaining the linear code bound for this composition yields the small canonical plane rather than an arbitrary instance. The classification answers how many genuinely distinct extremal codes there are and distinguishes exceptional stabilizers from generic ones; a complete exact reference and representatives are useful even without a general counting formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

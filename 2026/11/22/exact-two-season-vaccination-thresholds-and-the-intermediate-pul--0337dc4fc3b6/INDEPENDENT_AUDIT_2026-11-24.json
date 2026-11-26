@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:55:06.623163Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The feasible measures are nonnegative and locally finite on the line, T-periodic with finite mass M per period. The fixed-budget renewal integral shows convexity. For strictness, the periodic primitive of a zero-total difference of two measures would have to agree at almost every pair of endpoints for equality in exponential convexity; a right-continuous primitive constant almost everywhere is constant everywhere. Differentiating the renewal kernel and splitting the past/future factors gives the directional derivative −∫SP d(perturbation), with the pulse mass included on the state side only. Hence a candidate whose support attains the global maximum of Q=SP beats every other feasible measure, including singular competitors; strict convexity gives uniqueness. At a pulse, Q is continuous. In an untreated constant-transmission interval e^{δt}Q′=δCe^{2δt}+Aβ with A>0, so the signs at the high-season left and low-season right endpoints give the required full-interval signs. They are exactly exp(−M)≥max(x/H,L/x). For any fixed pulse mass the unique best phase maximizes the forward discounted transmission integral B(τ), decreasing in the high and increasing in the low season; thus no other phase rescues a single pulse past M_0. For the mixed candidate, putting r=ba and w=1−ca gives exp(−p)=w/(1−r) and δ/(δ+η)=w(1−r)/(1−r−rw). These close the periodic state and its adjoint with S=δ/(δ+η) and P=H/(δ+η) on the active interval. Q decreases on the rest of the high season, and increases on the low season precisely with the required endpoint sign H exp(−p)−L exp(p)≥0. This holds through p=(1/2)log(H/L), including equality at M_1. The root y_* lies strictly inside (0,h) under x>sqrt(HL); p′=η>0 and M′=2η+yη′>0. At y=0 the support reduces to the boundary pulse; M=0 is the unique zero measure. No higher-budget or other mixed ordering is asserted. Independent state/adjoint replay at H=4,L=1,h=1,T=2,δ=log 2 gave M_0≈0.287682, M_1≈1.476487 and, at y=0.5, M≈0.900802 with closure residual 5.6e−17 and no positive off-support Q gap above 2.2e−16 in a 401-point sample. Replay: /workspace/branches/addce1e1-6ee4-4d19-9ca2-096e1ac9f1d8/record5_independent_check.py. The example checks one case; the pointwise analytic sign and convexity arguments prove the general result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general periodic-regulation theorem gives density/atomic structure and leaves discontinuity cases. Theorem 10 gives the half-log pulse mass under positive rates on both sides of the jump; the intermediate case has zero left-hand rate. Doutor et al. minimize effort subject to a local pointwise infection-decrease condition. The Onyango–Müller repository abstract describes periodic SIR stability and search over susceptible profiles; its exact constraints and formulas were not verified against full text."
+        ],
+        "reasoning": "A general variational framework and sufficient two-sided pulse condition do not characterize the relevant one-sided branch. A stronger pointwise suppression requirement is not the fixed-budget average objective. The remaining 2014 access uncertainty is not evidence for or against exact coverage.",
+        "searches": [
+          "Gavish–Katriel, Optimal Regulation in a Time-Periodic Environment, Theorem 5",
+          "Gavish–Katriel, Optimal Vaccination for Contagious Diseases with Seasonal Transmission, Theorem 10",
+          "Doutor et al. arXiv:1507.02940 objective",
+          "Onyango–Müller determination of optimal vaccination strategies using an orbital stability threshold"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "Gavish–Katriel seasonal and periodic-regulation primary PDFs",
+        "Doutor et al. arXiv:1507.02940",
+        "Onyango–Müller 2014 abstract and access attempts",
+        "Resultary 7b215ea39116 and ba0652dbc8c8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The seasonal paper explicitly says that conditions for pulse existence at an upward jump and pulse mass without condition (27) remain open. It does not evaluate a sharp maximum pure-pulse budget. The exact mixed interval uses a plateau followed by uncontrolled recovery, closes a pulse-to-plateau state/adjoint orbit, and needs the independent opposite-end sign constraint."
+        ],
+        "reasoning": "The half-log mass is already known for a pulse with positive rates on both sides, and is not itself a new constant. It gives neither M_1 nor the intermediate mass law. Computing the optimizer here requires identifying and verifying an admissible active set and its budget-dependent closure, not substituting H and L into the general two-sided formula.",
+        "searches": [
+          "Bull. Math. Biol. DOI 10.1007/s11538-026-01741-0 §7, Theorem 10 and remarks after Fig. 9, PDF extraction offsets 63351–70296",
+          "Applied Math. & Optimization DOI 10.1007/s00245-025-10374-z Theorem 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Their average vaccination rate η̄ corresponds to M=Tη̄; rotating the upward jump from t=1/4 to 0 gives exactly the same square-wave example. At T=1 the numerical change points are about 0.4 and 2.25, versus the exact 0.39098 and 2.23293 in the frozen result. The paper describes the intermediate pulse as lacking an analytic expression."
+        ],
+        "reasoning": "This is genuine same-problem and same-example overlap, not a distinct model. Numerical switches and the qualitative pulse-plus-rate observation are credited and do not give a sharp symbolic boundary or the pulse-mass function.",
+        "searches": [
+          "Optimal vaccination seasonal transmission exact single pulse threshold, square wave, intermediate pulse mass",
+          "Gavish–Katriel Bull. Math. Biol. §2.2 and §7, equations (27)–(29) and Fig. 9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The best exact search hit was the assigned record itself. The closest distinct periodic result studies two or three fixed-strength pulses with constant transmission; the same-day timing-switch result is one waning dose under prescribed two-wave infection hazard. The actual matching example in Fig. 9 is numerical rather than an exact threshold or mass table."
+        ],
+        "reasoning": "Neither changing a fixed pulse allocation under constant transmission nor moving one dose under external hazard recovers the periodic replenishment optimizer over all hazard measures. The same indexed date is not used to infer priority.",
+        "searches": [
+          "Resultary: exact two-season vaccination thresholds, pulse mass and periodic measure budget",
+          "Resultary 7b215ea39116 and same-day ba0652dbc8c8",
+          "Gavish–Katriel Fig. 9"
+        ]
+      },
+      "rationale": "The same model, general optimization machinery, qualitative pulse regimes, and the numerical example are prior work. The verified distinct claims are the sharp finite-budget single-pulse cutoff for all stated parameters and the increasing parametric pulse-mass law through the first mixed-regime endpoint under x>sqrt(HL). The main prior paper explicitly leaves the one-sided mixed pulse-mass question open; a bounded literature and catalogue comparison did not establish equivalent analytic coverage.",
+      "residual_risks": [
+        "The exact 2014 Onyango–Müller full-text comparison remains unavailable; the abstract does not decide it. An unindexed equivalent evaluated active-set derivation cannot be excluded. The bounded priority assessment does not claim general convexity, qualitative pulses, or the half-log jump law as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Most material overlap; generalized theory and numerical phases, not the exact one-sided branch",
+          "evidence": [
+            "Mass formula (28) conditional on (27); exact square wave (29); closing discussion identifies missing pulse conditions and mass without (27)."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11538-026-01741-0",
+          "material_read": "Publisher PDF §2.2 pp.8–9; §7 Theorem 10, Fig.9 and discussion pp.21–23, offsets 63351–70296",
+          "method": "Lawful OA publisher PDF and bounded passage inspection",
+          "title": "Optimal Vaccination for Contagious Diseases with Seasonal Transmission",
+          "trigger": "Same model, forcing, and qualitative phase claims"
+        },
+        {
+          "assessment": "Known structural machinery, not a closed two-season phase law in inspected theorem",
+          "evidence": [
+            "Characterizes parts of density and atomic structure and leaves discontinuity cases."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00245-025-10374-z",
+          "material_read": "Theorem 5, PDF pp.18–19, offsets 53055–59161",
+          "method": "Lawful OA publisher PDF and bounded passage inspection",
+          "title": "Optimal Regulation in a Time-Periodic Environment: Insights from a Simple Model",
+          "trigger": "General periodic-measure optimum could imply the evaluated phases"
+        },
+        {
+          "assessment": "Different definition of optimum",
+          "evidence": [
+            "Minimizes effort among vaccination profiles that make infection decrease near the disease-free state."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1507.02940",
+          "material_read": "Abstract and introduction, pp.1–3, offsets 0–6996",
+          "method": "OA preprint passage inspection",
+          "title": "Optimal Vaccination Strategies and Rational Behaviour in Seasonal Epidemics",
+          "trigger": "Prior optimal seasonal scheduling theorems"
+        },
+        {
+          "assessment": "Unresolved exact coverage, not a negative determination",
+          "evidence": [
+            "Repository says open postprint contingent on submission, and describes optimizing profiles for stability of the uninfected state. No threshold formula is evidenced by the inspected abstract."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00285-013-0648-8",
+          "material_read": "Helmholtz PuSH record 26198, abstract; no full-text passage retrieved",
+          "method": "Lawful publisher attempted (redirects); identified alternate PDF returned 403; repository metadata and abstract read",
+          "title": "Determination of optimal vaccination strategies using an orbital stability threshold from periodically driven systems",
+          "trigger": "Potentially similar periodic susceptible-profile optimization"
+        },
+        {
+          "assessment": "Different transmission and decision variables",
+          "evidence": [
+            "Fixed-strength pulses under constant transmission; two-pulse mean optimum and a three-pulse equal-spacing stationarity result."
+          ],
+          "identifier_or_url": "Resultary 7b215ea39116",
+          "material_read": "Finding",
+          "method": "Local Resultary mirror",
+          "title": "Two-to-three pulse rigidity and the divergence of mean and peak susceptibility",
+          "trigger": "Closest distinct periodic pulse-optimization hit"
+        },
+        {
+          "assessment": "Different one-dose timing problem",
+          "evidence": [
+            "One waning dose at a chosen time with externally prescribed two-wave hazard."
+          ],
+          "identifier_or_url": "Resultary ba0652dbc8c8",
+          "material_read": "Finding",
+          "method": "Local Resultary mirror",
+          "title": "A discontinuous two-date vaccination optimum under gamma-mixture forcing",
+          "trigger": "Same-day exact phase transition in vaccination optimum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the established deterministic invasion objective under a fixed hazard budget, M_0 answers whether a single pulse suffices globally and gives the first point where another allocation strictly improves it. When the high-season constraint binds first, the evaluated branch fixes the pulse-versus-continuous split at every intermediate budget and explains the next endpoint in the published numerical example. This is a motivated finite-budget classification, not a clinical timing recommendation or a statement about infections or distinct vaccine recipients.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

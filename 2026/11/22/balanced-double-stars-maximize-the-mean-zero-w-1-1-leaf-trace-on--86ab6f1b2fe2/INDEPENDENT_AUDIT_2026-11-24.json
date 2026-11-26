@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:44:44.715811Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Root the tree and integrate arbitrary L1 edge derivatives along unique paths. Fubini gives the leaf-vector kernel at a cut with side length a and leaf counts r,q: its squared norm is r(1-a/N)^2+q(a/N)^2. The upper operator bound is sharp by concentrating a unit derivative near a cut. Strict convexity along each edge reduces the supremum to the two oriented endpoint limits and makes the norm unattainable by any nonzero L1 derivative. An isolated-leaf side gives norm squared 1 at its outer cut; the other orientation is <1 for N>=2, and the single edge is covered directly. For two nonempty sides, the original leaves inject into complete pendant edges on their respective sides, giving r<=s, q<=N-s-1. The resulting bound is s-(N+1)s^2/N^2, with real vertex N^2/(2(N+1)); the unique admissible nearest integer is floor(N/2) for N>=4. The small cases give 1, whereas at N=5 the interior cut gives 26/25. For N>=5 both leaf inequalities must be equalities, making each component a star at its cut endpoint; the indicated double-star realizes the sharp tree constant, not a maximizing W^{1,1} function. Inspected the rational Prüfer and short-ramp diagnostics without executing the frozen script. The continuum and rigidity claims follow from the proof, not the checks through seven edges.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Euclidean BV domain trace constants in dimensions n>=2",
+          "BV trace existence for doubling metric domains with Poincaré hypotheses",
+          "Newton–Sobolev traces are Besov spaces on Cantor boundaries of regular rooted trees"
+        ],
+        "reasoning": "General trace existence or function-space identification is not evaluation of this exact volume-centered sharp norm, and none of these conclusions supplies rigidity across finite unit-tree topologies.",
+        "searches": [
+          "arXiv:1301.5770 introduction and Theorems 1.1–1.2",
+          "arXiv:1507.07006 Theorem 3.4",
+          "arXiv:1304.0566 introduction, §6"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md; check_leaf_trace.py",
+        "Local Resultary c77435a98c36, 3dc47ecf9a04, and indexed copy of target 86ab6f1b2fe2",
+        "arXiv:1301.5770",
+        "arXiv:1507.07006",
+        "arXiv:1304.0566"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Euclidean comparison expresses boundary L1 trace constants geometrically for different centering operators; the nearest H1 tree record optimizes a different functional and gives different extremizers."
+        ],
+        "reasoning": "Neither is a theorem with hypotheses dominating the target. The distinct step is reducing the exact leaf-vector objective to the specific integer quadratic and forcing saturation of both pendant counts.",
+        "searches": [
+          "Resultary c77435a98c36 and 3dc47ecf9a04, statements and assumptions",
+          "arXiv:1301.5770, geometric trace characterizations (1.7), (1.10)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "c77435a98c36, RESULT.md Finding and assumptions: scalar mean-zero H1 evaluation with a sum of squares, star minimum and path maximum",
+          "3dc47ecf9a04, RESULT.md Finding and assumptions: linear trace right inverse on a weighted depth-two binary tree"
+        ],
+        "reasoning": "Changing L2 derivative energy to L1 and scalar evaluation to the simultaneous Euclidean leaf norm changes the cut optimization. The right-inverse problem optimizes lifting prescribed data with a different trace seminorm; it is not dual to this forward norm as stated.",
+        "searches": [
+          "Resultary: unit metric trees volume-centered W^{1,1} Euclidean leaf trace norm, cut formula and extremal double-stars"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The named indexed results compute other invariants; the assigned Prüfer table is a diagnostic computed for the target, not external priority evidence."
+        ],
+        "reasoning": "The contribution is an arbitrary-N analytic extremum and equality classification, so comparison to a finite tree inventory alone cannot establish coverage. The matching indexed copy of the target is not independent evidence.",
+        "searches": [
+          "Resultary: specialized unit-tree sharp norm/cut/extremal search; inspected returned records c77435a98c36 and 3dc47ecf9a04"
+        ]
+      },
+      "rationale": "The inspected comparisons do not imply the all-tree, volume-centered W^{1,1}-to-Euclidean-leaf sharp constant and double-star classification. The L1 kernel principle itself is standard and not credited as new.",
+      "residual_risks": [
+        "A targeted primary search returned no materially closer source; this is not evidence of absence.",
+        "An implicit equivalent in finite metric-graph endpoint trace theory may remain unindexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related, not covering",
+          "evidence": "Arclength mean and unit trees, but squared L2 derivative energy, scalar L-infinity evaluation, and star/path extremizers.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-star-path-extremals-and-a-subtree-cut-formula-for-sobolev--c77435a98c36",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0–3000",
+          "method": "Local Resultary mirror, literal statement inspection",
+          "title": "Sharp star–path extremals and a subtree-cut formula for Sobolev evaluation on metric trees",
+          "trigger": "Closest local cut norm and topology extremal"
+        },
+        {
+          "assessment": "Related, not covering",
+          "evidence": "Optimizes a linear right inverse with variation-minimizing trace seminorm on a fixed weighted depth-two tree.",
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-endpoint-linear-trace-extensions-on-a-two-generation-weigh--3dc47ecf9a04",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0–2438; Limitations, offset 6500–8303",
+          "method": "Local Resultary mirror",
+          "title": "Sharp endpoint linear trace extensions on a two-generation weighted binary tree",
+          "trigger": "Same endpoint and leaves"
+        },
+        {
+          "assessment": "Related, not covering",
+          "evidence": "Admissible Euclidean domains in dimension at least two, ball minimization and different trace objective.",
+          "identifier_or_url": "https://arxiv.org/pdf/1301.5770",
+          "material_read": "Introduction; Theorems 1.1–1.2 and geometric representations (1.7), (1.10), pp. 2–4",
+          "method": "OA paper PDF, theorem search and bounded text",
+          "title": "Balls minimize trace constants in BV",
+          "trigger": "Sharp BV trace shape optimization"
+        },
+        {
+          "assessment": "Background, not covering",
+          "evidence": "Defines a linear trace via boundary mean convergence, not the optimal centered Euclidean norm.",
+          "identifier_or_url": "https://arxiv.org/pdf/1507.07006",
+          "material_read": "Section 3, Theorem 3.4, OA offset 21945",
+          "method": "OA paper PDF bounded passage",
+          "title": "Trace theorems for functions of bounded variation in metric spaces",
+          "trigger": "Broader metric BV setting"
+        },
+        {
+          "assessment": "Related, not covering",
+          "evidence": "Weighted regular trees with Cantor boundaries and Besov targets, not finite original leaves and optimal topology.",
+          "identifier_or_url": "https://arxiv.org/pdf/1304.0566",
+          "material_read": "Introduction on §6 propositions and Theorem 6.5, OA offset 6400–8166",
+          "method": "OA paper PDF bounded passage",
+          "title": "Geometric analysis on Cantor sets and trees",
+          "trigger": "Sobolev trace on tree boundaries"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Simultaneous centered boundary control is a natural trace norm rather than an arbitrary tree statistic. The exact finite cut formula and rigid classification detect a real change at five edges and quantify the sharp growth across all trees; the maximizing topology contrasts with the scalar H1 star/path theorem. The concentration and nonattainment result specifies how the sharp bound can be used without implying a Sobolev extremizer.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

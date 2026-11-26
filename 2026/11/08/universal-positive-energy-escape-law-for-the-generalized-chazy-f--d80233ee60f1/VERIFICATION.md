@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The conservation law is checked by direct differentiation on each sign component. In the positive sign component the exact identities are \(w=z+x^qy\), \(\dot w=-x^{q-1}y^2\), \(xw-y^2/2=H\). They imply global continuation. The crucial moving-barrier check is the derivative \(\mp\varepsilon H/x+(q+3/2)(1\pm\varepsilon)^2H^2/x^{2q+3}\), with the appropriate inward signs at large \(x\). A bounded axial derivative forces \(\int^\infty dt/x(t)=\infty\), completing entrance into the strip.
+## correctness
 
-For numerical corroboration, a direct ODE solver checked integer exponents 1, 2, 3, positive energies 1/2 and 2, with stop time 2000. No claim of infinite verification is made. Direct proof, not sampled computations, covers all admissible parameters. A separate independent audit has not been performed.
+PASS
+
+Reflection of all three coordinates preserves both the flow and H, so consider x>0. The exact identities for w=z+x^q y are xw=h+y²/2 and w'=−x^(q−1)y². Hence 0<w≤w(0) and x≥h/w(0), excluding the interface. When y≤0 its derivative is positive; when y≥0 it satisfies y'≤w(0)−(h/w(0))^q y. These bounds on y, hence on x and z over finite intervals, give forward continuation. If y never becomes positive, x stays bounded above and y'≥h/sup(x)>0, a contradiction; upward crossing at y=0 prevents a return to negative y. Bounded increasing x would imply y'≥h/sup(x)−sup(x)^q y and thus positive limiting lower velocity, again impossible. With x→infinity, any fixed positive velocity level is eventually crossed downward because y'≤w(0)−x^q y, so y→0. On y=b=(1±epsilon)h x^(−q−1), the derivative of y−b is ∓epsilon h/x+(q+3/2)b²/x, giving inward signs at large x. Remaining forever above the upper barrier forces y'≤−epsilon h/(2x) at late times, and remaining below the lower forces y'≥epsilon h/x. Bounded y gives x=O(1+t), so neither is possible by the divergent integral of 1/x. The eventual inward trap yields x^(q+1)y→h, and integrating (x^(q+2))' proves the original-time position limit. Reflection gives the sign in the velocity limit. This checks every positive level including q=1 on the open half-lines, not the zero level, interface dynamics or backward time.
+
+## originality
+
+PASS
+
+Pass for the complete forward behavior and exact positive-energy position/velocity limits in the original time scale. The same equation, first integral and use of an energy-surface reduction are prior. The decisive available same-flow statements concern negative-energy periodic orbits or the zero level, not the positive-flow conclusion. Related inaccessible periodic-orbit papers leave a priority risk but did not supply evidence of equivalent coverage.
+
+## value
+
+PASS
+
+This fills the natural positive-energy counterpart to periodic negative levels, globally excluding slow or fast alternative escape behaviors and extracting both universal coefficients for every initial condition on each positive level. The moving barriers justify a leading balance that is not established by the known integral alone. The separate original-time velocity limit is useful even after the growth exponent is known.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

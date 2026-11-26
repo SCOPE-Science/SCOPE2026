@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:12:15.609376Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Target restriction leaves R'=T×(S∩truth(φ)), so the family is closed and each support (also the empty one) is reachable by a factual selector of its types. With τ_t the type minterm, ◇τ_u tests u∈S uniformly at all worlds. Exact support tests and τ_t therefore realize every truth bit (t,S) with t∈S by one depth-at-most-one formula; all other bits are discarded by the update. There are m·2^(m−1) such bits. In the positive fragment, adding accessible types can only increase truth at fixed t, and each monotone survivor function on the other m−1 types is written using its minimal true supports and positive diamonds. This gives independent Dedekind factors, including constants. Factual announcements give intersections with a fixed subset and are idempotent. The explicit positive witness retains a type iff some strictly lower type is present, dropping precisely the least surviving type each time until empty, including for m=2. Thus both strict inclusions, the numerical examples, and the m-step bound and attainment hold under the arrow restriction semantics, not ordinary world deletion. I inspected the finite checker without running it; the symbolic argument supplies the full quantifiers.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yamada gives exactly the target restriction and K45 stabilization by loss of valuation types. 65b4b662c65e gives the general state-count bound and directed-cycle sharpness. 3ec574a60e94 gives the exact one-agent universal-S5 maximum min(n,2^r) with the positive depth-one successor-type witness ∨(q_j∧◇q_{j+1}); setting n=2^r yields exactly the frozen sharp bound from the same initial family."
+        ],
+        "reasoning": "The last result covers attainable lifetime, even though its witness retains on immediate rather than arbitrary earlier-type support. It does not classify the operators. Sequence-validity under iteration in Yamada's other paper is also a different object.",
+        "searches": [
+          "Yamada arXiv:2609.24006 Def. 5 and Lemma 6",
+          "Resultary 65b4b662c65e, Finding and Proof",
+          "Resultary 3ec574a60e94, one-agent attainability at offset 5894",
+          "Yamada arXiv:2607.04685v3 Theorem 2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "Resultary 704161647189, 65b4b662c65e and 3ec574a60e94",
+        "arXiv:2609.24006 and 2607.04685v3",
+        "OEIS A000372",
+        "Kuijer DOI 10.1093/logcom/exu047"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "On each already identified pointed type row t, the support observations are just Boolean membership variables on the other types. Any ◇θ is the disjunction of the variables for types satisfying θ, with the t-bit set to 1. Positive syntax therefore implies monotonicity, and conversely standard monotone DNF plus the root minterm realizes each row. Definition 5 translates truth at these pairs into survival. One factual selector reaches S from T directly by the same definition."
+        ],
+        "reasoning": "The new phrasing as actual announcements is a direct application of the known semantics to the already exhausted type space. The exact positive count and depth-zero intersection characterization do not require any further structural lemma beyond standard Boolean normal forms. Kuijer's inspected statements compare update languages, not this transfer.",
+        "searches": [
+          "704161647189 exact depth-one type minterms",
+          "arXiv:2609.24006 Definition 5",
+          "OEIS A000372 monotone Boolean functions",
+          "Kuijer DOI 10.1093/logcom/exu047, accepted manuscript abstract and §1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Step 3 gives the depth-one pointed data of a reflexive height-two partial order as (r,S) with r∈S, realizes every such pair and defines each by its root minterm plus presence/absence tests for other colors. Depth-one evaluation uses no successor information beyond their color set, so it agrees with evaluation at t=r in M_S. The pairs with t∉S never affect the support map."
+        ],
+        "reasoning": "The identity on pointed type data induces a bijection between the known truth-table equivalence classes and all support transformations. This is a reduction, not an inference from equal cardinalities or a claim that the two frame classes are equal.",
+        "searches": [
+          "Resultary: depth-one support transformations, height-two modal algebra cardinalities",
+          "704161647189, Proof Step 3 at offset 4718"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A000372 identifies D_r with all monotone Boolean functions on r inputs and includes D_1=3,D_3=20. The mirror's Step 3 gives both exact depth-zero and unrestricted depth-one counts on the same pointed data.",
+          "For the positive fragment, fix t, remove its always-present support bit, and count the independent monotone truth rows on the remaining m−1 support bits. This gives D_(m−1)^m and the frozen small values without any new table enumeration."
+        ],
+        "reasoning": "The database alone gives the combinatorial ingredient, not a published modal-product theorem. The product follows from the coordinate interpretation; the unrestricted overlap rests on equivalent types, not on the matching number in isolation.",
+        "searches": [
+          "OEIS A000372, entry/comments at offset 259",
+          "Resultary 704161647189, exact depth-zero and depth-one levels"
+        ]
+      },
+      "rationale": "The closest height-two free-algebra result covers more than the coincident count. Its exact depth-one pointed types are the same pairs (t,S) with t∈S, and its Step 3 proves that every Boolean truth table on those pairs is realizable. Those are exactly the bits an announcement can retain, so the unrestricted representation and its count are a direct translation. The positive formula/count are the standard monotone-DNF restriction and independent product on those same coordinates, not a separate nonmechanical representation. The sharp positive iteration has separate exact corpus coverage. The verdict concerns mathematical coverage and routine implications, not author or disclosure priority.",
+      "residual_risks": [
+        "The general keyword lookup did not yield a decisive primary result; this is not an absence finding. The Kuijer inspection was limited to the introduction and abstract.",
+        "Directory dates are catalogue identifiers, not independently verified disclosure timestamps or evidence of attribution. The reduction and coverage are independent of priority claims."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent unrestricted classification under the survival interpretation",
+          "evidence": "All pairs (r,S), r∈S, occur and have depth-one minterms; arbitrary subsets of these pairs are definable.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-free-algebra-cardinalities-and-modal-depth-cutoff-for-heig--704161647189/RESULT.md",
+          "material_read": "Finding and exact depth-one proof in Step 3, offset 4718; beginning of canonical representative proof",
+          "method": "Local mirror read and reduction of pointed depth-one types",
+          "title": "Exact free-algebra cardinalities and modal depth cutoff for height-two partial orders",
+          "trigger": "Exact modal cardinality and closely related frame types"
+        },
+        {
+          "assessment": "Exact semantics and upper-bound mechanism",
+          "evidence": "R becomes R∩(W×truth(φ)), and the one-agent K45 argument removes types. It does not itself state the frozen full operator classification.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.24006",
+          "material_read": "v1 p. 4 Definition 5; pp. 10–11 Lemma 6 and proof",
+          "method": "OA PDF passage comparison",
+          "title": "Eventual and Strong Eventual Notions in Public Announcements",
+          "trigger": "Original semantics and stabilization source"
+        },
+        {
+          "assessment": "Different classification object",
+          "evidence": "Truth/falsity sequence validity rather than simultaneous support maps or positive-fragment counts.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.04685",
+          "material_read": "v3 pp. 2, 4 (semantics); pp. 6–7 Theorem 2",
+          "method": "OA PDF passage comparison",
+          "title": "Classification of σ-validity in iterated announcements",
+          "trigger": "Close primary result classifying repeated announcements"
+        },
+        {
+          "assessment": "General bound and other-frame sharpness",
+          "evidence": "Bound by the active-target count; directed-cycle witness with a negative modal test, not the positive initial-S5 witness.",
+          "identifier_or_url": "2026/10/4/SCOPE-sharp-state-count-stabilization-bound-for-finite-believed-announ--65b4b662c65e",
+          "material_read": "Finding and Proof",
+          "method": "Local mirror read",
+          "title": "Sharp state-count stabilization bound for finite believed announcements",
+          "trigger": "Known stabilization bound"
+        },
+        {
+          "assessment": "Exact bound and attainment overlap, not all-map coverage",
+          "evidence": "Universal relation with m distinct types and a depth-one positive diamond witness removes one type each update for m rounds.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-two-s5-agents-and-one-proposition-attain-every-finite-believed-a--3ec574a60e94/RESULT.md",
+          "material_read": "Finding and one-agent attainability proof, offset 5894",
+          "method": "Local mirror read and parameter substitution",
+          "title": "Two S5 agents and one proposition attain every finite believed-announcement lifetime",
+          "trigger": "Exact initial-S5 positive witness overlap"
+        },
+        {
+          "assessment": "Known coordinate count",
+          "evidence": "D_r enumerates monotone Boolean functions on r variables.",
+          "identifier_or_url": "https://oeis.org/A000372",
+          "material_read": "Entry and comments, offset 259",
+          "method": "Public entry read",
+          "title": "Dedekind numbers",
+          "trigger": "Database of monotone Boolean function counts"
+        },
+        {
+          "assessment": "Related but different framework in inspected statements",
+          "evidence": "Expressivity comparisons among update languages, not a support-operator classification.",
+          "identifier_or_url": "https://doi.org/10.1093/logcom/exu047",
+          "material_read": "OA accepted manuscript abstract and §1, pp. 1–3",
+          "method": "Bounded full-text passage read",
+          "title": "The Expressivity of Update Logics",
+          "trigger": "Update-expressivity comparison"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As a classification, the result is useful: it describes exactly which dynamics a single announcement can encode across simultaneously reachable states, separates the monotone syntactic fragment, and gives a tight positive-fragment lifetime. This judgment credits the content of a natural classification, not a new contribution from rephrasing the already characterized type tables.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

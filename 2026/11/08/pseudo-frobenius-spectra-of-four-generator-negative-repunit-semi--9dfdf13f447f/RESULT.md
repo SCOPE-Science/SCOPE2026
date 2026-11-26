@@ -1,96 +1,66 @@
 # Pseudo-Frobenius spectra of four-generator negative repunit semigroups
 
 ## Finding
-For every integer \(a\ge 8\), define the numerical semigroup
-\[
-S_a=\langle a,\,2a-1,\,4a-3,\,8a-7\rangle
-\subseteq\mathbb Z_{\ge0}.
-\]
-Its complete pseudo-Frobenius set is governed by a period-seven table. Define
-\[
-h=(0,1,2,1,2,3,2),\qquad
-\lambda(m)=\left\lfloor\frac m7\right\rfloor+h_{m\bmod7},
-\qquad P_a(m)=(a-1)m+a\lambda(m)-a.
-\]
-For \(r=a\bmod7\), the table below gives the finite set \(J_r\):
 
-| \(r\) | \(J_r\) | \(\operatorname{type}(S_a)\) |
-|---|---|---|
-| \(0\) | \(\{0,1\}\) | \(2\) |
-| \(1\) | \(\{0,1,2\}\) | \(3\) |
-| \(2\) | \(\{0,2,3\}\) | \(3\) |
-| \(3\) | \(\{0,4\}\) | \(2\) |
-| \(4\) | \(\{0,1,5\}\) | \(3\) |
-| \(5\) | \(\{0,2,6\}\) | \(3\) |
-| \(6\) | \(\{0\}\) | \(1\) |
-
-Then, **for every integer \(a\ge8\)**,
+For every integer \(a\ge8\), let
 \[
-\boxed{\operatorname{PF}(S_a)
-=\{P_a(a-1-j):j\in J_{a\bmod7}\}.}
+S_a=\langle a,2a-1,4a-3,8a-7\rangle\subseteq\mathbb Z_{\ge0}.
 \]
-In particular, \(S_a\) is symmetric if and only if \(a\equiv6\pmod7\). Its Frobenius number is the maximum of the displayed set, equivalently \(P_a(a-2)\) if \(a\equiv0\pmod7\), \(P_a(a-3)\) if \(a\equiv1\pmod7\), and \(P_a(a-1)\) in the other five cases. The semigroups genuinely have embedding dimension four for all \(a\ge8\).
+Define \(h=(0,1,2,1,2,3,2)\), \(\lambda(m)=\lfloor m/7\rfloor+h_{m\bmod7}\), and \(P_a(m)=(a-1)m+a\lambda(m)-a\). For \(r=a\bmod7\), the following table gives the pseudo-Frobenius offsets \(J_r\), the type, and the offset \(j_F\) that gives the Frobenius number.
+
+| \(r\) | \(J_r\) | Type | \(j_F\) |
+|---|---|---:|---:|
+| 0 | \(\{0,1\}\) | 2 | 1 |
+| 1 | \(\{0,1,2\}\) | 3 | 2 |
+| 2 | \(\{0,2,3\}\) | 3 | 0 |
+| 3 | \(\{0,4\}\) | 2 | 0 |
+| 4 | \(\{0,1,5\}\) | 3 | 1 |
+| 5 | \(\{0,2,6\}\) | 3 | 0 |
+| 6 | \(\{0\}\) | 1 | 0 |
+
+Then
+\[
+\operatorname{PF}(S_a)=\{P_a(a-1-j):j\in J_r\},\qquad
+F(S_a)=P_a(a-1-j_F).
+\]
+In particular \(S_a\) is symmetric exactly when \(a\equiv6\pmod 7\), and it has embedding dimension four throughout the stated range. For example, at \(a=11\) the pseudo-Frobenius set is \(\{72,111,112\}\), and its maximum \(112=P_{11}(9)\) precedes the last index \(10\).
 
 ## Assumptions and scope
-A numerical semigroup is a cofinite additive submonoid of \(\mathbb Z_{\ge0}\). Its pseudo-Frobenius numbers are the integers \(z\notin S\) for which \(z+s\in S\) for every \(s\in S\setminus\{0\}\). Its type is the number of pseudo-Frobenius numbers; the standard characterization says it is symmetric exactly when its type is one. The integer parameter ranges over all \(a\ge8\), with no primality or parity restrictions. The four displayed generators have greatest common divisor one, so each \(S_a\) is a numerical semigroup.
+
+A numerical semigroup is a cofinite additive submonoid of \(\mathbb Z_{\ge0}\). A pseudo-Frobenius number is an integer \(z\notin S\) such that \(z+s\in S\) for all \(s\in S\setminus\{0\}\). The type is the number of these integers. A numerical semigroup is symmetric exactly when its type is one. Here \(a\) ranges over all integers \(a\ge8\) and \(\gcd(a,2a-1)=1\), so the displayed semigroup is numerical.
 
 ## Proof
-**1. Exact coin cost and Apéry set.** Let \(\lambda(m)\) be the minimum number of coins from \(\{1,3,7\}\) needed to sum to \(m\). For a fixed \(m=7q+r\), \(0\le r<7\), a coin representation with \(q-t\) seven-coins, \(t\ge0\), needs at least \(\lfloor(7t+r)/3\rfloor+((7t+r)\bmod3)\) additional coins. Its total length is at least
-\[
-q-t+\left\lfloor\frac{7t+r}{3}\right\rfloor+((7t+r)\bmod3).
-\]
-Increasing \(t\) by three increases this expression by four. For \(t=0,1,2\), subtracting \(q\) yields, respectively, the triples
-\[
-(0,2,4),\ (1,3,3),\ (2,2,4),\ (1,3,5),\
-(2,4,4),\ (3,3,5),\ (2,4,6)
-\]
-for \(r=0,1,\ldots,6\). Thus choosing the maximum possible number of seven-coins is optimal and \(\lambda(m)=q+h_r\) for every \(m\ge0\).
 
-For any representation using the three generators other than \(a\), write \(M=x_1+3x_3+7x_7\) and \(L=x_1+x_3+x_7\). Its value is \((a-1)M+aL\) and its residue modulo \(a\) is \(-M\). For \(0\le m<a\), the least such value with \(M=m\) equals \((a-1)m+a\lambda(m)\). Any representation of the same residue with \(M=m+qa\), \(q\ge1\), has value at least \((a-1)(m+a)+a\). This is strictly larger than \((a-1)m+am\), an upper bound using \(m\) unit coins, because their difference is \(a(a-m)>0\). Adding copies of the generator \(a\) cannot improve a residue minimum. Consequently the entire Apéry set at \(a\) is exactly
-\[
-\operatorname{Ap}(S_a,a)=\{W_a(m):0\le m<a\},\qquad
-W_a(m)=(a-1)m+a\lambda(m).
-\]
-Distinct indices give distinct residues, so the elements are distinct.
+**Coin cost and Apéry representatives.** The least number of \(1,3\)-coins for an amount \(M\) is \(H(M)=\lfloor M/3\rfloor+(M\bmod3)\), by replacing triples of unit coins. The difference \(H(M+7)-H(M)\) is 3 for \(M\equiv0,1\pmod3\) and 1 for \(M\equiv2\pmod3\). Thus, in minimizing the number of \(1,3,7\)-coins, raising the number of seven-coins by one and reoptimizing the other coins never increases cost if feasible. It follows that the coin minimum is \(\lambda(m)\) as displayed above.
 
-**2. Maximality criterion.** Put \(W=W_a\), and order Apéry elements by \(u\preceq_S v\) if \(v-u\in S_a\). The increments \(W(m+1)-W(m)\) are \(2a-1\) for residues \(m\equiv0,1,3,4\pmod7\) and \(-1\) for \(m\equiv2,5,6\pmod7\). Hence an earlier index \(m'<m\) satisfies \(W(m')-W(m)\le2\); at most two consecutive downward steps occur before a positive step of size \(2a-1\). Because the least positive element of \(S_a\) is \(a\ge8\), an earlier index cannot dominate a later one.
+Write the value of any combination of the three non-\(a\) generators as \((a-1)M+aL\), where \(M\) is the sum of the corresponding \(1,3,7\)-coins and \(L\) is their number. The residue modulo \(a\) is \(-M\). For \(0\le m<a\), fixing \(M=m\) yields minimum \(W_a(m)=(a-1)m+a\lambda(m)\). A combination with \(M=m+qa\), \(q\ge1\), has value at least \((a-1)(m+a)+a\), strictly above the unit-coin value \((a-1)m+am\) by \(a(a-m)>0\). Adding copies of \(a\) cannot improve a residue minimum. Thus \(W_a(m)\) is the least semigroup element of residue \(-m\), and these \(a\) values form \(\operatorname{Ap}(S_a,a)\).
 
-For \(m'<m\), let \(\delta=m-m'\), so \(0<\delta<a\). The least member of \(S_a\) congruent to \(-\delta\pmod a\) is \(W(\delta)\). Therefore
-\[
-W(m)-W(m')\in S_a
-\quad\Longleftrightarrow\quad
-\lambda(m)=\lambda(m')+\lambda(\delta),
-\]
-because the difference from \(W(\delta)\) is \(a[\lambda(m)-\lambda(m')-\lambda(\delta)]\), and subadditivity makes the bracket nonpositive.
+**Which Apéry representatives are maximal.** Use the order \(u\preceq_{S_a}v\) if \(v-u\in S_a\), and abbreviate \(W=W_a\). For \(m'<m\) we have \(W(m')-W(m)\le2\): the steps are \(2a-1\) at residues \(0,1,3,4\) of the earlier index and \(-1\) at residues \(2,5,6\); a run of negative steps has length at most two. Indeed, if the interval has \(k\ge1\) positive steps, the net increase is at least \(k(2a-1)-2(k+1)>0\). Therefore an earlier index cannot dominate a later one, since the smallest positive semigroup element is \(a\).
 
-If \(\lambda(m'+\delta)=\lambda(m')+\lambda(\delta)\), write a minimum-length coin decomposition of \(\delta\) as \(\delta=c_1+\cdots+c_s\). Subadditivity forces \(\lambda(m'+c_1)=\lambda(m')+1\), since otherwise the total length would be smaller. Conversely, if a coin \(c\in\{1,3,7\}\) satisfies \(m'+c<a\) and \(\lambda(m'+c)=\lambda(m')+1\), then \(W(m'+c)-W(m')=(a-1)c+a\) is a positive generator of \(S_a\). It follows that **the maximal Apéry elements are precisely** the \(W(m)\) for which no such coin step exists.
+For \(m'<m\) put \(\delta=m-m'\in\{1,\dots,a-1\}\). The least representative of the residue of \(W(m)-W(m')\) is \(W(\delta)\), and their difference is \(a[\lambda(m)-\lambda(m')-\lambda(\delta)]\). The bracket is nonpositive by subadditivity. Thus the later index dominates the earlier exactly when \(\lambda(m)=\lambda(m')+\lambda(\delta)\). In that case the first coin \(c\in\{1,3,7\}\) of a minimum coin presentation of \(\delta\) must satisfy \(\lambda(m'+c)=\lambda(m')+1\); otherwise one could complete that presentation with fewer coins than equality allows. Conversely such a step, when \(m'+c<a\), gives \(W(m'+c)-W(m')=(a-1)c+a\in S_a\). This proves that \(W(m)\) is maximal exactly when none of the three steps stays below \(a\) and increases \(\lambda\) by one.
 
-**3. Seven-residue classification.** Since \(\lambda(m+7)=\lambda(m)+1\), every \(m<a-7\) admits a positive seven-coin step and is not maximal. Only \(a-7\le m\le a-1\) remain. For \(m\bmod7=0,1,2,3,4,5,6\), the differences \(\lambda(m+1)-\lambda(m)\) are
-\[
-(1,1,-1,1,1,-1,-1)
-\]
-and the differences \(\lambda(m+3)-\lambda(m)\) are
-\[
-(1,1,1,1,-1,-1,1).
-\]
-Checking whether either increment is one while the step stays below \(a\) yields exactly the offset sets \(J_0,\ldots,J_6\) in the table. A maximal Apéry member \(W(m)\) corresponds to the pseudo-Frobenius number \(W(m)-a\), completing the classification.
+Since \(\lambda(m+7)=\lambda(m)+1\), only \(a-7\le m\le a-1\) can be maximal. On residues \(0,1,\ldots,6\) the unit-step differences in \(\lambda\) are \((1,1,-1,1,1,-1,-1)\), and the three-step differences are \((1,1,1,1,-1,-1,1)\). For \(m=a-1-j\), the unit step is feasible when \(j\ge1\) and thus in that range a survivor must have \(m\bmod7\in\{2,5,6\}\). For \(j\ge3\) the three-step is also feasible, leaving only \(m\equiv5\pmod7\). Applying these rules for \(0\le j\le6\) gives precisely the displayed \(J_r\). Subtracting \(a\) from the maximal members of the Apéry set yields the full pseudo-Frobenius set. The representatives have distinct residues, so the type is \(|J_r|\).
 
-**4. Consequences.** The type values are the cardinalities of the offset sets. The type-one criterion gives symmetry exactly for \(a\equiv6\pmod7\). The Frobenius number is the greatest pseudo-Frobenius number. Applying the same explicit increment pattern to each table row shows that its maximal offset is \(j=1\) in residue class zero, \(j=2\) in residue class one, and \(j=0\) otherwise. Finally, \(a\), \(2a-1\), \(4a-3\), \(8a-7\) are all minimal generators when \(a\ge8\): they correspond to the unique minimum-one-coin presentations at coin values \(1,3,7<a\), and no smaller coin values can represent any of these three values using fewer than two coins; multiples of \(a\) cannot lower a residue minimum.
+**Frobenius number and minimal generators.** Since \(W(m+7)-W(m)=8a-7>0\), the numerical maximum of \(W\) is in the last seven positions. Among those positions, each earlier index followed by at least one positive step on the way to \(a-1\) is strictly below \(W(a-1)\), by the step count above. An earlier index followed only by negative steps has value larger by the number of steps. Thus the maximizing offset is the number of consecutive negative steps ending at \(a-1\). The step starts are negative at residues \(2,5,6\). The number of trailing negative steps is 1 for \(a\equiv0,4\), 2 for \(a\equiv1\), and 0 otherwise, all modulo 7. This proves the \(j_F\) column, since \(F(S_a)=\max_m W(m)-a\).
+
+Each non-\(a\) generator is \(W(c)\) for \(c=1,3,7<a\). A minimum representation of \(W(c)\) cannot contain \(a\), cannot have a larger offset in the same residue, and must use exactly one coin at offset \(c\); it is exactly the stated generator. The smallest positive element \(a\) is also minimal. This completes the proof.
 
 ## Verification
-The standard-library Python program `verify.py` tests the coin-cost formula with a separate dynamic program for all \(m\le10000\). For each \(8\le a\le1500\), an independent Dijkstra shortest-path algorithm reconstructs all \(a\) Apéry values and computes their maximal elements under generator addition, matching every formula. For each \(8\le a\le110\), a direct, bounded semigroup membership dynamic program independently determines every pseudo-Frobenius number and all gaps through the conductor and verifies the predicted genus. The script exits nonzero if any comparison fails. It is corroboration; the proof above establishes the infinite claim.
 
-Examples: \(\operatorname{PF}(S_8)=\{49,50,51\}\), \(\operatorname{PF}(S_{13})=\{183\}\), and \(\operatorname{PF}(S_{16})=\{227,228,257\}\).
+The accompanying standard-library `verify.py` checks the minimum coin counts up to 10000 by dynamic programming. It compares all predicted Apéry values and the complete pseudo-Frobenius set with residue-graph shortest paths for \(8\le a\le1500\), and compares the pseudo-Frobenius sets and gap counts with a separate membership computation for \(8\le a\le110\). That checker uses the maximum of the predicted set rather than evaluating the separate \(j_F\) shortcut; the shortcut is established by the exact trailing-step argument above. The finite checks do not prove the all-parameter classification.
 
 ## Relationship to prior work
-Liu, Xin, Ye and Yin's 2023 preprint, subsequently expanded as *On the Frobenius Number and Genus of a Collection of Semigroups Generalizing Repunit Numerical Semigroups* (2025), introduces a general collection containing \(S_a\) as its base-two, three-step, negative-shift specialization. Its general Apéry minimization supplies the conceptual starting point. The inspected paper gives Frobenius and genus machinery and pseudo-Frobenius formulas for certain **positive-shift** families, but does not state the seven-residue pseudo-Frobenius classification for arbitrary negative-shift \(a\ge8\). In particular its displayed four-generator example assumes positive shift; its monotonic maximum argument requires conditions not satisfied in the negative-shift case.
 
-Branco, Colaço and Ojeda's earlier generalized repunit family has leading generator fixed to a repunit of specified length and includes exact pseudo-Frobenius spectra. The four-generator semigroup \(S_{15}\) is a particular instance of their length-four family, so that specific parameter is already covered. Their length-five family at leading generator \(31\) has **five** generators, not the four defining \(S_{31}\), and does not determine the latter's different spectrum. Their theorem therefore does not cover the all-parameter statement here. General Apéry-maximality and pseudo-Frobenius algorithms are standard and are used, not claimed as new.
+Liu, Xin, Ye and Yin's Collection 1.1 includes this family at \(b=2,k=3,d=-1\). Their greedy Apéry formula (Theorem 2.10, eq. (8)) already specializes to \(W_a(m)\): its bound here is \(a\ge4\), and the minimum coin vector uses offsets \(1,3,7\). Their two monotonic maximum results (Theorem 2.12 and Corollary 2.16) cannot give the negative-shift shortcut: the strict denomination condition in the theorem fails at \(s_i=u+1=2\), and the corollary and four-generator Example 2.19 require positive shift. Their Section 3 treats pseudo-Frobenius numbers for a positive-shift repunit-multiple family. The new part here is the seven-residue classification of all maximal Apéry representatives in the stated negative-shift family, not the Apéry formula in isolation.
+
+Branco, Colaço and Ojeda give exact pseudo-Frobenius spectra for a generalized repunit family with first generator fixed to a repunit of the specified length. Its length-four case includes \(S_{15}\), with spectrum \(\{211,212,213\}\), but does not furnish the seven-row classification for arbitrary \(a\).
 
 ## Limitations
-The theorem is restricted to the specified four-generator family; it makes no statement for arbitrary shifts, bases, or numbers of generators. The classification is supported by the displayed proof and exact computational corroboration, but has not undergone independent scientific audit. No exhaustive guarantee of worldwide originality is claimed; unindexed equivalent results remain possible. The explicit formulas are infinite theorems only because of the symbolic coin and Apéry argument, not because of the finite experiments.
+
+The classification is for four generators at the specified base and shift. Other shifts, bases, or lengths are not covered. The literature comparisons do not establish exhaustive priority.
 
 ## References
-1. F. Liu, G. Xin, S. Ye, J. Yin, *A Generalization of Mersenne and Thabit Numerical Semigroups*, arXiv:2306.03459v1, 6 June 2023; expanded as *On the Frobenius Number and Genus of a Collection of Semigroups Generalizing Repunit Numerical Semigroups*, arXiv:2306.03459v4 (2025), https://arxiv.org/html/2306.03459v4 .
-2. M. B. Branco, I. Colaço, I. Ojeda, *The Frobenius Problem for Generalized Repunit Numerical Semigroups*, arXiv:2112.01106 (2021), Mediterranean Journal of Mathematics 20 (2023), article 16, https://link.springer.com/article/10.1007/s00009-022-02233-w .
-3. M. Delgado, P. A. García-Sánchez, A. M. Robles-Pérez, *Numerical semigroups with a given set of pseudo-Frobenius numbers*, LMS Journal of Computation and Mathematics 19 (2016), 186–205, https://arxiv.org/abs/1505.08111 .
+
+1. F. Liu, G. Xin, S. Ye and J. Yin, *On the Frobenius Number and Genus of a Collection of Semigroups Generalizing Repunit Numerical Semigroups*, arXiv:2306.03459v4, https://arxiv.org/html/2306.03459v4.
+2. M. B. Branco, I. Colaço and I. Ojeda, *The Frobenius Problem for Generalized Repunit Numerical Semigroups*, Mediterranean Journal of Mathematics 20 (2023), article 16, https://arxiv.org/abs/2112.01106.
+3. M. Delgado, P. A. García-Sánchez and A. M. Robles-Pérez, *Numerical semigroups with a given set of pseudo-Frobenius numbers*, LMS Journal of Computation and Mathematics 19 (2016), 186–205, https://arxiv.org/abs/1505.08111.

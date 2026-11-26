@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:43:51.601272Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–100",
+        "Frozen VERIFICATION.md and verify.py, especially lines 29–86",
+        "Independent two-step spectral and rational boundary reconstruction"
+      ],
+      "rationale": "Squaring the four-class off-diagonal next-generation matrix gives cyclic two-step blocks, so its spectral radius squared equals that of K=(I+mL_h)⁻¹Q. Direct inversion gives Q=c²[[a,bξ²],[bξ⁻²,a]]. For P=p+q and π=(q,p)ᵀ/P one has L_h=P(I−π1ᵀ) and (I+mL_h)⁻¹=(1−w)I+wπ1ᵀ, w=mP/(1+mP). This yields the stated trace and determinant; the positive off-diagonals for n>0 select a simple upper eigenvalue. The characteristic polynomial at any fixed λ is affine in w. If a simple Perron root is stationary, the polynomial at that root and its w-slope both vanish, so it is a root for every w. Strict positivity and simplicity prevent a switch to another root. Hence the Perron branch is constant or strictly monotone. Its endpoint values are c² and 1ᵀQπ=c²(a+bT), and T−1=(ξ²−1)(pξ²−q)/(Pξ²), proving the exact sign and equality, including m=0. For c<1 the root reaches one in finite m iff the far endpoint is above one; equality at infinity does not suffice. The equation (1+mP)det(I−K)=0 gives the displayed m_*; its second eigenvalue there is D_m<1. With n=0, K is c² times a stochastic resolvent so R=c. Direct rational substitution also gives the stated witness and determinant factor. Frozen verify.py was inspected, not run. Its rational trace/determinant checks and floating-point monotonicity samples are not the all-parameter justification.",
+      "residual_risks": [
+        "The sign rule requires the specified reciprocal contrasts, constant linearization and equal normalized removal rates. It is not a nonlinear persistence or policy result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ran–Wojtylak (2021), PDF pp. 4–5, gives affine characteristic polynomials and distinguishes frozen eigenvalues from values reached at only one perturbation parameter.",
+          "Gao–Dong's Karlin-type result concerns stochastic mixing times a positive diagonal matrix and gives a reduction principle."
+        ],
+        "reasoning": "The interpolation here is a rank-one perturbation because (I−π1ᵀ)Q has rank one. The affine identity and nonrepeated parameter for a nonfrozen eigenvalue, together with Perron simplicity and continuity, already imply monotonicity or constancy as an abstract corollary. That abstract lemma is not new. The diagonal reduction principle does not apply to the actual positive nondiagonal Q, and neither generic theorem identifies this model's balance condition or the joint-rate threshold.",
+        "searches": [
+          "Primary literature: positive matrices rank-one difference interpolation spectral radius strictly monotone Perron root rank one perturbation Karlin Altenberg",
+          "Gao–Dong arXiv:1907.12229v1, Lemma 2.2; Ran–Wojtylak DOI:10.1007/s11785-021-01094-7, equation (3) and Proposition 2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md related work",
+        "Ran–Wojtylak equations (3)–(7)",
+        "Gao–Dong Lemma 2.2; Gao–van den Driessche–Cosner Proposition 1; Gao–Yuan Theorem 4.2; Gao–Lou p. 5",
+        "Resultary …c9d1993c98ff, …d3c5edc805b7 and assigned …04f3c7e695e6",
+        "Dey–Kar–Tridane indexed abstract; arXiv:2605.31015v3 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Dey–Kar–Tridane indexed abstract concerns a spatially heterogeneous model with distinct nonlocal kernels and generalized incidence; full text was unavailable.",
+          "The actual contrast besides applying the general perturbation law is evaluating the two endpoint Perron values in the reciprocal-rate class and comparing them, including the cancellation of vector-rate magnitude in their sign difference.",
+          "The inspected neighboring two-patch population study arXiv:2605.31015v3 concerns nonlinear anthropization-dependent migration and coexistence or vector extinction, not the fixed-rate invasion eigenvalue."
+        ],
+        "reasoning": "Neither the known qualitative coupled-invasion effect nor the stationary variance floor determines when the host-rate response reverses, remains exactly invariant, or crosses unity. The generic rank-one theorem determines the possible branch shapes, not whether either end of this particular branch is above the other or straddles the threshold. The acceptance is for the explicitly parameterized joint-mobility classification, not for republishing rank-one perturbation theory.",
+        "searches": [
+          "Primary literature: \"Dynamics of a vector-host epidemic model with generalized nonlinear incidence functions and distinct dispersal kernels\" PDF host vector reproduction operator",
+          "Gao–Yuan (2024), Theorem 4.2; Gao–van den Driessche–Cosner (2019), Proposition 1; Ran–Wojtylak (2021), pp. 4–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gao–van den Driessche–Cosner (2019), author manuscript p. 1 and Proposition 1, treats movement-promoted reproduction in epidemiologically identical patches.",
+          "Gao–Yuan (2024), abstract and Theorem 4.2, uses host residence times and vector migration and gives a matrix-independent lower bound."
+        ],
+        "reasoning": "In the frozen model only the products of the two rates agree across patches, not the separate transmissions; host movement enters a transfer resolvent, not a residence matrix. A qualitative movement effect, a lower bound, or another next-generation convention (squared versus unsquared) does not give the derivative sign in the common host rate.",
+        "searches": [
+          "Resultary: infected hosts and vectors both migrate reciprocal transmission two patch monotonicity threshold",
+          "Primary literature: \"two-patch\" vector host reproduction number increasing decreasing host vector migration rates directional stationary malaria Gao Cosner Eulerian monotonic spectral radius threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact catalogue match …04f3c7e695e6 is the assigned record.",
+          "Distinct indexed matches …c9d1993c98ff and …d3c5edc805b7 study a stationary mixing variance floor and a weak-seasonality Floquet law, respectively."
+        ],
+        "reasoning": "There is no finite invariant table for this continuum-of-rates claim. Matching the varied quantity and the frozen parameters rules out equivalence: the variance-floor result varies the vector generator at fixed host residence; the same-day phase result varies seasonal transmission phase rather than movement.",
+        "searches": [
+          "Resultary: infected hosts and vectors both migrate reciprocal transmission two patch monotonicity threshold"
+        ]
+      },
+      "rationale": "Credit next-generation reduction, the general rank-one perturbation method (which gives the constant-or-strictly-monotone dichotomy here), and the qualitative possibility that movement raises a coupled reproduction number above local values. The supported distinct claim is the explicit stationary-bias sign and equality law, independence of that sign boundary from positive vector-rate magnitude, and the exact unity crossing and single-class invariance for this reciprocal two-class model. The inspected stronger matrix results do not supply that model-specific classification, and none of the compared movement models establishes it under these parameters.",
+      "residual_risks": [
+        "Dey–Kar–Tridane (2026) and Ruktanonchai–Smith–De Leenheer (2016) full texts were not available via attempted lawful routes; an equivalent explicit special case in them remains possible.",
+        "The constant-or-monotone abstract lemma is covered by rank-one spectral perturbation machinery and is not credited separately."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Abstract constant or strictly monotone Perron law follows in positive families; no vector–host model formulas",
+          "evidence": "Characteristic polynomial is affine in the rank-one parameter; a nonfrozen eigenvalue cannot recur at another parameter.",
+          "identifier_or_url": "https://doi.org/10.1007/s11785-021-01094-7",
+          "material_read": "PDF pp. 4–5, offsets 8500–13547, equations (3)–(7) and Proposition 2",
+          "method": "Lawful open full PDF, literal locate then bounded passage",
+          "title": "Global Properties of Eigenvalues of Parametric Rank One Perturbations for Unstructured and Structured Matrices",
+          "trigger": "Potential stronger result establishing the abstract interpolation lemma"
+        },
+        {
+          "assessment": "Different diagonal-infection assumptions",
+          "evidence": "Strict decrease for stochastic mixing multiplied by a nonscalar positive diagonal matrix.",
+          "identifier_or_url": "https://arxiv.org/abs/1907.12229v1",
+          "material_read": "Lemma 2.2, offset 10300",
+          "method": "Open preprint passage",
+          "title": "Fast Diffusion Inhibits Disease Outbreaks",
+          "trigger": "Classical mixing spectral monotonicity and potential domination"
+        },
+        {
+          "assessment": "Qualitative precedent, not the reciprocal-contrast all-rate sign law",
+          "evidence": "The multipatch reproduction number can exceed the single-patch one in the identical-patch model.",
+          "identifier_or_url": "https://www.math.miami.edu/~dzgao/GvdDC-JMB2019.pdf",
+          "material_read": "Author manuscript p. 1 offsets 680–1150, Proposition 1 p. 16 offset 56000, discussion p. 20 offset 64800",
+          "method": "Open author manuscript passages",
+          "title": "Habitat fragmentation promotes malaria persistence",
+          "trigger": "Prior migration-promoted reproduction"
+        },
+        {
+          "assessment": "Matrix-independent bound in a hybrid model, not this host-rate switch",
+          "evidence": "Theorem 4.2 gives a lower bound independent of the residence and vector migration matrices.",
+          "identifier_or_url": "https://doi.org/10.1007/s00285-024-02109-5",
+          "material_read": "Abstract p. 1 and Theorem 4.2 pp. 14–15, offset 45300",
+          "method": "Open manuscript passages",
+          "title": "A hybrid Lagrangian–Eulerian model for vector-borne diseases",
+          "trigger": "Closest general residence/dispersion comparison"
+        },
+        {
+          "assessment": "Different perturbation and objective",
+          "evidence": "Infimum over vector generators with fixed stationary vector and fixed host residence, under homogeneous transmission parameters.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-a-sharp-stationary-mixing-variance-floor-for-vector-borne-epidem--c9d1993c98ff/RESULT.md",
+          "material_read": "Finding and assumptions, offset 0–2876",
+          "method": "Local mirror",
+          "title": "A sharp stationary-mixing variance floor for vector-borne epidemic reproduction",
+          "trigger": "Distinct closest indexed stationarity and reproduction result"
+        },
+        {
+          "assessment": "Material priority limitation, not evidence of noncoverage",
+          "evidence": "Abstract discusses distinct nonlocal vector and host kernels and generalized nonlinear incidence.",
+          "identifier_or_url": "https://doi.org/10.1016/j.mbs.2026.109856",
+          "material_read": "Indexed abstract excerpt only",
+          "method": "Indexed excerpt and attempted lawful journal and abstract routes; no article full text retrieved",
+          "title": "Dynamics of a vector-host epidemic model with generalized nonlinear incidence functions and distinct dispersal kernels",
+          "trigger": "Closest cited contemporaneous distinct-dispersal paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, scope, and Proof",
+        "Ran–Wojtylak equation (3); Gao–Dong Lemma 2.2"
+      ],
+      "rationale": "Equal isolated thresholds leave the sign of the coupled host-rate response undetermined. This is a natural exact three-way classification: the two individual movement blocks preserve the isolated value, yet simultaneous coupling can lead to either sign, exact invariance or a genuine finite crossing, governed by a stationary-weight boundary. It gives a tractable benchmark distinguishing joint effects from known single-class reduction principles. The value is in that explicit model boundary and its hypotheses, not in the determinant identity by itself.",
+      "residual_risks": [
+        "No claim of empirically estimated risk or of a result for nonlinear dynamics, arbitrary mobility networks, or unequal removal rates."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

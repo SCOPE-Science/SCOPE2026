@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:09:31.881527Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, equations (1)–(3), optimization and scope; VERIFICATION.md and verify.py (inspection)"
+      ],
+      "rationale": "For every nonzero error the conditional ratio is the probability-weighted sum of the squared coordinate factors. The binomial marginals give 1 - k(2β−β²)S₂ + k(k−1)β²S₃; every simplex point is admissible. An independent sharp certificate beyond the source's pair-splitting argument is S₃ ≤ (1+1/d)S₂−1/d. With E_j the elementary symmetric sums of p, the gap times d is (d−2)E₂−3dE₃, exactly Σ_l p_l Σ_{i<j, i,j≠l}(p_i−p_j)². The cubic coefficient is nonnegative, so the resulting chord bounds the objective by the larger endpoint, and both endpoints attain it. At d=2 the chord is an identity and at the positive crossing all splits tie; β=0 also gives ties. The theorem asserts witnesses, not exclusivity. The uniform-minus-vertex gap changes sign once at β_c=2d/[k(d+1)−1] for β>0. The vertex minimum 1/k lies strictly before that crossing, and the uniform minimum d/(d+k−1) lies at or before it exactly when k(d−1)≤2d−1. The envelope thus has the stated unique optimum, including equality of branches. The vertex requires 0<β<2/k and the uniform branch stays below one throughout that window (its own positive crossing is 2d/(d+k−1)≥2/k). This covers k=1 and the absorbing zero-error case in the conditional iteration. The fixed-d floor follows from the balanced branch; under fixed-uniform sampling every coordinate has the same expected multiplier and the uniform quadratic is exact for every start. I inspected verify.py and its documented finite replay without executing it; the count and Monte Carlo figures are frozen supporting evidence, not the basis of the universal check.",
+      "residual_risks": [
+        "No wall-clock, nonorthogonal, live-read, or exact long-run-rate result is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "SCOPE-20261108-0ca374658cd7 full-text finding: power-residual frozen-batch moment identity and sharp global stability for all positive exponents; its exponent-2 specialization reproduces the S₂/S₃ moment and window, but not the probability-simplex envelope or minimax floor.",
+          "Coleman arXiv:2606.01232v2 Thms. 3, 5: one-update progress with nS₂ (IPR). At d≥3 p=(1/2,1/2,0) and q=(2/3,1/6,1/6) have equal S₂ but different S₃."
+        ],
+        "reasoning": "Neither the general pointwise identity nor the known one-step guarantee decides the robust finite-batch optimization; the sharp endpoint chord and crossing comparison are needed.",
+        "searches": [
+          "Resultary: simplex extremum third power sum minus second power sum uniform vector or vertex probability distribution",
+          "Resultary: power-sum S3 versus S2 sharp relation probability simplex equal support extremizers collision"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.01232v2; arXiv:2607.08313v2; arXiv:2002.04126; DOI:10.1007/s11075-022-01473-x",
+        "SCOPE-20261018-3a196be2a758; SCOPE-20261025-29b111de8146; SCOPE-20261108-0ca374658cd7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Tondji–Lorenz DOI:10.1007/s11075-022-01473-x §§1.2, 4: fixed probability and weights; Moorman et al. arXiv:2002.04126 §1.2: averaged randomized Kaczmarz.",
+          "Catalogue special cases and stronger exponent-general moment identity above do not include an objective optimizer over initial residuals."
+        ],
+        "reasoning": "A fixed-sampling step formula determines only the flat witness. Putting that witness and the concentrated one into a max is ordinarily only a lower bound; the sharp upper bound for all residuals is the distinct ingredient and yields the stated transition and concurrency limit.",
+        "searches": [
+          "Primary literature: \"Residual-Weighted Randomized Jacobi\" \"Adaptive Row Selection Meets Asynchrony\" Coleman Kaczmarz arXiv (search returned no substantive passage; direct OA primary-text comparisons below)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2002.04126 §1.2: iid with-replacement averaged corrections for distribution D; applying the per-batch averaging convention rescales β, but fixed D does not impose p_i=e_i²/||e||².",
+          "arXiv:2607.08313v2 Algorithm 1: lock-free atomic updates and possibly different residual views, not one shared frozen probability vector for all draws."
+        ],
+        "reasoning": "An explicit change of relaxation convention identifies the fixed-uniform comparator, not the adaptive minimax. Live/shared-snapshot differences cannot be removed by a normalization.",
+        "searches": [
+          "Resultary: frozen residual shared Kaczmarz minibatch additive with replacement exact minimax collision floor",
+          "Resultary: Kaczmarz exact frozen residual squared residual sampling batch collision minimax relaxation endpoint"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE-20261018-3a196be2a758 full finding matches d=2 exactly, including max{(1−kβ)²,1−kβ+k(k+1)β²/4}, transition at k=3, and 1/9 floor.",
+          "SCOPE-20261025-29b111de8146 matches the d=2 fixed-uniform second moment after rescaling from averaged updates."
+        ],
+        "reasoning": "The same-date d=2 overlap is genuine but not the all-dimensional result. The two-point identity S₃=(3S₂−1)/2 fails in higher dimension and cannot be substituted to obtain the missing bound.",
+        "searches": [
+          "Local Resultary frozen-residual/minimax and simplex searches above"
+        ]
+      },
+      "rationale": "Distinct supported contribution is the all-dimension sharp cubic-simplex envelope and resulting finite-k minimax relaxation and floor, not the d=2 specialization, single-step moments, fixed sampling, or safety window by itself. The strongest catalogue overlap is explicit below; no priority is inferred from same-date metadata.",
+      "residual_risks": [
+        "Bounded searches cannot exclude an unindexed equivalent under another stochastic-parallel algorithm or sharp moment-inequality formulation.",
+        "The timing/order of the same-date overlap is not resolved, and is unnecessary for distinguishing the dimension-general content."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "one-update overlap, no batch envelope",
+          "evidence": [
+            "Exact constant-diagonal progress uses nS₂, not the k>1 collision term."
+          ],
+          "identifier_or_url": "arXiv:2606.01232v2",
+          "material_read": "abstract p. 1; Theorems 3, 5 pp. 11–14 (offsets 35333, 45507)",
+          "method": "OA full-text passage inspection",
+          "title": "Residual-Weighted Randomized Jacobi: Sharpened Bounds via Residual Concentration and Asynchronous Extension",
+          "trigger": "same residual-power sampling and collision motivation"
+        },
+        {
+          "assessment": "different update semantics",
+          "evidence": [
+            "Workers use snapshot or live views with atomic updates, not a common frozen snapshot for the whole batch."
+          ],
+          "identifier_or_url": "arXiv:2607.08313v2",
+          "material_read": "abstract; Algorithm 1 p. 6 offset 14506",
+          "method": "OA full-text passage inspection",
+          "title": "Adaptive Row Selection Meets Asynchrony in Randomized Kaczmarz",
+          "trigger": "closest residual snapshots/stale parallel commits"
+        },
+        {
+          "assessment": "fixed-distribution averaging antecedent",
+          "evidence": [
+            "Distribution D specifies independent row samples and averaged corrections."
+          ],
+          "identifier_or_url": "arXiv:2002.04126",
+          "material_read": "§1.2 p. 2 offset 6512",
+          "method": "OA full-text passage inspection",
+          "title": "Randomized Kaczmarz with Averaging",
+          "trigger": "identical with-replacement batch convention"
+        },
+        {
+          "assessment": "fixed sampling, not state-dependent robust optimization",
+          "evidence": [
+            "Sampling distribution and weights are specified inputs to the method."
+          ],
+          "identifier_or_url": "doi:10.1007/s11075-022-01473-x",
+          "material_read": "§1.2 pp. 4–5 offset 10800; §4 p. 13 offset 38000",
+          "method": "OA full-text passage inspection",
+          "title": "Faster randomized block sparse Kaczmarz by averaging",
+          "trigger": "fixed-sampling relaxation comparator"
+        },
+        {
+          "assessment": "exact d=2 overlap; priority not inferred",
+          "evidence": [
+            "Two-row envelope, transition, and 1/9 limit coincide exactly."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-sharp-concurrency-frontier-for-residual-weighted-two-row-kaczm--3a196be2a758",
+          "material_read": "full-text finding",
+          "method": "local Resultary mirror",
+          "title": "A sharp concurrency frontier for residual-weighted two-row Kaczmarz",
+          "trigger": "same-date near-exact title and formulas"
+        },
+        {
+          "assessment": "moment and stability covered, sharp optimizer not covered",
+          "evidence": [
+            "Substitution of exponent 2 gives the same conditional S₂/S₃ formula and βk<2 window."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-adaptive-sampling-stability-discontinuity-under-frozen-sna--0ca374658cd7",
+          "material_read": "full-text finding",
+          "method": "local Resultary mirror",
+          "title": "Sharp adaptive sampling stability discontinuity under frozen snapshots",
+          "trigger": "stronger exponent-general theorem on the same frozen model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and one-batch comparison; Coleman's snapshot/asynchronous motivation"
+      ],
+      "rationale": "The condition-one benchmark isolates occupancy collisions from matrix conditioning. It answers a motivated robust tuning question: which of uniform fractional coverage and duplicate hits on a single residual dominates at the best step? The all-dimension sharp crossover and persistent quantitative gap versus fixed-uniform sampling supply that design information; the floor is not a limitation on repeatedly refreshed accuracy.",
+      "residual_risks": [
+        "Does not estimate actual machine throughput or extrapolate to correlated rows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

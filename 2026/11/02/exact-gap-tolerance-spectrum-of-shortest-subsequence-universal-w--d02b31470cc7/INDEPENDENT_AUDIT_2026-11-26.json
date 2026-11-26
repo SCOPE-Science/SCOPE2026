@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:24:07.212809Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§1–3",
+        "Frozen VERIFICATION.md and verify_gap_universality.py, inspected without execution",
+        "Independent literal index-combination test of all permutation-block hosts and targets at (q,k)=(2,3),(3,2): histograms {2:2,3:6} and {3:6,4:18,5:12}; independent enumeration of all 27 bounded-drop counts for 2≤q≤7"
+      ],
+      "rationale": "The shortest length is qk: constant targets require k copies of each label, and k permutation blocks suffice. For necessity, cut greedily at the first full-alphabet prefix of each remaining suffix. The sequence of last-to-appear symbols forces any embedding of that sequence to reach at least the corresponding cuts; if there are fewer than k cuts, appending a symbol missing in the remainder obstructs universality. At length qk this forces k blocks of length q. Each constant target has a unique embedding, so all forward displacements are witnessed as jumps q+p_(i+1)(a)-p_i(a). Conversely, earliest-match embedding starts in the first block and advances at most one block per match. For a cross-block step to b from offset r, p_i(b)≤r, so the jump is no larger than the corresponding constant-target jump. Same-block jumps are below q and the maximal forward displacement is nonnegative by summing over labels. For a fixed block the nested allowed new positions give d+1 choices on each of the first q−d rows and d! choices on the remainder; the count is the same from every block. Subtraction gives the exact spectrum, d=0 forces repeated permutations, and the ratio at d=q−2 to unrestricted choices is (q−1)/q per transition. These are maximum index differences, not skipped-position counts, and each target may choose its embedding.",
+      "residual_risks": [
+        "Finite corroboration is not an exhaustion over q,k; the proof covers all q,k≥2 at minimum length only. The frozen verification's audit, attestation and formal-check channels were not performed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The survey theorem and the minimum-spacing result specialized at spacing one already supply the permutation-block structure; deletion resilience gives a related but different block rigidity.",
+          "The more general gap problem studied by Day et al. has decision/complexity results, not an exact worst jump statistic or a host count."
+        ],
+        "reasoning": "Parameter or problem generality alone does not give coverage of the exact invariant.",
+        "searches": [
+          "arXiv:2208.14722 Theorem 13",
+          "arXiv:2206.13896v1 Introduction and Analysis Problems",
+          "Resultary 31909ca10882 and 781682eefd3f"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2206.13896v1",
+        "arXiv:2208.14722",
+        "arXiv:1306.5428v1",
+        "Resultary 31909ca10882, 781682eefd3f, 5374d30faea3, 967f04fec949"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The arch theorem supplies the domain and bounded-drop enumeration supplies the transition count once a transition test is known. Constant targets give its necessary side; the sufficiency requires showing that no mixed target forces a bigger jump."
+        ],
+        "reasoning": "The earliest-match offset inequality supplies the missing nontrivial implication. The radius spectrum follows mechanically only after that bridge.",
+        "searches": [
+          "arXiv:2208.14722 Theorem 13; arXiv:1306.5428v1 §1",
+          "Resultary 31909ca10882 and 5374d30faea3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Day et al. formalize gap-constrained universality as a decision problem, including a uniform class of intervening words; this can encode a threshold decision but does not characterize it on shortest hosts.",
+          "31909ca10882 constrains minimum spacing, with no upper bound; 967f04fec949 measures insertions, not jumps."
+        ],
+        "reasoning": "The skip-length versus index-difference convention is equivalent after subtracting one; insertion, resilience, and minimum spacing are not. The bound on the best embedding for each target is the relevant maximum-gap formulation.",
+        "searches": [
+          "Resultary: maximum gap and uniformly spaced subsequence universality; 31909ca10882, 781682eefd3f, 5374d30faea3, 967f04fec949",
+          "arXiv:2206.13896v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The transition count is the classical bounded-drop permutation cardinality (invert the relative permutation to switch the sign of displacement). The repeated-permutation record counts distinct targets for a single repeated host under jump intervals; the minimum-spacing record counts shortest hosts for a different constraint."
+        ],
+        "reasoning": "Neither is a table of bottleneck radii or threshold counts over arbitrary permutation-block sequences.",
+        "searches": [
+          "arXiv:1306.5428v1 §1 bounded-drop descent polynomials",
+          "Resultary 5374d30faea3 and 31909ca10882"
+        ]
+      },
+      "rationale": "Pass for the bottleneck-radius bridge and the resulting distribution on all indexed shortest hosts, not for arch factorization, permutation-block structure, or the restricted-permutation count. No inspected strong match gave or implied this bridge. Same-day matches were compared without inferring publication order.",
+      "residual_risks": [
+        "An equivalent maximum-jump specialization may be present under less-indexed constrained-word terminology; this is not a definitive historical priority finding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED, NOT COVERING THE EXACT RADIUS",
+          "evidence": "Defines gap constraints and the universality decision problem and states computational-complexity results, differing from exact shortest-host structure and distribution.",
+          "identifier_or_url": "https://arxiv.org/html/2206.13896v1",
+          "material_read": "Introduction, gap-constraint definitions and contribution statements, HTML text offsets 11529–17465",
+          "method": "OA full-text passage inspection",
+          "title": "Subsequences With Gap Constraints: Complexity Bounds for Matching and Analysis Problems",
+          "trigger": "Direct prior on gap-constrained universality"
+        },
+        {
+          "assessment": "COVERS PERMUTATION-BLOCK INGREDIENT",
+          "evidence": "A k-universal word factors into k consecutive full-alphabet factors, implying permutation blocks at length qk.",
+          "identifier_or_url": "https://arxiv.org/html/2208.14722",
+          "material_read": "Theorem 13, offsets 29269–32729",
+          "method": "OA full-text passage inspection",
+          "title": "Combinatorial Algorithms for Subsequence Matching: A Survey",
+          "trigger": "Possible coverage of shortest universal hosts"
+        },
+        {
+          "assessment": "COVERS RESTRICTED-PERMUTATION INGREDIENT",
+          "evidence": "Defines max_i(i−π(i)), the inverse-permutation form of the bound here, and studies its descent enumeration.",
+          "identifier_or_url": "https://arxiv.org/html/1306.5428v1",
+          "material_read": "§1, offsets 3844–5735",
+          "method": "OA full-text passage inspection",
+          "title": "On Permutations with Bounded Drop Size",
+          "trigger": "Relative permutations under forward displacement bound"
+        },
+        {
+          "assessment": "COVERS ORDINARY SHORTEST HOSTS, NOT UPPER-JUMP SPECTRUM",
+          "evidence": "Minimum spacing s gives length qk+(s−1)(k−1) and permutation blocks with spacers; s=1 recovers ordinary shortest hosts.",
+          "identifier_or_url": "Resultary 31909ca10882",
+          "material_read": "RESULT.md, opening Finding",
+          "method": "Local mirror statement inspection",
+          "title": "Uniformly spaced subsequence universality: exact spectra and shortest hosts",
+          "trigger": "Distinct same-day record with shared extremal host structure"
+        },
+        {
+          "assessment": "RESTRICTED HOST, DIFFERENT COUNTING OBJECT",
+          "evidence": "Counts patterns in one repeated host P^k, not hosts formed by arbitrary sequences of blocks classified by full universality radius.",
+          "identifier_or_url": "Resultary 5374d30faea3",
+          "material_read": "RESULT.md, opening Finding",
+          "method": "Local mirror statement inspection",
+          "title": "Exact gap-constrained subsequence spectra of repeated permutation words",
+          "trigger": "Closest use of upper jump intervals on permutation blocks"
+        },
+        {
+          "assessment": "DIFFERENT RESILIENCE CONSTRAINT",
+          "evidence": "One-deletion resilience imposes q(k+1) length and k+1 blocks, not jump limits.",
+          "identifier_or_url": "Resultary 781682eefd3f",
+          "material_read": "RESULT.md, opening Finding",
+          "method": "Local mirror statement inspection",
+          "title": "One-deletion resilience forces permutation blocks in shortest universal words",
+          "trigger": "Same-day shortest-host structure"
+        },
+        {
+          "assessment": "DIFFERENT RADIUS",
+          "evidence": "Quantifies insertions needed to achieve universality, not gaps in embeddings.",
+          "identifier_or_url": "Resultary 967f04fec949",
+          "material_read": "RESULT.md, opening Finding",
+          "method": "Local mirror statement inspection",
+          "title": "Exact full-support insertion radius of subsequence universality",
+          "trigger": "Radius terminology and same universality domain"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Proof §§2–3",
+        "Day et al., arXiv:2206.13896v1, gap-universality decision formulation"
+      ],
+      "rationale": "The worst-target best-embedding problem appears to require testing q^k targets and choices of embeddings. The exact witness-and-greedy bridge reduces it to linear scanning of adjacent blocks, and yields the entire labeled-host spectrum and sharp extremizers, rather than an example, a sampling estimate, or only a decision bound. Minimum length is the natural rigidity regime for this question.",
+      "residual_risks": [
+        "No tractability or radius formula for longer or cyclic hosts follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

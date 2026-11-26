@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:35:19.299045Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS on repairs/3/RESULT.md. The frozen Verification paragraph gave the two example operator norms in reverse order relative to the named analytic/maximal pair. The corrected complete file explicitly gives analytic 1 and maximal 5/4, as the frozen checker already does. The theorem itself recomputes correctly: normalized source coefficient vectors are orthogonal by angular frequency, with squared norm α n!/(2t−α)^{n+1} before normalization; the target monomial norm squared is n!/β^n. This gives Cr^{n+1}. Gaussian unweighting and separate two-dimensional unitary dilations supply the kernel (2Cr/π)exp(−|x|²−|y|²+2r x·y); the Mehler ground Gaussian and complete Hermite tensor basis give 2Cq^{j+k+1}. The two geometric sums yield the stated ratio. The repaired proof verifies the central-interval mean inequality by writing a central uniform variable as aU+b(1−U), applying strict convexity or concavity pointwise, and integrating. This works also for the integrable singularity when p<1 and gives equality exactly at p=1,2. In the example the trace norms are 5 and the squared Hilbert–Schmidt norms are 25/9. At the critical limit the maximal shell m has multiplicity m+1, so m=√(2N)+O(1); -log r and -log q have leading terms δ/(2t²) and √δ/t, giving the distinct profiles. At equality δ=0 the analytic decomposition remains a bounded scalar partial isometry and has infinite rank; the positive modulus of the maximal operator is unitarily equivalent to the multiplier 2C exp(−|ξ|²/4), whose essential range is [0,2C] and whose level sets have measure zero. The supplied diagnostics were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fang–Tien's general mixed-norm compactness classification specializes to compactness for δ>0 and bounded noncompactness at δ=0 in the Hilbert case.",
+          "The anisotropic analytic result covers the analytic side in arbitrary covariance dimensions. Sang–Zhao §5 considers Gaussian analytic-space operators and Schatten membership."
+        ],
+        "reasoning": "Existing boundedness/compactness claims and spectral descriptions of the analytic side do not compare the two Schatten quasi-norms at any fixed p other than consequence-level equalities, nor do they locate exact crossover exponents.",
+        "searches": [
+          "arXiv:2610.41461 Thms. 1.1–1.2",
+          "Resultary 1cedacd12a18 Finding and Proof §3",
+          "Sang–Zhao arXiv:2610.28279 §5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py; complete corrected RESULT.md",
+        "arXiv:2610.41461, arXiv:2509.16672, arXiv:2610.28279",
+        "Resultary 1cedacd12a18, 6189441e1ef3 and e6f124794c36"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two-index spectrum follows directly after converting the positive kernel to the tensor Mehler kernel; equal kernel moduli force p=2 equality even without Mehler.",
+          "The strict continuum comparison requires sign control of (2cosh s)^p−2cosh(ps) relative to its value at s=0, verified through the central-uniform mean. The maximal rank profile additionally comes from triangular shell counting."
+        ],
+        "reasoning": "Once the separate singular sequences are known, obtaining candidate power sums is routine, but the all-real exponent sign and exact strictness for 1<p<2 or its complementary intervals are not a formal substitution from the inspected classifications or Mehler formula. Do not credit the compactness boundary itself as new.",
+        "searches": [
+          "Classical Mehler formula via Gaussian unweighting",
+          "arXiv:2610.41461 Theorems 1.1–1.2 and Resultary 1cedacd12a18",
+          "Gaussian/Fock Schatten spectra in Resultary and Dong–Zhu"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fang–Tien use the same paired kernels and Δ=−δ.",
+          "Resultary 1cedacd12a18 has s_ν=κ∏ q_j^{ν_j/2}, which in the isotropic one-dimensional case with q₁=r² and κ=Cr equals the frozen analytic sequence."
+        ],
+        "reasoning": "Neither renaming the compact region nor isolating the analytic sequence is new. The positive-kernel operator uses full Gaussian L² spaces and is not Dong–Zhu's analytic-to-analytic canonical operator.",
+        "searches": [
+          "Resultary: analytic vs maximal Fock projections, Gaussian singular spectra and Schatten reversal",
+          "Fang–Tien arXiv:2610.41461, definitions pp. 3–4",
+          "Dong–Zhu arXiv:2509.16672 Thm. A"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed exact analytic spectrum is already covered by 1cedacd12a18.",
+          "The same-day 6189441e1ef3 compares composition-operator products with ordering factor independent of p; e6f124794c36 compares different Gaussian-regulated Hankel kernels. Neither gives the paired projection's exact order law."
+        ],
+        "reasoning": "The relevant exact data are the indexed singular multisets and order formulas rather than a numerical table. The operator pair and presence of strict transitions at both 1 and 2 distinguish the comparison. Same-day entries are compared without assuming ordering by date.",
+        "searches": [
+          "Resultary: exact Gaussian Fock singular spectra and Schatten norm order",
+          "Resultary 1cedacd12a18, 6189441e1ef3, e6f124794c36",
+          "Dong–Zhu Thm. A"
+        ]
+      },
+      "rationale": "Credit the established operators and compactness region, the analytic singular multiset and its critical specialization, classical Mehler diagonalization, and the elementary equality of Hilbert–Schmidt norms for kernels of equal modulus. The repaired finding's distinct focus is the exact strict comparison across all real Schatten exponents and the comparison to the maximal rank profile and boundary spectral type. The strongest inspected same-object and analogous results do not already supply those comparisons.",
+      "residual_risks": [
+        "An unlocated exact Gaussian positive-kernel comparison or rearrangement theorem could subsume part of the relative order.",
+        "Conceptual analogues in same-day records do not establish historical precedence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same objects and compactness regime",
+          "evidence": "Δ=−δ; taking every mixed exponent equal to 2 gives boundedness at equality but not compactness. The theorem states no exact Schatten order.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.41461",
+          "material_read": "pp. 3–4 definitions and Theorems 1.1–1.2; offsets 10780–13921",
+          "method": "OA PDF (decisive classification also opened at offset 11250)",
+          "title": "Fock Projections between Gaussian Mixed-Norm Spaces: Full-Range Boundedness and Compactness",
+          "trigger": "Exact same operators and Gaussian boundary"
+        },
+        {
+          "assessment": "Exact analytic component covered",
+          "evidence": "s_ν=κ∏ q_j^{ν_j/2}; specializing gives Cr^{n+1} and the flat analytic critical case, but not the maximal operator.",
+          "identifier_or_url": "Resultary 1cedacd12a18",
+          "material_read": "Finding/Assumptions at offset 0 and Proof §3 near 4100",
+          "method": "Resultary and local mirror",
+          "title": "Anisotropic Gaussian Fock projections: exact singular spectra and a rational–irrational counting transition",
+          "trigger": "Earlier explicit analytic projection spectra"
+        },
+        {
+          "assessment": "Spectral analogue for different spaces and kernels",
+          "evidence": "The geometric sequences are for compact T(s,t):F²→F², not the full Gaussian L² paired comparison.",
+          "identifier_or_url": "https://arxiv.org/pdf/2509.16672",
+          "material_read": "Theorem A, PDF pp. 2–3, offsets 5000–8799",
+          "method": "OA PDF",
+          "title": "Canonical integral operators on the Fock space II",
+          "trigger": "Exact Gaussian-Fock singular values"
+        },
+        {
+          "assessment": "Different operator classes and Schatten results",
+          "evidence": "Inspected Schatten statements concern membership and Hilbert–Schmidt quantities for analytic Fock spaces.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.28279",
+          "material_read": "Abstract p. 1 offset 0; §5 p. 18 offset 76500",
+          "method": "OA PDF",
+          "title": "Boundedness and Compactness of Gaussian Integral Operators between Fock Spaces",
+          "trigger": "Potentially broader spectral work"
+        },
+        {
+          "assessment": "Different operators and no p crossover",
+          "evidence": "Compares the two orders of a composition-operator product with a p-independent norm ratio.",
+          "identifier_or_url": "Resultary 6189441e1ef3",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Exact two-order singular spectra and displacement reversal for affine Fock composition operators",
+          "trigger": "Same-day exact Fock spectra and relative Schatten order"
+        },
+        {
+          "assessment": "Different kernel pair and parameter reversal",
+          "evidence": "Compares analytic and anti-analytic Hankel operators under a regulator, not the analytic and maximal projections.",
+          "identifier_or_url": "Resultary e6f124794c36",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Gaussian regulator Hankel pairs: a spectral notch and reversal of order",
+          "trigger": "Same-day Gaussian spectral reversal and equal Hilbert–Schmidt norms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact exponent classification answers a natural question that positivity, equality of Hilbert–Schmidt norms and pointwise kernel dominance do not answer. In particular the dominating kernel gives larger operator norm yet strictly smaller Schatten norm throughout (1,2), not just at one test value. The distinct critical rank profiles quantify the effect of multiplicities at a common compactness boundary and separate the infinite-rank partial isometry from the continuous positive modulus. These are useful comparisons independently of the already known analytic spectrum and compactness criterion.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

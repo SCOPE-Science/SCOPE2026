@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:27:38.509166Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let Delta=(W z_R,-W^T z_C) be the action payoff differences. At any binary best response z_i Delta_i=|Delta_i|, also for pure actions and when Delta_i=0. The sum z^T Delta is identically zero by skew symmetry, so each difference vanishes; the converse is immediate. This verifies every boundary and interior equilibrium, including isolated vertices. The central cube intersection spans the two kernels, giving the dimension, uniqueness and sign-cube claims. Maximum matching bounds rank for every weighting and provides a nonzero determinant monomial for generic equality. A nonzero polynomial of independent atomless variables vanishes with probability zero by induction on variables, conditioning on the nonzero univariate specialization. For any given pure sign profile and one incident vertex, conditioning on all but one incident weight leaves at most one possible value; take a finite union over signs. At least one edge is essential to this last conclusion. Frozen VERIFICATION.md and verify.py were inspected but not executed. The code tests best responses for all 256 listed 2x2 weightings but does not recompute rank on each of those 256; the analytical theorem does not depend on that broader description of the checker.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pei–Cao–Zhang prove that for unweighted bipartite C/R classes a pure equilibrium is equivalent to each vertex's neighbors being evenly distributed across the m actions. At m=2 this is exactly the sign-vector condition for the binary incidence matrix. The generic rank identity follows from the distinct matching monomial and rank upper bound by minors."
+        ],
+        "reasoning": "The m-action result overlaps the unweighted pure subcase, not the full mixed polytope. Structural rank applies to arbitrary independent edge variables of the specified support, so once the cube kernels are identified, the generic graph formula is immediate. Atomlessness extends the polynomial genericity without a density assumption.",
+        "searches": [
+          "Pei–Cao–Zhang arXiv:2607.10997v2, Result 3 and its proof",
+          "Cao–Sánchez–Zhang arXiv:2607.05932v1, abstract and stated equilibrium focus",
+          "Standard structural-rank theorem: generic rank of a zero-pattern matrix equals bipartite maximum matching"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2607.10997v2",
+        "arXiv:2607.05932v1",
+        "Resultary 7d5cc658885e",
+        "Classical minimax optimal-strategy and structural-rank implications reconstructed explicitly"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The zero strategies are feasible for both teams, so the classical saddle value is zero. Its full solution sets test ±e_i and ±e_j and are the intersections of the coefficient kernels with their cubes. Rank–nullity and structural rank immediately give dimension and the perfect-matching equivalent. A nonzero incident-weight signed sum rules out each of finitely many pure profiles almost surely."
+        ],
+        "reasoning": "The claimed consequences beyond the core saddle classification are elementary consequences of the graph's standard generic rank and the same indifference equations. The exact indexed pure counts and the stronger unweighted multiaction balance condition are genuine but not the basis for attributing the mixed formula to earlier fashion-game articles.",
+        "searches": [
+          "Finite zero-sum optimal-strategy inequalities and structural rank/matching theorem",
+          "arXiv:2607.10997v2 Result 3",
+          "Resultary 7d5cc658885e Finding and Assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "After subtracting T/2, team payoffs are ±x^T W y/2. The mixed-strategy simplex of each team projects onto its full marginal cube, and team objectives depend only on those marginals. No player within a team changes another same-team player's payoff. Hence individual best responses and saddle points agree in marginal coordinates."
+        ],
+        "reasoning": "Classical optimal-strategy inequalities at value zero enforce x^T W y' >=0 for every y' in the opponent's cube and (x')^T W y <=0 for every x' in the other cube. Testing both signs of each basis vector yields exactly the two nullspaces. A general polymatrix algorithm alone would not justify this explicit projection; the separable team reduction does.",
+        "searches": [
+          "Classical finite zero-sum minimax and the optimal-strategy inequalities; bilinear saddle game on two cubes",
+          "Cai–Candogan–Daskalakis–Papadimitriou: Zero-Sum Polymatrix Games: A Generalization of Minmax"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "This later indexed record gives exact labeled pure-equilibrium counts for unweighted complete bipartite graphs with fixed type assignments; no matching-rank mixed-polytope result was identified there."
+        ],
+        "reasoning": "The indexed overlap includes the exact pure subcase with the two types segregated on the two sides, not the full weighted classification. An exact table of finite networks would not settle the symbolic generic claim.",
+        "searches": [
+          "Resultary: exact parity and multiplicity of pure equilibria on mixed-type complete bipartite graphs, 7d5cc658885e"
+        ]
+      },
+      "rationale": "The headline full-equilibrium characterization is a mechanical specialization of classical zero-sum optimal strategies, not an extension from fully mixed equilibria that requires a new classification theorem. Aggregate each no-within-side team: single-player best responses are equivalent to team best responses by separability. The value-zero bilinear saddle set is exactly the product of the two cube kernels, because the coordinate sign deviations test every residual. The dimension and generic uniqueness then specialize rank–nullity and structural rank, and almost-sure lack of pure points reduces to a finite family of nontrivial linear equalities. This is demonstrated implication of standard results, not a finding that one inspected article gives the entire graph-specific package verbatim. The inspected Pei–Cao–Zhang preprint also directly covers the unweighted pure-equilibrium balance criterion, but that narrower observation alone would not cover the mixed result.",
+      "residual_risks": [
+        "No accessible copy of the 2018 and 2019 originals was obtained; exact historical overlap with those articles is not settled. The originality finding does not rest on those access gaps or on the low-yield polymatrix literature search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers unweighted pure binary balance, extends it to m strategies; examined result does not cover the weighted mixed polytope",
+          "evidence": [
+            "Proof of Result 3 states pure Nash iff neighbors of every vertex are evenly distributed across the m strategies; discussion attributes the necessary even-degree condition to the earlier fashion-game work."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2607.10997v2",
+          "material_read": "Abstract, PNE definition, and Result 3 including first proof passage, HTML offset 14830 and following",
+          "method": "Open-access arXiv PDF and HTML",
+          "title": "Equilibria in heterogeneous multi-strategy network games",
+          "trigger": "Same bipartite conformist/rebel partition and balance condition"
+        },
+        {
+          "assessment": "Partial comparison only, pure equilibria and dynamics in the inspected statement",
+          "evidence": [
+            "The abstract emphasizes pure equilibrium existence and dynamics, not the weighted all-mixed nullspace description."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.05932v1",
+          "material_read": "PDF p. 1 abstract near offset 950",
+          "method": "Open-access arXiv text",
+          "title": "Network games with heterogeneous players",
+          "trigger": "Heterogeneous binary network games and pure equilibrium"
+        },
+        {
+          "assessment": "Later and restricted to pure profiles in complete unweighted support, with broader type assignments",
+          "evidence": [
+            "Exact labeled counts of pure equilibria for fixed assignments of conformists and rebels on a complete bipartite graph."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-parity-and-multiplicity-of-pure-equilibria-on-mixed-type-c--7d5cc658885e/RESULT.md",
+          "material_read": "Finding and Assumptions",
+          "method": "Published local mirror",
+          "title": "Exact parity and multiplicity of pure equilibria on mixed-type complete bipartite graphs",
+          "trigger": "Closest indexed result on same types and bipartite networks"
+        },
+        {
+          "assessment": "No full-text claim of noncoverage; not used to decide originality",
+          "evidence": [
+            "The accessible 2026 preprint attributes the unweighted bipartite even-degree necessity to the 2018 paper; the remaining details were not independently read."
+          ],
+          "identifier_or_url": "https://doi.org/10.1287/opre.2018.1744 ; International Journal of Game Theory 48 (2019), 887–920",
+          "material_read": "No accessible primary full text in the routes checked; 2018 pure result discussed by arXiv:2607.10997v2",
+          "method": "Publisher and repository access attempts",
+          "title": "Fashion and Homophily; Dynamic matching pennies on networks",
+          "trigger": "Original fashion-game model and related dynamic matching-pennies results"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The generic uniqueness question is natural and the nullspace formula is useful exposition, but in this unbiased separable zero-sum setting it is the immediate saddle feasibility description. The graph conclusion just substitutes structural rank and rank–nullity; the pure genericity statement is a single weight per sign profile. There is no additional nonroutine classification, obstruction, or methodological claim in the frozen result that survives those standard implications.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T15:28:50.530439Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 7–47, 51–111",
+        "VERIFICATION.md lines 19–23 and checker.py lines 36–64, 112–170, inspected but not run"
+      ],
+      "rationale": "The threshold calculation is correct for the specified natural-scale clock. The killed Green operator gives m=L^beta(1-rho^beta)/C and p=1-(1-rho)/(2(1-rho^beta)). The displayed Dirichlet solution has continuous derivative, vanishes at both exits and at the reset point, and its stopped Ito martingale has quadratic-variation expectation 2 integral G(x0,y)u'(y)^2 dy. Dividing by m gives the stated variance. Independently, the integrals of K_rho|y|^t on the negative and positive halves are (1-rho)/[(t+1)(t+2)] and (1+rho-2rho^(t+2))/[(t+1)(t+2)]. Substituting t=0, beta-1 and 2beta-2 in the squared-bracket expansion simplifies the full formula to V(rho)=V(0)(1-rho^2)/(1-rho^beta), and gives the stated symmetric constant. For variance convergence, stop the centered cycle-sum martingale at the first renewal STRICTLY after T. Its second moment is E[Z^2] times the expected stopping index, asymptotic to T/m. The error from the straddling cycle is bounded by its duration; that duration has uniformly bounded second moment by convolution of the renewal measure (uniformly bounded mass on unit intervals) with the exponentially decreasing second-moment tail of one cycle. This also makes the error negligible for the renewal-reward CLT. For the Poisson comparison, the symmetric free time change has occupation exponent mu=1/beta: the half-line Laplace resolvent slopes scale as q^mu, so matching derivatives at zero gives the double Laplace transform [(s+u)^(mu-1)+s^(mu-1)]/[(s+u)^mu+s^mu] for E exp(-u H_t). Two u derivatives give the centered exponential-cycle second moment (1-mu)/(2r^2). Thus the matched-rate expression, derivative and strict bounds check, including alpha=0.",
+      "residual_risks": [
+        "The equal-frequency comparison is proved only at the origin. Finite checks and decimal evaluations are corroboration, not proofs of the fluctuation limit."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "5f67338ca3a7 states a cycle second moment and resulting Gaussian coefficient, not only an LLN",
+          "The frozen RESULT attributes the Poisson variance to equation (71) of arXiv:2610.21962"
+        ],
+        "reasoning": "Exact regenerative-second-moment coverage entails the CLT coefficient after division by the mean; the Poisson reference alone does not cover threshold resetting.",
+        "searches": [
+          "Resultary: 5f67338ca3a7",
+          "Primary literature: Frimpong–Bresque–Roldán arXiv:2610.21962 §§6.1.1–6.1.2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md Finding, Proof and Relationship to prior work",
+        "Resultary adbf7ee7c24f, 5f67338ca3a7, 205973d7b09c",
+        "arXiv:2610.21962 targeted attempted passage inspection"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "RESULT.md lines 24–42",
+          "Analytic simplification V(rho)/V(0)=(1-rho^2)/(1-rho^beta)",
+          "Matched-rate variance ratio follows by evaluation at rho=0, r=1/m"
+        ],
+        "reasoning": "The purportedly sharper formula is an alternative form of the existing coefficient, and comparing the two exact coefficients does not require a new protocol theorem.",
+        "searches": [
+          "adbf7ee7c24f and 5f67338ca3a7, statement comparison",
+          "arXiv:2610.21962 equation (71), targeted passage retrieval"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "adbf7ee7c24f states an exact Gaussian fluctuation coefficient Q_alpha(rho) and Q_0=1/24 independently of reset point",
+          "5f67338ca3a7 states the exact centered-cycle second moment proportional to 1-rho^2 for all exponents"
+        ],
+        "reasoning": "The new quadrature evaluates to the same location dependence after division by m; the normalization agrees at alpha=0. For the same physical clock and observable the Gaussian coefficient is unique.",
+        "searches": [
+          "Resultary: adbf7ee7c24f exact occupation fluctuation law threshold reset sluggish diffusion Q alpha rho",
+          "Resultary: 5f67338ca3a7 universal centered cycle variance for threshold reset sluggish diffusion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Two distinct earlier occupation-fluctuation entries; 205973d7b09c instead concerns stationary radial ordering"
+        ],
+        "reasoning": "The comparison here is an exact result catalogue check, not a table of simulation estimates.",
+        "searches": [
+          "Resultary: adbf7ee7c24f; 5f67338ca3a7; 205973d7b09c"
+        ]
+      },
+      "rationale": "The distinct November 2 catalogue statements already describe the exact occupation-fraction fluctuation coefficient for this threshold-reset process. The second specifically states that the centered cycle second moment is proportional to 1-rho^2 independent of exponent. The evaluated proposed integral gives exactly that dependence and the Brownian benchmark of the first statement. A different Green representation of the same regenerative coefficient does not establish a distinct result. The symmetric value is its specialization, and the equal-frequency ratio is division by the known Poisson result at r=1/m, with the monotonicity then elementary. This is substantive statement-level and implication evidence, not rejection on the ground that the prior files could not be downloaded.",
+      "residual_risks": [
+        "The earlier exact full formulas and paper passages were unavailable. The finding is judged on substantive coverage of the same coefficient and its independently verified reduction, not on a claim of textual duplication or exhaustive priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct substantive overlap on the exact Gaussian coefficient; no assertion of verbatim formula identity from a snippet",
+          "evidence": [
+            "Exact Q_alpha(rho), Brownian Q_0=1/24 independent of location, decreasing Q_alpha for positive alpha"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-occupation-fluctuation-law-for-threshold-reset-sluggish-di--adbf7ee7c24f",
+          "material_read": "Configured catalogue statement; exact Finding retrieval timed out",
+          "method": "Resultary and targeted mirror passage attempt",
+          "title": "Exact occupation-fluctuation law for threshold-reset sluggish diffusion",
+          "trigger": "Same statistic and reset model"
+        },
+        {
+          "assessment": "The stated factor is reproduced by explicit simplification of the frozen formula",
+          "evidence": [
+            "Centered reward second moment proportional to 1-rho^2 for all sluggishness exponents"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-universal-centered-cycle-variance-for-threshold-reset-sluggish-d--5f67338ca3a7",
+          "material_read": "Configured catalogue statement; exact Finding retrieval timed out",
+          "method": "Resultary and targeted mirror passage attempt",
+          "title": "Universal centered-cycle variance for threshold-reset sluggish diffusion",
+          "trigger": "Exact same centered excursion observable"
+        },
+        {
+          "assessment": "Attribution of equation (71) and the threshold LLN not independently located in the full text; Poisson coefficient independently checked",
+          "evidence": [
+            "Frozen RESULT.md lines 111, 117–121"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.21962",
+          "material_read": "Bibliographic result and frozen citation to §§6.1.1–6.1.2; requested OA passages did not load",
+          "method": "Primary literature search and literal OA passage attempts",
+          "title": "Sluggish random walks with resetting: nonequilibrium aspects",
+          "trigger": "Closest primary model and Poisson baseline"
+        },
+        {
+          "assessment": "Related but distinct statistic",
+          "evidence": [
+            "Stationary radial rather than temporal occupation variance"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-one-crossing-law-for-fair-rate-threshold-versus-poisson-resett--205973d7b09c",
+          "material_read": "Catalogue statement",
+          "method": "Resultary",
+          "title": "A one-crossing law for fair-rate threshold versus Poisson resetting",
+          "trigger": "Matches the two protocols and the rate convention"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 24–42 and 99–125",
+        "Resultary exact Gaussian coefficient and centered-cycle variance entries"
+      ],
+      "rationale": "Threshold-triggered occupation fluctuations are a meaningful observable, but the exact coefficient and its location dependence are already the subject of earlier exact results. The symmetric equal-rate comparison adds an instructive interpretation of their ratio to a known Poisson coefficient, not a distinct mathematical result beyond direct substitution and differentiation. No independently valuable surviving claim was established for repair.",
+      "residual_risks": [
+        "An alternative energy proof is useful expository material; this assessment does not reject the subject or rule out distinct extensions."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

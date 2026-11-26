@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The assertion is established by an explicit full atomic-diagram recursion on all 28 unordered grids of dimensions at most seven, with equality and ordered relation atoms, and a separate three-round coordinatewise product strategy reducing every larger grid to those dimensions. Both scripts reproduce the same class partition. The reduction uses the classical linear-order three-round saturation threshold seven, not empirical extrapolation.
+## correctness
 
-## Originality — PASS (best-knowledge priority, with residual risk)
-The strict-coordinate conjunction order differs from the usual coordinatewise non-strict product order. The inspected work on coloured linear orders and the accessible study of product-ordered chains do not supply the exact sixteen-class rank-three theorem. Comparisons with related finite-grid order classifications concern different relations; there is no demonstrated rank-three-preserving translation implying the statement. Bibliographic searches of older literature cannot prove global novelty; historical priority remains a material risk.
+PASS
 
-## Mathematical value — PASS
-This is a complete, natural, sharp bounded-rank classification for the strong-coordinate order on two-dimensional finite grids. Its sixteen classes and sharp 49-point representative bound differ from the ordinary product-order behaviour: the distinction comes from whether advancing in a single coordinate makes points comparable. It supplies a useful precise benchmark for logical expressivity of two natural order semantics and is not a numeric experiment alone.
+In a linear-order game with t moves left, gaps either match below 2^t−1 or both meet that threshold. Playing the two coordinate games simultaneously clips each side at seven and preserves selected-pair equality and both strict inequalities, hence their conjunction, including plays with a repeated coordinate or pair. Terminal diagrams with all three variables and the iterated sets of extensions encode exactly three-round equivalence, not counts of responses. The independent replay `python3 audit-evidence/strict_grids.py` checked all 28 clipped unordered grids and matched equality of types iff equality of the claimed keys. Only the clipped (7,7) grid has its type, so any member of that class has both sides at least seven. This proves the sharp 49-point bound; the replay does not itself prove the infinite reduction.
 
-## Scope and limitations
-Only two-coordinate nonempty grids in the pure strict-coordinate relation are covered. The finite computation is independently replicated but not separately audited; no historical-priority exhaustiveness is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit only the exact rank-three partition in the strict-coordinate signature and the sharp lower bound on representative size; the coordinatewise upper bound and tensor-product method are existing consequences. The closest concrete table is in the reflexive product signature, not this one. Its unsourced reference to a previously reported strict classification is residual overlap risk, not independent evidence of a distinct covering record.
+
+## value
+
+PASS
+
+The strict dominance order is a natural two-chain tensor product. Exact equivalence and least representatives at rank three resolve which size information is lost when the coordinate orders cannot be named. The table removes twelve of the 28 candidates left by composition and proves that the worst-case 49-point cap cannot be improved; neither is a routine restatement of the preceding bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

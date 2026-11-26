@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:08:53.630991Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–67",
+        "VERIFICATION.md; verify_wheel_direct.py and verify_wheel_transfer.py, inspected without execution"
+      ],
+      "rationale": "With mixed spoke bits, every rim edge crossing the bit cut must point from 1 to 0, forbidding a path from a spoke-0 vertex to a spoke-1 vertex. This excludes a hub cycle, and a coherently directed rim also would cross in both directions. For constant spokes only the two directed rims must be dropped. Conditional summation over each rim edge gives the stated L_b with the signs in the stated edge encoding; contraction over the cyclic spoke indices yields the trace, and the four removed terms give the stated product correction. Fixed-size matrix products take O(n) arithmetic steps with O(n)-bit integers. The count is 3^n−3 from the eigenvalues 3 and 1 and the correction 4. Reversal forces odd characters to vanish and pairs the signs at even characters; the latter coefficients are 3^n−3 modulo 4, so all survive for even n. With b all ones, use J^2=−I and (D_1 J)^2=I: zero a for n divisible by four and two adjacent ones for n=2 mod 4 both give trace 2 and correction 4. Thus the least nonzero magnitude is 2, and the absolute maximum is the zero-frequency count. Fourier diagonalization gives rank and the stated restricted condition ratio; averaging reversal is a contraction fixing a nonzero range, so its norms are one and optimal. For odd n the all-one b product has odd off-diagonal parity and zero trace, with zero correction; precisely 2^(n−1) choices of a in that family have even total weight. This proves an upper bound, not the odd rank itself, including n=3.",
+      "residual_risks": [
+        "Recorded finite checks through n=8 and coefficient cross-checks through n=7 are supplementary; no new run or formal proof certificate was needed for the analytic claims."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gebhard–Sagan count all orientations or those with a specified unique sink, not separately weighted Boolean edge-direction characters. The focused literature lookup did not resolve another signed-spectrum theorem."
+        ],
+        "reasoning": "An orientation count gives the zero mode, but sink counts forget the edge signs. No checked general statement supplied the claimed signed evaluation or sharp parity transition.",
+        "searches": [
+          "Resultary: Fourier transform acyclic orientations graph Boolean edge orientation cube cycle space signed spectrum",
+          "Literature: \"acyclic orientations\" \"Fourier\" edge sign sum graph cycle space Walsh spectrum",
+          "arXiv:math/9907078, Theorems 1.1–1.2"
+        ]
+      },
+      "checked_sources": [
+        "Savage–Squire–West (1993)",
+        "Gebhard–Sagan arXiv:math/9907078",
+        "Resultary 00ad365d2ac5, 14f193ec1237, 405d52691d1c, 8cfe564cb969"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The signed transfer takes the known fibres as input. Reversal plus the known count alone does give the even-rim nonvanishing congruence, but not the magnitude-two witness or the odd-rim zero family."
+        ],
+        "reasoning": "Credit the known fibres/count and the direct even-support corollary. The specific signed evaluation and its spectral witnesses are the supported addition, not a new wheel enumeration.",
+        "searches": [
+          "Savage–Squire–West, Gray Code Results for Acyclic Orientations, wheel count and spoke fibres"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "K_{2,n} record 14f193ec1237 has reversal-even support and minimum magnitude two on a different family; cycle/sink record 8cfe564cb969 operates on a vertex cube for degree-at-most-two graphs."
+        ],
+        "reasoning": "Neither uses the wheel's edge cube or gives its odd-rim kernel. Agreement of one even-family spectral statistic is not equality of the signed coefficients or transfer operations.",
+        "searches": [
+          "Resultary: wheel acyclic orientations signed Walsh Fourier coefficients spectrum parity",
+          "Resultary: acyclic orientation indicator Boolean edge cube complete Walsh Fourier formula transfer"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Wheel record 00ad365d2ac5 tabulates flip degrees and their extremes; K_{3,n} record 405d52691d1c calculates signed spectra in that family."
+        ],
+        "reasoning": "Neither table is indexed by wheel edge characters, and the finite ranks in the frozen package are not the basis for the originality finding.",
+        "searches": [
+          "Resultary: wheel acyclic orientation flip graph degree distribution orientations rim fibres spoke assignments",
+          "Resultary: signed Walsh spectrum acyclic orientations general graphs cycle space Fourier"
+        ]
+      },
+      "rationale": "The combinatorial fibres, unsigned count and the generic reversal argument are not original. The inspected sources do not supply the wheel-specific signed linear-step formula together with the sharp magnitude witness and explicit odd-rim failure of full even-character recovery. Passage-level comparison of the nearby graph-family records gives different orientation cubes or different signals, not a reparameterized wheel result.",
+      "residual_risks": [
+        "An unlocated signed orientation or general transfer-spectrum calculation could overlap. The unsuccessful web result is not evidence of absence, and same-day indexing gives no priority order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known combinatorial input",
+          "evidence": "Wheel count 3^n−3 and fixed/free rim directions for spoke assignments, excluding directed rims when all rim edges are free.",
+          "identifier_or_url": "https://dwest.web.illinois.edu/pubs/aograph.pdf",
+          "material_read": "Pages 5 and 15–16, extracted offsets 13900 and 42450",
+          "method": "Primary PDF passage read",
+          "title": "Gray Code Results for Acyclic Orientations",
+          "trigger": "Exact wheel fibres"
+        },
+        {
+          "assessment": "Different observables",
+          "evidence": "Chromatic evaluations for all orientations and specified unique sink, without edge-character weights.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/9907078",
+          "material_read": "Page 1, Theorems 1.1–1.2",
+          "method": "Primary PDF passage read",
+          "title": "Sinks in Acyclic Orientations of Graphs",
+          "trigger": "General count theorem"
+        },
+        {
+          "assessment": "Known fibres but different statistic",
+          "evidence": "Degree polynomial for single-edge flips.",
+          "identifier_or_url": "2026/11/1/SCOPE-degree-distribution-of-the-wheel-acyclic-orientation-flip-graph--00ad365d2ac5",
+          "material_read": "Finding and prior-work discussion at offsets 0 and 10700",
+          "method": "Local mirror RESULT.md",
+          "title": "Degree distribution of the wheel acyclic-orientation flip graph",
+          "trigger": "Identical underlying graph"
+        },
+        {
+          "assessment": "Related, not equivalent",
+          "evidence": "Exact signed spectrum and minimum two for K_{2,n}, not the wheel.",
+          "identifier_or_url": "2026/11/22/SCOPE-reversal-rigid-walsh-spectrum-of-acyclic-orientations-of-k-2-n--14f193ec1237",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror RESULT.md",
+          "title": "Reversal-rigid Walsh spectrum of acyclic orientations of K_{2,n}",
+          "trigger": "Closest same-day spectral statement"
+        },
+        {
+          "assessment": "Different family",
+          "evidence": "Thirteen-product formula and conditioning on the K_{3,n} edge cube.",
+          "identifier_or_url": "2026/11/16/SCOPE-sharp-walsh-conditioning-of-acyclic-orientations-of-k-3-n--405d52691d1c",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror RESULT.md",
+          "title": "Sharp Walsh conditioning of acyclic orientations of K_{3,n}",
+          "trigger": "Earlier spectral result"
+        },
+        {
+          "assessment": "Different signal and domain",
+          "evidence": "Sink set counts on a vertex cube, maximum graph degree two.",
+          "identifier_or_url": "2026/11/22/SCOPE-fourier-recovery-of-acyclic-orientation-sink-profiles-on-graphs--8cfe564cb969",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror RESULT.md",
+          "title": "Fourier recovery of acyclic-orientation sink profiles on graphs",
+          "trigger": "Cycle and Fourier overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and spectral proof; checked same-wheel and analogous spectral records"
+      ],
+      "rationale": "For convolution by an orientation indicator, the edge spectrum determines precisely which orientation signals can be recovered and at what conditioning. The new signed calculation supplies a linear-step individual coefficient evaluation and sharp conditioning where only reversal is lost, and a concrete additional obstruction in the other parity. That is useful beyond the known zero-frequency count or flip statistics.",
+      "residual_risks": [
+        "No sharp odd-wheel rank or odd-wheel condition ratio is furnished; no general graph result is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

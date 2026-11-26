@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Execute `python3 verify.py` with Python 3.8 or newer. The program uses only standard-library modular arithmetic. It enumerates **all** pairs of independent two-component vectors over each of the prime fields with three, five and seven elements. For every pair, it forms both common-image and common-kernel coefficient normal forms in split-octonion coordinates, implements both parenthesized octonion products directly, and checks that the constructed first-variable slice has rank exactly six with the stated zero-coordinate restrictions.
+# Independent mathematical audit
 
-Expected counts for **each** of the two incidence types are 48, 480 and 2016 ordered pairs. Successful replay ends with `VERIFY_OK`.
+## correctness
 
-The infinite-field proof does not rely on the finite enumerations: it rests on the displayed determinant and rank identities in `RESULT.md`. These tests do not inspect coefficient pairs outside quaternion composition subalgebras, characteristic two, or every finite extension field. No independent mathematical audit is claimed.
+PASS
+
+In H=M₂(F), write A and B as rank-one outer products. The determinant of their sum factors into the two image and row-space determinants; exactly one vanishes, since vanishing of both would make A and B proportional. The Cayley–Dickson product gives the target (AH+BH) ⊕ (HA+HB)ω and the fixed-h blocks z↦Ahz−Bzh and r↦r(hA−h̄B). In the common-image case, the displayed two rows are independent whenever (a+bt−c,b−d)≠0, which excludes at most one shear parameter; even F₃ has two nonzero candidates. The other block is invertible with determinant 2t(ad−bc). In the common-kernel case, regrouping the four rows and columns of the first block gives two determinants ad−bc and total determinant −(ad−bc)². The second block is right multiplication by the rank-one h(A+B), with both output rows independently in the same one-dimensional row space. Thus the ranks are (2,4) or (4,2) and each slice is onto the stated target. This is an exact image, not just a spanning argument. The word ‘right ideal’ for HA=HB is a handedness slip (it is a left ideal); the actual matrix space and argument are correct. The inspected finite-field program is supplementary and was not executed. Characteristic two and pairs not co-contained in a nondegenerate quaternion composition subalgebra remain outside the proof.
+
+## originality
+
+PASS
+
+Pass the exact octonion image and explicit fixed-slice strengthening in the quaternion-contained case, not the known dimension of the linear span or the known result for quaternion-valued variables. No comparable earlier exact statement or implication was located in the inspected sources; this is not a global priority certification.
+
+## value
+
+PASS
+
+This resolves a natural set-image versus span distinction expressly left by a classification, for the structural class of pairs in a quaternion composition subalgebra. One linear slice realizes the whole image over every eligible field, without a cardinality or closure argument, and supplies explicit witnesses for both rank-one incidence types.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:15:29.066126Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Induction on the largest index partitions legal sums into [0,a_j) and a_j+[0,a_(j−f(j))), also when the second interval has length 1. Thus the uniform integer law is the uniform legal-word law. The capped gap automaton is exact, including F=0 (both choices go to the same state and weights add). With enough whole periods, zeros bring any state to F, and a single 1 followed by exactly s<F zeros reaches s; the all-zero word reaches F. Therefore the period matrix is primitive. Its simple Perron eigenvalue and analytic spectral projection give the normalized quasi-power with uniform analytic error at each of the finitely many residue classes. The stationary weighted-edge moment generating matrix is diagonally conjugate to P(e^t)/λ(1), so its first two limiting log derivatives are the same. The Poisson equation splits centered rewards into martingale differences plus a bounded boundary term. Zero rate would force each cycle reward to be its length times the mean; the zero loop and a longer returning walk with one 1 contradict this. A positive-reward edge has positive stationary mass, giving positive mean. Taylor expansion gives the CLT with exact centering/scaling, and subtracting a_n on the adjacent interval gives exactly 1+X_(n−f(n)) for large n. The supplied verifier was inspected, not run; a separate bounded enumeration of patterns (0) and (0,3,1) through n=10 corroborated the two interval bijections only. The exact finite check can be replayed by enumerating binary words on the relevant indices, retaining those satisfying the pair exclusion and testing that their subset sums list each indicated integer exactly once. It is not evidence for uniformity or a limit as f varies.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cited descriptions of Bertoni–Choffrut–Goldwurm–Lonati Thms. 2–4 concern a marked symbol with primitive transition matrix; institutional, publisher and identified alternate copies did not yield the theorem text",
+          "Borade et al. overview distinguishes positive constant-coefficient linear recurrence decompositions, and that paper's own problem concerns Zeckendorf lattice gaps"
+        ],
+        "reasoning": "In the naive phase-augmented one-digit model the period is m; after blocking the model is primitive but rewards are arbitrary integers from 0 to m, not a single marked letter. Even given a broader general theorem, identifying its automaton and excluding degeneracy for every gap rule is needed. The inaccessible 2003 paper is a material scope risk, not negative evidence.",
+        "searches": [
+          "DOI 10.1016/S0304-3975(02)00892-7 and identified institutional and open mirror copies",
+          "Targeted literature search for primitive weighted regular-language additive statistics",
+          "arXiv:1909.01935 abstract and introduction"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Named primary works and Resultary matched statement as above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Question (3) explicitly asks about Gaussian behavior for all periodic f",
+          "The period matrix allows an all-zero loop and a returning walk with reward one; this gives a family-wide exclusion of the zero-variance coboundary case"
+        ],
+        "reasoning": "The identified prior special cases do not imply the all-periodic theorem. A method that supplies the CLT once a primitive weighted model is found and its variance known positive does not dispense with these application-specific steps.",
+        "searches": [
+          "arXiv:1309.5599v1 p. 14, Question (3)",
+          "Bertoni et al. weighted/symbol-count applicability comparison",
+          "Frozen Proof §§3–6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Demontigny et al., Definition 1.8, Thm. 1.9 and Props. 4.7–4.8: positive Gaussian variance for the b-bin subclass at endpoints a_(bn)",
+          "Catral et al., Thm. 1.3: Kentucky-2 case f=3 on even indices and 2 on odd indices, with [0,a_(2n+1)) sampling",
+          "Signed Skipponacci Thm. 1.7 counts positive and negative summands in a different signed representation system"
+        ],
+        "reasoning": "These are bona fide special overlaps or analogous non-equivalent laws. An arbitrary fixed periodic rule need not be a homogeneous positive linear recurrence or either specific bin pattern.",
+        "searches": [
+          "Targeted searches for an all-periodic f-decomposition Gaussian theorem and forbidden-gap formulations",
+          "arXiv:1309.5599v1",
+          "arXiv:1409.0488v1",
+          "arXiv:1309.5600v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/18/SCOPE-local-bulk-separation-and-gaussian-digit-statistics-in-the-multi--2d5b0e1e56b8, Finding, uses x_j x_(2j)=0 and independent multiplicative chains",
+          "Known exact variance in the b-bin table of results is for that subclass"
+        ],
+        "reasoning": "The retrieved database hit has growing spatial separations, unlike the bounded backward gaps of fixed periodic f. Neither that exact series nor the special b-bin formula tabulates the all-periodic variance law.",
+        "searches": [
+          "Resultary semantic lookup for periodic f-decompositions and Gaussian summand counts",
+          "Canonical match for Resultary digit-count hit 2d5b0e1e56b8",
+          "Demontigny et al. Props. 4.7–4.8"
+        ]
+      },
+      "rationale": "The supported claim is the all-periodic conclusion, with nondegeneracy verified for every fixed nonnegative gap pattern and both sampling intervals. The primary f-decomposition paper asks this question explicitly after proving a special b-bin case. The Kentucky theorem covers a second explicit pattern. Standard analytic automaton methods are not claimed as new: the substantive application is the general periodic gap automaton and its gap-rule-specific certificate of strict positivity, which does not follow merely from an unqualified invocation of a quasi-power theorem. I did not find a substantiated stronger claim that already solves the periodic f question; the closely relevant 2003 symbol-count theorem's full statement was not retrievable in the identified lawful copies.",
+      "residual_risks": [
+        "A general weighted finite-state theorem may supply more of the spectral and variance argument than the accessible passages document, and a prior explicit application to this family cannot be ruled out. No claim of priority for Perron perturbation, quasi-powers, or the Markov coboundary criterion is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Special-case coverage and direct statement of the unresolved question in that work",
+          "evidence": "The b-bin Gaussian theorem is periodic-pattern-specific; Question (3) asks for all periodic f.",
+          "identifier_or_url": "https://arxiv.org/pdf/1309.5599v1",
+          "material_read": "Definition 1.8 and Thm. 1.9 p. 3, Props. 4.7–4.8 pp. 11–12, §5 Question (3) p. 14",
+          "method": "Open primary PDF targeted passages",
+          "title": "Generalizing Zeckendorf’s Theorem to f-decompositions",
+          "trigger": "Same legal decomposition and explicit problem"
+        },
+        {
+          "assessment": "Special-case coverage",
+          "evidence": "Gaussianity for Kentucky-2, equivalently the stated alternating gap rule.",
+          "identifier_or_url": "https://arxiv.org/pdf/1409.0488v1",
+          "material_read": "Thm. 1.3 p. 3",
+          "method": "Open primary PDF targeted passage",
+          "title": "Generalizing Zeckendorf’s Theorem: The Kentucky Sequence",
+          "trigger": "Distinct periodic bin rule"
+        },
+        {
+          "assessment": "Different signed model",
+          "evidence": "Joint Gaussian limits for positive and negative terms.",
+          "identifier_or_url": "https://arxiv.org/pdf/1309.5600v1",
+          "material_read": "Thm. 1.7 p. 4",
+          "method": "Open primary PDF targeted passage",
+          "title": "A Generalization of Fibonacci Far-Difference Representations and Gaussian Behavior",
+          "trigger": "Comparable generalized summand CLT"
+        },
+        {
+          "assessment": "Unresolved generality; not used to assert noncoverage",
+          "evidence": "The one-digit phase and multi-reward block distinction limits a literal one-symbol primitive formulation, but a more general statement would need checking.",
+          "identifier_or_url": "https://doi.org/10.1016/S0304-3975(02)00892-7",
+          "material_read": "Bibliographic claims only; Thms. 2–4 not independently retrieved",
+          "method": "Publisher, institutional handle and identified lawful mirrors tried",
+          "title": "On the number of occurrences of a symbol in words of regular languages",
+          "trigger": "Potential broader regular-language theorem"
+        },
+        {
+          "assessment": "Adjacent models rather than periodic variable backward gap rules",
+          "evidence": "The introductory general CLT is for positive linear recurrences; the paper studies gaps in lattice decompositions.",
+          "identifier_or_url": "https://arxiv.org/pdf/1909.01935",
+          "material_read": "Abstract and opening of §1.1",
+          "method": "Open primary PDF targeted passage",
+          "title": "Gaps of summands of the Zeckendorf lattice",
+          "trigger": "Search result discussing general recurrence Gaussianity"
+        },
+        {
+          "assessment": "Distinct admissibility graph",
+          "evidence": "Exclusion connects j and 2j, so the proof factors chains instead of counting a bounded-gap periodic language.",
+          "identifier_or_url": "2026/10/18/SCOPE-local-bulk-separation-and-gaussian-digit-statistics-in-the-multi--2d5b0e1e56b8",
+          "material_read": "Finding, scope and Proof §1, offset 0–3393",
+          "method": "Local Resultary search and canonical-ID mirror read",
+          "title": "Local–bulk separation and Gaussian digit statistics in the multiplicative golden-mean system",
+          "trigger": "Closest indexed Gaussian legal-word analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This resolves a natural question posed for the entire periodic family rather than computing another bin example. The positivity argument rules out hidden exceptional patterns, and the finite matrix gives usable mean and variance constants for any fixed list of gaps.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

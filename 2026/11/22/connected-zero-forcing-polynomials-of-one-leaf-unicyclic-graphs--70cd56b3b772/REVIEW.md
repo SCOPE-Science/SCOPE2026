@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The connected initial-set classification is proved in both directions, including the two delicate situations where the cycle hub lies initially inside or outside the selected interval. The counting bijection distinguishes cycle intervals that contain the hub from those that do not. Subtracting consecutive coefficients proves unimodality for all parameters; a three-coefficient obstruction and the explicitly handled boundary sequences prove the exact log-concavity criterion. The independent brute-force checker agrees with the formula in 34 small graphs and 1,680 arithmetic coefficient tests. These finite tests are corroboration rather than unrestricted proof.
+PASS
 
-## Originality — PASS (priority provisional)
+Each off-cycle rooted tree contributes at least one leaf, and branching contributes more, proving the graph identification. Initial connectedness and two white directions require a cycle interval of size at least two and permit a nonempty tail prefix only when it includes the hub in its cycle interval. If the hub is omitted, force along both sides of the unseeded arc and color the hub last on the cycle; otherwise use a nonhub cycle boundary. Finish the tail. There are q of the c proper q-intervals containing the hub. The convolution-difference calculation gives a positive difference k-b_(k-t) through k=c-2, and nonpositive -b_(k-t) thereafter. The c=3,4 and t=1 positive cases check directly; the first internal determinant 4-c is negative in the complementary region. Independent replay: python3 /workspace/review_checks.py 5; 55 graphs of order <=13, 147417 nonempty masks per pass, via hitting every minimal fort and testing induced connectivity; arithmetic checks on 840 cases with 3<=c<=30, 1<=t<=30. Proof, not finite enumeration, supplies unrestricted shape.
 
-The closest source is the November 7, 2026 paper of Mukherjee and Ray, arXiv:2611.10985, whose Problem 5.2 explicitly asks for connected zero-forcing polynomials of unicyclic graphs; its main theorems address trees. Brimkov's arXiv:1607.00658, especially Section 5.1, gives the minimum connected forcing number and an excluded-cycle-segment lemma, not the all-cardinality polynomial or the coefficient-shape threshold. Newton and Brimkov, arXiv:2611.11352, show that connected forcing polynomials may be nonunimodal for general graphs, without covering this one-leaf unicyclic class. Indexed studies of sunlet and wheel graphs concern structurally different graphs. Searches for tadpole, lollipop, single-leaf unicyclic, equivalent polynomial formulas and log-concavity found no directly covering statement. The full texts of some indexed related graph-family reports were unavailable, and unindexed prior work remains a possibility.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem resolves the entire one-pendant-vertex stratum of a newly stated unicyclic counting problem, not just a selected cycle length or a scalar minimum. It supplies every coefficient, exact total and minimum counts, and a sharp qualitative boundary: attachment-path length two destroys log-concavity whenever the cycle has at least five vertices, but never destroys unimodality. The one-leaf parameter is a natural, complete structural class because every one-leaf unicyclic graph is a cycle with one attached path.
+For the repaired coefficient-shape claim only. Existing cycle constraints, the known minimum and the matching t=1 enumerator are explicitly credited. The inspected results do not give the uniform unimodality and precise log-concavity split for all pendant-path lengths in the one-path class. Priority is bounded by the inspected evidence.
 
-## Scientific limitations
+## value
 
-No assertion is made for arbitrary unicyclic graphs with multiple leaves, and historical priority remains provisional pending broader literature verification. The argument is mathematical, not an independent formal or expert certification. The original minimum forcing-number results and standard local forcing rules are credited in RESULT.md.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is the complete one-leaf unicyclic stratum. It gives a family of positive unimodal but non-log-concave count sequences with the first failure caused by the second tail vertex precisely for cycles of length >=5, along with an exact small-cycle boundary. The numerical adjacent-coefficient behavior is useful separately from the previously known minimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

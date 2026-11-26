@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The finite principal-ideal decomposition gives a unique exponent vector for every ideal. Adjacency depends only on nonempty intersection of active supports, and the support cells are exactly the maximal true-twin classes because every one-coordinate cell has at least two vertices. The quotient graph on nonempty subsets has automorphism group \(S_r\), so weighted support preservation gives the displayed semidirect product. True-twin transpositions give the sharp determining lower bound, and fixing all but one vertex in every cell attains it. The full-support cell has unique maximum size \(P-1\), forcing at least \(P-1\) distinguishing colors; distinct injective color-subset fingerprints attain that bound. The packaged finite checks independently confirm the formulas in representative local and two-factor cases.
+PASS
 
-## Originality
+Each local chain has ell_i+1 ideals and intersection is nonzero iff the active supports intersect. Removing zero and the ring gives the advertised vertex total and weights, with only the full-support weight reduced by one. Closed neighborhoods are the unions of all support cells meeting the given support. Distinct supports have different such unions, detected by a singleton support in their symmetric difference. In the quotient the degree 2^r−2^(r−|S|)−1 determines |S|; the singleton neighbors of a larger set determine its elements. Thus quotient automorphisms are coordinate relabelings, and for r≥2 the singleton weights force exactly the length-preserving relabelings. They lift as an action by permuting exponent coordinates, proving the split extension, not just its order. The kernel is exactly all independent internal permutations. One may omit at most one vertex per cell from a base; when every cell has size at least two, keeping the other vertices fixes all cells setwise and then pointwise. The full-support cell of W=P−1 vertices is strictly largest for r≥2 (every proper-support weight is at most P/2). Every distinguishing coloring needs W colors. For each proper-cell size k, 1≤k<W, there are at least W palettes of size k by the binomial bound, and fewer than W proper cells overall. Choosing different palettes and coloring each cell injectively destroys both block and internal symmetries. For r=1 the graph is K_{ell_1−1}, including K_1 with Det=0 and D=1. The singleton-size wording must be read with that boundary in mind: the sole cell for r=1 has weight ell_1−1. Inspected the frozen checker and recorded cases; the proof rather than these examples establishes arbitrary tuples.
 
-PASS. The 2011 algebra source defines and studies the same ideal-intersection graph through domination, and the 2014 finite-principal-ideal-ring article studies standard structural and metric invariants. The inspected 2014 full text contains no automorphism, determining, distinguishing, or symmetry treatment. Exact searches under automorphism-group, determining-number, distinguishing-number, true-twin blow-up, and Boolean-support aliases found no statement covering this commutative principal-ideal-ring family. The closest automorphism paper concerns left-ideal intersection graphs of full matrix rings, a different noncommutative object.
+## originality
 
-## Value
+PASS
 
-PASS. The theorem gives three linked symmetry invariants for an infinite, algebraically natural class rather than a one-off graph calculation. The fully nonreduced condition is the exact regime in which every support cell is a nontrivial true-twin block, allowing the ideal lattice to be separated into internal symmetric groups and coordinate permutations. The formulas quantify both pointwise symmetry breaking and color symmetry breaking, and \(D+1=\prod_i\ell_i\) extracts a concrete multiplicative invariant of the local chain lengths from the graph.
+The support-cell geometry and the standard twin argument for the base size are prior or immediate from prior structure and are not credited as distinct. The supported contribution is the exact weighted action for arbitrary nonfield chain lengths and the corresponding sharp distinguishing number, including unequal and repeated lengths and the full-support puncture. A very close preprint on nonzero component graphs treats the unpunctured equal-coordinate model and gives the analogous full-support bound there; it does not give the weighted, punctured ideal graph theorem.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Gives the full symmetry and sharp palette size for a natural infinite family with unequal and repeated chain lengths. The indexed weights explain which coordinate symmetries persist, and the exact D+1 yields the product of the local chain lengths without identifying the residue fields. The value lies in the weighted action and sharp distinguishing invariant, not the previously known cell architecture or immediate base-size observation alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

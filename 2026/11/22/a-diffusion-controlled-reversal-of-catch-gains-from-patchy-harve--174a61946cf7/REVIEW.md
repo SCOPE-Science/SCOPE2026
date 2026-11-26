@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Neumann steady equation's linearization is invertible at its strictly positive homogeneous equilibrium; the implicit-function theorem gives the analytic branch. Strictly decreasing per-capita recruitment ensures uniqueness of positive steady states by a maximum-ratio argument. Dividing the stationary equation by biomass and using Neumann integration by parts and strict Jensen convexity proves the all-amplitude stock inequality. The eigenfunction expansion yields exact second-order mean stock and catch coefficients. An algebraic sign comparison gives the unique single-mode diffusion threshold. The standalone checker verifies rational simplification and finite numerical examples. Computations are not substituted for the functional analytic proof.
+## correctness
 
-## Originality — PASS (literature-bounded)
-The source paper of Aye and Bock has the identical biomass operator and homogeneous equilibrium, but its principal results concern homogeneous stability, finite-time optimal control and adjoint conditions. The assessed claim is a fixed-average-effort stationary allocation theorem, nonperturbative mean stock inequality, complete quadratic spectral multiplier and sharp single-mode diffusion switch. Hilborn et al. (2024) explicitly report a qualitatively similar biomass/catch tradeoff and dependence on movement in an age-structured simulation. That qualitative idea is **not** claimed as original. Ding and Lenhart (2009) and Kurata and Shi (2008) optimize related but different spatial harvest models; the exact formulas here do not follow directly from their published statements. Residual priority risk: the formulas could be subsumed by older perturbative reaction–diffusion sensitivity results not identified in the inspected material.
+PASS
 
-## Value — PASS
-Spatial allocation under a fixed total effort budget is a natural resource-management comparison. The result separates stock protection from sustainable aggregate catch, gives the exact sign and magnitude of their first nonzero responses, supplies a dispersal threshold tied to habitat mode length, and holds an additional all-amplitude biomass bound. These are meaningful diagnostics beyond a numerical demonstration of spatial gradients. They are not direct predictions for real fisheries.
+The Neumann linearization has spectrum -c-Dλ_j and is an isomorphism between the stated Hölder spaces; the analytic local branch stays positive and its reaction coefficient stays below -c/2 for small amplitude at each fixed D. The maximum of B1/B2>1 contradicts the second derivative sign (also at a Neumann endpoint) since per-capita recruitment strictly decreases. Integrating B''/B gives the positive log-gradient term; Jensen yields the exact inverse-stock bound and strictness when effort varies. Independently, writing g(B)=aB/(b+B)-mB, integration gives Y=mean g(B). With w_j=-ηqv_j/A_j and c z̄=-(bh³/a²)mean(w²)-η mean(vw), one obtains the stated stock coefficient. Expanding mean g directly gives Y2=(hr-m) z̄-(bh³/a²)mean(w²), exactly (2). At D→0 the catch bracket is -m(1-r)/c, with dominated convergence on square-summable v_j; at large D and K>0 all brackets turn positive by λ_j≥λ_1. The one-mode zero solves Dλ_j=m(1-r)c/(hr-m); if hr≤m there is no sign reversal. For the example the factor mean cos²=1/2 gives B2=(2D+1)/(4(1+D)²) and Y2=(2D-1)/(8(1+D)²), including the zero at D=1/2. The uploaded script is an inspected finite numerical diagnostic, not a PDE certificate; the comparisons above are analytic. The headline is read subject to the explicit positive-stationary and small-amplitude hypotheses, not as a universal finite-amplitude switch.
 
-## Closest literature and limitations
-Aye–Bock, arXiv:2610.08374v1 (full PDF examined); Hilborn–Fitchett–Hampton–Ovando, DOI 10.1007/s12080-024-00596-2 (open full text, especially model and fixed-effort results examined); Ding–Lenhart, DOI 10.1111/j.1939-7445.2008.00033.x (online main results examined); Kurata–Shi, DOI 10.1007/s00245-007-9032-7 (relevant full primary paper text examined, page image unavailable); Neubert, DOI 10.1046/j.1461-0248.2003.00493.x (abstract). Excludes finite-amplitude catch optimality, effects of model calibration and claims beyond the analytical local regime. A broader historic equivalent formula remains possible and requires independent checking.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the quantitative fixed-mean stationary comparison: the general quadratic spectral multiplier with its exact one-mode cutoff and the accompanying explicit nonlinear stock bound. The governing PDE, homogeneous stability, and the qualitative movement-dependent biomass/catch distinction are prior. In particular Hilborn et al. already simulate increase in stock at every tested fixed-effort case and, in the heavily fished case, catch reversal between low and higher adult movement. Do not present the broad qualitative reversal as new.
+
+## value
+
+PASS
+
+The scientific comparison holds total linear fishing effort fixed, separating redistribution from reducing effort. A mode-length-dependent threshold quantifies when a strictly increased stationary stock does or does not translate into increased catch, and the explicit gradient bound provides a distinct nonperturbative comparison. No empirical or finite-amplitude yield claims are needed to make these benchmarks useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific assessment: geometric-counting telegraph first passage
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The two reversal rates are independent exponential variables and remain fixed within each episode, exactly as required for mixed-Poisson geometric counting. Conditional first-passage transforms follow from the two backward equations and the unique bounded spatial eigenmode. Integrating the positive-part rate difference gives the exact nonhitting probability. The one-dimensional Gaussian-tail mixture gives the logarithmic small-discount singularity, with explicit estimates of the small and large difference regions; standard renewal conditioning then yields the reset mean and both sharp endpoint asymptotics. The existence (not uniqueness) of a finite positive mean-optimal rate follows from continuity and divergent endpoint costs. The numerical checker compares different integral representations and checks parameter scaling. Independent external validation is not asserted.
+PASS
 
-## Originality — PASS, subject to the identified coverage risk
+For fixed positive A,B, solving the two backward equations on x<L with boundedness at −∞ and the right-moving boundary value 1 gives the displayed positive root for s>0. At s=0 monotone convergence leaves (A−B)_+/v in the transport exponent. The Laplace difference law then gives half plus 1/[2(1+β)] as the hit probability. The near-tie singularity is also obtained without special functions: write d=|A−B|, u=2 min(A,B)/λ and h=sqrt(sλ). The square-root increment over d is Δ=sqrt(d²+4s(s+d+λu))−d. In the d<h portion its averaged contribution is O(h²)=O(s); for d≥h use Δ=2s(s+d+λu)/d+O(s²(s+d+λu)²/d³). The integrated error is O(s), as is the error from linearizing 1−exp(−LΔ/(2v)). The signed-rate averaging weight at d=0 is 1/λ and E[u]=1, giving (L/(2v))s log(λ/s) with O(s) remainder. Monotone convergence of the difference quotient gives the infinite first moment on finite hitting paths. Fresh independent episodes make success probability φ(r) and mean episode length (1−φ(r))/r. Expanding the reciprocal gives exactly the claimed small-r coefficients. At high r, T_L≥L/v and the atom at L/v is the no-switch flight, of mass E exp(−AL/v)=1/(1+β). Bounded convergence after removing exp(−rL/v) gives the large-r prefactor. The two divergences and continuity prove existence, not uniqueness, of an interior minimizer.
 
-The model paper by Di Crescenzo, Iuliano, Mustaro and Verasani (arXiv:2310.10231, pp. 5–9, 27) analyzes stationary, transient and moment properties, and explicitly proposes first passage as future work. Ratanov (arXiv:2102.04905, pp. 1–5) provides fixed-rate Markov telegraph first-passage results, but not the new exponential rate mixture or its logarithmic singularity. Cinque and Orsingher (arXiv:2010.02689, introductory and model sections) treat a single-rate asymmetric-speed telegraph maximum. A 2026 Bernoulli-reset telegraph model is not the Poisson-reset, mixed-Poisson-clock protocol. Database searches comparing alias phrases and stronger claims identified related resetting and telegraph studies but no result deriving the combined defect, logarithmic asymptotic and mean-reset characterization. Similar unindexed studies may remain; this review is not a publication-priority guarantee.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The original transport model explicitly motivates first-passage analysis for searches and foraging. The new result shows that equality of mean directional reversal rates does not ensure target accessibility, identifies the mechanism in a quenched drift mixture, and quantifies the exact singular cost of rare resets plus the competing exponential cost of frequent resets. The sharp logarithmic correction is structurally more informative than a generic reset-renewal identity or a single numerical optimization point. It gives a reproducible benchmark for anomalous persistent search.
+The supported distinction is the defective annealed first-passage law with a sharp near-tie logarithm and the resulting fresh-rate Poisson-reset mean asymptotics. Known conditional Markov solutions, the geometric-clock transport definition and the generic renewal identity are not credited as new. The closest transport paper leaves first passage open, and its reset convention in position/velocity alone should not be read as an independently established refresh of the hidden rates.
 
-## Scope and remaining limitations
+## value
 
-Only symmetric speeds, equal mean exponential directional rate mixtures, complete renewal upon instantaneous Poisson resets, and rightward first contact are covered. The optimum is proved to exist, not to be unique. Generic first-passage or renewal identities are not claimed as new. The accepted theorem has not undergone independent scientific audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Equal directional clock marginals conceal a trajectory-specific drift: the exact defect quantifies that distinction, and the successful trajectories still have infinite first moment because of nearly balanced episodes. The two sharp reset regimes quantify how restarting cures the defect but eventually suppresses the earliest ballistic flight. These limits provide a meaningful existence result for a positive optimal rate, beyond a formal substitution of a generic renewal formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:56:18.517654Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the original and repaired arguments, the semisimple parts commute, products of arrows vanish, and each nonloop arrow coefficient is a linear functional of its own 2t variables, with signed endpoint differences as coefficients. Loops and vertices vanish; when the endpoint labels agree the fiber has q^(2t) lifts for a zero target and none otherwise, and when they disagree each coefficient has q^(2t−1) lifts. The arrow variable blocks are disjoint (also for parallel arrows), including in characteristic two. Summing over all vertex labels gives the repaired formula. Expansion of q to the equal-arrow indicator as 1+(q−1) times the equality indicator, arrow by arrow, gives the contraction formula; a retained collapsed hard edge rules out its coloring. A full-support K5 over F2 needs five colors, so its two-pair count is 2^30 times the falling factorial (16)_5. The original length criterion follows by positivity of the sum, t=0 is the zero target, and the original cumulative formula counts supports with (q−1)^|S| assignments each. The original uploaded checker was inspected, not executed; its actual fiber tests use t=1. The independent exact reproduction used direct pairs and convolution, and the new checker was run for t=2,3 on all nonempty fibers and the total counts.",
+      "replay": "python3 reproductions/finite_review.py 1; python3 repairs/1/verify.py (outputs 16 nonempty fibers at each arity, totals 4294967296 and 281474976710656; MULTIPLE_COMMUTATOR_FIBERS_OK)",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "38b9edb44d0d Finding gives adjoint-rank spectra and an onto fixed-adjoint criterion in terms of vertex arboricity, not these target counts. 75cb49b6c27d gives the exact two-vertex single-pair law, including q^(m+2)(q²−1) for a nonzero target. f42cdd1d48ea instead restricts to idempotents.",
+          "The inspected broader loopless single-pair records have the same length formula even at lengths t≥2, but their count is of ordered pairs, not ordered 2t-tuples."
+        ],
+        "reasoning": "The adjoint and idempotent restrictions are different problems; single-pair fiber knowledge does not itself state a direct repeated graph-sum evaluation.",
+        "searches": [
+          "Resultary: exact adjoint-rank enumeration commuting pairs loopless quivers additive commutator fibers",
+          "Resultary: Kronecker path algebra prescribed commutator fibers commuting probability additive commutators"
+        ]
+      },
+      "checked_sources": [
+        "f660f871aa43",
+        "b7fb936d5d53",
+        "f913dca71d9f",
+        "38b9edb44d0d",
+        "75cb49b6c27d",
+        "f42cdd1d48ea",
+        "arXiv:math/0503607v1",
+        "arXiv:1803.04111v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Single-pair fibers determine repeated fibers by convolution, but the arity-t closed graph evaluation is not a single-pair field substitution. For example the two-pair law has nonzero full-support K5 targets even though every corresponding one-pair count is zero.",
+          "The generic Fortuin–Kasteleyn expansion is credited as prior; the arrow-local proof supplies its link with the distribution of a sum of brackets and the correct soft/hard constraints."
+        ],
+        "reasoning": "A closed support-dependent graphical evaluation is the result, not a new expansion for Potts models, a new width theorem, or new information beyond the whole single-pair law in an information-theoretic sense.",
+        "searches": [
+          "Findings and scope of f660f871aa43, b7fb936d5d53 and 38b9edb44d0d",
+          "Dutta–Basnet–Nath arXiv:1803.04111v1; Sokal arXiv:math/0503607v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Nov. 8 Findings f660f871aa43 and b7fb936d5d53 give both encodings of the single-pair count in a loopless quotient. Expanding the frozen t=1 weight matches them term by term, and on the no-length-two subclass gives the exact fiber in assigned record 3.",
+          "The repaired contraction and weighted-coloring encodings are equivalent, but the ordered sum uses q^(2t) states and not the edge weight q^t−1 of a single-pair count over a larger field."
+        ],
+        "reasoning": "Differences of notation, orientation and the routine central loop factor are not counted as new. The equation for each repeated-pair target retains the original field as the output field.",
+        "searches": [
+          "Resultary: radical-square-zero quiver additive commutator chromatic number q^{2t} support threshold",
+          "Resultary: weighted proper coloring partition function target-specific additive commutator fibers arbitrary quiver loops",
+          "Sokal arXiv:math/0503607v1 §2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact symbolic count for a single pair appears in the indexed theorem statements; this is stronger evidence of overlap than matching a table entry. No explicit mixed evaluation for ordered multiple-pair fibers was located in these exact comparisons; the targeted primary lookup yielded no result."
+        ],
+        "reasoning": "The repair does not claim exact single-pair or width priority, and the empty lookup is not evidence of novelty.",
+        "searches": [
+          "Indexed exact quiver counts 75cb49b6c27d, f660f871aa43, b7fb936d5d53, assigned record 3",
+          "Primary query: \"additive commutator\" \"radical-square-zero\" quiver chromatic coloring commutator width"
+        ]
+      },
+      "rationale": "For the repaired claim alone, the natural repeated-pair law has a direct mixed Potts evaluation with q^(2t) vertex states and fixed soft edge weight q−1. The closest exact indexed findings have the loopless length theorem and single-pair coloring and contraction formulas; they mechanically cover the original minimum-length and width claims even with loops (which add central arrow directions). The same-day assigned record 3 has the t=1 contraction formula on a narrower quiver class; no same-day priority is claimed. Neither replacing q by q^t nor knowing length gives the repeated-fiber formula. Exact convolution of the old law is acknowledged; what survives is a closed evaluation of that convolution in terms of the single prescribed support, not the mere ability to compute it.",
+      "residual_risks": [
+        "Exact catalogue dates are not a priority adjudication.",
+        "The bounded search did not rule out equivalent repeated word-map or graphical formulations under other terminology. Originality is confined to the explicit repeated-fiber evaluation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact loopless length, width and single-pair fiber overlap",
+          "evidence": [
+            "ceil(log_(q²) chromatic number of support); weighted proper-coloring sum and contraction expansion use q² states."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-chromatic-commutator-length-and-nonzero-fibers-of-radical-square--f660f871aa43",
+          "material_read": "Finding, local text offset 0–3035",
+          "method": "Indexed source, bounded local mirror",
+          "title": "Chromatic commutator length and nonzero fibers of radical-square-zero quiver algebras",
+          "trigger": "Same sharp length and fiber claims"
+        },
+        {
+          "assessment": "Exact loopless length and single-pair overlap; distinct commuting-probability asymptotic",
+          "evidence": [
+            "The fiber displayed is the count of (x,y) in A², while the length statement quantifies all lengths."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-chromatic-commutator-length-and-tutte-fibers-of-square-zero-quiv--b7fb936d5d53",
+          "material_read": "Finding, local text offset 0–3394",
+          "method": "Indexed source, bounded local mirror",
+          "title": "Chromatic commutator length and Tutte fibers of square-zero quiver algebras",
+          "trigger": "Same class, symbolic fibers and width"
+        },
+        {
+          "assessment": "Equivalent t=1 fiber on common domain; no arbitrary-arity formula",
+          "evidence": [
+            "Contract zero edges, keep nonzero support, and evaluate the proper-coloring count at q²."
+          ],
+          "identifier_or_url": "Assigned record 3, f913dca71d9f",
+          "material_read": "RESULT.md lines 5–25 and 35–53",
+          "method": "Frozen statement and proof comparison",
+          "title": "Commutator-coordinate independence detects the graphic matroid",
+          "trigger": "Identical single-pair support law on no-length-two subclass"
+        },
+        {
+          "assessment": "Adjacent, not a prescribed repeated-fiber formula",
+          "evidence": [
+            "It determines rank of fixed adjoints and the existence of an onto adjoint via vertex arboricity."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-graphic-matroid-adjoint-spectra-and-vertex-arboricity-for-radica--38b9edb44d0d",
+          "material_read": "Finding at offset 0",
+          "method": "Indexed source, bounded local mirror",
+          "title": "Graphic-matroid adjoint spectra and vertex arboricity",
+          "trigger": "Earlier quiver bracket count"
+        },
+        {
+          "assessment": "Two-vertex specialization for one pair",
+          "evidence": [
+            "All nonzero arrow targets have q^(m+2)(q²−1) lifts."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-commutator-fibers-and-commuting-probabilities-of-finite-kronecke--75cb49b6c27d",
+          "material_read": "Finding at offset 0",
+          "method": "Indexed source, bounded local mirror",
+          "title": "Commutator fibers and commuting probabilities of finite Kronecker path algebras",
+          "trigger": "Earlier exact target counts"
+        },
+        {
+          "assessment": "Covers the graph-counting mechanism, not its commutator interpretation",
+          "evidence": [
+            "Expansion in edge subsets weights each equality component by the number of states; proper coloring corresponds to edge weight −1."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0503607v1",
+          "material_read": "§2.2, p. 4, near offset 11000",
+          "method": "Bounded reading of lawful OA primary PDF",
+          "title": "The multivariate Tutte polynomial (alias Potts model) for graphs and matroids",
+          "trigger": "Mathematically equivalent partition-function framework"
+        },
+        {
+          "assessment": "Commuting pairs and centralizers, not prescribed repeated sums",
+          "evidence": [
+            "The counts constrain the probability that a uniformly chosen pair commutes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1803.04111v1",
+          "material_read": "Abstract and introduction, p. 1",
+          "method": "Bounded reading of lawful OA primary PDF",
+          "title": "Commuting probabilities of n-centralizer finite rings",
+          "trigger": "Finite-ring commutation counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a prescribed target, minimum length tells whether the fiber exists but not its size. The repaired law counts ordered decompositions of that target at every multiple-pair arity via one graph evaluation rather than iterating all possible intermediate targets; even on threshold-obstructed examples it gives the exact count once multiple commutators are allowed. The hard support and the soft equality weights separate; this is not just counting loops or recomputing a width. No complexity bound is asserted.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:10:35.229268Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The sharp normalized a_n,b_n formulas match Faulhuber–Shafkulovska (8.1); a common density factor does not affect any optimum or the quotient. Their Theorem 2.7 and §8 cover all integer n≥2 with distinct small-n arguments. For large n, the published interval I_n=(arccosh n,4 arccosh n) contains 2 log n+c uniformly for bounded c, so the sign changes bracket the global optima using the cited strict log-concavity/log-convexity and global upper-bound convexity, not merely local Taylor series. Put x=eta/n and z=e^(−eta). Expanding x csch x, x coth x, tanh(eta/2), coth(eta/2) and eta csch eta gives the three stated remainder bounds also after differentiation: the neglected orders are bounded by a constant times x^4+(1+eta)z²+x²z in the layer. The derivative factors after extracting eta/n² are −1/3+2e^(−c), 2/3−2e^(−c), and 1−4e^(−c), with nonzero derivatives at their respective zeros. This yields all three offsets with O((log n)^3/n²) error and the two persistent gaps. Subtracting at c=0 gives the claimed limiting profiles with the correct optimizer types. Evaluating the quotient at u_n=2 log n+log 4 gives coefficient u_n²/2+u_n+1; the shift to the true optimum changes the value by less than the stated remainder since the leading derivative vanishes there and the layer curvature is O(log n/n²). At eta=sqrt n the leading quotient is cosh(1/sqrt n) up to O(sqrt n exp(−sqrt n)), yielding excess 1/(2n)+O(n^(−2)+sqrt n exp(−sqrt n)) and ratio n/[4(log n)²]. The recorded 85 finite checks were inspected in source, not rerun; the exact formulas and analytic localization justify the asymptotics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.7 supplies all three global optimizers and their qualitative order. The enclosing interval and curvature results in §8 do not resolve their O(1) additive separations.",
+          "The catalogue comparisons credit the same primary exact bounds and uniqueness; their examined references do not identify an independent earlier exact large-n offset theorem. References to other exponential-window and frame-bound work are not read as exclusion of all older literature."
+        ],
+        "reasoning": "A coarse interval of length comparable to log n and a strict order do not give the layer convergence or the constant gaps. Exact bounds encode the refinements, but optimization at the next scale still requires a uniform expansion and identification of the distinct critical points.",
+        "searches": [
+          "Faulhuber–Shafkulovska arXiv:2204.02917v2 Theorem 2.7, §8.1–§8.4 including (8.5) and Fig. 10",
+          "Prior-work and references sections of the 11/2 and 11/8 Resultary matches"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–111, VERIFICATION.md and checker.py (static inspection)",
+        "Faulhuber–Shafkulovska Theorem 2.7 and §8 passages above",
+        "The two exact Resultary overlaps above, including their proofs and prior-work discussions"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the frozen refinement the terms x² and eta exp(−eta) compete; differentiating before balancing fixes different constants for each objective. Prior global uniqueness and localization alone do not fix those constants.",
+          "The two catalogue results demonstrably do imply their respective matching parts. Once the optimal excess is available, the square ratio follows by the additional expansion at eta=sqrt n; it is not a separate deep theorem, and no such comparison was identified in the inspected earlier primary passages."
+        ],
+        "reasoning": "Credit the exact bounds, uniqueness and ordering to the primary theorem. Distinguish matching catalogue statements and direct consequences from the sharp quantitative refinement of what was established by that theorem.",
+        "searches": [
+          "Faulhuber–Shafkulovska §8.1 equations (8.1), (8.5), §8.2–§8.4; the two identified Resultary Findings and prior-work discussions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original lattice time step a is eta/n, so the prior qualitative order becomes eta_B<eta_K<eta_A after multiplying by n.",
+          "For the 11/8 Resultary record, the scaled loss profiles satisfy F_A(c)=−[J_A(c)−J_A(0)]/2 and F_B(c)=[J_B(c)−J_B(0)]/2, F_K(c)=[J_K(c)−J_K(0)]/2. Its sharper O((log n)^2/n²) error implies the weaker error in the frozen finding.",
+          "The 11/2 record uses L_q=log(2q), so 2L_q=2 log q+log 4, and its optimal value coefficient 2L_q²+2L_q+1 is identical after setting n=q."
+        ],
+        "reasoning": "Normalize parameter, profile signs, constants and scale before assigning overlap. These are exact equivalences in the relevant statements, not merely shared qualitative ordering.",
+        "searches": [
+          "Faulhuber–Shafkulovska arXiv:2204.02917v2 Theorem 2.7, §8.1 (8.1)",
+          "Resultary searches on high-redundancy two-sided exponential Gabor optimization, offsets and Pareto losses"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 11/8 record covers all three offsets and the recentered profiles; the 11/2 record covers the condition-number offset and sharp minimum value.",
+          "Neither gives the square excess or the sharp square-to-optimum excess ratio in its inspected RESULT.md. No finite table serves as an exact check of these uniform limits and asymptotic remainders."
+        ],
+        "reasoning": "This is material overlap of two exact catalogue entries, not a failure to find matches. Their later indexing and absence of a cited earlier statement do not make them evidence that the frozen finding was already known when recorded, and do not establish priority for it either.",
+        "searches": [
+          "Resultary 2026/11/8/SCOPE-sharp-logarithmic-optimizer-offsets-and-pareto-losses-for-high-r--42731fc6bcba",
+          "Resultary 2026/11/2/SCOPE-high-density-logarithmic-balancing-for-optimal-two-sided-exponen--f41cc49ca05f"
+        ]
+      },
+      "rationale": "Relative to the established Gabor theorem, the dated frozen finding provides a distinct sharp high-density refinement: three noncoalescing next-order constants, scaled objective profiles, and an explicit comparison of the best rectangular choice with the square lattice. The two identified catalogue records elsewhere state equivalent asymptotics for major parts of the claim, one with a sharper optimizer-error bound. They directly cover those mathematical statements, and this finding is not claimed to have exclusive current catalogue coverage. Both are indexed later than the frozen finding and neither attributes these exact asymptotics to a source shown to predate it. The recorded dates and lack of citation do not establish historical priority, independence, or derivation. No inspected antecedent yielded these sharp asymptotics. The square penalty is part of the useful combined refinement, not a priority claim based on a routine substitution alone.",
+      "residual_risks": [
+        "Historical priority and dependence among the substantially overlapping catalogue records are not established; the indexed dates are not proof of either.",
+        "The primary paper's supplementary interval calculations were not independently audited. Older exact or quantitative optimizer literature remains a priority risk; no exhaustive search is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the exact model, global unique extrema and qualitative order; no inspected passage states the sharp offsets or profiles.",
+          "evidence": "Eq. (8.1) agrees with a_n,b_n; Theorem 2.7 covers all integer n≥2. For n≥11 Fig. 10 gives I_n=(arccosh n,4 arccosh n); smaller n use different proof cases.",
+          "identifier_or_url": "https://arxiv.org/abs/2204.02917v2",
+          "material_read": "PDF p. 5 Theorem 2.7 (offset 16299); p. 21 Eq. (8.1) (offset 73921); pp. 24–28 §8 interval/curvature and case arguments, including (8.5) and Fig. 10 (offsets around 87650–91636, 91596, 97170, 101000)",
+          "method": "Bounded OA primary full-text inspection",
+          "title": "Gabor frame bound optimizations",
+          "trigger": "Identical frame-bound formulas, all-n optimization and possible sharp large-n asymptotics"
+        },
+        {
+          "assessment": "Statement-level match for offsets, gaps and profiles; adds regret constants and has a sharper error; no square comparison or linked earlier exact result was found there.",
+          "evidence": "Offsets log 3, log 4 and log 6; the three loss functions agree after the centering and sign/scale transformations listed above.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-logarithmic-optimizer-offsets-and-pareto-losses-for-high-r--42731fc6bcba",
+          "material_read": "RESULT.md Finding and proof at offsets 0–7652; prior-work discussion 7652–10572; references 10572–11141",
+          "method": "Resultary search and bounded local-mirror reading",
+          "title": "Sharp logarithmic optimizer offsets and Pareto losses for high-redundancy two-sided exponential Gabor frames",
+          "trigger": "Same three high-density optima and loss functions"
+        },
+        {
+          "assessment": "Equivalent for the condition-number subproblem only, without the square comparison or an identified earlier exact asymptotic reference.",
+          "evidence": "With L_q=log(2q), its location and optimal-value coefficient reduce to u_n and u_n²/2+u_n+1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-high-density-logarithmic-balancing-for-optimal-two-sided-exponen--f41cc49ca05f",
+          "material_read": "RESULT.md Finding and proof at offsets 0–6969; prior-work discussion 6969–9317; references 9317–9474",
+          "method": "Resultary search and bounded local-mirror reading",
+          "title": "High-density logarithmic balancing for optimal two-sided exponential Gabor frames",
+          "trigger": "Same sharp minimum condition number"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a fixed natural window with exact sharp bounds, the finding resolves whether three practically different notions of an optimal aspect ratio merge or stay distinct at high density. The finite additive separations and scaled profiles quantify the tradeoff, and the diverging square penalty calibrates the consequence of using a natural benchmark geometry. This adds quantitative information to the qualitative optimizer order, rather than just renaming the aspect parameter.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

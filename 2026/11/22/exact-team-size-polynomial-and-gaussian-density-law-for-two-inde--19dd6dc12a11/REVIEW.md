@@ -1,19 +1,21 @@
-# Review of exact team-size polynomial and Gaussian density law
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The semantic equivalence to two Cartesian rectangles is explicit. The row-pattern trichotomy is exhaustive and mutually disjoint, with a unique unordered incomparable generator pair in the three-pattern case. Inclusion–exclusion gives exact coefficients for every row count. Independent factor encodings are exactly two-to-one on a high-probability generic class, making the total-variation reduction rigorous. A two-sample orthogonal decomposition yields exact factor-model variance and the central limit theorem. A standalone enumerator compares two different exact methods against direct rectangle unions for every labelled rectangle through size five in both dimensions, and verifies all factor assignments through square order four. Finite tests are not substituted for general proof.
+PASS
 
-## Originality — PASS, provisional priority
+On two variables an independence team is exactly a rectangle (or empty); lax union means Boolean rank at most two, not a disjoint cover. A two-rectangle cover has nonempty row patterns among A,B,A union B. Zero, one or two distinct patterns always work; three work exactly with incomparable A,B and their union, and the minimal two patterns identify the pair without overcounting. Inclusion–exclusion applies to using every distinct nonzero pattern across labelled rows, even if their sizes coincide. The four atom sizes of A,B give the stated multinomial regrouping. In the independent factor model both exclusive column codes and all four row codes occur off an exceptional set of probability at most 6(3/4)^N. On this event the three nonzero patterns determine the factors up to exactly two ordered encodings; every other coverable matrix has an encoding in the exceptional set. This bounds the exceptional mass under both laws and proves the TV transfer. For the symmetric kernel the conditional means on 00,10,01,11 are 0,1/2,1/2,3/4; hence mean 7/16 and projection variance 19/256. Orthogonality of the zero-conditional-mean remainder (even when two terms share one index) gives variance 25/(256N^2); the two projections contribute 38/(256N), leading to the stated Gaussian limit by the i.i.d. CLT and the TV bound. The exact finite moments are for the factor model only. Independent row enumeration, positive multinomial counting and direct rectangle unions agree at all 16 sizes 1<=m,n<=4, including totals 356 and 8776. Exhaustion of order-four encodings confirms moment values 7/16 and 177/4096 and multiplicity two on every output with three distinct nonzero row patterns. Replay: python3 /workspace/reviews/reproduce.py 2; /workspace/reviews/reproduce-output.txt. Frozen code was inspected, not executed; the run does not establish the asymptotic theorem.
 
-The fixed-formula size-weighted polynomial and its uniform-distinct-team Gaussian limit are not supplied by the closest inspected sources. The 2019/2025 Haak–Kontinen–Müller–Vollmer–Yang paper proves counting-class relationships, not this finite-alphabet cardinality distribution. OEIS A354741 already gives the **unweighted** Boolean rank-two square count; it is expressly prior art and not claimed new. Boolean rank factorization and general uniqueness theory are also prior art. The closest same-domain published counts concern dependence rather than independence atoms. Indexed material on some matrix-factorization papers did not allow a complete page-by-page comparison; an equivalent old weighted enumeration remains a priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-This is an intrinsic size-by-size model-count invariant for a natural split-independence formula over arbitrary finite labelled alphabets. It separates subset cardinalities that the known unweighted Boolean rank-two total merges, provides a finite intersection-size computation independent of brute-force team enumeration, and determines the typical team density and its fluctuations for the uniform measure on **distinct** satisfying teams. The Gaussian law addresses multiplicity bias in latent rectangle sampling rather than counting ordered representations as if they were distinct teams.
+The square unweighted counts and generic factor uniqueness are genuine prior material. The strongest uniqueness theorem, read in DeSantis et al.'s OA arXiv copy, already gives rank-two factor uniqueness in the presence of a 2x2 permutation submatrix; the frozen generic event ensures such a submatrix. No inspected source supplies the weighted polynomial for labelled rectangular alphabets or the probabilistic result on distinct matrices. The latter needs an additional measure comparison controlling the exceptional outputs, and evaluation of the fluctuations, neither of which follows as a specialization of the deterministic uniqueness statement. The article experiments with rank-five planted identity blocks, not a uniform law on distinct rank-two teams.
 
-## Limitations and comparison
+## value
 
-The result is restricted to two rectangles/two variables and lax team disjunction; no general team-counting complexity theorem or higher-rank classification is asserted. The normal limit and variance calculation use independent row/column latent bits followed by a proved exponentially small distributional transfer. Earlier public sources describing unweighted totals or general Boolean factorization are acknowledged rather than repackaged. High-relevance available primary texts were examined, with explicit remaining risks from harder-to-access factorization literature.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The size distribution refines a known unweighted class on arbitrary labelled rectangular domains, and the square limit answers a natural observable of uniform distinct covers. Distinguishing distinct outputs from factor encodings matters: the proof controls the multiplicity bias rather than assuming it away. Together the explicit coefficient formula and quantified Gaussian law supply useful size-resolved information not present in known totals or deterministic uniqueness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

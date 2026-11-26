@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:45:10.767641Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each of the 16 distinct length-four windows must be hit; each mark hits at most four. Equality partitions their starting positions into disjoint consecutive blocks of four, forcing the marks at 4,8,12,16. Every cyclic class contains one unique occurrence of 0000, so a prefix walk anchored there that appends an unused four-gram until all 16 are visited and checks final closure enumerates the classes exactly once. Running python3 /workspace/reproductions/attractor.py generated 16 classes and all 256 cuts, used the union of the occurrence intervals for each nonempty factor to verify full, not just sharp, attractors, and reproduced every frozen TSV witness and minimum, including the lexicographically first five-position witnesses. It returned 192 four-mark cuts, 64 five-mark cuts, and cycle histogram {8:4,12:8,16:4}. No higher-order claim was tested or needed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 41 supplies general bounds and the surrounding text has one four-mark order-four example; Theorem 29 is a prime-order construction.",
+          "The matching Resultary claim also gives one universal five-position full attractor, {3,6,9,12,15} zero-based, for all 256 unfoldings."
+        ],
+        "reasoning": "The general bounds and prime-order theorem do not imply the order-four cut counts; the matching census and its stronger uniform witness do cover the frozen finding.",
+        "searches": [
+          "Mantaci et al., doi:10.1016/j.tcs.2020.11.006, Proposition 41",
+          "Whittington arXiv:2407.15599, Theorem 29",
+          "Resultary b89f933847cc, Finding"
+        ]
+      },
+      "checked_sources": [
+        "Resultary b89f933847cc RESULT.md and CENSUS.csv",
+        "Mantaci et al., Proposition 41 and example",
+        "Whittington arXiv:2407.15599 pp. 16–18"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Resultary census gives full minima 4 and 5, unique four-position set, and identical cycle and cut distributions. Whittington's prime-order theorem does not assert this all-cuts result."
+        ],
+        "reasoning": "The exact census implies the entire frozen theorem, including at least eight good cuts in each class. The differently chosen five-mark witness lists are certificates, not a new classification of witnesses.",
+        "searches": [
+          "Resultary b89f933847cc, RESULT.md at offsets 0–2356 and 700–3457; CENSUS.csv",
+          "Whittington arXiv:2407.15599, pp. 16–18"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary b89f933847cc defines the same length-19 linear unfoldings and full-factor condition; its zero-based {3,7,11,15} is the frozen one-based {4,8,12,16}.",
+          "Whittington distinguishes sharp k-attraction from coverage of shorter factors and gives a sharp set missing ba."
+        ],
+        "reasoning": "Neither shifting coordinates nor describing the data as an attractor-rank profile changes the exact Resultary claim. A sharp-only result would be weaker and was not treated as equivalent.",
+        "searches": [
+          "Resultary: order-four binary de Bruijn full attractor cut spectrum; complete attractor-rank profile of unfoldings",
+          "arXiv:2407.15599, section on optimal attractors for de Bruijn sequences"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "All 16 canonical representatives and optimal-cut counts in CENSUS.csv agree row-for-row, and it lists the specific optimal cuts. RESULT.md gives 192/64 and the same counts of cycles with 8/12/16 good cuts."
+        ],
+        "reasoning": "This matches both the aggregated and the per-cycle finite data; it is not just the known number of de Bruijn cycles.",
+        "searches": [
+          "Resultary 2026/10/13/SCOPE-complete-attractor-rank-profile-of-binary-order-four-de-bruijn-u--b89f933847cc, RESULT.md and CENSUS.csv"
+        ]
+      },
+      "rationale": "A distinct earlier-dated Resultary record states the same full classification, the unique four-set, and the same 16 cycle profiles, and even supplies a common five-set. The frozen census is correct, but there is no distinct mathematical remainder supported by its additional individual witnesses.",
+      "residual_risks": [
+        "The comparison establishes mathematical coverage, not authorship or dependence between packages. No priority beyond the verified record comparison is adjudicated."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent census and stronger uniform five-mark upper bound",
+          "evidence": [
+            "Full minima and counts 192,64; cycle histogram 4,8,4; unique zero-based four-set; same cycle profiles"
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-complete-attractor-rank-profile-of-binary-order-four-de-bruijn-u--b89f933847cc",
+          "material_read": "RESULT.md offsets 0–2356 and 700–3457; all 16 rows of CENSUS.csv",
+          "method": "Resultary search and local-mirror text",
+          "title": "Complete attractor-rank profile of binary order-four de Bruijn unfoldings",
+          "trigger": "Exact full-attractor overlap"
+        },
+        {
+          "assessment": "Bounds and one matching example, not census",
+          "evidence": [
+            "Four marks at one-based positions 4,8,12,16 in a single binary order-four unfolding"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.tcs.2020.11.006",
+          "material_read": "Proposition 41 and neighboring example, printed p. 25, offset 58300",
+          "method": "Author-hosted open PDF",
+          "title": "A combinatorial view on string attractors",
+          "trigger": "General de Bruijn attractor bounds and order-four witness"
+        },
+        {
+          "assessment": "Prime-order construction and relevant distinctions, no order-four all-cuts profile in inspected result",
+          "evidence": [
+            "Theorem 29; sharp order-three example missing ba"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2407.15599",
+          "material_read": "Optimal String Attractors for de Bruijn Sequences, pp. 16–18, offsets 57740–67393",
+          "method": "Open arXiv primary text",
+          "title": "Online String Attractors",
+          "trigger": "Cut dependence and sharp versus full"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The all-cuts question is mathematically motivated and the enumeration is useful for replication. As a claimed distinct finding, however, the exact profiles and the rigidity statement are already recorded, with a stronger five-mark assertion. Recomputed witnesses for known minima do not yield a separate useful invariant or new bound.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

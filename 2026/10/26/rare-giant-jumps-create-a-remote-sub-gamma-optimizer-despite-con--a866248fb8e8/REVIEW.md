@@ -1,15 +1,21 @@
-# Review of the rare-giant-jump sub-gamma theorem
+# Independent mathematical audit
 
-## Correctness
-PASS. The published canonical-remainder identity gives the exact variational objective. The new proof separately checks its low-order Taylor coefficients, derives matching uniform upper and explicit lower asymptotic bounds, and uses a compact maximization argument to establish a positive coexistence threshold. The origin-to-interior separation is uniform in the specified probability interval. The executable exact-fraction and high-precision checks independently exercise the normalization and finite witnesses; no numerical experiment is used as a substitute for the limiting argument.
+## correctness
 
-## Originality
-PASS, with the literature-priority limitation stated below. The nearest fixed two-point example establishes an interior optimum but not stable-origin coexistence or a rare-giant-jump family. The existing Skellam rare-jump result concerns signed unit jumps and yields a vanishing scale, not the present divergent scale with converging low moments. The variance--pole frontier result varies the proxy rather than the jump distribution. Search absence is not a mathematical guarantee of priority, and equivalent results in older concentration literature remain possible.
+PASS
 
-## Mathematical value
-PASS. The phenomenon demonstrates that knowledge of any prescribed finite set of cumulants, including variance, skewness and kurtosis, cannot uniformly control the optimal variance-exact Bernstein pole. The sharp logarithmic scale and coexistence under preserved strict local stability separate global rare-event sensitivity from local cumulant behavior.
+For fixed true variance V, put M=2K/(Vt²), with K the centered log-MGF. Rearranging the defining inequality below 1/c gives c≥(1−1/M)/t; at and above 1/c this comparison holds automatically by (1−1/M)/t<1/t. The compound-Poisson log-MGF gives the stated Beta(1,2) mixture and cumulants λ(1−q+qb^m), so the convergence holds exactly for the asserted integer orders 2≤m<κ. Put w=κ−2. For t≤(w−ε)log(b)/b, L(z)−1≤ze^z/3 bounds the profile uniformly by O(1+b^(1−ε))=o(b/log b); above that window use 1/t. At t=(w+ε)log(b)/b, the large-jump contribution to M grows like a positive constant times b^ε/(log b)². This gives both sharp asymptotic constants as ε tends to zero. Taylor expansion gives derivative (3AC−4B²)/(36A²), uniformly tending to −1/36 on the full q interval since κ>4. A superior positive peak exists by the asymptotic and the 1/t tail bound. Between the origin and that peak a minimum is attained in the interior, so there are at least two distinct positive stationary points. For onset, the coefficient comparison with (1−t/3)^−1 gives strict global dominance of the origin at q=0, including t≥3 via the tail bound. The jointly analytic extension near zero and uniform derivative sign for each large fixed b give a q-uniform excluded neighborhood for competing maximizers. The tail beyond 4 is below every origin value. Continuity of the resulting compact maximum and a subsequential maximizer limit at first strict superiority prove coexistence at an interior q_c, without monotonicity or uniqueness.
 
-## Limits
-No unique optimizer or uniqueness of the first-onset threshold beyond its defining infimum is asserted. All three inspected primary sources are accessible as full arXiv text, but comprehensive historical priority remains an external research risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct claim is the growing-positive-jump rare-contamination asymptotic at fixed true variance, jointly with low-cumulant convergence and coexistence while the local slope stays negative. The canonical profile and fixed-law interior examples are prior; the closest transition and inverse-log examples have materially different regimes or conclusions.
+
+## value
+
+PASS
+
+This quantifies a failure of finite-cumulant and local-profile diagnostics for true-variance sub-gamma optimization: an unbounded optimal scale with a sharp coefficient despite convergent low cumulants, and a positive global optimizer that enters without a local instability. The rare/support regime and coexistence provide structural information beyond an isolated interior witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

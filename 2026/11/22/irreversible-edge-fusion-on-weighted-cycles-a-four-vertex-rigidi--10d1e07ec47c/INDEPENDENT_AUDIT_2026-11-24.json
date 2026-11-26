@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:17:57.674432Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently checked the all-data iff theorem. Strict convexity and coercivity give a unique continuous fit. With the oriented penalty signs in the source the stationarity equations are m_j(u_j−y_j)+λ(q_{j−1}−q_j)=0. Sum over a proper fused block and then over its initial segment: its common fitted value is its data mass mean plus λ times (q_R−q_L)/M, and each interior flux is a mass-weighted convex average of q_L,q_R plus a fixed reciprocal-λ term. At any positive λ₀ take feasible initial fluxes; holding signs of nonzero exterior edges for a short right interval gives a feasible continuation by interpolation between the initial flux and that average. Equal penalties make every average feasible; on a proper two-site triangle block the two exterior signs are opposite, giving exactly the stated three inequalities, including equality. The initial λ=0 case works since every equal-data block has zero reciprocal-λ numerator, and a fully fused fit persists by scaling all fluxes by λ₀/λ (or constant data with zero flux at λ₀=0). Continuity and local right continuation at any finite putative first loss rule out loss even for simultaneous boundary events. Conversely choose a minimal edge adjacent to a larger one on n≥4; four distinct sites allow both exterior signs positive, forcing a strict average A>a_i. On a triangle a violated absolute-value bound gives a realizable opposite sign choice with the same strict inequality. Invert the KKT equations at λ=1 with internal flux −a_i and large prescribed exterior gaps. The uniform bound |u_j−y_j|≤λ(a_{j−1}+a_j)/m_j lets the gaps be chosen to keep actual exterior signs fixed to just beyond λ*=(A+a_i)/(A−a_i). Candidate fused flux A−(A+a_i)/λ is feasible on [1,λ*] but impossible beyond λ*, proving a positive-interval fusion followed by separation. The resulting proof applies to any positive masses and positive edge weights in the stated cycle regime. Direct substitution checked the displayed exact witnesses and stable nonconstant triangle; the independent conclusion does not use or rerun the frozen sample checker, whose 16 explicit KKT checks and finite obstruction tests were inspected.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tibshirani–Taylor give the general weak diagonal-dominance condition on DDᵀ for the boundary lemma. For the weighted cycle it reduces to (m_i+m_{i+1})a_i≥m_{i+1}a_{i−1}+m_i a_{i+1}. At a minimum a_i, satisfying it propagates equality to the whole cycle.",
+          "This gives the familiar uniform-penalty boundary-persistence regime, not its converse; at unit masses and a=(1,2,2) diagonal dominance fails although the triangle is stable.",
+          "Höfling §3.2 gives data-dependent general-graph split checks by max flow, using unweighted edges/unit fidelity in the inspected objective."
+        ],
+        "reasoning": "The dual sufficient condition captures the uniform profile but is not necessary for primal persistence on a triangle. The bigger graph domain of a split algorithm is not stronger universal claim coverage.",
+        "searches": [
+          "arXiv:1005.1971 §6 eq. (23) and graph correspondence",
+          "arXiv:0910.0526 §3.2, For the general Fused Lasso; splitting",
+          "Resultary: all-data fusion persistence edge-weight criterion graph denoising cycle"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1005.1971",
+        "arXiv:0910.0526",
+        "arXiv:1801.04987",
+        "Resultary c426456313be",
+        "Resultary fcd11a969142",
+        "Resultary 10d1e07ec47c (self-hit)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The closely analogous weighted-path theorem uses zero exterior penalties at endpoints, and builds a persistent-then-splitting block when mass concavity fails.",
+          "On a cycle of length at least four there are two distinct exterior vertices at a two-site block, so both exterior signs can agree; on a triangle a single exterior vertex forces opposite signs. These cyclic constraints are absent from the path and star comparisons."
+        ],
+        "reasoning": "A path proof or scheme can inform the two-site construction, but neither zero endpoint conditions nor a star hub criterion mechanically settles the periodic topology or the triangle exception. The same-day analogues are not treated as earlier by date alone.",
+        "searches": [
+          "Resultary c426456313be, RESULT.md Finding and Proof §4",
+          "Resultary fcd11a969142, Finding",
+          "arXiv:1005.1971 §6 eq. (23)",
+          "arXiv:1801.04987 Fig. 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rescale u to M^{1/2}u to put the proof in generalized-lasso signal form with weighted cyclic incidence D=diag(a)BM^{-1/2}.",
+          "Tibshirani–Taylor §5.1 Lemma 1 is for the first-difference path matrix; §6.2 describes graph connectivity and dual boundary events, not equality between every boundary status and every primal edge equality in general."
+        ],
+        "reasoning": "Universal persistence means no adjacent fitted equality is subsequently lost, including contacts at a single parameter. General-graph algorithms detecting particular splits do not state that universal property or classify the parameters. Circular TV and cyclic quadratic fused lasso are equivalent descriptions of this objective.",
+        "searches": [
+          "Resultary: universal irreversible edge fusion weighted cycles nonconstant triangle mass inequalities",
+          "Resultary: cycle fused lasso all-data no-fusion splitting unequal edge weights",
+          "Web: Tibshirani Taylor 2011 generalized lasso solution path boundary lemma fused lasso boundary persistence hypotheses necessity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "10d1e07ec47c is the assigned exact hit itself. Nearby Results c426456313be and fcd11a969142 supply exact criteria for paths and stars respectively.",
+          "Bento–Furmaniak–Ray give explicit weighted-path unfusion and a path complexity result, not a cycle parameter census."
+        ],
+        "reasoning": "Neither finite witness examples nor exact classifications in acyclic graph families tabulate the universal cyclic penalty regions. The self-hit cannot establish prior coverage.",
+        "searches": [
+          "Resultary: weighted cycle universal irreversible edge fusion all data triangle",
+          "Resultary: universal irreversible edge fusion weighted cycles nonconstant triangle mass inequalities",
+          "arXiv:1801.04987 abstract and Fig. 1"
+        ]
+      },
+      "rationale": "The credited dual and graph-path techniques and known no-split sufficient settings do not cover the exact necessity for arbitrary positive masses on cycles of length at least four, or the strictly larger admissible triangle region. The closest distinct same-day statements involve paths and stars and were compared as mathematics, not ordered by date.",
+      "residual_risks": [
+        "Unindexed equivalent results about primal persistence on periodic TV, or a broader all-data primal characterization not in the inspected passages, could affect priority.",
+        "The exact precedence between conceptually overlapping same-date records is not resolved by their dates; their inspected statements have distinct topologies and hypotheses."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior sufficient dual condition, not the full universal primal classification",
+          "evidence": [
+            "Path-only Lemma 1 and general weak diagonal dominance. The latter specializes to uniform cyclic penalties and misses stable nonconstant triangles."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1005.1971",
+          "material_read": "§5.1 Lemma 1 pp. 13–14, §6 eq. (23) p. 17, graph correspondence pp. 20–22; offsets 33243, 41982, 49899 and 52600",
+          "method": "Primary OA PDF passages and explicit weighted-incidence specialization",
+          "title": "The solution path of the generalized lasso",
+          "trigger": "General boundary persistence may specialize to weighted cyclic TV"
+        },
+        {
+          "assessment": "Related path algorithm and split detection, not the claimed iff theorem",
+          "evidence": [
+            "Unweighted graph objective in inspected passage and general graph splitting test by max flow."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0910.0526",
+          "material_read": "General graph objective p. 4; §3.2 split conditions and max flow pp. 10–11; algorithm and proposition pp. 14–16, offsets 17700, 43699, 48200, 56810, 61882",
+          "method": "Primary OA PDF passages",
+          "title": "A path algorithm for the Fused Lasso Signal Approximator",
+          "trigger": "Most direct general-graph splitting framework"
+        },
+        {
+          "assessment": "Establishes weighted-path unfusion, not classified weighted cycles",
+          "evidence": [
+            "Figure shows fuse-then-split on a weighted path; abstract bounds worst-case path segments."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1801.04987",
+          "material_read": "p. 1 abstract and Fig. 1, offset 0",
+          "method": "Primary OA PDF passages",
+          "title": "On the Complexity of the Weighted Fused Lasso",
+          "trigger": "Plausible weighted fusion and unfusion predecessor"
+        },
+        {
+          "assessment": "Substantive method overlap; path topology does not yield cycle classification",
+          "evidence": [
+            "All-data jump shrinkage criterion for paths with zero exterior penalties; positive interval of fusion before separation in failure proof."
+          ],
+          "identifier_or_url": "c426456313be",
+          "material_read": "RESULT.md Finding offset 0 and Proof §4 offset 5200",
+          "method": "Local published-record mirror",
+          "title": "Mass concavity characterizes monotone jumps and irreversible fusion",
+          "trigger": "Closest distinct same-date universal irreversibility theorem"
+        },
+        {
+          "assessment": "Different topology and criterion",
+          "evidence": [
+            "Sharp mass budget for star edges, not cyclic two-site blocks."
+          ],
+          "identifier_or_url": "fcd11a969142",
+          "material_read": "RESULT.md Finding",
+          "method": "Local published-record mirror",
+          "title": "A sharp hub mass budget for irreversible fusion on weighted stars",
+          "trigger": "Distinct same-date all-data fusion result on another graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the complete all-data decision boundary for using irrevocable fusions in a natural segmentation objective on a ring. The classification says that fidelity masses cannot rescue any nonconstant weighting at length four or greater, but explains exactly how a shared third vertex permits it on the triangle. Constructive witnesses show genuine separation after an interval of fusion, not mere failures of a sufficient condition or isolated numerical coincidences.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

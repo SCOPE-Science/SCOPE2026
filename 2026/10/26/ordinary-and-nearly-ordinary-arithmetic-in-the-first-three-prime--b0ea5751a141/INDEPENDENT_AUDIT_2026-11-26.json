@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:29:40.555706Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–35, VERIFICATION.md and verify.py, inspected as text",
+        "Independent reproduction: /workspace/branches/e1e73974-194a-439d-9d88-2677c715bc38/independent_check.py and independent_results.json",
+        "/workspace/evidence/correctness-notes.md section 5",
+        "Repaired RESULT.md, VERIFICATION.md and verify.py under /workspace/repairs/5/; python3 /workspace/repairs/5/verify.py printed p=5 k=4 smooth genus=21 det=4 ordinary"
+      ],
+      "rationale": "The frozen four smooth-case entries were independently reproduced over the specified prime fields, together with all exclusions by rational singular witnesses, chart-unit-ideal tests and first and second Hasse–Witt ranks. The characteristic-seven Newton slopes follow from duality and divisibility of slope multiplicities by reduced denominators. The repair retains only characteristic five: chart tests prove that k=4 is geometrically smooth and direct rational witnesses exclude k=0,1,2,3. The plane-divisor cohomology identifies the 21-row coefficient matrix from F_4^4, with the source index in rows. The exact determinant is 4 modulo 5; hence the stable rank is 21 and the first rank defect is zero. The replacement script was run and passed, and the replacement verification front matter matches the original verbatim.",
+      "residual_risks": [
+        "The repair claims only arithmetic of the unique smooth member in characteristic five. Chart checks are exact over F_5 and use SymPy; no second CAS, formal verification or attestations are claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Asgarli–Ghioca report verification of geometric smoothness for all odd prime powers q<200 under their criterion; this covers all frozen smoothness cases.",
+          "Duran Cunha's ordinarity passage concerns X_p of degree p+2, not this degree-p+3 pencil. The broader octic search found the construction and a separate tangent-filling paper, not a covering arithmetic theorem."
+        ],
+        "reasoning": "Smoothness and degree do not settle ordinarity. The known ordinarity assertion uses a different curve of different degree. A distinct arithmetic comparison is needed even though the repaired object is already known.",
+        "searches": [
+          "Asgarli–Ghioca Thm. 1.2 and Conj. 1.5 with finite check",
+          "Duran Cunha Tallini ordinarity; broader searches for degree-eight plane-filling curves with genus 21 and characteric-five rank"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2307.03072, 1805.07345, 1701.04509, 2203.11801",
+        "Resultary 60772e37c981 and abc96fc8a34e",
+        "Targeted characteristic-five primary literature searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general methods specify Frobenius and Cartier matrices from coefficients, but do not evaluate the required 21 by 21 matrix or determinant for this octic. The prior smoothness computation says nothing about that determinant."
+        ],
+        "reasoning": "The repair is not a parameter renaming or direct corollary of a rank classification: one must make a curve-specific finite-field calculation. It does not claim that the Hasse–Witt formula, the algorithm or smoothness is new.",
+        "searches": [
+          "Adolphson–Sperber arXiv:1701.04509 classical hypersurface formula; Kudo–Harashita arXiv:2203.11801 Cartier-Manin computation; Asgarli–Ghioca q<200 smoothness check; Tallini ordinarity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Asgarli–Ghioca, equation (1) and Thm. 1.2, identify the same pencil, with q=p here.",
+          "Resultary 60772e37c981 states ordinary genus 10, 3-rank 10 and a=0 for the exact (3,2) sextic; Resultary abc96fc8a34e states genus 36, 7-rank 35, a=1 and the same slopes for the exact (7,1),(7,3) decics."
+        ],
+        "reasoning": "Ordinarity, full Hasse–Witt rank, and p-rank equal to genus give equivalent comparison formulations for this smooth curve; the a-number of an ordinary Jacobian is zero. The exact aliases in characteristics three and seven are overlaps and removed from the repaired claim. The characteristic-five arithmetic is not matched by those records.",
+        "searches": [
+          "Asgarli–Ghioca degree-(q+3) pencil; plane-filling octic over F_5, k=4; ordinary genus-21 Jacobian, Hasse–Witt full rank, Cartier rank, 5-rank and a-number",
+          "Resultary local searches for arithmetic of plane-filling curves in characteristics 3,5,7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact Resultary entries match three of the four frozen keys; (3,2) is same-day and the (7,1),(7,3) record is later by the displayed UTC catalog dates, which are not evidence of order within a day.",
+          "No exact arithmetic entry for (5,4) was located in the bounded local and primary searches. The closest characteristic-five primary source identifies smoothness, not Jacobian ranks."
+        ],
+        "reasoning": "A case-specific determinant or curve arithmetic table would cover the repaired calculation, but the exact entries verified so far apply to the removed cases. The positive matches are given weight independently of priority; the lack of a matching octic hit is a bounded search result, not a proof of novelty.",
+        "searches": [
+          "Resultary rank and a-number by exact Asgarli–Ghioca parameters (3,2), (5,4), (7,1), (7,3)",
+          "Primary exact-family lookup with Asgarli, Ghioca, k=4, genus 21, ordinary, p-rank and Hasse–Witt; broader degree-eight plane-filling/5-rank lookup"
+        ]
+      },
+      "rationale": "The frozen three-prime claim cannot pass as a wholly distinct classification: the exact characteristic-three arithmetic occurs in a same-day Resultary record, and both characteristic-seven entries and their Newton polygon occur in a later record. This is demonstrable overlap, not an inference about historical priority. The repair isolates the natural characteristic-five member. Its smoothness (already covered) identifies the object; its 5-rank 21 and a-number zero are the only distinctive arithmetic claimed. Targeted catalogue and literature comparisons found no exact table entry or broader theorem supplying those values.",
+      "residual_risks": [
+        "Unindexed tables or an overlooked renamed equivalent curve could contain the octic arithmetic. The bounded comparison does not establish publication priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior object and full smoothness coverage in these fields; inspected passages do not give repaired arithmetic values",
+          "evidence": [
+            "Rational smoothness iff t^7+kt^3-1 is root-free; geometric version computationally checked for odd q<200."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2307.03072",
+          "material_read": "p. 2, offsets 4878 and 6234: eq. (1), Theorem 1.2 and Conjecture 1.5 with reported check",
+          "method": "Primary OA PDF passage inspection",
+          "title": "Plane-filling curves of small degree over finite fields",
+          "trigger": "Exact family and broader smoothness verification"
+        },
+        {
+          "assessment": "Different family and degree",
+          "evidence": [
+            "X_p is ordinary in the Tallini setting of degree p+2."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1805.07345",
+          "material_read": "pp. 1–2, offsets 0 and 5765, introduction and ordinarity statement",
+          "method": "Primary OA PDF passage inspection",
+          "title": "Curves containing all points of a finite projective Galois plane",
+          "trigger": "Ordinarity of another plane-filling family"
+        },
+        {
+          "assessment": "Supplies computation framework, not exact octic determinant",
+          "evidence": [
+            "Classical Hasse–Witt entries are coefficients of the defining polynomial raised to power p-1."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1701.04509",
+          "material_read": "p. 2, offset 3749, classical coefficient formula",
+          "method": "Primary OA PDF passage inspection",
+          "title": "A generalization of the Hasse-Witt matrix of a hypersurface",
+          "trigger": "General formula that might settle the arithmetic"
+        },
+        {
+          "assessment": "General method, not a tabulation of the target rank",
+          "evidence": [
+            "Computes Cartier-Manin matrices via differential forms."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2203.11801",
+          "material_read": "p. 1, offset 1729, description of general computation",
+          "method": "Primary OA PDF passage inspection",
+          "title": "Computing the space of differential forms of a plane curve and its Cartier-Manin matrix",
+          "trigger": "General curve Cartier arithmetic algorithm"
+        },
+        {
+          "assessment": "Same object and arithmetic for (3,2), not the repair; same-day ordering unresolved",
+          "evidence": [
+            "Identifies the smooth genus-10 sextic at q=3,k=2, ordinary with 3-rank 10 and a-number zero."
+          ],
+          "identifier_or_url": "Resultary 60772e37c981",
+          "material_read": "RESULT.md Finding, offset 0 onward, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary search and mirror passage inspection",
+          "title": "The complete Weil polynomial and simple ordinary Jacobian of a plane-filling sextic",
+          "trigger": "Exact characteristic-three overlap of the frozen record"
+        },
+        {
+          "assessment": "Exact overlap of (7,1),(7,3) entries and slopes in later record, not the repaired octic",
+          "evidence": [
+            "Only k=1,3 smooth, both genus 36, 7-rank 35, a-number 1 and slopes 0^35,(1/2)^2,1^35."
+          ],
+          "identifier_or_url": "Resultary abc96fc8a34e",
+          "material_read": "RESULT.md Finding, offset 0 onward, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary search and mirror passage inspection",
+          "title": "Almost ordinary Jacobians for both smooth degree-ten plane-filling curves",
+          "trigger": "Exact characteristic-seven overlap of the frozen record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md, Finding and Relationship to prior work",
+        "Asgarli–Ghioca's family construction and smoothness coverage",
+        "Resultary abc96fc8a34e as a contextual contrast"
+      ],
+      "rationale": "The surviving value is an exact arithmetic stratum for the unique smooth plane-filling octic in a named existence pencil, not another computation of already known smoothness or a table of arbitrary parameters. Ordinarity is a natural question about this Jacobian, and the exact genus, 5-rank and a-number supply a concrete ordinary point for comparisons with the same pencil in other characteristics. For example, they separate this characteristic-five member from the known nearly ordinary characteristic-seven ones without inferring a general prime trend.",
+      "residual_risks": [
+        "A case-specific invariant with no asserted infinite-prime law, isogeny decomposition, or claim about all plane-filling octics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

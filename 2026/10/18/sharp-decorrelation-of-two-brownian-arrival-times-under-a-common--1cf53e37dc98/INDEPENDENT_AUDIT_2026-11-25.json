@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:18:46.515542Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–84",
+        "Frozen VERIFICATION.md and verify.py (read, not executed)",
+        "Independent saddle-scaled quadrature at z=1,3,20,60"
+      ],
+      "rationale": "The first shared exponential gap R gives the regenerative pair T_i=min(H_i,R)+1_{H_i>R}T′_i; future times have the fresh joint law. The marginal second moments are finite (also seen from the analytic renewal transform at zero), and differentiating that transform gives the stated variance. Conditional on R the two truncated hit times have mean K(R), while integration by parts gives E[K(R)Q(R)]=rA/2. The probability both need the fresh cycle is 1−2p+J. Substituting the marginal mean yields A/[p(2p−J)]. Conditional independence given the clock gives a covariance equal to the variance of the conditional mean. The latter is strictly positive because K(s)+Q(s)m, conditional on the first gap s, is continuous and unbounded as s→∞. For an independent prefactor check, use J=∫exp(−τ)erfc(z/(2√τ))²dτ and scale τ=zu. The phase u+1/(2u) has its minimum √2 at u=1/√2 and second derivative 2√2 there; the local amplitude is 4u/(πz) after scaling. The global erfc upper bound and phase gap off the saddle control tails and give J∼2^(5/4)exp(−√2 z)/√(π z). The A error after scaling is bounded by twice E[(rR)²1_{H<R}]=2p(z²/4+5z/4+2), negligible against J/p. Hence the Pearson correlation is asymptotic to J/(2p). Independent quadrature used Cov=E[(K(R)−m(1−Q(R)))²]/(2p−J) from the conditional-mean renewal, in normalized units; it agrees with the stated covariance, and the exact/asymptotic correlation ratios at z=20 and 60 were 0.935416908 and 0.976388691. Replay: python3 branches/independent_checks.py 4 (mpmath).",
+      "residual_risks": [
+        "Quadrature is bounded corroboration, not proof of strict positivity at all parameters or of the asymptotic. The result concerns Pearson correlation, not decay of the unnormalized covariance or independence at finite rates."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Vatash et al. explicitly note that common Poisson resetting correlates individual FPTs. Retrieved passages do not supply their exact mixed moment or its sharp asymptotic.",
+          "The de Mauro et al. results describe stationary position observables for simultaneous non-Poisson resets; first passage is identified as a different direction.",
+          "04868fbce99a works with the same irreversible process and proves a different, fixed-time assertion for equal or unequal starting distances."
+        ],
+        "reasoning": "Broader resetting frameworks do not automatically evaluate the finite-time joint rare event J or its leading asymptotics for the all-time labeled hitting times.",
+        "searches": [
+          "arXiv:2609.23542v1, page 4 shared-clock discussion",
+          "arXiv:2509.06658v2, abstract and page 28",
+          "Resultary 04868fbce99a fixed-time survival"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verification material",
+        "Resultary 04868fbce99a, 04e1c5c02a44",
+        "arXiv:2303.18012v1, 2609.23542v1, 2509.06658v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The conditional survival product over clock gaps determines the conditional law and leads to the variance-of-conditional-mean identity, so that technique is not distinct.",
+          "Same-time covariance alone does not furnish the two-time tail integral for the cross moment, and the product-over-gaps representation does not itself evaluate it or localize the simultaneous-success saddle."
+        ],
+        "reasoning": "The quantitative advance is an all-time renewal evaluation and a tail analysis that identifies both exponential rate and prefactor. The closest same-date result's claim and proof support related positivity but do not establish this evaluation mechanically; no date ordering is inferred.",
+        "searches": [
+          "04868fbce99a, same-model conditional survival product, offsets 0–4092",
+          "arXiv:2303.18012v1, eqs. 21–26",
+          "arXiv:2609.23542v1, shared-clock section"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For two arrivals T_(1)T_(2)=T_1T_2 pointwise, but the retrieved rank-resolved passages concern means and optimization, not this product moment.",
+          "Biroli et al. stop at the first of the particles to arrive in their common-clock protocol; this gives a first-order statistic, not the two-label law."
+        ],
+        "reasoning": "A joint transform or all unequal-time joint survival probabilities would encode the mixed moment, but means of the two order statistics do not. In addition, ordered covariance differs from labeled covariance because the mean products differ.",
+        "searches": [
+          "common Poisson resetting clock correlated labeled Brownian first-passage times joint hitting-time generating function ordered arrival times",
+          "arXiv:2303.18012v1, common-clock protocol B",
+          "arXiv:2609.23542v1, rank-resolved arrivals and shared clock"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "04868fbce99a explicitly limits its finding to binary survival indicators at a single fixed observation time.",
+          "04e1c5c02a44 gives a joint transform and strict anticorrelation, but for one trajectory and opposite targets, not two independent noises and a common reset clock."
+        ],
+        "reasoning": "Fixed-time same-model indicator covariance is a different observable, while the nearest indexed complete joint transform concerns a different process. No checked indexed statement gave the same mixed moment and sharp Pearson asymptotic.",
+        "searches": [
+          "Resultary semantic comparison of common reset clock, labeled Brownian hitting times, covariance and sharp strong-reset asymptotics: 04868fbce99a and 04e1c5c02a44"
+        ]
+      },
+      "rationale": "The shared-clock model, labeled-arrival correlations in qualitative terms and the renewal framework are known. The inspected strongest matches do not supply the exact equal-distance pair mixed moment together with its strong-reset Pearson exponent and prefactor. In particular, the same-date same-model fixed-time survival result is genuine overlap in conditional-clock technique and positivity, but it does not do the mixed-time moment evaluation or the rare joint-hit asymptotic. The pass is for the quantitative result and not for the single-walker transform or the general idea that common resetting induces dependence.",
+      "residual_risks": [
+        "A general multivariate renewal or unequal-time survival result in other literature could subsume part of the exact moment formula. The comparison is bounded and does not claim that no such source exists."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Distinguishes the equal-time survival observable; shares the clock-conditioning technique",
+          "evidence": [
+            "Explicit scope is the indicator of nonarrival at one fixed t; no covariance of unbounded times is asserted.",
+            "Conditional survival given the clock is a product over gaps."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-opposite-sign-survival-correlations-from-a-common-reset-clock--04868fbce99a/RESULT.md",
+          "material_read": "Finding, assumptions, proof §§1–2, offsets 0–4092",
+          "method": "Indexed search and bounded source reading",
+          "title": "Opposite-sign survival correlations from a common reset clock",
+          "trigger": "Same stochastic process and closely related covariance"
+        },
+        {
+          "assessment": "Different joint process",
+          "evidence": [
+            "One Brownian trajectory visits targets on opposite sides of its reset point."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-strict-anticorrelation-of-opposite-brownian-first-passage-clocks--04e1c5c02a44/RESULT.md",
+          "material_read": "Finding and transform passage near offset 3350",
+          "method": "Indexed search and bounded statement comparison",
+          "title": "Strict anticorrelation of opposite Brownian first-passage clocks",
+          "trigger": "Brownian first-passage covariance and exact joint transform"
+        },
+        {
+          "assessment": "Qualitative shared-clock correlation and ordered means are precedents, sharp labeled-time asymptotic not shown in inspected passages",
+          "evidence": [
+            "Shared clock couples individual passage times; first encounters can be ranked."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.23542v1",
+          "material_read": "Order-statistic baseline, PDF pp. 2–3; shared-clock pp. 4, offset near 33750",
+          "method": "Open primary text, bounded passage comparison",
+          "title": "Rank-dependent optimal resetting in multiparticle search",
+          "trigger": "Same clock and irreversible ranked passage times"
+        },
+        {
+          "assessment": "Fastest arrival only",
+          "evidence": [
+            "Protocol B terminates when any particle reaches the target and computes the mean of that stop time."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2303.18012v1",
+          "material_read": "Section II and eqs. 21–26, PDF pp. 3 and 7",
+          "method": "Open primary text, bounded passage comparison",
+          "title": "Critical number of walkers for diffusive search processes with resetting",
+          "trigger": "Common-clock first-passage renewal"
+        },
+        {
+          "assessment": "Position observables and different clock scope, not the hitting-time result",
+          "evidence": [
+            "The joint statistics analyzed are for positions; first passage is identified as a direction beyond those results."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2509.06658v2",
+          "material_read": "Abstract and concluding first-passage discussion, PDF pp. 1,28",
+          "method": "Open primary text, bounded passage comparison",
+          "title": "Dynamically emergent correlations in Brownian particles subject to simultaneous non-Poissonian resetting protocols",
+          "trigger": "Joint statistics under simultaneous resetting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, proof §§3–5 and scope",
+        "Same-model fixed-time comparison 04868fbce99a",
+        "arXiv:2609.23542v1, shared-clock discussion"
+      ],
+      "rationale": "The equal-distance two-searcher case is the minimal common-clock model in which labeling and irreversible arrivals make dependence scientifically relevant. The exact covariance characterizes the modeling error of treating shared and independent clocks alike. The sharp normalized rate identifies the mechanism: atypical simultaneous hits in a single excursion set the decay, even though the dependence has a strictly positive sign for every finite rate. A qualitative sign or a bound without the saddle prefactor would not quantify that effect.",
+      "residual_risks": [
+        "Implications are for Pearson correlation in the stated model only; no claim of vanishing absolute covariance or general independence follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

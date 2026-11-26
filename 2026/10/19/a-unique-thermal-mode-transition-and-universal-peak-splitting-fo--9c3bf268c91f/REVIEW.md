@@ -1,19 +1,21 @@
-# Scientific review: monotone thermal modality and universal peak splitting
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof starts from the previously established, correctly normalized stationary convolution, fixes the physical orientation-flip convention, and derives an explicit Riccati equation from Kummer's ODE. It proves a unique transverse curvature crossing, strict ordering with the reversal ratio, and boundary limits. A self-contained sign-variation lemma controls modes globally despite endpoint singularities; smooth cutoff approximations justify applying it. The heat equation yields a strictly negative quartic coefficient, and the analytic implicit-function theorem gives the universal near-critical peak splitting. Finite Gauss–Jacobi quadrature and numerical root checks corroborate the formulas but are not treated as proofs.
+PASS
 
-## Originality — PASS, with identified residual risks
+The symmetric beta stationary input follows from zero total active flux: the orientation densities are (1±u)f(u)/2 and [(1−u²)f]'=−2au f, so f∝(1−u²)^(a−1). The independent Gaussian term has dimensionless variance t. With z=1/(2t), Kummer's ODE gives q'=1/2−q+[q²+(1/2−a)q]/z, and at q=1/2 the slope is (1−a)/(2z). For 0<a<1, the small-z and large-z signs oppose (the latter follows by expanding (1−S)^(a−1) at S=0), and every crossing is upward. Increasing a lowers the tilted mean of S strictly by monotone likelihood ratio. The transverse root is analytic and has the stated endpoint limits by the tilted atom at a=0 and the centered curvature of a Gaussian-smoothed uniform law at a=1. The smooth beta approximants have exactly three derivative sign changes. The Laplace variation proof is valid for these nonzero derivatives: multiplication by (u−c) eliminates a sign change before applying Rolle's theorem to the scaled transform. Local uniform convergence then transfers the sign-change bound, not a count of every derivative zero. Oddness, the tail derivative sign and analyticity suffice to locate all true maxima; isolated derivative tangencies do not imply extra modes. For a>1 the integrable input derivative has only one sign change, and a=1 follows directly. At the threshold, the heat equation and transverse curvature give P''''(0)/P(0)=−2(1−a)/t_c². Solving the analytic equation P'(x)/x=0 in y=x² gives y' at t_c equal to −3, yielding the stated pointwise remainder. Independent weighted adaptive quadrature confirms, for example, t_c(0.5)=0.316464340348 and m²/(t_c−t)=2.998623867 at gap 0.0003; five threshold and quartic-sign checks passed. Replay: python /workspace/calculations/reproduce_frozen.py (check thermal_modes). These checks do not establish exhaustiveness or endpoint-uniform scaling.
 
-The Gaussian-smoothed beta law, its center-curvature equation and the qualitative active/passive phase picture were all established earlier, particularly by Sabhapandit–Majumdar (2024), Guéneau–Majumdar–Schehr (2026), and Sevilla–Meléndez Mora (2026); they are *explicitly excluded* from the novelty claim. Comparison with the relevant sections, primary equations, figures and accessible appendices did not locate a proof of uniqueness and strict monotonicity of the critical curve plus an exact universal coefficient for the coalescing modes. These strengthened statements are the only accepted claim. General Gaussian scale-space theory or uninspected earlier derivations might imply portions, so independent novelty verification remains important.
+## originality
 
-## Value — PASS
+PASS
 
-A globally unambiguous and ordered thermal phase boundary, an exact quartically flat transition, and the universal \(\sqrt3\) square-root peak-separation coefficient are motivated invariants of the trapped-particle shape transition. They distinguish a rigorous global phase classification from a local-curvature diagnostic or finite plotted phase diagram.
+Best of current knowledge for the frozen finding: the convolution, transition equation, qualitative phase diagram, and general one-dimensional Gaussian modal noncreation are prior. The supported distinction is a transverse, strictly ordered analytic phase boundary with verified quartic nondegeneracy, giving the exact onset amplitude in this beta family. Distinct indexed findings with later publication dates demonstrably duplicate most of the result (including the exact leading coefficient), and one adds an exact peak-to-center contrast. The overlap is real and is credited; these later findings are not evidence the frozen result was already covered when recorded, nor proof of authorship priority.
 
-## Limitations and closest literature
+## value
 
-The theorem is one-dimensional, stationary, symmetric and harmonically confined, with positive additive thermal diffusion. The onset expansion fixes a ratio strictly inside \(0<a<1\), and there is no claim about relaxation dynamics, different potentials, or higher-dimensional radial modes. The closest scientific sources are arXiv:2404.02480v1, arXiv:2602.08436v1 and arXiv:2608.21781v1. The novelty comparison is extensive but not an external or exhaustive priority certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact phase boundary is a naturally motivated observable of the stationary model. The distinction between a curvature plot and a globally exhaustive modal transition matters, and proving nondegeneracy gives a quantitative calibration of the physical peak location. Strict ordering across reversal rates is information that a generic one-dimensional scale-space theorem does not supply. No experimental universality beyond the stated symmetric harmonic model is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

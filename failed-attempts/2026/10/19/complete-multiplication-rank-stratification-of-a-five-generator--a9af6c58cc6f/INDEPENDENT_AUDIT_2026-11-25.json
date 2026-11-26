@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:46:02.507168Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The group generators minus 1 are square-zero and their squarefree monomials are a basis. Linear-leading elements are images of a variable under a filtered automorphism and have rank 16. For Q=z1z2+z3z4, every monomial of degree at least three is divisible by one of the four derivatives of Q; successive substitutions starting at degree two produce the prescribed higher terms without changing earlier degrees. The homogeneous rank is (1+4+1) times 2. For Q=z1z2, normalize its coefficient by a unit, then shift z1 and z2 by the two coefficients in the square of the three-variable ideal. Their product vanishes by degree; this leaves Q+γz3z4z5 with γ measured by Q∧a3. For nonzero γ the tensor differential has homology dimension (4−2)(8−2)=12, giving rank 10 instead of 8. With cubic leading term, the top-degree output is already spanned by products with degree two; coefficients of degree four only add to that spanned output. The degree-four output has alternating rank 2 or 4, and the scalar input contributes one further dimension. Quartic/top leading terms give 2/1. Counting alternating forms by radicals and their nondegenerate quotients gives B2 and B4; the nonzero wedge functional has one fiber of size q^9 per value, and the free quartic and quintic coefficients contribute q^6. All counts sum to q^31. Independently, python3 /workspace/reproductions/rank.py used multiplication by XOR translation in the group basis for all 131203 higher-term choices on canonical nonlinear leading forms over F2, weighted by their leading orbits; the resulting binary counts agree term by term. The all-q argument is algebraic, not extrapolated from binary computation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The all-algebra record covers arbitrary elements over every F_q of characteristic two; the only extra stratum is invertible multiplication.",
+          "Resultary 7cc1f8e3a451 gives the rank-8 versus rank-10 pair in dimension five, but its full census concerns four generators. Carlson et al. characterize flatness using independence modulo the radical square; Erdmann–Holloway identify support and rank varieties for truncated algebras."
+        ],
+        "reasoning": "Flatness explains the nonzero-linear stratum but not the nonlinear census. The all-algebra census, in contrast, specializes exactly to the frozen one.",
+        "searches": [
+          "Resultary a550307eb60d and 7cc1f8e3a451, Finding and Limitations",
+          "Carlson–Friedlander–Pevtsova, Proposition 1.1",
+          "Erdmann–Holloway, Theorem 8.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary a550307eb60d, 7cc1f8e3a451 and bc501903d7e7",
+        "arXiv:1106.4474",
+        "arXiv:2002.06407",
+        "doi:10.1016/j.jalgebra.2005.12.031",
+        "arXiv:1802.07383"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A group-algebra element is a unit exactly when its constant term is nonzero, and a unit has rank 32. Removing those elements leaves exactly the displayed augmentation-ideal polynomial.",
+          "The rank-10 characterization for the decomposable quadratic is explicitly stated in the all-algebra record. Individual ideal dimension bounds or Jordan type definitions are not multiplicity formulas."
+        ],
+        "reasoning": "Deletion of the rank-32 term is a direct implication, with no uncovered case or distinct exact count remaining. Mathematical overlap alone does not prove temporal priority.",
+        "searches": [
+          "Resultary a550307eb60d, rank enumerator and rank-two quadratic normal form",
+          "García-Claro and Tapia-Recillas Theorem 3.2; Iarrobino et al. Jordan-type definition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Multiplication rank equals dimension of the principal ideal, but counts elements, not distinct ideals; Jordan type on the ideal is determined by rank because multiplication squares to zero.",
+          "Resultary a550307eb60d counts elements of the same algebra, and its description of the cubic projection to the complementary three-space is equivalent to Q∧a3≠0 for a decomposable Q with no linear part."
+        ],
+        "reasoning": "The principal-ideal and Jordan descriptions need care with multiplicities. The all-algebra indexed claim does count elements and gives the same mixed invariant, not just a related parameter.",
+        "searches": [
+          "Resultary: multiplication-rank or principal-ideal dimension census in the five-generator elementary-abelian 2-group algebra",
+          "García-Claro and Tapia-Recillas arXiv:2002.06407, Theorem 3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The coefficients of ranks 0,1,2,4,6,8,10,12,16 agree individually. The only additional coefficient is (q−1)q^31 at rank 32.",
+          "The homogeneous spectrum record covers the quadratic restriction but not all higher lifts and their populations."
+        ],
+        "reasoning": "The agreement extends over the same field quantifiers and every claimed multiplicity, not merely the binary support or one example.",
+        "searches": [
+          "Resultary 2026/11/8/SCOPE-exact-multiplication-rank-census-in-the-five-generator-elementar--a550307eb60d, RESULT.md offsets 0–4961",
+          "Resultary bc501903d7e7 homogeneous bivector spectra"
+        ]
+      },
+      "rationale": "The augmented-ideal census and mixed criterion have exact mathematical coverage in a distinct indexed all-algebra census. That catalogue entry is later-dated than the frozen record: the finding fails as a distinct result in the compared corpus, not on a finding that the catalogue entry preceded the frozen result or that the frozen author derived it from that entry.",
+      "residual_risks": [
+        "The catalogue-date comparison does not establish priority, common provenance, or derivation.",
+        "The bounded literature reading cannot rule out historical coverage under other terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact theorem-equivalent augmentation restriction",
+          "evidence": [
+            "Same nine coefficients, with only the rank-32 unit term added; same cubic projection criterion"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-multiplication-rank-census-in-the-five-generator-elementar--a550307eb60d",
+          "material_read": "RESULT.md Finding and assumptions, offsets 0–4961",
+          "method": "Resultary local mirror",
+          "title": "Exact multiplication-rank census in the five-generator elementary-abelian group algebra",
+          "trigger": "Exact larger-domain census"
+        },
+        {
+          "assessment": "Overlaps example, not total census",
+          "evidence": [
+            "z1z2 versus z1z2+z3z4z5; full census for four generators only"
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-quadratic-symbol-rank-rigidity-in-elementary-abelian-two-g--7cc1f8e3a451",
+          "material_read": "RESULT.md Finding and Limitations, offsets 0 and 10323",
+          "method": "Resultary local mirror",
+          "title": "Sharp quadratic-symbol rank rigidity in elementary abelian two-group algebras",
+          "trigger": "Possible overlap of higher-lift classification"
+        },
+        {
+          "assessment": "Covers homogeneous inputs only",
+          "evidence": [
+            "Homogeneous bivectors exclude cubic and higher perturbations"
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-modular-wedge-multiplication-rank-spectra-of-finite-field-bivect--bc501903d7e7",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Modular wedge multiplication rank spectra of finite-field bivectors",
+          "trigger": "Homogeneous quadratic restriction"
+        },
+        {
+          "assessment": "Linear-leading maximal rank context",
+          "evidence": [
+            "Flatness criterion modulo radical square"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1106.4474",
+          "material_read": "Proposition 1.1, p. 6, offset 21710",
+          "method": "Open primary PDF",
+          "title": "Representations of elementary abelian p-groups and bundles on Grassmannians",
+          "trigger": "Rank varieties and cyclic flatness"
+        },
+        {
+          "assessment": "Individual ideal dimensions, not the stated population result",
+          "evidence": [
+            "Formulas and bounds in terms of the minimal polynomial of a regular-representation matrix"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2002.06407",
+          "material_read": "Abstract; Theorem 3.2, pp. 5–7; conclusion p. 18",
+          "method": "Open primary PDF",
+          "title": "On the dimension of ideals in group algebras, and group codes",
+          "trigger": "Equivalent principal-ideal dimension language"
+        },
+        {
+          "assessment": "Module rank/support varieties, not the census in inspected passages",
+          "evidence": [
+            "Identification of support and rank varieties"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jalgebra.2005.12.031",
+          "material_read": "Introduction, pp. 1–2, offsets 485 and 3418; Theorem 8.2, p. 368, offset 69333",
+          "method": "Lawful open full-text PDF, selected passages",
+          "title": "The Avrunin and Scott theorem and a truncated polynomial algebra",
+          "trigger": "Same square-zero truncated algebra"
+        },
+        {
+          "assessment": "Framework, not exact enumeration in inspected passage",
+          "evidence": [
+            "Jordan type of multiplication by maximal-ideal elements"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1802.07383",
+          "material_read": "Definition on p. 1, offset 1568",
+          "method": "Open arXiv PDF",
+          "title": "Artinian algebras and Jordan type",
+          "trigger": "Jordan-type formulation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The mixed rank jump is a natural, scientifically useful invariant, and the all-field proof and finite check have replication value. As a separate claimed finding the frozen census adds no rank, stratum, or count beyond the matching all-algebra census, so it does not establish a distinct useful contribution on the present evidence.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

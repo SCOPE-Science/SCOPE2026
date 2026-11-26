@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The tensor basis has exactly one negative cardinal coefficient per coordinate half-interval, of magnitude at most \(1/8\). A one-dimensional positivity lemma handles every evaluation point having an upper-half coordinate. When both coordinates lie in the lower half, the two negative boundary strips share an upper-right dominating entry; their combined lower bound is \(-a-b-ab\), exactly \(-17/64\) at the witness. Reflection yields the upper bound. All quantifiers, closed-square boundaries, and both equality examples are included in the proof. The optional enumeration is a finite reproducibility check, not the source of the continuum theorem.
+## correctness
 
-## Originality
-**PASS on checked evidence; qualified by the access risk below.** The verified primary source Berrut–Trefethen develops the one-dimensional Lagrange formula and unrestricted Lebesgue constants, not a two-dimensional isotone-data range optimum. published-finding corpus searches on the nine-point tensor interpolation, coordinatewise monotonicity, and the fraction \(17/64\) returned nearby but different one-dimensional interpolation-defect results. The accessible published interpolation and projection claims compared during the literature review do not imply this sharp bivariate monotone bound. Floater–Peña (1998) is relevant to tensor-product shape preservation but its full text could not be examined; hence unknown equivalent quantitative coverage remains a material risk, not claimed absent.
+PASS
 
-## Mathematical value
-**PASS.** This is the exact worst-case data-range enclosure for the canonical global quadratic tensor-grid interpolation of isotone samples, a natural quantity when gridded data represent a positive monotone field. Its value is not obtained simply by adding the one-coordinate defect \(1/8\): the sharp bivariate defect is \(2(1/8)+(1/8)^2=17/64\), and the extremizer is an order-ideal complement, not an arbitrary sign pattern. The bound explicitly quantifies the difference between unconstrained interpolation and shape-constrained inputs and can be used as a tight positivity safety margin for this basic interpolation operator.
+The cardinal coefficients sum to 1 and on each half-interval at most one is negative, by at most 1/8. On the upper half, a single-axis interpolation of a monotone row can be written as its minimum plus two nonnegative increments, and lies in [0,9/8]; interpolating those values along the other axis bounds the result below by −9/64. When both half-intervals are lower, write the negative coefficients as −a and −b. The positive-positive interior may be discarded for a lower bound. Each entry multiplying a negative tensor weight is at most f₂₂; retaining the positive corner gives the bound −[a(1+b)+b(1+a)−ab]f₂₂≥−17/64. This covers the continuum and the boundaries. The data that are 1 on the top-index row or column and 0 elsewhere give equality at (1/4,1/4). Reflection in both coordinates and complement transfer the lower extremum to the upper one. Mixing either witness with (i+j)/4 gives strict data without changing the end range, and converges to the witnesses. Thus strict sharpness is limiting only. Affine normalization preserves both sharp constants.
 
-## Sources and limits
-Berrut–Trefethen, *SIAM Review* 46 (2004), §§2 and 9.1 (full text inspected); Floater–Peña, *Advances in Computational Mathematics* 9 (1998) (abstract only; full text inaccessible); Ouermi–Kirby–Berzins, arXiv:2204.06168 (abstract); published-finding corpus records listed in the structured audit. An independent audit has not been conducted, and unidentified equivalent work remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The strongest inspected matching indexed statements treat univariate cubic Lagrange interpolation, Jacobi projection or rational interpolation. The available full Floater–Peña paper studies different coefficients, bases and a different property. The exact isotone-data biquadratic nodal range, including its extremizers, is not covered by these or the standard unrestricted Lebesgue-constant calculation.
+
+## value
+
+PASS
+
+The standard uniform biquadratic reconstruction is a natural object for checking whether monotone grid data stay within range. The gain over the unrestricted envelope is numerically modest, but the sharp bound quantifies the required buffer (more than a quarter of the data range on each side), provides an explicit monotone witness and rules out fixing the defect by requiring strict nodal monotonicity alone. The exact coupled-data restriction and witness are useful where a shape- or range-preserving reconstruction is needed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

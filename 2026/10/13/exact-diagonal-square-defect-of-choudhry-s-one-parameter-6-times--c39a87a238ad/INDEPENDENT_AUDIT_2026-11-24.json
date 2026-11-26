@@ -1,0 +1,80 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:12:13.573451Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From the exchange-block structure both squared main diagonals collect the same six squares, the three diagonal entries of X and of Y. Checked the six polynomial vectors against Choudhry §3.1 p. 7 and expanded independently in exact polynomial arithmetic, subtracting 2[(t^4+30t^2+9)(t^2+3)^2]^2. The coefficient list gives the frozen factorization, with defect -45339266 at t=2. The six ordinary entries sum identically to zero, so both ordinary diagonals equal the zero row sum. Monicity implies any rational Q-root is integral; exact reduction gives Q(t) mod 3 = t^14 and Q(3t) mod 3^8 = 2187, excluding all roots, including t=0. The other factor t^2+3 cannot vanish over Q. In both diagonal-minus-row square sums for aM+bJ (J all ones), the linear and constant contributions cancel, leaving a² times the original defect; a=0 is expressly excluded. Replay recipe: transcribe x11,x22,x33,y11,y22,y33 from Eq. (3.17)'s coefficient vectors, compute sum(entry^2) minus twice F² by polynomial expansion, divide by -2(t²+3), and reduce the quotient and its t→3t substitution in the indicated residue rings. Frozen VERIFICATION.md and verify.py were inspected, not executed. No exclusion over algebraic extensions or for other order-six families.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Choudhry leaves general order-six parametrization open. A theorem excluding normal squares by definition restricts entries to the normal integer set, not to this rational polynomial family and every affine image."
+        ],
+        "reasoning": "Neither the open general existence problem nor the normal-square obstruction determines the rational zero set of this family. Pan et al.'s full text was not independently retrieved; the distinction uses the normal scope, not any further assertion about its proof.",
+        "searches": [
+          "arXiv:2610.00915v1, p. 14 concluding discussion",
+          "Pan–Li–Chen–Xin, Discrete Mathematics 344, 112292 (2021), cited normal-square scope"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.00915v1",
+        "Targeted Resultary and exact-expression literature lookups",
+        "Pan et al. citation at scope level only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general bimagic criterion supplies the condition but no polynomial factorization or rational-root certificate; Choudhry's report that no general parametrization was found is not a specializing nonexistence theorem."
+        ],
+        "reasoning": "The exact defect and arithmetic obstruction, not the source family or generic magic-square criterion, are the supported distinct content. Affine covariance is an elementary consequence rather than independent novelty.",
+        "searches": [
+          "arXiv:2610.00915v1, Eq. (3.17), block criterion and conclusion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The upgrade is equivalent to equality of the squared diagonal and common squared row, which yields an explicit rational-zero problem once the entries are substituted."
+        ],
+        "reasoning": "A generic pseudo-bimagic label or the general criterion does not assert that there are no exceptional rational specializations.",
+        "searches": [
+          "Resultary: Choudhry order-6 one-parameter pseudo-bimagic family, diagonal-square defect and rational specialization",
+          "arXiv:2610.00915v1, Lemma 2 and Eq. (3.17)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source's t=2 squared-row sum 100962050 provides a single-instance anchor, not the all-parameter factorization. The exact squared diagonal sum at that instance is 55622784."
+        ],
+        "reasoning": "A tabulated example cannot exclude exceptional rational parameters; no matching analytic certificate was identified in these comparisons.",
+        "searches": [
+          "Resultary and bounded exact-expression search: Choudhry 2610.00915 diagonal-square defect, t^14 and rational roots",
+          "arXiv:2610.00915v1 §3.1 numerical specialization"
+        ]
+      },
+      "rationale": "The checked source gives the family and the general diagonal criterion, not the evaluation of that criterion on this family or exclusion of every rational zero. The bounded comparisons found no equivalent prior exclusion. The normal-square obstruction does not apply to these arbitrary rational entries. The rational restriction belongs to the present claim, not an explicit restriction at the inspected display in Eq. (3.17).",
+      "residual_risks": [
+        "The search is bounded and the motivating paper is recent; an unindexed calculation or specialization argument may exist. Separate Pan et al. OA retrieval did not yield full text and is not used for a stronger coverage claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the family and criterion; no all-rational exclusion in the compared statements",
+          "evidence": [
+            "Ordinary row sum zero; squared row sum 2F². Conclusion leaves order-six parametrization for future work."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.00915v1",
+          "material_read": "§3.1 p. 7 Eq. (3.17), PDF text offsets about 22812–26786; p. 14 conclusion near offset 49515; block criterion",
+          "method": "OA primary full text, separate coefficient transcription and exact expansion",
+          "title": "Construction of parametrized families of general pseudo-bimagic and bimagic squares",
+          "trigger": "Defines the exact family and the squared diagonal upgrade criterion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Whether the new explicit order-six pseudo-bimagic construction can be upgraded by specializing its parameter is an immediate and motivated question, particularly because general order-six parametrization remains open in the motivating paper. The exact invariant closes this route for all rational points, not just generic or small integers, and explains why affine normalization cannot help. This is a family-specific obstruction, not nonexistence of order-six bimagic squares.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

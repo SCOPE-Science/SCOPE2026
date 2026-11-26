@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:35:05.655152Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:3–42, check.py, check_output.txt and VERIFICATION.md; supplied code inspected but not executed",
+        "Repaired RESULT.md and associated prose",
+        "Independent GF(4) replay: python3 /tmp/opencode/check_braces_gf4_79999940ec88.py"
+      ],
+      "rationale": "Rechecked the repaired theorem over each finite field. Column r+1 is an invariant r-space on which L_a acts by a_r; binomial Frobenius gives ker((I+L_a)^(p^s)−I) as the direct sum of the kernels of a_r^(p^s). Every cycle length is a power of the characteristic p. Subtracting consecutive fixed-point totals counts the points on cycles of precisely the new length. The image group is identified by the circle homomorphism a→I+a and its faithful largest corner, with kernel exactly the last column. The first t basis vectors (or all r if t≥r) give the lower bound on each power's nullity. Equality at t=1 forces regularity in every corner, and the unique longest-path product in the largest corner is nonzero precisely when the n−2 required entries are all nonzero. This forces every smaller corner to be regular as well and gives the claimed simultaneous minima, the staircase Jordan type, and the proportion. For n=2 the action is trivial and the regularity condition is empty. Direct cycle tracing in GF(4) matched the predicted iterated fixed counts on all points for every principal corner at n=2,3,4 (1,4,64 corners, respectively). This supplements, rather than replaces, the field-uniform proof.",
+      "residual_risks": [
+        "No formal or expert verification claimed. The finite check covers small dimensions over one extension field; other fields and dimensions are established by the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yip and Fuchs–Kirillov count triangular matrices by the Jordan type of one matrix. b59c81367d35 treats the different linear operator Y↦[X,Y], with first-superdiagonal criteria."
+        ],
+        "reasoning": "Even the full quotient-corner Jordan type does not determine the cycle law. For n=4 the corners of size three of E12 and E23 have the same Jordan type, but their smaller-corner ranks differ and give respectively q^4 and q^5 fixed points. The ambient count and adjoint chain results do not yield this invariant.",
+        "searches": [
+          "arXiv:1703.00057 Jordan-type formulas; arXiv:2204.00066 ambient triangular Jordan types",
+          "Resultary b59c81367d35 adjoint Jordan chains"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 79999940ec88 (self-match), 1ec57ea01e67, 10a296ae216c, 8a8009d68c81, b59c81367d35",
+        "arXiv:1703.00057, 1511.03171, 2204.00066 and Rump (accessible material)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original quotient at n=r+2 is UT_(r+1); multiply its regular nilpotent count by q^(n−1), the size of the kernel. The p^0 case is the one-entry additive group. General brace axioms give a homomorphism but do not give the individual fixed-point minimum or its locus."
+        ],
+        "reasoning": "The order-jump overlap is a direct implication, not a speculative near-match. The corrected proof adds the invariant-column decomposition and sharp simultaneous estimates for the actual representation; they are not recovered from group order alone.",
+        "searches": [
+          "Actual Finding and proof of Resultary 1ec57ea01e67",
+          "Yip pp. 2–3, Corollary 3.9; Guarnieri–Vendramin §§1, 5.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact individual-permutation match is frozen record 79999940ec88 itself. Resultary 10a296ae216c and 8a8009d68c81 respectively count and sample orbits under the full action group, not cycles of one element."
+        ],
+        "reasoning": "An orbit under the full group combines action by different group elements; it is not a cycle under one chosen generator. A general definition of lambda also does not specify this direct-sum representation or its sharp fixed loci.",
+        "searches": [
+          "Resultary: individual lambda cycles, unipotent corner ranks, p-power fixed sets, regular corners",
+          "arXiv:1511.03171 canonical lambda and radical-ring action"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact maximizer probability (1−1/q)^r at UT_(r+1), r=p^k≥2, appears in 1ec57ea01e67; Yip's ambient Jordan-type count determines the same regular stratum. Neither tabulates or computes each lambda's fixed sets."
+        ],
+        "reasoning": "Count equality for the original order-jump statistic is real coverage and expressly credited in the repaired text. No distinct matching individual-cycle or fixed-point table was located in the inspected material.",
+        "searches": [
+          "Resultary: triangular brace fixed-point counts, exact action-cycle populations and n=p^s+2 order counts",
+          "Resultary 1ec57ea01e67 and Yip's F_lambda counting formulas"
+        ]
+      },
+      "rationale": "For the repaired statement only, no inspected source establishes all individual permutation cycles via simultaneous northwest-corner powers and their sharp fixed-point locus. General action and Jordan identities are credited. This assessment excludes the original independent novelty claim for the order-jump count.",
+      "residual_risks": [
+        "No estimate of within-day priority; the exact group-level overlap is credited on mathematical grounds.",
+        "The Rump full text was not retrieved. Unlocated equivalent formulas for the direct-sum flag representation remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact group-level overlap with frozen jump; stronger one dimension above",
+          "evidence": "States (1−1/q)^r for the preceding dimension r+1, r=p^k, k≥1, and classifies second-superdiagonal strata at r+2.",
+          "identifier_or_url": "Resultary 1ec57ea01e67",
+          "material_read": "RESULT.md Finding and beginning of proof, offset 0; Related Work offset 6500",
+          "method": "Local published record text",
+          "title": "Borel-stable root-zero strata of maximal-order elements just beyond a unitriangular exponent threshold",
+          "trigger": "Exact quotient group and first order-jump count"
+        },
+        {
+          "assessment": "Covers the ambient regular count; not simultaneous corner statistics",
+          "evidence": "Counts upper-triangular nilpotent matrices by prescribed Jordan partition; order p^(s+1) for the relevant dimension is the one-block partition.",
+          "identifier_or_url": "https://arxiv.org/abs/1703.00057",
+          "material_read": "Abstract, pp. 2–3 offset 7400 and Corollary 3.9 locator on p. 21",
+          "method": "OA PDF passages",
+          "title": "Rook placements and Jordan forms of upper-triangular nilpotent matrices",
+          "trigger": "Stronger group-level count by Jordan type"
+        },
+        {
+          "assessment": "Foundational construction, not the claimed corner-rank law",
+          "evidence": "Defines the lambda homomorphism; the radical-ring law is a+b+ab.",
+          "identifier_or_url": "https://arxiv.org/abs/1511.03171",
+          "material_read": "§1 p. 4 offset 10800 and §5.3 p. 11 offset 32600",
+          "method": "OA PDF passages",
+          "title": "Skew braces and the Yang–Baxter equation",
+          "trigger": "General brace actions and radical-ring construction"
+        },
+        {
+          "assessment": "Counts ordinary ambient types, not the joint type of all corners",
+          "evidence": "Studies the number of strictly upper-triangular matrices of each Jordan type.",
+          "identifier_or_url": "https://arxiv.org/abs/2204.00066",
+          "material_read": "PDF abstract p. 1",
+          "method": "OA PDF scope passage",
+          "title": "Jordan types of triangular matrices over a finite field",
+          "trigger": "Ambient Jordan-type distribution"
+        },
+        {
+          "assessment": "Full-group orbits, not individual cycles",
+          "evidence": "Transfer law for group orbit-size counts and a typical-size law under sampling distinct orbits, respectively.",
+          "identifier_or_url": "Resultary 10a296ae216c and 8a8009d68c81",
+          "material_read": "Both RESULT.md Findings, offset 0",
+          "method": "Local published record text",
+          "title": "Logarithmic defect of typical lambda-orbit sizes in unitriangular braces and one-quarter exponent law for sampled lambda-orbits",
+          "trigger": "Same family with superficially equivalent orbit vocabulary"
+        },
+        {
+          "assessment": "Different adjoint operator",
+          "evidence": "Largest Jordan chains of Y↦[X,Y], not of I+L_X.",
+          "identifier_or_url": "Resultary b59c81367d35",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published record text",
+          "title": "Lucas congruences govern maximal adjoint Jordan chains in niltriangular algebras",
+          "trigger": "Same matrices and superdiagonal criteria for an action"
+        },
+        {
+          "assessment": "Classical background credited, full-text coverage not ruled out",
+          "evidence": "Accessible material concerns the foundational construction, not direct evidence on individual triangular action cycles.",
+          "identifier_or_url": "Rump, Journal of Algebra 307 (2007), 153–170",
+          "material_read": "Landing/abstract only; full text not recovered",
+          "method": "OA attempt; checked Guarnieri–Vendramin's accessible relevant passages separately",
+          "title": "Braces, radical rings, and the quantum Yang–Baxter equation",
+          "trigger": "Original brace background, plausible action precedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md: Finding, proof and contrasting E12 and E23 example",
+        "Ambient Jordan-type sources and whole-group orbit comparators"
+      ],
+      "rationale": "The cycle type of an individual canonical brace permutation is a natural invariant that does not reduce to the order or ordinary Jordan type of the faithful quotient element. The repaired classification lets a researcher compute this type from the matrix itself, without traversing q^D additive points, and gives the full equality locus and density for the sharp fixed-point bound. This is meaningful even though the linear algebra used in the proof is elementary and the order statistic alone is already known.",
+      "residual_risks": [
+        "No full distribution of cycle types over a, or whole-solution Yang–Baxter orbit result, is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:42:51.596118Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–35",
+        "VERIFICATION.md lines 19–20 and verify.py lines 5–105 (inspected, not executed)",
+        "Almiñana–Pelaitay–Zuluaga arXiv:2212.14756, Def. 4.1 and Thm. 4.4",
+        "Independent replay: python3 /workspace/branches/check_1_independent.py"
+      ],
+      "rationale": "On the fixed (n+1)-element algebra the Esakia dual has n points. The finite form of the published representation uses closed fibers (automatic), convex rows, and four upset-preserving tests in both row and column directions. Taking the empty and full input upsets makes each of the two complementary sets of empty and nonempty rows an upset; hence a nonempty relation has no empty row, and likewise no empty column. The tests against thresholds {t,…,n−1} are exactly that the minimum and maximum fiber entries are each nonincreasing. With such row endpoints, a column is a prefix (by its upper-endpoint condition) intersected with a suffix (by its lower-endpoint condition); if nonempty, its endpoints are also nonincreasing as the column index increases. Having no empty column is equivalent to the two extreme endpoints and the no-gap inequality ℓ_i≤u_(i+1)+1. Transpose swaps the two row/column pairs of operators; dual uniqueness on the fixed ordered chain gives the symmetry equivalence. If a missing cell lies below the row minimum, the minimum cell is present and its transpose provides an upper endpoint bound showing the transposed missing cell cannot be above its row maximum. Reversing the inequalities proves the corresponding property above the row maximum. Thus the two missing corners separately have transpose symmetry. The n possible odd distinct diagonal hook lengths give 2^n choices for either symmetric corner, hence Q_n≤1+4^n. Independently placing the endpoints on opposite sides of the antidiagonal yields two Catalan staircase choices and enforces the adjacent no-gap condition. This proves T_n≥1+C_n², also at n=1, and Stirling gives the stated O(n³/4^n) ratio. A fresh program counts symmetric shape pairs and counts all upper boundaries after fixing each lower boundary, reproducing all given counts through n=8; a binary-matrix sweep through n=4 independently cross-checked those counts.",
+      "residual_risks": [
+        "This proves an upper bound, not an exact equivalent; only the finite checks compare with numerical data. The appendix's unary-operator sweep was inspected, not independently replayed; the unrestricted result follows from the representation and proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cited primary theorem supplies all tense-space relations and operator swaps from R to its converse",
+          "Resultary 91104bbb4fe7 provides the chain-specific model and reduct/fiber counts; nearby f1e0f9b64170 treats a different class of endpoint-monotone relations"
+        ],
+        "reasoning": "The stronger general representation and the exact related counts are structural inputs or different enumerations. They do not by themselves specify the transpose-fixed relations or the claimed growth comparison.",
+        "searches": [
+          "Almiñana–Pelaitay–Zuluaga, Theorem 4.4",
+          "Resultary: inverse fibers and endpoint conditions for finite negative-tense Gödel chains"
+        ]
+      },
+      "checked_sources": [
+        "ArXiv:2212.14756",
+        "Resultary 91104bbb4fe7 and f1e0f9b64170",
+        "OEIS A026641",
+        "Bibliographic record for Disanto et al. (2008)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general indexed parameterization counts fibers of forgetting operators, not fixed points of the simultaneous transpose swap",
+          "The OEIS supplies no inspected identification between one of its models and the tense relations; it does not bound the ratio of symmetric to all expansions"
+        ],
+        "reasoning": "Separating two transpose-fixed corners uses the interval endpoint witness, and the ratio bound also needs an independent lower bound on all relations. These are not substitutions into the retrieved results. Standard Catalan and hook enumerations are not themselves novelty claims.",
+        "searches": [
+          "Resultary: conjugation-invariant Ferrers shapes and time reversal of negative tense operators",
+          "91104bbb4fe7 Finding and Proof §§1–6",
+          "OEIS A026641 interpretations and formulas"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "91104bbb4fe7 imposes a_i≤b_i and b_(i+1)≥a_i−1 on the same endpoint arrays",
+          "The audited no-gap inequality allows edge-disconnected shapes meeting only at corners, such as the antidiagonal permutation matrix; ordinary connected polyomino objects do not directly account for all such relations"
+        ],
+        "reasoning": "The algebra/space descriptions and general indexed endpoint descriptions are equivalent. The extra transpose restriction has to be analyzed, and no demonstrated prior convex-shape equivalence for that restriction was retrieved. The inaccessible permutomino paper remains relevant to the numeric coincidence.",
+        "searches": [
+          "Resultary: finite-Gödel-chain negative tense endpoint sequences and transpose-fixed Ferrers corners",
+          "Almiñana–Pelaitay–Zuluaga arXiv:2212.14756, Ex. 2.2 and Def. 4.1",
+          "Disanto et al., The Combinatorics of Convex Permutominoes, title and lawful-access searches"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The OEIS lists 1,1,4,13,46,166,610,2269,8518 from index zero, counting even-outdegree vertices in plane trees, and includes paths using (1,0),(0,2),(1,1)",
+          "At n=1,…,8 the independent symmetric counts minus the empty relation are exactly a(n)"
+        ],
+        "reasoning": "The substantial numeric coincidence warrants credit and is not an index shift of the complete Q_n sequence. It is not an identification of the theorem with the OEIS models or proof of all-indices equality.",
+        "searches": [
+          "https://oeis.org/A026641 and /A026641/internal",
+          "Resultary: A026641; transpose symmetry and finite tense counts"
+        ]
+      },
+      "rationale": "Passes for the transpose-fixed corner criterion and exponential proportion bound, not for the published duality, the general endpoint model, or the numerical sequence. A distinct indexed inverse-fiber result gives exactly the same general endpoint classification. OEIS A026641 matches the nonempty time-symmetric counts in the tested range, not Q_n without the +1; an all-n equivalence was not established by the inspected sources.",
+      "residual_risks": [
+        "Convex-matrix or polyomino literature may give an equivalent description; the most plausible linked permutomino title was not available in full text. No claim of absolute priority or all-indices OEIS identity. Same-day indexing does not settle priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the representation, not the symmetry-specific result",
+          "evidence": [
+            "Axioms T1–T8; relation and converse tests; closed and convex fibers and clopen upset preservation; dual equivalence"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2212.14756",
+          "material_read": "Def. 2.1 p. 3; Ex. 2.2 p. 4; Def. 4.1 p. 14; Thm. 4.4 p. 21",
+          "method": "OA PDF passage comparison",
+          "title": "On Heyting algebras with negative tense operators",
+          "trigger": "Exact representation and axiom hypotheses"
+        },
+        {
+          "assessment": "Direct overlap on the endpoint normal form and several total counts, not on the principal symmetry and rarity conclusions",
+          "evidence": [
+            "Same fixed chain, intervals and adjacent no-gap inequality; single-operator reduct and fiber results"
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-inverse-fibers-of-negative-tense-modalities-on-finite-g-del-chai--91104bbb4fe7",
+          "material_read": "RESULT.md Finding and Proof §§1–6",
+          "method": "Resultary local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Inverse fibers of negative tense modalities on finite Gödel chains",
+          "trigger": "Exact general endpoint match"
+        },
+        {
+          "assessment": "Matching integers for the tested nonempty subfamily, but different interpretations with no proved all-n identification in the inspected text",
+          "evidence": [
+            "Even-outdegree node total; lattice-path interpretation; sum of products of binomial coefficients"
+          ],
+          "identifier_or_url": "https://oeis.org/A026641",
+          "material_read": "Terms, offset, comments, formulas and links, main page offsets 390–4260 and formula passage; internal entry locating permutomino reference",
+          "method": "OA public-page and internal-entry comparison",
+          "title": "A026641",
+          "trigger": "Exact initial numeric match after removing the empty relation"
+        },
+        {
+          "assessment": "Unresolved possible combinatorial overlap; no whole-paper exclusion claimed",
+          "evidence": [
+            "The bibliographic description concerns convex, directed-convex and parallelogram permutominoes; the audited matrices may be edge-disconnected"
+          ],
+          "identifier_or_url": "Disanto–Frosini–Pinzani–Rinaldi, Southeast Asian Bull. Math. 32 (2008), 883–912; https://usiena-air.unisi.it/handle/11365/10511; https://flore.unifi.it/handle/2158/354331",
+          "material_read": "OEIS reference and bibliographic/abstract search evidence only; linked publisher PDF and alternate institutional routes unavailable",
+          "method": "OA direct/VPN retrieval attempts and exact-title search for alternate lawful copies",
+          "title": "The Combinatorics of Convex Permutominoes",
+          "trigger": "OEIS link and a possible convex-shape reformulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 3–12 and 19–32",
+        "Resultary 91104bbb4fe7",
+        "OEIS A026641"
+      ],
+      "rationale": "For a natural involution of a fixed finite operator class, the result both gives an explicit combinatorial description of its fixed subfamily and proves that time reversal is exponentially atypical. This is a qualitative asymptotic statement not supplied by the endpoint census alone, with an explanation via independence of the two unconstrained staircase choices versus the constraints on two self-conjugate boundaries.",
+      "residual_risks": [
+        "No exact asymptotic equivalent or exact all-n count, and no assertion for other finite Heyting algebras."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

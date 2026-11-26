@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:16:07.941974Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Only directed cycles of length three are forbidden. Free amalgamation and homogeneity identify types with admissible ternary assignments. Independently of the Hölder proof, on each fixed support encode + as 1 and − as 0. For each old arrow u→v the constraint is x_u≤x_v. The zero set is an ideal in the reachability poset after collapsing strongly connected components, and each ideal is determined by its antichain of maximal components. Choosing one fixed representative from each component sends those antichains injectively to independent sets of the supported undirected graph. For a coherent biclique reachability consists just of edges, so every independent set is attained: 2^p+2^q−1. A noncoherent nonempty biclique has an incident pair with opposite direction bits (its line graph is connected), hence a directed two-edge path whose two leaves are an independent set that cannot occur together in the antichain image. This also gives strictness on every larger support containing that path. The cubic calculation is four sign choices on a mixed star versus five on a pure star, and no other three-vertex support loses any choices. Degrees 0–2 and the 1-by-1 case agree with the polynomial. For the random model, conditioning on A statuses of counts p,q gives expected B factors 1+2^{-p}+2^{-q}, independent across B vertices. With h=ceil(3 log_2 n), each of p=0 and q=0 contributes 4^n(1+O(n^{-2})), and the intersection is 3^n. For p,q positive: both large contribute O(3^n); one small and one large contribute at most (3+o(1))^n exp(O(log^2 n)); both small contribute at most 2^n exp(O(log^2 n)). The deterministic lower bound 2·4^n−1 and the resulting O(n^{-2}) bound on expected relative excess yield L1 and almost-sure convergence without cross-size independence. The supplied code and finite output were inspected, not executed; they serve as finite checks rather than proof of the limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hatami treats heterogeneous edge functions on a weakly Hölder graph; Galvin–Tetali compare various source graphs for a fixed weighted homomorphism target.",
+          "9a13fca87a16 uniquely maximizes the number of homomorphisms to the strict three-level transitive target at the two source–sink orientations of any connected bipartite graph."
+        ],
+        "reasoning": "Hatami covers the supportwise non-strict comparison. Galvin–Tetali do not vary edge kernels this way. The strict-target condition from 9a13fca87a16 forbids equal-level adjacent images and is not the two-state implication compatibility used on a support here. None of these broader comparisons gives the random law in question.",
+        "searches": [
+          "arXiv:0806.0047 Theorem 2.9(ii)",
+          "arXiv:1206.3160 Propositions 1.2, 1.8 and 1.10",
+          "Resultary 9a13fca87a16"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verification_output.txt",
+        "arXiv:0806.0047",
+        "arXiv:1206.3160",
+        "Resultary 6d8ac156470a, 9a13fca87a16 and indexed poset analogue 698050a8acf9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "6d8ac156470a uses the same coherent orientation idea but it allows only the cyclic completion of a supported edge, whereas the reviewed problem disallows only that completion.",
+          "In 9a13fca87a16 a directed two-edge star has one strict map to T_3, whereas here it has four supported sign assignments.",
+          "Hatami yields a norm inequality, not a formula counting the loss over supported triples or the typical random count."
+        ],
+        "reasoning": "The neighboring same-day results are material comparisons but do not imply the reviewed strict graded or random assertions. Equal posting dates establish no priority order.",
+        "searches": [
+          "6d8ac156470a frozen RESULT.md lines 24–56",
+          "9a13fca87a16 RESULT.md offset 0",
+          "arXiv:0806.0047 §2.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Full support gives ideals of the directed reachability poset on components; with optional support the polynomial can alternatively count independent sets of a conflict graph on sign literals.",
+          "The poset matches include Resultary 698050a8acf9 on graded collisions for height-constrained posets, not the directed constraints on random bicliques.",
+          "Hatami's complete-bipartite weak Hölder inequality applies to the compatibility kernels."
+        ],
+        "reasoning": "These changes of representation preserve the count. The standard antichain correspondence bounds each support and explains equality, but doesn't specify the size-three deficit or the first moment and limit for fair random edge directions.",
+        "searches": [
+          "Resultary: implication poset, order ideals and graded one-point types",
+          "Resultary: oriented-biclique one-point spectrum and random orientation counts",
+          "arXiv:0806.0047 §2.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The material indexed matches are the frozen record itself, 6d8ac156470a (a different triangle constraint) and 9a13fca87a16 (a different target and statistic). The frozen expectations 8, 417/8 and 73841/256 are its own finite checks."
+        ],
+        "reasoning": "A finite table is not the claimed all-size equality/strictness and almost-sure asymptotic, though an existing exact formula could imply them; no inspected source supplies such a formula for this count.",
+        "searches": [
+          "Resultary: complete-bipartite orientations, one-point spectra and random asymptotics",
+          "Resultary: graded one-point poset types",
+          "frozen verification_output.txt"
+        ]
+      },
+      "rationale": "Pass the exact graded deficit profile and fair-random limit in this fixed-biclique type problem to the best of current knowledge. Neither weak Hölder on bicliques nor the standard ideal–antichain correspondence is new, and the latter makes the basic supportwise extremum a short deduction. The checked prior statements do not supply the graded cubic deficit together with the random count and its asymptotic law.",
+      "residual_risks": [
+        "An unindexed directed-ideal, independent-set or spin partition-function result might cover more of the graded theorem or random asymptotics. The comparison is bounded, not a priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers the non-strict support comparison, not the rest",
+          "evidence": "Every complete bipartite graph is weakly Hölder.",
+          "identifier_or_url": "https://arxiv.org/abs/0806.0047",
+          "material_read": "§2.4 p. 6, Definition 2.7, inequality (8), Theorem 2.9(ii), extracted offset 22000",
+          "method": "Primary OA text",
+          "title": "Graph norms and Sidorenko’s conjecture",
+          "trigger": "General biclique partition-function inequality with different edge kernels"
+        },
+        {
+          "assessment": "Different optimization variable",
+          "evidence": "Bounds homomorphism counts from regular or biregular graph sources; not a law for randomized edge directions on one fixed source.",
+          "identifier_or_url": "https://arxiv.org/abs/1206.3160",
+          "material_read": "pp. 2 and 4, Propositions 1.2, 1.8 and 1.10, offsets 3600 and 9850",
+          "method": "Primary OA text",
+          "title": "On weighted graph homomorphisms",
+          "trigger": "Related bipartite extremal theorem"
+        },
+        {
+          "assessment": "Different triangle prohibition and narrower base family",
+          "evidence": "The cyclic completion is the sole permissible one; its minimum is governed by three-row balances and there is no random limit.",
+          "identifier_or_url": "6d8ac156470a",
+          "material_read": "Frozen RESULT.md lines 3–73",
+          "method": "Assigned frozen source after local index match",
+          "title": "Coefficientwise extremality and mod-six balanced orientations of complete bipartite one-point type bases",
+          "trigger": "Same-day biclique type polynomial with coherent maximizers"
+        },
+        {
+          "assessment": "Parallel extremum of a different count",
+          "evidence": "Strict homomorphisms to an unlooped transitive tournament, with middle-level weight and a factor-1/2 gap, not optional-support directed-cycle completions.",
+          "identifier_or_url": "9a13fca87a16",
+          "material_read": "RESULT.md offset 0 through 2962, Finding and scope",
+          "method": "Local mirror",
+          "title": "Middle-fibre independence polynomials and a sharp orientation gap for three-level targets",
+          "trigger": "Same-day coherent-orientation extremum and independence-polynomial conversion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The basic extremal comparison alone is an elementary consequence of standard ideas. The exact first deficit identifies the obstruction as a directed two-edge path; the same witness makes the deficit strict at every larger degree. More importantly, the universally admissible one-sign assignments asymptotically account for the whole count on fair random bases, even almost surely under arbitrary couplings across sizes. This pins down a natural typical scale and its exponential separation from the coherent extremum, rather than reporting only small-matrix counts.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

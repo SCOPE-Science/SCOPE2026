@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The cubic collocation matrix is obtained from the stated clamped knots and Greville sites. The standard B-spline total-nonnegativity and oscillatory-matrix criterion give real simple positive eigenvalues; strict substochasticity bounds them below one. The two parity equations are derived by exact elimination, and both root counts are proved by explicit strictly signed derivatives. The exceptional band-edge solution occurs precisely at eight cells. A simple-root expansion gives the exact exponential splitting. The packaged checker corroborates the identities and finite examples, but is not treated as a proof of the infinite statement.
+## correctness
 
-## Originality
-**PASS with historical-priority risk.** The February 2014 Nagler–Cerejeiras–Forster preprint provides broad spectral constraints and explicitly leaves individual spline-operator eigenvalues unknown. The December 2013 Nagler–Kähler paper treats iteration and smoothness, not cubic boundary modes. A later published study of generalized B-spline isogeometric eigenproblems concerns stiffness-collocation matrices rather than this positive Greville averaging matrix. Similar periodic cubic-spline collocation results concern singular values and periodic meshes. The previously computed quadratic case does not imply the cubic outlier transition. An unindexed specialized result may still predate this analysis.
+PASS
 
-## Value
-**PASS.** This is the first degree in which a cubic cardinal band and nontrivial clamped boundary collars coexist, and it supplies a sharp finite-grid threshold, a natural algebraic limit, and quantitative boundary interaction. The eight-cell transition is not a routine rescaling or a single unmotivated numerical invariant; it distinguishes distinct spectral regimes relevant to spline collocation conditioning and boundary-mode analysis.
+The exact Greville block is oscillatory: total nonnegativity, strict diagonal dominance and positive adjacent entries give simple positive eigenvalues. Its substochastic irreducible block loses mass at the endpoints, so the two identity endpoint rows contribute exactly the two eigenvalues at 1. Eliminating the collar and reflecting the interior solution r^k plus or minus r^(n-2-k), r=-s, gives the two stated equations, with no division by a vanishing boundary pivot in the subband. The positive-p/q equation has a single crossing by strict monotonicity. On (s*,1), the ordinary ratio (-p/q)/s^(n-1) starts at zero and ends at one (its logarithm does not); the sign of its derivative is the sign of K-(n-1), where K strictly decreases to 7. This gives no interior crossing for n<=8 and one for n>=9. At the repeated root -1, the alternating affine envelope over positions 2 through n has slope -A/3, and the reflected condition requires its final value to be -A; hence n-2=6. For splitting, bracket each root between s* and s* plus or minus M s*^(n-1), with fixed M>q(s*)/(-p'(s*)); Taylor expansion at that scale supplies the stated remainder and positive constant. The reflected exponential envelopes decay from the boundary collars. No material mathematical correction needed.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Credit the standard spectral framework, known collocation matrix and shared boundary reduction. The distinct supported claim is the exact lower-edge transition, accumulation point and normalized two-mode splitting. No inspected earlier or same-day distinct result states or mechanically implies that package.
+
+## value
+
+PASS
+
+The cubic cardinal lower band edge is a natural benchmark. The exact finite boundary for an extra localized mode, the limit strictly outside the band, and a nonzero sharp separation prefactor distinguish clamped from translation-invariant behavior and are useful for spectral stability diagnostics. This is not a finite list of eigenvalues or a restatement of the upper iteration-gap result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

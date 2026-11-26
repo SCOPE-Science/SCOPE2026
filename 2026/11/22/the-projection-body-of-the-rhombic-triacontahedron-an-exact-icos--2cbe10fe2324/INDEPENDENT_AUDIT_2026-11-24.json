@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:55:31.643521Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The area formula for planar zonotopes gives support ∑|u·(v_i×v_j)|, hence segments [-c,c]; the factor 8 in the volume is required. Independent exact replay: work in integer pairs (A,B)=A+Bφ with φ²=φ+1, form each determinant as a scalar triple product, and compare (2A+B)+B√5 to zero by signs and squared magnitudes. The 20 source minors have 10 each of 2φ and 2+2φ. The 455 image minors have absolute values 0,4φ²,4φ³,4φ⁴,8φ³ with multiplicities 70,100,180,100,5. Sum these and multiply the second sum by 8 to obtain the claimed volumes and ratio. Checking the 105 image generator pairs gives 31 unoriented normal lines with 15/10/6 perpendicular direction sets of sizes 2/3/5 and exactly the stated pairwise absolute cosines. Equal-length distinct generators at these planar angles give regular 4-, 6- and 10-gons. Independently the 30 signed image generators are the six axial vectors of length 2φ and all sign choices of cyclic permutations of (φ²,φ,1); divided by 2φ these are the unit H3 roots, yielding the uniform truncated icosidodecahedron. Doubling opposite facet counts gives 30/20/12 faces and then 180 edges and 120 vertices by double incidence and Euler. The original axes are opposite vertex-pairs of a regular icosahedron; no three are coplanar, and the generator pairs give congruent golden rhombi. The exact metric statements use the displayed normalization; affine covariance preserves the quotient but not face regularity under general affine changes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Saroglou gives the general zonotope projection-volume determinant formula and zonoid bound 8. Calvo's characteristic-zero H3 reflection arrangement has 15, 10 and 6 double, triple and quintuple points."
+        ],
+        "reasoning": "The general formula covers the method but gives no real determinant partition without an additional comparison and computation; the upper bound gives neither the exact quotient nor the deficit. Arrangement multiplicities already explain the number of facet-normal lines and the 70 dependent triples, but not the magnitudes or multiplicities of independent triples.",
+        "searches": [
+          "arXiv:1409.4347, §3, eqs. 8 and 10–12",
+          "DOI:10.1112/S0025579311001860",
+          "arXiv:2209.01499, Remark 2.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1409.4347",
+        "Eppstein's generator tables",
+        "Resultary c9c0a9f0a98b",
+        "arXiv:2209.01499",
+        "MathWorld solid entries",
+        "DOI 10.1112/S0025579311001860 (access unsuccessful)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known generators, area support and volume formulas make the named-solid correspondence accessible by a short coordinate check. The earlier H3 certificate reuses essentially the same determinant arithmetic, but accumulates only field norms in a different generator normalization."
+        ],
+        "reasoning": "Once the image is matched to known generators, its constituent volume and face vector are not separate novel results. The metric nonzero multiplicities do not follow by rescaling that published norm table, nor by looking up the solid's volume; one must reclassify at real absolute values with the correct per-generator scale. No inspected theorem or table gives that sharpened distribution or states the projection-body identity in this model.",
+        "searches": [
+          "Eppstein, Zonohedra and Zonotopes, offsets 11956–12700",
+          "arXiv:1409.4347, page 7",
+          "Resultary c9c0a9f0a98b, Proof Steps 1–2 and determinant loop"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Eppstein lists both generator sets separately. The 15 cross products divided by φ agree with his truncated icosidodecahedron generators after a coordinate swap and choices of signs.",
+          "Resultary c9c0a9f0a98b specifies axes of length 1 and 12 primitive mixed normals of length 2, cyclic permutations of (1,φ,φ−1) with line signs."
+        ],
+        "reasoning": "A coordinate reflection/permutation and rescaling the axes by 2φ and mixed normals by φ identify the earlier projective line arrangement with these cross-product directions. Thus the projective incidence class and zero determinants agree, not a new rank-two flat census. The correspondence between projection bodies uses the prior determinant formula but still needs the specific cross-product match. The earlier primitive norm tally does not encode indexed length-rescaling or real values.",
+        "searches": [
+          "Resultary: H3 noncrystallographic Coxeter root system rank-three golden ratio determinant multiplicity, 15 icosahedral root lines, 455 3-minors volume distribution 70 100 180 100 5",
+          "Eppstein, Zonohedra and Zonotopes, generator sections for the two solids"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier arithmetic table counts absolute field norms 0,1,4,16,64 with frequencies 70,37,156,188,4, retaining only absolute field norm in its supporting certificate. The uniform-solid tables document the classical solid geometry and provide volume formulas for the two named solids. The direct catalogue match 2cbe10fe2324 is the assigned record itself."
+        ],
+        "reasoning": "The norm census does not determine the real metric spectrum (even after equal-length rescaling, the magnitudes 4/φ and 4φ at the scale c/φ have the same absolute norm). The solid tables can provide the scalar volume check after identifying the similarity and edge scale, but not the 455 real absolute minors.",
+        "searches": [
+          "Resultary c9c0a9f0a98b, Proof Step 1 and verify_icosahedral_reduction.py",
+          "MathWorld: Rhombic Triacontahedron and Great Rhombicosidodecahedron",
+          "Resultary: projection body of the rhombic triacontahedron exact icosahedral determinant spectrum"
+        ]
+      },
+      "rationale": "The surviving contribution claimed in the record is the concrete unpolarized projection-body correspondence and the exhaustive real metric triple spectrum in that normalization. The zonotope operator formula, the solid's face data and edge-normalized solid volumes are classical. The ratio is a short evaluation once the correspondence and scale are identified, not an independent advance on the bound. A particularly close earlier certificate computes the exact arithmetic norm census of the same projective H3 arrangement and its incidence counts; it does not determine the normalized real absolute determinant frequencies from its stated data.",
+      "residual_risks": [
+        "The 2011 full text was unavailable. Specialized root-system or polyhedral tables may contain the metric triple spectrum.",
+        "The projection identity follows from known formulas and an explicit short coordinate comparison; the volumes and geometric face counts of the named solids should not be claimed as independently novel."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classical reduction and bound, not the specific spectrum",
+          "evidence": "Defines the ratio, states P(K)≤8 for three-dimensional zonoids, and evaluates projected zonotope volume via determinant sums.",
+          "identifier_or_url": "arXiv:1409.4347",
+          "material_read": "Definition and affine invariance pp. 2–3; §3 volume/projection formulas, p. 7",
+          "method": "Open-access PDF offsets 4220, 9000 and 21900",
+          "title": "On the shape of a convex body with respect to its second projection body",
+          "trigger": "General volume formulas and bound"
+        },
+        {
+          "assessment": "Both generator sets are known; short specific comparison, no real triple census",
+          "evidence": "Six and fifteen generators respectively, with the latter organized in five orthogonal triples.",
+          "identifier_or_url": "https://ics.uci.edu/~eppstein/junkyard/ukraine/ukraine.html",
+          "material_read": "Rhombic triacontahedron and truncated icosidodecahedron entries",
+          "method": "Public webpage, offsets approximately 11956–12700",
+          "title": "Zonohedra and Zonotopes",
+          "trigger": "Generator tables potentially imply the named match"
+        },
+        {
+          "assessment": "Substantial overlap of arrangement and enumeration; a different exact invariant",
+          "evidence": "Primitive axes and mixed lines, 70 zeros, norm tally 37/156/188/4 at 1/4/16/64, and 15/10/6 point multiplicities; program records only absolute field norms of the determinants.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-arithmetic-reduction-and-point-collisions-of-the-icosahedral-ref--c9c0a9f0a98b/RESULT.md",
+          "material_read": "Finding, normalization and Proof Steps 1–2; arithmetic certificate's definitions and determinant loop",
+          "method": "Local mirror of RESULT.md offset 0 and verify_icosahedral_reduction.py offsets 0–1958, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Arithmetic reduction and point collisions of the icosahedral reflection arrangement",
+          "trigger": "Complete 455-triple census on the same projective configuration"
+        },
+        {
+          "assessment": "Known projective facet-normal incidence counts",
+          "evidence": "Double, triple and quintuple points form orbits of sizes 15, 10 and 6.",
+          "identifier_or_url": "arXiv:2209.01499",
+          "material_read": "Remark 2.2, p. 5",
+          "method": "Open-access PDF from offset 16260",
+          "title": "The icosahedral line configuration and Waldschmidt constants",
+          "trigger": "Original same-configuration incidence data"
+        },
+        {
+          "assessment": "Volume entries exist; this extraction is not a replay of their numerical evaluation",
+          "evidence": "Gives an edge-length volume formula for each solid and describes the image solid as a Minkowski sum of five cubes.",
+          "identifier_or_url": "https://mathworld.wolfram.com/RhombicTriacontahedron.html ; https://mathworld.wolfram.com/GreatRhombicosidodecahedron.html",
+          "material_read": "Rhombic triacontahedron geometry and volume entry (8); great rhombicosidodecahedron zonohedron text and volume entry (5)",
+          "method": "Public webpage text at offsets 1730 and 600; displayed equation symbols not included in text extraction",
+          "title": "Rhombic Triacontahedron; Great Rhombicosidodecahedron",
+          "trigger": "Exact standard solid volumes and zonotope realization"
+        },
+        {
+          "assessment": "Coverage unresolved; not counted as negative evidence",
+          "evidence": "Material comparison used the related accessible 2014 work, not presumed contents of the inaccessible article.",
+          "identifier_or_url": "https://doi.org/10.1112/S0025579311001860",
+          "material_read": "No full text obtained",
+          "method": "Publisher returned 403; no lawful repository copy was identified in the bounded search",
+          "title": "Volumes of projection bodies of some classes of convex bodies",
+          "trigger": "Potential earlier fixed-zonotope evaluation in the foundational literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The canonical icosahedral six-generator zonohedron is a natural test of the sharp projection-volume bound, and the map to the uniform H3 zonotope ties that affine quotient to a concrete metric generator model. The complete real determinant spectrum resolves volumes of the constituent rank-three generator parallelepipeds and their frequencies, information a total volume or an incidence/field-norm table cannot supply. That fixed-root-data benchmark is useful independently of a new general inequality. Recomputing only the two standard solid volumes or facet counts would not suffice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

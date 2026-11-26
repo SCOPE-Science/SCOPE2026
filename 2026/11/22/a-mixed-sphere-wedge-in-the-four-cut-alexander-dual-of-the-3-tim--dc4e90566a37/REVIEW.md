@@ -1,19 +1,21 @@
-# Scientific assessment: \(3\times3\) rook ordinary four-cut topology
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The claimed object is the nine-vertex ordinary four-cut complex, not the total cut complex, and the exact Alexander-dual predicate follows directly from the definition. Exhaustively checking all \(126\) four-subsets finds \(81\) connected and \(45\) disconnected. The complete dual face vector by cardinality is \((1,9,36,84,81,36,6)\). A deterministic, independently checked free-face rule performs exactly \(69\) elementary simplicial collapses to a three-dimensional complex with face counts \((1,9,36,51,18)\). Exact integer row/column reductions of its three boundary matrices give ranks \((8,28,17)\), with **only unit** Smith factors and zero residual blocks. These computations give dual reduced homology \(\mathbb Z^6\) in degree two and \(\mathbb Z\) in degree three with no torsion. The original dual's complete two-skeleton and the standard simply-connected three-complex attaching-map argument upgrade this to a wedge of six two-spheres and one three-sphere. Integral Alexander duality then gives the displayed original cut-side homology. A separately reconstructed original cut complex has mod-two boundary ranks \((8,28,50,39)\), in agreement.
+PASS
 
-## Originality
+The ordinary-cut complement predicate gives exactly the dual's forbidden disconnected four-sets on the full nine-vertex ground set. In particular the full two-skeleton kills the fundamental group. Independent reconstruction of the finite certificate gives 81 connected and 45 disconnected four-sets, dual counts by size (1,9,36,84,81,36,6), and 69 legal collapses to (1,9,36,51,18). Exact unimodular reductions of d1,d2,d3 have 8,28,17 unit factors respectively and zero residual blocks. The collapsed two-skeleton is simply connected (attaching 3-cells does not affect pi1) and is equivalent to a wedge of 23 two-spheres by Hurewicz and homological Whitehead. The entire attaching map is a map from a wedge of 18 two-spheres into that wedge; it is classified by its integer degree matrix. The image of d3 is primitive in C2 and hence in ker(d2). Unimodular basis changes on either sphere wedge are realized by homotopy equivalences, so the attaching map can be put in the form identity on 17 summands and zero on the remaining attaching sphere. Its cofiber is six 2-spheres wedged with one 3-sphere. Alexander duality with degree 6-i and integral UCT then gives ranks 1 and 6 on the cut side in degrees 3 and 4; purity in dimension 4 and lower nonzero homology rule out shellability and Cohen–Macaulayness over any field.
 
-**PASS against the inspected evidence, with residual bibliographic uncertainty.** The founding paper arXiv:2304.13675 covers complete multipartite graphs and clique prisms but not products of two cliques of order three at ordinary cut threshold four. The sequel arXiv:2407.08158 treats Cartesian products of *paths*, which differ from a rook graph (a product of *complete graphs*). The closest same-family published record, *Integral and equivariant homology of three-cut complexes of rook graphs* (October 11, 2026), is about cut threshold three; its full RESULT.md was inspected. The closest same-threshold record, *Integral four-cut homology separates the Shrikhande and rook graphs* (November 2, 2026), concerns a \(4\times4\) rook graph and only additive homology; its full RESULT.md was inspected. Neither statement specializes, restricts, or otherwise implies the present \(3\times3\) four-cut dual homotopy type, and the explicit rank data differ. Actual semantic searches also used the line-graph-of-\(K_{3,3}\) alias, mixed sphere wedges, ordinary cut syntax, and the three-by-three parameter. No exact prior result was identified; this is not a claim of exhaustive novelty or independent certification.
+## originality
 
-## Value
+PASS
 
-**PASS.** The smallest square rook graph with three vertices per coordinate is the first nontrivial two-dimensional complete-factor case outside the clique-prism family. Previous work analyzes all rook *three-cut* complexes and the \(4\times4\) rook *four-cut* complex, leaving the natural base parameter \(3\times3\) at threshold four unclassified. Its Alexander dual has a genuinely mixed-dimensional wedge \(\bigvee^6S^2\vee S^3\), yielding a pure but nonshellable ordinary cut complex with homology in both its top and next-to-top dimensions. This is an exact, fully reproduced integral homotopy calculation for a canonical small graph, not a generic normalization exercise or an arbitrary unmotivated slice. The result is not claimed to extend to all rook graphs.
+The nearest earlier sources cover different graphs, different cut thresholds or different sizes. The same-day three-row extension recognizes this as the separately obtained base case, not an independently prior theorem covering it.
 
-## Closest literature, evidence and limitations
+## value
 
-References: arXiv:2304.13675, first public April 26, 2023, especially introduction, Table 1 and Sections 6–7; arXiv:2407.08158, especially introduction and Section 5 with the precise path-grid edge definition; the two public RESULT.md records cited in RESULT.md. The searches recorded in the accompanying AUDIT.json inspected the relevant primary PDFs, complete published mathematical statements, and semantic database summaries. Public search coverage is not exhaustive, and unindexed equivalents remain possible. No external independent mathematical review has been undertaken. The original cut complex's homotopy type, cohomology ring, and representation structure are not determined.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first square rook board beyond clique-prism width isolates a natural threshold-four test. The integral mixed wedge is stronger than a face census or a Betti computation and gives a concrete nonshellable ordinary cut complex with next-to-top homology. It also supplies a base benchmark for the three-row extension.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

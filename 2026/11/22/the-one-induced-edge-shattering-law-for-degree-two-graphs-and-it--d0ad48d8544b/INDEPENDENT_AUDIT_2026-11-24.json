@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:16:44.996162Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions and Proof; VERIFICATION.md; inspected verify.py and verification_output.txt",
+        "Independent replay: python3 /workspace/replays/4.py"
+      ],
+      "rationale": "The all-positive and all-negative traces force the two edge counts. For any prescribed independent positive trace, take an edge in the nonquery complement: either endpoint with a trace neighbor has exactly one such neighbor (degree at most two), so add only that endpoint; otherwise add both endpoints. A positive trace already inducing an edge needs no completion. This also handles edgeless and empty graphs, and the diamond gives a valid failure above degree two. On paths the conditions are at most one 11 and at least one 00. Independently summing over runs of ones gives A=(1+tz)/(1-t-t²z)+(tz)²/(1-t-t²z)² and B=(1+t)(1+tz)/(1-t²z)+(1+t)²(tz)²/(1-t²z)², exactly the submitted rational series after combining terms. Counting adjacent pair types gives the stated upper VC bound; 1100 followed by alternating 10 pairs, with a final 1 for odd length, attains it from n=4 onwards. The small path cases and the stable coefficient formula follow from the available zero gaps. Independent gap-binomial counts and bit-word enumeration agree through n=12.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Johnson's object is translates/subwords of a sequence; the finite-automata paper uses automata languages as concepts and whole words as points; the forest-size criterion uses same-block edge queries."
+        ],
+        "reasoning": "These broader techniques and problem classes do not include this exact combination of concept family, trace domain and local quota in the inspected statements.",
+        "searches": [
+          "arXiv:2101.06490",
+          "arXiv:2001.02309",
+          "Resultary: SCOPE-forest-size-profiles-determine-shattering-by-fixed-cardinality-c--e71e3de9534e"
+        ]
+      },
+      "checked_sources": [
+        "Resultary fixed-weight, induced-edge, forest-profile and local binary-word findings identified above",
+        "arXiv:2101.06490 and arXiv:2001.02309, inspected model descriptions"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Nearest path theorem has an independent-support condition and size cutoff, and nearest induced-edge theorem has an edge-support condition. The other binary languages have different local constraints."
+        ],
+        "reasoning": "Even ordinary gap binomials or transfer matrices count only after the support language is established. These earlier statements do not imply the degree-two completion lemma or the at-most-one-11/at-least-one-00 support language.",
+        "searches": [
+          "Resultary --569915df7b90 Finding",
+          "Resultary --13bcb5cc23b0 Finding",
+          "Resultary --a86c7bc37664 and --0961bfcd9d1b Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The induced-edge cycle record --13bcb5cc23b0 forbids three consecutive queried edges; the binary-word records --a86c7bc37664 and --0961bfcd9d1b concern monochromatic triples or counts of transitions."
+        ],
+        "reasoning": "Edge queries are not dual to the asserted vertex membership problem with the concept restricted to exactly one induced edge. One 11 is not an adjacent switch count or a monochromatic-triple constraint.",
+        "searches": [
+          "Resultary: exactly one induced edge and vertex-query shattering on paths and cycles",
+          "Resultary: shattering for binary-word languages with local patterns"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day --569915df7b90 enumerates independent supports up to d=min(k,n-2k+1) for independent hypotheses of size k. November 8 --253357213fec covers that dimension in its path comparison."
+        ],
+        "reasoning": "Those enumerators and dimensions do not encode supports with an adjacent selected pair here, or the need for a complementary edge, and vary hypothesis size by a fixed parameter instead of counting support size.",
+        "searches": [
+          "Resultary: complete shattering profiles and fixed-weight independent sets on paths",
+          "Resultary: induced-edge concepts on cycles"
+        ]
+      },
+      "rationale": "The strongest compared path results concern fixed-cardinality independent sets; the closest induced-edge shattering result uses edge rather than vertex queries. None of the inspected statements supplies the exact one-edge trace completion or the resulting full support polynomial.",
+      "residual_risks": [
+        "Bounded literature comparison, not a claim of exhaustive priority for the exact-one-edge completion criterion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not cover the one-edge hypotheses",
+          "evidence": "Independent query sets of size at most min(k,n-2k+1) for independent hypotheses of size k.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-complete-shattering-profiles-and-sphere-wedge-topology-for-unifo--569915df7b90",
+          "material_read": "RESULT.md offsets 0–2969",
+          "method": "Local mirror",
+          "title": "Complete shattering profiles and sphere-wedge topology for uniform independent sets",
+          "trigger": "Same-day path shattering enumerator"
+        },
+        {
+          "assessment": "Different hypothesis class",
+          "evidence": "Cycle/path comparison gives min(k,n-2k+1) for fixed-weight independent sets.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-fixed-weight-cyclic-independent-sets-a-one-logarithm-online-boun--253357213fec",
+          "material_read": "RESULT.md offsets 0–2336 and 6200–8800",
+          "method": "Local mirror",
+          "title": "Fixed-weight cyclic independent sets: a one-logarithm online bound",
+          "trigger": "Prior VC dimension for a path family"
+        },
+        {
+          "assessment": "Different queries and concept restriction",
+          "evidence": "Edges are queried for both endpoints in any chosen vertex set; the support condition forbids three consecutive edges.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-shattering-and-a-periodic-online-gap-for-induced-edge-concepts-o--13bcb5cc23b0",
+          "material_read": "RESULT.md offsets 0–2141",
+          "method": "Local mirror",
+          "title": "Shattering and a periodic online gap for induced-edge concepts on cycles",
+          "trigger": "Closest induced-edge formulation"
+        },
+        {
+          "assessment": "Different language",
+          "evidence": "Hypotheses avoid both 000 and 111.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-regular-shattering-complex-for-binary-words-with-no-monochroma--a86c7bc37664",
+          "material_read": "RESULT.md offsets 0–3000",
+          "method": "Local mirror",
+          "title": "A regular shattering complex for binary words with no monochromatic triple",
+          "trigger": "Support automaton for a binary-word family"
+        },
+        {
+          "assessment": "Different adjacency statistic",
+          "evidence": "Quota counts changes of bit, not 11 factors.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-endpoint-parallel-shattering-matroids-of-exact-transition-binary--0961bfcd9d1b",
+          "material_read": "RESULT.md offsets 0–2976",
+          "method": "Local mirror",
+          "title": "Endpoint-parallel shattering matroids of exact-transition binary words",
+          "trigger": "Exact adjacency quota as a possible equivalent formulation"
+        },
+        {
+          "assessment": "Inspected setup concerns translates of one sequence",
+          "evidence": "VC dimension associated with P(x+y) for a binary sequence.",
+          "identifier_or_url": "https://arxiv.org/abs/2101.06490",
+          "material_read": "Abstract, PDF p. 1",
+          "method": "OA PDF",
+          "title": "Binary strings of finite VC dimension",
+          "trigger": "VC dimension for binary strings"
+        },
+        {
+          "assessment": "Different concept and point domain",
+          "evidence": "Automata languages are concepts on words of length n, not words as concepts on coordinate queries.",
+          "identifier_or_url": "https://arxiv.org/abs/2001.02309",
+          "material_read": "Abstract, PDF p. 1",
+          "method": "OA PDF",
+          "title": "VC-dimensions of nondeterministic finite automata for words of equal length",
+          "trigger": "Automata-based shattering for fixed lengths"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Proof and diamond witness",
+        "Independent gap count and bit-word replay"
+      ],
+      "rationale": "The degree hypothesis makes two extremal traces sufficient for all traces, a nontrivial simplification across paths, cycles and disjoint unions. The degree-three witness locates the boundary, and the path calculation determines all support sizes rather than just the VC dimension.",
+      "residual_risks": [
+        "Does not classify larger degree or other induced-edge quotas."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

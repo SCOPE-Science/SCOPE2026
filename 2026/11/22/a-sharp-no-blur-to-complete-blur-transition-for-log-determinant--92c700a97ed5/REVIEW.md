@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS (self-review).** Orthogonal Fourier diagonalization of the two-pixel convolution reduces the exact joint quadratic minimization to one rational-plus-logarithmic scalar function. The all-parameter secant-ratio lemma follows from a derivative with at most one interior sign change from positive to negative; its endpoint values establish the global threshold. A monotone-in-weight comparison proves uniqueness after the jump. The derivative numerator is an upward quadratic with opposite endpoint signs in the metastable window, proving the unique barrier. The auxiliary-scale boundary follows from a strictly decreasing logarithmic function. A standalone high-precision and exact-rational checker supplements, but does not replace, these arguments. The limiting and singular-matrix cases are included because \(\ell,d>0\).
+PASS
 
-## Originality
+The two Fourier eigenvalues are 1 and s. Minimizing the quadratic mode by mode and discarding the constant mode reduces the objective to F(a)=[C/(a+ell)+w log(a+d)]/2 with a=s² and C=ell B. The positive secant factor log((1+d)/(a+d))/2 multiplies C tau(a)-w in F(a)-F(1). Differentiating tau gives the sign of T from the proof; T(1)=0 and T' has the sign of a+2d-ell for 0<a<1. Accordingly tau can only increase, decrease, or increase then decrease; when tau(0)<tau(1), its minimum is attained only at 0. This gives the exact endpoint tie and excludes all intermediate parameters there and below; increasing w further strictly favors 0 over every a>0. For w strictly between the printed thresholds the quadratic numerator of F' is positive at 0 and negative at 1, so precisely one simple root is in (0,1), producing a strict maximum. The endpoints retain their classifications under the homeomorphism s↦s², even though the s-derivative at 0 is zero. The strict threshold ordering is exactly the stated condition: (1+d)log(1+1/d) decreases strictly from infinity to 1, and equality cannot give an open metastability interval. At ell=B=1, d=1/100, the barrier at w=1/5 independently solves 20a²−60a+19=0 with the smaller root ≈0.3598245749. Replay the analytic checks from RESULT.md, Fourier reduction through sharp auxiliary-scale boundary. VERIFICATION.md documents supplementary finite assertions; the supplied checker was inspected, not executed. The theorem requires the stated positive scales and B>0; it makes no global classification for larger blur families or for d≥d*.
 
-**PASS (qualified self-review).** Dworaczyk–Español's Proposition 5 supplies a sufficient *local* no-blur exclusion condition for general simultaneously diagonalizable periodic operators; the new statement is an exact *global* endpoint-only phase transition with a sharp weight and an open metastability interval, on the smallest nontrivial nonnegative periodic blur. Its complete argument is not a mere restatement of the source proposition. Wipf–Zhang's general variational-Bayesian prior mechanism and the older marginal-likelihood papers do not derive this threshold for the specified quadratic log-determinant objective. The closest retrieved mathematical records concerned other spectral penalties, and inspected published-record claims did not overlap. Residual risk: an uncatalogued prior treatment of exactly this scalar reduced functional could subsume the finding; neither semantic search nor the cited papers establishes absolute uniqueness.
+## originality
 
-## Value
+PASS
 
-**PASS.** The new objective was motivated to avoid identity/no-blur degeneracy, but this example identifies a sharp parameter regime where enforcing it too strongly eliminates *all* high-frequency contrast rather than selecting an intermediate blur. The exact global-versus-local threshold gap is operationally important: a quasi-Newton optimizer initialized at no blur can remain at a strict, nonoptimal local minimum even though the global fitted blur has become completely degenerate in the opposite direction. Two pixels are the minimal bona fide mass-preserving periodic convolution supporting this failure. The result gives an exact tuning benchmark and an interpretable failure mode, not merely an algebraic counterexample.
+The objective and a sufficient local no-blur exclusion criterion are prior. The supported distinct contribution is the exact global endpoint-only switch and the positive-width window in which no blur is strictly locally minimizing but globally inferior, including the unique barrier. Neither the inspected propositions nor the closest indexed match supplies that classification independently.
 
-## Scope and remaining risks
+## value
 
-The assertion is for exactly two pixels, identity image and auxiliary regularizers, a uniform base prior, \(B>0\), and \(\ell,d>0\). It makes no global classification beyond the sharp small-auxiliary-scale regime or for higher-dimensional PSF families. The finite checker is supplementary. Primary-source inspection covered the exact model derivation, the closest theorem, relevant experiments and older blind-deconvolution analyses; an older accessible MIT primary PDF could not be fetched because the host returned HTTP 429, and its abstract alone is not treated as a full-text comparison. Independent auditing and validation remain unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This minimal mass-preserving periodic convolution is a motivated failure case for a penalty designed to avoid identity blur. The exact global threshold demonstrates contrast extinction rather than intermediate regularization, and its separation from the local threshold explains why a local test can certify neither the global optimizer nor safe tuning. This is a usable benchmark for the stated objective, not a prediction for general image sizes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

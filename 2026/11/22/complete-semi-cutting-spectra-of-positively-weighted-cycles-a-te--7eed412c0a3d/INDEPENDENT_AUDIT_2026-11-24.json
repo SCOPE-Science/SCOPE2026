@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:00:19.170476Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For positive lengths every shortest path is simple, and deletion increases a terminal distance strictly exactly when no original shortest path for that pair survives. Each gap of length at most half the circumference is itself shortest for its two endpoints and must be hit, including at equality and when t=2. A surviving terminal geodesic could only use whole consecutive unhit gaps; if the obligatory gaps are hit, the only candidate is the single strictly longer-than-half gap, which cannot be shortest. This gives the classification for all positive real lengths. Multiplication over the disjoint edge sets counts by deletion cardinality, not deletion weight. Minima delete precisely one edge in each required gap and none in the optional gap; the connected terminal pair in the latter case remains connected through that gap but at strictly greater distance. Each required factor has the listed shifted roots of unity; the optional factor contributes exactly the root −1 with its gap's edge count as multiplicity. A required size at least three gives a nonreal root with no possibility of cancellation. After removing initial zeros the coefficient factors are consecutive binomial blocks with decreasing ratios; their Toeplitz matrices have nonnegative two-by-two minors, preserved by convolution via Cauchy–Binet, with interval supports. Independent Dijkstra enumeration checked every deletion set for three C_6 assignments (two half-length gaps, a single half-length gap, and a uniquely longer gap); see /workspace/branches/72b74973-19c4-47a3-9f3a-f217850f5217/independent_small_check.py and independent_small_check.out. The frozen VERIFICATION.md reports wider finite checks; uploaded code was not executed and the all-weight proof does not depend on such checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.1 gives the lower bound |T|−1 for finite simple unweighted graphs; §5 asks about equality and minimum transversals.",
+          "The terminal-diameter-two polynomial includes all unweighted terminal placements on C_3 through C_5 but assumes terminal distances at most two."
+        ],
+        "reasoning": "The general bound is credited; it does not determine the cycle equality criterion or count. The polynomial for small terminal diameter does not cover arbitrary cycle lengths, terminal diameters, or weights.",
+        "searches": [
+          "arXiv:2611.20287v1 Theorem 4.1 and §5",
+          "Resultary 01e47751469e terminal diameter at most two"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md; verify.py inspected, not run",
+        "arXiv:2611.20287v1 and 2101.08042v1",
+        "Resultary 7eed412c0a3d, 01e47751469e, 54c9edbfc8eb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "No inspected general constraint or special-case polynomial identifies the one optional gap for unrestricted weights. In the frozen proof the threshold is a comparison of the two paths between consecutive terminals."
+        ],
+        "reasoning": "The product and cyclotomic/log-concavity deductions are immediate or standard once the gap rule is obtained, and not claimed separately as new techniques. The exact metric threshold, including ties and the connected extremizers, does not follow merely from the prior bound or the known low-diameter polynomials.",
+        "searches": [
+          "arXiv:2611.20287v1 Lemma 2.6, Theorem 4.1 and §5",
+          "Resultary 01e47751469e and 54c9edbfc8eb, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bosek–Serra–Vena identify semi-cutting with a shortest terminal-path edge transversal.",
+          "Manuel–Brešar–Klavžar use vertex transversals of maximal geodesics, not the same edge family."
+        ],
+        "reasoning": "The prior edge-transversal equivalence is exactly the same problem formulation, but the reduction of its required constraints to disjoint short terminal gaps is an additional statement. The maximal-geodesic vertex problem is not an equivalent formulation.",
+        "searches": [
+          "arXiv:2611.20287v1 Lemma 2.6",
+          "arXiv:2101.08042v1 abstract",
+          "Resultary semantic lookup for cycle semi-cutting spectra"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact weighted-cycle hit 7eed412c0a3d is this very record.",
+          "The complete-bipartite spectrum gives a direct unweighted C_4 subcase via K_{2,2}. The terminal-diameter-two record supplies additional unweighted subcases."
+        ],
+        "reasoning": "These are exact overlapping subcases that should be credited. The identical hit is not an independent antecedent, and same-day dates of distinct records do not establish an order.",
+        "searches": [
+          "Resultary exact semi-cutting polynomials and the weighted cycle gap criterion",
+          "Resultary 54c9edbfc8eb complete-bipartite spectrum"
+        ]
+      },
+      "rationale": "The known semi-cutting definition and universal lower bound are not contributions. There is direct coverage of some unweighted cycle instances, but the distinct, supported claim is the all-terminal, positive-weight cycle classification and resulting full spectrum, which the inspected sources do not supply.",
+      "residual_risks": [
+        "The comparison is bounded. Older weighted geodesic-transversal work could use other terminology; chronology among the overlapping same-day results was not resolved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the foundational equivalence and lower bound, not the weighted-cycle classification",
+          "evidence": "Lemma 2.6 gives shortest-path transversals; Theorem 4.1 gives |F|≥|T|−1; §5 asks about equality and minimum sets.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.20287v1",
+          "material_read": "p. 1 abstract; p. 3 Lemma 2.6 (offset 10800); p. 5 Theorem 4.1 (20180); p. 6 §5 (25100)",
+          "method": "Original OA PDF passages",
+          "title": "Structural properties of semi-cutting sets",
+          "trigger": "Introduces the same distance-increase condition"
+        },
+        {
+          "assessment": "Different hitting problem",
+          "evidence": "Hitting maximal geodesics by vertices is not hitting all geodesics between prescribed terminals by edges.",
+          "identifier_or_url": "https://arxiv.org/abs/2101.08042v1",
+          "material_read": "p. 1 abstract and problem definition at offset 0",
+          "method": "Original OA PDF passage",
+          "title": "The geodesic-transversal problem",
+          "trigger": "Potentially equivalent geodesic-hitting terminology"
+        },
+        {
+          "assessment": "Direct overlap at terminal diameter at most two in unweighted cycles",
+          "evidence": "No arbitrary positive edge weights or unbounded terminal diameter in its hypotheses.",
+          "identifier_or_url": "Resultary 2026/11/22 01e47751469e",
+          "material_read": "Finding, RESULT.md offset 0",
+          "method": "Local mirror",
+          "title": "Local clique factorization of semi-cutting sets at terminal diameter two",
+          "trigger": "Exact polynomial for a wider graph class under a diameter restriction"
+        },
+        {
+          "assessment": "Covers the unweighted K_{2,2} subcase",
+          "evidence": "Its formula and minima apply to unweighted complete bipartite graphs, not arbitrary weighted marked cycles.",
+          "identifier_or_url": "Resultary 2026/11/22 54c9edbfc8eb",
+          "material_read": "Finding, RESULT.md offset 0",
+          "method": "Local mirror",
+          "title": "All semi-cutting sets of complete bipartite graphs",
+          "trigger": "Exact graph-family polynomial includes C_4"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The gap rule solves a natural exact extremal question for the shortest-path transversal problem, including precisely when the universal lower bound is attained and why a minimum need not disconnect every terminal pair. It also determines the whole deletion spectrum for arbitrary positive lengths; the strictly-half transition is informative even with the same edge counts. Simple factorization consequences add a root and coefficient description without requiring unrelated machinery.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

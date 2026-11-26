@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:51:15.533836Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At the feasible equilibrium x=1, substitution of the adjusted mu cancels the interspecies row sums and self regulation in the diagonal derivative as stated, leaving the within-species block D_L and off-species B_ij. With fixed finite S, diagonalizing the identical leading blocks separates a semisimple zero eigenspace from -(a+b). In these coordinates J_L has an O(1) slow block and fast block -(a+b)L I+O(1). At bounded eigenvalue parameter the fast inverse is O(1/L), so Schur reduction gives convergence with multiplicity to the compressed slow block; the other S eigenvalues diverge left. For v=(1,1) and w=(b,a)/(a+b), the within-species row sums contribute -2 and directed-pair sums (C_ij,-C_ij) give w^T B_ij v=delta C_ij. For S<=2 the zero-diagonal C has sign-symmetric spectrum, so swapping a,b preserves the limiting slow spectrum. The weight-six directed three-cycle has eigenvalues 6,-3±3sqrt(3)i, yielding a positive limiting real mode in the first orientation and strictly negative real parts after the swap. At L=50, decomposition into C eigenmodes with eigenvalue c gives the factor z^2+(202-c)z+400+(aL-bL-2)c. Exact independent matrix replay confirms both factorizations. In particular, the first orientation's positive-root quadratic is accompanied by the quartic with coefficients (1,410,43464,294968,779344); its Hurwitz minors (17525272,5038386704896) and coefficients are positive. This supplies the additional check needed for a hyperbolic saddle, not merely instability. In the swapped case the quadratic and quartic are Hurwitz with quartic minors (17290072,614449021696). The adjusted growth rates are negative in both. Replay and output: /workspace/branches/ea1e57e5-b313-42cc-a895-255210df5b61/record5_replay.py and record5_replay_output.txt in that directory. Frozen verifier inspected, not executed. The S<=2 obstruction concerns strict limiting verdicts under fixed coefficients and not arbitrary finite-L changes or behavior at a zero limiting spectral abscissa.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Standard fast–slow compression yields the matrix on the left and right leading nullvectors; this general procedure is not new.",
+          "Garmire–O’Dwyer derives a large-Delta threshold involving 1+3rho, with cancellation at rho=-1/3 in the common-leading-rate setting.",
+          "Giménez-Romero et al. describes block structured community matrices and stage asymmetries, including cross-stage predator–prey stabilization, in the inspected passages."
+        ],
+        "reasoning": "Equal leading rates yield the arithmetic mean here and annihilate the directed-pair row sums. That earlier averaging regime does not allow the independent rate ratio that makes the left kernel unequal, nor does a general matrix formalism classify the sign flip of the deterministic slow spectrum by species count.",
+        "searches": [
+          "Resultary: fast-slow stage structure community matrix zero-sum interactions leading slow spectrum rate-weighted compression",
+          "Garmire–O’Dwyer arXiv:2610.23557v1 pp. 15–16",
+          "Giménez-Romero et al. DOI 10.1111/ele.70272, OA submitted version pp. 1,7"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_stage_modes.py",
+        "Resultary ab585919052c and 2f73bdd1134a, with mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4 for the circulation frontier",
+        "Garmire–O’Dwyer arXiv:2610.23557v1 and Giménez-Romero et al. DOI 10.1111/ele.70272, inspected passages",
+        "de Roos DOI 10.1073/pnas.2023709118, indexed evidence and bounded retrieval attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A common leading Delta gives exactly delta=0 in the frozen model; the strict contrast compared here requires delta with opposite nonzero signs.",
+          "The circulation-frontier result fixes common exchange and adds balance conditions on G; its network comparison does not permit the unchanged cycle and unequal-rate swap used for the frozen result.",
+          "Generic compression gives a method, but not the sign-symmetry obstruction for all two-species C nor a feasible three-species destabilization/stabilization certificate."
+        ],
+        "reasoning": "The novelty rests on the deterministic criterion and sharp orientation reversal, not on stage averaging or linear stability analysis. Reducing to an earlier equal-rate or correlation-cancellation formula removes the very parameter whose sign changes; the exact cycle argument and finite checks add content not implied by those results.",
+        "searches": [
+          "Garmire–O’Dwyer arXiv:2610.23557v1 fast-turnover limit, pp. 15–16",
+          "SCOPE-ab585919052c mirror RESULT.md, offsets 0–5363",
+          "Giménez-Romero et al. DOI 10.1111/ele.70272, submitted-version stability discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE-ab585919052c uses common fixed exchange Delta and a row-balanced species matrix; its four-species comparison changes network reciprocity/circulation and does not swap rates.",
+          "SCOPE-2f73bdd1134a proves a supercritical Hopf at w=2d+2 for two species with zero-total stage interactions, not a strict high-turnover verdict change under rate swapping.",
+          "Garmire–O’Dwyer, arXiv:2610.23557v1, pp. 15–16, uses fast averaging and covariance in a random interaction model."
+        ],
+        "reasoning": "A relabeling of stages would swap a,b and conjugate the stage interaction blocks, including changing the sign of C. This comparison swaps a,b at fixed B while readjusting the intrinsic terms to retain the same feasible equilibrium; it is not such a relabeling. Nor is it a change from a reciprocal to a circulating network.",
+        "searches": [
+          "Resultary: stage-structured ecological stability reversal when juvenile and adult turnover rates are swapped with zero aggregate interspecies interactions; three-species directed cycle witness",
+          "Resultary: balanced two-stage ecological network zero aggregate interaction finite-demography stability frontier three four species circulation signed interactions",
+          "Literature: stage structured ecological community stability asymmetric juvenile adult fast transition rates swap unequal turnover weighted community matrix zero aggregate interactions three species cycle de Roos Garmire O'Dwyer"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The close circulation-frontier record supplies exact finite criteria and four-species examples under common exchange and balanced interactions, not the weight-six three-cycle at L=50.",
+          "The distinct two-species exact threshold w=2d+2 describes a Hopf and not the two characteristic polynomials under the specified swap."
+        ],
+        "reasoning": "An existing exact boundary in a balanced stage network is not a table for this fixed B, two unequal rate orientations, equilibrium and spectrum. No separate exact match for the frozen finite certificate or sharp species cutoff was established.",
+        "searches": [
+          "Resultary: three species sharp minimum for stability reversal by switching demographic stage turnover speeds",
+          "Resultary: balanced two-stage ecological network zero aggregate interaction finite-demography stability frontier three four species circulation signed interactions",
+          "Mirror RESULT.md for SCOPE-ab585919052c and SCOPE-2f73bdd1134a"
+        ]
+      },
+      "rationale": "Spectral compression and the effect of stage structure on ecological stability are prior. The distinct supported content is a deterministic leading-rate-ratio mechanism under zero directed-pair stage sums, its sharp minimum species count for a strict limiting stability reversal, and the exact feasible finite-rate cycle. The closest exact balanced-stage and fast-turnover statements inspected use different parameters or hypotheses. This is a bounded priority assessment.",
+      "residual_risks": [
+        "de Roos full text could not be inspected, so its exact models and witnesses were not excluded as a potential overlap.",
+        "Other deterministic singular-perturbation treatments may use different stage terminology; a bounded comparison does not certify priority.",
+        "The shared catalogue date of the circulation-frontier finding provides neither priority nor equivalence evidence by itself."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantive overlap in stage balance and local stability but different model restrictions and comparison",
+          "evidence": [
+            "Common fixed Delta and row-balanced G; sharp four-species network comparison and four-species oscillatory boundary, not stage rate exchange."
+          ],
+          "identifier_or_url": "SCOPE-ab585919052c",
+          "material_read": "Local-mirror RESULT.md offsets 0–5363",
+          "method": "Resultary and mirror statement/proof comparison",
+          "title": "A sharp circulation-controlled stability frontier in balanced two-stage systems",
+          "trigger": "Closest distinct indexed balanced two-stage stability result"
+        },
+        {
+          "assessment": "Not a counterexample to the two-species limiting obstruction",
+          "evidence": [
+            "Uses exchange-symmetric stages and gives a Hopf at w=2d+2 with an attracting positive orbit beyond threshold."
+          ],
+          "identifier_or_url": "SCOPE-2f73bdd1134a",
+          "material_read": "Actual result statement",
+          "method": "Resultary and local statement comparison",
+          "title": "Supercritical oscillations from zero-mean stage interactions",
+          "trigger": "Earlier indexed exact zero-aggregate two-species behavior"
+        },
+        {
+          "assessment": "Fast averaging and complete cancellation are prior in the inspected common-rate random model; different stability comparison",
+          "evidence": [
+            "Threshold depends on 1+3rho and diverges at rho=-1/3; no unequal leading turnover swap is used in this derivation."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.23557",
+          "material_read": "Version 1, pp. 15–16, extracted offsets 54023–57497 and passage starting 57497",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Heterogeneity among and competition between life stages together extend the stability boundary of complex ecological communities",
+          "trigger": "Plausibly broader primary fast-stage averaging result with cancellation"
+        },
+        {
+          "assessment": "General stage-structure framework, not direct coverage of the unequal-rate classification in the inspected passages",
+          "evidence": [
+            "Abstract/framework treats stage-asymmetric interactions; p. 7 discusses cross-stage predator–prey stabilization and block community matrices."
+          ],
+          "identifier_or_url": "https://ecoevorxiv.org/repository/object/8352/download/15658/ (DOI 10.1111/ele.70272)",
+          "material_read": "Submitted-version PDF pp. 1 and 7, extracted offsets 966 and 28971",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Population Structure Plays a Key Role in Community Stability",
+          "trigger": "Potential broader stage-structured community stability framework"
+        },
+        {
+          "assessment": "Full-text overlap unverified",
+          "evidence": [
+            "Available abstract concerns differences in foraging and vulnerability to predation; the lawful primary full-text routes and identified bioRxiv PDF attempt did not yield a readable copy."
+          ],
+          "identifier_or_url": "https://doi.org/10.1073/pnas.2023709118; identified earlier bioRxiv version 10.1101/2020.06.27.174755",
+          "material_read": "Indexed abstract/excerpt and Giménez-Romero et al.'s p. 7 discussion only",
+          "method": "Bounded lawful DOI, publisher, repository and identified bioRxiv PDF attempts",
+          "title": "Dynamic population stage structure due to juvenile-adult asymmetry stabilizes complex ecological communities",
+          "trigger": "Juvenile–adult asymmetry and community stability may conceal a closely related mechanism"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The construction gives a minimal counterexample to predicting local coexistence stability from aggregate pairwise interactions alone when the two life-stage rates are fast but unequal. Its weighted slow matrix explains why the contrast disappears under equal rates, and the three-species cycle gives strict opposite verdicts already at a certified finite rate instead of a formal singular limit only. This is useful for interpreting aggregate stability diagnostics in this stage-exchange model, not a calibrated ecological prediction or a global persistence result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:56:58.253573Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Matched the submitted primary paper's definitions and both rule conditions. Averaging all shifts gives the same circular matrix as averaging distinct conjugates since each distinct conjugate has the same multiplicity. To exhaust the words, canonicalize all 3^n words by the least rotation and retain those containing all three letters. Group by the six exact rational scattered-subword counts. To exhaust moves, test every rotation, every split of the n−4 unmarked letters between x and y, both orientations and both choices of α where applicable. Connected components then resolve completeness on every class. The independent bounded reproduction (python3 census.py --max-n 6, separate from the frozen package) was run after a timed n≤3 slice; it compared direct counts and letter-matrix products, enumerated the rule edges and checked every pair in the nontrivial classes. Full-support counts are 0,0,2,9,30,91. There are no nontrivial classes through n=4. At n=5 the sole pair is {aacbc,abacc}: for example rotate to acbca and use CE₁ with x empty and y=b to reach cabac, a rotation of abacc. At n=6 eight classes contain seventeen words; five classes are connected. The other classes are {aabcbc,ababcc}, {aacbcb,abaccb}, {abacbc,abcacb,abcbac}, with fractional tails (7/3,7/3,13/6), (5/3,5/3,5/6), (2,2,4/3) respectively, all with counts (2,2,2). The reproduction checks all seven words have no legal move in either direction, even to their own rotation class. Read the frozen certificate and script without executing them. The frozen pair test reuses the move generator and the frozen degree test discards self-rotations; the independent bidirectional replay supplies the stronger isolation check. The conclusion is bounded to n≤6 and full support.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorems 5.4 and 5.6 prove equivalence preservation of individual rules, not generation of all equal-matrix pairs at short lengths. Section 6 gives a failure example but not minimality.",
+          "Resultary 8e493cc5d8d2 uses Hamming weights of contiguous circular windows of binary words, modulo rotation and reversal."
+        ],
+        "reasoning": "Neither the rule invariance theorems nor a short-word classification for another equivalence supplies a broader classification or reachability theorem covering the new boundary. In particular equality of the circular window deck is not the averaged scattered-subword condition.",
+        "searches": [
+          "arXiv:2110.14858v1, Def. 3.13, Def. 4.1, Thms. 4.2, 5.4, 5.6 and §6",
+          "Resultary: first circular-word ambiguity and Parikh-classification results"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2110.14858v1",
+        "DOI 10.1016/j.tcs.2023.114344 (resolved to submitted version)",
+        "Resultary 174aa31b393b",
+        "Resultary 8e493cc5d8d2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The paper proves the moves preserve the matrix and shows incompleteness at length 8.",
+          "The frozen classification requires absence of a disconnected full-support class at lengths below 6 and three specified disconnected classes at length 6."
+        ],
+        "reasoning": "Invariance prevents edges between distinct classes but does not imply connectivity within classes or identify isolated necklaces. A length-8 witness gives an upper bound of eight for an onset, not six or its minimality. The complete short-length graph determination provides those additional facts.",
+        "searches": [
+          "arXiv:2110.14858v1, Def. 4.1, Thms. 5.4 and 5.6, and §6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Section 6 reports a length-8 isolated pair, [aaaacbbc] and [aaacbabc], for the same two rules.",
+          "Resultary 174aa31b393b classifies linear words by multisets of Parikh vectors of prefixes and suffixes, not circular averaged Parikh matrices."
+        ],
+        "reasoning": "The proposed graph-disconnection question and the wording of rule completeness match the paper. The explicit published witness has different length, while the nominal length-six Resultary match has a different equivalence relation and no rewriting graph.",
+        "searches": [
+          "Resultary: exact finding title and the seven length-6 representatives",
+          "arXiv:2110.14858v1, §§4–6 (circular M-equivalence and CE₁/CE₂)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching class census surfaced among the indexed results inspected. The primary witness is the stated length-8 pair, not a small-length table."
+        ],
+        "reasoning": "A coincident table would have to use rotation classes and ordered ternary scattered-subword averages, then classify reachability under the two conditioned moves. The inspected linear and circular catalogs use other statistics and do not cover that census.",
+        "searches": [
+          "Resultary: seven length-6 representatives and the exact finding title",
+          "arXiv:2110.14858v1, §6"
+        ]
+      },
+      "rationale": "The published rules and the fact of incompleteness are prior work. The inspected primary presentation gives a length-8 failure, not the first full-support cutoff or the complete length-6 census. No compared record supplies those results. This is a bounded literature assessment, with the primary evidence coming from the open submitted version and the closest indexed records compared at statement level.",
+      "residual_risks": [
+        "A targeted primary discovery lookup was unavailable; this is not evidence against coverage. The final publisher text was not separately inspected. A later version, unindexed computation or other unsurfaced source might include the small census."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the two rules, their preservation property and a length-8 counterexample; not the length-6 cutoff in the compared material",
+          "evidence": [
+            "Thm. 5.6's α=a case explicitly uses c-counts, confirming the overbar on α in the CE₂ condition.",
+            "Section 6 gives [aaaacbbc] and [aaacbabc] as an M-equivalent pair with neither move available."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2110.14858v1; DOI 10.1016/j.tcs.2023.114344",
+          "material_read": "Submitted version Def. 3.13 and Remark 3.14 p. 7 (offset 21000); Def. 4.1 and Thm. 4.2 p. 9 (27447); Thms. 5.4 and 5.6 and rule statements pp. 16–17 (48427–55908); §6 p. 18 (55908)",
+          "method": "Lawful OA primary text comparison; DOI resolution provided the submitted version",
+          "title": "Counting Subwords in Circular Words and Their Parikh Matrices",
+          "trigger": "Original definitions and rules; same-object prior failure witness"
+        },
+        {
+          "assessment": "Different object and equivalence",
+          "evidence": [
+            "Linear prefix/suffix composition multisets, not circular averaged matrices or ternary rules."
+          ],
+          "identifier_or_url": "Resultary 2026/10/25 item 174aa31b393b",
+          "material_read": "RESULT.md, Finding, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror passage inspection",
+          "title": "Universal length-six classification of prefix–suffix composition",
+          "trigger": "Exact length and Parikh-vector classification overlap"
+        },
+        {
+          "assessment": "Different alphabet, equivalence and cutoff",
+          "evidence": [
+            "Binary rooted-window Hamming-weight multiplicities modulo rotation and reversal; genuine collisions first at length 15 under that notion."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2 item 8e493cc5d8d2",
+          "material_read": "RESULT.md, Finding, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror passage inspection",
+          "title": "The first intrinsic circular composition-deck ambiguity",
+          "trigger": "Circular-word onset classification overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The earliest failure of a proposed rule system is a natural exact boundary, particularly when the literature exhibited only a longer example. Full support removes separate binary degeneracies, and all seven short isolated obstructions identify precisely where new moves would first be needed. The complete short-length cutoff is useful independently of any general replacement rule system.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

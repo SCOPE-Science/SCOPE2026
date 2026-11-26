@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:04:21.549768Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With strict remainders Hamilton is represented by floor(h p_i+α_h) with a common α_h in (0,1). If a party loses a seat, its adjusted quota decreases by less than one, and parties with no larger share cannot gain. Each of the other parties can gain at most one, so both must gain and the loser is the smallest. The smallest cannot hold a seat at h≤2, since the ordered allocations are monotone in share. At h=3 a loss must start from (1,1,1), ending at (2,2,0). The h=4 middle-party remainder comparison gives v−u>1/4 and hence u<1/6. The h=3 largest party must then have w<1/2 (otherwise it already has at least two floors or its remainder exceeds 3u). Thus v>1/3, the three- and four-seat floor vectors both equal (1,1,0), and the h=3 comparison is w−u<1/3. Conversely these strict comparisons give both claimed allocations. The ordered triangle has area 1/864: its u-limits are 1/9 and 1/6 with split at 5/36 into two triangles of area 1/1728 each. Density 2 and six labeled chambers give 1/72. Exact quota/remainder boundaries are a null set. A separate arrangement calculation (python3 /workspace/audit_evidence/apportionment.py) partitioned one chamber into 44 open cells, directly tested each of the three enlargements by exact quota-error minimization, and checked the inequalities and summed loss areas 0,0,1/864. No finite population grid is used to prove the continuum claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.3 and Corollary 2.1 govern limiting rates; §3 obtains the simplex average 1/36 for three states.",
+          "Bradberry was identified as directly relevant to susceptible-region geometry, but lawful OA attempts did not yield the full article."
+        ],
+        "reasoning": "The Janson–Linusson general theorem has a different limiting parameter and does not supply the fixed-step probability. Bradberry may have closer coverage; its accessibility limits the priority assessment, not the proof.",
+        "searches": [
+          "Janson–Linusson Theorem 1.3, Corollary 2.1 and §3",
+          "Bradberry DOI:10.1080/0025570X.1992.11995970",
+          "Resultary geometric Alabama/Bradberry search"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1104.2137",
+        "Resultary 494a0538d100",
+        "Bradberry DOI:10.1080/0025570X.1992.11995970 (limited)",
+        "Targeted Resultary and primary literature search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior §3 integrates the asymptotic density and the Resultary finding is restricted to (a,a,c) populations."
+        ],
+        "reasoning": "A long-run average cannot recover a single-step probability. A modular characterization on the equal-pair line cannot recover a full-dimensional iff region. Existence at 3→4 is not a claimed contribution.",
+        "searches": [
+          "Janson–Linusson §3, pp. 6–7",
+          "October 4 Resultary Finding and equal-pair scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Janson–Linusson define a limit from n uniform on 1,…,N for fixed shares; Corollary 2.1 gives a smallest-party limiting loss rate equal to one third of the product of the two gaps."
+        ],
+        "reasoning": "The same Hamilton rule and the same pair of gaps appear, but these are distinct experiments: averaging an n-asymptotic rate is not evaluating the h=3 indicator. The gap product rate is not the two finite-cutoff inequalities.",
+        "searches": [
+          "Resultary first 3→4 Alabama loss, 1/72, ordered gap inequalities",
+          "arXiv:1104.2137 §§1–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 4 RESULT.md gives the modular series h≡3 mod 7 for (3,3,1), hence the first-step example. Figure 1 of Janson–Linusson is 10→11; Figure 4 describes a tie-sensitive loss at 4→5 or 5→6."
+        ],
+        "reasoning": "The earlier Resultary example has w=v and lies in a one-dimensional share slice; neither it nor the inspected examples is a generic exact volume certificate.",
+        "searches": [
+          "Resultary 2026/10/4/...--494a0538d100",
+          "Resultary explicit 1/72 and first-enlargement chamber searches",
+          "Janson–Linusson Figures 1 and 4"
+        ]
+      },
+      "rationale": "Pass for the complete strict first-enlargement region and its exact simplex measure, not for the existence of a 3→4 paradox. The known equal-larger-share example and long-run averaged probability are different. The numerical worked examples actually checked in Janson–Linusson are at 10→11 and at 4→5 or 5→6 in the rational/tie discussion, so the frozen prose attributing a 3→4 worked example to that paper is not substantiated by those passages. The earlier equal-pair Resultary record supplies an explicit valid 3→4 example. This citation caveat does not affect the mathematical claim or novelty of the chamber/measure.",
+      "residual_risks": [
+        "Bradberry's full article could establish the finite chamber or an exact equivalent. It was not available for statement-level comparison.",
+        "The exact priority of this narrowly specified probability remains bounded to the inspected material."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different probability; related illustrative examples",
+          "evidence": "Defines the long-run experiment, computes average 1/36, and the cited inspected examples do not show 3→4.",
+          "identifier_or_url": "https://arxiv.org/abs/1104.2137",
+          "material_read": "§1 pp. 3–4 near offset 8757; Theorem 1.3 p. 5 and Corollary 2.1 p. 6; §3 p. 7 near PDF offset 22289; Figures 1 and 4 (the latter p. 22 near offset 68705)",
+          "method": "Lawful OA PDF and equation cross-check in the HTML layout",
+          "title": "The Probability of the Alabama Paradox",
+          "trigger": "Same Hamilton rule, three states, random simplex and a probability"
+        },
+        {
+          "assessment": "Direct overlap on existence at the first step, with equal larger shares",
+          "evidence": "The (3,3,1) loss recurs for h≡3 mod 7; the theorem works on the equal-larger-population slice.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-tie-independent-alabama-losses-for-equal-pair-rational-populatio--494a0538d100",
+          "material_read": "RESULT.md opening Finding (local mirror)",
+          "method": "Resultary search and bounded local mirror read",
+          "title": "Tie-independent Alabama losses for equal-pair rational populations",
+          "trigger": "Exact earlier 3→4 example"
+        },
+        {
+          "assessment": "Strong plausible source; direct overlap unresolved",
+          "evidence": "Retrieval did not yield article text or an identified open repository copy. No inference of noncoverage follows.",
+          "identifier_or_url": "https://doi.org/10.1080/0025570X.1992.11995970",
+          "material_read": "Bibliographic identification only; full theorem statements not accessed",
+          "method": "Lawful DOI/publisher PDF retrieval including OA alternate-copy recovery attempt",
+          "title": "A Geometric View of Some Apportionment Paradoxes",
+          "trigger": "Possible earlier exact geometry of susceptible regions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The earliest possible expansion is an intrinsic cutoff of the apportionment rule, not an arbitrary house size. A complete iff chamber and exact normalized probability quantify how exceptional the first loss is, and distinguish this finite experiment from an otherwise easily confused classical asymptotic average. This contributes more than an isolated paradox witness or a grid count.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

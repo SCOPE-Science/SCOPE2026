@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:19:51.292511Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each path of the endpoint permutation channel sends the two initial coin basis states to distinct orthogonal basis states; origin projections are diagonal, and reflection plus coin exchange gives equal survival from either basis state. The row sum of the published inverse Green matrix is [(1−z)v+(1+z)u]/2. Dividing by 1−z gives (1+z) times the even part of H_p(z), with H_p(z)=sqrt[(1−(1−2p)z)/(1−z)], so the submitted even coefficients and parity follow. At p=0 H_0=1 and detection is exactly at 2. At 0<p<1 the even generating function in w=z² has its leading term sqrt(p)(1−w)^(−1/2) and only higher Puiseux terms plus an analytic part; the other branch point lies outside the unit circle. At p=1 that even function is exactly (1−w)^(−1/2). Transferring coefficients of it and of 1−(1−w) times it gives both constants, with survival tending to zero but not summable. Independently, for N≥1 the coefficient of z^N in H_p is p times the integral of (1−p+p cos θ)^(N−1)(1+cos θ)dθ/π on [0,π]. Summing the geometric series and integrating 1/(A−B cos θ) with A=1−(1−p)z, B=pz gives H_p−1 and verifies this exact representation. For Np bounded the log of the power differs from −Np(1−cos θ) by O(p) uniformly, including bounded N; integration gives exp(−Np)(I₀+I₁). Divide by S₂=p−p²/2 and use parity with n=floor(t/(2p)) at positive fixed t. At t=0 the conditional tail is one. The Bessel derivative and large-argument asymptotics give the stated density and far tail. Independent rational monitoring on even times through 24 at p=0, 1/40, 1/3, 3/4, 1 matched the integral via the moments ∫cos^(2j)θ dθ/π=binom(2j,j)/4^j and zero odd moments. The supplied script was read, not executed. No fixed-p error uniform down to zero, generic coin, or unmonitored claim is inferred.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The paper covers the monitored renewal framework and at the exchange endpoint computes inverse return Green entries and proves recurrence for every mixing probability. The queue paper studies continuous-time critical busy periods and their infinite mean and tail."
+        ],
+        "reasoning": "The monitored formula determines finite-time coefficients and mechanically supplies the fixed-p singular exponent and constants. The critical busy-period theorem is not a theorem on how those coefficients behave at n of order 1/p.",
+        "searches": [
+          "Štefaňák et al. arXiv:2501.08674v1, equations (19)–(25) and (67)–(79)",
+          "Nazarathy–Palmowski arXiv:2203.15456v2, critical queue discussion"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and rare_noise_return_check.py",
+        "Štefaňák et al. arXiv:2501.08674v1",
+        "Nazarathy–Palmowski arXiv:2203.15456v2",
+        "Resultary 264e39f8cf09"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source takes z→1 for the total return probability. To obtain the submitted limit one must control coefficients with both p→0 and growing order, including bounded scaled times down to zero, and normalize by an event of vanishing probability. The coefficient integral gives a separate way to establish this uniformity."
+        ],
+        "reasoning": "A fixed-p singular expansion cannot be interchanged with p→0 because the other branch point approaches the dominant one. A busy-period identity gives the candidate law but not an identification or convergence of the monitored process without additional argument.",
+        "searches": [
+          "Štefaňák et al. Appendix E equations (67)–(79), preprint PDF offsets 74750 and 81150",
+          "Nazarathy–Palmowski, critical queue Bessel discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The candidate law has Laplace transform 1−s[sqrt(1+2/s)−1]=1+s−sqrt(s(s+2)). First-event analysis of the M/M/1 with arrival and service rates both 1/2 gives B=(1+B²)/(2(1+s)), with that transform as the bounded solution. Thus the limiting density is exactly that of the critical busy period from one customer; the inspected queue paper explicitly notes an exact Bessel law."
+        ],
+        "reasoning": "This is exact law-level equivalence, not a new density; it does not give model-specific convergence from the monitored discrete chain.",
+        "searches": [
+          "Targeted web and Resultary searches for first return in a telegraph process and critical M/M/1 busy period",
+          "Nazarathy–Palmowski arXiv:2203.15456v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest inspected telegraph record treats a target and alarm-reset mean optimization, not a conditional origin return under rare classical shifts. The original paper's exact generating-function entries already encode the full finite-time table."
+        ],
+        "reasoning": "No novelty is claimed for that implicit table or for its algebraic reorganization. Neither result is an exact statement of the conditional joint limit for this walk.",
+        "searches": [
+          "Resultary focused searches for exact rare-noise monitored crossover and telegraph first return",
+          "Resultary telegraph record 264e39f8cf09",
+          "Štefaňák et al. equations (72)–(75)"
+        ]
+      },
+      "rationale": "Pass is for the compact-uniform rare-noise coefficient crossover and resulting conditional convergence in this exact monitored walk. Neither the finite generating function, recurrence, fixed-noise consequences by singularity transfer, nor the Bessel probability law in isolation is credited as a new distributional result. The originating appendix supplies the exact premise; the critical queue gives the identical limit law, but neither inspected source supplies its appearance in this singular monitored limit.",
+      "residual_risks": [
+        "Older persistent-walk/telegraph theory could provide a stronger discrete first-passage limit covering this channel after an exact reduction; the searches were bounded.",
+        "The telegrapher trap paper was not available for formula comparison. The Bessel law itself is already covered regardless of that access gap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact finite-parameter premise and recurrence verified; inspected endpoint passage does not state the compact-uniform conditional rare-noise limit",
+          "evidence": "Eq. (74) gives I−R̃⁻¹, Eq. (75) the two-by-two inverse, Eq. (79) total recurrence one.",
+          "identifier_or_url": "https://arxiv.org/pdf/2501.08674v1",
+          "material_read": "PDF pp. 3, 10–11, equations (19)–(25), (67)–(79), exchanges, parity and endpoint resolvent; offsets 20700, 74750 and 81150",
+          "method": "Bounded OA preprint reading, alternative to unavailable journal PDF",
+          "title": "Recurrence in discrete-time quantum stochastic walks",
+          "trigger": "Identical walk and cited exact first-return input"
+        },
+        {
+          "assessment": "Same limit distribution at λ=μ=1/2, different discrete convergence claim",
+          "evidence": "The inspected discussion states a.s. finiteness and infinite mean and notes the exact Bessel distribution and t^(−1/2) tail for the critical M/M/1.",
+          "identifier_or_url": "https://arxiv.org/pdf/2203.15456v2",
+          "material_read": "PDF pp. 2 and 4, offsets 6100 and 13900",
+          "method": "Bounded OA passages; independent first-event transform calculation",
+          "title": "On Busy Periods of the Critical GI/G/1 Queue and BRAVO",
+          "trigger": "Equivalent critical queue first-passage law"
+        },
+        {
+          "assessment": "Related telegraph first passage, different kinetics and observable",
+          "evidence": "Uses alarm resetting and a mean-optimization transition, not exchange-coin monitored return conditioned on missing the two-step return.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-sharp-slow-return-criticality-law-for-persistent-telegraphic-s--264e39f8cf09",
+          "material_read": "RESULT.md statement and model setting",
+          "method": "Local mirror",
+          "title": "A sharp slow-return criticality law for persistent telegraphic search",
+          "trigger": "Closest indexed telegraph first-passage overlap"
+        },
+        {
+          "assessment": "Unresolved formula coverage; not negative evidence",
+          "evidence": "The snippet identifies first return to the origin in the telegrapher process. Exact continuous-law equivalence is established separately via the critical queue.",
+          "identifier_or_url": "Properties of the telegrapher’s random process with or without a trap",
+          "material_read": "Search snippet only; full text not read",
+          "method": "OA attempt returned HTTP 403",
+          "title": "Properties of the telegrapher’s random process with or without a trap",
+          "trigger": "Possible exact continuous first-return counterpart"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The novel component is not a new special-function law: it explains which rare trajectories carry the long tail of this monitored model. It quantifies both their vanishing weight and their nonexponential order-p⁻¹ delay, including uniformity for bounded scaled times where the fixed-noise asymptotic is inadequate. That gives an explicit interpretation of the singular p=0 limit beyond recurrence or a finite-time table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

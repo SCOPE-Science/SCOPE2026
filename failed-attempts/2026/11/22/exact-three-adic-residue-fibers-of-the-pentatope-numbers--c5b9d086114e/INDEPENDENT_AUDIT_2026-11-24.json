@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:47:13.940502Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two nonsingular branches have divided differences equal to ±1 modulo 3, so each contributes one preimage at every level. With w=2t−1 the third branch is 3(w²−1)(9w²−1)/128. Its quadratic coefficient after subtracting 3/128 and factoring 3w² is 1 modulo 3; its Hensel square root b(w) satisfies b(t)−b(s)∈9(t−s)Z_3, making w↦wb(w) bijective on all quotients and on Z_3. This gives the square-root count including the factor of three in the lifts and k=1. The period 3^(k+1) works in each branch, but the shift 3^k fails in the n≡1 branch by its exact isometry. Counting nonzero square residues by even valuation and counting the zero roots give the histogram; the square set has measure (1/3)∑3^(−2j)=3/8, and scaling by three gives 1/8 for the enhancement set, not the full image. Replayed independently by separate branch histograms and the failing period shift for k=1,…,8 (`python3 /workspace/frozen_review_replay.py 3`); this supports but does not replace the all-level proof. The frozen script was read, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 604e339dbb14 Finding includes the Haar pushforward density and exact inverse fibers on Z_3 in addition to all finite statistics.",
+          "SCOPE-exact-good-prime-power-images-and-p-adic-density-of-pentatope-nu--c524d9c86455 excludes p=2,3,5. Beukers' inspected framework passage does not state the bad-prime fiber theorem."
+        ],
+        "reasoning": "It is the broader same-prime indexed theorem, not the different good-prime result or the existence of a general congruence-computation framework, that gives decisive coverage.",
+        "searches": [
+          "Resultary: pentatope fourth binomial column prime three exact least period 3^(k+1) R_(k-1) square-root fibers 1/8 measure",
+          "arXiv:2211.15240, p-linear scheme; binomial coefficients",
+          "DOI:10.1016/0022-314X(91)90087-R"
+        ]
+      },
+      "checked_sources": [
+        "604e339dbb14",
+        "c524d9c86455",
+        "6cf95f0aa11e",
+        "arXiv:2211.15240",
+        "DOI:10.1016/0022-314X(88)90006-6",
+        "DOI:10.1016/0022-314X(91)90087-R"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "604e339dbb14 states least period 3^(k+1), surjectivity, square conjugacy with shift 3/128, and an enhancement set of measure 1/8. 6cf95f0aa11e is a different sequence, a Narayana column."
+        ],
+        "reasoning": "The matching record directly gives the claimed exceptional image and all finite-level data; positive fibers in a genuine period give infinite occurrence and density. The sequence analogy alone would not be coverage.",
+        "searches": [
+          "604e339dbb14, RESULT.md, Finding and singular-branch proof",
+          "6cf95f0aa11e, RESULT.md, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE-ternary-residue-fiber-spectrum-of-the-fourth-binomial-column--604e339dbb14, RESULT.md, Finding: N_k(y)=2+3·1_{3|y}·R_{k−1}(z_y), with z_y=y/3−128^−1."
+        ],
+        "reasoning": "The indexed z_y is precisely (y−κ)/3. This is equality of the two formulas for every residue at every level, including the convention k=1.",
+        "searches": [
+          "Resultary: fourth binomial column C(n,4) modulo powers of 3 ternary residue-fiber spectrum critical value 3/128 square map exact fiber formula"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "604e339dbb14, local-mirror Finding, gives the same exact complete histogram, not merely a fixed-level table. The literature query did not yield a decisive match."
+        ],
+        "reasoning": "The sole central residue and all even-valuation shells have exactly the same multiplicities, and all other fibers have size two in both statements.",
+        "searches": [
+          "Resultary: Exact three-adic residue fibers of pentatope numbers: least period 3^(k+1), complete fiber law and exceptional image measure",
+          "Literature: \"pentatope numbers\" \"3-adic\" residue fibers binomial x choose 4"
+        ]
+      },
+      "rationale": "A distinct indexed result gives the same least period, full square-root fiber law, complete histogram, and enhancement set and measure for the identical fourth binomial column at 3, and also gives the Haar pushforward density and exact three-adic inverse-fiber counts. The evidence establishes equivalent coverage, not chronological priority between the two same-day records. No distinct surviving mathematical claim was identified.",
+      "residual_risks": [
+        "Same-day chronology and relationship of the two records are unresolved; no assertion about priority or derivation is made.",
+        "Full texts of the cited Dickson-polynomial papers were not inspected; this is not the basis of failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent and stronger coverage",
+          "evidence": [
+            "Same z_y, period, histogram and 1/8 exceptional measure; further exact inverse fibers and output Haar density."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-ternary-residue-fiber-spectrum-of-the-fourth-binomial-column--604e339dbb14/RESULT.md",
+          "material_read": "Finding, scope, and the two branch-proof passages, offset 0–3762",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Ternary residue-fiber spectrum of the fourth binomial column",
+          "trigger": "Exact object, modulus, and critical value"
+        },
+        {
+          "assessment": "Different prime regime",
+          "evidence": [
+            "p≥7, with 2,3,5 excluded."
+          ],
+          "identifier_or_url": "SCOPE-exact-good-prime-power-images-and-p-adic-density-of-pentatope-nu--c524d9c86455",
+          "material_read": "Finding and scope, offset 0",
+          "method": "Local mirror",
+          "title": "Exact good-prime-power images and p-adic density of pentatope numbers",
+          "trigger": "Same binomial polynomial"
+        },
+        {
+          "assessment": "Framework and examples, no matching specialization established by the passage",
+          "evidence": [
+            "The located examples concern central binomial, Apéry, and Franel sequences."
+          ],
+          "identifier_or_url": "arXiv:2211.15240",
+          "material_read": "Opening passage around offset 1500, and located first-page terms",
+          "method": "OA literal lookup and bounded read",
+          "title": "p-Linear Schemes for Sequences Modulo p^r",
+          "trigger": "General congruence methods for arithmetic-sequence columns"
+        },
+        {
+          "assessment": "Inconclusive",
+          "evidence": [
+            "No statement-level comparison of the bad-prime fiber law possible from the available material."
+          ],
+          "identifier_or_url": "DOI:10.1016/0022-314X(91)90087-R",
+          "material_read": "Landing-page/abstract only; full text not read",
+          "method": "Lawful OA attempt",
+          "title": "Value sets of Dickson polynomials over Galois rings",
+          "trigger": "Possible alternate quartic value-set formulation"
+        },
+        {
+          "assessment": "No exact coverage established",
+          "evidence": [
+            "The accessed material concerns finite fields rather than the full stated tower of congruence quotients."
+          ],
+          "identifier_or_url": "DOI:10.1016/0022-314X(88)90006-6",
+          "material_read": "Landing-page/abstract only",
+          "method": "Lawful OA attempt",
+          "title": "Value sets of Dickson polynomials over finite fields",
+          "trigger": "Related polynomial value-set theory"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The ramified three-adic fiber distribution of a natural integer-valued polynomial is a worthwhile exact invariant in itself, but this submission gives no additional invariant, sharper conclusion, or different useful mechanism beyond the matching indexed theorem, which already contains the same global square normal form and strictly more output information.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

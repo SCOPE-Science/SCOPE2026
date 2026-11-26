@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:40:28.889184Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The square-multiplier affine group sends ordered differences in the square and nonsquare cosets to 1 and 3, respectively. An independent re-enumeration (independent_puncture_check.py) checked no 4-cliques, 136 edge-preserving affine maps and both full pair orbits. Using the supplied trees as data, a separately written triangle-first relator elimination after tree contraction exhausts every non-tree edge. Inductively each chosen triangle forces its one remaining generator to be trivial. For the ambient, single, adjacent-pair and nonadjacent-pair cases the numbers of remaining triangles are 16, 11, 8 and 6; the last two face vectors are (15,53,47) and (15,52,44). The frozen script actually orders by (unresolved edge, triangle), not triangle first as the text says; the independent triangle-first check also succeeds. In dimension two H₂ is free and Euler characteristic determines its rank once π₁ is trivial. Hurewicz followed by the homology form of Whitehead gives the indicated sphere wedges. For the actual inclusion, H₃(K,D)=0 and H₂(K,D) is a subgroup of the free relative two-chain group; H₁(D)=0 makes it the cokernel of the injected H₂(D). Thus the cokernel is free of rank 16−8 or 16−6 and the inclusion splits integrally. The optional intermediate link calculation was also checked: vertex/edge/cycle-rank triples (8,12,5), (7,9,3), (8,12,5). The frozen verifier was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former includes Paley(17) in graph-level ambient checks; the latter's conference-graph vanishing threshold is at least 256 vertices."
+        ],
+        "reasoning": "Neither ambient theorem covers the 15-vertex induced graphs or proves simple connectivity of their clique complexes.",
+        "searches": [
+          "arXiv:2508.05871 Thm. 5.21 and examples",
+          "arXiv:2606.27328 conference graph vanishing"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e32386d9ce70 (identical record)",
+        "Resultary e64ded9fa641 and 3615be890382",
+        "arXiv:1807.05755",
+        "arXiv:2508.05871",
+        "arXiv:2606.27328"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Orbit counts and face numbers give Euler characteristics, not π₁. Relative homology gives primitivity once the new H₁ vanishing is supplied."
+        ],
+        "reasoning": "An ambient wedge statement or affine representation does not give the requisite vanishing for both restrictions. The homotopy certificates supply that missing step; the generic lattice argument is not credited as new.",
+        "searches": [
+          "Earlier ambient Resultary e64ded9fa641 and 3615be890382, opening claim passages",
+          "Rinaldo–Romeo Example 1.5; Cioabă et al. Thm. 5.21"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact indexed result e32386d9ce70 is the assigned record itself. Earlier e64ded9fa641 and 3615be890382 state the ambient sphere count and affine action. Rinaldo–Romeo identify the vertex-decomposable Paley(17) independence complex."
+        ],
+        "reasoning": "A nonsquare multiplier identifies clique and independence complexes while swapping the adjacency label of the removed pair; their puncture results would be equivalent with labels reversed. Ambient vertex decomposability does not assert it for both prescribed two-vertex restrictions.",
+        "searches": [
+          "Resultary: Paley 17, two-vertex puncture/deletion clique and independence complexes",
+          "arXiv:1807.05755, Example 1.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2025 paper reports checks for Paley graphs and 6,760 conference graphs of order 37, of which 6,120 satisfy its ambient criterion. The Resultary exact claim points to this assigned record, not a second entry."
+        ],
+        "reasoning": "The observed census is not a table of induced two-vertex homotopy types or inclusion maps; no covering deletion census was identified in this bounded check.",
+        "searches": [
+          "Resultary Paley(17) puncture results; arXiv:2508.05871 p. 31 census and Paley examples"
+        ]
+      },
+      "rationale": "Prior work covers the full Paley(17) complex and the abstract tools, not the checkable pair-deletion homotopy classification. The latter needs the missing pairwise connectivity information; the primitive lattice statement then follows by standard integral topology.",
+      "residual_risks": [
+        "Unindexed exact deletion computations or special graph-specific topology may precede the result. The bounded search is not a priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Ambient results credited",
+          "evidence": "Both state the ambient sixteen-sphere description and symmetry, not the deletion classification.",
+          "identifier_or_url": "Resultary e64ded9fa641 and 3615be890382",
+          "material_read": "Opening claims in local-mirror RESULT.md for both",
+          "method": "Bounded local mirror inspection",
+          "title": "The Paley-seventeen clique complex: sixteen two-spheres and an affine homology module; Paley-17 flag complex: sixteen 2-spheres and its affine homology",
+          "trigger": "Same graph and sphere-wedge invariant"
+        },
+        {
+          "assessment": "Ambient structure only",
+          "evidence": "C17(1,2,4,8) is Paley 17; vertex decomposability checked with Macaulay2.",
+          "identifier_or_url": "https://arxiv.org/pdf/1807.05755",
+          "material_read": "pp. 2 and 5, including Example 1.5",
+          "method": "Bounded OA PDF inspection",
+          "title": "2-dimensional vertex decomposable circulant graphs",
+          "trigger": "Paley(17) independence complex, equivalent ambient object"
+        },
+        {
+          "assessment": "Ambient cohomology, not punctures",
+          "evidence": "Paley(17) appears in computer checks of the conference-graph criterion.",
+          "identifier_or_url": "https://arxiv.org/pdf/2508.05871",
+          "material_read": "p. 28 Theorem 5.21 and p. 31 examples and census",
+          "method": "Bounded OA PDF inspection",
+          "title": "Clique complexes of strongly regular graphs, their eigenvalues, and cohomology groups",
+          "trigger": "Possible broader conference-graph coverage and exact tables"
+        },
+        {
+          "assessment": "Does not cover these sizes and restrictions",
+          "evidence": "Vanishing result for conference graphs with at least 256 vertices.",
+          "identifier_or_url": "https://arxiv.org/pdf/2606.27328",
+          "material_read": "pp. 1–2, conference-graph theorem and scope",
+          "method": "Bounded OA PDF inspection",
+          "title": "On the homology groups of clique complexes of strongly regular graphs",
+          "trigger": "Potential general vanishing theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a complete two-point loss profile on a canonical conference and Ramsey graph, where symmetry gives exactly two natural erasure types. It tells a researcher which type retains more two-dimensional topology, and that neither introduces one-dimensional topology or a nonprimitive second-homology image. Neither an Euler check alone nor the ambient sphere count answers that question. Scope is exactly this graph and two induced deletions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

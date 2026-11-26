@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the new theorem
 
-This is a deductive analytic proof, not a finite-computation certificate.
+# Independent mathematical audit
 
-The required source implications were checked against Campbell, arXiv:2610.19534v1: Lemma 3 gives arbitrarily large odd sums with product-minimal distinct-prime sets of each prescribed size above one; Lemma 4 gives a triple of pairwise distinct primes for each sufficiently large such odd sum; Lemma 6 identifies the unique product-maximizing complement after a following prime gap strictly greater than eleven times the relevant minimal product. Choosing a common fixed threshold applies the same argument to an arbitrary but fixed number of distinct deletion sums.
+## correctness
 
-For every fixed positive integer \(H\), the classical pair-sieve estimate \(\#\{p\le y:p,p+h\text{ prime}\}=O_h(y/(\log y)^2)\) summed over \(1\le h\le H\) shows the excluded primes are \(o(\pi(y))\). This is a theorem citation, not a computational observation. The inequality \(\Sigma(p'')-\Sigma(p')\ge p''\) for distinct primes \(p'<p''\) rules out collisions across different prefixes whenever \(p''\) exceeds the maximum offset difference. Prime number theorem plus partial summation gives \(\pi(y_X)\sim2\sqrt{X/\log X}\) for the maximal prime \(y_X\) whose prime-prefix sum does not exceed \(X\). Since adjacent prime-prefix sums eventually exceed every fixed offset, the difference between that baseline cutoff and each shifted cutoff adds at most one term per offset.
+PASS
 
-Thus the \(J\)-template family has \((2J+o(1))\sqrt{X/\log X}\) distinct members, all meeting the discrepancy threshold. Since \(J\) is arbitrary but fixed before the limit, this implies the claimed infinite normalized liminf. No claim is made about effective convergence rates or full exceptional-set asymptotics. Independent mathematical audit has not been performed.
+Campbell Lemmas 3, 4 and 6 have the needed hypotheses: arbitrarily large odd d with a size-(r+3) product-minimizer, existence of three distinct primes for all sufficiently large odd d, and complement optimality for prime p>d with strict next gap >11M. Both deletion sets lie in the prefix, and unique factorization makes the product optimizer unique. Fixed H excludes only O_H(y/log^2 y) primes by summing the unconditional two-linear-form upper-bound sieve (the two roots are distinct modulo every prime not dividing h for each fixed even shift h; odd shifts give only finite exceptions). A cross-prefix collision would force p''<=max|d_i-d_j|, already excluded by p''>max d_i; same-prefix collisions are impossible. Partial summation gives Sigma(y)~y^2/(2 log y), so with at most one boundary prime per translate the count is (2J+o(1))sqrt(X/log X). For every arbitrarily large fixed J this bounds the normalized liminf below by 2J, proving divergence without any growing-J uniformity. The frozen verification notes are analytic, not a computational certificate; its no-rate qualification is not a theorem about how slowly the actual count grows.
+
+## originality
+
+PASS
+
+Credit Campbell's one-offset construction and discrepancy infinitude completely. The supported contribution is the explicit density-one prime-prefix count for arbitrarily many fixed distinct translates and the resulting divergent normalized lower bound. The strongest distinct indexed comparison proves residue-class infinitude and contains a material but unattributed reference to a multiplicity theorem; its verified statements neither identify a separate exact antecedent nor give the stated 2J asymptotic. No equivalent earlier or otherwise distinct proved statement of this scope was located. This is a bounded judgment, not a priority certification.
+
+## value
+
+PASS
+
+This gives a natural quantitative strengthening of an exact-sum partition problem: not just one infinite subsequence, but arbitrarily many asymptotically full translates of the benchmark prime-prefix sequence, with an explicit factor 2J and divergent normalized exceptional count. The proof is economical and the claim does not pretend to determine the complete exceptional set or a natural density.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-For a primitive cycle of gap \(k\), the two floor equalities are necessary and sufficient and yield a half-open phase interval of length \((1-|1+\lambda|k)_+\). Translation conjugacy gives the natural phase period \(1-\lambda\); even and odd gaps generate disjoint nested interval families. Their exact lengths prove every survival probability, including zero-length border cases. A direct Lipschitz comparison of survival functions yields the explicit quantitative uniform limit. An independent exact-rational implementation checked 3,208 individual assertions across ten rational distances and both one-sided branches, including interval boundaries. The exact triangular phase-profile inequality is additionally proved by integer counting. The all-real result is an analytical proof, not extrapolation from computations.
+PASS
 
-## Originality: PASS (with priority risk)
+For positive gap k, the two floor equations give two unit half-open intervals whose displacement has magnitude k*epsilon. Their intersection is empty at and beyond k*epsilon=1. Choosing the smaller endpoint x=−floor(k/2) places the nonempty phase window wholly within [0,q); other x translate it by integer multiples of q and do not intersect that interval. The even windows [j*epsilon,1−j*epsilon) and the sign-dependent odd windows are nested on disjoint phase ranges. Thus N>=m is exactly the union of the even window at gap 2m and the odd one at 2m−1, including the endpoint convention. Counting integers with the resulting weak lower-window and strict upper-window tests gives a floor or ceiling count within one of the triangular height divided by epsilon, with the odd cutoff shifted by at most one mesh cell; [2,q) on the expanding side contributes zero. Setting m=floor(t/epsilon)+1 in the survival formula proves the stated CDF bound by Lipschitz continuity of positive part, and the bounded support gives moment convergence. On N>0 the available gaps are the first N even or odd gaps; coupling the rank to ceil(NV) makes the error relative to 2*epsilon*N*V at most 2*epsilon. The zero-cycle probability tends to zero, so conditioning does not affect the phase limit. Rescaling the phase to [0,2) gives the uniform triangular height independently of V, proving the joint law and the product-of-uniforms marginal. Independent direct iteration also agreed throughout 748 rational phase cells, with 2,534 profile/survival checks in addition to direct gap-list and half-open-cell checks.
 
-Hoseana (2024), Theorem 2, establishes the complete two-cycle count for each *fixed* \((\lambda,\mu)\), so that fact is excluded from the new contribution. Its Theorem 3 concerns forward limits, not a distribution over the conjugacy quotient of the offset parameter nor a joint limit law for orbit gaps. The present claim is the explicit two-tower *parameter-distribution* theorem and the quantitative uniform scaling law at the infinite-cycle singularity. The indexed related quantized-affine contraction result concerns basin selection and settling, with no corresponding ensemble law in its available summary. Searches for two-cycle phase distributions and critical uniform laws found no equivalent statement. Since the full fixed-parameter count is known and logically determines the new distribution, an unpublished or unindexed derivation is a material residual priority risk; no claim of absolute uniqueness is made.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The slope \(-1\) is the exact infinite-two-cycle bifurcation singled out by the source's periodic-orbit classification. Counting cycles over the *canonical translation-conjugacy parameter circle*, rather than an arbitrarily chosen phase window, measures the prevalence of multiplicity in parameter space. The exact survival law reveals almost-flat finite critical spectra and a nondegenerate universal scaling distribution, and a logarithmic distribution of geometric gaps of selected cycles, simultaneously for the contracting and expanding sides. Thus the result isolates quantitative geometry of the singular periodic-orbit explosion not conveyed by individual orbit counts.
+Do not credit the fixed-offset periodic-orbit census. Credit the explicit two-sided parameter-ensemble law, pointwise profile and, in particular, the joint gap limit for uniform-within-phase cycle sampling. The strongest exact comparator repeats the contraction-side count formula and leading profile on a narrower parameter range; its later index date is reported without assigning historical priority. Its result does not state the two-sided law or the joint mark limit.
 
-## Closest literature and limitations
+## value
 
-Primary full text: J. Hoseana, arXiv:2406.14055v1, Sections 2–4 (especially Theorem 2 and proof). Earlier zero-offset study: Rozikov, Sattarov, Usmonov, arXiv:1503.07129 (abstract; not full text). Related published record: *Outermost-cycle basin selection and logarithmic settling for quantized affine contractions* (indexed summary, full text unavailable in the comparison). Main residual risk: the complete source census may already have been averaged or asymptotically analyzed elsewhere. The mathematical claim concerns an ensemble of parameters, not random orbit forcing. Finite tests do not certify continuum identities independently.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural uniform translation-conjugacy phase turns the proliferation of periodic orbits near slope −1 into an exact finite-parameter law, including the different normalizations on the two sides. The marked law adds geometric information: the gaps are asymptotically uniform up to the phase-dependent maximum, while mixing over phases creates a logarithmic singularity. The within-phase sampling distinction makes this more than a restatement of the fixed-parameter census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

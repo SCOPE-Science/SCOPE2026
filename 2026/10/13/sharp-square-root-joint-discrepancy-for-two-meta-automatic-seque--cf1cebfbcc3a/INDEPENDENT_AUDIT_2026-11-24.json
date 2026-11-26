@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:58:13.077646Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Both nested recurrences give complementary adjacent pairs. With state (x,y)=(f(n),f(2n)), the binary children for M1 are (y,x) and (1-y,y if x=1, else 1-y); those for M2 are (y,x XOR y) and (1-y,1-(x XOR y)). Combining two steps in state order 00,11,01,10 gives exactly the frozen tables from the recurrences for all n, not just the tested prefix. The all-zero leading digit fixes the initial state. Independently computed the characteristic determinant at 17 field points for each of 1009, 1013, 1019, 1021 and matched all values of the claimed polynomial. Interpolation gives equality modulo each prime; the coefficient differences are bounded by 2*5^16 since both root multisets have moduli at most 4, and the prime product exceeds this bound. The product transfer has row sum 4, and the sign row annihilates its simple eigenline at 4. The zero Jordan part is killed by step 8; the eigenvalue 1 contributes at most a constant. The quadratic on the radius-two circle has lambda/2+2/lambda=-3/2, different from both real quartic values (3±sqrt(21))/4 in (-2,2), so all six circle eigenvalues are distinct and simple. This bounds each aligned block by K*2^k, which summed over at most three blocks of each base-four size proves the prefix bound. Independent transfer iteration gave -364 and -372 at levels 8 and 9, forcing a nonzero circle coefficient; the Cesaro mean square after normalization is the positive sum of squares of those coefficients. Expanding the pair indicator gives all cell counts, exactly on full blocks where the marginal signed sums vanish. Replay: node /workspace/branches/independent-checks.js (record 1 block). The archived verifier and recorded output were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cited source proves the two individual DFAOs and morphisms.",
+          "2026/11/2/SCOPE-exact-dyadic-multiplicative-correlations-for-two-one-binary-mult--50b8d332f4b5 gives dyadic sums for tau(n)tau((2^k+1)n).",
+          "2026/10/25/SCOPE-sharp-four-site-progression-correlations-in-the-thue-morse-subsh--0dd3c0b85798 treats a four-point subshift statistic."
+        ],
+        "reasoning": "None of those sums has the two frozen nested recurrences as the two factors. No reduction from arbitrary automatic balanced words to square-root joint cancellation is possible: taking the two words identical gives signed product 1 everywhere.",
+        "searches": [
+          "Resultary searches for automatic-word joint discrepancy, dyadic multiplicative products and Thue–Morse correlations",
+          "arXiv:2602.23395v2 Theorems 13 and 22 and Corollaries 16 and 23"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py, verify_output.txt",
+        "arXiv:2602.23395v2 and JIS 29 Article 26.4.1",
+        "OEIS A392736 and A391614",
+        "Resultary exact dyadic two-one multiplier correlations, same-day Thue–Morse arithmetic factors, four-site progression correlations, and Stern residue-pair discrepancy"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The individual 4-uniform morphisms supply the coupled transition inputs, not its characteristic polynomial or the surviving oscillation.",
+          "The Stern record proves a different rate for a residue pair modulo 9 (faster than the square-root scale)."
+        ],
+        "reasoning": "The crucial implication uses the specific 16-state spectrum and sign projection, not merely the known transition representations or an arbitrary product-discrepancy theorem.",
+        "searches": [
+          "Campbell–Cloitre Corollaries 16 and 23 and JIS Article 26.4.1",
+          "2026/10/26/SCOPE-sharp-non-square-root-dyadic-discrepancy-for-a-stern-residue-pai--57068b08083f"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two OEIS recurrences and morphisms match M1 and M2; A391614 additionally formulates M2 by a binary mask followed by Thue–Morse.",
+          "The signed-product identity is equivalent to the full-block joint-count formulas once each marginal is balanced."
+        ],
+        "reasoning": "Changing to the binary mask or a product sequence is an equivalent representation, not a prior bound for the coupled pair. Individual balancing cancels the marginal terms but not the product term.",
+        "searches": [
+          "Resultary and literature queries for Campbell–Cloitre M1/M2 joint signed prefix products, base-four coupled DFAO and four-cell counts",
+          "OEIS A392736 and A391614",
+          "Meta-Automatic Sequences, arXiv:2602.23395v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both sequence entries concern individual outputs and their recurrences, not a prefix-sum table for the signed product.",
+          "The same-day SCOPE result enumerates occurring four-bit patterns at four equally spaced positions in one Thue–Morse word."
+        ],
+        "reasoning": "Single-sequence indexing does not give the asserted joint spectrum; even computed finite values of the exact product would not establish its upper order or positive normalized limsup.",
+        "searches": [
+          "OEIS A392736 COMMENTS/FORMULA",
+          "OEIS A391614 COMMENTS/FORMULA",
+          "2026/10/13/SCOPE-exact-four-term-arithmetic-factor-spectrum-of-the-thue-morse-wor--666e321caf9a"
+        ]
+      },
+      "rationale": "The individual words and digit morphisms are prior. No inspected source gives the frozen pair's joint square-root upper and lower orders. The nearest signed-product and automatic-discrepancy statements are for different inputs, and an individual balanced DFAO or even a generic product transfer does not imply the pair's required eigenvalue bound, cancellation and sharpness.",
+      "residual_risks": [
+        "The one bounded external lookup did not add a relevant source; that is not evidence of absence. An indirectly phrased Fourier or product formula or unindexed equivalent treatment remains possible. Inspected primary passages support specific comparisons, not an exhaustive priority judgment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Individual sequence laws used here, not frozen joint statement",
+          "evidence": "Theorems 13 and 22 describe separate automata; Corollaries 16 and 23 exhibit the separate four-letter morphisms.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.23395",
+          "material_read": "v2 PDF pp. 9–13: Theorem 13, Corollary 16, Definition 17, Theorem 22, Corollary 23; JIS 29 Article 26.4.1 abstract cross-check",
+          "method": "Open PDF passages and journal abstract",
+          "title": "Meta-Automatic Sequences",
+          "trigger": "Primary source of the exact pair"
+        },
+        {
+          "assessment": "Confirms individual recurrence identity; no joint claim in inspected sections",
+          "evidence": "A391614 gives a Thue–Morse mask formula as well as nested recurrence; A392736 gives M1's nested recurrence.",
+          "identifier_or_url": "https://oeis.org/A392736 and https://oeis.org/A391614",
+          "material_read": "COMMENTS and FORMULA sections of both entries",
+          "method": "Open sequence pages",
+          "title": "OEIS entries for the two meta-automatic sequences",
+          "trigger": "Exact indexed sequences and alternative formulations"
+        },
+        {
+          "assessment": "Methodologically similar, different pair/statistic",
+          "evidence": "The multiplicative arguments are n and (2^k+1)n of Thue–Morse, not M1 and M2.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-dyadic-multiplicative-correlations-for-two-one-binary-mult--50b8d332f4b5",
+          "material_read": "Finding, local mirror offset 0",
+          "method": "Published record search and bounded mirror reading",
+          "title": "Exact dyadic multiplicative correlations for two-one binary multipliers",
+          "trigger": "Closest indexed dyadic signed-product theorem"
+        },
+        {
+          "assessment": "Occurrence classification, not prefix frequencies or pair discrepancy",
+          "evidence": "It concerns binary patterns at four equally spaced positions of one word.",
+          "identifier_or_url": "2026/10/13/SCOPE-exact-four-term-arithmetic-factor-spectrum-of-the-thue-morse-wor--666e321caf9a",
+          "material_read": "Finding, local mirror offset 0",
+          "method": "Published record search and bounded mirror reading",
+          "title": "Exact four-term arithmetic-factor spectrum of the Thue–Morse word",
+          "trigger": "Same-day indexed four-cell/word statistic candidate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This resolves a natural joint statistic of the two explicitly introduced balanced sequences: balance individually leaves overlap unsettled. Sharp square-root pair discrepancy and the exact full-block relation give more than a joint density or routine DFAO construction, and distinguish this pair from pairs with slower cancellation or no cancellation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

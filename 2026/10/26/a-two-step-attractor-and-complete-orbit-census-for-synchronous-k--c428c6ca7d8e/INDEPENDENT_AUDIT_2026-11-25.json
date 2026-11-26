@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:09:56.437174Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof, lines 3–71",
+        "Frozen VERIFICATION.md, lines 18–22; check_biclique.py, inspected as text",
+        "/workspace/branches/6dc9f7ec-1690-4fec-91db-55fe1a98d886/record2_replay.md"
+      ],
+      "rationale": "A neighbor shore with j ones makes a current zero flip iff j>=k and a current one flip iff d-j>=k. This gives exactly the four stated actions, with the central class either all retain, all complement, or empty at d=2k-1. For two active shores, two central words stay central and repeat by the second update; a nonempty complemented word is never fixed. With no central word the first update is periodic, and with exactly one central word the second update is uniform. In the latter case the first update is nonperiodic exactly when the outer-class word was nonuniform, yielding Q2. Its central action decides whether the outer word's orientation agrees with the uniform word forced on the other shore, giving the basin coefficients. For s<k<=d the d-word is frozen; each of its outer words gives one fixed state, while each central word gives 2^s fixed or period-two states. This also supplies the uniform-basin counts implicit, not separately displayed, in this branch: each global constant has basin 2^s, since the frozen word must already equal that constant; there is no opposite uniform cycle. For k>max(a,b) all basins are singletons. Direct independent vertex-update replay gives (N1,N2;Q0,Q1,Q2)=(2,38;40,120,96) for (4,4,2), including 36 middle/middle states with both words complemented, and (2,2502;2504,392,1200) for (6,6,2). The replay also checks two one-inactive-shore examples and relevant basins.",
+      "residual_risks": [
+        "Independent replay was representative, not the supplied 301-triple sweep. The all-size claim rests on the exhaustive action classification; the counts are for labelled configurations, with N2 counting states, not orbits."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general-graph bound in Corollary 5 is n(Delta+1)-1; Corollary 6 replaces Delta by k under 2k>Delta. Neither gives two uniformly on the whole biclique family.",
+          "Turau studies fixed points and two-cycles of synchronous dynamic coloring on finite trees."
+        ],
+        "reasoning": "The broader result covers periodic lengths, not the sharp biclique preperiod or binomial counts. Tree classification is not broader than the biclique result since both shores of size at least two give a four-cycle.",
+        "searches": [
+          "arXiv:1311.6126v1, Theorems 3–4 and Corollaries 5–6",
+          "arXiv:2202.01580, abstract"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1311.6126v1",
+        "arXiv:1307.7259v1",
+        "arXiv:2202.01580",
+        "Resultary 86c127361840 and 5a964370c020",
+        "DOI 10.1016/j.tcs.2012.05.042 (access attempt)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general energy method supplies eventual period, but its stated preperiod estimate grows with graph size. The alternate biclique finding changes the threshold convention and map.",
+          "The cited Dourado et al. DOI landing page did not yield a readable original passage."
+        ],
+        "reasoning": "No inspected implication supplies the two-step cutoff and class cardinalities without a new biclique action argument. The inaccessible work remains an unadjudicated risk, not negative evidence.",
+        "searches": [
+          "arXiv:1311.6126v1, offset 10823 and ensuing preperiod results",
+          "Resultary local records 86c127361840 and 5a964370c020",
+          "DOI 10.1016/j.tcs.2012.05.042"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The parity-automata record 86c127361840 states the same formal map identity F^4=F^2, but uses binary neighbor parity on rectangular Hamming graphs.",
+          "Theorem 3 of arXiv:1311.6126 states that the eventual period is at most two for the very same flip rule on arbitrary finite graphs."
+        ],
+        "reasoning": "F^4=F^2 means fixed or period two is reached by time two, not merely that an eventual orbit has length at most two. A shared iterate identity under a different rule is not an equivalent formulation for the k-reversible map.",
+        "searches": [
+          "Resultary local search for two-step dynamics and basin census",
+          "arXiv:1311.6126v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day parity record counts different automata; the November 1 record 5a964370c020 obtains F^6=F^4 and a last-transient basin census on bicliques with a closed-neighborhood bi-threshold rule.",
+          "The predecessor paper treats existence/counting of one-step predecessors; Corollary 4 is NP-completeness of existence on general bipartite graphs for k>1."
+        ],
+        "reasoning": "These are the close census/graph-class matches, but neither mirror record supplies tables or formulas for these k-reversible biclique orbits; the predecessor result is about a different invariant. Same-day dating alone has no priority significance.",
+        "searches": [
+          "Resultary local mirror 86c127361840 and 5a964370c020",
+          "arXiv:1307.7259v1, Corollary 4 and concluding summary"
+        ]
+      },
+      "rationale": "The general period-at-most-two conclusion is already known. The distinct mathematical content is the sharp uniform two-update entry bound on these bicliques together with the labelled orbit, depth and basin census. None of the inspected prior statements covers that combination or implies it directly.",
+      "residual_risks": [
+        "No usable full text for Dourado et al.; older/combinatorially equivalent threshold-network results may be unindexed. The bounded web lookup did not settle priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Existing coverage of the period bound only; stated general bounds do not yield the cutoff or census",
+          "evidence": "Theorem 3: p<=2; Theorem 4: tau<=E(tmax)+n-1; Corollaries 5–6 give size-dependent bounds.",
+          "identifier_or_url": "https://arxiv.org/pdf/1311.6126v1",
+          "material_read": "Abstract and pp. 5–6, offsets 10823–15283",
+          "method": "Lawful original PDF, abstract and bounded theorem passage",
+          "title": "An energy function and its application to the periodic behavior of k-reversible processes",
+          "trigger": "Same rule and general period/preperiod theorems"
+        },
+        {
+          "assessment": "Different problem",
+          "evidence": "Corollary 4 concerns Pre(k) NP-completeness on bipartite graphs, not eventual orbit basins or an exact biclique census.",
+          "identifier_or_url": "https://arxiv.org/pdf/1307.7259v1",
+          "material_read": "Abstract, Corollary 4 on p. 9 and concluding passage p. 22",
+          "method": "Lawful original PDF, bounded passages",
+          "title": "The Predecessor-Existence Problem for k-Reversible Processes",
+          "trigger": "Same rule and bipartite graphs"
+        },
+        {
+          "assessment": "Stated tree scope differs; not a whole-paper assessment",
+          "evidence": "The asserted cycle characterizations and counting results in the abstract are for finite trees.",
+          "identifier_or_url": "https://arxiv.org/pdf/2202.01580",
+          "material_read": "Abstract",
+          "method": "Lawful original PDF",
+          "title": "Fixed Points and 2-Cycles of Synchronous Dynamic Coloring Processes on Trees",
+          "trigger": "Related exact cycle counts"
+        },
+        {
+          "assessment": "Structural analogue, not the same update or graph class",
+          "evidence": "The same map identity and count types arise for neighbor parity on rectangular Hamming graphs.",
+          "identifier_or_url": "2026/10/26/SCOPE-exact-two-step-dynamics-and-basin-census-of-parity-automata-on-r--86c127361840",
+          "material_read": "RESULT.md offsets 89 and 2492",
+          "method": "Resultary local mirror",
+          "title": "Exact two-step dynamics and basin census of parity automata",
+          "trigger": "Closest formal iterate identity and census"
+        },
+        {
+          "assessment": "Different dynamics and cutoff",
+          "evidence": "Closed-neighborhood bi-threshold rule; F^6=F^4.",
+          "identifier_or_url": "2026/11/1/SCOPE-sharp-four-step-relaxation-and-exact-last-transient-basins-in-bi--5a964370c020",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Sharp four-step relaxation and exact last transient basins in bi-threshold dynamics",
+          "trigger": "Same graph class and transient-basin problem"
+        },
+        {
+          "assessment": "Unresolved exact coverage",
+          "evidence": "The resolved landing page yielded no readable theorem text.",
+          "identifier_or_url": "https://doi.org/10.1016/j.tcs.2012.05.042",
+          "material_read": "No usable full-text passage; frozen comparison reports abstract only",
+          "method": "Lawful DOI landing-page retrieval",
+          "title": "Reversible iterative graph processes",
+          "trigger": "Plausible older coverage of same dynamics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof and sharpness",
+        "arXiv:1311.6126v1, Theorem 3 and Corollaries 5–6"
+      ],
+      "rationale": "Complete bipartite graphs are a natural dense test family for reversible synchronous dynamics. The explicit maximal depth and exactly which labelled states realize it, together with the division between uniform basins and isolated central attractors, answer more than the known general period bound. The exact classification distinguishes the degree regimes and includes a sharp witness.",
+      "residual_risks": [
+        "No corresponding bound is asserted for general bipartite graphs or other threshold conventions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

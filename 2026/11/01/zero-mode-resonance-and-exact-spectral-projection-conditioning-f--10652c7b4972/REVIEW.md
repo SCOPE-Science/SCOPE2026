@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The Fourier shear conjugacy, spectral identification, exact pointwise Riesz projection norm, and collision power asymptotics have been reconstructed for arbitrary allowed data. The irrational-angle hypothesis and finite Fourier support are indispensable to the bounded collision cohomological solution. Verification includes 4380 deterministic finite tests; no infinite statement rests on them.
+## correctness
 
-**Originality — PASS, best knowledge.** The closest source, Duru–Ilter–Kitover–Orhon (arXiv:2610.24853, Corollaries 3.4 and 3.8), gives decomposable spectral projections and a bound on their number, not a Fourier-sensitive exact projection norm or the mean-mode collision law. Duggal–Jeon–Kim (2013) addresses spectral invariance of upper triangular matrices and Pötzsche (2016) addresses dichotomy spectra; their inspected statements do not present the quantitative two-circle conditioning/resonance classification. Similarity and Fourier cohomology are classical methods, and the possibility that an older cocycle treatment already contains this exact specialization is a meaningful priority risk.
+PASS
 
-**Value — PASS.** This is a natural complete calculation in the smallest nontrivial operator-valued weighted-composition fiber: two spectral components attain the known component-count ceiling, but their spectral projections can either remain uniformly conditioned or diverge at the sharp reciprocal-gap rate as the circles collide. The mean Fourier mode gives a structural if-and-only-if distinction and exactly determines the normalized power-growth coefficient at collision. The calculation offers a reproducible benchmark for quantitative spectral splitting, not merely a restatement of decomposability.
+The Fourier characters are eigenvectors of U with dense eigenvalues on the circle. For a≠b, conjugation of diag(aU,bU) by the upper shear S with off-diagonal M_h gives coupling b h−a h∘R_α=c. The Fourier denominator b−a exp(inα) is nonzero and the finite sum defines a bounded multiplier; this fixes the sign of the conjugated Riesz projection, whose row is (1,−h) pointwise and whose norm is sqrt(1+||h||∞²). The known ergodic component bound for a two-dimensional fiber applies; this operator attains it. Near a=b=r the nonzero-frequency part of h converges uniformly, while the constant term is exactly c_0/(b−a). Its norm differs from that term's modulus by a bounded amount even for either sign of b−a. This proves the scaled gap limit and the bounded norm limit for c_0=0. The two-mode norm follows by exact phase alignment, including when either coefficient vanishes. At collision, write c=c_0+r(h−h∘R_α) using the nonzero harmonics. Directly raising the triangular factorization to the N-th power and removing diag(U^N,U^N) leaves unit diagonal and off-diagonal multiplication by Nc_0/r+h−h∘R_α^N. The last two terms are uniformly bounded; the diagonal contributes norm one, so dividing by N yields |c_0|/r and the power-boundedness criterion for r^(−N)T^N. Off the circle the triangular resolvent is invertible, and the invariant first-coordinate subspace supplies the dense eigenvalues on the circle, so no further spectral issue arises at collision. The proof's 'rank-one upper-block' terminology refers to fiber rank, not rank on the whole L² space; only its norm is used.
 
-**Boundaries.** Couplings are trigonometric polynomials, not arbitrary continuous or measurable functions; the latter may have small-divisor obstructions. The collision similarity is not claimed for arbitrary cocycles, and publication priority has not been independently verified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the sharp quantitative calculation for fixed irrational rotation and finite Fourier coupling: explicit Fourier dependence of the exact norm, the residue at a closing gap, and the collision dichotomy with an exact power-growth coefficient. Prior decomposability, the fiber-dimension component ceiling, triangular norm identities, and classical shear/cohomological methods are credited rather than claimed as new.
+
+## value
+
+PASS
+
+The known component bound addresses how many spectral pieces can occur, not whether the splitting stays well conditioned as two pieces meet. This exact two-fiber model is a useful benchmark: the same scalar harmonic controls sharp reciprocal-gap conditioning and quantitative amplification after collision, while a mean-zero near-resonant harmonic shows a different, large but finite conditioning scale at fixed angle. The general norm identity plus explicit two-frequency evaluation make these regimes distinguishable without spectral discretization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:38:10.905990Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, both residue cases",
+        "Frozen VERIFICATION.md (recorded derivation, not independent certification)",
+        "Independent D-module calculation using determinant valuations"
+      ],
+      "rationale": "An independent length calculation over D=K[[y]] checks the all-k result without relying on a monomial order on the completed ring. Modulo x^2+2y^13 the algebra is free over D on 1,x. The remaining generators have coordinates g=(2k y^(k-1),y^12) and h=(y^k,-y^13); multiplication by x sends (a,b) to (-2y^13 b,a). If k is not 2 mod 5, h+yg gives y^k, and yg then gives xy^13. Subtracting the second coordinate of xg, divisible by y^13, gives y^25. For r=min(k,25), the D-span of g and (y^r,0) contains h and is closed under multiplication by x: xg reduces after subtracting 2k y^(k-13)g to a scalar divisible by y^r, since 2k-14>=k, and x(y^r,0) reduces after subtracting y^(r-12)g to a scalar divisible by y^r. This is exactly the submodule and its determinant has valuation r+12. If k is 2 mod 5, h=-yg and the ideal is the D-span of g and xg, with determinant y^(2k-2)+2y^37. The exponents differ, so the length by the elementary divisors over D is min(2k-2,37). The exceptional class starts at 17 and then 22, so on this class the length also equals min(k+15,37). This verifies the plateau starting at 25, the earlier equality at 22, and the values 28,32,30 at 16,17,18. The exceptional calculation relies on the completed local ring, where the nonzero constant factor after removing the smallest power of y is a unit.",
+      "residual_risks": [
+        "No claims about other characteristics or modality are inferred. The proof is exact local algebra and needs no numerical extrapolation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "V1 Lemma 5.6 explicitly describes extended-algebra bases for x^3+xy^r+y^s when 3r>2s; here that reaches k=19. In the 2s>3r branch, the v1/v3 classification proofs analyze the filtered tangent space to control high terms and normal forms; in inspected passages they do not give ordinary colengths for 20<=k<=25."
+        ],
+        "reasoning": "The low-range bases recover ordinary lengths by killing two independent classes, so that range is covered despite use of an extended invariant. The high-branch availability of a contact normal form of the same trinomial shape, or of selected high tangent monomials, does not evaluate its ordinary colength in the transition range.",
+        "searches": [
+          "Ma–Ying–Zuo v1 Lemma 5.6 and Proposition 5.7",
+          "Ma–Ying–Zuo v3 Proposition 6.5 on the x^3 initial jet and its 2s>3r branch"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary/SCOPE family and sample-value queries",
+        "arXiv:2510.02619v1 and v3, relevant passages",
+        "Targeted literature query for ordinary characteristic-five lengths"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In v1 the expanded ideal is (f)+m(f_x,f_y). For 14<=k<=19 the displayed bases in Lemma 5.6 make f_x and f_y independent modulo this ideal (x^2 occurs in the first, xy^12 in the second). Quotienting by them gives the ordinary lengths; the bases count one fewer element than the separately printed dimension formulas, so the comparison uses the bases, not the inconsistent printed counts. V1 Proposition 5.7 part (II) reduces to x^3+xy^r when 2s>=4r, here k>=26; the binomial immediately has length 25+12."
+        ],
+        "reasoning": "Both the lower range and the eventual binomial tail have genuine prior implications. They leave a two-face transition range starting at k=20. Establishing where the cap is attained in that range needs the local ideal relationships, including the distinct exceptional determinant valuation at k=22; it does not follow by substituting k into the prior low-range bases or the binomial reduction.",
+        "searches": [
+          "V1 definition of the expanded Tjurina algebra, p. 4; Lemma 5.6, p. 13; Proposition 5.7 part (II), p. 18 and Corollary 3.6",
+          "V3 Proposition 6.5 part (II), pp. 21–22"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "V1 p. 2 states the same family, the characteristic-zero k+12 formula, and the three named characteristic-five values. The targeted public-literature hit was a copy of that source. The ranked indexed results had no relevant exact profile."
+        ],
+        "reasoning": "Direct credit goes to the identical family and three values, not merely a similar example. Characteristic zero has a different length law; knowing k=17 and its neighbors does not supply the resonance at k=22 or the onset of the plateau.",
+        "searches": [
+          "Resultary: characteristic-five Tjurina profile x^3+xy^13+y^k, k>=14 and sample 28,32,30",
+          "Primary-literature query: positive-characteristic Tjurina numbers for x^3+xy^r+y^s normal forms, characteristic five and x^3+xy^13",
+          "arXiv:2510.02619v1, introduction and §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected tables give E-type normal forms with inequalities, characteristic and exclusion conditions, not ordinary Tjurina lengths in the transition interval. The v1 introduction does give exact values at k=16,17,18. No relevant exact indexed table was surfaced by the ranked queries."
+        ],
+        "reasoning": "The normal-form entries are a census of equivalence types under hypotheses, not a table of the invariant being audited. Shared exponents or congruences establish related mathematical structure, but do not directly state the values at k=20 through 25.",
+        "searches": [
+          "Resultary/SCOPE exact family, residue-class jump and three sample lengths",
+          "V1 Theorem 6.3 normal-form classification table; v3 Theorem 7.3 E-family entries"
+        ]
+      },
+      "rationale": "The family and the k=17 jump are already in Ma–Ying–Zuo v1. The lower range 14<=k<=19 is recoverable from its extended-algebra bases, and stabilization from k>=26 follows from its binomial contact reduction and the binomial Tjurina calculation. The supported distinct contribution is the exact intervening characteristic-five profile 20<=k<=25, in particular the value 37 already at the resonance k=22, the drop back to 35 and 36 at 23 and 24, and the exact start of permanent stabilization at 25. The inspected normal-form and filtered tangent calculations do not give that middle-range ordinary Tjurina length profile.",
+      "residual_risks": [
+        "Bibliography items on positive-characteristic classification and finite determinacy were identified but not exhaustively inspected. The comparison credits demonstrable implications without claiming historical priority for the remaining profile."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct sample coverage, implied low branch and eventual constant tail; no ordinary transition-range formula found in the relevant passages",
+          "evidence": "Example values 28,32,30; displayed extended bases when 3r>2s; binomial contact equivalence for 2s>=4r; high-branch filtered tangent relations and normal forms, not ordinary lengths for 3r<2s<4r.",
+          "identifier_or_url": "https://arxiv.org/pdf/2510.02619v1",
+          "material_read": "Introduction pp. 1–2; expanded algebra p. 4; Lemma 5.6 p. 13 (offsets 42000–46622); Proposition 5.7(II) p. 18 (offsets 66150–69800); Theorem 6.3 pp. 26–28 and bibliography",
+          "method": "Targeted OA version-one PDF passages",
+          "title": "Tjurina Number Jumps and Unimodal Hypersurface Singularities in Positive Characteristic",
+          "trigger": "Identical motivating family, possible general formula or normal-form table"
+        },
+        {
+          "assessment": "Relevant revised classification and jump mechanism; no exact ordinary transition-range profile in inspected material",
+          "evidence": "The introduction now exemplifies the extended invariant with x^3+xy^k+y^34; the high branch handles filtered tangent terms for 2s>3r and the table lists conditional contact normal forms.",
+          "identifier_or_url": "https://arxiv.org/pdf/2510.02619v3",
+          "material_read": "Introduction p. 2 (offsets 5000–8490), Proposition 6.5 pp. 20–22 low and high branches (offsets beginning 70400, 75000 and 79800), E-family table p. 30 near offset 113000",
+          "method": "Targeted OA version-three PDF passages",
+          "title": "Extended Tjurina Number Jumps and Unimodal Hypersurface Singularities in Positive Characteristic",
+          "trigger": "Revised version of strongest prior source, possible additional exact coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, stated profile and scope",
+        "Ma–Ying–Zuo v1 motivating example and low/high range comparison"
+      ],
+      "rationale": "This is a published diagnostic family for positive-characteristic jumps, not an arbitrary slice. An ordinary Tjurina-length calculation through the change of Newton-diagram regime determines whether the early residue-class phenomenon persists and where the binomial length first becomes permanent. The resonance at 22 attains the final length early but does not yet stabilize it; this is exact invariant information beyond the motivating three samples and the eventual contact reduction. A researcher comparing jumps across that transition could use the precise lengths without any modality claim.",
+      "residual_risks": [
+        "The contribution is family-specific and does not establish a general jump or modality classification. The original k=17 example is prior."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

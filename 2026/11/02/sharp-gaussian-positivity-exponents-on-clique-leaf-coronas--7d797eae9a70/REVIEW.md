@@ -1,12 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The powered-distance form on the mean-zero coefficient space has exactly three symmetry sectors. Internal pendant oscillations have eigenvalue \(-2^p\); each standard sector has an explicit negative-leading-entry two-by-two form; and the global core-versus-pendant contrast has quadratic value \(nt^2H_{n,t}(p)\). The critical proof is that the global inequality implies strict negativity of every standard sector through the root. It uses the concavity of \(a^{\log_2 3}-a^2/2-1\) on \([2,4]\), with a separate endpoint check at \(p=1\). This gives a complete all-parameter proof, not a finite enumeration. Finite checks reconstruct graph distances independently and compare the three quadratic forms, parameter roots, monotonicity, and two asymptotic regimes; the checker reports 26,836 passed assertions. The Gaussian equivalence and centered Euclidean rank formula then give the claimed strict kernel positivity and one-dimensional endpoint degeneration. The domain is \(n\ge3\), \(t\ge1\), \(p\ge0\), and \(\lambda>0\); exponents above the threshold fail at sufficiently small scales.
+## correctness
 
-## Originality — PASS under bounded comparison
-Sánchez's *On the supremal p-negative type of a finite metric space* (arXiv:1108.0451v1, 2011-08-02) supplies the general finite-metric criterion and a complete-bipartite example, not the powered distance classification of clique-leaf coronas. Indulal and Stevanović's *The distance spectrum of corona and cluster of two graphs* (2015, Section 2, Theorem 1) covers the ordinary distance spectrum of graph coronas, but not the parameterized powered distance matrices or the universal Gaussian threshold. A published study of complete-graph coronas investigates a general-position polynomial, not kernel positivity. The present contribution is the sharp two-parameter critical equation, proof that the global symmetry mode is always first to become nonnegative, endpoint rank, strict parameter monotonicity, and two asymptotic regimes. A general finite-metric algorithm might compute individual parameter instances, but does not by itself give this closed uniform classification. An equivalently formulated historical result remains possible in less-indexed graph-metric or covariance-kernel literature; no claim of exhaustive bibliographic priority is made.
+PASS
 
-## Mathematical value — PASS
-The result determines precisely when all-scale positive-definite Gaussian kernels exist on an infinite natural graph family, identifies the sole obstruction among multiple competing symmetry sectors, and classifies degeneration of Euclidean realizations. The inequality proving global-mode dominance is structural rather than a direct parameter substitution. Strict balancing and large-parameter asymptotics reveal how local pendant branching changes the sharp kernel exponent. The scoped result does not address unequal pendant counts or noncomplete cores.
+Using a=2^p and b=3^p, the compressed powered-distance form on the real mean-zero space has n(t−1) internal leaf directions with eigenvalue −a, n−1 identical two-by-two blocks with first entry −1 and determinant t[b+a−a²−1+a/t], and the contrast (−t on cores, +1 on leaves) with form nt²H. Concavity gives H<0 and positive block determinants for 0≤p≤1, including the specified diagonal convention at p=0. H is increasing from −2/t to 2n−4/t on [1,2] and strictly increasing thereafter. For 1<p≤α, H≤0 gives det/t≥nF−(a−2)²>0: F≥(a−2)²/2 follows from strict concavity of a^(log_2 3)−a²/2−1 on [2,4]. Thus only the global contrast is null at α, giving centered Gram rank N−2, versus N−1 below. A distinct-point Euclidean realization gives strictly positive Gaussian kernels even at α; above α the first-order expansion on the global contrast produces a negative direction at small positive scales, and the unit diagonal gives a positive direction. H increases in either integer size at fixed p>1, and Taylor expansion at 1 with slope (n−1)c+2(1−1/t)log 2 and α−1≤2/[t(n−1)c] gives both asymptotic orders. Independent bisection gives the two stated numerical anchors (1.70951129135145 and 1.38018235538565); these are illustrative, not a proof. The original checker and its recorded replay were inspected, not re-executed.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Credit the full one-leaf unit-edge special case, including the endpoint and its large-core limit, to demonstrated coverage in a distinct same-day indexed result; no date-based priority inference is made. The supported distinct contribution is the multiplicity-dependent classification for t≥2, including the exact obstruction, absence of other vanishing modes, and the large-multiplicity regime. The strongest inspected sources do not derive that classification, and the weighted one-leaf tangent calculation does not control the new multiplicity term.
+
+## value
+
+PASS
+
+For t≥2 the exact exponent directly decides all-scale Gaussian-kernel validity for a natural family of graph metrics and specifies the minimum embedding dimension at the critical parameter. The proof identifies the global contrast as the only obstruction despite extra leaf modes, and the two size limits distinguish adding core vertices from adding leaves. The value rests on that full multiplicity-dependent threshold and endpoint structure, not on the already covered t=1 case or two numerical examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

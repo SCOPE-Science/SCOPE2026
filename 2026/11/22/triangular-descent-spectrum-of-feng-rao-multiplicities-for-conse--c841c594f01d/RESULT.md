@@ -11,7 +11,7 @@ where the ordered pairs are counted with multiplicity one each. Let \(s^+\) be t
 \[
 \left\{s=nt+r:\ 1\le r\le n-2,\quad r+1\le t\le2r\right\}.
 \]
-Every such descent has \(s^+=s+1\) and exact drop size \(2r+1-t\). There are no other descents, including beyond the conductor. Consequently:
+Every such descent has \(s^+=s+1\) and exact drop size \(2r+1-t\). This is the complete list on both sides of the conductor; in particular, for \(n\ge 3\) some descents occur strictly past it. Consequently:
 \[
 \#\{s:\nu_n(s)>\nu_n(s^+)\}=\binom{n-1}{2},
 \]
@@ -63,7 +63,7 @@ The accompanying standard-library Python checker `verify_descents.py` uses a rea
 To reproduce: `python3 verify_descents.py`.
 
 ## Relationship to prior work
-Bras-Amorós (initially public July 31, 2023) studies acute numerical semigroups and determines the **last** strict decrease of their Feng–Rao multiplicity sequence, using conductor and subconductor. For symmetric semigroups this specializes to the last-descent location \(2c-2-n\), with \(c=n(n-1)\), agreeing with the final descent above. The present theorem instead supplies **every** descent and its exact magnitude and histogram. The prior last-descent result alone does not give that spectrum.
+Bras-Amorós (published June 2004; arXiv copy posted July 31, 2023) studies acute numerical semigroups and determines the **last** strict decrease of their Feng–Rao multiplicity sequence, using conductor and subconductor. Theorem 6.3 and Proposition 6.6 specialize for the symmetric semigroup \(S_n\), \(n\ge3\), to the last-descent location \(2c-2-n\), with \(c=n(n-1)\), agreeing with the final descent above. The present theorem instead supplies **every** descent and its exact magnitude and histogram. The prior last-descent result alone does not give that spectrum.
 
 Delgado, Farrán, García-Sánchez and Llena study generalized Feng–Rao numbers of two-generator semigroups, obtaining their stable higher-weight behavior. Their results concern different order-bound invariants rather than the complete finite list of adjacent negative changes of \(\nu_n\). Earlier universal divisor-count formulas make individual evaluations possible but do not directly supply the stated triangular descent law without the normal-form analysis above.
 
@@ -71,7 +71,7 @@ Delgado, Farrán, García-Sánchez and Llena study generalized Feng–Rao number
 The theorem does not assert new minimum-distance bounds, nor does it classify drops for arbitrary coprime generators \(\langle a,b\rangle\) with \(b>a+1\). Priority is assessed against accessible primary text and searches; a differently formulated older Hermitian-code computation or an unindexed table could imply the same finite-difference spectrum. No independent mathematical audit has been performed.
 
 ## References
-1. M. Bras-Amorós, *Acute Semigroups, the Order Bound on the Minimum Distance and the Feng-Rao Improvements*, arXiv:2307.16448, first posted July 31, 2023, especially Sections V–VII. https://arxiv.org/abs/2307.16448
+1. M. Bras-Amorós, *Acute Semigroups, the Order Bound on the Minimum Distance and the Feng-Rao Improvements*, IEEE Transactions on Information Theory 50(6), June 2004, especially Theorem 6.3 and Proposition 6.6. ArXiv copy: https://arxiv.org/abs/2307.16448
 2. M. Delgado, J. I. Farrán, P. A. García-Sánchez, D. Llena, *On the weight hierarchy of codes coming from semigroups with two generators*, arXiv:1306.2862, first posted June 12, 2013, especially Sections 2–3. https://arxiv.org/abs/1306.2862
 3. J. I. Farrán, P. A. García-Sánchez, D. Llena, *On the Feng-Rao numbers*, 2010; available manuscript: https://www.academia.edu/54015844/On_the_Feng_Rao_numbers
 4. C. Kirfel and R. Pellikaan, *The minimum distance of codes in an array coming from telescopic semigroups*, IEEE Trans. Inform. Theory 41 (1995), cited for the underlying general divisor-count identity by reference 1.

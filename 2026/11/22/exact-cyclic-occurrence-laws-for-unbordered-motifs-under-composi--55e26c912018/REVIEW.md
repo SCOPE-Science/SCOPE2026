@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Exact cyclic overlap constraints, circular gap-composition enumeration, and composition-refined inclusion–exclusion establish the fixed-content count. The iid polynomial is a rescaling of a claw-free graph independence polynomial; Chudnovsky–Seymour's published theorem supplies real-rootedness. Every root sign and boundary case is justified, and the standalone brute-force verifier confirms 36,984 fixed-composition and 1,968 biased iid cases plus 187 direct placement counts. The finite tests are not an infinite proof.
+## correctness
 
-**Originality — PASS against material inspected, with priority risk.** Brown–Hoshino already gives the cycle-power independence polynomial coefficients and Chudnovsky–Seymour already proves their real-rootedness. Neither directly states a circular-word motif law or fixed-composition anagram equidistribution. Arnoux concerns identities for a fixed circular word. The Bassino inclusion–exclusion article concerns ordinary linear texts. The closest 2026 published result gives a Poisson–binomial classification for ordinary linear-word occurrences, not indexed circles. The bridge from nonoverlapping circular occurrences to the graph polynomial is the distinctive step. Incomplete full-text access to the motivating preprint and the closest 2026 published linear-case source leaves a publication-priority risk; a known explicit cyclic specialization would supersede the originality claim. Multiple published sources were compared by implication, not just by title.
+PASS
 
-**Value — PASS.** A single all-length theorem exactly classifies the motif-count distribution simultaneously for every alphabet and fixed source composition, reveals an anagram-equidistribution law, and proves an independent-Bernoulli representation under arbitrary biased iid sampling. Such a complete distribution distinguishes cyclic from linear boundary effects and is useful for exact motif-count null models. The known graph polynomial and its real-rootedness are explicitly credited, not passed off as new.
+For n<m a hit forces a proper border of length m−n; otherwise overlapping hits force a border with the directed overlap shift. Compatible starts therefore have all cyclic gaps >=m and fix disjoint letters. Marking one of j starts and counting ordered excess gaps gives (n/j) binom(n−mj+j−1,j−1), including n=m and the full-tiling case; the empty case is separate. The expansion in t−1 counts these joint prescriptions, yielding the multinomial law and biased iid PGF without any assumption of independent hits. The start conflict graph is claw-free: if n<3m three disjoint m-arcs cannot exist; otherwise three mutually nonadjacent neighbors would have two successive offset gaps >=m in a span <=2m−2. The Chudnovsky–Seymour theorem then gives real zeros, and nonnegative PGF coefficients with positive constant term from any constant-letter sample make them strictly negative. The degree is achieved by a maximum separated start set of floor(n/m) positions, not merely by an arbitrary inclusion-maximal set. Normalized factors are nondegenerate Bernoulli PGFs. Independently checked 1,059 composition moments and corresponding biased iid moments for binary and ternary examples, including same-composition 0012/0102 and n<m; /workspace/branches/replay-cyclic.py. The infinite claims use the combinatorial and real-rootedness arguments.
 
-**Limitations.** The result excludes bordered motifs from its exact universality assertion, does not prove a converse and does not claim that the actual occurrence indicators are independent. It is a mathematical review with no independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The evaluated distinct contribution is the exact joint cyclic/content-conditioned law and its full anagram-equidistribution consequence, together with the Poisson–binomial identification for the same cyclic window model. The placement counts, general real-rootedness theorem, and linear unbordered-word Poisson–binomial law are prior; they are not individually claimed as new.
+
+## value
+
+PASS
+
+Fixed composition is a natural constrained-word null model, and cyclic wrap-around changes the admissible placement counts. A full distribution rather than just the probability of avoidance or a mean is useful for finite conditional calculations; it proves the exact anagram invariance uniformly across composition classes. The iid result identifies the distribution class and nondegenerate factor count for those same circular observations. The useful fact is the joint specialization, not recomputation of known cycle-power coefficients.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

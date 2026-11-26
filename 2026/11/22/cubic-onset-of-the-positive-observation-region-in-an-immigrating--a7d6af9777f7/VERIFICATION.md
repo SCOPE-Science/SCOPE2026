@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The theorem was checked by direct reconstruction of its stated hypotheses and proof. The identity \(Y=y(bx-d)>0\) implies \(x>d/b\) for all strictly positive predecessors; under \(d/b>1\), strict monotonicity of the immigration-adjusted logistic contribution proves the global threshold. The inverse equation has exactly one critical maximum, giving the exhaustive positive inverse census, and the implicit cubic fold can be parameterized on all positive target prey values.
+## correctness
 
-The standalone `check.py` program passed exact symbolic tests for the Jacobian, fold, area primitive and cubic coefficient. At positive rational parameter witnesses, it also recomputed the area by independent numerical quadrature and reconstructed both positive inverse roots for interior targets; its diagnostics are not substitutes for the infinite-domain analytic argument.
+PASS
 
-All statements refer to a single forward step. The areas are computed in unscaled prey/predator density coordinates. The parameter restriction \(d/b>1\), strict target positivity and exclusion of multi-step behavior are explicit. Literature comparison was made with the full originating paper, a related full-text predator–prey inverse study, general critical-curve literature, and accessible indexed scientific summaries. Obscure equivalent prior work remains possible.
+Reconstructed the inverse at fixed output X. Positive predator output requires x=t+u with u>0. Set delta=epsilon-X. For delta>0 the allowable source interval is 0<u<u0, where r(qu0+u0^2)=delta, and Y=(b/a)u(delta-rqu-ru^2)/(t+u). It is positive in this interval, zero at both endpoints, and its derivative has the sign of delta-rR_t(u), strictly decreasing through zero. This proves the full two/one/none census and gives the stated Y_f at the only stationary point; delta<=0 has no positive predecessor, including the threshold. Multiplying (q+2u)u^2 by R_t'(u) gives the derivative of P_t, so integration in X gives the exact area. Uniformly in U, u_X=epsilon(1-U)/(2rq)+O(epsilon^2), giving V_f=(1-U)^2/4+O(epsilon) and the cubic area with coefficient b/(12atrq). The scaled inverse equations are V=xi*eta and U=1-xi-eta+O(epsilon), with a smooth exact remainder. The two limiting solutions are positive, and the Jacobian in (xi,eta) is nonsingular when xi differs from eta, giving both interior branch limits. These arguments validate the continuum statements independently of the finite supplied checker, which was inspected, not run. The restriction t>1 is sufficient and makes the critical immigration positive; the wording that strict t>1 is essential should not be read as a claim of failure at t=1, where the same calculation has critical immigration zero.
 
-Self-review passed on correctness, originality within inspected evidence and motivated mathematical value. No independent audit has been performed.
+## originality
+
+PASS
+
+The exact recurrence is prior. Pass is for its global strictly positive one-step image/fiber classification, exact area and cubic onset with rescaled inverse geometry, not for the recurrence, equilibrium analysis, or the generic local fold mechanism.
+
+## value
+
+PASS
+
+The fold separates reconstructible one-generation observations from impossible ones and distinguishes exactly ambiguous observations from the single-predecessor boundary. The sharp area and two different onset scales quantify this natural inverse-geometry transition, rather than evaluating a few arbitrary parameters or restating existence of a fixed point. This does not establish persistence, forward invariance or an area invariant under arbitrary coordinate changes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific assessment: priced-edge resistance design on complete graphs
+# Independent mathematical audit
 
-## Correctness — PASS
-The weighted Laplacian spectrum follows by decomposing vectors into the distinguished-pair difference, remaining-vertex contrasts, and the between-block mode. The Kirchhoff index is \(n\) times the sum of inverse positive eigenvalues. Strict convexity of the inverse-trace objective and price-preserving symmetries force the unique unrestricted solution to have three edge classes. A sharp weighted Cauchy–Schwarz certificate gives the low-price allocation, and its feasibility is equivalent to \(\tau\le n/(n-2)\). At the threshold the exceptional edge vanishes. A cost-comparison/scaling argument proves that any positive use of that edge is strictly suboptimal at higher prices. Exact and numerical checks in the package independently test formulas, gradients and full matrices. Analytical quantifiers: every integer \(n\ge4\) and every \(B,\tau>0\).
+## correctness
 
-## Originality — PASS, qualified
-The 2006 and 2008 Ghosh–Boyd–Saberi primary texts contain general convexity/KKT and equal-price complete-graph results, but not the exceptional-price threshold or the three-class closed form. Bhoite and coauthors' 2026 primary text provides cost-sensitive optimization for a different base-network augmentation setting and general marginal-benefit conditions, not the exact present one-edge phase diagram. Search comparisons against mathematical research records and accessible earlier claims detected related graph optimization but no statement implying the present all-parameter result. Closest accessible related formulations do not dominate the new theorem. Remaining risk: an earlier specialized heterogeneous A-optimal design treatment may include this case, and search non-detection is not proof of uniqueness in the literature.
+PASS
 
-## Value — PASS
-A dense complete network has redundant direct links, but it is not evident how much more expensive one link must become before deleting it is optimal when all other capacities may rebalance. The exact sharp price threshold \(1+2/(n-2)\) answers that design question for every network size, and shows that the price premium needed for deletion decays with size. The exact allocation, retained-edge positivity and quadratic transition provide more than a small finite calculation or a mere restatement of convexity.
+The Kirchhoff index is n times the inverse trace on the orthogonal complement of the constant vector. Its second derivative in a nonzero conductance direction is positive, being 2n times the trace of a nonzero symmetric square against a positive definite matrix. The Laplacian map is injective on conductances. Compactness, divergence at disconnection and scaling give a connected unique optimum using the full budget, so price-preserving symmetry is a conclusion, not an assumption. With A=2w+mx, D=2x+my the eigenvalues A,D,nx have multiplicities 1,m−1,1; the budget is (τ/2)A+((m−1)/2)D+c(τ)x. Weighted Cauchy–Schwarz gives the S-branch and its optimizer, with A≥mx exactly when τ≤n/m and D>2x throughout. On w=0 the budget and reciprocal objective reduce to two positive terms, yielding the T-branch; at τ=n/m it agrees with the first branch. For larger prices every feasible allocation using w>0 would have budget slack at the threshold price and could be scaled there to improve it, proving the unchanged face optimizer is globally unique. Differentiating S gives S'(n/m)=0 and S''(n/m)=−(m+1)/(2n)·sqrt(m/(2n)); expansion of nS²/B gives the stated strictly positive gap coefficient and continuous first derivative. The n=4 example reduces to x=1/(3+√2), y=(√2−1)x and value 11+6√2 for B=1.
 
-## Scope and outstanding checks
-Independent examination of the mathematical proof and a comprehensive historical priority audit remain unperformed. The result makes no claims about other objective functions or several price anomalies. Numerical comparisons corroborate but do not replace the proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct claim at the frozen record is the explicit one-priced-link Kirchhoff-index frontier on K_n, the unique conductances on both sides, and the value's exact boundary behavior. General convex design, the uniform-price case, heterogeneous-cost KKT, and differing support changes are known. A later separately indexed record gives the equivalent resistance optimum and threshold and adds a cross-objective comparison; the overlap is confirmed from both actual formulas, not assumed from the title. It does not evidence an antecedent exact result for the frozen finding. The inspected earlier and same-day comparisons use a distinct objective, topology, price pattern, or only general principles.
+
+## value
+
+PASS
+
+This is a natural sensitivity question for complete electrical network design. Its answer gives the exact premium at which one link ceases to be worth buying, the full conductance allocation for every price and size, and the coefficient by which retaining the link improves resistance near the threshold. This makes the support decision and its associated resistance loss quantitative, beyond the known equal-price result or generic first-order condition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Verification of the homotopy classification
+# Independent mathematical audit
 
-The complete two-dimensional CW presentation and its one-/two-cell cancelling words are in `RESULT.md`. All nondegenerate cells are listed there: no tuple can have more than two positive-length consecutive steps. Verify that absence of a simple four-cycle gives unique intermediate vertices for nonadjacent distance-two pairs and edge-disjoint triangular supports. Each chosen 2-cell boundary contains the eliminated 1-cell exactly once, allowing a genuine CW cancellation and a substitution in all other attaching maps; the remaining 2-cell attaching loops are literally trivial words. The surviving graph has one edge deleted from each triangle and retains connectivity; every uncancelled two-cell is a free sphere.
+## correctness
 
-Reproduce the independent finite checks from the same directory:
+PASS
 
-```bash
-python3 checkers/verify_quadfree.py
-python3 checkers/verify_small_integral.py
-```
+The listed nondegenerate tuples exhaust the inclusive cutoff: each nondegenerate step uses at least one unit of length, and a backtrack is not a degeneracy. At cutoff two the oriented-edge pair for each underlying edge has two backtrack disks. Using one disk removes the reverse edge, and the other attaches by a nullhomotopic loop. Each directed distance-two shortcut is removed using its unique length-two disk, uniqueness following from no four-cycle. The remaining non-backtrack disks are precisely the six ordered triangle disks per triangle. One disk removes a triangle edge and the five remaining boundary loops become nullhomotopic. These are homotopy substitutions, not just boundary-matrix operations: at each step the chosen disk has a single boundary arc mapping to the eliminated edge and the rest stays in the retained one-skeleton; this pair retracts to the retained subcomplex before the other disks are attached along the induced loops. Replacing nullhomotopic attaching maps by constant maps gives spheres. Triangle edge sets are disjoint and alternate paths preserve connectivity on every removal. The same edge removal collapses each filled triangle in the clique complex; no larger clique exists. The remaining graph thus gives e−v+1−t circles and the ordered cells give e+5t spheres. In the single-vertex case both counts are zero. The triangle sharing an entire edge with the pentagon checks the noncactus qualification.
 
-The first script enumerates 5111 connected labeled simple graphs of orders two to six having no simple four-cycle, creates the exact normalized simplicial-set boundary mod two and compares both Betti numbers with the claimed formulas. The second script separately builds full signed integer boundary matrices for the triangle, pentagon, two-triangle friendship graph, edge-glued pentagon–triangle noncactus and a triangle with a pendant path. It verifies that the boundary composition vanishes and that all nonzero Smith invariant factors of \(\partial_2\) are units; it computes matching Betti ranks. Previously recorded exact outputs are available in `evidence/quadfree_mod2.txt` and `evidence/smith_examples.txt`.
+## originality
 
-Finite checks cannot establish arbitrary graph homotopy or the general absence of higher attaching obstructions; those follow instead from the explicit CW elimination of all nontrivial 2-cell attaching words. No independent mathematical audit has been performed. The asserted theorem is strictly for inclusive total length two on connected finite simple graphs without any four-cycle; all other cases remain unproved here.
+PASS
+
+The construction and triangle-free length-two wedge are already known. The supported distinct claim is the exact homotopy correction for all four-cycle-free graphs with triangles, including graphs whose triangular cycles share edges with longer cycles. The strongest distinct inspected sources do not imply this correction.
+
+## value
+
+PASS
+
+This is an explicit integral homotopy type at a natural early filtration stage, not an Euler characteristic or a table of examples. The theorem separates the graph clique core from the spheres contributed by the ordered cells, and isolates the effect of both triangles and the four-cycle obstruction. It covers arbitrary cycle overlap with longer cycles and is not restricted to one-point gluing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

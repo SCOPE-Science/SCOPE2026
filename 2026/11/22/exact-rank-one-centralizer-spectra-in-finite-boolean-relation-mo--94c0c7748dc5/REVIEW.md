@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-Boolean matrix composition reduces the commuting equation to exactly two disjoint support regimes (both zero products, or matching nonzero rectangles). The free-bit rectangle, independently constrained row/column blocks, and doubly nonzero overlap matrix yield a complete, boundary-safe enumeration, including disjoint supports and singleton cases. Inclusion-exclusion counts the overlap matrices and a direct support selection gives the multiplicity law. Asymptotics follow from first-order inclusion-exclusion with a rigorous pair-intersection bound. Explicit direct-multiplication enumeration matches all cases up to size three and all twenty-six parameter representatives in size four. Finite checks do not replace the proof.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The rank-one Cartesian rectangles and their multiplication are classical (Kim–Roush, 1981; Bremner–El Bachraoui, 2010). The related 2010 commuting-graph paper addresses graph diameter and selected centralizers, not the full rank-one all-partner valency spectrum. Published clique enumerators for rank-one idempotents concern commuting *within that stratum* rather than counting *all* Boolean relation partners; the inspected result explicitly states this limitation. Actual database searches for rectangle centralizers, overlap spectra, and zero-row/column formulas did not return the present statement, but absence from a searched database cannot prove priority. An earlier equivalent multifunction or relation-algebra enumeration remains a specific risk.
+PASS
 
-## Value — PASS
-The centralizer size is a natural finite-monoid invariant, and the formula exhausts a complete nontrivial Boolean-rank stratum across every ground-set size. It exposes large centralizer-size differences at fixed row- and column-support cardinalities and proves opposite limiting commutation regimes within one Boolean-rank class. The result is stronger than an illustrative finite enumeration and supplies a reusable exact count for a minimal ideal of the relation semigroup.
+For a fixed nonzero rectangle U×V the two products with an arbitrary X are U×W and Z×V, with W the column support of rows V of X and Z the row support of columns U of X. The equality is either W=Z=∅ or W=V and Z=U. The first case leaves exactly X[Vᶜ,Uᶜ] unconstrained. In the second, entries in V×Vᶜ and Uᶜ×U are forbidden; rows U must hit columns U and columns V must be hit by rows V. Put A=U∩V, B=U\V and C=V\U. The constraints act on disjoint blocks A×A (both covers), B×U (row cover) and V×C (column cover), leaving the same free rectangle. Inclusion–exclusion, including H_0=1, gives the overlap factor. Choosing the intersection and then both disjoint differences gives the parameter multiplicities; equal numerical sizes are combined. The singleton count follows in either overlap case. At the complete relation, the first-order zero-line probability is 2n 2^(-n), with Bonferroni error bounded by the sum over pairs, each probability ≤2^(1−2n). Independent entrywise Boolean multiplication exhausts all partners and rectangles for n≤3, and all partners for the three a=b=2 overlap representatives at n=4, recovering 1312,160,128. Replay: python3 /workspace/checks/3.py; /workspace/checks/3.out. The frozen checker and its recorded output were inspected but not executed; its claimed Python 3.8 minimum is a minor documentation error (int.bit_count needs 3.10), not a mathematical defect. The fresh reproduction does not claim all 26 n=4 strata were replayed.
 
-## Prior-work limitations
-No arbitrary-rank centralizer theorem follows from this result; no injectivity or higher-rank classification is asserted. The underlying rectangle products are not claimed as new. Historical-priority uncertainty and the absence of independent validation remain.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct part is the exact overlap-dependent centralizer cardinality and full rank-one multiplicity census with arbitrary-rank partners. The rectangle representation, rectangle products and special all-ones support criterion are antecedents. The strongest inspected matches restrict the partner family, address graph distance, or change the ambient algebra. The comparison is bounded and no priority is inferred from same-day dates.
+
+## value
+
+PASS
+
+Centralizer size is the degree count (with the relevant trivial vertices and self counted as commuting partners) in a natural commuting problem. A count across the entire nonzero rank-one stratum is useful even without a higher-rank classification. The formula resolves why overlap changes sizes at the same two support cardinalities, and quantifies nearly universal versus exponentially rare commutation within one rank stratum. It is neither a finite-table extrapolation nor a count only of rectangle-to-rectangle products.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

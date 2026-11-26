@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:06:10.195289Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–54; VERIFICATION.md; CHECKS.txt; canonical_check.py and verify_strip.py (read, not run)",
+        "/workspace/branches/c10adb8d-b1c2-4a2d-b16d-9a472b6718ef/independent_normalized_replay.py and independent_normalized_replay.txt"
+      ],
+      "rationale": "In the strip a shortest path is a horizontal segment if rows agree, and otherwise switches once at a column between the endpoints, inclusive. A boundary closed neighborhood of size four is visible (for the two nonadjacent pairs switch rows in column 1), and is maximal because all paths out of its center start with a selected vertex. Every pair extends by completing its column when co-columnar, or by adding a vertex at one endpoint's column in a row not used by the pair and putting any necessary switches at the other endpoint's column. For triples there is also a direct all-length argument independent of computation. A 2+1 distribution extends by filling the double column: from the singleton switch at its column, then travel in the target row. A full column extends into any existing neighbor. For one vertex in each of three occupied columns, add a fourth vertex in the middle column. For any outer-to-middle pair, switch if needed at the outer column; the other selected middle vertex cannot block the path. If outer rows are equal, visibility forces the existing middle vertex to be in a different row, and the added vertex uses the remaining row. If outer rows differ, choose a middle double that omits an outer row (pick an outer row different from the current middle row to omit); the outer-to-outer geodesic uses that omitted row between the outer columns and switches at the opposite outer endpoint. This proves the strengthened assertion and lower bound even for consecutive occupied columns. The original normalized certificate is valid as well: each empty gap of positive interior length supplies one equivalent switch option, while every occupied switch location stays distinct; same-row paths only test the order of selected columns. The independently replayed seven types yield 133 visible triples, 132 in-column extensions, and one full-column exception with all three neighboring-row additions working.",
+      "residual_risks": [
+        "The proof is for ordinary visibility and inclusion-maximal sets on path-column strips with n≥2. It does not classify all maximal sets, all fiber widths, or the total variant."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brešar–Yero explicitly pose determining the cylinder lower invariants and prove the neighborhood tool for an upper bound.",
+          "The Cartesian-product bounds and total-visibility results inspected use maximum or total visibility rather than minimum maximal ordinary visibility."
+        ],
+        "reasoning": "The general upper-bound theorem covers that direction of the equality; the product results do not give the all-n lower bound or enforce local extension for arbitrary triples.",
+        "searches": [
+          "Brešar–Yero Neighborhood Lemma and Problem 1",
+          "Cicerone–Di Stefano–Klavžar arXiv:2112.13024 Theorem 3.2; Kuziak–Rodríguez-Velázquez arXiv:2306.15818 §5"
+        ]
+      },
+      "checked_sources": [
+        "Brešar–Yero arXiv:2307.02951; DOI:10.1007/s00025-024-02139-x; arXiv:2112.13024 and 2306.15818",
+        "Local Resultary 8a5e173d7e2e, 6d8bf40baa6c, 543189f5b94a, 296d302883eb, 9297186832e0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The upper bound follows by exhibiting a visible closed neighborhood; proving the opposite direction requires extending every size-three visible set. Changing the fiber or deleting a wraparound edge changes shortest paths and does not transfer lower maximality.",
+          "A column extension observation for maximum ordinary sets does not yield the strengthened all-triple claim."
+        ],
+        "reasoning": "The matched priors do not imply the local extension argument. For this family it uses the one-switch geodesic description and omission of an outer row inside the doubled middle column, not merely a known invariant value.",
+        "searches": [
+          "Brešar–Yero Neighborhood Lemma; Korže–Vesel Observation 2.3; Resultary C4-cylinder 6d8bf40baa6c and odd tori 543189f5b94a"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "C_3=K_3, so the independent visibility record 296d302883eb can concern the same graphs but optimizes maximum size of an independent set, not minimum size among ordinary maximal sets.",
+          "Korže–Vesel give maximum ordinary visibility 4 at n=2 and 6 at n≥3, not the lower invariant. Local exact hit 8a5e173d7e2e is the bound record itself."
+        ],
+        "reasoning": "Swapping Cartesian factors or calling the fiber a clique identifies the graph, not the objective. Ordinary maximal sets may contain adjacent vertices; maximum cardinality does not rule out smaller maximal sets.",
+        "searches": [
+          "Local Resultary: lower ordinary mutual visibility in triangular cylinders, P_n square K_3, and triangular tori",
+          "Brešar–Yero arXiv:2307.02951; Korže–Vesel DOI:10.1007/s00025-024-02139-x"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published table lists maximum ordinary visibility, with 4 for n=2 and 6 at n=3; the extension observation and upper bound give 6 thereafter.",
+          "The matched four-cycle-fiber lower table gives 4 and classifies its minimum sets; odd triangular tori have lower value 5 in the reported range, and the C_3 square C_8 census gives 7."
+        ],
+        "reasoning": "Neither numeric equality for a distinct graph nor the same n=2 count for a different objective is exact tabulated coverage of the lower invariant for this family. The odd and fixed even tori have different column geodesics.",
+        "searches": [
+          "Korže–Vesel Table 1 and Propositions 2.1–2.2, Observation 2.3",
+          "Local Resultary exact census 6d8bf40baa6c, 543189f5b94a, 9297186832e0"
+        ]
+      },
+      "rationale": "The supported distinction is the all-n lower bound and extension property for triangular path cylinders. The upper bound is an application of the prior Neighborhood Lemma. The same-graph maximum results, four-row lower results and triangular tori give different mathematical statements.",
+      "residual_risks": [
+        "Same-day records do not establish priority. An unindexed prior lower-visibility theorem or exact result under other terminology remains possible; the comparison is best-of-knowledge."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact upper-bound tool, lower bound left to resolve",
+          "evidence": "Neighborhood criterion is applicable to the boundary witness; Problem 1 asks for the cylinder lower invariants.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.02951",
+          "material_read": "Neighborhood Lemma p. 5, OA offset 14442; Problem 1 p. 18, offset 50000",
+          "method": "OA PDF passage comparison",
+          "title": "Lower (total) mutual visibility in graphs",
+          "trigger": "Introduces the actual invariant and asks about cylinders"
+        },
+        {
+          "assessment": "Exact ordinary maximum, not lower ordinary invariant",
+          "evidence": "4 at n=2 and 6 at n≥3 for maximum ordinary visibility.",
+          "identifier_or_url": "https://doi.org/10.1007/s00025-024-02139-x",
+          "material_read": "pp. 5–9, Propositions 2.1–2.2, Observation 2.3 and Table 1; OA offsets 11200 and 21000",
+          "method": "OA full-text passage comparison",
+          "title": "Korže–Vesel, Results in Mathematics 79 (2024), Cartesian cylinder results",
+          "trigger": "Exact same-graph numbers and nearby parameter"
+        },
+        {
+          "assessment": "Different optimization objective",
+          "evidence": "General maximum ordinary bound uses a maximum independent visibility parameter.",
+          "identifier_or_url": "https://arxiv.org/abs/2112.13024",
+          "material_read": "p. 5, Theorem 3.2; OA offset 10000",
+          "method": "OA PDF passage comparison",
+          "title": "Cicerone–Di Stefano–Klavžar, Cartesian-product visibility bounds",
+          "trigger": "Potential broader product theorem"
+        },
+        {
+          "assessment": "Total variant is not lower ordinary visibility",
+          "evidence": "The selected set obstructs geodesics tested for pairs of all vertices rather than just pairs inside it.",
+          "identifier_or_url": "https://arxiv.org/abs/2306.15818",
+          "material_read": "§5 pp. 12–13; OA offset 26000",
+          "method": "OA PDF passage comparison",
+          "title": "Total mutual-visibility in graphs",
+          "trigger": "Potential stronger all-pairs parameter on products"
+        },
+        {
+          "assessment": "Different fiber",
+          "evidence": "C_4 square P_n has lower value 4 with 10 minimum sets at n=2 and 8 thereafter; not a clique row fiber.",
+          "identifier_or_url": "Resultary 6d8bf40baa6c",
+          "material_read": "Mirrored RESULT.md, offsets 0–6027 including classification table",
+          "method": "Local mirror comparison",
+          "title": "The eight boundary neighborhoods: lower mutual visibility in four-row cylinders",
+          "trigger": "Same lower invariant and exact value on cylinders"
+        },
+        {
+          "assessment": "Different column factor",
+          "evidence": "C_3 square C_(2k+1), k≥2, has lower value 5; path columns do not wrap.",
+          "identifier_or_url": "Resultary 543189f5b94a",
+          "material_read": "Mirrored RESULT.md, offsets 0–5921 and addition-obstruction cases",
+          "method": "Local mirror comparison",
+          "title": "Lower mutual-visibility number of odd three-row tori",
+          "trigger": "Same triangular fiber, closely related lower parameter"
+        },
+        {
+          "assessment": "Different selection constraint and objective",
+          "evidence": "Maximum min(L,2m)−1_(L=2m), with saturated-extremizer counts, does not count minimum ordinary maximal sets.",
+          "identifier_or_url": "Resultary 296d302883eb",
+          "material_read": "Mirrored finding and maximum independent parameter",
+          "method": "Local mirror comparison",
+          "title": "Independent mutual visibility threshold and saturation census",
+          "trigger": "K_m square P_L includes the underlying graph at m=3"
+        },
+        {
+          "assessment": "Fixed cyclic rather than path columns",
+          "evidence": "Lower value 7 and 4608 minimum maximal sets on that torus.",
+          "identifier_or_url": "Resultary 9297186832e0",
+          "material_read": "Mirrored RESULT.md offsets 0–6244, visibility/maximal-set polynomials",
+          "method": "Local mirror comparison",
+          "title": "Exact mutual visibility and maximal-set census of the triangular torus C_3 square C_8",
+          "trigger": "Exact nearby lower visibility table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Brešar–Yero Problem 1; Frozen RESULT.md lines 19–50",
+        "Published maximum and indexed lower-parameter comparison families"
+      ],
+      "rationale": "The triangular strip is the first nondegenerate cycle fiber in the published cylinder problem. An exact invariant at every length, and a local extension for all visible triples, are useful boundary results for that problem. The extension shows why extreme gap size between occupied columns cannot generate a small maximal obstruction in this family; it is not a maximum-value table entry or merely the prior neighborhood bound.",
+      "residual_risks": [
+        "This is a single natural fiber family, not a solution for general cylinders or for total visibility."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

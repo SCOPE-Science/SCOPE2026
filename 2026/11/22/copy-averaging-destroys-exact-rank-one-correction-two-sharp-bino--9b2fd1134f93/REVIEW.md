@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is an exact identity for a specified random two-dimensional approximate inverse. The digital correction is the orthogonal residual projector because the target is the identity. The smallest eigenvalue of the error Gram matrix is exactly the residual under optimal rank-one projection; the signed count reduction therefore has no hidden optimization assumption. In the centered case the two rotated signed-count walks are independent, yielding the exact mean of the minimum of two squares; in the one-sided case a binomial count gives the parallel exact identity. The absolute simple-walk moment is derived by a telescoping recurrence, and central-binomial Stirling asymptotics give the two limiting regimes. Direct exact-rational enumeration is supplemental only. The matrices are SPD for every permitted \(\alpha\), and all quantifiers, endpoint \(D=1\), strict positivity for \(D\ge2\), and the positive-noise bias are explicit.
+PASS
 
-## Originality — PASS, with limitations
+For A=I₂ the corrected residual is (I−zzᵀ)E_D. Maximizing zᵀE_DE_Dᵀz leaves the smaller squared diagonal defect, α² min(S₁²,S₂²)/D². Centered programming maps one step to the full Cartesian product of two fair signs under (S₁+S₂,S₁−S₂), so the two D-step walks are independent and the minimum is one fourth of the squared difference of their absolute values. This gives (D−m_D²)/2 before rescaling. In the one-sided model S₁+S₂=D and the minimum is (D−|U_D|)²/4. Conditioning on the walk location gives m_{n+1}−m_n=Pr(U_n=0); the two stated binomial formulas satisfy this recursion at each parity and m₀=0. Stirling gives m_D=√(2D/π)(1+O(1/D)), yielding both limits and the stated remainder. D=1 gives zero; at D=2 distinct directions occur with probability 1/2 and give loss α²/4. At every D≥2 the event of all positive signs and both coordinates selected has positive probability, establishing strict expected loss, not almost-sure rank two. Directly summing the diagonal second moments gives the two decreasing uncorrected risks.
 
-The relevant primary article gives the residual projection identity and *already cautions* that averaging programmed copies need not monotonically improve the learned-correction residual. Those facts are credited. The assessed mathematical addition consists of the **paired closed finite-copy binomial laws and their distinct sharp limits**, including strict deterioration from one perfectly corrected copy to two. The classical Eckart–Young/Rayleigh principle and random-walk absolute moment are credited as inputs. Searches for random rank-one projection averaging, matrix-copy ensemble corrections, and exact error laws found no statement covering this combination. The closest public mathematical records concern rank-one corrections to deterministic equicorrelated kernels or stochastic rounding, not this two-regime programmed-copy risk. These searches do not prove uniqueness: equivalent unindexed or unpublished two-dimensional calculations remain possible.
+## originality
 
-## Value — PASS
+PASS
 
-The motivating hardware method explicitly trades independently programmed copies against low-dimensional digital correction. The theorem isolates a genuine conflict in that design: raw mean-square error strictly improves with more copies, yet a one-dimensional correction loses exact recoverability already at the second copy. The exact moment sequence, sharp centered decay constant, and one-sided irreducible floor distinguish transient sampling noise from persistent bias and provide a small reproducible benchmark for testing such design tradeoffs. The result is structurally motivated by rank inflation under averaging rather than an arbitrary numerical slice. No extrapolation to full solver convergence is asserted.
+Pass only the exact finite-copy two-sign-regime oracle Frobenius-risk laws and their quantitative consequences. Shah et al. already have the projection identity, bias/variance decomposition and warning about corrected error nonmonotonicity. The frozen record acknowledges these, and the inspected prior does not state or mechanically supply the nonlinear order statistics in this oracle model.
 
-## Closest literature and remaining risks
+## value
 
-The strongest comparison is Shah et al., arXiv:2611.17251v1, especially the exact residual projection formula and the copy-averaging identity in Sections 2.3 and 3.1–3.2. These formulas imply the existence of the present proof ingredients but do not state or directly imply the two exact evaluated binomial laws without a new distributional calculation. More broadly, classical best rank-one approximation and symmetric-walk moments cover the building blocks, not the coupled finite-copy risk. Search-based comparisons have incomplete coverage of uncatalogued notes and of some specialist full texts; formal independent peer evaluation has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact risk distinguishes a centered defect that decays at a known 1/D constant from a biased defect with a positive floor, even though the uncorrected risk decreases in both. The single-to-double-copy comparison demonstrates the failure of exact correction even with perfect information and no read noise. Together these are a quantitative benchmark for deciding what copy averaging and a fixed correction rank can accomplish, not simply the previously known nonmonotonicity caveat.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

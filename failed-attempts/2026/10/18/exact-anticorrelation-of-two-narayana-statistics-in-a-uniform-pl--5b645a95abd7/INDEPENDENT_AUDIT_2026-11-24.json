@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:53:16.957128Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–57",
+        "Frozen VERIFICATION.md lines 19–23 and verify_parity_leaf.py lines 7–73",
+        "Independent Dyck-path enumeration for n=2,…,8 and formal derivative check"
+      ],
+      "rationale": "The two formal recursions correctly mark a root by depth parity, and mark an empty ordered child list by y. For n≥2 the two marginals coincide by the displayed quadratic and are Narayana with parameter n−1, giving mean n/2 and variance n(n−2)/[4(2n−3)]. Independently, setting λ=z/(1−T)^2 and η=2z/(1−T)^3, the mixed derivative satisfies (1−λ²)F_xy=F_y[1+2ηλF_x], with F_x=T/(1−λ²) and F_y=z/(1−λ). Substitution of T=(1−s)/2 gives the displayed Laurent polynomial in s. Its coefficient for n≥3 divided by C_(n−1) gives E(EL)=n²/4−n/[4(2n−3)]. Another check: with e even vertices and o=n−e odd vertices, Lagrange inversion factors the offspring-weight enumerator as (1/e)[t^o]A(t)^e [t^(e−1)]B(t)^o. The conditional expected leaf count is therefore e(e−1)/(n−1)+o(o−1)/(n−2); its odd part in e−n/2 is −(e−n/2)/(n−2). The marginal is symmetric, so the covariance is −Var(E)/(n−2), giving the same answer. The unique n=2 tree gives zero variance and undefined correlation; n=3 gives perfect negative correlation. A fresh bounded Dyck-path enumeration (semilength n−1; count peaks for leaves and up-steps to even height plus the root for even vertices) matched the moments for n=2,…,8. The frozen script was inspected but not run.",
+      "residual_risks": [
+        "The bounded enumeration is corroboration only. The statistic counts zero outdegree, not all graph-degree-one vertices."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Eq. (1) enumerates the subtree at the white node of a black-root shrub by w_k for its valency and powers of M(w,b) for its children. Eq. (3) gives N(b,w)=∑_{k≥1} b_k M(b,w)^k, with each summand fixing black-root valency."
+        ],
+        "reasoning": "The complete bicolored weight variables encode size, parity count and both colors' nonroot leaves at once. The less general N(yb,y) specialization on p. 474 alone does not retain the white-leaf count and is not the basis of the verdict.",
+        "searches": [
+          "Web: \"Valency enumeration of rooted plane trees\" Mallows Wachter 1972 pdf Cambridge scan DOI 10.1017/S1446788700009228 full text",
+          "Cambridge scan pp. 472–474, Eqs. (1) and (3)"
+        ]
+      },
+      "checked_sources": [
+        "Mallows–Wachter DOI 10.1017/S1446788700009228, Eqs. (1), (3)",
+        "Chen DOI 10.37236/8540",
+        "Chen–Li–Shapiro arXiv:math/0511045v1",
+        "Resultary e35cdf8704cb",
+        "Frozen RESULT.md lines 62–72"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Set b₁=zxy, b_k=zx for k≥2, w₁=zy, w_k=z for k≥2. Then G=M(b,w)=z(y−1+1/(1−F)) and F=M(w,b)=zx(y−1+1/(1−G)) by Eq. (1) and its color swap. In Eq. (3) use zx for the explicit root factor in every positive-valency summand, including k=1, leaving the weights inside M untouched, and add zxy for the isolated root. The result is zxy+zx∑_{k≥1}G^k=F."
+        ],
+        "reasoning": "Thus the precise multivariate series differentiated in the frozen record is obtained from the published equations without a new combinatorial lemma. Coefficient extraction and mixed differentiation yield the same formula for all n; the root exception does not limit the implication.",
+        "searches": [
+          "Mallows–Wachter Cambridge PDF, pp. 472–473, Eq. (1) and root-valency sum in Eq. (3)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A black root and alternating colors make black count equal even-depth count. Nonroot graph valency k corresponds to k−1 children, whereas root valency is the number of its children. Eq. (3) separates root valency."
+        ],
+        "reasoning": "Use both colors' valency-one variables to mark nonroot leaves but not the explicit root valency-one factor. This produces the same-tree statistic, not a different bijective coupling.",
+        "searches": [
+          "Resultary: exact covariance even level vertices leaves same uniform plane tree Narayana anticorrelation",
+          "Mallows–Wachter, DOI 10.1017/S1446788700009228, pp. 472–473"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/11/22/SCOPE-exact-vertex-leaf-depth-parity-coupling-in-uniform-plane-trees--e35cdf8704cb states a covariance n/2 of signed all-vertex and signed leaf depth balances, a different covariance. Chen (2019) gives the Narayana marginals; Chen–Li–Shapiro count leaf-colored doubly rooted trees."
+        ],
+        "reasoning": "An exact entry for the frozen covariance itself was not identified in these searches. The signed leaf balance is not the total leaf count; marginal tables give no same-tree covariance. The positive coverage evidence is the exact prior joint degree enumerator.",
+        "searches": [
+          "Resultary: exact covariance even level vertices leaves same uniform plane tree Narayana anticorrelation",
+          "Chen (2019), DOI 10.37236/8540, pp. 2–3",
+          "Chen–Li–Shapiro arXiv:math/0511045v1, p. 8"
+        ]
+      },
+      "rationale": "Mallows–Wachter (1972) already give the bicolored valency enumerator together with a decomposition by the root's valency. Both the exact pair and the frozen two-type generating system are direct specializations, after the explicit root correction below. The published article need not print the rational covariance for this to be genuine coverage. Common Narayana marginals alone do not imply it.",
+      "residual_risks": [
+        "The exact covariance was not found printed in the inspected prior source; coverage is by the demonstrated specialization, not an assertion about who first wrote the simplified covariance."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly implies the claim via a full bicolored specialization, not via the black-only enumerator",
+          "evidence": [
+            "The paper attaches variables b_k and w_k to graph valencies and gives the root-valency sum ∑ b_k M^k. This supports the root correction and exact joint generating function stated above."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S1446788700009228",
+          "material_read": "Cambridge PDF pp. 472–474, coloring and valency conventions, Eq. (1), root-valency decomposition in Eq. (3), and black-only specialization",
+          "method": "Lawful Cambridge article scan, bounded OA PDF text including opening offset 0",
+          "title": "Valency enumeration of rooted plane trees",
+          "trigger": "Bicolored valencies of the same rooted ordered trees, identified as a potentially stronger result"
+        },
+        {
+          "assessment": "Confirms the classical marginals, not this mixed moment",
+          "evidence": [
+            "Leaf/even-level equidistribution; a different joint comparison involves horizontal fibers and vertical paths versus odd and even levels."
+          ],
+          "identifier_or_url": "https://doi.org/10.37236/8540",
+          "material_read": "PDF pp. 2–3, offsets 3566 and 7551",
+          "method": "Lawful OA PDF passages",
+          "title": "A New Bijection Between RNA Secondary Structures and Plane Trees and its Consequences",
+          "trigger": "Even-level and leaf statistics in the same plane-tree class"
+        },
+        {
+          "assessment": "Related but different pair",
+          "evidence": [
+            "Leaves enter with alternating signs by depth, not through their unsigned total."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-vertex-leaf-depth-parity-coupling-in-uniform-plane-trees--e35cdf8704cb",
+          "material_read": "Finding",
+          "method": "Local Resultary record",
+          "title": "Exact vertex-leaf depth parity coupling in uniform plane trees",
+          "trigger": "Closest indexed covariance result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–9 and 14–57",
+        "Mallows–Wachter, Eqs. (1), (3), specialized as above"
+      ],
+      "rationale": "The negative covariance and small normalized correlation are sensible descriptions of the coupling, but the frozen claim extracts them by standard differentiation from a specialization of an existing exact bicolored valency enumerator. There is no independent structural result in the frozen contribution beyond that extraction and the classical marginals. No genuine surviving repair is established.",
+      "residual_risks": [
+        "The compact formula can still be useful as a reference computation; this is not a claim that the statistic is unmotivated."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

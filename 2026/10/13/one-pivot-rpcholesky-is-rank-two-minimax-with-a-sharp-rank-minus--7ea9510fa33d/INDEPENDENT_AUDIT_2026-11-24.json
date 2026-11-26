@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:03:59.354553Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 7–68 and 70–127; VERIFICATION.md and verify.py inspected, not executed",
+        "/workspace/review_checks.py, record2 (run via python3 /workspace/review_checks.py)"
+      ],
+      "rationale": "Minimizing the squared representer error over the weight gives exactly the Schur residual R_j, also for rank-deficient A. The unit-target supremum is outside the pivot expectation, so its value is the top eigenvalue of the mean residual. On range(A), write v_j=A^(1/2)e_j/sqrt(A_jj); the mean is A^(1/2)(I-D)A^(1/2) with D=sum_j p_j v_j v_j^T positive of trace one. In the positive eigenbasis, a bound z on the mean forces D_ii >= (1-z/lambda_i)_+. Their sum being at most one proves the water-filling floor t; the sum is continuous and strictly decreasing to zero up to the top eigenvalue, so t is unique. For each i!=j the trace-one budget gives t >= lambda_i lambda_j/(lambda_i+lambda_j), by adding the two necessary lower bounds on the diagonal budget (or optimizing just those two entries). The RP law has mean A-A^2/S; its i-th eigenvalue is the sum of lambda_i lambda_j/S over j!=i, at most (r-1)t, strictly less for r>2 and finite positive eigenvalues. At rank two the two positive mean-residual eigenvalues coincide with t irrespective of eigenvectors. For a diagonal kernel the simplex relaxation is exact; for diag(M,1,...,1), t=M(r-1)/(M(r-1)+1)<1, the large-coordinate RP risk is maximal for M>=1, and the ratio tends to r-1. No exact general formula for W_* at rank >=3 is asserted. Independent exact replay used a different rank-two Gram example (positive mean eigenvalues 9/7) and diagonal witnesses at ranks 2, 3, and 5; these are checks, not the proof. The frozen verifier's extra nondiagonal rank-three case checks the expectation identity, not the universal minimax inequality suggested by RESULT.md line 131; this is a nonessential overdescription of the test, not a gap in the theorem.",
+      "residual_risks": [
+        "One pivot, positive diagonal, rank at least two; no multipivot, trace-loss, or target-adaptive sampling guarantee."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source analyses cover RP trace convergence and multiple pivots; Grigori–Xue §2 concerns expected Frobenius column-selection loss.",
+          "Resultary 2026/10/25 record 1bcc2f1e810d gives exact two-node target risks against iid uniform sampling; 2026/11/2 record 73b2b6cddee0 gives a trace law on common-factor matrices."
+        ],
+        "reasoning": "Neither a larger sample-size range under one fixed law nor an expected Frobenius/trace guarantee supplies a lower bound against every one-pivot law at the stated spectral risk.",
+        "searches": [
+          "arXiv:2207.06503 §5",
+          "arXiv:2306.03955 Theorem 1",
+          "arXiv:2609.20556 §2",
+          "Resultary RPCholesky quadrature search"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2207.06503",
+        "arXiv:2306.03955",
+        "arXiv:2609.20556",
+        "Local Resultary Findings 4150e79684db, 1bcc2f1e810d, 73b2b6cddee0, 4916aa7e5711; catalog summary c222bae76ba9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eq. (5.3) gives A-A^2/tr(A), hence the achieved risk of the RP law but not W_*.",
+          "The rank-two attained value follows from that spectrum only after adding an all-laws trace-budget lower bound; the sharp rank-minus-one result further uses pairwise budgets and a diagonal limiting minimax family."
+        ],
+        "reasoning": "Known ingredients explain the achieved RP risk. They do not themselves state or yield by mere parameter specialization the minimax lower bound, the eigenbasis-independent equality, or sharp comparison across ranks.",
+        "searches": [
+          "arXiv:2207.06503 §5 Eq. (5.3)",
+          "arXiv:2306.03955 §§2 and 3.2–3.3",
+          "arXiv:2609.20556 §2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Epperly–Moreno Eqs. (6)–(9) give the representer-optimal weights, and Theorem 1 bounds expected error for each g for the specified RP algorithm.",
+          "Resultary 2026/10/25 record 4150e79684db compares RP with volume sampling on a diagonal spike kernel, with a risk crossover for a given target."
+        ],
+        "reasoning": "Identifying the loss as the top eigenvalue of the expected Schur residual makes target-oblivious one-column Nyström and RKHS quadrature formulations comparable. A fixed-law error bound or a crossover between two laws does not minimize over the simplex of laws.",
+        "searches": [
+          "Web: \"rank-two\" minimax \"randomly pivoted Cholesky\" one-pivot kernel quadrature spectral residual",
+          "Resultary: RPCholesky kernel-quadrature minimax; water filling; sup_g E_J",
+          "arXiv:2306.03955 §3.2–3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Local mirrored Findings read for 4150e79684db, 1bcc2f1e810d, 73b2b6cddee0 and 4916aa7e5711; no identical indexed hit surfaced in returned results.",
+          "Same-day 4916aa7e5711 randomizes a basis-change pair for a normalized inverse-trace potential, not a column pivot for quadrature. Same-day c222bae76ba9 was available only as a catalog summary concerning rank-two Nyström preconditioning."
+        ],
+        "reasoning": "The material local hits use different targets, pivot counts, loss or comparison class. Same-day catalog dates do not establish priority; summary-only evidence is not definitive.",
+        "searches": [
+          "Resultary: exact frozen title phrase; RPCholesky kernel-quadrature minimax; water filling; sup_g E_J"
+        ]
+      },
+      "rationale": "The RP law, expected one-step residual and optimal quadrature weights are prior. The supported distinct contribution is minimization of the worst expected squared target loss over every target-independent one-pivot law: the eigenbasis-independent rank-two solution and the sharp rank-dependent gap. No inspected statement provides that comparison; this is a best-of-knowledge assessment, not a priority certificate.",
+      "residual_risks": [
+        "A formulation under optimal experimental design or one-column Nyström minimax could be missed by finite searching.",
+        "The same-day preconditioning record was not inspected in original text; no priority inference is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the acknowledged one-step identity, not the minimax comparison",
+          "evidence": [
+            "The expected-residual map is A-A^2/tr A."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2207.06503",
+          "material_read": "§5 Eq. (5.3), p. 20, PDF text offset 77000",
+          "method": "OA primary PDF passage",
+          "title": "Randomly Pivoted Cholesky: Practical Approximation of a Kernel Matrix with Few Entry Evaluations",
+          "trigger": "Defining one-step expectation"
+        },
+        {
+          "assessment": "Covers quadrature weights and RP error bound, not minimaxity over pivot laws",
+          "evidence": [
+            "Weights optimize error given g and the selected nodes; the expectation bound is for RP sampling."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2306.03955",
+          "material_read": "§2 p. 2 (offset 6900), §3.2 Eqs. (6)–(9) p. 5 (offset 17400), §3.3 Thm. 1 pp. 5–6",
+          "method": "OA primary PDF passages",
+          "title": "Kernel Quadrature with Randomly Pivoted Cholesky",
+          "trigger": "Same algorithm and loss before maximization over targets"
+        },
+        {
+          "assessment": "Different loss and comparator",
+          "evidence": [
+            "ARP/MSARP approximation comparisons are in the expected Frobenius objective."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.20556",
+          "material_read": "§2 p. 2, PDF text offset 6650",
+          "method": "OA primary PDF passage",
+          "title": "Incremental Column Subset Selection via Conditional Determinantal Point Processes",
+          "trigger": "Related adaptive pivot comparisons"
+        },
+        {
+          "assessment": "No inspected Finding has the same quantifier and loss combination; last record summary-only",
+          "evidence": [
+            "Target-specific volume-sampling crossover; two-node RP vs iid; trace-law comparison; pair basis change, respectively."
+          ],
+          "identifier_or_url": "Resultary records 4150e79684db, 1bcc2f1e810d, 73b2b6cddee0, 4916aa7e5711, c222bae76ba9",
+          "material_read": "First four Findings at offset 0 in the local mirror; only catalog summary for c222bae76ba9",
+          "method": "Local Resultary search and mirrored source inspection",
+          "title": "Published RP quadrature, pivoting, and randomized orthogonalization Findings",
+          "trigger": "Materially similar indexed records and same-day hits"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen minimax definition and sharpness family; arXiv:2306.03955 §§2–3"
+      ],
+      "rationale": "When the node is drawn before target weights are available, a standard and inexpensive pivot rule can be judged against the best implementable-in-principle target-independent distribution. Exact optimality for every rank-two eigenbasis and a sharp loss that grows with rank answer that natural robustness question; the diagonal witness isolates ill conditioning and supplies an explicit optimal replacement there. This is not just recomputing the known mean residual or changing the units of trace loss.",
+      "residual_risks": [
+        "No evidence that the full sharp factor is typical of well-conditioned practical kernels; no quantitative claim of such typicality."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

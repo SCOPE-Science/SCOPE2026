@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:28:33.614228Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The uniform fixed-weight source corresponds bijectively to a uniform weak composition of N into m=k+1 gaps. Only positive gaps give coupons; decreasing one positive gap distinguishes its output, and its probability is G_i/N. Tail-sum inclusion-exclusion and counting positive selected coordinates with sum u give the exact A_{m,s} formula, including N<m and the one-marker formula. The small case m=2,N=3 averages the four means 1, 7/2, 7/2, 1 to 9/4. For the limiting law, the uniform grid converges to the uniform simplex and zero coordinates have probability O_m(1/N). Dirichlet integration makes the t-draw count vectors equally likely, so the ratio of positive to weak compositions gives the stated integer-time tail; its first-order coefficient is m(m-1). For the finite mean, coefficient extraction from -log(1-z)/(1-z)^(m-1) gives N A_{m,1} = (m-1)N/(N+m-1) times (H_{N+m-2}-H_{m-2}), which fixes the harmonic constant. For 2<=s<m, the mass at total u with selected coordinates positive is bounded by C_m u^(s-1)/N^s; hence the truncated reciprocal sum for u<=epsilon N is O_m(epsilon^(s-1)). The inverse Beta moment is therefore the correct limit (m-1)/(s-1), and s=m directly gives 1. Integrating [1-mx-(1-x)^m]/x^2 gives the alternating sum m-1-m H_{m-1}. Thus the finite mean expansion is proved independently of distributional convergence. The frozen verification notes and checker were inspected, not executed; finite checks do not establish this expansion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general reinforced-urn record specializes to the t^(-1) survival coefficient m(m-1) and infinite mean; the weighted-words collector supplies a general expectation formula conditional on coupon probabilities.",
+          "The deletion-channel sources concern output support size or entropy, not the finite compositional mixture of full-support collection times."
+        ],
+        "reasoning": "The prior general expectation formula is used as machinery, not treated as a closed or asymptotic evaluation of its average on the deletion gap grid. The existing urn law has no finite-grid regulator N whose mean could supply this constant.",
+        "searches": [
+          "Resultary: 2026/11/8/SCOPE-strict-coverage-time-majorization-and-rare-colour-tails-for-rein--5623e019d5e4",
+          "arXiv:1202.0920 general unequal coupon expectation",
+          "arXiv:1202.1644 introduction",
+          "arXiv:2202.03024 introduction"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 5623e019d5e4 and c547bf1901f9",
+        "arXiv:1202.0920, 1202.1644, 2202.03024, 1911.01052"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The urn theorem directly implies the distributional description once the deletion model is shown to converge to that mixture. Its infinite mean cannot be used to exchange limits with the finite expectation.",
+          "In the finite grid the singular one-gap marginal contributes a harmonic term, while multi-gap sums contribute finite reciprocal Beta limits; both are needed for the stated constant."
+        ],
+        "reasoning": "A general coupon identity and the known heavy-tailed limit do not supply the finite-size regularization and constant mechanically. That averaging and analysis is the distinct supported remainder of the claim.",
+        "searches": [
+          "Resultary: 5623e019d5e4 exact survival, Dirichlet representation and moment criterion",
+          "arXiv:1202.0920 Eq. (1.1)",
+          "arXiv:1911.01052 p. 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In Resultary 5623e019d5e4 the limiting coupon law is exactly the reinforced-urn law initialized with one unit of each color. The avoided-set probability for s colors is (m-s) rising-factorial t divided by m rising-factorial t, giving the same full-coverage tail by inclusion-exclusion.",
+          "The finite source probabilities instead lie on a uniform composition grid and ignore zero coordinates. The infinite Dirichlet mixture is not an equivalent formulation of this finite-N model."
+        ],
+        "reasoning": "Equivalence is exact for the limiting law but not the deletion-source distribution at finite N. Conditional coupon inclusion-exclusion is standard in both settings.",
+        "searches": [
+          "Resultary: Dirichlet mixture Pólya-urn full coverage time and deletion-gap coupons",
+          "arXiv:1911.01052",
+          "arXiv:1202.0920 Eq. (1.1)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-limit index match is 5623e019d5e4, with general initial masses and exact survival. The same-day c547bf1901f9 concerns a growing number of colors with logarithmically growing Dirichlet concentrations, giving a Gumbel regime, not fixed m with unit concentration."
+        ],
+        "reasoning": "The new quantity is a symbolic finite-size asymptotic rather than a tabulated finite census. The exact-law index search produces a match for the limit, but neither inspected distinct record supplies the finite-N harmonic constant. No priority order was assumed among same-day records.",
+        "searches": [
+          "Resultary: exact Dirichlet coverage and logarithmic coupon completion",
+          "Resultary: 5623e019d5e4 and c547bf1901f9, RESULT.md Finding"
+        ]
+      },
+      "rationale": "This pass credits the deletion-source finite-size law, particularly the explicit logarithmic mean and constant for every fixed marker count. The limiting collector law, including its heavy-tail coefficient and infinite mean, is already covered by a more general indexed Pólya-urn result and is not an independent originality credit. The frozen record makes its contribution jointly with the deletion-source finite-size law and does not claim the mixture identity as new.",
+      "residual_risks": [
+        "The bounded search does not exhaust Dirichlet-mixed or grid-mixed coupon-collector literature. The novelty assessment excludes the already covered limiting law."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct broader coverage of the limiting law; not of the finite deletion-source mean",
+          "evidence": "With unit masses the law is Dirichlet(1,...,1) mixed coverage and has coefficient m(m-1) and infinite mean.",
+          "identifier_or_url": "2026/11/8/SCOPE-strict-coverage-time-majorization-and-rare-colour-tails-for-rein--5623e019d5e4",
+          "material_read": "RESULT.md, exact survival and Dirichlet-mixture passages, offsets 716-4915; tail and moment conclusions",
+          "method": "Resultary local-mirror text",
+          "title": "Strict coverage-time majorization and rare-colour tails for reinforced urns",
+          "trigger": "Exact full-coverage mechanism for random Dirichlet probabilities"
+        },
+        {
+          "assessment": "Different parameters and limiting extreme law",
+          "evidence": "Growing number of colors, growing symmetric Dirichlet concentrations; no finite composition-grid regulator.",
+          "identifier_or_url": "2026/11/22/SCOPE-logarithmic-dirichlet-concentration-gumbel-coupon-completion-and--c547bf1901f9",
+          "material_read": "RESULT.md, Finding from offset 0",
+          "method": "Resultary local-mirror text",
+          "title": "Logarithmic Dirichlet concentration and Gumbel coupon completion",
+          "trigger": "Same-day indexed random coupon probabilities and logarithmic asymptotics"
+        },
+        {
+          "assessment": "General collector formula, not the target mixture evaluation",
+          "evidence": "Gives the unequal-probability full-coverage expectation in integral form.",
+          "identifier_or_url": "https://arxiv.org/abs/1202.0920",
+          "material_read": "Primary text p. 2, Eq. (1.1), offset 6922",
+          "method": "OA primary text",
+          "title": "The weighted words collector",
+          "trigger": "General nonuniform coupon expectations"
+        },
+        {
+          "assessment": "Support counting, not a repeated-read cover-time bound",
+          "evidence": "Counts distinct subsequences in terms of runs.",
+          "identifier_or_url": "https://arxiv.org/abs/1202.1644",
+          "material_read": "p. 1, abstract and Sec. I, offsets 0 and 2146",
+          "method": "OA primary text",
+          "title": "A characterization of the number of subsequences obtained via the deletion channel",
+          "trigger": "Same deletion-channel output objects"
+        },
+        {
+          "assessment": "Different observable",
+          "evidence": "Studies output/input entropy and extrema, not time to collect the full output support.",
+          "identifier_or_url": "https://arxiv.org/abs/2202.03024",
+          "material_read": "p. 1, abstract and Sec. I, offset 5544",
+          "method": "OA primary text",
+          "title": "The Input and Output Entropies of the k-Deletion/Insertion Channel",
+          "trigger": "Potential equivalent statement about a deletion-output distribution"
+        },
+        {
+          "assessment": "Earlier related rare-color law",
+          "evidence": "Tail 1/(t+1) and infinite mean for the first appearance of a specified color in the two-color case; the general indexed full-coverage theorem provides the direct comparison.",
+          "identifier_or_url": "https://arxiv.org/abs/1911.01052",
+          "material_read": "p. 2, offset 6481",
+          "method": "OA primary text",
+          "title": "Curiosities regarding waiting times in Pólya’s urn model",
+          "trigger": "Earlier infinite-mean urn waiting times"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The precise finite mean answers a repeated-read cost question that the limit law cannot answer: rare sources with a very small positive gap dominate the mean although a typical source has a tight cover time. The leading logarithm and constant quantify that discrepancy for each fixed marker count and keep zero gaps correctly out of the support. The useful part is the finite mean analysis, not renaming the known Pólya collector.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

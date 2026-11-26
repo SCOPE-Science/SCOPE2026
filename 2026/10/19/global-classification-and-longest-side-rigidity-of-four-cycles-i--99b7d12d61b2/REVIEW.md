@@ -1,15 +1,21 @@
-# Scientific assessment: global four-cycle classification
+# Independent mathematical audit
 
-## Correctness — PASS
-The asserted domain is the union of three complete, pairwise nonparallel and nonconcurrent supporting lines with Everett's exact fixed-on-tie convention. The proof classifies every cyclic length-four line word: two-line words cannot produce nonconstant cycles because the double projection contracts to the lines' intersection, while the only three-line word repeats exactly one line in opposite positions. Its affine fourth return has one candidate orbit with explicit coordinates. Four independently derived squared-distance margins prove **necessary and sufficient strict farthest-choice tests**, including equality boundaries. The second and fourth tests force the repeated side to be strictly longer than both others, establishing the global at-most-one statement, not merely one per itinerary. The stated contraction factor proves local attraction. A separate rational-arithmetic checker exhaustively verifies finite samples and all cyclic line words but is not used as an infinite proof.
+## correctness
 
-## Originality — PASS, restricted to the genuinely new all-shape statement
-Everett's primary full text describes the map, contractivity and qualitative bifurcation pictures but gives no all-shape four-cycle discriminant. Importantly, the prior work *Golden-ratio period-four cutoff and three-attractor coexistence in a triangle projection map* (`dea05cf4-28ff-41cb-9742-a7fad4b5e103`) **already proves the sharp isosceles four-cycle cutoff and uniqueness for \(v>1/2\)**; this is excluded from the new priority claim, although recovered as a corollary. The prior *Exact two-orientation classification of primitive three-cycles for the farthest-projection triangle map* (`2944d54e59d8`) classifies period three, not four. The prior equilateral basin classification (`ff88be28-f88b-44b2-aa58-e45df2eb7604`) concerns three-cycle basins. The new contribution is the complete global least-period-four decision and explicit attracting orbit for **arbitrary** nondegenerate triangle shapes, including asymmetric and obtuse shapes, together with a unique-longest-side obstruction. Searches of published-finding corpus and the primary literature did not identify a stronger full-shape implication. Residual risk remains from unindexed or differently formulated general studies of conditional orthogonal projections; a search absence alone is not a novelty proof.
+PASS
 
-## Mathematical value — PASS
-The original dynamical model expressly studies how triangle shape controls periodic-orbit structure. A complete exact phase criterion over all two continuous triangle-shape parameters and a global single-cycle bound address that gap, with a structural geometric obstruction that is not available from symmetry-restricted isosceles work or general prescribed-projection contraction. Explicit orbit coordinates allow exact analysis of stability, boundaries and transitions. The four strict margins make tie handling mathematically decisive. This is more than a change of notation, a small numerical improvement, or a recomputation of the known isosceles cutoff.
+Independently reconstructed the line-word exhaustion and the fixed coordinate of its affine return. Consecutive targets differ even at vertices; a two-line word returns only at the intersection. The three-line word with repeated base has return x↦1−(1−u)^2/t+[u^2(1−u)^2/(st)]x, so the fixed coordinate is s/E. Orthogonal foot and signed-distance formulas give the four listed margins. The second test rules out u≤0 since sqrt(t)>|u| there, and rules out t≥1 once 0<u<1 since t+u^2−u−u sqrt(t) is increasing on t≥1 and positive at 1. Reflection gives u<1 and s<1 by the fourth test. This proves strict longest-side rigidity and uniqueness. Ties fix the point. The two base points have distinct coordinates strictly between 0 and 1, and the off-base points have positive heights and distinct horizontal coordinates. Local attraction follows from strict branch choices and the return multiplier in (0,1); the vertex convention does not invalidate this argument, as both incident branches near a vertex send to the third line. The isosceles condition reduces to 16v^4−4v^2−1<0, with its boundary excluded. The supplied exact rational grid is limited diagnostic evidence, not the continuum proof.
 
-## Limitations and residual risks
-No global basin classification, other prime periods, restricted-boundary map theorem, or independent historical-priority guarantee is asserted. Numerical checks cover only finite rational triangles. An older abstract or unindexed paper with a strictly stronger all-shape four-cycle classification would alter originality. The present theorem stands on a complete analytical argument and is subject to independent assessment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the complete decision for arbitrary triangle shape on complete supporting lines, including the four strict inequalities and the uniquely-longest-side obstruction. The map, the qualitative convergence framework and the attributed acute-isosceles threshold are not credited as new. The inspected specialized corroborations do not imply the scalene classification or its rigidity.
+
+## value
+
+PASS
+
+The shortest line word that repeats a supporting line gives a natural classification problem not decided by contraction alone. A finite exact decision for every nondegenerate shape, strict treatment of the switching boundaries, and the obstruction on which side may repeat give information usable for shape-dependent dynamics. The already-known symmetric cutoff is not needed for this value judgment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

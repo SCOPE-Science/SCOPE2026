@@ -1,0 +1,87 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:32:24.332566Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Distinct ordered centers have interval Voronoi cells and ties of zero mass. An optimum cannot have an unused center: assigning it to a positive-length part of a used cell strictly improves squared error. For a fixed positive-mass cell the squared-error minimum is its centroid, so a strictly interior gap center must own positive mass from both components. The other two cells are confined to the outer portions of their respective supports; their positive masses ensure 0<u,v<L. Within-cell integration of a uniform segment of length t at density w/L gives w t^3/(12L). Pooling the two inner segments adds exactly AB/(A+B) times the squared difference of their means, with A=pu/L, B=qv/L and separation G+(u+v)/2. The splitting gains S_L=p u(L-u)/4, S_R=q v(L-v)/4 have min(S_L,S_R) at most L^2 min(A,B)/4. The pooling penalty is strictly larger even at G=L/sqrt(2), using AB/(A+B)>=min(A,B)/2 and u+v>0. Thus the proposed cost is strictly above L^2/12-max(S_L,S_R), which is at least L^2/12-L^2 max(p,q)/16. Midpoint allocation of two centers to the heavier component and one to the other achieves cost at most that last expression, since nearest-center assignment can only improve on within-component assignment. This verifies the universal proof, not just the rational sample. Independently integrated cell moments for the small-gap example: the three centroids agree and the distortion is 257/6000 versus the anchored 5/96, with no claim of global optimality. The theorem excludes only one point in each of the three regions and makes no optimal-separation or separate two-mean assertion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Conjecture 3.16 posits eventual absence of gap centers for n>=N, with N unspecified and allowed to depend on p. The examples discussed for the arbitrary-interval question have length 7/15 and gap 1/15 and use different p for the two configurations."
+        ],
+        "reasoning": "Even a proof of the eventual statement without a bound on N would not settle n=3. The cited examples have gap/length 1/7, outside the barrier, and do not meet the same-p requirement.",
+        "searches": [
+          "DOI 10.1007/s40065-025-00557-5, Conjecture 3.16 and Open 3.18"
+        ]
+      },
+      "checked_sources": [
+        "Barua et al., arXiv:2203.12664",
+        "Barua et al., Arabian Journal of Mathematics, DOI 10.1007/s40065-025-00557-5",
+        "Resultary published findings search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier claims are either conjectures or same-geometry exact results at specific parameters; standard centroidal necessary conditions do not by themselves rule out bridge cells below G/L=1."
+        ],
+        "reasoning": "The two outer centroid equations for a hypothetical bridge yield u+v=2(L-G)/3, which already rules it out for G>=L, but not in the stated subinterval L/sqrt(2)<=G<L. The frozen cost comparison supplies the missing global exclusion there. Neither the eventually-large-n conjecture nor pointwise examples give it.",
+        "searches": [
+          "DOI 10.1007/s40065-025-00557-5, p. 18, Open 3.17 and Conjectures 3.16 and 3.19",
+          "arXiv:2203.12664, §§3.8, 3.10 and 3.11"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both versions ask if a single p permits a gap-containing optimal two-mean set and a support–gap–support optimal three-mean set on [0,1/3] and [2/3,1]. The negative answer is conjectured, not reported as proved."
+        ],
+        "reasoning": "Rescaling by the support length gives the G/L=1 case; excluding the second conjunct for all p implies the negative answer. The implication is one-way; the posed conjunction is not stronger than the frozen obstruction.",
+        "searches": [
+          "Barua et al., arXiv:2203.12664, §§3.8 and 3.10",
+          "DOI 10.1007/s40065-025-00557-5, Open 3.17 and Conjecture 3.19"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No materially overlapping distinct Resultary finding was returned among the ranked hits. The closest exact placement examples inspected in the paper apply to particular mixing parameters, not a classification at all p."
+        ],
+        "reasoning": "A table or computation at selected weights, including the examples with p=51/500 and p=225/500 in the smaller-gap geometry, cannot establish the uniform exclusion; the bounded database retrieval is not proof of absence.",
+        "searches": [
+          "Resultary published findings: equal-interval quadratic three-means, support–gap–support obstruction, Barua et al. Open 3.17 and Conjecture 3.19",
+          "Barua et al., journal §3.4 and preprint §3.11 examples"
+        ]
+      },
+      "rationale": "Barua et al. explicitly state and conjecture a negative answer to the equal-gap conjunction, but do not prove it in the inspected passages. The frozen result proves its three-mean obstruction uniformly in p and extends it to G/L in [1/sqrt(2),1) as well as larger gaps. No materially equivalent or stronger proved claim was identified in the bounded comparisons.",
+      "residual_risks": [
+        "The bounded catalogue and literature checks are not an exhaustive citation search; a separate proof under one-dimensional quantization or optimal scalar clustering terminology is not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Poses the exact equal-gap conjunction and a negative conjecture; smaller-gap examples do not imply the barrier",
+          "evidence": "§3.8 asks for one probability vector and says the answer is still not known; §3.10 conjectures no such vector; §3.11 uses weights 51/500 and 225/500 in different examples.",
+          "identifier_or_url": "https://arxiv.org/abs/2203.12664",
+          "material_read": "§§3.8, 3.10 and 3.11; §3.8 at HTML offset 84500",
+          "method": "Lawful arXiv HTML",
+          "title": "Quantization for the mixtures of uniform distributions on connected and disconnected line segments (preprint)",
+          "trigger": "Original formulation and examples for the exact same geometry"
+        },
+        {
+          "assessment": "Same-p conjunction remains stated as open, with a negative conjecture; no proven three-mean exclusion there",
+          "evidence": "Open 3.17 is the same-p conjunction; Conjecture 3.19 predicts no such p; Conjecture 3.16 only concerns sufficiently large n at fixed p.",
+          "identifier_or_url": "https://doi.org/10.1007/s40065-025-00557-5",
+          "material_read": "§3.4 and p. 18, Open 3.17 and Conjectures 3.16 and 3.19, offsets 86500–90908",
+          "method": "Lawful Springer PDF passages",
+          "title": "Quantization for the mixtures of uniform distributions on connected and disconnected line segments (journal)",
+          "trigger": "Published version could resolve or re-scope the open question"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The three-center obstruction resolves the exact conjunction in a named open question and covers a nontrivial range of shorter gaps where the outer centroid conditions alone would not rule the configuration out. The splitting-gain versus pooling-penalty comparison is a natural explanation of why an interior gap centroid cannot pay for itself in this range. Scientific value does not depend on treating the sufficient barrier as sharp or implying that all gap centers are excluded.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

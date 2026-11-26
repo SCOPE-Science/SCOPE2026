@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,23 +19,24 @@
 }
 ---
 
-# Reproduction of exact finite checks
+# Independent mathematical audit
 
-Run `python3 verify_hermitian.py` using Python 3.10 or later. The observed successful output was:
+## correctness
 
-```
-HERM: 21 points; 280 nonsingular Hermitian unitals; six-set traces {64: 23520}
-HERM: contained-support census [21, 210, 1330, 5880, 17640, 23520, 10080, 2520, 280]
-HERM: five-set multiplicity Counter({2: 17640})
-HERM: six-set multiplicity Counter({1: 23520})
-```
+PASS
 
-Independently compile `verify_triangles.cpp` with `c++ -O3 -std=c++17 verify_triangles.cpp -o verify_triangles` and run `./verify_triangles`. The observed successful output was:
+Independently enumerated all 293,930 nine-point subsets using lines defined by normalized projective covectors over F4. Exactly 280 have line intersections in {1,3}, matching the XORs of nonconcurrent line triples. Such a triple is projectively equivalent to the coordinate triangle, whose XOR is the zero set of the identity Hermitian form. Conversely nonsingular Hermitian forms are congruent and their zero loci are unitals. Instead of the supplied trace loops, tallied global containing-unital multiplicities and performed Boolean Möbius inversion on each contained six-set: all 64 counts are positive on each of 23,520 sets, with minimum count 1. Every contained five-set occurs twice, every contained six-set once. The all-positive pattern forces containment; any contained support of size at most six extends to a shattered six-set, whereas a six-positive/seventh-negative request fails by six-set uniqueness. This gives the exact polynomial 1+21z+210z^2+1330z^3+5880z^4+17640z^5+23520z^6 and purity. The independent run also gives the collinear/noncollinear three-point complement split 3,360/20,160. It is exhaustive in PG(2,4), not an extrapolation. Replay: python3 /workspace/branches/independent_unitals.py.
 
-```
-TRIANGLES: 21 points, 21 lines, 280 unitals
-SHATTERED: 1 21 210 1330 5880 17640 23520 (higher 0)
-FULL-TRACES: all 23520 six-subsets; five-incidence multiplicity 2, six multiplicity 1
-```
+## originality
 
-Both scripts contain assertions that reject incorrect intermediate counts. They reconstruct \(\mathbb F_4\) from polynomial multiplication, do not use a supplied incidence list and have no external package dependencies. The Python script also directly checks equality of the Hermitian and line-triangle constructions and separately computes every 64-trace support. The C++ script checks every support occurring inside a unital of cardinality one through nine. Larger subsets need not be enumerated for shattering because uniqueness of a unital through six contained points gives a formal seven-query obstruction, and the family is hereditary. The computation verifies the finite lemma only; it does not establish historical priority or larger-field analogues.
+PASS
+
+The family and its geometric construction are classical. The additional assertion is local universality on every contained six-set of the restricted 280-member family, with the sharp obstruction and full face counts. No checked source establishes that assertion or a theorem giving it by specialization.
+
+## value
+
+PASS
+
+For a canonical finite incidence family the answer tells exactly which six membership queries admit every labeling, not just the maximum number of queries. Uniqueness at six pinpoints the first obstruction, and the exact support counts and complement types distinguish incidence cases that a generic VC upper bound cannot resolve. This is useful for point-query and finite-design comparisons without assuming generalization to higher field orders.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

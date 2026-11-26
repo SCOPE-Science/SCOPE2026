@@ -1,20 +1,21 @@
-# Scientific assessment: balance-dependent source–sink covariance
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem explicitly distinguishes the two sources of randomness. Its proof reconstructs the degree generating polynomial, derives the critical marked-edge moment from effective resistance, and sums the source–sink indicator covariances. The balanced eigenvalue inequality and fixed-side determinant limit follow by exact algebra and controlled binomial asymptotics. Direct rational enumeration of random trees and orientations checks the formula up to \(K_{4,4}\), together with larger exact matrix-sign computations. Boundaries, including \(m=2\) and \(K_{2,4}\), agree with direct calculations. The infinite-family conclusions rest on analytic arguments.
+## correctness
 
-## Originality — PASS, qualified
-The closest relevant sources were read and compared at the level of their assertions: the classical bipartite spanning-tree and weighted matrix-tree literature gives enumeration ingredients; the prescribed-forest result of Dong–Ge treats tree-edge inclusion; existing source/sink covariance bounds concern fixed trees, while complete-bipartite edge covariance and degree independence describe other random variables. The present statement is a mixed *part-indexed* source/sink covariance matrix for a two-stage random model, plus a balance-dependent change of inertia. Its proof requires combining edge-marked nonlinear degree moments with a determinant-sign argument. Searches found no covering all-size mixed covariance or sign-transition statement; this is a qualified priority assessment, not a uniqueness certificate. Historically unindexed equivalent derivations remain possible.
+PASS
 
-## Value — PASS
-The source–sink dependence sign is important for random directed networks built by spanning-tree sampling. Global negative dependence might be naively inferred from within-class source/sink repulsion; the exact matrix shows that it is true for all common class weights on balanced graphs but false after sufficient imbalance. The explicit \(K_{2,4}\) positive direction and all-size asymptotic provide motivated structural boundaries, not an isolated parameter recomputation.
+The reduced product-conductance Laplacian gives the claimed enumerator: deleting a B vertex, its Schur complement is X diag(y')−(X/Y)y'y'^T, with rank-one determinant factor y_deleted/Y. This proves the independent class multinomials. The unit-current equations give V_i−V_j=1/(x_iY)+1/(y_jX)−1/(XY); inserting half weights on both marked endpoints gives exactly r. The joint conditional orientation probability doubles only for a shared edge, while the same vertex cannot realize both events. This yields both diagonal terms, including the repeated-vertex subtraction, and the positive off-diagonal. For a=b=m the smaller magnitude eigenvalue is negative because (1−t)^(m−1)<1−t for m≥3, and equals zero for m=2. For fixed a, C_BB=−b/4+O(1), C_AA=O(c_A²), and C_AB/(bc_A) approaches a/[4(2a−1)]; normalizing gives exactly the negative determinant limit. Independently enumerating connected (a+b−1)-edge sets and all orientations for K_2,2, K_2,4 and K_3,3 gave 32, 1024 and 2592 outcomes; K_2,4 gave entries (−473/4096,81/256,−13/16) and witness 191/4096. This is a finite corroboration, not the proof. No assertion about uniqueness of an imbalance threshold is needed.
 
-## Closest sources and limitations
-- Burman–Shapiro (2005/2006), weighted matrix-tree methods and orientations of fixed graphs: https://arxiv.org/abs/math/0512164.
-- Dong–Ge (2021/2022), counts of complete-bipartite spanning trees containing a specified forest: https://arxiv.org/abs/2103.05294.
-- Burton–Pemantle (1993/2004 open preprint), transfer-current identities: https://arxiv.org/abs/math/0404048.
-- Other published results on fixed-tree source/sink extrema and complete-bipartite edge covariance are relevant inputs but do not themselves state the mixed covariance signature law.
+## originality
 
-Scope is restricted to uniform spanning trees and independent fair orientations; the exact transition threshold for arbitrary fixed class size is not established. Priority cannot be guaranteed by incomplete search coverage.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Qualified originality of the class-indexed matrix and change of inertia, not of the underlying weighted tree machinery. Neither a fixed-tree scalar bound nor an edge-incidence spectrum evaluates the degree-tilted edge excess and its competition with within-class anticorrelation.
+
+## value
+
+PASS
+
+The inertia asks whether the same deterministic class weighting can turn source–sink anticorrelation into positive covariance. Entry signs alone cannot answer that question. The balanced proof, fixed-side reversal and small exact witness resolve this interpretation beyond a single numerical instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

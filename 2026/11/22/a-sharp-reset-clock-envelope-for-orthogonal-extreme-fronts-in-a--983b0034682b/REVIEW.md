@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite-population covariance identity follows exactly by conditioning the two perpendicular Gaussian maxima on one common stationary reset age. The standard Gaussian maximum theorem supplies the \(\pi^2/24\) log-squared correction after moment convergence. Renewal-age integration and Cauchy–Schwarz give a sharp coefficient interval, its unique periodic extremizer, and an explicit family approaching the open lower endpoint; continuity gives the complete attainable region. The ratio limit follows from two independent Gumbel fluctuations. The reproducibility script completed 83 deterministic checks, including two-sample exact moments and clock bounds. Numerical checks are supplementary, not a proof of infinite limits.
+PASS
 
-## Originality — PASS, with publication-priority caveat
+For the equilibrium renewal age A, the two independent arrays of Gaussian coordinates give (F_x,F_y)=sqrt(2DA)(M_x,M_y) in law jointly with A. Writing m and v for a standard Gaussian maximum's mean and variance, this gives rho=Delta m²/(Delta m²+EA v), with Delta=Var(sqrt(A))>0 even for deterministic resets observed at random phase. With b=Phi^{-1}(1-1/N), Mills' ratio gives b²~2 log N and b(M-b) converges to Gumbel, with second-moment convergence: the positive tail is at most exp(-z) by the normal hazard bound h(x)>=x, and the negative tail for 0<=z<=b² is at most exp(-exp(z/2)) by integrating the same bound between b-z/b and b. For z>=b² it is bounded by 2^{-N} exp[-N(z-b²)²/(2b²)], whose integrated second-moment tail tends to zero. Thus (log N)²v/m² tends to pi²/24. Integrating the equilibrium age tail gives (E sqrt A)²/EA=(8/9)(ES^{3/2})²/(ES ES²); Cauchy–Schwarz gives equality at the upper K endpoint only for constant S. The positive moment quotient cannot be zero but does approach zero for P(S=L)=L^{-7/4}, otherwise S=1, and varying the weight continuously attains every intermediate value. The Poisson coefficient and N=2 anchor follow by substitution. Canceling the common age factor in the ratio works at finite N; the normalized independent maxima differ by a standard logistic in the limit, with log N/b² tending to 1/2. Neither the age effect nor the finite-N variance is a property of independent reset clocks. Reviewed RESULT.md 5–102, VERIFICATION.md 19–23, and verify.py as text; deterministic quadrature and seeded sampling are corroboration only and were not executed. Replay is the exact tail/moment/renewal argument above.
 
-Biroli–Larralde–Majumdar–Schehr (arXiv:2211.00563) derives the one-dimensional common-reset conditional law, single-axis maxima and gaps. De Mauro–Biroli–Majumdar–Schehr (arXiv:2509.06658) derives the arbitrary-renewal extension and one-dimensional rank/gap/counting statistics. Those are credited and directly used. Indexed results on *successive edge-gap covariance* under renewal resetting and on *logistic imbalance of opposite extrema* concern different observables. Neither checked source provides the two-dimensional perpendicular-maximum Pearson coefficient, its exact clock extremizers or the universal ratio statement together. A plausible indexed near-neighbour was only accessible as an abstract; stronger unindexed coverage remains a residual risk. Novelty is best-knowledge rather than independently certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result gives a clock-independent logistic geometric fingerprint together with a clock-dependent, sharply bounded population-size correction to near-perfect synchronization. It isolates a physically meaningful difference between synchronized global resets and independent reset clocks. The periodic/heterogeneous optimal-clock dichotomy and complete sharp coefficient interval are substantive structural results, not merely an isolated exact number.
+The supported distinction is the orthogonal-max finite-size correlation together with the sharp arbitrary-renewal envelope for its logarithmic deficit. The scaling mechanism, clock moment quotient and Poisson coefficient in a different front problem already occur in prior or companion work. The clock cancellation and logistic ratio are elementary consequences of the Gaussian/Gumbel representation, not a new extreme-value law or the basis of the originality verdict.
 
-## Limitations and provenance
+## value
 
-The scope is free isotropic planar diffusion, instantaneous common resetting, equilibrium renewal observation and finite second reset-interval moment. The normal-maxima limit and renewal conditional representation are prior mathematics. There is no claim about radially maximal particles, noisy experimental estimators, or non-renewal reset protocols. Direct comparison of some indexed near-neighbour full texts was not possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Orthogonal fronts can be measured in one configuration. The result separates common-clock size synchronization from clock-free relative shape and quantifies exactly how much clock choice can change the deficit, including which extreme is unattainable. The logarithmic rate alone or the standard logistic ratio alone would be much weaker.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

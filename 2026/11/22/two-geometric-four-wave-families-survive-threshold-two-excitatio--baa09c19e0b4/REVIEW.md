@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The explicit five-generator Cayley graph and two-contact local rule uniquely determine the finite map on all \(3^{16}=43{,}046{,}721\) labelled states. Two different exhaustive implementations—disjoint excited/refractory mask orbit walking and complete ternary-index functional-graph peeling—agree on every first-entry/period population, on one fixed point and 90 primitive four-cycles, and on all three basin-size categories. The scripts reproduce 1,920 graph automorphisms, two temporal-cycle symmetry orbits of sizes 30 and 60, and the parallel/twisted affine two-flat distinction. First entry seven is witnessed explicitly; finite exhaustive checks prove \(F^{11}=F^7\) but do not prove any all-graph generalization. The attached exact integer programs and outputs are part of the proof evidence.
+PASS
 
-## Originality — PASS, with historical-priority risk
+Reconstructed the successor rule from the five XOR generators: the union over pairs of neighbors selects vertices meeting threshold two, and only resting vertices can enter that selection; the next refractory set is the current excited set. An independently written exhaustive ternary-indexed computation checked F^7=F^11 on all 43,046,721 inputs. The first t with F^t=F^(t+4) along each orbit gives its first periodic entry, and the nonzero periodic states were not fixed by F^2. The two columns of shells at t=0 through 7 are (1,65535,3178531,10245950,15448184,10086320,3812880,150400) and (360,5400,53160,0,0,0,0,0). Canonical four-cycles gave 30 basins of 676 and 60 of 644, totaling 58,920 oscillating inputs; the rest basin has 42,987,801. Excited mask 54784 with no refractory vertices reaches rest at step seven and not six, distinguishing F^10 from F^6. Each generator permutation extends linearly by the unique five-term relation; every automorphism fixing zero is determined on the generators because the other ten nonzero vertices are the uniquely identified pair sums. Direct action of all 1,920 maps on cyclic phase tuples recovers the two orbits of sizes 30 and 60 and ties each to its basin size. Four disjoint four-point sets cover the graph in every cycle; XOR zero certifies each affine two-flat, with one common direction or two alternating directions as claimed.
 
-The closest same-graph published technical result fully inspected, *Seven temporal clocks and two longest-period symmetry types in the Clebsch excitation automaton*, treats activation by **one** excited neighbor and explicitly excludes altered thresholds, while the present rule activates only upon **two** excited neighbors. Its seven primitive-period types and periodic-state count therefore neither entail nor cover the two-contact 90-orbit, seven-step, two-basin-size classification. Gravner–Lyu–Sivakoff's finite-graph theorem likewise concerns the one-contact rule. Durrett–Griffeath establish the wider contact-threshold model on lattices, not this folded-cube finite census. Searches of public literature, published-finding corpus and accessible historical claims found no equivalent or dominating result; an unindexed or unpublished exact calculation is still possible.
+## originality
 
-## Value — PASS
+PASS
 
-The Clebsch graph is the unique five-regular strongly regular graph with parameters \((16,5,0,2)\), also the folded five-cube and a natural test for excitable dynamics. Increasing the activation threshold from one to two collapses a previously classified seven-clock system with 2,976,617 periodic configurations to just 361 periodic configurations, while retaining two distinct geometric families of genuine waves. The exact sizes 644 and 676 quantify a nontrivial geometric distinction in attraction, and the sharp seven-update extinction and entry distribution are useful finite benchmarks. This is a motivated complete classification, not a claim of an infinite-family theorem or independent certification.
+The closest same-graph census is for a different activation predicate; the closest threshold-two classified dynamics concern different adjacency graphs. The evidence supports the distinct threshold-two Clebsch classification, not originality of excitation models or folded-cube symmetries.
 
-## Source comparison and limitations
+## value
 
-Inspected material includes the complete published threshold-one Clebsch result and the relevant model definitions and finite-graph theorem of Gravner–Lyu–Sivakoff, plus the earlier threshold-range source record and standard Clebsch graph description. The 1993 lattice paper's entire full text was not accessible during this review; its abstract and the available detailed article excerpt do not suggest this graph-specific table, but that is a residual access risk. Exact priority is not established. Correctness depends on faithful execution of the transparent finite programs; independent external examination has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The degree-five Clebsch graph is a natural highly symmetric, triangle-free benchmark for the change from one to two excited contacts. The exact comparison establishes a collapse of recurrent periods with survival of two distinct full-vertex wave geometries; the basin and sharp depth data distinguish not just periodic examples but how often and how quickly they are reached. This is a meaningful complete finite classification, not a benchmark for arbitrary graphs or thresholds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

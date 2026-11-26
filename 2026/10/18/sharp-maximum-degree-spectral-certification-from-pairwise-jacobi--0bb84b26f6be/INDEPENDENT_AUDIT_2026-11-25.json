@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:20:42.565757Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, assumptions and Proof Steps 1–4",
+        "Frozen VERIFICATION.md and verify.py"
+      ],
+      "rationale": "Squaring the score condition gives |a_ij|²≤epsilon(|d_i−d_j|+epsilon). Independently, for t=max d_i and C=Delta² epsilon, let r_i=t+C−d_i. For every edge, r_i r_j≥C(C+|d_i−d_j|)≥Delta²|a_ij|². Scaling (t+C)I−A by diag(r_i^(−1/2)) on both sides therefore gives unit diagonal and off-diagonal absolute row sums at most one. This is Hermitian positive semidefinite and confirms the frozen edge-block proof. The same argument for −A and for principal subsets of the lowest n−k+1 and highest k diagonals gives both bounds by interlacing, with no restriction on ties. In the complete bipartite example the cross-block all-ones matrix vanishes off the two constant-vector directions; there the 2-by-2 block has gap H and coupling Delta sqrt(epsilon(H+epsilon)). Its upper shift divided by epsilon tends to Delta² as H increases, and a scalar shift makes the full matrix positive definite. Degree zero and tolerance zero both reduce to a diagonal matrix. The frozen verifier was read, not run; it generates instances satisfying the score condition by construction and checks finite numerical consequences.",
+      "residual_risks": [
+        "No numerical-roundoff, eigenvector, or iteration-level convergence guarantee is implied."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li–Li bounds an indexed shift under one two-block coupling via a spectral gap and coupling norm.",
+          "The multiple-eigenvalue paper uses a specified eigenvalue cluster and graded two-block coupling; Higham's inspected survey section includes Weyl and SPD componentwise-relative bounds."
+        ],
+        "reasoning": "Degree alone does not supply the global spectral separation or coupling norm used in the block results. Weyl's unscaled norm bound can grow with the diagonal gaps even at fixed pair score. None of these statements gives a degree-squared sharp certificate for general present support and all indices.",
+        "searches": [
+          "Li–Li, corrected author preprint arXiv:2508.08203, Theorem 2",
+          "Li–Nakatsukasa–Truhar–Wang, MIMS EPrint 2012.17, §3",
+          "Higham, A Survey of Componentwise Perturbation Theory, §6"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.23187v1",
+        "arXiv:2508.08203",
+        "MIMS EPrints 1765 and 651",
+        "Resultary 0b473a2a4655"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The one-edge estimate is already the two-scalar-block case of the Li–Li bound, and the unstructured indexed result is a direct predecessor."
+        ],
+        "reasoning": "Their statements lack the graph-degree allocation or the adaptive scaling that simultaneously controls arbitrary edges. Obtaining the uniform sharp coefficient needs that comparison and a lower-bound family; neither follows by substituting the degree for matrix order.",
+        "searches": [
+          "Shao–Nakatsukasa Theorem 1",
+          "Li–Li Theorem 2 and Higham §6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rationalizing their score gives the frozen score exactly; their error allowance is 2n(n−1)epsilon for real symmetric matrices.",
+          "Resultary 0b473a2a4655 concerns a randomized joint diagonalization restart and trial-count moment criterion, not this deterministic residual certificate."
+        ],
+        "reasoning": "The overlapping local formula and indexed comparison do not give the same universal multiplier: n is unbounded even at fixed positive maximum degree.",
+        "searches": [
+          "Local Resultary: perturbation-aware Jacobi scores, graph degree, ordered eigenvalue certification",
+          "Primary literature: sparse Hermitian componentwise eigenvalue localization by diagonal gaps and pairwise impact",
+          "Shao–Nakatsukasa arXiv:2607.23187v1, §3, Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact all-index coefficient seen in primary work is 2n(n−1), not a sharp function of current maximum degree. The indexed restart comparison concerns a different invariant."
+        ],
+        "reasoning": "This is an exact supremal coefficient over all orders and diagonal scales, not a numerical constant to be cross-checked in a finite table. The exact-theorem and best-constant checks are the pertinent database comparisons.",
+        "searches": [
+          "Resultary perturbation-aware Jacobi and eigenvalue-versus-diagonal searches; related record 0b473a2a4655",
+          "arXiv:2607.23187v1, Theorem 1"
+        ]
+      },
+      "rationale": "The score and all-index certification problem are prior work. The supported distinction is the optimum current-maximum-degree multiplier, with matching sharpness and general Hermitian scope, rather than a new score or a new diagonal scaling technique. No inspected prior statement supplies that degree law.",
+      "residual_risks": [
+        "A bounded search does not exclude an equivalent localization estimate under comparison-matrix, diagonal scaling, or other sparsity terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct but weaker all-index predecessor",
+          "evidence": "For real symmetric matrices the theorem uses the algebraically identical L_ij and proves 2n(n−1)epsilon.",
+          "identifier_or_url": "https://arxiv.org/html/2607.23187v1",
+          "material_read": "§3, Theorem 1 and score definition, HTML offsets 12750–17683",
+          "method": "Lawful OA full text, targeted passage reading",
+          "title": "Accelerating preconditioned Jacobi methods via perturbation-inspired pivoting",
+          "trigger": "Same score and same ordered error objective"
+        },
+        {
+          "assessment": "Covers the scalar-block score, not the arbitrary support theorem",
+          "evidence": "Its parameters are block gap and coupling norm; scalar blocks reduce to the local score.",
+          "identifier_or_url": "https://arxiv.org/pdf/2508.08203",
+          "material_read": "Corrected author preprint, PDF p. 3, Theorem 2 and Eqs. (2.4)–(2.5), extracted offset 9000",
+          "method": "Lawful OA author copy, targeted passage reading",
+          "title": "A note on eigenvalues of perturbed Hermitian matrices",
+          "trigger": "Two-block Hermitian impact estimate underlying the score"
+        },
+        {
+          "assessment": "Distinct block and eigenvalue hypotheses",
+          "evidence": "The inspected bounds concern copies of a multiple eigenvalue in a structured, separated block setting.",
+          "identifier_or_url": "https://eprints.maths.manchester.ac.uk/1765/",
+          "material_read": "MIMS preprint §3, extracted offsets 13250 and 24500",
+          "method": "Lawful author preprint, targeted passage reading",
+          "title": "Perturbation of multiple eigenvalues of Hermitian matrices",
+          "trigger": "Indexed graded Hermitian perturbations"
+        },
+        {
+          "assessment": "No covering estimate in the relevant inspected part",
+          "evidence": "The passage presents Weyl and componentwise-relative SPD perturbation bounds, not gap-normalized pairwise input with degree output.",
+          "identifier_or_url": "https://eprints.maths.manchester.ac.uk/651/",
+          "material_read": "§6, Theorem 6.1 and discussion, PDF pp. 16–18, extracted offsets 51462–56644",
+          "method": "Lawful OA PDF, targeted passage reading",
+          "title": "A Survey of Componentwise Perturbation Theory",
+          "trigger": "Possible prior localization under componentwise terminology"
+        },
+        {
+          "assessment": "Different objective in the available statement",
+          "evidence": "It concerns randomized restart moments, not a deterministic sorted eigenvalue certificate for the present support graph.",
+          "identifier_or_url": "Resultary 0b473a2a4655",
+          "material_read": "Resultary indexed finding summary",
+          "method": "Local Resultary search",
+          "title": "Exact restart moment frontier for two-by-two randomized joint diagonalization",
+          "trigger": "Closest returned local indexed Jacobi-related comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md proof and extremizers",
+        "Shao–Nakatsukasa arXiv:2607.23187v1, Theorem 1"
+      ],
+      "rationale": "The certificate yields uniformly bounded absolute error for sequences with bounded current support degree and growing order, using only local scores and degree. The sharpness family makes the quadratic degree dependence necessary, even for positive definite inputs. This is an actionable improvement in the stated regime, not simply a proof of the dense estimate by a new method.",
+      "residual_risks": [
+        "A Jacobi sweep can change support; the theorem does not keep the degree bounded or certify computational efficiency."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

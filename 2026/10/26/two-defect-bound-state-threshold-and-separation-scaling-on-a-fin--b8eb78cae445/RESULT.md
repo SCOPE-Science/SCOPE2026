@@ -2,81 +2,65 @@
 
 ## Finding
 
-Let \(C_N\) be the cycle with \(N\ge3\) vertices, let \(H_0\) be its nearest-neighbour adjacency operator with unit hopping, and define
+Let \(C_N\) be the cycle with \(N\ge3\) vertices, let \(H_0\) be its unit-hopping nearest-neighbour adjacency operator, and set
 \[
-H_N=H_0+V\bigl(|0\rangle\langle0|+|d\rangle\langle d|\bigr),
-\qquad V>0,
+ H_N=H_0+V\bigl(|0\rangle\langle0|+|d\rangle\langle d|\bigr),
+ \qquad V>0,\quad 1\le d<N.
 \]
-where \(d\in\{1,\ldots,N-1\}\). The unperturbed band is \([-2,2]\). There is exactly one eigenvalue strictly above \(2\) for every \(V>0\), and a second eigenvalue strictly above \(2\) if and only if
+Use \([-2,2]\), the infinite-chain band, as the reference interval. A simple symmetric eigenvalue always lies strictly above \(2\). An additional, simple antisymmetric eigenvalue lies strictly above \(2\) if and only if
 \[
-V>V_c(N,d):=\frac{2N}{d(N-d)}.
+ V>V_c(N,d):=\frac{2N}{d(N-d)}.
 \]
-At equality, the second branch is at \(E=2\). No eigenvalue is pushed below \(-2\) by this positive perturbation.
+At equality the antisymmetric eigenvalue is \(2\). There are no eigenvalues below \(-2\).
 
-If \(d_N/N\to\rho\in(0,1/2]\) and \(V_N=\lambda/N\), then for fixed \(\lambda>0\) away from the critical value the number of eigenvalues above \(2\) is two when
+For a sequence of separations, put \(r_N=\min(d_N,N-d_N)/N\) and assume \(r_N\to\rho\in(0,1/2]\). If \(V_N=\lambda/N\) with \(\lambda>0\) fixed, then for all sufficiently large \(N\) there are two eigenvalues above \(2\) when \(\lambda>\lambda_c(\rho):=2/[\rho(1-\rho)]\), and one when \(\lambda<\lambda_c(\rho)\). At \(\lambda=\lambda_c(\rho)\) the exact criterion for a second eigenvalue strictly above \(2\) is \(r_N>\rho\), and it is at \(2\) if \(r_N=\rho\). In particular, for \(\rho=1/2\) and \(\lambda=8\) there is never a second eigenvalue strictly above \(2\), and the edge eigenvalue occurs precisely for exactly antipodal defects. For \(\rho<1/2\), the limiting fraction alone does not determine on which side of the critical separation a finite cycle lies.
+
+The symmetric energy satisfies \(N^2(E_{+,N}-2)\to y_+^2\), for the unique \(y_+>0\) with \(\lambda=\Psi_+(y_+;\rho)\). When \(\lambda>\lambda_c(\rho)\), the antisymmetric energy satisfies the same limit with \(y_->0\) the unique solution of \(\lambda=\Psi_-(y_-;\rho)\), where
 \[
-\lambda>\lambda_c(\rho):=\frac{2}{\rho(1-\rho)},
+ \Psi_\pm(y;\rho)=\frac{2y\sinh(y/2)}{\cosh(y/2)\pm\cosh((1/2-\rho)y)}.
 \]
-and one when \(\lambda<\lambda_c(\rho)\). At equality, the limiting scaling alone does not determine the finite-size count. For every branch that exists above \(2\), its scaled energy has a limit
-\[
-N^2(E_{\pm,N}-2)\longrightarrow y_\pm^2,
-\]
-where \(y_+>0\) is the unique solution of \(\lambda=\Psi_+(y;\rho)\), and \(y_->0\) is the unique solution of \(\lambda=\Psi_-(y;\rho)\) when \(\lambda>\lambda_c(\rho)\), with
-\[
-\Psi_\pm(y;\rho)=\frac{2y\sinh(y/2)}{\cosh(y/2)\pm\cosh((1/2-\rho)y)}.
-\]
-The plus and minus signs correspond respectively to symmetric and antisymmetric defect channels. For antipodal defects, \(\rho=1/2\), the limiting equations reduce to \(\lambda=2y_+\tanh(y_+/4)\) and \(\lambda=2y_-\coth(y_-/4)\), and the second-mode threshold is \(\lambda_c=8\).
+At \(\lambda=\lambda_c(\rho)\), along any subsequence with \(E_{-,N}>2\), one instead has \(N^2(E_{-,N}-2)\to0\). The limiting antipodal equations reduce to \(\lambda=2y_+\tanh(y_+/4)\) and \(\lambda=2y_-\coth(y_-/4)\).
 
 ## Assumptions and scope
 
-The operator acts on \(\mathbb C^N\), with \((H_0\psi)_j=\psi_{j-1}+\psi_{j+1}\) and indices modulo \(N\). The two defects are distinct, have the same positive on-site potential \(V\), and the hopping amplitude is normalized to one. By cycle symmetry, the separation can be replaced by \(\min(d,N-d)\), so the scaling parameter may be taken in \(\rho\in(0,1/2]\). The result concerns eigenvalues above the infinite-chain band edge \(2\); it does not classify resonances inside the finite-cycle band, negative defects, unequal defect strengths, disorder, or interacting particles.
+The operator acts on \(\mathbb C^N\), with \((H_0\psi)_j=\psi_{j-1}+\psi_{j+1}\) and indices modulo \(N\). The two defects are distinct and have the same positive on-site potential. Reflection \(j\mapsto d-j\) exchanges them. This result is about eigenvalues at or above the upper edge \(2\), not about in-band resonances, unequal or negative strengths, disorder, or interacting particles.
 
 ## Proof
 
-For \(E=2\cosh\kappa>2\), \(\kappa>0\), the resolvent kernel of the unperturbed cycle is
+For \(E=2\cosh\kappa>2\), the cycle resolvent is obtained by summing the infinite-line kernel \(e^{-\kappa|j|}/(2\sinh\kappa)\) over period translates:
 \[
-G_{0j}(E)=\langle0|(E-H_0)^{-1}|j\rangle
-=\frac{\cosh((N/2-j)\kappa)}{2\sinh\kappa\,\sinh(N\kappa/2)},
-\qquad 0\le j\le N.
+ G_{0j}(E)=\frac{\cosh((N/2-j)\kappa)}{2\sinh\kappa\,\sinh(N\kappa/2)},\qquad 0\le j\le N.
 \]
-This follows by periodizing the infinite-line kernel \(e^{-\kappa|j|}/(2\sinh\kappa)\). Write \(g_0=G_{00}(E)\) and \(g_d=G_{0d}(E)\). The finite-rank determinant identity reduces the eigenvalue equation outside the band to
+Put \(g_0=G_{00}(E)\), \(g_d=G_{0d}(E)\). The finite-rank determinant reduces to the two equations \(1=V(g_0+g_d)\) and \(1=V(g_0-g_d)\). The sums and differences are the resolvent quadratic forms for the normalized symmetric and antisymmetric defect vectors. They are strictly decreasing in \(E\), since the derivative of \((E-H_0)^{-1}\) is \(-(E-H_0)^{-2}\), and both tend to zero at infinity. The symmetric form diverges at \(2\). The antisymmetric form has the finite edge limit
 \[
-(1-V(g_0+g_d))(1-V(g_0-g_d))=0.
+ \lim_{\kappa\downarrow0}\frac{\sinh(d\kappa/2)\sinh((N-d)\kappa/2)}{\sinh\kappa\sinh(N\kappa/2)}=\frac{d(N-d)}{2N}.
 \]
-The two factors are the resolvent quadratic forms for the normalized symmetric and antisymmetric vectors supported at \(0,d\). Each is positive and strictly decreasing as a function of \(E>2\), because the derivative of \((E-H_0)^{-1}\) is \(-(E-H_0)^{-2}\).
+Thus there is one root of each secular equation exactly under the conditions in the Finding. Since \(g_d>0\), the two roots cannot coincide, and each root has one-dimensional eigenspace. Positivity of the diagonal perturbation excludes eigenvalues below \(-2\).
 
-As \(E\downarrow2\), equivalently \(\kappa\downarrow0\), the symmetric form diverges. The antisymmetric form has the finite limit
-\[
-\begin{aligned}
-\lim_{\kappa\downarrow0}(g_0-g_d)
-&=\lim_{\kappa\downarrow0}
-\frac{\cosh(N\kappa/2)-\cosh((N/2-d)\kappa)}
-{2\sinh\kappa\,\sinh(N\kappa/2)}\\
-&=\frac{d(N-d)}{2N}.
-\end{aligned}
-\]
-Both forms tend to zero as \(E\to\infty\). Therefore the symmetric equation has exactly one root above \(2\) for every \(V>0\), while the antisymmetric equation has exactly one such root precisely when \(Vd(N-d)/(2N)>1\). At equality the antisymmetric branch reaches \(E=2\). Since the perturbation is positive semidefinite and has rank two, there are no eigenvalues below \(-2\) and at most two above \(2\); this proves the exact count and threshold.
+For an eigenfunction at \(2\), summing the equation over the cycle yields \(\psi_0+\psi_d=0\). The equation off the defects gives a linear interpolation between the endpoint values along each arc. If both values are zero, the entire function is zero. Otherwise scale to \(\psi_0=1,\psi_d=-1\). The equation at \(0\) is then \(V=2/d+2/(N-d)=V_c\); the equation at the other defect follows by antisymmetry. This proves existence at equality, and excludes an edge eigenvalue at any other positive \(V\).
 
-For the scaling limit, put \(d=d_N\), \(V_N=\lambda/N\), and \(\kappa_N=y_N/N\). Substituting the kernel into the two secular equations gives the finite-size relations
+Write \(\kappa=y/N\). The finite-size functions are
 \[
-\lambda=\frac{2N\sinh(y_N/N)\sinh(y_N/2)}
-{\cosh(y_N/2)\pm\cosh((1/2-d_N/N)y_N)}.
+ \Psi_{\pm,N}(y)=\frac{2N\sinh(y/N)\sinh(y/2)}{\cosh(y/2)\pm\cosh((1/2-r_N)y)}.
 \]
-On every compact positive \(y\)-interval, the right-hand side converges uniformly to \(\Psi_\pm(y;\rho)\). The symmetric limiting branch increases from \(0\) to infinity. The antisymmetric branch increases from \(2/[\rho(1-\rho)]\) to infinity. Monotonicity follows from the resolvent quadratic-form monotonicity above and analyticity of the limiting expressions. Hence the stated roots are unique whenever they exist, and the finite-size roots converge to them for fixed \(\lambda\) strictly away from the threshold. Finally, \(E_{\pm,N}=2\cosh(y_{\pm,N}/N)\), so \(N^2(E_{\pm,N}-2)\to y_\pm^2\). The exact finite-size threshold satisfies \(NV_c(N,d_N)=2N^2/[d_N(N-d_N)]\to\lambda_c(\rho)\), giving the mode-count statement away from equality.
+They are strictly increasing on \((0,\infty)\) by the preceding quadratic-form argument. They converge uniformly on compact positive intervals to \(\Psi_\pm(\cdot;\rho)\), which are therefore nondecreasing. The limiting functions are analytic there and unbounded as \(y\to\infty\) (both are asymptotic to \(2y\)), so neither can be constant on a positive interval; each is strictly increasing. Their limits at zero are \(0\) and \(\lambda_c(\rho)\), respectively, by the Taylor expansions of hyperbolic functions. For every claimed positive limiting root, bracket it on a compact positive interval. Convergence of both function values at the endpoints and monotonicity trap the finite-size root inside that bracket for all sufficiently large \(N\). Arbitrarily small brackets give convergence to that root.
+
+The exact finite-size threshold in the scaled coupling is \(NV_c=2/[r_N(1-r_N)]\), tending to \(\lambda_c(\rho)\). On \((0,1/2]\) the threshold function is strictly decreasing. Thus at limiting equality the second root exists exactly for \(r_N>\rho\), and the edge state exactly for \(r_N=\rho\). For each \(\delta>0\), \(\Psi_-(\delta;\rho)>\lambda_c(\rho)\); eventually \(\Psi_{-,N}(\delta)>\lambda_c(\rho)\), so any above-edge antisymmetric root at this coupling lies in \((0,\delta)\). Its \(y\) tends to zero along every such subsequence. Finally \(N^2(2\cosh(y_N/N)-2)\to y^2\) when \(y_N\to y\), including \(y=0\). The antipodal equations follow from the hyperbolic half-angle identities.
 
 ## Verification
 
-The analytic proof establishes the count, exact threshold, and scaling equations. The standalone checker `CHECKER.py` verifies the resolvent kernel against its Fourier sum for several finite cycles, checks the antisymmetric threshold limit using a cancellation-stable identity, and checks convergence of both scaled branches for increasing cycle sizes. It reports 40 passing numerical checks. These finite checks corroborate the algebra but are not used as a proof of the all-\(N\) theorem or the limiting statements.
+The analytic proof establishes the count, equality classification, and scaling for all stated sizes and sequences. The standalone `CHECKER.py` checks the resolvent against its Fourier sum for tested cycles, the antisymmetric edge limit, and numerical convergence for selected supercritical couplings. The recorded 40 numerical checks do not constitute a proof of the threshold or the limit and do not test the critical-sequence classification.
 
 ## Relationship to prior work
 
-Joglekar, Scott, Babbey, and Saxena study two parity-time-symmetric *imaginary* impurities on an *open* tight-binding chain and report a separation-dependent critical scale proportional to \(1/N\). Their Hamiltonian, boundary conditions, and transition are different: they concern complex eigenvalue formation, not the number of real eigenvalues above the band for two equal positive defects on a periodic cycle. Bierman studies a dilute many-impurity crystal and impurity-band formation, but the accessible abstract does not state the finite-cycle threshold or the separation-fraction scaling function proved here. The literature search found no directly matching formula; this is a best-knowledge assessment, not proof that no equivalent result exists.
+Exner [1, §2, equations (2.4)–(2.5)] gives the continuum circle Green kernel and the finite-point determinant for attractive point interactions. On a unit-length circle its two-equal-defect specialization at energy \(-y^2\) gives exactly \(\lambda=\Psi_\pm(y;\rho)\). These functions and their continuum threshold are thus not a separate new continuum spectral claim. The finite lattice uses \(2N\sinh(y/N)\) in place of \(2y\); its exact count, edge state and the rigorous discrete-to-continuum limit (including the critical finite-size distinction) are the focus. Joglekar et al. [2] treat imaginary parity-time-symmetric defects on an open chain and the onset of complex eigenvalues, a different transition. The accessible abstract of Bierman [3] treats impurity-band formation in a dilute many-impurity crystal, not the equal positive pair on a finite cycle. These comparisons do not settle historical priority across all tight-binding defect literature.
 
 ## Limitations
 
-The claim assumes equal positive defects, a cycle, nearest-neighbour hopping, and one-particle dynamics. The limiting count at exactly \(\lambda=\lambda_c(\rho)\) depends on the finite-size approach of \(d_N/N\) and is intentionally left unclassified. The finite-size formula is exact, while the scaling statement assumes \(d_N/N\to\rho\in(0,1/2]\) and fixed \(\lambda\); it does not cover a separation that remains bounded as \(N\to\infty\). The numerical checker is not an independent proof or an exhaustive computational certification.
+The separation limit requires a positive limiting fraction; the finite-cycle threshold still applies at bounded separations, but the stated scaling law does not. The result neither asserts a new general finite-rank method nor gives an energy expansion to higher orders at criticality.
 
 ## References
 
-1. Y. N. Joglekar, D. Scott, M. Babbey, and A. Saxena, “Robust and fragile PT-symmetric phases in a tight-binding chain,” *Physical Review A* **82** (2010), 030103; arXiv:1008.2968. The full text was inspected for its model, secular equation, and stated \(1/N\) critical scaling.
-2. A. Bierman, “Statistical Theory of Localized States of a Many-Impurity Crystal,” *Physical Review B* **1** (1970), 3402–3408, DOI: 10.1103/PhysRevB.1.3402. The accessible abstract describes impurity-band formation in a dilute many-impurity model; the full text was not available in this run.
+1. P. Exner, “An optimization problem for finite point interaction families,” arXiv:1906.01229 (2019), §2.
+2. Y. N. Joglekar, D. Scott, M. Babbey, and A. Saxena, “Robust and fragile PT-symmetric phases in a tight-binding chain,” *Physical Review A* **82** (2010), 030103; arXiv:1008.2968.
+3. A. Bierman, “Statistical Theory of Localized States of a Many-Impurity Crystal,” *Physical Review B* **1** (1970), 3402–3408, DOI: 10.1103/PhysRevB.1.3402 (abstract only).

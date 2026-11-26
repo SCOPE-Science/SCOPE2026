@@ -1,0 +1,86 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:38:09.478878Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Writing A=g^a, B=g^b makes A^k/B^t either 1 or at distance at least 1/2 from 1. The digit equation bounds its discrepancy times A^m by 2C+1, proving uniform eventual resonance, even with unbounded t,k. The remaining condition is precisely Euclidean division with quotient c_m (also for negative offsets). Positive offsets at least double; for offsets below -1 the positive integer -c_m-1 at least doubles and is bounded by C-1. Neither case can have even one edge if C<=1. For c_m=0 or -1 a period-preserving choice (k,t)=(bh,ah) works indefinitely, using respectively 0 or B^t-1 as the digit block. Periodicity gives the stated density. The phase sequence 1,2,...,2^L realizes L consecutive edges with A=B=2, including the zero-edge case. The independent-root citation is mathematically applicable: (E-A)(E^h-1) annihilates the recurrence and A is the unique simple dominant root. The inspected source is an arXiv preprint; a separate publication status is not established. Read the frozen proof, verification note and code without executing the upload. A bounded independent integer replay checked 1,152 candidates (58 admissible), 59,536 signed floor cases and sharp examples through L=12; it is not an unbounded proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.2 covers fixed appended-length caps, not unrestricted dependent-base lengths. Theorem 1.3 covers unrestricted lengths with a multiplicatively independent dominant root. The earlier same-base indexed result additionally finds the sharp bounded digit-budget threshold via circular gaps."
+        ],
+        "reasoning": "The recurrence preprint is relevant context, not the reason to reject the dependent-base result. The indexed same-base theorem goes further on capped lengths while already supplying the mechanism needed for the unrestricted classification.",
+        "searches": [
+          "Mosahab et al., arXiv:2610.18919v1, Theorems 1.2 and 1.3 and Examples 1.1 and 3.3",
+          "Resultary 3b0433590f0b, Steps 3–4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 3b0433590f0b and 569b53a70254",
+        "arXiv:2610.18919v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Step 1 excludes nonresonance uniformly. Step 2 already gives u_next >= b^t u_now >= 2u_now for positive offsets and u_next < b^t(u_now+1) for u_now <= -2. Step 4 states an M+h-1 finite bound under its capped subthreshold condition; it does not state the sharp logarithmic bound here."
+        ],
+        "reasoning": "Use coprime a,b so all resonant (k,t)=(bℓ,aℓ). For fixed i mod b, put w_j=c_{i+bj}. The resonant digit remainder is w_{j+ℓ}-D^ℓ w_j, the identical late-edge relation for the sequence D^j+w_j in base D. The old inequalities give doubling for positive corrections and, after integrality and shifting by one, for the negative obstruction. The log upper bound is their iteration; exact sharpness across the family follows by taking minimal positive correction and equality at each base-two step, then repeating the finite run periodically. The explicit examples were not found stated in the prior source, but the major theorem claims reduce to its mechanism.",
+        "searches": [
+          "Resultary 3b0433590f0b, Steps 1, 2 and 4, offsets near 2360, 2740–4340, 4730–5839"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior same-base digit rule is 0 <= u_{m+t}-b^t u_m < b^t for integer corrections u. It is exactly the floor equation. The proof identifies 0/-1 cycles and same-correction edges, including the period-return edge."
+        ],
+        "reasoning": "A length-h jump back to the same residue gives the unrestricted infinite walk at any 0 or -1 phase; the growth inequalities exclude every other phase. The change from digit inequality to floor does not change the claim.",
+        "searches": [
+          "Resultary: sharp cyclic gap thresholds for digit appending walks on periodic perturbations",
+          "Earlier 3b0433590f0b RESULT.md, Steps 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The result 569b53a70254 is this same finding, not separate evidence. The distinct earlier 3b0433590f0b hit states its exact cyclic-gap threshold and absence of an unlimited walk when neither 0 nor -1 occurs; its full text supplies the local edge rules."
+        ],
+        "reasoning": "This is a universal classification, not a fixed numerical table lookup. The exact indexed statements were compared on the common family rather than by title or timestamp alone.",
+        "searches": [
+          "Resultary: periodic perturbations of power digit-appending walks, unrestricted and bounded lengths"
+        ]
+      },
+      "rationale": "The earlier indexed same-base result already gives uniform unbounded resonance, the identical offset rule, the 0/-1 mechanism and the quantitative growth inequality. With coprime exponents a,b, resonance lets one group indices modulo b and treat resonant blocks as base D=A^b=B^a blocks. The claimed classification, floor law and growth upper bound then follow from the earlier result on each grouped periodic sequence. The elementary nonresonance gap estimate is the same discrete-power argument as the earlier proof. The earlier source does not state the exact power-of-two sharpness examples; the exhibited consecutive powers add an explicit extremizer, but not an independently substantial new classification. This is demonstrated overlap and implication, not a failed search or a claim that the entire statement appears verbatim.",
+      "residual_risks": [
+        "No broad external literature search was done for the unequal dependent case. No assertion is made that the exact logarithmic sharpness example appeared in earlier primary literature. The decision relies on a positive source-level comparison, not on these limits."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage on the equal-base specialization and implication for the grouped resonant dynamics",
+          "evidence": "The proof excludes k!=t for arbitrarily large digits, proves the same digit inequality, isolates the 0/-1 cycle classes, and exhibits the same signed growth inequalities. Its explicit finite-length bound uses the period, not the magnitude of the offsets.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/10/18/SCOPE-sharp-cyclic-gap-thresholds-for-digit-appending-walks-on-periodi--3b0433590f0b/RESULT.md",
+          "material_read": "Finding and proof; decisive text at offsets 2140–4340 and 4730–5839",
+          "method": "Resultary exact text local mirror",
+          "title": "Sharp cyclic-gap thresholds for digit-appending walks on periodically perturbed powers",
+          "trigger": "Earlier exact same-base periodic-offset problem with unrestricted asymptotic rigidity"
+        },
+        {
+          "assessment": "Capped resonance and independent-base coverage, with dependent special examples; not the given unrestricted dependent-base theorem",
+          "evidence": "Theorem 1.2 fixes a cap N; Theorem 1.3 supposes multiplicative independence of the dominant modulus and the digit base and supplies outgoing steps arbitrarily far along. The dependent examples include b^n-1 and b^n+1.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.18919v1",
+          "material_read": "Front matter p. 1; Theorems 1.2/1.3 and Example 1.1 p. 2, Example 3.3 p. 5",
+          "method": "Primary OA PDF passages",
+          "title": "On Digit-Appending Walks Along Linear Recurrences",
+          "trigger": "Cited recurrence result; possible coverage of unrestricted resonance or infinite walks"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A useful question is how long a nonterminal walk can last as the offset range grows, but the submitted answer adds only the direct iteration and an equality case of an existing doubling inequality. The unequal-base regrouping preserves the same local dynamics and provides no new mechanism. After removing covered content, an isolated restatement of that growth bound with consecutive powers as the equality example does not establish a substantial independent mathematical contribution.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

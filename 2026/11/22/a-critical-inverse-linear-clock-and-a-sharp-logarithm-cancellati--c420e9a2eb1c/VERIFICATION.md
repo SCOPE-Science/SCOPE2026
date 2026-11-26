@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Run `python checker.py` using Python 3 with the SymPy package available. The checker explicitly verifies the polynomial-rational identity for the decreasing weighted sum, the positive left center eigenvector, the second-order center/slaving coefficients, the cubic drift coefficient and the reciprocal logarithmic coefficient. It also performs finite diagnostics at four positive gain values, including the cancellation gain.
+## correctness
 
-Actual execution returned `Exact symbolic identities: PASS` and `Finite diagnostics: PASS`. The diagnostic tests used 200,000 iterations for each parameter and agreed with the predicted reciprocal rates. These finite computations are not exhaustive and do not prove global convergence or asymptotics. The full mathematical proof is in `RESULT.md`; its core is a strict Lyapunov identity, primitive stochastic spectral gap, second-order stable slaving with controlled remainder, and a summable reciprocal-increment expansion.
+PASS
 
-The statement is restricted to every fixed \(b>0\) with strictly positive history on the critical surface \(a=b+1\). Uniformity as \(b\downarrow0\), signed initial conditions and off-critical parameters were not established. An independent audit was not performed.
+For every fixed b>0, at a=b+1 and with five strictly positive initial values, the recurrence is forward-defined and the asserted expansion holds: 1/x_n = n/(b+5) + [(b-15)/(b+5)^2] log n + C + o(1). The uncorrected finite part is finite precisely at b=15; it goes to minus infinity below and plus infinity above that gain. The proof supplies the global basin within the positive orthant and controls the remainder rather than relying on a formal center expansion.
+
+## originality
+
+PASS
+
+The exact recurrence and its equilibrium branch are prior work. The contribution supported by the comparisons is the global critical asymptotic for every strictly positive history, including the exact logarithmic coefficient, the finite remainder, and its unique cancellation. No inspected result establishes that package directly or as a proved corollary. This is a best-of-knowledge assessment, not a priority certificate.
+
+## value
+
+PASS
+
+At the collision of the positive equilibrium with zero, a linear stability test leaves the decay unresolved. The result quantifies relaxation from arbitrary strictly positive histories, not only nearby states. The leading inverse-linear decay alone hides a signed logarithmic correction, and the exact sign change separates the unique gain with a finite uncorrected reciprocal part from regimes with opposite divergences. This gives a quantitative benchmark for critical delayed relaxation in an established model. The value lies in the global law and exact cancellation, not in the equilibrium location or generic parabolic theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

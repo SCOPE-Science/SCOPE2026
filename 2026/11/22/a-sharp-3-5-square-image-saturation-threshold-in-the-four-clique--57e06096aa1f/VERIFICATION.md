@@ -5,19 +5,28 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
     "status": "not_performed"
   },
-  "schema_version": 1
+  "schema_version": 1,
+  "record_status": "passed"
 }
 ---
+# Verification of the finite certificate
 
-# Reproducibility
+Run `python3 check_deficit_27.py` from this directory. The proof reduces the algebra question to coverage by translates of the negative square set including zero. The script constructs the field, generates every translated triple and quartet from that set, and counts the resulting sets exactly. Expected output:
 
-Execute `python3 check_k4_square_image.py` with Python 3. The script checks the five monic defining polynomials for irreducibility, constructs every element of the finite fields \(\mathbb F_{3^r}\) for \(1\le r\le5\), computes every quadratic residue including zero, and checks all \(q^3\) targets in the characteristic-three derived hyperplane. This is **exhaustive** at those five field sizes. It also directly enumerates all quadruples of squares for \(q=3,9,27\) as an independent image check. `verification_output.txt` contains the captured actual output. The checker is standalone and imports only Python's standard library.
+```text
+covered triples=2925; covered quartets=16146
+uncovered quartets=1404; normalized quartets=52
+missing ordered targets=1248; square-image size=18435
+```
 
-The all-large-field conclusion is a mathematical use of the classical Weil bound applied to squarefree products of at most four distinct linear factors; no extrapolation from finite experiments is used. Nonresonant-field image sizes follow from the adjacency determinant and finite-field square cardinality. Source-priority comparisons and the absence of an independent audit are distinct from the finite-code certificate.
+The algebraic reduction and orbit sizes are proved in `RESULT.md`. The enumeration proves the stated finite counts only, not a threshold over field extensions or a distribution of all fiber sizes.

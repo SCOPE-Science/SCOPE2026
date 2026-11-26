@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim has explicit Gaussian-measure normalizations, source and target Hilbert spaces, strict deficit and all exponents. Orthogonal monomial coefficient functionals give every analytic singular value. Source/target Gaussian unitary changes and a two-dimensional Mehler diagonalization give every maximal singular value, including multiplicity. A transparent convex-order argument applied to the derivative of a hyperbolic comparison function proves the strict Schatten reversal for the full open exponent ranges, while exact formulas cover the equality boundaries. The near-critical rank laws use the monomial and triangular multiplicities with complete quantified asymptotics. The finite exact-arithmetic and floating diagnostics in `verify.py` were run successfully, but are not relied upon for the universal assertions.
+## correctness
 
-## Originality — PASS, qualified
-The motivating full text, Fang–Tien arXiv:2610.41461v1, classifies boundedness and compactness of the same pair, not Schatten-norm ordering. The closest published published-finding corpus finding on anisotropic Gaussian projections already contains the analytic projection's product singular spectrum, which is credited and explicitly not asserted novel. Dong–Zhu's Gaussian integral operators map analytic Fock to analytic Fock and do not compare the maximal full-\(L^2\) operator. The maximal Mehler spectrum is classical technology; the claimed new comparison is the sharp reversal across all real Schatten exponents, together with the two distinct critical rank profiles. published-finding corpus searches for equivalent Schatten comparisons, kernel modulus and Mehler aliases did not identify an implication establishing the comparison. This does not establish universal novelty: an older general positive-Gaussian-kernel majorization theorem could subsume it, so bibliographic priority remains qualified.
+PASS
 
-## Mathematical value — PASS
-Fang–Tien show that these companion projections have identical boundedness/compactness regions, inviting the precise question of how their approximation spectra differ. The exact result establishes a strong and nonobvious obstruction to inferring Schatten ordering from pointwise domination of the integral kernels: the maximal operator has larger operator norm but smaller Schatten norm for every \(1<p<2\), with equality for two distinguished exponents. The result determines the full spectra and sharp critical effective-rank profiles rather than a selected test case. Its natural comparison and complete exponent classification give mathematical use beyond routine restatement of the Mehler formula.
+PASS on repairs/3/RESULT.md. The frozen Verification paragraph gave the two example operator norms in reverse order relative to the named analytic/maximal pair. The corrected complete file explicitly gives analytic 1 and maximal 5/4, as the frozen checker already does. The theorem itself recomputes correctly: normalized source coefficient vectors are orthogonal by angular frequency, with squared norm α n!/(2t−α)^{n+1} before normalization; the target monomial norm squared is n!/β^n. This gives Cr^{n+1}. Gaussian unweighting and separate two-dimensional unitary dilations supply the kernel (2Cr/π)exp(−|x|²−|y|²+2r x·y); the Mehler ground Gaussian and complete Hermite tensor basis give 2Cq^{j+k+1}. The two geometric sums yield the stated ratio. The repaired proof verifies the central-interval mean inequality by writing a central uniform variable as aU+b(1−U), applying strict convexity or concavity pointwise, and integrating. This works also for the integrable singularity when p<1 and gives equality exactly at p=1,2. In the example the trace norms are 5 and the squared Hilbert–Schmidt norms are 25/9. At the critical limit the maximal shell m has multiplicity m+1, so m=√(2N)+O(1); -log r and -log q have leading terms δ/(2t²) and √δ/t, giving the distinct profiles. At equality δ=0 the analytic decomposition remains a bounded scalar partial isometry and has infinite rank; the positive modulus of the maximal operator is unitarily equivalent to the multiplier 2C exp(−|ξ|²/4), whose essential range is [0,2C] and whose level sets have measure zero. The supplied diagnostics were inspected, not executed.
 
-## Closest literature and limitations
-Fang–Tien (2026) supplies the operator pair and compactness threshold. The published anisotropic Gaussian Fock spectral result (2026-11-08) covers the analytic part of the diagonalization; classic Mehler theory covers the Hermite calculation. The new assertion is restricted to complex dimension one, Hilbert weighted spaces and scalar Gaussian weights. A more general prior spectral-majorization comparison might subsume the statement and has not been ruled out. No independent audit was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the established operators and compactness region, the analytic singular multiset and its critical specialization, classical Mehler diagonalization, and the elementary equality of Hilbert–Schmidt norms for kernels of equal modulus. The repaired finding's distinct focus is the exact strict comparison across all real Schatten exponents and the comparison to the maximal rank profile and boundary spectral type. The strongest inspected same-object and analogous results do not already supply those comparisons.
+
+## value
+
+PASS
+
+The exact exponent classification answers a natural question that positivity, equality of Hilbert–Schmidt norms and pointwise kernel dominance do not answer. In particular the dominating kernel gives larger operator norm yet strictly smaller Schatten norm throughout (1,2), not just at one test value. The distinct critical rank profiles quantify the effect of multiplicities at a common compactness boundary and separate the infinite-rank partial isometry from the continuous positive modulus. These are useful comparisons independently of the already known analytic spectrum and compactness criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

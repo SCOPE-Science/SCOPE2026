@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:57:47.614652Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The forward walk recursion counts all path homomorphisms, including W_0=n. Cayley–Hamilton on the block diagonal of the two adjacency matrices makes the first 2n entries conclusive at equal order. An independently written rooted-multiset generator covers every rooted tree by its multiset of child trees and deduplicates free trees by the least rooted code over all possible roots. Replay with python3 /workspace/audit_evidence/walktrees.py gave no collisions at orders 1–11 and 550 profiles for 551 order-12 trees, with exactly the displayed pair in the repeated class. The independent computation checked the pair's first 12 entries, matching polynomial and rational generating function. The complement determinant lemma expresses the complement polynomial in terms of the adjacency polynomial and the signed walk resolvent; conversely the two polynomials recover that resolvent. The only repeated profile in the range has a common adjacency polynomial, so the equivalence with generalized spectra follows. This is an exact finite computational check, not formal verification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The branching-probe result tabulates walk collisions through order 14 and calls the first order-12 collision previously observed.",
+          "Zhu's abstract addresses a joint adjacency-spectrum/walk invariant; the accessible Lv et al. abstract mentions generalized-spectral criteria. The latter full text was denied on lawful retrieval attempts."
+        ],
+        "reasoning": "The broader direct census covers the frozen walk cutoff. The joint invariant in Zhu is stronger, so its reconstruction results alone cannot rule out extra collisions for walks alone. No negative inference is drawn from the inaccessible journal paper.",
+        "searches": [
+          "October 26 Resultary branching-probe result, RESULT.md offsets 0 and 6000",
+          "arXiv:2608.21851v1 abstract",
+          "DOI:10.1016/j.dam.2025.08.007"
+        ]
+      },
+      "checked_sources": [
+        "October 26 Resultary branching-probe record",
+        "Resultary SCOPE045",
+        "arXiv:1802.08876",
+        "arXiv:2409.03690",
+        "arXiv:2608.21851v1",
+        "DOI:10.1016/j.dam.2025.08.007 (indexed abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The direct walk census and the generalized-spectrum census have singleton partitions through order 11 and the same one-pair class-size pattern at order 12.",
+          "The complement determinant identity gives generalized cospectrality ⇒ equal total walks."
+        ],
+        "reasoning": "The stronger partition is a refinement, so equality of class counts forces equality of partitions. SCOPE045 alone would not exclude additional walk-profile collisions; both earlier censuses together do.",
+        "searches": [
+          "October 26 Resultary walk-profile census",
+          "SCOPE045 generalized-spectrum census",
+          "arXiv:1802.08876 §4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The October 26 record compares unrooted path-homomorphism profiles and explicitly states the order-12 collision.",
+          "Dell–Grohe–Rattan §4 treats equality of all total path counts, expressed as the matrix moments 1^T A^k 1; Fuhlbrück et al. count walks from one distinguished vertex."
+        ],
+        "reasoning": "Total k-step walk counts are the same invariant as unrooted homomorphisms from a k-edge path. The rooted profile literature is different; the prior Resultary walk census is not.",
+        "searches": [
+          "Resultary record 2026/10/26/SCOPE-the-first-seven-vertex-branching-probe-needed-to-distinguish-fin--5c6a9d6b9ef8",
+          "arXiv:1802.08876 §4",
+          "arXiv:2409.03690"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "October 26: no total path-profile collisions through 11 and one colliding pair at 12.",
+          "SCOPE045 RESULT.md offsets 880–4870: 551 order-12 trees, 549 singleton generalized-spectrum classes and one pair, with both AHU codes matching the frozen record."
+        ],
+        "reasoning": "The observed profile counts and edge-list witness up to isomorphism are already covered.",
+        "searches": [
+          "Resultary 2026/10/26/SCOPE-the-first-seven-vertex-branching-probe-needed-to-distinguish-fin--5c6a9d6b9ef8",
+          "Resultary 2026/9/8/SCOPE045"
+        ]
+      },
+      "rationale": "The earlier October 26 Resultary branching-probe record explicitly gives the same unrooted walk-profile threshold and unique order-12 pair. The earlier September 8 generalized-spectrum census and that direct walk census together imply the equivalence of partitions through order 12: the generalized-spectrum partition refines the walk partition and the two have the same sizes at every order in range. The witness itself is the earlier generalized-cospectral pair. The frozen work reproduces these results but does not establish a distinct finding.",
+      "residual_risks": [
+        "The Lv et al. full text was not available for statement-level inspection; it could establish further coverage. The failed originality decision already follows from the inspected Resultary records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of threshold and unique first pair",
+          "evidence": "Explicitly no collision through 11, one pair at 12, two at 13 and six at 14; attributes the earlier collision separately from its probe contribution.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-the-first-seven-vertex-branching-probe-needed-to-distinguish-fin--5c6a9d6b9ef8",
+          "material_read": "RESULT.md, offsets 0 and 6000",
+          "method": "Resultary search and bounded local mirror read",
+          "title": "The first seven-vertex branching probe needed to distinguish finite trees",
+          "trigger": "Earlier direct path census"
+        },
+        {
+          "assessment": "Exact matching witness and stronger-invariant counts",
+          "evidence": "All 987 trees through order 12; same pair by its two AHU codes.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/8/SCOPE045",
+          "material_read": "RESULT.md, offsets 880–4870",
+          "method": "Bounded local mirror read",
+          "title": "First generalized-cospectral pair of trees: exhaustive DGS census of unlabelled trees with n ≤ 12",
+          "trigger": "Same pair in stronger-invariant census"
+        },
+        {
+          "assessment": "General invariant equivalence, not the finite census",
+          "evidence": "Relates all path homomorphism counts to adjacency moments and spectral projections.",
+          "identifier_or_url": "https://arxiv.org/abs/1802.08876",
+          "material_read": "§4, p. 10, PDF text near offset 39000",
+          "method": "Lawful OA PDF",
+          "title": "Lovász Meets Weisfeiler and Leman",
+          "trigger": "General total-path equivalence"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "The observations are rooted at a single vertex.",
+          "identifier_or_url": "https://arxiv.org/abs/2409.03690",
+          "material_read": "Abstract, p. 1",
+          "method": "Lawful OA PDF",
+          "title": "Gathering Information about a Graph by Counting Walks from a Single Vertex",
+          "trigger": "Potential walk-count equivalent"
+        },
+        {
+          "assessment": "The inspected statement concerns a stronger joint invariant",
+          "evidence": "Uses both adjacency spectrum and total-walk information.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.21851v1",
+          "material_read": "Abstract, p. 1",
+          "method": "Lawful OA PDF",
+          "title": "A Sharp Matching-Number Threshold for Spectral-Walk Determination of Trees",
+          "trigger": "Tree reconstruction by walks and spectra"
+        },
+        {
+          "assessment": "Additional coverage unresolved; not used for the decision",
+          "evidence": "Abstract mentions criteria based on generalized spectral characterizations.",
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2025.08.007",
+          "material_read": "Indexed abstract only",
+          "method": "Literature search; lawful direct and VPN full-text attempts returned HTTP 403",
+          "title": "Which graphs are determined by their total number of walks?",
+          "trigger": "Directly relevant by invariant"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The first collision for a natural weak invariant would be a meaningful finite boundary if unknown. Here the census and witness are already established, and equality of the two partitions follows directly from prior counts and the standard refinement. The submitted replay offers corroboration but no additional mathematical fact or new useful boundary.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

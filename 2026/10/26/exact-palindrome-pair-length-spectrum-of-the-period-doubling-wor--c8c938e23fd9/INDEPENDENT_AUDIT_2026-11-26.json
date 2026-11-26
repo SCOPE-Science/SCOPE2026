@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:35:24.887942Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–45, and VERIFICATION.md, lines 19–23",
+        "Fici–Shallit–Simpson, CPM 2025, sections 4 and 5.1, especially Theorem 13; OEIS A275202",
+        "/workspace/branches/6b5bdc19-07b2-4680-a84f-cd8bd5f872d2/repro.py",
+        "/workspace/branches/6b5bdc19-07b2-4680-a84f-cd8bd5f872d2/repro-128.json"
+      ],
+      "rationale": "For a word of length m, reflection j->c-j mod m with 0<=c<m reverses both the prefix of length c+1 and the complementary suffix. Conversely a split into two palindromes gives that reflection, and rotating conjugates the reflecting index map. In sigma(w), even positions are 0 and odd positions are complemented letters of w. A reflection with even c fixes the two parity classes and acts on odd positions as j->c/2-j-1 mod m; one with odd c could occur only when sigma(w) is entirely zero, in which case w is constant. Hence desubstitution preserves and reflects the predicate. An odd-aligned factor of even length drops the initial zero from the aligned block and appends the zero from the next block, precisely a cyclic rotation. This proves length-doubling equivalence. The length-3 language follows from the length-2 language {00,01,10} and the two alignments, and length 5 follows in the same way from length 2 and 3, yielding exactly the listed words; the four non-palindromes at length 5 split as 00|010, 010|00, 00|101, 101|00. The two cited length-7 factors occur at zero-based positions 1 and 7, and the unequal circular gaps 1,2,4 between the three ones forbid a reflection. The published periodicity count is a count of distinct factors of the complemented fixed point, which leaves both predicates invariant. Its four interval differences from total complexity are 2r, 2r-2^(k-1), 2r-2^k and 2r-3*2^(k-1), respectively. Thus for every odd n>=9 some factor is not even a palindromic periodicity, whereas equality alone cannot prove any positive case. The explicit small lengths and length doubling complete the proof. Fresh reproduction matched complete factor languages by exact complexity and the split test through length 128; split/reflection equivalence and substitution preservation were also checked on all binary words through length 8.",
+      "residual_risks": [
+        "The unbounded exclusion uses the published factor counts; the source automata calculations were not independently rerun. The finite evidence by itself proves no all-length classification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Borchert–Rampersad ask the universal length question, classify lengths for Sturmian words and exclude property PP for Thue–Morse. The period-doubling factor complexity starts at 5 for length 3, not the Sturmian value 4. Fici–Shallit–Simpson allow prefix truncation of a repeated palindrome pair."
+        ],
+        "reasoning": "The known Sturmian theorem has different hypotheses, and knowing that a word is the prefix of a repetition of two palindromes does not make the entire word a product of two palindromes. No inspected broader theorem supplies the exact pair spectrum.",
+        "searches": [
+          "Borchert–Rampersad arXiv:1509.05396, abstract, introduction and scope of the Sturmian classification",
+          "Fici–Shallit–Simpson, CPM 2025, definition and Theorem 13; arXiv:2407.10564 section 5.1"
+        ]
+      },
+      "checked_sources": [
+        "CPM 2025 Theorem 13, DOI 10.4230/LIPIcs.CPM.2025.11",
+        "arXiv:2407.10564 and 1509.05396",
+        "OEIS A275202",
+        "Resultary 6084df53ad93"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 13 plus total complexity rules out lengths with odd part outside {1,3,5,7}. It does not rule out odd part 7 and it counts some words that are not pairs. The two nonpair witnesses and reflection/desubstitution argument handle the gap and prove the positive cases."
+        ],
+        "reasoning": "Only the exclusions already implied by the count difference are inherited; equality of the two prior counts leaves open the stricter factor property. The final classification does not follow by rescaling the older spectrum.",
+        "searches": [
+          "CPM 2025, Theorem 13 and definition of palindromic periodicity",
+          "A275202 recurrence and factor-count interpretation",
+          "Borchert–Rampersad, property PP question"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The local mirror's 6084df53ad93 uses the complementary morphism 1->10, 0->11 and gives lengths 2^j, 3*2^j and 5*2^j. Fici–Shallit–Simpson use that same complementary convention."
+        ],
+        "reasoning": "Letter complementation commutes with reversal, rotation, splitting, and periodic repetition. Thus it is not a different instance: the later catalogue spectrum is mathematically equivalent. The periodicity paper uses the same word up to this change, but a different predicate.",
+        "searches": [
+          "Resultary semantic search for universal palindrome-pair lengths and the period-doubling spectrum",
+          "Fici–Shallit–Simpson sections 4 and 5.1 for the complemented fixed point"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A275202 records total distinct-factor counts. Resultary 6084df53ad93 is a distinct exact coverage of the desired spectrum, dated 2026-11-08, and also spells out the odd-part-7 distinction. No exact same-day match surfaced in the bounded local comparison."
+        ],
+        "reasoning": "Complexity gives the denominator in a comparison of counts, not the pair count or universal property. The later exact catalogue match is material overlap, not evidence of an earlier equivalent.",
+        "searches": [
+          "OEIS A275202, subword complexity of the period-doubling sequence",
+          "Resultary search for the odd-part {1,3,5} universal-pair spectrum"
+        ]
+      },
+      "rationale": "The reviewed contribution is the exact palindrome-pair spectrum, not the factor-complexity or palindromic-periodicity counts. The closest earlier exact result reaches a broader word predicate and leaves the decisive odd-part-7 case unresolved for palindrome pairs. A distinct later Resultary record gives precisely the same palindrome-pair spectrum; no earlier exact coverage was established, and this date comparison does not certify priority.",
+      "residual_risks": [
+        "The bounded comparison does not settle provenance or exclude other earlier formulations in work on automata, reversal-conjugate factors, or palindromic length."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact broader periodicity count, strictly weaker than a pair predicate on a word",
+          "evidence": [
+            "Definition uses a prefix of (ps)^omega of length at least |ps|; Theorem 13 is stated for the complemented word and its four intervals match the review's count comparison."
+          ],
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.CPM.2025.11",
+          "material_read": "pp. 11:1–2 for definition, pp. 11:7–8 for first-occurrence distinct-factor counting, and pp. 11:8 Theorem 13 (offsets 23200–25793, theorem near 24120)",
+          "method": "OA published PDF passages",
+          "title": "On Palindromic Periodicities",
+          "trigger": "Same fixed point and decisive exact count"
+        },
+        {
+          "assessment": "Source of automated count proof, not a pair spectrum",
+          "evidence": [
+            "Uses synchronized automata and equality of linear representations."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2407.10564",
+          "material_read": "Section 5.1, offsets 21822 and 27775",
+          "method": "OA full-text passages",
+          "title": "Some Remarks on Palindromic Periodicities",
+          "trigger": "Primary full-version support for the exact published count"
+        },
+        {
+          "assessment": "Same question but compared classifications concern Sturmian and Thue–Morse words",
+          "evidence": [
+            "Property PP concerns infinitely many n for which every factor is a palindrome pair; section 2 treats the exact length set for Sturmian words, and Theorem 10 treats Thue–Morse."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1509.05396",
+          "material_read": "Abstract and introduction, offsets 0–5047; located Theorem 10 passage, p. 4",
+          "method": "OA PDF passages",
+          "title": "Words with many palindrome pair factors",
+          "trigger": "Exact predicate and universal-length question"
+        },
+        {
+          "assessment": "Exact total factor counts, not palindrome-pair counts",
+          "evidence": [
+            "Counts distinct factors by length."
+          ],
+          "identifier_or_url": "https://oeis.org/A275202",
+          "material_read": "Entry, factor-complexity definition, recurrence and proof",
+          "method": "Public database passages",
+          "title": "Subword complexity of the period-doubling sequence",
+          "trigger": "Exact factor-total database input"
+        },
+        {
+          "assessment": "Exact equivalent spectrum for the complementary word, in a distinct later record",
+          "evidence": [
+            "Spectrum 2^j, 3*2^j, 5*2^j and explicit distinction at 7*2^j."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-complete-palindrome-pair-length-spectrum-of-the-period-doubling--6084df53ad93",
+          "material_read": "RESULT.md, Finding and proof comparison with periodicity counts",
+          "method": "Local Resultary mirror",
+          "title": "Complete palindrome-pair length spectrum of the period-doubling word",
+          "trigger": "Strongest exact equivalent match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 15–42; Borchert–Rampersad, introduction; Fici–Shallit–Simpson, Theorem 13"
+      ],
+      "rationale": "The result answers the stronger exact-length version of a natural palindrome-pair question for a canonical automatic word. It identifies an entire dyadic family where all factors are palindromic periodicities but some are not pairs, and the exact doubling argument makes that distinction structural rather than a small-length artifact.",
+      "residual_risks": [
+        "The scope is universal success by length for one word, not all palindromic lengths or counts of pair decompositions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

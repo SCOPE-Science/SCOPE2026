@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Execute `python3 verify.py` (Python 3 standard library only) beside the files. The program exhaustively checks finite binary-cylinder addresses, preservation of first-difference depth under addition modulo powers of two, exact rational separation inequalities, the global Lipschitz bound for the corresponding finite odometer approximants, the zero-dimensional model's exact scale formula, small cyclic rescalings, and an exact 96-step full orbit of a finite three-fibre triangular interpolant.
+## correctness
 
-The acceptance test is not based on code output alone. The infinite proof in RESULT.md establishes: cyclic onto restrictions of a globally Lipschitz triangular map; dimension monotonicity; uniform bi-Lipschitz control of the binary adding machine; fractal dimensions and positive finite Hausdorff measure of standard Cantor sets; zero-dimensional variable contractions; global Lipschitz extension and interpolation; dense orbit realization; and the similarity law for prescribed measure ratios. Finite enumeration cannot prove those statements for all dimensions or levels.
+PASS
 
-Limits: all dimensions are with the Euclidean metric; the base omega-limit must be a finite orbit; no prescribed uniform Lipschitz constant, arbitrary section shapes, global attractivity or smooth realization is claimed. No independent review or external audit is claimed.
+Compactness shows that the projection of the full omega-limit is precisely the base cycle; it also supplies a predecessor in the omega-limit for each limit point by passing to a subsequence one time earlier. Unique predecessors in the base cycle give Lipschitz surjections of successive fibres. Each of Hausdorff, packing, and lower and upper box dimensions is nonincreasing under such maps (for box dimensions one may use covers by balls centered in the sets and rescale their radii). Iterating all the inequalities around the cycle proves equality separately for each notion without a homeomorphism assumption. In the Cantor model, the first differing digit controls separation between (1−2r_*) times the parent interval length and that length. Binary addition preserves the depth of first disagreement for every iterate. It is therefore bi-Lipschitz, minimal by cycling through all residues modulo each 2^k, and equicontinuous with uniform finite prefix covers of all orbit lengths. The constant-r separated model has all dimensions d and finite positive critical measure by level counts and the Bernoulli mass bound. For the variable zero-dimensional schedule, if ell_k≤epsilon<ell_{k−1}, then the log covering ratio is bounded above by log(2^k)/(-log ell_{k−1}), which tends to zero. The interval tent map has a dense orbit and gives d=1. The affine fibre maps and final conjugated return are Lipschitz; after individual extension and clipping, base interpolation is jointly Lipschitz with finite y-Lipschitz maximum and finite reciprocal knot gaps. The tails of the return orbit are dense (in the tent case deleting finitely many points cannot remove density in a perfect interval), so the orbit realizes the stated omega-limit, including m=1. Similarity scales H^d by s_i^d, giving q_i/q_j simultaneously after a common shrink. Finite code checks are corroboration, not a proof of the infinite Cantor dynamics or measure assertions.
+
+## originality
+
+PASS
+
+The combined periodic-fibre realization survives the prior comparisons: exact simultaneous four-dimension range including a dimension-zero equicontinuous model, global Lipschitz gluing, and freely prescribed positive relative Hausdorff measures when d>0. The necessity of equal dimensions is an elementary deduction from the continuous cyclic-surjection mechanism with added Lipschitz regularity; the positive-dimensional Cantor adding machine and its basic metric estimates are also known ingredients, not standalone priority claims.
+
+## value
+
+PASS
+
+The result characterizes the range of the four simultaneously equal cyclic-section dimensions, and separates a necessary invariant from a flexible one: equal dimension does not constrain relative positive critical measures. Uncountable minimal zero-entropy examples down to dimension zero show that the range is not obtained by trading metric size for dynamical complexity or replacing the zero endpoint by finite orbits. This is a quantitative refinement of the continuous realization problem, not a claim to classify all possible fibres.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

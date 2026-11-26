@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:55:17.839053Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–65",
+        "Frozen VERIFICATION.md, checks.txt and VERIFY.py (read only)",
+        "Independent replay: python3 /workspace/branches/rook-independent-replay.py"
+      ],
+      "rationale": "The empty trace exists exactly when both an unused row and an unused column exist. A singleton trace for an edge requires a leaf endpoint, so any shattered support is a star forest. For triples, a three-edge star cannot realize a pair and a three-edge matching cannot realize the full trace. The listed witnesses for the two-edge star plus disjoint edge are correct, in both orientations. The only four-edge star forest whose triples all have the allowed shape is two disjoint two-edge stars. If their centers are on the same side, one edge from each requires two leaves on the other side; if their centers are on opposite sides, taking both edges from one and one from the other needs two choices on the first center's side. Heredity excludes larger supports. Counting labeled placements gives exactly the coefficients, including the one-dimensional and small-side cases. My direct set-trace enumeration independently reproduced the 144,135 decisions on 21 boards (266, 2,506, 19,254, 122,109 by size) and directly verified the two 24-vertex examples.",
+      "residual_risks": [
+        "The finite comparison is bounded; the structural proof supplies the unrestricted result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The homogeneous theorem is broader in Hamming dimension but formula scope is one alphabet size. Its proof has coordinate-specific empty-witness constraints. Mixed-alphabet work states the static VC dimension for the same heterogeneous products, not the coefficients. Doob diameter ≥3 and toroidal king adjacency do not cover general unequal rook rectangles."
+        ],
+        "reasoning": "No broad scope is inferred merely from a graph family name; the decisive prior coverage here is implication by the homogeneous proof, not formal inclusion of non-square parameters in its theorem.",
+        "searches": [
+          "Closed homogeneous Hamming graphs 6c82fc864f93",
+          "Mixed-alphabet dimensions 4e24e4c568c0",
+          "Doob profiles 801970156750; cyclic king profiles c72aa9c369dd"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Resultary 6c82fc864f93, ffaa2f7a2b1d, 670b6697d463, 4e24e4c568c0, 801970156750, c72aa9c369dd",
+        "Adler–Benediktsson–Macpherson accepted manuscript",
+        "arXiv:2405.07588v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The homogeneous source explicitly requires type (C)'s empty center to avoid the three distinct values of coordinate i and the two of j. Its positive witnesses use the central or arm symbols except the extra j-value already provided by that availability condition. Its pair witnesses in d=2 use one spare symbol on each side, and its no-quartet result transfers under embedding. Its unique-center count becomes mn·binom(n−1,2)·(m−1) for the row-centered orientation, exactly the frozen first cubic summand; transpose gives the second. Adjacent and disjoint pairs are the two coordinate placements in the same prior argument."
+        ],
+        "reasoning": "Split the earlier proof's alphabet parameter according to the explicitly listed per-coordinate constraints. It immediately gives m≥3,n≥4 for that orientation and the transpose for the other; the pair thresholds follow by avoiding the occupied values. This is stronger than simply substituting in the diagonal polynomial, and establishes mechanical implication from the prior proof.",
+        "searches": [
+          "6c82fc864f93 Proof §§1–4, local mirror offsets 1800–8469",
+          "4e24e4c568c0 mixed scope and static bounds",
+          "ff aa open rectangle comparison (Resultary ffaa2f7a2b1d)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The focused hit cba8fc708d0d is the frozen record itself. In 6c82fc864f93 Proof §3, offsets 1800–6174, the two same-arm points plus one other arm at d=2 are a parallel pair plus its disjoint edge in the incidence graph. Open rectangles use XOR, not the union of row and column stars."
+        ],
+        "reasoning": "The homogeneous proof's shape and coordinate test are equivalent to the frozen triple criterion; the open system is not equivalent. No separate exact unequal-board theorem was identified by this bounded lookup.",
+        "searches": [
+          "Resultary: closed-neighborhood shattering polynomial and support shapes of unequal full rook rectangles",
+          "Homogeneous closed Hamming profiles 6c82fc864f93 and open rectangles ffaa2f7a2b1d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact rook polynomial on 4×4 is 1+16z+120z²+288z³. Homogeneous profiles also give all (q,q), including s₃=q²(q−1)²(q−2) for q≥4. Mixed tables give VC/online dimensions rather than labeled-support counts."
+        ],
+        "reasoning": "The old numerical data alone are insufficient for the whole non-square formula; the old support classification and witnesses supply the missing implication. The two example rectangles show why a dimension-only lookup would be insufficient.",
+        "searches": [
+          "Resultary closed 4×4 rook versus Shrikhande 670b6697d463",
+          "Homogeneous closed profiles 6c82fc864f93 Finding",
+          "Mixed dimensions 4e24e4c568c0 Finding"
+        ]
+      },
+      "rationale": "The precise unequal-rectangle polynomial is not written in the inspected earlier homogeneous formula, but the earlier proof gives the decisive coordinate-wise criterion and counting rule verbatim at the level needed for this specialization. At d=2, its type (C) is the same two-edge star plus disjoint edge, and it explicitly says the empty witness must avoid three symbols in the doubled arm coordinate and two in the other. Its other witnesses are coordinate-wise and require no equal alphabet sizes. Embedding the rectangle in a large square gives all its necessary support-type exclusions by monotonicity of shattering under adding centers, and the already published witnesses restrict back exactly at the recorded side thresholds. This makes the new coefficients a mechanical count with separate alphabet sizes, notwithstanding the different star-forest proof.",
+      "residual_risks": [
+        "The reviewed sources do not establish first appearance of the unequal-board coefficient expressions. The verdict rests on a specific earlier proof implication, not on a claim that the explicit bivariate formula is printed there or a lack of search results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically implies the rectangle support criterion and coefficients",
+          "evidence": "For d=2 it explicitly separates avoid-three symbols on one coordinate and avoid-two on the other; its trace witnesses and unique-center placement count depend on these two pools separately.",
+          "identifier_or_url": "2026/11/8/SCOPE-closed-neighborhood-shattering-polynomials-of-all-hamming-graphs--6c82fc864f93",
+          "material_read": "Finding at offset 0 and Proof §§1–4 at offsets 1800–8469",
+          "method": "Bounded local-mirror statement and proof passages",
+          "title": "Closed-neighborhood shattering polynomials of all Hamming graphs",
+          "trigger": "Same relation on equal sides; possible coordinate-level implication"
+        },
+        {
+          "assessment": "Different concept class",
+          "evidence": "Open-neighborhood trace excludes center, corresponding to XOR rather than union.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-open-neighborhood-shattering-polynomials-of-rectangular-ro--ffaa2f7a2b1d",
+          "material_read": "Finding and scope, offset 0",
+          "method": "Local mirror",
+          "title": "Exact open-neighborhood shattering polynomials of rectangular rook graphs",
+          "trigger": "Exact polynomial on the same graphs"
+        },
+        {
+          "assessment": "One square parameter",
+          "evidence": "Rook polynomial 1+16z+120z²+288z³.",
+          "identifier_or_url": "2026/11/8/SCOPE-a-closed-neighborhood-shattering-polynomial-separation-of-the-sh--670b6697d463",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror",
+          "title": "A closed-neighborhood shattering-polynomial separation of the Shrikhande and rook graphs",
+          "trigger": "Exact rook coefficient table"
+        },
+        {
+          "assessment": "Dimension rather than coefficient classification",
+          "evidence": "Mixed static VC cases are known; new theorem counts online dimension, not supports.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-online-neighborhood-dimensions-of-mixed-alphabet-hamming-g--4e24e4c568c0",
+          "material_read": "Finding and dimension tables at offset 0; common-center and static-bound passages around offsets 2914–4643",
+          "method": "Bounded local mirror",
+          "title": "Exact online neighborhood dimensions of mixed-alphabet Hamming graphs",
+          "trigger": "Same mixed rectangles"
+        },
+        {
+          "assessment": "Different products and parameter range",
+          "evidence": "Doob products with diameter at least three do not include unequal two-factor rook rectangles.",
+          "identifier_or_url": "2026/11/22/SCOPE-closed-neighborhood-shattering-distinguishes-every-doob-graph-of--801970156750",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror",
+          "title": "Closed-neighborhood shattering distinguishes every Doob graph of fixed diameter",
+          "trigger": "Distinct same-day closed product profiles"
+        },
+        {
+          "assessment": "Different adjacency system",
+          "evidence": "Cyclic king adjacency is not row-or-column membership; one equal polynomial does not transfer the theorem.",
+          "identifier_or_url": "2026/11/22/SCOPE-complete-shattering-profiles-for-cyclic-king-neighborhoods--c72aa9c369dd",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror",
+          "title": "Complete shattering profiles for cyclic king neighborhoods",
+          "trigger": "Same-day exact board profiles with a matching example polynomial"
+        },
+        {
+          "assessment": "VC bounds, not these coefficients in inspected material",
+          "evidence": "Open edge relation and consequent closed boundedness.",
+          "identifier_or_url": "https://eprints.whiterose.ac.uk/id/eprint/178584/1/Adler_Benediktsson_Macpherson.pdf",
+          "material_read": "Accepted-manuscript abstract, offset 0",
+          "method": "Primary OA PDF",
+          "title": "Vapnik–Chervonenkis dimension and density on Johnson and Hamming graphs",
+          "trigger": "Early Hamming graph VC results"
+        },
+        {
+          "assessment": "Scalar dimension algorithms, not the exact coefficient formula in inspected material",
+          "evidence": "Closed systems, dimension bounds and computation.",
+          "identifier_or_url": "https://arxiv.org/pdf/2405.07588",
+          "material_read": "Abstract, page 1/offset 0",
+          "method": "Primary OA PDF",
+          "title": "Practical Computation of Graph VC-Dimension",
+          "trigger": "Algorithms for closed-neighborhood VC dimension"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 17–27, 36–62",
+        "Resultary 6c82fc864f93 Proof §§1–4"
+      ],
+      "rationale": "The support profile is a natural invariant and distinguishes the two equal-VC rectangular examples. However, for this exact narrow extension the earlier witness and placement count are already coordinate-specific; replacing the common alphabet size by the two availability counts is routine. The alternative incidence-star proof and the two arithmetic examples do not establish an independently valuable remaining result beyond the mechanically implied classification.",
+      "residual_risks": [
+        "The judgment does not extend to incomplete boards, other neighborhood relations, or other unequal Hamming dimensions."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:29:06.626236Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§Finding, Assumptions and scope, and Proof",
+        "VERIFICATION.md",
+        "verify_shell.py (inspected; frozen replay command python3 verify_shell.py, not run)",
+        "Mesquita et al., arXiv:2609.37110, Eqs. (48)–(49) and Appendix C"
+      ],
+      "rationale": "Integrating the normalized Thomas–Fermi profile gives a zero plateau through λ=a, the partial-coverage polynomial 1−3a/(2λ)+a³/(2λ³), then the full-coverage expression 3(b−a)/(2λ)−(b³−a³)/(2λ³). They match in value and first derivative at b. The latter derivative has the sign of a²+ab+b²−λ², so the unique maximum lies above b, equals (b−a)/λ_c, and is less than one since λ_c²−(b−a)²=3ab. Differentiating the continuous reset survival gives the stated h. The strict positive-count exceedance set is exactly the interval between the two inverse scales; the difference of S gives its probability, yields the two Jacobians on differentiation, and tends to S(a) at zero. The zero atom from the plateau is therefore correctly normalized and there is no atom at the maximum. At a the contact coefficient is 3/(2a²); combining its inverse Jacobian with h(a) for a>1 or h(1+u)∼r₀u^{−1/2} gives the two prefactors. For the distant branch, λ_+∼3(b−a)/(2k) and log h=−r₀λ+O(log λ), while the Jacobian contributes only O(log λ) to the log density. At the maximum the contact coefficient is 3(b−a)/(2λ_c³), giving two equal leading square-root Jacobians, their stated sum, and conditional weights tending to one half in the continuous branch-weight version of the conditional law. Fresh sample quadratures matched the survival difference to relative error below 3×10⁻¹⁶ on two shells, including a=1; finite differences and both endpoint checks were consistent with the formulas.",
+      "residual_risks": [
+        "The bounded numerical comparisons are diagnostics, not a proof for all radii and rates. The statement assumes fixed finite cutoffs and rate in endpoint limits. It neither includes finite-N quantum counting noise nor gives uniform error bounds in coalescing cutoffs or vanishing rates."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The scale law and macroscopic counting method coincide exactly. The inspected counting theorem is for [−L,L].",
+          "The seed gives a pushforward over λ and a monotone-root density, not a full analysis of the difference of windows with both branches."
+        ],
+        "reasoning": "General pushforward and local fold changes of variables are standard and are credited. They do not by themselves identify the globally unique critical λ, the endpoint, the atom-plus-two-branch law, or the geometry-specific amplitude and conditional ambiguity.",
+        "searches": [
+          "arXiv:2609.37110 Eqs. (48)–(49), (63)–(69), and (C.3)–(C.16)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact and thematic lookup",
+        "Mesquita et al., arXiv:2609.37110, §4.3 and Appendix C"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a<λ<b the outer centered count κ_b is identically 1, so the small-count inner branch is exactly 1−κ_a. Equations (C.14) and (C.15) give exactly its two powers and coefficients.",
+          "Equation (C.13) has log rate −3r₀l/2; the outer shell branch has the same leading equivalent when l=b−a because its inverse has the same leading 3l/(2k) term with an O(k) correction.",
+          "In contrast the centered family has no two-preimage interval with an interior maximum produced by cancellation of the two derivatives."
+        ],
+        "reasoning": "Credit the shell map as an immediate difference and the matching lower-edge branch results as covered. What survives is the full nonmonotone geometry and its inverse and fold analysis for this physically defined shell, not a new reset law or a novel square-root exponent.",
+        "searches": [
+          "Mesquita et al. Appendix C, especially (C.13)–(C.15), pp. 30–31"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The seed gives the centered count κ_l(λ), equal to 1 up to λ=l and then 3l/(2λ)−l³/(2λ³). On the same λ the shell count is exactly κ_b(λ)−κ_a(λ).",
+          "The exact Resultary match is the assigned record itself; the distinct antispatial-correlation-front record studies a covariance sign change in the same model."
+        ],
+        "reasoning": "The shared scale makes this an algebraic difference of two conditional counts, not an independent difference of centered marginal laws. That equivalence supplies the map, but the seed's single inverse for a centered count does not characterize the shell's two inverses or its interior critical point.",
+        "searches": [
+          "Resultary: exterior-shell counting, two-inverse fold, reset Thomas–Fermi condensate",
+          "arXiv:2609.37110 §4.3 and Appendix C"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact match 2026/11/8/SCOPE-exterior-shell-counting-and-a-two-scale-fold-in-a-reset-thomas-f--9d103ed80563 is the same record.",
+          "The distinct result a02b45fafe32 is on a covariance sign front, not the shell distribution."
+        ],
+        "reasoning": "The claimed invariant is an entire distribution over arbitrary fixed shell radii, rather than an isolated tabulated value. The same-model catalogue hit does not tabulate or enumerate the law or critical scales.",
+        "searches": [
+          "Resultary exact and thematic lookup for the exterior-shell count law and Thomas–Fermi fold"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the complete nonmonotone shell classification, its geometry-only interior maximum, two-branch law and fold coefficient, and the resulting two-scale ambiguity. The common-scale conditional profile and scale distribution are known; subtracting centered counts already gives the shell map. Both lower-edge exponents and prefactors of the dominant branch are covered by the centered result after local reflection, and the distant-branch log rate is inherited from the centered tail with the effective width. These are not priority claims. The frozen citation to Appendix H should read Appendix C in the inspected version.",
+      "residual_risks": [
+        "Bounded literature comparison; no priority assertion about unrelated annular counting or general fold theory. Because the seed gives both deterministic centered counts, the claim's distinction is narrower than the frozen prose might suggest: it is the derived global two-scale shell analysis."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material partial coverage: exact inputs, lower-branch powers and coefficients and equivalent distant tail; centered result does not analyze the shell fold",
+          "evidence": [
+            "Eqs. (48)–(49) give h and S.",
+            "Eq. (C.3) uses the same λ for the centered conditional count, so κ_b−κ_a supplies the shell map.",
+            "Eqs. (C.13)–(C.15) give the small centered-count exponential tail and the two high-count endpoint powers with matching coefficients under the stated reductions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.37110",
+          "material_read": "Eqs. (48)–(49) pp. 16–17; §4.3 Eqs. (63)–(69) pp. 21–23; Appendix C Eqs. (C.3)–(C.16) pp. 29–31, including offsets 101050–103922 for the endpoint passages",
+          "method": "Targeted OA PDF passages",
+          "title": "Weakly interacting Bose-Einstein condensate with stochastic resetting",
+          "trigger": "Exact same reset-scale and centered-window counting, a direct reduction for the shell"
+        },
+        {
+          "assessment": "Same model, different invariant",
+          "evidence": [
+            "The statement concerns the position of a covariance sign change rather than a probability law of a shell count."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-unique-spatial-anticorrelation-front-in-a-reset-expanding-thom--a02b45fafe32",
+          "material_read": "Indexed statement on the covariance sign front",
+          "method": "Local Resultary lookup",
+          "title": "A unique spatial anticorrelation front in a reset expanding Thomas–Fermi condensate",
+          "trigger": "Same physical reset model and spatial observable"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md §§Finding, Proof, and Limitations",
+        "Mesquita et al., arXiv:2609.37110 §4.3 and Appendix C"
+      ],
+      "rationale": "A two-sided exterior shell is a natural observable: it initially gains mass when the expanding cloud reaches it but eventually loses mass as the profile dilutes. This creates an exact upper limit and two possible cloud scales even for ideal, noiseless macroscopic counting, unlike a centered-window observation. The geometry of the fold and the conditional near-edge weights give a concrete inverse-measurement consequence, beyond reproducing known endpoint powers.",
+      "residual_risks": [
+        "The inference statement is for a regular positive count in the hydrodynamic model and does not characterize noisy inference, imperfect resets, or finite-particle counting."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

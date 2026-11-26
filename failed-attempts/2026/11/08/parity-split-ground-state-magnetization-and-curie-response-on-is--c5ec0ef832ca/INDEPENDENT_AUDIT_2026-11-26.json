@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T10:07:07.227657Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two rim families and two cross families form C_(2n)^2, counted once even at n=3. The side-triangle incidence bound in RESULT.md gives F>=n+(r_a+r_b)/2, with each rim defect count congruent to n modulo 2. An independent check uses bonds e_i=sigma_i sigma_(i+1) on the squared ring. If p is the number of + bonds and q the number of their cyclic runs in a nonconstant bond sequence, the energy in units J is 2p-4q, p is even, and q<=min(p,2n-p). The constant bond sequences cannot minimize. For even n, the minimum requires p=q=n, giving two alternating bond sequences and two spin orientations per sequence, each with M=0. For odd n, the minimum requires p=q=n-1: at p>=n+1 the bound gives energy at least -2n+6, and at p<=n-3 it gives at least -2n+6. The minimizing spin sequences have n+1 alternating-sign spin runs, exactly two of length 1 and all others length 2. To count labelled sequences, choose one of 2n start sites, a starting spin and the two short runs, and divide by n+1 possible choices of marked run. The two short runs on opposite signs give M=0 and count n(n+1); placing both on one sign gives n(n-1)/2 for each M=+2 and -2. Finite Gibbs fluctuation-response gives k_B T chi=Var(M), tending to the stated equal-weight ground variance at fixed n. A separate exhaustive squared-cycle enumeration for 3<=n<=9 reproduced the energy minima and each magnetization sector; it does not prove larger n. The uploaded checker was not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 94f2eff70cbd includes complete same-rim and cross-rim ground-state two-point functions in addition to the audited energy and spin-sector table. Dublenych's inspected preprint treats an infinite chain reduction; Garuchava's Eq. (14) includes the even period-four pattern in the equal pair-coupling, K=0 limit."
+        ],
+        "reasoning": "Infinite-chain and commensurate-order results are not needed to infer the finite odd counts; the stronger Resultary statement gives those counts directly under identical finite hypotheses.",
+        "searches": [
+          "Resultary 94f2eff70cbd, Finding and proof",
+          "Dublenych ICMP-11-11U",
+          "Garuchava arXiv:2511.05948v2 Eq. (1), Sec. 3.1 and Eq. (14)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md; uploaded verify.py not run",
+        "Resultary 94f2eff70cbd",
+        "ICMP-11-11U preprint; arXiv:2511.05948v2; triangulations article abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior Finding states the odd susceptibility limit 2(n-1)/n in units k_B=1 and states M=0 for every even ground state. The proof derives the magnetization counts and the finite zero-field fluctuation-response limit."
+        ],
+        "reasoning": "Restoring k_B simply changes T chi to k_B T chi. The even coefficient is mechanically zero by the stated support and the usual variance identity; the order of limits agrees.",
+        "searches": [
+          "Compare Resultary 94f2eff70cbd Finding offset 0 and proof offsets 4068–7748 with frozen RESULT.md lines 5–25 and 60"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 94f2eff70cbd, Finding offset 0, uses rim edges a_i a_(i+1), b_i b_(i+1) and cross edges a_i b_i, a_(i+1) b_i, the same as here by reindexing. It imposes n>=3, J>0 and zero field for the labelled states."
+        ],
+        "reasoning": "The antiprism and equal-coupling squared-cycle formulations are isomorphic and preserve total spin. Its explicit probabilities by sector are the coefficients of the audited Laurent polynomial.",
+        "searches": [
+          "Resultary: antiprism Ising antiferromagnets, squared cycle, finite periodic NN/NNN chain, parity defects and magnetization sectors"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "It lists E_0=-2nJ or -2(n-1)J, degeneracies 4 or 2n^2, and for odd n exactly n(n+1) at M=0 and n(n-1)/2 at each of M=±2, with all other sectors zero."
+        ],
+        "reasoning": "Encoding these labelled counts in powers y^M is exactly the same invariant, with no mathematical remainder.",
+        "searches": [
+          "Resultary published parity-defect and complete two-point-functions record 94f2eff70cbd; mirrored RESULT.md offset 0"
+        ]
+      },
+      "rationale": "Resultary record 94f2eff70cbd, dated 2026-11-02 in the catalogue, explicitly gives the same Hamiltonian and size range, labelled ground energies and degeneracies, complete magnetization distribution and odd Curie coefficient, as part of a stronger exact result that includes the complete ground-state two-point functions. The even Curie limit is the immediate variance of its explicitly supported M=0 law. This is exact scientific coverage, not a title match or a conjectural connection to previous Ising methods.",
+      "residual_risks": [
+        "External priority beyond the exact catalogue match remains unestablished; the triangulations paper body and Dublenych journal version were not accessible. Neither access limit affects the explicit duplicate finding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical audited claims included in a stronger result with complete two-point functions",
+          "evidence": [
+            "Explicit labelled ground energy, degeneracy, spin sectors and odd Curie coefficient at fixed n."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-parity-defect-ground-states-and-complete-two-point-functions-of--94f2eff70cbd/RESULT.md",
+          "material_read": "Finding offset 0; proof offsets 4068–7748",
+          "method": "Bounded primary text from the local mirror",
+          "title": "Parity-defect ground states and complete two-point functions of antiprism Ising antiferromagnets",
+          "trigger": "Exact Resultary match on graph, Hamiltonian and all finite-size quantities"
+        },
+        {
+          "assessment": "The inspected reduction is to an infinite chain and does not establish the exact finite parity-sector polynomial",
+          "evidence": [
+            "Infinite chain with interactions through second neighbours; starting Hamiltonian has three triangular lattice directions."
+          ],
+          "identifier_or_url": "https://icmp.lviv.ua/en/preprints/2011/11-11u",
+          "material_read": "Preprint pp. 2–3, offsets 3720 and 7685; Eq. (2.1)",
+          "method": "Bounded lawful OA preprint inspection after journal text was unavailable",
+          "title": "Ground states of the Ising model on the anisotropic triangular lattice: Stripes and zigzags",
+          "trigger": "Same interaction range in a model reduction"
+        },
+        {
+          "assessment": "Relevant even-size ordering; inspected passages do not give the odd finite defect polynomial",
+          "evidence": [
+            "Includes the period-four state at m=0 and explains finite-size realizability constraints."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2511.05948v2",
+          "material_read": "Eq. (1), Sec. 3.1 offset 11912, and Eq. (14) offset 22507",
+          "method": "Bounded lawful OA primary text",
+          "title": "Ground states of the Ising model at fixed magnetization on a triangular ladder with three-spin interactions",
+          "trigger": "Periodic triangular ladder Hamiltonian with a fixed-magnetization analysis"
+        },
+        {
+          "assessment": "No full-text coverage judgment; not needed for the explicit Resultary overlap",
+          "evidence": [
+            "The accessible scope concerns triangulations and perfect-matchings."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2014.02.016",
+          "material_read": "Landing page/abstract only",
+          "method": "Lawful retrieval attempted; readable article body not obtained",
+          "title": "Antiferromagnetic Ising model in triangulations with applications to counting perfect matchings",
+          "trigger": "Cited triangle-frustration and degeneracy connection"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The finite-size moment and commensurability distinction are mathematically meaningful, but the reviewed record repeats the exact invariants and response already given on the same natural object, with no surviving new quantity or structural result. The Laurent-polynomial presentation is a re-encoding of the exact earlier table.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

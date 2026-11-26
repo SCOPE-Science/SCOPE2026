@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:08:13.080273Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:5–24,28–100; VERIFICATION.md:1–33; verify.py:12–113 (inspection only)",
+        "repairs/2/RESULT.md: Finding, Assumptions and scope, Proof; repairs/2/VERIFICATION.md: numerical replay and limits",
+        "Independent numerical replay: 16,384-subinterval composite Simpson integration of e^(−t(x²−x))/2 and its t derivative on [−1,1], with 50 bisection steps on [0,2], gives t=1.263164403303862 and I=0.17276145063513332."
+      ],
+      "rationale": "The final repaired claim concerns only the sharp failure exponent, its all-m bound and the uniform exponent example. Ordinary LS gives the intercept weights (Q−SX_i)/(mQ−S²); the denominator is positive almost surely for m≥2 by atomlessness. An extreme node detects the negative numerator, with the sign of S choosing the relevant endpoint, and S=0 gives weights 1/m. Replacing the extremes by ±R bounds the event by the two scalar left tails with equal probabilities under symmetry. The tilt log moment is strictly convex, starts with negative derivative and tends to +∞, so its minimum lies at a unique positive tilt and gives I_ν in (0,∞). Conversely, designate one independent node in [R−δ,R]; its positive probability incurs no per-sample exponential cost for fixed δ. A sum of the other nodes' X²−(R−δ)X below −2R² forces Q<(R−δ)S and S>0, hence failure. The Cramér lower bound uses open intervals around fixed negative means, eventually contained in this changing-threshold event, then continuity at zero lets those means approach zero. The positive/negative support follows from the positive mean and mass in a compact subinterval of (0,R). On that subinterval Y_δ is uniformly negative for all small δ, trapping the scalar optimizers in one compact interval; uniform convergence of the moments then passes the rate to δ=0. This verifies the final lower and upper bounds in both directions without replacing the random maximum by a deterministic endpoint in the lower bound. Completing the square and independently integrating the moment and its derivative verify the uniform exponent and minimizer to the displayed precision. The removed uniform three-node number is mathematically correct but is prior work, not an error in probability calculation.",
+      "residual_risks": [
+        "The decimal replay is not an interval certificate. The frozen diagnostics check finite configurations plus illustrative numerical cases; the new analytic proof establishes the general rate. No prefactor, all-m exact law, monotonicity in m, or extension to other schemes or unbounded sampling laws is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 10 in Bělík et al. gives sufficient high-probability positivity under nonnegative-pair and weight-approximation assumptions, which are relevant since the target representer and sampling factor can both be 1 here. Their Theorem 11 involves pruning. Migliorati–Nobile Theorem 6 uses induced weighted sampling; its Corollary 4 does include standard least squares for Jacobi sampling, with the uniform law a Legendre special case and a sufficient polynomial-tail probability bound."
+        ],
+        "reasoning": "Broader positive-weight guarantees constrain sample size but do not identify the asymptotic failure exponent, its tilt, or a matching exponentially likely failure mechanism. Pruning and changing the sampling distribution alter the rule and do not dominate the stated exact exponent.",
+        "searches": [
+          "Bělík–Narayan–Turnage arXiv:2609.09506v1, §§2.5–2.6, Theorems 4, 10 and 11",
+          "Migliorati–Nobile arXiv:1812.07761, Theorem 6 and Corollary 4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md:3–20,67–100,106–119",
+        "Repaired RESULT.md: Finding and Relationship to prior work",
+        "Resultary 6eba4b8f5a9c, 0bd09ba633ae, c97a80bc1618",
+        "arXiv:2609.09506v1 and 1812.07761 at the passages above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier general formula yields the normal equations; a substitution of R gives only a one-sided failure bound. Cramér's standard theorem applies to scalar means, but failure depends jointly on the sums and a sampled extreme. The lower proof fixes a near-endpoint node while retaining independent samples for the tilt, then takes δ to zero under uniformly bounded optimizers."
+        ],
+        "reasoning": "Neither the finite three-node formula nor a sufficient broader positivity estimate establishes that failures reach the endpoint-tilted cost. The designated-node construction and the endpoint limit are substantive additional ingredients of the surviving exact rate.",
+        "searches": [
+          "Bělík–Narayan–Turnage Theorem 10 and affine weight specialization",
+          "Migliorati–Nobile Corollary 4 and Eq. (4.9)",
+          "Resultary 6eba4b8f5a9c, exact finite-size positivity law",
+          "Repaired RESULT.md, Matching logarithmic bound"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bělík–Narayan–Turnage Eqs. (2.21), (3.7)–(3.8) give the same unweighted specialization when the target equals the sampling law. The 0bd09ba633ae minimum-norm weights on uniform [0,1] are the same rule under a linear change of variable to [−1,1]. Sum of weights one means the L¹ weight norm equals one exactly when no weight is negative."
+        ],
+        "reasoning": "The weight representation and the positivity event under an affine change of coordinates are not novelties. Comparing the event via minimum-norm weights or via the L¹ weight norm does not turn a fixed-m tail in the norm into a sharp large-m failure rate.",
+        "searches": [
+          "Resultary: negative weights randomized least-squares quadrature exact probability rate affine",
+          "Resultary: least-squares quadrature positivity theorem negative weights failure rate",
+          "Resultary 0bd09ba633ae and 6eba4b8f5a9c"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact three-node positivity probability (14−π)/16 is stated for the same uniform [−1,1] unpruned rule in the earlier 6eba4b8f5a9c finding. Its complement is exactly (2+π)/16 (zero weights have probability zero for these continuous draws). Another entry calculates exact Gaussian three-node positivity, outside bounded-support scope. No exact bounded-symmetric exponent was identified in the inspected rate searches."
+        ],
+        "reasoning": "The earlier exact calibration is independently verified coverage and is removed from the claim, not merely relabeled as novel. The same-day [0,1] comparator was treated as a genuine equivalent rule, but its norm-tail results do not tabulate the surviving exponent. A search miss alone is not proof of originality.",
+        "searches": [
+          "Resultary 6eba4b8f5a9c, Finding and proof §4",
+          "Resultary c97a80bc1618 and 0bd09ba633ae, Findings",
+          "Resultary: negative weights randomized least-squares quadrature exact probability rate affine"
+        ]
+      },
+      "rationale": "This PASS applies only to the repaired finding. The frozen finding separately presented the exact three-node calibration as a contribution; that component has exact prior coverage for the same rule and was rejected on originality. The repair removes that theorem and its proof, credits the earlier record in related work, and retains the distinct endpoint-tilted large-deviation exponent. The closest inspected comparisons establish weight construction, sufficient positivity bounds, or finite-size probabilities and stability tails; none supplies the sharp bounded-symmetric exponent or mechanically yields a matching lower bound for this sign event. This is a bounded best-of-knowledge assessment, not a priority guarantee.",
+      "residual_risks": [
+        "Search and inspection were bounded and do not rule out equivalent large-deviation formulations in unindexed work. The exact earlier three-point overlap is resolved by removing it as a finding, not by claiming novelty despite a search limitation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers construction and sufficient positivity, not the matching exponent in the inspected passages",
+          "evidence": "Theorem 10 controls positive weights with probability at least 1−ξ at specified sufficient sample sizes; Theorem 11 uses pruning.",
+          "identifier_or_url": "https://arxiv.org/html/2609.09506v1",
+          "material_read": "§2.2 Eq. (2.21) around offset 28900; §§2.5–2.6 and Theorems 4, 10–11 around 44000; §3.3 Eqs. (3.7)–(3.8) around 62800",
+          "method": "OA HTML bounded text inspection",
+          "title": "Constructive Tchakaloff results and well-conditioned quadrature through randomized least squares",
+          "trigger": "General LS weight formula and direct positivity guarantee"
+        },
+        {
+          "assessment": "Theorem 6 has different sampling; Corollary 4 applies directly to the standard uniform case but gives only sufficient bounds",
+          "evidence": "With sufficient m/log m the standard Jacobi rule has weights in [1/(2m),3/(2m)] with probability greater than 1−2m^(−r); the Legendre case includes uniform sampling.",
+          "identifier_or_url": "https://arxiv.org/pdf/1812.07761",
+          "material_read": "PDF pp. 5, 7, 13, 16: Eqs. (2.5), (3.1), Theorem 6 Eqs. (3.24)–(3.26), and Corollary 4 Eq. (4.9); offsets around 21400, 33700, 61600, 73680",
+          "method": "OA PDF bounded text inspection",
+          "title": "Stable high-order randomized cubature formulae in arbitrary dimension",
+          "trigger": "Positive weights for induced and standard LS rules, including uniform nodes"
+        },
+        {
+          "assessment": "Exact coverage of the original uniform three-node subclaim; remaining claims in the inspected finding concern norm tails and noise variance",
+          "evidence": "The same uniform [−1,1] unmodified unit-weight affine rule satisfies P(all weights positive)=(14−π)/16.",
+          "identifier_or_url": "2026/10/26/SCOPE-heavy-tail-and-positivity-laws-for-random-affine-least-squares-q--6eba4b8f5a9c",
+          "material_read": "Mirrored RESULT.md Finding and assumptions, offsets 950–2827; proof §4",
+          "method": "Resultary search and bounded local mirror read",
+          "title": "Heavy-tail and positivity laws for random affine least-squares quadrature",
+          "trigger": "Exact earlier match of one original subclaim"
+        },
+        {
+          "assessment": "Same uniform rule, different observables; no priority assumption from date",
+          "evidence": "Minimum-norm weights under the two affine moment equations, with results on norm tails and noise MSE.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-heavy-tails-and-a-four-node-mean-square-threshold-for-unco--0bd09ba633ae",
+          "material_read": "Mirrored RESULT.md Finding and weight formulation",
+          "method": "Resultary search and bounded local mirror read",
+          "title": "Sharp heavy tails and a four-node mean-square threshold for unconstrained affine least-squares quadrature",
+          "trigger": "Same-day exact unweighted affine rule under affine reparameterization"
+        },
+        {
+          "assessment": "Related shape of finite-sample question, different law and no bounded-endpoint rate in the inspected result",
+          "evidence": "The exact three-node positivity claim concerns centered Gaussian sampling, not uniform sampling or a general bounded-support exponent.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-density-universal-collision-law-and-exact-gaussian-positivity--c97a80bc1618",
+          "material_read": "Mirrored RESULT.md Finding and sampling law",
+          "method": "Resultary search and bounded local mirror read",
+          "title": "A density-universal collision law and exact Gaussian positivity",
+          "trigger": "Alternate exact affine least-squares positivity computation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md: Finding, Matching logarithmic bound, Uniform example and Relationship to prior work",
+        "Bělík–Narayan–Turnage §2.6 and Migliorati–Nobile Corollary 4",
+        "repairs/2/VERIFICATION.md: reproducible uniform illustration"
+      ],
+      "rationale": "For the standard unpruned rule, the probability of a wrong weight sign controls a practical distinction between typical accuracy and positive quadrature. The exact exponential cost sharpens known sufficient positivity estimates and distinguishes the scale of rare failure across sampling laws. The rate also explains why an inexpensive near-endpoint draw can realize the adverse tilt mechanism; a generic concentration bound cannot identify that cost. The uniform exponent is a useful numerical instance of the surviving theorem, not a claimed independently new recalibration of three samples.",
+      "residual_risks": [
+        "The relevance is to logarithmic failure under the specified iid symmetric bounded ordinary LS scheme. Exact finite-size risk and improved postprocessed schemes are not consequences of the rate."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

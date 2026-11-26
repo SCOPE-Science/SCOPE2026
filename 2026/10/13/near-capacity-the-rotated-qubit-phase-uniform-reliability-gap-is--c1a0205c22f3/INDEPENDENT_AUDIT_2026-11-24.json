@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:11:59.274243Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "Watanabe et al., arXiv:2610.01941v1, Eq. (7), Eq. (9) and Theorem 3, Eqs. (10)–(12)"
+      ],
+      "rationale": "For fixed p in (0,1/2), write u=p−t_R, delta=C−R, A=p(1−p), L=log((1−p)/p). Derivatives give delta=Lu+u²/(2A)+(1−2p)u³/(6A²)+O(u⁴) and D(p−u||p)=u²/(2A)+(1−2p)u³/(6A²)+O(u⁴). Since L>0, u=delta/L−delta²/(2AL³)+O(delta³), giving the stated converse coefficient. As an independent check of the optimization, set q_s=p^(1+s)/[(1−p)^(1+s)+p^(1+s)]. The derivative of the negative log partition function is the cross-entropy C+L(q_s−p), strictly decreasing in s. At s=0 it is C, and at s=1 it is strictly less than C, so for all sufficiently small positive delta the unique optimizer is interior and has q_s=p−delta/L exactly. At that optimizer the objective equals D(q_s||p) by the tilt identity. Its cubic coefficient is (1−2p)/(6A²L³). Subtraction and division by the common leading quadratic term verify both gap formulas and their positive coefficients. Theorem 3 of the cited paper verifies the worst-phase converse interpretation; its Eq. (9) is the aware achievable benchmark.",
+      "residual_risks": [
+        "This is an expansion of the difference from a particular converse bound, not an equality for the unknown true reliability penalty. The calculation is local at fixed p and gives no endpoint-uniformity or low-rate conclusion."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general exponent literature supplies an aware benchmark; moderate deviations give capacity/dispersion-scale behavior. The example theorem supplies a strict comparison throughout 0<R<h(p) without the order of vanishing."
+        ],
+        "reasoning": "Neither general aware reliability nor quadratic dispersion identifies the first term left after subtracting the distinct phase-uniform bound. The all-rate qualitative strict inequality likewise does not imply the local rate of separation.",
+        "searches": [
+          "arXiv:2507.06232v4, Eqs. (56)–(59)",
+          "arXiv:1701.03114v3, introductory moderate-deviation statements",
+          "arXiv:2610.01941v1, Theorem 3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.01941v1",
+        "arXiv:2507.06232v4",
+        "arXiv:1701.03114v3",
+        "Resultary 32ac19346a6f and bounded searches above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source provides exact inputs and proves strict inequality. Its witness t is tied to the entropy boundary; the aware optimizer is tied instead to the cross-entropy boundary after a change to the tilted Bernoulli parameter."
+        ],
+        "reasoning": "The original formulas make the calculation possible, but neither the prior inequality nor the dispersion result resolves the cancellation of the common quadratic term or the skew contribution. Matching the two different rate constraints to the requisite order supplies the quantitative remainder.",
+        "searches": [
+          "arXiv:2610.01941v1, Eqs. (9)–(12)",
+          "arXiv:1701.03114v3, moderate deviations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 3 of arXiv:2610.01941v1 compares the same pair exactly as a strict inequality, not a near-capacity equivalent. The closest inspected indexed record, 32ac19346a6f, instead compares constant-versus-vanishing exact-message success in a simplex sensing protocol."
+        ],
+        "reasoning": "Both the entropy-boundary and tilted-cross-entropy formulations of the exponent comparison lead to the same local question. No inspected statement gives the cubic equivalent, and constant-overlap sensing probabilities concern different observables and asymptotic regimes.",
+        "searches": [
+          "Resultary: Near-capacity cubic expansion comparing the channel-aware reliability exponent and the phase-uniform converse D(t_R||p), where h(t_R)=R, for the rotated binary qubit channel; coefficients and gap order",
+          "Resultary: Universality Sacrifices Reliability in Classical-Quantum Channel Coding Watanabe Hayashi Matsuura Cheng rotated qubit phase-uniform converse",
+          "Resultary: phase-uniform reliability exponent rotated binary pure-state classical-quantum channel near capacity",
+          "Web: \"2610.01941\" (\"near capacity\" OR cubic OR third-order) universal reliability gap rotated qubit expansion D(t||p)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The coefficient-targeted catalogue comparison did not turn up a matching formula. The primary source's Eqs. (9) and (10) specify the ingredients, not a table of gap coefficients."
+        ],
+        "reasoning": "This is a symbolic coefficient for a continuum of p values, not a lookup for a discrete sequence or tabulated instance. The relevant exact coverage check is a closed-form expansion in an indexed finding or in the primary proof.",
+        "searches": [
+          "Resultary: For fixed 0<p<1/2 the difference between E_aware(C-delta) and D(t_R||p) where h(t_R)=R has cubic leading coefficient 1/(2 p^2(1-p)^2 log^4((1-p)/p))"
+        ]
+      },
+      "rationale": "The primary paper already supplies the channel, aware benchmark, phase-uniform converse and strict separation. The distinct content is the quantitative near-capacity expansion of their difference, including the first nonzero coefficient, not the strict inequality or either benchmark itself. The inspected earlier or indexed results do not give a third-order comparison or a stronger result directly containing one.",
+      "residual_risks": [
+        "The public query returned no additional hits; bounded searches cannot exclude an unindexed or implicit prior expansion. The original all-rate separation is not claimed as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the channel, exact input formulas, and qualitative strict separation, not the cubic expansion",
+          "evidence": [
+            "The same unknown phase is fixed across a block; the worst-phase exponent for phase-independent rate-R codes is bounded by D(t||p) at h(t)=R. The aware Eq. (9) is achievable."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.01941v1",
+          "material_read": "PDF pp. 7–8, Eqs. (7), (9) and Theorem 3, Eqs. (10)–(12)",
+          "method": "Bounded OA primary PDF-text read at offsets near 44500 and 45500",
+          "title": "Universality Sacrifices Reliability in Classical-Quantum Channel Coding",
+          "trigger": "Exact rotated-qubit channel and comparison"
+        },
+        {
+          "assessment": "Inspected large-deviation results concern the aware side and not the phase-uniform gap",
+          "evidence": [
+            "General channel-aware exponents do not compare the entropy-boundary phase-uniform converse for this family."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2507.06232v4",
+          "material_read": "PDF p. 18, Eqs. (56)–(59)",
+          "method": "Bounded OA primary PDF-text read near offset 109600",
+          "title": "Error Exponents for Quantum Packing Problems via An Operator Layer Cake Theorem",
+          "trigger": "Potential broader channel-aware exponent coverage"
+        },
+        {
+          "assessment": "Quadratic capacity/dispersion scale, not the cubic comparison of these bounds",
+          "evidence": [
+            "Moderate-deviation scaling is compatible with a common leading quadratic coefficient but does not describe their first difference."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1701.03114v3",
+          "material_read": "PDF p. 2, introductory moderate-deviation statements",
+          "method": "Bounded OA primary PDF-text read near offset 10500",
+          "title": "Moderate deviation analysis for classical communication over quantum channels",
+          "trigger": "Possible coverage of the near-capacity asymptotic"
+        },
+        {
+          "assessment": "Different sensing task and performance criterion",
+          "evidence": [
+            "Compares exact-message success under persistent quantum and classical memory, not a channel reliability gap."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-persistent-quantum-memory-keeps-constant-simplex-decoding-succes--32ac19346a6f",
+          "material_read": "RESULT.md, Finding at offset 0",
+          "method": "Published record read through local mirror",
+          "title": "Persistent quantum memory keeps constant simplex decoding success",
+          "trigger": "Closest apparent catalogue match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "arXiv:2610.01941v1, Theorem 3",
+        "arXiv:1701.03114v3, moderate-deviation scale"
+      ],
+      "rationale": "The prior strict separation and the known dispersion scale do not quantify how the exhibited penalty disappears near capacity. The calculation shows the leading quadratic scale of the aware benchmark survives in this converse and cannot expose its penalty; the cubic coefficient is the first quantitative separation and gives a corresponding explicit asymptotic lower bound on the actual penalty. This resolves a motivated precision question for the source's concrete counterexample, rather than calculating an arbitrary higher-order term.",
+      "residual_risks": [
+        "A sharper phase-uniform converse or matching achievability could change what is known about the true penalty; the actual leading order is not established here."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

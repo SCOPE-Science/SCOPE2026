@@ -1,19 +1,21 @@
-# Scientific review: Poisson-scale Euclidean edge lengths in complete-graph matching polytopes
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim specifies a complete graph, the full matching polytope, its standard Euclidean edge-indicator embedding, and the distinction between finite enumerators and asymptotics. The established adjacency criterion reduces geometric neighbors to one alternating path or cycle. Four disjoint endpoint classes give the exact coefficients, with reversal divisions checked even for the smallest path lengths. The exact ratio \(A_{k,k-r}/A_{k,k}=1/(2^rr!)\) proves the Poisson limit, while cycle weights are negligible because of their additional \(1/j\) factor. The accompanying verifier exhaustively reconstructs all 34 strata for \(n\le10\) by a different combinatorial computation; the infinite theorem follows from the argument, not the finite tests.
+PASS
 
-## Originality — PASS, subject to unindexed priority risk
+A disconnected symmetric difference lets one toggle a proper subset of components, giving a distinct midpoint representation and ruling out adjacency. For one component, fix common coordinates to 1 and coordinates outside the union to 0, and impose tight matching degree constraints at internal path vertices or all cycle vertices. This face has one free alternating coordinate and hence is just the segment. Binary coordinates make squared length the number of toggled edges. Choosing j old matched pairs, arranging and orienting them yields the counts: divide by 2 for reversal with two matched endpoints; start at the chosen uncovered endpoint with one uncovered endpoint; fix an orientation of the two chosen uncovered labels with two uncovered endpoints; and use cyclic order modulo reversal for cycles. The lengths are 2j-1, 2j, 2j+1, 2j respectively. A single uncovered pair uses no matched edges, and a j=2 cycle has two reconnections. Write a_k=2^(k-1)k!: normalized path weight for j=k-r is (2^r r!)^(-1) times 1, 2s or s(s-1). The j=0 weight is negligible, and normalized cycles are negligible by the 1/j factor at j>k/2 and the factorial tail otherwise. This yields the asserted degree equivalent, independent Poisson(1/2) defect and three-point offset, with denominator s^2+s+1, and the length normalization. This review used an analytical proof reconstruction rather than running the supplied checker.
 
-The closest primary exposition is Abreu–Costa–Nascimento–Patuzzi (arXiv:1701.06210), whose degree formula counts alternating paths and cycles without evaluating the complete-graph metric-length polynomial or a near-perfect Poisson limit. Merino–Mütze (arXiv:2304.08567) proves existence of short-exchange Hamilton listings, not the distribution over *all* incident edges. Ito et al. (arXiv:1907.01700) study shortest sequences of perfect-matching flips, not local Euclidean edge lengths. Relevant indexed results concern rectangular bipartite matching polytope degrees, complete-graph matching covariance, or Euclidean inballs, and do not dominate the present assertion. The generic path/cycle characterization is a necessary known premise, not claimed as new. Historical priority remains provisional in the presence of unindexed or inaccessible prior work.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact metric edge spectrum refines scalar degree information into a complete stratified local geometric invariant for a classical infinite family. Its asymptotic law identifies an unexpected Poisson *defect from maximal-length exchanges*: the enormous majority of a nearly perfect matching's polytope neighbors differ on all but a tight number of matched pairs, while a Hamilton listing needs only bounded-length exchanges. This quantifies the distinction between typical adjacency geometry and special efficient traversals, a natural issue raised by the cited traversal literature.
+The established matching adjacency framework and its four path/cycle classes are prior work. The complete-graph multiplicities are a direct refinement of that framework, not an independent adjacency theorem. The validated distinct contribution is the local metric distribution and its explicit Poisson-scale fixed-s limit with parity and endpoint-type dependence, which is not equivalent to the closest checked local or published results.
 
-## Limitations
+## value
 
-Only standard orthonormal edge coordinates of complete graphs are covered; noncomplete graphs, rescaled metrics and global skeleton distances are outside the theorem. The fixed-uncovered-count requirement is essential to the stated limit. Exhaustive computation is finite confirmation, not a proof of asymptotics. Historic equivalence to an unindexed source remains possible; no independent mathematical audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The question concerns the lengths in the actual one-skeleton rather than a chosen edit graph. The explicit limiting law distinguishes typical long exchanges from short-exchange traversals and gives endpoint-type and parity effects invisible to a degree count or a leading-order length estimate. The finite enumerator also gives the complete local spectrum rather than isolated counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Exact finite verification
+# Independent mathematical audit
 
-The claim is mathematically finite; verification supplies complete enumerations, with no sampling or unresolved search frontier. The graph is \(KG(5,2)\), defined explicitly through disjoint pairs. An undirected Hamiltonian path is represented once modulo reversal; **both** endpoint choices are allowed for each elementary Pósa rotation.
+## correctness
 
-Run `python3 verify_posa.py` and `python3 verify_independent.py` with the supplied `cayley_certificate.json` next to the first script. They use Python's standard library only.
+PASS
 
-The first checker independently evaluates the subset recurrence for prescribed endpoints, enumerates all \(120\) elements of \(\mathfrak S_5\), applies them to the base path, constructs all four local rotations, determines the exact Cayley generators, performs breadth-first search on the generated group, and checks every path, neighbor, and distance field in all 120 certificate records.
+The adjacency is disjointness of two-subsets, paths are quotiented by reversal, and a single endpoint rotation replaces one edge. The first-step recurrence partitions paths exactly. For the given base path a label permutation fixing the ordered path fixes every two-subset pointwise as a set; a label permutation reversing it must fix 0, swap 1 and 2, and preserve {3,4}, inconsistent with sending the second vertex {3,4} to the penultimate {1,4}. Thus the stabilizer is trivial. Among 120 paths the induced S5 action is consequently regular; its commutation with rotations identifies the right Cayley graph once the four images of the base path are checked. Independent exact replay built the undirected paths recursively, checked all endpoint-pair counts and all four neighbors at every vertex in both descriptions (composition g s), and ran BFS from every path. It gives 30 nonedges with four paths each, none for edges, 120 vertices, 240 edges, degree four, and profile (1,4,11,25,39,29,11) everywhere. The supplied certificate has all 120 distinct permutation keys; the supplied row checker alone does not exclude duplicate keys, but direct inspection verifies coverage and the separate exhaustive replay establishes the result without the certificate.
 
-The second checker is algorithmically distinct: it examines candidate vertex permutations, retaining each Hamiltonian path modulo reversal; it constructs actual rotation adjacencies without consulting the group generators or certificate, and runs breadth-first search from all 120 paths. This gives independently 120 vertices, 240 edges, degree four, one connected component, diameter six, and sphere distribution \((1,4,11,25,39,29,11)\) from every vertex.
+## originality
 
-These exhaustive verifications are mathematical evidence for one finite graph, not a statement about all cubic graphs or infinite parameter families. No independent mathematical audit has been performed.
+PASS
+
+Supported distinct content is the Petersen-specific exact Cayley and metric classification. Neither endpoint rotation/backbite itself nor the standalone path census is needed as a novelty claim. Bounded comparison with the same abstract reconfiguration construction and with the strongest matching indexed findings did not reveal a distinct source establishing the Cayley generators and sphere census.
+
+## value
+
+PASS
+
+For a canonical cubic non-Hamiltonian graph, the natural local-move state graph is classified completely rather than just tested for connectedness. The regular label action and exact switch generators give a reusable description; the sharp bound of six moves answers the worst-case reachability question outside the squared-path sufficient regime. The parameter choice is the Petersen graph itself, not an arbitrary cutoff on a larger experiment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

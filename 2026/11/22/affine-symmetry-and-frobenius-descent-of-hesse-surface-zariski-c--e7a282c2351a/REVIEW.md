@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The geometry of the nine sections and four \(I_3\) fibers follows from the cited classical Hesse analysis and the Shioda–Tate/discriminant argument. The four forbidden intersection configurations are exactly the singular principal submatrices, with all remaining connected types negative definite. Exact integer Schur complements and a wholly separate forbidden-pattern enumerator coincide as sets on all 50,165 supports. Explicit affine permutations produce 11 conjugacy classes, and fixed-support counts were independently cross-checked by two Burnside sums and direct 239/299-orbit enumeration. The standard \(q\equiv2\pmod3\) geometric Frobenius is a determinant-two involution and directly fixes 1,037 certified supports. No inference from experimental finite sampling to infinite fields is involved: the uniform geometry and finite combinatorial action imply the field statements.
+## correctness
 
-## Originality — PASS (provisional priority)
-Artebani–Dolgachev's Hesse geometry, Bauer–Funke–Neumann's general chamber correspondence, Bauer–Schmitz's counting method and the published 50,165 Hesse chamber support classification are prior work and excluded from the new claim. The closest public Hesse-result full text was read and explicitly limits itself to geometric support counting, not orbits or Frobenius descent. Targeted mathematical record, literature, and accessible historical-claim searches revealed no matching eleven-class table or 1,037 finite-field count. Historical priority cannot be conclusively certified, and an unindexed earlier tabulation is a residual risk.
+PASS
 
-## Mathematical value — PASS
-The Hesse surface is a classical extremal elliptic surface with a finite, geometrically distinguished set of negative curves. The classification describes the arithmetic descent of large-divisor Zariski chambers, determines 11 distinct conjugacy-type profiles and the two natural symmetry orbit totals, and yields a concrete arithmetic reduction from 50,165 to 1,037 chambers over finite fields without cube roots of unity. The exact distinction is not contained in the previous geometric support polynomial or the generic counting algorithm.
+Adjunction with the nef fiber F=-K forces a negative curve to be a rational section of square -1 or a vertical component of square -2. Four I3 fibers give 12 components; the rank-zero section group has order 9 from the unimodular Néron–Severi lattice and discriminant 3^4 of the fiber root lattice. The nine exceptional curves exhaust the sections. The four exclusions are necessary by non-negative-definite principal submatrices (the I3 triple, the two types of three-vertex chains, and the chain with two terminal sections); otherwise each connected block has positive definite negative intersection form. Independently enumerating unions of point and line permutation cycles, with each occupied parallel class admitting at most one selected incident section and all multiply incident section points excluded, reproduces all 11 class sizes and the complete fixed-size table in the frozen JSON. The two Burnside sums are 103248 and 64584, giving 239 and 299. In the nonsplit standard model inversion of cube roots fixes exactly one base point on each coordinate axis and swaps the other six points in three pairs. It is the reflection class, for which the independent count is 1037. To make the descent argument explicit: for a stable negative support with intersection matrix M and a rational ample A, solve (-M)c=(A·C_i)_i. Positive definiteness and nonpositive off-diagonals of -M give c_i>0 (test the negative part of c against the system). The resulting P=A+sum c_i C_i is big nef, orthogonal to exactly the support; the coefficients are constant on Frobenius orbits. Add the reduced support to P to obtain a rational big divisor with precisely the desired negative part. This justifies the rational-chamber interpretation, not just the finite permutation computation.
 
-## Sources and limitations
-Primary: Artebani–Dolgachev, arXiv:math/0611590; Bauer–Funke–Neumann, arXiv:0912.0958; Bauer–Schmitz, arXiv:1204.4373. Closest prior: 2026-11-08 published Hesse support classification. This result concerns the full affine **incidence** group, not a claim of 432 complex projective automorphisms; the standard finite-field corollary assumes characteristic at least five. The arithmetic forms of arbitrary affine types are conditional, and independent mathematical validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The geometric support count, incidence criterion and projective Hessian symmetry are known, as the frozen record acknowledges. The supported distinction is the Hesse support action, with the full distribution by support size for each affine class, both orbit censuses, and the nonsplit chamber count. The strongest matching same-day record counts fixed graph Jacobian groups rather than fixed negative supports. General support enumeration and the older ordinary generating polynomial do not provide the classwise enumeration; the identity row alone is old.
+
+## value
+
+PASS
+
+The ordinary Hesse census cannot answer how many supports survive an arithmetic action or identify chamber orbits under the natural symmetries. The classwise data answer both questions and distinguish finer fixed-support distributions even when totals coincide. The exact nonsplit count for the standard pencil is a concrete geometric use of this complete finite classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

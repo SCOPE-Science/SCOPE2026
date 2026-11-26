@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The grounded cone Laplacian is \(I+L_{Q_n}\), and the tensor heat kernel supplies a positive radial resolvent. The differences of successive radial potential levels, and their first differences, are strictly positive. This fixes all absolute-current signs. Two exact binomial moments equal \(1/3\) and \(1/5\) and give the complete spoke/cube current sums. The diagonal-resistance calculation yields the cycle projector columns; exact low-dimensional comparisons and a strict lower bound give the sharp dimension-five transition for every integer \(n\ge2\). A standalone exact-rational checker verified the corresponding spectral formulas and grounded graph systems. No finite experiment is substituted for the all-dimensional proof.
+## correctness
 
-## Originality — PASS, with residual bibliographic risk
-The closest directly relevant primary theorem is the ordinary Hamming-cube endpoint cut-projection norm in Dilworth–Kutzarova–Ostrovskii (2023, arXiv:2305.12582v1, Theorem 45). Its ordinary cube has no apex spokes and no two-orbit optimizer comparison. Schild–Rao–Srivastava (2017, arXiv:1708.01632v1) and Gurel-Gurevich–Nachmias–Sachdeva (2026, arXiv:2605.24130v1) give broad transfer-current bounds, not the exact coned-cube classifications. Semantic research-index queries and targeted source searches identified no stronger covering exact theorem, but no absolute uniqueness or exhaustive prior-art guarantee is claimed. An inaccessible graph-joins resistance article and less-indexed electrical tables remain possible routes to an equivalent formula.
+PASS
 
-## Mathematical value — PASS
-The theorem classifies two canonical Banach endpoint operator norms over an infinite graph family, proves a strict edge-orbit switch, and quantifies when adding a universal vertex changes from increasing to decreasing the cut norm. The exact average absolute electrical-current sum shows logarithmic growth with the graph's vertex count. These mutually reinforcing structures provide the motivation, rather than novelty of a bare isolated number.
+Ground the apex: the cube potential for a unit incidence demand is obtained by (I+L_cube)^(-1). In the product heat-kernel integral set s=e^(-t); each coordinate contributes (1±s²)/2, with one replaced factor s² for a first radial difference and two for a second difference. Both differences are strictly positive. Summing over the free coordinates leaves integrals 1/3 and 1/5, respectively. A spoke demand has total spoke flow 1 and cube current sum n/3. A cube-edge demand has potentials ± the first radial differences; the spoke and parallel cube-edge sums are each 2/3, and the perpendicular sum is 2(n−1)/5. Thus the cut columns differ by (n−1)/15>0. Their diagonal entries are a_n and 2(1−a_n)/n from the grounded vertex equation. Complementation changes each sum by 1−2 times its diagonal (the diagonal is in [0,1]). The exact a_n values 7/15, 12/35, 83/315, 146/693 give cycle differences −1/15, −2/35, −1/105, 28/495 for n=2,3,4,5. For n≥6, the strictly positive r_1 in (n+1)a_n−nr_1=1 gives the positive lower bound (n−1)/15−2/(n+1). These signs prove the strict orbit claims in all dimensions. The 2:n orbit weights give the displayed mean; the verified DKO benchmark gives the sign reversal by subtraction. Symmetry gives the ℓ¹ and ℓ∞ equality. The supplied checker and recorded finite ranges were inspected, not run; the all-dimensional proof does not rely on them.
 
-## Limitations and status
-The norms concern real unweighted canonical Euclidean-orthogonal projections, not optimal arbitrary projections. Weighted variants and intermediate \(\ell_p\) operator norms are outside the statement. The checker is finite corroboration; historical coverage remains subject to bibliography limits.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the exact coned-cube calculation (including the cycle edge-orbit switch and signed comparison with the unconed cube). Ordinary-cube projection norms, the general transfer-current representation, the logarithmic average upper bound, and orbit switches on other graph families are prior input/comparisons. No material implication of the coned-cube formulas was found in those statements.
+
+## value
+
+PASS
+
+Coning is a natural test of how a universal shortcut changes electrical-flow localization. The exact complementary norms distinguish where the largest columns occur, reveal a sharp dimension cutoff, and show that the added spokes need not increase the cut norm. The mean provides a transparent exact logarithmic-growth example despite a universal apex; none of these interpretations requires minimality among nonorthogonal projections.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:43:38.555669Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Uniform marks hit a given j-set with probability q_j, so each label has finite stationary age and independent Brownian increments conditional on the ages with variances 2DA_i. The marked-Poisson void exponent for arbitrary age thresholds is r times the mean over marks of the maximum touched threshold. Convexity and exchangeability give the lower bound rq_j/j times the sum of thresholds; exchangeable hit-count increments q_j−q_{j−1}=q_1 (N−m)_{j−1}/(N−1)_{j−1} (falling factorials) are nonincreasing, so the bound with c=rq_k/k applies for each subset of tags. Expanding the exponential moment into nonnegative orthant integrals gives finiteness for 0<θ<c, with nonpositive θ automatic. The event of no tagged hit for s/k units has probability exp(−cs) and implies the age sum exceeds s up to a null boundary, so the moment diverges at and above c. Independently, scanning backward until the next hit of the j unresolved labels gives a waiting time Exp(rq_j), independent of the hit mark, and adds j times that wait to the age sum before removing hit labels. This recursion also gives finiteness exactly when θ<min_{j reachable}rq_j/j=c; initial j=k is always present. It reproduces the stated pair transform, with rates for hitting one particular label only λ₂−λ₁ and for hitting both 2λ₁−λ₂. For the excursion, conditional Gaussian tails plus Cauchy–Schwarz bound the probability by 2^k E exp(−k²z²/(4DS_k)); the finite age moment and AM–GM give exponential rate at least k sqrt(c/D). With a common age floor az, the probability is bounded below by exp(−rq_kaz) times erfc(sqrt(z/(4Da)))^k. Optimization of rq_ka+k/(4Da) matches the upper probability bound on the logarithmic scale. This uses fixed N,m,k,r,D and no first-passage interpretation. Finally the exact falling-factorial sum for q_k/q_1 has nonincreasing terms in m and a strictly decreasing j=1 term for k≥2; it gives precisely the endpoint ratios k and sqrt(k). An independently written rational calculation using literal subset marks and the backward-cover recursion (`python3 -B /workspace/branches/bounded_review_checks.py 5`) checked hit counts, strict normalized order and age transforms for N=2 through 10; the frozen floating-point and quadrature script was inspected, not executed. The finite checks are not used to prove the asymptotics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Eq. (2) of the source paper has a triangular recursion for the Fourier marginals, broader in distributional scope than a tail rate. The discussion notes that exact partial-batch solutions are possible in principle but cumbersome.",
+          "The fully simultaneous model of arXiv:2509.06658 has an explicit shared-time stationary mixture. The two contrasting models of arXiv:2205.10273 are independent and farthest-particle resetting.",
+          "The retrieved shock literature discusses multivariate exponential dependence and its extensions. No decisive joint tail theorem for independent Gaussian increments with these heterogeneous shock ages was established from the scoped search."
+        ],
+        "reasoning": "A known full or recursively obtainable joint law is substantial overlap. Its extraction of an exact orthant rate at fixed arbitrary k still needs an age/large-deviation argument and both bounds. The cited common-time mixture already explains m=N; independent thinning explains m=1. Neither is partial uniform resetting.",
+        "searches": [
+          "Primary shock/Gaussian-mixture asymptotics lookup (Marshall–Olkin and shared Poisson shocks)",
+          "arXiv:2601.20077 Eq. (2) and the stationary construction",
+          "arXiv:2509.06658 model Eq. (4), p. 9 mixture, and conclusion",
+          "arXiv:2205.10273 pp. 1–2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2601.20077 main and supplemental passages",
+        "arXiv:2509.06658",
+        "arXiv:2205.10273",
+        "arXiv:2004.11241v1",
+        "JSTOR 2282907 (publisher access attempt only; no primary passage obtained)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact pair density is prior coverage of the underlying distribution; the retrieved large-distance connected pair-density statement concerns G(0,v) in a large-N treatment, one coordinate at the origin, not two simultaneous absolute excursions at finite fixed N.",
+          "The source describes nonmonotone covariance amplitude in m for N>6. Normalized equal-threshold rates depend on q_k/q_1, a different quantity.",
+          "A classical shock representation supplies the age vector, but the excursion result requires balancing the cost of the common lower age floor against the independent Gaussian fluctuations and proving that asynchronous ages cannot lower the rate."
+        ],
+        "reasoning": "Covariance nonmonotonicity neither implies nor contradicts normalized orthant monotonicity. Age survival by itself does not determine excursion asymptotics without the Brownian step; the known exact pair law can also yield asymptotics by analysis but is not an all-k theorem incorporating them. No stronger already-evaluated result was established with these same premises and conclusions.",
+        "searches": [
+          "arXiv:2601.20077 supplement §S3 Eqs. (S32),(S36), and §S8 Eqs. (S88)–(S94)",
+          "arXiv:2601.20077 Eq. (16) and Fig. 2",
+          "arXiv:2004.11241v1 §1; Marshall–Olkin original-paper access attempt"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Poisson thinning by reset mark gives independent exponential backward first times for each exact shock type; the tagged ages are their componentwise minima, the classical Marshall–Olkin law. Equation (1.1) of arXiv:2004.11241v1 explicitly presents this construction for a pair.",
+          "The source batch-reset model gives exact two-point positional data; the stated theorem integrates an absolute orthant in which every tagged coordinate exceeds the same moving threshold."
+        ],
+        "reasoning": "An age survival law is equivalent to the shock minima distribution, not to the tail of the Gaussian mixture of those ages. The two-point position law materially overlaps and could be analyzed for k=2, but the full claim includes all tagged subsets and strict batch normalization.",
+        "searches": [
+          "Marshall Olkin multivariate exponential shared Poisson shocks Gaussian variance mixture joint equal-threshold tail asymptotic multivariate normal exponential ages Brownian batch resetting joint excursion large deviations",
+          "arXiv:2004.11241v1 §1 (1.1)",
+          "arXiv:2601.20077 stationary marginal hierarchy and supplement §S3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No local published-catalog endpoint or mirror records were available for independent exact comparisons. The inspected model paper reports exact pair distributions and covariance plots, not an all-k table of normalized orthant decay rates."
+        ],
+        "reasoning": "The relevant exact summary would have to use equal moving absolute thresholds for each tagged label at fixed finite N. A table or figure of covariance versus m, or a finite-z numerical example, is not that quantity. Local access failure is not a negative catalog result.",
+        "searches": [
+          "Local published-catalog resource discovery",
+          "Source arXiv:2601.20077, stationary covariance Eq. (16), Fig. 2 and exact pair density §S3",
+          "Targeted primary shock/Gaussian-mixture lookup"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the equal-threshold fixed-finite-N all-k excursion rate and the strict normalized comparison for uniform partial batches. The marked-age law itself is a classical shock-model law and the positional hierarchy and exact two-point distribution are prior work. The claimed Gaussian-mixture logarithmic orthant asymptotic and its batch ordering are not stated by those results in the inspected material; in particular a positional Fourier recursion or the domain of its exponential moments does not by itself provide the matching joint lower tail bound. The auxiliary moment threshold is an exact extraction from the known shock-age structure, not a claim to have introduced that structure or its fully synchronized endpoint.",
+      "residual_risks": [
+        "The stationary Fourier hierarchy and known multivariate exponential/shock theory enable further implicit extractions. A general theorem for these correlated-variance Gaussian mixtures or an uninspected positional asymptotic may subsume all or part of the result.",
+        "No local published-catalog comparison was possible. The bounded search and scope distinctions are not a proof of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior hierarchy and exact pair density; inspected large-distance comparator is a different event",
+          "evidence": [
+            "Lower/equal marginal orders suffice for the Fourier recursion; the two-point positional density is given explicitly. In §S8 the evaluated connected pair asymptotic is at (0,v)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2601.20077",
+          "material_read": "Main pp. 2–4, Eq. (2) discussion (offsets 12000–17785), Eq. (16) and Fig. 2; supplement §§S3 and S8, Eqs. (S32),(S36),(S88)–(S94) (offsets 86500–92350 and 127700–133000)",
+          "method": "Bounded open-access passages including supplement",
+          "title": "Tuning the strength of emergent correlations in a Brownian gas via batch resetting",
+          "trigger": "Identical stochastic model and strongest prior position laws"
+        },
+        {
+          "assessment": "Simultaneous all-particle reset model, so endpoint overlap rather than partial batches",
+          "evidence": [
+            "All N particles reset together; stationary positions are conditionally IID at a common random elapsed time."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2509.06658",
+          "material_read": "Model Eq. (4), p. 4; mixture p. 9; conclusion p. 27",
+          "method": "Bounded open-access PDF passages",
+          "title": "Dynamically emergent correlations in Brownian particles subject to simultaneous non-Poissonian resetting protocols",
+          "trigger": "Same common-age endpoint and stationary positional extremes"
+        },
+        {
+          "assessment": "Inspected models select independently or by extremal position, not a uniform partial batch",
+          "evidence": [
+            "Distinguishes independent resets from resetting the farthest particle."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2205.10273",
+          "material_read": "pp. 1–2, offsets 6500–11007",
+          "method": "Bounded open-access PDF passages",
+          "title": "Fluctuations and first-passage properties of systems of Brownian particles with reset",
+          "trigger": "Competing Brownian reset models and excursion questions"
+        },
+        {
+          "assessment": "Confirms classical pair shock-minimum construction; the extension described there is about dependence of exponential variates",
+          "evidence": [
+            "For independent exponential shock times T₁,T₂,T₁₂ the classic pair is (min{T₁,T₁₂},min{T₂,T₁₂})."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2004.11241v1",
+          "material_read": "Abstract and §1 introduction, Eq. (1.1), offsets 0–4200",
+          "method": "Bounded open-access HTML passage",
+          "title": "Marshall-Olkin exponential shock model covering all range of dependence",
+          "trigger": "Equivalent shock-age representation and possible general coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result isolates a large-excursion observable whose marginal-normalized rate orders every batch size even though covariance amplitude may behave differently. It identifies the common reset hiatus as a sharp mechanism for simultaneous rare displacements and provides a precise diagnostic for all k at finite N, not just a fit at one threshold. It does not claim a prefactor, a first-passage law or a large-N uniform limit.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

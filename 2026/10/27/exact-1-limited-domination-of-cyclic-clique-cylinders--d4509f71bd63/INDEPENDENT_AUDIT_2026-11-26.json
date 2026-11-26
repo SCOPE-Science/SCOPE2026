@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:24:43.521761Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On a cycle a total dominating word with omissions has selected runs of length at least two and omission runs of length at most two. Their counts are equal; equality of selected and omitted totals therefore forces every run to have length two, i.e. 4|n. The four displayed constructions attain H=⌊n/2⌋+1_(4∤n), including n=3, and imply H≤2n/3 and H≤n/2+1. Filling precisely the fibres over a minimum total dominating word gives the upper bound. Within any nonempty fibre a selected vertex sees all omissions there, so occupancy is 0, m−1 or m. With no zero fibres the size is at least (m−1)n≥mH; with no partial fibres the selected fibre indices must totally dominate the cycle. In the mixed case a zero cannot touch a partial, and a full touching a zero cannot touch a partial on its other side: its vertex of the omitted coordinate in the partial would have two outside neighbors. Zero runs have length at most two by domination, and the complementary runs have at least two full fibres. Any complementary run containing a partial has two distinct full fibres at each end (the first and last partial are strictly between them). Thus f≥2b+2≥z+2 for b zero runs and |D|=mn/2+(m/2)(f−z)+(m/2−1)p≥m(n/2+1)≥mH. The argument uses distinct cycle neighbors even at n=3. For the width-two witness select one of the two length-six rows; its vertical matching gives exactly one outside neighbor per selected vertex and dominates the other row. Any feasible set has size at least half the order by counting crossing edges, so 6 is optimal and 2H=8. The checker's code and frozen output were inspected, not run; the exact-subset and transfer tests are finite corroboration. The broken inline rendering of the floor formula in the proof does not change the correctly displayed formula or missing any argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tepeh's general product lower bound is ⌈mn/2⌉ at k=1 and upper bound is at most mγ_1^L(C_n). Corollary 8 identifies the latter factor γ_1^L(C_n) with the four-periodic total domination formula. Proposition 6 of Tepeh treats a special rook product, and the conclusion asks about equality of the product upper bound in general."
+        ],
+        "reasoning": "The bounds meet exactly in the claimed family when 4|n, but are separated when 4∤n and m≥3. The stronger general bounds therefore cover one residue class and the upper bound everywhere, not the remaining lower bound.",
+        "searches": [
+          "Tepeh arXiv:2606.22428v2, Theorem 7, Proposition 6 and conclusion",
+          "Božović et al., Corollary 8"
+        ]
+      },
+      "checked_sources": [
+        "Božović et al. Corollaries 7–8",
+        "Tepeh arXiv:2606.22428v2",
+        "Resultary 3f6b93fa9eef, 4d83cdec888e, 58fa50f7a7be, e28e5da49d34, c69eac233aa9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The triangle and divisible-by-four values follow directly. In all remaining classes Tepeh's lower bound is smaller than the claimed result. There is no mixed zero/partial fibre-run estimate in the cited general bounds."
+        ],
+        "reasoning": "One must rule out partial fibres improving on the full-fibre upper construction; on cycles the excess of full over zero fibres in mixed configurations and the m≥3 threshold do so. The conclusion for these lengths is not a mechanical substitution into the cited estimates.",
+        "searches": [
+          "Tepeh Theorem 7 and conclusion; Božović et al. Corollary 8; Resultary 3f6b93fa9eef Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Božović et al. define (1,t)-domination by an outside-neighbor domination condition and at least t selected neighbors for every selected vertex. Corollary 7 identifies γ_k^L with γ_(1,d−k) on connected d-regular graphs."
+        ],
+        "reasoning": "The same invariant on this (m+1)-regular product is γ_(1,m). On C_n it is total domination. The known equivalence does not compute the product value. No pitchfork synonym was assumed without primary confirmation.",
+        "searches": [
+          "1-limited domination Cartesian cycle clique product, (1,m)-domination and pitchfork domination",
+          "Božović et al. DOI 10.1007/s40314-026-03902-2, Corollary 7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "3f6b93fa9eef gives exact γ_k^L(K_a□K_b)=min(a max(1,b−k),b max(1,a−k)), yielding 2m on C_3□K_m. 4d83cdec888e gives the width-two ladder formula n. Same-family hits 58fa50f7a7be, e28e5da49d34 and c69eac233aa9 concern Hodge norms, Rips homotopy and open packings respectively."
+        ],
+        "reasoning": "C_3 is K_3, so the first is a genuine covered all-width special case. The second establishes the point outside the width hypothesis. The other hits use different invariants and do not count feasible 1-limited dominating sets.",
+        "searches": [
+          "Resultary: limited domination Cartesian product C_n square K_m cycle-clique cylinder and (1,m)-domination; exact-product queries including matching date terms"
+        ]
+      },
+      "rationale": "Bounded pass for the uniform exact lower bound at n≥5 with 4∤n, for all m≥3. The n=3 rook subcase and the 4|n subcase are already covered, as are the factor formula and upper bound. The width-two example is a boundary witness, not a novelty claim. None of the inspected stronger statements gives the equality for the remaining cycle lengths. The fibre-run count provides the additional argument.",
+      "residual_risks": [
+        "Related limited-domination results under other terminology or nonindexed exact product classifications may exist. The targeted external search's lack of additional results is not evidence of absence; the assessment rests on the original statements compared."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact factor result and equivalent formulation, not the product count",
+          "evidence": [
+            "γ_k^L=γ_(1,d−k) on connected d-regular graphs; cycles have γ_1^L=⌊n/2⌋+⌈n/4⌉−⌊n/4⌋."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s40314-026-03902-2",
+          "material_read": "pp. 7–8, (1,t) definition and Corollaries 7–8",
+          "method": "Original paper text, statement and parameter comparison",
+          "title": "On k-limited domination in graphs",
+          "trigger": "Exact cycle factor formula and alternative domination terminology"
+        },
+        {
+          "assessment": "Upper bound and one covered residue class, not the complete family",
+          "evidence": [
+            "For k=1 the lower bound is half the order rounded up; the upper bound is the smaller of the respective factor-based constructions. The conclusion asks when the upper bound is exact."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.22428v2",
+          "material_read": "Proposition 6 p. 8; Theorem 7 p. 9; conclusion p. 14",
+          "method": "Original OA PDF text and bound substitution",
+          "title": "On k-limited domination: complexity and Cartesian products",
+          "trigger": "General Cartesian-product theorem potentially implying the equality"
+        },
+        {
+          "assessment": "Exact n=3 overlap for all m≥3",
+          "evidence": [
+            "The rook formula specializes with k=1 and a=3 to min(3(m−1),2m)=2m."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-exact-limited-domination-and-low-capacity-rigidity-for-rectangul--3f6b93fa9eef",
+          "material_read": "RESULT.md Finding",
+          "method": "Indexed lookup and local mirror comparison",
+          "title": "Exact limited domination and low-capacity rigidity for rectangular rook graphs",
+          "trigger": "Exact special case C_3=K_3"
+        },
+        {
+          "assessment": "Exact width-two calculation outside the main theorem",
+          "evidence": [
+            "The 1-limited domination number of C_n□K_2 is n; at n=6 this gives the stated counterexample to multiplicativity."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-complete-one-limited-domination-polynomial-of-circular-ladders--4d83cdec888e",
+          "material_read": "RESULT.md Finding",
+          "method": "Indexed lookup and local mirror comparison",
+          "title": "Complete one-limited domination polynomial of circular ladders",
+          "trigger": "Width-two boundary and potentially broader exact product count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This identifies a uniform equality family for a stated Cartesian-product bound and explains why partial fibres cannot beat the total-domination construction even when the universal lower bound leaves a gap. The nonzero residue classes, unrestricted clique widths and width-two boundary make this a structural exact invariant rather than a small table or the re-expression of the cycle value alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

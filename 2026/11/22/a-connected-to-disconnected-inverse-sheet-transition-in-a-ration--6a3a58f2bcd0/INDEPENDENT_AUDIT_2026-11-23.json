@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T16:57:03.732610Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Assessed the readable complete finding in /workspace/repairs/3/RESULT.md. Frozen RESULT.md contained 11 form feeds, three carriage returns and seven tabs where TeX commands had been interpreted as control escapes, and a split w≠0 condition. The repair restores the equations, specifies the fold condition and excludes the ordinary Whitney cusp interpretation. For c≠0 the affine changes reduce the map to (w,H), with the source and target coordinate changes of opposite orientation, so the original determinant is -H_y. A fibre is exactly the zero set of the cleared monic cubic (the clearing factor never vanishes for real y). Bounded image forces bounded w, so an escaping subsequence would have |x|,|y|→∞ and unbounded first image coordinate. The strict convexity in the proof is Q''>0, not the self-audit's Q>0. Together with Q(0)<0 it gives two simple roots of opposite signs, and H''≠0 there proves ordinary folds. The monotonicity intervals give the whole 1/2/3 classification and Jacobian signs (+,-,+) or (+), hence degree +1. Interpolating between ordered folds gives the one strip. At a=-1 the two fold values are 0 and q(w)^3/2 with q^3+3q=2w, so there is one connected open region over each sign of w and none over zero. At the pinch the cubic is y^3 and the differential of the determinant vanishes, which rules out an ordinary Whitney cusp. The expansions give width 4|w|^3/27+O(|w|^5) at the pinch and 4δ^(3/2)/(3√3)+O(δ^(5/2)) for the opening on w=0. I checked the repaired control bytes (none remain) and independently used symbolic differentiation/expansion and exact root isolation in SymPy; the seven explicit rational cases and expected multiplicities are reproduced in the corrected finding, using Poly(P,y).intervals() after substituting those triples. These sample fibres are not the general proof. The source checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-map result's reduction divides by A(y)=1+a/(1+y²)>0. This condition fails at the transition and below it. Tikjha–Muni's rational planar-map comparison has a different recurrence; shared fold or noninvertibility terminology is insufficient."
+        ],
+        "reasoning": "Standard fold theory gives the local two-to-zero change of the pair of branches but does not supply the number or ordering of critical values for all w or cover the degenerate triple point. The complementary formula is not a more general theorem applied at a different parameter.",
+        "searches": [
+          "Resultary dce0a6248844, reduction and range of a",
+          "Primary rational-map comparisons DOI 10.1088/1674-1056/ac4025 and 10.1007/s40435-025-01673-y"
+        ]
+      },
+      "checked_sources": [
+        "Zhang et al. publisher full HTML and publisher article record, DOI 10.1088/1674-1056/ac4025",
+        "Full Resultary comparison dce0a6248844",
+        "Tikjha–Muni DOI 10.1007/s40435-025-01673-y, model comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At a=−1, A(0)=0 and y=0 is a solution along the entire z=0 line; for a<−1, A has two zeros. Dividing by A loses such solutions. The quartic has two simple roots for all w below the transition, whereas at the transition its factors yield coincident critical values at w=0."
+        ],
+        "reasoning": "Generic cubic discriminant signs only label individual fibres; proving the shape of their locus, degenerate membership and the two width exponents requires the model-specific monotonicity and expansion. Leading forward behaviour or the complementary classification cannot give these facts by substitution.",
+        "searches": [
+          "Publisher Eq. (1) versus the inverse cubic and the quartic derivative test",
+          "Resultary dce0a6248844, positivity hypothesis versus the zero set of A"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The map is exactly the one in Eq. (1), including the y+cx+d coordinate. The three-sheet criterion is equivalent to positivity of the real cubic discriminant, but fixed-point counts in the originating paper set the image equal to the source and are not the discriminant partition for freely varying targets.",
+          "The complementary record concerns inverse multiplicity, i.e. the same observable, but assumes the strictly positive horizontal factor of the a>−1 regime."
+        ],
+        "reasoning": "A target discriminant, critical-value caustic or backward ambiguity formulation would count as equivalent. Neither inspected same-map analysis covers that partition and topology for a≤−1.",
+        "searches": [
+          "Resultary: Zhang rational planar map inverse fibres, critical values, degree, cusp and folds; same-map hit dce0a6248844",
+          "Zhang et al. DOI 10.1088/1674-1056/ac4025, publisher Eq. (1) and parameter sections"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Publisher figures at relevant parameters concern forward attractors and basins, not exact inverse-count sectors or their widths. The available exact same-map inverse classification is in the complementary positive-factor regime."
+        ],
+        "reasoning": "Simulations at the same parameter do not encode the target partition or the all-w counts. No inspected table supplies the global partition plus the critical section formulas.",
+        "searches": [
+          "Zhang et al. publisher case studies and figures for a=−3 and a=−1",
+          "Resultary same-map inverse-fibre comparison dce0a6248844"
+        ]
+      },
+      "rationale": "Best of knowledge for the corrected a≤−1 theorem. The map, standard cubic and fold methods, and an inverse study in the complementary a>−1 regime are antecedents. The surviving contribution is the global three-preimage topology on and below the singular parameter and its two exact width laws; it is not a claim to have introduced the map or cubic root classification.",
+      "residual_risks": [
+        "Unindexed or differently named inverse analyses may exist; no priority certificate follows from the searches.",
+        "The originating article's accepted-manuscript and issue dates are distinct; the comparison rests on the contents, not on resolving every publisher date display."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines the identical map, but the inspected analysis is not a classification of distinct preimages throughout the target plane",
+          "evidence": [
+            "Eq. (1) matches both coordinates. Cases with a=−3 and a=−1 report forward dynamical behaviour."
+          ],
+          "identifier_or_url": "https://cpb.iphy.ac.cn/fileCPB/journal/article/cpb/html/2022/1674-1056/cpb_31_3_030503.shtml (DOI 10.1088/1674-1056/ac4025)",
+          "material_read": "Publisher full HTML: map definition, fixed-point and forward-dynamics sections, case studies and figure captions",
+          "method": "Compared the recurrence in Eq. (1) and which sets are classified at the matching parameters",
+          "title": "A class of two-dimensional rational maps with self-excited and hidden attractors",
+          "trigger": "Exact originating map, with overlapping parameter values"
+        },
+        {
+          "assessment": "Same observable in a complementary regime, not a stronger statement",
+          "evidence": [
+            "Division by A(y)>0 is used and excludes the vanishing factor at the central target line."
+          ],
+          "identifier_or_url": "Resultary dce0a6248844",
+          "material_read": "Full result, reduction and parameter scope",
+          "method": "Compared denominator conditions and checked their failure at and below −1",
+          "title": "Same-map inverse-fibre calculation for a>−1",
+          "trigger": "Inverse-count result for the same map that could pre-empt the claim"
+        },
+        {
+          "assessment": "Different map, not found to dominate the inverse calculation for this one",
+          "evidence": [
+            "The model does not match Zhang et al.'s Eq. (1)."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s40435-025-01673-y",
+          "material_read": "Available model identification; not used for a negative whole-paper assessment",
+          "method": "Compared the map under study with Zhang et al.'s recurrence",
+          "title": "Tikjha–Muni rational-map comparison",
+          "trigger": "Related rational planar-map search hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a global inverse ambiguity classification for a concrete map already studied at and on both sides of the parameter boundary. It tells a reader exactly which targets have multiple distinct backtraces and where the fold curves cease to bound a single strip. The critical point is degenerate, so a routine ordinary-cusp description would miss the exact two-component geometry and the different cubic target and 3/2 parameter scalings. No downstream result for entire basins or forward chaotic dynamics is presumed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:31:24.510869Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An independent chart check uses the partition constraints: group {1,2} into a single part and treat the rest as singletons. The polytope has nonnegative coordinates, part sums at most 1, and total 2. This description is integral: its part-sum projection is the rank-two hypersimplex, and splitting the {1,2} sum between two coordinates lifts a convex combination of its vertices to a convex combination of allowed bases. At a vertex with both basis elements ≥3, the active constraints on differences give nonnegative row supplies −δ_i,−δ_j and nonnegative outside demands, with equal total. Integral transportation realizes every lattice point using complete bipartite exchanges. At the vertex {1,j}, the independent nonnegative coordinates for the supplies are −(δ_1+δ_2),−δ_j, with demands on [n] excluding 1,2,j; the extra coordinate δ_2≥0 is a unimodular free factor. This gives saturated chart semigroups D_{2,n−2} and A¹×D_{2,n−3}, with minors as the complete relation ideal (exchanging row assignments preserves the margins). On a nonzero matrix entry the determinantal cone is smooth, and the origin has tangent dimension 2q>q+1 for q≥2. The special factor is the primitive edge direction e_2−e_1: the two endpoint axes glue to P¹. Distinct edge orbit closures share no invariant vertex and hence no orbit. Segre degree gives multiplicity q. The cone is nonsimplicial (2q rays in dimension q+1), as is its product at the special endpoint; the transverse cone persists over the line's torus, so the non-Q-factorial support is exactly the singular support. At n=5, q=2 on the lines and q=3 at isolated points; for n=4 the line chart is smooth. The lattice and minor arguments are characteristic-free. Read but did not execute the frozen finite checker.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The older record gives disjoint strata Z_ij=P^{a_i−1}×P^{a_j−1}, vertex charts A^{a_i+a_j−2}×D_{2,m_ij}, multiplicity m_ij and local class group Z on the singular strata. Its integer marginal proof of the Segre chart uses no characteristic hypothesis, despite the stated base C.",
+          "The graph-edge-polytope smoothness result and affine edge-ring class-group work are adjacent but are not the same full pointwise description in the inspected material."
+        ],
+        "reasoning": "Specializing the general part sizes gives both orbit types. Smoothness off the apex and the simpliciality criterion also transfer without field restrictions. The older indexed theorem and its proof, not just generic toric background, cover the structure.",
+        "searches": [
+          "Resultary 99655ba7daaa, complete multipartite edge varieties",
+          "arXiv:0804.4287, Theorem 1.8",
+          "arXiv:2011.07714, abstract"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 99655ba7daaa, dc4319654b64 and e394d57d8945",
+        "arXiv:math/0411260",
+        "arXiv:math/0501246",
+        "arXiv:0804.4287",
+        "arXiv:2011.07714 abstract",
+        "doi:10.1215/ijm/1255984847 index/abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older multipartite record states that the disjoint Z_ij with m_ij≥2 exhaust the reduced singular support, and the local class group is Z there. The field-independent limit of the assertion follows directly from the same monomial ring presentation and toric simpliciality. The later three-class record concerns different part sizes."
+        ],
+        "reasoning": "For the specialized parameters all m_ij≥2. The size-two/singleton Z_ij is exactly the line with the two listed coordinate endpoints, and the singleton/singleton stratum is exactly the isolated fixed point. Local class group Z implies non-Q-factoriality there, while the complement is smooth. With q=2 at n=5 the same minors give the ordinary double point. No new gluing or local classification is needed.",
+        "searches": [
+          "99655ba7daaa, Finding and affine chart proof",
+          "e394d57d8945, three parallel classes, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The only missing pair in the rank-two basis graph is {1,2}. The graph of allowed edge monomials is K_{2,1,…,1}. Its edge polytope is P_n and the projective edge variety in the earlier record is normal."
+        ],
+        "reasoning": "The normality of the older edge-monomial model identifies it with this normal-fan variety. The difference in toric terminology does not change the geometric object.",
+        "searches": [
+          "Resultary: rank-two matroid one parallel pair, complete multipartite edge toric singular strata and Segre local charts",
+          "99655ba7daaa, Finding and proof, offsets 0 and 2358"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed classification gives m_ij=N−a_i−a_j. Pairing the size-two part with a singleton yields n−2 components with m=n−3; pairing singleton parts yields C(n−2,2) components with m=n−2. The nearby single-basis-deletion class-group record explicitly starts in rank 3."
+        ],
+        "reasoning": "The counts and types are already specified by an exact formula rather than a finite table; simple parameter substitution recovers all of them. The higher-rank deletion record is not the source of coverage.",
+        "searches": [
+          "Resultary: one deleted parallel-pair basis singular lines and isolated cones",
+          "99655ba7daaa, stated closed-form stratum and transverse multiplicity, offset 0",
+          "dc4319654b64, parameter range"
+        ]
+      },
+      "rationale": "The earlier complete-multipartite edge-toric classification in Resultary 99655ba7daaa gives this exact result after specializing the part sizes to (2,1,…,1), and more (pointwise chart, local class group and canonical class). It states its theorem over C; passing to an arbitrary algebraically closed field does not introduce a new singularity analysis here. The prior proof uses equal integer exponents, saturated marginal semigroups, solving the minors on nonzero entries, Segre degrees, and toric cones. All remain valid over the new field without a characteristic-sensitive step. The broader field statement is correct but does not leave a substantive distinct theorem under this comparison.",
+      "residual_risks": [
+        "The earlier multipartite record formulates its theorem over C; any claimed characteristic-dependent refinement beyond the displayed toric products would require a separate assessment.",
+        "The 2000 same-family article was not available in primary full text in the access attempted. Other older edge-ring localization results may also cover the charts. Neither access uncertainty nor search absence is the basis for failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong covering result over C and elementary characteristic-free chart proof; asserted field restriction recorded, not silently removed.",
+          "evidence": "Free ratios inside the two parts; outside p_w,q_w ratios with only minor relations proved by integer swaps; saturated equal-margin semigroup; disjoint Z_ij, smooth rank-one loci, and class group Z on singular strata.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-disjoint-segre-singular-strata-of-complete-multipartite-edge-tor--99655ba7daaa/RESULT.md",
+          "material_read": "Finding, scope and chart proof at offsets 0–4579; multiplicities/class groups and limitations in subsequent proof passages",
+          "method": "Bounded local-mirror statement and proof inspection",
+          "title": "Disjoint Segre singular strata of complete multipartite edge toric varieties",
+          "trigger": "General multipartite classification includes one two-element part"
+        },
+        {
+          "assessment": "Supplies basis-exchange/polytope background, not the classified strata in these passages.",
+          "evidence": "Matroid polytope edges are basis-exchange directions.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0411260",
+          "material_read": "§2, p. 3, offsets 9046 and 11001",
+          "method": "Bounded primary PDF inspection",
+          "title": "Matroid polytopes, nested sets and Bergman fans",
+          "trigger": "Matroid normal-fan and adjacency framework"
+        },
+        {
+          "assessment": "The inspected scope is triangulations of alcoved polytopes, not this local classification.",
+          "evidence": "Triangulation framework for alcoved families.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0501246",
+          "material_read": "§1, p. 1, offset 670",
+          "method": "Bounded primary PDF inspection",
+          "title": "Alcoved Polytopes I",
+          "trigger": "Relevant triangulations and matroid polytopes"
+        },
+        {
+          "assessment": "Simple/smooth classification rather than pointwise singular strata.",
+          "evidence": "Criterion for simplicity/smoothness in terms of the graph; does not state the Segre strata in that theorem.",
+          "identifier_or_url": "https://arxiv.org/pdf/0804.4287",
+          "material_read": "Theorem 1.8, p. 6, offset 18266",
+          "method": "Bounded primary PDF inspection",
+          "title": "Simple polytopes arising from finite graphs",
+          "trigger": "Potential general edge-polytope smoothness implication"
+        },
+        {
+          "assessment": "Rank-two excluded; not exact coverage.",
+          "evidence": "The allowed ranks are 3≤k≤n−3.",
+          "identifier_or_url": "2026/10/12/SCOPE-local-divisor-classes-and-canonical-boundaries-for-a-one-circuit--dc4319654b64",
+          "material_read": "Finding and scope, offsets 0 and 6936",
+          "method": "Bounded local-mirror inspection",
+          "title": "Local divisor classes and canonical boundaries for a one-circuit matroid",
+          "trigger": "Single-deleted-basis alias"
+        },
+        {
+          "assessment": "No whole-paper non-coverage claim; not the basis for the verdict.",
+          "evidence": "Indexed scope includes compressed edge polytopes and initial ideals; full-text local results remain unchecked.",
+          "identifier_or_url": "https://doi.org/10.1215/ijm/1255984847",
+          "material_read": "Bibliographic/abstract material only; lawful full-text attempt did not succeed",
+          "method": "Landing-page and access check",
+          "title": "Compressed polytopes, initial ideals and complete multipartite graphs",
+          "trigger": "Older same-family edge-polytope source"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The minimal parallel-pair example is geometrically well motivated, but as a separate finding its component counts and transverse types are routine substitutions in a known exact multipartite classification. Extending the same integer-exponent, minor and toric-cone computations to arbitrary characteristic supplies no new obstruction, geometry, or nontrivial bound. The worked example could be useful as an illustration of the general result, not a distinct research contribution.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

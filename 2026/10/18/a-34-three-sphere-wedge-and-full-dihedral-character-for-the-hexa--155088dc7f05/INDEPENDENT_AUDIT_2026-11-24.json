@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:58:11.035616Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the specified C₁₂², a face is exactly a set whose selected neighbor degree is at most one. An independent reimplementation, reading matching_pairs.json as data but not executing the supplied code, obtained the same face set by degree and forbidden-triple tests (48 forbidden triples, f-vector (12,66,172,207,60,4), 521 nonempty faces). It checked all 243 disjoint matching pairs as genuine covers, reconstructed all 1800 covers, and topologically sorted all 521 vertices after reversing the matched edges. The critical inventory is one vertex and 34 tetrahedra. Discrete Morse theory gives a CW complex with just one 0-cell and 34 3-cells, attached to the point, so the integral wedge follows without relying on mod-two Betti numbers. Distance-one edges have two common neighbors, distance-two edges one, so automorphisms preserve the 12-cycle and conversely its full dihedral group preserves the graph. On oriented chains only setwise fixed faces contribute, with the sign of the induced permutation. The independent ordinary alternating chain traces are (−33,0,0,3,0,0,−9,0,0,3,0,0) for r^k and −3 for every reflection. With H₀ trivial as a representation and only reduced H₃ remaining, χ=1−L gives the stated character, invariant dimension 4 by averaging, and eigenspace dimensions 22 and 12 by the involution trace at r⁶. The frozen code indexes reflections by i↦k−i instead of i↦−i−k for sr^k; this permutes the indexing and all reflection entries coincide. Read the frozen proof, verification files and recorded outputs. Independent replay: python3 /workspace/branches/fba23a5f-4f29-415b-b545-00f97c020ca3/independent_check.py; the neighboring independent_check_output.json reports the full exact finite output. This validates the supplied matching, not its independent discovery; the homotopy conclusion is not an explicit collapse onto a wedge subcomplex.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The chordal-graph theorem fails its hypothesis: vertices 0,2,4,6,8,10 induce C₆. The tree theorem also does not apply. A complete multipartite graph of order 12 and degree 4 would have all parts of size 8, impossible. Resultary 7acd5abb7cf0 instead covers the full C_n² family but gives nonvanishing and an Euler recurrence/lower bound. The focused primary-literature lookup had no hits, not a definitive exclusion."
+        ],
+        "reasoning": "The three primary theorems cannot imply this instance because of their hypotheses, and the strongest same-family indexed theorem does not determine the kind of invariant claimed here.",
+        "searches": [
+          "arXiv:2001.06775 Theorem 3",
+          "arXiv:2605.25150 abstract",
+          "arXiv:2607.05358 Theorem 1.1",
+          "Resultary 7acd5abb7cf0",
+          "\"two-independence\" \"squared cycles\" homotopy OR \"P3-free complex\" \"C_n^2\" wedge spheres"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2001.06775",
+        "arXiv:2605.25150",
+        "arXiv:2607.05358",
+        "Resultary 7acd5abb7cf0, 44558ff5465a, 64bc4bbd8086, 4f9a6d703b87 and 4c2e62e7422d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The recurrence computes Z₁₂=Z₇+2Z₆+Z₅=8+20+6=34, equivalent to reduced Euler characteristic −34. It explicitly does not identify the homological degrees. A generic wedge result, even if it applied, would not supply all dimensions or a character."
+        ],
+        "reasoning": "Euler characteristic by itself detects neither degree concentration nor torsion nor homotopy type. It says nothing about traces of nonidentity group elements. The acyclic matching and signed Lefschetz computation supply precisely these missing data.",
+        "searches": [
+          "Resultary 7acd5abb7cf0, Finding and recurrence at n=12",
+          "arXiv:2001.06775 Theorem 3 and arXiv:2607.05358 Theorem 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The hexagonal antiprism is C₁₂² with the stated distances. The higher-independence definition using connected components agrees with the three-path-free complex of that graph, provided P₃ denotes a subgraph and need not be induced. A triangle is therefore forbidden as well."
+        ],
+        "reasoning": "This is not ordinary independence of a cycle or its square, nor a matching complex on edges, nor the complex excluding only induced P₃. These distinctions affect the indexed comparisons.",
+        "searches": [
+          "Resultary meaning searches for Ind₂(C₁₂²), higher independence of powers of cycles, three-path-free antiprism and the full D₁₂ character",
+          "arXiv:2001.06775 abstract",
+          "arXiv:2607.05358 Definition 2.8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact 34 arising in the family recurrence is the signed face sum at n=12. The same graph in 44558ff5465a instead gives a 19-sphere result for a perfect-matching complex. The same-day 64bc4bbd8086 gives a 32-sphere higher-independence result on the cuboctahedral graph; 4f9a6d703b87 treats pentagonal antiprism matchings. The distinct icosahedral graph is treated in 4c2e62e7422d."
+        ],
+        "reasoning": "None of these comparisons transfers the assigned integral homotopy or rational representation. Same-day records are compared on objects and statements, not ranked by date.",
+        "searches": [
+          "Resultary searches for the exact antiprism squared-cycle type and dihedral character",
+          "Resultary 7acd5abb7cf0, 44558ff5465a, 64bc4bbd8086, 4f9a6d703b87 and 4c2e62e7422d"
+        ]
+      },
+      "rationale": "The supported distinct finding is the exact integral homotopy type together with the complete rational symmetry character for this specified higher-independence complex. The strongest indexed same-family recurrence covers the reduced Euler characteristic at n=12, not homology concentration, integral homotopy or nonidentity traces. The closest primary family theorems do not apply to this graph. The remaining search limits are not a priority guarantee.",
+      "residual_risks": [
+        "The primary and indexed searches are bounded; unindexed formulations for circulants or squared cycles may exist. The focused no-hit lookup is not evidence against them.",
+        "The later indexed Euler agreement is explicitly credited, without an inference about chronological priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Matching definition, but chordal hypothesis excludes this graph",
+          "evidence": "The theorem treats contractibility or a wedge for chordal graphs, whereas the even vertices induce C₆ in C₁₂².",
+          "identifier_or_url": "https://arxiv.org/pdf/2001.06775",
+          "material_read": "Abstract p.1 and Theorem 3 p.3, offsets 250 and 6800",
+          "method": "OA PDF passages",
+          "title": "Distance r-domination number and r-independence complexes of graphs",
+          "trigger": "Definition and potential broad wedge theorem for the same complex"
+        },
+        {
+          "assessment": "Tree-only theorem, not applicable",
+          "evidence": "Asserts vertex decomposability for Ind_r(T) with T a tree; this graph has cycles.",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.25150",
+          "material_read": "Abstract p.1, offset 1400",
+          "method": "OA PDF passage",
+          "title": "On the Vertex Decomposability of r-Independence Complexes of Trees",
+          "trigger": "Stronger structural property for higher-independence complexes"
+        },
+        {
+          "assessment": "Matching face condition at t=3, different graph family",
+          "evidence": "The classification requires complete multipartite graphs; the order and degree here exclude that form.",
+          "identifier_or_url": "https://arxiv.org/pdf/2607.05358",
+          "material_read": "Definition 2.8 p.4 and Theorem 1.1 p.2, offsets 14300 and 6300",
+          "method": "OA PDF passages",
+          "title": "On a Complete Characterization of Path-Free Complexes Associated with Complete Multipartite Graphs",
+          "trigger": "Alternative formulation as a P₃-subgraph-free complex"
+        },
+        {
+          "assessment": "Exact Euler overlap at n=12, not homotopy or representation coverage",
+          "evidence": "A signed-face recurrence computes Z₁₂=34, with a rational nonvanishing/lower-bound claim but no degree concentration or dihedral character.",
+          "identifier_or_url": "Resultary 2026/11/8/SCOPE-nonvanishing-and-exponential-rational-homology-in-the-two-indepe--7acd5abb7cf0",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Nonvanishing and exponential rational homology in the two-independence complexes of squared cycles",
+          "trigger": "Strongest direct family-level indexed overlap"
+        },
+        {
+          "assessment": "Different simplicial complex",
+          "evidence": "Perfect matchings on the graph give its wedge of 19 two-spheres and H₂ action, not the vertex-subset Ind₂ invariant.",
+          "identifier_or_url": "Resultary 2026/11/8, 44558ff5465a",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A nineteen-sphere perfect-matching complex on the hexagonal antiprism",
+          "trigger": "Same graph and automorphism group"
+        },
+        {
+          "assessment": "Analogue on a different graph",
+          "evidence": "Cuboctahedral rather than hexagonal-antiprism graph and octahedral rather than dihedral symmetry.",
+          "identifier_or_url": "Resultary 2026/10/18, 64bc4bbd8086",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Cuboctahedral two-independence complex: 32 three-spheres and full character",
+          "trigger": "Same-day higher-independence wedge and character comparison"
+        },
+        {
+          "assessment": "Different graph and complex",
+          "evidence": "Uses C₁₀² and ordinary matchings, not higher independence on C₁₂².",
+          "identifier_or_url": "Resultary 2026/10/18, 4f9a6d703b87",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Pentagonal-antiprism matching homotopy and its dihedral character",
+          "trigger": "Same-day indexed antiprism symmetry result"
+        },
+        {
+          "assessment": "Different graph and group",
+          "evidence": "Uses the icosahedral graph, a wedge of twenty S³ and an A₅×C₂ character.",
+          "identifier_or_url": "Resultary 2026/11/1, 4c2e62e7422d",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "The icosahedral two-independence complex is twenty three-spheres",
+          "trigger": "Other twelve-vertex higher-independence character result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural symmetric nonchordal graph and a standard higher-independence invariant outside the indicated family theorems. The integral wedge type certifies the actual attaching-dimension pattern, not just an Euler count or mod-two test. The full character gives fixed-space and involution data that the rank alone cannot provide. Those precise invariants can be used to test proposed homotopy or equivariant descriptions for squared cycles, without claiming a classification of the family.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

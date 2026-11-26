@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:53:23.958677Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, §§ Finding, Assumptions, Proof, Verification",
+        "Frozen VERIFICATION.md, verify_recurrence.py and verify_direct.py (not executed)",
+        "/workspace/branches/167dd261-9327-4b25-bc5c-c24bc296230f/independent_check.py",
+        "/workspace/branches/167dd261-9327-4b25-bc5c-c24bc296230f/independent_check_output.txt"
+      ],
+      "rationale": "Pairwise exclusion of a distinct third joining edge gives exactly independence in the conflict graph, so splitting on selection of one vertex proves the frozen recurrence. A separately written enumeration rebuilt KG(5,2), C5 square K2 and their line graphs, used the exact third-edge predicate, and checked all subsets through size five. The vectors are (1,30,225,530,330,0) and (1,30,235,580,415,0); the zero at five rules out higher degrees by heredity. Independently acting by all 120 symbol permutations on every labelled Petersen-line-graph maximum reproduces sizes 30,60,120,120 and minimum-bitmask representatives {0,3,10,11}, {0,5,9,11}, {0,2,10,17}, {4,5,9,11} in the stated lexicographic indexing. A packing consists of vertex-disjoint induced stars: an extra induced edge or a third edge in a triangle or three-edge path would violate the test. In the line graph of a cubic graph every vertex neighbourhood is covered by two cliques, excluding induced stars of size at least three. The replay checks the reported component lists and the resulting counts 210 and 120.",
+      "residual_risks": [
+        "The checks concern exactly the two specified line graphs and the specified S5 action, not an arbitrary cubic family or every symmetry of the prism."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary paper gives complexity, algorithms and bounds. The catalogue formula for T_n=L(K_n) uses disjoint path blocks. The prism theorem gives a maximum cardinality for Y_n=C_n square K2, not the polynomial of its line graph."
+        ],
+        "reasoning": "Neither of these explicit graph families contains the two line graphs as a specialization of the stated results; the general theory does not supply the census.",
+        "searches": [
+          "Brešar–Samadi, arXiv:2403.00750, introduction",
+          "Resultary e45121c4da2e, triangular graph EOP polynomial",
+          "Resultary 67cac7c1bf32, EOP in prisms"
+        ]
+      },
+      "checked_sources": [
+        "Resultary a5f035f634d1, e45121c4da2e, 67cac7c1bf32",
+        "DOI 10.1051/ro/2022171",
+        "arXiv:2403.00750 and arXiv:2508.01935v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known value is rho_e^o(P)=3 for the Petersen graph itself. The prism result addresses Q and the triangular-graph family uses complete graphs as the base graph."
+        ],
+        "reasoning": "Passing to the line graph changes both the ground set and the third-edge relation; the stated results do not imply the two complete polynomial vectors, let alone the shape and orbit classification.",
+        "searches": [
+          "Chelladurai et al., Prop. 2.5",
+          "Resultary 67cac7c1bf32, theorem on prism graphs",
+          "Resultary e45121c4da2e, polynomial theorem for triangular graphs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "An injective edge-color class is an EOP, but a coloring partitions all edges into such classes. The primary EOP convention is nonempty; this polynomial explicitly includes the empty set."
+        ],
+        "reasoning": "A displayed coloring or chromatic index cannot determine all independent subsets of the conflict graph. Bounding the polynomial via the empty-set convention alone would obscure the actual higher coefficients.",
+        "searches": [
+          "Chelladurai et al., DOI 10.1051/ro/2022171, pp. 1–2",
+          "arXiv:2508.01935v1, p. 2, offset 6958",
+          "Injective edge coloring of graphs, Filomat 33(19) (2019), 6411–6423"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact coefficients and census in the catalogue are the frozen finding itself. The Petersen coloring lead only yielded a snippet about a five-color configuration of the Petersen graph; no full table from that source was obtained."
+        ],
+        "reasoning": "There is no distinct covering table in the compared evidence. The snippet cannot exclude additional material in the inaccessible source and is not used to infer its full contents.",
+        "searches": [
+          "Resultary: exact coefficient vectors for the Petersen and pentagonal-prism line graphs and the S5 orbit-size list",
+          "Resultary a5f035f634d1",
+          "Primary lead: Filomat 33(19) (2019), 6411–6423, Petersen coloring"
+        ]
+      },
+      "rationale": "The only exact Resultary hit is this same record. The strongest independent overlaps concern polynomials on L(K_n), packing on the Petersen graph or prism rather than their line graphs, or injective coloring partitions. No compared prior statement gives the two polynomials or the Petersen-line-graph maximum-orbit census.",
+      "residual_risks": [
+        "Full text of the implicated 2019 coloring article was not obtained; additional tables or unindexed material cannot be excluded. This is a bounded comparison, not a priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same packing relation, but Petersen invariant evaluated for P rather than L(P)",
+          "evidence": [
+            "Proposition 2.5 gives maximum size three; the coloring passage specifies a partition into EOP classes."
+          ],
+          "identifier_or_url": "https://www.numdam.org/item/10.1051/ro/2022171.pdf",
+          "material_read": "PDF pp. 1–3, offsets 0, 3784 and 11028; Proposition 2.5",
+          "method": "Open full-text passage inspection",
+          "title": "Edge Open Packing Sets in Graphs",
+          "trigger": "Original definition, injective-color equivalence and Petersen result"
+        },
+        {
+          "assessment": "Different results, not a covering census",
+          "evidence": [
+            "Stated results include complexity, a tree algorithm, bounds and edge-deletion behavior."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2403.00750",
+          "material_read": "Introduction, OA HTML offset 4550",
+          "method": "Open full-text passage inspection",
+          "title": "Edge open packing: complexity, algorithmic aspects, and bounds",
+          "trigger": "Potential general theorem for line graphs"
+        },
+        {
+          "assessment": "Different original graphs",
+          "evidence": [
+            "The polynomial applies to T_n=L(K_n), not either of the line graphs in this comparison."
+          ],
+          "identifier_or_url": "Resultary e45121c4da2e",
+          "material_read": "RESULT.md theorem, offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "Edge-open packing polynomial of triangular graphs via disjoint star configurations",
+          "trigger": "Strongest distinct exact polynomial result for a line graph family"
+        },
+        {
+          "assessment": "Prism itself and maximum cardinality, not the polynomial of its line graph",
+          "evidence": [
+            "For Y_n the theorem states maximum n if 6 divides n and n-1 otherwise."
+          ],
+          "identifier_or_url": "Resultary 67cac7c1bf32",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "Edge-open packings in prism graphs: a six-periodic rigidity theorem",
+          "trigger": "Same pentagonal prism as base graph"
+        },
+        {
+          "assessment": "Earlier full table unresolved; inspected coloring formulation studies partitions",
+          "evidence": [
+            "The later article identifies the color classes as EOP sets, and its reference points to the earlier Filomat paper. The accessible snippet about the Petersen graph does not assert a census in its line graph."
+          ],
+          "identifier_or_url": "Filomat 33(19) (2019), 6411–6423; cited in arXiv:2508.01935v1",
+          "material_read": "Earlier paper: no primary full text obtained. Later paper: p. 2, offset 6958, and p. 14, offset 52250, including the bibliographic entry",
+          "method": "Open PDF passage inspection of later article and lawful retrieval attempt for earlier source",
+          "title": "Injective edge coloring of graphs",
+          "trigger": "Possible Petersen color table; need to distinguish partition and complete set census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and representative table",
+        "Independent coefficient and orbit replay",
+        "Published scalar Petersen result and Resultary line-graph family comparisons"
+      ],
+      "rationale": "These standard cubic graphs yield equal-order, equal-degree line graphs and the same maximum EOP size. Their exact packing distributions separate them even at size two and differ throughout the nontrivial sizes. The four symmetry types and component shapes classify every Petersen-line-graph extremizer, giving exact benchmark data not retrievable from the scalar maximum or a single coloring.",
+      "residual_risks": [
+        "This is an exact result about a natural specified pair, not a general distinguishing theorem for regular line graphs or a classification of cubic packings."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

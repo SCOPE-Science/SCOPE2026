@@ -1,0 +1,88 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T10:02:04.373139Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Without the hub a set must hit every peripheral pair; then a pairmate can defend an unselected peripheral vertex, and the hub can be added by any legal exchange. With the hub, an untouched pair must use the hub as guard, so a second untouched pair makes the exchange fail. This proves the two secure-set criteria and excludes every secure singleton for m≥2. Quotient edges encode exactly the untouched pairs, counting loops and repetitions. For the upper bound choose distinct edges e,f missed by the hub class. A non-hub class outside their endpoint union cannot partner with the hub, and needs a common endpoint of both edges as a partner. In the disjoint case there is none. In the pairwise-intersecting case, a common endpoint C cannot partner with two outside classes: any edge not incident to C would have those two classes as endpoints and would contradict intersection with e in the hub-deleted quotient; having no such edge would make C secure. Hence there are at most |supp(e)∪supp(f)|+|supp(e)∩supp(f)|≤4 non-hub classes. The hub with m−2 whole pairs plus four singletons attains five, including m=2. The quotient conditions thus recognize all valid partitions. The independent guard-exchange check /workspace/checks/4.py confirmed the subset criterion through m=7 and the reported labelled-vertex optimal partition counts 1,81,1174,12290 through m=5; the unbounded result rests on the proof. In the prose, the edge test more conventionally is a vertex-cover test on quotient edges.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general bounds specialize to 4≤SEC(F_m)≤m+3, because δ=2 and γ_s=m."
+        ],
+        "reasoning": "The upper bound happens to be five at m=2, but grows with m; the generic lower construction guarantees four, and neither statement recognizes all partitions by pairs missed.",
+        "searches": [
+          "arXiv:2511.21170, Theorems 2.4 and 2.8"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2511.21170",
+        "Resultary 13b25b0dafa6 (identical target)",
+        "Resultary 674830690271"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The five-block construction contains all four singleton endpoints of two pairs; the inspected total restrained classification allows, at ≥3 blocks, only the hub singleton and whole-pair peripheral blocks.",
+          "The primary general cardinality bounds leave the m≥3 upper bound strictly above five."
+        ],
+        "reasoning": "Neither a total restrained census nor the published numerical bounds can substitute for the proof that two missed quotient edges constrain all partners. The result also recognizes every secure-coalition partition, which is more than attainment of a lower bound.",
+        "searches": [
+          "arXiv:2511.21170, p. 1 and Theorems 2.4, 2.8",
+          "Resultary 674830690271 Finding and Lemma 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original secure-coalition definition requires a singleton to be both securely dominating and universal to be exempt from pairing.",
+          "The prior secure coalition graph places edges between actual partners, whereas the incidence quotient draws one edge per peripheral pair."
+        ],
+        "reasoning": "The original hub is universal but its singleton fails the guard-exchange condition. Partner adjacency and peripheral incidence are different data, and the latter supplies the recognition test here.",
+        "searches": [
+          "Resultary: friendship graph / windmill of triangles, secure coalition number and quotient incidence recognition",
+          "arXiv:2511.21170 p. 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit 13b25b0dafa6 is the frozen target itself. Separate record 674830690271 computes the total restrained spectrum c_m(k) and C_tr(F_m)=m+1."
+        ],
+        "reasoning": "The separate record imposes a neighbor inside for every vertex and a neighbor outside for every outside vertex, not security by a swap. Its extremizers and spectrum do not give the ordinary secure result. The target's own catalog entry is not independent prior evidence.",
+        "searches": [
+          "Resultary: SEC(F_m)=5, friendship graph, secure-coalition partitions"
+        ]
+      },
+      "rationale": "The inspected secure-coalition bounds do not give the general constant-five formula, and the published coalition graph for a partition encodes already determined partners rather than peripheral incidences. No distinct covering statement was identified in the checked sources for ordinary secure domination on friendship graphs.",
+      "residual_risks": [
+        "The focused external lookup yielded no usable further comparison. The assessment does not exclude an unindexed derivation or coverage under another name for the friendship graph or its coalition invariant."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same definition, different graph construction; general bounds not matching for m≥3",
+          "evidence": "The singleton needs to be secure as well as universal; the numerical bounds are δ+2 and n−γ_s+2 under the stated hypotheses.",
+          "identifier_or_url": "https://arxiv.org/abs/2511.21170",
+          "material_read": "PDF p. 1 definitions and coalition graph; Theorems 2.4 (p. 5) and 2.8 (p. 7)",
+          "method": "OA PDF text passages",
+          "title": "Secure coalitions in graphs",
+          "trigger": "Primary definition and potential general coverage"
+        },
+        {
+          "assessment": "Close indexed result on a different dominating-set predicate",
+          "evidence": "For ≥3 blocks, peripheral blocks are unions of complete blades; the total restrained maximum is m+1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-total-restrained-coalition-partition-spectrum-of-friend--674830690271/RESULT.md",
+          "material_read": "Finding, Assumptions, and start of Lemma 1, offset 0–2655",
+          "method": "OA text of local Resultary mirror",
+          "title": "Complete total restrained coalition-partition spectrum of friendship graphs",
+          "trigger": "Same graph family and a complete partition classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This computes a natural coalition invariant on an unbounded canonical family where the previously checked upper bound increases with order. The fixed maximum and incidence criterion give both a benchmark and a direct way to recognize all extremizers, including partitions with repeated or loop incidences, without enumerating exchanges.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

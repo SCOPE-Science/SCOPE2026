@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:20:39.121037Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–49",
+        "VERIFICATION.md, lines 19–27; verify_mixed_hamming.py; verification_output.txt"
+      ],
+      "rationale": "Let P_t be the round-t partition; the claimed depth is the first t with P_t=P_{t+1}. Regular degree and exactly h neighbours in layer h−1 give the frontier induction: at round t the entire layer t has one colour, the higher layers have a separate common colour, and earlier layers stay separated. At round two, the distance-one class splits by the within-layer neighbour count q−2. At distance h≥2, the multiset of deletion profiles contains j_q copies of j−e_q; summing gives (h−1)j, so it distinguishes every profile in round h+1 once the previous layer is resolved. The top layer has only one profile. Equal-size coordinate permutations and root-symbol-fixing alphabet permutations act transitively on each profile, so profiles cannot split and are exactly the eventual orbits. The frontier proves both lower bounds: in a homogeneous product the last two layers are still merged at round k−2 if k≥2, and in a mixed product the layer k−1 is monochromatic at round k−1 despite different profiles obtained by omitting different sizes. For k=1 the initial partition is already stable. The class cardinalities follow by choosing the changed coordinates and their nonroot symbols. The supplied code and its recorded output are consistent finite corroboration; no run was needed for this general proof.",
+      "residual_risks": [
+        "The proof and tests concern synchronous counting refinement with a single marked root, not other schedules or initial colourings."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "625c3d483d15 specifies intermediate partitions in all dimensions. a5582ca1e324 §Finding treats arbitrary marked sets in two-factor products, with sharpness for one mark in the nonsquare case. Lu Proposition 7.1, equations (47)–(48), gives rooted orbit types for products of repeated Cartesian-prime factors."
+        ],
+        "reasoning": "The first covers and strengthens the claim in every dimension. The rook-graph result is broader only in markings, not product dimension. Lu gives structural orbit coverage, not a refinement-depth theorem.",
+        "searches": [
+          "Resultary records 625c3d483d15 and a5582ca1e324; Lu arXiv:2609.06747v1 §7.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 625c3d483d15 and a5582ca1e324",
+        "Lu arXiv:2609.06747v1",
+        "Arvind et al. arXiv:1502.01255v3",
+        "Frozen RESULT.md, lines 61–67"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier wavefront theorem explicitly gives the desired final stage. Lu's punctured module for K_2^6 × K_3^4 has dimension 33 versus 34 for the punctured orbit indicators. Arvind et al. §2 equation (2) gives the general counting-refinement update."
+        ],
+        "reasoning": "The earlier wavefront result implies the whole claim. The linear-module deficit addresses a different procedure; observing that the stronger wavefront theorem gives ten rounds in that example adds no new bound.",
+        "searches": [
+          "625c3d483d15 §Finding; Lu §4 Theorem 4.5 and Example 4.6; Arvind et al. arXiv:1502.01255v3 §2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "625c3d483d15, RESULT.md §Finding: one individualized root, q_i≥2, synchronous counting refinement; first stable round d−1 for a single alphabet size and d otherwise, with identical root-stabilizer profiles."
+        ],
+        "reasoning": "Its d is the frozen record's k. The input, update, numbering, sharp round and stable partition agree. The record is distinct and dated 2026-10-18 UTC, earlier than the frozen source.",
+        "searches": [
+          "Resultary: one-root colour-refinement wavefronts for mixed Hamming graphs; matched record 625c3d483d15"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed earlier record contains the exact symbolic stabilization rounds and the same number and cardinality of profile classes, not merely a table of small cases."
+        ],
+        "reasoning": "A separate numerical table would not change the comparison: the indexed formula covers every test vector and every dimension.",
+        "searches": [
+          "Resultary, 625c3d483d15 §Finding; Lu Proposition 7.1"
+        ]
+      },
+      "rationale": "A distinct earlier Resultary record states the same sharp dichotomy, orbit partition, and enumeration, and in fact describes every intermediate partition. This is verified statement-level coverage of the asserted contribution, not a similarity hit or a shared date. The frozen text's acknowledgment of special cases does not resolve it.",
+      "residual_risks": [
+        "No absolute priority claim; Klavžar full text was unavailable. Neither caveat affects the directly inspected exact Resultary coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage and stronger intermediate-round result",
+          "evidence": "Same sharp d−1/d dichotomy, profiles, and their number and sizes.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-one-root-colour-refinement-wavefronts-for-mixed-hamming-gr--625c3d483d15/RESULT.md",
+          "material_read": "§Finding, offsets 0–2309",
+          "method": "Configured local mirror, bounded statement read",
+          "title": "Exact one-root colour-refinement wavefronts for mixed Hamming graphs",
+          "trigger": "Strongest exact Resultary match"
+        },
+        {
+          "assessment": "Covers mixed two-factor case",
+          "evidence": "Sharp nonsquare example uses a single mark; theorem handles arbitrary marked sets in two factors.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-two-rounds-of-counting-refinement-recover-every-marked-rook-grap--a5582ca1e324/RESULT.md",
+          "material_read": "§Finding, offsets 0–2940",
+          "method": "Configured local mirror, bounded statement read",
+          "title": "Two rounds of counting refinement recover every marked rook graph",
+          "trigger": "Possible stronger coverage in number of marks"
+        },
+        {
+          "assessment": "Broader orbit formula and separate linear-module theorem, not sharp WL depth",
+          "evidence": "Root-stabilizer types in Cartesian products; 33 versus 34 in the punctured linear-module example.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.06747v1",
+          "material_read": "PDF pp. 16–17 Proposition 7.1, eqs. (47)–(48); pp. 9–10 Theorem 4.5 and Example 4.6",
+          "method": "Bounded OA PDF excerpts",
+          "title": "Punctured adjacency–degree algebras of Cartesian products",
+          "trigger": "Closest cited structural and module result"
+        },
+        {
+          "assessment": "Definitional comparison, not a product-depth theorem",
+          "evidence": "Old colour together with the multiset of neighbour colours forms the updated colour.",
+          "identifier_or_url": "https://arxiv.org/html/1502.01255v3",
+          "material_read": "§2, equation (2)",
+          "method": "Bounded OA passage",
+          "title": "Graph Isomorphism, Color Refinement, and Compactness",
+          "trigger": "Standard refinement convention"
+        },
+        {
+          "assessment": "No conclusion from unavailable text",
+          "evidence": "Retrieval returned HTTP 403; not used for the verdict.",
+          "identifier_or_url": "https://doi.org/10.1002/jgt.20084",
+          "material_read": "No primary text available on attempted retrieval",
+          "method": "Lawful publisher access attempt",
+          "title": "Characterizing subgraphs of Hamming graphs",
+          "trigger": "Cited Hamming graph literature"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof; Lu arXiv:2609.06747v1 Example 4.6"
+      ],
+      "rationale": "As a mathematical statement, the all-dimensions sharp one-root stabilization bound is useful: it identifies when the naturally marked product's refinement becomes orbit-exact, and separates the nonlinear refinement procedure from a smaller linear module. This assessment does not count the duplicate as a new contribution.",
+      "residual_risks": [
+        "No implication for arbitrary Cartesian factors, marked sets, or graph identification is established here."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

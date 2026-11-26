@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:39:21.501444Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the unit grid a nonflat cell has both slope-to-secant ratios in [0,lambda] and a flat cell has zero slopes. Each normalized derivative is in the convex hull of 6t(1-t), 3(1-t)^2, 3t^2, and 3(1-2t)^2 when 0<=lambda<=3, so its integral absolute value is one. Minmod along an input line segment is piecewise affine, switching between the two secant inputs and zero. One secant-direction column thus has variation one in its own cell by the same square test, and at most two disjoint, optional neighboring pure Hermite basis terms, each of variation 8 lambda/27 by their single turning points at 1/3 and 2/3. Summing columns and integrating along the line segment proves the global bound, including ties (every continuous piecewise-linear scalar restriction is absolutely continuous). With two knots there are no slopes, with three one adjacent slope can vary, and with four or more both can vary. A perturbation of size 1/4 in the unique smaller positive secant next to secants of size 2 realizes the full number without selector changes, even at lambda=0 or 3. For n>=3, first secants (1,1) force the normalized first-cell derivative to be t[(6-2 lambda)+(3 lambda-6)t]; it is negative just right of zero for lambda>3 and just left of one for lambda<0, giving excess variation. Reviewed check.py and its finite diagnostic scope; no uploaded script was run. This rejection is not a mathematical counterexample.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier minimax theorem treats all conservative affine-exact limiters, proves exact 43/27 for minmod, and explicitly computes the minmod column integrals. Huynh computes monotonicity on the whole endpoint-slope square up to 3; his use of stability in Section 2.2 refers to continuity of limiter choices, not to the two-input norm."
+        ],
+        "reasoning": "The minimax theorem does not directly include scaled minmod, which is not affine-exact away from unit scale. Its proof identifies all affected quantities: only the range of the two central coefficients and the multiplicative bump gains change, and the needed larger central monotonicity square is already known.",
+        "searches": [
+          "Resultary d77e5e2e64fd, Finding and Proof steps 2–4",
+          "Huynh NASA TM 103789, Section 2.1, (2.4), (2.6)–(2.9)",
+          "Fritsch–Carlson doi:10.1137/0717021 and Fritsch–Butland doi:10.1137/0905021"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "Resultary d77e5e2e64fd and 389eb9c4c5ac",
+        "NASA TM 103789",
+        "Fritsch–Carlson and Fritsch–Butland (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the prior K_{p,q}=H'+pA'+qB' calculation substitute p,q in [0,lambda] inside Huynh's square; the integral stays one. The prior absolute integrals of A' and B' are 8/27, so each present neighbor contributes exactly 8 lambda/27. Capping the number of neighbors by the available finite-grid cells gives the claimed upper bound. In the prior single-secant perturbation, both active derivatives change by the same size as the secant; scaling minmod multiplies that change by lambda. Keeping two cells for n=3 or three cells for n>=4 attains the corresponding column norms. The zero-left-slope first cell tests the boundary [0,3] directly."
+        ],
+        "reasoning": "This is an explicit mathematical transfer, not an inference from the title or from a nearby coefficient. Although the larger parameter range is not stated as a theorem in the November 17 result, the extra parameter and endpoint cases are mechanical consequences of its exact proof and the known Hermite shape criterion. No more substantial distinct claim remains.",
+        "searches": [
+          "Resultary d77e5e2e64fd, Proof steps 2–4, exact neighboring kernel integrals and central K_{p,q}",
+          "Huynh NASA TM 103789, Section 2.1 slope square"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier Resultary Finding uses the same difference-of-interpolants BV seminorm, same minmod, and the whole integer grid, at unit scale. Constant extension of each finite input on both ends produces zero terminal derivatives and contributes no variation outside the finite interval."
+        ],
+        "reasoning": "At unit scale the finite map is exactly a restriction of the previous map with no change of either seminorm. The same single-secant extremizing geometry fits on four knots and then extends to every larger finite dimension.",
+        "searches": [
+          "Resultary: SCOPE-minmod-is-minimax-for-two-input-variation-stability-among-conser--d77e5e2e64fd",
+          "Huynh NASA TM 103789, Section 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct November 17 Resultary cubic result is an exact match for the main numeric value 43/27 and the attaining mechanism at unit scale. The separate same-day affine result concerns discontinuous cellwise affine output and its jump contributions, with factors 1, 1+lambda, and 1+2 lambda. It is not equivalent to the cubic theorem."
+        ],
+        "reasoning": "The rejection rests on the earlier cubic theorem and its proof, not on names, the assigned catalogue entry, or the related same-day affine result. No independent table is required to settle this exact overlap.",
+        "searches": [
+          "Resultary: SCOPE-minmod-is-minimax-for-two-input-variation-stability-among-conser--d77e5e2e64fd",
+          "Resultary: SCOPE-sharp-two-input-bv-modulus-of-variation-preserving-minmod-recons--389eb9c4c5ac"
+        ]
+      },
+      "rationale": "The principal exact two-input result is already known at unit scale on a broader domain, and the remaining formula is a mechanical specialization and rescaling of its published proof using the classical [0,3]^2 Hermite slope square. The earlier Resultary minimax proof explicitly gives the step-column decomposition, the exact 8/27 integrals, the homotopy bound and a same-secant extremizer. Replacing the two coefficient ranges [0,1] by [0,lambda] leaves the central integral equal to 1 by Huynh's four-corner criterion, multiplies each off-cell term by lambda, and deleting unavailable neighbors changes their count to min(2,n-2). The same extremizer, retaining only the available adjacent cells, gives sharpness. Thus the all-scale formula is not asserted verbatim by the earlier theorem, but its extra cases introduce no new norm calculation. The sharp one-input endpoint check is elementary slope monotonicity on the axis (0,lambda), also not a surviving original contribution.",
+      "residual_risks": [
+        "The oldest monotone-cubic papers were not available in full; no conclusion about their complete contents is needed for the verified overlap and proof transfer."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact unit-scale coverage; displayed proof mechanically gives the case of a scale and finite endpoints after the classical slope-square criterion",
+          "evidence": "The proof explicitly separates the central K_{p,q} kernel of absolute integral one from the two 8/27 contributions and attains both in one secant change.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-minmod-is-minimax-for-two-input-variation-stability-among-conser--d77e5e2e64fd/RESULT.md",
+          "material_read": "Finding, scope, Proof steps 1–4, local mirror offsets 0–6710",
+          "method": "Local Resultary mirror statement and proof inspection",
+          "title": "Minmod is minimax for two-input variation stability among conservative cubic Hermite limiters",
+          "trigger": "Same nonlinear cubic norm, slope selector, exact coefficient and witness"
+        },
+        {
+          "assessment": "Supplies the classical [0,3]^2 monotonicity ingredient; does not itself give the two-input sharp norm",
+          "evidence": "Its four endpoint-slope corners give increasing Hermite cubics; the stability term pertains to the limiter's continuity.",
+          "identifier_or_url": "https://ntrs.nasa.gov/citations/19910011517",
+          "material_read": "PDF Sections 2.1–2.2; (2.4), (2.6)–(2.9), (2.13), OA offsets 21000–37539 and 43500–47433",
+          "method": "NASA OA archival PDF comparison",
+          "title": "Accurate Monotone Cubic Interpolation",
+          "trigger": "Same Hermite and minmod ingredients; possible larger scale and stability coverage"
+        },
+        {
+          "assessment": "Access gap, not used for a negative whole-paper claim or for the failure decision",
+          "evidence": "The accessible Huynh text attributes a necessary-and-sufficient monotonicity characterization to Fritsch–Carlson.",
+          "identifier_or_url": "https://doi.org/10.1137/0717021 and https://doi.org/10.1137/0905021",
+          "material_read": "No accessible full text; bibliographic references and Huynh's account of the Fritsch–Carlson monotonicity characterization only",
+          "method": "Lawful OA DOI lookup and identified publisher PDF route",
+          "title": "Monotone Piecewise Cubic Interpolation; A Method for Constructing Local Monotone Piecewise Cubic Interpolants",
+          "trigger": "Older primary monotone-cubic treatments"
+        },
+        {
+          "assessment": "Related affine theorem, not cubic coverage",
+          "evidence": "The variation includes cell jumps, unlike that of C^1 cubic Hermite interpolation.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-two-input-bv-modulus-of-variation-preserving-minmod-recons--389eb9c4c5ac/RESULT.md",
+          "material_read": "Finding and operator scope",
+          "method": "Local Resultary statement comparison",
+          "title": "Sharp two-input BV modulus of variation-preserving minmod reconstruction",
+          "trigger": "Same scale-sensitive finite-grid stability terms and minmod"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The stability question and its known 43/27 coefficient are scientifically meaningful, but the remaining alterations only count absent boundary cells, multiply previously computed terms by the slope scale, and check the standard monotonicity axis. They do not supply a nonroutine additional stability invariant. Narrowing to the scaled or short-grid cases alone would retain only that mechanical extension, so no valuable distinct repair is supplied.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

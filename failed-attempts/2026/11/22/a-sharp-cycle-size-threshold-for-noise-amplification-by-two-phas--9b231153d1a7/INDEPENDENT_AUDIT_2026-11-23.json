@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:57:26.407223Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the real arithmetic-mean-zero input space and unrestricted Euclidean output, the zero Fourier block contributes squared gain g0²=T−1 and each nonzero block has Gram trace T and determinant |(1−a)(1−b)−ab exp(iθ)|². In fact g0²<T/2≤λmax of every nonzero Gram block, so the zero block never wins. The top eigenvalue grows with cos θ, maximizing at 2π/m, realized by real data using a conjugate pair or the real Nyquist block. Since T<2, the smaller eigenvalue is strictly below 1; det(I−B*B)=4ab(1−a)(1−b)sin²(θ/2)−(a−b)² decides all three signs of the gain defect. The first expanding integer follows from the strict inequality, including the equality and endpoint cases d=1 and d>1. The example crosses between sin(π/7)>5/12>sin(π/8). Stationarity and Jensen establish the weighted contraction, a different assertion. Reviewed the attached checker and its finite scope without executing it. 'Positive' refers to the specified edges and self-loops, not all matrix entries.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5 gives the p×p block representation for p-periodic convolution, and §7 states the exact induced norm in terms of those blocks."
+        ],
+        "reasoning": "The theorem includes the projected operator, whose potentially dense kernel is allowed. At p=2 the unchanged blocks have constant Gram trace and determinant affine in cos θ. Thus their maximum singular value is specified by the smallest nonzero Fourier angle, with no further spectral classification required.",
+        "searches": [
+          "https://arxiv.org/html/2611.16144v1 §7 and Theorem 5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.16144v1, §7 and Theorem 5",
+        "Resultary 5db92a691a2e, 565769ad9f24, aec30c44a2ce and self-hit 9b231153d1a7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact norm for PΠ in §7 gives the larger eigenvalue of B*B via the two-by-two characteristic polynomial; g0²=T−1<T/2 makes the changed block irrelevant.",
+          "At the maximizing nonzero angle, subtracting the Gram matrix from I changes its eigenvalue sign test to the single scalar determinant 1−T+Δ_m."
+        ],
+        "reasoning": "Expanding that determinant and solving the monotone sine inequality are direct algebraic evaluations of the prior norm formula, including equality and the integer cutoff. By contrast, weighted Markov contraction does not entail the Euclidean norm assertion.",
+        "searches": [
+          "https://arxiv.org/html/2611.16144v1 §7 equation (28) and induced 2-norm paragraph",
+          "2026/11/22/SCOPE-arithmetic-conditioning-of-a-two-periodic-stochastic-circular-bl--5db92a691a2e"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For Π=I−11ᵀ/(2m), G_m=||PΠ||₂ exactly; PΠ is two-periodic since P and Π commute with the two-site shift.",
+          "§7 states the full induced norm is the maximum of the union of block singular values."
+        ],
+        "reasoning": "Applying the general full-space result to PΠ is equivalent to the restricted real norm; there is no additional output constraint and no need for H to be invariant. The frequency-zero block has one zero singular value and the contrast-line singular value.",
+        "searches": [
+          "Resultary: mean-zero two-phase directed circular blur and amplification",
+          "https://arxiv.org/html/2611.16144v1 §7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The hit ending 9b231153d1a7 is this record itself, not prior evidence.",
+          "The distinct same-day hit ending 5db92a691a2e has symmetric three-tap off-diagonals a(1+exp(−iθ))/2 and b(1+exp(iθ))/2 and addresses invertibility and small singular values.",
+          "The hits ending 565769ad9f24 and aec30c44a2ce concern numerical-radius centering and a nonlinear two-choice maximal operator, respectively."
+        ],
+        "reasoning": "No distinct exact table giving the same two-tap frontier was found in those checks. The symmetric three-tap subfamily cannot be converted to the directed block by choosing its two rates alone, and the other norms are different. The primary general norm result is the decisive evidence, independently of catalogue precedence.",
+        "searches": [
+          "Resultary: mean-zero directed circular blur, arithmetic conditioning of alternating stochastic blur, periodic weighted-shift centering, finite-cycle averaging"
+        ]
+      },
+      "rationale": "The cited primary paper already establishes an exact norm theorem on the applicable general class, not merely a transform heuristic. The arithmetic-mean restriction is encoded exactly by PΠ where Π is orthogonal projection onto the input space. PΠ commutes with the two-site shift and is therefore itself in the paper's two-periodic circular-kernel class. Its one changed block is dominated, and evaluating the generic norm by the quadratic eigenvalue formula and monotonicity in cosine gives the entire proposed threshold. This is a direct specialization even though the printed paper does not state these parameters explicitly. The nearby Resultary records are distinct and are not the basis for the failure.",
+      "residual_risks": [
+        "The bounded catalogue search is not a priority census. The failure is based on a positive implication from the primary theorem, not absence of an independently printed formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers by direct specialization to PΠ",
+          "evidence": [
+            "§7: the induced matrix 2-norm is the maximum of the union of singular values of the diagonal blocks.",
+            "Theorem 5: p-periodic kernels have p×p Fourier blocks."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.16144v1",
+          "material_read": "§7 block form and induced 2-norm paragraph (including HTML text offset 58500); Theorem 5",
+          "method": "Open primary HTML, bounded original passages and exact specialization",
+          "title": "Fast circular convolution with periodic kernels",
+          "trigger": "Broader class and exact induced norm"
+        },
+        {
+          "assessment": "A different tap pattern and invariant, not equivalent; no sequencing inferred from the date",
+          "evidence": [
+            "Each off-diagonal is proportional to 1+exp(±iθ), unlike the single directed tap."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-arithmetic-conditioning-of-a-two-periodic-stochastic-circular-bl--5db92a691a2e",
+          "material_read": "Original RESULT.md offsets 0–9302, model, blocks and conditioning statement",
+          "method": "Local Resultary mirror original passages",
+          "title": "Arithmetic conditioning of a two-periodic stochastic circular blur",
+          "trigger": "Distinct same-day alternating stochastic blur"
+        },
+        {
+          "assessment": "Different norm and centering operator",
+          "evidence": [
+            "Concerned with contractivity of the arithmetic-mean projection in a numerical-radius norm, not the constrained Euclidean gain of the blur."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-sharp-dimension-threshold-for-centering-in-periodic-weighted-s--565769ad9f24",
+          "material_read": "Original RESULT.md offset 0, finding and definitions",
+          "method": "Local Resultary mirror",
+          "title": "A sharp dimension threshold for centering in periodic weighted-shift numerical-radius norms",
+          "trigger": "Periodic centering threshold"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A one-step noise threshold for unweighted mean-zero data is a legitimate diagnostic, and the 16-site example illustrates the difference between weighted and unweighted stability. Here the exact diagnostic is obtained by projecting onto the input subspace inside a known exact norm theorem, taking the eigenvalues of a 2×2 Gram matrix and comparing one monotone scalar expression. The explicit cutoff is mechanically implied, and no independently valuable nonroutine remainder is established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

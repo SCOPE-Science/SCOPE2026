@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:03:00.914666Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen group and spectrum calculations are mathematically correct; the repaired result is independently rechecked on the exact same graphs. In the six-point blowup the tritangent triples are the 30 triples E_i,L_ij,Q_j with i!=j, and the 15 partitions into three pairs of indices for L_ij; this follows by comparing H-degree and exceptional coefficients with -K. They are anticanonical plane sections. An independent reconstruction and exact reduced-Laplacian calculation (replay /workspace/branches/78d5923b-33c2-43b6-a947-13a107255317/independent_check.py with independent_check.log) verified the SRG parameters and local factors without executing the frozen verifier. Primary catalogue identity was separately verified: Spence's live srgraphs.php links the public binary file SRGs/45-12-3-3. Reading the raw response gives 3510 rows of 45 binary digits; rows 46–90, counted among those rows, agree with all 45 rows in the frozen spence_second.txt. For both graphs A^2=9I+3J gives spectra 12^1,3^20,(-3)^24 and reduced determinant 3^62*5^23. Measured 3-adic counts (including valuations zero) are (15,10,5,14) for tritangents and (17,8,3,16) for Spence matrix 2. Local elimination has no saturated pivot and the counts exhaust the determinant valuation 62. The 5-adic counts are (21,23) for both; the repaired proof also derives the 5-part directly because L(24I-L)=135I-3J annihilates the degree-zero quotient by 135. Pairing primary valuations in sorted order yields the repaired full group and the claimed generator gap. Over Z_(3), the tritangent group also follows from the published Levi-group calculation by the verified block elimination described below. The corrected RESULT.md in /workspace/repairs/2 is the witness claim with this explicit baseline; no data or verifier change is needed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ducey et al. Corollary 3.1 gives the common (Z/5)^23 using (r,f)=(9,20), (s,g)=(15,24), v_5(45)=1, without a matrix-specific computation.",
+          "At 3 Theorem 3.3 applies after exchanging the eigenvalues: (r,f)=(15,24), (s,g)=(9,20), v_3(45)=2. With e0=17 its positive-valuation multiplicities have two possibilities, (7,5,15) and (8,3,16). The second is the exact independently computed choice.",
+          "The classification lists 78 graphs and automorphism-group statistics, not these 3-primary factors."
+        ],
+        "reasoning": "The general result neither fixes the comparator's graph-specific 3-rank nor singles out its exact 3-primary structure from that rank. Credit the theorem for the valuation possibilities and common 5-part, not for an exact witness conclusion it does not furnish.",
+        "searches": [
+          "Ducey critical groups strongly regular graphs Laplacian Smith normal form arXiv literature eigenvalues with common prime elementary divisors",
+          "arXiv:1910.07686, §3 Corollary 3.1 and Theorem 3.3 (OA offsets 19850 and 30350)",
+          "Coolsaet–Degraer–Spence §5 and Table 2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_tritangent.py and spence_second.txt; repaired RESULT.md",
+        "Spence's live catalogue and exact binary file",
+        "Coolsaet–Degraer–Spence §5/Table 2; arXiv:1910.07686 §3; Özçelebi thesis §6.3.3.2",
+        "Resultary e8dccda941ed and 616774bc1c5b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Levi elimination at 3 plus the parameter-fixed 5-part implies the tritangent full-group subclaim, so leave it in the repaired proof only as a comparison baseline.",
+          "Spectrum and parameters force the spanning-tree count but allow both computed 3-parts. Even after e0=17 is supplied, Theorem 3.3 allows two choices for the witness. The thesis reports 2-power Smith factors of a complement adjacency matrix, not 3-primary Laplacian factors."
+        ],
+        "reasoning": "The repaired mathematical claim is not a rephrasing of the Levi or general SRG result. It selects the exact elementary divisors of the identified witness and uses them to distinguish from a geometrically canonical graph; no completeness claim is made.",
+        "searches": [
+          "616774bc1c5b/RESULT.md Finding and proof (local mirror offset 0; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+          "arXiv:1910.07686 §3",
+          "Özçelebi §6.3.3.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The tritangent graph is the point graph of GQ(4,2); the Non-collinearity adjacency Smith calculation in the thesis is for the complement and a different operator.",
+          "Resultary e8dccda941ed is the frozen submission itself. The distinct same-day Resultary 616774bc1c5b treats the underlying bipartite incidence graph and gives ten factors 3, five factors 9 and fourteen factors 27 in its 3-primary group.",
+          "Over Z_(3), eliminating the 27-by-27 line block 5I of the Levi Laplacian gives 3I-(N^T N)/5=(12I-A_T)/5, since two distinct tritangent triples share at most one line and the incidence column sum is 3. Multiplication by 1/5 is invertible. Thus the canonical 3-primary equality is exact despite the different graph."
+        ],
+        "reasoning": "Compare operators and local integral cokernels, not merely geometry or graph order. The point-group baseline follows from the Levi result. The second catalogue matrix is a different graph and is not described by that incidence computation.",
+        "searches": [
+          "Resultary: integral critical group cubic surface line tritangent Levi 616774bc1c5b; tritangent point-graph critical group and cospectral witness",
+          "arXiv:1910.07686 §3",
+          "Özçelebi thesis §6.3.3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The public file contains all 78 raw matrices; binary rows 46–90 match the submission's matrix file row by row. It supplies the exact input, not a table of critical groups.",
+          "The classification table records counts by automorphism-group order and distinguishes cliques of size five. The same-day Levi table gives exact factors for the canonical baseline through local reduction, not for the second input."
+        ],
+        "reasoning": "The comparison is with precisely the numbered matrix, not just any member with the parameters. The exact witness factors were not supplied by the inspected matrix catalogue, classification or parameter-theorem passages.",
+        "searches": [
+          "Spence's primary srgraphs.php and linked SRGs/45-12-3-3",
+          "Coolsaet–Degraer–Spence §5/Table 2",
+          "Resultary e8dccda941ed and 616774bc1c5b",
+          "arXiv:1910.07686 §3 and bounded query for 45, 12"
+        ]
+      },
+      "rationale": "Pass for the repaired graph-specific 3-primary determination of Spence matrix 2 and its use as a cospectral witness against the tritangent graph. The frozen account gives too much independent novelty credit to the canonical group's determination: the distinct same-day Levi record 616774bc1c5b mechanically yields the canonical 3-part and the parameters force the 5-part. This is demonstrable coverage of that subclaim, not evidence of same-day priority or of coverage of Spence matrix 2. The repair states the comparator result as the finding, deriving or crediting the canonical and non-3 input. The strongest inspected parameter theorem limits the comparator to two forms at its given 3-rank but does not select one; the primary matrix and classification table do not state the exact comparison.",
+      "residual_risks": [
+        "The two same-day records' chronological ordering and provenance are unresolved.",
+        "An unindexed critical-group census could already give the graph-specific rank or exact factors of Spence matrix 2. The paper and database passages checked do not justify absence throughout the literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact primary identity confirmed; no critical-group table in the raw matrix file",
+          "evidence": [
+            "The live index states there are 78 examples and links the raw file; its second 45-row binary block agrees with the frozen file."
+          ],
+          "identifier_or_url": "https://www.maths.gla.ac.uk/~es/srgraphs.php; https://www.maths.gla.ac.uk/~es/SRGs/45-12-3-3",
+          "material_read": "Index catalogue entry and linked raw binary matrix data, particularly rows 46–90 among 3510 binary rows",
+          "method": "OA website inspection and targeted direct public text retrieval, followed by comparison with the local 45 rows",
+          "title": "Strongly Regular Graphs: (45,12,3,3)",
+          "trigger": "Verify that the comparator really is matrix 2, rather than another SRG of the same parameters"
+        },
+        {
+          "assessment": "Complete graph classification but no group factors in the relevant results and table",
+          "evidence": [
+            "§5 establishes 78 isomorphism classes; Table 2 records the number with each automorphism-group order, split by presence of a five-clique."
+          ],
+          "identifier_or_url": "https://eprints.gla.ac.uk/12858/1/12858.pdf",
+          "material_read": "§5 and Table 2, printed pp. 7–8 (OA offset 21800 onward); reference [12]",
+          "method": "Targeted primary OA PDF inspection",
+          "title": "The Strongly Regular (45,12,3,3) Graphs",
+          "trigger": "Potential exact computed census"
+        },
+        {
+          "assessment": "Forces common 5-part and restricts, but does not determine, the witness 3-part",
+          "evidence": [
+            "At 3 with rank 17, the two possible valuation triples are (7,5,15) and (8,3,16). No explicit matching witness or 78-graph table was seen in the retrieved passages."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1910.07686",
+          "material_read": "Introductory scope; §3 Corollary 3.1 and Theorem 3.3 with proof, printed pp. 9, 11–13, OA offsets 19850 and 30350; bounded numerical name query",
+          "method": "Lawful OA passages and direct substitution of the eigenvalue multiplicities and vertex valuation",
+          "title": "Critical group structure from the parameters of a strongly regular graph",
+          "trigger": "Plausible dominating critical-group theorem and numerical examples"
+        },
+        {
+          "assessment": "Complement adjacency Smith data, not Laplacian data for the two graphs",
+          "evidence": [
+            "Example of the non-collinearity graph of GQ(4,2) reports adjacency invariant factors with powers of two."
+          ],
+          "identifier_or_url": "https://pure.tue.nl/ws/portalfiles/portal/3689733/721532.pdf",
+          "material_read": "Özçelebi thesis §6.3.3.2, PDF p. 109, OA offset 275955",
+          "method": "Targeted OA thesis example inspection",
+          "title": "Buildings and Kneser graphs",
+          "trigger": "Smith invariants of the same generalized quadrangle under an alternate operator"
+        },
+        {
+          "assessment": "Implies the canonical baseline but not the witness. No within-day priority conclusion.",
+          "evidence": [
+            "Its 3-adic multiplicities 10,5,14 are preserved by eliminating the unit line block; the witness is not covered by this relationship."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-integral-critical-group-of-the-cubic-surface-line-tritangent-lev--616774bc1c5b",
+          "material_read": "Finding and block-Laplacian/Smith proof, local-mirror offset 0",
+          "method": "Local mirror statement inspection and explicit Schur complement comparison over the local integers",
+          "title": "Integral critical group of the cubic-surface line–tritangent Levi graph",
+          "trigger": "Distinct same-day exact invariant of the same incidence geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Rather than another standalone computation on the canonical baseline already implied by the Levi result, the repair supplies a checkable natural witness in the published classification, tied to a standard incidence graph from cubic surfaces. It distinguishes their integral groups at the one prime where parameters leave graph-specific ambiguity, and gives the exact elementary divisors beyond the rank obstruction. This is useful as an explicit reference comparison for parameter-based critical-group theory: the order and whole spectrum agree, the 5-part is forced, but the 3-part and its minimum generator number differ. It makes no claim that the group distinguishes all 78 graphs or that a general method is new.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

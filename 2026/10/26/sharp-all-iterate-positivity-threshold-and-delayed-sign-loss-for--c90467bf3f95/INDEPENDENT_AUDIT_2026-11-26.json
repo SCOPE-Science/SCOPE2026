@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:24:48.438951Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–65, VERIFICATION.md and check.py (read, not executed)",
+        "Jensen–Lóczi–Ketcheson arXiv:2610.22685v1 Corollary 4.2 and Table 2",
+        "Independent replay: python3 /workspace/reproductions/check_review_math.py, function scalar"
+      ],
+      "rationale": "Substituting f=-λy in the printed rule and dividing by the positive implicit multiplier gives A=(16-9s)/(48+25s), B=(32-30s)/(48+25s) on y_n and y_{n+1}, respectively. With A>0 and B>=0 through s_0=16/15, induction gives strict positivity, including B=0. At s>=16/9 one has A<=0, B<0, so y_2=A+B exp(-s)<0 even at the endpoint. Between these values the characteristic roots are distinct, with r_-<0<r_+<|r_-|. For q=(2-s)/(2+s)>0, the numerator of q^2-Bq-A over (s+2)^2(48+25s) is exactly 4s^3. Thus q>r_+, and exp(-s)>q by 2 artanh(s/2)>s. This proves c_+>0>c_- and excludes the exceptional pure-positive-root start. Odd iterates are positive, and y_{2j}<0 exactly when 2j log(|r_-|/r_+) exceeds log(c_+/(-c_-)). Taking floor plus one is valid even if an earlier iterate is exactly zero. At s_0, A=3/35, B'=−45/112; the log-root ratio equals log((sqrt(B^2+4A)-B)/(sqrt(B^2+4A)+B)), with first-order term 45(s-s_0)/(112 sqrt(3/35)). The startup coefficient ratio tends to the stated finite positive ratio, and the floor changes the index by at most two. This yields the stated inverse-distance constant, independently evaluated as 1.8343063999443295… .",
+      "residual_risks": [
+        "This is exact arithmetic with scalar autonomous decay and exact startup; not a numerical roundoff guarantee, variable-step result or positivity bound for TR-BDF2 startup."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broader arbitrary-start phase diagram states that every positive starter is nonnegative until 16/15, exactly the positive-root ratio survives through the open intermediate interval, and none survives at and beyond 16/9 for κ=3/5.",
+          "Neither the phase diagram's proof of eventual sign loss nor the JLK stability analysis compares the exponential starter to the positive root over the full interval, or gives its first-negative cutoff and inverse-distance constant."
+        ],
+        "reasoning": "Credit that diagram for both parameter boundaries and the exceptional-start criterion. A specialized conclusion here is not just substitution of κ: it has to distinguish the exact exponential from the exceptional root and resolve the sign-loss timing.",
+        "searches": [
+          "SCOPE-20261102-89235ce0d52d finding and positive-start lemma, mirrored RESULT.md offsets 0–5958",
+          "Jensen–Lóczi–Ketcheson arXiv:2610.22685v1, Corollary 4.2 and numerical tests"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.22685v1",
+        "arXiv:2605.11979",
+        "SCOPE-20261102-89235ce0d52d",
+        "SCOPE-20261026-67cbe1d016ca",
+        "SCOPE-20261027-d036e6948156",
+        "SCOPE-20261004-cf66315c5a14"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two explicit past-state coefficient ratios are 16/9 and 16/15, so the usual forward-Euler coefficient principle immediately supplies the sufficient range. A-stability and stiff-mode root damping do not give signs.",
+          "The same-family arbitrary-start sign lemma makes positivity conditional on a root equality in the intermediate interval. The frozen rational-root comparison and strict exp(-s)>q resolve whether equality holds; root-modulus splitting and coefficient limits then give the exact delay asymptotic."
+        ],
+        "reasoning": "The yes/no arbitrary-history result alone does not establish the exponential-start conclusion. The algebra for a general two-mode expansion is standard; the uniform absence of resonance and its application to sharp timing, not the generic modal formula, are the extra content.",
+        "searches": [
+          "Statement and coefficient comparison with arXiv:2610.22685v1, arXiv:2605.11979 Eq. (3.20), and SCOPE-20261102-89235ce0d52d"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published coefficients reduce to precisely the frozen recurrence. The phase diagram uses the convention y_{n+2}=A y_{n+1}-B y_n; matching the coefficients rather than their names gives the same characteristic roots and the same values 16/15 and 16/9 at κ=3/5.",
+          "Coefficientwise nonnegativity characterizes a one-step guarantee for arbitrary positive histories here, not positivity of the orbit from the specified exponential startup."
+        ],
+        "reasoning": "Changing the recurrence convention or calling the property positivity preservation does not create novelty. The known coefficient test and the fixed-start modal comparison ask different questions and coincide at the lower boundary only after the latter excludes resonance.",
+        "searches": [
+          "Resultary: JLK two-step L(3/5), exact exponential startup and scalar sign delay",
+          "arXiv:2610.22685v1 Corollary 4.2 and Table 2; SCOPE-20261102-89235ce0d52d RESULT.md offsets 0–5958"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 2 lists the optimized rule coefficients and associated method properties, not first-negative indices.",
+          "The same-day BDFL3 result is a four-level method with exact three-value startup and boundary 15/16. The BDF2 record has backward-Euler startup, frontier 1/2 and square-root delay. The optimized parareal record uses a different rule and has isolated exact-start resonances."
+        ],
+        "reasoning": "The compared results give overlapping methods of analysis but no exact sign index or delay constant for this specific recurrence and starter. Neither the same-day match nor later catalog items are dismissed based on date.",
+        "searches": [
+          "JLK Table 2; Resultary exact-delay results SCOPE-20261102-89235ce0d52d, SCOPE-20261026-67cbe1d016ca, SCOPE-20261027-d036e6948156, SCOPE-20261004-cf66315c5a14"
+        ]
+      },
+      "rationale": "The method, root-stability properties and a sufficient arbitrary-positive-history threshold are not new. The same-family phase diagram also gives both transition values and identifies the single exceptional positive ratio between them. The distinct contribution is the exact exponential starter's strict nonresonance throughout that open interval and the resulting parity, strict first-negative index and sharp delay coefficient. The broader diagram does not evaluate those features; its later catalog date is not needed to separate the statements.",
+      "residual_risks": [
+        "Full primary text of Kraaijevanger (1991) and Gottlieb–Shu–Tadmor was not retrieved; the sufficient-bound comparison above is based on the exact coefficients, not an exhaustive review of the monotonicity literature. An unindexed exact-start specialization could overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers coefficients and stability/optimization, not the target exact-start sign analysis",
+          "evidence": [
+            "α=(-1/3,-2/3,1), β=(3/16,5/8,25/48) at κ=3/5. Its numerical tests start with TR-BDF2, not the exact decay step."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.22685v1",
+          "material_read": "PDF p. 17 Corollary 4.2 (OA offset 50600) and p. 22 Table 2 and startup description (offsets about 63600–65000)",
+          "method": "Reduce the printed multistep coefficients and compare optimized property and numerical startup",
+          "title": "Optimized linear multistep methods for stiff problems",
+          "trigger": "Exact optimized method under study"
+        },
+        {
+          "assessment": "Exact overlap on the transition values and exceptional-history criterion, not on resolution for exp(-s) or the exact sign-loss index and constant",
+          "evidence": [
+            "U=z_a=16/15, z_b=16/9; with an opposite dominant root, w=λ_+ is the only surviving positive history in the open interval."
+          ],
+          "identifier_or_url": "SCOPE-20261102-89235ce0d52d",
+          "material_read": "Mirrored RESULT.md finding and assumptions offsets 0–3466 and elementary positive-start lemma/application offsets 3466–5958",
+          "method": "Specialize κ=3/5, convert coefficient signs and compare the exceptional ratio and timing claims",
+          "title": "Complete positive-start phase diagram for optimized two-step stiff solvers",
+          "trigger": "Strongest broader match: identical optimized family, all positive starts"
+        },
+        {
+          "assessment": "Different integrator despite analogous mechanism",
+          "evidence": [
+            "Four-level rule, exact three-value start, boundary 15/16, reciprocal-distance delay."
+          ],
+          "identifier_or_url": "SCOPE-20261026-67cbe1d016ca",
+          "material_read": "RESULT.md finding offsets 0–1972",
+          "method": "Compare recurrence order, starter and transition parameter",
+          "title": "Spectral dominance and delayed sign loss for the L-stable BDFL3 rule",
+          "trigger": "Same-day exact-start spectral sign-loss law"
+        },
+        {
+          "assessment": "Different printed rule; no implication for this optimized L(3/5) scheme",
+          "evidence": [
+            "O2CP has different rational coefficients and an alternate exact-start threshold with isolated equality at positive roots."
+          ],
+          "identifier_or_url": "SCOPE-20261027-d036e6948156; https://arxiv.org/abs/2605.11979",
+          "material_read": "Resultary finding offsets 0–4943; Li–Lin–Zhang–Zhou PDF p. 13, §3.5 Eq. (3.20), OA offset 48163",
+          "method": "Compare exact companion recurrences and presence of resonances",
+          "title": "Two isolated positivity resonances of an optimized two-step parareal propagator; underlying O2CP formula",
+          "trigger": "Another optimized two-step rule with exact-start sign loss and resonances"
+        },
+        {
+          "assessment": "Distinct spectral crossing and start",
+          "evidence": [
+            "Backward-Euler-started BDF2 has frontier 1/2 and a square-root delay law rather than an inverse-distance law."
+          ],
+          "identifier_or_url": "SCOPE-20261004-cf66315c5a14",
+          "material_read": "RESULT.md finding and assumptions offsets 0–1858",
+          "method": "Compare method, startup and scaling regime",
+          "title": "Exact delayed sign loss just beyond BDF2's positivity boundary",
+          "trigger": "Known delayed sign loss for a classical two-step stiff solver"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–65 and 74–78",
+        "JLK Corollary 4.2 and Table 2",
+        "SCOPE-20261102-89235ce0d52d initial-history phase diagram"
+      ],
+      "rationale": "The exact scalar sign test is meaningful for a named stiff integrator: A-stability does not protect a positive decaying scalar mode. The sharp index estimates show why an above-threshold step may pass any fixed finite positivity test, and when negativity first appears under exact startup. This gives a usable diagnostic beyond the already-known coefficientwise guarantee and does not claim analogous behavior for arbitrary starts or nonlinear systems.",
+      "residual_risks": [
+        "Exact exponential startup is a benchmark for one mode, not the startup used in the source's numerical experiments."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:54:12.856515Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–58; VERIFICATION.md; verify_prism_forest.py and verification_output.txt (inspected, not run)",
+        "Independent exact replay: python3 /workspace/branches/check_quotient_homology.py prism",
+        "Matroid shellability, Armstrong's orbit-space theorem, Hurewicz and homological Whitehead"
+      ],
+      "rationale": "The two layer triangles are the only three-cycles, and the connecting pairs constrain their permutations to agree. Thus both layer flip and simultaneous S3 generate the entire order-12 automorphism group. Independently enumerating forests by iterative leaf removal gives face totals (9,36,82,111,75), so the rank-five graphic matroid's shellable independence complex is a wedge of 18 four-spheres by its reduced Euler characteristic. In the barycentric quotient, rank-distinct flag vertices remove inversions and distinguish the different codimension-one faces of a cell, so integral signed deletion computes the ordinary orbit space. The independent ordered-set-partition flag enumeration and generator orbits give cell counts (41,405,1339,1722,750), all three consecutive boundary compositions zero, and exact nonzero Smith factors 1^40, 1^365, 1^974, 1^748, in ascending degrees. This gives free homology ranks (1,0,0,0,2), with no torsion. The simply connected labelled space and the fixed points of generators imply π₁=0 by Armstrong: the flip and a pair transposition fix vertical-edge vertices, and a cyclic pair rotation fixes the barycenter of their three-edge forest. Hurewicz then gives three-connectivity and identifies π₄ with H₄. Two sphere maps for an integral basis induce a homology equivalence of simply connected CW complexes, hence the claimed homotopy equivalence. The companion classification is legitimate: simple 2-regular complements on six vertices are C₆ or two triangles.",
+      "residual_risks": [
+        "The independent exact computation proves the chain assertion only for this graph and action. No claim of homeomorphism, PL sphere structure, or applicability to other graphs follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shellability handles the underlying complex; the latter article studies homology representations of a dual independence complex",
+          "The Resultary cover theorem requires a free deck action on vertices and edges and derives rational orbit homology"
+        ],
+        "reasoning": "An actual prism automorphism can fix an edge, so the deck-action theorem does not specialize. A rational character computation or a nonequivariant shelling does not on its own establish integral torsion-freeness and the orbit-space homotopy type.",
+        "searches": [
+          "Ardila–Castillo–Samper arXiv:1410.3870 Theorems 1.3 and 1.5",
+          "Moci–Pezzoli arXiv:2001.03760v3 abstract",
+          "Resultary forest fixed spaces and Tutte characters for regular graph covers"
+        ]
+      },
+      "checked_sources": [
+        "Resultary findings and hypotheses for the prism Morse complex, K3,3, K5, octahedron, regular covers and Fano matroid",
+        "Ardila–Castillo–Samper arXiv:1410.3870; Stones Fig. 1; Moci–Pezzoli arXiv:2001.03760v3 abstract",
+        "Bounded focused primary-literature lookup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "K3,3 has no triangles, so its forest differential and quotient are not the prism's",
+          "The octahedral example disproves an indiscriminate sphere-wedge rule for full symmetry quotients"
+        ],
+        "reasoning": "Recovering the integral rank-two top group and vanishing lower groups for the prism requires more than the prior comparisons: the graph-specific signed orbit boundaries have to be computed or replaced by a suitable new proof.",
+        "searches": [
+          "Resultary K3,3 companion Finding and prior-work passage",
+          "Resultary regular graph cover theorem and octahedral forest quotient Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The strongest same-graph result uses acyclic vertex–edge incidence matchings and finds three rational degree-four classes",
+          "This finding uses cycle-free subsets of graph edges and finds two integral degree-four classes"
+        ],
+        "reasoning": "The same graph and action name do not identify the complexes: matchings of incidences are different ground objects than graph-edge forests. The ranks cannot be compared as competing answers to one question.",
+        "searches": [
+          "Focused primary literature check for triangular-prism forest/graphic-matroid independence complex under full automorphisms",
+          "Resultary same-graph query for full prism symmetry and the exact orbit type"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "K3,3 has full orbit type S⁴ and labelled count 20, K5 has orbit type S³, and the octahedral quotient has degree-three two-torsion",
+          "The complete-bipartite forest table gives (1,9,36,84,117,81) for K3,3, not the prism quotient invariant"
+        ],
+        "reasoning": "No distinct exact prism forest quotient table or record was identified in these compared hits. The examples are distinct groups/graphs or, for the same prism, the different incidence-matching complex.",
+        "searches": [
+          "Resultary close records for prism, K3,3, K5 and octahedral forest quotients",
+          "Stones, Computing the number of h-edge spanning forests in complete bipartite graphs, Figure 1"
+        ]
+      },
+      "rationale": "The apparent same-graph/full-group match uses a different simplicial complex. The nearest forest quotient is for the other connected cubic six-vertex graph. Broader fixed-space, character and shellability results do not establish this ordinary integral orbit-space type; in particular a free deck-group hypothesis fails for the full prism group. The accepted new fact is the prism quotient type, not graphic-matroid shellability or a general orbit method.",
+      "residual_risks": [
+        "An unindexed or differently described earlier computation of this exact forest quotient is possible. The focused lookup is not proof of historical uniqueness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different simplicial complex",
+          "evidence": "Its vertices are incidences, with acyclic matching faces; it reports three rational degree-four classes for that quotient.",
+          "identifier_or_url": "2026/11/2/SCOPE-full-prism-symmetry-character-on-the-morse-complex-of-the-triang--cb5204d7444b",
+          "material_read": "RESULT.md Finding offset 0, prior-work passage offset 6300",
+          "method": "Local Resultary mirror",
+          "title": "Full prism symmetry character on the Morse complex of the triangular prism",
+          "trigger": "Same graph and full group; quotient degree-four invariant"
+        },
+        {
+          "assessment": "Other graph; complementary result",
+          "evidence": "Labelled wedge of 20 S⁴, and both shore-preserving and full quotients have one S⁴.",
+          "identifier_or_url": "2026/11/17/SCOPE-a-four-sphere-survives-both-symmetry-quotients-of-the-k-3-3-fore--c13c504f2dfd",
+          "material_read": "RESULT.md Finding offset 84, prior-work offset 5700",
+          "method": "Local Resultary mirror",
+          "title": "A four-sphere survives both symmetry quotients of the K3,3 forest complex",
+          "trigger": "Exact cubic six-vertex companion"
+        },
+        {
+          "assessment": "Different rank and graph",
+          "evidence": "K5 with its S5 action has ordinary quotient S³.",
+          "identifier_or_url": "2026/11/17/SCOPE-the-full-vertex-symmetry-quotient-of-the-five-vertex-forest-comp--cd140a8be8be",
+          "material_read": "RESULT.md Finding offset 98, prior-work offset 5100",
+          "method": "Local Resultary mirror",
+          "title": "The full vertex-symmetry quotient of the five-vertex forest complex is a homotopy three-sphere",
+          "trigger": "Earlier ordinary full forest quotient"
+        },
+        {
+          "assessment": "Distinct graph with torsion",
+          "evidence": "The 48-symmetry quotient has H₃=(Z/2)^3, H₄=Z² and is two-connected.",
+          "identifier_or_url": "2026/11/17/SCOPE-three-independent-two-torsion-classes-in-the-full-octahedral-for--3ed6f4817ade",
+          "material_read": "RESULT.md Finding offset 80, prior-work offset 4400",
+          "method": "Local Resultary mirror",
+          "title": "Three independent two-torsion classes in the full octahedral forest quotient",
+          "trigger": "Six-vertex full-symmetry forest analogue"
+        },
+        {
+          "assessment": "Different hypotheses and coefficients",
+          "evidence": "The deck group must act freely on vertices and edges; the orbit formula gives rational homology.",
+          "identifier_or_url": "2026/11/17/SCOPE-forest-complex-fixed-spaces-and-tutte-characters-of-regular-grap--886cc6e5551e",
+          "material_read": "RESULT.md Finding and action hypotheses, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Forest complex fixed spaces and Tutte characters of regular graph covers",
+          "trigger": "Potentially stronger theorem for forest quotient homology"
+        },
+        {
+          "assessment": "Distinct action and matroid regardless of same-day date",
+          "evidence": "Classifies subgroups of GL₃(F₂) acting on the Fano matroid, not the prism.",
+          "identifier_or_url": "2026/11/22/SCOPE-all-subgroup-homotopy-quotients-of-the-seven-point-fano-matroid--dc0961c044e9",
+          "material_read": "RESULT.md Finding offset 0",
+          "method": "Local Resultary mirror",
+          "title": "All subgroup homotopy quotients of the seven-point Fano matroid",
+          "trigger": "Same-day all-subgroup ordinary matroid quotient classification"
+        },
+        {
+          "assessment": "Nonequivariant framework only",
+          "evidence": "Shelling orders apply to the labelled independence complex; no prism full-group quotient type follows.",
+          "identifier_or_url": "https://arxiv.org/html/1410.3870",
+          "material_read": "Theorem 1.3 offset 8370 and Theorem 1.5 offset 9100",
+          "method": "OA HTML theorem passages",
+          "title": "The topology of the external activity complex of a matroid",
+          "trigger": "General matroid shellability and topology"
+        },
+        {
+          "assessment": "Counting result for complete bipartite graphs",
+          "evidence": "The K3,3 counts neither pertain to the prism nor establish quotient topology.",
+          "identifier_or_url": "Stones, Figure 1, printed p. 315",
+          "material_read": "Figure 1, PDF text offset 5000",
+          "method": "OA PDF passage",
+          "title": "Computing the number of h-edge spanning forests in complete bipartite graphs",
+          "trigger": "Table for cubic six-vertex forests with similar counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and connected cubic graph comparison",
+        "Independent integral computation and the published K3,3 and octahedral forest comparisons"
+      ],
+      "rationale": "The prism is a canonical object, not a chosen enumeration sample: with K3,3 it exhausts the simple connected cubic six-vertex comparison. Its two-sphere quotient versus the companion's one sphere supplies an exact integral invariant that forest counts and general labelled shellability cannot give. This fills a natural small-case gap, including absence of torsion and the type beyond just a Betti number.",
+      "residual_risks": [
+        "This does not generalize the classification to more vertices or to proper subgroups of the prism automorphism group."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

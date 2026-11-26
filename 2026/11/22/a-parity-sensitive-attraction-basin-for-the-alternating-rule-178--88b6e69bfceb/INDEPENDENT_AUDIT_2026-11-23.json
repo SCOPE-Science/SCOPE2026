@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:47:21.108091Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Rule 178 flips a site iff it has a different neighbor, including the fixed exterior zero at each endpoint. Both ends of an interior wall therefore flip and the wall persists. Inside a run with two interior walls, the end cells flip while the interior cells stay, reducing the central run length by two per step. The odd run ends without an equal pair; an even run leaves a pair whose cells flip together forever between persistent walls. At a path endpoint the behavior is different: a zero run erodes one cell at a time from its interior wall, while a one run initially erodes from both ends. Boundary one runs of length one leave no equal pair and length two transiently becomes boundary zeros; lengths at least three leave a two-wall core of length r−2, bad precisely for even r. The uniform zero word is fixed; the uniform one word erodes from both exterior zeros and enters iff n is odd. Full interior wall occupancy is exactly the two alternating words and each maps to the other. More generally a nonzero word eventually oscillates: every nonuniform word has a permanent wall, the finite wall vector stabilizes, and once stable the word must complement each step; uniform ones for n≥3 becomes nonuniform. To count the target basin, opposite boundary colours contribute 2AR times the even geometric series in O; same colours contribute (A²+R²)O times that series; add O for uniform odd ones. Independently expanding gives the displayed rational function. An equivalent series is 2(2−z)/(1−z−z²)−2/(1−z)+z⁷(1−z²)/(1−3z²+z⁴)−2+z−2z²+z³+z⁵, which directly checks the small exceptions and the odd-index Fibonacci shift n−6. Binet's formulas give the displayed parity constants for B_n/φ^n and division by 2^n gives the basin probability.",
+      "replay": "A separate functional-graph check used the Wolfram truth table indexed by the three input bits (rule number 178), padded by fixed zero bits. Compare the orbit's hit of either alternating word to the independent run predicate for all words at each length 3–18. All 524,280 states matched, including 011 → 100 → 010 and permanent defects from 0110 and 11110. Independently simplify the rational run series by common denominators and compare to the Lucas series plus the shifted odd Fibonacci series and the five initial-degree corrections above. The frozen verify_rule178_basin.py and its logged output were inspected, not executed. Finite replay is not the all-length proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed Inokuchi–Sato abstract identifies fixed-boundary rules and the number/period of limit cycles and transient lengths. The frozen record cites Lemma 3.80, Proposition 3.81 and Theorem 3.82 for the periodic states, Fibonacci attractor count and maximal transient; those pages were not independently accessible. The linked Fukś page could not be independently opened."
+        ],
+        "reasoning": "The historical paper is a close same-model antecedent, and its local erosion or more detailed orbit results may imply parts of the basin criterion. Knowing the recurrent words and their count or the worst transient alone does not give the distribution of initial words among the recurrent cycles. An infinite-lattice iteration formula, if available, is not automatically a fixed-boundary result: exterior cells held at zero are not an evolving zero extension.",
+        "searches": [
+          "Inokuchi Sato On limit cycles and transient lengths of cellular automata with threshold rules 13492 open access pdf rule 178",
+          "Inokuchi–Sato, DOI 10.5109/13492, Section 3.35 recovery attempts",
+          "Solvable cellular automata, Rule 178 iterate entry"
+        ]
+      },
+      "checked_sources": [
+        "Inokuchi–Sato, DOI 10.5109/13492 (indexed abstract only)",
+        "Exact relaxation shells and a logarithmic typical clock for cyclic Rule 178 (published 2026-11-02)",
+        "Fukś, Solvable cellular automata (access attempt only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cyclic wall dynamics already proves the persistence/erosion mechanism in the bulk used here. The present series additionally needs one-sided erosion of endpoint zero runs, the initial split of endpoint one runs, and the uniform-word cases. The accessible historical abstract reports counts and transient lengths for fixed boundaries, not an initial-to-specific-orbit statistic."
+        ],
+        "reasoning": "The prior bulk lemma explains the odd interior-run condition but supplies neither the boundary language nor its exact selected-basin count. The value and originality assessment are for that narrow combined invariant, not for rediscovering Rule 178 erosion. A stronger uninspected fixed-boundary statement is not excluded.",
+        "searches": [
+          "SCOPE-exact-relaxation-shells-and-a-logarithmic-typical-clock-for-cycl--b1a85fec924d, Finding and Proof Step 1",
+          "DOI 10.5109/13492, indexed abstract and attempted Section 3.35"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The cyclic Rule 178 result gives the equivalent synchronous up-threshold-one/down-threshold-three local update and an exact XOR-wall formulation. Its hypothesis is a cyclic ring, where every gap erodes from two interior walls."
+        ],
+        "reasoning": "The claimed population is the number of inputs whose final interior XOR vector is all ones, not the number of periodic inputs or the time to any orbit. In a cycle there is a global even-wall constraint (no full alternation at odd n); cutting the ring and inserting two fixed zeros is not a conjugacy. The length-two boundary-one exception has no counterpart among cyclic two-wall gaps.",
+        "searches": [
+          "Resultary: elementary cellular automaton rule 178 zero fixed boundary alternating oscillator basin size parity run Fibonacci",
+          "elementary cellular automaton Rule 178 fixed boundary basin alternating full checkerboard limit cycles run lengths Inokuchi Sato Fibonacci exact basin counts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-prefix search returned general sequence resources, not a verified table of these fixed-boundary basin counts. The published cyclic result includes exact Lucas-related counts of primitive cycles and exact transient shells, not a per-cycle basin table for these paths."
+        ],
+        "reasoning": "Matching Fibonacci or Lucas terminology is insufficient: orbit counts count recurrent pairs and the shells count all initial words of the same first-entry time. Neither counts the preperiodic words leading to one specified alternating pair. Search misses carry no historical-priority inference.",
+        "searches": [
+          "\"7, 12, 21, 34, 57, 92, 152, 244\" Rule 178 basin OEIS",
+          "Resultary: elementary cellular automaton rule 178 zero fixed boundary alternating oscillator basin size parity run Fibonacci"
+        ]
+      },
+      "rationale": "Qualified for the explicit selected-basin enumeration and its parity law. The local erosion mechanism and the existence, number and periods of attractors are not claimed as new. The closest same-boundary historical paper is an access-limited priority risk; the independent comparison does not certify noncoverage of that paper's uninspected Section 3.35.",
+      "residual_risks": [
+        "The inaccessible fixed-boundary Section 3.35 may give a stronger initial-to-attractor result, and older or unindexed exact enumeration remains possible. No historical-priority conclusion is drawn from unsuccessful access or exact-prefix searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Access-limited; abstract is insufficient to exclude a stronger result",
+          "evidence": [
+            "The abstract states fixed-boundary limit-cycle counts, period and transient lengths. Official requests returned HTTP 202 and the publicly listed author copy did not deliver the PDF; the section details are attributed only to the frozen bibliographic evidence."
+          ],
+          "identifier_or_url": "https://doi.org/10.5109/13492",
+          "material_read": "Indexed abstract and bibliographic entry only; Section 3.35 not independently read",
+          "method": "Attempted official OA PDF and catalog plus an identified author-posted copy and alternate catalog",
+          "title": "On limit cycles and transient lengths of cellular automata with threshold rules",
+          "trigger": "Same fixed-boundary Rule 178 and very close historical results"
+        },
+        {
+          "assessment": "Direct overlap on local wall dynamics, not coverage of the path basin count",
+          "evidence": [
+            "The recurrence is cyclic; the statistic is first-time entry into any periodic orbit, with terminal primitive orbit counts and no fixed-boundary hypothesis."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-relaxation-shells-and-a-logarithmic-typical-clock-for-cycl--b1a85fec924d/RESULT.md",
+          "material_read": "Finding, assumptions and proof Step 1 including the XOR recurrence",
+          "method": "Compared target statistic, graph and boundary dynamics in the published result",
+          "title": "Exact relaxation shells and a logarithmic typical clock for cyclic Rule 178",
+          "trigger": "Same update and exact counts using persistent walls"
+        },
+        {
+          "assessment": "Access-limited; no independent noncoverage finding",
+          "evidence": [
+            "The frozen source identifies this as an infinite-line iterator, which is a different boundary model if described accurately."
+          ],
+          "identifier_or_url": "https://lie.ac.brocku.ca/~hfuks/solvableca.html",
+          "material_read": "No independent full-text passage retrieved",
+          "method": "Attempted direct public access; treated the frozen source description as a lead only",
+          "title": "Solvable cellular automata",
+          "trigger": "Potential all-time formula for the rule"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The fully alternating cycle is selected by a natural extremal property—every interior edge is a wall—and its basin population is an independently meaningful statistic even without a full basin census. The model has almost all words ending in period two, yet this particular oscillator has exponentially small selection probability with different parity constants. The boundary exception and the parity correction cannot be inferred from the stated prior attractor counts or bulk erosion alone. No claim is made that this is the largest basin or that these formulas extend to a different update or boundary.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:02:51.432873Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 50–97; VERIFICATION.md and verify_bipartite.py (inspected only)",
+        "Repairs/3/RESULT.md and VERIFICATION.md as complete replacement files",
+        "2026/10/18 multipartite theorem, per-part root and strict monotonicity in proof steps 3–5",
+        "Independent replay: python3 -B /workspace/branches/independent_replay.py, check3"
+      ],
+      "rationale": "Audited the narrowed repair and its retained formulas. Decomposing into constants, zero-mean vectors on each part, and the part-constant contrast gives exponents 0, b^2, a^2, N^2; when a=b the two zero-mean subspaces simply share an eigenvalue. Diagonal and cross-part entries cannot be negative, and the rows sum to one. For each H the derivative has exactly one change from negative to positive and the limit is positive. The strictly decreasing u(x) of the directly checked prior multipartite theorem gives tau_A<tau_B for a<b and equality when a=b. For unequal sizes the signed negative mass difference D=V-U has D(0)=0, D'(0)=b-a>0 and a negative limit. In G'=d(e^(a^2 t)D')/dt the positive-to-negative magnitude ratio is a strictly decreasing exponential. Thus G first possibly rises and then strictly falls; its positive initial value and negative limit give exactly one sign change for D'. The unique positive zero of D lies beyond tau_A because D(tau_A)=V(tau_A)>0. On (0,tau_A) this makes V>U>0, from tau_A up to tau_B only V has positive part, and at t=0 or after final recovery both row norms are one. The induced norm formula and strictness follow, with equality of row types by symmetry in the balanced case. At the unique minimum of H_B, the ratio of its exponentials is exp(-(N^2-a^2)*theta_B)=a/N, giving the claimed peak time and value. The sign extremizer is correct by equality in the absolute row sum and also works on complex input. An independent small direct matrix replay checked balanced, moderately unbalanced and more unbalanced pairs. Corrections do not alter the original support script or its frozen record.",
+      "residual_risks": [
+        "The replay is finite numerical corroboration only. The comparison concerns unweighted bicliques with both parts of size at least two, not arbitrary multipartite graphs or Laplacian powers."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Setting r=2 with part sizes a,b in the October 18 record gives the ordered cutoffs and the row contributions. Setting alpha=2 in the fractional result gives the two individual candidate peaks and their maximum without selecting a unique winner. DGK supplies qualitative eventual-positivity background."
+        ],
+        "reasoning": "General exact formulas determine the norm numerically without proving the uniform winner identity and strictness; positivity cutoff monotonicity is not absolute row sum monotonicity.",
+        "searches": [
+          "2026/10/18/SCOPE-sharp-positivity-cutoff-for-squared-laplacian-heat-on-every-comp--e4f9c89a420f",
+          "2026/10/26/SCOPE-a-sharp-positivity-transition-for-fractional-graph-heat-on-compl--8af258cef8b1",
+          "arXiv:1511.05294"
+        ]
+      },
+      "checked_sources": [
+        "Repairs/3/RESULT.md, narrowed Finding and updated comparisons",
+        "Three direct mirrored complete multipartite and biclique statements",
+        "Daners–Glück–Kennedy and Gazzola–Grunau scope checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The October 18 root law gives b^2*tau_A -> c_* by x=b/N -> 1 and a*b*tau_B -> 1 by x=a/N -> 0 and x*u(x) -> 1. The highly unbalanced result directly gives the other frozen scales as well as final recovery. Both multipartite norm formulas retain a maximum."
+        ],
+        "reasoning": "Those scale and recovery facts are explicit consequences, so they no longer carry novelty. Correctly removing the maximum at every time requires a new inequality: a sign-change control for the difference of row contributions coupled to the known ordering of cutoff roots.",
+        "searches": [
+          "October 18 multipartite proof at offset 5400 onward",
+          "October 26 two-timescales peak proof",
+          "October 26 fractional multipartite Finding, all-time norm and global peak"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With m=a,n=b the two candidate masses and the exact peak formula agree. The stated large-imbalance peak regime is b>=32a; at earlier times its norm statement still uses max(d_A,d_B)."
+        ],
+        "reasoning": "The peak itself is covered in that regime. Uniqueness of a global peak does not imply identical winners at all transient times, even in that regime; the new comparison holds at every size ratio.",
+        "searches": [
+          "Resultary unbalanced bipartite/biclique squared-Laplacian heat peak and positivity",
+          "2026/10/26/SCOPE-two-timescales-of-transient-amplification-and-positivity-recover--61512629ac2e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed exact formulas and limits cover the thresholds, the norm with a maximum, and highly unbalanced peak data. No inspected result supplies the all-time, all-ratio dominance statement."
+        ],
+        "reasoning": "The remainder is a strict inequality for all continuous times and all sizes. Finite graph or parameter tables, and exact values at each tested peak, would not establish it.",
+        "searches": [
+          "Local Resultary exact biclique / complete multipartite positivity and peak formulas",
+          "October 18 proof steps 3–5",
+          "October 26 two-timescales Finding"
+        ]
+      },
+      "rationale": "This PASS is for the repaired statement only, not the original package presented as a new exact recovery and scale result. The earlier multipartite record mechanically covers the full positivity horizon, ordered within-part cutoffs, both recovery scales (by its proof of the endpoint limits of u), and the norm as a maximum over two explicit terms. A distinct same-day result already gives the same exact unique peak for b>=32a and three of the four frozen scale limits, more generally as b/a tends to infinity. The repair makes these overlaps explicit, removes the misdescription of the linked three-level semigroup example, and narrows the contribution to strict larger-row dominance at every transient time for all size ratios, including the consequent resolved all-ratio peak. The intrinsic sign comparison is not supplied by a maximum formula or by the earlier large-imbalance peak comparison. No priority is inferred within the shared date.",
+      "residual_risks": [
+        "No within-day order is established. Bounded primary search found no additional exact match, not proof of historical priority. Gazzola–Grunau full text was not retrievable; the comparison is limited to its open scope."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically covers the frozen recovery claims, both recovery scales and the norm with a partwise maximum, not the dominance remainder",
+          "evidence": "Per-part root u((N-m_i)/N); strict decrease of u and limits u(x)->c_* as x->1 and x*u(x)->1 as x->0.",
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-positivity-cutoff-for-squared-laplacian-heat-on-every-comp--e4f9c89a420f",
+          "material_read": "Finding and kernel near offset 0; steps 3–5 around offsets 5400–7500",
+          "method": "Local Resultary and OA mirror",
+          "title": "Sharp positivity cutoff for squared-Laplacian heat on every complete multipartite graph",
+          "trigger": "Broader exact coverage"
+        },
+        {
+          "assessment": "Same exact norm via two terms and same peak in narrower finite-ratio regime; stronger large-imbalance asymptotics, but not the repaired winner claim",
+          "evidence": "b>=32a for the sharp peak, max(d_A,d_B) at all times; scale limits allow a to vary.",
+          "identifier_or_url": "2026/10/26/SCOPE-two-timescales-of-transient-amplification-and-positivity-recover--61512629ac2e",
+          "material_read": "Finding, assumptions and peak comparison in RESULT.md, offsets 0–5048",
+          "method": "Local Resultary and OA mirror",
+          "title": "Two timescales of transient amplification and positivity recovery on unbalanced bipartite graphs",
+          "trigger": "Strongest same-day biclique match"
+        },
+        {
+          "assessment": "Direct norm and peak specialization with an unresolved maximum; no uniform row selection supplied",
+          "evidence": "Exact formulas maximize over i and do not assert uniqueness of the maximizing time in general.",
+          "identifier_or_url": "2026/10/26/SCOPE-a-sharp-positivity-transition-for-fractional-graph-heat-on-compl--8af258cef8b1",
+          "material_read": "Finding and assumptions around offsets 0–3526",
+          "method": "Local Resultary and OA mirror",
+          "title": "A sharp positivity transition for fractional graph heat on complete multipartite networks",
+          "trigger": "Broader exponent and graph class"
+        },
+        {
+          "assessment": "The linked document's finding is an infinite-dimensional example, not the stated general theorem; comparison dropped in the repair",
+          "evidence": "Spectrum {0,-1,-2}, eventually positive individual entries, and no positive operator times t>0.",
+          "identifier_or_url": "2026/10/11/SCOPE-a-three-spectral-value-barrier-for-gaps-in-positivity-times-of-s--da21753d4271",
+          "material_read": "Finding and explicit operator, offsets 0–2924",
+          "method": "OA local mirror",
+          "title": "A bounded three-level self-adjoint semigroup with no positive operator time on ℓ²",
+          "trigger": "Frozen comparison describing a general no-gap result"
+        },
+        {
+          "assessment": "Qualitative context, no all-time biclique row comparison in passages checked",
+          "evidence": "Theory characterizes eventual/asymptotic positivity rather than row amplification order.",
+          "identifier_or_url": "https://arxiv.org/abs/1511.05294",
+          "material_read": "Abstract and finite-dimensional passage in sec. 9, offsets near 500 and 141300",
+          "method": "OA HTML",
+          "title": "Eventually and asymptotically positive semigroups on Banach lattices",
+          "trigger": "Primary eventual-positivity theory"
+        },
+        {
+          "assessment": "No full-text exclusion claimed; continuum object differs",
+          "evidence": "Eventual local positivity for a continuous-space biharmonic heat equation, rather than a bound for ordered rows of a biclique matrix.",
+          "identifier_or_url": "https://doi.org/10.3934/dcdss.2008.1.83",
+          "material_read": "Open abstract scope; full text unavailable in the lawful retrievability checks",
+          "method": "Publisher and lawful OA attempts",
+          "title": "Eventual local positivity for a biharmonic heat equation in R^n",
+          "trigger": "Frozen primary continuum comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired Finding and dominance proof",
+        "October 26 two-timescale record, regime b>=32a",
+        "October 18 multipartite exact max-over-parts formula"
+      ],
+      "rationale": "The repaired comparison identifies, at every time and without a size-ratio hypothesis, which vertex class controls worst-case coordinatewise amplification and hence where to construct the maximizing sign input. It converts a two-candidate temporal optimization into one explicit unique peak for all bicliques. This is a structural answer not contained in the known positivity scales or generic maximum formulas.",
+      "residual_risks": [
+        "No broader conclusion is made about competition among parts in a general complete multipartite graph. The known recovery limits are context, not independent added value."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

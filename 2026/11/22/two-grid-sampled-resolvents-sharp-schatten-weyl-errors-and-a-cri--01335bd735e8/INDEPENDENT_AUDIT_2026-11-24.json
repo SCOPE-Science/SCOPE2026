@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:19:40.273494Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, formulas and proof lines 5–79",
+        "VERIFICATION.md and verify.py, inspected as finite diagnostics"
+      ],
+      "rationale": "At a=λ+μ>0, subtract the two scalar fractions using z=e^(−ha/2) to get hz/(1−z²). This is also the midpoint Laplace sum. The error symbol hφ(ha) is positive since 2sinh(u/2)>u, with φ(u)~u/24 at zero and ~1/u at infinity. The Weyl polynomial bound gives exponential summability and trace class for the approximant at every h>0. The scaled spectral counts converge at each positive threshold x to Cx^ν. For f=φ^p, small u contribute at most a constant times ε^(p+ν) in the limsup, using f=O(u^p) and the count at ε. In the large tail, the kth dyadic annulus above M is bounded by a constant times (2^k M)^(ν−p), summable precisely in the desired range p>ν. This justifies the stated positive finite trace limit including p<1. For fixed h, each large-index error eigenvalue is asymptotic to (λ+μ_j)^(-1); sandwich the tail between (1±η) times that sequence, sort it, and ignore a finite index shift. Thus s_n~(C/n)^(1/ν) and strong membership fails for p≤ν. For the weak endpoint, this tail gives the lower bound for every h. Since 0≤E_h≤R, min–max bounds n^(1/ν)s_n(E_h) for all n beyond a fixed N by C^(1/ν)+η. The remaining finitely many terms tend to zero by ||E_h||≤h sup φ, proving the matching limit. For the zeta formula, Mellin-transform g(u)=1/(2sinh(u/2)) for Re s>1 by its exponential series. Then subtract 1/u below u=1 and add 1/(s−1); the integrals in this subtracted expression continue to 0<s<1. There 1/(s−1) is minus the integral of u^(s−2) above 1, yielding ∫φ(u)u^(s−1)du=−Γ(s)ζ(s,1/2)=−Γ(s)(2^s−1)ζ(s). This covers exactly the nuclear range and reproduces the interval coefficient.",
+      "residual_risks": [
+        "The nonlinear trace limit uses a true Weyl coefficient and self-adjoint spectral calculus; no continuous-spectrum or nonnormal result. Not a formal verification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Iochum–Zagrebnov link spectral counting and heat-trace asymptotics by Abelian/Tauberian results. Castillo represents Γ(σ)ζ_A(σ) using dyadic heat trace samples and discusses the spectral pole."
+        ],
+        "reasoning": "The Weyl-to-rescaled-spectral-measure step is a general Abelian method. Heat-trace asymptotics or a Mellin representation of ζ_A concern a different statistic; the inspected theorems do not identify the positive midpoint error, its fixed-mesh singular tail, and the weak endpoint and ζ(ν) coefficient together.",
+        "searches": [
+          "Primary-literature search for semigroup traces, Schatten resolvents and Weyl scaling; Iochum–Zagrebnov Appendix A, Thm. A.2; Castillo arXiv:2607.21278 Prop. 11, Eq. (57), Rem. 18"
+        ]
+      },
+      "checked_sources": [
+        "Castillo arXiv:2611.15563v1 and 2607.21278",
+        "Iochum–Zagrebnov arXiv:2309.05394",
+        "Resultary records 68fdc2ada07f and identical hit 01335bd735e8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An operator-norm rate supplies no multiplicity count; the earlier heat-sampling formula describes ζ_A, whereas the error coefficient here evaluates the shifted arithmetic progression in the scalar filter and involves ζ(ν)."
+        ],
+        "reasoning": "Standard spectral and Mellin arguments can derive the result once the error is set up, but none of the strongest inspected statements already covers the sharp two-grid spectral error classification as a specialization.",
+        "searches": [
+          "Compare Castillo Cor. 5.2, Prop. 5.10(a) against fixed-mesh and weak-critical claims; compare earlier Castillo Prop. 11 with the p=1 Mellin constant"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "§2 gives the same Q_h. Theorem 3.2 gives mixed-radix splitting. Cor. 5.2 uses an identity-corrected trapezoid input; Prop. 5.10(a) gives operator-norm errors for Q_h and Q_h−hI/2."
+        ],
+        "reasoning": "The exact scalar filter can be restated as a midpoint-grid Laplace sum and is not by itself distinct work. Neither relabeling the grid nor taking those operator-norm rates yields the strong and weak Schatten asymptotics.",
+        "searches": [
+          "Sampled semigroup resolvents: Castillo arXiv:2611.15563v1 §§2, 3 and 5; compare midpoint grid, mixed-radix splitting, trapezoid correction and Romberg"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "01335bd735e8 is the frozen work itself. 68fdc2ada07f blends trapezoid-corrected samples and optimizes a universal operator-norm multiplier with weight w*=1.7443…"
+        ],
+        "reasoning": "The result is a functional-calculus limit rather than a numerical table. The closest separate exact indexed theorem changes the filter and optimizes a different quantity with no Weyl asymptotic; its same-day date is not evidence of priority.",
+        "searches": [
+          "Published-record search: two-grid sampled resolvent, Weyl/Schatten and self-adjoint blending; compare 68fdc2ada07f and 01335bd735e8"
+        ]
+      },
+      "rationale": "The sampling algebra is ordinary midpoint quadrature; regular variation and the Mellin continuation are baseline tools. Credit is limited to the quantitative Schatten error theorem for this resolvent filter, including the sharp weak-versus-strong distinction and explicit nuclear coefficient. The strongest inspected sampling and zeta results overlap in method, not in their joint hypotheses and conclusions.",
+      "residual_risks": [
+        "The general weighted Weyl method is classical; a stronger filter-specific or general error-trace theorem not located in the bounded comparison could subsume part or all of the novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior dyadic methods; different filter in Cor. 5.2 and different norm conclusions",
+          "evidence": "Romberg of Q_T−TI/2 in Cor. 5.2; sharp norm errors T and T/2 in Prop. 5.10(a).",
+          "identifier_or_url": "https://arxiv.org/html/2611.15563v1",
+          "material_read": "§2 Q_T, Theorem 3.2, Cor. 5.2, Prop. 5.10(a); HTML offsets 2894, 16959, 32826, 54356",
+          "method": "Bounded original HTML passages",
+          "title": "Sampled resolvents of C0-semigroups: aliasing and sharp rates on the Crandall–Pazy scale",
+          "trigger": "Direct antecedent for sampled-resolvent identities and rates"
+        },
+        {
+          "assessment": "Meaningful heat-trace and zeta-method overlap, not the stated error limit",
+          "evidence": "Dyadic samples of the heat trace represent Γ(σ)ζ_A(σ) and recover its pole from heat asymptotics.",
+          "identifier_or_url": "https://arxiv.org/html/2607.21278",
+          "material_read": "Prop. 11, Eq. (57) and Rem. 18 near HTML offset 91144",
+          "method": "Bounded original HTML passage",
+          "title": "Dyadic resolvent representations of self-adjoint operators: propagator expansions, spectral measures, and zeta functions",
+          "trigger": "Possible earlier dyadic heat-trace and zeta coverage"
+        },
+        {
+          "assessment": "General Abelian/Tauberian apparatus, not midpoint-resolvent error theorem",
+          "evidence": "Relates heat-trace behavior to spectral counting.",
+          "identifier_or_url": "https://arxiv.org/html/2309.05394",
+          "material_read": "Appendix A, Theorem A.2, HTML offset 184158",
+          "method": "Bounded original HTML passage",
+          "title": "Asymptotic Behaviour of Semigroup Traces and Schatten Classes of Resolvents",
+          "trigger": "Possible general Schatten/trace asymptotic covering theorem"
+        },
+        {
+          "assessment": "Two grids and positive self-adjoint setting; different blend and target norm",
+          "evidence": "Uses trapezoid-corrected samples and a minimax operator-norm constant, not Schatten Weyl asymptotics.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-minimax-two-grid-resolvent-blending-for-positive-self-adjo--68fdc2ada07f",
+          "material_read": "RESULT.md original Finding and sampled/blended definitions",
+          "method": "Published-record mirror passage",
+          "title": "Sharp minimax two-grid resolvent blending for positive self-adjoint generators",
+          "trigger": "Closest separate published-record hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, spectral ideal statements and interval example",
+        "Castillo arXiv:2611.15563v1, norm and extrapolation comparisons"
+      ],
+      "rationale": "For a natural grid approximation of the Laplace resolvent, trace class of the approximant does not make the approximation trace class in Weyl dimension ν≥1. The exact strong-ideal rates, the nonvanishing critical weak coefficient despite norm convergence, and the nuclear constant below that boundary distinguish errors that operator-norm estimates miss. This is meaningful quantitative information for spectra such as elliptic generators, separate from the elementary sampling identity.",
+      "residual_risks": [
+        "No claim of robustness to discretization truncation, noise, or loss of self-adjointness."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

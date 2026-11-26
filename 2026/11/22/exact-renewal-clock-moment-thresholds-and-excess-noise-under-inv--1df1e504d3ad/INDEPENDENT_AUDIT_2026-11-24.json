@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:52:45.780128Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–26 and 28–68",
+        "VERIFICATION.md and supplied verify.py inspected as evidence, not executed",
+        "Independent analytic checks: truncated Neumann–Dirichlet kernel, exact two-integral substitution into the Kac recursion, and renewal overshoot bound"
+      ],
+      "rationale": "The folded coordinate Y=b+|X| has generator D∂² with Neumann boundary at b and killing a/y². Recurrence gives infinite occupation near b and a finite first reset almost surely. For the zero resolvent one may first absorb at M>b: the right solution v_M(y)=y^(-eta)-M^(-2eta-1)y^(eta+1) vanishes at M and the endpoint kernel is v_M(y)/(-D v'_M(b)). Monotone exhaustion gives the stated G(b,y). The killed Markov property and Tonelli give the Kac recursion, also for infinite moments. From any y, Brownian scaling and the Lipschitz fold give a fixed positive probability of staying within y/2 of y for a time proportional to y²/D with bounded integrated hazard. Thus the recursion dominates the integral of y^(2m-2-eta) and diverges even at equality. Conversely, positive Neumann supersolutions B_k control the killed occupation of y^(2k-2) via stopped Feynman–Kac, and Kac induction bounds M_k by a constant times y^(2k). For eta>1, the growth bound removes the Neumann homogeneous solution growing as y^(eta+1) from M_1. Its explicit Neumann solution and the two elementary integrals for M_2 give the printed moments, CV²=1+4eta/((eta-3)(2eta-1)), and its strictly negative derivative for eta>3. The counting limit follows from the finite-variance renewal asymptotic: for the first renewal beyond t, Wald's stopped centered sum has variance σ² E(N(t)+1); the overshoot second moment is o(t), since for any C its bound is C²+E(N(t)+1) E[R² 1_{R>C}]. With E N(t)~t/μ this gives Var N(t)~t σ²/μ³. Hence the Fano limit equals CV² exactly in the stated finite-variance regime.",
+      "residual_risks": [
+        "The finite moment values depend on the specified regularized profile; no finite-variance Fano assertion is made at or below a/D=12."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Keidar–Reuveni give the inverse-square stationary tail exponent eta, spatial moment thresholds, and the finite mean reset boundary a/D=2 from renewal localization.",
+          "When the stationary measure exists, the occupation identity gives folded stationary density G(b,y)/μ. Its moment of order 2m-2 has the same nominal integrability threshold eta>2m-1 as the temporal moment of order m.",
+          "The strong Markov/Kac recursion and finite-variance renewal variance theorem are general tools, not novel here."
+        ],
+        "reasoning": "Stationarity directly covers the first-moment boundary. For m>=2, a spatial integrability test only determines the clock moment once it is linked to the local remaining-time moment M_(m-1)(y); this requires Brownian-scale bounds or equivalent killed-diffusion analysis. Neither general method nor spatial hierarchy supplies the specialized temporal second-moment coefficient.",
+        "searches": [
+          "arXiv:2608.27090v1 Eq. (1) and Eqs. (9)–(15)",
+          "arXiv:1703.10615v2 §2 and parabolic example"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md lines 74–89",
+        "arXiv:2608.27090",
+        "arXiv:1703.10615",
+        "arXiv:1805.00320",
+        "Distinct Resultary count-noise record 2ee6b6d61a3e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For eta>2m-1, the proof obtains M_(m-1)(y) bounded above and below on the y^(2m-2) scale; the lower bound remains available even below the threshold. Only inserting these bounds into the occupation integral proves convergence and divergence of the temporal moments.",
+          "Knowing eta and the stationary variance boundary alone does not evaluate the second integral against M_1(y), or imply CV²=1+4eta/((eta-3)(2eta-1)) and its strict monotonicity.",
+          "Once the interval mean and variance are known, passage to the long-run count Fano factor is standard renewal theory."
+        ],
+        "reasoning": "The distinct result is the temporal hierarchy and exact noise for the inverse-square clock, not the m=1 boundary, a coincident threshold considered only as an exponent, or the general renewal identity.",
+        "searches": [
+          "arXiv:2608.27090v1 stationary moment and variance discussion",
+          "arXiv:1703.10615v2 §2 Eq. (20)",
+          "Resultary record suffix 2ee6b6d61a3e"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "First-reset time is survival of a killed reflected diffusion with operator -D∂²+a/y² on [b,infinity) and a Neumann left boundary. A target first-passage time in a process with resetting is a different clock.",
+          "Roldán–Gupta give the general no-reset propagator formula, with an exact parabolic-rate example in the inspected passages, not an exact inverse-square temporal result.",
+          "The generic inverse-square/Bessel query did not yield a relevant specialized statement and is not evidence that none exists."
+        ],
+        "reasoning": "A zero-resolvent kernel or Laplace transform for the same regularized potential and boundary could cover the problem if it gives the requisite moment information. The compared general survival representation is a starting formula rather than a solution of this instance.",
+        "searches": [
+          "Primary literature: \"inverse-square\" adaptive resetting \"resetting times\" moment threshold Bessel killed diffusion",
+          "arXiv:1703.10615v2 §2 Eq. (20)",
+          "arXiv:1805.00320v4 abstract"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed hit with suffix 1df1e504d3ad is the frozen finding itself, not independent coverage.",
+          "The closest distinct indexed Fano result is for threshold-gated alarms and resets to a threshold in reflected Brownian motion. It gives an exact inter-reset transform and Fano factor for a different reset kernel."
+        ],
+        "reasoning": "That exact formula cannot be substituted for the continuously active inverse-square hazard with origin resets. The same date does not settle priority.",
+        "searches": [
+          "Resultary: inverse-square adaptive resetting exact renewal reset-time moments temporal moment thresholds Fano factor",
+          "Resultary record 2026/11/22/SCOPE-a-sharp-sub-poisson-to-super-poisson-transition-in-asymmetric-br--2ee6b6d61a3e"
+        ]
+      },
+      "rationale": "The supported distinction is the sharp hierarchy for moments of the time between resets (with divergence at equality), the specialized raw second moment and the strict decreasing excess-noise classification for this rate. The finite-mean threshold, stationary spatial power law and moment hierarchy, general killed-resolvent methods, and general renewal Fano identity are not new. The stationary result gives closely related thresholds, even exact equality of the corresponding integrability tests after comparing remaining lifetimes, but it does not by itself establish those comparisons or give the temporal second moment and noise law.",
+      "residual_risks": [
+        "An earlier exact inverse-square killed-diffusion transform or temporal calculation was not located in the bounded search and could alter the comparison.",
+        "Full text of DOI 10.1103/w2yj-91m8 was unavailable through the lawful routes checked."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers mean-time boundary and related spatial hierarchy, not the temporal second moment or CV",
+          "evidence": [
+            "Stationary density decays as |x|^(-eta), with eta(eta+1)=a/D for the inverse-square tail; finite mean reset time corresponds to stationary normalization."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2608.27090",
+          "material_read": "Intro Eq. (1), OA offsets 1906–7854; Eqs. (9)–(15) and stationary spatial moments, offsets 20400–26304, PDF p. 5",
+          "method": "Read bounded OA passages",
+          "title": "Localization–Delocalization Transition in Diffusion with Adaptive Resetting",
+          "trigger": "Same inverse-square tail, reset-time boundary and nearby hierarchy"
+        },
+        {
+          "assessment": "General method; inspected exact example uses a different rate",
+          "evidence": [
+            "First reset law via the no-reset propagator; parabolic example r(x)=αx²."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1703.10615",
+          "material_read": "Abstract, §2 Eq. (20) and parabolic example, PDF pp. 4 and 7; OA offsets 30100–35049 and 48500–53408",
+          "method": "Read bounded OA passages",
+          "title": "Path-integral formalism for stochastic resetting: Exactly solved examples and shortcuts to confinement",
+          "trigger": "General first-reset calculation with exact examples"
+        },
+        {
+          "assessment": "Target-hitting observable differs from the first reset",
+          "evidence": [
+            "T_a is the first visit to spatial target a under the resetting process."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1805.00320",
+          "material_read": "Abstract and target-hitting definition on PDF p. 1, OA offset 0",
+          "method": "Read OA opening passage",
+          "title": "Diffusive Search with Spatially Dependent Resetting",
+          "trigger": "Possible alternative first-passage formulation for similar rates"
+        },
+        {
+          "assessment": "Full-text comparison unresolved; not used as negative evidence",
+          "evidence": [],
+          "identifier_or_url": "https://doi.org/10.1103/w2yj-91m8",
+          "material_read": "No full text obtained",
+          "method": "Lawful OA direct/VPN retrieval attempted; HTTP 403",
+          "title": "First-passage time in space-dependent stochastic resetting",
+          "trigger": "Closely related position-dependent resetting and first-passage setting"
+        },
+        {
+          "assessment": "Different model, same renewal-count interpretation",
+          "evidence": [
+            "Alarms gate above a threshold and reset to a threshold, not regularized inverse-square killing with resets to zero."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-sub-poisson-to-super-poisson-transition-in-asymmetric-br--2ee6b6d61a3e",
+          "material_read": "Local mirror RESULT.md transform and count-Fano statement",
+          "method": "Read mirror passages",
+          "title": "A sharp sub-Poisson to super-Poisson transition in asymmetric Brownian resetting",
+          "trigger": "Closest distinct indexed exact clock transform and Fano law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–18 and 42–68",
+        "arXiv:2608.27090 stationary phase and spatial moments"
+      ],
+      "rationale": "Stationary spatial localization, finite mean waiting time, and finite clock noise answer different questions about the same natural resetting model. The sharp temporal hierarchy clarifies when higher moments fail, including equality; the exact decreasing excess-noise law distinguishes the process from a Poisson clock and controls the asymptotic count dispersion where it is finite. These are useful dynamical quantities beyond recomputing a stationary tail exponent.",
+      "residual_risks": [
+        "The exact noise formula is profile-specific and gives no universality or finite-sample error guarantee."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:17:00.119636Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Finding, scope and proof §§1–4",
+        "VERIFICATION.md",
+        "check_asymmetry.py",
+        "check_asymmetry.out"
+      ],
+      "rationale": "The matrix units with fixed column give the leading principal blocks for L_x; those with fixed row give the transposed trailing blocks for R_x. The common size-four block (and the common zero size-one block) cancel in all rank differences. Write d_i=rank(L_x^i)-rank(R_x^i) and let alpha and gamma indicate a,c nonzero. If b is nonzero, the leading and trailing size-three blocks have ranks 1+alpha and 1+gamma, and their squares have ranks alpha and gamma. Adding the size-two rank contributions yields d_1=2(alpha-gamma), d_2=alpha-gamma, d_3=0. Thus the block-multiplicity differences are Delta_3=d_2 and Delta_2=d_1-2d_2=0. The count for each nonzero sign is q^3(q-1)^2. If b=0, d_2=0 and d_1 is the difference of two independent scores of (a,d) and (c,e), each score having 1, q-1, q(q-1) choices at values 0,1,2. Including the free f gives q^2(q-1) and q(q-1)(q^2-q+1) per signed score difference of magnitude two and one respectively. Subtraction from q^6 gives the stated zero count, and division by q^6 gives the similarity probability. Equal dimension forces Delta_1=-3Delta_3-2Delta_2, and Delta_4=0. This argument uses only rank and indicator tests, applies also in characteristic two and to extension fields, and makes all seven strata nonempty for q>=2. For T_3, canceling the common size-three block leaves at most one size-two block per side, confirming the two first-occurrence claims for the triangular family.",
+      "residual_risks": [
+        "The attached exhaustive outputs cover GF(2), GF(3), GF(5) only. The all-field claim is supplied by the symbolic proof; the law is for the discrepancy, not the joint pair of individual Jordan types."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fuchs–Kirillov Proposition 3.1 gives a partition recurrence for the number of n-by-n strictly upper triangular matrices with each defining Jordan type at arbitrary n. The cyclic Nakayama result proves full regular left/right equality for Loewy-length-three oriented cycles, using a different algebra. Carroll–Chindris–Lin study constant Jordan type for quiver representations and associated sheaves."
+        ],
+        "reasoning": "The arbitrary-n marginal recurrence does not give the joint law of both overlapping leading and trailing principal blocks. The cyclic theorem has different Loewy-length and directed graph hypotheses, so the four-vertex triangular chain does not specialize from it.",
+        "searches": [
+          "Fuchs–Kirillov arXiv:2204.00066v1 §3, Proposition 3.1",
+          "2026/11/2/SCOPE-jordan-type-gaps-and-a-motivic-transfer-census-for-cyclic-nakaya--5ebbee94c07d",
+          "Carroll–Chindris–Lin arXiv:1402.2568 p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary comparisons for cyclic and rooted-tree incidence radicals, same-date seven-stratum record, and strictly triangular centralizer/product-fiber censuses",
+        "arXiv:2204.00066v1",
+        "arXiv:1402.2568v1",
+        "Focused literature search on two-sided regular Jordan discrepancy"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The overlapping size-three blocks of the triangular chain share b. The law needs their joint dependence through whether b vanishes; the marginal count recurrence and cover-support canonical-action census do not supply this joint information."
+        ],
+        "reasoning": "Principal-block decomposition is elementary, and reversal implies symmetry, but a new calculation of the coupled prefix/suffix cases is needed for the occurrence and exact frequency of the signed discrepancies.",
+        "searches": [
+          "arXiv:2204.00066v1 Proposition 3.1 and example at offsets 27780–29650",
+          "Cyclic Nakayama RESULT.md offsets 0–7118",
+          "Rooted-tree incidence RESULT.md offsets 0–2750"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The flip-transpose anti-automorphism x -> J x^T J, for anti-diagonal permutation matrix J, exchanges left and right regular actions while changing x to its diagram dual. It pairs signed fibers, but does not make the actions on the same x similar.",
+          "Fuchs–Kirillov count the Jordan type of x acting on the defining n-dimensional vector space. In T_4, E_12 and E_23 both have defining type (2,1,1), yet give (Delta_3,Delta_2)=(0,2) and (0,0) respectively."
+        ],
+        "reasoning": "The marginal Jordan type of x and the duality between opposite inputs are not equivalent to the joint prefix-versus-suffix regular discrepancy at a single x.",
+        "searches": [
+          "Resultary: triangular regular left/right multiplication Jordan asymmetry and incidence-algebra Jordan censuses",
+          "websearch: finite field upper triangular matrix algebra radical left right regular multiplication Jordan type nilpotent discrepancy distribution similarity T4 incidence algebra",
+          "arXiv:2204.00066v1 Abstract and Proposition 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The seven-partition same-date result has one multiplication action in a commutative eight-dimensional algebra in odd characteristic. The rooted-tree incidence census restricts inputs to cover support and counts types on the defining representation. The nearby strictly upper triangular censuses count embedded centralizers or solutions of XY=Z, not signed Jordan multiplicities of the full regular actions."
+        ],
+        "reasoning": "Neither a seven-row table for a different operator nor centralizer/product fibers of related inputs are the asserted signed table. The closest full regular cyclic table records equality rather than the T_4 asymmetry.",
+        "searches": [
+          "Resultary triangular and incidence-algebra finite-field census results",
+          "2026/11/22/SCOPE-seven-exact-jordan-strata-for-a-three-axis-squarefree-complete-i--778c383f08b9",
+          "2026/11/22/SCOPE-jordan-type-census-and-a-critical-nilpotency-window-for-rooted-t--fcd29ef31ec1",
+          "2026/11/8/SCOPE-exact-embedded-centralizer-spectrum-of-the-strictly-upper-triang--d23fa671bcf4",
+          "2026/10/13/SCOPE-four-product-fiber-strata-in-the-strictly-upper-triangular-4-tim--9ed32ce5752d"
+        ]
+      },
+      "rationale": "The distinct result supported by the comparisons is the signed two-sided regular-action law for all radical elements of T_4, including its exact similarity probability and the support strata. Neither the available general single-matrix Jordan counting theorem nor the closely related two-sided cyclic-radical census determines it. The known sign symmetry from diagram reversal explains equality of opposite fibers, not their seven counts or their support conditions.",
+      "residual_risks": [
+        "A general theorem controlling joint leading/trailing Jordan types might imply the result but was not located in the bounded comparison.",
+        "The cited neighboring Lie-bracket record was not available at the expected local mirror path; no negative inference is drawn from that."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defining-space marginal, not two-sided regular law",
+          "evidence": "P_lambda counts matrices whose own Jordan partition is lambda; the proposition recurs by partitions with one cell removed, not the simultaneous prefix/suffix block discrepancies.",
+          "identifier_or_url": "https://arxiv.org/pdf/2204.00066v1",
+          "material_read": "Abstract p. 1; §3 Proposition 3.1 and example pp. 5–6, offsets 27780–29650",
+          "method": "Primary-literature search and OA PDF passage inspection",
+          "title": "Jordan types of triangular matrices over a finite field",
+          "trigger": "Strong broad match on all n and finite-field Jordan counts of strictly upper triangular matrices"
+        },
+        {
+          "assessment": "Different algebra and opposite equality phenomenon",
+          "evidence": "Left and right regular Jordan types agree on an oriented cyclic Loewy-length-three algebra; that is not the directed four-vertex chain at Loewy length four.",
+          "identifier_or_url": "2026/11/2/SCOPE-jordan-type-gaps-and-a-motivic-transfer-census-for-cyclic-nakaya--5ebbee94c07d",
+          "material_read": "RESULT.md statement and proof, offsets 0–7118",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "Jordan-type gaps and a motivic transfer census for cyclic Nakayama radicals",
+          "trigger": "Closest exact two-sided full regular Jordan result"
+        },
+        {
+          "assessment": "Different algebra, invariant and field scope",
+          "evidence": "Counts seven individual partitions in dimension eight in a commutative algebra over odd finite fields.",
+          "identifier_or_url": "2026/11/22/SCOPE-seven-exact-jordan-strata-for-a-three-axis-squarefree-complete-i--778c383f08b9",
+          "material_read": "RESULT.md Finding and scope, offsets 0–4812",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "Seven exact Jordan strata for a three-axis squarefree complete intersection",
+          "trigger": "Distinct same-date seven-stratum hit"
+        },
+        {
+          "assessment": "Canonical representation and restricted supports only",
+          "evidence": "The census concerns cover-supported elements acting on the canonical representation, rather than the two full regular actions on all radical elements.",
+          "identifier_or_url": "2026/11/22/SCOPE-jordan-type-census-and-a-critical-nilpotency-window-for-rooted-t--fcd29ef31ec1",
+          "material_read": "RESULT.md Finding and assumptions, offsets 0–2750",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "Jordan-type census and a critical nilpotency window for rooted trees",
+          "trigger": "Nearby incidence radical result that might cover chains"
+        },
+        {
+          "assessment": "Contextual source, no broader coverage established",
+          "evidence": "The announced results concern constant Jordan type and associated sheaves, not finite-field counts of the two opposite regular actions.",
+          "identifier_or_url": "https://arxiv.org/pdf/1402.2568v1",
+          "material_read": "p. 1, abstract",
+          "method": "OA PDF inspection",
+          "title": "Quiver representations of constant Jordan type and vector bundles",
+          "trigger": "Cited general Jordan-type framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The directed chain is the elementary noncommutative incidence algebra where one can ask if opposite full regular actions give the same Jordan type at the same element. Size four is the first chain allowing a discrepancy in size-three blocks or a size-two discrepancy of magnitude two. The exact law separates the mechanism with nonzero b from the b=0 one, and gives the chance of similarity rather than just a counterexample or the sign symmetry forced by duality. This is a concrete baseline for two-sided Jordan statistics, not an arbitrary parameter slice or a census of the individual defining Jordan types.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

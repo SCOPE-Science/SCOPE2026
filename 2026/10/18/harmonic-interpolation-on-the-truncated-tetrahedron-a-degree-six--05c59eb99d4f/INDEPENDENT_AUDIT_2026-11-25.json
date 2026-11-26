@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:22:17.980695Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The dot product of ordered-edge vertices has numerator −9+4(4δ_ik+2δ_il+2δ_jk+δ_jl). Its classes give the stated row-sum operator, which on constants, symmetric zero-row-sum arrays, and antisymmetric zero-row-sum arrays has exactly the three scalar actions claimed. Source and target coordinate arrays from the sum-zero four-vertex space are perpendicular to those three subspaces; substituting them gives the two columns of the displayed block. Their basis metric on each pair is proportional to [[3,−1],[−1,3]], so any block pseudoinverse must use its inherited inner product, not a Euclidean pseudoinverse of the nonorthogonal matrix. The addition theorem gives Gram = (2ℓ+1) times the normalized matrix. A newly written raw-Gram check, using the original coordinates and not the frozen code, reproduced ranks 1,3,5,7,9,11,9 by exact row reduction and positive definiteness by rational Schur pivots at every degree 7–575 (569 degrees). It also verified that the four oriented triangular cycles span a three-dimensional kernel at degree six. Orthogonality to these vectors is the zero-circulation condition, and the lone zero block at degree five is the constants. The finite check is not an infinite proof: in the Laplace integral, the absolute integrand is (1−(1−t²)sin²θ)^(ℓ/2); bounding it by a Gaussian on each half interval gives the stated √(π/[2ℓ(1−t²)]) estimate. Thus at ℓ≥576 the squared row bound is less than 322102/(560ℓ)<1, giving strict diagonal dominance. The kernel interpolant uses (2ℓ+1) times the normalized Gram and is the minimum-norm solution because it lies in the orthogonal complement of the evaluation kernel. Finite replay from the workspace root: python3 reproductions/4/independent_gram_check.py --max-degree 575; output in reproductions/4/full_run.txt.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fritz uses the same points for singularities of a degree-six polynomial, not the homogeneous harmonic evaluation map. Bannai–Okuda–Tagami study vanishing harmonic sample sums; Khalid–Kennedy–McEwen sample a bandlimited direct sum on different iso-latitude sets. The later indexed result additionally proves isolation under a deformation of the orbit."
+        ],
+        "reasoning": "A harmonic design condition gives at most information on the constant sample channel, and a bandlimited sampling theorem or nonharmonic singularity calculation does not establish the fixed-degree ordered-edge spectral blocks. The later deformation claim gives extra local parameter information, not the full spectrum at the uniform orbit.",
+        "searches": [
+          "Fritz, Platonic stars, §3.2.2 Example 8",
+          "arXiv:1308.5101v1 Introduction and Theorem 1",
+          "arXiv:1403.4661v1 §I.B",
+          "Resultary 94f6926d5deb deformation proof"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_exact.py",
+        "Fritz thesis §3.2.2",
+        "Bannai–Okuda–Tagami arXiv:1308.5101",
+        "Khalid–Kennedy–McEwen arXiv:1403.4661",
+        "Resultary 94f6926d5deb (mirrored full finding and relevant proof)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact null vectors of 94f6926d5deb entail the circulation constraints by orthogonality, once their support and span are translated. Neither that rank proof nor the inspected older sources provide the three scalar and one repeated 2×2 Legendre blocks that describe the full spectrum at each degree."
+        ],
+        "reasoning": "The addition theorem itself only reduces the problem to a Gram matrix. The symmetry block decomposition, the cancellation in the antisymmetric channel and the sharp threshold are not routine consequences of the checked older statements. The later proof does establish rank and the identical degree-six kernel, which are separately credited as equivalent coverage.",
+        "searches": [
+          "Fritz Example 8 and Bannai–Okuda–Tagami Theorem 1 versus frozen RESULT.md lines 46–80",
+          "Resultary 94f6926d5deb, exceptional ranks, null vectors and all-degree proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The alternate sign-coordinate description at a=3 is exactly the set 2v_i+v_j after normalization. Its real rank equals the assigned complex rank by complexification. Its three exact null vectors, mapped to ordered edges, are independent antisymmetric zero-row-sum flows."
+        ],
+        "reasoning": "The reindexing identifies the matrices up to permutation and normalization. Both determine the same degree-six three-dimensional cycle space and all-degree rank law; lack of circulation wording in the other record is not a substantive difference in its kernel.",
+        "searches": [
+          "Local Resultary: exact single-degree harmonic interpolation on the regular truncated tetrahedron, rank 9 at degree 6 and permanent threshold 7",
+          "Resultary 94f6926d5deb, mirrored RESULT.md Finding and exceptional low degrees"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The other catalogue record explicitly tabulates the ranks 2ℓ+1 for 0≤ℓ≤5, 9 for ℓ=6, and 12 for every ℓ≥7, using modular certificates and an analytic tail. This is a distinct exact indexed match, with record-path date 2026-10-26."
+        ],
+        "reasoning": "It is a match to the rank invariant, not merely a similar title. Its location supplies no evidence that it was an antecedent of the assigned finding. It rules out any claim of current catalogue uniqueness, not by itself a best-of-knowledge originality pass relative to prior coverage.",
+        "searches": [
+          "Local Resultary: exact-degree truncated-tetrahedral interpolation rank defect and degree-seven threshold",
+          "Resultary 94f6926d5deb, mirrored RESULT.md offsets 0–6551"
+        ]
+      },
+      "rationale": "The bounded comparison did not establish antecedent coverage. A distinct catalogue record indexed under a later date demonstrably contains the entire rank law and the equivalent degree-six kernel; these are not unique to the assigned text in the current catalogue. The index dates do not establish priority or derivation. The assigned uniform spectral-block formulas are not supplied by that record's rank certificates. The inspected earlier geometry, harmonic-design and transform passages do not imply the fixed-orbit rank or spectral law.",
+      "residual_risks": [
+        "The exact later-indexed overlap is material; priority, dependency and any earlier dissemination of that result were not determined. Older polyhedral harmonics or invariant-theory tables may contain an equivalent block or rank theorem. The searches do not establish absence or priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent all-degree rank and degree-six kernel in a later-dated indexed record; chronology is not established beyond the record dates",
+          "evidence": "The real result complexifies to the same ranks; its null vectors span the same cycle space. It also gives local deformation surjectivity, but not the reviewed spectral blocks.",
+          "identifier_or_url": "Resultary 94f6926d5deb",
+          "material_read": "Mirrored RESULT.md offsets 0–6551: Finding, Assumptions, modular ranks and three exact null vectors, all-degree bound, and deformation proof",
+          "method": "Local Resultary and mirror passage inspection; reindexing and comparison of kernel span",
+          "title": "A reentrant degree-six interpolation defect on the regular truncated tetrahedron",
+          "trigger": "Exact same orbit, defect and permanent threshold"
+        },
+        {
+          "assessment": "Geometry overlap, different degree-six question",
+          "evidence": "The vertices are singularity coordinates of a constructed algebraic star surface, not an evaluation image for harmonic polynomials.",
+          "identifier_or_url": "https://homepage.univie.ac.at/herwig.hauser/Publications/diplom_fritz.pdf",
+          "material_read": "§3.2.2 Example 8, printed pp. 38–39, PDF pp. 44–45",
+          "method": "Lawful OA thesis passage inspection",
+          "title": "Platonic stars: Construction of algebraic curves and surfaces with prescribed symmetries and singularities",
+          "trigger": "Same truncated-tetrahedron coordinates and degree six"
+        },
+        {
+          "assessment": "General related kernel and moment setting, no rank implication from the checked theorem",
+          "evidence": "The theorem constructs harmonic-index designs from lower-dimensional spherical designs.",
+          "identifier_or_url": "https://arxiv.org/pdf/1308.5101",
+          "material_read": "v1 Introduction and Theorem 1, PDF pp. 1–2",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Spherical designs of harmonic index t",
+          "trigger": "Exact-degree harmonic moments"
+        },
+        {
+          "assessment": "Different samples and bandlimit regime",
+          "evidence": "The samples are iso-latitude and intended for bandlimited transforms, not a fixed twelve-point exact-degree evaluation.",
+          "identifier_or_url": "https://arxiv.org/pdf/1403.4661",
+          "material_read": "v1 §I.B, PDF p. 2",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "An Optimal-Dimensionality Sampling Scheme on the Sphere with Fast Spherical Harmonic Transforms",
+          "trigger": "Spherical harmonic interpolation and sampling thresholds"
+        },
+        {
+          "assessment": "Finite certificate independently reproduced by a different calculation",
+          "evidence": "The finite interval is complete through degree 575; the tail is separately analytic. The frozen script was not executed.",
+          "identifier_or_url": "VERIFICATION.md; check_exact.py",
+          "material_read": "Verification notes and rational recurrence/Gram tests",
+          "method": "Read-only source inspection; separate raw-matrix calculation for this review",
+          "title": "Frozen harmonic interpolation verification",
+          "trigger": "Finite proof scope and cutoff"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The orbit is the classical uniform truncation, and exact-degree interpolation asks a different question from bandlimited sampling. The sample rank drops despite increasing source dimension, with a precise geometric obstruction in edge circulations, then recovers permanently at the next degree. The block spectrum provides structural information beyond a rank table and a way to solve interpolation in each sample channel. The finding does not rely for its value on high-degree eventual invertibility alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

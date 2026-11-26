@@ -1,0 +1,91 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:57:16.828611Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The bound itself is correct: independent modular computations give orders 6,20,21,110 modulo 9,25,49,121. Multiples preserve square divisibility, and a period of length 4620 contains 1034 classes from the first three orders and 1048 from all four, proving the lower bound 262/1155. The 14 extra classes are exactly 110k with gcd(k,6)=1 in that period. No density-existence assertion follows. The material defect is the characterization of Laniewski's result in the frozen Finding: the isolated abstract phrase 'on a set of exponents of density 47/210' is ambiguous, but the same v1 specifies lower density at least 47/210 in its introduction and precisely that liminf inequality in Corollary 6.20. The new bound rules out 47/210 as a possible exact density; it does not refute the preprint's stated density result.",
+      "replay": "python3 /workspace/review_checks/exact_checks.py 3; independent modular orders and complete finite-period census. The infinite lower bound follows from periodic containment, not extrapolation.",
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The proof of the corollary selects just 3,5,7 to give a lower bound; the preceding theorem applies to all odd primes and includes 11."
+        ],
+        "reasoning": "The general structural theorem is strictly broader than the four selected progressions. Their union need not exhaust the set, and neither of the numerical lower bounds is asserted to be exact in the body of v1.",
+        "searches": [
+          "arXiv:2609.00039v1, Thm. 6.19 and Cor. 6.20"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.00039v1 (primary text, not just abstract)",
+        "Resultary b50bca0436b0 and 19b30417457f (ranked evidence)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "ord_11(2)=10, since 2^5≡−1 mod 11 and 2^2≠1 mod 11. The p·ord_p(2) family from Thm. 6.19 gives period 110. Removing the old periods from 110k leaves precisely the residues with k coprime to six, adding 1/330. The introduction and Cor. 6.20 specify lower density at least 47/210."
+        ],
+        "reasoning": "A single extra substitution and periodic count give the frozen bound; it is compatible with, and stronger only numerically than, the preprint's corollary. The claimed refutation treats an ambiguous abstract phrase as if it overrode the explicit inequality.",
+        "searches": [
+          "arXiv:2609.00039v1, abstract, introduction, Thm. 6.19 and Cor. 6.20"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 6.19 expresses nonsquarefreeness as membership in the union of p·ord_p(2) progressions and the ord_p(2) progressions of the Wieferich primes."
+        ],
+        "reasoning": "Prime-square divisibility and the multiplicative-order formulation determine the same exponent property. The fourth period in the frozen work is one member of the already characterized union.",
+        "searches": [
+          "arXiv:2609.00039v1, squarefreeness criterion and Mersenne exponents",
+          "Resultary: Mersenne nonsquarefree exponent density and prime-square lifting"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The corollary lists periods 6,20,21, but not 110; no exact four-period table was established among the catalog hits. Resultary b50bca0436b0 instead concerns Omega(n)=3 and beta(n) dividing 2^n−1; 19b30417457f instead concerns local p=7 square-status correlations."
+        ],
+        "reasoning": "Those catalog hits concern different predicates and do not establish coverage or priority. Failure to find a printed 262/1155 does not undo the general theorem's exact implication.",
+        "searches": [
+          "Resultary: 262/1155 Mersenne nonsquarefree exponent density",
+          "Resultary: title and four-period fingerprint",
+          "arXiv:2609.00039v1, proof of Cor. 6.20"
+        ]
+      },
+      "rationale": "The decisive full text is Laniewski v1, Theorem 6.19 and Corollary 6.20. The general criterion there includes every multiple of 11·ord_11(2)=110. Using that theorem with one more small prime and counting its nonoverlapping residue classes is an immediate strengthening of the illustrative bound, not a distinct mechanism or a correction of the actual theorem. Coverage here means implication by the general theorem, not that 262/1155 was explicitly printed.",
+      "residual_risks": [
+        "Other numerical lower bounds and earlier discussions were not exhaustively surveyed. The originality judgment uses affirmative general coverage from v1 and not any access failure. The abstract could still be made less ambiguous."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT_GENERAL_COVERAGE_AND_NO_EXACT_DENSITY_THEOREM_REFUTED",
+          "evidence": [
+            "p. 3 says 'have lower density at least 47/210'; Cor. 6.20 makes that a liminf inequality. Theorem 6.19 contains the p·ord_p(2) progression for every odd prime."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.00039v1",
+          "material_read": "Abstract p. 1; introduction p. 3; Thm. 6.19 and Cor. 6.20 with three-period selection pp. 37–38",
+          "method": "Compare scope and inequality in the same version, and apply the theorem with p=11.",
+          "title": "Radical defects, Wieferich primes, and the abc conjecture",
+          "trigger": "Exact density attribution and all-primes criterion"
+        },
+        {
+          "assessment": "DIFFERENT_PREDICATES_AT_SEARCH_RESULT_LEVEL",
+          "evidence": [
+            "The first item studies divisibility in a fixed factor-count stratum; the second studies local square-status correlation, not nonsquarefreeness of integer Mersenne numbers."
+          ],
+          "identifier_or_url": "Resultary b50bca0436b0; 19b30417457f",
+          "material_read": "Ranked entries' claim descriptions; no equivalent table identified",
+          "method": "Distinguish the objects and exponents, without inferring exhaustive noncoverage.",
+          "title": "Resultary Mersenne and local-square nearest matches",
+          "trigger": "Potential exact overlap under alternate divisibility terminology"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "There would be value in refuting an exact-density theorem or deriving a substantive new lower-density mechanism. Here the source states a lower bound and already includes the extra progression in its all-primes criterion. The surviving arithmetic is a routine increment from one more small prime, with no sharpness or density-existence result; clarifying the abstract wording does not turn it into a new scientific finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

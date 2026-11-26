@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:33:36.960043Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The interpolation is uniformly convergent since the j-th term has pointwise valuation at least j. For x=4u+b the numerator factors with h congruent to b modulo 2 or 4 give the claimed Gauss coefficient bounds after using v_2(j!)=j-s_2(j); in the zero branch factor out 4u first and apply the counts to h=1,...,j-1. The bounds tend to infinity (for the zero branch the expression is 3+2 floor((j-1)/4)-((j-1) mod 2)+2s_2(j)); the three exact finite certificates were checked independently. The linear term vanishes because every nonconstant summand is divisible by u^2. Its quadratic coefficient is 16 Li_2(2). The asserted identity for Li_2 follows formally by differentiation and the zero constant term, converges at 2 and its transform 2/(2-1), and gives cancellation because log(-1)=0 by log((-1)^2)=2log(-1). Thus the cubic factor is exact, not just a truncated congruence. In both the linear branches and the normalized odd-unit cubic branches the difference quotient is odd; the latter uses w^2+wz+z^2 odd for odd w,z. Reduction gives bijections at every compatible precision, hence surjectivity by compactness. The negative-index binomial identity gives the reflection; its rational generating function can also be obtained by differentiating z^n/(1-z)^(n+1) n times and dividing by n!. The four output sectors are distinct modulo 16, two complete balls have total measure 1/8, and the two shells at depth 3a have total measure 2^(-3a), summing to 1/7. At finite precision unresolved shells contribute just their center residues, yielding the stated counts including 1,2,4 initially. Preimages of any attained cylinder are open and nonempty, hence contain infinitely many nonnegative indices. Replay: python3 /workspace/branches/check_delannoy.py independently recomputes the Gauss congruences and checks image sets through 2^11 using the original binomial sum with terms discarded only when 2^j is zero modulo the modulus. These finite checks are not the infinite argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2170cbfaeec0 Finding gives v_2(D_n-1)=3v_2(n) for 4|n, and uses the same dilogarithmic cancellation.",
+          "3f433f15bf17 Finding gives the first-difference congruence for 4|h, with leading term 2^(v_2(h)+2) n(n+1)/2.",
+          "70933221cf22 Finding gives the image and additionally counts fibers in one least period."
+        ],
+        "reasoning": "The valuation result alone does not ensure coverage of all units. The fiber theorem is stronger and explicitly includes that coverage and the exact finite images.",
+        "searches": [
+          "Resultary:2170cbfaeec0",
+          "Resultary:3f433f15bf17",
+          "Resultary:70933221cf22"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1008.2894v3",
+        "INTEGERS 21 A86 (2021)",
+        "Resultary:2170cbfaeec0",
+        "Resultary:3f433f15bf17",
+        "Resultary:eea2c5d110bc",
+        "Resultary:70933221cf22"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "3f433f15bf17: on n≡1,2 mod 4 the leading factor n(n+1)/2 is odd; normalizing F(4u+b)-F(4v+b) by 16 gives an isometric difference on both branches.",
+          "eea2c5d110bc treats increments in 32 Z_2 for the same interpolation.",
+          "The complete 70933221cf22 statement gives every normalized shell, not just information about pairwise differences."
+        ],
+        "reasoning": "The congruence already implies the two full balls by continuity and surjectivity on each finite ring. The stronger distinct fibre statement gives the rest outright, including the whole image. Periodicity yields infinitely many represented indices; alternatively every attained cylinder has open preimage.",
+        "searches": [
+          "Resultary:3f433f15bf17, Finding",
+          "Resultary:eea2c5d110bc, Finding",
+          "Resultary:70933221cf22, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Weighted congruences in Guo–Zeng p. 1 concern sums, not the image of single values.",
+          "Lengyel pp. 1–2 uses the same binomial definition and studies subsequences and supercongruences.",
+          "70933221cf22 Finding expresses the odd-unit shells equivalently by exact valuations of z-1 or z+1, gives both full balls and the two centers."
+        ],
+        "reasoning": "An image in each finite residue ring determines the compact image, and an exact shell specified by v_2(z-c)=3a is literally c+2^(3a) Z_2^×. Neither a relabeling nor a different set of index-fiber parameters makes the result distinct from the catalogue image.",
+        "searches": [
+          "Resultary binary Delannoy image, residue range and fibers",
+          "arXiv:1008.2894v3",
+          "INTEGERS 21 (2021), A86"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "70933221cf22 Finding states the same N_k=2^(k-3)+2+sum_{a=2}^{floor((k-1)/3)}2^(k-3a), the same shell and disk centers, and measure 1/7.",
+          "The match is a separate record with additional fiber information, not a search result pointing back to the frozen record itself."
+        ],
+        "reasoning": "The precise arithmetic outputs and the object coincide. The date establishes neither an order nor a claim about who first proved them.",
+        "searches": [
+          "Resultary complete dyadic fibers and one-seventh image density of central Delannoy numbers; 70933221cf22"
+        ]
+      },
+      "rationale": "A distinct matching public catalogue statement (70933221cf22, Finding) explicitly covers the same full binary image, counting formula and Haar measure and additionally gives fiber multiplicities. This is demonstrable mathematical coverage, not a resolution of which same-day version was first. The earlier shift theorem also independently covers the two unrestricted balls. No distinct surviving theorem is claimed beyond the covered image/counts and recurrence of represented classes (the latter follows even from continuity and density).",
+      "residual_risks": [
+        "No reliable ordering of the same-day records was obtained; this is a statement coverage rejection, not a historical priority allegation.",
+        "Only bounded primary passages were obtained from the earlier papers. No inference of whole-paper absence is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Checked displayed summed congruence, not a scalar range classification",
+          "evidence": [
+            "The indicated congruence is a weighted sum over k<n modulo n."
+          ],
+          "identifier_or_url": "arXiv:1008.2894v3",
+          "material_read": "p. 1 abstract",
+          "method": "Open PDF text extraction",
+          "title": "New congruences for sums involving Apéry numbers or central Delannoy numbers",
+          "trigger": "Known primary Delannoy congruences"
+        },
+        {
+          "assessment": "Identical binomial definition; evidence about scope limited to passages read",
+          "evidence": [
+            "d(n)=sum 2^j binom(n,j)^2 and study of subsequences and supercongruences."
+          ],
+          "identifier_or_url": "INTEGERS 21 (2021), A86",
+          "material_read": "p. 1 abstract and p. 2 Eq. (1); later conjecture passages not retrieved independently",
+          "method": "Open PDF text extraction",
+          "title": "On some p-adic properties and supercongruences of Delannoy and Schröder numbers",
+          "trigger": "Same sequence and dyadic valuation results"
+        },
+        {
+          "assessment": "Same valuation levels on 4|n; valuation alone does not imply normalized-unit surjectivity",
+          "evidence": [
+            "v_2(D_n-1)=3v_2(n) for 4|n; quadratic cancellation by Li_2(2)=0."
+          ],
+          "identifier_or_url": "Resultary:2170cbfaeec0",
+          "material_read": "Finding and cancellation comparison",
+          "method": "Local mirror",
+          "title": "Resolution of the sharp binary valuation conjecture for central Delannoy numbers",
+          "trigger": "Earlier cubic valuation and analytic mechanism"
+        },
+        {
+          "assessment": "Implies both full balls, not by itself the entire shell result",
+          "evidence": [
+            "D_(n+h)-D_n ≡ 2^(v_2(h)+2)(n+binom(n,2)) modulo 2^(v_2(h)+3) for 4|h."
+          ],
+          "identifier_or_url": "Resultary:3f433f15bf17",
+          "material_read": "Finding, shift congruence",
+          "method": "Local mirror; parity and finite-ring consequence checked",
+          "title": "Sharp dyadic index shifts and least periods of central Delannoy numbers",
+          "trigger": "Possible equivalent isometry for the unrestricted branches"
+        },
+        {
+          "assessment": "Relevant local difference statement on a restricted increment domain",
+          "evidence": [
+            "Increments in 32 Z_2 for the same interpolation."
+          ],
+          "identifier_or_url": "Resultary:eea2c5d110bc",
+          "material_read": "Finding",
+          "method": "Local mirror",
+          "title": "A uniform dyadic first-difference congruence for central Delannoy numbers",
+          "trigger": "Same dyadic interpolation under shifts"
+        },
+        {
+          "assessment": "Covers the entire frozen theorem and claims more on fibers; same-day ordering not resolved",
+          "evidence": [
+            "Both full residue balls, both centers, signed valuations 3a for a>=2, identical N_k, measure 1/7, plus per-residue fiber counts in a period."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-complete-dyadic-fibers-and-one-seventh-image-density-of-central--70933221cf22/RESULT.md",
+          "material_read": "Finding: image, counts, measure and per-residue fibers",
+          "method": "Local mirror; parameter-by-parameter statement comparison",
+          "title": "Complete dyadic fibers and one-seventh image density of central Delannoy numbers",
+          "trigger": "Apparent exact theorem match with stronger fiber claim"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The full dyadic range is a well-motivated exact invariant, and distinguishing valuation containment from unit surjectivity is mathematically useful. But the proposed contribution is the very image, measure and counts already provided by a distinct stronger fiber record, plus an immediate repetition consequence. No separate useful new invariant or claimed proof improvement survives that coverage. The rejection concerns incremental value of this frozen claim, not the intrinsic interest of the Delannoy range.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

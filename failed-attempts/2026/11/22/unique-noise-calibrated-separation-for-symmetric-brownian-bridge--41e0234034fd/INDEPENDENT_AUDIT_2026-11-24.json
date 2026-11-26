@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:02:45.682891Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–57; VERIFICATION.md; VERIFIER_OUTPUT.txt and verify.py inspected (frozen code not executed)",
+        "Independent exact replay: python /workspace/branches/replay_frozen_math.py (PASS, record 1 section)"
+      ],
+      "rationale": "I independently diagonalized the noisy two-site bridge Gram matrix into even and odd modes and integrated the squared kernel projections. This gives the displayed gain and, after differentiation and the gap-to-odds change, the exact sextic. The negative constant and positive degrees 3 through 6 give one coefficient sign change: when the linear coefficient is positive, eta>1/2 and the quadratic coefficient is positive as well. Descartes and opposite signs at z=0 and 1/2 give a unique simple root and a global gain maximum, against both endpoint and coincident symmetric designs. The simple root at z=1/2 at zero noise gives the -2/3 small-noise slope. At high noise set w=1/eta and z=cw: w^2 P_{1/w}(cw) is polynomial in (c,w) with limit 16c-2, giving a unique positive branch near c=1/8. At any repeated site the gain is increasing in its bridge variance and is maximal at the midpoint; the symmetric gain has strictly positive right derivative there. This proves strict domination of even off-center repeated sites.",
+      "residual_risks": [
+        "The frozen theorem classifies reflection-symmetric pairs only, and does not show centered optimality among all designs. The supplementary finite checks do not establish the sign classification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "ID 689f315478aa allows all sorted pairs including endpoints and repetitions; the solution lies in the symmetric family. It also classifies how the gap changes with noise.",
+          "Metrika has a regression-plus-misspecification model and separately identifies its error-free equidistant limit."
+        ],
+        "reasoning": "Restriction of the unrestricted unique optimum to reflection-symmetric pairs proves the frozen optimum. Global uniqueness and an interior positive gap strictly dominate all repeated designs.",
+        "searches": [
+          "2026/11/22/SCOPE-optimal-two-sensor-brownian-bridge-path-recovery-has-a-unique-no--689f315478aa, Finding and Proof §§1–5",
+          "DOI 10.1007/s00184-023-00893-6 §§4.6.2–4.7"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Finding and §Proof",
+        "Resultary IDs 689f315478aa, 15716724ea95 and f9e14ae9ff03",
+        "arXiv:2404.00784, Metrika DOI 10.1007/s00184-023-00893-6, Purdue AAI3043760"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Its §4 gives the same exact centered objective, excludes interior stationary gaps at or above 1/3 and proves the single simple root below 1/3. The Finding gives 1/3-(2/3)eta+O(eta^2) and 1/(8 eta)."
+        ],
+        "reasoning": "The derivative and exact change of variable give the same positive-root classification, not just the same minimizer. A shorter sign presentation does not leave a distinct scientific claim in the original.",
+        "searches": [
+          "ID 689f315478aa mirrored RESULT.md, Finding, §1 and §4 (offset 4700), §5 and Finding limits"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "ID 689f315478aa §4 uses the gap b directly: H(b,eta)=-(1-b)^6 P_eta(b/(1-b)), and its J_eta is 1/6 minus the same gain."
+        ],
+        "reasoning": "Gap versus odds and risk versus gain are exact reparametrizations, including the stationary equation and root interval. The scalar-integral design of ID 15716724ea95 is a different risk.",
+        "searches": [
+          "Resultary: Brownian bridge finite noisy observations symmetric two-site integrated posterior variance optimal design",
+          "Resultary: Brownian bridge noisy path reconstruction optimal symmetric separation independent observation noise"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct record 689f315478aa and its mirrored proof agree on the optimizer for every eta>0. ID 41e0234034fd is the frozen record itself. IDs 15716724ea95 and f9e14ae9ff03 are scalar quadrature, the latter with correlated observations."
+        ],
+        "reasoning": "Exact matching evidence comes from a different continuum theorem, not a coincidental table value or the frozen record's catalogue entry.",
+        "searches": [
+          "Resultary IDs 41e0234034fd, 689f315478aa, 15716724ea95, f9e14ae9ff03"
+        ]
+      },
+      "rationale": "A distinct mirrored Resultary theorem gives exact stronger coverage, not merely a similar design or a same-day date. With the same loss and independent equal variances, it determines the unique pair over all locations, gives the same gain/root and both asymptotics, and covers the comparison with all repetitions. The audit does not infer chronological priority or suggest a mathematical error.",
+      "residual_risks": [
+        "Same-day records do not settle publication order. The failure is exact verified coverage, not an inference of priority or based on missing historical text.",
+        "The Mukherjee dissertation abstract cannot rule out further historical equivalents."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact, stronger coverage",
+          "evidence": "Same prior, independent equal finite variances, integrated pointwise-variance criterion, equivalent sextic, both limit rates, and centered optimum without restricting designs.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-optimal-two-sensor-brownian-bridge-path-recovery-has-a-unique-no--689f315478aa/RESULT.md",
+          "material_read": "Finding and Proof starts at offset 0; centered proof at offset 4700; relationship and limitations at offset 7150",
+          "method": "Local Resultary mirror",
+          "title": "Optimal two-sensor Brownian-bridge path recovery has a unique noise-dependent spacing",
+          "trigger": "Potential unrestricted covering theorem"
+        },
+        {
+          "assessment": "Conditioning framework in the inspected text",
+          "evidence": "Pointwise Gaussian prediction, not an explicit two-site location theorem in the examined passage.",
+          "identifier_or_url": "https://arxiv.org/abs/2404.00784",
+          "material_read": "Abstract and introduction",
+          "method": "OA",
+          "title": "Estimating sample paths of Gauss–Markov processes from noisy data",
+          "trigger": "Noisy bridge path recovery"
+        },
+        {
+          "assessment": "Different finite-noise model; equidistant limiting design",
+          "evidence": "Straight-line regression plus bridge misspecification; the error-free limit is explicitly taken in the inspected comparison.",
+          "identifier_or_url": "https://doi.org/10.1007/s00184-023-00893-6",
+          "material_read": "Abstract and §§4.6.2–4.7, pp. 797–798",
+          "method": "OA PDF",
+          "title": "Robust optimal designs using a model misspecification term",
+          "trigger": "Finite information and bridge IMSE"
+        },
+        {
+          "assessment": "Specific historical overlap unresolved",
+          "evidence": "Mentions exact bridge designs under weighted integrated MSE; the abstract does not specify this finite-noise case.",
+          "identifier_or_url": "https://docs.lib.purdue.edu/dissertations/AAI3043760/",
+          "material_read": "Public abstract; full text unavailable",
+          "method": "OA catalogue, including direct and VPN routes",
+          "title": "Optimal designs for estimating the path of a stochastic process",
+          "trigger": "Historical exact path-IMSE design"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–29, 40–52; stronger mirrored Finding"
+      ],
+      "rationale": "Intrinsic mathematical content: exact finite-noise optimal gap calibration in a natural symmetry class and a strict boundary against repetition at any location, not a numeric instance. This useful design information is already supplied by the stronger theorem and does not rescue the frozen finding as a distinct result.",
+      "residual_risks": [
+        "No distinct surviving design claim within this frozen record was established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

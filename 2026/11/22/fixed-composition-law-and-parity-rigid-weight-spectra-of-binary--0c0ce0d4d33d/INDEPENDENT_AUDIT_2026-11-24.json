@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:21:11.068950Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–31 and 35–74",
+        "Frozen VERIFICATION.md, verify/bruteforce.py and verify/path_dp.py (read, not executed)"
+      ],
+      "rationale": "Equality of prefix and suffix ones counts at length j is equivalent to equality at the complementary length, so the inward walk needs only floor(n/2) pairs. Its steps cannot jump across zero. On the positive path the first pair has weight u, and reflection at height zero preserves the later step weights, including the two distinct horizontal colors. Summing the difference of unrestricted path counts over positive end heights leaves Laurent coefficients at 0 and 1 of (1+uz)^(m−1)(1+u/z)^(m−1). Pair reversal doubles the count while preserving composition; the middle bit is free at odd lengths. This verifies the products and support, including the empty second sum at m=1. The even middle coefficient is the geometric mean of the neighboring squares, while strict binomial log-concavity gives strictness at odd interior indices. For convolution with (1+u), the deficit is the sum of two neighboring deficits and a cross term nonnegative by ratio monotonicity; at least one of the neighboring deficits is positive, including the support ends with zeros padded. The falling-factorial Vandermonde calculation gives the asserted second falling moment and then the variance; adding the independent central bit contributes 1/4. Independently, for even weight k=2j the conditional probability is 2p_m(1−p_m) times binom(m,j)^2/binom(2m,2j); for odd weight k=2j+1 it is (m−j)(2j+1)/m² times that same ratio. Applying Stirling uniformly on compact current-density intervals gives the claimed constant in both parity cases. Pascal's identity makes the odd-length case a convex mixture at adjacent even-length weights. The uniform assertion is understood in the quantitative sense of line 72, with the current density in the leading term; replacement by a limit p is along a convergent sequence.",
+      "residual_risks": [
+        "The finite scripts are not the proof. There is no uniform approximation in regimes where the current density tends to 0 or 1, nor a uniform rate at which arbitrary sequences approach their own limits."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2017 exact results mark shortest Abelian-border length or number of borders, not Hamming weight.",
+          "The mutual-border preprint concerns pairs of words; the cited exact-match fixed-weight paper was not retrieved in full."
+        ],
+        "reasoning": "A count refined by a different observable is not a refinement jointly with Hamming weight. The Harju–Nowotka access failure is not evidence of noncoverage; ordinary equality borders, as characterized in the frozen bibliography, would be a different predicate.",
+        "searches": [
+          "Primary literature query on fixed-weight Abelian-unbordered binary words and nonreturning-walk refinements",
+          "Blanchet-Sadri–Chen–Hawes Theorems 1–3, pp. 62–63",
+          "Harju–Nowotka DOI 10.1016/j.tcs.2005.03.040 retrieval attempt",
+          "arXiv:2509.20773 p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0c0ce0d4d33d (self match)",
+        "Rampersad–Rigo–Salimov 2013; Goč et al. 2014; Blanchet-Sadri–Chen–Hawes 2017; arXiv:2509.20773, passages above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The positive paths and their symmetric reflected extension, unweighted counts, and arbitrary odd center were established earlier.",
+          "The prior colored bijection can be refined using weights u for each mixed step and 1,u² for the two horizontal colors."
+        ],
+        "reasoning": "Credit the immediate path formulation and the middle-bit consequence. Computing the marked weight law still needs evaluating the nonreturning sum with those weights; the parity equality set, variance and density-dependent constant use the resulting binomial products and are not implied by the unweighted count alone.",
+        "searches": [
+          "Rampersad–Rigo–Salimov 2013 Propositions 2–3 and Corollary 1",
+          "Goč et al. 2014 Lemma 8, Proposition 9, Remark 10, Propositions 11–12",
+          "Blanchet-Sadri–Chen–Hawes 2017 Theorems 1–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The assigned result is the exact indexed match itself.",
+          "Goč et al. use two-colored Motzkin prefixes and code mixed pairs by rr or ℓℓ and equal pairs by ℓr or rℓ. Thus final displacement is not Hamming weight; pair colors/order carry the weight."
+        ],
+        "reasoning": "The older equivalence identifies a path observable for the total number of ones and supplies the free middle bit, but the published unweighted totals and displacement enumeration do not evaluate that observable by weight.",
+        "searches": [
+          "Targeted local Resultary search for binary Abelian-unbordered words by fixed Hamming weight, strongest exact hit 0c0ce0d4d33d",
+          "Goč et al., numberAbelianBorder.pdf §§2–3, pp. 3–5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary's full fixed-weight hit is self record 0c0ce0d4d33d, not an independent match.",
+          "A063886 is used for the one-index nonreturning-walk totals; summing the displayed fixed-weight coefficients recovers those totals."
+        ],
+        "reasoning": "A length sequence is strictly coarser than a length-by-weight array, and does not supply the measured parity shape or conditional probabilities.",
+        "searches": [
+          "Local Resultary fixed-composition Abelian-unbordered searches",
+          "Goč et al. §3, Connection with the Sequence A063886"
+        ]
+      },
+      "rationale": "Qualified to the evaluated fixed-weight refinement and its parity, moment and sharp bulk consequences, not the walk bijection, independent middle bit, ordinary reflection method, or total counts. The older colored-path bijections encode the weight information, making the refinement natural, but the inspected prior results do not give the evaluated fixed-weight law or its consequences.",
+      "residual_risks": [
+        "An unlocated equivalent weighted walk enumeration remains possible. The full Harju–Nowotka paper was unavailable and no comprehensive historical priority is certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior walk correspondence and length totals, not evaluated Hamming-weight coefficients.",
+          "evidence": [
+            "Nonreturning paths and Motzkin-prefix count"
+          ],
+          "identifier_or_url": "https://orbi.uliege.be/bitstream/2268/144646/1/finalDLT2013.pdf",
+          "material_read": "p. 5 Propositions 2–3 and Corollary 1, PDF offsets 10500–13969",
+          "method": "OA PDF passages",
+          "title": "On the Number of Abelian Bordered Words",
+          "trigger": "Foundational unweighted result"
+        },
+        {
+          "assessment": "Gives the colored path structure and arbitrary center, with a total-count comparison rather than the marked enumeration.",
+          "evidence": [
+            "Equal pairs become distinguishable level colors in §2; mixed pairs become the nonzero steps",
+            "§3 pairs encode two unit steps; A063886 is the length sequence"
+          ],
+          "identifier_or_url": "https://orbi.uliege.be/bitstream/2268/178701/1/numberAbelianBorder.pdf",
+          "material_read": "§2 Lemmas 4, 5, 8, Proposition 9 and Remark 10; §3 Propositions 11–12, offsets 6680–19276",
+          "method": "OA PDF passages",
+          "title": "On the Number of Abelian Bordered Words (with an Example of Automatic Theorem-Proving)",
+          "trigger": "Strongest structural equivalence and prior length sequence"
+        },
+        {
+          "assessment": "Border-based statistics, not a weight-conditioned unbordered count.",
+          "evidence": [
+            "Theorem 2 gives unweighted totals; Theorems 1 and 3 mark shortest border and number of borders"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1708.06461",
+          "material_read": "§5.1 pp. 62–63, Theorems 1–3",
+          "method": "OA primary text passages",
+          "title": "Dyck Words, Lattice Paths, and Abelian Borders",
+          "trigger": "Prior refined border enumerations"
+        },
+        {
+          "assessment": "Different counted object.",
+          "evidence": [
+            "Pairs of words subject to a mutual-border predicate"
+          ],
+          "identifier_or_url": "arXiv:2509.20773",
+          "material_read": "p. 1 statement of counted object",
+          "method": "OA primary text",
+          "title": "Mutually Abelian-Bordered Binary Words",
+          "trigger": "Closest recent literature lead"
+        },
+        {
+          "assessment": "Direct premise comparison remains inaccessible; frozen bibliography characterizes it as ordinary-border enumeration.",
+          "evidence": [],
+          "identifier_or_url": "https://doi.org/10.1016/j.tcs.2005.03.040",
+          "material_read": "No theorem passage obtained",
+          "method": "DOI retrieval yielded a short unusable response",
+          "title": "Counting bordered and primitive words with a fixed weight",
+          "trigger": "Potential exact fixed-weight prior"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proofs §§2–4",
+        "Goč et al. §3 and Blanchet-Sadri–Chen–Hawes Theorem 2 for the unweighted baseline"
+      ],
+      "rationale": "A weight layer is a natural constrained binary source. The old total cannot distinguish how border avoidance varies across such layers. The sharp bulk probability, the exact variance in the other sampling ensemble, and the alternating log-concavity equality set give concrete useful structure beyond re-enumerating the old length sequence.",
+      "residual_risks": [
+        "No analogous spectrum on a larger alphabet or endpoint-density asymptotic is concluded."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

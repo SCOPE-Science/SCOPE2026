@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:54:09.229858Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In a two-chain partition, the elements of the second chain below and above any first-chain label bound a consecutive range of insertion slots. Each extension chooses an allowed slot for each such label, and first-chain order within each slot preserves that extension. Counting a label once per allowed slot gives n+i(P), including the one-chain case. At ply two, Helly excludes triangles and a minimum-right-endpoint vertex on a shortest cycle forces its neighbors to meet. The resulting forest has n−c edges, precisely the incomparable pairs of the interval order; every strict realization respects this order, which is the only direction required for the upper bound. For the path construction, the displayed points realize every single adjacent swap as well as the identity. Relative to a fixed identity embedding, each swapped edge requires an early extra occurrence of its right endpoint label or a late extra occurrence of its left endpoint label; no occurrence can be charged twice. Adding isolated labels preserves the path cost and gives equality for every n,c, including c=n. Inspected RESULT.md §§1–3 and VERIFICATION.md, checker.py and checker_output.txt. The frozen output records 364 ply-two cases, 2,090 linear extensions and exact path minima for sizes 2–7; the code was inspected, not run, and this output is not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The paper gives O(nΔ²) for general intervals and a smooth O(nΔ) construction for unit intervals; Figure 2 already exhibits many repetitions of one label at ply two.",
+          "The distinct catalogue result establishes exact per-instance 2n−c for unit intervals and also counts realizable orders there."
+        ],
+        "reasoning": "The O(n) specialization is not an exact bound. The per-instance unit theorem strengthens the claim on that subclass but does not cover arbitrary interval lengths or general width-two posets.",
+        "searches": [
+          "arXiv:2601.19453v1 Theorems 5–6, Figure 2",
+          "Resultary: 2026/11/8/SCOPE-exact-shortest-sorting-supersequences-for-unit-intervals-of-ply--3ed09cd1505d Finding"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2601.19453v1",
+        "DOI:10.37236/2859",
+        "Resultary exact unit-interval result 3ed09cd1505d and searches by ply and linear extensions"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Path examples can be chosen with all lengths equal, so a sharp per-instance unit result already supplies the worst-case lower bound by using a path plus isolates.",
+          "A ply-two star with at least three leaves is not a unit-interval graph, so the unit classification does not give a representation of all overlap forests to which one can apply the same upper bound."
+        ],
+        "reasoning": "The remaining contribution is the non-unit upper bound and the width-two construction. The arbitrary-interval asymptotic bound and unit exact formula do not immediately imply those statements.",
+        "searches": [
+          "arXiv:2601.19453v1 §2 and §3",
+          "Resultary unit-interval exact Finding",
+          "DOI:10.37236/2859 complete sequence definition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The interval order has an incomparable pair for each overlap; the forest therefore yields i(P)=n−c.",
+          "Radomirović's definition of a complete sequence concerns all permutations, not the extensions of a specified poset."
+        ],
+        "reasoning": "The two length expressions agree in the interval specialization. The unrestricted complete-sequence framework does not give the incomparable-pair-sensitive length.",
+        "searches": [
+          "Resultary: ply-two interval sorting-supersequences and universal words for linear extensions of width-two posets",
+          "arXiv:2601.19453v1 §2.1",
+          "DOI:10.37236/2859 pp. 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary ID 2026/11/8/SCOPE-exact-shortest-sorting-supersequences-for-unit-intervals-of-ply--3ed09cd1505d has the exact expression 2n−c on the unit subclass."
+        ],
+        "reasoning": "Credit this overlap rather than claim a new length law in the unit model. No matching general-interval or general-poset entry was identified in the searches; the catalogue path date alone does not settle priority.",
+        "searches": [
+          "Resultary: exact shortest sorting-supersequence lengths at ply two by component count"
+        ]
+      },
+      "rationale": "The same sorting-supersequence framework and a material exact unit-interval overlap are established. The supported distinct content is the sharp worst-case bound over arbitrary ply-two intervals with each component count, and the general width-two-poset construction. Neither inspected primary theorem nor the unit-interval catalogue result gives the non-unit upper bound or the general poset result.",
+      "residual_risks": [
+        "A specialized constructive result for universal words of width-two posets could appear under different terminology; the bounded comparisons do not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes the model and asymptotic bounds, not the sharp general ply-two length.",
+          "evidence": [
+            "Definitions offset 19379; bounds offset 21737; Figure 2 offset 10055."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2601.19453v1",
+          "material_read": "Definitions 1–2 §2.1, PDF p. 5; Theorems 5–6 §2.2, pp. 6–7; Figure 2 p. 3",
+          "method": "Bounded primary OA PDF passages",
+          "title": "Preprocessing Uncertain Data into Supersequences for Sorting and Gaps",
+          "trigger": "Identical sorting-under-uncertainty model"
+        },
+        {
+          "assessment": "The target is all permutations, not the extension set of a width-two poset.",
+          "evidence": [
+            "Definition requires every permutation of the alphabet."
+          ],
+          "identifier_or_url": "https://doi.org/10.37236/2859",
+          "material_read": "Introduction and complete-sequence definition, PDF pp. 1–2, offset 1200",
+          "method": "Bounded primary OA PDF passage",
+          "title": "A Construction of Short Sequences Containing All Permutations of a Set as Subsequences",
+          "trigger": "Universal subsequence constructions"
+        },
+        {
+          "assessment": "Exact overlapping unit-interval claim; narrower hypotheses, stronger per-instance conclusion there.",
+          "evidence": [
+            "Shortest length 2n−c for every ply-two unit-interval family; separate Fibonacci count."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-shortest-sorting-supersequences-for-unit-intervals-of-ply--3ed09cd1505d",
+          "material_read": "Primary RESULT.md Finding, offset 0",
+          "method": "Local catalogue mirror",
+          "title": "Exact shortest sorting-supersequences for unit intervals of ply two",
+          "trigger": "Same objective and same formula on a subclass"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This determines an exact worst-case preprocessing word length at each component count, including non-unit families for which the unit model is not representative. The two-chain insertion construction is useful beyond interval orders. The theorem neither promises shortest words per arbitrary instance nor transfers a smoothness guarantee.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

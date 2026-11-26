@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:52:51.848283Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Use F_s(x)=k(1-s)x²/2. Its jumps cancel the signed work at both switches, and Itô's formula gives W_t+F_{S_t}(X_t)-F_{S_0}(X_0)=Dk∫_0^t 1_{S_u=0}du+k√(2D)∫_0^t X_u 1_{S_u=0}dB_u. Centering the occupation via chain corrector c·1_{s=0}, c=Dk/(a+b), gives a martingale with jumps ±c, orthogonal continuous and jump parts, and stationary bracket rate 2Dk²u_0+c²(bp_0+ap_1). Here the generator's stationary second-moment equations give u_1=D/k and bu_0=2Dp_0+au_1, recovering both variance terms and mean Dkp_0. The affine intercycle recursion has independent cycle innovations with finite moments and E e^{-rkT_on}<1 for every r>0, supporting the stationary finite fourth moment and ergodicity. The boundary term is bounded in L²; Cauchy–Schwarz bounds its contribution to variance/t by O(t^{-1/2}). The ergodic bracket limit and the bounded-jump Lindeberg condition give the martingale CLT and the same work CLT after removing the boundary. Substitution a=pλ, b=(1-p)λ gives a positive constant plus a strictly positive multiple of 1/λ and reproduces 2D²k+9D²k²/(4γ) at a=b=γ. The supplied mixed-moment ODE check was inspected; no finite-time numerical computation is needed for these limits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The targeted study lookup returned related-sounding regime-switching and fractional Brownian results, not an exact theorem for this observable. The actual same-model passages evaluate mean rates."
+        ],
+        "reasoning": "General Markov-modulated Ornstein–Uhlenbeck moment or additive functional machinery is useful, but no checked stronger result gives the evaluated variance after specialization. This is a bounded comparison, not a global exclusion of broader exact cumulant theorems.",
+        "searches": [
+          "Pre-2026 signed-work second cumulant in an off/on harmonic trap or directly specializing exact tilted-generator result",
+          "arXiv:2202.02630 §4.2.1",
+          "arXiv:2407.12213v2 §C"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_work.py",
+        "arXiv:2202.02630 §4.2.1",
+        "arXiv:2407.12213v2 Eqs. (1) and (48)",
+        "Resultary 82e1d04ffdf8 Finding",
+        "Targeted literature search for an evaluated second cumulant or specializing tilted-generator theorem"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The rate-independent mean at fixed duty fraction is already known. The later catalogue formula applies only at p=1/2. Martingale CLT machinery gives a distributional limit conditional on the normalized bracket, not its value."
+        ],
+        "reasoning": "Neither a first moment nor a one-dimensional symmetric slice determines the variance as a function of both rates. The explicit unequal-rate bracket is the needed model-specific step. Monotonicity and the positive fast-switching floor are direct consequences of that evaluation, not freestanding claims of new general theorems.",
+        "searches": [
+          "arXiv:2202.02630 Eq. (40)",
+          "arXiv:2407.12213v2 Eq. (48)",
+          "Resultary 82e1d04ffdf8 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Alston–Cocconi–Bertrand study the asymmetric intermittent trap and compute mean entropy production. Frydel's symmetric off/on model computes mean heat dissipation. The targeted second-cumulant lookup surfaced no candidate with the same model and observable."
+        ],
+        "reasoning": "With heat defined as dissipated, heat and work differ by a stationary energy boundary of bounded L² norm. A matching evaluated long-time variance of that heat would therefore cover the work variance, but the checked passages only give first moments. Trap-center modulation, a different work observable, does not substitute for the stiffness jumps here.",
+        "searches": [
+          "arXiv:2202.02630 §4.2.1 Eq. (40)",
+          "arXiv:2407.12213v2 Eqs. (1) and (48)",
+          "Pre-2026 long-time variance or second cumulant of signed work or equivalent heat in an off/on harmonically trapped Brownian particle with Markov switching"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The November 2 Resultary Finding gives the same signed-work CLT and V=2D²k+9D²k²/(4γ) at a=b=γ, and additionally states divergence of nonzero finite-time exponential moments."
+        ],
+        "reasoning": "The relevant exact lookup is a formula, not an integer sequence. This is genuine exact equivalence at symmetric rates; it does not give the unequal-rate surface. The later archive date does not establish an independent derivation or origin of the common symmetric formula.",
+        "searches": [
+          "Resultary: exact signed work variance and Gaussian fluctuations in intermittently harmonic off/on traps",
+          "SCOPE-gaussian-work-fluctuations-without-finite-exponential-moments-in--82e1d04ffdf8"
+        ]
+      },
+      "rationale": "The mean dissipation rate is known and excluded. The inspected same-model earlier literature does not supply the evaluated deterministic-time variance rate for stationary signed switching work, its Gaussian limit at unequal rates, or the strict fixed-duty dependence. A later catalogue entry exactly overlaps the symmetric specialization only. Credit the arbitrary-rate fluctuation finding, not global priority or general martingale and thermodynamic identities.",
+      "residual_risks": [
+        "The targeted search found no new same-observable candidate, which does not establish absence of a more general exact cumulant formula.",
+        "An adjacent semi-Markov position-spectrum/mean-work catalogue item could not be retrieved from the mirror; its search summary is not coverage evidence.",
+        "The relationship to the later symmetric calculation remains undetermined beyond the verified specialization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mean dissipation coverage; inspected passage not a variance rate",
+          "evidence": [
+            "Evaluates stationary mean entropy production with asymmetric switching."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2202.02630",
+          "material_read": "§4.2.1, p. 11, Eq. (40), offset 38600",
+          "method": "OA PDF passage inspection",
+          "title": "Non-equilibrium thermodynamics of diffusion in fluctuating potentials",
+          "trigger": "Same intermittent harmonic model at asymmetric rates"
+        },
+        {
+          "assessment": "Matches symmetric model and mean; no second cumulant in these passages",
+          "evidence": [
+            "Eq. (1) describes off/on switching; Eq. (48) gives mean heat dissipation in the overdamped regime."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2407.12213v2",
+          "material_read": "Eq. (1), p. 2, offset 10800; §C Eq. (48), p. 8, offset 56850",
+          "method": "OA PDF passage inspection",
+          "title": "Statistical mechanics of passive Brownian particles in a fluctuating harmonic trap",
+          "trigger": "Same off/on model in symmetric case and heat formulation"
+        },
+        {
+          "assessment": "Exact symmetric overlap, plus a distinct divergence result; not general asymmetric coverage",
+          "evidence": [
+            "Uses the same stationary signed work; the symmetric variance rate and Gaussian limit agree."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-gaussian-work-fluctuations-without-finite-exponential-moments-in--82e1d04ffdf8/RESULT.md",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local full-text mirror",
+          "title": "Gaussian work fluctuations without finite exponential moments in an intermittent trap",
+          "trigger": "Closest catalogue hit with exact variance and CLT"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Variance per deterministic observation time is an independently useful measure of work fluctuations in the established intermittent-trap model. At fixed duty fraction the known mean cannot distinguish switching speeds, but the exact variance can and quantifies both the slow-switching divergence and the positive fast-switching floor. The CLT identifies the scale of typical fluctuations of the signed work; neither per-switch moments nor finite-time exponential moments are claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

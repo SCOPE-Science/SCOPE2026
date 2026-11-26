@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:27:00.078836Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For R_r(x,y) meaning distance <r, R_r composed with R_s is R_(r+s) on either dense subset: split the segment in ratio r:s, where both inequalities have slack, and approximate the split point in the subset. For r>s, inclusion of the open s-neighborhood of y in the open r-neighborhood of x is equivalent to d(x,y)≤r−s. The forward metric bound uses the triangle inequality with one strict leg. If d>r−s, choose t between max(0,r−d) and s and extend the ray from x through y by t. The two strict witness inequalities persist on a dense-set approximation. A bijection preserves compositions and inclusions of the corresponding neighborhood sets, so preserves the closed thresholds at all positive differences of positive semigroup elements. Every positive element of Z a+Z b is such a difference (add a common positive semigroup element if one side is zero). For irrational a/b this subgroup has arbitrarily small positive elements by pigeonholing multiples modulo one radius, and is therefore dense; comparisons at its positive elements force exact distance equality, including boundary cases. The unique extension to the completions is isometric with closed dense image, hence surjective and affine by Mazur–Ulam. At rational ratio the scaled fractional-part square map is strictly increasing and continuous also at tile endpoints, and commutes with every integer translation in the common unit. Monotonicity then preserves all the strict integer-unit thresholds. It fixes 0 and the unit and does not fix their midpoint, so is nonaffine. None of these universal conclusions depend on the supplied finite rational example check, which was inspected but not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang et al. §6 Lemma 6.1 is stated for a bijective whole-space step-isometry of a real normed space and gives preservation of closed integer-radius balls. The cited finite-dimensional and strictly convex reflexive one-scale results impose geometrical restrictions (the latter sources not independently retrieved in full)."
+        ],
+        "reasoning": "Those settings are narrower in geometric scope, are at one scale, or require a whole-space map. In particular the known nonisometric real-line step-isometries rule out an unconditional one-scale implication.",
+        "searches": [
+          "Wang, Tang and Luo arXiv:2611.09463v1 §§5–6",
+          "Balister et al. arXiv:1504.05324, Theorems 4–5",
+          "Balogh, Walters and Zsák arXiv:2409.04237, Theorem 3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "arXiv:2611.09463v1",
+        "Resultary c62c72bc1f2b and 06f8be25022f",
+        "Focal citations arXiv:1504.05324 and arXiv:2409.04237 (retrieval attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Rescaling the prior map τ(t)=floor(t)+(t−floor(t))² by δ gives precisely the frozen rational example. Lemma 6.1 proves d(x,y)≤k iff B(y,1)⊆B(x,k+1), with the same ray witness."
+        ],
+        "reasoning": "The counterexample and closed-integer-ball special case are covered. Composing strict relations supplies positive sums; mixed-scale inclusions on dense subsets supply differences. Separately knowing comparisons at integer multiples of each scale would not by itself determine all distances, because the union of the two positive grids is locally finite. Combining scales and using the density of the integer span is substantive additional reasoning.",
+        "searches": [
+          "OA arXiv:2611.09463v1, Lemma 5.11 offset 97500 and Lemma 6.1 offset 106020"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lemma 5.11 concerns integer parts of distances. The separate two-radius metric-frame record represents two open-ball relations with a bounded distance alphabet, without requiring dense normed geometry. The exact indexed c62c72bc1f2b is the assigned result."
+        ],
+        "reasoning": "Single-scale floor preservation corresponds to integer-unit strict comparisons, not to recovery of the entire metric at irrationally related scales. Representation of relations by some arbitrary metric is not uniqueness among dense normed realizations. Exact-distance-preserver hypotheses concern equality, whereas the claim assumes only strict comparisons.",
+        "searches": [
+          "Resultary: dense normed-space two strict incommensurable proximity thresholds, step-isometry",
+          "arXiv:2611.09463v1 §5 Lemma 5.11 and §6 Lemma 6.1",
+          "Resultary mirror 06f8be25022f, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct two-radius record gives a sharp distance-alphabet cardinality max{3, floor(b/a)+1}, not a threshold rigidity classification. No separate exact indexed statement of the irrational-ratio criterion was located."
+        ],
+        "reasoning": "The alternative sharp formula has different data and conclusions, even when the thresholds are strict and have the same ratio. Exact-target self-indexing does not establish previous coverage.",
+        "searches": [
+          "Resultary: two incommensurable proximity thresholds rigidify dense normed subsets",
+          "Resultary mirror 06f8be25022f, offset 0"
+        ]
+      },
+      "rationale": "The justified distinct claim is uniform rigidity from two incommensurable open-ball relations on dense subsets of arbitrary real normed spaces. The rational-ratio example is an exact rescaling of a prior example and is not independently original. The prior integer-ball inclusion argument also supplies the mechanism behind the difference step; the mixed-scale difference and dense-subset argument is the new use. The strongest inspected comparisons do not state or mechanically yield the principal claim without that additional step.",
+      "residual_risks": [
+        "The two additional step-isometry papers were not fully read through the available retrieval, and related two-scale formulations may be unindexed. The assessment is not a priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers rational witness by rescaling and the single-scale whole-space inclusion mechanism; inspected statements do not cover the principal dense two-scale theorem",
+          "evidence": "Lemma 5.11 gives the fractional-part square homeomorphism; Lemma 6.1 proves the integer-ball inclusion identity B(y,1)⊆B(x,k+1) and closed-ball preservation.",
+          "identifier_or_url": "https://arxiv.org/html/2611.09463v1",
+          "material_read": "§5 Lemma 5.11 and start of Theorem 5.12, HTML offset 97500; §6 Lemma 6.1 and its proof, HTML offset 106020",
+          "method": "OA full-text excerpts",
+          "title": "Step-isometries on Banach spaces",
+          "trigger": "Same type of distance comparisons, witness and ball-inclusion proof"
+        },
+        {
+          "assessment": "No normed-space rigidity: gives existence and bound on the number of distance values in representing metrics",
+          "evidence": "Its equivalence uses reflexivity, symmetry, A⊆B and A^floor(b/a)⊆B on an arbitrary set; the sharp quantity is a number of positive distance values.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-sharp-distance-alphabet-bound-for-two-radius-metric-frames--06f8be25022f/RESULT.md",
+          "material_read": "Finding and assumptions, offset 0, mirror commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local catalogue and local mirror",
+          "title": "Sharp distance-alphabet bound for two-radius metric frames",
+          "trigger": "Closest indexed alternate two-radius strict relation claim"
+        },
+        {
+          "assessment": "Scope recorded as finite-dimensional single-scale classification and strictly convex reflexive single-scale rigidity; no inference from inaccessible passages",
+          "evidence": "The frozen citation locators are Theorems 4–5 and Theorem 3, respectively.",
+          "identifier_or_url": "https://arxiv.org/abs/1504.05324; https://arxiv.org/abs/2409.04237",
+          "material_read": "Cited theorem descriptions in the frozen Relationship section; independent full-text retrieval timed out",
+          "method": "Citation comparison and OA attempts",
+          "title": "Random Geometric Graphs and Isometries of Normed Spaces; Random Geometric Graphs in Reflexive Banach Spaces",
+          "trigger": "Potential rigidity consequences of one-scale comparisons"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem gives an exact criterion for universally recovering a metric from just two qualitative relations on a dense sample, with no dimensional or strict-convexity assumption. It identifies commensurability as the obstruction and produces full affine rigidity on the completions. The known scaled counterexample makes the criterion sharp but is not the source of its value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

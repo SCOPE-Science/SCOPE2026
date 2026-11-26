@@ -1,17 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For all \(a>k>0\) and \(T_x,T_y>0\), the independent resolvent calculation yields the stationary complex cross-spectrum. The ratio, positive-frequency derivative with exactly one zero, strictly positive coupling derivative, and exact boundary substitution are shown algebraically in RESULT.md; no finite computation is used as an infinite proof. The equal-temperature degeneracy and loss of stability at \(k=a\) are explicitly separated. The standalone checker verifies exact symbolic identities and rational sample cases. Residual correctness risk concerns conventional Fourier sign normalization only, which disappears upon squaring and normalizing.
+PASS
 
-## Originality — PASS, qualified
+Direct multiplication in the declared two-sided Fourier convention gives Im S_xy=−2kω(T_x−T_y)/Δ_ω and the two positive diagonal spectra in RESULT.md. With τ=T_y/T_x, v=(k/a)^2 and z=(ω/a)^2, the objective is [v(τ−1)^2/τ]z/[(z+A)(z+B)], where A=1+vτ and B=1+v/τ. For distinct baths and z>0, the reciprocal frequency factor is z+A+B+AB/z, uniquely minimized at √(AB). The coupling derivative at fixed z has the sign of (1+z)^2−v², so the frequency-optimized value is strictly increasing and its greatest limit is at v=1. Substitution there gives (√τ−1)²/(1+τ); e.g., τ=4 gives z=5/2 and value 1/5. Any maximizing sequence must have v→1; the z→0 and z→∞ tails vanish uniformly for 0≤v≤1, so every accumulation point of z is the unique boundary maximizer. At v=1 the drift has a zero mode driven by nonzero noise, so the limit is not a stationary trap. At equal bath strengths the statistic is identically zero and no frequency is unique, as explicitly stated in the proof. Replay: RESULT.md §§ Exact cross-spectrum through Sharp contrast ceiling, with the reciprocal minimization above. checker.py was inspected but not executed.
 
-The nearest complete primary source, Cerasoli et al. (2022), studies the same Brownian-gyrator general framework, so that framework and standard spectral computation are not claimed. Its Eq. (17) is a Pearson coefficient of two single-trajectory power-spectral densities; the inspected body (Secs. III–V, pp. 4–9) and Appendix C discuss this and its small-frequency behavior rather than the imaginary complex cross-spectrum's global sharp temperature ceiling, optimizer and edge nonattainment. Henkel (2021) analyzes two quantum harmonic oscillators with baths and spectra but without the claim for this overdamped model. General spectral Cauchy bounds are insufficient to imply the nontrivial temperature-only envelope. The finite literature/database searches cannot prove uniqueness; hidden implicit coverage in other response-theory treatments remains a publication-priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The standard magnitude squared coherence can be nonzero for reciprocally coupled equilibrium coordinates, so it is not intrinsically a time-arrow witness. The squared imaginary component isolates chronology-antisymmetric coupling: it vanishes identically at equal temperatures and its maximum at fixed coupling is at one exactly prescribed measurement frequency. The unexpected bath-temperature-only global limit and unattainability for stable traps provide a sharp calibrated benchmark beyond a restatement of a resolvent or an arbitrary numeric invariant. This is an exact ideal-spectrum structural statement, not a claim about finite-sample signal-to-noise or entropy-production efficiency.
+The contribution is the explicit optimizer and sharp nonattained bath-only bound for the squared imaginary coherency of the stated reciprocal two-bath model. The spectral framework, the time-reversal use of the imaginary cross-spectrum, and the Gaussian spectral entropy-production calculation are prior; none of the inspected results gives the ceiling or its equality/limit characterization.
 
-Closest source: https://www.smri.it/Publications/Phys_Rev_E_Gyrator_Spectra.pdf, in particular discussion of Eqs. (16)–(20) and Appendix C. Additional spectral context: https://onlinelibrary.wiley.com/doi/full/10.1002/andp.202100089. No independent scientific validation has been carried out.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The result gives a quantitative population benchmark for the part of coordinate coherence that changes sign under time reversal before squaring. Temperature contrast sets a stricter maximum than generic spectral positivity, there is an explicit frequency for any stable design, and strong values require approaching a nonstationary limit. This is useful without claiming an optimum for entropy production or practical detection.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

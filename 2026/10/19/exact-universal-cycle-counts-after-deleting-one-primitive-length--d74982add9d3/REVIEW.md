@@ -1,15 +1,21 @@
-# Scientific review: one primitive length-three necklace removed
+# Independent mathematical audit
 
-## Correctness — PASS
-The precise count is for labeled alphabets of size \(q\ge3\), with only positional rotations factored out. The deleted primitive orbit is a directed three-cycle; the reduced order-two graph is balanced with three vertices of degree \(q-1\). The identity \(A^2=J\) gives the exact inverse on the zero-sum space. A rank-three determinant computes the two root-tree ratios, and positive tree counts supply connectivity before BEST gives exact cyclic Euler tour counts. These implications establish the formulas for every integer \(q\ge3\). The exact independent reconstruction in `verify.py` checks determinants through \(q=6\) and exhaustively counts all ternary tours. Boundary \(q=2\) is checked separately. Risks: only an error in the stated algebraic equalities or a misapplication of standard theorems would affect the infinite proof; finite verification is not substituted for either.
+## correctness
 
-## Originality — PASS with residual risk
-The examined full-text work of Au concerns universal cycles consisting of **all** primitive words. The 2014 Kociumaka–Radoszewski–Rytter conference paper (compared via its inspected expanded full-text version) concerns ranking Lyndon words and decoding the **full** minimal de Bruijn cycle. Sawada–Williams–Wong prove existence/construction in dictionary classes, including avoiding a **periodic** necklace; they do not enumerate all cycles of a complement of exactly one primitive necklace. Chen–Kitaev–Sun address existence probabilities for up to two forbidden words in arbitrary alphabets and a few binary cases, not this all-alphabet count with three forbidden words. Multiple statement-level searches for one-necklace deletion, determinant formulas, and the exact ternary count identified no covering indexed result. Generic matrix-tree and BEST machinery is an enabling principle, not an earlier evaluation of the two closed forms. Residual risk: the 2014 proceedings version was not directly read, and an unindexed enumeration or unpublished earlier result may exist; no absolute priority or independent assessment is claimed.
+PASS
 
-## Value — PASS
-Deleting all rotations of one primitive length-three word is the smallest genuinely nontrivial balanced forbidden-orbit perturbation of the full order-three de Bruijn dictionary. An evaluated formula across every alphabet size, including the complete two-type classification, equality at \(q=3\), and a strict type bias for larger alphabets, answers a naturally motivated enumeration problem that neither mere existence nor construction settles. The result is not an arbitrary finite table or a substitution of a known specialized formula.
+A primitive three-letter orbit deletes three edges forming a directed cycle on three distinct two-letter vertices, so the residual graph is balanced with degrees q−1 at exactly those vertices. On the full de Bruijn graph A²=J; on the complement of constants the inverse of qI−A is given by truncating the nilpotent inverse series after A/q². Consequently det(L+J/q²)=q^(q²−1), the full cofactor is q^(q²−3), and the rank-three determinant lemma gives the stated tree factors. The 001 vertex adjacency restriction has rows (1,1,0),(0,0,1),(1,1,0); for 012 it has only the three cyclic-shift entries. Taking successive-row differences in these restrictions verifies the two compressed matrices and their determinants. The determinants are positive for q≥3, so a rooted tree exists and balance implies strong connectivity. BEST with a fixed first edge counts each cyclic edge list once; distinct triple labels give precisely the labeled-position-rotation convention. The factorial change is (q−1)^−3; (q−3)/q⁴ is the difference of tree ratios, not the difference of U_q/D_q without that factorial factor. Independent exact cofactor and tour enumeration (`python3 reproductions/1.py`) found ternary cofactors 189 and 12,096 circuits in each case; the binary 001 deletion leaves its 000 loop isolated and has zero circuits. The supplied script was inspected, not executed. The finite count is corroboration of the all-q determinant argument, not its substitute.
 
-## Limits and closest literature
-The claim neither handles multiple orbits nor general lengths, and different cyclic equivalence conventions change the answer. Sources are Au (arXiv:0904.3997), Kociumaka–Radoszewski–Rytter (CPM 2014; arXiv:1510.02637), Sawada–Williams–Wong (doi:10.37236/5517), and Chen–Kitaev–Sun (arXiv:1908.01116). No independent priority or proof certification is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass is for the two explicit deletion counts and their comparison for labeled alphabets q≥3. The binary nonexistence is supplementary and is covered by the inspected binary-deficit record. None of the closest inspected statements provides the two evaluated factors in the general alphabet regime.
+
+## value
+
+PASS
+
+A single rotation orbit is a natural balanced restriction of the full factor dictionary, and length three permits the first comparison of two primitive orbit types with identical removed-edge degree effects. The exact count resolves whether the overlap pattern affects cycle multiplicity: equality at three symbols and a strict ordering thereafter. These formulas give usable counts for the whole alphabet family, rather than merely a small-instance table or an instruction to evaluate a generic determinant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

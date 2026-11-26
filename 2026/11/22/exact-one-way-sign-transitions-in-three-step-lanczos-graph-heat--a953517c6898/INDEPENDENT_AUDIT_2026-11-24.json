@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:25:55.007925Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With q₀=e_r and positive subdiagonals, q₁ has entries −w_ri/b₀ only at neighbors. Multiplication by L and subtraction of the q₀ and q₁ components gives q₂,i=−w_ri(d̂_ri−a₁)/(b₀b₁) at a neighbor, q₂=0 at the root and beyond distance two, and a positive sum of two-edge conductance products divided by b₀b₁ at distance two. This accounts for triangles with the claimed minus sign in d̂. S=diag(1,−1,1) makes K=−ST₃S irreducible Metzler, so e^(tK)e₁ is strictly positive for t>0. This proves the non-neighbor conclusions and makes the smallest-Ritz coefficient at a neighbor a positive multiple of H, by the last row of K's positive top eigenvector. The neighbor response vanishes initially with derivative w_ri>0 by degree-one Lanczos exactness. To independently check the entire time classification, write the eigenvalues θ₀<θ₁<θ₂. After multiplying the response by e^(θ₂t), initial vanishing gives A(e^(at)−1)+B(e^(bt)−1), with a=θ₂−θ₀>b=θ₂−θ₁>0 and sign A=sign H. The ratio (e^(at)−1)/(e^(bt)−1) is strictly increasing from a/b to infinity: it is the average of the strictly increasing (a/b)e^((a−b)s) under weight b e^(bs) on [0,t]. Dividing by e^(bt)−1, the sign is therefore the sign of a function starting at (Aa+Bb)/b>0, decreasing to minus infinity precisely if A<0, and positive throughout if A≥0. This proves strict positivity even at equality and rules out any return. The initial value handles t=0; exact early termination follows from Krylov invariance. Independent replay with python3 /workspace/evidence/lanczos_witness.py orthonormalizes the raw power basis, reproduces all five frozen Lanczos coefficients and the cubic, and verifies by Sylvester's criterion T₃−I≻0 and det(2I−T₃)>0, hence 1<θ₀<2. It recovers 61−a₁−a₂=215528/138043>0 and a₁+a₂−2>40. The other two source neighbors are therefore positive while neighbor 1 eventually turns negative. The numerical crossing 0.1181626757546 and negative value near −0.0011882008 at 0.2 are illustrations, not the sign certificate. The exact heat kernel is positive by connected irreducible Metzler positivity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The two primary sources give Krylov matrix-function methodology and norm-error estimates; Orecchia et al. Theorem 6.7 bounds the vector norm error by twice a best scalar polynomial error on the spectrum."
+        ],
+        "reasoning": "The bound extends to broad matrix-function problems but does not control every vertex sign, in particular when exact entries are small. Tridiagonal projection supplies the framework, not an all-time sign criterion.",
+        "searches": [
+          "Hochbruck–Lubich 1997 matrix exponential Krylov error",
+          "Orecchia–Sachdeva–Vishnoi §1.2, Theorem 6.7 and §6.2.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ad15fe4b80b2, fb3579f163d8 and 66922def8ca6 specified mirror passages",
+        "Orecchia–Sachdeva–Vishnoi §1.2, Theorem 6.7 and §6.2",
+        "Hochbruck–Lubich 1997 opening primary passages",
+        "Druskin 2008 limited access; not primary full text"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The actual CG formula for A=μI+L is xᵢ^(3)=w_ri(α₁+α₂−Aᵢᵢ)/det(T₃+μI) on a tree, with μ>0 and α_j=a_j+μ. Its numerator is w_ri(a₁+a₂+μ−dᵢ). The heat margin on a tree corresponds algebraically to replacing μ by −θ₀ in that numerator, but this is outside μ>0 and the denominator of the projected resolvent vanishes there. The lowest-Ritz heat coefficient can be related to a resolvent residue, not to an application of the stated inverse-positivity result."
+        ],
+        "reasoning": "The common Lanczos basis explains the matching support pattern, and the two numerator formulas are genuinely close. The proved CG statement alone does not establish triangle-adjusted graph signs, strict finite-time positivity at the zero-margin boundary, or uniqueness and direction of time crossing; these require the heat spectral coefficient and exponential time analysis.",
+        "searches": [
+          "Resultary ad15fe4b80b2, local third-iterate sign law via degree-two Ritz interpolant",
+          "Orecchia et al. Theorem 6.7; standard degree-two interpolation applied to heat response"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two-step horizon and diagonal parity records classify spectral coordinates for positive diagonal inputs and positive starts; in a diagonal basis for a graph problem they do not classify the original vertex coordinate. Druskin's reduction is characterized by the frozen and parity sources as Jacobi-coordinate positivity/norm monotonicity, but primary full text was not independently accessible."
+        ],
+        "reasoning": "A spectral-basis sign result or reduced-coordinate positivity does not survive arbitrary signed changes of basis, and the relevant vertex signs depend on a local weight-and-triangle combination that those claims do not use.",
+        "searches": [
+          "Resultary: point-source graph heat Lanczos sign criteria, parity sign transitions and positivity horizons",
+          "Druskin DOI:10.1016/j.laa.2008.04.046; exact three-step tridiagonal semigroup coordinate sign"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest inspected catalogue finding gives the third CG iterate on a five-vertex weighted tree, with conductances 5,1,s,2s and a zero as s varies at shift one. The frozen heat witness uses weights 1,4,40,60 and varies heat time for a fixed graph. Other retrieved sign results are on diagonal systems and different depths or components."
+        ],
+        "reasoning": "The structurally similar exact CG data and fixed-matrix time crossing are different invariants. The same-day placement of the CG result does not establish priority.",
+        "searches": [
+          "Resultary: three-step graph diffusion local degree/Ritz margin and tree nonnegativity failures",
+          "Resultary ad15fe4b80b2 and sign-horizon/parity records"
+        ]
+      },
+      "rationale": "The supported distinct content is the all-graph original-coordinate sign classification at depth three, including the exact all-time inequality and the single irreversible crossing. Classical projection, approximation guarantees and reduced-coordinate positivity, and the common local Krylov support mechanism are not claimed as new. The strongest comparison is a third-iterate shifted-inverse sign law on trees; its algebra is closely related but its proved statement does not cover the claimed time-dependent graph heat theorem.",
+      "residual_risks": [
+        "Druskin's primary full text was not independently available. An earlier statement about signed coordinates and exponential interpolation could be differently indexed. The close shifted-resolvent identity should be credited even though the cited CG theorem does not cover finite-time heat signs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong algebraic overlap, not an equivalent or stronger heat-time conclusion.",
+          "evidence": [
+            "Shift μ>0, trees, local inverse numerator α₁+α₂−Aᵢᵢ; one example varies conductance rather than time."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-local-third-iterate-sign-criterion-for-conjugate-gradients-on--ad15fe4b80b2/RESULT.md",
+          "material_read": "Mirror Finding/scope at offset 0, actual local-law proof at 2468–4166, and witness discussion near 4060–5275.",
+          "method": "Inspect formula and proof, then compare the shift and the original-coordinate exponential margin explicitly.",
+          "title": "A local third-iterate sign criterion for conjugate gradients on weighted trees",
+          "trigger": "Strongest material overlap: same point-source three-vector Krylov basis and local neighbor sign rule."
+        },
+        {
+          "assessment": "Related lower-depth analogue; not a covering statement.",
+          "evidence": [
+            "m=2, positive diagonal system and strictly positive starting vector; largest active eigenvalue coordinates."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-the-exact-positivity-horizon-of-the-two-step-lanczos-exponential--fb3579f163d8/RESULT.md",
+          "material_read": "Mirror Finding at offset 0.",
+          "method": "Compare dimensional truncation, diagonal input and targeted coordinates.",
+          "title": "The exact positivity horizon of the two-step Lanczos exponential",
+          "trigger": "Same exponential sign-horizon concept."
+        },
+        {
+          "assessment": "A top-eigenvalue coordinate result; neither refutes nor covers original vertex-coordinate transitions at odd depth.",
+          "evidence": [
+            "Odd depths protect the targeted spectral coordinates in the strictly positive starts setting; no graph-local comparison."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-parity-and-the-unique-extreme-mode-sign-transition-in-incomplete--66922def8ca6/RESULT.md",
+          "material_read": "Mirror Finding at offset 0 and prior-work paragraph near 6200.",
+          "method": "Compare targeted coordinates and diagonal positive-system hypotheses.",
+          "title": "Parity and the unique extreme-mode sign transition in incomplete Lanczos exponentials",
+          "trigger": "Unique crossing at incomplete depths might cover depth three."
+        },
+        {
+          "assessment": "Covers approximation machinery and norm-error bounds; no graph-coordinate sign classification follows from those guarantees.",
+          "evidence": [
+            "Theorem 6.7 uses a best scalar polynomial error on the spectrum; its proof evaluates the function on the reduced tridiagonal."
+          ],
+          "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2011/11/3231.pdf",
+          "material_read": "§1.2 pp. 4–5 (offsets 13700–18172), actual Theorem 6.7 on pp. 33–34 near offset 124155, and §6.2 exponential specialization material.",
+          "method": "Inspect bounded OA primary PDF passages and compare the norm guarantee with exact entry signs.",
+          "title": "Approximating the Exponential, the Lanczos Method and a Near-Linear-Time Spectral Algorithm for Balanced Separator",
+          "trigger": "Primary graph-Lanczos exponential method and possible broader guarantee."
+        },
+        {
+          "assessment": "Relevant prior method, not covering in inspected passages; no whole-document exclusion based on the introduction.",
+          "evidence": [
+            "Krylov matrix exponential approximations and associated error bounds."
+          ],
+          "identifier_or_url": "https://na.math.kit.edu/download/papers/exp.pdf",
+          "material_read": "Primary PDF p. 1, abstract and introduction.",
+          "method": "Compare stated approximation and error objectives at those passages.",
+          "title": "On Krylov Subspace Approximations to the Matrix Exponential Operator",
+          "trigger": "Foundational matrix-exponential approach."
+        },
+        {
+          "assessment": "Unresolved original full-text comparison. No conclusion of whole-document noncoverage from the access failure.",
+          "evidence": [
+            "Existing comparison distinguishes norm monotonicity and reduced Jacobi positivity from original graph vertex signs; no decisive original-paper passage was retrieved."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.laa.2008.04.046",
+          "material_read": "Landing/abstract route only for primary source; reduced-coordinate characterization checked only in the cited frozen comparison and the parity record's related-work passage.",
+          "method": "Lawful DOI and ScienceDirect full-text attempts; the latter returned 403.",
+          "title": "On monotonicity of the Lanczos approximation to the matrix exponential",
+          "trigger": "Plausible historical overlap on exponential monotonicity or positivity."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For an ordinary truncation of graph heat from a point source, the exact kernel is positive but the low-depth approximation need not be. The exact local threshold tells whether any specified coordinate will fail, and distinguishes a permanent late-time failure from a transient artifact. Including equality, triangles, exact breakdown, and an exact small weighted witness gives a usable mathematical diagnostic rather than an isolated numerical sign counterexample. The claim is not finite-precision assurance or a result for arbitrary depth.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

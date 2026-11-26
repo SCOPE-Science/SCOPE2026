@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:34:20.059695Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 14–43; VERIFICATION.md; checker.py (inspected, not executed); checker_output.txt (recorded evidence)",
+        "/workspace/audit_checks.py 5"
+      ],
+      "rationale": "A reduced word of length m used twice can increase inversion length by at most 2m, so m≥ceil(L/2). The disjoint four-cycles in the witness give the stated outer one-line entries at each four-degree extension; they add n inversions from outer n+4 to the old block, n from the old block to outer 1, and three among the four outer entries. The base lengths 1,2,3,5 cover all degrees. In the even-L classes the four-cycles square to the reversal transpositions and the central point, if present, is fixed. In the odd-L classes the central transposition or three-cycle gives w_n²=w₀sᵢ and a right descent at i. Choose a reduced word for w_n ending in sᵢ. The prefix of its second copy represents v=w_nsᵢ and w_nv=w₀ with length additivity, so every step of that prefix increases length and the last sᵢ is absorbed. This also proves the odd witness without requiring the more general subword comparison in the record. At even L, equality in the length bound means no omitted comparator, hence w²=w₀. Conversely ordinary roots have w₀w=w⁻¹, giving L−ℓ(w)=ℓ(w), and attain w₀ in the Demazure product. Ordinary group roots pair the 2k transpositions into four-cycles, two orientations per pair, and fix the optional singleton, giving (2k)!/k!. Independent checks from the one-line recursion and a separate reduction by rightmost descents passed through degree 52; a full scan of the minimal length layer through degree 8 agreed, including set equality with ordinary roots in the even-L cases. Replay with python3 /workspace/audit_checks.py 5.",
+      "residual_risks": [
+        "Finite checks corroborate the all-degree proof, not replace it. No complete odd-L multiplicity classification is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Denton et al. define the framework but provide no matching extremal theorem in the passages inspected. Kosuda's even-degree theorem characterizes Coxeter elements with ordinary specified higher power equal to the reversal; the odd-degree result concerns an admissible Coxeter-element factorization. The distinct corpus summary describes repetition count for Coxeter-period words."
+        ],
+        "reasoning": "An unrestricted two-pass factor may use many occurrences of a generator. A result about Coxeter-element powers or stabilization over a variable number of repeated Coxeter periods neither supplies the sharp quadratic-length factor in every degree nor classifies its minimizing layer.",
+        "searches": [
+          "Denton et al. arXiv:1010.3455v3 §2.4; Kosuda arXiv:1411.5761v1 Theorems 2.1 and 4.3",
+          "Local Resultary adjacent Coxeter-period stabilization comparison d77fc719e94d"
+        ]
+      },
+      "checked_sources": [
+        "Resultary hits 956f87755c16 and d77fc719e94d",
+        "Denton et al. arXiv:1010.3455v3",
+        "Kosuda arXiv:1411.5761v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In even L, the standard square-root construction and length additivity already yield the minimum, and no omitted step forces any minimum to be ordinary. In odd L, reversal has an odd number of transpositions and no ordinary square root; the construction instead arranges w_n²=w₀sᵢ at a specified right descent."
+        ],
+        "reasoning": "Credit is not assigned as if the even-case numerical count were a new invariant of permutation squares. The odd-L attainment requires an additional parity-removing choice meeting the Demazure descent and length conditions; it is not a substitution into the inspected restricted-power theorems.",
+        "searches": [
+          "Denton et al., §2.4; Kosuda, §§2 and 4; compare ordinary group roots and parity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Denton et al., arXiv:1010.3455, §2.4 provides the reduced-word and Bruhat conventions needed for the reformulation. The targeted primary query returned no result; this is a search miss only."
+        ],
+        "reasoning": "The equivalent Bruhat constraint is w⁻¹w₀≤_B w: those accepted steps in the second copy must produce a reduced subword for w⁻¹w₀, and such a subword is sufficient. A repeated fixed adjacent comparator word that sorts the identity from ascending to descending sorts every permutation, by Bruhat monotonicity and maximality of w₀. Neither changing the number of repeats nor replacing w by w⁻¹ in the first copy preserves the stated optimization.",
+        "searches": [
+          "Local Resultary searches for shortest Demazure square roots of the longest element and two-pass sorting",
+          "Primary literature query: 0-Hecke Demazure square root longest permutation minimum length; shortest adjacent sorting schedule QQ Bruhat inverse-complement condition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching entry is the bound record itself, not distinct publication evidence. The closest distinct indexed statement changes the statistic to Coxeter-period stabilization. The ordinary group root counts already follow from the classical cycle-pairing rule regardless of any matching numerical table."
+        ],
+        "reasoning": "A count of ordinary permutation square roots, or a numerical sequence of the half-length bound, does not certify attainment of that bound as a Demazure square or establish even-L equality of the two sets. No odd-L exhaustive count is claimed.",
+        "searches": [
+          "Local Resultary semantic searches for the half-length minimum and the even-L count; hits 956f87755c16 and d77fc719e94d"
+        ]
+      },
+      "rationale": "The supported distinct contribution is attainment of the half-length lower bound for identical two-pass Demazure schedules in every degree, especially the parity-obstructed odd-L classes, together with identification of the even-L minimizing layer. Ordinary square-root cycle pairing and its count, the Bruhat subword property, and the length lower bound are standard; they are not credited separately as new. The checked power results constrain the first factor to Coxeter elements and do not give the unrestricted repeated-word optimum.",
+      "residual_risks": [
+        "The distinct Coxeter-period finding was not retrievable, and same-day dating does not settle precedence. Equivalent optimization under sorting-network or Bruhat terminology may be unindexed by the bounded search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies standard framework, not the optimum",
+          "evidence": "Idempotent simple projections and braid relations, reduced words indexing monoid elements, and the Bruhat subword criterion.",
+          "identifier_or_url": "https://arxiv.org/abs/1010.3455",
+          "material_read": "v3 §2.4 pp. 7–8, offsets 23477 and 25370",
+          "method": "Lawful OA PDF passage reading",
+          "title": "On the representation theory of finite J-trivial monoids",
+          "trigger": "General 0-Hecke and Bruhat conventions, possible square-root implication"
+        },
+        {
+          "assessment": "Restricted powers, not the two-pass optimum",
+          "evidence": "Even n=2m result for ordinary C^m with C Coxeter; odd-degree result for an admissible Coxeter element and a specified factorization.",
+          "identifier_or_url": "https://arxiv.org/abs/1411.5761",
+          "material_read": "v1 Theorem 2.1 p. 5 and Theorem 4.3 p. 12, offsets 14200 and 29563",
+          "method": "Lawful OA PDF passage reading",
+          "title": "Coxeter elements of the symmetric groups whose powers afford the longest",
+          "trigger": "Primary power-factorization results for the same longest element"
+        },
+        {
+          "assessment": "Adjacent scope in summary; full implication not ruled out",
+          "evidence": "Summary gives a centered orientation-height walk for a repetition count of a Coxeter-period word. It does not state minimization over arbitrary factors with two copies.",
+          "identifier_or_url": "d77fc719e94d",
+          "material_read": "Local Resultary summary only; actual Finding unavailable after local-mirror query and OA attempt",
+          "method": "Local catalogue search and targeted retrieval attempts",
+          "title": "A centered walk law for Coxeter-period stabilization in type A",
+          "trigger": "Closest distinct same-day Resultary result on repeated words reaching the same element"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof; inspected Coxeter-period and ordinary-power comparisons"
+      ],
+      "rationale": "The shortest identical two-pass adjacent-comparator schedule is a natural constrained way to reach the absorbing element. It is not clear from the length bound that the repeated-copy constraint allows a globally optimal length, in particular when parity bars an ordinary square. The witness achieves the unavoidable bound with exactly one omitted comparator in that parity class and explains the transition to the ordinary group-root layer in the other class.",
+      "residual_risks": [
+        "Specific to type A, two identical passes and the longest target. Does not resolve the odd-layer cardinalities or higher powers."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

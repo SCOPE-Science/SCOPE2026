@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:05:48.300602Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–54; VERIFICATION.md; both Python checkers and CHECK_OUTPUT.txt and TARGET_CHECK_OUTPUT.txt inspected, not executed",
+        "Replay: python3 /workspace/branches/independent_checks.py 5"
+      ],
+      "rationale": "Fix A=I+uφ. Each nonzero rank-one square-zero presentation of B is counted q−1 times, giving T. With a=φ(v), b=ψ(u), the product minus I factors as u(φ+aψ)+vψ. It has rank 2 exactly when both vector and covector pairs are independent. On the span of u,v in that case the restriction of AB−I has matrix [[ab,a],[b,0]], with the quotient fixed. For t=ab≠0 the restriction is invertible and non-scalar (a≠0), so it splits from the fixed space and is cyclic with companion polynomial h_t, including the repeated-root case. The constraints on v and ψ give q^(2n−3) B's for every nonzero t. For t=0 the full operator AB−I maps into the same span. If exactly one of a,b is nonzero its square is nonzero and cube zero (its image is the whole span), giving J3; if both vanish it squares to zero, giving J22. Counting independent v,ψ with the required annihilations yields the stated J3 and J22 rows, respecting minimal dimensions. Rank≤1 is the union of shared image line and shared row line, each of size q^(n−1)−1 with overlap q−1; removing the sole inverse factor gives the rank-one row. The identity coefficient, class normalization, standard centralizers and fixed-field limits agree. Fresh full-pair enumeration through n=4 over F2 and through q=5 at n=2 corroborated the rows; in dimension two it also counted the target centralizers by commutation in the full GL group.",
+      "residual_risks": [
+        "The fresh enumeration uses prime fields and small dimensions; the exact argument uses linear algebra over any finite field. The two captured uploaded logs are recorded evidence, not independent execution."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wan–Wang Theorem 4.4 lists all degree-two coefficients for arbitrary two degree-one classes; the determinant-one input specialization is additionally explicit in Lemma 4.2. Lewis–Reiner–Stanton Eq. (2.1) gives the general character-sum method, with evaluated formulas for Singer targets. Méliot §4 treats degree-one partial-isomorphism inputs in a different indexing; its a=b=1 example uses identity partial extensions, not the decisive transvection formula here. Adan-Bante–Harris gives only a lower bound on the number of output classes."
+        ],
+        "reasoning": "Unlike the generic character sum, Wan–Wang's theorem is already evaluated and includes all the determinant-one rank-two targets. The original comparison to a lower bound misses this stronger existing theorem.",
+        "searches": [
+          "Wan–Wang Theorem 4.4, modified-degree-one class sum products",
+          "Lewis–Reiner–Stanton arXiv:1308.1468, Theorem 1.3 and Eq. (2.1)",
+          "Méliot arXiv:1303.4313v2 §4–Theorem 4.1; Adan-Bante–Harris arXiv:0904.2152"
+        ]
+      },
+      "checked_sources": [
+        "Wan–Wang arXiv:1805.08796, Lemma 4.2 and Theorems 3.4, 4.4, decisive",
+        "Other primary and local catalogue passages as listed; Resultary assigned self-hit distinguished from separate records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Let F_g denote Wan–Wang's per-target coefficient and C_G(g) its centralizer. The numerator is F_g·|G|/(T·|C_G(g)|). For a nonzero trace shift, F_g/c_t=1/(q−1) in all three root cases. Also |GL_n|/(T·|GL_{n−2}|)=(q−1)q^(2n−3), yielding q^(2n−3) for each shift. For J3, class size/T=q^(n−2)(q^(n−2)−1), so multiplication by 2q gives 2(q^(n−1)−q)q^(n−2). For J22, class size/T=q(q^(n−2)−1)(q^(n−3)−1)/(q²−1), so multiplication by q²+q gives (q^(n−1)−q)(q^(n−2)−q)/(q−1). The rows not fitting at n=2,3 are absent.",
+          "A product differs from I by rank at most two and has determinant one. Its identity count per fixed factor is one, and rank one with determinant one is a single GL class. Subtracting the rank-two numerators and the identity from T gives 2q^(n−1)−q−2. For example, with x=q^(n−1), T minus the J22 numerator is (q+1)x²/q−(q+1); subtract the (q−1)x²/q total nonzero-shift numerator, then 2(x−q)x/q for J3, then 1. These algebraic expressions also give the appropriate zeros in low dimensions."
+        ],
+        "reasoning": "The entire probability table, not just certain rows or a count of its support, is mechanically implied. Taking its positive rows or leading powers and rescaling by standard class sizes supplies all remaining stated consequences. No genuinely valuable new claim remains by narrowing to the lower-rank residual or another normalization.",
+        "searches": [
+          "Wan–Wang arXiv:1805.08796, §2 modified type, Theorem 3.4, Lemma 4.2, Theorem 4.4; frozen centralizers and all rows, RESULT.md lines 4–32"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wan–Wang subtract one from each Jordan block size for eigenvalue 1, omitting zeros; thus their class with modified type (1) at X−1 is exactly the transvection class. For the square of this class their Lemma 4.2 gives the coefficients 2q at modified type (2) at X−1, q²+q at (1,1) at X−1, and q−1, q, q+1 for distinct split, repeated non-1 and irreducible degree-two blocks of determinant one, respectively."
+        ],
+        "reasoning": "The class sum square coefficient is the count of ordered factorizations of one matrix, exactly the frozen target fiber. Theorem 3.4 identifies these top-degree coefficients with the actual finite GL_n coefficients whenever the target fits in the dimension. The frozen probabilities are just the class cardinality times the coefficient divided by T².",
+        "searches": [
+          "Web: general linear group finite field product of two transvections exact number factorizations conjugacy class connection coefficients GL(n,q) transvection class square Lewis absolute order",
+          "Web: Jinkui Wan Weiqiang Wang Stability of the centers of group algebras of general linear groups finite field arxiv",
+          "Wan–Wang arXiv:1805.08796, OA lookup: modified type, Theorem 3.4., Theorem 4.4; Lemma 4.2 by offset"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The direct equivalent table is printed in Wan–Wang in per-target coefficient normalization. The distinct Resultary symplectic record gives exact Wall-form fibers, including the full n=2 case since Sp_2(q)=SL_2(q) and all GL_2 transvections lie there; it is a different group above this shared case. The other catalogue overlap concerns multiplying rank-one nilpotent matrices themselves, not matrices with identity added."
+        ],
+        "reasoning": "The assigned self-hit is not evidence of prior coverage. The symplectic formulas cover a shared subset, not the whole GL_n table. The published Wan–Wang table is independently sufficient, with standard class-size conversion and the lower-rank residual.",
+        "searches": [
+          "Resultary exact two-transvection GL_n fixed product/class convolution: assigned self-hit --99ad8abf2ce2; related --d528ac202ca5 and --c7286e4b73ec",
+          "Wan–Wang Lemma 4.2 and its complete-list generalization Theorem 4.4"
+        ]
+      },
+      "rationale": "Wan–Wang, Stability of the centers of group algebras of GL_n(q), Adv. Math. 349 (2019), Lemma 4.2 and Theorem 4.4 with Theorem 3.4, already give every rank-two two-transvection target coefficient, not merely a method to compute it. Group and class sizes convert these to all the corresponding probability rows. The only remaining rows are the inverse partner and the unique rank-one determinant-one class, whose coefficient is forced by the total. Support counts, fixed-field limits and per-target multiplicities add no independent uncovered invariant. This is positive prior-coverage evidence, not a failed search.",
+      "residual_risks": [
+        "The full external character-table collections were not exhaustively audited. This does not affect the demonstrated exact prior implication. The separate Resultary entries' same-day dates do not establish precedence; the decisive Wan–Wang source predates the frozen record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive positive coverage of all rank-two rows; whole table follows",
+          "evidence": "Transvection corresponds to (1) at X−1; Lemma 4.2 gives rank-two target fibers q²+q, 2q, q−1, q or q+1 as the classes require, and Theorem 3.4 makes the coefficient independent of n once the class fits.",
+          "identifier_or_url": "https://arxiv.org/pdf/1805.08796",
+          "material_read": "Modified type p. 2 offsets 6006–7053; Theorem 3.4 p. 13 offset 45990; Lemma 4.2 pp. 17–18 offsets 59350–63000; Theorem 4.4 pp. 18–19 offsets 64500–67400",
+          "method": "OA PDF literal locator and bounded passage reads",
+          "title": "Stability of the centers of group algebras of GL_n(q)",
+          "trigger": "Potential evaluated stable class-square coefficients of rank one"
+        },
+        {
+          "assessment": "General formula and evaluated Singer regime, not the decisive all-target table",
+          "evidence": "Theorem 1.3 fixes a Singer target with prescribed factor determinants; Eq. (2.1) gives arbitrary class coefficients before evaluation.",
+          "identifier_or_url": "https://arxiv.org/pdf/1308.1468",
+          "material_read": "Theorem 1.3 p. 2 offset 9511; Eq. (2.1) p. 3 offset 14177",
+          "method": "OA PDF",
+          "title": "Reflection factorizations of Singer cycles",
+          "trigger": "Earlier exact reflection factorization and character-sum comparison"
+        },
+        {
+          "assessment": "Relevant generic convolution comparison, with different degree-one indexing",
+          "evidence": "The maps on lines use the parameter a for X−a; at a=1 their two-dimensional trivial extension is the identity in this computation.",
+          "identifier_or_url": "https://arxiv.org/pdf/1303.4313v2",
+          "material_read": "§4 and §4.3 leading into Theorem 4.1, PDF pp. 41–42, 45; offsets 146380–149221 and 161100–164021",
+          "method": "OA PDF",
+          "title": "Partial isomorphisms over finite fields",
+          "trigger": "Earlier explicit product of degree-one generic classes"
+        },
+        {
+          "assessment": "Lower bound only",
+          "evidence": "The product of any two noncentral GL classes contains at least q−1 classes.",
+          "identifier_or_url": "https://arxiv.org/abs/0904.2152",
+          "material_read": "PDF p. 1 offset 400",
+          "method": "OA PDF",
+          "title": "On conjugacy classes of GL(n,q) and SL(n,q)",
+          "trigger": "General class-product bound cited by the record"
+        },
+        {
+          "assessment": "Different class partition",
+          "evidence": "Projects transvection walk to Bruhat double cosets rather than G-conjugacy classes.",
+          "identifier_or_url": "https://arxiv.org/abs/2208.10699",
+          "material_read": "PDF p. 5 offset 11600",
+          "method": "OA PDF",
+          "title": "Double Coset Markov Chains",
+          "trigger": "Possible overlap in a random transvection walk"
+        },
+        {
+          "assessment": "Same two-dimensional determinant-one target problem; not the all-GL_n table by itself",
+          "evidence": "All transvections in Sp_(2m)(q), m≥1; rank-two fibers count Wall-form nonzero lines, and for m=1 this gives fibers for all determinant-one GL_2 targets.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-two-transvection-fibers-and-characteristic-two-support-gaps-in-f--d528ac202ca5/RESULT.md",
+          "material_read": "Finding and scope, local mirror offsets 0–3811",
+          "method": "Resultary and OA local mirror",
+          "title": "Two-transvection fibers and characteristic-two support gaps in finite symplectic groups",
+          "trigger": "Closest local-catalogue target fiber comparison"
+        },
+        {
+          "assessment": "Different multiplication problem",
+          "evidence": "Ordinary rank-one square-zero factors without an added identity give outputs of rank at most one.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-all-length-multiplication-fibers-and-exact-alternating-mixing-fo--c7286e4b73ec/RESULT.md",
+          "material_read": "Finding and scope, local mirror offsets 0–3899",
+          "method": "Resultary and OA local mirror",
+          "title": "All-length multiplication fibers and exact alternating mixing for minimal nilpotent matrices",
+          "trigger": "Closely related rank-one orbit product"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof; explicit specialization of Wan–Wang Lemma 4.2 and Theorems 3.4 and 4.4 in originality assessment"
+      ],
+      "rationale": "An evaluated transvection class square is a useful invariant, and the frozen elementary count is correct. But every exact coefficient is known or follows by routine class-size conversion and normalization, and the support counts and limits follow immediately. No additional distinct valuable mathematical claim was established. Recasting a known group-ring product as probabilities does not supply one.",
+      "residual_risks": [
+        "This does not deny pedagogical utility of the direct counting proof."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}
